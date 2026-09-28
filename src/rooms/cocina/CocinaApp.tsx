@@ -25,7 +25,9 @@ import { useT } from '../../core/i18n/useT'
 import { intencionApp } from '../../core/state/intencionApp'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 import { PestanasCarpeta, type ItemPestana } from '../_shared/PestanasCarpeta'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { COLOR } from './constantes'
+import { ejemploCocina } from './ejemplos.paquete'
 
 // 'plan' ya es la Dieta desde antes; 'diario' es el Registro (ese id lo
 // guardan las rutinas de los horarios de comida y no puede cambiar).
@@ -211,6 +213,10 @@ export function CocinaApp() {
           {tab === 'plan' && <DietasTab dietas={dietas} recetas={recetas} />}
           {tab === 'recetas' && <RecetasTab recetas={recetas} dietas={dietas} cargando={recetasQ === undefined} />}
           {tab === 'compras' && <ComprasTab items={itemsCompra} listas={listasCompra} />}
+
+          {/* El ejemplo trae recetas, dietas, la lista del súper y un día del
+              registro: su pie va en el recetario, donde se ve la fábrica. */}
+          {enfoque === 'recetario' && <BarraEjemplo paquete={ejemploCocina} />}
         </>
       )}
     </div>

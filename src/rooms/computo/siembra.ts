@@ -16,10 +16,12 @@
  * el usuario borró aquí. Mismo motivo y mismo patrón que `rooms/cocina/seed.ts`.
  */
 import { db, type CarpetaFormula, type Formula, type HojaCalculo } from '../../core/data/db'
+import { hojasRepo } from '../../core/data/repository'
 import { claveLS, esDemo } from '../../core/edicion'
 import { filaSeed } from '../../core/data/sync/syncables'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { tGlobal } from '../../core/i18n/useT'
+import type { PaqueteEjemplo } from '../_shared/ejemplos/tipos'
 import { CATALOGO, catalogoActual, idCatalogo } from './catalogo'
 import { PLANTILLAS_HOJA } from './plantillasHoja'
 
@@ -61,7 +63,7 @@ export async function sembrarComputo(): Promise<void> {
     localStorage.setItem(LS_FORMULAS, VERSION_FORMULAS)
   }
   if (localStorage.getItem(LS_HOJAS) !== VERSION_HOJAS) {
-    await sembrarHojas()
+    await sembrarHojas(false)
     localStorage.setItem(LS_HOJAS, VERSION_HOJAS)
   }
 }
@@ -144,9 +146,10 @@ async function sembrarFormulario(): Promise<void> {
 /**
  * Las hojas de arranque, ya rellenas y con sus fórmulas puestas. La plantilla
  * `blanco` no se siembra: una hoja vacía no enseña nada y es el botón «Hoja
- * nueva» de `HojasTab`.
+ * nueva» de `HojasTab`. `restaurar`: el usuario las pidió de vuelta desde la
+ * barra del ejemplo (ver `filaSeed`).
  */
-async function sembrarHojas(): Promise<void> {
+async function sembrarHojas(restaurar: boolean): Promise<void> {
   const hojas = (await db.hojasCalculo.toArray()) as (HojaCalculo & { uid?: string })[]
   const ya = new Set(hojas.map((h) => h.uid).filter(Boolean))
   const ahora = new Date().toISOString()
@@ -157,17 +160,45 @@ async function sembrarHojas(): Promise<void> {
     const uid = `seed-hojasCalculo-${p.id}`
     if (ya.has(uid)) continue
     nuevas.push(
-      filaSeed(`hojasCalculo-${p.id}`, {
-        nombre: tGlobal(p.claveNombre, p.nombreEs),
-        celdas: structuredClone(p.celdas),
-        filas: p.filas,
-        cols: p.cols,
-        creadoEn: ahora,
-        actualizadoEn: ahora,
-      }),
+      filaSeed(
+        `hojasCalculo-${p.id}`,
+        {
+          nombre: tGlobal(p.claveNombre, p.nombreEs),
+          celdas: structuredClone(p.celdas),
+          filas: p.filas,
+          cols: p.cols,
+          creadoEn: ahora,
+          actualizadoEn: ahora,
+        },
+        restaurar,
+      ),
     )
   }
   if (nuevas.length) await db.hojasCalculo.bulkAdd(nuevas)
+}
+
+/** ¿Es una de las hojas de arranque? Por uid: el nombre puede estar traducido o editado. */
+const esHojaSembrada = (h: HojaCalculo) => {
+  const uid = (h as HojaCalculo & { uid?: string }).uid
+  return PLANTILLAS_HOJA.some((p) => p.id !== 'blanco' && uid === `seed-hojasCalculo-${p.id}`)
+}
+
+/**
+ * Las hojas de arranque como ejemplo de la lista de hojas. Las siembra la
+ * propia app (`sembrarComputo`): la barra solo las borra y las restaura. El
+ * formulario no entra: es el catálogo de la app y se borra fórmula a fórmula.
+ */
+export const ejemploHojas: PaqueteEjemplo = {
+  id: 'computo.hojas',
+  tablas: [],
+  auto: false,
+  hayEjemplo: () => hojasRepo.alguna(esHojaSembrada),
+  async borrar() {
+    for (const h of await hojasRepo.list()) {
+      if (h.id != null && esHojaSembrada(h)) await hojasRepo.remove(h.id)
+    }
+  },
+  materializar: sembrarHojas,
 }
 
 /** Los `carpetaId` de las áreas: el árbol nace plegado por ellas. Los ids no

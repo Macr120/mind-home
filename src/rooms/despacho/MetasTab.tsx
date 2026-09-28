@@ -13,7 +13,7 @@ import { Icono } from '../../core/ui/iconos/Icono'
 import { SimCompuesto, SimSimple, SimCredito } from './SimuladoresTab'
 import { CalculadorasFinancieras } from './CalculadorasFinancieras'
 import { BarraEjemplo } from './BarraEjemplo'
-import { borrarEjemploMeta, cargarEjemploMeta, hayEjemploMeta } from './ejemplos'
+import { borrarEjemploMeta, cargarEjemploMeta, hayEjemploMeta, seccionMeta } from './ejemplos'
 import { useResumenReal } from './useResumen'
 import { vivo } from '../../core/ui/estilos'
 
@@ -170,6 +170,7 @@ function VistaAhorroInversion({ foco, onFocoUsado, onIrAFila }: PropsFocoMetas) 
       </div>
 
       <BarraEjemplo
+        seccion={seccionMeta(nuevoTipo)}
         cargado={hayEjemploMeta(metas, nuevoTipo)}
         onCargar={() => cargarEjemploMeta(nuevoTipo)}
         onBorrar={() => borrarEjemploMeta(metas, nuevoTipo)}
@@ -244,6 +245,7 @@ function VistaDeuda({ foco, onFocoUsado, onIrAFila }: PropsFocoMetas) {
       </div>
 
       <BarraEjemplo
+        seccion={seccionMeta(tipo)}
         cargado={hayEjemploMeta(metas, tipo)}
         onCargar={() => cargarEjemploMeta(tipo)}
         onBorrar={() => borrarEjemploMeta(metas, tipo)}

@@ -62,8 +62,8 @@ export const TABLAS_PLANO: readonly string[] = [
  * - `portada` de `mediaArchivo` (URL remota: pintarla filtraría la IP del
  *   invitado a un servidor que eligió otro),
  * - `uid`/`updatedAt` (identidad de sync: en la BD de visita no sincroniza nada),
- * - `ejemploDe` (marca LOCAL de los ejemplos de fábrica: el invitado tiene su
- *   propio interruptor vacío y escondería filas que el anfitrión sí ve).
+ * - `ejemploDe` (marca de los ejemplos de fábrica: en casa ajena no hay nada
+ *   que borrar ni restaurar).
  */
 export const CAMPOS_PLANO: Record<string, readonly string[]> = {
   cuartos: ['id', 'nombre', 'icon', 'color', 'categoria', 'creado', 'orden', 'ordenPanel', 'temaMusical'],

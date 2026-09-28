@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom'
 import { useShallow } from 'zustand/react/shallow'
 import type { Cuarto } from '../data/db'
 import { planesMetaRepo, rutinasRepo } from '../data/repository'
+import { sinEjemplos } from '../data/ejemplos'
 import { useHouse } from '../state/houseStore'
 import { useDiseño } from '../state/disenoStore'
 import { useCuartos } from '../state/cuartosStore'
@@ -237,7 +238,7 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
   const metas = useMemo(() => (rutinas ?? []).filter(esMeta), [rutinas])
   // Los planes son del planificador, así que solo su tarjeta gana el chip.
   const planes = planesMetaRepo.useAll()
-  const aceptados = useMemo(() => (planes ?? []).filter((p) => p.aceptadoEn).length, [planes])
+  const aceptados = useMemo(() => sinEjemplos(planes ?? []).filter((p) => p.aceptadoEn).length, [planes])
 
   // Escape sale primero del modo edición y solo después cierra el panel. Con un
   // diálogo encima no hace nada: ese Escape es suyo (los dos escuchan a la vez).

@@ -1,6 +1,7 @@
 import type { UpdateSpec } from 'dexie'
 import type { RepeticionRutina, Rutina, TramiteVehiculo, Vehiculo } from '../../core/data/db'
 import { rutinasRepo, tramitesVehiculoRepo, vehiculosRepo } from '../../core/data/repository'
+import { esSeedIntacta } from '../../core/data/sync/syncables'
 import { tGlobal } from '../../core/i18n/useT'
 import { COLOR, HORA_TRAMITE, getTipoTramite } from './constantes'
 import { sumarDias, sumarMin } from './fecha'
@@ -38,6 +39,8 @@ interface Proyeccion {
   repeticion: RepeticionRutina
   fechaInicio: string
   seccion: string
+  /** Lo que proyecta un trámite de fábrica sin tocar también es ejemplo: no avisa ni entra en Misiones. */
+  ejemploDe?: string
 }
 
 const igual = (r: Rutina, p: Proyeccion) =>
@@ -49,7 +52,8 @@ const igual = (r: Rutina, p: Proyeccion) =>
   r.dias.join() === p.dias.join() &&
   r.repeticion === p.repeticion &&
   (r.fechaInicio ?? '') === p.fechaInicio &&
-  r.seccion === p.seccion
+  r.seccion === p.seccion &&
+  (r.ejemploDe ?? '') === (p.ejemploDe ?? '')
 
 /**
  * Deja EXACTAMENTE una rutina (o ninguna) para el ámbito: actualiza la que ya
@@ -106,6 +110,9 @@ function proyeccionTramite(t: TramiteVehiculo, vehiculo: string): Proyeccion | n
     repeticion: 'una_vez',
     fechaInicio: t.fecha,
     seccion: 'vehiculos',
+    // La clave va aunque sea vacía: así el `update` le quita la marca al bloque
+    // en cuanto el usuario edita el trámite.
+    ejemploDe: esSeedIntacta(t) ? PLANTILLA : undefined,
   }
 }
 
@@ -172,7 +179,8 @@ async function hacerReconciliacion(): Promise<void> {
     if (r.fechaInicio === t.fecha && (r.hora ?? '') === (t.hora ?? HORA_TRAMITE)) continue
     const cambios = { fecha: r.fechaInicio, hora: r.hora || undefined }
     await tramitesVehiculoRepo.update(t.id, cambios)
-    Object.assign(t, cambios)
+    // Con el sello del repo: un trámite de fábrica que se movió ya es del usuario (ver `proyeccionTramite`).
+    Object.assign(t, cambios, { updatedAt: Date.now() })
   }
 
   // 3. Faltantes y desactualizadas (también reescribe los nombres si cambió el

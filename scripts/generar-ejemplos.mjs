@@ -113,7 +113,7 @@ const CABECERA = (cuarto) => `// Generado por \`npm run ejemplos:texto\` — no 
 `
 
 /** Literal con las comillas simples del repo (JSON.stringify usa dobles). */
-const comillas = (s) => `'${s.replace(/\\/g, '\\\\').replace(/'/g, "\\'")}'`
+const comillas = (s) => `'${s.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\n/g, '\\n')}'`
 
 /**
  * Ramas de idiomas del archivo existente distintas de es/en (pt, fr, de, it…):

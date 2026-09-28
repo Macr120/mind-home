@@ -5,6 +5,7 @@ import { registrarProveedorRecursos } from '../../core/recursosStudio'
 import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
 import { COLOR_FABRICA } from './constantes'
 import { OPERACIONES_IA } from './costosIA'
+import { esencialAudio } from './tutorial.meta'
 
 // El Studio de video trae canciones, grabaciones y «Tu música» como medios. Se
 // registra aquí (módulo eager) y lo pesado —el render offline— va con import().
@@ -48,6 +49,7 @@ const audio: Plantilla = {
   categoria: 'mente',
   color: COLOR_FABRICA,
   App: StudioAudioApp,
+  esencial: esencialAudio,
   operacionesIA: OPERACIONES_IA,
   comandos: [
     {

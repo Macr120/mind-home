@@ -1,10 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { VACIO, finanzasRepo } from '../../core/data/repository'
 import { BalanceTab } from './BalanceTab'
 import { MovimientosTab } from './MovimientosTab'
 import { MetasTab, type TipoMeta, type VistaMeta } from './MetasTab'
 import { MercadosTab, type SeccionMercado } from './MercadosTab'
 import { PatrimonioTab, type VistaPatrimonio } from './PatrimonioTab'
+import { ponerEjemplosPrimeraVez } from './ejemplos'
 import { PERIODOS, etiquetaPeriodo, hoyISO, sumarPeriodo, type Periodo } from './mes'
 import type { FocoFinanzas } from './foco'
 import { useT } from '../../core/i18n/useT'
@@ -131,6 +132,10 @@ export function FinanzasApp() {
   const [ancla, setAncla] = useState(hoyISO())
   const [foco, setFoco] = useState<FocoFinanzas | null>(null)
   const movimientos = finanzasRepo.useAll() ?? VACIO
+  // La primera vez, cada sección vacía recibe su ejemplo de fábrica.
+  useEffect(() => {
+    void ponerEjemplosPrimeraVez()
+  }, [])
   const tipoBalance: 'gasto' | 'ingreso' = subBalance === 'ingresos' ? 'ingreso' : 'gasto'
 
   // La naturaleza de la fila decide el submenú de Patrimonio; el tipo de la

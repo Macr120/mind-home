@@ -459,27 +459,50 @@ export const SINGLETONS = new Set<string>([
  * mismo uid en todo dispositivo (el servidor deduplica solo) y `updatedAt: 1`
  * garantiza que cualquier edición real (siempre > 1) gane por LWW. El
  * middleware respeta ambos valores cuando el uid empieza con `seed-`.
+ *
+ * `restaurar`: el usuario la pidió de vuelta tras borrarla. Se sella con la
+ * hora actual porque el servidor guarda el borrado de ese mismo uid, y con el
+ * sello de semilla el borrado ganaría (igual que `filaEjemplo`). La hora se
+ * repite en `restauradaEn`: así sigue contando como intacta (`esSeedIntacta`)
+ * hasta que alguien la edite.
  */
-export function filaSeed<T>(clave: string, fila: T): T {
-  return { ...fila, uid: `seed-${clave}`, updatedAt: 1 } as T
+export function filaSeed<T>(clave: string, fila: T, restaurar = false): T {
+  return { ...fila, uid: `seed-${clave}`, ...selloSeed(restaurar) } as T
 }
 
-export function filasSeed<T>(prefijo: string, filas: T[], clave?: (f: T, i: number) => string | number): T[] {
+export function filasSeed<T>(
+  prefijo: string,
+  filas: T[],
+  clave?: (f: T, i: number) => string | number,
+  restaurar = false,
+): T[] {
   return filas.map(
-    (f, i) => ({ ...f, uid: `seed-${prefijo}-${clave ? clave(f, i) : i}`, updatedAt: 1 }) as T,
+    (f, i) => ({ ...f, uid: `seed-${prefijo}-${clave ? clave(f, i) : i}`, ...selloSeed(restaurar) }) as T,
   )
+}
+
+function selloSeed(restaurar: boolean): { updatedAt: number; restauradaEn?: number } {
+  if (!restaurar) return { updatedAt: 1 }
+  const ahora = Date.now()
+  return { updatedAt: ahora, restauradaEn: ahora }
 }
 
 /**
  * Una fila de siembra que NADIE ha tocado todavía: es catálogo, no actividad.
  * En cuanto el usuario la edita, el middleware le pone `updatedAt: Date.now()`
- * y deja de serlo — editar una fórmula sembrada SÍ cuenta como actividad.
+ * y deja de serlo — editar una fórmula sembrada SÍ cuenta como actividad. La
+ * restaurada (`filaSeed` con `restaurar`) también es intacta mientras su
+ * `updatedAt` siga siendo el de la restauración.
  *
  * Lo usa la gamificación para no regalar XP por lo que trae la app puesto.
  */
 export function esSeedIntacta(fila: unknown): boolean {
-  const f = fila as { uid?: string; updatedAt?: number }
-  return typeof f.uid === 'string' && f.uid.startsWith('seed-') && f.updatedAt === 1
+  const f = fila as { uid?: string; updatedAt?: number; restauradaEn?: number }
+  return (
+    typeof f.uid === 'string' &&
+    f.uid.startsWith('seed-') &&
+    (f.updatedAt === 1 || (f.restauradaEn !== undefined && f.updatedAt === f.restauradaEn))
+  )
 }
 
 export const CLAVES_UNICAS: Record<string, string[]> = {

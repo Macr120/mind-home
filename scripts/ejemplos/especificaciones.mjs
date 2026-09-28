@@ -183,7 +183,8 @@ export const ESPECIFICACIONES = [
     cuarto: 'biblioteca',
     constante: 'TEXTOS_BIBLIOTECA',
     app: 'Biblioteca: enciclopedia personal por pilares del conocimiento. Cada entrada tiene título, resumen y puntos clave, y se estudia con un temporizador.',
-    seccion: 'Dos entradas de enciclopedia del pilar de filosofía y tres sesiones de estudio.',
+    seccion:
+      'Dos entradas de enciclopedia del pilar de filosofía, la charla con el Sabio (el tutor con IA de la biblioteca) de la que salió la primera y tres sesiones de estudio.',
     claves: {
       entrada1Titulo: 'Título de una entrada sobre un concepto filosófico conocido. Máx. 45 caracteres.',
       entrada1Resumen: 'Resumen claro de ese concepto, para alguien que empieza. Tres frases, máx. 260 caracteres.',
@@ -197,6 +198,13 @@ export const ESPECIFICACIONES = [
       notaEstudio1: 'Nota de una sesión de estudio: qué se repasó. Máx. 60 caracteres.',
       notaEstudio2: 'Nota de otra sesión, con lo que costó entender. Máx. 60 caracteres.',
       notaEstudio3: 'Nota de una tercera sesión, más corta. Máx. 60 caracteres.',
+      charlaTitulo: 'Título de la charla de la que salió la primera entrada, como lo pondría la IA. Máx. 6 palabras.',
+      charlaPregunta1: 'Primera pregunta del usuario al Sabio sobre el concepto de la primera entrada, en tono de charla. Máx. 110 caracteres.',
+      charlaRespuesta1:
+        'Respuesta del Sabio: explica el concepto con ejemplos cotidianos y cierra con una pregunta breve. Texto plano en párrafos cortos separados por una línea en blanco, sin markdown. Máx. 480 caracteres.',
+      charlaPregunta2: 'Repregunta del usuario: la duda natural que deja esa respuesta. Máx. 110 caracteres.',
+      charlaRespuesta2:
+        'Respuesta del Sabio a la repregunta, que acaba en una prueba práctica para el día a día (la de los puntos clave). Mismo formato. Máx. 480 caracteres.',
     },
     imagenes: [
       {

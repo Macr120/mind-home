@@ -3,6 +3,7 @@ import type { Plantilla } from '../../core/appContrato'
 import { registrarAterrizaje } from '../../core/espacios/enlaces'
 import { COLOR_FABRICA } from './constantes'
 import { OPERACIONES_IA } from './costosIA'
+import { esencialVideo } from './tutorial.meta'
 
 // La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
 // montaje ya envuelven en Suspense).
@@ -21,6 +22,7 @@ const video: Plantilla = {
   categoria: 'mente',
   color: COLOR_FABRICA,
   App: VideoApp,
+  esencial: esencialVideo,
   operacionesIA: OPERACIONES_IA,
   comandos: [
     {

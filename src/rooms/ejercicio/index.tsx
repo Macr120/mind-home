@@ -10,7 +10,7 @@ import {
   seriesFuerzaRepo,
   sesionesEjercicioRepo,
 } from '../../core/data/repository'
-import { visibles } from '../../core/data/ejemplos'
+import { sinEjemplos } from '../../core/data/ejemplos'
 import { normalizar } from '../../core/chat/dispatcher'
 import type { TipoEntrenamiento } from '../../core/data/db'
 import { actividadId } from '../../core/rutinas'
@@ -185,7 +185,7 @@ const ejercicio: Plantilla = {
     etiquetaEs: 'Entrena hoy',
     seccion: 'fuerza',
     del: async (fecha) => {
-      const hecho = (await sesionesEjercicioRepo.list()).filter((s) => s.fecha === fecha).length
+      const hecho = sinEjemplos(await sesionesEjercicioRepo.list()).filter((s) => s.fecha === fecha).length
       // Por repo y no por `db`: esto corre dentro de `useLiveQuery`, que rastrea las
       // consultas para re-ejecutarse sola cuando cambia lo agendado.
       const rutinas = await rutinasRepo.list()
@@ -223,7 +223,7 @@ const ejercicio: Plantilla = {
     const [{ recordsFuerza }, { fmtPeso }] = await Promise.all([import('./stats'), import('./unidades')])
     const [series, perfiles] = await Promise.all([seriesFuerzaRepo.list(), perfilEjercicioRepo.list()])
     const unidades = perfiles[0]?.unidades
-    return recordsFuerza(visibles(series)).map((r) => ({
+    return recordsFuerza(sinEjemplos(series)).map((r) => ({
       tipo: 'ejercicio' as const,
       uid: slugTexto(r.ejercicio),
       titulo: nombreEjercicio(tGlobal, r.ejercicio),

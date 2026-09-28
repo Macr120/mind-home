@@ -1491,9 +1491,7 @@ export const ID: Dict = {
   'despacho.s.intereses': 'Total bunga',
   'despacho.s.col.capital': 'Pokok',
   'despacho.s.col.restante': 'Sisa',
-  'despacho.ejemplo.vacio': 'Belum tahu mulai dari mana? Muat contoh siap pakai dan lihat-lihat isinya.',
   'despacho.ejemplo.cargado': 'Semua yang kamu lihat sebagai contoh bisa dihapus sekaligus.',
-  'despacho.ejemplo.cargar': 'Muat contoh',
   'despacho.ejemplo.borrar': 'Hapus contoh',
   'despacho.ejemplo.confirmar': 'Ya, hapus contoh',
   'despacho.mk.divisas': 'Forex',
@@ -6702,7 +6700,7 @@ export const ID: Dict = {
     'AI diaktifkan di Editor › Pengaturan. Setiap operasi —balasan, rencana, gambar, model 3D— punya tarif kreditnya sendiri, terlihat sebelum kamu memintanya. Dengan kunci penyedia milikmu sendiri, tidak ada kredit yang terpakai: kamu membayar langsung ke penyedianya.',
   'tut.ejemplos.titulo': 'Mulai dengan contoh',
   'tut.ejemplos.resumen':
-    'Hampir setiap aplikasi punya bilah untuk melihat contoh siap pakai yang datanya sudah terisi, dan menyembunyikannya lagi nanti tanpa kehilangan apa pun milikmu. Ini tidak muncul di dalam MindHaOS demo (Rumah Pikiran OS): di sana, seluruh tahun SUDAH menjadi contohnya.',
+    'Saat pertama kali kamu membuka bagian yang kosong, contoh bawaannya muncul sendiri, supaya kamu tidak mulai dari layar kosong. Isinya baris biasa yang bisa kamu ubah atau hapus seperti yang lain; di bagian bawah, “Hapus contoh” menghapus seluruhnya tanpa menyentuh milikmu, dan saat tidak ada lagi yang tersisa, “Pulihkan contoh bawaan” mengembalikannya. Contoh ini tidak dihitung untuk XP, runtunan, pengingat, Wrapped, maupun AI, dan tidak muncul di MindHaOS demo: di sana setahun milik Ari sudah menjadi contohnya.',
   'tut.hoy.titulo': 'Daftar hari ini',
   'tut.hoy.resumen':
     'Misi tinggal di dalam tiap aplikasi: tombol Misi membuka daftar hari ini — apa yang diminta aplikasi itu dan apa yang kamu jadwalkan untuk hari ini. Sebuah langkah dicoret karena catatannya memang sudah ada di aplikasi, bukan karena ada yang mencentangnya. Gelembung merah sebuah ruangan adalah sisa hari ini di sana, dan tombol Misi di jam menampilkan milik semua aplikasi sekaligus.',
@@ -7362,6 +7360,16 @@ export const ID: Dict = {
     'Perencana seluruh MindHaOS, dalam tiga menu: Target (daftar yang kamu tetapkan untuk dirimu, dikelompokkan menurut aplikasi yang mengelola masing-masing), Rencana (draf linimasa yang membagi target jadi beberapa fase) dan Linimasa (sumbu waktu tempat semuanya jatuh). Tidak menyimpan catatannya sendiri: mengumpulkan target dan rencana yang lahir di aplikasi lain. Dari sebuah target, kartunya terbuka, dan dari situ, sumbu yang dipersempit ke target itu.',
   'tut.app-sala--esencial.resumen':
     'Ruang Tamu adalah dunia jalan-jalanmu, dalam lima menu: Peta (pin tempat di peta dunia, dengan tampilan globe), Rencana perjalanan (tempat yang ingin dikunjungi dengan rencana harian), Rute (perjalanan yang menghubungkan tempat), Cara ke sana (perjalanan dari pintu ke pintu yang memadukan jalan kaki, transportasi umum, sepeda, motor, dan mobil) dan Jurnal perjalanan (kenangan dengan foto dan cerita per negara).',
+  'tut.app-escritura--esencial.resumen':
+    'Menulis adalah rak buku. Setiap buku menyimpan teksnya dalam folder — bab, tokoh, tempat, dan babak beserta alurnya — dan punya diagram hubungan antartokoh. Editornya mengatur format, menyusun daftar isi dari judul-judul, mengekspor ke TXT atau PDF, dan punya AI yang menulis draf, memperbaiki, melanjutkan, dan meringkas. Saat pertama kali dibuka, sudah ada buku contoh, “Cahaya yang Padam”, yang bisa kamu hapus atau pulihkan dari bilah di bawahnya.',
+  'tut.app-arte--esencial.resumen':
+    'Seni adalah studio gambar dan fotomu: galeri gambar dan, saat salah satunya dibuka, kanvas berlapis dengan kuas, semprot, bentuk, isian, teks, dan foto. Ada filter, alat bantu seperti penggaris atau cermin, ekspor ke PNG, dan AI yang melukis apa yang kamu gambarkan atau menafsir ulang gambarmu. Dua gambar bawaan sudah tersedia, “Sore di lembah” dan “Lukisan buah-buahan”, yang bisa kamu hapus atau pulihkan dari bilah di bagian bawah galeri.',
+  'tut.app-archivos--esencial.resumen':
+    'Berkas adalah cloud-mu: folder dan berkas jenis apa pun, dengan pratinjau, di semua perangkatmu. Kamu perlu masuk dan punya paket Pro, dengan 10, 30, atau 100 GB sesuai tingkatmu; kalau paketnya berakhir, yang sudah kamu unggah masih bisa dilihat dan diunduh selama 90 hari. Setiap ruangan punya foldernya sendiri berisi apa yang sudah disimpan aplikasinya, lalu ada Terbaru, Berbintang, Sampah 30 hari, dan tautan berbagi yang bisa dibuka tanpa akun.',
+  'tut.app-audio--esencial.resumen':
+    'Studio musik punya dua menu. Di Lagu ada proyekmu dan lagu bawaan yang bisa kamu dengarkan atau buka di editor: trek dengan piano roll, instrumen synth, keyboard di layar atau MIDI, rekaman dengan metronom, ekspor WAV, dan AI yang menggubah bersamamu. Mix adalah dua deck DJ dengan crossfader untuk memadukan lagu dari studio, audiomu sendiri, atau cuplikan iTunes.',
+  'tut.app-video--esencial.resumen':
+    'Editor video menyusun klip, gambar, teks, narasi, musik, dan suara di linimasa berlapis trek, dengan pratinjau yang memutar semuanya persis seperti hasil akhirnya. Kamu bisa merekam app ini sendiri sebagai klip, meminta naskah dari AI, lalu mengekspor video atau memublikasikannya di media sosialmu. Di Animasi 3D kamu merekam adegan di peta bersama avatar dan asistenmu.',
   'tut.app-anecdotario--diario.titulo': 'Buku kenangan Ari',
   'tut.app-anecdotario--diario.resumen':
     'Buku kenangan adalah jurnal pribadi: entri dengan suasana hati, teks dan foto, kalender yang mewarnai tahun sesuai perasaanmu, dan riwayat dalam folder per tahun, bulan, dan minggu.',
@@ -7592,14 +7600,12 @@ export const ID: Dict = {
   'agenda.trabajo.pendientes': 'Tugas',
   'agenda.trabajo.tablero': 'Papan',
   'agenda.trabajo.apuntar': 'Catat tugas',
-  'ejemplo.vacio': 'Bingung mulai dari mana? Lihat tampilannya dengan contoh di dalamnya.',
-  'ejemplo.puesto': 'Ini contoh: sembunyikan kapan pun kamu mau, datamu sendiri tetap utuh.',
-  'ejemplo.mostrar': 'Lihat contoh',
-  'ejemplo.ocultar': 'Sembunyikan contoh',
+  'ejemplo.puesto': 'Ini contoh bawaan: hapus kapan pun kamu mau.',
   'ejemplo.sinSitio': 'Saat ini tidak ada ruang kosong di peta untuk contoh ini.',
-  'agenda.ejemplo.vacio': 'Bingung mulai dari mana? Muat contoh dan lihat-lihat isinya.',
+  'ejemplo.borrar': 'Hapus contoh',
+  'ejemplo.confirmar': 'Ya, hapus contoh',
+  'ejemplo.restaurar': 'Pulihkan contoh bawaan',
   'agenda.ejemplo.cargado': 'Semua yang kamu lihat sebagai contoh bisa dihapus sekaligus, termasuk blok kalendernya.',
-  'agenda.ejemplo.cargar': 'Muat contoh',
   'agenda.ejemplo.borrar': 'Hapus contoh',
   'agenda.ejemplo.confirmar': 'Ya, hapus contoh',
   'agenda.tablero.porhacer': 'Perlu dikerjakan',

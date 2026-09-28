@@ -1,4 +1,5 @@
 import type { Alcance, EnlaceApp, PasoRutina, Rutina } from './data/db'
+import { sinEjemplos } from './data/ejemplos'
 import { borrarPlanesDeMetas, rutinasRepo } from './data/repository'
 import { DIA_MS, fechaLocalISO } from './fechaLocal'
 import { CASA } from './ui/calendario/apps'
@@ -38,12 +39,15 @@ export function esMeta(r: Rutina): boolean {
  * así que su contador son las metas de la casa entera. Solo las RAÍCES: las fases
  * que nacen de un plan aceptado son el desglose de una meta, no metas aparte, y
  * contarlas dispararía la cifra hasta rozar la de listas cumplidas.
+ *
+ * Las de un ejemplo de fábrica no cuentan: no son logros de nadie.
  */
 export function metasCumplidasDe(metas: Rutina[], plantillaId: string): number | null {
+  const propias = sinEjemplos(metas)
   const suyas =
     plantillaId === 'metas'
-      ? metas.filter((m) => m.padreId == null)
-      : metas.filter((m) => m.plantillaId === plantillaId)
+      ? propias.filter((m) => m.padreId == null)
+      : propias.filter((m) => m.plantillaId === plantillaId)
   return suyas.length > 0 ? suyas.filter((m) => m.completada).length : null
 }
 

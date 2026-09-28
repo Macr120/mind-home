@@ -1,6 +1,6 @@
 import { caminosRepo } from '../../core/data/repository'
 import { huecoLibre } from '../_shared/ejemplos/celdas'
-import { type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
+import { filaEjemplo, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
 
 /**
  * Ejemplo de fábrica de los caminos: un circuito cerrado de 3×3 con su meta.
@@ -17,7 +17,8 @@ const LADO = 3
 
 export const ejemploCaminos: PaqueteEjemplo = {
   id: ID,
-  async materializar() {
+  tablas: [caminosRepo],
+  async materializar(restaurar) {
     const caminos = await caminosRepo.list()
     if (caminos.some((c) => c.ejemploDe === ID)) return
     const hueco = await huecoLibre(LADO, LADO)
@@ -29,14 +30,15 @@ export const ejemploCaminos: PaqueteEjemplo = {
       for (let j = 0; j < LADO; j++) {
         // Solo el borde: el centro del cuadrado no es pista.
         if (i > 0 && i < LADO - 1 && j > 0 && j < LADO - 1) continue
-        await caminosRepo.add({
-          col: hueco.col + i,
-          row: hueco.row + j,
-          tipo: 'pista',
-          // La meta va en una recta del lado de arriba, no en una curva.
-          meta: !yaHayMeta && i === 1 && j === 0,
-          ejemploDe: ID,
-        })
+        await caminosRepo.addSeed(
+          filaEjemplo(ID, `${i}-${j}`, restaurar, {
+            col: hueco.col + i,
+            row: hueco.row + j,
+            tipo: 'pista',
+            // La meta va en una recta del lado de arriba, no en una curva.
+            meta: !yaHayMeta && i === 1 && j === 0,
+          }),
+        )
       }
     }
   },

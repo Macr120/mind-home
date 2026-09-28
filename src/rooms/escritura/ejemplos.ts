@@ -1,7 +1,7 @@
 import type { SeccionHistoria } from '../../core/data/db'
 import { documentosRepo, historiasRepo, relacionesLibroRepo } from '../../core/data/repository'
 import { tGlobal } from '../../core/i18n/useT'
-import { porIdioma, retraducido, yaMaterializado, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
+import { filaEjemplo, porIdioma, retraducido, yaMaterializado, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
 import { TEXTOS_ESCRITURA } from './ejemplos.data'
 import { contarPalabras, escaparHtml, parrafosHtml } from './sanitizarHtml'
 
@@ -130,37 +130,40 @@ function cuerpoIntacto(html: string, bloques: Bloque[]): boolean {
 
 export const ejemploEscritura: PaqueteEjemplo = {
   id: ID,
-  async materializar() {
+  tablas: [historiasRepo, documentosRepo, relacionesLibroRepo],
+  async materializar(restaurar) {
     if (await yaMaterializado(ID, () => historiasRepo.list())) return
     const T = porIdioma(TEXTOS_ESCRITURA)
     const ahora = Date.now()
     /** Un minuto de separación por ficha: la primera de la lista es la más reciente. */
     const sello = (i: number) => new Date(ahora - i * 60_000).toISOString()
 
-    const libroId = await historiasRepo.add({
-      titulo: T.libroTitulo,
-      resumen: T.libroResumen,
-      tipo: 'cuento',
-      creadoEn: sello(FICHAS.length),
-      actualizadoEn: sello(0),
-      ejemploDe: ID,
-    })
+    const libroId = await historiasRepo.addSeed(
+      filaEjemplo(ID, 'libro', restaurar, {
+        titulo: T.libroTitulo,
+        resumen: T.libroResumen,
+        tipo: 'cuento',
+        creadoEn: sello(FICHAS.length),
+        actualizadoEn: sello(0),
+      }),
+    )
 
     const personajes: number[] = []
     let actoId: number | undefined
     for (const [i, f] of FICHAS.entries()) {
-      const id = await documentosRepo.add({
-        titulo: T[f.titulo],
-        contenido: cuerpo(f.bloques, T),
-        palabras: palabrasDe(f.bloques, T),
-        historiaId: libroId,
-        seccion: f.seccion,
-        ...(f.enActo && actoId != null ? { actoId } : {}),
-        ...(f.rel ? { relX: f.rel.x, relY: f.rel.y } : {}),
-        creadoEn: sello(i),
-        actualizadoEn: sello(i),
-        ejemploDe: ID,
-      })
+      const id = await documentosRepo.addSeed(
+        filaEjemplo(ID, `ficha${i}`, restaurar, {
+          titulo: T[f.titulo],
+          contenido: cuerpo(f.bloques, T),
+          palabras: palabrasDe(f.bloques, T),
+          historiaId: libroId,
+          seccion: f.seccion,
+          ...(f.enActo && actoId != null ? { actoId } : {}),
+          ...(f.rel ? { relX: f.rel.x, relY: f.rel.y } : {}),
+          creadoEn: sello(i),
+          actualizadoEn: sello(i),
+        }),
+      )
       if (f.seccion === 'acto') actoId = id
       if (f.seccion === 'personaje') personajes.push(id)
     }
@@ -169,25 +172,27 @@ export const ejemploEscritura: PaqueteEjemplo = {
     // personajes, igual que al conectarlos a mano (ver `DiagramaRelaciones`).
     const [aId, bId] = personajes
     const creado = sello(FICHAS.length)
-    const docId = await documentosRepo.add({
-      titulo: `${T.persAnaTitulo} ↔ ${T.persBrunoTitulo}`,
-      contenido: parrafosHtml(T.relacionNota),
-      palabras: contarPalabras(T.relacionNota),
-      historiaId: libroId,
-      seccion: 'relacion',
-      creadoEn: creado,
-      actualizadoEn: creado,
-      ejemploDe: ID,
-    })
-    await relacionesLibroRepo.add({
-      historiaId: libroId,
-      aId,
-      bId,
-      texto: T.relacionTexto,
-      docId,
-      creadoEn: creado,
-      ejemploDe: ID,
-    })
+    const docId = await documentosRepo.addSeed(
+      filaEjemplo(ID, 'relacionDoc', restaurar, {
+        titulo: `${T.persAnaTitulo} ↔ ${T.persBrunoTitulo}`,
+        contenido: parrafosHtml(T.relacionNota),
+        palabras: contarPalabras(T.relacionNota),
+        historiaId: libroId,
+        seccion: 'relacion',
+        creadoEn: creado,
+        actualizadoEn: creado,
+      }),
+    )
+    await relacionesLibroRepo.addSeed(
+      filaEjemplo(ID, 'relacion', restaurar, {
+        historiaId: libroId,
+        aId,
+        bId,
+        texto: T.relacionTexto,
+        docId,
+        creadoEn: creado,
+      }),
+    )
   },
 
   async retraducir() {

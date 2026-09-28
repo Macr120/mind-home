@@ -30,6 +30,7 @@ import { PanelCuartosRapido } from './PanelCuartosRapido'
 import { IconoCuarto } from './IconoCuarto'
 import { BadgeMisiones } from './BadgeMisiones'
 import { planesMetaRepo, rutinasRepo } from '../data/repository'
+import { sinEjemplos } from '../data/ejemplos'
 import { usePendientesPorApp } from '../hoy'
 import { esMeta, metasCumplidasDe } from '../metas'
 
@@ -81,7 +82,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
   const metas = useMemo(() => (rutinas ?? []).filter(esMeta), [rutinas])
   // Los planes son del planificador, así que solo su tarjeta gana el chip.
   const planes = planesMetaRepo.useAll()
-  const aceptados = useMemo(() => (planes ?? []).filter((p) => p.aceptadoEn).length, [planes])
+  const aceptados = useMemo(() => sinEjemplos(planes ?? []).filter((p) => p.aceptadoEn).length, [planes])
 
   /**
    * Borra un cuarto desde el menú. Con una app asignada la confirmación la lleva

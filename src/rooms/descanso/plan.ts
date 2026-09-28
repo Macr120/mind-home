@@ -2,6 +2,7 @@ import { perfilSuenoRepo, suenoRepo } from '../../core/data/repository'
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
 import { tGlobal } from '../../core/i18n/useT'
 import { CLAUSULA_RECHAZO, CLAUSULA_SALUD, type ContextoPlanApp } from '../../core/planIA'
+import { sinEjemplos } from '../../core/data/ejemplos'
 
 /**
  * Acotamiento del planificador ✨ en Descanso: aquí un plan es SIEMPRE de
@@ -11,7 +12,7 @@ import { CLAUSULA_RECHAZO, CLAUSULA_SALUD, type ContextoPlanApp } from '../../co
 export async function planMetasDescanso(): Promise<ContextoPlanApp> {
   const hoy = fechaLocalISO()
   const desde = isoMasDias(hoy, -29)
-  const noches = (await suenoRepo.list()).filter((s) => s.fecha >= desde && s.fecha <= hoy)
+  const noches = sinEjemplos(await suenoRepo.list()).filter((s) => s.fecha >= desde && s.fecha <= hoy)
   const perfil = (await perfilSuenoRepo.list())[0]
 
   const contexto: string[] = []

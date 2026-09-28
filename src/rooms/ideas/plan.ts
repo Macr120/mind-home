@@ -1,3 +1,4 @@
+import { sinEjemplos } from '../../core/data/ejemplos'
 import { ideasRepo, mapasIdeasRepo } from '../../core/data/repository'
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
 import { tGlobal } from '../../core/i18n/useT'
@@ -12,7 +13,7 @@ import { CLAUSULA_RECHAZO, type ContextoPlanApp } from '../../core/planIA'
  */
 export async function planMetasIdeas(): Promise<ContextoPlanApp> {
   const hoy = fechaLocalISO()
-  const ideas = await ideasRepo.list()
+  const ideas = sinEjemplos(await ideasRepo.list())
   const favoritas = ideas.filter((i) => i.favorita)
   const recientes = ideas.filter((i) => i.fecha >= isoMasDias(hoy, -29) && i.fecha <= hoy)
 
@@ -23,7 +24,7 @@ export async function planMetasIdeas(): Promise<ContextoPlanApp> {
     const temas = [...new Set(ideas.map((i) => i.tema).filter(Boolean))]
     if (temas.length > 0) contexto.push(`Lluvias con tema: ${temas.slice(0, 5).join(', ')}.`)
   }
-  const mapas = (await mapasIdeasRepo.list()).filter((m) => !m.ejemplo)
+  const mapas = sinEjemplos(await mapasIdeasRepo.list())
   if (mapas.length > 0)
     contexto.push(`Mapas y diagramas dibujados: ${mapas.slice(0, 5).map((m) => `«${m.nombre}»`).join(', ')}.`)
 

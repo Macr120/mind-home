@@ -403,11 +403,14 @@ export const TR_TUT: Dict = {
   'tut.cuenta-ia.5.texto':
     'Bir yanıt 1 kredi, uzun bir plan 4, bir görsel ya da 3D model 10 — kural bütün odalarda aynıdır, bu tablo onu yalnızca tek tek açar.',
   'tut.ejemplos.1.texto':
-    'Bu çubuk, senden henüz veri almamış neredeyse bütün uygulamalarda görünür: boş bir ekranla başlamak yerine uygulamayı örnekle dolu görmek için bir düğme.',
+    'Boş bir bölümü ilk kez açtığında hazır örneği kendiliğinden gelir; böylece boş bir ekranla başlamazsın. Kayıtları sıradandır: diğerleri gibi tek tek değiştirir ya da silersin.',
   'tut.ejemplos.2.texto':
-    'Bir örnek görmek senin hiçbir verini silmez ya da karıştırmaz: bunlar örnek olarak işaretlenmiş kendi satırlarıdır ve kapattığında gizlenir (silinmez). Yeniden açtığında oldukları gibi geri gelirler.',
+    'Bölümün altındaki «Örneği sil», «Evet, örneği sil» ile onayladığında örneğin tamamını kaldırır; senin verilerine hiç dokunulmaz. Örnekten hiçbir şey kalmadığında aynı yerde «Hazır örneği geri yükle» çıkar.',
   'tut.ejemplos.3.texto':
-    'Demo MindHaOS\'un (Zihin Evi OS) içinde bu çubuk görünmez: Deniz’in bir yıllık geçmişi zaten bu işi görüyor, ayrıca bir örneğe gerek yok.',
+    'Örnek XP ya da seri kazandırmaz, hatırlatma oluşturmaz, Wrapped’ine girmez ve yapay zekâ onu hesaba katmaz. Demo MindHaOS’ta bu çubuk görünmez: orada Deniz’in bütün yılı zaten örnektir.',
+  'tut.ejemplos.1.titulo': 'Kendiliğinden gelir',
+  'tut.ejemplos.2.titulo': 'Sil ya da geri yükle',
+  'tut.ejemplos.3.titulo': 'Seninmiş gibi sayılmaz',
   'tut.hoy.1.texto':
     'Görevler ayrı bir yerde durmaz: her uygulamanın İÇİNDE yaşar. Her odanın başlığında Görevler düğmesi vardır; içinde o uygulamanın BUGÜN senden istediklerinin listesi bulunur.',
   'tut.hoy.2.titulo': 'Üç kaynak, tek liste',
@@ -1044,6 +1047,111 @@ export const TR_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': 'Seyir defteri',
   'tut.app-sala--esencial.5.texto':
     'Ziyaret ettiğin yerlerin anıları, ülkeye göre albümlerde: her yerin fotoğrafları ve hikâyeleri.',
+  'tut.app-escritura--esencial.1.titulo': 'Yazı atölyen',
+  'tut.app-escritura--esencial.1.texto':
+    'Burada yazdığın her şey kitaplarda yaşar: bir öykü, bir roman, bir senaryo, bir tiyatro oyunu ya da basit bir mektup. Her kitap metinlerini klasörlerde tutar; düzenleyici onları biçimlendirir, dışa aktarır ve seninle birlikte yazan bir yapay zekâ sunar.',
+  'tut.app-escritura--esencial.2.titulo': 'Kitaplık',
+  'tut.app-escritura--esencial.2.texto':
+    'Her kapak bir kitaptır ve içindeki metin sayısını gösterir: kalem adını değiştirir, çöp kutusu onu tamamen siler. «Yeni kitap» ne yazacağını sorar — Boş, Öykü, Senaryo ya da Tiyatro oyunu; bu yalnızca simgeyi değiştirir — ve kitabı ilk bölümünde açar.',
+  'tut.app-escritura--esencial.3.titulo': 'Örnek bir kitap',
+  'tut.app-escritura--esencial.3.texto':
+    'İlk seferde kitaplıkta zaten «Fenerin Kışı» durur: iki bölümü, iki karakteri, bir mekânı ve olay örgüsüyle bir perdesi yazılmış örnek bir kitap. Bu çubuktaki «Örneği sil» onu tamamen kaldırır; artık yoksa «Hazır örneği geri yükle» onu geri getirir.',
+  'tut.app-escritura--esencial.4.titulo': 'Sayfa ve araç çubuğu',
+  'tut.app-escritura--esencial.4.texto':
+    'Bir kitabı açınca sayfaya girersin; sayfa sen yazarken kendi kendine kaydedilir. Araç çubuğu biçimlendirmeyi yapar: başlıklar ve alıntılar, kalın, italik, listeler, hizalama ve metin rengi.',
+  'tut.app-escritura--esencial.5.titulo': 'Kitabın klasörleri',
+  'tut.app-escritura--esencial.5.texto':
+    'Bölümler, Karakterler, Mekânlar ve Perdeler; olay örgüleri her perdenin içindedir. Fişlerin görseli, açıklaması ve rengi olur ve adları diğer sayfaların metninde işaretlenir; İlişkiler’de karakterlerin nasıl bağlandığını çizersin.',
+  'tut.app-escritura--esencial.6.titulo': 'Dizin ve dışa aktarma',
+  'tut.app-escritura--esencial.6.texto':
+    'Dizin, metindeki başlıklardan kendiliğinden oluşur ve yazdırırken ilk sayfaya konabilir. Buradan metni TXT olarak indirebilir, bir kişiye gönderebilir, yazdırabilir ya da PDF olarak kaydedebilirsin; hemen yanındaki «Paylaş» onu birkaç kişiyle birlikte yazmak için açar.',
+  'tut.app-escritura--esencial.7.titulo': 'Yapay zekâyla yaz',
+  'tut.app-escritura--esencial.7.texto':
+    'İstediğini taslak olarak yazar, seçtiğin metni iyileştirir, kaldığın yerden devam eder ya da belgeyi özetler. Her seçenek önceden kaç krediye mal olduğunu gösterir.',
+  'tut.app-arte--esencial.1.titulo': 'Sanat atölyen',
+  'tut.app-arte--esencial.1.texto':
+    'Burada sıfırdan boyarsın, bir fotoğrafı rötuşlarsın ya da yapay zekânın seninle birlikte hayal etmesine izin verirsin. Her şey galeride başlar ve her çizim kendi kendine kaydedilen katmanlı bir tuvalde açılır.',
+  'tut.app-arte--esencial.2.titulo': 'Galeri',
+  'tut.app-arte--esencial.2.texto':
+    'Her çizim tek dokunuşla açılır; kartından paylaşabilir, adını değiştirebilir ya da silebilirsin. «Yeni çizim» seçtiğin boyutta boş bir tuvalle ya da bir fotoğrafla başlar. «Vadide öğleden sonra» ve «Meyveli natürmort» hazır gelir: alttaki çubuk onları siler, artık yoklarsa geri yükler.',
+  'tut.app-arte--esencial.3.titulo': 'Gruplu araç çubuğu',
+  'tut.app-arte--esencial.3.texto':
+    'Bir çizimin içinde araçlar gruplar hâlinde durur: Boya, Şekiller, Nesneler, Tuval, Çizgi ve renk ile Geçmiş. Her grup kendi simgesinden katlanır; gruplar ve düğmeler sürüklenerek istediğin sıraya konur. Değiştirdiysen «Araç çubuğunu sıfırla» onu ilk hâline döndürür.',
+  'tut.app-arte--esencial.4.titulo': 'Katmanlar',
+  'tut.app-arte--esencial.4.texto':
+    'Etkin katmana boyarsın ve «Katman ekle» ile en fazla altı katmanın olabilir. Her biri gizlenebilir, opaklığı değiştirilebilir, çoğaltılabilir, sırası değiştirilebilir, alttakiyle birleştirilebilir ya da silinebilir.',
+  'tut.app-arte--esencial.5.titulo': 'Filtreler ve yardımcılar',
+  'tut.app-arte--esencial.5.texto':
+    'Parlaklık, kontrast, gri tonlama ve bulanıklık, sen tuvale bakarken etkin katmana uygulanır ve her filtre geri alınabilir. Aynı çubukta çizim yardımcıları da var: cetvel, yapışkan ızgara ve ayna.',
+  'tut.app-arte--esencial.6.titulo': 'Dışa aktar ve paylaş',
+  'tut.app-arte--esencial.6.texto':
+    'Çizim kendi kendine kaydedilir; PNG düğmesi görünür katmanları beyaz bir zemin üzerinde birleştirilmiş görüntüyü indirir. Birkaç kişiyle birlikte boyamak için yukarıdaki «Paylaş» onu bir bağlantıyla açar.',
+  'tut.app-arte--esencial.7.titulo': 'Yapay zekâyla çiz',
+  'tut.app-arte--esencial.7.texto':
+    'Ne görmek istediğini anlat; yapay zekâ onu etkin katmana çizsin ya da tuvalini referans alarak yeniden yorumlasın. Her seçenek önceden kaç krediye mal olduğunu gösterir ve sonuç geri alınabilir.',
+  'tut.app-archivos--esencial.1.titulo': 'Bulutun',
+  'tut.app-archivos--esencial.1.texto':
+    'Dosyalar her türden klasör ve dosyayı bulutta saklar; görseller, video, ses, PDF ve metin için önizleme sunar, sen de onları her cihazdan açarsın. Bunun için giriş yapman ve seviyeye göre 10, 30 veya 100 GB sunan bir Pro planın olması gerekir.',
+  'tut.app-archivos--esencial.2.titulo': 'Bölümler',
+  'tut.app-archivos--esencial.2.texto':
+    'Dosyalarım klasörlerini ve dosyalarını, Son en son yüklediklerini, Yıldızlı da yıldızla işaretlediklerini toplar. Sildiklerin 30 gün Çöp kutusunda kalır ve oradan hâlâ geri yükleyebilirsin.',
+  'tut.app-archivos--esencial.3.titulo': 'Her odaya bir klasör',
+  'tut.app-archivos--esencial.3.texto':
+    'MindHaOS’undaki her odanın Odalar’da kendi klasörü var. Üstte, uygulamasının zaten sakladıkları görünür, örneğin tarif fotoğrafları ya da çizimler; bunları burada yalnızca görüp indirebilirsin. Altta ise senin yüklediklerin durur.',
+  'tut.app-archivos--esencial.4.titulo': 'Yükle ve oluştur',
+  'tut.app-archivos--esencial.4.texto':
+    'Pro ile «Yeni» bir klasör oluşturur ya da dosya yükler; web’de ya da masaüstü uygulamasında bütün klasörleri de yükler. Ayrıca bilgisayarından dosyaları doğrudan Dosyalar’a bırakabilirsin; içeride olanları da sürükleyerek başka bir klasöre taşırsın.',
+  'tut.app-archivos--esencial.5.titulo': 'Ara ve sırala',
+  'tut.app-archivos--esencial.5.texto':
+    'Dosyalarım’da arama kutusu tüm dosyalarına bakar, diğer bölümlerde ise yalnızca önündekilere. Yanında sıralamayı ada, tarihe ya da boyuta göre seçer, ızgara ile liste arasında geçiş yaparsın.',
+  'tut.app-archivos--esencial.6.titulo': 'Her dosyanın seçenekleri',
+  'tut.app-archivos--esencial.6.texto':
+    'Bir dosyaya sağ tıklamak ya da «⋯» düğmesi seçeneklerini açar: indir, paylaş, yıldızla, yeniden adlandır, taşı ya da çöp kutusuna gönder. «Paylaş», 1, 7 veya 30 gün geçerli olan ve herkesin hesapsız açabildiği bir bağlantı oluşturur.',
+  'tut.app-archivos--esencial.7.titulo': 'Alanın',
+  'tut.app-archivos--esencial.7.texto':
+    'Gösterge, bulutunun ne kadarını kullandığını gösterir: Pro seviyene göre 10, 30 veya 100 GB. Planın biterse yüklediklerini 90 gün boyunca görüp indirebilirsin, sonra buluttan silinirler.',
+  'tut.app-audio--esencial.1.titulo': 'Müzik stüdyosu',
+  'tut.app-audio--esencial.1.texto':
+    'Burada müzik bestelenir, kaydedilir ve karıştırılır. İki menü var: projelerinle ve onların yapıldığı düzenleyiciyle Şarkılar, iki DJ deck\'iyle de Miks.',
+  'tut.app-audio--esencial.2.titulo': 'Şarkılar',
+  'tut.app-audio--esencial.2.texto':
+    'Projelerin listeyi hazır şarkılarla, kamu malı olan bilinen parçalarla paylaşır. Her kart burada dinlenir, düzenleyicide açılır ya da klasör gibi çalışan bir albüme kaydedilir.',
+  'tut.app-audio--esencial.3.titulo': 'Bir şarkıya başla',
+  'tut.app-audio--esencial.3.texto':
+    '«Yeni proje» düzenleyiciyi boş bir pistle açar, «.mid içe aktar» ise bir MIDI dosyasını notalarıyla birlikte projeye çevirir.',
+  'tut.app-audio--esencial.4.titulo': 'Düzenleyici',
+  'tut.app-audio--esencial.4.texto':
+    'Bir şarkıyı açınca düzenleyici odayı kaplar: solda pistler, sağda notaların ızgaraya çizildiği piano roll. Her pistin pianodan davula kendi synth enstrümanı vardır ve ekran klavyesiyle, fiziksel klavyeyle ya da bir MIDI klavyeyle çalınır.',
+  'tut.app-audio--esencial.5.titulo': 'Kayıt, dışa aktarma ve YZ',
+  'tut.app-audio--esencial.5.texto':
+    'Kayıt düğmesi metronomla bir ölçü geri sayım verir ve çaldığını nota olarak kaydeder; ses pistinde ise mikrofonu kaydeder. «Ekstralar» içinde «Pratik yap», şarkıyı indirmek için «WAV» ve etkin piste beste yapan ya da onu sürdüren «YZ» var.',
+  'tut.app-audio--esencial.6.titulo': 'Kayıtlar',
+  'tut.app-audio--esencial.6.texto':
+    'Mikrofon kayıtları, pistinden çıkarsan ya da projeyi silsen bile burada kalır. Dinlenebilir, yeniden adlandırılabilir ve indirilebilir.',
+  'tut.app-audio--esencial.7.titulo': 'Miks',
+  'tut.app-audio--esencial.7.texto':
+    'Bir crossfader\'la bağlanan iki DJ deck\'i. «Şarkı yükle» stüdyodan bir şarkı, cihazından bir ses ya da bir iTunes örneği getirir; her deck\'te tempoyu eşitlemek için pitch, ekolayzır, cue ve SYNC var.',
+  'tut.app-video--esencial.1.titulo': 'Video düzenleyici',
+  'tut.app-video--esencial.1.texto':
+    'Burada klipler, metinler, dış ses ve müzikle bir zaman çizelgesi üzerinde video kurgulanır. İki menü var: projelerinle Videolar ve haritada sahne çekmek için 3B animasyon.',
+  'tut.app-video--esencial.2.titulo': 'Videolar',
+  'tut.app-video--esencial.2.texto':
+    'Videoların, her biri kapağı, biçimi ve süresiyle; «Yeni video» sıfırdan bir tane başlatır. Hazır olarak bu düzenleyiciyle kurgulanmış bir uygulama reklamı gelir; diğerleri gibi açılır, düzenlenir ya da silinir.',
+  'tut.app-video--esencial.3.titulo': 'Düzenleyicinin üst çubuğu',
+  'tut.app-video--esencial.3.texto':
+    'Bir videoyu açınca düzenleyici odayı kaplar. «Uygulamanın içinde kaydet» MindHaOS\'unda yaptıklarını çeker ve klip olarak getirir; «Dışa aktar» videoyu indirir ya da sosyal medya hesaplarında paylaşır, «YZ» ise bir fikirden senaryoyu yazar.',
+  'tut.app-video--esencial.4.titulo': 'Önizleme',
+  'tut.app-video--esencial.4.texto':
+    'Videoyu çıkacağı gibi oynatır; köşelerindeki düğmeler yan panelleri açar. Solda Ortamlar: videoların, görsellerin ve ses dosyaların, Sesler ve diğer Studio uygulamalarında yaptıkların; sağda seçili klibin düzenleyicisi.',
+  'tut.app-video--esencial.5.titulo': 'Zaman çizelgesi',
+  'tut.app-video--esencial.5.texto':
+    'Her parça bir tür klip taşır: ana parça videoları ve görselleri; metin, anlatım, müzik ya da ses efekti parçaları ise içlerine bir şey girer girmez belirir. Bir dokunuş klibi seçer, sürüklemek taşır, kenarlarından da kırpılır.',
+  'tut.app-video--esencial.6.titulo': 'Ekle',
+  'tut.app-video--esencial.6.texto':
+    'Eksik olanı imlece, her şeyi kendi parçasına koyar: klip ya da görsel, metin, dış ses, müzik, ses efekti, avatarın, bir AR karakteri ya da AR maskesi, kameradan veya mikrofondan kayıtlar. Senaryo ve geçişler de buradan açılır.',
+  'tut.app-video--esencial.7.titulo': '3B animasyon',
+  'tut.app-video--esencial.7.texto':
+    'MindHaOS\'unun haritasında çekilen sahneler: avatarın ve asistanların plan plan, repliklerle ve kamera hareketleriyle oynar. Dışa aktarılır, Medya\'ya kaydedilir ya da bir videoya klip olarak eklenir.',
   'tut.app-agenda--trabajo.1.titulo': 'Gelen kutusu',
   'tut.app-agenda--trabajo.1.texto':
     'İş’in iki görünümü var: Yapılacaklar kutusu ve Pano. Yapılması gereken ama henüz günü olmayan her şey, önceliğiyle birlikte Yapılacaklar’da durur; not almak için tarih koymak zorunda değilsin.',

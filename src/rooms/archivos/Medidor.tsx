@@ -7,8 +7,11 @@ import { fechaPurga } from '../../core/cuenta/almacenUso'
 import { useNubeStudio } from '../../core/studio/nubeStudio'
 import { COLOR } from './constantes'
 
-/** Lo usado de la nube, el aviso de solo lectura (con su fecha de purga) y el de nube llena. */
-export function Medidor({ puedeSubir }: { puedeSubir: boolean }) {
+/**
+ * Lo usado de la nube, el aviso de solo lectura (con su fecha de purga) y el de nube llena.
+ * `tut`: el ancla del tutorial; se pinta dos veces (lateral y teléfono) y cada una lleva la suya.
+ */
+export function Medidor({ puedeSubir, tut }: { puedeSubir: boolean; tut?: string }) {
   const t = useT()
   const uso = useAlmacen((s) => s.uso)
   const plan = useSesion((s) => s.plan)
@@ -22,7 +25,7 @@ export function Medidor({ puedeSubir }: { puedeSubir: boolean }) {
   if (!uso) return null
   const pct = uso.cuota ? Math.min(100, (uso.usados / uso.cuota) * 100) : 0
   return (
-    <div className="space-y-1">
+    <div className="space-y-1" data-tut={tut}>
       <div className="flex items-center justify-between gap-2 text-xs text-white/60">
         <span className="truncate">
           <Icono nombre="nube" />{' '}

@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { db, type Rutina } from './data/db'
-import { visibles } from './data/ejemplos'
+import { sinEjemplos } from './data/ejemplos'
 import { rutinasRepo } from './data/repository'
 import { appsParaEnlace } from './enlaceApp'
 import { fechaLocalISO } from './fechaLocal'
@@ -169,7 +169,7 @@ export async function armarPasosHoy(
   }
 
   const dia = new Date(`${fecha}T12:00`)
-  const todas = visibles(await rutinasRepo.list())
+  const todas = sinEjemplos(await rutinasRepo.list())
   const filas = todas.filter((r) => r.plantillaId === plantillaId)
   const ejecuciones = await db.ejecucionesRutina.where('fecha').equals(fecha).toArray()
   // De qué meta salió el bloque: la meta puede ser de otra app (una de cocina que

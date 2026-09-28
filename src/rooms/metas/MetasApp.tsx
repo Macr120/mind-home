@@ -1,13 +1,14 @@
 import { useMemo, useState } from 'react'
 import type { Rutina } from '../../core/data/db'
 import { rutinasRepo } from '../../core/data/repository'
-import { visibles } from '../../core/data/ejemplos'
 import type { EventoResuelto } from '../../core/eventosApps'
 import { esMeta } from '../../core/metas'
 import { useCalendarioFiltro } from '../../core/state/calendarioFiltroStore'
 import { appDeRutina } from '../../core/ui/calendario/apps'
 import { FiltroApps } from '../../core/ui/calendario/FiltroApps'
 import { Cronograma } from '../../core/ui/metas/Cronograma'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
+import { ejemploMetas } from './ejemplos'
 
 /** El filtro reparte eventos y metas; aquí solo hay metas, y la referencia es fija
  *  para no rearmar sus grupos en cada render. */
@@ -28,7 +29,7 @@ export function MetasApp() {
   // Meta «armada» para trazarle fechas arrastrando sobre el eje.
   const [armada, setArmada] = useState<Rutina | null>(null)
 
-  const metas = useMemo(() => visibles(todas ?? []).filter(esMeta), [todas])
+  const metas = useMemo(() => (todas ?? []).filter(esMeta), [todas])
 
   /**
    * El filtro por apps del calendario, que se quedó atrás cuando el cronograma se
@@ -48,11 +49,17 @@ export function MetasApp() {
   )
 
   return (
-    <Cronograma
-      metas={suyas}
-      metaArmada={armada}
-      onArmar={setArmada}
-      filtro={<FiltroApps rutinas={metas} eventos={SIN_EVENTOS} />}
-    />
+    <div className="space-y-3">
+      <Cronograma
+        metas={suyas}
+        metaArmada={armada}
+        onArmar={setArmada}
+        filtro={<FiltroApps rutinas={metas} eventos={SIN_EVENTOS} />}
+      />
+      {/* El ejemplo llena los tres menús a la vez: su pie va debajo de todos. */}
+      <div className="mx-auto w-full max-w-2xl">
+        <BarraEjemplo paquete={ejemploMetas} />
+      </div>
+    </div>
   )
 }

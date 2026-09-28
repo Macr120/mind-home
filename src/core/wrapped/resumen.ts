@@ -5,6 +5,8 @@ import { FUENTES } from '../gamificacion/actividad'
 import { estadoSisifoActual } from '../gamificacion/sisifo'
 import { DIA_MS, deIso, fechaLocalISO, isoMasDias } from '../fechaLocal'
 import { periodoDe, type Periodo, type TipoPeriodo } from './periodo'
+import { sinEjemplos } from '../data/ejemplos'
+import { esSeedIntacta } from '../data/sync/syncables'
 
 /**
  * Agregación del Wrapped: una FOTO del periodo pedido, calculada una vez por
@@ -99,10 +101,11 @@ function mejorRachaEn(fechas: Set<string>): number {
 export async function resumenPeriodo(tipo: TipoPeriodo, ancla: string): Promise<ResumenWrapped> {
   const periodo = periodoDe(tipo, ancla)
   const { desde, hasta } = periodo
-  const rango = <T>(t: Table<T, number>) =>
-    t.where('fecha').between(desde, hasta, true, true).toArray()
-  const cuenta = <T>(t: Table<T, number>) =>
-    t.where('fecha').between(desde, hasta, true, true).count()
+  // Lo que la app trae de fábrica (ejemplos y siembras intactas) no es el año
+  // de nadie: fuera del resumen.
+  const rango = async <T>(t: Table<T, number>) =>
+    sinEjemplos(await t.where('fecha').between(desde, hasta, true, true).toArray()).filter((f) => !esSeedIntacta(f))
+  const cuenta = async <T>(t: Table<T, number>) => (await rango(t)).length
 
   const [
     sesEj,
@@ -141,9 +144,9 @@ export async function resumenPeriodo(tipo: TipoPeriodo, ancla: string): Promise<
     rango(db.mediaArchivo),
     cuenta(db.anecdotas),
     cuenta(db.bitacoraViaje),
-    db.lugaresViaje.toArray(),
-    db.proyectosHobby.toArray(),
-    db.hobbies.toArray(),
+    db.lugaresViaje.toArray().then(sinEjemplos),
+    db.proyectosHobby.toArray().then(sinEjemplos),
+    db.hobbies.toArray().then(sinEjemplos),
   ])
 
   // Actividad global con la misma definición que el tamagotchi (FUENTES).

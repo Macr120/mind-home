@@ -451,7 +451,7 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
       <section className="space-y-2">
         {albumActivo == null ? (
           <TituloSeccion icono="piano" titulo={t('audio.tab.canciones', 'Canciones')}>
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5" data-tut="audio.canciones.crear">
               <BotonSecundario pequeno disabled={importando} onClick={() => archivoRef.current?.click()}>
                 <Icono nombre="descargar" /> {t('audio.aprender.importar', 'Importar .mid')}
               </BotonSecundario>
@@ -465,6 +465,7 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
             <button
               type="button"
               onClick={() => setAlbumActivo(null)}
+              data-tut="audio.album.volver"
               className="ui-presion flex min-w-0 items-center gap-1 rounded-lg px-2 py-1.5 text-sm font-semibold transition hover:bg-white/10"
             >
               <Icono nombre="volver" /> <Icono nombre="carpeta" />{' '}
@@ -538,6 +539,7 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
           type="button"
           aria-expanded={grabAbiertas}
           onClick={() => setGrabAbiertas((v) => !v)}
+          data-tut="audio.grabaciones"
           className="flex w-full items-center gap-1.5 text-sm font-semibold text-white/85"
         >
           <Icono nombre="microfono" /> {t('audio.lista.grabaciones', 'Grabaciones')}

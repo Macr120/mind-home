@@ -7,6 +7,7 @@ import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
 import { registrarAterrizaje } from '../../core/espacios/enlaces'
 import { COLOR_FABRICA } from './constantes'
 import { OPERACIONES_IA } from './costosIA'
+import { esencialEscritura } from './tutorial.meta'
 
 const TIPOS_LIBRO: TipoLibro[] = ['blanco', 'cuento', 'guion', 'teatro']
 
@@ -91,6 +92,7 @@ const escritura: Plantilla = {
   categoria: 'mente',
   color: COLOR_FABRICA,
   App: EscrituraApp,
+  esencial: esencialEscritura,
   esquemas,
   operacionesIA: OPERACIONES_IA,
   comandos: [

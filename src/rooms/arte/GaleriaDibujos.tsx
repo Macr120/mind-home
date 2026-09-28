@@ -5,7 +5,9 @@ import { pedirTexto } from '../../core/state/confirmarStore'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { Foto, comprimirFoto, miniaturaFoto } from '../_shared/fotos'
 import { BotonEnviarAContacto } from '../_shared/BotonEnviarAContacto'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { empaquetarDibujo } from './compartible'
+import { ejemploArte } from './seed'
 import { BotonBorrar, BotonPrimario, BotonSecundario, Campo, INPUT, Modal, TARJETA, Vacio } from '../_shared/ui'
 import { COLOR, PRESETS_LIENZO } from './constantes'
 
@@ -76,7 +78,7 @@ export function GaleriaDibujos({ onAbrir }: { onAbrir: (id: number) => void }) {
   }
 
   return (
-    <div className="mx-auto w-full max-w-3xl space-y-3">
+    <div className="mx-auto w-full max-w-3xl space-y-3" data-tut="arte.galeria">
       {dibujos.length === 0 ? (
         <Vacio
           icono="pincel"
@@ -97,6 +99,7 @@ export function GaleriaDibujos({ onAbrir }: { onAbrir: (id: number) => void }) {
                 <button
                   type="button"
                   onClick={() => d.id != null && onAbrir(d.id)}
+                  data-tut={`arte.dibujo.${d.id}`}
                   className="relative block w-full overflow-hidden rounded-lg transition hover:brightness-110"
                 >
                   <Foto blob={d.miniatura ?? d.imagen} className="aspect-square w-full object-cover" />
@@ -143,6 +146,8 @@ export function GaleriaDibujos({ onAbrir }: { onAbrir: (id: number) => void }) {
           </ul>
         </>
       )}
+
+      <BarraEjemplo paquete={ejemploArte} />
 
       <input
         ref={archivoRef}

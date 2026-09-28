@@ -1,5 +1,4 @@
 import { useLiveQuery } from 'dexie-react-hooks'
-import { useMemo } from 'react'
 import {
   db,
   type AjustesCotizacion,
@@ -15,7 +14,6 @@ import {
 import { marcarEscrituraSilenciosa } from './sync/middleware'
 import type { Table, UpdateSpec } from 'dexie'
 import { marcarRegistro } from '../state/registroSesion'
-import { useClaveEncendidos, visibles } from './ejemplos'
 import { ventanaEstable } from '../chat/ventana'
 import {
   duplicadaDe,
@@ -55,19 +53,13 @@ function createRepository<T extends { id?: number }>(
     /**
      * Hook reactivo: la UI se actualiza sola al cambiar los datos.
      *
-     * Aquí se esconden las filas de los ejemplos de fábrica apagados: es el
-     * único sitio por el que pasan todas las pantallas, así que basta con
-     * filtrar una vez (ver `ejemplos.ts`).
-     *
      * `limit` acota la consulta sobre el índice (para historiales que crecen
      * sin tope: la vista pide N y sube el límite con «Cargar más» en vez de
-     * materializar la tabla entera en cada escritura). Cuenta filas de la BD:
-     * con ejemplos apagados pueden verse unas menos — irrelevante para paginar.
+     * materializar la tabla entera en cada escritura).
      */
     useAll(opts?: { limit?: number }): T[] | undefined {
-      const encendidos = useClaveEncendidos()
       const limite = opts?.limit
-      const filas = useLiveQuery(async () => {
+      return useLiveQuery(async () => {
         try {
           let q = table.orderBy(orderBy)
           if (reverse) q = q.reverse()
@@ -92,8 +84,6 @@ function createRepository<T extends { id?: number }>(
           return limite ? all.slice(0, limite) : all
         }
       }, [limite])
-      // eslint-disable-next-line react-hooks/exhaustive-deps -- `encendidos` es la clave serializada del store
-      return useMemo(() => (filas ? visibles(filas) : filas), [filas, encendidos])
     },
     // Toda escritura sella `updatedAt` (época ms): base para resolver conflictos
     // cuando haya sincronización multi-dispositivo. Dexie guarda el campo extra
@@ -106,6 +96,18 @@ function createRepository<T extends { id?: number }>(
       marcarRegistro()
       const ahora = Date.now()
       await table.bulkAdd(items.map((i) => ({ ...i, updatedAt: ahora })) as unknown as T[])
+    },
+    /**
+     * Alta de una fila de FÁBRICA que ya trae su uid fijo (`seed-…`) y su
+     * `updatedAt`: no se los pisa (el sync la reconoce como semilla) y no cuenta
+     * como registro del usuario.
+     */
+    async addSeed(item: Omit<T, 'id'>): Promise<number> {
+      return table.add(item as unknown as T)
+    },
+    /** ¿Alguna fila cumple `pred`? Recorre con cursor y para en la primera. */
+    async alguna(pred: (fila: T) => boolean): Promise<boolean> {
+      return (await table.filter(pred).first()) !== undefined
     },
     async update(id: number, cambios: UpdateSpec<T>): Promise<number> {
       return table.update(id, { ...cambios, updatedAt: Date.now() } as UpdateSpec<T>)

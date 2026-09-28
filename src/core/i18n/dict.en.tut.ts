@@ -286,9 +286,15 @@ export const EN_TUT: Dict = {
   'tut.cuenta-ia.4.texto': 'Image quality is the only thing that changes the whole table\'s pricing: Fast is good and cheap (the default); Good gives more detail and better text inside the image.',
   'tut.cuenta-ia.5.titulo': 'One unit, many operations',
   'tut.cuenta-ia.5.texto': 'A reply costs 1 credit, a long plan 4, an image or a 3D model 10 — the rule is the same across every room, this table just unpacks it one by one.',
-  'tut.ejemplos.1.texto': 'This bar shows up in almost every app while it still has none of your own data: a button to see it full of example content instead of starting on an empty screen.',
-  'tut.ejemplos.2.texto': 'Viewing an example doesn\'t delete or mix in anything of yours: it\'s its own rows, marked as example, hidden (not deleted) when you turn it off. Turning it back on brings them back exactly as they were.',
-  'tut.ejemplos.3.texto': 'Inside the demo MindHaOS this bar doesn\'t appear: Sam\'s whole year already plays that role, so there\'s no need for a separate example.',
+  'tut.ejemplos.1.texto':
+    'The first time you open an empty section, its factory example goes in on its own, so you don’t start on a blank screen. Its entries are normal: you edit or delete them one by one, like any other.',
+  'tut.ejemplos.2.texto':
+    'At the foot of the section, “Delete the example” removes all of it once you confirm with “Yes, delete the example”, and your own entries are never touched. When nothing of it is left, “Restore the factory example” shows up right there.',
+  'tut.ejemplos.3.texto':
+    'The example adds no XP or streaks, triggers no reminders, stays out of your Wrapped and the AI ignores it. In the demo MindHaOS this footer doesn’t appear: Sam’s whole year already is the example.',
+  'tut.ejemplos.3.titulo': 'It doesn’t count as yours',
+  'tut.ejemplos.2.titulo': 'Delete or restore',
+  'tut.ejemplos.1.titulo': 'Added on its own',
   'tut.hoy.1.texto':
     'Missions don\'t live somewhere apart: they live INSIDE each app. In every room\'s header sits its Missions button, with the checklist of what that app asks of you TODAY.',
   'tut.hoy.2.titulo': 'Three sources, one list',
@@ -909,6 +915,111 @@ export const EN_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': 'Logbook',
   'tut.app-sala--esencial.5.texto':
     'The memories of the places you visited, in albums by country: photos and stories from each spot.',
+  'tut.app-escritura--esencial.1.titulo': 'Your writing studio',
+  'tut.app-escritura--esencial.1.texto':
+    'Everything you write here lives in books: a short story, a novel, a screenplay, a stage play or just a letter. Each book keeps its texts in folders, and the editor formats them, exports them and has an AI that writes with you.',
+  'tut.app-escritura--esencial.2.titulo': 'The bookshelf',
+  'tut.app-escritura--esencial.2.texto':
+    'Each cover is a book, with the number of texts it holds: the pencil renames it and the trash can deletes it with everything inside. “New book” asks what you are going to write—Blank, Short story, Screenplay or Stage play, which only changes the icon—and opens it on its first chapter.',
+  'tut.app-escritura--esencial.3.titulo': 'An example book',
+  'tut.app-escritura--esencial.3.texto':
+    'The first time, the shelf already holds “The Winter Light”, an example book with two chapters, two characters, a place and an act with its plot already written. “Delete the example”, in this bar, removes it entirely; once it is gone, “Restore the factory example” brings it back.',
+  'tut.app-escritura--esencial.4.titulo': 'The page and its toolbar',
+  'tut.app-escritura--esencial.4.texto':
+    'Opening a book takes you to the page, which saves itself as you write. The toolbar handles formatting: headings and quotes, bold, italic, lists, alignment and text color.',
+  'tut.app-escritura--esencial.5.titulo': 'The book’s folders',
+  'tut.app-escritura--esencial.5.texto':
+    'Chapters, Characters, Places and Acts, with the plots inside each act. Character, place and act sheets carry an image, a description and a color, and their name is marked in the text of the other pages; in Relationships you draw how the characters are connected.',
+  'tut.app-escritura--esencial.6.titulo': 'Index and export',
+  'tut.app-escritura--esencial.6.texto':
+    'The index builds itself from the headings in the text and can go on the first page when you print. Here you can also download the text as TXT, send it to a contact, or print it or save it as PDF; “Share”, right next to it, opens it up so several people can write it together.',
+  'tut.app-escritura--esencial.7.titulo': 'Write with AI',
+  'tut.app-escritura--esencial.7.texto':
+    'It drafts whatever you ask for, improves the text you select, continues where you left off or summarizes the document. Each option shows up front how many credits it costs.',
+  'tut.app-arte--esencial.1.titulo': 'Your art studio',
+  'tut.app-arte--esencial.1.texto':
+    'Here you paint from scratch, touch up a photo or let the AI imagine with you. It all starts in the gallery, and each drawing opens on a layered canvas that saves itself.',
+  'tut.app-arte--esencial.2.titulo': 'The gallery',
+  'tut.app-arte--esencial.2.texto':
+    'Each drawing opens with a tap, and from its card you can share, rename or delete it. “New drawing” starts from a blank canvas in the size you choose, or from a photo. “Afternoon in the valley” and “Fruit still life” come built in: the bar at the bottom deletes them and, once they are gone, restores them.',
+  'tut.app-arte--esencial.3.titulo': 'A toolbar in groups',
+  'tut.app-arte--esencial.3.texto':
+    'Inside a drawing, the tools come in groups: Paint, Shapes, Objects, Canvas, Stroke & color and History. Each group folds from its icon, and groups and buttons can be dragged into the order you like; if you change it, “Reset the toolbar” puts it back as it was.',
+  'tut.app-arte--esencial.4.titulo': 'Layers',
+  'tut.app-arte--esencial.4.texto':
+    'You paint on the active layer, and “Add layer” lets you have up to six. Each one can be hidden, change its opacity, be duplicated, move up or down, be merged with the one below or be deleted.',
+  'tut.app-arte--esencial.5.titulo': 'Filters and aids',
+  'tut.app-arte--esencial.5.texto':
+    'Brightness, contrast, grayscale and blur apply to the active layer while you watch the canvas, and every filter can be undone. The same toolbar holds the drawing aids: ruler, snap grid and mirror.',
+  'tut.app-arte--esencial.6.titulo': 'Export and share',
+  'tut.app-arte--esencial.6.texto':
+    'The drawing saves itself, and the PNG button downloads the image with its visible layers merged onto a white background. To paint it with other people, “Share”, at the top, opens it through a link.',
+  'tut.app-arte--esencial.7.titulo': 'Paint with AI',
+  'tut.app-arte--esencial.7.texto':
+    'Describe what you want to see and the AI paints it on the active layer, or reinterprets your canvas using it as a reference. Each option shows up front how many credits it costs, and the result can be undone.',
+  'tut.app-archivos--esencial.1.titulo': 'Your cloud',
+  'tut.app-archivos--esencial.1.texto':
+    'Files keeps folders and files of any kind in the cloud, with previews for images, video, audio, PDF and text, and you open them from any device. You need to sign in and have a Pro plan, with 10, 30 or 100 GB depending on the tier.',
+  'tut.app-archivos--esencial.2.titulo': 'The sections',
+  'tut.app-archivos--esencial.2.texto':
+    'My Files holds your folders and files; Recent, what you uploaded last; and Starred, what you mark with the star. Whatever you delete spends 30 days in the Trash, where you can still restore it.',
+  'tut.app-archivos--esencial.3.titulo': 'A folder per room',
+  'tut.app-archivos--esencial.3.texto':
+    'Every room in your MindHaOS has its folder under Rooms. At the top is what its app already keeps, like recipe photos or drawings, which here you can only view and download; below goes whatever you upload yourself.',
+  'tut.app-archivos--esencial.4.titulo': 'Upload and create',
+  'tut.app-archivos--esencial.4.texto':
+    'With Pro, “New” creates a folder or uploads files, and on the web or in the desktop app whole folders too. You can also drop them into Files straight from your computer, and anything already inside moves to another folder when you drag it.',
+  'tut.app-archivos--esencial.5.titulo': 'Search and sort',
+  'tut.app-archivos--esencial.5.texto':
+    'In My Files, the search box looks through all your files; in other sections, only through what’s in front of you. Next to it you pick the order, by name, date or size, and switch between grid and list.',
+  'tut.app-archivos--esencial.6.titulo': 'Options for each file',
+  'tut.app-archivos--esencial.6.texto':
+    'Right-clicking a file, or its “⋯” button, opens its options: download, share, star, rename, move or send it to the trash. “Share” creates a link that lasts 1, 7 or 30 days and that anyone can open without an account.',
+  'tut.app-archivos--esencial.7.titulo': 'Your space',
+  'tut.app-archivos--esencial.7.texto':
+    'The meter shows how much of your cloud you’ve used: 10, 30 or 100 GB depending on your Pro tier. If your plan ends, what you uploaded can still be viewed and downloaded for 90 days, and then it’s deleted from the cloud.',
+  'tut.app-audio--esencial.1.titulo': 'The music studio',
+  'tut.app-audio--esencial.1.texto':
+    'This is where you compose, record and mix music. There are two menus: Songs, with your projects and the editor where you make them, and Mix, with two DJ decks.',
+  'tut.app-audio--esencial.2.titulo': 'Songs',
+  'tut.app-audio--esencial.2.texto':
+    'Your projects share the list with built-in songs, well-known public-domain pieces. Each card plays right here, opens in the editor or goes into an album, which works like a folder.',
+  'tut.app-audio--esencial.3.titulo': 'Start a song',
+  'tut.app-audio--esencial.3.texto':
+    '“New project” opens the editor with an empty track, and “Import .mid” turns a MIDI file into a project with its notes.',
+  'tut.app-audio--esencial.4.titulo': 'The editor',
+  'tut.app-audio--esencial.4.texto':
+    'When you open a song, the editor fills the room: tracks on the left and the piano roll on the right, where notes are drawn on the grid. Each track has its own synth instrument, from piano to drums, and you play it with the on-screen keyboard, a physical one or a MIDI keyboard.',
+  'tut.app-audio--esencial.5.titulo': 'Record, export and AI',
+  'tut.app-audio--esencial.5.texto':
+    'The record button gives a one-bar count-in with the metronome and saves what you play as notes; on an audio track it records the microphone. Under “Extras” you’ll find “Practice”, “WAV” to download the song and “AI”, which composes new notes for the active track or continues it.',
+  'tut.app-audio--esencial.6.titulo': 'Recordings',
+  'tut.app-audio--esencial.6.texto':
+    'Microphone takes stay here even if you remove them from their track or delete the project. You can play, rename and download them.',
+  'tut.app-audio--esencial.7.titulo': 'Mix',
+  'tut.app-audio--esencial.7.texto':
+    'Two DJ decks joined by a crossfader. “Load song” brings in a studio song, audio from your device or an iTunes preview, and each deck has pitch, EQ, cue and SYNC to match the tempo.',
+  'tut.app-video--esencial.1.titulo': 'The video editor',
+  'tut.app-video--esencial.1.texto':
+    'This is where you put videos together from clips, text, voice-over and music on a timeline. There are two menus: Videos, with your projects, and 3D animation, for shooting scenes on the map.',
+  'tut.app-video--esencial.2.titulo': 'Videos',
+  'tut.app-video--esencial.2.texto':
+    'Your videos, each with its cover, format and length; “New video” starts one from scratch. It comes with an ad for the app, made with this very editor, which you can open, edit or delete like any other.',
+  'tut.app-video--esencial.3.titulo': 'The editor header',
+  'tut.app-video--esencial.3.texto':
+    'When you open a video, the editor fills the room. “Record inside the app” films what you do in your MindHaOS and brings it back as a clip; “Export” downloads the video or posts it to your social networks, and “AI” writes the script from an idea.',
+  'tut.app-video--esencial.4.titulo': 'The preview',
+  'tut.app-video--esencial.4.texto':
+    'It plays the video just as it will come out, and its corner buttons open the side panels. On the left, Media: your videos, images and audio, the sounds and whatever you made in the other Studio apps; on the right, the editor for the selected clip.',
+  'tut.app-video--esencial.5.titulo': 'The timeline',
+  'tut.app-video--esencial.5.texto':
+    'Each track holds one kind of clip: the main one takes videos and images, while the text, voice-over, music or sound effects tracks appear as soon as they hold something. A tap selects a clip, dragging moves it and its edges trim it.',
+  'tut.app-video--esencial.6.titulo': 'Add',
+  'tut.app-video--esencial.6.texto':
+    'It drops whatever you need at the playhead, each thing on its own track: clips or images, text, voice-over, music, sound effects, your avatar, an AR character or an AR mask, and takes from the camera or the microphone. The script and the transitions open from here too.',
+  'tut.app-video--esencial.7.titulo': '3D animation',
+  'tut.app-video--esencial.7.texto':
+    'Scenes shot on the map of your MindHaOS: your avatar and your assistants act shot by shot, with lines and camera moves. They can be exported, saved to Media or brought into a video as a clip.',
   'tut.app-agenda--trabajo.1.titulo': 'The inbox',
   'tut.app-agenda--trabajo.1.texto':
     'Work has two views: the Pending tray and the Board. Pending holds what needs doing but has no day yet, with its priority; nothing forces you to pick a day just to write it down.',

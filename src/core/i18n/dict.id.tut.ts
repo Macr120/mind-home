@@ -408,11 +408,14 @@ export const ID_TUT: Dict = {
   'tut.cuenta-ia.5.texto':
     'Satu jawaban berharga 1 kredit, rencana panjang 4, gambar atau model 3D 10 — aturannya sama untuk semua ruangan, tabel ini hanya membentangkannya satu per satu.',
   'tut.ejemplos.1.texto':
-    'Bilah ini muncul di hampir semua aplikasi selama belum ada datamu di dalamnya: satu tombol untuk melihatnya penuh contoh, alih-alih memulai dari layar kosong.',
+    'Saat pertama kali kamu membuka bagian yang kosong, contoh bawaannya muncul sendiri, supaya kamu tidak mulai dari layar kosong. Barisnya biasa saja: bisa kamu ubah atau hapus satu per satu, seperti yang lain.',
   'tut.ejemplos.2.texto':
-    'Melihat contoh tidak menghapus atau mencampur apa pun milikmu: itu baris tersendiri, ditandai sebagai contoh, yang disembunyikan (bukan dihapus) saat kamu mematikannya. Menyalakannya lagi mengembalikannya persis seperti semula.',
+    'Di bagian bawah, “Hapus contoh” menghapus seluruhnya setelah kamu konfirmasi dengan “Ya, hapus contoh”, dan milikmu tidak pernah disentuh. Kalau sudah tidak ada yang tersisa, di tempat yang sama muncul “Pulihkan contoh bawaan”.',
   'tut.ejemplos.3.texto':
-    'Di dalam MindHaOS demo (Rumah Pikiran OS) bilah ini tidak muncul: satu tahun penuh milik Ari sudah mengisi peran itu, jadi tidak perlu contoh terpisah.',
+    'Contoh ini tidak menambah XP atau runtunan, tidak memicu pengingat, tidak masuk ke Wrapped-mu, dan AI tidak memperhitungkannya. Di MindHaOS demo bilah ini tidak muncul: setahun penuh milik Ari sudah menjadi contohnya.',
+  'tut.ejemplos.1.titulo': 'Muncul sendiri',
+  'tut.ejemplos.2.titulo': 'Hapus atau pulihkan',
+  'tut.ejemplos.3.titulo': 'Tidak dihitung sebagai milikmu',
   'tut.hoy.1.texto':
     'Misi tidak tinggal di tempat terpisah: misi tinggal DI DALAM setiap aplikasi. Di bagian atas tiap ruangan ada tombol Misi, berisi daftar yang diminta aplikasi itu HARI INI.',
   'tut.hoy.2.titulo': 'Tiga sumber, satu daftar',
@@ -1051,6 +1054,111 @@ export const ID_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': 'Jurnal perjalanan',
   'tut.app-sala--esencial.5.texto':
     'Kenangan dari tempat-tempat yang sudah kamu kunjungi, dalam album per negara: foto dan cerita dari setiap tempat.',
+  'tut.app-escritura--esencial.1.titulo': 'Studio menulismu',
+  'tut.app-escritura--esencial.1.texto':
+    'Di sini semua yang kamu tulis tinggal di dalam buku: cerpen, novel, skenario, naskah drama, atau sekadar surat. Setiap buku menyimpan teksnya dalam folder, dan editornya mengatur format, mengekspor, dan punya AI yang menulis bersamamu.',
+  'tut.app-escritura--esencial.2.titulo': 'Rak buku',
+  'tut.app-escritura--esencial.2.texto':
+    'Setiap sampul adalah satu buku, lengkap dengan jumlah teks di dalamnya: pensil untuk mengganti nama dan tempat sampah untuk menghapusnya seluruhnya. “Buku baru” menanyakan apa yang akan kamu tulis — Kosong, Cerpen, Skenario, atau Naskah drama, yang hanya mengubah ikonnya — lalu membukanya di bab pertama.',
+  'tut.app-escritura--esencial.3.titulo': 'Buku contoh',
+  'tut.app-escritura--esencial.3.texto':
+    'Pertama kali, rak sudah berisi “Cahaya yang Padam”, buku contoh dengan dua bab, dua tokoh, satu tempat, dan satu babak beserta alurnya yang sudah ditulis. “Hapus contoh” di bilah ini menghapusnya seluruhnya; kalau sudah tidak ada, “Pulihkan contoh bawaan” mengembalikannya.',
+  'tut.app-escritura--esencial.4.titulo': 'Halaman dan bilahnya',
+  'tut.app-escritura--esencial.4.texto':
+    'Saat membuka buku, kamu masuk ke halaman yang tersimpan otomatis selagi kamu menulis. Bilahnya mengatur format: judul dan kutipan, tebal, miring, daftar, perataan, dan warna teks.',
+  'tut.app-escritura--esencial.5.titulo': 'Folder buku',
+  'tut.app-escritura--esencial.5.texto':
+    'Bab, Tokoh, Tempat, dan Babak, dengan alur di dalam setiap babak. Kartu-kartunya punya gambar, deskripsi, dan warna, dan namanya ditandai di teks lembar lain; di Hubungan kamu menggambar bagaimana para tokoh terhubung.',
+  'tut.app-escritura--esencial.6.titulo': 'Daftar isi dan ekspor',
+  'tut.app-escritura--esencial.6.texto':
+    'Daftar isi tersusun sendiri dari judul-judul dalam teks dan bisa ditaruh di halaman pertama saat mencetak. Di sini kamu juga bisa mengunduh teks sebagai TXT, mengirimnya ke kontak, atau mencetak maupun menyimpannya ke PDF; “Bagikan”, tepat di sebelahnya, membukanya agar bisa ditulis bersama beberapa orang.',
+  'tut.app-escritura--esencial.7.titulo': 'Menulis dengan AI',
+  'tut.app-escritura--esencial.7.texto':
+    'AI menulis draf apa pun yang kamu minta, memperbaiki teks yang kamu pilih, melanjutkan dari bagian terakhir, atau meringkas dokumen. Setiap opsi menunjukkan dulu berapa kredit biayanya.',
+  'tut.app-arte--esencial.1.titulo': 'Studio senimu',
+  'tut.app-arte--esencial.1.texto':
+    'Di sini kamu melukis dari nol, merapikan foto, atau membiarkan AI berimajinasi bersamamu. Semuanya dimulai di galeri, dan setiap gambar terbuka di kanvas berlapis yang tersimpan otomatis.',
+  'tut.app-arte--esencial.2.titulo': 'Galeri',
+  'tut.app-arte--esencial.2.texto':
+    'Setiap gambar terbuka dengan sekali ketuk, dan dari kartunya kamu bisa membagikan, mengganti nama, atau menghapusnya. “Gambar baru” dimulai dari kanvas kosong dengan ukuran pilihanmu, atau dari foto. “Sore di lembah” dan “Lukisan buah-buahan” adalah gambar bawaan: bilah di bagian bawah menghapusnya dan, kalau sudah tidak ada, memulihkannya.',
+  'tut.app-arte--esencial.3.titulo': 'Bilah alat berkelompok',
+  'tut.app-arte--esencial.3.texto':
+    'Di dalam gambar, alat-alatnya dikelompokkan: Lukis, Bentuk, Objek, Kanvas, Goresan & warna, dan Riwayat. Setiap kelompok bisa dilipat dari ikonnya, dan kelompok maupun tombol bisa diseret untuk diurutkan sesukamu; kalau kamu mengubahnya, “Atur ulang bilah alat” mengembalikannya seperti semula.',
+  'tut.app-arte--esencial.4.titulo': 'Lapisan',
+  'tut.app-arte--esencial.4.texto':
+    'Kamu melukis di lapisan aktif, dan dengan “Tambah lapisan” bisa ada hingga enam. Setiap lapisan bisa disembunyikan, diubah opasitasnya, diduplikasi, dipindah urutannya, digabung dengan lapisan di bawahnya, atau dihapus.',
+  'tut.app-arte--esencial.5.titulo': 'Filter dan alat bantu',
+  'tut.app-arte--esencial.5.texto':
+    'Kecerahan, kontras, abu-abu, dan buram diterapkan ke lapisan aktif sambil kamu melihat kanvas, dan setiap filter bisa dibatalkan. Di bilah yang sama ada alat bantu gambar: penggaris, kisi magnet, dan cermin.',
+  'tut.app-arte--esencial.6.titulo': 'Ekspor dan bagikan',
+  'tut.app-arte--esencial.6.texto':
+    'Gambar tersimpan otomatis, dan tombol PNG mengunduh gambarnya dengan lapisan yang terlihat digabung di atas latar putih. Untuk melukisnya bersama beberapa orang, “Bagikan” di bagian atas membukanya lewat tautan.',
+  'tut.app-arte--esencial.7.titulo': 'Melukis dengan AI',
+  'tut.app-arte--esencial.7.texto':
+    'Jelaskan apa yang ingin kamu lihat dan AI akan melukisnya di lapisan aktif, atau menafsir ulang kanvasmu dengan menjadikannya acuan. Setiap opsi menunjukkan dulu berapa kreditnya, dan hasilnya bisa dibatalkan.',
+  'tut.app-archivos--esencial.1.titulo': 'Cloud-mu',
+  'tut.app-archivos--esencial.1.texto':
+    'Berkas menyimpan folder dan berkas jenis apa pun di cloud, dengan pratinjau untuk gambar, video, audio, PDF, dan teks, dan kamu bisa membukanya dari perangkat mana pun. Kamu perlu masuk dan punya paket Pro, dengan 10, 30, atau 100 GB sesuai tingkat.',
+  'tut.app-archivos--esencial.2.titulo': 'Bagian-bagian',
+  'tut.app-archivos--esencial.2.texto':
+    'Berkasku berisi folder dan berkasmu; Terbaru, yang terakhir kamu unggah; dan Berbintang, yang kamu tandai dengan bintang. Yang kamu hapus menunggu 30 hari di Sampah, dan dari sana masih bisa kamu pulihkan.',
+  'tut.app-archivos--esencial.3.titulo': 'Satu folder per ruangan',
+  'tut.app-archivos--esencial.3.texto':
+    'Setiap ruangan di MindHaOS-mu punya folder sendiri di Ruangan. Di atas ada yang sudah disimpan aplikasinya, seperti foto resep atau gambar, yang di sini hanya bisa dilihat dan diunduh; di bawahnya ada yang kamu unggah sendiri.',
+  'tut.app-archivos--esencial.4.titulo': 'Unggah dan buat',
+  'tut.app-archivos--esencial.4.texto':
+    'Dengan Pro, “Baru” membuat folder atau mengunggah berkas, dan di web atau aplikasi desktop juga seluruh folder. Dari komputermu kamu juga bisa langsung menjatuhkannya ke Berkas, dan yang sudah ada di dalam bisa dipindahkan ke folder lain dengan menyeretnya.',
+  'tut.app-archivos--esencial.5.titulo': 'Cari dan urutkan',
+  'tut.app-archivos--esencial.5.texto':
+    'Di Berkasku, kolom pencarian mencari di semua berkasmu; di bagian lain, hanya di yang sedang kamu lihat. Di sebelahnya kamu memilih urutan, berdasarkan nama, tanggal, atau ukuran, dan beralih antara kisi dan daftar.',
+  'tut.app-archivos--esencial.6.titulo': 'Opsi tiap berkas',
+  'tut.app-archivos--esencial.6.texto':
+    'Klik kanan pada berkas, atau tombol “⋯”-nya, membuka opsinya: unduh, bagikan, beri bintang, ganti nama, pindahkan, atau pindahkan ke sampah. “Bagikan” membuat tautan yang berlaku 1, 7, atau 30 hari dan bisa dibuka siapa pun tanpa akun.',
+  'tut.app-archivos--esencial.7.titulo': 'Ruang penyimpananmu',
+  'tut.app-archivos--esencial.7.texto':
+    'Pengukur menunjukkan berapa banyak cloud-mu yang sudah terpakai: 10, 30, atau 100 GB sesuai tingkat Pro-mu. Kalau paketmu berakhir, yang sudah diunggah masih bisa dilihat dan diunduh selama 90 hari, lalu dihapus dari cloud.',
+  'tut.app-audio--esencial.1.titulo': 'Studio musik',
+  'tut.app-audio--esencial.1.texto':
+    'Di sini musik digubah, direkam, dan di-mix. Ada dua menu: Lagu, berisi proyekmu dan editor tempat membuatnya, dan Mix, dengan dua deck DJ.',
+  'tut.app-audio--esencial.2.titulo': 'Lagu',
+  'tut.app-audio--esencial.2.texto':
+    'Proyekmu berbagi daftar dengan lagu bawaan, karya terkenal berdomain publik. Setiap kartu bisa diputar langsung di sini, dibuka di editor, atau disimpan ke album, yang berfungsi seperti folder.',
+  'tut.app-audio--esencial.3.titulo': 'Memulai lagu',
+  'tut.app-audio--esencial.3.texto':
+    '“Proyek baru” membuka editor dengan satu trek kosong, dan “Impor .mid” mengubah file MIDI menjadi proyek beserta not-notnya.',
+  'tut.app-audio--esencial.4.titulo': 'Editor',
+  'tut.app-audio--esencial.4.texto':
+    'Saat kamu membuka lagu, editor memenuhi ruangan: trek di kiri dan piano roll di kanan, tempat not digambar di atas kisi. Setiap trek punya instrumen synth sendiri, dari piano sampai drum, dan dimainkan dengan keyboard di layar, keyboard fisik, atau keyboard MIDI.',
+  'tut.app-audio--esencial.5.titulo': 'Rekam, ekspor, dan AI',
+  'tut.app-audio--esencial.5.texto':
+    'Tombol rekam memberi hitungan satu birama dengan metronom dan menyimpan permainanmu sebagai not; di trek audio, tombol ini merekam mikrofon. Di “Ekstra” ada “Berlatih”, “WAV” untuk mengunduh lagu, dan “AI”, yang menggubah untuk trek aktif atau melanjutkannya.',
+  'tut.app-audio--esencial.6.titulo': 'Rekaman',
+  'tut.app-audio--esencial.6.texto':
+    'Rekaman mikrofon tetap tersimpan di sini meskipun kamu mencabutnya dari trek atau menghapus proyeknya. Rekaman bisa diputar, diganti namanya, dan diunduh.',
+  'tut.app-audio--esencial.7.titulo': 'Mix',
+  'tut.app-audio--esencial.7.texto':
+    'Dua deck DJ yang disatukan crossfader. “Muat lagu” membawa lagu dari studio, audio dari perangkatmu, atau cuplikan iTunes, dan setiap deck punya pitch, equalizer, cue, dan SYNC untuk menyamakan tempo.',
+  'tut.app-video--esencial.1.titulo': 'Editor video',
+  'tut.app-video--esencial.1.texto':
+    'Di sini video disusun dari klip, teks, narasi, dan musik di atas linimasa. Ada dua menu: Video, berisi proyekmu, dan Animasi 3D, untuk merekam adegan di peta.',
+  'tut.app-video--esencial.2.titulo': 'Video',
+  'tut.app-video--esencial.2.texto':
+    'Video-videomu, masing-masing dengan sampul, format, dan durasinya; “Video baru” memulai satu dari nol. Sudah ada iklan app yang disusun dengan editor ini, yang bisa dibuka, diedit, atau dihapus seperti video lain.',
+  'tut.app-video--esencial.3.titulo': 'Bagian atas editor',
+  'tut.app-video--esencial.3.texto':
+    'Saat kamu membuka video, editor memenuhi ruangan. “Rekam di dalam app” merekam apa yang kamu lakukan di MindHaOS-mu dan membawanya kembali sebagai klip; “Ekspor” mengunduh video atau memublikasikannya di media sosialmu, dan “AI” menulis naskah dari sebuah ide.',
+  'tut.app-video--esencial.4.titulo': 'Pratinjau',
+  'tut.app-video--esencial.4.texto':
+    'Memutar video persis seperti hasil akhirnya, dan tombol di sudut-sudutnya membuka panel samping. Di kiri, Media: video, gambar, dan audiomu, koleksi Suara, serta karyamu di app Studio lainnya; di kanan, editor klip yang dipilih.',
+  'tut.app-video--esencial.5.titulo': 'Linimasa',
+  'tut.app-video--esencial.5.texto':
+    'Setiap trek berisi satu jenis klip: trek utama untuk video dan gambar, sementara trek teks, narasi, musik, atau efek suara muncul begitu ada isinya. Sekali ketuk memilih klip, menyeret memindahkannya, dan tepinya untuk memangkas.',
+  'tut.app-video--esencial.6.titulo': 'Tambah',
+  'tut.app-video--esencial.6.texto':
+    'Menaruh apa yang dibutuhkan di kursor, masing-masing di treknya: klip atau gambar, teks, narasi, musik, efek suara, avatarmu, Tokoh AR atau Masker AR, serta rekaman dari kamera atau mikrofon. Naskah dan transisi juga dibuka dari sini.',
+  'tut.app-video--esencial.7.titulo': 'Animasi 3D',
+  'tut.app-video--esencial.7.texto':
+    'Adegan yang direkam di peta MindHaOS-mu: avatar dan asistenmu berakting per plano, dengan dialog dan gerakan kamera. Hasilnya bisa diekspor, disimpan ke Media, atau dimasukkan sebagai klip ke sebuah video.',
   'tut.app-agenda--trabajo.1.titulo': 'Kotak masuk',
   'tut.app-agenda--trabajo.1.texto':
     'Kerja punya dua tampilan: baki Tugas dan Papan. Di Tugas tinggal apa yang harus dikerjakan tapi belum punya hari, lengkap dengan prioritasnya; tidak ada yang memaksamu memberi tanggal hanya untuk mencatatnya.',

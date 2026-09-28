@@ -401,6 +401,7 @@ export function TimelinePistas({
     <div
       ref={scrollerRef}
       data-timeline
+      data-tut="video.editor.timeline"
       className={`relative overflow-auto overscroll-contain rounded-xl border border-white/10 bg-white/5 select-none ${className}`}
       onScroll={marcarInteraccion}
       onPointerDown={marcarInteraccion}

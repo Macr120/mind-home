@@ -633,6 +633,7 @@ function Explorador({ puedeSubir }: { puedeSubir: boolean }) {
 
   return (
     <div
+      data-tut="archivos.explorador"
       className={`mx-auto flex w-full max-w-6xl flex-col gap-3 rounded-2xl md:flex-row md:gap-5 ${soltarSO === 'aqui' ? 'outline-2 outline-dashed outline-sky-400/60' : ''}`}
       onDragOver={(e) => {
         if (!puedeSubir || !e.dataTransfer.types.includes('Files')) return
@@ -660,12 +661,12 @@ function Explorador({ puedeSubir }: { puedeSubir: boolean }) {
         resaltado={resaltado}
         puedeSubir={puedeSubir}
         onNuevo={abrirNuevo}
-        medidor={<Medidor puedeSubir={puedeSubir} />}
+        medidor={<Medidor puedeSubir={puedeSubir} tut="archivos.medidor" />}
       />
 
       <div className="min-w-0 flex-1 space-y-3">
         <div className="md:hidden">
-          <Medidor puedeSubir={puedeSubir} />
+          <Medidor puedeSubir={puedeSubir} tut="archivos.medidor.movil" />
         </div>
 
         <div className={`${TARJETA} space-y-2 p-2`}>
@@ -695,7 +696,7 @@ function Explorador({ puedeSubir }: { puedeSubir: boolean }) {
               </BotonSecundario>
             )}
             {puedeSubir && !soloLectura && (ubi.tipo === 'mia' || ubi.tipo === 'cuarto') && (
-              <BotonSecundario pequeno onClick={abrirNuevo} className="md:hidden">
+              <BotonSecundario pequeno onClick={abrirNuevo} data-tut="archivos.nuevo.movil" className="md:hidden">
                 <Icono nombre="agregar" /> {t('archivos.nuevo', 'Nuevo')}
               </BotonSecundario>
             )}
@@ -744,7 +745,7 @@ function Explorador({ puedeSubir }: { puedeSubir: boolean }) {
               )}
             </div>
           ) : (
-            <div className="flex min-h-9 items-center gap-1.5">
+            <div className="flex min-h-9 items-center gap-1.5" data-tut="archivos.herramientas">
               <label className="relative min-w-0 flex-1">
                 <Icono nombre="lupa" className="pointer-events-none absolute start-2.5 top-1/2 -translate-y-1/2 text-white/40" />
                 <input

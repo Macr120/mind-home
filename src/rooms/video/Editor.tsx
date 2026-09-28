@@ -1829,9 +1829,9 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
           )}
         </>
       ) : (
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2" data-tut="video.editor.cabecera">
           {/* Cabecera del editor normal */}
-          <BotonSecundario pequeno onClick={cerrarEditor}>
+          <BotonSecundario pequeno onClick={cerrarEditor} data-tut="video.editor.volver">
             <Icono nombre="volver" /> <span className="hidden sm:inline">{t('video.editor.volver', 'Volver')}</span>
           </BotonSecundario>
           <p className="min-w-0 flex-1 truncate text-sm font-semibold">{proyecto.nombre}</p>

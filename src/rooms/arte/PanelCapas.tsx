@@ -41,6 +41,7 @@ export function PanelCapas({
 
   return (
     <div
+      data-tut="arte.capas"
       onPointerDown={(e) => e.stopPropagation()}
       onWheel={(e) => e.stopPropagation()}
       className="absolute inset-x-2 bottom-2 z-10 max-h-[45%] space-y-1 overflow-y-auto rounded-xl border border-white/10 bg-black/50 p-2 backdrop-blur md:inset-x-auto md:inset-y-2 md:right-2 md:max-h-none md:w-64"

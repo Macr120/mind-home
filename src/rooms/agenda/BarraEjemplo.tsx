@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import type {
   AreaAgenda,
   ContactoAgenda,
@@ -6,18 +6,19 @@ import type {
   Mascota,
   Medicamento,
 } from '../../core/data/db'
-import { esDemo } from '../../core/edicion'
+import { useEjemplos, useSeccionDecidida } from '../../core/data/ejemplos'
+import { esDemo, esVisita } from '../../core/edicion'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
-import { borrarEjemplo, cargarEjemplo, hayEjemplo } from './ejemplos'
+import { borrarEjemplo, cargarEjemplo, hayEjemplo, ponerEjemploPrimeraVez, seccionEjemplo } from './ejemplos'
 
 /**
- * Cargar y tirar el ejemplo de una sección desde la propia sección.
+ * El ejemplo de fábrica de una sección, desde la propia sección.
  *
- * Es el pie de cada pestaña, no un botón grande: sirve para ver la agenda con
- * cosas dentro la primera vez, y estorba en cuanto ya tienes las tuyas. Borrar
- * pide confirmación porque se lleva TODO el ejemplo (y sus bloques del
- * calendario), no solo la fila que estés mirando.
+ * La primera vez que se abre vacía, el ejemplo se pone solo. Mientras esté, el
+ * pie ofrece borrarlo entero; pide confirmación porque se lleva TODO el ejemplo
+ * (y sus bloques del calendario), no solo la fila que estés mirando. Cuando ya
+ * no queda nada de él, ofrece restaurarlo.
  */
 export function BarraEjemplo({
   area,
@@ -36,10 +37,18 @@ export function BarraEjemplo({
   const t = useT()
   const [ocupado, setOcupado] = useState(false)
   const [confirmando, setConfirmando] = useState(false)
+  const decidida = useSeccionDecidida(seccionEjemplo(area))
+  // Casa demo: el año de Pep@ YA es el ejemplo. Casa visitada: no es tuya.
+  const fuera = esDemo() || esVisita()
 
-  // Casa demo: el año de Pep@ YA es el ejemplo (y cargar/borrar está bloqueado).
-  if (esDemo()) return null
+  useEffect(() => {
+    if (!fuera && !decidida) void ponerEjemploPrimeraVez(area)
+  }, [area, decidida, fuera])
+
+  if (fuera) return null
   const cargado = hayEjemplo(area, eventos, contactos, medicinas, mascotas)
+  // Poniéndose por primera vez: en un momento aparece el ejemplo.
+  if (!cargado && !decidida) return null
 
   const correr = async (fn: () => Promise<void>) => {
     if (ocupado) return
@@ -52,25 +61,30 @@ export function BarraEjemplo({
     }
   }
 
+  const restaurar = async () => {
+    useEjemplos.getState().decidir(seccionEjemplo(area))
+    await cargarEjemplo(area)
+  }
+
   return (
     <div
       className="flex flex-wrap items-center gap-2 rounded-xl border border-dashed border-white/10 px-3 py-2"
       data-tut={`agenda.ejemplo.${area}`}
     >
-      <p className="min-w-0 flex-1 text-[11px] leading-relaxed text-white/40">
-        {cargado
-          ? t('agenda.ejemplo.cargado', 'Lo que ves de ejemplo se puede borrar de golpe, con sus bloques del calendario.')
-          : t('agenda.ejemplo.vacio', '¿No sabes por dónde empezar? Carga un ejemplo y míralo por dentro.')}
-      </p>
+      {cargado && (
+        <p className="min-w-0 flex-1 text-[11px] leading-relaxed text-white/40">
+          {t('agenda.ejemplo.cargado', 'Lo que ves de ejemplo se puede borrar de golpe, con sus bloques del calendario.')}
+        </p>
+      )}
 
       {!cargado && (
         <button
           type="button"
-          onClick={() => void correr(() => cargarEjemplo(area))}
+          onClick={() => void correr(restaurar)}
           disabled={ocupado}
-          className="shrink-0 rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-white/60 transition hover:bg-white/10 disabled:opacity-40"
+          className="ml-auto shrink-0 rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-white/60 transition hover:bg-white/10 disabled:opacity-40"
         >
-          <Icono nombre="ayuda" /> {t('agenda.ejemplo.cargar', 'Cargar un ejemplo')}
+          <Icono nombre="restaurar" /> {t('ejemplo.restaurar', 'Restaurar ejemplo de fábrica')}
         </button>
       )}
 

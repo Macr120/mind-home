@@ -1102,24 +1102,28 @@ export const cuerpoEjemplos: CuerpoTutorial = {
   },
   pasos: [
     {
+      sel: 'anecdotario.lista',
+      titulo: T('tut.ejemplos.1.titulo', 'Se pone solo'),
+      texto: T(
+        'tut.ejemplos.1.texto',
+        'La primera vez que abres una sección vacía, su ejemplo de fábrica se pone solo, para no empezar ante una pantalla en blanco. Sus filas son normales: las cambias o las borras una a una, como cualquier otra.',
+      ),
+    },
+    {
       // El id del paquete es 'anecdotario.recuerdos' (BarraEjemplo pinta
       // `ejemplo.<paquete.id>`); con 'ejemplo.anecdotario' a secas nunca casó.
       sel: 'ejemplo.anecdotario.recuerdos',
-      texto: T(
-        'tut.ejemplos.1.texto',
-        'Esta barra aparece en casi todas las apps cuando aún no tienen datos tuyos: un botón para verla llena de ejemplo, en vez de empezar frente a una pantalla vacía.',
-      ),
-    },
-    {
+      titulo: T('tut.ejemplos.2.titulo', 'Borrar o restaurar'),
       texto: T(
         'tut.ejemplos.2.texto',
-        'Ver un ejemplo no borra ni mezcla nada tuyo: son filas propias, marcadas como ejemplo, que se ocultan (no se borran) al apagarlo. Volver a encenderlo las trae de vuelta tal cual estaban.',
+        'Al pie de la sección, «Borrar el ejemplo» lo quita entero después de confirmar con «Sí, borrar el ejemplo», y lo tuyo nunca se toca. Cuando ya no queda nada de él, ahí mismo aparece «Restaurar ejemplo de fábrica».',
       ),
     },
     {
+      titulo: T('tut.ejemplos.3.titulo', 'No cuenta como tuyo'),
       texto: T(
         'tut.ejemplos.3.texto',
-        'Dentro de la MindHaOS demo (Casa Mental OS) esta barra no aparece: el año entero de Pep@ ya cumple ese papel, así que no hace falta un ejemplo aparte.',
+        'El ejemplo no suma XP ni rachas, no genera avisos, no entra en tu Wrapped y la IA no lo tiene en cuenta. En la MindHaOS demo este pie no aparece: el año entero de Pep@ ya es el ejemplo.',
       ),
     },
   ],

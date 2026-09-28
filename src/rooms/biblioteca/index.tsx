@@ -15,6 +15,7 @@ import { PILARES } from './pilares'
 import { PILAR_GENERAL } from './constantes'
 import { OPERACIONES_IA } from './costosIA'
 import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
+import { sinEjemplos } from '../../core/data/ejemplos'
 
 const IDS_PILARES = [...PILARES.map((p) => p.id), PILAR_GENERAL.id]
 const DESC_PILARES = PILARES.map((p) => `${p.id} = ${p.titulo}`).join(', ')
@@ -148,13 +149,13 @@ const biblioteca: Plantilla = {
   planMetas: async () => {
     const hoy = fechaLocalISO()
     const desde = isoMasDias(hoy, -29)
-    const sesiones = (await sesionesEstudioRepo.list()).filter((s) => s.fecha >= desde && s.fecha <= hoy)
+    const sesiones = sinEjemplos(await sesionesEstudioRepo.list()).filter((s) => s.fecha >= desde && s.fecha <= hoy)
     const contexto: string[] = []
     if (sesiones.length > 0)
       contexto.push(
         `Últimos 30 días: ${sesiones.reduce((s, x) => s + x.minutos, 0)} min de estudio en ${sesiones.length} sesiones.`,
       )
-    const entradas = await entradasBiblioRepo.list()
+    const entradas = sinEjemplos(await entradasBiblioRepo.list())
     if (entradas.length > 0) contexto.push(`Enciclopedia personal: ${entradas.length} entradas.`)
     return {
       guia: [
@@ -188,7 +189,7 @@ const biblioteca: Plantilla = {
     seccion: 'estudio',
     ajustable: true,
     del: async (fecha) => ({
-      hecho: (await sesionesEstudioRepo.list())
+      hecho: sinEjemplos(await sesionesEstudioRepo.list())
         .filter((s) => s.fecha === fecha)
         .reduce((s, x) => s + x.minutos, 0),
       objetivo: await objetivoDiarioDe('biblioteca', 20),

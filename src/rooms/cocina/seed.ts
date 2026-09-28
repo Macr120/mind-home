@@ -53,14 +53,29 @@ export async function sembrarCocina() {
   const perfil = await db.perfilNutricion.toCollection().first()
   if (!perfil) await db.perfilNutricion.add(filaSeed('perfilNutricion-0', PERFIL_DEFECTO))
 
-  if (localStorage.getItem(LS_EJEMPLOS) !== VERSION_EJEMPLOS) {
-    const textos = await textosEjemplosCocina(idiomaActual())
-    await sembrarEjemplos(textos)
-    await catalogarMomentos()
-    await sembrarDiaEjemplo(textos)
-    await sembrarListaEjemplo(textos)
+  const version = localStorage.getItem(LS_EJEMPLOS)
+  if (version !== VERSION_EJEMPLOS) {
+    // Una versión nueva de los ejemplos no resucita el que el usuario ya borró
+    // (el pie del recetario, `ejemploCocina`): sin ninguna receta de fábrica
+    // solo se apunta la versión.
+    if (version === null || (await db.recetas.where('uid').startsWith('seed-recetas-').count())) {
+      await sembrarEjemplosCocina(false)
+    }
     localStorage.setItem(LS_EJEMPLOS, VERSION_EJEMPLOS)
   }
+}
+
+/**
+ * Las recetas, dietas, el día de ejemplo y la lista de fábrica que falten (cada
+ * parte es idempotente por uid). `restaurar`: el usuario los pidió de vuelta
+ * desde el pie del recetario (ver `filaSeed`).
+ */
+export async function sembrarEjemplosCocina(restaurar: boolean) {
+  const textos = await textosEjemplosCocina(idiomaActual())
+  await sembrarEjemplos(textos, restaurar)
+  await catalogarMomentos()
+  await sembrarDiaEjemplo(textos, restaurar)
+  await sembrarListaEjemplo(textos, restaurar)
 }
 
 /** La `clave` de ejemplo de una fila sembrada, leída de su uid `seed-<prefijo>-<clave>`. */
@@ -90,7 +105,7 @@ async function catalogarMomentos() {
  * reales del usuario, pero la gráfica de 7 días y la adherencia nacen con algo
  * que mostrar. Se borran como cualquier registro.
  */
-async function sembrarDiaEjemplo(textos: TextosEjemplosCocina | null) {
+async function sembrarDiaEjemplo(textos: TextosEjemplosCocina | null, restaurar: boolean) {
   const fecha = sumarDias(hoyISO(), -1)
   // Idempotencia por UID y no por fecha. Los uid de la siembra son fijos
   // (`seed-registrosComida-demo-N`) pero la fecha es AYER, que cambia cada día:
@@ -111,28 +126,33 @@ async function sembrarDiaEjemplo(textos: TextosEjemplosCocina | null) {
     grasas: c.kcal[3],
     ...(c.nota ? { nota: textos?.dia[i]?.nota ?? c.nota } : {}),
   }))
-  await db.registrosComida.bulkAdd(filasSeed('registrosComida-demo', comidas))
+  await db.registrosComida.bulkAdd(filasSeed('registrosComida-demo', comidas, undefined, restaurar))
 
   // Mismo motivo que arriba: por uid, que es lo que el índice único protege.
   if (!(await db.registrosAgua.where('uid').startsWith('seed-registrosAgua-demo').count())) {
     await db.registrosAgua.bulkAdd(
-      filasSeed('registrosAgua-demo', [
-        { fecha, ml: 750 },
-        { fecha, ml: 750 },
-        { fecha, ml: 500 },
-      ]),
+      filasSeed(
+        'registrosAgua-demo',
+        [
+          { fecha, ml: 750 },
+          { fecha, ml: 750 },
+          { fecha, ml: 500 },
+        ],
+        undefined,
+        restaurar,
+      ),
     )
   }
 }
 
 /** Lista del súper de ejemplo, ya guardada y con parte marcada como comprada. */
-async function sembrarListaEjemplo(textos: TextosEjemplosCocina | null) {
+async function sembrarListaEjemplo(textos: TextosEjemplosCocina | null, restaurar: boolean) {
   // Idempotencia por uid (el nombre puede estar traducido).
   if ((await db.listasCompra.toArray()).some((l) => l.uid === 'seed-listasCompra-super')) return
 
   const creadoEn = new Date().toISOString()
   const listaId = await db.listasCompra.add(
-    filaSeed('listasCompra-super', { nombre: textos?.lista.nombre ?? LISTA_EJEMPLO.nombre, creadoEn }),
+    filaSeed('listasCompra-super', { nombre: textos?.lista.nombre ?? LISTA_EJEMPLO.nombre, creadoEn }, restaurar),
   )
   await db.itemsCompra.bulkAdd(
     filasSeed(
@@ -147,6 +167,8 @@ async function sembrarListaEjemplo(textos: TextosEjemplosCocina | null) {
         creadoEn,
         listaId,
       })),
+      undefined,
+      restaurar,
     ),
   )
 }
@@ -157,7 +179,7 @@ async function sembrarListaEjemplo(textos: TextosEjemplosCocina | null) {
  * se pueden añadir ejemplos nuevos subiendo VERSION_EJEMPLOS sin repetir los
  * anteriores.
  */
-async function sembrarEjemplos(textos: TextosEjemplosCocina | null) {
+async function sembrarEjemplos(textos: TextosEjemplosCocina | null, restaurar: boolean) {
   const creadaEn = new Date().toISOString()
   const idPorClave = new Map<string, number>()
   for (const r of await db.recetas.toArray()) {
@@ -169,7 +191,7 @@ async function sembrarEjemplos(textos: TextosEjemplosCocina | null) {
     if (idPorClave.has(r.clave)) continue
     const { clave, ...base } = r
     const id = await db.recetas.add(
-      filaSeed(`recetas-${clave}`, { ...base, ...textos?.recetas[clave], fuente: 'seed', creadaEn }),
+      filaSeed(`recetas-${clave}`, { ...base, ...textos?.recetas[clave], fuente: 'seed', creadaEn }, restaurar),
     )
     idPorClave.set(clave, id)
   }
@@ -205,7 +227,7 @@ async function sembrarEjemplos(textos: TextosEjemplosCocina | null) {
     recetaIds: idsDe(recetas),
     creadoEn: creadaEn,
   }))
-  const nuevas = filasSeed('dietasGuardadas', dietas, (_, i) => faltantes[i].clave)
+  const nuevas = filasSeed('dietasGuardadas', dietas, (_, i) => faltantes[i].clave, restaurar)
   if (nuevas.length) await db.dietasGuardadas.bulkAdd(nuevas)
 }
 

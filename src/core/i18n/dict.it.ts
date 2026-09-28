@@ -1491,9 +1491,7 @@ export const IT: Dict = {
   'despacho.s.intereses': 'Interessi totali',
   'despacho.s.col.capital': 'Capitale',
   'despacho.s.col.restante': 'Saldo residuo',
-  'despacho.ejemplo.vacio': 'Non sai da dove iniziare? Carica un esempio e dagli un\'occhiata da dentro.',
   'despacho.ejemplo.cargado': 'Tutto quello che vedi come esempio si può cancellare in un colpo solo.',
-  'despacho.ejemplo.cargar': 'Carica un esempio',
   'despacho.ejemplo.borrar': 'Elimina l\'esempio',
   'despacho.ejemplo.confirmar': 'Sì, elimina l\'esempio',
   'despacho.mk.divisas': 'Forex',
@@ -6721,7 +6719,7 @@ export const IT: Dict = {
     'L\'IA si attiva in Editor › Impostazioni. Ogni operazione —una risposta, un piano, un\'immagine, un modello 3D— ha la sua tariffa in crediti, visibile prima di richiederla. Con la tua chiave del fornitore non si spendono crediti: lo paghi direttamente.',
   'tut.ejemplos.titulo': 'Iniziare con un esempio',
   'tut.ejemplos.resumen':
-    'Quasi ogni app ha una barra per vedere un esempio pronto con i dati già inseriti, e nasconderlo dopo senza perdere nulla di tuo. Non compare nella MindHaOS demo (Casa Mentale OS): lì l\'anno intero È GIÀ l\'esempio.',
+    'La prima volta che apri una sezione vuota, il suo esempio originale si inserisce da solo, così non parti da uno schermo bianco. Sono righe normali che modifichi o elimini come tutte le altre; in fondo alla sezione, «Elimina l\'esempio» lo toglie per intero senza toccare le tue e, quando non ne resta più nulla, «Ripristina l’esempio originale» lo riporta. Non conta per XP, serie, promemoria, Wrapped né per l’IA, e non compare nella MindHaOS demo: lì l’anno di Andrea è già l’esempio.',
   'tut.hoy.titulo': 'Oggi',
   'tut.hoy.resumen':
     'Le missioni vivono dentro ogni app: il suo pulsante Missioni apre l’elenco di oggi — quello che quell’app ti chiede e quello che hai messo in programma per oggi. Un passo è fatto perché la registrazione esiste già nell’app, non perché qualcuno l’ha spuntato. Il pallino rosso di una stanza è ciò che le resta oggi, e il pulsante Missioni dell’orologio mostra quello di tutte le app insieme.',
@@ -7380,6 +7378,16 @@ export const IT: Dict = {
     'Il pianificatore di tutta la MindHaOS, in tre schede: Obiettivi (l’elenco di ciò che ti sei proposto, raggruppato per l’app che porta ognuno), Piani (le bozze di programma che ripartiscono un obiettivo in fasi) e Programma (l’asse del tempo dove cadono tutti). Non conserva registrazioni proprie: riunisce gli obiettivi e i piani che nascono nelle altre app. Da un obiettivo si apre il suo foglio e, da lì, il suo asse delimitato.',
   'tut.app-sala--esencial.resumen':
     'Il soggiorno è il tuo mondo viaggiatore, in cinque schede: Mappa (spilli di luoghi sulla mappa del mondo, con vista globo), Itinerario (luoghi da scoprire con il loro piano giorno per giorno), Percorsi (tragitti che collegano luoghi), Come arrivare (tragitti porta a porta che combinano piedi, mezzi pubblici, bici, moto e auto) e Diario di bordo (ricordi con foto e aneddoti per paese).',
+  'tut.app-escritura--esencial.resumen':
+    'Scrittura è uno scaffale di libri. Ogni libro ha le sue cartelle — capitoli, personaggi, luoghi e atti con le loro trame — e un diagramma delle relazioni tra i personaggi. L’editor formatta, crea un indice dai titoli, esporta in TXT o PDF e ha un’IA che scrive, migliora, continua e riassume. La prima volta trovi già un libro di esempio, «L’inverno del faro», che elimini o ripristini dalla barra appena sotto.',
+  'tut.app-arte--esencial.resumen':
+    'Arte è il tuo studio di disegno e foto: una galleria di disegni e, quando ne apri uno, una tela a livelli con pennello, spray, forme, riempimento, testo e foto. Ci sono filtri, aiuti come il righello o lo specchio, l’esportazione in PNG e un’IA che dipinge ciò che descrivi o reinterpreta il tuo disegno. Due disegni sono già inclusi, «Pomeriggio nella valle» e «Natura morta con frutta», che elimini o ripristini dalla barra in fondo alla galleria.',
+  'tut.app-archivos--esencial.resumen':
+    'L’app File è il tuo cloud: cartelle e file di ogni tipo, con anteprima, su tutti i tuoi dispositivi. Serve accedere e avere un piano Pro, con 10, 30 o 100 GB in base al livello; se il piano finisce, ciò che hai caricato resta visibile e scaricabile per 90 giorni. Ogni stanza ha la sua cartella con ciò che la sua app conserva già, e ci sono Recenti, Speciali, un Cestino di 30 giorni e link di condivisione che si aprono senza account.',
+  'tut.app-audio--esencial.resumen':
+    'Lo studio musicale ha due menu. In Canzoni ci sono i tuoi progetti e canzoni già pronte da ascoltare o aprire nell’editor: tracce con piano roll, strumenti synth, tastiera a schermo o MIDI, registrazione con metronomo, esportazione WAV e un’IA che compone con te. Mix sono due piatti da DJ con crossfader per mixare canzoni dello studio, audio tuoi o anteprime di iTunes.',
+  'tut.app-video--esencial.resumen':
+    'L’editor video monta clip, immagini, testi, narrazione, musica e suoni su una linea del tempo a tracce, con un’anteprima che riproduce tutto così come verrà. Puoi registrare l’app stessa come clip, chiedere il copione all’IA ed esportare il video o pubblicarlo sui tuoi social. In Animazione 3D giri scene sulla mappa con il tuo avatar e i tuoi assistenti.',
   'tut.app-anecdotario--diario.titulo': 'Il diario di Andrea',
   'tut.app-anecdotario--diario.resumen':
     'Il diario dei ricordi è il diario personale: voci con umore, testo e foto, un calendario che colora l\'anno in base a come ti sei sentito, e la cronologia in cartelle per anno, mese e settimana.',
@@ -7610,15 +7618,13 @@ export const IT: Dict = {
   'agenda.trabajo.pendientes': 'Da fare',
   'agenda.trabajo.tablero': 'Bacheca',
   'agenda.trabajo.apuntar': 'Annota un compito',
-  'ejemplo.vacio': 'Non sai da dove iniziare? Guarda come appare con un esempio dentro.',
-  'ejemplo.puesto': 'Questo è un esempio: nascondilo quando vuoi, i tuoi dati restano intatti.',
-  'ejemplo.mostrar': 'Vedi un esempio',
-  'ejemplo.ocultar': 'Nascondi l\'esempio',
+  'ejemplo.puesto': 'Questo è un esempio già incluso: eliminalo quando vuoi.',
   'ejemplo.sinSitio': 'Al momento non c\'è posto libero sulla mappa per l\'esempio.',
-  'agenda.ejemplo.vacio': 'Non sai da dove iniziare? Carica un esempio ed esploralo da dentro.',
+  'ejemplo.borrar': 'Elimina l\'esempio',
+  'ejemplo.confirmar': 'Sì, elimina l\'esempio',
+  'ejemplo.restaurar': 'Ripristina l’esempio originale',
   'agenda.ejemplo.cargado':
     'Tutto quello che vedi come esempio si può cancellare in un colpo solo, blocchi del calendario inclusi.',
-  'agenda.ejemplo.cargar': 'Carica un esempio',
   'agenda.ejemplo.borrar': 'Elimina l\'esempio',
   'agenda.ejemplo.confirmar': 'Sì, elimina l\'esempio',
   'agenda.tablero.porhacer': 'Da fare',

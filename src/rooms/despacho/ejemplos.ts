@@ -1,5 +1,7 @@
 import type { Meta, Patrimonio, Transaccion } from '../../core/data/db'
+import { syncListoParaEjemplos, useEjemplos } from '../../core/data/ejemplos'
 import { finanzasRepo, metasRepo, patrimonioRepo } from '../../core/data/repository'
+import { esDemo, esVisita } from '../../core/edicion'
 import { porIdioma, type PorIdioma } from '../_shared/ejemplos/tipos'
 import { hoyISO, sumarPeriodo } from './mes'
 import type { TipoMeta } from './MetasTab'
@@ -299,4 +301,50 @@ export async function borrarEjemploPatrimonio(
   for (const f of filas.filter((x) => x.ejemplo && x.naturaleza === naturaleza)) {
     if (f.id != null) await patrimonioRepo.remove(f.id)
   }
+}
+
+// ----- La primera vez -----
+
+/** Ids de sección en `core/data/ejemplos.ts` (las que recuerdan si ya se decidieron). */
+export const seccionMovimientos = (tipo: Transaccion['tipo']) => `despacho.mov.${tipo}`
+export const seccionMeta = (tipo: TipoMeta) => `despacho.meta.${tipo}`
+export const seccionPatrimonio = (naturaleza: Patrimonio['naturaleza']) => `despacho.patr.${naturaleza}`
+
+let enCurso: Promise<void> | null = null
+
+/**
+ * Al abrir Finanzas por primera vez, cada sección vacía recibe su ejemplo, y
+ * TODAS a la vez: el Balance, que es lo primero que se ve, sale de los
+ * movimientos, y la Simulación del patrimonio. Una sección con algo tuyo queda
+ * decidida y no se toca nunca más.
+ */
+export function ponerEjemplosPrimeraVez(): Promise<void> {
+  enCurso ??= (async () => {
+    if (esDemo() || esVisita()) return
+    const { decididas, decidir } = useEjemplos.getState()
+    // [sección, ¿ya tiene algo (tuyo o de ejemplo)?, cómo se carga su ejemplo]
+    const secciones: [string, boolean, () => Promise<void>][] = []
+    const [movs, metas, patrimonio] = await Promise.all([finanzasRepo.list(), metasRepo.list(), patrimonioRepo.list()])
+    for (const tipo of ['ingreso', 'gasto'] as const) {
+      secciones.push([seccionMovimientos(tipo), movs.some((m) => m.tipo === tipo), () => cargarEjemplo(tipo)])
+    }
+    for (const tipo of ['ahorro', 'inversion', 'deuda'] as const) {
+      const conAlgo = metas.some((m) => (m.tipo ?? 'ahorro') === tipo)
+      secciones.push([seccionMeta(tipo), conAlgo, () => cargarEjemploMeta(tipo)])
+    }
+    for (const naturaleza of ['activo', 'pasivo'] as const) {
+      const conAlgo = patrimonio.some((f) => f.naturaleza === naturaleza)
+      secciones.push([seccionPatrimonio(naturaleza), conAlgo, () => cargarEjemploPatrimonio(naturaleza)])
+    }
+    const pendientes = secciones.filter(([id]) => !decididas.includes(id))
+    // Sin el primer sync, una sección vacía puede ser solo una sección sin bajar.
+    if (!pendientes.length || !(await syncListoParaEjemplos())) return
+    for (const [id, conAlgo, cargar] of pendientes) {
+      decidir(id)
+      if (!conAlgo) await cargar()
+    }
+  })().finally(() => {
+    enCurso = null
+  })
+  return enCurso
 }

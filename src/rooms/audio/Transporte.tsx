@@ -413,6 +413,7 @@ export function Transporte({
       <button
         type="button"
         onClick={onCerrar}
+        data-tut="audio.editor.volver"
         aria-label={t('audio.editor.volver', 'Volver a los proyectos')}
         title={t('audio.editor.volver', 'Volver a los proyectos')}
         className="flex h-9 max-w-36 items-center gap-0.5 rounded-lg border border-white/10 bg-white/10 px-2 transition hover:bg-white/20 active:scale-95"

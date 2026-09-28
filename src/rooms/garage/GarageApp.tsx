@@ -14,7 +14,9 @@ import { useAjustes } from '../../core/state/ajustesStore'
 import { useT } from '../../core/i18n/useT'
 import { tabInicial } from '../../core/state/intencionApp'
 import { PestanasCarpeta, type ItemPestana } from '../_shared/PestanasCarpeta'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { COLOR } from './constantes'
+import { ejemploGarage } from './ejemplos'
 
 type Tab = 'resumen' | 'vehiculos'
 
@@ -91,12 +93,15 @@ export function GarageApp() {
             />
           )}
           {tab === 'vehiculos' && (
-            <VehiculosTab
-              vehiculos={vehiculos}
-              registros={registros}
-              tramites={tramites}
-              onAbrir={setVehiculoId}
-            />
+            <>
+              <VehiculosTab
+                vehiculos={vehiculos}
+                registros={registros}
+                tramites={tramites}
+                onAbrir={setVehiculoId}
+              />
+              <BarraEjemplo paquete={ejemploGarage} />
+            </>
           )}
         </>
       )}

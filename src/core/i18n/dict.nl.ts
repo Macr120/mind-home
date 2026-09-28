@@ -1495,9 +1495,7 @@ export const NL: Dict = {
   'despacho.s.intereses': 'Totale rente',
   'despacho.s.col.capital': 'Hoofdsom',
   'despacho.s.col.restante': 'Resterend',
-  'despacho.ejemplo.vacio': 'Weet je niet waar te beginnen? Laad een voorbeeld en bekijk het van binnen.',
   'despacho.ejemplo.cargado': 'Alles wat je als voorbeeld ziet, kun je in één keer wissen.',
-  'despacho.ejemplo.cargar': 'Voorbeeld laden',
   'despacho.ejemplo.borrar': 'Voorbeeld verwijderen',
   'despacho.ejemplo.confirmar': 'Ja, voorbeeld verwijderen',
   'despacho.mk.divisas': 'Valuta',
@@ -6724,7 +6722,7 @@ export const NL: Dict = {
     'AI schakel je in via Editor › Instellingen. Elke bewerking —een antwoord, een plan, een afbeelding, een 3D-model— heeft zijn prijs in credits, zichtbaar voordat je erom vraagt. Met je eigen providersleutel worden geen credits verbruikt: je betaalt rechtstreeks aan de provider.',
   'tut.ejemplos.titulo': 'Beginnen met een voorbeeld',
   'tut.ejemplos.resumen':
-    'Bijna elke app heeft een balk om een kant-en-klaar voorbeeld met al ingevulde gegevens te bekijken, en die later weer te verbergen zonder iets van jezelf te verliezen. In het demo-MindHaOS (Mentaal Huis OS) zie je hem niet: daar IS het hele jaar al het voorbeeld.',
+    'De eerste keer dat je een leeg onderdeel opent, verschijnt het standaardvoorbeeld vanzelf, zodat je niet voor een leeg scherm begint. Het zijn gewone regels die je wijzigt of verwijdert zoals alle andere; onderaan haalt “Voorbeeld verwijderen” het helemaal weg zonder aan het jouwe te komen, en als er niets meer van over is, brengt “Standaardvoorbeeld herstellen” het terug. Het telt niet mee voor XP, reeksen, meldingen, Wrapped of de AI, en in het demo-MindHaOS zie je het niet: daar is het jaar van Sam al het voorbeeld.',
   'tut.hoy.titulo': 'Vandaag',
   'tut.hoy.resumen':
     'Missies wonen in elke app: de knop Missies opent de checklist van vandaag — wat die app van je vraagt en wat je voor vandaag hebt ingepland. Een stap wordt doorgestreept omdat de registratie al in de app bestaat, niet omdat iemand hem heeft afgevinkt. Het rode bolletje van een kamer is wat daar vandaag nog openstaat, en de knop Missies bij de klok laat die van alle apps tegelijk zien.',
@@ -7384,6 +7382,16 @@ export const NL: Dict = {
     'De planner van het hele MindHaOS, in drie menu\'s: Doelen (de lijst van wat je jezelf hebt voorgenomen, gegroepeerd per app die elk doel bijhoudt), Plannen (de planningsontwerpen die een doel in fasen verdelen) en Tijdlijn (de tijdas waar ze allemaal op vallen). Hij houdt zelf geen gegevens bij: hij verzamelt de doelen en plannen die in de andere apps ontstaan. Vanuit een doel open je het bijbehorende blad en, van daaruit, de tijdlijn die tot dat doel beperkt is.',
   'tut.app-sala--esencial.resumen':
     'De woonkamer is jouw reiswereld, in vijf menu\'s: Kaart (spelden van plekken op de wereldkaart, met globeweergave), Reisplan (plekken om te ontdekken met een dag-tot-dagplan), Routes (trajecten die plekken aan elkaar rijgen), Route plannen (reizen van deur tot deur die lopen, openbaar vervoer, fiets, motor en auto combineren) en Logboek (herinneringen met foto\'s en verhalen per land).',
+  'tut.app-escritura--esencial.resumen':
+    'Schrijven is een boekenkast. Elk boek bewaart zijn teksten in mappen – hoofdstukken, personages, plaatsen en bedrijven met hun plotlijnen – en heeft een diagram van de relaties tussen de personages. De editor verzorgt de opmaak, maakt een inhoudsopgave van de koppen, exporteert naar TXT of PDF en heeft een AI die schrijft, verbetert, voortzet en samenvat. De eerste keer staat er al een voorbeeldboek klaar, “Het winterlicht”, dat je via de balk eronder verwijdert of herstelt.',
+  'tut.app-arte--esencial.resumen':
+    'Kunst is je teken- en fotostudio: een galerij met tekeningen en, als je er een opent, een doek met lagen, met penseel, spray, vormen, vullen, tekst en foto’s. Er zijn filters, hulpmiddelen zoals de liniaal of de spiegel, export naar PNG en een AI die schildert wat je beschrijft of je tekening herinterpreteert. Er staan al twee tekeningen klaar, “Middag in de vallei” en “Stilleven met fruit”, die je via de balk onderaan de galerij verwijdert of herstelt.',
+  'tut.app-archivos--esencial.resumen':
+    'Bestanden is je cloud: mappen en bestanden van elk type, met voorbeeld, op al je apparaten. Je moet ingelogd zijn en een Pro-abonnement hebben, met 10, 30 of 100 GB afhankelijk van je niveau; stopt het abonnement, dan kun je wat je hebt geüpload nog 90 dagen bekijken en downloaden. Elke kamer heeft een eigen map met wat de app ervan al bewaart, en er zijn Recent, Met ster, een Prullenbak van 30 dagen en deellinks die zonder account opengaan.',
+  'tut.app-audio--esencial.resumen':
+    'De muziekstudio heeft twee menu\'s. In Nummers staan je projecten en kant-en-klare nummers die je kunt beluisteren of openen in de editor: sporen met een pianorol, synth-instrumenten, een scherm- of MIDI-toetsenbord, opnemen met metronoom, WAV-export en een AI die met je meecomponeert. Mix is een set van twee dj-decks met een crossfader om nummers uit de studio, je eigen audio of iTunes-fragmenten te mixen.',
+  'tut.app-video--esencial.resumen':
+    'De video-editor zet clips, beelden, tekst, voice-over, muziek en geluiden op een tijdlijn met sporen, met een voorbeeld dat alles afspeelt zoals het eruit komt. Je kunt de app zelf opnemen als clip, de AI om een script vragen en de video exporteren of op je sociale media plaatsen. In 3D-animatie draai je scènes op de kaart met je avatar en je assistenten.',
   'tut.app-anecdotario--diario.titulo': 'Sams dagboek',
   'tut.app-anecdotario--diario.resumen':
     'Het herinneringsdagboek is het persoonlijke dagboek: items met een stemming, tekst en foto\'s, een kalender die het jaar inkleurt naar hoe je je voelde, en de geschiedenis in mappen per jaar, maand en week.',
@@ -7614,15 +7622,13 @@ export const NL: Dict = {
   'agenda.trabajo.pendientes': 'Taken',
   'agenda.trabajo.tablero': 'Bord',
   'agenda.trabajo.apuntar': 'Taak noteren',
-  'ejemplo.vacio': 'Weet je niet waar je moet beginnen? Bekijk hoe het eruitziet met een voorbeeld erin.',
-  'ejemplo.puesto': 'Dit is een voorbeeld: verberg het wanneer je wilt, je eigen gegevens blijven ongewijzigd.',
-  'ejemplo.mostrar': 'Voorbeeld bekijken',
-  'ejemplo.ocultar': 'Voorbeeld verbergen',
+  'ejemplo.puesto': 'Dit is een standaardvoorbeeld: verwijder het wanneer je wilt.',
   'ejemplo.sinSitio': 'Er is nu geen vrije plek op de kaart voor het voorbeeld.',
-  'agenda.ejemplo.vacio': 'Weet je niet waar je moet beginnen? Laad een voorbeeld en bekijk het van binnen.',
+  'ejemplo.borrar': 'Voorbeeld verwijderen',
+  'ejemplo.confirmar': 'Ja, voorbeeld verwijderen',
+  'ejemplo.restaurar': 'Standaardvoorbeeld herstellen',
   'agenda.ejemplo.cargado':
     'Alles wat je als voorbeeld ziet, kun je in één keer wissen, inclusief de blokken in de kalender.',
-  'agenda.ejemplo.cargar': 'Voorbeeld laden',
   'agenda.ejemplo.borrar': 'Voorbeeld verwijderen',
   'agenda.ejemplo.confirmar': 'Ja, voorbeeld verwijderen',
   'agenda.tablero.porhacer': 'Te doen',

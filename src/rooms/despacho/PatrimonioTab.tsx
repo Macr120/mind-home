@@ -13,7 +13,7 @@ import { useFoco, type FocoFinanzas } from './foco'
 import { Ayuda, BotonPrimario, CampoDinero, INPUT, Plegable, ROJO, TARJETA, VERDE } from './ui'
 import { SimulacionTab } from './SimulacionTab'
 import { BarraEjemplo } from './BarraEjemplo'
-import { borrarEjemploPatrimonio, cargarEjemploPatrimonio, hayEjemploPatrimonio } from './ejemplos'
+import { borrarEjemploPatrimonio, cargarEjemploPatrimonio, hayEjemploPatrimonio, seccionPatrimonio } from './ejemplos'
 import type { TipoMeta } from './MetasTab'
 import {
   desenlazar,
@@ -205,6 +205,7 @@ function Ejemplo({ naturaleza }: { naturaleza: Patrimonio['naturaleza'] }) {
   const filas = patrimonioRepo.useAll() ?? VACIO
   return (
     <BarraEjemplo
+      seccion={seccionPatrimonio(naturaleza)}
       cargado={hayEjemploPatrimonio(filas, naturaleza)}
       onCargar={() => cargarEjemploPatrimonio(naturaleza)}
       onBorrar={() => borrarEjemploPatrimonio(filas, naturaleza)}

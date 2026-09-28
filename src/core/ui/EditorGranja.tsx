@@ -8,6 +8,8 @@ import { Icono } from './iconos/Icono'
 import type { NombreIcono } from './iconos/catalogo'
 import { MarcoEditorInfra } from './MarcoEditorInfra'
 import { PestanasCampo } from './PestanasCampo'
+import { BarraEjemplo } from '../../rooms/_shared/ejemplos/BarraEjemplo'
+import { ejemploGranja } from '../../rooms/granja/ejemplos'
 
 // `min-w-0`: sin él, un item de grid no encoge bajo el ancho de su propio
 // contenido y el texto largo ("Alimentar") desborda la columna en vez de
@@ -208,6 +210,8 @@ export function EditorGranja() {
               {t('granja.yaLimpio', 'Ese corral ya estaba limpio; la semana empieza de nuevo.')}
             </p>
           )}
+      {/* Aquí es donde se llega de verdad: la primera vez trae su corral de ejemplo. */}
+      <BarraEjemplo paquete={ejemploGranja} />
     </MarcoEditorInfra>
   )
 }

@@ -408,11 +408,14 @@ export const FR_TUT: Dict = {
   'tut.cuenta-ia.5.texto':
     'Une réponse coûte 1 crédit, un plan long 3, une image ou un modèle 3D 10 — la règle est la même dans toutes les pièces, ce tableau ne fait que la détailler une par une.',
   'tut.ejemplos.1.texto':
-    'Cette barre apparaît dans presque toutes les apps tant qu’elles n’ont aucune donnée à toi : un bouton pour la voir remplie d’exemples, au lieu de démarrer devant un écran vide.',
+    'La première fois que tu ouvres une section vide, son exemple d’origine s’installe tout seul, pour ne pas partir d’un écran blanc. Ses lignes sont normales : tu les modifies ou les supprimes une à une, comme les autres.',
   'tut.ejemplos.2.texto':
-    'Voir un exemple n’efface ni ne mélange rien de ce qui t’appartient : ce sont ses propres lignes, marquées comme exemple, qui se cachent (sans s’effacer) quand tu le désactives. Le réactiver les ramène exactement comme elles étaient.',
+    'En bas de la section, « Supprimer l’exemple » l’enlève en entier une fois confirmé avec « Oui, supprimer l’exemple », et ce qui est à toi n’est jamais touché. Quand il n’en reste plus rien, « Rétablir l’exemple d’origine » apparaît au même endroit.',
   'tut.ejemplos.3.texto':
-    'Dans la MindHaOS de démo (Maison Mentale OS), cette barre n’apparaît pas : l’année entière de Dominique joue déjà ce rôle, pas besoin d’un exemple à part.',
+    'L’exemple ne rapporte ni XP ni séries, ne déclenche pas de rappels, n’entre pas dans ton Wrapped et l’IA n’en tient pas compte. Dans la MindHaOS de démo, cette barre n’apparaît pas : l’année entière de Dominique est déjà l’exemple.',
+  'tut.ejemplos.1.titulo': 'Il s’installe tout seul',
+  'tut.ejemplos.2.titulo': 'Supprimer ou rétablir',
+  'tut.ejemplos.3.titulo': 'Il ne compte pas',
   'tut.hoy.1.texto':
     'Les missions ne vivent pas dans un coin à part : elles vivent DANS chaque app. En haut de chaque pièce se trouve son bouton Missions, avec la liste de ce que cette app te demande AUJOURD’HUI.',
   'tut.hoy.2.titulo': 'Trois sources, une liste',
@@ -1050,6 +1053,111 @@ export const FR_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': 'Journal de bord',
   'tut.app-sala--esencial.5.texto':
     'Les souvenirs de tes lieux visités, en albums par pays : photos et anecdotes de chaque endroit.',
+  'tut.app-escritura--esencial.1.titulo': 'Ton atelier d’écriture',
+  'tut.app-escritura--esencial.1.texto':
+    'Ici, tout ce que tu écris vit dans des livres : une nouvelle, un roman, un scénario, une pièce de théâtre ou une simple lettre. Chaque livre range ses textes dans des dossiers, et l’éditeur les met en forme, les exporte et propose une IA qui écrit avec toi.',
+  'tut.app-escritura--esencial.2.titulo': 'L’étagère',
+  'tut.app-escritura--esencial.2.texto':
+    'Chaque couverture est un livre, avec le nombre de textes qu’il contient : le crayon le renomme et la corbeille le supprime en entier. « Nouveau livre » te demande ce que tu vas écrire — Vierge, Nouvelle, Scénario ou Pièce de théâtre, qui ne change que l’icône — et l’ouvre sur son premier chapitre.',
+  'tut.app-escritura--esencial.3.titulo': 'Un livre d’exemple',
+  'tut.app-escritura--esencial.3.texto':
+    'La première fois, l’étagère contient déjà « L’hiver du phare », un livre d’exemple avec deux chapitres, deux personnages, un lieu et un acte avec son intrigue, déjà écrits. « Supprimer l’exemple », dans cette barre, le retire en entier ; s’il n’est plus là, « Rétablir l’exemple d’origine » le fait revenir.',
+  'tut.app-escritura--esencial.4.titulo': 'La page et sa barre',
+  'tut.app-escritura--esencial.4.texto':
+    'En ouvrant un livre, tu arrives sur la page, qui s’enregistre toute seule pendant que tu écris. La barre s’occupe de la mise en forme : titres et citations, gras, italique, listes, alignement et couleur du texte.',
+  'tut.app-escritura--esencial.5.titulo': 'Les dossiers du livre',
+  'tut.app-escritura--esencial.5.texto':
+    'Chapitres, Personnages, Lieux et Actes, avec les intrigues dans chaque acte. Les fiches ont une image, une description et une couleur, et leur nom est mis en évidence dans le texte des autres pages ; dans Relations, tu dessines comment les personnages sont liés.',
+  'tut.app-escritura--esencial.6.titulo': 'Index et export',
+  'tut.app-escritura--esencial.6.texto':
+    'L’index se construit tout seul à partir des titres du texte et peut figurer sur la première page à l’impression. Ici, tu peux aussi télécharger le texte en TXT, l’envoyer à un contact, ou l’imprimer ou l’enregistrer en PDF ; « Partager », juste à côté, l’ouvre pour l’écrire à plusieurs.',
+  'tut.app-escritura--esencial.7.titulo': 'Écrire avec l’IA',
+  'tut.app-escritura--esencial.7.texto':
+    'Elle rédige ce que tu lui demandes, améliore le texte que tu sélectionnes, poursuit là où tu en es ou résume le document. Chaque option affiche d’avance combien de crédits elle coûte.',
+  'tut.app-arte--esencial.1.titulo': 'Ton atelier d’art',
+  'tut.app-arte--esencial.1.texto':
+    'Ici, tu peins à partir de rien, tu retouches une photo ou tu laisses l’IA imaginer avec toi. Tout commence dans la galerie, et chaque dessin s’ouvre sur une toile en calques qui s’enregistre toute seule.',
+  'tut.app-arte--esencial.2.titulo': 'La galerie',
+  'tut.app-arte--esencial.2.texto':
+    'Chaque dessin s’ouvre d’un geste, et depuis sa carte tu le partages, le renommes ou le supprimes. « Nouveau dessin » part d’une toile vierge à la taille que tu choisis, ou d’une photo. « Après-midi dans la vallée » et « Nature morte aux fruits » sont fournis avec l’app : la barre du bas les supprime et, s’ils n’y sont plus, les rétablit.',
+  'tut.app-arte--esencial.3.titulo': 'La barre par groupes',
+  'tut.app-arte--esencial.3.texto':
+    'Dans un dessin, les outils sont rangés par groupes : Peindre, Formes, Objets, Toile, Trait et couleur et Historique. Chaque groupe se replie depuis son icône, et groupes et boutons se glissent pour les ranger à ta façon ; si tu la modifies, « Réinitialiser la barre » la remet comme au départ.',
+  'tut.app-arte--esencial.4.titulo': 'Calques',
+  'tut.app-arte--esencial.4.texto':
+    'Tu peins sur le calque actif, et « Ajouter un calque » te permet d’en avoir jusqu’à six. Chacun se masque, change d’opacité, se duplique, change de place, fusionne avec celui du dessous ou se supprime.',
+  'tut.app-arte--esencial.5.titulo': 'Filtres et aides',
+  'tut.app-arte--esencial.5.texto':
+    'Luminosité, contraste, noir et blanc et flou s’appliquent au calque actif pendant que tu regardes la toile, et chaque filtre peut être annulé. La même barre contient les aides au dessin : règle, grille aimantée et miroir.',
+  'tut.app-arte--esencial.6.titulo': 'Exporter et partager',
+  'tut.app-arte--esencial.6.texto':
+    'Le dessin s’enregistre tout seul, et le bouton PNG télécharge l’image avec ses calques visibles fusionnés sur fond blanc. Pour le peindre à plusieurs, « Partager », en haut, l’ouvre par un lien.',
+  'tut.app-arte--esencial.7.titulo': 'Peindre avec l’IA',
+  'tut.app-arte--esencial.7.texto':
+    'Décris ce que tu veux voir et l’IA le peint sur le calque actif, ou réinterprète ta toile en s’en servant comme référence. Chaque option affiche d’avance combien de crédits elle coûte, et le résultat peut être annulé.',
+  'tut.app-archivos--esencial.1.titulo': 'Ton cloud',
+  'tut.app-archivos--esencial.1.texto':
+    'Fichiers garde dans le cloud des dossiers et des fichiers de tout type, avec aperçu des images, vidéos, audios, PDF et textes, et tu les ouvres depuis n’importe quel appareil. Il faut te connecter et avoir un forfait Pro, avec 10, 30 ou 100 Go selon le niveau.',
+  'tut.app-archivos--esencial.2.titulo': 'Les sections',
+  'tut.app-archivos--esencial.2.texto':
+    'Mes fichiers réunit tes dossiers et tes fichiers ; Récents, ce que tu as envoyé en dernier ; et Favoris, ce que tu marques d’une étoile. Ce que tu supprimes passe 30 jours dans la Corbeille, où tu peux encore le restaurer.',
+  'tut.app-archivos--esencial.3.titulo': 'Un dossier par pièce',
+  'tut.app-archivos--esencial.3.texto':
+    'Chaque pièce de ta MindHaOS a son dossier dans Pièces. En haut s’affiche ce que son app garde déjà, comme les photos de recettes ou les dessins, qu’ici tu peux seulement voir et télécharger ; en dessous va ce que tu envoies.',
+  'tut.app-archivos--esencial.4.titulo': 'Envoyer et créer',
+  'tut.app-archivos--esencial.4.texto':
+    'Avec Pro, « Nouveau » crée un dossier ou envoie des fichiers, et sur le web ou dans l’app de bureau, des dossiers entiers aussi. Depuis ton ordinateur, tu peux aussi les déposer directement dans Fichiers, et ce qui s’y trouve déjà change de dossier quand tu le fais glisser.',
+  'tut.app-archivos--esencial.5.titulo': 'Chercher et trier',
+  'tut.app-archivos--esencial.5.texto':
+    'Dans Mes fichiers, la recherche parcourt tous tes fichiers ; dans les autres sections, seulement ce que tu as sous les yeux. Juste à côté, tu choisis l’ordre, par nom, date ou taille, et tu passes de la grille à la liste.',
+  'tut.app-archivos--esencial.6.titulo': 'Options de chaque fichier',
+  'tut.app-archivos--esencial.6.texto':
+    'Le clic droit sur un fichier, ou son bouton « ⋯ », ouvre ses options : télécharger, partager, ajouter aux favoris, renommer, déplacer ou mettre à la corbeille. « Partager » crée un lien valable 1, 7 ou 30 jours que n’importe qui ouvre sans compte.',
+  'tut.app-archivos--esencial.7.titulo': 'Ton espace',
+  'tut.app-archivos--esencial.7.texto':
+    'La jauge indique ce que tu as déjà utilisé de ton cloud : 10, 30 ou 100 Go selon ton niveau Pro. Si ton forfait prend fin, ce que tu as envoyé reste visible et téléchargeable pendant 90 jours, puis il est supprimé du cloud.',
+  'tut.app-audio--esencial.1.titulo': 'Le studio de musique',
+  'tut.app-audio--esencial.1.texto':
+    'Ici, on compose, on enregistre et on mixe de la musique. Il y a deux menus : Chansons, avec tes projets et l’éditeur où ils se font, et Mix, avec deux platines de DJ.',
+  'tut.app-audio--esencial.2.titulo': 'Chansons',
+  'tut.app-audio--esencial.2.texto':
+    'Tes projets partagent la liste avec des chansons fournies, des morceaux connus du domaine public. Chaque carte s’écoute ici même, s’ouvre dans l’éditeur ou se range dans un album, qui fonctionne comme un dossier.',
+  'tut.app-audio--esencial.3.titulo': 'Commencer une chanson',
+  'tut.app-audio--esencial.3.texto':
+    '« Nouveau projet » ouvre l’éditeur avec une piste vide, et « Importer .mid » transforme un fichier MIDI en projet avec ses notes.',
+  'tut.app-audio--esencial.4.titulo': 'L’éditeur',
+  'tut.app-audio--esencial.4.texto':
+    'Quand tu ouvres une chanson, l’éditeur occupe la pièce : les pistes à gauche et le piano roll à droite, où les notes se dessinent sur la grille. Chaque piste a son instrument synthé, du piano à la batterie, et se joue avec le clavier à l’écran, le clavier physique ou un clavier MIDI.',
+  'tut.app-audio--esencial.5.titulo': 'Enregistrer, exporter et l’IA',
+  'tut.app-audio--esencial.5.texto':
+    'Le bouton d’enregistrement donne une mesure de décompte avec métronome et garde ce que tu joues sous forme de notes ; sur une piste audio, il enregistre le micro. Dans « Extras », tu trouves « S’entraîner », « WAV » pour télécharger la chanson et « IA », qui compose ou prolonge la piste active.',
+  'tut.app-audio--esencial.6.titulo': 'Enregistrements',
+  'tut.app-audio--esencial.6.texto':
+    'Les prises de micro restent ici même si tu les retires de leur piste ou supprimes le projet. Tu peux les écouter, les renommer et les télécharger.',
+  'tut.app-audio--esencial.7.titulo': 'Mix',
+  'tut.app-audio--esencial.7.texto':
+    'Deux platines de DJ reliées par un crossfader. « Charger la chanson » en amène une du studio, un son de ton appareil ou un extrait iTunes, et chaque platine a pitch, égaliseur, cue et SYNC pour caler le tempo.',
+  'tut.app-video--esencial.1.titulo': 'L’éditeur vidéo',
+  'tut.app-video--esencial.1.texto':
+    'Ici, on monte des vidéos avec des clips, des textes, de la voix off et de la musique sur une timeline. Il y a deux menus : Vidéos, avec tes projets, et Animation 3D, pour tourner des scènes sur le plan.',
+  'tut.app-video--esencial.2.titulo': 'Vidéos',
+  'tut.app-video--esencial.2.texto':
+    'Tes vidéos, chacune avec sa miniature, son format et sa durée ; « Nouvelle vidéo » en commence une de zéro. Une pub de l’app est fournie, montée avec cet éditeur : elle s’ouvre, se modifie ou se supprime comme les autres.',
+  'tut.app-video--esencial.3.titulo': 'L’en-tête de l’éditeur',
+  'tut.app-video--esencial.3.texto':
+    'Quand tu ouvres une vidéo, l’éditeur occupe la pièce. « Enregistrer dans l’app » filme ce que tu fais dans ta MindHaOS et le ramène comme clip ; « Exporter » télécharge la vidéo ou la publie sur tes réseaux, et « IA » écrit le script à partir d’une idée.',
+  'tut.app-video--esencial.4.titulo': 'L’aperçu',
+  'tut.app-video--esencial.4.texto':
+    'Il lit la vidéo telle qu’elle sortira, et ses boutons d’angle ouvrent les panneaux latéraux. À gauche, Médias : tes vidéos, images et fichiers audio, les sons et ce que tu as créé dans les autres apps du Studio ; à droite, l’éditeur du clip sélectionné.',
+  'tut.app-video--esencial.5.titulo': 'La timeline',
+  'tut.app-video--esencial.5.texto':
+    'Chaque piste accueille un type de clip : la principale, les vidéos et les images, et celles de texte, de narration, de musique ou de bruitages apparaissent dès qu’elles contiennent quelque chose. Un appui sélectionne un clip, un glisser le déplace et ses bords servent à le couper.',
+  'tut.app-video--esencial.6.titulo': 'Ajouter',
+  'tut.app-video--esencial.6.texto':
+    'Place au curseur ce qu’il te faut, chaque chose sur sa piste : clips ou images, texte, voix off, musique, sons, ton avatar, un Personnage RA ou un Masque RA, et des prises de la caméra ou du micro. Le scénario et les transitions s’ouvrent aussi depuis là.',
+  'tut.app-video--esencial.7.titulo': 'Animation 3D',
+  'tut.app-video--esencial.7.texto':
+    'Des scènes tournées sur le plan de ta MindHaOS : ton avatar et tes assistants jouent plan par plan, avec dialogues et mouvements de caméra. Elles s’exportent, s’enregistrent dans Médias ou s’intègrent comme clip dans une vidéo.',
   'tut.app-agenda--trabajo.1.titulo': 'La liste À faire',
   'tut.app-agenda--trabajo.1.texto':
     'Ce qu’il faut faire mais qui n’a pas encore de jour vit ici, avec sa priorité. Rien ne t’oblige à lui mettre une date pour le noter.',

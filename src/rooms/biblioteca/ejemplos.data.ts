@@ -16,6 +16,13 @@ export const TEXTOS_BIBLIOTECA = {
     notaEstudio1: 'Martes, 25 min: releí la dicotomía y marqué ejemplos.',
     notaEstudio2: 'Jueves, 20 min: me atasqué en si desear depende de mí.',
     notaEstudio3: 'Sábado, 10 min: repaso rápido del barco.',
+    charlaTitulo: 'Lo que depende de mí',
+    charlaPregunta1: 'Oí que los estoicos separaban lo que depende de uno de lo que no. ¿Cómo es eso?',
+    charlaRespuesta1:
+      'Es la idea con la que Epicteto abre su Manual. Hay cosas que dependen de ti: tus juicios, tus decisiones y lo que haces con ellas. Y hay cosas que no: el clima, el tráfico, lo que otros piensen de ti.\n\nEl malestar, decía, nace de mezclar las dos columnas: sufrimos por lo que no controlamos y descuidamos lo que sí. La propuesta es poner todo el esfuerzo en la primera.\n\n¿Lo probamos con algo que te haya pasado esta semana?',
+    charlaPregunta2: 'Pero si el tráfico no depende de mí, ¿me aguanto y ya? Suena a resignarse.',
+    charlaRespuesta2:
+      'No exactamente. Resignarse sería no hacer nada; aquí actúas donde puedes: sales antes, cambias de ruta, aprovechas el rato para escuchar algo. Lo que sueltas es el resultado.\n\nLos estoicos lo explicaban con un arquero: apunta lo mejor que sabe, pero cuando la flecha sale, el viento ya no es cosa suya.\n\nUna prueba para el día a día: en el próximo atasco, pregúntate qué parte de eso eliges tú de verdad.',
   },
   en: {
     entrada1Titulo: 'The dichotomy of control',
@@ -30,6 +37,13 @@ export const TEXTOS_BIBLIOTECA = {
     notaEstudio1: 'Tuesday, 25 min: reread the dichotomy, marked examples.',
     notaEstudio2: 'Thursday, 20 min: stuck on whether wanting is up to me.',
     notaEstudio3: 'Saturday, 10 min: quick recap of the ship.',
+    charlaTitulo: 'What is up to me',
+    charlaPregunta1: 'I heard the Stoics split what is up to you from what is not. How does that work?',
+    charlaRespuesta1:
+      'It is the idea Epictetus opens his Handbook with. Some things are up to you: your judgements, your choices and what you do with them. Others are not: the weather, the traffic, what other people think of you.\n\nTrouble starts, he said, when the two lists blur: we fret over what we cannot control and neglect what we can. His advice is to put all your effort into the first list.\n\nShall we try it on something that happened to you this week?',
+    charlaPregunta2: 'But if the traffic is not up to me, do I just put up with it? Sounds like giving up.',
+    charlaRespuesta2:
+      'Not quite. Giving up would mean doing nothing; here you act where you can: leave earlier, take another route, use the time to listen to something. What you let go of is the outcome.\n\nThe Stoics pictured an archer: he aims as well as he can, but once the arrow is loose, the wind is no longer his business.\n\nA daily test: next time you are stuck in a queue or in traffic, ask yourself which part of it you actually choose.',
   },
   pt: {
     entrada1Titulo: 'A dicotomia do controle',
@@ -44,6 +58,13 @@ export const TEXTOS_BIBLIOTECA = {
     notaEstudio1: 'Terça, 25 min: reli a dicotomia e marquei exemplos.',
     notaEstudio2: 'Quinta, 20 min: fiquei travada em saber se desejar depende de mim.',
     notaEstudio3: 'Sábado, 10 min: revisão rápida do barco.',
+    charlaTitulo: 'O que depende de mim',
+    charlaPregunta1: 'Ouvi dizer que os estoicos separavam o que depende da gente do que não depende. Como é isso?',
+    charlaRespuesta1:
+      'É a ideia com que Epicteto abre o seu Manual. Há coisas que dependem de você: seus juízos, suas decisões e o que você faz com elas. E há coisas que não: o clima, o trânsito, o que os outros pensam de você.\n\nO mal-estar, dizia ele, nasce de misturar as duas colunas: sofremos pelo que não controlamos e descuidamos do que controlamos. A proposta é colocar todo o esforço na primeira.\n\nVamos testar com algo que aconteceu com você esta semana?',
+    charlaPregunta2: 'Mas, se o trânsito não depende de mim, eu só aguento e pronto? Parece resignação.',
+    charlaRespuesta2:
+      'Não exatamente. Resignar-se seria não fazer nada; aqui você age onde pode: sai mais cedo, muda o caminho, aproveita o tempo para ouvir alguma coisa. O que você solta é o resultado.\n\nOs estoicos explicavam isso com um arqueiro: ele mira o melhor que sabe, mas, quando a flecha sai, o vento já não é com ele.\n\nUm teste para o dia a dia: no próximo engarrafamento, pergunte-se que parte disso você realmente escolhe.',
   },
   fr: {
     entrada1Titulo: 'La dichotomie du contrôle',
@@ -58,6 +79,13 @@ export const TEXTOS_BIBLIOTECA = {
     notaEstudio1: 'Mardi, 25 min: relu la dichotomie, noté des exemples.',
     notaEstudio2: 'Jeudi, 20 min: blocage sur la question de savoir si désirer dépend de moi.',
     notaEstudio3: 'Samedi, 10 min: révision rapide du bateau.',
+    charlaTitulo: 'Ce qui dépend de moi',
+    charlaPregunta1: 'J\'ai entendu dire que les stoïciens séparaient ce qui dépend de nous de ce qui n\'en dépend pas. C\'est-à-dire ?',
+    charlaRespuesta1:
+      'C\'est l\'idée qui ouvre le Manuel d\'Épictète. Certaines choses dépendent de toi: tes jugements, tes décisions et ce que tu en fais. D\'autres non: la météo, la circulation, ce que les autres pensent de toi.\n\nLe malaise, disait-il, naît quand on mélange les deux colonnes: on souffre de ce qu\'on ne contrôle pas et on néglige ce qu\'on contrôle. Son conseil: mettre tout son effort dans la première.\n\nOn essaie avec quelque chose qui t\'est arrivé cette semaine ?',
+    charlaPregunta2: 'Mais si la circulation ne dépend pas de moi, je subis et c\'est tout ? Ça ressemble à de la résignation.',
+    charlaRespuesta2:
+      'Pas tout à fait. Se résigner, ce serait ne rien faire; ici, tu agis là où tu peux: partir plus tôt, changer d\'itinéraire, profiter du trajet pour écouter quelque chose. Ce que tu lâches, c\'est le résultat.\n\nLes stoïciens l\'expliquaient avec un archer: il vise du mieux qu\'il peut, mais une fois la flèche partie, le vent n\'est plus son affaire.\n\nUn test pour tous les jours: dans le prochain embouteillage, demande-toi quelle part de tout ça tu choisis vraiment.',
   },
   de: {
     entrada1Titulo: 'Die Dichotomie der Kontrolle',
@@ -72,6 +100,13 @@ export const TEXTOS_BIBLIOTECA = {
     notaEstudio1: 'Dienstag, 25 Min.: Dichotomie noch mal gelesen und Beispiele markiert.',
     notaEstudio2: 'Donnerstag, 20 Min.: hängengeblieben bei der Frage, ob Wünschen von mir abhängt.',
     notaEstudio3: 'Samstag, 10 Min.: schnelle Wiederholung zum Schiff.',
+    charlaTitulo: 'Was von mir abhängt',
+    charlaPregunta1: 'Angeblich unterschieden die Stoiker zwischen dem, was von uns abhängt, und dem, was nicht. Wie ist das gemeint?',
+    charlaRespuesta1:
+      'Mit diesem Gedanken beginnt Epiktet sein Handbüchlein. Manches hängt von dir ab: deine Urteile, deine Entscheidungen und was du daraus machst. Anderes nicht: das Wetter, der Verkehr, was andere von dir denken.\n\nDas Unbehagen, sagte er, entsteht, wenn man beide Spalten vermischt: Wir leiden unter dem, was wir nicht steuern können, und vernachlässigen, was wir steuern können. Sein Rat: die ganze Anstrengung in die erste Spalte stecken.\n\nWollen wir es an etwas ausprobieren, das dir diese Woche passiert ist?',
+    charlaPregunta2: 'Aber wenn der Verkehr nicht von mir abhängt, soll ich ihn dann einfach ertragen? Das klingt nach Resignation.',
+    charlaRespuesta2:
+      'Nicht ganz. Resignieren hieße, nichts zu tun; hier handelst du, wo du kannst: früher losfahren, eine andere Strecke nehmen, die Zeit nutzen, um etwas zu hören. Was du loslässt, ist das Ergebnis.\n\nDie Stoiker erklärten das mit einem Bogenschützen: Er zielt, so gut er kann, doch sobald der Pfeil die Sehne verlassen hat, ist der Wind nicht mehr seine Sache.\n\nEine Probe für den Alltag: Frag dich im nächsten Stau, welchen Teil davon du wirklich selbst wählst.',
   },
   it: {
     entrada1Titulo: 'La dicotomia del controllo',
@@ -86,6 +121,13 @@ export const TEXTOS_BIBLIOTECA = {
     notaEstudio1: 'Martedì, 25 min: riletto la dicotomia e segnato esempi.',
     notaEstudio2: 'Giovedì, 20 min: blocco sul fatto se desiderare dipenda da me.',
     notaEstudio3: 'Sabato, 10 min: ripasso veloce della nave.',
+    charlaTitulo: 'Ciò che dipende da me',
+    charlaPregunta1: 'Ho sentito che gli stoici separavano ciò che dipende da noi da ciò che non dipende. In che senso?',
+    charlaRespuesta1:
+      'È l\'idea con cui Epitteto apre il suo Manuale. Alcune cose dipendono da te: i tuoi giudizi, le tue decisioni e quello che ne fai. Altre no: il meteo, il traffico, quello che gli altri pensano di te.\n\nIl malessere, diceva, nasce dal mescolare le due colonne: soffriamo per ciò che non controlliamo e trascuriamo ciò che controlliamo. La proposta è mettere tutto lo sforzo nella prima.\n\nProviamo con qualcosa che ti è successo questa settimana?',
+    charlaPregunta2: 'Ma se il traffico non dipende da me, devo solo sopportarlo? Sembra rassegnazione.',
+    charlaRespuesta2:
+      'Non proprio. Rassegnarsi vorrebbe dire non fare niente; qui agisci dove puoi: esci prima, cambi strada, sfrutti il tempo per ascoltare qualcosa. Quello che lasci andare è il risultato.\n\nGli stoici lo spiegavano con un arciere: mira come meglio può, ma una volta scoccata la freccia, il vento non è più affar suo.\n\nUna prova quotidiana: nel prossimo ingorgo, chiediti quale parte di tutto questo scegli davvero tu.',
   },
   ja: {
     entrada1Titulo: '制御の二分法',
@@ -102,6 +144,13 @@ export const TEXTOS_BIBLIOTECA = {
     notaEstudio1: '火曜、25分:二分法を読み返して例に印をつけました。',
     notaEstudio2: '木曜、20分:望むことが自分次第かどうかで詰まりました。',
     notaEstudio3: '土曜、10分:船の話を軽く復習しました。',
+    charlaTitulo: '自分次第のもの',
+    charlaPregunta1: 'ストア派は、自分次第のものとそうでないものを分けていたと聞きました。どういうことですか?',
+    charlaRespuesta1:
+      'エピクテトスが手引き書の冒頭に置いた考え方です。自分次第のものがあります:自分の判断や決断、そしてそれをどう行動に移すか。そうでないものもあります:天気、渋滞、他人が自分をどう思うか。\n\n彼によれば、苦しみはこの二つの列を混ぜるところから生まれます。どうにもならないことに悩み、どうにかできることをおろそかにしてしまうのです。だから努力はすべて最初の列に注ぐ、というのが彼の提案です。\n\n今週あったことで試してみましょうか?',
+    charlaPregunta2: 'でも、渋滞が自分次第じゃないなら、ただ我慢するしかないんですか?それって諦めみたいです。',
+    charlaRespuesta2:
+      'そうとは限りません。諦めるとは、何もしないこと。ここでは、できるところで行動します:早めに出る、道を変える、その時間に何かを聴く。手放すのは結果のほうです。\n\nストア派はこれを弓の射手にたとえました。射手はできる限りうまく狙いますが、矢が放たれたら、風はもう射手の領分ではありません。\n\n毎日の練習:次に渋滞にはまったら、このうち本当に自分が選んでいる部分はどこか、自分に聞いてみてください。',
   },
   zh: {
     entrada1Titulo: '控制的二分法',
@@ -118,6 +167,13 @@ export const TEXTOS_BIBLIOTECA = {
     notaEstudio1: '周二,25分钟:重读了二分法,标出了例子。',
     notaEstudio2: '周四,20分钟:卡在"渴望是否取决于我"这个问题上。',
     notaEstudio3: '周六,10分钟:快速复习了忒修斯之船。',
+    charlaTitulo: '取决于我的事',
+    charlaPregunta1: '听说斯多葛学派会把取决于我们的事和不取决于我们的事分开。这是怎么回事?',
+    charlaRespuesta1:
+      '这是爱比克泰德在《手册》开头提出的想法。有些事取决于你:你的判断、你的决定,以及你怎么去做。有些事不取决于你:天气、交通、别人怎么看你。\n\n他说,烦恼来自把这两栏混在一起:为控制不了的事痛苦,却忽略了能控制的事。他的建议是把全部精力都放在第一栏。\n\n要不要拿你这周遇到的一件事来试试?',
+    charlaPregunta2: '可是如果堵车不取决于我,那我就只能忍着吗?听起来像是认命。',
+    charlaRespuesta2:
+      '不完全是。认命是什么都不做;而这里是在能做的地方行动:早点出门、换条路线、利用这段时间听点东西。你放下的是结果。\n\n斯多葛学派用弓箭手来比喻:他尽力瞄准,但箭一离弦,风就不归他管了。\n\n一个日常练习:下次堵车时,问问自己,这里面真正由你选择的部分是什么?',
   },
   ko: {
     entrada1Titulo: '통제의 이분법',
@@ -134,6 +190,13 @@ export const TEXTOS_BIBLIOTECA = {
     notaEstudio1: '화요일, 25분: 이분법을 다시 읽고 예시에 표시했어요.',
     notaEstudio2: '목요일, 20분: 원하고 싶은 것이 나에게 달렸는지 고민하다 막혔어요.',
     notaEstudio3: '토요일, 10분: 배 이야기를 가볍게 복습했어요.',
+    charlaTitulo: '나에게 달린 것',
+    charlaPregunta1: '스토아 철학자들이 우리에게 달린 것과 그렇지 않은 것을 나눴다고 들었어요. 그게 무슨 뜻이에요?',
+    charlaRespuesta1:
+      '에픽테토스가 자신의 책 첫머리에 둔 생각이에요. 어떤 것은 우리에게 달려 있어요: 우리의 판단과 결정, 그리고 그걸로 무엇을 하는지. 어떤 것은 그렇지 않아요: 날씨, 교통 체증, 남들이 우리를 어떻게 보는지.\n\n그는 불안이 이 두 칸을 섞는 데서 생긴다고 했어요. 통제할 수 없는 일로 괴로워하고, 통제할 수 있는 일은 소홀히 하게 되니까요. 그래서 모든 노력을 첫 번째 칸에 쏟으라고 권해요.\n\n이번 주에 있었던 일로 한번 해볼까요?',
+    charlaPregunta2: '그런데 교통 체증이 나에게 달린 게 아니라면, 그냥 참기만 해야 하나요? 체념처럼 들려요.',
+    charlaRespuesta2:
+      '꼭 그렇지는 않아요. 체념은 아무것도 하지 않는 거예요. 여기서는 할 수 있는 곳에서 행동해요: 조금 일찍 나서고, 길을 바꾸고, 그 시간에 뭔가를 들어요. 놓아주는 건 결과예요.\n\n스토아 철학자들은 이걸 궁수에 빗대어 설명했어요. 궁수는 최선을 다해 겨누지만, 화살이 시위를 떠나면 바람은 더 이상 궁수의 몫이 아니에요.\n\n매일의 연습: 다음번 교통 체증 속에서, 이 중에 진짜 내가 선택하는 부분이 어디인지 스스로에게 물어보세요.',
   },
   ru: {
     entrada1Titulo: 'Дихотомия контроля',
@@ -150,6 +213,13 @@ export const TEXTOS_BIBLIOTECA = {
     notaEstudio1: 'Вторник, 25 мин: дихотомия перечитана, примеры отмечены.',
     notaEstudio2: 'Четверг, 20 мин: затык на вопросе, зависит ли желание от меня.',
     notaEstudio3: 'Суббота, 10 мин: короткое повторение про корабль.',
+    charlaTitulo: 'Что зависит от меня',
+    charlaPregunta1: 'Говорят, стоики отделяли то, что зависит от нас, от того, что не зависит. Как это понимать?',
+    charlaRespuesta1:
+      'С этой мысли Эпиктет начинает своё «Руководство». Одно зависит от тебя: твои суждения, решения и то, что ты с ними делаешь. Другое — нет: погода, пробки, то, что думают о тебе другие.\n\nБеспокойство, по его словам, рождается, когда эти две колонки смешиваются: мы страдаем из-за того, что не контролируем, и забываем о том, что контролируем. Его совет: вкладывать все усилия в первую колонку.\n\nПопробуем на чём-нибудь, что случилось с тобой на этой неделе?',
+    charlaPregunta2: 'Но если пробки не зависят от меня, мне что, просто терпеть? Звучит как смирение.',
+    charlaRespuesta2:
+      'Не совсем. Смириться — значит ничего не делать; а здесь ты действуешь там, где можешь: выходишь пораньше, меняешь маршрут, используешь время, чтобы что-нибудь послушать. Отпускаешь ты только результат.\n\nСтоики объясняли это на примере лучника: он целится как можно лучше, но когда стрела уже выпущена, ветер больше не его забота.\n\nПроверка на каждый день: в следующей пробке спроси себя, какую часть этого ты на самом деле выбираешь.',
   },
   hi: {
     entrada1Titulo: 'नियंत्रण की द्विभाजन-रेखा',
@@ -166,6 +236,13 @@ export const TEXTOS_BIBLIOTECA = {
     notaEstudio1: 'मंगलवार, 25 मिनट: द्विभाजन-रेखा दोबारा पढ़ी गई और उदाहरण चिह्नित किए गए।',
     notaEstudio2: 'गुरुवार, 20 मिनट: क्या चाहना मुझ पर निर्भर है, इस सवाल पर अटकाव हो गया।',
     notaEstudio3: 'शनिवार, 10 मिनट: जहाज़ वाले हिस्से का जल्दी दोहराव।',
+    charlaTitulo: 'जो मुझ पर निर्भर है',
+    charlaPregunta1: 'सुना है कि स्टोइक दार्शनिक उन बातों को अलग करते थे जो हम पर निर्भर हैं और जो नहीं। इसका मतलब क्या है?',
+    charlaRespuesta1:
+      'यह वही विचार है जिससे एपिक्टेटस अपनी पुस्तिका की शुरुआत करते हैं। कुछ चीज़ें हम पर निर्भर हैं: हमारे फ़ैसले, हमारे चुनाव और उनके साथ हम क्या करते हैं। कुछ नहीं: मौसम, ट्रैफ़िक, दूसरे हमारे बारे में क्या सोचते हैं।\n\nउनके अनुसार बेचैनी तब पैदा होती है जब ये दोनों कॉलम आपस में मिल जाते हैं: जो बस में नहीं, उसके लिए दुख होता है, और जो बस में है, उसकी अनदेखी हो जाती है। उनका सुझाव है कि पूरी मेहनत पहले कॉलम पर लगाई जाए।\n\nक्या इस हफ़्ते की किसी घटना पर इसे आज़माकर देखें?',
+    charlaPregunta2: 'लेकिन अगर ट्रैफ़िक मुझ पर निर्भर नहीं है, तो क्या बस सहते रहना है? यह तो हार मान लेने जैसा लगता है।',
+    charlaRespuesta2:
+      'पूरी तरह नहीं। हार मान लेने का मतलब है कुछ न करना; यहाँ जहाँ हो सके वहाँ कदम उठाया जाता है: जल्दी निकलना, रास्ता बदलना, उस समय में कुछ सुन लेना। जो छोड़ा जाता है, वह है नतीजा।\n\nस्टोइक इसे एक तीरंदाज़ के उदाहरण से समझाते थे: वह जितना अच्छा हो सके निशाना साधता है, लेकिन तीर छूटने के बाद हवा उसके बस में नहीं रहती।\n\nरोज़ की परीक्षा: अगले ट्रैफ़िक जाम में खुद से पूछिए कि इसमें से सच में कौन-सी बात आपकी अपनी चुनी हुई है।',
   },
   tr: {
     entrada1Titulo: 'Kontrol ikilemi',
@@ -180,6 +257,13 @@ export const TEXTOS_BIBLIOTECA = {
     notaEstudio1: 'Salı, 25 dk: ikilemi yeniden okudum ve örnekleri işaretledim.',
     notaEstudio2: 'Perşembe, 20 dk: istemenin bana bağlı olup olmadığında takıldım.',
     notaEstudio3: 'Cumartesi, 10 dk: gemi konusuna hızlı bir tekrar.',
+    charlaTitulo: 'Bana bağlı olan',
+    charlaPregunta1: 'Stoacıların bize bağlı olanla olmayanı ayırdığını duydum. Bu ne demek?',
+    charlaRespuesta1:
+      'Epiktetos ünlü el kitabına bu fikirle başlar. Bazı şeyler sana bağlıdır: yargıların, kararların ve onlarla ne yaptığın. Bazıları değildir: hava durumu, trafik, başkalarının senin hakkında ne düşündüğü.\n\nOna göre huzursuzluk, iki sütunu karıştırmaktan doğar: kontrol edemediğimiz şeyler için acı çekeriz, edebildiklerimizi ise ihmal ederiz. Önerisi, bütün çabayı ilk sütuna koymaktır.\n\nBunu bu hafta başına gelen bir şeyle deneyelim mi?',
+    charlaPregunta2: 'Ama trafik bana bağlı değilse, katlanıp geçecek miyim yani? Bu boyun eğmek gibi geliyor.',
+    charlaRespuesta2:
+      'Tam olarak değil. Boyun eğmek hiçbir şey yapmamak olurdu; burada yapabildiğin yerde harekete geçersin: daha erken çıkarsın, başka bir yol seçersin, o zamanı bir şey dinleyerek değerlendirirsin. Bıraktığın şey sonuçtur.\n\nStoacılar bunu bir okçu örneğiyle anlatırdı: okçu elinden geldiğince iyi nişan alır, ama ok yaydan çıktıktan sonra rüzgâr artık onun işi değildir.\n\nGünlük bir deneme: bir sonraki trafik sıkışıklığında kendine sor, bunun gerçekten hangi kısmını sen seçiyorsun?',
   },
   id: {
     entrada1Titulo: 'Dikotomi kendali',
@@ -194,6 +278,13 @@ export const TEXTOS_BIBLIOTECA = {
     notaEstudio1: 'Selasa, 25 menit: baca ulang dikotomi dan menandai contoh.',
     notaEstudio2: 'Kamis, 20 menit: macet di soal apakah keinginan bergantung padaku.',
     notaEstudio3: 'Sabtu, 10 menit: review cepat soal kapal.',
+    charlaTitulo: 'Yang bergantung padaku',
+    charlaPregunta1: 'Katanya kaum Stoa memisahkan apa yang bergantung pada kita dari apa yang tidak. Maksudnya bagaimana?',
+    charlaRespuesta1:
+      'Dengan gagasan inilah Epiktetos membuka buku pegangannya. Ada hal yang bergantung padamu: penilaianmu, keputusanmu, dan apa yang kamu lakukan dengannya. Ada juga yang tidak: cuaca, lalu lintas, apa yang orang lain pikirkan tentangmu.\n\nMenurutnya, rasa gelisah muncul saat dua kolom itu tercampur: kita menderita karena hal yang tidak bisa kita kendalikan dan mengabaikan yang bisa. Sarannya, curahkan seluruh usaha pada kolom pertama.\n\nMau kita coba dengan sesuatu yang terjadi padamu minggu ini?',
+    charlaPregunta2: 'Tapi kalau lalu lintas tidak bergantung padaku, apa aku cuma harus menerimanya begitu saja? Kedengarannya seperti menyerah.',
+    charlaRespuesta2:
+      'Tidak persis begitu. Menyerah berarti tidak berbuat apa-apa; di sini kamu bertindak di mana kamu bisa: berangkat lebih awal, ganti rute, memakai waktunya untuk mendengarkan sesuatu. Yang kamu lepaskan adalah hasilnya.\n\nKaum Stoa menjelaskannya dengan seorang pemanah: ia membidik sebaik mungkin, tapi begitu anak panah lepas, angin bukan lagi urusannya.\n\nLatihan harian: saat macet berikutnya, tanyakan pada dirimu bagian mana dari semua itu yang benar-benar kamu pilih.',
   },
   pl: {
     entrada1Titulo: 'Dychotomia kontroli',
@@ -208,6 +299,13 @@ export const TEXTOS_BIBLIOTECA = {
     notaEstudio1: 'Wtorek, 25 min: ponowna lektura dychotomii i zaznaczone przykłady.',
     notaEstudio2: 'Czwartek, 20 min: zacięcie przy pytaniu, czy pragnienie zależy ode mnie.',
     notaEstudio3: 'Sobota, 10 min: szybkie powtórzenie wątku o statku.',
+    charlaTitulo: 'To, co zależy ode mnie',
+    charlaPregunta1: 'Podobno stoicy oddzielali to, co od nas zależy, od tego, co nie zależy. Jak to rozumieć?',
+    charlaRespuesta1:
+      'Tą myślą Epiktet otwiera swój Podręcznik. Niektóre rzeczy zależą od ciebie: twoje osądy, decyzje i to, co z nimi robisz. Inne nie: pogoda, korki, to, co inni o tobie myślą.\n\nNiepokój, jak mówił, bierze się z mieszania tych dwóch kolumn: cierpimy z powodu tego, na co nie mamy wpływu, i zaniedbujemy to, na co mamy. Jego rada: cały wysiłek wkładać w pierwszą kolumnę.\n\nSprawdzimy to na czymś, co przydarzyło ci się w tym tygodniu?',
+    charlaPregunta2: 'Ale skoro korki nie zależą ode mnie, to mam je po prostu znosić? Brzmi jak rezygnacja.',
+    charlaRespuesta2:
+      'Nie do końca. Rezygnacja oznaczałaby bezczynność; tu działasz tam, gdzie się da: wychodzisz wcześniej, zmieniasz trasę, wykorzystujesz czas, żeby czegoś posłuchać. To, co puszczasz, to wynik.\n\nStoicy tłumaczyli to na przykładzie łucznika: celuje najlepiej, jak potrafi, ale gdy strzała już poleci, wiatr nie jest jego sprawą.\n\nTest na co dzień: w najbliższym korku zapytaj siebie, którą część tego naprawdę wybierasz.',
   },
   ar: {
     entrada1Titulo: 'ثنائية السيطرة',
@@ -222,6 +320,13 @@ export const TEXTOS_BIBLIOTECA = {
     notaEstudio1: 'الثلاثاء، 25 دقيقة: إعادة قراءة الثنائية وتحديد أمثلة.',
     notaEstudio2: 'الخميس، 20 دقيقة: توقفتُ عند سؤال هل الرغبة تعتمد عليّ.',
     notaEstudio3: 'السبت، 10 دقائق: مراجعة سريعة لموضوع السفينة.',
+    charlaTitulo: 'ما يعتمد عليّ',
+    charlaPregunta1: 'سمعتُ أن الرواقيين كانوا يفصلون بين ما يعتمد علينا وما لا يعتمد. كيف ذلك؟',
+    charlaRespuesta1:
+      'إنها الفكرة التي افتتح بها إبكتيتوس كتيّبه. بعض الأمور تعتمد علينا: أحكامنا وقراراتنا وما نفعله بها. وبعضها لا: الطقس والزحام وما يظنه الآخرون بنا.\n\nوكان يرى أن الضيق يولد من خلط العمودين: نتألم مما لا نتحكم فيه، ونُهمل ما نتحكم فيه. ونصيحته أن يوضع الجهد كله في العمود الأول.\n\nهل نجرّب ذلك على أمر حدث هذا الأسبوع؟',
+    charlaPregunta2: 'لكن إذا كان الزحام لا يعتمد عليّ، فهل أتحمّله وحسب؟ يبدو ذلك استسلامًا.',
+    charlaRespuesta2:
+      'ليس تمامًا. الاستسلام يعني ألّا نفعل شيئًا؛ أما هنا فنعمل حيث نستطيع: الخروج أبكر، أو تغيير الطريق، أو استغلال الوقت للاستماع إلى شيء ما. وما نتركه هو النتيجة.\n\nكان الرواقيون يشرحون ذلك بصورة الرامي: يصوّب بأفضل ما يستطيع، لكن حين ينطلق السهم لا تعود الريح من شأنه.\n\nاختبار يومي: في الزحام القادم، يكفي سؤال واحد: أي جزء من هذا أختاره أنا فعلًا؟',
   },
   nl: {
     entrada1Titulo: 'De dichotomie van controle',
@@ -236,5 +341,12 @@ export const TEXTOS_BIBLIOTECA = {
     notaEstudio1: 'Dinsdag, 25 min: dichotomie herlezen en voorbeelden aangestreept.',
     notaEstudio2: 'Donderdag, 20 min: vastgelopen bij de vraag of verlangen van mij afhangt.',
     notaEstudio3: 'Zaterdag, 10 min: snel het schip herhaald.',
+    charlaTitulo: 'Wat van mij afhangt',
+    charlaPregunta1: 'Ik hoorde dat de stoïcijnen onderscheid maakten tussen wat van ons afhangt en wat niet. Hoe zit dat?',
+    charlaRespuesta1:
+      'Met dat idee opent Epictetus zijn Handboekje. Sommige dingen hangen van jou af: je oordelen, je keuzes en wat je ermee doet. Andere niet: het weer, het verkeer, wat anderen van je denken.\n\nHet onbehagen, zei hij, ontstaat als je de twee kolommen door elkaar haalt: we lijden onder wat we niet in de hand hebben en verwaarlozen wat we wel in de hand hebben. Zijn advies: steek alle moeite in de eerste kolom.\n\nZullen we het proberen met iets wat je deze week is overkomen?',
+    charlaPregunta2: 'Maar als het verkeer niet van mij afhangt, moet ik het dan gewoon over me heen laten komen? Dat klinkt als berusting.',
+    charlaRespuesta2:
+      'Niet helemaal. Berusten zou betekenen dat je niets doet; hier handel je waar je kunt: eerder vertrekken, een andere route nemen, de tijd gebruiken om naar iets te luisteren. Wat je loslaat, is het resultaat.\n\nDe stoïcijnen legden het uit met een boogschutter: hij mikt zo goed als hij kan, maar zodra de pijl weg is, is de wind zijn zaak niet meer.\n\nEen test voor elke dag: vraag je in de volgende file af welk deel daarvan je echt zelf kiest.',
   },
 }

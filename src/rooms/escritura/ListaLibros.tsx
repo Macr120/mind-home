@@ -105,7 +105,7 @@ export function ListaLibros({ onAbrir }: { onAbrir: (id: number) => void }) {
 
   if (libros.length === 0 && sueltos.length === 0) {
     return (
-      <div className="mx-auto w-full max-w-2xl">
+      <div className="mx-auto w-full max-w-2xl" data-tut="escritura.libros">
         <Vacio
           icono="libro"
           titulo={t('escritura.libros.vacio', 'Aún no hay libros')}
@@ -125,14 +125,18 @@ export function ListaLibros({ onAbrir }: { onAbrir: (id: number) => void }) {
     icono,
     titulo,
     onAbrirLibro,
+    tut,
   }: {
     icono: NombreIcono
     titulo: string
     onAbrirLibro: () => void
+    /** Ancla `data-tut` del tutorial: solo en libros (abrir un suelto lo envuelve en un libro nuevo). */
+    tut?: string
   }) => (
     <button
       type="button"
       onClick={onAbrirLibro}
+      data-tut={tut}
       className="relative flex aspect-[3/4] w-full flex-col items-center rounded-e-xl rounded-s-sm border border-white/15 bg-gradient-to-br from-white/15 via-white/[0.08] to-white/5 p-2 text-center shadow-lg transition hover:-translate-y-0.5 hover:from-white/20"
     >
       {/* El lomo */}
@@ -184,7 +188,7 @@ export function ListaLibros({ onAbrir }: { onAbrir: (id: number) => void }) {
   )
 
   return (
-    <div className="mx-auto w-full max-w-2xl space-y-3">
+    <div className="mx-auto w-full max-w-2xl space-y-3" data-tut="escritura.libros">
       <div className="flex justify-end">
         <BotonPrimario type="button" pequeno app={COLOR} onClick={() => setEligiendo(true)}>
           <Icono nombre="agregar" /> {t('escritura.libros.nuevo', 'Nuevo libro')}
@@ -197,6 +201,7 @@ export function ListaLibros({ onAbrir }: { onAbrir: (id: number) => void }) {
               icono={h.compartidos ? 'companeros' : ICONO_TIPO[h.tipo ?? 'blanco']}
               titulo={h.titulo}
               onAbrirLibro={() => h.id != null && onAbrir(h.id)}
+              tut={`escritura.libro.${h.id}`}
             />
             <Pie
               sub={t('escritura.historias.textos', '{n} textos', {

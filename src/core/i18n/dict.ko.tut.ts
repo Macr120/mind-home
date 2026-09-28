@@ -307,9 +307,14 @@ export const KO_TUT: Dict = {
     '표 전체의 요금을 바꾸는 건 이미지 품질뿐이에요. \'빠름\'은 품질도 좋고 저렴해요(기본값이에요). \'고품질\'은 디테일이 더 풍부하고 이미지 속 글자도 더 선명해요.',
   'tut.cuenta-ia.5.titulo': '단위는 하나, 작업은 여럿',
   'tut.cuenta-ia.5.texto': '답장 하나는 1크레딧, 긴 계획은 3, 이미지나 3D 모델은 10이에요. 규칙은 모든 방에서 똑같고, 이 표는 그걸 하나씩 펼쳐 보여줄 뿐이에요.',
-  'tut.ejemplos.1.texto': '이 막대는 아직 내 데이터가 없는 거의 모든 앱에 나타나요. 빈 화면부터 시작하지 않도록, 예시로 채워진 모습을 보여주는 버튼이에요.',
-  'tut.ejemplos.2.texto': '예시를 봐도 내 데이터가 지워지거나 섞이지 않아요. 예시로 표시된 별도의 항목이라, 끄면 숨겨질 뿐 지워지지 않아요. 다시 켜면 있던 그대로 돌아와요.',
-  'tut.ejemplos.3.texto': '데모 MindHaOS(마음의 집 OS)에서는 이 막대가 나오지 않아요. 지민의 1년이 이미 그 역할을 하고 있어서 따로 예시가 필요 없거든요.',
+  'tut.ejemplos.1.texto': '빈 섹션을 처음 열면 기본 예시가 저절로 들어가서, 빈 화면에서 시작하지 않아도 돼요. 예시 항목도 평범한 항목이라 다른 것처럼 하나씩 고치거나 지울 수 있어요.',
+  'tut.ejemplos.2.texto':
+    '섹션 아래의 \'예시 삭제\'를 누르고 \'네, 예시 삭제\'로 확인하면 예시가 통째로 지워지고, 내 데이터는 전혀 건드리지 않아요. 예시가 하나도 남지 않으면 같은 자리에 \'기본 예시 복원\'이 나타나요.',
+  'tut.ejemplos.3.texto':
+    '예시는 XP나 연속 기록에 더해지지 않고, 알림을 만들지 않으며, Wrapped에도 들어가지 않고, AI도 계산에 넣지 않아요. 데모 MindHaOS에는 이 막대가 없어요. 지민의 1년 전체가 이미 예시거든요.',
+  'tut.ejemplos.1.titulo': '자동으로 들어가는 예시',
+  'tut.ejemplos.3.titulo': '내 기록에서 제외',
+  'tut.ejemplos.2.titulo': '삭제와 복원',
   'tut.hoy.1.texto': '미션은 따로 떨어진 곳에 있지 않고 각 앱 안에 있어요. 모든 방의 헤더에 미션 버튼이 있고, 그 앱이 오늘 요청하는 체크리스트가 들어 있어요.',
   'tut.hoy.2.titulo': '세 가지 출처, 하나의 목록',
   'tut.hoy.2.texto': '앱 자체의 미션(물, 칼로리)과 캘린더에서 오늘로 잡아 둔 일이 한 목록에 모여요. 각 단계가 나온 블록별로 묶여서요.',
@@ -826,6 +831,109 @@ export const KO_TUT: Dict = {
   'tut.app-sala--esencial.4.texto': '경로는 여러 장소를 하나의 여정으로 이어서 지도 위에 그려 줘요.',
   'tut.app-sala--esencial.5.titulo': '여행 일지',
   'tut.app-sala--esencial.5.texto': '다녀온 곳의 추억을 나라별 앨범으로 모아요. 장소마다 사진과 이야기가 담겨요.',
+  'tut.app-escritura--esencial.1.titulo': '나만의 글쓰기 작업실',
+  'tut.app-escritura--esencial.1.texto':
+    '여기서 쓰는 모든 글은 책 안에 담겨요. 단편, 장편 소설, 시나리오, 희곡, 짧은 편지까지요. 책마다 글을 폴더로 정리하고, 편집기에서는 서식을 다듬고 내보낼 수 있으며, AI와 함께 쓸 수도 있어요.',
+  'tut.app-escritura--esencial.2.titulo': '책장',
+  'tut.app-escritura--esencial.2.texto':
+    '표지 하나가 책 한 권이고, 안에 든 글의 수가 함께 보여요. 연필로 이름을 바꾸고 휴지통으로 책 전체를 지워요. “새 책”은 무엇을 쓸지 물어보고(빈 문서, 단편, 시나리오, 희곡 중 무엇을 골라도 아이콘만 달라져요) 첫 챕터를 열어 줘요.',
+  'tut.app-escritura--esencial.3.titulo': '예시 책',
+  'tut.app-escritura--esencial.3.texto':
+    '처음에는 책장에 “등대의 겨울”이 놓여 있어요. 챕터 두 개, 인물 두 명, 장소 하나, 플롯이 딸린 막 하나가 이미 쓰여 있는 예시 책이에요. 이 바의 “예시 삭제”로 통째로 지울 수 있고, 지운 뒤에는 “기본 예시 복원”으로 되돌릴 수 있어요.',
+  'tut.app-escritura--esencial.4.titulo': '문서와 도구 모음',
+  'tut.app-escritura--esencial.4.texto':
+    '책을 열면 문서가 나오고, 쓰는 동안 저절로 저장돼요. 도구 모음에서 제목과 인용, 굵게, 기울임, 목록, 정렬, 글자 색을 정할 수 있어요.',
+  'tut.app-escritura--esencial.5.titulo': '책의 폴더',
+  'tut.app-escritura--esencial.5.texto':
+    '챕터, 인물, 장소, 막이 있고 플롯은 막마다 들어가요. 시트에는 이미지, 설명, 색이 있고, 그 이름은 다른 시트의 본문에 표시돼요. 관계에서는 인물들이 어떻게 이어지는지 그릴 수 있어요.',
+  'tut.app-escritura--esencial.6.titulo': '목차와 내보내기',
+  'tut.app-escritura--esencial.6.texto':
+    '목차는 본문의 제목으로 저절로 만들어지고, 인쇄할 때 첫 쪽에 넣을 수 있어요. 여기서 TXT로 내려받거나, 연락처에 보내거나, 인쇄하거나 PDF로 저장할 수도 있어요. 바로 옆의 “공유”를 누르면 여러 사람이 함께 쓸 수 있어요.',
+  'tut.app-escritura--esencial.7.titulo': 'AI로 쓰기',
+  'tut.app-escritura--esencial.7.texto':
+    '부탁한 내용의 초안을 쓰고, 선택한 글을 다듬고, 쓰던 곳에서 이어 쓰거나 문서를 요약해 줘요. 각 기능은 쓰기 전에 크레딧이 얼마나 드는지 먼저 보여 줘요.',
+  'tut.app-arte--esencial.1.titulo': '나만의 미술 작업실',
+  'tut.app-arte--esencial.1.texto':
+    '여기서는 처음부터 그리거나, 사진을 손보거나, AI와 함께 상상할 수 있어요. 모든 것은 갤러리에서 시작하고, 그림을 열면 저절로 저장되는 레이어 캔버스가 나와요.',
+  'tut.app-arte--esencial.2.titulo': '갤러리',
+  'tut.app-arte--esencial.2.texto':
+    '그림은 한 번 누르면 열리고, 카드에서 공유하거나 이름을 바꾸거나 삭제할 수 있어요. “새 그림”은 원하는 크기의 빈 캔버스나 사진에서 시작해요. “골짜기의 오후”와 “과일 정물화”는 기본으로 들어 있어요. 아래쪽 바에서 지울 수 있고, 지운 뒤에는 복원할 수 있어요.',
+  'tut.app-arte--esencial.3.titulo': '그룹으로 나뉜 도구 모음',
+  'tut.app-arte--esencial.3.texto':
+    '그림 안에서는 도구가 칠하기, 도형, 오브젝트, 캔버스, 선·색, 기록 그룹으로 나뉘어 있어요. 각 그룹은 아이콘으로 접을 수 있고, 그룹과 버튼을 끌어서 원하는 순서로 놓을 수 있어요. 바꾼 뒤에는 “도구 모음 되돌리기”로 처음 상태로 돌아가요.',
+  'tut.app-arte--esencial.4.titulo': '레이어',
+  'tut.app-arte--esencial.4.texto':
+    '그림은 활성 레이어에 그려지고, “레이어 추가”로 최대 여섯 장까지 둘 수 있어요. 레이어마다 숨기기, 불투명도 바꾸기, 복제, 순서 바꾸기, 아래 레이어와 합치기, 삭제를 할 수 있어요.',
+  'tut.app-arte--esencial.5.titulo': '필터와 도우미',
+  'tut.app-arte--esencial.5.texto':
+    '밝기, 대비, 흑백, 흐리게는 캔버스를 보면서 활성 레이어에 적용되고, 어떤 필터든 되돌릴 수 있어요. 같은 도구 모음에 그리기 도우미인 자, 자석 격자, 거울도 있어요.',
+  'tut.app-arte--esencial.6.titulo': '내보내기와 공유',
+  'tut.app-arte--esencial.6.texto':
+    '그림은 저절로 저장되고, PNG 버튼을 누르면 보이는 레이어를 흰 배경 위에 합친 이미지를 내려받을 수 있어요. 여러 사람이 함께 그리려면 위쪽의 “공유”로 링크를 만들어 열어요.',
+  'tut.app-arte--esencial.7.titulo': 'AI로 그리기',
+  'tut.app-arte--esencial.7.texto':
+    '보고 싶은 그림을 설명하면 AI가 활성 레이어에 그려 주거나, 내 캔버스를 참고해서 다시 해석해 줘요. 각 기능은 쓰기 전에 크레딧이 얼마나 드는지 보여 주고, 결과는 되돌릴 수 있어요.',
+  'tut.app-archivos--esencial.1.titulo': '나만의 클라우드',
+  'tut.app-archivos--esencial.1.texto':
+    '\'파일\'은 모든 종류의 폴더와 파일을 클라우드에 보관하고, 이미지·동영상·오디오·PDF·텍스트는 미리 볼 수 있어요. 어느 기기에서든 열 수 있어요. 로그인과 Pro 요금제가 필요하고, 등급에 따라 10, 30, 100GB를 쓸 수 있어요.',
+  'tut.app-archivos--esencial.2.titulo': '섹션',
+  'tut.app-archivos--esencial.2.texto':
+    '\'내 파일\'에는 내 폴더와 파일이, \'최근\'에는 마지막으로 올린 것이, \'중요 표시\'에는 별표를 한 것이 모여요. 지운 것은 \'휴지통\'에 30일 동안 남아 있어서 그동안은 복원할 수 있어요.',
+  'tut.app-archivos--esencial.3.titulo': '방마다 폴더 하나',
+  'tut.app-archivos--esencial.3.texto':
+    'MindHaOS의 방마다 \'방\' 안에 자기 폴더가 있어요. 위쪽에는 그 앱이 이미 보관한 것, 예를 들어 레시피 사진이나 그림이 나오는데, 여기서는 보고 내려받기만 할 수 있어요. 아래쪽에는 직접 올린 것이 들어가요.',
+  'tut.app-archivos--esencial.4.titulo': '올리기와 만들기',
+  'tut.app-archivos--esencial.4.texto':
+    'Pro가 있으면 \'새로 만들기\'로 폴더를 만들거나 파일을 올릴 수 있고, 웹이나 데스크톱 앱에서는 폴더째 올릴 수도 있어요. 컴퓨터에서 \'파일\'로 바로 끌어다 놓을 수도 있고, 안에 있는 것은 끌어서 다른 폴더로 옮겨요.',
+  'tut.app-archivos--esencial.5.titulo': '검색과 정렬',
+  'tut.app-archivos--esencial.5.texto':
+    '\'내 파일\'에서는 검색창이 모든 파일을 찾고, 다른 섹션에서는 지금 보이는 것만 찾아요. 옆에서 이름, 날짜, 크기 중 정렬 순서를 고르고 격자 보기와 목록 보기를 바꿀 수 있어요.',
+  'tut.app-archivos--esencial.6.titulo': '파일별 옵션',
+  'tut.app-archivos--esencial.6.texto':
+    '파일을 마우스 오른쪽 버튼으로 클릭하거나 \'⋯\' 버튼을 누르면 옵션이 열려요. 내려받기, 공유, 중요 표시, 이름 바꾸기, 이동, 휴지통으로 이동이 있어요. \'공유\'는 1일, 7일, 30일 동안 유효하고 누구나 계정 없이 열 수 있는 링크를 만들어요.',
+  'tut.app-archivos--esencial.7.titulo': '내 저장 공간',
+  'tut.app-archivos--esencial.7.texto':
+    '사용량 표시줄에서 클라우드를 얼마나 썼는지 볼 수 있어요. Pro 등급에 따라 10, 30, 100GB예요. 요금제가 끝나도 올린 파일은 90일 동안 보고 내려받을 수 있고, 그 뒤에는 클라우드에서 삭제돼요.',
+  'tut.app-audio--esencial.1.titulo': '음악 작업실',
+  'tut.app-audio--esencial.1.texto':
+    '여기서 음악을 만들고, 녹음하고, 섞어요. 메뉴는 두 개예요. 프로젝트와 그걸 만드는 편집기가 있는 \'곡\', 그리고 DJ 덱 두 대가 있는 \'믹스\'예요.',
+  'tut.app-audio--esencial.2.titulo': '곡',
+  'tut.app-audio--esencial.2.texto':
+    '내 프로젝트와 기본으로 들어 있는 곡이 한 목록에 함께 있어요. 기본 곡은 잘 알려진 퍼블릭 도메인 곡이에요. 카드마다 여기서 바로 듣거나, 편집기에서 열거나, 폴더처럼 쓰는 앨범에 저장할 수 있어요.',
+  'tut.app-audio--esencial.3.titulo': '곡 시작하기',
+  'tut.app-audio--esencial.3.texto': '\'새 프로젝트\'는 빈 트랙 하나로 편집기를 열고, \'.mid 가져오기\'는 MIDI 파일을 음표째 프로젝트로 바꿔요.',
+  'tut.app-audio--esencial.4.titulo': '편집기',
+  'tut.app-audio--esencial.4.texto':
+    '곡을 열면 편집기가 방을 가득 채워요. 왼쪽에는 트랙, 오른쪽에는 피아노 롤이 있고, 음표는 격자 위에 그려요. 트랙마다 피아노부터 드럼까지 신스 악기가 있고, 화면 건반이나 물리 키보드, MIDI 건반으로 연주해요.',
+  'tut.app-audio--esencial.5.titulo': '녹음, 내보내기, AI',
+  'tut.app-audio--esencial.5.texto':
+    '녹음 버튼은 메트로놈으로 한 마디를 세고 나서 연주를 음표로 기록해요. 오디오 트랙에서는 마이크를 녹음해요. \'추가\' 안에는 \'연습\', 곡을 내려받는 \'WAV\', 활성 트랙에 작곡하거나 이어서 써 주는 \'AI\'가 있어요.',
+  'tut.app-audio--esencial.6.titulo': '녹음',
+  'tut.app-audio--esencial.6.texto': '마이크 녹음은 트랙에서 빼거나 프로젝트를 지워도 여기에 남아요. 듣기, 이름 바꾸기, 내려받기를 할 수 있어요.',
+  'tut.app-audio--esencial.7.titulo': '믹스',
+  'tut.app-audio--esencial.7.texto':
+    '크로스페이더로 이어진 DJ 덱 두 대예요. \'곡 불러오기\'로 스튜디오 곡, 기기의 오디오, iTunes 미리듣기를 올릴 수 있고, 덱마다 템포를 맞추는 피치, 이퀄라이저, 큐, SYNC가 있어요.',
+  'tut.app-video--esencial.1.titulo': '영상 에디터',
+  'tut.app-video--esencial.1.texto':
+    '여기서 클립, 텍스트, 내레이션, 음악을 타임라인에 올려 영상을 만들어요. 메뉴는 두 개예요. 프로젝트가 있는 \'영상\', 그리고 지도 위에서 장면을 찍는 \'3D 애니메이션\'이에요.',
+  'tut.app-video--esencial.2.titulo': '영상',
+  'tut.app-video--esencial.2.texto':
+    '내 영상마다 표지, 형식, 길이가 표시돼요. \'새 영상\'으로 처음부터 만들 수 있어요. 이 에디터로 만든 앱 광고가 기본으로 들어 있고, 다른 영상처럼 열고, 편집하고, 지울 수 있어요.',
+  'tut.app-video--esencial.3.titulo': '에디터 상단',
+  'tut.app-video--esencial.3.texto':
+    '영상을 열면 에디터가 방을 가득 채워요. \'앱 안에서 녹화\'는 MindHaOS에서 하는 일을 찍어 클립으로 가져오고, \'내보내기\'는 영상을 내려받거나 SNS에 게시해요. \'AI\'는 아이디어 하나로 대본을 써요.',
+  'tut.app-video--esencial.4.titulo': '미리보기',
+  'tut.app-video--esencial.4.texto':
+    '완성본 그대로 영상을 재생하고, 모서리 버튼으로 양옆 패널을 열어요. 왼쪽은 \'미디어\'로, 내 영상·이미지·오디오, 사운드, 다른 Studio 앱에서 만든 것이 있어요. 오른쪽은 선택한 클립의 편집기예요.',
+  'tut.app-video--esencial.5.titulo': '타임라인',
+  'tut.app-video--esencial.5.texto':
+    '트랙마다 담는 클립 종류가 정해져 있어요. 메인 트랙에는 영상과 이미지가 들어가고, 텍스트, 내레이션, 음악, 효과음 트랙은 내용이 생기면 나타나요. 클립은 탭해서 고르고, 끌어서 옮기고, 가장자리를 당겨 잘라요.',
+  'tut.app-video--esencial.6.titulo': '추가',
+  'tut.app-video--esencial.6.texto':
+    '필요한 것을 재생 헤드 위치에, 각자의 트랙으로 넣어요. 클립이나 이미지, 텍스트, 내레이션, 음악, 효과음, 내 아바타, AR 캐릭터나 AR 마스크, 카메라나 마이크로 녹화한 것까지요. 대본과 전환 효과도 여기서 열어요.',
+  'tut.app-video--esencial.7.titulo': '3D 애니메이션',
+  'tut.app-video--esencial.7.texto':
+    'MindHaOS 지도 위에서 찍는 장면이에요. 아바타와 어시스턴트가 대사와 카메라 움직임에 맞춰 컷마다 연기해요. 내보내거나, 미디어에 저장하거나, 클립으로 영상에 넣을 수 있어요.',
   'tut.app-agenda--trabajo.1.titulo': '할 일 보관함',
   'tut.app-agenda--trabajo.1.texto': '해야 하지만 아직 날짜가 없는 일은 여기에 우선순위와 함께 있어요. 적어 두려고 굳이 날짜를 정할 필요는 없어요.',
   'tut.app-agenda--trabajo.3.titulo': '보드',

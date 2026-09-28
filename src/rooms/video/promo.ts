@@ -1,12 +1,14 @@
 import { db, type ClipVideo, type MedioVideo, type ProyectoVideo, type Transicion } from '../../core/data/db'
+import { mediosVideoRepo, proyectosVideoRepo } from '../../core/data/repository'
 import { esSeedIntacta, filaSeed } from '../../core/data/sync/syncables'
 import { claveLS, esDemo } from '../../core/edicion'
 import type { Idioma } from '../../core/i18n/idiomas'
 import { enIdioma } from '../../core/i18n/porIdioma'
 import { idiomaActual } from '../../core/i18n/useT'
+import type { PaqueteEjemplo } from '../_shared/ejemplos/tipos'
 import { miniaturaFoto } from '../_shared/fotos'
 import { MIN_CLIP } from './constantes'
-import { medioIdDe, normalizar, redondear } from './modelo'
+import { medioIdDe, mediosUsados, normalizar, redondear } from './modelo'
 import { PROMO, PROMO_MEDIOS, PROMO_NOMBRES, type PlanPromo } from './promo.data'
 import { sonidoFabrica } from './sonidos'
 
@@ -16,7 +18,8 @@ import { sonidoFabrica } from './sonidos'
  * idiomas), la captura de escritorio encajada sobre un fondo, los rótulos, la
  * voz en off línea a línea, un clic en cada corte y el cierre en tres líneas.
  * Es una fila normal: se abre, se edita, se exporta y se BORRA como cualquier
- * video, y no vuelve (bandera) salvo en el demo, donde la BD se repone.
+ * video, y no vuelve solo (bandera) salvo en el demo, donde la BD se repone; se
+ * restaura desde la barra del ejemplo (`ejemploVideo`).
  *
  * Los binarios (`public/promo/`, empaquetados por
  * `marketing/promo/empaquetar-studio.mjs`) entran como medios locales con
@@ -55,21 +58,25 @@ const TRANSICIONES: Record<string, Transicion> = {
 type Fila = ProyectoVideo & { uid?: string }
 
 let sembradoPara: string | null = null
+/** La siembra en curso: `ejemploVideo.borrar` la espera, o los medios que aún bajan quedarían sueltos. */
+let enCurso: Promise<void> = Promise.resolve()
 
 /** Siembra (o repone) el anuncio en el idioma activo; al fallar la descarga se reintenta en la próxima apertura. */
 export async function sembrarPromo(): Promise<void> {
   const idioma = idiomaActual()
   if (sembradoPara === idioma) return
   sembradoPara = idioma
+  enCurso = sembrar(idioma)
   try {
-    await sembrar(idioma)
+    await enCurso
   } catch (e) {
     sembradoPara = null
     if (import.meta.env.DEV) console.warn('[MPH] anuncio de fábrica del Studio de video', e)
   }
 }
 
-async function sembrar(idioma: Idioma): Promise<void> {
+/** `restaurar`: el usuario lo pidió de vuelta desde la barra del ejemplo (ver `filaSeed`). */
+async function sembrar(idioma: Idioma, restaurar = false): Promise<void> {
   const filas = (await db.proyectosVideo.toArray()) as Fila[]
   // Las filas del ejemplo viejo vivían escondidas tras el interruptor: fuera.
   const viejos = filas.filter((p) => p.ejemploDe === EJEMPLO_VIEJO && p.id != null).map((p) => p.id!)
@@ -95,8 +102,10 @@ async function sembrar(idioma: Idioma): Promise<void> {
     }
     return
   }
-  // El usuario lo borró de su casa: no vuelve. En el demo la BD se repone al recargar.
-  if (!esDemo() && localStorage.getItem(LS_SEMBRADO) === VERSION) return
+  // El usuario lo borró de su casa: no vuelve solo. En el demo la BD se repone al recargar.
+  if (!restaurar && !esDemo() && localStorage.getItem(LS_SEMBRADO) === VERSION) return
+  // Borrado a mano, sus medios siguen en la biblioteca: fuera antes de bajarlos otra vez.
+  if (restaurar) await quitarMediosSueltos()
   const plan = enIdioma(PROMO, idioma)
   const ids = await materializar(plan, idioma, clavesDe(plan))
   const ahora = new Date().toISOString()
@@ -109,8 +118,45 @@ async function sembrar(idioma: Idioma): Promise<void> {
     creadoEn: ahora,
     actualizadoEn: ahora,
   }
-  await db.proyectosVideo.add(filaSeed(CLAVE_SEED, proyecto))
+  await db.proyectosVideo.add(filaSeed(CLAVE_SEED, proyecto, restaurar))
   if (!esDemo()) localStorage.setItem(LS_SEMBRADO, VERSION)
+}
+
+/** Los medios del anuncio que ya no usa ningún proyecto: sin él, solo llenan la biblioteca. */
+async function quitarMediosSueltos(): Promise<void> {
+  const usados = new Set((await proyectosVideoRepo.list()).flatMap((p) => [...mediosUsados(p)]))
+  for (const m of await mediosVideoRepo.list()) {
+    if (m.id != null && m.fuente?.startsWith(PREFIJO_FUENTE) && !usados.has(m.id)) await mediosVideoRepo.remove(m.id)
+  }
+}
+
+/**
+ * El anuncio como ejemplo de la lista de videos. Lo siembra la propia app al
+ * abrirse (`sembrarPromo`): la barra solo lo borra y lo restaura. Borrarlo se
+ * lleva también sus medios.
+ */
+export const ejemploVideo: PaqueteEjemplo = {
+  id: 'video.videos',
+  tablas: [],
+  auto: false,
+  hayEjemplo: () => proyectosVideoRepo.alguna((p) => (p as Fila).uid === UID),
+  async borrar() {
+    await enCurso.catch(() => {})
+    for (const p of await proyectosVideoRepo.list()) {
+      if (p.id != null && (p as Fila).uid === UID) await proyectosVideoRepo.remove(p.id)
+    }
+    await quitarMediosSueltos()
+    // Si llegó por el sync, este dispositivo nunca lo sembró: sin la bandera volvería solo.
+    localStorage.setItem(LS_SEMBRADO, VERSION)
+  },
+  async materializar(restaurar) {
+    await enCurso.catch(() => {})
+    enCurso = sembrar(idiomaActual(), restaurar)
+    // Sin conexión no baja: el botón de restaurar sigue ahí para reintentarlo.
+    await enCurso.catch((e) => {
+      if (import.meta.env.DEV) console.warn('[MPH] anuncio de fábrica del Studio de video', e)
+    })
+  },
 }
 
 // ─── Medios ──────────────────────────────────────────────────────────────────

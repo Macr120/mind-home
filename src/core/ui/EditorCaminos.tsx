@@ -4,6 +4,8 @@ import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
 import type { NombreIcono } from './iconos/catalogo'
 import { MarcoEditorInfra } from './MarcoEditorInfra'
+import { BarraEjemplo } from '../../rooms/_shared/ejemplos/BarraEjemplo'
+import { ejemploCaminos } from '../../rooms/caminos/ejemplos'
 
 const btn =
   'flex h-10 items-center gap-1.5 rounded-lg border border-white/10 px-2.5 text-xs font-semibold text-white transition active:scale-95'
@@ -143,6 +145,8 @@ export function EditorCaminos() {
               </span>
             </div>
           )}
+      {/* Aquí es donde se llega de verdad: la primera vez trae su circuito de ejemplo. */}
+      <BarraEjemplo paquete={ejemploCaminos} />
     </MarcoEditorInfra>
   )
 }

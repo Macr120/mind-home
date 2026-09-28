@@ -71,6 +71,7 @@ export function Lateral({
       key={e.clave}
       type="button"
       data-destino={e.destino}
+      data-tut={e.cuarto ? undefined : `archivos.menu.${e.clave}`}
       onClick={() => ir(e.ir)}
       className={`flex w-full items-center gap-2.5 rounded-full py-1.5 pe-3 text-left text-sm transition ${sangria ? 'ps-6' : 'ps-3'} ${clases(e)}`}
     >
@@ -90,6 +91,7 @@ export function Lateral({
       key={e.clave}
       type="button"
       data-destino={e.destino}
+      data-tut={`archivos.chip.${e.clave}`}
       onClick={() => ir(e.ir)}
       className={`flex shrink-0 items-center gap-1.5 rounded-full border border-white/10 px-3 py-1.5 text-xs transition ${clases(e)}`}
     >
@@ -101,14 +103,15 @@ export function Lateral({
     <>
       <aside className="hidden w-56 shrink-0 flex-col gap-3 md:flex">
         {puedeSubir && (
-          <BotonPrimario app={COLOR} onClick={onNuevo} className="w-fit rounded-2xl! px-5 shadow-lg">
+          <BotonPrimario app={COLOR} onClick={onNuevo} data-tut="archivos.nuevo" className="w-fit rounded-2xl! px-5 shadow-lg">
             <Icono nombre="agregar" /> {t('archivos.nuevo', 'Nuevo')}
           </BotonPrimario>
         )}
-        <nav className="space-y-0.5">
+        <nav className="space-y-0.5" data-tut="archivos.menu">
           {fila(arriba)}
           <button
             type="button"
+            data-tut="archivos.menu.cuartos"
             onClick={() => ir({ tipo: 'cuartos' })}
             className={`flex w-full items-center gap-2.5 rounded-full py-1.5 ps-3 pe-3 text-left text-sm transition ${
               en('cuartos') ? 'bg-white/15 font-semibold text-white' : 'text-white/75 hover:bg-white/10'
@@ -123,7 +126,7 @@ export function Lateral({
         <div className="mt-2 border-t border-white/10 pt-3">{medidor}</div>
       </aside>
 
-      <div className="sin-deslizador -mx-1 flex gap-1.5 overflow-x-auto px-1 pb-1 md:hidden">
+      <div className="sin-deslizador -mx-1 flex gap-1.5 overflow-x-auto px-1 pb-1 md:hidden" data-tut="archivos.chips">
         {chip(arriba)}
         {chip({ clave: 'cuartos', texto: t('archivos.cuartos', 'Cuartos'), icono: 'cuartos', ir: { tipo: 'cuartos' }, activa: en('cuartos') || en('cuarto') })}
         {abajo.map(chip)}

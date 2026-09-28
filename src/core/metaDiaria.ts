@@ -1,5 +1,6 @@
 import { useLiveQuery } from 'dexie-react-hooks'
 import { db, type EjecucionRutina, type Rutina } from './data/db'
+import { sinEjemplos } from './data/ejemplos'
 import { borrarMetaDiariaManual, fijarMetaDiariaManual, rutinasRepo } from './data/repository'
 import { DIA_MS, fechaLocalISO } from './fechaLocal'
 import { esMeta, rangoDe, vigenteEn } from './metas'
@@ -76,7 +77,8 @@ async function objetivoVigente(
   fecha: string,
   base: number,
 ): Promise<{ objetivo: number; deMeta?: string }> {
-  const pedidos = (await rutinasRepo.list())
+  // Una meta de ejemplo de fábrica no le sube el listón a nadie.
+  const pedidos = sinEjemplos(await rutinasRepo.list())
     .filter((r) => esMeta(r) && r.plantillaId === plantillaId && r.objetivosDia?.length && vigenteEn(r, fecha))
     .flatMap((m) => (m.objetivosDia ?? []).filter((o) => o.clave === clave).map((o) => ({ o, m })))
   if (pedidos.length === 0) return { objetivo: base }

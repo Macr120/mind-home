@@ -21,7 +21,7 @@ export function Preview({
   children?: ReactNode
 }) {
   return (
-    <div ref={previewRef} style={{ height: alto }} className="relative shrink-0 overflow-hidden rounded-xl bg-black">
+    <div ref={previewRef} style={{ height: alto }} data-tut="video.editor.visor" className="relative shrink-0 overflow-hidden rounded-xl bg-black">
       <canvas ref={canvasRef} className="h-full w-full object-contain" />
       {children}
     </div>

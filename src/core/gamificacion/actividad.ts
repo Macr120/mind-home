@@ -19,11 +19,12 @@ import { fechaLocalISO } from '../fechaLocal'
 const hoyISO = () => fechaLocalISO()
 
 /**
- * Las filas de una tabla SIN las de los ejemplos de fábrica (estén visibles o
- * no): un ejemplo enseña cómo se ve la app, no debe subir XP, racha ni la
- * Montaña de Sísifo.
+ * Las filas de una tabla SIN lo que trae la app de fábrica: ni los ejemplos ni
+ * las siembras que nadie ha tocado (`esSeedIntacta`). Enseñan cómo se ve la
+ * app; no deben subir XP, racha ni la Montaña de Sísifo.
  */
-const filas = async <T>(tabla: Table<T>): Promise<T[]> => sinEjemplos(await tabla.toArray())
+const filas = async <T>(tabla: Table<T>): Promise<T[]> =>
+  sinEjemplos(await tabla.toArray()).filter((f) => !esSeedIntacta(f))
 
 const diaMs = 86_400_000
 const restarDias = (n: number) =>

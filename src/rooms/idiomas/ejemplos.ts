@@ -2,6 +2,7 @@ import { idiomasRepo, tarjetasIdiomaRepo, temasIdiomaRepo } from '../../core/dat
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
 import { fotoEjemplo } from '../_shared/ejemplos/fotos'
 import {
+  filaEjemplo,
   porIdioma,
   retraducido,
   yaMaterializado,
@@ -407,62 +408,69 @@ const TARJETAS: { n: 1 | 2 | 3 | 4 | 5 | 6; tipo: 'palabra' | 'frase' | 'expresi
 
 export const ejemploIdiomas: PaqueteEjemplo = {
   id: ID,
-  async materializar() {
+  tablas: [idiomasRepo, temasIdiomaRepo, tarjetasIdiomaRepo],
+  async materializar(restaurar) {
     if (await yaMaterializado(ID, () => idiomasRepo.list())) return
     const T = porIdioma(TEXTOS)
     const lengua = porIdioma(OBJETIVO)
     const hoy = fechaLocalISO()
     const creado = `${isoMasDias(hoy, -21)}T10:00:00.000Z`
 
-    const idiomaId = await idiomasRepo.add({ ...lengua, nivel: 'A2', creadoEn: creado, ejemploDe: ID })
+    const idiomaId = await idiomasRepo.addSeed(
+      filaEjemplo(ID, 'idioma', restaurar, { ...lengua, nivel: 'A2' as const, creadoEn: creado }),
+    )
 
     // Dos temas propios colgando del nivel A2 del temario. Van ANTES que las
     // tarjetas porque cada tarjeta nace ya clasificada en uno de ellos: el
-    // vocabulario vive dentro del temario.
-    const tema1 = `din-ej-${idiomaId}-1`
-    const tema2 = `din-ej-${idiomaId}-2`
-    await temasIdiomaRepo.add({
-      temaId: tema1,
-      idiomaId,
-      nivel: 'A2',
-      area: 'temas',
-      padreId: null,
-      titulo: T.tema1Titulo,
-      descripcion: T.tema1Desc,
-      creadoEn: creado,
-      ejemploDe: ID,
-    })
-    await temasIdiomaRepo.add({
-      temaId: tema2,
-      idiomaId,
-      nivel: 'A2',
-      area: 'temas',
-      padreId: null,
-      titulo: T.tema2Titulo,
-      descripcion: T.tema2Desc,
-      creadoEn: creado,
-      ejemploDe: ID,
-    })
+    // vocabulario vive dentro del temario. Ids fijos, como el uid: el mismo
+    // ejemplo es el mismo tema en todos los dispositivos.
+    const tema1 = 'din-ej-1'
+    const tema2 = 'din-ej-2'
+    await temasIdiomaRepo.addSeed(
+      filaEjemplo(ID, 'tema1', restaurar, {
+        temaId: tema1,
+        idiomaId,
+        nivel: 'A2',
+        area: 'temas',
+        padreId: null,
+        titulo: T.tema1Titulo,
+        descripcion: T.tema1Desc,
+        creadoEn: creado,
+      }),
+    )
+    await temasIdiomaRepo.addSeed(
+      filaEjemplo(ID, 'tema2', restaurar, {
+        temaId: tema2,
+        idiomaId,
+        nivel: 'A2',
+        area: 'temas',
+        padreId: null,
+        titulo: T.tema2Titulo,
+        descripcion: T.tema2Desc,
+        creadoEn: creado,
+      }),
+    )
 
     const imagen = await fotoEjemplo('idiomas.tarjeta')
     for (const t of TARJETAS) {
-      await tarjetasIdiomaRepo.add({
-        idiomaId,
-        termino: T[`termino${t.n}`],
-        traduccion: T[`traduccion${t.n}`],
-        ejemplo: T[`ejemplo${t.n}`],
-        // La imagen mnemotécnica solo en una: es un extra, no la norma.
-        imagen: t.n === 5 ? imagen : undefined,
-        tipo: t.tipo,
-        temaId: t.n <= 3 ? tema1 : tema2,
-        nivel: 'A2',
-        caja: t.caja,
-        proximaISO: isoMasDias(hoy, t.proxima),
-        ultimaISO: isoMasDias(hoy, -3),
-        fuente: 'manual',
-        creadoEn: creado,
-        ejemploDe: ID,
-      })
+      await tarjetasIdiomaRepo.addSeed(
+        filaEjemplo(ID, `tarjeta${t.n}`, restaurar, {
+          idiomaId,
+          termino: T[`termino${t.n}`],
+          traduccion: T[`traduccion${t.n}`],
+          ejemplo: T[`ejemplo${t.n}`],
+          // La imagen mnemotécnica solo en una: es un extra, no la norma.
+          imagen: t.n === 5 ? imagen : undefined,
+          tipo: t.tipo,
+          temaId: t.n <= 3 ? tema1 : tema2,
+          nivel: 'A2',
+          caja: t.caja,
+          proximaISO: isoMasDias(hoy, t.proxima),
+          ultimaISO: isoMasDias(hoy, -3),
+          fuente: 'manual',
+          creadoEn: creado,
+        }),
+      )
     }
 
   },

@@ -1,7 +1,9 @@
 import { db, type CapaDibujo, type Dibujo } from '../../core/data/db'
+import { dibujosRepo } from '../../core/data/repository'
 import { esSeedIntacta, filaSeed } from '../../core/data/sync/syncables'
 import { claveLS, esDemo } from '../../core/edicion'
 import { porIdioma } from '../../core/i18n/porIdioma'
+import type { PaqueteEjemplo } from '../_shared/ejemplos/tipos'
 import { miniaturaFoto } from '../_shared/fotos'
 import { ALTO, ANCHO, DIBUJOS_FABRICA, lienzo, type DibujoFabrica } from './ejemplos'
 import { TEXTOS_ARTE } from './ejemplos.data'
@@ -20,7 +22,8 @@ const uidDe = (f: DibujoFabrica) => `seed-dibujos-${f.clave}`
 /**
  * Los dos dibujos de fábrica (el paisaje y el bodegón, ambos por capas). Son
  * filas normales: se renombran, se editan y se BORRAN como cualquier dibujo, y
- * la bandera evita que vuelvan. En el demo no hay bandera: la BD se repone al
+ * la bandera evita que vuelvan solos (se restauran desde la barra del ejemplo,
+ * `ejemploArte`). En el demo no hay bandera: la BD se repone al
  * recargar, así que se siembran siempre que falten (`sembrado` evita repetirlo
  * en la misma sesión, que es lo que dura lo borrado allí).
  */
@@ -34,8 +37,17 @@ export async function sembrarArte() {
   if (viejos.length) await db.dibujos.bulkDelete(viejos)
 
   if (!esDemo() && localStorage.getItem(LS_EJEMPLOS) === VERSION_EJEMPLOS) return
+  await crearDibujos(false)
+  if (!esDemo()) localStorage.setItem(LS_EJEMPLOS, VERSION_EJEMPLOS)
+}
+
+/**
+ * Crea los dibujos de fábrica que falten. `restaurar`: el usuario los pidió de
+ * vuelta desde la barra del ejemplo (ver `filaSeed`).
+ */
+async function crearDibujos(restaurar: boolean) {
   // Idempotencia por uid (el nombre puede estar traducido o editado).
-  const uids = new Set(filas.map((d) => d.uid))
+  const uids = new Set((await db.dibujos.toArray()).map((d) => d.uid))
   const T = porIdioma(TEXTOS_ARTE)
   for (const f of DIBUJOS_FABRICA) {
     if (uids.has(uidDe(f))) continue
@@ -64,9 +76,28 @@ export async function sembrarArte() {
       creadoEn: ahora,
       actualizadoEn: ahora,
     }
-    await db.dibujos.add(filaSeed(`dibujos-${f.clave}`, dibujo))
+    await db.dibujos.add(filaSeed(`dibujos-${f.clave}`, dibujo, restaurar))
   }
-  if (!esDemo()) localStorage.setItem(LS_EJEMPLOS, VERSION_EJEMPLOS)
+}
+
+/** ¿Es uno de los dibujos de fábrica? Por uid: el nombre puede estar traducido o editado. */
+const esDeFabrica = (d: Dibujo) => DIBUJOS_FABRICA.some((f) => uidDe(f) === d.uid)
+
+/**
+ * Los dibujos de fábrica como ejemplo de la galería. Los siembra la propia app
+ * al abrirse (`sembrarArte`): la barra solo los borra y los restaura.
+ */
+export const ejemploArte: PaqueteEjemplo = {
+  id: 'arte.galeria',
+  tablas: [],
+  auto: false,
+  hayEjemplo: () => dibujosRepo.alguna(esDeFabrica),
+  async borrar() {
+    for (const d of await dibujosRepo.list()) {
+      if (d.id != null && esDeFabrica(d)) await dibujosRepo.remove(d.id)
+    }
+  },
+  materializar: crearDibujos,
 }
 
 /**

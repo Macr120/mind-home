@@ -1,20 +1,24 @@
 import { useState } from 'react'
-import { esDemo } from '../../core/edicion'
+import { useEjemplos, useSeccionDecidida } from '../../core/data/ejemplos'
+import { esDemo, esVisita } from '../../core/edicion'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 
 /**
- * Cargar y tirar el ejemplo de una sección desde la propia sección.
+ * El ejemplo de fábrica de una sección, desde la propia sección.
  *
- * Sirve para ver la sección con algo dentro la primera vez, y estorba en
- * cuanto ya tienes lo tuyo. Borrar pide confirmación porque se lleva TODO el
- * ejemplo de esa sección, no solo la fila que estés mirando.
+ * Se pone solo al abrir Finanzas por primera vez (`ponerEjemplosPrimeraVez`).
+ * Mientras esté, el pie ofrece borrarlo; pide confirmación porque se lleva TODO
+ * el ejemplo de esa sección, no solo la fila que estés mirando. Cuando ya no
+ * queda nada de él, ofrece restaurarlo.
  */
 export function BarraEjemplo({
+  seccion,
   cargado,
   onCargar,
   onBorrar,
 }: {
+  seccion: string
   cargado: boolean
   onCargar: () => Promise<void>
   onBorrar: () => Promise<void>
@@ -22,9 +26,12 @@ export function BarraEjemplo({
   const t = useT()
   const [ocupado, setOcupado] = useState(false)
   const [confirmando, setConfirmando] = useState(false)
+  const decidida = useSeccionDecidida(seccion)
 
-  // Casa demo: el año de Pep@ YA es el ejemplo (y cargar/borrar está bloqueado).
-  if (esDemo()) return null
+  // Casa demo: el año de Pep@ YA es el ejemplo. Casa visitada: no es tuya.
+  if (esDemo() || esVisita()) return null
+  // Poniéndose por primera vez: en un momento aparece el ejemplo.
+  if (!cargado && !decidida) return null
 
   const correr = async (fn: () => Promise<void>) => {
     if (ocupado) return
@@ -37,22 +44,27 @@ export function BarraEjemplo({
     }
   }
 
+  const restaurar = async () => {
+    useEjemplos.getState().decidir(seccion)
+    await onCargar()
+  }
+
   return (
     <div className="flex flex-wrap items-center gap-2 rounded-xl border border-dashed border-white/10 px-3 py-2">
-      <p className="min-w-0 flex-1 text-[11px] leading-relaxed text-white/40">
-        {cargado
-          ? t('despacho.ejemplo.cargado', 'Lo que ves de ejemplo se puede borrar de golpe.')
-          : t('despacho.ejemplo.vacio', '¿No sabes por dónde empezar? Carga un ejemplo y míralo por dentro.')}
-      </p>
+      {cargado && (
+        <p className="min-w-0 flex-1 text-[11px] leading-relaxed text-white/40">
+          {t('despacho.ejemplo.cargado', 'Lo que ves de ejemplo se puede borrar de golpe.')}
+        </p>
+      )}
 
       {!cargado && (
         <button
           type="button"
-          onClick={() => void correr(onCargar)}
+          onClick={() => void correr(restaurar)}
           disabled={ocupado}
-          className="shrink-0 rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-white/55 transition hover:bg-white/10 disabled:opacity-40"
+          className="ml-auto shrink-0 rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-white/55 transition hover:bg-white/10 disabled:opacity-40"
         >
-          <Icono nombre="ayuda" /> {t('despacho.ejemplo.cargar', 'Cargar un ejemplo')}
+          <Icono nombre="restaurar" /> {t('ejemplo.restaurar', 'Restaurar ejemplo de fábrica')}
         </button>
       )}
 

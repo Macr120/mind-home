@@ -17,6 +17,7 @@ import { tarjetasVencidas } from './srs'
 import { hoyISO } from './stats'
 import { OPERACIONES_IA } from './costosIA'
 import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
+import { sinEjemplos } from '../../core/data/ejemplos'
 
 const DIACRITICOS = new RegExp('[\\u0300-\\u036f]', 'g')
 const normalizar = (s: string) => s.trim().toLowerCase().normalize('NFD').replace(DIACRITICOS, '')
@@ -186,7 +187,7 @@ const idiomas: Plantilla = {
     unidad: 'tarjetas',
     seccion: 'repaso',
     del: async (fecha) => {
-      const vencidas = tarjetasVencidas(await tarjetasIdiomaRepo.list(), fecha).length
+      const vencidas = tarjetasVencidas(sinEjemplos(await tarjetasIdiomaRepo.list()), fecha).length
       const hecho = (await repasosIdiomaRepo.list())
         .filter((r) => r.fecha === fecha)
         .reduce((s, r) => s + r.repasos, 0)

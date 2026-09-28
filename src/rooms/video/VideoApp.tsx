@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react'
 import { useAjustes } from '../../core/state/ajustesStore'
 import { intencionApp, tabInicial } from '../../core/state/intencionApp'
 import { usePelicula } from '../../core/state/peliculaStore'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { PestanasCarpeta, type ItemPestana } from '../_shared/PestanasCarpeta'
 import { COLOR } from './constantes'
 import { Editor } from './Editor'
-import { sembrarPromo } from './promo'
+import { ejemploVideo, sembrarPromo } from './promo'
 import { ProyectosTab } from './ProyectosTab'
 
 type Tab = 'videos' | 'animacion3d'
@@ -51,7 +52,13 @@ export function VideoApp() {
         <PestanasCarpeta items={TABS} activo={tab} onCambio={setTab} prefijoClave="video.tab" color={COLOR} variante="raiz" />
       </div>
       {tab === 'videos' ? (
-        <ProyectosTab escenario="video" onAbrir={setAbierto} />
+        <>
+          <ProyectosTab escenario="video" onAbrir={setAbierto} />
+          {/* Al pie de la lista. Aquí y no en ProyectosTab: esa la carga también el Modo película. */}
+          <div className="mx-auto w-full max-w-2xl shrink-0 empty:hidden">
+            <BarraEjemplo paquete={ejemploVideo} />
+          </div>
+        </>
       ) : (
         <ProyectosTab escenario="3d" onAbrir={(id) => usePelicula.getState().entrar(id)} />
       )}

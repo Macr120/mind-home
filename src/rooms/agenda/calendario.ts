@@ -77,7 +77,11 @@ interface Proyeccion {
   fechaInicio: string
   fechaFin?: string
   seccion: string
+  /** Lo proyectado desde un ejemplo de fábrica también lo es: no avisa ni entra en Misiones. */
+  ejemploDe?: string
 }
+
+const marcaEjemplo = (fuente: { ejemplo?: boolean }) => (fuente.ejemplo ? { ejemploDe: PLANTILLA } : {})
 
 const igual = (r: Rutina, p: Proyeccion) =>
   r.nombre === p.nombre &&
@@ -89,7 +93,8 @@ const igual = (r: Rutina, p: Proyeccion) =>
   r.repeticion === p.repeticion &&
   (r.fechaInicio ?? '') === p.fechaInicio &&
   (r.fechaFin ?? '') === (p.fechaFin ?? '') &&
-  r.seccion === p.seccion
+  r.seccion === p.seccion &&
+  (r.ejemploDe ?? '') === (p.ejemploDe ?? '')
 
 /**
  * Deja EXACTAMENTE estas rutinas para el ámbito: actualiza las que ya están (así
@@ -142,6 +147,7 @@ function proyeccionEvento(ev: EventoAgenda): Proyeccion[] {
       repeticion: 'una_vez',
       fechaInicio: ev.fecha,
       seccion: ev.area,
+      ...marcaEjemplo(ev),
     },
   ]
 }
@@ -168,6 +174,7 @@ function proyeccionMedicamento(m: Medicamento): Proyeccion[] {
     fechaInicio: m.fechaInicio,
     fechaFin: m.fechaFin || undefined,
     seccion: 'salud',
+    ...marcaEjemplo(m),
   }))
 }
 
@@ -198,6 +205,7 @@ function proyeccionCumple(c: ContactoAgenda): Proyeccion[] {
       repeticion: 'anual',
       fechaInicio: cumpleProyectado(c.cumple),
       seccion: 'personas',
+      ...marcaEjemplo(c),
     },
   ]
 }
@@ -229,6 +237,7 @@ function proyeccionCuidado(c: CuidadoMascota, mascota: string): Proyeccion[] {
       repeticion: 'una_vez',
       fechaInicio: c.fecha,
       seccion: 'salud',
+      ...marcaEjemplo(c),
     },
   ]
 }
@@ -255,6 +264,7 @@ function proyeccionCuidadoPersona(c: Cuidado, dueno: string | null): Proyeccion[
       repeticion: 'una_vez',
       fechaInicio: c.fecha,
       seccion: 'salud',
+      ...marcaEjemplo(c),
     },
   ]
 }

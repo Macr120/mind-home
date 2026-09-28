@@ -12,6 +12,7 @@ import { fechaLocalISO } from '../../core/fechaLocal'
 import type { PaisajeId } from '../../core/audio/paisaje'
 import { PISTAS } from './pistas'
 import { planMetasJardin } from './plan'
+import { sinEjemplos } from '../../core/data/ejemplos'
 
 const PISTAS_TOKENS: [string[], PaisajeId][] = [
   [['bosque', 'arboles', 'pajaros', 'naturaleza'], 'bosque'],
@@ -150,7 +151,7 @@ const jardin: Plantilla = {
     sinRacha: true,
     ajustable: true,
     del: async (fecha) => ({
-      hecho: (await sesionesMindfulnessRepo.list())
+      hecho: sinEjemplos(await sesionesMindfulnessRepo.list())
         .filter((s) => s.fecha === fecha)
         .reduce((s, x) => s + x.duracionMin, 0),
       objetivo: await objetivoDiarioDe('jardin', 10),

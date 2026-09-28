@@ -407,11 +407,14 @@ export const NL_TUT: Dict = {
   'tut.cuenta-ia.5.texto':
     'Een antwoord kost 1 credit, een uitgebreid plan 4, een afbeelding of een 3D-model 10 — de regel is voor alle kamers dezelfde, deze tabel klapt hem alleen stuk voor stuk uit.',
   'tut.ejemplos.1.texto':
-    'Deze balk verschijnt in bijna elke app zolang die nog geen gegevens van jou heeft: één knop om hem gevuld met een voorbeeld te zien, in plaats van te beginnen voor een leeg scherm.',
+    'De eerste keer dat je een leeg onderdeel opent, verschijnt het standaardvoorbeeld vanzelf, zodat je niet voor een leeg scherm begint. De regels ervan zijn gewoon: je wijzigt of verwijdert ze één voor één, zoals alle andere.',
   'tut.ejemplos.2.texto':
-    'Een voorbeeld bekijken wist of vermengt niets van jou: het zijn eigen regels, gemarkeerd als voorbeeld, die verborgen worden (niet gewist) als je het uitzet. Zet je het weer aan, dan komen ze terug precies zoals ze waren.',
+    'Onderaan haalt “Voorbeeld verwijderen” het helemaal weg nadat je bevestigt met “Ja, voorbeeld verwijderen”, en aan het jouwe wordt nooit gekomen. Is er niets meer van over, dan verschijnt op dezelfde plek “Standaardvoorbeeld herstellen”.',
   'tut.ejemplos.3.texto':
-    'In het demo-MindHaOS (Mentaal Huis OS) zie je deze balk niet: het hele jaar van Sam vervult die rol al, dus een apart voorbeeld is overbodig.',
+    'Het voorbeeld levert geen XP of reeksen op, geeft geen meldingen, komt niet in je Wrapped en de AI houdt er geen rekening mee. In het demo-MindHaOS zie je deze balk niet: het hele jaar van Sam is daar al het voorbeeld.',
+  'tut.ejemplos.1.titulo': 'Het komt vanzelf',
+  'tut.ejemplos.2.titulo': 'Verwijderen of herstellen',
+  'tut.ejemplos.3.titulo': 'Telt niet als het jouwe',
   'tut.hoy.1.texto':
     'Missies wonen niet op een aparte plek: ze wonen IN elke app. Boven aan elke kamer staat de knop Missies, met de checklist van wat die app VANDAAG van je vraagt.',
   'tut.hoy.2.titulo': 'Drie bronnen, één lijst',
@@ -1049,6 +1052,111 @@ export const NL_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': 'Logboek',
   'tut.app-sala--esencial.5.texto':
     'De herinneringen aan de plekken die je bezocht hebt, in albums per land: foto\'s en verhalen van elke plek.',
+  'tut.app-escritura--esencial.1.titulo': 'Je schrijfstudio',
+  'tut.app-escritura--esencial.1.texto':
+    'Alles wat je hier schrijft, woont in boeken: een verhaal, een roman, een filmscript, een toneelstuk of gewoon een brief. Elk boek bewaart zijn teksten in mappen, en de editor geeft ze opmaak, exporteert ze en heeft een AI die met je meeschrijft.',
+  'tut.app-escritura--esencial.2.titulo': 'De boekenkast',
+  'tut.app-escritura--esencial.2.texto':
+    'Elke kaft is een boek, met het aantal teksten erin: het potlood hernoemt het en de prullenbak verwijdert het helemaal. “Nieuw boek” vraagt wat je gaat schrijven – Leeg, Verhaal, Filmscript of Toneelstuk, wat alleen het pictogram verandert – en opent het bij het eerste hoofdstuk.',
+  'tut.app-escritura--esencial.3.titulo': 'Een voorbeeldboek',
+  'tut.app-escritura--esencial.3.texto':
+    'De eerste keer staat “Het winterlicht” al in de kast, een voorbeeldboek met twee hoofdstukken, twee personages, een plaats en een bedrijf met zijn plotlijn, allemaal al geschreven. “Voorbeeld verwijderen” in deze balk haalt het helemaal weg; is het er niet meer, dan brengt “Standaardvoorbeeld herstellen” het terug.',
+  'tut.app-escritura--esencial.4.titulo': 'Het blad en de werkbalk',
+  'tut.app-escritura--esencial.4.texto':
+    'Als je een boek opent, kom je op het blad, dat zichzelf opslaat terwijl je schrijft. De werkbalk regelt de opmaak: koppen en citaten, vet, cursief, lijsten, uitlijning en tekstkleur.',
+  'tut.app-escritura--esencial.5.titulo': 'De mappen van het boek',
+  'tut.app-escritura--esencial.5.texto':
+    'Hoofdstukken, Personages, Plaatsen en Bedrijven, met de plotlijnen in elk bedrijf. De fiches hebben een afbeelding, beschrijving en kleur, en hun naam wordt gemarkeerd in de tekst van de andere bladen; bij Relaties teken je hoe de personages met elkaar verbonden zijn.',
+  'tut.app-escritura--esencial.6.titulo': 'Inhoudsopgave en export',
+  'tut.app-escritura--esencial.6.texto':
+    'De inhoudsopgave ontstaat vanzelf uit de koppen in de tekst en kan bij het afdrukken op de eerste pagina. Hier download je de tekst ook als TXT, stuur je hem naar een contact of druk je hem af of sla je hem op als PDF; “Delen”, ernaast, opent hem zodat je er met meerdere mensen aan schrijft.',
+  'tut.app-escritura--esencial.7.titulo': 'Schrijven met AI',
+  'tut.app-escritura--esencial.7.texto':
+    'De AI schrijft wat je vraagt, verbetert de tekst die je selecteert, schrijft verder waar je gebleven bent of vat het document samen. Elke optie laat vooraf zien hoeveel credits ze kost.',
+  'tut.app-arte--esencial.1.titulo': 'Je kunststudio',
+  'tut.app-arte--esencial.1.texto':
+    'Hier schilder je vanaf nul, bewerk je een foto of laat je de AI met je meedenken. Alles begint in de galerij, en elke tekening opent op een doek met lagen dat zichzelf opslaat.',
+  'tut.app-arte--esencial.2.titulo': 'De galerij',
+  'tut.app-arte--esencial.2.texto':
+    'Elke tekening open je met één tik, en via de kaart deel je hem, geef je hem een nieuwe naam of verwijder je hem. “Nieuwe tekening” begint leeg, in het formaat dat je kiest, of vanaf een foto. “Middag in de vallei” en “Stilleven met fruit” staan er standaard in: de balk onderaan verwijdert ze en zet ze terug als ze weg zijn.',
+  'tut.app-arte--esencial.3.titulo': 'De werkbalk in groepen',
+  'tut.app-arte--esencial.3.texto':
+    'In een tekening staan de gereedschappen in groepen: Verven, Vormen, Objecten, Canvas, Lijn en kleur en Geschiedenis. Elke groep klap je in via het pictogram, en groepen en knoppen sleep je in de volgorde die je wilt; heb je iets veranderd, dan zet “Werkbalk herstellen” alles terug zoals het was.',
+  'tut.app-arte--esencial.4.titulo': 'Lagen',
+  'tut.app-arte--esencial.4.texto':
+    'Je schildert op de actieve laag, en met “Laag toevoegen” kun je er tot zes hebben. Elke laag kun je verbergen, doorzichtiger maken, dupliceren, verschuiven, samenvoegen met de laag eronder of verwijderen.',
+  'tut.app-arte--esencial.5.titulo': 'Filters en hulpmiddelen',
+  'tut.app-arte--esencial.5.texto':
+    'Helderheid, contrast, grijstinten en vervagen werken op de actieve laag terwijl je het doek ziet, en elk filter kun je ongedaan maken. In dezelfde werkbalk zitten de tekenhulpen: liniaal, raster met magneet en spiegel.',
+  'tut.app-arte--esencial.6.titulo': 'Exporteren en delen',
+  'tut.app-arte--esencial.6.texto':
+    'De tekening slaat zichzelf op, en de knop PNG downloadt de afbeelding met de zichtbare lagen samengevoegd op een witte achtergrond. Om er met meerdere mensen aan te schilderen, opent “Delen” bovenaan hem via een link.',
+  'tut.app-arte--esencial.7.titulo': 'Schilderen met AI',
+  'tut.app-arte--esencial.7.texto':
+    'Beschrijf wat je wilt zien en de AI schildert het op de actieve laag, of herinterpreteert je doek met dat doek als voorbeeld. Elke optie laat vooraf zien hoeveel credits ze kost, en het resultaat kun je ongedaan maken.',
+  'tut.app-archivos--esencial.1.titulo': 'Je cloud',
+  'tut.app-archivos--esencial.1.texto':
+    'Bestanden bewaart mappen en bestanden van elk type in de cloud, met een voorbeeld van afbeeldingen, video, audio, pdf en tekst, en je opent ze op elk apparaat. Je moet ingelogd zijn en een Pro-abonnement hebben, met 10, 30 of 100 GB afhankelijk van het niveau.',
+  'tut.app-archivos--esencial.2.titulo': 'De onderdelen',
+  'tut.app-archivos--esencial.2.texto':
+    'Mijn bestanden bevat je mappen en bestanden, Recent wat je het laatst hebt geüpload en Met ster wat je met de ster markeert. Wat je verwijdert, blijft 30 dagen in de Prullenbak, waar je het nog kunt terugzetten.',
+  'tut.app-archivos--esencial.3.titulo': 'Een map per kamer',
+  'tut.app-archivos--esencial.3.texto':
+    'Elke kamer van je MindHaOS heeft een eigen map onder Kamers. Bovenaan staat wat de app ervan al bewaart, zoals receptfoto’s of tekeningen, die je hier alleen kunt bekijken en downloaden; daaronder komt wat je zelf uploadt.',
+  'tut.app-archivos--esencial.4.titulo': 'Uploaden en maken',
+  'tut.app-archivos--esencial.4.texto':
+    'Met Pro maakt “Nieuw” een map of uploadt het bestanden, en op het web of in de desktop-app ook hele mappen. Vanaf je computer kun je ze ook meteen in Bestanden neerzetten, en wat er al in staat, verplaats je naar een andere map door het te slepen.',
+  'tut.app-archivos--esencial.5.titulo': 'Zoeken en sorteren',
+  'tut.app-archivos--esencial.5.texto':
+    'In Mijn bestanden zoekt de zoekbalk in al je bestanden, in andere onderdelen alleen in wat je voor je hebt. Ernaast kies je de volgorde, op naam, datum of grootte, en wissel je tussen raster en lijst.',
+  'tut.app-archivos--esencial.6.titulo': 'Opties per bestand',
+  'tut.app-archivos--esencial.6.texto':
+    'Rechtsklikken op een bestand, of op de knop “⋯”, opent de opties: downloaden, delen, een ster geven, hernoemen, verplaatsen of naar de prullenbak sturen. “Delen” maakt een link die 1, 7 of 30 dagen geldt en die iedereen zonder account kan openen.',
+  'tut.app-archivos--esencial.7.titulo': 'Je ruimte',
+  'tut.app-archivos--esencial.7.texto':
+    'De meter laat zien hoeveel je van je cloud gebruikt: 10, 30 of 100 GB, afhankelijk van je Pro-niveau. Stopt je abonnement, dan kun je wat je hebt geüpload nog 90 dagen bekijken en downloaden; daarna wordt het uit de cloud verwijderd.',
+  'tut.app-audio--esencial.1.titulo': 'De muziekstudio',
+  'tut.app-audio--esencial.1.texto':
+    'Hier componeer, neem je op en mix je muziek. Er zijn twee menu\'s: Nummers, met je projecten en de editor waarin je ze maakt, en Mix, met twee dj-decks.',
+  'tut.app-audio--esencial.2.titulo': 'Nummers',
+  'tut.app-audio--esencial.2.texto':
+    'Je projecten delen de lijst met kant-en-klare nummers, bekende stukken uit het publieke domein. Elke kaart speel je hier meteen af, open je in de editor of bewaar je in een album, dat werkt als een map.',
+  'tut.app-audio--esencial.3.titulo': 'Een nummer beginnen',
+  'tut.app-audio--esencial.3.texto':
+    '“Nieuw project” opent de editor met een leeg spoor, en “.mid importeren” maakt van een MIDI-bestand een project met de noten erin.',
+  'tut.app-audio--esencial.4.titulo': 'De editor',
+  'tut.app-audio--esencial.4.texto':
+    'Als je een nummer opent, vult de editor de kamer: links de sporen en rechts de pianorol, waar je de noten op het raster tekent. Elk spoor heeft zijn eigen synth-instrument, van piano tot drums, en je speelt het met het schermtoetsenbord, een fysiek toetsenbord of een MIDI-keyboard.',
+  'tut.app-audio--esencial.5.titulo': 'Opnemen, exporteren en AI',
+  'tut.app-audio--esencial.5.texto':
+    'De opnameknop telt één maat af met de metronoom en bewaart wat je speelt als noten; op een audiospoor neemt hij de microfoon op. Onder “Extra\'s” staan “Oefenen”, “WAV” om het nummer te downloaden en “AI”, die voor het actieve spoor componeert of het voortzet.',
+  'tut.app-audio--esencial.6.titulo': 'Opnames',
+  'tut.app-audio--esencial.6.texto':
+    'Microfoonopnames blijven hier, ook als je ze uit hun spoor haalt of het project verwijdert. Je kunt ze beluisteren, hernoemen en downloaden.',
+  'tut.app-audio--esencial.7.titulo': 'Mix',
+  'tut.app-audio--esencial.7.texto':
+    'Twee dj-decks, verbonden door een crossfader. “Nummer laden” haalt er een uit de studio, audio van je apparaat of een iTunes-fragment bij, en elk deck heeft pitch, equalizer, cue en SYNC om het tempo gelijk te trekken.',
+  'tut.app-video--esencial.1.titulo': 'De video-editor',
+  'tut.app-video--esencial.1.texto':
+    'Hier maak je video\'s met clips, tekst, voice-over en muziek op een tijdlijn. Er zijn twee menu\'s: Video\'s, met je projecten, en 3D-animatie, om scènes op de kaart te draaien.',
+  'tut.app-video--esencial.2.titulo': 'Video\'s',
+  'tut.app-video--esencial.2.texto':
+    'Je video\'s, elk met een omslag, formaat en duur; “Nieuwe video” begint er een vanaf nul. Er zit al een reclamespotje voor de app in, gemaakt met deze editor, dat je opent, bewerkt of verwijdert zoals elk ander.',
+  'tut.app-video--esencial.3.titulo': 'De kop van de editor',
+  'tut.app-video--esencial.3.texto':
+    'Als je een video opent, vult de editor de kamer. “Opnemen in de app” filmt wat je in je MindHaOS doet en brengt het terug als clip; “Exporteren” downloadt de video of plaatst hem op je sociale media, en “AI” schrijft het script vanuit een idee.',
+  'tut.app-video--esencial.4.titulo': 'Het voorbeeld',
+  'tut.app-video--esencial.4.texto':
+    'Het speelt de video af zoals hij eruit komt, en de knoppen in de hoeken openen de zijpanelen. Links Media: je video\'s, afbeeldingen en audio, de geluiden en wat je in de andere Studio-apps hebt gemaakt; rechts de editor van de geselecteerde clip.',
+  'tut.app-video--esencial.5.titulo': 'De tijdlijn',
+  'tut.app-video--esencial.5.texto':
+    'Elk spoor bevat één soort clip: het hoofdspoor video\'s en afbeeldingen, en de sporen voor tekst, vertelling, muziek of geluidseffecten verschijnen zodra er iets op staat. Een tik selecteert een clip, slepen verplaatst hem en aan de randen kort je hem in.',
+  'tut.app-video--esencial.6.titulo': 'Toevoegen',
+  'tut.app-video--esencial.6.texto':
+    'Zet bij de cursor wat je nodig hebt, alles op zijn eigen spoor: clips of afbeeldingen, tekst, voice-over, muziek, geluidseffecten, je avatar, een AR-personage of een AR-masker, en opnames van de camera of de microfoon. Ook het script en de overgangen open je hier.',
+  'tut.app-video--esencial.7.titulo': '3D-animatie',
+  'tut.app-video--esencial.7.texto':
+    'Scènes gedraaid op de kaart van je MindHaOS: je avatar en je assistenten spelen shot voor shot, met dialogen en camerabewegingen. Je exporteert ze, bewaart ze in Media of zet ze als clip in een video.',
   'tut.app-agenda--trabajo.1.titulo': 'De inbox',
   'tut.app-agenda--trabajo.1.texto':
     'Wat gedaan moet worden maar nog geen dag heeft, staat hier, met zijn prioriteit. Niets dwingt je een datum te kiezen om het op te schrijven.',

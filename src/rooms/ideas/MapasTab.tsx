@@ -10,8 +10,10 @@ import { uidDe, usePublicarEntrada } from '../../core/state/entradaAbiertaStore'
 import { refNodo } from '../../core/grafo/memoria'
 import { COLOR } from './constantes'
 import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { crearEjemplo, crearMapaIA, crearMapaVacio } from './crear'
 import { ejemploDe } from './ejemplos'
+import { ejemploDiagramas, ejemploMapas } from './ejemplos.paquete'
 import { MatrizDecision } from './MatrizDecision'
 import { defTipo, tiposDe } from './tiposMapa'
 import { EntradasQueUsan } from '../_shared/EntradasQueUsan'
@@ -331,6 +333,8 @@ export function MapasTab({ familia }: { familia: 'mapas' | 'diagramas' }) {
           })}
         </div>
       )}
+
+      <BarraEjemplo paquete={familia === 'mapas' ? ejemploMapas : ejemploDiagramas} />
     </div>
   )
 }

@@ -119,6 +119,8 @@ export function ProyectosTab({ escenario, onAbrir }: { escenario: 'video' | '3d'
                 type="button"
                 onClick={abrir}
                 title={p.nombre}
+                // El anuncio de fábrica (`promo.ts`): el tour esencial lo abre para enseñar el editor.
+                data-tut={(p as { uid?: string }).uid === 'seed-video-promo' ? 'video.lista.anuncio' : undefined}
                 className="relative block aspect-square w-full overflow-hidden rounded-xl border border-white/10 bg-black/40 transition hover:border-white/40"
               >
                 {url ? (

@@ -9,6 +9,7 @@ import {
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
 import { CLAUSULA_RECHAZO, CLAUSULA_SALUD, type ContextoPlanApp } from '../../core/planIA'
 import { tGlobal } from '../../core/i18n/useT'
+import { sinEjemplos } from '../../core/data/ejemplos'
 
 /**
  * Acotamiento del planificador ✨ en ejercicio: plan de entrenamiento en
@@ -40,7 +41,7 @@ export async function planMetasEjercicio(): Promise<ContextoPlanApp> {
       `Objetivo semanal: ${perfil.sesionesFuerzaSemana} sesiones de fuerza, ${perfil.minutosResistenciaSemana} min de resistencia, ${perfil.minutosFlexibilidadSemana} min de flexibilidad, ${perfil.diasActivosSemana} días activos.`,
     )
 
-  const sesiones = await sesionesEjercicioRepo.list()
+  const sesiones = sinEjemplos(await sesionesEjercicioRepo.list())
   const d30 = isoMasDias(hoy, -29)
   const recientes = sesiones.filter((s) => s.fecha >= d30 && s.fecha <= hoy)
   if (recientes.length > 0) {

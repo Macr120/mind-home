@@ -1466,9 +1466,7 @@ export const ZH: Dict = {
   'despacho.s.intereses': '利息总额',
   'despacho.s.col.capital': '本金',
   'despacho.s.col.restante': '剩余',
-  'despacho.ejemplo.vacio': '不知道从哪里开始？加载一个示例，看看里面是什么样。',
   'despacho.ejemplo.cargado': '示例内容可以一次性全部删除。',
-  'despacho.ejemplo.cargar': '加载示例',
   'despacho.ejemplo.borrar': '删除示例',
   'despacho.ejemplo.confirmar': '是，删除示例',
   'despacho.mk.divisas': '外汇',
@@ -6384,7 +6382,8 @@ export const ZH: Dict = {
   'tut.cuenta-ia.titulo': 'AI与账户',
   'tut.cuenta-ia.resumen': 'AI在编辑器›设置中开启。每个操作——回复、计划、图片、3D模型——都有对应的点数价格，请求前就能看到。使用你自己的服务商密钥，不会消耗点数，直接向服务商付费。',
   'tut.ejemplos.titulo': '从示例开始',
-  'tut.ejemplos.resumen': '几乎每个应用都有一个栏，能看到已经填好数据的示例，之后再隐藏也不会丢失你自己的内容。演示用的MindHaOS（心灵之家 OS）里不会出现它——那里整整一年本身就是示例。',
+  'tut.ejemplos.resumen':
+    '第一次打开空的分区时，预置示例会自动放进去，免得你面对一片空白。这些记录和普通记录一样，可以修改或删除；分区底部的“删除示例”会把它整个删掉，不碰你自己的内容；等它一点不剩时，“恢复预置示例”能把它找回来。它不计入XP、连续天数、提醒、Wrapped，也不会交给AI；演示用的MindHaOS里也不会出现，因为小安的一整年本身就是示例。',
   'tut.hoy.titulo': '今日清单',
   'tut.hoy.resumen':
     '任务住在每个应用里面：它的任务按钮打开今天的清单——这个应用要你做的事，以及你排给今天的事。一个步骤被划掉，是因为应用里已经有了记录，而不是因为谁手动打了勾。房间上的红点是它今天还剩下的事，而时钟上的任务按钮会把所有应用的一起显示出来。',
@@ -6991,6 +6990,16 @@ export const ZH: Dict = {
     '整个MindHaOS的规划中心，分三个菜单：目标（你给自己定下的事，按负责的应用分组）、计划（把一个目标拆成若干阶段的日程草稿）、日程（所有目标落下的时间轴）。它不保存自己的记录：只汇集其他应用里诞生的目标和计划。点开一个目标会打开它的详情页，从那里再进入只属于它的时间轴。',
   'tut.app-sala--esencial.resumen':
     '客厅是你的旅行世界，分五个菜单：地图（在世界地图上标记地点的图钉，还有地球仪视图）、行程（想去的地方和它们的逐日计划）、路线（把多个地点串成一条线）、路线导航（组合步行、公共交通、自行车、摩托车和汽车的门到门行程）、旅行日志（按国家整理的照片和故事）。',
+  'tut.app-escritura--esencial.resumen':
+    '写作是一个书架。每本书都有自己的文件夹——章节、角色、场景地点和幕（幕下还有情节线）——还有一张角色关系图。编辑器可以排版、根据标题生成目录、导出为TXT或PDF，还有AI帮你起草、改写、续写和总结。第一次打开时，书架上已经放好一本示例书《灯塔的冬天》，可以在它下方的栏里删除或恢复。',
+  'tut.app-arte--esencial.resumen':
+    '艺术是你的绘画和照片工作室：一个存放画作的画廊，打开任意一幅就进入分图层的画布，可以用画笔、喷枪、形状、填充、文字和照片。还有滤镜、直尺和镜像等辅助工具、PNG导出，以及能按你的描述作画或重绘你画作的AI。默认自带两幅画作《山谷的午后》和《水果静物》，可以在画廊底部的栏里删除或恢复。',
+  'tut.app-archivos--esencial.resumen':
+    '“文件”是你的云端：各种类型的文件夹和文件，带预览，在你所有的设备上都能用。需要登录并开通 Pro 方案，按等级有 10、30 或 100 GB；方案到期后，已上传的内容还能查看和下载 90 天。每个房间都有自己的文件夹，放着它的应用已经保存的内容；另外还有“最近”“已加星标”、保留 30 天的“回收站”，以及无需账号就能打开的分享链接。',
+  'tut.app-audio--esencial.resumen':
+    '音乐工作室有两个菜单。“歌曲”里是你的项目和自带的歌曲，可以直接试听，也可以在编辑器里打开：编辑器有钢琴卷帘音轨、合成器音色、屏幕键盘或 MIDI、带节拍器的录音、WAV 导出，还有陪你作曲的 AI。“混音”是两台带交叉推子的 DJ 唱盘，用来混合工作室的歌曲、你自己的音频或 iTunes 试听片段。',
+  'tut.app-video--esencial.resumen':
+    '视频编辑器把片段、图片、文字、旁白、音乐和音效排在分轨的时间轴上，预览会按成片的样子播放。你可以把应用本身录成片段，让 AI 写脚本，再导出视频或发布到你的社交账号。在“3D 动画”里，你可以带着自己的形象和助手在地图上拍摄场景。',
   'tut.app-anecdotario--diario.titulo': '小安的日记',
   'tut.app-anecdotario--diario.resumen': '回忆本就是你的私人日记:带心情、文字和照片的记录,一本按心情给全年上色的日历,以及按年、月、周分类保存的历史记录。',
   'tut.app-anecdotario--fotos.titulo': '照片里的里程碑',
@@ -7165,14 +7174,12 @@ export const ZH: Dict = {
   'agenda.trabajo.pendientes': '待办',
   'agenda.trabajo.tablero': '看板',
   'agenda.trabajo.apuntar': '记一件待办',
-  'ejemplo.vacio': '不知道从哪里开始？看看放入示例后的样子。',
-  'ejemplo.puesto': '这是一个示例：随时可以隐藏，你自己的数据不会受影响。',
-  'ejemplo.mostrar': '查看示例',
-  'ejemplo.ocultar': '隐藏示例',
+  'ejemplo.puesto': '这是预置的示例，随时可以删除。',
   'ejemplo.sinSitio': '地图上暂时没有空位来放置示例。',
-  'agenda.ejemplo.vacio': '不知道从哪里开始？加载一个示例，进去看看。',
+  'ejemplo.borrar': '删除示例',
+  'ejemplo.confirmar': '是，删除示例',
+  'ejemplo.restaurar': '恢复预置示例',
   'agenda.ejemplo.cargado': '你看到的示例内容可以一次性清除，连日历中的时段也会一起删掉。',
-  'agenda.ejemplo.cargar': '加载示例',
   'agenda.ejemplo.borrar': '删除示例',
   'agenda.ejemplo.confirmar': '是，删除示例',
   'agenda.tablero.porhacer': '待处理',

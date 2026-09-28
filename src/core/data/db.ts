@@ -421,6 +421,8 @@ export interface SesionEjercicio {
   ppmMax?: number
   /** Resistencia: trazo GPS de la ruta grabada en vivo. */
   ruta?: PuntoRuta[]
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /**
@@ -450,6 +452,8 @@ export interface SerieFuerza {
   repeticiones: number
   pesoKg: number
   orden: number
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Rutina agendada en el plan semanal de ejercicio (0 = lunes … 6 = domingo). */
@@ -570,6 +574,8 @@ export interface SplitCardio {
   minutos: number
   km?: number
   orden: number
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Postura dentro de una sesión de flexibilidad: tiempo (seg) × repeticiones. */
@@ -580,6 +586,8 @@ export interface SerieFlex {
   segundos: number
   repeticiones: number
   orden: number
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Imagen (miniatura) subida para un ejercicio del catálogo; indexada por nombre normalizado. */
@@ -690,6 +698,8 @@ export interface ConversacionBiblio {
   destiladaEn?: string
   creadoEn: string
   actualizadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Mensaje dentro de una charla de la biblioteca. */
@@ -699,6 +709,8 @@ export interface MensajeBiblio {
   rol: 'usuario' | 'asistente'
   texto: string
   creado: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Entrada wiki de la enciclopedia personal (destilada de una charla o manual). */
@@ -2524,6 +2536,8 @@ export interface PlanMeta {
    * como histórico y solo se lee para los nodos que no llegaron a tener espejo.
    */
   hechos?: number[]
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Qué pasos de una rutina se completaron en un día (para rachas y digest). */
@@ -3226,6 +3240,8 @@ export interface CarpetaIdea {
   color?: string
   orden: number
   creadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /**
@@ -3262,6 +3278,8 @@ export interface Idea {
   favorita?: boolean
   fecha: string
   creadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /**
@@ -3328,6 +3346,8 @@ export interface MapaIdeas {
   ejemplo?: boolean
   fecha: string
   creadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Forma del nodo en un diagrama de flujo (sin valor = proceso). */
@@ -3372,6 +3392,8 @@ export interface NodoMapa {
   peso?: number
   fecha: string
   creadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 // ----- Agenda · trabajo, salud y personas -----

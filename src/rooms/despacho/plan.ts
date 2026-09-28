@@ -4,6 +4,7 @@ import { tGlobal } from '../../core/i18n/useT'
 import { hoyISO, money2, rangoPeriodo, totalEnRango } from './mes'
 import { resumenDe } from './useResumen'
 import type { TipoMeta } from './MetasTab'
+import { sinEjemplos } from '../../core/data/ejemplos'
 
 /**
  * Acotamiento del planificador ✨ en el despacho: el plan es SIEMPRE de dinero
@@ -59,7 +60,7 @@ export async function planMetasDespacho(ambitoId?: string): Promise<ContextoPlan
   const ambito: AmbitoPlan = ambitoId === 'deuda' ? 'deuda' : 'ahorroInversion'
   const contexto: string[] = []
 
-  const movimientos = await finanzasRepo.list()
+  const movimientos = sinEjemplos(await finanzasRepo.list())
   const resumen = resumenDe(movimientos, 'mes')
   if (resumen.ingresos > 0 || resumen.gastos > 0) {
     contexto.push(
@@ -91,7 +92,7 @@ export async function planMetasDespacho(ambitoId?: string): Promise<ContextoPlan
       : undefined
 
   const tipos = TIPOS_DEL_AMBITO[ambito]
-  const metas = (await metasRepo.list()).filter((m) => tipos.includes((m.tipo ?? 'ahorro') as TipoMeta))
+  const metas = sinEjemplos(await metasRepo.list()).filter((m) => tipos.includes((m.tipo ?? 'ahorro') as TipoMeta))
   if (metas.length > 0) {
     // Cada meta lleva su tipo pegado: en el ámbito fusionado la IA tiene que
     // distinguir «juntar para un viaje» de «aportar cada mes».
@@ -109,7 +110,7 @@ export async function planMetasDespacho(ambitoId?: string): Promise<ContextoPlan
   // «invierte en X en vez de pagar Y», que es justo la asesoría individualizada
   // que prohíbe la guía de arriba.
   if (ambito === 'deuda') {
-    const creditos = (await patrimonioRepo.list()).filter(
+    const creditos = sinEjemplos(await patrimonioRepo.list()).filter(
       (f) => f.naturaleza === 'pasivo' && (f.tasaAnual || f.pagoMensual),
     )
     if (creditos.length > 0) {

@@ -1,5 +1,6 @@
 import type { TipoMapa } from '../../core/data/db'
 import type { Idioma } from '../../core/i18n/idiomas'
+import type { PorIdioma } from '../../core/i18n/porIdioma'
 import { idiomaActual } from '../../core/i18n/useT'
 import { EJEMPLOS_EN } from './ejemplosEn'
 import type { MapaPropuesto } from './ia'
@@ -4219,6 +4220,19 @@ export function ejemploDe(tipo: TipoMapa): EjemploMapa {
   const es = EJEMPLOS[tipo]
   const traducido = TRADUCIDOS[idiomaActual()]?.[tipo]
   return traducido ? { ...traducido, guiaEs: es.guiaEs } : es
+}
+
+/**
+ * El ejemplo de un formato en TODOS los idiomas: el ejemplo de fábrica de las
+ * pestañas (`ejemplos.paquete.ts`) reconoce así su texto en cualquier idioma
+ * para retraducirlo.
+ */
+export function ejemploEnIdiomas(tipo: TipoMapa): PorIdioma<ContenidoEjemplo> {
+  const catalogo: PorIdioma<ContenidoEjemplo> = { es: EJEMPLOS[tipo] }
+  for (const [idioma, ejemplos] of Object.entries(TRADUCIDOS)) {
+    if (ejemplos) catalogo[idioma as Idioma] = ejemplos[tipo]
+  }
+  return catalogo
 }
 
 const EJEMPLOS: Record<TipoMapa, EjemploMapa> = {

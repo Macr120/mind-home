@@ -9,9 +9,11 @@ import { vivo } from '../../core/ui/estilos'
 import { Archivador } from '../_shared/Archivador'
 import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { acento } from '../_shared/acento'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { ArbolCarpetas } from './ArbolCarpetas'
 import { COLOR } from './constantes'
 import { crearMapaDesdeIdeas, crearMapaIA } from './crear'
+import { ejemploDiario } from './ejemplos.paquete'
 import { expandirNodo } from './ia'
 import { IdeaDetalle } from './IdeaDetalle'
 import { MoverIdeaDialog } from './MoverIdeaDialog'
@@ -334,6 +336,8 @@ export function DiarioTab({ onAbrirMapa }: { onAbrirMapa: (mapaId: number) => vo
           </>
         )}
       </div>
+
+      <BarraEjemplo paquete={ejemploDiario} />
 
       {pidiendoIA && (
         <PanelSugerencias

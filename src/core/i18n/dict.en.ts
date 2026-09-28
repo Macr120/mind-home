@@ -1544,9 +1544,7 @@ export const EN: Dict = {
   'despacho.s.intereses': 'Total interest',
   'despacho.s.col.capital': 'Principal',
   'despacho.s.col.restante': 'Remaining',
-  'despacho.ejemplo.vacio': 'Not sure where to start? Load an example and poke around inside it.',
   'despacho.ejemplo.cargado': 'Everything you see as an example can be wiped in one go.',
-  'despacho.ejemplo.cargar': 'Load an example',
   'despacho.ejemplo.borrar': 'Delete the example',
   'despacho.ejemplo.confirmar': 'Yes, delete the example',
   'despacho.mk.divisas': 'Forex',
@@ -6753,7 +6751,8 @@ export const EN: Dict = {
 
   // Tutoriales — empezar con un ejemplo
   'tut.ejemplos.titulo': 'Starting with an example',
-  'tut.ejemplos.resumen': 'Almost every app has a bar to see a factory example already filled in, and to hide it again later without losing anything of your own. It doesn\'t show up inside the demo MindHaOS: there, the whole year already IS the example.',
+  'tut.ejemplos.resumen':
+    'The first time you open an empty section, its factory example goes in on its own, so you don’t start on a blank screen. Its entries are normal ones you edit or delete like any other; at the foot of the section, “Delete the example” removes all of it without touching yours, and once nothing of it is left, “Restore the factory example” brings it back. It doesn’t count toward XP, streaks, reminders, Wrapped or the AI, and it doesn’t appear in the demo MindHaOS: there, Sam’s year already is the example.',
 
   // Tutoriales — lista Hoy
   'tut.hoy.titulo': 'Missions',
@@ -7413,6 +7412,16 @@ export const EN: Dict = {
     'The planner for your whole MindHaOS, in three menus: Goals (the list of what you set out to do, grouped by the app that carries each one), Plans (the schedule drafts that split a goal into phases) and Timeline (the time axis where they all land). It keeps no records of its own: it gathers the goals and plans that are born in the other apps. From a goal you open its sheet and, from there, the axis narrowed down to it.',
   'tut.app-sala--esencial.resumen':
     'The living room is your travel world, in five menus: Map (pins of places on the world map, with a globe view), Itinerary (places to see with a day-by-day plan), Routes (routes that chain places together), Directions (door-to-door trips combining walking, public transit, bike, motorcycle and car) and Logbook (memories with photos and stories by country).',
+  'tut.app-escritura--esencial.resumen':
+    'Writing is a shelf of books. Each book keeps its texts in folders—chapters, characters, places and acts with their plots—plus a diagram of how the characters relate. The editor formats, builds an index from the headings, exports to TXT or PDF and has an AI that drafts, improves, continues and summarizes. The first time, it comes with an example book already in place, “The Winter Light”, which you can delete or restore from the bar below it.',
+  'tut.app-arte--esencial.resumen':
+    'Art is your drawing and photo studio: a gallery of drawings and, when you open one, a layered canvas with brush, spray, shapes, fill, text and photos. It has filters, aids like the ruler or the mirror, PNG export and an AI that paints what you describe or reinterprets your drawing. Two factory drawings come included, “Afternoon in the valley” and “Fruit still life”, which you can delete or restore from the bar at the bottom of the gallery.',
+  'tut.app-archivos--esencial.resumen':
+    'Files is your cloud: folders and files of any kind, with previews, on all your devices. It requires signing in and a Pro plan, with 10, 30 or 100 GB depending on your tier; if the plan ends, what you uploaded stays viewable and downloadable for 90 days. Each room has its folder with what its app already keeps, plus Recent, Starred, a 30-day Trash and share links that open without an account.',
+  'tut.app-audio--esencial.resumen':
+    'The music studio has two menus. Songs holds your projects and built-in songs you can listen to or open in the editor: tracks with a piano roll, synth instruments, an on-screen or MIDI keyboard, recording with a metronome, WAV export and an AI that composes with you. Mix is a pair of DJ decks with a crossfader for mixing studio songs, your own audio or iTunes previews.',
+  'tut.app-video--esencial.resumen':
+    'The video editor lays out clips, images, text, voice-over, music and sound effects on a multi-track timeline, with a preview that plays it all just as it will come out. You can record the app itself as a clip, ask the AI for a script and export the video or post it to your social networks. In 3D animation you shoot scenes on the map with your avatar and your assistants.',
   // Flujos G2 (corren sobre el año de Sam en la casa demo)
   'tut.app-anecdotario--diario.titulo': "Sam's journal",
   'tut.app-anecdotario--diario.resumen':
@@ -7654,15 +7663,13 @@ export const EN: Dict = {
   'agenda.trabajo.tablero': 'Board',
   'agenda.trabajo.apuntar': 'Add a to-do',
   // Barra de ejemplo compartida (rooms/_shared/ejemplos/BarraEjemplo.tsx)
-  'ejemplo.vacio': 'Not sure where to start? See how it looks with an example inside.',
-  'ejemplo.puesto': 'This is an example: hide it whenever you want, your own data stays untouched.',
-  'ejemplo.mostrar': 'See an example',
-  'ejemplo.ocultar': 'Hide the example',
+  'ejemplo.puesto': 'This is a factory example: delete it whenever you like.',
   'ejemplo.sinSitio': 'There is no free room on the map for the example right now.',
+  'ejemplo.borrar': 'Delete the example',
+  'ejemplo.confirmar': 'Yes, delete the example',
+  'ejemplo.restaurar': 'Restore the factory example',
 
-  'agenda.ejemplo.vacio': 'Not sure where to start? Load an example and poke around inside it.',
   'agenda.ejemplo.cargado': 'Everything you see as an example can be wiped in one go, calendar blocks included.',
-  'agenda.ejemplo.cargar': 'Load an example',
   'agenda.ejemplo.borrar': 'Delete the example',
   'agenda.ejemplo.confirmar': 'Yes, delete the example',
   'agenda.tablero.porhacer': 'To do',

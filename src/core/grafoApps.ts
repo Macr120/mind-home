@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { create } from 'zustand'
 import { plantillasTodas } from './appContrato'
 import type { Memoria } from './data/db'
-import { visibles } from './data/ejemplos'
+import { sinEjemplos } from './data/ejemplos'
 import { VACIO, enlacesGrafoRepo, memoriasRepo } from './data/repository'
 import {
   enlacesImplicitos,
@@ -95,12 +95,12 @@ function nodosDePlantillas(): Promise<NodoEntidadApp[]> {
 }
 
 /**
- * Las filas que ve el usuario (sin los ejemplos de fábrica apagados) y con uid,
+ * Las filas del usuario (sin los ejemplos de fábrica: no son suyas) y con uid,
  * para los `nodosGrafo` de las apps. El uid lo sella el middleware del sync
  * aunque la interfaz de la tabla no lo declare.
  */
 export async function filasNodo<T>(repo: { list(): Promise<T[]> }): Promise<(T & { uid: string })[]> {
-  const filas = visibles(await repo.list()) as (T & { uid?: string })[]
+  const filas = sinEjemplos(await repo.list()) as (T & { uid?: string })[]
   return filas.filter((f): f is T & { uid: string } => typeof f.uid === 'string' && f.uid !== '')
 }
 

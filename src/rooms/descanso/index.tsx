@@ -7,6 +7,7 @@ import { flujosDescanso, esencialDescanso } from './tutorial.meta'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { OPERACIONES_IA } from './costosIA'
 import { planMetasDescanso } from './plan'
+import { sinEjemplos } from '../../core/data/ejemplos'
 
 async function capturar(texto: string): Promise<boolean> {
   const norm = normalizar(texto)
@@ -91,7 +92,7 @@ const descanso: Plantilla = {
     clave: 'descanso.metaDiaria',
     etiquetaEs: 'Registra tu noche',
     del: async (fecha) => ({
-      hecho: (await suenoRepo.list()).filter((s) => s.fecha === fecha).length,
+      hecho: sinEjemplos(await suenoRepo.list()).filter((s) => s.fecha === fecha).length,
       objetivo: 1,
     }),
   },

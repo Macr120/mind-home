@@ -1,7 +1,7 @@
 import { hobbiesRepo, proyectosHobbyRepo, sesionesHobbyRepo } from '../../core/data/repository'
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
 import { fotoEjemplo } from '../_shared/ejemplos/fotos'
-import { porIdioma, retraducido, yaMaterializado, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
+import { filaEjemplo, porIdioma, retraducido, yaMaterializado, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
 import { TEXTOS_HOBBIES } from './ejemplos.data'
 
 /**
@@ -32,41 +32,45 @@ const SESIONES: { dias: number; minutos: number; nota: keyof (typeof TEXTOS_HOBB
 
 export const ejemploHobbies: PaqueteEjemplo = {
   id: ID,
-  async materializar() {
+  tablas: [hobbiesRepo, proyectosHobbyRepo, sesionesHobbyRepo],
+  async materializar(restaurar) {
     if (await yaMaterializado(ID, () => hobbiesRepo.list())) return
     const T = porIdioma(TEXTOS_HOBBIES)
     const hoy = fechaLocalISO()
 
-    const hobbyId = await hobbiesRepo.add({
-      nombre: T.hobby,
-      emoji: '🎨',
-      color: '#8b5cf6',
-      metaDiasSemana: 3,
-      creadoEn: isoMasDias(hoy, -21),
-      ejemploDe: ID,
-    })
+    const hobbyId = await hobbiesRepo.addSeed(
+      filaEjemplo(ID, 'hobby', restaurar, {
+        nombre: T.hobby,
+        emoji: '🎨',
+        color: '#8b5cf6',
+        metaDiasSemana: 3,
+        creadoEn: isoMasDias(hoy, -21),
+      }),
+    )
     // El proyecto se crea antes que las sesiones para poder colgarle las
     // últimas: así su detalle no sale a cero.
     const foto = await fotoEjemplo('hobbies.proyecto')
-    const proyectoId = await proyectosHobbyRepo.add({
-      hobbyId,
-      nombre: T.proyecto,
-      estado: 'en-curso',
-      nota: T.notaProyecto,
-      imagenes: foto ? [foto] : undefined,
-      creadoEn: isoMasDias(hoy, -12),
-      ejemploDe: ID,
-    })
-    for (const s of SESIONES) {
-      await sesionesHobbyRepo.add({
+    const proyectoId = await proyectosHobbyRepo.addSeed(
+      filaEjemplo(ID, 'proyecto', restaurar, {
         hobbyId,
-        fecha: isoMasDias(hoy, s.dias),
-        minutos: s.minutos,
-        nota: T[s.nota],
-        // Solo las posteriores al proyecto cuentan para su avance.
-        proyectoId: s.dias >= -12 ? proyectoId : undefined,
-        ejemploDe: ID,
-      })
+        nombre: T.proyecto,
+        estado: 'en-curso' as const,
+        nota: T.notaProyecto,
+        imagenes: foto ? [foto] : undefined,
+        creadoEn: isoMasDias(hoy, -12),
+      }),
+    )
+    for (const [i, s] of SESIONES.entries()) {
+      await sesionesHobbyRepo.addSeed(
+        filaEjemplo(ID, `sesion${i}`, restaurar, {
+          hobbyId,
+          fecha: isoMasDias(hoy, s.dias),
+          minutos: s.minutos,
+          nota: T[s.nota],
+          // Solo las posteriores al proyecto cuentan para su avance.
+          proyectoId: s.dias >= -12 ? proyectoId : undefined,
+        }),
+      )
     }
   },
 

@@ -5,6 +5,14 @@ import type {
   Mascota,
   Medicamento,
 } from '../../core/data/db'
+import { syncListoParaEjemplos, useEjemplos } from '../../core/data/ejemplos'
+import {
+  contactosAgendaRepo,
+  eventosAgendaRepo,
+  mascotasRepo,
+  medicamentosRepo,
+} from '../../core/data/repository'
+import { esDemo, esVisita } from '../../core/edicion'
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
 import { porIdioma, type PorIdioma } from '../_shared/ejemplos/tipos'
 import {
@@ -727,6 +735,42 @@ export const hayEjemplo = (
   eventos.some((e) => e.ejemplo && e.area === area) ||
   (area === 'salud' && (medicinas.some((m) => m.ejemplo) || mascotas.some((m) => m.ejemplo))) ||
   (area === 'personas' && contactos.some((c) => c.ejemplo))
+
+/** Id de la sección en `core/data/ejemplos.ts` (la que recuerda si ya se decidió). */
+export const seccionEjemplo = (area: AreaAgenda) => `agenda.${area}`
+
+const enCurso = new Map<AreaAgenda, Promise<void>>()
+
+/**
+ * La primera vez que se abre una sección vacía, pone su ejemplo; si ya había
+ * algo, la sección queda decidida y no se toca nunca más. Lee las tablas en vez
+ * de las listas de la pantalla: esas llegan vacías mientras cargan.
+ */
+export function ponerEjemploPrimeraVez(area: AreaAgenda): Promise<void> {
+  const previa = enCurso.get(area)
+  if (previa) return previa
+  const tarea = (async () => {
+    const seccion = seccionEjemplo(area)
+    const { decididas, decidir } = useEjemplos.getState()
+    if (decididas.includes(seccion) || esDemo() || esVisita()) return
+    // Sin el primer sync, una sección vacía puede ser solo una sección sin bajar.
+    if (!(await syncListoParaEjemplos())) return
+    const [eventos, contactos, medicinas, mascotas] = await Promise.all([
+      eventosAgendaRepo.list(),
+      contactosAgendaRepo.list(),
+      medicamentosRepo.list(),
+      mascotasRepo.list(),
+    ])
+    const propios =
+      eventos.some((e) => e.area === area && !e.ejemplo) ||
+      (area === 'salud' && (medicinas.some((m) => !m.ejemplo) || mascotas.some((m) => !m.ejemplo))) ||
+      (area === 'personas' && contactos.some((c) => !c.ejemplo))
+    decidir(seccion)
+    if (!propios && !hayEjemplo(area, eventos, contactos, medicinas, mascotas)) await cargarEjemplo(area)
+  })().finally(() => enCurso.delete(area))
+  enCurso.set(area, tarea)
+  return tarea
+}
 
 /** Carga el ejemplo de una sección. Las fechas cuelgan de hoy. */
 export async function cargarEjemplo(area: AreaAgenda): Promise<void> {

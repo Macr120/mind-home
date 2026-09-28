@@ -3,6 +3,7 @@ import type { HojaCalculo } from '../../core/data/db'
 import { VACIO, hojasRepo, useHoja } from '../../core/data/repository'
 import { EntradasQueUsan } from '../_shared/EntradasQueUsan'
 import { BotonEnviarAContacto } from '../_shared/BotonEnviarAContacto'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { empaquetarHoja } from './compartible'
 import { useT } from '../../core/i18n/useT'
 import { confirmar, pedirTexto } from '../../core/state/confirmarStore'
@@ -14,6 +15,7 @@ import { OP_HOJA } from './costosIA'
 import type { Celdas } from './hoja'
 import { hojaDesdeTexto } from './ia'
 import { Rejilla } from './Rejilla'
+import { ejemploHojas } from './siembra'
 import { useHistorial } from './useHistorial'
 import { useMotor } from './useMotor'
 
@@ -277,6 +279,8 @@ export function HojasTab() {
           </div>
         ))}
       </section>
+
+      <BarraEjemplo paquete={ejemploHojas} />
     </div>
   )
 }

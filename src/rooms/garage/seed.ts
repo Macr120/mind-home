@@ -1,5 +1,6 @@
 import { db } from '../../core/data/db'
 import { esSeedIntacta, filaSeed, filasSeed } from '../../core/data/sync/syncables'
+import { claveLS, esDemo } from '../../core/edicion'
 import { enIdioma } from '../../core/i18n/porIdioma'
 import { idiomaActual } from '../../core/i18n/useT'
 import { hoyISO, sumarDias } from './fecha'
@@ -8,40 +9,81 @@ import { TEXTOS_GARAGE } from './seed.i18n'
 
 let sembrado = false
 
+/**
+ * Una sola vez por dispositivo: el ejemplo que el usuario borre (el pie de
+ * Vehículos, `ejemploGarage`) no vuelve solo al abrir el garaje vacío.
+ */
+const LS_SEMBRADO = claveLS('garage.ejemploSembrado')
+
 /** Datos de ejemplo si el garaje está vacío. */
 export async function sembrarGarage() {
   // La bandera se marca ANTES del primer await: en StrictMode el efecto corre
   // dos veces y ambas leerían count()===0, duplicando la siembra.
   if (sembrado) return
   sembrado = true
-  const n = await db.vehiculos.count()
-  if (n > 0) return
+  // En el demo no hay bandera: su BD se repone al recargar.
+  if (!esDemo() && localStorage.getItem(LS_SEMBRADO)) return
+  if ((await db.vehiculos.count()) === 0) await sembrarEjemploGarage(false)
+  if (!esDemo()) localStorage.setItem(LS_SEMBRADO, '1')
+}
 
+/**
+ * Los vehículos, contactos, trámites y servicios de fábrica que falten: por
+ * uid, así no duplica nada ni toca lo que ya hay. `restaurar`: el usuario los
+ * pidió de vuelta desde el pie de Vehículos (ver `filaSeed`).
+ */
+export async function sembrarEjemploGarage(restaurar: boolean) {
   const hoy = hoyISO()
   const tx = enIdioma(TEXTOS_GARAGE, idiomaActual())
-  const biciId = await db.vehiculos.add(filaSeed('vehiculos-bici', {
-    nombre: tx.bici.nombre,
-    tipo: 'bicicleta',
-    marca: tx.bici.marca,
-    odometroActual: 1240,
-    unidad: 'km',
-    creadoEn: hoy,
-  }))
-  const autoId = await db.vehiculos.add(filaSeed('vehiculos-auto', {
-    nombre: tx.auto.nombre,
-    tipo: 'auto',
-    marca: tx.auto.marca,
-    modelo: tx.auto.modelo,
-    anio: 2019,
-    odometroActual: 48500,
-    unidad: 'km',
-    matricula: 'ABC-123',
-    creadoEn: hoy,
-  }))
+  const vehiculos = new Map((await db.vehiculos.toArray()).map((v) => [v.uid, v.id]))
+  const biciId =
+    vehiculos.get('seed-vehiculos-bici') ??
+    (await db.vehiculos.add(
+      filaSeed(
+        'vehiculos-bici',
+        {
+          nombre: tx.bici.nombre,
+          tipo: 'bicicleta',
+          marca: tx.bici.marca,
+          odometroActual: 1240,
+          unidad: 'km',
+          creadoEn: hoy,
+        },
+        restaurar,
+      ),
+    ))
+  const autoId =
+    vehiculos.get('seed-vehiculos-auto') ??
+    (await db.vehiculos.add(
+      filaSeed(
+        'vehiculos-auto',
+        {
+          nombre: tx.auto.nombre,
+          tipo: 'auto',
+          marca: tx.auto.marca,
+          modelo: tx.auto.modelo,
+          anio: 2019,
+          odometroActual: 48500,
+          unidad: 'km',
+          matricula: 'ABC-123',
+          creadoEn: hoy,
+        },
+        restaurar,
+      ),
+    ))
+
+  const hay = new Set(
+    [
+      ...(await db.talleresVehiculo.toArray()),
+      ...(await db.tramitesVehiculo.toArray()),
+      ...(await db.registrosMantenimiento.toArray()),
+    ].map((f) => f.uid),
+  )
+  const faltan = <T>(filas: T[]) => filas.filter((f) => !hay.has((f as { uid?: string }).uid))
 
   // Los ids estables van escritos a mano (y no con `nuevoId`): la siembra corre
   // en cada dispositivo y dos UUID distintos serían dos contactos duplicados.
-  await db.talleresVehiculo.bulkAdd(filasSeed('talleresVehiculo-demo', [
+  await db.talleresVehiculo.bulkAdd(faltan(filasSeed('talleresVehiculo-demo', [
     {
       tallerId: 'tl-seed-taller',
       nombre: tx.taller.nombre,
@@ -57,9 +99,9 @@ export async function sembrarGarage() {
       telefono: '800 000 0000',
       creadoEn: hoy,
     },
-  ]))
+  ], undefined, restaurar)))
 
-  await db.tramitesVehiculo.bulkAdd(filasSeed('tramitesVehiculo-demo', [
+  await db.tramitesVehiculo.bulkAdd(faltan(filasSeed('tramitesVehiculo-demo', [
     {
       tramiteId: 'tv-seed-verificacion',
       vehiculoId: autoId,
@@ -84,13 +126,13 @@ export async function sembrarGarage() {
       activo: true,
       creadoEn: hoy,
     },
-  ]))
+  ], undefined, restaurar)))
 
-  await db.registrosMantenimiento.bulkAdd(filasSeed('registrosMantenimiento-demo', [
+  await db.registrosMantenimiento.bulkAdd(faltan(filasSeed('registrosMantenimiento-demo', [
     {
       vehiculoId: biciId,
       fecha: sumarDias(hoy, -12),
-      tipo: 'cadena',
+      tipo: 'cadena' as const,
       titulo: tx.mant0.titulo,
       costo: 0,
       odometro: 1180,
@@ -100,7 +142,7 @@ export async function sembrarGarage() {
     {
       vehiculoId: autoId,
       fecha: sumarDias(hoy, -45),
-      tipo: 'aceite',
+      tipo: 'aceite' as const,
       titulo: tx.mant1.titulo,
       costo: 890,
       odometro: 47200,
@@ -108,7 +150,7 @@ export async function sembrarGarage() {
       proximoOdometro: 52200,
       proximaFecha: sumarDias(hoy, 135),
     },
-  ]))
+  ], undefined, restaurar)))
 }
 
 /**

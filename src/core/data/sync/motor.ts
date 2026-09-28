@@ -16,6 +16,7 @@
  */
 import { esDemo, esProbar } from '../../edicion'
 import { db, type EntradaOutbox, type ObjetoCuarto } from '../db'
+import { decidirPorUid } from '../ejemplos'
 import { exportarRespaldo } from '../respaldo'
 import type { RealtimeChannel, SupabaseClient } from '@supabase/supabase-js'
 import { hayBackend, obtenerSupabase } from '../../cuenta/supabase'
@@ -198,6 +199,8 @@ async function aplicarRegistro(r: RegistroRemoto, desdePendientes = false): Prom
 
   if (r.deleted) {
     if (local && local[kp] != null) await t.delete(local[kp] as never)
+    // Ejemplo de fábrica borrado en otro dispositivo: aquí tampoco vuelve solo.
+    decidirPorUid(r.uid)
     return true
   }
   if (!r.datos) return true

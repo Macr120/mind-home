@@ -1489,9 +1489,7 @@ export const TR: Dict = {
   'despacho.s.intereses': 'Toplam faiz',
   'despacho.s.col.capital': 'Anapara',
   'despacho.s.col.restante': 'Kalan',
-  'despacho.ejemplo.vacio': 'Nereden başlayacağını bilmiyor musun? Hazır bir örnek yükle ve içine göz at.',
   'despacho.ejemplo.cargado': 'Örnek olarak gördüğün her şey tek seferde silinebilir.',
-  'despacho.ejemplo.cargar': 'Bir örnek yükle',
   'despacho.ejemplo.borrar': 'Örneği sil',
   'despacho.ejemplo.confirmar': 'Evet, örneği sil',
   'despacho.mk.divisas': 'Döviz',
@@ -6643,7 +6641,7 @@ export const TR: Dict = {
     'Yapay Zeka, Düzenleyici › Ayarlar’dan açılır. Her işlemin —bir yanıt, bir plan, bir görsel, bir 3D model— isteğinden önce görünen bir kredi ücreti vardır. Kendi sağlayıcı anahtarınla kredi harcanmaz: doğrudan sağlayıcıya ödersin.',
   'tut.ejemplos.titulo': 'Bir örnekle başlamak',
   'tut.ejemplos.resumen':
-    'Neredeyse her uygulamada, içi dolu bir hazır örneği görmek ve sonradan kendine ait hiçbir şeyi kaybetmeden gizlemek için bir çubuk vardır. Demo MindHaOS\'un (Zihin Evi OS) içinde görünmez: orada bütün yıl zaten örnektir.',
+    'Boş bir bölümü ilk kez açtığında hazır örneği kendiliğinden gelir; böylece boş bir ekranla başlamazsın. Bunlar, diğerleri gibi değiştirip silebildiğin sıradan kayıtlardır; bölümün altındaki «Örneği sil» senin verilerine dokunmadan örneğin tamamını kaldırır, örnekten hiçbir şey kalmadığında da «Hazır örneği geri yükle» onu geri getirir. XP’ye, serilere, hatırlatmalara, Wrapped’e ya da yapay zekâya sayılmaz ve demo MindHaOS’ta görünmez: orada Deniz’in yılı zaten örnektir.',
   'tut.hoy.titulo': 'Bugünün listesi',
   'tut.hoy.resumen':
     'Görevler her uygulamanın içinde yaşar: Görevler düğmesi bugünün listesini açar — o uygulamanın senden istedikleri ve bugüne koyduklarını. Bir adım, biri elle işaretlediği için değil, kayıt uygulamada zaten var olduğu için üstü çizilir. Bir odanın kırmızı balonu bugün orada kalanı gösterir; saatteki Görevler düğmesi ise tüm uygulamalarınkini bir arada.',
@@ -7297,6 +7295,16 @@ export const TR: Dict = {
     'Tüm MindHaOS\'un planlayıcısı, üç bölümde: Hedefler (kendine koyduklarının listesi, her birini yürüten uygulamaya göre gruplanmış), Planlar (bir hedefi aşamalara bölen zaman çizelgesi taslakları) ve Zaman çizelgesi (hepsinin düştüğü zaman ekseni). Kendine ait kayıt tutmaz: diğer uygulamalarda doğan hedefleri ve planları bir araya getirir. Bir hedeften onun kartı açılır, oradan da ona daraltılmış eksen.',
   'tut.app-sala--esencial.resumen':
     'Oturma Odası, beş bölümlü gezgin dünyandır: Harita (dünya haritasında yerlerin iğneleri, küre görünümüyle), Gezi planı (görülecek yerler, gün gün planlarıyla), Rotalar (yerleri birbirine bağlayan güzergâhlar), Yol tarifi (yürüyüş, toplu taşıma, bisiklet, motosiklet ve arabayı birleştiren kapıdan kapıya yolculuklar) ve Seyir defteri (ülkeye göre fotoğraflar ve anılarla anılar).',
+  'tut.app-escritura--esencial.resumen':
+    'Yazı bir kitaplıktır. Her kitap metinlerini klasörlerde tutar — bölümler, karakterler, mekânlar ve olay örgüleriyle perdeler — ve karakterler arasındaki ilişkilerin bir diyagramını içerir. Düzenleyici biçimlendirir, başlıklardan bir dizin oluşturur, TXT veya PDF olarak dışa aktarır ve taslak yazan, iyileştiren, devam ettiren ve özetleyen bir yapay zekâ sunar. İlk seferde hazır bir örnek kitap gelir, «Fenerin Kışı»; onu hemen altındaki çubuktan silebilir ya da geri yükleyebilirsin.',
+  'tut.app-arte--esencial.resumen':
+    'Sanat, çizim ve fotoğraf stüdyon: bir çizim galerisi ve birini açınca fırça, sprey, şekiller, dolgu, metin ve fotoğraflarla katmanlı bir tuval. Filtreler, cetvel ya da ayna gibi yardımcılar, PNG olarak dışa aktarma ve tarif ettiğini çizen ya da çizimini yeniden yorumlayan bir yapay zekâ da var. İki hazır çizim gelir, «Vadide öğleden sonra» ve «Meyveli natürmort»; onları galerinin altındaki çubuktan silebilir ya da geri yükleyebilirsin.',
+  'tut.app-archivos--esencial.resumen':
+    'Dosyalar senin bulutun: her türden klasör ve dosya, önizlemeli, tüm cihazlarında. Bunun için giriş yapman ve seviyene göre 10, 30 veya 100 GB sunan bir Pro planın olması gerekir; plan biterse yüklediklerini 90 gün boyunca görüp indirebilirsin. Her odanın, uygulamasının zaten sakladıklarını gösteren kendi klasörü var; ayrıca Son, Yıldızlı, 30 günlük Çöp kutusu ve hesap gerektirmeden açılan paylaşım bağlantıları da bulunur.',
+  'tut.app-audio--esencial.resumen':
+    'Müzik stüdyosunun iki menüsü var. Şarkılar\'da projelerin ve dinleyebileceğin ya da düzenleyicide açabileceğin hazır şarkılar bulunur: piano roll\'lu pistler, synth enstrümanlar, ekran ya da MIDI klavyesi, metronomla kayıt, WAV dışa aktarma ve seninle beste yapan bir yapay zekâ. Miks ise stüdyo şarkılarını, kendi seslerini ya da iTunes örneklerini karıştırmak için crossfader\'lı iki DJ deck\'idir.',
+  'tut.app-video--esencial.resumen':
+    'Video düzenleyici klipleri, görselleri, metinleri, dış sesi, müziği ve sesleri parçalı bir zaman çizelgesinde birleştirir; önizleme de her şeyi çıkacağı gibi oynatır. Uygulamanın kendisini klip olarak kaydedebilir, senaryoyu yapay zekâya yazdırabilir ve videoyu dışa aktarabilir ya da sosyal medya hesaplarında paylaşabilirsin. 3B animasyon\'da avatarın ve asistanlarınla haritada sahneler çekersin.',
   'tut.app-anecdotario--diario.titulo': 'Deniz’in anı defteri',
   'tut.app-anecdotario--diario.resumen':
     'Anı defteri kişisel günlüğündür: ruh hali, metin ve fotoğraflarla girdiler, kendini nasıl hissettiğine göre yılı boyayan bir takvim, ve yıl, ay ve haftaya göre klasörlenmiş geçmiş.',
@@ -7527,14 +7535,12 @@ export const TR: Dict = {
   'agenda.trabajo.pendientes': 'Yapılacaklar',
   'agenda.trabajo.tablero': 'Pano',
   'agenda.trabajo.apuntar': 'Yapılacak ekle',
-  'ejemplo.vacio': 'Nereden başlayacağını bilmiyor musun? İçinde bir örnekle nasıl göründüğüne bak.',
-  'ejemplo.puesto': 'Bu bir örnek: istediğinde gizle, kendi verilerin olduğu gibi kalır.',
-  'ejemplo.mostrar': 'Bir örnek gör',
-  'ejemplo.ocultar': 'Örneği gizle',
+  'ejemplo.puesto': 'Bu hazır bir örnek: istediğin zaman sil.',
   'ejemplo.sinSitio': 'Şu anda haritada örnek için boş yer yok.',
-  'agenda.ejemplo.vacio': 'Nereden başlayacağını bilmiyor musun? Bir örnek yükle ve içine göz at.',
+  'ejemplo.borrar': 'Örneği sil',
+  'ejemplo.confirmar': 'Evet, örneği sil',
+  'ejemplo.restaurar': 'Hazır örneği geri yükle',
   'agenda.ejemplo.cargado': 'Örnek olarak gördüğün her şey, takvim blokları dahil, tek seferde silinebilir.',
-  'agenda.ejemplo.cargar': 'Bir örnek yükle',
   'agenda.ejemplo.borrar': 'Örneği sil',
   'agenda.ejemplo.confirmar': 'Evet, örneği sil',
   'agenda.tablero.porhacer': 'Yapılacak',

@@ -1,4 +1,5 @@
 import type { EjecucionRutina, Rutina } from '../../data/db'
+import { sinEjemplos } from '../../data/ejemplos'
 import { fechaISO, tocaFechaHistorico } from '../../rutinas'
 import { esMeta, progresoPasos } from '../../metas'
 import { deIso, fechaLocalISO, inicioSemana } from '../../fechaLocal'
@@ -201,7 +202,8 @@ export function metricasRango(
   const filas: FilaHabito[] = []
   const porColumna = columnas.map(() => ({ total: 0, hechas: 0 }))
 
-  for (const r of rutinas) {
+  // Lo de un ejemplo de fábrica se ve en la rejilla, pero no es cumplimiento de nadie.
+  for (const r of sinEjemplos(rutinas)) {
     const nace = naceEn(r)
     const celdas: Celda[] = []
     let tocan = 0

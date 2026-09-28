@@ -5,6 +5,7 @@ import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
 import { registrarAterrizaje } from '../../core/espacios/enlaces'
 import { COLOR_FABRICA } from './constantes'
 import { OPERACIONES_IA } from './costosIA'
+import { esencialArte } from './tutorial.meta'
 
 // El Studio de video trae los dibujos como imágenes (registro eager, datos con import()).
 registrarProveedorRecursos({
@@ -47,6 +48,7 @@ const arte: Plantilla = {
   categoria: 'mente',
   color: COLOR_FABRICA,
   App: ArteApp,
+  esencial: esencialArte,
   operacionesIA: OPERACIONES_IA,
   comandos: [
     {

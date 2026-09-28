@@ -13,6 +13,7 @@ import { conversarIA, iaOperativa } from './ia'
 import { detectarEmocion } from './emociones'
 import { reaccionar } from '../state/emocionesStore'
 import type { Asistente, MascotaId } from './mascotas'
+import { sinEjemplos } from '../data/ejemplos'
 
 /**
  * El "corazón" de los asistentes: de vez en cuando, uno de los que están en el
@@ -107,7 +108,8 @@ function fraseLocal(a: Asistente, ctx: ContextoCorazon): string {
 /** Rutina activa de hoy que empieza dentro de los próximos 45 minutos. */
 async function rutinaProxima(): Promise<ContextoCorazon['rutina']> {
   try {
-    const rutinas = await rutinasRepo.list()
+    // Lo proyectado por un ejemplo de fábrica no es un plan de nadie.
+    const rutinas = sinEjemplos(await rutinasRepo.list())
     const ahora = new Date()
     const dia = ahora.getDay()
     const minAhora = ahora.getHours() * 60 + ahora.getMinutes()

@@ -210,7 +210,7 @@ const tutorialEjemplos = tour(
   T('tut.ejemplos.titulo', 'Empezar con un ejemplo'),
   T(
     'tut.ejemplos.resumen',
-    'Casi cada app trae una barra para ver un ejemplo de fábrica con datos ya puestos, y ocultarlo después sin perder nada propio. No aparece dentro de la MindHaOS demo (Casa Mental OS): ahí el año entero YA es el ejemplo.',
+    'La primera vez que abres una sección vacía, su ejemplo de fábrica se pone solo, para no empezar ante una pantalla en blanco. Son filas normales que cambias o borras como cualquier otra; al pie de la sección, «Borrar el ejemplo» lo quita entero sin tocar lo tuyo y, cuando ya no queda nada de él, «Restaurar ejemplo de fábrica» lo trae de vuelta. No cuenta para XP, rachas, avisos, Wrapped ni la IA, y en la MindHaOS demo no aparece: ahí el año de Pep@ ya es el ejemplo.',
   ),
   'cuerpoEjemplos',
 )

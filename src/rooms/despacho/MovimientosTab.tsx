@@ -7,7 +7,7 @@ import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { Archivador } from '../_shared/Archivador'
 import { BarraEjemplo } from './BarraEjemplo'
-import { borrarEjemplo, cargarEjemplo, hayEjemplo } from './ejemplos'
+import { borrarEjemplo, cargarEjemplo, hayEjemplo, seccionMovimientos } from './ejemplos'
 import { AZUL, BotonPrimario, CampoDinero, INPUT, ROJO, TARJETA, VERDE } from './ui'
 import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { vivo } from '../../core/ui/estilos'
@@ -218,6 +218,7 @@ export function MovimientosTab({ tipo, movimientos }: { tipo: 'gasto' | 'ingreso
       </div>
 
       <BarraEjemplo
+        seccion={seccionMovimientos(tipo)}
         cargado={hayEjemplo(movimientos, tipo)}
         onCargar={() => cargarEjemplo(tipo)}
         onBorrar={() => borrarEjemplo(movimientos, tipo)}

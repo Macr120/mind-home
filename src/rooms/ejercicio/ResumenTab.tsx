@@ -8,6 +8,8 @@ import { FiltroPeriodo } from './FiltroPeriodo'
 import { PERIODOS, sesionesPeriodo, type Periodo } from './periodo'
 import { pctObjetivo, rachaDias, resumenPeriodo } from './stats'
 import { Archivador } from '../_shared/Archivador'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
+import { ejemploEjercicio } from './ejemplos'
 import { localeActual, useT } from '../../core/i18n/useT'
 
 /** Barras de la gráfica: por día en semana/mes, por mes en año/todo. */
@@ -155,6 +157,8 @@ export function ResumenTab({
           }}
         </Archivador>
       </div>
+
+      <BarraEjemplo paquete={ejemploEjercicio} />
     </div>
   )
 }

@@ -247,7 +247,7 @@ function BotonBarra({
   onClick: () => void
   activo?: boolean
   deshabilitado?: boolean
-  arrastre?: PropsArrastre & { 'data-herr': HerrBarra }
+  arrastre?: PropsArrastre & { 'data-herr': HerrBarra; 'data-tut': string }
   className?: string
 }) {
   const { style: estiloArrastre, ...gesto } = arrastre ?? {}
@@ -1163,7 +1163,8 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
     const marca =
       d?.tipo === 'herr' && d.herr === id ? (d.despues ? 'border-e-2 border-accent' : 'border-s-2 border-accent') : ''
     return {
-      arrastre: { ...arr.props(`h:${id}`), 'data-herr': id },
+      // `data-tut`: el tutorial encuentra cada botón aunque el usuario lo haya cambiado de grupo.
+      arrastre: { ...arr.props(`h:${id}`), 'data-herr': id, 'data-tut': `arte.herr.${id}` },
       className: `cursor-grab ${arr.enMano === `h:${id}` ? 'opacity-40' : ''} ${marca}`,
     }
   }
@@ -1472,7 +1473,7 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
     <div className="flex h-full flex-col gap-2">
       {/* Cabecera */}
       <div className="flex shrink-0 flex-wrap items-center gap-2">
-        <BotonSecundario pequeno onClick={alCerrar}>
+        <BotonSecundario pequeno onClick={alCerrar} data-tut="arte.volver">
           <Icono nombre="volver" /> {t('arte.editor.volver', 'Volver a la galería')}
         </BotonSecundario>
         <p className="min-w-0 flex-1 truncate text-sm font-semibold">{dibujo?.nombre ?? ''}</p>
@@ -1491,6 +1492,7 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
             setErrorIA('')
             setPanelIA(true)
           }}
+          data-tut="arte.ia"
         >
           <Icono nombre="brillo" /> {t('arte.ia.boton', 'IA')}
         </BotonPrimario>
@@ -1499,6 +1501,7 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
       {/* Barra de herramientas por grupos: grupos y botones se arrastran y el orden se guarda. */}
       <div
         aria-disabled={!puedoEditar}
+        data-tut="arte.barra"
         className={`flex shrink-0 flex-wrap items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 px-2 py-1.5 ${
           puedoEditar ? '' : 'pointer-events-none opacity-40'
         }`}
@@ -1515,7 +1518,10 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
 
       {/* Los filtros, en línea: se aplican a la capa activa viendo el lienzo. */}
       {filtrosAbiertos && (
-        <div className="flex shrink-0 flex-wrap items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 px-2 py-1.5">
+        <div
+          className="flex shrink-0 flex-wrap items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 px-2 py-1.5"
+          data-tut="arte.filtros"
+        >
           {FILTROS.map((f) => (
             <button
               key={f.id}

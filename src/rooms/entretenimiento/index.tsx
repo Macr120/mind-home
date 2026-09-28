@@ -12,6 +12,7 @@ import { fechaLocalISO } from '../../core/fechaLocal'
 import { OPERACIONES_IA } from './costosIA'
 import { filasNodo } from '../../core/grafoApps'
 import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
+import { sinEjemplos } from '../../core/data/ejemplos'
 
 const TIPOS_MEDIA: [string[], TipoMedia][] = [
   [['pelicula', 'filme', 'film', 'cine'], 'pelicula'],
@@ -170,7 +171,7 @@ const entretenimiento: Plantilla = {
       clase: m.tipo,
     })),
   planMetas: async () => {
-    const archivo = await mediaArchivoRepo.list()
+    const archivo = sinEjemplos(await mediaArchivoRepo.list())
     const pendientes = archivo.filter((m) => m.estado === 'pendiente')
     const enCurso = archivo.filter((m) => m.estado === 'en_curso')
     const contexto: string[] = []

@@ -2,6 +2,7 @@ import { anecdotasRepo } from '../../core/data/repository'
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
 import { tGlobal } from '../../core/i18n/useT'
 import { CLAUSULA_RECHAZO, type ContextoPlanApp } from '../../core/planIA'
+import { sinEjemplos } from '../../core/data/ejemplos'
 
 /**
  * Acotamiento del planificador ✨ en el Anecdotario: el plan es SIEMPRE de
@@ -9,7 +10,7 @@ import { CLAUSULA_RECHAZO, type ContextoPlanApp } from '../../core/planIA'
  */
 export async function planMetasAnecdotario(): Promise<ContextoPlanApp> {
   const hoy = fechaLocalISO()
-  const entradas = await anecdotasRepo.list()
+  const entradas = sinEjemplos(await anecdotasRepo.list())
   const delMes = entradas.filter((e) => e.fecha >= isoMasDias(hoy, -29) && e.fecha <= hoy)
 
   const contexto: string[] = []

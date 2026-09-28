@@ -7,6 +7,8 @@ import { Icono } from './iconos/Icono'
 import type { NombreIcono } from './iconos/catalogo'
 import { MarcoEditorInfra } from './MarcoEditorInfra'
 import { PestanasCampo } from './PestanasCampo'
+import { BarraEjemplo } from '../../rooms/_shared/ejemplos/BarraEjemplo'
+import { ejemploHuerto } from '../../rooms/huerto/ejemplos'
 
 // `min-w-0`: sin él, un item de grid no encoge bajo el ancho de su propio
 // contenido y el texto largo ("Aspersor") desborda la columna en vez de
@@ -119,6 +121,8 @@ export function EditorHuerto() {
               ))}
             </div>
           )}
+      {/* Aquí es donde se llega de verdad: la primera vez trae sus parcelas de ejemplo. */}
+      <BarraEjemplo paquete={ejemploHuerto} />
     </MarcoEditorInfra>
   )
 }

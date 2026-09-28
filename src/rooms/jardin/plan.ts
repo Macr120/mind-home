@@ -2,6 +2,7 @@ import { gratitudDiariaRepo, sesionesMindfulnessRepo } from '../../core/data/rep
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
 import { tGlobal } from '../../core/i18n/useT'
 import { CLAUSULA_RECHAZO, type ContextoPlanApp } from '../../core/planIA'
+import { sinEjemplos } from '../../core/data/ejemplos'
 
 /**
  * Acotamiento del planificador ✨ en el Jardín: plan de práctica contemplativa.
@@ -13,8 +14,8 @@ import { CLAUSULA_RECHAZO, type ContextoPlanApp } from '../../core/planIA'
 export async function planMetasJardin(): Promise<ContextoPlanApp> {
   const hoy = fechaLocalISO()
   const desde = isoMasDias(hoy, -29)
-  const sesiones = (await sesionesMindfulnessRepo.list()).filter((s) => s.fecha >= desde && s.fecha <= hoy)
-  const gratitudes = (await gratitudDiariaRepo.list()).filter((g) => g.fecha >= desde && g.fecha <= hoy)
+  const sesiones = sinEjemplos(await sesionesMindfulnessRepo.list()).filter((s) => s.fecha >= desde && s.fecha <= hoy)
+  const gratitudes = sinEjemplos(await gratitudDiariaRepo.list()).filter((g) => g.fecha >= desde && g.fecha <= hoy)
 
   const contexto: string[] = []
   if (sesiones.length > 0) {

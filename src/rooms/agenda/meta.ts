@@ -1,5 +1,6 @@
 import { eventosAgendaRepo } from '../../core/data/repository'
 import type { MetaDiaria } from '../../core/appContrato'
+import { sinEjemplos } from '../../core/data/ejemplos'
 
 /**
  * Meta del día: lo que tenías agendado hoy contra lo que ya palomeaste.
@@ -15,7 +16,7 @@ export const metaAgenda: MetaDiaria = {
   sinRacha: true,
   seccion: 'trabajo',
   del: async (fecha) => {
-    const hoy = (await eventosAgendaRepo.list()).filter((e) => e.fecha === fecha)
+    const hoy = sinEjemplos(await eventosAgendaRepo.list()).filter((e) => e.fecha === fecha)
     return { hecho: hoy.filter((e) => e.hecho).length, objetivo: hoy.length }
   },
 }

@@ -104,13 +104,28 @@ export async function materializarMapa(
     fecha,
     creadoEn,
   })
-  const filas = defTipo(tipo).tabla
-    ? filasMatriz(propuesta, id, creadoEn, fecha)
-    : defTipo(tipo).porZonas
-      ? filasPorZonas(propuesta, tipo, id, creadoEn, fecha)
-      : filasJerarquicas(propuesta, tipo, id, creadoEn, fecha)
-  await nodosMapaRepo.bulkAdd(filas)
+  await nodosMapaRepo.bulkAdd(filasDeMapa(propuesta, tipo, id, creadoEn, fecha))
   return id
+}
+
+/**
+ * Los nodos de un mapa ya colocados según su formato, sin escribirlos. Cada uno
+ * nace con un `nodoId` nuevo; el ejemplo de fábrica los cambia por ids fijos
+ * (ver `ejemplos.paquete.ts`).
+ */
+export function filasDeMapa(
+  propuesta: MapaPropuesto,
+  tipo: TipoMapa,
+  mapaId: number,
+  creadoEn: string,
+  fecha: string,
+): FilaNodo[] {
+  const d = defTipo(tipo)
+  return d.tabla
+    ? filasMatriz(propuesta, mapaId, creadoEn, fecha)
+    : d.porZonas
+      ? filasPorZonas(propuesta, tipo, mapaId, creadoEn, fecha)
+      : filasJerarquicas(propuesta, tipo, mapaId, creadoEn, fecha)
 }
 
 /**

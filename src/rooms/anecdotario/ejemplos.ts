@@ -1,7 +1,7 @@
 import { anecdotasRepo } from '../../core/data/repository'
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
 import { fotoEjemplo } from '../_shared/ejemplos/fotos'
-import { porIdioma, retraducido, yaMaterializado, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
+import { filaEjemplo, porIdioma, retraducido, yaMaterializado, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
 import { TEXTOS_ANECDOTARIO } from './ejemplos.data'
 
 /**
@@ -17,7 +17,8 @@ const ID = 'anecdotario.recuerdos'
 
 export const ejemploAnecdotario: PaqueteEjemplo = {
   id: ID,
-  async materializar() {
+  tablas: [anecdotasRepo],
+  async materializar(restaurar) {
     if (await yaMaterializado(ID, () => anecdotasRepo.list())) return
     const T = porIdioma(TEXTOS_ANECDOTARIO)
     const hoy = fechaLocalISO()
@@ -26,31 +27,34 @@ export const ejemploAnecdotario: PaqueteEjemplo = {
       fotoEjemplo('anecdotario.cena'),
     ])
 
-    await anecdotasRepo.add({
-      fecha: isoMasDias(hoy, -9),
-      titulo: T.tituloPaseo,
-      contenido: T.textoPaseo,
-      animo: '🙂',
-      fotos: fotoPaseo ? [fotoPaseo] : undefined,
-      ejemploDe: ID,
-    })
-    await anecdotasRepo.add({
-      fecha: isoMasDias(hoy, -4),
-      titulo: T.tituloCena,
-      contenido: T.textoCena,
-      animo: '🤩',
-      fotos: fotoCena ? [fotoCena] : undefined,
-      ejemploDe: ID,
-    })
+    await anecdotasRepo.addSeed(
+      filaEjemplo(ID, 'paseo', restaurar, {
+        fecha: isoMasDias(hoy, -9),
+        titulo: T.tituloPaseo,
+        contenido: T.textoPaseo,
+        animo: '🙂',
+        fotos: fotoPaseo ? [fotoPaseo] : undefined,
+      }),
+    )
+    await anecdotasRepo.addSeed(
+      filaEjemplo(ID, 'cena', restaurar, {
+        fecha: isoMasDias(hoy, -4),
+        titulo: T.tituloCena,
+        contenido: T.textoCena,
+        animo: '🤩',
+        fotos: fotoCena ? [fotoCena] : undefined,
+      }),
+    )
     // Sin foto y con un ánimo bajo: los días regulares también se apuntan, y
     // así se ve que la foto es opcional.
-    await anecdotasRepo.add({
-      fecha: isoMasDias(hoy, -1),
-      titulo: T.tituloBache,
-      contenido: T.textoBache,
-      animo: '😐',
-      ejemploDe: ID,
-    })
+    await anecdotasRepo.addSeed(
+      filaEjemplo(ID, 'bache', restaurar, {
+        fecha: isoMasDias(hoy, -1),
+        titulo: T.tituloBache,
+        contenido: T.textoBache,
+        animo: '😐',
+      }),
+    )
   },
 
   async retraducir() {

@@ -1,6 +1,6 @@
 import { suenoRepo } from '../../core/data/repository'
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
-import { porIdioma, retraducido, yaMaterializado, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
+import { filaEjemplo, porIdioma, retraducido, yaMaterializado, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
 import { TEXTOS_DESCANSO } from './ejemplos.data'
 
 /**
@@ -33,21 +33,23 @@ const NOCHES: {
 
 export const ejemploDescanso: PaqueteEjemplo = {
   id: ID,
-  async materializar() {
+  tablas: [suenoRepo],
+  async materializar(restaurar) {
     if (await yaMaterializado(ID, () => suenoRepo.list())) return
     const T = porIdioma(TEXTOS_DESCANSO)
     const hoy = fechaLocalISO()
-    for (const n of NOCHES) {
-      await suenoRepo.add({
-        fecha: isoMasDias(hoy, n.dias),
-        horas: n.horas,
-        calidad: n.calidad,
-        nota: T[n.nota],
-        horaAcostarse: n.acostarse,
-        horaDespertar: n.despertar,
-        interrupciones: n.interrupciones,
-        ejemploDe: ID,
-      })
+    for (const [i, n] of NOCHES.entries()) {
+      await suenoRepo.addSeed(
+        filaEjemplo(ID, `noche${i}`, restaurar, {
+          fecha: isoMasDias(hoy, n.dias),
+          horas: n.horas,
+          calidad: n.calidad,
+          nota: T[n.nota],
+          horaAcostarse: n.acostarse,
+          horaDespertar: n.despertar,
+          interrupciones: n.interrupciones,
+        }),
+      )
     }
   },
 

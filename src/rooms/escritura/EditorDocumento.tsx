@@ -69,10 +69,22 @@ nav.doc-indice li { margin: 0 0 4pt; }
 type AccionIA = 'redactar' | 'mejorar' | 'resumir' | 'continuar'
 
 /** Botón de la barra: `preventDefault` en pointerdown o roba el foco y la selección. */
-function BotonBarra({ icono, etiqueta, onUsar }: { icono: NombreIcono; etiqueta: string; onUsar: () => void }) {
+function BotonBarra({
+  icono,
+  etiqueta,
+  onUsar,
+  tut,
+}: {
+  icono: NombreIcono
+  etiqueta: string
+  onUsar: () => void
+  /** Ancla `data-tut` del tutorial. */
+  tut?: string
+}) {
   return (
     <button
       type="button"
+      data-tut={tut}
       aria-label={etiqueta}
       title={etiqueta}
       onPointerDown={(e) => e.preventDefault()}
@@ -667,7 +679,12 @@ export function EditorDocumento({
       {vista === 'relaciones' ? (
         // El diagrama en grande: solo volver y (en móvil) las carpetas
         <div className="flex shrink-0 items-center gap-2">
-          <BotonSecundario pequeno onClick={alCerrar} aria-label={t('escritura.libros.volver', 'Volver a los libros')}>
+          <BotonSecundario
+            pequeno
+            onClick={alCerrar}
+            aria-label={t('escritura.libros.volver', 'Volver a los libros')}
+            data-tut="escritura.volver"
+          >
             <Icono nombre="volver" /> {t('escritura.libros.volver', 'Volver a los libros')}
           </BotonSecundario>
           <span className="flex-1" />
@@ -683,7 +700,12 @@ export function EditorDocumento({
         <>
       {/* Cabecera: volver + título + contador */}
       <div className="flex shrink-0 items-center gap-2">
-        <BotonSecundario pequeno onClick={alCerrar} aria-label={t('escritura.libros.volver', 'Volver a los libros')}>
+        <BotonSecundario
+          pequeno
+          onClick={alCerrar}
+          aria-label={t('escritura.libros.volver', 'Volver a los libros')}
+          data-tut="escritura.volver"
+        >
           <Icono nombre="volver" /> {t('escritura.libros.volver', 'Volver a los libros')}
         </BotonSecundario>
         <input
@@ -712,7 +734,10 @@ export function EditorDocumento({
       </div>
 
       {/* Barra de herramientas */}
-      <div className="flex shrink-0 flex-wrap items-center gap-0.5 rounded-xl border border-white/10 bg-white/5 px-1.5 py-1">
+      <div
+        className="flex shrink-0 flex-wrap items-center gap-0.5 rounded-xl border border-white/10 bg-white/5 px-1.5 py-1"
+        data-tut="escritura.barra"
+      >
         <BotonBarra
           icono="deshacer"
           etiqueta={t('escritura.editor.deshacer', 'Deshacer')}
@@ -811,23 +836,34 @@ export function EditorDocumento({
             icono="carpeta"
             etiqueta={t('escritura.historias.boton', 'Carpetas de la historia')}
             onUsar={() => setPanelHistoria((v) => !v)}
+            tut="escritura.btn.carpetas"
           />
         )}
-        <BotonBarra icono="indice" etiqueta={t('escritura.indice.boton', 'Índice del documento')} onUsar={alternarIndice} />
-        <BotonBarra icono="descargar" etiqueta={t('escritura.export.txt', 'Descargar TXT')} onUsar={exportarTxt} />
-        <BotonBarra icono="buzon" etiqueta={t('buzon.enviarA', 'Enviar a un contacto')} onUsar={() => void enviarAContacto()} />
-        <BotonBarra
-          icono="imprimir"
-          etiqueta={t('escritura.export.pdf', 'Imprimir o guardar en PDF')}
-          onUsar={() => void exportarPdf()}
-        />
+        {/* Índice y salidas juntos: el tutorial los señala como un grupo */}
+        <span className="flex items-center gap-0.5" data-tut="escritura.exportar">
+          <BotonBarra icono="indice" etiqueta={t('escritura.indice.boton', 'Índice del documento')} onUsar={alternarIndice} />
+          <BotonBarra icono="descargar" etiqueta={t('escritura.export.txt', 'Descargar TXT')} onUsar={exportarTxt} />
+          <BotonBarra icono="buzon" etiqueta={t('buzon.enviarA', 'Enviar a un contacto')} onUsar={() => void enviarAContacto()} />
+          <BotonBarra
+            icono="imprimir"
+            etiqueta={t('escritura.export.pdf', 'Imprimir o guardar en PDF')}
+            onUsar={() => void exportarPdf()}
+          />
+        </span>
         <span className="mx-1 h-5 w-px bg-white/10" />
         {espacioId && (
           <ChipMiembros espacioId={espacioId} onClick={() => useEspaciosStore.getState().abrirCompartir(espacioId)} />
         )}
         <BotonCompartir espacioId={espacioId} onCompartir={compartir} pequeno />
         <span className="flex-1" />
-        <BotonPrimario type="button" pequeno app={COLOR} onPointerDown={(e) => e.preventDefault()} onClick={abrirIA}>
+        <BotonPrimario
+          type="button"
+          pequeno
+          app={COLOR}
+          onPointerDown={(e) => e.preventDefault()}
+          onClick={abrirIA}
+          data-tut="escritura.ia"
+        >
           <Icono nombre="brillo" /> {t('escritura.ia.boton', 'IA')}
         </BotonPrimario>
       </div>

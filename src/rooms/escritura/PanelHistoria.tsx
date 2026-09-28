@@ -240,7 +240,10 @@ export function PanelHistoria({
   )
 
   return (
-    <div className="ui-panel absolute inset-y-0 left-0 z-10 flex w-64 flex-col rounded-xl border border-white/10 md:static md:w-56 md:shrink-0">
+    <div
+      className="ui-panel absolute inset-y-0 left-0 z-10 flex w-64 flex-col rounded-xl border border-white/10 md:static md:w-56 md:shrink-0"
+      data-tut="escritura.carpetas"
+    >
       <div className="flex shrink-0 items-center justify-between gap-2 px-3 pt-2.5">
         <p className="min-w-0 truncate text-xs font-semibold uppercase tracking-wide text-white/60">
           {historia?.titulo ?? t('escritura.historias.boton', 'Carpetas de la historia')}

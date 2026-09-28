@@ -407,11 +407,14 @@ export const PL_TUT: Dict = {
   'tut.cuenta-ia.5.texto':
     'Odpowiedź kosztuje 1 kredyt, długi plan 4, obraz albo model 3D 10 — zasada jest ta sama we wszystkich pokojach, a ta tabela tylko rozpisuje ją jedna po drugiej.',
   'tut.ejemplos.1.texto':
-    'Ten pasek pojawia się w prawie każdej aplikacji, dopóki nie ma w niej twoich danych: jeden przycisk pokazuje ją pełną gotowego przykładu, zamiast zaczynać przed pustym ekranem.',
+    'Gdy pierwszy raz otwierasz pustą sekcję, jej gotowy przykład pojawia się sam, żeby nie zaczynać od pustego ekranu. Jego wpisy są zwyczajne: zmieniasz je lub usuwasz pojedynczo, jak każde inne.',
   'tut.ejemplos.2.texto':
-    'Podgląd przykładu niczego twojego nie kasuje ani nie miesza: to osobne wpisy, oznaczone jako przykład, które po wyłączeniu się ukrywają, a nie znikają. Ponowne włączenie przywraca je dokładnie takie, jakie były.',
+    'Na dole sekcji „Usuń gotowy przykład” usuwa go w całości po potwierdzeniu przyciskiem „Tak, usuń gotowy przykład”, a twoich danych nic nie rusza. Gdy nic z niego nie zostanie, w tym samym miejscu pojawia się „Przywróć gotowy przykład”.',
   'tut.ejemplos.3.texto':
-    'W MindHaOS demo (Dom Umysłu OS) tego paska nie ma: cały rok Alexa już pełni tę rolę, więc osobny przykład jest zbędny.',
+    'Przykład nie dodaje XP ani serii, nie wywołuje przypomnień, nie trafia do twojego Wrapped, a AI go nie uwzględnia. W MindHaOS demo tego paska nie ma: cały rok Alexa już jest przykładem.',
+  'tut.ejemplos.1.titulo': 'Pojawia się sam',
+  'tut.ejemplos.2.titulo': 'Usuwanie i przywracanie',
+  'tut.ejemplos.3.titulo': 'Nie liczy się jako twój',
   'tut.hoy.1.texto':
     'Misje nie mieszkają w osobnym miejscu: mieszkają WEWNĄTRZ każdej aplikacji. W nagłówku każdego pokoju jest jej przycisk Misje z listą tego, o co ta aplikacja prosi DZIŚ.',
   'tut.hoy.2.titulo': 'Trzy źródła, jedna lista',
@@ -1049,6 +1052,111 @@ export const PL_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': 'Dziennik podróży',
   'tut.app-sala--esencial.5.texto':
     'Wspomnienia z odwiedzonych miejsc, w albumach według kraju: zdjęcia i historie z każdego miejsca.',
+  'tut.app-escritura--esencial.1.titulo': 'Twoja pracownia pisania',
+  'tut.app-escritura--esencial.1.texto':
+    'Wszystko, co tu piszesz, mieszka w książkach: opowiadanie, powieść, scenariusz, sztuka teatralna albo zwykły list. Każda książka trzyma swoje teksty w folderach, a edytor je formatuje, eksportuje i ma AI, która pisze razem z tobą.',
+  'tut.app-escritura--esencial.2.titulo': 'Półka',
+  'tut.app-escritura--esencial.2.texto':
+    'Każda okładka to książka z liczbą tekstów, które zawiera: ołówek zmienia jej nazwę, a kosz usuwa ją w całości. „Nowa książka” pyta, co będziesz pisać — Pusty, Opowiadanie, Scenariusz albo Sztuka teatralna, co zmienia tylko ikonę — i otwiera ją na pierwszym rozdziale.',
+  'tut.app-escritura--esencial.3.titulo': 'Przykładowa książka',
+  'tut.app-escritura--esencial.3.texto':
+    'Za pierwszym razem na półce stoi już „Zimowe światło”, przykładowa książka z dwoma rozdziałami, dwiema postaciami, jednym miejscem i aktem z wątkiem, wszystko już napisane. „Usuń gotowy przykład” na tym pasku usuwa ją w całości; gdy jej już nie ma, „Przywróć gotowy przykład” ją przywraca.',
+  'tut.app-escritura--esencial.4.titulo': 'Kartka i jej pasek',
+  'tut.app-escritura--esencial.4.texto':
+    'Po otwarciu książki trafiasz na kartkę, która zapisuje się sama, gdy piszesz. Pasek zajmuje się formatowaniem: nagłówki i cytaty, pogrubienie, kursywa, listy, wyrównanie i kolor tekstu.',
+  'tut.app-escritura--esencial.5.titulo': 'Foldery książki',
+  'tut.app-escritura--esencial.5.texto':
+    'Rozdziały, Postacie, Miejsca i Akty, z wątkami w każdym akcie. Karty mają obraz, opis i kolor, a ich nazwa jest zaznaczona w tekście pozostałych kartek; w Relacjach rysujesz, jak łączą się postacie.',
+  'tut.app-escritura--esencial.6.titulo': 'Spis treści i eksport',
+  'tut.app-escritura--esencial.6.texto':
+    'Spis treści tworzy się sam z nagłówków tekstu i przy druku może trafić na pierwszą stronę. Tutaj możesz też pobrać tekst jako TXT, wysłać go do kontaktu albo wydrukować lub zapisać jako PDF; „Udostępnij”, tuż obok, otwiera go, żeby pisać go w kilka osób.',
+  'tut.app-escritura--esencial.7.titulo': 'Pisz z AI',
+  'tut.app-escritura--esencial.7.texto':
+    'Pisze to, o co poprosisz, poprawia zaznaczony tekst, kontynuuje tam, gdzie jesteś, albo streszcza dokument. Każda opcja pokazuje z góry, ile kredytów kosztuje.',
+  'tut.app-arte--esencial.1.titulo': 'Twoja pracownia sztuki',
+  'tut.app-arte--esencial.1.texto':
+    'Tu malujesz od zera, poprawiasz zdjęcie albo pozwalasz, by SI wymyślała razem z tobą. Wszystko zaczyna się w galerii, a każdy rysunek otwiera się na płótnie z warstwami, które zapisuje się samo.',
+  'tut.app-arte--esencial.2.titulo': 'Galeria',
+  'tut.app-arte--esencial.2.texto':
+    'Każdy rysunek otwiera się jednym dotknięciem, a z jego karty możesz go udostępnić, zmienić mu nazwę lub go usunąć. „Nowy rysunek” zaczyna od pustego płótna w wybranym rozmiarze albo od zdjęcia. „Popołudnie w dolinie” i „Martwa natura z owocami” są gotowe od początku: pasek na dole je usuwa, a gdy ich nie ma, przywraca.',
+  'tut.app-arte--esencial.3.titulo': 'Pasek w grupach',
+  'tut.app-arte--esencial.3.texto':
+    'W rysunku narzędzia są podzielone na grupy: Maluj, Kształty, Obiekty, Płótno, Kreska i kolor oraz Historia. Każdą grupę zwijasz jej ikoną, a grupy i przyciski możesz przeciągać, by ułożyć je po swojemu; jeśli coś zmienisz, „Przywróć pasek” przywróci pierwotny układ.',
+  'tut.app-arte--esencial.4.titulo': 'Warstwy',
+  'tut.app-arte--esencial.4.texto':
+    'Malujesz na aktywnej warstwie, a przyciskiem „Dodaj warstwę” możesz mieć ich do sześciu. Każdą można ukryć, zmienić jej krycie, zduplikować, przesunąć w kolejności, scalić z tą poniżej albo usunąć.',
+  'tut.app-arte--esencial.5.titulo': 'Filtry i pomoce',
+  'tut.app-arte--esencial.5.texto':
+    'Jasność, kontrast, odcienie szarości i rozmycie działają na aktywną warstwę, gdy patrzysz na płótno, a każdy filtr można cofnąć. Na tym samym pasku są pomoce rysunkowe: linijka, siatka z przyciąganiem i lustro.',
+  'tut.app-arte--esencial.6.titulo': 'Eksport i udostępnianie',
+  'tut.app-arte--esencial.6.texto':
+    'Rysunek zapisuje się sam, a przycisk PNG pobiera obraz z widocznymi warstwami scalonymi na białym tle. Żeby malować go w kilka osób, „Udostępnij” u góry otwiera go przez link.',
+  'tut.app-arte--esencial.7.titulo': 'Maluj z SI',
+  'tut.app-arte--esencial.7.texto':
+    'Opisz, co chcesz zobaczyć, a SI namaluje to na aktywnej warstwie albo zinterpretuje twoje płótno na nowo, biorąc je za punkt wyjścia. Każda opcja z góry pokazuje, ile kredytów kosztuje, a wynik można cofnąć.',
+  'tut.app-archivos--esencial.1.titulo': 'Twoja chmura',
+  'tut.app-archivos--esencial.1.texto':
+    'Pliki przechowują w chmurze foldery i pliki dowolnego typu, z podglądem obrazów, wideo, audio, PDF i tekstu, a otwierasz je na każdym urządzeniu. Potrzebne jest zalogowanie i plan Pro, z 10, 30 lub 100 GB zależnie od poziomu.',
+  'tut.app-archivos--esencial.2.titulo': 'Sekcje',
+  'tut.app-archivos--esencial.2.texto':
+    'Moje pliki zbierają twoje foldery i pliki, Ostatnie – to, co przesłano ostatnio, a Oznaczone gwiazdką – to, co oznaczasz gwiazdką. To, co usuwasz, trafia na 30 dni do Kosza, skąd wciąż możesz to przywrócić.',
+  'tut.app-archivos--esencial.3.titulo': 'Folder dla każdego pokoju',
+  'tut.app-archivos--esencial.3.texto':
+    'Każdy pokój twojego MindHaOS ma swój folder w sekcji „Pokoje”. Na górze jest to, co jego aplikacja już przechowuje, np. zdjęcia przepisów czy rysunki, które tutaj można tylko oglądać i pobierać; niżej trafia to, co prześlesz.',
+  'tut.app-archivos--esencial.4.titulo': 'Przesyłanie i tworzenie',
+  'tut.app-archivos--esencial.4.texto':
+    'Z Pro przycisk „Nowy” tworzy folder lub przesyła pliki, a w przeglądarce i w aplikacji na komputer także całe foldery. Możesz też upuścić je prosto z komputera do Plików, a to, co już jest w środku, przenosisz do innego folderu, przeciągając.',
+  'tut.app-archivos--esencial.5.titulo': 'Szukanie i sortowanie',
+  'tut.app-archivos--esencial.5.texto':
+    'W Moich plikach wyszukiwarka przeszukuje wszystkie twoje pliki, a w innych sekcjach tylko to, co masz przed sobą. Obok wybierasz kolejność – według nazwy, daty lub rozmiaru – i przełączasz między siatką a listą.',
+  'tut.app-archivos--esencial.6.titulo': 'Opcje każdego pliku',
+  'tut.app-archivos--esencial.6.texto':
+    'Kliknięcie pliku prawym przyciskiem albo jego przycisk „⋯” otwiera opcje: pobierz, udostępnij, oznacz gwiazdką, zmień nazwę, przenieś albo przenieś do kosza. „Udostępnij” tworzy link ważny przez 1, 7 lub 30 dni, który każdy otworzy bez konta.',
+  'tut.app-archivos--esencial.7.titulo': 'Miejsce w chmurze',
+  'tut.app-archivos--esencial.7.texto':
+    'Wskaźnik pokazuje, ile miejsca w chmurze już zajmujesz: 10, 30 lub 100 GB zależnie od poziomu Pro. Gdy plan się skończy, przesłane pliki można jeszcze przez 90 dni oglądać i pobierać, a potem znikają z chmury.',
+  'tut.app-audio--esencial.1.titulo': 'Studio muzyczne',
+  'tut.app-audio--esencial.1.texto':
+    'Tu komponujesz, nagrywasz i miksujesz muzykę. Są dwa menu: Utwory, z twoimi projektami i edytorem, w którym powstają, oraz Miks, z dwoma talerzami DJ.',
+  'tut.app-audio--esencial.2.titulo': 'Utwory',
+  'tut.app-audio--esencial.2.texto':
+    'Twoje projekty dzielą listę z gotowymi utworami, znanymi kawałkami z domeny publicznej. Każdą kartę odsłuchasz od razu tutaj, otworzysz w edytorze albo zapiszesz w albumie, który działa jak folder.',
+  'tut.app-audio--esencial.3.titulo': 'Zacznij utwór',
+  'tut.app-audio--esencial.3.texto':
+    '„Nowy projekt” otwiera edytor z pustą ścieżką, a „Importuj .mid” zamienia plik MIDI w projekt z jego nutami.',
+  'tut.app-audio--esencial.4.titulo': 'Edytor',
+  'tut.app-audio--esencial.4.texto':
+    'Po otwarciu utworu edytor zajmuje cały pokój: ścieżki po lewej, a po prawej piano roll, w którym rysuje się nuty na siatce. Każda ścieżka ma swój instrument syntezatorowy, od fortepianu po perkusję, i gra się na niej klawiaturą ekranową, fizyczną albo MIDI.',
+  'tut.app-audio--esencial.5.titulo': 'Nagrywanie, eksport i SI',
+  'tut.app-audio--esencial.5.texto':
+    'Przycisk nagrywania daje jeden takt odliczania z metronomem i zapisuje to, co grasz, jako nuty; na ścieżce audio nagrywa mikrofon. W „Dodatkach” są „Ćwicz”, „WAV” do pobrania utworu i „SI”, która komponuje dla aktywnej ścieżki albo ją kontynuuje.',
+  'tut.app-audio--esencial.6.titulo': 'Nagrania',
+  'tut.app-audio--esencial.6.texto':
+    'Nagrania z mikrofonu zostają tutaj, nawet jeśli usuniesz je ze ścieżki albo skasujesz projekt. Można je odsłuchać, zmienić im nazwę i pobrać.',
+  'tut.app-audio--esencial.7.titulo': 'Miks',
+  'tut.app-audio--esencial.7.texto':
+    'Dwa talerze DJ połączone crossfaderem. „Wczytaj utwór” ładuje utwór ze studia, plik audio z twojego urządzenia albo próbkę z iTunes, a każdy talerz ma pitch, korektor, cue i SYNC do zgrania tempa.',
+  'tut.app-video--esencial.1.titulo': 'Edytor wideo',
+  'tut.app-video--esencial.1.texto':
+    'Tu montujesz filmy z klipów, tekstów, narracji i muzyki na osi czasu. Są dwa menu: Filmy, z twoimi projektami, i Animacja 3D, do kręcenia scen na mapie.',
+  'tut.app-video--esencial.2.titulo': 'Filmy',
+  'tut.app-video--esencial.2.texto':
+    'Twoje filmy, każdy z okładką, formatem i długością; „Nowe wideo” zaczyna nowy od zera. Na start jest gotowa reklama aplikacji zmontowana w tym edytorze, którą otwierasz, edytujesz albo usuwasz jak każdą inną.',
+  'tut.app-video--esencial.3.titulo': 'Nagłówek edytora',
+  'tut.app-video--esencial.3.texto':
+    'Po otwarciu filmu edytor zajmuje cały pokój. „Nagraj w aplikacji” filmuje to, co robisz w swoim MindHaOS, i wraca z tym jako klipem; „Eksportuj” pobiera film albo publikuje go w twoich mediach społecznościowych, a „SI” pisze scenariusz na podstawie pomysłu.',
+  'tut.app-video--esencial.4.titulo': 'Podgląd',
+  'tut.app-video--esencial.4.texto':
+    'Odtwarza film tak, jak wyjdzie, a przyciski w rogach otwierają panele boczne. Po lewej Materiały: twoje filmy, obrazy i nagrania audio, dźwięki i to, co powstało w innych aplikacjach Studio; po prawej edytor zaznaczonego klipu.',
+  'tut.app-video--esencial.5.titulo': 'Oś czasu',
+  'tut.app-video--esencial.5.texto':
+    'Każda ścieżka mieści jeden rodzaj klipu: główna filmy i obrazy, a ścieżki tekstu, narracji, muzyki czy efektów dźwiękowych pojawiają się, gdy tylko coś na nich jest. Dotknięcie zaznacza klip, przeciąganie go przesuwa, a krawędzie go przycinają.',
+  'tut.app-video--esencial.6.titulo': 'Dodaj',
+  'tut.app-video--esencial.6.texto':
+    'Wstawia w miejscu kursora to, czego potrzeba, każdą rzecz na jej ścieżkę: klipy lub obrazy, tekst, narrację, muzykę, efekty dźwiękowe, twój awatar, Postać AR albo Maskę AR, a także nagrania z kamery lub mikrofonu. Stąd otwiera się też scenariusz i przejścia.',
+  'tut.app-video--esencial.7.titulo': 'Animacja 3D',
+  'tut.app-video--esencial.7.texto':
+    'Sceny kręcone na mapie twojego MindHaOS: twój awatar i asystenci grają plan po planie, z dialogami i ruchami kamery. Można je wyeksportować, zapisać w Mediach albo wstawić jako klip do filmu.',
   'tut.app-agenda--trabajo.1.titulo': 'Skrzynka zadań',
   'tut.app-agenda--trabajo.1.texto':
     'To, co trzeba zrobić, ale nie ma jeszcze dnia, mieszka tutaj, ze swoim priorytetem. Nic nie zmusza cię do ustawiania daty, żeby to zapisać.',

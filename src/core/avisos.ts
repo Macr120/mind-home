@@ -23,6 +23,7 @@ import { useMascota } from './state/mascotaStore'
 import { useWrappedUi } from './state/wrappedUiStore'
 import { tGlobal } from './i18n/useT'
 import { ultimoCerrado, type TipoPeriodo } from './wrapped/periodo'
+import { esEjemplo } from './data/ejemplos'
 
 /**
  * El reloj de los avisos: revisa cada minuto lo agendado y las metas del día.
@@ -111,6 +112,8 @@ async function avisarRutinas(estado: EstadoAvisos, fecha: string) {
 
   for (const r of rutinas) {
     if (!r.hora || !toca(r.hora)) continue
+    // Un ejemplo de fábrica no avisa: la medicina o la cita no son de nadie.
+    if (esEjemplo(r)) continue
     if (!avisoActivo(r.plantillaId)) continue
     if (!debeAvisar(r, ejecuciones)) continue
     const clave = `rutina:${r.id}|${fecha}`

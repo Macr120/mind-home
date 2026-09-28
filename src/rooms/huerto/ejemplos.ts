@@ -1,7 +1,7 @@
 import type { EspecieCultivo } from '../../core/data/db'
 import { cultivosRepo } from '../../core/data/repository'
 import { huecoLibre } from '../_shared/ejemplos/celdas'
-import { yaMaterializado, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
+import { filaEjemplo, yaMaterializado, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
 
 /**
  * Ejemplo de fábrica del huerto: cuatro parcelas juntas en las cuatro etapas.
@@ -38,20 +38,22 @@ const PARCELAS: { especie: EspecieCultivo; minDesdeSiembra: number; minSinAgua: 
 
 export const ejemploHuerto: PaqueteEjemplo = {
   id: ID,
-  async materializar() {
+  tablas: [cultivosRepo],
+  async materializar(restaurar) {
     if (await yaMaterializado(ID, () => cultivosRepo.list())) return
     const hueco = await huecoLibre(PARCELAS.length, 1)
     if (!hueco) return
     const ahora = Date.now()
     for (const [i, p] of PARCELAS.entries()) {
-      await cultivosRepo.add({
-        col: hueco.col + i,
-        row: hueco.row,
-        especie: p.especie,
-        plantadoEn: ahora - p.minDesdeSiembra * MINUTO,
-        regadoEn: ahora - p.minSinAgua * MINUTO,
-        ejemploDe: ID,
-      })
+      await cultivosRepo.addSeed(
+        filaEjemplo(ID, `parcela${i}`, restaurar, {
+          col: hueco.col + i,
+          row: hueco.row,
+          especie: p.especie,
+          plantadoEn: ahora - p.minDesdeSiembra * MINUTO,
+          regadoEn: ahora - p.minSinAgua * MINUTO,
+        }),
+      )
     }
   },
   async impedimento() {
