@@ -7,7 +7,7 @@ import { AsistenteModelo } from '../../house/AsistenteModelo'
 import { PiezasSeleccionContext } from '../../house/modeloPersonalizado'
 import { forzarSiempre } from '../../house/animacion'
 import { useDiseño, type Avatar } from '../../state/disenoStore'
-import { useEditorUi } from '../../state/editorUiStore'
+import { useEditorUi, PREFIJO_PROPIO } from '../../state/editorUiStore'
 import { useAsistentes } from '../../state/asistentesStore'
 import {
   PARTES_TATUAJE,
@@ -166,7 +166,8 @@ function ColocarTatuaje({
   pausado: boolean
   children: ReactNode
 }) {
-  const tatuajeSel = useEditorUi((s) => s.tatuajeSel) as PrendaId | null
+  const tatuajeSel = useEditorUi((s) => s.tatuajeSel)
+  const ajustarAvatarTatuaje = useDiseño((s) => s.ajustarAvatarTatuaje)
   const setAvatarPrenda = useDiseño((s) => s.setAvatarPrenda)
   const guardar = useAsistentes((s) => s.guardar)
   const grupo = useRef<THREE.Group>(null)
@@ -175,13 +176,21 @@ function ColocarTatuaje({
   const pendiente = useRef<PuntoTatuaje | null>(null)
 
   const personaje = avatar ?? asistente
-  const prenda = tatuajeSel ? personaje?.ropa?.[tatuajeSel] : undefined
-  const activo = !!prenda && !pausado
+  // `propio:<id>` = un tatuaje dibujado o subido (solo del avatar); si no, un PrendaId de fábrica.
+  const propioId = tatuajeSel?.startsWith(PREFIJO_PROPIO) ? Number(tatuajeSel.slice(PREFIJO_PROPIO.length)) : null
+  const propio = propioId != null ? avatar?.tatuajesCustom?.find((x) => x.refId === propioId) : undefined
+  const idFabrica = propioId == null ? (tatuajeSel as PrendaId | null) : null
+  const prenda = idFabrica ? personaje?.ropa?.[idFabrica] : undefined
+  const activo = (!!prenda || !!propio) && !pausado
 
   const guardarPunto = (punto: PuntoTatuaje) => {
-    if (!tatuajeSel || !prenda) return
-    if (avatar) void setAvatarPrenda(tatuajeSel, prenda.color, { punto })
-    else if (asistente) void guardar({ ...asistente, ropa: { ...asistente.ropa, [tatuajeSel]: { ...prenda, punto } } })
+    if (propio) {
+      void ajustarAvatarTatuaje(propio.refId, { punto })
+      return
+    }
+    if (!idFabrica || !prenda) return
+    if (avatar) void setAvatarPrenda(idFabrica, prenda.color, { punto })
+    else if (asistente) void guardar({ ...asistente, ropa: { ...asistente.ropa, [idFabrica]: { ...prenda, punto } } })
   }
   const guardarRef = useRef(guardarPunto)
   useEffect(() => {

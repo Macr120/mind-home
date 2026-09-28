@@ -2,7 +2,8 @@ import { useLayoutEffect, useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import type { Ropa, AnclasRopa, PrendaId } from './apariencia'
-import { PRENDA_COLOR_DEFAULT, colocacionTatuaje, pivoteParte, type PuntoTatuaje } from './apariencia'
+import { PRENDA_COLOR_DEFAULT, colocacionTatuaje, pivoteParte, puntoTatuajePropio, type PuntoTatuaje } from './apariencia'
+import type { TatuajePuesto } from '../state/disenoStore'
 import { hornearPrenda, PRENDAS_DE_PIEZAS } from './hornearPrenda'
 import { ModeloPiezas } from './modeloPersonalizado'
 import {
@@ -174,6 +175,20 @@ function texturaTatuaje(dibujo: string, tinta: string): THREE.CanvasTexture {
   return tex
 }
 
+/** Textura de un tatuaje propio (su imagen tal cual, con sus colores). Cacheada por imagen. */
+const texturasImagen = new Map<string, THREE.Texture>()
+function texturaImagen(url: string): THREE.Texture {
+  const previa = texturasImagen.get(url)
+  if (previa) return previa
+  const tex = new THREE.TextureLoader().load(url)
+  tex.colorSpace = THREE.SRGBColorSpace
+  texturasImagen.set(url, tex)
+  return tex
+}
+
+/** Tamaño base de un tatuaje propio (en unidades del avatar). */
+const TAM_PROPIO = 0.22
+
 const DIBUJO_TRIBAL = 'tribal'
 
 /** Dibujo y tamaño base (en unidades del avatar) de cada tatuaje. */
@@ -203,14 +218,12 @@ const SEPARACION = 0.006
  * No se deja tocar por rayos (el visor coloca tatuajes sobre el cuerpo, no sobre otros tatuajes).
  */
 function Calca({
-  dibujo,
-  tinta,
+  mapa,
   punto,
   tam,
   capas,
 }: {
-  dibujo: string
-  tinta: string
+  mapa: THREE.Texture
   punto: PuntoTatuaje
   tam: number
   capas: string
@@ -252,7 +265,7 @@ function Calca({
     <mesh ref={ref} quaternion={giro} raycast={() => {}} renderOrder={2}>
       <planeGeometry args={[tam, tam]} />
       <meshStandardMaterial
-        map={texturaTatuaje(dibujo, tinta)}
+        map={mapa}
         transparent
         depthWrite={false}
         polygonOffset
@@ -269,19 +282,23 @@ function Calca({
  * `marcha`: las prendas de extremidades se balancean al caminar (solo el avatar).
  */
 export function Prendas({
-  ropa,
+  ropa: ropaPuesta,
   anclas,
   marcha = false,
   marchaEstado = marchaAvatar,
   esJugador = true,
+  tatuajesPropios,
 }: {
   ropa: Ropa | undefined
   anclas: AnclasRopa
   marcha?: boolean
   marchaEstado?: EstadoMarcha
   esJugador?: boolean
+  /** Tatuajes dibujados o subidos por el usuario (solo el personaje principal). */
+  tatuajesPropios?: TatuajePuesto[]
 }) {
-  if (!ropa || Object.keys(ropa).length === 0) return null
+  const ropa: Ropa = ropaPuesta ?? {}
+  if (Object.keys(ropa).length === 0 && !tatuajesPropios?.length) return null
   const color = (id: keyof Ropa) => ropa[id]?.color ?? PRENDA_COLOR_DEFAULT[id]
   const a = anclas
   const k = a.cabezaR / 0.22 // escala de la cabeza respecto al avatar (lentes)
@@ -295,17 +312,27 @@ export function Prendas({
   const signoBrazo = (x: number): 1 | -1 => (x < 0 ? -1 : 1)
   // Tatuajes: en el cuerpo van directo; en brazos/piernas, dentro del pivote de su extremidad.
   const capas = Object.keys(ropa).sort().join()
-  const tatuajes = (Object.keys(ropa) as PrendaId[]).flatMap((id) => {
-    const dibujo = TATUAJES[id]
-    if (!dibujo) return []
-    const { punto, escala } = colocacionTatuaje(id, a, ropa[id])
-    const calca = (
-      <Calca dibujo={dibujo.dibujo} tinta={color(id)} punto={punto} tam={dibujo.tam * k * escala} capas={capas} />
-    )
-    if (punto.parte === 'cuerpo') return [<group key={id}>{calca}</group>]
+  // De fábrica (dibujo teñido con la tinta) y propios (su imagen), con la misma colocación.
+  const tatuajesPuestos = [
+    ...(Object.keys(ropa) as PrendaId[]).flatMap((id) => {
+      const dibujo = TATUAJES[id]
+      if (!dibujo) return []
+      const { punto, escala } = colocacionTatuaje(id, a, ropa[id])
+      return [{ key: id, mapa: texturaTatuaje(dibujo.dibujo, color(id)), punto, tam: dibujo.tam * k * escala }]
+    }),
+    ...(tatuajesPropios ?? []).map((t) => ({
+      key: `propio-${t.refId}`,
+      mapa: texturaImagen(t.imagen),
+      punto: t.punto ?? puntoTatuajePropio(a),
+      tam: TAM_PROPIO * k * (t.escala ?? 1),
+    })),
+  ]
+  const tatuajes = tatuajesPuestos.map(({ key: id, mapa, punto, tam }) => {
+    const calca = <Calca mapa={mapa} punto={punto} tam={tam} capas={capas} />
+    if (punto.parte === 'cuerpo') return <group key={id}>{calca}</group>
     const [x, pivotY] = pivoteParte(punto.parte, a)
     const brazo = punto.parte.startsWith('brazo')
-    return [
+    return (
       <PivoteMarcha
         key={id}
         activo={marcha}
@@ -318,8 +345,8 @@ export function Prendas({
         extremidad={brazo ? 'brazo' : 'pierna'}
       >
         {calca}
-      </PivoteMarcha>,
-    ]
+      </PivoteMarcha>
+    )
   })
 
   return (

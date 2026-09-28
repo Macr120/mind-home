@@ -1,5 +1,8 @@
 import { create } from 'zustand'
 
+/** `tatuajeSel` de un tatuaje propio (dibujado o subido): `propio:<refId>`. */
+export const PREFIJO_PROPIO = 'propio:'
+
 /** Pestaña activa del panel Editor (sin cuarto seleccionado). */
 export type EditorTab = 'mapa' | 'personajes' | 'objetos' | 'config'
 

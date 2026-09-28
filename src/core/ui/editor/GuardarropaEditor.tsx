@@ -100,7 +100,8 @@ export function GuardarropaEditor({
   abrirPrendaId?: number
 } = {}) {
   const t = useT()
-  const todas = prendasCustomRepo.useAll()
+  // Los tatuajes propios (con imagen) viven en su carpeta de Tatuajes, no aquí.
+  const todas = prendasCustomRepo.useAll()?.filter((p) => !p.imagen)
   const guardadas =
     carpetaId == null
       ? todas

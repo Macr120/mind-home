@@ -146,6 +146,14 @@ export interface PrendaCustomPuesta {
   piezas: Pieza3D[]
 }
 
+/** Un tatuaje propio puesto: copia de la imagen + `refId` a su diseño, y dónde va. */
+export interface TatuajePuesto extends AjustePrenda {
+  refId: number
+  nombre?: string
+  /** Data URL de la imagen (PNG/WebP con transparencia). */
+  imagen: string
+}
+
 /** Apariencia completa del personaje principal (colores + tamaño + ropa + forma 3D). */
 export interface Avatar {
   /** Nombre del personaje principal (vacío = "Tú" por defecto). */
@@ -159,6 +167,8 @@ export interface Avatar {
   ropa: Ropa
   /** Prendas a medida puestas (del guardarropa). */
   ropaCustom?: PrendaCustomPuesta[]
+  /** Tatuajes propios puestos (dibujados o subidos). */
+  tatuajesCustom?: TatuajePuesto[]
   /** Ropa que llevaba antes de que el tema de la casa lo vistiera (se repone al quitar el tema). */
   ropaSinTema?: Ropa
   /** Expresión del rostro dibujado (ojos + boca) del cuerpo base. */
@@ -589,6 +599,12 @@ interface DisenoState {
   ponerAvatarPrendaCustom: (refId: number, piezas: Pieza3D[], nombre?: string) => Promise<void>
   /** Quita una prenda a medida del personaje principal (por su refId). */
   quitarAvatarPrendaCustom: (refId: number) => Promise<void>
+  /** Pone (o refresca) un tatuaje propio; conserva dónde estaba si ya lo llevaba. */
+  ponerAvatarTatuaje: (refId: number, imagen: string, nombre?: string) => Promise<void>
+  /** Quita un tatuaje propio (por su refId). */
+  quitarAvatarTatuaje: (refId: number) => Promise<void>
+  /** Mueve o cambia de tamaño un tatuaje propio puesto. */
+  ajustarAvatarTatuaje: (refId: number, ajuste: AjustePrenda) => Promise<void>
   /** Usa una forma integrada (mago/gato/…) como cuerpo del avatar (limpia piezas/.glb). */
   setAvatarForma: (forma: MascotaId) => Promise<void>
   /** Color del cuerpo con `forma` (vacío = el propio de la forma, `COLOR_FORMA`). */
@@ -759,6 +775,7 @@ async function guardarAvatar(av: DisenoState['avatar']) {
     escala: av.escala,
     ropa: serializarRopa(av.ropa),
     ropaCustom: av.ropaCustom?.length ? JSON.stringify(av.ropaCustom) : '',
+    tatuajesCustom: av.tatuajesCustom?.length ? JSON.stringify(av.tatuajesCustom) : '',
     // No usa serializarRopa: devuelve '' para {} y se confundiría con «sin respaldo».
     ropaSinTema: av.ropaSinTema ? JSON.stringify(av.ropaSinTema) : '',
     expresion: av.expresion ?? '',
@@ -1439,6 +1456,14 @@ export const useDiseño = create<DisenoState>((set, get) => ({
         avAnimacion = undefined
       }
     }
+    let avTatuajes: TatuajePuesto[] | undefined
+    if (av?.tatuajesCustom) {
+      try {
+        avTatuajes = JSON.parse(av.tatuajesCustom) as TatuajePuesto[]
+      } catch {
+        avTatuajes = undefined
+      }
+    }
     let avRopaCustom: PrendaCustomPuesta[] | undefined
     if (av?.ropaCustom) {
       try {
@@ -1500,6 +1525,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
             escala: av.escala ?? ESCALA_DEFAULT,
             ropa: parseRopa(av.ropa),
             ropaCustom: avRopaCustom,
+            tatuajesCustom: avTatuajes,
             ropaSinTema: av.ropaSinTema ? parseRopa(av.ropaSinTema) : undefined,
             expresion: (av.expresion as ExpresionId) || undefined,
             rostro: av.rostro,
@@ -3386,6 +3412,38 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   quitarAvatarPrendaCustom: async (refId) => {
     set((s) => ({
       avatar: { ...s.avatar, ropaCustom: (s.avatar.ropaCustom ?? []).filter((g) => g.refId !== refId) },
+    }))
+    await guardarAvatar(get().avatar)
+  },
+
+  ponerAvatarTatuaje: async (refId, imagen, nombre) => {
+    set((s) => {
+      const lista = s.avatar.tatuajesCustom ?? []
+      const previo = lista.find((x) => x.refId === refId)
+      const nuevo: TatuajePuesto = { ...previo, refId, nombre, imagen }
+      return {
+        avatar: {
+          ...s.avatar,
+          tatuajesCustom: previo ? lista.map((x) => (x.refId === refId ? nuevo : x)) : [...lista, nuevo],
+        },
+      }
+    })
+    await guardarAvatar(get().avatar)
+  },
+
+  quitarAvatarTatuaje: async (refId) => {
+    set((s) => ({
+      avatar: { ...s.avatar, tatuajesCustom: (s.avatar.tatuajesCustom ?? []).filter((x) => x.refId !== refId) },
+    }))
+    await guardarAvatar(get().avatar)
+  },
+
+  ajustarAvatarTatuaje: async (refId, ajuste) => {
+    set((s) => ({
+      avatar: {
+        ...s.avatar,
+        tatuajesCustom: (s.avatar.tatuajesCustom ?? []).map((x) => (x.refId === refId ? { ...x, ...ajuste } : x)),
+      },
     }))
     await guardarAvatar(get().avatar)
   },

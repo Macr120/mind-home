@@ -7,8 +7,6 @@ import { prendasCustomRepo } from '../../data/repository'
 import {
   PRENDAS,
   PRENDA_COLOR_DEFAULT,
-  TATUAJE_ESCALA_MIN,
-  TATUAJE_ESCALA_MAX,
   anclasDe,
   type AjustePrenda,
   type PrendaCategoriaId,
@@ -17,6 +15,7 @@ import {
 } from '../../house/apariencia'
 import { hornearPrenda, PIERDE_MARCHA } from '../../house/hornearPrenda'
 import { GuardarropaEditor } from './GuardarropaEditor'
+import { MoverTatuaje, TatuajesPropios } from './TatuajesPropios'
 import { useReordenRopa } from './useEditorSecciones'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
@@ -246,7 +245,12 @@ function Carpeta({
             />
           )}
           {esAvatar ? (
-            <GuardarropaEditor carpetaId={id} abrirPrendaId={abrirPrendaId} />
+            // Los tatuajes propios son dibujos 2D (lienzo o imagen), no piezas 3D.
+            carpeta.categoria === 'tatuajes' ? (
+              <TatuajesPropios carpetaId={id} />
+            ) : (
+              <GuardarropaEditor carpetaId={id} abrirPrendaId={abrirPrendaId} />
+            )
           ) : (
             !carpeta.base && (
               <p className="text-[11px] leading-snug text-white/40">
@@ -384,47 +388,6 @@ function FilaFabrica({
       {esTatuaje && puesta && moviendo && (
         <MoverTatuaje ajuste={ropa[prendaId]} onAjuste={(aj) => setPrenda(prendaId, color, aj)} />
       )}
-    </div>
-  )
-}
-
-/**
- * Panel del tatuaje que se está colocando: la posición se elige tocando o
- * arrastrando sobre el personaje del visor 3D; aquí quedan el tamaño y volver
- * a su lugar de fábrica.
- */
-function MoverTatuaje({
-  ajuste,
-  onAjuste,
-}: {
-  ajuste?: AjustePrenda
-  onAjuste: (aj: AjustePrenda) => void
-}) {
-  const t = useT()
-  return (
-    <div className="mt-1.5 space-y-1.5 border-t border-white/10 pt-1.5">
-      <p className="text-[11px] leading-snug text-accent/90">
-        {t('editor.tatuaje.colocar', 'Toca o arrastra sobre el personaje para colocarlo donde quieras.')}
-      </p>
-      <label className="flex items-center gap-2 text-[11px] text-white/55">
-        <span className="w-16 shrink-0">{t('editor.tatuaje.tamano', 'Tamaño')}</span>
-        <input
-          type="range"
-          min={TATUAJE_ESCALA_MIN}
-          max={TATUAJE_ESCALA_MAX}
-          step={0.05}
-          value={ajuste?.escala ?? 1}
-          onChange={(e) => onAjuste({ escala: Number(e.target.value) })}
-          className="min-w-0 flex-1 accent-[var(--color-accent)]"
-        />
-      </label>
-      <button
-        type="button"
-        onClick={() => onAjuste({ punto: undefined, escala: undefined })}
-        className="flex items-center gap-1.5 rounded-md bg-white/5 px-2 py-1 text-[11px] font-semibold text-white/55 transition hover:bg-white/15"
-      >
-        <Icono nombre="restaurar" /> {t('editor.tatuaje.restablecer', 'Volver a su lugar')}
-      </button>
     </div>
   )
 }

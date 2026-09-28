@@ -1790,6 +1790,8 @@ interface DisenoAvatar {
   animacion?: string
   /** Prendas a medida puestas: JSON de {refId, nombre, piezas} (guardarropa). */
   ropaCustom?: string
+  /** Tatuajes propios puestos: JSON de TatuajePuesto[] (dibujados o subidos). */
+  tatuajesCustom?: string
   /** Ropa que llevaba antes del tema de la casa (JSON de Ropa; '' = sin respaldo). */
   ropaSinTema?: string
 }
@@ -1810,6 +1812,11 @@ export interface PrendaCustom {
   orden?: number
   /** Prenda de fábrica de la que se horneó, si es una copia editable (PrendaId). */
   origen?: string
+  /**
+   * Tatuaje propio (dibujado a mano o subido): la imagen como data URL. Con
+   * imagen, `piezas` va vacío: es un dibujo 2D que se pega como estampa.
+   */
+  imagen?: string
   creadoEn: number
 }
 

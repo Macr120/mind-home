@@ -89,13 +89,13 @@ export function AvatarModelo({
               <Suspense fallback={null}>
                 <ModeloGLB blob={av.modeloGlb} />
               </Suspense>
-              <Prendas ropa={av.ropa} anclas={anclas} />
+              <Prendas ropa={av.ropa} tatuajesPropios={av.tatuajesCustom} anclas={anclas} />
             </MarchaBob>
           ) : av.modelo3d && av.modelo3d.length > 0 ? (
             categoria === 'flotan' ? (
               <MarchaBob activo={caminar} marchaEstado={marchaEstado}>
                 <CuerpoDePiezas piezas={av.modelo3d} anim={anim} personaje={av} estado={marchaEstado} />
-                <Prendas ropa={av.ropa} anclas={anclas} />
+                <Prendas ropa={av.ropa} tatuajesPropios={av.tatuajesCustom} anclas={anclas} />
               </MarchaBob>
             ) : (
               <>
@@ -106,7 +106,7 @@ export function AvatarModelo({
                 {soportaPeinado(av) && (
                   <Peinado anclas={anclas} peinado={av.peinado} color={av.peloColor} />
                 )}
-                <Prendas ropa={av.ropa} anclas={anclas} marcha={caminar} marchaEstado={marchaEstado} />
+                <Prendas ropa={av.ropa} tatuajesPropios={av.tatuajesCustom} anclas={anclas} marcha={caminar} marchaEstado={marchaEstado} />
               </>
             )
           ) : av.forma ? (
@@ -121,7 +121,7 @@ export function AvatarModelo({
               {muestraRostro(av) && (
                 <Rostro anclas={anclas} expresion={av.expresion} rostro={av.rostro} boca={boca} />
               )}
-              <Prendas ropa={av.ropa} anclas={anclas} />
+              <Prendas ropa={av.ropa} tatuajesPropios={av.tatuajesCustom} anclas={anclas} />
             </MarchaBob>
           ) : (
             <>
@@ -133,7 +133,7 @@ export function AvatarModelo({
               />
               <Rostro anclas={anclas} expresion={av.expresion} rostro={av.rostro} boca={boca} />
               <Peinado anclas={anclas} peinado={av.peinado} color={av.peloColor} />
-              <Prendas ropa={av.ropa} anclas={anclas} marcha={caminar} marchaEstado={marchaEstado} />
+              <Prendas ropa={av.ropa} tatuajesPropios={av.tatuajesCustom} anclas={anclas} marcha={caminar} marchaEstado={marchaEstado} />
             </>
           )}
           {av.ropaCustom?.map((g, i) => (

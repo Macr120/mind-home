@@ -88,6 +88,11 @@ function puntoInicial(id: PrendaId, a: AnclasRopa): PuntoTatuaje {
   }
 }
 
+/** Lugar donde aparece un tatuaje propio (dibujado o subido) al ponérselo: el centro del pecho. */
+export function puntoTatuajePropio(a: AnclasRopa): PuntoTatuaje {
+  return { parte: 'cuerpo', p: [0, a.torsoY + a.torsoH * 0.1, a.torsoD / 2], n: [0, 0, 1] }
+}
+
 /** Colocación efectiva de un tatuaje puesto: la que eligió el usuario o la de fábrica. */
 export function colocacionTatuaje(id: PrendaId, a: AnclasRopa, prenda?: AjustePrenda) {
   return { punto: prenda?.punto ?? puntoInicial(id, a), escala: prenda?.escala ?? 1 }
