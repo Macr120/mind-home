@@ -3553,7 +3553,7 @@ export const TR: Dict = {
   'anec.dia.titulo': '{fecha} tarihinin anıları',
   'anec.dia.cerrar': 'Günü kapat',
   'sala.desc':
-    'Gezgin dünyan: dünya haritasında gezdiğin yerlerin pinleri, takvimli görülecek yer planları, seyahat rotaları, yürüyüş, toplu taşıma, bisiklet, motosiklet ve arabayı birleştirerek her yere yol tarifi ve fotoğraflı, anılı bir seyir defteri.',
+    'Gezgin dünyan: dünya haritasında gezdiğin yerlerin pinleri, takvimli görülecek yer planları, seyahat rotaları ve fotoğraflı, anılı bir seyir defteri.',
   'sala.tab.mapa': 'Harita',
   'sala.tab.porConocer': 'Gezi planı',
   'sala.tab.rutas': 'Rotalar',

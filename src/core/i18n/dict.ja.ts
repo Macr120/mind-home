@@ -3441,7 +3441,7 @@ export const JA: Dict = {
   'anec.cal.recuerdos': '思い出のある日：{n}日',
   'anec.dia.titulo': '{fecha}の思い出',
   'anec.dia.cerrar': 'この日を閉じる',
-  'sala.desc': 'あなたの旅の世界：世界地図に訪れた場所のピン、カレンダー付きの行きたい場所の旅程、旅のルート、徒歩・公共交通・自転車・バイク・車を組み合わせたどこへでもの経路案内、そして写真とエピソードの旅日記。',
+  'sala.desc': 'あなたの旅の世界：世界地図に訪れた場所のピン、カレンダー付きの行きたい場所の旅程、旅のルート、そして写真とエピソードの旅日記。',
   'sala.tab.mapa': 'マップ',
   'sala.tab.porConocer': '旅程',
   'sala.tab.rutas': 'ルート',

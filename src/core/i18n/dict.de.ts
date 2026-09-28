@@ -3650,7 +3650,7 @@ export const DE: Dict = {
   'anec.dia.titulo': 'Erinnerungen vom {fecha}',
   'anec.dia.cerrar': 'Tag schließen',
   'sala.desc':
-    'Deine Reisewelt: Pins besuchter Orte auf der Weltkarte, Reisepläne für Orte, die du sehen willst, mit Kalender, Reiserouten, Wegbeschreibungen überallhin aus Gehen, Nahverkehr, Rad, Motorrad und Auto kombiniert, und ein Logbuch mit Fotos und Anekdoten.',
+    'Deine Reisewelt: Pins besuchter Orte auf der Weltkarte, Reisepläne für Orte, die du sehen willst, mit Kalender, Reiserouten und ein Logbuch mit Fotos und Anekdoten.',
   'sala.tab.mapa': 'Karte',
   'sala.tab.porConocer': 'Reiseplan',
   'sala.tab.rutas': 'Routen',

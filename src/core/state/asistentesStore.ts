@@ -11,7 +11,7 @@ import {
 import type { AnimacionModelo } from '../house/animacion'
 import { EXPRESION_DEFAULT, parseRopa, serializarRopa, type ExpresionId, type PeinadoId } from '../house/apariencia'
 import { aplicarCuerpoPreset, CUERPOS_PRESET, piezasBase } from '../house/cuerpos'
-import { ATUENDO_POR_TEMA, esAtuendoDeTema } from '../house/atuendos'
+import { ATUENDO_POR_TEMA, esAtuendoDeTema, ropaSinTemaLimpia } from '../house/atuendos'
 import type { TemaId } from '../house/temas'
 
 /**
@@ -193,8 +193,8 @@ export const useAsistentes = create<AsistentesState>((set, get) => ({
     // aunque el tema ya estuviera en null, y si no hay respaldo pero la ropa es tal
     // cual el atuendo de un tema (versión anterior, fila del sync), se quita.
     const vestir = (a: Asistente): Asistente => {
-      if (tema) return { ...a, ropa: ATUENDO_POR_TEMA[tema], ropaSinTema: previo ? a.ropaSinTema : (a.ropa ?? {}) }
-      if (a.ropaSinTema) return { ...a, ropa: a.ropaSinTema, ropaSinTema: undefined }
+      if (tema) return { ...a, ropa: ATUENDO_POR_TEMA[tema], ropaSinTema: previo ? a.ropaSinTema : ropaSinTemaLimpia(a.ropa) }
+      if (a.ropaSinTema) return { ...a, ropa: ropaSinTemaLimpia(a.ropaSinTema), ropaSinTema: undefined }
       if (esAtuendoDeTema(a.ropa)) return { ...a, ropa: {} }
       return a
     }

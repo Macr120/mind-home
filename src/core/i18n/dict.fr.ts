@@ -3627,7 +3627,7 @@ export const FR: Dict = {
   'anec.dia.titulo': 'Souvenirs du {fecha}',
   'anec.dia.cerrar': 'Fermer le jour',
   'sala.desc':
-    'Ton monde de voyageur : des épingles de lieux visités sur la mappemonde, des itinéraires de lieux à découvrir avec calendrier, des parcours de voyage, comment aller n\'importe où en combinant marche, transports en commun, vélo, moto et voiture, et un journal de bord avec photos et anecdotes.',
+    'Ton monde de voyageur : des épingles de lieux visités sur la mappemonde, des itinéraires de lieux à découvrir avec calendrier, des parcours de voyage et un journal de bord avec photos et anecdotes.',
   'sala.tab.mapa': 'Carte',
   'sala.tab.porConocer': 'Itinéraire',
   'sala.tab.rutas': 'Parcours',

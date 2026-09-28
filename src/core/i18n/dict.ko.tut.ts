@@ -817,7 +817,7 @@ export const KO_TUT: Dict = {
     '모든 목표가 한꺼번에 놓이는 시간축이에요. 하나하나가 날짜 위의 막대가 돼요. 일·주·월·연도 단위로 확대하거나 축소할 수 있고, 계획을 위에 겹쳐서 이미 그려 둔 것과 견줘 볼 수 있어요.',
   'tut.app-sala--esencial.1.titulo': '나의 여행 거실',
   'tut.app-sala--esencial.1.texto':
-    '여기에 나의 여행 세계가 있어요. 핀이 있는 세계 지도, 가고 싶은 곳의 일정, 장소를 잇는 루트, 어디로든 안내하는 내비게이터, 그리고 추억의 여행 일기. 메뉴는 다섯 개예요.',
+    '여기에 나의 여행 세계가 있어요. 핀이 있는 세계 지도, 가고 싶은 곳의 일정, 장소를 잇는 루트, 그리고 추억의 여행 일기. 메뉴는 네 개예요.',
   'tut.app-sala--esencial.2.titulo': '지도',
   'tut.app-sala--esencial.2.texto': '다녀온 곳도, 가 보고 싶은 곳도 모두 세계 지도 위의 핀이 돼요. 위쪽 전환 버튼을 누르면 평면 지도가 끌어서 돌리는 지구본으로 바뀌어요.',
   'tut.app-sala--esencial.3.titulo': '일정',
@@ -826,9 +826,6 @@ export const KO_TUT: Dict = {
   'tut.app-sala--esencial.4.texto': '경로는 여러 장소를 하나의 여정으로 이어서 지도 위에 그려 줘요.',
   'tut.app-sala--esencial.5.titulo': '여행 일지',
   'tut.app-sala--esencial.5.texto': '다녀온 곳의 추억을 나라별 앨범으로 모아요. 장소마다 사진과 이야기가 담겨요.',
-  'tut.app-sala--esencial.6.titulo': '길찾기',
-  'tut.app-sala--esencial.6.texto':
-    '문에서 문까지 안내하는 내비게이터예요. 출발지와 도착지를 고르고 도보, 대중교통, 자전거, 오토바이, 자동차를 한 경로에 조합하세요. 거리 지도와 단계별 안내가 함께해요.',
   'tut.app-agenda--trabajo.1.titulo': '할 일 보관함',
   'tut.app-agenda--trabajo.1.texto': '해야 하지만 아직 날짜가 없는 일은 여기에 우선순위와 함께 있어요. 적어 두려고 굳이 날짜를 정할 필요는 없어요.',
   'tut.app-agenda--trabajo.3.titulo': '보드',

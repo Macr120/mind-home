@@ -1038,7 +1038,7 @@ export const FR_TUT: Dict = {
     'L’axe du temps avec tous les objectifs à la fois : chacun est une barre sur les dates. Tu zoomes et dézoomes par jours, semaines, mois ou années, et un plan peut se superposer par-dessus pour le comparer à ce qui est déjà tracé.',
   'tut.app-sala--esencial.1.titulo': 'Ton salon de voyage',
   'tut.app-sala--esencial.1.texto':
-    'Ici vit ton monde de voyageur : une mappemonde avec des épingles, des itinéraires de lieux à découvrir, des parcours qui enchaînent les lieux, un navigateur pour aller n\'importe où et un journal de bord de souvenirs. Cinq menus.',
+    'Ici vit ton monde de voyageur : une mappemonde avec des épingles, des itinéraires de lieux à découvrir, des parcours qui enchaînent les lieux et un journal de bord de souvenirs. Quatre menus.',
   'tut.app-sala--esencial.2.titulo': 'Carte',
   'tut.app-sala--esencial.2.texto':
     'Chaque lieu que tu as visité ou rêves de visiter est une épingle sur le mappemonde. Le bouton du haut remplace le planisphère par un globe que tu fais tourner en le glissant.',
@@ -1050,9 +1050,6 @@ export const FR_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': 'Journal de bord',
   'tut.app-sala--esencial.5.texto':
     'Les souvenirs de tes lieux visités, en albums par pays : photos et anecdotes de chaque endroit.',
-  'tut.app-sala--esencial.6.titulo': 'Comment y aller',
-  'tut.app-sala--esencial.6.texto':
-    'Un navigateur porte à porte : choisis un départ et une arrivée et combine marche, transports en commun, vélo, moto et voiture dans un même trajet, avec le plan des rues et des indications pas à pas.',
   'tut.app-agenda--trabajo.1.titulo': 'La liste À faire',
   'tut.app-agenda--trabajo.1.texto':
     'Ce qu’il faut faire mais qui n’a pas encore de jour vit ici, avec sa priorité. Rien ne t’oblige à lui mettre une date pour le noter.',

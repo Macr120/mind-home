@@ -1037,7 +1037,7 @@ export const PL_TUT: Dict = {
     'Oś czasu ze wszystkimi celami naraz: każdy jest paskiem nad datami. Przybliżasz i oddalasz według dni, tygodni, miesięcy albo lat, a plan można na nią nałożyć, żeby porównać go z tym, co już jest wyznaczone.',
   'tut.app-sala--esencial.1.titulo': 'Twój salon podróży',
   'tut.app-sala--esencial.1.texto':
-    'Tu mieszka Twój podróżniczy świat: mapa świata z pinezkami, plany miejsc do zobaczenia, trasy łączące miejsca, nawigator, który zaprowadzi Cię wszędzie, i dziennik wspomnień. Pięć menu.',
+    'Tu mieszka Twój podróżniczy świat: mapa świata z pinezkami, plany miejsc do zobaczenia, trasy łączące miejsca i dziennik wspomnień. Cztery menu.',
   'tut.app-sala--esencial.2.titulo': 'Mapa',
   'tut.app-sala--esencial.2.texto':
     'Każde miejsce, które odwiedziłeś albo marzysz odwiedzić, to pinezka na mapie świata. Przełącznik u góry zamienia płaską mapę na globus, którym obracasz, przeciągając.',
@@ -1049,9 +1049,6 @@ export const PL_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': 'Dziennik podróży',
   'tut.app-sala--esencial.5.texto':
     'Wspomnienia z odwiedzonych miejsc, w albumach według kraju: zdjęcia i historie z każdego miejsca.',
-  'tut.app-sala--esencial.6.titulo': 'Jak dojechać',
-  'tut.app-sala--esencial.6.texto':
-    'Nawigator od drzwi do drzwi: wybierz start i cel i połącz pieszo, komunikację miejską, rower, motocykl i auto w jednej podróży, z mapą ulic i wskazówkami krok po kroku.',
   'tut.app-agenda--trabajo.1.titulo': 'Skrzynka zadań',
   'tut.app-agenda--trabajo.1.texto':
     'To, co trzeba zrobić, ale nie ma jeszcze dnia, mieszka tutaj, ze swoim priorytetem. Nic nie zmusza cię do ustawiania daty, żeby to zapisać.',

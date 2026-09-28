@@ -3595,7 +3595,7 @@ export const EN: Dict = {
   'anec.dia.cerrar': 'Close day',
 
   // Sala (Viajes: mapa, por conocer, rutas y bitácora)
-  'sala.desc': 'Your traveler world: pins of visited places on the world map, itineraries of places to see with a calendar, travel routes, directions to anywhere combining walking, public transit, bike, motorcycle and car, and a journal with photos and stories.',
+  'sala.desc': 'Your traveler world: pins of visited places on the world map, itineraries of places to see with a calendar, travel routes, and a journal with photos and stories.',
   'sala.tab.mapa': 'Map',
   'sala.tab.porConocer': 'Itinerary',
   'sala.tab.rutas': 'Routes',

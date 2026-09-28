@@ -1038,7 +1038,7 @@ export const IT_TUT: Dict = {
     'L’asse del tempo con tutti gli obiettivi insieme: ognuno è una barra sopra le date. Ci si avvicina e ci si allontana per giorni, settimane, mesi o anni, e un piano può sovrapporsi per confrontarlo con quello già tracciato.',
   'tut.app-sala--esencial.1.titulo': 'Il tuo soggiorno di viaggio',
   'tut.app-sala--esencial.1.texto':
-    'Qui vive il tuo mondo da viaggiatore: un mappamondo con segnaposto, itinerari di luoghi da scoprire, percorsi che concatenano luoghi, un navigatore per arrivare ovunque e un diario di bordo di ricordi. Cinque menu.',
+    'Qui vive il tuo mondo da viaggiatore: un mappamondo con segnaposto, itinerari di luoghi da scoprire, percorsi che concatenano luoghi e un diario di bordo di ricordi. Quattro menu.',
   'tut.app-sala--esencial.2.titulo': 'Mappa',
   'tut.app-sala--esencial.2.texto':
     'Ogni luogo che hai visitato o sogni di visitare è uno spillo sulla mappa del mondo. L’interruttore in alto sostituisce la mappa piatta con un globo che giri trascinandolo.',
@@ -1050,9 +1050,6 @@ export const IT_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': 'Diario di bordo',
   'tut.app-sala--esencial.5.texto':
     'I ricordi dei luoghi che hai visitato, in album per paese: foto e aneddoti di ogni posto.',
-  'tut.app-sala--esencial.6.titulo': 'Come arrivare',
-  'tut.app-sala--esencial.6.texto':
-    'Un navigatore porta a porta: scegli partenza e destinazione e combina piedi, mezzi pubblici, bici, moto e auto in un unico tragitto, con la mappa stradale e le indicazioni passo dopo passo.',
   'tut.app-agenda--trabajo.1.titulo': 'La lista dei da fare',
   'tut.app-agenda--trabajo.1.texto':
     'Quello che va fatto ma non ha ancora un giorno vive qui, con la sua priorità. Niente ti obbliga a metterci una data solo per annotarlo.',

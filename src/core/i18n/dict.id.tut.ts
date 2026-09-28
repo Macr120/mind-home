@@ -1038,7 +1038,7 @@ export const ID_TUT: Dict = {
     'Sumbu waktu dengan semua target sekaligus: masing-masing adalah bar di atas tanggal. Kamu bisa memperbesar dan memperkecil menurut hari, minggu, bulan, atau tahun, dan sebuah rencana bisa ditumpuk di atasnya untuk dibandingkan dengan yang sudah tergambar.',
   'tut.app-sala--esencial.1.titulo': 'Ruang tamu jalan-jalanmu',
   'tut.app-sala--esencial.1.texto':
-    'Di sini dunia pelancongmu tinggal: peta dunia dengan pin, rencana tempat yang ingin dilihat, rute yang merangkai tempat, navigator untuk sampai ke mana saja, dan buku catatan kenangan. Ada lima menu.',
+    'Di sini dunia pelancongmu tinggal: peta dunia dengan pin, rencana tempat yang ingin dilihat, rute yang merangkai tempat, dan buku catatan kenangan. Ada empat menu.',
   'tut.app-sala--esencial.2.titulo': 'Peta',
   'tut.app-sala--esencial.2.texto':
     'Setiap tempat yang sudah kamu kunjungi atau impikan untuk dikunjungi adalah sebuah pin di peta dunia. Sakelar di atas mengganti peta datar dengan globe yang bisa kamu putar dengan menyeretnya.',
@@ -1051,9 +1051,6 @@ export const ID_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': 'Jurnal perjalanan',
   'tut.app-sala--esencial.5.texto':
     'Kenangan dari tempat-tempat yang sudah kamu kunjungi, dalam album per negara: foto dan cerita dari setiap tempat.',
-  'tut.app-sala--esencial.6.titulo': 'Cara ke sana',
-  'tut.app-sala--esencial.6.texto':
-    'Navigator dari pintu ke pintu: pilih asal dan tujuan, lalu padukan jalan kaki, transportasi umum, sepeda, motor, dan mobil dalam satu perjalanan, dengan peta jalan dan petunjuk langkah demi langkah.',
   'tut.app-agenda--trabajo.1.titulo': 'Kotak masuk',
   'tut.app-agenda--trabajo.1.texto':
     'Kerja punya dua tampilan: baki Tugas dan Papan. Di Tugas tinggal apa yang harus dikerjakan tapi belum punya hari, lengkap dengan prioritasnya; tidak ada yang memaksamu memberi tanggal hanya untuk mencatatnya.',

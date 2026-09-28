@@ -359,9 +359,10 @@ export const plantillasInfraestructura = (): Plantilla[] => codigo.filter(esInfr
  * resto va en «Productividad»). La lista es FIJA a propósito: la carpeta
  * «Studio» del catálogo vive en Dexie y es del usuario —puede renombrarla o
  * sacarle apps—, así que no puede gobernar una pestaña. Las plantillas propias
- * del usuario no están aquí: nacen productivas.
+ * del usuario no están aquí: nacen productivas. Archivo salió del Studio (v151):
+ * vive en «Salud mental», en Productividad.
  */
-const IDS_CREATIVIDAD = new Set(['audio', 'arte', 'escritura', 'video', 'archivos'])
+const IDS_CREATIVIDAD = new Set(['audio', 'arte', 'escritura', 'video'])
 
 export const esCreatividad = (p: Plantilla) => IDS_CREATIVIDAD.has(p.id)
 

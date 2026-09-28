@@ -3602,7 +3602,7 @@ export const ID: Dict = {
   'anec.dia.titulo': 'Kenangan dari {fecha}',
   'anec.dia.cerrar': 'Tutup hari',
   'sala.desc':
-    'Dunia pelancongmu: pin tempat yang sudah dikunjungi di peta dunia, rencana tempat yang ingin dilihat dengan kalender, rute perjalanan, cara ke mana saja dengan memadukan jalan kaki, transportasi umum, sepeda, motor, dan mobil, serta buku catatan dengan foto dan cerita.',
+    'Dunia pelancongmu: pin tempat yang sudah dikunjungi di peta dunia, rencana tempat yang ingin dilihat dengan kalender, rute perjalanan, serta buku catatan dengan foto dan cerita.',
   'sala.tab.mapa': 'Peta',
   'sala.tab.porConocer': 'Rencana perjalanan',
   'sala.tab.rutas': 'Rute',

@@ -3000,8 +3000,8 @@ export const GRUPOS_PLANTILLA_BASE: { nombre: string; emoji: string; miembros: s
   { nombre: 'Estudio', emoji: '📚', miembros: ['biblioteca', 'idiomas', 'ideas', 'computo'] },
   { nombre: 'Administración', emoji: '🗂️', miembros: ['despacho', 'garage', 'agenda', 'sala'] },
   { nombre: 'Pasatiempos', emoji: '🎉', miembros: ['entretenimiento', 'diario', 'hobbies'] },
-  { nombre: 'Salud mental', emoji: '🧠', miembros: ['anecdotario', 'jardin', 'metas'] },
-  { nombre: 'Studio', emoji: '🎬', miembros: ['audio', 'arte', 'escritura', 'video', 'archivos'] },
+  { nombre: 'Salud mental', emoji: '🧠', miembros: ['anecdotario', 'jardin', 'metas', 'archivos'] },
+  { nombre: 'Studio', emoji: '🎬', miembros: ['audio', 'arte', 'escritura', 'video'] },
 ]
 
 /** Objeto del conjunto de una app: recurso 3D (o `tipo` especial), su posición y si es el principal. */
@@ -6553,6 +6553,22 @@ class MindHomeDB extends Dexie {
             })
         }
       })
+    // v151: Archivo sale del Studio (Creatividad) y va al final de «Salud mental»
+    // (Productividad). Mismo criterio que la v140: las base por posición y solo
+    // se toca esa app; si el usuario ya la tenía en otra carpeta suya, se respeta.
+    this.version(151).upgrade(async (tx) => {
+      const tabla = tx.table('gruposPlantilla')
+      const base = ((await tabla.toArray()) as GrupoPlantilla[])
+        .filter((g) => g.esBase)
+        .sort((a, b) => a.orden - b.orden)
+      const mental = base[4]
+      const studio = base[5]
+      if (!mental?.id || !studio?.id || !studio.miembros.includes('archivos')) return
+      await tabla.update(studio.id, { miembros: studio.miembros.filter((m) => m !== 'archivos') })
+      if (!mental.miembros.includes('archivos')) {
+        await tabla.update(mental.id, { miembros: [...mental.miembros, 'archivos'] })
+      }
+    })
   }
 }
 

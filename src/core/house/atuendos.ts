@@ -210,6 +210,14 @@ export function esAtuendoDeTema(ropa: Ropa | undefined): boolean {
   return Object.values(ATUENDO_POR_TEMA).some((a) => firmaRopa(a) === firma)
 }
 
+/**
+ * La ropa «sin tema» que se respalda o se repone: nunca el atuendo de un tema.
+ * Si el tema se fue sin desvestir (sync) y luego se pone otro, el respaldo
+ * guardaba el disfraz del anterior y «Sin tema» lo devolvía puesto.
+ */
+export const ropaSinTemaLimpia = (ropa: Ropa | undefined): Ropa =>
+  !ropa || esAtuendoDeTema(ropa) ? {} : ropa
+
 /** Los mismos atuendos como lista (nombre e icono del tema) para la categoría «Atuendos». */
 export const ATUENDOS_TEMA: Atuendo[] = TEMAS.map((tema) => ({
   id: tema.id,

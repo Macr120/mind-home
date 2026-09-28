@@ -1035,7 +1035,7 @@ export const PT_TUT: Dict = {
     'O eixo do tempo com todas as metas de uma vez: cada uma é uma barra sobre as datas. Você aproxima e afasta por dias, semanas, meses ou anos, e um plano pode se sobrepor a ele para comparar com o que já está traçado.',
   'tut.app-sala--esencial.1.titulo': 'Sua sala de viagens',
   'tut.app-sala--esencial.1.texto':
-    'Aqui vive seu mundo viajante: um mapa-múndi com pins, roteiros de lugares para conhecer, rotas que encadeiam lugares, um navegador para chegar a qualquer lugar e um diário de lembranças. São cinco menus.',
+    'Aqui vive seu mundo viajante: um mapa-múndi com pins, roteiros de lugares para conhecer, rotas que encadeiam lugares e um diário de lembranças. São quatro menus.',
   'tut.app-sala--esencial.2.titulo': 'Mapa',
   'tut.app-sala--esencial.2.texto':
     'Cada lugar que você visitou ou sonha em visitar é um alfinete no mapa-múndi. O interruptor lá em cima troca o mapa plano por um globo que você gira arrastando.',
@@ -1047,9 +1047,6 @@ export const PT_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': 'Diário de bordo',
   'tut.app-sala--esencial.5.texto':
     'As lembranças dos lugares que você visitou, em álbuns por país: fotos e histórias de cada lugar.',
-  'tut.app-sala--esencial.6.titulo': 'Como chegar',
-  'tut.app-sala--esencial.6.texto':
-    'Um navegador porta a porta: escolha origem e destino e combine caminhada, transporte público, bicicleta, moto e carro em um mesmo trajeto, com o mapa de ruas e instruções passo a passo.',
   'tut.app-agenda--trabajo.1.titulo': 'A caixa de entrada',
   'tut.app-agenda--trabajo.1.texto':
     'Trabalho tem duas vistas: a caixa Tarefa e o Quadro. Em Tarefa mora o que precisa ser feito mas ainda não tem dia, com sua prioridade; nada obriga você a marcar uma data só para anotar.',

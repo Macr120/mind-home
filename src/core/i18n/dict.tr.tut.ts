@@ -1032,7 +1032,7 @@ export const TR_TUT: Dict = {
     'Tüm hedeflerin aynı anda olduğu zaman ekseni: her biri tarihlerin üzerinde bir çubuktur. Gün, hafta, ay ya da yıla göre yakınlaştırıp uzaklaştırabilirsin, ve zaten çizilmiş olanla karşılaştırmak için bir plan üzerine yerleştirilebilir.',
   'tut.app-sala--esencial.1.titulo': 'Gezgin oturma odan',
   'tut.app-sala--esencial.1.texto':
-    'Gezgin dünyan burada yaşar: pinli bir dünya haritası, görülecek yer planları, yerleri birbirine bağlayan rotalar, seni her yere götüren bir navigatör ve anılardan bir seyir defteri. Beş menü.',
+    'Gezgin dünyan burada yaşar: pinli bir dünya haritası, görülecek yer planları, yerleri birbirine bağlayan rotalar ve anılardan bir seyir defteri. Dört menü.',
   'tut.app-sala--esencial.2.titulo': 'Harita',
   'tut.app-sala--esencial.2.texto':
     'Ziyaret ettiğin ya da ziyaret etmeyi hayal ettiğin her yer, dünya haritasında bir iğnedir. Üstteki anahtar, düz haritayı sürükleyerek döndürebileceğin bir küreyle değiştirir.',
@@ -1044,9 +1044,6 @@ export const TR_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': 'Seyir defteri',
   'tut.app-sala--esencial.5.texto':
     'Ziyaret ettiğin yerlerin anıları, ülkeye göre albümlerde: her yerin fotoğrafları ve hikâyeleri.',
-  'tut.app-sala--esencial.6.titulo': 'Yol tarifi',
-  'tut.app-sala--esencial.6.texto':
-    'Kapıdan kapıya bir navigatör: başlangıç ve varışı seç; yürüyüş, toplu taşıma, bisiklet, motosiklet ve arabayı tek bir yolculukta birleştir, sokak haritası ve adım adım yönergelerle.',
   'tut.app-agenda--trabajo.1.titulo': 'Gelen kutusu',
   'tut.app-agenda--trabajo.1.texto':
     'İş’in iki görünümü var: Yapılacaklar kutusu ve Pano. Yapılması gereken ama henüz günü olmayan her şey, önceliğiyle birlikte Yapılacaklar’da durur; not almak için tarih koymak zorunda değilsin.',

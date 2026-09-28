@@ -61,7 +61,7 @@ import type { Pieza3D, MascotaId } from '../chat/mascotas'
 import type { Mueble } from '../muebles/tipos'
 import type { AnimacionModelo } from '../house/animacion'
 import { aplicarCuerpoPreset, type CuerpoPreset } from '../house/cuerpos'
-import { ATUENDO_POR_TEMA, esAtuendoDeTema } from '../house/atuendos'
+import { ATUENDO_POR_TEMA, esAtuendoDeTema, ropaSinTemaLimpia } from '../house/atuendos'
 import {
   ESCALA_DEFAULT,
   parseRopa,
@@ -831,10 +831,21 @@ export function objetoPorId(objetos: ObjetoCuarto[], id: number): ObjetoCuarto |
  * deben suscribirse a `s.objetos` crudo (re-render a 60 Hz al cargar/mover).
  */
 export function idsPlantillasAsignadas(objetos: ObjetoCuarto[]): string[] {
+  const reales = new Set(useCuartos.getState().cuartos.map((c) => c.id))
   const ids: string[] = []
-  for (const o of objetos) if (o.plantillaId && !ids.includes(o.plantillaId)) ids.push(o.plantillaId)
+  for (const o of objetos) {
+    if (o.plantillaId && reales.has(o.roomId) && !ids.includes(o.plantillaId)) ids.push(o.plantillaId)
+  }
   return ids.sort()
 }
+
+/**
+ * ¿Este objeto pone su app en la casa? Solo si su cuarto existe: el sync puede
+ * devolver los objetos de un cuarto ya borrado (huérfanos, sin fila en
+ * `cuartos`) y esa app quedaba «en uso» sin verse en ningún sitio.
+ */
+export const asignaAppEnCasa = (o: ObjetoCuarto): boolean =>
+  !!o.plantillaId && useCuartos.getState().cuartos.some((c) => c.id === o.roomId)
 
 /** Los objetos LIBRES del mapa, con la misma referencia estable. */
 export function objetosMapaIdx(objetos: ObjetoCuarto[]): ObjetoCuarto[] {
@@ -1534,11 +1545,15 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     let avatar = get().avatar
     if (tema) {
       if (tema !== prev)
-        avatar = { ...avatar, ropa: ATUENDO_POR_TEMA[tema], ropaSinTema: prev ? avatar.ropaSinTema : avatar.ropa }
+        avatar = {
+          ...avatar,
+          ropa: ATUENDO_POR_TEMA[tema],
+          ropaSinTema: prev ? avatar.ropaSinTema : ropaSinTemaLimpia(avatar.ropa),
+        }
     } else if (avatar.ropaSinTema) {
       // «Sin tema» desviste aunque el tema ya estuviera en null (el tema pudo
       // irse por sync o por otra vía sin pasar por aquí, y la ropa quedarse).
-      avatar = { ...avatar, ropa: avatar.ropaSinTema, ropaSinTema: undefined }
+      avatar = { ...avatar, ropa: ropaSinTemaLimpia(avatar.ropaSinTema), ropaSinTema: undefined }
     } else if (esAtuendoDeTema(avatar.ropa)) {
       // Sin respaldo (tema puesto por una versión anterior o fila venida del
       // sync sin la columna): si lleva tal cual el atuendo de un tema, se quita.

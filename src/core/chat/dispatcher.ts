@@ -1,5 +1,5 @@
 import { plantillasTodas, type Plantilla } from '../appContrato'
-import { useDiseño } from '../state/disenoStore'
+import { asignaAppEnCasa, useDiseño } from '../state/disenoStore'
 import { useCuartos } from '../state/cuartosStore'
 
 /**
@@ -9,7 +9,7 @@ import { useCuartos } from '../state/cuartosStore'
  */
 export function appsAsignadas(): Plantilla[] {
   const ids = new Set<string>()
-  for (const o of useDiseño.getState().objetos) if (o.plantillaId) ids.add(o.plantillaId)
+  for (const o of useDiseño.getState().objetos) if (asignaAppEnCasa(o)) ids.add(o.plantillaId!)
   return plantillasTodas().filter((p) => ids.has(p.id))
 }
 

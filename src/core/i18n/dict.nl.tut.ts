@@ -1037,7 +1037,7 @@ export const NL_TUT: Dict = {
     'De tijdas met alle doelen tegelijk: elk doel is een balk over de data heen. Je zoomt in en uit per dag, week, maand of jaar, en een plan kan eroverheen gelegd worden om het te vergelijken met wat al is uitgestippeld.',
   'tut.app-sala--esencial.1.titulo': 'Jouw reiswoonkamer',
   'tut.app-sala--esencial.1.texto':
-    'Hier leeft je reiswereld: een wereldkaart met pins, reisplannen voor plekken die je wilt zien, routes die plekken aan elkaar koppelen, een navigator die je overal brengt en een logboek met herinneringen. Vijf menu\'s.',
+    'Hier leeft je reiswereld: een wereldkaart met pins, reisplannen voor plekken die je wilt zien, routes die plekken aan elkaar koppelen en een logboek met herinneringen. Vier menu\'s.',
   'tut.app-sala--esencial.2.titulo': 'Kaart',
   'tut.app-sala--esencial.2.texto':
     'Elke plek die je bezocht hebt of droomt te bezoeken, is een speld op de wereldkaart. De schakelaar bovenaan verwisselt de platte kaart voor een globe die je draait door te slepen.',
@@ -1049,9 +1049,6 @@ export const NL_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': 'Logboek',
   'tut.app-sala--esencial.5.texto':
     'De herinneringen aan de plekken die je bezocht hebt, in albums per land: foto\'s en verhalen van elke plek.',
-  'tut.app-sala--esencial.6.titulo': 'Route plannen',
-  'tut.app-sala--esencial.6.texto':
-    'Een navigator van deur tot deur: kies vertrek en bestemming en combineer lopen, openbaar vervoer, fiets, motor en auto in één reis, met de stratenkaart en stap-voor-stap aanwijzingen.',
   'tut.app-agenda--trabajo.1.titulo': 'De inbox',
   'tut.app-agenda--trabajo.1.texto':
     'Wat gedaan moet worden maar nog geen dag heeft, staat hier, met zijn prioriteit. Niets dwingt je een datum te kiezen om het op te schrijven.',

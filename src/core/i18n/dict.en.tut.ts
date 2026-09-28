@@ -897,7 +897,7 @@ export const EN_TUT: Dict = {
     'The time axis with every goal at once: each one is a bar over the dates. You can zoom in and out by days, weeks, months or years, and a plan can be laid on top to compare it with what is already mapped out.',
   'tut.app-sala--esencial.1.titulo': 'Your travel living room',
   'tut.app-sala--esencial.1.texto':
-    'This is your traveler world: a world map with pins, itineraries of places to see, routes that chain places together, a navigator to get anywhere and a logbook of memories. Five menus.',
+    'This is your traveler world: a world map with pins, itineraries of places to see, routes that chain places together and a logbook of memories. Four menus.',
   'tut.app-sala--esencial.2.titulo': 'Map',
   'tut.app-sala--esencial.2.texto':
     'Every place you visited or dream of visiting is a pin on the world map. The switch at the top swaps the flat map for a globe you spin by dragging.',
@@ -909,8 +909,6 @@ export const EN_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': 'Logbook',
   'tut.app-sala--esencial.5.texto':
     'The memories of the places you visited, in albums by country: photos and stories from each spot.',
-  'tut.app-sala--esencial.6.titulo': 'Directions',
-  'tut.app-sala--esencial.6.texto': 'A door-to-door navigator: pick an origin and a destination and combine walking, public transit, bike, motorcycle and car in a single trip, with the street map and step-by-step directions.',
   'tut.app-agenda--trabajo.1.titulo': 'The inbox',
   'tut.app-agenda--trabajo.1.texto':
     'Work has two views: the Pending tray and the Board. Pending holds what needs doing but has no day yet, with its priority; nothing forces you to pick a day just to write it down.',

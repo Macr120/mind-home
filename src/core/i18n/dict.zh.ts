@@ -3441,7 +3441,7 @@ export const ZH: Dict = {
   'anec.cal.recuerdos': '{n}天有回忆记录',
   'anec.dia.titulo': '{fecha}的回忆',
   'anec.dia.cerrar': '关闭当日',
-  'sala.desc': '你的旅行世界：世界地图上标记去过的地方，带日历的想去之地行程，旅行路线，步行、公共交通、自行车、摩托车和汽车组合的到任何地方的路线导航，以及带照片和趣事的旅行日志。',
+  'sala.desc': '你的旅行世界：世界地图上标记去过的地方，带日历的想去之地行程，旅行路线，以及带照片和趣事的旅行日志。',
   'sala.tab.mapa': '地图',
   'sala.tab.porConocer': '行程',
   'sala.tab.rutas': '路线',

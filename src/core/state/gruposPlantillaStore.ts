@@ -133,6 +133,36 @@ export const useGruposPlantilla = create<GruposPlantillaState>((set, get) => ({
   },
 }))
 
+/**
+ * Una app vive en UNA carpeta, pero el sync de dos dispositivos puede dejarla en
+ * dos (p. ej. Metas en Estudio y en Salud mental tras la v140). Se queda en la
+ * carpeta base que le toca de fábrica si es una de ellas; si no, en la primera.
+ * Las base se reconocen por su posición, como en la migración v140.
+ */
+async function sinRepetidas(rows: GrupoPlantilla[]): Promise<GrupoPlantilla[]> {
+  const base = rows.filter((g) => g.esBase)
+  const deFabrica = (id: string) => {
+    const i = SEED.findIndex((s) => s.miembros.includes(id))
+    return i >= 0 ? base[i] : undefined
+  }
+  const duenos = new Map<string, GrupoPlantilla>()
+  for (const g of rows) {
+    for (const m of g.miembros) {
+      const actual = duenos.get(m)
+      if (!actual || (actual !== deFabrica(m) && g === deFabrica(m))) duenos.set(m, g)
+    }
+  }
+  const out: GrupoPlantilla[] = []
+  for (const g of rows) {
+    const miembros = g.miembros.filter((m, i) => duenos.get(m) === g && g.miembros.indexOf(m) === i)
+    if (miembros.length !== g.miembros.length) {
+      if (g.id != null) await db.gruposPlantilla.update(g.id, { miembros })
+      out.push({ ...g, miembros })
+    } else out.push(g)
+  }
+  return out
+}
+
 /** Carga las carpetas al arrancar; siembra las base la primera vez. */
 db.gruposPlantilla
   .orderBy('orden')
@@ -155,6 +185,7 @@ db.gruposPlantilla
       for (const g of semilla) await db.gruposPlantilla.add(g)
       rows = await db.gruposPlantilla.orderBy('orden').toArray()
     }
+    rows = await sinRepetidas(rows)
     useGruposPlantilla.setState({ grupos: rows })
   })
   .catch(() => {})

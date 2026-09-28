@@ -3617,7 +3617,7 @@ export const NL: Dict = {
   'anec.dia.titulo': 'Herinneringen van {fecha}',
   'anec.dia.cerrar': 'Dag sluiten',
   'sala.desc':
-    'Jouw reiswereld: pins van bezochte plekken op de wereldkaart, reisplannen voor plekken die je wilt zien met kalender, reisroutes, routebeschrijvingen overal naartoe met lopen, openbaar vervoer, fiets, motor en auto gecombineerd, en een logboek met foto\'s en verhalen.',
+    'Jouw reiswereld: pins van bezochte plekken op de wereldkaart, reisplannen voor plekken die je wilt zien met kalender, reisroutes en een logboek met foto\'s en verhalen.',
   'sala.tab.mapa': 'Kaart',
   'sala.tab.porConocer': 'Reisplan',
   'sala.tab.rutas': 'Routes',

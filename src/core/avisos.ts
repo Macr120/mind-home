@@ -18,7 +18,7 @@ import { plantillasAgendables, plantillasTodas } from './registry'
 import { debeAvisar } from './rutinas'
 import { avisoActivo, useAjustes } from './state/ajustesStore'
 import { useAsistentes } from './state/asistentesStore'
-import { useDiseño } from './state/disenoStore'
+import { asignaAppEnCasa, useDiseño } from './state/disenoStore'
 import { useMascota } from './state/mascotaStore'
 import { useWrappedUi } from './state/wrappedUiStore'
 import { tGlobal } from './i18n/useT'
@@ -141,8 +141,8 @@ function appsEnLaCasa(): Set<string> {
   return new Set(
     useDiseño
       .getState()
-      .objetos.map((o) => o.plantillaId)
-      .filter((p): p is string => !!p),
+      .objetos.filter(asignaAppEnCasa)
+      .map((o) => o.plantillaId!),
   )
 }
 

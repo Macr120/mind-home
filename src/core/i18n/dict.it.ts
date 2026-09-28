@@ -3615,7 +3615,7 @@ export const IT: Dict = {
   'anec.dia.titulo': 'Ricordi del {fecha}',
   'anec.dia.cerrar': 'Chiudi il giorno',
   'sala.desc':
-    'Il tuo mondo da viaggiatore: segnaposto dei luoghi visitati sul mappamondo, itinerari dei luoghi da scoprire con calendario, percorsi di viaggio, come arrivare ovunque combinando piedi, mezzi pubblici, bici, moto e auto, e un diario di bordo con foto e aneddoti.',
+    'Il tuo mondo da viaggiatore: segnaposto dei luoghi visitati sul mappamondo, itinerari dei luoghi da scoprire con calendario, percorsi di viaggio e un diario di bordo con foto e aneddoti.',
   'sala.tab.mapa': 'Mappa',
   'sala.tab.porConocer': 'Itinerario',
   'sala.tab.rutas': 'Percorsi',

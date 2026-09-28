@@ -3580,7 +3580,7 @@ export const PT: Dict = {
   'anec.dia.titulo': 'Lembranças de {fecha}',
   'anec.dia.cerrar': 'Fechar o dia',
   'sala.desc':
-    'Seu mundo viajante: pins de lugares visitados no mapa-múndi, roteiros de lugares para conhecer com calendário, rotas de viagem, como chegar a qualquer lugar combinando caminhada, transporte público, bicicleta, moto e carro, e um diário com fotos e histórias.',
+    'Seu mundo viajante: pins de lugares visitados no mapa-múndi, roteiros de lugares para conhecer com calendário, rotas de viagem e um diário com fotos e histórias.',
   'sala.tab.mapa': 'Mapa',
   'sala.tab.porConocer': 'Itinerário',
   'sala.tab.rutas': 'Rotas',

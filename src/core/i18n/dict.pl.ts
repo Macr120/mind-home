@@ -3565,7 +3565,7 @@ export const PL: Dict = {
   'anec.dia.titulo': 'Wspomnienia z {fecha}',
   'anec.dia.cerrar': 'Zamknij dzień',
   'sala.desc':
-    'Twój podróżniczy świat: pinezki odwiedzonych miejsc na mapie świata, plany miejsc do zobaczenia z kalendarzem, trasy podróży, jak dojechać gdziekolwiek, łącząc pieszo, komunikację miejską, rower, motocykl i auto, oraz dziennik ze zdjęciami i anegdotami.',
+    'Twój podróżniczy świat: pinezki odwiedzonych miejsc na mapie świata, plany miejsc do zobaczenia z kalendarzem, trasy podróży oraz dziennik ze zdjęciami i anegdotami.',
   'sala.tab.mapa': 'Mapa',
   'sala.tab.porConocer': 'Plan podróży',
   'sala.tab.rutas': 'Trasy',

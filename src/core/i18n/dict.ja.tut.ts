@@ -750,7 +750,7 @@ export const JA_TUT: Dict = {
   'tut.app-metas--esencial.4.texto':
     'すべての目標が同時に並ぶ時間軸です。ひとつずつが日付の上のバーになります。日・週・月・年で拡大・縮小でき、プランを上に重ねて、すでに引いてある予定と見比べられます。',
   'tut.app-sala--esencial.1.titulo': '旅のリビング',
-  'tut.app-sala--esencial.1.texto': 'ここにあなたの旅の世界があります。ピン付きの世界地図、行きたい場所の旅程、場所をつなぐルート、どこへでも案内するナビ、そして思い出の旅日記。5つのメニューです。',
+  'tut.app-sala--esencial.1.texto': 'ここにあなたの旅の世界があります。ピン付きの世界地図、行きたい場所の旅程、場所をつなぐルート、そして思い出の旅日記。4つのメニューです。',
   'tut.app-sala--esencial.2.titulo': 'マップ',
   'tut.app-sala--esencial.2.texto': '訪れた場所も、行ってみたい場所も、世界地図の上のピンになります。上の切り替えで、平面の地図をドラッグで回せる地球儀に変えられます。',
   'tut.app-sala--esencial.3.titulo': '旅程',
@@ -759,8 +759,6 @@ export const JA_TUT: Dict = {
   'tut.app-sala--esencial.4.texto': 'ルートは複数の場所をつないで一つの道すじにし、それを地図の上に描きます。',
   'tut.app-sala--esencial.5.titulo': '旅日記',
   'tut.app-sala--esencial.5.texto': '訪れた場所の思い出を、国ごとのアルバムにまとめます。それぞれの場所の写真とエピソードが残ります。',
-  'tut.app-sala--esencial.6.titulo': '経路案内',
-  'tut.app-sala--esencial.6.texto': 'ドアからドアまでのナビ。出発地と目的地を選び、徒歩・公共交通・自転車・バイク・車をひとつの経路に組み合わせます。街の地図と順を追った案内付きです。',
   'tut.app-agenda--trabajo.1.titulo': 'タスクのトレイ',
   'tut.app-agenda--trabajo.1.texto': 'やることのうち、まだ日が決まっていないものはここに、優先度つきで置かれます。書き留めるために日付を決める必要はありません。',
   'tut.app-agenda--trabajo.3.titulo': 'ボード',
