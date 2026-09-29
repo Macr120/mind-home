@@ -45,7 +45,6 @@ export function EditorTemaSection({ embed }: { embed?: boolean } = {}) {
       <p className="text-[11px] leading-snug text-white/45">
         {t('editor.tema.desc', 'Aplica estilo a cuartos, fondo, piso y techo, viste la interfaz y al personaje, y activa microanimaciones en el cielo.')}
       </p>
-      <EstiloConIA />
       <div className="grid grid-cols-2 gap-2">
         <button
           type="button"
@@ -106,6 +105,7 @@ export function EditorTemaSection({ embed }: { embed?: boolean } = {}) {
           {t('editor.tema.restaurarFabrica', 'Restaurar temas de fábrica')}
         </button>
       )}
+      <EstiloConIA />
       <MisTemas />
       {temaGlobal != null && <EditorTemaDetalle />}
     </div>
