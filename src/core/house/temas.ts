@@ -26,13 +26,14 @@ export type TemaId =
   | 'avion'
   | 'apocalipsis'
   | 'tortuga'
+  | 'pirata'
 
 /**
  * Escenario en movimiento: la casa se monta sobre un vehículo (o un animal) que no
  * se mueve, se quita el piso exterior y lo que corre es el fondo.
  */
-export type EscenarioId = 'nave' | 'avion' | 'rodante' | 'tortuga'
-export const ESCENARIOS: EscenarioId[] = ['nave', 'avion', 'rodante', 'tortuga']
+export type EscenarioId = 'nave' | 'avion' | 'rodante' | 'tortuga' | 'barco'
+export const ESCENARIOS: EscenarioId[] = ['nave', 'avion', 'rodante', 'tortuga', 'barco']
 
 /** Id de cualquier tema: uno de fábrica o uno creado por el usuario (`u_<uuid>`). */
 export type TemaClave = string
@@ -312,6 +313,24 @@ export const TEMAS: (Tema & { id: TemaId })[] = [
     shell: { muroInt: '#e9dcc0', muroExt: '#a58158', piso: '#b08d5f', techo: '#5f7a2c' },
     luz: { sol: '#fff1c8', intensidadSol: 1.05, ambiente: '#e6f5d8', focos: '#ffd28a', ibl: 0.3 },
     niebla: { color: '#cfe8d6', near: 55, far: 150 },
+  },
+  {
+    id: 'pirata',
+    nombre: 'Barco pirata',
+    icon: '🏴‍☠️',
+    paleta: ['#6b4423', '#1e3a5f', '#d6c28a', '#111827'],
+    tinte: '#6b4423',
+    fuerza: 0.4,
+    roughness: 0.85,
+    metalness: 0.05,
+    emissive: '#000000',
+    emissiveIntensity: 0,
+    fondo: '#7ab8e0',
+    estilo: 'normal',
+    escenario: 'barco',
+    shell: { muroInt: '#d9c7a0', muroExt: '#7a5230', piso: '#8b6337', techo: '#4a2f1a' },
+    luz: { sol: '#ffe6b8', fuerzaSol: 0.4, intensidadSol: 1.05, ambiente: '#e2eef8', focos: '#ffb45a', ibl: 0.3 },
+    niebla: { color: '#c4e0f2', near: 60, far: 170 },
   },
 ]
 

@@ -175,6 +175,26 @@ function MarcadorBrote() {
   )
 }
 
+/** Pirata: doblón de oro que gira. */
+function MarcadorDoblon() {
+  const ref = useRef<Group>(null)
+  useFrame((s) => {
+    if (ref.current) ref.current.rotation.y = s.clock.elapsedTime * 2.2
+  })
+  return (
+    <group ref={ref}>
+      <mesh rotation={[Math.PI / 2, 0, 0]}>
+        <cylinderGeometry args={[0.17, 0.17, 0.05, 20]} />
+        <meshStandardMaterial color="#fbbf24" emissive="#d97706" emissiveIntensity={0.6} metalness={0.8} roughness={0.3} toneMapped={false} />
+      </mesh>
+      <mesh position={[0, 0, 0.03]}>
+        <torusGeometry args={[0.12, 0.015, 6, 20]} />
+        <meshStandardMaterial color="#fde68a" emissive="#f59e0b" emissiveIntensity={0.5} toneMapped={false} />
+      </mesh>
+    </group>
+  )
+}
+
 const MARCADORES: Record<TemaId, () => ReactElement> = {
   medieval: MarcadorMedieval,
   espacio: MarcadorEspacio,
@@ -187,6 +207,7 @@ const MARCADORES: Record<TemaId, () => ReactElement> = {
   avion: MarcadorEspacio,
   apocalipsis: MarcadorMedieval,
   tortuga: MarcadorBrote,
+  pirata: MarcadorDoblon,
 }
 
 /** El aviso de los marcadores CON tema: conservan su forma y ganan un aro rojo. */

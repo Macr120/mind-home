@@ -4,7 +4,8 @@ import { useLayout } from '../../state/layoutStore'
 import { useTemaActivo } from '../useTema'
 import type { EscenarioId, Tema } from '../temas'
 import { RecorridoCtx, type Recorrido } from './fondoMovil'
-import { setLimitesEscenario, useEscenarioVisible, useLimitesCasa } from './limitesCasa'
+import { fueraDelEscenario, setLimitesEscenario, useEscenarioVisible, useLimitesCasa } from './limitesCasa'
+import { playerPos } from '../../state/playerPosition'
 
 /** Lo que recibe cada escenario, ya en su marco local (proa hacia +X). */
 export interface PropsEscenario {
@@ -22,6 +23,7 @@ const ESCENAS: Record<EscenarioId, ComponentType<PropsEscenario>> = {
   avion: lazy(() => import('./Avion')),
   rodante: lazy(() => import('./CasaRodante')),
   tortuga: lazy(() => import('./Tortuga')),
+  barco: lazy(() => import('./Barco')),
 }
 
 /** Velocidad del fondo por escenario (unidades por segundo). */
@@ -30,6 +32,7 @@ const VELOCIDAD: Record<EscenarioId, number> = {
   avion: 14,
   rodante: 6,
   tortuga: 1.4,
+  barco: 7,
 }
 
 /**
@@ -61,6 +64,8 @@ export function EscenarioVivo() {
 
   useFrame((_, delta) => {
     if (!escenario || editMode || reducirMovimiento) return
+    // Si el personaje se baja del plano, el vehículo se detiene hasta que vuelva.
+    if (fueraDelEscenario(playerPos.x, playerPos.z)) return
     recorrido.d += Math.min(delta, 0.25) * VELOCIDAD[escenario]
   })
 

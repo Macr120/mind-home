@@ -215,6 +215,14 @@ export const ATUENDO_POR_TEMA: Record<TemaId, Ropa> = {
     guantes: { color: '#44403c' },
     mochila: { color: '#6b5a3a' },
   },
+  pirata: {
+    sombrero: { color: '#111111' },
+    bufanda: { color: '#b91c1c' },
+    camisa: { color: '#f5efe0' },
+    chamarra: { color: '#7f1d1d' },
+    pantalon: { color: '#3f2a1a' },
+    botas: { color: '#1c1917' },
+  },
   tortuga: {
     sombrero: { color: '#a3865a' },
     camisa: { color: '#65a30d' },
