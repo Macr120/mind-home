@@ -6312,7 +6312,7 @@ export const IT: Dict = {
   'ia.donde.editorTema': 'Editor › Tema',
   'ajustes.realismo': 'Realismo (facoltativo)',
   'ajustes.realismo.pbrMuros': 'Texture realistiche sui muri',
-  'ajustes.realismo.pbrMuros.desc': 'Intonaco, mattoni, legno e pietra in rilievo.',
+  'ajustes.realismo.pbrMuros.desc': 'Intonaco, mattoni, legno e pietra in rilievo, anche sui tetti.',
   'ajustes.realismo.pbrMuebles': 'Texture realistiche sui mobili',
   'ajustes.realismo.pbrMuebles.desc': 'Legno, metallo, tessuto e pelle sui mobili.',
   'ajustes.realismo.hdri': 'Illuminazione ambientale reale (HDRI)',

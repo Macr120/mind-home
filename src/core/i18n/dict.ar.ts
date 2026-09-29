@@ -6145,7 +6145,7 @@ export const AR: Dict = {
   'ia.donde.editorTema': 'المحرر › السمة',
   'ajustes.realismo': 'الواقعية (اختياري)',
   'ajustes.realismo.pbrMuros': 'خامات واقعية للجدران',
-  'ajustes.realismo.pbrMuros.desc': 'جص وطوب وخشب وحجر بتضاريس.',
+  'ajustes.realismo.pbrMuros.desc': 'جص وطوب وخشب وحجر بتضاريس، وكذلك في الأسقف.',
   'ajustes.realismo.pbrMuebles': 'خامات واقعية للأثاث',
   'ajustes.realismo.pbrMuebles.desc': 'خشب ومعدن وقماش وجلد على الأثاث.',
   'ajustes.realismo.hdri': 'إضاءة بيئة حقيقية (HDRI)',

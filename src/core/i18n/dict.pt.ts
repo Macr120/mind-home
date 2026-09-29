@@ -6261,7 +6261,7 @@ export const PT: Dict = {
   'ia.donde.editorTema': 'Editor › Tema',
   'ajustes.realismo': 'Realismo (opcional)',
   'ajustes.realismo.pbrMuros': 'Texturas realistas nas paredes',
-  'ajustes.realismo.pbrMuros.desc': 'Gesso, tijolo, madeira e pedra com relevo.',
+  'ajustes.realismo.pbrMuros.desc': 'Gesso, tijolo, madeira e pedra com relevo, também nos telhados.',
   'ajustes.realismo.pbrMuebles': 'Texturas realistas nos móveis',
   'ajustes.realismo.pbrMuebles.desc': 'Madeira, metal, tecido e couro nos móveis.',
   'ajustes.realismo.hdri': 'Iluminação de ambiente real (HDRI)',

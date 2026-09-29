@@ -6321,7 +6321,7 @@ export const EN: Dict = {
   'ia.donde.editorTema': 'Editor › Theme',
   'ajustes.realismo': 'Realism (optional)',
   'ajustes.realismo.pbrMuros': 'Realistic wall textures',
-  'ajustes.realismo.pbrMuros.desc': 'Plaster, brick, wood and stone with relief.',
+  'ajustes.realismo.pbrMuros.desc': 'Plaster, brick, wood and stone with relief, roofs included.',
   'ajustes.realismo.pbrMuebles': 'Realistic furniture textures',
   'ajustes.realismo.pbrMuebles.desc': 'Wood, metal, fabric and leather on furniture.',
   'ajustes.realismo.hdri': 'Real environment lighting (HDRI)',

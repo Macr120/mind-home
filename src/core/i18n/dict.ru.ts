@@ -6228,7 +6228,7 @@ export const RU: Dict = {
   'ia.donde.editorTema': 'Редактор › Тема',
   'ajustes.realismo': 'Реализм (по желанию)',
   'ajustes.realismo.pbrMuros': 'Реалистичные текстуры стен',
-  'ajustes.realismo.pbrMuros.desc': 'Штукатурка, кирпич, дерево и камень с рельефом.',
+  'ajustes.realismo.pbrMuros.desc': 'Штукатурка, кирпич, дерево и камень с рельефом, включая крыши.',
   'ajustes.realismo.pbrMuebles': 'Реалистичные текстуры мебели',
   'ajustes.realismo.pbrMuebles.desc': 'Дерево, металл, ткань и кожа на мебели.',
   'ajustes.realismo.hdri': 'Реальное освещение окружения (HDRI)',

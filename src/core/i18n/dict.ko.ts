@@ -6026,7 +6026,7 @@ export const KO: Dict = {
   'ia.donde.editorTema': '편집기 › 테마',
   'ajustes.realismo': '사실감(선택)',
   'ajustes.realismo.pbrMuros': '벽의 사실적인 텍스처',
-  'ajustes.realismo.pbrMuros.desc': '요철이 있는 회반죽, 벽돌, 나무, 돌.',
+  'ajustes.realismo.pbrMuros.desc': '요철이 있는 회반죽, 벽돌, 나무, 돌. 지붕에도 적용돼요.',
   'ajustes.realismo.pbrMuebles': '가구의 사실적인 텍스처',
   'ajustes.realismo.pbrMuebles.desc': '가구에 나무, 금속, 천, 가죽.',
   'ajustes.realismo.hdri': '실제 환경 조명(HDRI)',

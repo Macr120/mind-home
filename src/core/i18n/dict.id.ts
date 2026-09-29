@@ -6292,7 +6292,7 @@ export const ID: Dict = {
   'ia.donde.editorTema': 'Editor › Tema',
   'ajustes.realismo': 'Realisme (opsional)',
   'ajustes.realismo.pbrMuros': 'Tekstur dinding realistis',
-  'ajustes.realismo.pbrMuros.desc': 'Plester, bata, kayu, dan batu bertekstur timbul.',
+  'ajustes.realismo.pbrMuros.desc': 'Plester, bata, kayu, dan batu bertekstur timbul, termasuk atap.',
   'ajustes.realismo.pbrMuebles': 'Tekstur perabot realistis',
   'ajustes.realismo.pbrMuebles.desc': 'Kayu, logam, kain, dan kulit pada perabot.',
   'ajustes.realismo.hdri': 'Pencahayaan lingkungan nyata (HDRI)',

@@ -6016,7 +6016,7 @@ export const JA: Dict = {
   'ia.donde.editorTema': 'エディター › テーマ',
   'ajustes.realismo': 'リアリズム(任意)',
   'ajustes.realismo.pbrMuros': '壁のリアルなテクスチャ',
-  'ajustes.realismo.pbrMuros.desc': '凹凸のある漆喰・レンガ・木・石。',
+  'ajustes.realismo.pbrMuros.desc': '凹凸のある漆喰・レンガ・木・石。屋根にも。',
   'ajustes.realismo.pbrMuebles': '家具のリアルなテクスチャ',
   'ajustes.realismo.pbrMuebles.desc': '家具に木・金属・布・革。',
   'ajustes.realismo.hdri': '実写の環境照明(HDRI)',

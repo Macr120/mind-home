@@ -8,7 +8,7 @@ const OPCIONES: { id: keyof Realismo; clave: string; es: string; descClave: stri
     clave: 'ajustes.realismo.pbrMuros',
     es: 'Texturas realistas en muros',
     descClave: 'ajustes.realismo.pbrMuros.desc',
-    descEs: 'Yeso, ladrillo, madera y piedra con relieve.',
+    descEs: 'Yeso, ladrillo, madera y piedra con relieve, también en los techos.',
   },
   {
     id: 'pbrMuebles',

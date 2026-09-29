@@ -6248,7 +6248,7 @@ export const PL: Dict = {
   'ia.donde.editorTema': 'Edytor › Motyw',
   'ajustes.realismo': 'Realizm (opcjonalnie)',
   'ajustes.realismo.pbrMuros': 'Realistyczne tekstury ścian',
-  'ajustes.realismo.pbrMuros.desc': 'Tynk, cegła, drewno i kamień z reliefem.',
+  'ajustes.realismo.pbrMuros.desc': 'Tynk, cegła, drewno i kamień z reliefem, także na dachach.',
   'ajustes.realismo.pbrMuebles': 'Realistyczne tekstury mebli',
   'ajustes.realismo.pbrMuebles.desc': 'Drewno, metal, tkanina i skóra na meblach.',
   'ajustes.realismo.hdri': 'Prawdziwe oświetlenie otoczenia (HDRI)',

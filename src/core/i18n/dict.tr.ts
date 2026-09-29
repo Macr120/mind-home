@@ -6236,7 +6236,7 @@ export const TR: Dict = {
   'ia.donde.editorTema': 'Düzenleyici › Tema',
   'ajustes.realismo': 'Gerçekçilik (isteğe bağlı)',
   'ajustes.realismo.pbrMuros': 'Duvarlarda gerçekçi dokular',
-  'ajustes.realismo.pbrMuros.desc': 'Kabartmalı sıva, tuğla, ahşap ve taş.',
+  'ajustes.realismo.pbrMuros.desc': 'Kabartmalı sıva, tuğla, ahşap ve taş; çatılarda da.',
   'ajustes.realismo.pbrMuebles': 'Mobilyalarda gerçekçi dokular',
   'ajustes.realismo.pbrMuebles.desc': 'Mobilyalarda ahşap, metal, kumaş ve deri.',
   'ajustes.realismo.hdri': 'Gerçek ortam aydınlatması (HDRI)',

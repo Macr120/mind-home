@@ -6354,7 +6354,7 @@ export const DE: Dict = {
   'ia.donde.editorTema': 'Editor › Thema',
   'ajustes.realismo': 'Realismus (optional)',
   'ajustes.realismo.pbrMuros': 'Realistische Wandtexturen',
-  'ajustes.realismo.pbrMuros.desc': 'Putz, Ziegel, Holz und Stein mit Relief.',
+  'ajustes.realismo.pbrMuros.desc': 'Putz, Ziegel, Holz und Stein mit Relief, auch auf den Dächern.',
   'ajustes.realismo.pbrMuebles': 'Realistische Möbeltexturen',
   'ajustes.realismo.pbrMuebles.desc': 'Holz, Metall, Stoff und Leder an den Möbeln.',
   'ajustes.realismo.hdri': 'Echte Umgebungsbeleuchtung (HDRI)',

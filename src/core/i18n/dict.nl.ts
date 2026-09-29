@@ -6312,7 +6312,7 @@ export const NL: Dict = {
   'ia.donde.editorTema': 'Editor › Thema',
   'ajustes.realismo': 'Realisme (optioneel)',
   'ajustes.realismo.pbrMuros': 'Realistische muurtexturen',
-  'ajustes.realismo.pbrMuros.desc': 'Pleister, baksteen, hout en steen met reliëf.',
+  'ajustes.realismo.pbrMuros.desc': 'Pleister, baksteen, hout en steen met reliëf, ook op daken.',
   'ajustes.realismo.pbrMuebles': 'Realistische meubeltexturen',
   'ajustes.realismo.pbrMuebles.desc': 'Hout, metaal, stof en leer op meubels.',
   'ajustes.realismo.hdri': 'Echte omgevingsverlichting (HDRI)',

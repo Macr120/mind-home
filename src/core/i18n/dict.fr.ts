@@ -6336,7 +6336,7 @@ export const FR: Dict = {
   'ia.donde.editorTema': 'Éditeur › Thème',
   'ajustes.realismo': 'Réalisme (facultatif)',
   'ajustes.realismo.pbrMuros': 'Textures réalistes sur les murs',
-  'ajustes.realismo.pbrMuros.desc': 'Plâtre, brique, bois et pierre avec relief.',
+  'ajustes.realismo.pbrMuros.desc': 'Plâtre, brique, bois et pierre avec relief, toits compris.',
   'ajustes.realismo.pbrMuebles': 'Textures réalistes sur les meubles',
   'ajustes.realismo.pbrMuebles.desc': 'Bois, métal, tissu et cuir sur les meubles.',
   'ajustes.realismo.hdri': 'Éclairage d’environnement réel (HDRI)',

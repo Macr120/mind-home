@@ -6224,7 +6224,7 @@ export const HI: Dict = {
   'ia.donde.editorTema': 'एडिटर › थीम',
   'ajustes.realismo': 'यथार्थवाद (वैकल्पिक)',
   'ajustes.realismo.pbrMuros': 'दीवारों पर असली जैसे टेक्सचर',
-  'ajustes.realismo.pbrMuros.desc': 'उभार वाला प्लास्टर, ईंट, लकड़ी और पत्थर।',
+  'ajustes.realismo.pbrMuros.desc': 'उभार वाला प्लास्टर, ईंट, लकड़ी और पत्थर, छतों पर भी।',
   'ajustes.realismo.pbrMuebles': 'फ़र्नीचर पर असली जैसे टेक्सचर',
   'ajustes.realismo.pbrMuebles.desc': 'फ़र्नीचर पर लकड़ी, धातु, कपड़ा और चमड़ा।',
   'ajustes.realismo.hdri': 'असली परिवेश रोशनी (HDRI)',

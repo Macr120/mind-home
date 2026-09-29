@@ -6001,7 +6001,7 @@ export const ZH: Dict = {
   'ia.donde.editorTema': '编辑器 › 主题',
   'ajustes.realismo': '真实感(可选)',
   'ajustes.realismo.pbrMuros': '墙面真实纹理',
-  'ajustes.realismo.pbrMuros.desc': '带凹凸的灰泥、砖、木和石材。',
+  'ajustes.realismo.pbrMuros.desc': '带凹凸的灰泥、砖、木和石材，屋顶也一样。',
   'ajustes.realismo.pbrMuebles': '家具真实纹理',
   'ajustes.realismo.pbrMuebles.desc': '家具上的木材、金属、布料和皮革。',
   'ajustes.realismo.hdri': '真实环境光照(HDRI)',
