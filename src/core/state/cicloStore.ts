@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { obtenerClimaReal, type ClimaActual, ClimaError } from '../clima'
-import { estadoCielo } from '../house/cielo'
+import { estadoCielo, fijarSolReal, type ConfigSol } from '../house/cielo'
 import { useDiseño } from './disenoStore'
 
 /**
@@ -34,6 +34,32 @@ function guardarClimaActivo(v: boolean) {
   }
 }
 
+/** Sol de la casa (mapa de sombras): encendido + por dónde pasa, qué tan alto y sus horas. */
+const CLAVE_SOL = 'mh-sol-casa'
+type SolGuardado = ConfigSol & { activo: boolean }
+// De fábrica pasa por el fondo del mapa, como el arco de siempre: las sombras caen hacia la cámara.
+const SOL_FABRICA: SolGuardado = { activo: false, rumbo: 0, alturaMax: 60, salida: 6 * 60, puesta: 18 * 60 }
+
+function leerSol(): SolGuardado {
+  try {
+    const g = JSON.parse(localStorage.getItem(CLAVE_SOL) ?? '{}') as Partial<SolGuardado>
+    return { ...SOL_FABRICA, ...g }
+  } catch {
+    return { ...SOL_FABRICA }
+  }
+}
+
+function guardarSol(s: SolGuardado) {
+  try {
+    localStorage.setItem(CLAVE_SOL, JSON.stringify(s))
+  } catch {
+    /* almacenamiento bloqueado */
+  }
+}
+
+const solInicial = leerSol()
+fijarSolReal(solInicial.activo ? solInicial : null)
+
 /** Minuto del día actual según el reloj del sistema (con segundos en fracción). */
 function minutosReales(): number {
   const d = new Date()
@@ -54,6 +80,12 @@ interface CicloState {
   clima: ClimaActual | null
   climaEstado: ClimaEstado
   climaError: string | null
+  /** Sol de la casa: el recorrido del sol que el usuario ajusta en el mapa de sombras. */
+  sol: SolGuardado
+  setSol: (cambios: Partial<SolGuardado>) => void
+  /** Mapa de sombras abierto: el recorrido del sol se dibuja en 3D sobre la casa. */
+  mapaSombras: boolean
+  setMapaSombras: (v: boolean) => void
   setMinutos: (m: number) => void
   enVivo: () => void
   pausarTiempo: () => void
@@ -76,6 +108,15 @@ export const useCiclo = create<CicloState>((set, get) => ({
   clima: null,
   climaEstado: 'idle',
   climaError: null,
+  sol: solInicial,
+  mapaSombras: false,
+  setMapaSombras: (v) => set({ mapaSombras: v }),
+  setSol: (cambios) => {
+    const sol = { ...get().sol, ...cambios }
+    guardarSol(sol)
+    fijarSolReal(sol.activo ? sol : null)
+    set({ sol })
+  },
   setMinutos: (m) => set({ minutos: Math.max(0, Math.min(1439.999, m)), modo: 'manual' }),
   enVivo: () => {
     set({ minutos: minutosReales(), modo: 'vivo' })

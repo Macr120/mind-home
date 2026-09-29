@@ -35,12 +35,15 @@ import {
 import { celdaEnCuadrante, cuadrantePorId, cuartoEnCuadrante } from './cuadrantesMapa'
 import { useTemaActivo } from './useTema'
 import { CieloDiaNoche } from './CieloDiaNoche'
+import { ArcoSol3D } from './ArcoSol3D'
 import { PunteroFondo } from './PunteroFondo'
 import { esModoFondo } from '../plataforma'
 import { EfectosPost } from './EfectosPost'
 import { EntornoIBL } from './EntornoIBL'
 import { FondoEscena } from './FondoEscena'
 import { FondoAnimaciones } from './FondoAnimaciones'
+import { EscenarioVivo } from './escenarios/EscenarioVivo'
+import { useEscenarioVisible } from './escenarios/limitesCasa'
 import { FocosCasa } from './FocosCasa'
 import { TemaContext } from './primitivas'
 import { ObjetoView } from './catalogo'
@@ -517,6 +520,7 @@ export function House() {
     })),
   )
   const mapaSuperficie = useDiseño((s) => s.mapaSuperficie)
+  const escenarioVisible = useEscenarioVisible()
   const editorTab = useEditorUi((s) => s.tab)
   const editor3d = useEditorUi((s) => s.editor3d)
   // Editar un cuarto ya NO aísla la escena: se usa el editor de mapa COMPLETO para poder
@@ -610,9 +614,12 @@ export function House() {
         <CapturaCasa />
         {import.meta.env.DEV && <ExponerEscenaDev />}
       <CieloDiaNoche />
+      <ArcoSol3D />
       <EntornoIBL />
       <FondoEscena />
       <FondoAnimaciones />
+      {/* Tema dinámico: la casa sobre un vehículo quieto y el fondo que corre. */}
+      <EscenarioVivo />
 
       <PisosExterior3D />
       {/* Infraestructura construida sobre el mapa (caminos, huerto y granja). */}
@@ -622,12 +629,14 @@ export function House() {
       <Huerto3D />
       <Granja3D />
       {/* Al editar un cuarto se mantienen el suelo y la rejilla del mapa como contexto. */}
-      <MapaBase3D />
-      <RejillaMapa
-        gridCols={gridCols}
-        gridRows={gridRows}
-        colorFuerte={mapaSuperficie.rejillaFuerte}
-      />
+      {!escenarioVisible && <MapaBase3D />}
+      {!escenarioVisible && (
+        <RejillaMapa
+          gridCols={gridCols}
+          gridRows={gridRows}
+          colorFuerte={mapaSuperficie.rejillaFuerte}
+        />
+      )}
       <MurosLibres3D />
       <FormasLibres3D />
 

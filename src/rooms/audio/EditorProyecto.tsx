@@ -16,6 +16,7 @@ import { Creditos } from '../../core/ui/Creditos'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { BotonSecundario, Campo, INPUT, Modal, Spinner } from '../_shared/ui'
 import { contextoAudio } from '../../core/audio/motor'
+import { listarCancionesStudio, usarCancionDeFondo } from '../../core/audio/cancionesStudio'
 import * as arpegiador from './arpegiador'
 import { compartirProyecto, leerSnapshot, proyectarSnapshot } from './compartido'
 import {
@@ -701,6 +702,21 @@ export function EditorProyecto({
     }
   }
 
+  // Música de fondo: se guarda y pasa por el puente de «Mis pistas» (se renderiza allí).
+  const [enFondo, setEnFondo] = useState(false)
+  const usarDeFondo = async () => {
+    const p = proyectoRef.current
+    if (!p || p.id == null || enFondo) return
+    setEnFondo(true)
+    try {
+      await guardarRef.current()
+      const cancion = (await listarCancionesStudio()).find((c) => c.clave === `proyecto:${p.id}`)
+      if (cancion) await usarCancionDeFondo(cancion)
+    } finally {
+      setEnFondo(false)
+    }
+  }
+
   // ─── IA ──────────────────────────────────────────────────────────────────
   const correrIA = async (modo: 'generar' | 'continuar') => {
     const p = proyectoRef.current
@@ -874,6 +890,8 @@ export function EditorProyecto({
         onGrabar={grabar}
         onExportar={() => void exportar()}
         exportando={exportando}
+        onFondo={() => void usarDeFondo()}
+        enFondo={enFondo}
         onIA={() => {
           setIaError('')
           setPanelIA(true)

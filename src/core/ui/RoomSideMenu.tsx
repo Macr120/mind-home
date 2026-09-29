@@ -33,6 +33,10 @@ import { planesMetaRepo, rutinasRepo } from '../data/repository'
 import { sinEjemplos } from '../data/ejemplos'
 import { usePendientesPorApp } from '../hoy'
 import { esMeta, metasCumplidasDe } from '../metas'
+import { objetosDe } from '../state/objetosPlantillaStore'
+import { MiniaturaCuarto } from '../house/Miniatura'
+import { getTema } from '../house/temas'
+import { useVistaCuartos, type VistaCuartos } from '../state/vistaCuartosStore'
 
 /** Orden en que se listan los cuartos; el rótulo de cada categoría ya no se pinta. */
 const CATEGORIAS: { key: Cuarto['categoria'] }[] = [
@@ -74,6 +78,10 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
   const [menu, setMenu] = useState<'cuartos' | 'plantillas' | 'extras'>('cuartos')
   // Plantillas tiene dos sub-pestañas: las apps de trabajo y vida, y las del Studio.
   const [plantSub, setPlantSub] = useState<'productividad' | 'creatividad'>('productividad')
+  // La vista de los cuartos es la MISMA que la del panel de apps (store compartido).
+  const vista = useVistaCuartos((s) => s.vista)
+  const setVista = useVistaCuartos((s) => s.setVista)
+  const tema = getTema(useDiseño((s) => s.temaGlobal))
   const progreso = useProgreso()
   // Una sola consulta para las dos cifras que faltaban en la lista de cuartos:
   // lo que queda por hacer hoy y las metas cumplidas de cada app.
@@ -245,6 +253,35 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
             <IconoMarca glifo="exterior" nombre="construir" /> {t('inv.subPlantInfra', 'Exterior')}
           </button>
         </div>
+        {/* Vista de los cuartos (la misma del panel de apps): lista, 3D o dos columnas. */}
+        {menu === 'cuartos' && (
+          <div
+            role="radiogroup"
+            aria-label={t('nav.vistaCuartos', 'Vista de los cuartos')}
+            className="mt-2 flex overflow-hidden rounded-lg border border-white/10 bg-black/20"
+          >
+            {(
+              [
+                { id: 'iconos', icono: 'cuartos', etiqueta: t('nav.vista.lista', 'Lista') },
+                { id: '3d', icono: 'cubo-vistas', etiqueta: t('nav.vista.3d', '3D') },
+                { id: 'apps', icono: 'rejilla', etiqueta: t('nav.vista.apps', 'Apps') },
+              ] as { id: VistaCuartos; icono: NombreIcono; etiqueta: string }[]
+            ).map((v) => (
+              <button
+                key={v.id}
+                type="button"
+                role="radio"
+                aria-checked={vista === v.id}
+                onClick={() => setVista(v.id)}
+                className={`h-7 flex-1 whitespace-nowrap text-[11px] font-semibold transition ${
+                  vista === v.id ? 'bg-white/12 text-white' : 'text-white/45 hover:bg-white/6 hover:text-white/70'
+                }`}
+              >
+                <Icono nombre={v.icono} /> {v.etiqueta}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="min-h-0 flex-1 overflow-y-auto px-2 py-3">
@@ -294,6 +331,13 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
           </p>
         )}
 
+        {/* En la vista de dos columnas las categorías se funden en UNA rejilla
+            (secciones y listas con `contents`): cada una partía con huecos. */}
+        <div
+          className={vista === 'apps' ? 'mb-1.5 grid grid-cols-2 gap-1.5' : undefined}
+          // Una sección `contents` no tiene caja: el tutorial resalta la rejilla entera.
+          data-tut={vista === 'apps' ? 'menu.cuartos.lista' : undefined}
+        >
         {CATEGORIAS.map(({ key }) => {
           // Los cuartos que todavía no tienen app, al final de su grupo: son un
           // pendiente («+ Asignar»), no un sitio al que entrar, y en medio parten
@@ -306,8 +350,8 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
           return (
             // Sin encabezado de categoría: los cuartos se siguen agrupando por
             // ella (y ordenando dentro), pero el rótulo solo gastaba altura.
-            <section key={key} className="mb-1.5" data-tut="menu.cuartos.lista">
-              <ul className="flex flex-col gap-1.5">
+            <section key={key} className={vista === 'apps' ? 'contents' : 'mb-1.5'} data-tut="menu.cuartos.lista">
+              <ul className={vista === 'apps' ? 'contents' : 'flex flex-col gap-1.5'}>
                 {grupo.map((cuarto, i) => {
                   const color = roomColors[cuarto.id] ?? cuarto.color
                   const { titulo, subtitulo } = tituloSubtituloCuarto(cuarto, nombreCuarto(cuarto), t)
@@ -321,6 +365,41 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
                   const mismoBloque = (otro?: Cuarto) => !!otro && !appDe(otro.id) === !appId
                   const arriba = mismoBloque(grupo[i - 1]) ? grupo[i - 1] : undefined
                   const abajo = mismoBloque(grupo[i + 1]) ? grupo[i + 1] : undefined
+                  // Vista de dos columnas: solo el icono y el nombre, como un lanzador.
+                  // Sin engrane: las opciones del cuarto quedan en las otras dos vistas.
+                  if (vista === 'apps') {
+                    return (
+                      <li key={cuarto.id} data-tut={`menu.cuartos.card.${cuarto.id}`} className="relative">
+                        <button
+                          type="button"
+                          onClick={() => (appId ? openRoom(cuarto.id) : abrirAsignar(cuarto.id))}
+                          title={
+                            appId
+                              ? t('nav.entrarCuarto', 'Entrar a {nombre}', { nombre: titulo })
+                              : t('nav.asignarApp', 'Asignar una app a este cuarto')
+                          }
+                          className="flex w-full flex-col items-center gap-1 rounded-lg px-1 py-2 text-center transition hover:bg-white/8 active:scale-95"
+                        >
+                          <span
+                            className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl text-2xl shadow-sm"
+                            style={{ background: `color-mix(in srgb, ${color} 28%, transparent)` }}
+                          >
+                            <IconoCuarto cuarto={cuarto} />
+                          </span>
+                          <span className="w-full truncate text-[11px] font-semibold text-white/90">{titulo}</span>
+                          {!appId && (
+                            <span className="w-full truncate text-[10px] font-bold" style={{ color }}>
+                              {t('nav.asignar', '+ Asignar')}
+                            </span>
+                          )}
+                        </button>
+                        {appId && pendientes.get(appId) && (
+                          <BadgeMisiones pendientes={pendientes.get(appId)!} className="absolute -top-1 end-3" />
+                        )}
+                      </li>
+                    )
+                  }
+                  const en3D = vista === '3d' && !!appId
                   return (
                     <li
                       key={cuarto.id}
@@ -347,11 +426,23 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
                       >
                         {/* `pe-9`: el hueco que ocupa el engrane sobre esta fila. */}
                         <div className="flex items-start gap-2 pe-9">
+                          {/* En 3D, el cuarto amueblado (PNG cacheado, igual que el panel de apps). */}
                           <span
-                            className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-md text-lg"
+                            className={`flex shrink-0 items-center justify-center overflow-hidden rounded-md text-lg ${
+                              en3D ? 'h-16 w-16' : 'h-9 w-9'
+                            }`}
                             style={{ background: `${color}33` }}
                           >
-                            <IconoCuarto cuarto={cuarto} />
+                            {en3D ? (
+                              <MiniaturaCuarto
+                                siembra={objetosDe(appId)}
+                                color={color}
+                                tema={tema}
+                                className="h-full w-full object-contain"
+                              />
+                            ) : (
+                              <IconoCuarto cuarto={cuarto} />
+                            )}
                           </span>
                           <span className="min-w-0 flex-1 leading-tight">
                             <span className="block text-sm font-semibold text-white/90">{titulo}</span>
@@ -439,6 +530,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
             </section>
           )
         })}
+        </div>
 
         {/* Crear cuarto: modo Cuartos con el pincel cuadrado. En teléfono entra al
             modo constructor sobre el mapa (el atajo de la rueda, pantalla completa);
@@ -566,7 +658,17 @@ export function FloatingMenuButton({ onToggle }: { onToggle: () => void }) {
           title={t('nav.rapido', 'Acceso rápido a los cuartos')}
           className="flex items-center px-3 py-2 transition hover:bg-white/15"
         >
-          <span className="max-w-[7rem] truncate text-sm font-black text-white/90">
+          {/* Con una app abierta en móvil, la casa en vez del nombre: con él la
+              pastilla medía ~141 px y tapaba el chip de Misiones del encabezado,
+              que solo le reserva `ps-28` (RoomOverlay). */}
+          {appAbierta && (
+            <span className="text-sm text-white/90 sm:hidden">
+              <Icono nombre="casa" />
+            </span>
+          )}
+          <span
+            className={`max-w-[7rem] truncate text-sm font-black text-white/90 ${appAbierta ? 'hidden sm:inline' : ''}`}
+          >
             {/* Botón flotante: del nombre de fábrica cabe solo la sigla; el que
                 haya puesto el usuario ya es corto (o se recorta). */}
             {nombreApp || t('app.brandCorto', 'MindHaOS')}

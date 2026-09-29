@@ -4,6 +4,7 @@ import { estadoCielo } from '../house/cielo'
 import { useRutinasUI } from '../state/rutinasUiStore'
 import { useT, localeActual } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
+import { MapaSombrasPanel } from './sol/MapaSombrasPanel'
 
 /** Degradado de las 24 h (horizontal): medianoche → amanecer → mediodía → atardecer → medianoche. */
 const GRADIENTE_24H =
@@ -317,13 +318,14 @@ function ClimaReal() {
  * Contenido del menú de ciclo: paso del tiempo + dimmers + volver a hora real.
  * Se monta en el popover del sol/luna del reloj (RelojWidget).
  */
-function MenuCiclo() {
+function MenuCiclo({ onMapaSombras }: { onMapaSombras: () => void }) {
   const t = useT()
   const modo = useCiclo((s) => s.modo)
   const enVivo = useCiclo((s) => s.enVivo)
   const climaActivo = useCiclo((s) => s.climaActivo)
   const climaEstado = useCiclo((s) => s.climaEstado)
   const actualizarClima = useCiclo((s) => s.actualizarClima)
+  const solReal = useCiclo((s) => s.sol.activo)
 
   // Al abrir el menú: consulta si está ON y no hay carga en curso.
   useEffect(() => {
@@ -347,9 +349,21 @@ function MenuCiclo() {
           </p>
         ) : (
           <p className="mt-1.5 text-[9px] uppercase tracking-wide text-white/30">
-            {t('ciclo.sol', 'Sol: Este → Oeste')}
+            {solReal ? t('ciclo.solCasa', 'Sol: el de tu casa') : t('ciclo.sol', 'Sol: Este → Oeste')}
           </p>
         )}
+        {/* Mapa de sombras: el recorrido del sol dibujado en 3D sobre la casa. */}
+        <button
+          type="button"
+          onClick={onMapaSombras}
+          className={`mt-2 flex w-full items-center justify-center gap-1.5 rounded-lg border py-1.5 text-[11px] font-semibold transition ${
+            solReal
+              ? 'border-amber-400/40 bg-amber-400/10 text-amber-300'
+              : 'border-white/15 bg-white/5 text-white/70 hover:bg-white/10'
+          }`}
+        >
+          <Icono nombre="brujula" /> {t('sol.titulo', 'Mapa de sombras')}
+        </button>
       </div>
       <div className="border-t border-white/10 pt-2">
         <Dimmers />
@@ -381,6 +395,7 @@ export function RelojWidget() {
   const minutos = useCiclo((s) => s.minutos)
   const cielo = estadoCielo(minutos)
   const abrirCalendario = useRutinasUI((s) => s.abrirCalendario)
+  const mapaSombras = useCiclo((s) => s.mapaSombras)
   return (
     <div data-tut="reloj.widget" data-tut-zona="calendario" className="pointer-events-auto relative select-none">
       <div className="ui-hud flex items-center gap-0.5 rounded-xl border border-white/10 px-2 py-1">
@@ -408,11 +423,19 @@ export function RelojWidget() {
       {abierto && (
         <>
           <div className="fixed inset-0 z-40" onClick={() => setAbierto(false)} />
-          <div data-tut="reloj.panel" className="ui-panel-glass ui-pop absolute end-0 top-full z-50 mt-2 w-64 rounded-2xl border border-white/10 p-3 shadow-xl backdrop-blur-md">
-            <MenuCiclo />
+          {/* Tope de alto: en un teléfono en horizontal se salía por abajo. */}
+          <div data-tut="reloj.panel" className="ui-panel-glass ui-pop absolute end-0 top-full z-50 mt-2 max-h-[calc(100dvh-6rem-var(--safe-top))] w-64 max-w-[calc(100vw-1.5rem)] overflow-y-auto rounded-2xl border border-white/10 p-3 shadow-xl backdrop-blur-md">
+            <MenuCiclo
+              onMapaSombras={() => {
+                // El popover se cierra: el mapa de sombras necesita la escena a la vista.
+                setAbierto(false)
+                useCiclo.getState().setMapaSombras(true)
+              }}
+            />
           </div>
         </>
       )}
+      {mapaSombras && <MapaSombrasPanel />}
     </div>
   )
 }

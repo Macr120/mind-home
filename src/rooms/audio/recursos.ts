@@ -5,6 +5,8 @@ import { tGlobal } from '../../core/i18n/useT'
 import type { ContenidoRecurso, RecursoStudio } from '../../core/recursosStudio'
 import { renderizarWav } from './exportarWav'
 import { buffersDeClipsProyecto } from './platos'
+import { SEMILLAS_CANCIONES } from './canciones'
+import { proyectoDeSemilla } from './Albumes'
 
 /**
  * Lo que el Studio de audio presta a otras apps (el panel de medios del Studio
@@ -37,6 +39,13 @@ export async function listarRecursos(): Promise<RecursoStudio[]> {
     const dur = Math.round(duracionProyecto(p) * 10) / 10
     out.push({ clave: `proyecto:${p.id}`, tipo: 'audio', nombre: nombreProyecto(p), detalle: `${gCanciones} · ${fmt(dur)}`, grupo: gCanciones, duracion: dur, actualizadoEn: p.actualizadoEn })
   }
+  // Las canciones de ejemplo que aún no se abrieron (sin fila, ni borrada): también se prestan.
+  const conFila = new Set(proyectos.map((p) => p.cancion).filter(Boolean))
+  for (const sem of SEMILLAS_CANCIONES) {
+    if (conFila.has(sem.id)) continue
+    const dur = Math.round(((sem.compases * 4 * 60) / sem.bpm) * 10) / 10
+    out.push({ clave: `semilla:${sem.id}`, tipo: 'audio', nombre: tGlobal(`audio.cancion.${sem.id.slice(4)}`, sem.tituloEs), detalle: `${gCanciones} · ${fmt(dur)}`, grupo: gCanciones, duracion: dur, actualizadoEn: 'semilla' })
+  }
   for (const g of grabaciones) {
     if (g.id == null) continue
     out.push({ clave: `grab:${g.id}`, tipo: 'audio', nombre: g.nombre, detalle: `${gGrab} · ${fmt(g.duracionSeg)}`, grupo: gGrab, duracion: g.duracionSeg, actualizadoEn: g.creadoEn })
@@ -58,6 +67,11 @@ export async function obtenerRecurso(clave: string): Promise<ContenidoRecurso | 
     const ctx = contextoAudio()
     const clips = ctx ? await buffersDeClipsProyecto(ctx, p) : undefined
     return { tipo: 'audio', blob: await renderizarWav(p, clips), nombre: nombreProyecto(p) }
+  }
+  if (tipo === 'semilla') {
+    const sem = SEMILLAS_CANCIONES.find((x) => x.id === idStr)
+    if (!sem) return null
+    return { tipo: 'audio', blob: await renderizarWav(proyectoDeSemilla(sem)), nombre: tGlobal(`audio.cancion.${sem.id.slice(4)}`, sem.tituloEs) }
   }
   if (tipo === 'grab') {
     const g = await leerGrabacionAudio(id)

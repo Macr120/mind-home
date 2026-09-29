@@ -3898,6 +3898,10 @@ export interface PistaMusica {
   duracionSeg?: number
   /** `carpetaId` de su carpeta; sin él, la pista queda suelta. */
   carpetaId?: string
+  /** Canción del Studio de audio de la que salió ('proyecto:<id>'); sin índice. */
+  studioClave?: string
+  /** `actualizadoEn` de esa canción al renderizarla: si cambió, se vuelve a renderizar. */
+  studioVersion?: string
 }
 
 /**

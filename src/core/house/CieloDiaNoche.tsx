@@ -36,6 +36,11 @@ export function CieloDiaNoche() {
   const gl = useThree((s) => s.gl)
   const minutos = useCiclo((s) => s.minutos)
   const brilloCielo = useCiclo((s) => s.brilloCielo)
+  // Re-pinta al cambiar el sol de la casa (`estadoCielo` ya lo lee del módulo).
+  const solCasa = useCiclo((s) => s.sol.activo)
+  // Con el mapa de sombras abierto, el sol es el de su arco 3D: el disco del cielo sobra.
+  const mapaSombras = useCiclo((s) => s.mapaSombras)
+  const camara = useThree((s) => s.camera)
   const editMode = useLayout((s) => s.editMode)
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
@@ -61,6 +66,9 @@ export function CieloDiaNoche() {
     fondo = mezclar(arriba, abajo, 0.5)
     if (tema) fondo = mezclar(fondo, tema.fondo, 0.2)
   }
+  // En la nave siempre es de noche afuera: el espacio no tiene cielo diurno.
+  const enElEspacio = tema?.escenario === 'nave' && !editMode
+  if (enElEspacio && fondoId !== 'color_fijo') fondo = tema.fondo
 
   // El tema modula la luz del ciclo: tiñe los colores (mezcla) y escala la intensidad.
   // Sin tema (o sin `luz`) todo queda exactamente como siempre.
@@ -74,10 +82,17 @@ export function CieloDiaNoche() {
     : cielo.ambienteColor
 
   // La luz de escena es CONSTANTE (cenital), así que la sombra estática se renderiza una
-  // sola vez y siempre coincide. Solo se refresca al activar/desactivar el modo edición.
+  // sola vez y siempre coincide. Se refresca al activar/desactivar el modo edición y,
+  // con el sol real, cuando la luz se mueve (una vez por minuto en vivo).
+  const clavePosLuz = cielo.luzEscena.pos.map((v) => v.toFixed(2)).join(',')
   useEffect(() => {
     if (!editMode) gl.shadowMap.needsUpdate = true
-  }, [editMode, gl])
+  }, [editMode, gl, clavePosLuz])
+
+  // Con el sol de la casa el astro puede pasar por el lado de la cámara: ahí se
+  // pintaría encima del terreno, así que solo se dibuja cuando queda detrás del mapa.
+  const detrasDelMapa = (p: [number, number, number]) =>
+    !solCasa || p[0] * camara.position.x + p[2] * camara.position.z < 0
 
   // Exposición del tone mapping por tema.
   const exposicion = luzTema?.exposicion ?? 1
@@ -125,8 +140,8 @@ export function CieloDiaNoche() {
       />
 
       {/* Discos visibles del sol y la luna: SÍ recorren el cielo (este → oeste). */}
-      <Astro pos={cielo.sol.pos} color={cielo.sol.color} radio={1.5} visible={cielo.sol.visible} />
-      <Astro pos={cielo.luna.pos} color={cielo.luna.color} radio={1.25} visible={cielo.luna.visible} />
+      <Astro pos={cielo.sol.pos} color={cielo.sol.color} radio={1.5} visible={cielo.sol.visible && !mapaSombras && detrasDelMapa(cielo.sol.pos)} />
+      <Astro pos={cielo.luna.pos} color={cielo.luna.color} radio={1.25} visible={!enElEspacio && cielo.luna.visible && detrasDelMapa(cielo.luna.pos)} />
     </>
   )
 }

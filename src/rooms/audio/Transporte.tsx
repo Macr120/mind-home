@@ -64,6 +64,8 @@ export function Transporte({
   onGrabar,
   onExportar,
   exportando,
+  onFondo,
+  enFondo,
   onIA,
   onDeshacerIA,
   onPracticar,
@@ -104,6 +106,9 @@ export function Transporte({
   onGrabar: () => void
   onExportar: () => void
   exportando: boolean
+  /** Deja la canción sonando como música de fondo de la casa. */
+  onFondo: () => void
+  enFondo: boolean
   onIA: () => void
   /** Presente solo con una toma IA aplicada pendiente de deshacer. */
   onDeshacerIA?: (() => void) | null
@@ -388,6 +393,15 @@ export function Transporte({
               className="flex items-center gap-1 rounded-lg border border-white/10 bg-white/10 px-2.5 py-1.5 text-xs font-semibold transition hover:bg-white/20 disabled:opacity-40"
             >
               {exportando ? <Spinner pequeno /> : <Icono nombre="descargar" />} {t('audio.export.wav', 'WAV')}
+            </button>
+            <button
+              type="button"
+              onClick={onFondo}
+              disabled={enFondo}
+              title={t('audio.fondo.titulo', 'Usar esta canción como música de fondo de la casa')}
+              className="flex items-center gap-1 rounded-lg border border-white/10 bg-white/10 px-2.5 py-1.5 text-xs font-semibold transition hover:bg-white/20 disabled:opacity-40"
+            >
+              {enFondo ? <Spinner pequeno /> : <Icono nombre="musica" />} {t('audio.fondo.boton', 'De fondo')}
             </button>
             <BotonPrimario type="button" pequeno app={COLOR} disabled={sinTurno} onClick={onIA}>
               <Icono nombre="brillo" /> {t('audio.ia.boton', 'IA')}

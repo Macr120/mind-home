@@ -94,7 +94,9 @@ interface HudState {
   menuAbierto: boolean
   setPlegado: (zona: ZonaHud, v: boolean) => void
   setMovilVertical: (v: boolean) => void
-  setMenuAbierto: (v: boolean) => void
+  /** `recordar`: solo el gesto del usuario (hamburguesa) queda guardado para la próxima vez;
+   *  los cierres automáticos (abrir una app, el chat, el editor) no. */
+  setMenuAbierto: (v: boolean, recordar?: boolean) => void
   /** Despliega todo (lo usan los tutoriales: sus pasos apuntan a botones del HUD). */
   desplegarTodo: () => void
   /** Pliega/despliega el HUD entero de golpe (tecla H). */
@@ -103,14 +105,24 @@ interface HudState {
 
 const arranqueMovil = esMovilVertical()
 
+/** El side menu abierto/retraído se recuerda (fuera del teléfono vertical, donde tapa la casa). */
+const CLAVE_MENU = 'mh.menuAbierto'
+function leerMenu(): boolean {
+  try {
+    return localStorage.getItem(CLAVE_MENU) === '1'
+  } catch {
+    return false
+  }
+}
+
 export const useHud = create<HudState>((set, get) => ({
   // En teléfono vertical el HUD arranca plegado; en el resto, según lo guardado.
   plegado: arranqueMovil ? TODO() : leer(),
   movilVertical: arranqueMovil,
   topes: {},
-  // Arranca CERRADO (casa real y demo): al abrir, lo primero debe ser la casa
-  // entera, no una columna que la tapa. Se abre con la hamburguesa.
-  menuAbierto: false,
+  // Arranca como lo dejó el usuario la última vez (cerrado de fábrica). En el
+  // teléfono vertical siempre cerrado: lo primero debe ser la casa, no una columna.
+  menuAbierto: arranqueMovil ? false : leerMenu(),
 
   setTope: (clave, px) =>
     set((s) => (s.topes[clave] === px ? s : { topes: { ...s.topes, [clave]: px } })),
@@ -142,7 +154,16 @@ export const useHud = create<HudState>((set, get) => ({
     set({ movilVertical: v, plegado: v ? TODO() : leer() })
   },
 
-  setMenuAbierto: (v) => set({ menuAbierto: v }),
+  setMenuAbierto: (v, recordar = false) => {
+    if (recordar && !get().movilVertical) {
+      try {
+        localStorage.setItem(CLAVE_MENU, v ? '1' : '0')
+      } catch {
+        /* almacenamiento bloqueado */
+      }
+    }
+    set({ menuAbierto: v })
+  },
 
   desplegarTodo: () => {
     // En teléfono vertical «todo» respeta las reglas de exclusión: desplegar

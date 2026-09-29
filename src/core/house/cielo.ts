@@ -10,6 +10,62 @@ import { getFondo, type FondoId } from './fondos'
  * escena 3D (luces, fondo) como el mini-arco del panel.
  */
 
+/**
+ * Sol de la casa (el «mapa de sombras» del menú de clima): el usuario decide por
+ * dónde pasa el sol sobre SU casa —hacia qué lado, qué tan alto y a qué hora sale
+ * y se pone— y la luz de escena lo sigue (las sombras giran con la hora). No es
+ * geográfico: es un arco que se ajusta a mano sobre el plano. Lo fija
+ * `cicloStore` con `fijarSolReal`; va a nivel de módulo para que TODOS los que
+ * llaman a `estadoCielo` (focos, fondo, IBL…) vean la misma noche.
+ */
+export interface ConfigSol {
+  /** Grados (horario, visto desde arriba) del lado por el que pasa el sol: 0 = fondo del mapa (−Z), 90 = +X. */
+  rumbo: number
+  /** Altura del sol al mediodía, en grados (90 = pasa justo encima). */
+  alturaMax: number
+  /** Minuto del día en que sale y en que se pone. */
+  salida: number
+  puesta: number
+}
+
+let solReal: ConfigSol | null = null
+export function fijarSolReal(c: ConfigSol | null): void {
+  solReal = c
+}
+
+const RAD = Math.PI / 180
+
+/**
+ * Dirección unitaria del sol en la escena. El sol recorre medio círculo inclinado:
+ * sale por un costado, a mediodía alcanza `alturaMax` sobre el lado `rumbo` y se
+ * pone por el costado opuesto; de noche completa el círculo bajo el horizonte.
+ * `rumbo` en azimut es el lado del mediodía; la salida queda 90° antes.
+ */
+export function direccionSol(c: ConfigSol, minutos: number) {
+  const dia = Math.max(30, c.puesta - c.salida)
+  const m = ((minutos % 1440) + 1440) % 1440
+  // De día recorre 0..π; de noche, π..2π repartido en las horas que faltan.
+  const desdePuesta = (((m - c.salida - dia) % 1440) + 1440) % 1440
+  const theta =
+    m >= c.salida && m <= c.salida + dia
+      ? (Math.PI * (m - c.salida)) / dia
+      : Math.PI + (Math.PI * desdePuesta) / (1440 - dia)
+  const h = c.alturaMax * RAD
+  // Marco local: sale por +X, a mediodía pasa por +Z y se pone por −X (horario visto desde arriba).
+  const lx = Math.cos(theta)
+  const ly = Math.sin(theta) * Math.sin(h)
+  const lz = Math.sin(theta) * Math.cos(h)
+  // Girar ese marco para que el lado del mediodía (+Z, rumbo 180°) quede en `rumbo`.
+  const phi = (c.rumbo - 180) * RAD
+  const x = lx * Math.cos(phi) - lz * Math.sin(phi)
+  const z = lz * Math.cos(phi) + lx * Math.sin(phi)
+  const altitud = Math.asin(Math.max(-1, Math.min(1, ly)))
+  return { x, y: ly, z, altitud, manana: theta < Math.PI / 2 || theta > (3 * Math.PI) / 2 }
+}
+
+/** Altura mínima de la luz de escena con el sol de la casa: más rasante, las sombras cruzarían el mapa. */
+const ALTITUD_MIN_LUZ = 12 * (Math.PI / 180)
+
 const clamp01 = (v: number) => Math.max(0, Math.min(1, v))
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t
 
@@ -63,7 +119,8 @@ export interface EstadoCielo {
 export function estadoCielo(minutos: number, radio: number = RADIO_CIELO): EstadoCielo {
   // Ángulo del día: 0 en el este (06:00), π/2 en el cenit (12:00), π en el oeste (18:00).
   const ang = ((minutos - 360) / 720) * Math.PI
-  const elev = Math.sin(ang) // altura sobre el horizonte (−1..1)
+  const real = solReal ? direccionSol(solReal, minutos) : null
+  const elev = real ? real.y : Math.sin(ang) // altura sobre el horizonte (−1..1)
   const este = Math.cos(ang) // +1 este, −1 oeste
   // El arco se inclina hacia atrás (Z negativo) para que, en la cámara isométrica,
   // el sol/luna se proyecten por ENCIMA del mapa (cielo) y no sobre los cuartos.
@@ -73,7 +130,9 @@ export function estadoCielo(minutos: number, radio: number = RADIO_CIELO): Estad
   const alturaDe = (e: number) => (e * 0.55 + 0.35) * radio
 
   const sol: Luz = {
-    pos: [este * radio, elev > -0.02 ? alturaDe(elev) : elev * radio, ladeo * radio],
+    pos: real
+      ? [real.x * radio, elev > -0.02 ? alturaDe(elev) : elev * radio, real.z * radio]
+      : [este * radio, elev > -0.02 ? alturaDe(elev) : elev * radio, ladeo * radio],
     color: mezclar(SOL_BAJO, SOL_ALTO, clamp01(elev / 0.5)),
     intensidad: clamp01(elev * 1.15 + 0.08) * 1.15,
     visible: elev > -0.02,
@@ -83,7 +142,9 @@ export function estadoCielo(minutos: number, radio: number = RADIO_CIELO): Estad
   const nocheFactor = clamp01(-elev / 0.3)
   const lunaElev = -elev
   const luna: Luz = {
-    pos: [-este * radio, lunaElev > -0.02 ? alturaDe(lunaElev) : lunaElev * radio, ladeo * radio],
+    pos: real
+      ? [-real.x * radio, lunaElev > -0.02 ? alturaDe(lunaElev) : lunaElev * radio, -real.z * radio]
+      : [-este * radio, lunaElev > -0.02 ? alturaDe(lunaElev) : lunaElev * radio, ladeo * radio],
     color: LUNA_COLOR,
     intensidad: lerp(0.0, 0.4, nocheFactor),
     visible: elev < 0.03,
@@ -93,8 +154,17 @@ export function estadoCielo(minutos: number, radio: number = RADIO_CIELO): Estad
   // color/intensidad interpolados entre día (12:00) y noche (23:59). Transición rápida en
   // el amanecer/atardecer; el resto del día/noche es constante. Mantiene sombras estables.
   const luzDia = clamp01((elev + 0.1) / 0.2) // 1 de día, 0 de noche
+  // Con sol real y de día, la luz viene de donde está el sol (las sombras giran);
+  // de noche vuelve al cenit fijo de siempre.
+  let posLuz: [number, number, number] = [0, alturaDe(1), ladeo * radio]
+  if (real && elev > 0) {
+    const alt = Math.max(real.altitud, ALTITUD_MIN_LUZ)
+    const h = Math.cos(alt) / Math.max(Math.hypot(real.x, real.z), 1e-6)
+    const r = alturaDe(1)
+    posLuz = [real.x * h * r, Math.sin(alt) * r, real.z * h * r]
+  }
   const luzEscena: Luz = {
-    pos: [0, alturaDe(1), ladeo * radio],
+    pos: posLuz,
     color: mezclar(LUNA_COLOR, SOL_ALTO, luzDia),
     intensidad: lerp(0.6, 1.2, luzDia), // luz de luna más generosa de noche
     visible: true,
@@ -114,7 +184,8 @@ export function estadoCielo(minutos: number, radio: number = RADIO_CIELO): Estad
   let fase: Fase
   if (elev > 0.28) fase = 'dia'
   else if (esNoche) fase = 'noche'
-  else fase = minutos < 720 ? 'amanecer' : 'atardecer'
+  // Con sol real: mañana mientras está en la mitad este del cielo.
+  else fase = (real ? real.manana : minutos < 720) ? 'amanecer' : 'atardecer'
   const META: Record<Fase, [string, string]> = {
     amanecer: ['🌅', 'Amanecer'],
     dia: ['☀️', 'Día'],

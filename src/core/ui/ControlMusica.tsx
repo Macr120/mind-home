@@ -1,12 +1,18 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { desbloquearAudio } from '../audio/motor'
 import { MOODS_LISTA, temaAutoDeCuarto } from '../audio/temas'
 import { useAjustes, type FuenteMusica, type MoodMusica } from '../state/ajustesStore'
+
+/** Pestañas del popover: las fuentes del reproductor más «Studio» (que suena como pista). */
+type Pestana = FuenteMusica | 'studio'
 import { useCuartos } from '../state/cuartosStore'
 import { useCuartoPisado } from '../state/useCuartoPisado'
 import { useDiseño } from '../state/disenoStore'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
+import { pistasMusicaRepo } from '../data/repository'
+import { listarCancionesStudio, usarCancionDeFondo } from '../audio/cancionesStudio'
+import type { RecursoStudio } from '../recursosStudio'
 
 /**
  * Control de música: popover compacto con la ambiental, volúmenes, fuente, el
@@ -33,10 +39,6 @@ export function ControlMusica({
   const idCuarto = cuartoId ?? pisado ?? undefined
   const musicaAmbiental = useAjustes((s) => s.musicaAmbiental)
   const setMusicaAmbiental = useAjustes((s) => s.setMusicaAmbiental)
-  const musicaFuente = useAjustes((s) => s.musicaFuente)
-  const setMusicaFuente = useAjustes((s) => s.setMusicaFuente)
-  const musicaMood = useAjustes((s) => s.musicaMood)
-  const setMusicaMood = useAjustes((s) => s.setMusicaMood)
   const musicaVolumen = useAjustes((s) => s.musicaVolumen)
   const setMusicaVolumen = useAjustes((s) => s.setMusicaVolumen)
   const sfxVolumen = useAjustes((s) => s.sfxVolumen)
@@ -52,12 +54,6 @@ export function ControlMusica({
 
   const etiquetaMood = (id: MoodMusica) =>
     t(`ajustes.musica.mood.${id}`, MOODS_LISTA.find((m) => m.id === id)?.defecto ?? id)
-
-  const fuentes: { id: FuenteMusica; label: string }[] = [
-    { id: 'generada', label: t('ajustes.musica.fuente.generada', 'Generada') },
-    { id: 'pistas', label: t('ajustes.musica.fuente.pistas', 'Mis pistas') },
-    { id: 'sistema', label: t('ajustes.musica.fuente.sistema', 'Sistema') },
-  ]
 
   return (
     <div className={`relative shrink-0 ${className}`}>
@@ -86,8 +82,10 @@ export function ControlMusica({
           />
           {/* En pantalla estrecha se ancla al borde de la VENTANA, no al botón: en
               el HUD este botón lleva el reloj y «Editor» a su derecha, así que un
-              panel de 18 rem colgado de él se salía por la izquierda. */}
-          <div data-tut="musica.panel" className="ui-panel-glass ui-pop fixed end-2 top-16 z-50 w-72 space-y-3 rounded-xl border border-white/10 p-3 text-start shadow-xl backdrop-blur-md sm:absolute sm:end-0 sm:top-auto sm:mt-2">
+              panel de 18 rem colgado de él se salía por la izquierda. Baja con la
+              zona segura (el reloj también) y con tope de alto: en horizontal no
+              cabía entero. */}
+          <div data-tut="musica.panel" className="ui-panel-glass ui-pop fixed end-2 top-[calc(4.5rem+var(--safe-top))] z-50 max-h-[calc(100dvh-5.5rem-var(--safe-top))] w-72 space-y-3 overflow-y-auto rounded-xl border border-white/10 p-3 text-start shadow-xl backdrop-blur-md sm:absolute sm:end-0 sm:top-auto sm:mt-2">
             {/* Música ambiental sí/no */}
             <button
               type="button"
@@ -149,49 +147,8 @@ export function ControlMusica({
               </div>
             )}
 
-            {/* Fuente */}
-            <div data-tut="musica.fuente" className="grid grid-cols-3 gap-1.5">
-              {fuentes.map((f) => {
-                const activo = musicaFuente === f.id
-                return (
-                  <button
-                    key={f.id}
-                    type="button"
-                    onClick={() => setMusicaFuente(f.id)}
-                    className={`truncate rounded-md border px-1.5 py-1.5 text-[11px] font-semibold transition ${
-                      activo
-                        ? 'ui-accent-bg border-transparent'
-                        : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
-                    }`}
-                  >
-                    {f.label}
-                  </button>
-                )
-              })}
-            </div>
-
-            {/* Ambiente global (solo con la música generada) */}
-            {musicaFuente === 'generada' && (
-              <div className="space-y-1">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
-                  {t('musica.ambienteGlobal', 'Ambiente de la MindHaOS')}
-                </p>
-                <select
-                  value={musicaMood}
-                  onChange={(e) => {
-                    desbloquearAudio()
-                    setMusicaMood(e.target.value as MoodMusica)
-                  }}
-                  className="w-full rounded-md border border-white/10 bg-black/40 px-2 py-1.5 text-xs text-white/85 focus:outline-none"
-                >
-                  {MOODS_LISTA.map((m) => (
-                    <option key={m.id} value={m.id}>
-                      {m.emoji} {etiquetaMood(m.id)}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
+            {/* Fuente (Generada · Mis pistas · Studio · Sistema) y qué suena */}
+            <FuenteYPista etiquetaMood={etiquetaMood} />
 
             {/* Volúmenes */}
             <div data-tut="musica.volumen" className="rounded-md border border-white/10 bg-white/5 px-2 py-1.5">
@@ -267,5 +224,183 @@ export function ControlMusica({
         </>
       )}
     </div>
+  )
+}
+
+/**
+ * Pestañas de la fuente y lo que suena en cada una. «Studio» no es una fuente
+ * aparte del reproductor: sus canciones se renderizan y suenan como pistas, así
+ * que la pestaña se enciende sola cuando la pista elegida salió del Studio.
+ */
+function FuenteYPista({ etiquetaMood }: { etiquetaMood: (id: MoodMusica) => string }) {
+  const t = useT()
+  const musicaFuente = useAjustes((s) => s.musicaFuente)
+  const setMusicaFuente = useAjustes((s) => s.setMusicaFuente)
+  const musicaMood = useAjustes((s) => s.musicaMood)
+  const setMusicaMood = useAjustes((s) => s.setMusicaMood)
+  const pistaId = useAjustes((s) => s.musicaPistaId)
+  const setMusicaPistaId = useAjustes((s) => s.setMusicaPistaId)
+  const pistas = pistasMusicaRepo.useAll()
+  const [canciones, setCanciones] = useState<RecursoStudio[] | null>(null)
+  const [elegida, setElegida] = useState<Pestana | null>(null)
+  const [preparando, setPreparando] = useState<string | null>(null)
+  const [error, setError] = useState(false)
+
+  useEffect(() => {
+    let vivo = true
+    void listarCancionesStudio().then((c) => vivo && setCanciones(c))
+    return () => {
+      vivo = false
+    }
+  }, [])
+
+  // Una pista cuya canción ya no está en el Studio (borrada, o la de ejemplo ya abierta)
+  // vuelve a ser una pista suelta: si no, no saldría en ninguna pestaña.
+  const claves = new Set((canciones ?? []).map((c) => c.clave))
+  const delStudio = (studioClave?: string) => !!studioClave && (canciones == null || claves.has(studioClave))
+  const actual = musicaFuente === 'pistas' ? pistas?.find((p) => p.id === pistaId) : undefined
+  const claveSonando = delStudio(actual?.studioClave) ? actual?.studioClave : undefined
+  const pestana: Pestana = elegida ?? (claveSonando ? 'studio' : musicaFuente)
+  // En «Mis pistas» no se repiten las que salieron del Studio: esas viven en su pestaña.
+  const sueltas = (pistas ?? []).filter((p) => !delStudio(p.studioClave))
+
+  const pestanas: { id: Pestana; label: string }[] = [
+    { id: 'generada', label: t('ajustes.musica.fuente.generada', 'Generada') },
+    { id: 'pistas', label: t('ajustes.musica.fuente.pistas', 'Mis pistas') },
+    { id: 'studio', label: t('musica.fuente.studio', 'Studio') },
+    { id: 'sistema', label: t('ajustes.musica.fuente.sistema', 'Sistema') },
+  ]
+
+  const elegirPestana = (id: Pestana) => {
+    setElegida(id)
+    // La de Studio no cambia nada hasta tocar una canción.
+    if (id !== 'studio') setMusicaFuente(id)
+  }
+
+  const sonarCancion = async (c: RecursoStudio) => {
+    desbloquearAudio()
+    setError(false)
+    setPreparando(c.clave)
+    try {
+      if ((await usarCancionDeFondo(c)) == null) setError(true)
+    } catch {
+      setError(true)
+    } finally {
+      setPreparando(null)
+    }
+  }
+
+  return (
+    <>
+      <div data-tut="musica.fuente" className="grid grid-cols-4 gap-1">
+        {pestanas.map((f) => (
+          <button
+            key={f.id}
+            type="button"
+            onClick={() => elegirPestana(f.id)}
+            className={`truncate rounded-md border px-1 py-1.5 text-[11px] font-semibold transition ${
+              pestana === f.id
+                ? 'ui-accent-bg border-transparent'
+                : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
+            }`}
+          >
+            {f.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Ambiente global (solo con la música generada) */}
+      {pestana === 'generada' && (
+        <div className="space-y-1">
+          <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
+            {t('musica.ambienteGlobal', 'Ambiente de la MindHaOS')}
+          </p>
+          <select
+            value={musicaMood}
+            onChange={(e) => {
+              desbloquearAudio()
+              setMusicaMood(e.target.value as MoodMusica)
+            }}
+            className="w-full rounded-md border border-white/10 bg-black/40 px-2 py-1.5 text-xs text-white/85 focus:outline-none"
+          >
+            {MOODS_LISTA.map((m) => (
+              <option key={m.id} value={m.id}>
+                {m.emoji} {etiquetaMood(m.id)}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+
+      {pestana === 'pistas' && (
+        <div className="space-y-1">
+          <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
+            {t('musica.pista.titulo', 'Qué suena')}
+          </p>
+          <select
+            value={actual && !claveSonando ? String(actual.id) : ''}
+            onChange={(e) => {
+              desbloquearAudio()
+              setMusicaPistaId(e.target.value === '' ? null : Number(e.target.value))
+            }}
+            className="w-full rounded-md border border-white/10 bg-black/40 px-2 py-1.5 text-xs text-white/85 focus:outline-none"
+          >
+            <option value="">🔀 {t('musica.pista.aleatorio', 'Aleatorio')}</option>
+            {sueltas.map((p) => (
+              <option key={p.id} value={p.id}>
+                {p.nombre}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+
+      {/* Las canciones del Studio de audio: tocar una la deja sonando de fondo. */}
+      {pestana === 'studio' && (
+        <div className="space-y-1">
+          <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
+            {t('musica.pista.studio', 'Canciones del Studio')}
+          </p>
+          {canciones == null ? (
+            <p className="text-[11px] text-white/40">{t('musica.studio.cargando', 'Cargando canciones…')}</p>
+          ) : canciones.length === 0 ? (
+            <p className="text-[11px] leading-snug text-white/40">
+              {t('musica.studio.vacio', 'Aún no hay canciones. Crea una en el Studio de audio.')}
+            </p>
+          ) : (
+            <ul className="max-h-48 space-y-1 overflow-y-auto">
+              {canciones.map((c) => {
+                const activa = claveSonando === c.clave
+                return (
+                  <li key={c.clave}>
+                    <button
+                      type="button"
+                      disabled={preparando != null}
+                      onClick={() => void sonarCancion(c)}
+                      className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-start text-xs transition disabled:opacity-60 ${
+                        activa
+                          ? 'ui-accent-bg border-transparent font-semibold'
+                          : 'border-white/10 bg-white/5 text-white/80 hover:bg-white/10'
+                      }`}
+                    >
+                      <Icono nombre={activa ? 'musica' : 'piano'} />
+                      <span className="min-w-0 flex-1 truncate">{c.nombre}</span>
+                      {preparando === c.clave && <span className="shrink-0 text-[10px] opacity-70">…</span>}
+                    </button>
+                  </li>
+                )
+              })}
+            </ul>
+          )}
+          <p className="text-[10px] leading-snug text-white/40">
+            {preparando
+              ? t('musica.pista.preparando', 'Preparando la canción…')
+              : error
+                ? t('musica.pista.error', 'No se pudo preparar la canción.')
+                : t('musica.pista.nota', 'Tus canciones del Studio de audio también pueden sonar de fondo.')}
+          </p>
+        </div>
+      )}
+    </>
   )
 }

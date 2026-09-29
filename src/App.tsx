@@ -261,7 +261,7 @@ export default function App() {
           // Abrir MPH solo OCULTA el editor si estaba abierto (un solo panel a la
           // vez); si se estaba editando un cuarto, se retoma tal cual al cerrar este menú.
           // Para salir de verdad del cuarto, usa el botón flotante sobre él (SalirCuartoFlotante).
-          <FloatingMenuButton onToggle={() => setSidebarOpen(true)} />
+          <FloatingMenuButton onToggle={() => setSidebarOpen(true, true)} />
         )}
         {/* El joystick de movimiento sigue activo en el editor 3D (caminar mientras editas) y en el modo película (camarógrafo). */}
         {(!editMode || editor3d) && !sidebarOpen && !pintando && !construyendo && !dialogoActivo && <MoveControls />}
@@ -303,7 +303,7 @@ export default function App() {
       {/* Menú lateral SUPERPUESTO (nunca en flujo): la app y la casa conservan su
           ancho completo detrás; ver el cazaclics dentro del propio menú. */}
       {/* En el modo película el menú lateral va cerrado (su botón tampoco está). */}
-      {sidebarOpen && !enPelicula && <RoomSideMenu onToggle={() => setSidebarOpen(false)} />}
+      {sidebarOpen && !enPelicula && <RoomSideMenu onToggle={() => setSidebarOpen(false, true)} />}
       {/* Taller de muebles: el editor de objetos a pantalla completa. Va antes de
           los diálogos porque comparte z-50 con `DestinoObjetoDialog`, que tiene
           que poder pintarse ENCIMA al preguntar dónde se coloca el mueble. */}

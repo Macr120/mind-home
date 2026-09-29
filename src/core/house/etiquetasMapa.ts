@@ -93,7 +93,9 @@ const _golpes: THREE.Intersection[] = []
 function tapaEn(o: THREE.Object3D): boolean {
   if (!o.visible) return false
   const mesh = o as THREE.Mesh
-  if (mesh.isMesh) {
+  // Las líneas gruesas de drei (`Line`, p. ej. el arco del mapa de sombras) también son
+  // mallas, pero no tapan nada; además su raycast exige cámara y tiraba el render entero.
+  if (mesh.isMesh && !(o as { isLineSegments2?: boolean }).isLineSegments2) {
     const m = Array.isArray(mesh.material) ? mesh.material[0] : mesh.material
     if (m && m.visible && m.depthWrite && m.colorWrite && !(m.transparent && m.opacity < 0.6) && m.side !== THREE.BackSide) {
       _golpes.length = 0
@@ -122,6 +124,8 @@ function escenaTapa(escena: THREE.Object3D, camara: THREE.Camera, p: THREE.Vecto
   // El primer tramo no cuenta: ahí están la estaca, la planta o el propio animal.
   _rayo.near = 0.4
   _rayo.set(p, _dir)
+  // Sprites y líneas de drei la leen al intersecar.
+  _rayo.camera = camara
   return tapaEn(escena)
 }
 

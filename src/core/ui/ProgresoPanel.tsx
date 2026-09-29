@@ -251,10 +251,33 @@ export function AroSisifo({
  * comidas, sesiones, gastos, etc. lo alimenta; abandonarlo lo entristece).
  * Personaje y nivel viven en una sola carta plegable.
  */
+const LS_RESUMEN_ABIERTO = 'mh.resumenAbierto'
+
 export function ResumenJugador({ progreso }: { progreso: ProgresoJugador | undefined }) {
   const t = useT()
   const nombreAvatar = useDiseño((s) => s.avatar.nombre)
-  const [abierto, setAbierto] = useState(true)
+  const setAvatarNombre = useDiseño((s) => s.setAvatarNombre)
+  // Plegada o no, la carta se queda como la dejó el usuario (el menú se desmonta al cerrarse).
+  const [abierto, setAbiertoEstado] = useState(() => {
+    try {
+      return localStorage.getItem(LS_RESUMEN_ABIERTO) !== '0'
+    } catch {
+      return true
+    }
+  })
+  const setAbierto = (v: boolean) => {
+    setAbiertoEstado(v)
+    try {
+      localStorage.setItem(LS_RESUMEN_ABIERTO, v ? '1' : '0')
+    } catch {
+      /* almacenamiento bloqueado */
+    }
+  }
+  const [editandoNombre, setEditandoNombre] = useState(false)
+  const guardarNombre = (v: string) => {
+    setEditandoNombre(false)
+    if (v.trim() !== (nombreAvatar ?? '')) void setAvatarNombre(v.trim())
+  }
   const hayNuevo = useWrappedUi((s) => s.hayNuevo)
   const sisifo = useSisifo()
   const abrirMontana = () => {
@@ -284,12 +307,36 @@ export function ResumenJugador({ progreso }: { progreso: ProgresoJugador | undef
   return (
     <div className="mb-4 px-2">
       <section data-tut="progreso.resumen" data-tut-zona="progreso" className="rounded-xl border border-white/10 bg-white/5">
+        <div className="flex items-center pe-2">
+        {editandoNombre ? (
+          // Sin controlar: el valor se lee al salir, así Escape cancela desmontando el input.
+          <input
+            autoFocus
+            defaultValue={nombreAvatar ?? ''}
+            maxLength={30}
+            placeholder={t('progreso.jugador', 'Tu personaje')}
+            aria-label={t('progreso.nombreEditar', 'Nombre del personaje')}
+            onBlur={(e) => guardarNombre(e.currentTarget.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') guardarNombre(e.currentTarget.value)
+              else if (e.key === 'Escape') setEditandoNombre(false)
+            }}
+            className="m-1.5 min-w-0 flex-1 rounded-md border border-white/20 bg-black/30 px-2 py-1 text-sm font-bold text-white/90 outline-none focus:border-white/40"
+          />
+        ) : (
         <CabeceraPlegable abierto={abierto} onToggle={() => setAbierto(!abierto)}>
           <span className="text-base leading-none">
             <Icono emoji={EMOJI_HUMOR[progreso.humor]} />
           </span>
-          <span className="min-w-0 flex-1 truncate text-sm font-bold text-white/90">
-            {nombreAvatar || t('progreso.jugador', 'Tu personaje')}
+          {/* Nombre arriba con todo el ancho y el nivel debajo: en una sola fila,
+              con el lápiz al lado, el nombre se quedaba en dos letras. */}
+          <span className="min-w-0 flex-1 leading-tight">
+            <span className="block truncate text-sm font-bold text-white/90">
+              {nombreAvatar || t('progreso.jugador', 'Tu personaje')}
+            </span>
+            <span className="block text-[11px] font-semibold text-white/60">
+              {t('progreso.nivel', 'Nivel')} {progreso.nivel}
+            </span>
           </span>
           {/* Punto de "hay un resumen nuevo sin ver" (aunque la carta esté plegada). */}
           {hayNuevo && (
@@ -298,10 +345,18 @@ export function ResumenJugador({ progreso }: { progreso: ProgresoJugador | undef
               title={t('wrapped.nuevoTitulo', 'Tienes un resumen nuevo')}
             />
           )}
-          <span className="shrink-0 text-[11px] font-semibold text-white/60">
-            {t('progreso.nivel', 'Nivel')} {progreso.nivel}
-          </span>
         </CabeceraPlegable>
+        )}
+          <button
+            type="button"
+            onClick={() => setEditandoNombre((v) => !v)}
+            title={t('progreso.nombreEditar', 'Nombre del personaje')}
+            aria-label={t('progreso.nombreEditar', 'Nombre del personaje')}
+            className="grid h-7 w-7 shrink-0 place-items-center rounded-md text-xs text-white/40 transition hover:bg-white/10 hover:text-white/90"
+          >
+            <Icono nombre="editar" />
+          </button>
+        </div>
 
         {abierto && (
           <div className="px-3 pb-3 text-center">

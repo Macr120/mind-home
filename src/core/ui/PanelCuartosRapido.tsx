@@ -11,6 +11,7 @@ import { useLayout } from '../state/layoutStore'
 import { useAsignar } from '../state/asignarStore'
 import { useAjustes } from '../state/ajustesStore'
 import { objetosDe } from '../state/objetosPlantillaStore'
+import { useVistaCuartos, type VistaCuartos } from '../state/vistaCuartosStore'
 import { MiniaturaCuarto } from '../house/Miniatura'
 import { getTema } from '../house/temas'
 import { esMeta, metasCumplidasDe } from '../metas'
@@ -42,17 +43,7 @@ const ORDEN: Cuarto['categoria'][] = ['cuerpo', 'mente', 'complemento', 'config'
  *   con su nombre debajo, sin tarjeta ni estadísticas.
  * - `3d`: el cuarto amueblado en 3D, con sus estadísticas.
  */
-type VistaCuartos = 'iconos' | 'apps' | '3d'
 const SIGUIENTE: Record<VistaCuartos, VistaCuartos> = { iconos: 'apps', apps: '3d', '3d': 'iconos' }
-const LS_VISTA = 'mh.cuartosVista'
-/** Clave vieja (solo iconos/3D): se lee para no perder la preferencia de antes. */
-const LS_VISTA_3D = 'mh.cuartos3D'
-
-function leerVista(): VistaCuartos {
-  const v = localStorage.getItem(LS_VISTA)
-  if (v === 'iconos' || v === 'apps' || v === '3d') return v
-  return localStorage.getItem(LS_VISTA_3D) === '1' ? '3d' : 'iconos'
-}
 
 /** Una sola lista: la rejilla entera es el destino del arrastre. */
 const LISTA = 'pantalla'
@@ -213,8 +204,9 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
   const conAgua = useLayout((s) => s.conAgua)
   const nombreApp = useAjustes((s) => s.nombreApp)
   const nombreCuarto = useNombreCuarto()
-  // Iconos, lanzador o miniaturas 3D del cuarto amueblado (preferencia del dispositivo).
-  const [vista, setVista] = useState(leerVista)
+  // Iconos, lanzador o miniaturas 3D del cuarto amueblado: la misma que el menú lateral.
+  const vista = useVistaCuartos((s) => s.vista)
+  const setVista = useVistaCuartos((s) => s.setVista)
   const vista3D = vista === '3d'
   const siguiente = SIGUIENTE[vista]
   const telefono = vista === 'apps'
@@ -338,7 +330,6 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
                     type="button"
                     onClick={() => {
                       setVista(siguiente)
-                      localStorage.setItem(LS_VISTA, siguiente)
                     }}
                     // El botón anuncia la vista a la que lleva, no la actual.
                     title={
