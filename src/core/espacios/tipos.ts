@@ -117,6 +117,7 @@ export type CodigoErrorEspacio =
   | 'sin-backend'
   | 'peticion-invalida'
   | 'limite'
+  | 'tope-diario'
   | 'no-encontrado'
   | 'no-contacto'
   | 'sin-permiso'

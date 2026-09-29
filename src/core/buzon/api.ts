@@ -50,6 +50,8 @@ async function rpc<T>(nombre: string, args: Record<string, unknown> = {}): Promi
     // supabase-js envuelve el fallo de fetch en un PostgrestError sin código.
     if (!error.code || /fetch|network|conexi/i.test(error.message)) throw new ErrorBuzon('red', error.message)
     if (error.code === 'PGRST301' || error.code === '401') throw new ErrorBuzon('sin-sesion', error.message)
+    // El tope diario de quien solo tiene el unlock sale de un trigger (raise), no del JSON.
+    if (error.message.includes('tope-diario')) throw new ErrorBuzon('tope-diario', error.message)
     throw new ErrorBuzon('servidor', error.message)
   }
   const d = data as { error?: unknown } | null
@@ -251,7 +253,8 @@ export async function subirAdjunto(hiloId: string, uid: string, archivo: string,
   try {
     await subirCompartido('buzon', path, blob)
   } catch (e) {
-    throw new ErrorBuzon(e instanceof ErrorAlmacen && e.motivo === 'grande' ? 'adjunto-grande' : 'red', String(e))
+    const motivo = e instanceof ErrorAlmacen ? e.motivo : null
+    throw new ErrorBuzon(motivo === 'grande' ? 'adjunto-grande' : motivo === 'tope-diario' ? 'tope-diario' : 'red', String(e))
   }
   return { path, size: blob.size, mime, nombre: archivo }
 }
@@ -308,6 +311,8 @@ export function mensajeErrorBuzon(e: unknown, t: TFunc): string {
       return t('buzon.err.bloqueado', 'No puedes escribir a este contacto')
     case 'limite':
       return t('buzon.err.limite', 'Demasiados envíos seguidos. Espera un momento.')
+    case 'tope-diario':
+      return t('plan.topeDiario', 'Llegaste al límite de hoy. Con Pro no hay tope.')
     case 'adjunto-grande':
       return t('buzon.err.adjunto-grande', 'El archivo supera los 8 MB')
     case 'contenido-grande':

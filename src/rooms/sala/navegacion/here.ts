@@ -5,6 +5,7 @@
 import type { ItinerarioNav, PasoNav, PiernaNav, PuntoNav } from '../../../core/data/db'
 import { buscarLugares } from '../geocoder'
 import { HERE_KEY } from './config'
+import { cuentaDisponible, transporteCuenta } from '../../../core/cuenta/api'
 import { esCalle, type ModoNav } from './modos'
 
 interface LugarHere {
@@ -198,6 +199,9 @@ const MODO_CALLE: Record<Exclude<ModoNav, 'transporte'>, string> = {
   auto: 'car',
 }
 
+/** ¿Hay una cuenta que pueda pagar la búsqueda de transporte público (op `transporte`)? */
+export const transporteDisponible = (): boolean => cuentaDisponible()
+
 /**
  * Itinerarios entre dos puntos combinando los modos elegidos. Con transporte
  * público, la bici o el auto sirven para llegar a la estación («bike & ride»,
@@ -206,7 +210,9 @@ const MODO_CALLE: Record<Exclude<ModoNav, 'transporte'>, string> = {
  */
 export async function planificar(p: PeticionPlan): Promise<ItinerarioNav[]> {
   const calle = (['caminar', 'bici', 'moto', 'auto'] as const).filter((m) => p.modos.includes(m))
-  const transporte = p.modos.includes('transporte')
+  // Sin cuenta que pague el crédito, el transporte se omite y quedan los modos directos.
+  const transporte = p.modos.includes('transporte') && transporteDisponible()
+  if (p.modos.includes('transporte') && !transporte && !calle.length) return []
   const tiempo: Record<string, string> = {}
   if (p.cuando !== 'ahora' && p.hora) tiempo[p.cuando === 'llegar' ? 'arrivalTime' : 'departureTime'] = horaRfc(p.hora)
   const base = {
@@ -218,15 +224,21 @@ export async function planificar(p: PeticionPlan): Promise<ItinerarioNav[]> {
 
   const peticiones: Promise<ItinerarioNav[]>[] = []
   if (transporte) {
+    // Va por el proxy `navegar` (1 crédito por petición): el cupo intermodal
+    // gratis de HERE es de toda la app. Si el cobro o HERE fallan, esa parte
+    // sale vacía y los modos directos siguen (sin créditos, el proxy ya abrió
+    // el aviso de cuota).
     const intermodal = (extra: Record<string, string>) =>
-      pedir<RespuestaRutas>('https://intermodal.router.hereapi.com/v8/routes', {
+      transporteCuenta<RespuestaRutas>({
         ...base,
         alternatives: '3',
         return: 'polyline,actions,travelSummary,intermediate',
         'taxi[enable]': '',
         'rented[enable]': '',
         ...extra,
-      }).then((r) => (r.routes ?? []).map((ruta) => aItinerario(ruta, p)))
+      })
+        .then((r) => (r.routes ?? []).map((ruta) => aItinerario(ruta, p)))
+        .catch(() => [] as ItinerarioNav[])
     // A pie + transporte, siempre.
     peticiones.push(intermodal({ 'vehicle[enable]': '' }))
     // Con vehículo propio hasta la estación. La moto se queda fuera: el

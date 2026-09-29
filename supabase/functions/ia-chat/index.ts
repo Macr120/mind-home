@@ -28,10 +28,10 @@
  * Caching de Anthropic (GA, sin header beta): hasta 4 breakpoints
  * `cache_control` — la tool que el cliente marque con `cache: true` (fin del
  * bloque estático TOOLS_EDITOR, prefijo compartido entre TODOS los usuarios),
- * la cabecera estable del system (`systemCorte`: instrucciones idénticas para
- * todos los usuarios), la cola del system (asistente, cuartos, fecha y
- * memorias: lo que cambia por usuario o por día, sin arrastrar la cabecera) y
- * el último mensaje (conversación incremental). Bajo el mínimo cacheable del
+ * la cola de las tools de captura (`crear_modelo_3d`), la cabecera estable del
+ * system (`systemCorte`: instrucciones idénticas para todos los usuarios) y el
+ * último mensaje (conversación incremental). La cola del system ya NO lleva
+ * marcador desde sep 2026: pagaba 1.25× sin releerse. Bajo el mínimo cacheable del
  * modelo (4096 tokens en Haiku 4.5) el marcador es un no-op sin costo. Gemini no lo replica: cachea de forma implícita, así que un
  * respaldo prolongado sale más caro de lo que modela docs/COSTOS.md. OpenAI
  * cachea automático desde 1024 tokens de prefijo, con TTL de 30 min y SIN
@@ -760,6 +760,12 @@ Deno.serve(async (req) => {
     if (!(await tienePago(admin, usuario.id))) {
       return json({ error: 'sin-unlock', mensaje: 'Desbloquea la casa para jugar con la IA.' }, 403, cors)
     }
+    // Sin crédito de por medio: quien solo tiene el unlock lleva un tope diario
+    // (20260929000012_topes_solo_unlock.sql); con plan vigente no hay tope.
+    const { data: soloUnlock } = await admin.rpc('solo_unlock', { p_uid: usuario.id })
+    if (soloUnlock === true && !(await dentroDeLimite(admin, usuario.id, 'dia-juego', 100, 86_400))) {
+      return json({ error: 'tope-diario', mensaje: 'Llegaste al límite de hoy. Con Pro no hay tope.' }, 429, cors)
+    }
     const preguntas = body.juego.preguntas ?? {}
     // Sin lote, un solo estado; con lote, una llamada por estado en paralelo
     // (la que falle vuelve null y el juego la cuenta aparte).
@@ -1016,6 +1022,8 @@ Deno.serve(async (req) => {
       usd,
       respaldo: fallos.length > 0,
       ruteo: decision ? { ...decision, filtradas, elegidas: elegidas.map((a) => a.id) } : null,
+      con_editor: body.tools?.some((t) => t.name.startsWith('editor_')) ?? false,
+      n_tools: body.tools?.length ?? 0,
     })
     .then(({ error }) => {
       if (error) console.error('ia-chat: uso_ia_llamadas falló —', error.message)

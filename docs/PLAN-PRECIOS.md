@@ -17,6 +17,11 @@ Desde el 26-sep-2026 cada nivel incluye además **nube** (cuarto Archivo, R2):
 ×1 y anual 10 GB, ×2 30 GB, ×3 100 GB. No cambia ningún precio ni producto; el
 costo está en COSTOS.md.
 
+**Comisión reducida del 15 % (auditoría 25-sep-2026):** Apple Small Business
+Program ✅ inscrito · Google Play programa del 15 % ⏳ **pendiente** (sin él, el
+unlock y los créditos pagan 30 %; las suscripciones ya pagan 15 %). Márgenes por
+canal en `COSTOS.md` § Margen por canal.
+
 ## Lo que quedó hecho
 
 **App Store Connect** — los cinco precios movidos a cifras cerradas con

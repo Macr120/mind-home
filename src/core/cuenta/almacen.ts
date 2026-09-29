@@ -16,7 +16,16 @@ import { URL_WEB } from './urlWeb'
 
 export { formatoBytes, formatoUso } from './almacenUso'
 
-export type MotivoAlmacen = 'sin-sesion' | 'sin-pro' | 'cuota' | 'grande' | 'sin-objeto' | 'sin-almacen' | 'enlaces' | 'red'
+export type MotivoAlmacen =
+  | 'sin-sesion'
+  | 'sin-pro'
+  | 'cuota'
+  | 'grande'
+  | 'sin-objeto'
+  | 'sin-almacen'
+  | 'enlaces'
+  | 'tope-diario'
+  | 'red'
 
 /** Error tipado del almacén; `message` ya viene listo para mostrarse. */
 export class ErrorAlmacen extends Error {
@@ -44,6 +53,8 @@ function mensajeDe(m: MotivoAlmacen): string {
       return tGlobal('almacen.error.sinAlmacen', 'El almacenamiento en la nube no está disponible ahora.')
     case 'enlaces':
       return tGlobal('almacen.error.enlaces', 'Ya tienes 100 enlaces activos: quita alguno para compartir otro.')
+    case 'tope-diario':
+      return tGlobal('plan.topeDiario', 'Llegaste al límite de hoy. Con Pro no hay tope.')
     default:
       return tGlobal('almacen.error.red', 'No hay conexión con el almacenamiento de MindHaOS.')
   }

@@ -150,7 +150,16 @@ export default function MapaCalles({
     if (!el) return
     const m = L.map(el, { zoomControl: true, attributionControl: true, worldCopyJump: true })
     m.setView([20, 0], 2)
-    capaTeselas.current = L.tileLayer(teselasDeTema(idiomaRef.current), { attribution: ATRIBUCION, maxZoom: 18 }).addTo(m)
+    // Teselas de 512 px (una cubre lo de cuatro de 256): HERE cobra por tesela,
+    // así que el mapa cuesta ~4 veces menos. `zoomOffset -1` conserva la escala.
+    capaTeselas.current = L.tileLayer(teselasDeTema(idiomaRef.current), {
+      attribution: ATRIBUCION,
+      maxZoom: 18,
+      tileSize: 512,
+      zoomOffset: -1,
+      keepBuffer: 1,
+      updateWhenZooming: false,
+    }).addTo(m)
     // Las rutas guardadas, debajo de todo: la que se está consultando manda.
     capaGuardadas.current = L.layerGroup().addTo(m)
     capaRuta.current = L.layerGroup().addTo(m)

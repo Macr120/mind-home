@@ -14,8 +14,9 @@ type Tarifa = { entrada: number; salida: number; cacheCrear: number; cacheLeer: 
 
 const TARIFAS: Record<string, Tarifa> = {
   'claude-haiku': { entrada: 1.0, salida: 5.0, cacheCrear: 1.25, cacheLeer: 0.1 },
-  // Precio PLENO de Sonnet 5: el introductorio ($2/$10) vence el 31-ago-2026.
-  'claude-sonnet': { entrada: 3.0, salida: 15.0, cacheCrear: 3.75, cacheLeer: 0.3 },
+  // Sonnet 5 a $2/$10 (claude.com/pricing, verificado el 25-sep-2026): el
+  // «precio pleno» de $3/$15 que se esperaba tras el 31-ago no llegó.
+  'claude-sonnet': { entrada: 2.0, salida: 10.0, cacheCrear: 2.5, cacheLeer: 0.2 },
   // El caché implícito de Gemini cobra la lectura a 0.25× y no la escritura.
   // Desde sep 2026 `ia-chat` resta lo cacheado de la entrada (antes lo contaba
   // dos veces: dentro de `promptTokenCount` y además como lectura).
@@ -74,6 +75,9 @@ export const COSTO_FIJO = {
   voz: 0.003, // whisper-1, tope 30 s
   vozGemini: 0.001, // gemini-flash-latest, 32 tok/s de audio a $1/1M → 30 s ≈ $0.00096
   tts: 0.015, // tts-1, tope 1000 caracteres
+  // HERE Intermodal Routing pasado el cupo gratis (2 500 al mes para toda la
+  // app): ~$2.50 por mil. Precio de terceros sin confirmar en la consola de HERE.
+  transporte: 0.0025,
 } as const
 
 /**

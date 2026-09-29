@@ -118,6 +118,12 @@ Deno.serve(async (req) => {
         if (!(await dentroDeLimite(admin, usuario.id, 'compartidos', 120, 600))) {
           return json({ error: 'limite' }, 429, cors)
         }
+        // Quien solo tiene el unlock sube como mucho 30 medios al día
+        // (20260929000012_topes_solo_unlock.sql); con plan vigente, sin tope.
+        const { data: soloUnlock } = await admin.rpc('solo_unlock', { p_uid: usuario.id })
+        if (soloUnlock === true && !(await dentroDeLimite(admin, usuario.id, 'dia-compartidos', 30, 86_400))) {
+          return json({ ok: false, motivo: 'tope-diario' }, 200, cors)
+        }
         return json({ ok: true, url: await firmarPut(claveDe(ambito, b.ruta), 300) }, 200, cors)
       }
 

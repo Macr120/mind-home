@@ -23,7 +23,7 @@ export const claveConfigurada = () => HERE_KEY.length > 0
 /** Teselas raster v3 de HERE, por base de la interfaz (clara/oscura) e idioma de las etiquetas. */
 export function teselas(base: 'claro' | 'oscuro', idioma: string): string {
   const estilo = base === 'claro' ? 'explore.day' : 'explore.night'
-  return `https://maps.hereapi.com/v3/base/mc/{z}/{x}/{y}/png8?size=256&style=${estilo}&lang=${idioma}&apiKey=${HERE_KEY}`
+  return `https://maps.hereapi.com/v3/base/mc/{z}/{x}/{y}/png8?size=512&style=${estilo}&lang=${idioma}&apiKey=${HERE_KEY}`
 }
 
 export const ATRIBUCION = '&copy; HERE Technologies'

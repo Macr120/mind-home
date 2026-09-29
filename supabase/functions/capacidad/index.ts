@@ -129,6 +129,7 @@ const ACCIONES: Record<string, string> = {
   retencion: 'Revisar la retención de datos antes de llegar a 8 GB.',
   'medios-r2': 'Adelantar la mudanza de los medios del buzón y los espacios a R2.',
   'subir-compute': 'Subir el compute un escalón (automático si se sostiene 3 días).',
+  'here-cupo': 'Cerca de las 2 500 búsquedas gratis de HERE al mes: revisar su plan de pago.',
 }
 
 function resumen(semaforo: Semaforo[]): string {

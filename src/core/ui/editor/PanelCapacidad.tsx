@@ -131,6 +131,8 @@ export function PanelCapacidad() {
     partidas_dia: t('cap.m.partidas', 'Partidas hoy'),
     mensajes_dia: t('cap.m.mensajes', 'Mensajes hoy'),
     ia_dia: t('cap.m.ia', 'Llamadas IA hoy'),
+    transporte_mes: t('cap.m.transporte', 'Búsquedas de transporte del mes (HERE)'),
+    conversion_pro_pct: t('cap.m.conversion', 'Conversión a Pro (%)'),
   }
   const ACCIONES: Record<string, string> = {
     'contratar-pro': t('cap.accion.pro', 'Contrata Supabase Pro ($25/mes) y cambia este panel a «Pro».'),
@@ -138,6 +140,7 @@ export function PanelCapacidad() {
     retencion: t('cap.accion.retencion', 'Revisa la retención de datos antes de llegar a 8 GB.'),
     'medios-r2': t('cap.accion.r2', 'Adelanta la mudanza de los medios del buzón y los espacios a R2.'),
     'subir-compute': t('cap.accion.compute', 'Sube el compute un escalón (se hace solo si se sostiene 3 días).'),
+    'here-cupo': t('cap.accion.here', 'Te acercas a las 2 500 búsquedas gratis de HERE: revisa su plan de pago.'),
   }
   const nombre = (m: string) => NOMBRES[m] ?? m
   const ultimo = (m: string) => {

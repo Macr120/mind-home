@@ -15,6 +15,7 @@ import type { MotivoReporte } from '../buzon/api'
 import { asegurarNormas } from '../buzon/normas'
 import { obtenerSupabase } from '../cuenta/supabase'
 import { bajarCompartido, borrarCompartidos, subirCompartido } from '../cuenta/compartidos'
+import { ErrorAlmacen } from '../cuenta/almacen'
 import type { TFunc } from '../i18n/useT'
 import { espacioLocal } from './transporte'
 import {
@@ -62,6 +63,8 @@ async function rpc<T>(nombre: string, args: Record<string, unknown> = {}): Promi
     // supabase-js envuelve el fallo de fetch en un PostgrestError sin código.
     if (!error.code || /fetch|network|conexi/i.test(error.message)) throw new ErrorEspacio('red', error.message)
     if (error.code === 'PGRST301' || error.code === '401') throw new ErrorEspacio('sin-sesion', error.message)
+    // El tope diario de quien solo tiene el unlock sale de un trigger (raise), no del JSON.
+    if (error.message.includes('tope-diario')) throw new ErrorEspacio('tope-diario', error.message)
     throw new ErrorEspacio('servidor', error.message)
   }
   const d = data as { error?: unknown } | null
@@ -337,7 +340,7 @@ export async function subirArchivo(espacioId: string, resto: string, blob: Blob)
   try {
     await subirCompartido('espacio', ruta, blob)
   } catch (e) {
-    throw new ErrorEspacio('red', String(e))
+    throw new ErrorEspacio(e instanceof ErrorAlmacen && e.motivo === 'tope-diario' ? 'tope-diario' : 'red', String(e))
   }
   return ruta
 }
@@ -399,6 +402,8 @@ export function mensajeErrorEspacio(e: unknown, t: TFunc): string {
       return t('esp.error.peticion-invalida', 'La petición no es válida')
     case 'limite':
       return t('esp.error.limite', 'Demasiadas veces seguidas. Espera un momento.')
+    case 'tope-diario':
+      return t('plan.topeDiario', 'Llegaste al límite de hoy. Con Pro no hay tope.')
     case 'no-encontrado':
       return t('esp.error.no-encontrado', 'Ese contenido compartido ya no existe')
     case 'no-contacto':

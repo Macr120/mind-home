@@ -13,8 +13,9 @@ import { RE_DEMO_EJERCICIO } from '../../rooms/ejercicio/buscar'
  * (falso positivo = solo tokens de más; falso negativo = el modelo no podría
  * editar en ese turno): basta CUALQUIER verbo imperativo o sustantivo del
  * dominio para enviar las TOOLS_EDITOR. Se evalúa sobre el mensaje actual +
- * los últimos turnos del hilo (los follow-ups «ahora en azul» conservan tools
- * porque la confirmación previa del asistente menciona el tema).
+ * los dos mensajes previos del USUARIO (los follow-ups «ahora en azul»
+ * conservan tools porque la petición anterior ya traía el tema; las respuestas
+ * del asistente no cuentan: nombran la casa casi siempre).
  * Patrones sin tildes: operan sobre texto pasado por `normalizar()`.
  */
 const RE_EDITOR_VERBOS =

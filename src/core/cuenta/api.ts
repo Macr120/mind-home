@@ -299,6 +299,17 @@ export async function iaTtsCuenta(texto: string, voz?: string): Promise<{ base64
   return { base64: r.base64, mime: r.mime }
 }
 
+/**
+ * Búsqueda de transporte público vía `navegar` (HERE Intermodal, op
+ * `transporte`). Devuelve la respuesta de HERE tal cual; sin créditos abre el
+ * modal de cuota como cualquier otra op.
+ */
+export async function transporteCuenta<T>(params: Record<string, string>): Promise<T> {
+  const r = await llamarFuncion<{ rutas: T; uso: UsoCuenta }>('navegar', { params })
+  refrescarMedidor(r.uso)
+  return r.rutas
+}
+
 /** Imagen vía `ia-imagen` (base64 + mime). Con `imagen` se manda una foto de referencia. */
 export async function iaImagenCuenta(
   prompt: string,

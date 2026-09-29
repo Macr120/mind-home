@@ -99,6 +99,7 @@ export type CodigoErrorBuzon =
   | 'no-contacto'
   | 'bloqueado'
   | 'limite'
+  | 'tope-diario'
   | 'adjunto-grande'
   | 'contenido-grande'
   | 'normas'

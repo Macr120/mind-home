@@ -1,7 +1,9 @@
 # Costos de la IA, créditos y precio
 
 Análisis de COGS (costo por usuario/mes) de la capa de IA vía cuenta y su
-relación con el precio. **Revisión: agosto 2026** (la anterior era de julio).
+relación con el precio. **Revisión: agosto 2026** (la anterior era de julio),
+con la **auditoría de precios del 25-sep-2026** encima: «Uso real medido»,
+«Margen por canal» y «Escalabilidad por etapas».
 Complementa a [`BACKEND.md`](BACKEND.md) (arquitectura del proxy y la cuota).
 
 ## Qué cambió en esta revisión
@@ -23,7 +25,7 @@ Complementa a [`BACKEND.md`](BACKEND.md) (arquitectura del proxy y la cuota).
 | Concepto | Precio |
 |---|---|
 | Claude Haiku 4.5 — entrada / salida | **$1.00 / $5.00** por M tokens |
-| Claude Sonnet 5 — entrada / salida | **$3.00 / $15.00** por M tokens |
+| Claude Sonnet 5 — entrada / salida | **$2.00 / $10.00** por M tokens (caché $2.50 / $0.20) |
 | Caché: escritura | 1.25× entrada (TTL 5 min) · 2× (TTL 1 h) |
 | Caché: lectura | 0.10× entrada |
 | Mínimo cacheable — Haiku 4.5 | 4096 tokens (debajo: el marcador es no-op) |
@@ -36,9 +38,9 @@ Complementa a [`BACKEND.md`](BACKEND.md) (arquitectura del proxy y la cuota).
 | gpt-5-nano (el más barato de la familia) | $0.05 / $0.40 · caché leído $0.005 |
 | Caché de OpenAI | automático desde 1024 tok · 0.1× · TTL 30 min · sin prima de escritura |
 
-⚠️ **Sonnet 5 corre con precio introductorio ($2/$10) hasta el 31-ago-2026.** A
-partir del 1 de septiembre el modelo 3D cuesta 50% más. La tabla de abajo ya usa
-el precio pleno: no hay que reajustar nada ese día.
+**Sonnet 5 sigue a $2/$10** (claude.com/pricing, 25-sep-2026). Se esperaba que
+subiera a $3/$15 el 1-sep y no pasó. `_shared/costoUsd.ts` ya tarifa a $2/$10; los
+cálculos de `modelo3d` de abajo, hechos a $3/$15, quedan como cota superior.
 
 ⚠️ Los precios de imagen y de Gemini vienen de la revisión anterior y **no se han
 verificado** contra el proveedor en esta pasada. Confirmarlos antes de tomar
@@ -319,15 +321,16 @@ con/sin edición crea dos prefijos que conviven sin invalidarse.
 
 ## Palancas de ahorro implementadas
 
-1. **Prompt caching** en `ia-chat` (4 breakpoints: fin de TOOLS_EDITOR, cabecera del
-   system, cola del system y último mensaje; escritura 1.25×, lectura 0.10×). La vía
+1. **Prompt caching** en `ia-chat` (hasta 4 breakpoints: fin de TOOLS_EDITOR, fin
+   de las tools de captura, cabecera del system y último mensaje; escritura 1.25×,
+   lectura 0.10×; la cola del system ya no lleva, ver el punto 6). La vía
    BYOK de Claude marca los mismos cuatro desde el cliente. El system va partido en
    `construirSystem` (`src/core/chat/ia.ts`): lo estable primero y `systemCorte`
    le dice al proxy dónde termina, así una memoria nueva o el cambio de día no
    reescriben tools+cabecera.
 2. **Gating de TOOLS_EDITOR**: las 56 herramientas del editor (~5.5k tokens) y sus
    párrafos del system solo viajan si el mensaje (o los 2 turnos previos) huele a
-   edición (`hayIntencionEditor` en `src/core/chat/editorAcciones.ts`).
+   edición (`hayIntencionEditor` en `src/core/chat/editorIntencion.ts`).
 3. **Latidos del corazón**: la frase espontánea por IA baja de 30% → 10% vía cuenta
    (`src/core/chat/corazon.ts`).
 4. **IA de fondo solo con Pro** (`iaOperativa`): latidos, efemérides y reparto no
@@ -499,15 +502,75 @@ créditos era ~$14 (ver «Corrección de auditoría») y el unlock vendía el me
 incluido a pérdida. Con el bucket, el COGS por usuario queda matemáticamente
 acotado (ver la sección siguiente).
 
-En tienda (comisión 30%) los números NO cierran para la suscripción: $6 − 30% =
-$4.20 contra $3.50 de COGS máximo. Por eso Pro y los créditos se siguen
-vendiendo solo en la web; si algún día hay IAP nativo, el precio de tienda tiene
-que ser otro.
+> ⚠️ **Tabla de arriba superada (auditoría 25-sep-2026).** Supone el unlock a
+> $6.99, Stripe de EE. UU. (2.9 % + $0.30) y el Pro vendido solo en la web. Hoy
+> el unlock vale $8.99, **todo se vende también por IAP** (desde el 20-ago, ver
+> `PLAN-PRECIOS.md`) y la cuenta de Stripe es **mexicana**. Los números vigentes
+> están en «Margen por canal», justo abajo.
 
-Costos fijos (fuera del COGS por usuario): Supabase Pro $25/mes + dominio y
-hosting estático ~$2 + Apple Developer $99/año cuando haya iOS ≈ **$26–35/mes**.
-Con el unlock a $6.99 (margen típico ~$4.62), 6–8 ventas al mes cubren toda la
-infraestructura.
+## Uso real medido (producción, ago–sep 2026)
+
+`uso_ia_ops` en producción: **61 llamadas, 192 créditos cobrados, $0.47 reales →
+~$0.0025 por crédito**, la mitad del ancla. La muestra es chica y casi toda viene
+de la cuenta del dueño.
+
+| Op | Llamadas | Cobra | Cuesta de verdad |
+|---|---|---|---|
+| `chat` | 15 | 1 | **~2.4 cr** ($0.012): ~13 900 tokens de entrada por llamada y el 80 % del costo es ESCRITURA de caché (0.64 lecturas por escritura) |
+| `texto` | 20 | 1 | ~0.07 cr |
+| `modelo3d` | 2 | 10 | ~3.2 cr a $2/$10 (salida media ~1 200, no 3 000) |
+| `tts` | 14 | 3 | ~3 cr (tarifa fija de `COSTO_FIJO.tts`) |
+
+El chat de la casa es el único que cuesta más de lo que anuncia. Los créditos
+proporcionales lo cobran bien (no se pierde dinero), pero quien solo chatea
+recibe ~290 mensajes por 700 créditos. Sospecha principal: `hayIntencionEditor`
+(`src/core/chat/editorIntencion.ts`) da verdadero casi siempre y TOOLS_EDITOR
+(~5 500 tokens) viaja en casi todos los turnos. La columna `con_editor` de
+`uso_ia_llamadas` sirve para confirmarlo.
+
+## Margen por canal (auditoría 25-sep-2026)
+
+Comisiones que se aplican:
+- **Stripe México** (cuenta en MXN): **3.6 % + MXN 3** (~$0.16), **+0.5 %** si la
+  tarjeta es extranjera y **+2 %** si hay conversión de moneda. Para una tarjeta
+  extranjera cobrada en USD sale ~6.1 % + $0.16, no el 2.9 % + $0.30 de EE. UU.
+- **Apple:** 15 % con el Small Business Program (inscrito) y 30 % sin él.
+- **Google Play:** las suscripciones pagan 15 % siempre. El unlock y los créditos
+  (productos únicos) pagan **15 % solo si la cuenta está inscrita en el programa
+  del 15 %**; sin inscripción, 30 %.
+- **RevenueCat:** 1 % de lo facturado por encima de $2 500 al mes.
+- **Impuestos:** en la UE y en México el precio de tienda INCLUYE el IVA, y la
+  tienda lo retiene antes de la comisión (~20 % UE, 16 % MX).
+
+Margen en USD por venta (mensual; el anual, por año). En cada celda va primero el
+peor caso (todos los créditos al ancla de $0.005 y la nube llena) y luego el
+esperado (ponderado de $0.0033 por crédito, conservador frente a los $0.0025
+medidos):
+
+| Producto | Web, tarjeta extranjera | Web, cliente MX (IVA) | Tienda 15 %, EE. UU. | Tienda 15 %, UE | Tienda 30 %, UE |
+|---|---|---|---|---|---|
+| Unlock $8.99 | 4.54 / 5.86 | 3.53 / 4.85 | 3.90 / 5.22 | 2.63 / 3.95 | 1.50 / 2.82 |
+| Pro ×1 $6 | 1.76 / 3.08 | 1.09 / 2.41 | 1.39 / 2.71 | 0.54 / 1.86 | −0.21 / 1.11 |
+| Pro ×2 $12 | 3.54 / 6.33 | 2.18 / 4.97 | 2.63 / 5.42 | 0.93 / 3.72 | −0.57 / 2.22 |
+| Pro ×3 $18 | 4.56 / 9.56 | 2.53 / 7.53 | 3.12 / 8.12 | 0.57 / 5.57 | −1.68 / 3.32 |
+| Créditos $6 | 1.91 / 3.10 | 1.24 / 2.43 | 1.54 / 2.73 | 0.69 / 1.88 | −0.06 / 1.13 |
+| Anual $60 | 11.78 / 27.58 | 5.00 / 20.80 | 6.60 / 22.40 | −1.90 / 13.90 | −9.40 / 6.40 |
+
+Conclusiones:
+- **La regla de los $2 por cada $6 ya no se cumple en el peor caso en ningún
+  canal**, ni siquiera en la web ($1.76), por la comisión de Stripe MX. En el
+  caso esperado, todo es positivo en todos los canales.
+- El único negativo real es la **tienda al 30 % en la UE**. Por eso es
+  obligatorio estar inscrito en el 15 % de Apple **y** de Google.
+- El **anual a $60 se mantiene** (decisión del 25-sep-2026): el peor caso en tienda
+  UE da −$1.90 al año, pero el esperado es positivo en todos los canales.
+  Se vigila con la consulta de COGS por nivel de `docs/consultas-uso.sql`.
+- ⚠️ **Impuestos pendientes de contador:** IVA del 16 % en las ventas web a
+  clientes mexicanos, posible obligación de IVA extranjero (UE) al vender directo
+  por Stripe, e ISR. Las tiendas se ocupan del IVA; la caja web (RevenueCat +
+  Stripe) no.
+
+Costos fijos e infraestructura: ver «Escalabilidad por etapas» al final.
 Mejora estructural: la demo no toca el backend, así que todo el que consume
 auth/egress pagó al menos el unlock (adiós al riesgo del «modo local gratis» de
 la nota de arriba).
@@ -765,9 +828,10 @@ del `modelo3d` sale subestimado ~3×. Para separarlos hay que ir a `uso_ia_ops`.
    ENTRADA (system/mensajes/imagen) para que la entrada no cobrada quede acotada.
 2. **Respaldo de imagen invertido**: en calidad rápida, una caída de OpenAI sirve
    con Gemini por encima de lo cobrado (ver «Respaldo entre proveedores»).
-3. **Fin del precio intro de Sonnet 5 (31-ago-2026)**: el modelo 3D sube 50%.
-   Ya está absorbido en la tarifa de 10 créditos. Palanca alternativa si aprieta:
-   usar Haiku para los estilos simples y reservar Sonnet 5 para `detallado`.
+3. **Precio de Sonnet 5**: se esperaba que subiera a $3/$15 el 1-sep-2026 y sigue
+   a $2/$10 (verificado el 25-sep-2026). Si sube, la tarifa de 10 créditos lo
+   absorbe (el 3D medido cuesta ~3.2 créditos). Palanca si aprieta: Haiku para
+   los estilos simples y Sonnet 5 solo para `detallado`.
 4. **Deprecación del modelo de imagen de Gemini (oct 2026)**: solo afecta a la
    calidad buena; `GEMINI_IMAGE_MODEL` la reapunta sin redeploy.
 5. **Modo local gratis**: usuarios sin ingreso que consumen auth y egress. El
@@ -779,3 +843,78 @@ del `modelo3d` sale subestimado ~3×. Para separarlos hay que ir a `uso_ia_ops`.
    lecturas por entrada: encender solo cuando el hit-rate muestre ráfagas
    separadas >5 min) —, recortar historial de 12 → 8 mensajes, revisar
    `maxTokens` por app con los datos de `uso_ia_ops`.
+8. **Uso de servidor de quien solo tiene el unlock**: buzón, partidas y espacios
+   de por vida sin ingreso recurrente. Topes diarios suaves en marcha (plan de
+   la auditoría de sep 2026). Sin cubrir todavía: la retención de medios viejos
+   del buzón y de `espacio_cambios`, y el rate limit del broadcast de Realtime.
+
+## Escalabilidad por etapas (25-sep-2026)
+
+Precios de Supabase Pro verificados en supabase.com/pricing el 25-sep-2026:
+- **$25 al mes**, que incluyen: 100 k usuarios activos al mes, 8 GB de base de
+  datos, 250 GB de egress, 100 GB de Storage, 2 M llamadas a Edge Functions,
+  500 conexiones de tiempo real simultáneas, 5 M mensajes de tiempo real al mes
+  y $10 de crédito de instancia (cubre la Micro).
+- **Excedentes:** usuario activo $0.00325 · disco $0.125/GB · egress $0.09/GB ·
+  Edge Functions $2 por millón · $10 por cada 1 000 conexiones extra · mensajes
+  de tiempo real $2.50 por millón.
+- **Instancias:** Small $15 · Medium $60 · Large $110 · XL $210.
+- **Añadidos:** dominio propio de auth $10 · PITR $100 (7 días).
+
+### Supuestos del modelo
+
+- Todas las cuentas pagaron el unlock: las que no compran se borran a los 3 días.
+- El 60 % entra cada mes, el 10 % tiene Pro y cada mes entran unlocks nuevos
+  equivalentes al 3 % de la base.
+- Ganancia por venta (sin la IA, caso esperado, mezcla de canales): Pro ≈ $2.80
+  al mes y unlock ≈ $5 una vez.
+- Datos por cuenta: ~1 MB en la base (hoy 18 MB para 28 cuentas).
+- Tiempo real: ~8 000 mensajes al mes por usuario Pro con sync; una de cada
+  cinco cuentas juega una partida al mes, de ~20 000 mensajes.
+- Mapa: el 20 % de las cuentas abre «Cómo llegar» ~10 veces al mes, unas 200
+  teselas de 256 px por cuenta. El precio de la tesela raster de HERE ($0.75 por
+  mil) es **supuesto**: HERE no lo publica.
+
+### Etapas
+
+| Etapa | Cuentas | Fijos al mes | Qué se contrata | Pasar a la siguiente cuando… |
+|---|---|---|---|---|
+| E0 (hoy) | — | ~$10 | Supabase Free, Cloudflare gratis, Apple $99 al año, dominios | **Antes de que Apple apruebe** (el plan Free no tiene respaldos y se pausa si está inactivo) |
+| E1 | ≤2 k | ~$45 | Supabase Pro + dominio de auth $10 + Resend gratis | la base se acerca a 8 GB (~8 k cuentas) o la CPU pasa del 70 % |
+| E2 | 2 k–20 k | ~$70 | Instancia Small (+$5 netos) + Resend $20 | más de 500 conexiones simultáneas (~17 k cuentas) o la Small al tope |
+| E3 | 20 k–50 k | ~$120 | Instancia Medium (+$50) + Workers de pago $5 (salas de juego en Durable Objects) | más de 100 k activos al mes o necesidad de PITR |
+| E4 | 50 k–150 k | ~$340 | Instancia Large (+$100) + PITR $100 + correo a escala $90 | — |
+
+### Costo total por tamaño (medios en R2)
+
+| Cuentas | Infraestructura al mes | Ganancia al mes | Infra / ganancia | Equilibrio |
+|---|---|---|---|---|
+| 500 | $47 | $215 | 22 % | 17 Pro o 10 unlocks al mes |
+| 2 000 | $100 | $860 | 12 % | 36 Pro o 21 unlocks |
+| 10 000 | $553 | $4 300 | 13 % | ~200 Pro |
+| 20 000 | $1 108 | $8 600 | 13 % | ~400 Pro |
+| 50 000 | $2 847 | $21 500 | 13 % | ~1 000 Pro |
+| 150 000 | $8 859 | $64 500 | 14 % | ~3 200 Pro |
+
+A escala se reparte así: **teselas de HERE ~45 %** (con 256 px), mensajes de
+tiempo real ~18 % y RevenueCat ~14 %. Supabase en sí es menor.
+
+### Palancas, por efecto
+
+1. **Teselas de 512 px** (hecho el 25-sep-2026, `navegacion/MapaCalles.tsx`): una
+   tesela cubre lo de cuatro, así que las teselas de HERE cuestan ~4 veces menos.
+2. **Teselas propias** (Protomaps con datos de OSM en R2, capa `protomaps-leaflet`)
+   cuando HERE pase de ~$100 al mes: el mapa base cuesta ≈ $0. Las rutas y la
+   geocodificación se quedan en HERE.
+3. **Medios sociales en R2** (función `compartidos`): la descarga es gratis. Al
+   cerrarse la mudanza, el egress de Supabase queda en la sincronización.
+4. **Partidas**: medir los mensajes reales por partida. Si pasan de 10 k, bajar la
+   frecuencia de poses (`EmisorPose.tsx`). En E3, salas en Durable Objects.
+
+### La regla que vigila el modelo de unlock
+
+Quien solo compró el unlock cuesta ~$0.01–0.05 al mes en Supabase (más las
+teselas si navega) y dejó ~$5 una vez. **Con un 10 % de Pro, la parte recurrente
+cubre sola la infraestructura en todas las etapas; si la conversión a Pro baja
+del ~6 %, la infraestructura depende de vender unlocks nuevos cada mes.** La
+consulta está en `docs/consultas-uso.sql`.

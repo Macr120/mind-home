@@ -108,6 +108,24 @@ variable y cada usuario pega su clave). Los dominios de confianza frenan el uso 
 pero la clave de las apps nativas queda expuesta. Si el consumo se dispara, la salida es mover las
 llamadas a una Edge Function de Supabase —como el proxy de IA— y dejar la clave en el servidor.
 
+## El transporte público va por el servidor y cobra créditos (sep 2026)
+
+El cupo intermodal gratis (2 500 al mes) es de **toda la app**, así que desde el 29-sep-2026 esa
+búsqueda ya no sale del cliente. Pasa por la Edge Function **`navegar`**, que cobra la op
+`transporte` (**1 crédito**; con bici o auto hasta la estación son dos peticiones, 2 créditos),
+devuelve el crédito si HERE falla y deja el costo en `uso_ia_ops` (proveedor `here`).
+- **Clave:** secreto `HERE_KEY_SERVIDOR`, de una **quinta app** del Access Manager («servidor»),
+  aparte de las cuatro de los clientes.
+- **Sin cuenta ni créditos:** el chip «Transporte público» se apaga con su explicación y «Óptimo»
+  compara solo los modos directos (`transporteDisponible()` en `here.ts`).
+- **Siguen en el cliente:** mapa, geocodificación y rutas a pie, en bici, en moto y en auto, con sus
+  cupos de 30 000.
+
+**Teselas de 512 px** (25-sep-2026, `MapaCalles.tsx` + `config.ts`): una tesela de 512 cubre lo de
+cuatro de 256 y HERE cobra por tesela, así que el mapa gasta ~4 veces menos del cupo. Siguiente
+escalón, cuando las teselas pasen de ~$100 al mes: teselas propias (Protomaps con datos de OSM en
+R2), ver `COSTOS.md` § Escalabilidad por etapas.
+
 ## Consulta enviada a HERE (21 sep 2026) — pendiente de respuesta
 
 Dos dudas de interpretación que HERE tiene que confirmar. Mientras no contesten, el código va por

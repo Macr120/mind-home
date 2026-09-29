@@ -1336,7 +1336,12 @@ export async function interpretarIA(
 
   // Gating: las 54 tools del editor (y sus párrafos del system) solo viajan
   // si el mensaje o los últimos turnos huelen a edición/control de la casa.
-  const conEditor = hayIntencionEditor([...historial.slice(-2).map((m) => m.texto), texto])
+  // Solo los mensajes del USUARIO: las respuestas del asistente nombran «casa»
+  // o «cuarto» casi siempre y encendían el editor en ~todos los turnos (~5 500
+  // tokens de más, auditoría de sep 2026). Un seguimiento («ahora en azul»)
+  // sigue cubierto porque la petición anterior del usuario ya traía el tema.
+  const previosUsuario = historial.filter((m) => m.rol === 'usuario').slice(-2)
+  const conEditor = hayIntencionEditor([...previosUsuario.map((m) => m.texto), texto])
   const tools = conEditor
     ? [...(await toolsEditorConCache()), ...construirTools(getAsistente(mascotaId).cuartos)]
     : construirTools(getAsistente(mascotaId).cuartos)

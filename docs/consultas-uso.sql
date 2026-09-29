@@ -78,3 +78,35 @@ select op, proveedor, sum(llamadas) as n,
 select count(*) as reservas_vivas,
        count(*) filter (where creada < now() - interval '1 hour') as viejas
   from reservas_ia;
+
+-- 7) Chat de la casa: ¿cuántas llamadas llevan TOOLS_EDITOR y cuánto pesan?
+--    (columnas `con_editor`/`n_tools`, migración 20260929000011). Si el grupo
+--    con editor pasa de la mitad de las llamadas, `hayIntencionEditor` sigue
+--    disparando de más.
+select con_editor, count(*) as llamadas,
+       round(avg(entrada + cache_crear + cache_leer)) as entrada_media,
+       round(avg(n_tools)) as tools_medias,
+       round(avg(usd)::numeric / 0.005, 2) as creditos_reales_medios
+  from uso_ia_llamadas
+ where op = 'chat' and proveedor = 'anthropic' and con_editor is not null
+ group by con_editor;
+
+-- 8) COGS real por nivel y plan (el anual incluido), mes en curso. Compara lo
+--    que cuesta cada suscriptor con lo que deja: Pro ×1 ≈ $5.41 neto en web y
+--    ≈ $4.19 en tienda UE; el anual ≈ $4.63 al mes (ver COSTOS.md § Margen por canal).
+select p.plan, p.nivel, count(distinct u.user_id) as usuarios,
+       round(avg(u.usd)::numeric, 3) as usd_medio,
+       round(max(u.usd)::numeric, 3) as usd_max
+  from uso_ia u join perfiles p using (user_id)
+ where u.periodo = to_char(now(), 'YYYY-MM')
+ group by p.plan, p.nivel order by p.plan, p.nivel;
+
+-- 9) La regla del modelo de unlock (COSTOS.md § Escalabilidad): conversión a Pro
+--    entre quienes compraron la casa. Por debajo del ~6 % la infraestructura
+--    depende de vender unlocks nuevos cada mes.
+select count(*) filter (where unlock) as con_unlock,
+       count(*) filter (where unlock and plan = 'pro' and (plan_expira is null or plan_expira > now())) as pro_vigente,
+       round(100.0 * count(*) filter (where unlock and plan = 'pro' and (plan_expira is null or plan_expira > now()))
+             / nullif(count(*) filter (where unlock), 0), 1) as conversion_pct
+  from perfiles
+ where not ilimitado;

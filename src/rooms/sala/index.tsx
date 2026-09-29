@@ -7,6 +7,7 @@ import { tGlobal } from '../../core/i18n/useT'
 import { CLAUSULA_RECHAZO } from '../../core/planIA'
 import { buscarLugares } from './geocoder'
 import { esencialSala, flujosSala } from './tutorial.meta'
+import { OPERACIONES_IA } from './costosIA'
 import { eventosViaje } from './eventos'
 import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
 import { filasNodo } from '../../core/grafoApps'
@@ -92,6 +93,7 @@ const sala: Plantilla = {
   categoria: 'complemento',
   color: '#2dd4bf',
   App: SalaApp,
+  operacionesIA: OPERACIONES_IA,
   flujos: flujosSala,
   esencial: esencialSala,
   eventos: eventosViaje,

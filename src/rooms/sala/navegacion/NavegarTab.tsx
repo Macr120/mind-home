@@ -12,7 +12,9 @@ import { BuscadorLugar } from './BuscadorLugar'
 import { cacheVencida, claveConfigurada } from './config'
 import { formatoDistancia, formatoDuracion, formatoHora, resumenPierna } from './formato'
 import { obtenerPosicion, permisoGps } from './geo'
-import { geocodificar, nombreDeCoords, planificar } from './here'
+import { geocodificar, nombreDeCoords, planificar, transporteDisponible } from './here'
+import { Creditos } from '../../../core/ui/Creditos'
+import { OP_TRANSPORTE } from '../costosIA'
 import { COLOR_SUELTO, LugaresNav, pinDeLugar, verDeCarpeta } from './LugaresNav'
 import MapaCalles, { type PinLugar, type RutaGuardada } from './MapaCalles'
 import { COLOR_MODO, ICONO_MODO, MODOS_NAV, esCalle, familiaModo, iconoDireccion, type ModoNav } from './modos'
@@ -203,6 +205,7 @@ export default function NavegarTab({ lugares }: Props) {
       ? { lat: lugarConCoords.lat, lng: lugarConCoords.lng }
       : null)
   const conClave = claveConfigurada()
+  const conTransporte = transporteDisponible()
 
   // Reparto de la pantalla. Hace falta el ancho REAL del panel —en el menú del
   // chat es mucho más angosto que la ventana—, así que se mide en vez de
@@ -427,7 +430,8 @@ export default function NavegarTab({ lugares }: Props) {
     limpiarResultados()
     try {
       if (opt) {
-        const ids = MODOS_NAV.map((x) => x.id)
+        // Sin cuenta que pague su crédito, el transporte no entra en la comparación.
+        const ids = MODOS_NAV.map((x) => x.id).filter((m) => m !== 'transporte' || transporteDisponible())
         const listas = await Promise.all(
           ids.map((m) => planificar({ origen: o, destino: d, modos: [m], cuando, hora, locale }).catch(() => [])),
         )
@@ -788,19 +792,29 @@ export default function NavegarTab({ lugares }: Props) {
                 const esTransporte = m.id === 'transporte'
                 const cargando = esTransporte ? cargandoTransporte : comparando && tiempo === undefined
                 const porCalcular = esTransporte && tiempo === undefined && !cargando && Object.keys(tiempos).length > 0
+                // El transporte cobra 1 crédito por búsqueda (proxy `navegar`): sin cuenta que lo pague, se apaga.
+                const sinCredito = esTransporte && !conTransporte
                 return (
                   <button
                     key={m.id}
                     type="button"
                     onClick={() => alternarModo(m.id)}
+                    disabled={sinCredito}
                     aria-pressed={on}
-                    title={porCalcular ? t('sala.nav.calcularTransporte', 'Tócalo para calcular cuánto tarda en transporte público') : undefined}
-                    className={`rounded-2xl border px-3 py-1 text-xs font-semibold leading-tight transition ${
+                    title={
+                      sinCredito
+                        ? t('sala.nav.transporteSinCreditos', 'El transporte público cuesta 1 crédito por búsqueda: inicia sesión o consigue créditos para incluirlo.')
+                        : porCalcular
+                          ? t('sala.nav.calcularTransporte', 'Tócalo para calcular cuánto tarda en transporte público')
+                          : undefined
+                    }
+                    className={`rounded-2xl border px-3 py-1 text-xs font-semibold leading-tight transition disabled:opacity-40 ${
                       on ? 'border-accent ui-accent-bg' : 'border-white/10 bg-black/25 text-white/60 hover:bg-black/40'
                     }`}
                   >
-                    <span className="block">
+                    <span className="flex items-center gap-1">
                       <Icono nombre={m.icono} /> {t(m.clave, m.es)}
+                      {esTransporte && !sinCredito && <Creditos op={OP_TRANSPORTE} />}
                     </span>
                     {(tiempo !== undefined || cargando || porCalcular) && (
                       <span className={`block text-[10px] font-normal ${on ? 'opacity-80' : 'text-white/45'}`}>
