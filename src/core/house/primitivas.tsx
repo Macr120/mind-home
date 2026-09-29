@@ -1,5 +1,6 @@
 import { createContext, Suspense, useContext, type ReactElement } from 'react'
 import * as THREE from 'three'
+import type { ThreeElements } from '@react-three/fiber'
 import { matTema, type Tema } from './temas'
 import { useDiseño } from '../state/disenoStore'
 import { esMaterialPbr, useMapasPBR, useRealismo, type MaterialPbrId } from './materialesPBR'
@@ -42,8 +43,45 @@ export function useAcabado(acabado: string | undefined): MaterialPbrId | null {
   return acabado
 }
 
+/**
+ * UV en metros calculadas en el shader desde la posición en el mundo: cada cara
+ * proyecta el plano de su eje dominante (mapeo «por caja»). Sirve para las mallas
+ * escritas a mano (cajas, cilindros, esferas) sin tocar su geometría, que trae UV
+ * de 0 a 1 por cara, y respeta la escala del objeto. El relieve sigue funcionando:
+ * three arma la base tangente con las derivadas de esas mismas UV.
+ */
+const PROYECCION_METROS = `#include <project_vertex>
+{
+  vec3 mphP = (modelMatrix * vec4(transformed, 1.0)).xyz;
+  vec3 mphN = abs(normalize(mat3(modelMatrix) * objectNormal));
+  vec2 mphUv = mphN.y > max(mphN.x, mphN.z) ? mphP.xz : (mphN.x > mphN.z ? mphP.zy : mphP.xy);
+  #ifdef USE_MAP
+    vMapUv = (mapTransform * vec3(mphUv, 1.0)).xy;
+  #endif
+  #ifdef USE_NORMALMAP
+    vNormalMapUv = (normalMapTransform * vec3(mphUv, 1.0)).xy;
+  #endif
+  #ifdef USE_ROUGHNESSMAP
+    vRoughnessMapUv = (roughnessMapTransform * vec3(mphUv, 1.0)).xy;
+  #endif
+}`
+const proyectarEnMetros = (sh: { vertexShader: string }) => {
+  sh.vertexShader = sh.vertexShader.replace('#include <project_vertex>', PROYECCION_METROS)
+}
+const claveProyeccion = () => 'mph-uv-metros'
+
 /** Material con las texturas PBR (suspende mientras cargan). */
-function MatTexturado({ id, color, metalness }: { id: MaterialPbrId; color: string; metalness?: number }) {
+function MatTexturado({
+  id,
+  color,
+  metalness,
+  proyectar,
+}: {
+  id: MaterialPbrId
+  color: string
+  metalness?: number
+  proyectar?: boolean
+}) {
   const pbr = useMapasPBR(id)
   return (
     <meshStandardMaterial
@@ -53,6 +91,8 @@ function MatTexturado({ id, color, metalness }: { id: MaterialPbrId; color: stri
       roughnessMap={pbr.roughnessMap}
       roughness={1}
       metalness={metalness ?? pbr.metalness}
+      onBeforeCompile={proyectar ? proyectarEnMetros : undefined}
+      customProgramCacheKey={proyectar ? claveProyeccion : undefined}
     />
   )
 }
@@ -65,18 +105,35 @@ export function MatAcabado({
   id,
   color,
   metalness,
+  proyectar,
   children,
 }: {
   id: MaterialPbrId | null
   color: string
   metalness?: number
+  /** Las UV de la malla no van en metros: proyectarlas en el shader. */
+  proyectar?: boolean
   children: ReactElement
 }) {
   if (!id) return children
   return (
     <Suspense fallback={children}>
-      <MatTexturado id={id} color={color} metalness={metalness} />
+      <MatTexturado id={id} color={color} metalness={metalness} proyectar={proyectar} />
     </Suspense>
+  )
+}
+
+/**
+ * `<meshStandardMaterial>` de siempre con un `acabado` PBR opcional, para mallas
+ * escritas a mano (especiales): con el realismo de muebles encendido se cambia por
+ * el material texturizado con UV proyectadas en metros.
+ */
+export function MatStd({ acabado, ...props }: ThreeElements['meshStandardMaterial'] & { acabado?: string }) {
+  const id = useAcabado(acabado)
+  return (
+    <MatAcabado id={id} color={typeof props.color === 'string' ? props.color : '#ffffff'} proyectar>
+      <meshStandardMaterial {...props} />
+    </MatAcabado>
   )
 }
 

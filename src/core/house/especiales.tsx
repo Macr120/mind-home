@@ -2,6 +2,7 @@ import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 
 import { useFrame, useLoader } from '@react-three/fiber'
 import { MeshReflectorMaterial } from '@react-three/drei'
 import * as THREE from 'three'
+import { MatStd } from './primitivas'
 import { playerPos } from '../state/houseStore'
 import { useParque, parqueFrame, esJuegoParque, ESCALA_JUEGO, anguloColumpio } from '../state/parqueStore'
 import { TIPO_FLOTADOR } from '../state/flotadorStore'
@@ -104,24 +105,24 @@ function Marco({ w, h, color, children }: { w: number; h: number; color: string;
       {/* Panel trasero (fondo del lienzo y tapa por detrás) */}
       <mesh position={[0, 0, -0.02]} castShadow>
         <boxGeometry args={[w + MARCO * 2, h + MARCO * 2, 0.04]} />
-        <meshStandardMaterial color={color} />
+        <MatStd acabado="mueble.madera" color={color} />
       </mesh>
       {/* Molduras */}
       <mesh position={[0, h / 2 + MARCO / 2, 0.01]} castShadow>
         <boxGeometry args={[w + MARCO * 2, MARCO, 0.07]} />
-        <meshStandardMaterial color={color} />
+        <MatStd acabado="mueble.madera" color={color} />
       </mesh>
       <mesh position={[0, -h / 2 - MARCO / 2, 0.01]} castShadow>
         <boxGeometry args={[w + MARCO * 2, MARCO, 0.07]} />
-        <meshStandardMaterial color={color} />
+        <MatStd acabado="mueble.madera" color={color} />
       </mesh>
       <mesh position={[-w / 2 - MARCO / 2, 0, 0.01]} castShadow>
         <boxGeometry args={[MARCO, h, 0.07]} />
-        <meshStandardMaterial color={color} />
+        <MatStd acabado="mueble.madera" color={color} />
       </mesh>
       <mesh position={[w / 2 + MARCO / 2, 0, 0.01]} castShadow>
         <boxGeometry args={[MARCO, h, 0.07]} />
-        <meshStandardMaterial color={color} />
+        <MatStd acabado="mueble.madera" color={color} />
       </mesh>
       {children}
     </group>
@@ -225,13 +226,13 @@ export function Espejo({ color, simple = false }: { color: string; simple?: bool
       {/* Peana */}
       <mesh position={[0, 0.025, 0]} castShadow>
         <boxGeometry args={[0.56, 0.05, 0.34]} />
-        <meshStandardMaterial color={color} />
+        <MatStd acabado="mueble.madera" color={color} />
       </mesh>
       {/* Cuerpo reclinado, pivotando desde la peana */}
       <group position={[0, 0.05, -0.02]} rotation={[-0.096, 0, 0]}>
         <mesh position={[0, 0.86, 0]} castShadow>
           <boxGeometry args={[0.86, 1.72, 0.05]} />
-          <meshStandardMaterial color={color} />
+          <MatStd acabado="mueble.madera" color={color} />
         </mesh>
         <mesh position={[0, 0.86, 0.028]}>
           <planeGeometry args={[0.74, 1.6]} />
@@ -393,11 +394,11 @@ export function FuenteClasica({ color, simple = false, fx = 1 }: { color: string
       {/* Pila inferior con labio */}
       <mesh position={[0, 0.15, 0]} castShadow>
         <cylinderGeometry args={[0.72, 0.78, 0.3, 20]} />
-        <meshStandardMaterial color={color} roughness={0.9} />
+        <MatStd acabado="muro.concreto" color={color} roughness={0.9} />
       </mesh>
       <mesh position={[0, 0.32, 0]} castShadow>
         <cylinderGeometry args={[0.78, 0.75, 0.08, 20]} />
-        <meshStandardMaterial color={color} roughness={0.9} />
+        <MatStd acabado="muro.concreto" color={color} roughness={0.9} />
       </mesh>
       {/* El agua sobresale del labio: si quedara por debajo, el cilindro sólido la taparía. */}
       <mesh position={[0, 0.37, 0]}>
@@ -407,11 +408,11 @@ export function FuenteClasica({ color, simple = false, fx = 1 }: { color: string
       {/* Columna y copa superior */}
       <mesh position={[0, 0.62, 0]} castShadow>
         <cylinderGeometry args={[0.09, 0.14, 0.6, 12]} />
-        <meshStandardMaterial color={color} roughness={0.9} />
+        <MatStd acabado="muro.concreto" color={color} roughness={0.9} />
       </mesh>
       <mesh position={[0, 0.95, 0]} castShadow>
         <cylinderGeometry args={[0.36, 0.12, 0.16, 16]} />
-        <meshStandardMaterial color={color} roughness={0.9} />
+        <MatStd acabado="muro.concreto" color={color} roughness={0.9} />
       </mesh>
       <mesh position={[0, 1.01, 0]}>
         <cylinderGeometry args={[0.3, 0.3, 0.04, 16]} />
@@ -420,7 +421,7 @@ export function FuenteClasica({ color, simple = false, fx = 1 }: { color: string
       {/* Surtidor y su columna de agua (fija: visible también en miniaturas) */}
       <mesh position={[0, 1.07, 0]} castShadow>
         <cylinderGeometry args={[0.04, 0.06, 0.14, 8]} />
-        <meshStandardMaterial color={color} roughness={0.9} />
+        <MatStd acabado="muro.concreto" color={color} roughness={0.9} />
       </mesh>
       <mesh position={[0, 1.13, 0]}>
         <cylinderGeometry args={[0.028, 0.042, 0.22, 8]} />
@@ -446,7 +447,7 @@ export function Estanque({ color, simple = false, fx = 1 }: { color: string; sim
       {/* Borde de piedra */}
       <mesh position={[0, 0.12, 0]} castShadow>
         <cylinderGeometry args={[0.95, 1.0, 0.24, 24]} />
-        <meshStandardMaterial color={color} roughness={0.95} />
+        <MatStd acabado="muro.concreto" color={color} roughness={0.95} />
       </mesh>
       {/* Un pelo por encima del borde para no pelear en z con su tapa. */}
       <mesh position={[0, 0.225, 0]}>
@@ -456,15 +457,15 @@ export function Estanque({ color, simple = false, fx = 1 }: { color: string; sim
       {/* Rocas sobre el borde */}
       <mesh position={[0.62, 0.26, 0.62]} castShadow>
         <sphereGeometry args={[0.14, 10, 10]} />
-        <meshStandardMaterial color="#57534e" roughness={1} />
+        <MatStd acabado="muro.concreto" color="#57534e" roughness={1} />
       </mesh>
       <mesh position={[-0.78, 0.25, 0.35]} castShadow>
         <sphereGeometry args={[0.11, 10, 10]} />
-        <meshStandardMaterial color="#57534e" roughness={1} />
+        <MatStd acabado="muro.concreto" color="#57534e" roughness={1} />
       </mesh>
       <mesh position={[0.2, 0.25, -0.83]} castShadow>
         <sphereGeometry args={[0.1, 10, 10]} />
-        <meshStandardMaterial color="#57534e" roughness={1} />
+        <MatStd acabado="muro.concreto" color="#57534e" roughness={1} />
       </mesh>
       {/* Nenúfar con flor */}
       <mesh position={[0.4, 0.25, -0.32]}>
@@ -496,16 +497,16 @@ export function CascadaPared({ color, simple = false, fx = 1 }: { color: string;
       {/* Muro con cornisa */}
       <mesh position={[0, 0.9, -0.25]} castShadow>
         <boxGeometry args={[1.5, 1.8, 0.24]} />
-        <meshStandardMaterial color={color} roughness={0.95} />
+        <MatStd acabado="muro.concreto" color={color} roughness={0.95} />
       </mesh>
       <mesh position={[0, 1.83, -0.25]} castShadow>
         <boxGeometry args={[1.6, 0.14, 0.34]} />
-        <meshStandardMaterial color={color} roughness={0.95} />
+        <MatStd acabado="muro.concreto" color={color} roughness={0.95} />
       </mesh>
       {/* Pileta al frente */}
       <mesh position={[0, 0.14, 0.12]} castShadow>
         <boxGeometry args={[1.5, 0.28, 0.5]} />
-        <meshStandardMaterial color={color} roughness={0.95} />
+        <MatStd acabado="muro.concreto" color={color} roughness={0.95} />
       </mesh>
       {/* El agua sobresale del borde de la pileta: si no, la caja sólida la taparía. */}
       <mesh position={[0, 0.285, 0.12]}>
@@ -551,28 +552,28 @@ export function Resbaladilla({ color }: { color: string }) {
       {/* Plataforma con barandales */}
       <mesh position={[0, 0.93, -0.35]} castShadow>
         <boxGeometry args={[0.6, 0.06, 0.5]} />
-        <meshStandardMaterial color={color} />
+        <MatStd acabado="mueble.plastico" color={color} />
       </mesh>
       <mesh position={[-0.28, 1.12, -0.35]} castShadow>
         <boxGeometry args={[0.04, 0.32, 0.5]} />
-        <meshStandardMaterial color={color} />
+        <MatStd acabado="mueble.plastico" color={color} />
       </mesh>
       <mesh position={[0.28, 1.12, -0.35]} castShadow>
         <boxGeometry args={[0.04, 0.32, 0.5]} />
-        <meshStandardMaterial color={color} />
+        <MatStd acabado="mueble.plastico" color={color} />
       </mesh>
       {/* Patas */}
       {[[-0.24, -0.55], [0.24, -0.55], [-0.24, -0.15], [0.24, -0.15]].map(([x, z], i) => (
         <mesh key={i} position={[x, 0.465, z]} castShadow>
           <cylinderGeometry args={[0.035, 0.035, 0.93, 8]} />
-          <meshStandardMaterial color={METAL_PARQUE} metalness={0.4} roughness={0.5} />
+          <MatStd acabado="mueble.metal" color={METAL_PARQUE} metalness={0.4} roughness={0.5} />
         </mesh>
       ))}
       {/* Escalera */}
       {[-0.22, 0.22].map((x, i) => (
         <mesh key={i} position={[x, 0.48, -0.87]} rotation={[-1.04, 0, 0]} castShadow>
           <boxGeometry args={[0.05, 0.05, 1.15]} />
-          <meshStandardMaterial color={METAL_PARQUE} metalness={0.4} roughness={0.5} />
+          <MatStd acabado="mueble.metal" color={METAL_PARQUE} metalness={0.4} roughness={0.5} />
         </mesh>
       ))}
       {[[0.23, -1.01], [0.42, -0.9], [0.61, -0.79], [0.8, -0.68]].map(([y, z], i) => (
@@ -584,15 +585,15 @@ export function Resbaladilla({ color }: { color: string }) {
       {/* Rampa con bordes */}
       <mesh position={[0, 0.49, 0.53]} rotation={[0.62, 0, 0]} castShadow>
         <boxGeometry args={[0.5, 0.05, 1.5]} />
-        <meshStandardMaterial color={color} />
+        <MatStd acabado="mueble.plastico" color={color} />
       </mesh>
       <mesh position={[-0.245, 0.53, 0.53]} rotation={[0.62, 0, 0]} castShadow>
         <boxGeometry args={[0.05, 0.12, 1.5]} />
-        <meshStandardMaterial color={color} />
+        <MatStd acabado="mueble.plastico" color={color} />
       </mesh>
       <mesh position={[0.245, 0.53, 0.53]} rotation={[0.62, 0, 0]} castShadow>
         <boxGeometry args={[0.05, 0.12, 1.5]} />
-        <meshStandardMaterial color={color} />
+        <MatStd acabado="mueble.plastico" color={color} />
       </mesh>
     </group>
   )
@@ -605,19 +606,19 @@ export function Pasamanos({ color }: { color: string }) {
       {[[-0.8, -0.28], [0.8, -0.28], [-0.8, 0.28], [0.8, 0.28]].map(([x, z], i) => (
         <mesh key={i} position={[x, 0.75, z]} castShadow>
           <cylinderGeometry args={[0.05, 0.05, 1.5, 10]} />
-          <meshStandardMaterial color={color} />
+          <MatStd acabado="mueble.metal" color={color} />
         </mesh>
       ))}
       {[-0.28, 0.28].map((z, i) => (
         <mesh key={i} position={[0, 1.5, z]} rotation={[0, 0, Math.PI / 2]} castShadow>
           <cylinderGeometry args={[0.04, 0.04, 1.76, 10]} />
-          <meshStandardMaterial color={color} />
+          <MatStd acabado="mueble.metal" color={color} />
         </mesh>
       ))}
       {[-0.6, -0.36, -0.12, 0.12, 0.36, 0.6].map((x) => (
         <mesh key={x} position={[x, 1.5, 0]} rotation={[Math.PI / 2, 0, 0]} castShadow>
           <cylinderGeometry args={[0.028, 0.028, 0.64, 8]} />
-          <meshStandardMaterial color="#d1d5db" metalness={0.5} roughness={0.4} />
+          <MatStd acabado="mueble.metal" color="#d1d5db" metalness={0.5} roughness={0.4} />
         </mesh>
       ))}
     </group>
@@ -643,21 +644,21 @@ export function Carrusel({ color, objetoId }: { color: string; objetoId?: number
       {/* Base fija */}
       <mesh position={[0, 0.06, 0]} receiveShadow>
         <cylinderGeometry args={[0.8, 0.85, 0.12, 20]} />
-        <meshStandardMaterial color="#6b7280" roughness={0.9} />
+        <MatStd acabado="muro.concreto" color="#6b7280" roughness={0.9} />
       </mesh>
       <group ref={giro}>
         <mesh position={[0, 0.15, 0]} castShadow>
           <cylinderGeometry args={[0.75, 0.75, 0.06, 20]} />
-          <meshStandardMaterial color={color} />
+          <MatStd acabado="mueble.plastico" color={color} />
         </mesh>
         <mesh position={[0, 0.65, 0]} castShadow>
           <cylinderGeometry args={[0.045, 0.045, 1.0, 10]} />
-          <meshStandardMaterial color={METAL_PARQUE} metalness={0.4} roughness={0.5} />
+          <MatStd acabado="mueble.metal" color={METAL_PARQUE} metalness={0.4} roughness={0.5} />
         </mesh>
         {/* Techo */}
         <mesh position={[0, 1.3, 0]} castShadow>
           <coneGeometry args={[0.85, 0.35, 16]} />
-          <meshStandardMaterial color={color} />
+          <MatStd acabado="mueble.plastico" color={color} />
         </mesh>
         <mesh position={[0, 1.5, 0]}>
           <sphereGeometry args={[0.06, 10, 10]} />
@@ -672,11 +673,11 @@ export function Carrusel({ color, objetoId }: { color: string; objetoId?: number
             <group key={i}>
               <mesh position={[bx * 0.6, 0.6, bz * 0.6]} castShadow>
                 <cylinderGeometry args={[0.025, 0.025, 0.85, 8]} />
-                <meshStandardMaterial color="#d1d5db" metalness={0.5} roughness={0.4} />
+                <MatStd acabado="mueble.metal" color="#d1d5db" metalness={0.5} roughness={0.4} />
               </mesh>
               <mesh position={[bx * 0.52, 0.22, bz * 0.52]} castShadow>
                 <boxGeometry args={[0.22, 0.06, 0.22]} />
-                <meshStandardMaterial color={asientos[i]} />
+                <MatStd acabado="mueble.plastico" color={asientos[i]} />
               </mesh>
             </group>
           )
@@ -711,12 +712,12 @@ export function Columpio({ color, objetoId }: { color: string; objetoId?: number
       {[-0.15, 0.15].map((cx, i) => (
         <mesh key={i} position={[cx, -0.53, 0]}>
           <cylinderGeometry args={[0.015, 0.015, 1.05, 6]} />
-          <meshStandardMaterial color="#94a3b8" />
+          <MatStd acabado="mueble.metal" color="#94a3b8" />
         </mesh>
       ))}
       <mesh position={[0, -1.08, 0]} castShadow>
         <boxGeometry args={[0.4, 0.05, 0.16]} />
-        <meshStandardMaterial color={colorAsiento} />
+        <MatStd acabado="mueble.plastico" color={colorAsiento} />
       </mesh>
     </group>
   )
@@ -727,13 +728,13 @@ export function Columpio({ color, objetoId }: { color: string; objetoId?: number
         [[0.3, -0.25], [-0.3, 0.25]].map(([rot, cz], i) => (
           <mesh key={x + ':' + i} position={[x, 0.84, cz]} rotation={[rot, 0, 0]} castShadow>
             <boxGeometry args={[0.07, 1.72, 0.07]} />
-            <meshStandardMaterial color={color} />
+            <MatStd acabado="mueble.metal" color={color} />
           </mesh>
         )),
       )}
       <mesh position={[0, 1.62, 0]} rotation={[0, 0, Math.PI / 2]} castShadow>
         <cylinderGeometry args={[0.045, 0.045, 1.9, 10]} />
-        <meshStandardMaterial color={color} />
+        <MatStd acabado="mueble.metal" color={color} />
       </mesh>
       {asiento(izq, -0.4, '#fbbf24')}
       {asiento(der, 0.4, '#f8fafc')}
@@ -850,12 +851,12 @@ export function Antorcha({ color, simple = false, fx = 1 }: { color: string; sim
       {/* Mango de madera */}
       <mesh position={[0, 0.6, 0]} castShadow>
         <cylinderGeometry args={[0.045, 0.06, 1.2, 10]} />
-        <meshStandardMaterial color={color} roughness={0.9} />
+        <MatStd acabado="mueble.madera" color={color} roughness={0.9} />
       </mesh>
       {/* Copa metálica (recipiente de la brasa) */}
       <mesh position={[0, 1.24, 0]} castShadow>
         <cylinderGeometry args={[0.15, 0.08, 0.16, 12]} />
-        <meshStandardMaterial color={MET_ANTORCHA} roughness={0.6} metalness={0.5} />
+        <MatStd acabado="mueble.metal" color={MET_ANTORCHA} roughness={0.6} metalness={0.5} />
       </mesh>
       {on && (
         <>
@@ -878,17 +879,17 @@ export function FarolPoste({ color, simple = false, fx = 1 }: { color: string; s
       {/* Base */}
       <mesh position={[0, 0.04, 0]} castShadow>
         <cylinderGeometry args={[0.18, 0.22, 0.08, 16]} />
-        <meshStandardMaterial color={color} roughness={0.7} metalness={0.3} />
+        <MatStd acabado="mueble.metal" color={color} roughness={0.7} metalness={0.3} />
       </mesh>
       {/* Poste */}
       <mesh position={[0, 0.85, 0]} castShadow>
         <cylinderGeometry args={[0.05, 0.06, 1.6, 10]} />
-        <meshStandardMaterial color={color} roughness={0.7} metalness={0.3} />
+        <MatStd acabado="mueble.metal" color={color} roughness={0.7} metalness={0.3} />
       </mesh>
       {/* Suelo de la caja del farol */}
       <mesh position={[0, yCaja - 0.24, 0]} castShadow>
         <boxGeometry args={[0.3, 0.06, 0.3]} />
-        <meshStandardMaterial color={color} roughness={0.7} metalness={0.3} />
+        <MatStd acabado="mueble.metal" color={color} roughness={0.7} metalness={0.3} />
       </mesh>
       {/* Vidrio */}
       <mesh position={[0, yCaja, 0]}>
@@ -899,13 +900,13 @@ export function FarolPoste({ color, simple = false, fx = 1 }: { color: string; s
       {[[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([sx, sz], i) => (
         <mesh key={i} position={[sx * 0.13, yCaja, sz * 0.13]} castShadow>
           <boxGeometry args={[0.025, 0.42, 0.025]} />
-          <meshStandardMaterial color={color} roughness={0.7} metalness={0.3} />
+          <MatStd acabado="mueble.metal" color={color} roughness={0.7} metalness={0.3} />
         </mesh>
       ))}
       {/* Techo piramidal */}
       <mesh position={[0, yCaja + 0.28, 0]} rotation={[0, Math.PI / 4, 0]} castShadow>
         <coneGeometry args={[0.24, 0.16, 4]} />
-        <meshStandardMaterial color={color} roughness={0.7} metalness={0.3} />
+        <MatStd acabado="mueble.metal" color={color} roughness={0.7} metalness={0.3} />
       </mesh>
       {/* Bulbo + luz */}
       <group position={[0, yCaja, 0]}>
@@ -925,12 +926,12 @@ export function LamparaPie({ color, simple = false, fx = 1 }: { color: string; s
       {/* Base */}
       <mesh position={[0, 0.03, 0]} castShadow>
         <cylinderGeometry args={[0.22, 0.26, 0.06, 20]} />
-        <meshStandardMaterial color={MET_LAMPARA} roughness={0.5} metalness={0.4} />
+        <MatStd acabado="mueble.metal" color={MET_LAMPARA} roughness={0.5} metalness={0.4} />
       </mesh>
       {/* Tubo */}
       <mesh position={[0, 0.72, 0]} castShadow>
         <cylinderGeometry args={[0.028, 0.028, 1.38, 8]} />
-        <meshStandardMaterial color={MET_LAMPARA} roughness={0.5} metalness={0.4} />
+        <MatStd acabado="mueble.metal" color={MET_LAMPARA} roughness={0.5} metalness={0.4} />
       </mesh>
       {/* Pantalla (tulipa abierta) */}
       <mesh position={[0, 1.5, 0]} castShadow>
@@ -961,12 +962,12 @@ export function VelaCandelabro({ color, simple = false, fx = 1 }: { color: strin
       {/* Platillo */}
       <mesh position={[0, 0.03, 0]} castShadow>
         <cylinderGeometry args={[0.16, 0.18, 0.05, 20]} />
-        <meshStandardMaterial color={color} roughness={0.4} metalness={0.6} />
+        <MatStd acabado="mueble.metal" color={color} roughness={0.4} metalness={0.6} />
       </mesh>
       {/* Cuello */}
       <mesh position={[0, 0.11, 0]} castShadow>
         <cylinderGeometry args={[0.05, 0.09, 0.12, 12]} />
-        <meshStandardMaterial color={color} roughness={0.4} metalness={0.6} />
+        <MatStd acabado="mueble.metal" color={color} roughness={0.4} metalness={0.6} />
       </mesh>
       {/* Vela de cera */}
       <mesh position={[0, 0.29, 0]} castShadow>
@@ -1085,28 +1086,28 @@ function CascoEspectacular({
       {/* Monoposte y refuerzo bajo el panel */}
       <mesh position={[0, 0.85, 0]} castShadow>
         <cylinderGeometry args={[0.1, 0.13, 1.7, 12]} />
-        <meshStandardMaterial color={color} roughness={0.6} metalness={0.35} />
+        <MatStd acabado="mueble.metal" color={color} roughness={0.6} metalness={0.35} />
       </mesh>
       <mesh position={[0, 1.72, 0]} castShadow>
         <cylinderGeometry args={[0.22, 0.1, 0.18, 12]} />
-        <meshStandardMaterial color={color} roughness={0.6} metalness={0.35} />
+        <MatStd acabado="mueble.metal" color={color} roughness={0.6} metalness={0.35} />
       </mesh>
       {/* Marco/caja del panel */}
       <mesh position={[0, PANEL_Y, 0]} castShadow>
         <boxGeometry args={[PANEL_W + 0.16, PANEL_H + 0.16, 0.1]} />
-        <meshStandardMaterial color={color} roughness={0.7} metalness={0.25} />
+        <MatStd acabado="mueble.metal" color={color} roughness={0.7} metalness={0.25} />
       </mesh>
       {/* Pasarela de mantenimiento al frente */}
       <mesh position={[0, PANEL_Y - PANEL_H / 2 - 0.11, 0.28]} castShadow>
         <boxGeometry args={[PANEL_W + 0.1, 0.05, 0.3]} />
-        <meshStandardMaterial color="#6b7280" roughness={0.7} metalness={0.4} />
+        <MatStd acabado="mueble.metal" color="#6b7280" roughness={0.7} metalness={0.4} />
       </mesh>
       {/* Focos superiores (encienden de noche) */}
       {[-1.05, 0, 1.05].map((x) => (
         <group key={x} position={[x, topPanel, 0]}>
           <mesh position={[0, 0.1, 0.06]} rotation={[0.7, 0, 0]} castShadow>
             <cylinderGeometry args={[0.018, 0.018, 0.34, 8]} />
-            <meshStandardMaterial color="#4b5563" roughness={0.6} metalness={0.5} />
+            <MatStd acabado="mueble.metal" color="#4b5563" roughness={0.6} metalness={0.5} />
           </mesh>
           <group position={[0, 0.2, 0.2]}>
             <Bulbo radio={0.05} fuerza={fuerza} fx={fx} />
@@ -1305,12 +1306,12 @@ export function LetreroVegas({
       {/* Base y postes */}
       <mesh position={[0, 0.06, 0]} castShadow>
         <boxGeometry args={[1.0, 0.12, 0.5]} />
-        <meshStandardMaterial color="#52525b" roughness={0.8} metalness={0.3} />
+        <MatStd acabado="mueble.metal" color="#52525b" roughness={0.8} metalness={0.3} />
       </mesh>
       {[-0.38, 0.38].map((x) => (
         <mesh key={x} position={[x, 0.66, 0]} castShadow>
           <cylinderGeometry args={[0.045, 0.045, 1.2, 10]} />
-          <meshStandardMaterial color="#71717a" roughness={0.6} metalness={0.4} />
+          <MatStd acabado="mueble.metal" color="#71717a" roughness={0.6} metalness={0.4} />
         </mesh>
       ))}
       {/* Rombo (cilindro de 4 lados acostado: diamante de frente) */}
@@ -1332,7 +1333,7 @@ export function LetreroVegas({
       {/* Estrella (asterisco de 4 barras) sobre la punta */}
       <mesh position={[0, VEGAS_Y + VEGAS_B + 0.1, 0]} castShadow>
         <cylinderGeometry args={[0.02, 0.02, 0.2, 8]} />
-        <meshStandardMaterial color="#71717a" roughness={0.6} metalness={0.4} />
+        <MatStd acabado="mueble.metal" color="#71717a" roughness={0.6} metalness={0.4} />
       </mesh>
       <group position={[0, VEGAS_Y + VEGAS_B + 0.34, 0]}>
         {[0, 1, 2, 3].map((i) => (

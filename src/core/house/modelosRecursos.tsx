@@ -258,8 +258,8 @@ export const MODELOS: Record<number, ModeloRecurso> = {
           <B p={[0, 0.93, 0]} s={[3.5, 0.08, 0.78]} c={P.metalCol} acabado="mueble.metal" />
           <B p={[0, 1.85, -0.15]} s={[3.4, 0.7, 0.4]} c={m} {...mp} acabado="mueble.madera" />
           {/* tiradores */}
-          <B p={[-0.5, 0.45, 0.36]} s={[0.08, 0.2, 0.06]} c={P.acento} />
-          <B p={[0.5, 0.45, 0.36]} s={[0.08, 0.2, 0.06]} c={P.acento} />
+          <B p={[-0.5, 0.45, 0.36]} s={[0.08, 0.2, 0.06]} c={P.acento} acabado="mueble.metal" />
+          <B p={[0.5, 0.45, 0.36]} s={[0.08, 0.2, 0.06]} c={P.acento} acabado="mueble.metal" />
           {acento(t, [0, 1.4, 0], 3.2)}
         </group>
       )
@@ -275,7 +275,7 @@ export const MODELOS: Record<number, ModeloRecurso> = {
       return (
         <group>
           <B p={[0, 0.5, 0]} s={[2.0, 0.9, 1.1]} c={m} {...mp} acabado="mueble.madera" />
-          <B p={[0, 0.97, 0]} s={[2.1, 0.08, 1.2]} c={t === 'espacio' || t === 'cyberpunk' ? P.acento : '#e5e7eb'} emi={t === 'cyberpunk' || t === 'espacio' ? P.acento : undefined} emiI={t === 'cyberpunk' || t === 'espacio' ? 0.3 : 0} />
+          <B p={[0, 0.97, 0]} s={[2.1, 0.08, 1.2]} c={t === 'espacio' || t === 'cyberpunk' ? P.acento : '#e5e7eb'} emi={t === 'cyberpunk' || t === 'espacio' ? P.acento : undefined} emiI={t === 'cyberpunk' || t === 'espacio' ? 0.3 : 0} acabado={t === 'cyberpunk' || t === 'espacio' ? undefined : 'muro.concreto'} />
           {acento(t, [0, 1.15, 0], 1.6)}
         </group>
       )
@@ -309,9 +309,9 @@ export const MODELOS: Record<number, ModeloRecurso> = {
       return (
         <group>
           <B p={[0, 0.5, 0]} s={[0.85, 1.0, 0.65]} c={m} {...mp} acabado="mueble.metal" />
-          <B p={[0, 0.96, 0]} s={[0.8, 0.05, 0.6]} c="#111827" />
-          <C p={[-0.2, 1.0, 0]} r={0.1} h={0.04} c="#374151" />
-          <C p={[0.2, 1.0, 0]} r={0.1} h={0.04} c="#374151" />
+          <B p={[0, 0.96, 0]} s={[0.8, 0.05, 0.6]} c="#111827" acabado="mueble.metal" />
+          <C p={[-0.2, 1.0, 0]} r={0.1} h={0.04} c="#374151" acabado="mueble.metal" />
+          <C p={[0.2, 1.0, 0]} r={0.1} h={0.04} c="#374151" acabado="mueble.metal" />
           {(t === 'medieval' || t === 'terror' || t === 'vaquero') && <Glow p={[0, 1.02, 0]} r={0.09} c="#f97316" />}
           <B p={[0, 1.75, -0.15]} s={[0.95, 0.35, 0.5]} c={m} {...mp} acabado="mueble.metal" />
           {acento(t, [0, 2.0, -0.15], 0.8)}
@@ -351,7 +351,7 @@ export const MODELOS: Record<number, ModeloRecurso> = {
             <C p={[0, 0.7, 0]} r={0.7} h={0.5} c={P.madera} rough={0.95} rt={0.7} seg={12} acabado="mueble.madera" />
             {Array.from({ length: 8 }).map((_, i) => {
               const a = (i / 8) * Math.PI * 2
-              return <B key={i} p={[Math.cos(a) * 0.5, 0.7 + Math.sin(a) * 0.5, 0]} s={[0.1, 0.1, 0.55]} c={P.metalCol} />
+              return <B key={i} p={[Math.cos(a) * 0.5, 0.7 + Math.sin(a) * 0.5, 0]} s={[0.1, 0.1, 0.55]} c={P.metalCol} acabado="mueble.metal" />
             })}
             <Vela p={[0, 1.5, 0]} />
           </group>
@@ -360,7 +360,7 @@ export const MODELOS: Record<number, ModeloRecurso> = {
       return (
         <group>
           <B p={[0, 0.16, 0]} s={[0.9, 0.22, 1.9]} c={m} {...mp} acabado="mueble.plastico" />
-          <B p={[0, 0.28, -0.7]} s={[0.85, 0.04, 0.6]} c="#1f2937" />
+          <B p={[0, 0.28, -0.7]} s={[0.85, 0.04, 0.6]} c="#1f2937" acabado="mueble.plastico" />
           <B p={[-0.35, 0.9, -0.85]} s={[0.06, 1.2, 0.06]} c={P.metalCol} metal={0.4} acabado="mueble.metal" />
           <B p={[0.35, 0.9, -0.85]} s={[0.06, 1.2, 0.06]} c={P.metalCol} metal={0.4} acabado="mueble.metal" />
           <Pantalla p={[0, 1.45, -0.82]} s={[0.7, 0.5, 0.06]} c={P.acento} />
@@ -413,7 +413,7 @@ export const MODELOS: Record<number, ModeloRecurso> = {
       const espejo = t === 'terror' ? '#6b7280' : '#cde9ff'
       return (
         <group>
-          <B p={[0, 1.1, 0]} s={[0.16, 2.1, 1.9]} c={marco} metal={t === 'medieval' || t === 'vaquero' ? 0.3 : 0.5} />
+          <B p={[0, 1.1, 0]} s={[0.16, 2.1, 1.9]} c={marco} metal={t === 'medieval' || t === 'vaquero' ? 0.3 : 0.5} acabado="mueble.madera" />
           <B p={[0.05, 1.1, 0]} s={[0.06, 1.9, 1.7]} c={espejo} rough={0.1} metal={0.3} />
           {t === 'cyberpunk' && <Neon p={[0.09, 1.1, 0]} s={[0.02, 1.9, 0.06]} c="#d946ef" />}
           {acento(t, [0.1, 2.05, 0], 1.6)}
@@ -552,7 +552,7 @@ export const MODELOS: Record<number, ModeloRecurso> = {
           <B p={[0, 0.3, 0]} s={[2.6, 0.5, 2.6]} c={m} {...mp} acabado="mueble.madera" />
           <B p={[0, 0.62, 0]} s={[2.4, 0.25, 2.4]} c={sabana} acabado="mueble.tela" />
           <B p={[0, 1.0, -1.3]} s={[2.6, 0.9, 0.25]} c={m} {...mp} acabado="mueble.madera" />
-          <B p={[0, 0.78, -0.7]} s={[1.7, 0.18, 0.5]} c="#fafafa" />
+          <B p={[0, 0.78, -0.7]} s={[1.7, 0.18, 0.5]} c="#fafafa" acabado="mueble.tela" />
           <B p={[0, 0.7, 0.7]} s={[2.4, 0.12, 1.4]} c={colcha} acabado="mueble.tela" />
           {t === 'cyberpunk' && <Neon p={[0, 0.08, 0]} s={[2.5, 0.04, 0.04]} c="#d946ef" />}
           {t === 'espacio' && <Neon p={[0, 0.08, 0]} s={[2.5, 0.04, 0.04]} c="#22d3ee" />}
@@ -573,7 +573,7 @@ export const MODELOS: Record<number, ModeloRecurso> = {
           {[-1.7, 1.7].map((x, i) => (
             <group key={i}>
               <B p={[x, 0.35, 0]} s={[0.7, 0.7, 0.6]} c={m} {...mp} acabado="mueble.madera" />
-              <B p={[x, 0.45, 0.31]} s={[0.12, 0.06, 0.04]} c={P.acento} />
+              <B p={[x, 0.45, 0.31]} s={[0.12, 0.06, 0.04]} c={P.acento} acabado="mueble.metal" />
               {acento(t, [x, 0.75, 0], 0.5)}
             </group>
           ))}
@@ -607,7 +607,7 @@ export const MODELOS: Record<number, ModeloRecurso> = {
         <group>
           <B p={[0, 0.5, 0]} s={[1.0, 1.0, 0.6]} c={m} {...mp} acabado="mueble.madera" />
           {[0.35, 0.65, 0.95].map((y, i) => (
-            <B key={i} p={[0.25, y, 0.31]} s={[0.12, 0.05, 0.04]} c={P.acento} />
+            <B key={i} p={[0.25, y, 0.31]} s={[0.12, 0.05, 0.04]} c={P.acento} acabado="mueble.metal" />
           ))}
           {acento(t, [0, 1.05, 0], 0.8)}
         </group>
@@ -1032,7 +1032,7 @@ export const MODELOS: Record<number, ModeloRecurso> = {
       return (
         <group>
           <C p={[0, 0.11, 0]} r={0.13} h={0.22} c={m} rt={0.17} acabado="planta.barro" />
-          <C p={[0, 0.22, 0]} r={0.14} h={0.03} c="#3a2e2a" acabado="planta.tierra" />
+          <C p={[0, 0.22, 0]} r={0.14} h={0.03} c="#3a2e2a" acabado="planta.barro" />
           <C p={[0, 0.4, 0]} r={0.09} h={0.36} c="#4d7c2a" seg={8} rt={0.075} />
           <S p={[0, 0.58, 0]} r={0.075} c="#4d7c2a" />
           <B p={[0.12, 0.44, 0]} s={[0.14, 0.07, 0.07]} c="#4d7c2a" />
@@ -1051,7 +1051,7 @@ export const MODELOS: Record<number, ModeloRecurso> = {
       return (
         <group>
           <C p={[0, 0.14, 0]} r={0.15} h={0.28} c={m} rt={0.19} acabado="planta.barro" />
-          <C p={[0, 0.28, 0]} r={0.16} h={0.03} c="#3a2e2a" acabado="planta.tierra" />
+          <C p={[0, 0.28, 0]} r={0.16} h={0.03} c="#3a2e2a" acabado="planta.barro" />
           <S p={[0, 0.46, 0]} r={0.2} c="#2f7d32" rough={0.95} acabado="planta.follaje" />
           <S p={[0.12, 0.58, 0.06]} r={0.14} c="#356e2c" rough={0.95} acabado="planta.follaje" />
           <S p={[-0.12, 0.56, -0.05]} r={0.13} c="#2f7d32" rough={0.95} acabado="planta.follaje" />
@@ -1069,7 +1069,7 @@ export const MODELOS: Record<number, ModeloRecurso> = {
         <group>
           <C p={[0, 0.63, 0]} r={0.012} h={0.36} c="#94a3b8" seg={6} acabado="mueble.metal" />
           <C p={[0, 0.36, 0]} r={0.12} h={0.18} c={m} rt={0.16} acabado="planta.barro" />
-          <C p={[0, 0.46, 0]} r={0.13} h={0.03} c="#3a2e2a" acabado="planta.tierra" />
+          <C p={[0, 0.46, 0]} r={0.13} h={0.03} c="#3a2e2a" acabado="planta.barro" />
           <S p={[0, 0.52, 0]} r={0.14} c="#2f7d32" rough={0.95} acabado="planta.follaje" />
           {/* Guías colgantes */}
           <S p={[0.14, 0.38, 0.06]} r={0.05} c="#2f7d32" acabado="planta.follaje" />
@@ -1089,7 +1089,7 @@ export const MODELOS: Record<number, ModeloRecurso> = {
       return (
         <group>
           <B p={[0, 0.14, 0]} s={[1.1, 0.28, 0.34]} c={m} acabado="mueble.madera" />
-          <B p={[0, 0.29, 0]} s={[1.0, 0.04, 0.26]} c="#3a2e2a" acabado="planta.tierra" />
+          <B p={[0, 0.29, 0]} s={[1.0, 0.04, 0.26]} c="#3a2e2a" acabado="planta.barro" />
           {['#ec4899', '#fbbf24', '#f8fafc'].map((flor, i) => {
             const x = (i - 1) * 0.33
             return (
@@ -1115,7 +1115,7 @@ export const MODELOS: Record<number, ModeloRecurso> = {
         <group>
           {/* Maceta de cerámica clara + sustrato */}
           <C p={[0, 0.12, 0]} r={0.12} h={0.24} c="#e5e7eb" rt={0.15} acabado="planta.barro" />
-          <C p={[0, 0.24, 0]} r={0.125} h={0.03} c="#3a2e2a" acabado="planta.tierra" />
+          <C p={[0, 0.24, 0]} r={0.125} h={0.03} c="#3a2e2a" acabado="planta.barro" />
           {/* Hojas anchas en la base */}
           <B p={[-0.12, 0.3, 0.06]} s={[0.18, 0.05, 0.12]} c="#2f7d32" acabado="planta.follaje" />
           <B p={[0.13, 0.31, -0.05]} s={[0.16, 0.05, 0.11]} c="#357e2c" acabado="planta.follaje" />
@@ -1164,8 +1164,8 @@ export const MODELOS: Record<number, ModeloRecurso> = {
       const mp = { rough: P.rough, metal: P.metal, emi: P.emi || undefined, emiI: P.emiI }
       return (
         <group>
-          <B p={[0, 0.4, 0]} s={[0.8, 0.8, 0.8]} c={m} {...mp} />
-          <B p={[0, 1.0, 0]} s={[0.6, 0.5, 0.6]} c={mezclar(m, '#000000', 0.2)} {...mp} />
+          <B p={[0, 0.4, 0]} s={[0.8, 0.8, 0.8]} c={m} {...mp} acabado="mueble.madera_clara" />
+          <B p={[0, 1.0, 0]} s={[0.6, 0.5, 0.6]} c={mezclar(m, '#000000', 0.2)} {...mp} acabado="mueble.madera_clara" />
           {t === 'navidad' && <Mono p={[0, 0.85, 0]} />}
           {t === 'cyberpunk' && <Neon p={[0, 0.4, 0.41]} s={[0.5, 0.1, 0.02]} c="#22d3ee" />}
           {acento(t, [0, 1.35, 0], 0.5)}

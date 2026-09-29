@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, type ReactNode, type RefObject } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
+import { MatStd } from './primitivas'
 import { actualizarEnergia, type AnimacionModelo } from './animacion'
 import { AvatarModelo } from './AvatarModelo'
 import { CAL, texturaMes } from './hojaMes'
@@ -86,7 +87,7 @@ function Olla({ color, simple = false, nivel = null, objetoId }: EspProps) {
       {/* Cuerpo de la olla */}
       <mesh position={[0, 0.17, 0]} castShadow>
         <cylinderGeometry args={[0.33, 0.29, 0.34, 22]} />
-        <meshStandardMaterial color={color} metalness={0.3} roughness={0.5} />
+        <MatStd acabado="mueble.metal" color={color} metalness={0.3} roughness={0.5} />
       </mesh>
       {/* Asas */}
       {[-1, 1].map((s) => (
@@ -99,7 +100,7 @@ function Olla({ color, simple = false, nivel = null, objetoId }: EspProps) {
       <group ref={tapa} position={[0, 0.27, 0]}>
         <mesh castShadow>
           <cylinderGeometry args={[0.34, 0.34, 0.05, 22]} />
-          <meshStandardMaterial color={color} metalness={0.3} roughness={0.5} />
+          <MatStd acabado="mueble.metal" color={color} metalness={0.3} roughness={0.5} />
         </mesh>
         <mesh position={[0, 0.06, 0]}>
           <sphereGeometry args={[0.045, 10, 10]} />
@@ -149,14 +150,14 @@ function PizarraIdeas({ color, simple = false, nivel = null, objetoId }: EspProp
       {[-1, 1].map((s) => (
         <mesh key={s} position={[s * 0.34, 0.55, -0.17]} rotation={[0.15, 0, s * 0.14]} castShadow>
           <boxGeometry args={[0.05, 1.15, 0.05]} />
-          <meshStandardMaterial color="#7a5230" roughness={0.9} />
+          <MatStd acabado="mueble.madera" color="#7a5230" roughness={0.9} />
         </mesh>
       ))}
       {/* Tablero inclinado: marco del color del usuario + lienzo claro */}
       <group position={[0, 0.82, 0]} rotation={[-0.16, 0, 0]}>
         <mesh castShadow>
           <boxGeometry args={[1.05, 0.75, 0.04]} />
-          <meshStandardMaterial color={color} roughness={0.7} />
+          <MatStd acabado="mueble.madera" color={color} roughness={0.7} />
         </mesh>
         <mesh position={[0, 0, 0.012]}>
           <boxGeometry args={[0.95, 0.65, 0.03]} />
@@ -229,13 +230,13 @@ function AgendaEscritorio({ color, simple = false, nivel = null, objetoId, separ
       {/* Mesita */}
       <mesh position={[0, 0.5, 0]} castShadow receiveShadow>
         <boxGeometry args={[0.95, 0.06, 0.6]} />
-        <meshStandardMaterial color="#7a5230" roughness={0.85} />
+        <MatStd acabado="mueble.madera" color="#7a5230" roughness={0.85} />
       </mesh>
       {[-1, 1].map((sx) =>
         [-1, 1].map((sz) => (
           <mesh key={`${sx}${sz}`} position={[sx * 0.42, 0.25, sz * 0.25]} castShadow>
             <boxGeometry args={[0.05, 0.5, 0.05]} />
-            <meshStandardMaterial color="#5c3d24" roughness={0.9} />
+            <MatStd acabado="mueble.madera" color="#5c3d24" roughness={0.9} />
           </mesh>
         )),
       )}
@@ -339,7 +340,7 @@ function Despertador({ color, simple = false, nivel = null, objetoId }: EspProps
         {/* Cara */}
         <mesh rotation={[Math.PI / 2, 0, 0]} castShadow>
           <cylinderGeometry args={[0.22, 0.22, 0.14, 24]} />
-          <meshStandardMaterial color={color} metalness={0.4} roughness={0.4} />
+          <MatStd acabado="mueble.metal" color={color} metalness={0.4} roughness={0.4} />
         </mesh>
         <mesh position={[0, 0, 0.075]} rotation={[Math.PI / 2, 0, 0]}>
           <cylinderGeometry args={[0.17, 0.17, 0.02, 24]} />
@@ -358,7 +359,7 @@ function Despertador({ color, simple = false, nivel = null, objetoId }: EspProps
         {[-1, 1].map((s) => (
           <mesh key={s} position={[s * 0.19, 0.22, 0]} castShadow>
             <sphereGeometry args={[0.1, 12, 12, 0, Math.PI * 2, 0, Math.PI / 2]} />
-            <meshStandardMaterial color={color} metalness={0.5} roughness={0.3} />
+            <MatStd acabado="mueble.metal" color={color} metalness={0.5} roughness={0.3} />
           </mesh>
         ))}
         {/* Martillo entre campanas */}
@@ -400,17 +401,17 @@ function LibreroLibro({ color, simple = false, nivel = null, objetoId, separado 
       {/* Cuerpo del librero */}
       <mesh position={[0, 0.9, -0.15]} castShadow>
         <boxGeometry args={[1.02, 1.8, 0.36]} />
-        <meshStandardMaterial color={color} roughness={0.85} />
+        <MatStd acabado="mueble.madera" color={color} roughness={0.85} />
       </mesh>
       {/* Hueco (fondo más oscuro) y estantes */}
       <mesh position={[0, 0.9, -0.02]}>
         <boxGeometry args={[0.9, 1.66, 0.04]} />
-        <meshStandardMaterial color="#5b3a1a" roughness={0.9} />
+        <MatStd acabado="mueble.madera" color="#5b3a1a" roughness={0.9} />
       </mesh>
       {[0.35, 0.9, 1.45].map((y) => (
         <mesh key={y} position={[0, y, 0]} castShadow>
           <boxGeometry args={[0.9, 0.04, 0.32]} />
-          <meshStandardMaterial color="#6b4423" />
+          <MatStd acabado="mueble.madera" color="#6b4423" />
         </mesh>
       ))}
       {/* Hileras de lomos en dos estantes (separado, cada libro es un objeto propio) */}
@@ -469,16 +470,16 @@ function GloboTerraqueo({ color, simple = false, nivel = null, objetoId }: EspPr
       {/* Base */}
       <mesh position={[0, 0.1, 0]} castShadow>
         <cylinderGeometry args={[0.24, 0.3, 0.2, 20]} />
-        <meshStandardMaterial color="#5b3a1a" roughness={0.85} />
+        <MatStd acabado="mueble.madera" color="#5b3a1a" roughness={0.85} />
       </mesh>
       <mesh position={[0, 0.28, 0]}>
         <cylinderGeometry args={[0.03, 0.03, 0.22, 10]} />
-        <meshStandardMaterial color="#7c5a2a" />
+        <MatStd acabado="mueble.madera" color="#7c5a2a" />
       </mesh>
       {/* Aro meridiano inclinado */}
       <mesh position={[0, 0.72, 0]} rotation={[0, 0, 0.4]}>
         <torusGeometry args={[0.46, 0.025, 10, 32, Math.PI * 1.25]} />
-        <meshStandardMaterial color="#a16207" metalness={0.4} roughness={0.4} />
+        <MatStd acabado="mueble.metal" color="#a16207" metalness={0.4} roughness={0.4} />
       </mesh>
       {/* Esfera (gira) con eje inclinado */}
       <group position={[0, 0.72, 0]} rotation={[0, 0, 0.41]}>
@@ -518,24 +519,24 @@ function EstanteriaHerramientas({ color, simple = false, nivel = null, objetoId 
       {/* Caja del gabinete (fondo, lados, techo, piso) */}
       <mesh position={[0, 0.8, -0.18]} castShadow>
         <boxGeometry args={[0.9, 1.5, 0.06]} />
-        <meshStandardMaterial color={color} roughness={0.8} />
+        <MatStd acabado="mueble.madera" color={color} roughness={0.8} />
       </mesh>
       {[-0.44, 0.44].map((x) => (
         <mesh key={x} position={[x, 0.8, -0.02]} castShadow>
           <boxGeometry args={[0.06, 1.5, 0.36]} />
-          <meshStandardMaterial color={color} roughness={0.8} />
+          <MatStd acabado="mueble.madera" color={color} roughness={0.8} />
         </mesh>
       ))}
       {[0.08, 1.52].map((y) => (
         <mesh key={y} position={[0, y, -0.02]} castShadow>
           <boxGeometry args={[0.9, 0.06, 0.36]} />
-          <meshStandardMaterial color={color} roughness={0.8} />
+          <MatStd acabado="mueble.madera" color={color} roughness={0.8} />
         </mesh>
       ))}
       {/* Panel perforado del fondo */}
       <mesh position={[0, 0.8, -0.14]}>
         <boxGeometry args={[0.78, 1.36, 0.02]} />
-        <meshStandardMaterial color="#374151" roughness={0.9} />
+        <MatStd acabado="mueble.metal" color="#374151" roughness={0.9} />
       </mesh>
       {/* Herramientas colgadas */}
       {/* Martillo */}
@@ -546,13 +547,13 @@ function EstanteriaHerramientas({ color, simple = false, nivel = null, objetoId 
         </mesh>
         <mesh position={[0, 0.2, 0]} castShadow>
           <boxGeometry args={[0.16, 0.07, 0.07]} />
-          <meshStandardMaterial color="#9ca3af" metalness={0.6} roughness={0.4} />
+          <MatStd acabado="mueble.metal" color="#9ca3af" metalness={0.6} roughness={0.4} />
         </mesh>
       </group>
       {/* Llave */}
       <mesh position={[0.02, 0.95, -0.1]} rotation={[0, 0, 0.3]} castShadow>
         <boxGeometry args={[0.05, 0.34, 0.03]} />
-        <meshStandardMaterial color="#9ca3af" metalness={0.6} roughness={0.4} />
+        <MatStd acabado="mueble.metal" color="#9ca3af" metalness={0.6} roughness={0.4} />
       </mesh>
       {/* Desarmador */}
       <group position={[0.26, 0.9, -0.1]}>
@@ -562,14 +563,14 @@ function EstanteriaHerramientas({ color, simple = false, nivel = null, objetoId 
         </mesh>
         <mesh position={[0, -0.16, 0]} castShadow>
           <cylinderGeometry args={[0.012, 0.012, 0.16, 8]} />
-          <meshStandardMaterial color="#d1d5db" metalness={0.7} roughness={0.3} />
+          <MatStd acabado="mueble.metal" color="#d1d5db" metalness={0.7} roughness={0.3} />
         </mesh>
       </group>
       {/* Puertas (se abren) */}
       <group ref={puertaIzq} position={[-0.44, 0.8, 0.16]}>
         <mesh position={[0.22, 0, 0]} castShadow>
           <boxGeometry args={[0.44, 1.42, 0.05]} />
-          <meshStandardMaterial color={color} metalness={0.2} roughness={0.7} />
+          <MatStd acabado="mueble.metal" color={color} metalness={0.2} roughness={0.7} />
         </mesh>
         <mesh position={[0.4, 0, 0.04]}>
           <sphereGeometry args={[0.03, 8, 8]} />
@@ -579,7 +580,7 @@ function EstanteriaHerramientas({ color, simple = false, nivel = null, objetoId 
       <group ref={puertaDer} position={[0.44, 0.8, 0.16]}>
         <mesh position={[-0.22, 0, 0]} castShadow>
           <boxGeometry args={[0.44, 1.42, 0.05]} />
-          <meshStandardMaterial color={color} metalness={0.2} roughness={0.7} />
+          <MatStd acabado="mueble.metal" color={color} metalness={0.2} roughness={0.7} />
         </mesh>
         <mesh position={[-0.4, 0, 0.04]}>
           <sphereGeometry args={[0.03, 8, 8]} />
@@ -607,18 +608,18 @@ function RepisaJuegos({ color, simple = false, nivel = null, objetoId, separado 
       {/* Estructura de la repisa */}
       <mesh position={[0, 0.85, -0.16]} castShadow>
         <boxGeometry args={[1.0, 1.7, 0.06]} />
-        <meshStandardMaterial color={color} roughness={0.85} />
+        <MatStd acabado="mueble.madera" color={color} roughness={0.85} />
       </mesh>
       {[-0.47, 0.47].map((x) => (
         <mesh key={x} position={[x, 0.85, 0]} castShadow>
           <boxGeometry args={[0.06, 1.7, 0.36]} />
-          <meshStandardMaterial color={color} roughness={0.85} />
+          <MatStd acabado="mueble.madera" color={color} roughness={0.85} />
         </mesh>
       ))}
       {[0.05, 0.62, 1.2, 1.68].map((y) => (
         <mesh key={y} position={[0, y, 0]} castShadow>
           <boxGeometry args={[1.0, 0.05, 0.36]} />
-          <meshStandardMaterial color="#6b4423" />
+          <MatStd acabado="mueble.madera" color="#6b4423" />
         </mesh>
       ))}
       {/* Separada, la pila y las cajas paradas son objetos propios (separables.ts). */}
@@ -771,11 +772,11 @@ function Caminadora({ color }: UsableProps) {
       {/* Base y banda */}
       <mesh position={[0, 0.07, 0.15]} castShadow>
         <boxGeometry args={[0.72, 0.14, 1.5]} />
-        <meshStandardMaterial color={color} roughness={0.7} />
+        <MatStd acabado="mueble.plastico" color={color} roughness={0.7} />
       </mesh>
       <mesh position={[0, 0.15, 0.2]}>
         <boxGeometry args={[0.58, 0.03, 1.3]} />
-        <meshStandardMaterial color="#111827" roughness={0.6} />
+        <MatStd acabado="mueble.plastico" color="#111827" roughness={0.6} />
       </mesh>
       {/* Rieles laterales */}
       {[-1, 1].map((s) => (
@@ -788,12 +789,12 @@ function Caminadora({ color }: UsableProps) {
       {[-1, 1].map((s) => (
         <mesh key={s} position={[s * 0.3, 0.6, -0.62]} castShadow>
           <cylinderGeometry args={[0.03, 0.03, 0.9, 8]} />
-          <meshStandardMaterial color="#334155" metalness={0.4} />
+          <MatStd acabado="mueble.metal" color="#334155" metalness={0.4} />
         </mesh>
       ))}
       <mesh position={[0, 1.05, -0.6]} rotation={[-0.5, 0, 0]} castShadow>
         <boxGeometry args={[0.66, 0.34, 0.05]} />
-        <meshStandardMaterial color="#1e293b" />
+        <MatStd acabado="mueble.plastico" color="#1e293b" />
       </mesh>
       <mesh position={[0, 1.06, -0.58]} rotation={[-0.5, 0, 0]}>
         <boxGeometry args={[0.5, 0.22, 0.01]} />
@@ -810,24 +811,24 @@ function SillonLectura({ color }: UsableProps) {
       {/* Asiento (el personaje se sienta en el origen) */}
       <mesh position={[0, 0.35, 0.04]} castShadow>
         <boxGeometry args={[0.74, 0.3, 0.66]} />
-        <meshStandardMaterial color={color} roughness={0.85} />
+        <MatStd acabado="mueble.tela" color={color} roughness={0.85} />
       </mesh>
       {/* Respaldo (atrás, en -z) */}
       <mesh position={[0, 0.72, -0.28]} castShadow>
         <boxGeometry args={[0.74, 0.7, 0.16]} />
-        <meshStandardMaterial color={color} roughness={0.85} />
+        <MatStd acabado="mueble.tela" color={color} roughness={0.85} />
       </mesh>
       {/* Descansabrazos */}
       {[-1, 1].map((s) => (
         <mesh key={s} position={[s * 0.39, 0.52, 0.02]} castShadow>
           <boxGeometry args={[0.16, 0.36, 0.62]} />
-          <meshStandardMaterial color={color} roughness={0.85} />
+          <MatStd acabado="mueble.tela" color={color} roughness={0.85} />
         </mesh>
       ))}
       {/* Cojín del asiento */}
       <mesh position={[0, 0.52, 0.06]} castShadow>
         <boxGeometry args={[0.62, 0.12, 0.56]} />
-        <meshStandardMaterial color="#cbd5e1" roughness={0.9} />
+        <MatStd acabado="mueble.tela" color="#cbd5e1" roughness={0.9} />
       </mesh>
       {/* Patitas */}
       {[
@@ -838,7 +839,7 @@ function SillonLectura({ color }: UsableProps) {
       ].map(([x, z], i) => (
         <mesh key={i} position={[x, 0.1, z]} castShadow>
           <cylinderGeometry args={[0.035, 0.035, 0.2, 8]} />
-          <meshStandardMaterial color="#3f3f46" />
+          <MatStd acabado="mueble.metal" color="#3f3f46" />
         </mesh>
       ))}
     </group>
@@ -865,24 +866,24 @@ function EscritorioNoticias({ color, simple = false, nivel = null, objetoId, sep
         {/* Cubierta */}
         <mesh position={[0, 0.75, 0]} castShadow>
           <boxGeometry args={[1.2, 0.06, 0.6]} />
-          <meshStandardMaterial color={color} roughness={0.8} />
+          <MatStd acabado="mueble.madera" color={color} roughness={0.8} />
         </mesh>
         {/* Cajonera a la derecha */}
         <mesh position={[0.42, 0.37, 0]} castShadow>
           <boxGeometry args={[0.34, 0.7, 0.56]} />
-          <meshStandardMaterial color={color} roughness={0.8} />
+          <MatStd acabado="mueble.madera" color={color} roughness={0.8} />
         </mesh>
         {[0.55, 0.32].map((y) => (
           <mesh key={y} position={[0.42, y, 0.29]}>
             <boxGeometry args={[0.16, 0.03, 0.03]} />
-            <meshStandardMaterial color="#3f3f46" metalness={0.5} />
+            <MatStd acabado="mueble.metal" color="#3f3f46" metalness={0.5} />
           </mesh>
         ))}
         {/* Patas del lado izquierdo */}
         {[-0.24, 0.24].map((z) => (
           <mesh key={z} position={[-0.52, 0.35, z]} castShadow>
             <boxGeometry args={[0.08, 0.7, 0.08]} />
-            <meshStandardMaterial color="#5b3a1a" roughness={0.85} />
+            <MatStd acabado="mueble.madera" color="#5b3a1a" roughness={0.85} />
           </mesh>
         ))}
         {/* Periódico doblado encima (separado, es un objeto propio) */}
@@ -912,7 +913,7 @@ function Laptop({ color, separado = false }: UsableProps) {
       {/* Escritorio */}
       <mesh position={[0, 0.75, 0]} castShadow>
         <boxGeometry args={[1.1, 0.05, 0.6]} />
-        <meshStandardMaterial color="#6b4423" roughness={0.8} />
+        <MatStd acabado="mueble.madera" color="#6b4423" roughness={0.8} />
       </mesh>
       <Patas w={1.0} d={0.5} h={0.75} color="#5b3a1a" />
       {/* Separado, el monitor, el teclado y el ratón son objetos propios (separables.ts). */}
@@ -921,15 +922,15 @@ function Laptop({ color, separado = false }: UsableProps) {
           {/* Monitor GRANDE (pantalla hacia +z, donde se sienta el personaje) */}
           <mesh position={[0, 0.79, -0.16]} castShadow>
             <boxGeometry args={[0.34, 0.03, 0.2]} />
-            <meshStandardMaterial color="#1f2937" metalness={0.4} />
+            <MatStd acabado="mueble.metal" color="#1f2937" metalness={0.4} />
           </mesh>
           <mesh position={[0, 0.95, -0.18]} castShadow>
             <cylinderGeometry args={[0.04, 0.04, 0.34, 10]} />
-            <meshStandardMaterial color="#1f2937" metalness={0.4} />
+            <MatStd acabado="mueble.metal" color="#1f2937" metalness={0.4} />
           </mesh>
           <mesh position={[0, 1.4, -0.2]} castShadow>
             <boxGeometry args={[1.1, 0.68, 0.05]} />
-            <meshStandardMaterial color={color} metalness={0.4} roughness={0.4} />
+            <MatStd acabado="mueble.metal" color={color} metalness={0.4} roughness={0.4} />
           </mesh>
           <mesh position={[0, 1.4, -0.172]}>
             <boxGeometry args={[1.0, 0.58, 0.005]} />
@@ -963,7 +964,7 @@ function TapeteYoga({ color }: UsableProps) {
     <group>
       <mesh position={[0, 0.02, 0]} castShadow receiveShadow>
         <boxGeometry args={[0.95, 0.04, 1.9]} />
-        <meshStandardMaterial color={color} roughness={0.9} />
+        <MatStd acabado="mueble.plastico" color={color} roughness={0.9} />
       </mesh>
       <mesh position={[0, 0.041, 0]}>
         <boxGeometry args={[0.15, 0.005, 1.78]} />
@@ -972,7 +973,7 @@ function TapeteYoga({ color }: UsableProps) {
       {/* Cojín en un extremo */}
       <mesh position={[0, 0.09, -0.7]} castShadow>
         <cylinderGeometry args={[0.19, 0.19, 0.12, 16]} />
-        <meshStandardMaterial color="#0f766e" roughness={0.85} />
+        <MatStd acabado="mueble.plastico" color="#0f766e" roughness={0.85} />
       </mesh>
     </group>
   )
@@ -998,17 +999,17 @@ function PianoObj({ color, simple = false, nivel = null, objetoId, separado = fa
         {/* Cuerpo vertical */}
         <mesh position={[0, 0.72, -0.08]} castShadow>
           <boxGeometry args={[1.1, 1.4, 0.35]} />
-          <meshStandardMaterial color={color} roughness={0.4} metalness={0.1} />
+          <MatStd acabado="mueble.madera" color={color} roughness={0.4} metalness={0.1} />
         </mesh>
         {/* Tapa superior */}
         <mesh position={[0, 1.44, -0.02]} castShadow>
           <boxGeometry args={[1.16, 0.06, 0.44]} />
-          <meshStandardMaterial color={color} roughness={0.4} />
+          <MatStd acabado="mueble.madera" color={color} roughness={0.4} />
         </mesh>
         {/* Repisa del teclado */}
         <mesh position={[0, 0.74, 0.18]} castShadow>
           <boxGeometry args={[1.02, 0.12, 0.24]} />
-          <meshStandardMaterial color="#1c1917" roughness={0.5} />
+          <MatStd acabado="mueble.madera" color="#1c1917" roughness={0.5} />
         </mesh>
         {/* Teclas blancas */}
         <mesh position={[0, 0.8, 0.26]}>
@@ -1026,7 +1027,7 @@ function PianoObj({ color, simple = false, nivel = null, objetoId, separado = fa
         {[-0.5, 0.5].map((x) => (
           <mesh key={x} position={[x, 0.1, -0.08]} castShadow>
             <boxGeometry args={[0.1, 0.2, 0.3]} />
-            <meshStandardMaterial color={color} roughness={0.4} />
+            <MatStd acabado="mueble.madera" color={color} roughness={0.4} />
           </mesh>
         ))}
       </group>
@@ -1035,7 +1036,7 @@ function PianoObj({ color, simple = false, nivel = null, objetoId, separado = fa
         <>
           <mesh position={[0, 0.42, 0.62]} castShadow>
             <boxGeometry args={[0.6, 0.08, 0.26]} />
-            <meshStandardMaterial color="#5b3a1a" roughness={0.7} />
+            <MatStd acabado="mueble.madera" color="#5b3a1a" roughness={0.7} />
           </mesh>
           {[
             [-0.24, 0.52],
@@ -1045,7 +1046,7 @@ function PianoObj({ color, simple = false, nivel = null, objetoId, separado = fa
           ].map(([x, z], i) => (
             <mesh key={i} position={[x, 0.2, z]} castShadow>
               <cylinderGeometry args={[0.025, 0.025, 0.38, 8]} />
-              <meshStandardMaterial color="#3f3f46" />
+              <MatStd acabado="mueble.metal" color="#3f3f46" />
             </mesh>
           ))}
         </>
@@ -1074,7 +1075,7 @@ function Arbol({ color, simple = false, nivel = null, objetoId }: EspProps) {
         {/* Maceta */}
         <mesh position={[0, 0.2, 0]} castShadow>
           <cylinderGeometry args={[0.22, 0.16, 0.4, 16]} />
-          <meshStandardMaterial color="#b45309" roughness={0.85} />
+          <MatStd acabado="planta.barro" color="#b45309" roughness={0.85} />
         </mesh>
         {/* Tallo */}
         <mesh position={[0, 0.6, 0]} castShadow>
@@ -1090,7 +1091,7 @@ function Arbol({ color, simple = false, nivel = null, objetoId }: EspProps) {
         ].map((p, i) => (
           <mesh key={i} position={[p[0], p[1], p[2]]} castShadow>
             <sphereGeometry args={[p[3], 12, 12]} />
-            <meshStandardMaterial color={color} roughness={0.8} />
+            <MatStd acabado="planta.follaje" color={color} roughness={0.8} />
           </mesh>
         ))}
       </group>
@@ -1105,7 +1106,7 @@ function Libreta({ color, separado = false }: UsableProps) {
       {/* Mesa baja */}
       <mesh position={[0, 0.32, 0]} castShadow>
         <boxGeometry args={[0.8, 0.05, 0.48]} />
-        <meshStandardMaterial color="#6b4423" roughness={0.8} />
+        <MatStd acabado="mueble.madera" color="#6b4423" roughness={0.8} />
       </mesh>
       <Patas w={0.7} d={0.4} h={0.32} color="#5b3a1a" />
       {/* Separada, la libreta y la pluma son objetos propios (separables.ts). */}
@@ -1283,11 +1284,11 @@ function CajaFuerte({ color, simple = false, nivel = null, objetoId }: EspProps)
       {/* Zócalo y cuerpo */}
       <mesh position={[0, 0.05, 0]} castShadow receiveShadow>
         <boxGeometry args={[1.18, 0.1, 0.98]} />
-        <meshStandardMaterial color="#1f2937" roughness={0.8} />
+        <MatStd acabado="mueble.metal" color="#1f2937" roughness={0.8} />
       </mesh>
       <mesh position={[0, 0.62, -0.02]} castShadow receiveShadow>
         <boxGeometry args={[1.1, 1.05, 0.9]} />
-        <meshStandardMaterial color={color} metalness={0.55} roughness={0.35} />
+        <MatStd acabado="mueble.metal" color={color} metalness={0.55} roughness={0.35} />
       </mesh>
       {/* Remaches del frente */}
       {[
@@ -1328,13 +1329,13 @@ function CajaFuerte({ color, simple = false, nivel = null, objetoId }: EspProps)
       <group ref={puerta} position={[-0.5, 0.62, 0.43]}>
         <mesh position={[0.5, 0, 0]} castShadow>
           <boxGeometry args={[1.0, 1.0, 0.09]} />
-          <meshStandardMaterial color={color} metalness={0.6} roughness={0.3} />
+          <MatStd acabado="mueble.metal" color={color} metalness={0.6} roughness={0.3} />
         </mesh>
         {/* Dial de combinación */}
         <group ref={dial} position={[0.66, 0.02, 0.08]}>
           <mesh rotation={[Math.PI / 2, 0, 0]}>
             <cylinderGeometry args={[0.17, 0.17, 0.05, 20]} />
-            <meshStandardMaterial color="#e5e7eb" metalness={0.8} roughness={0.2} />
+            <MatStd acabado="mueble.metal" color="#e5e7eb" metalness={0.8} roughness={0.2} />
           </mesh>
           {[0, 1, 2, 3].map((i) => (
             <mesh key={i} position={[0, 0, 0.03]} rotation={[0, 0, (i * Math.PI) / 4]}>
@@ -1376,7 +1377,7 @@ function EstacionComputo({ color, separado = false }: UsableProps) {
       {/* Escritorio ancho */}
       <mesh position={[0, 0.75, 0]} castShadow receiveShadow>
         <boxGeometry args={[1.6, 0.06, 0.72]} />
-        <meshStandardMaterial color="#4b5563" roughness={0.7} />
+        <MatStd acabado="mueble.madera" color="#4b5563" roughness={0.7} />
       </mesh>
       <Patas w={1.48} d={0.6} h={0.75} color="#374151" />
       {/* Separada, la torre, los monitores y lo de encima son objetos propios (separables.ts). */}
@@ -1392,7 +1393,7 @@ function EquipoComputo({ color, pantalla: PANTALLA }: { color: string; pantalla:
       {/* Torre en el suelo, a la derecha */}
       <mesh position={[0.95, 0.36, -0.1]} castShadow>
         <boxGeometry args={[0.34, 0.72, 0.62]} />
-        <meshStandardMaterial color="#1f2937" metalness={0.45} roughness={0.35} />
+        <MatStd acabado="mueble.metal" color="#1f2937" metalness={0.45} roughness={0.35} />
       </mesh>
       {[-0.18, -0.06, 0.06, 0.18].map((y) => (
         <mesh key={y} position={[0.95, 0.5 + y, 0.215]}>
@@ -1407,22 +1408,22 @@ function EquipoComputo({ color, pantalla: PANTALLA }: { color: string; pantalla:
       {/* Base y brazo compartido de los monitores */}
       <mesh position={[0, 0.79, -0.22]} castShadow>
         <boxGeometry args={[0.4, 0.03, 0.2]} />
-        <meshStandardMaterial color="#1f2937" metalness={0.5} />
+        <MatStd acabado="mueble.metal" color="#1f2937" metalness={0.5} />
       </mesh>
       <mesh position={[0, 0.98, -0.24]} castShadow>
         <cylinderGeometry args={[0.035, 0.035, 0.4, 10]} />
-        <meshStandardMaterial color="#1f2937" metalness={0.5} />
+        <MatStd acabado="mueble.metal" color="#1f2937" metalness={0.5} />
       </mesh>
       <mesh position={[0, 1.19, -0.24]} rotation={[0, 0, Math.PI / 2]}>
         <cylinderGeometry args={[0.03, 0.03, 1.24, 10]} />
-        <meshStandardMaterial color="#1f2937" metalness={0.5} />
+        <MatStd acabado="mueble.metal" color="#1f2937" metalness={0.5} />
       </mesh>
       {/* Dos monitores, girados hacia el asiento (+z) */}
       {[-1, 1].map((s) => (
         <group key={s} position={[s * 0.44, 1.34, -0.2]} rotation={[0, -s * 0.28, 0]}>
           <mesh castShadow>
             <boxGeometry args={[0.82, 0.5, 0.045]} />
-            <meshStandardMaterial color={color} metalness={0.4} roughness={0.4} />
+            <MatStd acabado="mueble.metal" color={color} metalness={0.4} roughness={0.4} />
           </mesh>
           <mesh position={[0, 0, 0.026]}>
             <boxGeometry args={[0.76, 0.44, 0.004]} />
@@ -1516,7 +1517,7 @@ function TecladoMidi({ color, simple = false, nivel = null, objetoId, separado =
           {[-1, 1].map((s) => (
             <mesh key={s} position={[0, 0.42, 0]} rotation={[s * 0.42, 0, 0]} castShadow>
               <boxGeometry args={[0.06, 0.9, 0.05]} />
-              <meshStandardMaterial color="#3f3f46" metalness={0.55} roughness={0.4} />
+              <MatStd acabado="mueble.metal" color="#3f3f46" metalness={0.55} roughness={0.4} />
             </mesh>
           ))}
         </group>
@@ -1524,7 +1525,7 @@ function TecladoMidi({ color, simple = false, nivel = null, objetoId, separado =
       {/* Cuerpo del teclado */}
       <mesh position={[0, 0.88, 0]} castShadow receiveShadow>
         <boxGeometry args={[1.5, 0.1, 0.42]} />
-        <meshStandardMaterial color={color} roughness={0.45} metalness={0.25} />
+        <MatStd acabado="mueble.plastico" color={color} roughness={0.45} metalness={0.25} />
       </mesh>
       {/* Panel de control: pantalla y potenciómetros */}
       <mesh ref={panel} position={[-0.5, 0.945, -0.13]} rotation={[-0.25, 0, 0]}>
@@ -1567,7 +1568,7 @@ function TecladoMidi({ color, simple = false, nivel = null, objetoId, separado =
         <>
           <mesh position={[0, 0.44, 0.72]} castShadow>
             <boxGeometry args={[0.62, 0.08, 0.28]} />
-            <meshStandardMaterial color="#1f2937" roughness={0.75} />
+            <MatStd acabado="mueble.tela" color="#1f2937" roughness={0.75} />
           </mesh>
           {[
             [-0.25, 0.62],
@@ -1577,7 +1578,7 @@ function TecladoMidi({ color, simple = false, nivel = null, objetoId, separado =
           ].map(([x, z]) => (
             <mesh key={`${x}-${z}`} position={[x, 0.2, z]} castShadow>
               <cylinderGeometry args={[0.022, 0.022, 0.4, 8]} />
-              <meshStandardMaterial color="#3f3f46" metalness={0.5} />
+              <MatStd acabado="mueble.metal" color="#3f3f46" metalness={0.5} />
             </mesh>
           ))}
         </>
@@ -1621,17 +1622,17 @@ function CaballeteArte({ color, simple = false, nivel = null, objetoId, separado
       {[-0.34, 0.34].map((x) => (
         <mesh key={x} position={[x, 0.75, 0.06]} rotation={[0.06, 0, -x * 0.16]} castShadow>
           <boxGeometry args={[0.055, 1.5, 0.055]} />
-          <meshStandardMaterial color={color} roughness={0.8} />
+          <MatStd acabado="mueble.madera" color={color} roughness={0.8} />
         </mesh>
       ))}
       <mesh position={[0, 0.72, -0.28]} rotation={[0.3, 0, 0]} castShadow>
         <boxGeometry args={[0.055, 1.5, 0.055]} />
-        <meshStandardMaterial color={color} roughness={0.8} />
+        <MatStd acabado="mueble.madera" color={color} roughness={0.8} />
       </mesh>
       {/* Travesaño y bandeja del lienzo */}
       <mesh position={[0, 0.62, 0.03]} castShadow>
         <boxGeometry args={[0.78, 0.05, 0.14]} />
-        <meshStandardMaterial color={color} roughness={0.8} />
+        <MatStd acabado="mueble.madera" color={color} roughness={0.8} />
       </mesh>
       {/* Lienzo inclinado */}
       <group ref={lienzo} position={[0, 1.06, 0.02]} rotation={[0.08, 0, 0]}>
@@ -1648,7 +1649,7 @@ function CaballeteArte({ color, simple = false, nivel = null, objetoId, separado
         {/* Marco de la tela */}
         <mesh position={[0, 0, -0.02]}>
           <boxGeometry args={[0.82, 0.66, 0.02]} />
-          <meshStandardMaterial color="#d4a373" roughness={0.85} />
+          <MatStd acabado="mueble.madera" color="#d4a373" roughness={0.85} />
         </mesh>
       </group>
       {/* Pincel que pinta */}
@@ -1668,7 +1669,7 @@ function CaballeteArte({ color, simple = false, nivel = null, objetoId, separado
           {/* Paleta apoyada en la bandeja */}
           <mesh position={[-0.22, 0.665, 0.06]} rotation={[Math.PI / 2, 0, 0.2]} castShadow>
             <cylinderGeometry args={[0.14, 0.14, 0.015, 16]} />
-            <meshStandardMaterial color="#c8a165" roughness={0.8} />
+            <MatStd acabado="mueble.madera" color="#c8a165" roughness={0.8} />
           </mesh>
           {[
             [-0.29, '#ef4444'],
@@ -1724,24 +1725,24 @@ function EscritorioEscritura({ color, simple = false, nivel = null, objetoId, se
       {/* Escritorio */}
       <mesh position={[0, 0.76, 0]} castShadow receiveShadow>
         <boxGeometry args={[1.5, 0.07, 0.7]} />
-        <meshStandardMaterial color={color} roughness={0.75} />
+        <MatStd acabado="mueble.madera" color={color} roughness={0.75} />
       </mesh>
       <Patas w={1.36} d={0.56} h={0.76} color="#5b3a1a" />
       {/* Cajonera lateral */}
       <mesh position={[-0.52, 0.38, -0.02]} castShadow>
         <boxGeometry args={[0.42, 0.68, 0.6]} />
-        <meshStandardMaterial color={color} roughness={0.75} />
+        <MatStd acabado="mueble.madera" color={color} roughness={0.75} />
       </mesh>
       {[0.16, 0.4].map((y) => (
         <mesh key={y} position={[-0.52, y, 0.29]}>
           <boxGeometry args={[0.3, 0.03, 0.02]} />
-          <meshStandardMaterial color="#d6b98c" metalness={0.4} roughness={0.5} />
+          <MatStd acabado="mueble.metal" color="#d6b98c" metalness={0.4} roughness={0.5} />
         </mesh>
       ))}
       {/* Máquina de escribir: base, teclado escalonado y rodillo */}
       <mesh position={[0.16, 0.85, 0.02]} castShadow>
         <boxGeometry args={[0.56, 0.11, 0.42]} />
-        <meshStandardMaterial color="#1f2937" roughness={0.5} metalness={0.25} />
+        <MatStd acabado="mueble.metal" color="#1f2937" roughness={0.5} metalness={0.25} />
       </mesh>
       {[0, 1, 2].map((f) => (
         <mesh key={f} position={[0.16, 0.915 + f * 0.018, 0.16 - f * 0.06]} castShadow>
@@ -1754,7 +1755,7 @@ function EscritorioEscritura({ color, simple = false, nivel = null, objetoId, se
         {[-0.05, 0.05].map((x) => (
           <mesh key={x} position={[x, 0.05, 0]} rotation={[-0.9, 0, 0]} castShadow>
             <boxGeometry args={[0.012, 0.2, 0.012]} />
-            <meshStandardMaterial color="#9ca3af" metalness={0.7} roughness={0.3} />
+            <MatStd acabado="mueble.metal" color="#9ca3af" metalness={0.7} roughness={0.3} />
           </mesh>
         ))}
       </group>
@@ -1843,26 +1844,26 @@ function CamaraVideo({ color, simple = false, nivel = null, objetoId, separado =
           <group position={[0, 0.95, 0]} rotation={[0.28, 0, 0]}>
             <mesh position={[0, -0.48, 0]} castShadow>
               <boxGeometry args={[0.05, 0.96, 0.05]} />
-              <meshStandardMaterial color="#1f2937" metalness={0.5} roughness={0.45} />
+              <MatStd acabado="mueble.metal" color="#1f2937" metalness={0.5} roughness={0.45} />
             </mesh>
           </group>
         </group>
       ))}
       <mesh position={[0, 0.95, 0]} castShadow>
         <cylinderGeometry args={[0.045, 0.06, 0.16, 10]} />
-        <meshStandardMaterial color="#374151" metalness={0.55} roughness={0.4} />
+        <MatStd acabado="mueble.metal" color="#374151" metalness={0.55} roughness={0.4} />
       </mesh>
       {/* Cabeza: la cámara que panea */}
       <group ref={cabeza} position={[0, 1.06, 0]}>
         {/* Cuerpo */}
         <mesh position={[0, 0.1, 0]} castShadow>
           <boxGeometry args={[0.34, 0.24, 0.5]} />
-          <meshStandardMaterial color={color} metalness={0.4} roughness={0.4} />
+          <MatStd acabado="mueble.metal" color={color} metalness={0.4} roughness={0.4} />
         </mesh>
         {/* Lente */}
         <mesh position={[0, 0.1, 0.3]} rotation={[Math.PI / 2, 0, 0]} castShadow>
           <cylinderGeometry args={[0.1, 0.12, 0.2, 16]} />
-          <meshStandardMaterial color="#111827" metalness={0.6} roughness={0.3} />
+          <MatStd acabado="mueble.metal" color="#111827" metalness={0.6} roughness={0.3} />
         </mesh>
         <mesh position={[0, 0.1, 0.401]} rotation={[Math.PI / 2, 0, 0]}>
           <cylinderGeometry args={[0.075, 0.075, 0.01, 16]} />
@@ -1928,15 +1929,15 @@ function ClaquetaYFoco({ claqueta }: { claqueta: RefObject<THREE.Group> }) {
       <group position={[-0.68, 0, 0.24]}>
         <mesh position={[0, 0.03, 0]} castShadow>
           <cylinderGeometry args={[0.16, 0.19, 0.06, 12]} />
-          <meshStandardMaterial color="#1f2937" roughness={0.8} />
+          <MatStd acabado="mueble.metal" color="#1f2937" roughness={0.8} />
         </mesh>
         <mesh position={[0, 0.5, 0]} castShadow>
           <cylinderGeometry args={[0.03, 0.035, 0.94, 10]} />
-          <meshStandardMaterial color="#374151" metalness={0.5} roughness={0.45} />
+          <MatStd acabado="mueble.metal" color="#374151" metalness={0.5} roughness={0.45} />
         </mesh>
         <mesh position={[0, 1.02, 0.06]} rotation={[0.5, 0, 0]} castShadow>
           <boxGeometry args={[0.34, 0.34, 0.1]} />
-          <meshStandardMaterial color="#1f2937" metalness={0.4} roughness={0.5} />
+          <MatStd acabado="mueble.metal" color="#1f2937" metalness={0.4} roughness={0.5} />
         </mesh>
         <mesh position={[0, 0.99, 0.13]} rotation={[0.5, 0, 0]}>
           <boxGeometry args={[0.28, 0.28, 0.01]} />
@@ -1996,11 +1997,11 @@ function DianaMetas({ color, simple = false, nivel = null, objetoId }: EspProps)
       {/* Pie y poste */}
       <mesh position={[0, 0.04, 0]} castShadow receiveShadow>
         <cylinderGeometry args={[0.34, 0.4, 0.08, 16]} />
-        <meshStandardMaterial color="#1f2937" roughness={0.85} />
+        <MatStd acabado="mueble.metal" color="#1f2937" roughness={0.85} />
       </mesh>
       <mesh position={[0, 0.5, 0]} castShadow>
         <cylinderGeometry args={[0.05, 0.06, 0.92, 10]} />
-        <meshStandardMaterial color="#374151" metalness={0.4} roughness={0.5} />
+        <MatStd acabado="mueble.metal" color="#374151" metalness={0.4} roughness={0.5} />
       </mesh>
 
       {/* El tablero: los anillos van en planos apilados hacia el jugador para que
