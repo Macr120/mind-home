@@ -65,6 +65,10 @@ const PALETAS: Record<TemaId | 'base', Paleta> = {
   vaquero: { mat: '#9c5a2c', matMix: 0.55, rough: 0.9, metal: 0.05, emi: '', emiI: 0, madera: '#7c4a24', metalCol: '#6b4f2a', acento: '#a16207' },
   cyberpunk: { mat: '#17132a', matMix: 0.68, rough: 0.35, metal: 0.6, emi: '#22d3ee', emiI: 0.12, madera: '#1c1830', metalCol: '#2a2740', acento: '#d946ef' },
   navidad: { mat: '#2e7d32', matMix: 0.42, rough: 0.5, metal: 0.1, emi: '', emiI: 0, madera: '#1f5e23', metalCol: '#b91c1c', acento: '#fbbf24' },
+  nave: { mat: '#cbd5e1', matMix: 0.55, rough: 0.25, metal: 0.7, emi: '#38bdf8', emiI: 0.06, madera: '#94a3b8', metalCol: '#64748b', acento: '#7dd3fc' },
+  avion: { mat: '#f1f5f9', matMix: 0.45, rough: 0.35, metal: 0.45, emi: '', emiI: 0, madera: '#cbd5e1', metalCol: '#94a3b8', acento: '#dc2626' },
+  apocalipsis: { mat: '#7c4a21', matMix: 0.55, rough: 0.95, metal: 0.2, emi: '', emiI: 0, madera: '#5a4632', metalCol: '#57534e', acento: '#d97706' },
+  tortuga: { mat: '#6b8e3a', matMix: 0.4, rough: 0.85, metal: 0, emi: '', emiI: 0, madera: '#8b6a3e', metalCol: '#6b5a3a', acento: '#fde68a' },
 }
 
 const pal = (t: TemaId | null) => PALETAS[t ?? 'base']

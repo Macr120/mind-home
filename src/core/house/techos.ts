@@ -287,6 +287,10 @@ const TECHO_POR_TEMA: Record<TemaId, TechoTipoId> = {
   vaquero: 'madera_sol',
   cyberpunk: 'neon_techo',
   navidad: 'nieve_techo',
+  nave: 'panel_orbital',
+  avion: 'panel_orbital',
+  apocalipsis: 'madera_sol',
+  tortuga: 'madera_sol',
 }
 
 export function techoSugeridoPorTema(tema: TemaId | null): TechoTipoId | null {

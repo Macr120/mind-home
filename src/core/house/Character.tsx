@@ -34,6 +34,7 @@ import { claveCeldaOff, formaEnCelda, subformasDeCelda, puntoDentroSilueta } fro
 import { footprintDeObjeto, piezasDesdeObjeto, TIPO_PIEZAS } from './catalogo'
 import { superficieObjeto } from './gruposObjeto'
 import { moveInput, vectorCam } from './movement'
+import { fueraDelEscenario } from './escenarios/limitesCasa'
 import { dragChar } from './characterDrag'
 import { girarHacia, marchaAvatar, suave } from './animacion'
 import { sonar } from '../audio/sfx'
@@ -1470,7 +1471,11 @@ export function Character() {
     const trepa = accionFrame.saltoInicio !== 0
     const estatura = ALTO_AVATAR * (av.escala || 1)
     targetY = sueloAPie(cur.x, cur.z, objCols, cur.y, pisoY, trepa, estatura)
-    const bloquea = (px: number, pz: number) => chocaAPie(px, pz, objCols, cur.y, pisoY, trepa, estatura)
+    // En un tema dinámico, el borde del vehículo también es un muro (solo para salir:
+    // si el tema se puso con el personaje afuera, puede volver caminando).
+    const yaFuera = fueraDelEscenario(cur.x, cur.z)
+    const bloquea = (px: number, pz: number) =>
+      chocaAPie(px, pz, objCols, cur.y, pisoY, trepa, estatura) || (!yaFuera && fueraDelEscenario(px, pz))
     let flotandoEnAgua = false
     if (playerLevel === -1 && useLayout.getState().subCeldasAgua.has(claveSubActual)) {
       flotandoEnAgua = true

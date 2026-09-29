@@ -18,6 +18,7 @@ import { cuadrantesDeCelda, matDeRegistroPiso, type MatPiso } from './pisoSubcel
 import { PisoCuadrantes3D } from './PisoCuadrantes3D'
 import { getTema, mezclar } from './temas'
 import { useBlobUrlMap } from './useBlobUrlMap'
+import { useEscenarioVisible, useLimitesCasa } from './escenarios/limitesCasa'
 
 /** Color de celda exterior sin personalizar (visible, no negro). */
 export function colorExteriorDefecto(temaGlobal: ReturnType<typeof useDiseño.getState>['temaGlobal']) {
@@ -146,6 +147,8 @@ export function PisosExterior3D() {
   }, [nivelesActivos, gridCols, gridRows, pisosMap, subsSotano])
 
   const defecto = colorExteriorDefecto(temaGlobal)
+  const escenario = useEscenarioVisible()
+  const lim = useLimitesCasa()
 
   const imagenUrls = useBlobUrlMap(
     celdas.flatMap((c) => [
@@ -161,6 +164,21 @@ export function PisosExterior3D() {
       })),
     ]),
   )
+
+  // Tema dinámico: no hay piso a la vista, pero el toque para caminar sigue
+  // funcionando sobre un plano invisible del tamaño del vehículo.
+  if (escenario) {
+    return (
+      <mesh
+        position={[lim.cx, -0.02, lim.cz]}
+        rotation={[-Math.PI / 2, 0, 0]}
+        onClick={(e) => onClickSuelo(e, -1, -1)}
+      >
+        <planeGeometry args={[lim.ancho, lim.largo]} />
+        <meshBasicMaterial colorWrite={false} depthWrite={false} />
+      </mesh>
+    )
+  }
 
   if (celdas.length === 0) return null
 

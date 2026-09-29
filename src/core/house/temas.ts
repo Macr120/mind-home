@@ -22,6 +22,17 @@ export type TemaId =
   | 'vaquero'
   | 'cyberpunk'
   | 'navidad'
+  | 'nave'
+  | 'avion'
+  | 'apocalipsis'
+  | 'tortuga'
+
+/**
+ * Escenario en movimiento: la casa se monta sobre un vehículo (o un animal) que no
+ * se mueve, se quita el piso exterior y lo que corre es el fondo.
+ */
+export type EscenarioId = 'nave' | 'avion' | 'rodante' | 'tortuga'
+export const ESCENARIOS: EscenarioId[] = ['nave', 'avion', 'rodante', 'tortuga']
 
 /** Id de cualquier tema: uno de fábrica o uno creado por el usuario (`u_<uuid>`). */
 export type TemaClave = string
@@ -58,6 +69,8 @@ export interface Tema {
   base?: TemaId | null
   /** Solo temas del usuario: efectos con los que nació (p. ej. los que eligió la IA). */
   efectosConfig?: EfectosConfig
+  /** Escenario en movimiento (sin él, la casa está quieta sobre su piso). */
+  escenario?: EscenarioId
 }
 
 /**
@@ -229,6 +242,77 @@ export const TEMAS: (Tema & { id: TemaId })[] = [
     luz: { sol: '#dceaff', ambiente: '#e8f0ff', focos: '#ffb066', ibl: 0.25 },
     niebla: { color: '#dce8f4', near: 36, far: 95 },
   },
+  {
+    id: 'nave',
+    nombre: 'Nave espacial',
+    icon: '🛸',
+    paleta: ['#94a3b8', '#38bdf8', '#0f172a', '#f1f5f9'],
+    tinte: '#94a3b8',
+    fuerza: 0.4,
+    roughness: 0.3,
+    metalness: 0.75,
+    emissive: '#38bdf8',
+    emissiveIntensity: 0.18,
+    fondo: '#02030a',
+    estilo: 'normal',
+    escenario: 'nave',
+    shell: { muroInt: '#dde4ee', muroExt: '#8e9aab', piso: '#c9d3df', techo: '#6b7788' },
+    luz: { sol: '#cfe0ff', intensidadSol: 1.05, ambiente: '#c8d6ff', focos: '#a5e8ff', ibl: 0.55, exposicion: 1.05 },
+  },
+  {
+    id: 'avion',
+    nombre: 'Avión',
+    icon: '✈️',
+    paleta: ['#e2e8f0', '#60a5fa', '#f8fafc', '#dc2626'],
+    tinte: '#e2e8f0',
+    fuerza: 0.3,
+    roughness: 0.35,
+    metalness: 0.45,
+    emissive: '#000000',
+    emissiveIntensity: 0,
+    fondo: '#7fb8ec',
+    estilo: 'normal',
+    escenario: 'avion',
+    shell: { muroInt: '#f1f5f9', muroExt: '#dfe6ee', piso: '#cbd5e1', techo: '#b91c1c' },
+    luz: { sol: '#fff6e0', intensidadSol: 1.15, ambiente: '#e0efff', focos: '#ffe2a8', ibl: 0.4, exposicion: 1.05 },
+    niebla: { color: '#bcd9f5', near: 60, far: 170 },
+  },
+  {
+    id: 'apocalipsis',
+    nombre: 'Apocalíptico',
+    icon: '☢️',
+    paleta: ['#7c4a21', '#a16207', '#3f3a33', '#d6a15b'],
+    tinte: '#7c4a21',
+    fuerza: 0.55,
+    roughness: 0.95,
+    metalness: 0.2,
+    emissive: '#000000',
+    emissiveIntensity: 0,
+    fondo: '#3a2616',
+    estilo: 'normal',
+    escenario: 'rodante',
+    shell: { muroInt: '#9b8870', muroExt: '#6e5a44', piso: '#6a5842', techo: '#5a3a22' },
+    luz: { sol: '#ffb070', fuerzaSol: 0.55, intensidadSol: 0.9, ambiente: '#d8a878', focos: '#ff9a4a', ibl: 0.18, exposicion: 0.95 },
+    niebla: { color: '#b07a48', near: 60, far: 160 },
+  },
+  {
+    id: 'tortuga',
+    nombre: 'Tortuga gigante',
+    icon: '🐢',
+    paleta: ['#4d7c0f', '#8b6a3e', '#65a30d', '#fef3c7'],
+    tinte: '#6b8e3a',
+    fuerza: 0.3,
+    roughness: 0.85,
+    metalness: 0,
+    emissive: '#000000',
+    emissiveIntensity: 0,
+    fondo: '#9fd3f0',
+    estilo: 'normal',
+    escenario: 'tortuga',
+    shell: { muroInt: '#e9dcc0', muroExt: '#a58158', piso: '#b08d5f', techo: '#5f7a2c' },
+    luz: { sol: '#fff1c8', intensidadSol: 1.05, ambiente: '#e6f5d8', focos: '#ffd28a', ibl: 0.3 },
+    niebla: { color: '#cfe8d6', near: 55, far: 150 },
+  },
 ]
 
 /**
@@ -253,13 +337,17 @@ export interface TemaOverride {
   efectos?: boolean
   /** Ajuste fino de efectos (on/off + intensidad por efecto) de este tema. */
   efectosConfig?: EfectosConfig
+  /** Escenario en movimiento elegido para este tema (`null` = quitarlo). */
+  escenario?: EscenarioId | null
 }
 
 /** Fusiona un tema base con la personalización del usuario (o lo devuelve tal cual). */
 function fusionarTema(base: Tema, ov: TemaOverride | undefined): Tema {
   if (!ov) return base
   const { shell, luz, niebla, ...rest } = ov
-  const fusion: Tema = { ...base, ...rest, shell: { ...base.shell, ...shell } }
+  const { escenario, ...resto } = rest
+  const fusion: Tema = { ...base, ...resto, shell: { ...base.shell, ...shell } }
+  if (escenario !== undefined) fusion.escenario = escenario ?? undefined
   if (base.luz || luz) fusion.luz = { ...base.luz, ...luz }
   if (base.niebla || niebla) fusion.niebla = { ...base.niebla, ...niebla } as TemaNiebla
   return fusion

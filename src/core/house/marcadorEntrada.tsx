@@ -153,6 +153,28 @@ function MarcadorNavidad() {
   )
 }
 
+/** Tortuga gigante: brote verde que se mece. */
+function MarcadorBrote() {
+  const ref = useRef<Group>(null)
+  useFrame((s) => {
+    if (ref.current) ref.current.rotation.z = Math.sin(s.clock.elapsedTime * 1.6) * 0.2
+  })
+  return (
+    <group ref={ref}>
+      <mesh>
+        <sphereGeometry args={[0.13, 12, 12]} />
+        <meshStandardMaterial color="#84cc16" emissive="#65a30d" emissiveIntensity={0.7} toneMapped={false} />
+      </mesh>
+      {[-1, 1].map((l) => (
+        <mesh key={l} position={[l * 0.12, 0.12, 0]} rotation={[0, 0, -l * 0.7]} scale={[1, 0.45, 0.6]}>
+          <sphereGeometry args={[0.11, 10, 10]} />
+          <meshStandardMaterial color="#a3e635" emissive="#4d7c0f" emissiveIntensity={0.5} toneMapped={false} />
+        </mesh>
+      ))}
+    </group>
+  )
+}
+
 const MARCADORES: Record<TemaId, () => ReactElement> = {
   medieval: MarcadorMedieval,
   espacio: MarcadorEspacio,
@@ -161,6 +183,10 @@ const MARCADORES: Record<TemaId, () => ReactElement> = {
   vaquero: MarcadorVaquero,
   cyberpunk: MarcadorCyberpunk,
   navidad: MarcadorNavidad,
+  nave: MarcadorEspacio,
+  avion: MarcadorEspacio,
+  apocalipsis: MarcadorMedieval,
+  tortuga: MarcadorBrote,
 }
 
 /** El aviso de los marcadores CON tema: conservan su forma y ganan un aro rojo. */

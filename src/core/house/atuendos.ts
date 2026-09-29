@@ -190,6 +190,38 @@ export const ATUENDO_POR_TEMA: Record<TemaId, Ropa> = {
     botas: { color: '#111827' },
     guantes: { color: '#f8fafc' },
   },
+  nave: {
+    lentes: { color: '#38bdf8' },
+    chamarra: { color: '#1e293b' },
+    playera: { color: '#e2e8f0' },
+    pantalon: { color: '#334155' },
+    botas: { color: '#0f172a' },
+    guantes: { color: '#94a3b8' },
+  },
+  avion: {
+    gorra: { color: '#1e3a8a' },
+    lentes: { color: '#0f172a' },
+    chamarra: { color: '#6b4226' },
+    camisa: { color: '#f8fafc' },
+    pantalon: { color: '#1e293b' },
+    botas: { color: '#111827' },
+  },
+  apocalipsis: {
+    lentes: { color: '#a16207' },
+    bufanda: { color: '#7c4a21' },
+    chamarra: { color: '#3f3a33' },
+    pantalon: { color: '#57534e' },
+    botas: { color: '#292524' },
+    guantes: { color: '#44403c' },
+    mochila: { color: '#6b5a3a' },
+  },
+  tortuga: {
+    sombrero: { color: '#a3865a' },
+    camisa: { color: '#65a30d' },
+    pantalon: { color: '#8b6a3e' },
+    tenis: { color: '#f5f5dc' },
+    mochila: { color: '#4d7c0f' },
+  },
 }
 
 const firmaRopa = (r: Ropa) =>

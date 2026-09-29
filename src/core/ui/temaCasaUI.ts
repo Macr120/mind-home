@@ -27,4 +27,8 @@ export const UI_POR_TEMA: Record<TemaId, AparienciaUI> = {
   vaquero: { temaUI: 'ambar', modoUI: 'claro', estiloUI: 'pixel', tinteUI: 0.45 },
   cyberpunk: { temaUI: 'neon', modoUI: 'oscuro', estiloUI: 'plano', tinteUI: 0.55 },
   navidad: { temaUI: 'bosque', modoUI: 'claro', estiloUI: 'redondo', tinteUI: 0.5 },
+  nave: { temaUI: 'cielo', modoUI: 'oscuro', estiloUI: 'plano', tinteUI: 0.4 },
+  avion: { temaUI: 'cielo', modoUI: 'claro', estiloUI: 'plano', tinteUI: 0.35 },
+  apocalipsis: { temaUI: 'ambar', modoUI: 'oscuro', estiloUI: 'tinta', tinteUI: 0.45 },
+  tortuga: { temaUI: 'lima', modoUI: 'claro', estiloUI: 'redondo', tinteUI: 0.45 },
 }

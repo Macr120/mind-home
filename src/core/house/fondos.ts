@@ -177,6 +177,11 @@ const FONDO_POR_TEMA: Record<TemaId, FondoId> = {
   vaquero: 'desierto',
   cyberpunk: 'neon_ciudad',
   navidad: 'nieve',
+  // Los temas con escenario en movimiento: el cielo acompaña al viaje.
+  nave: 'cielo_oscuro',
+  avion: 'cielo_claro',
+  apocalipsis: 'desierto',
+  tortuga: 'cielo_claro',
 }
 
 /** Fondo al activar un tema; sin tema → ciclo día/noche. */

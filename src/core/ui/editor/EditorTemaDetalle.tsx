@@ -1,9 +1,16 @@
 import type { ReactNode } from 'react'
 import { useDiseño } from '../../state/disenoStore'
 import { useTemaActivo } from '../../house/useTema'
-import type { TemaId } from '../../house/temas'
+import { ESCENARIOS, type EscenarioId, type TemaId } from '../../house/temas'
 import { useT } from '../../i18n/useT'
 import { EditorEstiloSection } from './EditorEstiloSection'
+
+const NOMBRE_ESCENARIO: Record<EscenarioId, string> = {
+  nave: 'Nave espacial',
+  avion: 'Avión',
+  rodante: 'Casa rodante',
+  tortuga: 'Tortuga gigante',
+}
 
 /** Fila etiqueta + selector de color compacto. */
 function FilaColor({ label, value, onChange }: { label: string; value: string; onChange: (c: string) => void }) {
@@ -103,6 +110,24 @@ export function EditorTemaDetalle() {
       </div>
 
       <EditorEstiloSection embed sinDestino />
+
+      <Grupo titulo={t('editor.tema.escenario', 'Escenario')}>
+        <select
+          value={tema.escenario ?? ''}
+          onChange={(e) => set({ escenario: (e.target.value || null) as EscenarioId | null })}
+          className="w-full rounded-md border border-white/10 bg-black/30 px-2 py-1.5 text-xs text-white/80"
+        >
+          <option value="">{t('escenario.ninguno', 'Ninguno (casa quieta)')}</option>
+          {ESCENARIOS.map((id) => (
+            <option key={id} value={id}>
+              {t(`escenario.${id}`, NOMBRE_ESCENARIO[id])}
+            </option>
+          ))}
+        </select>
+        <p className="text-[11px] leading-snug text-white/45">
+          {t('editor.tema.escenarioAyuda', 'Monta la casa sobre un vehículo y hace correr el paisaje. Al editar el mapa vuelve el piso.')}
+        </p>
+      </Grupo>
 
       <Grupo titulo={t('editor.tema.cascaron', 'Colores del cascarón')}>
         <FilaColor label={t('editor.tema.muroInt', 'Muro interior')} value={shell.muroInt} onChange={(c) => set({ shell: { muroInt: c } })} />

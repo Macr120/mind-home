@@ -1,6 +1,6 @@
 import { conversarIA, extraerJSON } from '../chat/ia'
 import { EFECTOS, ESTILOS, getEstilo, type EfectosConfig } from './estilos'
-import { TEMAS, esTemaFabrica, type Tema, type TemaLuz, type TemaNiebla } from './temas'
+import { ESCENARIOS, TEMAS, esTemaFabrica, type EscenarioId, type Tema, type TemaLuz, type TemaNiebla } from './temas'
 import { MATERIALES_MUEBLE, MATERIALES_MURO, esMaterialPbr } from './materialesPBR'
 import { HDRIS, esHdri } from './EntornoIBL'
 
@@ -21,7 +21,7 @@ const SYSTEM = [
   '"texturas":{"muroInt":string,"muroExt":string,"mueble":string},',
   '"luz":{"sol":hex,"fuerzaSol":number,"intensidadSol":number,"ambiente":hex,"fuerzaAmbiente":number,"focos":hex,"ibl":number,"exposicion":number,"hdri":string},',
   '"niebla":{"color":hex,"near":number,"far":number}|null,',
-  '"estilo":string,"efectos":{"<efecto>":{"on":boolean,"val":number}}}',
+  '"estilo":string,"efectos":{"<efecto>":{"on":boolean,"val":number}},"escenario":string|null}',
   'Reglas:',
   '- hex = color "#rrggbb". "nombre": 1 a 3 palabras en el idioma del usuario. "icon": UN solo emoji.',
   `- "base": el tema de fábrica más parecido para vestir al personaje y la interfaz (${TEMAS.map((t) => t.id).join(', ')}) o null si ninguno encaja.`,
@@ -34,6 +34,7 @@ const SYSTEM = [
   `- "efectos": solo los que quieras encender, de: ${EFECTOS.map((e) => `${e.id} (${e.desc})`).join('; ')}. "val" de 0 a 1.`,
   `- "texturas" (solo se ven si el usuario activa el realismo): muros de ${MATERIALES_MURO.join(', ')}; muebles de ${MATERIALES_MUEBLE.join(', ')}.`,
   `- "luz.hdri": entorno de reflejos, uno de ${HDRIS.join(', ')}.`,
+  `- "escenario": SOLO si la descripción pide que la casa viaje o vaya montada en algo (nave, avión, vehículo, animal gigante): uno de ${ESCENARIOS.join(', ')}; si no, null.`,
   '- Para un look realista: estilo "normal", oclusion y bloom suaves, colores naturales poco saturados, fuerza baja.',
 ].join('\n')
 
@@ -134,5 +135,6 @@ export function temaDesdeJSON(j: Record<string, unknown>, descripcion: string): 
     estilo: getEstilo(typeof j.estilo === 'string' ? j.estilo : null),
     efectosConfig: efectos,
     base: typeof j.base === 'string' && esTemaFabrica(j.base) ? j.base : null,
+    escenario: ESCENARIOS.includes(j.escenario as EscenarioId) ? (j.escenario as EscenarioId) : undefined,
   }
 }
