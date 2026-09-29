@@ -1,5 +1,6 @@
 import type { AnclasRopa, PeinadoId } from './apariencia'
 import { PELO_COLOR_DEFAULT } from './apariencia'
+import { MatStd } from './primitivas'
 
 /**
  * Peinado del personaje dibujado con primitivas sobre la cabeza del cuerpo base
@@ -27,11 +28,11 @@ export function Peinado({
     <>
       <mesh position={[0, top - 0.05, -0.02]} castShadow>
         <boxGeometry args={[w + 0.05, 0.22, w + 0.05]} />
-        <meshStandardMaterial color={c} />
+        <MatStd acabado="cuerpo.pelaje" color={c} />
       </mesh>
       <mesh position={[0, top - 0.03, hw]} castShadow>
         <boxGeometry args={[w + 0.05, 0.12, 0.05]} />
-        <meshStandardMaterial color={c} />
+        <MatStd acabado="cuerpo.pelaje" color={c} />
       </mesh>
     </>
   )
@@ -44,7 +45,7 @@ export function Peinado({
         <group>
           <mesh position={[0, top - 0.08, -0.02]} castShadow>
             <boxGeometry args={[w + 0.04, 0.14, w + 0.04]} />
-            <meshStandardMaterial color={c} />
+            <MatStd acabado="cuerpo.pelaje" color={c} />
           </mesh>
           {[
             [-0.12, 0.1],
@@ -55,7 +56,7 @@ export function Peinado({
           ].map(([x, z], i) => (
             <mesh key={i} position={[x, top + 0.07, z]} castShadow>
               <coneGeometry args={[0.06, 0.2, 6]} />
-              <meshStandardMaterial color={c} />
+              <MatStd acabado="cuerpo.pelaje" color={c} />
             </mesh>
           ))}
         </group>
@@ -66,11 +67,11 @@ export function Peinado({
           {casquete}
           <mesh position={[0, top - 0.04, -(hw + 0.04)]}>
             <sphereGeometry args={[0.05, 8, 8]} />
-            <meshStandardMaterial color={c} />
+            <MatStd acabado="cuerpo.pelaje" color={c} />
           </mesh>
           <mesh position={[0, top - 0.22, -(hw + 0.08)]} castShadow>
             <cylinderGeometry args={[0.07, 0.05, 0.44, 8]} />
-            <meshStandardMaterial color={c} />
+            <MatStd acabado="cuerpo.pelaje" color={c} />
           </mesh>
         </group>
       )
@@ -80,7 +81,7 @@ export function Peinado({
           {casquete}
           <mesh position={[0, top + 0.09, -0.05]} castShadow>
             <sphereGeometry args={[0.12, 12, 12]} />
-            <meshStandardMaterial color={c} />
+            <MatStd acabado="cuerpo.pelaje" color={c} />
           </mesh>
         </group>
       )
@@ -91,12 +92,12 @@ export function Peinado({
           {[-1, 1].map((s) => (
             <mesh key={s} position={[s * (hw + 0.01), top - 0.3, -0.02]} castShadow>
               <boxGeometry args={[0.07, 0.5, w]} />
-              <meshStandardMaterial color={c} />
+              <MatStd acabado="cuerpo.pelaje" color={c} />
             </mesh>
           ))}
           <mesh position={[0, top - 0.32, -(hw + 0.01)]} castShadow>
             <boxGeometry args={[w, 0.56, 0.07]} />
-            <meshStandardMaterial color={c} />
+            <MatStd acabado="cuerpo.pelaje" color={c} />
           </mesh>
         </group>
       )
@@ -104,7 +105,7 @@ export function Peinado({
       return (
         <mesh position={[0, top + 0.08, -0.05]} castShadow>
           <sphereGeometry args={[hw + 0.11, 16, 16]} />
-          <meshStandardMaterial color={c} />
+          <MatStd acabado="cuerpo.pelaje" color={c} />
         </mesh>
       )
     case 'mohawk':
@@ -113,7 +114,7 @@ export function Peinado({
           {[-0.13, -0.05, 0.03, 0.11].map((z, i) => (
             <mesh key={i} position={[0, top + 0.08, z]} castShadow>
               <coneGeometry args={[0.06, 0.24, 6]} />
-              <meshStandardMaterial color={c} />
+              <MatStd acabado="cuerpo.pelaje" color={c} />
             </mesh>
           ))}
         </group>
@@ -122,7 +123,7 @@ export function Peinado({
       return (
         <mesh position={[0, top - 0.04, 0]} castShadow>
           <sphereGeometry args={[hw + 0.05, 16, 12, 0, Math.PI * 2, 0, Math.PI * 0.6]} />
-          <meshStandardMaterial color={c} />
+          <MatStd acabado="cuerpo.pelaje" color={c} />
         </mesh>
       )
     default:

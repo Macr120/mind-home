@@ -207,11 +207,11 @@ export function CuerpoAnimal({ tipo, hambriento = false }: { tipo: TipoAnimal; h
         ))}
         <mesh position={[0, 0.34, 0]} scale={[1, 0.9, 1.15]}>
           <sphereGeometry args={[0.24, 10, 8]} />
-          <meshStandardMaterial color="#f8fafc" roughness={0.8} />
+          <MatStd acabado="cuerpo.plumas" color="#f8fafc" roughness={0.8} />
         </mesh>
         <mesh position={[0, 0.58, 0.18]}>
           <sphereGeometry args={[0.13, 10, 8]} />
-          <meshStandardMaterial color="#f8fafc" roughness={0.8} />
+          <MatStd acabado="cuerpo.plumas" color="#f8fafc" roughness={0.8} />
         </mesh>
         <mesh position={[0, 0.72, 0.18]}>
           <boxGeometry args={[0.06, 0.1, 0.14]} />
@@ -225,7 +225,7 @@ export function CuerpoAnimal({ tipo, hambriento = false }: { tipo: TipoAnimal; h
     )
   }
 
-  const patas = (dx: number, dz: number, alto: number, color: string) =>
+  const patas = (dx: number, dz: number, alto: number, color: string, acabado = 'cuerpo.pelaje') =>
     [
       [-dx, -dz],
       [dx, -dz],
@@ -234,21 +234,21 @@ export function CuerpoAnimal({ tipo, hambriento = false }: { tipo: TipoAnimal; h
     ].map(([px, pz]) => (
       <mesh key={`${px},${pz}`} position={[px, alto / 2, pz]}>
         <boxGeometry args={[0.11, alto, 0.11]} />
-        <meshStandardMaterial color={color} roughness={0.85} />
+        <MatStd acabado={acabado} color={color} roughness={0.85} />
       </mesh>
     ))
 
   if (tipo === 'cerdo') {
     return (
       <group rotation-x={inclinacion}>
-        {patas(0.26, 0.26, 0.28, '#e8a0a8')}
+        {patas(0.26, 0.26, 0.28, '#e8a0a8', 'cuerpo.piel')}
         <mesh position={[0, 0.5, 0]}>
           <boxGeometry args={[0.55, 0.48, 0.9]} />
-          <meshStandardMaterial color="#f2b7bd" roughness={0.8} />
+          <MatStd acabado="cuerpo.piel" color="#f2b7bd" roughness={0.8} />
         </mesh>
         <mesh position={[0, 0.58, 0.55]}>
           <boxGeometry args={[0.38, 0.36, 0.3]} />
-          <meshStandardMaterial color="#f2b7bd" roughness={0.8} />
+          <MatStd acabado="cuerpo.piel" color="#f2b7bd" roughness={0.8} />
         </mesh>
         <mesh position={[0, 0.55, 0.72]} rotation={[Math.PI / 2, 0, 0]}>
           <cylinderGeometry args={[0.09, 0.09, 0.08, 8]} />
@@ -257,7 +257,7 @@ export function CuerpoAnimal({ tipo, hambriento = false }: { tipo: TipoAnimal; h
         {[-0.14, 0.14].map((x) => (
           <mesh key={x} position={[x, 0.79, 0.5]} rotation={[0.3, 0, x > 0 ? -0.3 : 0.3]}>
             <coneGeometry args={[0.07, 0.14, 4]} />
-            <meshStandardMaterial color="#e8a0a8" roughness={0.8} />
+            <MatStd acabado="cuerpo.piel" color="#e8a0a8" roughness={0.8} />
           </mesh>
         ))}
       </group>
@@ -270,11 +270,11 @@ export function CuerpoAnimal({ tipo, hambriento = false }: { tipo: TipoAnimal; h
         {patas(0.24, 0.26, 0.36, '#9aa0a6')}
         <mesh position={[0, 0.6, 0]}>
           <boxGeometry args={[0.46, 0.44, 0.82]} />
-          <meshStandardMaterial color="#b9bec4" roughness={0.85} />
+          <MatStd acabado="cuerpo.pelaje" color="#b9bec4" roughness={0.85} />
         </mesh>
         <mesh position={[0, 0.82, 0.5]}>
           <boxGeometry args={[0.28, 0.34, 0.3]} />
-          <meshStandardMaterial color="#b9bec4" roughness={0.85} />
+          <MatStd acabado="cuerpo.pelaje" color="#b9bec4" roughness={0.85} />
         </mesh>
         {[-0.1, 0.1].map((x) => (
           <mesh key={x} position={[x, 1.04, 0.42]} rotation={[-0.6, 0, 0]}>
@@ -292,11 +292,11 @@ export function CuerpoAnimal({ tipo, hambriento = false }: { tipo: TipoAnimal; h
         {patas(0.24, 0.24, 0.3, '#3f3f46')}
         <mesh position={[0, 0.62, 0]} scale={[1, 0.85, 1.2]}>
           <sphereGeometry args={[0.42, 10, 8]} />
-          <meshStandardMaterial color="#f1f0ea" roughness={0.95} />
+          <MatStd acabado="cuerpo.pelaje" color="#f1f0ea" roughness={0.95} />
         </mesh>
         <mesh position={[0, 0.72, 0.52]}>
           <boxGeometry args={[0.24, 0.26, 0.28]} />
-          <meshStandardMaterial color="#3f3f46" roughness={0.8} />
+          <MatStd acabado="cuerpo.pelaje" color="#3f3f46" roughness={0.8} />
         </mesh>
       </group>
     )
@@ -308,20 +308,20 @@ export function CuerpoAnimal({ tipo, hambriento = false }: { tipo: TipoAnimal; h
         {patas(0.26, 0.44, 0.66, '#6b4a2f')}
         <mesh position={[0, 1.05, 0]}>
           <boxGeometry args={[0.56, 0.58, 1.24]} />
-          <meshStandardMaterial color="#8b5a2b" roughness={0.85} />
+          <MatStd acabado="cuerpo.pelaje" color="#8b5a2b" roughness={0.85} />
         </mesh>
         {/* Cuello inclinado hacia delante, con la crin encima. */}
         <mesh position={[0, 1.42, 0.5]} rotation-x={-0.45}>
           <boxGeometry args={[0.3, 0.62, 0.32]} />
-          <meshStandardMaterial color="#8b5a2b" roughness={0.85} />
+          <MatStd acabado="cuerpo.pelaje" color="#8b5a2b" roughness={0.85} />
         </mesh>
         <mesh position={[0, 1.62, 0.44]} rotation-x={-0.45}>
           <boxGeometry args={[0.12, 0.6, 0.1]} />
-          <meshStandardMaterial color="#3f3f46" roughness={0.9} />
+          <MatStd acabado="cuerpo.pelaje" color="#3f3f46" roughness={0.9} />
         </mesh>
         <mesh position={[0, 1.68, 0.78]} rotation-x={0.25}>
           <boxGeometry args={[0.24, 0.26, 0.5]} />
-          <meshStandardMaterial color="#8b5a2b" roughness={0.85} />
+          <MatStd acabado="cuerpo.pelaje" color="#8b5a2b" roughness={0.85} />
         </mesh>
         <mesh position={[0, 1.6, 1.0]}>
           <boxGeometry args={[0.2, 0.18, 0.12]} />
@@ -330,13 +330,13 @@ export function CuerpoAnimal({ tipo, hambriento = false }: { tipo: TipoAnimal; h
         {[-0.09, 0.09].map((x) => (
           <mesh key={x} position={[x, 1.86, 0.66]} rotation={[0, 0, x > 0 ? -0.2 : 0.2]}>
             <coneGeometry args={[0.05, 0.16, 5]} />
-            <meshStandardMaterial color="#8b5a2b" roughness={0.85} />
+            <MatStd acabado="cuerpo.pelaje" color="#8b5a2b" roughness={0.85} />
           </mesh>
         ))}
         {/* Cola. */}
         <mesh position={[0, 1.14, -0.66]} rotation-x={0.5}>
           <boxGeometry args={[0.12, 0.5, 0.12]} />
-          <meshStandardMaterial color="#3f3f46" roughness={0.9} />
+          <MatStd acabado="cuerpo.pelaje" color="#3f3f46" roughness={0.9} />
         </mesh>
       </group>
     )
@@ -348,20 +348,20 @@ export function CuerpoAnimal({ tipo, hambriento = false }: { tipo: TipoAnimal; h
       {patas(0.34, 0.42, 0.45, '#e5e0d8')}
       <mesh position={[0, 0.85, 0]}>
         <boxGeometry args={[0.68, 0.62, 1.3]} />
-        <meshStandardMaterial color="#f3efe7" roughness={0.85} />
+        <MatStd acabado="cuerpo.pelaje" color="#f3efe7" roughness={0.85} />
       </mesh>
       {/* Manchas. */}
       <mesh position={[0.24, 0.95, -0.3]}>
         <boxGeometry args={[0.24, 0.3, 0.4]} />
-        <meshStandardMaterial color="#3f3f46" roughness={0.85} />
+        <MatStd acabado="cuerpo.pelaje" color="#3f3f46" roughness={0.85} />
       </mesh>
       <mesh position={[-0.22, 0.75, 0.25]}>
         <boxGeometry args={[0.28, 0.34, 0.34]} />
-        <meshStandardMaterial color="#3f3f46" roughness={0.85} />
+        <MatStd acabado="cuerpo.pelaje" color="#3f3f46" roughness={0.85} />
       </mesh>
       <mesh position={[0, 1.02, 0.78]}>
         <boxGeometry args={[0.36, 0.4, 0.36]} />
-        <meshStandardMaterial color="#f3efe7" roughness={0.85} />
+        <MatStd acabado="cuerpo.pelaje" color="#f3efe7" roughness={0.85} />
       </mesh>
       <mesh position={[0, 0.98, 0.98]}>
         <boxGeometry args={[0.2, 0.14, 0.1]} />

@@ -36,6 +36,10 @@ export const MATERIALES_PBR = {
   // Plantas (no se ofrecen a la IA como material de mueble).
   'planta.barro': { carpeta: 'muebles/barro', tam: 0.35 },
   'planta.follaje': { carpeta: 'muebles/follaje', tam: 0.5 },
+  // Cuerpos de personajes y animales (procedurales; tampoco van a la IA).
+  'cuerpo.piel': { carpeta: 'cuerpo/piel', tam: 0.3 },
+  'cuerpo.pelaje': { carpeta: 'cuerpo/pelaje', tam: 0.35 },
+  'cuerpo.plumas': { carpeta: 'cuerpo/plumas', tam: 0.3 },
 } satisfies Record<string, MaterialPBR>
 
 export type MaterialPbrId = keyof typeof MATERIALES_PBR

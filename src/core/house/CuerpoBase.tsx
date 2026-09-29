@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
+import { MatStd } from './primitivas'
 import {
   anguloMarcha,
   anguloBrazoNado,
@@ -160,19 +161,19 @@ export function CuerpoBase({
       <group ref={piernaI} name="piernaDer" position={[-0.14, 0.6, 0]}>
         <mesh position={[0, -0.3, 0]} castShadow>
           <boxGeometry args={[0.24, 0.6, 0.26]} />
-          <meshStandardMaterial color={colorPiernas} />
+          <MatStd acabado="mueble.tela" color={colorPiernas} />
         </mesh>
       </group>
       <group ref={piernaD} name="piernaIzq" position={[0.14, 0.6, 0]}>
         <mesh position={[0, -0.3, 0]} castShadow>
           <boxGeometry args={[0.24, 0.6, 0.26]} />
-          <meshStandardMaterial color={colorPiernas} />
+          <MatStd acabado="mueble.tela" color={colorPiernas} />
         </mesh>
       </group>
       {/* torso */}
       <mesh position={[0, 0.92, 0]} castShadow>
         <boxGeometry args={[0.6, 0.62, 0.3]} />
-        <meshStandardMaterial color={colorTorso} />
+        <MatStd acabado="mueble.tela" color={colorTorso} />
       </mesh>
       {/* brazos: grupo con pivote en el hombro. Color de la cabeza (piel), no del
           torso: así la piel que asoma bajo mangas cortas o sin camisa combina con
@@ -180,19 +181,19 @@ export function CuerpoBase({
       <group ref={brazoI} name="brazoDer" position={[-0.42, 1.22, 0]}>
         <mesh position={[0, -0.3, 0]} castShadow>
           <boxGeometry args={[0.2, 0.6, 0.26]} />
-          <meshStandardMaterial color={colorCabeza} />
+          <MatStd acabado="cuerpo.piel" color={colorCabeza} />
         </mesh>
       </group>
       <group ref={brazoD} name="brazoIzq" position={[0.42, 1.22, 0]}>
         <mesh position={[0, -0.3, 0]} castShadow>
           <boxGeometry args={[0.2, 0.6, 0.26]} />
-          <meshStandardMaterial color={colorCabeza} />
+          <MatStd acabado="cuerpo.piel" color={colorCabeza} />
         </mesh>
       </group>
       {/* cabeza */}
       <mesh position={[0, 1.5, 0]} castShadow>
         <boxGeometry args={[0.44, 0.44, 0.44]} />
-        <meshStandardMaterial color={colorCabeza} />
+        <MatStd acabado="cuerpo.piel" color={colorCabeza} />
       </mesh>
     </>
   )

@@ -661,17 +661,19 @@ function Brazo({
   hombro,
   color,
   mano,
+  acabado,
 }: {
   brazoRef: RefObject<THREE.Group | null>
   hombro: [number, number, number]
   color: string
   mano?: React.ReactNode
+  acabado?: string
 }) {
   return (
     <group ref={brazoRef} position={hombro}>
       <mesh position={[0, -0.22, 0]} castShadow>
         <boxGeometry args={[0.14, 0.44, 0.14]} />
-        <meshStandardMaterial color={color} />
+        <MatStd acabado={acabado} color={color} />
       </mesh>
       {mano && <group position={[0, -0.46, 0]}>{mano}</group>}
     </group>
@@ -698,12 +700,12 @@ function Mago({ brazoRef, color }: PropsModelo) {
       {/* Cabeza */}
       <mesh position={[0, 1.12, 0]} castShadow>
         <sphereGeometry args={[0.24, 16, 16]} />
-        <meshStandardMaterial color={PIEL} />
+        <MatStd acabado="cuerpo.piel" color={PIEL} />
       </mesh>
       {/* Barba */}
       <mesh position={[0, 0.92, 0.12]}>
         <coneGeometry args={[0.16, 0.34, 8]} />
-        <meshStandardMaterial color="#e8e8ee" />
+        <MatStd acabado="cuerpo.pelaje" color="#e8e8ee" />
       </mesh>
       {/* Sombrero: ala + cono */}
       <mesh position={[0, 1.3, 0]}>
@@ -726,6 +728,7 @@ function Mago({ brazoRef, color }: PropsModelo) {
         brazoRef={brazoRef}
         hombro={[0.32, 0.92, 0]}
         color={tunica}
+        acabado="mueble.tela"
         mano={
           <mesh>
             <sphereGeometry args={[0.12, 12, 12]} />
@@ -744,36 +747,36 @@ function Gato({ brazoRef, color, sinOjos }: PropsModelo & { sinOjos?: boolean })
       {/* Cuerpo */}
       <mesh position={[0, 0.55, 0]} castShadow>
         <boxGeometry args={[0.5, 0.62, 0.42]} />
-        <meshStandardMaterial color={pelaje} />
+        <MatStd acabado="cuerpo.pelaje" color={pelaje} />
       </mesh>
       {/* Cabeza */}
       <mesh position={[0, 1.08, 0.02]} castShadow>
         <boxGeometry args={[0.46, 0.42, 0.4]} />
-        <meshStandardMaterial color={pelaje} />
+        <MatStd acabado="cuerpo.pelaje" color={pelaje} />
       </mesh>
       {/* Orejas */}
       <mesh position={[-0.16, 1.36, 0]}>
         <coneGeometry args={[0.1, 0.2, 4]} />
-        <meshStandardMaterial color={pelaje} />
+        <MatStd acabado="cuerpo.pelaje" color={pelaje} />
       </mesh>
       <mesh position={[0.16, 1.36, 0]}>
         <coneGeometry args={[0.1, 0.2, 4]} />
-        <meshStandardMaterial color={pelaje} />
+        <MatStd acabado="cuerpo.pelaje" color={pelaje} />
       </mesh>
       {/* Cola */}
       <mesh position={[0, 0.7, -0.3]} rotation={[0.6, 0, 0]}>
         <boxGeometry args={[0.1, 0.5, 0.1]} />
-        <meshStandardMaterial color={pelaje} />
+        <MatStd acabado="cuerpo.pelaje" color={pelaje} />
       </mesh>
       {/* Sus ojos caen justo donde los dibujaría `Rostro`: con rostro propio se apagan. */}
       {!sinOjos && <Ojos y={1.08} z={0.21} />}
       {/* Pata izquierda fija */}
       <mesh position={[-0.28, 0.36, 0.1]}>
         <boxGeometry args={[0.14, 0.4, 0.14]} />
-        <meshStandardMaterial color={pelaje} />
+        <MatStd acabado="cuerpo.pelaje" color={pelaje} />
       </mesh>
       {/* Pata derecha articulada (saluda) */}
-      <Brazo brazoRef={brazoRef} hombro={[0.28, 0.62, 0.1]} color={pelaje} />
+      <Brazo brazoRef={brazoRef} hombro={[0.28, 0.62, 0.1]} color={pelaje} acabado="cuerpo.pelaje" />
     </group>
   )
 }
@@ -784,32 +787,32 @@ function Perro({ brazoRef, color }: PropsModelo) {
     <group>
       <mesh position={[0, 0.55, 0]} castShadow>
         <boxGeometry args={[0.54, 0.62, 0.46]} />
-        <meshStandardMaterial color={pelaje} />
+        <MatStd acabado="cuerpo.pelaje" color={pelaje} />
       </mesh>
       <mesh position={[0, 1.06, 0.04]} castShadow>
         <boxGeometry args={[0.48, 0.44, 0.44]} />
-        <meshStandardMaterial color={pelaje} />
+        <MatStd acabado="cuerpo.pelaje" color={pelaje} />
       </mesh>
       {/* Hocico */}
       <mesh position={[0, 0.98, 0.3]}>
         <boxGeometry args={[0.22, 0.2, 0.18]} />
-        <meshStandardMaterial color={pelaje} />
+        <MatStd acabado="cuerpo.pelaje" color={pelaje} />
       </mesh>
       {/* Orejas caídas */}
       <mesh position={[-0.26, 1.18, 0.02]}>
         <boxGeometry args={[0.1, 0.32, 0.16]} />
-        <meshStandardMaterial color={pelaje} />
+        <MatStd acabado="cuerpo.pelaje" color={pelaje} />
       </mesh>
       <mesh position={[0.26, 1.18, 0.02]}>
         <boxGeometry args={[0.1, 0.32, 0.16]} />
-        <meshStandardMaterial color={pelaje} />
+        <MatStd acabado="cuerpo.pelaje" color={pelaje} />
       </mesh>
       <Ojos y={1.12} z={0.23} />
       <mesh position={[-0.28, 0.36, 0.1]}>
         <boxGeometry args={[0.15, 0.4, 0.15]} />
-        <meshStandardMaterial color={pelaje} />
+        <MatStd acabado="cuerpo.pelaje" color={pelaje} />
       </mesh>
-      <Brazo brazoRef={brazoRef} hombro={[0.28, 0.62, 0.1]} color={pelaje} />
+      <Brazo brazoRef={brazoRef} hombro={[0.28, 0.62, 0.1]} color={pelaje} acabado="cuerpo.pelaje" />
     </group>
   )
 }
@@ -821,7 +824,7 @@ function Buho({ brazoRef, color }: PropsModelo) {
       {/* Cuerpo ovoide */}
       <mesh position={[0, 0.7, 0]} scale={[1, 1.25, 1]} castShadow>
         <sphereGeometry args={[0.42, 16, 16]} />
-        <meshStandardMaterial color={plumas} />
+        <MatStd acabado="cuerpo.plumas" color={plumas} />
       </mesh>
       {/* Ojos grandes */}
       <mesh position={[-0.16, 0.92, 0.34]}>
@@ -848,10 +851,10 @@ function Buho({ brazoRef, color }: PropsModelo) {
       {/* Ala izquierda fija */}
       <mesh position={[-0.42, 0.7, 0]} rotation={[0, 0, 0.2]}>
         <boxGeometry args={[0.12, 0.5, 0.3]} />
-        <meshStandardMaterial color={plumas} />
+        <MatStd acabado="cuerpo.plumas" color={plumas} />
       </mesh>
       {/* Ala derecha articulada (saluda) */}
-      <Brazo brazoRef={brazoRef} hombro={[0.42, 0.85, 0]} color={plumas} />
+      <Brazo brazoRef={brazoRef} hombro={[0.42, 0.85, 0]} color={plumas} acabado="cuerpo.plumas" />
     </group>
   )
 }
@@ -886,7 +889,7 @@ function Robot({ brazoRef, color }: PropsModelo) {
         <boxGeometry args={[0.13, 0.44, 0.13]} />
         <MatStd acabado="mueble.metal" color={metal} metalness={0.6} roughness={0.3} />
       </mesh>
-      <Brazo brazoRef={brazoRef} hombro={[0.32, 0.85, 0]} color={metal} />
+      <Brazo brazoRef={brazoRef} hombro={[0.32, 0.85, 0]} color={metal} acabado="mueble.metal" />
     </group>
   )
 }
