@@ -680,14 +680,15 @@ export const MODELOS: Record<number, ModeloRecurso> = {
       return (
         <group>
           <B p={[0, 0.55, 0]} s={[2.6, 0.25, 1.5]} c={P.madera} rough={P.rough} metal={P.metal} acabado="mueble.madera" />
-          <B p={[0, 0.7, 0]} s={[2.7, 0.08, 1.6]} c={P.madera} rough={P.rough} metal={P.metal} acabado="mueble.madera" />
-          <B p={[0, 0.72, 0]} s={[2.4, 0.04, 1.3]} c={pano} emi={t === 'cyberpunk' ? pano : undefined} emiI={t === 'cyberpunk' ? 0.3 : 0} acabado="mueble.tela" />
+          {/* Banda 1 cm bajo el paño: con las caras superiores a la misma altura parpadeaban. */}
+          <B p={[0, 0.69, 0]} s={[2.7, 0.08, 1.6]} c={P.madera} rough={P.rough} metal={P.metal} acabado="mueble.madera" />
+          <B p={[0, 0.725, 0]} s={[2.4, 0.03, 1.3]} c={pano} emi={t === 'cyberpunk' ? pano : undefined} emiI={t === 'cyberpunk' ? 0.3 : 0} acabado="mueble.tela" />
           {([[-1.2, -0.7], [1.2, -0.7], [-1.2, 0.7], [1.2, 0.7]] as const).map(([x, z], i) => (
             <B key={i} p={[x, 0.25, z]} s={[0.15, 0.5, 0.15]} c={P.metalCol} acabado="mueble.metal" />
           ))}
           {!opts?.separado &&
             ['#ef4444', '#fbbf24', '#3b82f6'].map((bc, i) => (
-              <S key={'b' + i} p={[-0.3 + i * 0.25, 0.76, 0]} r={0.08} c={bc} acabado="mueble.plastico" />
+              <S key={'b' + i} p={[-0.3 + i * 0.25, 0.82, 0]} r={0.08} c={bc} acabado="mueble.plastico" />
             ))}
           {acento(t, [0, 0.95, 0], 2.2)}
         </group>

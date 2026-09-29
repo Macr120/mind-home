@@ -367,7 +367,8 @@ export function Prendas({
         a.piernasX.map((x, i) => (
           <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={caderaY} factor={MARCHA_PIERNAS} signo={signoPierna(x)} extremidad="pierna">
             <mesh position={[0, a.piesY - caderaY, 0.04]} castShadow>
-              <boxGeometry args={[a.piernaW, 0.2, a.piernaD * 1.25]} />
+              {/* Algo más anchos que la pernera: con caras al mismo plano parpadeaban. */}
+              <boxGeometry args={[a.piernaW + 0.03, 0.2, a.piernaD * 1.25 + 0.03]} />
               <MatStd acabado="mueble.tela" color={color('tenis')} />
             </mesh>
           </PivoteMarcha>

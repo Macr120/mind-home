@@ -85,16 +85,59 @@ function anclaOcluida(p: THREE.Vector3, cam: THREE.Vector3): boolean {
   return false
 }
 
+const _rayo = new THREE.Raycaster()
+const _dir = new THREE.Vector3()
+const _golpes: THREE.Intersection[] = []
+
+/** ¿Este objeto (o algo debajo) es sólido y corta el rayo? Salta lo oculto y lo translúcido. */
+function tapaEn(o: THREE.Object3D): boolean {
+  if (!o.visible) return false
+  const mesh = o as THREE.Mesh
+  if (mesh.isMesh) {
+    const m = Array.isArray(mesh.material) ? mesh.material[0] : mesh.material
+    if (m && m.visible && m.depthWrite && m.colorWrite && !(m.transparent && m.opacity < 0.6) && m.side !== THREE.BackSide) {
+      _golpes.length = 0
+      mesh.raycast(_rayo, _golpes)
+      if (_golpes.length) return true
+    }
+  }
+  for (const c of o.children) if (tapaEn(c)) return true
+  return false
+}
+
+/**
+ * ¿Algo sólido de la escena (un edificio, el granero, un mueble) queda entre el
+ * ancla y la cámara? Los colliders solo conocen los muros de los cuartos. Con la
+ * cámara ortográfica la visual es paralela a su dirección, no hacia su posición.
+ */
+function escenaTapa(escena: THREE.Object3D, camara: THREE.Camera, p: THREE.Vector3, cam: THREE.Vector3): boolean {
+  if ((camara as THREE.OrthographicCamera).isOrthographicCamera) {
+    camara.getWorldDirection(_dir).negate()
+    _rayo.far = 200
+  } else {
+    _dir.subVectors(cam, p)
+    _rayo.far = _dir.length() - 0.3
+    _dir.normalize()
+  }
+  // El primer tramo no cuenta: ahí están la estaca, la planta o el propio animal.
+  _rayo.near = 0.4
+  _rayo.set(p, _dir)
+  return tapaEn(escena)
+}
+
 /** Va DENTRO del Canvas: proyecta cada ancla registrada a su nodo DOM. */
 export function EtiquetasMapaProjector() {
   const camera = useThree((s) => s.camera)
+  const scene = useThree((s) => s.scene)
   const size = useThree((s) => s.size)
   const cuadro = useRef(0)
 
   useFrame(() => {
-    // La oclusión se recalcula espaciada (cada 6 cuadros): entre ticks la cámara
-    // apenas se mueve y el test contra todos los muros no merece ir por frame.
-    const recalcular = ++cuadro.current % 6 === 0
+    // La oclusión se recalcula espaciada (cada 6 cuadros por etiqueta, repartidas
+    // entre cuadros): entre ticks la cámara apenas se mueve y el rayo contra la
+    // escena (~0,5 ms) no merece ir por frame ni juntarse todo en el mismo.
+    const turno = ++cuadro.current
+    let n = 0
     if (doms.size) camera.getWorldPosition(_cam)
     for (const [id, el] of doms) {
       const p = anclas.get(id)?.()
@@ -103,11 +146,11 @@ export function EtiquetasMapaProjector() {
         continue
       }
       let tapada = ocluidas.get(id)
-      if (recalcular || tapada === undefined) {
-        tapada = anclaOcluida(p, _cam)
+      if ((turno + n++) % 6 === 0 || tapada === undefined) {
+        tapada = anclaOcluida(p, _cam) || escenaTapa(scene, camera, p, _cam)
         ocluidas.set(id, tapada)
       }
-      // Un muro por delante: la etiqueta se esconde (queda «detrás» de la pared).
+      // Algo por delante: la etiqueta se esconde (queda «detrás» de la pared).
       if (tapada) {
         el.style.display = 'none'
         continue

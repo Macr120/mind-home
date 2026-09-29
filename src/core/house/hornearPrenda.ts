@@ -211,7 +211,7 @@ export function hornearPrenda(id: PrendaId, a: AnclasRopa, color: string): Pieza
 
     case 'tenis':
       return a.piernasX.map((x) =>
-        caja([x, a.piesY, 0.04], [a.piernaW, 0.2, a.piernaD * 1.25], color),
+        caja([x, a.piesY, 0.04], [a.piernaW + 0.03, 0.2, a.piernaD * 1.25 + 0.03], color),
       )
 
     case 'guantes':
