@@ -2,7 +2,9 @@ import { memo, Suspense, useEffect, useMemo } from 'react'
 import { useLoader } from '@react-three/fiber'
 import { CanvasTexture, RepeatWrapping, TextureLoader, type BufferGeometry, type Texture } from 'three'
 import type { TechoTipoId } from './techos'
-import { colorTechoLoseta, getTechoTipo } from './techos'
+import { acabadoTecho, colorTechoLoseta, getTechoTipo } from './techos'
+import { MatAcabado, useAcabado } from './primitivas'
+import type { MaterialPbrId } from './materialesPBR'
 import { mezclar } from './temas'
 import { SIZE } from './walls'
 import {
@@ -106,6 +108,7 @@ function Mat({
   opacity,
   map,
   atenuado = false,
+  pbr = null,
 }: {
   color: string
   roughness: number
@@ -116,8 +119,10 @@ function Mat({
   opacity?: number
   map?: Texture
   atenuado?: boolean
+  /** Material PBR del tipo de techo (Realismo › muros); el tenue no lo lleva. */
+  pbr?: MaterialPbrId | null
 }) {
-  return (
+  const liso = (
     <meshStandardMaterial
       color={map ? '#ffffff' : color}
       map={map}
@@ -129,6 +134,12 @@ function Mat({
       opacity={atenuado ? 0.16 : opacity ?? 1}
       toneMapped={false}
     />
+  )
+  if (!pbr || atenuado || map) return liso
+  return (
+    <MatAcabado id={pbr} color={color} uvMetros="proyectar" extra={{ emissive, emissiveIntensity, toneMapped: false }}>
+      {liso}
+    </MatAcabado>
   )
 }
 
@@ -437,6 +448,8 @@ export const TechoLoseta = memo(function TechoLoseta({
   if (tinte) mat.color = mezclar(mat.color, tinte, 0.55)
   const variante = conf?.variante ?? 'plano_gris'
   const esCristal = variante === 'cristal'
+  // Con el realismo encendido el PBR sustituye a la imagen incorporada y al canvas de teja.
+  const pbr = useAcabado(acabadoTecho(tipo), 'pbrMuros')
   const formaCuadrada = esFormaCuadrada(formaLoseta)
 
   if ((!formaCuadrada && formaLoseta) || subformas) {
@@ -454,6 +467,7 @@ export const TechoLoseta = memo(function TechoLoseta({
         imagenAjuste={imagenAjuste}
         atenuado={atenuado}
         huecos={huecos}
+        pbr={pbr}
       />
     )
   }
@@ -488,7 +502,7 @@ export const TechoLoseta = memo(function TechoLoseta({
     )
 
   // Textura de archivo incorporada: usa imagen de /textures/ como mapa de color.
-  if (conf?.textura)
+  if (conf?.textura && !pbr)
     return (
       <group position={pos}>
         <Suspense fallback={fallbackBase}>
@@ -513,7 +527,7 @@ export const TechoLoseta = memo(function TechoLoseta({
 
   // Tejas con textura canvas procedural + decoración 3D encima.
   const esTejaCanvas = variante === 'tejas_rojas' || variante === 'tejas_oscuras'
-  if (esTejaCanvas)
+  if (esTejaCanvas && !pbr)
     return (
       <group position={pos}>
         <LosetaCanvas
@@ -539,9 +553,11 @@ export const TechoLoseta = memo(function TechoLoseta({
           transparent={esCristal}
           opacity={esCristal ? 0.72 : 1}
           atenuado={atenuado}
+          pbr={pbr}
         />
       </mesh>
-      {!atenuado && tipo && <Decoracion variante={variante} mat={mat} />}
+      {/* Con PBR la textura ya trae las tejas/láminas: la decoración 3D sobraría. */}
+      {!atenuado && tipo && !pbr && <Decoracion variante={variante} mat={mat} />}
     </group>
   )
 })
@@ -560,6 +576,7 @@ function TechoLosetaForma({
   imagenAjuste,
   atenuado,
   huecos,
+  pbr,
 }: {
   formaLoseta: CeldaFormaLoseta
   subformas?: (CeldaFormaLoseta | undefined)[] | null
@@ -573,6 +590,7 @@ function TechoLosetaForma({
   imagenAjuste?: string
   atenuado: boolean
   huecos?: HuecoLosa[] | null
+  pbr: MaterialPbrId | null
 }) {
   const geometry = useMemo(
     () => geometriaTechoLoseta3D(formaLoseta, lado(), GROSOR, subformas, huecos),
@@ -599,7 +617,7 @@ function TechoLosetaForma({
   }
 
   const conf = getTechoTipo(tipo)
-  if (conf?.textura) {
+  if (conf?.textura && !pbr) {
     return (
       <group position={pos}>
         <Suspense fallback={null}>
@@ -626,6 +644,7 @@ function TechoLosetaForma({
         transparent={esCristal}
         opacity={esCristal ? 0.72 : 1}
         atenuado={atenuado}
+        pbr={esCristal ? null : pbr}
       />
     </mesh>
   )

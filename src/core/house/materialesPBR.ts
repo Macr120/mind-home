@@ -36,6 +36,11 @@ export const MATERIALES_PBR = {
   // Plantas (no se ofrecen a la IA como material de mueble).
   'planta.barro': { carpeta: 'muebles/barro', tam: 0.35 },
   'planta.follaje': { carpeta: 'muebles/follaje', tam: 0.5 },
+  // Techos (con el interruptor de muros).
+  'techo.tejas': { carpeta: 'techos/tejas', tam: 2.5 },
+  'techo.pizarra': { carpeta: 'techos/pizarra', tam: 2.5 },
+  'techo.lamina': { carpeta: 'techos/lamina', tam: 2, metalness: 0.7 },
+  'techo.paja': { carpeta: 'techos/paja', tam: 2 },
   // Cuerpos de personajes y animales (procedurales; tampoco van a la IA).
   'cuerpo.piel': { carpeta: 'cuerpo/piel', tam: 0.3 },
   'cuerpo.pelaje': { carpeta: 'cuerpo/pelaje', tam: 0.35 },

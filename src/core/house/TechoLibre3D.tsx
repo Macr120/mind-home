@@ -3,7 +3,9 @@ import * as THREE from 'three'
 import { uvMetricas } from './uvMetros'
 import { useTexture } from '@react-three/drei'
 import type { TechoLibreId } from '../data/db'
-import { colorTechoLoseta, getTechoTipo, type TechoTipoId } from './techos'
+import { acabadoTecho, colorTechoLoseta, getTechoTipo, type TechoTipoId } from './techos'
+import { MatAcabado, useAcabado } from './primitivas'
+import type { MaterialPbrId } from './materialesPBR'
 import { areaConSigno, centroide, esPoligonoConvexo, shapeDePoligono, type PuntoXZ } from './formasLibre'
 import { texturaCanvasTeja } from './TechoLoseta'
 
@@ -176,6 +178,7 @@ interface PropsMesh {
   /** Semitransparente: en modo Libre el techo de la forma seleccionada no tapa sus handles. */
   fantasma: boolean
   cristal: boolean
+  pbr?: MaterialPbrId | null
 }
 
 /** Techo de un recinto libre: losa plana, tienda o faldones con los materiales de techo. */
@@ -206,7 +209,10 @@ export function TechoLibre3D({
   useEffect(() => () => geo.dispose(), [geo])
   const conf = getTechoTipo(tipo)
   const mat = colorTechoLoseta(tipo, colorBase)
+  const pbr = useAcabado(acabadoTecho(tipo), 'pbrMuros')
   const comun: PropsMesh = { geo, y, mat, fantasma, cristal: tipo === 'cristal' }
+  // Realismo: el PBR sustituye a la imagen incorporada y al canvas de teja.
+  if (pbr && !fantasma) return <TechoLibreMesh {...comun} pbr={pbr} />
   if (conf?.textura) {
     return (
       <Suspense fallback={<TechoLibreMesh {...comun} />}>
@@ -218,23 +224,39 @@ export function TechoLibre3D({
   return <TechoLibreMesh {...comun} />
 }
 
-function TechoLibreMesh({ geo, y, mat, map, fantasma, cristal }: PropsMesh) {
+function TechoLibreMesh({ geo, y, mat, map, fantasma, cristal, pbr }: PropsMesh) {
+  const liso = (
+    <meshStandardMaterial
+      color={map ? '#ffffff' : mat.color}
+      map={map}
+      roughness={mat.roughness}
+      metalness={mat.metalness}
+      emissive={mat.emissive}
+      emissiveIntensity={mat.emissiveIntensity}
+      transparent={fantasma || cristal}
+      opacity={fantasma ? 0.45 : cristal ? 0.6 : 1}
+      depthWrite={!fantasma}
+      // Fantasma: solo la cara exterior; con las dos, tapa y fondo se suman y se ve el doble de opaco.
+      side={fantasma ? THREE.FrontSide : THREE.DoubleSide}
+      toneMapped={false}
+    />
+  )
   return (
     <mesh geometry={geo} position={[0, y, 0]} castShadow={!fantasma} receiveShadow raycast={sinRaycast}>
-      <meshStandardMaterial
-        color={map ? '#ffffff' : mat.color}
-        map={map}
-        roughness={mat.roughness}
-        metalness={mat.metalness}
-        emissive={mat.emissive}
-        emissiveIntensity={mat.emissiveIntensity}
-        transparent={fantasma || cristal}
-        opacity={fantasma ? 0.45 : cristal ? 0.6 : 1}
-        depthWrite={!fantasma}
-        // Fantasma: solo la cara exterior; con las dos, tapa y fondo se suman y se ve el doble de opaco.
-        side={fantasma ? THREE.FrontSide : THREE.DoubleSide}
-        toneMapped={false}
-      />
+      {pbr ? (
+        // Las UV de esta geometría ya van en metros (`uvMetricas`): corren continuas por los faldones.
+        <MatAcabado
+          id={pbr}
+          color={mat.color}
+          uvMetros={1}
+          side={THREE.DoubleSide}
+          extra={{ emissive: mat.emissive, emissiveIntensity: mat.emissiveIntensity, toneMapped: false }}
+        >
+          {liso}
+        </MatAcabado>
+      ) : (
+        liso
+      )}
     </mesh>
   )
 }

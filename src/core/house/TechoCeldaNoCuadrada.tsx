@@ -15,7 +15,8 @@ import {
   centroidePt,
 } from './techoCeldaGeo'
 import type { TechoTipoId, TechoCeldaForma } from './techos'
-import { colorTechoLoseta } from './techos'
+import { acabadoTecho, colorTechoLoseta } from './techos'
+import { MatAcabado, useAcabado } from './primitivas'
 import { mezclar } from './temas'
 
 /**
@@ -75,20 +76,32 @@ export function TechoCeldaNoCuadrada({
 
   const mat = colorTechoLoseta(tipo, colorCuarto)
   if (tinte) mat.color = mezclar(mat.color, tinte, 0.55)
+  const pbr = useAcabado(acabadoTecho(tipo), 'pbrMuros')
 
+  const liso = (
+    <meshStandardMaterial
+      color={mat.color}
+      roughness={mat.roughness}
+      metalness={mat.metalness}
+      emissive={mat.emissive}
+      emissiveIntensity={atenuado ? 0 : mat.emissiveIntensity}
+      transparent={atenuado}
+      opacity={atenuado ? 0.16 : 1}
+      side={THREE.DoubleSide}
+      toneMapped={false}
+    />
+  )
   return (
     <mesh geometry={geo} castShadow={!atenuado} receiveShadow={!atenuado}>
-      <meshStandardMaterial
+      <MatAcabado
+        id={atenuado ? null : pbr}
         color={mat.color}
-        roughness={mat.roughness}
-        metalness={mat.metalness}
-        emissive={mat.emissive}
-        emissiveIntensity={atenuado ? 0 : mat.emissiveIntensity}
-        transparent={atenuado}
-        opacity={atenuado ? 0.16 : 1}
+        uvMetros="proyectar"
         side={THREE.DoubleSide}
-        toneMapped={false}
-      />
+        extra={{ emissive: mat.emissive, emissiveIntensity: mat.emissiveIntensity, toneMapped: false }}
+      >
+        {liso}
+      </MatAcabado>
     </mesh>
   )
 }

@@ -230,6 +230,24 @@ export const TECHOS: TechoTipo[] = [
   },
 ]
 
+/**
+ * Material PBR de cada tipo de techo (Realismo › muros). Los brillantes, el cristal
+ * y la nieve se quedan como están. Sin tipo (color del cuarto) es losa de concreto.
+ */
+const PBR_TECHO: Partial<Record<TechoTipoId, string>> = {
+  plano_gris: 'muro.concreto',
+  tejas_rojas: 'techo.tejas',
+  tejas_oscuras: 'techo.tejas',
+  metal: 'techo.lamina',
+  paja: 'techo.paja',
+  losa_pizarra: 'techo.pizarra',
+  teja_castillo: 'muro.piedra',
+  lapida: 'muro.piedra',
+  madera_sol: 'muro.madera',
+}
+export const acabadoTecho = (tipo: TechoTipoId | null | undefined): string | undefined =>
+  tipo ? PBR_TECHO[tipo] : 'muro.concreto'
+
 export const TECHOS_GENERICOS = TECHOS.filter((t) => t.categoria === 'generico')
 export const TECHOS_TEMA = TECHOS.filter((t) => t.categoria === 'tema')
 

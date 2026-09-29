@@ -2,7 +2,9 @@ import { Suspense, useEffect, useMemo } from 'react'
 import * as THREE from 'three'
 import { useLoader } from '@react-three/fiber'
 import type { TechoTipoId, TechoFormaId, TechoParams } from './techos'
-import { colorTechoLoseta, getTechoTipo } from './techos'
+import { acabadoTecho, colorTechoLoseta, getTechoTipo } from './techos'
+import { MatAcabado, useAcabado } from './primitivas'
+import type { MaterialPbrId } from './materialesPBR'
 import { mezclar } from './temas'
 
 /** Repeticiones de la imagen sobre la forma según el ajuste elegido. */
@@ -65,7 +67,8 @@ export function TechoForma({
   ocultarHastialPos?: boolean
   atenuado?: boolean
 }) {
-  const mat = colorTechoLoseta(tipo, colorCuarto)
+  const pbr = useAcabado(acabadoTecho(tipo), 'pbrMuros')
+  const mat: Mat = { ...colorTechoLoseta(tipo, colorCuarto), pbr }
   if (tinte) mat.color = mezclar(mat.color, tinte, 0.55)
   const esCristal = tipo === 'cristal'
   // La altura se calcula con la caja original (no expandida) para no alterar el perfil.
@@ -115,6 +118,9 @@ export function TechoForma({
         <Suspense fallback={piezas()}>
           <FormaImagen dataUrl={imagen} ajuste={imagenAjuste}>{piezas}</FormaImagen>
         </Suspense>
+      ) : pbr ? (
+        // Realismo: el PBR sustituye a la imagen incorporada y al canvas de teja.
+        piezas()
       ) : builtinTex ? (
         <Suspense fallback={piezas()}>
           <FormaTextura url={`/textures/${builtinTex}_color.jpg`} tileSize={builtinTileSize} W={Wp} H={Hp}>
@@ -224,7 +230,7 @@ function FormaTejas({
   return <>{children(map)}</>
 }
 
-type Mat = ReturnType<typeof colorTechoLoseta>
+type Mat = ReturnType<typeof colorTechoLoseta> & { pbr?: MaterialPbrId | null }
 
 function PiezaGeo({
   geo,
@@ -247,7 +253,7 @@ function PiezaGeo({
 }
 
 function Material({ mat, map, cristal, atenuado = false }: { mat: Mat; map?: THREE.Texture; cristal?: boolean; atenuado?: boolean }) {
-  return (
+  const liso = (
     <meshStandardMaterial
       color={mat.color}
       map={map}
@@ -260,6 +266,18 @@ function Material({ mat, map, cristal, atenuado = false }: { mat: Mat; map?: THR
       side={THREE.DoubleSide}
       toneMapped={false}
     />
+  )
+  if (!mat.pbr || map || cristal || atenuado) return liso
+  return (
+    <MatAcabado
+      id={mat.pbr}
+      color={mat.color}
+      uvMetros="proyectar"
+      side={THREE.DoubleSide}
+      extra={{ emissive: mat.emissive, emissiveIntensity: mat.emissiveIntensity, toneMapped: false }}
+    >
+      {liso}
+    </MatAcabado>
   )
 }
 
