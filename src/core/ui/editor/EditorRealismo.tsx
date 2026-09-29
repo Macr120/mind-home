@@ -24,13 +24,6 @@ const OPCIONES: { id: keyof Realismo; clave: string; es: string; descClave: stri
     descClave: 'ajustes.realismo.hdri.desc',
     descEs: 'Reflejos y luz ambiente fotográficos.',
   },
-  {
-    id: 'fotoPathTracer',
-    clave: 'ajustes.realismo.foto',
-    es: 'Modo foto con trazado de rayos',
-    descClave: 'ajustes.realismo.foto.desc',
-    descEs: 'Añade un botón de cámara que calcula una foto con luz real (tarda unos segundos).',
-  },
 ]
 
 /**

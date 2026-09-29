@@ -38,8 +38,6 @@ import { CieloDiaNoche } from './CieloDiaNoche'
 import { PunteroFondo } from './PunteroFondo'
 import { esModoFondo } from '../plataforma'
 import { EfectosPost } from './EfectosPost'
-import { ModoFoto } from './ModoFoto'
-import { PanelModoFoto } from '../ui/PanelModoFoto'
 import { EntornoIBL } from './EntornoIBL'
 import { FondoEscena } from './FondoEscena'
 import { FondoAnimaciones } from './FondoAnimaciones'
@@ -724,7 +722,6 @@ export function House() {
         </mesh>
       )}
       <EfectosPost />
-      <ModoFoto />
       </Canvas>
         </div>
       </div>
@@ -740,7 +737,6 @@ export function House() {
       {!esModoFondo() && (
         <>
           <NavControls />
-          <PanelModoFoto />
           {!enPelicula && <EditorMontaje />}
           <SalirCuartoFlotante />
           {!enPelicula && <MenuDespierto />}

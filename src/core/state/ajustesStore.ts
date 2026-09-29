@@ -236,11 +236,9 @@ export interface Realismo {
   pbrMuebles: boolean
   /** Entorno HDRI real para reflejos e iluminación. */
   hdri: boolean
-  /** Modo foto con trazado de rayos (path tracer). */
-  fotoPathTracer: boolean
 }
 
-export const REALISMO_APAGADO: Realismo = { pbrMuros: false, pbrMuebles: false, hdri: false, fotoPathTracer: false }
+export const REALISMO_APAGADO: Realismo = { pbrMuros: false, pbrMuebles: false, hdri: false }
 
 function leerRealismo(): Realismo {
   try {
@@ -311,7 +309,7 @@ interface AjustesState {
   vozTutoriales: boolean
   /** Nombre propio que el usuario le puso a su casa; vacío = el de fábrica traducido. */
   nombreApp: string
-  /** Mejoras opcionales del motor 3D (texturas PBR, HDRI, modo foto). */
+  /** Mejoras opcionales del motor 3D (texturas PBR y HDRI). */
   realismo: Realismo
   setRealismo: (patch: Partial<Realismo>) => void
   setIdioma: (idioma: Idioma) => void

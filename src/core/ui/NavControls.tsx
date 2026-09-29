@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useCam, type Vista } from '../state/cameraStore'
 import { useLayout, mapFocusPos } from '../state/layoutStore'
-import { useModoFoto } from '../state/modoFotoStore'
-import { useRealismo } from '../house/materialesPBR'
 import { usePlanos } from '../state/planosStore'
 import { useEditorUi } from '../state/editorUiStore'
 import { useT } from '../i18n/useT'
@@ -45,10 +43,6 @@ export function NavControls() {
   const setVista = useCam((s) => s.setVista)
   const centrarIso = useCam((s) => s.centrarIso)
   const rotar = useCam((s) => s.rotar)
-  const fotoOn = useRealismo('fotoPathTracer')
-  const fotoActiva = useModoFoto((s) => s.activo)
-  const abrirFoto = useModoFoto((s) => s.abrir)
-  const cerrarFoto = useModoFoto((s) => s.cerrar)
   const editor3d = useEditorUi((s) => s.editor3d)
   const setEditor3d = useEditorUi((s) => s.setEditor3d)
   const objetoSel = useEditorUi((s) => s.objetoSel)
@@ -204,19 +198,6 @@ export function NavControls() {
           className="h-8 flex-1 text-base font-semibold text-white/60 transition hover:bg-white/10 hover:text-white/90 active:scale-95"
         >
           <Icono nombre="centrar" />
-        </button>
-      )}
-      {fotoOn && (
-        <button
-          type="button"
-          onClick={() => (fotoActiva ? cerrarFoto() : abrirFoto())}
-          title={t('modoFoto.abrir', 'Modo foto (trazado de rayos)')}
-          aria-pressed={fotoActiva}
-          className={`h-8 flex-1 text-base font-semibold transition active:scale-95 ${
-            fotoActiva ? 'ui-accent-bg' : 'text-white/60 hover:bg-white/10 hover:text-white/90'
-          }`}
-        >
-          <Icono nombre="foto" />
         </button>
       )}
     </div>
