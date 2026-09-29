@@ -141,11 +141,12 @@ export function TC({
 }
 
 /** Esfera temática. */
-export function TS({ p, r, c, rough }: { p: Vec3; r: number; c: string; rough?: number }) {
+export function TS({ p, r, c, rough, acabado }: { p: Vec3; r: number; c: string; rough?: number; acabado?: string }) {
+  const id = useAcabado(acabado)
   return (
     <mesh position={p} castShadow receiveShadow>
       <sphereGeometry args={[r, 16, 16]} />
-      <MatPrimitiva c={c} rough={rough ?? 0.6} acabado={null} />
+      <MatPrimitiva c={c} rough={rough ?? 0.6} acabado={id} />
     </mesh>
   )
 }

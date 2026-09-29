@@ -69,8 +69,8 @@ export const CATALOGO: CatalogoItem[] = [
     defaultColor: '#22c55e',
     render: (c) => (
       <group>
-        <Cyl p={[0, 0.25, 0]} r={0.28} h={0.5} c={WOOD} />
-        <Sphere p={[0, 0.75, 0]} r={0.42} c={c} />
+        <Cyl p={[0, 0.25, 0]} r={0.28} h={0.5} c={WOOD} acabado="planta.barro" />
+        <Sphere p={[0, 0.75, 0]} r={0.42} c={c} acabado="planta.follaje" />
       </group>
     ),
   },
@@ -81,8 +81,8 @@ export const CATALOGO: CatalogoItem[] = [
     defaultColor: '#fbbf24',
     render: (c) => (
       <group>
-        <Cyl p={[0, 0.05, 0]} r={0.28} h={0.1} c="#2b2f3a" />
-        <Cyl p={[0, 0.7, 0]} r={0.05} h={1.2} c="#2b2f3a" />
+        <Cyl p={[0, 0.05, 0]} r={0.28} h={0.1} c="#2b2f3a" acabado="mueble.metal" />
+        <Cyl p={[0, 0.7, 0]} r={0.05} h={1.2} c="#2b2f3a" acabado="mueble.metal" />
         <mesh position={[0, 1.4, 0]} castShadow>
           <coneGeometry args={[0.35, 0.4, 16]} />
           <meshStandardMaterial color={c} roughness={0.5} emissive={c} emissiveIntensity={0.3} />
