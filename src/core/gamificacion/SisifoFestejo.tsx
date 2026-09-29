@@ -82,8 +82,11 @@ export function SisifoFestejo() {
 
   const msg = mensajeLogro(logro, t)
   return (
-    <div className="safe-sup fixed inset-x-0 top-4 z-[65] flex justify-center px-4">
-      <div className="w-full max-w-sm">
+    // En el tercio superior, como la racha: pegado arriba chocaba con la píldora
+    // de la demo. El fondo sólido va en el envoltorio porque `BannerAviso` solo
+    // trae el tinte.
+    <div className="pointer-events-none fixed inset-0 z-[65] flex items-start justify-center p-4 pt-[calc(14vh+var(--safe-top))]">
+      <div className="ui-panel-legible pointer-events-auto w-full max-w-sm rounded-xl shadow-2xl">
         <BannerAviso
           icono={msg.icono}
           titulo={msg.titulo}

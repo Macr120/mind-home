@@ -1623,9 +1623,10 @@ export function ChatBox({
           botones— la caja se lleva su propio renglón completo arriba (con los
           botones al lado quedaba de 3 caracteres de ancho y no se leía nada). */}
       <div ref={barraRef} data-tut="chat.caja" data-tut-zona="chat" className="ui-panel-glass relative flex min-w-0 flex-1 flex-wrap items-end gap-2 rounded-2xl border border-white/10 px-2.5 py-2 shadow-xl backdrop-blur-md">
-        {/* Panel de IA: transporte (créditos/BYOK) + proveedor, cerebro, voz e imagen. */}
+        {/* Panel de IA: transporte (créditos/BYOK) + proveedor, cerebro, voz e imagen.
+            Con tope de alto: crece hacia arriba y en horizontal se salía por arriba. */}
         {iaHabilitada() && menuModelo && (
-          <div data-tut="chat.modelo.panel" className="ui-panel-glass absolute bottom-full end-0 mb-2 w-72 rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
+          <div data-tut="chat.modelo.panel" className="ui-panel-glass absolute bottom-full end-0 mb-2 max-h-[calc(100dvh-6rem-var(--safe-bottom))] w-72 overflow-y-auto rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
             <p className="mb-1.5 px-1 text-[11px] font-semibold text-white/50">
               <Icono nombre="memoria" /> {t('chat.modelo.titulo', 'Modelo de IA de los asistentes')}
             </p>

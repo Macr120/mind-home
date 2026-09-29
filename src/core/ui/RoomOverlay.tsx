@@ -16,7 +16,9 @@ import { BotonTutorialApp } from '../tutorial/BotonTutorialApp'
 import { ControlMusica } from './ControlMusica'
 import { vivo } from './estilos'
 import { GateAppDemo } from '../../demo/GateAppDemo'
-import { esVisita } from '../edicion'
+import { BarraDemo } from '../../demo/BarraDemo'
+import { BarraProbar } from '../../probar/BarraProbar'
+import { esDemo, esProbar, esVisita } from '../edicion'
 import { useVisita } from '../visita/visitaStore'
 import { useEntradaAbierta } from '../state/entradaAbiertaStore'
 
@@ -123,6 +125,7 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
   // nombre en gris no informaba de nada, así que solo se añade si es OTRO.
   const nombreApp = activa ? t(`room.${activa.id}.nombre`, activa.nombre).split(' · ')[0] : ''
   const sufijoApp = nombreApp.trim() && nombreApp.trim() !== nombre.trim() ? nombreApp : ''
+  const conPildora = esDemo() || esProbar()
 
   return (
     // El color DEL CUARTO (no el de fábrica de la app) baja a todo su 2D con UN
@@ -136,12 +139,13 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
       style={{ ...acento(color), '--ui-app': color, '--ui-app-ink': tinta(color) } as CSSProperties}
     >
       {/* El hueco del menú flotante se reserva a la medida del móvil (su chip
-          plegado mide ~114 px) y solo a partir de `sm` al ancho completo: con
-          208 px reservados en 375 no cabían ni el chip ni «Volver a la casa». */}
+          con la casa en vez del nombre acaba en ~97 px) y solo a partir de `sm`
+          al ancho completo: con 208 px reservados en 375 no cabían ni el chip ni
+          «Volver a la casa». */}
       <header
         data-tut="room.header"
         className={`flex items-center gap-2 border-b border-white/10 pb-3 pt-[calc(0.75rem+var(--safe-top))] pe-4 sm:gap-3 ${
-          menuFlotante ? 'ps-32 sm:ps-52' : 'ps-4'
+          menuFlotante ? 'ps-28 sm:ps-52' : 'ps-4'
         }`}
         style={{ borderTopColor: color }}
       >
@@ -172,7 +176,7 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
         </h1>
         {/* El `ms-auto` va en el grupo y no en la música: la checklist se esconde
             sola (sin pasos, o apagada en esa app) y se llevaría el empuje. */}
-        <div className="ms-auto flex shrink-0 items-center gap-3">
+        <div className="ms-auto flex shrink-0 items-center gap-2 sm:gap-3">
           {/* La checklist diaria de la app abierta (objetivos, lo agendado y sus
               metas): un chip aquí, montado una vez y no en cada app. */}
           {activa && <ListaHoy plantillaId={activa.id} color={color} />}
@@ -205,7 +209,7 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
           botón debajo de ella. */}
       <main
         data-tut-zona={activa ? `app:${activa.id}` : undefined}
-        className="safe-inf safe-ini safe-fin min-h-0 flex-1 overflow-auto p-4 md:p-6"
+        className={`${conPildora ? '' : 'safe-inf '}safe-ini safe-fin min-h-0 flex-1 overflow-auto p-4 md:p-6`}
       >
         {apps.length === 0 ? (
           <div className="flex min-h-[40vh] flex-col items-center justify-center gap-2 text-center text-white/50">
@@ -259,6 +263,13 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
           </div>
         )}
       </main>
+      {/* La píldora de la demo / del modo probar, en flujo al pie: flotando tapaba
+          el encabezado o las pestañas, y aquí la zona segura de abajo es suya. */}
+      {conPildora && (
+        <footer className="safe-inf flex shrink-0 justify-center border-t border-white/10 py-2">
+          {esDemo() ? <BarraDemo enFlujo /> : <BarraProbar enFlujo />}
+        </footer>
+      )}
     </div>
   )
 }

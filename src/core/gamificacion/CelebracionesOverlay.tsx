@@ -12,7 +12,7 @@ import { festejarAleatorio } from './festejo'
 
 /**
  * Las celebraciones de la gamificación (ver `celebracionStore`), de menor a
- * mayor: racha (toast que se va solo), lista cumplida (tarjeta con la barra de
+ * mayor: racha (tarjeta en el tercio superior que se va sola), lista cumplida (tarjeta con la barra de
  * XP animándose) y subida de nivel (la grande). Montado SIEMPRE en App —no
  * lazy: reacciona sin acción del usuario— y sin coste en reposo (`null` sin
  * celebración pendiente). Vive en la raíz, fuera de todo `backdrop-blur`, así
@@ -88,13 +88,16 @@ function Celebrando({ c }: { c: Celebracion }) {
   }, [c])
 
   if (c.tipo === 'racha') {
+    // En el tercio superior y con fondo sólido: pegada arriba se perdía entre el
+    // contenido y tapaba la píldora de la demo. Sin scrim —no bloquea: se va sola
+    // o al tocarla—; el tinte va como imagen para no pisar `ui-panel-legible`.
     return (
-      <div className="safe-sup pointer-events-none fixed inset-x-0 top-4 z-[70] flex justify-center px-4">
+      <div className="pointer-events-none fixed inset-0 z-[70] flex items-start justify-center p-4 pt-[calc(14vh+var(--safe-top))]">
         <button
           type="button"
           onClick={avanzar}
-          className="ui-notif pointer-events-auto flex w-full max-w-sm items-center gap-3 rounded-xl border p-3 text-start"
-          style={{ borderColor: `${color}66`, background: `${color}1f` }}
+          className="ui-panel-legible ui-pop pointer-events-auto flex w-full max-w-sm items-center gap-3 rounded-2xl border p-4 text-start shadow-2xl"
+          style={{ borderColor: `${color}66`, backgroundImage: `linear-gradient(${color}1f, ${color}1f)` }}
         >
           <span className="text-2xl">
             <Icono nombre="racha" />

@@ -213,7 +213,9 @@ export default function EnlazarObjetoPanel({
     <>
       {/* Cierra al tocar fuera. */}
       <div className="fixed inset-0 z-40" onClick={onCerrar} aria-hidden />
-      <div className="ui-panel ui-pop absolute end-0 top-full z-50 mt-2 max-h-[75vh] w-80 overflow-y-auto rounded-xl border border-white/10 p-3 shadow-2xl">
+      {/* En móvil, anclado a la ventana bajo el encabezado: colgado del chip
+          (a media cabecera) sus 20 rem se salían por la izquierda. */}
+      <div className="ui-panel ui-pop absolute end-0 top-full z-50 mt-2 max-h-[75vh] w-80 overflow-y-auto rounded-xl border border-white/10 p-3 shadow-2xl max-sm:fixed max-sm:inset-x-3 max-sm:top-[calc(3.75rem+var(--safe-top))] max-sm:mt-0 max-sm:w-auto">
         <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40">
           {t('room.enlazarObjeto.titulo', '¿Qué objeto del cuarto abre esto?')}
         </p>
