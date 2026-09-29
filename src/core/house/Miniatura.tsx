@@ -4,7 +4,7 @@ import { Canvas, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import { ObjetoView } from './catalogo'
 import { TemaContext } from './primitivas'
-import { getTema, mezclar, type Tema, type TemaId } from './temas'
+import { getTema, mezclar, type Tema, type TemaClave } from './temas'
 import { tipoYColor, type Siembra } from './modelosRecursos'
 import { SIZE, WALL_H } from './walls'
 import type { Pieza3D } from '../chat/mascotas'
@@ -23,7 +23,7 @@ interface Peticion {
   clave: string
   tipo: string
   color: string
-  temaId: TemaId | null
+  temaId: TemaClave | null
   /** Objetos tipo 'piezas': las primitivas a renderizar. */
   piezas?: Pieza3D[]
   /** Objetos tipo 'glb': el modelo subido por el usuario. */

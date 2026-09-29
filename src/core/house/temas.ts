@@ -13,6 +13,7 @@
 
 import type { EstiloVisualId, EfectosConfig } from './estilos'
 
+/** Temas de fábrica: las tablas por tema (atuendos, UI, fondos, techos…) van por este id. */
 export type TemaId =
   | 'medieval'
   | 'espacio'
@@ -22,8 +23,11 @@ export type TemaId =
   | 'cyberpunk'
   | 'navidad'
 
+/** Id de cualquier tema: uno de fábrica o uno creado por el usuario (`u_<uuid>`). */
+export type TemaClave = string
+
 export interface Tema {
-  id: TemaId
+  id: TemaClave
   nombre: string
   icon: string
   /** Colores representativos para la UI del selector. */
@@ -47,13 +51,20 @@ export interface Tema {
   niebla?: TemaNiebla
   /** Estilo de render sugerido al activar este tema por primera vez (default 'normal'). */
   estilo?: EstiloVisualId
+  /**
+   * Solo temas del usuario: tema de fábrica del que toma atuendo, apariencia de la
+   * interfaz, fondo y techo sugeridos (null = los neutros de «sin tema»).
+   */
+  base?: TemaId | null
+  /** Solo temas del usuario: efectos con los que nació (p. ej. los que eligió la IA). */
+  efectosConfig?: EfectosConfig
 }
 
 /**
  * Ajustes de luz por tema. El ciclo día/noche sigue mandando: el tema solo
  * TIÑE los colores de las luces (mezcla) y ESCALA sus intensidades.
  */
-interface TemaLuz {
+export interface TemaLuz {
   /** Tinte que se mezcla sobre el color de la luz direccional (sol/luna de escena). */
   sol?: string
   /** Cuánto tiñe el sol (0..1). */
@@ -70,9 +81,11 @@ interface TemaLuz {
   ibl?: number
   /** Exposición del tone mapping (default 1). */
   exposicion?: number
+  /** Entorno HDRI (id de `EntornoIBL.HDRIS`); solo con el realismo «HDRI» encendido. */
+  hdri?: string
 }
 
-interface TemaNiebla {
+export interface TemaNiebla {
   color: string
   near: number
   far: number
@@ -82,16 +95,21 @@ interface TemaNiebla {
 export const FUERZA_LUZ_DEFAULT = 0.35
 
 /** Colores del cascarón (muros/piso/techo) que reemplaza el tema (hoja 4). */
-interface TemaShell {
+export interface TemaShell {
   /** Muro interior (divisorio entre cuartos). */
   muroInt: string
   /** Muro exterior (fachada). */
   muroExt: string
   piso: string
   techo: string
+  /**
+   * Materiales PBR (ids de `materialesPBR.ts`) que el tema propone para muros y
+   * muebles; solo se ven con el realismo encendido. Sin esto, cada muro usa el de su tipo.
+   */
+  texturas?: { muroInt?: string; muroExt?: string; mueble?: string }
 }
 
-export const TEMAS: Tema[] = [
+export const TEMAS: (Tema & { id: TemaId })[] = [
   {
     id: 'medieval',
     nombre: 'Medieval',
@@ -252,16 +270,46 @@ function fusionarTema(base: Tema, ov: TemaOverride | undefined): Tema {
  * (fuente de verdad + persistencia); así `getTema` devuelve el tema ya fusionado
  * en TODOS sus usos (escena, previews, cálculos) sin propagar el override a mano.
  */
-let OVERRIDES: Partial<Record<TemaId, TemaOverride>> = {}
-export function aplicarOverridesTema(ov: Partial<Record<TemaId, TemaOverride>>) {
+let OVERRIDES: Partial<Record<TemaClave, TemaOverride>> = {}
+export function aplicarOverridesTema(ov: Partial<Record<TemaClave, TemaOverride>>) {
   OVERRIDES = ov
 }
 
-export function getTema(id: TemaId | null | undefined): Tema | null {
+/** Registro de temas creados por el usuario; lo mantiene `disenoStore`, igual que OVERRIDES. */
+let TEMAS_USUARIO: Tema[] = []
+export function aplicarTemasUsuario(lista: Tema[]) {
+  TEMAS_USUARIO = lista
+}
+
+/** Tema sin personalizar: de fábrica o del usuario. */
+function temaBase(id: TemaClave): Tema | undefined {
+  return TEMAS.find((t) => t.id === id) ?? TEMAS_USUARIO.find((t) => t.id === id)
+}
+
+export function getTema(id: TemaClave | null | undefined): Tema | null {
   if (!id) return null
-  const base = TEMAS.find((t) => t.id === id)
+  const base = temaBase(id)
   if (!base) return null
   return fusionarTema(base, OVERRIDES[id])
+}
+
+export function esTemaFabrica(id: TemaClave | null | undefined): id is TemaId {
+  return !!id && TEMAS.some((t) => t.id === id)
+}
+
+/**
+ * Tema de fábrica que manda en las tablas por tema (atuendo, interfaz, fondo, techo,
+ * paletas de recursos): el propio si es de fábrica, su `base` si es del usuario.
+ */
+export function baseDe(id: TemaClave | null | undefined): TemaId | null {
+  if (!id) return null
+  if (esTemaFabrica(id)) return id
+  return TEMAS_USUARIO.find((t) => t.id === id)?.base ?? null
+}
+
+/** Temas que se ofrecen en el selector: los de fábrica no borrados y los del usuario. */
+export function listaTemas(ocultos: readonly string[]): Tema[] {
+  return [...TEMAS.filter((t) => !ocultos.includes(t.id)), ...TEMAS_USUARIO]
 }
 
 /** Mezcla lineal de dos colores hex (#rrggbb). `t` = 0 → a, 1 → b. */

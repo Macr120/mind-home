@@ -19,7 +19,7 @@ import { PestanasCarpeta, type ItemPestana } from '../../../rooms/_shared/Pestan
 import { Carpeta } from '../comun/Carpeta'
 import { ObjetosCatalogo, BotonRestaurarObjetos } from '../ObjetosCatalogo'
 import { CATS_ESPECIALES } from '../inventarioGrupos'
-import { getTema } from '../../house/temas'
+import { baseDe, getTema } from '../../house/temas'
 import { MiniaturaModelo } from '../../house/Miniatura'
 import { RECURSOS } from '../../house/recursos'
 import { CATALOGO, TIPO_PIEZAS, TIPO_GLB, piezasDesdeObjeto, grupoAccionDe } from '../../house/catalogo'
@@ -510,7 +510,7 @@ export function EditorObjetosSection() {
                     convertirObjetoAPiezas(
                       seleccionado.id!,
                       // Réplica fiel de la forma real (objetos del catálogo/recursos).
-                      piezasDesdeObjeto(seleccionado.tipo, seleccionado.color, temaId, seleccionado.separado) ??
+                      piezasDesdeObjeto(seleccionado.tipo, seleccionado.color, baseDe(temaId), seleccionado.separado) ??
                         plantillaObjetoPiezas(seleccionado.color),
                     )
                 : undefined

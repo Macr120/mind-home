@@ -29,7 +29,7 @@ import { esCancha, claseDeCancha } from '../state/canchasStore'
 import type { AnimacionModelo } from './animacion'
 import { piezasDesdeElemento, type Extractor } from './piezasDesdeModelo'
 import { FORMA_VEHICULO, VEHICULO_GENERICO_RADIO, esVehiculo } from './vehiculos'
-import type { TemaId } from './temas'
+import { baseDe, type TemaId } from './temas'
 import type { Pieza3D } from '../chat/mascotas'
 import type { ObjetoCuarto } from '../data/db'
 
@@ -97,9 +97,9 @@ export const CATALOGO: CatalogoItem[] = [
     defaultColor: '#a855f7',
     render: (c) => (
       <group>
-        <B p={[0, 0.06, 0]} s={[2, 0.08, 1.4]} c={c} />
-        <B p={[0, 0.07, 0]} s={[1.6, 0.06, 1.05]} c="#ffffff" />
-        <B p={[0, 0.08, 0]} s={[1.3, 0.05, 0.8]} c={c} />
+        <B p={[0, 0.06, 0]} s={[2, 0.08, 1.4]} c={c} acabado="mueble.tela" />
+        <B p={[0, 0.07, 0]} s={[1.6, 0.06, 1.05]} c="#ffffff" acabado="mueble.tela" />
+        <B p={[0, 0.08, 0]} s={[1.3, 0.05, 0.8]} c={c} acabado="mueble.tela" />
       </group>
     ),
   },
@@ -110,12 +110,12 @@ export const CATALOGO: CatalogoItem[] = [
     defaultColor: '#ef4444',
     render: (c) => (
       <group>
-        <B p={[0, 0.5, 0]} s={[0.6, 0.1, 0.6]} c={c} />
-        <B p={[0, 0.85, -0.25]} s={[0.6, 0.6, 0.1]} c={c} />
-        <B p={[-0.25, 0.25, -0.25]} s={[0.08, 0.5, 0.08]} c={WOOD} />
-        <B p={[0.25, 0.25, -0.25]} s={[0.08, 0.5, 0.08]} c={WOOD} />
-        <B p={[-0.25, 0.25, 0.25]} s={[0.08, 0.5, 0.08]} c={WOOD} />
-        <B p={[0.25, 0.25, 0.25]} s={[0.08, 0.5, 0.08]} c={WOOD} />
+        <B p={[0, 0.5, 0]} s={[0.6, 0.1, 0.6]} c={c} acabado="mueble.tela" />
+        <B p={[0, 0.85, -0.25]} s={[0.6, 0.6, 0.1]} c={c} acabado="mueble.tela" />
+        <B p={[-0.25, 0.25, -0.25]} s={[0.08, 0.5, 0.08]} c={WOOD} acabado="mueble.madera" />
+        <B p={[0.25, 0.25, -0.25]} s={[0.08, 0.5, 0.08]} c={WOOD} acabado="mueble.madera" />
+        <B p={[-0.25, 0.25, 0.25]} s={[0.08, 0.5, 0.08]} c={WOOD} acabado="mueble.madera" />
+        <B p={[0.25, 0.25, 0.25]} s={[0.08, 0.5, 0.08]} c={WOOD} acabado="mueble.madera" />
       </group>
     ),
   },
@@ -126,9 +126,9 @@ export const CATALOGO: CatalogoItem[] = [
     defaultColor: '#b45309',
     render: (c) => (
       <group>
-        <B p={[0, 0.3, 0]} s={[1.1, 0.6, 0.7]} c={c} />
-        <B p={[0, 0.65, 0]} s={[1.15, 0.15, 0.75]} c="#6b4f3a" />
-        <B p={[0, 0.5, 0.38]} s={[0.2, 0.2, 0.05]} c="#fbbf24" />
+        <B p={[0, 0.3, 0]} s={[1.1, 0.6, 0.7]} c={c} acabado="mueble.madera" />
+        <B p={[0, 0.65, 0]} s={[1.15, 0.15, 0.75]} c="#6b4f3a" acabado="mueble.madera" />
+        <B p={[0, 0.5, 0.38]} s={[0.2, 0.2, 0.05]} c="#fbbf24" acabado="mueble.metal" />
       </group>
     ),
   },
@@ -168,11 +168,11 @@ export const CATALOGO: CatalogoItem[] = [
     defaultColor: '#8b5a2b',
     render: (c) => (
       <group>
-        <B p={[0, 0.72, 0]} s={[1.4, 0.1, 0.9]} c={c} />
-        <B p={[-0.6, 0.36, -0.35]} s={[0.1, 0.72, 0.1]} c={WOOD} />
-        <B p={[0.6, 0.36, -0.35]} s={[0.1, 0.72, 0.1]} c={WOOD} />
-        <B p={[-0.6, 0.36, 0.35]} s={[0.1, 0.72, 0.1]} c={WOOD} />
-        <B p={[0.6, 0.36, 0.35]} s={[0.1, 0.72, 0.1]} c={WOOD} />
+        <B p={[0, 0.72, 0]} s={[1.4, 0.1, 0.9]} c={c} acabado="mueble.madera" />
+        <B p={[-0.6, 0.36, -0.35]} s={[0.1, 0.72, 0.1]} c={WOOD} acabado="mueble.madera" />
+        <B p={[0.6, 0.36, -0.35]} s={[0.1, 0.72, 0.1]} c={WOOD} acabado="mueble.madera" />
+        <B p={[-0.6, 0.36, 0.35]} s={[0.1, 0.72, 0.1]} c={WOOD} acabado="mueble.madera" />
+        <B p={[0.6, 0.36, 0.35]} s={[0.1, 0.72, 0.1]} c={WOOD} acabado="mueble.madera" />
       </group>
     ),
   },
@@ -573,7 +573,7 @@ export function ObjetoView({
   if (tipo.startsWith('recurso:')) {
     const modelo = getModelo(Number(tipo.slice('recurso:'.length)))
     if (!modelo) return null
-    const contenido = modelo.render(color, tema?.id ?? null, { separado })
+    const contenido = modelo.render(color, baseDe(tema?.id), { separado })
     const grupo = grupoAccionDe(tipo, grupoAccion)
     if ((grupo === 'asiento' || grupo === 'acostarse') && objetoId != null) {
       return (

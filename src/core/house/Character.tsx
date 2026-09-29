@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, type ReactNode, lazy, Suspense } from 'react'
+import { baseDe } from './temas'
 import { useDemoEjercicio } from '../state/demoEjercicioStore'
 
 // «Muéstrame el press banca» en el mapa: el personaje lo hace con el rig del visor (lazy).
@@ -1244,7 +1245,7 @@ export function Character() {
     if (montadoTipo !== 'generico' || montadoId == null) return undefined
     const o = s.objetos.find((x) => x.id === montadoId)
     if (!o) return undefined
-    return (o.tipo === TIPO_PIEZAS ? o.piezas : piezasDesdeObjeto(o.tipo, o.color, s.temaGlobal)) ?? undefined
+    return (o.tipo === TIPO_PIEZAS ? o.piezas : piezasDesdeObjeto(o.tipo, o.color, baseDe(s.temaGlobal))) ?? undefined
   })
   const donaId = useFlotador((s) => s.instanciaId)
   const colorDona = useDiseño((s) =>

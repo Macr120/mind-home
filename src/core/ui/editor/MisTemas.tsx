@@ -1,6 +1,6 @@
 import { useDiseño } from '../../state/disenoStore'
 import { confirmar, pedirTexto } from '../../state/confirmarStore'
-import { TEMAS } from '../../house/temas'
+import { esTemaFabrica, getTema } from '../../house/temas'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 
@@ -18,7 +18,7 @@ export function MisTemas() {
   const eliminarTemaPropio = useDiseño((s) => s.eliminarTemaPropio)
 
   const guardar = async () => {
-    const base = TEMAS.find((x) => x.id === temaGlobal)
+    const base = getTema(temaGlobal)
     const nombre = await pedirTexto({
       titulo: t('editor.tema.guardarTitulo', 'Guardar este tema'),
       mensaje: t(
@@ -74,7 +74,7 @@ export function MisTemas() {
         <div className="space-y-1.5">
           {temasPropios.map((tp) => {
             if (tp.id == null) return null
-            const base = TEMAS.find((x) => x.id === tp.base)
+            const base = getTema(tp.base)
             return (
               <div
                 key={tp.id}
@@ -84,7 +84,7 @@ export function MisTemas() {
                   type="button"
                   onClick={() => void aplicarTemaPropio(tp.id!)}
                   className="flex w-full items-center gap-2 px-2 py-1.5 text-start transition hover:bg-white/5"
-                  title={base ? t(`tema.${base.id}`, base.nombre) : undefined}
+                  title={base ? (esTemaFabrica(base.id) ? t(`tema.${base.id}`, base.nombre) : base.nombre) : undefined}
                 >
                   <span className="text-base"><Icono emoji={base?.icon ?? '🎨'} /></span>
                   <span className="min-w-0 flex-1 truncate text-[11px] font-medium text-white/80">

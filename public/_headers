@@ -31,6 +31,9 @@
 /textures/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
+/hdri/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
 /ejercicios/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 

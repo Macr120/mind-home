@@ -133,6 +133,15 @@ export const OP_FONDO: OperacionIA = {
   partes: [{ op: 'imagen' }],
 }
 
+export const OP_ESTILO_IA: OperacionIA = {
+  id: 'editor.estiloIA',
+  clave: 'ia.op.editor.estiloIA',
+  es: 'Tema de la casa diseñado por la IA',
+  dondeClave: 'ia.donde.editorTema',
+  dondeEs: 'Editor › Tema',
+  partes: [{ op: 'texto' }],
+}
+
 export const OPS_EDITOR: OperacionIA[] = [
   OP_OBJETO_3D,
   OP_PERSONAJE_3D,
@@ -141,6 +150,7 @@ export const OPS_EDITOR: OperacionIA[] = [
   OP_ASISTENTE_VOZ,
   OP_TEXTURA,
   OP_FONDO,
+  OP_ESTILO_IA,
 ]
 
 /**

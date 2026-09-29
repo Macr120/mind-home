@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { useDiseño } from '../state/disenoStore'
+import { useModoFoto } from '../state/modoFotoStore'
 
 const Inner = lazy(() =>
   import('./EfectosPostInner').then((m) => ({ default: m.EfectosPostInner })),
@@ -13,7 +14,9 @@ const Inner = lazy(() =>
 export function EfectosPost() {
   const efectosOn = useDiseño((s) => s.efectosVisuales)
   const config = useDiseño((s) => s.efectosConfig)
-  if (!efectosOn) return null
+  // En el modo foto el trazador toma el lienzo: el composer se quita para no pisarlo.
+  const enFoto = useModoFoto((s) => s.activo)
+  if (!efectosOn || enFoto) return null
   return (
     <Suspense fallback={null}>
       <Inner config={config} />

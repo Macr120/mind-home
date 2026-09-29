@@ -74,6 +74,11 @@ export interface Pieza3D {
    */
   mat?: 'metal' | 'vidrio' | 'brillante' | 'luz'
   /**
+   * Material PBR opcional (id de `house/materialesPBR.ts`, p. ej. 'mueble.madera').
+   * Solo se ve con el realismo de muebles encendido; lo escribe el taller.
+   */
+  acabado?: string
+  /**
    * Solo 'plano': texto pintado encima (el título en el lomo de un libro o en la
    * tapa de una caja). `color` es el fondo y `tinta` el de las letras.
    */

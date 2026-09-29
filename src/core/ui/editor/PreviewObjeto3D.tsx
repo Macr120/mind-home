@@ -5,7 +5,7 @@ import type { Pieza3D } from '../../chat/mascotas'
 import { ObjetoView } from '../../house/catalogo'
 import { PiezasSeleccionContext } from '../../house/modeloPersonalizado'
 import { TemaContext } from '../../house/primitivas'
-import { getTema, type TemaId } from '../../house/temas'
+import { getTema, type TemaClave } from '../../house/temas'
 import { useEditorUi } from '../../state/editorUiStore'
 import { forzarSiempre, type AnimacionModelo } from '../../house/animacion'
 import { GrupoAnimado } from '../../house/Animado'
@@ -102,7 +102,7 @@ export function PreviewObjeto3D({
   rotZ?: number
   /** Altura extra (levantar/flotar) en unidades. */
   alturaY?: number
-  temaId: TemaId | null
+  temaId: TemaClave | null
   /** Objetos tipo 'piezas': las primitivas del objeto. */
   piezas?: import('../../chat/mascotas').Pieza3D[]
   /** Objetos tipo 'glb': el modelo subido por el usuario. */

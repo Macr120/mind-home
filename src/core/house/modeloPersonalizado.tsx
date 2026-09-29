@@ -5,6 +5,8 @@ import * as THREE from 'three'
 import type { Pieza3D } from '../chat/mascotas'
 import type { MarchaIndices } from './cuerpos'
 import { anguloMarcha, MARCHA_BRAZOS, MARCHA_PIERNAS, type EstadoMarcha } from './animacion'
+import { MatAcabado, useAcabado } from './primitivas'
+import { cajaMetros } from './uvMetros'
 
 /**
  * Render de los modelos 3D personalizados, compartido por el avatar del usuario
@@ -104,6 +106,9 @@ function PiezaMesh({
   const mapa = conTexto
     ? texturaTexto(p.texto!, p.color, p.tinta ?? '#ffffff', p.tam[0] ?? 0.5, p.tam[1] ?? 0.5)
     : undefined
+  // Realismo de muebles: textura PBR (la pieza seleccionada en el editor queda lisa para resaltar).
+  const acabadoPbr = useAcabado(sel || conTexto ? undefined : p.acabado)
+  const cajaPbr = acabadoPbr && p.tipo === 'caja'
   return (
     <mesh
       ref={meshRefs ? (m) => { meshRefs.current[i] = m } : undefined}
@@ -129,7 +134,9 @@ function PiezaMesh({
       }
       onPointerOut={edicion ? () => { document.body.style.cursor = 'default' } : undefined}
     >
-      {p.tipo === 'caja' ? (
+      {cajaPbr ? (
+        <primitive object={cajaMetros(p.tam[0] ?? 0.3, p.tam[1] ?? 0.3, p.tam[2] ?? 0.3)} attach="geometry" />
+      ) : p.tipo === 'caja' ? (
         <boxGeometry args={[p.tam[0] ?? 0.3, p.tam[1] ?? 0.3, p.tam[2] ?? 0.3]} />
       ) : p.tipo === 'esfera' ? (
         <sphereGeometry args={[p.tam[0] ?? 0.2, 16, 16]} />
@@ -140,6 +147,7 @@ function PiezaMesh({
       ) : (
         <cylinderGeometry args={[p.tam[0] ?? 0.15, p.tam[1] ?? 0.15, p.tam[2] ?? 0.4, 12]} />
       )}
+      <MatAcabado id={acabadoPbr} color={p.color}>
       <meshStandardMaterial
         // Con texto, el color ya va pintado en la textura (blanco = sin teñirla).
         color={mapa ? '#ffffff' : p.color}
@@ -151,6 +159,7 @@ function PiezaMesh({
         toneMapped={p.mat !== 'luz'}
         side={p.tipo === 'plano' ? THREE.DoubleSide : THREE.FrontSide}
       />
+      </MatAcabado>
     </mesh>
   )
 }

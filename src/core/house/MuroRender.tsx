@@ -6,6 +6,9 @@ import { WALL_H, FORMA_ALTO_TECHO } from './walls'
 import { puntosRemateVano, VANO_FORMA_ALTO_DEFAULT } from './murosPuertas'
 import type { TipoMuroId, FormaMuroId, FormaVanoId, VentanaFormaId, VentanaContenidoId } from './murosPuertas'
 import { texturaMuro } from './texturasMuro'
+import { esMaterialPbr, useMapasPBR, useRealismo, type MapasPBR, type MaterialPbrId } from './materialesPBR'
+import { cajaMetros } from './uvMetros'
+import { useTemaActivo } from './useTema'
 
 /** Repeticiones de la imagen según el ajuste elegido. */
 const AJUSTE_REPEAT: Record<string, number> = { x1: 1, x2: 2, x4: 4 }
@@ -694,6 +697,24 @@ function MuroTextura({
   return <>{children(map)}</>
 }
 
+/** Material PBR de un muro según su tipo (el tema puede proponer otro para los lisos). */
+function materialMuro(
+  tipo: TipoMuroId,
+  exterior: boolean,
+  texturas: { muroInt?: string; muroExt?: string } | undefined,
+): MaterialPbrId | null {
+  if (tipo === 'vitraje') return null
+  if (tipo === 'ladrillo') return 'muro.ladrillo'
+  if (tipo === 'madera') return 'muro.madera'
+  const delTema = exterior ? texturas?.muroExt : texturas?.muroInt
+  return esMaterialPbr(delTema) ? delTema : 'muro.yeso'
+}
+
+/** Carga las texturas PBR del muro (suspende) y se las entrega al cuerpo. */
+function MuroPBR({ id, children }: { id: MaterialPbrId; children: (pbr: MapasPBR) => ReactNode }) {
+  return <>{children(useMapasPBR(id))}</>
+}
+
 /** Segmento de muro con tipo visual, forma paramétrica, color e imagen. Memoizado:
     sus props son escalares/estables, y re-renderizar el cuarto no reconstruye cada muro. */
 export const MuroSegment = memo(function MuroSegment({
@@ -812,6 +833,10 @@ export const MuroSegment = memo(function MuroSegment({
   const esVentana = ventana
   const grosor = horizontal ? sz : sx
   const formRough = exterior ? extRough : roughness
+  // Realismo (opcional): textura PBR con UV en metros; la imagen propia del muro manda.
+  const pbrOn = useRealismo('pbrMuros')
+  const texturasTema = useTemaActivo()?.shell.texturas
+  const pbrId = pbrOn && !imagen && !atenuado ? materialMuro(tipoMuro, exterior, texturasTema) : null
 
   // Hueco en el muro a la medida de la ventana (como la puerta): el resto sigue sólido,
   // de modo que el cristal transparente deja ver el exterior por la abertura.
@@ -948,7 +973,7 @@ export const MuroSegment = memo(function MuroSegment({
   const geoRecorte = huecoGeo ?? headerGeo
 
   // Cuerpo del muro + decoraciones; recibe la textura ya cargada (si hay imagen).
-  const cuerpo = (map?: Texture) => {
+  const cuerpo = (map?: Texture, pbr?: MapasPBR) => {
     // El dintel con remate (arco/pico sobre una puerta) desactiva `DetalleMuro` más abajo
     // porque sus juntas en malla no pueden rodear un hueco no rectangular: sin esto se
     // quedaba siempre liso. Mismo patrón de canvas que usa la silueta del muro.
@@ -960,9 +985,21 @@ export const MuroSegment = memo(function MuroSegment({
         castShadow={!atenuado}
         receiveShadow={!atenuado}
         rotation={geoRecorte && !horizontal ? [0, -Math.PI / 2, 0] : [0, 0, 0]}
-        geometry={geoRecorte ?? undefined}
+        geometry={geoRecorte ?? (pbr ? cajaMetros(sx, h, sz) : undefined)}
       >
-        {!geoRecorte && <boxGeometry args={[sx, h, sz]} />}
+        {!geoRecorte && !pbr && <boxGeometry args={[sx, h, sz]} />}
+        {pbr ? (
+          <meshStandardMaterial
+            color={tint}
+            map={pbr.map}
+            normalMap={pbr.normalMap}
+            roughnessMap={pbr.roughnessMap}
+            roughness={1}
+            metalness={pbr.metalness}
+            emissive={emissive}
+            emissiveIntensity={emissiveInt}
+          />
+        ) : (
         <meshStandardMaterial
           color={cuerpoMap && !cuerpoPatron ? '#ffffff' : tint}
           map={cuerpoMap}
@@ -974,6 +1011,7 @@ export const MuroSegment = memo(function MuroSegment({
           opacity={atenuado ? 0.16 : !cuerpoMap && esCristal ? 0.55 : 1}
           toneMapped={!cuerpoMap || cuerpoPatron}
         />
+        )}
       </mesh>
       {!atenuado && esVentana && !map && !huecoSinCristal && (
         <VentanaEnMuro
@@ -985,7 +1023,7 @@ export const MuroSegment = memo(function MuroSegment({
         />
       )}
       {/* En el dintel recortado por el remate, las juntas cruzarían el hueco. */}
-      {!atenuado && !map && !headerGeo && (
+      {!atenuado && !map && !pbr && !headerGeo && (
         <DetalleMuro tipo={tipoMuro} horizontal={horizontal} largo={largo} alto={h} grosor={grosor} base={tint} hueco={huecoPuerta} />
       )}
       {formas(map)}
@@ -998,6 +1036,10 @@ export const MuroSegment = memo(function MuroSegment({
       {imagen ? (
         <Suspense fallback={cuerpo()}>
           <MuroTextura dataUrl={imagen} ajuste={imagenAjuste}>{cuerpo}</MuroTextura>
+        </Suspense>
+      ) : pbrId ? (
+        <Suspense fallback={cuerpo()}>
+          <MuroPBR id={pbrId}>{(pbr) => cuerpo(undefined, pbr)}</MuroPBR>
         </Suspense>
       ) : (
         cuerpo()

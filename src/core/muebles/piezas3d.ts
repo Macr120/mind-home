@@ -1,6 +1,7 @@
 import type { Pieza3D } from '../chat/mascotas'
 import { armarMueble } from './modulos'
 import type { Cuerpo, Mm, Mueble, ParteMueble } from './tipos'
+import { getTablero } from './materiales'
 
 /**
  * Proyección del `Cuerpo` a las piezas de la escena 3D. Es el ÚNICO sitio del
@@ -24,6 +25,14 @@ function rotCilindro(p: ParteMueble): [number, number, number] {
   return [0, 0, 0]
 }
 
+/** Material PBR de la parte (solo se ve con el realismo de muebles): veta → madera, liso → madera clara. */
+function acabadoDe(p: ParteMueble): string | undefined {
+  if (p.hechoDe === 'tubo' || (p.hechoDe === 'accesorio' && !p.soloVisual)) return 'mueble.metal'
+  if (p.hechoDe !== 'tablero') return undefined
+  const conVeta = p.materialTablero ? getTablero(p.materialTablero).conVeta : true
+  return conVeta ? 'mueble.madera' : 'mueble.madera_clara'
+}
+
 const suma = (a: [number, number, number], b?: [number, number, number]): [number, number, number] =>
   b ? [a[0] + b[0], a[1] + b[1], a[2] + b[2]] : a
 
@@ -42,6 +51,7 @@ export function piezas3DDeCuerpo(c: Cuerpo, opts?: { abrirFrentes?: boolean }): 
       aMetros(p.z + p.dz / 2 - medioFondo),
     ]
     const metalico = p.hechoDe === 'tubo' || (p.hechoDe === 'accesorio' && !p.soloVisual)
+    const acabado = acabadoDe(p)
     let rot = p.rot
     if (opts?.abrirFrentes && (p.rol === 'puerta' || p.rol === 'frente-cajon')) {
       // Solo visual: el despiece no se entera de que la puerta está abierta.
@@ -58,6 +68,7 @@ export function piezas3DDeCuerpo(c: Cuerpo, opts?: { abrirFrentes?: boolean }): 
         tam: [aMetros(p.dx / 2), aMetros(p.dx / 2), aMetros(p.dy)],
         color: p.color,
         ...(rot ? { rot } : {}),
+        ...(acabado ? { acabado } : {}),
       })
       continue
     }
@@ -72,6 +83,7 @@ export function piezas3DDeCuerpo(c: Cuerpo, opts?: { abrirFrentes?: boolean }): 
         color: p.color,
         rot: suma(rotCilindro(p), rot),
         ...(metalico || p.hechoDe === 'accesorio' ? { mat: 'metal' as const } : {}),
+        ...(acabado ? { acabado } : {}),
       })
       continue
     }
@@ -83,6 +95,7 @@ export function piezas3DDeCuerpo(c: Cuerpo, opts?: { abrirFrentes?: boolean }): 
       color: p.color,
       ...(rot ? { rot } : {}),
       ...(metalico ? { mat: 'metal' as const } : {}),
+      ...(acabado ? { acabado } : {}),
     })
   }
   return piezas

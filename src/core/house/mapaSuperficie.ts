@@ -1,6 +1,6 @@
 import type { FondoId } from './fondos'
 import { getFondo } from './fondos'
-import type { TemaId } from './temas'
+import type { TemaClave } from './temas'
 import { getTema } from './temas'
 import { colorFondo, estadoCielo } from './cielo'
 import type { PisoTipoId } from './pisos'
@@ -62,7 +62,7 @@ export function colorMargenPlanoDesdeCielo(opts: {
   fondoId: FondoId
   fondoColorFijo?: string
   fondoImagenActivo: number | null
-  temaGlobal: TemaId | null
+  temaGlobal: TemaClave | null
   minutos: number
 }): string {
   const { fondoId, fondoColorFijo, fondoImagenActivo, temaGlobal, minutos } = opts

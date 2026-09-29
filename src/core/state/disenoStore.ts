@@ -15,7 +15,15 @@ import { esAppNativa } from '../plataforma'
 import { esGamaBaja } from '../gamaDispositivo'
 import { filaSeed } from '../data/sync/syncables'
 import { esMueblePrincipal } from '../house/muebles'
-import { aplicarOverridesTema, TEMAS, type TemaId, type TemaOverride } from '../house/temas'
+import {
+  aplicarOverridesTema,
+  aplicarTemasUsuario,
+  baseDe,
+  getTema,
+  type Tema,
+  type TemaClave,
+  type TemaOverride,
+} from '../house/temas'
 import {
   getEstilo,
   configDeEstilo,
@@ -87,7 +95,12 @@ const TEMA_ROW = '__tema__'
 const ESTILO_ROW = '__estilo__'
 /** Prefijo de las filas centinela con la personalización de cada tema (`__tema_ov_<id>__`). */
 const TEMA_OV_PREFIX = '__tema_ov_'
-const temaOvRow = (id: TemaId) => `${TEMA_OV_PREFIX}${id}__`
+const temaOvRow = (id: TemaClave) => `${TEMA_OV_PREFIX}${id}__`
+/** Prefijo de las filas centinela con cada tema creado por el usuario (`__tema_def_<id>__`). */
+const TEMA_DEF_PREFIX = '__tema_def_'
+const temaDefRow = (id: TemaClave) => `${TEMA_DEF_PREFIX}${id}__`
+/** roomId sentinela con la lista de temas de fábrica que el usuario borró. */
+const TEMAS_OCULTOS_ROW = '__temas_ocultos__'
 /**
  * roomId sentinela del fondo de cielo (`nombre` = id, `color` = animaciones).
  * `color`: '0' = apagadas; con decimales ('0.60') = intensidad; '1' a secas = fila
@@ -265,9 +278,13 @@ interface DisenoState {
   arrastreElevado: boolean
   avatar: Avatar
   /** tema estacional global de la casa; null = sin tema (se controla en el editor de mapa) */
-  temaGlobal: TemaId | null
+  temaGlobal: TemaClave | null
   /** Personalizaciones del usuario por tema (colores, materiales, luz, niebla). */
-  temasOverrides: Partial<Record<TemaId, TemaOverride>>
+  temasOverrides: Partial<Record<TemaClave, TemaOverride>>
+  /** Temas creados por el usuario (p. ej. con la IA). */
+  temasUsuario: Tema[]
+  /** Temas de fábrica que el usuario borró del selector. */
+  temasOcultos: string[]
   /** Contador que cambia al editar un tema; los componentes de escena lo observan para refrescar. */
   temaRev: number
   /** estilo de render ACTIVO del mapa 3D (derivado del tema o de "sin tema") */
@@ -308,11 +325,17 @@ interface DisenoState {
   mapaSuperficie: MapaSuperficieAjustes
   cargado: boolean
   cargar: () => Promise<void>
-  setTemaGlobal: (tema: TemaId | null) => Promise<void>
+  setTemaGlobal: (tema: TemaClave | null) => Promise<void>
   /** Sobreescribe campos de un tema (merge profundo con lo ya guardado). */
-  setTemaOverride: (tema: TemaId, patch: TemaOverride) => Promise<void>
+  setTemaOverride: (tema: TemaClave, patch: TemaOverride) => Promise<void>
   /** Restaura un tema a sus valores originales (borra la personalización). */
-  resetTema: (tema: TemaId) => Promise<void>
+  resetTema: (tema: TemaClave) => Promise<void>
+  /** Guarda un tema nuevo del usuario y lo pone como tema de la casa. */
+  crearTema: (def: Tema) => Promise<void>
+  /** Borra un tema: el del usuario desaparece; el de fábrica se oculta del selector. */
+  borrarTema: (id: TemaClave) => Promise<void>
+  /** Vuelve a mostrar los temas de fábrica borrados. */
+  restaurarTemasFabrica: () => Promise<void>
   setEstiloVisual: (estilo: EstiloVisualId) => Promise<void>
   setEfectosVisuales: (activo: boolean) => Promise<void>
   /** Ajusta un efecto individual (on/off + intensidad) del contexto activo (tema o sin-tema). */
@@ -694,8 +717,8 @@ async function guardarMapaSuperficieRow(a: MapaSuperficieAjustes) {
  * `config` = ajuste fino guardado, o el del preset del estilo si no se ha tocado.
  */
 function resolverEstilo(
-  temaGlobal: TemaId | null,
-  temasOverrides: Partial<Record<TemaId, TemaOverride>>,
+  temaGlobal: TemaClave | null,
+  temasOverrides: Partial<Record<TemaClave, TemaOverride>>,
   estiloSinTema: EstiloVisualId,
   efectosSinTema: boolean,
   efectosConfigSinTema: EfectosConfig,
@@ -704,11 +727,14 @@ function resolverEstilo(
     return { estilo: estiloSinTema, efectos: efectosSinTema, config: efectosConfigSinTema }
   }
   const ov = temasOverrides[temaGlobal]
-  const estilo = ov?.estilo ?? TEMAS.find((t) => t.id === temaGlobal)?.estilo ?? 'normal'
+  // getTema ya lleva fusionado el override, pero aquí se separa lo guardado de lo sugerido.
+  const def = getTema(temaGlobal)
+  const estilo = ov?.estilo ?? def?.estilo ?? 'normal'
   return {
     estilo,
     efectos: ov?.efectos ?? true,
-    config: ov?.efectosConfig ?? configDeEstilo(estilo),
+    // Un tema del usuario trae sus efectos de nacimiento; si luego se elige otro estilo, manda su preset.
+    config: ov?.efectosConfig ?? (ov?.estilo ? undefined : def?.efectosConfig) ?? configDeEstilo(estilo),
   }
 }
 
@@ -729,6 +755,12 @@ async function guardarEstiloRow(estilo: EstiloVisualId, efectos: boolean, config
   const row = { nombre: estilo, color: efectos ? '1' : '0', efectosConfig: config }
   if (existing?.id) await db.disenoRooms.update(existing.id, row)
   else await db.disenoRooms.add({ roomId: ESTILO_ROW, ...row })
+}
+
+async function guardarTemasOcultos(temasOcultos: string[]) {
+  const existing = await db.disenoRooms.where('roomId').equals(TEMAS_OCULTOS_ROW).first()
+  if (existing?.id) await db.disenoRooms.update(existing.id, { temasOcultos })
+  else await db.disenoRooms.add({ roomId: TEMAS_OCULTOS_ROW, color: '', temasOcultos })
 }
 
 async function guardarFondoRow(
@@ -986,6 +1018,8 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   avatar: { ...AVATAR_INICIAL },
   temaGlobal: null,
   temasOverrides: {},
+  temasUsuario: [],
+  temasOcultos: [],
   temaRev: 0,
   estiloVisual: 'normal',
   efectosVisuales: !esAppNativa() && !esGamaBaja(),
@@ -1276,9 +1310,11 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     const roomTechoParams: Record<string, TechoParams> = {}
     const roomTechoFormasCelda: Record<string, Record<string, TechoCeldaForma>> = {}
     const roomTechoExtra: Record<string, import('../house/walls').Cell[]> = {}
-    let temaGlobal: TemaId | null = null
-    const temasOverrides: Partial<Record<TemaId, TemaOverride>> = {}
-    const temaOvIds: Partial<Record<TemaId, number[]>> = {}
+    let temaGlobal: TemaClave | null = null
+    const temasOverrides: Partial<Record<TemaClave, TemaOverride>> = {}
+    const temaOvIds: Partial<Record<TemaClave, number[]>> = {}
+    const temasUsuario: Tema[] = []
+    let temasOcultos: string[] = []
     let estiloSinTema: EstiloVisualId = 'normal'
     // En la app nativa (Capacitor) y en la web de un equipo de gama baja, el
     // postprocesado (oclusión + bloom) es demasiado caro para el GPU: arranca
@@ -1302,7 +1338,15 @@ export const useDiseño = create<DisenoState>((set, get) => ({
         continue
       }
       if (d.roomId === TEMA_ROW) {
-        temaGlobal = (d.nombre as TemaId) || null
+        temaGlobal = d.nombre || null
+        continue
+      }
+      if (d.roomId.startsWith(TEMA_DEF_PREFIX)) {
+        if (d.temaDef) temasUsuario.push(d.temaDef)
+        continue
+      }
+      if (d.roomId === TEMAS_OCULTOS_ROW) {
+        temasOcultos = d.temasOcultos ?? []
         continue
       }
       if (d.roomId === ESTILO_ROW) {
@@ -1312,7 +1356,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
         continue
       }
       if (d.roomId.startsWith(TEMA_OV_PREFIX)) {
-        const temaId = d.roomId.slice(TEMA_OV_PREFIX.length, -2) as TemaId
+        const temaId = d.roomId.slice(TEMA_OV_PREFIX.length, -2)
         if (d.temaOverride) {
           // Fusiona por si hubiera filas duplicadas de una carrera antigua (no se pierde nada).
           const prev = temasOverrides[temaId]
@@ -1424,8 +1468,8 @@ export const useDiseño = create<DisenoState>((set, get) => ({
 
     // Sana filas duplicadas de temas (carreras antiguas): deja una sola por tema con el override fusionado.
     for (const [temaId, ids] of Object.entries(temaOvIds)) {
-      if (ids.length <= 1) continue
-      const ov = temasOverrides[temaId as TemaId]
+      if (!ids || ids.length <= 1) continue
+      const ov = temasOverrides[temaId]
       await db.disenoRooms.bulkDelete(ids.slice(1))
       if (ov) await db.disenoRooms.update(ids[0], { temaOverride: ov })
     }
@@ -1433,6 +1477,9 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     const objetosConMuebles = await asegurarPrincipalPorCuarto(objetos)
     // Sincroniza el registro que usa getTema() para que la escena arranque con los temas ya personalizados.
     aplicarOverridesTema(temasOverrides)
+    aplicarTemasUsuario(temasUsuario)
+    // Un tema del usuario borrado en otro dispositivo deja la casa sin tema.
+    if (temaGlobal && !getTema(temaGlobal)) temaGlobal = null
     // Estilo/efectos activos: los del tema cargado (o los de "sin tema").
     const {
       estilo: estiloVisual,
@@ -1497,6 +1544,8 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       objetos: objetosConMuebles,
       temaGlobal,
       temasOverrides,
+      temasUsuario,
+      temasOcultos,
       estiloVisual,
       efectosVisuales,
       efectosConfig,
@@ -1543,7 +1592,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     })
     // Una casa que ya venía con tema (arranque, otro dispositivo, vuelta del demo) viste
     // la interfaz igual; el marcador de ajustesStore lo hace idempotente.
-    useAjustes.getState().aplicarAparienciaDeTema(temaGlobal)
+    useAjustes.getState().aplicarAparienciaDeTema(baseDe(temaGlobal))
   },
 
   setTechoTipo: async (tipo) => {
@@ -1554,9 +1603,12 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   },
 
   setTemaGlobal: async (tema) => {
-    const prev = get().temaGlobal
-    const fondoPorTema = fondoSugeridoPorTema(tema)
-    const techoPorTema = techoSugeridoPorTema(tema)
+    // Atuendo, interfaz, fondo y techo siguen al tema de fábrica (el propio o la base
+    // de un tema del usuario); la escena usa el tema completo vía getTema().
+    const base = baseDe(tema)
+    const prevBase = baseDe(get().temaGlobal)
+    const fondoPorTema = fondoSugeridoPorTema(base)
+    const techoPorTema = techoSugeridoPorTema(base)
     // Al cambiar de tema se aplica su estilo/efectos (el guardado o el sugerido).
     const { estilo, efectos, config } = resolverEstilo(
       tema,
@@ -1569,12 +1621,12 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     // la ropa (el respaldo sobrevive a cambiar de un tema a otro) y al quitarlo se repone.
     // Va en el mismo set() que la escena para que casa y avatar cambien a la vez.
     let avatar = get().avatar
-    if (tema) {
-      if (tema !== prev)
+    if (base) {
+      if (base !== prevBase)
         avatar = {
           ...avatar,
-          ropa: ATUENDO_POR_TEMA[tema],
-          ropaSinTema: prev ? avatar.ropaSinTema : ropaSinTemaLimpia(avatar.ropa),
+          ropa: ATUENDO_POR_TEMA[base],
+          ropaSinTema: prevBase ? avatar.ropaSinTema : ropaSinTemaLimpia(avatar.ropa),
         }
     } else if (avatar.ropaSinTema) {
       // «Sin tema» desviste aunque el tema ya estuviera en null (el tema pudo
@@ -1597,9 +1649,9 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       avatar,
     })
     // La interfaz (color, luz, forma y tinte) sigue al tema; síncrono, vive en localStorage.
-    useAjustes.getState().aplicarAparienciaDeTema(tema)
+    useAjustes.getState().aplicarAparienciaDeTema(base)
     // Los asistentes también se visten (y se desvisten) con el tema.
-    const asistentesListos = useAsistentes.getState().vestirPorTema(tema, prev)
+    const asistentesListos = useAsistentes.getState().vestirPorTema(base, prevBase)
     const existing = await db.disenoRooms.where('roomId').equals(TEMA_ROW).first()
     if (existing?.id) await db.disenoRooms.update(existing.id, { nombre: tema ?? '' })
     else await db.disenoRooms.add({ roomId: TEMA_ROW, color: '', nombre: tema ?? '' })
@@ -1659,6 +1711,44 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       efectosConfig: config,
     })
     await enCola(() => db.disenoRooms.where('roomId').equals(temaOvRow(tema)).delete())
+  },
+
+  crearTema: async (def) => {
+    const temasUsuario = [...get().temasUsuario.filter((t) => t.id !== def.id), def]
+    aplicarTemasUsuario(temasUsuario)
+    set({ temasUsuario })
+    const roomId = temaDefRow(def.id)
+    await enCola(async () => {
+      const existing = await db.disenoRooms.where('roomId').equals(roomId).first()
+      if (existing?.id) await db.disenoRooms.update(existing.id, { temaDef: def })
+      else await db.disenoRooms.add({ roomId, color: '', temaDef: def })
+    })
+    await get().setTemaGlobal(def.id)
+  },
+
+  borrarTema: async (id) => {
+    if (get().temaGlobal === id) await get().setTemaGlobal(null)
+    if (get().temasUsuario.some((t) => t.id === id)) {
+      const temasUsuario = get().temasUsuario.filter((t) => t.id !== id)
+      const temasOverrides = { ...get().temasOverrides }
+      delete temasOverrides[id]
+      aplicarTemasUsuario(temasUsuario)
+      aplicarOverridesTema(temasOverrides)
+      set({ temasUsuario, temasOverrides, temaRev: get().temaRev + 1 })
+      await enCola(() =>
+        db.disenoRooms.where('roomId').anyOf([temaDefRow(id), temaOvRow(id)]).delete(),
+      )
+      return
+    }
+    // De fábrica: se oculta del selector; su personalización se conserva por si vuelve.
+    const temasOcultos = [...new Set([...get().temasOcultos, id])]
+    set({ temasOcultos })
+    await enCola(() => guardarTemasOcultos(temasOcultos))
+  },
+
+  restaurarTemasFabrica: async () => {
+    set({ temasOcultos: [] })
+    await enCola(() => guardarTemasOcultos([]))
   },
 
   setEstiloVisual: async (estilo) => {

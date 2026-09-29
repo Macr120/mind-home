@@ -3,6 +3,7 @@ import { ESTILOS, EFECTOS, estadoEfecto, type EstiloVisualId } from '../../house
 import { getTema } from '../../house/temas'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
+import { EditorRealismo } from './EditorRealismo'
 
 /**
  * Estilo visual del mapa 3D: estilo de render (cómic, miniatura, retro, neón) +
@@ -152,6 +153,9 @@ export function EditorEstiloSection({
           )
         })}
       </div>
+
+      {/* Mejoras del motor por dispositivo: solo en Configuraciones, no en el detalle de cada tema. */}
+      {!sinDestino && <EditorRealismo />}
     </div>
   )
 }

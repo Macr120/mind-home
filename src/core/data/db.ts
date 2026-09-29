@@ -1379,6 +1379,10 @@ export interface DisenoRoom {
   techoFormasCelda?: Record<string, import('../house/techos').TechoCeldaForma>
   /** Personalización del usuario de un tema (solo en filas centinela `__tema_ov_<id>__`). */
   temaOverride?: import('../house/temas').TemaOverride
+  /** Tema creado por el usuario (solo en filas centinela `__tema_def_<id>__`). */
+  temaDef?: import('../house/temas').Tema
+  /** Temas de fábrica que el usuario borró (solo en la fila centinela `__temas_ocultos__`). */
+  temasOcultos?: string[]
   /** Config de efectos de "sin tema" (solo en la fila centinela `__estilo__`). */
   efectosConfig?: import('../house/estilos').EfectosConfig
 }
@@ -1766,8 +1770,8 @@ export interface TemaPropio {
   id?: number
   uid?: string
   nombre: string
-  /** Tema de fábrica del que parte (los overrides se guardan por tema base). */
-  base: import('../house/temas').TemaId
+  /** Tema del que parte, de fábrica o del usuario (los overrides se guardan por tema base). */
+  base: import('../house/temas').TemaClave
   /** Personalización congelada: paleta, cascarón, luz, niebla, estilo y efectos. */
   override: import('../house/temas').TemaOverride
   /** Fondo de cielo que acompañaba al tema. */

@@ -70,6 +70,7 @@ const LS_HUD_TUTORIALES = 'mh.hud.tutoriales'
 const LS_VOZ_TUTORIALES = 'mh.voz.tutoriales'
 const LS_NOMBRE_APP = 'mh.nombreApp'
 const LS_CHECKLIST_APPS = 'mh.checklist.apps'
+const LS_REALISMO = 'mh.realismo'
 
 /**
  * Ajustes de la checklist diaria de una app; sin fila = con los hechos abajo.
@@ -224,6 +225,32 @@ function leerNotifApps(): Record<string, boolean> {
   }
 }
 
+/**
+ * Mejoras opcionales del motor 3D. Van por dispositivo (dependen de su GPU) y
+ * nacen apagadas; en gama baja la escena las ignora aunque estén encendidas.
+ */
+export interface Realismo {
+  /** Texturas PBR (color, relieve y rugosidad) en los muros. */
+  pbrMuros: boolean
+  /** Texturas PBR en los muebles (madera, metal, tela…). */
+  pbrMuebles: boolean
+  /** Entorno HDRI real para reflejos e iluminación. */
+  hdri: boolean
+  /** Modo foto con trazado de rayos (path tracer). */
+  fotoPathTracer: boolean
+}
+
+export const REALISMO_APAGADO: Realismo = { pbrMuros: false, pbrMuebles: false, hdri: false, fotoPathTracer: false }
+
+function leerRealismo(): Realismo {
+  try {
+    const raw = localStorage.getItem(LS_REALISMO)
+    return raw ? { ...REALISMO_APAGADO, ...(JSON.parse(raw) as Partial<Realismo>) } : { ...REALISMO_APAGADO }
+  } catch {
+    return { ...REALISMO_APAGADO }
+  }
+}
+
 /** Ajustes de la checklist diaria por app; ausente = todo por defecto. */
 function leerChecklistApps(): Record<string, AjusteChecklist> {
   try {
@@ -284,6 +311,9 @@ interface AjustesState {
   vozTutoriales: boolean
   /** Nombre propio que el usuario le puso a su casa; vacío = el de fábrica traducido. */
   nombreApp: string
+  /** Mejoras opcionales del motor 3D (texturas PBR, HDRI, modo foto). */
+  realismo: Realismo
+  setRealismo: (patch: Partial<Realismo>) => void
   setIdioma: (idioma: Idioma) => void
   toggleIdioma: () => void
   setTemaUI: (tema: TemaUIId) => void
@@ -543,6 +573,13 @@ export const useAjustes = create<AjustesState>((set, get) => ({
   setVozTutoriales: (v) => {
     localStorage.setItem(LS_VOZ_TUTORIALES, v ? 'si' : 'no')
     set({ vozTutoriales: v })
+  },
+
+  realismo: leerRealismo(),
+  setRealismo: (patch) => {
+    const realismo = { ...get().realismo, ...patch }
+    localStorage.setItem(LS_REALISMO, JSON.stringify(realismo))
+    set({ realismo })
   },
 
   // Vaciarlo devuelve el nombre de fábrica (que además se traduce con el idioma).

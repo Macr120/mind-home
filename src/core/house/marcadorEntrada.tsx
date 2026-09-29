@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber'
 import type { Group, Mesh } from 'three'
 import { useDiseño } from '../state/disenoStore'
 import { usePendientesCasa } from '../state/pendientesStore'
-import type { TemaId } from './temas'
+import { baseDe, type TemaId } from './temas'
 
 /** Marcador por defecto (sin tema): esfera verde, roja con misiones pendientes. */
 function MarcadorDefault({ pendiente }: { pendiente: boolean }) {
@@ -200,7 +200,7 @@ export function MarcadorEntrada({ y, appId }: { y: number; appId?: string }) {
   })
   return (
     <group ref={ref} position={[0, y, 0]}>
-      <MarcadorVisual tema={tema} pendiente={pendiente} />
+      <MarcadorVisual tema={baseDe(tema)} pendiente={pendiente} />
     </group>
   )
 }

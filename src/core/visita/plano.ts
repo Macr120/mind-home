@@ -92,7 +92,7 @@ export const CAMPOS_PLANO: Record<string, readonly string[]> = {
   disenoRooms: [
     'id', 'roomId', 'color', 'nombre', 'muebleColor', 'pisoTipo', 'pisoColor', 'pisoExtTipo', 'pisoExtColor',
     'techoColor', 'techoTipo', 'techoForma', 'techoParams', 'techoExtra', 'techoFormasCelda',
-    'temaOverride', 'efectosConfig',
+    'temaOverride', 'efectosConfig', 'temaDef',
   ],
   objetosCuarto: [
     'id', 'roomId', 'tipo', 'color', 'slot', 'x', 'z', 'rotY', 'rotX', 'rotZ', 'y', 'escala', 'fx',
