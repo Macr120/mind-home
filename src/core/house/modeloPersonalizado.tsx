@@ -107,7 +107,8 @@ function PiezaMesh({
     ? texturaTexto(p.texto!, p.color, p.tinta ?? '#ffffff', p.tam[0] ?? 0.5, p.tam[1] ?? 0.5)
     : undefined
   // Realismo de muebles: textura PBR (la pieza seleccionada en el editor queda lisa para resaltar).
-  const acabadoPbr = useAcabado(sel || conTexto ? undefined : p.acabado)
+  // Las piezas metálicas sin acabado propio (objetos de la IA o hechos a mano) toman el metal.
+  const acabadoPbr = useAcabado(sel || conTexto ? undefined : (p.acabado ?? (p.mat === 'metal' ? 'mueble.metal' : undefined)))
   const cajaPbr = acabadoPbr && p.tipo === 'caja'
   return (
     <mesh

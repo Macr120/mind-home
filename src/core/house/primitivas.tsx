@@ -34,8 +34,12 @@ function gradientMapToon(): THREE.DataTexture {
  * null si el realismo de muebles está apagado, el render es toon o el id no
  * existe. La madera la puede cambiar el tema (`shell.texturas.mueble`).
  */
-export function useAcabado(acabado: string | undefined): MaterialPbrId | null {
-  const on = useRealismo('pbrMuebles')
+export function useAcabado(
+  acabado: string | undefined,
+  /** Qué interruptor de Realismo lo gobierna (puertas y muros van con los muros). */
+  clave: 'pbrMuebles' | 'pbrMuros' = 'pbrMuebles',
+): MaterialPbrId | null {
+  const on = useRealismo(clave)
   const toon = useDiseño((s) => s.efectosVisuales && s.efectosConfig.toon?.on === true)
   const delTema = useContext(TemaContext)?.shell.texturas?.mueble
   if (!on || toon || !esMaterialPbr(acabado)) return null
@@ -44,16 +48,19 @@ export function useAcabado(acabado: string | undefined): MaterialPbrId | null {
 }
 
 /**
- * UV en metros calculadas en el shader desde la posición en el mundo: cada cara
- * proyecta el plano de su eje dominante (mapeo «por caja»). Sirve para las mallas
- * escritas a mano (cajas, cilindros, esferas) sin tocar su geometría, que trae UV
- * de 0 a 1 por cara, y respeta la escala del objeto. El relieve sigue funcionando:
- * three arma la base tangente con las derivadas de esas mismas UV.
+ * UV en metros calculadas en el shader: cada cara proyecta el plano de su eje
+ * dominante (mapeo «por caja»). Sirve para las mallas escritas a mano (cajas,
+ * cilindros, esferas) sin tocar su geometría, que trae UV de 0 a 1 por cara. Se
+ * proyecta en el espacio de la PIEZA (escalado por su escala en el mundo): así la
+ * textura viaja pegada a lo que se mueve (puertas, vehículos, ropa del avatar) y
+ * sigue midiendo metros. El relieve funciona: three arma la base tangente con las
+ * derivadas de esas mismas UV.
  */
 const PROYECCION_METROS = `#include <project_vertex>
 {
-  vec3 mphP = (modelMatrix * vec4(transformed, 1.0)).xyz;
-  vec3 mphN = abs(normalize(mat3(modelMatrix) * objectNormal));
+  vec3 mphEsc = vec3(length(modelMatrix[0].xyz), length(modelMatrix[1].xyz), length(modelMatrix[2].xyz));
+  vec3 mphP = transformed * mphEsc;
+  vec3 mphN = abs(normalize(objectNormal / mphEsc));
   vec2 mphUv = mphN.y > max(mphN.x, mphN.z) ? mphP.xz : (mphN.x > mphN.z ? mphP.zy : mphP.xy);
   #ifdef USE_MAP
     vMapUv = (mapTransform * vec3(mphUv, 1.0)).xy;
@@ -68,21 +75,70 @@ const PROYECCION_METROS = `#include <project_vertex>
 const proyectarEnMetros = (sh: { vertexShader: string }) => {
   sh.vertexShader = sh.vertexShader.replace('#include <project_vertex>', PROYECCION_METROS)
 }
-const claveProyeccion = () => 'mph-uv-metros'
+const claveProyeccion = () => 'mph-uv-metros-local'
+
+/**
+ * Variante para mallas cuyas UV ya siguen la superficie pero en otra unidad (los
+ * muros curvos y en polilínea las dan en metros / TILE): se escalan a metros, así
+ * la textura corre continua a lo largo de la curva, sin las costuras de proyectar.
+ */
+const escalasUv = new Map<number, { onBeforeCompile: (sh: { vertexShader: string }) => void; clave: () => string }>()
+function escalarUv(k: number) {
+  let e = escalasUv.get(k)
+  if (!e) {
+    const f = k.toFixed(4)
+    const codigo = `#include <project_vertex>
+  #ifdef USE_MAP
+    vMapUv = (mapTransform * vec3(uv * ${f}, 1.0)).xy;
+  #endif
+  #ifdef USE_NORMALMAP
+    vNormalMapUv = (normalMapTransform * vec3(uv * ${f}, 1.0)).xy;
+  #endif
+  #ifdef USE_ROUGHNESSMAP
+    vRoughnessMapUv = (roughnessMapTransform * vec3(uv * ${f}, 1.0)).xy;
+  #endif`
+    e = {
+      onBeforeCompile: (sh) => {
+        sh.vertexShader = sh.vertexShader.replace('#include <project_vertex>', codigo)
+      },
+      clave: () => `mph-uv-x${f}`,
+    }
+    escalasUv.set(k, e)
+  }
+  return e
+}
+
+/** Cómo sacar UV en metros: proyectarlas desde la pieza, o escalar las de la malla. */
+export type UvMetros = 'proyectar' | number
+
+/** Quita las claves sin valor: un `undefined` explícito pisaría el default de three. */
+const soloDefinidos = <T extends object>(o: T): T =>
+  Object.fromEntries(Object.entries(o).filter(([, v]) => v !== undefined)) as T
+
+/** Lo que el material texturizado hereda del de siempre (brillo y transparencia). */
+type MatExtra = Pick<
+  ThreeElements['meshStandardMaterial'],
+  'emissive' | 'emissiveIntensity' | 'toneMapped' | 'transparent' | 'opacity' | 'depthWrite'
+>
 
 /** Material con las texturas PBR (suspende mientras cargan). */
 function MatTexturado({
   id,
   color,
   metalness,
-  proyectar,
+  uvMetros,
+  side,
+  extra,
 }: {
   id: MaterialPbrId
   color: string
   metalness?: number
-  proyectar?: boolean
+  uvMetros?: UvMetros
+  side?: THREE.Side
+  extra?: MatExtra
 }) {
   const pbr = useMapasPBR(id)
+  const escala = typeof uvMetros === 'number' ? escalarUv(uvMetros) : null
   return (
     <meshStandardMaterial
       color={color}
@@ -91,8 +147,10 @@ function MatTexturado({
       roughnessMap={pbr.roughnessMap}
       roughness={1}
       metalness={metalness ?? pbr.metalness}
-      onBeforeCompile={proyectar ? proyectarEnMetros : undefined}
-      customProgramCacheKey={proyectar ? claveProyeccion : undefined}
+      side={side}
+      {...extra}
+      onBeforeCompile={escala?.onBeforeCompile ?? (uvMetros === 'proyectar' ? proyectarEnMetros : undefined)}
+      customProgramCacheKey={escala?.clave ?? (uvMetros === 'proyectar' ? claveProyeccion : undefined)}
     />
   )
 }
@@ -105,20 +163,24 @@ export function MatAcabado({
   id,
   color,
   metalness,
-  proyectar,
+  uvMetros,
+  side,
+  extra,
   children,
 }: {
   id: MaterialPbrId | null
   color: string
   metalness?: number
-  /** Las UV de la malla no van en metros: proyectarlas en el shader. */
-  proyectar?: boolean
+  /** Las UV de la malla no van en metros: proyectarlas o escalarlas en el shader. */
+  uvMetros?: UvMetros
+  side?: THREE.Side
+  extra?: MatExtra
   children: ReactElement
 }) {
   if (!id) return children
   return (
     <Suspense fallback={children}>
-      <MatTexturado id={id} color={color} metalness={metalness} proyectar={proyectar} />
+      <MatTexturado id={id} color={color} metalness={metalness} uvMetros={uvMetros} side={side} extra={extra} />
     </Suspense>
   )
 }
@@ -128,10 +190,32 @@ export function MatAcabado({
  * escritas a mano (especiales): con el realismo de muebles encendido se cambia por
  * el material texturizado con UV proyectadas en metros.
  */
-export function MatStd({ acabado, ...props }: ThreeElements['meshStandardMaterial'] & { acabado?: string }) {
-  const id = useAcabado(acabado)
+export function MatStd({
+  acabado,
+  realismo = 'pbrMuebles',
+  uvMetros = 'proyectar',
+  ...props
+}: ThreeElements['meshStandardMaterial'] & {
+  acabado?: string
+  realismo?: 'pbrMuebles' | 'pbrMuros'
+  uvMetros?: UvMetros
+}) {
+  const id = useAcabado(acabado, realismo)
   return (
-    <MatAcabado id={id} color={typeof props.color === 'string' ? props.color : '#ffffff'} proyectar>
+    <MatAcabado
+      id={id}
+      color={typeof props.color === 'string' ? props.color : '#ffffff'}
+      uvMetros={uvMetros}
+      side={props.side as THREE.Side | undefined}
+      extra={soloDefinidos({
+        emissive: props.emissive,
+        emissiveIntensity: props.emissiveIntensity,
+        toneMapped: props.toneMapped,
+        transparent: props.transparent,
+        opacity: props.opacity,
+        depthWrite: props.depthWrite,
+      })}
+    >
       <meshStandardMaterial {...props} />
     </MatAcabado>
   )

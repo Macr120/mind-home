@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
+import { MatStd } from './primitivas'
 import { useFrame, useThree } from '@react-three/fiber'
 import { VACIO, cultivosRepo } from '../data/repository'
 import { useHuerto, limpiarMarchitos, type HerramientaHuerto } from '../state/huertoStore'
@@ -41,11 +42,11 @@ function PlantaProcedural({
       <group>
         <mesh position={[0, 0.06, 0]} scale={[1, 0.5, 1]}>
           <sphereGeometry args={[0.22, 10, 8]} />
-          <meshStandardMaterial color="#57381f" roughness={0.95} />
+          <MatStd acabado="planta.barro" realismo="pbrMuros" color="#57381f" roughness={0.95} />
         </mesh>
         <mesh position={[0, 0.16, 0]}>
           <sphereGeometry args={[0.05, 8, 6]} />
-          <meshStandardMaterial color={verde} roughness={0.8} />
+          <MatStd acabado="planta.follaje" realismo="pbrMuros" color={verde} roughness={0.8} />
         </mesh>
       </group>
     )
@@ -57,7 +58,7 @@ function PlantaProcedural({
       {/* Tallo. */}
       <mesh position={[0, alto / 2, 0]}>
         <cylinderGeometry args={[0.035, 0.05, alto, 6]} />
-        <meshStandardMaterial color={tallo} roughness={0.85} />
+        <MatStd acabado="planta.follaje" realismo="pbrMuros" color={tallo} roughness={0.85} />
       </mesh>
       {/* Hojas (conos inclinados alrededor del tallo). */}
       {(etapa === 'brote' ? [0, Math.PI] : [0, (2 * Math.PI) / 3, (4 * Math.PI) / 3]).map((a) => (
@@ -67,14 +68,14 @@ function PlantaProcedural({
           rotation={[Math.sin(a) * 1.1, 0, -Math.cos(a) * 1.1]}
         >
           <coneGeometry args={[0.09, 0.42, 6]} />
-          <meshStandardMaterial color={verde} roughness={0.8} />
+          <MatStd acabado="planta.follaje" realismo="pbrMuros" color={verde} roughness={0.8} />
         </mesh>
       ))}
       {/* Follaje superior. */}
       {etapa !== 'brote' && (
         <mesh position={[0, alto + 0.08, 0]}>
           <sphereGeometry args={[0.24, 10, 8]} />
-          <meshStandardMaterial color={verde} roughness={0.8} />
+          <MatStd acabado="planta.follaje" realismo="pbrMuros" color={verde} roughness={0.8} />
         </mesh>
       )}
       {/* Frutos/flores al estar listo. */}
@@ -102,20 +103,20 @@ function Aspersor3D() {
     <group position={[0, Y + 0.08, 0]}>
       <mesh position={[0, 0.55, 0]}>
         <cylinderGeometry args={[0.06, 0.08, 1.1, 8]} />
-        <meshStandardMaterial color="#94a3b8" roughness={0.5} metalness={0.4} />
+        <MatStd acabado="mueble.metal" realismo="pbrMuros" color="#94a3b8" roughness={0.5} metalness={0.4} />
       </mesh>
       <mesh position={[0, 1.14, 0]}>
         <cylinderGeometry args={[0.1, 0.1, 0.12, 8]} />
-        <meshStandardMaterial color="#64748b" roughness={0.5} metalness={0.4} />
+        <MatStd acabado="mueble.metal" realismo="pbrMuros" color="#64748b" roughness={0.5} metalness={0.4} />
       </mesh>
       <group ref={brazos} position={[0, 1.22, 0]}>
         <mesh>
           <boxGeometry args={[1.0, 0.05, 0.08]} />
-          <meshStandardMaterial color="#94a3b8" roughness={0.5} metalness={0.4} />
+          <MatStd acabado="mueble.metal" realismo="pbrMuros" color="#94a3b8" roughness={0.5} metalness={0.4} />
         </mesh>
         <mesh rotation-y={Math.PI / 2}>
           <boxGeometry args={[1.0, 0.05, 0.08]} />
-          <meshStandardMaterial color="#94a3b8" roughness={0.5} metalness={0.4} />
+          <MatStd acabado="mueble.metal" realismo="pbrMuros" color="#94a3b8" roughness={0.5} metalness={0.4} />
         </mesh>
         {[0, Math.PI / 2, Math.PI, -Math.PI / 2].map((a) => (
           <mesh key={a} position={[Math.cos(a) * 0.55, -0.08, Math.sin(a) * 0.55]}>
@@ -135,11 +136,11 @@ function Estaca3D() {
     <group position={[0, Y, -2.35]}>
       <mesh position={[0, 0.55, 0]}>
         <boxGeometry args={[0.1, 1.1, 0.1]} />
-        <meshStandardMaterial color="#8a5a33" roughness={0.9} />
+        <MatStd acabado="mueble.madera" realismo="pbrMuros" color="#8a5a33" roughness={0.9} />
       </mesh>
       <mesh position={[0, 0.98, 0]} rotation-x={-0.08}>
         <boxGeometry args={[0.72, 0.45, 0.06]} />
-        <meshStandardMaterial color="#a06b3d" roughness={0.85} />
+        <MatStd acabado="mueble.madera" realismo="pbrMuros" color="#a06b3d" roughness={0.85} />
       </mesh>
     </group>
   )
@@ -165,12 +166,12 @@ function Parcela({
       {/* Tierra labrada. */}
       <mesh position={[0, Y + 0.04, 0]}>
         <boxGeometry args={[5.4, 0.08, 5.4]} />
-        <meshStandardMaterial color="#6b4a2f" roughness={0.95} />
+        <MatStd acabado="planta.barro" realismo="pbrMuros" color="#6b4a2f" roughness={0.95} />
       </mesh>
       {[-1.5, 0, 1.5].map((z) => (
         <mesh key={z} position={[0, Y + 0.085, z]}>
           <boxGeometry args={[4.8, 0.03, 0.55]} />
-          <meshStandardMaterial color="#4e3320" roughness={0.95} />
+          <MatStd acabado="planta.barro" realismo="pbrMuros" color="#4e3320" roughness={0.95} />
         </mesh>
       ))}
       {/* Plantas del cultivo en curso. */}

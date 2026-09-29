@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
+import { MatStd } from './primitivas'
 import { useThree } from '@react-three/fiber'
 import { VACIO, caminosRepo } from '../data/repository'
 import { useCaminos, ALTURA_NIVEL } from '../state/caminosStore'
@@ -43,7 +44,7 @@ function SoporteCamino({ x, z, y }: { x: number; z: number; y: number }) {
   return (
     <mesh position={[x, y / 2, z]}>
       <cylinderGeometry args={[0.09, 0.12, y, 8]} />
-      <meshStandardMaterial color="#52525b" roughness={0.8} />
+      <MatStd acabado="muro.concreto" realismo="pbrMuros" color="#52525b" roughness={0.8} />
     </mesh>
   )
 }
@@ -88,7 +89,7 @@ function TramoCelda({ fila, mapa }: { fila: CaminoCelda; mapa: Map<string, Camin
             {/* Nudo: pad de asfalto que cubre esquinas, T y cruces sin costuras. */}
             <mesh position={[0, yb + 0.03, 0]}>
               <boxGeometry args={[2.6, 0.06, 2.6]} />
-              <meshStandardMaterial color="#3f3f46" roughness={0.9} />
+              <MatStd acabado="muro.concreto" realismo="pbrMuros" color="#3f3f46" roughness={0.9} />
             </mesh>
             {brazos.map((v, i) => {
               if (!v) return null
@@ -104,7 +105,7 @@ function TramoCelda({ fila, mapa }: { fila: CaminoCelda; mapa: Map<string, Camin
                   <group position={[1.3, yb + 0.03, 0]} rotation={[0, 0, pitch]}>
                     <mesh position={[len / 2, 0, 0]}>
                       <boxGeometry args={[len, 0.06, 2.6]} />
-                      <meshStandardMaterial color="#3f3f46" roughness={0.9} />
+                      <MatStd acabado="muro.concreto" realismo="pbrMuros" color="#3f3f46" roughness={0.9} />
                     </mesh>
                     {/* Rayas centrales discontinuas (repartidas a lo largo del brazo). */}
                     {[0.26, 0.74].map((f) => (
@@ -156,14 +157,14 @@ function TramoCelda({ fila, mapa }: { fila: CaminoCelda; mapa: Map<string, Camin
                 {[0.17, 0.42, 0.67, 0.92].map((f) => (
                   <mesh key={f} position={[f * len, 0.03, 0]}>
                     <boxGeometry args={[0.3, 0.06, 1.5]} />
-                    <meshStandardMaterial color="#7c5a3a" roughness={0.9} />
+                    <MatStd acabado="mueble.madera" realismo="pbrMuros" color="#7c5a3a" roughness={0.9} />
                   </mesh>
                 ))}
                 {/* Dos rieles metálicos (leve desnivel por dirección: evita z-fight en cruces). */}
                 {[-0.5, 0.5].map((z) => (
                   <mesh key={z} position={[len / 2, 0.1 + i * 0.002, z]}>
                     <boxGeometry args={[len, 0.08, 0.12]} />
-                    <meshStandardMaterial color="#9ca3af" metalness={0.7} roughness={0.35} />
+                    <MatStd acabado="mueble.metal" realismo="pbrMuros" color="#9ca3af" metalness={0.7} roughness={0.35} />
                   </mesh>
                 ))}
               </group>
@@ -184,12 +185,12 @@ function TramoCelda({ fila, mapa }: { fila: CaminoCelda; mapa: Map<string, Camin
       {/* Plataforma del nudo (une brazos y esquinas a la altura propia). */}
       <mesh position={[0, y0, 0]}>
         <boxGeometry args={[0.9, 0.1, 0.9]} />
-        <meshStandardMaterial color="#475569" roughness={0.7} />
+        <MatStd acabado="muro.concreto" realismo="pbrMuros" color="#475569" roughness={0.7} />
       </mesh>
       {/* Soporte central al suelo. */}
       <mesh position={[0, y0 / 2, 0]}>
         <cylinderGeometry args={[0.07, 0.09, y0, 8]} />
-        <meshStandardMaterial color="#64748b" roughness={0.7} />
+        <MatStd acabado="mueble.metal" realismo="pbrMuros" color="#64748b" roughness={0.7} />
       </mesh>
       {brazos.map((v, i) => {
         if (!v) return null
@@ -209,7 +210,7 @@ function TramoCelda({ fila, mapa }: { fila: CaminoCelda; mapa: Map<string, Camin
                 rotation={[0, 0, -Math.PI / 2 + pitch]}
               >
                 <cylinderGeometry args={[0.06, 0.06, len, 8]} />
-                <meshStandardMaterial color="#ef4444" metalness={0.4} roughness={0.4} />
+                <MatStd acabado="mueble.metal" realismo="pbrMuros" color="#ef4444" metalness={0.4} roughness={0.4} />
               </mesh>
             ))}
             {/* Travesaños. */}
@@ -220,7 +221,7 @@ function TramoCelda({ fila, mapa }: { fila: CaminoCelda; mapa: Map<string, Camin
                 rotation={[0, 0, pitch]}
               >
                 <boxGeometry args={[0.09, 0.05, 0.82]} />
-                <meshStandardMaterial color="#7f1d1d" roughness={0.6} />
+                <MatStd acabado="mueble.metal" realismo="pbrMuros" color="#7f1d1d" roughness={0.6} />
               </mesh>
             ))}
           </group>
@@ -274,7 +275,7 @@ function PistaCurva({
     <group>
       {plano && geo ? (
         <mesh geometry={geo} position={[0, yb + 0.06, 0]}>
-          <meshStandardMaterial color="#3f3f46" roughness={0.9} />
+          <MatStd acabado="muro.concreto" realismo="pbrMuros" color="#3f3f46" roughness={0.9} />
         </mesh>
       ) : (
         // Con pendiente: la banda se aproxima con segmentos tangentes inclinados.
@@ -294,7 +295,7 @@ function PistaCurva({
             >
               <mesh rotation={[0, 0, Math.atan2(y1 - y0, ds)]}>
                 <boxGeometry args={[Math.hypot(ds, y1 - y0) + 0.04, 0.06, 2.6]} />
-                <meshStandardMaterial color="#3f3f46" roughness={0.9} />
+                <MatStd acabado="muro.concreto" realismo="pbrMuros" color="#3f3f46" roughness={0.9} />
               </mesh>
             </group>
           )
@@ -376,13 +377,13 @@ function RielCurva({
             rotation-y={Math.PI / 2 - th}
           >
             <boxGeometry args={[0.3, 0.06, 1.5]} />
-            <meshStandardMaterial color="#7c5a3a" roughness={0.9} />
+            <MatStd acabado="mueble.madera" realismo="pbrMuros" color="#7c5a3a" roughness={0.9} />
           </mesh>
         )
       })}
       {rieles.map((g, i) => (
         <mesh key={i} geometry={g} position={plano ? [0, yb + 0.14, 0] : [0, 0, 0]}>
-          <meshStandardMaterial color="#9ca3af" metalness={0.7} roughness={0.35} />
+          <MatStd acabado="mueble.metal" realismo="pbrMuros" color="#9ca3af" metalness={0.7} roughness={0.35} />
         </mesh>
       ))}
       {(!plano || (fila.altura ?? 0) > 0) && (
@@ -434,7 +435,7 @@ function CoasterCurva({
     <group>
       {tubos.map((g, i) => (
         <mesh key={i} geometry={g}>
-          <meshStandardMaterial color="#ef4444" metalness={0.4} roughness={0.4} />
+          <MatStd acabado="mueble.metal" realismo="pbrMuros" color="#ef4444" metalness={0.4} roughness={0.4} />
         </mesh>
       ))}
       {[0.2, 0.5, 0.8].map((t) => {
@@ -443,14 +444,14 @@ function CoasterCurva({
         return (
           <mesh key={t} position={[p.x, alturaArco(yJ, y0, yI, t), p.z]} rotation-y={Math.PI / 2 - th}>
             <boxGeometry args={[0.09, 0.05, 0.82]} />
-            <meshStandardMaterial color="#7f1d1d" roughness={0.6} />
+            <MatStd acabado="mueble.metal" realismo="pbrMuros" color="#7f1d1d" roughness={0.6} />
           </mesh>
         )
       })}
       {/* Soporte al suelo en el punto medio del arco. */}
       <mesh position={[medio.x, yMedio / 2, medio.z]}>
         <cylinderGeometry args={[0.07, 0.09, yMedio, 8]} />
-        <meshStandardMaterial color="#64748b" roughness={0.7} />
+        <MatStd acabado="mueble.metal" realismo="pbrMuros" color="#64748b" roughness={0.7} />
       </mesh>
     </group>
   )
@@ -476,12 +477,12 @@ export function MetaPista({ ejeEO, yb }: { ejeEO: boolean; yb: number }) {
       {[-1.55, 1.55].map((z) => (
         <mesh key={z} position={[0, yb + 1.1, z]}>
           <cylinderGeometry args={[0.06, 0.06, 2.2, 8]} />
-          <meshStandardMaterial color="#e4e4e7" metalness={0.3} roughness={0.5} />
+          <MatStd acabado="mueble.metal" realismo="pbrMuros" color="#e4e4e7" metalness={0.3} roughness={0.5} />
         </mesh>
       ))}
       <mesh position={[0, yb + 2.28, 0]}>
         <boxGeometry args={[0.5, 0.34, 3.4]} />
-        <meshStandardMaterial color="#dc2626" roughness={0.6} />
+        <MatStd acabado="mueble.plastico" realismo="pbrMuros" color="#dc2626" roughness={0.6} />
       </mesh>
     </group>
   )
@@ -510,7 +511,7 @@ function DiagonalPista({
     <group rotation-y={Math.atan2(-dz, dx)}>
       <mesh position={[alcance / 2, yb + 0.028 + off, 0]}>
         <boxGeometry args={[alcance + 0.11, 0.055, 2.2]} />
-        <meshStandardMaterial color="#3f3f46" roughness={0.9} />
+        <MatStd acabado="muro.concreto" realismo="pbrMuros" color="#3f3f46" roughness={0.9} />
       </mesh>
       {[0.33, 0.66].map((f) => (
         <mesh key={f} position={[f * alcance, yb + 0.0615 + off, 0]}>

@@ -1,5 +1,6 @@
 import { useEffect, useRef, type ReactNode } from 'react'
 import * as THREE from 'three'
+import { MatStd } from './primitivas'
 import { useFrame } from '@react-three/fiber'
 import { VACIO, caminosRepo } from '../data/repository'
 import {
@@ -77,7 +78,7 @@ function Rueda({ x, z, r, pose }: { x: number; z: number; r: number; pose?: Pose
   return (
     <mesh ref={m} position={[x, r, z]} rotation={[0, 0, Math.PI / 2]}>
       <cylinderGeometry args={[r, r, 0.12, 10]} />
-      <meshStandardMaterial color="#374151" metalness={0.5} roughness={0.5} />
+      <MatStd acabado="mueble.metal" color="#374151" metalness={0.5} roughness={0.5} />
     </mesh>
   )
 }
@@ -104,19 +105,19 @@ export function TrenMontado({
           {/* Plataforma + caldera + cabina + chimenea. */}
           <mesh position={[0, 0.3, 0]}>
             <boxGeometry args={[1.3, 0.26, 2.5]} />
-            <meshStandardMaterial color="#7f1d1d" roughness={0.6} />
+            <MatStd acabado="mueble.metal" color="#7f1d1d" roughness={0.6} />
           </mesh>
           <mesh position={[0, 0.62, 0.75]} rotation={[Math.PI / 2, 0, 0]}>
             <cylinderGeometry args={[0.32, 0.32, 1.1, 12]} />
-            <meshStandardMaterial color="#1f2937" metalness={0.4} roughness={0.5} />
+            <MatStd acabado="mueble.metal" color="#1f2937" metalness={0.4} roughness={0.5} />
           </mesh>
           <mesh position={[0, 0.98, 1.05]}>
             <cylinderGeometry args={[0.09, 0.13, 0.35, 8]} />
-            <meshStandardMaterial color="#111827" roughness={0.6} />
+            <MatStd acabado="mueble.metal" color="#111827" roughness={0.6} />
           </mesh>
           <mesh position={[0, 0.72, -0.85]}>
             <boxGeometry args={[1.1, 0.85, 0.7]} />
-            <meshStandardMaterial color="#991b1b" roughness={0.6} />
+            <MatStd acabado="mueble.metal" color="#991b1b" roughness={0.6} />
           </mesh>
           <Rueda x={-0.62} z={0.7} r={0.26} pose={pose} />
           <Rueda x={0.62} z={0.7} r={0.26} pose={pose} />
@@ -134,18 +135,18 @@ export function TrenMontado({
       <group position={[0, -0.12, 0]}>
         <mesh position={[0, 0.12, 0]}>
           <boxGeometry args={[1.0, 0.12, 1.5]} />
-          <meshStandardMaterial color="#b91c1c" roughness={0.55} />
+          <MatStd acabado="mueble.metal" color="#b91c1c" roughness={0.55} />
         </mesh>
         {[-0.47, 0.47].map((x) => (
           <mesh key={x} position={[x, 0.34, 0]}>
             <boxGeometry args={[0.08, 0.4, 1.5]} />
-            <meshStandardMaterial color="#dc2626" roughness={0.55} />
+            <MatStd acabado="mueble.metal" color="#dc2626" roughness={0.55} />
           </mesh>
         ))}
         {[-0.71, 0.71].map((z) => (
           <mesh key={z} position={[0, 0.34, z]}>
             <boxGeometry args={[1.0, 0.4, 0.08]} />
-            <meshStandardMaterial color="#dc2626" roughness={0.55} />
+            <MatStd acabado="mueble.metal" color="#dc2626" roughness={0.55} />
           </mesh>
         ))}
         <Rueda x={-0.45} z={0.5} r={0.14} pose={pose} />

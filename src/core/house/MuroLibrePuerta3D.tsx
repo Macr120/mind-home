@@ -1,6 +1,7 @@
 import { useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
+import { MatStd } from './primitivas'
 import { playerPos } from '../state/playerPosition'
 import { useHouse } from '../state/houseStore'
 import {
@@ -129,7 +130,7 @@ export function MuroLibrePuerta3D({
           <group rotation={[0, yaw, 0]}>
             <mesh castShadow receiveShadow>
               <boxGeometry args={[ab.ancho - 0.06, alto, PUERTA_GROSOR]} />
-              <meshStandardMaterial color={color} roughness={0.3} metalness={0.55} />
+              <MatStd acabado="mueble.metal" realismo="pbrMuros" color={color} roughness={0.3} metalness={0.55} />
             </mesh>
           </group>
         </group>

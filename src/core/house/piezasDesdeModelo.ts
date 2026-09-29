@@ -57,17 +57,24 @@ function desdeMesh(el: ReactElement, off: Vec3): Pieza3D | null {
   let geoTipo: string | null = null
   let geoArgs: unknown = null
   let color = '#cccccc'
+  let acabado: string | undefined
   Children.forEach(props.children as ReactNode, (ch) => {
-    if (!isValidElement(ch) || typeof ch.type !== 'string') return
+    if (!isValidElement(ch)) return
     const cp = ch.props as Record<string, unknown>
-    if (ch.type.endsWith('Geometry')) {
+    if (typeof ch.type === 'string' && ch.type.endsWith('Geometry')) {
       geoTipo = ch.type
       geoArgs = cp.args
-    } else if (ch.type.endsWith('Material') && typeof cp.color === 'string') {
+    } else if (
+      // Material intrínseco o componente de material (MatStd, con su acabado PBR).
+      (typeof ch.type !== 'string' || ch.type.endsWith('Material')) &&
+      typeof cp.color === 'string'
+    ) {
       color = cp.color
+      if (typeof cp.acabado === 'string') acabado = cp.acabado
     }
   })
-  return geoTipo ? desdeGeometria(geoTipo, geoArgs, color, pos, rot) : null
+  const pz = geoTipo ? desdeGeometria(geoTipo, geoArgs, color, pos, rot) : null
+  return pz && acabado ? { ...pz, acabado } : pz
 }
 
 /** Recorre el árbol de un modelo (grupos, mallas y primitivas) y devuelve sus piezas. */

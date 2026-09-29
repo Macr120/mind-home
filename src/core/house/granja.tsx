@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import * as THREE from 'three'
+import { MatStd } from './primitivas'
 import { useFrame, useThree } from '@react-three/fiber'
 import { VACIO, animalesRepo, corralesRepo } from '../data/repository'
 import {
@@ -83,13 +84,13 @@ function Cerca({ largo }: { largo: number }) {
       {postes.map((x) => (
         <mesh key={x} position={[x, Y + 0.45, 0]}>
           <boxGeometry args={[0.12, 0.9, 0.12]} />
-          <meshStandardMaterial color="#8a5a33" roughness={0.9} />
+          <MatStd acabado="mueble.madera" realismo="pbrMuros" color="#8a5a33" roughness={0.9} />
         </mesh>
       ))}
       {[0.32, 0.68].map((h) => (
         <mesh key={h} position={[0, Y + h, 0]}>
           <boxGeometry args={[largo + 0.12, 0.09, 0.07]} />
-          <meshStandardMaterial color="#a06b3d" roughness={0.9} />
+          <MatStd acabado="mueble.madera" realismo="pbrMuros" color="#a06b3d" roughness={0.9} />
         </mesh>
       ))}
     </group>
@@ -113,13 +114,13 @@ function Corral({ ancho, alto, sucio }: { ancho: number; alto: number; sucio: bo
       {/* Piso de paja del corral (apagado y manchado cuando toca limpiarlo). */}
       <mesh position={[0, Y + 0.03, 0]}>
         <boxGeometry args={[hx * 2 - 0.1, 0.06, hz * 2 - 0.1]} />
-        <meshStandardMaterial color={sucio ? '#6b5a38' : '#9a8250'} roughness={0.95} />
+        <MatStd acabado="planta.barro" realismo="pbrMuros" color={sucio ? '#6b5a38' : '#9a8250'} roughness={0.95} />
       </mesh>
       {sucio &&
         MANCHAS.map(([fx, fz, r]) => (
           <mesh key={`${fx},${fz}`} position={[hx * 2 * fx, Y + 0.07, hz * 2 * fz]} rotation-x={-Math.PI / 2}>
             <circleGeometry args={[r, 10]} />
-            <meshStandardMaterial color="#4a3c22" roughness={1} />
+            <MatStd acabado="planta.barro" realismo="pbrMuros" color="#4a3c22" roughness={1} />
           </mesh>
         ))}
       {[-hz, hz].map((z) => (
@@ -143,7 +144,7 @@ function Accesorio3D({ tipo }: { tipo: TipoAccesorio }) {
       <group>
         <mesh position={[0, Y + 0.05, 0]}>
           <cylinderGeometry args={[1.15, 1.35, 0.1, 12]} />
-          <meshStandardMaterial color="#7a5230" roughness={1} />
+          <MatStd acabado="mueble.madera" realismo="pbrMuros" color="#7a5230" roughness={1} />
         </mesh>
         {[
           [-0.4, 0.3],
@@ -151,7 +152,7 @@ function Accesorio3D({ tipo }: { tipo: TipoAccesorio }) {
         ].map(([x, z]) => (
           <mesh key={`${x},${z}`} position={[x, Y + 0.11, z]}>
             <sphereGeometry args={[0.09, 8, 6]} />
-            <meshStandardMaterial color="#8a6238" roughness={1} />
+            <MatStd acabado="mueble.madera" realismo="pbrMuros" color="#8a6238" roughness={1} />
           </mesh>
         ))}
       </group>
@@ -162,11 +163,11 @@ function Accesorio3D({ tipo }: { tipo: TipoAccesorio }) {
       <group position={[0, Y, 0]}>
         <mesh position={[0, 0.25, 0]}>
           <cylinderGeometry args={[0.9, 0.8, 0.5, 14]} />
-          <meshStandardMaterial color="#cbd5e1" roughness={0.5} metalness={0.3} />
+          <MatStd acabado="mueble.metal" realismo="pbrMuros" color="#cbd5e1" roughness={0.5} metalness={0.3} />
         </mesh>
         <mesh position={[0, 0.5, 0]} rotation={[Math.PI / 2, 0, 0]}>
           <torusGeometry args={[0.88, 0.05, 8, 18]} />
-          <meshStandardMaterial color="#94a3b8" roughness={0.5} metalness={0.3} />
+          <MatStd acabado="mueble.metal" realismo="pbrMuros" color="#94a3b8" roughness={0.5} metalness={0.3} />
         </mesh>
         <mesh position={[0, 0.44, 0]}>
           <cylinderGeometry args={[0.82, 0.82, 0.04, 14]} />

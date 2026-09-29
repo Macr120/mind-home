@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import * as THREE from 'three'
+import { MatStd } from './primitivas'
 import { useFrame } from '@react-three/fiber'
 
 /**
@@ -30,12 +31,12 @@ export function Corazones({ y = 1.5 }: { y?: number }) {
           {[-0.055, 0.055].map((dx) => (
             <mesh key={dx} position={[dx, 0.05, 0]}>
               <sphereGeometry args={[0.07, 8, 6]} />
-              <meshStandardMaterial color="#fb7185" emissive="#e11d48" emissiveIntensity={0.5} />
+              <MatStd acabado="mueble.plastico" color="#fb7185" emissive="#e11d48" emissiveIntensity={0.5} />
             </mesh>
           ))}
           <mesh position={[0, -0.04, 0]} rotation-z={Math.PI}>
             <coneGeometry args={[0.1, 0.18, 4]} />
-            <meshStandardMaterial color="#fb7185" emissive="#e11d48" emissiveIntensity={0.5} />
+            <MatStd acabado="mueble.plastico" color="#fb7185" emissive="#e11d48" emissiveIntensity={0.5} />
           </mesh>
         </group>
       ))}
@@ -49,11 +50,11 @@ export function SenalHambre({ y = 1.75 }: { y?: number }) {
     <group position={[0, y, 0]}>
       <mesh position={[0, 0.12, 0]}>
         <boxGeometry args={[0.09, 0.26, 0.09]} />
-        <meshStandardMaterial color="#fbbf24" emissive="#b45309" emissiveIntensity={0.5} />
+        <MatStd acabado="mueble.plastico" color="#fbbf24" emissive="#b45309" emissiveIntensity={0.5} />
       </mesh>
       <mesh position={[0, -0.12, 0]}>
         <boxGeometry args={[0.1, 0.1, 0.1]} />
-        <meshStandardMaterial color="#fbbf24" emissive="#b45309" emissiveIntensity={0.5} />
+        <MatStd acabado="mueble.plastico" color="#fbbf24" emissive="#b45309" emissiveIntensity={0.5} />
       </mesh>
     </group>
   )
@@ -66,7 +67,7 @@ export function SenalAburrido({ y = 1.75 }: { y?: number }) {
       {[-0.16, 0, 0.16].map((x) => (
         <mesh key={x} position={[x, 0, 0]}>
           <boxGeometry args={[0.09, 0.09, 0.09]} />
-          <meshStandardMaterial color="#9ca3af" emissive="#4b5563" emissiveIntensity={0.4} />
+          <MatStd acabado="mueble.plastico" color="#9ca3af" emissive="#4b5563" emissiveIntensity={0.4} />
         </mesh>
       ))}
     </group>

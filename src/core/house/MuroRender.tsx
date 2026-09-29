@@ -1,4 +1,4 @@
-import { memo, Suspense, useEffect, useMemo, type ReactElement, type ReactNode } from 'react'
+import { createContext, memo, Suspense, useContext, useEffect, useMemo, type ReactElement, type ReactNode } from 'react'
 import { useLoader } from '@react-three/fiber'
 import { MeshReflectorMaterial } from '@react-three/drei'
 import { DoubleSide, ExtrudeGeometry, Path, RepeatWrapping, Shape, ShapeGeometry, SRGBColorSpace, TextureLoader, type Texture } from 'three'
@@ -9,6 +9,7 @@ import { texturaMuro } from './texturasMuro'
 import { esMaterialPbr, useMapasPBR, useRealismo, type MapasPBR, type MaterialPbrId } from './materialesPBR'
 import { cajaMetros } from './uvMetros'
 import { useTemaActivo } from './useTema'
+import { MatAcabado } from './primitivas'
 
 /** Repeticiones de la imagen según el ajuste elegido. */
 const AJUSTE_REPEAT: Record<string, number> = { x1: 1, x2: 2, x4: 4 }
@@ -492,6 +493,9 @@ function DetalleMuro({ tipo, horizontal, largo, alto, grosor, base, hueco }: {
 }
 
 /** Material de una forma (silueta): hereda la textura del muro (map) o su color. */
+/** Material PBR del muro (realismo) para su silueta: lo pone `MuroSegment`. */
+const PbrFormaContext = createContext<MaterialPbrId | null>(null)
+
 function MatForma({ color, map, patron, roughness, metalness }: {
   color: string
   map?: Texture
@@ -500,15 +504,19 @@ function MatForma({ color, map, patron, roughness, metalness }: {
   roughness: number
   metalness: number
 }) {
+  // Con realismo, la silueta lleva la misma textura que el cuerpo (salvo foto propia).
+  const pbrId = useContext(PbrFormaContext)
   return (
-    <meshStandardMaterial
-      color={map && !patron ? '#ffffff' : color}
-      map={map}
-      roughness={roughness}
-      metalness={metalness}
-      side={DoubleSide}
-      toneMapped={!map || patron}
-    />
+    <MatAcabado id={map && !patron ? null : pbrId} color={color} uvMetros="proyectar" side={DoubleSide}>
+      <meshStandardMaterial
+        color={map && !patron ? '#ffffff' : color}
+        map={map}
+        roughness={roughness}
+        metalness={metalness}
+        side={DoubleSide}
+        toneMapped={!map || patron}
+      />
+    </MatAcabado>
   )
 }
 
@@ -698,7 +706,7 @@ function MuroTextura({
 }
 
 /** Material PBR de un muro según su tipo (el tema puede proponer otro para los lisos). */
-function materialMuro(
+export function materialMuro(
   tipo: TipoMuroId,
   exterior: boolean,
   texturas: { muroInt?: string; muroExt?: string } | undefined,
@@ -1026,7 +1034,7 @@ export const MuroSegment = memo(function MuroSegment({
       {!atenuado && !map && !pbr && !headerGeo && (
         <DetalleMuro tipo={tipoMuro} horizontal={horizontal} largo={largo} alto={h} grosor={grosor} base={tint} hueco={huecoPuerta} />
       )}
-      {formas(map)}
+      <PbrFormaContext.Provider value={pbr && !formaDividir ? pbrId : null}>{formas(map)}</PbrFormaContext.Provider>
     </>
     )
   }

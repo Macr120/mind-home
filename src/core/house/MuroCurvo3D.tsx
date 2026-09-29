@@ -3,6 +3,10 @@ import * as THREE from 'three'
 import { WALL_H, WALL_T, FORMA_ALTO_TECHO } from './walls'
 import { perfilFormaVano, VANO_FORMA_ALTO_DEFAULT, type FormaVanoId } from './murosPuertas'
 import { texturaMuro } from './texturasMuro'
+import { MatStd } from './primitivas'
+import { materialMuro } from './MuroRender'
+import { useTemaActivo } from './useTema'
+import type { TipoMuroId } from './murosPuertas'
 
 /** Tamaño del mosaico de textura en unidades de mundo. */
 const TILE = 2.2
@@ -288,12 +292,18 @@ export function MuroCurvo3D({
   useEffect(() => () => panelGeo?.dispose(), [panelGeo])
 
   const map = useMemo(() => (fantasma ? null : texturaMuro(tipo ?? 'solido')), [tipo, fantasma])
+  // Realismo: la misma textura PBR que un muro recto de su tipo (no en fantasma ni resaltado).
+  const texturasTema = useTemaActivo()?.shell.texturas
+  const acabado = fantasma || resaltado ? undefined : (materialMuro((tipo ?? 'solido') as TipoMuroId, false, texturasTema) ?? undefined)
   const colPanel = aberturaColor ?? (esPuerta ? '#b9824f' : '#bcdcff')
 
   return (
     <>
       <mesh geometry={geo} castShadow={!fantasma} receiveShadow={!fantasma}>
-        <meshStandardMaterial
+        <MatStd
+          acabado={acabado}
+          realismo="pbrMuros"
+          uvMetros={TILE}
           color={color}
           map={map ?? undefined}
           roughness={0.7}
@@ -307,7 +317,9 @@ export function MuroCurvo3D({
       </mesh>
       {panelGeo && !sinPanel && (
         <mesh geometry={panelGeo}>
-          <meshStandardMaterial
+          <MatStd
+            acabado={esPuerta && !fantasma ? 'mueble.madera' : undefined}
+            realismo="pbrMuros"
             color={colPanel}
             side={THREE.DoubleSide}
             roughness={esPuerta ? 0.6 : 0.2}

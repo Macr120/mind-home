@@ -3,6 +3,7 @@ import { useThree } from '@react-three/fiber'
 import { ExtrudeGeometry, Shape, SRGBColorSpace, TextureLoader, type Texture } from 'three'
 import { WALL_H } from './walls'
 import { perfilFormaVano, type FormaVanoId } from './murosPuertas'
+import { MatStd } from './primitivas'
 
 /** Geometría común de las hojas de puerta (cuartos y muros independientes). */
 export const PUERTA_GROSOR = 0.18
@@ -152,7 +153,10 @@ export function MaterialHoja({
 }) {
   const map = useTexturaHoja(fotoUrl, geo)
   return (
-    <meshStandardMaterial
+    <MatStd
+      // Realismo: madera, o metal si la hoja es metálica; con foto propia manda la foto.
+      acabado={map ? undefined : metalness >= 0.3 ? 'mueble.metal' : 'mueble.madera'}
+      realismo="pbrMuros"
       // Con textura el color base debe ser blanco: si no, la tiñe.
       color={map ? '#ffffff' : color}
       map={map ?? undefined}
@@ -184,7 +188,7 @@ export function MontanteVanoMesh({
   if (!geo) return null
   return (
     <mesh geometry={geo} castShadow receiveShadow>
-      <meshStandardMaterial color={color} roughness={0.8} metalness={0.05} />
+      <MatStd acabado="mueble.madera" realismo="pbrMuros" color={color} roughness={0.8} metalness={0.05} />
     </mesh>
   )
 }
@@ -277,7 +281,7 @@ export function HojaPuertaMesh({
       )}
       <mesh position={[width - 0.24, PUERTA_BASE_Y + alto * 0.46, PUERTA_GROSOR / 2 + 0.04]}>
         <sphereGeometry args={[0.07, 8, 8]} />
-        <meshStandardMaterial color="#c8a855" roughness={0.3} metalness={0.7} />
+        <MatStd acabado="mueble.metal" realismo="pbrMuros" color="#c8a855" roughness={0.3} metalness={0.7} />
       </mesh>
     </group>
   )

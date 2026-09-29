@@ -139,8 +139,8 @@ export const CATALOGO: CatalogoItem[] = [
     defaultColor: '#3b82f6',
     render: (c) => (
       <group>
-        <Cyl p={[0, 0.55, 0]} r={0.04} h={1.1} c="#2b2f3a" />
-        <B p={[0, 1.0, 0]} s={[0.9, 0.7, 0.08]} c="#1f2937" />
+        <Cyl p={[0, 0.55, 0]} r={0.04} h={1.1} c="#2b2f3a" acabado="mueble.metal" />
+        <B p={[0, 1.0, 0]} s={[0.9, 0.7, 0.08]} c="#1f2937" acabado="mueble.madera" />
         <B p={[0, 1.0, 0.05]} s={[0.75, 0.55, 0.02]} c={c} />
       </group>
     ),
@@ -153,10 +153,10 @@ export const CATALOGO: CatalogoItem[] = [
     // Acostada en el suelo: cuerpo en forma de 8 + mástil con pala.
     render: (c) => (
       <group>
-        <Sphere p={[0, 0.18, 0.55]} r={0.42} c={c} />
-        <Sphere p={[0, 0.18, 0.1]} r={0.28} c={c} />
+        <Sphere p={[0, 0.18, 0.55]} r={0.42} c={c} acabado="mueble.madera" />
+        <Sphere p={[0, 0.18, 0.1]} r={0.28} c={c} acabado="mueble.madera" />
         <Cyl p={[0, 0.33, 0.55]} r={0.12} h={0.04} c="#1f2937" />
-        <B p={[0, 0.18, -0.55]} s={[0.16, 0.1, 1.1]} c={WOOD} />
+        <B p={[0, 0.18, -0.55]} s={[0.16, 0.1, 1.1]} c={WOOD} acabado="mueble.madera" />
         <B p={[0, 0.18, -1.15]} s={[0.26, 0.1, 0.26]} c="#1f2937" />
       </group>
     ),
@@ -316,11 +316,13 @@ export function funcionEspecialDe(o: {
   return null
 }
 
+const conAcabado = (p: Record<string, unknown>) => (typeof p.acabado === 'string' ? { acabado: p.acabado } : {})
+
 /** Primitivas temáticas del catálogo (usan hooks: se leen por referencia, no se ejecutan). */
 const PRIMS_CATALOGO = new Map<unknown, Extractor>([
-  [B, (p) => ({ tipo: 'caja', pos: p.p as [number, number, number], tam: p.s as number[], color: p.c as string })],
-  [Cyl, (p) => ({ tipo: 'cilindro', pos: p.p as [number, number, number], tam: [p.r as number, p.r as number, p.h as number], color: p.c as string })],
-  [Sphere, (p) => ({ tipo: 'esfera', pos: p.p as [number, number, number], tam: [p.r as number], color: p.c as string })],
+  [B, (p) => ({ tipo: 'caja', pos: p.p as [number, number, number], tam: p.s as number[], color: p.c as string, ...conAcabado(p) })],
+  [Cyl, (p) => ({ tipo: 'cilindro', pos: p.p as [number, number, number], tam: [p.r as number, p.r as number, p.h as number], color: p.c as string, ...conAcabado(p) })],
+  [Sphere, (p) => ({ tipo: 'esfera', pos: p.p as [number, number, number], tam: [p.r as number], color: p.c as string, ...conAcabado(p) })],
 ])
 
 /** Réplica editable (piezas) de un objeto del catálogo; null si es un .glb. */

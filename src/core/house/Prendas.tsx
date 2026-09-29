@@ -1,6 +1,7 @@
 import { useLayoutEffect, useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
+import { MatStd } from './primitivas'
 import type { Ropa, AnclasRopa, PrendaId } from './apariencia'
 import { PRENDA_COLOR_DEFAULT, colocacionTatuaje, pivoteParte, puntoTatuajePropio, type PuntoTatuaje } from './apariencia'
 import type { TatuajePuesto } from '../state/disenoStore'
@@ -367,7 +368,7 @@ export function Prendas({
           <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={caderaY} factor={MARCHA_PIERNAS} signo={signoPierna(x)} extremidad="pierna">
             <mesh position={[0, a.piesY - caderaY, 0.04]} castShadow>
               <boxGeometry args={[a.piernaW, 0.2, a.piernaD * 1.25]} />
-              <meshStandardMaterial color={color('tenis')} />
+              <MatStd acabado="mueble.tela" color={color('tenis')} />
             </mesh>
           </PivoteMarcha>
         ))}
@@ -379,13 +380,13 @@ export function Prendas({
             <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={caderaY} factor={MARCHA_PIERNAS} signo={signoPierna(x)} extremidad="pierna">
               <mesh position={[0, a.piernasY - caderaY, 0]} castShadow>
                 <boxGeometry args={[a.piernaW, a.piernaH, a.piernaD]} />
-                <meshStandardMaterial color={color('pantalon')} />
+                <MatStd acabado="mueble.tela" color={color('pantalon')} />
               </mesh>
             </PivoteMarcha>
           ))}
           <mesh position={[0, a.piernasY + a.piernaH * 0.5, 0]} castShadow>
             <boxGeometry args={[cinturaW, 0.2, a.piernaD + 0.02]} />
-            <meshStandardMaterial color={color('pantalon')} />
+            <MatStd acabado="mueble.tela" color={color('pantalon')} />
           </mesh>
         </>
       )}
@@ -395,7 +396,7 @@ export function Prendas({
         <>
           <mesh position={[0, a.torsoY, 0]} castShadow>
             <boxGeometry args={[a.torsoW + 0.06, a.torsoH + 0.04, a.torsoD + 0.06]} />
-            <meshStandardMaterial color={color('playera')} />
+            <MatStd acabado="mueble.tela" color={color('playera')} />
           </mesh>
           {[-a.brazoX, a.brazoX].map((x, i) => (
             <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={hombroY} factor={MARCHA_BRAZOS} signo={signoBrazo(x)} extremidad="brazo">
@@ -403,7 +404,7 @@ export function Prendas({
                   hueco de piel entre la manga y el torso. */}
               <mesh position={[0, 0.02 - 0.15, 0]} castShadow>
                 <boxGeometry args={[0.26, 0.3, a.torsoD + 0.02]} />
-                <meshStandardMaterial color={color('playera')} />
+                <MatStd acabado="mueble.tela" color={color('playera')} />
               </mesh>
             </PivoteMarcha>
           ))}
@@ -416,25 +417,25 @@ export function Prendas({
         (a.chamarra ? (
           <mesh position={[0, a.chamarra.y, 0]} castShadow>
             <boxGeometry args={[a.chamarra.w, a.chamarra.h, a.chamarra.d]} />
-            <meshStandardMaterial color={color('chamarra')} />
+            <MatStd acabado="mueble.tela" color={color('chamarra')} />
           </mesh>
         ) : (
           <>
             <mesh position={[0, a.torsoY - 0.02, 0]} castShadow>
               <boxGeometry args={[a.torsoW + 0.12, a.torsoH + 0.1, a.torsoD + 0.14]} />
-              <meshStandardMaterial color={color('chamarra')} />
+              <MatStd acabado="mueble.tela" color={color('chamarra')} />
             </mesh>
             {[-a.brazoX, a.brazoX].map((x, i) => (
               <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={hombroY} factor={MARCHA_BRAZOS} signo={signoBrazo(x)} extremidad="brazo">
                 <mesh position={[0, a.torsoY - hombroY, 0]} castShadow>
                   <boxGeometry args={[0.3, a.torsoH + 0.02, a.torsoD + 0.04]} />
-                  <meshStandardMaterial color={color('chamarra')} />
+                  <MatStd acabado="mueble.tela" color={color('chamarra')} />
                 </mesh>
               </PivoteMarcha>
             ))}
             <mesh position={[0, a.torsoY + a.torsoH * 0.58, 0]} castShadow>
               <boxGeometry args={[a.torsoW * 0.83, 0.16, a.torsoD + 0.1]} />
-              <meshStandardMaterial color={color('chamarra')} />
+              <MatStd acabado="mueble.tela" color={color('chamarra')} />
             </mesh>
           </>
         ))}
@@ -445,12 +446,12 @@ export function Prendas({
           {[-a.cabezaR * 0.5, a.cabezaR * 0.5].map((x, i) => (
             <mesh key={i} position={[x, a.cabezaY, a.caraZ]}>
               <boxGeometry args={[0.15 * k, 0.12 * k, 0.04]} />
-              <meshStandardMaterial color={color('lentes')} />
+              <MatStd acabado="mueble.plastico" color={color('lentes')} />
             </mesh>
           ))}
           <mesh position={[0, a.cabezaY, a.caraZ]}>
             <boxGeometry args={[0.1 * k, 0.03, 0.03]} />
-            <meshStandardMaterial color={color('lentes')} />
+            <MatStd acabado="mueble.plastico" color={color('lentes')} />
           </mesh>
         </>
       )}
@@ -460,11 +461,11 @@ export function Prendas({
         <>
           <mesh position={[0, a.cabezaTop + 0.02, 0]} castShadow>
             <cylinderGeometry args={[a.cabezaR + 0.14, a.cabezaR + 0.14, 0.05, 20]} />
-            <meshStandardMaterial color={color('sombrero')} />
+            <MatStd acabado="mueble.tela" color={color('sombrero')} />
           </mesh>
           <mesh position={[0, a.cabezaTop + 0.18, 0]} castShadow>
             <cylinderGeometry args={[a.cabezaR - 0.01, a.cabezaR, 0.28, 20]} />
-            <meshStandardMaterial color={color('sombrero')} />
+            <MatStd acabado="mueble.tela" color={color('sombrero')} />
           </mesh>
         </>
       )}
@@ -474,11 +475,11 @@ export function Prendas({
         <>
           <mesh position={[0, a.cabezaTop + 0.07, 0]} castShadow>
             <cylinderGeometry args={[a.cabezaR + 0.02, a.cabezaR + 0.02, 0.1, 20]} />
-            <meshStandardMaterial color={color('gorroChef')} />
+            <MatStd acabado="mueble.tela" color={color('gorroChef')} />
           </mesh>
           <mesh position={[0, a.cabezaTop + 0.29, 0]} scale={[1.15, 0.8, 1.15]} castShadow>
             <sphereGeometry args={[a.cabezaR + 0.2, 16, 12]} />
-            <meshStandardMaterial color={color('gorroChef')} />
+            <MatStd acabado="mueble.tela" color={color('gorroChef')} />
           </mesh>
         </>
       )}
@@ -488,11 +489,11 @@ export function Prendas({
         <>
           <mesh position={[0, a.cabezaTop - 0.04, 0]} castShadow>
             <sphereGeometry args={[a.cabezaR + 0.05, 16, 10, 0, Math.PI * 2, 0, Math.PI / 2]} />
-            <meshStandardMaterial color={color('gorra')} />
+            <MatStd acabado="mueble.tela" color={color('gorra')} />
           </mesh>
           <mesh position={[0, a.cabezaTop - 0.03, a.cabezaR + 0.12]} castShadow>
             <boxGeometry args={[(a.cabezaR + 0.05) * 1.3, 0.05, 0.22]} />
-            <meshStandardMaterial color={color('gorra')} />
+            <MatStd acabado="mueble.tela" color={color('gorra')} />
           </mesh>
         </>
       )}
@@ -502,11 +503,11 @@ export function Prendas({
         <>
           <mesh position={[0, hombroY + 0.05, 0]} castShadow>
             <cylinderGeometry args={[a.torsoW * 0.42, a.torsoW * 0.42, 0.16, 16]} />
-            <meshStandardMaterial color={color('bufanda')} />
+            <MatStd acabado="mueble.tela" color={color('bufanda')} />
           </mesh>
           <mesh position={[0.06, hombroY - 0.16, frenteZ + 0.02]} castShadow>
             <boxGeometry args={[0.13, 0.4, 0.06]} />
-            <meshStandardMaterial color={color('bufanda')} />
+            <MatStd acabado="mueble.tela" color={color('bufanda')} />
           </mesh>
         </>
       )}
@@ -516,11 +517,11 @@ export function Prendas({
         <>
           <mesh position={[0, hombroY - 0.02, frenteZ + 0.02]}>
             <boxGeometry args={[0.1, 0.1, 0.04]} />
-            <meshStandardMaterial color={color('corbata')} />
+            <MatStd acabado="mueble.tela" color={color('corbata')} />
           </mesh>
           <mesh position={[0, a.torsoY - 0.02, frenteZ + 0.02]}>
             <boxGeometry args={[0.12, a.torsoH * 0.6, 0.03]} />
-            <meshStandardMaterial color={color('corbata')} />
+            <MatStd acabado="mueble.tela" color={color('corbata')} />
           </mesh>
         </>
       )}
@@ -530,13 +531,13 @@ export function Prendas({
         <>
           <mesh position={[0, a.torsoY, 0]} castShadow>
             <boxGeometry args={[a.torsoW + 0.06, a.torsoH + 0.04, a.torsoD + 0.06]} />
-            <meshStandardMaterial color={color('camisa')} />
+            <MatStd acabado="mueble.tela" color={color('camisa')} />
           </mesh>
           {[-a.brazoX, a.brazoX].map((x, i) => (
             <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={hombroY} factor={MARCHA_BRAZOS} signo={signoBrazo(x)} extremidad="brazo">
               <mesh position={[0, a.torsoY - hombroY, 0]} castShadow>
                 <boxGeometry args={[0.26, a.torsoH + 0.02, a.torsoD + 0.02]} />
-                <meshStandardMaterial color={color('camisa')} />
+                <MatStd acabado="mueble.tela" color={color('camisa')} />
               </mesh>
             </PivoteMarcha>
           ))}
@@ -547,7 +548,7 @@ export function Prendas({
       {ropa.capa && (
         <mesh position={[0, a.torsoY - 0.08, -(a.torsoD / 2 + 0.04)]} castShadow>
           <boxGeometry args={[a.torsoW + 0.14, a.torsoH + 0.34, 0.04]} />
-          <meshStandardMaterial color={color('capa')} side={THREE.DoubleSide} />
+          <MatStd acabado="mueble.tela" color={color('capa')} side={THREE.DoubleSide} />
         </mesh>
       )}
 
@@ -556,11 +557,11 @@ export function Prendas({
         <>
           <mesh position={[0, a.torsoY, 0]} castShadow>
             <boxGeometry args={[a.torsoW + 0.06, a.torsoH + 0.04, a.torsoD + 0.06]} />
-            <meshStandardMaterial color={color('vestido')} />
+            <MatStd acabado="mueble.tela" color={color('vestido')} />
           </mesh>
           <mesh position={[0, caderaY - faldaH / 2 + 0.05, 0]} castShadow>
             <cylinderGeometry args={[cinturaW * 0.55, cinturaW, faldaH, 20, 1, true]} />
-            <meshStandardMaterial color={color('vestido')} side={THREE.DoubleSide} />
+            <MatStd acabado="mueble.tela" color={color('vestido')} side={THREE.DoubleSide} />
           </mesh>
         </>
       )}
@@ -570,11 +571,11 @@ export function Prendas({
         <>
           <mesh position={[0, caderaY, 0]} castShadow>
             <cylinderGeometry args={[cinturaW * 0.5, cinturaW * 0.5, 0.14, 20]} />
-            <meshStandardMaterial color={color('falda')} />
+            <MatStd acabado="mueble.tela" color={color('falda')} />
           </mesh>
           <mesh position={[0, caderaY - faldaH / 2 + 0.02, 0]} castShadow>
             <cylinderGeometry args={[cinturaW * 0.52, cinturaW, faldaH, 20, 1, true]} />
-            <meshStandardMaterial color={color('falda')} side={THREE.DoubleSide} />
+            <MatStd acabado="mueble.tela" color={color('falda')} side={THREE.DoubleSide} />
           </mesh>
         </>
       )}
@@ -586,13 +587,13 @@ export function Prendas({
             <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={caderaY} factor={MARCHA_PIERNAS} signo={signoPierna(x)} extremidad="pierna">
               <mesh position={[0, a.piernasY + a.piernaH * 0.25 - caderaY, 0]} castShadow>
                 <boxGeometry args={[a.piernaW + 0.04, a.piernaH * 0.5, a.piernaD + 0.04]} />
-                <meshStandardMaterial color={color('shorts')} />
+                <MatStd acabado="mueble.tela" color={color('shorts')} />
               </mesh>
             </PivoteMarcha>
           ))}
           <mesh position={[0, caderaY, 0]} castShadow>
             <boxGeometry args={[cinturaW, 0.2, a.piernaD + 0.02]} />
-            <meshStandardMaterial color={color('shorts')} />
+            <MatStd acabado="mueble.tela" color={color('shorts')} />
           </mesh>
         </>
       )}
@@ -603,11 +604,11 @@ export function Prendas({
           <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={caderaY} factor={MARCHA_PIERNAS} signo={signoPierna(x)} extremidad="pierna">
             <mesh position={[0, a.piesY + a.piernaH * 0.22 - caderaY, 0]} castShadow>
               <boxGeometry args={[a.piernaW + 0.05, a.piernaH * 0.5, a.piernaD + 0.05]} />
-              <meshStandardMaterial color={color('botas')} />
+              <MatStd acabado="mueble.cuero" color={color('botas')} />
             </mesh>
             <mesh position={[0, a.piesY - caderaY, 0.05]} castShadow>
               <boxGeometry args={[a.piernaW + 0.05, 0.18, a.piernaD * 1.3]} />
-              <meshStandardMaterial color={color('botas')} />
+              <MatStd acabado="mueble.cuero" color={color('botas')} />
             </mesh>
           </PivoteMarcha>
         ))}
@@ -618,7 +619,7 @@ export function Prendas({
           <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={hombroY} factor={MARCHA_BRAZOS} signo={signoBrazo(x)} extremidad="brazo">
             <mesh position={[0, -(a.torsoH * 0.95 + 0.05), 0]} castShadow>
               <boxGeometry args={[0.16, 0.16, a.torsoD + 0.02]} />
-              <meshStandardMaterial color={color('guantes')} />
+              <MatStd acabado="mueble.cuero" color={color('guantes')} />
             </mesh>
           </PivoteMarcha>
         ))}
@@ -628,12 +629,12 @@ export function Prendas({
         <>
           <mesh position={[0, a.torsoY + 0.02, -(a.torsoD / 2 + 0.12)]} castShadow>
             <boxGeometry args={[a.torsoW * 0.8, a.torsoH * 0.85, 0.22]} />
-            <meshStandardMaterial color={color('mochila')} />
+            <MatStd acabado="mueble.tela" color={color('mochila')} />
           </mesh>
           {[-a.torsoW * 0.28, a.torsoW * 0.28].map((x, i) => (
             <mesh key={i} position={[x, a.torsoY + 0.05, frenteZ]} castShadow>
               <boxGeometry args={[0.07, a.torsoH * 0.8, 0.05]} />
-              <meshStandardMaterial color={color('mochila')} />
+              <MatStd acabado="mueble.tela" color={color('mochila')} />
             </mesh>
           ))}
         </>

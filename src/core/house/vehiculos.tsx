@@ -9,6 +9,7 @@ import { useMontura, monturaFrame } from '../state/monturaStore'
 import { trenFrame } from '../state/trenStore'
 import { dragChar } from './characterDrag'
 import { ModeloPiezas } from './modeloPersonalizado'
+import { MatStd } from './primitivas'
 import type { Pieza3D } from '../chat/mascotas'
 
 /**
@@ -104,11 +105,11 @@ function Rueda({
     <group ref={innerRef} position={p}>
       <mesh rotation={[0, 0, Math.PI / 2]} castShadow>
         <cylinderGeometry args={[r, r, ancho, 18]} />
-        <meshStandardMaterial color={LLANTA} roughness={0.9} />
+        <MatStd acabado="mueble.plastico" color={LLANTA} roughness={0.9} />
       </mesh>
       <mesh rotation={[0, 0, Math.PI / 2]}>
         <cylinderGeometry args={[r * 0.55, r * 0.55, ancho + 0.02, 12]} />
-        <meshStandardMaterial color={RIN} metalness={0.6} roughness={0.35} />
+        <MatStd acabado="mueble.metal" color={RIN} metalness={0.6} roughness={0.35} />
       </mesh>
     </group>
   )
@@ -136,54 +137,54 @@ function BicicletaForma({
       {/* cuadro: tubo principal + tubo del asiento + horquilla */}
       <mesh position={[0, 0.62, 0.05]} rotation={[-0.25, 0, 0]} castShadow>
         <boxGeometry args={[0.06, 0.06, 1.0]} />
-        <meshStandardMaterial color={color} />
+        <MatStd acabado="mueble.metal" color={color} />
       </mesh>
       <mesh position={[0, 0.72, -0.44]} rotation={[0.3, 0, 0]} castShadow>
         <boxGeometry args={[0.06, 0.5, 0.06]} />
-        <meshStandardMaterial color={color} />
+        <MatStd acabado="mueble.metal" color={color} />
       </mesh>
       <mesh position={[0, 0.6, 0.52]} rotation={[0.2, 0, 0]} castShadow>
         <boxGeometry args={[0.06, 0.65, 0.06]} />
-        <meshStandardMaterial color={color} />
+        <MatStd acabado="mueble.metal" color={color} />
       </mesh>
       {/* asiento */}
       <mesh position={[0, 0.98, -0.42]} castShadow>
         <boxGeometry args={[0.24, 0.08, 0.34]} />
-        <meshStandardMaterial color={ASIENTO} />
+        <MatStd acabado="mueble.cuero" color={ASIENTO} />
       </mesh>
       {/* manubrio: poste + barra */}
       <mesh position={[0, 0.98, 0.48]} castShadow>
         <boxGeometry args={[0.05, 0.22, 0.05]} />
-        <meshStandardMaterial color={METAL} />
+        <MatStd acabado="mueble.metal" color={METAL} />
       </mesh>
       <mesh position={[0, 1.08, 0.48]} castShadow>
         <boxGeometry args={[0.5, 0.05, 0.07]} />
-        <meshStandardMaterial color={METAL} />
+        <MatStd acabado="mueble.metal" color={METAL} />
       </mesh>
       {/* pedales: eje + bielas opuestas (giran con la marcha) */}
       <group ref={(g) => refPedales?.(g)} position={[0, 0.32, -0.05]}>
         <mesh rotation={[0, 0, Math.PI / 2]}>
           <cylinderGeometry args={[0.03, 0.03, 0.38, 8]} />
-          <meshStandardMaterial color={METAL} />
+          <MatStd acabado="mueble.metal" color={METAL} />
         </mesh>
         <group position={[-0.19, 0, 0]}>
           <mesh position={[0, 0.09, 0]}>
             <boxGeometry args={[0.04, 0.22, 0.04]} />
-            <meshStandardMaterial color={METAL} />
+            <MatStd acabado="mueble.metal" color={METAL} />
           </mesh>
           <mesh position={[-0.04, 0.2, 0]}>
             <boxGeometry args={[0.12, 0.04, 0.14]} />
-            <meshStandardMaterial color={ASIENTO} />
+            <MatStd acabado="mueble.cuero" color={ASIENTO} />
           </mesh>
         </group>
         <group position={[0.19, 0, 0]}>
           <mesh position={[0, -0.09, 0]}>
             <boxGeometry args={[0.04, 0.22, 0.04]} />
-            <meshStandardMaterial color={METAL} />
+            <MatStd acabado="mueble.metal" color={METAL} />
           </mesh>
           <mesh position={[0.04, -0.2, 0]}>
             <boxGeometry args={[0.12, 0.04, 0.14]} />
-            <meshStandardMaterial color={ASIENTO} />
+            <MatStd acabado="mueble.cuero" color={ASIENTO} />
           </mesh>
         </group>
       </group>
@@ -218,21 +219,21 @@ function MotoForma({ color, refRueda }: { color: string; refRueda?: (i: number, 
       {/* cuerpo/tanque */}
       <mesh position={[0, 0.6, 0.05]} castShadow>
         <boxGeometry args={[0.3, 0.28, 1.1]} />
-        <meshStandardMaterial color={color} />
+        <MatStd acabado="mueble.metal" color={color} />
       </mesh>
       {/* asiento */}
       <mesh position={[0, 0.76, -0.32]} castShadow>
         <boxGeometry args={[0.3, 0.1, 0.55]} />
-        <meshStandardMaterial color={ASIENTO} />
+        <MatStd acabado="mueble.cuero" color={ASIENTO} />
       </mesh>
       {/* horquilla + manubrio */}
       <mesh position={[0, 0.62, 0.55]} rotation={[0.35, 0, 0]} castShadow>
         <boxGeometry args={[0.08, 0.6, 0.08]} />
-        <meshStandardMaterial color={METAL} />
+        <MatStd acabado="mueble.metal" color={METAL} />
       </mesh>
       <mesh position={[0, 0.92, 0.44]} castShadow>
         <boxGeometry args={[0.55, 0.05, 0.06]} />
-        <meshStandardMaterial color={METAL} />
+        <MatStd acabado="mueble.metal" color={METAL} />
       </mesh>
       {/* faro */}
       <mesh position={[0, 0.76, 0.62]}>
@@ -242,7 +243,7 @@ function MotoForma({ color, refRueda }: { color: string; refRueda?: (i: number, 
       {/* escape */}
       <mesh position={[0.17, 0.36, -0.4]} rotation={[Math.PI / 2, 0, 0]}>
         <cylinderGeometry args={[0.05, 0.05, 0.55, 10]} />
-        <meshStandardMaterial color={RIN} metalness={0.7} roughness={0.3} />
+        <MatStd acabado="mueble.metal" color={RIN} metalness={0.7} roughness={0.3} />
       </mesh>
     </group>
   )
@@ -268,16 +269,16 @@ function AutoForma({ color, refRueda }: { color: string; refRueda?: (i: number, 
       {/* carrocería (descapotable: se ve al conductor) */}
       <mesh position={[0, 0.52, 0]} castShadow>
         <boxGeometry args={[1.25, 0.42, 2.85]} />
-        <meshStandardMaterial color={color} />
+        <MatStd acabado="mueble.metal" color={color} />
       </mesh>
       {/* piso de la cabina + respaldo */}
       <mesh position={[0, 0.74, -0.45]}>
         <boxGeometry args={[1.0, 0.06, 1.3]} />
-        <meshStandardMaterial color={ASIENTO} />
+        <MatStd acabado="mueble.cuero" color={ASIENTO} />
       </mesh>
       <mesh position={[0, 0.92, -0.88]} castShadow>
         <boxGeometry args={[0.95, 0.35, 0.15]} />
-        <meshStandardMaterial color={ASIENTO} />
+        <MatStd acabado="mueble.cuero" color={ASIENTO} />
       </mesh>
       {/* parabrisas */}
       <mesh position={[0, 0.95, 0.35]} rotation={[-0.35, 0, 0]}>
@@ -293,11 +294,11 @@ function AutoForma({ color, refRueda }: { color: string; refRueda?: (i: number, 
       ))}
       <mesh position={[0, 0.35, 1.44]}>
         <boxGeometry args={[1.3, 0.14, 0.08]} />
-        <meshStandardMaterial color={METAL} />
+        <MatStd acabado="mueble.metal" color={METAL} />
       </mesh>
       <mesh position={[0, 0.35, -1.44]}>
         <boxGeometry args={[1.3, 0.14, 0.08]} />
-        <meshStandardMaterial color={METAL} />
+        <MatStd acabado="mueble.metal" color={METAL} />
       </mesh>
     </group>
   )
@@ -329,7 +330,7 @@ function OvniForma({
         {/* platillo */}
         <mesh castShadow scale={[1, 0.22, 1]} position={[0, 0.38, 0]}>
           <sphereGeometry args={[1.05, 24, 16]} />
-          <meshStandardMaterial color={color} metalness={0.55} roughness={0.3} />
+          <MatStd acabado="mueble.metal" color={color} metalness={0.55} roughness={0.3} />
         </mesh>
         {/* luces del borde (giran con el platillo) */}
         {[0, 1, 2, 3, 4, 5].map((i) => {
@@ -350,7 +351,7 @@ function OvniForma({
       {/* base inferior */}
       <mesh position={[0, 0.16, 0]}>
         <cylinderGeometry args={[0.4, 0.3, 0.14, 16]} />
-        <meshStandardMaterial color={METAL} />
+        <MatStd acabado="mueble.metal" color={METAL} />
       </mesh>
     </group>
   )

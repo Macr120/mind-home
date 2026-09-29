@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
+import { MatStd } from './primitivas'
 import { useFrame, useThree } from '@react-three/fiber'
 import {
   useCanchas,
@@ -209,7 +210,7 @@ function useTexturaCancha(clase: ClaseCancha, color: string): THREE.CanvasTextur
 
 /** Portería de fútbol (medidas de PORTERIA, compartidas con la física del gol) con red simple. */
 function Porteria() {
-  const mat = <meshStandardMaterial color="#f8fafc" roughness={0.5} />
+  const mat = <MatStd acabado="mueble.metal" realismo="pbrMuros" color="#f8fafc" roughness={0.5} />
   const { ancho, alto, poste, redProf } = PORTERIA
   return (
     <group>
@@ -266,15 +267,15 @@ function Tablero({ mirando, activa }: { mirando: 1 | -1; activa: boolean }) {
     <group>
       <mesh position={[0, 1.8, 0]}>
         <cylinderGeometry args={[0.07, 0.07, 3.6, 8]} />
-        <meshStandardMaterial color="#64748b" roughness={0.6} />
+        <MatStd acabado="mueble.metal" realismo="pbrMuros" color="#64748b" roughness={0.6} />
       </mesh>
       <mesh ref={tablero} position={[mirando * dxTablero, CANASTA.tableroY, 0]}>
         <boxGeometry args={[0.06, 1.15, 2 * CANASTA.tableroMedio]} />
-        <meshStandardMaterial color="#e2e8f0" roughness={0.4} emissive="#fbbf24" emissiveIntensity={0} />
+        <MatStd acabado="mueble.plastico" realismo="pbrMuros" color="#e2e8f0" roughness={0.4} emissive="#fbbf24" emissiveIntensity={0} />
       </mesh>
       <mesh ref={aro} position={[mirando * dx, CANASTA.aroY, 0]} rotation={[Math.PI / 2, 0, 0]}>
         <torusGeometry args={[CANASTA.aroRadio, 0.03, 8, 20]} />
-        <meshStandardMaterial color="#f97316" metalness={0.5} roughness={0.4} emissive="#f97316" emissiveIntensity={0} />
+        <MatStd acabado="mueble.metal" realismo="pbrMuros" color="#f97316" metalness={0.5} roughness={0.4} emissive="#f97316" emissiveIntensity={0} />
       </mesh>
       {/* Red: cono abierto colgando del aro. */}
       <group ref={red} position={[mirando * dx, CANASTA.aroY, 0]}>
@@ -355,10 +356,10 @@ function CampoBeisbol() {
   return (
     <group position={[0, 0.12, 0]}>
       <mesh geometry={barda}>
-        <meshStandardMaterial color="#166534" roughness={0.85} side={THREE.DoubleSide} />
+        <MatStd acabado="mueble.plastico" realismo="pbrMuros" color="#166534" roughness={0.85} side={THREE.DoubleSide} />
       </mesh>
       <mesh geometry={franja}>
-        <meshStandardMaterial color="#facc15" roughness={0.6} side={THREE.DoubleSide} />
+        <MatStd acabado="mueble.plastico" realismo="pbrMuros" color="#facc15" roughness={0.6} side={THREE.DoubleSide} />
       </mesh>
       {[-1, 1].map((s) => (
         <mesh
@@ -370,7 +371,7 @@ function CampoBeisbol() {
           ]}
         >
           <cylinderGeometry args={[0.06, 0.06, 4.4, 8]} />
-          <meshStandardMaterial color="#facc15" roughness={0.6} />
+          <MatStd acabado="mueble.metal" realismo="pbrMuros" color="#facc15" roughness={0.6} />
         </mesh>
       ))}
     </group>
@@ -412,7 +413,7 @@ export function Cancha3D({
       {/* Piso: caja base + tapa con la textura de líneas. */}
       <mesh position={[0, 0.06, 0]}>
         <boxGeometry args={[def.largo, 0.12, def.ancho]} />
-        <meshStandardMaterial color={color} roughness={0.85} />
+        <MatStd acabado="muro.concreto" realismo="pbrMuros" color={color} roughness={0.85} />
       </mesh>
       <mesh position={[0, 0.125, 0]} rotation={[-Math.PI / 2, 0, 0]}>
         <planeGeometry args={[def.largo, def.ancho]} />
@@ -438,7 +439,7 @@ export function Cancha3D({
           {[-(def.ancho - 0.3) / 2, (def.ancho - 0.3) / 2].map((z) => (
             <mesh key={z} position={[0, 0.535, z]}>
               <cylinderGeometry args={[0.05, 0.05, 1.07, 8]} />
-              <meshStandardMaterial color="#334155" roughness={0.6} />
+              <MatStd acabado="mueble.metal" realismo="pbrMuros" color="#334155" roughness={0.6} />
             </mesh>
           ))}
         </group>

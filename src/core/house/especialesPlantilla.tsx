@@ -420,7 +420,7 @@ function LibreroLibro({ color, simple = false, nivel = null, objetoId, separado 
           lomos.map((c, i) => (
             <mesh key={`${fila}-${i}`} position={[-0.36 + i * 0.14, base, 0.02]} castShadow>
               <boxGeometry args={[0.1, 0.42, 0.24]} />
-              <meshStandardMaterial color={c} roughness={0.7} />
+              <MatStd acabado="mueble.cuero" color={c} roughness={0.7} />
             </mesh>
           )),
         )}
@@ -429,18 +429,18 @@ function LibreroLibro({ color, simple = false, nivel = null, objetoId, separado 
         {/* Lomo */}
         <mesh castShadow>
           <boxGeometry args={[0.04, 0.3, 0.22]} />
-          <meshStandardMaterial color="#a16207" roughness={0.6} />
+          <MatStd acabado="mueble.cuero" color="#a16207" roughness={0.6} />
         </mesh>
         <group ref={tapaIzq} position={[-0.02, 0, 0]}>
           <mesh position={[-0.11, 0, 0]} castShadow>
             <boxGeometry args={[0.22, 0.3, 0.015]} />
-            <meshStandardMaterial color="#a16207" roughness={0.6} />
+            <MatStd acabado="mueble.cuero" color="#a16207" roughness={0.6} />
           </mesh>
         </group>
         <group ref={tapaDer} position={[0.02, 0, 0]}>
           <mesh position={[0.11, 0, 0]} castShadow>
             <boxGeometry args={[0.22, 0.3, 0.015]} />
-            <meshStandardMaterial color="#a16207" roughness={0.6} />
+            <MatStd acabado="mueble.cuero" color="#a16207" roughness={0.6} />
           </mesh>
         </group>
       </group>

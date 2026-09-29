@@ -1,7 +1,7 @@
 import { mezclar, type TemaId } from './temas'
-import { MatAcabado, useAcabado } from './primitivas'
+import { MatAcabado, MatStd, useAcabado } from './primitivas'
 import { cajaMetros } from './uvMetros'
-import { piezasDesdeElemento } from './piezasDesdeModelo'
+import { piezasDesdeElemento, type Extractor } from './piezasDesdeModelo'
 import type { Pieza3D } from '../chat/mascotas'
 import {
   META_ESPECIAL_PLANTILLA,
@@ -495,7 +495,7 @@ export const MODELOS: Record<number, ModeloRecurso> = {
           <B p={[0, 1.1, 0]} s={[3.6, 2.2, 0.5]} c={m} {...mp} acabado="mueble.madera" />
           {[0.55, 1.05, 1.55].map((y, row) =>
             libros.map((bc, i) => (
-              <B key={`${row}-${i}`} p={[-1.4 + i * 0.55, y, 0.15]} s={[0.42, 0.42, 0.28]} c={bc} emi={t === 'cyberpunk' ? bc : undefined} emiI={t === 'cyberpunk' ? 0.3 : 0} />
+              <B key={`${row}-${i}`} p={[-1.4 + i * 0.55, y, 0.15]} s={[0.42, 0.42, 0.28]} c={bc} emi={t === 'cyberpunk' ? bc : undefined} emiI={t === 'cyberpunk' ? 0.3 : 0} acabado="mueble.cuero" />
             )),
           )}
           {acento(t, [0, 2.15, 0.2], 3.2)}
@@ -687,7 +687,7 @@ export const MODELOS: Record<number, ModeloRecurso> = {
           ))}
           {!opts?.separado &&
             ['#ef4444', '#fbbf24', '#3b82f6'].map((bc, i) => (
-              <S key={'b' + i} p={[-0.3 + i * 0.25, 0.76, 0]} r={0.08} c={bc} />
+              <S key={'b' + i} p={[-0.3 + i * 0.25, 0.76, 0]} r={0.08} c={bc} acabado="mueble.plastico" />
             ))}
           {acento(t, [0, 0.95, 0], 2.2)}
         </group>
@@ -827,11 +827,11 @@ export const MODELOS: Record<number, ModeloRecurso> = {
       if (t === 'vaquero') {
         return (
           <group>
-            <C p={[0, 0.9, 0]} r={0.25} h={1.8} c="#4d7c2a" seg={10} />
-            <C p={[-0.4, 1.1, 0]} r={0.1} h={0.6} c="#4d7c2a" seg={8} />
-            <C p={[-0.4, 1.45, 0]} r={0.1} h={0.5} c="#4d7c2a" seg={8} />
-            <C p={[0.4, 1.3, 0]} r={0.1} h={0.5} c="#4d7c2a" seg={8} />
-            <C p={[0.4, 1.6, 0]} r={0.1} h={0.4} c="#4d7c2a" seg={8} />
+            <C p={[0, 0.9, 0]} r={0.25} h={1.8} c="#4d7c2a" seg={10} acabado="planta.follaje" />
+            <C p={[-0.4, 1.1, 0]} r={0.1} h={0.6} c="#4d7c2a" seg={8} acabado="planta.follaje" />
+            <C p={[-0.4, 1.45, 0]} r={0.1} h={0.5} c="#4d7c2a" seg={8} acabado="planta.follaje" />
+            <C p={[0.4, 1.3, 0]} r={0.1} h={0.5} c="#4d7c2a" seg={8} acabado="planta.follaje" />
+            <C p={[0.4, 1.6, 0]} r={0.1} h={0.4} c="#4d7c2a" seg={8} acabado="planta.follaje" />
           </group>
         )
       }
@@ -953,9 +953,9 @@ export const MODELOS: Record<number, ModeloRecurso> = {
           <S p={[0.09, 0.16, 0.02]} r={0.05} c="#3f7d34" acabado="planta.follaje" />
           {[0, 1, 2, 3, 4, 5].map((i) => {
             const a = (i / 6) * Math.PI * 2
-            return <S key={i} p={[Math.cos(a) * 0.11, 0.45, Math.sin(a) * 0.11]} r={0.07} c={m} />
+            return <S key={i} p={[Math.cos(a) * 0.11, 0.45, Math.sin(a) * 0.11]} r={0.07} c={m} acabado="mueble.tela" />
           })}
-          <S p={[0, 0.47, 0]} r={0.055} c="#fbbf24" />
+          <S p={[0, 0.47, 0]} r={0.055} c="#fbbf24" acabado="mueble.tela" />
         </group>
       )
     },
@@ -968,14 +968,14 @@ export const MODELOS: Record<number, ModeloRecurso> = {
       const m = prim(c, pal(t))
       return (
         <group>
-          <C p={[0, 0.35, 0]} r={0.025} h={0.7} c="#3f7d34" seg={6} />
+          <C p={[0, 0.35, 0]} r={0.025} h={0.7} c="#3f7d34" seg={6} acabado="planta.follaje" />
           <S p={[0.1, 0.3, 0.02]} r={0.06} c="#3f7d34" acabado="planta.follaje" />
           <S p={[-0.09, 0.45, -0.02]} r={0.05} c="#3f7d34" acabado="planta.follaje" />
           {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => {
             const a = (i / 8) * Math.PI * 2
-            return <S key={i} p={[Math.cos(a) * 0.17, 0.78, Math.sin(a) * 0.17]} r={0.06} c={m} />
+            return <S key={i} p={[Math.cos(a) * 0.17, 0.78, Math.sin(a) * 0.17]} r={0.06} c={m} acabado="mueble.tela" />
           })}
-          <C p={[0, 0.78, 0]} r={0.1} h={0.06} c="#7c4a24" seg={12} />
+          <C p={[0, 0.78, 0]} r={0.1} h={0.06} c="#7c4a24" seg={12} acabado="mueble.tela" />
         </group>
       )
     },
@@ -991,12 +991,12 @@ export const MODELOS: Record<number, ModeloRecurso> = {
           <S p={[0, 0.22, 0]} r={0.22} c="#3f7d34" rough={0.95} acabado="planta.follaje" />
           <S p={[0.16, 0.18, 0.1]} r={0.2} c="#356e2c" rough={0.95} acabado="planta.follaje" />
           <S p={[-0.15, 0.18, -0.08]} r={0.18} c="#3f7d34" rough={0.95} acabado="planta.follaje" />
-          <S p={[0.12, 0.42, 0.1]} r={0.05} c={m} />
-          <S p={[-0.18, 0.34, 0.04]} r={0.05} c={m} />
-          <S p={[0.02, 0.44, -0.14]} r={0.05} c={m} />
-          <S p={[-0.02, 0.4, 0.18]} r={0.05} c={m} />
-          <S p={[0.24, 0.3, -0.06]} r={0.045} c="#fbbf24" />
-          <S p={[-0.22, 0.24, -0.16]} r={0.045} c="#f8fafc" />
+          <S p={[0.12, 0.42, 0.1]} r={0.05} c={m} acabado="mueble.tela" />
+          <S p={[-0.18, 0.34, 0.04]} r={0.05} c={m} acabado="mueble.tela" />
+          <S p={[0.02, 0.44, -0.14]} r={0.05} c={m} acabado="mueble.tela" />
+          <S p={[-0.02, 0.4, 0.18]} r={0.05} c={m} acabado="mueble.tela" />
+          <S p={[0.24, 0.3, -0.06]} r={0.045} c="#fbbf24" acabado="mueble.tela" />
+          <S p={[-0.22, 0.24, -0.16]} r={0.045} c="#f8fafc" acabado="mueble.tela" />
         </group>
       )
     },
@@ -1009,16 +1009,16 @@ export const MODELOS: Record<number, ModeloRecurso> = {
       const m = prim(c, pal(t))
       return (
         <group>
-          <C p={[0, 0.7, 0]} r={0.2} h={1.4} c={m} seg={10} rt={0.16} />
-          <S p={[0, 1.4, 0]} r={0.16} c={m} />
+          <C p={[0, 0.7, 0]} r={0.2} h={1.4} c={m} seg={10} rt={0.16} acabado="planta.follaje" />
+          <S p={[0, 1.4, 0]} r={0.16} c={m} acabado="planta.follaje" />
           {/* Brazos en codo */}
-          <B p={[-0.3, 0.85, 0]} s={[0.24, 0.13, 0.13]} c={m} />
-          <C p={[-0.38, 1.05, 0]} r={0.09} h={0.45} c={m} seg={8} />
-          <S p={[-0.38, 1.28, 0]} r={0.09} c={m} />
-          <B p={[0.28, 1.0, 0]} s={[0.2, 0.12, 0.12]} c={m} />
-          <C p={[0.36, 1.18, 0]} r={0.08} h={0.4} c={m} seg={8} />
-          <S p={[0.36, 1.38, 0]} r={0.08} c={m} />
-          <S p={[0, 1.52, 0]} r={0.06} c="#f472b6" />
+          <B p={[-0.3, 0.85, 0]} s={[0.24, 0.13, 0.13]} c={m} acabado="planta.follaje" />
+          <C p={[-0.38, 1.05, 0]} r={0.09} h={0.45} c={m} seg={8} acabado="planta.follaje" />
+          <S p={[-0.38, 1.28, 0]} r={0.09} c={m} acabado="planta.follaje" />
+          <B p={[0.28, 1.0, 0]} s={[0.2, 0.12, 0.12]} c={m} acabado="planta.follaje" />
+          <C p={[0.36, 1.18, 0]} r={0.08} h={0.4} c={m} seg={8} acabado="planta.follaje" />
+          <S p={[0.36, 1.38, 0]} r={0.08} c={m} acabado="planta.follaje" />
+          <S p={[0, 1.52, 0]} r={0.06} c="#f472b6" acabado="mueble.tela" />
         </group>
       )
     },
@@ -1033,11 +1033,11 @@ export const MODELOS: Record<number, ModeloRecurso> = {
         <group>
           <C p={[0, 0.11, 0]} r={0.13} h={0.22} c={m} rt={0.17} acabado="planta.barro" />
           <C p={[0, 0.22, 0]} r={0.14} h={0.03} c="#3a2e2a" acabado="planta.barro" />
-          <C p={[0, 0.4, 0]} r={0.09} h={0.36} c="#4d7c2a" seg={8} rt={0.075} />
-          <S p={[0, 0.58, 0]} r={0.075} c="#4d7c2a" />
-          <B p={[0.12, 0.44, 0]} s={[0.14, 0.07, 0.07]} c="#4d7c2a" />
-          <C p={[0.17, 0.54, 0]} r={0.038} h={0.16} c="#4d7c2a" seg={6} />
-          <S p={[0, 0.66, 0]} r={0.035} c="#fbbf24" />
+          <C p={[0, 0.4, 0]} r={0.09} h={0.36} c="#4d7c2a" seg={8} rt={0.075} acabado="planta.follaje" />
+          <S p={[0, 0.58, 0]} r={0.075} c="#4d7c2a" acabado="planta.follaje" />
+          <B p={[0.12, 0.44, 0]} s={[0.14, 0.07, 0.07]} c="#4d7c2a" acabado="planta.follaje" />
+          <C p={[0.17, 0.54, 0]} r={0.038} h={0.16} c="#4d7c2a" seg={6} acabado="planta.follaje" />
+          <S p={[0, 0.66, 0]} r={0.035} c="#fbbf24" acabado="mueble.tela" />
         </group>
       )
     },
@@ -1095,7 +1095,7 @@ export const MODELOS: Record<number, ModeloRecurso> = {
             return (
               <group key={i}>
                 <S p={[x, 0.38, 0]} r={0.09} c="#2f7d32" rough={0.95} acabado="planta.follaje" />
-                <S p={[x, 0.48, 0]} r={0.045} c={flor} />
+                <S p={[x, 0.48, 0]} r={0.045} c={flor} acabado="mueble.tela" />
               </group>
             )
           })}
@@ -1120,16 +1120,16 @@ export const MODELOS: Record<number, ModeloRecurso> = {
           <B p={[-0.12, 0.3, 0.06]} s={[0.18, 0.05, 0.12]} c="#2f7d32" acabado="planta.follaje" />
           <B p={[0.13, 0.31, -0.05]} s={[0.16, 0.05, 0.11]} c="#357e2c" acabado="planta.follaje" />
           {/* Tallo */}
-          <C p={[0.03, 0.55, 0]} r={0.018} h={0.62} c="#3f7d34" seg={6} />
+          <C p={[0.03, 0.55, 0]} r={0.018} h={0.62} c="#3f7d34" seg={6} acabado="planta.follaje" />
           {/* Flores: 5 pétalos + centro + labio */}
           {flores.map(([fx, fy], i) => (
             <group key={i}>
               {[0, 1, 2, 3, 4].map((j) => {
                 const a = (j / 5) * Math.PI * 2
-                return <S key={j} p={[fx + Math.cos(a) * 0.07, fy + Math.sin(a) * 0.07, 0.01]} r={0.055} c={m} />
+                return <S key={j} p={[fx + Math.cos(a) * 0.07, fy + Math.sin(a) * 0.07, 0.01]} r={0.055} c={m} acabado="mueble.tela" />
               })}
-              <S p={[fx, fy, 0.05]} r={0.04} c="#fde68a" />
-              <S p={[fx, fy - 0.06, 0.06]} r={0.03} c="#a21caf" />
+              <S p={[fx, fy, 0.05]} r={0.04} c="#fde68a" acabado="mueble.tela" />
+              <S p={[fx, fy - 0.06, 0.06]} r={0.03} c="#a21caf" acabado="mueble.tela" />
             </group>
           ))}
         </group>
@@ -1208,8 +1208,8 @@ export const MODELOS: Record<number, ModeloRecurso> = {
     defaultColor: '#334155',
     render: (c) => (
       <group>
-        <B p={[0, 0.5, 0.1]} s={[0.24, 0.28, 0.85]} c={c} rough={0.35} metal={0.5} />
-        <B p={[0, 0.2, -0.15]} s={[0.2, 0.42, 0.26]} c="#1e293b" />
+        <B p={[0, 0.5, 0.1]} s={[0.24, 0.28, 0.85]} c={c} rough={0.35} metal={0.5} acabado="mueble.metal" />
+        <B p={[0, 0.2, -0.15]} s={[0.2, 0.42, 0.26]} c="#1e293b" acabado="mueble.plastico" />
         <mesh position={[0, 0.5, 0.6]} rotation={[Math.PI / 2, 0, 0]} castShadow>
           <cylinderGeometry args={[0.1, 0.1, 0.3, 12]} />
           <meshStandardMaterial color="#f87171" emissive="#ef4444" emissiveIntensity={1.4} toneMapped={false} />
@@ -1222,8 +1222,8 @@ export const MODELOS: Record<number, ModeloRecurso> = {
     defaultColor: '#e2e8f0',
     render: (c) => (
       <group>
-        <B p={[0, 0.5, 0.1]} s={[0.24, 0.28, 0.85]} c={c} rough={0.3} metal={0.4} />
-        <B p={[0, 0.2, -0.15]} s={[0.2, 0.42, 0.26]} c="#94a3b8" />
+        <B p={[0, 0.5, 0.1]} s={[0.24, 0.28, 0.85]} c={c} rough={0.3} metal={0.4} acabado="mueble.metal" />
+        <B p={[0, 0.2, -0.15]} s={[0.2, 0.42, 0.26]} c="#94a3b8" acabado="mueble.plastico" />
         <mesh position={[0, 0.5, 0.6]} rotation={[Math.PI / 2, 0, 0]} castShadow>
           <torusGeometry args={[0.13, 0.045, 10, 20]} />
           <meshStandardMaterial color="#38bdf8" emissive="#38bdf8" emissiveIntensity={1.4} toneMapped={false} />
@@ -1236,8 +1236,8 @@ export const MODELOS: Record<number, ModeloRecurso> = {
     defaultColor: '#7dd3fc',
     render: (c) => (
       <group>
-        <B p={[0, 0.5, 0.05]} s={[0.24, 0.28, 0.7]} c={c} rough={0.25} />
-        <B p={[0, 0.2, -0.15]} s={[0.2, 0.42, 0.26]} c="#0ea5e9" />
+        <B p={[0, 0.5, 0.05]} s={[0.24, 0.28, 0.7]} c={c} rough={0.25} acabado="mueble.plastico" />
+        <B p={[0, 0.2, -0.15]} s={[0.2, 0.42, 0.26]} c="#0ea5e9" acabado="mueble.plastico" />
         <mesh position={[0, 0.5, 0.55]} castShadow>
           <sphereGeometry args={[0.16, 14, 14]} />
           <meshStandardMaterial color="#bae6fd" emissive="#7dd3fc" emissiveIntensity={0.4} transparent opacity={0.45} roughness={0.1} />
@@ -1253,13 +1253,13 @@ export const MODELOS: Record<number, ModeloRecurso> = {
         {/* tubo lanzador inclinado hacia arriba-adelante */}
         <mesh position={[0, 0.55, 0.1]} rotation={[Math.PI / 3, 0, 0]} castShadow>
           <cylinderGeometry args={[0.13, 0.16, 0.9, 12]} />
-          <meshStandardMaterial color={c} roughness={0.5} />
+          <MatStd acabado="mueble.plastico" color={c} roughness={0.5} />
         </mesh>
         <mesh position={[0, 0.86, 0.28]} rotation={[Math.PI / 3, 0, 0]}>
           <cylinderGeometry args={[0.11, 0.11, 0.08, 12]} />
           <meshStandardMaterial color="#fbbf24" emissive="#f59e0b" emissiveIntensity={1.2} toneMapped={false} />
         </mesh>
-        <B p={[0, 0.2, -0.12]} s={[0.2, 0.42, 0.26]} c="#7f1d1d" />
+        <B p={[0, 0.2, -0.12]} s={[0.2, 0.42, 0.26]} c="#7f1d1d" acabado="mueble.plastico" />
       </group>
     ),
   },
@@ -1271,12 +1271,12 @@ export const MODELOS: Record<number, ModeloRecurso> = {
         {/* cuerpo de la lata */}
         <mesh position={[0, 0.42, 0]} castShadow>
           <cylinderGeometry args={[0.22, 0.22, 0.84, 14]} />
-          <meshStandardMaterial color={c} roughness={0.35} metalness={0.35} />
+          <MatStd acabado="mueble.metal" color={c} roughness={0.35} metalness={0.35} />
         </mesh>
         {/* aro superior */}
         <mesh position={[0, 0.9, 0]} castShadow>
           <cylinderGeometry args={[0.17, 0.22, 0.12, 14]} />
-          <meshStandardMaterial color="#cbd5e1" metalness={0.7} roughness={0.3} />
+          <MatStd acabado="mueble.metal" color="#cbd5e1" metalness={0.7} roughness={0.3} />
         </mesh>
         {/* boquilla */}
         <mesh position={[0, 1.02, 0]} castShadow>
@@ -1292,10 +1292,10 @@ export const MODELOS: Record<number, ModeloRecurso> = {
     render: (c) => (
       <group>
         {/* cuerpo + cañón largo de la marcadora */}
-        <B p={[0, 0.5, 0.1]} s={[0.24, 0.3, 0.75]} c={c} rough={0.4} metal={0.45} />
+        <B p={[0, 0.5, 0.1]} s={[0.24, 0.3, 0.75]} c={c} rough={0.4} metal={0.45} acabado="mueble.metal" />
         <mesh position={[0, 0.55, 0.75]} rotation={[Math.PI / 2, 0, 0]} castShadow>
           <cylinderGeometry args={[0.08, 0.08, 0.95, 12]} />
-          <meshStandardMaterial color="#0f172a" metalness={0.6} roughness={0.3} />
+          <MatStd acabado="mueble.metal" color="#0f172a" metalness={0.6} roughness={0.3} />
         </mesh>
         {/* tolva de bolas */}
         <mesh position={[0, 0.85, 0.05]} castShadow>
@@ -1305,9 +1305,9 @@ export const MODELOS: Record<number, ModeloRecurso> = {
         {/* tanque de aire */}
         <mesh position={[0, 0.42, -0.5]} rotation={[Math.PI / 2, 0, 0]} castShadow>
           <cylinderGeometry args={[0.14, 0.14, 0.55, 12]} />
-          <meshStandardMaterial color="#64748b" metalness={0.7} roughness={0.25} />
+          <MatStd acabado="mueble.metal" color="#64748b" metalness={0.7} roughness={0.25} />
         </mesh>
-        <B p={[0, 0.2, -0.05]} s={[0.2, 0.42, 0.26]} c="#111827" />
+        <B p={[0, 0.2, -0.05]} s={[0.2, 0.42, 0.26]} c="#111827" acabado="mueble.plastico" />
       </group>
     ),
   },
@@ -1320,10 +1320,22 @@ export const getModelo = (id: number): ModeloRecurso | undefined => MODELOS[id]
  * forma (con los colores de la variante del tema activo) para poder modelarla en
  * el editor. Devuelve null si el recurso no existe o no produce mallas.
  */
+/**
+ * Las primitivas planas usan hooks (su acabado PBR): el extractor no puede
+ * ejecutarlas, así que se leen por referencia (y la pieza conserva su acabado).
+ */
+const conAcabado = (p: Record<string, unknown>) => (typeof p.acabado === 'string' ? { acabado: p.acabado } : {})
+const PRIMS_RECURSOS = new Map<unknown, Extractor>([
+  [B, (p) => ({ tipo: 'caja', pos: p.p as Vec3, tam: p.s as number[], color: p.c as string, ...conAcabado(p) })],
+  [C, (p) => ({ tipo: 'cilindro', pos: p.p as Vec3, tam: [(p.rt ?? p.r) as number, p.r as number, p.h as number], color: p.c as string, ...conAcabado(p) })],
+  [S, (p) => ({ tipo: 'esfera', pos: p.p as Vec3, tam: [p.r as number], color: p.c as string, ...conAcabado(p) })],
+  [Cone, (p) => ({ tipo: 'cono', pos: p.p as Vec3, tam: [p.r as number, p.h as number], color: p.c as string, ...conAcabado(p) })],
+])
+
 export function piezasDesdeRecurso(id: number, color: string, tema: TemaId | null, separado = false): Pieza3D[] | null {
   const modelo = getModelo(id)
   if (!modelo) return null
-  const piezas = piezasDesdeElemento(modelo.render(color, tema, { separado }), { expandir: true })
+  const piezas = piezasDesdeElemento(modelo.render(color, tema, { separado }), { prims: PRIMS_RECURSOS, expandir: true })
   return piezas.length ? piezas : null
 }
 

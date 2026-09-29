@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
+import { MatStd } from './primitivas'
 import type { ObjetoCuarto } from '../data/db'
 import { accionFrame, useHerramienta, type Herramienta } from '../state/herramientaStore'
 import { useDiseño, esObjetoLibreria } from '../state/disenoStore'
@@ -94,11 +95,11 @@ function Pistola({
     <>
       <mesh castShadow position={[0, 0.03, 0.1]}>
         <boxGeometry args={[0.09, 0.1, 0.3]} />
-        <meshStandardMaterial color={colorCuerpo} metalness={0.5} roughness={0.35} />
+        <MatStd acabado="mueble.metal" color={colorCuerpo} metalness={0.5} roughness={0.35} />
       </mesh>
       <mesh castShadow position={[0, -0.07, 0]}>
         <boxGeometry args={[0.07, 0.14, 0.09]} />
-        <meshStandardMaterial color={colorEmpunadura} roughness={0.6} />
+        <MatStd acabado="mueble.plastico" color={colorEmpunadura} roughness={0.6} />
       </mesh>
       <mesh position={[0, 0.03, 0.27]} rotation={[Math.PI / 2, 0, 0]}>
         <cylinderGeometry args={[0.035, 0.035, 0.1, 10]} />
@@ -117,15 +118,15 @@ export function LataAerosol({ color }: { color?: string }) {
     <>
       <mesh castShadow position={[0, 0.02, 0.06]}>
         <cylinderGeometry args={[0.055, 0.055, 0.22, 12]} />
-        <meshStandardMaterial color={color ?? '#e11d48'} metalness={0.35} roughness={0.35} />
+        <MatStd acabado="mueble.metal" color={color ?? '#e11d48'} metalness={0.35} roughness={0.35} />
       </mesh>
       <mesh position={[0, 0.145, 0.06]}>
         <cylinderGeometry args={[0.042, 0.055, 0.03, 12]} />
-        <meshStandardMaterial color="#cbd5e1" metalness={0.7} roughness={0.3} />
+        <MatStd acabado="mueble.metal" color="#cbd5e1" metalness={0.7} roughness={0.3} />
       </mesh>
       <mesh position={[0, 0.178, 0.06]}>
         <cylinderGeometry args={[0.016, 0.016, 0.038, 8]} />
-        <meshStandardMaterial color="#f8fafc" roughness={0.5} />
+        <MatStd acabado="mueble.plastico" color="#f8fafc" roughness={0.5} />
       </mesh>
     </>
   )
@@ -143,12 +144,12 @@ export function Marcadora({ color, pintura }: { color?: string; pintura?: string
       {/* cuerpo */}
       <mesh castShadow position={[0, 0.03, 0.08]}>
         <boxGeometry args={[0.085, 0.11, 0.26]} />
-        <meshStandardMaterial color={color ?? '#1f2937'} metalness={0.45} roughness={0.4} />
+        <MatStd acabado="mueble.metal" color={color ?? '#1f2937'} metalness={0.45} roughness={0.4} />
       </mesh>
       {/* cañón largo */}
       <mesh castShadow position={[0, 0.05, 0.32]} rotation={[Math.PI / 2, 0, 0]}>
         <cylinderGeometry args={[0.028, 0.028, 0.34, 10]} />
-        <meshStandardMaterial color="#0f172a" metalness={0.6} roughness={0.3} />
+        <MatStd acabado="mueble.metal" color="#0f172a" metalness={0.6} roughness={0.3} />
       </mesh>
       {/* tolva de bolas (el color de tu pintura) */}
       <mesh castShadow position={[0, 0.15, 0.06]}>
@@ -158,12 +159,12 @@ export function Marcadora({ color, pintura }: { color?: string; pintura?: string
       {/* tanque de aire */}
       <mesh castShadow position={[0, -0.01, -0.12]} rotation={[Math.PI / 2, 0, 0]}>
         <cylinderGeometry args={[0.05, 0.05, 0.2, 10]} />
-        <meshStandardMaterial color="#64748b" metalness={0.7} roughness={0.25} />
+        <MatStd acabado="mueble.metal" color="#64748b" metalness={0.7} roughness={0.25} />
       </mesh>
       {/* empuñadura */}
       <mesh castShadow position={[0, -0.07, 0.02]}>
         <boxGeometry args={[0.07, 0.14, 0.09]} />
-        <meshStandardMaterial color="#111827" roughness={0.6} />
+        <MatStd acabado="mueble.plastico" color="#111827" roughness={0.6} />
       </mesh>
     </>
   )
@@ -192,7 +193,7 @@ function PistolaPrimitiva({ tipo, color }: { tipo: TipoPistola; color?: string }
     <>
       <mesh castShadow position={[0, 0.08, 0.08]} rotation={[Math.PI / 3, 0, 0]}>
         <cylinderGeometry args={[0.05, 0.065, 0.34, 10]} />
-        <meshStandardMaterial color={color ?? '#b91c1c'} roughness={0.5} />
+        <MatStd acabado="mueble.plastico" color={color ?? '#b91c1c'} roughness={0.5} />
       </mesh>
       <mesh position={[0, 0.2, 0.15]} rotation={[Math.PI / 3, 0, 0]}>
         <cylinderGeometry args={[0.045, 0.045, 0.04, 10]} />
@@ -200,7 +201,7 @@ function PistolaPrimitiva({ tipo, color }: { tipo: TipoPistola; color?: string }
       </mesh>
       <mesh castShadow position={[0, -0.07, 0]}>
         <boxGeometry args={[0.07, 0.14, 0.09]} />
-        <meshStandardMaterial color="#7f1d1d" roughness={0.6} />
+        <MatStd acabado="mueble.plastico" color="#7f1d1d" roughness={0.6} />
       </mesh>
     </>
   )

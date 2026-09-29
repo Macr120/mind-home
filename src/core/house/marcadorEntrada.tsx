@@ -4,6 +4,7 @@ import type { Group, Mesh } from 'three'
 import { useDiseño } from '../state/disenoStore'
 import { usePendientesCasa } from '../state/pendientesStore'
 import { baseDe, type TemaId } from './temas'
+import { MatStd } from './primitivas'
 
 /** Marcador por defecto (sin tema): esfera verde, roja con misiones pendientes. */
 function MarcadorDefault({ pendiente }: { pendiente: boolean }) {
@@ -81,7 +82,7 @@ function MarcadorTerror() {
       </mesh>
       <mesh position={[0, -0.07, 0.12]}>
         <boxGeometry args={[0.1, 0.04, 0.06]} />
-        <meshStandardMaterial color="#292524" toneMapped={false} />
+        <MatStd acabado="mueble.plastico" color="#292524" toneMapped={false} />
       </mesh>
     </group>
   )
@@ -113,7 +114,7 @@ function MarcadorVaquero() {
   return (
     <mesh rotation={[Math.PI / 2, 0, 0]}>
       <cylinderGeometry args={[0.17, 0.17, 0.05, 5]} />
-      <meshStandardMaterial color="#fbbf24" emissive="#d97706" emissiveIntensity={0.5} metalness={0.4} toneMapped={false} />
+      <MatStd acabado="mueble.metal" color="#fbbf24" emissive="#d97706" emissiveIntensity={0.5} metalness={0.4} toneMapped={false} />
     </mesh>
   )
 }
@@ -142,11 +143,11 @@ function MarcadorNavidad() {
     <group ref={ref}>
       <mesh>
         <sphereGeometry args={[0.16, 14, 14]} />
-        <meshStandardMaterial color="#dc2626" emissive="#b91c1c" emissiveIntensity={0.5} metalness={0.3} toneMapped={false} />
+        <MatStd acabado="mueble.plastico" color="#dc2626" emissive="#b91c1c" emissiveIntensity={0.5} metalness={0.3} toneMapped={false} />
       </mesh>
       <mesh position={[0, 0.17, 0]}>
         <boxGeometry args={[0.06, 0.08, 0.06]} />
-        <meshStandardMaterial color="#fbbf24" metalness={0.6} toneMapped={false} />
+        <MatStd acabado="mueble.metal" color="#fbbf24" metalness={0.6} toneMapped={false} />
       </mesh>
     </group>
   )

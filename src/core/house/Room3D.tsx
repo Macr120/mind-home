@@ -45,7 +45,7 @@ import { esModoFondo } from '../plataforma'
 import { destinoExterno, abrirObjetoEnFondo } from '../abrirObjeto'
 import { colorConTema, mezclar } from './temas'
 import { useTemaActivo } from './useTema'
-import { TemaContext } from './primitivas'
+import { MatStd, TemaContext } from './primitivas'
 import { useInteractUi } from '../state/interactUiStore'
 import { MarcadorEntrada } from './marcadorEntrada'
 import { MuroSegment } from './MuroRender'
@@ -233,7 +233,7 @@ function VanoFachada({
           <boxGeometry
             args={vano.horizontal ? [vano.ancho + 0.1, 0.22, WALL_T] : [WALL_T, 0.22, vano.ancho + 0.1]}
           />
-          <meshStandardMaterial color={marco} roughness={0.7} metalness={0.1} />
+          <MatStd acabado="mueble.madera" realismo="pbrMuros" color={marco} roughness={0.7} metalness={0.1} />
         </mesh>
       )}
 
@@ -246,7 +246,7 @@ function VanoFachada({
             receiveShadow
           >
             <boxGeometry args={[WALL_T * 0.9, WALL_H, WALL_T * 0.9]} />
-            <meshStandardMaterial color={marco} roughness={0.7} metalness={0.1} />
+            <MatStd acabado="mueble.madera" realismo="pbrMuros" color={marco} roughness={0.7} metalness={0.1} />
           </mesh>
         ))}
 
@@ -264,7 +264,7 @@ function VanoFachada({
                 : [PUERTA_GROSOR, PUERTA_ALTO, vano.ancho - 0.06]
             }
           />
-          <meshStandardMaterial color={PORTON_COLOR} roughness={0.25} metalness={0.7} />
+          <MatStd acabado="mueble.metal" realismo="pbrMuros" color={PORTON_COLOR} roughness={0.25} metalness={0.7} />
         </mesh>
       )}
 
@@ -313,7 +313,7 @@ function VanoFachada({
                     : [PUERTA_GROSOR, hAlto / 5 - 0.06, vano.ancho - 0.08]
                 }
               />
-              <meshStandardMaterial color={colorPuerta} roughness={0.3} metalness={0.65} />
+              <MatStd acabado="mueble.metal" realismo="pbrMuros" color={colorPuerta} roughness={0.3} metalness={0.65} />
             </mesh>
           ))}
         </group>

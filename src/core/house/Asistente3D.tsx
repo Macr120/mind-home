@@ -1,6 +1,7 @@
 import { Suspense, lazy, useMemo, useRef, type RefObject } from 'react'
 import { useFrame, type ThreeEvent } from '@react-three/fiber'
 import * as THREE from 'three'
+import { MatStd } from './primitivas'
 import { playerPos, useHouse } from '../state/houseStore'
 import { useMascota } from '../state/mascotaStore'
 import { esModelo, getAsistente, useAsistentes } from '../state/asistentesStore'
@@ -692,7 +693,7 @@ function Mago({ brazoRef, color }: PropsModelo) {
       {/* Túnica cónica */}
       <mesh position={[0, 0.5, 0]} castShadow>
         <coneGeometry args={[0.46, 1.0, 10]} />
-        <meshStandardMaterial color={tunica} />
+        <MatStd acabado="mueble.tela" color={tunica} />
       </mesh>
       {/* Cabeza */}
       <mesh position={[0, 1.12, 0]} castShadow>
@@ -707,18 +708,18 @@ function Mago({ brazoRef, color }: PropsModelo) {
       {/* Sombrero: ala + cono */}
       <mesh position={[0, 1.3, 0]}>
         <cylinderGeometry args={[0.36, 0.36, 0.05, 12]} />
-        <meshStandardMaterial color={tunica} />
+        <MatStd acabado="mueble.tela" color={tunica} />
       </mesh>
       <mesh position={[0, 1.62, 0]} castShadow>
         <coneGeometry args={[0.26, 0.7, 12]} />
-        <meshStandardMaterial color={tunica} />
+        <MatStd acabado="mueble.tela" color={tunica} />
       </mesh>
       {/* Ojos */}
       <Ojos />
       {/* Brazo izquierdo fijo */}
       <mesh position={[-0.32, 0.7, 0]}>
         <boxGeometry args={[0.14, 0.44, 0.14]} />
-        <meshStandardMaterial color={tunica} />
+        <MatStd acabado="mueble.tela" color={tunica} />
       </mesh>
       {/* Brazo derecho articulado con orbe mágico */}
       <Brazo
@@ -861,16 +862,16 @@ function Robot({ brazoRef, color }: PropsModelo) {
     <group>
       <mesh position={[0, 0.55, 0]} castShadow>
         <boxGeometry args={[0.5, 0.6, 0.36]} />
-        <meshStandardMaterial color={metal} metalness={0.6} roughness={0.3} />
+        <MatStd acabado="mueble.metal" color={metal} metalness={0.6} roughness={0.3} />
       </mesh>
       <mesh position={[0, 1.05, 0]} castShadow>
         <boxGeometry args={[0.44, 0.4, 0.36]} />
-        <meshStandardMaterial color={metal} metalness={0.6} roughness={0.3} />
+        <MatStd acabado="mueble.metal" color={metal} metalness={0.6} roughness={0.3} />
       </mesh>
       {/* Antena */}
       <mesh position={[0, 1.34, 0]}>
         <cylinderGeometry args={[0.02, 0.02, 0.16, 6]} />
-        <meshStandardMaterial color={metal} metalness={0.6} roughness={0.3} />
+        <MatStd acabado="mueble.metal" color={metal} metalness={0.6} roughness={0.3} />
       </mesh>
       <mesh position={[0, 1.46, 0]}>
         <sphereGeometry args={[0.05, 8, 8]} />
@@ -883,7 +884,7 @@ function Robot({ brazoRef, color }: PropsModelo) {
       </mesh>
       <mesh position={[-0.34, 0.7, 0]}>
         <boxGeometry args={[0.13, 0.44, 0.13]} />
-        <meshStandardMaterial color={metal} metalness={0.6} roughness={0.3} />
+        <MatStd acabado="mueble.metal" color={metal} metalness={0.6} roughness={0.3} />
       </mesh>
       <Brazo brazoRef={brazoRef} hombro={[0.32, 0.85, 0]} color={metal} />
     </group>

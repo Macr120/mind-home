@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
+import { MatStd } from './primitivas'
 import { useHouse } from '../state/houseStore'
 import { useLayout, SIN_OCUPACION } from '../state/layoutStore'
 import { usePlanos } from '../state/planosStore'
@@ -59,7 +60,7 @@ function EscaleraEspiral({
       {/* poste central hasta el techo del nivel de arriba */}
       <mesh position={[0, altura / 2, 0]} castShadow>
         <cylinderGeometry args={[0.16, 0.16, altura, 12]} />
-        <meshStandardMaterial color={detalle} roughness={0.6} metalness={0.2} />
+        <MatStd acabado="mueble.metal" realismo="pbrMuros" color={detalle} roughness={0.6} metalness={0.2} />
       </mesh>
       {Array.from({ length: n }, (_, i) => {
         const th = i * dTheta
@@ -73,7 +74,7 @@ function EscaleraEspiral({
             receiveShadow
           >
             <boxGeometry args={[R, 0.12, 0.7]} />
-            <meshStandardMaterial color={base} roughness={0.85} />
+            <MatStd acabado="mueble.madera" realismo="pbrMuros" color={base} roughness={0.85} />
           </mesh>
         )
       })}
@@ -107,7 +108,7 @@ function CabinaCristal({ baseY, acceso }: { baseY: number; acceso?: Acceso }) {
       {/* piso de la cabina */}
       <mesh position={[0, -0.95, 0]}>
         <boxGeometry args={[2 * HUECO - 0.05, 0.1, 2 * HUECO - 0.05]} />
-        <meshStandardMaterial color="#5c636e" metalness={0.5} roughness={0.4} />
+        <MatStd acabado="mueble.metal" realismo="pbrMuros" color="#5c636e" metalness={0.5} roughness={0.4} />
       </mesh>
     </group>
   )
@@ -126,14 +127,14 @@ function Elevador({ altura, baseY, acceso, detalle }: { altura: number; baseY: n
       {postes.map(([x, z], i) => (
         <mesh key={i} position={[x, altura / 2, z]} castShadow>
           <boxGeometry args={[0.18, altura, 0.18]} />
-          <meshStandardMaterial color={detalle} metalness={0.6} roughness={0.35} />
+          <MatStd acabado="mueble.metal" realismo="pbrMuros" color={detalle} metalness={0.6} roughness={0.35} />
         </mesh>
       ))}
       {/* marcos inferior y superior */}
       {[0.09, altura - 0.09].map((y, i) => (
         <mesh key={'m' + i} position={[0, y, 0]}>
           <boxGeometry args={[2 * HUECO + 0.18, 0.16, 2 * HUECO + 0.18]} />
-          <meshStandardMaterial color={detalle} metalness={0.5} roughness={0.4} />
+          <MatStd acabado="mueble.metal" realismo="pbrMuros" color={detalle} metalness={0.5} roughness={0.4} />
         </mesh>
       ))}
       <CabinaCristal baseY={baseY} acceso={acceso} />
@@ -165,7 +166,7 @@ function Tubo({ altura, base, detalle }: { altura: number; base: string; detalle
           castShadow
         >
           <torusGeometry args={[HUECO, 0.07, 8, 22]} />
-          <meshStandardMaterial color={detalle} metalness={0.4} roughness={0.4} />
+          <MatStd acabado="mueble.metal" realismo="pbrMuros" color={detalle} metalness={0.4} roughness={0.4} />
         </mesh>
       ))}
     </>
@@ -181,20 +182,20 @@ function EscaleraMarina({ altura, base, detalle }: { altura: number; base: strin
       {[-ancho / 2, ancho / 2].map((x, i) => (
         <mesh key={i} position={[x, altura / 2, 0]} castShadow>
           <cylinderGeometry args={[0.06, 0.06, altura, 10]} />
-          <meshStandardMaterial color={detalle} metalness={0.7} roughness={0.3} />
+          <MatStd acabado="mueble.metal" realismo="pbrMuros" color={detalle} metalness={0.7} roughness={0.3} />
         </mesh>
       ))}
       {Array.from({ length: n }, (_, i) => (
         <mesh key={'r' + i} position={[0, (i + 0.5) * (altura / n), 0]} rotation={[0, 0, Math.PI / 2]} castShadow>
           <cylinderGeometry args={[0.045, 0.045, ancho, 8]} />
-          <meshStandardMaterial color={base} metalness={0.6} roughness={0.35} />
+          <MatStd acabado="mueble.metal" realismo="pbrMuros" color={base} metalness={0.6} roughness={0.35} />
         </mesh>
       ))}
       {/* Manijas curvas que asoman sobre el borde (para tomarse al salir del agua). */}
       {[-ancho / 2, ancho / 2].map((x, i) => (
         <mesh key={'h' + i} position={[x, altura, 0.16]} rotation={[Math.PI / 2, 0, 0]} castShadow>
           <torusGeometry args={[0.16, 0.05, 8, 12, Math.PI]} />
-          <meshStandardMaterial color={detalle} metalness={0.7} roughness={0.3} />
+          <MatStd acabado="mueble.metal" realismo="pbrMuros" color={detalle} metalness={0.7} roughness={0.3} />
         </mesh>
       ))}
     </>
