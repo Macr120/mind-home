@@ -16,6 +16,8 @@ export type PisoTipoId =
   | 'niebla'
   | 'parquet'
   | 'ajedrez'
+  | 'placas'
+  | 'oxido'
 
 export interface PisoTipo {
   id: PisoTipoId
@@ -189,6 +191,24 @@ export const PISOS: PisoTipo[] = [
     tema: 'terror',
     // Sin textura: oscuro atmosférico
   },
+  {
+    id: 'placas',
+    nombre: 'Placas de metal',
+    emoji: '🔩',
+    color: '#8e99a8',
+    roughness: 0.45,
+    metalness: 0.55,
+    // Sin textura: placas con remaches procedurales (cubierta de la nave y del avión)
+  },
+  {
+    id: 'oxido',
+    nombre: 'Chapa oxidada',
+    emoji: '🛢️',
+    color: '#8a4a26',
+    roughness: 0.9,
+    metalness: 0.2,
+    // Sin textura: chapa con manchas de óxido procedural (casa rodante apocalíptica)
+  },
 ]
 
 /** Marca explícita de celda/cuarto sin loseta de piso (hueco visible). */
@@ -201,10 +221,24 @@ export function esSinPiso(tipo: string | null | undefined): boolean {
 export const getPisoTipo = (id: PisoTipoId | null) =>
   id ? PISOS.find((p) => p.id === id) ?? null : null
 
+/** Piso de la cubierta de cada tema dinámico (el vehículo ocupa todo el plano). */
+const PISO_DINAMICO: Partial<Record<TemaId, PisoTipoId>> = {
+  nave: 'placas',
+  avion: 'placas',
+  apocalipsis: 'oxido',
+  tortuga: 'pasto',
+  pirata: 'madera',
+  tren: 'madera',
+}
+
 /**
- * Piso exterior que impone un tema estático (el de su `tema` en PISOS): adoquín en el
- * medieval, luna en el espacio, nieve en navidad… null si el tema no trae piso propio.
+ * Piso exterior que impone un tema: el de su `tema` en PISOS para los estáticos
+ * (adoquín en el medieval, luna en el espacio…) y la cubierta del vehículo para los
+ * dinámicos. null si el tema no trae piso propio.
  */
 export function pisoDeTema(base: TemaId | null): PisoTipo | null {
-  return (base && PISOS.find((p) => p.tema === base)) || null
+  if (!base) return null
+  const dinamico = PISO_DINAMICO[base]
+  if (dinamico) return getPisoTipo(dinamico)
+  return PISOS.find((p) => p.tema === base) ?? null
 }

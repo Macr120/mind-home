@@ -8397,6 +8397,8 @@ export const PT: Dict = {
   'piso.grid_neon': 'Grade neon',
   'piso.cesped_rosa': 'Grama rosa',
   'piso.niebla': 'Névoa',
+  'piso.placas': 'Placas de metal',
+  'piso.oxido': 'Chapa enferrujada',
   'techo.plano_gris': 'Plano cinza',
   'techo.tejas_rojas': 'Telhas vermelhas',
   'techo.tejas_oscuras': 'Telhas escuras',

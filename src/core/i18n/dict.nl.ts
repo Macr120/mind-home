@@ -8464,6 +8464,8 @@ export const NL: Dict = {
   'piso.grid_neon': 'Neonraster',
   'piso.cesped_rosa': 'Roze gras',
   'piso.niebla': 'Mist',
+  'piso.placas': 'Metalen platen',
+  'piso.oxido': 'Roestig plaatstaal',
   'techo.plano_gris': 'Vlak grijs',
   'techo.tejas_rojas': 'Rode dakpannen',
   'techo.tejas_oscuras': 'Donkere dakpannen',

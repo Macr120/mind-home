@@ -70,9 +70,14 @@ function GeometriaLoseta({
 }
 
 /** Tipos de piso con patrón procedural (sin imagen). El patrón se genera en canvas. */
-const PROC_TIPOS = ['mosaico', 'ajedrez', 'grid_neon'] as const
+const PROC_TIPOS = ['mosaico', 'ajedrez', 'grid_neon', 'placas', 'oxido'] as const
 /** Período del patrón en unidades de mundo (para el tiling). */
-export const PROC_PERIODO: Record<string, number> = { mosaico: 1.8, ajedrez: 3.6, grid_neon: 2 }
+export const PROC_PERIODO: Record<string, number> = { mosaico: 1.8, ajedrez: 3.6, grid_neon: 2, placas: 2.4, oxido: 2.4 }
+/** Acabado de los patrones de metal (los demás usan el de siempre). */
+const PROC_ACABADO: Record<string, { roughness: number; metalness: number }> = {
+  placas: { roughness: 0.45, metalness: 0.55 },
+  oxido: { roughness: 0.9, metalness: 0.2 },
+}
 
 const procCache: Record<string, Texture> = {}
 
@@ -95,6 +100,40 @@ export function texturaProc(tipo: string): Texture {
     x.fillStyle = '#161616'
     x.fillRect(s / 2, 0, s / 2, s / 2)
     x.fillRect(0, s / 2, s / 2, s / 2)
+  } else if (tipo === 'placas' || tipo === 'oxido') {
+    // Placas de metal (o chapa oxidada): dos por lado, con junta y remaches.
+    const oxido = tipo === 'oxido'
+    x.fillStyle = oxido ? '#7a4a2a' : '#9aa5b3'
+    x.fillRect(0, 0, s, s)
+    if (oxido) {
+      for (let i = 0; i < 40; i++) {
+        const v = Math.sin(i * 127.1) * 43758.5453
+        const f = v - Math.floor(v)
+        const w = Math.sin(i * 311.7) * 43758.5453
+        const g = w - Math.floor(w)
+        x.fillStyle = ['#8f5530', '#5e3a22', '#a8663a', '#6b4a36'][i % 4]
+        x.beginPath()
+        x.arc(f * s, g * s, 4 + ((i * 7) % 12), 0, Math.PI * 2)
+        x.fill()
+      }
+    } else {
+      x.fillStyle = '#a9b3c0'
+      x.fillRect(0, 0, s / 2, s / 2)
+      x.fillRect(s / 2, s / 2, s / 2, s / 2)
+    }
+    x.fillStyle = oxido ? '#3b2416' : '#5f6874'
+    const j = s * 0.025
+    x.fillRect(0, 0, s, j)
+    x.fillRect(0, s / 2, s, j)
+    x.fillRect(0, 0, j, s)
+    x.fillRect(s / 2, 0, j, s)
+    x.fillStyle = oxido ? '#2e1c12' : '#6c7582'
+    for (const px of [s * 0.08, s * 0.42, s * 0.58, s * 0.92])
+      for (const py of [s * 0.08, s * 0.42, s * 0.58, s * 0.92]) {
+        x.beginPath()
+        x.arc(px, py, s * 0.018, 0, Math.PI * 2)
+        x.fill()
+      }
   } else {
     // grid_neon: fondo oscuro + líneas blancas (arriba/izquierda) que tilean continuas
     x.fillStyle = '#050a18'
@@ -174,8 +213,8 @@ function PisoCeldaProcedural({
         emissiveMap={esNeon || tinte ? map : undefined}
         emissive={emissiveColor}
         emissiveIntensity={emissiveInt}
-        roughness={esNeon ? 0.3 : 0.28}
-        metalness={esNeon ? 0.3 : 0.1}
+        roughness={PROC_ACABADO[tipo]?.roughness ?? (esNeon ? 0.3 : 0.28)}
+        metalness={PROC_ACABADO[tipo]?.metalness ?? (esNeon ? 0.3 : 0.1)}
         transparent={atenuado}
         opacity={atenuado ? 0.16 : 1}
         toneMapped={!esNeon}

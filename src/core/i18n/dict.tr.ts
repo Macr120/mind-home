@@ -8375,6 +8375,8 @@ export const TR: Dict = {
   'piso.grid_neon': 'Neon ızgara',
   'piso.cesped_rosa': 'Pembe çim',
   'piso.niebla': 'Sis',
+  'piso.placas': 'Metal levhalar',
+  'piso.oxido': 'Paslı sac',
   'techo.plano_gris': 'Düz gri',
   'techo.tejas_rojas': 'Kırmızı kiremit',
   'techo.tejas_oscuras': 'Koyu kiremit',

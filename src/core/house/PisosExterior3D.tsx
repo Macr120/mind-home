@@ -165,9 +165,19 @@ export function PisosExterior3D() {
     ]),
   )
 
-  // Tema dinámico: no hay piso a la vista, pero el toque para caminar sigue
-  // funcionando sobre un plano invisible del tamaño del vehículo.
-  if (escenario) {
+  if (celdas.length === 0) return null
+
+  // El piso exterior del grid toma el piso del tema (salvo las celdas con una imagen
+  // propia o marcadas «sin piso»): en los dinámicos es la cubierta del vehículo.
+  const pisoTema = pisoDeTema(baseDeTema(temaGlobal))
+  const matTema: MatPiso | null = pisoTema
+    ? { sinPiso: false, color: pisoTema.color, roughness: pisoTema.roughness, metalness: pisoTema.metalness, pisoConf: pisoTema, pisoImagenAjuste: 'x1' }
+    : null
+  const conTema = (m: MatPiso): MatPiso => (matTema && !m.sinPiso && !m.pisoImagen ? matTema : m)
+
+  // Tema dinámico sin piso propio: no hay piso a la vista, pero el toque para caminar
+  // sigue funcionando sobre un plano invisible del tamaño del vehículo.
+  if (escenario && !matTema) {
     return (
       <mesh
         position={[lim.cx, -0.02, lim.cz]}
@@ -179,16 +189,6 @@ export function PisosExterior3D() {
       </mesh>
     )
   }
-
-  if (celdas.length === 0) return null
-
-  // Tema estático: todo el piso exterior del grid toma el piso del tema (salvo las
-  // celdas con una imagen propia o marcadas «sin piso»).
-  const pisoTema = pisoDeTema(baseDeTema(temaGlobal))
-  const matTema: MatPiso | null = pisoTema
-    ? { sinPiso: false, color: pisoTema.color, roughness: pisoTema.roughness, metalness: pisoTema.metalness, pisoConf: pisoTema, pisoImagenAjuste: 'x1' }
-    : null
-  const conTema = (m: MatPiso): MatPiso => (matTema && !m.sinPiso && !m.pisoImagen ? matTema : m)
 
   const baseDe = (c: (typeof celdas)[0]): MatPiso => {
     const m = conTema(

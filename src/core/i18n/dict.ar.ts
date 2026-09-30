@@ -8257,6 +8257,8 @@ export const AR: Dict = {
   'piso.grid_neon': 'شبكة نيون',
   'piso.cesped_rosa': 'عشب وردي',
   'piso.niebla': 'ضباب',
+  'piso.placas': 'ألواح معدنية',
+  'piso.oxido': 'صفيح صدئ',
   'techo.plano_gris': 'مسطّح رمادي',
   'techo.tejas_rojas': 'قرميد أحمر',
   'techo.tejas_oscuras': 'قرميد داكن',

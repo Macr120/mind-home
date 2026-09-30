@@ -8051,6 +8051,8 @@ export const JA: Dict = {
   'piso.grid_neon': 'ネオングリッド',
   'piso.cesped_rosa': 'ピンクの芝',
   'piso.niebla': '霧',
+  'piso.placas': '金属パネル',
+  'piso.oxido': '錆びたトタン',
   'techo.plano_gris': 'グレーの陸屋根',
   'techo.tejas_rojas': '赤瓦',
   'techo.tejas_oscuras': '黒瓦',

@@ -8355,6 +8355,8 @@ export const HI: Dict = {
   'piso.grid_neon': 'नियॉन ग्रिड',
   'piso.cesped_rosa': 'गुलाबी घास',
   'piso.niebla': 'कोहरा',
+  'piso.placas': 'धातु की चादरें',
+  'piso.oxido': 'जंग लगी टीन',
   'techo.plano_gris': 'सपाट धूसर',
   'techo.tejas_rojas': 'लाल खपरैल',
   'techo.tejas_oscuras': 'गहरी खपरैल',

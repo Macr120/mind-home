@@ -8439,6 +8439,8 @@ export const ID: Dict = {
   'piso.grid_neon': 'Kisi neon',
   'piso.cesped_rosa': 'Rumput merah muda',
   'piso.niebla': 'Kabut',
+  'piso.placas': 'Pelat logam',
+  'piso.oxido': 'Seng berkarat',
   'techo.plano_gris': 'Datar abu-abu',
   'techo.tejas_rojas': 'Genteng merah',
   'techo.tejas_oscuras': 'Genteng gelap',

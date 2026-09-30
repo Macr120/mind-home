@@ -8367,6 +8367,8 @@ export const RU: Dict = {
   'piso.grid_neon': 'Неоновая сетка',
   'piso.cesped_rosa': 'Розовая трава',
   'piso.niebla': 'Туман',
+  'piso.placas': 'Металлические листы',
+  'piso.oxido': 'Ржавая жесть',
   'techo.plano_gris': 'Плоская серая',
   'techo.tejas_rojas': 'Красная черепица',
   'techo.tejas_oscuras': 'Тёмная черепица',

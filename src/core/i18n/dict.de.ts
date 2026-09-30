@@ -8521,6 +8521,8 @@ export const DE: Dict = {
   'piso.grid_neon': 'Neon-Raster',
   'piso.cesped_rosa': 'Rosa Gras',
   'piso.niebla': 'Nebel',
+  'piso.placas': 'Metallplatten',
+  'piso.oxido': 'Rostiges Blech',
   'techo.plano_gris': 'Flach grau',
   'techo.tejas_rojas': 'Rote Ziegel',
   'techo.tejas_oscuras': 'Dunkle Ziegel',

@@ -40,7 +40,7 @@ const COLOR_ACTIVO = '#f59e0b'
 /** Altura de los handles y del fantasma sobre la base del nivel. */
 const Y_HANDLE = 0.35
 const Y_FANTASMA = 0.3
-const PROC_TIPOS = ['mosaico', 'ajedrez', 'grid_neon']
+const PROC_TIPOS = ['mosaico', 'ajedrez', 'grid_neon', 'placas', 'oxido']
 /** Máximo de puntos del trazo a mano alzada que se pintan (buffer preasignado). */
 const MAX_TRAZO = 2048
 

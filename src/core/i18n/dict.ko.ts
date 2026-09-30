@@ -8070,6 +8070,8 @@ export const KO: Dict = {
   'piso.grid_neon': '네온 격자',
   'piso.cesped_rosa': '분홍 잔디',
   'piso.niebla': '안개',
+  'piso.placas': '금속판',
+  'piso.oxido': '녹슨 철판',
   'techo.plano_gris': '회색 평지붕',
   'techo.tejas_rojas': '붉은 기와',
   'techo.tejas_oscuras': '검은 기와',

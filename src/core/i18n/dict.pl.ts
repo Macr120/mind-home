@@ -8392,6 +8392,8 @@ export const PL: Dict = {
   'piso.grid_neon': 'Siatka neon',
   'piso.cesped_rosa': 'Różowa trawa',
   'piso.niebla': 'Mgła',
+  'piso.placas': 'Płyty metalowe',
+  'piso.oxido': 'Zardzewiała blacha',
   'techo.plano_gris': 'Płaski szary',
   'techo.tejas_rojas': 'Czerwona dachówka',
   'techo.tejas_oscuras': 'Ciemna dachówka',

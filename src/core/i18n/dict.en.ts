@@ -8513,6 +8513,8 @@ export const EN: Dict = {
   'piso.grid_neon': 'Neon grid',
   'piso.cesped_rosa': 'Pink grass',
   'piso.niebla': 'Fog',
+  'piso.placas': 'Metal plates',
+  'piso.oxido': 'Rusty sheet metal',
   'techo.plano_gris': 'Flat gray',
   'techo.tejas_rojas': 'Red tiles',
   'techo.tejas_oscuras': 'Dark tiles',

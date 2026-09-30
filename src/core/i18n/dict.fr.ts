@@ -8495,6 +8495,8 @@ export const FR: Dict = {
   'piso.grid_neon': 'Grille néon',
   'piso.cesped_rosa': 'Herbe rose',
   'piso.niebla': 'Brume',
+  'piso.placas': 'Plaques de métal',
+  'piso.oxido': 'Tôle rouillée',
   'techo.plano_gris': 'Plat gris',
   'techo.tejas_rojas': 'Tuiles rouges',
   'techo.tejas_oscuras': 'Tuiles sombres',

@@ -8002,6 +8002,8 @@ export const ZH: Dict = {
   'piso.grid_neon': '霓虹网格',
   'piso.cesped_rosa': '粉色草地',
   'piso.niebla': '雾',
+  'piso.placas': '金属板',
+  'piso.oxido': '锈铁皮',
   'techo.plano_gris': '灰色平顶',
   'techo.tejas_rojas': '红瓦',
   'techo.tejas_oscuras': '深色瓦',
