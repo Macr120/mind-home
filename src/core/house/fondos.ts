@@ -1,4 +1,4 @@
-import type { TemaId } from './temas'
+import type { EscenarioId, TemaId } from './temas'
 
 /** Fondo de cielo / «wallpaper» de la escena 3D. `auto` = ciclo día/noche. */
 export type FondoId =
@@ -14,6 +14,12 @@ export type FondoId =
   | 'neon_ciudad'
   | 'nieve'
   | 'atardecer_dorado'
+  | 'espacio_profundo'
+  | 'sobre_nubes'
+  | 'yermo'
+  | 'pradera'
+  | 'mar_abierto'
+  | 'campo'
 
 /** Familias de microanimaciones del cielo (`FondoAnimaciones`). */
 export type FamiliaAnimId =
@@ -66,6 +72,8 @@ export interface FondoDef {
   estrellas?: boolean
   /** Microanimaciones sugeridas por este fondo (solo en modo automático). */
   anim?: FamiliaAnimId[]
+  /** Paisaje 3D completo alrededor de la casa (el de un tema dinámico, quieto). */
+  escena?: EscenarioId
 }
 
 export const FONDOS: FondoDef[] = [
@@ -157,6 +165,63 @@ export const FONDOS: FondoDef[] = [
     tema: 'barbie',
     anim: ['nubes', 'corazones'],
   },
+  // Paisajes completos: el suelo, el agua o el cielo alrededor de la casa (los de los
+  // temas dinámicos, quietos). La casa conserva su piso.
+  {
+    id: 'espacio_profundo',
+    nombre: 'Espacio profundo',
+    icon: '🪐',
+    gradiente: ['#02030a', '#0b1026'],
+    tema: 'nave',
+    estrellas: true,
+    anim: ['fugaz'],
+    escena: 'nave',
+  },
+  {
+    id: 'sobre_nubes',
+    nombre: 'Sobre las nubes',
+    icon: '☁️',
+    gradiente: ['#6fb1e8', '#cfe6f7'],
+    tema: 'avion',
+    anim: ['aves'],
+    escena: 'avion',
+  },
+  {
+    id: 'yermo',
+    nombre: 'Tierra baldía',
+    icon: '☢️',
+    gradiente: ['#b7793f', '#e0b07a'],
+    tema: 'apocalipsis',
+    anim: ['polvo'],
+    escena: 'rodante',
+  },
+  {
+    id: 'pradera',
+    nombre: 'Pradera',
+    icon: '🌿',
+    gradiente: ['#8ccbee', '#dff1e0'],
+    tema: 'tortuga',
+    anim: ['aves', 'nubes'],
+    escena: 'tortuga',
+  },
+  {
+    id: 'mar_abierto',
+    nombre: 'Mar abierto',
+    icon: '🌊',
+    gradiente: ['#6fb3e0', '#cfe8f5'],
+    tema: 'pirata',
+    anim: ['aves', 'nubes'],
+    escena: 'barco',
+  },
+  {
+    id: 'campo',
+    nombre: 'Campiña',
+    icon: '🌾',
+    gradiente: ['#8cc4ec', '#e6f2df'],
+    tema: 'tren',
+    anim: ['nubes', 'aves'],
+    escena: 'tren',
+  },
 ]
 
 export function getFondo(id: FondoId | null | undefined): FondoDef {
@@ -178,12 +243,12 @@ const FONDO_POR_TEMA: Record<TemaId, FondoId> = {
   cyberpunk: 'neon_ciudad',
   navidad: 'nieve',
   // Los temas con escenario en movimiento: el cielo acompaña al viaje.
-  nave: 'cielo_oscuro',
-  avion: 'cielo_claro',
-  apocalipsis: 'desierto',
-  tortuga: 'cielo_claro',
-  pirata: 'cielo_claro',
-  tren: 'cielo_claro',
+  nave: 'espacio_profundo',
+  avion: 'sobre_nubes',
+  apocalipsis: 'yermo',
+  tortuga: 'pradera',
+  pirata: 'mar_abierto',
+  tren: 'campo',
 }
 
 /** Fondo al activar un tema; sin tema → ciclo día/noche. */

@@ -8,6 +8,7 @@ import { useCuartos } from '../state/cuartosStore'
 import { useMapaTablas } from '../state/mapaTablasStore'
 import { useDiseño } from '../state/disenoStore'
 import { baseDe, getTema, mezclar } from './temas'
+import { colorPiedraCastillo } from './piedraCastillo'
 import { FOOTPRINT_DEFAULT, SIZE, SPACING, WALL_H, centroCuarto3D, nivelBaseY, roomWallSegments, subId, worldToSubCell } from './walls'
 import { ocupadoConZonas } from './planoGeometria'
 import { filtrarSegmentosPorForma } from './murosPerimetroLoseta'
@@ -77,7 +78,7 @@ export function CastilloTema() {
   const tema = getTema(temaId)
   // Mientras se arrastra un cuarto las almenas se quedarían en su sitio viejo.
   if (baseDe(temaId) !== 'medieval' || !tema || arrastrando) return null
-  return <Castillo piedra={mezclar(tema.shell.muroExt, '#c9b48f', 0.35)} />
+  return <Castillo piedra={colorPiedraCastillo(tema)} />
 }
 
 function Castillo({ piedra }: { piedra: string }) {

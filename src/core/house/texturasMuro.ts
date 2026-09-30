@@ -40,6 +40,36 @@ export function texturaMuro(tipo: string): Texture | null {
         x.stroke()
       }
     }
+  } else if (tipo === 'piedra') {
+    // Sillares: 3 hiladas con juntas desplazadas y un leve tono por bloque.
+    const filas = 3
+    const fh = s / filas
+    for (let r = 0; r < filas; r++) {
+      const off = ((r * 0.37) % 1) * (s / 2)
+      for (let c = -1; c < 3; c++) {
+        const bx = off + c * (s / 2)
+        x.fillStyle = `rgba(0,0,0,${0.03 + ((r * 3 + c + 4) % 4) * 0.025})`
+        x.fillRect(bx, r * fh, s / 2, fh)
+      }
+    }
+    x.strokeStyle = 'rgba(0,0,0,0.32)'
+    x.lineWidth = s * 0.03
+    for (let r = 0; r <= filas; r++) {
+      x.beginPath()
+      x.moveTo(0, r * fh)
+      x.lineTo(s, r * fh)
+      x.stroke()
+    }
+    for (let r = 0; r < filas; r++) {
+      const off = ((r * 0.37) % 1) * (s / 2)
+      for (let c = -1; c < 3; c++) {
+        const vx = off + c * (s / 2)
+        x.beginPath()
+        x.moveTo(vx, r * fh)
+        x.lineTo(vx, (r + 1) * fh)
+        x.stroke()
+      }
+    }
   } else if (tipo === 'madera') {
     const tablas = 5
     const tw = s / tablas

@@ -9,6 +9,7 @@ import { texturaMuro } from './texturasMuro'
 import { esMaterialPbr, useMapasPBR, useRealismo, type MapasPBR, type MaterialPbrId } from './materialesPBR'
 import { cajaMetros } from './uvMetros'
 import { useTemaActivo } from './useTema'
+import { usePiedraCastillo } from './piedraCastillo'
 import { MatAcabado } from './primitivas'
 
 /** Repeticiones de la imagen según el ajuste elegido. */
@@ -401,9 +402,11 @@ function DetalleMuro({ tipo, horizontal, largo, alto, grosor, base, hueco }: {
   // ¿El tramo [a,b] (a lo largo del muro) cruza el vano por debajo de su tope?
   const enHueco = (a: number, b: number, y: number) =>
     !!hueco && y < hueco.yTop && b > hueco.x0 && a < hueco.x1
-  if (tipo === 'ladrillo') {
-    const altoHilada = 0.22
-    const anchoLadrillo = 0.45
+  if (tipo === 'ladrillo' || tipo === 'piedra') {
+    // Piedra: sillares grandes; la junta de cada hilada se corre un poco distinto.
+    const piedra = tipo === 'piedra'
+    const altoHilada = piedra ? 0.42 : 0.22
+    const anchoLadrillo = piedra ? 0.85 : 0.45
     const filas = Math.min(40, Math.max(1, Math.round(alto / altoHilada)))
     const hilada = alto / filas
     const cols = Math.min(24, Math.max(2, Math.round(largo / anchoLadrillo)))
@@ -430,7 +433,7 @@ function DetalleMuro({ tipo, horizontal, largo, alto, grosor, base, hueco }: {
           )
         }
       }
-      const offsetFila = f % 2 === 0 ? 0 : pitch / 2
+      const offsetFila = piedra ? ((f * 0.37) % 1) * pitch : f % 2 === 0 ? 0 : pitch / 2
       const yc = -alto / 2 + (f + 0.5) * hilada
       for (let c = 0; c <= cols; c++) {
         const pos = -largo / 2 + offsetFila + c * pitch
@@ -731,7 +734,7 @@ export const MuroSegment = memo(function MuroSegment({
   sx,
   sz,
   exterior,
-  tipoMuro = 'solido',
+  tipoMuro: tipoMuroProp = 'solido',
   colorMuro,
   alto = 1,
   alturaM,
@@ -836,7 +839,12 @@ export const MuroSegment = memo(function MuroSegment({
   const largo = horizontal ? sx : sz
   const esHeader = alturaM != null // muro sobre la puerta (flotante)
   const h = esHeader ? alturaM : WALL_H * alto
-  const tint = colorMuro ?? (exterior ? extColor : baseColor)
+  // Tema medieval: la fachada lisa (con o sin ventana) es de piedra; el color del pincel
+  // del cuarto no manda aquí. Ladrillo, madera y cristal elegidos a mano se respetan.
+  const piedraCastillo = usePiedraCastillo()
+  const enPiedra = !!piedraCastillo && exterior && (tipoMuroProp === 'solido' || tipoMuroProp === 'ventana')
+  const tipoMuro: TipoMuroId = enPiedra ? 'piedra' : tipoMuroProp
+  const tint = enPiedra ? piedraCastillo! : (colorMuro ?? (exterior ? extColor : baseColor))
   const esCristal = tipoMuro === 'vitraje'
   const esVentana = ventana
   const grosor = horizontal ? sz : sx

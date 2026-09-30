@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { esGamaBaja } from '../../gamaDispositivo'
 import { mezclar } from '../temas'
-import { Desfile, SueloMovil, manchas, useRecorrido } from './fondoMovil'
+import { Desfile, SueloMovil, manchas, useRecorrido, useSueloEscenario } from './fondoMovil'
 import type { PropsEscenario } from './EscenarioVivo'
 
 /** Pasto con florecitas. */
@@ -67,7 +67,7 @@ function Pata({ pos, r, largo, fase, zancada, color }: { pos: [number, number, n
   )
 }
 
-export default function Tortuga({ L, W, tema }: PropsEscenario) {
+export default function Tortuga({ L, W, tema, soloPaisaje = false }: PropsEscenario) {
   const pocos = esGamaBaja()
   const recorrido = useRecorrido()
   const piel = '#7c8f4a'
@@ -84,7 +84,9 @@ export default function Tortuga({ L, W, tema }: PropsEscenario) {
   // En casas grandes el paisaje crece con la tortuga para no verse de juguete.
   const k = Math.min(3, Math.max(1, Math.max(L, W) / 30))
   const largoPata = rPata * 2.6 + ry * 0.35
-  const ySuelo = yc - largoPata - rPata * 0.3
+  // Como fondo estático el suelo queda al ras del piso de la casa.
+  const ySuelo = soloPaisaje ? -0.12 : yc - largoPata - rPata * 0.3
+  useSueloEscenario('suelo', ySuelo, !soloPaisaje)
   const zancada = rPata * 0.9
 
   const tex = useMemo(() => texturaCaparazon(colorCaparazon, mezclar(colorCaparazon, '#1c1917', 0.55)), [colorCaparazon])
@@ -141,58 +143,62 @@ export default function Tortuga({ L, W, tema }: PropsEscenario) {
       <Desfile geometria={roca} material={matRoca} n={pocos ? 8 : 18} largo={150 * k} bandas={lados} y={[ySuelo, ySuelo]} escala={[0.5 * k, 1.5 * k]} semilla={14} />
       <Desfile geometria={mariposa} material={matMariposa} n={pocos ? 6 : 14} largo={60} bandas={cerca} y={[ySuelo + 1, ySuelo + 5]} escala={[0.8, 1.3]} factor={0.6} semilla={19} />
 
-      {/* Cubierta plana del caparazón, justo bajo la casa. */}
-      <mesh position={[0, -0.05, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={[rx * 0.9, rz * 0.9, 1]} receiveShadow>
-        <circleGeometry args={[1, 64]} />
-        <meshStandardMaterial map={texCubierta} roughness={0.85} />
-      </mesh>
-      {/* Anillo del caparazón con sus placas. */}
-      <mesh position={[0, yc, 0]} scale={[rx, ry, rz]} castShadow>
-        <sphereGeometry args={[1, 48, 16, 0, Math.PI * 2, corte, Math.PI / 2 - corte]} />
-        <meshStandardMaterial map={tex} roughness={0.8} side={THREE.DoubleSide} />
-      </mesh>
-      {/* Borde y plastrón. */}
-      <mesh position={[0, yc, 0]} rotation={[Math.PI / 2, 0, 0]} scale={[rx, rz, 1]}>
-        <torusGeometry args={[1, 0.035, 8, 64]} />
-        <meshStandardMaterial color={mezclar(colorCaparazon, '#000000', 0.3)} roughness={0.8} />
-      </mesh>
-      <mesh position={[0, yc, 0]} scale={[rx * 0.97, ry * 0.3, rz * 0.97]}>
-        <sphereGeometry args={[1, 40, 12, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2]} />
-        <meshStandardMaterial color="#d9c38a" roughness={0.9} />
-      </mesh>
-
-      {[
-        [1, 1, 0],
-        [-1, -1, 0],
-        [1, -1, Math.PI],
-        [-1, 1, Math.PI],
-      ].map(([sx, sz, fase]) => (
-        <Pata key={`${sx}${sz}`} pos={[sx * rx * 0.55, yc - ry * 0.1, sz * rz * 0.72]} r={rPata} largo={largoPata} fase={fase} zancada={zancada} color={piel} />
-      ))}
-
-      {/* Cabeza con cuello, al frente (+X). */}
-      <group position={[rx * 0.92, yc - ry * 0.05, 0]}>
-        <group ref={cabeza}>
-          <mesh position={[rPata * 0.9, 0, 0]} rotation={[0, 0, -Math.PI / 2.6]} castShadow>
-            <cylinderGeometry args={[rPata * 0.7, rPata * 0.85, rPata * 2.2, 14]} />
-            <meshStandardMaterial color={piel} roughness={0.9} />
+      {!soloPaisaje && (
+        <>
+          {/* Cubierta plana del caparazón, justo bajo la casa. */}
+          <mesh position={[0, -0.05, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={[rx * 0.9, rz * 0.9, 1]} receiveShadow>
+            <circleGeometry args={[1, 64]} />
+            <meshStandardMaterial map={texCubierta} roughness={0.85} />
           </mesh>
-          <mesh position={[rPata * 2.1, rPata * 0.55, 0]} scale={[1.3, 1, 1]} castShadow>
-            <sphereGeometry args={[rPata * 0.95, 20, 14]} />
-            <meshStandardMaterial color={piel} roughness={0.9} />
+          {/* Anillo del caparazón con sus placas. */}
+          <mesh position={[0, yc, 0]} scale={[rx, ry, rz]} castShadow>
+            <sphereGeometry args={[1, 48, 16, 0, Math.PI * 2, corte, Math.PI / 2 - corte]} />
+            <meshStandardMaterial map={tex} roughness={0.8} side={THREE.DoubleSide} />
           </mesh>
-          {[-1, 1].map((l) => (
-            <mesh key={l} position={[rPata * 2.75, rPata * 0.85, l * rPata * 0.55]}>
-              <sphereGeometry args={[rPata * 0.14, 10, 8]} />
-              <meshStandardMaterial color="#111827" roughness={0.2} />
-            </mesh>
+          {/* Borde y plastrón. */}
+          <mesh position={[0, yc, 0]} rotation={[Math.PI / 2, 0, 0]} scale={[rx, rz, 1]}>
+            <torusGeometry args={[1, 0.035, 8, 64]} />
+            <meshStandardMaterial color={mezclar(colorCaparazon, '#000000', 0.3)} roughness={0.8} />
+          </mesh>
+          <mesh position={[0, yc, 0]} scale={[rx * 0.97, ry * 0.3, rz * 0.97]}>
+            <sphereGeometry args={[1, 40, 12, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2]} />
+            <meshStandardMaterial color="#d9c38a" roughness={0.9} />
+          </mesh>
+
+          {[
+            [1, 1, 0],
+            [-1, -1, 0],
+            [1, -1, Math.PI],
+            [-1, 1, Math.PI],
+          ].map(([sx, sz, fase]) => (
+            <Pata key={`${sx}${sz}`} pos={[sx * rx * 0.55, yc - ry * 0.1, sz * rz * 0.72]} r={rPata} largo={largoPata} fase={fase} zancada={zancada} color={piel} />
           ))}
-        </group>
-      </group>
-      <mesh ref={cola} position={[-rx * 0.98, yc - ry * 0.1, 0]} rotation={[0, 0, Math.PI / 2]}>
-        <coneGeometry args={[rPata * 0.4, rPata * 1.4, 10]} />
-        <meshStandardMaterial color={piel} roughness={0.9} />
-      </mesh>
+
+          {/* Cabeza con cuello, al frente (+X). */}
+          <group position={[rx * 0.92, yc - ry * 0.05, 0]}>
+            <group ref={cabeza}>
+              <mesh position={[rPata * 0.9, 0, 0]} rotation={[0, 0, -Math.PI / 2.6]} castShadow>
+                <cylinderGeometry args={[rPata * 0.7, rPata * 0.85, rPata * 2.2, 14]} />
+                <meshStandardMaterial color={piel} roughness={0.9} />
+              </mesh>
+              <mesh position={[rPata * 2.1, rPata * 0.55, 0]} scale={[1.3, 1, 1]} castShadow>
+                <sphereGeometry args={[rPata * 0.95, 20, 14]} />
+                <meshStandardMaterial color={piel} roughness={0.9} />
+              </mesh>
+              {[-1, 1].map((l) => (
+                <mesh key={l} position={[rPata * 2.75, rPata * 0.85, l * rPata * 0.55]}>
+                  <sphereGeometry args={[rPata * 0.14, 10, 8]} />
+                  <meshStandardMaterial color="#111827" roughness={0.2} />
+                </mesh>
+              ))}
+            </group>
+          </group>
+          <mesh ref={cola} position={[-rx * 0.98, yc - ry * 0.1, 0]} rotation={[0, 0, Math.PI / 2]}>
+            <coneGeometry args={[rPata * 0.4, rPata * 1.4, 10]} />
+            <meshStandardMaterial color={piel} roughness={0.9} />
+          </mesh>
+        </>
+      )}
     </>
   )
 }

@@ -4,7 +4,7 @@ import * as THREE from 'three'
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js'
 import { esGamaBaja } from '../../gamaDispositivo'
 import { mezclar } from '../temas'
-import { Desfile, SueloMovil, manchas, useRecorrido } from './fondoMovil'
+import { Desfile, SueloMovil, manchas, useRecorrido, useSueloEscenario } from './fondoMovil'
 import type { PropsEscenario } from './EscenarioVivo'
 
 /** Mar con reflejos y crestas de ola. */
@@ -189,7 +189,7 @@ function Mastil({ x, y0, alto, anchoVela, madera, lona }: { x: number; y0: numbe
   )
 }
 
-export default function Barco({ L, W, tema }: PropsEscenario) {
+export default function Barco({ L, W, tema, soloPaisaje = false }: PropsEscenario) {
   const pocos = esGamaBaja()
   const madera = tema.shell.muroExt
   const oscura = tema.shell.techo
@@ -204,7 +204,9 @@ export default function Barco({ L, W, tema }: PropsEscenario) {
   const popa = Math.min(14, Math.max(3, L * 0.12))
   const fondo = Math.min(10, Math.max(2, W * 0.35))
   const borda = 0.6
-  const yAgua = -fondo * 0.55
+  // Como fondo estático el agua queda justo bajo el piso de la casa (un muelle).
+  const yAgua = soloPaisaje ? -0.3 : -fondo * 0.55
+  useSueloEscenario('agua', yAgua, !soloPaisaje)
   const altoMastil = Math.min(40, Math.max(8, Math.max(L, W) * 0.45))
   const anchoVela = Math.min(W * 0.8, altoMastil * 0.7)
   const altoCastillo = Math.min(4, Math.max(2, W * 0.12))
@@ -283,65 +285,69 @@ export default function Barco({ L, W, tema }: PropsEscenario) {
   return (
     <>
       <SueloMovil pintar={pintar} tamLoseta={12} y={yAgua} rugosidad={0.35} />
-      <Desfile geometria={espuma} material={matEspuma} n={pocos ? 14 : 30} largo={(L + proa + popa) * 1.4} bandas={estela} y={[yAgua + 0.03, yAgua + 0.06]} escala={[0.8, 1.6]} factor={1.6} girar={false} semilla={31} />
+      {!soloPaisaje && <Desfile geometria={espuma} material={matEspuma} n={pocos ? 14 : 30} largo={(L + proa + popa) * 1.4} bandas={estela} y={[yAgua + 0.03, yAgua + 0.06]} escala={[0.8, 1.6]} factor={1.6} girar={false} semilla={31} />}
       <Desfile geometria={arena} material={matArena} {...islas} girar={false} />
       <Desfile geometria={palmera} material={matPalmera} {...islas} girar={false} />
       <Desfile geometria={hojas} material={matHojas} {...islas} girar={false} />
       <Desfile geometria={roca} material={matRoca} n={pocos ? 6 : 14} largo={200 * k} bandas={lejos} y={[yAgua - 0.3, yAgua - 0.3]} escala={[0.6 * k, 1.8 * k]} semilla={37} />
       <Desfile geometria={gaviota} material={matGaviota} n={pocos ? 5 : 12} largo={120 * k} bandas={cielo} y={[altoMastil * 0.6, altoMastil * 1.1]} escala={[1, 1.5]} factor={0.4} girar={false} semilla={41} />
 
-      {/* Casco con bordas y la cubierta de tablones bajo la casa. */}
-      <mesh geometry={casco} castShadow receiveShadow>
-        <meshStandardMaterial map={tex} roughness={0.85} side={THREE.DoubleSide} />
-      </mesh>
-      <mesh geometry={suelo} position={[0, -0.04, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-        <meshStandardMaterial color={cubierta} roughness={0.9} side={THREE.DoubleSide} />
-      </mesh>
-      {/* Pasamanos sobre la borda. */}
-      <mesh position={[0, borda + 0.05, 0]}>
-        <tubeGeometry args={[new THREE.CatmullRomCurve3(contorno.map(([x, z]) => new THREE.Vector3(x, 0, z)), true, 'catmullrom', 0.1), contorno.length * 3, 0.08, 6, true]} />
-        <meshStandardMaterial color={oscura} roughness={0.8} />
-      </mesh>
-
-      {/* Castillo de popa con ventanas encendidas y faroles. */}
-      <mesh position={[xCastillo, altoCastillo / 2, 0]} castShadow receiveShadow>
-        <boxGeometry args={[popa * 0.95, altoCastillo, media * 1.8]} />
-        <meshStandardMaterial color={madera} roughness={0.85} />
-      </mesh>
-      <mesh position={[xCastillo, altoCastillo + 0.1, 0]} castShadow>
-        <boxGeometry args={[popa * 1.02, 0.2, media * 1.9]} />
-        <meshStandardMaterial color={oscura} roughness={0.85} />
-      </mesh>
-      {[-0.5, 0, 0.5].map((f) => (
-        <mesh key={f} position={[xCastillo - popa * 0.48, altoCastillo * 0.55, f * media]}>
-          <boxGeometry args={[0.06, altoCastillo * 0.3, Math.min(1.2, media * 0.3)]} />
-          <meshBasicMaterial color="#fcd34d" toneMapped={false} />
-        </mesh>
-      ))}
-      {[-1, 1].map((l) => (
-        <mesh key={l} position={[xCastillo - popa * 0.5, altoCastillo + 0.6, l * media * 0.8]}>
-          <sphereGeometry args={[0.25, 10, 8]} />
-          <meshBasicMaterial color="#fdba74" toneMapped={false} />
-        </mesh>
-      ))}
-
-      {/* Cañones asomando por las portas. */}
-      {[-1, 1].map((l) =>
-        Array.from({ length: nCanones }, (_, i) => (
-          <mesh key={`${l}-${i}`} position={[-L / 2 + ((i + 0.5) / nCanones) * L, -0.45, l * (media + 0.35)]} rotation={[Math.PI / 2, 0, 0]} castShadow>
-            <cylinderGeometry args={[0.18, 0.24, 1.1, 10]} />
-            <meshStandardMaterial color="#27272a" metalness={0.7} roughness={0.4} />
+      {!soloPaisaje && (
+        <>
+          {/* Casco con bordas y la cubierta de tablones bajo la casa. */}
+          <mesh geometry={casco} castShadow receiveShadow>
+            <meshStandardMaterial map={tex} roughness={0.85} side={THREE.DoubleSide} />
           </mesh>
-        )),
-      )}
+          <mesh geometry={suelo} position={[0, -0.04, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+            <meshStandardMaterial color={cubierta} roughness={0.9} side={THREE.DoubleSide} />
+          </mesh>
+          {/* Pasamanos sobre la borda. */}
+          <mesh position={[0, borda + 0.05, 0]}>
+            <tubeGeometry args={[new THREE.CatmullRomCurve3(contorno.map(([x, z]) => new THREE.Vector3(x, 0, z)), true, 'catmullrom', 0.1), contorno.length * 3, 0.08, 6, true]} />
+            <meshStandardMaterial color={oscura} roughness={0.8} />
+          </mesh>
 
-      {/* Bauprés y los dos mástiles: uno en la proa y otro sobre el castillo. */}
-      <mesh position={[L / 2 + proa + 1.5, borda + 0.9, 0]} rotation={[0, 0, -Math.PI / 2 + 0.35]} castShadow>
-        <cylinderGeometry args={[0.1, 0.2, 4.5, 8]} />
-        <meshStandardMaterial color={oscura} roughness={0.9} />
-      </mesh>
-      <Mastil x={L / 2 + proa * 0.35} y0={0} alto={altoMastil} anchoVela={anchoVela} madera={oscura} lona={lona} />
-      <Mastil x={xCastillo} y0={altoCastillo} alto={altoMastil * 0.8} anchoVela={anchoVela * 0.85} madera={oscura} lona={lona} />
+          {/* Castillo de popa con ventanas encendidas y faroles. */}
+          <mesh position={[xCastillo, altoCastillo / 2, 0]} castShadow receiveShadow>
+            <boxGeometry args={[popa * 0.95, altoCastillo, media * 1.8]} />
+            <meshStandardMaterial color={madera} roughness={0.85} />
+          </mesh>
+          <mesh position={[xCastillo, altoCastillo + 0.1, 0]} castShadow>
+            <boxGeometry args={[popa * 1.02, 0.2, media * 1.9]} />
+            <meshStandardMaterial color={oscura} roughness={0.85} />
+          </mesh>
+          {[-0.5, 0, 0.5].map((f) => (
+            <mesh key={f} position={[xCastillo - popa * 0.48, altoCastillo * 0.55, f * media]}>
+              <boxGeometry args={[0.06, altoCastillo * 0.3, Math.min(1.2, media * 0.3)]} />
+              <meshBasicMaterial color="#fcd34d" toneMapped={false} />
+            </mesh>
+          ))}
+          {[-1, 1].map((l) => (
+            <mesh key={l} position={[xCastillo - popa * 0.5, altoCastillo + 0.6, l * media * 0.8]}>
+              <sphereGeometry args={[0.25, 10, 8]} />
+              <meshBasicMaterial color="#fdba74" toneMapped={false} />
+            </mesh>
+          ))}
+
+          {/* Cañones asomando por las portas. */}
+          {[-1, 1].map((l) =>
+            Array.from({ length: nCanones }, (_, i) => (
+              <mesh key={`${l}-${i}`} position={[-L / 2 + ((i + 0.5) / nCanones) * L, -0.45, l * (media + 0.35)]} rotation={[Math.PI / 2, 0, 0]} castShadow>
+                <cylinderGeometry args={[0.18, 0.24, 1.1, 10]} />
+                <meshStandardMaterial color="#27272a" metalness={0.7} roughness={0.4} />
+              </mesh>
+            )),
+          )}
+
+          {/* Bauprés y los dos mástiles: uno en la proa y otro sobre el castillo. */}
+          <mesh position={[L / 2 + proa + 1.5, borda + 0.9, 0]} rotation={[0, 0, -Math.PI / 2 + 0.35]} castShadow>
+            <cylinderGeometry args={[0.1, 0.2, 4.5, 8]} />
+            <meshStandardMaterial color={oscura} roughness={0.9} />
+          </mesh>
+          <Mastil x={L / 2 + proa * 0.35} y0={0} alto={altoMastil} anchoVela={anchoVela} madera={oscura} lona={lona} />
+          <Mastil x={xCastillo} y0={altoCastillo} alto={altoMastil * 0.8} anchoVela={anchoVela * 0.85} madera={oscura} lona={lona} />
+        </>
+      )}
     </>
   )
 }

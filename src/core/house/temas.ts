@@ -73,6 +73,8 @@ export interface Tema {
   efectosConfig?: EfectosConfig
   /** Escenario en movimiento (sin él, la casa está quieta sobre su piso). */
   escenario?: EscenarioId
+  /** Multiplicador de la velocidad del escenario (1 = la de fábrica, 0 = parado). */
+  velocidadEscenario?: number
 }
 
 /**
@@ -377,6 +379,8 @@ export interface TemaOverride {
   efectosConfig?: EfectosConfig
   /** Escenario en movimiento elegido para este tema (`null` = quitarlo). */
   escenario?: EscenarioId | null
+  /** Velocidad del escenario (multiplicador). */
+  velocidadEscenario?: number
 }
 
 /** Fusiona un tema base con la personalización del usuario (o lo devuelve tal cual). */

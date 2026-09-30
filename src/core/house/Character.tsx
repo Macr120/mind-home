@@ -34,6 +34,7 @@ import { claveCeldaOff, formaEnCelda, subformasDeCelda, puntoDentroSilueta } fro
 import { footprintDeObjeto, piezasDesdeObjeto, TIPO_PIEZAS } from './catalogo'
 import { superficieObjeto } from './gruposObjeto'
 import { moveInput, vectorCam } from './movement'
+import { fueraDelEscenario, limitesEscenario, sueloEscenario } from './escenarios/limitesCasa'
 import { dragChar } from './characterDrag'
 import { girarHacia, marchaAvatar, suave } from './animacion'
 import { sonar } from '../audio/sfx'
@@ -76,6 +77,13 @@ const RADIO = 0.4   // radio del personaje para colisiones
 const SPEED = 0.0413 // velocidad base (a pie y vehículos escalan desde aquí)
 /** Al flotar en una alberca, el origen del avatar (sus pies) queda este tanto bajo la lámina. */
 const FLOTA_SUMERGIDO = 1.05
+/** Caída al bajarse de la cubierta de un tema dinámico. */
+const GRAVEDAD = 30
+/** Más abajo de esto, cayendo al vacío (avión, nave), se reaparece sobre la cubierta… */
+const Y_REAPARECER = -45
+/** …a esta altura, para volver a caer sobre ella. */
+const ALTURA_REAPARECER = 14
+let velCaida = 0
 
 // Temporales reutilizables (un solo Character en escena).
 const _fwd = new THREE.Vector3()
@@ -1480,6 +1488,21 @@ export function Character() {
       const hundido = flotadorFrame.sentado ? 0 : FLOTA_SUMERGIDO
       targetY = nivelBaseY(-1, !explotado) + AGUA_ALTURA_LOCAL - hundido + bob
     }
+    // Tema dinámico: fuera del plano del vehículo no hay cubierta. Se baja al suelo del
+    // paisaje (como al salir de una plataforma), se nada si abajo hay agua, o se cae al
+    // vacío (avión, nave) y se reaparece sobre la cubierta.
+    let enCaida = false
+    if (playerLevel === 0 && !monturaFrame.montado && fueraDelEscenario(cur.x, cur.z)) {
+      const bajo = sueloEscenario()
+      if (bajo?.tipo === 'agua') {
+        flotandoEnAgua = true
+        targetY = bajo.y - FLOTA_SUMERGIDO + Math.sin(performance.now() * 0.0022) * 0.06
+      } else if (bajo?.tipo === 'suelo') {
+        targetY = bajo.y + SUPERFICIE_SUELO
+      } else if (bajo?.tipo === 'vacio') {
+        enCaida = true
+      }
+    }
     // Sentado en la dona: se queda quieto en ella meciéndose (la dona se dibuja
     // dentro de su grupo) hasta que se mueve; entonces se baja y sigue nadando.
     if (flotadorFrame.sentado) {
@@ -1593,8 +1616,24 @@ export function Character() {
     // anterior para que el lerp al piso no pelee con el brinco.
     const ahoraF = performance.now()
     const salto = offsetSalto(ahoraF) + offsetCuerda(ahoraF)
-    const ny = THREE.MathUtils.lerp(cur.y - saltoAplicado, targetY, 0.2) + salto
+    let ny = THREE.MathUtils.lerp(cur.y - saltoAplicado, targetY, 0.2) + salto
     saltoAplicado = salto
+    // En un tema dinámico la bajada es una caída de verdad (gravedad), no un deslizar.
+    const lim = limitesEscenario()
+    if (lim && salto === 0 && (enCaida || cur.y - targetY > 0.8)) {
+      velCaida = Math.max(velCaida - GRAVEDAD * Math.min(delta, 0.05), -40)
+      ny = enCaida ? cur.y + velCaida * Math.min(delta, 0.05) : Math.max(targetY, cur.y + velCaida * Math.min(delta, 0.05))
+      if (enCaida && ny < Y_REAPARECER) {
+        // Cayó al vacío: reaparece en lo alto, sobre el borde más cercano de la cubierta.
+        cur.x = THREE.MathUtils.clamp(cur.x, lim.x0 + 1.5, lim.x1 - 1.5)
+        cur.z = THREE.MathUtils.clamp(cur.z, lim.z0 + 1.5, lim.z1 - 1.5)
+        useHouse.getState().target.set(cur.x, 0, cur.z)
+        ny = ALTURA_REAPARECER
+        velCaida = 0
+      }
+    } else {
+      velCaida = 0
+    }
     const persp = vista !== 'iso'
     const { f, s, kf, ks } = moveInput
     const hayInput = f !== 0 || s !== 0 || kf !== 0 || ks !== 0

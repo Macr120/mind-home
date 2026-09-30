@@ -1,6 +1,6 @@
 /** Tipos visuales de muro y puerta (estilo Roblox, personalizables por color). */
 
-export type TipoMuroId = 'solido' | 'ventana' | 'ladrillo' | 'madera' | 'vitraje'
+export type TipoMuroId = 'solido' | 'ventana' | 'ladrillo' | 'madera' | 'vitraje' | 'piedra'
 export type TipoPuertaId = 'recta' | 'sin' | 'doble' | 'porton' | 'corredera'
 /** Perfil superior del muro (silueta), independiente de la textura. */
 export type FormaMuroId = 'recta' | 'arco' | 'esquinas' | 'triangulo'
@@ -102,6 +102,12 @@ export const TIPOS_MURO: {
     nombre: 'Madera',
     defaultColor: '#7a5230',
     preview: 'repeating-linear-gradient(90deg,#6b4423 0 3px,#8b5a2b 3px 6px)',
+  },
+  {
+    id: 'piedra',
+    nombre: 'Piedra',
+    defaultColor: '#b8a47e',
+    preview: 'repeating-linear-gradient(0deg,#8f7f63 0 2px,#b8a47e 2px 12px)',
   },
   {
     id: 'vitraje',

@@ -27,6 +27,21 @@ let activos: LimitesCasa | null = null
 export function setLimitesEscenario(l: LimitesCasa | null) {
   activos = l
 }
+/** Límites del vehículo en marcha (null = sin escenario o editando). */
+export const limitesEscenario = () => activos
+
+/** Lo que hay bajo el plano del vehículo: suelo a una altura, agua o vacío (avión, nave). */
+export interface SueloEscenario {
+  tipo: 'suelo' | 'agua' | 'vacio'
+  y: number
+}
+let suelo: SueloEscenario | null = null
+/** Lo fija cada escenario al montarse (con su altura de suelo o de agua). */
+export function setSueloEscenario(s: SueloEscenario | null) {
+  suelo = s
+}
+export const sueloEscenario = () => suelo
+
 /** ¿(x,z) queda fuera del plano del vehículo? (sin escenario activo, nunca). */
 export function fueraDelEscenario(x: number, z: number): boolean {
   return !!activos && (x < activos.x0 || x > activos.x1 || z < activos.z0 || z > activos.z1)

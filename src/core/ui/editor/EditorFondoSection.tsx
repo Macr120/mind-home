@@ -2,9 +2,10 @@ import { useEffect, useRef, useState } from 'react'
 import { useDiseño } from '../../state/disenoStore'
 import { useCiclo } from '../../state/cicloStore'
 import { FONDOS, ANIMACIONES, animacionesDeFondo, getFondo } from '../../house/fondos'
+import { GaleriaFondos } from './GaleriaFondos'
 import type { FondoImagen } from '../../data/db'
 import type { AjusteFondoImagen } from '../../house/fondosImagen'
-import { AJUSTE_FONDO_DEFAULT, ajusteADb, ajusteDesdeDb } from '../../house/fondosImagen'
+import { AJUSTE_FONDO_DEFAULT, ajusteADb, ajusteDesdeDb, escalaCubrir, medirImagen } from '../../house/fondosImagen'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 import { ColorPicker } from '../comun/ColorPicker'
@@ -122,6 +123,16 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
       nombre,
       ajuste: { ...AJUSTE_FONDO_DEFAULT },
     })
+    // Por defecto la imagen cubre la pantalla completa (sin bandas a los lados).
+    void medirImagen(blob)
+      .then(({ ancho, alto }) =>
+        setBorrador((prev) =>
+          prev && prev.blob === blob
+            ? { ...prev, ajuste: { ...prev.ajuste, escala: escalaCubrir(ancho, alto, window.innerWidth, window.innerHeight) } }
+            : prev,
+        ),
+      )
+      .catch(() => {})
   }
 
   const onArchivo = (file: File | undefined) => {
@@ -167,12 +178,45 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
     await eliminarFondoImagen(id)
   }
 
+  const tarjetaFondo = (f: (typeof FONDOS)[number]) => (
+    <button
+      key={f.id}
+      type="button"
+      onClick={() => void setFondoId(f.id)}
+      className="flex flex-col items-start gap-1 rounded-lg border px-2 py-2 text-start transition"
+      style={{
+        borderColor:
+          fondoImagenActivo == null && fondoId === f.id
+            ? 'rgba(52,211,153,0.6)'
+            : 'color-mix(in srgb, var(--ui-ink) 8%, transparent)',
+        background:
+          fondoImagenActivo == null && fondoId === f.id
+            ? 'rgba(52,211,153,0.12)'
+            : 'color-mix(in srgb, var(--ui-ink) 4%, transparent)',
+      }}
+      title={f.tema ? t('editor.fondo.sugerido', 'Sugerido para el tema {tema}', { tema: t(`tema.${f.tema}`, f.tema) }) : undefined}
+    >
+      <span className="flex items-center gap-1.5 text-sm">
+        <span><Icono emoji={f.icon} /></span>
+        <span className="text-white/85 font-medium">{t(`fondo.${f.id}`, f.nombre)}</span>
+      </span>
+      <span
+        className="h-2 w-full rounded-sm"
+        style={{
+          background: `linear-gradient(90deg, ${f.gradiente[0]}, ${f.gradiente[1]})`,
+        }}
+      />
+    </button>
+  )
+
   return (
     <div className={embed ? 'space-y-3' : 'rounded-xl border border-white/10 bg-white/5 p-3 space-y-3'}>
       {!embed && <p className="text-sm font-semibold">{t('editor.fondo.titulo', 'Fondo de cielo')}</p>}
       <p className="text-[11px] leading-snug text-white/45">
         {t('editor.fondo.desc', 'Se elige automáticamente al cambiar el tema. También puedes cambiarlo a mano.')}
       </p>
+
+      <GaleriaFondos />
 
       <div className="space-y-2 rounded-lg border border-white/10 bg-black/15 p-2.5">
         <div className="flex items-center justify-between gap-2">
@@ -293,38 +337,15 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
       <p className="text-[10px] font-semibold uppercase tracking-wide text-white/40">
         {t('editor.fondo.presets', 'Fondos predefinidos')}
       </p>
-      <div className="grid grid-cols-2 gap-1.5">
-        {FONDOS.map((f) => (
-          <button
-            key={f.id}
-            type="button"
-            onClick={() => void setFondoId(f.id)}
-            className="flex flex-col items-start gap-1 rounded-lg border px-2 py-2 text-start transition"
-            style={{
-              borderColor:
-                fondoImagenActivo == null && fondoId === f.id
-                  ? 'rgba(52,211,153,0.6)'
-                  : 'color-mix(in srgb, var(--ui-ink) 8%, transparent)',
-              background:
-                fondoImagenActivo == null && fondoId === f.id
-                  ? 'rgba(52,211,153,0.12)'
-                  : 'color-mix(in srgb, var(--ui-ink) 4%, transparent)',
-            }}
-            title={f.tema ? t('editor.fondo.sugerido', 'Sugerido para el tema {tema}', { tema: t(`tema.${f.tema}`, f.tema) }) : undefined}
-          >
-            <span className="flex items-center gap-1.5 text-sm">
-              <span><Icono emoji={f.icon} /></span>
-              <span className="text-white/85 font-medium">{t(`fondo.${f.id}`, f.nombre)}</span>
-            </span>
-            <span
-              className="h-2 w-full rounded-sm"
-              style={{
-                background: `linear-gradient(90deg, ${f.gradiente[0]}, ${f.gradiente[1]})`,
-              }}
-            />
-          </button>
-        ))}
-      </div>
+      <div className="grid grid-cols-2 gap-1.5">{FONDOS.filter((f) => !f.escena).map(tarjetaFondo)}</div>
+
+      <p className="text-[10px] font-semibold uppercase tracking-wide text-white/40">
+        {t('editor.fondo.paisajes', 'Paisajes completos')}
+      </p>
+      <p className="text-[10px] leading-snug text-white/45">
+        {t('editor.fondo.paisajesDesc', 'El suelo, el mar o el cielo alrededor de la casa, como en los temas dinámicos pero quietos.')}
+      </p>
+      <div className="grid grid-cols-2 gap-1.5">{FONDOS.filter((f) => f.escena).map(tarjetaFondo)}</div>
 
       <div className="space-y-2 rounded-lg border border-white/10 bg-black/20 px-3 py-2.5">
         <div className="flex items-center justify-between gap-2">

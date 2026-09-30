@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
+import { setSueloEscenario, type SueloEscenario } from './limitesCasa'
 
 /**
  * Piezas comunes de los escenarios en movimiento. Todo vive en un marco LOCAL
@@ -147,4 +148,13 @@ export function manchas(ctx: CanvasRenderingContext2D, lado: number, colores: st
       }
     }
   }
+}
+
+/** Declara qué hay bajo el plano del vehículo mientras el escenario está en marcha. */
+export function useSueloEscenario(tipo: SueloEscenario['tipo'], y: number, activo: boolean) {
+  useEffect(() => {
+    if (!activo) return
+    setSueloEscenario({ tipo, y })
+    return () => setSueloEscenario(null)
+  }, [tipo, y, activo])
 }

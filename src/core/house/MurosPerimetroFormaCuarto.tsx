@@ -26,6 +26,7 @@ import {
 } from './murosPerimetroLoseta'
 import { MuroCurvo3D } from './MuroCurvo3D'
 import { MuroSegment, VentanaEnMuro } from './MuroRender'
+import { usePiedraCastillo } from './piedraCastillo'
 import { MuroLibrePuerta3D } from './MuroLibrePuerta3D'
 import type { AberturaMundo } from './murosLibre'
 import type { RemateHoja } from './puertaHojas'
@@ -161,6 +162,7 @@ export function MurosPerimetroFormaCuarto({
   /** Muro bajo el cursor (hover): la curva/diagonal correspondiente se tiñe de ámbar. */
   hover?: { roomId?: string; off?: { col: number; row: number }; side?: string } | { muroLibreId: number } | null
 }) {
+  const piedraCastillo = usePiedraCastillo()
   const items = useMemo(() => {
     const out: {
       /** Arista de estilo/selección: la real del lado (entera/mitad) o la VIRTUAL del cuadrante. */
@@ -250,8 +252,10 @@ export function MurosPerimetroFormaCuarto({
           (hover != null && 'roomId' in hover && coincideArista(hover))
         // Color real del muro (sin tocar): el resaltado va por `emissive` (brillo ámbar
         // encima), igual que los muros rectos — así se ve aunque el color ya sea ámbar.
-        const color = muro?.color ?? extColor
-        const tipoMuro = (muro?.tipo as TipoMuroId) ?? 'solido'
+        // Tema medieval: el perímetro curvo sólido también es de piedra.
+        const enPiedra = !!piedraCastillo && (!muro?.tipo || muro.tipo === 'solido' || muro.tipo === 'ventana')
+        const color = muro?.color ?? (enPiedra ? piedraCastillo! : extColor)
+        const tipoMuro: TipoMuroId = enPiedra ? 'piedra' : ((muro?.tipo as TipoMuroId) ?? 'solido')
         const alto = muro?.alto ?? 1
         const silueta = (muro?.forma ?? 'recta') as FormaMuroId
         // Hueco: la puerta usa parámetros de puerta (al piso); la ventana, los de ventana.

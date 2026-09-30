@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { esGamaBaja } from '../../gamaDispositivo'
 import { mezclar } from '../temas'
-import { Desfile, useRecorrido } from './fondoMovil'
+import { Desfile, useRecorrido, useSueloEscenario } from './fondoMovil'
 import type { PropsEscenario } from './EscenarioVivo'
 
 /** Planeta lejano: cruza muy despacio por debajo (lento = lejos, la cámara no tiene perspectiva). */
@@ -71,7 +71,8 @@ function LuzAla({ pos, color, fase }: { pos: [number, number, number]; color: st
   )
 }
 
-export default function Nave({ L, W, tema }: PropsEscenario) {
+export default function Nave({ L, W, tema, soloPaisaje = false }: PropsEscenario) {
+  useSueloEscenario('vacio', 0, !soloPaisaje)
   const casco = tema.shell.muroExt
   const oscuro = mezclar(casco, '#0b0f19', 0.55)
   const acento = tema.paleta[1] ?? '#38bdf8'
@@ -100,47 +101,51 @@ export default function Nave({ L, W, tema }: PropsEscenario) {
       <Planeta x0={40} z={-70} y={-95} r={22} color={tema.paleta[0] ?? '#94a3b8'} anillo largo={420} />
       <Planeta x0={260} z={60} y={-120} r={12} color={mezclar(acento, '#1e1b4b', 0.5)} largo={420} />
 
-      {/* Cubierta bajo la casa + panza. */}
-      <mesh position={[0, -0.2, 0]} castShadow receiveShadow>
-        <boxGeometry args={[L, 0.36, W]} />
-        <meshStandardMaterial color={casco} metalness={0.7} roughness={0.3} />
-      </mesh>
-      <mesh position={[-0.2, -1, 0]} castShadow>
-        <boxGeometry args={[L * 0.96, 1.3, W * 0.8]} />
-        <meshStandardMaterial color={oscuro} metalness={0.75} roughness={0.35} />
-      </mesh>
-      {/* Franja luminosa del borde de la cubierta. */}
-      {[-1, 1].map((l) => (
-        <mesh key={l} position={[0, -0.2, l * (W / 2 + 0.03)]}>
-          <boxGeometry args={[L * 0.9, 0.08, 0.04]} />
-          <meshBasicMaterial color={acento} toneMapped={false} />
-        </mesh>
-      ))}
-      <group position={[L / 2 + proa / 2 - 0.01, -0.55, 0]} scale={[1, aplanado, 1]}>
-        <mesh rotation={[Math.PI / 4, 0, -Math.PI / 2]} castShadow>
-          <coneGeometry args={[(W / 2) * Math.SQRT2, proa, 4]} />
-          <meshStandardMaterial color={casco} metalness={0.7} roughness={0.3} />
-        </mesh>
-      </group>
-      {/* Alas en flecha. */}
-      {[-1, 1].map((l) => (
-        <group key={l} position={[-L * 0.12, -0.8, l * (W / 2 + alaAncho / 2)]} rotation={[l * 0.12, -l * 0.35, 0]}>
-          <mesh castShadow>
-            <boxGeometry args={[alaLargo, 0.18, alaAncho]} />
+      {!soloPaisaje && (
+        <>
+          {/* Cubierta bajo la casa + panza. */}
+          <mesh position={[0, -0.2, 0]} castShadow receiveShadow>
+            <boxGeometry args={[L, 0.36, W]} />
             <meshStandardMaterial color={casco} metalness={0.7} roughness={0.3} />
           </mesh>
-          <mesh position={[0, 0.1, l * alaAncho * 0.42]}>
-            <boxGeometry args={[alaLargo * 0.9, 0.04, 0.12]} />
-            <meshBasicMaterial color={acento} toneMapped={false} />
+          <mesh position={[-0.2, -1, 0]} castShadow>
+            <boxGeometry args={[L * 0.96, 1.3, W * 0.8]} />
+            <meshStandardMaterial color={oscuro} metalness={0.75} roughness={0.35} />
           </mesh>
-          <LuzAla pos={[-alaLargo * 0.35, 0.15, l * alaAncho * 0.5]} color={l < 0 ? '#ef4444' : '#22c55e'} fase={l} />
-        </group>
-      ))}
-      {/* Toberas en la popa. */}
-      {Array.from({ length: nToberas }, (_, i) => {
-        const z = (i / (nToberas - 1) - 0.5) * W * 0.55
-        return <Tobera key={i} pos={[-L / 2 - rToberas * 0.7, -0.9, z]} r={rToberas} color={acento} />
-      })}
+          {/* Franja luminosa del borde de la cubierta. */}
+          {[-1, 1].map((l) => (
+            <mesh key={l} position={[0, -0.2, l * (W / 2 + 0.03)]}>
+              <boxGeometry args={[L * 0.9, 0.08, 0.04]} />
+              <meshBasicMaterial color={acento} toneMapped={false} />
+            </mesh>
+          ))}
+          <group position={[L / 2 + proa / 2 - 0.01, -0.55, 0]} scale={[1, aplanado, 1]}>
+            <mesh rotation={[Math.PI / 4, 0, -Math.PI / 2]} castShadow>
+              <coneGeometry args={[(W / 2) * Math.SQRT2, proa, 4]} />
+              <meshStandardMaterial color={casco} metalness={0.7} roughness={0.3} />
+            </mesh>
+          </group>
+          {/* Alas en flecha. */}
+          {[-1, 1].map((l) => (
+            <group key={l} position={[-L * 0.12, -0.8, l * (W / 2 + alaAncho / 2)]} rotation={[l * 0.12, -l * 0.35, 0]}>
+              <mesh castShadow>
+                <boxGeometry args={[alaLargo, 0.18, alaAncho]} />
+                <meshStandardMaterial color={casco} metalness={0.7} roughness={0.3} />
+              </mesh>
+              <mesh position={[0, 0.1, l * alaAncho * 0.42]}>
+                <boxGeometry args={[alaLargo * 0.9, 0.04, 0.12]} />
+                <meshBasicMaterial color={acento} toneMapped={false} />
+              </mesh>
+              <LuzAla pos={[-alaLargo * 0.35, 0.15, l * alaAncho * 0.5]} color={l < 0 ? '#ef4444' : '#22c55e'} fase={l} />
+            </group>
+          ))}
+          {/* Toberas en la popa. */}
+          {Array.from({ length: nToberas }, (_, i) => {
+            const z = (i / (nToberas - 1) - 0.5) * W * 0.55
+            return <Tobera key={i} pos={[-L / 2 - rToberas * 0.7, -0.9, z]} r={rToberas} color={acento} />
+          })}
+        </>
+      )}
     </>
   )
 }

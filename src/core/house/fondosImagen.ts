@@ -20,6 +20,16 @@ export function clampAjuste(a: AjusteFondoImagen): AjusteFondoImagen {
   }
 }
 
+/**
+ * Zoom (sobre la base «contain») con el que la imagen cubre TODA la pantalla, sin
+ * bandas: el ajuste con el que nace una imagen subida.
+ */
+export function escalaCubrir(iw: number, ih: number, cw: number, ch: number): number {
+  const sx = Math.max(cw, 1) / Math.max(iw, 1)
+  const sy = Math.max(ch, 1) / Math.max(ih, 1)
+  return Math.min(4, Math.max(sx, sy) / Math.min(sx, sy))
+}
+
 /** Escala base «contain»: la imagen completa cabe en el viewport (sin recortar). */
 function escalaContener(iw: number, ih: number, cw: number, ch: number) {
   return Math.min(cw / Math.max(iw, 1), ch / Math.max(ih, 1))

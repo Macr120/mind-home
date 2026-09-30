@@ -4,7 +4,7 @@ import * as THREE from 'three'
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js'
 import { esGamaBaja } from '../../gamaDispositivo'
 import { mezclar } from '../temas'
-import { Desfile, SueloMovil, manchas, useRecorrido } from './fondoMovil'
+import { Desfile, SueloMovil, manchas, useRecorrido, useSueloEscenario } from './fondoMovil'
 import type { PropsEscenario } from './EscenarioVivo'
 
 /** Hélice de dos palas; gira con el recorrido (se para si se pide menos movimiento). */
@@ -48,7 +48,8 @@ const pintarCampos = (ctx: CanvasRenderingContext2D, lado: number) => {
   manchas(ctx, lado, ['#4d7040'], 10, [4, 9], 11)
 }
 
-export default function Avion({ L, W, tema }: PropsEscenario) {
+export default function Avion({ L, W, tema, soloPaisaje = false }: PropsEscenario) {
+  useSueloEscenario('vacio', 0, !soloPaisaje)
   const pocos = esGamaBaja()
   const fuselaje = mezclar(tema.shell.muroExt, '#f8fafc', 0.35)
   const franja = tema.shell.techo
@@ -83,61 +84,65 @@ export default function Avion({ L, W, tema }: PropsEscenario) {
       <Desfile geometria={nube} material={matNubeLejana} n={pocos ? 18 : 40} largo={260} bandas={debajo} y={[-40, -14]} escala={[1.6, 3.2]} factor={0.55} semilla={2} />
       <Desfile geometria={nube} material={matNube} n={pocos ? 10 : 22} largo={200} bandas={lados} y={[-9, 2]} escala={[1, 2.4]} semilla={5} />
 
-      {/* Plataforma bajo la casa + fuselaje. */}
-      <mesh position={[0, -0.16, 0]} castShadow receiveShadow>
-        <boxGeometry args={[L, 0.28, W]} />
-        <meshStandardMaterial color={fuselaje} metalness={0.45} roughness={0.35} />
-      </mesh>
-      <mesh position={[0, -R - 0.1, 0]} rotation={[0, 0, Math.PI / 2]} castShadow>
-        <cylinderGeometry args={[R, R, L, 28]} />
-        <meshStandardMaterial color={fuselaje} metalness={0.45} roughness={0.35} />
-      </mesh>
-      {/* Franja de color a lo largo. */}
-      <mesh position={[0, -R - 0.1, 0]} rotation={[0, 0, Math.PI / 2]}>
-        <cylinderGeometry args={[R * 1.01, R * 1.01, L * 0.98, 28, 1, true, Math.PI * 0.35, Math.PI * 0.3]} />
-        <meshStandardMaterial color={franja} side={THREE.DoubleSide} roughness={0.5} />
-      </mesh>
-      {/* Nariz y hélice delantera. */}
-      <mesh position={[L / 2, -R - 0.1, 0]} scale={[1.5, 1, 1]} castShadow>
-        <sphereGeometry args={[R, 28, 20, 0, Math.PI * 2, 0, Math.PI]} />
-        <meshStandardMaterial color={fuselaje} metalness={0.45} roughness={0.35} />
-      </mesh>
-      <Helice pos={[L / 2 + R * 1.5, -R - 0.1, 0]} r={R * 1.1} color={metal} />
-      {/* Cola: cono que se afila, timón y estabilizadores. */}
-      <mesh position={[-L / 2 - R * 1.2, -R * 0.8, 0]} rotation={[0, 0, Math.PI / 2]} castShadow>
-        <cylinderGeometry args={[R * 0.35, R, R * 2.4, 24]} />
-        <meshStandardMaterial color={fuselaje} metalness={0.45} roughness={0.35} />
-      </mesh>
-      <mesh position={[-L / 2 - R * 1.6, R * 0.3, 0]} rotation={[0, 0, 0.35]} castShadow>
-        <boxGeometry args={[R * 1.6, R * 2, 0.18]} />
-        <meshStandardMaterial color={franja} roughness={0.5} />
-      </mesh>
-      <mesh position={[-L / 2 - R * 1.7, -R * 0.55, 0]} castShadow>
-        <boxGeometry args={[R * 1.2, 0.14, W * 0.5 + R * 2]} />
-        <meshStandardMaterial color={fuselaje} metalness={0.45} roughness={0.35} />
-      </mesh>
-      {/* Alas con un motor de hélice en cada una. */}
-      <mesh position={[L * 0.06, -R * 1.25, 0]} castShadow>
-        <boxGeometry args={[cuerdaAla, 0.22, W + envergadura * 2]} />
-        <meshStandardMaterial color={fuselaje} metalness={0.45} roughness={0.35} />
-      </mesh>
-      {[-1, 1].map((l) => {
-        const z = l * (W / 2 + envergadura * 0.45)
-        return (
-          <group key={l}>
-            <mesh position={[L * 0.06 + cuerdaAla * 0.15, -R * 1.25 - 0.35, z]} rotation={[0, 0, Math.PI / 2]} castShadow>
-              <cylinderGeometry args={[0.45, 0.4, cuerdaAla * 0.9, 16]} />
-              <meshStandardMaterial color={metal} metalness={0.7} roughness={0.3} />
-            </mesh>
-            <Helice pos={[L * 0.06 + cuerdaAla * 0.6 + 0.1, -R * 1.25 - 0.35, z]} r={1.2} color={metal} />
-            {/* Luz de punta de ala. */}
-            <mesh position={[L * 0.06, -R * 1.25, l * (W / 2 + envergadura)]}>
-              <sphereGeometry args={[0.16, 10, 10]} />
-              <meshBasicMaterial color={l < 0 ? '#ef4444' : '#22c55e'} toneMapped={false} />
-            </mesh>
-          </group>
-        )
-      })}
+      {!soloPaisaje && (
+        <>
+          {/* Plataforma bajo la casa + fuselaje. */}
+          <mesh position={[0, -0.16, 0]} castShadow receiveShadow>
+            <boxGeometry args={[L, 0.28, W]} />
+            <meshStandardMaterial color={fuselaje} metalness={0.45} roughness={0.35} />
+          </mesh>
+          <mesh position={[0, -R - 0.1, 0]} rotation={[0, 0, Math.PI / 2]} castShadow>
+            <cylinderGeometry args={[R, R, L, 28]} />
+            <meshStandardMaterial color={fuselaje} metalness={0.45} roughness={0.35} />
+          </mesh>
+          {/* Franja de color a lo largo. */}
+          <mesh position={[0, -R - 0.1, 0]} rotation={[0, 0, Math.PI / 2]}>
+            <cylinderGeometry args={[R * 1.01, R * 1.01, L * 0.98, 28, 1, true, Math.PI * 0.35, Math.PI * 0.3]} />
+            <meshStandardMaterial color={franja} side={THREE.DoubleSide} roughness={0.5} />
+          </mesh>
+          {/* Nariz y hélice delantera. */}
+          <mesh position={[L / 2, -R - 0.1, 0]} scale={[1.5, 1, 1]} castShadow>
+            <sphereGeometry args={[R, 28, 20, 0, Math.PI * 2, 0, Math.PI]} />
+            <meshStandardMaterial color={fuselaje} metalness={0.45} roughness={0.35} />
+          </mesh>
+          <Helice pos={[L / 2 + R * 1.5, -R - 0.1, 0]} r={R * 1.1} color={metal} />
+          {/* Cola: cono que se afila, timón y estabilizadores. */}
+          <mesh position={[-L / 2 - R * 1.2, -R * 0.8, 0]} rotation={[0, 0, Math.PI / 2]} castShadow>
+            <cylinderGeometry args={[R * 0.35, R, R * 2.4, 24]} />
+            <meshStandardMaterial color={fuselaje} metalness={0.45} roughness={0.35} />
+          </mesh>
+          <mesh position={[-L / 2 - R * 1.6, R * 0.3, 0]} rotation={[0, 0, 0.35]} castShadow>
+            <boxGeometry args={[R * 1.6, R * 2, 0.18]} />
+            <meshStandardMaterial color={franja} roughness={0.5} />
+          </mesh>
+          <mesh position={[-L / 2 - R * 1.7, -R * 0.55, 0]} castShadow>
+            <boxGeometry args={[R * 1.2, 0.14, W * 0.5 + R * 2]} />
+            <meshStandardMaterial color={fuselaje} metalness={0.45} roughness={0.35} />
+          </mesh>
+          {/* Alas con un motor de hélice en cada una. */}
+          <mesh position={[L * 0.06, -R * 1.25, 0]} castShadow>
+            <boxGeometry args={[cuerdaAla, 0.22, W + envergadura * 2]} />
+            <meshStandardMaterial color={fuselaje} metalness={0.45} roughness={0.35} />
+          </mesh>
+          {[-1, 1].map((l) => {
+            const z = l * (W / 2 + envergadura * 0.45)
+            return (
+              <group key={l}>
+                <mesh position={[L * 0.06 + cuerdaAla * 0.15, -R * 1.25 - 0.35, z]} rotation={[0, 0, Math.PI / 2]} castShadow>
+                  <cylinderGeometry args={[0.45, 0.4, cuerdaAla * 0.9, 16]} />
+                  <meshStandardMaterial color={metal} metalness={0.7} roughness={0.3} />
+                </mesh>
+                <Helice pos={[L * 0.06 + cuerdaAla * 0.6 + 0.1, -R * 1.25 - 0.35, z]} r={1.2} color={metal} />
+                {/* Luz de punta de ala. */}
+                <mesh position={[L * 0.06, -R * 1.25, l * (W / 2 + envergadura)]}>
+                  <sphereGeometry args={[0.16, 10, 10]} />
+                  <meshBasicMaterial color={l < 0 ? '#ef4444' : '#22c55e'} toneMapped={false} />
+                </mesh>
+              </group>
+            )
+          })}
+        </>
+      )}
     </>
   )
 }
