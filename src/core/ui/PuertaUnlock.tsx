@@ -7,6 +7,7 @@ import { hayBackend } from '../cuenta/supabase'
 import {
   CompraCancelada,
   comprarUnlock,
+  comprobarCompra,
   detalleDeFallo,
   hayPagos,
   obtenerUnlock,
@@ -482,7 +483,6 @@ function TarjetaPrecio({
  */
 function FilaRestaurar() {
   const t = useT()
-  const refrescarPerfil = useSesion((s) => s.refrescarPerfil)
   const [ocupado, setOcupado] = useState<'tienda' | 'cuenta' | null>(null)
   const [aviso, setAviso] = useState<string | null>(null)
   // Restaurar es cosa de las tiendas: en la web la compra ya cuelga de la cuenta.
@@ -508,7 +508,7 @@ function FilaRestaurar() {
     setOcupado('cuenta')
     setAviso(null)
     try {
-      await refrescarPerfil()
+      await comprobarCompra()
       // Si el unlock llegó, la puerta de arriba se abre sola: está suscrita.
       if (!useSesion.getState().unlock) {
         setAviso(t('puerta.sinRestaurar', 'No encontramos compras de esta cuenta.'))

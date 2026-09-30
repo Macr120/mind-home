@@ -386,6 +386,19 @@ export async function restaurarCompras(): Promise<boolean> {
   return esperarPerfil(() => useSesion.getState().unlock || useSesion.getState().plan !== 'local', 5)
 }
 
+/**
+ * «Ya la compré: comprobar de nuevo». Antes solo releía el perfil, y si el
+ * servidor no había llegado a escribirlo (el 30-sep-2026 un fallo de base de
+ * datos tumbó el webhook y App Review pulsó este botón sin resultado) no había
+ * nada nuevo que leer. Ahora le pide al servidor que pregunte a RevenueCat qué
+ * tiene la cuenta y lo aplique (`confirmar-compra`), y luego relee. No abre
+ * nada de la tienda: no pide contraseña ni hoja de pago.
+ */
+export async function comprobarCompra(): Promise<void> {
+  if (useSesion.getState().usuario) await confirmarCompra('comprobar')
+  await useSesion.getState().refrescarPerfil()
+}
+
 /** URL del portal de gestión de la suscripción (cancelar, cambiar pago). */
 export async function urlGestion(): Promise<string | null> {
   const usuario = useSesion.getState().usuario
