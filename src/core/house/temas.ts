@@ -27,13 +27,14 @@ export type TemaId =
   | 'apocalipsis'
   | 'tortuga'
   | 'pirata'
+  | 'tren'
 
 /**
  * Escenario en movimiento: la casa se monta sobre un vehículo (o un animal) que no
  * se mueve, se quita el piso exterior y lo que corre es el fondo.
  */
-export type EscenarioId = 'nave' | 'avion' | 'rodante' | 'tortuga' | 'barco'
-export const ESCENARIOS: EscenarioId[] = ['nave', 'avion', 'rodante', 'tortuga', 'barco']
+export type EscenarioId = 'nave' | 'avion' | 'rodante' | 'tortuga' | 'barco' | 'tren'
+export const ESCENARIOS: EscenarioId[] = ['nave', 'avion', 'rodante', 'tortuga', 'barco', 'tren']
 
 /** Id de cualquier tema: uno de fábrica o uno creado por el usuario (`u_<uuid>`). */
 export type TemaClave = string
@@ -137,7 +138,7 @@ export const TEMAS: (Tema & { id: TemaId })[] = [
     emissiveIntensity: 0,
     fondo: '#1a1410',
     estilo: 'normal',
-    shell: { muroInt: '#8c8073', muroExt: '#6d665c', piso: '#7c746a', techo: '#5b4326' },
+    shell: { muroInt: '#a89a84', muroExt: '#b09a78', piso: '#8a7c68', techo: '#5b4326' },
     luz: { sol: '#ffd9a8', intensidadSol: 0.95, ambiente: '#e8d5b8', focos: '#ffb066', ibl: 0.2, exposicion: 0.95 },
     niebla: { color: '#2a2018', near: 40, far: 110 },
   },
@@ -331,6 +332,24 @@ export const TEMAS: (Tema & { id: TemaId })[] = [
     shell: { muroInt: '#d9c7a0', muroExt: '#7a5230', piso: '#8b6337', techo: '#4a2f1a' },
     luz: { sol: '#ffe6b8', fuerzaSol: 0.4, intensidadSol: 1.05, ambiente: '#e2eef8', focos: '#ffb45a', ibl: 0.3 },
     niebla: { color: '#c4e0f2', near: 60, far: 170 },
+  },
+  {
+    id: 'tren',
+    nombre: 'Tren',
+    icon: '🚂',
+    paleta: ['#7f1d1d', '#1f2937', '#d4a72c', '#6b8e3a'],
+    tinte: '#7f1d1d',
+    fuerza: 0.3,
+    roughness: 0.75,
+    metalness: 0.2,
+    emissive: '#000000',
+    emissiveIntensity: 0,
+    fondo: '#8cc4ec',
+    estilo: 'normal',
+    escenario: 'tren',
+    shell: { muroInt: '#e7dcc4', muroExt: '#8b2e24', piso: '#8b6a45', techo: '#374151' },
+    luz: { sol: '#fff0cc', fuerzaSol: 0.35, intensidadSol: 1.05, ambiente: '#e8f1fa', focos: '#ffcf7a', ibl: 0.3 },
+    niebla: { color: '#cfe3f0', near: 60, far: 170 },
   },
 ]
 

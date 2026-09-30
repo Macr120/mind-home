@@ -68,6 +68,7 @@ const PALETAS: Record<TemaId | 'base', Paleta> = {
   nave: { mat: '#cbd5e1', matMix: 0.55, rough: 0.25, metal: 0.7, emi: '#38bdf8', emiI: 0.06, madera: '#94a3b8', metalCol: '#64748b', acento: '#7dd3fc' },
   avion: { mat: '#f1f5f9', matMix: 0.45, rough: 0.35, metal: 0.45, emi: '', emiI: 0, madera: '#cbd5e1', metalCol: '#94a3b8', acento: '#dc2626' },
   apocalipsis: { mat: '#7c4a21', matMix: 0.55, rough: 0.95, metal: 0.2, emi: '', emiI: 0, madera: '#5a4632', metalCol: '#57534e', acento: '#d97706' },
+  tren: { mat: '#7f1d1d', matMix: 0.35, rough: 0.75, metal: 0.25, emi: '', emiI: 0, madera: '#6b4a2b', metalCol: '#1f2937', acento: '#d4a72c' },
   pirata: { mat: '#6b4423', matMix: 0.5, rough: 0.85, metal: 0.05, emi: '', emiI: 0, madera: '#5a3a1e', metalCol: '#3f3a33', acento: '#d4a72c' },
   tortuga: { mat: '#6b8e3a', matMix: 0.4, rough: 0.85, metal: 0, emi: '', emiI: 0, madera: '#8b6a3e', metalCol: '#6b5a3a', acento: '#fde68a' },
 }

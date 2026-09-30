@@ -183,6 +183,7 @@ const FONDO_POR_TEMA: Record<TemaId, FondoId> = {
   apocalipsis: 'desierto',
   tortuga: 'cielo_claro',
   pirata: 'cielo_claro',
+  tren: 'cielo_claro',
 }
 
 /** Fondo al activar un tema; sin tema → ciclo día/noche. */

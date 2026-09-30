@@ -24,6 +24,7 @@ const ESCENAS: Record<EscenarioId, ComponentType<PropsEscenario>> = {
   rodante: lazy(() => import('./CasaRodante')),
   tortuga: lazy(() => import('./Tortuga')),
   barco: lazy(() => import('./Barco')),
+  tren: lazy(() => import('./Tren')),
 }
 
 /** Velocidad del fondo por escenario (unidades por segundo). */
@@ -33,6 +34,7 @@ const VELOCIDAD: Record<EscenarioId, number> = {
   rodante: 6,
   tortuga: 1.4,
   barco: 7,
+  tren: 16,
 }
 
 /**

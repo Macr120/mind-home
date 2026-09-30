@@ -208,6 +208,7 @@ const MARCADORES: Record<TemaId, () => ReactElement> = {
   apocalipsis: MarcadorMedieval,
   tortuga: MarcadorBrote,
   pirata: MarcadorDoblon,
+  tren: MarcadorMedieval,
 }
 
 /** El aviso de los marcadores CON tema: conservan su forma y ganan un aro rojo. */

@@ -292,6 +292,7 @@ const TECHO_POR_TEMA: Record<TemaId, TechoTipoId> = {
   apocalipsis: 'madera_sol',
   tortuga: 'madera_sol',
   pirata: 'madera_sol',
+  tren: 'madera_sol',
 }
 
 export function techoSugeridoPorTema(tema: TemaId | null): TechoTipoId | null {

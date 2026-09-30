@@ -40,13 +40,15 @@ interface DesfileProps {
   girar?: boolean
   /** Estira cada elemento en X según la velocidad (estelas de estrellas). */
   estirarX?: number
+  /** Reparto parejo a lo largo (durmientes, postes) en vez de al azar. */
+  uniforme?: boolean
 }
 
 /**
  * Elementos instanciados que desfilan hacia −X y se reciclan por delante.
  * Nunca proyectan sombra: las sombras de la casa están congeladas.
  */
-export function Desfile({ geometria, material, n, largo, bandas, y, escala, factor = 1, semilla = 1, girar = true, estirarX = 1 }: DesfileProps) {
+export function Desfile({ geometria, material, n, largo, bandas, y, escala, factor = 1, semilla = 1, girar = true, estirarX = 1, uniforme = false }: DesfileProps) {
   const ref = useRef<THREE.InstancedMesh>(null)
   const recorrido = useRecorrido()
   const base = useMemo(
@@ -55,14 +57,14 @@ export function Desfile({ geometria, material, n, largo, bandas, y, escala, fact
         const s = semilla * 97 + i
         const banda = bandas[Math.floor(hash01(s, 1) * bandas.length) % bandas.length]
         return {
-          x: hash01(s, 2) * largo,
+          x: uniforme ? (i / n) * largo : hash01(s, 2) * largo,
           z: banda[0] + hash01(s, 3) * (banda[1] - banda[0]),
           y: y[0] + hash01(s, 4) * (y[1] - y[0]),
           e: escala[0] + hash01(s, 5) * (escala[1] - escala[0]),
           r: girar ? hash01(s, 6) * Math.PI * 2 : 0,
         }
       }),
-    [n, largo, bandas, y, escala, semilla, girar],
+    [n, largo, bandas, y, escala, semilla, girar, uniforme],
   )
   const m = useMemo(() => new THREE.Matrix4(), [])
   const q = useMemo(() => new THREE.Quaternion(), [])

@@ -11,6 +11,7 @@ const NOMBRE_ESCENARIO: Record<EscenarioId, string> = {
   rodante: 'Casa rodante',
   tortuga: 'Tortuga gigante',
   barco: 'Barco pirata',
+  tren: 'Tren',
 }
 
 /** Fila etiqueta + selector de color compacto. */
