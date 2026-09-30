@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import type { ObjetoCuarto } from '../../data/db'
 import type { Pieza3D } from '../../chat/mascotas'
-import { iaActiva, generarModelo3D, type EstiloModelo3D } from '../../chat/ia'
+import { iaActiva, generarModelo3D, mensajeError3D, PideImagen3D, type EstiloModelo3D } from '../../chat/ia'
+import { generarImagen } from '../../imagenIA'
 import { iaHabilitada } from '../../edicion'
 import { Creditos } from '../Creditos'
 import { OP_OBJETO_3D } from '../../cuenta/catalogoNucleo'
@@ -166,6 +167,7 @@ export function EditorObjetosSection() {
   const setObjetoAltura = useDiseño((s) => s.setObjetoAltura)
   const addObjetoPiezas = useDiseño((s) => s.addObjetoPiezas)
   const addObjetoGlb = useDiseño((s) => s.addObjetoGlb)
+  const addObjeto = useDiseño((s) => s.addObjeto)
   const setObjetoModeloGlb = useDiseño((s) => s.setObjetoModeloGlb)
   const setObjetoFoto = useDiseño((s) => s.setObjetoFoto)
   const setObjetoTexto = useDiseño((s) => s.setObjetoTexto)
@@ -275,6 +277,13 @@ export function EditorObjetosSection() {
               grupo && grupo !== 'ninguno' ? grupo : undefined,
             )
             // Sin esto nacía sin nombre: lo que se pidió es el mejor nombre.
+            await setObjetoNombre(id, desc)
+            setObjetoSel(id)
+          }}
+          onCrearFoto={async (foto, desc) => {
+            const destino = await pedirDestinoObjeto()
+            if (!destino) return
+            const id = await addObjeto(destino, TIPO_CUADRO_FOTO, '#8b5a2b', undefined, undefined, { foto })
             await setObjetoNombre(id, desc)
             setObjetoSel(id)
           }}
@@ -844,9 +853,12 @@ function BotonGiro90({
  */
 function GenerarObjetoIA({
   onCrear,
+  onCrearFoto,
   onCrearGlb,
 }: {
   onCrear: (piezas: Pieza3D[], grupo: GrupoAccion | 'ninguno' | null, desc: string) => void
+  /** Pidieron una foto: la imagen generada va en un cuadro. Sin él, solo se avisa. */
+  onCrearFoto?: (foto: Blob, desc: string) => void
   /** Con él, la subida de .glb va dentro (la biblioteca la quiere junta). */
   onCrearGlb?: (glb: Blob) => void
 }) {
@@ -856,18 +868,34 @@ function GenerarObjetoIA({
   const [estilo, setEstilo] = useState<EstiloModelo3D>('normal')
   const [generando, setGenerando] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  /** Lo que la IA simplificó al crearlo y cómo pedirlo mejor (su NOTA). */
+  const [nota, setNota] = useState<string | null>(null)
 
   const generar = async () => {
     if (!desc.trim() || generando) return
     setGenerando(true)
     setError(null)
+    setNota(null)
     try {
-      const { piezas, grupo } = await generarModelo3D(desc.trim(), tipo, estilo)
-      onCrear(piezas, grupo, desc.trim())
+      const r = await generarModelo3D(desc.trim(), tipo, estilo)
+      onCrear(r.piezas, r.grupo, desc.trim())
+      setNota(r.nota)
       setDesc('')
     } catch (err) {
+      if (err instanceof PideImagen3D && onCrearFoto) {
+        try {
+          onCrearFoto(await generarImagen(err.prompt, 1024), desc.trim())
+          setNota(err.message || null)
+          setDesc('')
+          return
+        } catch (errImg) {
+          err = errImg
+        }
+      }
       console.warn('[MPH] No se pudo generar el objeto 3D:', err)
-      setError(t('editor.obj.formaError', 'No pude crear la forma. Revisa el modelo de IA e inténtalo de nuevo.'))
+      setError(
+        mensajeError3D(err, t('editor.obj.formaError', 'No pude crear la forma. Revisa el modelo de IA e inténtalo de nuevo.')),
+      )
     } finally {
       setGenerando(false)
     }
@@ -945,6 +973,7 @@ function GenerarObjetoIA({
       </>
       )}
       {error && <p className="px-1 text-[10px] text-red-400/80">{error}</p>}
+      {nota && <p className="px-1 text-[10px] text-white/55">{nota}</p>}
 
       {onCrearGlb && <SubirGlb onCrearGlb={onCrearGlb} compacto />}
     </div>

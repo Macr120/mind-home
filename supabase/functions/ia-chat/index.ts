@@ -43,16 +43,44 @@ import { dentroDeLimite } from '../_shared/limite.ts'
 import { tienePago } from '../_shared/pago.ts'
 import { costoTokensUsd } from '../_shared/costoUsd.ts'
 
-const MODELO = 'claude-haiku-4-5'
 /**
+ * Claude no tiene alias `-latest` como Gemini: se pide por FAMILIA y el id
+ * concreto sale de la API de modelos (ordenada del más nuevo al más viejo), así
+ * que una versión nueva de Haiku o Sonnet entra sola, sin redeploy. Estos fijos
+ * son el respaldo si esa consulta falla o si el modelo nuevo rechaza la
+ * petición; `ANTHROPIC_MODEL` / `ANTHROPIC_MODEL_CALIDAD` fijan uno a mano.
+ *
  * Perfil `calidad`: modelo mayor con razonamiento adaptativo y esfuerzo bajo,
  * para las tareas donde el modelo rápido se queda corto (geometría 3D: con
  * Haiku el objeto sale como un bloque amorfo). Entre el precio por token y los
  * ~3k tokens de razonamiento sale ~10× un chat: consume la cuota como 'modelo3d'.
  */
-const MODELO_CALIDAD = 'claude-sonnet-5'
-const MODELO_GEMINI = Deno.env.get('GEMINI_TEXT_MODEL') ?? 'gemini-3.1-flash-lite'
-const MODELO_GEMINI_CALIDAD = Deno.env.get('GEMINI_TEXT_MODEL_CALIDAD') ?? 'gemini-3.1-flash'
+const FIJO = { haiku: 'claude-haiku-4-5', sonnet: 'claude-sonnet-5-5' }
+const MODELO_MANUAL = Deno.env.get('ANTHROPIC_MODEL') ?? ''
+const MODELO_CALIDAD_MANUAL = Deno.env.get('ANTHROPIC_MODEL_CALIDAD') ?? ''
+let recientes: { haiku: string; sonnet: string; hasta: number } | null = null
+
+/** El más nuevo de cada familia, consultado a lo sumo cada 6 h por instancia. */
+async function modelosRecientes(key: string): Promise<{ haiku: string; sonnet: string }> {
+  if (recientes && Date.now() < recientes.hasta) return recientes
+  try {
+    const r = await fetch('https://api.anthropic.com/v1/models?limit=100', {
+      headers: { 'x-api-key': key, 'anthropic-version': '2023-06-01' },
+      signal: AbortSignal.timeout(3000),
+    })
+    if (!r.ok) throw new Error(`http ${r.status}`)
+    const { data } = (await r.json()) as { data?: { id: string }[] }
+    const de = (fam: 'haiku' | 'sonnet') => data?.find((m) => m.id.startsWith(`claude-${fam}-`))?.id ?? FIJO[fam]
+    recientes = { haiku: de('haiku'), sonnet: de('sonnet'), hasta: Date.now() + 6 * 3_600_000 }
+  } catch (e) {
+    console.warn('ia-chat: sin lista de modelos, uso los fijos —', e instanceof Error ? e.message : e)
+    recientes = { ...FIJO, hasta: Date.now() + 10 * 60_000 }
+  }
+  return recientes
+}
+
+const MODELO_GEMINI = Deno.env.get('GEMINI_TEXT_MODEL') ?? 'gemini-flash-lite-latest'
+const MODELO_GEMINI_CALIDAD = Deno.env.get('GEMINI_TEXT_MODEL_CALIDAD') ?? 'gemini-flash-latest'
 /**
  * Cerebro de OpenAI. `gpt-5.6-luna` es el escalón barato de la familia 5.6
  * ($0.20/$1.20 por M contra $1/$5 de Haiku 4.5) con function calling, visión y
@@ -150,7 +178,7 @@ const TOPES: Record<string, number> = {
   texto: 1500, // apps: recetas, macros, charlas, resúmenes
   vision: 1500, // texto + imagen de entrada
   texto_largo: 4096, // planes IA, mapas conceptuales, tarjetas, efemérides
-  modelo3d: 8192, // Sonnet 5 con razonamiento
+  modelo3d: 8192, // Sonnet con razonamiento
   pdf: 1500, // chat con PDF adjunto (misma salida que vision; lo caro es la entrada)
 }
 const OP_POR_DEFECTO = 'chat'
@@ -394,7 +422,12 @@ interface Salida {
   salida: number
   cacheCrear: number
   cacheLeer: number
+  /** Id exacto que respondió (solo Anthropic: se resuelve en cada llamada). */
+  modelo?: string
 }
+
+/** Claude se negó (`stop_reason: 'refusal'`): no se reintenta en otro proveedor. */
+class Rechazo extends Error {}
 
 async function porAnthropic(
   body: BodyIn,
@@ -439,8 +472,10 @@ async function porAnthropic(
     }
   }
 
+  const ultimos = await modelosRecientes(key)
+  const modelo = calidad ? MODELO_CALIDAD_MANUAL || ultimos.sonnet : MODELO_MANUAL || ultimos.haiku
   const payload = {
-    model: calidad ? MODELO_CALIDAD : MODELO,
+    model: modelo,
     max_tokens: maxTokens,
     // Razonar antes de responder es lo que endereza la geometría 3D, pero el
     // esfuerzo va en `low`: medido en scripts/bench3d.mjs da ~10s por objeto
@@ -461,16 +496,27 @@ async function porAnthropic(
       : undefined,
   }
 
-  const resp = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'x-api-key': key,
-      'anthropic-version': '2023-06-01',
-      'content-type': 'application/json',
-    },
-    signal: AbortSignal.timeout(calidad ? 120_000 : 60_000),
-    body: JSON.stringify(payload),
-  })
+  const pedir = (model: string) =>
+    fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'x-api-key': key,
+        'anthropic-version': '2023-06-01',
+        'content-type': 'application/json',
+      },
+      signal: AbortSignal.timeout(calidad ? 120_000 : 60_000),
+      body: JSON.stringify({ ...payload, model }),
+    })
+  let servido = modelo
+  let resp = await pedir(modelo)
+  // Un modelo recién salido puede no aceptar algo de esta petición: el fijo,
+  // ya probado, responde mientras se ajusta (el aviso queda en el log).
+  const fijo = calidad ? FIJO.sonnet : FIJO.haiku
+  if ((resp.status === 400 || resp.status === 404) && modelo !== fijo) {
+    console.warn(`ia-chat: ${modelo} devolvió ${resp.status} — ${(await resp.text()).slice(0, 300)}`)
+    servido = fijo
+    resp = await pedir(fijo)
+  }
   if (!resp.ok) throw new Error(`http ${resp.status}`)
 
   interface Bloque {
@@ -480,6 +526,7 @@ async function porAnthropic(
     input?: Record<string, unknown>
   }
   const data = (await resp.json()) as {
+    stop_reason?: string
     content?: Bloque[]
     usage?: {
       input_tokens?: number
@@ -488,8 +535,10 @@ async function porAnthropic(
       cache_read_input_tokens?: number
     }
   }
+  if (data.stop_reason === 'refusal') throw new Rechazo('rechazo')
   const bloques = Array.isArray(data.content) ? data.content : []
   return {
+    modelo: servido,
     texto:
       bloques
         .filter((b) => b.type === 'text')
@@ -955,6 +1004,7 @@ Deno.serve(async (req) => {
       break
     } catch (e) {
       fallos.push(`${id}: ${e instanceof Error ? e.message : 'error'}`)
+      if (e instanceof Rechazo) break
     }
   }
 
@@ -962,6 +1012,9 @@ Deno.serve(async (req) => {
     // La reserva emitida al cobrar es lo que autoriza la devolución (un solo uso).
     await admin.rpc('devolver_cuota_ia', { p_uid: usuario.id, p_tipo: op, p_reserva: cuota.reserva })
     console.error(`ia-chat: cadena agotada — ${fallos.join(' | ')}`)
+    if (fallos.at(-1) === 'anthropic: rechazo') {
+      return json({ error: 'rechazo', mensaje: 'La IA no quiso responder a esta petición.' }, 422, cors)
+    }
     return json({ error: 'proveedor', mensaje: 'El proveedor de IA no respondió.' }, 502, cors)
   }
   if (fallos.length) console.warn(`ia-chat: respaldo ${proveedor} tras ${fallos.join(' | ')}`)
@@ -970,9 +1023,7 @@ Deno.serve(async (req) => {
     proveedor === 'openai'
       ? MODELO_OPENAI
       : proveedor === 'anthropic'
-        ? calidad
-          ? MODELO_CALIDAD
-          : MODELO
+        ? (salida.modelo ?? '')
         : calidad
           ? MODELO_GEMINI_CALIDAD
           : MODELO_GEMINI
@@ -1048,7 +1099,20 @@ Deno.serve(async (req) => {
             if (error) console.error('ia-chat: ia_respuestas falló —', error.message)
           })
       : Promise.resolve()
-  const pendientes = Promise.all([registro, fila, purga, compartida])
+  // Un 3D que la IA declara imposible (NO_SE_PUEDE del prompt, src/core/chat/
+  // prompt3d.ts) o que desvía a una imagen (IMAGEN, que se cobra aparte al
+  // generarla) no cobra: solo trae un aviso o el prompt. El tope de largo
+  // impide que se pida texto libre gratis disfrazado de rechazo.
+  const texto3d = salida.texto?.trim() ?? ''
+  const reintegro =
+    op === 'modelo3d' && /^(NO_SE_PUEDE|IMAGEN):/.test(texto3d) && texto3d.length < 1200
+      ? admin
+          .rpc('devolver_cuota_ia', { p_uid: usuario.id, p_tipo: op, p_reserva: cuota.reserva })
+          .then(({ error }) => {
+            if (error) console.error('ia-chat: reintegro del 3D falló —', error.message)
+          })
+      : Promise.resolve()
+  const pendientes = Promise.all([registro, fila, purga, compartida, reintegro])
   if (typeof EdgeRuntime !== 'undefined') EdgeRuntime.waitUntil(pendientes)
   else await pendientes
 

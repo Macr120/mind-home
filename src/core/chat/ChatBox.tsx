@@ -970,7 +970,12 @@ export function ChatBox({
         // El mapa que haya dibujado el modelo cuelga de SU mensaje (miniatura),
         // igual que el chip de destino y la imagen generada en este turno.
         const opts = { asistenteId: destinoId, mapaId: tomarUltimoMapa(), destinos: r.destinos, imagen: r.imagen }
-        if (r.creado3d) hablar(r.respuesta ?? t('chat.creado3d', 'Creé «{desc}»: lo puse en el mapa junto a mí y lo guardé en tu inventario 🧊', { desc: r.creado3d }), opts)
+        if (r.creado3d) {
+          const hecho = r.respuesta ?? t('chat.creado3d', 'Creé «{desc}»: lo puse en el mapa junto a mí y lo guardé en tu inventario 🧊', { desc: r.creado3d })
+          hablar(r.aviso3d ? `${hecho}\n${r.aviso3d}` : hecho, opts)
+        }
+        // El modelo da el objeto por hecho al llamar la tool: si no salió, manda el porqué.
+        else if (r.aviso3d) hablar(r.aviso3d, opts)
         // El modelo responde dando la imagen por hecha: si falló, hay que decirlo.
         else if (r.respuesta && r.imagenFallo) hablar(`${r.respuesta} ${t('chat.imagenFallo', 'No pude generar la imagen, inténtalo de nuevo.')}`, opts)
         else if (r.respuesta) hablar(r.respuesta, opts)
@@ -983,7 +988,7 @@ export function ChatBox({
         else decir('sinClasificar')
         // Charla de explicación con forma de mapa: ofrecerlo en el hilo de ese
         // asistente (sin dibujarlo aún: solo gasta IA si el usuario acepta).
-        const charla = !r.capturado && !r.ediciones.length && !r.creado3d && !r.rutinaCreada && !r.imagen && !r.imagenFallo
+        const charla = !r.capturado && !r.ediciones.length && !r.creado3d && !r.aviso3d && !r.rutinaCreada && !r.imagen && !r.imagenFallo
         if (charla && r.respuesta) {
           useSugerenciaMapa.getState().ofrecer(textoMsg, r.respuesta, destinoId)
         }

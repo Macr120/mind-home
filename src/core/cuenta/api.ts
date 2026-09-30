@@ -28,6 +28,7 @@ export type CodigoErrorIA =
   | 'proveedor'
   | 'peticion-invalida'
   | 'sin-jev'
+  | 'rechazo'
 
 /** Error tipado de la vía cuenta; `message` ya viene listo para mostrarse. */
 export class ErrorIA extends Error {

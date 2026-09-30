@@ -13,7 +13,7 @@ export type EstiloModelo3D = 'normal' | 'detallado' | 'minimalista' | 'redondead
 
 /** Contrato JSON común a las cuatro categorías (formato de `Pieza3D`). */
 const CONTRATO_PIEZAS = [
-  'Responde ÚNICAMENTE con un arreglo JSON (sin texto extra ni markdown) de piezas:',
+  'Responde con un arreglo JSON (sin markdown ni texto antes) de piezas:',
   '{"tipo":"caja"|"esfera"|"cono"|"cilindro"|"plano","pos":[x,y,z],"tam":[...],"color":"#hex","rot":[x,y,z]?}',
   'tam según tipo — caja: [ancho,alto,fondo] · esfera: [radio] o [rx,ry,rz] para un ELIPSOIDE · cono: [radio,alto] · cilindro: [radioArriba,radioAbajo,alto] · plano: [ancho,alto].',
   'pos es el CENTRO de cada pieza y y=0 es el suelo (una caja de alto 0.6 apoyada en el suelo va en y=0.3); rot en radianes es opcional.',
@@ -40,6 +40,22 @@ const EJEMPLO_PIEZAS = [
   'Método: primero fija las medidas globales (ancho, alto, fondo) y la pieza más grande; después las piezas estructurales por pares simétricos; al final los detalles pequeños (faros, remates, ojos).',
 ].join('\n')
 
+/**
+ * Salidas para cuando el pedido no cabe en piezas primitivas: antes el modelo
+ * estaba obligado a devolver piezas y salía una forma deforme o un error mudo.
+ * `generarModelo3D` lee las marcas; el proxy devuelve los créditos de un
+ * NO_SE_PUEDE o un IMAGEN (la imagen se cobra aparte, con su propia op). Van
+ * en el idioma del usuario porque se muestran tal cual.
+ */
+const SIN_PIEZAS = [
+  'Si sabes cómo construirlo, CONSTRÚYELO aunque no sea de esta categoría o sea enorme: un edificio, un monumento o un par de torres salen como maqueta a escala (~1.5–4 de alto, con sus volúmenes, pisos y remates); una escena grande (una plaza, una calle, un pueblo) sale como maqueta compacta con sus elementos más reconocibles dentro de las 30 piezas. No rechaces por la categoría ni por el tamaño.',
+  'Si pide una FOTO, imagen, dibujo, pintura o retrato (algo plano), no armes piezas: la app la genera con su modelo de imágenes. Responde solo una línea "IMAGEN: <descripción visual detallada de la imagen: tema, estilo, colores, encuadre> | NOTA: <aviso breve de que se hizo como imagen porque una foto no tiene forma 3D>".',
+  'Solo si el pedido NO tiene forma 3D ni es una imagen (un sonido, un texto sin objeto, un movimiento o animación), NO inventes piezas: responde solo una línea "NO_SE_PUEDE: <motivo breve> | SUGERENCIA: <cómo lograrlo en la app>".',
+  'Sugerencias válidas: describir el objeto que quiere; subir un modelo .glb propio; dividirlo en partes que se crean por separado; muebles con medidas exactas en el Taller de muebles.',
+  'Si SÍ lo construiste pero tuviste que dejar fuera o cambiar algo que el usuario PIDIÓ (algo enorme hecho maqueta, un texto o letrero, un mecanismo, el movimiento, un detalle que las primitivas no alcanzan), añade al final una línea "NOTA: <qué cambiaste y cómo pedirlo para que salga mejor>". La simplificación normal del estilo low-poly NO lleva nota: en la mayoría de los pedidos no escribas NOTA.',
+  'Escribe el motivo, la sugerencia y la nota en el idioma de la descripción del usuario, en una o dos frases.',
+].join('\n')
+
 /** Prompt de sistema por categoría: mismo contrato, distintas reglas de forma y escala. */
 const SYSTEM_MODELO3D: Record<TipoModelo3D, string> = {
   personaje: [
@@ -47,6 +63,7 @@ const SYSTEM_MODELO3D: Record<TipoModelo3D, string> = {
     'A partir de la descripción del usuario, construye un PERSONAJE con piezas primitivas.',
     ...CONTRATO_PIEZAS,
     EJEMPLO_PIEZAS,
+    SIN_PIEZAS,
     'Reglas: mide ~1.4–1.7 de alto, de pie sobre y=0, mira hacia +Z (ojos/cara en z positiva), usa 8–24 piezas, colores hex vivos y coherentes.',
     'Incluye detalles que lo hagan reconocible (ojos, orejas, sombrero, cola… según la descripción).',
   ].join('\n'),
@@ -55,16 +72,18 @@ const SYSTEM_MODELO3D: Record<TipoModelo3D, string> = {
     'A partir de la descripción del usuario, construye un OBJETO con piezas primitivas.',
     ...CONTRATO_PIEZAS,
     EJEMPLO_PIEZAS,
+    SIN_PIEZAS,
     'Reglas: base apoyada en y=0, proporciones reales (~0.3–1.6 de alto; un vehículo puede llegar a 2–4 de largo), frente hacia +Z, usa 6–30 piezas.',
     'Modela por estructura y simetría (una silla = asiento + respaldo + 4 patas; una lámpara = base + poste + pantalla). Silueta clara, colores hex coherentes y SIN ojos ni cara (salvo que sea un juguete).',
     'Vehículos: chasis alargado sobre +Z/-Z + cabina más estrecha encima + 4 ruedas cilíndricas oscuras con rot [0,0,1.5708] en pares x=±(ancho/2), medio hundidas respecto al chasis; añade parabrisas, faros y parrilla como piezas finas al frente.',
-    'Después del arreglo JSON de piezas, en una línea aparte, escribe UNA sola palabra clasificando el objeto: "asiento" (alguien se sentaría: silla, sillón, banco, taburete, puf), "acostarse" (cama, colchoneta, camastro), "vehiculo" (se conduce o monta: auto, moto, bici, carreta, patineta) o "ninguno" (ningún caso anterior). No añadas nada más en esa línea.',
+    'Después del arreglo JSON de piezas, en una línea aparte, escribe UNA sola palabra clasificando el objeto (antes de la NOTA, si la hay): "asiento" (alguien se sentaría: silla, sillón, banco, taburete, puf), "acostarse" (cama, colchoneta, camastro), "vehiculo" (se conduce o monta: auto, moto, bici, carreta, patineta) o "ninguno" (ningún caso anterior). No añadas nada más en esa línea.',
   ].join('\n'),
   arquitectura: [
     'Eres un diseñador de elementos arquitectónicos 3D low-poly: columnas, arcos, escaleras, muros, fuentes, portones, torres y pérgolas.',
     'A partir de la descripción del usuario, construye una PIEZA ARQUITECTÓNICA con piezas primitivas.',
     ...CONTRATO_PIEZAS,
     EJEMPLO_PIEZAS,
+    SIN_PIEZAS,
     'Reglas: centrada en el origen y apoyada en y=0, a mayor escala (~1.5–4 de alto), usa 8–30 piezas.',
     'Prioriza simetría y repetición (columnas, escalones, almenas); usa cajas/cilindros/planos para muros y soportes, y conos para techos y agujas. Colores de piedra/arena/terracota/madera salvo que se indique otra cosa. SIN cara.',
   ].join('\n'),
@@ -73,6 +92,7 @@ const SYSTEM_MODELO3D: Record<TipoModelo3D, string> = {
     'A partir de la descripción, construye SOLO la prenda o el accesorio (sin cuerpo, sin cabeza, sin cara).',
     ...CONTRATO_PIEZAS,
     EJEMPLO_PIEZAS,
+    SIN_PIEZAS,
     'El personaje que la viste mira a +Z y mide ~1.6 de alto. Referencias de su cuerpo: pies y≈0.1, piernas y≈0.3, cadera y≈0.6, torso y≈0.9, hombros y≈1.2, cuello y≈1.25, cabeza y≈1.5 (medio-ancho ~0.22), brazos en x≈±0.42.',
     'Coloca la prenda envolviendo la parte del cuerpo que corresponda y un poco más grande que ella para que no se hunda (un torso de ancho ~0.6 → la prenda ~0.66). Usa 4–16 piezas, colores hex coherentes. SIN ojos ni cara.',
   ].join('\n'),

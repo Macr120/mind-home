@@ -18,18 +18,28 @@ const REPS = Number(process.argv[process.argv.indexOf('--reps') + 1]) || 1
 /** `--solo <texto>` filtra las configuraciones por nombre. */
 const SOLO = process.argv.includes('--solo') ? process.argv[process.argv.indexOf('--solo') + 1] : ''
 
-/** Piezas a pedir: una compleja (el caso que falla) y una simple de control. */
+/**
+ * Piezas a pedir: una compleja (el caso que falla) y una simple de control.
+ * `--limites`: pedidos que NO caben en piezas o que obligan a simplificar; lo
+ * esperado es NO_SE_PUEDE con sugerencia, o piezas + NOTA.
+ */
 const PRUEBAS = process.argv.includes('--carro')
   ? ['un carro deportivo rojo']
-  : ['un carro deportivo rojo', 'una lámpara de escritorio con brazo articulado']
+  : process.argv.includes('--limites')
+    ? ['las torres gemelas', 'una ciudad completa con tráfico', 'una foto de mi perro', 'un retrato de mi abuela', 'la torre Eiffel con un letrero que diga París']
+    : ['un carro deportivo rojo', 'una lámpara de escritorio con brazo articulado']
 
-/** Mismo modelo (Sonnet 5), distinto esfuerzo. Haiku va de referencia. */
+/**
+ * Sonnet 5.5 con distinto esfuerzo (en 5.5 los niveles se recalibraron) y
+ * Sonnet 5 low como la referencia medida antes. Sonnet 5.5 no acepta
+ * `thinking: disabled` (400), por eso ya no hay fila «sin thinking».
+ */
 const CONFIGS = [
   { id: 'haiku-4-5 (referencia)', model: 'claude-haiku-4-5', thinking: null, effort: null, max: 4096 },
-  { id: 'sonnet-5 · high', model: 'claude-sonnet-5', thinking: 'adaptive', effort: 'high', max: 8192 },
-  { id: 'sonnet-5 · medium', model: 'claude-sonnet-5', thinking: 'adaptive', effort: 'medium', max: 8192 },
   { id: 'sonnet-5 · low', model: 'claude-sonnet-5', thinking: 'adaptive', effort: 'low', max: 8192 },
-  { id: 'sonnet-5 · sin thinking', model: 'claude-sonnet-5', thinking: 'disabled', effort: 'low', max: 4096 },
+  { id: 'sonnet-5-5 · high', model: 'claude-sonnet-5-5', thinking: 'adaptive', effort: 'high', max: 8192 },
+  { id: 'sonnet-5-5 · medium', model: 'claude-sonnet-5-5', thinking: 'adaptive', effort: 'medium', max: 8192 },
+  { id: 'sonnet-5-5 · low', model: 'claude-sonnet-5-5', thinking: 'adaptive', effort: 'low', max: 8192 },
 ]
 
 /** Media altura de la pieza sobre su centro (aproximada: con rot manda el radio). */
@@ -44,7 +54,14 @@ function mediaAltura(p) {
 }
 
 /** Métricas de calidad geométrica del arreglo devuelto. */
-function evaluar(texto) {
+function evaluar(textoCompleto) {
+  const img = textoCompleto.match(/IMAGEN:.*/)
+  if (img) return { ok: false, motivo: img[0].trim() }
+  const noSe = textoCompleto.match(/NO_SE_PUEDE:[\s\S]*/)
+  if (noSe) return { ok: false, motivo: noSe[0].trim() }
+  const iNota = textoCompleto.search(/NOTA:/)
+  const texto = iNota >= 0 ? textoCompleto.slice(0, iNota) : textoCompleto
+  const nota = iNota >= 0 ? textoCompleto.slice(iNota).trim() : ''
   const ini = texto.indexOf('[')
   const fin = texto.lastIndexOf(']')
   if (ini < 0 || fin <= ini) return { ok: false, motivo: 'sin JSON' }
@@ -74,6 +91,7 @@ function evaluar(texto) {
     cilindros: cilindros.length,
     tumbados,
     bbox: `${ejes[0]}×${ejes[1]}×${ejes[2]}`,
+    nota,
   }
 }
 
@@ -140,7 +158,8 @@ for (const desc of PRUEBAS) {
         console.log(
           `${(r.ms / 1000).toFixed(1)}s · ${r.salida} tok · ` +
             (e.ok ? `${e.piezas} piezas, ${e.hundidas} hundidas, ${e.cilindros} cil (${e.tumbados} tumbados)` : e.motivo) +
-            (r.corte === 'max_tokens' ? '  ⚠ CORTADO' : ''),
+            (r.corte === 'max_tokens' ? '  ⚠ CORTADO' : '') +
+            (e.nota ? `\n      ${e.nota}` : ''),
         )
       }
       filas.push(r)

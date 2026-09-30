@@ -4,7 +4,7 @@ import { OrbitControls } from '@react-three/drei'
 import { useDiseño } from '../../state/disenoStore'
 import { useEditorUi } from '../../state/editorUiStore'
 import { prendasCustomRepo } from '../../data/repository'
-import { iaActiva, generarModelo3D } from '../../chat/ia'
+import { iaActiva, generarModelo3D, mensajeError3D } from '../../chat/ia'
 import { iaHabilitada } from '../../edicion'
 import { Creditos } from '../Creditos'
 import { OP_ROPA_3D } from '../../cuenta/catalogoNucleo'
@@ -151,7 +151,9 @@ export function GuardarropaEditor({
       setDesc('')
     } catch (err) {
       console.warn('[MPH] No se pudo crear la prenda con IA:', err)
-      setError(t('editor.pers.ropaCustomError', 'No pude crear la prenda. Revisa el modelo de IA e inténtalo de nuevo.'))
+      setError(
+        mensajeError3D(err, t('editor.pers.ropaCustomError', 'No pude crear la prenda. Revisa el modelo de IA e inténtalo de nuevo.')),
+      )
     } finally {
       setGenerando(false)
     }

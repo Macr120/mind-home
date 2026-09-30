@@ -13,7 +13,7 @@ import {
 } from './mascotas'
 import { hayVoz, hablarComoAsistente, vocesDisponibles, langVoz } from '../audio/voz'
 import { vocesIaDisponibles } from '../audio/vozIA'
-import { iaActiva, generarModelo3D, proveedorVoz } from './ia'
+import { iaActiva, generarModelo3D, mensajeError3D, proveedorVoz } from './ia'
 import { usarViaCuenta } from '../cuenta/api'
 import { iaHabilitada } from '../edicion'
 import { Creditos } from '../ui/Creditos'
@@ -202,7 +202,9 @@ function FormAsistente({
       setDescForma('')
     } catch (err) {
       console.warn('[MPH] No se pudo generar la forma 3D:', err)
-      setErrorForma(t('chat.config.formaError', 'No pude crear la forma. Revisa el modelo de IA e inténtalo de nuevo.'))
+      setErrorForma(
+        mensajeError3D(err, t('chat.config.formaError', 'No pude crear la forma. Revisa el modelo de IA e inténtalo de nuevo.')),
+      )
     } finally {
       setGenerando(false)
     }

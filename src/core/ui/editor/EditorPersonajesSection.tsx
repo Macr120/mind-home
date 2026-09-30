@@ -35,7 +35,7 @@ import {
 import { CUERPOS_PRESET, piezasBase, aplicarCuerpoPreset } from '../../house/cuerpos'
 import { CarpetasDeCategoria } from './RopaCarpetas'
 import { AtuendosEditor } from './AtuendosEditor'
-import { iaActiva, generarModelo3D } from '../../chat/ia'
+import { iaActiva, generarModelo3D, mensajeError3D } from '../../chat/ia'
 import { iaHabilitada } from '../../edicion'
 import { Creditos } from '../Creditos'
 import { OP_PERSONAJE_3D } from '../../cuenta/catalogoNucleo'
@@ -629,7 +629,7 @@ function Forma3DBlock({
     } catch (err) {
       console.warn('[MPH] No se pudo generar la forma 3D:', err)
       setErrorForma(
-        t('editor.pers.formaError', 'No pude crear la forma. Revisa el modelo de IA e inténtalo de nuevo.'),
+        mensajeError3D(err, t('editor.pers.formaError', 'No pude crear la forma. Revisa el modelo de IA e inténtalo de nuevo.')),
       )
     } finally {
       setGenerando(false)

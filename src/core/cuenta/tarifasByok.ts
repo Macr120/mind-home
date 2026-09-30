@@ -11,8 +11,10 @@
 
 /** USD por 1M tokens. Ollama (local) no entra: es gratis. */
 const TARIFA_TEXTO: Record<string, { entrada: number; salida: number }> = {
-  'claude-haiku-4-5': { entrada: 1.0, salida: 5.0 },
-  'claude-sonnet-5': { entrada: 3.0, salida: 15.0 },
+  // Claude por familia (el cerebro se resuelve al más nuevo de cada una): la
+  // clave es prefijo del id, como en supabase/functions/_shared/costoUsd.ts.
+  'claude-haiku': { entrada: 1.0, salida: 5.0 },
+  'claude-sonnet': { entrada: 2.0, salida: 10.0 },
   // Alias "latest": aproximado a Gemini 2.5 Flash (ago 2026). Puede desactualizarse
   // sin aviso si Google mueve el alias a otro modelo.
   'gemini-flash-latest': { entrada: 0.3, salida: 2.5 },
@@ -33,7 +35,7 @@ export interface UsoTexto {
  * el panel — el medidor se queda corto a sabiendas antes que inventar tarifas.
  */
 export function costoTexto(modelo: string, uso: UsoTexto): number {
-  const t = TARIFA_TEXTO[modelo]
+  const t = TARIFA_TEXTO[modelo] ?? TARIFA_TEXTO[Object.keys(TARIFA_TEXTO).find((k) => modelo.startsWith(k)) ?? '']
   if (!t) return 0
   const cacheCrear = (uso.cacheCrear ?? 0) * t.entrada * 1.25 // TTL 5 min
   const cacheLeer = (uso.cacheLeer ?? 0) * t.entrada * 0.1

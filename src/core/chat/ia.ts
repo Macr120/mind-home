@@ -88,7 +88,7 @@ export const PROVEEDORES: Proveedor[] = [
 type PerfilIA = 'rapido' | 'calidad'
 
 /** Modelo de Claude para el perfil `calidad` (el de `PROVEEDORES[0]` es el rápido). */
-const MODELO_CALIDAD = 'claude-sonnet-5'
+const MODELO_CALIDAD = 'claude-sonnet-5-5'
 
 const LS_PROVEEDOR = 'mh.iaProveedor'
 const LS_KEY_PREFIX = 'mh.iaKey.'
@@ -146,6 +146,32 @@ export function setIaKey(prov: ProveedorId, key: string) {
 /** Cerebro (modelo de texto) elegido por el usuario; vacío = el default del proveedor. */
 export function getModelo(prov: Proveedor): string {
   return localStorage.getItem(LS_MODELO_PREFIX + prov.id) || prov.modelo
+}
+
+let recientesClaude: Promise<{ haiku: string; sonnet: string }> | null = null
+
+/**
+ * Claude no tiene alias `-latest` como Gemini: con la clave del usuario se pide
+ * la lista de modelos (del más nuevo al más viejo) una vez por sesión y se usa
+ * el primero de cada familia. Un cerebro tecleado en el panel manda en el
+ * perfil rápido; sin lista, quedan los ids fijos.
+ */
+async function cerebroClaude(client: Anthropic, calidad: boolean): Promise<string> {
+  const propio = localStorage.getItem(LS_MODELO_PREFIX + 'claude')
+  if (!calidad && propio) return propio
+  const fijos = { haiku: PROVEEDORES[0].modelo, sonnet: MODELO_CALIDAD }
+  recientesClaude ??= client.models
+    .list({ limit: 100 })
+    .then(({ data }) => {
+      const de = (fam: 'haiku' | 'sonnet') => data.find((m) => m.id.startsWith(`claude-${fam}-`))?.id ?? fijos[fam]
+      return { haiku: de('haiku'), sonnet: de('sonnet') }
+    })
+    .catch(() => {
+      recientesClaude = null
+      return fijos
+    })
+  const r = await recientesClaude
+  return calidad ? r.sonnet : r.haiku
 }
 
 export function setModelo(prov: ProveedorId, modelo: string) {
@@ -470,7 +496,7 @@ function construirTools(cuartosPermitidos?: string[]): ToolNeutra[] {
   tools.push({
     name: 'crear_modelo_3d',
     description:
-      'Crea un modelo 3D low-poly (objeto, personaje o pieza arquitectónica) a partir de una descripción y lo guarda en el inventario del usuario. Úsala cuando pida crear/generar/hacer un objeto, mueble, planta, aparato, personaje, animal, columna, arco, muro u otra forma 3D (ej. "crea una silla de madera", "genera un gato robot", "haz una columna griega"). NO la uses si pide una imagen, foto o dibujo plano: eso es generar_imagen.',
+      'Crea un modelo 3D low-poly (objeto, personaje o pieza arquitectónica) a partir de una descripción y lo guarda en el inventario del usuario. Úsala cuando pida crear/generar/hacer un objeto, mueble, planta, aparato, personaje, animal, columna, arco, muro u otra forma 3D (ej. "crea una silla de madera", "genera un gato robot", "haz una columna griega"). NO la uses si pide una imagen, foto o dibujo plano: eso es generar_imagen. Edificios, monumentos y conjuntos también se crean (salen como maqueta a escala): llámala directo, sin preguntar, con tipo arquitectura para edificios, torres, puentes y monumentos.',
     schema: {
       type: 'object',
       properties: {
@@ -543,6 +569,8 @@ export interface ResultadoIA {
   rutinaCreada?: string
   /** Descripción del modelo 3D creado y guardado en el inventario (si lo pidió). */
   creado3d?: string
+  /** Lo que la IA 3D dijo al simplificar el modelo o al no poder crearlo (motivo + sugerencia). */
+  aviso3d?: string
   /** Confirmaciones de las ediciones de la casa hechas por el modelo. */
   ediciones: string[]
   /** Comentario del modelo en la voz de la mascota (null = usar plantilla). */
@@ -920,8 +948,9 @@ async function llamarClaude(
       : [{ type: 'text', text: sys.texto, cache_control: CACHE_BYOK }]
 
   const calidad = perfil === 'calidad'
+  const modelo = await cerebroClaude(client, calidad)
   const res = await client.messages.create({
-    model: calidad ? MODELO_CALIDAD : getModelo(PROVEEDORES[0]),
+    model: modelo,
     // Holgado: una sola respuesta puede traer varias recetas completas + la
     // dieta que las agrupa + su lista del súper (varios tool_use encadenados).
     // En `calidad` el razonamiento también consume de este tope.
@@ -954,6 +983,9 @@ async function llamarClaude(
     ],
   })
 
+  if (res.stop_reason === 'refusal') {
+    throw new ErrorIA('rechazo', tGlobal('chat.iaRechazo', 'No pude contestarte: la IA rechazó la petición. Inténtalo de nuevo.'))
+  }
   let respuesta: string | null = null
   const llamadas: LlamadaTool[] = []
   for (const block of res.content) {
@@ -965,7 +997,7 @@ async function llamarClaude(
   }
   useGastoByok.getState().sumar(
     categoria,
-    costoTexto(calidad ? MODELO_CALIDAD : getModelo(PROVEEDORES[0]), {
+    costoTexto(modelo, {
       entrada: res.usage.input_tokens,
       salida: res.usage.output_tokens,
       cacheCrear: res.usage.cache_creation_input_tokens ?? undefined,
@@ -1131,10 +1163,11 @@ export async function conversarIA(
   }
 
   const prov = getProveedor()
-  const modeloProv = getModelo(prov)
+  let modeloProv = getModelo(prov)
   if (prov.id === 'claude') {
     const { default: AnthropicSDK } = await import('@anthropic-ai/sdk')
     const client = new AnthropicSDK({ apiKey: getIaKey('claude'), dangerouslyAllowBrowser: true, maxRetries: 1 })
+    modeloProv = await cerebroClaude(client, false)
     const res = await client.messages.create({
       model: modeloProv,
       max_tokens: maxTokens,
@@ -1281,11 +1314,36 @@ function extraerGrupoAccion(texto: string): GrupoAccion | 'ninguno' | null {
   return (m?.[1] as GrupoAccion | 'ninguno' | undefined) ?? null
 }
 
+/**
+ * La IA dijo que el pedido no cabe en piezas primitivas (NO_SE_PUEDE del
+ * prompt 3D). `message` es el motivo y la sugerencia, ya en el idioma del
+ * usuario: se muestra tal cual.
+ */
+export class NoSePuede3D extends Error {}
+
+/**
+ * Se pidió una foto o imagen (algo plano): la IA 3D devuelve el prompt para el
+ * modelo de imágenes en vez de piezas. `message` es su aviso para el usuario;
+ * quien sepa qué hacer con una imagen la genera con `prompt`.
+ */
+export class PideImagen3D extends Error {
+  readonly prompt: string
+  constructor(prompt: string, aviso: string) {
+    super(aviso)
+    this.prompt = prompt
+  }
+}
+
+/** Texto para el usuario cuando falla una generación 3D: el de la IA si lo dio, si no `general`. */
+export function mensajeError3D(err: unknown, general: string): string {
+  return err instanceof NoSePuede3D || (err instanceof ErrorIA && err.codigo === 'rechazo') ? err.message : general
+}
+
 export async function generarModelo3D(
   descripcion: string,
   tipo: TipoModelo3D = 'personaje',
   estilo: EstiloModelo3D = 'normal',
-): Promise<{ piezas: Pieza3D[]; grupo: GrupoAccion | 'ninguno' | null }> {
+): Promise<{ piezas: Pieza3D[]; grupo: GrupoAccion | 'ninguno' | null; nota: string | null }> {
   await exigirTransporte()
   const system = systemModelo3D(tipo, estilo)
 
@@ -1300,11 +1358,20 @@ export async function generarModelo3D(
       : await llamarOpenAICompat(prov, system, descripcion, null, [], [], 'modelo3d')
   if (!respuesta) throw new Error('La IA no devolvió ninguna forma')
 
+  const img = respuesta.match(/IMAGEN:\s*([^|]*)(?:\|\s*NOTA:\s*([\s\S]*))?/)
+  if (img?.[1].trim()) throw new PideImagen3D(img[1].trim(), img[2]?.trim() ?? '')
+  const noSe = respuesta.match(/NO_SE_PUEDE:\s*([^|]*)(?:\|\s*SUGERENCIA:\s*([\s\S]*))?/)
+  if (noSe) throw new NoSePuede3D([noSe[1], noSe[2]].map((s) => s?.trim()).filter(Boolean).join(' '))
+  // La NOTA va al final: se corta antes de buscar las piezas y la clasificación.
+  const iNota = respuesta.search(/NOTA:/)
+  const nota = iNota >= 0 ? respuesta.slice(iNota + 5).trim() || null : null
+  const cuerpo = iNota >= 0 ? respuesta.slice(0, iNota) : respuesta
+
   // Tolerar texto/markdown alrededor: extraer el primer arreglo JSON.
-  const ini = respuesta.indexOf('[')
-  const fin = respuesta.lastIndexOf(']')
+  const ini = cuerpo.indexOf('[')
+  const fin = cuerpo.lastIndexOf(']')
   if (ini < 0 || fin <= ini) throw new Error('Respuesta sin JSON de piezas')
-  const piezas = JSON.parse(respuesta.slice(ini, fin + 1)) as Pieza3D[]
+  const piezas = JSON.parse(cuerpo.slice(ini, fin + 1)) as Pieza3D[]
   const validas = piezas.filter(
     (p) =>
       ['caja', 'esfera', 'cono', 'cilindro', 'plano'].includes(p.tipo) &&
@@ -1315,8 +1382,8 @@ export async function generarModelo3D(
       typeof p.color === 'string',
   )
   if (validas.length === 0) throw new Error('La IA no devolvió piezas válidas')
-  const grupo = tipo === 'objeto' ? extraerGrupoAccion(respuesta.slice(fin + 1)) : null
-  return { piezas: validas, grupo }
+  const grupo = tipo === 'objeto' ? extraerGrupoAccion(cuerpo.slice(fin + 1)) : null
+  return { piezas: validas, grupo, nota }
 }
 
 /**
@@ -1490,7 +1557,8 @@ export async function interpretarIA(
         ? (input.estilo as EstiloModelo3D)
         : 'normal'
       try {
-        const { piezas, grupo } = await generarModelo3D(descripcion, tipo, estilo)
+        const { piezas, grupo, nota } = await generarModelo3D(descripcion, tipo, estilo)
+        if (nota) resultado.aviso3d = nota
         const categoria =
           tipo === 'personaje' ? 'Personajes' : tipo === 'arquitectura' ? 'Arquitectura' : 'Objetos'
         const libId = await useDiseño
@@ -1509,7 +1577,22 @@ export async function interpretarIA(
         resultado.creado3d = descripcion
         sumarDestino(resultado.destinos, destinoDeTool(name))
       } catch (err) {
+        // Pidió una foto: se hace con el modelo de imágenes y sale en el chat.
+        if (err instanceof PideImagen3D) {
+          try {
+            resultado.imagen = await generarImagen(err.prompt, 768)
+            if (err.message) resultado.aviso3d = err.message
+          } catch (errImg) {
+            console.warn('[MPH] No se pudo generar la imagen pedida como 3D:', errImg)
+            resultado.imagenFallo = true
+          }
+          continue
+        }
         console.warn('[MPH] No se pudo crear el modelo 3D desde el chat:', err)
+        resultado.aviso3d = mensajeError3D(
+          err,
+          tGlobal('editor.obj.formaError', 'No pude crear la forma. Revisa el modelo de IA e inténtalo de nuevo.'),
+        )
       }
       continue
     }
