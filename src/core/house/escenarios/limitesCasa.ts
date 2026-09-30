@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { useLayout } from '../../state/layoutStore'
 import { useHouse } from '../../state/houseStore'
+import { useEditorUi } from '../../state/editorUiStore'
 import { useTemaActivo } from '../useTema'
 import type { EscenarioId } from '../temas'
 import { SPACING, WALL_H, nivelBaseY } from '../walls'
@@ -47,11 +48,15 @@ export function fueraDelEscenario(x: number, z: number): boolean {
   return !!activos && (x < activos.x0 || x > activos.x1 || z < activos.z0 || z > activos.z1)
 }
 
-/** Escenario que se VE ahora: el del tema activo, salvo en el editor (ahí vuelve el piso). */
+/**
+ * Escenario que se VE ahora: el del tema activo, salvo en el editor (ahí vuelven el piso y
+ * la rejilla para construir), a menos que se esté viendo en marcha para ajustar su velocidad.
+ */
 export function useEscenarioVisible(): EscenarioId | null {
   const tema = useTemaActivo()
   const editMode = useLayout((s) => s.editMode)
-  return tema?.escenario && !editMode ? tema.escenario : null
+  const previa = useEditorUi((s) => s.previaEscenario)
+  return tema?.escenario && (!editMode || previa) ? tema.escenario : null
 }
 
 export function useLimitesCasa(): LimitesCasa {

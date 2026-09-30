@@ -284,7 +284,7 @@ export default function Barco({ L, W, tema, soloPaisaje = false }: PropsEscenari
 
   return (
     <>
-      <SueloMovil pintar={pintar} tamLoseta={12} y={yAgua} rugosidad={0.35} />
+      <SueloMovil pintar={pintar} tamLoseta={12} y={yAgua} rugosidad={0.35} hueco={soloPaisaje ? [L / 2, W / 2] : null} />
       {!soloPaisaje && <Desfile geometria={espuma} material={matEspuma} n={pocos ? 14 : 30} largo={(L + proa + popa) * 1.4} bandas={estela} y={[yAgua + 0.03, yAgua + 0.06]} escala={[0.8, 1.6]} factor={1.6} girar={false} semilla={31} />}
       <Desfile geometria={arena} material={matArena} {...islas} girar={false} />
       <Desfile geometria={palmera} material={matPalmera} {...islas} girar={false} />

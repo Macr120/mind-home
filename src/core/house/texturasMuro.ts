@@ -70,6 +70,20 @@ export function texturaMuro(tipo: string): Texture | null {
         x.stroke()
       }
     }
+  } else if (tipo === 'paneles') {
+    // Placas de metal: dos por alto, con remaches en las esquinas.
+    x.strokeStyle = 'rgba(0,0,0,0.3)'
+    x.lineWidth = s * 0.025
+    x.strokeRect(0, 0, s, s / 2)
+    x.strokeRect(0, s / 2, s, s / 2)
+    x.fillStyle = 'rgba(0,0,0,0.35)'
+    for (const ry of [s * 0.07, s * 0.43, s * 0.57, s * 0.93]) {
+      for (const rx of [s * 0.06, s * 0.94]) {
+        x.beginPath()
+        x.arc(rx, ry, s * 0.018, 0, Math.PI * 2)
+        x.fill()
+      }
+    }
   } else if (tipo === 'madera') {
     const tablas = 5
     const tw = s / tablas

@@ -152,7 +152,7 @@ export default function CasaRodante({ L, W, tema, soloPaisaje = false }: PropsEs
 
   return (
     <>
-      <SueloMovil pintar={pintar} tamLoseta={14} y={ySuelo} />
+      <SueloMovil pintar={pintar} tamLoseta={14} y={ySuelo} hueco={soloPaisaje ? [L / 2, W / 2] : null} />
       <Desfile geometria={roca} material={matRoca} n={pocos ? 14 : 30} largo={170 * k} bandas={lados} y={[ySuelo, ySuelo]} escala={[0.5 * k, 1.8 * k]} semilla={4} />
       <Desfile geometria={arbolSeco} material={matArbol} n={pocos ? 6 : 14} largo={170 * k} bandas={lados} y={[ySuelo, ySuelo]} escala={[0.8 * k, 1.5 * k]} semilla={8} />
       <Desfile geometria={ruina} material={matRuina} n={pocos ? 3 : 7} largo={200 * k} bandas={lejos} y={[ySuelo, ySuelo]} escala={[k, 2.2 * k]} semilla={12} />

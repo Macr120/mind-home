@@ -136,7 +136,7 @@ export default function Tortuga({ L, W, tema, soloPaisaje = false }: PropsEscena
 
   return (
     <>
-      <SueloMovil pintar={pintar} tamLoseta={12} y={ySuelo} rugosidad={0.95} />
+      <SueloMovil pintar={pintar} tamLoseta={12} y={ySuelo} rugosidad={0.95} hueco={soloPaisaje ? [L / 2, W / 2] : null} />
       <Desfile geometria={tronco} material={matTronco} {...arboles} />
       <Desfile geometria={copa} material={matCopa} {...arboles} />
       <Desfile geometria={arbusto} material={matArbusto} n={pocos ? 12 : 28} largo={150 * k} bandas={lados} y={[ySuelo, ySuelo]} escala={[0.6 * k, 1.6 * k]} semilla={9} />

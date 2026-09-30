@@ -25,6 +25,12 @@ interface EditorUiState {
   tab: EditorTab
   setTab: (tab: EditorTab) => void
   /**
+   * Tema dinámico en marcha dentro del editor (al elegirlo o mover su velocidad). Sin
+   * esto, en el editor el vehículo se quita y vuelven el piso y la rejilla para construir.
+   */
+  previaEscenario: boolean
+  setPreviaEscenario: (v: boolean) => void
+  /**
    * Panel a pantalla completa (la flechita junto al título). Con sitio de sobra
    * se parte en dos columnas —controles a la izquierda, preview a la derecha— y en
    * teléfono vertical ocupa la pantalla entera en una sola columna.
@@ -136,7 +142,9 @@ function leerExpandido(): boolean {
 
 export const useEditorUi = create<EditorUiState>((set) => ({
   tab: 'mapa',
-  setTab: (tab) => set({ tab }),
+  setTab: (tab) => set({ tab, previaEscenario: false }),
+  previaEscenario: false,
+  setPreviaEscenario: (previaEscenario) => set({ previaEscenario }),
   expandido: leerExpandido(),
   setExpandido: (expandido) => {
     try {

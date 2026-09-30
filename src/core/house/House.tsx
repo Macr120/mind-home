@@ -43,7 +43,7 @@ import { EntornoIBL } from './EntornoIBL'
 import { FondoEscena } from './FondoEscena'
 import { FondoAnimaciones } from './FondoAnimaciones'
 import { EscenarioVivo } from './escenarios/EscenarioVivo'
-import { CastilloTema } from './CastilloTema'
+import { ArquitecturaTema } from './ArquitecturaTema'
 import { useEscenarioVisible } from './escenarios/limitesCasa'
 import { FocosCasa } from './FocosCasa'
 import { TemaContext } from './primitivas'
@@ -640,7 +640,7 @@ export function House() {
       )}
       <MurosLibres3D />
       {/* Tema medieval: almenas y torres sobre la fachada. */}
-      <CastilloTema />
+      <ArquitecturaTema />
       <FormasLibres3D />
 
       {cuartos

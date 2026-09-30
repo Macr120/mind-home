@@ -4,6 +4,7 @@ import { TITULOS_MAPA, type SeccionMapaId } from './editorSecciones'
 import { EditorTemaSection } from './EditorTemaSection'
 import { useT } from '../../i18n/useT'
 import { ConstructorMapa } from '../planos/ConstructorMapa'
+import { useEditorUi } from '../../state/editorUiStore'
 
 /** Panel de secciones del editor de mapa (plegables y reordenables). */
 export function EditorPanelMapa() {
@@ -25,7 +26,11 @@ export function EditorPanelMapa() {
           plegable como las demás secciones. `overflow-clip` (no `hidden`) recorta las esquinas
           redondeadas sin crear un contenedor de scroll, para que el preview 3D de adentro pueda
           quedar `sticky` respecto al scroll del panel. */}
-      <div className="overflow-clip rounded-xl border border-white/10 bg-white/5">
+      {/* Tocar el constructor devuelve el plano (quita el tema dinámico en marcha). */}
+      <div
+        className="overflow-clip rounded-xl border border-white/10 bg-white/5"
+        onPointerDownCapture={() => useEditorUi.getState().setPreviaEscenario(false)}
+      >
         <div className="flex min-h-[34px] items-center gap-0.5 bg-black/15 px-1.5 py-1.5">
           <button
             type="button"

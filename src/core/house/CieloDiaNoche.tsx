@@ -9,6 +9,7 @@ import { estadoCielo, colorFondo } from './cielo'
 import { getFondo } from './fondos'
 import { FondoImagenCielo } from './FondoImagenCielo'
 import { SIZE } from './walls'
+import { useEscenarioVisible } from './escenarios/limitesCasa'
 
 /** Disco luminoso (sol o luna) con un halo suave; no recibe tono para que "brille". */
 function Astro({ pos, color, radio, visible }: { pos: [number, number, number]; color: string; radio: number; visible: boolean }) {
@@ -42,6 +43,7 @@ export function CieloDiaNoche() {
   const mapaSombras = useCiclo((s) => s.mapaSombras)
   const camara = useThree((s) => s.camera)
   const editMode = useLayout((s) => s.editMode)
+  const escenarioVisible = useEscenarioVisible()
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
   const tema = useTemaActivo()
@@ -67,8 +69,8 @@ export function CieloDiaNoche() {
     if (tema) fondo = mezclar(fondo, tema.fondo, 0.2)
   }
   // En la nave siempre es de noche afuera: el espacio no tiene cielo diurno.
-  const enElEspacio = tema?.escenario === 'nave' && !editMode
-  if (enElEspacio && fondoId !== 'color_fijo') fondo = tema.fondo
+  const enElEspacio = escenarioVisible === 'nave'
+  if (enElEspacio && tema && fondoId !== 'color_fijo') fondo = tema.fondo
 
   // El tema modula la luz del ciclo: tiñe los colores (mezcla) y escala la intensidad.
   // Sin tema (o sin `luz`) todo queda exactamente como siempre.
@@ -94,6 +96,9 @@ export function CieloDiaNoche() {
   const detrasDelMapa = (p: [number, number, number]) =>
     !solCasa || p[0] * camara.position.x + p[2] * camara.position.z < 0
 
+  // Un paisaje 3D del menú Fondo trae su niebla (esconde el borde del suelo); si no, la del tema.
+  const niebla = (!escenarioVisible && !usaImagen ? fondoDef.niebla : undefined) ?? tema?.niebla
+
   // Exposición del tone mapping por tema.
   const exposicion = luzTema?.exposicion ?? 1
   useEffect(() => {
@@ -103,9 +108,7 @@ export function CieloDiaNoche() {
   return (
     <>
       {!usaImagen && <color attach="background" args={[fondo]} />}
-      {tema?.niebla && (
-        <fog attach="fog" args={[tema.niebla.color, tema.niebla.near, tema.niebla.far]} />
-      )}
+      {niebla && <fog attach="fog" args={[niebla.color, niebla.near, niebla.far]} />}
       {usaImagen && (
         <>
           <color attach="background" args={['#000000']} />

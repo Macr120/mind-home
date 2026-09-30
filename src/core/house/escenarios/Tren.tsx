@@ -120,7 +120,7 @@ export default function Tren({ L, W, tema, soloPaisaje = false }: PropsEscenario
 
   return (
     <>
-      <SueloMovil pintar={pintar} tamLoseta={12} y={ySuelo} rugosidad={0.95} />
+      <SueloMovil pintar={pintar} tamLoseta={12} y={ySuelo} rugosidad={0.95} hueco={soloPaisaje ? [L / 2, W / 2] : null} />
       {!soloPaisaje && (
         <>
           {/* Balasto bajo la vía (quieto: es igual a lo largo). */}

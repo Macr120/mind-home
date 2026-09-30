@@ -1,6 +1,8 @@
+import { useEffect } from 'react'
 import { useDiseño } from '../../state/disenoStore'
+import { useEditorUi } from '../../state/editorUiStore'
 import { confirmar } from '../../state/confirmarStore'
-import { esTemaFabrica, listaTemas, type Tema } from '../../house/temas'
+import { esTemaFabrica, getTema, listaTemas, type Tema } from '../../house/temas'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 import { EditorTemaDetalle } from './EditorTemaDetalle'
@@ -27,7 +29,13 @@ export function EditorTemaSection({ embed }: { embed?: boolean } = {}) {
   const dinamicos = temas.filter((tm) => tm.escenario)
   const setTemaOverride = useDiseño((s) => s.setTemaOverride)
   useDiseño((s) => s.temaRev)
-  const activo = temas.find((tm) => tm.id === temaGlobal)
+  // Fusionado con la personalización (la lista trae los temas de fábrica sin ella).
+  const activo = getTema(temaGlobal)
+
+  const previa = useEditorUi((s) => s.previaEscenario)
+  const setPrevia = useEditorUi((s) => s.setPreviaEscenario)
+  // Al cerrar el editor (o esta sección) la vista en marcha se apaga.
+  useEffect(() => () => setPrevia(false), [setPrevia])
 
   const nombreDe = (tema: Tema) => (esTemaFabrica(tema.id) ? t(`tema.${tema.id}`, tema.nombre) : tema.nombre)
 
@@ -59,7 +67,11 @@ export function EditorTemaSection({ embed }: { embed?: boolean } = {}) {
     >
       <button
         type="button"
-        onClick={() => setTemaGlobal(tema.id)}
+        onClick={() => {
+          void setTemaGlobal(tema.id)
+          // Un tema dinámico se ve en marcha al elegirlo; uno estático vuelve al plano.
+          setPrevia(!!tema.escenario)
+        }}
         className="flex min-w-0 flex-1 items-center gap-2 px-2.5 py-2 text-sm"
         title={nombreDe(tema)}
       >
@@ -128,10 +140,23 @@ export function EditorTemaSection({ embed }: { embed?: boolean } = {}) {
                 max={3}
                 step={0.1}
                 value={activo.velocidadEscenario ?? 1}
-                onChange={(e) => void setTemaOverride(temaGlobal, { velocidadEscenario: parseFloat(e.target.value) })}
+                onChange={(e) => {
+                  setPrevia(true)
+                  void setTemaOverride(temaGlobal, { velocidadEscenario: parseFloat(e.target.value) })
+                }}
                 aria-label={t('editor.tema.velocidad', 'Velocidad')}
                 className="w-full accent-emerald-400"
               />
+              <button
+                type="button"
+                onClick={() => setPrevia(!previa)}
+                className="flex items-center gap-1.5 pt-1 text-[11px] text-white/55 hover:text-white/85"
+              >
+                <Icono nombre={previa ? 'mapa' : 'play'} />
+                {previa
+                  ? t('editor.tema.verPlano', 'Volver al plano para construir')
+                  : t('editor.tema.verMarcha', 'Ver en marcha')}
+              </button>
             </div>
           )}
         </div>

@@ -1,6 +1,7 @@
 /** Tipos visuales de muro y puerta (estilo Roblox, personalizables por color). */
 
-export type TipoMuroId = 'solido' | 'ventana' | 'ladrillo' | 'madera' | 'vitraje' | 'piedra'
+/** `paneles` solo lo pone un tema (espacio, cyberpunk); no se ofrece en el pincel. */
+export type TipoMuroId = 'solido' | 'ventana' | 'ladrillo' | 'madera' | 'vitraje' | 'piedra' | 'paneles'
 export type TipoPuertaId = 'recta' | 'sin' | 'doble' | 'porton' | 'corredera'
 /** Perfil superior del muro (silueta), independiente de la textura. */
 export type FormaMuroId = 'recta' | 'arco' | 'esquinas' | 'triangulo'

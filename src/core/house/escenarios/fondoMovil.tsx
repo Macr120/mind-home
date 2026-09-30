@@ -100,11 +100,17 @@ interface SueloMovilProps {
   y: number
   factor?: number
   rugosidad?: number
+  /**
+   * Medio largo y medio ancho de un hueco rectangular al centro (fondo quieto): ahí manda
+   * la base del mapa y se siguen viendo los sótanos y la alberca.
+   */
+  hueco?: [number, number] | null
 }
 
 /** Plano de suelo cuya textura corre hacia −X. */
-export function SueloMovil({ pintar, tamLoseta, extension = 900, y, factor = 1, rugosidad = 1 }: SueloMovilProps) {
+export function SueloMovil({ pintar, tamLoseta, extension = 900, y, factor = 1, rugosidad = 1, hueco }: SueloMovilProps) {
   const recorrido = useRecorrido()
+  const conHueco = !!hueco
   const textura = useMemo(() => {
     const lado = 256
     const canvas = document.createElement('canvas')
@@ -113,12 +119,24 @@ export function SueloMovil({ pintar, tamLoseta, extension = 900, y, factor = 1, 
     pintar(ctx, lado)
     const tex = new THREE.CanvasTexture(canvas)
     tex.wrapS = tex.wrapT = THREE.RepeatWrapping
-    tex.repeat.set(extension / tamLoseta, extension / tamLoseta)
+    // Con hueco la geometría es una forma cuyas UV van en unidades de mundo.
+    const rep = conHueco ? 1 / tamLoseta : extension / tamLoseta
+    tex.repeat.set(rep, rep)
     tex.colorSpace = THREE.SRGBColorSpace
     tex.anisotropy = 4
     return tex
-  }, [pintar, tamLoseta, extension])
+  }, [pintar, tamLoseta, extension, conHueco])
   useEffect(() => () => textura.dispose(), [textura])
+  const hx = hueco?.[0]
+  const hz = hueco?.[1]
+  const forma = useMemo(() => {
+    if (hx == null || hz == null) return null
+    const e = extension / 2
+    const s = new THREE.Shape([new THREE.Vector2(-e, -e), new THREE.Vector2(e, -e), new THREE.Vector2(e, e), new THREE.Vector2(-e, e)])
+    s.holes.push(new THREE.Path([new THREE.Vector2(-hx, -hz), new THREE.Vector2(-hx, hz), new THREE.Vector2(hx, hz), new THREE.Vector2(hx, -hz)]))
+    return new THREE.ShapeGeometry(s)
+  }, [hx, hz, extension])
+  useEffect(() => () => forma?.dispose(), [forma])
 
   useFrame(() => {
     textura.offset.x = mod((recorrido.d * factor) / tamLoseta, 1)
@@ -126,7 +144,7 @@ export function SueloMovil({ pintar, tamLoseta, extension = 900, y, factor = 1, 
 
   return (
     <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, y, 0]} receiveShadow>
-      <planeGeometry args={[extension, extension]} />
+      {forma ? <primitive object={forma} attach="geometry" /> : <planeGeometry args={[extension, extension]} />}
       <meshStandardMaterial map={textura} roughness={rugosidad} metalness={0} />
     </mesh>
   )

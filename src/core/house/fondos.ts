@@ -1,4 +1,7 @@
-import type { EscenarioId, TemaId } from './temas'
+import type { EscenarioId, TemaId, TemaNiebla } from './temas'
+
+/** Paisaje 3D alrededor de la casa: los de los temas dinámicos más los que solo existen quietos. */
+export type PaisajeId = EscenarioId | 'playa' | 'nevado' | 'otonal' | 'ciudad' | 'volcan' | 'luna' | 'marino' | 'dunas'
 
 /** Fondo de cielo / «wallpaper» de la escena 3D. `auto` = ciclo día/noche. */
 export type FondoId =
@@ -20,6 +23,14 @@ export type FondoId =
   | 'pradera'
   | 'mar_abierto'
   | 'campo'
+  | 'playa_tropical'
+  | 'montanas_nevadas'
+  | 'bosque_otonal'
+  | 'ciudad_noche'
+  | 'volcan'
+  | 'superficie_lunar'
+  | 'fondo_marino'
+  | 'dunas'
 
 /** Familias de microanimaciones del cielo (`FondoAnimaciones`). */
 export type FamiliaAnimId =
@@ -72,8 +83,12 @@ export interface FondoDef {
   estrellas?: boolean
   /** Microanimaciones sugeridas por este fondo (solo en modo automático). */
   anim?: FamiliaAnimId[]
-  /** Paisaje 3D completo alrededor de la casa (el de un tema dinámico, quieto). */
-  escena?: EscenarioId
+  /** Paisaje 3D completo alrededor de la casa (el de un tema dinámico quieto, o uno propio). */
+  escena?: PaisajeId
+  /** Color del suelo del paisaje (miniatura del menú). */
+  suelo?: string
+  /** Niebla propia del paisaje (sin tema dinámico); esconde el borde del suelo. */
+  niebla?: TemaNiebla
 }
 
 export const FONDOS: FondoDef[] = [
@@ -176,6 +191,7 @@ export const FONDOS: FondoDef[] = [
     estrellas: true,
     anim: ['fugaz'],
     escena: 'nave',
+    suelo: '#0b1026',
   },
   {
     id: 'sobre_nubes',
@@ -185,6 +201,7 @@ export const FONDOS: FondoDef[] = [
     tema: 'avion',
     anim: ['aves'],
     escena: 'avion',
+    suelo: '#f4f8fc',
   },
   {
     id: 'yermo',
@@ -194,6 +211,7 @@ export const FONDOS: FondoDef[] = [
     tema: 'apocalipsis',
     anim: ['polvo'],
     escena: 'rodante',
+    suelo: '#8a6a45',
   },
   {
     id: 'pradera',
@@ -203,6 +221,7 @@ export const FONDOS: FondoDef[] = [
     tema: 'tortuga',
     anim: ['aves', 'nubes'],
     escena: 'tortuga',
+    suelo: '#6a9a3c',
   },
   {
     id: 'mar_abierto',
@@ -212,6 +231,7 @@ export const FONDOS: FondoDef[] = [
     tema: 'pirata',
     anim: ['aves', 'nubes'],
     escena: 'barco',
+    suelo: '#2f6f9e',
   },
   {
     id: 'campo',
@@ -221,6 +241,93 @@ export const FONDOS: FondoDef[] = [
     tema: 'tren',
     anim: ['nubes', 'aves'],
     escena: 'tren',
+    suelo: '#7fa452',
+  },
+  // Paisajes que solo existen quietos (no tienen vehículo).
+  {
+    id: 'playa_tropical',
+    nombre: 'Playa tropical',
+    icon: '🏝️',
+    gradiente: ['#4fb3f0', '#bfe8fb'],
+    anim: ['aves', 'nubes'],
+    escena: 'playa',
+    suelo: '#ecd9a8',
+    niebla: { color: '#cdebf7', near: 90, far: 260 },
+  },
+  {
+    id: 'montanas_nevadas',
+    nombre: 'Montañas nevadas',
+    icon: '🏔️',
+    gradiente: ['#9ec6e6', '#eef6fc'],
+    tema: 'navidad',
+    anim: ['copos'],
+    escena: 'nevado',
+    suelo: '#f1f5f9',
+    niebla: { color: '#e4eef6', near: 80, far: 240 },
+  },
+  {
+    id: 'bosque_otonal',
+    nombre: 'Bosque otoñal',
+    icon: '🍁',
+    gradiente: ['#f0b77a', '#f8e2c0'],
+    anim: ['aves'],
+    escena: 'otonal',
+    suelo: '#b8652a',
+    niebla: { color: '#f1d7b4', near: 70, far: 220 },
+  },
+  {
+    id: 'ciudad_noche',
+    nombre: 'Ciudad de noche',
+    icon: '🏙️',
+    gradiente: ['#0b1030', '#2b2354'],
+    tema: 'cyberpunk',
+    estrellas: true,
+    anim: ['fugaz'],
+    escena: 'ciudad',
+    suelo: '#2a2d36',
+    niebla: { color: '#1b1b36', near: 80, far: 240 },
+  },
+  {
+    id: 'volcan',
+    nombre: 'Volcán',
+    icon: '🌋',
+    gradiente: ['#3a1410', '#c2451e'],
+    anim: ['polvo'],
+    escena: 'volcan',
+    suelo: '#26201e',
+    niebla: { color: '#4a2016', near: 70, far: 220 },
+  },
+  {
+    id: 'superficie_lunar',
+    nombre: 'Superficie lunar',
+    icon: '🌕',
+    gradiente: ['#000000', '#0b0d16'],
+    tema: 'espacio',
+    estrellas: true,
+    anim: ['fugaz'],
+    escena: 'luna',
+    suelo: '#9a9a9e',
+  },
+  {
+    id: 'fondo_marino',
+    nombre: 'Fondo marino',
+    icon: '🐠',
+    gradiente: ['#0b5f8a', '#063a57'],
+    anim: ['polvo'],
+    escena: 'marino',
+    suelo: '#d8c894',
+    niebla: { color: '#0d5a80', near: 30, far: 130 },
+  },
+  {
+    id: 'dunas',
+    nombre: 'Dunas',
+    icon: '🏜️',
+    gradiente: ['#f0a95a', '#fde3b0'],
+    tema: 'vaquero',
+    anim: ['polvo'],
+    escena: 'dunas',
+    suelo: '#e7b774',
+    niebla: { color: '#f6d9a6', near: 80, far: 250 },
   },
 ]
 
