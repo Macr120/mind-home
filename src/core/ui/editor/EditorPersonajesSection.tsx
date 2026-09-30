@@ -445,6 +445,7 @@ function CuerpoAvatar() {
 }
 
 function CuerpoAsistente({ a }: { a: Asistente }) {
+  const t = useT()
   const guardar = useAsistentes((s) => s.guardar)
   const tieneModeloPropio = !!a.modeloGlb || (a.modelo3d?.length ?? 0) > 0
 
@@ -460,7 +461,18 @@ function CuerpoAsistente({ a }: { a: Asistente }) {
       <Forma3DBlock
         tieneModeloPropio={tieneModeloPropio}
         esGlb={!!a.modeloGlb}
-        onModelo3d={(piezas) => guardar({ ...a, modelo3d: piezas, modeloGlb: undefined, cuerpoPresetId: undefined })}
+        onModelo3d={(piezas, desc) =>
+          guardar({
+            ...a,
+            // Un personaje recién creado se llama «Personaje»: la descripción lo nombra mejor.
+            ...(a.nombre === t('editor.pers.nuevoNombre', 'Personaje')
+              ? { nombre: desc.charAt(0).toUpperCase() + desc.slice(1) }
+              : {}),
+            modelo3d: piezas,
+            modeloGlb: undefined,
+            cuerpoPresetId: undefined,
+          })
+        }
         onGlb={(f) => guardar({ ...a, modeloGlb: f, modelo3d: undefined, cuerpoPresetId: undefined })}
         onQuitar={() => guardar({ ...a, modelo3d: undefined, modeloGlb: undefined, cuerpoPresetId: undefined })}
       />
@@ -596,7 +608,7 @@ function Forma3DBlock({
 }: {
   tieneModeloPropio: boolean
   esGlb: boolean
-  onModelo3d: (piezas: Pieza3D[]) => void
+  onModelo3d: (piezas: Pieza3D[], desc: string) => void
   onGlb: (glb: Blob) => void
   onQuitar: () => void
 }) {
@@ -612,7 +624,7 @@ function Forma3DBlock({
     setErrorForma(null)
     try {
       const { piezas } = await generarModelo3D(descForma.trim())
-      onModelo3d(piezas)
+      onModelo3d(piezas, descForma.trim())
       setDescForma('')
     } catch (err) {
       console.warn('[MPH] No se pudo generar la forma 3D:', err)

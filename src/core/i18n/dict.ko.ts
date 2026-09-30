@@ -5233,6 +5233,8 @@ export const KO: Dict = {
   'chat.fotoSinIa': '사진에는 AI가 필요해요. 오른쪽 버튼에서 모델을 선택하세요.',
   'chat.enviando': '보냈어요. 답을 준비하고 있어요…',
   'chat.imagenFallo': '이미지를 만들지 못했어요. 다시 시도해 주세요.',
+  'chat.iaRechazo': '답할 수 없었어요: AI가 요청을 거절했어요. 다시 시도해 주세요.',
+  'chat.iaNoRespondio': 'AI가 응답하지 않아 메시지를 어떻게 처리할지 몰랐어요. 다시 시도해 주세요.',
   'chat.imagenLista': '완성했어요! 여기 이미지예요🎨',
   'chat.manual': '매뉴얼',
   'chat.manual.abrir': '매뉴얼: 부탁할 수 있는 것',

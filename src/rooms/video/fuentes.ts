@@ -43,6 +43,8 @@ export interface PoolFuentes {
   podar(vivos: Set<string>): void
   /** Resuelve cuando todo lo creado tiene metadatos/bitmap, o vence el plazo (el export no puede arrancar a ciegas). */
   esperar(plazoMs?: number): Promise<void>
+  /** Avisa cuando una fuente ya tiene algo que pintar (bitmap decodificado, frame del `<video>` listo o tras un seek); devuelve la baja. */
+  alCambiar(fn: () => void): () => void
   dispose(): void
 }
 
@@ -54,6 +56,11 @@ function firmaDe(c: ClipAudio): string {
 export function crearPool(medios: MedioVideo[]): PoolFuentes {
   const fuentes = new Map<number, Fuente>()
   const pendientes: Promise<void>[] = []
+  const oyentes = new Set<() => void>()
+  let muerto = false
+  const avisar = () => {
+    if (!muerto) for (const fn of oyentes) fn()
+  }
   for (const medio of medios) {
     // Sin blob = aún en la nube (el Editor lo está bajando): el clip sale como
     // ausente hasta que llega y el pool se rehace (`firmaMedios` cuenta el blob).
@@ -66,6 +73,9 @@ export function crearPool(medios: MedioVideo[]): PoolFuentes {
       el.muted = false
       ;(el as HTMLVideoElement & { playsInline: boolean }).playsInline = true
       el.src = url
+      // En pausa el motor pinta una vez: el frame llega después (carga o seek).
+      el.addEventListener('loadeddata', avisar)
+      el.addEventListener('seeked', avisar)
       fuentes.set(medio.id, { tipo: 'video', el, url })
     } else if (medio.tipo === 'audio') {
       const url = URL.createObjectURL(blob)
@@ -78,7 +88,12 @@ export function crearPool(medios: MedioVideo[]): PoolFuentes {
       pendientes.push(
         createImageBitmap(blob)
           .then((bitmap) => {
+            if (muerto) {
+              bitmap.close()
+              return
+            }
             fuentes.set(id, { tipo: 'imagen', bitmap })
+            avisar()
           })
           .catch(() => {}),
       )
@@ -86,7 +101,6 @@ export function crearPool(medios: MedioVideo[]): PoolFuentes {
   }
   void Promise.all(pendientes)
   const audios = new Map<string, { el: HTMLAudioElement; firma: string }>()
-  let muerto = false
   return {
     de: (medioId) => (muerto ? null : (fuentes.get(medioId) ?? null)),
     audioDe(c) {
@@ -138,9 +152,16 @@ export function crearPool(medios: MedioVideo[]): PoolFuentes {
       const plazo = new Promise<void>((resolver) => window.setTimeout(resolver, plazoMs))
       return Promise.race([Promise.all(esperas).then(() => undefined), plazo])
     },
+    alCambiar(fn) {
+      oyentes.add(fn)
+      return () => {
+        oyentes.delete(fn)
+      }
+    },
     dispose() {
       if (muerto) return
       muerto = true
+      oyentes.clear()
       for (const a of audios.values()) {
         a.el.pause()
         a.el.src = ''

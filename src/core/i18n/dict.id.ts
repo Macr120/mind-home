@@ -5460,6 +5460,8 @@ export const ID: Dict = {
   'chat.fotoSinIa': 'Foto membutuhkan AI: pilih model di tombol sebelah kanan',
   'chat.enviando': 'Terkirim, sedang menyiapkan jawaban…',
   'chat.imagenFallo': 'Gambar tidak berhasil dibuat, coba lagi.',
+  'chat.iaRechazo': 'Aku tidak bisa menjawab: AI menolak permintaannya. Coba lagi.',
+  'chat.iaNoRespondio': 'AI tidak merespons dan aku tidak tahu harus diapakan pesanmu. Coba lagi.',
   'chat.imagenLista': 'Selesai! Ini gambarmu 🎨',
   'chat.manual': 'Panduan',
   'chat.manual.abrir': 'Panduan: apa yang bisa kamu minta',

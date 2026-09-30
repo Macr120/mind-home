@@ -1085,6 +1085,9 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
       const capa = lienzo.capaActiva()
       await lienzo.pintarImagen(blob)
       marcar()
+      // Prompt consumido: si se quedaba, «Reinterpretar» mezclaba el encargo
+      // anterior con el nuevo.
+      setPrompt('')
       setPanelIA(false)
       // Compartido: la imagen cubre la capa, así que viaja como operación (con
       // el PNG en el bucket, que en un cambio del log no cabría).

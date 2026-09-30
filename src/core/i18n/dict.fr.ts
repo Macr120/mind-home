@@ -5496,6 +5496,8 @@ export const FR: Dict = {
   'chat.fotoSinIa': 'Les photos nécessitent l’IA : choisis un modèle avec le bouton à droite',
   'chat.enviando': 'Envoyé, réponse en préparation…',
   'chat.imagenFallo': 'Je n’ai pas pu générer l’image, réessaie.',
+  'chat.iaRechazo': 'Je n’ai pas pu répondre : l’IA a refusé la demande. Réessaie.',
+  'chat.iaNoRespondio': 'L’IA n’a pas répondu et je n’ai pas su quoi faire de ton message. Réessaie.',
   'chat.imagenLista': 'Voilà ! Voici ton image 🎨',
   'chat.manual': 'Manuel',
   'chat.manual.abrir': 'Manuel : ce que tu peux demander',

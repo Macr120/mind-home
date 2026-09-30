@@ -29,9 +29,25 @@ export async function resumenWikipedia(titulo: string, idioma: Idioma = 'es'): P
   }
 }
 
-/** Solo la miniatura (atajo sobre resumenWikipedia). */
+type BusquedaWiki = { query?: { pages?: Record<string, { index?: number; thumbnail?: { source?: string } }> } }
+
+/**
+ * Solo la miniatura. Primero por título exacto (resumenWikipedia, que ya sigue
+ * redirecciones); si falla —la IA suele devolver títulos con otras mayúsculas,
+ * p. ej. «La Persistencia de la Memoria», que dan 404— se toma el primer
+ * resultado del buscador de Wikipedia.
+ */
 export async function imagenWikipedia(titulo: string, idioma: Idioma = 'es'): Promise<string | undefined> {
-  return (await resumenWikipedia(titulo, idioma)).imagen
+  const directa = (await resumenWikipedia(titulo, idioma)).imagen
+  if (directa) return directa
+  try {
+    const data = (await fetchJson(
+      `https://${idioma}.wikipedia.org/w/api.php?action=query&format=json&origin=*&generator=search&gsrlimit=1&gsrsearch=${encodeURIComponent(titulo)}&prop=pageimages&pithumbsize=600`,
+    )) as BusquedaWiki
+    return Object.values(data.query?.pages ?? {})[0]?.thumbnail?.source
+  } catch {
+    return undefined
+  }
 }
 
 /** Une párrafos no vacíos con un salto de línea doble. */

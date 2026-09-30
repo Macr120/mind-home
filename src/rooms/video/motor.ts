@@ -45,6 +45,8 @@ export class MotorVideo {
   private rafId = 0
   private intervaloId = 0
   private repintaId = 0
+  private repintaRaf = 0
+  private bajaPool: () => void
   reproduciendo = false
   onTiempo: ((t: number) => void) | null = null
   onFin: (() => void) | null = null
@@ -100,6 +102,15 @@ export class MotorVideo {
     this.vozEnVivo = opts?.vozEnVivo ?? false
     this.filtrosVoz = opts?.filtrosVoz ?? false
     this.render = { transparente: opts?.transparente, fuente3d: opts?.fuente3d }
+    // En pausa nada repinta solo: cuando un bitmap o un frame de video llega tarde
+    // (al abrir, tras un seek), se vuelve a pintar el tiempo actual.
+    this.bajaPool = pool.alCambiar(() => {
+      if (this.reproduciendo) return
+      window.cancelAnimationFrame(this.repintaRaf)
+      this.repintaRaf = window.requestAnimationFrame(() => {
+        if (!this.reproduciendo) this.renderizar()
+      })
+    })
   }
 
   /** El editor muta el proyecto: el motor lee la referencia nueva, poda lo que ya no existe y repinta. */
@@ -177,7 +188,9 @@ export class MotorVideo {
       f.fuente.disconnect()
     }
     this.filtros.clear()
+    this.bajaPool()
     window.clearTimeout(this.repintaId)
+    window.cancelAnimationFrame(this.repintaRaf)
     this.onTiempo = null
     this.onFin = null
   }

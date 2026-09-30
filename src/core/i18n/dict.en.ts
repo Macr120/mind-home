@@ -5530,6 +5530,8 @@ export const EN: Dict = {
   'chat.fotoSinIa': 'Photos require AI: pick a model with the button on the right',
   'chat.enviando': 'Sent — preparing the answer…',
   'chat.imagenFallo': 'I couldn\'t generate the image — try again.',
+  'chat.iaRechazo': "I couldn't answer: the AI rejected the request. Please try again.",
+  'chat.iaNoRespondio': "The AI didn't respond and I didn't know what to do with your message. Please try again.",
   'chat.imagenLista': 'Done! Here\'s your image 🎨',
   'chat.manual': 'Manual',
   'chat.manual.abrir': 'Manual: what you can ask for',

@@ -7,9 +7,9 @@
  * se borran como las que escriba él. No hay «copiar a mis fórmulas» ni una
  * sección aparte de solo lectura.
  *
- * La contrapartida, asumida a propósito: cambiar de idioma DESPUÉS ya no
- * retraduce lo sembrado, igual que no retraduce nada que el usuario escriba.
- * `catalogoEn.ts` sigue valiendo para quien instale la app en inglés.
+ * Al cambiar de idioma DESPUÉS, `retraducirFormulario` (`siembra.ts`) reescribe
+ * los nombres que sigan siendo los de fábrica en algún idioma; lo que el usuario
+ * renombró se queda como está.
  *
  * Reglas al añadir una fórmula:
  * - La multiplicación va SIEMPRE explícita (`m * g * h`): mathjs lee `mgh` como
@@ -566,7 +566,7 @@ export const CATALOGO: AreaCatalogo[] = [
 ]
 
 /** El mismo catálogo con los nombres traducidos (la notación no cambia). */
-const traducir = (t: TraduccionCatalogo): AreaCatalogo[] =>
+export const traducir = (t: TraduccionCatalogo): AreaCatalogo[] =>
   CATALOGO.map((area) => ({
     ...area,
     nombre: t.areas[area.id] ?? area.nombre,

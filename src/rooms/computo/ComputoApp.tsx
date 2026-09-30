@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
+import { useAjustes } from '../../core/state/ajustesStore'
 import { intencionApp } from '../../core/state/intencionApp'
 import { Calculadora } from './Calculadora'
 import { HojasTab } from './HojasTab'
 import { cargarMotor } from './motor'
 import { esModo, type Modo } from './modos'
-import { sembrarComputo } from './siembra'
+import { retraducirFormulario, sembrarComputo } from './siembra'
 import { PestanasCarpeta, type ItemPestana } from '../_shared/PestanasCarpeta'
 import { COLOR } from './constantes'
 
@@ -44,13 +45,21 @@ export function ComputoApp() {
   const [plegado, setPlegado] = useState(false)
 
   // El motor se pide al montar: cuando el usuario llega a la calculadora, ya
-  // está caliente. Si falla, cada pestaña enseña su propio aviso. Y de paso se
-  // siembra el formulario y las hojas de arranque la primera vez (es idempotente
-  // y corta sola en la casa demo).
+  // está caliente. Si falla, cada pestaña enseña su propio aviso.
   useEffect(() => {
     void cargarMotor().catch(() => {})
-    void sembrarComputo().catch((e) => console.error('[computo] no se pudo sembrar:', e))
   }, [])
+
+  // El formulario y las hojas de arranque se siembran la primera vez (es
+  // idempotente y corta sola en la casa demo) en el idioma de ese momento: si
+  // cambió, lo del formulario que siga siendo texto de fábrica se reescribe al
+  // activo (las hojas las retraduce su barra de ejemplo).
+  const idioma = useAjustes((s) => s.idioma)
+  useEffect(() => {
+    void sembrarComputo()
+      .then(retraducirFormulario)
+      .catch((e) => console.error('[computo] no se pudo sembrar:', e))
+  }, [idioma])
 
   return (
     // Sin `h-full` ni scroll propio: el que manda es el `<main>` del cuarto. Así

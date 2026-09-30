@@ -5419,6 +5419,8 @@ export const PL: Dict = {
   'chat.fotoSinIa': 'Zdjęcia wymagają AI: wybierz model w przycisku po prawej',
   'chat.enviando': 'Wysłano, przygotowuję odpowiedź…',
   'chat.imagenFallo': 'Nie udało się wygenerować obrazu, spróbuj ponownie.',
+  'chat.iaRechazo': 'Nie mogłem odpowiedzieć: AI odrzuciła prośbę. Spróbuj ponownie.',
+  'chat.iaNoRespondio': 'AI nie odpowiedziała i nie wiedziałem, co zrobić z twoją wiadomością. Spróbuj ponownie.',
   'chat.imagenLista': 'Gotowe! Oto twój obraz 🎨',
   'chat.manual': 'Instrukcja',
   'chat.manual.abrir': 'Instrukcja: co możesz poprosić',

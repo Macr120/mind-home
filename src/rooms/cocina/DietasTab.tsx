@@ -80,9 +80,12 @@ export function DietasTab({ dietas, recetas }: { dietas: DietaGuardada[]; receta
     if (!peticion || generando) return
     setErrorIA('')
     try {
-      // Las recetas sí se guardan (el helper las mete al recetario); la dieta
-      // se abre en el formulario para que el usuario la revise antes.
-      setEditando(await generarDietaCompleta(peticion, setFase))
+      // La dieta se guarda en cuanto llega (las recetas ya las mete el helper):
+      // abrirla sin guardar hacía que salir del formulario tirara lo pagado.
+      // Se abre igual en el formulario, ya con id, para revisarla.
+      const dieta = await generarDietaCompleta(peticion, setFase)
+      const id = await dietasGuardadasRepo.add(dieta)
+      setEditando({ ...dieta, id: id as number })
       setPeticionIA(null)
     } catch {
       setErrorIA(t('cocina.dieta.errorIA', 'No se pudo crear la dieta. Inténtalo otra vez.'))

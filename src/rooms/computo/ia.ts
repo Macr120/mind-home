@@ -10,6 +10,7 @@
  * no da un texto raro, da una hoja llena de #VALOR.
  */
 import { conversarIA, extraerJSON } from '../../core/chat/ia'
+import { fechaLocalISO } from '../../core/fechaLocal'
 import type { TipoGraficaHoja, VariableFormula } from '../../core/data/db'
 import { MAX_VARIABLES_IA, MAX_CELDAS_IA } from './constantes'
 import { ALIAS_PUNTO, FUNCIONES_HOJA } from './funcionesHoja'
@@ -159,6 +160,8 @@ export async function hojaDesdeTexto(peticion: string): Promise<HojaPropuesta> {
           '',
           'Reglas:',
           '- Encabezados en la fila 1. Debajo, filas de ejemplo realistas (entre 4 y 10).',
+          // Sin la fecha el modelo inventa fechas de su año de corte (salían en 2024).
+          `- Hoy es ${fechaLocalISO()}: si hay fechas, que sean recientes y en formato AAAA-MM-DD.`,
           '- Las fórmulas empiezan por «=», usan punto y coma como separador y SOLO estas funciones:',
           `  ${FUNCIONES}`,
           '- Referencias tipo A1 y rangos tipo B2:B8. Nada de referencias a otras hojas.',

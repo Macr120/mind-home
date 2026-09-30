@@ -5407,6 +5407,8 @@ export const TR: Dict = {
   'chat.fotoSinIa': 'Fotoğraflar Yapay Zeka gerektirir: sağdaki düğmeden bir model seç',
   'chat.enviando': 'Gönderildi, yanıt hazırlanıyor…',
   'chat.imagenFallo': 'Görseli oluşturamadım, tekrar dene.',
+  'chat.iaRechazo': 'Yanıt veremedim: yapay zekâ isteği reddetti. Tekrar dene.',
+  'chat.iaNoRespondio': 'Yapay zekâ yanıt vermedi ve mesajınla ne yapacağımı bilemedim. Tekrar dene.',
   'chat.imagenLista': 'Hazır! İşte görselin 🎨',
   'chat.manual': 'Kılavuz',
   'chat.manual.abrir': 'Kılavuz: neler isteyebilirsin',

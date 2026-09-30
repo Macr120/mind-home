@@ -599,10 +599,14 @@ export function EditorDocumento({
       if (accion === 'redactar') {
         const texto = await redactar(instruccion.trim())
         insertarHtml(parrafosHtml(texto), 'final')
+        // La instrucción ya se usó: si se quedaba, el siguiente «Mejorar» la
+        // tomaba como pauta y reescribía la selección como el encargo viejo.
+        setInstruccion('')
         setPanelIA(false)
       } else if (accion === 'mejorar') {
         const texto = await mejorar(seleccionRef.current, instruccion.trim() || undefined)
         insertarHtml(parrafosHtml(texto), 'seleccion')
+        setInstruccion('')
         setPanelIA(false)
       } else if (accion === 'continuar') {
         const texto = await continuar(ed.getText({ blockSeparator: '\n\n' }))

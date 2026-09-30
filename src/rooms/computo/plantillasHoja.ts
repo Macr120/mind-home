@@ -4,7 +4,8 @@
  *
  * Se arman en el momento de sembrar (`crear`): los rótulos salen en el idioma
  * activo y las fechas del registro son las de las últimas semanas. Solo las usa
- * `siembra.ts`, así que las hojas ya sembradas en casas existentes no cambian.
+ * `siembra.ts`; al cambiar de idioma, `ejemploHojas.retraducir` reescribe los
+ * rótulos que sigan siendo de fábrica (lo demás de las hojas no se toca).
  */
 import type { CeldaHoja, GraficaHoja } from '../../core/data/db'
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
@@ -17,7 +18,10 @@ export interface PlantillaHoja {
   id: string
   nombreEs: string
   claveNombre: string
-  crear: () => { celdas: Celdas; graficas?: GraficaHoja[] }
+  /** Nombre de la hoja sembrada en `ROTULOS_HOJA` (la de `blanco` no se siembra). */
+  rotuloNombre?: keyof RotulosHoja
+  /** `R`: los rótulos a usar; sin él, los del idioma activo. */
+  crear: (R?: RotulosHoja) => { celdas: Celdas; graficas?: GraficaHoja[] }
   filas: number
   cols: number
 }
@@ -116,8 +120,8 @@ export const PLANTILLAS_HOJA: PlantillaHoja[] = [
     id: 'presupuesto',
     nombreEs: 'Presupuesto',
     claveNombre: 'computo.hojas.plantilla.presupuesto',
-    crear: () => {
-      const R = porIdioma(ROTULOS_HOJA)
+    rotuloNombre: 'nombrePresupuesto',
+    crear: (R = porIdioma(ROTULOS_HOJA)) => {
       return {
         celdas: presupuesto(R),
         graficas: [
@@ -132,8 +136,8 @@ export const PLANTILLAS_HOJA: PlantillaHoja[] = [
     id: 'notas',
     nombreEs: 'Promedio ponderado',
     claveNombre: 'computo.hojas.plantilla.notas',
-    crear: () => {
-      const R = porIdioma(ROTULOS_HOJA)
+    rotuloNombre: 'nombreNotas',
+    crear: (R = porIdioma(ROTULOS_HOJA)) => {
       return {
         celdas: notas(R),
         graficas: [
@@ -148,8 +152,8 @@ export const PLANTILLAS_HOJA: PlantillaHoja[] = [
     id: 'mediciones',
     nombreEs: 'Registro de mediciones',
     claveNombre: 'computo.hojas.plantilla.mediciones',
-    crear: () => {
-      const R = porIdioma(ROTULOS_HOJA)
+    rotuloNombre: 'nombreMediciones',
+    crear: (R = porIdioma(ROTULOS_HOJA)) => {
       return {
         celdas: mediciones(R),
         graficas: [

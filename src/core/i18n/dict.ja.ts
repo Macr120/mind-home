@@ -5228,6 +5228,8 @@ export const JA: Dict = {
   'chat.fotoSinIa': '写真にはAIが必要です。右のボタンでモデルを選んでください',
   'chat.enviando': '送信しました。返事を準備しています…',
   'chat.imagenFallo': '画像を生成できませんでした。もう一度お試しください。',
+  'chat.iaRechazo': '返答できませんでした：AIがリクエストを拒否しました。もう一度お試しください。',
+  'chat.iaNoRespondio': 'AIが応答せず、メッセージをどう扱えばよいかわかりませんでした。もう一度お試しください。',
   'chat.imagenLista': 'できました！画像はこちらです🎨',
   'chat.manual': 'マニュアル',
   'chat.manual.abrir': 'マニュアル：頼めること',

@@ -351,6 +351,31 @@ function appsParaCaptura(cuartosPermitidos?: string[]): Plantilla[] {
   )
 }
 
+/**
+ * Espejo de `LIMITES.tools` del proxy (`supabase/functions/ia-chat`): pasarse
+ * es un 400 «Demasiadas tools» y el turno entero se pierde. Las del editor ya
+ * son ~62 y las de captura de TODAS las apps ~28, así que un turno con editor
+ * se pasaba siempre, tuviera la casa las apps que tuviera.
+ */
+const MAX_TOOLS_PROXY = 80
+
+/**
+ * Deja las tools dentro del tope del proxy sacrificando primero las de captura
+ * de apps que la casa no tiene (el modelo no puede usarlas) y, si aún sobran,
+ * las de captura restantes desde el final: en un turno de edición registrar
+ * datos es lo menos probable. Las del editor y las propias (recordar, rutinas,
+ * 3D, imagen) no se tocan.
+ */
+function acotarTools(tools: ToolNeutra[], cuartosPermitidos?: string[]): ToolNeutra[] {
+  if (tools.length <= MAX_TOOLS_PROXY) return tools
+  const utiles = new Set(appsParaCaptura(cuartosPermitidos).map((r) => r.id))
+  let res = tools.filter((t) => !t.app || utiles.has(t.app))
+  for (let i = res.length - 1; res.length > MAX_TOOLS_PROXY && i >= 0; i--) {
+    if (res[i].app) res = [...res.slice(0, i), ...res.slice(i + 1)]
+  }
+  return res
+}
+
 function toolsDeApp(room: Plantilla): ToolNeutra[] {
   return (room.esquemas ?? []).map((e) => ({
     app: room.id,
@@ -1342,9 +1367,10 @@ export async function interpretarIA(
   // sigue cubierto porque la petición anterior del usuario ya traía el tema.
   const previosUsuario = historial.filter((m) => m.rol === 'usuario').slice(-2)
   const conEditor = hayIntencionEditor([...previosUsuario.map((m) => m.texto), texto])
+  const cuartosAsistente = getAsistente(mascotaId).cuartos
   const tools = conEditor
-    ? [...(await toolsEditorConCache()), ...construirTools(getAsistente(mascotaId).cuartos)]
-    : construirTools(getAsistente(mascotaId).cuartos)
+    ? acotarTools([...(await toolsEditorConCache()), ...construirTools(cuartosAsistente)], cuartosAsistente)
+    : construirTools(cuartosAsistente)
   const system = await construirSystem(
     mascotaId,
     imagen ? (imagen.mediaType === 'application/pdf' ? 'pdf' : 'imagen') : null,

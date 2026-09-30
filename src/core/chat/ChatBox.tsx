@@ -797,12 +797,15 @@ export function ChatBox({
     // Ruta en el mapa. «Llévame a X» se entiende desde CUALQUIER vista; con la
     // vista Lugares elegida basta el nombre del sitio, igual que en el modo web
     // basta el texto para buscar. Los comandos, el prefijo @app y los adjuntos
-    // siguen ganando.
+    // siguen ganando. Una pregunta no es un sitio: «¿cuántos días tiene una
+    // semana?» acababa en una ruta de 33 h a la iglesia más parecida.
     const destinoRuta =
       adjunto || interp.motivo === 'prefijo'
         ? null
         : (rutaPedida(interp.texto) ??
-          (vistaPanel === 'lugares' && !interp.comando ? destinoDeFrase(interp.texto) : null))
+          (vistaPanel === 'lugares' && !interp.comando && !/[¿?]/.test(interp.texto)
+            ? destinoDeFrase(interp.texto)
+            : null))
     if (destinoRuta && destinoRuta.length > 1) {
       abrirMenu('lugares')
       hablar(
@@ -913,6 +916,7 @@ export function ChatBox({
     // Capa de IA: el modelo interpreta, registra vía esquemas y responde en
     // la voz de la mascota. Si falla (sin red, clave inválida), cae al
     // dispatcher determinista de abajo sin que el usuario pierda el mensaje.
+    let iaFallo = false
     if (conIA) {
       try {
         const textoMsg =
@@ -999,6 +1003,17 @@ export function ChatBox({
           setAdjunto(null)
           return
         }
+        // El servidor rechazó la petición: el dispatcher local no la arregla y
+        // su «no sé a qué cuarto va» hacía pasar el fallo por una respuesta.
+        if (err instanceof ErrorIA && (err.codigo === 'peticion-invalida' || err.codigo === 'limite')) {
+          hablar(t('chat.iaRechazo', 'No pude contestarte: la IA rechazó la petición. Inténtalo de nuevo.'), {
+            asistenteId: destinoId,
+            sistema: true,
+          })
+          setAdjunto(null)
+          return
+        }
+        iaFallo = true
         console.warn('[MPH] IA no disponible, usando dispatcher local:', err)
         setPensando(false)
         setAdjunto(null) // el dispatcher local no puede ver fotos ni PDFs
@@ -1032,6 +1047,12 @@ export function ChatBox({
       } else {
         decir('clasificado', interp.roomIds.map(nombreCorto).join(' y '))
       }
+    } else if (iaFallo) {
+      // Nada que archivar sin la IA: decirlo, no fingir que se guardó.
+      hablar(t('chat.iaNoRespondio', 'La IA no respondió y no supe qué hacer con tu mensaje. Inténtalo de nuevo.'), {
+        asistenteId: destinoId,
+        sistema: true,
+      })
     } else {
       decir('sinClasificar')
     }

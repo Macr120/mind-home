@@ -5478,6 +5478,8 @@ export const NL: Dict = {
   'chat.fotoSinIa': 'Foto\'s vereisen AI: kies een model met de knop rechts',
   'chat.enviando': 'Verzonden, antwoord wordt voorbereid…',
   'chat.imagenFallo': 'Ik kon de afbeelding niet genereren, probeer het opnieuw.',
+  'chat.iaRechazo': 'Ik kon niet antwoorden: de AI weigerde het verzoek. Probeer het opnieuw.',
+  'chat.iaNoRespondio': 'De AI reageerde niet en ik wist niet wat ik met je bericht moest doen. Probeer het opnieuw.',
   'chat.imagenLista': 'Klaar! Hier is je afbeelding 🎨',
   'chat.manual': 'Handleiding',
   'chat.manual.abrir': 'Handleiding: wat je kunt vragen',

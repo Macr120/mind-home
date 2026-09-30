@@ -176,7 +176,7 @@ const LIMITES = {
   system: 24_000, // chars (~6k tokens); el real más gordo son ~4.5k
   mensajes: 24, // las charlas de biblioteca/idiomas mandan 20
   texto: 10_000, // chars por mensaje (~2.5k tokens): cabe pegar un texto largo
-  tools: 80, // TOOLS_EDITOR son ~56
+  tools: 80, // TOOLS_EDITOR son ~62; el cliente acota a este tope (MAX_TOOLS_PROXY en core/chat/ia.ts)
   imagenB64: 3_000_000, // ~2.2 MB reales; el cliente comprime a 1280px JPEG
   imagenes: 8, // nº máx de imágenes/PDF por petición: corta meter 24 adjuntos con 1 crédito
   // ~2 MB reales (≈30–40 páginas): cada página cuesta ~1.5–3k tokens de entrada,

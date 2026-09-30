@@ -5511,6 +5511,8 @@ export const DE: Dict = {
   'chat.fotoSinIa': 'Fotos benötigen KI: Wähle rechts ein Modell aus',
   'chat.enviando': 'Gesendet, Antwort wird vorbereitet…',
   'chat.imagenFallo': 'Ich konnte das Bild nicht erstellen — versuch es noch mal.',
+  'chat.iaRechazo': 'Ich konnte nicht antworten: Die KI hat die Anfrage abgelehnt. Versuch es noch mal.',
+  'chat.iaNoRespondio': 'Die KI hat nicht geantwortet und ich wusste nicht, was ich mit deiner Nachricht tun soll. Versuch es noch mal.',
   'chat.imagenLista': 'Fertig! Hier ist dein Bild 🎨',
   'chat.manual': 'Handbuch',
   'chat.manual.abrir': 'Handbuch: Was du fragen kannst',

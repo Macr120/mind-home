@@ -5224,6 +5224,8 @@ export const ZH: Dict = {
   'chat.fotoSinIa': '照片需要用到AI：点击右侧按钮选择模型',
   'chat.enviando': '已发送，正在准备回复…',
   'chat.imagenFallo': '图片生成失败，请重试。',
+  'chat.iaRechazo': '无法回复：AI 拒绝了请求。请重试。',
+  'chat.iaNoRespondio': 'AI 没有响应，我不知道该如何处理你的消息。请重试。',
   'chat.imagenLista': '做好了！这是你的图片🎨',
   'chat.manual': '使用手册',
   'chat.manual.abrir': '使用手册：你可以说什么',

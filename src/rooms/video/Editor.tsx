@@ -1086,13 +1086,15 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
       if (pelicula) return encadenarObra(lista.map((k) => (k.id === clipId ? { ...k, duracion: dur } : k)), durMedio)
       return recortarClip(lista, clipId, 'fin', c.inicio + dur, duracionAudio)
     })
-  const narrarClip = async (clipId: string) => {
+  /** `texto` manda sobre el del clip: al traducir, el estado aún no trae el nuevo. */
+  const narrarClip = async (clipId: string, texto?: string) => {
     const p = proyectoRef.current
     const c = p?.clips.find((x) => x.id === clipId)
-    if (!p || !c || (c.pista !== 'voz' && c.pista !== 'avatar') || !c.texto?.trim()) return
+    const decir = texto ?? (c && (c.pista === 'voz' || c.pista === 'avatar') ? c.texto : undefined)
+    if (!p || !c || (c.pista !== 'voz' && c.pista !== 'avatar') || !decir?.trim()) return
     setNarrandoId(clipId)
     try {
-      const r = await generarAudioNarracion(c.texto, vozEfectiva(p, c), { envolvente: c.pista === 'avatar' })
+      const r = await generarAudioNarracion(decir, vozEfectiva(p, c), { envolvente: c.pista === 'avatar' })
       ponerAudio(
         clipId,
         c.pista === 'avatar' ? { medioId: r.medioId, desde: 0, envolvente: r.envolvente, envolventeHz: r.hz } : { medioId: r.medioId, desde: 0 },
@@ -1298,7 +1300,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
       setIaOcupado(false)
     }
   }
-  /** Traduce el texto del clip (narración, avatar o rótulo) al idioma elegido; una voz IA ya generada se suelta para rehacerse. */
+  /** Traduce el texto del clip (narración, avatar o rótulo) al idioma elegido; una voz IA ya generada se rehace en él. */
   const traducirClip = async (clipId: string, idioma: (typeof IDIOMAS)[number]) => {
     const c = proyectoRef.current?.clips.find((x) => x.id === clipId)
     if (!c || iaOcupado) return
@@ -1313,8 +1315,11 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
       } else if (c.pista === 'voz' || c.pista === 'avatar') {
         // Un audio TTS ya no dice esto: se suelta (el medio sigue en Medios); uno grabado o importado se queda.
         const medio = c.medioId != null ? mediosRef.current.find((m) => m.id === c.medioId) : undefined
-        const sinTts = medio?.origen === 'tts' ? { medioId: undefined, desde: undefined, envolvente: undefined, envolventeHz: undefined } : {}
+        const eraTts = medio?.origen === 'tts'
+        const sinTts = eraTts ? { medioId: undefined, desde: undefined, envolvente: undefined, envolventeHz: undefined } : {}
         cambiarClip(c.id, { texto: salida[0], ...sinTts })
+        // Y se rehace en el idioma nuevo, como promete la nota del panel.
+        if (eraTts) await narrarClip(c.id, salida[0])
       }
       setAviso('')
     } catch (e) {

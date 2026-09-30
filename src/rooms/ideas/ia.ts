@@ -23,6 +23,19 @@ const clave = (s: string) =>
     .toLocaleLowerCase()
     .trim()
 
+/**
+ * Acota a `max` caracteres sin partir palabras: el modelo no cuenta letras y
+ * el `.slice` a secas dejaba «dispersión Raylei» o «modif». Si hay que cortar,
+ * se corta en el último espacio y se marca con «…».
+ */
+function recortarTexto(s: string, max: number): string {
+  const t = s.trim()
+  if (t.length <= max) return t
+  const corte = t.slice(0, max - 1)
+  const espacio = corte.lastIndexOf(' ')
+  return `${(espacio > max / 2 ? corte.slice(0, espacio) : corte).replace(/[\s,;:.—-]+$/, '')}…`
+}
+
 /** Qué se le pide al modelo para cada formato de mapa. */
 const CONTRATO: Record<TipoMapa, string[]> = {
   mental: [
@@ -192,8 +205,8 @@ export async function generarMapa(tema: string, tipo: TipoMapa): Promise<MapaPro
 /** Valida y normaliza el JSON del modelo según el formato pedido. */
 function interpretar(obj: Record<string, unknown>, tipo: TipoMapa, tema: string): MapaPropuesto {
   const texto = (v: unknown, max = MAX_TEXTO_NODO) =>
-    typeof v === 'string' ? v.trim().slice(0, max) : ''
-  const raiz = texto(obj.raiz) || tema.slice(0, MAX_TEXTO_NODO)
+    typeof v === 'string' ? recortarTexto(v, max) : ''
+  const raiz = texto(obj.raiz) || recortarTexto(tema, MAX_TEXTO_NODO)
 
   if (tipo === 'flujo') {
     const crudos = Array.isArray(obj.pasos) ? (obj.pasos as unknown[]) : []
@@ -385,7 +398,7 @@ function validarHijos(
   for (const x of v) {
     if (restantes.n <= 0 || res.length >= MAX_HIJOS_MAPA + 4) break
     const o = (x ?? {}) as Record<string, unknown>
-    const texto = typeof o.texto === 'string' ? o.texto.trim().slice(0, MAX_TEXTO_NODO) : ''
+    const texto = typeof o.texto === 'string' ? recortarTexto(o.texto, MAX_TEXTO_NODO) : ''
     if (!texto) continue
     restantes.n -= 1
     res.push({ texto, hijos: validarHijos(o.hijos, profundidad + 1, restantes, profMax) })
@@ -438,7 +451,7 @@ export async function expandirNodo(
     const res: string[] = []
     for (const x of lista) {
       if (typeof x !== 'string') continue
-      const tx = x.trim().slice(0, tope)
+      const tx = recortarTexto(x, tope)
       if (!tx || vistas.has(clave(tx))) continue
       vistas.add(clave(tx))
       res.push(tx)

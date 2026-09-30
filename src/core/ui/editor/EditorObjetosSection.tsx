@@ -265,7 +265,7 @@ export function EditorObjetosSection() {
       </BotonTaller>
       {iaAbierta && (
         <GenerarObjetoIA
-          onCrear={async (piezas, grupo) => {
+          onCrear={async (piezas, grupo, desc) => {
             const destino = await pedirDestinoObjeto()
             if (!destino) return
             const id = await addObjetoPiezas(
@@ -274,6 +274,8 @@ export function EditorObjetosSection() {
               destino,
               grupo && grupo !== 'ninguno' ? grupo : undefined,
             )
+            // Sin esto nacía sin nombre: lo que se pidió es el mejor nombre.
+            await setObjetoNombre(id, desc)
             setObjetoSel(id)
           }}
         />
@@ -844,7 +846,7 @@ function GenerarObjetoIA({
   onCrear,
   onCrearGlb,
 }: {
-  onCrear: (piezas: Pieza3D[], grupo: GrupoAccion | 'ninguno' | null) => void
+  onCrear: (piezas: Pieza3D[], grupo: GrupoAccion | 'ninguno' | null, desc: string) => void
   /** Con él, la subida de .glb va dentro (la biblioteca la quiere junta). */
   onCrearGlb?: (glb: Blob) => void
 }) {
@@ -861,7 +863,7 @@ function GenerarObjetoIA({
     setError(null)
     try {
       const { piezas, grupo } = await generarModelo3D(desc.trim(), tipo, estilo)
-      onCrear(piezas, grupo)
+      onCrear(piezas, grupo, desc.trim())
       setDesc('')
     } catch (err) {
       console.warn('[MPH] No se pudo generar el objeto 3D:', err)

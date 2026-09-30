@@ -129,7 +129,10 @@ async function extrasConIA(fecha: string, idioma: Idioma): Promise<Efemeride[] |
     // del animal se busca por su nombre científico, que existe en todas las
     // ediciones de Wikipedia y redirige al artículo local.
     const [imgArte, imgLibro, imgEspecie, imgFrase] = await Promise.all([
-      json.arte.wiki ? imagenWikipedia(json.arte.wiki, idioma) : undefined,
+      // La obra puede no tener imagen libre en esa Wikipedia: respaldo, el artista.
+      (async () =>
+        (await imagenWikipedia(json.arte?.wiki || json.arte!.titulo!, idioma)) ??
+        (json.arte?.artista ? await imagenWikipedia(json.arte.artista, idioma) : undefined))(),
       (async () =>
         (json.libro?.wiki ? await imagenWikipedia(json.libro.wiki, idioma) : undefined) ??
         (json.libro?.autor ? await imagenWikipedia(json.libro.autor, idioma) : undefined))(),

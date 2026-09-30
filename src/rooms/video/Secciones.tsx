@@ -159,6 +159,33 @@ export function SeccionFiltroVoz({ filtro, onCambiar }: { filtro?: FiltroVoz; on
   )
 }
 
+/**
+ * Recorta al centro la imagen al aspecto del proyecto. El proveedor no siempre
+ * lo respeta (OpenAI da 3:2 para 16:9 y algunos modelos devuelven un cuadrado):
+ * el fondo se guarda ya con la forma del cuadro. Devuelve el blob y sus medidas.
+ */
+async function recortarAAspecto(blob: Blob, aspecto: AspectoVideo): Promise<{ blob: Blob; ancho: number; alto: number }> {
+  const bmp = await createImageBitmap(blob)
+  const [a, b] = aspecto.split(':').map(Number)
+  const objetivo = a / b
+  const original = { blob, ancho: bmp.width, alto: bmp.height }
+  let sw = bmp.width
+  let sh = bmp.height
+  if (sw / sh > objetivo) sw = Math.round(sh * objetivo)
+  else sh = Math.round(sw / objetivo)
+  if (Math.abs(sw - bmp.width) <= 2 && Math.abs(sh - bmp.height) <= 2) {
+    bmp.close()
+    return original
+  }
+  const canvas = document.createElement('canvas')
+  canvas.width = sw
+  canvas.height = sh
+  canvas.getContext('2d')?.drawImage(bmp, (bmp.width - sw) / 2, (bmp.height - sh) / 2, sw, sh, 0, 0, sw, sh)
+  bmp.close()
+  const recortado = await new Promise<Blob | null>((res) => canvas.toBlob(res, blob.type || 'image/webp', 0.85))
+  return recortado ? { blob: recortado, ancho: sw, alto: sh } : original
+}
+
 /** Fuente visual de un clip principal o de fondo: clip o imagen de la biblioteca, color plano o imagen con IA. */
 export function SeccionFuenteVisual({
   fuente,
@@ -183,19 +210,17 @@ export function SeccionFuenteVisual({
     setError('')
     setGenerando(true)
     try {
-      const blob = await generarImagen(prompt.trim(), 1280, undefined, aspecto, calidad)
-      const bmp = await createImageBitmap(blob)
+      const { blob, ancho, alto } = await recortarAAspecto(await generarImagen(prompt.trim(), 1280, undefined, aspecto, calidad), aspecto)
       const medioId = await mediosVideoRepo.add({
         tipo: 'imagen',
         nombre: prompt.trim().slice(0, 40),
         blob,
-        ancho: bmp.width,
-        alto: bmp.height,
+        ancho,
+        alto,
         miniatura: blob,
         origen: 'ia',
         creadoEn: new Date().toISOString(),
       })
-      bmp.close()
       onCambiar({ tipo: 'imagen', medioId })
       setPrompt('')
     } catch (e) {
