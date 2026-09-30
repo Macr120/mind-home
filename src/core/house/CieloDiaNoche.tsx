@@ -96,8 +96,13 @@ export function CieloDiaNoche() {
   const detrasDelMapa = (p: [number, number, number]) =>
     !solCasa || p[0] * camara.position.x + p[2] * camara.position.z < 0
 
-  // Un paisaje 3D del menú Fondo trae su niebla (esconde el borde del suelo); si no, la del tema.
-  const niebla = (!escenarioVisible && !usaImagen ? fondoDef.niebla : undefined) ?? tema?.niebla
+  // El color de la niebla es del tema (su ambiente); con un paisaje 3D del menú Fondo, la
+  // distancia es la del paisaje, que ve más lejos (si no, la nieve y la niebla lo lavan todo).
+  const nieblaPaisaje = !escenarioVisible && !usaImagen ? fondoDef.niebla : undefined
+  const niebla =
+    tema?.niebla && nieblaPaisaje
+      ? { ...tema.niebla, near: Math.max(tema.niebla.near, nieblaPaisaje.near), far: Math.max(tema.niebla.far, nieblaPaisaje.far) }
+      : (tema?.niebla ?? nieblaPaisaje)
 
   // Exposición del tone mapping por tema.
   const exposicion = luzTema?.exposicion ?? 1

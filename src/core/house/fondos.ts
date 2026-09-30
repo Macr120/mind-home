@@ -342,13 +342,14 @@ export function animacionesDeFondo(fondo: FondoDef, deNoche: boolean): FamiliaAn
 
 /** Fondo de cielo que corresponde a cada tema (uno por tema). */
 const FONDO_POR_TEMA: Record<TemaId, FondoId> = {
-  medieval: 'medieval_atardecer',
-  espacio: 'nebulosa',
-  terror: 'bosque_bruma',
-  barbie: 'atardecer_dorado',
-  vaquero: 'desierto',
-  cyberpunk: 'neon_ciudad',
-  navidad: 'nieve',
+  // Los temas estáticos también traen un paisaje completo alrededor de la casa.
+  medieval: 'pradera',
+  espacio: 'superficie_lunar',
+  terror: 'bosque_otonal',
+  barbie: 'playa_tropical',
+  vaquero: 'dunas',
+  cyberpunk: 'ciudad_noche',
+  navidad: 'montanas_nevadas',
   // Los temas con escenario en movimiento: el cielo acompaña al viaje.
   nave: 'espacio_profundo',
   avion: 'sobre_nubes',
