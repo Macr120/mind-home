@@ -5,6 +5,7 @@ import { confirmar } from '../../state/confirmarStore'
 import { esTemaFabrica, getTema, listaTemas, type Tema } from '../../house/temas'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
+import { IconoMarca } from '../iconos/glifosApps'
 import { EditorTemaDetalle } from './EditorTemaDetalle'
 import { MisTemas } from './MisTemas'
 import { EstiloConIA } from './EstiloConIA'
@@ -75,7 +76,7 @@ export function EditorTemaSection({ embed }: { embed?: boolean } = {}) {
         className="flex min-w-0 flex-1 items-center gap-2 px-2.5 py-2 text-sm"
         title={nombreDe(tema)}
       >
-        <span className="text-lg"><Icono emoji={tema.icon} /></span>
+        <span className="text-lg"><IconoMarca emoji={tema.icon} size="1.15em" /></span>
         <span className="truncate text-white/80">{nombreDe(tema)}</span>
       </button>
       <button

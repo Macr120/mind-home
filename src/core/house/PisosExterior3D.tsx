@@ -13,10 +13,10 @@ import { VACIO, pisosExteriorRepo } from '../data/repository'
 import { useCuartos } from '../state/cuartosStore'
 import { cellToWorld, nivelBaseY, subCeldasDeTile } from './walls'
 import { PisoCelda } from './PisoCelda'
-import { esSinPiso } from './pisos'
+import { esSinPiso, pisoDeTema } from './pisos'
 import { cuadrantesDeCelda, matDeRegistroPiso, type MatPiso } from './pisoSubcelda'
 import { PisoCuadrantes3D } from './PisoCuadrantes3D'
-import { getTema, mezclar } from './temas'
+import { baseDe as baseDeTema, getTema, mezclar } from './temas'
 import { useBlobUrlMap } from './useBlobUrlMap'
 import { useEscenarioVisible, useLimitesCasa } from './escenarios/limitesCasa'
 
@@ -182,10 +182,20 @@ export function PisosExterior3D() {
 
   if (celdas.length === 0) return null
 
+  // Tema estático: todo el piso exterior del grid toma el piso del tema (salvo las
+  // celdas con una imagen propia o marcadas «sin piso»).
+  const pisoTema = pisoDeTema(baseDeTema(temaGlobal))
+  const matTema: MatPiso | null = pisoTema
+    ? { sinPiso: false, color: pisoTema.color, roughness: pisoTema.roughness, metalness: pisoTema.metalness, pisoConf: pisoTema, pisoImagenAjuste: 'x1' }
+    : null
+  const conTema = (m: MatPiso): MatPiso => (matTema && !m.sinPiso && !m.pisoImagen ? matTema : m)
+
   const baseDe = (c: (typeof celdas)[0]): MatPiso => {
-    const m = c.baseRec
-      ? matDeRegistroPiso(c.baseRec, imagenUrls.get(`${c.key}:b`), defecto)
-      : { sinPiso: false, color: defecto, roughness: 0.85, metalness: 0, pisoConf: null, pisoImagenAjuste: 'x1' }
+    const m = conTema(
+      c.baseRec
+        ? matDeRegistroPiso(c.baseRec, imagenUrls.get(`${c.key}:b`), defecto)
+        : { sinPiso: false, color: defecto, roughness: 0.85, metalness: 0, pisoConf: null, pisoImagenAjuste: 'x1' },
+    )
     // El piso exterior es la CAPA BASE: siempre cuadrado (sin forma), para asomar entero
     // bajo las losetas con forma del piso interior.
     return { ...m, forma: undefined }
@@ -222,7 +232,7 @@ export function PisosExterior3D() {
           )
         }
         const overrides = c.quadRecs.map((q, i) =>
-          q ? matDeRegistroPiso(q, imagenUrls.get(`${c.key}:q${i}`), defecto) : null,
+          q ? conTema(matDeRegistroPiso(q, imagenUrls.get(`${c.key}:q${i}`), defecto)) : null,
         )
         return (
           <group key={`pe-${c.key}`} position={[wx, y, wz]}>

@@ -200,3 +200,11 @@ export function esSinPiso(tipo: string | null | undefined): boolean {
 
 export const getPisoTipo = (id: PisoTipoId | null) =>
   id ? PISOS.find((p) => p.id === id) ?? null : null
+
+/**
+ * Piso exterior que impone un tema estático (el de su `tema` en PISOS): adoquín en el
+ * medieval, luna en el espacio, nieve en navidad… null si el tema no trae piso propio.
+ */
+export function pisoDeTema(base: TemaId | null): PisoTipo | null {
+  return (base && PISOS.find((p) => p.tema === base)) || null
+}

@@ -292,6 +292,122 @@ const GLIFOS_EXTERIOR: Record<string, ReactNode> = {
   ),
 }
 
+// Temas de la casa, también por su emoji (el avión reusa el de Viajes).
+const GLIFOS_TEMA: Record<string, ReactNode> = {
+  // Medieval: castillo con dos torres almenadas y su puerta.
+  '🏰': (
+    <>
+      <rect x="11" y="20" width="26" height="22" rx="1" fill={M} />
+      <path d="M4 9h3v4h3V9h4v33H4z" fill={N} />
+      <path d="M34 9h4v4h3V9h3v33H34z" fill={N} />
+      <path d="M19 42v-9a5 5 0 0 1 10 0v9z" fill={R} />
+    </>
+  ),
+  // Espacio: cohete con su ventanilla y la llama.
+  '🚀': (
+    <>
+      <path d="M19 35h10l-5 10z" fill={N} />
+      <path d="M15 24l-7 9v7l8-5zM33 24l7 9v7l-8-5z" fill={R} />
+      <path d="M24 3c8 7 10 16 9 32H15c-1-16 1-25 9-32z" fill={M} />
+      <circle cx="24" cy="18" r="4.5" fill={N} />
+    </>
+  ),
+  // Terror: fantasma.
+  '🕸️': (
+    <>
+      <path d="M9 43V21a15 15 0 0 1 30 0v22l-5-4-5 4-5-4-5 4-5-4z" fill={M} />
+      <circle cx="18.5" cy="21" r="3.5" fill={N} />
+      <circle cx="29.5" cy="21" r="3.5" fill={N} />
+      <ellipse cx="24" cy="30" rx="3" ry="4" fill={R} />
+    </>
+  ),
+  // Princesas: corona con sus gemas.
+  '💖': (
+    <>
+      <path d="M6 37 4 14l11 10 9-15 9 15 11-10-2 23z" fill={N} />
+      <rect x="6" y="35" width="36" height="7" rx="2" fill={M} />
+      <circle cx="4" cy="13" r="3" fill={R} />
+      <circle cx="24" cy="8" r="3" fill={R} />
+      <circle cx="44" cy="13" r="3" fill={R} />
+    </>
+  ),
+  // Vaquero: sombrero.
+  '🤠': (
+    <>
+      <ellipse cx="24" cy="33" rx="21" ry="6.5" fill={M} />
+      <path d="M13 32c0-11 2-21 7-21 2 0 3 2 4 2s2-2 4-2c5 0 7 10 7 21z" fill={N} />
+      <rect x="13.5" y="25" width="21" height="4.5" fill={R} />
+    </>
+  ),
+  // Cyberpunk: rascacielos con su antena.
+  '🌃': (
+    <>
+      <path d="M24 9V2" stroke={TR} strokeWidth="2.5" strokeLinecap="round" />
+      <rect x="4" y="19" width="12" height="25" rx="1.5" fill={M} />
+      <rect x="32" y="24" width="12" height="20" rx="1.5" fill={N} />
+      <rect x="17" y="9" width="14" height="35" rx="1.5" fill={R} />
+    </>
+  ),
+  // Navidad: árbol con su estrella.
+  '🎄': (
+    <>
+      <rect x="20" y="38" width="8" height="7" rx="1.5" fill={R} />
+      <path d="M24 6l11 12h-5l8 10h-6l9 11H7l9-11h-6l8-10h-5z" fill={M} />
+      <circle cx="24" cy="6" r="4" fill={N} />
+    </>
+  ),
+  // Nave espacial: platillo con su cúpula y sus luces.
+  '🛸': (
+    <>
+      <path d="M13 23a11 11 0 0 1 22 0z" fill={N} />
+      <ellipse cx="24" cy="27" rx="21" ry="7.5" fill={M} />
+      <circle cx="12" cy="28" r="2.5" fill={R} />
+      <circle cx="24" cy="30" r="2.5" fill={R} />
+      <circle cx="36" cy="28" r="2.5" fill={R} />
+    </>
+  ),
+  // Apocalipsis: trébol de radiación.
+  '☢️': (
+    <>
+      <path d="M20.5 17.9 14.5 7.6a19 19 0 0 1 19 0l-6 10.3a7 7 0 0 0-7 0z" fill={R} />
+      <path d="M31 24h12a19 19 0 0 1-9.5 16.5l-6-10.4A7 7 0 0 0 31 24z" fill={M} />
+      <path d="M20.5 30.1l-6 10.4A19 19 0 0 1 5 24h12a7 7 0 0 0 3.5 6.1z" fill={N} />
+      <circle cx="24" cy="24" r="4" fill={N} />
+    </>
+  ),
+  // Tortuga gigante: caparazón, patas y cabeza.
+  '🐢': (
+    <>
+      <rect x="10" y="30" width="7" height="11" rx="3" fill={N} />
+      <rect x="28" y="30" width="7" height="11" rx="3" fill={N} />
+      <circle cx="41" cy="27" r="5" fill={N} />
+      <path d="M5 33a17 16 0 0 1 34 0z" fill={M} />
+      <path d="M17 26l3-5h7l3 5-3 5h-7z" fill={R} />
+    </>
+  ),
+  // Barco pirata: casco, velas y bandera.
+  '🏴‍☠️': (
+    <>
+      <rect x="22.5" y="4" width="3" height="29" fill={M} />
+      <path d="M25 4h9l-2.5 3.5L34 11h-9z" fill={M} />
+      <path d="M11 11h10v19H9c3-6 4-13 2-19z" fill={N} />
+      <path d="M27 14h9c-2 5-1 11 1 16H27z" fill={N} />
+      <path d="M3 32h42l-7 11H10z" fill={R} />
+    </>
+  ),
+  // Tren: locomotora de vapor.
+  '🚂': (
+    <>
+      <path d="M9 7h8l-1.5 11h-5z" fill={M} />
+      <rect x="27" y="9" width="16" height="25" rx="2" fill={M} />
+      <rect x="5" y="17" width="25" height="15" rx="5" fill={N} />
+      <circle cx="13" cy="37" r="5" fill={R} />
+      <circle cx="26" cy="37" r="5" fill={R} />
+      <circle cx="37" cy="38" r="4" fill={R} />
+    </>
+  ),
+}
+
 // Pieza del logo con su canto oscuro detrás, como en public/icon.svg.
 const pieza = (d: string, cara: string, canto: string) => (
   <>
@@ -428,7 +544,7 @@ const PALETAS: Record<EstiloIconos, CSSProperties> = {
  */
 export function IconoMarca({ glifo, emoji, nombre, size = '1.3em', estilo }: Props) {
   const estiloAjuste = useAjustes((s) => s.estiloIconos)
-  const dibujo = glifo ? GLIFOS_NOMBRE[glifo] : emoji ? (GLIFOS[emoji] ?? GLIFOS_EXTERIOR[emoji]) : undefined
+  const dibujo = glifo ? GLIFOS_NOMBRE[glifo] : emoji ? (GLIFOS[emoji] ?? GLIFOS_EXTERIOR[emoji] ?? GLIFOS_TEMA[emoji]) : undefined
   if (!dibujo) return <Icono nombre={nombre} emoji={emoji} />
   return (
     <svg
