@@ -281,6 +281,8 @@ export const marchaAvatar = { velocidad: 0, fase: 0, nadando: false }
 /** Balanceo de piernas al caminar (radianes máximos). Brazos: `MARCHA_BRAZOS`. */
 export const MARCHA_PIERNAS = 0.55
 export const MARCHA_BRAZOS = 0.44
+/** Paso corto con falda o vestido: con el paso entero los pies atraviesan la campana. */
+export const MARCHA_PIERNAS_FALDA = 0.3
 
 /**
  * Ángulo de balanceo de una extremidad en este frame: seno de la fase de

@@ -296,6 +296,39 @@ export interface AnclasRopa {
   chamarra?: { w: number; h: number; d: number; y: number }
 }
 
+/**
+ * Medidas laterales de la ropa para que no choque consigo misma al moverse.
+ * Solo afecta al cuerpo articulado (dos piernas: box-man y presets de piezas):
+ * mangas y perneras giran sobre X en hombro y cadera, así que su cara interior
+ * nunca cambia de x. Basta con que la ropa del torso no llegue a la cara
+ * interior del brazo, que cada manga crezca solo hacia fuera y que ninguna
+ * pernera cruce al lado de la otra pierna.
+ */
+export function holgurasRopa(a: AnclasRopa) {
+  const articulado = a.piernasX.length > 1
+  // Cara interior del brazo (los brazos del box-man miden 0.2 de ancho).
+  const brazoInterior = a.brazoX - 0.1
+  /** [centro x, ancho] de una pieza lateral cuya cara interior no baja de `interior`. */
+  const lateral = (x: number, w: number, interior: number): [number, number] => {
+    const fuera = Math.abs(x) + w / 2
+    const dentro = Math.max(Math.abs(x) - w / 2, interior)
+    return [Math.sign(x) * ((fuera + dentro) / 2), fuera - dentro]
+  }
+  return {
+    articulado,
+    /** Radio máximo de lo que ciñe la cadera (falda) sin tocar los brazos que cuelgan. */
+    cintura: (r: number) => (articulado ? Math.min(r, brazoInterior - 0.005) : r),
+    /** Ancho de una prenda del torso; `exterior` = la que va encima (chamarra, capa). */
+    torso: (extra: number, exterior = false) =>
+      articulado ? Math.min(a.torsoW + extra, 2 * (brazoInterior - (exterior ? 0.008 : 0.015))) : a.torsoW + extra,
+    /** [centro x, ancho] de una manga: crece solo hacia fuera del brazo. */
+    manga: (x: number, w: number, exterior = false): [number, number] =>
+      articulado ? lateral(x, w, brazoInterior - (exterior ? 0.004 : 0.002)) : [x, w],
+    /** [centro x, ancho] de una pernera, tenis o bota: no cruza al lado de la otra pierna. */
+    pernera: (x: number, w: number): [number, number] => (articulado ? lateral(x, w, 0.004) : [x, w]),
+  }
+}
+
 /** Anclas del personaje principal (box-man de `AvatarModelo`). */
 export const ANCLAS_AVATAR: AnclasRopa = {
   cabezaY: 1.52, cabezaTop: 1.72, cabezaR: 0.22, caraZ: 0.23,

@@ -130,6 +130,7 @@ export function AvatarModelo({
                 colorTorso={av.torso}
                 colorPiernas={av.piernas}
                 caminar={caminar}
+                pasoCorto={!!(av.ropa?.vestido || av.ropa?.falda)}
               />
               <Rostro anclas={anclas} expresion={av.expresion} rostro={av.rostro} boca={boca} />
               <Peinado anclas={anclas} peinado={av.peinado} color={av.peloColor} />

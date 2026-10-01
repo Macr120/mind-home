@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import type { Pieza3D } from '../chat/mascotas'
-import type { AnclasRopa, PrendaId } from './apariencia'
+import { holgurasRopa, type AnclasRopa, type PrendaId } from './apariencia'
 
 /**
  * Traduce una prenda de fábrica (la geometría de `Prendas.tsx`) a la lista de
@@ -69,6 +69,15 @@ export function hornearPrenda(id: PrendaId, a: AnclasRopa, color: string): Pieza
   const frenteZ = a.torsoD / 2
   const faldaH = a.piernaH * 1.15
   const brazos = [-a.brazoX, a.brazoX]
+  const h = holgurasRopa(a)
+  const pernera = (x: number, y: number, z: number, w: number, alto: number, fondo: number) => {
+    const [cx, ancho] = h.pernera(x, w)
+    return caja([cx, y, z], [ancho, alto, fondo], color)
+  }
+  const manga = (x: number, y: number, w: number, alto: number, fondo: number, exterior = false) => {
+    const [cx, ancho] = h.manga(x, w, exterior)
+    return caja([cx, y, 0], [ancho, alto, fondo], color)
+  }
   // Cabeza: corona, medio-ancho y cara (vello facial a la altura de la boca de `Rostro`).
   const top = a.cabezaTop
   const hw = a.cabezaR
@@ -137,14 +146,14 @@ export function hornearPrenda(id: PrendaId, a: AnclasRopa, color: string): Pieza
 
     case 'camisa':
       return [
-        caja([0, a.torsoY, 0], [a.torsoW + 0.06, a.torsoH + 0.04, a.torsoD + 0.06], color),
-        ...brazos.map((x) => caja([x, a.torsoY, 0], [0.26, a.torsoH + 0.02, a.torsoD + 0.02], color)),
+        caja([0, a.torsoY, 0], [h.torso(0.06), a.torsoH + 0.04, a.torsoD + 0.06], color),
+        ...brazos.map((x) => manga(x, a.torsoY, 0.26, a.torsoH + 0.02, a.torsoD + 0.02)),
       ]
 
     case 'playera':
       return [
-        caja([0, a.torsoY, 0], [a.torsoW + 0.06, a.torsoH + 0.04, a.torsoD + 0.06], color),
-        ...brazos.map((x) => caja([x, hombroY - 0.13, 0], [0.26, 0.3, a.torsoD + 0.02], color)),
+        caja([0, a.torsoY, 0], [h.torso(0.06), a.torsoH + 0.04, a.torsoD + 0.06], color),
+        ...brazos.map((x) => manga(x, hombroY - 0.13, 0.26, 0.3, a.torsoD + 0.02)),
       ]
 
     case 'chamarra':
@@ -153,8 +162,8 @@ export function hornearPrenda(id: PrendaId, a: AnclasRopa, color: string): Pieza
         return [caja([0, a.chamarra.y, 0], [a.chamarra.w, a.chamarra.h, a.chamarra.d], color)]
       }
       return [
-        caja([0, a.torsoY - 0.02, 0], [a.torsoW + 0.12, a.torsoH + 0.1, a.torsoD + 0.14], color),
-        ...brazos.map((x) => caja([x, a.torsoY, 0], [0.3, a.torsoH + 0.02, a.torsoD + 0.04], color)),
+        caja([0, a.torsoY - 0.02, 0], [h.torso(0.12, true), a.torsoH + 0.1, a.torsoD + 0.14], color),
+        ...brazos.map((x) => manga(x, a.torsoY + 0.01, 0.3, a.torsoH + 0.04, a.torsoD + 0.04, true)),
         caja([0, a.torsoY + a.torsoH * 0.58, 0], [a.torsoW * 0.83, 0.16, a.torsoD + 0.1], color),
       ]
 
@@ -163,14 +172,14 @@ export function hornearPrenda(id: PrendaId, a: AnclasRopa, color: string): Pieza
       return [
         caja(
           [0, a.torsoY - 0.08, -(a.torsoD / 2 + 0.04)],
-          [a.torsoW + 0.14, a.torsoH + 0.34, 0.04],
+          [h.torso(0.14, true), a.torsoH + 0.34, 0.04],
           color,
         ),
       ]
 
     case 'vestido':
       return [
-        caja([0, a.torsoY, 0], [a.torsoW + 0.06, a.torsoH + 0.04, a.torsoD + 0.06], color),
+        caja([0, a.torsoY, 0], [h.torso(0.06), a.torsoH + 0.04, a.torsoD + 0.06], color),
         // La campana original es hueca y de doble cara: horneada sale maciza.
         cilindro([0, caderaY - faldaH / 2 + 0.05, 0], [cinturaW * 0.55, cinturaW, faldaH], color),
       ]
@@ -183,36 +192,26 @@ export function hornearPrenda(id: PrendaId, a: AnclasRopa, color: string): Pieza
 
     case 'pantalon':
       return [
-        ...a.piernasX.map((x) => caja([x, a.piernasY, 0], [a.piernaW, a.piernaH, a.piernaD], color)),
+        ...a.piernasX.map((x) => pernera(x, a.piernasY, 0, a.piernaW, a.piernaH, a.piernaD)),
         caja([0, a.piernasY + a.piernaH * 0.5, 0], [cinturaW, 0.2, a.piernaD + 0.02], color),
       ]
 
     case 'shorts':
       return [
         ...a.piernasX.map((x) =>
-          caja(
-            [x, a.piernasY + a.piernaH * 0.25, 0],
-            [a.piernaW + 0.04, a.piernaH * 0.5, a.piernaD + 0.04],
-            color,
-          ),
+          pernera(x, a.piernasY + a.piernaH * 0.25, 0, a.piernaW + 0.04, a.piernaH * 0.5, a.piernaD + 0.04),
         ),
         caja([0, caderaY, 0], [cinturaW, 0.2, a.piernaD + 0.02], color),
       ]
 
     case 'botas':
       return a.piernasX.flatMap((x) => [
-        caja(
-          [x, a.piesY + a.piernaH * 0.22, 0],
-          [a.piernaW + 0.05, a.piernaH * 0.5, a.piernaD + 0.05],
-          color,
-        ),
-        caja([x, a.piesY, 0.05], [a.piernaW + 0.05, 0.18, a.piernaD * 1.3], color),
+        pernera(x, a.piesY + a.piernaH * 0.22, 0, a.piernaW + 0.05, a.piernaH * 0.5, a.piernaD + 0.05),
+        pernera(x, a.piesY, 0.05, a.piernaW + 0.05, 0.18, a.piernaD * 1.3),
       ])
 
     case 'tenis':
-      return a.piernasX.map((x) =>
-        caja([x, a.piesY, 0.04], [a.piernaW + 0.03, 0.2, a.piernaD * 1.25 + 0.03], color),
-      )
+      return a.piernasX.map((x) => pernera(x, a.piesY, 0.04, a.piernaW + 0.03, 0.2, a.piernaD * 1.25 + 0.03))
 
     case 'guantes':
       return brazos.map((x) =>

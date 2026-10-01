@@ -10,6 +10,7 @@ import {
   marchaAvatar,
   MARCHA_BRAZOS,
   MARCHA_PIERNAS,
+  MARCHA_PIERNAS_FALDA,
   type EstadoMarcha,
 } from './animacion'
 import { monturaFrame, anguloPiernaMontada, ANGULO_BRAZO_MONTADO } from '../state/monturaStore'
@@ -33,6 +34,7 @@ import { poseBateo } from '../state/juegoCanchaStore'
  * cuerda/nado del mapa) y un asistente con el preset "Base" (`Asistente3D`, sin
  * esos sistemas — `esJugador=false`). Con `caminar`, brazos y piernas se
  * balancean según `marchaEstado` (por defecto la marcha del jugador).
+ * `pasoCorto` (falda o vestido): las piernas se abren menos al caminar.
  */
 export function CuerpoBase({
   colorCabeza,
@@ -41,6 +43,7 @@ export function CuerpoBase({
   caminar = false,
   marchaEstado = marchaAvatar,
   esJugador = true,
+  pasoCorto = false,
 }: {
   colorCabeza: string
   colorTorso: string
@@ -48,6 +51,7 @@ export function CuerpoBase({
   caminar?: boolean
   marchaEstado?: EstadoMarcha
   esJugador?: boolean
+  pasoCorto?: boolean
 }) {
   const piernaI = useRef<THREE.Group>(null)
   const piernaD = useRef<THREE.Group>(null)
@@ -130,7 +134,7 @@ export function CuerpoBase({
         return
       }
     }
-    const p = anguloMarcha(MARCHA_PIERNAS, marchaEstado)
+    const p = anguloMarcha(pasoCorto ? MARCHA_PIERNAS_FALDA : MARCHA_PIERNAS, marchaEstado)
     const b = anguloMarcha(MARCHA_BRAZOS, marchaEstado)
     if (piernaI.current) piernaI.current.rotation.x = p
     if (piernaD.current) piernaD.current.rotation.x = -p

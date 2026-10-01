@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { MatStd } from './primitivas'
 import type { Ropa, AnclasRopa, PrendaId } from './apariencia'
-import { PRENDA_COLOR_DEFAULT, colocacionTatuaje, pivoteParte, puntoTatuajePropio, type PuntoTatuaje } from './apariencia'
+import { PRENDA_COLOR_DEFAULT, colocacionTatuaje, holgurasRopa, pivoteParte, puntoTatuajePropio, type PuntoTatuaje } from './apariencia'
 import type { TatuajePuesto } from '../state/disenoStore'
 import { hornearPrenda, PRENDAS_DE_PIEZAS } from './hornearPrenda'
 import { ModeloPiezas } from './modeloPersonalizado'
@@ -14,6 +14,7 @@ import {
   marchaAvatar,
   MARCHA_BRAZOS,
   MARCHA_PIERNAS,
+  MARCHA_PIERNAS_FALDA,
   type EstadoMarcha,
 } from './animacion'
 import { monturaFrame, anguloPiernaMontada, ANGULO_BRAZO_MONTADO } from '../state/monturaStore'
@@ -31,11 +32,62 @@ import {
 import { poseBateo } from '../state/juegoCanchaStore'
 
 /**
+ * Ángulo de una extremidad en este frame: la misma fórmula que los brazos y
+ * piernas del avatar (leen el mismo `marchaAvatar`), así la ropa acompaña el
+ * paso sin compartir refs. Montado en un vehículo adopta la misma pose
+ * sentada/pedaleo que el cuerpo.
+ */
+function anguloExtremidad(
+  extremidad: 'pierna' | 'brazo',
+  x: number,
+  factor: number,
+  signo: 1 | -1,
+  marchaEstado: EstadoMarcha,
+  esJugador: boolean,
+): number {
+  if (esJugador) {
+    const bateo = poseBateo()
+    // Bateando: las mangas siguen a los brazos (x<0 es el brazo del bate).
+    if (bateo) return extremidad === 'pierna' ? 0 : bateo.brazo * (x < 0 ? 1 : 0.82)
+    if (monturaFrame.montado) {
+      // Piernas sentadas; las mangas bailan si el baile está activo.
+      return extremidad === 'pierna'
+        ? anguloPiernaMontada(signo)
+        : accionFrame.bailando
+          ? anguloBrazoBaile(-signo as 1 | -1)
+          : ANGULO_BRAZO_MONTADO
+    }
+    // Sentado en la dona: misma pose que el cuerpo (piernas al frente, brazos al aro).
+    if (flotadorFrame.sentado) return extremidad === 'pierna' ? ANGULO_PIERNA_FLOTADOR : ANGULO_BRAZO_FLOTADOR
+    // Sentado/colgado en un juego de parque: misma pose que el cuerpo.
+    if (parqueFrame.usando && parqueFrame.pose !== 'de-pie')
+      return extremidad === 'pierna' ? anguloPiernaParque(signo) : anguloBrazoParque()
+    // Usando un objeto del cuarto: misma pose de acción que el cuerpo.
+    if (accionCuartoFrame.usando && accionCuartoFrame.pose !== 'caminar')
+      return extremidad === 'pierna' ? anguloPiernaAccion() : anguloBrazoAccion(-signo as 1 | -1)
+    if (accionFrame.cuerda) return extremidad === 'brazo' ? ANGULO_BRAZO_CUERDA : 0
+    // El signo de brazo en Prendas es inverso al del cuerpo (ver signoBrazo).
+    if (accionFrame.bailando)
+      return extremidad === 'pierna' ? anguloPiernaBaile(signo) : anguloBrazoBaile(-signo as 1 | -1)
+    // Nadando: misma brazada/patada que el cuerpo (x<0 = lado izquierdo, como en CuerpoCubos).
+    if (marchaAvatar.nadando) return extremidad === 'pierna' ? anguloPiernaNado(x < 0) : anguloBrazoNado(x < 0)
+  }
+  let angulo = anguloMarcha(factor, marchaEstado) * signo
+  // Saludo: la manga sigue al brazo de esa mano. Solo el jugador. La mano
+  // derecha del avatar (mira a +Z) es la del lado x < 0.
+  if (esJugador && extremidad === 'brazo') {
+    const s = anguloSaludo(performance.now(), x < 0)
+    if (s !== null) angulo = s
+    // Cargando algo con las dos manos: pisa el saludo, igual que en CuerpoBase.
+    if (accionFrame.cargando) angulo = ANGULO_BRAZO_CARGAR
+  }
+  return angulo
+}
+
+/**
  * Pivote de marcha para prendas de extremidades (pantalón/tenis/mangas): gira
- * con la misma fórmula que los brazos/piernas del avatar (leen el mismo
- * `marchaAvatar`), así la ropa acompaña el paso sin compartir refs. Montado en
- * un vehículo adopta la misma pose sentada/pedaleo que el cuerpo. Sin
- * `activo` el grupo queda quieto (los offsets de los hijos compensan el pivote).
+ * con `anguloExtremidad`. Sin `activo` el grupo queda quieto (los offsets de
+ * los hijos compensan el pivote).
  */
 function PivoteMarcha({
   activo,
@@ -60,72 +112,103 @@ function PivoteMarcha({
 }) {
   const g = useRef<THREE.Group>(null)
   useFrame(() => {
-    if (!activo || !g.current) return
-    if (esJugador) {
-      const bateo = poseBateo()
-      if (bateo) {
-        // Bateando: las mangas siguen a los brazos (x<0 es el brazo del bate).
-        g.current.rotation.x = extremidad === 'pierna' ? 0 : bateo.brazo * (x < 0 ? 1 : 0.82)
-        return
-      }
-      if (monturaFrame.montado) {
-        // Piernas sentadas; las mangas bailan si el baile está activo.
-        g.current.rotation.x =
-          extremidad === 'pierna'
-            ? anguloPiernaMontada(signo)
-            : accionFrame.bailando
-              ? anguloBrazoBaile(-signo as 1 | -1)
-              : ANGULO_BRAZO_MONTADO
-        return
-      }
-      if (flotadorFrame.sentado) {
-        // Sentado en la dona: misma pose que el cuerpo (piernas al frente, brazos al aro).
-        g.current.rotation.x =
-          extremidad === 'pierna' ? ANGULO_PIERNA_FLOTADOR : ANGULO_BRAZO_FLOTADOR
-        return
-      }
-      if (parqueFrame.usando && parqueFrame.pose !== 'de-pie') {
-        // Sentado/colgado en un juego de parque: misma pose que el cuerpo.
-        g.current.rotation.x = extremidad === 'pierna' ? anguloPiernaParque(signo) : anguloBrazoParque()
-        return
-      }
-      if (accionCuartoFrame.usando && accionCuartoFrame.pose !== 'caminar') {
-        // Usando un objeto del cuarto: misma pose de acción que el cuerpo.
-        g.current.rotation.x =
-          extremidad === 'pierna' ? anguloPiernaAccion() : anguloBrazoAccion(-signo as 1 | -1)
-        return
-      }
-      if (accionFrame.cuerda) {
-        g.current.rotation.x = extremidad === 'brazo' ? ANGULO_BRAZO_CUERDA : 0
-        return
-      }
-      if (accionFrame.bailando) {
-        // El signo de brazo en Prendas es inverso al del cuerpo (ver signoBrazo).
-        g.current.rotation.x =
-          extremidad === 'pierna' ? anguloPiernaBaile(signo) : anguloBrazoBaile(-signo as 1 | -1)
-        return
-      }
-      if (marchaAvatar.nadando) {
-        // Nadando: misma brazada/patada que el cuerpo (x<0 = lado izquierdo, como en CuerpoCubos).
-        g.current.rotation.x = extremidad === 'pierna' ? anguloPiernaNado(x < 0) : anguloBrazoNado(x < 0)
-        return
-      }
-    }
-    g.current.rotation.x = anguloMarcha(factor, marchaEstado) * signo
-    // Saludo: la manga sigue al brazo de esa mano. Solo el jugador. La mano
-    // derecha del avatar (mira a +Z) es la del lado x < 0.
-    if (esJugador && extremidad === 'brazo') {
-      const s = anguloSaludo(performance.now(), x < 0)
-      if (s !== null) g.current.rotation.x = s
-      // Cargando algo con las dos manos: pisa el saludo, igual que en CuerpoBase.
-      if (accionFrame.cargando) g.current.rotation.x = ANGULO_BRAZO_CARGAR
-    }
+    if (activo && g.current) g.current.rotation.x = anguloExtremidad(extremidad, x, factor, signo, marchaEstado, esJugador)
   })
   return (
     // El nombre deja a la vista previa saber qué extremidad tocó el usuario (tatuajes).
     <group ref={g} name={`${extremidad}${x < 0 ? 'Der' : 'Izq'}`} position={[x, pivotY, 0]}>
       {children}
     </group>
+  )
+}
+
+/**
+ * Capa colgada de los hombros: al caminar se abre hacia atrás tanto como la
+ * pierna que más se va atrás, así las piernas no la atraviesan.
+ */
+function PivoteCapa({
+  activo,
+  y,
+  z,
+  factor,
+  marchaEstado,
+  esJugador,
+  children,
+}: {
+  activo: boolean
+  y: number
+  z: number
+  factor: number
+  marchaEstado: EstadoMarcha
+  esJugador: boolean
+  children: React.ReactNode
+}) {
+  const g = useRef<THREE.Group>(null)
+  useFrame(() => {
+    if (!activo || !g.current) return
+    // Ángulo positivo = el pie hacia atrás (−Z); las piernas van opuestas entre sí.
+    const atras = Math.max(
+      0,
+      anguloExtremidad('pierna', -1, factor, 1, marchaEstado, esJugador),
+      anguloExtremidad('pierna', 1, factor, -1, marchaEstado, esJugador),
+    )
+    g.current.rotation.x = THREE.MathUtils.lerp(g.current.rotation.x, atras * 0.6, 0.3)
+  })
+  return (
+    <group ref={g} position={[0, y, z]}>
+      {children}
+    </group>
+  )
+}
+
+/** Silueta de la campana ceñida: fracción del vuelo (0 = cintura, 1 = borde) por fracción del alto. */
+const PERFIL_CAMPANA: [number, number][] = [
+  [0, 0],
+  [0.1, 0.06],
+  [0.26, 0.14],
+  [0.42, 0.3],
+  [0.6, 0.75],
+  [0.8, 0.92],
+  [1, 1],
+]
+
+/**
+ * Falda acampanada (hueca, de doble cara). Con `ceñida` (cuerpo articulado)
+ * es una campana: ceñida a ese radio a la altura de las manos, para que los
+ * brazos no la atraviesen al balancearse, y con más vuelo abajo, para que los
+ * pies no asomen por el borde al dar el paso.
+ */
+function Campana({
+  y,
+  alto,
+  rArriba,
+  rAbajo,
+  ceñida,
+  color,
+}: {
+  y: number
+  alto: number
+  rArriba: number
+  rAbajo: number
+  ceñida?: number
+  color: string
+}) {
+  const perfil = useMemo(() => {
+    if (ceñida === undefined) return null
+    const vuelo = rAbajo * 1.12
+    return [...PERFIL_CAMPANA]
+      .reverse()
+      .map(([t, f]) => new THREE.Vector2(ceñida + (vuelo - ceñida) * f, alto / 2 - t * alto))
+  }, [ceñida, rAbajo, alto])
+  return (
+    <mesh position={[0, y, 0]} castShadow>
+      {perfil ? (
+        <latheGeometry args={[perfil, 20]} />
+      ) : (
+        <cylinderGeometry args={[rArriba, rAbajo, alto, 20, 1, true]} />
+      )}
+      <MatStd acabado="mueble.tela" color={color} side={THREE.DoubleSide} />
+    </mesh>
   )
 }
 
@@ -311,6 +394,27 @@ export function Prendas({
   const faldaH = a.piernaH * 1.15 // largo de falda/vestido (cae por las piernas)
   const signoPierna = (x: number): 1 | -1 => (x < 0 ? 1 : -1)
   const signoBrazo = (x: number): 1 | -1 => (x < 0 ? -1 : 1)
+  // Con falda o vestido el paso es corto (igual que en CuerpoBase).
+  const factorPierna = ropa.vestido || ropa.falda ? MARCHA_PIERNAS_FALDA : MARCHA_PIERNAS
+  // Anchos que no chocan al moverse: mangas fuera del torso, perneras sin cruzarse.
+  const h = holgurasRopa(a)
+  // x de una manga/pernera relativa a su pivote (el giro sobre X no cambia la x).
+  const dx = (x: number, [cx]: [number, number]) => cx - x
+  // Fondo de la prenda de torso más externa: la mochila va pegada a ella y la
+  // capa por detrás de las dos (si no, se meten una en otra).
+  const espaldaZ =
+    ropa.chamarra && !a.chamarra
+      ? (a.torsoD + 0.14) / 2
+      : ropa.playera || ropa.camisa || ropa.vestido
+        ? (a.torsoD + 0.06) / 2
+        : a.torsoD / 2
+  const capaZ = espaldaZ + (ropa.mochila ? 0.27 : 0.04)
+  // La capa cuelga de los hombros hasta las rodillas; en el box-man, sin meterse en la nuca.
+  const capaAbajo = a.torsoY - 0.08 - (a.torsoH + 0.34) / 2
+  const capaArriba = Math.min(
+    a.torsoY - 0.08 + (a.torsoH + 0.34) / 2,
+    a.piernasX.length > 1 ? a.cabezaTop - 2 * a.cabezaR - 0.01 : Infinity,
+  )
   // Tatuajes: en el cuerpo van directo; en brazos/piernas, dentro del pivote de su extremidad.
   const capas = Object.keys(ropa).sort().join()
   // De fábrica (dibujo teñido con la tinta) y propios (su imagen), con la misma colocación.
@@ -341,7 +445,7 @@ export function Prendas({
         esJugador={esJugador}
         x={x}
         pivotY={pivotY}
-        factor={brazo ? MARCHA_BRAZOS : MARCHA_PIERNAS}
+        factor={brazo ? MARCHA_BRAZOS : factorPierna}
         signo={brazo ? signoBrazo(x) : signoPierna(x)}
         extremidad={brazo ? 'brazo' : 'pierna'}
       >
@@ -365,10 +469,10 @@ export function Prendas({
       {/* Tenis: sobre los pies de cada pierna */}
       {ropa.tenis &&
         a.piernasX.map((x, i) => (
-          <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={caderaY} factor={MARCHA_PIERNAS} signo={signoPierna(x)} extremidad="pierna">
-            <mesh position={[0, a.piesY - caderaY, 0.04]} castShadow>
+          <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador} x={x} pivotY={caderaY} factor={factorPierna} signo={signoPierna(x)} extremidad="pierna">
+            <mesh position={[dx(x, h.pernera(x, a.piernaW + 0.03)), a.piesY - caderaY, 0.04]} castShadow>
               {/* Algo más anchos que la pernera: con caras al mismo plano parpadeaban. */}
-              <boxGeometry args={[a.piernaW + 0.03, 0.2, a.piernaD * 1.25 + 0.03]} />
+              <boxGeometry args={[h.pernera(x, a.piernaW + 0.03)[1], 0.2, a.piernaD * 1.25 + 0.03]} />
               <MatStd acabado="mueble.tela" color={color('tenis')} />
             </mesh>
           </PivoteMarcha>
@@ -378,9 +482,9 @@ export function Prendas({
       {ropa.pantalon && (
         <>
           {a.piernasX.map((x, i) => (
-            <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={caderaY} factor={MARCHA_PIERNAS} signo={signoPierna(x)} extremidad="pierna">
-              <mesh position={[0, a.piernasY - caderaY, 0]} castShadow>
-                <boxGeometry args={[a.piernaW, a.piernaH, a.piernaD]} />
+            <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador} x={x} pivotY={caderaY} factor={factorPierna} signo={signoPierna(x)} extremidad="pierna">
+              <mesh position={[dx(x, h.pernera(x, a.piernaW)), a.piernasY - caderaY, 0]} castShadow>
+                <boxGeometry args={[h.pernera(x, a.piernaW)[1], a.piernaH, a.piernaD]} />
                 <MatStd acabado="mueble.tela" color={color('pantalon')} />
               </mesh>
             </PivoteMarcha>
@@ -396,15 +500,15 @@ export function Prendas({
       {ropa.playera && (
         <>
           <mesh position={[0, a.torsoY, 0]} castShadow>
-            <boxGeometry args={[a.torsoW + 0.06, a.torsoH + 0.04, a.torsoD + 0.06]} />
+            <boxGeometry args={[h.torso(0.06), a.torsoH + 0.04, a.torsoD + 0.06]} />
             <MatStd acabado="mueble.tela" color={color('playera')} />
           </mesh>
           {[-a.brazoX, a.brazoX].map((x, i) => (
-            <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={hombroY} factor={MARCHA_BRAZOS} signo={signoBrazo(x)} extremidad="brazo">
+            <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador} x={x} pivotY={hombroY} factor={MARCHA_BRAZOS} signo={signoBrazo(x)} extremidad="brazo">
               {/* Manga pegada al hombro (pivote): si queda por debajo, asoma un
                   hueco de piel entre la manga y el torso. */}
-              <mesh position={[0, 0.02 - 0.15, 0]} castShadow>
-                <boxGeometry args={[0.26, 0.3, a.torsoD + 0.02]} />
+              <mesh position={[dx(x, h.manga(x, 0.26)), 0.02 - 0.15, 0]} castShadow>
+                <boxGeometry args={[h.manga(x, 0.26)[1], 0.3, a.torsoD + 0.02]} />
                 <MatStd acabado="mueble.tela" color={color('playera')} />
               </mesh>
             </PivoteMarcha>
@@ -423,13 +527,13 @@ export function Prendas({
         ) : (
           <>
             <mesh position={[0, a.torsoY - 0.02, 0]} castShadow>
-              <boxGeometry args={[a.torsoW + 0.12, a.torsoH + 0.1, a.torsoD + 0.14]} />
+              <boxGeometry args={[h.torso(0.12, true), a.torsoH + 0.1, a.torsoD + 0.14]} />
               <MatStd acabado="mueble.tela" color={color('chamarra')} />
             </mesh>
             {[-a.brazoX, a.brazoX].map((x, i) => (
-              <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={hombroY} factor={MARCHA_BRAZOS} signo={signoBrazo(x)} extremidad="brazo">
-                <mesh position={[0, a.torsoY - hombroY, 0]} castShadow>
-                  <boxGeometry args={[0.3, a.torsoH + 0.02, a.torsoD + 0.04]} />
+              <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador} x={x} pivotY={hombroY} factor={MARCHA_BRAZOS} signo={signoBrazo(x)} extremidad="brazo">
+                <mesh position={[dx(x, h.manga(x, 0.3, true)), a.torsoY + 0.01 - hombroY, 0]} castShadow>
+                  <boxGeometry args={[h.manga(x, 0.3, true)[1], a.torsoH + 0.04, a.torsoD + 0.04]} />
                   <MatStd acabado="mueble.tela" color={color('chamarra')} />
                 </mesh>
               </PivoteMarcha>
@@ -531,13 +635,13 @@ export function Prendas({
       {ropa.camisa && (
         <>
           <mesh position={[0, a.torsoY, 0]} castShadow>
-            <boxGeometry args={[a.torsoW + 0.06, a.torsoH + 0.04, a.torsoD + 0.06]} />
+            <boxGeometry args={[h.torso(0.06), a.torsoH + 0.04, a.torsoD + 0.06]} />
             <MatStd acabado="mueble.tela" color={color('camisa')} />
           </mesh>
           {[-a.brazoX, a.brazoX].map((x, i) => (
-            <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={hombroY} factor={MARCHA_BRAZOS} signo={signoBrazo(x)} extremidad="brazo">
-              <mesh position={[0, a.torsoY - hombroY, 0]} castShadow>
-                <boxGeometry args={[0.26, a.torsoH + 0.02, a.torsoD + 0.02]} />
+            <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador} x={x} pivotY={hombroY} factor={MARCHA_BRAZOS} signo={signoBrazo(x)} extremidad="brazo">
+              <mesh position={[dx(x, h.manga(x, 0.26)), a.torsoY - hombroY, 0]} castShadow>
+                <boxGeometry args={[h.manga(x, 0.26)[1], a.torsoH + 0.02, a.torsoD + 0.02]} />
                 <MatStd acabado="mueble.tela" color={color('camisa')} />
               </mesh>
             </PivoteMarcha>
@@ -545,25 +649,32 @@ export function Prendas({
         </>
       )}
 
-      {/* Capa: manto por detrás del torso, de los hombros a las rodillas */}
+      {/* Capa: manto por detrás del torso, de los hombros a las rodillas; cuelga
+          de su borde de arriba y se abre hacia atrás al caminar */}
       {ropa.capa && (
-        <mesh position={[0, a.torsoY - 0.08, -(a.torsoD / 2 + 0.04)]} castShadow>
-          <boxGeometry args={[a.torsoW + 0.14, a.torsoH + 0.34, 0.04]} />
-          <MatStd acabado="mueble.tela" color={color('capa')} side={THREE.DoubleSide} />
-        </mesh>
+        <PivoteCapa
+          activo={marcha}
+          y={capaArriba}
+          z={-capaZ}
+          factor={factorPierna}
+          marchaEstado={marchaEstado}
+          esJugador={esJugador}
+        >
+          <mesh position={[0, -(capaArriba - capaAbajo) / 2, 0]} castShadow>
+            <boxGeometry args={[h.torso(0.14, true), capaArriba - capaAbajo, 0.04]} />
+            <MatStd acabado="mueble.tela" color={color('capa')} side={THREE.DoubleSide} />
+          </mesh>
+        </PivoteCapa>
       )}
 
       {/* Vestido: torso + falda acampanada */}
       {ropa.vestido && (
         <>
           <mesh position={[0, a.torsoY, 0]} castShadow>
-            <boxGeometry args={[a.torsoW + 0.06, a.torsoH + 0.04, a.torsoD + 0.06]} />
+            <boxGeometry args={[h.torso(0.06), a.torsoH + 0.04, a.torsoD + 0.06]} />
             <MatStd acabado="mueble.tela" color={color('vestido')} />
           </mesh>
-          <mesh position={[0, caderaY - faldaH / 2 + 0.05, 0]} castShadow>
-            <cylinderGeometry args={[cinturaW * 0.55, cinturaW, faldaH, 20, 1, true]} />
-            <MatStd acabado="mueble.tela" color={color('vestido')} side={THREE.DoubleSide} />
-          </mesh>
+          <Campana y={caderaY - faldaH / 2 + 0.05} alto={faldaH} rArriba={cinturaW * 0.55} rAbajo={cinturaW} ceñida={h.articulado ? h.cintura(cinturaW * 0.55) : undefined} color={color('vestido')} />
         </>
       )}
 
@@ -571,13 +682,10 @@ export function Prendas({
       {ropa.falda && (
         <>
           <mesh position={[0, caderaY, 0]} castShadow>
-            <cylinderGeometry args={[cinturaW * 0.5, cinturaW * 0.5, 0.14, 20]} />
+            <cylinderGeometry args={[h.cintura(cinturaW * 0.5), h.cintura(cinturaW * 0.5), 0.14, 20]} />
             <MatStd acabado="mueble.tela" color={color('falda')} />
           </mesh>
-          <mesh position={[0, caderaY - faldaH / 2 + 0.02, 0]} castShadow>
-            <cylinderGeometry args={[cinturaW * 0.52, cinturaW, faldaH, 20, 1, true]} />
-            <MatStd acabado="mueble.tela" color={color('falda')} side={THREE.DoubleSide} />
-          </mesh>
+          <Campana y={caderaY - faldaH / 2 + 0.02} alto={faldaH} rArriba={cinturaW * 0.52} rAbajo={cinturaW} ceñida={h.articulado ? h.cintura(cinturaW * 0.52) : undefined} color={color('falda')} />
         </>
       )}
 
@@ -585,9 +693,9 @@ export function Prendas({
       {ropa.shorts && (
         <>
           {a.piernasX.map((x, i) => (
-            <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={caderaY} factor={MARCHA_PIERNAS} signo={signoPierna(x)} extremidad="pierna">
-              <mesh position={[0, a.piernasY + a.piernaH * 0.25 - caderaY, 0]} castShadow>
-                <boxGeometry args={[a.piernaW + 0.04, a.piernaH * 0.5, a.piernaD + 0.04]} />
+            <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador} x={x} pivotY={caderaY} factor={factorPierna} signo={signoPierna(x)} extremidad="pierna">
+              <mesh position={[dx(x, h.pernera(x, a.piernaW + 0.04)), a.piernasY + a.piernaH * 0.25 - caderaY, 0]} castShadow>
+                <boxGeometry args={[h.pernera(x, a.piernaW + 0.04)[1], a.piernaH * 0.5, a.piernaD + 0.04]} />
                 <MatStd acabado="mueble.tela" color={color('shorts')} />
               </mesh>
             </PivoteMarcha>
@@ -602,13 +710,13 @@ export function Prendas({
       {/* Botas: caña sobre la pierna + suela en el pie */}
       {ropa.botas &&
         a.piernasX.map((x, i) => (
-          <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={caderaY} factor={MARCHA_PIERNAS} signo={signoPierna(x)} extremidad="pierna">
-            <mesh position={[0, a.piesY + a.piernaH * 0.22 - caderaY, 0]} castShadow>
-              <boxGeometry args={[a.piernaW + 0.05, a.piernaH * 0.5, a.piernaD + 0.05]} />
+          <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador} x={x} pivotY={caderaY} factor={factorPierna} signo={signoPierna(x)} extremidad="pierna">
+            <mesh position={[dx(x, h.pernera(x, a.piernaW + 0.05)), a.piesY + a.piernaH * 0.22 - caderaY, 0]} castShadow>
+              <boxGeometry args={[h.pernera(x, a.piernaW + 0.05)[1], a.piernaH * 0.5, a.piernaD + 0.05]} />
               <MatStd acabado="mueble.cuero" color={color('botas')} />
             </mesh>
-            <mesh position={[0, a.piesY - caderaY, 0.05]} castShadow>
-              <boxGeometry args={[a.piernaW + 0.05, 0.18, a.piernaD * 1.3]} />
+            <mesh position={[dx(x, h.pernera(x, a.piernaW + 0.05)), a.piesY - caderaY, 0.05]} castShadow>
+              <boxGeometry args={[h.pernera(x, a.piernaW + 0.05)[1], 0.18, a.piernaD * 1.3]} />
               <MatStd acabado="mueble.cuero" color={color('botas')} />
             </mesh>
           </PivoteMarcha>
@@ -617,7 +725,7 @@ export function Prendas({
       {/* Guantes: en las manos, al final de cada brazo */}
       {ropa.guantes &&
         [-a.brazoX, a.brazoX].map((x, i) => (
-          <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={hombroY} factor={MARCHA_BRAZOS} signo={signoBrazo(x)} extremidad="brazo">
+          <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador} x={x} pivotY={hombroY} factor={MARCHA_BRAZOS} signo={signoBrazo(x)} extremidad="brazo">
             <mesh position={[0, -(a.torsoH * 0.95 + 0.05), 0]} castShadow>
               <boxGeometry args={[0.16, 0.16, a.torsoD + 0.02]} />
               <MatStd acabado="mueble.cuero" color={color('guantes')} />
@@ -628,12 +736,13 @@ export function Prendas({
       {/* Mochila: bulto por detrás del torso + tirantes al frente */}
       {ropa.mochila && (
         <>
-          <mesh position={[0, a.torsoY + 0.02, -(a.torsoD / 2 + 0.12)]} castShadow>
+          <mesh position={[0, a.torsoY + 0.02, -(espaldaZ + 0.12)]} castShadow>
             <boxGeometry args={[a.torsoW * 0.8, a.torsoH * 0.85, 0.22]} />
             <MatStd acabado="mueble.tela" color={color('mochila')} />
           </mesh>
+          {/* Tirantes sobre la prenda más externa (por debajo quedaban tapados) */}
           {[-a.torsoW * 0.28, a.torsoW * 0.28].map((x, i) => (
-            <mesh key={i} position={[x, a.torsoY + 0.05, frenteZ]} castShadow>
+            <mesh key={i} position={[x, a.torsoY + 0.05, espaldaZ]} castShadow>
               <boxGeometry args={[0.07, a.torsoH * 0.8, 0.05]} />
               <MatStd acabado="mueble.tela" color={color('mochila')} />
             </mesh>
