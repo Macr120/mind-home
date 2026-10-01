@@ -69,7 +69,7 @@ export interface Tema {
    * interfaz, fondo y techo sugeridos (null = los neutros de «sin tema»).
    */
   base?: TemaId | null
-  /** Solo temas del usuario: efectos con los que nació (p. ej. los que eligió la IA). */
+  /** Efectos con los que nace el tema (los de la IA en los del usuario; el pixelado suave del vaquero). */
   efectosConfig?: EfectosConfig
   /** Escenario en movimiento (sin él, la casa está quieta sobre su piso). */
   escenario?: EscenarioId
@@ -208,6 +208,8 @@ export const TEMAS: (Tema & { id: TemaId })[] = [
     emissiveIntensity: 0,
     fondo: '#1c130b',
     estilo: 'retro',
+    // Pixelado apenas insinuado: el retro de fábrica (35 %) emborronaba la casa.
+    efectosConfig: { pixelado: { on: true, val: 0.05 } },
     shell: { muroInt: '#b59169', muroExt: '#a07c4c', piso: '#8a5a30', techo: '#6b4a28' },
     luz: { sol: '#ffc98a', fuerzaSol: 0.45, ambiente: '#f0d0a8', focos: '#ffb066', ibl: 0.2 },
     niebla: { color: '#c9a67a', near: 38, far: 100 },

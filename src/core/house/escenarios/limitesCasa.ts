@@ -58,9 +58,10 @@ export function useEscenarioVisible(): EscenarioId | null {
   const tema = useTemaActivo()
   const editMode = useLayout((s) => s.editMode)
   const previa = useEditorUi((s) => s.previaEscenario)
-  // Sin tema dinámico, un fondo «en movimiento» del menú Fondo pone el vehículo.
+  // Un fondo «en movimiento» del menú Fondo manda sobre el vehículo del tema dinámico
+  // (es el fondo que eligió el usuario); si no hay, el del tema.
   const viaje = useDiseño((s) => (s.fondoImagenActivo == null ? getFondo(s.fondoId).viaje : undefined))
-  const escenario = tema?.escenario ?? viaje ?? null
+  const escenario = viaje ?? tema?.escenario ?? null
   return escenario && (!editMode || previa) ? escenario : null
 }
 
