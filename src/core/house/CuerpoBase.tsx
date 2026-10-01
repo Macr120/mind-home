@@ -185,19 +185,19 @@ export function CuerpoBase({
       <group ref={brazoI} name="brazoDer" position={[-0.42, 1.22, 0]}>
         <mesh position={[0, -0.3, 0]} castShadow>
           <boxGeometry args={[0.2, 0.6, 0.26]} />
-          <MatStd acabado="cuerpo.piel" color={colorCabeza} />
+          <MatStd color={colorCabeza} />
         </mesh>
       </group>
       <group ref={brazoD} name="brazoIzq" position={[0.42, 1.22, 0]}>
         <mesh position={[0, -0.3, 0]} castShadow>
           <boxGeometry args={[0.2, 0.6, 0.26]} />
-          <MatStd acabado="cuerpo.piel" color={colorCabeza} />
+          <MatStd color={colorCabeza} />
         </mesh>
       </group>
       {/* cabeza */}
       <mesh position={[0, 1.5, 0]} castShadow>
         <boxGeometry args={[0.44, 0.44, 0.44]} />
-        <MatStd acabado="cuerpo.piel" color={colorCabeza} />
+        <MatStd color={colorCabeza} />
       </mesh>
     </>
   )

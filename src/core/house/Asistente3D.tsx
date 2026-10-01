@@ -700,7 +700,7 @@ function Mago({ brazoRef, color }: PropsModelo) {
       {/* Cabeza */}
       <mesh position={[0, 1.12, 0]} castShadow>
         <sphereGeometry args={[0.24, 16, 16]} />
-        <MatStd acabado="cuerpo.piel" color={PIEL} />
+        <MatStd color={PIEL} />
       </mesh>
       {/* Barba */}
       <mesh position={[0, 0.92, 0.12]}>
