@@ -258,8 +258,9 @@ function TarjetaAnecdota({
     <article className="rounded-xl bg-white/5 p-4 border border-white/10">
       <header className="flex items-center gap-2">
         <span className="text-xl"><Icono emoji={a.animo} /></span>
-        <h3 className="font-bold">{a.titulo}</h3>
-        <span className="ms-auto text-xs text-white/40">{a.fecha}</span>
+        <h3 className="min-w-0 break-words font-bold">{a.titulo}</h3>
+        {/* Con un título largo la fecha se partía en dos renglones («2026-09-» / «30»). */}
+        <span className="ms-auto shrink-0 whitespace-nowrap text-xs text-white/40">{a.fecha}</span>
         <button
           onClick={() => a.id && anecdotasRepo.remove(a.id)}
           className="text-white/30 hover:text-white/70"

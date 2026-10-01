@@ -388,7 +388,7 @@ export default function GrafoMemoria() {
             />
           )}
           {recortado && (
-            <p className="pointer-events-none absolute inset-x-0 top-2 mx-auto w-fit rounded-full bg-black/60 px-3 py-1 text-[11px] text-white/70">
+            <p className="ui-noche pointer-events-none absolute inset-x-0 top-2 mx-auto w-fit rounded-full bg-black/60 px-3 py-1 text-[11px] text-white/70">
               {t('grafo.recortado', 'Se muestran los {n} nodos con más conexiones. Filtra para ver el resto.', { n: MAX_NODOS })}
             </p>
           )}

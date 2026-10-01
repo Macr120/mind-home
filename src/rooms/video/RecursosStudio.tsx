@@ -133,7 +133,7 @@ function Recurso({
   return (
     <>
       {grupo && <li className="col-span-full pt-1 text-[10px] tracking-wide text-white/40 uppercase">{grupo}</li>}
-      <li className={`${TARJETA} ${rejilla ? 'space-y-1 p-1.5' : 'flex items-center gap-2 p-2'} select-none [-webkit-touch-callout:none]`} {...propsArrastre?.(app, recurso)}>
+      <li className={`${TARJETA} ${rejilla ? 'space-y-1 !p-1.5' : 'flex items-center gap-2 !p-2'} select-none [-webkit-touch-callout:none]`} {...propsArrastre?.(app, recurso)}>
         <button
           type="button"
           onClick={() => onElegir(app, recurso)}

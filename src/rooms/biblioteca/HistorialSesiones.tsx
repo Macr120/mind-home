@@ -35,7 +35,8 @@ export function HistorialSesiones({
           const entrada = s.entradaId != null ? entradas.find((e) => e.id === s.entradaId) : undefined
           return (
             <div className="flex items-center justify-between gap-2 rounded-lg bg-black/20 px-2.5 py-1.5 text-sm">
-              <span className="min-w-0 flex-1 truncate text-white/80">
+              {/* Sin `truncate`: en móvil la entrada estudiada («· Bayes, o cómo…») quedaba casi oculta. */}
+              <span className="min-w-0 flex-1 break-words text-white/80">
                 <Icono emoji={pilar.icon} /> {pilar.titulo}
                 {entrada && <span className="text-white/40"> · {entrada.titulo}</span>}
               </span>

@@ -232,7 +232,7 @@ export function GrabarMedioModal({
       onCerrar={cerrar}
     >
       {camara ? (
-        <div className="relative overflow-hidden rounded-xl bg-black">
+        <div className="ui-noche relative overflow-hidden rounded-xl bg-black">
           <video
             ref={videoRef}
             autoPlay

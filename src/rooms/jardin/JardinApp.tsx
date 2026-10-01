@@ -33,13 +33,6 @@ export function JardinApp() {
     <div className="mx-auto max-w-2xl space-y-4">
       {!enSesion && (
         <>
-          <p className="text-xs text-white/45 leading-relaxed">
-            {t(
-              'jardin.desc',
-              'Tu espacio de calma: meditación con pistas de sonido, respiración y agradecimientos. Sin puntos ni rachas — el jardín solo crece.',
-            )}
-          </p>
-
           <div data-tut="jardin.calma">
             <CalmaHeader sesiones={sesiones} gratitudes={gratitudes} />
           </div>
@@ -67,6 +60,16 @@ export function JardinApp() {
           {/* El ejemplo trae prácticas Y agradecimientos: la barra vale para las tres pestañas. */}
           <BarraEjemplo paquete={ejemploJardin} />
         </>
+      )}
+
+      {/* La explicación de la app va al PIE: arriba empujaba el contenido hacia abajo. */}
+      {!enSesion && (
+        <p className="border-t border-white/10 pt-3 text-xs leading-relaxed text-white/45">
+          {t(
+            'jardin.desc',
+            'Tu espacio de calma: meditación con pistas de sonido, respiración y agradecimientos. Sin puntos ni rachas — el jardín solo crece.',
+          )}
+        </p>
       )}
     </div>
   )

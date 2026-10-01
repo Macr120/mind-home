@@ -130,8 +130,8 @@ export function ProyectosTab({ escenario, onAbrir }: { escenario: 'video' | '3d'
                     <Icono nombre={es3d ? 'cubo-vistas' : 'pelicula'} />
                   </span>
                 )}
-                <span className="absolute bottom-1.5 start-1.5 rounded bg-black/60 px-1.5 py-0.5 text-[10px] font-semibold text-white">{p.aspecto}</span>
-                <span className="absolute bottom-1.5 end-1.5 rounded bg-black/60 px-1.5 py-0.5 font-mono text-[10px] text-white">
+                <span className="ui-noche absolute bottom-1.5 start-1.5 rounded bg-black/60 px-1.5 py-0.5 text-[10px] font-semibold text-white">{p.aspecto}</span>
+                <span className="ui-noche absolute bottom-1.5 end-1.5 rounded bg-black/60 px-1.5 py-0.5 font-mono text-[10px] text-white">
                   {fmtDur(duracionTotal(clips))}
                 </span>
               </button>

@@ -9,6 +9,7 @@ import { etiquetaLugar } from '../datos'
 import { geocodificar, type ResultadoGeo } from './here'
 import { pinDeLugar } from './LugaresNav'
 import { usePrefsNavegacion } from './preferencias'
+import { vivo } from '../../../core/ui/estilos'
 
 interface Props {
   valor: PuntoNav | null
@@ -91,7 +92,7 @@ export function BuscadorLugar({ valor, onElegir, placeholder, cerca, lugares, ac
   return (
     <div className="relative">
       <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-black/30 px-2.5 focus-within:border-white/30">
-        <span style={{ color: colorPunto }}>
+        <span className="texto-vivo" style={vivo(colorPunto)}>
           <Icono nombre={icono} />
         </span>
         <input
@@ -145,7 +146,7 @@ export function BuscadorLugar({ valor, onElegir, placeholder, cerca, lugares, ac
                 }}
                 className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm hover:bg-white/10"
               >
-                <span style={{ color: pinDeLugar(l, categorias).color }}>
+                <span className="texto-vivo" style={vivo(pinDeLugar(l, categorias).color)}>
                   <Icono nombre={pinDeLugar(l, categorias).icono} />
                 </span>
                 <span className="min-w-0 flex-1 truncate">{l.nombre}</span>

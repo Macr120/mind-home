@@ -27,10 +27,6 @@ export function EntretenimientoApp() {
   return (
     // El Archivo despliega sus tarjetas en rejilla: usa todo el ancho disponible.
     <div className={`mx-auto space-y-4 ${tab === 'archivo' ? '' : 'max-w-2xl'}`}>
-      <p className="text-xs text-white/45 leading-relaxed">
-        {t('entre.desc', 'Películas, series, libros, videojuegos y juegos de mesa para jugar — todo en la sala de entretenimiento. Tus datos del archivo anterior se conservan aquí.')}
-      </p>
-
       <PestanasCarpeta
         items={TABS}
         activo={tab}
@@ -52,6 +48,11 @@ export function EntretenimientoApp() {
           {tab === 'mesa' && <JuegosMesaTab juegoInicial={intencion?.dato as IdJuegoReal | undefined} />}
         </>
       )}
+
+      {/* La explicación de la app va al PIE: arriba empujaba el contenido hacia abajo. */}
+      <p className="border-t border-white/10 pt-3 text-xs leading-relaxed text-white/45">
+        {t('entre.desc', 'Películas, series, libros, videojuegos y juegos de mesa para jugar — todo en la sala de entretenimiento. Tus datos del archivo anterior se conservan aquí.')}
+      </p>
     </div>
   )
 }

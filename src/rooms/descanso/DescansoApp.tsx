@@ -679,22 +679,24 @@ export function DescansoApp() {
         >
           {(r: RegistroSueno) => {
             const pr = puntuarNoche(r, perfil)
+            // `flex-wrap`: en móvil la fecha y la nota bajan a su propio renglón; con
+            // `truncate` en la misma línea que todo lo demás se quedaban en 0 px.
             return (
-              <div className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-lg border border-white/10 bg-white/5 px-3 py-2">
                 <span
-                  className="w-9 shrink-0 rounded-md py-0.5 text-center text-sm font-black"
-                  style={{ background: `${colorTotal(pr.total)}22`, color: colorTotal(pr.total) }}
+                  className="texto-vivo w-9 shrink-0 rounded-md py-0.5 text-center text-sm font-black"
+                  style={{ background: `${colorTotal(pr.total)}22`, ...vivo(colorTotal(pr.total)) }}
                 >
                   {pr.total}
                 </span>
                 <span className="whitespace-nowrap font-bold text-cyan-400">{formatoHoras(r.horas)}</span>
                 {r.horaAcostarse && r.horaDespertar && (
-                  <span className="text-xs text-white/50">
+                  <span className="whitespace-nowrap text-xs text-white/50">
                     {r.horaAcostarse}–{r.horaDespertar}
                   </span>
                 )}
-                <span className="text-sm text-amber-400">{'★'.repeat(r.calidad)}</span>
-                <span className="truncate text-xs text-white/40">
+                <span className="whitespace-nowrap text-sm text-amber-400">{'★'.repeat(r.calidad)}</span>
+                <span className="min-w-0 flex-1 basis-40 break-words text-xs text-white/40">
                   {r.fecha}
                   {r.interrupciones ? (
                     <>

@@ -7,6 +7,7 @@ import { claveDificultad, type Dificultad, type PropsDificultad } from './dificu
 import { enIdioma } from '../../../core/i18n/porIdioma'
 import { idiomaActual } from '../../../core/i18n/useT'
 import { BANCOS_AHORCADO } from './ahorcado.palabras'
+import { vivo } from '../../../core/ui/estilos'
 
 /**
  * El banco (alfabeto + 100 palabras) vive en `ahorcado.palabras.ts`, por
@@ -129,7 +130,7 @@ export function Ahorcado({ dificultad = 'medio' }: PropsDificultad) {
             })}
           </p>
           {ganado && (
-            <p className="text-sm font-bold" style={{ color: COLOR }}>
+            <p className="texto-vivo text-sm font-bold" style={vivo(COLOR)}>
               {t('entre.j.ganaste', '¡Ganaste! 🎉')}
             </p>
           )}

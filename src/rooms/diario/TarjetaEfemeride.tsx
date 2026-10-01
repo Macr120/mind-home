@@ -23,8 +23,8 @@ export function TarjetaEfemeride({ efemeride }: { efemeride: Efemeride }) {
     <button
       type="button"
       onClick={() => setProfundizar(true)}
-      className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold transition hover:brightness-110"
-      style={{ background: `${tipo.color}22`, color: tipo.color }}
+      className="texto-vivo inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold transition hover:brightness-110"
+      style={{ background: `${tipo.color}22`, ...vivo(tipo.color) }}
     >
       <Icono nombre="cuarto-biblioteca" /> {t('diario.ef.profundizar', 'Profundizar en la biblioteca')}
     </button>
@@ -61,8 +61,8 @@ export function TarjetaEfemeride({ efemeride }: { efemeride: Efemeride }) {
       )}
       <div className="space-y-2 p-3.5">
         <span
-          className="inline-block rounded-md px-2 py-0.5 text-[10px] font-bold"
-          style={{ background: `${tipo.color}33`, color: tipo.color }}
+          className="texto-vivo inline-block rounded-md px-2 py-0.5 text-[10px] font-bold"
+          style={{ background: `${tipo.color}33`, ...vivo(tipo.color) }}
         >
           <Icono emoji={tipo.emoji} /> {t(`diario.ef.${tipo.id}`, tipo.label)}
         </span>

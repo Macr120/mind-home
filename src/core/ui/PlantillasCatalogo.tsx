@@ -166,8 +166,11 @@ export function PlantillasCatalogo({ creativa = false }: { creativa?: boolean } 
         }`}
         style={{ ...gestoTarjeta.style, ...vivo(p.color), borderColor: `${p.color}33` }}
       >
-        {/* Cabecera: icono de la app (entra directo) + nombre + asistente + asignar */}
-        <div className="flex w-full items-center gap-2 p-2.5">
+        {/* Cabecera: icono de la app (entra directo) + nombre + asistente + asignar.
+            En el menú de 240 px la etiqueta al lado del nombre lo dejaba en 0 px: va
+            debajo de él, y si los botones no caben (las plantillas propias traen
+            cuatro) bajan de renglón con `flex-wrap` en vez de comerse el nombre. */}
+        <div className="flex w-full flex-wrap items-center gap-2 p-2.5">
           <button
             type="button"
             onClick={() => usePreviaPlantilla.getState().abrir(p.id)}
@@ -177,72 +180,76 @@ export function PlantillasCatalogo({ creativa = false }: { creativa?: boolean } 
           >
             <IconoMarca emoji={p.icon} />
           </button>
-          <span className="min-w-0 flex-1 truncate text-sm font-semibold text-white/90">
-            {t(`room.${p.id}.nombre`, p.nombre).split(' · ')[0]}
-          </span>
-          {enUso ? (
-            <span className="shrink-0 rounded-full bg-white/10 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-white/50">
-              {t('plantillaCustom.enUsoTag', 'en uso')}
-            </span>
-          ) : (
-            conDatos.has(p.id) && (
-              <span
-                title={t(
-                  'plantillas.conDatosAyuda',
-                  'Esta app guarda información tuya aunque no viva en ningún cuarto. Toca su icono para abrirla, o asígnala a un cuarto.',
-                )}
-                className="shrink-0 rounded-full bg-white/10 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-white/50"
-              >
-                {t('plantillas.conDatos', 'con datos')}
+          <div className="min-w-0 flex-1 basis-16">
+            <p className="break-words text-sm font-semibold leading-tight text-white/90 hyphens-auto">
+              {t(`room.${p.id}.nombre`, p.nombre).split(' · ')[0]}
+            </p>
+            {enUso ? (
+              <span className="mt-1 inline-block rounded-full bg-white/10 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-white/50">
+                {t('plantillaCustom.enUsoTag', 'en uso')}
               </span>
-            )
-          )}
-          <button
-            type="button"
-            onClick={() => alternar(p.id, 'asistente')}
-            title={
-              asistente
-                ? `${t('plantillas.asistente', 'Asistente que la atiende')}: ${nombreAsistente(t, asistente)}`
-                : t('plantillas.sinAsistente', 'Sin asistente (la atienden todos)')
-            }
-            className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-base transition hover:bg-white/10 ${
-              abierto && modo === 'asistente' ? 'ring-1 ring-white/40 bg-white/10' : ''
-            }`}
-          >
-            {asistente ? <Icono emoji={asistente.emoji} /> : <Icono nombre="vinculo" />}
-          </button>
-          {!enUso && (
+            ) : (
+              conDatos.has(p.id) && (
+                <span
+                  title={t(
+                    'plantillas.conDatosAyuda',
+                    'Esta app guarda información tuya aunque no viva en ningún cuarto. Toca su icono para abrirla, o asígnala a un cuarto.',
+                  )}
+                  className="mt-1 inline-block rounded-full bg-white/10 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-white/50"
+                >
+                  {t('plantillas.conDatos', 'con datos')}
+                </span>
+              )
+            )}
+          </div>
+          <div className="ms-auto flex shrink-0 items-center gap-2">
             <button
               type="button"
-              onClick={() => alternar(p.id, 'cuarto')}
-              title={t('plantillas.asignar', 'Asignar a un objeto o cuarto')}
+              onClick={() => alternar(p.id, 'asistente')}
+              title={
+                asistente
+                  ? `${t('plantillas.asistente', 'Asistente que la atiende')}: ${nombreAsistente(t, asistente)}`
+                  : t('plantillas.sinAsistente', 'Sin asistente (la atienden todos)')
+              }
               className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-base transition hover:bg-white/10 ${
-                abierto && modo === 'cuarto' ? 'ring-1 ring-white/40 bg-white/10' : ''
+                abierto && modo === 'asistente' ? 'ring-1 ring-white/40 bg-white/10' : ''
               }`}
             >
-              <Icono nombre="cuartos" />
+              {asistente ? <Icono emoji={asistente.emoji} /> : <Icono nombre="vinculo" />}
             </button>
-          )}
-          {esCustom && (
-            <>
+            {!enUso && (
               <button
                 type="button"
-                onClick={() => setEditor(customs.find((c) => c.id === p.id)!)}
-                title={t('plantillaCustom.editar', 'Editar plantilla')}
-                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-sm text-white/60 transition hover:bg-white/10 hover:text-white/90"
+                onClick={() => alternar(p.id, 'cuarto')}
+                title={t('plantillas.asignar', 'Asignar a un objeto o cuarto')}
+                className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-base transition hover:bg-white/10 ${
+                  abierto && modo === 'cuarto' ? 'ring-1 ring-white/40 bg-white/10' : ''
+                }`}
               >
-                <Icono nombre="editar" />
+                <Icono nombre="cuartos" />
               </button>
-              <button
-                type="button"
-                onClick={() => void eliminarCustom(p.id)}
-                title={t('plantillaCustom.eliminar', 'Eliminar plantilla')}
-                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-sm text-red-400/70 transition hover:bg-red-500/15 hover:text-red-400"
-              >
-                <Icono nombre="cerrar" />
-              </button>
-            </>
-          )}
+            )}
+            {esCustom && (
+              <>
+                <button
+                  type="button"
+                  onClick={() => setEditor(customs.find((c) => c.id === p.id)!)}
+                  title={t('plantillaCustom.editar', 'Editar plantilla')}
+                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-sm text-white/60 transition hover:bg-white/10 hover:text-white/90"
+                >
+                  <Icono nombre="editar" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => void eliminarCustom(p.id)}
+                  title={t('plantillaCustom.eliminar', 'Eliminar plantilla')}
+                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-sm text-red-400/70 transition hover:bg-red-500/15 hover:text-red-400"
+                >
+                  <Icono nombre="cerrar" />
+                </button>
+              </>
+            )}
+          </div>
         </div>
 
         {abierto && modo === 'asistente' && (

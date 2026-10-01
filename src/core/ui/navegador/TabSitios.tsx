@@ -19,6 +19,7 @@ import { useArrastre } from '../comun/arrastre'
 import { Icono } from '../iconos/Icono'
 import { FaviconSitio } from './FaviconSitio'
 import { formatoDuracion } from './util'
+import { vivo } from '../estilos'
 
 const NUEVA = '__nueva'
 
@@ -218,8 +219,8 @@ export function TabSitios({ onAbrir }: { onAbrir: (url: string) => void }) {
                 <span className="text-[10px] text-white/40">
                   <Icono nombre={abierta ? 'desplegado' : 'plegado'} />
                 </span>
-                <span style={{ color: cat.color }}>{cat.icono ? <Icono nombre={cat.icono} /> : <Icono emoji={cat.emoji} />}</span>
-                <span className="min-w-0 flex-1 truncate text-xs font-bold" style={{ color: cat.color }}>
+                <span className="texto-vivo" style={vivo(cat.color)}>{cat.icono ? <Icono nombre={cat.icono} /> : <Icono emoji={cat.emoji} />}</span>
+                <span className="texto-vivo min-w-0 flex-1 truncate text-xs font-bold" style={vivo(cat.color)}>
                   {cat.nombre}
                 </span>
                 {seg > 0 && <span className="shrink-0 text-[10px] text-white/45">{formatoDuracion(seg, t)}</span>}
@@ -409,7 +410,7 @@ function FilaEnlaceObjeto({
           idObjeto={o.id}
           className="h-full w-full object-contain"
         />
-        <span className="absolute bottom-0.5 end-0.5 grid h-4 w-4 place-items-center overflow-hidden rounded bg-black/60 text-[9px] leading-none">
+        <span className="ui-noche absolute bottom-0.5 end-0.5 grid h-4 w-4 place-items-center overflow-hidden rounded bg-black/60 text-[9px] leading-none">
           <FaviconSitio url={url} className="h-3 w-3" />
         </span>
       </button>

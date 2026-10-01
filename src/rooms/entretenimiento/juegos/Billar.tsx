@@ -6,6 +6,7 @@ import { guardarRecord, leerNumero } from './almacen'
 import { prepararLienzo, puntoLienzo, useBucle } from './arcade'
 import type { Dificultad, PropsDificultad } from './dificultad'
 import { ElegirModo } from './ElegirModo'
+import { vivo } from '../../../core/ui/estilos'
 
 type Modo = '1j' | '2j'
 
@@ -213,13 +214,13 @@ export function Billar({ dificultad = 'medio' }: PropsDificultad) {
             </>
           ) : (
             <>
-              <span style={{ color: turno === 1 ? COLOR : undefined }}>J1 {puntos.j1}</span>
+              <span className={turno === 1 ? 'texto-vivo' : undefined} style={turno === 1 ? vivo(COLOR) : undefined}>J1 {puntos.j1}</span>
               {' · '}
-              <span style={{ color: turno === 2 ? COLOR : undefined }}>J2 {puntos.j2}</span>
+              <span className={turno === 2 ? 'texto-vivo' : undefined} style={turno === 2 ? vivo(COLOR) : undefined}>J2 {puntos.j2}</span>
             </>
           )}
           {aviso === 'falta' && <span className="ms-2 text-red-400">{t('entre.j.billar.falta', 'Falta: la blanca se metió')}</span>}
-          {aviso === 'sigue' && <span className="ms-2" style={{ color: COLOR }}>{t('entre.j.billar.sigue', '¡Bola dentro, sigues tú!')}</span>}
+          {aviso === 'sigue' && <span className="texto-vivo ms-2" style={vivo(COLOR)}>{t('entre.j.billar.sigue', '¡Bola dentro, sigues tú!')}</span>}
         </span>
         <div className="flex gap-2">
           <button type="button" onClick={() => reiniciar(modo)} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold">

@@ -6,6 +6,7 @@ import { Archivador } from '../_shared/Archivador'
 import { COLOR } from './constantes'
 import type { ModoEjercicio } from './ejercicios'
 import { MEDALLAS, RETOS, records } from './juego'
+import { vivo } from '../../core/ui/estilos'
 
 const MODOS: { id: ModoEjercicio; labelEs: string }[] = [
   { id: 'opcion', labelEs: '¿Qué significa?' },
@@ -77,7 +78,7 @@ export function RecordsEjercicios({ idiomaId }: { idiomaId: number }) {
               {t(`idiomas.ej.modo.${p.modo}`, labelModo(p.modo))}
               <span className="text-white/40"> · {p.aciertos}/{p.preguntas}</span>
             </span>
-            <span className="shrink-0 text-xs font-semibold" style={{ color: COLOR }}>
+            <span className="texto-vivo shrink-0 text-xs font-semibold" style={vivo(COLOR)}>
               {p.puntos}
             </span>
           </div>

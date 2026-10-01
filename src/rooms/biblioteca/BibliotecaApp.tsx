@@ -63,10 +63,6 @@ export function BibliotecaApp() {
 
   return (
     <div className="mx-auto max-w-2xl space-y-4">
-      <p className="text-xs leading-relaxed text-white/45">
-        {t('biblioteca.desc', 'Tu enciclopedia personal: charla con el Sabio sobre cualquier tema, guarda lo aprendido por campo del conocimiento y estudia con temporizador.')}
-      </p>
-
       <PestanasCarpeta
         items={TABS.map((x) =>
           x.id === 'estudio' && estudioActivo
@@ -115,6 +111,11 @@ export function BibliotecaApp() {
           <BarraEjemplo paquete={ejemploBiblioteca} />
         </>
       )}
+
+      {/* La explicación de la app va al PIE: arriba empujaba el contenido hacia abajo. */}
+      <p className="border-t border-white/10 pt-3 text-xs leading-relaxed text-white/45">
+        {t('biblioteca.desc', 'Tu enciclopedia personal: charla con el Sabio sobre cualquier tema, guarda lo aprendido por campo del conocimiento y estudia con temporizador.')}
+      </p>
     </div>
   )
 }

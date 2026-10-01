@@ -195,11 +195,11 @@ export default function Superficie3D({
         </button>
       )}
 
-      <div className="pointer-events-none absolute bottom-1.5 start-1.5 rounded-lg bg-black/60 px-2 py-0.5 font-mono text-[10px] text-white/70">
+      <div className="ui-noche pointer-events-none absolute bottom-1.5 start-1.5 rounded-lg bg-black/60 px-2 py-0.5 font-mono text-[10px] text-white/70">
         {resultado} ({ejeX}, {ejeY}) · {numero(malla.min)} … {numero(malla.max)}
       </div>
       {malla.huecos > 0 && (
-        <div className="pointer-events-none absolute bottom-1.5 end-1.5 rounded-lg bg-black/60 px-2 py-0.5 text-[10px] text-amber-200/80">
+        <div className="ui-noche pointer-events-none absolute bottom-1.5 end-1.5 rounded-lg bg-black/60 px-2 py-0.5 text-[10px] text-[#fde68a]/80">
           {t('computo.sup.huecos', 'hay zonas sin definir')}
         </div>
       )}

@@ -181,7 +181,8 @@ export function PorConocerTab({ lugares }: Props) {
                       <span className="text-lg"><Icono nombre={l.lat != null ? 'brujula' : 'brillo'} /></span>
                       <div className="min-w-0 flex-1">
                         <p className="truncate text-sm font-semibold">{l.nombre}</p>
-                        <p className="truncate text-[11px] text-white/45">
+                        {/* Dos renglones: con la nota detrás, en móvil apenas se leía el lugar. */}
+                        <p className="line-clamp-2 text-[11px] text-white/45">
                           {[l.ciudad, l.estado, agrupar !== 'pais' ? undefined : l.pais]
                             .filter(Boolean)
                             .join(', ') || l.pais}

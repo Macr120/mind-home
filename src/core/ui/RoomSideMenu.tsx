@@ -445,7 +445,9 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
                             )}
                           </span>
                           <span className="min-w-0 flex-1 leading-tight">
-                            <span className="block text-sm font-semibold text-white/90">{titulo}</span>
+                            {/* En la vista 3D la miniatura deja ~90 px: «Entretenimiento»
+                                se salía bajo el engrane; ahora parte la palabra con guion. */}
+                            <span className="block break-words text-sm font-semibold text-white/90 hyphens-auto">{titulo}</span>
                             {appId ? (
                               subtitulo && (
                                 <span className="block truncate text-[11px] text-white/45">{subtitulo}</span>

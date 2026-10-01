@@ -37,10 +37,6 @@ export function SalaApp() {
 
   return (
     <div className="mx-auto max-w-3xl space-y-4">
-      <p className="text-xs leading-relaxed text-white/45">
-        {t('sala.desc', 'Tu mundo viajero: pines de lugares visitados en el mapamundi, itinerarios de lugares por conocer con calendario, rutas de viaje y bitácora con fotos y anécdotas.')}
-      </p>
-
       <PestanasCarpeta
         items={TABS}
         activo={tab}
@@ -63,6 +59,11 @@ export function SalaApp() {
           <BarraEjemplo paquete={ejemploSala} />
         </>
       )}
+
+      {/* La explicación de la app va al PIE: arriba empujaba el contenido hacia abajo. */}
+      <p className="border-t border-white/10 pt-3 text-xs leading-relaxed text-white/45">
+        {t('sala.desc', 'Tu mundo viajero: pines de lugares visitados en el mapamundi, itinerarios de lugares por conocer con calendario, rutas de viaje y bitácora con fotos y anécdotas.')}
+      </p>
     </div>
   )
 }

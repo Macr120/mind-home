@@ -610,10 +610,11 @@ export function Portada({ proyecto, sonando }: { proyecto: ProyectoAudio; sonand
   const cB = PALETA_PISTAS[(hash * 5 + 3) % PALETA_PISTAS.length]
   return (
     <div
-      className={`relative aspect-square overflow-hidden rounded-lg border transition ${
+      className={`ui-noche relative aspect-square overflow-hidden rounded-lg border transition ${
         sonando ? 'border-white/60' : 'border-white/10'
       }`}
-      // Portada oscura a propósito (como un disco), también en modo claro.
+      // Portada oscura a propósito (como un disco), también en modo claro: `ui-noche`
+      // le devuelve la tinta blanca (el piano de la portada vacía salía oscuro sobre negro).
       style={{ background: `linear-gradient(135deg, ${cA}2e, ${cB}44), #14161d` }}
     >
       {carriles.length === 0 ? (

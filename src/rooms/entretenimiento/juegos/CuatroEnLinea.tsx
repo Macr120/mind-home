@@ -6,6 +6,7 @@ import { COLOR } from '../constantes'
 import type { Dificultad, PropsDificultad } from './dificultad'
 import { ElegirModo } from './ElegirModo'
 import { BarraMesa, nombreAsiento, opcionEnLinea } from './mesaJuego'
+import { vivo } from '../../../core/ui/estilos'
 
 type Modo = '2j' | 'ia' | 'online'
 type FichaC4 = 'R' | 'A'
@@ -249,12 +250,12 @@ export function CuatroEnLinea({ dificultad = 'medio', mesaOnline = false }: Prop
         {ganador === null ? (
           <span className="text-white/60">
             {t('entre.j.turno', 'Turno')}:{' '}
-            <strong style={{ color: turno === 'R' ? '#f87171' : '#facc15' }}>
+            <strong className="texto-vivo" style={vivo(turno === 'R' ? '#f87171' : '#facc15')}>
               {modo === 'ia' ? (turno === 'R' ? t('entre.j.tu', 'Tú') : t('entre.j.maquina', 'Máquina')) : nombreFicha(turno)}
             </strong>
           </span>
         ) : (
-          <span className="font-bold" style={{ color: COLOR }}>
+          <span className="texto-vivo font-bold" style={vivo(COLOR)}>
             <Icono nombre="trofeo" />{' '}
             {ganador === 'empate'
               ? t('entre.j.cuatroenlinea.empate', 'Empate: tablero lleno')

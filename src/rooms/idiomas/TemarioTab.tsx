@@ -90,7 +90,9 @@ function FilaTema({ tema, hermanos, ctx }: { tema: NodoTema; hermanos: string[];
 
   return (
     <div className={`rounded-lg bg-black/20 px-2.5 py-2 ${ctx.resaltado === tema.id ? 'ring-2 ring-white/60' : ''}`}>
-      <div className="flex items-center gap-2">
+      {/* `flex-wrap`: en móvil (y más en los subtemas, que van sangrados) los
+          botones dejaban el título en ~50 px; si no caben, bajan juntos de renglón. */}
+      <div className="flex flex-wrap items-center gap-2">
         <button
           type="button"
           onClick={() => ctx.alternar(tema.id)}
@@ -100,12 +102,12 @@ function FilaTema({ tema, hermanos, ctx }: { tema: NodoTema; hermanos: string[];
         >
           {desplegado ? '▾' : '▸'}
         </button>
-        <button type="button" onClick={() => ctx.alternar(tema.id)} className="min-w-0 flex-1 text-start">
-          <span className="block truncate text-sm text-white/85">
+        <button type="button" onClick={() => ctx.alternar(tema.id)} className="min-w-0 flex-1 basis-40 text-start">
+          <span className="block break-words text-sm text-white/85">
             {!tema.fabrica && <Icono nombre="brillo" />} {tema.titulo}
             {nSubtemas > 0 && (
               <span
-                className="ms-1.5 text-[9px] text-white/40"
+                className="ms-1.5 whitespace-nowrap text-[9px] text-white/40"
                 title={t('idiomas.tem.nSubtemas', '{n} subtemas aquí dentro', { n: String(nSubtemas) })}
               >
                 <Icono nombre="rama" /> {nSubtemas}
@@ -113,122 +115,124 @@ function FilaTema({ tema, hermanos, ctx }: { tema: NodoTema; hermanos: string[];
             )}
           </span>
           {tema.descripcion && (
-            <span className="block truncate text-[10px] text-white/35">{tema.descripcion}</span>
+            <span className="line-clamp-2 text-[10px] text-white/35">{tema.descripcion}</span>
           )}
         </button>
-        {mazo.length > 0 && !ctx.edicion && (
-          <BotonEnviarAContacto
-            pequeno
-            empaquetar={() => empaquetarMazo(mazo[0].idiomaId, tema.id)}
-            className="!bg-transparent px-1.5 py-1 text-white/40 hover:!bg-white/10"
-          />
-        )}
-        {mazo.length > 0 && (
-          <span
-            className="shrink-0 rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-white/55"
-            title={t('idiomas.tem.nTarjetas', '{n} tarjetas de este tema', { n: String(mazo.length) })}
-          >
-            <Icono nombre="registros" /> {mazo.length}
-          </span>
-        )}
+        <div className="ms-auto flex flex-wrap items-center justify-end gap-2">
+          {mazo.length > 0 && !ctx.edicion && (
+            <BotonEnviarAContacto
+              pequeno
+              empaquetar={() => empaquetarMazo(mazo[0].idiomaId, tema.id)}
+              className="!bg-transparent px-1.5 py-1 text-white/40 hover:!bg-white/10"
+            />
+          )}
+          {mazo.length > 0 && (
+            <span
+              className="shrink-0 rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-white/55"
+              title={t('idiomas.tem.nTarjetas', '{n} tarjetas de este tema', { n: String(mazo.length) })}
+            >
+              <Icono nombre="registros" /> {mazo.length}
+            </span>
+          )}
 
-        {ctx.edicion ? (
-          <>
-            {hermanos.length > 1 && (
-              <>
-                <button
-                  type="button"
-                  onClick={() => ctx.mover(hermanos, tema.id, -1)}
-                  className={btnEdit}
-                  title={t('idiomas.tem.subir', 'Subir')}
-                  aria-label={t('idiomas.tem.subir', 'Subir')}
-                >
-                  ▲
-                </button>
-                <button
-                  type="button"
-                  onClick={() => ctx.mover(hermanos, tema.id, 1)}
-                  className={btnEdit}
-                  title={t('idiomas.tem.bajar', 'Bajar')}
-                  aria-label={t('idiomas.tem.bajar', 'Bajar')}
-                >
-                  ▼
-                </button>
-              </>
-            )}
-            <button
-              type="button"
-              onClick={() => ctx.agregar(tema)}
-              className={btnEdit}
-              title={t('idiomas.tem.subtemaTip', 'Añadir un subtema dentro')}
-              aria-label={t('idiomas.tem.subtemaTip', 'Añadir un subtema dentro')}
-            >
-              <Icono nombre="agregar" />
-            </button>
-            <button
-              type="button"
-              onClick={() => ctx.renombrar(tema)}
-              className={btnEdit}
-              title={t('idiomas.tem.renombrar', 'Renombrar')}
-              aria-label={t('idiomas.tem.renombrar', 'Renombrar')}
-            >
-              <Icono nombre="editar" />
-            </button>
-            <button
-              type="button"
-              onClick={() => ctx.borrar(tema)}
-              className={btnEdit}
-              title={t('idiomas.tem.borrar', 'Borrar tema')}
-              aria-label={t('idiomas.tem.borrar', 'Borrar tema')}
-            >
-              <Icono nombre="basura" />
-            </button>
-          </>
-        ) : (
-          <>
-            <button
-              type="button"
-              onClick={() => ctx.conversar(tema)}
-              disabled={!ctx.conIA}
-              className={`${btnFila} disabled:opacity-35`}
-              title={t('idiomas.tem.charlarTip', 'Practicar este tema con tu tutor')}
-            >
-              <Icono nombre="chat" />
-            </button>
-            <button
-              type="button"
-              onClick={() => ctx.material(tema)}
-              className={btnFila}
-              title={t('idiomas.tem.materialTip', 'Tus apuntes e imágenes de este tema')}
-            >
-              <Icono nombre="carpeta" />
-              {nMaterial > 0 && <span className="ms-1 text-[10px] text-white/55">{nMaterial}</span>}
-            </button>
-            {mazo.length >= 4 && (
+          {ctx.edicion ? (
+            <>
+              {hermanos.length > 1 && (
+                <>
+                  <button
+                    type="button"
+                    onClick={() => ctx.mover(hermanos, tema.id, -1)}
+                    className={btnEdit}
+                    title={t('idiomas.tem.subir', 'Subir')}
+                    aria-label={t('idiomas.tem.subir', 'Subir')}
+                  >
+                    ▲
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => ctx.mover(hermanos, tema.id, 1)}
+                    className={btnEdit}
+                    title={t('idiomas.tem.bajar', 'Bajar')}
+                    aria-label={t('idiomas.tem.bajar', 'Bajar')}
+                  >
+                    ▼
+                  </button>
+                </>
+              )}
               <button
                 type="button"
-                onClick={() => ctx.practicar(tema.id)}
-                className={btnFila}
-                title={t('idiomas.tem.practicarTip', 'Ejercicios con las tarjetas de este tema')}
+                onClick={() => ctx.agregar(tema)}
+                className={btnEdit}
+                title={t('idiomas.tem.subtemaTip', 'Añadir un subtema dentro')}
+                aria-label={t('idiomas.tem.subtemaTip', 'Añadir un subtema dentro')}
               >
-                <Icono nombre="repetir" />
+                <Icono nombre="agregar" />
               </button>
-            )}
-            <button
-              type="button"
-              onClick={() => ctx.generar(tema)}
-              disabled={!ctx.conIA}
-              className={`${btnFila} disabled:opacity-35`}
-              title={
-                ctx.conIA
-                  ? t('idiomas.tem.generarTip', 'Generar vocabulario de este tema con IA')
-                  : t('idiomas.sinIA.corto', 'Configura tu IA en Ajustes')
-              }
-            >
-              <Icono nombre="brillo" />
-            </button>
-          </>
-        )}
+              <button
+                type="button"
+                onClick={() => ctx.renombrar(tema)}
+                className={btnEdit}
+                title={t('idiomas.tem.renombrar', 'Renombrar')}
+                aria-label={t('idiomas.tem.renombrar', 'Renombrar')}
+              >
+                <Icono nombre="editar" />
+              </button>
+              <button
+                type="button"
+                onClick={() => ctx.borrar(tema)}
+                className={btnEdit}
+                title={t('idiomas.tem.borrar', 'Borrar tema')}
+                aria-label={t('idiomas.tem.borrar', 'Borrar tema')}
+              >
+                <Icono nombre="basura" />
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                type="button"
+                onClick={() => ctx.conversar(tema)}
+                disabled={!ctx.conIA}
+                className={`${btnFila} disabled:opacity-35`}
+                title={t('idiomas.tem.charlarTip', 'Practicar este tema con tu tutor')}
+              >
+                <Icono nombre="chat" />
+              </button>
+              <button
+                type="button"
+                onClick={() => ctx.material(tema)}
+                className={btnFila}
+                title={t('idiomas.tem.materialTip', 'Tus apuntes e imágenes de este tema')}
+              >
+                <Icono nombre="carpeta" />
+                {nMaterial > 0 && <span className="ms-1 text-[10px] text-white/55">{nMaterial}</span>}
+              </button>
+              {mazo.length >= 4 && (
+                <button
+                  type="button"
+                  onClick={() => ctx.practicar(tema.id)}
+                  className={btnFila}
+                  title={t('idiomas.tem.practicarTip', 'Ejercicios con las tarjetas de este tema')}
+                >
+                  <Icono nombre="repetir" />
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={() => ctx.generar(tema)}
+                disabled={!ctx.conIA}
+                className={`${btnFila} disabled:opacity-35`}
+                title={
+                  ctx.conIA
+                    ? t('idiomas.tem.generarTip', 'Generar vocabulario de este tema con IA')
+                    : t('idiomas.sinIA.corto', 'Configura tu IA en Ajustes')
+                }
+              >
+                <Icono nombre="brillo" />
+              </button>
+            </>
+          )}
+        </div>
       </div>
 
       {desplegado && (

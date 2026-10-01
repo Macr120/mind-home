@@ -61,10 +61,6 @@ export function GarageApp() {
 
   return (
     <div className="mx-auto max-w-2xl space-y-4">
-      <p className="text-xs leading-relaxed text-white/45">
-        {t('garage.desc', 'Tus vehículos: servicios y costos, trámites agendados en el calendario y la libreta de contactos.')}
-      </p>
-
       {/* Los talleres se movieron a la ficha de cada vehículo, junto a sus
           trámites y sus documentos. */}
       <PestanasCarpeta
@@ -105,6 +101,11 @@ export function GarageApp() {
           )}
         </>
       )}
+
+      {/* La explicación de la app va al PIE: arriba empujaba el contenido hacia abajo. */}
+      <p className="border-t border-white/10 pt-3 text-xs leading-relaxed text-white/45">
+        {t('garage.desc', 'Tus vehículos: servicios y costos, trámites agendados en el calendario y la libreta de contactos.')}
+      </p>
     </div>
   )
 }

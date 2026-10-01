@@ -168,7 +168,7 @@ export function Vista(p: PropsVista) {
 
   if (p.modo === 'lista') {
     return (
-      <div className={`${TARJETA} divide-y divide-white/5 p-1`}>
+      <div className={`${TARJETA} divide-y divide-white/5 !p-1`}>
         {p.items.map((i) => (
           <div
             key={i.k}

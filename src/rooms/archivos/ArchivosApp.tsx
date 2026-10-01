@@ -669,7 +669,7 @@ function Explorador({ puedeSubir }: { puedeSubir: boolean }) {
           <Medidor puedeSubir={puedeSubir} tut="archivos.medidor.movil" />
         </div>
 
-        <div className={`${TARJETA} space-y-2 p-2`}>
+        <div className={`${TARJETA} space-y-2 !p-2`}>
           <div className="flex flex-wrap items-center gap-2">
             <nav className="flex min-w-0 flex-1 flex-wrap items-center gap-0.5 text-sm">
               {migas.map((m, idx) => (

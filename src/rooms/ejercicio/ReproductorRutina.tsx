@@ -9,6 +9,7 @@ import { VisorEjercicio, tienePatron } from './anim'
 import { normalizarEjercicio } from './stats'
 import { pitar } from './pitar'
 import { nombreEjercicio, nombreRutina } from './nombres'
+import { vivo } from '../../core/ui/estilos'
 
 /** Color de la modalidad y segundos por ejercicio al abrir (flex: el mismo defecto que el formulario). */
 const CONFIG: Record<TipoEntrenamiento, { color: string; segundos: number }> = {
@@ -219,7 +220,7 @@ export function ReproductorRutina({
         <p className="mb-1 truncate text-center text-lg font-bold">{nombreEjercicio(t, posturas[idx])}</p>
 
         {/* Contador */}
-        <p className="text-center text-5xl font-black tabular-nums" style={{ color: COLOR }}>
+        <p className="texto-vivo text-center text-5xl font-black tabular-nums" style={vivo(COLOR)}>
           {fmt(restante)}
         </p>
         <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-black/40">

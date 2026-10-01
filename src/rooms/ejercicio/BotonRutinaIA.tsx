@@ -4,6 +4,7 @@ import type { TipoEntrenamiento } from '../../core/data/db'
 import { useT } from '../../core/i18n/useT'
 import { Creditos } from '../../core/ui/Creditos'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { vivo } from '../../core/ui/estilos'
 import { acento } from '../_shared/acento'
 import type { GrupoCatalogo } from './catalogo'
 import { OP_RUTINA } from './costosIA'
@@ -70,9 +71,9 @@ export function BotonRutinaIA({
           className={`shrink-0 rounded-lg border px-2.5 py-2 text-sm disabled:opacity-40 ${
             peticion !== null
               ? 'ui-accent-bg border-transparent'
-              : 'border-white/10 bg-white/5 hover:bg-white/10'
+              : 'texto-vivo border-white/10 bg-white/5 hover:bg-white/10'
           }`}
-          style={peticion !== null ? acento(color) : { color }}
+          style={peticion !== null ? acento(color) : vivo(color)}
         >
           <Icono nombre="brillo" />
         </button>

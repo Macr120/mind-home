@@ -28,6 +28,7 @@ import { hoyISO } from './stats'
 import { hablar, hayTTS } from './tts'
 import { OpcionesTemas } from './OpcionesTemas'
 import { filtrarTemario, useTemario } from './temarioVivo'
+import { vivo } from '../../core/ui/estilos'
 
 /** Partida en curso. Vive en memoria: una ronda es de una sentada. */
 interface Partida {
@@ -313,7 +314,7 @@ export function EjerciciosTab({ perfil, tarjetas, temaInicial, onTemaAplicado }:
     <div className="space-y-3">
       <div className="flex items-center justify-between gap-2 text-[11px]">
         <span className="flex items-center gap-2">
-          <span className="font-bold" style={{ color: COLOR }}>
+          <span className="texto-vivo font-bold" style={vivo(COLOR)}>
             <Icono nombre="gema" /> {partida.puntos}
           </span>
           {partida.combo >= 3 && (
@@ -418,7 +419,7 @@ function Cierre({
   const ganadas = MEDALLAS.filter((m) => resumen.medallas.includes(m.id))
   return (
     <div className="space-y-3 rounded-2xl border p-5 text-center" style={{ borderColor: `color-mix(in srgb, ${COLOR} 33%, transparent)`, background: `color-mix(in srgb, ${COLOR} 8%, transparent)` }}>
-      <p className="text-3xl font-black" style={{ color: COLOR }}>
+      <p className="texto-vivo text-3xl font-black" style={vivo(COLOR)}>
         {resumen.puntos}
       </p>
       <p className="text-xs text-white/60">

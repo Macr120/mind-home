@@ -7,6 +7,7 @@ import { useArrastre } from '../../../core/ui/comun/arrastre'
 import { Icono } from '../../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../../core/ui/iconos/catalogo'
 import { usePrefsNavegacion, type VerEnMapa } from './preferencias'
+import { vivo } from '../../../core/ui/estilos'
 
 /**
  * Lugares guardados de «Cómo llegar»: los sitios a los que vuelves, con su
@@ -298,7 +299,7 @@ export function LugaresNav({ candidato, onUsar, trayectos, filaTrayecto, onEncua
                 <span style={{ color }}>
                   <Icono nombre={g.cat ? iconoValido(g.cat.icono) : 'carpeta'} />
                 </span>
-                <span className="truncate text-xs font-bold" style={{ color: g.cat ? color : undefined }}>
+                <span className={`truncate text-xs font-bold${g.cat ? ' texto-vivo' : ''}`} style={g.cat ? vivo(color) : undefined}>
                   {g.cat ? g.cat.nombre : t('sala.nav.sinCarpeta', 'Sin carpeta')}
                 </span>
                 <span className="shrink-0 text-[10px] text-white/35">{g.lista.length + g.rutas.length}</span>
@@ -354,8 +355,8 @@ export function LugaresNav({ candidato, onUsar, trayectos, filaTrayecto, onEncua
                           onClick={() => setEditando((v) => (v === l.id ? null : (l.id ?? null)))}
                           title={t('sala.nav.moverCarpeta', 'Carpeta e icono')}
                           aria-label={t('sala.nav.moverCarpeta', 'Carpeta e icono')}
-                          className="rounded-md p-1 hover:bg-white/10"
-                          style={{ color: pin.color }}
+                          className="texto-vivo rounded-md p-1 hover:bg-white/10"
+                          style={vivo(pin.color)}
                         >
                           <Icono nombre={pin.icono} />
                         </button>
@@ -434,11 +435,11 @@ export function LugaresNav({ candidato, onUsar, trayectos, filaTrayecto, onEncua
                                 type="button"
                                 onClick={() => asignar(l, c.id)}
                                 aria-pressed={l.categoriaId === c.id}
-                                className="flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-semibold transition hover:brightness-125"
+                                className="texto-vivo flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-semibold transition hover:brightness-125"
                                 style={{
                                   borderColor: l.categoriaId === c.id ? c.color : `${c.color}44`,
                                   background: l.categoriaId === c.id ? `${c.color}33` : 'transparent',
-                                  color: c.color,
+                                  ...vivo(c.color),
                                 }}
                               >
                                 <Icono nombre={iconoValido(c.icono)} /> {c.nombre}

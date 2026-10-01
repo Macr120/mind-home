@@ -111,8 +111,10 @@ export function PestanasCarpeta<T extends string>({
   // (ver `BASE`) una fila muy llena desbordaría el panel, y una segunda fila se
   // lee mejor que unos botones partiendo palabras. La píldora ya sigue al activo
   // en vertical.
+  // Dos columnas en teléfonos angostos: con tres, la celda de ~100 px partía
+  // «Comparación» a la mitad de la palabra.
   const panel = rejilla
-    ? `${marco} grid grid-cols-3 gap-1 sm:grid-cols-4`
+    ? `${marco} grid grid-cols-2 gap-1 min-[26rem]:grid-cols-3 sm:grid-cols-4`
     : desplazable
       ? `${marco} flex gap-1 overflow-x-auto`
       : `${marco} flex flex-wrap gap-1`
@@ -137,7 +139,7 @@ export function PestanasCarpeta<T extends string>({
         const esActiva = item.id === activo
         const clase = esActiva ? '' : 'text-white/40 hover:bg-white/10 hover:text-white/80 active:bg-white/10'
         // flex-1 + shrink-0: reparten el ancho del carril y, si no caben, asoma el scroll.
-        const ancho = rejilla ? 'px-2' : desplazable ? 'flex-1 shrink-0 px-3' : variante === 'raiz' ? 'flex-1 px-1' : 'flex-1'
+        const ancho = rejilla ? 'min-w-0 px-2' : desplazable ? 'flex-1 shrink-0 px-3' : variante === 'raiz' ? 'flex-1 px-1' : 'flex-1'
         return (
           <button
             key={item.id}
@@ -169,8 +171,10 @@ export function PestanasCarpeta<T extends string>({
             ) : item.emoji ? (
               <Icono emoji={item.emoji} />
             ) : null}
-            {/* En una línea: partido en dos, el rótulo descuadra la fila entera. */}
-            <span className="whitespace-nowrap">
+            {/* En una línea: partido en dos, el rótulo descuadra la fila entera. En la
+                rejilla no: cada celda es independiente, y en una sola línea «Diagrama de
+                flujo» se salía de su celda y del panel (con la píldora detrás). */}
+            <span className={rejilla ? 'min-w-0 break-words leading-tight hyphens-auto' : 'whitespace-nowrap'}>
               {item.label ?? t(item.clave ?? `${prefijoClave}.${item.id}`, item.labelEs ?? '')}
             </span>
             {item.extra}

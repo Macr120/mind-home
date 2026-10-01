@@ -94,15 +94,15 @@ export function VisorMueble3D({
           xray
             ? 'bg-accent text-accent-ink'
             : claro
-              ? 'bg-black/10 hover:bg-black/20'
-              : 'bg-white/10 hover:bg-white/20'
+              ? 'bg-black/10 text-black/65 hover:bg-black/20'
+              : 'bg-[#ffffff]/10 text-[#ffffff]/80 hover:bg-[#ffffff]/20'
         }`}
       >
         <Icono nombre="ver" />
       </button>
       <span
         className={`pointer-events-none absolute bottom-1.5 start-0 end-0 text-center text-[10px] ${
-          claro ? 'text-black/45' : 'text-white/35'
+          claro ? 'text-black/60' : 'text-[#ffffff]/55'
         }`}
       >
         {t('preview.girar', 'Arrastra para girar · rueda para acercar')}

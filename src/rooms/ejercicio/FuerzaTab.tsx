@@ -771,7 +771,7 @@ function ListaSesiones({
               }`}
             >
               <div className="flex items-center gap-2">
-                <span className="flex-1 truncate font-medium">{s.titulo}</span>
+                <span className="line-clamp-2 min-w-0 flex-1 break-words font-medium">{s.titulo}</span>
                 <span className="shrink-0 text-xs text-white/40">{s.fecha.slice(5)}</span>
                 <span className="shrink-0 text-white/40">{s.duracionMin} min</span>
                 <button

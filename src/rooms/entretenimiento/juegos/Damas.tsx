@@ -6,6 +6,7 @@ import { COLOR } from '../constantes'
 import type { Dificultad, PropsDificultad } from './dificultad'
 import { ElegirModo } from './ElegirModo'
 import { BarraMesa, nombreAsiento, opcionEnLinea } from './mesaJuego'
+import { vivo } from '../../../core/ui/estilos'
 
 type ColorFicha = 'clara' | 'oscura'
 type Modo = '2j' | 'ia' | 'online'
@@ -293,7 +294,7 @@ export function Damas({ dificultad = 'medio', mesaOnline = false }: PropsDificul
             </strong>
           </span>
         ) : (
-          <span className="font-bold" style={{ color: COLOR }}>
+          <span className="texto-vivo font-bold" style={vivo(COLOR)}>
             <Icono nombre="trofeo" />{' '}
             {modo === 'ia'
               ? ganador === 'clara'

@@ -125,8 +125,8 @@ export function TarjetaMedia({
 
             <div className="mt-2 flex flex-wrap items-center gap-1.5 text-[10px]">
               <span
-                className="max-w-full truncate rounded-md px-2 py-0.5 font-semibold"
-                style={{ background: `color-mix(in srgb, ${COLOR} 20%, transparent)`, color: COLOR }}
+                className="texto-vivo max-w-full truncate rounded-md px-2 py-0.5 font-semibold"
+                style={{ background: `color-mix(in srgb, ${COLOR} 20%, transparent)`, ...vivo(COLOR) }}
               >
                 {item.genero}
               </span>

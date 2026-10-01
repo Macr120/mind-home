@@ -425,7 +425,7 @@ function TarjetaIdea({
             })}
           </p>
         ) : (
-          idea.detalle && <p className="mt-0.5 truncate text-[11px] leading-relaxed text-white/45">{idea.detalle}</p>
+          idea.detalle && <p className="mt-0.5 line-clamp-2 text-[11px] leading-relaxed text-white/45">{idea.detalle}</p>
         )}
       </button>
       {tema && (

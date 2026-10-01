@@ -44,7 +44,9 @@ export function claseFondoPreview(claro: boolean) {
  */
 export function claseOverlayBtn(claro: boolean, activo = false) {
   if (activo) return 'border-accent/60 bg-accent text-accent-ink'
+  // El vidrio oscuro también es literal: con `ui-hud` seguía al tema y, con la
+  // interfaz en claro, el icono blanco caía sobre vidrio claro (1.2:1).
   return claro
     ? 'border-black/10 bg-[#ffffff]/90 text-black/65 shadow-sm hover:bg-[#ffffff]'
-    : 'ui-hud border-[#ffffff]/15 text-[#ffffff]/70 hover:bg-[#ffffff]/15'
+    : 'border-[#ffffff]/15 bg-[#12151c]/90 text-[#ffffff]/70 hover:bg-[#ffffff]/15'
 }

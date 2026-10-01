@@ -75,10 +75,6 @@ export function IdiomasApp() {
 
   return (
     <div className="mx-auto max-w-2xl space-y-4">
-      <p className="text-xs leading-relaxed text-white/45">
-        {t('idiomas.desc', 'Tu escuela de idiomas: charla con tu tutor, junta vocabulario y domínalo con repaso espaciado, ejercicios y un temario por niveles.')}
-      </p>
-
       {idiomas.length === 0 ? (
         <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
           <p className="mb-3 text-sm font-semibold">
@@ -144,6 +140,11 @@ export function IdiomasApp() {
       {/* Fuera del condicional: sin ningún idioma dado de alta es cuando más
           falta hace ver la app llena. */}
       <BarraEjemplo paquete={ejemploIdiomas} />
+
+      {/* La explicación de la app va al PIE: arriba empujaba el contenido hacia abajo. */}
+      <p className="border-t border-white/10 pt-3 text-xs leading-relaxed text-white/45">
+        {t('idiomas.desc', 'Tu escuela de idiomas: charla con tu tutor, junta vocabulario y domínalo con repaso espaciado, ejercicios y un temario por niveles.')}
+      </p>
     </div>
   )
 }

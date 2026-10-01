@@ -83,10 +83,6 @@ export function HobbiesApp() {
 
   return (
     <div className="mx-auto max-w-2xl space-y-4">
-      <p className="text-sm text-white/50 text-center">
-        {t('hobbies.desc', 'Dale seguimiento a tus pasatiempos: sesiones, rachas, metas y proyectos.')}
-      </p>
-
       <button
         type="button"
         data-tut="hobbies.agregar"
@@ -155,6 +151,11 @@ export function HobbiesApp() {
       )}
 
       <BarraEjemplo paquete={ejemploHobbies} />
+
+      {/* La explicación de la app va al PIE: arriba empujaba el contenido hacia abajo. */}
+      <p className="border-t border-white/10 pt-3 text-xs leading-relaxed text-white/45">
+        {t('hobbies.desc', 'Dale seguimiento a tus pasatiempos: sesiones, rachas, metas y proyectos.')}
+      </p>
     </div>
   )
 }

@@ -136,7 +136,7 @@ export function GuionObra({
         {lineas.map((l, i) => {
           const quien = quienDe(l)
           return (
-            <div key={l.id} className={`${TARJETA} space-y-1.5 p-2 ${l.id === sonando ? 'border-white/40' : ''}`}>
+            <div key={l.id} className={`${TARJETA} space-y-1.5 !p-2 ${l.id === sonando ? 'border-white/40' : ''}`}>
               <div className="flex flex-wrap items-center gap-1.5">
                 <span className="w-5 text-center text-[11px] text-white/40">{i + 1}</span>
                 <select

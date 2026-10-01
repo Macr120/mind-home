@@ -254,7 +254,7 @@ function Agua({
         </p>
       ) : (
         <>
-          <p className="mt-1 text-3xl font-black" style={{ color: VERDE }}>
+          <p className="texto-vivo mt-1 text-3xl font-black" style={vivo(VERDE)}>
             {(res.promedioMl / 1000).toFixed(1)}
             <span className="text-sm font-semibold text-white/50">
               {' '}
@@ -309,7 +309,7 @@ function Barras({ barras, objetivo, color }: { barras: BarraPeriodo[]; objetivo:
 function Dato({ titulo, valor, sub }: { titulo: string; valor: string; sub: string }) {
   return (
     <div className="rounded-lg bg-white/5 px-2 py-2">
-      <p className="text-[10px] text-white/45 truncate">{titulo}</p>
+      <p className="text-[10px] leading-tight text-white/45">{titulo}</p>
       <p className="text-lg font-bold text-white/90">{valor}</p>
       <p className="text-[9px] text-white/35">{sub}</p>
     </div>

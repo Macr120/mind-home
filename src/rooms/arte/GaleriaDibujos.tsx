@@ -95,7 +95,7 @@ export function GaleriaDibujos({ onAbrir }: { onAbrir: (id: number) => void }) {
           </div>
           <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3">
             {dibujos.map((d) => (
-              <li key={d.id} className={`${TARJETA} space-y-2 p-2`}>
+              <li key={d.id} className={`${TARJETA} space-y-2 !p-2`}>
                 <button
                   type="button"
                   onClick={() => d.id != null && onAbrir(d.id)}

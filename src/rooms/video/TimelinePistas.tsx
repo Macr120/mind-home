@@ -2,6 +2,7 @@ import { Fragment, useEffect, useImperativeHandle, useLayoutEffect, useRef, useS
 import type { ClipPrincipal, ClipVideo, MedioVideo, PistaId } from '../../core/data/db'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { vivo } from '../../core/ui/estilos'
 import { emojiActor, nombreActor } from './actores'
 import { ClipVista } from './ClipVista'
 import { indicePrincipalEn } from './clipsNuevos'
@@ -423,7 +424,7 @@ export function TimelinePistas({
                 style={{ width: ANCHO_CABECERA }}
                 title={etiquetaPista[p]}
               >
-                <span className="text-sm" style={{ color: PISTAS[p].color }}>
+                <span className="texto-vivo text-sm" style={vivo(PISTAS[p].color)}>
                   <Icono nombre={PISTAS[p].icono} title={etiquetaPista[p]} />
                 </span>
                 <button

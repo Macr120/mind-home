@@ -90,7 +90,7 @@ export function BotonEscuchar({
   )
 }
 
-/** Una fila de la carpeta: escuchar, nombre, duración, añadir y borrar. */
+/** Una fila de la carpeta: escuchar, nombre y duración, añadir y borrar. */
 function FilaSonido({
   fuente,
   item,
@@ -104,6 +104,7 @@ function FilaSonido({
   onBorrar,
   onCancelarBorrar,
   onElegir,
+  compacto,
   propsArrastre,
 }: {
   fuente: FuenteSonido
@@ -118,23 +119,37 @@ function FilaSonido({
   onBorrar: () => void
   onCancelarBorrar: () => void
   onElegir: (fuente: FuenteSonido) => void
+  /** Columna angosta: «Añadir» queda solo con su icono para que el nombre quepa. */
+  compacto?: boolean
   propsArrastre?: (item: ItemSonido) => PropsArrastreItem
 }) {
   const t = useT()
+  const anadir = t('video.sonidos.agregar', 'Añadir')
   return (
+    // `!p-2`: el p-4 de la TARJETA le gana a un p-2 a secas. Con `flex-wrap`, si los
+    // botones no caben (al confirmar el borrado) bajan de renglón en vez de comerse
+    // el nombre, que en la columna de 240 px se quedaba en 0 px.
     <li
-      className={`${TARJETA} flex items-center gap-2 p-2${propsArrastre ? ' select-none [-webkit-touch-callout:none]' : ''}`}
+      className={`${TARJETA} flex flex-wrap items-center gap-x-2 gap-y-1.5 !p-2${propsArrastre ? ' select-none [-webkit-touch-callout:none]' : ''}`}
       {...propsArrastre?.(item)}
     >
       <BotonEscuchar fuente={fuente} porId={porId} sonando={sonando} onSonando={onSonando} />
-      <span className="min-w-0 flex-1 truncate text-xs font-semibold">{nombre}</span>
-      {duracion > 0 && <span className="shrink-0 text-[10px] text-white/40">{Math.round(duracion * 10) / 10}s</span>}
-      <BotonSecundario pequeno data-no-arrastre onClick={() => onElegir(fuente)}>
-        <Icono nombre="agregar" /> {t('video.sonidos.agregar', 'Añadir')}
-      </BotonSecundario>
-      <span data-no-arrastre className="contents">
+      <div className="min-w-0 flex-1 basis-16">
+        <p className="break-words text-xs font-semibold leading-tight">{nombre}</p>
+        {duracion > 0 && <p className="text-[10px] text-white/40">{Math.round(duracion * 10) / 10}s</p>}
+      </div>
+      <div data-no-arrastre className="ms-auto flex shrink-0 items-center gap-1">
+        <BotonSecundario
+          pequeno
+          onClick={() => onElegir(fuente)}
+          aria-label={compacto ? anadir : undefined}
+          title={compacto ? anadir : undefined}
+        >
+          <Icono nombre="agregar" />
+          {!compacto && <> {anadir}</>}
+        </BotonSecundario>
         <BotonBorrar confirmando={confirmando} onPedir={onPedirBorrar} onConfirmar={onBorrar} onCancelar={onCancelarBorrar} />
-      </span>
+      </div>
     </li>
   )
 }
@@ -229,6 +244,7 @@ export function ListaSonidos({
                   onBorrar={() => void borrarTuyo(m)}
                   onCancelarBorrar={() => setBorrando(null)}
                   onElegir={onElegir}
+                  compacto={compacto}
                   propsArrastre={propsArrastre}
                 />
               )
@@ -255,6 +271,7 @@ export function ListaSonidos({
                 onBorrar={() => ocultar(f.clave)}
                 onCancelarBorrar={() => setBorrando(null)}
                 onElegir={onElegir}
+                compacto={compacto}
                 propsArrastre={propsArrastre}
               />
             ))}

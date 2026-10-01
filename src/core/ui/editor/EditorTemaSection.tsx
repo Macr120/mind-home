@@ -77,7 +77,9 @@ export function EditorTemaSection({ embed }: { embed?: boolean } = {}) {
         title={nombreDe(tema)}
       >
         <span className="text-lg"><IconoMarca emoji={tema.icon} size="1.15em" /></span>
-        <span className="truncate text-white/80">{nombreDe(tema)}</span>
+        {/* En la rejilla de dos columnas del panel (320 px) quedan ~55 px: el nombre
+            se parte en dos renglones en vez de cortarse («Prin…»). */}
+        <span className="min-w-0 break-words text-start leading-tight text-white/80 hyphens-auto">{nombreDe(tema)}</span>
       </button>
       <button
         type="button"

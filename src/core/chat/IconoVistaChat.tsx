@@ -12,6 +12,7 @@ import { CaraAsistente } from './carasAsistentes'
 import type { Asistente } from './mascotas'
 import { usePrefsNavegacion } from '../../rooms/sala/navegacion/preferencias'
 import type { VistaMenu } from './ordenesMenu'
+import { vivo } from '../ui/estilos'
 
 /**
  * Lo que pinta el botón que abre el menú del chat según la vista elegida: el
@@ -41,7 +42,7 @@ function IconoLugar() {
   const c = id != null ? categorias.find((x) => x.id === id) : undefined
   if (!c) return <Icono nombre="navegar" />
   return (
-    <span style={{ color: c.color }}>
+    <span className="texto-vivo" style={vivo(c.color)}>
       <Icono nombre={c.icono in EMOJIS ? (c.icono as NombreIcono) : 'pin'} />
     </span>
   )

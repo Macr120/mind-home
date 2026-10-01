@@ -56,44 +56,48 @@ export function TarjetaRutina({
   const t = useT()
   return (
     <div className="rounded-xl border border-white/10 bg-black/20 p-3">
-      <div className="flex items-center gap-2">
-        <div className="min-w-0 flex-1">
-          <p className="text-base font-bold">{nombreRutina(t, rutina.nombre)}</p>
+      {/* `flex-wrap`: en móvil los cuatro botones dejaban el nombre en 42 px; si no
+          caben junto a él, bajan juntos a otro renglón. */}
+      <div className="flex flex-wrap items-center gap-2">
+        <div className="min-w-0 flex-1 basis-40">
+          <p className="break-words text-base font-bold">{nombreRutina(t, rutina.nombre)}</p>
           {rutina.descripcion && (
             <p className="text-xs text-white/45">
               {descRutina(t, rutina.nombre, rutina.descripcion)} · {rutina.duracionMin} min
             </p>
           )}
         </div>
-        {rutina.id != null && <BotonEnviarAContacto pequeno empaquetar={() => empaquetarRutina(tipo, rutina)} />}
-        <button
-          type="button"
-          onClick={onBorrar}
-          title={t('ejercicio.rutina.borrar', 'Borrar rutina')}
-          className="shrink-0 rounded-lg bg-white/10 px-2 py-1.5 text-xs font-semibold text-white/70 hover:bg-red-500/20 hover:text-red-400"
-        >
-          <Icono nombre="basura" />
-        </button>
-        {onIniciar && (
+        <div className="ms-auto flex flex-wrap items-center justify-end gap-2">
+          {rutina.id != null && <BotonEnviarAContacto pequeno empaquetar={() => empaquetarRutina(tipo, rutina)} />}
           <button
             type="button"
-            onClick={onIniciar}
-            className="ui-accent-bg shrink-0 rounded-lg px-3 py-1.5 text-xs font-bold"
-            style={estiloAcento(acento.color)}
+            onClick={onBorrar}
+            title={t('ejercicio.rutina.borrar', 'Borrar rutina')}
+            className="shrink-0 rounded-lg bg-white/10 px-2 py-1.5 text-xs font-semibold text-white/70 hover:bg-red-500/20 hover:text-red-400"
           >
-            <Icono nombre="play" /> {t('ejercicio.rutina.iniciar', 'Iniciar')}
+            <Icono nombre="basura" />
           </button>
-        )}
-        <button
-          type="button"
-          onClick={onUsar}
-          className={`shrink-0 rounded-lg px-3 py-1.5 text-xs font-bold ${
-            onIniciar ? 'bg-white/10 text-white/70 hover:bg-white/15' : 'ui-accent-bg'
-          }`}
-          style={onIniciar ? undefined : estiloAcento(acento.color)}
-        >
-          {t('ejercicio.rutina.usar', 'Usar rutina')}
-        </button>
+          {onIniciar && (
+            <button
+              type="button"
+              onClick={onIniciar}
+              className="ui-accent-bg shrink-0 whitespace-nowrap rounded-lg px-3 py-1.5 text-xs font-bold"
+              style={estiloAcento(acento.color)}
+            >
+              <Icono nombre="play" /> {t('ejercicio.rutina.iniciar', 'Iniciar')}
+            </button>
+          )}
+          <button
+            type="button"
+            onClick={onUsar}
+            className={`shrink-0 whitespace-nowrap rounded-lg px-3 py-1.5 text-xs font-bold ${
+              onIniciar ? 'bg-white/10 text-white/70 hover:bg-white/15' : 'ui-accent-bg'
+            }`}
+            style={onIniciar ? undefined : estiloAcento(acento.color)}
+          >
+            {t('ejercicio.rutina.usar', 'Usar rutina')}
+          </button>
+        </div>
       </div>
 
       {rutina.ejercicios && rutina.ejercicios.length > 0 && (

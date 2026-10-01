@@ -25,7 +25,7 @@
      violeta fijo repetido en nueve archivos, o sea la única parte de esa app que
      no se enteraba si repintabas el cuarto: ahora es el color del cuarto aclarado,
      el mismo recurso con el que `colorPorProfundidad` separa las sub-metas. */
-  --color-plan: color-mix(in srgb, var(--ui-app, #ef4444) 55%, white);
+  --color-plan: color-mix(in srgb, var(--ui-app, #ef4444) var(--plan-cuanto, 55%), var(--plan-hacia, white));
   /* Curva de movimiento de la casa (la misma de ui-notif): un ease-out
      expresivo que frena suave. Genera la utilidad `ease-fluida`. */
   --ease-fluida: cubic-bezier(0.16, 1, 0.3, 1);
@@ -769,9 +769,19 @@ html[data-base-ui='claro']
   :is(.text-white\/55, .text-white\/60, .text-white\/65):where(:not(.ui-noche *)) {
   color: color-mix(in srgb, var(--ui-ink) 70%, transparent);
 }
+/* El «plan» (lo propuesto en Metas) es el color del cuarto aclarado hacia el
+   blanco: sobre el panel claro quedaba a 1.5:1. En modo claro se oscurece hacia
+   la tinta; `@theme inline` lo incrusta en cada utilidad, así que se cambian las
+   dos perillas de la mezcla y no `--color-plan`. */
+html[data-base-ui='claro'] {
+  --plan-cuanto: 70%;
+  --plan-hacia: #1a2233;
+}
 .ui-noche {
   --color-white: #fff;
   color: #e7e9ee;
+  --plan-cuanto: 55%;
+  --plan-hacia: white;
 }
 /* Isla oscura sobre el mapa (dock y paneles del modo película del Studio de
    video): conserva la paleta nocturna entera —paneles incluidos— aunque la app

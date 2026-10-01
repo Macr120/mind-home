@@ -330,7 +330,7 @@ function TituloOverlay({ children }: { children: React.ReactNode }) {
   return (
     <span
       className={`rounded px-1 text-[8px] font-semibold uppercase tracking-wider ${
-        claro ? 'bg-[#ffffff]/90 text-black/55' : 'ui-hud text-[#ffffff]/55'
+        claro ? 'bg-[#ffffff]/90 text-black/55' : 'bg-[#12151c]/90 text-[#ffffff]/55'
       }`}
     >
       {children}
@@ -460,7 +460,7 @@ export function ControlesPiezasOverlay({
             onClick={() => setSel((iSel + 1) % piezas.length)}
             title={t('editor.piezas.siguiente', 'Siguiente pieza')}
             className={`pointer-events-auto flex h-7 items-center gap-1 rounded-md border px-2 text-[11px] font-semibold transition hover:bg-accent/40 ${
-              claro ? 'border-black/10 bg-[#ffffff]/90 text-black/75 shadow-sm' : 'ui-hud border-transparent text-[#ffffff]/85'
+              claro ? 'border-black/10 bg-[#ffffff]/90 text-black/75 shadow-sm' : 'border-transparent bg-[#12151c]/90 text-[#ffffff]/85'
             }`}
           >
             <span className="h-2.5 w-2.5 rounded-sm" style={{ background: pieza.color }} />
@@ -502,7 +502,7 @@ export function ControlesPiezasOverlay({
       {!abierto && (
         <span
           className={`pointer-events-none absolute bottom-1.5 start-0 end-0 text-center text-[10px] ${
-            claro ? 'text-black/45' : 'text-[#ffffff]/35'
+            claro ? 'text-black/60' : 'text-[#ffffff]/55'
           }`}
         >
           {t('preview.girar', 'Arrastra para girar · rueda para acercar')}

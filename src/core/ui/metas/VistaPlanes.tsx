@@ -65,7 +65,7 @@ export function VistaPlanes({
     <div className="space-y-3">
       <div className="flex items-center gap-2">
         <p className="min-w-0 flex-1 truncate text-xs font-bold uppercase tracking-wider text-white/70">
-          <span style={{ color: COLOR_PLAN }}>
+          <span className="texto-vivo" style={vivo(COLOR_PLAN)}>
             <Icono nombre="brillo" />
           </span>{' '}
           {t('cal.plan.menu', 'Planes')}
@@ -214,12 +214,12 @@ function TarjetaPlan({
           >
             <Icono nombre="brillo" /> {textoEtiquetaPlan(carpeta, plan.nombre, t)}
           </p>
-          <p className="truncate text-base font-semibold text-white/90">
+          <p className="line-clamp-2 break-words text-base font-semibold text-white/90">
             {origen?.nombre ?? plan.nombre}
           </p>
           {/* La nota de la meta, y si no tiene, el resumen con que la IA lo justificó. */}
           {(origen?.nota || plan.resumen) && (
-            <p className="mt-0.5 truncate text-2xs text-white/35">{origen?.nota || plan.resumen}</p>
+            <p className="mt-0.5 line-clamp-2 text-2xs text-white/35">{origen?.nota || plan.resumen}</p>
           )}
           <p className="mt-0.5 truncate text-2xs tabular-nums text-white/35">
             {t('cal.plan.fases', '{n} fases', { n: fases })} ·{' '}

@@ -103,7 +103,7 @@ export function PreviewMuroLibre3D({
         </div>
         <span
           className={`pointer-events-none absolute bottom-1.5 start-0 end-0 text-center text-[10px] ${
-            claro ? 'text-black/45' : 'text-[#ffffff]/35'
+            claro ? 'text-black/60' : 'text-[#ffffff]/55'
           }`}
         >
           {t('preview.girar', 'Arrastra para girar · rueda para acercar')}

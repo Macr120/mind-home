@@ -5,6 +5,7 @@ import { useT } from '../../core/i18n/useT'
 import { getAsistente } from '../../core/state/asistentesStore'
 import { usePelicula } from '../../core/state/peliculaStore'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { vivo } from '../../core/ui/estilos'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 import { BotonSecundario, Campo } from '../_shared/ui'
 import { esActorEscena, esJugador } from './actores'
@@ -414,7 +415,7 @@ export function PanelClip({
     <div className="flex h-full min-h-0 flex-col">
       <div className="flex shrink-0 items-center gap-1 border-b border-white/10 px-2 py-1.5">
         {clip && (
-          <span className="text-sm" style={{ color: PISTAS[clip.pista].color }}>
+          <span className="texto-vivo text-sm" style={vivo(PISTAS[clip.pista].color)}>
             <Icono nombre={PISTAS[clip.pista].icono} />
           </span>
         )}

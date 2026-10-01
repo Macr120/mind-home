@@ -102,7 +102,8 @@ export function BarraHerramientas({
         className="flex h-11 items-center gap-1 overflow-x-auto [scrollbar-width:none]"
       >
         {onMedios && <Boton icono="carpeta" etiqueta={t('video.barra.medios', 'Medios')} onClick={onMedios} pressed={medios} />}
-        <BotonPrimario type="button" pequeno app={COLOR} onClick={onAnadir} data-tut="video.editor.anadir">
+        {/* `shrink-0`: la barra se desliza de lado; encogido, «Añadir» se partía en dos renglones. */}
+        <BotonPrimario type="button" pequeno app={COLOR} onClick={onAnadir} data-tut="video.editor.anadir" className="shrink-0 whitespace-nowrap">
           <Icono nombre="agregar" /> {t('video.barra.anadir', 'Añadir')}
         </BotonPrimario>
         <Boton icono="tijeras" etiqueta={t('video.barra.dividir', 'Dividir en el cursor')} onClick={onDividir} disabled={!puedeDividir} />

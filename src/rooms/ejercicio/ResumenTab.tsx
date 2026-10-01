@@ -149,7 +149,7 @@ export function ResumenTab({
             return (
               <div className="flex items-center gap-2 text-sm rounded-lg bg-black/20 px-2 py-1.5">
                 <span><Icono emoji={tipo.icon} /></span>
-                <span className="flex-1 truncate text-white/85">{s.titulo}</span>
+                <span className="line-clamp-2 min-w-0 flex-1 break-words text-white/85">{s.titulo}</span>
                 <span className="shrink-0 text-xs text-white/40">{s.fecha.slice(5)}</span>
                 <span className="shrink-0 text-white/40">{s.duracionMin} min</span>
               </div>

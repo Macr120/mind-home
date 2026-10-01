@@ -92,7 +92,7 @@ export function ClipVista({
           {emoji ? <Icono emoji={emoji} /> : <Icono nombre={icono} />}
         </span>
         <span className="min-w-0 flex-1 truncate text-[10px] font-semibold text-white drop-shadow">{nombre}</span>
-        <span className="shrink-0 rounded bg-black/60 px-1 text-[9px] text-white/85">{fmtDur(clip.duracion)}</span>
+        <span className="ui-noche shrink-0 rounded bg-black/60 px-1 text-[9px] text-white/85">{fmtDur(clip.duracion)}</span>
       </div>
       {conTransicion && (
         <button
@@ -103,7 +103,7 @@ export function ClipVista({
           }}
           aria-label={t('video.clip.transicionMarca', 'Transición: {nombre}', { nombre: clip.transicion?.tipo ?? '' })}
           title={t('video.clip.transicionMarca', 'Transición: {nombre}', { nombre: clip.transicion?.tipo ?? '' })}
-          className="absolute -left-2 top-1/2 z-10 grid h-4 w-4 -translate-y-1/2 place-items-center rounded-full bg-white text-[9px] text-black"
+          className="absolute -left-2 top-1/2 z-10 grid h-4 w-4 -translate-y-1/2 place-items-center rounded-full bg-[#ffffff] text-[9px] text-black"
         >
           <Icono nombre="transicion" />
         </button>
@@ -111,7 +111,7 @@ export function ClipVista({
       <span
         data-burbuja
         hidden
-        className="pointer-events-none absolute -top-6 left-1/2 z-30 -translate-x-1/2 whitespace-nowrap rounded bg-black/80 px-1.5 py-0.5 font-mono text-[10px] text-white"
+        className="ui-noche pointer-events-none absolute -top-6 left-1/2 z-30 -translate-x-1/2 whitespace-nowrap rounded bg-black/80 px-1.5 py-0.5 font-mono text-[10px] text-white"
       />
       {seleccionado && (
         <>

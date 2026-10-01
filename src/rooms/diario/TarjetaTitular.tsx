@@ -31,8 +31,8 @@ export function TarjetaTitular({ titular }: { titular: Titular }) {
       <div className="space-y-2 p-3.5">
         <div className="flex items-center gap-2">
           <span
-            className="rounded-md px-2 py-0.5 text-[10px] font-bold"
-            style={{ background: `${cat.color}33`, color: cat.color }}
+            className="texto-vivo rounded-md px-2 py-0.5 text-[10px] font-bold"
+            style={{ background: `${cat.color}33`, ...vivo(cat.color) }}
           >
             <Icono emoji={cat.emoji} /> {t(`diario.cat.${cat.id}`, cat.label)}
           </span>

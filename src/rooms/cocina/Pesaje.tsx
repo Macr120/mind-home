@@ -3,6 +3,7 @@ import type { PerfilNutricion, RegistroPeso } from '../../core/data/db'
 import { registrarPeso } from './peso'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { vivo } from '../../core/ui/estilos'
 
 const VERDE = '#34d399'
 
@@ -47,7 +48,7 @@ export function Pesaje({
         <span className="text-sm font-semibold">
           <Icono nombre="balanza" /> {t('cocina.peso.titulo', 'Peso corporal')}
         </span>
-        <span className="text-sm" style={{ color: delDia ? VERDE : undefined }}>
+        <span className={`text-sm${delDia ? ' texto-vivo' : ''}`} style={delDia ? vivo(VERDE) : undefined}>
           {delDia ? (
             <span className="font-bold">{un(delDia.kg)} kg</span>
           ) : (

@@ -5,6 +5,7 @@ import { Icono } from '../../core/ui/iconos/Icono'
 import { COLOR } from './constantes'
 import { avanceMision, misionesDelDia } from './juego'
 import { hoyISO } from './stats'
+import { vivo } from '../../core/ui/estilos'
 
 /**
  * Los tres retos del día. No tienen tabla: se derivan de la fecha y el idioma
@@ -53,7 +54,7 @@ export function MisionesDia({ idiomaId }: { idiomaId: number }) {
             >
               <p className="flex items-start gap-1 text-[11px] leading-snug text-white/80">
                 {lista && (
-                  <span className="shrink-0" style={{ color: COLOR }}>
+                  <span className="texto-vivo shrink-0" style={vivo(COLOR)}>
                     <Icono nombre="confirmar" />
                   </span>
                 )}

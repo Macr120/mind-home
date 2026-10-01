@@ -190,10 +190,11 @@ export function InfraestructuraCatalogo({ alConstruir }: { alConstruir: () => vo
                       alConstruir()
                       o.accion()
                     }}
-                    className="flex h-9 items-center justify-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-2 text-xs font-semibold text-white/85 transition hover:bg-white/15 active:scale-95"
+                    className="flex min-h-9 items-center justify-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-2 py-1 text-xs font-semibold text-white/85 transition hover:bg-white/15 active:scale-95"
                   >
                     {o.icono ? <Icono nombre={o.icono} /> : <Icono emoji={o.emoji} />}
-                    <span className="truncate">{o.etiqueta}</span>
+                    {/* A dos renglones: en el menú de 240 px «Pista de carreras» se cortaba a la mitad. */}
+                    <span className="min-w-0 break-words text-center leading-tight">{o.etiqueta}</span>
                   </button>
                 ))}
               </div>

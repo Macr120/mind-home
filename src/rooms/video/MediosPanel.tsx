@@ -103,7 +103,7 @@ export function MediosPanel({
             {medios.map((m) => (
               <li
                 key={m.id}
-                className={`${TARJETA} space-y-1.5 p-2${propsArrastre ? ' select-none [-webkit-touch-callout:none]' : ''}`}
+                className={`${TARJETA} space-y-1.5 !p-2${propsArrastre ? ' select-none [-webkit-touch-callout:none]' : ''}`}
                 {...(propsArrastre && m.id != null ? propsArrastre(m as MedioConId) : undefined)}
               >
                 <button
@@ -122,10 +122,14 @@ export function MediosPanel({
                     </span>
                   )}
                 </button>
-                <div className="flex items-center gap-1 px-1">
-                  <div className="min-w-0 flex-1">
-                    <p className="truncate text-xs font-semibold">{m.nombre}</p>
-                    <p className="text-[10px] text-white/40">
+                {/* El nombre va en su propio renglón (hasta dos): al lado de la
+                    papelera, en la columna angosta del editor, se quedaba en 22 px. */}
+                <div className="px-1">
+                  <p className="line-clamp-2 break-words text-xs font-semibold leading-tight" title={m.nombre}>
+                    {m.nombre}
+                  </p>
+                  <div className="flex flex-wrap items-center gap-1">
+                    <p className="min-w-0 flex-1 text-[10px] text-white/40">
                       {m.tipo === 'video'
                         ? t('video.medios.video', 'Video')
                         : m.tipo === 'audio'
@@ -133,15 +137,15 @@ export function MediosPanel({
                           : t('video.medios.imagen', 'Imagen')}{' '}
                       {seg(m.duracion)}
                     </p>
+                    <span data-no-arrastre className="contents">
+                      <BotonBorrar
+                        confirmando={borrando === m.id}
+                        onPedir={() => setBorrando(m.id ?? null)}
+                        onConfirmar={() => void borrar(m)}
+                        onCancelar={() => setBorrando(null)}
+                      />
+                    </span>
                   </div>
-                  <span data-no-arrastre className="contents">
-                    <BotonBorrar
-                      confirmando={borrando === m.id}
-                      onPedir={() => setBorrando(m.id ?? null)}
-                      onConfirmar={() => void borrar(m)}
-                      onCancelar={() => setBorrando(null)}
-                    />
-                  </span>
                 </div>
               </li>
             ))}

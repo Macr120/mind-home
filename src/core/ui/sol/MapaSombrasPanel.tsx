@@ -4,6 +4,7 @@ import { useCiclo } from '../../state/cicloStore'
 import { direccionSol, type ConfigSol } from '../../house/cielo'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
+import { vivo } from '../estilos'
 
 const RAD = Math.PI / 180
 const dd = (n: number) => String(n).padStart(2, '0')
@@ -102,7 +103,7 @@ export function MapaSombrasPanel() {
         ].map((c) => (
           <div key={c.etiqueta} className="rounded-lg border border-white/10 bg-white/5 px-0.5 py-1">
             <p className="truncate text-[8px] font-bold uppercase tracking-wide text-white/40">{c.etiqueta}</p>
-            <p className="text-xs font-black tabular-nums" style={{ color: c.color }}>{c.valor}</p>
+            <p className="texto-vivo text-xs font-black tabular-nums" style={vivo(c.color)}>{c.valor}</p>
           </div>
         ))}
       </div>

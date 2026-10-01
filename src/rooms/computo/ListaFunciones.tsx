@@ -1,6 +1,7 @@
 import type { RefObject } from 'react'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { vivo } from '../../core/ui/estilos'
 import { COLORES_FUNCION, MAX_FUNCIONES } from './constantes'
 import type { FuncionGrafica, TipoGrafica } from './curvas'
 
@@ -64,10 +65,11 @@ export function ListaFunciones({
             <button
               type="button"
               onClick={() => cambiar(f.id, { visible: !f.visible })}
-              className="mt-0.5 shrink-0 rounded-lg px-2 py-1.5 text-xs font-bold transition"
+              // texto-vivo: el hex de la curva como texto se lavaba en modo claro (1.8:1).
+              className={`mt-0.5 shrink-0 rounded-lg px-2 py-1.5 text-xs font-bold transition${f.visible ? ' texto-vivo' : ''}`}
               style={{
                 background: f.visible ? `${color}33` : 'rgb(255 255 255 / 0.05)',
-                color: f.visible ? color : undefined,
+                ...(f.visible ? vivo(color) : {}),
               }}
               title={f.visible ? t('computo.graf.ocultar', 'Ocultar') : t('computo.graf.mostrar', 'Mostrar')}
               aria-label={f.visible ? t('computo.graf.ocultar', 'Ocultar') : t('computo.graf.mostrar', 'Mostrar')}

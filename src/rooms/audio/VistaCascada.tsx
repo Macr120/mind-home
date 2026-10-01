@@ -12,6 +12,7 @@ import { haySoporteMidi } from './midi'
 import * as motor from './motor'
 import * as sonando from './sonando'
 import { TecladoPantalla } from './TecladoPantalla'
+import { vivo } from '../../core/ui/estilos'
 
 /**
  * La tercera vista del editor (piano roll → partitura → CASCADA): práctica
@@ -636,7 +637,7 @@ export function VistaCascada({
               <p className="text-xs text-white/60">{t('audio.practica.aciertos', 'Aciertos')}</p>
             </div>
             <div className="rounded-lg bg-white/5 p-2">
-              <p className="text-2xl font-bold" style={{ color: COLOR }}>
+              <p className="texto-vivo text-2xl font-bold" style={vivo(COLOR)}>
                 {precision(resumen)}%
               </p>
               <p className="text-xs text-white/60">{t('audio.practica.precision', 'Precisión')}</p>

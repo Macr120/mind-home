@@ -107,7 +107,7 @@ export function FilaMetaCard({
           {indice}
         </span>
 
-        <span className={`min-w-0 flex-1 truncate text-sm text-white/85 ${hecho ? 'line-through opacity-50' : ''}`}>
+        <span className={`line-clamp-2 min-w-0 flex-1 break-words text-sm text-white/85 ${hecho ? 'line-through opacity-50' : ''}`}>
           <Icono emoji={meta.emoji} /> {meta.nombre}
         </span>
 

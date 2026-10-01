@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
 import { guardarRecord, leerNumero } from './almacen'
+import { vivo } from '../../../core/ui/estilos'
 
 type Dir = 'izq' | 'der' | 'arr' | 'aba'
 
@@ -140,7 +141,7 @@ export function Juego2048() {
       </div>
 
       {logrado && (
-        <p className="text-center text-sm font-semibold" style={{ color: COLOR }}>
+        <p className="texto-vivo text-center text-sm font-semibold" style={vivo(COLOR)}>
           {t('entre.j.2048.logro', '¡Llegaste a 2048! Puedes seguir.')}
         </p>
       )}

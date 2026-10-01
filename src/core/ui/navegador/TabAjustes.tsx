@@ -9,6 +9,7 @@ import { hayNavegadorEscritorio } from '../../plataforma'
 import { confirmar, pedirTexto } from '../../state/confirmarStore'
 import { useFoco } from '../../state/focoStore'
 import { Icono } from '../iconos/Icono'
+import { vivo } from '../estilos'
 
 const INACTIVO_OPCIONES = [60, 120, 300, 600]
 const FOCO_OPCIONES = [15, 25, 45, 60, 90]
@@ -130,7 +131,7 @@ export function TabAjustes() {
         <div className="space-y-0.5">
           {categorias.map((c) => (
             <div key={c.clave} className="flex items-center gap-2 rounded-lg px-1.5 py-1 transition hover:bg-white/5">
-              <span className="w-5 shrink-0 text-center text-sm" style={{ color: c.color }}>
+              <span className="texto-vivo w-5 shrink-0 text-center text-sm" style={vivo(c.color)}>
                 {c.emoji ? <Icono emoji={c.emoji} /> : <Icono nombre={c.icono ?? 'etiqueta'} />}
               </span>
               <span className="min-w-0 flex-1 truncate text-xs text-white/85">{c.nombre}</span>

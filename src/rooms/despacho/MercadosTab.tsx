@@ -97,11 +97,13 @@ function TablaMercado({
   const t = useT()
   return (
     <div className="rounded-xl bg-white/5 border border-white/10 overflow-hidden">
-      {/* Encabezado */}
-      <div className="flex items-center gap-2 px-3 py-2 border-b border-white/10 text-[10px] uppercase tracking-wide text-white/40">
-        <span className="w-4 shrink-0">#</span>
+      {/* Encabezado. En móvil, sin la columna «#», con menos hueco y la gráfica oculta
+          (le quedaban ~13 px y su título se montaba sobre «Precio»): las columnas
+          fijas no cabían en 375 px y la última salía cortada. */}
+      <div className="flex items-center gap-1.5 sm:gap-2 px-3 py-2 border-b border-white/10 text-[10px] uppercase tracking-wide text-white/40">
+        <span className="w-4 shrink-0 max-sm:hidden">#</span>
         <span className="w-20 shrink-0">{t('despacho.mk.col.activo', 'Activo')}</span>
-        <span className="min-w-0 flex-1">{etiquetaGrafica ?? ''}</span>
+        <span className="min-w-0 flex-1 truncate max-sm:invisible">{etiquetaGrafica ?? ''}</span>
         <span className="w-20 shrink-0 text-end">{t('despacho.mk.col.precio', 'Precio')}</span>
         <span className="w-14 shrink-0 text-end">{sufijoCambio ?? t('despacho.mk.col.dia', 'Día')}</span>
         {etiquetaExtra && <span className="w-16 shrink-0 text-end">{etiquetaExtra}</span>}
@@ -112,14 +114,14 @@ function TablaMercado({
         return (
           <div
             key={f.clave}
-            className="flex items-center gap-2 px-3 py-2 border-b border-white/5 last:border-0 hover:bg-white/5 transition"
+            className="flex items-center gap-1.5 sm:gap-2 px-3 py-2 border-b border-white/5 last:border-0 hover:bg-white/5 transition"
           >
-            <span className="w-4 shrink-0 text-[11px] text-white/30">{i + 1}</span>
+            <span className="w-4 shrink-0 text-[11px] text-white/30 max-sm:hidden">{i + 1}</span>
             <span className="w-20 shrink-0 min-w-0 leading-tight">
               <span className="block text-xs font-bold truncate">{f.principal}</span>
               {f.secundario && <span className="block text-[10px] text-white/40 truncate">{f.secundario}</span>}
             </span>
-            <span className="min-w-0 flex-1">
+            <span className="min-w-0 flex-1 max-sm:invisible">
               {f.historial && f.historial.length > 1 && (
                 <Sparkline valores={f.historial} color={sube ? VERDE : ROJO} />
               )}

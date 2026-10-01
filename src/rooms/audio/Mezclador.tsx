@@ -453,7 +453,7 @@ function Crossfader({ valor }: { valor: number }) {
     return Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width))
   }
   return (
-    <div className={`${TARJETA} flex items-center gap-3 p-3`}>
+    <div className={`${TARJETA} flex items-center gap-3 !p-3`}>
       <span className="text-xs font-bold text-white/60" aria-hidden>
         A
       </span>

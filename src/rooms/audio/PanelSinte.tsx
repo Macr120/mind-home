@@ -29,6 +29,7 @@ import { Knob } from './Knob'
 import * as motor from './motor'
 import { nombreClase, nombreNota } from './musica'
 import { coloresTeclasStore, fijarColoresTeclas } from './tecladoVista'
+import { vivo as tintaViva } from '../../core/ui/estilos'
 
 /** Símbolo corto de cada patrón de arpegio (glifos, no emojis). */
 const GLIFO_ARP: Record<PatronArp, string> = { sube: '↑', baja: '↓', subeBaja: '↑↓', azar: '?' }
@@ -254,7 +255,7 @@ export function PanelSinte({
     >
       {texto}
       {valorTxt != null && (
-        <span className="font-semibold" style={{ color: COLOR }}>
+        <span className="texto-vivo font-semibold" style={tintaViva(COLOR)}>
           {valorTxt}
         </span>
       )}
@@ -336,7 +337,7 @@ export function PanelSinte({
               style={{ borderColor: COLOR }}
             >
               {t('audio.bateria.fuerza', 'Fuerza')}
-              <span className="font-semibold" style={{ color: COLOR }}>
+              <span className="texto-vivo font-semibold" style={tintaViva(COLOR)}>
                 {etiquetaFuerza}
               </span>
             </button>

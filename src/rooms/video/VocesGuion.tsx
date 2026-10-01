@@ -106,7 +106,7 @@ export function PanelNarradores({
         </p>
       )}
       {eligiendo && (
-        <div className={`${TARJETA} space-y-2 p-2`}>
+        <div className={`${TARJETA} space-y-2 !p-2`}>
           <Chip activo={false} onClick={() => anadir()}>
             <Icono nombre="microfono" /> {t('video.narradores.sinPersonaje', 'Sin personaje (voz en off)')}
           </Chip>
@@ -114,7 +114,7 @@ export function PanelNarradores({
         </div>
       )}
       {narradores.map((n) => (
-        <div key={n.id} className={`${TARJETA} space-y-1.5 p-2`}>
+        <div key={n.id} className={`${TARJETA} space-y-1.5 !p-2`}>
           <div className="flex items-center gap-1.5">
             <span className="shrink-0 text-base">
               <IconoNarrador n={n} />
@@ -227,7 +227,7 @@ export function LineasGuion({
           const quien = quienDe(c)
           const suena = sonando === c.id
           return (
-            <div key={c.id} className={`${TARJETA} flex items-center gap-2 p-2 ${suena ? 'border-white/50' : ''}`}>
+            <div key={c.id} className={`${TARJETA} flex items-center gap-2 !p-2 ${suena ? 'border-white/50' : ''}`}>
               <button type="button" onClick={() => onSeleccion(c.id)} className="min-w-0 flex-1 text-left">
                 <p className="truncate text-[11px] font-semibold text-white/80">
                   {quien.emoji ? <Icono emoji={quien.emoji} /> : <Icono nombre="microfono" />} {quien.nombre} · {fmtSeg(c.inicio)}

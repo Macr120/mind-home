@@ -6,6 +6,7 @@ import type { ProgresoMeta } from './peso'
 import { COLOR, OBJETIVOS } from './constantes'
 import { localeActual, useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { vivo } from '../../core/ui/estilos'
 
 const VERDE = '#34d399'
 
@@ -60,7 +61,7 @@ export function PesoPanel({
           <p className="text-xs text-white/50">
             <Icono nombre="balanza" /> {t('cocina.peso.titulo', 'Peso corporal')}
           </p>
-          <p className="text-4xl font-black" style={{ color: VERDE }}>
+          <p className="texto-vivo text-4xl font-black" style={vivo(VERDE)}>
             {actual !== null ? un(actual) : '—'}
             <span className="text-lg font-semibold text-white/40"> kg</span>
           </p>
@@ -171,7 +172,7 @@ function GraficaPeso({
       <div className="flex justify-between text-[10px] text-white/35">
         <span>{un(minK)} kg</span>
         {objetivoKg !== undefined && (
-          <span style={{ color: COLOR }}>
+          <span className="texto-vivo" style={vivo(COLOR)}>
             {t('cocina.peso.lineaMeta', `Meta ${un(objetivoKg)} kg`, { n: un(objetivoKg) })}
           </span>
         )}

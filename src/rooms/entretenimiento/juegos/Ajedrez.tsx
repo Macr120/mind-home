@@ -6,6 +6,7 @@ import { COLOR } from '../constantes'
 import type { Dificultad, PropsDificultad } from './dificultad'
 import { ElegirModo } from './ElegirModo'
 import { BarraMesa, nombreAsiento, opcionEnLinea } from './mesaJuego'
+import { vivo } from '../../../core/ui/estilos'
 
 type TipoPieza = 'p' | 'c' | 'a' | 't' | 'd' | 'r'
 type Bando = 'b' | 'n'
@@ -445,7 +446,7 @@ export function Ajedrez({ dificultad = 'medio', mesaOnline = false }: PropsDific
             )}
           </span>
         ) : (
-          <span className="font-bold" style={{ color: COLOR }}>
+          <span className="texto-vivo font-bold" style={vivo(COLOR)}>
             {finPartida === 'tablas'
               ? t('entre.j.ajedrez.tablas', '½–½ Tablas por ahogado')
               : finPartida === 'ganaB'
@@ -522,12 +523,12 @@ export function Ajedrez({ dificultad = 'medio', mesaOnline = false }: PropsDific
         <span>
           {nombreBando('b')}:{' '}
           <span className="text-base">{capturadasNegras.map((p, k) => <span key={k}>{GLIFO[p]}</span>)}</span>
-          {ventaja > 0 && <strong style={{ color: COLOR }}> +{ventaja}</strong>}
+          {ventaja > 0 && <strong className="texto-vivo" style={vivo(COLOR)}> +{ventaja}</strong>}
         </span>
         <span>
           {nombreBando('n')}:{' '}
           <span className="text-base">{capturadasBlancas.map((p, k) => <span key={k}>{GLIFO[p]}</span>)}</span>
-          {ventaja < 0 && <strong style={{ color: COLOR }}> +{-ventaja}</strong>}
+          {ventaja < 0 && <strong className="texto-vivo" style={vivo(COLOR)}> +{-ventaja}</strong>}
         </span>
       </div>
 

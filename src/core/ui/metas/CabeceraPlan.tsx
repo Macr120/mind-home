@@ -9,6 +9,7 @@ import { colorDe, colorPorProfundidad } from '../coloresRutina'
 import { Icono } from '../iconos/Icono'
 import { VERDE } from '../../../rooms/_shared/acento'
 import { COLOR_PLAN } from '../../../rooms/metas/constantes'
+import { vivo } from '../estilos'
 
 /**
  * La fila que encabeza un plan superpuesto: qué plan es, cuándo arranca y los dos
@@ -174,8 +175,8 @@ export function CabeceraPlan({
       <button
         type="button"
         onClick={onAbrirHoja}
-        className="ui-presion w-full rounded-lg py-0.5 text-[10px] font-semibold hover:brightness-125"
-        style={{ color: COLOR_PLAN }}
+        className="texto-vivo ui-presion w-full rounded-lg py-0.5 text-[10px] font-semibold hover:brightness-125"
+        style={vivo(COLOR_PLAN)}
       >
         {t('cal.plan.abrirHoja', 'Abrir la hoja')}
       </button>

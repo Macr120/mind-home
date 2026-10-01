@@ -21,7 +21,9 @@ export function Preview({
   children?: ReactNode
 }) {
   return (
-    <div ref={previewRef} style={{ height: alto }} data-tut="video.editor.visor" className="relative shrink-0 overflow-hidden rounded-xl bg-black">
+    // `ui-noche`: el visor es negro en los dos modos; sin ella, en modo claro los
+    // botones de sus esquinas pintaban el icono con la tinta oscura sobre negro.
+    <div ref={previewRef} style={{ height: alto }} data-tut="video.editor.visor" className="ui-noche relative shrink-0 overflow-hidden rounded-xl bg-black">
       <canvas ref={canvasRef} className="h-full w-full object-contain" />
       {children}
     </div>
@@ -49,8 +51,10 @@ export function BotonVisor({
       aria-pressed={activo}
       aria-label={etiqueta}
       title={etiqueta}
-      className={`ui-boton absolute top-2 z-20 grid h-9 w-9 place-items-center rounded-full border text-sm text-white backdrop-blur transition ${
-        activo ? 'border-white/60 bg-white/25' : 'border-white/20 bg-black/50 hover:bg-black/70'
+      // Activo con el acento (como `claseOverlayBtn`): el vidrio blanco al 25 % dejaba
+      // el icono blanco sin contraste sobre un fotograma claro.
+      className={`ui-boton absolute top-2 z-20 grid h-9 w-9 place-items-center rounded-full border text-sm backdrop-blur transition ${
+        activo ? 'border-accent/60 bg-accent text-accent-ink' : 'border-white/20 bg-black/50 text-white hover:bg-black/70'
       } ${className}`}
     >
       <Icono nombre={icono} />
