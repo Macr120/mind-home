@@ -234,6 +234,38 @@ export async function esperarDemo(c, id) {
   return estable ? 'ok' : 'la página no deja de recargarse: se salta'
 }
 
+/**
+ * El «día uno»: el modo prueba (`?probar=1`) abre una casa PROPIA vacía en su
+ * BD aparte, que el enlace borra al entrar. Espera a la app, en el idioma pedido.
+ */
+export async function esperarProbar(c, id) {
+  try {
+    await c.enviar('Runtime.evaluate', {
+      expression: `(() => {
+        window.__viejo = 1
+        localStorage.removeItem('mh.demo')
+        localStorage.setItem('mh.idioma', ${JSON.stringify(id)})
+      })()`,
+    })
+  } catch {}
+  try {
+    await c.enviar('Page.navigate', { url: APP + '?probar=1' })
+  } catch {}
+  const CONDICION = `(() => !window.__viejo && localStorage.getItem('mh.probar') === '1' && !!window.useCuartos && !!window.useHouse && !!window.__r3f && !!document.querySelector('canvas'))()`
+  for (let i = 0; i < 60; i++) {
+    await dormir(2000)
+    try {
+      const r = await c.enviar('Runtime.evaluate', { expression: CONDICION, returnByValue: true })
+      if (r.result?.value) {
+        await dormir(3000)
+        await c.enviar('Runtime.evaluate', { expression: 'window.__captura = 1' })
+        return 'ok'
+      }
+    } catch {}
+  }
+  return 'el modo prueba no arrancó: se salta'
+}
+
 /** ¿Sigue siendo la misma página (sin recargas) desde que se marcó? */
 export async function intacto(c) {
   try {
@@ -268,12 +300,18 @@ export const AYUDAS = `
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 const ISO_EL = 0.6154797086703873
 const ISO_AZ = Math.PI / 4
-/** El chip «salir de la demo» no es parte del producto: fuera (se localiza por clases, el texto cambia de idioma). */
+/**
+ * La píldora «Salir de la demo» (BarraDemo, en la casa y al pie de cada cuarto)
+ * no es parte del producto: fuera con una regla CSS, que también tapa las que
+ * React monte después. Se localiza por clases: el texto cambia de idioma.
+ */
 const ocultarChipDemo = () => {
-  document.querySelectorAll('div').forEach((e) => {
-    const c = e.className
-    if (typeof c === 'string' && c.includes('z-[45]') && c.includes('fixed') && c.includes('top-')) e.style.display = 'none'
-  })
+  if (document.getElementById('promo-sin-chip-demo')) return
+  const s = document.createElement('style')
+  s.id = 'promo-sin-chip-demo'
+  // La de la demo empieza por el botón; la del modo prueba, por la etiqueta «Modo prueba».
+  s.textContent = 'div.ui-panel-glass.rounded-full:is(:has(> button.font-bold:first-child), :has(> span.font-semibold:first-child + button.font-bold)) { display: none !important; }'
+  document.head.appendChild(s)
 }
 /** Lienzo 3D a 3× (el dpr del Canvas de R3F lo capa a 1.5). */
 const prep = () => {
@@ -332,6 +370,10 @@ const silenciarAvisos = async () => {
   for (const s of [m.useAvisoDemo, m.useAvisoSesion, m.useCuotaAgotada, m.useAvisoRenovar]) {
     if (s) s.setState({ abierto: false, abrir: () => {} })
   }
+  // Las celebraciones («Empieza tu racha hoy» al abrir un cuarto) también taparían la toma.
+  ;(await modulo('/src/core/state/celebracionStore.ts')).useCelebracion.setState({ actual: null, cola: [], encolar: () => {} })
+  // Ni la burbuja «Hablar · Mago» cuando el personaje queda junto al asistente: nada de texto en las tomas.
+  ;(await modulo('/src/core/state/asistenteCercaStore.ts')).useAsistenteCerca.setState({ asistenteId: null, set: () => {} })
 }
 /** Cierra todo lo que una escena anterior pudo dejar abierto. */
 const limpiarTodo = async () => {

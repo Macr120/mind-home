@@ -27,7 +27,7 @@ const EDGE_TTS = process.env.EDGE_TTS || 'edge-tts'
 const IDIOMAS = Object.keys(VOCES)
 
 /** Segundos que dura lo visual de cada escena (espejo de `src/escenas.ts`). */
-const TOPES = { gancho: 3.2, casa: 7.2, disena: 8.0, metas: 8.2, ia: 7.8, cerebro: 9.6, idiomas: 7.2, cta: 3.2, eslogan: 6.5 }
+const TOPES = { gancho: 3.2, casa: 7.2, disena: 8.0, metas: 8.2, ia: 7.8, cerebro: 9.6, idiomas: 7.2, cta: 3.8, eslogan: 6.5, dia1: 3.0, dia365: 3.0 }
 /** Hasta aquí se tolera que la voz alargue la escena antes de acelerarla. */
 const HOLGURA = 1.3
 /** Ritmo base +15 %: a +0 % la voz neuronal va lenta para un anuncio y el total pasaba de 70 s. */

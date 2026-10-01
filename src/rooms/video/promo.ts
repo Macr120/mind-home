@@ -13,10 +13,11 @@ import { PROMO, PROMO_MEDIOS, PROMO_NOMBRES, type PlanPromo } from './promo.data
 import { sonidoFabrica } from './sonidos'
 
 /**
- * El anuncio de MPH como proyecto de fábrica del Studio de video: las tomas
- * grabadas en la app en la pista principal (con transiciones y la ráfaga de
- * idiomas), la captura de escritorio encajada sobre un fondo, los rótulos, la
- * voz en off línea a línea, un clic en cada corte y el cierre en tres líneas.
+ * El video de fábrica del Studio de video, «Día 1 → Día 365» (≈10 s, sin
+ * textos): la casa recién creada con dos cuartos, la ráfaga de la interfaz en
+ * otros idiomas y la casa de un año entero, con la voz en off de cada idioma
+ * línea a línea y los efectos de la carpeta de fábrica. Las tomas son las mismas
+ * para los 16 idiomas (universales); solo cambia la voz.
  * Es una fila normal: se abre, se edita, se exporta y se BORRA como cualquier
  * video, y no vuelve solo (bandera) salvo en el demo, donde la BD se repone; se
  * restaura desde la barra del ejemplo (`ejemploVideo`).
@@ -36,12 +37,17 @@ const VERSION = '1'
 /** La sección del ejemplo viejo (el interruptor «Ver un ejemplo»), ya retirado. */
 const EJEMPLO_VIEJO = 'video.proyecto'
 const PREFIJO_FUENTE = 'promo:'
+/** Súbela cada vez que se regraben las tomas o cambie el montaje. */
+const REVISION_MEDIOS = 'r3'
 const DOMINIO = 'mindhaos.com'
-const OLIVA = '#52630e'
-const OLIVA_OSCURO = '#232b06'
+// El fondo del cierre y el de la captura de escritorio: el negro del icono oscuro (el oliva ya no es de la marca).
+const FONDO_CIERRE = '#16181d'
+const FONDO_ESCRITORIO = '#0f1115'
 const COLORES_CIERRE = ['#ffb319', '#ff505f', '#e4c6ff']
 /** Transición de ENTRADA de cada toma; las demás son cortes. */
 const TRANSICIONES: Record<string, Transicion> = {
+  '00-dia1': { tipo: 'fundido' },
+  '11-dia365': { tipo: 'zoom', duracion: 0.3 },
   '01-avatar': { tipo: 'fundido' },
   '02-casa-gira': { tipo: 'zoom', duracion: 0.3 },
   '04-mosaico': { tipo: 'deslizar', direccion: 'izq', duracion: 0.3 },
@@ -162,9 +168,11 @@ export const ejemploVideo: PaqueteEjemplo = {
 // ─── Medios ──────────────────────────────────────────────────────────────────
 // Clave de medio: 'clip:<toma>' | 'cal:<idioma>' (calendario de la ráfaga) |
 // 'escritorio' | 'voz:<línea>' | 'musica'. Va en el id del clip que lo usa
-// ('promo-<clave>-<n>') y en la `fuente` del medio ('promo:<idioma>:<clave>').
+// ('promo-<clave>-<n>') y en la `fuente` del medio ('promo:<revisión>:<idioma>:<clave>').
 
-const fuenteDe = (idioma: string, clave: string) => `${PREFIJO_FUENTE}${idioma}:${clave}`
+// La revisión va en la fuente: al regrabar el anuncio, la fila intacta ve medios
+// «de otra versión» y se rehace con los nuevos.
+const fuenteDe = (idioma: string, clave: string) => `${PREFIJO_FUENTE}${REVISION_MEDIOS}:${idioma}:${clave}`
 const esClaveMedio = (clave: string) =>
   clave.startsWith('clip:') || clave.startsWith('cal:') || clave.startsWith('voz:') || clave === 'escritorio' || clave === 'musica'
 
@@ -299,9 +307,9 @@ function montar(plan: PlanPromo, ids: Map<string, number>): ClipVideo[] {
     } else if (toma.tipo === 'escritorio') {
       // La captura apaisada, encajada sobre un fondo de la marca (pista fondo).
       clips.push({ ...base, id: id('escritorio'), fuente: { tipo: 'imagen', medioId: medio('escritorio') }, ajuste: 'encajar', transicion: { tipo: 'zoom', duracion: 0.3 } })
-      clips.push({ id: id('fondo'), pista: 'fondo', inicio, duracion: toma.seg, fuente: { tipo: 'color', color: OLIVA_OSCURO } })
+      clips.push({ id: id('fondo'), pista: 'fondo', inicio, duracion: toma.seg, fuente: { tipo: 'color', color: FONDO_ESCRITORIO } })
     } else {
-      clips.push({ ...base, id: id('cierre'), fuente: { tipo: 'color', color: OLIVA }, transicion: { tipo: 'fundido' } })
+      clips.push({ ...base, id: id('cierre'), fuente: { tipo: 'color', color: FONDO_CIERRE }, transicion: { tipo: 'fundido' } })
       // Cada línea del eslogan es «X, Y»: X de título y Y de subtítulo, en su tercio.
       const posiciones = ['arriba', 'centro', 'abajo'] as const
       plan.cierre.forEach((linea, i) => {
@@ -330,25 +338,6 @@ function montar(plan: PlanPromo, ids: Map<string, number>): ClipVideo[] {
     const duracion = Math.min(s.duracion, siguiente ? siguiente.desde - 0.05 - e.desde : s.duracion)
     if (duracion < MIN_CLIP) continue
     clips.push({ id: id('sfx'), pista: 'sfx', inicio: e.desde, duracion: redondear(duracion), fuente: { tipo: 'fabrica', clave: s.clave }, volumen: 0.6 })
-  }
-  for (const r of plan.rotulos) {
-    const contenido = plan.titulares[r.clave] ?? ''
-    clips.push({
-      id: id('rotulo'),
-      pista: 'texto',
-      inicio: r.desde,
-      duracion: redondear(r.hasta - r.desde),
-      // El gancho se escribe a máquina (la pregunta va apareciendo); el resto sube.
-      texto: {
-        contenido,
-        posicion: 'arriba',
-        tamano: contenido.length <= 14 ? 'M' : 'S',
-        color: '#ffffff',
-        fuente: 'display',
-        caja: true,
-        animacion: r.clave === 'gancho' ? 'maquina' : 'subir',
-      },
-    })
   }
   if (PROMO_MEDIOS.musica) {
     clips.push({ id: id('musica'), pista: 'musica', inicio: 0, duracion: redondear(t), medioId: medio('musica'), volumen: 0.25, bucle: true })

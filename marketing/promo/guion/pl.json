@@ -2,14 +2,16 @@
   "idioma": "pl",
   "lineas": {
     "gancho": "A gdyby tamagotchi… było tobą?",
-    "casa": "MPH to dom 3D, w którym każdy pokój jest aplikacją: kuchnia, trening, finanse, cele, muzyka…",
+    "casa": "MindHaOS to dom 3D, w którym każdy pokój jest aplikacją: kuchnia, trening, finanse, cele, muzyka…",
     "disena": "Zaprojektuj swój dom i zdecyduj, która aplikacja trafi do którego pokoju: twoje centrum rozrywki, nauki, kreatywności i dbania o siebie.",
     "metas": "Twój terminarz, kalendarz, dziennik pokładowy i osobisty asystent, żebyś realizował swoje cele w prawdziwym życiu.",
     "ia": "Rozmawiaj z asystentami jak z ChatGPT, Gemini czy Claude: zapisują twój dzień i tworzą obrazy, materiały i modele 3D.",
-    "cerebro": "Media społecznościowe rozpraszają twoją uwagę, a technologia myśli za ciebie. MPH to najpełniejszy i najfajniejszy sposób, żeby używać mózgu i widzieć, jak rosną nawyki, które sam wybierasz.",
+    "cerebro": "Media społecznościowe rozpraszają twoją uwagę, a technologia myśli za ciebie. MindHaOS to najpełniejszy i najfajniejszy sposób, żeby używać mózgu i widzieć, jak rosną nawyki, które sam wybierasz.",
     "idiomas": "W 16 językach. Web, komputer i telefon. Z kredytami AI, z darmowymi modelami lokalnymi… albo zupełnie bez AI.",
     "cta": "Wypróbuj za darmo. Albo zdobądź na własność za jedną opłatą.",
-    "eslogan": "Buduj postać, budując nawyki. Projektuj dom, projektując swoją przyszłość."
+    "eslogan": "Buduj postać, budując nawyki. Projektuj dom, projektując swoją przyszłość.",
+    "dia1": "Dzień pierwszy w MindHaOS.",
+    "dia365": "Dzień 365 w MindHaOS."
   },
   "titulares": {
     "gancho": "A gdybyś to ty był tamagotchi?",

@@ -1,15 +1,17 @@
-// Empaqueta el anuncio como CONTENIDO DE FÁBRICA del Studio de video de la app:
-// los clips grabados (recortados a lo que usa el montaje y recomprimidos), las
-// voces de los 16 idiomas (mp3 ligero), la captura de escritorio y la música si
-// la hay → `public/promo/` de la app; y el montaje RESUELTO por idioma (qué toma
-// dura cuánto, dónde entra cada voz y cada rótulo) → `src/rooms/video/promo.data.ts`.
+// Empaqueta el VIDEO DE FÁBRICA del Studio de video de la app («Día 1 → Día 365»,
+// ≈10 s y sin textos): los clips grabados (recortados a lo que usa el montaje y
+// recomprimidos), las voces de los 16 idiomas (mp3 ligero, solo las líneas que
+// usa) y la música si la hay → `public/promo/` de la app; y el montaje RESUELTO
+// por idioma (qué toma dura cuánto, dónde entra cada voz) →
+// `src/rooms/video/promo.data.ts`. El anuncio largo de TikTok es otra cosa: lo
+// renderiza Remotion (`src/escenas.ts`) y no viaja con la app.
 // La app lo siembra como un proyecto normal del Studio (`rooms/video/promo.ts`).
 //
-// Corre después de `voz.mjs` y de `grabar/grabar.mjs` (los clips de la app salen
-// de `public/clips/es` y `public/clips/en`; la ráfaga de idiomas usa el
-// calendario de todos los idiomas grabados).
+// Corre después de `voz.mjs` y de `grabar/grabar.mjs` (los clips salen de
+// `public/clips/es`; la ráfaga de idiomas usa el calendario de los idiomas de
+// `RAFAGA`).
 //
-//   node empaquetar-studio.mjs              todo (≈ 3 min: recomprime 45 clips)
+//   node empaquetar-studio.mjs              todo
 //   node empaquetar-studio.mjs --sin-medios solo el montaje (reusa public/promo/)
 import { execFileSync } from 'node:child_process'
 import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs'
@@ -26,11 +28,14 @@ const FFPROBE = process.env.FFPROBE || 'ffprobe'
 const SIN_MEDIOS = process.argv.includes('--sin-medios')
 
 const IDIOMAS = ['es', 'en', 'pt', 'fr', 'de', 'it', 'ja', 'zh', 'ko', 'ru', 'hi', 'tr', 'id', 'pl', 'nl', 'ar']
-/** Idiomas cuyos clips viajan ENTEROS con la app: el español ve los suyos y el resto los ingleses. */
-const CON_CLIPS = ['es', 'en']
-const clipsDe = (id) => (id === 'es' ? 'es' : 'en')
-/** Ráfaga «16 idiomas»: orden de preferencia (escrituras distintas primero) y cuántos entran. */
-const RAFAGA = ['ja', 'ar', 'hi', 'ko', 'ru', 'zh', 'de', 'pt', 'fr', 'tr', 'pl', 'it', 'nl', 'id', 'en', 'es']
+/**
+ * Una sola tanda de clips para los 16 idiomas: las tomas no llevan texto y el
+ * cambio de idioma lo cuenta la ráfaga, así que el video es universal y pesa poco.
+ */
+const CON_CLIPS = ['es']
+const clipsDe = () => 'es'
+/** Ráfaga de idiomas: calendarios grabados con la interfaz actual (escrituras distintas primero) y cuántos entran. */
+const RAFAGA = ['ja', 'ar', 'hi', 'ko', 'ru', 'zh', 'es']
 const RAFAGA_N = 6
 const RAFAGA_SEG = 0.45
 /** Silencios alrededor de la voz (segundos), como en `src/escenas.ts`. */
@@ -54,10 +59,10 @@ const FIN_CLIP = 0.05
 const CRF = 28
 
 /**
- * El anuncio, escena por escena: el mismo montaje que `src/escenas.ts` (Remotion),
- * en segundos. La duración de una escena es la mayor entre lo visual y la voz en
- * ese idioma; el sobrante se reparte de atrás hacia delante entre las tomas de la
- * escena, sin pasar de lo que dura cada clip grabado (el Studio no ralentiza).
+ * El video de fábrica, escena por escena. La duración de una escena es la mayor
+ * entre lo visual y la voz en ese idioma; el sobrante se reparte de atrás hacia
+ * delante entre las tomas de la escena, sin pasar de lo que dura cada clip
+ * grabado (el Studio no ralentiza).
  */
 /** Sonidos de fábrica del Studio (`rooms/video/sonidos.ts`) y sus segundos. */
 const SONIDOS = { aaa: 5.3, bruh: 0.8, click: 0.4, faa: 1.8, golpe: 3.1, 'jeje-boy': 1.9, sus: 2.9, wow: 1.9, nice: 3.1 }
@@ -68,108 +73,34 @@ const TOPE_TRAS = 2.2
 // `sfx`: sonido de la carpeta de fábrica con el corte de la toma. `tras` (en la
 // escena): sonido que va DESPUÉS de su última línea de voz, nunca encima.
 const ESCENAS = [
-  { id: 'gancho', tomas: [{ tipo: 'clip', clip: '01-avatar', seg: 3.0 }], lineas: ['gancho'], titulares: [{ clave: 'gancho', desde: 0.25 }], tras: 'faa' },
-  {
-    id: 'casa',
-    tomas: [
-      { tipo: 'clip', clip: '02-casa-gira', seg: 2.4, sfx: 'click' },
-      { tipo: 'clip', clip: '03-app-cocina', seg: 0.8, sfx: 'click' },
-      { tipo: 'clip', clip: '03-app-ejercicio', seg: 1.0, sfx: 'click' },
-      { tipo: 'clip', clip: '03-app-finanzas', seg: 0.8, sfx: 'click' },
-      { tipo: 'clip', clip: '03-app-metas', seg: 0.8, sfx: 'click' },
-      { tipo: 'clip', clip: '03-app-studio', seg: 1.4, sfx: 'click' },
-    ],
-    lineas: ['casa'],
-    titulares: [{ clave: 'apps', desde: 2.4 }],
-  },
-  {
-    id: 'disena',
-    tomas: [
-      { tipo: 'clip', clip: '04-mosaico', seg: 2.0, sfx: 'click' },
-      { tipo: 'clip', clip: '04-editor', seg: 2.2, sfx: 'click' },
-      { tipo: 'clip', clip: '04-temas', seg: 3.0, sfx: 'wow' },
-    ],
-    lineas: ['disena'],
-    titulares: [
-      { clave: 'disena', desde: 0.3, hasta: 4.0 },
-      { clave: 'personaliza', desde: 4.4 },
-    ],
-  },
-  {
-    id: 'metas',
-    tomas: [
-      { tipo: 'clip', clip: '05-calendario', seg: 1.7, sfx: 'click' },
-      { tipo: 'clip', clip: '05-misiones', seg: 1.7, sfx: 'click' },
-      { tipo: 'clip', clip: '05-cronograma', seg: 1.8, sfx: 'click' },
-      { tipo: 'clip', clip: '06-avatar-asistente', seg: 1.7, sfx: 'click' },
-    ],
-    lineas: ['metas'],
-    titulares: [{ clave: 'metas', desde: 0.3, hasta: 5.2 }],
-  },
-  {
-    id: 'ia',
-    // «…imágenes, recursos y modelos 3D»: el anecdotario, un diagrama de Ideas,
-    // el formulario y la superficie 3D de la sala de cómputo.
-    tomas: [
-      { tipo: 'clip', clip: '06-chat', seg: 2.0, sfx: 'click' },
-      { tipo: 'clip', clip: '06-fotos', seg: 1.5, sfx: 'click' },
-      { tipo: 'clip', clip: '06-diagrama', seg: 2.0, sfx: 'click' },
-      { tipo: 'clip', clip: '06-formulas', seg: 1.8, sfx: 'click' },
-      { tipo: 'clip', clip: '06-grafica', seg: 2.0, sfx: 'click' },
-    ],
-    lineas: ['ia'],
-    titulares: [{ clave: 'ia', desde: 0.3, hasta: 4.8 }],
-  },
-  {
-    id: 'cerebro',
-    tomas: [
-      { tipo: 'clip', clip: '07-sisifo', seg: 3.2, sfx: 'click' },
-      { tipo: 'clip', clip: '07-wrapped', seg: 2.6, sfx: 'nice' },
-      { tipo: 'clip', clip: '07-baile', seg: 3.8, sfx: 'click' },
-    ],
-    lineas: ['cerebro'],
-    titulares: [{ clave: 'progreso', desde: 3.4, hasta: 8.6 }],
-    // El grito «AAA» cuando acaba el argumento, sobre el baile.
-    tras: 'aaa',
-  },
-  {
-    id: 'idiomas',
-    tomas: [
-      { tipo: 'rafaga', sfx: 'click' },
-      { tipo: 'escritorio', seg: 1.9, sfx: 'click' },
-      { tipo: 'clip', clip: '07-panel-ia', seg: 2.6, sfx: 'click' },
-    ],
-    lineas: ['idiomas'],
-    titulares: [
-      { clave: 'idiomas', desde: 0.1, hasta: 2.6 },
-      { clave: 'plataformas', desde: 2.8, hasta: 4.5 },
-      { clave: 'conSinIa', desde: 4.7 },
-    ],
-  },
-  { id: 'cta', tomas: [{ tipo: 'clip', clip: '09-atardecer', seg: 3.2, sfx: 'click' }], lineas: ['cta'], titulares: [] },
-  { id: 'cierre', tomas: [{ tipo: 'cierre', seg: 6.5, sfx: 'golpe' }], lineas: ['eslogan'], titulares: [] },
-  // El último plano repite el primero: en TikTok el video vuelve a empezar solo.
-  { id: 'loop', tomas: [{ tipo: 'clip', clip: '01-avatar', seg: 0.8 }], lineas: [], titulares: [] },
+  // Día 1: la casa recién creada (modo prueba) con sus dos cuartos.
+  { id: 'dia1', tomas: [{ tipo: 'clip', clip: '00-dia1', seg: 3.0 }], lineas: ['dia1'] },
+  // La interfaz en otros idiomas: un clic en cada corte.
+  { id: 'idiomas', tomas: [{ tipo: 'rafaga', sfx: 'click' }], lineas: [] },
+  // Día 365: del personaje a la casa entera, y el eslogan del anuncio.
+  { id: 'dia365', tomas: [{ tipo: 'clip', clip: '11-dia365', seg: 4.0, sfx: 'wow' }], lineas: ['dia365', 'eslogan'], tras: 'jeje-boy' },
 ]
+/** Las líneas de voz que usa el montaje: las demás del guion (las del anuncio largo) no viajan. */
+const LINEAS = new Set(ESCENAS.flatMap((e) => e.lineas))
 
 /** Nombre del proyecto en cada idioma (es dato del usuario, no interfaz: no va en dict). */
 const NOMBRE = {
-  es: 'Anuncio de MPH',
-  en: 'MPH ad',
-  pt: 'Anúncio do MPH',
-  fr: 'Pub de MPH',
-  de: 'MPH-Werbespot',
-  it: 'Spot di MPH',
-  ja: 'MPHの広告',
-  zh: 'MPH 广告',
-  ko: 'MPH 광고',
-  ru: 'Реклама MPH',
-  hi: 'MPH का विज्ञापन',
-  tr: 'MPH reklamı',
-  id: 'Iklan MPH',
-  pl: 'Reklama MPH',
-  nl: 'MPH-advertentie',
-  ar: 'إعلان MPH',
+  es: 'Día 1 → Día 365',
+  en: 'Day 1 → Day 365',
+  pt: 'Dia 1 → Dia 365',
+  fr: 'Jour 1 → Jour 365',
+  de: 'Tag 1 → Tag 365',
+  it: 'Giorno 1 → Giorno 365',
+  ja: '1日目 → 365日目',
+  zh: '第1天 → 第365天',
+  ko: '1일 차 → 365일 차',
+  ru: 'День 1 → День 365',
+  hi: 'दिन 1 → दिन 365',
+  tr: '1. gün → 365. gün',
+  id: 'Hari 1 → Hari 365',
+  pl: 'Dzień 1 → Dzień 365',
+  nl: 'Dag 1 → Dag 365',
+  ar: 'اليوم 1 ← اليوم 365',
 }
 
 /** Nombres de los medios en la biblioteca, en el idioma de la interfaz que se ve en los clips. */
@@ -200,7 +131,10 @@ const NOMBRES_MEDIOS = {
     '07-baile': 'Baile',
     '07-panel-ia': 'Panel de IA',
     '09-atardecer': 'Atardecer',
-    escritorio: 'MPH en escritorio',
+    '10-zoom-out': 'La casa desde lejos',
+    '00-dia1': 'Día uno',
+    '11-dia365': 'Día 365',
+    escritorio: 'MindHaOS en escritorio',
     musica: 'Música del anuncio',
   },
   en: {
@@ -229,7 +163,10 @@ const NOMBRES_MEDIOS = {
     '07-baile': 'Dance',
     '07-panel-ia': 'AI panel',
     '09-atardecer': 'Sunset',
-    escritorio: 'MPH on desktop',
+    '10-zoom-out': 'The house from afar',
+    '00-dia1': 'Day one',
+    '11-dia365': 'Day 365',
+    escritorio: 'MindHaOS on desktop',
     musica: 'Ad music',
   },
 }
@@ -262,7 +199,7 @@ for (const id of IDIOMAS) {
   if (!existsSync(t)) throw new Error(`falta la voz de ${id} (node voz.mjs ${id})`)
   voz[id] = {}
   mkdirSync(salida('voz', id), { recursive: true })
-  for (const linea of Object.keys(JSON.parse(readFileSync(t, 'utf8')))) {
+  for (const linea of Object.keys(JSON.parse(readFileSync(t, 'utf8'))).filter((l) => LINEAS.has(l))) {
     const destino = salida('voz', id, linea + '.mp3')
     if (!SIN_MEDIOS) ff(['-i', path.join(PUBLIC, 'voz', id, linea + '.mp3'), '-af', RECORTE_SILENCIOS, '-ac', '1', '-b:a', '48k', destino])
     if (existsSync(destino)) voz[id][linea] = duracion(destino)
@@ -280,7 +217,7 @@ for (const set of CON_CLIPS) {
   }
 }
 /** Idiomas con calendario grabado (la ráfaga). */
-const conCalendario = IDIOMAS.filter((id) => existsSync(path.join(PUBLIC, 'clips', id, '05-calendario.mp4')))
+const conCalendario = RAFAGA.filter((id) => existsSync(path.join(PUBLIC, 'clips', id, '05-calendario.mp4')))
 
 // ─── 2. El montaje resuelto por idioma ───────────────────────────────────────
 
@@ -289,7 +226,6 @@ function planificar(id) {
   const rafaga = RAFAGA.filter((otro) => otro !== id && conCalendario.includes(otro)).slice(0, RAFAGA_N)
   const tomas = []
   const voces = []
-  const rotulos = []
   const efectos = []
   let cursor = 0
   for (const e of ESCENAS) {
@@ -327,10 +263,16 @@ function planificar(id) {
       finVoz = v0 + s
       v0 += s + PAUSA_ENTRE
     }
-    if (e.tras && dur.length) efectos.push({ clave: e.tras, desde: r2(finVoz + HUECO_TRAS) })
-    for (const t of e.titulares) {
-      const hasta = Math.min(escenaSeg, t.hasta ?? escenaSeg)
-      if (hasta > t.desde) rotulos.push({ clave: t.clave, desde: r2(cursor + t.desde), hasta: r2(cursor + hasta) })
+    if (e.tras && dur.length) {
+      // Nunca encima de un efecto de corte que aún suena (el «nice» del resumen): espera a que acabe.
+      const trasVoz = finVoz + HUECO_TRAS
+      let t = cursor
+      let desde = trasVoz
+      for (const toma of lista) {
+        if (toma.sfx && t <= trasVoz) desde = Math.max(desde, t + SONIDOS[toma.sfx])
+        t += toma.seg
+      }
+      efectos.push({ clave: e.tras, desde: r2(desde) })
     }
     cursor = r2(cursor + escenaSeg)
   }
@@ -339,12 +281,10 @@ function planificar(id) {
     nombre: NOMBRE[id],
     clips: set,
     lineas: g.lineas,
-    titulares: g.titulares,
     cierre: g.cierre,
     gratis: g.cta.gratis,
     tomas,
     voces,
-    rotulos,
     efectos,
     total: cursor,
   }
@@ -385,11 +325,11 @@ for (const set of CON_CLIPS) {
 }
 for (const otro of conCalendario) {
   const destino = salida('clips', otro, '05-calendario.mp4')
-  medios.calendarios[otro] = CON_CLIPS.includes(otro)
-    ? medios.clips[otro]['05-calendario']
-    : clipRecortado(path.join(PUBLIC, 'clips', otro, '05-calendario.mp4'), destino, RAFAGA_SEG + MARGEN)
+  medios.calendarios[otro] =
+    medios.clips[otro]?.['05-calendario'] ??
+    clipRecortado(path.join(PUBLIC, 'clips', otro, '05-calendario.mp4'), destino, RAFAGA_SEG + MARGEN)
 }
-for (const set of CON_CLIPS) {
+for (const set of ESCENAS.some((e) => e.tomas.some((t) => t.tipo === 'escritorio')) ? CON_CLIPS : []) {
   const destino = salida(`escritorio-${set}.jpg`)
   if (!SIN_MEDIOS) ff(['-i', path.join(PUBLIC, 'marca', `escritorio-${set}.png`), '-vf', 'scale=1280:-2', '-q:v', '3', destino])
   const { ancho, alto } = sonda(destino)
@@ -436,9 +376,9 @@ function literal(v, sangria = '') {
 const planesSinTotal = Object.fromEntries(IDIOMAS.map((id) => [id, (({ total: _t, ...p }) => p)(planes[id])]))
 const ts = `// GENERADO por marketing/promo/empaquetar-studio.mjs — no editar a mano.
 //
-// El anuncio de MPH montado para el Studio de video, resuelto por idioma: las
+// El video de fábrica de MindHaOS («Día 1 → Día 365») montado para el Studio de video, resuelto por idioma: las
 // tomas en orden con su duración (el sobrante de la voz ya repartido), dónde
-// entra cada línea de voz y cada rótulo, y los textos. Los binarios viven en
+// entra cada línea de voz, y los textos. Los binarios viven en
 // \`public/promo/\`; \`rooms/video/promo.ts\` los siembra como un proyecto normal.
 import type { PorIdioma } from '../../core/i18n/porIdioma'
 
@@ -455,22 +395,20 @@ export interface PlanPromo {
   /** Carpeta de clips de la app en ese idioma (\`public/promo/clips/<clips>/\`); la captura de escritorio va igual. */
   clips: 'es' | 'en'
   lineas: Record<string, string>
-  titulares: Record<string, string>
   cierre: string[]
   gratis: string
   tomas: TomaPromo[]
   voces: { linea: string; desde: number; seg: number }[]
-  rotulos: { clave: string; desde: number; hasta: number }[]
   /** Sonidos de fábrica que van DESPUÉS de una línea de voz (se cortan si entra la siguiente). */
   efectos: { clave: string; desde: number }[]
 }
 
 /** Duraciones (s) y tamaños de lo que hay en \`public/promo/\`. */
 export const PROMO_MEDIOS: {
-  clips: Record<'es' | 'en', Record<string, number>>
+  clips: Record<string, Record<string, number>>
   /** El calendario de cada idioma grabado (la ráfaga). */
   calendarios: Record<string, number>
-  escritorio: Record<'es' | 'en', { ancho: number; alto: number }>
+  escritorio: Record<string, { ancho: number; alto: number }>
   musica: number | null
 } = ${literal(medios)}
 
@@ -489,6 +427,6 @@ function pesoDir(dir) {
 }
 const mb = (n) => (n / 1024 / 1024).toFixed(1) + ' MB'
 for (const id of IDIOMAS) console.log(`${id}: ${planes[id].total.toFixed(1)} s · ${planes[id].tomas.length} tomas · ráfaga ${planes[id].tomas.filter((t) => t.tipo === 'rafaga').length}`)
-console.log(`\nclips es ${mb(pesoDir(salida('clips', 'es')))} · en ${mb(pesoDir(salida('clips', 'en')))} · voces ${mb(pesoDir(salida('voz')))} · total ${mb(pesoDir(SALIDA))}`)
+console.log(`\nclips ${mb(pesoDir(salida('clips')))} · voces ${mb(pesoDir(salida('voz')))} · total ${mb(pesoDir(SALIDA))}`)
 if (!medios.musica) console.log('sin public/musica.mp3: el proyecto sale sin pista de música')
 console.log(`montaje → ${path.relative(APP, DATOS)}`)

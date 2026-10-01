@@ -14,7 +14,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { ESCENAS } from './escenas.mjs'
 import { codigoGrabar } from './grabador-pagina.mjs'
-import { ajustarVentana, arrancarChrome, conNavegador, conSesion, dormir, esperarDemo, gpu, intacto, AYUDAS, PERFIL } from './sesion.mjs'
+import { ajustarVentana, arrancarChrome, conNavegador, conSesion, dormir, esperarDemo, esperarProbar, gpu, intacto, AYUDAS, PERFIL } from './sesion.mjs'
 
 const RAIZ = path.dirname(fileURLToPath(import.meta.url))
 const CLIPS = path.join(RAIZ, '..', 'public', 'clips')
@@ -111,19 +111,24 @@ async function grabarEscena(c, b, esc, id) {
 
 async function grabarIdioma(id, b) {
   return conSesion(async (c, t) => {
-    const estado = await esperarDemo(c, id)
-    if (estado !== 'ok') return estado
-    const v = await ajustarVentana(c, b, t.id)
-    console.log(`  área de contenido ${v.iw}×${v.ih} DIP (viewport 360×640 en la esquina)`)
-    console.log('  GPU: ' + (await gpu(c)))
     const fallos = []
-    for (const esc of escenas) {
-      if (!(await intacto(c))) return 'RECARGA'
-      try {
-        await grabarEscena(c, b, esc, id)
-      } catch (e) {
-        console.log(`  ${esc.nombre.padEnd(20)} ✗ ${e.message}`)
-        fallos.push(esc.nombre)
+    // Las tomas de la casa demo de Pep@ y las del «día uno» (modo prueba, casa vacía).
+    for (const probar of [false, true]) {
+      const lista = escenas.filter((e) => !!e.probar === probar)
+      if (!lista.length) continue
+      const estado = probar ? await esperarProbar(c, id) : await esperarDemo(c, id)
+      if (estado !== 'ok') return estado
+      const v = await ajustarVentana(c, b, t.id)
+      console.log(`  área de contenido ${v.iw}×${v.ih} DIP (viewport 360×640 en la esquina)`)
+      console.log('  GPU: ' + (await gpu(c)))
+      for (const esc of lista) {
+        if (!(await intacto(c))) return 'RECARGA'
+        try {
+          await grabarEscena(c, b, esc, id)
+        } catch (e) {
+          console.log(`  ${esc.nombre.padEnd(20)} ✗ ${e.message}`)
+          fallos.push(esc.nombre)
+        }
       }
     }
     return fallos.length ? `fallaron: ${fallos.join(', ')}` : 'ok'

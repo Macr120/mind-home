@@ -14,6 +14,39 @@
  */
 export const ESCENAS = [
   {
+    // El «día uno» del video de fábrica: una casa recién creada, en el modo prueba
+    // (BD vacía), con los dos cuartos que arma la bienvenida. `probar` hace que el
+    // grabador entre por `?probar=1` en vez de la demo de Pep@.
+    nombre: '00-dia1',
+    probar: true,
+    seg: 4.5,
+    preparar: `
+      await limpiarTodo()
+      const { claveLS } = await modulo('/src/core/edicion.ts')
+      localStorage.setItem(claveLS('mh.bienvenida'), '1')
+      ;(await modulo('/src/core/bienvenida/bienvenidaStore.ts')).useBienvenida.getState().cerrar()
+      if (useCuartos.getState().cuartos.length === 0) {
+        const { getPlantilla } = await modulo('/src/core/registry.ts')
+        const { asignarPlantillaACuarto } = await modulo('/src/core/gamificacion/plantillaBundle.ts')
+        // Igual que «Crear mi MindHaOS»: un cuarto tras otro, cada uno con su app.
+        for (const pid of ['cocina', 'ejercicio']) {
+          const id = await useCuartos.getState().crear({ categoria: getPlantilla(pid).categoria })
+          await asignarPlantillaACuarto(id, pid)
+        }
+      }
+      useCiclo.setState({ minutos: 11 * 60, modo: 'manual' })
+      await sleep(1500)
+      await cortarCam({ focus: [-12, 1, -12], zoom: 30, az: ISO_AZ, el: ISO_EL })
+      await sleep(1200)
+      return 'cuartos=' + useCuartos.getState().cuartos.length
+    `,
+    animar: `
+      // De los dos cuartos al terreno entero: casi todo está por construir.
+      await sleep(300)
+      await moverCam(camAhora(), { focus: [-6, 0, -6], zoom: 11, az: ISO_AZ + 0.25, el: ISO_EL }, SEG * 1000 - 300, ease)
+    `,
+  },
+  {
     nombre: '01-avatar',
     seg: 5,
     preparar: `
@@ -135,19 +168,24 @@ export const ESCENAS = [
     seg: 6,
     preparar: `
       await limpiarTodo()
+      // Los temas traen paisaje completo y la primera carga es lenta: se pasan
+      // una vez antes de grabar y la toma ARRANCA ya en el primero, para que en
+      // sus primeros segundos (los que usa el montaje) se vean dos cambios.
+      for (const tema of ['nave', 'medieval', 'barbie']) {
+        await useDiseño.getState().setTemaGlobal(tema)
+        await sleep(2500)
+      }
       await cortarCam(CASA)
-      await sleep(600)
+      await sleep(1200)
       return 'ok'
     `,
     animar: `
       const a = camAhora()
       const giro = moverCam(a, { ...a, az: a.az + Math.PI / 4 }, SEG * 1000, (q) => q)
-      await sleep(700)
-      // Temas de día (nada de noche neón): el usuario quiere luz en toda la grabación.
-      await useDiseño.getState().setTemaGlobal('barbie')
-      await sleep(1500)
-      await useDiseño.getState().setTemaGlobal('vaquero')
-      await sleep(1500)
+      // Barbie → nave espacial → medieval (el usuario cambió el vaquero por la nave).
+      await sleep(900)
+      await useDiseño.getState().setTemaGlobal('nave')
+      await sleep(1100)
       await useDiseño.getState().setTemaGlobal('medieval')
       await giro
     `,
@@ -423,6 +461,46 @@ export const ESCENAS = [
         await sleep(100)
       }
       await dolly
+    `,
+    limpiar: `useCiclo.setState({ minutos: 11 * 60, modo: 'manual' })`,
+  },
+  {
+    // El «día 365» del video de fábrica: del personaje a la casa de Pep@ entera
+    // (la demo, un año de uso), lento, para que quepan «Día 365» y el eslogan.
+    nombre: '11-dia365',
+    seg: 12,
+    preparar: `
+      await limpiarTodo()
+      if (useHouse.getState().explotado) useHouse.getState().toggleExplotado()
+      useCiclo.setState({ minutos: 11 * 60, modo: 'manual' })
+      await cortarCam(await camJugador(70))
+      await sleep(1200)
+      return 'ok'
+    `,
+    animar: `
+      await sleep(300)
+      // La casa entera a los 6,5 s (el idioma más corto la usa ~7,5 s) y luego un giro lento.
+      await moverCam(camAhora(), { ...CASA, az: CASA.az + Math.PI / 8, zoom: CASA.zoom * 0.4 }, 6200, ease)
+      const b = camAhora()
+      await moverCam(b, { ...b, az: b.az + Math.PI / 8 }, SEG * 1000 - 6800, (q) => q)
+    `,
+  },
+  {
+    // El cierre: la cámara se aleja de la casa hasta ver el terreno entero, con
+    // la luz donde acaba el atardecer y sin texto encima.
+    nombre: '10-zoom-out',
+    seg: 7,
+    preparar: `
+      await limpiarTodo()
+      if (useHouse.getState().explotado) useHouse.getState().toggleExplotado()
+      useCiclo.setState({ minutos: 16 * 60 + 20, modo: 'manual' })
+      await cortarCam({ ...CASA, zoom: CASA.zoom * 1.5 })
+      await sleep(1200)
+      return 'ok'
+    `,
+    animar: `
+      const a = camAhora()
+      await moverCam(a, { ...a, az: a.az + Math.PI / 6, zoom: CASA.zoom * 0.3 }, SEG * 1000, ease)
     `,
     limpiar: `useCiclo.setState({ minutos: 11 * 60, modo: 'manual' })`,
   },

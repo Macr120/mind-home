@@ -30,108 +30,100 @@ export type DatosIdioma = {
 export type Manifiesto = { fps: number; musica: string | null; idiomas: Record<string, DatosIdioma> }
 export const MANIFIESTO = manifiesto as unknown as Manifiesto
 
+/** Los efectos de la carpeta de fábrica del Studio de video (`public/sonidos/`) y sus segundos. */
+export const SONIDOS = { aaa: 5.3, click: 0.4, faa: 1.8, golpe: 3.1, 'jeje-boy': 1.9, wow: 1.9, nice: 3.1 } as const
+export type Sonido = keyof typeof SONIDOS
+
+/** `sfx`: efecto que suena con el corte de la toma (en la ráfaga, en cada idioma). */
 export type Toma =
-  | { tipo: 'clip'; clip: string; seg: number; flash?: number }
-  | { tipo: 'rafaga'; seg: number }
-  | { tipo: 'escritorio'; seg: number }
-  | { tipo: 'cierre'; seg: number }
+  | { tipo: 'clip'; clip: string; seg: number; flash?: number; sfx?: Sonido }
+  | { tipo: 'rafaga'; seg: number; sfx?: Sonido }
+  | { tipo: 'escritorio'; seg: number; sfx?: Sonido }
+  | { tipo: 'cierre'; seg: number; sfx?: Sonido }
 
-/** Titular en pantalla: `desde`/`hasta` en segundos dentro de la escena. */
-export type TitularDef = { clave: string; desde: number; hasta?: number }
-
-export type EscenaDef = { id: string; tomas: Toma[]; lineas: string[]; titulares: TitularDef[] }
+/** `tras`: efecto que va DESPUÉS de la última línea de voz de la escena, nunca encima. */
+export type EscenaDef = { id: string; tomas: Toma[]; lineas: string[]; tras?: Sonido }
 
 export const ESCENAS: EscenaDef[] = [
   {
     id: 'gancho',
     tomas: [{ tipo: 'clip', clip: '01-avatar', seg: 3.0, flash: 1.5 }],
     lineas: ['gancho'],
-    titulares: [{ clave: 'gancho', desde: 0.25 }],
+    tras: 'faa',
   },
   {
     id: 'casa',
     tomas: [
-      { tipo: 'clip', clip: '02-casa-gira', seg: 2.4 },
-      { tipo: 'clip', clip: '03-app-cocina', seg: 0.8 },
-      { tipo: 'clip', clip: '03-app-ejercicio', seg: 1.0 },
-      { tipo: 'clip', clip: '03-app-finanzas', seg: 0.8 },
-      { tipo: 'clip', clip: '03-app-metas', seg: 0.8 },
-      { tipo: 'clip', clip: '03-app-studio', seg: 1.4 },
+      { tipo: 'clip', clip: '02-casa-gira', seg: 2.4, sfx: 'click' },
+      { tipo: 'clip', clip: '03-app-cocina', seg: 0.8, sfx: 'click' },
+      { tipo: 'clip', clip: '03-app-ejercicio', seg: 1.0, sfx: 'click' },
+      { tipo: 'clip', clip: '03-app-finanzas', seg: 0.8, sfx: 'click' },
+      { tipo: 'clip', clip: '03-app-metas', seg: 0.8, sfx: 'click' },
+      { tipo: 'clip', clip: '03-app-studio', seg: 1.4, sfx: 'click' },
     ],
     lineas: ['casa'],
-    titulares: [{ clave: 'apps', desde: 2.4 }],
   },
   {
     id: 'disena',
     tomas: [
-      { tipo: 'clip', clip: '04-mosaico', seg: 2.0 },
-      { tipo: 'clip', clip: '04-editor', seg: 2.2 },
-      { tipo: 'clip', clip: '04-temas', seg: 3.0 },
+      { tipo: 'clip', clip: '04-mosaico', seg: 2.0, sfx: 'click' },
+      { tipo: 'clip', clip: '04-editor', seg: 2.2, sfx: 'click' },
+      { tipo: 'clip', clip: '04-temas', seg: 3.0, sfx: 'wow' },
     ],
     lineas: ['disena'],
-    titulares: [
-      { clave: 'disena', desde: 0.3, hasta: 4.0 },
-      { clave: 'personaliza', desde: 4.4 },
-    ],
   },
   {
     id: 'metas',
     tomas: [
-      { tipo: 'clip', clip: '05-calendario', seg: 1.7 },
-      { tipo: 'clip', clip: '05-misiones', seg: 1.7 },
-      { tipo: 'clip', clip: '05-cronograma', seg: 1.8 },
-      { tipo: 'clip', clip: '06-avatar-asistente', seg: 1.7 },
+      { tipo: 'clip', clip: '05-calendario', seg: 1.7, sfx: 'click' },
+      { tipo: 'clip', clip: '05-misiones', seg: 1.7, sfx: 'click' },
+      { tipo: 'clip', clip: '05-cronograma', seg: 1.8, sfx: 'click' },
+      { tipo: 'clip', clip: '06-avatar-asistente', seg: 1.7, sfx: 'click' },
     ],
     lineas: ['metas'],
-    titulares: [{ clave: 'metas', desde: 0.3, hasta: 5.2 }],
   },
   {
     id: 'ia',
     tomas: [
-      { tipo: 'clip', clip: '06-chat', seg: 2.0 },
-      { tipo: 'clip', clip: '06-fotos', seg: 1.5 },
-      { tipo: 'clip', clip: '06-diagrama', seg: 2.0 },
-      { tipo: 'clip', clip: '06-formulas', seg: 1.8 },
-      { tipo: 'clip', clip: '06-grafica', seg: 2.0 },
+      { tipo: 'clip', clip: '06-chat', seg: 2.0, sfx: 'click' },
+      { tipo: 'clip', clip: '06-fotos', seg: 1.5, sfx: 'click' },
+      { tipo: 'clip', clip: '06-diagrama', seg: 2.0, sfx: 'click' },
+      { tipo: 'clip', clip: '06-formulas', seg: 1.8, sfx: 'click' },
+      { tipo: 'clip', clip: '06-grafica', seg: 2.0, sfx: 'click' },
     ],
     lineas: ['ia'],
-    titulares: [{ clave: 'ia', desde: 0.3, hasta: 4.8 }],
   },
   {
     id: 'cerebro',
     tomas: [
-      { tipo: 'clip', clip: '07-sisifo', seg: 3.2 },
-      { tipo: 'clip', clip: '07-wrapped', seg: 2.6 },
-      { tipo: 'clip', clip: '07-baile', seg: 3.8 },
+      { tipo: 'clip', clip: '07-sisifo', seg: 3.2, sfx: 'click' },
+      { tipo: 'clip', clip: '07-wrapped', seg: 2.6, sfx: 'nice' },
+      { tipo: 'clip', clip: '07-baile', seg: 3.8, sfx: 'click' },
     ],
     lineas: ['cerebro'],
-    titulares: [{ clave: 'progreso', desde: 3.4, hasta: 8.6 }],
+    // El grito «AAA» cuando acaba el argumento, sobre el baile.
+    tras: 'aaa',
   },
   {
     id: 'idiomas',
     tomas: [
-      { tipo: 'rafaga', seg: 2.7 },
-      { tipo: 'escritorio', seg: 1.9 },
-      { tipo: 'clip', clip: '07-panel-ia', seg: 2.6 },
+      { tipo: 'rafaga', seg: 2.7, sfx: 'click' },
+      { tipo: 'escritorio', seg: 1.9, sfx: 'click' },
+      { tipo: 'clip', clip: '07-panel-ia', seg: 2.6, sfx: 'click' },
     ],
     lineas: ['idiomas'],
-    titulares: [
-      { clave: 'idiomas', desde: 0.1, hasta: 2.6 },
-      { clave: 'plataformas', desde: 2.8, hasta: 4.5 },
-      { clave: 'conSinIa', desde: 4.7 },
-    ],
   },
   {
     id: 'cta',
-    tomas: [{ tipo: 'clip', clip: '09-atardecer', seg: 3.2 }],
+    tomas: [{ tipo: 'clip', clip: '09-atardecer', seg: 3.2, sfx: 'click' }],
     lineas: ['cta'],
-    titulares: [],
   },
   {
     id: 'cierre',
-    tomas: [{ tipo: 'cierre', seg: 6.5 }],
+    tomas: [{ tipo: 'clip', clip: '10-zoom-out', seg: 6.5, sfx: 'golpe' }],
     lineas: ['eslogan'],
-    titulares: [],
+    // Remate del anuncio cuando calla el eslogan.
+    tras: 'jeje-boy',
   },
   // El último plano repite el primero: en TikTok el video vuelve a empezar solo
   // y el corte no se nota.
@@ -139,7 +131,6 @@ export const ESCENAS: EscenaDef[] = [
     id: 'loop',
     tomas: [{ tipo: 'clip', clip: '01-avatar', seg: 0.8 }],
     lineas: [],
-    titulares: [],
   },
 ]
 
@@ -147,17 +138,22 @@ export const ESCENAS: EscenaDef[] = [
 const PAUSA_INICIO = 0.1
 const PAUSA_ENTRE = 0.25
 const PAUSA_FIN = 0.15
+/** El efecto `tras`: hueco desde que calla la voz y espacio máximo que la escena le reserva. */
+const HUECO_TRAS = 0.1
+const TOPE_TRAS = 2.2
+const VOLUMEN_SFX = 0.6
 
 export type TomaPlan = Toma & { desde: number; frames: number }
-export type TitularPlan = { texto: string; desde: number; hasta: number }
-export type EscenaPlan = { id: string; desde: number; frames: number; tomas: TomaPlan[]; titulares: TitularPlan[] }
+export type EscenaPlan = { id: string; desde: number; frames: number; tomas: TomaPlan[] }
 export type VozPlan = { clave: string; ruta: string; desde: number; frames: number }
+export type EfectoPlan = { ruta: string; desde: number; frames: number; volumen: number }
 export type Plan = {
   idioma: Idioma
   fps: number
   total: number
   escenas: EscenaPlan[]
   voces: VozPlan[]
+  efectos: EfectoPlan[]
   datos: DatosIdioma
   musica: string | null
 }
@@ -173,12 +169,15 @@ export function planificar(idioma: Idioma): Plan {
   const datos = datosDe(idioma)
   const escenas: EscenaPlan[] = []
   const voces: VozPlan[] = []
+  const efectos: EfectoPlan[] = []
+  const efecto = (clave: Sonido, desde: number, frames = seg2f(SONIDOS[clave])) =>
+    efectos.push({ ruta: `sonidos/${clave}.mp3`, desde, frames, volumen: VOLUMEN_SFX })
   let cursor = 0
   for (const e of ESCENAS) {
     const visual = e.tomas.reduce((a, t) => a + t.seg, 0)
     const duraciones = e.lineas.map((l) => datos.voz[l]?.seg ?? 0).filter((s) => s > 0)
     const vozSeg = duraciones.length
-      ? PAUSA_INICIO + duraciones.reduce((a, b) => a + b, 0) + PAUSA_ENTRE * (duraciones.length - 1) + PAUSA_FIN
+      ? PAUSA_INICIO + duraciones.reduce((a, b) => a + b, 0) + PAUSA_ENTRE * (duraciones.length - 1) + (e.tras ? HUECO_TRAS + Math.min(SONIDOS[e.tras], TOPE_TRAS) : PAUSA_FIN)
       : 0
     const frames = seg2f(Math.max(visual, vozSeg))
     let t0 = 0
@@ -186,6 +185,12 @@ export function planificar(idioma: Idioma): Plan {
       const ultima = i === e.tomas.length - 1
       const f = ultima ? frames - t0 : seg2f(t.seg)
       const tp: TomaPlan = { ...t, desde: t0, frames: f }
+      if (t.sfx) {
+        // La ráfaga corta una vez por idioma: un clic en cada corte.
+        const cortes = t.tipo === 'rafaga' ? Math.max(1, datos.rafaga.length) : 1
+        const sub = Math.max(1, Math.floor(f / cortes))
+        for (let k = 0; k < cortes; k++) efecto(t.sfx, cursor + t0 + k * sub)
+      }
       t0 += f
       return tp
     })
@@ -197,15 +202,17 @@ export function planificar(idioma: Idioma): Plan {
       voces.push({ clave: l, ruta: m.ruta, desde: v0, frames: f })
       v0 += f + seg2f(PAUSA_ENTRE)
     }
-    const titulares: TitularPlan[] = e.titulares.map((t) => ({
-      texto: datos.guion.titulares[t.clave] ?? '',
-      desde: seg2f(t.desde),
-      hasta: t.hasta === undefined ? frames : Math.min(frames, seg2f(t.hasta)),
-    }))
-    escenas.push({ id: e.id, desde: cursor, frames, tomas, titulares })
+    if (e.tras && voces.length) {
+      // Nunca encima de otro efecto que ya suena (el «nice» del resumen): espera a
+      // que acabe. Se corta si entra la siguiente línea (la de la escena que sigue).
+      const trasVoz = v0 - seg2f(PAUSA_ENTRE) + seg2f(HUECO_TRAS)
+      const desde = efectos.filter((x) => x.desde <= trasVoz).reduce((a, x) => Math.max(a, x.desde + x.frames), trasVoz)
+      efecto(e.tras, desde, Math.min(seg2f(SONIDOS[e.tras]), cursor + frames + seg2f(PAUSA_INICIO) - desde))
+    }
+    escenas.push({ id: e.id, desde: cursor, frames, tomas })
     cursor += frames
   }
-  return { idioma, fps: FPS, total: Math.max(cursor, FPS), escenas, voces, datos, musica: MANIFIESTO.musica }
+  return { idioma, fps: FPS, total: Math.max(cursor, FPS), escenas, voces, efectos, datos, musica: MANIFIESTO.musica }
 }
 
 /** Volumen de la música en un frame: baja mientras habla la voz y se apaga al final. */

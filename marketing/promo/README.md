@@ -1,10 +1,10 @@
-# Anuncio principal de MPH (Remotion)
+# Anuncio principal de MindHaOS (Remotion)
 
 ~60 s, 1080×1920 a 30 fps, pensado para TikTok/Reels/Shorts: gancho en los dos
-primeros segundos, corte cada 2-4 s, titulares cortos en el tercio superior,
-sin subtítulos, y el último plano repite el primero para que el bucle no se
-note. Sale en los **16 idiomas** de la app (voz, titulares y la propia interfaz
-de los clips).
+primeros segundos, corte cada 2-4 s, sin titulares ni subtítulos (el único texto
+en pantalla es el cierre), y el último plano repite el primero para que el bucle no se
+note. Sale en los **16 idiomas** de la app (voz, cierre y la propia interfaz de
+los clips).
 
 Proyecto Remotion **autocontenido** (deps propias en `package.json`; la raíz
 lo excluye de `tsc -b`, ESLint y del vigilante de Vite).
@@ -33,7 +33,7 @@ node empaquetar-studio.mjs --sin-medios  # solo el montaje (reusa public/promo/)
 
 Deja el anuncio como **proyecto de fábrica del Studio de video** de la app: las
 tomas en la pista principal (recortadas a lo que usa el montaje, H.264 crf 28,
-≈7 MB por set), la captura de escritorio, los rótulos, la voz en off línea a
+≈7 MB por set), la captura de escritorio, la voz en off línea a
 línea (48 kb/s mono, ≈0,4 MB por idioma, con los silencios de edge-tts
 recortados: 0,05 s delante, pausas de 0,4 s y 0,2 s detrás), los efectos de la
 carpeta de sonidos de fábrica (`sfx` por toma con el corte, `tras` por escena
@@ -57,9 +57,9 @@ vez van bien en la RTX 5070 Ti.
 
 | Ruta | Qué |
 |---|---|
-| `guion/<id>.json` | **Fuente de verdad traducible**: líneas de voz, titulares, las 3 líneas del cierre y la llamada a probar. Cambiar texto = editar aquí y repetir `voz.mjs` + `preparar.mjs`. |
-| `src/escenas.ts` | El montaje: escenas, tomas, segundos mínimos de cada toma, qué línea suena en cada escena y cuándo entran los titulares. |
-| `src/Promo.tsx` / `Escena.tsx` / `Toma.tsx` / `Titular.tsx` / `Cierre.tsx` | Los componentes. Los clips van a pantalla completa con micro-zoom y «punch» en cada corte. |
+| `guion/<id>.json` | **Fuente de verdad traducible**: líneas de voz, las 3 líneas del cierre y la llamada a probar. Cambiar texto = editar aquí y repetir `voz.mjs` + `preparar.mjs`. |
+| `src/escenas.ts` | El montaje: escenas, tomas, segundos mínimos de cada toma, y qué línea suena en cada escena. |
+| `src/Promo.tsx` / `Escena.tsx` / `Toma.tsx` / `Cierre.tsx` | Los componentes. Los clips van a pantalla completa con micro-zoom y «punch» en cada corte. |
 | `src/fuentes.ts` | Noto Sans (+ JP/SC/KR/Devanagari/Naskh Arabic) desde `public/fuentes/`, copiadas de `marketing/video/fuentes/`. Árabe con `direction: rtl`. |
 | `grabar/escenas.mjs` | Una toma por clip: JS que corre DENTRO de la app demo (stores de DEV) para armar la escena y animarla mientras se graba. |
 | `grabar/sesion.mjs` | Chrome grabador por CDP (puerto 9334, perfil propio), espera al DemoGate, ayudas inyectadas (`moverCam`, `abrirApp`, `limpiarTodo`, …). |
@@ -90,7 +90,7 @@ línea se pasa mucho de su tope y la re-sintetiza más rápida (+10/20 %).
   1080×1920 de la esquina.
 - H.264 **nivel 5.1** (`avc1.640033`) primero: con el nivel 4.0 el codificador
   por hardware devolvía un archivo vacío para áreas > 2,1 MP.
-- `--auto-select-tab-capture-source-by-title="Mind Planner Home"` salta el
+- `--auto-select-tab-capture-source-by-title="MindHaOS"` salta el
   selector de pestaña (coincide con el `<title>` de la app).
 - Si la GPU que imprime no es la dedicada, en Windows › Gráficos pon
   `chrome.exe` en «Alto rendimiento».
@@ -100,5 +100,4 @@ línea se pasa mucho de su tope y la re-sintetiza más rápida (+10/20 %).
 ## Traducciones
 
 Los 16 `guion/<id>.json` se escribieron en sesión con el glosario de
-`scripts/traducir/glosario.mjs` (nada por API). «MPH» y «Mind Planner Home»
-no se traducen.
+`scripts/traducir/glosario.mjs` (nada por API). «MindHaOS» no se traduce.

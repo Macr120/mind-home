@@ -21,6 +21,11 @@ export const Promo: React.FC<PropsPromo> = ({ idioma }) => {
           <Audio src={staticFile(v.ruta)} />
         </Sequence>
       ))}
+      {plan.efectos.map((e, i) => (
+        <Sequence key={'sfx' + i} from={e.desde} durationInFrames={e.frames} name={'sfx ' + e.ruta}>
+          <Audio src={staticFile(e.ruta)} volume={e.volumen} />
+        </Sequence>
+      ))}
       {plan.musica ? (
         <Audio
           src={staticFile(plan.musica)}

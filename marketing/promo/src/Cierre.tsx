@@ -20,7 +20,7 @@ export const Cierre: React.FC<{ guion: Guion; idioma: string; frames: number }> 
   return (
     <AbsoluteFill
       style={{
-        background: 'radial-gradient(circle at 50% 30%, #6a7f16 0%, #52630e 35%, #232b06 100%)',
+        background: 'radial-gradient(circle at 50% 30%, #2b2e36 0%, #16181d 40%, #000000 100%)',
         alignItems: 'center',
         opacity: Math.min(fundido, apagado),
         fontFamily: familiaDe(idioma),

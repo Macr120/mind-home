@@ -35,6 +35,10 @@ for (const f of readdirSync(ORIGEN_FUENTES)) {
   const destino = path.join(PUBLIC, 'fuentes', f)
   if (!existsSync(destino)) copyFileSync(path.join(ORIGEN_FUENTES, f), destino)
 }
+// Los efectos de la carpeta de fábrica del Studio de video (los mismos de la app).
+const ORIGEN_SONIDOS = path.join(RAIZ, '..', '..', 'public', 'sonidos')
+mkdirSync(path.join(PUBLIC, 'sonidos'), { recursive: true })
+for (const f of readdirSync(ORIGEN_SONIDOS)) copyFileSync(path.join(ORIGEN_SONIDOS, f), path.join(PUBLIC, 'sonidos', f))
 
 // 2. Por idioma.
 const guionEs = JSON.parse(readFileSync(path.join(RAIZ, 'guion', 'es.json'), 'utf8'))

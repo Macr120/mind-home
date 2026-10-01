@@ -2,14 +2,16 @@
   "idioma": "de",
   "lineas": {
     "gancho": "Und wenn das Tamagotchi… du wärst?",
-    "casa": "MPH ist ein 3D-Haus, in dem jeder Raum eine App ist: Küche, Training, Finanzen, Ziele, Musik…",
+    "casa": "MindHaOS ist ein 3D-Haus, in dem jeder Raum eine App ist: Küche, Training, Finanzen, Ziele, Musik…",
     "disena": "Gestalte dein Haus und entscheide, welche App in welchen Raum kommt: dein Zentrum für Unterhaltung, Lernen, Kreativität und Selbstfürsorge.",
     "metas": "Dein Terminplaner, dein Kalender, dein Logbuch und ein persönlicher Assistent, damit du deine Ziele im echten Leben erreichst.",
     "ia": "Sprich mit deinen Assistenten wie mit ChatGPT, Gemini oder Claude: Sie halten deinen Tag fest und erstellen Bilder, Ressourcen und 3D-Modelle.",
-    "cerebro": "Soziale Netzwerke zersplittern deine Aufmerksamkeit, und die Technik denkt für dich. MPH ist der vollständigste und unterhaltsamste Weg, dein Gehirn zu nutzen und die Gewohnheiten wachsen zu sehen, die du selbst wählst.",
+    "cerebro": "Soziale Netzwerke zersplittern deine Aufmerksamkeit, und die Technik denkt für dich. MindHaOS ist der vollständigste und unterhaltsamste Weg, dein Gehirn zu nutzen und die Gewohnheiten wachsen zu sehen, die du selbst wählst.",
     "idiomas": "In 16 Sprachen. Web, Desktop und Handy. Mit KI-Guthaben, mit kostenlosen lokalen Modellen… oder ganz ohne KI.",
     "cta": "Probier es gratis. Oder mach es mit einer einzigen Zahlung zu deinem.",
-    "eslogan": "Baue deine Figur, indem du deine Gewohnheiten aufbaust. Gestalte dein Haus und gestalte deine Zukunft."
+    "eslogan": "Baue deine Figur, indem du deine Gewohnheiten aufbaust. Gestalte dein Haus und gestalte deine Zukunft.",
+    "dia1": "Tag eins in MindHaOS.",
+    "dia365": "Tag 365 in MindHaOS."
   },
   "titulares": {
     "gancho": "Was wäre, wenn du ein Tamagotchi wärst?",

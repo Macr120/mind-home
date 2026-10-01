@@ -1,15 +1,17 @@
 {
   "idioma": "es",
   "lineas": {
-    "gancho": "¿Y si el tamagotchi… fueras tú?",
-    "casa": "MPH es una casa 3D donde cada cuarto es una app: cocina, ejercicio, finanzas, metas, música…",
-    "disena": "Diseña tu casa y decide qué app va en cada cuarto: tu centro de entretenimiento, estudio, creatividad y cuidado.",
-    "metas": "Tu agenda, tu calendario, tu bitácora y un asistente personal para cumplir tus metas en la vida real.",
-    "ia": "Conversa con tus asistentes como con ChatGPT, Gemini o Claude: registran tu día y crean imágenes, recursos y modelos 3D.",
-    "cerebro": "Las redes fragmentan tu atención y la tecnología piensa por ti. MPH es la forma más completa y divertida de usar tu cerebro y ver progresar los hábitos que tú eliges.",
-    "idiomas": "En 16 idiomas. Web, escritorio y móvil. Con créditos de IA, con modelos locales gratis… o sin IA.",
-    "cta": "Pruébala gratis. O hazla tuya con un solo pago.",
-    "eslogan": "Construye tu personaje construyendo tus hábitos. Diseña tu casa, diseñando tu futuro."
+    "gancho": "¿Y si el tamagotchi… fueras tú mismo?",
+    "casa": "Mira, esta es mi casa, y cada cuarto es una app: la cocina, el ejercicio, mis finanzas, mis metas, mi música… y muchas más.",
+    "disena": "Y la armas como tú quieras. Tú decides qué va en cada cuarto.",
+    "metas": "Aquí organizo mi semana, mis pendientes y mis metas… y las cumplo en la vida real.",
+    "ia": "Y si quieres, platicas con tus asistentes: te ayudan con tu día y te hacen imágenes, diagramas, lo que necesites.",
+    "cerebro": "Así que en vez de nada más scrollear… mejor ve cómo van creciendo tus hábitos.",
+    "idiomas": "Está en dieciséis idiomas, en la web, en la compu y en el cel. Con IA o sin IA, tú eliges.",
+    "cta": "Se llama MindHaOS. Prueba hacer tu casa gratis.",
+    "eslogan": "Construye tu personaje… construyendo tus hábitos.",
+    "dia1": "Día uno en MindHaOS.",
+    "dia365": "Día 365 en MindHaOS."
   },
   "titulares": {
     "gancho": "¿Qué pasaría si fueras un tamagotchi?",
