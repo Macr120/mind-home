@@ -1,11 +1,12 @@
-import { lazy, memo, Suspense, useEffect, useMemo, useRef } from 'react'
+import { lazy, memo, Suspense, useEffect, useMemo, useRef, useState } from 'react'
+import { PerformanceMonitor } from '@react-three/drei'
 import * as THREE from 'three'
 import { Canvas, useThree } from '@react-three/fiber'
 import { useShallow } from 'zustand/react/shallow'
 import type { Cuarto, CuadranteMapa, ObjetoCuarto } from '../data/db'
 import { useHouse } from '../state/houseStore'
 import { useDiseño } from '../state/disenoStore'
-import { esGamaBaja } from '../gamaDispositivo'
+import { esGamaAlta, esGamaBaja } from '../gamaDispositivo'
 import { useLayout } from '../state/layoutStore'
 import { usePelicula } from '../state/peliculaStore'
 import { useCuartos } from '../state/cuartosStore'
@@ -479,6 +480,15 @@ function LatidoFondo() {
 
 const DPR: [number, number] = esGamaBaja() ? [1, 1] : [1, 1.5]
 
+/**
+ * Gama alta (iPhone 12+, iPad, Android de 8 GB): la resolución REAL de la
+ * pantalla, hasta 3×. Con el tope de 1.5 un teléfono 3× pintaba la casa a la
+ * mitad de su nitidez y se veía borrosa al lado de la web. Si el GPU no da
+ * abasto, `PerformanceMonitor` la va bajando de 0.5 en 0.5 hasta `DPR_ALTA_MIN`.
+ */
+const DPR_ALTA = esGamaAlta() ? Math.min(window.devicePixelRatio || 1, 3) : 1.5
+const DPR_ALTA_MIN = 1.5
+
 // Director y colocador del modo película: lazy, solo se descargan al entrar al modo.
 const EscenaPelicula = lazy(() => import('../../rooms/video/pelicula/EscenaPelicula'))
 
@@ -497,6 +507,7 @@ const FPS_REPOSO = 15
 const REPOSO_MS = 20_000
 
 export function House() {
+  const [dprAlta, setDprAlta] = useState(DPR_ALTA)
   const { placed, niveles, gridCols, gridRows, tamCelda, editMode, cuadrantesPropios } = useLayout(
     useShallow((s) => ({
       placed: s.placed,
@@ -588,7 +599,7 @@ export function House() {
         // MISMO: se probó a rasterizarlo a 1 para ahorrar y en una pantalla a 2×
         // la casa salía con los bordes dentados. El ahorro sale de los fotogramas,
         // que no se ven; de la resolución, sí.
-        dpr={DPR}
+        dpr={esGamaAlta() ? [1, dprAlta] : DPR}
         // En el fondo el lienzo no corre solo: pinta cuando se le pide, y quien
         // se lo pide es `LatidoFondo` a FPS_FONDO. Un wallpaper a 60 quema GPU
         // todo el día para que nadie note la diferencia.
@@ -601,6 +612,9 @@ export function House() {
           gl.shadowMap.needsUpdate = true
         }}
       >
+        {esGamaAlta() && (
+          <PerformanceMonitor onDecline={() => setDprAlta((d) => Math.max(DPR_ALTA_MIN, d - 0.5))} />
+        )}
         <CameraRig />
         <FollowCamera />
         <CameraControls />
