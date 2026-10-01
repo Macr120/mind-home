@@ -35,6 +35,7 @@ import { footprintDeObjeto, piezasDesdeObjeto, TIPO_PIEZAS } from './catalogo'
 import { superficieObjeto } from './gruposObjeto'
 import { moveInput, vectorCam } from './movement'
 import { fueraDelEscenario, limitesEscenario, sueloEscenario } from './escenarios/limitesCasa'
+import { RESCATE_DE, escenarioRescate, iniciarRescate, posRescate, rescate } from './escenarios/rescate'
 import { dragChar } from './characterDrag'
 import { girarHacia, marchaAvatar, suave } from './animacion'
 import { sonar } from '../audio/sfx'
@@ -79,11 +80,16 @@ const SPEED = 0.0413 // velocidad base (a pie y vehículos escalan desde aquí)
 const FLOTA_SUMERGIDO = 1.05
 /** Caída al bajarse de la cubierta de un tema dinámico. */
 const GRAVEDAD = 30
-/** Más abajo de esto, cayendo al vacío (avión, nave), se reaparece sobre la cubierta… */
-const Y_REAPARECER = -45
-/** …a esta altura, para volver a caer sobre ella. */
-const ALTURA_REAPARECER = 14
+/** Cayendo al vacío (avión, nave), a esta distancia bajo la cubierta empieza el rescate. */
+const CAIDA_RESCATE = 3.5
 let velCaida = 0
+const _desdeRescate = new THREE.Vector3()
+const _hastaRescate = new THREE.Vector3()
+const _bordeRescate = new THREE.Vector3()
+/** ¿El frame anterior andaba fuera de la cubierta (en el suelo o el agua del paisaje)? */
+let afueraAntes = false
+/** Última posición fuera de la cubierta: de ahí parte el rescate al volver. */
+const _ultimoAfuera = new THREE.Vector3()
 
 // Temporales reutilizables (un solo Character en escena).
 const _fwd = new THREE.Vector3()
@@ -1414,6 +1420,21 @@ export function Character() {
       return
     }
     saltoTren = 0
+    // Regreso al vehículo de un tema dinámico: animación guionizada hasta la cubierta.
+    if (rescate.activo) {
+      const sigue = posRescate(cur)
+      ref.current.scale.setScalar(rescate.escala)
+      girarHacia(ref.current, rescate.rumbo, 0.15)
+      // Trepando la escalera o columpiándose mueve las piernas; colgado o flotando, no.
+      marchaAvatar.velocidad = rescate.tipo === 'escalera' || rescate.tipo === 'liana' ? 0.7 : 0
+      marchaAvatar.fase += delta * 6
+      marchaAvatar.nadando = false
+      playerPos.copy(cur)
+      useHouse.getState().target.set(cur.x, 0, cur.z)
+      velCaida = 0
+      if (!sigue) ref.current.scale.setScalar(1)
+      return
+    }
     const { explotado } = useHouse.getState()
     let playerLevel = useHouse.getState().playerLevel
     // Sótanos (nivel -1): suelo CONTINUO con la planta baja. Al pisar la sub-celda de un
@@ -1502,6 +1523,31 @@ export function Character() {
       } else if (bajo?.tipo === 'vacio') {
         enCaida = true
       }
+    }
+    // Rescate: cayendo al vacío, o al volver a pisar la cubierta desde el suelo o el agua
+    // (dentro del plano pero aún muy abajo), el vehículo lo sube con su propia animación.
+    const limR = limitesEscenario()
+    const escR = escenarioRescate()
+    const fueraAhora = fueraDelEscenario(cur.x, cur.z)
+    const subiendo = afueraAntes && !fueraAhora && targetY - cur.y > 0.8
+    afueraAntes = fueraAhora
+    if (fueraAhora) _ultimoAfuera.copy(cur)
+    const cayendo = enCaida && cur.y < ySueloJugador(0, !explotado, cur.x, cur.z) - CAIDA_RESCATE
+    if (limR && escR && playerLevel === 0 && !monturaFrame.montado && (subiendo || cayendo)) {
+      // Al subir, el paso ya lo metió en el plano: arranca desde donde andaba afuera.
+      _desdeRescate.copy(subiendo ? _ultimoAfuera : cur)
+      // Borde de la cubierta más cercano y un punto firme 1.5 adentro.
+      const bx = THREE.MathUtils.clamp(_desdeRescate.x, limR.x0, limR.x1)
+      const bz = THREE.MathUtils.clamp(_desdeRescate.z, limR.z0, limR.z1)
+      const hx = THREE.MathUtils.clamp(_desdeRescate.x, limR.x0 + 1.5, limR.x1 - 1.5)
+      const hz = THREE.MathUtils.clamp(_desdeRescate.z, limR.z0 + 1.5, limR.z1 - 1.5)
+      const yCubierta = ySueloJugador(0, !explotado, hx, hz)
+      _hastaRescate.set(hx, yCubierta, hz)
+      _bordeRescate.set(bx, yCubierta, bz)
+      iniciarRescate(RESCATE_DE[escR], _desdeRescate, _hastaRescate, _bordeRescate)
+      cur.copy(_desdeRescate)
+      playerPos.copy(cur)
+      return
     }
     // Sentado en la dona: se queda quieto en ella meciéndose (la dona se dibuja
     // dentro de su grupo) hasta que se mueve; entonces se baja y sigue nadando.
@@ -1623,14 +1669,6 @@ export function Character() {
     if (lim && salto === 0 && (enCaida || cur.y - targetY > 0.8)) {
       velCaida = Math.max(velCaida - GRAVEDAD * Math.min(delta, 0.05), -40)
       ny = enCaida ? cur.y + velCaida * Math.min(delta, 0.05) : Math.max(targetY, cur.y + velCaida * Math.min(delta, 0.05))
-      if (enCaida && ny < Y_REAPARECER) {
-        // Cayó al vacío: reaparece en lo alto, sobre el borde más cercano de la cubierta.
-        cur.x = THREE.MathUtils.clamp(cur.x, lim.x0 + 1.5, lim.x1 - 1.5)
-        cur.z = THREE.MathUtils.clamp(cur.z, lim.z0 + 1.5, lim.z1 - 1.5)
-        useHouse.getState().target.set(cur.x, 0, cur.z)
-        ny = ALTURA_REAPARECER
-        velCaida = 0
-      }
     } else {
       velCaida = 0
     }

@@ -7,6 +7,8 @@ import { TEMA_DE_VIAJE, getFondo, type PaisajeId } from '../fondos'
 import { RecorridoCtx, type Recorrido } from './fondoMovil'
 import { fueraDelEscenario, setLimitesEscenario, useEscenarioVisible, useLimitesCasa } from './limitesCasa'
 import { playerPos } from '../../state/playerPosition'
+import { RESCATE_DE, setEscenarioRescate } from './rescate'
+import { Rescate3D } from './Rescate3D'
 
 /** Lo que recibe cada escenario, ya en su marco local (proa hacia +X). */
 export interface PropsEscenario {
@@ -101,7 +103,11 @@ export function EscenarioVivo() {
   // Límites para el personaje: solo mientras el vehículo se ve.
   useEffect(() => {
     setLimitesEscenario(escenario ? lim : null)
-    return () => setLimitesEscenario(null)
+    setEscenarioRescate(escenario)
+    return () => {
+      setLimitesEscenario(null)
+      setEscenarioRescate(null)
+    }
   }, [escenario, lim])
 
   // La sombra está congelada: al aparecer/cambiar el vehículo hay que repintarla.
@@ -137,6 +143,7 @@ export function EscenarioVivo() {
           />
         </Suspense>
       </group>
+      {escenario && <Rescate3D tipo={RESCATE_DE[escenario]} />}
     </RecorridoCtx.Provider>
   )
 }
