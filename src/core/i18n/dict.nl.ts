@@ -5912,6 +5912,7 @@ export const NL: Dict = {
   'editor.obj.foto': 'Foto',
   'editor.obj.fotoAyuda': 'Het kader neemt de verhouding van je foto over.',
   'editor.obj.fotoAyudaPanel': 'De foto vult het paneel; de tekst staat in een balk erboven.',
+  'editor.obj.fotoAyudaPantalla': 'Een afbeelding of geanimeerde GIF (tot 10 MB) vult het scherm.',
   'editor.obj.formaGenerar': 'Maken met AI',
   'editor.obj.formaPhArq': 'Beschrijf het: “Griekse zuil met voetstuk”',
   'editor.obj.formaPhObj': 'Beschrijf het: “houten stoel met rood kussen”',

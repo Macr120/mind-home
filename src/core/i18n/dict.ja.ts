@@ -5635,6 +5635,7 @@ export const JA: Dict = {
   'editor.obj.foto': '写真',
   'editor.obj.fotoAyuda': '枠は写真の縦横比に合わせて調整されます。',
   'editor.obj.fotoAyudaPanel': '写真がパネル全体を覆い、テキストはその上の帯に表示されます。',
+  'editor.obj.fotoAyudaPantalla': '画像またはアニメーションGIF（10 MBまで）が画面いっぱいに表示されます。',
   'editor.obj.formaGenerar': 'AIで作成',
   'editor.obj.formaPhArq': '説明してください：「台座付きのギリシャ風の柱」',
   'editor.obj.formaPhObj': '説明してください：「赤いクッション付きの木の椅子」',

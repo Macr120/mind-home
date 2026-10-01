@@ -48,7 +48,9 @@ import { idiomaActual } from '../core/i18n/useT'
 // v37: la estructura metálica cierra su marco arriba y abajo (piezas nuevas).
 // v38: los compuestos sueltan sus partes como objetos propios (`separarCompuestos`)
 // y el rack del gimnasio pasa al taller.
-const DEMO_VERSION = 38
+// v39: las pantallas (TV y monitores) traen ejemplos de imagen y GIF animado
+// (`pantallasDemo.ts`). Sin subirla, la demo cacheada se repone sin ellos.
+const DEMO_VERSION = 39
 const LS_VERSION = 'mh.demo.version'
 const LS_INTENT = 'mh.demo.intent'
 

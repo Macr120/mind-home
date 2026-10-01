@@ -5755,6 +5755,7 @@ export const AR: Dict = {
   'editor.obj.foto': 'الصورة',
   'editor.obj.fotoAyuda': 'يتكيّف الإطار مع أبعاد صورتك.',
   'editor.obj.fotoAyudaPanel': 'تملأ الصورة اللوحة؛ ويظهر النص في شريط فوقها.',
+  'editor.obj.fotoAyudaPantalla': 'صورة أو GIF متحرك (حتى 10 ميغابايت) يملأ الشاشة.',
   'editor.obj.formaGenerar': 'إنشاء بالذكاء الاصطناعي',
   'editor.obj.formaPhArq': 'صِفه: «عمود يوناني بقاعدة»',
   'editor.obj.formaPhObj': 'صِفه: «كرسي خشبي بوسادة حمراء»',

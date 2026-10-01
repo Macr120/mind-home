@@ -32,6 +32,7 @@ import { FORMA_VEHICULO, VEHICULO_GENERICO_RADIO, esVehiculo } from './vehiculos
 import { baseDe, type TemaId } from './temas'
 import type { Pieza3D } from '../chat/mascotas'
 import type { ObjetoCuarto } from '../data/db'
+import { FotoPantallaContext } from './pantallaFoto'
 
 /** Tipo de objeto construido por el usuario con geometría básica (sus piezas van en `ObjetoCuarto.piezas`). */
 export const TIPO_PIEZAS = 'piezas'
@@ -504,7 +505,7 @@ export function ObjetoView({
   piezas?: Pieza3D[]
   /** Objetos tipo 'glb': el modelo subido por el usuario (ya optimizado). */
   modeloGlb?: Blob
-  /** Objetos especiales 'cuadro-foto' y 'espectacular': la foto subida por el usuario. */
+  /** Cuadro, espectacular y pantallas (TV/monitor): la foto o GIF subido por el usuario. */
   foto?: Blob
   /** Anuncios (espectacular/letreros): el texto que muestra el letrero. */
   texto?: string
@@ -544,7 +545,9 @@ export function ObjetoView({
   if (tipo === TIPO_LETRERO_NEON) return <LetreroNeon color={color} texto={texto} simple={sinReflejo} fx={fx} />
   if (esEspecialPlantilla(tipo)) {
     return (
-      <EspecialPlantilla tipo={tipo} color={color} simple={sinReflejo} nivel={nivelAnim} objetoId={objetoId} separado={separado} />
+      <FotoPantallaContext.Provider value={foto}>
+        <EspecialPlantilla tipo={tipo} color={color} simple={sinReflejo} nivel={nivelAnim} objetoId={objetoId} separado={separado} />
+      </FotoPantallaContext.Provider>
     )
   }
   if (tipo === TIPO_PIEZAS) {
@@ -575,7 +578,9 @@ export function ObjetoView({
   if (tipo.startsWith('recurso:')) {
     const modelo = getModelo(Number(tipo.slice('recurso:'.length)))
     if (!modelo) return null
-    const contenido = modelo.render(color, baseDe(tema?.id), { separado })
+    const contenido = (
+      <FotoPantallaContext.Provider value={foto}>{modelo.render(color, baseDe(tema?.id), { separado })}</FotoPantallaContext.Provider>
+    )
     const grupo = grupoAccionDe(tipo, grupoAccion)
     if ((grupo === 'asiento' || grupo === 'acostarse') && objetoId != null) {
       return (

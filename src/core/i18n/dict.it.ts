@@ -5910,6 +5910,7 @@ export const IT: Dict = {
   'editor.obj.foto': 'Foto',
   'editor.obj.fotoAyuda': 'La cornice si adatta alle proporzioni della tua foto.',
   'editor.obj.fotoAyudaPanel': 'La foto riempie il pannello; il testo resta in una fascia sopra.',
+  'editor.obj.fotoAyudaPantalla': 'Un’immagine o una GIF animata (fino a 10 MB) riempie lo schermo.',
   'editor.obj.formaGenerar': 'Crea con IA',
   'editor.obj.formaPhArq': 'Descrivilo: "colonna greca con base"',
   'editor.obj.formaPhObj': 'Descrivilo: "sedia di legno con cuscino rosso"',

@@ -31,6 +31,7 @@ import {
   esTipoEspecial, esAnuncio, comprimirFoto, grupoFx,
 } from '../../house/especiales'
 import { esVehiculo } from '../../house/vehiculos'
+import { esPantalla, GIF_MAX_BYTES } from '../../house/pantallaFoto'
 import type { GrupoAccion } from '../../state/accionCuartoStore'
 import { ColorPicker } from '../comun/ColorPicker'
 import { PropiedadGrupo } from './PropiedadGrupo'
@@ -604,8 +605,8 @@ export function EditorObjetosSection() {
               </PropiedadGrupo>
             )}
 
-            {/* Cuadro especial y espectacular: la foto que se muestra dentro. */}
-            {(seleccionado.tipo === TIPO_CUADRO_FOTO || seleccionado.tipo === TIPO_ESPECTACULAR) && (
+            {/* Cuadro, espectacular y pantallas: la foto (o GIF, en pantallas) que se muestra dentro. */}
+            {(seleccionado.tipo === TIPO_CUADRO_FOTO || seleccionado.tipo === TIPO_ESPECTACULAR || esPantalla(seleccionado.tipo)) && (
               <PropiedadGrupo titulo={<><Icono nombre="foto" /> {t('editor.obj.foto', 'Foto')}</>}>
                 <div className="space-y-1.5">
                   <label className="block cursor-pointer rounded-md border border-accent/30 bg-accent/10 px-2 py-1.5 text-center text-[11px] font-semibold text-accent transition hover:bg-accent/20">
@@ -621,7 +622,9 @@ export function EditorObjetosSection() {
                         const f = e.target.files?.[0]
                         e.target.value = ''
                         if (!f || seleccionado.id == null) return
-                        await setObjetoFoto(seleccionado.id, await comprimirFoto(f))
+                        // En pantallas el GIF se guarda tal cual: recomprimirlo lo dejaría quieto.
+                        const gif = esPantalla(seleccionado.tipo) && f.type === 'image/gif' && f.size <= GIF_MAX_BYTES
+                        await setObjetoFoto(seleccionado.id, gif ? f : await comprimirFoto(f))
                       }}
                     />
                   </label>
@@ -635,9 +638,11 @@ export function EditorObjetosSection() {
                     </button>
                   )}
                   <p className="text-[10px] leading-snug text-white/35">
-                    {seleccionado.tipo === TIPO_ESPECTACULAR
-                      ? t('editor.obj.fotoAyudaPanel', 'La foto llena el panel; el texto queda en una banda encima.')
-                      : t('editor.obj.fotoAyuda', 'El marco adopta la proporción de tu foto.')}
+                    {esPantalla(seleccionado.tipo)
+                      ? t('editor.obj.fotoAyudaPantalla', 'Una imagen o un GIF animado (hasta 10 MB) llena la pantalla.')
+                      : seleccionado.tipo === TIPO_ESPECTACULAR
+                        ? t('editor.obj.fotoAyudaPanel', 'La foto llena el panel; el texto queda en una banda encima.')
+                        : t('editor.obj.fotoAyuda', 'El marco adopta la proporción de tu foto.')}
                   </p>
                 </div>
               </PropiedadGrupo>

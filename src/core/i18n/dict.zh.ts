@@ -5620,6 +5620,7 @@ export const ZH: Dict = {
   'editor.obj.foto': '照片',
   'editor.obj.fotoAyuda': '相框会根据照片比例自动调整。',
   'editor.obj.fotoAyudaPanel': '照片会铺满面板，文字显示在上方的横条中。',
+  'editor.obj.fotoAyudaPantalla': '图片或动图 GIF（最大 10 MB）会铺满屏幕。',
   'editor.obj.formaGenerar': '用AI创建',
   'editor.obj.formaPhArq': '描述一下：“带底座的希腊柱”',
   'editor.obj.formaPhObj': '描述一下：“带红色靠垫的木椅”',

@@ -2,6 +2,7 @@ import { mezclar, type TemaId } from './temas'
 import { MatAcabado, MatStd, useAcabado } from './primitivas'
 import { cajaMetros } from './uvMetros'
 import { piezasDesdeElemento, type Extractor } from './piezasDesdeModelo'
+import { PantallaFoto } from './pantallaFoto'
 import type { Pieza3D } from '../chat/mascotas'
 import {
   META_ESPECIAL_PLANTILLA,
@@ -668,6 +669,7 @@ export const MODELOS: Record<number, ModeloRecurso> = {
         <group>
           <B p={[0, 1.05, 0]} s={[1.2, 0.7, 0.08]} c={m} rough={P.rough} metal={P.metal} acabado="mueble.plastico" />
           <Pantalla p={[0, 1.05, 0.05]} s={[1.05, 0.55, 0.02]} c={pant} />
+          <PantallaFoto p={[0, 1.05, 0.062]} w={1.05} h={0.55} />
           <C p={[0, 0.68, 0]} r={0.05} h={0.25} c={P.metalCol} acabado="mueble.metal" />
           <B p={[0, 0.56, 0]} s={[0.4, 0.04, 0.3]} c={P.metalCol} acabado="mueble.metal" />
           {t === 'cyberpunk' && <Pantalla p={[0.85, 1.05, 0.04]} s={[0.5, 0.7, 0.02]} c="#22d3ee" />}
@@ -712,6 +714,7 @@ export const MODELOS: Record<number, ModeloRecurso> = {
         <group>
           <B p={[0, 1.5, 0]} s={[3.0, 1.5, 0.12]} c={m} rough={P.rough} metal={P.metal} acabado="mueble.plastico" />
           <Pantalla p={[0, 1.5, 0.07]} s={[2.7, 1.25, 0.02]} c={pant} />
+          <PantallaFoto p={[0, 1.5, 0.082]} w={2.7} h={1.25} />
           {acento(t, [0, 2.35, 0.08], 2.6)}
         </group>
       )
@@ -804,6 +807,7 @@ export const MODELOS: Record<number, ModeloRecurso> = {
         <group>
           <B p={[0, 1.25, 0]} s={[2.2, 1.1, 0.1]} c={m} rough={P.rough} metal={P.metal} acabado="mueble.plastico" />
           <Pantalla p={[0, 1.25, 0.06]} s={[2.0, 0.95, 0.02]} c={pant} />
+          <PantallaFoto p={[0, 1.25, 0.072]} w={2.0} h={0.95} />
           {acento(t, [0, 1.9, 0.07], 1.9)}
         </group>
       )
@@ -1337,6 +1341,8 @@ const PRIMS_RECURSOS = new Map<unknown, Extractor>([
   [C, (p) => ({ tipo: 'cilindro', pos: p.p as Vec3, tam: [(p.rt ?? p.r) as number, p.r as number, p.h as number], color: p.c as string, ...conAcabado(p) })],
   [S, (p) => ({ tipo: 'esfera', pos: p.p as Vec3, tam: [p.r as number], color: p.c as string, ...conAcabado(p) })],
   [Cone, (p) => ({ tipo: 'cono', pos: p.p as Vec3, tam: [p.r as number, p.h as number], color: p.c as string, ...conAcabado(p) })],
+  // La imagen de la pantalla no es forma: la réplica se queda con la pantalla de color.
+  [PantallaFoto, () => null],
 ])
 
 export function piezasDesdeRecurso(id: number, color: string, tema: TemaId | null, separado = false): Pieza3D[] | null {

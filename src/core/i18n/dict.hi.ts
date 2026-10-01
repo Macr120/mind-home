@@ -5830,6 +5830,7 @@ export const HI: Dict = {
   'editor.obj.foto': 'फ़ोटो',
   'editor.obj.fotoAyuda': 'फ़्रेम आपकी फ़ोटो के अनुपात में ढल जाता है।',
   'editor.obj.fotoAyudaPanel': 'फ़ोटो पूरे पैनल में भर जाती है; टेक्स्ट उसके ऊपर एक पट्टी पर रहता है।',
+  'editor.obj.fotoAyudaPantalla': 'एक इमेज या एनिमेटेड GIF (10 MB तक) स्क्रीन भर देता है।',
   'editor.obj.formaGenerar': 'एआई से बनाएं',
   'editor.obj.formaPhArq': 'इसका वर्णन करें: "आधार वाला ग्रीक स्तंभ"',
   'editor.obj.formaPhObj': 'इसका वर्णन करें: "लाल कुशन वाली लकड़ी की कुर्सी"',

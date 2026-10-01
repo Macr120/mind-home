@@ -131,6 +131,9 @@ async function construir(onProgreso?: ProgresoDemo, apps?: string[]): Promise<vo
       const { construirCasaPep } = await import('./casaPep')
       await construirCasaPep()
     }
+    // Ejemplos de pantallas con imagen/GIF (TV y monitores).
+    const { ponerPantallasDemo } = await import('./pantallasDemo')
+    await ponerPantallasDemo()
     // El punto de aparición depende del tamaño del mapa: se fija explícito
     // (el patio, entre la planta y el coche) para no nacer dentro de la casa
     // ni en un muro — la columna 4 ya es el ala del Studio. A mano y no con

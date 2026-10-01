@@ -26,6 +26,7 @@ import {
   TIPO_DIANA_METAS, TIPO_TECLADO_MIDI, TIPO_CABALLETE, TIPO_ESCRITORIO_ESCRITURA, TIPO_CAMARA_VIDEO,
   ALTO_BURO, ALTO_MESA_SALA,
 } from './especialesPlantillaMeta'
+import { PantallaFoto } from './pantallaFoto'
 
 export { esEspecialPlantilla } from './especialesPlantillaMeta'
 
@@ -936,6 +937,7 @@ function Laptop({ color, separado = false }: UsableProps) {
             <boxGeometry args={[1.0, 0.58, 0.005]} />
             <meshStandardMaterial color="#38bdf8" emissive="#0ea5e9" emissiveIntensity={0.5} />
           </mesh>
+          <PantallaFoto p={[0, 1.4, -0.168]} w={1.0} h={0.58} />
           {/* Teclado */}
           <mesh position={[0, 0.785, 0.14]} castShadow>
             <boxGeometry args={[0.42, 0.03, 0.15]} />

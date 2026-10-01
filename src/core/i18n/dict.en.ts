@@ -5924,6 +5924,7 @@ export const EN: Dict = {
   'editor.obj.foto': 'Photo',
   'editor.obj.fotoAyuda': 'The frame adapts to your photo\'s proportions.',
   'editor.obj.fotoAyudaPanel': 'The photo fills the panel; the text sits on a strip over it.',
+  'editor.obj.fotoAyudaPantalla': 'An image or an animated GIF (up to 10 MB) fills the screen.',
   'editor.obj.formaGenerar': 'Create with AI',
   'editor.obj.formaPhArq': 'Describe it: "Greek column with base"',
   'editor.obj.formaPhObj': 'Describe it: "wooden chair with a red cushion"',

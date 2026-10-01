@@ -5895,6 +5895,7 @@ export const ID: Dict = {
   'editor.obj.foto': 'Foto',
   'editor.obj.fotoAyuda': 'Bingkai menyesuaikan dengan proporsi fotomu.',
   'editor.obj.fotoAyudaPanel': 'Foto memenuhi panel; teks berada di jalur di atasnya.',
+  'editor.obj.fotoAyudaPantalla': 'Gambar atau GIF animasi (hingga 10 MB) memenuhi layar.',
   'editor.obj.formaGenerar': 'Buat dengan AI',
   'editor.obj.formaPhArq': 'Deskripsikan: “kolom Yunani dengan alas”',
   'editor.obj.formaPhObj': 'Deskripsikan: “kursi kayu dengan bantal merah”',

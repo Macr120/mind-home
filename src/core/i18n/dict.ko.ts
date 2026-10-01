@@ -5643,6 +5643,7 @@ export const KO: Dict = {
   'editor.obj.foto': '사진',
   'editor.obj.fotoAyuda': '액자가 사진 비율에 맞게 조정돼요.',
   'editor.obj.fotoAyudaPanel': '사진이 패널을 가득 채우고, 텍스트는 그 위 띠에 표시돼요.',
+  'editor.obj.fotoAyudaPantalla': '이미지나 움직이는 GIF(최대 10MB)가 화면을 가득 채웁니다.',
   'editor.obj.formaGenerar': 'AI로 만들기',
   'editor.obj.formaPhArq': '설명해 주세요: "받침대가 있는 그리스 기둥"',
   'editor.obj.formaPhObj': '설명해 주세요: "빨간 쿠션이 있는 나무 의자"',

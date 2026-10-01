@@ -5832,6 +5832,7 @@ export const RU: Dict = {
   'editor.obj.foto': 'Фото',
   'editor.obj.fotoAyuda': 'Рамка подстраивается под пропорции твоего фото.',
   'editor.obj.fotoAyudaPanel': 'Фото заполняет панель, а текст размещается на полосе поверх него.',
+  'editor.obj.fotoAyudaPantalla': 'Изображение или анимированный GIF (до 10 МБ) заполняет экран.',
   'editor.obj.formaGenerar': 'Создать с ИИ',
   'editor.obj.formaPhArq': 'Опиши: "греческая колонна с основанием"',
   'editor.obj.formaPhObj': 'Опиши: "деревянный стул с красной подушкой"',

@@ -5953,6 +5953,7 @@ export const DE: Dict = {
   'editor.obj.foto': 'Foto',
   'editor.obj.fotoAyuda': 'Der Rahmen übernimmt das Seitenverhältnis deines Fotos.',
   'editor.obj.fotoAyudaPanel': 'Das Foto füllt das Panel; der Text liegt auf einem Streifen darüber.',
+  'editor.obj.fotoAyudaPantalla': 'Ein Bild oder ein animiertes GIF (bis 10 MB) füllt den Bildschirm.',
   'editor.obj.formaGenerar': 'Mit KI erstellen',
   'editor.obj.formaPhArq': 'Beschreibe es: „griechische Säule mit Sockel“',
   'editor.obj.formaPhObj': 'Beschreibe es: „Holzstuhl mit rotem Kissen“',

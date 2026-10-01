@@ -5840,6 +5840,7 @@ export const TR: Dict = {
   'editor.obj.foto': 'Fotoğraf',
   'editor.obj.fotoAyuda': 'Çerçeve, fotoğrafının oranına uyum sağlar.',
   'editor.obj.fotoAyudaPanel': 'Fotoğraf paneli doldurur; metin üzerindeki bir şeritte kalır.',
+  'editor.obj.fotoAyudaPantalla': 'Bir görsel ya da hareketli GIF (10 MB’a kadar) ekranı doldurur.',
   'editor.obj.formaGenerar': 'Yapay Zeka ile oluştur',
   'editor.obj.formaPhArq': 'Tarif et: «tabanlı Yunan sütunu»',
   'editor.obj.formaPhObj': 'Tarif et: «kırmızı minderli ahşap sandalye»',

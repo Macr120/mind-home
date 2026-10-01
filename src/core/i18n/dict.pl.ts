@@ -5851,6 +5851,7 @@ export const PL: Dict = {
   'editor.obj.foto': 'Zdjęcie',
   'editor.obj.fotoAyuda': 'Ramka dopasowuje się do proporcji twojego zdjęcia.',
   'editor.obj.fotoAyudaPanel': 'Zdjęcie wypełnia panel; tekst znajduje się na pasku nad nim.',
+  'editor.obj.fotoAyudaPantalla': 'Obraz lub animowany GIF (do 10 MB) wypełnia ekran.',
   'editor.obj.formaGenerar': 'Utwórz z AI',
   'editor.obj.formaPhArq': 'Opisz go: „grecka kolumna z podstawą”',
   'editor.obj.formaPhObj': 'Opisz go: „drewniane krzesło z czerwoną poduszką”',

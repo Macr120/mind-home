@@ -5864,6 +5864,7 @@ export const PT: Dict = {
   'editor.obj.foto': 'Foto',
   'editor.obj.fotoAyuda': 'A moldura assume a proporção da sua foto.',
   'editor.obj.fotoAyudaPanel': 'A foto preenche o painel; o texto fica numa faixa em cima.',
+  'editor.obj.fotoAyudaPantalla': 'Uma imagem ou um GIF animado (até 10 MB) preenche a tela.',
   'editor.obj.formaGenerar': 'Criar com IA',
   'editor.obj.formaPhArq': 'Descreva: "coluna grega com base"',
   'editor.obj.formaPhObj': 'Descreva: "cadeira de madeira com almofada vermelha"',
