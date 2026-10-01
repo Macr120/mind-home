@@ -10,10 +10,10 @@ export interface FachadaTema {
 
 /**
  * Fachada de cada tema de fábrica (y de los propios que parten de uno), o null si el
- * tema no la cambia. Los temas dinámicos no la tocan: ahí manda el vehículo.
+ * tema no la cambia.
  */
 export function fachadaDeTema(id: TemaClave | null | undefined, t: Tema | null): FachadaTema | null {
-  if (!t || t.escenario) return null
+  if (!t) return null
   const ext = t.shell.muroExt
   switch (baseDe(id)) {
     case 'medieval':
@@ -31,6 +31,19 @@ export function fachadaDeTema(id: TemaClave | null | undefined, t: Tema | null):
       return { tipo: 'paneles', color: mezclar(ext, '#2a2640', 0.4) }
     case 'navidad':
       return { tipo: 'madera', color: '#8a5a33' }
+    // Dinámicos: la casa se viste del vehículo en que viaja.
+    case 'nave':
+      return { tipo: 'paneles', color: mezclar(ext, '#9aa5b3', 0.3) }
+    case 'avion':
+      return { tipo: 'paneles', color: mezclar(ext, '#eef2f6', 0.4) }
+    case 'apocalipsis':
+      return { tipo: 'paneles', color: mezclar(ext, '#7a4a2a', 0.5) }
+    case 'tortuga':
+      return { tipo: 'madera', color: mezclar(ext, '#8a6a45', 0.3) }
+    case 'pirata':
+      return { tipo: 'madera', color: mezclar(ext, '#6b4423', 0.3) }
+    case 'tren':
+      return { tipo: 'madera', color: ext }
     default:
       return null
   }

@@ -4406,6 +4406,15 @@ export const TR: Dict = {
   'editor.fondo.paisajes': 'Tam manzaralar',
   'editor.fondo.paisajesDesc':
     'Evin çevresindeki toprak, deniz ya da gökyüzü; dinamik temalardaki gibi ama hareketsiz.',
+  'editor.fondo.enMovimiento': 'Hareket halinde',
+  'editor.fondo.enMovimientoDesc':
+    'Ev bir araçla yol alır, manzara akıp gider. Sadece arka plan değişir: duvarlar, zeminler ve gerisi temandaki gibi kalır.',
+  'fondo.viaje_nave': 'Uzay gemisi yolculuğu',
+  'fondo.viaje_avion': 'Uçak yolculuğu',
+  'fondo.viaje_rodante': 'Karavan',
+  'fondo.viaje_tortuga': 'Kaplumbağa gezisi',
+  'fondo.viaje_barco': 'Korsan yolculuğu',
+  'fondo.viaje_tren': 'Tren yolculuğu',
   'editor.fondo.previewTitulo': 'Arka planı ayarla — görseli sürükle; çerçeve ekranındır',
   'editor.fondo.previewAria': 'Arka plan önizlemesi',
   'editor.fondo.previewMapa': 'Harita gökyüzünün üzerinde',

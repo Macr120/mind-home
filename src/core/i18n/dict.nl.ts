@@ -4474,6 +4474,15 @@ export const NL: Dict = {
   'editor.fondo.paisajes': 'Complete landschappen',
   'editor.fondo.paisajesDesc':
     'De grond, de zee of de lucht rond het huis, zoals bij de dynamische thema\'s maar dan stil.',
+  'editor.fondo.enMovimiento': 'Onderweg',
+  'editor.fondo.enMovimientoDesc':
+    'Het huis reist in een voertuig en het landschap schuift voorbij. Alleen de achtergrond verandert: muren, vloeren en de rest blijven die van je thema.',
+  'fondo.viaje_nave': 'Ruimtereis',
+  'fondo.viaje_avion': 'Vliegreis',
+  'fondo.viaje_rodante': 'Camper',
+  'fondo.viaje_tortuga': 'Schildpadrit',
+  'fondo.viaje_barco': 'Piratenreis',
+  'fondo.viaje_tren': 'Treinreis',
   'editor.fondo.previewTitulo': 'Pas de achtergrond aan — sleep de afbeelding; het kader is je scherm',
   'editor.fondo.previewAria': 'Voorbeeld van achtergrond',
   'editor.fondo.previewMapa': 'Kaart over lucht',

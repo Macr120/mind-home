@@ -3,7 +3,7 @@ import { useFrame, useThree } from '@react-three/fiber'
 import { useDiseño } from '../../state/disenoStore'
 import { useTemaActivo } from '../useTema'
 import { getTema, type EscenarioId, type Tema, type TemaId } from '../temas'
-import { getFondo, type PaisajeId } from '../fondos'
+import { TEMA_DE_VIAJE, getFondo, type PaisajeId } from '../fondos'
 import { RecorridoCtx, type Recorrido } from './fondoMovil'
 import { fueraDelEscenario, setLimitesEscenario, useEscenarioVisible, useLimitesCasa } from './limitesCasa'
 import { playerPos } from '../../state/playerPosition'
@@ -92,7 +92,11 @@ export function EscenarioVivo() {
     [],
   )
   const paisaje = !escenario && !conImagen ? (getFondo(fondoId).escena ?? null) : null
-  const velocidad = VELOCIDAD[escenario ?? 'nave'] * (tema?.velocidadEscenario ?? 1)
+  // El vehículo de un fondo en movimiento se viste y corre como su tema dinámico de fábrica
+  // (la barra de velocidad del menú Fondo guarda en ese mismo tema).
+  const propio = !!escenario && tema?.escenario === escenario
+  const temaVehiculo = escenario ? (propio ? tema : getTema(TEMA_DE_VIAJE[escenario])) : null
+  const velocidad = VELOCIDAD[escenario ?? 'nave'] * (temaVehiculo?.velocidadEscenario ?? 1)
 
   // Límites para el personaje: solo mientras el vehículo se ve.
   useEffect(() => {
@@ -113,7 +117,7 @@ export function EscenarioVivo() {
   })
 
   const cual = escenario ?? paisaje
-  const vestido = escenario ? tema : getTema(VESTIDO_PAISAJE[cual ?? 'nave'])
+  const vestido = escenario ? temaVehiculo : getTema(VESTIDO_PAISAJE[cual ?? 'nave'])
   if (!cual || !vestido) return null
   // La proa va a lo largo del lado más largo de la casa; gira el marco local hacia −X o −Z.
   const porX = lim.ancho >= lim.largo

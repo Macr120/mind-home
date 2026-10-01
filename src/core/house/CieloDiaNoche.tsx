@@ -3,7 +3,7 @@ import { useThree } from '@react-three/fiber'
 import { useCiclo } from '../state/cicloStore'
 import { useLayout } from '../state/layoutStore'
 import { useDiseño } from '../state/disenoStore'
-import { mezclar, FUERZA_LUZ_DEFAULT } from './temas'
+import { getTema, mezclar, FUERZA_LUZ_DEFAULT } from './temas'
 import { useTemaActivo } from './useTema'
 import { estadoCielo, colorFondo } from './cielo'
 import { getFondo } from './fondos'
@@ -70,7 +70,7 @@ export function CieloDiaNoche() {
   }
   // En la nave siempre es de noche afuera: el espacio no tiene cielo diurno.
   const enElEspacio = escenarioVisible === 'nave'
-  if (enElEspacio && tema && fondoId !== 'color_fijo') fondo = tema.fondo
+  if (enElEspacio && fondoId !== 'color_fijo') fondo = (tema?.escenario === 'nave' ? tema : getTema('nave'))?.fondo ?? fondo
 
   // El tema modula la luz del ciclo: tiñe los colores (mezcla) y escala la intensidad.
   // Sin tema (o sin `luz`) todo queda exactamente como siempre.
@@ -99,8 +99,11 @@ export function CieloDiaNoche() {
   // El color de la niebla es del tema (su ambiente); con un paisaje 3D del menú Fondo, la
   // distancia es la del paisaje, que ve más lejos (si no, la nieve y la niebla lo lavan todo).
   const nieblaPaisaje = !escenarioVisible && !usaImagen ? fondoDef.niebla : undefined
-  const niebla =
-    tema?.niebla && nieblaPaisaje
+  // Un fondo en movimiento (sin su tema dinámico) es el cielo del viaje: su niebla manda entera.
+  const viajeDeFondo = !usaImagen && !!fondoDef.viaje && escenarioVisible === fondoDef.viaje && tema?.escenario !== fondoDef.viaje
+  const niebla = viajeDeFondo
+    ? fondoDef.niebla
+    : tema?.niebla && nieblaPaisaje
       ? { ...tema.niebla, near: Math.max(tema.niebla.near, nieblaPaisaje.near), far: Math.max(tema.niebla.far, nieblaPaisaje.far) }
       : (tema?.niebla ?? nieblaPaisaje)
 

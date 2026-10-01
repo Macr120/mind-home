@@ -48,9 +48,11 @@ interface Esquina {
   z: number
   y0: number
   tope: number
+  /** Esquina de una celda redondeada (curva); si no, el muro dobla en ángulo recto. */
+  redonda: boolean
 }
 
-type Forma = 'caja' | 'cilindro' | 'cono' | 'esfera' | 'carambano'
+type Forma = 'caja' | 'cilindro' | 'cono' | 'esfera' | 'carambano' | 'piramide'
 
 /** Un grupo de piezas iguales: misma forma y mismo material. */
 interface Capa {
@@ -61,6 +63,10 @@ interface Capa {
   brilla?: boolean
   rugosidad?: number
   metal?: number
+  /** Siempre redonda (barriles, postes, antenas), aunque la esquina sea recta. */
+  fija?: boolean
+  /** Gemela de piezas cuadradas para las esquinas rectas. */
+  cuadrada?: Capa
 }
 
 const sinRayo = () => null
@@ -130,7 +136,10 @@ function Instancias({ capa, geometria }: { capa: Capa; geometria: THREE.BufferGe
 }
 
 /** Temas estáticos que visten la arquitectura de la casa. */
-const CON_ARQUITECTURA: TemaId[] = ['medieval', 'espacio', 'terror', 'barbie', 'vaquero', 'cyberpunk', 'navidad']
+const CON_ARQUITECTURA: TemaId[] = [
+  'medieval', 'espacio', 'terror', 'barbie', 'vaquero', 'cyberpunk', 'navidad',
+  'nave', 'avion', 'apocalipsis', 'tortuga', 'pirata', 'tren',
+]
 
 /**
  * Temas estáticos: sobre cada muro EXTERIOR va el remate del tema (almenas, neón,
@@ -236,7 +245,7 @@ function usePerimetro() {
     const sueltosH: typeof sueltosV = []
     const sueltosV: { x: number; z: number; y0: number; tope: number; nivel: number; grosor: number }[] = []
     for (const e of extremos.values()) {
-      if (e.h && e.v) esquinas.push(e)
+      if (e.h && e.v) esquinas.push({ x: e.x, z: e.z, y0: e.y0, tope: e.tope, redonda: false })
       else if (e.h) sueltosH.push(e)
       else sueltosV.push(e)
     }
@@ -258,8 +267,11 @@ function usePerimetro() {
         }
       })
       if (mejor < 0) continue
-      usados.add(mejor)
       const v = sueltosV[mejor]
+      // Si donde se cruzarían ya dobla un muro en ángulo recto, los extremos sueltos son
+      // bordes de puertas junto a esa esquina, no una curva: ahí basta la torre recta.
+      if (esquinas.some((q) => !q.redonda && Math.abs(q.y0 - h.y0) < 0.01 && Math.hypot(q.x - v.x, q.z - h.z) < 0.5)) continue
+      usados.add(mejor)
       // Centro del arco: x del extremo horizontal, z del vertical.
       const ox = h.x
       const oz = v.z
@@ -288,9 +300,19 @@ function usePerimetro() {
         })
       }
       const am = (a0 + a1) / 2
-      esquinas.push({ x: ox + Math.cos(am) * R, z: oz + Math.sin(am) * R, y0: h.y0, tope })
+      esquinas.push({ x: ox + Math.cos(am) * R, z: oz + Math.sin(am) * R, y0: h.y0, tope, redonda: true })
     }
-    return { bordes, esquinas }
+    // Dos cuartos que comparten la esquina la dan dos veces (con el extremo corrido medio
+    // grosor): se funden en una sola torre, con el tope más alto.
+    const unicas: Esquina[] = []
+    for (const e of esquinas) {
+      const igual = unicas.find((u) => Math.abs(u.y0 - e.y0) < 0.01 && Math.hypot(u.x - e.x, u.z - e.z) < 0.9)
+      if (igual) {
+        igual.tope = Math.max(igual.tope, e.tope)
+        igual.redonda ||= e.redonda
+      } else unicas.push({ ...e })
+    }
+    return { bordes, esquinas: unicas }
   }, [L, cuartos, zonas, apilado])
 }
 
@@ -299,9 +321,35 @@ const radioTorre = () => Math.min(1.4, Math.max(0.6, SIZE * 0.14))
 
 /** Remate de cada tema: capas de piezas sobre bordes y esquinas. */
 function vestir(base: TemaId, bordes: Borde[], esquinas: Esquina[], color: string, acento: string): Capa[] {
+  return capasDe(base, bordes, esquinas, color, acento).flatMap((c) => (c.cuadrada ? [c, c.cuadrada] : [c]))
+}
+
+function capasDe(base: TemaId, bordes: Borde[], esquinas: Esquina[], color: string, acento: string): Capa[] {
   const r = radioTorre()
   const oscuro = mezclar(color, '#1f1b18', 0.35)
   const capa = (forma: Forma, c: string, extra: Partial<Capa> = {}): Capa => ({ forma, color: c, piezas: [], ...extra })
+  // Pieza de una esquina: en la esquina recta, torres y conos pasan a caja y pirámide
+  // (la torre sigue la forma con que está dibujado el muro).
+  const pon = (c: Capa, e: Esquina, p: Pieza) => {
+    if (e.redonda || c.fija || (c.forma !== 'cilindro' && c.forma !== 'cono')) {
+      c.piezas.push(p)
+      return
+    }
+    c.cuadrada ??= { ...c, forma: c.forma === 'cono' ? 'piramide' : 'caja', piezas: [] }
+    // Radio → lado: la caja mide 2r; la pirámide (cono de 4 caras) cubre r·√2 de radio.
+    const f = c.forma === 'cono' ? Math.SQRT2 : 2
+    c.cuadrada.piezas.push({ ...p, sx: p.sx * f, sz: p.sz * f, ry: 0 })
+  }
+  // Puntos alrededor de la torre (almenas): en círculo o sobre el contorno del cuadrado.
+  const anillo = (e: Esquina, rad: number, n: number) =>
+    Array.from({ length: n }, (_, k) => {
+      const a = (k / n) * Math.PI * 2
+      const m = e.redonda ? 1 : 1 / Math.max(Math.abs(Math.cos(a)), Math.abs(Math.sin(a)))
+      return { x: e.x + Math.cos(a) * rad * m, z: e.z + Math.sin(a) * rad * m, ry: e.redonda ? -a : 0 }
+    })
+  // Cara de la torre que mira a la cámara isométrica (+X/+Z): ventanas y aspilleras.
+  const frente = (e: Esquina, rad: number) =>
+    e.redonda ? { x: e.x + rad * 0.72, z: e.z + rad * 0.72, ry: Math.PI / 4 } : { x: e.x + rad, z: e.z, ry: Math.PI / 2 }
   // Largo de la cornisa: los tramos rectos cierran la esquina, los del arco se solapan un poco.
   const largoCornisa = (b: Borde) => (b.arco ? b.largo * 1.05 : b.largo + 0.2)
 
@@ -319,25 +367,22 @@ function vestir(base: TemaId, bordes: Borde[], esquinas: Esquina[], color: strin
       }
       for (const e of esquinas) {
         const alto = e.tope + 1.3
-        fustes.piezas.push({ x: e.x, y: e.y0 + alto / 2, z: e.z, sx: r, sy: alto, sz: r })
-        coronas.piezas.push({ x: e.x, y: e.y0 + alto + 0.2, z: e.z, sx: r * 1.2, sy: 0.4, sz: r * 1.2 })
-        for (let k = 0; k < 8; k++) {
-          const a = (k / 8) * Math.PI * 2
-          almenas.piezas.push({ x: e.x + Math.cos(a) * r * 1.08, y: e.y0 + alto + 0.62, z: e.z + Math.sin(a) * r * 1.08, sx: 0.32, sy: 0.45, sz: 0.32, ry: -a })
-        }
+        pon(fustes, e, { x: e.x, y: e.y0 + alto / 2, z: e.z, sx: r, sy: alto, sz: r })
+        pon(coronas, e, { x: e.x, y: e.y0 + alto + 0.2, z: e.z, sx: r * 1.2, sy: 0.4, sz: r * 1.2 })
+        for (const a of anillo(e, r * 1.08, 8)) almenas.piezas.push({ x: a.x, y: e.y0 + alto + 0.62, z: a.z, sx: 0.32, sy: 0.45, sz: 0.32, ry: a.ry })
         // Aspilleras hacia la cámara isométrica (+X/+Z), a media torre y arriba.
-        for (const f of [0.35, 0.72]) {
-          aspilleras.piezas.push({ x: e.x + r * 0.72, y: e.y0 + alto * f, z: e.z + r * 0.72, sx: 0.14, sy: 0.5, sz: 0.14, ry: Math.PI / 4 })
-        }
+        const fr = frente(e, r)
+        for (const f of [0.35, 0.72]) aspilleras.piezas.push({ x: fr.x, y: e.y0 + alto * f, z: fr.z, sx: 0.14, sy: 0.5, sz: 0.14, ry: fr.ry })
       }
       return [cornisas, almenas, fustes, coronas, aspilleras]
     }
 
-    case 'espacio': {
+    case 'espacio':
+    case 'nave': {
       // Estación espacial: cornisa de metal, franja de luz cian, antenas y módulos con cúpula.
       const metal = capa('caja', '#cbd5e1', { rugosidad: 0.3, metal: 0.8 })
       const franja = capa('caja', '#22d3ee', { brilla: true })
-      const antenas = capa('cilindro', '#94a3b8', { rugosidad: 0.3, metal: 0.8 })
+      const antenas = capa('cilindro', '#94a3b8', { rugosidad: 0.3, metal: 0.8, fija: true })
       const balizas = capa('esfera', '#f87171', { brilla: true })
       const modulos = capa('cilindro', '#e2e8f0', { rugosidad: 0.35, metal: 0.7 })
       const cupulas = capa('esfera', '#7dd3fc', { brilla: true })
@@ -353,9 +398,9 @@ function vestir(base: TemaId, bordes: Borde[], esquinas: Esquina[], color: strin
       }
       for (const e of esquinas) {
         const alto = e.tope + 0.5
-        modulos.piezas.push({ x: e.x, y: e.y0 + alto / 2, z: e.z, sx: r, sy: alto, sz: r })
+        pon(modulos, e, { x: e.x, y: e.y0 + alto / 2, z: e.z, sx: r, sy: alto, sz: r })
         cupulas.piezas.push({ x: e.x, y: e.y0 + alto, z: e.z, sx: r * 0.85, sy: r * 0.7, sz: r * 0.85 })
-        anillos.piezas.push({ x: e.x, y: e.y0 + alto * 0.55, z: e.z, sx: r * 1.08, sy: 0.12, sz: r * 1.08 })
+        pon(anillos, e, { x: e.x, y: e.y0 + alto * 0.55, z: e.z, sx: r * 1.08, sy: 0.12, sz: r * 1.08 })
       }
       return [metal, franja, antenas, balizas, modulos, cupulas, anillos]
     }
@@ -373,9 +418,10 @@ function vestir(base: TemaId, bordes: Borde[], esquinas: Esquina[], color: strin
       }
       for (const e of esquinas) {
         const alto = e.tope + 1.6
-        fustes.piezas.push({ x: e.x, y: e.y0 + alto / 2, z: e.z, sx: r * 0.8, sy: alto, sz: r * 0.8 })
-        techos.piezas.push({ x: e.x, y: e.y0 + alto + 1.1, z: e.z, sx: r * 1.25, sy: 2.2, sz: r * 1.25 })
-        ventanas.piezas.push({ x: e.x + r * 0.58, y: e.y0 + alto * 0.78, z: e.z + r * 0.58, sx: 0.36, sy: 0.5, sz: 0.08, ry: Math.PI / 4 })
+        pon(fustes, e, { x: e.x, y: e.y0 + alto / 2, z: e.z, sx: r * 0.8, sy: alto, sz: r * 0.8 })
+        pon(techos, e, { x: e.x, y: e.y0 + alto + 1.1, z: e.z, sx: r * 1.25, sy: 2.2, sz: r * 1.25 })
+        const fr = frente(e, r * 0.8)
+        ventanas.piezas.push({ x: fr.x, y: e.y0 + alto * 0.78, z: fr.z, sx: 0.36, sy: 0.5, sz: 0.08, ry: fr.ry })
       }
       return [alero, picos, fustes, techos, ventanas]
     }
@@ -387,7 +433,7 @@ function vestir(base: TemaId, bordes: Borde[], esquinas: Esquina[], color: strin
       const fustes = capa('cilindro', color, { rugosidad: 0.6 })
       const conos = capa('cono', '#ec4899', { rugosidad: 0.4 })
       const aros = capa('cilindro', '#fde68a', { rugosidad: 0.3, metal: 0.6 })
-      const mastiles = capa('cilindro', '#f5f5f4', { rugosidad: 0.4 })
+      const mastiles = capa('cilindro', '#f5f5f4', { rugosidad: 0.4, fija: true })
       const banderas = capa('caja', acento, { rugosidad: 0.6 })
       for (const b of bordes) {
         cornisa.piezas.push(enBorde(b, 0, b.yTope + 0.08, largoCornisa(b), 0.16, b.grosor + 0.3))
@@ -395,9 +441,9 @@ function vestir(base: TemaId, bordes: Borde[], esquinas: Esquina[], color: strin
       }
       for (const e of esquinas) {
         const alto = e.tope + 1.2
-        fustes.piezas.push({ x: e.x, y: e.y0 + alto / 2, z: e.z, sx: r * 0.9, sy: alto, sz: r * 0.9 })
-        aros.piezas.push({ x: e.x, y: e.y0 + alto, z: e.z, sx: r * 1.05, sy: 0.14, sz: r * 1.05 })
-        conos.piezas.push({ x: e.x, y: e.y0 + alto + 1.3, z: e.z, sx: r * 1.15, sy: 2.6, sz: r * 1.15 })
+        pon(fustes, e, { x: e.x, y: e.y0 + alto / 2, z: e.z, sx: r * 0.9, sy: alto, sz: r * 0.9 })
+        pon(aros, e, { x: e.x, y: e.y0 + alto, z: e.z, sx: r * 1.05, sy: 0.14, sz: r * 1.05 })
+        pon(conos, e, { x: e.x, y: e.y0 + alto + 1.3, z: e.z, sx: r * 1.15, sy: 2.6, sz: r * 1.15 })
         mastiles.piezas.push({ x: e.x, y: e.y0 + alto + 3, z: e.z, sx: 0.04, sy: 1, sz: 0.04 })
         banderas.piezas.push({ x: e.x + 0.3, y: e.y0 + alto + 3.3, z: e.z, sx: 0.55, sy: 0.32, sz: 0.03 })
       }
@@ -410,8 +456,8 @@ function vestir(base: TemaId, bordes: Borde[], esquinas: Esquina[], color: strin
       const remate = capa('caja', oscuro, { rugosidad: 1 })
       const postes = capa('caja', '#6b4a28', { rugosidad: 1 })
       const tejaroz = capa('caja', '#5a3a22', { rugosidad: 1 })
-      const barriles = capa('cilindro', '#7c4a1e', { rugosidad: 0.9 })
-      const aros = capa('cilindro', '#3f3f46', { rugosidad: 0.5, metal: 0.6 })
+      const barriles = capa('cilindro', '#7c4a1e', { rugosidad: 0.9, fija: true })
+      const aros = capa('cilindro', '#3f3f46', { rugosidad: 0.5, metal: 0.6, fija: true })
       for (const b of bordes) {
         const alto = 0.8
         tablero.piezas.push(enBorde(b, 0, b.yTope + alto / 2, largoCornisa(b), alto, 0.12, b.grosor / 2))
@@ -442,7 +488,7 @@ function vestir(base: TemaId, bordes: Borde[], esquinas: Esquina[], color: strin
       const cornisa = capa('caja', '#111018', { rugosidad: 0.4, metal: 0.6 })
       const neonA = capa('caja', '#d946ef', { brilla: true })
       const neonB = capa('caja', '#22d3ee', { brilla: true })
-      const antenas = capa('cilindro', '#1f2937', { rugosidad: 0.4, metal: 0.7 })
+      const antenas = capa('cilindro', '#1f2937', { rugosidad: 0.4, metal: 0.7, fija: true })
       const balizas = capa('esfera', '#ef4444', { brilla: true })
       const cartelA = capa('caja', '#f0abfc', { brilla: true })
       const cartelB = capa('caja', '#67e8f9', { brilla: true })
@@ -466,8 +512,8 @@ function vestir(base: TemaId, bordes: Borde[], esquinas: Esquina[], color: strin
       const nieve = capa('caja', '#f8fafc', { rugosidad: 0.7 })
       const carambanos = capa('carambano', '#dbeafe', { rugosidad: 0.2 })
       const focos = ['#ef4444', '#facc15', '#22c55e', '#3b82f6'].map((c) => capa('esfera', c, { brilla: true }))
-      const rojo = capa('cilindro', '#dc2626', { rugosidad: 0.4 })
-      const blanco = capa('cilindro', '#fafafa', { rugosidad: 0.4 })
+      const rojo = capa('cilindro', '#dc2626', { rugosidad: 0.4, fija: true })
+      const blanco = capa('cilindro', '#fafafa', { rugosidad: 0.4, fija: true })
       for (const b of bordes) {
         nieve.piezas.push(enBorde(b, 0, b.yTope + 0.1, largoCornisa(b) + 0.05, 0.2, b.grosor + 0.38))
         aLoLargo(b, 0.5).forEach((a, i) => {
@@ -488,6 +534,100 @@ function vestir(base: TemaId, bordes: Borde[], esquinas: Esquina[], color: strin
       return [nieve, carambanos, ...focos, rojo, blanco]
     }
 
+    case 'avion': {
+      // Avión: cornisa de aluminio, franja roja de aerolínea y luces de navegación.
+      const cornisa = capa('caja', '#e2e8f0', { rugosidad: 0.3, metal: 0.7 })
+      const franja = capa('caja', '#dc2626', { rugosidad: 0.5 })
+      const postes = capa('cilindro', '#94a3b8', { rugosidad: 0.3, metal: 0.8 })
+      const rojas = capa('esfera', '#ef4444', { brilla: true })
+      const verdes = capa('esfera', '#22c55e', { brilla: true })
+      for (const b of bordes) {
+        cornisa.piezas.push(enBorde(b, 0, b.yTope + 0.06, largoCornisa(b), 0.12, b.grosor + 0.22))
+        franja.piezas.push(enBorde(b, 0, b.yTope - 0.4, largoCornisa(b), 0.16, b.grosor + 0.06))
+      }
+      esquinas.forEach((e, i) => {
+        pon(postes, e, { x: e.x, y: e.y0 + (e.tope + 0.4) / 2, z: e.z, sx: 0.12, sy: e.tope + 0.4, sz: 0.12 })
+        const luz = i % 2 ? verdes : rojas
+        luz.piezas.push({ x: e.x, y: e.y0 + e.tope + 0.5, z: e.z, sx: 0.16, sy: 0.16, sz: 0.16 })
+      })
+      return [cornisa, franja, postes, rojas, verdes]
+    }
+
+    case 'apocalipsis': {
+      // Casa rodante del yermo: chapa oxidada, púas de metal y bidones en las esquinas.
+      const chapa = capa('caja', '#6b3f22', { rugosidad: 0.9, metal: 0.3 })
+      const puas = capa('cono', '#57534e', { rugosidad: 0.6, metal: 0.6, fija: true })
+      const torres = capa('cilindro', '#5a3a26', { rugosidad: 0.9, metal: 0.3 })
+      const bidones = capa('cilindro', '#9a4a1e', { rugosidad: 0.8, metal: 0.4, fija: true })
+      const aros = capa('cilindro', '#3f3f46', { rugosidad: 0.5, metal: 0.6, fija: true })
+      for (const b of bordes) {
+        chapa.piezas.push(enBorde(b, 0, b.yTope + 0.1, largoCornisa(b), 0.2, b.grosor + 0.3))
+        for (const a of aLoLargo(b, 0.5)) puas.piezas.push(enBorde(b, a, b.yTope + 0.38, 0.07, 0.36, 0.07))
+      }
+      for (const e of esquinas) {
+        const alto = e.tope + 0.9
+        pon(torres, e, { x: e.x, y: e.y0 + alto / 2, z: e.z, sx: r * 0.7, sy: alto, sz: r * 0.7 })
+        for (const a of anillo(e, r * 0.75, 6)) puas.piezas.push({ x: a.x, y: e.y0 + alto + 0.25, z: a.z, sx: 0.09, sy: 0.5, sz: 0.09 })
+        bidones.piezas.push({ x: e.x + 0.85, y: e.y0 + 0.45, z: e.z + 0.85, sx: 0.32, sy: 0.9, sz: 0.32 })
+        for (const f of [0.2, 0.7]) aros.piezas.push({ x: e.x + 0.85, y: e.y0 + f, z: e.z + 0.85, sx: 0.34, sy: 0.05, sz: 0.34 })
+      }
+      return [chapa, puas, torres, bidones, aros]
+    }
+
+    case 'tortuga': {
+      // Tortuga gigante: cornisa de madera rústica con hiedra y macetas con arbustos.
+      const cornisa = capa('caja', '#7a5a36', { rugosidad: 1 })
+      const hiedra = capa('esfera', '#4d7c0f', { rugosidad: 0.9 })
+      const macetas = capa('cilindro', '#b45309', { rugosidad: 0.9 })
+      const arbustos = capa('esfera', '#3f7d2c', { rugosidad: 0.9 })
+      for (const b of bordes) {
+        cornisa.piezas.push(enBorde(b, 0, b.yTope + 0.08, largoCornisa(b), 0.16, b.grosor + 0.28))
+        aLoLargo(b, 0.55).forEach((a, i) => {
+          if (i % 3 !== 2) hiedra.piezas.push(enBorde(b, a, b.yTope - 0.05 - (i % 2) * 0.25, 0.22, 0.22, 0.22, b.grosor / 2 + 0.06))
+        })
+      }
+      for (const e of esquinas) {
+        pon(macetas, e, { x: e.x, y: e.y0 + e.tope + 0.3, z: e.z, sx: 0.45, sy: 0.6, sz: 0.45 })
+        arbustos.piezas.push({ x: e.x, y: e.y0 + e.tope + 0.9, z: e.z, sx: 0.6, sy: 0.55, sz: 0.6 })
+      }
+      return [cornisa, hiedra, macetas, arbustos]
+    }
+
+    case 'pirata': {
+      // Barco pirata: barandilla de balaustres con pasamanos y faroles en las esquinas.
+      const pasamanos = capa('caja', '#5a3a1e', { rugosidad: 0.8 })
+      const balaustres = capa('cilindro', '#7a5230', { rugosidad: 0.8, fija: true })
+      const postes = capa('cilindro', '#3f2a17', { rugosidad: 0.8 })
+      const faroles = capa('caja', '#fbbf24', { brilla: true })
+      for (const b of bordes) {
+        pasamanos.piezas.push(enBorde(b, 0, b.yTope + 0.6, largoCornisa(b), 0.1, 0.16))
+        pasamanos.piezas.push(enBorde(b, 0, b.yTope + 0.04, largoCornisa(b), 0.08, b.grosor + 0.18))
+        for (const a of aLoLargo(b, 0.32)) balaustres.piezas.push(enBorde(b, a, b.yTope + 0.32, 0.045, 0.55, 0.045))
+      }
+      for (const e of esquinas) {
+        pon(postes, e, { x: e.x, y: e.y0 + e.tope + 0.55, z: e.z, sx: 0.12, sy: 1.1, sz: 0.12 })
+        faroles.piezas.push({ x: e.x, y: e.y0 + e.tope + 1.25, z: e.z, sx: 0.26, sy: 0.32, sz: 0.26 })
+      }
+      return [pasamanos, balaustres, postes, faroles]
+    }
+
+    case 'tren': {
+      // Vagón de tren: techo con alero oscuro, remaches y faroles rojos en las esquinas.
+      const techo = capa('caja', '#374151', { rugosidad: 0.6, metal: 0.5 })
+      const remaches = capa('esfera', '#1f2937', { rugosidad: 0.5, metal: 0.7 })
+      const postes = capa('cilindro', '#111827', { rugosidad: 0.5, metal: 0.6 })
+      const faroles = capa('esfera', '#f87171', { brilla: true })
+      for (const b of bordes) {
+        techo.piezas.push(enBorde(b, 0, b.yTope + 0.1, largoCornisa(b), 0.2, b.grosor + 0.45, 0.1))
+        for (const a of aLoLargo(b, 0.6)) remaches.piezas.push(enBorde(b, a, b.yTope - 0.25, 0.06, 0.06, 0.06, b.grosor / 2 + 0.02))
+      }
+      for (const e of esquinas) {
+        pon(postes, e, { x: e.x, y: e.y0 + (e.tope + 0.5) / 2, z: e.z, sx: 0.1, sy: e.tope + 0.5, sz: 0.1 })
+        faroles.piezas.push({ x: e.x, y: e.y0 + e.tope + 0.6, z: e.z, sx: 0.18, sy: 0.18, sz: 0.18 })
+      }
+      return [techo, remaches, postes, faroles]
+    }
+
     default:
       return []
   }
@@ -506,6 +646,8 @@ function Arquitectura({ base, color, acento }: { base: TemaId; color: string; ac
       esfera: new THREE.SphereGeometry(1, 16, 12),
       // Cono con la punta hacia abajo (carámbanos).
       carambano: new THREE.ConeGeometry(1, 1, 8).rotateX(Math.PI),
+      // Pirámide de caras alineadas a los ejes: el techo de una torre cuadrada.
+      piramide: new THREE.ConeGeometry(1, 1, 4).rotateY(Math.PI / 4),
     }),
     [],
   )

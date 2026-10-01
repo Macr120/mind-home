@@ -4489,6 +4489,15 @@ export const FR: Dict = {
   'editor.fondo.paisajes': 'Paysages complets',
   'editor.fondo.paisajesDesc':
     'Le sol, la mer ou le ciel autour de la maison, comme dans les thèmes dynamiques mais immobiles.',
+  'editor.fondo.enMovimiento': 'En mouvement',
+  'editor.fondo.enMovimientoDesc':
+    'La maison voyage à bord d’un véhicule et le paysage défile. Seul le fond change : murs, sols et le reste restent ceux de ton thème.',
+  'fondo.viaje_nave': 'Voyage en vaisseau',
+  'fondo.viaje_avion': 'Vol en avion',
+  'fondo.viaje_rodante': 'Camping-car',
+  'fondo.viaje_tortuga': 'Balade à dos de tortue',
+  'fondo.viaje_barco': 'Voyage de pirates',
+  'fondo.viaje_tren': 'Voyage en train',
   'editor.fondo.previewTitulo': 'Ajuste le fond — fais glisser l’image ; le cadre, c’est ton écran',
   'editor.fondo.previewAria': 'Aperçu du fond',
   'editor.fondo.previewMapa': 'Plan sur le ciel',

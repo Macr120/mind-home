@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
 import { useDiseño } from '../../state/disenoStore'
 import { useCiclo } from '../../state/cicloStore'
-import { FONDOS, ANIMACIONES, animacionesDeFondo, getFondo } from '../../house/fondos'
+import { FONDOS, ANIMACIONES, TEMA_DE_VIAJE, animacionesDeFondo, getFondo } from '../../house/fondos'
+import { getTema } from '../../house/temas'
+import { useEditorUi } from '../../state/editorUiStore'
 import type { FondoImagen } from '../../data/db'
 import type { AjusteFondoImagen } from '../../house/fondosImagen'
 import { AJUSTE_FONDO_DEFAULT, ajusteADb, ajusteDesdeDb, escalaCubrir, medirImagen } from '../../house/fondosImagen'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
+import { IconoMarca } from '../iconos/glifosApps'
 import { ColorPicker } from '../comun/ColorPicker'
 import { EditorFondoImagenPreview } from './EditorFondoImagenPreview'
 import { GenerarTexturaIA } from './GenerarTexturaIA'
@@ -82,6 +85,13 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
     animacionesIds,
     setAnimacionesIds,
   } = useDiseño()
+  const setTemaOverride = useDiseño((s) => s.setTemaOverride)
+  useDiseño((s) => s.temaRev)
+  const setPrevia = useEditorUi((s) => s.setPreviaEscenario)
+  // Fondo en movimiento activo: su barra de velocidad guarda en el tema dinámico del vehículo.
+  const viaje = fondoImagenActivo == null ? getFondo(fondoId).viaje : undefined
+  const temaViaje = viaje ? TEMA_DE_VIAJE[viaje] : null
+  const velocidadViaje = (temaViaje && getTema(temaViaje)?.velocidadEscenario) ?? 1
   const deNoche = useCiclo((s) => s.minutos < 6 * 60 || s.minutos >= 19 * 60)
   const colorFijoActivo = fondoImagenActivo == null && fondoId === 'color_fijo'
   // En automático se marcan las que sugiere el fondo: al tocar una se parte de ahí.
@@ -215,7 +225,11 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
       <button
         key={f.id}
         type="button"
-        onClick={() => void setFondoId(f.id)}
+        onClick={() => {
+          void setFondoId(f.id)
+          // En el editor el vehículo se ve en marcha al elegirlo (si no, vuelve el plano).
+          setPrevia(!!f.viaje)
+        }}
         className="overflow-hidden rounded-lg border text-start transition"
         style={{
           borderColor: activo ? 'rgba(52,211,153,0.7)' : 'color-mix(in srgb, var(--ui-ink) 8%, transparent)',
@@ -228,7 +242,7 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
             background: `linear-gradient(180deg, ${f.gradiente[0]} 0%, ${f.gradiente[1]} 58%, ${f.suelo ?? f.gradiente[1]} 58%, ${f.suelo ?? f.gradiente[1]} 100%)`,
           }}
         >
-          <Icono emoji={f.icon} />
+          <IconoMarca emoji={f.icon} size="1em" />
         </span>
         <span className="block truncate px-2 py-1 text-[11px] font-medium text-white/80">
           {activo ? '✓ ' : ''}
@@ -253,6 +267,37 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
           {t('editor.fondo.paisajesDesc', 'El suelo, el mar o el cielo alrededor de la casa, como en los temas dinámicos pero quietos.')}
         </p>
         <div className="grid grid-cols-2 gap-1.5">{FONDOS.filter((f) => f.escena).map(tarjetaPaisaje)}</div>
+
+        <p className="pt-1 text-[10px] font-semibold uppercase tracking-wide text-white/40">
+          {t('editor.fondo.enMovimiento', 'En movimiento')}
+        </p>
+        <p className="text-[10px] leading-snug text-white/45">
+          {t('editor.fondo.enMovimientoDesc', 'La casa viaja en un vehículo y el paisaje corre. Solo cambia el fondo: muros, pisos y lo demás siguen siendo los de tu tema.')}
+        </p>
+        <div className="grid grid-cols-2 gap-1.5">{FONDOS.filter((f) => f.viaje).map(tarjetaPaisaje)}</div>
+        {temaViaje && (
+          <div className="space-y-0.5 rounded-lg border border-white/10 bg-black/20 px-3 py-2">
+            <div className="flex items-center justify-between text-xs text-white/70">
+              <span>{t('editor.tema.velocidad', 'Velocidad')}</span>
+              <span className="tabular-nums text-white/50">
+                {velocidadViaje === 0 ? t('editor.tema.parado', 'Parado') : `×${velocidadViaje.toFixed(1)}`}
+              </span>
+            </div>
+            <input
+              type="range"
+              min={0}
+              max={3}
+              step={0.1}
+              value={velocidadViaje}
+              onChange={(e) => {
+                setPrevia(true)
+                void setTemaOverride(temaViaje, { velocidadEscenario: parseFloat(e.target.value) })
+              }}
+              aria-label={t('editor.tema.velocidad', 'Velocidad')}
+              className="w-full accent-emerald-400"
+            />
+          </div>
+        )}
       </div>
 
       <div className="space-y-2 rounded-lg border border-white/10 bg-black/15 p-2.5">
@@ -374,7 +419,7 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
       <p className="text-[10px] font-semibold uppercase tracking-wide text-white/40">
         {t('editor.fondo.presets', 'Fondos predefinidos')}
       </p>
-      <div className="grid grid-cols-2 gap-1.5">{FONDOS.filter((f) => !f.escena).map(tarjetaFondo)}</div>
+      <div className="grid grid-cols-2 gap-1.5">{FONDOS.filter((f) => !f.escena && !f.viaje).map(tarjetaFondo)}</div>
 
       <div className="space-y-2 rounded-lg border border-white/10 bg-black/20 px-3 py-2.5">
         <div className="flex items-center justify-between gap-2">

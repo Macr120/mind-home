@@ -2,6 +2,8 @@ import { useMemo } from 'react'
 import { useLayout } from '../../state/layoutStore'
 import { useHouse } from '../../state/houseStore'
 import { useEditorUi } from '../../state/editorUiStore'
+import { useDiseño } from '../../state/disenoStore'
+import { getFondo } from '../fondos'
 import { useTemaActivo } from '../useTema'
 import type { EscenarioId } from '../temas'
 import { SPACING, WALL_H, nivelBaseY } from '../walls'
@@ -56,7 +58,10 @@ export function useEscenarioVisible(): EscenarioId | null {
   const tema = useTemaActivo()
   const editMode = useLayout((s) => s.editMode)
   const previa = useEditorUi((s) => s.previaEscenario)
-  return tema?.escenario && (!editMode || previa) ? tema.escenario : null
+  // Sin tema dinámico, un fondo «en movimiento» del menú Fondo pone el vehículo.
+  const viaje = useDiseño((s) => (s.fondoImagenActivo == null ? getFondo(s.fondoId).viaje : undefined))
+  const escenario = tema?.escenario ?? viaje ?? null
+  return escenario && (!editMode || previa) ? escenario : null
 }
 
 export function useLimitesCasa(): LimitesCasa {

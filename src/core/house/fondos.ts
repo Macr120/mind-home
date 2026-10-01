@@ -31,6 +31,12 @@ export type FondoId =
   | 'superficie_lunar'
   | 'fondo_marino'
   | 'dunas'
+  | 'viaje_nave'
+  | 'viaje_avion'
+  | 'viaje_rodante'
+  | 'viaje_tortuga'
+  | 'viaje_barco'
+  | 'viaje_tren'
 
 /** Familias de microanimaciones del cielo (`FondoAnimaciones`). */
 export type FamiliaAnimId =
@@ -89,6 +95,11 @@ export interface FondoDef {
   suelo?: string
   /** Niebla propia del paisaje (sin tema dinámico); esconde el borde del suelo. */
   niebla?: TemaNiebla
+  /**
+   * Fondo en movimiento: la casa viaja en este vehículo con el paisaje corriendo, pero
+   * muros, pisos y lo demás siguen siendo los del tema activo (solo cambia el fondo).
+   */
+  viaje?: EscenarioId
 }
 
 export const FONDOS: FondoDef[] = [
@@ -329,7 +340,78 @@ export const FONDOS: FondoDef[] = [
     suelo: '#e7b774',
     niebla: { color: '#f6d9a6', near: 80, far: 250 },
   },
+  // En movimiento: el vehículo y su paisaje corriendo, sin las propiedades del tema dinámico.
+  {
+    id: 'viaje_nave',
+    nombre: 'Viaje en nave',
+    icon: '🛸',
+    gradiente: ['#02030a', '#0b1026'],
+    estrellas: true,
+    anim: ['fugaz'],
+    viaje: 'nave',
+    suelo: '#0b1026',
+  },
+  {
+    id: 'viaje_avion',
+    nombre: 'Vuelo en avión',
+    icon: '✈️',
+    gradiente: ['#6fb1e8', '#cfe6f7'],
+    anim: ['aves'],
+    viaje: 'avion',
+    suelo: '#f4f8fc',
+    niebla: { color: '#bcd9f5', near: 60, far: 170 },
+  },
+  {
+    id: 'viaje_rodante',
+    nombre: 'Casa rodante',
+    icon: '☢️',
+    gradiente: ['#b7793f', '#e0b07a'],
+    anim: ['polvo'],
+    viaje: 'rodante',
+    suelo: '#8a6a45',
+    niebla: { color: '#b07a48', near: 60, far: 160 },
+  },
+  {
+    id: 'viaje_tortuga',
+    nombre: 'Lomo de tortuga',
+    icon: '🐢',
+    gradiente: ['#8ccbee', '#dff1e0'],
+    anim: ['aves', 'nubes'],
+    viaje: 'tortuga',
+    suelo: '#6a9a3c',
+    niebla: { color: '#cfe8d6', near: 55, far: 150 },
+  },
+  {
+    id: 'viaje_barco',
+    nombre: 'Travesía pirata',
+    icon: '🏴‍☠️',
+    gradiente: ['#6fb3e0', '#cfe8f5'],
+    anim: ['aves', 'nubes'],
+    viaje: 'barco',
+    suelo: '#2f6f9e',
+    niebla: { color: '#c4e0f2', near: 60, far: 170 },
+  },
+  {
+    id: 'viaje_tren',
+    nombre: 'Viaje en tren',
+    icon: '🚂',
+    gradiente: ['#8cc4ec', '#e6f2df'],
+    anim: ['nubes', 'aves'],
+    viaje: 'tren',
+    suelo: '#7fa452',
+    niebla: { color: '#cfe3f0', near: 60, far: 170 },
+  },
 ]
+
+/** Tema dinámico de fábrica de cada vehículo: viste el vehículo y guarda su velocidad. */
+export const TEMA_DE_VIAJE: Record<EscenarioId, TemaId> = {
+  nave: 'nave',
+  avion: 'avion',
+  rodante: 'apocalipsis',
+  tortuga: 'tortuga',
+  barco: 'pirata',
+  tren: 'tren',
+}
 
 export function getFondo(id: FondoId | null | undefined): FondoDef {
   return FONDOS.find((f) => f.id === id) ?? FONDOS[0]

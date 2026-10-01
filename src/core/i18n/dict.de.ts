@@ -4508,6 +4508,15 @@ export const DE: Dict = {
   'editor.fondo.paisajes': 'Ganze Landschaften',
   'editor.fondo.paisajesDesc':
     'Der Boden, das Meer oder der Himmel rund um das Haus, wie bei den dynamischen Themes, nur still.',
+  'editor.fondo.enMovimiento': 'Unterwegs',
+  'editor.fondo.enMovimientoDesc':
+    'Das Haus reist auf einem Fahrzeug und die Landschaft zieht vorbei. Nur der Hintergrund ändert sich: Wände, Böden und alles andere bleiben wie in deinem Thema.',
+  'fondo.viaje_nave': 'Raumschiffreise',
+  'fondo.viaje_avion': 'Flugreise',
+  'fondo.viaje_rodante': 'Wohnmobil',
+  'fondo.viaje_tortuga': 'Schildkrötenritt',
+  'fondo.viaje_barco': 'Piratenfahrt',
+  'fondo.viaje_tren': 'Zugreise',
   'editor.fondo.previewTitulo': 'Passe den Hintergrund an — zieh das Bild; der Rahmen ist dein Bildschirm',
   'editor.fondo.previewAria': 'Vorschau des Hintergrunds',
   'editor.fondo.previewMapa': 'Karte über Himmel',
@@ -5512,7 +5521,8 @@ export const DE: Dict = {
   'chat.enviando': 'Gesendet, Antwort wird vorbereitet…',
   'chat.imagenFallo': 'Ich konnte das Bild nicht erstellen — versuch es noch mal.',
   'chat.iaRechazo': 'Ich konnte nicht antworten: Die KI hat die Anfrage abgelehnt. Versuch es noch mal.',
-  'chat.iaNoRespondio': 'Die KI hat nicht geantwortet und ich wusste nicht, was ich mit deiner Nachricht tun soll. Versuch es noch mal.',
+  'chat.iaNoRespondio':
+    'Die KI hat nicht geantwortet und ich wusste nicht, was ich mit deiner Nachricht tun soll. Versuch es noch mal.',
   'chat.imagenLista': 'Fertig! Hier ist dein Bild 🎨',
   'chat.manual': 'Handbuch',
   'chat.manual.abrir': 'Handbuch: Was du fragen kannst',
