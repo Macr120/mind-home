@@ -1,9 +1,10 @@
-import { guardarContactos, guardarMensajeLocal, limpiarCacheBuzon } from '../core/buzon/cache'
+import { contactosCache, guardarContactos, guardarMensajeLocal, limpiarCacheBuzon } from '../core/buzon/cache'
 import { tipoCompartible } from '../core/buzon/compartibles'
 import { contenidoDe, recontar } from '../core/buzon/motor'
 import type { Contacto, MensajeBuzon } from '../core/buzon/tipos'
 import { esDemo } from '../core/edicion'
 import { idiomaActual } from '../core/i18n/useT'
+import type { Avatar } from '../core/state/disenoStore'
 
 /**
  * Dos amigos de mentira para la vista «Amigos» de la casa demo: Nadia y Tomás,
@@ -168,6 +169,84 @@ const FRASES: Record<string, Frases> = {
 const HILO_NADIA = 'demo-hilo-nadia'
 const HILO_TOMAS = 'demo-hilo-tomas'
 
+/**
+ * Los personajes 3D de los dos amigos: su retrato es el busto de este avatar,
+ * como el que sube la app de cualquier amigo real. Nadia corre y cocina (pelo
+ * largo, ropa deportiva); Tomás es el del ajedrez (barba, lentes, camisa).
+ */
+export const PERSONAJES_DEMO: Record<string, Avatar> = {
+  'demo-ct-nadia': {
+    cabeza: '#c68642',
+    torso: '#14b8a6',
+    piernas: '#1e3a8a',
+    escala: 1,
+    expresion: 'feliz',
+    peinado: 'largo',
+    peloColor: '#2b1a12',
+    ropa: {
+      playera: { color: '#14b8a6' },
+      shorts: { color: '#1e3a8a' },
+      tenis: { color: '#f97316' },
+    },
+  },
+  'demo-ct-tomas': {
+    cabeza: '#f1c27d',
+    torso: '#f59e0b',
+    piernas: '#374151',
+    escala: 1,
+    expresion: 'sonrisa',
+    peinado: 'corto',
+    peloColor: '#8b4513',
+    ropa: {
+      camisa: { color: '#f59e0b' },
+      pantalon: { color: '#374151' },
+      botas: { color: '#5b3a1e' },
+      barbaCandado: { color: '#8b4513' },
+      lentes: { color: '#111827' },
+    },
+  },
+}
+
+const PREFIJO_RETRATO = 'mh.retratoDemo:'
+
+/** Huella del personaje: si se retoca su diseño, el retrato se vuelve a capturar. */
+export function firmaPersonaje(av: Avatar): string {
+  const t = JSON.stringify(av)
+  let h = 5381
+  for (let i = 0; i < t.length; i++) h = ((h << 5) + h + t.charCodeAt(i)) | 0
+  return `${t.length}:${h}`
+}
+
+/** El retrato ya capturado de un amigo del demo (solo si es de su diseño actual). */
+export function retratoGuardado(contactoId: string): string | null {
+  const av = PERSONAJES_DEMO[contactoId]
+  try {
+    const c = JSON.parse(localStorage.getItem(PREFIJO_RETRATO + contactoId) ?? 'null') as { f: string; url: string } | null
+    return av && c?.f === firmaPersonaje(av) ? c.url : null
+  } catch {
+    return null
+  }
+}
+
+/**
+ * Guarda el busto recién capturado: en localStorage (la BD del demo se rehace
+ * al recargar, así no se recaptura) y en el contacto, que lo pinta al momento.
+ */
+export async function fijarRetratoDemo(contactoId: string, url: string): Promise<void> {
+  const av = PERSONAJES_DEMO[contactoId]
+  if (!av) return
+  try {
+    localStorage.setItem(PREFIJO_RETRATO + contactoId, JSON.stringify({ f: firmaPersonaje(av), url }))
+  } catch {
+    // Sin almacenamiento: el retrato vale para esta carga.
+  }
+  await sembrarAmigosDemo()
+  // Con TODOS los retratos guardados, no solo este: dos capturas seguidas se
+  // pisarían la lista la una a la otra.
+  const lista = await contactosCache()
+  await guardarContactos(lista.map((c) => ({ ...c, retrato: c.contactoId === contactoId ? url : (retratoGuardado(c.contactoId) ?? c.retrato) })))
+}
+
 let sembrado: Promise<void> | null = null
 
 /**
@@ -209,7 +288,7 @@ async function sembrar(): Promise<void> {
     alias,
     nombre,
     emoji,
-    retrato: null,
+    retrato: retratoGuardado(id),
     estado: 'aceptado',
     direccion: 'enviada',
     bloqueadoPorMi: false,

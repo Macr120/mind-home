@@ -6642,19 +6642,10 @@ export const PL: Dict = {
     'Zapytaj, jak działa dowolna aplikacja lub menu, albo poproś o jej samouczek: czarodziej pokaże go na ekranie krok po kroku. Po angielsku samouczki na ekranie obejmują edytor, czat i menu; na resztę odpowiada asystent (AI).',
   'tut.casa.titulo': 'Twój MindHaOS',
   'tut.casa.resumen':
-    'MindHaOS to mapa twoich aplikacji: każdy pokój przechowuje jedną. Poruszasz się joystickiem lub WASD, zmieniasz widok klawiszem V i otwierasz menu przyciskiem w lewym górnym rogu. Kostka w rogu zmienia się sama, zależnie od tego, co masz w pobliżu; zegar zawiera kalendarz, rutyny i muzykę.',
+    'Twój MindHaOS to mapa twoich aplikacji: w każdym pokoju mieszka jedna. Poruszasz się joystickiem albo WASD, widok zmieniasz klawiszem V, a menu otwierasz przyciskiem w lewym górnym rogu. Pole w rogu zmienia się samo, zależnie od tego, co masz obok; zegar prowadzi kalendarz i upływ czasu, a muzyka ma własny przycisk. Menu czatu zbiera twoich asystentów, przyjaciół, miejsca i przeglądarkę.',
   'tut.primeros.titulo': 'Jak otwierać aplikacje i tworzyć nowe',
   'tut.primeros.resumen':
     'Jak wejść do swoich aplikacji i jak stworzyć nową: pokój, jego aplikacja i trzy wejścia do niej.',
-  'tut.primeros.2a.titulo': 'Koło narzędzi',
-  'tut.primeros.2a.texto':
-    'Na telefonie pokoje rysuje się bezpośrednio na mapie, bez otwierania paneli. Wszystko zaczyna się od tego przycisku obok joysticka: koła narzędzi.',
-  'tut.primeros.2b.titulo': 'Budowa',
-  'tut.primeros.2b.texto':
-    'Koło ma dwa poziomy. Jego czwarta kategoria stawia MindHaOS: pokoje, ściany, drzwi, okna, podłogi i dachy.',
-  'tut.primeros.2c.titulo': 'Tryb Pokoje',
-  'tut.primeros.2c.texto':
-    'Pokoje przygotowują pędzel: koło się zamyka i każde dotknięcie podłoża stawia nowy pokój. Patrz — pokażę ci, gdzie stanąłby twój…',
   'tut.menu-cuartos.titulo': 'Menu · Dom',
   'tut.menu-cuartos.resumen':
     'Zakładka Dom wypisuje pokoje twojego MindHaOS według kategorii, wraz z ich postępem. Cała karta wchodzi do aplikacji — albo mówi + Przypisz, jeśli jeszcze jej nie ma — a jej zębatka rozwija opcje: przesuń na liście, usuń pokój lub edytuj go. Na górze mieszka twoje podsumowanie: nastrój, ranga i passa; na dole możesz tworzyć nowe pokoje.',
@@ -6772,7 +6763,7 @@ export const PL: Dict = {
   'bienvenida.siguiente': 'Dalej',
   'bienvenida.crear': 'Stwórz mój MindHaOS',
   'bienvenida.creando': 'Tworzenie twojego MindHaOS…',
-  'bienvenida.final.titulo': 'Twój MindHaOS jest gotowy!',
+  'bienvenida.final.titulo': 'Twój MindHaOS (Dom Umysłu OS) jest gotowy!',
   'bienvenida.cuenta': 'Utwórz konto lub zaloguj się (synchronizuje twój MindHaOS)',
   'bienvenida.guia.desc': 'Trzy kroki, żeby się wdrożyć.',
   'bienvenida.guia.empezar': 'Zacznij',
@@ -6780,8 +6771,9 @@ export const PL: Dict = {
   'bienvenida.guia.salir': 'Przejdź do MindHaOS',
   'bienvenida.guia.cuarto.titulo': 'Jak otwierać aplikacje i tworzyć nowe',
   'bienvenida.guia.cuarto.desc': 'Pokażę ci, jak wchodzić do aplikacji i jak stworzyć nową z jej pokojem.',
-  'bienvenida.guia.tour.titulo': 'Zwiedź swój MindHaOS',
-  'bienvenida.guia.tour.desc': 'Spacer po menu, sterowaniu, zegarze i czacie.',
+  'bienvenida.guia.tour.titulo': 'Zwiedź swój MindHaOS (Dom Umysłu OS)',
+  'bienvenida.guia.tour.desc':
+    'Spacer po menu, ruchu, zegarze i czacie, z twoimi asystentami, przyjaciółmi, miejscami i przeglądarką.',
   'bienvenida.guia.explorar.titulo': 'Odkrywaj samodzielnie',
   'bienvenida.guia.explorar.desc': 'Gotowe. Każde menu i każda aplikacja mają własny samouczek pod przyciskiem ?.',
   'ajustes.bienvenida': 'Powitanie',
@@ -11073,8 +11065,10 @@ export const PL: Dict = {
   'idiomas.temaDesc.c2-gram-excepciones': 'To, czego reguły nie potrafią wyjaśnić.',
   'idiomas.tema.c2-gram-normativa': 'Norma i poprawność',
   'idiomas.temaDesc.c2-gram-normativa': 'Błędy, które zdarzają się nawet rodzimym użytkownikom.',
-  'chat.manual.nota.computo': 'Zbiór wzorów i wykreślacz są podpięte do kalkulatora, z gotową Matematyką, Fizyką i Chemią; każdy z tych wzorów można edytować. W środku AI pisze wzory, wyjaśnia krok po kroku, buduje arkusze i czyta dane, które zaznaczysz.',
-  'chat.manual.nota.paintball': 'Tryby: 1 na 1, 2 na 2 (potrzeba 3 asystentów) i każdy na każdego. Każdy wytrzymuje 3 trafienia, a gra toczy się na parterze.',
+  'chat.manual.nota.computo':
+    'Zbiór wzorów i wykreślacz są podpięte do kalkulatora, z gotową Matematyką, Fizyką i Chemią; każdy z tych wzorów można edytować. W środku AI pisze wzory, wyjaśnia krok po kroku, buduje arkusze i czyta dane, które zaznaczysz.',
+  'chat.manual.nota.paintball':
+    'Tryby: 1 na 1, 2 na 2 (potrzeba 3 asystentów) i każdy na każdego. Każdy wytrzymuje 3 trafienia, a gra toczy się na parterze.',
   'chat.voz.sinTexto': '{proveedor}: brak tekstu w odpowiedzi',
   'archivo.nombre.documento': 'dokument',
   'clima.err.espera': 'Przekroczono czas oczekiwania na odpowiedź serwisu.',
@@ -11135,17 +11129,27 @@ export const PL: Dict = {
   'computo.hojaN': 'Arkusz{n}',
   'ui.unidad.h': 'h',
   'despacho.meta.deObjetivo': '{a} z {b} ({p}%)',
-  'diario.prof.historiaAnio': 'Opowiedz mi więcej o tym wydarzeniu historycznym z roku {anio}: {titulo}. Co się wydarzyło, dlaczego było ważne i jakie miało skutki?',
-  'diario.prof.historia': 'Opowiedz mi więcej o tym wydarzeniu historycznym: {titulo}. Co się wydarzyło, dlaczego było ważne i jakie miało skutki?',
-  'diario.prof.arteAutor': 'Opowiedz mi o dziele „{titulo}” ({autor}). Co przedstawia, jak powstało i dlaczego jest ważne w historii sztuki?',
-  'diario.prof.arte': 'Opowiedz mi o dziele „{titulo}”. Co przedstawia, jak powstało i dlaczego jest ważne w historii sztuki?',
-  'diario.prof.libroAutor': 'Opowiedz mi o książce „{titulo}” ({autor}). O czym jest, jaki ma styl i dlaczego to ważne dzieło?',
+  'diario.prof.historiaAnio':
+    'Opowiedz mi więcej o tym wydarzeniu historycznym z roku {anio}: {titulo}. Co się wydarzyło, dlaczego było ważne i jakie miało skutki?',
+  'diario.prof.historia':
+    'Opowiedz mi więcej o tym wydarzeniu historycznym: {titulo}. Co się wydarzyło, dlaczego było ważne i jakie miało skutki?',
+  'diario.prof.arteAutor':
+    'Opowiedz mi o dziele „{titulo}” ({autor}). Co przedstawia, jak powstało i dlaczego jest ważne w historii sztuki?',
+  'diario.prof.arte':
+    'Opowiedz mi o dziele „{titulo}”. Co przedstawia, jak powstało i dlaczego jest ważne w historii sztuki?',
+  'diario.prof.libroAutor':
+    'Opowiedz mi o książce „{titulo}” ({autor}). O czym jest, jaki ma styl i dlaczego to ważne dzieło?',
   'diario.prof.libro': 'Opowiedz mi o książce „{titulo}”. O czym jest, jaki ma styl i dlaczego to ważne dzieło?',
-  'diario.prof.personalidad': 'Opowiedz mi o postaci: {titulo}. Kim była, jak wyglądało jej życie, jaki zostawiła dorobek i dlaczego jest tak ważna?',
-  'diario.prof.especieCientifico': 'Opowiedz mi o gatunku: {titulo} ({autor}). Jak żyje, czym się żywi, co go wyróżnia i jaki ma status ochronny?',
-  'diario.prof.especie': 'Opowiedz mi o gatunku: {titulo}. Jak żyje, czym się żywi, co go wyróżnia i jaki ma status ochronny?',
-  'diario.prof.palabra': 'Przybliż mi słowo „{titulo}”: jego pochodzenie lub etymologię, znaczenia i to, jak go dobrze używać.',
-  'diario.prof.fraseAutor': 'Wyjaśnij mi ten cytat: {titulo} ({autor}). Co oznacza, w jakim kontekście powstał i czego uczy?',
+  'diario.prof.personalidad':
+    'Opowiedz mi o postaci: {titulo}. Kim była, jak wyglądało jej życie, jaki zostawiła dorobek i dlaczego jest tak ważna?',
+  'diario.prof.especieCientifico':
+    'Opowiedz mi o gatunku: {titulo} ({autor}). Jak żyje, czym się żywi, co go wyróżnia i jaki ma status ochronny?',
+  'diario.prof.especie':
+    'Opowiedz mi o gatunku: {titulo}. Jak żyje, czym się żywi, co go wyróżnia i jaki ma status ochronny?',
+  'diario.prof.palabra':
+    'Przybliż mi słowo „{titulo}”: jego pochodzenie lub etymologię, znaczenia i to, jak go dobrze używać.',
+  'diario.prof.fraseAutor':
+    'Wyjaśnij mi ten cytat: {titulo} ({autor}). Co oznacza, w jakim kontekście powstał i czego uczy?',
   'diario.prof.frase': 'Wyjaśnij mi ten cytat: {titulo}. Co oznacza, w jakim kontekście powstał i czego uczy?',
   'ejercicio.ppmN': '{n} ud./min',
   'ejercicio.det.minPor': 'min/{u}',
@@ -11161,7 +11165,8 @@ export const PL: Dict = {
   'entre.j.cien.porSegundoN': '{n}/s',
   'escritura.docSinTitulo': 'Dokument',
   'ui.unidad.min': 'min',
-  'idiomas.charla.vaciaPropio': 'Przywitaj się w wybranym języku ({idioma} lub twój własny): {tutor} rozmawia na twoim poziomie, łagodnie cię poprawia, a na koniec możesz wyodrębnić nowe słownictwo.',
+  'idiomas.charla.vaciaPropio':
+    'Przywitaj się w wybranym języku ({idioma} lub twój własny): {tutor} rozmawia na twoim poziomie, łagodnie cię poprawia, a na koniec możesz wyodrębnić nowe słownictwo.',
   'idiomas.charla.placeholderPropio': 'Napisz wiadomość ({idioma} lub twój język)…',
   'idiomas.sel.phOtro': 'nahuatl',
   'jardin.sesion.respiracion': 'Oddychanie',
@@ -11249,7 +11254,8 @@ export const PL: Dict = {
   'redes.err.permisos': 'Brakuje uprawnień: połącz konto ponownie i zaakceptuj wszystkie.',
   'redes.err.formato': 'Ta sieć nie przyjmuje tego filmu (format lub czas trwania).',
   'redes.err.demasiado-grande': 'Film jest za duży dla tej sieci.',
-  'redes.err.cuota-youtube': 'Dzisiejszy limit przesyłania na YouTube w aplikacji się wyczerpał; spróbuj jutro albo pobierz film.',
+  'redes.err.cuota-youtube':
+    'Dzisiejszy limit przesyłania na YouTube w aplikacji się wyczerpał; spróbuj jutro albo pobierz film.',
   'redes.err.orden': 'Błąd kolejności przesyłania: opublikuj ponownie.',
   'redes.err.sesion-caducada': 'Sesja przesyłania wygasła: opublikuj ponownie.',
   'redes.err.sin-unlock': 'Odblokuj swój MindHaOS, aby korzystać z sieci społecznościowych.',

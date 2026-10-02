@@ -1266,6 +1266,7 @@ export function ChatBox({
           se despliegan DENTRO del menú, así la barra de vistas nunca se va. */}
       {abierto && (
         <div
+          data-tut="chat.menu.panel"
           className={`ui-panel-glass mb-2 flex flex-col rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md ${
             pantallaCompleta ? 'min-h-0 flex-1' : menuCompacto ? 'max-h-72' : 'max-h-[60vh]'
           }`}

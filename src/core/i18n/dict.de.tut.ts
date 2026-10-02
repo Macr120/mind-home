@@ -68,7 +68,7 @@ export const DE_TUT: Dict = {
   'tut.app-computo--hojas.5.texto':
     'Nach Excel kommt eine echte .xlsx heraus, mit lebendigen Formeln und den Diagrammen als richtige Excel-Diagramme. Als PDF geht es über den Drucker des Browsers.',
   'tut.casa.1.texto':
-    'Das ist dein MindHaOS: Jeder Raum enthält eine App. Ich zeig dir die wichtigsten Bedienelemente.',
+    'Das ist dein MindHaOS (Gedankenhaus OS): In jedem Raum steckt eine App. Ich zeige dir die wichtigsten Steuerungen.',
   'tut.casa.2.titulo': 'Das Hauptmenü',
   'tut.casa.2.texto':
     'Ich hab es geöffnet, damit du es siehst: das Hauptmenü, mit deinen Räumen und ihren Apps. Seine anderen Tabs bringen Innen (den App-Katalog) und Außen, das, was auf dem Gelände gebaut wird.',
@@ -99,9 +99,21 @@ export const DE_TUT: Dict = {
   'tut.casa.9.titulo': 'Der Chat',
   'tut.casa.9.texto':
     'Der Chat des Architekten: Erzähl ihm, was du getan hast, und er trägt es in der richtigen App ein; bitte ihn um Änderungen am MindHaOS, um Bilder und sogar 3D-Modelle für deine Räume – oder plaudere einfach ein Weilchen.',
-  'tut.casa.asistente.titulo': 'Dein Assistent',
+  'tut.casa.asistente.titulo': 'Das Chat-Menü',
   'tut.casa.asistente.texto':
-    'Dieser Button ist dein Assistent: der, der dir im Chat antwortet. Tipp ihn an, um sein Menü zu öffnen und ihn anzupassen – seine Gestalt, seine Stimme und seine Persönlichkeit.',
+    'Dieser Knopf öffnet das Chat-Menü mit vier Ansichten oben: Assistenten, Freunde, Orte und Browser. Das Handbuch und das ⚙ rechts ändern sich je nach gewählter Ansicht. Ich zeige sie dir…',
+  'tut.casa.vAsistentes.titulo': 'Assistenten',
+  'tut.casa.vAsistentes.texto':
+    'Die, die dir im Chat antworten. Öffne das Gespräch mit jedem, erstelle weitere und gib ihnen über das ⚙ Form, Stimme und Persönlichkeit.',
+  'tut.casa.vAmigos.titulo': 'Freunde',
+  'tut.casa.vAmigos.texto':
+    'Dein Postfach mit echten Menschen: Füge sie über ihren Alias hinzu, chatte, schick ihnen Sachen aus deinen Räumen und lade sie zu Besuch oder zum Spielen ein. Braucht dein Konto.',
+  'tut.casa.vLugares.titulo': 'Orte',
+  'tut.casa.vLugares.texto':
+    'Deine gespeicherten Orte nach Kategorie und «Wie komme ich hin»: Mit dieser Ansicht ist das, was du in den Chat schreibst, ein Ziel, und die Route von deinem Standort wird gezeichnet.',
+  'tut.casa.vNavegador.titulo': 'Browser',
+  'tut.casa.vNavegador.texto':
+    'Internet, ohne dein MindHaOS zu verlassen, mit Tabs, Verlauf und deinen Seiten. Mit dieser Ansicht wird das, was du schreibst, im Web gesucht oder als Adresse geöffnet.',
   'tut.casa.mas.titulo': 'Das Menü +',
   'tut.casa.mas.texto':
     'Ich habe es geöffnet, damit du es siehst: Mit dem + hängst du Dinge an den Chat an – lade ein Bild oder ein PDF hoch, mach ein Foto oder wechsle zur AR-Maske und zum AR-Chat von Angesicht zu Angesicht.',
@@ -111,36 +123,36 @@ export const DE_TUT: Dict = {
   'tut.casa.10.texto':
     'Das war das Wichtigste. Jedes Menü und jede App haben ihren eigenen ?-Button mit ihrem Tutorial: Frag danach, wenn dir etwas nicht einleuchtet.',
   'tut.primeros.1.texto':
-    'Dieses Tutorial beantwortet zwei Dinge: wie du deine Apps ÖFFNEST und wie du eine neue ERSTELLST. Beides wohnt hier, im Tab Zuhause.',
+    'Dieses Tutorial beantwortet zwei Dinge zu deinem MindHaOS (Gedankenhaus OS): wie du deine Apps BETRITTST und wie du eine neue ERSTELLST. Beides wohnt hier, im Tab Zuhause.',
   'tut.primeros.entrar.titulo': 'Deine Apps betreten',
   'tut.primeros.entrar.texto':
-    'Jeder Raum trägt seine App, und du hast drei Türen: seine Karte hier im Menü, draußen auf der Karte das Objekt mit der schwebenden Kugel und den Schnellzugriff des MindHaOS-Buttons oben.',
+    'Jeder Raum trägt seine App, und du hast drei Türen: seine Karte hier im Menü, das Objekt mit der schwebenden Kugel auf der Karte und den Schnellzugriff über den Logo-Knopf oben.',
   'tut.primeros.entrar.vacio':
-    'Hier werden deine Räume wohnen, jeder mit seiner App, und du wirst drei Türen haben: seine Karte hier im Menü, draußen auf der Karte das Objekt mit der schwebenden Kugel und den Schnellzugriff des MindHaOS-Buttons oben. Bauen wir den ersten…',
+    'Hier werden deine Räume wohnen, jeder mit seiner App, und du hast drei Türen: seine Karte hier im Menü, das Objekt mit der schwebenden Kugel auf der Karte und den Schnellzugriff über den Logo-Knopf oben. Lass uns den ersten erstellen…',
   'tut.primeros.prev.titulo': 'Hier kommt dein Raum hin',
   'tut.primeros.prev.texto':
     'Das ist die Vorschau des Pinsels: Die grüne Silhouette mit ihren Wänden zeigt, wo der Raum entstehen wird. Beim Bauen von Hand siehst du sie genauso unter deinem Finger, bevor du loslässt.',
   'tut.primeros.mat.titulo': 'Gebaut!',
   'tut.primeros.mat.texto':
-    'Und da ist er: Der Raum ist genau dort entstanden, wo die Vorschau es zeigte, mit seiner Tür nach vorn. Eine App trägt er noch nicht – die kommt als Nächstes.',
+    'Und da ist er: Der Raum steht genau da, wo die Vorschau ihn markiert hat, mit seiner Tür nach vorn. Er hat noch keine App, also öffnet sich gleich nach dem Bau von selbst das Panel, um ihm eine zu geben.',
   'tut.primeros.2.titulo': 'Raum erstellen',
   'tut.primeros.2.texto':
-    'Mit diesem Button zeichnest du neue Räume auf der Karte, Zelle für Zelle. Schau – ich zeig dir, wo deiner stehen würde…',
-  'tut.primeros.3.titulo': 'Dein neuer Raum',
-  'tut.primeros.3.texto':
-    'Da ist er! Ein frisch erstellter Raum, noch ohne App: Deshalb steht auf seiner Karte + Zuweisen.',
+    'Mit diesem Knopf setzt du einen neuen Raum auf die Karte, und sobald du ihn loslässt, wählst du direkt seine App. Schau — ich zeige dir, wo deiner hinkäme…',
   'tut.primeros.apps.titulo': 'Die verfügbaren Apps',
   'tut.primeros.apps.texto':
-    'Das öffnet + Zuweisen: das Panel mit allen verfügbaren Apps. Jede richtet ihren Raum ein, mit ihren Möbeln und ihrer App. Ich gebe deinem eine…',
+    'Das ist + Zuweisen, mit allen verfügbaren Apps: Jede baut ihren Raum mit ihren Möbeln. Schließt du es ohne Auswahl, bietet es die Karte des Raums erneut an. Ich gebe deinem eine…',
   'tut.primeros.4.titulo': 'Eine App zuweisen',
   'tut.primeros.4.texto':
-    'Mit + Zuweisen habe ich ihm seine App gegeben: Sieh, wie der Raum ihren Namen, ihr Symbol und ihre Möbel übernommen hat. Von jetzt an ist seine ganze Karte der Button zum Betreten.',
+    'Ich habe ihm seine App gegeben: Schau, wie der Raum seinen Namen, sein Icon und seine Möbel übernommen hat. Ab jetzt ist seine ganze Karte der Eintrittsknopf.',
   'tut.primeros.5.titulo': 'Betreten',
   'tut.primeros.5.texto':
-    'Wir sind drin: Das ist die App des Raums. Um später zurückzukommen: seine Karte im Menü, das Objekt mit der Kugel auf der Karte oder der Schnellzugriff des MindHaOS-Buttons oben.',
+    'Wir sind drin: Das ist die App des Raums. Um später zurückzukommen: seine Karte im Menü, das Objekt mit der Kugel auf der Karte oder der Schnellzugriff über den Logo-Knopf oben.',
   'tut.primeros.press.titulo': 'Halte gedrückt',
   'tut.primeros.press.texto':
     'Schau, wie es zittert: Einen Raum oder ein Objekt gedrückt zu halten weckt es auf, mit seinem Menü. So verschiebst du es, wenn dir nicht gefällt, wo es gelandet ist, oder löschst es.',
+  'tut.primeros.enlace.titulo': 'Objekte, die irgendwohin führen',
+  'tut.primeros.enlace.texto':
+    'Bei einem Objekt hat dieses Menü außerdem «Link»: Mach es zur Tür zu einer Webseite oder zu einem Eintrag aus deinen Apps – ein Rezept, ein Buch, ein Rekord. Danach reicht ein Tippen, und du bist direkt dort.',
   'tut.primeros.6.texto':
     'Das ist alles: den Raum erstellen, ihm seine App geben, ihn betreten und einrichten. Dieser war zum Üben – ich nehme ihn am Ende mit, damit du dein MindHaOS nach deinem Geschmack baust.',
   'tut.menu-cuartos.1.texto': 'Der Tab Zuhause listet alle Räume deines MindHaOS, nach Kategorie gruppiert.',
@@ -346,8 +358,10 @@ export const DE_TUT: Dict = {
     'Dieses Symbol wählt aus, welche KI antwortet, und speichert deinen Schlüssel, falls du deinen eigenen nutzt. Ohne konfiguriertes Modell läuft der Chat weiter über Stichwörter, versteht aber keine freie Sprache.',
   'tut.chat.8.texto':
     'Du kannst hier auch fragen „Wie funktioniert die Küche?“ oder „Tutorial zu Fitness“ verlangen; und was dabei gespeichert wurde, schaust du dir in der Tour „Einträge“ an.',
-  'tut.chat-registros.porAsistente.texto': 'Jeder Assistent bewahrt in seinem Chat auf, was du mit ihm eingetragen hast und was er sich über dich merkt. Dieser Knopf öffnet es als Graph: Jede Erinnerung verbindet sich von selbst mit dem, was sie aus deinen Apps nennt; tippe eine an, um sie zu korrigieren oder zu vergessen.',
-  'tut.chat-registros.mapa.texto': 'Mit einem Assistenten zu chatten holt ihn auf die Karte, und seine Unterhaltung zu löschen nimmt ihn wieder weg. Um ihn zurückzuholen, nutze „Assistent hinzufügen“ unter den Chats.',
+  'tut.chat-registros.porAsistente.texto':
+    'Jeder Assistent bewahrt in seinem Chat auf, was du mit ihm eingetragen hast und was er sich über dich merkt. Dieser Knopf öffnet es als Graph: Jede Erinnerung verbindet sich von selbst mit dem, was sie aus deinen Apps nennt; tippe eine an, um sie zu korrigieren oder zu vergessen.',
+  'tut.chat-registros.mapa.texto':
+    'Mit einem Assistenten zu chatten holt ihn auf die Karte, und seine Unterhaltung zu löschen nimmt ihn wieder weg. Um ihn zurückzuholen, nutze „Assistent hinzufügen“ unter den Chats.',
   'tut.chat-registros.1.texto':
     'Chats zeigt, mit wem du geredet hast; Einträge zeigt, was aus diesen Gesprächen gespeichert wurde.',
   'tut.chat-registros.2.titulo': 'Was er sich über dich merkt',
@@ -415,9 +429,9 @@ export const DE_TUT: Dict = {
     'Unten im Bereich entfernt „Beispiel löschen“ es ganz, sobald du mit „Ja, Beispiel löschen“ bestätigst, und deine eigenen Einträge bleiben unberührt. Ist nichts mehr davon übrig, erscheint an derselben Stelle „Mitgeliefertes Beispiel wiederherstellen“.',
   'tut.ejemplos.3.texto':
     'Das Beispiel bringt weder EP noch Serien, löst keine Erinnerungen aus, landet nicht in deinem Wrapped, und die KI berücksichtigt es nicht. Im Demo-MindHaOS gibt es diese Leiste nicht: Kims ganzes Jahr ist dort schon das Beispiel.',
-  'tut.ejemplos.1.titulo': 'Es kommt von selbst',
-  'tut.ejemplos.2.titulo': 'Löschen oder wiederherstellen',
   'tut.ejemplos.3.titulo': 'Zählt nicht als deins',
+  'tut.ejemplos.2.titulo': 'Löschen oder wiederherstellen',
+  'tut.ejemplos.1.titulo': 'Es kommt von selbst',
   'tut.hoy.1.texto':
     'Missionen wohnen nicht an einem eigenen Ort: sie wohnen IN jeder App. In der Kopfzeile jedes Raums sitzt sein Missionen-Knopf mit der Liste dessen, was diese App HEUTE von dir will.',
   'tut.hoy.2.titulo': 'Drei Quellen, eine Liste',

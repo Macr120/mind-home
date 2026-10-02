@@ -6704,19 +6704,10 @@ export const IT: Dict = {
     'Chiedi come funziona qualsiasi app o menu, o richiedi il suo tutorial: il mago te lo mostra a schermo, passo dopo passo. In inglese, i tour a schermo sono disponibili per l\'editor, la chat e il menu; al resto risponde l\'assistente (IA).',
   'tut.casa.titulo': 'La tua MindHaOS',
   'tut.casa.resumen':
-    'La MindHaOS è la mappa delle tue app: ogni stanza ne contiene una. Ti muovi con il joystick o WASD, cambi vista con V e apri il menu con il pulsante in alto a sinistra. Il riquadro nell\'angolo cambia da solo in base a cosa hai vicino; l\'orologio contiene il calendario, le routine e la musica.',
+    'La MindHaOS è la mappa delle tue app: ogni stanza ne custodisce una. Ti muovi con il joystick o con WASD, cambi vista con V e apri il menu con il pulsante in alto a sinistra. Lo spazio nell\'angolo cambia da solo in base a ciò che hai vicino; l\'orologio contiene il calendario e lo scorrere del tempo, e la musica ha il suo pulsante. Il menu della chat riunisce i tuoi assistenti, i tuoi amici, i tuoi luoghi e il browser.',
   'tut.primeros.titulo': 'Come aprire le tue app e crearne altre',
   'tut.primeros.resumen':
     'Come entrare nelle tue app e come crearne una nuova: la stanza, la sua app e i suoi tre accessi.',
-  'tut.primeros.2a.titulo': 'La ruota degli strumenti',
-  'tut.primeros.2a.texto':
-    'Sul telefono le stanze si disegnano direttamente sulla mappa, senza aprire pannelli. Tutto parte da questo pulsante accanto al joystick: la ruota degli strumenti.',
-  'tut.primeros.2b.titulo': 'Costruzione',
-  'tut.primeros.2b.texto':
-    'La ruota ha due livelli. La sua quarta categoria è quella che costruisce la MindHaOS: stanze, muri, porte, finestre, pavimenti e tetti.',
-  'tut.primeros.2c.titulo': 'Modalità Stanze',
-  'tut.primeros.2c.texto':
-    'Stanze prepara il pennello: la ruota si chiude e ogni tocco sul pavimento crea una nuova stanza. Guarda — ti mostro dove finirebbe la tua…',
   'tut.menu-cuartos.titulo': 'Menu · Casa',
   'tut.menu-cuartos.resumen':
     'La scheda Casa elenca le stanze della tua MindHaOS per categoria, con i loro progressi. L\'intera carta apre l\'app — o dice + Assegna se non ne ha ancora — e il suo ingranaggio apre le opzioni: spostarla nell\'elenco, eliminare la stanza o modificarla. In alto vive il tuo riepilogo: umore, grado e serie; in basso puoi creare nuove stanze.',
@@ -6782,7 +6773,7 @@ export const IT: Dict = {
     'L\'IA si attiva in Editor › Impostazioni. Ogni operazione —una risposta, un piano, un\'immagine, un modello 3D— ha la sua tariffa in crediti, visibile prima di richiederla. Con la tua chiave del fornitore non si spendono crediti: lo paghi direttamente.',
   'tut.ejemplos.titulo': 'Iniziare con un esempio',
   'tut.ejemplos.resumen':
-    "La prima volta che apri una sezione vuota, il suo esempio originale si inserisce da solo, così non parti da uno schermo bianco. Sono righe normali che modifichi o elimini come tutte le altre; in fondo alla sezione, «Elimina l'esempio» lo toglie per intero senza toccare le tue e, quando non ne resta più nulla, «Ripristina l’esempio originale» lo riporta. Non conta per PE, serie, promemoria, Wrapped né per l’IA, e non compare nella MindHaOS demo: lì l’anno di Andrea è già l’esempio.",
+    'La prima volta che apri una sezione vuota, il suo esempio originale si inserisce da solo, così non parti da uno schermo bianco. Sono righe normali che modifichi o elimini come tutte le altre; in fondo alla sezione, «Elimina l\'esempio» lo toglie per intero senza toccare le tue e, quando non ne resta più nulla, «Ripristina l’esempio originale» lo riporta. Non conta per PE, serie, promemoria, Wrapped né per l’IA, e non compare nella MindHaOS demo: lì l’anno di Andrea è già l’esempio.',
   'tut.hoy.titulo': 'Oggi',
   'tut.hoy.resumen':
     'Le missioni vivono dentro ogni app: il suo pulsante Missioni apre l’elenco di oggi — quello che quell’app ti chiede e quello che hai messo in programma per oggi. Un passo è fatto perché la registrazione esiste già nell’app, non perché qualcuno l’ha spuntato. Il pallino rosso di una stanza è ciò che le resta oggi, e il pulsante Missioni dell’orologio mostra quello di tutte le app insieme.',
@@ -6834,7 +6825,7 @@ export const IT: Dict = {
   'bienvenida.siguiente': 'Avanti',
   'bienvenida.crear': 'Crea la mia MindHaOS',
   'bienvenida.creando': 'Creazione della tua MindHaOS…',
-  'bienvenida.final.titulo': 'La tua MindHaOS è pronta!',
+  'bienvenida.final.titulo': 'La tua MindHaOS (Casa Mentale OS) è pronta!',
   'bienvenida.cuenta': 'Crea un account o accedi (sincronizza la tua MindHaOS)',
   'bienvenida.guia.desc': 'Tre passi per prenderci la mano.',
   'bienvenida.guia.empezar': 'Inizia',
@@ -6842,8 +6833,9 @@ export const IT: Dict = {
   'bienvenida.guia.salir': 'Vai alla MindHaOS',
   'bienvenida.guia.cuarto.titulo': 'Come aprire le tue app e crearne altre',
   'bienvenida.guia.cuarto.desc': 'Ti mostro come entrare nelle tue app e crearne una nuova con la sua stanza.',
-  'bienvenida.guia.tour.titulo': 'Visita la tua MindHaOS',
-  'bienvenida.guia.tour.desc': 'Un giro tra il menu, il movimento, l\'orologio e la chat.',
+  'bienvenida.guia.tour.titulo': 'Esplora la tua MindHaOS (Casa Mentale OS)',
+  'bienvenida.guia.tour.desc':
+    'Un giro tra il menu, il movimento, l\'orologio e la chat, con i tuoi assistenti, amici, luoghi e browser.',
   'bienvenida.guia.explorar.titulo': 'Esplora da solo',
   'bienvenida.guia.explorar.desc': 'Fatto. Ogni menu e ogni app conservano il proprio tutorial nel pulsante ?.',
   'ajustes.bienvenida': 'Benvenuto',
@@ -11148,8 +11140,10 @@ export const IT: Dict = {
   'idiomas.temaDesc.c2-gram-excepciones': 'Ciò che le regole non riescono a spiegare.',
   'idiomas.tema.c2-gram-normativa': 'Norma e correttezza',
   'idiomas.temaDesc.c2-gram-normativa': 'Errori che commettono anche i madrelingua.',
-  'chat.manual.nota.computo': 'Il formulario e il grafico sono appesi alla calcolatrice; il formulario include già Matematica, Fisica e Chimica, e ognuna di quelle formule è modificabile. Nella sala, l’IA scrive formule, spiega passo dopo passo, crea fogli di calcolo e legge i dati che selezioni.',
-  'chat.manual.nota.paintball': 'Modalità: 1 contro 1, 2 contro 2 (servono 3 assistenti) e battaglia reale. Ognuno resiste a 3 colpi e si gioca al piano terra.',
+  'chat.manual.nota.computo':
+    'Il formulario e il grafico sono appesi alla calcolatrice; il formulario include già Matematica, Fisica e Chimica, e ognuna di quelle formule è modificabile. Nella sala, l’IA scrive formule, spiega passo dopo passo, crea fogli di calcolo e legge i dati che selezioni.',
+  'chat.manual.nota.paintball':
+    'Modalità: 1 contro 1, 2 contro 2 (servono 3 assistenti) e battaglia reale. Ognuno resiste a 3 colpi e si gioca al piano terra.',
   'chat.voz.sinTexto': '{proveedor} non ha restituito alcun testo',
   'archivo.nombre.documento': 'documento',
   'clima.err.espera': 'Tempo di attesa scaduto durante la richiesta al servizio.',
@@ -11210,18 +11204,30 @@ export const IT: Dict = {
   'computo.hojaN': 'Foglio{n}',
   'ui.unidad.h': 'h',
   'despacho.meta.deObjetivo': '{a} di {b} ({p}%)',
-  'diario.prof.historiaAnio': 'Raccontami di più su questo fatto storico del {anio}: {titulo}. Che cosa è successo, perché è stato importante e quali conseguenze ha avuto?',
-  'diario.prof.historia': 'Raccontami di più su questo fatto storico: {titulo}. Che cosa è successo, perché è stato importante e quali conseguenze ha avuto?',
-  'diario.prof.arteAutor': 'Parlami dell’opera «{titulo}» di {autor}. Che cosa rappresenta, come è stata realizzata e perché è importante nella storia dell’arte?',
-  'diario.prof.arte': 'Parlami dell’opera «{titulo}». Che cosa rappresenta, come è stata realizzata e perché è importante nella storia dell’arte?',
-  'diario.prof.libroAutor': 'Parlami del libro «{titulo}» di {autor}. Di che cosa parla, qual è il suo stile e perché è un’opera rilevante?',
-  'diario.prof.libro': 'Parlami del libro «{titulo}». Di che cosa parla, qual è il suo stile e perché è un’opera rilevante?',
-  'diario.prof.personalidad': 'Chi era {titulo}? Raccontami la sua vita, la sua opera e perché è una figura importante.',
-  'diario.prof.especieCientifico': 'Parlami di questa specie: {titulo} ({autor}). Come vive, di che cosa si nutre, che cosa la rende speciale e qual è il suo stato di conservazione?',
-  'diario.prof.especie': 'Parlami di questa specie: {titulo}. Come vive, di che cosa si nutre, che cosa la rende speciale e qual è il suo stato di conservazione?',
-  'diario.prof.palabra': 'Approfondisci la parola «{titulo}»: la sua origine o etimologia, i suoi significati e come usarla bene.',
-  'diario.prof.fraseAutor': 'Spiegami questa frase di {autor}: {titulo}. Che cosa significa, in quale contesto nasce e che cosa insegna?',
-  'diario.prof.frase': 'Spiegami questa frase: {titulo}. Che cosa significa, in quale contesto nasce e che cosa insegna?',
+  'diario.prof.historiaAnio':
+    'Raccontami di più su questo fatto storico del {anio}: {titulo}. Che cosa è successo, perché è stato importante e quali conseguenze ha avuto?',
+  'diario.prof.historia':
+    'Raccontami di più su questo fatto storico: {titulo}. Che cosa è successo, perché è stato importante e quali conseguenze ha avuto?',
+  'diario.prof.arteAutor':
+    'Parlami dell’opera «{titulo}» di {autor}. Che cosa rappresenta, come è stata realizzata e perché è importante nella storia dell’arte?',
+  'diario.prof.arte':
+    'Parlami dell’opera «{titulo}». Che cosa rappresenta, come è stata realizzata e perché è importante nella storia dell’arte?',
+  'diario.prof.libroAutor':
+    'Parlami del libro «{titulo}» di {autor}. Di che cosa parla, qual è il suo stile e perché è un’opera rilevante?',
+  'diario.prof.libro':
+    'Parlami del libro «{titulo}». Di che cosa parla, qual è il suo stile e perché è un’opera rilevante?',
+  'diario.prof.personalidad':
+    'Chi era {titulo}? Raccontami la sua vita, la sua opera e perché è una figura importante.',
+  'diario.prof.especieCientifico':
+    'Parlami di questa specie: {titulo} ({autor}). Come vive, di che cosa si nutre, che cosa la rende speciale e qual è il suo stato di conservazione?',
+  'diario.prof.especie':
+    'Parlami di questa specie: {titulo}. Come vive, di che cosa si nutre, che cosa la rende speciale e qual è il suo stato di conservazione?',
+  'diario.prof.palabra':
+    'Approfondisci la parola «{titulo}»: la sua origine o etimologia, i suoi significati e come usarla bene.',
+  'diario.prof.fraseAutor':
+    'Spiegami questa frase di {autor}: {titulo}. Che cosa significa, in quale contesto nasce e che cosa insegna?',
+  'diario.prof.frase':
+    'Spiegami questa frase: {titulo}. Che cosa significa, in quale contesto nasce e che cosa insegna?',
   'ejercicio.ppmN': '{n} bpm',
   'ejercicio.det.minPor': 'min/{u}',
   'ejercicio.fuerza.ph.series': 'S',
@@ -11236,7 +11242,8 @@ export const IT: Dict = {
   'entre.j.cien.porSegundoN': '{n}/s',
   'escritura.docSinTitulo': 'Documento',
   'ui.unidad.min': 'min',
-  'idiomas.charla.vaciaPropio': 'Salutalo in {idioma} o nella tua lingua: {tutor} conversa al tuo livello, ti corregge con delicatezza e alla fine puoi estrarre il vocabolario nuovo.',
+  'idiomas.charla.vaciaPropio':
+    'Salutalo in {idioma} o nella tua lingua: {tutor} conversa al tuo livello, ti corregge con delicatezza e alla fine puoi estrarre il vocabolario nuovo.',
   'idiomas.charla.placeholderPropio': 'Scrivi in {idioma} o nella tua lingua…',
   'idiomas.sel.phOtro': 'Nahuatl',
   'jardin.sesion.respiracion': 'Respirazione',

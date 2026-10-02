@@ -67,7 +67,8 @@ export const TR_TUT: Dict = {
   'tut.app-computo--hojas.5.titulo': 'Dışa aktarma',
   'tut.app-computo--hojas.5.texto':
     'Excel’e gerçek bir .xlsx çıkar: formüller canlı, grafikler de Excel grafiği olarak. PDF ise tarayıcının yazıcısından geçer.',
-  'tut.casa.1.texto': 'İşte MindHaOS\'un: her oda bir uygulama barındırır. Sana temel kontrolleri göstereyim.',
+  'tut.casa.1.texto':
+    'Burası senin MindHaOS\'un (Zihin Evi OS): her oda bir uygulama taşıyor. Temel kontrolleri göstereyim.',
   'tut.casa.2.titulo': 'Ana menü',
   'tut.casa.2.texto':
     'Görebilesin diye açtım: bu ana menü, odaların ve uygulamalarıyla. Diğer sekmeleri İç mekânı (uygulama kataloğunu) ve araziye inşa edilen Dış mekânı getirir.',
@@ -98,9 +99,21 @@ export const TR_TUT: Dict = {
   'tut.casa.9.titulo': 'Sohbet',
   'tut.casa.9.texto':
     'Mimarın sohbeti: ne yaptığını anlat, doğru uygulamaya kaydetsin; MindHaOS\'ta değişiklikler, görseller, hatta odaların için 3D modeller iste — ya da sadece biraz sohbet et.',
-  'tut.casa.asistente.titulo': 'Asistanın',
+  'tut.casa.asistente.titulo': 'Sohbet menüsü',
   'tut.casa.asistente.texto':
-    'Bu düğme senin asistanın: sohbette sana yanıt veren o. Dokununca menüsü açılır; oradan onu kişiselleştirirsin — şeklini, sesini ve kişiliğini.',
+    'Bu düğme sohbet menüsünü açar; üstte dört görünüm var: Asistanlar, Arkadaşlar, Yerler ve Tarayıcı. Sağdaki Kılavuz ve ⚙ seçtiğin görünüme göre değişir. Göstereyim…',
+  'tut.casa.vAsistentes.titulo': 'Asistanlar',
+  'tut.casa.vAsistentes.texto':
+    'Sohbette sana cevap verenler. Her birinin konuşmasını aç, yenilerini oluştur ve ⚙ üzerinden onlara biçim, ses ve kişilik ver.',
+  'tut.casa.vAmigos.titulo': 'Arkadaşlar',
+  'tut.casa.vAmigos.texto':
+    'Gerçek kişilerle gelen kutun: onları takma adlarıyla ekle, sohbet et, odalarından bir şeyler gönder ve ziyarete ya da oyuna çağır. Hesabın gerekir.',
+  'tut.casa.vLugares.titulo': 'Yerler',
+  'tut.casa.vLugares.texto':
+    'Kategoriye göre kayıtlı yerlerin ve «Nasıl gidilir»: bu görünüm seçiliyken sohbete yazdığın şey bir varış noktası olur ve bulunduğun yerden rotayı çizer.',
+  'tut.casa.vNavegador.titulo': 'Tarayıcı',
+  'tut.casa.vNavegador.texto':
+    'MindHaOS\'tan çıkmadan internet: sekmeler, geçmiş ve siteler. Bu görünüm seçiliyken yazdığın şey web\'de aranır ya da adresi açar.',
   'tut.casa.mas.titulo': '+ menüsü',
   'tut.casa.mas.texto':
     'Görebilmen için açtım: + ile sohbete bir şeyler eklersin — bir görsel ya da PDF yükle, fotoğraf çek, ya da yüz yüze AR maskesine ve AR sohbetine geç.',
@@ -110,36 +123,36 @@ export const TR_TUT: Dict = {
   'tut.casa.10.texto':
     'Temeller bu kadar. Her menünün ve her uygulamanın kendi ? düğmesi ve kendi eğitimi var: bir şey kafana yatmadığında onu iste.',
   'tut.primeros.1.texto':
-    'Bu eğitim iki şeyi yanıtlar: uygulamalarına nasıl GİRİLİR ve yenisi nasıl OLUŞTURULUR. İkisi de burada, Ev sekmesinde.',
+    'Bu eğitim MindHaOS\'unla (Zihin Evi OS) ilgili iki şeyi yanıtlıyor: uygulamalarına nasıl GİRİLİR ve yenisi nasıl OLUŞTURULUR. İkisi de burada, Ev sekmesinde.',
   'tut.primeros.entrar.titulo': 'Uygulamalarına gir',
   'tut.primeros.entrar.texto':
-    'Her oda kendi uygulamasını taşır ve üç kapın var: burada menüdeki kartı, haritadaki havada süzülen küreli nesne ve üstteki MindHaOS düğmesinin hızlı erişimi.',
+    'Her oda kendi uygulamasını taşır ve üç kapın var: menüdeki kartı, haritada yüzen küreli nesne ve yukarıdaki logo düğmesinin hızlı erişimi.',
   'tut.primeros.entrar.vacio':
-    'Odaların burada yaşayacak, her biri kendi uygulamasıyla; üç kapın olacak: burada menüdeki kartı, haritadaki havada süzülen küreli nesne ve üstteki MindHaOS düğmesinin hızlı erişimi. İlkini oluşturalım…',
+    'Odaların burada yaşayacak, her biri kendi uygulamasıyla ve üç kapın olacak: menüdeki kartı, haritada yüzen küreli nesne ve yukarıdaki logo düğmesinin hızlı erişimi. Hadi ilkini oluşturalım…',
   'tut.primeros.prev.titulo': 'Odan buraya kurulacak',
   'tut.primeros.prev.texto':
     'Bu, fırçanın önizlemesi: duvarlarıyla birlikte yeşil siluet, odanın nereye kurulacağını gösterir. Elle inşa ederken de aynısını parmağının altında görürsün, dokunuşu bırakmadan önce.',
   'tut.primeros.mat.titulo': 'İnşa edildi!',
   'tut.primeros.mat.texto':
-    'Ve işte burada: oda tam önizlemenin gösterdiği yere kuruldu, kapısı önde. Henüz uygulaması yok — sıradaki adım bu.',
+    'İşte burada: oda tam önizlemenin işaret ettiği yerde yükseldi, kapısı önde. Henüz uygulaması yok, bu yüzden inşa biter bitmez ona bir uygulama vermek için panel kendiliğinden açılır.',
   'tut.primeros.2.titulo': 'Oda oluştur',
   'tut.primeros.2.texto':
-    'Bu düğmeyle haritaya hücre hücre yeni odalar çizersin. Bak — seninkinin nereye kurulacağını göstereyim…',
-  'tut.primeros.3.titulo': 'Yeni odan',
-  'tut.primeros.3.texto':
-    'İşte burada! Yeni oluşturulmuş bir oda, henüz uygulaması yok: bu yüzden kartında + Ata yazıyor.',
+    'Bu düğmeyle haritaya yeni bir oda koyarsın ve bıraktığın anda doğrudan uygulamasını seçmeye geçersin. Bak — seninki nereye gelirdi göstereyim…',
   'tut.primeros.apps.titulo': 'Kullanılabilir uygulamalar',
   'tut.primeros.apps.texto':
-    'Bu, + Ata’yı açar: tüm kullanılabilir uygulamaların olduğu panel. Her biri odasını kendi mobilyaları ve kendi uygulamasıyla kurar. Seninkine bir tane vereyim…',
+    'Bu + Ata, mevcut tüm uygulamalarla: her biri odasını kendi mobilyalarıyla kurar. Seçmeden kapatırsan odanın kartı bunu yeniden önerir. Seninkine bir tane vereyim…',
   'tut.primeros.4.titulo': 'Bir uygulama ata',
   'tut.primeros.4.texto':
-    '+ Ata ile uygulamasını verdim: bak, oda adını, simgesini ve mobilyalarını nasıl aldı. Artık kartının tamamı giriş düğmesi.',
+    'Ona uygulamasını verdim: bak, oda adını, simgesini ve mobilyalarını nasıl aldı. Artık kartın tamamı giriş düğmesi.',
   'tut.primeros.5.titulo': 'Gir',
   'tut.primeros.5.texto':
-    'İçerideyiz: bu, odanın uygulaması. Sonra geri dönmek için: menüdeki kartı, haritadaki küreli nesnesi ya da üstteki MindHaOS düğmesinin hızlı erişimi.',
+    'Girdik: bu, odanın uygulaması. Sonra dönmek için: menüdeki kartı, haritada küreli nesne ya da yukarıdaki logo düğmesinin hızlı erişimi.',
   'tut.primeros.press.titulo': 'Basılı tut',
   'tut.primeros.press.texto':
     'Bak nasıl titriyor: bir odayı ya da nesneyi basılı tutmak onu uyandırır, menüsüyle birlikte. Böylece durduğu yeri beğenmediysen onu taşırsın, ya da silersin.',
+  'tut.primeros.enlace.titulo': 'Bir yere götüren nesneler',
+  'tut.primeros.enlace.texto':
+    'Bir nesnedeyken o menüde «Bağlantı» da çıkar: nesneyi bir web sayfasına ya da uygulamalarındaki bir kayda —bir tarif, bir kitap, bir rekor— açılan kapıya dönüştür. Sonra dokunman yeter, doğrudan oraya gidersin.',
   'tut.primeros.6.texto':
     'Hepsi bu: odayı oluşturmak, uygulamasını vermek, girmek ve yerleştirmek. Bu oda alıştırma içindi — bitirdiğimizde onu geri alıyorum, MindHaOS\'unu kendi zevkine göre kurasın diye.',
   'tut.menu-cuartos.1.texto': 'Ev sekmesi MindHaOS\'undaki bütün odaları kategoriye göre gruplayarak listeler.',
@@ -340,8 +353,10 @@ export const TR_TUT: Dict = {
     'Bu simge hangi Yapay Zeka’nın yanıt vereceğini seçer ve kendi anahtarını kullanıyorsan onu saklar. Hiçbiri ayarlı değilse sohbet anahtar kelimelerle çalışmayı sürdürür, serbest dili anlamadan.',
   'tut.chat.8.texto':
     'Buradan «Mutfak nasıl çalışıyor?» diye sorabilir ya da «Spor Salonu öğreticisi» isteyebilirsin; neyin kaydedildiğine ise Kayıtlar öğreticisinde bakılır.',
-  'tut.chat-registros.porAsistente.texto': 'Her asistan, onunla kaydettiklerini ve senin hakkında hatırladıklarını kendi sohbetinde tutar. Bu düğme onu grafik olarak açar: her anı, uygulamalarından andığı şeylere kendiliğinden bağlanır; düzeltmek ya da unutmak için birine dokun.',
-  'tut.chat-registros.mapa.texto': 'Bir asistanla sohbet etmek onu haritaya getirir, sohbetini silmek ise haritadan çıkarır. Geri çağırmak için sohbetlerin altındaki «Asistan ekle»yi kullan.',
+  'tut.chat-registros.porAsistente.texto':
+    'Her asistan, onunla kaydettiklerini ve senin hakkında hatırladıklarını kendi sohbetinde tutar. Bu düğme onu grafik olarak açar: her anı, uygulamalarından andığı şeylere kendiliğinden bağlanır; düzeltmek ya da unutmak için birine dokun.',
+  'tut.chat-registros.mapa.texto':
+    'Bir asistanla sohbet etmek onu haritaya getirir, sohbetini silmek ise haritadan çıkarır. Geri çağırmak için sohbetlerin altındaki «Asistan ekle»yi kullan.',
   'tut.chat-registros.1.texto':
     'Sohbetler kiminle konuştuğunu gösterir; Kayıtlar ise o konuşmalardan geriye ne kaldığını.',
   'tut.chat-registros.2.titulo': 'Senin hakkında hatırladıkları',
@@ -408,9 +423,9 @@ export const TR_TUT: Dict = {
     'Bölümün altındaki «Örneği sil», «Evet, örneği sil» ile onayladığında örneğin tamamını kaldırır; senin verilerine hiç dokunulmaz. Örnekten hiçbir şey kalmadığında aynı yerde «Hazır örneği geri yükle» çıkar.',
   'tut.ejemplos.3.texto':
     'Örnek XP ya da seri kazandırmaz, hatırlatma oluşturmaz, Wrapped’ine girmez ve yapay zekâ onu hesaba katmaz. Demo MindHaOS’ta bu çubuk görünmez: orada Deniz’in bütün yılı zaten örnektir.',
-  'tut.ejemplos.1.titulo': 'Kendiliğinden gelir',
-  'tut.ejemplos.2.titulo': 'Sil ya da geri yükle',
   'tut.ejemplos.3.titulo': 'Seninmiş gibi sayılmaz',
+  'tut.ejemplos.2.titulo': 'Sil ya da geri yükle',
+  'tut.ejemplos.1.titulo': 'Kendiliğinden gelir',
   'tut.hoy.1.texto':
     'Görevler ayrı bir yerde durmaz: her uygulamanın İÇİNDE yaşar. Her odanın başlığında Görevler düğmesi vardır; içinde o uygulamanın BUGÜN senden istediklerinin listesi bulunur.',
   'tut.hoy.2.titulo': 'Üç kaynak, tek liste',

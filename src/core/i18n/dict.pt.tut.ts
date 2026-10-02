@@ -67,7 +67,8 @@ export const PT_TUT: Dict = {
   'tut.app-computo--hojas.5.titulo': 'Exportar',
   'tut.app-computo--hojas.5.texto':
     'Para Excel sai um .xlsx de verdade, com as fórmulas vivas e os gráficos como gráficos do Excel. Em PDF sai pela impressora do navegador.',
-  'tut.casa.1.texto': 'Esta é a sua MindHaOS: cada cômodo guarda um app. Vou te mostrar os controles básicos.',
+  'tut.casa.1.texto':
+    'Esta é a sua MindHaOS (Casa Mental OS): cada cômodo guarda um app. Vou te mostrar os controles básicos.',
   'tut.casa.2.titulo': 'O menu principal',
   'tut.casa.2.texto':
     'Abri para você ver: é o menu principal, com seus cômodos e seus apps. As outras abas trazem o Interior (o catálogo de apps) e o Exterior, o que se constrói no terreno.',
@@ -98,9 +99,21 @@ export const PT_TUT: Dict = {
   'tut.casa.9.titulo': 'O chat',
   'tut.casa.9.texto':
     'O chat do arquiteto: conte o que você fez e ele registra no app certo, peça mudanças na MindHaOS, imagens e até modelos 3D para os seus cômodos — ou simplesmente bata um papo.',
-  'tut.casa.asistente.titulo': 'Seu assistente',
+  'tut.casa.asistente.titulo': 'O menu do chat',
   'tut.casa.asistente.texto':
-    'Este botão é o seu assistente: quem responde a você no chat. Toque nele para abrir o menu e personalizá-lo — a forma, a voz e a personalidade dele.',
+    'Este botão abre o menu do chat, com quatro visões em cima: Assistentes, Amigos, Lugares e Navegador. O Manual e o ⚙ da direita mudam conforme a visão escolhida. Vou te mostrar…',
+  'tut.casa.vAsistentes.titulo': 'Assistentes',
+  'tut.casa.vAsistentes.texto':
+    'Quem responde para você no chat. Abra a conversa de cada um, crie mais e dê forma, voz e personalidade a eles pelo ⚙.',
+  'tut.casa.vAmigos.titulo': 'Amigos',
+  'tut.casa.vAmigos.texto':
+    'Sua caixa de entrada com pessoas reais: adicione pelo apelido, converse, mande coisas dos seus cômodos e convide para visitar ou jogar. Precisa da sua conta.',
+  'tut.casa.vLugares.titulo': 'Lugares',
+  'tut.casa.vLugares.texto':
+    'Seus lugares salvos por categoria e «Como chegar»: com esta visão escolhida, o que você escreve no chat é um destino e ele traça a rota de onde você está.',
+  'tut.casa.vNavegador.titulo': 'Navegador',
+  'tut.casa.vNavegador.texto':
+    'Internet sem sair da MindHaOS, com abas, histórico e seus sites. Com esta visão escolhida, o que você escreve é buscado na web ou abre o endereço.',
   'tut.casa.mas.titulo': 'O menu +',
   'tut.casa.mas.texto':
     'Eu o abri para você ver: com o + você anexa coisas ao chat — envie uma imagem ou um PDF, tire uma foto, ou passe para a Máscara AR e o Chat AR cara a cara.',
@@ -110,35 +123,36 @@ export const PT_TUT: Dict = {
   'tut.casa.10.texto':
     'Isso é o básico. Cada menu e cada app têm seu próprio botão ? com seu tutorial: peça quando algo não fizer sentido.',
   'tut.primeros.1.texto':
-    'Este tutorial responde duas coisas: como ENTRAR nos seus apps e como CRIAR um novo. As duas vivem aqui, na aba Casa.',
+    'Este tutorial responde duas coisas sobre a sua MindHaOS (Casa Mental OS): como ENTRAR nos seus apps e como CRIAR um novo. Os dois ficam aqui, na aba Início.',
   'tut.primeros.entrar.titulo': 'Entrar nos seus apps',
   'tut.primeros.entrar.texto':
-    'Cada cômodo carrega seu app e você tem três portas: o cartão dele aqui no menu, o objeto com a esfera flutuante no mapa, e o acesso rápido do botão MindHaOS lá em cima.',
+    'Cada cômodo tem seu app e você tem três portas: o cartão dele aqui no menu, o objeto com a esfera flutuante no mapa e o acesso rápido do botão do logo, em cima.',
   'tut.primeros.entrar.vacio':
-    'Aqui vão morar seus cômodos, cada um com seu app, e você terá três portas: o cartão dele aqui no menu, o objeto com a esfera flutuante no mapa, e o acesso rápido do botão MindHaOS lá em cima. Vamos criar o primeiro…',
+    'Aqui vão morar seus cômodos, cada um com seu app, e você terá três portas: o cartão dele aqui no menu, o objeto com a esfera flutuante no mapa e o acesso rápido do botão do logo, em cima. Vamos criar o primeiro…',
   'tut.primeros.prev.titulo': 'Seu cômodo vai aqui',
   'tut.primeros.prev.texto':
     'Esta é a prévia do pincel: a silhueta verde com as paredes marca onde o cômodo vai se levantar. Construindo à mão você a verá igual embaixo do dedo, antes de soltar o toque.',
   'tut.primeros.mat.titulo': 'Construído!',
   'tut.primeros.mat.texto':
-    'E aqui está: o cômodo se levantou bem onde a prévia marcava, com a porta para a frente. Ainda não tem app — é isso que vem agora.',
+    'E aqui está: o cômodo subiu bem onde o preview marcava, com a porta na frente. Ainda não tem app, então assim que termina a construção o painel para dar um abre sozinho.',
   'tut.primeros.2.titulo': 'Criar cômodo',
   'tut.primeros.2.texto':
-    'Com este botão você desenha cômodos novos no mapa, célula por célula. Olha — vou te mostrar onde ficaria o seu…',
-  'tut.primeros.3.titulo': 'Seu cômodo novo',
-  'tut.primeros.3.texto': 'Aqui está! Um cômodo recém-criado, ainda sem app: por isso o cartão dele diz + Atribuir.',
+    'Com este botão você coloca um cômodo novo no mapa e, assim que solta, vai direto escolher o app dele. Olha — vou te mostrar onde ficaria o seu…',
   'tut.primeros.apps.titulo': 'Os apps disponíveis',
   'tut.primeros.apps.texto':
-    'Isto abre o + Atribuir: o painel com todos os apps disponíveis. Cada um monta seu cômodo com seus móveis e seu app. Vou dar um ao seu…',
+    'Este é + Atribuir, com todos os apps disponíveis: cada um monta seu cômodo com os móveis. Se fechar sem escolher, o cartão do cômodo oferece de novo. Vou dar um ao seu…',
   'tut.primeros.4.titulo': 'Atribuir um app',
   'tut.primeros.4.texto':
-    'Com + Atribuir eu dei o app a ele: veja como o cômodo assumiu seu nome, seu ícone e seus móveis. De agora em diante o cartão inteiro dele é o botão de entrar.',
+    'Dei o app dele: veja como o cômodo pegou o nome, o ícone e os móveis. De agora em diante, o cartão inteiro é o botão de entrar.',
   'tut.primeros.5.titulo': 'Entrar',
   'tut.primeros.5.texto':
-    'Entramos: este é o app do cômodo. Para voltar depois: o cartão dele no menu, o objeto com a esfera no mapa, ou o acesso rápido do botão MindHaOS lá em cima.',
+    'Entramos: este é o app do cômodo. Para voltar depois: o cartão dele no menu, o objeto com a esfera no mapa, ou o atalho no botão do logo, lá em cima.',
   'tut.primeros.press.titulo': 'Mantenha pressionado',
   'tut.primeros.press.texto':
     'Veja como treme: manter pressionado um cômodo ou um objeto o desperta, com seu menu. É assim que você o move se não gostou de onde ficou, ou o apaga.',
+  'tut.primeros.enlace.titulo': 'Objetos que levam a algum lugar',
+  'tut.primeros.enlace.texto':
+    'Com um objeto, esse menu traz também «Link»: transforme-o na porta para uma página da web ou para uma entrada dos seus apps — uma receita, um livro, um recorde. Depois, é só tocar nele para ir direto.',
   'tut.primeros.6.texto':
     'Isso é tudo: criar o cômodo, dar o app a ele, entrar e arrumá-lo. Este era de prática — eu o levo embora ao terminar, para você montar sua MindHaOS do seu jeito.',
   'tut.menu-cuartos.1.texto': 'A aba Casa lista todos os cômodos da sua MindHaOS, agrupados por categoria.',
@@ -343,8 +357,10 @@ export const PT_TUT: Dict = {
     'Este ícone escolhe qual IA responde e guarda sua chave se você usar a sua. Sem nenhuma configurada, o chat continua funcionando por palavras-chave, sem entender linguagem livre.',
   'tut.chat.8.texto':
     'Você também pode perguntar «como funciona a cozinha?» ou pedir «tutorial de exercício» aqui mesmo, e o que ficou salvo você revisa no tour de Registros.',
-  'tut.chat-registros.porAsistente.texto': 'Cada assistente guarda no seu chat o que você registrou com ele e o que lembra de você. Este botão abre isso como grafo: cada memória se conecta sozinha ao que menciona dos seus apps; toque em uma para corrigi-la ou esquecê-la.',
-  'tut.chat-registros.mapa.texto': 'Conversar com um assistente o traz para o mapa, e apagar a conversa o tira de lá. Para chamá-lo de volta, use «Adicionar assistente» abaixo dos chats.',
+  'tut.chat-registros.porAsistente.texto':
+    'Cada assistente guarda no seu chat o que você registrou com ele e o que lembra de você. Este botão abre isso como grafo: cada memória se conecta sozinha ao que menciona dos seus apps; toque em uma para corrigi-la ou esquecê-la.',
+  'tut.chat-registros.mapa.texto':
+    'Conversar com um assistente o traz para o mapa, e apagar a conversa o tira de lá. Para chamá-lo de volta, use «Adicionar assistente» abaixo dos chats.',
   'tut.chat-registros.1.texto': 'Chats mostra com quem você conversou; Registros, o que ficou salvo dessas conversas.',
   'tut.chat-registros.2.titulo': 'O que ele lembra de você',
   'tut.chat-registros.2.texto':
@@ -411,9 +427,9 @@ export const PT_TUT: Dict = {
     'No rodapé da seção, «Excluir o exemplo» o remove inteiro depois que você confirma com «Sim, excluir o exemplo», e o que é seu nunca é tocado. Quando não sobra nada dele, ali mesmo aparece «Restaurar o exemplo de fábrica».',
   'tut.ejemplos.3.texto':
     'O exemplo não soma XP nem sequências, não gera avisos, não entra no seu Wrapped e a IA não o leva em conta. Na MindHaOS demo este rodapé não aparece: o ano inteiro de Alex já é o exemplo.',
-  'tut.ejemplos.1.titulo': 'Aparece sozinho',
-  'tut.ejemplos.2.titulo': 'Excluir ou restaurar',
   'tut.ejemplos.3.titulo': 'Não conta como seu',
+  'tut.ejemplos.2.titulo': 'Excluir ou restaurar',
+  'tut.ejemplos.1.titulo': 'Aparece sozinho',
   'tut.hoy.1.texto':
     'As missões não moram em um lugar à parte: moram DENTRO de cada app. No cabeçalho de cada cômodo está o botão Missões, com a lista do que esse app pede de você HOJE.',
   'tut.hoy.2.titulo': 'Três fontes, uma lista',

@@ -6629,18 +6629,9 @@ export const TR: Dict = {
     'Herhangi bir uygulamanın veya menünün nasıl çalıştığını sor, ya da öğreticisini iste: sihirbaz onu ekranda adım adım gösterir. İngilizce’de düzenleyici, sohbet ve menü için ekran turları hazır; gerisini asistan (Yapay Zeka) yanıtlar.',
   'tut.casa.titulo': 'Senin MindHaOS\'un',
   'tut.casa.resumen':
-    'MindHaOS, uygulamalarının haritasıdır: her oda bir tanesini barındırır. Joystick veya WASD ile hareket edersin, V ile görünüm değiştirirsin ve sol üstteki düğmeyle menüyü açarsın. Köşedeki küp, yakınında ne olduğuna göre kendiliğinden değişir; saat takvimi, rutinleri ve müziği taşır.',
+    'MindHaOS\'un, uygulamalarının haritasıdır: her oda birini saklar. Joystick ya da WASD ile hareket et, V ile görünümü değiştir, sol üstteki düğmeyle menüyü aç. Köşedeki boşluk, yakınında ne varsa ona göre kendiliğinden değişir; saat takvimi ve zamanın akışını taşır, müziğin de kendi düğmesi var. Sohbet menüsü asistanlarını, arkadaşlarını, yerlerini ve tarayıcıyı bir araya getirir.',
   'tut.primeros.titulo': 'Uygulamalarını açmak ve yenilerini oluşturmak',
   'tut.primeros.resumen': 'Uygulamalarına nasıl girersin ve yenisini nasıl oluşturursun: oda, uygulaması ve üç girişi.',
-  'tut.primeros.2a.titulo': 'Araç çarkı',
-  'tut.primeros.2a.texto':
-    'Telefonda odalar panel açmadan doğrudan haritanın üstüne çizilir. Her şey joystick’in yanındaki bu düğmeden çıkar: araç çarkı.',
-  'tut.primeros.2b.titulo': 'İnşaat',
-  'tut.primeros.2b.texto':
-    'Çarkın iki seviyesi var. Dördüncü kategorisi MindHaOS\'u ayağa kaldıran kategoridir: odalar, duvarlar, kapılar, pencereler, zeminler ve çatılar.',
-  'tut.primeros.2c.titulo': 'Odalar modu',
-  'tut.primeros.2c.texto':
-    'Odalar, fırçayı hazır bırakır: çark kapanır ve zemine her dokunuş yeni bir oda kaldırır. Bak — seninkinin nereye kurulacağını göstereyim…',
   'tut.menu-cuartos.titulo': 'Menü · Ev',
   'tut.menu-cuartos.resumen':
     'Ev sekmesi MindHaOS\'undaki odaları kategoriye göre, ilerlemeleriyle birlikte listeler. Kartın tamamı uygulamayı açar — henüz yoksa + Ata der — ve dişlisi seçenekleri açar: listede taşı, odayı sil ya da düzenle. Yukarıda özetin durur: keyif, rütbe ve seri; aşağıda yeni oda oluşturabilirsin.',
@@ -6758,7 +6749,7 @@ export const TR: Dict = {
   'bienvenida.siguiente': 'İleri',
   'bienvenida.crear': 'MindHaOS\'umu oluştur',
   'bienvenida.creando': 'MindHaOS\'un oluşturuluyor…',
-  'bienvenida.final.titulo': 'MindHaOS\'un hazır!',
+  'bienvenida.final.titulo': 'MindHaOS\'un (Zihin Evi OS) hazır!',
   'bienvenida.cuenta': 'Hesap oluştur ya da giriş yap (MindHaOS\'unu senkronize eder)',
   'bienvenida.guia.desc': 'Kıvamını yakalamak için üç adım.',
   'bienvenida.guia.empezar': 'Başla',
@@ -6766,8 +6757,9 @@ export const TR: Dict = {
   'bienvenida.guia.salir': 'MindHaOS\'a git',
   'bienvenida.guia.cuarto.titulo': 'Uygulamalarını açmak ve yenilerini oluşturmak',
   'bienvenida.guia.cuarto.desc': 'Sana uygulamalarına girmeyi ve odasıyla yeni bir tane oluşturmayı göstereyim.',
-  'bienvenida.guia.tour.titulo': 'MindHaOS\'unu gez',
-  'bienvenida.guia.tour.desc': 'Menü, hareket, saat ve sohbet arasında bir gezinti.',
+  'bienvenida.guia.tour.titulo': 'MindHaOS\'unu (Zihin Evi OS) gez',
+  'bienvenida.guia.tour.desc':
+    'Menü, hareket, saat ve sohbet arasında bir gezinti; asistanların, arkadaşların, yerlerin ve tarayıcıyla.',
   'bienvenida.guia.explorar.titulo': 'Kendi başına keşfet',
   'bienvenida.guia.explorar.desc':
     'Tamamdır. Her menü ve her uygulama kendi öğreticisini ? düğmesinin arkasında saklar.',
@@ -10757,7 +10749,7 @@ export const TR: Dict = {
   'ia.err.peticion-invalida': 'Yapay zekâ bu isteği işleyemedi: boyutu ya da biçimi kontrol et.',
   'ia.err.sin-jev': 'Jev henüz hesabında kullanılamıyor.',
   'ia.err.rechazo': 'Yapay zekâ bu isteğe yanıt vermek istemedi.',
-  'ia.err.sin-unlock': "Yapay zekâyla oynamak için MindHaOS'unun kilidini aç.",
+  'ia.err.sin-unlock': 'Yapay zekâyla oynamak için MindHaOS\'unun kilidini aç.',
   'ia.err.tope-diario': 'Bugünkü sınıra ulaştın. Pro ile sınır yok.',
   'ia.err.sin-backend': 'Bu sürümde yapay zekâ sunucusu yok.',
   'ia.err.sin-conexion': 'MindHaOS sunucusuyla bağlantı yok.',
@@ -11043,8 +11035,10 @@ export const TR: Dict = {
   'idiomas.temaDesc.c2-gram-excepciones': 'Kuralların açıklayamadığı şeyler.',
   'idiomas.tema.c2-gram-normativa': 'Norm ve doğru kullanım',
   'idiomas.temaDesc.c2-gram-normativa': 'Ana dili konuşanların bile yaptığı hatalar.',
-  'chat.manual.nota.computo': 'Formül defteri ve çizici hesap makinesine bağlıdır; Matematik, Fizik ve Kimya hazır gelir ve bu formüllerden herhangi biri düzenlenebilir. Odanın içinde Yapay Zeka formül yazar, adım adım açıklar, e-tablolar hazırlar ve seçtiğin verileri okur.',
-  'chat.manual.nota.paintball': 'Modlar: 1 vs 1, 2 vs 2 (3 asistan gerekir) ve serbest savaş. Herkes 3 vuruşa dayanır ve oyun zemin katta oynanır.',
+  'chat.manual.nota.computo':
+    'Formül defteri ve çizici hesap makinesine bağlıdır; Matematik, Fizik ve Kimya hazır gelir ve bu formüllerden herhangi biri düzenlenebilir. Odanın içinde Yapay Zeka formül yazar, adım adım açıklar, e-tablolar hazırlar ve seçtiğin verileri okur.',
+  'chat.manual.nota.paintball':
+    'Modlar: 1 vs 1, 2 vs 2 (3 asistan gerekir) ve serbest savaş. Herkes 3 vuruşa dayanır ve oyun zemin katta oynanır.',
   'chat.voz.sinTexto': '{proveedor} metin döndürmedi',
   'archivo.nombre.documento': 'belge',
   'clima.err.espera': 'Hizmet sorgulanırken bekleme süresi doldu.',
@@ -11063,7 +11057,7 @@ export const TR: Dict = {
   'muebles.cot.horasM2': 'm² başına {h} sa',
   'muebles.cot.pctMateriales': 'malzemeler üzerinden %{n}',
   'notif.canal': 'Bildirimler',
-  'notif.canalDesc': "MindHaOS'tan görevler, hatırlatmalar ve mesajlar",
+  'notif.canalDesc': 'MindHaOS\'tan görevler, hatırlatmalar ve mesajlar',
   'redes.err.generico': 'Yayımlama tamamlanamadı. Tekrar dene.',
   'clima.err.agotado': 'Süre doldu. «Tekrar dene»ye dokun ya da bağlantını kontrol et.',
   'clima.err.generico': 'Hava durumu alınamadı.',
@@ -11105,17 +11099,26 @@ export const TR: Dict = {
   'computo.hojaN': 'Sayfa{n}',
   'ui.unidad.h': 'sa',
   'despacho.meta.deObjetivo': '{a} / {b} (%{p})',
-  'diario.prof.historiaAnio': '{anio} yılındaki bu tarihi olay hakkında bana daha fazlasını anlat: {titulo}. Ne oldu, neden önemliydi ve ne gibi sonuçları oldu?',
-  'diario.prof.historia': 'Bu tarihi olay hakkında bana daha fazlasını anlat: {titulo}. Ne oldu, neden önemliydi ve ne gibi sonuçları oldu?',
-  'diario.prof.arteAutor': 'Bana {autor} tarafından yapılan «{titulo}» adlı eserden bahset. Neyi temsil ediyor, nasıl yaratıldı ve sanat tarihinde neden önemli?',
-  'diario.prof.arte': 'Bana «{titulo}» adlı eserden bahset. Neyi temsil ediyor, nasıl yaratıldı ve sanat tarihinde neden önemli?',
-  'diario.prof.libroAutor': 'Bana {autor} tarafından yazılan «{titulo}» adlı kitaptan bahset. Konusu ne, üslubu nasıl ve neden önemli bir eser?',
+  'diario.prof.historiaAnio':
+    '{anio} yılındaki bu tarihi olay hakkında bana daha fazlasını anlat: {titulo}. Ne oldu, neden önemliydi ve ne gibi sonuçları oldu?',
+  'diario.prof.historia':
+    'Bu tarihi olay hakkında bana daha fazlasını anlat: {titulo}. Ne oldu, neden önemliydi ve ne gibi sonuçları oldu?',
+  'diario.prof.arteAutor':
+    'Bana {autor} tarafından yapılan «{titulo}» adlı eserden bahset. Neyi temsil ediyor, nasıl yaratıldı ve sanat tarihinde neden önemli?',
+  'diario.prof.arte':
+    'Bana «{titulo}» adlı eserden bahset. Neyi temsil ediyor, nasıl yaratıldı ve sanat tarihinde neden önemli?',
+  'diario.prof.libroAutor':
+    'Bana {autor} tarafından yazılan «{titulo}» adlı kitaptan bahset. Konusu ne, üslubu nasıl ve neden önemli bir eser?',
   'diario.prof.libro': 'Bana «{titulo}» adlı kitaptan bahset. Konusu ne, üslubu nasıl ve neden önemli bir eser?',
   'diario.prof.personalidad': '{titulo} kimdi? Bana hayatını, eserlerini ve neden önemli bir figür olduğunu anlat.',
-  'diario.prof.especieCientifico': 'Bana şu türden bahset: {titulo} ({autor}). Nasıl yaşar, neyle beslenir, onu özel kılan ne ve koruma durumu nasıl?',
-  'diario.prof.especie': 'Bana şu türden bahset: {titulo}. Nasıl yaşar, neyle beslenir, onu özel kılan ne ve koruma durumu nasıl?',
-  'diario.prof.palabra': '«{titulo}» kelimesini derinlemesine incele: kökeni ya da etimolojisi, anlamları ve nasıl doğru kullanılacağı.',
-  'diario.prof.fraseAutor': 'Bana {autor} tarafından söylenen şu sözü açıkla: {titulo}. Ne anlama geliyor, hangi bağlamda ortaya çıktı ve ne öğretiyor?',
+  'diario.prof.especieCientifico':
+    'Bana şu türden bahset: {titulo} ({autor}). Nasıl yaşar, neyle beslenir, onu özel kılan ne ve koruma durumu nasıl?',
+  'diario.prof.especie':
+    'Bana şu türden bahset: {titulo}. Nasıl yaşar, neyle beslenir, onu özel kılan ne ve koruma durumu nasıl?',
+  'diario.prof.palabra':
+    '«{titulo}» kelimesini derinlemesine incele: kökeni ya da etimolojisi, anlamları ve nasıl doğru kullanılacağı.',
+  'diario.prof.fraseAutor':
+    'Bana {autor} tarafından söylenen şu sözü açıkla: {titulo}. Ne anlama geliyor, hangi bağlamda ortaya çıktı ve ne öğretiyor?',
   'diario.prof.frase': 'Bana şu sözü açıkla: {titulo}. Ne anlama geliyor, hangi bağlamda ortaya çıktı ve ne öğretiyor?',
   'ejercicio.ppmN': '{n} atım/dk',
   'ejercicio.det.minPor': 'dk/{u}',
@@ -11131,7 +11134,8 @@ export const TR: Dict = {
   'entre.j.cien.porSegundoN': '{n}/sn',
   'escritura.docSinTitulo': 'Belge',
   'ui.unidad.min': 'dk',
-  'idiomas.charla.vaciaPropio': 'Onu {idioma} ya da kendi dilinde selamla: {tutor} senin seviyende konuşur, seni nazikçe düzeltir ve sonunda yeni kelimeleri çıkarabilirsin.',
+  'idiomas.charla.vaciaPropio':
+    'Onu {idioma} ya da kendi dilinde selamla: {tutor} senin seviyende konuşur, seni nazikçe düzeltir ve sonunda yeni kelimeleri çıkarabilirsin.',
   'idiomas.charla.placeholderPropio': '{idioma} ya da kendi dilinde yaz…',
   'idiomas.sel.phOtro': 'Nahuatlca',
   'jardin.sesion.respiracion': 'Nefes',
@@ -11219,10 +11223,11 @@ export const TR: Dict = {
   'redes.err.permisos': 'İzinler eksik: hesabı yeniden bağla ve hepsini kabul et.',
   'redes.err.formato': 'O ağ bu videoyu kabul etmiyor (biçim veya süre).',
   'redes.err.demasiado-grande': 'Videonun boyutu o ağın kabul ettiği sınırı aşıyor.',
-  'redes.err.cuota-youtube': 'Uygulamada bugün için YouTube yükleme hakkı kalmadı; yarın tekrar dene ya da videoyu indir.',
+  'redes.err.cuota-youtube':
+    'Uygulamada bugün için YouTube yükleme hakkı kalmadı; yarın tekrar dene ya da videoyu indir.',
   'redes.err.orden': 'Yükleme sırası bozuldu: yeniden yayımla.',
   'redes.err.sesion-caducada': 'Yüklemenin süresi doldu: yeniden yayımla.',
-  'redes.err.sin-unlock': "Ağları kullanmak için MindHaOS'unun kilidini aç.",
+  'redes.err.sin-unlock': 'Ağları kullanmak için MindHaOS\'unun kilidini aç.',
   'redes.err.cancelado': 'İptal edildi.',
   'entre.j.cien.ocup.0': 'üniversite öğrencisi',
   'entre.j.cien.ocup.1': 'ilkokul öğretmeni',

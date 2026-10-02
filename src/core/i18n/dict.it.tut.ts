@@ -67,7 +67,8 @@ export const IT_TUT: Dict = {
   'tut.app-computo--hojas.5.titulo': 'Esportare',
   'tut.app-computo--hojas.5.texto':
     'In Excel esce un .xlsx vero, con le formule vive e i grafici come grafici di Excel. In PDF esce dalla stampa del browser.',
-  'tut.casa.1.texto': 'Questa è la tua MindHaOS: ogni stanza contiene un\'app. Ti mostro i comandi di base.',
+  'tut.casa.1.texto':
+    'Questa è la tua MindHaOS (Casa Mentale OS): ogni stanza custodisce un\'app. Ti mostro i controlli di base.',
   'tut.casa.2.titulo': 'Il menu principale',
   'tut.casa.2.texto':
     'L\'ho aperto perché tu lo veda: è il menu principale, con le tue stanze e le loro app. Le altre schede portano gli Interni (il catalogo di app) e gli Esterni, ciò che si costruisce sul terreno.',
@@ -98,9 +99,21 @@ export const IT_TUT: Dict = {
   'tut.casa.9.titulo': 'La chat',
   'tut.casa.9.texto':
     'La chat dell\'architetto: raccontagli cosa hai fatto e lo registra nell\'app giusta, chiedigli modifiche alla MindHaOS, immagini e perfino modelli 3D per le tue stanze — o semplicemente fai due chiacchiere.',
-  'tut.casa.asistente.titulo': 'Il tuo assistente',
+  'tut.casa.asistente.titulo': 'Il menu della chat',
   'tut.casa.asistente.texto':
-    'Questo pulsante è il tuo assistente: chi ti risponde nella chat. Toccalo per aprire il suo menu e personalizzarlo — la sua forma, la sua voce e la sua personalità.',
+    'Questo pulsante apre il menu della chat, con quattro viste in alto: Assistenti, Amici, Luoghi e Browser. Il Manuale e il ⚙ a destra cambiano con la vista scelta. Te le mostro…',
+  'tut.casa.vAsistentes.titulo': 'Assistenti',
+  'tut.casa.vAsistentes.texto':
+    'Quelli che ti rispondono in chat. Apri la conversazione di ognuno, creane altri e dai loro forma, voce e personalità dal ⚙.',
+  'tut.casa.vAmigos.titulo': 'Amici',
+  'tut.casa.vAmigos.texto':
+    'La tua posta con persone vere: aggiungile con il loro alias, chatta, mandagli cose dalle tue stanze e invitale in visita o a giocare. Serve il tuo account.',
+  'tut.casa.vLugares.titulo': 'Luoghi',
+  'tut.casa.vLugares.texto':
+    'I tuoi posti salvati per categoria e «Come arrivare»: con questa vista scelta, quello che scrivi in chat è una destinazione e ti traccia il percorso da dove sei.',
+  'tut.casa.vNavegador.titulo': 'Browser',
+  'tut.casa.vNavegador.texto':
+    'Internet senza uscire dalla MindHaOS, con schede, cronologia e i tuoi siti. Con questa vista scelta, quello che scrivi si cerca sul web o apre l\'indirizzo.',
   'tut.casa.mas.titulo': 'Il menu +',
   'tut.casa.mas.texto':
     'L\'ho aperto perché tu lo veda: con il + alleghi cose alla chat — carica un\'immagine o un PDF, scatta una foto, o passa alla Maschera AR e alla Chat AR faccia a faccia.',
@@ -110,36 +123,36 @@ export const IT_TUT: Dict = {
   'tut.casa.10.texto':
     'Questo è l\'essenziale. Ogni menu e ogni app hanno il loro pulsante ? con il loro tutorial: chiedilo quando qualcosa non ti torna.',
   'tut.primeros.1.texto':
-    'Questo tutorial risponde a due cose: come ENTRARE nelle tue app e come CREARNE una nuova. Entrambe vivono qui, nella scheda Casa.',
+    'Questo tutorial risponde a due cose sulla tua MindHaOS (Casa Mentale OS): come ENTRARE nelle tue app e come CREARNE una nuova. Entrambe stanno qui, nella scheda Casa.',
   'tut.primeros.entrar.titulo': 'Entrare nelle tue app',
   'tut.primeros.entrar.texto':
-    'Ogni stanza porta la sua app e hai tre porte: la sua scheda qui nel menu, l\'oggetto con la sfera fluttuante sulla mappa, e l\'accesso rapido del pulsante MindHaOS in alto.',
+    'Ogni stanza porta con sé la sua app e hai tre porte: la sua scheda qui nel menu, l\'oggetto con la sfera fluttuante sulla mappa e l\'accesso rapido dal pulsante del logo, in alto.',
   'tut.primeros.entrar.vacio':
-    'Qui vivranno le tue stanze, ognuna con la sua app, e avrai tre porte: la sua scheda qui nel menu, l\'oggetto con la sfera fluttuante sulla mappa, e l\'accesso rapido del pulsante MindHaOS in alto. Creiamo la prima…',
+    'Qui vivranno le tue stanze, ognuna con la sua app, e avrai tre porte: la sua scheda qui nel menu, l\'oggetto con la sfera fluttuante sulla mappa e l\'accesso rapido dal pulsante del logo, in alto. Creiamo la prima…',
   'tut.primeros.prev.titulo': 'Qui va la tua stanza',
   'tut.primeros.prev.texto':
     'Questa è l\'anteprima del pennello: la sagoma verde con i suoi muri segna dove sorgerà la stanza. Costruendo a mano la vedrai uguale sotto il dito, prima di rilasciare il tocco.',
   'tut.primeros.mat.titulo': 'Costruita!',
   'tut.primeros.mat.texto':
-    'Ed eccola: la stanza è sorta proprio dove segnava l\'anteprima, con la sua porta davanti. Non ha ancora un\'app — è quello che segue.',
+    'Ed eccola: la stanza si è alzata proprio dove indicava l\'anteprima, con la porta davanti. Non ha ancora un\'app, così appena è costruita si apre da solo il pannello per dargliene una.',
   'tut.primeros.2.titulo': 'Crea stanza',
   'tut.primeros.2.texto':
-    'Con questo pulsante disegni nuove stanze sulla mappa, cella per cella. Guarda — ti mostro dove finirebbe la tua…',
-  'tut.primeros.3.titulo': 'La tua nuova stanza',
-  'tut.primeros.3.texto':
-    'Eccola! Una stanza appena creata, ancora senza app: per questo la sua scheda dice + Assegna.',
+    'Con questo pulsante metti una stanza nuova sulla mappa e, appena la lasci, passi subito a scegliere la sua app. Guarda — ti mostro dove starebbe la tua…',
   'tut.primeros.apps.titulo': 'Le app disponibili',
   'tut.primeros.apps.texto':
-    'Questo apre + Assegna: il pannello con tutte le app disponibili. Ognuna monta la sua stanza con i suoi mobili e la sua app. Ne do una alla tua…',
+    'Questo è + Assegna, con tutte le app disponibili: ognuna costruisce la sua stanza con i suoi mobili. Se lo chiudi senza scegliere, la scheda della stanza te lo ripropone. Ne do una alla tua…',
   'tut.primeros.4.titulo': 'Assegnare un\'app',
   'tut.primeros.4.texto':
-    'Con + Assegna le ho dato la sua app: guarda come la stanza ha preso il suo nome, la sua icona e i suoi mobili. Da adesso la sua scheda intera è il pulsante per entrare.',
+    'Le ho dato la sua app: guarda come la stanza ha preso il suo nome, la sua icona e i suoi mobili. Da ora tutta la sua scheda è il pulsante per entrare.',
   'tut.primeros.5.titulo': 'Entra',
   'tut.primeros.5.texto':
-    'Siamo dentro: questa è l\'app della stanza. Per tornarci dopo: la sua scheda nel menu, l\'oggetto con la sfera sulla mappa, o l\'accesso rapido del pulsante MindHaOS in alto.',
+    'Siamo dentro: questa è l\'app della stanza. Per tornarci dopo: la sua scheda nel menù, l\'oggetto con la sfera sulla mappa, o l\'accesso rapido dal pulsante del logo, in alto.',
   'tut.primeros.press.titulo': 'Tieni premuto',
   'tut.primeros.press.texto':
     'Guarda come trema: tenere premuto una stanza o un oggetto lo sveglia, con il suo menu. Così lo sposti se non ti piace dov\'è finito, o lo elimini.',
+  'tut.primeros.enlace.titulo': 'Oggetti che portano da qualche parte',
+  'tut.primeros.enlace.texto':
+    'Con un oggetto, quel menu offre anche «Collega»: trasformalo nella porta verso una pagina web o una voce delle tue app —una ricetta, un libro, un record—. Poi basta toccarlo per andarci dritto.',
   'tut.primeros.6.texto':
     'Questo è tutto: creare la stanza, darle la sua app, entrare e sistemarla. Questa era di prova — me la porto via alla fine, perché tu monti la tua MindHaOS a modo tuo.',
   'tut.menu-cuartos.1.texto': 'La scheda Casa elenca tutte le stanze della tua MindHaOS, raggruppate per categoria.',
@@ -344,8 +357,10 @@ export const IT_TUT: Dict = {
     'Questa icona sceglie quale IA risponde e conserva la tua chiave se usi la tua. Senza nessuna configurata la chat continua a funzionare per parole chiave, senza capire il linguaggio libero.',
   'tut.chat.8.texto':
     'Puoi anche chiedere «come funziona la Cucina?» o «tutorial di Palestra» proprio qui, e quello che è rimasto salvato si rivede nel tour Registri e memorie.',
-  'tut.chat-registros.porAsistente.texto': 'Ogni assistente conserva nella sua chat quello che hai registrato con lui e quello che ricorda di te. Questo pulsante lo apre come grafo: ogni ricordo si collega da solo a ciò che nomina delle tue app; toccane uno per correggerlo o dimenticarlo.',
-  'tut.chat-registros.mapa.texto': 'Chattare con un assistente lo porta sulla mappa, ed eliminare la sua conversazione lo toglie. Per richiamarlo, usa «Aggiungi assistente» sotto le chat.',
+  'tut.chat-registros.porAsistente.texto':
+    'Ogni assistente conserva nella sua chat quello che hai registrato con lui e quello che ricorda di te. Questo pulsante lo apre come grafo: ogni ricordo si collega da solo a ciò che nomina delle tue app; toccane uno per correggerlo o dimenticarlo.',
+  'tut.chat-registros.mapa.texto':
+    'Chattare con un assistente lo porta sulla mappa, ed eliminare la sua conversazione lo toglie. Per richiamarlo, usa «Aggiungi assistente» sotto le chat.',
   'tut.chat-registros.1.texto':
     'Chat mostra con chi hai parlato; Registrazioni, quello che è rimasto salvato di quelle conversazioni.',
   'tut.chat-registros.2.titulo': 'Cosa ricorda di te',
@@ -360,7 +375,7 @@ export const IT_TUT: Dict = {
     'L\'intestazione mostra la stanza e l\'app aperta. Se la stanza ha più app, la freccia ‹ torna alla selezione delle app.',
   'tut.app-generica.2.titulo': 'Missioni',
   'tut.app-generica.2.texto':
-    "Il pulsante Missioni apre l'oggi di questa app: i suoi obiettivi, quello che hai in agenda e quello che chiedono i tuoi obiettivi in corso. Ogni passo si spunta da solo appena registri, e completare la lista intera è ciò che dà i PE del giorno.",
+    'Il pulsante Missioni apre l\'oggi di questa app: i suoi obiettivi, quello che hai in agenda e quello che chiedono i tuoi obiettivi in corso. Ogni passo si spunta da solo appena registri, e completare la lista intera è ciò che dà i PE del giorno.',
   'tut.app-generica.3.titulo': 'I blocchi',
   'tut.app-generica.3.texto':
     'Questo modello è costruito con blocchi (note, liste, contatori, abitudini…). Puoi cambiarli in Menu › Modelli › modifica.',
@@ -413,9 +428,9 @@ export const IT_TUT: Dict = {
     'In fondo alla sezione, «Elimina l\'esempio» lo toglie per intero dopo che confermi con «Sì, elimina l\'esempio», e le tue cose non vengono mai toccate. Quando non ne resta più nulla, lì compare «Ripristina l’esempio originale».',
   'tut.ejemplos.3.texto':
     'L’esempio non dà PE né serie, non genera promemoria, non entra nel tuo Wrapped e l’IA non ne tiene conto. Nella MindHaOS demo questa barra non compare: l’anno intero di Andrea è già l’esempio.',
-  'tut.ejemplos.1.titulo': 'Si inserisce da solo',
-  'tut.ejemplos.2.titulo': 'Eliminare o ripristinare',
   'tut.ejemplos.3.titulo': 'Non conta come tuo',
+  'tut.ejemplos.2.titulo': 'Eliminare o ripristinare',
+  'tut.ejemplos.1.titulo': 'Si inserisce da solo',
   'tut.hoy.1.texto':
     'Le missioni non vivono in un posto a parte: vivono DENTRO ogni app. Nell’intestazione di ogni stanza c’è il suo pulsante Missioni, con l’elenco di ciò che quell’app ti chiede OGGI.',
   'tut.hoy.2.titulo': 'Tre fonti, una lista',
@@ -435,7 +450,7 @@ export const IT_TUT: Dict = {
     'Scende in «Fatti», chiuso: vedere la registrazione fare effetto fa parte della ricompensa, e da lì puoi annullarla se ne è scappata una di troppo.',
   'tut.hoy.6b.titulo': 'È la lista intera a fare punti',
   'tut.hoy.6b.texto':
-    "Completare tutte le missioni del giorno accende la celebrazione e somma i PE dell'app: il livello cresce per liste completate, non per registrazioni sparse.",
+    'Completare tutte le missioni del giorno accende la celebrazione e somma i PE dell\'app: il livello cresce per liste completate, non per registrazioni sparse.',
   'tut.hoy.7.texto':
     'E se ti manca qualcosa, «Aggiungi missione» ti offre quello che di solito propone quest’app, e «Nuova checklist» crea la tua: un elenco tuo che si ripete ogni giorno.',
   'tut.hoy.8.titulo': 'Le sfere rosse',

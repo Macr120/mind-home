@@ -30,7 +30,7 @@ export const tutorialCasa = tour(
   T('tut.casa.titulo', 'Tu MindHaOS'),
   T(
     'tut.casa.resumen',
-    'La MindHaOS es el mapa de tus apps: cada cuarto guarda una. Te mueves con el joystick o WASD, cambias de vista con V y abres el menú con el botón de arriba a la izquierda. El hueco de la esquina cambia solo según lo que tengas cerca; el reloj lleva el calendario y el paso del tiempo, y la música tiene su propio botón.',
+    'La MindHaOS es el mapa de tus apps: cada cuarto guarda una. Te mueves con el joystick o WASD, cambias de vista con V y abres el menú con el botón de arriba a la izquierda. El hueco de la esquina cambia solo según lo que tengas cerca; el reloj lleva el calendario y el paso del tiempo, y la música tiene su propio botón. El menú del chat reúne a tus asistentes, tus amigos, tus lugares y el navegador.',
   ),
   'cuerpoCasa',
 )

@@ -6735,19 +6735,10 @@ export const FR: Dict = {
     'Demande comment fonctionne une app ou un menu, ou demande son tutoriel : le magicien te le montre à l’écran, étape par étape. En anglais, les visites à l’écran fonctionnent pour l’éditeur, le chat et le menu ; l’assistant répond au reste (IA).',
   'tut.casa.titulo': 'Ta MindHaOS',
   'tut.casa.resumen':
-    'La MindHaOS est le plan de tes apps : chaque pièce en contient une. Tu te déplaces avec le joystick ou WASD, tu changes de vue avec V et tu ouvres le menu avec le bouton en haut à gauche. Le bouton du coin change tout seul selon ce que tu as à proximité ; l’horloge donne accès au calendrier, aux routines et à la musique.',
+    'Ta MindHaOS est le plan de tes applis : chaque pièce en abrite une. Tu te déplaces avec le joystick ou WASD, tu changes de vue avec V et tu ouvres le menu avec le bouton en haut à gauche. Le bouton du coin change tout seul selon ce qui t\'entoure ; l\'horloge contient le calendrier et le passage du temps, et la musique a son propre bouton. Le menu du chat réunit tes assistants, tes amis, tes lieux et le navigateur.',
   'tut.primeros.titulo': 'Comment ouvrir tes apps et en créer d’autres',
   'tut.primeros.resumen':
     'Comment entrer dans tes apps et comment en créer une nouvelle : la pièce, son app et ses trois accès.',
-  'tut.primeros.2a.titulo': 'La roue d’outils',
-  'tut.primeros.2a.texto':
-    'Sur le téléphone, les pièces se dessinent directement sur le plan, sans ouvrir de panneaux. Tout part de ce bouton à côté du joystick : la roue d’outils.',
-  'tut.primeros.2b.titulo': 'Construction',
-  'tut.primeros.2b.texto':
-    'La roue a deux niveaux. Sa quatrième catégorie est celle qui construit la MindHaOS : pièces, murs, portes, fenêtres, étages et toits.',
-  'tut.primeros.2c.titulo': 'Mode Pièces',
-  'tut.primeros.2c.texto':
-    'Pièces prépare le pinceau : la roue se ferme et chaque toucher au sol crée une nouvelle pièce. Regarde — je te montre où irait la tienne…',
   'tut.menu-cuartos.titulo': 'Menu · Maison',
   'tut.menu-cuartos.resumen':
     'L’onglet Maison liste les pièces de ta MindHaOS par catégorie, avec leur progression. La carte entière ouvre l’app — ou affiche + Assigner si elle n’en a pas encore — et son engrenage déplie les options : la déplacer dans la liste, supprimer la pièce ou la modifier. Ton résumé vit en haut : humeur, rang et série ; en bas tu peux créer de nouvelles pièces.',
@@ -6866,7 +6857,7 @@ export const FR: Dict = {
   'bienvenida.siguiente': 'Suivant',
   'bienvenida.crear': 'Créer ma MindHaOS',
   'bienvenida.creando': 'Création de ta MindHaOS…',
-  'bienvenida.final.titulo': 'Ta MindHaOS est prête !',
+  'bienvenida.final.titulo': 'Ta MindHaOS (Maison Mentale OS) est prête !',
   'bienvenida.cuenta': 'Créer un compte ou se connecter (synchronise ta MindHaOS)',
   'bienvenida.guia.desc': 'Trois étapes pour prendre le coup de main.',
   'bienvenida.guia.empezar': 'Commencer',
@@ -6874,8 +6865,9 @@ export const FR: Dict = {
   'bienvenida.guia.salir': 'Aller à la MindHaOS',
   'bienvenida.guia.cuarto.titulo': 'Comment ouvrir tes applis et en créer d’autres',
   'bienvenida.guia.cuarto.desc': 'Je te montre comment entrer dans tes applis et en créer une nouvelle avec sa pièce.',
-  'bienvenida.guia.tour.titulo': 'Visite ta MindHaOS',
-  'bienvenida.guia.tour.desc': 'Une balade à travers le menu, le déplacement, l’horloge et le chat.',
+  'bienvenida.guia.tour.titulo': 'Visite ta MindHaOS (Maison Mentale OS)',
+  'bienvenida.guia.tour.desc':
+    'Un tour du menu, du déplacement, de l\'horloge et du chat, avec tes assistants, amis, lieux et navigateur.',
   'bienvenida.guia.explorar.titulo': 'Explore par toi-même',
   'bienvenida.guia.explorar.desc': 'Voilà. Chaque menu et chaque app garde son propre tutoriel derrière le bouton ?.',
   'ajustes.bienvenida': 'Bienvenue',
@@ -10915,7 +10907,7 @@ export const FR: Dict = {
   'ia.err.sin-jev': 'Jev n’est pas encore disponible sur ton compte.',
   'ia.err.rechazo': 'L’IA n’a pas voulu répondre à cette demande.',
   'ia.err.sin-unlock': 'Débloque ta MindHaOS pour jouer avec l’IA.',
-  'ia.err.tope-diario': "Tu as atteint la limite du jour. Avec Pro, il n'y a pas de limite.",
+  'ia.err.tope-diario': 'Tu as atteint la limite du jour. Avec Pro, il n\'y a pas de limite.',
   'ia.err.sin-backend': 'Cette version n’a pas de serveur d’IA.',
   'ia.err.sin-conexion': 'Aucune connexion au serveur de MindHaOS.',
   'ia.err.generico': 'L’IA n’a pas pu terminer la tâche. Réessaie.',
@@ -11026,7 +11018,8 @@ export const FR: Dict = {
   'escritorio.menu.soporte': 'Assistance',
   'escritorio.menu.sitioWeb': 'Site web',
   'escritorio.version.nueva': 'Une nouvelle version est disponible ({v}).',
-  'escritorio.version.detalle': 'Télécharge-la pour profiter des dernières améliorations. Tes données restent telles quelles.',
+  'escritorio.version.detalle':
+    'Télécharge-la pour profiter des dernières améliorations. Tes données restent telles quelles.',
   'escritorio.version.descargar': 'Télécharger',
   'escritorio.version.ahoraNo': 'Pas maintenant',
   'escritorio.programa.elegir': 'Choisir un programme',
@@ -11200,8 +11193,10 @@ export const FR: Dict = {
   'idiomas.temaDesc.c2-gram-excepciones': 'Ce que les règles n’arrivent pas à expliquer.',
   'idiomas.tema.c2-gram-normativa': 'Norme et correction',
   'idiomas.temaDesc.c2-gram-normativa': 'Des erreurs que même les natifs font.',
-  'chat.manual.nota.computo': 'Le formulaire et le traceur sont accrochés à la calculatrice, avec Mathématiques, Physique et Chimie déjà inclus ; chacune de ces formules peut être modifiée. Dans la salle de calcul, l’IA écrit des formules, explique pas à pas, construit des feuilles de calcul et lit les données que tu sélectionnes.',
-  'chat.manual.nota.paintball': 'Modes : 1 contre 1, 2 contre 2 (il faut 3 assistants) et chacun pour soi. Chacun encaisse 3 tirs et on joue au rez-de-chaussée.',
+  'chat.manual.nota.computo':
+    'Le formulaire et le traceur sont accrochés à la calculatrice, avec Mathématiques, Physique et Chimie déjà inclus ; chacune de ces formules peut être modifiée. Dans la salle de calcul, l’IA écrit des formules, explique pas à pas, construit des feuilles de calcul et lit les données que tu sélectionnes.',
+  'chat.manual.nota.paintball':
+    'Modes : 1 contre 1, 2 contre 2 (il faut 3 assistants) et chacun pour soi. Chacun encaisse 3 tirs et on joue au rez-de-chaussée.',
   'chat.voz.sinTexto': '{proveedor} n’a renvoyé aucun texte',
   'archivo.nombre.documento': 'document',
   'clima.err.espera': 'Délai d’attente dépassé lors de la consultation du service.',
@@ -11232,7 +11227,8 @@ export const FR: Dict = {
   'carrera.nVueltas': '{n} tours',
   'clima.aprox': 'approx.',
   'planos.aviso.celdaEnCuarto': 'Sélectionne une case à l’intérieur d’une pièce.',
-  'planos.aviso.sinSoporte': 'Aux étages supérieurs, tu ne peux construire qu’au-dessus d’une pièce de l’étage du dessous.',
+  'planos.aviso.sinSoporte':
+    'Aux étages supérieurs, tu ne peux construire qu’au-dessus d’une pièce de l’étage du dessous.',
   'planos.aviso.ocupada': 'Cette case est déjà occupée. Choisis un emplacement libre.',
   'planos.aviso.noCabe': 'Impossible de placer la pièce ici.',
   'ui.dur.d': '{n} j',
@@ -11262,18 +11258,30 @@ export const FR: Dict = {
   'computo.hojaN': 'Feuille{n}',
   'ui.unidad.h': 'h',
   'despacho.meta.deObjetivo': '{a} sur {b} ({p} %)',
-  'diario.prof.historiaAnio': 'Dis-m’en plus sur ce fait historique de {anio} : {titulo}. Que s’est-il passé, pourquoi était-ce important et quelles en ont été les conséquences ?',
-  'diario.prof.historia': 'Dis-m’en plus sur ce fait historique : {titulo}. Que s’est-il passé, pourquoi était-ce important et quelles en ont été les conséquences ?',
-  'diario.prof.arteAutor': 'Parle-moi de l’œuvre « {titulo} » de {autor}. Que représente-t-elle, comment a-t-elle été créée et pourquoi est-elle importante dans l’histoire de l’art ?',
-  'diario.prof.arte': 'Parle-moi de l’œuvre « {titulo} ». Que représente-t-elle, comment a-t-elle été créée et pourquoi est-elle importante dans l’histoire de l’art ?',
-  'diario.prof.libroAutor': 'Parle-moi du livre « {titulo} » de {autor}. De quoi parle-t-il, quel est son style et pourquoi est-ce une œuvre marquante ?',
-  'diario.prof.libro': 'Parle-moi du livre « {titulo} ». De quoi parle-t-il, quel est son style et pourquoi est-ce une œuvre marquante ?',
-  'diario.prof.personalidad': 'Qui était {titulo} ? Raconte-moi sa vie, son œuvre et pourquoi c’est une figure importante.',
-  'diario.prof.especieCientifico': 'Parle-moi de cette espèce : {titulo} ({autor}). Comment vit-elle, de quoi se nourrit-elle, qu’est-ce qui la rend spéciale et quel est son état de conservation ?',
-  'diario.prof.especie': 'Parle-moi de cette espèce : {titulo}. Comment vit-elle, de quoi se nourrit-elle, qu’est-ce qui la rend spéciale et quel est son état de conservation ?',
-  'diario.prof.palabra': 'Approfondis le mot « {titulo} » : son origine ou son étymologie, ses sens et comment bien l’employer.',
-  'diario.prof.fraseAutor': 'Explique-moi cette citation de {autor} : {titulo}. Que signifie-t-elle, dans quel contexte est-elle née et qu’enseigne-t-elle ?',
-  'diario.prof.frase': 'Explique-moi cette citation : {titulo}. Que signifie-t-elle, dans quel contexte est-elle née et qu’enseigne-t-elle ?',
+  'diario.prof.historiaAnio':
+    'Dis-m’en plus sur ce fait historique de {anio} : {titulo}. Que s’est-il passé, pourquoi était-ce important et quelles en ont été les conséquences ?',
+  'diario.prof.historia':
+    'Dis-m’en plus sur ce fait historique : {titulo}. Que s’est-il passé, pourquoi était-ce important et quelles en ont été les conséquences ?',
+  'diario.prof.arteAutor':
+    'Parle-moi de l’œuvre « {titulo} » de {autor}. Que représente-t-elle, comment a-t-elle été créée et pourquoi est-elle importante dans l’histoire de l’art ?',
+  'diario.prof.arte':
+    'Parle-moi de l’œuvre « {titulo} ». Que représente-t-elle, comment a-t-elle été créée et pourquoi est-elle importante dans l’histoire de l’art ?',
+  'diario.prof.libroAutor':
+    'Parle-moi du livre « {titulo} » de {autor}. De quoi parle-t-il, quel est son style et pourquoi est-ce une œuvre marquante ?',
+  'diario.prof.libro':
+    'Parle-moi du livre « {titulo} ». De quoi parle-t-il, quel est son style et pourquoi est-ce une œuvre marquante ?',
+  'diario.prof.personalidad':
+    'Qui était {titulo} ? Raconte-moi sa vie, son œuvre et pourquoi c’est une figure importante.',
+  'diario.prof.especieCientifico':
+    'Parle-moi de cette espèce : {titulo} ({autor}). Comment vit-elle, de quoi se nourrit-elle, qu’est-ce qui la rend spéciale et quel est son état de conservation ?',
+  'diario.prof.especie':
+    'Parle-moi de cette espèce : {titulo}. Comment vit-elle, de quoi se nourrit-elle, qu’est-ce qui la rend spéciale et quel est son état de conservation ?',
+  'diario.prof.palabra':
+    'Approfondis le mot « {titulo} » : son origine ou son étymologie, ses sens et comment bien l’employer.',
+  'diario.prof.fraseAutor':
+    'Explique-moi cette citation de {autor} : {titulo}. Que signifie-t-elle, dans quel contexte est-elle née et qu’enseigne-t-elle ?',
+  'diario.prof.frase':
+    'Explique-moi cette citation : {titulo}. Que signifie-t-elle, dans quel contexte est-elle née et qu’enseigne-t-elle ?',
   'ejercicio.ppmN': '{n} bpm',
   'ejercicio.det.minPor': 'min/{u}',
   'ejercicio.fuerza.ph.series': 'S',
@@ -11288,7 +11296,8 @@ export const FR: Dict = {
   'entre.j.cien.porSegundoN': '{n}/s',
   'escritura.docSinTitulo': 'Document',
   'ui.unidad.min': 'min',
-  'idiomas.charla.vaciaPropio': 'Salue-le en {idioma} ou dans ta langue : {tutor} converse à ton niveau, te corrige en douceur et à la fin tu peux extraire le nouveau vocabulaire.',
+  'idiomas.charla.vaciaPropio':
+    'Salue-le en {idioma} ou dans ta langue : {tutor} converse à ton niveau, te corrige en douceur et à la fin tu peux extraire le nouveau vocabulaire.',
   'idiomas.charla.placeholderPropio': 'Écris en {idioma} ou dans ta langue…',
   'idiomas.sel.phOtro': 'Nahuatl',
   'jardin.sesion.respiracion': 'Respiration',
@@ -11376,7 +11385,8 @@ export const FR: Dict = {
   'redes.err.permisos': 'Il manque des autorisations : reconnecte le compte et accepte-les toutes.',
   'redes.err.formato': 'Ce réseau n’accepte pas cette vidéo (format ou durée).',
   'redes.err.demasiado-grande': 'La vidéo est trop lourde pour ce réseau.',
-  'redes.err.cuota-youtube': 'Plus aucun envoi vers YouTube n’est possible aujourd’hui depuis l’app ; réessaie demain ou télécharge la vidéo.',
+  'redes.err.cuota-youtube':
+    'Plus aucun envoi vers YouTube n’est possible aujourd’hui depuis l’app ; réessaie demain ou télécharge la vidéo.',
   'redes.err.orden': 'L’envoi s’est déroulé dans le désordre : publie à nouveau.',
   'redes.err.sesion-caducada': 'L’envoi a expiré : publie à nouveau.',
   'redes.err.sin-unlock': 'Débloque ta MindHaOS pour utiliser les réseaux.',

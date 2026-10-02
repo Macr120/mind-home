@@ -6709,19 +6709,10 @@ export const NL: Dict = {
     'Vraag hoe een app of menu werkt, of vraag om de tutorial: de tovenaar laat het je stap voor stap op het scherm zien. In het Nederlands zijn de rondleidingen op het scherm beschikbaar voor de editor, de chat en het menu; voor de rest antwoordt de assistent (AI).',
   'tut.casa.titulo': 'Jouw MindHaOS',
   'tut.casa.resumen':
-    'Je MindHaOS is de kaart van je apps: elke kamer bevat er één. Je beweegt met de joystick of WASD, wisselt van weergave met V en opent het menu met de knop linksboven. De hoekknop verandert vanzelf, afhankelijk van wat er in de buurt is; de klok bevat de kalender, de routines en de muziek.',
+    'Je MindHaOS is de kaart van je apps: in elke kamer zit er een. Je beweegt met de joystick of WASD, wisselt van weergave met V en opent het menu met de knop linksboven. De knop in de hoek verandert vanzelf, afhankelijk van wat er in de buurt is; de klok bevat de kalender en het verstrijken van de tijd, en de muziek heeft een eigen knop. Het chatmenu brengt je assistenten, je vrienden, je plekken en de browser samen.',
   'tut.primeros.titulo': 'Je apps openen en nieuwe maken',
   'tut.primeros.resumen':
     'Hoe je je apps binnengaat en hoe je een nieuwe maakt: de kamer, zijn app en zijn drie ingangen.',
-  'tut.primeros.2a.titulo': 'Het gereedschapswiel',
-  'tut.primeros.2a.texto':
-    'Op de telefoon teken je kamers rechtstreeks op de kaart, zonder panelen te openen. Alles begint bij deze knop naast de joystick: het gereedschapswiel.',
-  'tut.primeros.2b.titulo': 'Bouwen',
-  'tut.primeros.2b.texto':
-    'Het wiel heeft twee niveaus. De vierde categorie is degene waarmee je je MindHaOS opbouwt: kamers, muren, deuren, ramen, vloeren en daken.',
-  'tut.primeros.2c.titulo': 'Modus Kamers',
-  'tut.primeros.2c.texto':
-    'Kamers zet het penseel klaar: het wiel sluit en elke tik op de grond zet een nieuwe kamer neer. Kijk — ik laat je zien waar de jouwe zou komen…',
   'tut.menu-cuartos.titulo': 'Menu · Thuis',
   'tut.menu-cuartos.resumen':
     'Het tabblad Thuis toont de kamers van je MindHaOS per categorie, met hun voortgang. De hele kaart opent de app — of zegt + Toewijzen als er nog geen is — en het tandwiel klapt de opties uit: verplaatsen in de lijst, de kamer verwijderen of bewerken. Bovenaan staat je samenvatting: humeur, rang en reeks; onderaan maak je nieuwe kamers.',
@@ -6839,7 +6830,7 @@ export const NL: Dict = {
   'bienvenida.siguiente': 'Volgende',
   'bienvenida.crear': 'Mijn MindHaOS maken',
   'bienvenida.creando': 'Je MindHaOS wordt gemaakt…',
-  'bienvenida.final.titulo': 'Je MindHaOS is klaar!',
+  'bienvenida.final.titulo': 'Je MindHaOS (Mentaal Huis OS) is klaar!',
   'bienvenida.cuenta': 'Account aanmaken of inloggen (synchroniseert je MindHaOS)',
   'bienvenida.guia.desc': 'Drie stappen om de slag te pakken te krijgen.',
   'bienvenida.guia.empezar': 'Beginnen',
@@ -6847,8 +6838,9 @@ export const NL: Dict = {
   'bienvenida.guia.salir': 'Naar je MindHaOS',
   'bienvenida.guia.cuarto.titulo': 'Je apps openen en nieuwe maken',
   'bienvenida.guia.cuarto.desc': 'Ik laat je zien hoe je je apps binnengaat en een nieuwe maakt met zijn kamer.',
-  'bienvenida.guia.tour.titulo': 'Verken je MindHaOS',
-  'bienvenida.guia.tour.desc': 'Een rondleiding langs het menu, de beweging, de klok en de chat.',
+  'bienvenida.guia.tour.titulo': 'Verken je MindHaOS (Mentaal Huis OS)',
+  'bienvenida.guia.tour.desc':
+    'Een rondje langs het menu, het bewegen, de klok en de chat, met je assistenten, vrienden, plekken en browser.',
   'bienvenida.guia.explorar.titulo': 'Verken zelf',
   'bienvenida.guia.explorar.desc': 'Klaar. Elk menu en elke app heeft zijn eigen tutorial achter de ?-knop.',
   'ajustes.bienvenida': 'Welkom',
@@ -10852,7 +10844,8 @@ export const NL: Dict = {
   'ciclo.solCasa': 'Zon: die van je huis',
   'cuenta.err.credenciales': 'E-mail of wachtwoord klopt niet.',
   'cuenta.err.sin-confirmar': 'Bevestig je e-mailadres voordat je inlogt (kijk in je inbox).',
-  'cuenta.err.correo-ocupado': 'Er kon geen account worden aangemaakt met dit e-mailadres. Als je er al een hebt, log dan in.',
+  'cuenta.err.correo-ocupado':
+    'Er kon geen account worden aangemaakt met dit e-mailadres. Als je er al een hebt, log dan in.',
   'cuenta.err.contrasena-debil': 'Het wachtwoord is te zwak: gebruik minimaal 8 tekens.',
   'cuenta.err.contrasena-igual': 'Je nieuwe wachtwoord moet anders zijn dan je huidige.',
   'cuenta.err.demasiados-intentos': 'Te veel pogingen. Wacht even en probeer het opnieuw.',
@@ -11011,7 +11004,7 @@ export const NL: Dict = {
   'idiomas.tema.a2-direcciones': 'Routes en vervoer',
   'idiomas.temaDesc.a2-direcciones': 'De weg vragen en wijzen, je door de stad verplaatsen.',
   'idiomas.tema.a2-tiempo-libre': 'Vrije tijd',
-  'idiomas.temaDesc.a2-tiempo-libre': "Hobby's, sport, uitnodigingen en eenvoudige plannen.",
+  'idiomas.temaDesc.a2-tiempo-libre': 'Hobby\'s, sport, uitnodigingen en eenvoudige plannen.',
   'idiomas.tema.a2-salud': 'Gezondheid en lichaam',
   'idiomas.temaDesc.a2-salud': 'Lichaamsdelen, klachten, naar de dokter gaan.',
   'idiomas.tema.a2-ciudad': 'Huis en stad',
@@ -11079,7 +11072,8 @@ export const NL: Dict = {
   'idiomas.tema.a2-pron-enlaces': 'Woorden verbinden',
   'idiomas.temaDesc.a2-pron-enlaces': 'Hoe woorden aan elkaar plakken als je doorpraat.',
   'idiomas.tema.b1-pron-fluidez': 'Vloeiendheid en tempo',
-  'idiomas.temaDesc.b1-pron-fluidez': 'Aan één stuk door praten zonder te haperen en zonder duidelijkheid te verliezen.',
+  'idiomas.temaDesc.b1-pron-fluidez':
+    'Aan één stuk door praten zonder te haperen en zonder duidelijkheid te verliezen.',
   'idiomas.tema.b1-pron-reducidas': 'Gereduceerde vormen',
   'idiomas.temaDesc.b1-pron-reducidas': 'Samentrekkingen en klanken die moedertaalsprekers inslikken.',
   'idiomas.tema.b1-pron-entonacion': 'Intonatie en emotie',
@@ -11160,8 +11154,10 @@ export const NL: Dict = {
   'idiomas.temaDesc.c2-gram-excepciones': 'Wat de regels niet kunnen verklaren.',
   'idiomas.tema.c2-gram-normativa': 'Norm en correctheid',
   'idiomas.temaDesc.c2-gram-normativa': 'Fouten die zelfs moedertaalsprekers maken.',
-  'chat.manual.nota.computo': 'Het formuleboek en de plotter hangen aan de rekenmachine, en wiskunde, natuurkunde en scheikunde zitten er standaard in; elk van die formules kun je bewerken. In de computerkamer schrijft de AI formules, legt stap voor stap uit, bouwt spreadsheets en leest de gegevens die je selecteert.',
-  'chat.manual.nota.paintball': 'Modi: 1 tegen 1, 2 tegen 2 (je hebt 3 assistenten nodig) en ieder voor zich. Iedereen kan 3 treffers incasseren en er wordt op de begane grond gespeeld.',
+  'chat.manual.nota.computo':
+    'Het formuleboek en de plotter hangen aan de rekenmachine, en wiskunde, natuurkunde en scheikunde zitten er standaard in; elk van die formules kun je bewerken. In de computerkamer schrijft de AI formules, legt stap voor stap uit, bouwt spreadsheets en leest de gegevens die je selecteert.',
+  'chat.manual.nota.paintball':
+    'Modi: 1 tegen 1, 2 tegen 2 (je hebt 3 assistenten nodig) en ieder voor zich. Iedereen kan 3 treffers incasseren en er wordt op de begane grond gespeeld.',
   'chat.voz.sinTexto': '{proveedor} gaf geen tekst terug',
   'archivo.nombre.documento': 'document',
   'clima.err.espera': 'De dienst reageerde niet op tijd.',
@@ -11192,7 +11188,8 @@ export const NL: Dict = {
   'carrera.nVueltas': '{n} rondes',
   'clima.aprox': 'ca.',
   'planos.aviso.celdaEnCuarto': 'Selecteer een cel binnen een kamer.',
-  'planos.aviso.sinSoporte': 'Op hogere verdiepingen kun je alleen bouwen boven op een kamer van de verdieping eronder.',
+  'planos.aviso.sinSoporte':
+    'Op hogere verdiepingen kun je alleen bouwen boven op een kamer van de verdieping eronder.',
   'planos.aviso.ocupada': 'Die cel is al bezet. Kies een vrije plek.',
   'planos.aviso.noCabe': 'De kamer kan daar niet geplaatst worden.',
   'ui.dur.d': '{n} d',
@@ -11222,18 +11219,30 @@ export const NL: Dict = {
   'computo.hojaN': 'Blad{n}',
   'ui.unidad.h': 'u',
   'despacho.meta.deObjetivo': '{a} van {b} ({p}%)',
-  'diario.prof.historiaAnio': 'Vertel me meer over deze historische gebeurtenis uit {anio}: {titulo}. Wat gebeurde er, waarom was het belangrijk en wat waren de gevolgen?',
-  'diario.prof.historia': 'Vertel me meer over deze historische gebeurtenis: {titulo}. Wat gebeurde er, waarom was het belangrijk en wat waren de gevolgen?',
-  'diario.prof.arteAutor': 'Vertel me over het kunstwerk “{titulo}” van {autor}. Wat stelt het voor, hoe is het gemaakt en waarom is het belangrijk in de kunstgeschiedenis?',
-  'diario.prof.arte': 'Vertel me over het kunstwerk “{titulo}”. Wat stelt het voor, hoe is het gemaakt en waarom is het belangrijk in de kunstgeschiedenis?',
-  'diario.prof.libroAutor': 'Vertel me over het boek “{titulo}” van {autor}. Waar gaat het over, wat is de stijl en waarom is het een belangrijk werk?',
-  'diario.prof.libro': 'Vertel me over het boek “{titulo}”. Waar gaat het over, wat is de stijl en waarom is het een belangrijk werk?',
-  'diario.prof.personalidad': 'Wie was {titulo}? Vertel me over het leven en werk van deze persoon en waarom die een belangrijke figuur is.',
-  'diario.prof.especieCientifico': 'Vertel me over deze soort: {titulo} ({autor}). Hoe leeft hij, wat eet hij, wat maakt hem bijzonder en wat is zijn beschermingsstatus?',
-  'diario.prof.especie': 'Vertel me over deze soort: {titulo}. Hoe leeft hij, wat eet hij, wat maakt hem bijzonder en wat is zijn beschermingsstatus?',
-  'diario.prof.palabra': 'Ga dieper in op het woord “{titulo}”: de herkomst of etymologie, de betekenissen en hoe je het goed gebruikt.',
-  'diario.prof.fraseAutor': 'Leg me dit citaat van {autor} uit: {titulo}. Wat betekent het, in welke context is het ontstaan en wat leert het ons?',
-  'diario.prof.frase': 'Leg me dit citaat uit: {titulo}. Wat betekent het, in welke context is het ontstaan en wat leert het ons?',
+  'diario.prof.historiaAnio':
+    'Vertel me meer over deze historische gebeurtenis uit {anio}: {titulo}. Wat gebeurde er, waarom was het belangrijk en wat waren de gevolgen?',
+  'diario.prof.historia':
+    'Vertel me meer over deze historische gebeurtenis: {titulo}. Wat gebeurde er, waarom was het belangrijk en wat waren de gevolgen?',
+  'diario.prof.arteAutor':
+    'Vertel me over het kunstwerk “{titulo}” van {autor}. Wat stelt het voor, hoe is het gemaakt en waarom is het belangrijk in de kunstgeschiedenis?',
+  'diario.prof.arte':
+    'Vertel me over het kunstwerk “{titulo}”. Wat stelt het voor, hoe is het gemaakt en waarom is het belangrijk in de kunstgeschiedenis?',
+  'diario.prof.libroAutor':
+    'Vertel me over het boek “{titulo}” van {autor}. Waar gaat het over, wat is de stijl en waarom is het een belangrijk werk?',
+  'diario.prof.libro':
+    'Vertel me over het boek “{titulo}”. Waar gaat het over, wat is de stijl en waarom is het een belangrijk werk?',
+  'diario.prof.personalidad':
+    'Wie was {titulo}? Vertel me over het leven en werk van deze persoon en waarom die een belangrijke figuur is.',
+  'diario.prof.especieCientifico':
+    'Vertel me over deze soort: {titulo} ({autor}). Hoe leeft hij, wat eet hij, wat maakt hem bijzonder en wat is zijn beschermingsstatus?',
+  'diario.prof.especie':
+    'Vertel me over deze soort: {titulo}. Hoe leeft hij, wat eet hij, wat maakt hem bijzonder en wat is zijn beschermingsstatus?',
+  'diario.prof.palabra':
+    'Ga dieper in op het woord “{titulo}”: de herkomst of etymologie, de betekenissen en hoe je het goed gebruikt.',
+  'diario.prof.fraseAutor':
+    'Leg me dit citaat van {autor} uit: {titulo}. Wat betekent het, in welke context is het ontstaan en wat leert het ons?',
+  'diario.prof.frase':
+    'Leg me dit citaat uit: {titulo}. Wat betekent het, in welke context is het ontstaan en wat leert het ons?',
   'ejercicio.ppmN': '{n} bpm',
   'ejercicio.det.minPor': 'min/{u}',
   'ejercicio.fuerza.ph.series': 'S',
@@ -11248,7 +11257,8 @@ export const NL: Dict = {
   'entre.j.cien.porSegundoN': '{n}/s',
   'escritura.docSinTitulo': 'Document',
   'ui.unidad.min': 'min',
-  'idiomas.charla.vaciaPropio': 'Zeg hallo in het {idioma} of in je eigen taal: {tutor} praat op jouw niveau, corrigeert je vriendelijk en aan het einde kun je de nieuwe woordenschat extraheren.',
+  'idiomas.charla.vaciaPropio':
+    'Zeg hallo in het {idioma} of in je eigen taal: {tutor} praat op jouw niveau, corrigeert je vriendelijk en aan het einde kun je de nieuwe woordenschat extraheren.',
   'idiomas.charla.placeholderPropio': 'Schrijf in het {idioma} of in je eigen taal…',
   'idiomas.sel.phOtro': 'Nahuatl',
   'jardin.sesion.respiracion': 'Ademhaling',
@@ -11336,7 +11346,8 @@ export const NL: Dict = {
   'redes.err.permisos': 'Er ontbreken toestemmingen: verbind het account opnieuw en accepteer ze allemaal.',
   'redes.err.formato': 'Dat netwerk accepteert deze video niet (formaat of duur).',
   'redes.err.demasiado-grande': 'De video is groter dan dat netwerk toestaat.',
-  'redes.err.cuota-youtube': 'Er zijn vandaag geen uploads naar YouTube meer over in de app; probeer het morgen opnieuw of download de video.',
+  'redes.err.cuota-youtube':
+    'Er zijn vandaag geen uploads naar YouTube meer over in de app; probeer het morgen opnieuw of download de video.',
   'redes.err.orden': 'De upload raakte uit volgorde: plaats de video opnieuw.',
   'redes.err.sesion-caducada': 'De upload is verlopen: plaats de video opnieuw.',
   'redes.err.sin-unlock': 'Ontgrendel je MindHaOS om sociale netwerken te gebruiken.',
@@ -11397,7 +11408,7 @@ export const NL: Dict = {
   'entre.j.cien.forma.7': 'gek op technologie',
   'entre.j.cien.forma.8': 'sceptisch, gelooft niets zonder bewijs',
   'entre.j.cien.forma.9': 'sociaal en doet wat de vriendengroep doet',
-  'entre.j.cien.forma.10': "voorzichtig, vermijdt risico's",
+  'entre.j.cien.forma.10': 'voorzichtig, vermijdt risico\'s',
   'entre.j.cien.forma.11': 'idealistisch, denkt aan wat eerlijk is',
   'editor.grid.expandir.N': 'Uitbreiden naar het noorden',
   'editor.grid.expandir.S': 'Uitbreiden naar het zuiden',

@@ -67,7 +67,8 @@ export const ID_TUT: Dict = {
   'tut.app-computo--hojas.5.titulo': 'Ekspor',
   'tut.app-computo--hojas.5.texto':
     'Ke Excel keluar .xlsx sungguhan, dengan rumus yang hidup dan grafik sebagai grafik Excel asli. Ke PDF keluar lewat pencetak browser.',
-  'tut.casa.1.texto': 'Ini MindHaOS-mu: setiap ruangan menyimpan satu aplikasi. Aku tunjukkan kontrol dasarnya.',
+  'tut.casa.1.texto':
+    'Ini MindHaOS (Rumah Pikiran OS) kamu: setiap ruangan menyimpan satu app. Aku tunjukkan kontrol dasarnya.',
   'tut.casa.2.titulo': 'Menu utama',
   'tut.casa.2.texto':
     'Aku buka supaya kamu lihat: ini menu utama, berisi ruanganmu dan aplikasinya. Tab lainnya membawa Dalam (katalog aplikasi) dan Luar, yang dibangun di atas lahan.',
@@ -98,9 +99,21 @@ export const ID_TUT: Dict = {
   'tut.casa.9.titulo': 'Obrolan',
   'tut.casa.9.texto':
     'Obrolan sang arsitek: ceritakan apa yang kamu lakukan dan dia mencatatnya di aplikasi yang tepat, minta perubahan di MindHaOS, gambar, bahkan model 3D untuk ruanganmu — atau sekadar mengobrol santai.',
-  'tut.casa.asistente.titulo': 'Asistenmu',
+  'tut.casa.asistente.titulo': 'Menu chat',
   'tut.casa.asistente.texto':
-    'Tombol ini asistenmu: dialah yang menjawabmu di obrolan. Sentuh untuk membuka menunya dan menyesuaikannya — bentuknya, suaranya, dan kepribadiannya.',
+    'Tombol ini membuka menu chat, dengan empat tampilan di atas: Asisten, Teman, Tempat, dan Browser. Manual dan ⚙ di kanan berubah sesuai tampilan yang dipilih. Aku tunjukkan…',
+  'tut.casa.vAsistentes.titulo': 'Asisten',
+  'tut.casa.vAsistentes.texto':
+    'Mereka yang menjawab kamu di chat. Buka percakapan masing-masing, buat yang baru, dan beri bentuk, suara, serta kepribadian dari ⚙.',
+  'tut.casa.vAmigos.titulo': 'Teman',
+  'tut.casa.vAmigos.texto':
+    'Kotak masukmu dengan orang sungguhan: tambahkan lewat alias, chat, kirimi mereka hal dari ruanganmu, dan undang mereka main atau berkunjung. Perlu akunmu.',
+  'tut.casa.vLugares.titulo': 'Tempat',
+  'tut.casa.vLugares.texto':
+    'Tempat simpananmu per kategori dan «Cara ke sana»: dengan tampilan ini dipilih, apa yang kamu tulis di chat jadi tujuan dan rutenya digambar dari posisimu.',
+  'tut.casa.vNavegador.titulo': 'Browser',
+  'tut.casa.vNavegador.texto':
+    'Internet tanpa keluar dari MindHaOS, lengkap dengan tab, riwayat, dan situsmu. Dengan tampilan ini dipilih, apa yang kamu tulis dicari di web atau membuka alamatnya.',
   'tut.casa.mas.titulo': 'Menu +',
   'tut.casa.mas.texto':
     'Sudah kubuka supaya kamu bisa lihat: dengan + kamu melampirkan sesuatu ke obrolan — unggah gambar atau PDF, ambil foto, atau beralih ke Masker AR dan Obrolan AR bertatap muka.',
@@ -110,36 +123,36 @@ export const ID_TUT: Dict = {
   'tut.casa.10.texto':
     'Itu dasarnya. Setiap menu dan setiap aplikasi punya tombol ? sendiri dengan tutorialnya: minta saja saat ada yang belum jelas buatmu.',
   'tut.primeros.1.texto':
-    'Tutorial ini menjawab dua hal: cara MASUK ke aplikasimu dan cara MEMBUAT yang baru. Keduanya ada di sini, di tab Rumah.',
+    'Tutorial ini menjawab dua hal tentang MindHaOS (Rumah Pikiran OS) kamu: cara MASUK ke app-mu dan cara MEMBUAT yang baru. Keduanya ada di sini, di tab Rumah.',
   'tut.primeros.entrar.titulo': 'Masuk ke aplikasimu',
   'tut.primeros.entrar.texto':
-    'Setiap ruangan membawa aplikasinya dan kamu punya tiga pintu: kartunya di sini di menu, objek dengan bola melayang di peta, dan akses cepat tombol MindHaOS di atas.',
+    'Setiap ruangan membawa app-nya sendiri dan kamu punya tiga pintu: kartunya di sini di menu, objek dengan bola melayang di peta, dan akses cepat dari tombol logo di atas.',
   'tut.primeros.entrar.vacio':
-    'Di sini kamar-kamarmu akan tinggal, masing-masing dengan aplikasinya, dan kamu akan punya tiga pintu: kartunya di sini di menu, objek dengan bola melayang di peta, dan akses cepat tombol MindHaOS di atas. Ayo buat yang pertama…',
+    'Di sini nanti ruanganmu tinggal, masing-masing dengan app-nya, dan kamu punya tiga pintu: kartunya di sini di menu, objek dengan bola melayang di peta, dan akses cepat dari tombol logo di atas. Ayo buat yang pertama…',
   'tut.primeros.prev.titulo': 'Di sinilah ruanganmu',
   'tut.primeros.prev.texto':
     'Ini pratinjau kuasnya: siluet hijau dengan dindingnya menandai di mana ruangan akan berdiri. Saat membangun sendiri kamu akan melihatnya persis begitu di bawah jarimu, sebelum melepas sentuhan.',
   'tut.primeros.mat.titulo': 'Selesai dibangun!',
   'tut.primeros.mat.texto':
-    'Dan ini dia: ruangannya berdiri persis di tempat yang ditandai pratinjau, dengan pintunya di depan. Belum ada aplikasinya — itulah langkah berikutnya.',
+    'Dan ini dia: ruangannya berdiri tepat di tempat yang ditandai preview, pintunya di depan. Belum ada app-nya, jadi begitu selesai dibangun panel untuk memberinya app langsung terbuka.',
   'tut.primeros.2.titulo': 'Buat ruangan',
   'tut.primeros.2.texto':
-    'Dengan tombol ini kamu menggambar ruangan baru di peta, sel demi sel. Lihat — aku tunjukkan di mana ruanganmu akan berdiri…',
-  'tut.primeros.3.titulo': 'Ruangan barumu',
-  'tut.primeros.3.texto':
-    'Ini dia! Ruangan yang baru dibuat, masih tanpa aplikasi: makanya kartunya bertuliskan + Tetapkan.',
+    'Dengan tombol ini kamu menaruh ruangan baru di peta dan, begitu dilepas, kamu langsung memilih app-nya. Lihat — aku tunjukkan di mana ruanganmu akan berdiri…',
   'tut.primeros.apps.titulo': 'Aplikasi yang tersedia',
   'tut.primeros.apps.texto':
-    'Ini membuka + Tetapkan: panel dengan semua aplikasi yang tersedia. Masing-masing menata ruangannya dengan perabot dan aplikasinya sendiri. Aku beri satu untuk ruanganmu…',
+    'Ini + Tetapkan, dengan semua app yang tersedia: masing-masing menyusun ruangannya beserta perabotnya. Kalau kamu tutup tanpa memilih, kartu ruangan akan menawarkannya lagi. Aku beri satu untuk ruanganmu…',
   'tut.primeros.4.titulo': 'Menetapkan aplikasi',
   'tut.primeros.4.texto':
-    'Dengan + Tetapkan aku memberinya aplikasi: lihat bagaimana ruangan itu mengambil nama, ikon, dan perabotnya. Mulai sekarang seluruh kartunya adalah tombol masuk.',
+    'Aku kasih app-nya: lihat, ruangan itu langsung dapat nama, ikon, dan perabotnya. Mulai sekarang seluruh kartunya jadi tombol masuk.',
   'tut.primeros.5.titulo': 'Masuk',
   'tut.primeros.5.texto':
-    'Kita sudah di dalam: ini aplikasi ruangannya. Untuk kembali nanti: kartunya di menu, objek dengan bola di peta, atau akses cepat tombol MindHaOS di atas.',
+    'Kita masuk: ini app ruangannya. Untuk kembali nanti: kartunya di menu, objek dengan bola di peta, atau akses cepat lewat tombol logo di atas.',
   'tut.primeros.press.titulo': 'Tekan dan tahan',
   'tut.primeros.press.texto':
     'Lihat bagaimana ia bergetar: menekan lama sebuah ruangan atau objek akan membangunkannya, lengkap dengan menunya. Begitulah kamu memindahkannya kalau tidak suka letaknya, atau menghapusnya.',
+  'tut.primeros.enlace.titulo': 'Objek yang mengarah ke sesuatu',
+  'tut.primeros.enlace.texto':
+    'Pada objek, menu itu juga punya «Tautan»: jadikan objek itu pintu menuju halaman web atau entri dari app kamu —sebuah resep, buku, rekor—. Setelah itu, tinggal ketuk untuk langsung ke sana.',
   'tut.primeros.6.texto':
     'Itu saja: membuat ruangan, memberinya aplikasi, masuk, dan menatanya. Yang ini untuk latihan — akan kubawa begitu selesai, supaya kamu menyusun MindHaOS-mu sesuai seleramu.',
   'tut.menu-cuartos.1.texto': 'Tab Rumah mendaftar semua ruangan MindHaOS-mu, dikelompokkan per kategori.',
@@ -344,8 +357,10 @@ export const ID_TUT: Dict = {
     'Ikon ini memilih AI mana yang menjawab dan menyimpan kuncimu kalau kamu pakai kunci sendiri. Kalau belum ada yang disetel, chat tetap jalan lewat kata kunci, tanpa memahami bahasa bebas.',
   'tut.chat.8.texto':
     'Kamu juga bisa bertanya “bagaimana cara kerja Dapur?” atau minta “tutorial Gym” di sini juga, dan apa yang tersimpan dibahas di tutorial tab Entri.',
-  'tut.chat-registros.porAsistente.texto': 'Setiap asisten menyimpan di chat-nya apa yang kamu catat bersamanya dan apa yang ia ingat tentangmu. Tombol ini membukanya sebagai grafik: setiap ingatan terhubung sendiri dengan hal dari aplikasimu yang disebutnya; ketuk salah satunya untuk memperbaiki atau melupakannya.',
-  'tut.chat-registros.mapa.texto': 'Mengobrol dengan asisten membawanya ke peta, dan menghapus percakapannya mengeluarkannya. Untuk memanggilnya lagi, pakai “Tambah asisten” di bawah daftar chat.',
+  'tut.chat-registros.porAsistente.texto':
+    'Setiap asisten menyimpan di chat-nya apa yang kamu catat bersamanya dan apa yang ia ingat tentangmu. Tombol ini membukanya sebagai grafik: setiap ingatan terhubung sendiri dengan hal dari aplikasimu yang disebutnya; ketuk salah satunya untuk memperbaiki atau melupakannya.',
+  'tut.chat-registros.mapa.texto':
+    'Mengobrol dengan asisten membawanya ke peta, dan menghapus percakapannya mengeluarkannya. Untuk memanggilnya lagi, pakai “Tambah asisten” di bawah daftar chat.',
   'tut.chat-registros.1.texto':
     'Obrolan menampilkan dengan siapa kamu mengobrol; Entri, apa yang tersimpan dari percakapan itu.',
   'tut.chat-registros.2.titulo': 'Yang diingat tentang kamu',
@@ -413,9 +428,9 @@ export const ID_TUT: Dict = {
     'Di bagian bawah, “Hapus contoh” menghapus seluruhnya setelah kamu konfirmasi dengan “Ya, hapus contoh”, dan milikmu tidak pernah disentuh. Kalau sudah tidak ada yang tersisa, di tempat yang sama muncul “Pulihkan contoh bawaan”.',
   'tut.ejemplos.3.texto':
     'Contoh ini tidak menambah XP atau runtunan, tidak memicu pengingat, tidak masuk ke Wrapped-mu, dan AI tidak memperhitungkannya. Di MindHaOS demo bilah ini tidak muncul: setahun penuh milik Ari sudah menjadi contohnya.',
-  'tut.ejemplos.1.titulo': 'Muncul sendiri',
-  'tut.ejemplos.2.titulo': 'Hapus atau pulihkan',
   'tut.ejemplos.3.titulo': 'Tidak dihitung sebagai milikmu',
+  'tut.ejemplos.2.titulo': 'Hapus atau pulihkan',
+  'tut.ejemplos.1.titulo': 'Muncul sendiri',
   'tut.hoy.1.texto':
     'Misi tidak tinggal di tempat terpisah: misi tinggal DI DALAM setiap aplikasi. Di bagian atas tiap ruangan ada tombol Misi, berisi daftar yang diminta aplikasi itu HARI INI.',
   'tut.hoy.2.titulo': 'Tiga sumber, satu daftar',

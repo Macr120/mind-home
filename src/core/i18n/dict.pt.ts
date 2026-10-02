@@ -6653,18 +6653,9 @@ export const PT: Dict = {
     'Pergunte como funciona qualquer app ou menu, ou peça o tutorial: o mago mostra na tela, passo a passo. Em inglês, os percursos na tela funcionam para o editor, o chat e o menu; o resto é respondido pelo assistente (IA).',
   'tut.casa.titulo': 'Sua MindHaOS',
   'tut.casa.resumen':
-    'A MindHaOS é o mapa dos seus apps: cada cômodo guarda um. Você se move com o joystick ou WASD, muda de vista com V e abre o menu com o botão no canto superior esquerdo. O espaço do canto muda sozinho conforme o que está perto; o relógio traz o calendário e a passagem do tempo, e a música tem seu próprio botão.',
+    'A MindHaOS é o mapa dos seus apps: cada cômodo guarda um. Você se move com o joystick ou WASD, muda de vista com V e abre o menu com o botão no canto superior esquerdo. O espaço do canto muda sozinho conforme o que estiver por perto; o relógio traz o calendário e a passagem do tempo, e a música tem seu próprio botão. O menu do chat reúne seus assistentes, seus amigos, seus lugares e o navegador.',
   'tut.primeros.titulo': 'Como abrir seus apps e criar mais',
   'tut.primeros.resumen': 'Como entrar nos seus apps e como criar um novo: o cômodo, o app dele e seus três acessos.',
-  'tut.primeros.2a.titulo': 'A roda de ferramentas',
-  'tut.primeros.2a.texto':
-    'No celular os cômodos são desenhados sobre o mapa, sem abrir painéis. Tudo sai deste botão ao lado do joystick: a roda de ferramentas.',
-  'tut.primeros.2b.titulo': 'Construção',
-  'tut.primeros.2b.texto':
-    'A roda tem dois níveis. A quarta categoria é a que levanta a MindHaOS: cômodos, paredes, portas, janelas, pisos e telhados.',
-  'tut.primeros.2c.titulo': 'Modo Cômodos',
-  'tut.primeros.2c.texto':
-    'Cômodos deixa o pincel pronto: a roda se fecha e cada toque no chão levanta um cômodo novo. Olha — vou te mostrar onde ficaria o seu…',
   'tut.menu-cuartos.titulo': 'Menu · Casa',
   'tut.menu-cuartos.resumen':
     'A aba Casa lista os cômodos da sua MindHaOS por categoria, com seu progresso. O cartão inteiro entra no app — ou diz + Atribuir se ainda não tiver — e sua engrenagem abre as opções: movê-lo na lista, apagar o cômodo ou editá-lo. Em cima fica seu resumo: humor, posto e sequência; embaixo você cria cômodos novos.',
@@ -6782,7 +6773,7 @@ export const PT: Dict = {
   'bienvenida.siguiente': 'Avançar',
   'bienvenida.crear': 'Criar minha MindHaOS',
   'bienvenida.creando': 'Criando sua MindHaOS…',
-  'bienvenida.final.titulo': 'Sua MindHaOS está pronta!',
+  'bienvenida.final.titulo': 'Sua MindHaOS (Casa Mental OS) está pronta!',
   'bienvenida.cuenta': 'Criar conta ou entrar (sincroniza sua MindHaOS)',
   'bienvenida.guia.desc': 'Três passos para pegar o jeito.',
   'bienvenida.guia.empezar': 'Começar',
@@ -6790,8 +6781,9 @@ export const PT: Dict = {
   'bienvenida.guia.salir': 'Ir para a MindHaOS',
   'bienvenida.guia.cuarto.titulo': 'Como abrir seus apps e criar mais',
   'bienvenida.guia.cuarto.desc': 'Mostro como entrar nos seus apps e criar um novo com seu cômodo.',
-  'bienvenida.guia.tour.titulo': 'Percorra sua MindHaOS',
-  'bienvenida.guia.tour.desc': 'Um passeio pelo menu, o movimento, o relógio e o chat.',
+  'bienvenida.guia.tour.titulo': 'Conheça sua MindHaOS (Casa Mental OS)',
+  'bienvenida.guia.tour.desc':
+    'Um passeio pelo menu, pelo movimento, pelo relógio e pelo chat, com seus assistentes, amigos, lugares e navegador.',
   'bienvenida.guia.explorar.titulo': 'Explore por conta própria',
   'bienvenida.guia.explorar.desc': 'Pronto. Cada menu e cada app guardam seu próprio tutorial no botão ?.',
   'ajustes.bienvenida': 'Boas-vindas',
@@ -11076,8 +11068,10 @@ export const PT: Dict = {
   'idiomas.temaDesc.c2-gram-excepciones': 'O que as regras não conseguem explicar.',
   'idiomas.tema.c2-gram-normativa': 'Norma culta e correção',
   'idiomas.temaDesc.c2-gram-normativa': 'Erros que até os nativos cometem.',
-  'chat.manual.nota.computo': 'O formulário e o plotador ficam pendurados na calculadora; o formulário já vem com Matemática, Física e Química prontas, e qualquer uma dessas fórmulas pode ser editada. Dentro da sala, a IA escreve fórmulas, explica passo a passo, monta planilhas e lê os dados que você selecionar.',
-  'chat.manual.nota.paintball': 'Modos: 1 x 1, 2 x 2 (precisa de 3 assistentes) e todos contra todos. Cada um aguenta 3 tiros e se joga no térreo.',
+  'chat.manual.nota.computo':
+    'O formulário e o plotador ficam pendurados na calculadora; o formulário já vem com Matemática, Física e Química prontas, e qualquer uma dessas fórmulas pode ser editada. Dentro da sala, a IA escreve fórmulas, explica passo a passo, monta planilhas e lê os dados que você selecionar.',
+  'chat.manual.nota.paintball':
+    'Modos: 1 x 1, 2 x 2 (precisa de 3 assistentes) e todos contra todos. Cada um aguenta 3 tiros e se joga no térreo.',
   'chat.voz.sinTexto': '{proveedor} não retornou texto',
   'archivo.nombre.documento': 'documento',
   'clima.err.espera': 'Tempo esgotado ao consultar o serviço.',
@@ -11138,17 +11132,27 @@ export const PT: Dict = {
   'computo.hojaN': 'Planilha{n}',
   'ui.unidad.h': 'h',
   'despacho.meta.deObjetivo': '{a} de {b} ({p}%)',
-  'diario.prof.historiaAnio': 'Me conte mais sobre este fato histórico de {anio}: {titulo}. O que aconteceu, por que foi importante e quais foram as consequências?',
-  'diario.prof.historia': 'Me conte mais sobre este fato histórico: {titulo}. O que aconteceu, por que foi importante e quais foram as consequências?',
-  'diario.prof.arteAutor': 'Me fale sobre a obra “{titulo}”, de {autor}. O que ela representa, como foi criada e por que é importante na história da arte?',
-  'diario.prof.arte': 'Me fale sobre a obra “{titulo}”. O que ela representa, como foi criada e por que é importante na história da arte?',
-  'diario.prof.libroAutor': 'Me fale sobre o livro “{titulo}”, de {autor}. Do que ele trata, qual é o seu estilo e por que é uma obra relevante?',
-  'diario.prof.libro': 'Me fale sobre o livro “{titulo}”. Do que ele trata, qual é o seu estilo e por que é uma obra relevante?',
+  'diario.prof.historiaAnio':
+    'Me conte mais sobre este fato histórico de {anio}: {titulo}. O que aconteceu, por que foi importante e quais foram as consequências?',
+  'diario.prof.historia':
+    'Me conte mais sobre este fato histórico: {titulo}. O que aconteceu, por que foi importante e quais foram as consequências?',
+  'diario.prof.arteAutor':
+    'Me fale sobre a obra “{titulo}”, de {autor}. O que ela representa, como foi criada e por que é importante na história da arte?',
+  'diario.prof.arte':
+    'Me fale sobre a obra “{titulo}”. O que ela representa, como foi criada e por que é importante na história da arte?',
+  'diario.prof.libroAutor':
+    'Me fale sobre o livro “{titulo}”, de {autor}. Do que ele trata, qual é o seu estilo e por que é uma obra relevante?',
+  'diario.prof.libro':
+    'Me fale sobre o livro “{titulo}”. Do que ele trata, qual é o seu estilo e por que é uma obra relevante?',
   'diario.prof.personalidad': 'Quem foi {titulo}? Me conte sobre a vida, a obra e por que é uma figura importante.',
-  'diario.prof.especieCientifico': 'Me fale sobre esta espécie: {titulo} ({autor}). Como ela vive, do que se alimenta, o que a torna especial e qual é o seu estado de conservação?',
-  'diario.prof.especie': 'Me fale sobre esta espécie: {titulo}. Como ela vive, do que se alimenta, o que a torna especial e qual é o seu estado de conservação?',
-  'diario.prof.palabra': 'Fale mais sobre a palavra “{titulo}”: sua origem ou etimologia, seus significados e como usá-la bem.',
-  'diario.prof.fraseAutor': 'Me explique esta frase de {autor}: {titulo}. O que ela significa, em que contexto surge e o que ensina?',
+  'diario.prof.especieCientifico':
+    'Me fale sobre esta espécie: {titulo} ({autor}). Como ela vive, do que se alimenta, o que a torna especial e qual é o seu estado de conservação?',
+  'diario.prof.especie':
+    'Me fale sobre esta espécie: {titulo}. Como ela vive, do que se alimenta, o que a torna especial e qual é o seu estado de conservação?',
+  'diario.prof.palabra':
+    'Fale mais sobre a palavra “{titulo}”: sua origem ou etimologia, seus significados e como usá-la bem.',
+  'diario.prof.fraseAutor':
+    'Me explique esta frase de {autor}: {titulo}. O que ela significa, em que contexto surge e o que ensina?',
   'diario.prof.frase': 'Me explique esta frase: {titulo}. O que ela significa, em que contexto surge e o que ensina?',
   'ejercicio.ppmN': '{n} bpm',
   'ejercicio.det.minPor': 'min/{u}',
@@ -11164,7 +11168,8 @@ export const PT: Dict = {
   'entre.j.cien.porSegundoN': '{n}/s',
   'escritura.docSinTitulo': 'Documento',
   'ui.unidad.min': 'min',
-  'idiomas.charla.vaciaPropio': 'Cumprimente em {idioma} ou no seu idioma: {tutor} conversa no seu nível, corrige com jeito e no final você pode extrair o vocabulário novo.',
+  'idiomas.charla.vaciaPropio':
+    'Cumprimente em {idioma} ou no seu idioma: {tutor} conversa no seu nível, corrige com jeito e no final você pode extrair o vocabulário novo.',
   'idiomas.charla.placeholderPropio': 'Escreva em {idioma} ou no seu idioma…',
   'idiomas.sel.phOtro': 'Náuatle',
   'jardin.sesion.respiracion': 'Respiração',

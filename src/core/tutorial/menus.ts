@@ -1,4 +1,4 @@
-import type { CuerpoTutorial, TextoTut } from './tipos'
+import type { CuerpoTutorial, TextoTut, TutorialCtx } from './tipos'
 import { clickTut, elTut, esperarTut, irAPestanaMenu } from './dom'
 import { useCam } from '../state/cameraStore'
 import { useHud } from '../state/hudStore'
@@ -34,12 +34,25 @@ const abrirSiFalta = (sel: string, boton: string) => {
 }
 
 /**
- * Cierra TODO lo que el tour de la casa pudo dejar abierto (menú lateral,
- * rueda, panel del reloj, panel de música). Cada paso lo llama antes de abrir
- * lo suyo: así navegar con Atrás/Siguiente nunca deja dos menús encimados.
- * Todo es no-op sobre lo que ya está cerrado.
+ * Cierra el menú del chat y lo deja en la vista Asistentes: la vista elegida se
+ * guarda y manda sobre lo que se escribe (Navegador busca en la web, Lugares
+ * traza rutas), así que el tour no puede soltar al visitante en otra.
  */
-const cerrarPanelesHud = () => {
+const cerrarMenuChat = () => {
+  if (!elTut('chat.menu.panel')) return
+  clickTut('chat.menu.asistentes')
+  clickTut('chat.asistente')
+}
+
+/**
+ * Cierra TODO lo que el tour de la casa pudo dejar abierto (menú lateral,
+ * rueda, panel del reloj, panel de música, menús del chat). Cada paso lo llama
+ * antes de abrir lo suyo: así navegar con Atrás/Siguiente nunca deja dos menús
+ * encimados. Todo es no-op sobre lo que ya está cerrado. `conMenuChat` lo
+ * respeta (los pasos de sus vistas solo cambian de vista).
+ */
+const cerrarPanelesHud = (conMenuChat = false) => {
+  if (!conMenuChat) cerrarMenuChat()
   clickTut('herr.fondo')
   if (elTut('musica.panel')) clickTut('musica.boton')
   if (elTut('reloj.panel')) clickTut('reloj.fase')
@@ -50,6 +63,19 @@ const cerrarPanelesHud = () => {
 }
 
 /** Abre el editor en una pestaña concreta (preparar de los tours del editor). */
+/**
+ * Abre el menú del chat en una de sus cuatro vistas (idempotente para Atrás).
+ * Si se sale del tour a medias, la limpieza lo cierra en la vista Asistentes.
+ */
+const abrirVistaChat = async (ctx: TutorialCtx, vista: 'amigos' | 'asistentes' | 'lugares' | 'navegador') => {
+  await ctx.unaVez('menu-chat', async () => ctx.alLimpiar(cerrarMenuChat))
+  cerrarPanelesHud(true)
+  useHud.getState().setPlegado('chat', false)
+  abrirSiFalta('chat.menu.panel', 'chat.asistente')
+  await esperarTut(`chat.menu.${vista}`, 2000)
+  clickTut(`chat.menu.${vista}`)
+}
+
 const abrirEditorEn = (tab: 'mapa' | 'personajes' | 'objetos' | 'config') => () => {
   useEditorUi.getState().setTab(tab)
   useLayout.getState().setEditMode(true)
@@ -66,7 +92,7 @@ export const cuerpoCasa: CuerpoTutorial = {
       alEntrar: () => cerrarPanelesHud(),
       texto: T(
         'tut.casa.1.texto',
-        'Esta es tu casa: cada cuarto guarda una app. Te muestro los controles básicos.',
+        'Esta es tu MindHaOS (Casa Mental OS): cada cuarto guarda una app. Te muestro los controles básicos.',
       ),
     },
     {
@@ -233,10 +259,52 @@ export const cuerpoCasa: CuerpoTutorial = {
         cerrarPanelesHud()
         useHud.getState().setPlegado('chat', false)
       },
-      titulo: T('tut.casa.asistente.titulo', 'Tu asistente'),
+      titulo: T('tut.casa.asistente.titulo', 'El menú del chat'),
       texto: T(
         'tut.casa.asistente.texto',
-        'Este botón es tu asistente: quien te contesta en el chat. Tócalo para abrir su menú y personalizarlo — su forma, su voz y su personalidad.',
+        'Este botón abre el menú del chat, con cuatro vistas arriba: Asistentes, Amigos, Lugares y Navegador. El Manual y el ⚙ de la derecha cambian con la vista elegida. Te las enseño…',
+      ),
+    },
+    // Las cuatro vistas, abiertas de verdad. `cerrarMenuChat` devuelve la vista
+    // Asistentes al salir de este bloque.
+    {
+      sel: 'chat.menu.panel',
+      sinMago: true,
+      alEntrar: (ctx) => abrirVistaChat(ctx, 'asistentes'),
+      titulo: T('tut.casa.vAsistentes.titulo', 'Asistentes'),
+      texto: T(
+        'tut.casa.vAsistentes.texto',
+        'Quienes te contestan en el chat. Abre la conversación de cada uno, crea más y dales forma, voz y personalidad desde el ⚙.',
+      ),
+    },
+    {
+      sel: 'chat.menu.panel',
+      sinMago: true,
+      alEntrar: (ctx) => abrirVistaChat(ctx, 'amigos'),
+      titulo: T('tut.casa.vAmigos.titulo', 'Amigos'),
+      texto: T(
+        'tut.casa.vAmigos.texto',
+        'Tu buzón con personas reales: agrégalas por su alias, chatea, mándales cosas de tus cuartos e invítalas de visita o a jugar. Pide tu cuenta.',
+      ),
+    },
+    {
+      sel: 'chat.menu.panel',
+      sinMago: true,
+      alEntrar: (ctx) => abrirVistaChat(ctx, 'lugares'),
+      titulo: T('tut.casa.vLugares.titulo', 'Lugares'),
+      texto: T(
+        'tut.casa.vLugares.texto',
+        'Tus sitios guardados por categoría y «Cómo llegar»: con esta vista elegida, lo que escribes en el chat es un destino y te traza la ruta desde donde estás.',
+      ),
+    },
+    {
+      sel: 'chat.menu.panel',
+      sinMago: true,
+      alEntrar: (ctx) => abrirVistaChat(ctx, 'navegador'),
+      titulo: T('tut.casa.vNavegador.titulo', 'Navegador'),
+      texto: T(
+        'tut.casa.vNavegador.texto',
+        'Internet sin salir de la MindHaOS, con pestañas, historial y tus sitios. Con esta vista elegida, lo que escribes se busca en la web o abre la dirección.',
       ),
     },
     {

@@ -67,7 +67,8 @@ export const NL_TUT: Dict = {
   'tut.app-computo--hojas.5.titulo': 'Exporteren',
   'tut.app-computo--hojas.5.texto':
     'Naar Excel gaat een echte .xlsx, met levende formules en de diagrammen als echte Excel-diagrammen. Naar PDF gaat het via de printer van de browser.',
-  'tut.casa.1.texto': 'Dit is jouw MindHaOS: elke kamer bevat een app. Ik laat je de basisbediening zien.',
+  'tut.casa.1.texto':
+    'Dit is je MindHaOS (Mentaal Huis OS): elke kamer bevat een app. Ik laat je de basisknoppen zien.',
   'tut.casa.2.titulo': 'Het hoofdmenu',
   'tut.casa.2.texto':
     'Ik heb het geopend zodat je het ziet: dit is het hoofdmenu, met je kamers en hun apps. De andere tabbladen brengen Binnen (de app-catalogus) en Buiten, wat je op het terrein bouwt.',
@@ -98,9 +99,21 @@ export const NL_TUT: Dict = {
   'tut.casa.9.titulo': 'De chat',
   'tut.casa.9.texto':
     'De chat van de architect: vertel hem wat je hebt gedaan en hij legt het vast in de juiste app, vraag hem om veranderingen in je MindHaOS, afbeeldingen en zelfs 3D-modellen voor je kamers — of klets gewoon even wat.',
-  'tut.casa.asistente.titulo': 'Je assistent',
+  'tut.casa.asistente.titulo': 'Het chatmenu',
   'tut.casa.asistente.texto':
-    'Deze knop is je assistent: degene die je antwoordt in de chat. Tik erop om zijn menu te openen en hem aan te passen — zijn vorm, zijn stem en zijn persoonlijkheid.',
+    'Deze knop opent het chatmenu, met vier weergaven bovenaan: Assistenten, Vrienden, Plekken en Browser. De Handleiding en de ⚙ rechts veranderen mee met de gekozen weergave. Ik laat ze je zien…',
+  'tut.casa.vAsistentes.titulo': 'Assistenten',
+  'tut.casa.vAsistentes.texto':
+    'Degenen die je antwoorden in de chat. Open ieders gesprek, maak er meer en geef ze vorm, stem en persoonlijkheid via de ⚙.',
+  'tut.casa.vAmigos.titulo': 'Vrienden',
+  'tut.casa.vAmigos.texto':
+    'Je postvak met echte mensen: voeg ze toe met hun alias, chat, stuur ze dingen uit je kamers en nodig ze uit op bezoek of om te spelen. Vraag je account aan.',
+  'tut.casa.vLugares.titulo': 'Plekken',
+  'tut.casa.vLugares.texto':
+    'Je opgeslagen plekken per categorie en «Route hierheen»: met deze weergave gekozen is wat je in de chat typt een bestemming en tekent hij de route vanaf waar je bent.',
+  'tut.casa.vNavegador.titulo': 'Browser',
+  'tut.casa.vNavegador.texto':
+    'Internet zonder MindHaOS te verlaten, met tabbladen, geschiedenis en je sites. Met deze weergave gekozen wordt wat je typt op het web gezocht of als adres geopend.',
   'tut.casa.mas.titulo': 'Het +-menu',
   'tut.casa.mas.texto':
     'Ik heb het even geopend zodat je het ziet: met de + hang je dingen aan de chat — upload een afbeelding of een PDF, maak een foto, of stap over naar het AR-masker en de AR-chat, oog in oog.',
@@ -110,36 +123,36 @@ export const NL_TUT: Dict = {
   'tut.casa.10.texto':
     'Dat is de basis. Elk menu en elke app hebben hun eigen ?-knop met hun tutorial: vraag erom wanneer iets je niet duidelijk is.',
   'tut.primeros.1.texto':
-    'Deze rondleiding beantwoordt twee dingen: hoe je je apps OPENT en hoe je er een NIEUWE maakt. Allebei wonen ze hier, in het tabblad Thuis.',
+    'Deze uitleg beantwoordt twee dingen over je MindHaOS (Mentaal Huis OS): hoe je je apps BINNENGAAT en hoe je er een nieuwe MAAKT. Allebei wonen ze hier, op het tabblad Thuis.',
   'tut.primeros.entrar.titulo': 'Je apps binnengaan',
   'tut.primeros.entrar.texto':
-    'Elke kamer draagt zijn app en je hebt drie deuren: zijn kaart hier in het menu, het object met de zwevende bol op de plattegrond, en de snelle toegang via de MindHaOS-knop bovenaan.',
+    'Elke kamer draagt zijn app en je hebt drie deuren: zijn kaartje hier in het menu, het object met de zwevende bol op de kaart, en de snelkoppeling op de logoknop, bovenaan.',
   'tut.primeros.entrar.vacio':
-    'Hier komen je kamers te wonen, elk met zijn app, en je krijgt drie deuren: zijn kaart hier in het menu, het object met de zwevende bol op de plattegrond, en de snelle toegang via de MindHaOS-knop bovenaan. Laten we de eerste maken…',
+    'Hier komen je kamers te wonen, elk met zijn app, en je hebt dan drie deuren: zijn kaartje hier in het menu, het object met de zwevende bol op de kaart, en de snelkoppeling op de logoknop, bovenaan. Laten we de eerste maken…',
   'tut.primeros.prev.titulo': 'Hier komt jouw kamer',
   'tut.primeros.prev.texto':
     'Dit is de preview van het penseel: het groene silhouet met zijn muren markeert waar de kamer komt te staan. Bouw je met de hand, dan zie je het net zo onder je vinger, nog vóór je de tik loslaat.',
   'tut.primeros.mat.titulo': 'Gebouwd!',
   'tut.primeros.mat.texto':
-    'En daar is-ie: de kamer verrees precies waar de preview het aangaf, met zijn deur aan de voorkant. Een app heeft hij nog niet — dat is wat nu volgt.',
+    'En daar is hij: de kamer staat precies waar de preview hem aangaf, met zijn deur naar voren. Hij heeft nog geen app, dus zodra hij gebouwd is gaat het paneel vanzelf open om er een te kiezen.',
   'tut.primeros.2.titulo': 'Kamer maken',
   'tut.primeros.2.texto':
-    'Met deze knop teken je nieuwe kamers op de kaart, cel voor cel. Kijk — ik laat je zien waar de jouwe zou komen…',
-  'tut.primeros.3.titulo': 'Jouw nieuwe kamer',
-  'tut.primeros.3.texto':
-    'Daar is-ie! Een gloednieuwe kamer, nog zonder app: daarom staat er + Toewijzen op zijn kaart.',
+    'Met deze knop plaats je een nieuwe kamer op de kaart en zodra je hem loslaat ga je meteen door naar het kiezen van zijn app. Kijk — ik laat je zien waar die van jou zou komen…',
   'tut.primeros.apps.titulo': 'De beschikbare apps',
   'tut.primeros.apps.texto':
-    'Dit opent + Toewijzen: het paneel met alle beschikbare apps. Elk ervan bouwt zijn kamer op met zijn eigen meubels en zijn app. Ik geef er eentje aan de jouwe…',
+    'Dit is + Toewijzen, met alle beschikbare apps: elke app bouwt zijn kamer met zijn meubels. Sluit je het zonder te kiezen, dan biedt het kaartje van de kamer het opnieuw aan. Ik geef die van jou er een…',
   'tut.primeros.4.titulo': 'Een app toewijzen',
   'tut.primeros.4.texto':
-    'Met + Toewijzen heb ik hem zijn app gegeven: kijk hoe de kamer haar naam, haar icoon en haar meubels heeft overgenomen. Vanaf nu is zijn hele kaart de knop om naar binnen te gaan.',
+    'Ik gaf hem zijn app: kijk hoe de kamer zijn naam, zijn icoon en zijn meubels heeft overgenomen. Vanaf nu is de hele kaart de knop om binnen te gaan.',
   'tut.primeros.5.titulo': 'Openen',
   'tut.primeros.5.texto':
-    'We zijn binnen: dit is de app van de kamer. Om straks terug te komen: zijn kaart in het menu, het object met de bol op de plattegrond, of de snelle toegang via de MindHaOS-knop bovenaan.',
+    'We zijn binnen: dit is de app van de kamer. Om later terug te komen: zijn kaartje in het menu, het object met de bol op de kaart, of de snelkoppeling in de logoknop, bovenaan.',
   'tut.primeros.press.titulo': 'Houd ingedrukt',
   'tut.primeros.press.texto':
     'Kijk hoe hij trilt: een kamer of een object ingedrukt houden maakt hem wakker, met zijn menu erbij. Zo verplaats je hem als je niet blij bent met waar hij terechtkwam, of verwijder je hem.',
+  'tut.primeros.enlace.titulo': 'Objecten die ergens heen leiden',
+  'tut.primeros.enlace.texto':
+    'Bij een object heeft dat menu ook «Koppeling»: maak er de deur van naar een webpagina of naar een item uit je apps —een recept, een boek, een record—. Daarna tik je er gewoon op en je bent er meteen.',
   'tut.primeros.6.texto':
     'Dat is alles: de kamer maken, hem zijn app geven, binnengaan en hem op zijn plek zetten. Deze was om te oefenen — ik neem hem aan het eind weer mee, zodat jij je MindHaOS naar eigen smaak opbouwt.',
   'tut.menu-cuartos.1.texto': 'Het tabblad Thuis toont alle kamers van je MindHaOS, gegroepeerd per categorie.',
@@ -343,8 +356,10 @@ export const NL_TUT: Dict = {
     'Dit icoon kiest welke AI antwoordt en bewaart je sleutel als je je eigen gebruikt. Staat er geen enkele ingesteld, dan blijft de chat werken op trefwoorden, zonder vrije taal te begrijpen.',
   'tut.chat.8.texto':
     'Je kunt hier ook «hoe werkt de keuken?» vragen of om «tutorial van de Gym» vragen, en wat er is opgeslagen bekijk je in de tour van Registraties.',
-  'tut.chat-registros.porAsistente.texto': 'Elke assistent bewaart in zijn chat wat je met hem hebt geregistreerd en wat hij over je onthoudt. Deze knop opent het als graaf: elke herinnering verbindt zich vanzelf met wat ze uit je apps noemt; tik er een aan om die te verbeteren of te vergeten.',
-  'tut.chat-registros.mapa.texto': 'Chatten met een assistent haalt hem naar de kaart, en zijn gesprek verwijderen haalt hem weg. Roep hem terug met “Assistent toevoegen” onder de chats.',
+  'tut.chat-registros.porAsistente.texto':
+    'Elke assistent bewaart in zijn chat wat je met hem hebt geregistreerd en wat hij over je onthoudt. Deze knop opent het als graaf: elke herinnering verbindt zich vanzelf met wat ze uit je apps noemt; tik er een aan om die te verbeteren of te vergeten.',
+  'tut.chat-registros.mapa.texto':
+    'Chatten met een assistent haalt hem naar de kaart, en zijn gesprek verwijderen haalt hem weg. Roep hem terug met “Assistent toevoegen” onder de chats.',
   'tut.chat-registros.1.texto':
     'Chats laat zien met wie je hebt gepraat; Registraties laat zien wat er van die gesprekken is opgeslagen.',
   'tut.chat-registros.2.titulo': 'Wat ik over je onthoud',
@@ -412,9 +427,9 @@ export const NL_TUT: Dict = {
     'Onderaan haalt “Voorbeeld verwijderen” het helemaal weg nadat je bevestigt met “Ja, voorbeeld verwijderen”, en aan het jouwe wordt nooit gekomen. Is er niets meer van over, dan verschijnt op dezelfde plek “Standaardvoorbeeld herstellen”.',
   'tut.ejemplos.3.texto':
     'Het voorbeeld levert geen XP of reeksen op, geeft geen meldingen, komt niet in je Wrapped en de AI houdt er geen rekening mee. In het demo-MindHaOS zie je deze balk niet: het hele jaar van Sam is daar al het voorbeeld.',
-  'tut.ejemplos.1.titulo': 'Het komt vanzelf',
-  'tut.ejemplos.2.titulo': 'Verwijderen of herstellen',
   'tut.ejemplos.3.titulo': 'Telt niet als het jouwe',
+  'tut.ejemplos.2.titulo': 'Verwijderen of herstellen',
+  'tut.ejemplos.1.titulo': 'Het komt vanzelf',
   'tut.hoy.1.texto':
     'Missies wonen niet op een aparte plek: ze wonen IN elke app. Boven aan elke kamer staat de knop Missies, met de checklist van wat die app VANDAAG van je vraagt.',
   'tut.hoy.2.titulo': 'Drie bronnen, één lijst',

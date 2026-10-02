@@ -67,7 +67,8 @@ export const PL_TUT: Dict = {
   'tut.app-computo--hojas.5.titulo': 'Eksport',
   'tut.app-computo--hojas.5.texto':
     'Do Excela wychodzi prawdziwy plik .xlsx, z żywymi formułami i wykresami jako wykresy Excela. Do PDF idzie przez drukarkę przeglądarki.',
-  'tut.casa.1.texto': 'To twój MindHaOS: każdy pokój przechowuje jedną aplikację. Pokażę ci podstawowe sterowanie.',
+  'tut.casa.1.texto':
+    'To twój MindHaOS (Dom Umysłu OS): każdy pokój kryje jedną aplikację. Pokażę ci podstawowe sterowanie.',
   'tut.casa.2.titulo': 'Menu główne',
   'tut.casa.2.texto':
     'Otworzyłem je, żebyś zobaczył: to menu główne, z twoimi pokojami i ich aplikacjami. Pozostałe zakładki przynoszą Wnętrze (katalog aplikacji) i Na zewnątrz, czyli to, co buduje się na terenie.',
@@ -98,9 +99,21 @@ export const PL_TUT: Dict = {
   'tut.casa.9.titulo': 'Czat',
   'tut.casa.9.texto':
     'Czat architekta: opowiedz mu, co udało ci się zrobić, a zapisze to w odpowiedniej aplikacji; poproś go o zmiany w MindHaOS, obrazy, a nawet modele 3D do twoich pokoi — albo po prostu pogadaj z nim chwilę.',
-  'tut.casa.asistente.titulo': 'Twój asystent',
+  'tut.casa.asistente.titulo': 'Menu czatu',
   'tut.casa.asistente.texto':
-    'Ten przycisk to twój asystent: ten, kto odpowiada ci na czacie. Dotknij go, aby otworzyć jego menu i dopasować go do siebie — jego kształt, głos i osobowość.',
+    'Ten przycisk otwiera menu czatu, z czterema widokami u góry: Asystenci, Znajomi, Miejsca i Przeglądarka. Podręcznik i ⚙ po prawej zmieniają się zależnie od wybranego widoku. Pokażę ci je…',
+  'tut.casa.vAsistentes.titulo': 'Asystenci',
+  'tut.casa.vAsistentes.texto':
+    'Ci, którzy odpowiadają ci na czacie. Otwieraj rozmowę z każdym, twórz kolejnych i nadaj im kształt, głos i osobowość w ⚙.',
+  'tut.casa.vAmigos.titulo': 'Znajomi',
+  'tut.casa.vAmigos.texto':
+    'Twoja skrzynka z prawdziwymi ludźmi: dodawaj ich po pseudonimie, pisz, wysyłaj im rzeczy ze swoich pokoi i zapraszaj z wizytą albo do gry. Wymaga twojego konta.',
+  'tut.casa.vLugares.titulo': 'Miejsca',
+  'tut.casa.vLugares.texto':
+    'Twoje zapisane miejsca według kategorii i «Jak dojechać»: przy tym widoku to, co piszesz na czacie, jest miejscem docelowym, a trasa wyznacza się z miejsca, w którym jesteś.',
+  'tut.casa.vNavegador.titulo': 'Przeglądarka',
+  'tut.casa.vNavegador.texto':
+    'Internet bez wychodzenia z MindHaOS, z kartami, historią i twoimi stronami. Przy tym widoku to, co piszesz, trafia do wyszukiwarki albo otwiera adres.',
   'tut.casa.mas.titulo': 'Menu +',
   'tut.casa.mas.texto':
     'Masz je tu otwarte, żeby rzucić okiem: plusem dołączasz rzeczy do czatu — prześlij obraz albo PDF, zrób zdjęcie, albo przejdź do Maski AR i Czatu AR twarzą w twarz.',
@@ -110,36 +123,36 @@ export const PL_TUT: Dict = {
   'tut.casa.10.texto':
     'To podstawy. Każde menu i każda aplikacja mają własny przycisk ? ze swoim samouczkiem: poproś o niego, kiedy coś ci nie gra.',
   'tut.primeros.1.texto':
-    'Ten samouczek odpowiada na dwie rzeczy: jak WEJŚĆ do swoich aplikacji i jak STWORZYĆ nową. Obie mieszkają tutaj, w zakładce Dom.',
+    'Ten samouczek odpowiada na dwa pytania o twoim MindHaOS (Dom Umysłu OS): jak WEJŚĆ do swoich aplikacji i jak STWORZYĆ nową. Obie rzeczy są tutaj, w zakładce Dom.',
   'tut.primeros.entrar.titulo': 'Wejdź do swoich aplikacji',
   'tut.primeros.entrar.texto':
-    'Każdy pokój niesie swoją aplikację, a ty masz troje drzwi: jego kartę tutaj w menu, obiekt z unoszącą się kulą na mapie i szybki dostęp z przycisku MindHaOS u góry.',
+    'Każdy pokój ma swoją aplikację, a ty masz troje drzwi: jego kartę tutaj w menu, obiekt z unoszącą się kulą na mapie i szybki dostęp z przycisku z logo, u góry.',
   'tut.primeros.entrar.vacio':
-    'Tu zamieszkają twoje pokoje, każdy ze swoją aplikacją, i będziesz mieć troje drzwi: kartę pokoju tutaj w menu, obiekt z unoszącą się kulą na mapie i szybki dostęp z przycisku MindHaOS u góry. Stwórzmy pierwszy…',
+    'Tu zamieszkają twoje pokoje, każdy ze swoją aplikacją, i będziesz mieć troje drzwi: kartę tutaj w menu, obiekt z unoszącą się kulą na mapie i szybki dostęp z przycisku z logo, u góry. Stwórzmy pierwszy…',
   'tut.primeros.prev.titulo': 'Tu stanie twój pokój',
   'tut.primeros.prev.texto':
     'To podgląd pędzla: zielony obrys ze ścianami wskazuje, gdzie stanie pokój. Przy ręcznym budowaniu zobaczysz go tak samo pod palcem, zanim oderwiesz go od ekranu.',
   'tut.primeros.mat.titulo': 'Zbudowany!',
   'tut.primeros.mat.texto':
-    'I oto on: pokój stanął dokładnie tam, gdzie wskazywał podgląd, z drzwiami od frontu. Aplikacji jeszcze nie ma — to następny krok.',
+    'I proszę: pokój stanął dokładnie tam, gdzie wskazywał podgląd, z drzwiami z przodu. Nie ma jeszcze aplikacji, więc zaraz po zbudowaniu sam otwiera się panel, żeby mu ją nadać.',
   'tut.primeros.2.titulo': 'Utwórz pokój',
   'tut.primeros.2.texto':
-    'Tym przyciskiem rysujesz nowe pokoje na mapie, pole po polu. Patrz — pokażę ci, gdzie stanąłby twój…',
-  'tut.primeros.3.titulo': 'Twój nowy pokój',
-  'tut.primeros.3.texto':
-    'Oto on! Świeżo utworzony pokój, jeszcze bez aplikacji: dlatego na jego karcie widnieje + Przypisz.',
+    'Tym przyciskiem stawiasz nowy pokój na mapie i, gdy tylko go upuścisz, od razu przechodzisz do wyboru aplikacji. Patrz — pokażę ci, gdzie stanąłby twój…',
   'tut.primeros.apps.titulo': 'Dostępne aplikacje',
   'tut.primeros.apps.texto':
-    'To otwiera + Przypisz: panel ze wszystkimi dostępnymi aplikacjami. Każda urządza swój pokój własnymi meblami i własną aplikacją. Jedną z nich daję twojemu…',
+    'To jest + Przypisz, ze wszystkimi dostępnymi aplikacjami: każda buduje swój pokój wraz z meblami. Jeśli zamkniesz bez wyboru, karta pokoju zaproponuje to znowu. Nadam jedną twojemu…',
   'tut.primeros.4.titulo': 'Przypisz aplikację',
   'tut.primeros.4.texto':
-    'Przyciskiem + Przypisz pokój dostał swoją aplikację: zobacz, jak przejął jej nazwę, ikonę i meble. Od teraz cała jego karta jest przyciskiem wejścia.',
+    'Dałem mu jego aplikację: zobacz, jak pokój przejął jego nazwę, ikonę i meble. Od teraz cała jego karta to przycisk wejścia.',
   'tut.primeros.5.titulo': 'Wejdź',
   'tut.primeros.5.texto':
-    'Wchodzimy: to jest aplikacja pokoju. Żeby wrócić później: jego karta w menu, obiekt z kulą na mapie albo szybki dostęp z przycisku MindHaOS u góry.',
+    'Wchodzimy: to jest aplikacja pokoju. Żeby wrócić później: jego karta w menu, obiekt ze sferą na mapie albo szybki dostęp z przycisku logo, u góry.',
   'tut.primeros.press.titulo': 'Przytrzymaj',
   'tut.primeros.press.texto':
     'Patrz, jak się trzęsie: przytrzymanie pokoju albo obiektu budzi go, razem z jego menu. Tak go przesuniesz, jeśli nie podoba ci się, gdzie stanął, albo go usuniesz.',
+  'tut.primeros.enlace.titulo': 'Obiekty, które gdzieś prowadzą',
+  'tut.primeros.enlace.texto':
+    'Przy obiekcie to menu ma dodatkowo «Link»: zamień go w drzwi do strony internetowej albo do wpisu z twoich aplikacji — przepisu, książki, rekordu. Potem wystarczy go dotknąć, żeby przejść prosto do celu.',
   'tut.primeros.6.texto':
     'To wszystko: stworzyć pokój, dać mu aplikację, wejść i go ustawić. Ten był do ćwiczeń — zabiorę go na koniec, żeby twój MindHaOS powstał dokładnie po twojej myśli.',
   'tut.menu-cuartos.1.texto': 'Zakładka Dom wypisuje wszystkie pokoje twojego MindHaOS, pogrupowane według kategorii.',
@@ -343,8 +356,10 @@ export const PL_TUT: Dict = {
     'Ta ikona wybiera, które AI odpowiada, i zapisuje twój klucz, jeśli używasz własnego. Bez żadnego skonfigurowanego modelu czat nadal działa na słowa kluczowe, ale nie rozumie swobodnego języka.',
   'tut.chat.8.texto':
     'Możesz też zapytać tutaj „jak działa Kuchnia?” albo poprosić o „samouczek Siłowni”, a to, co zostało zapisane, sprawdzisz w samouczku „Wpisy i wspomnienia”.',
-  'tut.chat-registros.porAsistente.texto': 'Każdy asystent trzyma w swoim czacie to, co z nim zapisano, i to, co o tobie pamięta. Ten przycisk otwiera to jako graf: każde wspomnienie samo łączy się z tym, co wymienia z twoich aplikacji; dotknij jednego, by je poprawić lub zapomnieć.',
-  'tut.chat-registros.mapa.texto': 'Rozmowa z asystentem sprowadza go na mapę, a usunięcie rozmowy go z niej zabiera. Aby go przywołać, użyj „Dodaj asystenta” pod czatami.',
+  'tut.chat-registros.porAsistente.texto':
+    'Każdy asystent trzyma w swoim czacie to, co z nim zapisano, i to, co o tobie pamięta. Ten przycisk otwiera to jako graf: każde wspomnienie samo łączy się z tym, co wymienia z twoich aplikacji; dotknij jednego, by je poprawić lub zapomnieć.',
+  'tut.chat-registros.mapa.texto':
+    'Rozmowa z asystentem sprowadza go na mapę, a usunięcie rozmowy go z niej zabiera. Aby go przywołać, użyj „Dodaj asystenta” pod czatami.',
   'tut.chat-registros.1.texto':
     'Zakładka Czaty pokazuje, z kim toczyła się rozmowa; Wpisy — to, co z tych rozmów zostało zapisane.',
   'tut.chat-registros.2.titulo': 'Co pamięta o tobie',
@@ -412,9 +427,9 @@ export const PL_TUT: Dict = {
     'Na dole sekcji „Usuń gotowy przykład” usuwa go w całości po potwierdzeniu przyciskiem „Tak, usuń gotowy przykład”, a twoich danych nic nie rusza. Gdy nic z niego nie zostanie, w tym samym miejscu pojawia się „Przywróć gotowy przykład”.',
   'tut.ejemplos.3.texto':
     'Przykład nie dodaje PD ani serii, nie wywołuje przypomnień, nie trafia do twojego Wrapped, a AI go nie uwzględnia. W MindHaOS demo tego paska nie ma: cały rok Alexa już jest przykładem.',
-  'tut.ejemplos.1.titulo': 'Pojawia się sam',
-  'tut.ejemplos.2.titulo': 'Usuwanie i przywracanie',
   'tut.ejemplos.3.titulo': 'Nie liczy się jako twój',
+  'tut.ejemplos.2.titulo': 'Usuwanie i przywracanie',
+  'tut.ejemplos.1.titulo': 'Pojawia się sam',
   'tut.hoy.1.texto':
     'Misje nie mieszkają w osobnym miejscu: mieszkają WEWNĄTRZ każdej aplikacji. W nagłówku każdego pokoju jest jej przycisk Misje z listą tego, o co ta aplikacja prosi DZIŚ.',
   'tut.hoy.2.titulo': 'Trzy źródła, jedna lista',

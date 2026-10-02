@@ -6718,17 +6718,11 @@ export const EN: Dict = {
 
   // Tutoriales — casa
   'tut.casa.titulo': 'Your MindHaOS',
-  'tut.casa.resumen': 'Your MindHaOS is the map of your apps: each room holds one. Move with the joystick or WASD, switch views with V and open the menu with the top-left button. The corner control changes on its own depending on what\'s nearby; the clock holds the calendar and the passage of time, and the music has its own button.',
+  'tut.casa.resumen': 'Your MindHaOS is the map of your apps: each room holds one. Move with the joystick or WASD, switch views with V and open the menu with the top-left button. The corner control changes on its own depending on what\'s nearby; the clock holds the calendar and the passage of time, and the music has its own button. The chat menu brings together your assistants, your friends, your places and the browser.',
 
   // Tutoriales — primeros pasos (bienvenida)
   'tut.primeros.titulo': 'How to open your apps and create more',
   'tut.primeros.resumen': 'How to enter your apps and how to create a new one: the room, its app and its three ways in.',
-  'tut.primeros.2a.titulo': 'The tool wheel',
-  'tut.primeros.2a.texto': 'On the phone you draw rooms right on the map, without opening any panel. It all starts with this button next to the joystick: the tool wheel.',
-  'tut.primeros.2b.titulo': 'Building',
-  'tut.primeros.2b.texto': 'The wheel has two levels. Its fourth category is the one that puts your MindHaOS up: rooms, walls, doors, windows, floors and roofs.',
-  'tut.primeros.2c.titulo': 'Rooms mode',
-  'tut.primeros.2c.texto': 'Rooms leaves the brush ready: the wheel closes and every tap on the ground raises a new room. Look — let me show you where yours would go…',
 
   // Tutoriales — menú Cuartos
   'tut.menu-cuartos.titulo': 'Menu · Home',
@@ -6880,7 +6874,7 @@ export const EN: Dict = {
   'bienvenida.guia.cuarto.titulo': 'How to open your apps and create more',
   'bienvenida.guia.cuarto.desc': "I'll show you how to enter your apps and create a new one with its room.",
   'bienvenida.guia.tour.titulo': 'Tour your MindHaOS',
-  'bienvenida.guia.tour.desc': 'A walk through the menu, movement, the clock and the chat.',
+  'bienvenida.guia.tour.desc': 'A walk through the menu, movement, the clock and the chat, with your assistants, friends, places and browser.',
   'bienvenida.guia.explorar.titulo': 'Explore on your own',
   'bienvenida.guia.explorar.desc': 'Done. Every menu and app keeps its own tutorial behind the ? button.',
   'ajustes.bienvenida': 'Welcome',

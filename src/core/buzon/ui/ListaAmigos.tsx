@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { haySesionProbable, useSesion } from '../../cuenta/sesionStore'
 import { hayBackend } from '../../cuenta/supabase'
@@ -16,6 +16,9 @@ import { useContactosAceptados, useUltimosMensajesBuzon } from '../cache'
 import { separarCita } from '../cita'
 import type { MensajeBuzon } from '../tipos'
 import { Retrato } from './Retrato'
+
+// Casa demo: los bustos de los dos amigos de mentira (WebGL solo mientras falte alguno).
+const RetratosAmigosDemo = lazy(() => import('../../../demo/RetratosAmigosDemo'))
 
 /** Resumen de un mensaje para la lista de chats. */
 export function resumenMensaje(m: MensajeBuzon, t: TFunc): string {
@@ -102,6 +105,11 @@ export function ListaAmigos({ onAbrir, onContactos }: { onAbrir: (hiloId: string
 
   return (
     <>
+      {demo && (
+        <Suspense fallback={null}>
+          <RetratosAmigosDemo />
+        </Suspense>
+      )}
       {sala && (
         <button
           type="button"

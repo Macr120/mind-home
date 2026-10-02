@@ -6754,19 +6754,10 @@ export const DE: Dict = {
     'Frag, wie eine App oder ein Menü funktioniert, oder fordere ihr Tutorial an: Der Assistent zeigt es Schritt für Schritt auf dem Bildschirm. Auf Englisch lösen die Bildschirmtouren für Editor, Chat und Menü direkt auf; für den Rest antwortet der Assistent (KI).',
   'tut.casa.titulo': 'Dein MindHaOS',
   'tut.casa.resumen':
-    'Das MindHaOS ist die Karte deiner Apps: Jeder Raum enthält eine. Du bewegst dich mit dem Joystick oder WASD, wechselst die Ansicht mit V und öffnest das Menü über den Button oben links. Das Eckfeld ändert sich von selbst je nachdem, was in der Nähe ist; die Uhr zeigt den Kalender, die Routinen und die Musik.',
+    'Dein MindHaOS ist die Karte deiner Apps: In jedem Raum steckt eine. Du bewegst dich mit dem Joystick oder WASD, wechselst die Ansicht mit V und öffnest das Menü über den Button oben links. Der Platz in der Ecke wechselt von allein, je nachdem, was in der Nähe ist; die Uhr enthält den Kalender und den Lauf der Zeit, und die Musik hat ihren eigenen Button. Das Chat-Menü bringt deine Assistenten, deine Freunde, deine Orte und den Browser zusammen.',
   'tut.primeros.titulo': 'So öffnest du deine Apps und erstellst mehr',
   'tut.primeros.resumen':
     'Wie du deine Apps betrittst und eine neue erstellst: der Raum, seine App und seine drei Zugänge.',
-  'tut.primeros.2a.titulo': 'Das Werkzeugrad',
-  'tut.primeros.2a.texto':
-    'Auf dem Handy zeichnest du Räume direkt auf der Karte, ohne Panels zu öffnen. Alles beginnt bei diesem Button neben dem Joystick: dem Werkzeugrad.',
-  'tut.primeros.2b.titulo': 'Bauen',
-  'tut.primeros.2b.texto':
-    'Das Rad hat zwei Ebenen. Seine vierte Kategorie ist die, die das MindHaOS errichtet: Räume, Wände, Türen, Fenster, Böden und Dächer.',
-  'tut.primeros.2c.titulo': 'Modus Räume',
-  'tut.primeros.2c.texto':
-    'Räume macht den Pinsel bereit: Das Rad schließt sich, und jede Berührung des Bodens errichtet einen neuen Raum. Schau – ich zeig dir, wo deiner stehen würde…',
   'tut.menu-cuartos.titulo': 'Menü · Zuhause',
   'tut.menu-cuartos.resumen':
     'Der Tab Zuhause listet die Räume deines MindHaOS nach Kategorie, mit ihrem Fortschritt. Die ganze Karte öffnet die App — oder sagt + Zuweisen, wenn sie noch keine hat — und ihr Zahnrad klappt die Optionen aus: in der Liste verschieben, Raum löschen oder bearbeiten. Oben wohnt deine Übersicht: Laune, Rang und Serie; unten kannst du neue Räume anlegen.',
@@ -6885,7 +6876,7 @@ export const DE: Dict = {
   'bienvenida.siguiente': 'Weiter',
   'bienvenida.crear': 'Mein MindHaOS erstellen',
   'bienvenida.creando': 'Dein MindHaOS wird erstellt…',
-  'bienvenida.final.titulo': 'Dein MindHaOS ist fertig!',
+  'bienvenida.final.titulo': 'Dein MindHaOS (Gedankenhaus OS) ist fertig!',
   'bienvenida.cuenta': 'Konto erstellen oder anmelden (synchronisiert dein MindHaOS)',
   'bienvenida.guia.desc': 'Drei Schritte, um den Dreh rauszukriegen.',
   'bienvenida.guia.empezar': 'Starten',
@@ -6893,8 +6884,9 @@ export const DE: Dict = {
   'bienvenida.guia.salir': 'Zurück ins MindHaOS',
   'bienvenida.guia.cuarto.titulo': 'So öffnest du deine Apps und erstellst mehr',
   'bienvenida.guia.cuarto.desc': 'Ich zeige dir, wie du deine Apps betrittst und eine neue mit ihrem Raum erstellst.',
-  'bienvenida.guia.tour.titulo': 'Erkunde dein MindHaOS',
-  'bienvenida.guia.tour.desc': 'Ein Rundgang durch Menü, Bewegung, Uhr und Chat.',
+  'bienvenida.guia.tour.titulo': 'Erkunde dein MindHaOS (Gedankenhaus OS)',
+  'bienvenida.guia.tour.desc':
+    'Ein Rundgang durch Menü, Bewegung, Uhr und Chat, mit deinen Assistenten, Freunden, Orten und dem Browser.',
   'bienvenida.guia.explorar.titulo': 'Erkunde auf eigene Faust',
   'bienvenida.guia.explorar.desc': 'Fertig. Jedes Menü und jede App hat ihr eigenes Tutorial hinter dem ?-Button.',
   'ajustes.bienvenida': 'Willkommen',
@@ -10921,7 +10913,8 @@ export const DE: Dict = {
   'ciclo.solCasa': 'Sonne: die deines Hauses',
   'cuenta.err.credenciales': 'E-Mail oder Passwort ist falsch.',
   'cuenta.err.sin-confirmar': 'Bestätige deine E-Mail, bevor du dich anmeldest (schau in deinen Posteingang).',
-  'cuenta.err.correo-ocupado': 'Mit dieser E-Mail konnte kein Konto erstellt werden. Wenn du schon eins hast, melde dich an.',
+  'cuenta.err.correo-ocupado':
+    'Mit dieser E-Mail konnte kein Konto erstellt werden. Wenn du schon eins hast, melde dich an.',
   'cuenta.err.contrasena-debil': 'Das Passwort ist zu schwach: Verwende mindestens 8 Zeichen.',
   'cuenta.err.contrasena-igual': 'Das neue Passwort muss sich vom aktuellen unterscheiden.',
   'cuenta.err.demasiados-intentos': 'Zu viele Versuche. Warte einen Moment und versuch es noch einmal.',
@@ -11055,7 +11048,8 @@ export const DE: Dict = {
   'escritorio.menu.soporte': 'Support',
   'escritorio.menu.sitioWeb': 'Website',
   'escritorio.version.nueva': 'Es gibt eine neue Version ({v}).',
-  'escritorio.version.detalle': 'Lade sie herunter, um die neuesten Verbesserungen zu bekommen. Deine Daten bleiben, wie sie sind.',
+  'escritorio.version.detalle':
+    'Lade sie herunter, um die neuesten Verbesserungen zu bekommen. Deine Daten bleiben, wie sie sind.',
   'escritorio.version.descargar': 'Herunterladen',
   'escritorio.version.ahoraNo': 'Jetzt nicht',
   'escritorio.programa.elegir': 'Programm auswählen',
@@ -11229,8 +11223,10 @@ export const DE: Dict = {
   'idiomas.temaDesc.c2-gram-excepciones': 'Was die Regeln nicht erklären können.',
   'idiomas.tema.c2-gram-normativa': 'Norm und Korrektheit',
   'idiomas.temaDesc.c2-gram-normativa': 'Fehler, die sogar Muttersprachler machen.',
-  'chat.manual.nota.computo': 'Formelbuch und Plotter hängen am Rechner, und Mathematik, Physik und Chemie sind schon dabei; jede dieser Formeln lässt sich bearbeiten. Im Rechenraum schreibt die KI Formeln, erklärt Schritt für Schritt, erstellt Tabellen und liest die Daten, die du auswählst.',
-  'chat.manual.nota.paintball': 'Modi: 1 gegen 1, 2 gegen 2 (braucht 3 Assistenten) und jeder gegen jeden. Jeder hält 3 Treffer aus, und gespielt wird im Erdgeschoss.',
+  'chat.manual.nota.computo':
+    'Formelbuch und Plotter hängen am Rechner, und Mathematik, Physik und Chemie sind schon dabei; jede dieser Formeln lässt sich bearbeiten. Im Rechenraum schreibt die KI Formeln, erklärt Schritt für Schritt, erstellt Tabellen und liest die Daten, die du auswählst.',
+  'chat.manual.nota.paintball':
+    'Modi: 1 gegen 1, 2 gegen 2 (braucht 3 Assistenten) und jeder gegen jeden. Jeder hält 3 Treffer aus, und gespielt wird im Erdgeschoss.',
   'chat.voz.sinTexto': '{proveedor} hat keinen Text zurückgegeben',
   'archivo.nombre.documento': 'dokument',
   'clima.err.espera': 'Zeitüberschreitung bei der Abfrage des Dienstes.',
@@ -11291,18 +11287,30 @@ export const DE: Dict = {
   'computo.hojaN': 'Tabelle{n}',
   'ui.unidad.h': 'Std.',
   'despacho.meta.deObjetivo': '{a} von {b} ({p} %)',
-  'diario.prof.historiaAnio': 'Erzähl mir mehr über dieses historische Ereignis aus dem Jahr {anio}: {titulo}. Was ist passiert, warum war es wichtig und welche Folgen hatte es?',
-  'diario.prof.historia': 'Erzähl mir mehr über dieses historische Ereignis: {titulo}. Was ist passiert, warum war es wichtig und welche Folgen hatte es?',
-  'diario.prof.arteAutor': 'Erzähl mir etwas über das Werk „{titulo}“ von {autor}. Was stellt es dar, wie ist es entstanden und warum ist es in der Kunstgeschichte bedeutend?',
-  'diario.prof.arte': 'Erzähl mir etwas über das Werk „{titulo}“. Was stellt es dar, wie ist es entstanden und warum ist es in der Kunstgeschichte bedeutend?',
-  'diario.prof.libroAutor': 'Erzähl mir etwas über das Buch „{titulo}“ von {autor}. Worum geht es, wie ist sein Stil und warum ist es ein bedeutendes Werk?',
-  'diario.prof.libro': 'Erzähl mir etwas über das Buch „{titulo}“. Worum geht es, wie ist sein Stil und warum ist es ein bedeutendes Werk?',
-  'diario.prof.personalidad': 'Wer war {titulo}? Erzähl mir von Leben und Werk dieser Person und warum sie eine wichtige Figur ist.',
-  'diario.prof.especieCientifico': 'Erzähl mir etwas über diese Art: {titulo} ({autor}). Wie lebt sie, wovon ernährt sie sich, was macht sie besonders und wie ist ihr Schutzstatus?',
-  'diario.prof.especie': 'Erzähl mir etwas über diese Art: {titulo}. Wie lebt sie, wovon ernährt sie sich, was macht sie besonders und wie ist ihr Schutzstatus?',
-  'diario.prof.palabra': 'Erklär mir das Wort „{titulo}“ genauer: seine Herkunft oder Etymologie, seine Bedeutungen und wie man es richtig verwendet.',
-  'diario.prof.fraseAutor': 'Erklär mir dieses Zitat von {autor}: {titulo}. Was bedeutet es, in welchem Zusammenhang ist es entstanden und was lehrt es uns?',
-  'diario.prof.frase': 'Erklär mir dieses Zitat: {titulo}. Was bedeutet es, in welchem Zusammenhang ist es entstanden und was lehrt es uns?',
+  'diario.prof.historiaAnio':
+    'Erzähl mir mehr über dieses historische Ereignis aus dem Jahr {anio}: {titulo}. Was ist passiert, warum war es wichtig und welche Folgen hatte es?',
+  'diario.prof.historia':
+    'Erzähl mir mehr über dieses historische Ereignis: {titulo}. Was ist passiert, warum war es wichtig und welche Folgen hatte es?',
+  'diario.prof.arteAutor':
+    'Erzähl mir etwas über das Werk „{titulo}“ von {autor}. Was stellt es dar, wie ist es entstanden und warum ist es in der Kunstgeschichte bedeutend?',
+  'diario.prof.arte':
+    'Erzähl mir etwas über das Werk „{titulo}“. Was stellt es dar, wie ist es entstanden und warum ist es in der Kunstgeschichte bedeutend?',
+  'diario.prof.libroAutor':
+    'Erzähl mir etwas über das Buch „{titulo}“ von {autor}. Worum geht es, wie ist sein Stil und warum ist es ein bedeutendes Werk?',
+  'diario.prof.libro':
+    'Erzähl mir etwas über das Buch „{titulo}“. Worum geht es, wie ist sein Stil und warum ist es ein bedeutendes Werk?',
+  'diario.prof.personalidad':
+    'Wer war {titulo}? Erzähl mir von Leben und Werk dieser Person und warum sie eine wichtige Figur ist.',
+  'diario.prof.especieCientifico':
+    'Erzähl mir etwas über diese Art: {titulo} ({autor}). Wie lebt sie, wovon ernährt sie sich, was macht sie besonders und wie ist ihr Schutzstatus?',
+  'diario.prof.especie':
+    'Erzähl mir etwas über diese Art: {titulo}. Wie lebt sie, wovon ernährt sie sich, was macht sie besonders und wie ist ihr Schutzstatus?',
+  'diario.prof.palabra':
+    'Erklär mir das Wort „{titulo}“ genauer: seine Herkunft oder Etymologie, seine Bedeutungen und wie man es richtig verwendet.',
+  'diario.prof.fraseAutor':
+    'Erklär mir dieses Zitat von {autor}: {titulo}. Was bedeutet es, in welchem Zusammenhang ist es entstanden und was lehrt es uns?',
+  'diario.prof.frase':
+    'Erklär mir dieses Zitat: {titulo}. Was bedeutet es, in welchem Zusammenhang ist es entstanden und was lehrt es uns?',
   'ejercicio.ppmN': '{n} bpm',
   'ejercicio.det.minPor': 'min/{u}',
   'ejercicio.fuerza.ph.series': 'S',
@@ -11317,7 +11325,8 @@ export const DE: Dict = {
   'entre.j.cien.porSegundoN': '{n}/s',
   'escritura.docSinTitulo': 'Dokument',
   'ui.unidad.min': 'Min.',
-  'idiomas.charla.vaciaPropio': 'Begrüße ihn auf {idioma} oder in deiner Sprache: {tutor} spricht auf deinem Level, korrigiert dich sanft, und am Ende kannst du die neuen Vokabeln extrahieren.',
+  'idiomas.charla.vaciaPropio':
+    'Begrüße ihn auf {idioma} oder in deiner Sprache: {tutor} spricht auf deinem Level, korrigiert dich sanft, und am Ende kannst du die neuen Vokabeln extrahieren.',
   'idiomas.charla.placeholderPropio': 'Schreibe auf {idioma} oder in deiner Sprache…',
   'idiomas.sel.phOtro': 'Nahuatl',
   'jardin.sesion.respiracion': 'Atmung',
@@ -11405,7 +11414,8 @@ export const DE: Dict = {
   'redes.err.permisos': 'Es fehlen Berechtigungen: Verbinde das Konto erneut und akzeptiere alle.',
   'redes.err.formato': 'Dieses Netzwerk unterstützt das Video nicht (Format oder Dauer).',
   'redes.err.demasiado-grande': 'Das Video ist größer, als dieses Netzwerk erlaubt.',
-  'redes.err.cuota-youtube': 'Für heute sind in der App keine YouTube-Uploads mehr frei; versuch es morgen oder lade das Video herunter.',
+  'redes.err.cuota-youtube':
+    'Für heute sind in der App keine YouTube-Uploads mehr frei; versuch es morgen oder lade das Video herunter.',
   'redes.err.orden': 'Der Upload ist durcheinandergeraten: Veröffentliche es erneut.',
   'redes.err.sesion-caducada': 'Der Upload ist abgelaufen: Veröffentliche es erneut.',
   'redes.err.sin-unlock': 'Schalte dein MindHaOS frei, um die Netzwerke zu nutzen.',

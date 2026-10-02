@@ -6686,19 +6686,10 @@ export const ID: Dict = {
     'Tanyakan cara kerja aplikasi atau menu apa pun, atau minta tutorialnya: penyihir menunjukkannya di layar langkah demi langkah. Dalam bahasa Inggris, tur di layar sudah tersedia untuk editor, chat, dan menu; sisanya dijawab oleh asisten (AI).',
   'tut.casa.titulo': 'MindHaOS-mu',
   'tut.casa.resumen':
-    'MindHaOS adalah peta aplikasimu: setiap ruangan menampung satu aplikasi. Kamu bergerak dengan joystick atau WASD, mengganti tampilan dengan V, dan membuka menu dengan tombol di kiri atas. Kubus di pojok berubah sendiri sesuai apa yang ada di dekatmu; jamnya menyimpan kalender, rutinitas, dan musik.',
+    'MindHaOS adalah peta aplikasimu: setiap ruangan menyimpan satu. Bergerak pakai joystick atau WASD, ganti tampilan dengan V, dan buka menu lewat tombol di kiri atas. Tombol di sudut berubah sendiri sesuai apa yang ada di dekatmu; jam menyimpan kalender dan jalannya waktu, dan musik punya tombolnya sendiri. Menu chat mengumpulkan para asisten, teman, tempat, dan browser kamu.',
   'tut.primeros.titulo': 'Cara membuka aplikasimu dan membuat yang baru',
   'tut.primeros.resumen':
     'Cara masuk ke aplikasimu dan cara membuat yang baru: ruangan, aplikasinya, dan tiga jalan masuknya.',
-  'tut.primeros.2a.titulo': 'Roda alat',
-  'tut.primeros.2a.texto':
-    'Di ponsel, ruangan digambar langsung di atas peta, tanpa membuka panel. Semuanya berawal dari tombol ini di sebelah joystick: roda alat.',
-  'tut.primeros.2b.titulo': 'Bangunan',
-  'tut.primeros.2b.texto':
-    'Roda ini punya dua level. Kategori keempatnya adalah yang membangun MindHaOS: ruangan, dinding, pintu, jendela, lantai, dan atap.',
-  'tut.primeros.2c.titulo': 'Mode Ruangan',
-  'tut.primeros.2c.texto':
-    'Ruangan menyiapkan kuasnya: roda menutup dan setiap sentuhan di tanah membangun ruangan baru. Lihat — aku tunjukkan di mana ruanganmu akan berdiri…',
   'tut.menu-cuartos.titulo': 'Menu · Rumah',
   'tut.menu-cuartos.resumen':
     'Tab Rumah mendaftar ruangan MindHaOS-mu per kategori, lengkap dengan progresnya. Seluruh kartu membuka aplikasinya — atau bertuliskan + Tetapkan kalau belum punya — dan gerigi-nya membuka pilihan: pindahkan di daftar, hapus ruangan, atau edit. Di atas ada ringkasanmu: suasana hati, peringkat, dan rentetan; di bawah kamu bisa membuat ruangan baru.',
@@ -6816,7 +6807,7 @@ export const ID: Dict = {
   'bienvenida.siguiente': 'Berikutnya',
   'bienvenida.crear': 'Buat MindHaOS-ku',
   'bienvenida.creando': 'Membuat MindHaOS-mu…',
-  'bienvenida.final.titulo': 'MindHaOS-mu sudah siap!',
+  'bienvenida.final.titulo': 'MindHaOS (Rumah Pikiran OS) kamu sudah siap!',
   'bienvenida.cuenta': 'Buat akun atau masuk (menyinkronkan MindHaOS-mu)',
   'bienvenida.guia.desc': 'Tiga langkah untuk mulai terbiasa.',
   'bienvenida.guia.empezar': 'Mulai',
@@ -6824,8 +6815,9 @@ export const ID: Dict = {
   'bienvenida.guia.salir': 'Pergi ke MindHaOS',
   'bienvenida.guia.cuarto.titulo': 'Cara membuka aplikasimu dan membuat yang baru',
   'bienvenida.guia.cuarto.desc': 'Kutunjukkan cara masuk ke aplikasimu dan membuat yang baru dengan kamarnya.',
-  'bienvenida.guia.tour.titulo': 'Jelajahi MindHaOS-mu',
-  'bienvenida.guia.tour.desc': 'Jalan-jalan singkat lewat menu, gerakan, jam, dan chat.',
+  'bienvenida.guia.tour.titulo': 'Jelajahi MindHaOS (Rumah Pikiran OS) kamu',
+  'bienvenida.guia.tour.desc':
+    'Jalan-jalan lewat menu, gerakan, jam, dan chat, bersama asisten, teman, tempat, dan browser kamu.',
   'bienvenida.guia.explorar.titulo': 'Jelajahi sendiri',
   'bienvenida.guia.explorar.desc': 'Selesai. Setiap menu dan aplikasi menyimpan tutorialnya sendiri di balik tombol ?.',
   'ajustes.bienvenida': 'Selamat Datang',
@@ -10967,7 +10959,8 @@ export const ID: Dict = {
   'idiomas.tema.a1-objetos': 'Warna dan benda',
   'idiomas.temaDesc.a1-objetos': 'Benda sehari-hari, warna, dan ukuran.',
   'idiomas.tema.a1-presente': 'Masa kini dasar',
-  'idiomas.temaDesc.a1-presente': 'Kata kerja paling dasar (menjadi, ada, memiliki) dan bentuk masa kini kata kerja umum.',
+  'idiomas.temaDesc.a1-presente':
+    'Kata kerja paling dasar (menjadi, ada, memiliki) dan bentuk masa kini kata kerja umum.',
   'idiomas.tema.a2-compras': 'Belanja',
   'idiomas.temaDesc.a2-compras': 'Toko, harga, ukuran, dan cara membayar.',
   'idiomas.tema.a2-direcciones': 'Arah dan transportasi',
@@ -11069,7 +11062,8 @@ export const ID: Dict = {
   'idiomas.tema.c2-pron-imitacion': 'Menirukan suara',
   'idiomas.temaDesc.c2-pron-imitacion': 'Menyalin tokoh, lagu, dan gaya bicara orang lain.',
   'idiomas.tema.a1-gram-articulos': 'Artikel dan gender',
-  'idiomas.temaDesc.a1-gram-articulos': 'Artikel tentu dan tak tentu, serta cara keduanya menyesuaikan diri dengan gender kata benda.',
+  'idiomas.temaDesc.a1-gram-articulos':
+    'Artikel tentu dan tak tentu, serta cara keduanya menyesuaikan diri dengan gender kata benda.',
   'idiomas.tema.a1-gram-pronombres': 'Kata ganti orang',
   'idiomas.temaDesc.a1-gram-pronombres': 'Aku, kamu, dia… dan posisinya dalam kalimat.',
   'idiomas.tema.a1-gram-conjugacion': 'Konjugasi masa kini',
@@ -11122,8 +11116,10 @@ export const ID: Dict = {
   'idiomas.temaDesc.c2-gram-excepciones': 'Hal-hal yang tak sanggup dijelaskan oleh aturan.',
   'idiomas.tema.c2-gram-normativa': 'Kaidah dan ketepatan',
   'idiomas.temaDesc.c2-gram-normativa': 'Kesalahan yang dibuat bahkan oleh penutur asli.',
-  'chat.manual.nota.computo': 'Buku rumus dan plotter grafik menempel pada kalkulator, dan sudah berisi Matematika, Fisika, serta Kimia bawaan; rumus mana pun bisa diedit. Di dalam ruangan, AI menulis rumus, menjelaskan langkah demi langkah, menyusun spreadsheet, dan membaca data yang kamu pilih.',
-  'chat.manual.nota.paintball': 'Mode: 1 vs 1, 2 vs 2 (butuh 3 asisten), dan battle royale. Setiap orang bisa kena 3 tembakan, dan pertarungannya berlangsung di lantai dasar.',
+  'chat.manual.nota.computo':
+    'Buku rumus dan plotter grafik menempel pada kalkulator, dan sudah berisi Matematika, Fisika, serta Kimia bawaan; rumus mana pun bisa diedit. Di dalam ruangan, AI menulis rumus, menjelaskan langkah demi langkah, menyusun spreadsheet, dan membaca data yang kamu pilih.',
+  'chat.manual.nota.paintball':
+    'Mode: 1 vs 1, 2 vs 2 (butuh 3 asisten), dan battle royale. Setiap orang bisa kena 3 tembakan, dan pertarungannya berlangsung di lantai dasar.',
   'chat.voz.sinTexto': '{proveedor} tidak mengembalikan teks',
   'archivo.nombre.documento': 'dokumen',
   'clima.err.espera': 'Waktu tunggu habis saat menghubungi layanan.',
@@ -11184,18 +11180,30 @@ export const ID: Dict = {
   'computo.hojaN': 'Lembar{n}',
   'ui.unidad.h': 'jam',
   'despacho.meta.deObjetivo': '{a} dari {b} ({p}%)',
-  'diario.prof.historiaAnio': 'Ceritakan lebih lanjut tentang peristiwa bersejarah dari tahun {anio} ini: {titulo}. Apa yang terjadi, mengapa peristiwa itu penting, dan apa dampaknya?',
-  'diario.prof.historia': 'Ceritakan lebih lanjut tentang peristiwa bersejarah ini: {titulo}. Apa yang terjadi, mengapa peristiwa itu penting, dan apa dampaknya?',
-  'diario.prof.arteAutor': 'Ceritakan tentang karya seni “{titulo}” oleh {autor}. Apa yang digambarkannya, bagaimana karya itu dibuat, dan mengapa karya itu penting dalam sejarah seni?',
-  'diario.prof.arte': 'Ceritakan tentang karya seni “{titulo}”. Apa yang digambarkannya, bagaimana karya itu dibuat, dan mengapa karya itu penting dalam sejarah seni?',
-  'diario.prof.libroAutor': 'Ceritakan tentang buku “{titulo}” karya {autor}. Tentang apa buku itu, seperti apa gayanya, dan mengapa buku itu menjadi karya yang penting?',
-  'diario.prof.libro': 'Ceritakan tentang buku “{titulo}”. Tentang apa buku itu, seperti apa gayanya, dan mengapa buku itu menjadi karya yang penting?',
-  'diario.prof.personalidad': 'Siapakah {titulo}? Ceritakan kehidupannya, karyanya, dan mengapa ia menjadi tokoh penting.',
-  'diario.prof.especieCientifico': 'Ceritakan tentang {titulo} ({autor}). Bagaimana ia hidup, apa makanannya, apa yang membuatnya istimewa, dan bagaimana status konservasinya?',
-  'diario.prof.especie': 'Ceritakan tentang {titulo}. Bagaimana ia hidup, apa makanannya, apa yang membuatnya istimewa, dan bagaimana status konservasinya?',
-  'diario.prof.palabra': 'Jelaskan lebih dalam tentang kata “{titulo}”: asal-usul atau etimologinya, maknanya, dan cara memakainya dengan tepat.',
-  'diario.prof.fraseAutor': 'Jelaskan kutipan dari {autor} ini: {titulo}. Apa artinya, dalam konteks apa kutipan itu muncul, dan apa pelajarannya?',
-  'diario.prof.frase': 'Jelaskan kutipan ini: {titulo}. Apa artinya, dalam konteks apa kutipan itu muncul, dan apa pelajarannya?',
+  'diario.prof.historiaAnio':
+    'Ceritakan lebih lanjut tentang peristiwa bersejarah dari tahun {anio} ini: {titulo}. Apa yang terjadi, mengapa peristiwa itu penting, dan apa dampaknya?',
+  'diario.prof.historia':
+    'Ceritakan lebih lanjut tentang peristiwa bersejarah ini: {titulo}. Apa yang terjadi, mengapa peristiwa itu penting, dan apa dampaknya?',
+  'diario.prof.arteAutor':
+    'Ceritakan tentang karya seni “{titulo}” oleh {autor}. Apa yang digambarkannya, bagaimana karya itu dibuat, dan mengapa karya itu penting dalam sejarah seni?',
+  'diario.prof.arte':
+    'Ceritakan tentang karya seni “{titulo}”. Apa yang digambarkannya, bagaimana karya itu dibuat, dan mengapa karya itu penting dalam sejarah seni?',
+  'diario.prof.libroAutor':
+    'Ceritakan tentang buku “{titulo}” karya {autor}. Tentang apa buku itu, seperti apa gayanya, dan mengapa buku itu menjadi karya yang penting?',
+  'diario.prof.libro':
+    'Ceritakan tentang buku “{titulo}”. Tentang apa buku itu, seperti apa gayanya, dan mengapa buku itu menjadi karya yang penting?',
+  'diario.prof.personalidad':
+    'Siapakah {titulo}? Ceritakan kehidupannya, karyanya, dan mengapa ia menjadi tokoh penting.',
+  'diario.prof.especieCientifico':
+    'Ceritakan tentang {titulo} ({autor}). Bagaimana ia hidup, apa makanannya, apa yang membuatnya istimewa, dan bagaimana status konservasinya?',
+  'diario.prof.especie':
+    'Ceritakan tentang {titulo}. Bagaimana ia hidup, apa makanannya, apa yang membuatnya istimewa, dan bagaimana status konservasinya?',
+  'diario.prof.palabra':
+    'Jelaskan lebih dalam tentang kata “{titulo}”: asal-usul atau etimologinya, maknanya, dan cara memakainya dengan tepat.',
+  'diario.prof.fraseAutor':
+    'Jelaskan kutipan dari {autor} ini: {titulo}. Apa artinya, dalam konteks apa kutipan itu muncul, dan apa pelajarannya?',
+  'diario.prof.frase':
+    'Jelaskan kutipan ini: {titulo}. Apa artinya, dalam konteks apa kutipan itu muncul, dan apa pelajarannya?',
   'ejercicio.ppmN': '{n} bpm',
   'ejercicio.det.minPor': 'mnt/{u}',
   'ejercicio.fuerza.ph.series': 'S',
@@ -11210,7 +11218,8 @@ export const ID: Dict = {
   'entre.j.cien.porSegundoN': '{n}/dtk',
   'escritura.docSinTitulo': 'Dokumen',
   'ui.unidad.min': 'mnt',
-  'idiomas.charla.vaciaPropio': 'Sapa dia dalam bahasa {idioma} atau bahasamu sendiri: {tutor} mengobrol sesuai levelmu, mengoreksimu dengan lembut, dan di akhir kamu bisa mengambil kosakata barunya.',
+  'idiomas.charla.vaciaPropio':
+    'Sapa dia dalam bahasa {idioma} atau bahasamu sendiri: {tutor} mengobrol sesuai levelmu, mengoreksimu dengan lembut, dan di akhir kamu bisa mengambil kosakata barunya.',
   'idiomas.charla.placeholderPropio': 'Tulis dalam bahasa {idioma} atau bahasamu sendiri…',
   'idiomas.sel.phOtro': 'Nahuatl',
   'jardin.sesion.respiracion': 'Pernapasan',
@@ -11298,7 +11307,8 @@ export const ID: Dict = {
   'redes.err.permisos': 'Ada izin yang kurang: hubungkan lagi akunnya dan setujui semua izin.',
   'redes.err.formato': 'Media sosial itu tidak menerima video ini (format atau durasi).',
   'redes.err.demasiado-grande': 'Ukuran video melebihi batas media sosial itu.',
-  'redes.err.cuota-youtube': 'Jatah unggahan ke YouTube dari aplikasi sudah habis hari ini; coba lagi besok atau unduh videonya.',
+  'redes.err.cuota-youtube':
+    'Jatah unggahan ke YouTube dari aplikasi sudah habis hari ini; coba lagi besok atau unduh videonya.',
   'redes.err.orden': 'Urutan unggahan jadi kacau: publikasikan lagi.',
   'redes.err.sesion-caducada': 'Unggahan kedaluwarsa: publikasikan lagi.',
   'redes.err.sin-unlock': 'Buka kunci MindHaOS-mu untuk memakai media sosial.',

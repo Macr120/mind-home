@@ -102,8 +102,8 @@ function GuiaPasos() {
     },
     {
       id: 'tour',
-      titulo: t('bienvenida.guia.tour.titulo', 'Recorre tu MindHaOS'),
-      desc: t('bienvenida.guia.tour.desc', 'Un paseo por el menú, el movimiento, el reloj y el chat.'),
+      titulo: t('bienvenida.guia.tour.titulo', 'Recorre tu MindHaOS (Casa Mental OS)'),
+      desc: t('bienvenida.guia.tour.desc', 'Un paseo por el menú, el movimiento, el reloj y el chat, con tus asistentes, amigos, lugares y navegador.'),
       cta: t('bienvenida.guia.empezar', 'Empezar'),
       accion: () => lanzar(tutorialCasa, 'tour'),
     },
@@ -124,7 +124,7 @@ function GuiaPasos() {
       <header className="flex items-start gap-2">
         <div className="min-w-0 flex-1">
           <h2 className="text-lg font-black text-white/90">
-            {t('bienvenida.final.titulo', '¡Tu MindHaOS está lista!')}
+            {t('bienvenida.final.titulo', '¡Tu MindHaOS (Casa Mental OS) está lista!')}
           </h2>
           <p className="mt-0.5 text-sm text-white/60">
             {t('bienvenida.guia.desc', 'Tres pasos para tomarle el modo.')}
