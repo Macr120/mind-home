@@ -417,8 +417,33 @@ toda la app. La ficha de Google **sigue llamándose «Mind Planner Home» a prop
 cambiar el nombre en Branding reabre la verificación de marca. Hacerlo como operación
 aparte, cuando lo demás esté quieto. `REDES_YT_AUDITADO` sigue a 0 hasta comprobar con una
 subida real que ya no se fuerza «privado».
-**Repasado el 27-sep-2026**: el Centro de verificación de `mph-studio` sigue con marca y
+**Repasado el 27-sep y el 2-oct-2026**: el Centro de verificación de `mph-studio` sigue con marca y
 acceso a datos verificados. Del lado de Google no falta nada; solo la subida de prueba.
+
+✅ **`REDES_YT_AUDITADO=1` desde el 2-oct-2026** (`supabase secrets set`, sin redeploy:
+las funciones la leen en cada llamada). Antes NO existía, o sea que valía 0. Prueba real:
+Marco subió «Prueba» (0:08) desde el Studio eligiendo **No listado** y, ya procesado, YouTube
+Studio lo deja **No listado y sin avisos**: Google ya no bloquea en privado lo que sube la
+API. Ojo: al minuto de subir, Studio enseña la visibilidad pedida mientras procesa; el
+bloqueo («Bloqueado como privado» en Avisos) llegaría al terminar, así que hay que mirarlo
+otra vez ya procesado.
+- [ ] Borrar el video «Prueba» del canal (lo hace Marco).
+- [x] **`REDES_YT_MAX_DIA=60` desde el 2-oct-2026.** Antes no existía y cada función
+      tomaba su propio valor por defecto: `redes-publicar` 60, pero `redes-oauth` (el
+      contador de «subidas que quedan hoy») 5. Tope por persona: `REDES_YT_MAX_DIA_USUARIO`,
+      sin definir = 5.
+
+**Cuando 60 subidas al día se queden cortas:**
+1. Hasta **~90**: basta con subir `REDES_YT_MAX_DIA` (`supabase secrets set`, sin redeploy).
+   El techo del proyecto son **100 Video Uploads per day**; dejar ~10 de colchón para
+   reintentos y pruebas.
+2. Más de 100: pedir cuota a Google con el **mismo formulario del 6-sep**
+   («YouTube API Services – Audit and Quota Extension Form»,
+   support.google.com/youtube/contact/yt_api_form), tipo «solicitar cuota adicional», con
+   el proyecto `498842875738` y el endpoint `youtube.videos.insert`. Abre otra revisión de
+   cumplimiento (semanas) y conviene llevar números reales: subidas por día de las
+   últimas semanas (`redes_publicaciones`) y cuántas se quedaron fuera por el tope.
+3. Al aprobarla: subir `REDES_YT_MAX_DIA` a la cuota nueva menos el colchón.
 
 ## Fase 2 · TikTok
 
@@ -818,6 +843,69 @@ video. No scope changes.» Hasta que se apruebe, **la pantalla de permisos sigue
   interceptar `URL.createObjectURL` y leer `blob.text()`.
 - **Las redirect URI NO se tocan**: `mindplannerhome.com/oauth/redes` sigue redirigiendo
   al callback de Supabase, y `REDES_CALLBACK_URL` es la misma para Google, TikTok y Meta.
+
+**❌ La revisión a MindHaOS, RECHAZADA el 28-sep-2026, 2:34.** La notificación solo dice
+«Your app … was not approved. After you make the required changes, resubmit»; el motivo
+está en la ficha, History → **Review comments** (no en Changelog):
+> *«Note from reviewer: Applications intended for personal use or internal company use
+> are not eligible for approval.»*
+
+La versión Live sigue siendo la del 14-sep («Mind Planner Home»), así que lo que ya
+funcionaba no se rompe. Pero **sin esta revisión aprobada no se puede repetir el audit de
+Direct Post** (es la mitad del motivo del rechazo del 27-sep). Lo que el revisor vio y le
+sonó a uso personal: el demo publica desde una cuenta **privada** y en «Only me», la ficha
+es **Individual**, el audit declaró **«Less than 100»** usuarios, y el texto de la revisión
+solo hablaba del renombre, sin decir que la app es pública.
+
+**Texto para reenviarla (2-oct-2026, 970/1000)** — explicación de productos y scopes:
+
+> MindHaOS (formerly Mind Planner Home) is a public consumer app, not for personal or
+> internal use. Anyone can sign up for free on the web (app.mindhaos.com), Google Play
+> (com.macr120.mindhome) and the Microsoft Store (9N893LFZHR0T). Users plan their life in
+> a 3D house and edit videos in its built-in Studio.
+> Login Kit (user.info.basic): each user connects their OWN TikTok account from Settings >
+> Connected accounts; we show their nickname and they can disconnect anytime.
+> Content Posting API (video.publish, video.upload): from the Studio, the user exports a
+> video and posts it to their own profile. Our form follows the Content Sharing
+> Guidelines: creator nickname, privacy dropdown with no default, interaction checkboxes
+> off by default, commercial content disclosure, consent line and preview.
+> This revision only renames the app: new name, icon and website. No scope changes. The
+> demo uses a private test account because unaudited clients can only post as "Only me".
+
+Los saltos de línea de la cita son solo del doc: se pega como **cuatro párrafos**
+(«MindHaOS…», «Login Kit…», «Content Posting API…», «This revision…»).
+
+Motivo del diálogo de envío (116/120):
+> Rename to MindHaOS. Public consumer app on web, Google Play and Microsoft Store, not
+> personal use. No scope changes.
+
+- [x] ✅ **`mindhaos.com` VERIFICADO como Domain el 2-oct-2026** (URL properties →
+      Verify properties → Domain). Registro **TXT en `@`** de la zona `mindhaos.com` en
+      Cloudflare: `tiktok-developers-site-verification=6gxGx3GVUmUCz3UCit6eOFcRBf8BsaaR`
+      (es público; **no borrarlo**). Respondió en `1.1.1.1` al momento y TikTok lo aceptó
+      a la primera. Ojo: recargar la página cierra el diálogo; al repetir «Domain →
+      mindhaos.com» TikTok da el MISMO código.
+- [x] **Borrador preparado el 2-oct-2026.** La versión rechazada se pasa a borrador con
+      **«Return to Draft»** (arriba a la derecha de «Not approved»); no hay «Create
+      Revision» mientras exista. Cambios:
+      - ⚠️ `https://mindhaos.com/` NO sirve de portada: **redirige a `app.mindhaos.com`**.
+        La Website quedó en **`https://mindhaos.com/en/acerca`** (la landing en inglés,
+        la misma del audit). Cuidado con `/en/terms` y `/en/privacy`: responden 200 pero
+        son el fallback en español; las legales en inglés son **`/en/terminos`** y
+        **`/en/privacidad`**, y a esas se cambiaron ToS y Privacy (antes en
+        `mindplannerhome.com`).
+      - La explicación de arriba (970/1000).
+      - ⚠️ **«Return to Draft» VACÍA el icono** y el borrador no guarda («This form has 1
+        error», *App icon is required*). Se resubió
+        `marketing/icono/AppIcon.icon/Assets/icon.png` (1024×1024, el icono claro).
+      - Demos que ya traía: `2-conectar.mp4` y `mindhaos-direct-post-demo.mp4`. Redirect
+        URI intacta. Guardado con «Saved» y comprobado tras recargar.
+- [x] ✅ **ENVIADA el 2-oct-2026 → «In review»** (la pulsó Marco, con el motivo de 116
+      caracteres). El primer intento no llegó a enviarse (seguía en Draft); al segundo sí.
+      Para comprobarlo: la barra lateral dice «In review» y sale *«This version of … is in
+      review»*; el Changelog no añade línea al enviar.
+- [ ] Solo cuando salga Live: regrabar el tramo del formulario (desplegable y casillas
+      del 27-sep) y hacer el Reapply del audit.
 
 **Formulario del audit, empezado el 14-sep-2026 (pasos 1 y 2 completos, parado en el 3).**
 Se abre desde Production → Products → Content Posting API → Direct Post → **Apply**, y sale
@@ -1566,7 +1654,7 @@ una Página: hacen falta para probar (la app se lo explica al usuario que no las
       - El icono se sube arrastrando: la zona «Drag and drop your file» no tiene
         `input[type=file]`; se crea uno temporal, se le carga el PNG y se dispara un
         `drop` con ese `File` sobre la zona.
-- [x] **27-sep-2026: sigue «Review in progress»**, sin preguntas del revisor. Las 4 alertas
+- [x] **27-sep y 2-oct-2026: sigue «Review in progress»**, sin preguntas del revisor. Las 4 alertas
       del Alert Inbox son avisos viejos (envío, Tech Provider verificado, paso a Live).
 - [ ] Contestar si preguntan. Rechazo típico: el revisor no pudo entrar o el screencast no
       enseña el permiso en uso. Al aprobarse: `REDES_META_LIVE=1`.
