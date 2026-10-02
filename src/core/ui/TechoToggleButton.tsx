@@ -1,7 +1,6 @@
 import { useHouse } from '../state/houseStore'
 import { useLayout } from '../state/layoutStore'
 import { useT } from '../i18n/useT'
-import { Icono } from './iconos/Icono'
 import { IconoMarca } from './iconos/glifosApps'
 
 const btn =
@@ -22,7 +21,7 @@ export function TechoToggleButton() {
       className={`${btn} ${conTecho ? activo : ''}`}
       aria-pressed={conTecho}
     >
-      <Icono nombre="casa" />
+      <IconoMarca glifo={conTecho ? 'techo' : 'sinTecho'} size="1.15em" />
     </button>
   )
 }

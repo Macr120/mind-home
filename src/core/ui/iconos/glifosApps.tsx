@@ -491,6 +491,28 @@ const GLIFOS_NOMBRE = {
       <path d="M3 27a21 7 0 0 0 42 0" fill="none" stroke={TN} strokeWidth="3" />
     </>
   ),
+  // Techo puesto: la casa completa.
+  techo: (
+    <>
+      <rect x="10" y="22" width="28" height="21" rx="2" fill={M} />
+      <rect x="15" y="27" width="6" height="6" rx="1" fill={N} />
+      <rect x="25" y="30" width="8" height="13" rx="1.5" fill={R} />
+      <rect x="31" y="7" width="5" height="12" rx="1" fill={R} />
+      <path d="M24 5 44 23H4z" fill={N} />
+    </>
+  ),
+  // Sin techo: el mismo techo levantado sobre la casa.
+  sinTecho: (
+    <>
+      <rect x="10" y="25" width="28" height="18" rx="2" fill={M} />
+      <rect x="15" y="29" width="6" height="6" rx="1" fill={N} />
+      <rect x="25" y="31" width="8" height="12" rx="1.5" fill={R} />
+      <g transform="rotate(-10 24 12)">
+        <rect x="31" y="4" width="5" height="11" rx="1" fill={R} />
+        <path d="M24 2 44 18H4z" fill={N} />
+      </g>
+    </>
+  ),
   // Separar los pisos: tres losas con aire entre ellas.
   pisosSeparar: (
     <>
