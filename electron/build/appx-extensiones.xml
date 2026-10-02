@@ -10,9 +10,9 @@
      Application (productName del package.json); uap10:Parameters pide
      Windows 10 2004, de ahi el minVersion del electron-builder.yml. -->
 <desktop:Extension Category="windows.startupTask"
-    Executable="app\Mind Planner Home.exe"
+    Executable="app\MindHaOS.exe"
     EntryPoint="Windows.FullTrustApplication"
     uap10:Parameters="--fondo-auto"
     xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10">
-  <desktop:StartupTask TaskId="MPHFondo" Enabled="true" DisplayName="Mind Planner Home" />
+  <desktop:StartupTask TaskId="MPHFondo" Enabled="true" DisplayName="MindHaOS" />
 </desktop:Extension>

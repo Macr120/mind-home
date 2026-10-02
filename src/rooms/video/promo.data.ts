@@ -36,7 +36,7 @@ export const PROMO_MEDIOS: {
   musica: number | null
 } = {
   clips: {
-    es: { "00-dia1": 3.27, "11-dia365": 11.27 }
+    es: { "00-dia1": 3.27, "11-dia365": 8.67 }
   },
   calendarios: { ja: 0.7, ar: 0.7, hi: 0.7, ko: 0.7, ru: 0.7, zh: 0.7, es: 0.7 },
   escritorio: {},
@@ -156,15 +156,15 @@ export const PROMO: PorIdioma<PlanPromo> = {
     nombre: 'Day 1 → Day 365',
     clips: 'es',
     lineas: {
-      gancho: 'What if the Tamagotchi… were you?',
-      casa: 'MindHaOS is a 3D house where every room is an app: kitchen, workouts, finances, goals, music…',
-      disena: 'Design your house and choose which app goes in each room: your hub for entertainment, study, creativity and self-care.',
-      metas: 'Your agenda, your calendar, your journal and a personal assistant to hit your goals in real life.',
-      ia: 'Talk to your assistants like you would with ChatGPT, Gemini or Claude: they log your day and create images, resources and 3D models.',
-      cerebro: 'Social media fragments your attention and technology thinks for you. MindHaOS is the most complete and fun way to use your brain and watch the habits you choose grow.',
-      idiomas: 'In 16 languages. Web, desktop and mobile. With AI credits, with free local models… or with no AI at all.',
-      cta: 'Try it for free. Or make it yours with a single payment.',
-      eslogan: 'Build your character by building your habits. Design your house, designing your future.',
+      gancho: 'What if the Tamagotchi… was you?',
+      casa: 'Look, this is my house, and every room is an app: the kitchen, workouts, my finances, my goals, my music… and lots more.',
+      disena: 'And you build it however you want. You decide what goes in each room.',
+      metas: 'Here I plan my week, my to-dos and my goals… and I actually hit them in real life.',
+      ia: 'And if you want, you chat with your assistants: they help with your day and make you images, diagrams, whatever you need.',
+      cerebro: 'So instead of just scrolling… watch your habits grow.',
+      idiomas: 'It\'s in sixteen languages, on the web, your computer and your phone. With AI or without it, your call.',
+      cta: 'It\'s called MindHaOS. Try building your house for free.',
+      eslogan: 'Build your character… by building your habits.',
       dia1: 'Day one in MindHaOS.',
       dia365: 'Day 365 in MindHaOS.'
     },
@@ -182,30 +182,30 @@ export const PROMO: PorIdioma<PlanPromo> = {
       { tipo: 'rafaga', idioma: 'ko', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'ru', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'zh', seg: 0.45, sfx: 'click' },
-      { tipo: 'clip', clip: '11-dia365', seg: 8.68, sfx: 'wow' }
+      { tipo: 'clip', clip: '11-dia365', seg: 6.66, sfx: 'wow' }
     ],
     voces: [
       { linea: 'dia1', desde: 0.1, seg: 1.29 },
       { linea: 'dia365', desde: 5.8, seg: 2.07 },
-      { linea: 'eslogan', desde: 8.12, seg: 4.26 }
+      { linea: 'eslogan', desde: 8.12, seg: 2.24 }
     ],
     efectos: [
-      { clave: 'jeje-boy', desde: 12.48 }
+      { clave: 'jeje-boy', desde: 10.46 }
     ]
   },
   pt: {
     nombre: 'Dia 1 → Dia 365',
     clips: 'es',
     lineas: {
-      gancho: 'E se o Tamagotchi… fosse você?',
-      casa: 'O MindHaOS é uma casa 3D em que cada cômodo é um app: cozinha, exercícios, finanças, metas, música…',
-      disena: 'Projete sua casa e escolha qual app vai em cada cômodo: seu centro de entretenimento, estudo, criatividade e cuidado.',
-      metas: 'Sua agenda, seu calendário, seu diário de bordo e um assistente pessoal para cumprir suas metas na vida real.',
-      ia: 'Converse com seus assistentes como faria com o ChatGPT, o Gemini ou o Claude: eles registram seu dia e criam imagens, recursos e modelos 3D.',
-      cerebro: 'As redes sociais fragmentam sua atenção e a tecnologia pensa por você. O MindHaOS é a forma mais completa e divertida de usar seu cérebro e ver progredir os hábitos que você escolhe.',
-      idiomas: 'Em 16 idiomas. Web, desktop e celular. Com créditos de IA, com modelos locais gratuitos… ou sem IA.',
-      cta: 'Experimente grátis. Ou faça dele seu com um pagamento único.',
-      eslogan: 'Construa seu personagem construindo seus hábitos. Projete sua casa, projetando seu futuro.',
+      gancho: 'E se o tamagotchi… fosse você?',
+      casa: 'Olha, essa é a minha casa, e cada cômodo é um app: a cozinha, os treinos, minhas finanças, minhas metas, minha música… e muito mais.',
+      disena: 'E você monta do jeito que quiser. Você decide o que vai em cada cômodo.',
+      metas: 'Aqui eu organizo minha semana, minhas tarefas e minhas metas… e cumpro na vida real.',
+      ia: 'E se quiser, você conversa com seus assistentes: eles te ajudam no dia a dia e criam imagens, diagramas, o que você precisar.',
+      cerebro: 'Então, em vez de só ficar rolando a tela… veja seus hábitos crescerem.',
+      idiomas: 'Está em dezesseis idiomas, na web, no computador e no celular. Com IA ou sem IA, você escolhe.',
+      cta: 'Se chama MindHaOS. Experimente criar sua casa grátis.',
+      eslogan: 'Construa seu personagem… construindo seus hábitos.',
       dia1: 'Dia um no MindHaOS.',
       dia365: 'Dia 365 no MindHaOS.'
     },
@@ -223,30 +223,30 @@ export const PROMO: PorIdioma<PlanPromo> = {
       { tipo: 'rafaga', idioma: 'ko', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'ru', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'zh', seg: 0.45, sfx: 'click' },
-      { tipo: 'clip', clip: '11-dia365', seg: 9.98, sfx: 'wow' }
+      { tipo: 'clip', clip: '11-dia365', seg: 7.53, sfx: 'wow' }
     ],
     voces: [
       { linea: 'dia1', desde: 0.1, seg: 1.23 },
       { linea: 'dia365', desde: 5.8, seg: 2.33 },
-      { linea: 'eslogan', desde: 8.38, seg: 5.3 }
+      { linea: 'eslogan', desde: 8.38, seg: 2.85 }
     ],
     efectos: [
-      { clave: 'jeje-boy', desde: 13.78 }
+      { clave: 'jeje-boy', desde: 11.33 }
     ]
   },
   fr: {
     nombre: 'Jour 1 → Jour 365',
     clips: 'es',
     lineas: {
-      gancho: 'Et si le Tamagotchi… c\'était toi ?',
-      casa: 'MindHaOS est une maison 3D où chaque pièce est une app : cuisine, sport, finances, objectifs, musique…',
-      disena: 'Conçois ta maison et choisis quelle app va dans chaque pièce : ton centre de divertissement, d\'étude, de créativité et de bien-être.',
-      metas: 'Ton agenda, ton calendrier, ton journal de bord et un assistant personnel pour atteindre tes objectifs dans la vraie vie.',
-      ia: 'Discute avec tes assistants comme avec ChatGPT, Gemini ou Claude : ils notent ta journée et créent des images, des ressources et des modèles 3D.',
-      cerebro: 'Les réseaux sociaux fragmentent ton attention et la technologie pense à ta place. MindHaOS est la façon la plus complète et la plus amusante d\'utiliser ton cerveau et de voir progresser les habitudes que tu choisis.',
-      idiomas: 'En 16 langues. Web, ordinateur et mobile. Avec des crédits d\'IA, avec des modèles locaux gratuits… ou sans IA.',
-      cta: 'Essaie-la gratuitement. Ou fais-la tienne en un seul paiement.',
-      eslogan: 'Construis ton personnage en construisant tes habitudes. Conçois ta maison en concevant ton avenir.',
+      gancho: 'Et si le tamagotchi… c\'était toi ?',
+      casa: 'Regarde, voici ma maison, et chaque pièce est une app : la cuisine, le sport, mes finances, mes objectifs, ma musique… et plein d\'autres.',
+      disena: 'Et tu l\'aménages comme tu veux. C\'est toi qui décides ce qui va dans chaque pièce.',
+      metas: 'Ici j\'organise ma semaine, mes tâches et mes objectifs… et je les tiens dans la vraie vie.',
+      ia: 'Et si tu veux, tu discutes avec tes assistants : ils t\'aident au quotidien et te créent des images, des schémas, tout ce qu\'il te faut.',
+      cerebro: 'Alors au lieu de juste scroller… regarde tes habitudes grandir.',
+      idiomas: 'C\'est en seize langues, sur le web, sur ton ordi et sur ton téléphone. Avec ou sans IA, c\'est toi qui choisis.',
+      cta: 'Ça s\'appelle MindHaOS. Essaie de créer ta maison gratuitement.',
+      eslogan: 'Construis ton personnage… en construisant tes habitudes.',
       dia1: 'Jour un dans MindHaOS.',
       dia365: 'Jour 365 dans MindHaOS.'
     },
@@ -264,30 +264,30 @@ export const PROMO: PorIdioma<PlanPromo> = {
       { tipo: 'rafaga', idioma: 'ko', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'ru', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'zh', seg: 0.45, sfx: 'click' },
-      { tipo: 'clip', clip: '11-dia365', seg: 8.52, sfx: 'wow' }
+      { tipo: 'clip', clip: '11-dia365', seg: 6.72, sfx: 'wow' }
     ],
     voces: [
       { linea: 'dia1', desde: 0.1, seg: 0.96 },
       { linea: 'dia365', desde: 5.8, seg: 1.71 },
-      { linea: 'eslogan', desde: 7.76, seg: 4.46 }
+      { linea: 'eslogan', desde: 7.76, seg: 2.66 }
     ],
     efectos: [
-      { clave: 'jeje-boy', desde: 12.32 }
+      { clave: 'jeje-boy', desde: 10.52 }
     ]
   },
   de: {
     nombre: 'Tag 1 → Tag 365',
     clips: 'es',
     lineas: {
-      gancho: 'Und wenn das Tamagotchi… du wärst?',
-      casa: 'MindHaOS ist ein 3D-Haus, in dem jeder Raum eine App ist: Küche, Training, Finanzen, Ziele, Musik…',
-      disena: 'Gestalte dein Haus und entscheide, welche App in welchen Raum kommt: dein Zentrum für Unterhaltung, Lernen, Kreativität und Selbstfürsorge.',
-      metas: 'Dein Terminplaner, dein Kalender, dein Logbuch und ein persönlicher Assistent, damit du deine Ziele im echten Leben erreichst.',
-      ia: 'Sprich mit deinen Assistenten wie mit ChatGPT, Gemini oder Claude: Sie halten deinen Tag fest und erstellen Bilder, Ressourcen und 3D-Modelle.',
-      cerebro: 'Soziale Netzwerke zersplittern deine Aufmerksamkeit, und die Technik denkt für dich. MindHaOS ist der vollständigste und unterhaltsamste Weg, dein Gehirn zu nutzen und die Gewohnheiten wachsen zu sehen, die du selbst wählst.',
-      idiomas: 'In 16 Sprachen. Web, Desktop und Handy. Mit KI-Guthaben, mit kostenlosen lokalen Modellen… oder ganz ohne KI.',
-      cta: 'Probier es gratis. Oder mach es mit einer einzigen Zahlung zu deinem.',
-      eslogan: 'Baue deine Figur, indem du deine Gewohnheiten aufbaust. Gestalte dein Haus und gestalte deine Zukunft.',
+      gancho: 'Was wäre, wenn das Tamagotchi… du selbst wärst?',
+      casa: 'Schau, das ist mein Haus, und jeder Raum ist eine App: die Küche, Training, meine Finanzen, meine Ziele, meine Musik… und noch viel mehr.',
+      disena: 'Und du baust es, wie du willst. Du entscheidest, was in jeden Raum kommt.',
+      metas: 'Hier plane ich meine Woche, meine Aufgaben und meine Ziele… und schaffe sie im echten Leben.',
+      ia: 'Und wenn du willst, chattest du mit deinen Assistenten: Sie helfen dir durch den Tag und machen dir Bilder, Diagramme, was du brauchst.',
+      cerebro: 'Also statt nur zu scrollen… sieh zu, wie deine Gewohnheiten wachsen.',
+      idiomas: 'Es gibt es in sechzehn Sprachen, im Web, am Computer und auf dem Handy. Mit KI oder ohne, du entscheidest.',
+      cta: 'Es heißt MindHaOS. Bau dein Haus – gratis ausprobieren.',
+      eslogan: 'Bau deinen Charakter… indem du deine Gewohnheiten aufbaust.',
       dia1: 'Tag eins in MindHaOS.',
       dia365: 'Tag 365 in MindHaOS.'
     },
@@ -305,30 +305,30 @@ export const PROMO: PorIdioma<PlanPromo> = {
       { tipo: 'rafaga', idioma: 'ko', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'ru', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'zh', seg: 0.45, sfx: 'click' },
-      { tipo: 'clip', clip: '11-dia365', seg: 10.33, sfx: 'wow' }
+      { tipo: 'clip', clip: '11-dia365', seg: 7.87, sfx: 'wow' }
     ],
     voces: [
       { linea: 'dia1', desde: 0.1, seg: 1.4 },
       { linea: 'dia365', desde: 5.8, seg: 2.48 },
-      { linea: 'eslogan', desde: 8.53, seg: 5.5 }
+      { linea: 'eslogan', desde: 8.53, seg: 3.04 }
     ],
     efectos: [
-      { clave: 'jeje-boy', desde: 14.13 }
+      { clave: 'jeje-boy', desde: 11.67 }
     ]
   },
   it: {
     nombre: 'Giorno 1 → Giorno 365',
     clips: 'es',
     lineas: {
-      gancho: 'E se il Tamagotchi… fossi tu?',
-      casa: 'MindHaOS è una casa 3D in cui ogni stanza è un\'app: cucina, allenamento, finanze, obiettivi, musica…',
-      disena: 'Progetta la tua casa e decidi quale app va in ogni stanza: il tuo centro di intrattenimento, studio, creatività e cura di te.',
-      metas: 'La tua agenda, il tuo calendario, il tuo diario di bordo e un assistente personale per raggiungere i tuoi obiettivi nella vita reale.',
-      ia: 'Parla con i tuoi assistenti come faresti con ChatGPT, Gemini o Claude: registrano la tua giornata e creano immagini, risorse e modelli 3D.',
-      cerebro: 'I social frammentano la tua attenzione e la tecnologia pensa al posto tuo. MindHaOS è il modo più completo e divertente di usare il cervello e vedere crescere le abitudini che scegli tu.',
-      idiomas: 'In 16 lingue. Web, desktop e mobile. Con crediti IA, con modelli locali gratuiti… o senza IA.',
-      cta: 'Provala gratis. Oppure falla tua con un solo pagamento.',
-      eslogan: 'Costruisci il tuo personaggio costruendo le tue abitudini. Progetta la tua casa, progettando il tuo futuro.',
+      gancho: 'E se il tamagotchi… fossi tu?',
+      casa: 'Guarda, questa è casa mia: ogni stanza è un\'app. Cucina, allenamento, finanze, obiettivi, musica… e tanto altro.',
+      disena: 'E la arredi come vuoi tu. Sei tu a decidere cosa va in ogni stanza.',
+      metas: 'Qui organizzo la mia settimana, le cose da fare e i miei obiettivi… e li raggiungo nella vita vera.',
+      ia: 'E se vuoi, chiacchieri con i tuoi assistenti: ti aiutano con la giornata e ti creano immagini, diagrammi, quello che ti serve.',
+      cerebro: 'Quindi invece di scrollare e basta… guarda crescere le tue abitudini.',
+      idiomas: 'È in sedici lingue, sul web, sul computer e sul telefono. Con l\'IA o senza, scegli tu.',
+      cta: 'Si chiama MindHaOS. Prova a creare la tua casa gratis.',
+      eslogan: 'Costruisci il tuo personaggio… costruendo le tue abitudini.',
       dia1: 'Giorno uno su MindHaOS.',
       dia365: 'Giorno 365 su MindHaOS.'
     },
@@ -346,30 +346,30 @@ export const PROMO: PorIdioma<PlanPromo> = {
       { tipo: 'rafaga', idioma: 'ko', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'ru', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'zh', seg: 0.45, sfx: 'click' },
-      { tipo: 'clip', clip: '11-dia365', seg: 10.99, sfx: 'wow' }
+      { tipo: 'clip', clip: '11-dia365', seg: 8.39, sfx: 'wow' }
     ],
     voces: [
       { linea: 'dia1', desde: 0.1, seg: 1.54 },
       { linea: 'dia365', desde: 5.8, seg: 2.58 },
-      { linea: 'eslogan', desde: 8.63, seg: 6.06 }
+      { linea: 'eslogan', desde: 8.63, seg: 3.46 }
     ],
     efectos: [
-      { clave: 'jeje-boy', desde: 14.79 }
+      { clave: 'jeje-boy', desde: 12.19 }
     ]
   },
   ja: {
     nombre: '1日目 → 365日目',
     clips: 'es',
     lineas: {
-      gancho: 'もし、たまごっちが…あなた自身だったら？',
-      casa: 'MindHaOSは、部屋ひとつひとつがアプリになった3Dの家。キッチン、運動、家計、目標、音楽…',
-      disena: '家をデザインして、どの部屋にどのアプリを置くか決めよう。娯楽、勉強、創作、そして心と体のケアの拠点に。',
-      metas: '手帳、カレンダー、日誌、そして現実の目標を叶えるためのパーソナルアシスタント。',
-      ia: 'ChatGPTやGemini、Claudeと話すように、アシスタントと会話しよう。毎日を記録し、画像や素材、3Dモデルまで作ってくれる。',
-      cerebro: 'SNSは集中力を細切れにし、テクノロジーはあなたの代わりに考える。MindHaOSは、脳を使い、自分で選んだ習慣の成長を実感できる、いちばん充実して楽しい方法。',
-      idiomas: '16言語対応。Web、デスクトップ、スマホで。AIクレジットでも、無料のローカルモデルでも…AIなしでも。',
-      cta: '無料で試そう。気に入ったら、一回払いで自分のものに。',
-      eslogan: '習慣を育てて、キャラクターを育てる。家をデザインして、未来をデザインする。',
+      gancho: 'もしたまごっちが…あなた自身だったら？',
+      casa: '見て、これがぼくの家。部屋ひとつひとつがアプリなんだ。キッチン、運動、お金、目標、音楽…ほかにもたくさん。',
+      disena: '家は好きなように作れる。どの部屋に何を置くかは、あなたが決める。',
+      metas: 'ここで一週間の予定、やること、目標を整理して…ちゃんと現実で達成する。',
+      ia: 'その気になれば、アシスタントとおしゃべりも。毎日を手伝ってくれて、画像や図も、必要なものを作ってくれる。',
+      cerebro: 'だから、ただスクロールするかわりに…習慣が育っていくのを見よう。',
+      idiomas: '16の言語に対応。ウェブでも、パソコンでも、スマホでも。AIありでもなしでも、あなた次第。',
+      cta: 'その名はMindHaOS。無料で家づくりを試してみて。',
+      eslogan: 'キャラクターを育てよう…習慣を育てながら。',
       dia1: 'MindHaOSの1日目。',
       dia365: 'MindHaOSの365日目。'
     },
@@ -387,30 +387,30 @@ export const PROMO: PorIdioma<PlanPromo> = {
       { tipo: 'rafaga', idioma: 'ru', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'zh', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'es', seg: 0.45, sfx: 'click' },
-      { tipo: 'clip', clip: '11-dia365', seg: 10, sfx: 'wow' }
+      { tipo: 'clip', clip: '11-dia365', seg: 7.51, sfx: 'wow' }
     ],
     voces: [
       { linea: 'dia1', desde: 0.1, seg: 1.88 },
       { linea: 'dia365', desde: 5.8, seg: 2.52 },
-      { linea: 'eslogan', desde: 8.57, seg: 5.13 }
+      { linea: 'eslogan', desde: 8.57, seg: 2.64 }
     ],
     efectos: [
-      { clave: 'jeje-boy', desde: 13.8 }
+      { clave: 'jeje-boy', desde: 11.31 }
     ]
   },
   zh: {
     nombre: '第1天 → 第365天',
     clips: 'es',
     lineas: {
-      gancho: '如果那只电子宠物……就是你自己呢？',
-      casa: 'MindHaOS 是一座 3D 的家，每个房间都是一个应用：厨房、健身、理财、目标、音乐……',
-      disena: '设计你的家，决定每个房间放哪个应用：你的娱乐、学习、创作和身心照护中心。',
-      metas: '你的日程、日历、日志，还有一位私人助手，帮你在现实生活中达成目标。',
-      ia: '像和 ChatGPT、Gemini 或 Claude 聊天一样和助手交谈：他们记录你的每一天，还能生成图片、素材和 3D 模型。',
-      cerebro: '社交媒体切碎了你的注意力，科技替你思考。MindHaOS 是最完整、最有趣的方式，让你用脑，看见自己选择的习惯一点点进步。',
-      idiomas: '支持 16 种语言。网页、桌面和手机。可以用 AI 点数，可以用免费的本地模型……也可以完全不用 AI。',
-      cta: '免费试用。喜欢的话，一次付费，永久拥有。',
-      eslogan: '养成习惯，养成你的角色。设计你的家，设计你的未来。',
+      gancho: '如果电子宠物……就是你自己呢？',
+      casa: '看，这是我的家，每个房间都是一个应用：厨房、健身、我的财务、我的目标、我的音乐……还有很多很多。',
+      disena: '家想怎么搭就怎么搭。每个房间放什么，你说了算。',
+      metas: '我在这里安排一周、待办和目标……然后在现实生活里把它们完成。',
+      ia: '想的话，还能和你的助手聊天：它们帮你打理每一天，还能给你做图片、图表，你要什么都行。',
+      cerebro: '所以别再只是刷手机了……看着你的习惯一点点长大吧。',
+      idiomas: '支持十六种语言，网页、电脑、手机都能用。用不用 AI，你来定。',
+      cta: '它叫 MindHaOS。免费试试打造你的家。',
+      eslogan: '打造你的角色……从打造你的习惯开始。',
       dia1: 'MindHaOS 第一天。',
       dia365: 'MindHaOS 第365天。'
     },
@@ -428,30 +428,30 @@ export const PROMO: PorIdioma<PlanPromo> = {
       { tipo: 'rafaga', idioma: 'ko', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'ru', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'es', seg: 0.45, sfx: 'click' },
-      { tipo: 'clip', clip: '11-dia365', seg: 8.85, sfx: 'wow' }
+      { tipo: 'clip', clip: '11-dia365', seg: 6.94, sfx: 'wow' }
     ],
     voces: [
       { linea: 'dia1', desde: 0.1, seg: 1.45 },
       { linea: 'dia365', desde: 5.8, seg: 2.03 },
-      { linea: 'eslogan', desde: 8.08, seg: 4.47 }
+      { linea: 'eslogan', desde: 8.08, seg: 2.56 }
     ],
     efectos: [
-      { clave: 'jeje-boy', desde: 12.65 }
+      { clave: 'jeje-boy', desde: 10.74 }
     ]
   },
   ko: {
     nombre: '1일 차 → 365일 차',
     clips: 'es',
     lineas: {
-      gancho: '만약 그 다마고치가… 바로 당신이라면?',
-      casa: 'MindHaOS는 방 하나하나가 앱인 3D 집이에요. 주방, 운동, 재정, 목표, 음악…',
-      disena: '집을 디자인하고 어떤 방에 어떤 앱을 둘지 정하세요. 즐거움, 공부, 창작, 몸과 마음 돌봄의 중심이 됩니다.',
-      metas: '일정, 달력, 일지, 그리고 현실의 목표를 이루도록 돕는 개인 비서까지.',
-      ia: 'ChatGPT, Gemini, Claude와 이야기하듯 비서와 대화하세요. 하루를 기록하고 이미지, 자료, 3D 모델까지 만들어 줍니다.',
-      cerebro: 'SNS는 집중력을 조각내고, 기술은 당신 대신 생각합니다. MindHaOS는 뇌를 쓰고, 스스로 고른 습관이 자라는 걸 지켜보는 가장 완전하고 재미있는 방법이에요.',
-      idiomas: '16개 언어. 웹, 데스크톱, 모바일. AI 크레딧으로, 무료 로컬 모델로… 아니면 AI 없이도.',
-      cta: '무료로 써 보세요. 마음에 들면 한 번 결제로 내 것으로.',
-      eslogan: '습관을 쌓아 캐릭터를 키우고, 집을 디자인하며 미래를 디자인하세요.',
+      gancho: '다마고치가… 바로 너라면?',
+      casa: '봐, 이게 내 집인데 방마다 앱이 하나씩 있어: 주방, 운동, 돈 관리, 목표, 음악, 그리고 훨씬 더 많아.',
+      disena: '집은 네 마음대로 꾸며. 방마다 뭘 넣을지는 네가 정해.',
+      metas: '여기서 한 주 계획, 할 일, 목표를 정리하고… 진짜 생활에서 해내는 거야.',
+      ia: '원하면 어시스턴트랑 대화도 해. 하루를 도와주고 이미지, 다이어그램, 필요한 건 다 만들어 줘.',
+      cerebro: '그러니까 그냥 스크롤만 하지 말고… 네 습관이 자라는 걸 봐.',
+      idiomas: '16개 언어로, 웹에서도, 컴퓨터에서도, 폰에서도. AI가 있든 없든, 네가 골라.',
+      cta: '이름은 MindHaOS. 집 만들기를 무료로 해 봐.',
+      eslogan: '캐릭터를 키워… 습관을 키우면서.',
       dia1: 'MindHaOS 1일 차.',
       dia365: 'MindHaOS 365일 차.'
     },
@@ -469,30 +469,30 @@ export const PROMO: PorIdioma<PlanPromo> = {
       { tipo: 'rafaga', idioma: 'ru', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'zh', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'es', seg: 0.45, sfx: 'click' },
-      { tipo: 'clip', clip: '11-dia365', seg: 8.43, sfx: 'wow' }
+      { tipo: 'clip', clip: '11-dia365', seg: 6.44, sfx: 'wow' }
     ],
     voces: [
       { linea: 'dia1', desde: 0.1, seg: 1.27 },
       { linea: 'dia365', desde: 5.8, seg: 1.71 },
-      { linea: 'eslogan', desde: 7.76, seg: 4.37 }
+      { linea: 'eslogan', desde: 7.76, seg: 2.38 }
     ],
     efectos: [
-      { clave: 'jeje-boy', desde: 12.23 }
+      { clave: 'jeje-boy', desde: 10.24 }
     ]
   },
   ru: {
     nombre: 'День 1 → День 365',
     clips: 'es',
     lineas: {
-      gancho: 'А если бы тамагочи… был ты?',
-      casa: 'MindHaOS — это 3D-дом, где каждая комната — приложение: кухня, тренировки, финансы, цели, музыка…',
-      disena: 'Спроектируй свой дом и реши, какое приложение будет в каждой комнате: твой центр развлечений, учёбы, творчества и заботы о себе.',
-      metas: 'Твой ежедневник, календарь, бортовой журнал и личный ассистент, чтобы достигать целей в реальной жизни.',
-      ia: 'Общайся с ассистентами, как с ChatGPT, Gemini или Claude: они записывают твой день и создают изображения, материалы и 3D-модели.',
-      cerebro: 'Соцсети дробят твоё внимание, а технологии думают за тебя. MindHaOS — самый полный и увлекательный способ использовать мозг и видеть, как растут привычки, которые выбираешь ты сам.',
-      idiomas: 'На 16 языках. Веб, компьютер и телефон. С кредитами ИИ, с бесплатными локальными моделями… или вовсе без ИИ.',
-      cta: 'Попробуй бесплатно. Или сделай своим за один платёж.',
-      eslogan: 'Строй персонажа, выстраивая привычки. Проектируй дом — проектируй будущее.',
+      gancho: 'А что, если тамагочи… это ты сам?',
+      casa: 'Смотри, это мой дом, и каждая комната — приложение: кухня, тренировки, мои финансы, мои цели, моя музыка… и ещё много всего.',
+      disena: 'И обустраиваешь его как хочешь. Ты решаешь, что будет в каждой комнате.',
+      metas: 'Здесь я планирую неделю, дела и цели… и выполняю их в реальной жизни.',
+      ia: 'А если хочешь, болтаешь со своими помощниками: они помогают с делами и делают тебе картинки, схемы — всё, что нужно.',
+      cerebro: 'Так что вместо того, чтобы просто листать ленту… смотри, как растут твои привычки.',
+      idiomas: 'Шестнадцать языков, в браузере, на компьютере и на телефоне. С ИИ или без — выбираешь ты.',
+      cta: 'Это MindHaOS. Попробуй построить свой дом бесплатно.',
+      eslogan: 'Строй своего персонажа… строя свои привычки.',
       dia1: 'День первый в MindHaOS.',
       dia365: 'День 365 в MindHaOS.'
     },
@@ -510,30 +510,30 @@ export const PROMO: PorIdioma<PlanPromo> = {
       { tipo: 'rafaga', idioma: 'ko', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'zh', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'es', seg: 0.45, sfx: 'click' },
-      { tipo: 'clip', clip: '11-dia365', seg: 9.6, sfx: 'wow' }
+      { tipo: 'clip', clip: '11-dia365', seg: 7.61, sfx: 'wow' }
     ],
     voces: [
       { linea: 'dia1', desde: 0.1, seg: 1.62 },
       { linea: 'dia365', desde: 5.8, seg: 2.52 },
-      { linea: 'eslogan', desde: 8.57, seg: 4.73 }
+      { linea: 'eslogan', desde: 8.57, seg: 2.74 }
     ],
     efectos: [
-      { clave: 'jeje-boy', desde: 13.4 }
+      { clave: 'jeje-boy', desde: 11.41 }
     ]
   },
   hi: {
     nombre: 'दिन 1 → दिन 365',
     clips: 'es',
     lineas: {
-      gancho: 'और अगर वो तमागोची… तुम ही होते?',
-      casa: 'MindHaOS एक 3D घर है, जहाँ हर कमरा एक ऐप है: रसोई, कसरत, पैसे, लक्ष्य, संगीत…',
-      disena: 'अपना घर डिज़ाइन करो और तय करो कि किस कमरे में कौन-सा ऐप रहेगा: मनोरंजन, पढ़ाई, रचनात्मकता और अपनी देखभाल का केंद्र।',
-      metas: 'तुम्हारा एजेंडा, कैलेंडर, डायरी और एक निजी सहायक, ताकि असली ज़िंदगी में लक्ष्य पूरे हों।',
-      ia: 'अपने सहायकों से वैसे ही बात करो जैसे ChatGPT, Gemini या Claude से: वे तुम्हारा दिन दर्ज करते हैं और तस्वीरें, सामग्री और 3D मॉडल बनाते हैं।',
-      cerebro: 'सोशल मीडिया तुम्हारा ध्यान बिखेरता है और तकनीक तुम्हारी जगह सोचती है। MindHaOS दिमाग़ इस्तेमाल करने और अपनी चुनी हुई आदतों को बढ़ते देखने का सबसे संपूर्ण और मज़ेदार तरीका है।',
-      idiomas: '16 भाषाओं में। वेब, डेस्कटॉप और मोबाइल पर। AI क्रेडिट के साथ, मुफ़्त लोकल मॉडल के साथ… या बिना AI के।',
-      cta: 'मुफ़्त में आज़माओ। या एक ही भुगतान में इसे अपना बना लो।',
-      eslogan: 'आदतें बनाते हुए अपना किरदार बनाओ। घर डिज़ाइन करते हुए अपना भविष्य डिज़ाइन करो।',
+      gancho: 'क्या हो अगर तामागोची… तुम ख़ुद हो?',
+      casa: 'देखो, ये मेरा घर है, और हर कमरा एक ऐप है: रसोई, कसरत, मेरे पैसे, मेरे लक्ष्य, मेरा संगीत… और भी बहुत कुछ।',
+      disena: 'और घर तुम जैसे चाहो वैसे सजाओ। किस कमरे में क्या होगा, ये तुम तय करो।',
+      metas: 'यहाँ मैं अपना हफ़्ता, अपने काम और अपने लक्ष्य प्लान करता हूँ… और असल ज़िंदगी में उन्हें पूरा करता हूँ।',
+      ia: 'और चाहो तो अपने असिस्टेंट से बात करो: वो तुम्हारे दिन में मदद करते हैं और तस्वीरें, डायग्राम, जो चाहिए बना देते हैं।',
+      cerebro: 'तो बस स्क्रॉल करने के बजाय… अपनी आदतों को बढ़ते देखो।',
+      idiomas: 'सोलह भाषाओं में, वेब पर, कंप्यूटर पर और फ़ोन पर। AI के साथ या बिना, तुम चुनो।',
+      cta: 'इसका नाम है MindHaOS। अपना घर बनाना मुफ़्त आज़माओ।',
+      eslogan: 'अपना किरदार बनाओ… अपनी आदतें बनाते हुए।',
       dia1: 'MindHaOS में पहला दिन।',
       dia365: 'MindHaOS में 365वाँ दिन।'
     },
@@ -551,30 +551,30 @@ export const PROMO: PorIdioma<PlanPromo> = {
       { tipo: 'rafaga', idioma: 'ru', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'zh', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'es', seg: 0.45, sfx: 'click' },
-      { tipo: 'clip', clip: '11-dia365', seg: 10.32, sfx: 'wow' }
+      { tipo: 'clip', clip: '11-dia365', seg: 7.94, sfx: 'wow' }
     ],
     voces: [
       { linea: 'dia1', desde: 0.1, seg: 1.61 },
       { linea: 'dia365', desde: 5.8, seg: 2.47 },
-      { linea: 'eslogan', desde: 8.52, seg: 5.5 }
+      { linea: 'eslogan', desde: 8.52, seg: 3.12 }
     ],
     efectos: [
-      { clave: 'jeje-boy', desde: 14.12 }
+      { clave: 'jeje-boy', desde: 11.74 }
     ]
   },
   tr: {
     nombre: '1. gün → 365. gün',
     clips: 'es',
     lineas: {
-      gancho: 'Ya o Tamagotchi… sen olsaydın?',
-      casa: 'MindHaOS, her odası bir uygulama olan 3D bir ev: mutfak, egzersiz, finans, hedefler, müzik…',
-      disena: 'Evini tasarla ve her odaya hangi uygulamanın gireceğine karar ver: eğlence, ders, yaratıcılık ve kendine bakım merkezin.',
-      metas: 'Ajandan, takvimin, seyir defterin ve gerçek hayattaki hedeflerine ulaşman için kişisel bir asistan.',
-      ia: 'Asistanlarınla ChatGPT, Gemini ya da Claude ile konuşur gibi konuş: gününü kaydeder; görseller, kaynaklar ve 3D modeller üretir.',
-      cerebro: 'Sosyal medya dikkatini parçalıyor, teknoloji senin yerine düşünüyor. MindHaOS, beynini kullanmanın ve kendi seçtiğin alışkanlıkların büyüdüğünü görmenin en eksiksiz ve en eğlenceli yolu.',
-      idiomas: '16 dilde. Web, masaüstü ve mobil. Yapay zekâ kredisiyle, ücretsiz yerel modellerle… ya da hiç yapay zekâ olmadan.',
-      cta: 'Ücretsiz dene. Ya da tek ödemeyle senin olsun.',
-      eslogan: 'Alışkanlıklarını kurarak karakterini kur. Evini tasarlarken geleceğini tasarla.',
+      gancho: 'Ya tamagotchi… sen olsaydın?',
+      casa: 'Bak, burası benim evim ve her oda bir uygulama: mutfak, egzersiz, finanslarım, hedeflerim, müziğim… ve çok daha fazlası.',
+      disena: 'Evi istediğin gibi kurarsın. Hangi odaya ne gireceğine sen karar verirsin.',
+      metas: 'Burada haftamı, yapılacaklarımı ve hedeflerimi planlıyorum… ve gerçek hayatta tamamlıyorum.',
+      ia: 'İstersen asistanlarınla sohbet edersin: gününe yardım ederler, sana görseller, diyagramlar, ne lazımsa yaparlar.',
+      cerebro: 'Yani sadece ekranı kaydırmak yerine… alışkanlıklarının büyümesini izle.',
+      idiomas: 'On altı dilde, webde, bilgisayarda ve telefonda. Yapay zekâyla ya da onsuz, seçim senin.',
+      cta: 'Adı MindHaOS. Evini kurmayı ücretsiz dene.',
+      eslogan: 'Karakterini kur… alışkanlıklarını kurarak.',
       dia1: 'MindHaOS\'ta birinci gün.',
       dia365: 'MindHaOS\'ta 365. gün.'
     },
@@ -592,30 +592,30 @@ export const PROMO: PorIdioma<PlanPromo> = {
       { tipo: 'rafaga', idioma: 'ko', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'ru', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'zh', seg: 0.45, sfx: 'click' },
-      { tipo: 'clip', clip: '11-dia365', seg: 8.86, sfx: 'wow' }
+      { tipo: 'clip', clip: '11-dia365', seg: 6.71, sfx: 'wow' }
     ],
     voces: [
       { linea: 'dia1', desde: 0.1, seg: 1.37 },
       { linea: 'dia365', desde: 5.8, seg: 2.1 },
-      { linea: 'eslogan', desde: 8.15, seg: 4.41 }
+      { linea: 'eslogan', desde: 8.15, seg: 2.26 }
     ],
     efectos: [
-      { clave: 'jeje-boy', desde: 12.66 }
+      { clave: 'jeje-boy', desde: 10.51 }
     ]
   },
   id: {
     nombre: 'Hari 1 → Hari 365',
     clips: 'es',
     lineas: {
-      gancho: 'Bagaimana kalau Tamagotchi itu… adalah kamu?',
-      casa: 'MindHaOS adalah rumah 3D yang setiap ruangannya adalah aplikasi: dapur, olahraga, keuangan, target, musik…',
-      disena: 'Rancang rumahmu dan tentukan aplikasi apa di tiap ruangan: pusat hiburan, belajar, kreativitas, dan perawatan dirimu.',
-      metas: 'Agendamu, kalendermu, jurnal harianmu, dan asisten pribadi untuk mencapai targetmu di kehidupan nyata.',
-      ia: 'Ngobrol dengan asistenmu seperti dengan ChatGPT, Gemini, atau Claude: mereka mencatat harimu dan membuat gambar, materi, dan model 3D.',
-      cerebro: 'Media sosial memecah perhatianmu dan teknologi berpikir untukmu. MindHaOS adalah cara paling lengkap dan seru untuk memakai otakmu dan melihat kebiasaan pilihanmu tumbuh.',
-      idiomas: 'Dalam 16 bahasa. Web, desktop, dan ponsel. Dengan kredit AI, dengan model lokal gratis… atau tanpa AI sama sekali.',
-      cta: 'Coba gratis. Atau miliki selamanya dengan sekali bayar.',
-      eslogan: 'Bangun karaktermu dengan membangun kebiasaanmu. Rancang rumahmu, rancang masa depanmu.',
+      gancho: 'Gimana kalau tamagotchi-nya… itu kamu sendiri?',
+      casa: 'Lihat, ini rumahku, dan tiap ruangan adalah aplikasi: dapur, olahraga, keuanganku, targetku, musikku… dan masih banyak lagi.',
+      disena: 'Dan kamu bisa menatanya sesukamu. Kamu yang tentukan isi tiap ruangan.',
+      metas: 'Di sini aku atur mingguku, tugas-tugasku, dan targetku… lalu kucapai di kehidupan nyata.',
+      ia: 'Kalau mau, kamu bisa ngobrol dengan asistenmu: mereka bantu harimu dan bikinin gambar, diagram, apa pun yang kamu butuhkan.',
+      cerebro: 'Jadi daripada cuma scroll… lihat kebiasaanmu tumbuh.',
+      idiomas: 'Ada dalam enam belas bahasa, di web, di komputer, dan di HP. Pakai AI atau tidak, kamu yang pilih.',
+      cta: 'Namanya MindHaOS. Coba bangun rumahmu gratis.',
+      eslogan: 'Bangun karaktermu… dengan membangun kebiasaanmu.',
       dia1: 'Hari pertama di MindHaOS.',
       dia365: 'Hari ke-365 di MindHaOS.'
     },
@@ -633,30 +633,30 @@ export const PROMO: PorIdioma<PlanPromo> = {
       { tipo: 'rafaga', idioma: 'ko', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'ru', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'zh', seg: 0.45, sfx: 'click' },
-      { tipo: 'clip', clip: '11-dia365', seg: 9.25, sfx: 'wow' }
+      { tipo: 'clip', clip: '11-dia365', seg: 7.22, sfx: 'wow' }
     ],
     voces: [
       { linea: 'dia1', desde: 0.1, seg: 1.46 },
       { linea: 'dia365', desde: 5.8, seg: 2.23 },
-      { linea: 'eslogan', desde: 8.28, seg: 4.67 }
+      { linea: 'eslogan', desde: 8.28, seg: 2.64 }
     ],
     efectos: [
-      { clave: 'jeje-boy', desde: 13.05 }
+      { clave: 'jeje-boy', desde: 11.02 }
     ]
   },
   pl: {
     nombre: 'Dzień 1 → Dzień 365',
     clips: 'es',
     lineas: {
-      gancho: 'A gdyby tamagotchi… było tobą?',
-      casa: 'MindHaOS to dom 3D, w którym każdy pokój jest aplikacją: kuchnia, trening, finanse, cele, muzyka…',
-      disena: 'Zaprojektuj swój dom i zdecyduj, która aplikacja trafi do którego pokoju: twoje centrum rozrywki, nauki, kreatywności i dbania o siebie.',
-      metas: 'Twój terminarz, kalendarz, dziennik pokładowy i osobisty asystent, żebyś realizował swoje cele w prawdziwym życiu.',
-      ia: 'Rozmawiaj z asystentami jak z ChatGPT, Gemini czy Claude: zapisują twój dzień i tworzą obrazy, materiały i modele 3D.',
-      cerebro: 'Media społecznościowe rozpraszają twoją uwagę, a technologia myśli za ciebie. MindHaOS to najpełniejszy i najfajniejszy sposób, żeby używać mózgu i widzieć, jak rosną nawyki, które sam wybierasz.',
-      idiomas: 'W 16 językach. Web, komputer i telefon. Z kredytami AI, z darmowymi modelami lokalnymi… albo zupełnie bez AI.',
-      cta: 'Wypróbuj za darmo. Albo zdobądź na własność za jedną opłatą.',
-      eslogan: 'Buduj postać, budując nawyki. Projektuj dom, projektując swoją przyszłość.',
+      gancho: 'A gdyby tamagotchi… to byłeś ty?',
+      casa: 'Patrz, to mój dom, a każdy pokój to aplikacja: kuchnia, trening, moje finanse, moje cele, moja muzyka… i dużo więcej.',
+      disena: 'I urządzasz go, jak chcesz. Ty decydujesz, co trafi do każdego pokoju.',
+      metas: 'Tu planuję tydzień, zadania i cele… i realizuję je w prawdziwym życiu.',
+      ia: 'A jeśli chcesz, gadasz ze swoimi asystentami: pomagają ci w ciągu dnia i robią obrazy, diagramy, co tylko potrzebujesz.',
+      cerebro: 'Więc zamiast tylko scrollować… patrz, jak rosną twoje nawyki.',
+      idiomas: 'Szesnaście języków, w przeglądarce, na komputerze i w telefonie. Z AI albo bez, ty wybierasz.',
+      cta: 'Nazywa się MindHaOS. Wypróbuj za darmo: zbuduj swój dom.',
+      eslogan: 'Buduj swoją postać… budując swoje nawyki.',
       dia1: 'Dzień pierwszy w MindHaOS.',
       dia365: 'Dzień 365 w MindHaOS.'
     },
@@ -674,30 +674,30 @@ export const PROMO: PorIdioma<PlanPromo> = {
       { tipo: 'rafaga', idioma: 'ko', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'ru', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'zh', seg: 0.45, sfx: 'click' },
-      { tipo: 'clip', clip: '11-dia365', seg: 9.12, sfx: 'wow' }
+      { tipo: 'clip', clip: '11-dia365', seg: 7, sfx: 'wow' }
     ],
     voces: [
       { linea: 'dia1', desde: 0.1, seg: 1.46 },
       { linea: 'dia365', desde: 5.8, seg: 2.12 },
-      { linea: 'eslogan', desde: 8.17, seg: 4.65 }
+      { linea: 'eslogan', desde: 8.17, seg: 2.53 }
     ],
     efectos: [
-      { clave: 'jeje-boy', desde: 12.92 }
+      { clave: 'jeje-boy', desde: 10.8 }
     ]
   },
   nl: {
     nombre: 'Dag 1 → Dag 365',
     clips: 'es',
     lineas: {
-      gancho: 'En als de Tamagotchi… jij was?',
-      casa: 'MindHaOS is een 3D-huis waarin elke kamer een app is: keuken, sport, financiën, doelen, muziek…',
-      disena: 'Ontwerp je huis en kies welke app in welke kamer komt: jouw plek voor ontspanning, studie, creativiteit en zelfzorg.',
-      metas: 'Je agenda, je kalender, je logboek en een persoonlijke assistent om je doelen in het echte leven te halen.',
-      ia: 'Praat met je assistenten zoals met ChatGPT, Gemini of Claude: ze leggen je dag vast en maken afbeeldingen, materiaal en 3D-modellen.',
-      cerebro: 'Sociale media versnipperen je aandacht en technologie denkt voor je. MindHaOS is de meest complete en leukste manier om je brein te gebruiken en de gewoontes die jij kiest te zien groeien.',
-      idiomas: 'In 16 talen. Web, desktop en mobiel. Met AI-credits, met gratis lokale modellen… of helemaal zonder AI.',
-      cta: 'Probeer het gratis. Of maak het van jou met één betaling.',
-      eslogan: 'Bouw je personage door je gewoontes op te bouwen. Ontwerp je huis, en ontwerp je toekomst.',
+      gancho: 'Wat als de tamagotchi… jij zelf was?',
+      casa: 'Kijk, dit is mijn huis, en elke kamer is een app: de keuken, sporten, mijn financiën, mijn doelen, mijn muziek… en nog veel meer.',
+      disena: 'En je richt het in zoals jij wilt. Jij bepaalt wat er in elke kamer komt.',
+      metas: 'Hier plan ik mijn week, mijn taken en mijn doelen… en ik haal ze in het echte leven.',
+      ia: 'En als je wilt, klets je met je assistenten: ze helpen je door de dag en maken afbeeldingen, diagrammen, alles wat je nodig hebt.',
+      cerebro: 'Dus in plaats van alleen te scrollen… kijk hoe je gewoontes groeien.',
+      idiomas: 'Het is er in zestien talen, op het web, op je computer en op je telefoon. Met of zonder AI, jij kiest.',
+      cta: 'Het heet MindHaOS. Probeer gratis je huis te bouwen.',
+      eslogan: 'Bouw je personage… door je gewoontes te bouwen.',
       dia1: 'Dag één in MindHaOS.',
       dia365: 'Dag 365 in MindHaOS.'
     },
@@ -715,15 +715,15 @@ export const PROMO: PorIdioma<PlanPromo> = {
       { tipo: 'rafaga', idioma: 'ko', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'ru', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'zh', seg: 0.45, sfx: 'click' },
-      { tipo: 'clip', clip: '11-dia365', seg: 9.9, sfx: 'wow' }
+      { tipo: 'clip', clip: '11-dia365', seg: 7.01, sfx: 'wow' }
     ],
     voces: [
       { linea: 'dia1', desde: 0.1, seg: 1.44 },
       { linea: 'dia365', desde: 5.8, seg: 2.4 },
-      { linea: 'eslogan', desde: 8.45, seg: 5.15 }
+      { linea: 'eslogan', desde: 8.45, seg: 2.26 }
     ],
     efectos: [
-      { clave: 'jeje-boy', desde: 13.7 }
+      { clave: 'jeje-boy', desde: 10.81 }
     ]
   },
   ar: {
@@ -731,14 +731,14 @@ export const PROMO: PorIdioma<PlanPromo> = {
     clips: 'es',
     lineas: {
       gancho: 'ماذا لو كان التاماغوتشي… هو أنت؟',
-      casa: 'MindHaOS بيت ثلاثي الأبعاد كل غرفة فيه تطبيق: المطبخ، التمارين، المال، الأهداف، الموسيقى…',
-      disena: 'صمّم بيتك وقرّر أي تطبيق يذهب إلى كل غرفة: مركزك للترفيه والدراسة والإبداع والعناية بنفسك.',
-      metas: 'مفكرتك وتقويمك ويومياتك ومساعد شخصي يعينك على تحقيق أهدافك في الحياة الحقيقية.',
-      ia: 'تحدّث مع مساعديك كما تفعل مع ChatGPT أو Gemini أو Claude: يسجّلون يومك ويصنعون الصور والموارد والنماذج ثلاثية الأبعاد.',
-      cerebro: 'تشتّت الشبكات الاجتماعية انتباهك، والتقنية تفكّر بدلًا عنك. MindHaOS هو الطريقة الأكمل والأمتع لاستخدام عقلك ورؤية العادات التي تختارها وهي تنمو.',
-      idiomas: 'بـ16 لغة. ويب وحاسوب وهاتف. برصيد ذكاء اصطناعي، أو بنماذج محلية مجانية… أو من دونه.',
-      cta: 'جرّبه مجانًا. أو اجعله ملكك بدفعة واحدة.',
-      eslogan: 'ابنِ شخصيتك ببناء عاداتك. صمّم بيتك، وأنت تصمّم مستقبلك.',
+      casa: 'انظر، هذا بيتي، وكل غرفة تطبيق: المطبخ، التمارين، المال، الأهداف، الموسيقى… وأكثر.',
+      disena: 'وتجهّزه كما تريد. أنت من يقرّر ماذا يوضع في كل غرفة.',
+      metas: 'هنا أنظّم أسبوعي ومهامي وأهدافي… وأحقّقها في الحياة الحقيقية.',
+      ia: 'وإن أردت، تتحدّث مع مساعديك: يساعدونك في يومك ويصنعون لك صورًا ومخطّطات، وكل ما تحتاجه.',
+      cerebro: 'فبدلًا من التمرير فقط… شاهد عاداتك وهي تكبر.',
+      idiomas: 'متوفّر بست عشرة لغة، على الويب والكمبيوتر والهاتف. مع الذكاء الاصطناعي أو بدونه، القرار لك.',
+      cta: 'اسمه MindHaOS. جرّب بناء بيتك مجانًا.',
+      eslogan: 'ابنِ شخصيتك… ببناء عاداتك.',
       dia1: 'اليوم الأول في MindHaOS.',
       dia365: 'اليوم 365 في MindHaOS.'
     },
@@ -756,15 +756,15 @@ export const PROMO: PorIdioma<PlanPromo> = {
       { tipo: 'rafaga', idioma: 'ru', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'zh', seg: 0.45, sfx: 'click' },
       { tipo: 'rafaga', idioma: 'es', seg: 0.45, sfx: 'click' },
-      { tipo: 'clip', clip: '11-dia365', seg: 10.83, sfx: 'wow' }
+      { tipo: 'clip', clip: '11-dia365', seg: 8.3, sfx: 'wow' }
     ],
     voces: [
       { linea: 'dia1', desde: 0.1, seg: 2.03 },
       { linea: 'dia365', desde: 5.8, seg: 3.17 },
-      { linea: 'eslogan', desde: 9.22, seg: 5.31 }
+      { linea: 'eslogan', desde: 9.22, seg: 2.78 }
     ],
     efectos: [
-      { clave: 'jeje-boy', desde: 14.63 }
+      { clave: 'jeje-boy', desde: 12.1 }
     ]
   }
 }

@@ -154,8 +154,10 @@ export const ESCENAS = [
       eu.useEditorUi.getState().setEditor3d(false)
       eu.useEditorUi.getState().setTab('mapa')
       useLayout.getState().setEditMode(true)
-      await sleep(1500)
-      return 'editMode=' + useLayout.getState().editMode
+      // El panel carga sus textos por idioma bajo demanda: la primera vez en un idioma tarda.
+      for (let i = 0; i < 50 && !document.querySelector('[data-tut="editor.contenido"]'); i++) await sleep(200)
+      await sleep(1200)
+      return 'editMode=' + useLayout.getState().editMode + (document.querySelector('[data-tut="editor.contenido"]') ? '' : ' SIN PANEL')
     `,
     animar: `
       const a = camAhora()
@@ -446,21 +448,15 @@ export const ESCENAS = [
     preparar: `
       await limpiarTodo()
       if (useHouse.getState().explotado) useHouse.getState().toggleExplotado()
-      useCiclo.setState({ minutos: 15 * 60, modo: 'manual' })
+      useCiclo.setState({ minutos: 15 * 60 + 40, modo: 'manual' })
       await cortarCam(CASA)
       await sleep(900)
       return 'ok'
     `,
     animar: `
+      // Hora fija: mover el ciclo en cada fotograma recalcula toda la escena y la toma baja a ~12 fps.
       const a = camAhora()
-      const dolly = moverCam(a, { ...a, az: a.az - Math.PI / 5, zoom: a.zoom * 1.35 }, SEG * 1000, (q) => q)
-      const t = performance.now()
-      while (performance.now() - t < SEG * 1000 - 300) {
-        const q = Math.min(1, (performance.now() - t) / (SEG * 1000 - 800))
-        useCiclo.setState({ minutos: Math.round(15 * 60 + q * 80), modo: 'manual' })
-        await sleep(100)
-      }
-      await dolly
+      await moverCam(a, { ...a, az: a.az - Math.PI / 5, zoom: a.zoom * 1.35 }, SEG * 1000, (q) => q)
     `,
     limpiar: `useCiclo.setState({ minutos: 11 * 60, modo: 'manual' })`,
   },
