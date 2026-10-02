@@ -373,6 +373,7 @@ export const EMOJIS = {
   llaves: '❴',
   sombrero: '🎩',
   naipe: '🃏',
+  'naipe-ocho': '🎴',
   'rueda-fortuna': '🎡',
   joystick: '🕹️',
   'reloj-pulsera': '⌚',

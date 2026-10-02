@@ -5,6 +5,7 @@ import { ATUENDOS_PRESET, ATUENDOS_TEMA } from '../../house/atuendos'
 import type { Ropa } from '../../house/apariencia'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
+import { IconoMarca } from '../iconos/glifosApps'
 
 const inputCls =
   'rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-xs text-white/85 placeholder:text-white/25 focus:outline-none'
@@ -41,7 +42,7 @@ function AtuendoBtn({
       }`}
     >
       <span className="text-lg leading-none">
-        <Icono emoji={emoji} />
+        <IconoMarca emoji={emoji} size="1em" />
       </span>
       <span className={`w-full truncate text-[9px] font-medium ${crear ? '' : 'text-white/60'}`}>{label}</span>
     </button>
