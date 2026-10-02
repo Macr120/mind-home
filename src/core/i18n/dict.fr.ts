@@ -6144,7 +6144,7 @@ export const FR: Dict = {
   'editor.pers.atuendoCrear': 'Créer une tenue',
   'editor.pers.atuendoNombrePh': 'Nom de la tenue',
   'editor.pers.atuendoGuardar': 'Enregistrer la tenue actuelle',
-  'editor.pers.atuendoDesnudar': 'Retirer tous les vêtements',
+  'editor.pers.atuendoFabrica': 'D’usine',
   'editor.pers.atuendo.chef': 'Chef',
   'editor.pers.atuendo.deportista': 'Sportif',
   'editor.pers.atuendo.pijama': 'Pyjama',

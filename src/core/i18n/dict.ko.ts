@@ -5842,7 +5842,7 @@ export const KO: Dict = {
   'editor.pers.atuendoCrear': '코디 만들기',
   'editor.pers.atuendoNombrePh': '코디 이름',
   'editor.pers.atuendoGuardar': '현재 코디 저장',
-  'editor.pers.atuendoDesnudar': '옷 전부 벗기',
+  'editor.pers.atuendoFabrica': '초기 설정',
   'editor.pers.atuendo.chef': '셰프',
   'editor.pers.atuendo.deportista': '운동선수',
   'editor.pers.atuendo.pijama': '잠옷',

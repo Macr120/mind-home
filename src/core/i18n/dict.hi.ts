@@ -6036,7 +6036,7 @@ export const HI: Dict = {
   'editor.pers.atuendoCrear': 'आउटफ़िट बनाएं',
   'editor.pers.atuendoNombrePh': 'आउटफ़िट का नाम',
   'editor.pers.atuendoGuardar': 'मौजूदा आउटफ़िट सेव करें',
-  'editor.pers.atuendoDesnudar': 'सारे कपड़े उतारें',
+  'editor.pers.atuendoFabrica': 'फ़ैक्टरी सेटिंग',
   'editor.pers.atuendo.chef': 'शेफ़',
   'editor.pers.atuendo.deportista': 'खिलाड़ी',
   'editor.pers.atuendo.pijama': 'पजामा',

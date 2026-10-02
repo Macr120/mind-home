@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useDiseño } from '../../state/disenoStore'
+import { AVATAR_DEFAULT, useDiseño } from '../../state/disenoStore'
 import { atuendosGuardadosRepo } from '../../data/repository'
 import { ATUENDOS_PRESET, ATUENDOS_TEMA } from '../../house/atuendos'
 import type { Ropa } from '../../house/apariencia'
@@ -68,10 +68,14 @@ export function AtuendosEditor() {
   const ropa = useDiseño((s) => s.avatar.ropa)
   const aplicar = useDiseño((s) => s.setAvatarRopaCompleta)
   const desnudar = useDiseño((s) => s.desnudarAvatar)
+  const deFabrica = useDiseño((s) => s.ropaDeFabrica)
+  const torso = useDiseño((s) => s.avatar.torso)
+  const piernas = useDiseño((s) => s.avatar.piernas)
   const [creando, setCreando] = useState(false)
   const [nombre, setNombre] = useState('')
 
   const hayPuesto = Object.keys(ropa).length > 0
+  const esDeFabrica = !hayPuesto && torso === AVATAR_DEFAULT.torso && piernas === AVATAR_DEFAULT.piernas
 
   const cancelarCreacion = () => {
     setCreando(false)
@@ -86,7 +90,7 @@ export function AtuendosEditor() {
 
   return (
     <div className="space-y-3">
-      {/* Sugeridos, inspirados en los cuartos de la casa, + crear/quitar */}
+      {/* Sugeridos, inspirados en los cuartos de la casa, + crear/de fábrica */}
       <div className="space-y-1.5">
         <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40">
           {t('editor.pers.atuendosSugeridos', 'Sugeridos')}
@@ -113,9 +117,9 @@ export function AtuendosEditor() {
           />
           <AtuendoBtn
             emoji="♻️"
-            label={t('editor.pers.atuendoDesnudar', 'Quitar toda la ropa')}
-            disabled={!hayPuesto}
-            onClick={() => void desnudar()}
+            label={t('editor.pers.atuendoFabrica', 'De fábrica')}
+            disabled={esDeFabrica}
+            onClick={() => void deFabrica()}
           />
         </div>
       </div>

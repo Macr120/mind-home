@@ -6120,7 +6120,7 @@ export const NL: Dict = {
   'editor.pers.atuendoCrear': 'Outfit maken',
   'editor.pers.atuendoNombrePh': 'Naam van de outfit',
   'editor.pers.atuendoGuardar': 'Huidige outfit opslaan',
-  'editor.pers.atuendoDesnudar': 'Alle kleding uittrekken',
+  'editor.pers.atuendoFabrica': 'Fabrieksinstelling',
   'editor.pers.atuendo.chef': 'Chef-kok',
   'editor.pers.atuendo.deportista': 'Sporter',
   'editor.pers.atuendo.pijama': 'Pyjama',

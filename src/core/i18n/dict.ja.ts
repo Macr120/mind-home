@@ -5833,7 +5833,7 @@ export const JA: Dict = {
   'editor.pers.atuendoCrear': 'コーデを作成',
   'editor.pers.atuendoNombrePh': 'コーデの名前',
   'editor.pers.atuendoGuardar': '今のコーデを保存',
-  'editor.pers.atuendoDesnudar': '服をすべて脱ぐ',
+  'editor.pers.atuendoFabrica': '初期設定',
   'editor.pers.atuendo.chef': 'シェフ',
   'editor.pers.atuendo.deportista': 'アスリート',
   'editor.pers.atuendo.pijama': 'パジャマ',

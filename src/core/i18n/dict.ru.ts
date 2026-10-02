@@ -6038,7 +6038,7 @@ export const RU: Dict = {
   'editor.pers.atuendoCrear': 'Создать наряд',
   'editor.pers.atuendoNombrePh': 'Название наряда',
   'editor.pers.atuendoGuardar': 'Сохранить текущий наряд',
-  'editor.pers.atuendoDesnudar': 'Снять всю одежду',
+  'editor.pers.atuendoFabrica': 'Заводской вид',
   'editor.pers.atuendo.chef': 'Повар',
   'editor.pers.atuendo.deportista': 'Спортсмен',
   'editor.pers.atuendo.pijama': 'Пижама',

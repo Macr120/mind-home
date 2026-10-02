@@ -612,6 +612,11 @@ interface DisenoState {
    * para vestir de nuevo.
    */
   desnudarAvatar: () => Promise<void>
+  /**
+   * Devuelve al personaje principal la ropa de fábrica: sin prendas y con el
+   * torso y las piernas de `AVATAR_DEFAULT`. No toca piel, rostro ni tamaño.
+   */
+  ropaDeFabrica: () => Promise<void>
   /** Fija la expresión del rostro dibujado del personaje principal. */
   setAvatarExpresion: (expresion: ExpresionId) => Promise<void>
   /** Sube (o quita, con undefined) la imagen de rostro del personaje principal. */
@@ -3470,6 +3475,11 @@ export const useDiseño = create<DisenoState>((set, get) => ({
 
   desnudarAvatar: async () => {
     set((s) => ({ avatar: { ...s.avatar, ropa: {}, torso: s.avatar.cabeza, piernas: s.avatar.cabeza } }))
+    await guardarAvatar(get().avatar)
+  },
+
+  ropaDeFabrica: async () => {
+    set((s) => ({ avatar: { ...s.avatar, ropa: {}, torso: AVATAR_DEFAULT.torso, piernas: AVATAR_DEFAULT.piernas } }))
     await guardarAvatar(get().avatar)
   },
 

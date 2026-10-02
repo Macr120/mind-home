@@ -6071,7 +6071,7 @@ export const PT: Dict = {
   'editor.pers.atuendoCrear': 'Criar look',
   'editor.pers.atuendoNombrePh': 'Nome do look',
   'editor.pers.atuendoGuardar': 'Salvar o look atual',
-  'editor.pers.atuendoDesnudar': 'Tirar toda a roupa',
+  'editor.pers.atuendoFabrica': 'Padrão de fábrica',
   'editor.pers.atuendo.chef': 'Chef',
   'editor.pers.atuendo.deportista': 'Atleta',
   'editor.pers.atuendo.pijama': 'Pijama',

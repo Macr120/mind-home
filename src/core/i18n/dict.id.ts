@@ -6101,7 +6101,7 @@ export const ID: Dict = {
   'editor.pers.atuendoCrear': 'Buat setelan',
   'editor.pers.atuendoNombrePh': 'Nama setelan',
   'editor.pers.atuendoGuardar': 'Simpan setelan saat ini',
-  'editor.pers.atuendoDesnudar': 'Lepas semua pakaian',
+  'editor.pers.atuendoFabrica': 'Bawaan pabrik',
   'editor.pers.atuendo.chef': 'Koki',
   'editor.pers.atuendo.deportista': 'Atlet',
   'editor.pers.atuendo.pijama': 'Piyama',

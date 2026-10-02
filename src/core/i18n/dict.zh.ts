@@ -5818,7 +5818,7 @@ export const ZH: Dict = {
   'editor.pers.atuendoCrear': '创建穿搭',
   'editor.pers.atuendoNombrePh': '穿搭名称',
   'editor.pers.atuendoGuardar': '保存当前穿搭',
-  'editor.pers.atuendoDesnudar': '脱掉所有衣物',
+  'editor.pers.atuendoFabrica': '出厂设置',
   'editor.pers.atuendo.chef': '厨师',
   'editor.pers.atuendo.deportista': '运动员',
   'editor.pers.atuendo.pijama': '睡衣',

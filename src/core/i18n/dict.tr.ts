@@ -6046,7 +6046,7 @@ export const TR: Dict = {
   'editor.pers.atuendoCrear': 'Kombin oluştur',
   'editor.pers.atuendoNombrePh': 'Kombinin adı',
   'editor.pers.atuendoGuardar': 'Şu anki kombini kaydet',
-  'editor.pers.atuendoDesnudar': 'Tüm kıyafetleri çıkar',
+  'editor.pers.atuendoFabrica': 'Fabrika ayarı',
   'editor.pers.atuendo.chef': 'Şef',
   'editor.pers.atuendo.deportista': 'Sporcu',
   'editor.pers.atuendo.pijama': 'Pijama',

@@ -5961,7 +5961,7 @@ export const AR: Dict = {
   'editor.pers.atuendoCrear': 'إنشاء طقم',
   'editor.pers.atuendoNombrePh': 'اسم الطقم',
   'editor.pers.atuendoGuardar': 'حفظ الطقم الحالي',
-  'editor.pers.atuendoDesnudar': 'خلع كل الملابس',
+  'editor.pers.atuendoFabrica': 'الافتراضي',
   'editor.pers.atuendo.chef': 'طاهٍ',
   'editor.pers.atuendo.deportista': 'رياضي',
   'editor.pers.atuendo.pijama': 'بيجامة',

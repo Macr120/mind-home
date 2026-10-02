@@ -6118,7 +6118,7 @@ export const IT: Dict = {
   'editor.pers.atuendoCrear': 'Crea tenuta',
   'editor.pers.atuendoNombrePh': 'Nome della tenuta',
   'editor.pers.atuendoGuardar': 'Salva l\'outfit attuale',
-  'editor.pers.atuendoDesnudar': 'Togli tutti i vestiti',
+  'editor.pers.atuendoFabrica': 'Di fabbrica',
   'editor.pers.atuendo.chef': 'Chef',
   'editor.pers.atuendo.deportista': 'Atleta',
   'editor.pers.atuendo.pijama': 'Pigiama',
