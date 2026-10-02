@@ -478,6 +478,36 @@ const GLIFOS_NOMBRE = {
     </>
   ),
 
+  // — Botones del HUD —
+  // Cubo de vistas: el cubo con su órbita, como un anillo de Saturno.
+  cubo: (
+    <>
+      <path d="M3 27a21 7 0 0 1 42 0" fill="none" stroke={TN} strokeWidth="3" />
+      <g strokeWidth="1.5" strokeLinejoin="round">
+        <path d="M24 5l14 7.5-14 7.5-14-7.5z" fill={N} stroke={TN} />
+        <path d="M10 12.5l14 7.5v18l-14-7.5z" fill={M} stroke={TM} />
+        <path d="M38 12.5l-14 7.5v18l14-7.5z" fill={R} stroke={TR} />
+      </g>
+      <path d="M3 27a21 7 0 0 0 42 0" fill="none" stroke={TN} strokeWidth="3" />
+    </>
+  ),
+  // Separar los pisos: tres losas con aire entre ellas.
+  pisosSeparar: (
+    <>
+      <path d="M24 32l18 6-18 6-18-6z" fill={M} />
+      <path d="M24 18l18 6-18 6-18-6z" fill={R} />
+      <path d="M24 4l18 6-18 6-18-6z" fill={N} />
+    </>
+  ),
+  // Juntar los pisos: las mismas losas apiladas.
+  pisosJuntar: (
+    <>
+      <path d="M24 24l18 6-18 6-18-6z" fill={M} />
+      <path d="M24 18l18 6-18 6-18-6z" fill={R} />
+      <path d="M24 12l18 6-18 6-18-6z" fill={N} />
+    </>
+  ),
+
   // — Pestañas del editor —
   mapa: (
     <g strokeWidth="2" strokeLinejoin="round">

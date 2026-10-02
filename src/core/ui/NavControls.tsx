@@ -5,6 +5,7 @@ import { usePlanos } from '../state/planosStore'
 import { useEditorUi } from '../state/editorUiStore'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
+import { IconoMarca } from './iconos/glifosApps'
 import { ViewCube, VIEW_CUBE_PX } from './ViewCube'
 import { LookPad } from './MoveControls'
 import { ControlHerramienta } from './ControlHerramienta'
@@ -223,7 +224,7 @@ export function NavControls() {
     return (
       <div ref={refTope} className={`safe-inf safe-ini safe-fin absolute bottom-4 z-10 ${posControles}`}>
         <TiradorHud zona="infDer">
-          <Icono nombre="cubo-vistas" />
+          <IconoMarca glifo="cubo" size="1.15em" />
         </TiradorHud>
       </div>
     )

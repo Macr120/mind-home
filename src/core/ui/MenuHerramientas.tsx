@@ -7,6 +7,7 @@ import { invocarVehiculo } from './ControlHerramienta'
 import { escribiendoEnCampo, hayCuartoAbierto } from '../house/movement'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
+import { IconoMarca } from './iconos/glifosApps'
 import { useHud } from '../state/hudStore'
 import { TiradorHud } from './HudPlegable'
 import { useTopeHud } from './hudMedida'
@@ -326,7 +327,7 @@ export function MenuHerramientas() {
           title={t('herr.boton', 'Herramientas')}
           className="ui-panel-glass grid h-11 w-11 place-items-center rounded-full border border-white/10 text-xl backdrop-blur-sm transition hover:bg-white/10 active:scale-90"
         >
-          {emojiActivo ? <Icono emoji={emojiActivo} /> : <Icono nombre="cubo-vistas" />}
+          {emojiActivo ? <Icono emoji={emojiActivo} /> : <IconoMarca glifo="cubo" size="1.15em" />}
         </button>
         {plegado && (
           <TiradorHud zona="infIzq" chico>
@@ -421,7 +422,7 @@ export function MenuHerramientas() {
                 ))}
                 {/* Centro: soltar todas las herramientas y volver al cubo de vistas */}
                 <Centro
-                  icono={<Icono nombre="cubo-vistas" />}
+                  icono={<IconoMarca glifo="cubo" size="1.15em" />}
                   etiqueta={t('herr.cubo', 'Cubo')}
                   activo={equipadas.length === 0}
                   onSelect={() => {

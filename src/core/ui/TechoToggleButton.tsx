@@ -2,6 +2,7 @@ import { useHouse } from '../state/houseStore'
 import { useLayout } from '../state/layoutStore'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
+import { IconoMarca } from './iconos/glifosApps'
 
 const btn =
   'ui-hud flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 text-lg transition hover:bg-white/15'
@@ -52,7 +53,7 @@ export function ExplotarToggleButton() {
       className={`${btn} ${explotado ? activo : ''}`}
       aria-pressed={explotado}
     >
-      <Icono nombre={explotado ? 'pisosJuntar' : 'pisosSeparar'} />
+      <IconoMarca glifo={explotado ? 'pisosJuntar' : 'pisosSeparar'} size="1.15em" />
     </button>
   )
 }

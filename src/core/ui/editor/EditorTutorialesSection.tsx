@@ -20,6 +20,7 @@ import { entrarDemo } from '../../../demo/modo'
 import type { TutorialDef } from '../../tutorial/tipos'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
+import { IconoMarca } from '../iconos/glifosApps'
 
 /**
  * Sección de Configuraciones: los tutoriales y la bienvenida, igual que la
@@ -206,7 +207,7 @@ export function EditorTutorialesSection({
                     : 'border-white/10 bg-white/5 hover:border-amber-400/60 hover:bg-amber-400/15'
                 }`}
               >
-                <Icono emoji={p.icon} />
+                <IconoMarca emoji={p.icon} size="1em" />
               </button>
             )
           })}
@@ -242,7 +243,7 @@ export function EditorTutorialesSection({
                 aria-label={nombre}
                 className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/5 text-lg transition hover:border-amber-400/60 hover:bg-amber-400/15"
               >
-                <Icono emoji={p.icon} />
+                <IconoMarca emoji={p.icon} size="1em" />
               </button>
             )
           })}
