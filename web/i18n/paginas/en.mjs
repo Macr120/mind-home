@@ -160,7 +160,8 @@ export const TEXTOS = {
     'Download it free and buy MindHaOS inside the app — or here on the web. With your account, your MindHaOS shows up anywhere else, browser included.',
   'desc.pronto': 'Coming soon',
   'desc.android': 'Free on Google Play. MindHaOS is bought inside.',
-  'desc.ios.t': 'iPhone and iPad',
+  'desc.android.cta': 'Download for Android',
+  'desc.ios.t': 'iPhone, iPad and Mac',
   'desc.ios': 'Free on the App Store. MindHaOS is bought inside.',
   'desc.web.t': 'In your browser',
   'desc.web':
@@ -168,8 +169,6 @@ export const TEXTOS = {
   'desc.web.cta': 'Open the app',
   'desc.windows': 'Free on Microsoft Store. MindHaOS is bought inside.',
   'desc.windows.cta': 'Download for Windows',
-  'desc.mac': '.dmg image for Mac.',
-  'desc.mac.cta': 'Download for Mac',
 
   'faq.h2': 'Frequently asked questions',
   'faq.1.q': 'Where do I buy the app?',

@@ -163,7 +163,8 @@ export const TEXTOS = {
     'Téléchargez-la gratuitement et achetez la MindHaOS dans l’application — ou ici, sur le web. Avec votre compte, votre MindHaOS réapparaît partout ailleurs, navigateur compris.',
   'desc.pronto': 'Bientôt',
   'desc.android': 'Gratuit sur Google Play. La MindHaOS s’achète à l’intérieur.',
-  'desc.ios.t': 'iPhone et iPad',
+  'desc.android.cta': 'Télécharger pour Android',
+  'desc.ios.t': 'iPhone, iPad et Mac',
   'desc.ios': 'Gratuit sur l’App Store. La MindHaOS s’achète à l’intérieur.',
   'desc.web.t': 'Dans ton navigateur',
   'desc.web':
@@ -171,8 +172,6 @@ export const TEXTOS = {
   'desc.web.cta': 'Ouvrir l’app',
   'desc.windows': 'Gratuit sur Microsoft Store. La MindHaOS s’achète à l’intérieur.',
   'desc.windows.cta': 'Télécharger pour Windows',
-  'desc.mac': 'Image .dmg pour Mac.',
-  'desc.mac.cta': 'Télécharger pour Mac',
 
   'faq.h2': 'Questions fréquentes',
   'faq.1.q': 'Où achète-t-on l’app ?',

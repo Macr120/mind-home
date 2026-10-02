@@ -161,7 +161,8 @@ export const TEXTOS = {
     'Download hem gratis en koop het MindHaOS in de app — of hier op het web. Met je account staat je MindHaOS overal anders klaar, ook in de browser.',
   'desc.pronto': 'Binnenkort',
   'desc.android': 'Gratis in Google Play. Het MindHaOS koop je erin.',
-  'desc.ios.t': 'iPhone en iPad',
+  'desc.android.cta': 'Downloaden voor Android',
+  'desc.ios.t': 'iPhone, iPad en Mac',
   'desc.ios': 'Gratis in de App Store. Het MindHaOS koop je erin.',
   'desc.web.t': 'In je browser',
   'desc.web':
@@ -169,8 +170,6 @@ export const TEXTOS = {
   'desc.web.cta': 'De app openen',
   'desc.windows': 'Gratis in Microsoft Store. Het MindHaOS koop je erin.',
   'desc.windows.cta': 'Downloaden voor Windows',
-  'desc.mac': '.dmg-image voor Mac.',
-  'desc.mac.cta': 'Downloaden voor Mac',
 
   'faq.h2': 'Veelgestelde vragen',
   'faq.1.q': 'Waar koop je de app?',

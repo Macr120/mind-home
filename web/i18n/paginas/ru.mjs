@@ -159,7 +159,8 @@ export const TEXTOS = {
     'Скачайте бесплатно и купите MindHaOS в приложении — или здесь, в вебе. С вашим аккаунтом MindHaOS появится где угодно, в том числе в браузере.',
   'desc.pronto': 'Скоро',
   'desc.android': 'Бесплатно в Google Play. MindHaOS покупается внутри.',
-  'desc.ios.t': 'iPhone и iPad',
+  'desc.android.cta': 'Скачать для Android',
+  'desc.ios.t': 'iPhone, iPad и Mac',
   'desc.ios': 'Бесплатно в App Store. MindHaOS покупается внутри.',
   'desc.web.t': 'В твоём браузере',
   'desc.web':
@@ -167,8 +168,6 @@ export const TEXTOS = {
   'desc.web.cta': 'Открыть приложение',
   'desc.windows': 'Бесплатно в Microsoft Store. MindHaOS покупается внутри.',
   'desc.windows.cta': 'Скачать для Windows',
-  'desc.mac': 'Образ .dmg для Mac.',
-  'desc.mac.cta': 'Скачать для Mac',
 
   'faq.h2': 'Частые вопросы',
   'faq.1.q': 'Где купить приложение?',

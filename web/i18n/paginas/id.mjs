@@ -160,7 +160,8 @@ export const TEXTOS = {
     'Unduh gratis lalu beli MindHaOS di dalam aplikasi — atau di sini, di web. Dengan akunmu, MindHaOS-mu muncul di mana pun, termasuk di peramban.',
   'desc.pronto': 'Segera hadir',
   'desc.android': 'Gratis di Google Play. MindHaOS dibeli di dalam.',
-  'desc.ios.t': 'iPhone dan iPad',
+  'desc.android.cta': 'Unduh untuk Android',
+  'desc.ios.t': 'iPhone, iPad, dan Mac',
   'desc.ios': 'Gratis di App Store. MindHaOS dibeli di dalam.',
   'desc.web.t': 'Di browsermu',
   'desc.web':
@@ -168,8 +169,6 @@ export const TEXTOS = {
   'desc.web.cta': 'Buka aplikasinya',
   'desc.windows': 'Gratis di Microsoft Store. MindHaOS dibeli di dalam.',
   'desc.windows.cta': 'Unduh untuk Windows',
-  'desc.mac': 'Image .dmg untuk Mac.',
-  'desc.mac.cta': 'Unduh untuk Mac',
 
   'faq.h2': 'Pertanyaan yang sering diajukan',
   'faq.1.q': 'Di mana aplikasinya dibeli?',

@@ -158,7 +158,8 @@ export const TEXTOS = {
     'मुफ़्त डाउनलोड करें और MindHaOS ऐप के भीतर खरीदें — या यहीं वेब पर। आपके खाते के साथ आपका MindHaOS हर जगह दिखता है, ब्राउज़र में भी।',
   'desc.pronto': 'जल्द आ रहा है',
   'desc.android': 'Google Play पर मुफ़्त। MindHaOS ऐप के भीतर खरीदा जाता है।',
-  'desc.ios.t': 'iPhone और iPad',
+  'desc.android.cta': 'Android के लिए डाउनलोड करें',
+  'desc.ios.t': 'iPhone, iPad और Mac',
   'desc.ios': 'App Store पर मुफ़्त। MindHaOS ऐप के भीतर खरीदा जाता है।',
   'desc.web.t': 'आपके ब्राउज़र में',
   'desc.web':
@@ -166,8 +167,6 @@ export const TEXTOS = {
   'desc.web.cta': 'ऐप खोलें',
   'desc.windows': 'Microsoft Store पर मुफ़्त। MindHaOS ऐप के भीतर खरीदा जाता है।',
   'desc.windows.cta': 'Windows के लिए डाउनलोड करें',
-  'desc.mac': 'Mac के लिए .dmg इमेज।',
-  'desc.mac.cta': 'Mac के लिए डाउनलोड करें',
 
   'faq.h2': 'अक्सर पूछे जाने वाले सवाल',
   'faq.1.q': 'ऐप कहाँ से खरीदें?',
