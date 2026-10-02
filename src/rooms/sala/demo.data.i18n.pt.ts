@@ -255,7 +255,7 @@ export default {
       "inicio": "Busan",
       "destino": "Incheon · voo de volta",
       "hospedaje": "Noite no avião",
-      "actividades": "KTX de volta com folga de sobra porque não pretendo correr por uma estação de novo. Gastar os wones que sobrarem em chá e em alguma coisa para a Laika antes de embarcar.",
+      "actividades": "KTX de volta com folga de sobra porque não pretendo correr por uma estação de novo. Gastar os wons que sobrarem em chá e em alguma coisa para a Laika antes de embarcar.",
       "transporte": "KTX + AREX + voo Incheon–Cidade do México"
     }
   ],
