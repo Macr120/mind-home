@@ -427,6 +427,66 @@ function salidasAlSistema(wc) {
 }
 
 /**
+ * Los textos propios del shell (menú y diálogos), de fábrica en español. El
+ * proceso principal no tiene diccionarios: la app manda los de su idioma al
+ * arrancar y cada vez que cambia (`mph:idioma`, ver `core/i18n/textosEscritorio.ts`).
+ */
+const TEXTOS = {
+  acercaDe: 'Acerca de MindHaOS',
+  servicios: 'Servicios',
+  ocultar: 'Ocultar MindHaOS',
+  ocultarOtras: 'Ocultar otras',
+  mostrarTodas: 'Mostrar todas',
+  salir: 'Salir de MindHaOS',
+  editar: 'Editar',
+  deshacer: 'Deshacer',
+  rehacer: 'Rehacer',
+  cortar: 'Cortar',
+  copiar: 'Copiar',
+  pegar: 'Pegar',
+  seleccionarTodo: 'Seleccionar todo',
+  ver: 'Ver',
+  recargar: 'Recargar',
+  tamanoNormal: 'Tamaño normal',
+  acercar: 'Acercar',
+  alejar: 'Alejar',
+  pantallaCompleta: 'Pantalla completa',
+  herramientas: 'Herramientas de desarrollo',
+  ventana: 'Ventana',
+  minimizar: 'Minimizar',
+  zoom: 'Zoom',
+  alFrente: 'Traer todo al frente',
+  cerrar: 'Cerrar',
+  ayuda: 'Ayuda',
+  soporte: 'Soporte',
+  sitioWeb: 'Sitio web',
+  versionNueva: 'Hay una versión nueva ({v}).',
+  versionDetalle: 'Descárgala para tener las últimas mejoras. Tus datos se quedan como están.',
+  descargar: 'Descargar',
+  ahoraNo: 'Ahora no',
+  elegirPrograma: 'Elegir programa',
+  programas: 'Programas',
+  todosArchivos: 'Todos los archivos',
+}
+
+/** Resuelve al llegar los textos de la app (o a los 10 s, y se queda el español). */
+let avisarTextos = () => {}
+const textosListos = new Promise((resolver) => {
+  avisarTextos = resolver
+  setTimeout(resolver, 10_000)
+})
+
+ipcMain.handle('mph:idioma', (_e, nuevos) => {
+  if (!nuevos || typeof nuevos !== 'object') return
+  for (const k of Object.keys(TEXTOS)) {
+    const v = nuevos[k]
+    if (typeof v === 'string' && v.trim() && v.length <= 200) TEXTOS[k] = v
+  }
+  Menu.setApplicationMenu(construirMenu())
+  avisarTextos()
+})
+
+/**
  * Aviso de versión nueva, sin electron-updater en v1: mira la última release de
  * GitHub y ofrece abrirla en el navegador. Falla en silencio (sin red, sin
  * releases todavía) y solo corre empaquetada: en dev sería ruido.
@@ -442,12 +502,14 @@ async function avisarVersionNueva() {
     // https de github.com, no lo que venga en el campo (auditoría 26-ago-2026).
     const destino = urlReleaseSegura(release.html_url)
     if (!destino) return
+    await textosListos
+    if (!ventana) return
     const { response } = await dialog.showMessageBox(ventana, {
       type: 'info',
       title: 'MindHaOS',
-      message: `Hay una versión nueva (${remota}).`,
-      detail: 'Descárgala para tener las últimas mejoras. Tus datos se quedan como están.',
-      buttons: ['Descargar', 'Ahora no'],
+      message: TEXTOS.versionNueva.replace('{v}', remota),
+      detail: TEXTOS.versionDetalle,
+      buttons: [TEXTOS.descargar, TEXTOS.ahoraNo],
       cancelId: 1,
     })
     if (response === 0) void shell.openExternal(destino)
@@ -581,7 +643,7 @@ function permisos() {
 }
 
 /**
- * Menú en español. En Windows va oculto (`autoHideMenuBar`) y macOS siempre
+ * Menú en el idioma de la app (`TEXTOS`). En Windows va oculto (`autoHideMenuBar`) y macOS siempre
  * enseña el suyo, pero el motivo de que exista no es decorativo: sin un menú
  * Editar con sus roles nativos, **⌘C y ⌘V no funcionan** en los campos de texto
  * de la app. Electron los cablea desde el menú, no desde el sistema.
@@ -594,58 +656,58 @@ function construirMenu() {
           {
             label: app.getName(),
             submenu: [
-              { role: 'about', label: 'Acerca de MindHaOS' },
+              { role: 'about', label: TEXTOS.acercaDe },
               { type: 'separator' },
-              { role: 'services', label: 'Servicios' },
+              { role: 'services', label: TEXTOS.servicios },
               { type: 'separator' },
-              { role: 'hide', label: 'Ocultar MindHaOS' },
-              { role: 'hideOthers', label: 'Ocultar otras' },
-              { role: 'unhide', label: 'Mostrar todas' },
+              { role: 'hide', label: TEXTOS.ocultar },
+              { role: 'hideOthers', label: TEXTOS.ocultarOtras },
+              { role: 'unhide', label: TEXTOS.mostrarTodas },
               { type: 'separator' },
-              { role: 'quit', label: 'Salir de MindHaOS' },
+              { role: 'quit', label: TEXTOS.salir },
             ],
           },
         ]
       : []),
     {
-      label: 'Editar',
+      label: TEXTOS.editar,
       submenu: [
-        { role: 'undo', label: 'Deshacer' },
-        { role: 'redo', label: 'Rehacer' },
+        { role: 'undo', label: TEXTOS.deshacer },
+        { role: 'redo', label: TEXTOS.rehacer },
         { type: 'separator' },
-        { role: 'cut', label: 'Cortar' },
-        { role: 'copy', label: 'Copiar' },
-        { role: 'paste', label: 'Pegar' },
-        { role: 'selectAll', label: 'Seleccionar todo' },
+        { role: 'cut', label: TEXTOS.cortar },
+        { role: 'copy', label: TEXTOS.copiar },
+        { role: 'paste', label: TEXTOS.pegar },
+        { role: 'selectAll', label: TEXTOS.seleccionarTodo },
       ],
     },
     {
-      label: 'Ver',
+      label: TEXTOS.ver,
       submenu: [
-        { role: 'reload', label: 'Recargar' },
-        { role: 'resetZoom', label: 'Tamaño normal' },
-        { role: 'zoomIn', label: 'Acercar' },
-        { role: 'zoomOut', label: 'Alejar' },
+        { role: 'reload', label: TEXTOS.recargar },
+        { role: 'resetZoom', label: TEXTOS.tamanoNormal },
+        { role: 'zoomIn', label: TEXTOS.acercar },
+        { role: 'zoomOut', label: TEXTOS.alejar },
         { type: 'separator' },
-        { role: 'togglefullscreen', label: 'Pantalla completa' },
-        ...(app.isPackaged ? [] : [{ role: 'toggleDevTools', label: 'Herramientas de desarrollo' }]),
+        { role: 'togglefullscreen', label: TEXTOS.pantallaCompleta },
+        ...(app.isPackaged ? [] : [{ role: 'toggleDevTools', label: TEXTOS.herramientas }]),
       ],
     },
     {
-      label: 'Ventana',
+      label: TEXTOS.ventana,
       submenu: [
-        { role: 'minimize', label: 'Minimizar' },
-        { role: 'zoom', label: 'Zoom' },
+        { role: 'minimize', label: TEXTOS.minimizar },
+        { role: 'zoom', label: TEXTOS.zoom },
         ...(esMac
-          ? [{ type: 'separator' }, { role: 'front', label: 'Traer todo al frente' }]
-          : [{ role: 'close', label: 'Cerrar' }]),
+          ? [{ type: 'separator' }, { role: 'front', label: TEXTOS.alFrente }]
+          : [{ role: 'close', label: TEXTOS.cerrar }]),
       ],
     },
     {
-      label: 'Ayuda',
+      label: TEXTOS.ayuda,
       submenu: [
-        { label: 'Soporte', click: () => shell.openExternal('https://mindhaos.com/soporte') },
-        { label: 'Sitio web', click: () => shell.openExternal('https://mindhaos.com') },
+        { label: TEXTOS.soporte, click: () => shell.openExternal('https://mindhaos.com/soporte') },
+        { label: TEXTOS.sitioWeb, click: () => shell.openExternal('https://mindhaos.com') },
       ],
     },
   ])
@@ -717,11 +779,11 @@ ipcMain.handle('mph:programa-elegir', async (e) => {
   if (process.platform !== 'win32') return null
   const duena = BrowserWindow.fromWebContents(e.sender)
   const opciones = {
-    title: 'Elegir programa',
+    title: TEXTOS.elegirPrograma,
     properties: ['openFile'],
     filters: [
-      { name: 'Programas', extensions: ['exe', 'lnk', 'bat', 'cmd'] },
-      { name: 'Todos los archivos', extensions: ['*'] },
+      { name: TEXTOS.programas, extensions: ['exe', 'lnk', 'bat', 'cmd'] },
+      { name: TEXTOS.todosArchivos, extensions: ['*'] },
     ],
   }
   const { canceled, filePaths } = duena ? await dialog.showOpenDialog(duena, opciones) : await dialog.showOpenDialog(opciones)

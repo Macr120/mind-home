@@ -72,7 +72,7 @@ export default {
       "clave": "bowl-pollo",
       "nombre": "一周分量的鸡肉碗",
       "emoji": "🍗",
-      "carpeta": "Batch cooking",
+      "carpeta": "备餐",
       "porciones": 4,
       "minutos": 45,
       "ingredientes": [
@@ -207,7 +207,7 @@ export default {
       "clave": "crema-lentejas",
       "nombre": "红扁豆浓汤",
       "emoji": "🍲",
-      "carpeta": "Batch cooking",
+      "carpeta": "备餐",
       "porciones": 4,
       "minutos": 35,
       "ingredientes": [
@@ -272,7 +272,7 @@ export default {
       "clave": "tacos-lentejas",
       "nombre": "烟熏红椒扁豆塔可",
       "emoji": "🌮",
-      "carpeta": "Batch cooking",
+      "carpeta": "备餐",
       "porciones": 4,
       "minutos": 30,
       "ingredientes": [

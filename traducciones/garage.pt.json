@@ -137,7 +137,7 @@
   },
   {
     "ruta": "talleres.0.nombre",
-    "texto": "Taller Mecánico Rivas"
+    "texto": "Oficina Mecânica Rivas"
   },
   {
     "ruta": "talleres.0.direccion",
@@ -161,7 +161,7 @@
   },
   {
     "ruta": "talleres.2.nombre",
-    "texto": "Verificentro 09-118 Iztaccíhuatl"
+    "texto": "Centro de Inspeção 09-118 Iztaccíhuatl"
   },
   {
     "ruta": "talleres.2.direccion",
@@ -181,11 +181,11 @@
   },
   {
     "ruta": "talleres.4.nombre",
-    "texto": "Grúas Tepeyac 24 horas"
+    "texto": "Guincho Tepeyac 24 horas"
   },
   {
     "ruta": "talleres.4.direccion",
-    "texto": "Base na Eje Central Lázaro Cárdenas 1105, Col. Álamos"
+    "texto": "Base no Eje Central Lázaro Cárdenas 1105, Col. Álamos"
   },
   {
     "ruta": "talleres.4.notas",
@@ -230,5 +230,13 @@
   {
     "ruta": "tramites.4.nota",
     "texto": "A cada seis meses na Ciclos Malinche: alinhamento das rodas, cabos e freios, que sai bem mais barato do que consertar uma roda torta."
+  },
+  {
+    "ruta": "vehiculos.biciNombre",
+    "texto": "A Garça"
+  },
+  {
+    "ruta": "vehiculos.autoNombre",
+    "texto": "O Mastodonte"
   }
 ]

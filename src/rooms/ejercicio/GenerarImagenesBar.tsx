@@ -58,7 +58,7 @@ export function GenerarImagenesBar({
     if (
       !window.confirm(
         t(
-          'ejercicio.confirmarGenerarImagenes',
+          'ejercicio.confirmarGenerarImagenesC',
           'Se generarán {n} imágenes y costará {c} créditos. ¿Continuar?',
           { n: String(faltantes.length), c: String(creditos) },
         ),
@@ -98,7 +98,10 @@ export function GenerarImagenesBar({
         style={acento(btnAcc)}
       >
         {generando
-          ? `Generando ${progreso?.hechas ?? 0}/${progreso?.total ?? faltantes.length}…`
+          ? t('ejercicio.img.generandoN', 'Generando {h}/{n}…', {
+              h: progreso?.hechas ?? 0,
+              n: progreso?.total ?? faltantes.length,
+            })
           : <><Icono nombre="brillo" /> {t('ejercicio.img.generar', 'Generar faltantes ({n})', { n: String(faltantes.length) })}</>}
       </button>
       {faltantes.length > 0 && !generando && (
@@ -107,7 +110,7 @@ export function GenerarImagenesBar({
       {progreso && !generando && (
         <span className="text-[11px] text-white/50">
           {t('ejercicio.img.listas', 'Listas:')} {progreso.hechas}
-          {progreso.fallidas > 0 ? ` · ${progreso.fallidas} fallaron` : ''}
+          {progreso.fallidas > 0 ? ` · ${t('ejercicio.img.fallaron', '{n} fallaron', { n: progreso.fallidas })}` : ''}
         </span>
       )}
     </div>

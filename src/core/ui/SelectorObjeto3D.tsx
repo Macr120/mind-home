@@ -3,11 +3,14 @@ import { RECURSOS } from '../house/recursos'
 import { useDiseño } from '../state/disenoStore'
 import { getTema } from '../house/temas'
 import { MiniaturaModelo } from '../house/Miniatura'
-import { useT } from '../i18n/useT'
+import { useT, type TFunc } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
+import { nombreCategoria } from './inventarioGrupos'
 
-const nombreRecurso = (id: number): string =>
-  RECURSOS.find((r) => r.id === id)?.nombre ?? `Recurso ${id}`
+const nombreRecurso = (id: number, t: TFunc): string => {
+  const r = RECURSOS.find((x) => x.id === id)
+  return r ? t(`recurso.${id}`, r.nombre) : t('objetos.nombreRecurso', 'Recurso {id}', { id })
+}
 
 // Mismo orden de carpetas que Inventario › Objetos (ObjetosCatalogo.tsx): orden
 // manual guardado por el usuario, y si no hay, el de primera aparición en RECURSOS.
@@ -89,7 +92,7 @@ export function SelectorObjeto3D({
             <div key={categoria}>
               <p className="mb-1.5 flex items-center gap-1.5 px-0.5 text-[10px] font-semibold uppercase tracking-wide text-white/40">
                 <Icono emoji="📁" />
-                {categoria}
+                {nombreCategoria(categoria, t)}
               </p>
               <div className="grid grid-cols-3 gap-1.5">
                 {ids.map((id) => (
@@ -97,7 +100,7 @@ export function SelectorObjeto3D({
                     key={id}
                     type="button"
                     onClick={() => onElegir(id)}
-                    title={nombreRecurso(id)}
+                    title={nombreRecurso(id, t)}
                     className="flex flex-col items-center gap-1 rounded-lg border border-white/10 bg-white/5 p-1.5 transition hover:border-white/30 hover:bg-white/10"
                   >
                     <MiniaturaModelo
@@ -107,7 +110,7 @@ export function SelectorObjeto3D({
                       className="h-12 w-full object-contain"
                     />
                     <span className="w-full truncate text-center text-[9px] leading-tight text-white/60">
-                      {nombreRecurso(id)}
+                      {nombreRecurso(id, t)}
                     </span>
                   </button>
                 ))}

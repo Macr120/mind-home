@@ -18,6 +18,7 @@ import { useAvisoRenovar, useCuotaAgotada } from '../state/avisosPlanStore'
 import { getProvCerebroCuenta, getProvImagenCuenta, getProvVozCuenta } from './provCuenta'
 import type { OpIA } from './costos'
 import type { CalidadImagen } from './calidadImagen'
+import { idiomaActual, tGlobal, type TFunc } from '../i18n/useT'
 
 export type CodigoErrorIA =
   | 'sin-sesion'
@@ -38,6 +39,18 @@ export class ErrorIA extends Error {
     this.name = 'ErrorIA'
     this.codigo = codigo
   }
+}
+
+/**
+ * Lo que se le enseña al usuario cuando falla una llamada de IA. Un `ErrorIA` ya
+ * viene en su idioma. El resto son detalles en español (una respuesta que no se
+ * pudo leer, el fallo crudo de una clave propia): en español se enseñan tal
+ * cual y en otro idioma se cambian por `fallo`, el aviso de la pantalla.
+ */
+export function mensajeErrorIA(e: unknown, t: TFunc, fallo?: string): string {
+  if (e instanceof ErrorIA) return e.message
+  if (idiomaActual() === 'es' && e instanceof Error && e.message) return e.message
+  return fallo ?? t('ia.err.generico', 'La IA no pudo completar la tarea. Inténtalo de nuevo.')
 }
 
 /** Transporte elegido en el panel de IA: créditos de la cuenta o claves propias. */
@@ -163,10 +176,10 @@ function refrescarMedidor(uso: UsoCuenta): void {
 /** El access token de la sesión, para llamar a una Edge Function; lanza 'sin-sesion' si no hay. */
 export async function tokenSesion(): Promise<string> {
   const sb = await obtenerSupabase()
-  if (!sb) throw new ErrorIA('sin-sesion', 'Sin backend configurado.')
+  if (!sb) throw new ErrorIA('sin-sesion', tGlobal('ia.err.sin-backend', 'Sin backend configurado.'))
   const { data } = await sb.auth.getSession()
   const token = data.session?.access_token
-  if (!token) throw new ErrorIA('sin-sesion', 'Inicia sesión para usar la IA.')
+  if (!token) throw new ErrorIA('sin-sesion', tGlobal('ia.err.sin-sesion', 'Inicia sesión para usar la IA.'))
   return token
 }
 
@@ -181,7 +194,7 @@ async function llamarFuncion<T>(nombre: string, cuerpo: unknown): Promise<T> {
       body: JSON.stringify(cuerpo),
     })
   } catch {
-    throw new ErrorIA('proveedor', 'No hay conexión con el servidor de MindHaOS.')
+    throw new ErrorIA('proveedor', tGlobal('ia.err.sin-conexion', 'No hay conexión con el servidor de MindHaOS.'))
   }
   const json: unknown = await resp.json().catch(() => null)
   if (!resp.ok) {
@@ -201,7 +214,9 @@ async function llamarFuncion<T>(nombre: string, cuerpo: unknown): Promise<T> {
       useAvisoRenovar.getState().abrir()
       void useSesion.getState().refrescarPerfil()
     }
-    throw new ErrorIA(codigo, e.mensaje ?? 'Error del servidor de IA.')
+    // El servidor escribe en español: en otro idioma vale el texto de su código, y en
+    // español el suyo, que es más concreto (`t()` cae a él).
+    throw new ErrorIA(codigo, tGlobal(`ia.err.${codigo}`, e.mensaje ?? 'Error del servidor de IA.'))
   }
   return json as T
 }

@@ -6,7 +6,7 @@ import { useVistaGrafo } from '../grafoApps'
 import { refNodo } from '../grafo/memoria'
 import { confirmar } from '../state/confirmarStore'
 import { borrarChat, enChat } from './chatsAsistentes'
-import { useT } from '../i18n/useT'
+import { localeActual, useT } from '../i18n/useT'
 import { Icono } from '../ui/iconos/Icono'
 import { BotonVoz, ToggleVozAuto } from '../ui/BotonVoz'
 import { nombreAsistente } from './mascotas'
@@ -177,7 +177,7 @@ function ChatConversacionInterno({
               {dia !== diaPrevio && (
                 <div className="my-2 flex justify-center">
                   <span className="rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] text-white/45">
-                    {new Date(m.creado).toLocaleDateString(undefined, {
+                    {new Date(m.creado).toLocaleDateString(localeActual(), {
                       day: 'numeric',
                       month: 'short',
                     })}
@@ -220,7 +220,7 @@ function ChatConversacionInterno({
                     {/* Escuchar lo que contestó, aunque la lectura automática esté apagada. */}
                     {!esUsuario && <BotonVoz texto={m.texto} asistenteId={hiloId} />}
                     <p className={`text-[9px] ${esUsuario ? 'text-emerald-400/80' : 'text-white/30'}`}>
-                      {new Date(m.creado).toLocaleTimeString(undefined, {
+                      {new Date(m.creado).toLocaleTimeString(localeActual(), {
                         hour: '2-digit',
                         minute: '2-digit',
                       })}

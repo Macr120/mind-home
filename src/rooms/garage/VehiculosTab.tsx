@@ -5,7 +5,7 @@ import { diasHasta, formatearFecha } from './fecha'
 import { FormularioVehiculo } from './FormularioVehiculo'
 import { borrarVehiculo } from './tramites'
 import { BotonBorrar, BotonPrimario, Chip, TARJETA, Tile } from './ui'
-import { useT } from '../../core/i18n/useT'
+import { localeActual, useT } from '../../core/i18n/useT'
 import { vivo } from '../../core/ui/estilos'
 import { Icono } from '../../core/ui/iconos/Icono'
 
@@ -68,7 +68,7 @@ export function VehiculosTab({
                 >
                   <h3 className="truncate font-bold text-white/95">{v.nombre}</h3>
                   <p className="truncate text-xs text-white/50">
-                    {tipo.label}
+                    {t(`garage.vehTipo.${tipo.id}`, tipo.label)}
                     {v.marca ? ` · ${v.marca}` : ''}
                     {v.modelo ? ` ${v.modelo}` : ''}
                     {v.anio ? ` (${v.anio})` : ''}
@@ -96,7 +96,7 @@ export function VehiculosTab({
                 {v.odometroActual != null && (
                   <Chip color={COLOR}>
                     <span className="texto-vivo" style={vivo(COLOR)}>
-                      {v.odometroActual.toLocaleString('es-MX')} {v.unidad}
+                      {v.odometroActual.toLocaleString(localeActual())} {v.unidad}
                     </span>
                   </Chip>
                 )}

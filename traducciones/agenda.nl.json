@@ -81,7 +81,7 @@
   },
   {
     "ruta": "trabajo.10.lugar",
-    "texto": "Taller Ruiz"
+    "texto": "Garage Ruiz"
   },
   {
     "ruta": "trabajo.11.titulo",
@@ -350,5 +350,37 @@
   {
     "ruta": "pendientes.4",
     "texto": "Offerte vragen voor een nieuwe koffiemolen voor de bar"
+  },
+  {
+    "ruta": "contactos.0.relacion",
+    "texto": "Familie"
+  },
+  {
+    "ruta": "contactos.1.relacion",
+    "texto": "Familie"
+  },
+  {
+    "ruta": "contactos.2.relacion",
+    "texto": "Vrienden"
+  },
+  {
+    "ruta": "contactos.3.relacion",
+    "texto": "Vrienden"
+  },
+  {
+    "ruta": "contactos.4.relacion",
+    "texto": "Werk"
+  },
+  {
+    "ruta": "contactos.5.relacion",
+    "texto": "Werk"
+  },
+  {
+    "ruta": "contactos.6.relacion",
+    "texto": "Universiteit"
+  },
+  {
+    "ruta": "contactos.7.relacion",
+    "texto": "Universiteit"
   }
 ]

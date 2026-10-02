@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { db, type AnimalGranja, type Corral, type TipoAccesorio, type TipoAnimal } from '../data/db'
 import { nombreAleatorio } from '../house/nombresAnimales'
 import { notificar } from '../notificaciones'
-import { tGlobal } from '../i18n/useT'
+import { idiomaActual, tGlobal } from '../i18n/useT'
 import { useLayout } from './layoutStore'
 import { useHouse } from './houseStore'
 import { useCam, type Vista } from './cameraStore'
@@ -330,7 +330,7 @@ async function repararCorralesHuerfanos(): Promise<void> {
     }
     await db.animales.update(a.id!, {
       corralId: corral.id!,
-      nombre: a.nombre ?? nombreAleatorio(),
+      nombre: a.nombre ?? nombreAleatorio(idiomaActual()),
       mimadoEn: a.mimadoEn ?? Date.now(),
     })
   }
@@ -529,7 +529,7 @@ export const useGranja = create<GranjaState>((set, get) => ({
           tipo,
           alimentadoEn: Date.now(),
           mimadoEn: Date.now(),
-          nombre: nombreAleatorio(),
+          nombre: nombreAleatorio(idiomaActual()),
         })
         return
       }

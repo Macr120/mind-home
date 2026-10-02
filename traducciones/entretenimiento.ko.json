@@ -182,5 +182,361 @@
   {
     "ruta": "programa.items.0.detalle",
     "texto": "속편을 먼저 보고 원작은 아직 못 봤어요. 순서를 바로잡아야겠어요."
+  },
+  {
+    "ruta": "fichas.0.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.1.genero",
+    "texto": "드라마"
+  },
+  {
+    "ruta": "fichas.2.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.3.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.4.genero",
+    "texto": "교양 과학"
+  },
+  {
+    "ruta": "fichas.5.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.6.genero",
+    "texto": "고전 SF"
+  },
+  {
+    "ruta": "fichas.7.genero",
+    "texto": "애니메이션"
+  },
+  {
+    "ruta": "fichas.8.genero",
+    "texto": "고전 SF"
+  },
+  {
+    "ruta": "fichas.9.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.10.genero",
+    "texto": "애니메이션"
+  },
+  {
+    "ruta": "fichas.11.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.12.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.13.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.14.genero",
+    "texto": "공포"
+  },
+  {
+    "ruta": "fichas.15.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.16.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.17.genero",
+    "texto": "고전 SF"
+  },
+  {
+    "ruta": "fichas.18.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.19.genero",
+    "texto": "애니메이션"
+  },
+  {
+    "ruta": "fichas.20.genero",
+    "texto": "고전 SF"
+  },
+  {
+    "ruta": "fichas.21.genero",
+    "texto": "애니메이션"
+  },
+  {
+    "ruta": "fichas.22.genero",
+    "texto": "드라마"
+  },
+  {
+    "ruta": "fichas.23.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.24.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.25.genero",
+    "texto": "교양 과학"
+  },
+  {
+    "ruta": "fichas.26.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.27.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.28.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.29.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.30.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.31.genero",
+    "texto": "고전 SF"
+  },
+  {
+    "ruta": "fichas.32.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.33.genero",
+    "texto": "애니메이션"
+  },
+  {
+    "ruta": "fichas.0.titulo",
+    "texto": "블레이드 러너 2049"
+  },
+  {
+    "ruta": "fichas.0.autor",
+    "texto": "드니 빌뇌브"
+  },
+  {
+    "ruta": "fichas.1.titulo",
+    "texto": "블랙 미러"
+  },
+  {
+    "ruta": "fichas.1.autor",
+    "texto": "찰리 브루커"
+  },
+  {
+    "ruta": "fichas.2.autor",
+    "texto": "어슐러 K. 르 귄"
+  },
+  {
+    "ruta": "fichas.3.autor",
+    "texto": "드니 빌뇌브"
+  },
+  {
+    "ruta": "fichas.4.titulo",
+    "texto": "코스모스"
+  },
+  {
+    "ruta": "fichas.4.autor",
+    "texto": "칼 세이건"
+  },
+  {
+    "ruta": "fichas.5.titulo",
+    "texto": "아우터 와일즈"
+  },
+  {
+    "ruta": "fichas.5.autor",
+    "texto": "모비우스 디지털"
+  },
+  {
+    "ruta": "fichas.6.autor",
+    "texto": "스탠리 큐브릭"
+  },
+  {
+    "ruta": "fichas.7.titulo",
+    "texto": "카우보이 비밥"
+  },
+  {
+    "ruta": "fichas.7.autor",
+    "texto": "와타나베 신이치로"
+  },
+  {
+    "ruta": "fichas.8.autor",
+    "texto": "프리츠 랑"
+  },
+  {
+    "ruta": "fichas.9.autor",
+    "texto": "앤디 위어"
+  },
+  {
+    "ruta": "fichas.10.titulo",
+    "texto": "아키라"
+  },
+  {
+    "ruta": "fichas.10.autor",
+    "texto": "오토모 가쓰히로"
+  },
+  {
+    "ruta": "fichas.11.titulo",
+    "texto": "포탈 2"
+  },
+  {
+    "ruta": "fichas.11.autor",
+    "texto": "밸브"
+  },
+  {
+    "ruta": "fichas.12.titulo",
+    "texto": "익스팬스"
+  },
+  {
+    "ruta": "fichas.13.titulo",
+    "texto": "솔라리스"
+  },
+  {
+    "ruta": "fichas.13.autor",
+    "texto": "스타니스와프 렘"
+  },
+  {
+    "ruta": "fichas.14.titulo",
+    "texto": "에이리언"
+  },
+  {
+    "ruta": "fichas.14.autor",
+    "texto": "리들리 스콧"
+  },
+  {
+    "ruta": "fichas.15.titulo",
+    "texto": "더 문"
+  },
+  {
+    "ruta": "fichas.15.autor",
+    "texto": "덩컨 존스"
+  },
+  {
+    "ruta": "fichas.16.autor",
+    "texto": "알폰소 쿠아론"
+  },
+  {
+    "ruta": "fichas.17.titulo",
+    "texto": "가타카"
+  },
+  {
+    "ruta": "fichas.17.autor",
+    "texto": "앤드루 니콜"
+  },
+  {
+    "ruta": "fichas.18.titulo",
+    "texto": "데스 스트랜딩"
+  },
+  {
+    "ruta": "fichas.18.autor",
+    "texto": "코지마 프로덕션"
+  },
+  {
+    "ruta": "fichas.19.titulo",
+    "texto": "플라네테스"
+  },
+  {
+    "ruta": "fichas.19.autor",
+    "texto": "선라이즈"
+  },
+  {
+    "ruta": "fichas.20.titulo",
+    "texto": "고질라"
+  },
+  {
+    "ruta": "fichas.20.autor",
+    "texto": "혼다 이시로"
+  },
+  {
+    "ruta": "fichas.21.titulo",
+    "texto": "공각기동대"
+  },
+  {
+    "ruta": "fichas.21.autor",
+    "texto": "오시이 마모루"
+  },
+  {
+    "ruta": "fichas.22.autor",
+    "texto": "오즈 야스지로"
+  },
+  {
+    "ruta": "fichas.23.autor",
+    "texto": "류츠신"
+  },
+  {
+    "ruta": "fichas.24.titulo",
+    "texto": "아우터 와일즈"
+  },
+  {
+    "ruta": "fichas.24.autor",
+    "texto": "모비우스 디지털"
+  },
+  {
+    "ruta": "fichas.25.autor",
+    "texto": "카를로 로벨리"
+  },
+  {
+    "ruta": "fichas.26.autor",
+    "texto": "어슐러 K. 르 귄"
+  },
+  {
+    "ruta": "fichas.27.autor",
+    "texto": "드니 빌뇌브"
+  },
+  {
+    "ruta": "fichas.28.titulo",
+    "texto": "아나템"
+  },
+  {
+    "ruta": "fichas.28.autor",
+    "texto": "닐 스티븐슨"
+  },
+  {
+    "ruta": "fichas.29.titulo",
+    "texto": "세브란스: 단절"
+  },
+  {
+    "ruta": "fichas.29.autor",
+    "texto": "댄 에릭슨"
+  },
+  {
+    "ruta": "fichas.30.autor",
+    "texto": "피터 와츠"
+  },
+  {
+    "ruta": "fichas.31.titulo",
+    "texto": "솔라리스"
+  },
+  {
+    "ruta": "fichas.32.titulo",
+    "texto": "시티즌 슬리퍼"
+  },
+  {
+    "ruta": "fichas.32.autor",
+    "texto": "점프 오버 디 에이지"
+  },
+  {
+    "ruta": "fichas.33.titulo",
+    "texto": "플루토"
+  },
+  {
+    "ruta": "fichas.33.autor",
+    "texto": "스튜디오 M2"
+  },
+  {
+    "ruta": "programa.items.0.titulo",
+    "texto": "블레이드 러너 (1982)"
   }
 ]

@@ -228,7 +228,7 @@ export default {
     },
     {
       "dia": -250,
-      "item1": "Mais trezentos reais no fundo do Japão",
+      "item1": "Mais {monto:1040} no fundo do Japão",
       "item2": "Já falo sumimasen sem me enrolar",
       "item3": "Degustação grátis de um café da Etiópia"
     },
@@ -242,7 +242,7 @@ export default {
       "dia": -243,
       "item1": "Nove quilômetros e ainda sobrou fôlego no final",
       "item2": "Troquei o refrigerante por água com gás e continuo viv@",
-      "item3": "A bicicleta consertada por sessenta reais"
+      "item3": "A bicicleta consertada por {monto:210}"
     },
     {
       "dia": -239,

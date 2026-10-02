@@ -16,14 +16,14 @@ export default {
     },
     {
       "dia": -361,
-      "titulo": "Dublü mesai, 360 ₺ bahşiş",
-      "texto": "Nadia’nın mesaisini devraldım ve dokuzda belim mahvolmuş halde çıktım. 360 ₺ bahşiş ve bana bacaklı bir kahve makinesiymişim gibi konuşan bir kadın. Ayakta, telefona bakarak sabaha kadar mısır gevreği yedim, saat bire kadar. Yarın sekizde laboratuvarım var ve nasıl geçeceğini şimdiden biliyorum.",
+      "titulo": "Dublü mesai, {monto:140} bahşiş",
+      "texto": "Nadia’nın mesaisini devraldım ve dokuzda belim mahvolmuş halde çıktım. {monto:140} bahşiş ve bana bacaklı bir kahve makinesiymişim gibi konuşan bir kadın. Ayakta, telefona bakarak sabaha kadar mısır gevreği yedim, saat bire kadar. Yarın sekizde laboratuvarım var ve nasıl geçeceğini şimdiden biliyorum.",
       "animo": "😣"
     },
     {
       "dia": -358,
       "titulo": "Maaşım nereye gitti bilmiyorum",
-      "texto": "Cuma günü maaşımı aldım ve bugün, çarşamba, hesapta 1.850 ₺ var. Harcamaları hafızamdan toparlamaya çalıştım ve yerini bulamadığım neredeyse 3.000 ₺ eksik var. Kullanmadığım abonelikler, biralar, yemek pişirmediğim günlerin paket siparişleri. Beni asıl rahatsız eden para değil, kendi hayatım hakkında bunu bile bilmemek.",
+      "texto": "Cuma günü maaşımı aldım ve bugün, çarşamba, hesapta {monto:710} var. Harcamaları hafızamdan toparlamaya çalıştım ve yerini bulamadığım neredeyse {monto:1210} eksik var. Kullanmadığım abonelikler, biralar, yemek pişirmediğim günlerin paket siparişleri. Beni asıl rahatsız eden para değil, kendi hayatım hakkında bunu bile bilmemek.",
       "animo": "😔"
     },
     {
@@ -71,7 +71,7 @@ export default {
     {
       "dia": -334,
       "titulo": "Tablo, ilk deneme",
-      "texto": "Hayatımın gerçek kategorileriyle bir bütçe hazırlamak iki saatimi aldı: kira, yemek, ulaşım, üniversite, saçmalıklar. Karşımda 53.000 ₺ gider var, iki haftalık maaş ve bahşişlerle birlikte 56.000 ₺ gelire karşı. Marj gülünç ama var, ve yazılı görmek beklediğimden fazla sakinleştiriyor. Yeni kural: bahşişler aynı gün harcanmayacak.",
+      "texto": "Hayatımın gerçek kategorileriyle bir bütçe hazırlamak iki saatimi aldı: kira, yemek, ulaşım, üniversite, saçmalıklar. Karşımda {monto:20400} gider var, iki haftalık maaş ve bahşişlerle birlikte {monto:21500} gelire karşı. Marj gülünç ama var, ve yazılı görmek beklediğimden fazla sakinleştiriyor. Yeni kural: bahşişler aynı gün harcanmayacak.",
       "animo": "😐"
     },
     {
@@ -89,7 +89,7 @@ export default {
     {
       "dia": -325,
       "titulo": "Bahşişler için cam kavanoz",
-      "texto": "Bir reçel kavanozunu boşalttım ve her mesai gecesinin bahşişi oraya gidiyor. Bu hafta: eskiden dışarıda yemeğe dönüşecek 1.050 ₺. Kavanozun ne için olduğunu hâlâ bilmiyorum ve sanırım bu yardımcı oluyor: acelesi olmayan bir para bu. Pazar günü saymak küçük bir ritüele dönüştü.",
+      "texto": "Bir reçel kavanozunu boşalttım ve her mesai gecesinin bahşişi oraya gidiyor. Bu hafta: eskiden dışarıda yemeğe dönüşecek {monto:400}. Kavanozun ne için olduğunu hâlâ bilmiyorum ve sanırım bu yardımcı oluyor: acelesi olmayan bir para bu. Pazar günü saymak küçük bir ritüele dönüştü.",
       "animo": "🙂"
     },
     {
@@ -101,7 +101,7 @@ export default {
     {
       "dia": -319,
       "titulo": "Piyano geldi",
-      "texto": "88 tuşlu ikinci el bir piyano, 4.050 ₺, kızı doğduğunda çalmayı bırakan bir adamdan aldım. İki battaniyeyle arabanın bagajında getirdim ve salonun köşesine kurdum. Açılınca hafif bir vızıltı çıkarıyor ve pedalı eksik ama çalıyor. Yirmi dakika rastgele notalar çaldım ve aptal gibi sırıttım. Yılın resmi hedefi: «Clair de Lune»u baştan sona öğrenmek.",
+      "texto": "88 tuşlu ikinci el bir piyano, {monto:1560}, kızı doğduğunda çalmayı bırakan bir adamdan aldım. İki battaniyeyle arabanın bagajında getirdim ve salonun köşesine kurdum. Açılınca hafif bir vızıltı çıkarıyor ve pedalı eksik ama çalıyor. Yirmi dakika rastgele notalar çaldım ve aptal gibi sırıttım. Yılın resmi hedefi: «Clair de Lune»u baştan sona öğrenmek.",
       "animo": "🤩",
       "foto": "teclado"
     },
@@ -120,7 +120,7 @@ export default {
     {
       "dia": -310,
       "titulo": "Ayın hesabı tam tuttu",
-      "texto": "Yıllardır ilk kez ayın sonuna her liranın nereye gittiğini bilerek geliyorum. Elimde 2.800 ₺ kaldı, geçen ayki eksiye kıyasla gülünç ama aynı zamanda muazzam bir rakam. İki aboneliği iptal ettim ve paket yemek harcaması yarıya indi. Bunların hiçbiri erdem değil: artık görüyorum, hepsi bu.",
+      "texto": "Yıllardır ilk kez ayın sonuna her harcamanın nereye gittiğini bilerek geliyorum. Elimde {monto:1070} kaldı, geçen ayki eksiye kıyasla gülünç ama aynı zamanda muazzam bir rakam. İki aboneliği iptal ettim ve paket yemek harcaması yarıya indi. Bunların hiçbiri erdem değil: artık görüyorum, hepsi bu.",
       "animo": "🙂"
     },
     {
@@ -163,7 +163,7 @@ export default {
     {
       "dia": -289,
       "titulo": "Kaplarla dolu bir pazar",
-      "texto": "Pazar günü iki saat mutfakta: mercimek, pirinç, fırında tavuk ve beş günlük sebze. 800 ₺’ye mal oldu ve gece mesaisinden sonraki dönerlerden tasarruf ettiriyor. Laika tezgaha oturup denetledi, onu on bir kez indirdim. Dolu bir buzdolabı, bu kadar aptalca bir şeyden beklemediğim bir huzur veriyor.",
+      "texto": "Pazar günü iki saat mutfakta: mercimek, pirinç, fırında tavuk ve beş günlük sebze. Hepsi {monto:310} tuttu ve gece mesaisinden sonraki dönerlerden tasarruf ettiriyor. Laika tezgaha oturup denetledi, onu on bir kez indirdim. Dolu bir buzdolabı, bu kadar aptalca bir şeyden beklemediğim bir huzur veriyor.",
       "animo": "🙂"
     },
     {
@@ -223,7 +223,7 @@ export default {
     {
       "dia": -259,
       "titulo": "Japonya için rakamlar",
-      "texto": "Hesap tablosuyla oturdum ve hayale rakamlar koydum: toplam 108.000 ₺, uçuşlar yaklaşık 36.000 ₺, geri kalanı ucuz konaklama, trenler ve yemek. Bütçemin arttığı aylardan 27.000 ₺’m var, yani ayda yaklaşık 16.000 ₺ eksiğim var. İki gün ekstra mesai alırsam ve hafta sonu bahşişleri doğrudan zarfa giderse tutuyor. Uygulamada yeni bir satır açtım ve adını sadece Japonya koydum.",
+      "texto": "Hesap tablosuyla oturdum ve hayale rakamlar koydum: toplam {monto:41500}, uçuşlar yaklaşık {monto:13840}, geri kalanı ucuz konaklama, trenler ve yemek. Bütçemin arttığı aylardan elimde {monto:10380} var, yani ayda yaklaşık {monto:6230} eksiğim var. İki gün ekstra mesai alırsam ve hafta sonu bahşişleri doğrudan zarfa giderse tutuyor. Uygulamada yeni bir satır açtım ve adını sadece Japonya koydum.",
       "animo": "😀"
     },
     {
@@ -271,7 +271,7 @@ export default {
     {
       "dia": -235,
       "titulo": "Bahşişler zarfa gidiyor",
-      "texto": "Terası dolu bir cumartesi: kavanozda 1.700 ₺ bahşiş ve bir sade kahve için 225 ₺ bırakan bir müşteri. Eskiden bu, farkına bile varmadan biralara ve hafta ortası yemeklerine gidiyordu. Bugün paraları mutfak masasında saydım ve tamamını Japonya satırına aktardım. Toplam 45.000 ₺. Paraların artık bir hedefi var ve bu beni farklı çalıştırıyor.",
+      "texto": "Terası dolu bir cumartesi: kavanozda {monto:660} bahşiş ve bir sade kahve için {monto:87} bırakan bir müşteri. Eskiden bu, farkına bile varmadan biralara ve hafta ortası yemeklerine gidiyordu. Bugün paraları mutfak masasında saydım ve tamamını Japonya satırına aktardım. Toplam {monto:17500}. Paraların artık bir hedefi var ve bu beni farklı çalıştırıyor.",
       "animo": "😀"
     },
     {
@@ -325,7 +325,7 @@ export default {
     {
       "dia": -208,
       "titulo": "İkinci el tripod",
-      "texto": "Bit pazarında 540 ₺’ye eski bir tripod buldum ve telefonumu plastik bir mandalla taktım. On birde çatıya çıktım ve ilk kez yıldızlar solucan değil nokta olarak çıktı. Ülker takımyıldızı ve Orion kemerinden bir parça seçiliyor, bulanık ama tanınabilir. Bir battaniye ve çayla bir saat orada kaldım; astrofotoğrafçılık mı bilmiyorum ama işe yarıyor.",
+      "texto": "Bit pazarında {monto:210} karşılığında eski bir tripod buldum ve telefonumu plastik bir mandalla taktım. On birde çatıya çıktım ve ilk kez yıldızlar solucan değil nokta olarak çıktı. Ülker takımyıldızı ve Orion kemerinden bir parça seçiliyor, bulanık ama tanınabilir. Bir battaniye ve çayla bir saat orada kaldım; astrofotoğrafçılık mı bilmiyorum ama işe yarıyor.",
       "animo": "🙂"
     },
     {
@@ -343,7 +343,7 @@ export default {
     {
       "dia": -199,
       "titulo": "Kavanozun yarısı",
-      "texto": "108.000 ₺’nin 54.000 ₺’si. Gezinin tam yarısı hesapta ve hâlâ üç ay bahşiş ve ekstra mesai var. İnanamadığım için hesabı iki kez yaptım, sonra duygusal muhasebecim olan Laika’ya anlattım. Beni en çok şaşırtan para değil, beş aydır kesintisiz her harcamayı not etmiş olmam.",
+      "texto": "{monto:41500} içinden {monto:20900}. Gezinin tam yarısı hesapta ve hâlâ üç ay bahşiş ve ekstra mesai var. İnanamadığım için hesabı iki kez yaptım, sonra duygusal muhasebecim olan Laika’ya anlattım. Beni en çok şaşırtan para değil, beş aydır kesintisiz her harcamayı not etmiş olmam.",
       "animo": "🤩"
     },
     {
@@ -391,13 +391,13 @@ export default {
     {
       "dia": -176,
       "titulo": "Araba da, tabii ki",
-      "texto": "Laboratuvara gitmek için arabayı çalıştırmaya gittim ve bir kutu vida gibi ses çıkardı. Robles sokağındaki tamirciye götürdüm: su pompası ve kayış, 17.000 ₺ ve iki gün arabasız. Tam da bu hafta, diz durmuşken ve cuma mesaisi iki katıyken. Kaldırımda kendi kendime güldüm çünkü kaldırımda ağlamak daha çok utandırırdı.",
+      "texto": "Laboratuvara gitmek için arabayı çalıştırmaya gittim ve bir kutu vida gibi ses çıkardı. Robles sokağındaki tamirciye götürdüm: su pompası ve kayış, {monto:6570} ve iki gün arabasız. Tam da bu hafta, diz durmuşken ve cuma mesaisi iki katıyken. Kaldırımda kendi kendime güldüm çünkü kaldırımda ağlamak daha çok utandırırdı.",
       "animo": "😣"
     },
     {
       "dia": -173,
       "titulo": "Bu para nereden çıkacak",
-      "texto": "17.000 ₺’nin acil durum fonundan çıkmasına karar verdim, Japonya zarfından değil, fon sıfırlansa bile. Bu ay iki şeyi kısıyorum: dışarıda kahve yok, yemek siparişi yok. İki haftalık bahşişler zayıftı, 2.050 ₺, yani gerçekten sıkı tutmak lazım. En azından şimdi tam olarak ne kadar param olduğunu biliyorum, ekimde şaka bile bilmiyordum.",
+      "texto": "{monto:6570} tutarındaki masrafın acil durum fonundan çıkmasına karar verdim, Japonya zarfından değil, fon sıfırlansa bile. Bu ay iki şeyi kısıyorum: dışarıda kahve yok, yemek siparişi yok. İki haftalık bahşişler zayıftı, {monto:800}, yani gerçekten sıkı tutmak lazım. En azından şimdi tam olarak ne kadar param olduğunu biliyorum, ekimde şaka bile bilmiyordum.",
       "animo": "😔"
     },
     {
@@ -409,7 +409,7 @@ export default {
     {
       "dia": -168,
       "titulo": "Çirkin kayıt, filtresiz",
-      "texto": "Her şeyin aynı anda üstüme gelmesinden bıktım: perşembe elektromanyetizma ara sınavı, cumartesi dublü mesai, gergin diz ve hesapta 8.500 ₺. Bunu buz koyulu halde ve yılı boş vermek isteğiyle yazıyorum. Bugünden çıkarılacak güzel bir ders varmış gibi yapmayacağım. Yaptığım tek şey, bunun da olduğunu hatırlamak için not etmek.",
+      "texto": "Her şeyin aynı anda üstüme gelmesinden bıktım: perşembe elektromanyetizma ara sınavı, cumartesi dublü mesai, gergin diz ve hesapta {monto:3290}. Bunu buz koyulu halde ve yılı boş vermek isteğiyle yazıyorum. Bugünden çıkarılacak güzel bir ders varmış gibi yapmayacağım. Yaptığım tek şey, bunun da olduğunu hatırlamak için not etmek.",
       "animo": "😣"
     },
     {
@@ -433,7 +433,7 @@ export default {
     {
       "dia": -156,
       "titulo": "Fizyoterapistle randevu",
-      "texto": "Perşembe saat on birde ilk seans, her biri 1.575 ₺ ve dört ya da beş tanesine ihtiyacım var. Bunu ocakta düşüneceğim gibi bir kaprisi değil, bir sağlık gideri olarak bütçeye koydum. Diz artık merdivenleri neredeyse normal indirmeme izin veriyor. Bunun düzeleceğine ve eylülde Japonya’da sorunsuzca çok yürüyeceğime inanmaya başlıyorum.",
+      "texto": "Perşembe saat on birde ilk seans, her biri {monto:600} ve dört ya da beş tanesine ihtiyacım var. Bunu ocakta düşüneceğim gibi bir kaprisi değil, bir sağlık gideri olarak bütçeye koydum. Diz artık merdivenleri neredeyse normal indirmeme izin veriyor. Bunun düzeleceğine ve eylülde Japonya’da sorunsuzca çok yürüyeceğime inanmaya başlıyorum.",
       "animo": "🙂"
     },
     {
@@ -457,13 +457,13 @@ export default {
     {
       "dia": -140,
       "titulo": "Kesintisiz yirmi dakika",
-      "texto": "Durmadan yirmi dakika, çok yavaş, ve diz kılını bile kıpırdatmadı. Yarın bir saat koşma isteğim olsa da haftada yüzde ondan fazla artırmamaya kendimi zorluyorum. Bu dersi pahalıya öğrendim: 17.000 ₺ ve üç hafta. Japonya’ya kadarki plan basit, rahat kırk dakikalar ve hiç uzun koşu yok.",
+      "texto": "Durmadan yirmi dakika, çok yavaş, ve diz kılını bile kıpırdatmadı. Yarın bir saat koşma isteğim olsa da haftada yüzde ondan fazla artırmamaya kendimi zorluyorum. Bu dersi pahalıya öğrendim: {monto:6570} ve üç hafta. Japonya’ya kadarki plan basit, rahat kırk dakikalar ve hiç uzun koşu yok.",
       "animo": "😀"
     },
     {
       "dia": -137,
       "titulo": "Hesaplar nefes alıyor",
-      "texto": "Japonya zarfı hedefin yüzde 85’inde: 117.000 ₺’nin 99.500 ₺’si. Tamirci darbesinden sonra acil durum fonu yeniden 9.000 ₺’ye ulaştı. İki maaş dönemi daha ve genelde iyi geçen ağustos bahşişlerini de sayarsam tam yetişiyor. Bunu buraya yazıyorum çünkü ekimde kahveye ne kadar harcadığımı bile bilmiyordum.",
+      "texto": "Japonya zarfı hedefin yüzde 85’inde: {monto:45000} içinden {monto:38200}. Tamirci darbesinden sonra acil durum fonunda yeniden {monto:3460} var. İki maaş dönemi daha ve genelde iyi geçen ağustos bahşişlerini de sayarsam tam yetişiyor. Bunu buraya yazıyorum çünkü ekimde kahveye ne kadar harcadığımı bile bilmiyordum.",
       "animo": "🙂"
     },
     {
@@ -506,7 +506,7 @@ export default {
     {
       "dia": -121,
       "titulo": "Tokyo’da yürüyerek, 21 km",
-      "texto": "Shinjuku, Yanaka ve bir saat geçirip neredeyse hiçbir şey anlamadığım bir kitapçı arasında yirmi bir kilometre yürüdüm. Trenler saniyesinde geliyor ve evde mesaiye geç kalan ben, sistem tarafından izleniyormuşum gibi hissediyorum. Bir konbinide akşam yemeği yedim: onigiri, haşlanmış yumurta ve bir çorba, 225 ₺ ve pek çok pahalı şeyden daha iyi. Diz, sessiz.",
+      "texto": "Shinjuku, Yanaka ve bir saat geçirip neredeyse hiçbir şey anlamadığım bir kitapçı arasında yirmi bir kilometre yürüdüm. Trenler saniyesinde geliyor ve evde mesaiye geç kalan ben, sistem tarafından izleniyormuşum gibi hissediyorum. Bir konbinide akşam yemeği yedim: onigiri, haşlanmış yumurta ve bir çorba, {monto:87} ve pek çok pahalı şeyden daha iyi. Diz, sessiz.",
       "animo": "🤩"
     },
     {
@@ -567,7 +567,7 @@ export default {
     {
       "dia": -101,
       "titulo": "Gezinin hesabı",
-      "texto": "Osaka’da son gece ve toplamı yaptım: biriktirdiğim 117.000 ₺’nin 112.000 ₺’si, uçuş, tren, yataklar ve yemek dahil. Neredeyse liraya tuttu, bu bana tuhaf ve çok muhasebeci bir gurur veriyor. Üç yerden çay, bir defter, piyano için ufak bir hediye ve altmış bir sayfa yazıyla dönüyorum. Yarın uzun uçuş, perşembe de kafeteryada saat yedi mesaisi.",
+      "texto": "Osaka’da son gece ve toplamı yaptım: biriktirdiğim {monto:45000} içinden {monto:42900}, uçuş, tren, yataklar ve yemek dahil. Neredeyse tam tuttu, bu bana tuhaf ve çok muhasebeci bir gurur veriyor. Üç yerden çay, bir defter, piyano için ufak bir hediye ve altmış bir sayfa yazıyla dönüyorum. Yarın uzun uçuş, perşembe de kafeteryada saat yedi mesaisi.",
       "animo": "🙂"
     },
     {
@@ -603,7 +603,7 @@ export default {
     {
       "dia": -81,
       "titulo": "Gezi sonrası bütçe",
-      "texto": "Üç hafta bakmadan sonra zarf bütçesini yeniden kurdum. Gezi hesabı 5.300 ₺’de kaldı ve bu bir başarısızlık değil: tam olarak plan buydu. Bu maaştan itibaren yeni satır: acil durum fonu, her maaşta 1.800 ₺. Haftanın bahşişleri 1.200 ₺’ydi ve tamamı oraya gidiyor.",
+      "texto": "Üç hafta bakmadan sonra zarf bütçesini yeniden kurdum. Gezi hesabı {monto:2040} olarak kaldı ve bu bir başarısızlık değil: tam olarak plan buydu. Bu maaştan itibaren yeni satır: acil durum fonu, her maaşta {monto:690}. Haftanın bahşişleri {monto:470} oldu ve tamamı oraya gidiyor.",
       "animo": "🙂"
     },
     {
@@ -627,7 +627,7 @@ export default {
     {
       "dia": -68,
       "titulo": "Yine araba aküsü",
-      "texto": "Araba altı buçukta çalışmadı ve kafeteryaya bisikletle var gücümle gittim. Yeni akü: yeni açtığım acil durum fonundan 3.250 ₺, artık 360 ₺’de. Araba on dokuz yaşında ve her üç ayda bir varlığını hatırlatıyor. En azından bu sefer ayı batırmadı, sadece rahatsız etti.",
+      "texto": "Araba altı buçukta çalışmadı ve kafeteryaya bisikletle var gücümle gittim. Yeni akü: yeni açtığım acil durum fonundan {monto:1250}; fonda artık {monto:140} var. Araba on dokuz yaşında ve her üç ayda bir varlığını hatırlatıyor. En azından bu sefer ayı batırmadı, sadece rahatsız etti.",
       "animo": "😔"
     },
     {
@@ -675,7 +675,7 @@ export default {
     {
       "dia": -43,
       "titulo": "Kayıt tamam: maraton",
-      "texto": "Kayıt tamam: maraton, 1.700 ₺, beş haftalık plan. Nadia iki şartla evet dedi: her iki haftada bir fizyoterapi ve dizin ilk uyarısında durmak. Agresif olduğunu biliyorum; altı aydır neredeyse hiç aksatmadan kilometre biriktirdiğimi de biliyorum. Mutfaktaki tahtaya 42,195 yazdım ve bir süre ona bakakaldım.",
+      "texto": "Kayıt tamam: maraton, {monto:660}, beş haftalık plan. Nadia iki şartla evet dedi: her iki haftada bir fizyoterapi ve dizin ilk uyarısında durmak. Agresif olduğunu biliyorum; altı aydır neredeyse hiç aksatmadan kilometre biriktirdiğimi de biliyorum. Mutfaktaki tahtaya 42,195 yazdım ve bir süre ona bakakaldım.",
       "animo": "😀"
     },
     {
@@ -742,7 +742,7 @@ export default {
     {
       "dia": -5,
       "titulo": "Yürüyüş, çay ve Laika",
-      "texto": "Koşu yerine bir saatlik yürüyüşler, öğleden sonra kahve yerine çay ve dayanılmaz derecede yanıma yapışan Laika. Bir yıl sonrası için Seul uçuşlarına baktım, hiçbir şey almadan, sadece iki haftada bir yaklaşık 2.500 ₺ ayırmam gerektiğini hesaplamak için. Ayrıca Arabesk No. 1’in notalarını çıkardım ve kendi kendime güldüm. Yarın Clair de Lune’ü art arda üç kez çalışıyorum, çünkü pazar ailem için çalacağım.",
+      "texto": "Koşu yerine bir saatlik yürüyüşler, öğleden sonra kahve yerine çay ve dayanılmaz derecede yanıma yapışan Laika. Bir yıl sonrası için Seul uçuşlarına baktım, hiçbir şey almadan, sadece iki haftada bir yaklaşık {monto:950} ayırmam gerektiğini hesaplamak için. Ayrıca Arabesk No. 1’in notalarını çıkardım ve kendi kendime güldüm. Yarın Clair de Lune’ü art arda üç kez çalışıyorum, çünkü pazar ailem için çalacağım.",
       "animo": "🙂"
     },
     {
@@ -754,7 +754,7 @@ export default {
     {
       "dia": -1,
       "titulo": "Yılın hesabı",
-      "texto": "Uygulamada yılı gözden geçirmek yarım saatimi aldı. O zaman 74 kg, bu sabah 67,0; koşulan 1.214 kilometre; bir 5K, bir 10K, bir yarı maraton ve bir maraton. Biriktirilip Japonya’daki üç haftada harcanan 117.000 ₺, 61 sayfa gezi günlüğü ve burada 118 kayıt. Rakamlarda görünmeyen şey: bir yıl önce ikiye telefonum yüzümde yatıyordum.",
+      "texto": "Uygulamada yılı gözden geçirmek yarım saatimi aldı. O zaman 74 kg, bu sabah 67,0; koşulan 1.214 kilometre; bir 5K, bir 10K, bir yarı maraton ve bir maraton. Biriktirilip Japonya’daki üç haftada harcanan {monto:45000}, 61 sayfa gezi günlüğü ve burada 118 kayıt. Rakamlarda görünmeyen şey: bir yıl önce ikiye telefonum yüzümde yatıyordum.",
       "animo": "🙂"
     },
     {

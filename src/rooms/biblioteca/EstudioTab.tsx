@@ -10,6 +10,7 @@ import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { campos, useIndice } from './semilla'
 import { useEstudio, restanteMs, type CicloPomodoro, type FasePomodoro } from './estudioStore'
 import { CAMPANA_DESCANSO, tocarCampana } from './campana'
+import { textoMin } from '../../core/i18n/duracion'
 
 /** Color de la fase: el descanso se ve distinto de un vistazo. */
 const COLOR_DESCANSO = '#34d399'
@@ -250,7 +251,7 @@ export function EstudioTab() {
           <div className="flex flex-wrap items-center gap-1.5">
             <div className="min-w-0 flex-1">
               <PestanasCarpeta
-                items={DURACIONES_ESTUDIO.map((min) => ({ id: String(min), label: `${min} min` }))}
+                items={DURACIONES_ESTUDIO.map((min) => ({ id: String(min), label: `${textoMin(min)}` }))}
                 activo={String(duracion)}
                 onCambio={(id) => setDuracion(Number(id))}
                 color={COLOR}

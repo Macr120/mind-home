@@ -19,7 +19,7 @@ Twoje życie w domu 3D: nawyki, cele, finanse, posiłki i więcej.
 
 nawyki,cele,planer,dziennik,budżet,dieta,trening,sen,nauka,ai,asystent,organizer
 
-## Descripción (3544/4000)
+## Descripción (3639/4000)
 
 Uporządkuj nawyki, cele, finanse, posiłki i więcej w izometrycznym domu 3D, w którym każdy pokój to aplikacja.
 
@@ -57,3 +57,5 @@ APLIKACJA
 • Po tym miesiącu zostaje ci cała aplikacja i twoje dane; kredyty SI są opcjonalne
 
 Ta sama dopamina. Tym razem dla twojego prawdziwego życia.
+
+Warunki korzystania (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/

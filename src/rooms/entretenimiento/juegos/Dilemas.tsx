@@ -6,10 +6,13 @@ import { COLOR } from '../constantes'
 import { guardarRecord, leerNumero } from './almacen'
 import { barajar } from './cartas'
 import { DILEMAS, type Dilema } from './dilemas.data'
+import { useDilemas } from './dilemas.i18n'
 import { AvisoJev } from './AvisoJev'
 import { preguntarJev, type RespuestaJev } from './jev'
 
 const POR_PARTIDA = 8
+/** Se barajan los índices: el mismo dilema en cualquier idioma. */
+const INDICES = DILEMAS.map((_, i) => i)
 
 /** Lo que decidió Jev: `p` = probabilidad del «sí». */
 type Decision = RespuestaJev<number>
@@ -134,7 +137,8 @@ export function Dilemas() {
  */
 function PartidaDilemas() {
   const t = useT()
-  const [ronda, setRonda] = useState(() => barajar(DILEMAS).slice(0, POR_PARTIDA))
+  const traducidos = useDilemas()
+  const [ronda, setRonda] = useState(() => barajar(INDICES).slice(0, POR_PARTIDA))
   const [i, setI] = useState(0)
   const [mia, setMia] = useState<boolean | null>(null)
   const [decision, setDecision] = useState<Decision | null>(null)
@@ -143,17 +147,20 @@ function PartidaDilemas() {
   // La promesa de la decisión del dilema en pantalla (se lanza al mostrarlo).
   const pendiente = useRef<Promise<Decision> | null>(null)
 
-  const dilema = ronda[i]
+  // A Jev se le pregunta el original; en pantalla va el del idioma de la interfaz
+  // (así la llegada de la traducción no repite la llamada).
+  const original = DILEMAS[ronda[i]]
+  const dilema = traducidos?.[ronda[i]] ?? original
   const terminado = i >= ronda.length
 
   useEffect(() => {
-    pendiente.current = dilema ? pedirDecision(dilema) : null
-  }, [dilema])
+    pendiente.current = original ? pedirDecision(original) : null
+  }, [original])
 
   const elegir = async (si: boolean) => {
     if (mia !== null || !dilema) return
     setMia(si)
-    const d = await (pendiente.current ?? pedirDecision(dilema))
+    const d = await (pendiente.current ?? pedirDecision(original))
     setDecision(d)
     if (d.ok && d.valor >= 0.5 === si) setCoinciden((n) => n + 1)
   }
@@ -161,7 +168,7 @@ function PartidaDilemas() {
   const reintentar = async () => {
     if (!dilema || mia === null) return
     setDecision(null)
-    pendiente.current = pedirDecision(dilema)
+    pendiente.current = pedirDecision(original)
     const d = await pendiente.current
     setDecision(d)
     if (d.ok && d.valor >= 0.5 === mia) setCoinciden((n) => n + 1)
@@ -176,7 +183,7 @@ function PartidaDilemas() {
   }
 
   const otraPartida = () => {
-    setRonda(barajar(DILEMAS).slice(0, POR_PARTIDA))
+    setRonda(barajar(INDICES).slice(0, POR_PARTIDA))
     setI(0)
     setMia(null)
     setDecision(null)

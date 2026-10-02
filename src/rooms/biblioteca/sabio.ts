@@ -2,6 +2,7 @@ import { conversarIA, extraerJSON, type MensajeIA } from '../../core/chat/ia'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { campos, cargarIndice, temasDelCampo } from './semilla'
 import { PILAR_GENERAL, getPilar } from './constantes'
+import { tGlobal } from '../../core/i18n/useT'
 
 /** Datos mínimos del asistente cuya voz usa el chat (Asistente real o semilla). */
 export interface VozSabio {
@@ -41,7 +42,7 @@ function transcript(mensajes: MensajeIA[], maxChars: number): string {
 export function tituloDerivado(mensajes: MensajeIA[]): string {
   const primero = mensajes.find((m) => m.rol === 'usuario')?.texto ?? ''
   const palabras = primero.trim().split(/\s+/).slice(0, 6).join(' ')
-  return palabras.length > 60 ? `${palabras.slice(0, 57)}…` : palabras || 'Charla'
+  return palabras.length > 60 ? `${palabras.slice(0, 57)}…` : palabras || tGlobal('charla.tituloDefecto', 'Charla')
 }
 
 /**

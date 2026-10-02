@@ -46,7 +46,7 @@ export default {
     {
       "dia": -222,
       "titulo": "社区集市双班",
-      "lugar": "Plaza Norte"
+      "lugar": "北广场"
     },
     {
       "dia": -200,
@@ -190,72 +190,72 @@ export default {
     {
       "dia": -355,
       "titulo": "满是抱怨的长咖啡时光",
-      "con": "Nadia Serrano"
+      "con": "娜迪亚·塞拉诺"
     },
     {
       "dia": -326,
       "titulo": "周日家庭晚餐",
-      "con": "Rosa Vidal"
+      "con": "罗莎·比达尔"
     },
     {
       "dia": -292,
       "titulo": "伊克尔的生日",
-      "con": "Iker Domínguez"
+      "con": "伊克尔·多明格斯"
     },
     {
       "dia": -258,
       "titulo": "5公里跑后的早餐",
-      "con": "Nadia Serrano"
+      "con": "娜迪亚·塞拉诺"
     },
     {
       "dia": -230,
       "titulo": "科幻电影马拉松",
-      "con": "Tomás Iriarte"
+      "con": "托马斯·伊里亚特"
     },
     {
       "dia": -190,
       "titulo": "妈妈的生日",
-      "con": "Rosa Vidal"
+      "con": "罗莎·比达尔"
     },
     {
       "dia": -160,
       "titulo": "倒苦水的咖啡时间",
-      "con": "Marisol Cáceres"
+      "con": "玛丽索尔·卡塞雷斯"
     },
     {
       "dia": -134,
       "titulo": "去日本前的告别晚餐",
-      "con": "Camila Vidal"
+      "con": "卡米拉·比达尔"
     },
     {
       "dia": -110,
       "titulo": "来自京都的视频通话",
-      "con": "Rosa Vidal"
+      "con": "罗莎·比达尔"
     },
     {
       "dia": -88,
       "titulo": "旅行照片之夜",
-      "con": "Tomás Iriarte"
+      "con": "托马斯·伊里亚特"
     },
     {
       "dia": -60,
       "titulo": "娜迪亚的生日",
-      "con": "Nadia Serrano"
+      "con": "娜迪亚·塞拉诺"
     },
     {
       "dia": -36,
       "titulo": "和咖啡店同事的早午餐",
-      "con": "Bruno Ferrer"
+      "con": "布鲁诺·费雷尔"
     },
     {
       "dia": -10,
       "titulo": "家庭音乐会：月光",
-      "con": "Rosa Vidal"
+      "con": "罗莎·比达尔"
     },
     {
       "dia": -3,
       "titulo": "咖啡时间：读研还是工作？",
-      "con": "Iker Domínguez"
+      "con": "伊克尔·多明格斯"
     }
   ],
   "pendientes": [
@@ -267,36 +267,36 @@ export default {
   ],
   "contactos": [
     {
-      "nombre": "Rosa Vidal",
-      "relacion": "Familia"
+      "nombre": "罗莎·比达尔",
+      "relacion": "家人"
     },
     {
-      "nombre": "Camila Vidal",
-      "relacion": "Familia"
+      "nombre": "卡米拉·比达尔",
+      "relacion": "家人"
     },
     {
-      "nombre": "Nadia Serrano",
-      "relacion": "Amistades"
+      "nombre": "娜迪亚·塞拉诺",
+      "relacion": "朋友"
     },
     {
-      "nombre": "Tomás Iriarte",
-      "relacion": "Amistades"
+      "nombre": "托马斯·伊里亚特",
+      "relacion": "朋友"
     },
     {
-      "nombre": "Marisol Cáceres",
-      "relacion": "Trabajo"
+      "nombre": "玛丽索尔·卡塞雷斯",
+      "relacion": "同事"
     },
     {
-      "nombre": "Bruno Ferrer",
-      "relacion": "Trabajo"
+      "nombre": "布鲁诺·费雷尔",
+      "relacion": "同事"
     },
     {
-      "nombre": "Iker Domínguez",
-      "relacion": "Universidad"
+      "nombre": "伊克尔·多明格斯",
+      "relacion": "大学"
     },
     {
-      "nombre": "Elena Puig",
-      "relacion": "Universidad"
+      "nombre": "埃琳娜·普伊格",
+      "relacion": "大学"
     }
   ]
 }

@@ -15,7 +15,7 @@ import type { TechoCeldaForma } from '../../house/techos'
 import type { FormaLoseta } from '../../house/formasLoseta'
 import { FOOTPRINT_DEFAULT, footprintBounds } from '../../house/walls'
 import { claveCeldaOff, formaEnCelda, subformasDeCelda } from '../../house/formasLoseta'
-import { useT } from '../../i18n/useT'
+import { useT, type TFunc } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 import { TechoMaterialSwatch } from './TechoMaterialSwatch'
 import { TechoPresetIcono } from './TechoPresetIcono'
@@ -543,11 +543,29 @@ export function EditorTechoCuartoSection({ room }: { room: Cuarto }) {
   )
 }
 
-const NOMBRE_SILUETA: Record<FormaLoseta, string> = {
-  cuadrado: 'Cuadrado',
-  triangular: 'Triángulo',
-  circular: 'Círculo',
+/** Nombre de la silueta de una celda (mismas claves que las formas del constructor). */
+const nombreSilueta = (forma: FormaLoseta, t: TFunc): string =>
+  forma === 'triangular'
+    ? t('constructor.forma.triangulo', 'Triángulo')
+    : forma === 'circular'
+      ? t('constructor.forma.circulo', 'Círculo')
+      : t('constructor.forma.cuadrado', 'Cuadrado')
+
+/** Presets de techo por celda → su clave `editor.techoPreset.<id>` (dos presets comparten id). */
+const CLAVE_PRESET: Record<string, string> = {
+  Plano: 'plano',
+  '1 agua': 'unaAgua',
+  '2 aguas': 'dosAguas',
+  Pirámide: 'piramide',
+  Bóveda: 'boveda',
+  Cúpula: 'cupula',
+  'Un pico': 'unPico',
+  'Dos picos': 'dosPicos',
+  Cono: 'cono',
+  Tienda: 'tienda',
 }
+const nombrePreset = (p: { nombre: string }, t: TFunc): string =>
+  CLAVE_PRESET[p.nombre] ? t(`editor.techoPreset.${CLAVE_PRESET[p.nombre]}`, p.nombre) : p.nombre
 
 /** Fabricación de techo POR CELDA: selecciona una celda y ajusta el techo de SU silueta. */
 function TechoPorCeldaGrid({ roomId }: { roomId: string }) {
@@ -611,7 +629,7 @@ function TechoPorCeldaGrid({ roomId }: { roomId: string }) {
                 key={`${col},${row}`}
                 type="button"
                 onClick={() => setSel(clave)}
-                title={`${NOMBRE_SILUETA[formaPiso]} · ${preset.nombre}`}
+                title={`${nombreSilueta(formaPiso, t)} · ${nombrePreset(preset, t)}`}
                 className={`flex h-6 w-6 items-center justify-center rounded transition ${
                   seleccionada
                     ? 'bg-emerald-400/20 text-emerald-400 ring-1 ring-emerald-400/70'
@@ -685,7 +703,7 @@ function AjustesCeldaTecho({
   return (
     <div className="space-y-2.5 rounded-lg border border-emerald-400/25 bg-emerald-400/[0.04] p-2.5">
       <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-400">
-        {titulo ?? `${t('editor.techoCelda.celda', 'Celda')} · ${NOMBRE_SILUETA[silueta]}`}
+        {titulo ?? `${t('editor.techoCelda.celda', 'Celda')} · ${nombreSilueta(silueta, t)}`}
       </p>
 
       {/* Formas válidas para esta silueta */}
@@ -695,7 +713,7 @@ function AjustesCeldaTecho({
             key={pr.id}
             type="button"
             onClick={() => elegir(pr.id)}
-            title={pr.nombre}
+            title={nombrePreset(pr, t)}
             className={`flex items-center justify-center rounded-md border py-1.5 transition ${
               activo.id === pr.id
                 ? 'border-emerald-400/70 bg-emerald-400/15 text-emerald-400'

@@ -24,7 +24,7 @@ import { MiniaturaModelo } from '../house/Miniatura'
 import { getTema } from '../house/temas'
 import { PlantillaCustomEditor } from './PlantillaCustomEditor'
 import { SelectorObjeto3D } from './SelectorObjeto3D'
-import { useT } from '../i18n/useT'
+import { useT, type TFunc } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
 import { IconoMarca } from './iconos/glifosApps'
 import { vivo } from './estilos'
@@ -33,8 +33,10 @@ import { useArrastre } from './comun/arrastre'
 type Modo = 'asistente' | 'cuarto'
 
 /** Nombre del recurso 3D por id (para la vista previa del conjunto de la app). */
-const nombreRecurso = (id: number): string =>
-  RECURSOS.find((r) => r.id === id)?.nombre ?? `Recurso ${id}`
+const nombreRecurso = (id: number, t: TFunc): string => {
+  const r = RECURSOS.find((x) => x.id === id)
+  return r ? t(`recurso.${id}`, r.nombre) : t('objetos.nombreRecurso', 'Recurso {id}', { id })
+}
 
 /**
  * Catálogo de plantillas (apps) del menú Funciones, organizado en carpetas
@@ -333,7 +335,11 @@ export function PlantillasCatalogo({ creativa = false }: { creativa?: boolean } 
                     ✕
                   </button>
                   <span className="w-full truncate text-center text-[9px] leading-tight text-white/55">
-                    {s.tipo ? META_ESPECIAL_PLANTILLA[s.tipo]?.nombre ?? s.tipo : nombreRecurso(s.recurso!)}
+                    {s.tipo
+                      ? META_ESPECIAL_PLANTILLA[s.tipo]
+                        ? t(`recursoExtra.${s.tipo}`, META_ESPECIAL_PLANTILLA[s.tipo].nombre)
+                        : s.tipo
+                      : nombreRecurso(s.recurso!, t)}
                   </span>
                 </div>
               ))}

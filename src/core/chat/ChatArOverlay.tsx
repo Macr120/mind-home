@@ -22,7 +22,7 @@ import { ErrorIA } from '../cuenta/api'
 import { OP_CHAT_AR } from '../cuenta/catalogoNucleo'
 import { Creditos } from '../ui/Creditos'
 import { Icono } from '../ui/iconos/Icono'
-import { useT } from '../i18n/useT'
+import { localeActual, useT } from '../i18n/useT'
 
 /**
  * Chat AR: la cámara del dispositivo de fondo y el asistente 3D encima, cara a
@@ -208,7 +208,7 @@ export default function ChatArOverlay() {
       if (!g) return
       setGrabacion('guardando')
       const toma = await g.detener()
-      const h = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      const h = new Date().toLocaleTimeString(localeActual(), { hour: '2-digit', minute: '2-digit' })
       const nombre = soloPersonaje ? t('video.medios.nombrePersonajeAr', 'Personaje AR · {h}', { h }) : t('video.medios.nombreChatAr', 'Chat AR · {h}', { h })
       await entregarTomaAlStudio(destino, { ...toma, nombre })
       cerrar()

@@ -9,6 +9,7 @@ import { tocarCampana } from './campana'
 import { COLOR } from './constantes'
 import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { hoyISO } from './fecha'
+import { textoMin } from '../../core/i18n/duracion'
 
 type PatronId = 'caja' | '478'
 
@@ -144,7 +145,7 @@ export function RespiracionTab({ onSesion }: { onSesion: (activa: boolean) => vo
           <span className="text-xs text-white/50">{t('jardin.resp.duracion', 'Duración')}</span>
           <div className="min-w-0 flex-1">
             <PestanasCarpeta
-              items={DURACIONES.map((d) => ({ id: String(d), label: `${d} min` }))}
+              items={DURACIONES.map((d) => ({ id: String(d), label: `${textoMin(d)}` }))}
               activo={String(durSel)}
               onCambio={(id) => setDurSel(Number(id))}
               color={COLOR}

@@ -136,7 +136,7 @@ function FilaSonido({
       <BotonEscuchar fuente={fuente} porId={porId} sonando={sonando} onSonando={onSonando} />
       <div className="min-w-0 flex-1 basis-16">
         <p className="break-words text-xs font-semibold leading-tight">{nombre}</p>
-        {duracion > 0 && <p className="text-[10px] text-white/40">{Math.round(duracion * 10) / 10}s</p>}
+        {duracion > 0 && <p className="text-[10px] text-white/40">{t('ui.dur.s', '{n} s', { n: Math.round(duracion * 10) / 10 })}</p>}
       </div>
       <div data-no-arrastre className="ms-auto flex shrink-0 items-center gap-1">
         <BotonSecundario

@@ -21,12 +21,12 @@ export default {
     {
       "dia": -312,
       "titulo": "Stok opname bulanan bar",
-      "lugar": "Café Mirasol"
+      "lugar": "Kafe Mirasol"
     },
     {
       "dia": -298,
       "titulo": "Shift tambahan: cupping kopi single origin",
-      "lugar": "Café Mirasol"
+      "lugar": "Kafe Mirasol"
     },
     {
       "dia": -270,
@@ -81,12 +81,12 @@ export default {
     {
       "dia": -134,
       "titulo": "Minta izin liburan ke Marisol",
-      "lugar": "Café Mirasol"
+      "lugar": "Kafe Mirasol"
     },
     {
       "dia": -131,
       "titulo": "Pelatihan mesin baru",
-      "lugar": "Café Mirasol"
+      "lugar": "Kafe Mirasol"
     },
     {
       "dia": -80,
@@ -111,7 +111,7 @@ export default {
     {
       "dia": -8,
       "titulo": "Shift spesial: pencicipan teh",
-      "lugar": "Café Mirasol"
+      "lugar": "Kafe Mirasol"
     }
   ],
   "salud": [
@@ -268,35 +268,35 @@ export default {
   "contactos": [
     {
       "nombre": "Rosa Vidal",
-      "relacion": "Familia"
+      "relacion": "Keluarga"
     },
     {
       "nombre": "Camila Vidal",
-      "relacion": "Familia"
+      "relacion": "Keluarga"
     },
     {
       "nombre": "Nadia Serrano",
-      "relacion": "Amistades"
+      "relacion": "Teman"
     },
     {
       "nombre": "Tomás Iriarte",
-      "relacion": "Amistades"
+      "relacion": "Teman"
     },
     {
       "nombre": "Marisol Cáceres",
-      "relacion": "Trabajo"
+      "relacion": "Kerja"
     },
     {
       "nombre": "Bruno Ferrer",
-      "relacion": "Trabajo"
+      "relacion": "Kerja"
     },
     {
       "nombre": "Iker Domínguez",
-      "relacion": "Universidad"
+      "relacion": "Kampus"
     },
     {
       "nombre": "Elena Puig",
-      "relacion": "Universidad"
+      "relacion": "Kampus"
     }
   ]
 }

@@ -228,7 +228,7 @@ export default {
     },
     {
       "dia": -250,
-      "item1": "Rp1.050.000 lagi masuk dana Jepang",
+      "item1": "{monto:1040} lagi masuk dana Jepang",
       "item2": "Sekarang udah lancar bilang sumimasen",
       "item3": "Cicip gratis kopi Etiopia"
     },
@@ -242,7 +242,7 @@ export default {
       "dia": -243,
       "item1": "Sembilan kilometer dan napas masih sisa di akhir",
       "item2": "Ganti soda jadi air soda tawar, dan aku masih hidup",
-      "item3": "Sepeda diperbaiki dengan Rp210.000"
+      "item3": "Sepeda diperbaiki dengan {monto:210}"
     },
     {
       "dia": -239,

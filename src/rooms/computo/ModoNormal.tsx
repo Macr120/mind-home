@@ -2,6 +2,7 @@ import { useMemo, useRef, useState, type ReactNode } from 'react'
 import { anotarCalculo } from '../../core/data/repository'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { useT } from '../../core/i18n/useT'
+import { mensajeErrorIA } from '../../core/cuenta/api'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { vivo } from '../../core/ui/estilos'
 import { BotonIA } from './BotonIA'
@@ -146,7 +147,7 @@ export function ModoNormal({
     try {
       setPasos({ de, texto: await explicarPasoAPaso(de) })
     } catch (e) {
-      setErrorIA(e instanceof Error ? e.message : t('computo.ia.falloExplicar', 'No se pudo explicar.'))
+      setErrorIA(mensajeErrorIA(e, t, t('computo.ia.falloExplicar', 'No se pudo explicar.')))
     } finally {
       setPensando(false)
     }

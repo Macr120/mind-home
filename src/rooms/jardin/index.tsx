@@ -10,7 +10,8 @@ import { normalizar } from '../../core/chat/dispatcher'
 import { esencialJardin, flujosJardin } from './tutorial.meta'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import type { PaisajeId } from '../../core/audio/paisaje'
-import { PISTAS } from './pistas'
+import { PISTAS, tituloSesion } from './pistas'
+import { tGlobal } from '../../core/i18n/useT'
 import { planMetasJardin } from './plan'
 import { sinEjemplos } from '../../core/data/ejemplos'
 
@@ -95,11 +96,10 @@ const esquemas: EsquemaCaptura[] = [
       if (duracion <= 0) return
       const esRespiracion = vTexto(v.tipo) === 'respiracion'
       const tema = vTexto(v.tema)
-      const nombrePista = PISTAS.find((p) => p.id === tema)?.nombre
       await sesionesMindfulnessRepo.add({
         fecha: vFecha(v.fecha),
         tipo: esRespiracion ? 'respiracion' : 'meditacion',
-        titulo: esRespiracion ? 'Respiración' : nombrePista ? `Meditación · ${nombrePista}` : 'Meditación',
+        titulo: esRespiracion ? tGlobal('jardin.sesion.respiracion', 'Respiración') : tituloSesion(tema),
         duracionMin: duracion,
         tema: tema || undefined,
       })

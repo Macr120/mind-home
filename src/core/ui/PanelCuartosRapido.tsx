@@ -32,6 +32,8 @@ import { IconoCuarto } from './IconoCuarto'
 import { BadgeMisiones } from './BadgeMisiones'
 import { PanelCuartoEditar } from './PanelCuartoEditar'
 import { PanelCuartoFondo } from './PanelCuartoFondo'
+import { iniciarCrearCuarto } from './comun/planoPincelCuarto'
+import { PiezasLogo } from './iconos/glifosApps'
 
 /** Mismo orden que el menú lateral; aquí tampoco se pinta el rótulo de la categoría. */
 const ORDEN: Cuarto['categoria'][] = ['cuerpo', 'mente', 'complemento', 'config']
@@ -150,7 +152,9 @@ function CifrasApp({
         <span className="flex min-w-3 flex-1 basis-3 items-center">
           <Barra valor={enfoque.avanceNivel} color={color} />
         </span>
-        <span className="shrink-0 text-[9px] tabular-nums text-white/40">{enfoque.xp} XP</span>
+        <span className="shrink-0 text-[9px] tabular-nums text-white/40">
+          {t('progreso.xp', '{n} XP', { n: enfoque.xp })}
+        </span>
       </div>
       {/* `flex-wrap`: con el 4º dato del planificador ya no caben en una línea a
           `md:grid-cols-5`, y solo esa tarjeta parte en dos. */}
@@ -290,9 +294,12 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
           <header className="mb-2 flex items-center gap-1.5 holgado:mb-3 holgado:gap-2">
             <div className="min-w-0 flex-1">
               <p className="truncate text-base font-black text-white/90">
-                <Icono nombre="casa" />{' '}
-                <span className="sm:hidden">{nombreApp || t('app.brandCorto', 'MindHaOS')}</span>
-                <span className="hidden sm:inline">{nombreApp || t('app.brand', 'MindHaOS')}</span>
+                {/* Sin nombre propio, los logos de la app en vez de la casa y la palabra. */}
+                {nombreApp || (
+                  <span role="img" aria-label={t('app.brand', 'MindHaOS')}>
+                    <PiezasLogo size="1.3em" />
+                  </span>
+                )}
               </p>
               {/* `truncate`: en móvil el bloque es estrecho y sin esto la ayuda se
                   partía en tres líneas y estiraba la cabecera. */}
@@ -363,12 +370,23 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
           </header>
 
           {lista.length === 0 ? (
-            <p className="px-2 py-8 text-center text-xs leading-relaxed text-white/40">
-              {t(
-                'nav.rapido.sinCuartos',
-                'Aún no hay cuartos. Créalos desde el editor de mapa.',
-              )}
-            </p>
+            // Casa vacía: el mismo «Crear cuarto» del menú lateral (al colocarlo
+            // se abre «Asignar app»).
+            <div className="flex flex-col items-center gap-3 px-2 py-8">
+              <p className="text-center text-xs leading-relaxed text-white/40">
+                {t('nav.sinCuartosCrear', 'Aún no hay cuartos.')}
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  onCerrar()
+                  iniciarCrearCuarto()
+                }}
+                className="ui-accent-bg flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-bold transition hover:brightness-110"
+              >
+                <Icono nombre="agregar" /> {t('nav.crearCuarto', 'Crear cuarto')}
+              </button>
+            </div>
           ) : (
             // El fondo va DETRÁS DE LAS APPS, no de la ventana entera: sobre la
             // cabecera dejaba el título y los botones ilegibles.

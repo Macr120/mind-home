@@ -69,6 +69,7 @@ const LS_HUD_MUSICA = 'mh.hud.musica'
 const LS_HUD_TUTORIALES = 'mh.hud.tutoriales'
 const LS_VOZ_TUTORIALES = 'mh.voz.tutoriales'
 const LS_NOMBRE_APP = 'mh.nombreApp'
+const LS_MONEDA = 'mh.moneda'
 const LS_CHECKLIST_APPS = 'mh.checklist.apps'
 const LS_REALISMO = 'mh.realismo'
 
@@ -152,6 +153,21 @@ function leerIdioma(): Idioma {
   // default.
   if (localStorage.getItem('mh.idioma.elegido') === '1') return IDIOMA_DEFAULT
   return localStorage.getItem('mh.bienvenida') === '1' ? IDIOMA_BASE : IDIOMA_DEFAULT
+}
+
+/**
+ * Moneda de los importes: un código ISO 4217 o 'auto' (la de la región del
+ * dispositivo para el idioma, ver `core/moneda.ts`). La primera vez que se lee,
+ * quien ya usaba la app se queda en pesos: era la moneda fija de antes y sus
+ * importes guardados no se convierten.
+ */
+function leerMoneda(): string {
+  const v = localStorage.getItem(LS_MONEDA)
+  if (v) return v
+  const veterana = localStorage.getItem(LS_IDIOMA) !== null || localStorage.getItem('mh.bienvenida') === '1'
+  const inicial = veterana ? 'MXN' : 'auto'
+  localStorage.setItem(LS_MONEDA, inicial)
+  return inicial
 }
 
 function leerTemaUI(): TemaUIId {
@@ -309,6 +325,8 @@ interface AjustesState {
   vozTutoriales: boolean
   /** Nombre propio que el usuario le puso a su casa; vacío = el de fábrica traducido. */
   nombreApp: string
+  /** Código ISO 4217 de los importes, o 'auto' (ver `leerMoneda`). */
+  moneda: string
   /** Mejoras opcionales del motor 3D (texturas PBR y HDRI). */
   realismo: Realismo
   setRealismo: (patch: Partial<Realismo>) => void
@@ -343,6 +361,7 @@ interface AjustesState {
   setHudTutoriales: (v: boolean) => void
   setVozTutoriales: (v: boolean) => void
   setNombreApp: (v: string) => void
+  setMoneda: (v: string) => void
 }
 
 export const useAjustes = create<AjustesState>((set, get) => ({
@@ -382,6 +401,7 @@ export const useAjustes = create<AjustesState>((set, get) => ({
   hudTutoriales: leerSiNo(LS_HUD_TUTORIALES, true),
   vozTutoriales: leerSiNo(LS_VOZ_TUTORIALES, false),
   nombreApp: localStorage.getItem(LS_NOMBRE_APP) ?? '',
+  moneda: leerMoneda(),
 
   setIdioma: (idioma) => {
     localStorage.setItem(LS_IDIOMA, idioma)
@@ -586,6 +606,11 @@ export const useAjustes = create<AjustesState>((set, get) => ({
     if (nombre) localStorage.setItem(LS_NOMBRE_APP, nombre)
     else localStorage.removeItem(LS_NOMBRE_APP)
     set({ nombreApp: nombre })
+  },
+
+  setMoneda: (v) => {
+    localStorage.setItem(LS_MONEDA, v)
+    set({ moneda: v })
   },
 
 }))

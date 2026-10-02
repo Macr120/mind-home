@@ -200,7 +200,7 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
           className="shrink-0 rounded-lg bg-white/10 px-3 py-1.5 text-sm font-semibold transition hover:bg-white/20"
         >
           <span className="sm:hidden">‹</span>
-          <span className="hidden sm:inline">{t('ui.volverCasa', '‹ Volver a la MindHaOS')}</span>
+          <span className="hidden sm:inline">‹ {t('ui.volver', 'Volver')}</span>
         </button>
       </header>
       {/* La zona segura va aquí y no en cada app: como margen del contenedor que
@@ -220,7 +220,7 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
           </div>
         ) : App ? (
           <ErrorBoundary
-            titulo={`Error en ${nombre}`}
+            titulo={t('ui.errorEn', 'Error en {app}', { app: nombre })}
             textoReintentar={t('ui.reintentar', 'Reintentar')}
           >
             <Suspense

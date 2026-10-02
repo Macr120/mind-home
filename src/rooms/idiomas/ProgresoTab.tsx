@@ -7,9 +7,9 @@ import { VACIO,
 import { useT } from '../../core/i18n/useT'
 import { vivo } from '../../core/ui/estilos'
 import { Icono } from '../../core/ui/iconos/Icono'
-import { COLOR, NIVELES } from './constantes'
+import { COLOR, NIVELES, nombreIdioma } from './constantes'
 import { esDominada } from './srs'
-import { todosVivos, useTemario } from './temarioVivo'
+import { tituloTema as tituloDeTema, todosVivos, useTemario } from './temarioVivo'
 import { hoyISO, inicioSemana, rachaActual, repasosPorDia } from './stats'
 import { HeatmapIdiomas } from './HeatmapIdiomas'
 import { RecordsEjercicios } from './RecordsEjercicios'
@@ -37,7 +37,7 @@ export function ProgresoTab({ perfil }: { perfil: PerfilIdioma }) {
 
   const conteoTemas = new Map<string, number>()
   for (const x of tarjetas) if (x.temaId) conteoTemas.set(x.temaId, (conteoTemas.get(x.temaId) ?? 0) + 1)
-  const tituloTema = (id: string) => tx.porId.get(id)?.titulo ?? id
+  const tituloTema = (id: string) => tituloDeTema(tx, id) ?? id
   // Los que no vienen del catálogo: los abrió una charla o los creaste tú.
   const propios = todosVivos(tx).filter((x) => !x.fabrica).length
   const topTemas = [...conteoTemas.entries()]
@@ -50,7 +50,7 @@ export function ProgresoTab({ perfil }: { perfil: PerfilIdioma }) {
     <div className="space-y-4" data-tut="idiomas.progreso.panel">
       <div className="rounded-xl border border-white/10 p-4" style={{ background: `color-mix(in srgb, ${COLOR} 9%, transparent)` }}>
         <p className="text-xs text-white/50">
-          <Icono emoji={perfil.bandera} /> {t('idiomas.pr.titulo', 'Tu {idioma}', { idioma: perfil.nombre })} · {perfil.nivel}
+          <Icono emoji={perfil.bandera} /> {t('idiomas.pr.titulo', 'Tu {idioma}', { idioma: nombreIdioma(perfil) })} · {perfil.nivel}
         </p>
         <p className="text-3xl font-black texto-vivo" style={vivo(COLOR)}>
           {t('idiomas.pr.tarjetas', '{n} tarjetas', { n: String(tarjetas.length) })}

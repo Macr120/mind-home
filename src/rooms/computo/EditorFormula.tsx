@@ -3,6 +3,7 @@ import type { CarpetaFormula, Formula, VariableFormula } from '../../core/data/d
 import { formulasRepo } from '../../core/data/repository'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { useT } from '../../core/i18n/useT'
+import { mensajeErrorIA } from '../../core/cuenta/api'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { BotonIA } from './BotonIA'
 import { OP_FORMULA } from './costosIA'
@@ -73,7 +74,7 @@ export function EditorFormula({
       if (p.descripcion) setDescripcion(p.descripcion)
       setPorSimbolo(Object.fromEntries(p.variables.map((v) => [v.simbolo, v])))
     } catch (e) {
-      setErrorIA(e instanceof Error ? e.message : t('computo.ia.falloFormula', 'No se pudo escribir la fórmula.'))
+      setErrorIA(mensajeErrorIA(e, t, t('computo.ia.falloFormula', 'No se pudo escribir la fórmula.')))
     } finally {
       setPensando(false)
     }

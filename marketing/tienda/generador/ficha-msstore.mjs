@@ -23,6 +23,8 @@
 import { writeFile, mkdir } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
+// Las mayúsculas de los encabezados, con las mismas reglas que la ficha de Apple.
+import { mayus } from './ficha-appstore.mjs'
 
 const AQUI = dirname(fileURLToPath(import.meta.url))
 const RAIZ = join(AQUI, '..', '..', '..')
@@ -115,7 +117,7 @@ for (const id of IDIOMAS) {
   const descripcion = [
     plano(t['meta.desc']),
     '',
-    plano(t['como.h2']).toUpperCase(),
+    mayus(plano(t['como.h2']), id),
     '',
     `1. ${plano(t['como.1.t'])}`,
     plano(t['como.1.p']),
@@ -126,13 +128,13 @@ for (const id of IDIOMAS) {
     `3. ${plano(t['como.3.t'])}`,
     plano(t['como.3.p']),
     '',
-    plano(t['ia.h2']).toUpperCase(),
+    mayus(plano(t['ia.h2']), id),
     '',
     plano(t['ia.sub']),
     '',
     `${plano(t['ia.local.t'])}: ${plano(t['ia.local.p'])}`,
     '',
-    plano(t['precio.app.nombre']).toUpperCase(),
+    mayus(plano(t['precio.app.nombre']), id),
     `• ${plano(t['precio.app.1'])}`,
     `• ${plano(t['precio.app.2'])}`,
     `• ${plano(t['precio.app.3'])}`,

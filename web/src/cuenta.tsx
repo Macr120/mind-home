@@ -19,7 +19,7 @@ import { createRoot } from 'react-dom/client'
 import './cuenta.css'
 import { obtenerSupabase, hayBackend } from '../../src/core/cuenta/supabase'
 import { aplicarIdioma, IDIOMA, ruta, t } from './i18n'
-import { iniciarSesion, useSesion } from '../../src/core/cuenta/sesionStore'
+import { iniciarSesion, mensajeCuenta, useSesion } from '../../src/core/cuenta/sesionStore'
 import {
   hayPagos,
   obtenerNiveles,
@@ -109,7 +109,7 @@ function BotonesOAuth() {
     const err = await entrarConProveedor(proveedor)
     // Sin error, el navegador está saliendo hacia el proveedor.
     if (err) {
-      setError(err)
+      setError(mensajeCuenta(err, t))
       setOcupado(false)
     }
   }
@@ -177,10 +177,10 @@ function Acceso() {
     try {
       if (modo === 'entrar') {
         const err = await entrar(email.trim(), contrasena)
-        if (err) setError(err)
+        if (err) setError(mensajeCuenta(err, t))
       } else {
-        const err = await registrar(email.trim(), contrasena)
-        if (err) setError(err)
+        const err = await registrar(email.trim(), contrasena, IDIOMA)
+        if (err) setError(mensajeCuenta(err, t))
         else setAviso(t('acc.creada', 'Cuenta creada: revisa tu correo y confírmalo para poder entrar.'))
       }
     } finally {
@@ -198,7 +198,7 @@ function Acceso() {
     setError(null)
     try {
       const err = await restablecer(email.trim())
-      if (err) setError(err)
+      if (err) setError(mensajeCuenta(err, t))
       else setAviso(t('acc.enviado', 'Te enviamos un correo para restablecer tu contraseña.'))
     } finally {
       setOcupado(false)
@@ -284,7 +284,7 @@ function NuevaContrasena({ alTerminar }: { alTerminar: () => void }) {
     setError(null)
     const err = await cambiarContrasena(nueva)
     setOcupado(false)
-    if (err) setError(err)
+    if (err) setError(mensajeCuenta(err, t))
     else alTerminar()
   }
 

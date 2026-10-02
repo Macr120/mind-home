@@ -72,7 +72,7 @@ export default {
       "clave": "bowl-pollo",
       "nombre": "일주일치 닭가슴살 볼",
       "emoji": "🍗",
-      "carpeta": "Batch cooking",
+      "carpeta": "밀프렙",
       "porciones": 4,
       "minutos": 45,
       "ingredientes": [
@@ -207,7 +207,7 @@ export default {
       "clave": "crema-lentejas",
       "nombre": "붉은 렌틸콩 수프",
       "emoji": "🍲",
-      "carpeta": "Batch cooking",
+      "carpeta": "밀프렙",
       "porciones": 4,
       "minutos": 35,
       "ingredientes": [
@@ -272,7 +272,7 @@ export default {
       "clave": "tacos-lentejas",
       "nombre": "훈제 파프리카 렌틸콩 타코",
       "emoji": "🌮",
-      "carpeta": "Batch cooking",
+      "carpeta": "밀프렙",
       "porciones": 4,
       "minutos": 30,
       "ingredientes": [

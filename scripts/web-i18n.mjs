@@ -178,6 +178,22 @@ const PLANTILLAS = new Map(
   ]),
 )
 
+/**
+ * Las versiones de cada página en los demás idiomas (`hreflang`), para que el
+ * buscador enseñe la de quien busca. Solo las páginas que se quedan en su URL:
+ * la raíz de cada idioma lleva a la app (`_redirects`) y /descarga va por token.
+ */
+const INDEXABLES = { [LANDING_PUBLICA]: '/acerca', 'privacidad.html': '/privacidad', 'terminos.html': '/terminos', 'soporte.html': '/soporte' }
+const BASE = /<meta property="og:url" content="(https?:\/\/[^"/]+)/.exec(PLANTILLAS.get('index.html') ?? '')?.[1] ?? 'https://mindhaos.com'
+const alternativas = (pagina) => {
+  const ruta = INDEXABLES[pagina]
+  if (!ruta) return ''
+  return [
+    ...DISPONIBLES.map((i) => `<link rel="alternate" hreflang="${i.id}" href="${BASE}${prefijo(i.id)}${ruta}" />`),
+    `<link rel="alternate" hreflang="x-default" href="${BASE}${ruta}" />`,
+  ].join('\n    ')
+}
+
 for (const { id } of DISPONIBLES) {
   const textos = await catalogo(id)
   const destino = id === IDIOMA_ORIGEN ? DIST : path.join(DIST, id)
@@ -203,6 +219,7 @@ for (const { id } of DISPONIBLES) {
     if (pagina === LANDING_PUBLICA) {
       html = html.replaceAll(`href="${prefijo(id)}/"`, `href="${prefijo(id)}/acerca"`)
     }
+    if (INDEXABLES[pagina]) html = html.replace('</head>', `  ${alternativas(pagina)}\n  </head>`)
     writeFileSync(path.join(destino, pagina), html, 'utf8')
     if (sinTraducir.size) {
       const previo = faltan.get(id) ?? new Set()
@@ -220,8 +237,23 @@ for (const { id } of DISPONIBLES) {
   }
 }
 
+// El mapa del sitio: cada página indexable en cada idioma, con sus alternativas.
+const urls = Object.values(INDEXABLES).flatMap((ruta) =>
+  DISPONIBLES.map(
+    ({ id }) =>
+      `  <url>\n    <loc>${BASE}${prefijo(id)}${ruta}</loc>\n` +
+      DISPONIBLES.map((i) => `    <xhtml:link rel="alternate" hreflang="${i.id}" href="${BASE}${prefijo(i.id)}${ruta}"/>\n`).join('') +
+      '  </url>',
+  ),
+)
+writeFileSync(
+  path.join(DIST, 'sitemap.xml'),
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join('\n')}\n</urlset>\n`,
+  'utf8',
+)
+
 const generadas = DISPONIBLES.length * PLANTILLAS.size
-console.log(`✓ web i18n: ${generadas} páginas en ${DISPONIBLES.length} idiomas`)
+console.log(`✓ web i18n: ${generadas} páginas en ${DISPONIBLES.length} idiomas · sitemap con ${urls.length} URLs`)
 if (faltan.size) {
   console.error('✗ claves sin traducir:')
   for (const [id, claves] of faltan) console.error(`   ${id}: ${[...claves].join(', ')}`)

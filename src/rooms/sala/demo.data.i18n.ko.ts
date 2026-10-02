@@ -30,7 +30,7 @@ export default {
       "destino": "도쿄·시부야와 시모키타자와",
       "hospedaje": "쿠로네코 아사쿠사 호스텔",
       "actividades": "사람들이 어떻게 서로 부딪히지 않고 지나가는지 보려고 시부야 스크램블 교차로를 몇 번이나 건넜다가, 시모키타자와의 중고 레코드 가게들을 뒤지고 다녔어요. 저녁은 버튼 기계로 주문하는 일곱 자리짜리 라멘집에서 먹었어요.",
-      "transporte": "JR Yamanote + Keiō Inokashira"
+      "transporte": "JR 야마노테선 + 게이오 이노카시라선"
     },
     {
       "n": 4,
@@ -51,14 +51,14 @@ export default {
     {
       "n": 6,
       "inicio": "도쿄·아사쿠사",
-      "destino": "Hakone · Gōra",
+      "destino": "하코네·고라",
       "hospedaje": "츠키미소 료칸",
       "actividades": "무릎 위에 벤토를 올려놓고 로망스카를 탔고, 새 짚 냄새가 나는 다다미방에 도착했어요. 오와쿠다니에서 유황 연기 속에 검은 달걀을 먹고, 밤에는 처음으로 온천에 들어갔어요.",
       "transporte": "오다큐 로망스카 + 하코네 등산 케이블카"
     },
     {
       "n": 7,
-      "inicio": "Hakone · Gōra",
+      "inicio": "하코네·고라",
       "destino": "가와구치코·호수 북쪽 기슭",
       "hospedaje": "후지미엔 민숙",
       "actividades": "버스로 산을 넘어가서 자전거를 빌려 호수를 한 바퀴 돌았는데, 후지산은 오후 내내 구름에 가려 있었어요. 여섯 시가 다 되어 구름이 십 분쯤 걷히자, 다시 가려질 때까지 호숫가에 가만히 서 있었어요.",
@@ -66,7 +66,7 @@ export default {
     },
     {
       "n": 8,
-      "inicio": "Kawaguchiko",
+      "inicio": "가와구치코",
       "destino": "교토·기온",
       "hospedaje": "기쿠노야 마치야",
       "actividades": "버스로 미시마까지 내려가서 신칸센을 탔는데, 마치 나라는 움직이고 나만 멈춰 있는 기분이었어요. 밤이 되어서야 마치야에 도착했고, 들어가다가 문틀 대들보에 머리를 부딪혔고, 근처에서 우동으로 저녁을 마무리했어요.",
@@ -115,14 +115,14 @@ export default {
     {
       "n": 14,
       "inicio": "교토·기온",
-      "destino": "Osaka · Namba",
+      "destino": "오사카·난바",
       "hospedaje": "에비스 난바 호스텔",
       "actividades": "정오에 마치야를 나와 오사카에 도착했는데, 교토에 비하면 동네 전체가 소리를 지르는 것 같았어요. 첫 타코야키에 입천장을 데었고, 저녁은 서서 먹는 바에서 먹었는데 옆에 있던 아저씨가 묻지도 않고 맥주를 따라줬어요.",
       "transporte": "한큐 특급 전철"
     },
     {
       "n": 15,
-      "inicio": "Osaka · Namba",
+      "inicio": "오사카·난바",
       "destino": "오사카·오사카성과 신세카이",
       "hospedaje": "에비스 난바 호스텔",
       "actividades": "일찍 오사카성에 갔는데, 성보다는 공원이 좋았어요. 신세카이에서는 소스에 두 번 찍지 않는다는 신성한 규칙을 지키며 쿠시카츠를 먹었어요. 호스텔에서 만난 두 사람과 노래방에 가서 90년대 노래를 불렀어요.",
@@ -130,31 +130,31 @@ export default {
     },
     {
       "n": 16,
-      "inicio": "Osaka · Namba",
-      "destino": "Hiroshima · Naka-ku",
+      "inicio": "오사카·난바",
+      "destino": "히로시마·나카구",
       "hospedaje": "아카츠키 게스트하우스",
       "actividades": "오전 중반에 도착해서 평화기념관과 공원에서 네 시간을 보냈는데 누구와도 말하고 싶지 않았어요. 어두워질 때까지 강을 따라 걷다가 낯선 사람 여섯 명과 철판에 히로시마 오코노미야키를 먹었어요.",
       "transporte": "노조미 신칸센"
     },
     {
       "n": 17,
-      "inicio": "Hiroshima · Naka-ku",
-      "destino": "Miyajima · Itsukushima",
+      "inicio": "히로시마·나카구",
+      "destino": "미야지마·이츠쿠시마 신사",
       "hospedaje": "아카츠키 게스트하우스",
       "actividades": "썰물 때 페리를 타고 젖은 모래 위를 걸어 도리이까지 갔는데, 가까이서 보니 오래된 목재와 못뿐이었어요. 산을 반쯤 올라가다 더위에 포기하고 내려와서 길거리에서 구운 굴을 먹었어요.",
       "transporte": "JR 산요선 + 페리"
     },
     {
       "n": 18,
-      "inicio": "Hiroshima · Naka-ku",
-      "destino": "Osaka · Nakazakichō",
+      "inicio": "히로시마·나카구",
+      "destino": "오사카·나카자키초",
       "hospedaje": "기타우메다 캡슐호텔",
       "actividades": "다시 오사카로 돌아와 나카자키초의 오래된 카페들을 돌아다니며 휴대폰 계산기를 켜놓고 선물을 샀어요. 캡슐호텔 바닥에서 짐을 다시 쌌는데도 차 상자 두 개가 남았어요.",
       "transporte": "사쿠라 신칸센"
     },
     {
       "n": 19,
-      "inicio": "Osaka · Nakazakichō",
+      "inicio": "오사카·나카자키초",
       "destino": "도쿄·나카메구로",
       "hospedaje": "호시마치 나카메구로 호스텔",
       "actividades": "역에서 산 벤토를 들고 신칸센을 탔고, 오른쪽 창밖으로 후지산이 지나가는 걸 봤어요. 나카메구로에서는 운하를 따라 걷다가 의자가 아주 불편한 서점에서 문 닫을 때까지 있었어요.",
@@ -166,7 +166,7 @@ export default {
       "destino": "도쿄·시모키타자와와 시부야",
       "hospedaje": "호시마치 나카메구로 호스텔",
       "actividades": "온전한 마지막 하루: 엽서를 부치고, 저녁 일곱 시에 여동생 선물을 사고, 필터 커피를 마시며 이 삼 주에서 남기고 싶은 것들을 적었어요. 밤에 다시 시부야로 가서 그 교차로에 작별 인사를 했어요.",
-      "transporte": "Keiō Inokashira + JR Yamanote"
+      "transporte": "게이오 이노카시라선 + JR 야마노테선"
     },
     {
       "n": 21,

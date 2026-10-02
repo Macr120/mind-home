@@ -82,6 +82,8 @@ contextBridge.exposeInMainWorld('mph', {
   musicaSistema: () => ipcRenderer.invoke('mph:fondo-musica'),
   /** La voz del sistema como WAV en base64 (narración gratis del Studio de video); null si no pudo. */
   vozAArchivo: (texto, voz, lang) => ipcRenderer.invoke('mph:voz-archivo', texto, voz, lang),
+  /** Los textos del menú y los diálogos del shell, ya en el idioma de la app. */
+  idioma: (textos) => ipcRenderer.invoke('mph:idioma', textos),
   /**
    * Navegador embebido (fase 2 de los enlaces web): el shell pinta la página en
    * una vista nativa; la app pone la barra y decide los bounds.

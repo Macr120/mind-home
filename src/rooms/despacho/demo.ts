@@ -35,6 +35,9 @@ import {
 import { sembrarMetasApp } from '../../demo/metasPep'
 import { DEMO_DESPACHO } from './demo.data'
 import { enIdioma, type PorIdioma } from '../../core/i18n/porIdioma'
+import { textoDemo } from '../../demo/textosDemo'
+import { monedaDemo, montoDemo } from '../../core/moneda'
+import { CATALOGO_DIVISAS } from './mercados'
 
 /** El mes 2: cuando Pep@ se sentó a ordenar sus cuentas. */
 const ORDEN = -334
@@ -76,9 +79,6 @@ const VARIABLES = [
 export async function construirDemoDespacho(ctx: CtxDemo): Promise<void> {
   const datos = await ctx.textos(DEMO_DESPACHO, () => import('./demo.data.i18n'))
   const r = rngDemo(20261102)
-  // Aquí «es» significa «no es inglés»: los idiomas que todavía no tienen
-  // su variante inline leen el español, que es el respaldo de todo.
-  const es = ctx.idioma !== 'en'
 
   const notaHito = new Map<string, string>(datos.hitos.map((h) => [h.clave, h.nota]))
   const plantillas = new Map<string, readonly string[]>(datos.plantillas.map((p) => [p.categoria, p.notas]))
@@ -146,7 +146,7 @@ export async function construirDemoDespacho(ctx: CtxDemo): Promise<void> {
     filas.push({
       fecha: ctx.fecha(off),
       tipo: 'ingreso',
-      categoria: es ? 'Propinas' : 'Tips',
+      categoria: textoDemo(ctx.idioma, 'fin.propinas'),
       monto: Math.round(240 + r() * 260),
       nota: notaDe('propinas'),
     })
@@ -191,10 +191,11 @@ export async function construirDemoDespacho(ctx: CtxDemo): Promise<void> {
   hito(-22, 'gasto', 'otros_gasto', 1890, 'tenencia')
   hito(-16, 'gasto', 'ocio', 1450, 'inscMaraton')
 
-  await finanzasRepo.bulkAdd(filas)
+  // El año está escrito en pesos: se enseña en la moneda de la demo (`montoDemo`).
+  await finanzasRepo.bulkAdd(filas.map((f) => ({ ...f, monto: montoDemo(f.monto) })))
 
   // ── El presupuesto del mes (fila con clave mágica de `presupuestos`) ──────
-  await presupuestosRepo.add({ categoria: '__mensual__', monto: PRESUPUESTO_MES })
+  await presupuestosRepo.add({ categoria: '__mensual__', monto: montoDemo(PRESUPUESTO_MES) })
 
   // Lo que Pep@ tiene guardado, como una línea de patrimonio de verdad. La casa
   // demo se CONSTRUYE, no se migra: la fila mágica `__patrimonio__` del modelo
@@ -203,16 +204,16 @@ export async function construirDemoDespacho(ctx: CtxDemo): Promise<void> {
     clase: 'liquido',
     naturaleza: 'activo',
     nombre: enIdioma(AHORROS, ctx.idioma),
-    monto: PATRIMONIO_HOY,
+    monto: montoDemo(PATRIMONIO_HOY),
     creadoEn: new Date().toISOString(),
     fechaValor: hoyISO(),
   })
 
   // ── Las metas: una cumplida, dos vivas y la deuda saldada ────────────────
   await metasRepo.bulkAdd([
-    { nombre: datos.metas.japon, objetivo: META_JAPON, ahorrado: META_JAPON, tipo: 'ahorro' },
-    { nombre: datos.metas.emergencia, objetivo: 20000, ahorrado: 9600, tipo: 'ahorro' },
-    { nombre: datos.metas.deuda, objetivo: AVERIA_COCHE, ahorrado: AVERIA_COCHE, tipo: 'deuda' },
+    { nombre: datos.metas.japon, objetivo: montoDemo(META_JAPON), ahorrado: montoDemo(META_JAPON), tipo: 'ahorro' },
+    { nombre: datos.metas.emergencia, objetivo: montoDemo(20000), ahorrado: montoDemo(9600), tipo: 'ahorro' },
+    { nombre: datos.metas.deuda, objetivo: montoDemo(AVERIA_COCHE), ahorrado: montoDemo(AVERIA_COCHE), tipo: 'deuda' },
   ])
 
   // Los CETES van aparte porque necesitan su id: la fila de patrimonio cuelga de
@@ -221,15 +222,15 @@ export async function construirDemoDespacho(ctx: CtxDemo): Promise<void> {
   // meta y la tasa la fila, así que el patrimonio no cambia ni un peso.
   const cetes = (await metasRepo.add({
     nombre: datos.metas.inversion,
-    objetivo: 10000,
-    ahorrado: 4200,
+    objetivo: montoDemo(10000),
+    ahorrado: montoDemo(4200),
     tipo: 'inversion',
   })) as number
   await patrimonioRepo.add({
     clase: 'liquido',
     naturaleza: 'activo',
     nombre: datos.metas.inversion,
-    monto: 4200,
+    monto: montoDemo(4200),
     tasaAnual: 9,
     fechaValor: hoyISO(),
     metaId: cetes,
@@ -237,10 +238,11 @@ export async function construirDemoDespacho(ctx: CtxDemo): Promise<void> {
   })
 
   // Lo que mira de reojo: el yen del viaje que fue y el won del que viene.
+  // Contra la moneda de la demo si el proveedor la cotiza (si no, contra el dólar),
+  // y sin el par consigo misma: en japonés no hay JPY/JPY.
+  const base = CATALOGO_DIVISAS.some((d) => d.codigo === monedaDemo()) ? monedaDemo() : 'USD'
   await watchlistRepo.bulkAdd([
-    { simbolo: 'JPY/MXN', mercado: 'divisas' },
-    { simbolo: 'KRW/MXN', mercado: 'divisas' },
-    { simbolo: 'USD/MXN', mercado: 'divisas' },
+    ...['JPY', 'KRW', 'USD'].filter((m) => m !== base).map((m) => ({ simbolo: `${m}/${base}`, mercado: 'divisas' as const })),
     { simbolo: 'VOO', mercado: 'acciones' },
   ])
 

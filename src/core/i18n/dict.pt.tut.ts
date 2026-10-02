@@ -884,7 +884,7 @@ export const PT_TUT: Dict = {
     'Seu livro de fórmulas, dobrado sobre a calculadora. Já vêm prontas as de Matemática, Física e Química, em pastas que você pode aninhar. Qualquer uma se abre para preencher suas variáveis, se edita ou se apaga.',
   'tut.app-computo--esencial.5.titulo': 'Planilhas',
   'tut.app-computo--esencial.5.texto':
-    'Planilhas com referências de célula e fórmulas em português, e gráficos sobre o intervalo que você marcar. Exportam para Excel mantendo as fórmulas, ou para PDF.',
+    'Planilhas com referências de célula e fórmulas em espanhol, e gráficos sobre o intervalo que você marcar. Exportam para Excel mantendo as fórmulas, ou para PDF.',
   'tut.app-descanso--esencial.1.titulo': 'Descanso',
   'tut.app-descanso--esencial.1.texto':
     'Este app acompanha seu sono numa única tela: a pontuação da última noite, seu horário com seus avisos, o registro diário e o histórico completo.',
@@ -1301,7 +1301,7 @@ export const PT_TUT: Dict = {
     'O formulário vai por passos: valor, se é variável ou fixo, categoria (você escreve a sua e ele sugere as conhecidas), com que frequência se repete e a nota.',
   'tut.app-despacho--captura.3.titulo': 'Um ano de lançamentos',
   'tut.app-despacho--captura.3.texto':
-    'Centenas de gastos guardados em pastas de ano e mês. Procure o mês 7: ali está o consertoue levou quase dez mil de uma vez.',
+    'Centenas de gastos guardados em pastas de ano e mês. Procure o mês 7: ali está a pane que esvaziou a conta de uma vez.',
   'tut.app-despacho--captura.4.titulo': 'De onde vem o dinheiro',
   'tut.app-despacho--captura.4.texto':
     'Dois salários quinzenais da cafeteria, as aulas de física que começou a dar quando decidiu viajar, e as gorjetas semanais, que nunca são iguais.',
@@ -1356,7 +1356,7 @@ export const PT_TUT: Dict = {
     'O transporte real dela: corrente, câmaras de ar, freios, um por um em sua própria linha — o mesmo arquivo de pastas por ano e mês que outros apps usam. Veja como os serviços se acumulam nos últimos meses: é o treino da maratona cobrando o preço.',
   'tut.app-garage--vehiculos.4.titulo': 'E o carro herdado',
   'tut.app-garage--vehiculos.4.texto':
-    'Aqui está a pane do mês 7: ficou na mão, veio reboque e quase dez mil pesos que não tinha. Cada serviço guarda seu custo, sua quilometragem e em qual oficina foi.',
+    'Aqui está a pane do mês 7: ficou na mão, veio reboque e uma conta que não dava para pagar. Cada serviço guarda seu custo, sua quilometragem e em qual oficina foi.',
   'tut.app-garage--vehiculos.5.titulo': 'A ficha',
   'tut.app-garage--vehiculos.5.texto':
     'Marca, modelo, ano, placa e a quilometragem atual. Com a placa preenchida, a garagem libera os trâmites que só se aplicam a um carro.',

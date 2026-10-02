@@ -19,7 +19,7 @@ MindHaOS
 
 습관,목표,플래너,일기,가계부,영양,운동,수면,학습,AI,비서,관리,일상
 
-## Descripción (1819/4000)
+## Descripción (1899/4000)
 
 습관, 목표, 재정, 식사 등을 방마다 앱이 되는 아이소메트릭 3D 집에서 정리하세요. 무료로 해보세요.
 
@@ -57,3 +57,5 @@ MindHaOS의 AI가 함께 기록하고, 계획하고, 만들어요. 무엇으로 
 • 한 달이 끝나도 앱 전체와 데이터는 그대로예요. AI 크레딧은 선택이고요
 
 같은 도파민을, 이번엔 진짜 당신의 삶에.
+
+이용 약관(EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/

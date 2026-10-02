@@ -20,6 +20,7 @@ import {
   type DestinoGrabacion,
 } from '../../core/grabacionPantalla'
 import { useT } from '../../core/i18n/useT'
+import { mensajeErrorIA } from '../../core/cuenta/api'
 import type { Plataforma } from '../../core/redes/tipos'
 import type { RecursoStudio } from '../../core/recursosStudio'
 import { IDIOMAS } from '../../core/i18n/idiomas'
@@ -1101,7 +1102,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
         r.duracion,
       )
     } catch (e) {
-      await confirmar({ titulo: t('video.voz.fallo', 'No se pudo generar la voz'), mensaje: e instanceof Error ? e.message : String(e) })
+      await confirmar({ titulo: t('video.voz.fallo', 'No se pudo generar la voz'), mensaje: mensajeErrorIA(e, t) })
     } finally {
       setNarrandoId(null)
     }
@@ -1256,7 +1257,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
       })
       seek(lineasObra(proyectoRef.current?.clips ?? [])[0]?.inicio ?? 0)
     } catch (e) {
-      setIaError(e instanceof Error ? e.message : String(e))
+      setIaError(mensajeErrorIA(e, t))
     } finally {
       setIaOcupado(false)
     }
@@ -1295,7 +1296,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
       seek(0)
       setPanelIA(false)
     } catch (e) {
-      setIaError(e instanceof Error ? e.message : String(e))
+      setIaError(mensajeErrorIA(e, t))
     } finally {
       setIaOcupado(false)
     }
@@ -1323,7 +1324,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
       }
       setAviso('')
     } catch (e) {
-      mostrarAviso(e instanceof Error ? e.message : t('video.traducir.error', 'No se pudo traducir'))
+      mostrarAviso(mensajeErrorIA(e, t, t('video.traducir.error', 'No se pudo traducir')))
     } finally {
       setIaOcupado(false)
     }
@@ -1343,7 +1344,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
       )
       setPanelIA(false)
     } catch (e) {
-      setIaError(e instanceof Error ? e.message : String(e))
+      setIaError(mensajeErrorIA(e, t))
     } finally {
       setIaOcupado(false)
     }
@@ -1523,7 +1524,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
     }
   }
   /** «Descargar»: el archivo al dispositivo (en la app de tienda, la hoja de compartir). */
-  const exportar = () => entregar((listo, p) => descargarArchivo(listo.blob, `${p.nombre || 'video'}.${listo.extension}`))
+  const exportar = () => entregar((listo, p) => descargarArchivo(listo.blob, `${p.nombre || t('archivo.nombre.video', 'video')}.${listo.extension}`))
   /** «Guardar en Medios» (modo película): la animación como clip para montarla dentro de un video. */
   const guardarEnMedios = () =>
     entregar(async (listo, p) => {

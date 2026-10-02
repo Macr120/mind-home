@@ -890,5 +890,17 @@
   {
     "ruta": "listas.1.items.13",
     "texto": "1 kavanoz öğütülmüş kimyon"
+  },
+  {
+    "ruta": "recetas.2.carpeta",
+    "texto": "Haftalık hazırlık"
+  },
+  {
+    "ruta": "recetas.6.carpeta",
+    "texto": "Haftalık hazırlık"
+  },
+  {
+    "ruta": "recetas.8.carpeta",
+    "texto": "Haftalık hazırlık"
   }
 ]

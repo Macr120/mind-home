@@ -11,6 +11,7 @@ import { BarraTurno } from '../../core/espacios/ui/BarraTurno'
 import { BotonCompartir } from '../../core/espacios/ui/BotonCompartir'
 import { ChipMiembros } from '../../core/espacios/ui/ChipMiembros'
 import { useT } from '../../core/i18n/useT'
+import { mensajeErrorIA } from '../../core/cuenta/api'
 import { confirmar } from '../../core/state/confirmarStore'
 import { Creditos } from '../../core/ui/Creditos'
 import { Icono } from '../../core/ui/iconos/Icono'
@@ -314,7 +315,7 @@ export function EditorProyecto({
       if (!vivo || !p) return
       // Un proyecto sin pistas no es editable: nace con una.
       if (p.pistas.length === 0) {
-        p.pistas = [{ pistaId: nuevaPistaId(), nombre: 'Pista 1', instrumento: 'piano', volumen: 0.8, notas: [] }]
+        p.pistas = [{ pistaId: nuevaPistaId(), nombre: t('audio.pistaN', 'Pista {n}', { n: 1 }), instrumento: 'piano', volumen: 0.8, notas: [] }]
       }
       setProyecto(p)
       setPistaActivaId(p.pistas[0].pistaId)
@@ -696,7 +697,7 @@ export function EditorProyecto({
       await guardarRef.current()
       await motor.prepararClips()
       const blob = await renderizarWav(p, motor.buffersDeClips())
-      await descargarArchivo(blob, `${p.nombre || 'proyecto'}.wav`)
+      await descargarArchivo(blob, `${p.nombre || t('archivo.nombre.proyecto', 'proyecto')}.wav`)
     } finally {
       setExportando(false)
     }
@@ -763,7 +764,7 @@ export function EditorProyecto({
         pistas: prev.pistas.map((x) => (x.pistaId === idPista ? { ...x, notas } : x)),
       }))
     } catch (e) {
-      setIaError(e instanceof Error ? e.message : String(e))
+      setIaError(mensajeErrorIA(e, t))
     } finally {
       setIaOcupado(false)
     }

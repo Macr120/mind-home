@@ -4,7 +4,7 @@ import { partidasEjercicioRepo, registrarRepasoDia, tarjetasIdiomaRepo } from '.
 import { festejarAleatorio } from '../../core/gamificacion/festejo'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
-import { COLOR } from './constantes'
+import { COLOR, nombreIdioma } from './constantes'
 import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { generarEjercicios, tarjetasConCloze, type Ejercicio, type ModoEjercicio } from './ejercicios'
 import {
@@ -269,8 +269,8 @@ export function EjerciciosTab({ perfil, tarjetas, temaInicial, onTemaAplicado }:
         />
 
         <p className="text-xs leading-relaxed text-white/45">
-          {modoEj === 'opcion' && t('idiomas.ej.descOpcion', 'Se muestra un término en {idioma} y eliges su traducción.', { idioma: perfil.nombre })}
-          {modoEj === 'inverso' && t('idiomas.ej.descInverso', 'Se muestra la traducción y eliges el término correcto en {idioma}.', { idioma: perfil.nombre })}
+          {modoEj === 'opcion' && t('idiomas.ej.descOpcion', 'Se muestra un término en {idioma} y eliges su traducción.', { idioma: nombreIdioma(perfil) })}
+          {modoEj === 'inverso' && t('idiomas.ej.descInverso', 'Se muestra la traducción y eliges el término correcto en {idioma}.', { idioma: nombreIdioma(perfil) })}
           {modoEj === 'cloze' && t('idiomas.ej.descCloze', 'Completa la frase de ejemplo con el término que falta.')}
           {' '}
           {reto === 'libre' && t('idiomas.ej.descLibre', 'Ronda de {n} preguntas, sin prisa.', { n: String(PREGUNTAS_RONDA) })}
@@ -280,7 +280,7 @@ export function EjerciciosTab({ perfil, tarjetas, temaInicial, onTemaAplicado }:
 
         {tarjetas.length < 4 ? (
           <p className="rounded-xl border border-amber-400/30 bg-amber-400/10 px-3 py-2.5 text-xs leading-relaxed text-amber-200/90">
-            {t('idiomas.ej.pocas2', 'Necesitas al menos 4 tarjetas de {idioma} para generar ejercicios: créalas en el temario, charlando con tu tutor o pidiéndoselas a la IA.', { idioma: perfil.nombre })}
+            {t('idiomas.ej.pocas2', 'Necesitas al menos 4 tarjetas de {idioma} para generar ejercicios: créalas en el temario, charlando con tu tutor o pidiéndoselas a la IA.', { idioma: nombreIdioma(perfil) })}
           </p>
         ) : foco.length === 0 ? (
           <p className="rounded-xl border border-amber-400/30 bg-amber-400/10 px-3 py-2.5 text-xs leading-relaxed text-amber-200/90">
@@ -333,7 +333,7 @@ export function EjerciciosTab({ perfil, tarjetas, temaInicial, onTemaAplicado }:
           )}
           {quedan !== null && (
             <span className={`font-bold tabular-nums ${quedan <= 10 ? 'text-rose-300' : 'text-white/70'}`}>
-              <Icono nombre="cronometro" /> {quedan}s
+              <Icono nombre="cronometro" /> {t('ui.dur.s', '{n} s', { n: quedan })}
             </span>
           )}
           <span>

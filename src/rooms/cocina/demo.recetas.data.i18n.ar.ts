@@ -72,7 +72,7 @@ export default {
       "clave": "bowl-pollo",
       "nombre": "وعاء الدجاج لأسبوع كامل",
       "emoji": "🍗",
-      "carpeta": "Batch cooking",
+      "carpeta": "تحضير مسبق",
       "porciones": 4,
       "minutos": 45,
       "ingredientes": [
@@ -207,7 +207,7 @@ export default {
       "clave": "crema-lentejas",
       "nombre": "شوربة كريمية بالعدس الأحمر",
       "emoji": "🍲",
-      "carpeta": "Batch cooking",
+      "carpeta": "تحضير مسبق",
       "porciones": 4,
       "minutos": 35,
       "ingredientes": [
@@ -272,7 +272,7 @@ export default {
       "clave": "tacos-lentejas",
       "nombre": "تاكو العدس بالبابريكا المدخنة",
       "emoji": "🌮",
-      "carpeta": "Batch cooking",
+      "carpeta": "تحضير مسبق",
       "porciones": 4,
       "minutos": 30,
       "ingredientes": [

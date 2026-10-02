@@ -16,6 +16,7 @@ import {
   reordenarHermanos,
   ruta,
   temasDe,
+  descripcionNodo,
   tituloNodo,
   useTemario,
   type NodoTema,
@@ -104,7 +105,7 @@ function FilaTema({ tema, hermanos, ctx }: { tema: NodoTema; hermanos: string[];
         </button>
         <button type="button" onClick={() => ctx.alternar(tema.id)} className="min-w-0 flex-1 basis-40 text-start">
           <span className="block break-words text-sm text-white/85">
-            {!tema.fabrica && <Icono nombre="brillo" />} {tema.titulo}
+            {!tema.fabrica && <Icono nombre="brillo" />} {tituloNodo(tema, t)}
             {nSubtemas > 0 && (
               <span
                 className="ms-1.5 whitespace-nowrap text-[9px] text-white/40"
@@ -115,7 +116,7 @@ function FilaTema({ tema, hermanos, ctx }: { tema: NodoTema; hermanos: string[];
             )}
           </span>
           {tema.descripcion && (
-            <span className="line-clamp-2 text-[10px] text-white/35">{tema.descripcion}</span>
+            <span className="line-clamp-2 text-[10px] text-white/35">{descripcionNodo(tema, t)}</span>
           )}
         </button>
         <div className="ms-auto flex flex-wrap items-center justify-end gap-2">
@@ -394,15 +395,15 @@ export function TemarioTab({ perfil, onConversar, onPracticar, enfocado, onEnfoc
     alternar: alternarTema,
     conversar: (tema) =>
       onConversar(
-        { temaId: tema.id, titulo: tema.titulo },
+        { temaId: tema.id, titulo: tituloNodo(tema, t) },
         metaArea
-          ? t(`idiomas.tem.prompt.${area!.id}`, metaArea.promptEs, { tema: tema.titulo })
-          : t('idiomas.tem.prompt.propia', 'Quiero practicar «{tema}». Empecemos.', { tema: tema.titulo }),
+          ? t(`idiomas.tem.prompt.${area!.id}`, metaArea.promptEs, { tema: tituloNodo(tema, t) })
+          : t('idiomas.tem.prompt.propia', 'Quiero practicar «{tema}». Empecemos.', { tema: tituloNodo(tema, t) }),
       ),
-    material: (tema) => setMaterial({ id: tema.id, titulo: tema.titulo }),
+    material: (tema) => setMaterial({ id: tema.id, titulo: tituloNodo(tema, t) }),
     practicar: onPracticar,
     generar: (tema) =>
-      setGenerar({ id: tema.id, titulo: tema.titulo, nivel: tema.nivel, area: tema.areaId }),
+      setGenerar({ id: tema.id, titulo: tituloNodo(tema, t), nivel: tema.nivel, area: tema.areaId }),
     nuevaTarjeta,
     editarTarjeta,
     ilustrar: setIlustrando,

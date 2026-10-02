@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import type { CategoriaTitular, EdicionDiario, TipoEfemeride } from '../../core/data/db'
 import { mensajesChatRepo } from '../../core/data/repository'
 import { useAsistentes } from '../../core/state/asistentesStore'
+import { useMascota } from '../../core/state/mascotaStore'
 import type { Asistente } from '../../core/chat/mascotas'
 import { conversarIA, iaOperativa } from '../../core/chat/ia'
 import { iaAutoDiario } from './autoIA'
@@ -233,4 +234,15 @@ export function useDiarioProgramado() {
     const intervalo = window.setInterval(tick, 60_000)
     return () => window.clearInterval(intervalo)
   }, [])
+}
+
+/**
+ * Quién «dice» una sección: el asistente al que el reparto se la asignó y, si
+ * nadie la tiene, el activo (el que te sigue por la casa).
+ */
+export function useNarrador(seccion: SeccionReparto): Asistente | undefined {
+  const lista = useAsistentes((s) => s.lista)
+  const activo = useMascota((s) => s.mascota)
+  const id = getProgramaciones().find((p) => p.secciones.includes(seccion))?.asistenteId
+  return lista.find((a) => a.id === id) ?? lista.find((a) => a.id === activo) ?? lista[0]
 }

@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
 import { useCiclo } from '../state/cicloStore'
+import { descripcionClima } from '../clima'
 import { estadoCielo } from '../house/cielo'
 import { useRutinasUI } from '../state/rutinasUiStore'
 import { useT, localeActual } from '../i18n/useT'
@@ -243,7 +244,7 @@ function ClimaReal() {
               : 'border-white/15 bg-white/5 text-white/45 hover:text-white/70'
           }`}
         >
-          {climaActivo ? 'ON' : 'OFF'}
+          {climaActivo ? t('ui.on', 'ON') : t('ui.off', 'OFF')}
         </button>
       </div>
 
@@ -285,10 +286,10 @@ function ClimaReal() {
               <p className="text-xl font-black tabular-nums leading-none text-white">
                 {clima.temp}°C
               </p>
-              <p className="mt-0.5 truncate text-[11px] text-white/75">{clima.descripcion}</p>
+              <p className="mt-0.5 truncate text-[11px] text-white/75">{descripcionClima(clima.codigo, t)}</p>
               <p className="truncate text-[10px] text-white/40">
                 <Icono nombre="ubicacion" /> {clima.ciudad}
-                {clima.aproximada && ' · aprox.'}
+                {clima.aproximada && ` · ${t('clima.aprox', 'aprox.')}`}
               </p>
             </div>
           </div>

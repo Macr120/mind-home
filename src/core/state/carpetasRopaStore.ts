@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { db, type CarpetaRopa } from '../data/db'
 import { PRENDAS, type PrendaCategoriaId } from '../house/apariencia'
+import { tGlobal } from '../i18n/useT'
 
 /**
  * Carpetas del guardarropa: dentro de cada categoría de la pestaña Ropa agrupan
@@ -40,7 +41,7 @@ export const useCarpetasRopa = create<CarpetasRopaState>((set, get) => ({
         .reduce((m, c) => Math.max(m, c.orden), -1) + 1
     const carpeta: CarpetaRopa = {
       categoria,
-      nombre: nombre.trim() || 'Nueva carpeta',
+      nombre: nombre.trim() || tGlobal('editor.ropa.carpetaNueva', 'Nueva carpeta'),
       emoji,
       orden,
       creadoEn: Date.now(),

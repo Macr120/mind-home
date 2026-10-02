@@ -228,7 +228,7 @@ export default {
     },
     {
       "dia": -250,
-      "item1": "Nog eens zestig euro in de Japanspaarpot",
+      "item1": "Nog eens {monto:1040} in de Japanspaarpot",
       "item2": "Ik zeg al sumimasen zonder te haperen",
       "item3": "Gratis proeverij van een Ethiopische koffie"
     },
@@ -242,7 +242,7 @@ export default {
       "dia": -243,
       "item1": "Negen kilometer en aan het eind nog lucht over",
       "item2": "Frisdrank ingeruild voor bruisend water en ik leef nog",
-      "item3": "De fiets gerepareerd voor twaalf euro"
+      "item3": "De fiets gerepareerd voor {monto:210}"
     },
     {
       "dia": -239,

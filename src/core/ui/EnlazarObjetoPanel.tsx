@@ -103,8 +103,8 @@ export default function EnlazarObjetoPanel({
   const objetos = delCuarto.filter((o) => !esMueblePrincipal(o) && !o.plantillaId)
   const muebles = mueblesParaAcomodar(delCuarto, roomId)
   const setObjetoEnlaceApp = useDiseño((s) => s.setObjetoEnlaceApp)
-  const { app, seccion } = textoEnlace(entrada)
-  const destino = entrada.titulo ?? seccion ?? app?.nombre ?? ''
+  const { nombre, seccion } = textoEnlace(entrada)
+  const destino = entrada.titulo ?? seccion ?? nombre ?? ''
   const tematico = TEMATICOS[entrada.plantillaId]
   const nodos = useNodos()
 

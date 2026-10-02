@@ -9,11 +9,11 @@
   },
   {
     "ruta": "entradas.1.titulo",
-    "texto": "Double service, huit euros de pourboire"
+    "texto": "Double service, {monto:140} de pourboire"
   },
   {
     "ruta": "entradas.1.texto",
-    "texto": "J’ai remplacé Nadia sur son service et j’ai quitté le café à neuf heures, le dos en miettes. Huit euros de pourboire et une cliente qui m’a parlé comme à une machine à café sur pattes. J’ai dîné de céréales debout, les yeux sur le téléphone jusqu’à une heure. Labo demain à huit heures et je sais déjà comment ça va se passer."
+    "texto": "J’ai remplacé Nadia sur son service et j’ai quitté le café à neuf heures, le dos en miettes. {monto:140} de pourboire et une cliente qui m’a parlé comme à une machine à café sur pattes. J’ai dîné de céréales debout, les yeux sur le téléphone jusqu’à une heure. Labo demain à huit heures et je sais déjà comment ça va se passer."
   },
   {
     "ruta": "entradas.2.titulo",
@@ -21,7 +21,7 @@
   },
   {
     "ruta": "entradas.2.texto",
-    "texto": "J’ai touché ma paie vendredi et aujourd’hui, mercredi, il reste 41 euros sur le compte. J’ai essayé de reconstituer les dépenses de mémoire et il manque presque soixante-dix euros introuvables. Des abonnements inutilisés, des bières, des repas livrés les soirs sans cuisine. Ce qui dérange le plus, ce n’est pas l’argent, c’est de ne même pas savoir ça de ma propre vie."
+    "texto": "J’ai touché ma paie vendredi et aujourd’hui, mercredi, il reste {monto:710} sur le compte. J’ai essayé de reconstituer les dépenses de mémoire et il manque presque {monto:1210} introuvables. Des abonnements inutilisés, des bières, des repas livrés les soirs sans cuisine. Ce qui dérange le plus, ce n’est pas l’argent, c’est de ne même pas savoir ça de ma propre vie."
   },
   {
     "ruta": "entradas.3.titulo",
@@ -85,7 +85,7 @@
   },
   {
     "ruta": "entradas.10.texto",
-    "texto": "Deux heures à monter un budget avec les vraies catégories de ma vie : loyer, nourriture, transport, université, bêtises. Ça donne 1 180 de dépenses contre 1 240 entre la paie de quinzaine et les pourboires. La marge est ridicule mais elle existe, et la voir écrite calme plus que prévu. Nouvelle règle : les pourboires ne se dépensent pas le jour même."
+    "texto": "Deux heures à monter un budget avec les vraies catégories de ma vie : loyer, nourriture, transport, université, bêtises. Ça donne {monto:20400} de dépenses contre {monto:21500} entre la paie de quinzaine et les pourboires. La marge est ridicule mais elle existe, et la voir écrite calme plus que prévu. Nouvelle règle : les pourboires ne se dépensent pas le jour même."
   },
   {
     "ruta": "entradas.11.titulo",
@@ -109,7 +109,7 @@
   },
   {
     "ruta": "entradas.13.texto",
-    "texto": "J’ai vidé un pot de confiture, et les pourboires y atterrissent chaque soir de service. Cette semaine : 23 euros qui, avant, se seraient transformés en dîners dehors. Je ne sais toujours pas à quoi sert ce bocal, et je crois que ça aide : c’est de l’argent qui n’est pas pressé. Le compter le dimanche est devenu un petit rituel."
+    "texto": "J’ai vidé un pot de confiture, et les pourboires y atterrissent chaque soir de service. Cette semaine : {monto:400} qui, avant, se seraient transformés en dîners dehors. Je ne sais toujours pas à quoi sert ce bocal, et je crois que ça aide : c’est de l’argent qui n’est pas pressé. Le compter le dimanche est devenu un petit rituel."
   },
   {
     "ruta": "entradas.14.titulo",
@@ -125,7 +125,7 @@
   },
   {
     "ruta": "entradas.15.texto",
-    "texto": "88 touches d’occasion, 90 euros, achetées à un monsieur qui a arrêté de jouer à la naissance de sa fille. Je l’ai ramené dans le coffre de la voiture, calé entre deux couvertures, et je l’ai installé dans le coin du salon. Ça bourdonne légèrement à l’allumage et il manque la pédale, mais ça sonne. J’ai joué des notes au hasard pendant vingt minutes avec un sourire idiot. Objectif déclaré de l’année : apprendre le « Clair de lune » en entier."
+    "texto": "88 touches d’occasion, {monto:1560}, achetées à un monsieur qui a arrêté de jouer à la naissance de sa fille. Je l’ai ramené dans le coffre de la voiture, calé entre deux couvertures, et je l’ai installé dans le coin du salon. Ça bourdonne légèrement à l’allumage et il manque la pédale, mais ça sonne. J’ai joué des notes au hasard pendant vingt minutes avec un sourire idiot. Objectif déclaré de l’année : apprendre le « Clair de lune » en entier."
   },
   {
     "ruta": "entradas.16.titulo",
@@ -149,7 +149,7 @@
   },
   {
     "ruta": "entradas.18.texto",
-    "texto": "Première fois depuis des années que j’arrive en fin de mois en sachant où est passé chaque euro. Il reste 62 euros, un chiffre ridicule et pourtant énorme comparé au découvert du mois dernier. J’ai annulé deux abonnements et les repas livrés ont chuté de moitié. Rien de tout ça n’est une vertu : c’est juste que je le vois, maintenant."
+    "texto": "Première fois depuis des années que j’arrive en fin de mois en sachant où est passée chaque dépense. Il reste {monto:1070}, un chiffre ridicule et pourtant énorme comparé au découvert du mois dernier. J’ai annulé deux abonnements et les repas livrés ont chuté de moitié. Rien de tout ça n’est une vertu : c’est juste que je le vois, maintenant."
   },
   {
     "ruta": "entradas.19.titulo",
@@ -201,7 +201,7 @@
   },
   {
     "ruta": "entradas.25.texto",
-    "texto": "Deux heures de cuisine le dimanche : lentilles, riz, poulet au four et légumes pour cinq jours. 18 euros, et ça évite les kebabs après le service de nuit. Laika s’est installée sur le plan de travail pour superviser, je l’ai fait descendre onze fois. Un frigo plein donne une tranquillité à laquelle je ne m’attendais pas pour un truc aussi bête."
+    "texto": "Deux heures de cuisine le dimanche : lentilles, riz, poulet au four et légumes pour cinq jours. {monto:310}, et ça évite les kebabs après le service de nuit. Laika s’est installée sur le plan de travail pour superviser, je l’ai fait descendre onze fois. Un frigo plein donne une tranquillité à laquelle je ne m’attendais pas pour un truc aussi bête."
   },
   {
     "ruta": "entradas.26.titulo",
@@ -281,7 +281,7 @@
   },
   {
     "ruta": "entradas.35.texto",
-    "texto": "Feuille de comptes sortie, et des chiffres posés sur le fantasme : 2 400 au total, environ 800 pour les vols, le reste en hébergement pas cher, trains et repas. 600 euros déjà de côté grâce aux mois où le budget a laissé un reste, donc il en manque environ 360 par mois. Ça passe en prenant deux services en plus par mois et en envoyant les pourboires du week-end directement dans l’enveloppe. J’ai ouvert une nouvelle ligne dans l’appli et je l’ai appelée Japon, tout simplement."
+    "texto": "Feuille de comptes sortie, et des chiffres posés sur le fantasme : {monto:41500} au total, environ {monto:13840} pour les vols, le reste en hébergement pas cher, trains et repas. {monto:10380} déjà de côté grâce aux mois où le budget a laissé un reste, donc il en manque environ {monto:6230} par mois. Ça passe en prenant deux services en plus par mois et en envoyant les pourboires du week-end directement dans l’enveloppe. J’ai ouvert une nouvelle ligne dans l’appli et je l’ai appelée Japon, tout simplement."
   },
   {
     "ruta": "entradas.36.titulo",
@@ -345,7 +345,7 @@
   },
   {
     "ruta": "entradas.43.texto",
-    "texto": "Samedi de terrasse pleine : 38 euros de pourboire dans le bocal et un client qui a laissé cinq euros pour un café. Avant, tout ça partait en bières et repas de milieu de semaine sans même s’en rendre compte. Aujourd’hui, les pièces comptées sur la table de la cuisine, transférées en entier vers la ligne Japon. 1 010 accumulés. L’argent a maintenant une destination, et ça change la façon de travailler."
+    "texto": "Samedi de terrasse pleine : {monto:660} de pourboire dans le bocal et un client qui a laissé {monto:87} pour un café. Avant, tout ça partait en bières et repas de milieu de semaine sans même s’en rendre compte. Aujourd’hui, les pièces comptées sur la table de la cuisine, transférées en entier vers la ligne Japon. {monto:17500} accumulés. L’argent a maintenant une destination, et ça change la façon de travailler."
   },
   {
     "ruta": "entradas.44.titulo",
@@ -417,7 +417,7 @@
   },
   {
     "ruta": "entradas.52.texto",
-    "texto": "Un vieux trépied trouvé pour douze euros au marché aux puces, avec le téléphone fixé dessus grâce à une pince en plastique. Direction le toit à onze heures, et pour la première fois, les étoiles sont sorties en points nets plutôt qu’en traits flous. Les Pléiades se distinguent, et un bout de la ceinture d’Orion, flou mais reconnaissable. Une heure là-haut avec une couverture et le thé ; pas sûr que ce soit de l’astrophotographie, mais ça marche."
+    "texto": "Un vieux trépied trouvé pour {monto:210} au marché aux puces, avec le téléphone fixé dessus grâce à une pince en plastique. Direction le toit à onze heures, et pour la première fois, les étoiles sont sorties en points nets plutôt qu’en traits flous. Les Pléiades se distinguent, et un bout de la ceinture d’Orion, flou mais reconnaissable. Une heure là-haut avec une couverture et le thé ; pas sûr que ce soit de l’astrophotographie, mais ça marche."
   },
   {
     "ruta": "entradas.53.titulo",
@@ -441,7 +441,7 @@
   },
   {
     "ruta": "entradas.55.texto",
-    "texto": "1 210 sur 2 400. Exactement la moitié du voyage est sur le compte, et il reste encore trois mois de pourboires et de services en plus. Calcul refait deux fois par pure incrédulité, puis annoncé à Laika, la comptable officielle des émotions. Ce qui surprend le plus, ce n’est pas l’argent, c’est cinq mois d’affilée à noter chaque dépense sans jamais lâcher."
+    "texto": "{monto:20900} sur {monto:41500}. Exactement la moitié du voyage est sur le compte, et il reste encore trois mois de pourboires et de services en plus. Calcul refait deux fois par pure incrédulité, puis annoncé à Laika, la comptable officielle des émotions. Ce qui surprend le plus, ce n’est pas l’argent, c’est cinq mois d’affilée à noter chaque dépense sans jamais lâcher."
   },
   {
     "ruta": "entradas.56.titulo",
@@ -505,7 +505,7 @@
   },
   {
     "ruta": "entradas.63.texto",
-    "texto": "Tentative de démarrage pour aller au labo, et le bruit d’une boîte de vis. Direction le garage de la rue Robles : pompe à eau et courroie, 380 euros et deux jours sans voiture. Pile cette semaine-là, avec le genou à l’arrêt et un double service le vendredi. Fou rire tout seul sur le trottoir, parce que pleurer sur le trottoir aurait été bien plus gênant."
+    "texto": "Tentative de démarrage pour aller au labo, et le bruit d’une boîte de vis. Direction le garage de la rue Robles : pompe à eau et courroie, {monto:6570} et deux jours sans voiture. Pile cette semaine-là, avec le genou à l’arrêt et un double service le vendredi. Fou rire tout seul sur le trottoir, parce que pleurer sur le trottoir aurait été bien plus gênant."
   },
   {
     "ruta": "entradas.64.titulo",
@@ -513,7 +513,7 @@
   },
   {
     "ruta": "entradas.64.texto",
-    "texto": "Décision prise : les 380 euros sortiront du matelas de sécurité, pas de l’enveloppe Japon, même si le matelas finit à sec. Deux coupes ce mois-ci : zéro café dehors, zéro plat livré. Pourboires de la quinzaine faibles, 46 euros, donc vraie ceinture à serrer. Au moins, le montant exact est connu maintenant, ce qui n’était absolument pas le cas en octobre."
+    "texto": "Décision prise : les {monto:6570} sortiront du matelas de sécurité, pas de l’enveloppe Japon, même si le matelas finit à sec. Deux coupes ce mois-ci : zéro café dehors, zéro plat livré. Pourboires de la quinzaine faibles, {monto:800}, donc vraie ceinture à serrer. Au moins, le montant exact est connu maintenant, ce qui n’était absolument pas le cas en octobre."
   },
   {
     "ruta": "entradas.65.titulo",
@@ -529,7 +529,7 @@
   },
   {
     "ruta": "entradas.66.texto",
-    "texto": "Ras-le-bol que tout tombe en même temps : partiel d’électromagnétisme jeudi, double service samedi, genou tendu et compte à 190 euros. Ces lignes s’écrivent glace sur le genou, avec l’envie d’envoyer l’année entière balader. Aucune jolie leçon à tirer d’aujourd’hui, pas la peine de faire semblant. La seule chose faite ici, c’est noter que ça aussi, c’est arrivé."
+    "texto": "Ras-le-bol que tout tombe en même temps : partiel d’électromagnétisme jeudi, double service samedi, genou tendu et compte à {monto:3290}. Ces lignes s’écrivent glace sur le genou, avec l’envie d’envoyer l’année entière balader. Aucune jolie leçon à tirer d’aujourd’hui, pas la peine de faire semblant. La seule chose faite ici, c’est noter que ça aussi, c’est arrivé."
   },
   {
     "ruta": "entradas.67.titulo",
@@ -561,7 +561,7 @@
   },
   {
     "ruta": "entradas.70.texto",
-    "texto": "Jeudi onze heures, première séance, 35 euros chacune et il en faudra quatre ou cinq. Ligne ajoutée au budget comme dépense de santé, pas comme caprice, ce qui aurait été le raisonnement en janvier. Le genou permet déjà de descendre les escaliers presque normalement. La conviction grandit que ça va se réparer et qu’en septembre, marcher des heures au Japon ne posera aucun problème."
+    "texto": "Jeudi onze heures, première séance, {monto:600} chacune et il en faudra quatre ou cinq. Ligne ajoutée au budget comme dépense de santé, pas comme caprice, ce qui aurait été le raisonnement en janvier. Le genou permet déjà de descendre les escaliers presque normalement. La conviction grandit que ça va se réparer et qu’en septembre, marcher des heures au Japon ne posera aucun problème."
   },
   {
     "ruta": "entradas.71.titulo",
@@ -593,7 +593,7 @@
   },
   {
     "ruta": "entradas.74.texto",
-    "texto": "Vingt minutes sans arrêt, très lentement, et le genou n’a pas bronché. Interdiction de dépasser dix pour cent d’augmentation par semaine, même avec l’envie de tenter une heure demain. La leçon a coûté cher : 380 euros et trois semaines. Le plan jusqu’au Japon reste simple, quarante minutes confortables et zéro sortie longue."
+    "texto": "Vingt minutes sans arrêt, très lentement, et le genou n’a pas bronché. Interdiction de dépasser dix pour cent d’augmentation par semaine, même avec l’envie de tenter une heure demain. La leçon a coûté cher : {monto:6570} et trois semaines. Le plan jusqu’au Japon reste simple, quarante minutes confortables et zéro sortie longue."
   },
   {
     "ruta": "entradas.75.titulo",
@@ -601,7 +601,7 @@
   },
   {
     "ruta": "entradas.75.texto",
-    "texto": "Enveloppe Japon à 85 pour cent de l’objectif : 2 210 sur 2 600 euros. Le matelas de sécurité repasse à 200 après le coup dur du garage. Deux quinzaines de plus et l’objectif tombe pile, en comptant les pourboires d’août, généralement bons. Ces lignes existent parce qu’en octobre, même le budget café restait un mystère total."
+    "texto": "Enveloppe Japon à 85 pour cent de l’objectif : {monto:38200} sur {monto:45000}. Le matelas de sécurité repasse à {monto:3460} après le coup dur du garage. Deux quinzaines de plus et l’objectif tombe pile, en comptant les pourboires d’août, généralement bons. Ces lignes existent parce qu’en octobre, même le budget café restait un mystère total."
   },
   {
     "ruta": "entradas.76.titulo",
@@ -657,7 +657,7 @@
   },
   {
     "ruta": "entradas.82.texto",
-    "texto": "Vingt et un kilomètres à pied entre Shinjuku, Yanaka et une librairie où une heure entière est passée sans presque rien comprendre. Les trains arrivent à la seconde près, et avec un tel retard chronique au service à la maison, le système entier semble juger. Dîner dans un konbini : onigiri, œuf dur et une soupe, cinq euros et meilleur que bien des plats chers. Le genou, silencieux."
+    "texto": "Vingt et un kilomètres à pied entre Shinjuku, Yanaka et une librairie où une heure entière est passée sans presque rien comprendre. Les trains arrivent à la seconde près, et avec un tel retard chronique au service à la maison, le système entier semble juger. Dîner dans un konbini : onigiri, œuf dur et une soupe, {monto:87} et meilleur que bien des plats chers. Le genou, silencieux."
   },
   {
     "ruta": "entradas.83.titulo",
@@ -737,7 +737,7 @@
   },
   {
     "ruta": "entradas.92.texto",
-    "texto": "Dernière nuit à Osaka, et l’addition est faite : 2 480 euros sur les 2 600 épargnés, vol, train, lits et repas compris. Presque à l’euro près, une fierté bizarre et très comptable. Dans les bagages : du thé de trois endroits, un carnet, un médiator tout bête pour le clavier et soixante et une pages écrites. Demain le long vol, jeudi le service de sept heures au café."
+    "texto": "Dernière nuit à Osaka, et l’addition est faite : {monto:42900} sur les {monto:45000} épargnés, vol, train, lits et repas compris. Presque pile, une fierté bizarre et très comptable. Dans les bagages : du thé de trois endroits, un carnet, un médiator tout bête pour le clavier et soixante et une pages écrites. Demain le long vol, jeudi le service de sept heures au café."
   },
   {
     "ruta": "entradas.93.titulo",
@@ -785,7 +785,7 @@
   },
   {
     "ruta": "entradas.98.texto",
-    "texto": "Le budget par enveloppes remonté après trois semaines sans y toucher. Le compte voyage termine à 118 euros, et ce n’est pas un échec : c’était exactement le plan. Nouvelle ligne depuis cette quinzaine : fonds d’urgence, 40 euros par paie. Les pourboires de la semaine, 27 euros, partent en entier là-dedans."
+    "texto": "Le budget par enveloppes remonté après trois semaines sans y toucher. Le compte voyage termine à {monto:2040}, et ce n’est pas un échec : c’était exactement le plan. Nouvelle ligne depuis cette quinzaine : fonds d’urgence, {monto:690} par paie. Les pourboires de la semaine, {monto:470}, partent en entier là-dedans."
   },
   {
     "ruta": "entradas.99.titulo",
@@ -817,7 +817,7 @@
   },
   {
     "ruta": "entradas.102.texto",
-    "texto": "La voiture a refusé de démarrer à six heures et demie, direction le café à vélo en quatrième vitesse. Batterie neuve : 72 euros pris sur le fonds d’urgence tout juste ouvert, qui tombe à 8. Dix-neuf ans, cette voiture, et un rappel de son existence chaque trimestre. Au moins, cette fois, le mois n’a pas coulé, juste été agacé."
+    "texto": "La voiture a refusé de démarrer à six heures et demie, direction le café à vélo en quatrième vitesse. Batterie neuve : {monto:1250} pris sur le fonds d’urgence tout juste ouvert, qui tombe à {monto:140}. Dix-neuf ans, cette voiture, et un rappel de son existence chaque trimestre. Au moins, cette fois, le mois n’a pas coulé, juste été agacé."
   },
   {
     "ruta": "entradas.103.titulo",
@@ -881,7 +881,7 @@
   },
   {
     "ruta": "entradas.110.texto",
-    "texto": "Inscription faite : marathon, 38 euros, cinq semaines de plan. Nadia a donné son accord avec deux conditions : kiné tous les quinze jours et arrêt immédiat au premier signal du genou. C’est agressif, ça, c’est su ; six mois à accumuler les kilomètres presque sans faute, ça aussi. Le chiffre 42,195 écrit sur le tableau de la cuisine, avec un long moment passé à le regarder."
+    "texto": "Inscription faite : marathon, {monto:660}, cinq semaines de plan. Nadia a donné son accord avec deux conditions : kiné tous les quinze jours et arrêt immédiat au premier signal du genou. C’est agressif, ça, c’est su ; six mois à accumuler les kilomètres presque sans faute, ça aussi. Le chiffre 42,195 écrit sur le tableau de la cuisine, avec un long moment passé à le regarder."
   },
   {
     "ruta": "entradas.111.titulo",
@@ -969,7 +969,7 @@
   },
   {
     "ruta": "entradas.121.texto",
-    "texto": "Des marches d’une heure à la place de la course, du thé plutôt que du café l’après-midi, et Laika collée d’une façon insupportable. Des vols pour Séoul consultés pour dans un an, rien d’acheté, juste pour calculer le montant à mettre de côté chaque quinzaine : environ 55 euros. La partition de l’Arabesque n° 1 sortie aussi, avec un fou rire en solitaire. Demain, trois répétitions de Clair de lune, parce que dimanche, c’est devant la famille."
+    "texto": "Des marches d’une heure à la place de la course, du thé plutôt que du café l’après-midi, et Laika collée d’une façon insupportable. Des vols pour Séoul consultés pour dans un an, rien d’acheté, juste pour calculer le montant à mettre de côté chaque quinzaine : environ {monto:950}. La partition de l’Arabesque n° 1 sortie aussi, avec un fou rire en solitaire. Demain, trois répétitions de Clair de lune, parce que dimanche, c’est devant la famille."
   },
   {
     "ruta": "entradas.122.titulo",
@@ -985,7 +985,7 @@
   },
   {
     "ruta": "entradas.123.texto",
-    "texto": "Une demi-heure passée à relire l’année dans l’appli. 74 kg alors, 67,0 ce matin ; 1 214 kilomètres courus ; un 5 km, un 10 km, un semi et un marathon. 2 600 euros épargnés et dépensés en trois semaines au Japon, 61 pages de journal de voyage et 118 entrées ici. Ce que les chiffres ne montrent pas : il y a un an, le coucher se faisait à deux heures, le téléphone collé au visage."
+    "texto": "Une demi-heure passée à relire l’année dans l’appli. 74 kg alors, 67,0 ce matin ; 1 214 kilomètres courus ; un 5 km, un 10 km, un semi et un marathon. {monto:45000} épargnés et dépensés en trois semaines au Japon, 61 pages de journal de voyage et 118 entrées ici. Ce que les chiffres ne montrent pas : il y a un an, le coucher se faisait à deux heures, le téléphone collé au visage."
   },
   {
     "ruta": "entradas.124.titulo",

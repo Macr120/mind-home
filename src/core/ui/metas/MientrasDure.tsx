@@ -4,12 +4,12 @@ import type { Rutina } from '../../data/db'
 import { rutinasRepo } from '../../data/repository'
 import { fechaLocalISO } from '../../fechaLocal'
 import { useT } from '../../i18n/useT'
-import { avanceRitmo, objetivosDiaDe } from '../../metaDiaria'
+import { avanceRitmo, objetivosDiaDe, unidadObjetivo } from '../../metaDiaria'
 import { agendada } from '../../metas'
 import { getPlantilla, type RutinaSugerible } from '../../registry'
 import { agendarActividad } from '../HorarioActividad'
 import { Icono } from '../iconos/Icono'
-import { DIAS } from '../RutinasPanel'
+import { diasSemana } from '../../rutinas'
 
 /**
  * Lo que una meta le pide a tus días mientras está viva. Es la pieza que amarra el
@@ -120,7 +120,7 @@ export function MientrasDure({ meta }: { meta: Rutina }) {
               onChange={(e) => cambiarObjetivo(p.clave, Math.max(1, Number(e.target.value)))}
               className="w-14 rounded-lg border border-white/10 bg-black/30 px-1 py-0.5 text-[10px] tabular-nums text-white/70 focus:border-accent/60 focus:outline-none"
             />
-            <span className="w-8 shrink-0 text-[9px] text-white/30">{o?.unidad ?? ''}</span>
+            <span className="w-8 shrink-0 text-[9px] text-white/30">{o?.unidad ? unidadObjetivo(o.unidad) : ''}</span>
             <button
               type="button"
               onClick={() => quitarObjetivo(p.clave)}
@@ -157,7 +157,7 @@ export function MientrasDure({ meta }: { meta: Rutina }) {
             </button>
           </div>
           <div className="flex gap-0.5">
-            {DIAS.map((d, i) => (
+            {diasSemana().map((d, i) => (
               <button
                 key={i}
                 type="button"

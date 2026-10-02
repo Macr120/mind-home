@@ -2,6 +2,11 @@ import { conversarIA, extraerJSON, type MensajeIA } from '../../core/chat/ia'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import type { TipoTarjeta } from '../../core/data/db'
 import { NIVELES } from './constantes'
+import { datosIdioma } from '../../core/i18n/idiomas'
+import { idiomaActual, tGlobal } from '../../core/i18n/useT'
+
+/** La lengua del alumno: la de la app (los prompts se escriben en español y la nombran así). */
+const lengua = () => datosIdioma(idiomaActual()).nombreIA
 
 /** Datos mínimos del asistente cuya voz usa el chat (Asistente real o semilla). */
 export interface VozTutor {
@@ -23,9 +28,9 @@ export function systemTutor(voz: VozTutor, perfil: PerfilTutor, temaTitulo?: str
     `Eres ${voz.nombre} ${voz.emoji}, el tutor personal de idiomas del usuario en MindHaOS.`,
     voz.personalidad ? `Personalidad: ${voz.personalidad}` : '',
     voz.historia ? `Tu historia/contexto como personaje: ${voz.historia}` : '',
-    `Le enseñas ${perfil.nombre} a un estudiante de nivel MCER ${perfil.nivel} cuya lengua materna es el español.`,
-    `Conversa PRINCIPALMENTE en ${perfil.nombre}, adaptado a su nivel: en A1-A2 usa frases muy cortas y vocabulario básico, añadiendo entre paréntesis la traducción al español de lo difícil; en B1-B2 lenguaje natural con aclaraciones puntuales en español; en C1-C2 háblale como a un nativo, con matices e idiomatismos.`,
-    `Si el usuario escribe en español, responde en ${perfil.nombre} (con la ayuda en español que pida su nivel) e invítalo a intentarlo en el idioma.`,
+    `Le enseñas ${perfil.nombre} a un estudiante de nivel MCER ${perfil.nivel} cuya lengua materna es el ${lengua()}.`,
+    `Conversa PRINCIPALMENTE en ${perfil.nombre}, adaptado a su nivel: en A1-A2 usa frases muy cortas y vocabulario básico, añadiendo entre paréntesis la traducción al ${lengua()} de lo difícil; en B1-B2 lenguaje natural con aclaraciones puntuales en ${lengua()}; en C1-C2 háblale como a un nativo, con matices e idiomatismos.`,
+    `Si el usuario escribe en ${lengua()}, responde en ${perfil.nombre} (con la ayuda en ${lengua()} que pida su nivel) e invítalo a intentarlo en el idioma.`,
     'Corrige sus errores con suavidad: cuando se equivoque, muestra la forma correcta en una línea que empiece con "✔" y sigue la conversación sin regañar ni detenerte en el error.',
     'Mensajes cortos (60-150 palabras) y SIEMPRE cierra con una pregunta sencilla para que practique. NADA de markdown (ni encabezados ni **negritas**): tus respuestas se muestran como texto plano.',
     'No tienes herramientas: no digas que "guardaste" o "registraste" nada.',
@@ -50,7 +55,7 @@ function transcript(mensajes: MensajeIA[], maxChars: number): string {
 export function tituloDerivado(mensajes: MensajeIA[]): string {
   const primero = mensajes.find((m) => m.rol === 'usuario')?.texto ?? ''
   const palabras = primero.trim().split(/\s+/).slice(0, 6).join(' ')
-  return palabras.length > 60 ? `${palabras.slice(0, 57)}…` : palabras || 'Charla'
+  return palabras.length > 60 ? `${palabras.slice(0, 57)}…` : palabras || tGlobal('charla.tituloDefecto', 'Charla')
 }
 
 /**
@@ -69,7 +74,7 @@ export async function clasificarCharla(
       `Clasificas charlas de práctica de ${perfil.nombre} en el temario de un curso por niveles MCER.`,
       'Temas disponibles:',
       ...temas.slice(0, 130).map((t) => `- ${t.id}: ${t.titulo} (nivel ${t.nivel})`),
-      'Responde ÚNICAMENTE con JSON (sin texto extra ni markdown): {"titulo":"<máx. 6 palabras, en español>","temaId":"<id de la lista o null si ninguno encaja>","nivel":"A1|A2|B1|B2|C1|C2","descripcion":"<qué se practicó, una frase corta>"}',
+      `Responde ÚNICAMENTE con JSON (sin texto extra ni markdown): {"titulo":"<máx. 6 palabras, en ${lengua()}>","temaId":"<id de la lista o null si ninguno encaja>","nivel":"A1|A2|B1|B2|C1|C2","descripcion":"<qué se practicó, una frase corta en ${lengua()}>"}`,
     ].join('\n')
     const r = await conversarIA(system, [{ rol: 'usuario', texto: transcript(mensajes, 3000) }], 250)
     const obj = extraerJSON(r)
@@ -97,7 +102,7 @@ const normalizar = (s: string) => s.trim().toLowerCase()
 
 /** Contrato JSON común a extraer y generar tarjetas. */
 function contratoTarjetas(idioma: string): string {
-  return `Responde ÚNICAMENTE con JSON (sin texto extra ni markdown): {"tarjetas":[{"termino":"<en ${idioma}>","traduccion":"<en español>","ejemplo":"<frase corta en ${idioma} que use el término>","tipo":"palabra|frase|expresion","nivel":"A1|A2|B1|B2|C1|C2"}]}`
+  return `Responde ÚNICAMENTE con JSON (sin texto extra ni markdown): {"tarjetas":[{"termino":"<en ${idioma}>","traduccion":"<en ${lengua()}>","ejemplo":"<frase corta en ${idioma} que use el término>","tipo":"palabra|frase|expresion","nivel":"A1|A2|B1|B2|C1|C2"}]}`
 }
 
 /** Valida campo a campo la lista de la IA, deduplicando contra `existentes`. */
@@ -139,7 +144,7 @@ export async function extraerTarjetas(
   existentes: string[],
 ): Promise<TarjetaPropuesta[]> {
   const system = [
-    `Eres un lexicógrafo: extraes vocabulario útil de una charla de práctica de ${perfil.nombre} (estudiante nivel ${perfil.nivel}, lengua materna español) para tarjetas de repaso espaciado.`,
+    `Eres un lexicógrafo: extraes vocabulario útil de una charla de práctica de ${perfil.nombre} (estudiante nivel ${perfil.nivel}, lengua materna ${lengua()}) para tarjetas de repaso espaciado.`,
     'Elige de 3 a 10 términos, frases o expresiones que APARECIERON en la charla y valga la pena memorizar.',
     existentes.length
       ? `PROHIBIDO repetir (ni con variantes) estos términos que ya tiene: ${existentes.slice(0, 80).join(' · ')}`
@@ -161,7 +166,7 @@ export async function extraerTarjetas(
 const ENCARGO_AREA: Record<string, string> = {
   temas: 'los términos más útiles y frecuentes del tema a ese nivel, cada uno con un ejemplo natural',
   pronunciacion:
-    'palabras y frases que ejemplifiquen ese punto de pronunciación; en la traducción añade entre corchetes cómo suena en letras españolas y, si aplica, su transcripción AFI',
+    'palabras y frases que ejemplifiquen ese punto de pronunciación; en la traducción añade entre corchetes cómo suena, escrito como lo leería quien habla la lengua del alumno, y, si aplica, su transcripción AFI',
   gramatica:
     'frases modelo que muestren esa estructura gramatical (el "término" es la frase o el patrón, no una palabra suelta); en la traducción explica en una línea la regla que ilustra',
 }
@@ -178,7 +183,7 @@ export async function generarTarjetasTema(
 ): Promise<TarjetaPropuesta[]> {
   try {
     const system = [
-      `Eres un profesor de ${perfil.nombre}: creas material de estudio para hispanohablantes.`,
+      `Eres un profesor de ${perfil.nombre}: creas material de estudio para hablantes de ${lengua()}.`,
       `Genera ${n} tarjetas del tema «${tema.titulo}» de nivel MCER ${tema.nivel}: ${ENCARGO_AREA[tema.area ?? 'temas'] ?? ENCARGO_AREA.temas}.`,
       existentes.length
         ? `PROHIBIDO repetir (ni con variantes) estos términos que ya tiene: ${existentes.slice(0, 80).join(' · ')}`

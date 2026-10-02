@@ -19,7 +19,7 @@ Ta vie, dans une maison 3D : habitudes, objectifs, finances, repas et plus.
 
 habitudes,objectifs,agenda,journal,budget,nutrition,sport,sommeil,étude,ia,assistant
 
-## Descripción (3808/4000)
+## Descripción (3908/4000)
 
 Organise tes habitudes, tes objectifs, tes finances, tes repas et plus dans une maison isométrique 3D où chaque pièce est une app.
 
@@ -57,3 +57,5 @@ L’APP
 • À la fin du mois tu gardes l’app entière et tes données ; les crédits d’IA sont optionnels
 
 La même dopamine. Cette fois, pour ta vraie vie.
+
+Conditions d’utilisation (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/

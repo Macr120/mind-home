@@ -49,7 +49,10 @@ export const cajaWeb: Caja = {
 
   async comprar(userId, ref) {
     try {
-      await (await rc(userId)).purchase({ rcPackage: ref as Package })
+      // El checkout en el idioma de la app (RevenueCat llama «zh_Hans» al chino simplificado).
+      // Por `<html lang>` (app y web): importar `useT` engordaría el bundle de /cuenta.
+      const idioma = document.documentElement.lang || 'es'
+      await (await rc(userId)).purchase({ rcPackage: ref as Package, selectedLocale: idioma === 'zh' ? 'zh_Hans' : idioma })
     } catch (e) {
       // Cerrar el checkout no es un fallo: la fachada lo distingue por el tipo.
       // Sin importar el SDK (se carga perezoso): `ErrorCode.UserCancelledError` es 1.

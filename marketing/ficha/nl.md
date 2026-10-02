@@ -19,7 +19,7 @@ Je leven in een 3D-huis: gewoontes, doelen, financiën, maaltijden en meer.
 
 gewoontes,doelen,planner,dagboek,budget,voeding,training,slaap,studie,ai,assistent
 
-## Descripción (3578/4000)
+## Descripción (3673/4000)
 
 Breng je gewoontes, doelen, financiën, maaltijden en meer op orde in een isometrisch 3D-huis waarin elke kamer een app is.
 
@@ -57,3 +57,5 @@ DE APP
 • Als die maand voorbij is hou je de hele app en je gegevens; de AI-credits zijn optioneel
 
 Dezelfde dopamine. Deze keer voor je echte leven.
+
+Gebruiksvoorwaarden (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/

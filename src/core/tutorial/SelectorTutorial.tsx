@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import { create } from 'zustand'
 import { useT } from '../i18n/useT'
 import { useTutorial } from './tutorialStore'
@@ -19,7 +19,7 @@ import { entrarDemo } from '../../demo/modo'
 import { useAjustes } from '../state/ajustesStore'
 import { Carpeta } from '../ui/comun/Carpeta'
 import { Icono } from '../ui/iconos/Icono'
-import { IconoMarca } from '../ui/iconos/glifosApps'
+import { IconoMarca, PiezasLogo } from '../ui/iconos/glifosApps'
 import type { NombreIcono } from '../ui/iconos/catalogo'
 import type { TutorialDef } from './tipos'
 
@@ -37,6 +37,55 @@ import type { TutorialDef } from './tipos'
  * Misiones QUÉ TOCA HOY.
  */
 const TOURS_CALENDARIO = ['calendario', 'metas', 'hoy']
+
+/** Icono de los tours del reloj: Metas lleva el de su app; los otros dos, el suyo. */
+const iconoNucleo = (id: string) =>
+  id === 'metas' ? (
+    <IconoMarca emoji={getPlantilla('metas')?.icon} size="1.4em" />
+  ) : id === 'hoy' ? (
+    <IconoMarca glifo="misiones" nombre="lista" size="1.4em" />
+  ) : (
+    <IconoMarca glifo="calendario" nombre="calendario" size="1.4em" />
+  )
+
+/**
+ * Icono de un tutorial: el primer toque despliega su nombre al lado y el
+ * segundo abre el tutorial (o su lista de flujos).
+ */
+function BotonIconoTour({
+  icono,
+  nombre,
+  desplegado,
+  onTocar,
+  dataTut,
+}: {
+  icono: ReactNode
+  nombre: string
+  desplegado: boolean
+  onTocar: () => void
+  dataTut?: string
+}) {
+  return (
+    <button
+      type="button"
+      data-tut={dataTut}
+      onClick={onTocar}
+      title={nombre}
+      aria-label={nombre}
+      aria-expanded={desplegado}
+      className={`flex h-9 min-w-9 items-center justify-center gap-1.5 rounded-lg border px-1.5 text-lg transition ${
+        desplegado
+          ? 'border-amber-400/70 bg-amber-400/20'
+          : 'border-white/10 bg-white/5 hover:border-amber-400/60 hover:bg-amber-400/15'
+      }`}
+    >
+      {icono}
+      {desplegado && (
+        <span className="max-w-[9rem] truncate pe-1 text-[11px] font-semibold text-white/85">{nombre}</span>
+      )}
+    </button>
+  )
+}
 
 /** Sin esencial y con un solo ejemplo: desplegar una lista de UNO no dice nada. */
 const unSoloTour = (id: string) => !esencialDeApp(id) && flujosDeApp(id).length === 1
@@ -214,8 +263,19 @@ export function SelectorTutorialOverlay() {
   const [appFlujos, setAppFlujos] = useState<string | null>(null)
   // Grupos de la página 2: uno abierto a la vez, para que la lista quede corta.
   const [grupoAbierto, setGrupoAbierto] = useState<string | null>(null)
+  // Icono con el nombre desplegado: el siguiente toque sobre él abre su tutorial.
+  const [nombreVisible, setNombreVisible] = useState<string | null>(null)
 
   if (!abierto) return null
+
+  const tocarIcono = (clave: string, abrir: () => void) => {
+    if (nombreVisible !== clave) {
+      setNombreVisible(clave)
+      return
+    }
+    setNombreVisible(null)
+    abrir()
+  }
 
   const lanzar = (def: TutorialDef) => {
     useSelectorTut.getState().cerrar()
@@ -242,6 +302,7 @@ export function SelectorTutorialOverlay() {
     // La sub-lista de flujos se dibuja en la página 1: no debe quedar colgando.
     setAppFlujos(null)
     setGrupoAbierto(null)
+    setNombreVisible(null)
   }
 
   /** Cabecera de la lista de flujos: el cuarto elegido, o el tour del núcleo. */
@@ -389,9 +450,10 @@ export function SelectorTutorialOverlay() {
                       'demo.visitar.desc',
                       'La MindHaOS (Casa Mental OS) de Pep@ con un año de uso real dentro. Tu MindHaOS y tus datos quedan intactos; se vuelve con un botón.',
                     )}
-                    className="flex min-w-0 flex-1 items-center justify-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white/75 transition hover:bg-white/10"
+                    className="flex min-w-0 flex-1 flex-col items-center justify-center gap-0.5 rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-xs font-semibold text-white/75 transition hover:bg-white/10"
                   >
-                    <Icono nombre="casa" /> {t('demo.visitar', 'Visitar la MindHaOS demo')}
+                    <PiezasLogo size="1.1em" />
+                    <span className="max-w-full truncate">{t('demo.visitarCorto', 'Demo MindHaOS')}</span>
                   </button>
                 )}
               </div>
@@ -408,18 +470,19 @@ export function SelectorTutorialOverlay() {
                 {TOURS_CALENDARIO.map((id) => ({ id, def: tutorialMenuPorId(id) })).map(
                   ({ id, def }) =>
                     def && (
-                      <button
+                      <BotonIconoTour
                         key={def.id}
-                        type="button"
-                        data-tut={`tut.nucleo.${def.id}`}
+                        dataTut={`tut.nucleo.${def.id}`}
+                        icono={iconoNucleo(id)}
+                        nombre={t(def.titulo.clave, def.titulo.es)}
+                        desplegado={nombreVisible === `nucleo:${id}`}
                         // «Metas» es una app (su plantilla); «Calendario» es del
                         // núcleo. Ambos despliegan su lista de dos tipos. «Misiones»
                         // tiene un solo tour y ninguna lista que enseñar: arranca ya.
-                        onClick={() => (unSoloTour(id) ? lanzarTour(def) : setAppFlujos(id))}
-                        className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-white/75 transition hover:border-amber-400/60 hover:bg-amber-400/15"
-                      >
-                        {t(def.titulo.clave, def.titulo.es)}
-                      </button>
+                        onTocar={() =>
+                          tocarIcono(`nucleo:${id}`, () => (unSoloTour(id) ? lanzarTour(def) : setAppFlujos(id)))
+                        }
+                      />
                     ),
                 )}
               </div>
@@ -440,7 +503,7 @@ export function SelectorTutorialOverlay() {
                       <Icono nombre="volver" />
                     </button>
                     <span className="grid h-7 w-7 shrink-0 place-items-center text-lg">
-                      {cabecera ? <Icono emoji={cabecera.icon} /> : <Icono nombre="calendario" />}
+                      {cabecera ? <IconoMarca emoji={cabecera.icon} /> : iconoNucleo(appFlujos)}
                     </span>
                     <p className="min-w-0 flex-1 truncate text-start text-xs font-bold text-white/85">
                       {cabecera
@@ -463,13 +526,14 @@ export function SelectorTutorialOverlay() {
                     {t('tut.selector.apps', 'O el tutorial de una app:')}
                   </p>
                   <div className="mt-1.5 flex flex-wrap justify-center gap-1">
-                    {plantillasCuarto().map((p) => {
-                      const nombre = t(`room.${p.id}.nombre`, p.nombre).split(' · ')[0]
-                      return (
-                        <button
-                          key={p.id}
-                          type="button"
-                          onClick={() => {
+                    {plantillasCuarto().map((p) => (
+                      <BotonIconoTour
+                        key={p.id}
+                        icono={<IconoMarca emoji={p.icon} size="1.4em" />}
+                        nombre={t(`room.${p.id}.nombre`, p.nombre).split(' · ')[0]}
+                        desplegado={nombreVisible === `app:${p.id}`}
+                        onTocar={() =>
+                          tocarIcono(`app:${p.id}`, () => {
                             // Con ejemplos, la lista de dos tipos; sin ellos
                             // (plantillas propias, o en modo probar) su esencial directo.
                             if (!esProbar() && flujosDeApp(p.id).length > 0) {
@@ -478,15 +542,10 @@ export function SelectorTutorialOverlay() {
                             }
                             useSelectorTut.getState().cerrar()
                             void lanzarEsencial(p.id)
-                          }}
-                          title={nombre}
-                          aria-label={nombre}
-                          className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/5 text-lg transition hover:border-amber-400/60 hover:bg-amber-400/15"
-                        >
-                          <IconoMarca emoji={p.icon} size="1.4em" />
-                        </button>
-                      )
-                    })}
+                          })
+                        }
+                      />
+                    ))}
                   </div>
                   {/* Infraestructura: no se asigna a cuartos, se construye sobre el mapa.
                       Mismo trato que las apps: menú de flujos y salto a la casa demo.
@@ -497,13 +556,14 @@ export function SelectorTutorialOverlay() {
                     {t('tut.selector.infra', 'O construir complementos en el mapa:')}
                   </p>
                   <div className="mt-1.5 flex flex-wrap justify-center gap-1">
-                    {plantillasInfraestructura().map((p) => {
-                      const nombre = t(`room.${p.id}.nombre`, p.nombre).split(' · ')[0]
-                      return (
-                        <button
-                          key={p.id}
-                          type="button"
-                          onClick={() => {
+                    {plantillasInfraestructura().map((p) => (
+                      <BotonIconoTour
+                        key={p.id}
+                        icono={<IconoMarca emoji={p.icon} size="1.4em" />}
+                        nombre={t(`room.${p.id}.nombre`, p.nombre).split(' · ')[0]}
+                        desplegado={nombreVisible === `app:${p.id}`}
+                        onTocar={() =>
+                          tocarIcono(`app:${p.id}`, () => {
                             // La infra no tiene esencial: su lista trae solo ejemplos.
                             const flujos = flujosDeApp(p.id)
                             if (flujos.length > 1) {
@@ -512,15 +572,10 @@ export function SelectorTutorialOverlay() {
                             }
                             useSelectorTut.getState().cerrar()
                             void lanzarFlujo(p.id, flujos[0])
-                          }}
-                          title={nombre}
-                          aria-label={nombre}
-                          className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/5 text-lg transition hover:border-amber-400/60 hover:bg-amber-400/15"
-                        >
-                          <IconoMarca emoji={p.icon} size="1.4em" />
-                        </button>
-                      )
-                    })}
+                          })
+                        }
+                      />
+                    ))}
                   </div>
                   </>
                   )}

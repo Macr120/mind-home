@@ -102,6 +102,8 @@ interface PuenteEscritorio {
   musicaSistema?: () => Promise<{ artista: string; titulo: string } | null>
   /** La voz del sistema como WAV en base64 (narración gratis del Studio de video); null si no pudo. */
   vozAArchivo?: (texto: string, voz: string, lang: string) => Promise<string | null>
+  /** Los textos del menú y los diálogos del shell, ya en el idioma de la app. */
+  idioma?: (textos: Record<string, string>) => Promise<void>
   /** Navegador embebido de los enlaces web (fase 2); la barra la pinta la app. */
   navegador?: {
     /** Abre `url` en una pestaña nueva (o en `pestanaId`); resuelve el id de la pestaña (0 = no abrió). */

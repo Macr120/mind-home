@@ -293,7 +293,7 @@ function SeccionFoco({ categorias }: { categorias: { clave: string; nombre: stri
           value={sitiosTexto}
           onChange={(e) => setSitiosTexto(e.target.value)}
           onBlur={guardarSitios}
-          placeholder="ejemplo.com, otro.com"
+          placeholder={t('nav.foco.phSitios', 'ejemplo.com, otro.com')}
           className="mt-1 w-full rounded-lg border border-white/10 bg-black/30 px-2 py-1.5 text-xs text-white/85 outline-none focus:border-white/30"
         />
       </label>

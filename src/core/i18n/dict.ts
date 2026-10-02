@@ -126,6 +126,20 @@ export function asegurarIdioma(idioma: string): void {
 }
 
 /**
+ * Espera al diccionario del idioma (y al inglés de respaldo). Es para quien GRABA
+ * textos traducidos en la BD —la demo—: ahí no hay re-render que corrija lo que
+ * se escribió en español mientras el chunk bajaba. Si la carga falla se sigue
+ * igual, con los textos de respaldo.
+ */
+export function esperarIdioma(idioma: string): Promise<void> {
+  asegurarIdioma(idioma)
+  return Promise.all([enMarcha.get(idioma), enMarcha.get('en')]).then(
+    () => undefined,
+    () => undefined,
+  )
+}
+
+/**
  * Espera a los textos de paso del idioma activo. Lo llama `useTutorial.iniciar`
  * ANTES de publicar el cuerpo del tour, así que la tarjeta nunca se pinta en
  * español mientras llegan. Sin traducción para ese idioma resuelve al instante.

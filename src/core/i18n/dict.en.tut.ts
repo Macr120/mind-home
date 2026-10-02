@@ -1166,7 +1166,7 @@ export const EN_TUT: Dict = {
     'The form goes step by step: amount, whether it is variable or fixed, category (type your own, it suggests the usual ones), how often it repeats and the note.',
   'tut.app-despacho--captura.3.titulo': 'A year of entries',
   'tut.app-despacho--captura.3.texto':
-    'Hundreds of expenses filed by year and month. Look for month 7: that is the breakdown that took almost ten thousand pesos in one go.',
+    'Hundreds of expenses filed by year and month. Look for month 7: that is the breakdown that emptied the account in one go.',
   'tut.app-despacho--captura.4.titulo': 'Where the money comes from',
   'tut.app-despacho--captura.4.texto':
     'Two fortnightly wages from the coffee shop, the physics tutoring they started when the trip was decided, and the weekly tips, never the same twice.',
@@ -1221,7 +1221,7 @@ export const EN_TUT: Dict = {
     'Their real transport: chain, inner tubes, brakes, each in its own row — the same folder-by-year-and-month archive other apps use. Notice how the services bunch up in the last few months: that is marathon training taking its toll.',
   'tut.app-garage--vehiculos.4.titulo': 'And the inherited car',
   'tut.app-garage--vehiculos.4.texto':
-    'Here is the month 7 breakdown: stranded, a tow truck, and almost ten thousand pesos they did not have. Every service keeps its cost, its mileage and which garage did it.',
+    'Here is the month 7 breakdown: stranded, a tow truck, and a bill they could not afford. Every service keeps its cost, its mileage and which garage did it.',
   'tut.app-garage--vehiculos.5.titulo': 'The file',
   'tut.app-garage--vehiculos.5.texto':
     'Make, model, year, plates and current mileage. With plates on, the garage unlocks the paperwork that only applies to a car.',

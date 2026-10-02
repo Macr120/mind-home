@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import type { Transaccion } from '../../core/data/db'
 import { VACIO, presupuestosRepo } from '../../core/data/repository'
-import { getCategoria } from './categorias'
+import { getCategoria, nombreCategoria } from './categorias'
 import { usePatrimonio } from './patrimonio'
 import {
   etiquetaCorta,
@@ -191,7 +191,7 @@ export function BalanceTab({
             <div key={cat.id}>
               <div className="flex items-center gap-2 text-sm">
                 <span><Icono emoji={cat.icon} /></span>
-                <span className="text-white/85">{cat.nombre}</span>
+                <span className="text-white/85">{nombreCategoria(t, cat)}</span>
                 <span className="ms-auto text-white/55">{money2(monto)}</span>
                 <span className="w-10 text-end text-white/40 text-xs">
                   {Math.round((monto / gastos) * 100)}%

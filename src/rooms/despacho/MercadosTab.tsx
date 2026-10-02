@@ -11,6 +11,7 @@ import {
   getFinnhubKey,
   setFinnhubKey,
   CATALOGO_DIVISAS,
+  nombreDivisa,
   MATERIAS_PRIMAS,
   type AccionMercado,
   type CotizacionesMap,
@@ -357,7 +358,7 @@ function MisDivisas({ tick }: { tick: number }) {
         >
           {CATALOGO_DIVISAS.map((d) => (
             <option key={d.codigo} value={d.codigo}>
-              {d.codigo} · {d.nombre}
+              {d.codigo} · {nombreDivisa(d.codigo, locale())}
             </option>
           ))}
         </select>
@@ -369,7 +370,7 @@ function MisDivisas({ tick }: { tick: number }) {
         >
           {CATALOGO_DIVISAS.map((d) => (
             <option key={d.codigo} value={d.codigo}>
-              {d.codigo} · {d.nombre}
+              {d.codigo} · {nombreDivisa(d.codigo, locale())}
             </option>
           ))}
         </select>

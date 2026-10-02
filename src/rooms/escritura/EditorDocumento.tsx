@@ -12,6 +12,7 @@ import { BotonCompartir } from '../../core/espacios/ui/BotonCompartir'
 import { ChipMiembros } from '../../core/espacios/ui/ChipMiembros'
 import { abrirDocYjs, colorDeMiembro, type DocCompartido } from '../../core/espacios/yjs'
 import { tGlobal, useT } from '../../core/i18n/useT'
+import { mensajeErrorIA } from '../../core/cuenta/api'
 import { imprimir, puedeImprimir } from '../../core/imprimir'
 import { confirmar } from '../../core/state/confirmarStore'
 import { useBuzon } from '../../core/buzon/buzonStore'
@@ -616,7 +617,7 @@ export function EditorDocumento({
         setResumen(await resumir(ed.getText({ blockSeparator: '\n\n' })))
       }
     } catch (e) {
-      setErrorIA(e instanceof Error ? e.message : String(e))
+      setErrorIA(mensajeErrorIA(e, t))
     } finally {
       setTrabajando(null)
     }
@@ -626,7 +627,7 @@ export function EditorDocumento({
   const exportarTxt = () => {
     const ed = editorRef.current
     if (!ed || ed.isDestroyed) return
-    void descargarArchivo(new Blob([ed.getText({ blockSeparator: '\n\n' })], { type: 'text/plain' }), `${titulo || 'documento'}.txt`)
+    void descargarArchivo(new Blob([ed.getText({ blockSeparator: '\n\n' })], { type: 'text/plain' }), `${titulo || t('archivo.nombre.documento', 'documento')}.txt`)
   }
 
   /** «Enviar a un contacto»: el texto actual (saneado) como documento del buzón. */
@@ -634,7 +635,7 @@ export function EditorDocumento({
     const ed = editorRef.current
     if (!ed || ed.isDestroyed) return
     const { empaquetarDocumento } = await import('./compartible')
-    useBuzon.getState().abrirCompartir(await empaquetarDocumento({ titulo: titulo || 'Documento', contenido: ed.getHTML() }))
+    useBuzon.getState().abrirCompartir(await empaquetarDocumento({ titulo: titulo || t('escritura.docSinTitulo', 'Documento'), contenido: ed.getHTML() }))
   }
 
   const exportarPdf = async () => {

@@ -228,7 +228,7 @@ export default {
     },
     {
       "dia": -250,
-      "item1": "Altri sessanta euro nel fondo per il Giappone",
+      "item1": "Altri {monto:1040} nel fondo per il Giappone",
       "item2": "Ormai dico sumimasen senza incepparmi",
       "item3": "Degustazione gratis di un caffè etiope"
     },
@@ -242,7 +242,7 @@ export default {
       "dia": -243,
       "item1": "Nove chilometri e mi è rimasto fiato alla fine",
       "item2": "Ho sostituito la bibita con l'acqua frizzante, e sono ancora qui",
-      "item3": "La bici sistemata per dodici euro"
+      "item3": "La bici sistemata per {monto:210}"
     },
     {
       "dia": -239,

@@ -9,6 +9,7 @@ import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { acento } from '../_shared/acento'
 import { C_CARDIO } from './constantes'
+import { nombreEjercicio } from './nombres'
 
 // Web Bluetooth no está en lib.dom: tipos mínimos para el servicio heart_rate.
 interface CaracteristicaBT {
@@ -264,7 +265,7 @@ export function CardioEnVivo({
     <div className="rounded-xl bg-sky-500/10 border border-sky-500/25 p-4 space-y-3">
       <div className="flex items-center justify-between gap-2">
         <p className="text-base font-bold">
-          <Icono nombre="cronometro" /> {t('ejercicio.vivo.titulo', 'Entrenamiento en vivo')} · {actividad}
+          <Icono nombre="cronometro" /> {t('ejercicio.vivo.titulo', 'Entrenamiento en vivo')} · {nombreEjercicio(t, actividad)}
         </p>
         {estado === 'inactivo' && (
           <button
@@ -322,7 +323,7 @@ export function CardioEnVivo({
           />
           <Dato
             label={t('ejercicio.det.fcMax', 'FC máxima')}
-            valor={ppmMax ? `${ppmMax} ppm` : '—'}
+            valor={ppmMax ? t('ejercicio.ppmN', '{n} ppm', { n: ppmMax }) : '—'}
           />
         </div>
       )}

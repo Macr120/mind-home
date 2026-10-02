@@ -890,5 +890,17 @@
   {
     "ruta": "listas.1.items.13",
     "texto": "1 toples jintan bubuk"
+  },
+  {
+    "ruta": "recetas.2.carpeta",
+    "texto": "Meal prep"
+  },
+  {
+    "ruta": "recetas.6.carpeta",
+    "texto": "Meal prep"
+  },
+  {
+    "ruta": "recetas.8.carpeta",
+    "texto": "Meal prep"
   }
 ]

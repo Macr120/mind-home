@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { FiltroVoz } from '../../core/data/db'
 import { mediosVideoRepo } from '../../core/data/repository'
 import { formatoGrabacion, MAX_SEG_GRABACION } from '../../core/grabacionPantalla'
-import { useT } from '../../core/i18n/useT'
+import { localeActual, useT } from '../../core/i18n/useT'
 import { confirmar } from '../../core/state/confirmarStore'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { BotonPrimario, BotonSecundario, Modal } from '../_shared/ui'
@@ -152,7 +152,7 @@ export function GrabarMedioModal({
       return
     }
     const ahora = new Date()
-    const h = ahora.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    const h = ahora.toLocaleTimeString(localeActual(), { hour: '2-digit', minute: '2-digit' })
     const fila = camara
       ? {
           tipo: 'video' as const,

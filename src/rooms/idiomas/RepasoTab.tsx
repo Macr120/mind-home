@@ -5,6 +5,7 @@ import { actividadId } from '../../core/rutinas'
 import { HorarioActividad } from '../../core/ui/HorarioActividad'
 import { tarjetasVencidas } from './srs'
 import { EjerciciosTab } from './EjerciciosTab'
+import { nombreIdioma } from './constantes'
 import { hoyISO } from './stats'
 
 /**
@@ -35,7 +36,7 @@ export function RepasoTab({ perfil, temaInicial, onTemaAplicado }: {
           actividad={{
             actividadId: actividadId('idioma', perfil.id!),
             plantillaId: 'idiomas',
-            nombre: t('idiomas.rep.bloque', 'Repasar {idioma}', { idioma: perfil.nombre }),
+            nombre: t('idiomas.rep.bloque', 'Repasar {idioma}', { idioma: nombreIdioma(perfil) }),
             emoji: '🌐',
             horaSugerida: '20:00',
             seccion: 'repaso',

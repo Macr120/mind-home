@@ -140,11 +140,11 @@ export function piezasDesdeForma(forma: MascotaId, color?: string): Pieza3D[] {
 /** Forma inicial de un personaje nuevo: muñeco básico (piernas, torso, brazos, cabeza). */
 export function plantillaPersonajePiezas(): Pieza3D[] {
   return [
-    { tipo: 'caja', pos: [-0.13, 0.3, 0], tam: [0.22, 0.6, 0.24], color: '#2f5fd0' },
-    { tipo: 'caja', pos: [0.13, 0.3, 0], tam: [0.22, 0.6, 0.24], color: '#2f5fd0' },
-    { tipo: 'caja', pos: [0, 0.9, 0], tam: [0.56, 0.6, 0.3], color: '#e23b3b' },
-    { tipo: 'caja', pos: [-0.4, 0.9, 0], tam: [0.18, 0.55, 0.24], color: '#e23b3b' },
-    { tipo: 'caja', pos: [0.4, 0.9, 0], tam: [0.18, 0.55, 0.24], color: '#e23b3b' },
+    { tipo: 'caja', pos: [-0.13, 0.3, 0], tam: [0.22, 0.6, 0.24], color: '#b36bfb' },
+    { tipo: 'caja', pos: [0.13, 0.3, 0], tam: [0.22, 0.6, 0.24], color: '#b36bfb' },
+    { tipo: 'caja', pos: [0, 0.9, 0], tam: [0.56, 0.6, 0.3], color: '#f53b4b' },
+    { tipo: 'caja', pos: [-0.4, 0.9, 0], tam: [0.18, 0.55, 0.24], color: '#f53b4b' },
+    { tipo: 'caja', pos: [0.4, 0.9, 0], tam: [0.18, 0.55, 0.24], color: '#f53b4b' },
     { tipo: 'esfera', pos: [0, 1.48, 0], tam: [0.27], color: '#ffd23b' },
   ]
 }

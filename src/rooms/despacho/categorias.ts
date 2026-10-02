@@ -5,6 +5,7 @@
  * sugerencias — las conocidas traen icono y color propios, y cualquier otra
  * recibe un color estable derivado de su nombre (así no cambia entre sesiones).
  */
+import { tGlobal, type TFunc } from '../../core/i18n/useT'
 
 export interface Categoria {
   id: string
@@ -64,12 +65,25 @@ function colorDe(nombre: string): string {
   return PALETA[h % PALETA.length]
 }
 
+/**
+ * La de fábrica cuyo nombre TRADUCIDO es este: quien la eligió de la lista en otro
+ * idioma guardó «食費», no «Comida», y debe seguir viéndola con su icono y color.
+ */
+function conocidaTraducida(k: string): Categoria | undefined {
+  return [...CATEGORIAS_GASTO, ...CATEGORIAS_INGRESO].find((c) => clave(tGlobal(`despacho.cat.${c.id}`, c.nombre)) === k)
+}
+
 /** Busca una categoría por id o por nombre; si es del usuario, la fabrica. */
 export function getCategoria(id: string): Categoria {
   const k = clave(id)
-  const conocida = CONOCIDAS.get(id) ?? CONOCIDAS.get(k)
+  const conocida = CONOCIDAS.get(id) ?? CONOCIDAS.get(k) ?? conocidaTraducida(k)
   if (conocida) return conocida
   return { id, nombre: id, icon: '🏷️', color: colorDe(k) }
+}
+
+/** Nombre visible: las de fábrica se traducen; las escritas por el usuario salen tal cual. */
+export function nombreCategoria(t: TFunc, c: Categoria): string {
+  return CONOCIDAS.get(c.id) === c ? t(`despacho.cat.${c.id}`, c.nombre) : c.nombre
 }
 
 /**

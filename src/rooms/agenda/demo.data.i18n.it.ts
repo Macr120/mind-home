@@ -21,12 +21,12 @@ export default {
     {
       "dia": -312,
       "titulo": "Inventario mensile del bancone",
-      "lugar": "Café Mirasol"
+      "lugar": "Caffè Mirasol"
     },
     {
       "dia": -298,
       "titulo": "Turno extra: degustazione di caffè monorigine",
-      "lugar": "Café Mirasol"
+      "lugar": "Caffè Mirasol"
     },
     {
       "dia": -270,
@@ -81,12 +81,12 @@ export default {
     {
       "dia": -134,
       "titulo": "Chiedere a Marisol il permesso per il viaggio",
-      "lugar": "Café Mirasol"
+      "lugar": "Caffè Mirasol"
     },
     {
       "dia": -131,
       "titulo": "Formazione sulla nuova macchina",
-      "lugar": "Café Mirasol"
+      "lugar": "Caffè Mirasol"
     },
     {
       "dia": -80,
@@ -111,7 +111,7 @@ export default {
     {
       "dia": -8,
       "titulo": "Turno speciale: degustazione di tè invernali",
-      "lugar": "Café Mirasol"
+      "lugar": "Caffè Mirasol"
     }
   ],
   "salud": [
@@ -123,7 +123,7 @@ export default {
     {
       "dia": -288,
       "titulo": "Vaccino annuale di Laika",
-      "lugar": "Veterinaria Los Álamos"
+      "lugar": "Clinica Veterinaria Los Álamos"
     },
     {
       "dia": -212,
@@ -173,7 +173,7 @@ export default {
     {
       "dia": -70,
       "titulo": "Laika: controllo e sverminazione",
-      "lugar": "Veterinaria Los Álamos"
+      "lugar": "Clinica Veterinaria Los Álamos"
     },
     {
       "dia": -50,
@@ -268,35 +268,35 @@ export default {
   "contactos": [
     {
       "nombre": "Rosa Vidal",
-      "relacion": "Familia"
+      "relacion": "Famiglia"
     },
     {
       "nombre": "Camila Vidal",
-      "relacion": "Familia"
+      "relacion": "Famiglia"
     },
     {
       "nombre": "Nadia Serrano",
-      "relacion": "Amistades"
+      "relacion": "Amici"
     },
     {
       "nombre": "Tomás Iriarte",
-      "relacion": "Amistades"
+      "relacion": "Amici"
     },
     {
       "nombre": "Marisol Cáceres",
-      "relacion": "Trabajo"
+      "relacion": "Lavoro"
     },
     {
       "nombre": "Bruno Ferrer",
-      "relacion": "Trabajo"
+      "relacion": "Lavoro"
     },
     {
       "nombre": "Iker Domínguez",
-      "relacion": "Universidad"
+      "relacion": "Università"
     },
     {
       "nombre": "Elena Puig",
-      "relacion": "Universidad"
+      "relacion": "Università"
     }
   ]
 }

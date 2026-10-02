@@ -9,11 +9,11 @@
   },
   {
     "ruta": "entradas.1.titulo",
-    "texto": "Turno dobrado e oito euros"
+    "texto": "Turno dobrado e {monto:140}"
   },
   {
     "ruta": "entradas.1.texto",
-    "texto": "Cobri o turno da Nadia e saí às nove com as costas destroçadas. Oito euros de gorjeta e uma senhora que falou comigo como se eu fosse uma máquina de café com pernas. Jantei cereal em pé olhando o celular até a uma. Amanhã tenho laboratório às oito e já sei como vai ser."
+    "texto": "Cobri o turno da Nadia e saí às nove com as costas destroçadas. {monto:140} de gorjeta e uma senhora que falou comigo como se eu fosse uma máquina de café com pernas. Jantei cereal em pé olhando o celular até a uma. Amanhã tenho laboratório às oito e já sei como vai ser."
   },
   {
     "ruta": "entradas.2.titulo",
@@ -21,7 +21,7 @@
   },
   {
     "ruta": "entradas.2.texto",
-    "texto": "Recebi na sexta e hoje, quarta, a conta está em 41 euros. Tentei reconstruir os gastos de memória e faltam quase setenta que não consigo localizar. Assinaturas que não uso, cerveja, comida por aplicativo nos dias que não cozinhei. O que mais me incomoda não é o dinheiro, é não saber nem isso sobre a própria vida."
+    "texto": "Recebi na sexta e hoje, quarta, a conta está em {monto:710}. Tentei reconstruir os gastos de memória e faltam quase {monto:1210} que não consigo localizar. Assinaturas que não uso, cerveja, comida por aplicativo nos dias que não cozinhei. O que mais me incomoda não é o dinheiro, é não saber nem isso sobre a própria vida."
   },
   {
     "ruta": "entradas.3.titulo",
@@ -85,7 +85,7 @@
   },
   {
     "ruta": "entradas.10.texto",
-    "texto": "Duas horas montando um orçamento com as categorias reais da minha vida: aluguel, comida, transporte, faculdade, besteiras. Dá 1.180 de gastos contra 1.240 entre salário quinzenal e gorjetas. A margem é ridícula, mas existe, e ver isso escrito me acalma mais do que eu esperava. Regra nova: gorjeta não se gasta no mesmo dia."
+    "texto": "Duas horas montando um orçamento com as categorias reais da minha vida: aluguel, comida, transporte, faculdade, besteiras. Dá {monto:20400} de gastos contra {monto:21500} entre salário quinzenal e gorjetas. A margem é ridícula, mas existe, e ver isso escrito me acalma mais do que eu esperava. Regra nova: gorjeta não se gasta no mesmo dia."
   },
   {
     "ruta": "entradas.11.titulo",
@@ -109,7 +109,7 @@
   },
   {
     "ruta": "entradas.13.texto",
-    "texto": "Esvaziei um pote de geleia e agora é ali que vão as gorjetas depois de cada turno. Essa semana: 23 euros que antes teriam virado jantar fora. Ainda não sei para que é o pote, e acho que isso ajuda: é dinheiro sem pressa nenhuma. Contar no domingo virou um pequeno ritual."
+    "texto": "Esvaziei um pote de geleia e agora é ali que vão as gorjetas depois de cada turno. Essa semana: {monto:400} que antes teriam virado jantar fora. Ainda não sei para que é o pote, e acho que isso ajuda: é dinheiro sem pressa nenhuma. Contar no domingo virou um pequeno ritual."
   },
   {
     "ruta": "entradas.14.titulo",
@@ -125,7 +125,7 @@
   },
   {
     "ruta": "entradas.15.texto",
-    "texto": "88 teclas de segunda mão, 90 euros, comprado de um senhor que parou de tocar quando a filha nasceu. Trouxe no porta-malas do carro embrulhado em dois cobertores e montei no canto da sala. Faz um zumbido leve ao ligar e falta o pedal, mas toca. Toquei notas aleatórias por vinte minutos e sorri feito bobo. Meta declarada do ano: aprender o «Clair de Lune» inteiro."
+    "texto": "88 teclas de segunda mão, {monto:1560}, comprado de um senhor que parou de tocar quando a filha nasceu. Trouxe no porta-malas do carro embrulhado em dois cobertores e montei no canto da sala. Faz um zumbido leve ao ligar e falta o pedal, mas toca. Toquei notas aleatórias por vinte minutos e sorri feito bobo. Meta declarada do ano: aprender o «Clair de Lune» inteiro."
   },
   {
     "ruta": "entradas.16.titulo",
@@ -149,7 +149,7 @@
   },
   {
     "ruta": "entradas.18.texto",
-    "texto": "Primeira vez em anos que chego ao fim do mês sabendo para onde foi cada euro. Sobraram 62 euros, um número ridículo e ao mesmo tempo enorme comparado com o cheque especial do mês passado. Cancelei duas assinaturas e o gasto com comida por aplicativo caiu pela metade. Nada disso é virtude: é que agora eu enxergo."
+    "texto": "Primeira vez em anos que chego ao fim do mês sabendo para onde foi cada gasto. Sobraram {monto:1070}, um número ridículo e ao mesmo tempo enorme comparado com o cheque especial do mês passado. Cancelei duas assinaturas e o gasto com comida por aplicativo caiu pela metade. Nada disso é virtude: é que agora eu enxergo."
   },
   {
     "ruta": "entradas.19.titulo",
@@ -201,7 +201,7 @@
   },
   {
     "ruta": "entradas.25.texto",
-    "texto": "Duas horas de cozinha no domingo: lentilha, arroz, frango assado e verdura para cinco dias. Custou 18 euros e me livra dos kebabs depois do turno da noite. A Laika sentou na bancada para supervisionar e eu tirei ela de lá onze vezes. A geladeira cheia me dá uma tranquilidade que eu não esperava de uma coisa tão boba."
+    "texto": "Duas horas de cozinha no domingo: lentilha, arroz, frango assado e verdura para cinco dias. Custou {monto:310} e me livra dos kebabs depois do turno da noite. A Laika sentou na bancada para supervisionar e eu tirei ela de lá onze vezes. A geladeira cheia me dá uma tranquilidade que eu não esperava de uma coisa tão boba."
   },
   {
     "ruta": "entradas.26.titulo",
@@ -281,7 +281,7 @@
   },
   {
     "ruta": "entradas.35.texto",
-    "texto": "Sentei com a planilha e coloquei números na fantasia: 14.400 reais no total, passagem uns 4.800, o resto hospedagem barata, trens e comida. Já tenho 3.600 dos meses em que sobrou algo do orçamento, então faltam uns 2.160 por mês. Fecha a conta se eu pegar dois turnos extras por mês e se as gorjetas do fim de semana forem direto para o envelope. Abri uma linha nova no app e chamei de Japão, só isso."
+    "texto": "Sentei com a planilha e coloquei números na fantasia: {monto:41500} no total, passagem uns {monto:13840}, o resto hospedagem barata, trens e comida. Já tenho {monto:10380} dos meses em que sobrou algo do orçamento, então faltam uns {monto:6230} por mês. Fecha a conta se eu pegar dois turnos extras por mês e se as gorjetas do fim de semana forem direto para o envelope. Abri uma linha nova no app e chamei de Japão, só isso."
   },
   {
     "ruta": "entradas.36.titulo",
@@ -345,7 +345,7 @@
   },
   {
     "ruta": "entradas.43.texto",
-    "texto": "Sábado de terraço lotado: 38 euros de gorjeta no pote e um cliente que deixou cinco por um cortado. Antes isso ia embora em cerveja e comida de meio de semana sem eu nem perceber. Hoje contei as moedas na mesa da cozinha e passei tudo, inteiro, para a linha do Japão. 6.060 reais acumulados. As notas agora têm um destino e isso me faz trabalhar de outro jeito."
+    "texto": "Sábado de terraço lotado: {monto:660} de gorjeta no pote e um cliente que deixou {monto:87} por um cortado. Antes isso ia embora em cerveja e comida de meio de semana sem eu nem perceber. Hoje contei as moedas na mesa da cozinha e passei tudo, inteiro, para a linha do Japão. {monto:17500} acumulados. As notas agora têm um destino e isso me faz trabalhar de outro jeito."
   },
   {
     "ruta": "entradas.44.titulo",
@@ -417,7 +417,7 @@
   },
   {
     "ruta": "entradas.52.texto",
-    "texto": "Achei um tripé velho por doze euros na feira e encaixei o celular com um clipe de plástico. Subi na cobertura às onze e pela primeira vez as estrelas saíram como pontos e não como minhocas. Dá para distinguir as Plêiades e parte do cinturão de Órion, borrado mas reconhecível. Fiquei uma hora lá em cima com um cobertor e o chá; não sei se isso é astrofotografia, mas funciona."
+    "texto": "Achei um tripé velho por {monto:210} na feira e encaixei o celular com um clipe de plástico. Subi na cobertura às onze e pela primeira vez as estrelas saíram como pontos e não como minhocas. Dá para distinguir as Plêiades e parte do cinturão de Órion, borrado mas reconhecível. Fiquei uma hora lá em cima com um cobertor e o chá; não sei se isso é astrofotografia, mas funciona."
   },
   {
     "ruta": "entradas.53.titulo",
@@ -441,7 +441,7 @@
   },
   {
     "ruta": "entradas.55.texto",
-    "texto": "7.260 de 14.400. Exatamente a metade da viagem está na conta e ainda restam três meses de gorjetas e turnos extras. Fiz a conta duas vezes porque não acreditava, e depois contei para a Laika, minha contadora emocional. O que mais me surpreende não é o dinheiro, é que faz cinco meses seguidos que anoto cada gasto sem desistir."
+    "texto": "{monto:20900} de {monto:41500}. Exatamente a metade da viagem está na conta e ainda restam três meses de gorjetas e turnos extras. Fiz a conta duas vezes porque não acreditava, e depois contei para a Laika, minha contadora emocional. O que mais me surpreende não é o dinheiro, é que faz cinco meses seguidos que anoto cada gasto sem desistir."
   },
   {
     "ruta": "entradas.56.titulo",
@@ -505,7 +505,7 @@
   },
   {
     "ruta": "entradas.63.texto",
-    "texto": "Fui ligar o carro para ir ao laboratório e o barulho foi de lata cheia de parafuso solto. Levei na oficina da rua Robles: bomba d'água e correia, 380 euros e dois dias sem carro. Bem nessa semana, com o joelho parado e o turno de sexta dobrado. Ri sozinho na calçada porque chorar na calçada dava mais vergonha."
+    "texto": "Fui ligar o carro para ir ao laboratório e o barulho foi de lata cheia de parafuso solto. Levei na oficina da rua Robles: bomba d'água e correia, {monto:6570} e dois dias sem carro. Bem nessa semana, com o joelho parado e o turno de sexta dobrado. Ri sozinho na calçada porque chorar na calçada dava mais vergonha."
   },
   {
     "ruta": "entradas.64.titulo",
@@ -513,7 +513,7 @@
   },
   {
     "ruta": "entradas.64.texto",
-    "texto": "Decidi que os 380 euros saem da reserva de emergência e não do envelope do Japão, mesmo que a reserva fique zerada. Corto duas coisas esse mês: zero café fora e zero pedido de comida. As gorjetas da quinzena foram fracas, 46 euros, então é hora de apertar mesmo. Pelo menos agora sei exatamente quanto tenho, o que em outubro eu nem de brincadeira sabia."
+    "texto": "Decidi que os {monto:6570} saem da reserva de emergência e não do envelope do Japão, mesmo que a reserva fique zerada. Corto duas coisas esse mês: zero café fora e zero pedido de comida. As gorjetas da quinzena foram fracas, {monto:800}, então é hora de apertar mesmo. Pelo menos agora sei exatamente quanto tenho, o que em outubro eu nem de brincadeira sabia."
   },
   {
     "ruta": "entradas.65.titulo",
@@ -529,7 +529,7 @@
   },
   {
     "ruta": "entradas.66.texto",
-    "texto": "Estou cheio de tudo caindo ao mesmo tempo: prova de eletromagnetismo na quinta, turno dobrado no sábado, o joelho travado e a conta em 190 euros. Escrevo isso com o gelo no joelho e muita vontade de mandar o ano inteiro para escanteio. Não vou fingir que existe uma lição bonita para tirar de hoje. A única coisa que faço é anotar, para lembrar que isso também aconteceu."
+    "texto": "Estou cheio de tudo caindo ao mesmo tempo: prova de eletromagnetismo na quinta, turno dobrado no sábado, o joelho travado e a conta em {monto:3290}. Escrevo isso com o gelo no joelho e muita vontade de mandar o ano inteiro para escanteio. Não vou fingir que existe uma lição bonita para tirar de hoje. A única coisa que faço é anotar, para lembrar que isso também aconteceu."
   },
   {
     "ruta": "entradas.67.titulo",
@@ -561,7 +561,7 @@
   },
   {
     "ruta": "entradas.70.texto",
-    "texto": "Quinta às onze, primeira sessão, 35 euros cada uma e preciso de quatro ou cinco. Coloquei no orçamento como gasto de saúde, não como capricho, que é o que eu teria pensado em janeiro. O joelho já deixa eu descer escada quase normal. Estou começando a acreditar que isso se resolve e que em setembro vou andar muito pelo Japão sem problema."
+    "texto": "Quinta às onze, primeira sessão, {monto:600} cada uma e preciso de quatro ou cinco. Coloquei no orçamento como gasto de saúde, não como capricho, que é o que eu teria pensado em janeiro. O joelho já deixa eu descer escada quase normal. Estou começando a acreditar que isso se resolve e que em setembro vou andar muito pelo Japão sem problema."
   },
   {
     "ruta": "entradas.71.titulo",
@@ -593,7 +593,7 @@
   },
   {
     "ruta": "entradas.74.texto",
-    "texto": "Vinte minutos sem parar, bem devagar, e o joelho nem se abalou. Estou me obrigando a não subir mais de dez por cento por semana, mesmo com vontade de fazer uma hora amanhã. Aprendi a lição na base do caro: 380 euros e três semanas. O plano até o Japão é simples, quarenta minutos confortáveis e nada de longão."
+    "texto": "Vinte minutos sem parar, bem devagar, e o joelho nem se abalou. Estou me obrigando a não subir mais de dez por cento por semana, mesmo com vontade de fazer uma hora amanhã. Aprendi a lição na base do caro: {monto:6570} e três semanas. O plano até o Japão é simples, quarenta minutos confortáveis e nada de longão."
   },
   {
     "ruta": "entradas.75.titulo",
@@ -601,7 +601,7 @@
   },
   {
     "ruta": "entradas.75.texto",
-    "texto": "Envelope do Japão em 85 por cento da meta: 13.260 de 15.600 reais. A reserva de emergência voltou a ter 200 euros depois do golpe da oficina. Mais duas quinzenas e chego bem na hora, contando as gorjetas de agosto, que costumam ser boas. Escrevo isso aqui porque em outubro eu nem sabia quanto gastava em café."
+    "texto": "Envelope do Japão em 85 por cento da meta: {monto:38200} de {monto:45000}. A reserva de emergência voltou a ter {monto:3460} depois do golpe da oficina. Mais duas quinzenas e chego bem na hora, contando as gorjetas de agosto, que costumam ser boas. Escrevo isso aqui porque em outubro eu nem sabia quanto gastava em café."
   },
   {
     "ruta": "entradas.76.titulo",
@@ -657,7 +657,7 @@
   },
   {
     "ruta": "entradas.82.texto",
-    "texto": "Vinte e um quilômetros andando entre Shinjuku, Yanaka e uma livraria onde fiquei uma hora sem entender quase nada. Os trens chegam no segundo certo e eu, que em casa chego atrasado no turno, me sinto observado pelo sistema. Jantei num konbini: onigiri, ovo cozido e uma sopa, cinco euros e melhor do que muita coisa cara. O joelho, calado."
+    "texto": "Vinte e um quilômetros andando entre Shinjuku, Yanaka e uma livraria onde fiquei uma hora sem entender quase nada. Os trens chegam no segundo certo e eu, que em casa chego atrasado no turno, me sinto observado pelo sistema. Jantei num konbini: onigiri, ovo cozido e uma sopa, {monto:87} e melhor do que muita coisa cara. O joelho, calado."
   },
   {
     "ruta": "entradas.83.titulo",
@@ -737,7 +737,7 @@
   },
   {
     "ruta": "entradas.92.texto",
-    "texto": "Última noite em Osaka e fiz a soma: 14.880 dos 15.600 reais economizados, incluindo passagem, trem, camas e comida. Fechou quase ao real, o que me dá um orgulho estranho e muito contábil. Levo para casa chá de três lugares, um caderno, uma palheta de nada para o teclado e sessenta e uma páginas escritas. Amanhã o voo longo e na quinta o turno das sete na cafeteria."
+    "texto": "Última noite em Osaka e fiz a soma: {monto:42900} dos {monto:45000} economizados, incluindo passagem, trem, camas e comida. Fechou quase exato, o que me dá um orgulho estranho e muito contábil. Levo para casa chá de três lugares, um caderno, uma palheta de nada para o teclado e sessenta e uma páginas escritas. Amanhã o voo longo e na quinta o turno das sete na cafeteria."
   },
   {
     "ruta": "entradas.93.titulo",
@@ -785,7 +785,7 @@
   },
   {
     "ruta": "entradas.98.texto",
-    "texto": "Voltei a montar o orçamento por envelopes depois de três semanas sem olhar. A conta da viagem ficou em 708 reais e isso não é um fracasso: era exatamente o plano. Linha nova a partir dessa quinzena: fundo de emergência, 40 euros por pagamento. As gorjetas da semana foram 27 euros e vão inteiras para lá."
+    "texto": "Voltei a montar o orçamento por envelopes depois de três semanas sem olhar. A conta da viagem ficou em {monto:2040} e isso não é um fracasso: era exatamente o plano. Linha nova a partir dessa quinzena: fundo de emergência, {monto:690} por pagamento. As gorjetas da semana foram {monto:470} e vão inteiras para lá."
   },
   {
     "ruta": "entradas.99.titulo",
@@ -817,7 +817,7 @@
   },
   {
     "ruta": "entradas.102.texto",
-    "texto": "O carro não pegou às seis e meia e fui para a cafeteria de bike correndo. Bateria nova: 72 euros do fundo de emergência recém-estreado, que agora está em 8. O carro tem dezenove anos e a cada trimestre ele me lembra que existe. Pelo menos dessa vez não afundou o mês, só me irritou."
+    "texto": "O carro não pegou às seis e meia e fui para a cafeteria de bike correndo. Bateria nova: {monto:1250} do fundo de emergência recém-estreado, que agora está em {monto:140}. O carro tem dezenove anos e a cada trimestre ele me lembra que existe. Pelo menos dessa vez não afundou o mês, só me irritou."
   },
   {
     "ruta": "entradas.103.titulo",
@@ -881,7 +881,7 @@
   },
   {
     "ruta": "entradas.110.texto",
-    "texto": "Inscrição feita: maratona, 38 euros, cinco semanas de plano. A Nadia topou com duas condições: fisio a cada quinze dias e parar no primeiro aviso do joelho. É agressivo e eu sei disso; também sei que faz seis meses que venho somando quilômetros quase sem falhar. Escrevi 42,195 no quadro da cozinha e fiquei olhando um tempo."
+    "texto": "Inscrição feita: maratona, {monto:660}, cinco semanas de plano. A Nadia topou com duas condições: fisio a cada quinze dias e parar no primeiro aviso do joelho. É agressivo e eu sei disso; também sei que faz seis meses que venho somando quilômetros quase sem falhar. Escrevi 42,195 no quadro da cozinha e fiquei olhando um tempo."
   },
   {
     "ruta": "entradas.111.titulo",
@@ -969,7 +969,7 @@
   },
   {
     "ruta": "entradas.121.texto",
-    "texto": "Caminhadas de uma hora em vez de corrida, chá no lugar de café à tarde e a Laika insuportavelmente grudada em mim. Dei uma olhada em passagens para Seul daqui a um ano, sem comprar nada, só para calcular quanto teria que guardar por quinzena: uns 55 euros. Também tirei a partitura da Arabesca nº 1 e ri sozinho. Amanhã ensaio o Clair de Lune três vezes seguidas, porque no domingo toco para minha família."
+    "texto": "Caminhadas de uma hora em vez de corrida, chá no lugar de café à tarde e a Laika insuportavelmente grudada em mim. Dei uma olhada em passagens para Seul daqui a um ano, sem comprar nada, só para calcular quanto teria que guardar por quinzena: uns {monto:950}. Também tirei a partitura da Arabesca nº 1 e ri sozinho. Amanhã ensaio o Clair de Lune três vezes seguidas, porque no domingo toco para minha família."
   },
   {
     "ruta": "entradas.122.titulo",
@@ -985,7 +985,7 @@
   },
   {
     "ruta": "entradas.123.texto",
-    "texto": "Passei meia hora revendo o ano no app. 74 kg antes, 67,0 essa manhã; 1.214 quilômetros corridos; um 5K, um 10K, uma meia e uma maratona. 15.600 reais economizados e gastos em três semanas de Japão, 61 páginas de diário de bordo e 118 entradas aqui. O que não aparece nos números: há um ano eu ia dormir às duas com o celular na cara."
+    "texto": "Passei meia hora revendo o ano no app. 74 kg antes, 67,0 essa manhã; 1.214 quilômetros corridos; um 5K, um 10K, uma meia e uma maratona. {monto:45000} economizados e gastos em três semanas de Japão, 61 páginas de diário de bordo e 118 entradas aqui. O que não aparece nos números: há um ano eu ia dormir às duas com o celular na cara."
   },
   {
     "ruta": "entradas.124.titulo",

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { useT } from '../../i18n/useT'
+import { localeActual, useT } from '../../i18n/useT'
 import { obtenerSupabase } from '../../cuenta/supabase'
 import { useSesion } from '../../cuenta/sesionStore'
 
@@ -225,7 +225,7 @@ export function PanelCapacidad() {
                 <p>
                   {datos.estado.ultima_subida
                     ? t('cap.subida.ultima', 'Última subida automática: {f}.', {
-                        f: new Date(datos.estado.ultima_subida).toLocaleDateString(),
+                        f: new Date(datos.estado.ultima_subida).toLocaleDateString(localeActual()),
                       })
                     : t('cap.subida.nunca', 'Subida automática de compute activa: solo actúa con CPU o RAM en rojo 3 días.')}
                 </p>

@@ -28,8 +28,10 @@ import { XP_POR_LISTA } from '../core/gamificacion/listas'
 import { fechaLocalISO } from '../core/fechaLocal'
 import { marcarEscrituraSilenciosa, setSinOutbox } from '../core/data/sync/middleware'
 import { claveLS, esDemo, esDemoAutor } from '../core/edicion'
+import { esperarIdioma } from '../core/i18n/dict'
+import { idiomaActual } from '../core/i18n/useT'
 import { BUILDERS_DEMO, crearCtxDemo } from './builders'
-import { restaurarSnapshot, type SnapshotCasa } from './casaSnapshot'
+import { localizarSnapshot, restaurarSnapshot, type SnapshotCasa } from './casaSnapshot'
 import { appsConstruidas, leerIntent, marcarAppConstruida, marcarDemoConstruido } from './modo'
 import { fotografiarDemo, fotografiarTablasDemo } from './sandbox'
 import { guardarSpawnDemo } from './spawn'
@@ -109,8 +111,13 @@ async function construir(onProgreso?: ProgresoDemo, apps?: string[]): Promise<vo
     }
 
     empezar('demo.paso.casa')
+    // El nombre de la protagonista, sus letreros y la rutina de sueño se GRABAN
+    // traducidos con `tGlobal`: sin esperar al diccionario salían «Pep@» y el
+    // español cuando la construcción le ganaba la carrera al chunk del idioma.
+    await esperarIdioma(idiomaActual())
     const snap = await cargarSnapshot()
     if (snap) {
+      localizarSnapshot(snap)
       await restaurarSnapshot(snap)
       // Los tiempos vivos del snapshot quedaron congelados al exportar: se
       // corren por el delta (el camino casaPep no lo necesita: nacen vivos).
@@ -211,6 +218,7 @@ async function construirApp(app: string): Promise<void> {
   setSinOutbox(true)
   let fallo: unknown = null
   try {
+    await esperarIdioma(idiomaActual())
     // El catálogo de fábrica va antes que el builder y DENTRO de la colecta: sus
     // tablas entran en la foto parcial y el auto-seed de la app ve su bandera puesta.
     const catalogo = await CATALOGOS_APP[app]?.()

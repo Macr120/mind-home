@@ -3,7 +3,7 @@ import type { Hobby, ProyectoHobby, SesionHobby } from '../../core/data/db'
 import { hobbiesRepo, proyectosHobbyRepo, sesionesHobbyRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { borrarMetasDeAmbito } from '../../core/metas'
-import { actividadId } from '../../core/rutinas'
+import { actividadId, diasSemanaLunes } from '../../core/rutinas'
 import { HorarioActividad } from '../../core/ui/HorarioActividad'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { Archivador } from '../_shared/Archivador'
@@ -22,8 +22,8 @@ import {
   totales,
 } from './stats'
 import { vivo } from '../../core/ui/estilos'
+import { textoMin } from '../../core/i18n/duracion'
 
-const DIAS_SEMANA = ['L', 'M', 'X', 'J', 'V', 'S', 'D']
 const MINUTOS_RAPIDOS = [15, 30, 45, 60]
 
 /** Vista de un hobby: stats, meta semanal, registro de sesiones, heatmaps y proyectos. */
@@ -190,7 +190,7 @@ export function DetalleHobby({
                 } ${fechas.has(f) ? 'texto-cta' : 'text-white/35'}`}
                 style={{ background: fechas.has(f) ? hobby.color : 'rgba(255,255,255,0.05)' }}
               >
-                {DIAS_SEMANA[i]}
+                {diasSemanaLunes()[i]}
               </div>
             ))}
           </div>
@@ -229,7 +229,7 @@ export function DetalleHobby({
               }`}
               style={minutos === m ? { background: hobby.color } : undefined}
             >
-              {m} min
+              {textoMin(m)}
             </button>
           ))}
           <input
@@ -240,7 +240,7 @@ export function DetalleHobby({
             onChange={(e) => setMinutos(Number(e.target.value))}
             className="w-20 rounded-lg border border-white/10 bg-black/30 px-2 py-1.5 text-sm outline-none focus:border-white/30"
           />
-          <span className="text-xs text-white/45">min</span>
+          <span className="text-xs text-white/45">{t('ui.unidad.min', 'min')}</span>
         </div>
         <div className="flex flex-wrap gap-2">
           <input

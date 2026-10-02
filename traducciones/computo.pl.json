@@ -426,5 +426,17 @@
   {
     "ruta": "hojas.2.celdas.A10.crudo",
     "texto": "Potrzebuję na koniec"
+  },
+  {
+    "ruta": "hojas.0.celdas.A17.crudo",
+    "texto": "Razem ¥"
+  },
+  {
+    "ruta": "hojas.1.celdas.A21.crudo",
+    "texto": "Razem"
+  },
+  {
+    "ruta": "hojas.2.celdas.A6.crudo",
+    "texto": "Egzamin końcowy"
   }
 ]

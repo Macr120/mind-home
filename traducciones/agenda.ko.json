@@ -350,5 +350,129 @@
   {
     "ruta": "pendientes.4",
     "texto": "바용 새 그라인더 견적 받기"
+  },
+  {
+    "ruta": "contactos.0.relacion",
+    "texto": "가족"
+  },
+  {
+    "ruta": "contactos.1.relacion",
+    "texto": "가족"
+  },
+  {
+    "ruta": "contactos.2.relacion",
+    "texto": "친구"
+  },
+  {
+    "ruta": "contactos.3.relacion",
+    "texto": "친구"
+  },
+  {
+    "ruta": "contactos.4.relacion",
+    "texto": "직장"
+  },
+  {
+    "ruta": "contactos.5.relacion",
+    "texto": "직장"
+  },
+  {
+    "ruta": "contactos.6.relacion",
+    "texto": "대학교"
+  },
+  {
+    "ruta": "contactos.7.relacion",
+    "texto": "대학교"
+  },
+  {
+    "ruta": "trabajo.7.lugar",
+    "texto": "노르테 광장"
+  },
+  {
+    "ruta": "personas.0.con",
+    "texto": "나디아 세라노"
+  },
+  {
+    "ruta": "personas.1.con",
+    "texto": "로사 비달"
+  },
+  {
+    "ruta": "personas.2.con",
+    "texto": "이케르 도밍게스"
+  },
+  {
+    "ruta": "personas.3.con",
+    "texto": "나디아 세라노"
+  },
+  {
+    "ruta": "personas.4.con",
+    "texto": "토마스 이리아르테"
+  },
+  {
+    "ruta": "personas.5.con",
+    "texto": "로사 비달"
+  },
+  {
+    "ruta": "personas.6.con",
+    "texto": "마리솔 카세레스"
+  },
+  {
+    "ruta": "personas.7.con",
+    "texto": "카밀라 비달"
+  },
+  {
+    "ruta": "personas.8.con",
+    "texto": "로사 비달"
+  },
+  {
+    "ruta": "personas.9.con",
+    "texto": "토마스 이리아르테"
+  },
+  {
+    "ruta": "personas.10.con",
+    "texto": "나디아 세라노"
+  },
+  {
+    "ruta": "personas.11.con",
+    "texto": "브루노 페레르"
+  },
+  {
+    "ruta": "personas.12.con",
+    "texto": "로사 비달"
+  },
+  {
+    "ruta": "personas.13.con",
+    "texto": "이케르 도밍게스"
+  },
+  {
+    "ruta": "contactos.0.nombre",
+    "texto": "로사 비달"
+  },
+  {
+    "ruta": "contactos.1.nombre",
+    "texto": "카밀라 비달"
+  },
+  {
+    "ruta": "contactos.2.nombre",
+    "texto": "나디아 세라노"
+  },
+  {
+    "ruta": "contactos.3.nombre",
+    "texto": "토마스 이리아르테"
+  },
+  {
+    "ruta": "contactos.4.nombre",
+    "texto": "마리솔 카세레스"
+  },
+  {
+    "ruta": "contactos.5.nombre",
+    "texto": "브루노 페레르"
+  },
+  {
+    "ruta": "contactos.6.nombre",
+    "texto": "이케르 도밍게스"
+  },
+  {
+    "ruta": "contactos.7.nombre",
+    "texto": "엘레나 푸이그"
   }
 ]

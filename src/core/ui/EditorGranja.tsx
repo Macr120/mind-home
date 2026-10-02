@@ -84,8 +84,8 @@ export function EditorGranja() {
                   type="button"
                   data-tut={`granja.animal.${a}`}
                   onClick={() => g.setTipo(a)}
-                  title={`${t(`granja.animal.${a}`, ANIMALES[a].nombre)} · ${t('granja.come', 'come cada')} ${ANIMALES[a].horasHambre} h`}
-                  aria-label={`${t(`granja.animal.${a}`, ANIMALES[a].nombre)} · ${t('granja.come', 'come cada')} ${ANIMALES[a].horasHambre} h`}
+                  title={`${t(`granja.animal.${a}`, ANIMALES[a].nombre)} · ${t('granja.come', 'come cada')} ${t('ui.dur.h', '{n} h', { n: ANIMALES[a].horasHambre })}`}
+                  aria-label={`${t(`granja.animal.${a}`, ANIMALES[a].nombre)} · ${t('granja.come', 'come cada')} ${t('ui.dur.h', '{n} h', { n: ANIMALES[a].horasHambre })}`}
                   className={`${tarjetaAnimal} ${
                     tipo === a
                       ? 'border-emerald-400/60 bg-emerald-600'
@@ -99,7 +99,7 @@ export function EditorGranja() {
                     <span className="truncate">{t(`granja.animal.${a}`, ANIMALES[a].nombre)}</span>
                   </span>
                   <span className="text-[10px] font-normal leading-none text-white/55">
-                    {ANIMALES[a].horasHambre} h
+                    {t('ui.dur.h', '{n} h', { n: ANIMALES[a].horasHambre })}
                   </span>
                 </button>
               ))}

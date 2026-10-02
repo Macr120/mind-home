@@ -77,8 +77,8 @@ export async function construirCasaPep(): Promise<void> {
   // ── Identidad: Pep@ y su gata Laika ──────────────────────────────────────
   const D = useDiseño.getState
   await D().setAvatarNombre(tGlobal('demo.pep.nombre', 'Pep@'))
-  await D().setAvatarPrenda('playera', '#f59e0b')
-  await D().setAvatarPrenda('pantalon', '#334155')
+  await D().setAvatarPrenda('playera', '#b36bfb')
+  await D().setAvatarPrenda('pantalon', '#f53b4b')
   await D().setAvatarPrenda('tenis', '#e5e7eb')
 
   await useAsistentes.getState().guardar({

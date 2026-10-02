@@ -129,6 +129,7 @@ export function RegistroComida({
 
   const mostrarCampos = manual || conValores
   const momentoActual = getMomento(momento)
+  const nombreMomento = t(`cocina.momento.${momentoActual.id}`, momentoActual.label)
 
   return (
     <form onSubmit={agregar} className="rounded-xl bg-white/5 p-4 space-y-3 border border-white/10">
@@ -145,13 +146,13 @@ export function RegistroComida({
           justo donde se apunta la cena, y no en una tarjeta aparte. */}
       <div className="flex items-center gap-2 rounded-lg bg-black/20 px-2.5 py-2">
         <span className="w-24 shrink-0 text-xs font-semibold text-white/70">
-          <Icono emoji={momentoActual.icon} /> {momentoActual.label}
+          <Icono emoji={momentoActual.icon} /> {nombreMomento}
         </span>
         <HorarioActividad
           actividad={{
             actividadId: actividadId('momento', momentoActual.id),
             plantillaId: 'cocina',
-            nombre: momentoActual.label,
+            nombre: nombreMomento,
             emoji: momentoActual.icon,
             horaSugerida: HORA_SUGERIDA[momentoActual.id],
             seccion: 'diario',
@@ -255,7 +256,7 @@ export function RegistroComida({
           conValores || !conIA ? 'ui-accent-bg' : 'bg-white/10'
         }`}
       >
-        {t('cocina.añadir', `Añadir a ${getMomento(momento).label}`, { momento: getMomento(momento).label })}
+        {t('cocina.añadir', 'Añadir a {momento}', { momento: nombreMomento })}
       </button>
     </form>
   )

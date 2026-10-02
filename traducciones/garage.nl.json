@@ -137,7 +137,7 @@
   },
   {
     "ruta": "talleres.0.nombre",
-    "texto": "Taller Mecánico Rivas"
+    "texto": "Autogarage Rivas"
   },
   {
     "ruta": "talleres.0.direccion",
@@ -149,7 +149,7 @@
   },
   {
     "ruta": "talleres.1.nombre",
-    "texto": "Seguros Meridiano - verzekeringsagent Nadia Ortega"
+    "texto": "Meridiano Verzekeringen - adviseur Nadia Ortega"
   },
   {
     "ruta": "talleres.1.direccion",
@@ -161,7 +161,7 @@
   },
   {
     "ruta": "talleres.2.nombre",
-    "texto": "Verificentro 09-118 Iztaccíhuatl"
+    "texto": "Emissiekeuring 09-118 Iztaccíhuatl"
   },
   {
     "ruta": "talleres.2.direccion",
@@ -181,7 +181,7 @@
   },
   {
     "ruta": "talleres.4.nombre",
-    "texto": "Grúas Tepeyac 24 horas"
+    "texto": "Sleepdienst Tepeyac 24 uur"
   },
   {
     "ruta": "talleres.4.direccion",
@@ -230,5 +230,13 @@
   {
     "ruta": "tramites.4.nota",
     "texto": "Elke zes maanden bij Ciclos Malinche: wielen gecentreerd, kabels en remmen nagekeken, wat veel goedkoper is dan een verbogen wiel te repareren."
+  },
+  {
+    "ruta": "vehiculos.biciNombre",
+    "texto": "De Kraanvogel"
+  },
+  {
+    "ruta": "vehiculos.autoNombre",
+    "texto": "De Mastodont"
   }
 ]

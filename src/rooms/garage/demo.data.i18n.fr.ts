@@ -8,9 +8,9 @@
  */
 export default {
   "vehiculos": {
-    "biciNombre": "La Grulla",
+    "biciNombre": "La Grue",
     "biciNota": "Vélo en acier d’occasion, gris et un peu bruyant, qui m’emmène au travail, au labo et à l’entraînement tous les jours. En un an, il ne m’a jamais laissé en plan.",
-    "autoNombre": "El Mastodonte",
+    "autoNombre": "Le Mastodonte",
     "autoNota": "Berline héritée de mon oncle, plus vieille que moi, avec un tableau de bord décoloré par le soleil. Je la démarre une fois toutes les deux semaines, et elle me fait payer chaque oubli avec intérêts."
   },
   "servicios": [
@@ -130,32 +130,32 @@ export default {
   "talleres": [
     {
       "clave": "taller",
-      "nombre": "Taller Mecánico Rivas",
+      "nombre": "Garage Rivas",
       "direccion": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez",
       "notas": "Don Rivas m’explique ce qui est vraiment urgent et ce qui peut attendre, et il n’a jamais gonflé une facture ; c’est le seul en qui j’ai confiance pour cette voiture."
     },
     {
       "clave": "aseguradora",
-      "nombre": "Seguros Meridiano - agente Nadia Ortega",
+      "nombre": "Assurances Meridiano - agente Nadia Ortega",
       "direccion": "Av. Insurgentes Sur 1234, 3e étage, Col. Del Valle",
       "notas": "Nadia répond sur WhatsApp même le dimanche, et elle m’a mis en place des paiements mensuels quand je suis passé à la couverture tous risques."
     },
     {
       "clave": "verificentro",
-      "nombre": "Verificentro 09-118 Iztaccíhuatl",
+      "nombre": "Contrôle antipollution 09-118 Iztaccíhuatl",
       "direccion": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez",
       "notas": "Rendez-vous à sept heures du matin, et je ressors en quarante minutes ; celui de Coyoacán m’a coûté une demi-matinée de queue."
     },
     {
       "clave": "ciclos",
-      "nombre": "Ciclos Malinche",
+      "nombre": "Cycles Malinche",
       "direccion": "Zacatecas 145, Col. Roma Sur, Cuauhtémoc",
       "notas": "C’est là que j’ai acheté le vélo et là que je le fais réviser ; ils me prêtent des outils et m’apprennent à le faire moi-même au lieu de me facturer chaque chose."
     },
     {
       "clave": "grua",
-      "nombre": "Grúas Tepeyac 24 horas",
-      "direccion": "Base à Eje Central Lázaro Cárdenas 1105, Col. Álamos",
+      "nombre": "Dépannage Tepeyac 24 h/24",
+      "direccion": "Base : Eje Central Lázaro Cárdenas 1105, Col. Álamos",
       "notas": "C’est le numéro que j’ai composé la nuit de la panne ; ils sont arrivés en une heure et demie et n’ont pas essayé de m’arnaquer sur le prix."
     }
   ],
@@ -183,7 +183,7 @@ export default {
     {
       "clave": "afinacionBici",
       "titulo": "Révision du vélo",
-      "nota": "Tous les six mois chez Ciclos Malinche : dévoilage des roues, câbles et freins, ce qui revient bien moins cher que de réparer une roue voilée."
+      "nota": "Tous les six mois chez Cycles Malinche : dévoilage des roues, câbles et freins, ce qui revient bien moins cher que de réparer une roue voilée."
     }
   ]
 }

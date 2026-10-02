@@ -25,6 +25,7 @@ import { sembrarMetasApp } from '../../demo/metasPep'
 import { reconciliarAgenda } from './calendario'
 import { DURACION_DEFECTO_MIN, DURACION_TOMA_MIN } from './constantes'
 import { DEMO_AGENDA } from './demo.data'
+import { textoDemo, type ClaveDemo } from '../../demo/textosDemo'
 import { nuevoId } from './ids'
 import { DURACION_CUIDADO_MIN } from './mascotas'
 import { inferirEspecialidad } from './salud'
@@ -36,9 +37,7 @@ const DIAS_CUMPLE = [12, -80, 45, -140, 3, 200, -210, 120]
 
 export async function construirDemoAgenda(ctx: CtxDemo): Promise<void> {
   const datos = await ctx.textos(DEMO_AGENDA, () => import('./demo.data.i18n'))
-  // Aquí «es» significa «no es inglés»: los idiomas que todavía no tienen
-  // su variante inline leen el español, que es el respaldo de todo.
-  const es = ctx.idioma !== 'en'
+  const tx = (clave: ClaveDemo) => textoDemo(ctx.idioma, clave)
   const r = rngDemo(31081934)
   const enHora = (off: number, hora = '09:00') => `${ctx.fecha(off)}T${hora}:00.000Z`
   // Todo lo que la agenda proyecta al calendario lleva hora, así que pide su
@@ -87,14 +86,17 @@ export async function construirDemoAgenda(ctx: CtxDemo): Promise<void> {
   // ── Laika: la gata que llegó en el mes 3, con sus cuidados al día ────────
   const mascId = nuevoId('ms')
   const fotoLaika = await ctx.foto('anecdotario/laika')
+  // La clínica de su ficha es la de sus citas: el contenido ya la nombra en cada idioma.
+  const citaLaika = datos.salud[DEMO_AGENDA.es.salud.findIndex((e) => /laika/i.test(e.titulo) && 'lugar' in e)]
+  const veterinario = citaLaika && 'lugar' in citaLaika ? citaLaika.lugar : undefined
   await mascotasRepo.add({
     mascId,
-    nombre: 'Laika',
+    nombre: tx('casa.laika.nombre'),
     especie: 'gato',
-    raza: es ? 'Criolla' : 'Domestic shorthair',
+    raza: tx('ag.raza'),
     nacimiento: ctx.fecha(-420),
     peso: 3.4,
-    veterinario: es ? 'Clínica Vetamigos' : 'Vetfriends Clinic',
+    ...(veterinario ? { veterinario } : {}),
     telefono: '55 4412 8890',
     ...(fotoLaika ? { foto: fotoLaika } : {}),
     creadoEn: enHora(-304, '12:00'),
@@ -102,9 +104,9 @@ export async function construirDemoAgenda(ctx: CtxDemo): Promise<void> {
   // La hora de cada cuidado sale del planificador: son citas de un día concreto
   // (la clínica, el baño) y tienen que caber en él.
   const cuidados: [number, 'vacuna' | 'desparasitacion' | 'bano', string, string][] = [
-    [56, 'vacuna', es ? 'Vacuna anual' : 'Annual shot', '10:00'],
-    [55, 'desparasitacion', es ? 'Desparasitación' : 'Deworming', '10:30'],
-    [10, 'bano', es ? 'Baño y cepillado' : 'Bath and brushing', '17:00'],
+    [56, 'vacuna', tx('ag.vacuna'), '10:00'],
+    [55, 'desparasitacion', tx('ag.desparasitacion'), '10:30'],
+    [10, 'bano', tx('ag.bano'), '17:00'],
   ]
   await cuidadosMascotaRepo.bulkAdd(
     cuidados.map(([dia, tipo, titulo, preferida], i) => ({
@@ -129,8 +131,8 @@ export async function construirDemoAgenda(ctx: CtxDemo): Promise<void> {
   await medicamentosRepo.bulkAdd([
     {
       medId: nuevoId('md'),
-      nombre: es ? 'Vitamina D' : 'Vitamin D',
-      dosis: '1000 UI',
+      nombre: tx('ag.vitaminaD'),
+      dosis: tx('ag.dosisVitaminaD'),
       horas: [TOMA_VITAMINA],
       dias: [],
       fechaInicio: ctx.fecha(-250),
@@ -139,26 +141,26 @@ export async function construirDemoAgenda(ctx: CtxDemo): Promise<void> {
     },
     {
       medId: nuevoId('md'),
-      nombre: es ? 'Antiinflamatorio' : 'Anti-inflammatory',
+      nombre: tx('ag.antiinflamatorio'),
       dosis: '400 mg',
       horas: TOMAS_ANTIINFLAMATORIO,
       dias: [],
       fechaInicio: ctx.fecha(-184),
       fechaFin: ctx.fecha(-163),
-      notas: es ? 'Por la rodilla, mientras duró la lesión.' : 'For the knee, while the injury lasted.',
+      notas: tx('ag.notaRodilla'),
       activo: false,
       creadoEn: enHora(-184, '18:00'),
     },
     // El de la madre: el tratamiento que Pep@ le vigila desde que la cuida.
     {
       medId: nuevoId('md'),
-      nombre: es ? 'Enalapril' : 'Enalapril',
+      nombre: tx('ag.enalapril'),
       dosis: '10 mg',
       contactoId: contactoIds[0],
       horas: [TOMA_VITAMINA],
       dias: [],
       fechaInicio: ctx.fecha(-210),
-      notas: es ? 'Para la tensión. No saltarse ninguna.' : 'Blood pressure. Never skip one.',
+      notas: tx('ag.notaTension'),
       activo: true,
       creadoEn: enHora(-210, '09:40'),
     },
@@ -168,11 +170,11 @@ export async function construirDemoAgenda(ctx: CtxDemo): Promise<void> {
   // Mismo trato que los de Laika, porque son la misma clase de cosa: `fecha` es
   // SIEMPRE la próxima vez y `ultima` resume el historial.
   const cuidadosPersona: [number, TipoCuidadoPersona, string, number, number, string | undefined][] = [
-    [40, 'chequeo', es ? 'Chequeo general' : 'General checkup', 12, -325, undefined],
-    [95, 'dental', es ? 'Limpieza dental' : 'Dental cleaning', 6, -130, undefined],
-    [21, 'visual', es ? 'Revisión de la vista' : 'Eye checkup', 12, -344, undefined],
-    [12, 'chequeo', es ? 'Control de tensión' : 'Blood pressure check', 3, -78, contactoIds[0]],
-    [64, 'analisis', es ? 'Análisis de sangre' : 'Blood tests', 6, -118, contactoIds[0]],
+    [40, 'chequeo', tx('ag.chequeo'), 12, -325, undefined],
+    [95, 'dental', tx('ag.dental'), 6, -130, undefined],
+    [21, 'visual', tx('ag.vista'), 12, -344, undefined],
+    [12, 'chequeo', tx('ag.tension'), 3, -78, contactoIds[0]],
+    [64, 'analisis', tx('ag.analisis'), 6, -118, contactoIds[0]],
   ]
   await cuidadosRepo.bulkAdd(
     cuidadosPersona.map(([dia, tipo, titulo, cadaMeses, ultima, contactoId], i) => ({
@@ -261,24 +263,27 @@ export async function construirDemoAgenda(ctx: CtxDemo): Promise<void> {
       ...(e.lugar ? { lugar: e.lugar } : {}),
     })
   }
-  for (const e of datos.salud) {
+  for (const [i, e] of datos.salud.entries()) {
+    // Las pistas (Laika, la especialidad) se leen del título ESPAÑOL: el
+    // traducido puede no decir «Laika» ni nada que `inferirEspecialidad` conozca.
+    const tituloEs = DEMO_AGENDA.es.salud[i]?.titulo ?? e.titulo
     // Las de Laika son SUYAS: sin `mascotaId` se colaban en «Salud › Tú».
-    const deLaika = /laika/i.test(e.titulo)
+    const deLaika = /laika/i.test(tituloEs)
     agendar('salud', e.dia, e.titulo, {
       hora: conHora('salud', e.dia),
       ...(e.lugar ? { lugar: e.lugar } : {}),
       ...(deLaika ? { mascotaId: mascId } : {}),
-      ...(inferirEspecialidad(e.titulo) && !deLaika
-        ? { especialidad: inferirEspecialidad(e.titulo) }
+      ...(inferirEspecialidad(tituloEs) && !deLaika
+        ? { especialidad: inferirEspecialidad(tituloEs) }
         : {}),
     })
   }
   // Las citas de la madre: van en Salud pero con SU nombre, así que aparecen en
   // su ficha de Prójimos y no en la lista de Pep@.
   const citasMadre: [number, string, string, EspecialidadMedica][] = [
-    [-78, es ? 'Control de tensión' : 'Blood pressure check', es ? 'Dra. Ferrán' : 'Dr. Ferrán', 'cardiologia'],
-    [-118, es ? 'Análisis de sangre' : 'Blood tests', es ? 'Laboratorio Sur' : 'South Lab', 'laboratorio'],
-    [12, es ? 'Revisión con el cardiólogo' : 'Cardiologist follow-up', es ? 'Dra. Ferrán' : 'Dr. Ferrán', 'cardiologia'],
+    [-78, tx('ag.tension'), tx('ag.drFerran'), 'cardiologia'],
+    [-118, tx('ag.analisis'), tx('ag.labSur'), 'laboratorio'],
+    [12, tx('ag.cardiologo'), tx('ag.drFerran'), 'cardiologia'],
   ]
   for (const [dia, titulo, con, especialidad] of citasMadre) {
     agendar('salud', dia, titulo, {
@@ -310,19 +315,12 @@ export async function construirDemoAgenda(ctx: CtxDemo): Promise<void> {
   })
 
   // Lo que viene: la agenda no se acaba hoy.
-  const proximos: [number, 'trabajo' | 'salud' | 'personas', string, string][] = es
-    ? [
-        [2, 'trabajo', 'Turno extra en la cafetería', '14:30'],
-        [4, 'personas', 'Café con la familia', '17:30'],
-        [9, 'salud', 'Revisión de la rodilla', '11:00'],
-        [16, 'trabajo', 'Entrega del proyecto semestral', '10:00'],
-      ]
-    : [
-        [2, 'trabajo', 'Extra shift at the coffee shop', '14:30'],
-        [4, 'personas', 'Coffee with the family', '17:30'],
-        [9, 'salud', 'Knee check-up', '11:00'],
-        [16, 'trabajo', 'Semester project hand-in', '10:00'],
-      ]
+  const proximos: [number, 'trabajo' | 'salud' | 'personas', string, string][] = [
+    [2, 'trabajo', tx('ag.prox.turnoExtra'), '14:30'],
+    [4, 'personas', tx('ag.prox.cafeFamilia'), '17:30'],
+    [9, 'salud', tx('ag.prox.rodilla'), '11:00'],
+    [16, 'trabajo', tx('ag.prox.proyecto'), '10:00'],
+  ]
   for (const [dia, area, titulo, hora] of proximos) {
     eventos.push({
       evId: nuevoId('ag'),

@@ -169,7 +169,7 @@
   },
   {
     "ruta": "fichas.30.titulo",
-    "texto": "Blindsight"
+    "texto": "الرؤية العمياء"
   },
   {
     "ruta": "fichas.31.autor",
@@ -182,5 +182,361 @@
   {
     "ruta": "programa.items.0.detalle",
     "texto": "شاهدت الجزء الثاني أولًا ولم أشاهد العمل الأصلي بعد، فحان وقت ترتيب الأمور."
+  },
+  {
+    "ruta": "fichas.0.genero",
+    "texto": "خيال علمي"
+  },
+  {
+    "ruta": "fichas.1.genero",
+    "texto": "دراما"
+  },
+  {
+    "ruta": "fichas.2.genero",
+    "texto": "خيال علمي"
+  },
+  {
+    "ruta": "fichas.3.genero",
+    "texto": "خيال علمي"
+  },
+  {
+    "ruta": "fichas.4.genero",
+    "texto": "تبسيط العلوم"
+  },
+  {
+    "ruta": "fichas.5.genero",
+    "texto": "خيال علمي"
+  },
+  {
+    "ruta": "fichas.6.genero",
+    "texto": "خيال علمي كلاسيكي"
+  },
+  {
+    "ruta": "fichas.7.genero",
+    "texto": "أنمي"
+  },
+  {
+    "ruta": "fichas.8.genero",
+    "texto": "خيال علمي كلاسيكي"
+  },
+  {
+    "ruta": "fichas.9.genero",
+    "texto": "خيال علمي"
+  },
+  {
+    "ruta": "fichas.10.genero",
+    "texto": "أنمي"
+  },
+  {
+    "ruta": "fichas.11.genero",
+    "texto": "خيال علمي"
+  },
+  {
+    "ruta": "fichas.12.genero",
+    "texto": "خيال علمي"
+  },
+  {
+    "ruta": "fichas.13.genero",
+    "texto": "خيال علمي"
+  },
+  {
+    "ruta": "fichas.14.genero",
+    "texto": "رعب"
+  },
+  {
+    "ruta": "fichas.15.genero",
+    "texto": "خيال علمي"
+  },
+  {
+    "ruta": "fichas.16.genero",
+    "texto": "خيال علمي"
+  },
+  {
+    "ruta": "fichas.17.genero",
+    "texto": "خيال علمي كلاسيكي"
+  },
+  {
+    "ruta": "fichas.18.genero",
+    "texto": "خيال علمي"
+  },
+  {
+    "ruta": "fichas.19.genero",
+    "texto": "أنمي"
+  },
+  {
+    "ruta": "fichas.20.genero",
+    "texto": "خيال علمي كلاسيكي"
+  },
+  {
+    "ruta": "fichas.21.genero",
+    "texto": "أنمي"
+  },
+  {
+    "ruta": "fichas.22.genero",
+    "texto": "دراما"
+  },
+  {
+    "ruta": "fichas.23.genero",
+    "texto": "خيال علمي"
+  },
+  {
+    "ruta": "fichas.24.genero",
+    "texto": "خيال علمي"
+  },
+  {
+    "ruta": "fichas.25.genero",
+    "texto": "تبسيط العلوم"
+  },
+  {
+    "ruta": "fichas.26.genero",
+    "texto": "خيال علمي"
+  },
+  {
+    "ruta": "fichas.27.genero",
+    "texto": "خيال علمي"
+  },
+  {
+    "ruta": "fichas.28.genero",
+    "texto": "خيال علمي"
+  },
+  {
+    "ruta": "fichas.29.genero",
+    "texto": "خيال علمي"
+  },
+  {
+    "ruta": "fichas.30.genero",
+    "texto": "خيال علمي"
+  },
+  {
+    "ruta": "fichas.31.genero",
+    "texto": "خيال علمي كلاسيكي"
+  },
+  {
+    "ruta": "fichas.32.genero",
+    "texto": "خيال علمي"
+  },
+  {
+    "ruta": "fichas.33.genero",
+    "texto": "أنمي"
+  },
+  {
+    "ruta": "fichas.0.titulo",
+    "texto": "بليد رانر 2049"
+  },
+  {
+    "ruta": "fichas.0.autor",
+    "texto": "دوني فيلنوف"
+  },
+  {
+    "ruta": "fichas.1.titulo",
+    "texto": "المرآة السوداء"
+  },
+  {
+    "ruta": "fichas.1.autor",
+    "texto": "تشارلي بروكر"
+  },
+  {
+    "ruta": "fichas.2.autor",
+    "texto": "أورسولا ك. لي غوين"
+  },
+  {
+    "ruta": "fichas.3.autor",
+    "texto": "دوني فيلنوف"
+  },
+  {
+    "ruta": "fichas.4.titulo",
+    "texto": "الكون"
+  },
+  {
+    "ruta": "fichas.4.autor",
+    "texto": "كارل ساغان"
+  },
+  {
+    "ruta": "fichas.5.titulo",
+    "texto": "أوتر وايلدز"
+  },
+  {
+    "ruta": "fichas.5.autor",
+    "texto": "موبيوس ديجيتال"
+  },
+  {
+    "ruta": "fichas.6.autor",
+    "texto": "ستانلي كوبريك"
+  },
+  {
+    "ruta": "fichas.7.titulo",
+    "texto": "كاوبوي بيباب"
+  },
+  {
+    "ruta": "fichas.7.autor",
+    "texto": "شينيتشيرو واتانابي"
+  },
+  {
+    "ruta": "fichas.8.autor",
+    "texto": "فريتز لانغ"
+  },
+  {
+    "ruta": "fichas.9.autor",
+    "texto": "آندي وير"
+  },
+  {
+    "ruta": "fichas.10.titulo",
+    "texto": "أكيرا"
+  },
+  {
+    "ruta": "fichas.10.autor",
+    "texto": "كاتسوهيرو أوتومو"
+  },
+  {
+    "ruta": "fichas.11.titulo",
+    "texto": "بورتال 2"
+  },
+  {
+    "ruta": "fichas.11.autor",
+    "texto": "فالف"
+  },
+  {
+    "ruta": "fichas.12.titulo",
+    "texto": "ذا إكسبانس"
+  },
+  {
+    "ruta": "fichas.13.titulo",
+    "texto": "سولاريس"
+  },
+  {
+    "ruta": "fichas.13.autor",
+    "texto": "ستانيسواف ليم"
+  },
+  {
+    "ruta": "fichas.14.titulo",
+    "texto": "فضائي"
+  },
+  {
+    "ruta": "fichas.14.autor",
+    "texto": "ريدلي سكوت"
+  },
+  {
+    "ruta": "fichas.15.titulo",
+    "texto": "قمر"
+  },
+  {
+    "ruta": "fichas.15.autor",
+    "texto": "دنكان جونز"
+  },
+  {
+    "ruta": "fichas.16.autor",
+    "texto": "ألفونسو كوارون"
+  },
+  {
+    "ruta": "fichas.17.titulo",
+    "texto": "غاتاكا"
+  },
+  {
+    "ruta": "fichas.17.autor",
+    "texto": "أندرو نيكول"
+  },
+  {
+    "ruta": "fichas.18.titulo",
+    "texto": "ديث ستراندنغ"
+  },
+  {
+    "ruta": "fichas.18.autor",
+    "texto": "كوجيما برودكشنز"
+  },
+  {
+    "ruta": "fichas.19.titulo",
+    "texto": "بلانيتيس"
+  },
+  {
+    "ruta": "fichas.19.autor",
+    "texto": "سنرايز"
+  },
+  {
+    "ruta": "fichas.20.titulo",
+    "texto": "غودزيلا"
+  },
+  {
+    "ruta": "fichas.20.autor",
+    "texto": "إيشيرو هوندا"
+  },
+  {
+    "ruta": "fichas.21.titulo",
+    "texto": "غوست إن ذا شيل"
+  },
+  {
+    "ruta": "fichas.21.autor",
+    "texto": "مامورو أوشي"
+  },
+  {
+    "ruta": "fichas.22.autor",
+    "texto": "ياسوجيرو أوزو"
+  },
+  {
+    "ruta": "fichas.23.autor",
+    "texto": "ليو تسي شين"
+  },
+  {
+    "ruta": "fichas.24.titulo",
+    "texto": "أوتر وايلدز"
+  },
+  {
+    "ruta": "fichas.24.autor",
+    "texto": "موبيوس ديجيتال"
+  },
+  {
+    "ruta": "fichas.25.autor",
+    "texto": "كارلو روفيلي"
+  },
+  {
+    "ruta": "fichas.26.autor",
+    "texto": "أورسولا ك. لي غوين"
+  },
+  {
+    "ruta": "fichas.27.autor",
+    "texto": "دوني فيلنوف"
+  },
+  {
+    "ruta": "fichas.28.titulo",
+    "texto": "أناثيم"
+  },
+  {
+    "ruta": "fichas.28.autor",
+    "texto": "نيل ستيفنسون"
+  },
+  {
+    "ruta": "fichas.29.titulo",
+    "texto": "الشطر"
+  },
+  {
+    "ruta": "fichas.29.autor",
+    "texto": "دان إريكسون"
+  },
+  {
+    "ruta": "fichas.30.autor",
+    "texto": "بيتر واتس"
+  },
+  {
+    "ruta": "fichas.31.titulo",
+    "texto": "سولاريس"
+  },
+  {
+    "ruta": "fichas.32.titulo",
+    "texto": "سيتيزن سليبر"
+  },
+  {
+    "ruta": "fichas.32.autor",
+    "texto": "جامب أوفر ذا إيج"
+  },
+  {
+    "ruta": "fichas.33.titulo",
+    "texto": "بلوتو"
+  },
+  {
+    "ruta": "fichas.33.autor",
+    "texto": "استوديو M2"
+  },
+  {
+    "ruta": "programa.items.0.titulo",
+    "texto": "بليد رانر (1982)"
   }
 ]

@@ -242,7 +242,9 @@ async function avisarObjetivos(estado: EstadoAvisos, fecha: string) {
     const quien = asistenteDeApp(p.id)
     await notificar({
       clave,
-      titulo: quien ? `${quien.emoji} ${quien.nombre}` : `${p.icon} ${p.nombre.split(' · ')[0]}`,
+      titulo: quien
+        ? `${quien.emoji} ${quien.nombre}`
+        : `${p.icon} ${tGlobal(`room.${p.id}.nombre`, p.nombre).split(' · ')[0]}`,
       cuerpo:
         pendientes.length === 1
           ? pendientes[0].titulo

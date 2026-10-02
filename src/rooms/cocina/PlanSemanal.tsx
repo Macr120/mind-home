@@ -634,7 +634,7 @@ function Totales({
         <p className="text-xs font-semibold text-white/70">
           <Icono nombre="progreso" /> {t('cocina.plan.totales', 'Totales del periodo')}
         </p>
-        <span className="ms-auto text-sm font-bold text-amber-400">{suma.kcal.toLocaleString()} kcal</span>
+        <span className="ms-auto text-sm font-bold text-amber-400">{suma.kcal.toLocaleString(localeActual())} kcal</span>
       </div>
 
       {enRango.length === 0 ? (
@@ -652,7 +652,7 @@ function Totales({
             {t('cocina.plan.promedioDia', `${promedio} kcal al día`, { n: String(promedio) })}
           </p>
           <p className="text-[11px] text-white/45">
-            P {suma.prot} g · C {suma.carb} g · G {suma.gras} g
+            {t('cocina.macros', 'P {p}g · C {c}g · G {g}g', { p: suma.prot, c: suma.carb, g: suma.gras })}
           </p>
           {objetivo > 0 && (
             <p className={`text-[11px] font-semibold ${Math.abs(delta) <= objetivo * 0.1 ? 'text-emerald-400' : 'text-amber-400'}`}>

@@ -9,9 +9,13 @@
  *   fallback: la casa de Pep@ es la misma para todos.
  */
 import { exportarSnapshot } from './casaSnapshot'
+import { idiomaActual } from '../core/i18n/useT'
 
 /** Serializa la casa ACTUAL y la descarga como casa.json. */
 export async function descargarCasaJson(): Promise<void> {
+  // La casa se restaura TRADUCIDA (`localizarSnapshot`): exportada en otro idioma,
+  // el JSON se llevaría esos nombres y dejaría de ser la fuente en español.
+  if (idiomaActual() !== 'es') console.warn('[MPH demo] Exporta casa.json con la app en español.')
   const snap = await exportarSnapshot()
   const blob = new Blob([JSON.stringify(snap)], { type: 'application/json' })
   const url = URL.createObjectURL(blob)

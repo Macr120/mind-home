@@ -18,6 +18,7 @@ import { tieneAnimacion } from '../house/animacion'
 import { plantillaObjetoPiezas } from './comun/EditorPiezas'
 import { ANCLAS_AVATAR, CATEGORIAS_PRENDA, PRENDAS } from '../house/apariencia'
 import { ANIMALES, useGranja } from '../state/granjaStore'
+import { CANCHAS, TIPO_CANCHA_PREFIJO, type ClaseCancha } from '../state/canchasStore'
 import type { TipoAnimal } from '../data/db'
 import { murosLibresRepo, pisosExteriorRepo, zonasRepo, VACIO } from '../data/repository'
 import { useT, type TFunc } from '../i18n/useT'
@@ -36,6 +37,7 @@ import {
   CATS_RETIRADAS,
   grupoDeCategoria,
   grupoDeCategoriaEspecial,
+  nombreCategoria,
 } from './inventarioGrupos'
 
 /** Orden manual de carpetas (drag & drop), persistido en localStorage. */
@@ -103,7 +105,7 @@ const NOMBRE_SEMBRADO_POR_TIPO: Record<string, string> = {
 /** Nombre a mostrar de un objeto. El nombre sembrado (desde RECURSOS o desde
  *  `sembrarLibreriaBase`) se traduce SOLO si sigue intacto (mismo criterio que
  *  `campoBase` de mascotas): un nombre puesto por el usuario se respeta tal cual. */
-const nombreObjeto = (t: TFunc, o: ObjetoCuarto) => {
+export const nombreObjeto = (t: TFunc, o: ObjetoCuarto) => {
   if (!o.nombre) {
     return o.tipo === TIPO_PIEZAS
       ? t('objetos.nombrePiezas', 'Objeto de piezas')
@@ -111,6 +113,9 @@ const nombreObjeto = (t: TFunc, o: ObjetoCuarto) => {
   }
   const base = o.baseId != null ? RECURSO_POR_ID.get(o.baseId) : undefined
   if (base && o.nombre === base.nombre) return t(`recurso.${base.id}`, o.nombre)
+  // Las canchas se bautizan en español con su nombre de catálogo (`canchasStore.colocar`).
+  const clase = o.tipo.startsWith(TIPO_CANCHA_PREFIJO) ? (o.tipo.slice(TIPO_CANCHA_PREFIJO.length) as ClaseCancha) : null
+  if (clase && o.nombre === CANCHAS[clase]?.nombre) return t(`canchas.nombre.${clase}`, o.nombre)
   return o.nombre === NOMBRE_SEMBRADO_POR_TIPO[o.tipo] ? t(`recursoExtra.${o.tipo}`, o.nombre) : o.nombre
 }
 
@@ -287,7 +292,7 @@ export function ObjetosCatalogo({
     const cat = renombrando
     const nuevo = nombreTmp.trim()
     setRenombrando(null)
-    if (!cat || !nuevo || nuevo === cat) return
+    if (!cat || !nuevo || nuevo === cat || nuevo === nombreCategoria(cat, t)) return
     await renombrarCategoria(cat, nuevo)
     setOrdenCategorias((prev) => {
       if (!prev.includes(cat)) return prev
@@ -428,7 +433,7 @@ export function ObjetosCatalogo({
                     onClick={() => togglePlegada(cat)}
                     className="flex min-w-0 flex-1 items-center gap-2 text-start"
                   >
-                    <span className="min-w-0 flex-1 truncate text-sm font-semibold text-white/85">{cat}</span>
+                    <span className="min-w-0 flex-1 truncate text-sm font-semibold text-white/85">{nombreCategoria(cat, t)}</span>
                     <span className="shrink-0 text-[10px] font-bold text-white/40">{objs.length}</span>
                     <span className="shrink-0 text-[10px] text-white/40">{abierta ? '▾' : '▸'}</span>
                   </button>
@@ -436,7 +441,7 @@ export function ObjetosCatalogo({
                     type="button"
                     onClick={() => {
                       setRenombrando(cat)
-                      setNombreTmp(cat)
+                      setNombreTmp(nombreCategoria(cat, t))
                     }}
                     title={t('objetos.renombrar', 'Renombrar carpeta')}
                     className="grid h-6 w-6 shrink-0 place-items-center rounded text-white/40 transition hover:bg-white/10 hover:text-white/75"

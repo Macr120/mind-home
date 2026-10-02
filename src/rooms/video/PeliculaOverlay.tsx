@@ -1,5 +1,6 @@
 import { usePelicula } from '../../core/state/peliculaStore'
 import { ErrorBoundary } from '../../core/ui/ErrorBoundary'
+import { useT } from '../../core/i18n/useT'
 import { Editor } from './Editor'
 
 /**
@@ -9,11 +10,12 @@ import { Editor } from './Editor'
  * la App sin forma de volver.
  */
 export default function PeliculaOverlay() {
+  const t = useT()
   const proyectoId = usePelicula((s) => s.proyectoId)
   const salir = usePelicula((s) => s.salir)
   if (proyectoId == null) return null
   return (
-    <ErrorBoundary titulo="Error en el modo película">
+    <ErrorBoundary titulo={t('video.pelicula.error', 'Error en el modo película')}>
       <Editor key={proyectoId} id={proyectoId} pelicula alCerrar={salir} />
     </ErrorBoundary>
   )

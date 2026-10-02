@@ -16,14 +16,14 @@ export default {
     },
     {
       "dia": -361,
-      "titulo": "Podwójna zmiana i 34 złote",
-      "texto": "Zastępstwo za Nadię i wyjście z pracy o dziewiątej, z plecami w strzępach. 34 złote napiwku i jedna klientka, która mówiła tak, jakby za ladą stał automat do kawy na nogach, a nie człowiek. Kolacja z płatków na stojąco, z telefonem w ręce, aż do pierwszej. Jutro laboratorium o ósmej i z góry wiadomo, jak to się skończy.",
+      "titulo": "Podwójna zmiana i {monto:140}",
+      "texto": "Zastępstwo za Nadię i wyjście z pracy o dziewiątej, z plecami w strzępach. {monto:140} napiwku i jedna klientka, która mówiła tak, jakby za ladą stał automat do kawy na nogach, a nie człowiek. Kolacja z płatków na stojąco, z telefonem w ręce, aż do pierwszej. Jutro laboratorium o ósmej i z góry wiadomo, jak to się skończy.",
       "animo": "😣"
     },
     {
       "dia": -358,
       "titulo": "Gdzie podziała się wypłata",
-      "texto": "Wypłata w piątek, a dziś, w środę, na koncie zostały 174 złote. Próba odtworzenia wydatków z pamięci pokazała brak prawie trzystu złotych, których nigdzie nie da się przypisać. Nieużywane subskrypcje, piwo, jedzenie na wynos w dni bez gotowania. Najbardziej denerwuje nie sam brak pieniędzy, tylko to, że nawet tyle nie wiadomo o własnym życiu.",
+      "texto": "Wypłata w piątek, a dziś, w środę, stan konta to {monto:710}. Próba odtworzenia wydatków z pamięci pokazała brak prawie {monto:1210} — kwoty, której nigdzie nie da się przypisać. Nieużywane subskrypcje, piwo, jedzenie na wynos w dni bez gotowania. Najbardziej denerwuje nie sam brak pieniędzy, tylko to, że nawet tyle nie wiadomo o własnym życiu.",
       "animo": "😔"
     },
     {
@@ -71,7 +71,7 @@ export default {
     {
       "dia": -334,
       "titulo": "Arkusz kalkulacyjny, pierwsza próba",
-      "texto": "Dwie godziny budowania budżetu z prawdziwymi kategoriami tego życia: czynsz, jedzenie, transport, studia, głupoty. Wychodzi 5015 złotych wydatków wobec 5270 z pensji co dwa tygodnie i napiwków. Margines jest śmiechu wart, ale istnieje, a jego zobaczenie na papierze uspokaja bardziej, niż było oczekiwane. Nowa zasada: napiwki nie idą na wydatki tego samego dnia.",
+      "texto": "Dwie godziny budowania budżetu z prawdziwymi kategoriami tego życia: czynsz, jedzenie, transport, studia, głupoty. Wychodzi {monto:20400} wydatków wobec {monto:21500} z pensji co dwa tygodnie i napiwków. Margines jest śmiechu wart, ale istnieje, a jego zobaczenie na papierze uspokaja bardziej, niż było oczekiwane. Nowa zasada: napiwki nie idą na wydatki tego samego dnia.",
       "animo": "😐"
     },
     {
@@ -89,7 +89,7 @@ export default {
     {
       "dia": -325,
       "titulo": "Słoik na napiwki",
-      "texto": "Opróżniony słoik po dżemie, a do niego trafiają teraz napiwki po każdej zmianie. W tym tygodniu: 98 złotych, które wcześniej zamieniłyby się w kolacje na mieście. Wciąż nie wiadomo, na co jest ten słoik, i to chyba pomaga: to pieniądze, którym nigdzie się nie spieszy. Liczenie ich w niedzielę zamieniło się w mały rytuał.",
+      "texto": "Opróżniony słoik po dżemie, a do niego trafiają teraz napiwki po każdej zmianie. W tym tygodniu: {monto:400} — kwota, która wcześniej zamieniłaby się w kolacje na mieście. Wciąż nie wiadomo, na co jest ten słoik, i to chyba pomaga: to pieniądze, którym nigdzie się nie spieszy. Liczenie ich w niedzielę zamieniło się w mały rytuał.",
       "animo": "🙂"
     },
     {
@@ -101,7 +101,7 @@ export default {
     {
       "dia": -319,
       "titulo": "Przyjechał keyboard",
-      "texto": "88 klawiszy z drugiej ręki, 385 złotych, kupione od pana, który przestał grać, gdy urodziła się jego córka. Przewiezienie w bagażniku, owinięte w dwa koce, i ustawienie w kącie salonu. Przy włączeniu lekkie buczenie i brak pedału, ale gra. Dwadzieścia minut przypadkowych dźwięków i uśmiech jak u dzieciaka. Cel roku ogłoszony: nauczyć się całego „Clair de Lune”.",
+      "texto": "88 klawiszy z drugiej ręki, {monto:1560}, kupione od pana, który przestał grać, gdy urodziła się jego córka. Przewiezienie w bagażniku, owinięte w dwa koce, i ustawienie w kącie salonu. Przy włączeniu lekkie buczenie i brak pedału, ale gra. Dwadzieścia minut przypadkowych dźwięków i uśmiech jak u dzieciaka. Cel roku ogłoszony: nauczyć się całego „Clair de Lune”.",
       "animo": "🤩",
       "foto": "teclado"
     },
@@ -120,7 +120,7 @@ export default {
     {
       "dia": -310,
       "titulo": "Rachunki miesiąca się zgadzają",
-      "texto": "Pierwszy raz od lat koniec miesiąca z wiedzą, gdzie podział się każdy złoty. Zostaje 264 złote, liczba śmiesznie mała, a jednocześnie ogromna w porównaniu z debetem z zeszłego miesiąca. Dwie subskrypcje anulowane, a wydatki na jedzenie na wynos spadły o połowę. Nic z tego nie jest zasługą charakteru: to po prostu teraz widać.",
+      "texto": "Pierwszy raz od lat koniec miesiąca z wiedzą, dokąd trafił każdy wydatek. Zostaje {monto:1070}, kwota śmiesznie mała, a jednocześnie ogromna w porównaniu z debetem z zeszłego miesiąca. Dwie subskrypcje anulowane, a wydatki na jedzenie na wynos spadły o połowę. Nic z tego nie jest zasługą charakteru: to po prostu teraz widać.",
       "animo": "🙂"
     },
     {
@@ -163,7 +163,7 @@ export default {
     {
       "dia": -289,
       "titulo": "Niedziela pudełek na tydzień",
-      "texto": "Dwie godziny gotowania w niedzielę: soczewica, ryż, kurczak z piekarnika i warzywa na pięć dni. Koszt: 77 złotych, a w zamian oszczędność na kebabach po nocnej zmianie. Laika siadała na blacie, żeby nadzorować, i zdejmowanie jej stamtąd powtórzyło się jedenaście razy. Pełna lodówka daje spokój, jakiego nie było powodu oczekiwać po czymś tak głupim.",
+      "texto": "Dwie godziny gotowania w niedzielę: soczewica, ryż, kurczak z piekarnika i warzywa na pięć dni. Koszt: {monto:310}, a w zamian oszczędność na kebabach po nocnej zmianie. Laika siadała na blacie, żeby nadzorować, i zdejmowanie jej stamtąd powtórzyło się jedenaście razy. Pełna lodówka daje spokój, jakiego nie było powodu oczekiwać po czymś tak głupim.",
       "animo": "🙂"
     },
     {
@@ -223,7 +223,7 @@ export default {
     {
       "dia": -259,
       "titulo": "Liczby dla Japonii",
-      "texto": "Arkusz rachunków i liczby nadane fantazji: 10 200 złotych w sumie, około 3400 na loty, reszta na tanie noclegi, pociągi i jedzenie. Odłożone już 2550 złotych z miesięcy, w których budżet dał radę, więc brakuje jeszcze około 1530 miesięcznie. Wychodzi, jeśli w grę wejdą dwie dodatkowe zmiany miesięcznie i napiwki z weekendu prosto do koperty. Nowa linia w aplikacji, nazwana po prostu Japonia.",
+      "texto": "Arkusz rachunków i liczby nadane fantazji: {monto:41500} w sumie, około {monto:13840} na loty, reszta na tanie noclegi, pociągi i jedzenie. Odłożone już {monto:10380} z miesięcy, w których budżet dał radę, więc brakuje jeszcze około {monto:6230} miesięcznie. Wychodzi, jeśli w grę wejdą dwie dodatkowe zmiany miesięcznie i napiwki z weekendu prosto do koperty. Nowa linia w aplikacji, nazwana po prostu Japonia.",
       "animo": "😀"
     },
     {
@@ -271,7 +271,7 @@ export default {
     {
       "dia": -235,
       "titulo": "Napiwki trafiają do koperty",
-      "texto": "Sobota z pełnym tarasem: 162 złote napiwku w słoiku i klientka, która za jedno espresso z mlekiem zostawiła 21 złotych. Wcześniej takie pieniądze znikały w piwie i jedzeniu w środku tygodnia bez śladu. Dziś liczenie monet na kuchennym stole i przelanie ich w całości na linię Japonia. 4290 złotych uzbieranych. Banknoty mają teraz cel, i to zmienia sposób pracy.",
+      "texto": "Sobota z pełnym tarasem: {monto:660} napiwku w słoiku i klientka, która za jedno espresso z mlekiem zostawiła {monto:87}. Wcześniej takie pieniądze znikały w piwie i jedzeniu w środku tygodnia bez śladu. Dziś liczenie monet na kuchennym stole i przelanie ich w całości na linię Japonia. Uzbierane już {monto:17500}. Banknoty mają teraz cel, i to zmienia sposób pracy.",
       "animo": "😀"
     },
     {
@@ -325,7 +325,7 @@ export default {
     {
       "dia": -208,
       "titulo": "Statyw z drugiej ręki",
-      "texto": "Znalezisko: stary statyw za 51 złotych na pchlim targu, telefon przypięty plastikowym uchwytem. Wejście na dach o jedenastej, i pierwszy raz gwiazdy wyszły jako punkty, nie robaki. Widać Plejady i fragment Pasa Oriona, rozmyty, ale rozpoznawalny. Godzina tam na górze, z kocem i herbatą; nazwa astrofotografia może na wyrost, ale działa.",
+      "texto": "Znalezisko: stary statyw za {monto:210} na pchlim targu, telefon przypięty plastikowym uchwytem. Wejście na dach o jedenastej, i pierwszy raz gwiazdy wyszły jako punkty, nie robaki. Widać Plejady i fragment Pasa Oriona, rozmyty, ale rozpoznawalny. Godzina tam na górze, z kocem i herbatą; nazwa astrofotografia może na wyrost, ale działa.",
       "animo": "🙂"
     },
     {
@@ -343,7 +343,7 @@ export default {
     {
       "dia": -199,
       "titulo": "Połowa słoika",
-      "texto": "5140 z 10 200 złotych. Dokładnie połowa kwoty na podróż na koncie, a zostają jeszcze trzy miesiące napiwków i dodatkowych zmian. Podwójne przeliczenie z niedowierzania, a potem opowiedzenie tego Laice, emocjonalnej księgowej tego domu. Najbardziej zaskakuje nie kwota, tylko to, że pięć miesięcy z rzędu każdy wydatek jest zapisywany bez przerwy.",
+      "texto": "{monto:20900} z {monto:41500}. Dokładnie połowa kwoty na podróż na koncie, a zostają jeszcze trzy miesiące napiwków i dodatkowych zmian. Podwójne przeliczenie z niedowierzania, a potem opowiedzenie tego Laice, emocjonalnej księgowej tego domu. Najbardziej zaskakuje nie kwota, tylko to, że pięć miesięcy z rzędu każdy wydatek jest zapisywany bez przerwy.",
       "animo": "🤩"
     },
     {
@@ -391,13 +391,13 @@ export default {
     {
       "dia": -176,
       "titulo": "Samochód też, a jakże",
-      "texto": "Próba uruchomienia samochodu przed wyjazdem do laboratorium zabrzmiała jak puszka pełna śrub. Warsztat przy ulicy Robles: pompa wody i pasek, 1615 złotych i dwa dni bez samochodu. Akurat w tym tygodniu, z unieruchomionym kolanem i podwójną zmianą w piątek. Śmiech sam do siebie na chodniku, bo płacz na chodniku byłby jeszcze bardziej wstydliwy.",
+      "texto": "Próba uruchomienia samochodu przed wyjazdem do laboratorium zabrzmiała jak puszka pełna śrub. Warsztat przy ulicy Robles: pompa wody i pasek, {monto:6570} i dwa dni bez samochodu. Akurat w tym tygodniu, z unieruchomionym kolanem i podwójną zmianą w piątek. Śmiech sam do siebie na chodniku, bo płacz na chodniku byłby jeszcze bardziej wstydliwy.",
       "animo": "😣"
     },
     {
       "dia": -173,
       "titulo": "Skąd wziąć te pieniądze",
-      "texto": "Decyzja: 1615 złotych z poduszki na nieprzewidziane wydatki, nie z koperty na Japonię, nawet jeśli poduszka spadnie do zera. Dwa cięcia w tym miesiącu: zero kawy na mieście, zero zamawiania jedzenia. Napiwki z dwóch tygodni słabe, 195 złotych, więc naprawdę trzeba zacisnąć pasa. Przynajmniej teraz wiadomo dokładnie, ile jest na koncie, czego w październiku nie było wiadomo nawet w żartach.",
+      "texto": "Decyzja: {monto:6570} z poduszki na nieprzewidziane wydatki, nie z koperty na Japonię, nawet jeśli poduszka spadnie do zera. Dwa cięcia w tym miesiącu: zero kawy na mieście, zero zamawiania jedzenia. Napiwki z dwóch tygodni słabe, {monto:800}, więc naprawdę trzeba zacisnąć pasa. Przynajmniej teraz wiadomo dokładnie, ile jest na koncie, czego w październiku nie było wiadomo nawet w żartach.",
       "animo": "😔"
     },
     {
@@ -409,7 +409,7 @@ export default {
     {
       "dia": -168,
       "titulo": "Brzydki wpis, bez filtra",
-      "texto": "Dość tego, że wszystko spada naraz: kolokwium z elektromagnetyzmu w czwartek, podwójna zmiana w sobotę, napięte kolano i 807 złotych na koncie. Ten wpis powstaje z lodem na kolanie i ochotą, żeby posłać cały rok w diabły. Nie będzie udawania, że z dzisiaj wynika jakaś ładna lekcja. Jedyne, co się robi, to zapisanie tego, żeby zostało w pamięci, że to też się wydarzyło.",
+      "texto": "Dość tego, że wszystko spada naraz: kolokwium z elektromagnetyzmu w czwartek, podwójna zmiana w sobotę, napięte kolano i {monto:3290} na koncie. Ten wpis powstaje z lodem na kolanie i ochotą, żeby posłać cały rok w diabły. Nie będzie udawania, że z dzisiaj wynika jakaś ładna lekcja. Jedyne, co się robi, to zapisanie tego, żeby zostało w pamięci, że to też się wydarzyło.",
       "animo": "😣"
     },
     {
@@ -433,7 +433,7 @@ export default {
     {
       "dia": -156,
       "titulo": "Termin u fizjoterapeutki",
-      "texto": "Czwartek o jedenastej, pierwsza sesja, 149 złotych za wizytę i potrzeba czterech albo pięciu takich sesji. Wpisane w budżet jako wydatek zdrowotny, nie zachcianka, jak zostałoby to nazwane w styczniu. Kolano pozwala już schodzić po schodach niemal normalnie. Zaczyna się wierzyć, że to się naprawi i że we wrześniu chodzenie po Japonii pójdzie bez problemu.",
+      "texto": "Czwartek o jedenastej, pierwsza sesja, {monto:600} za wizytę i potrzeba czterech albo pięciu takich sesji. Wpisane w budżet jako wydatek zdrowotny, nie zachcianka, jak zostałoby to nazwane w styczniu. Kolano pozwala już schodzić po schodach niemal normalnie. Zaczyna się wierzyć, że to się naprawi i że we wrześniu chodzenie po Japonii pójdzie bez problemu.",
       "animo": "🙂"
     },
     {
@@ -457,13 +457,13 @@ export default {
     {
       "dia": -140,
       "titulo": "Dwadzieścia minut bez przerwy",
-      "texto": "Dwadzieścia minut bez przerwy, bardzo wolno, a kolano nawet nie drgnęło. Górny limit: dziesięć procent tygodniowo, mimo ochoty na godzinę biegu już jutro. Lekcja wyszła droga: 1615 złotych i trzy tygodnie. Plan do wyjazdu jest prosty: czterdzieści komfortowych minut i zero długich tras.",
+      "texto": "Dwadzieścia minut bez przerwy, bardzo wolno, a kolano nawet nie drgnęło. Górny limit: dziesięć procent tygodniowo, mimo ochoty na godzinę biegu już jutro. Lekcja wyszła droga: {monto:6570} i trzy tygodnie. Plan do wyjazdu jest prosty: czterdzieści komfortowych minut i zero długich tras.",
       "animo": "😀"
     },
     {
       "dia": -137,
       "titulo": "Rachunki oddychają",
-      "texto": "Koperta na Japonię na 85 procentach celu: 9350 z 11 000 złotych. Poduszka na nieprzewidziane wydatki wraca do 850 złotych po ciosie z warsztatu. Jeszcze dwie wypłaty i cel zostanie osiągnięty w samą porę, licząc na dobre napiwki sierpnia, jak zwykle. Zapis tutaj, bo w październiku nawet wysokość wydatków na kawę była niewiadomą.",
+      "texto": "Koperta na Japonię na 85 procentach celu: {monto:38200} z {monto:45000}. Poduszka na nieprzewidziane wydatki wraca do {monto:3460} po ciosie z warsztatu. Jeszcze dwie wypłaty i cel zostanie osiągnięty w samą porę, licząc na dobre napiwki sierpnia, jak zwykle. Zapis tutaj, bo w październiku nawet wysokość wydatków na kawę była niewiadomą.",
       "animo": "🙂"
     },
     {
@@ -506,7 +506,7 @@ export default {
     {
       "dia": -121,
       "titulo": "Tokio pieszo, 21 km",
-      "texto": "Dwadzieścia jeden kilometrów pieszo między Shinjuku, Yanaką i księgarnią, gdzie godzina minęła bez zrozumienia niemal niczego. Pociągi przyjeżdżają co do sekundy, a spóźnianie się na zmiany w domu sprawia, że cały system zdaje się patrzeć spod oka. Kolacja w konbini: onigiri, jajko na twardo i zupa, 21 złotych i lepsze niż niejedna droga potrawa. Kolano milczy.",
+      "texto": "Dwadzieścia jeden kilometrów pieszo między Shinjuku, Yanaką i księgarnią, gdzie godzina minęła bez zrozumienia niemal niczego. Pociągi przyjeżdżają co do sekundy, a spóźnianie się na zmiany w domu sprawia, że cały system zdaje się patrzeć spod oka. Kolacja w konbini: onigiri, jajko na twardo i zupa, {monto:87} i lepsze niż niejedna droga potrawa. Kolano milczy.",
       "animo": "🤩"
     },
     {
@@ -567,7 +567,7 @@ export default {
     {
       "dia": -101,
       "titulo": "Rozliczenie podróży",
-      "texto": "Ostatnia noc w Osace i podsumowanie: 10 490 z 11 000 złotych odłożonych, licząc lot, pociąg, noclegi i jedzenie. Wynik zgodny niemal co do grosza, co budzi dziwną, bardzo księgową dumę. W bagażu herbata z trzech miejsc, notes, drobiazg na pamiątkę dla keyboardu i sześćdziesiąt jeden zapisanych stron. Jutro długi lot, a w czwartek zmiana o siódmej w kawiarni.",
+      "texto": "Ostatnia noc w Osace i podsumowanie: {monto:42900} z odłożonych {monto:45000}, licząc lot, pociąg, noclegi i jedzenie. Wynik zgodny niemal dokładnie, co budzi dziwną, bardzo księgową dumę. W bagażu herbata z trzech miejsc, notes, drobiazg na pamiątkę dla keyboardu i sześćdziesiąt jeden zapisanych stron. Jutro długi lot, a w czwartek zmiana o siódmej w kawiarni.",
       "animo": "🙂"
     },
     {
@@ -603,7 +603,7 @@ export default {
     {
       "dia": -81,
       "titulo": "Budżet po podróży",
-      "texto": "Ponowne złożenie budżetu w kopertach po trzech tygodniach bez zaglądania. Konto podróży skończyło na 502 złotych, i to nie porażka: taki był dokładnie plan. Nowa linia od tej wypłaty: fundusz awaryjny, 170 złotych z każdej pensji. Napiwki z tygodnia: 115 złotych, w całości tam.",
+      "texto": "Ponowne złożenie budżetu w kopertach po trzech tygodniach bez zaglądania. Konto podróży skończyło na {monto:2040}, i to nie porażka: taki był dokładnie plan. Nowa linia od tej wypłaty: fundusz awaryjny, {monto:690} z każdej pensji. Napiwki z tygodnia: {monto:470}, w całości tam.",
       "animo": "🙂"
     },
     {
@@ -627,7 +627,7 @@ export default {
     {
       "dia": -68,
       "titulo": "Akumulator samochodu",
-      "texto": "Samochód nie odpalił o wpół do siódmej, więc pędem na rowerze do kawiarni. Nowy akumulator: 306 złotych ze świeżo otwartego funduszu awaryjnego, który spadł teraz do 34 złotych. Samochód ma dziewiętnaście lat i co kwartał przypomina o swoim istnieniu. Tym razem przynajmniej nie zatopił całego miesiąca, tylko zirytował.",
+      "texto": "Samochód nie odpalił o wpół do siódmej, więc pędem na rowerze do kawiarni. Nowy akumulator: {monto:1250} ze świeżo otwartego funduszu awaryjnego, który spadł teraz do {monto:140}. Samochód ma dziewiętnaście lat i co kwartał przypomina o swoim istnieniu. Tym razem przynajmniej nie zatopił całego miesiąca, tylko zirytował.",
       "animo": "😔"
     },
     {
@@ -675,7 +675,7 @@ export default {
     {
       "dia": -43,
       "titulo": "Zapis gotowy: maraton",
-      "texto": "Zapis gotowy: maraton, 162 złote, pięć tygodni planu. Zgoda Nadii pod dwoma warunkami: fizjoterapia co dwa tygodnie i natychmiastowe zatrzymanie przy pierwszym sygnale z kolana. Ambitne, wiadomo; wiadomo też, że sześć miesięcy kilometrów zbierało się niemal bez wyjątku. Napis 42,195 na tablicy w kuchni i długie wpatrywanie się w niego.",
+      "texto": "Zapis gotowy: maraton, {monto:660}, pięć tygodni planu. Zgoda Nadii pod dwoma warunkami: fizjoterapia co dwa tygodnie i natychmiastowe zatrzymanie przy pierwszym sygnale z kolana. Ambitne, wiadomo; wiadomo też, że sześć miesięcy kilometrów zbierało się niemal bez wyjątku. Napis 42,195 na tablicy w kuchni i długie wpatrywanie się w niego.",
       "animo": "😀"
     },
     {
@@ -742,7 +742,7 @@ export default {
     {
       "dia": -5,
       "titulo": "Spacer, herbata i Laika",
-      "texto": "Godzinne spacery zamiast biegania, herbata zamiast popołudniowej kawy i Laika nieznośnie przyklejona do boku. Sprawdzone loty do Seulu za rok, bez kupowania niczego, tylko żeby policzyć kwotę na dwa tygodnie: około 234 złotych. Wyciągnięte też nuty Arabeski nr 1 i śmiech sam do siebie. Jutro trzy przebiegi „Clair de Lune” z rzędu, bo w niedzielę zagranie dla rodziny.",
+      "texto": "Godzinne spacery zamiast biegania, herbata zamiast popołudniowej kawy i Laika nieznośnie przyklejona do boku. Sprawdzone loty do Seulu za rok, bez kupowania niczego, tylko żeby policzyć kwotę na dwa tygodnie: około {monto:950}. Wyciągnięte też nuty Arabeski nr 1 i śmiech sam do siebie. Jutro trzy przebiegi „Clair de Lune” z rzędu, bo w niedzielę zagranie dla rodziny.",
       "animo": "🙂"
     },
     {
@@ -754,7 +754,7 @@ export default {
     {
       "dia": -1,
       "titulo": "Rachunek roku",
-      "texto": "Pół godziny przeglądania roku w aplikacji. 74 kg wtedy, 67,0 dziś rano; 1214 przebieganych kilometrów; 5K, 10K, półmaraton i maraton. 11 000 złotych zaoszczędzonych i wydanych podczas trzech tygodni w Japonii, 61 stron dziennika podróży i 118 wpisów tutaj. To, czego nie widać w liczbach: rok temu sen przychodził o drugiej w nocy z telefonem przy twarzy.",
+      "texto": "Pół godziny przeglądania roku w aplikacji. 74 kg wtedy, 67,0 dziś rano; 1214 przebieganych kilometrów; 5K, 10K, półmaraton i maraton. {monto:45000} zaoszczędzonych i wydanych podczas trzech tygodni w Japonii, 61 stron dziennika podróży i 118 wpisów tutaj. To, czego nie widać w liczbach: rok temu sen przychodził o drugiej w nocy z telefonem przy twarzy.",
       "animo": "🙂"
     },
     {

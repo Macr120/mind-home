@@ -7,9 +7,9 @@
 
 MindHaOS
 
-## Subtítulo (16/30)
+## Subtítulo (15/30)
 
-你的心智， 装进一座 3D 房子
+你的心智，装进一座 3D 房子
 
 ## Texto promocional (33/170)
 
@@ -19,7 +19,7 @@ MindHaOS
 
 习惯,目标,计划,日记,记账,营养,运动,睡眠,学习,AI,助手,管理,生活
 
-## Descripción (1339/4000)
+## Descripción (1418/4000)
 
 在一座等距 3D 房子里整理习惯、目标、财务、饮食等等，每个房间就是一个应用。免费试用。
 
@@ -57,3 +57,5 @@ MindHaOS 里的 AI 陪你记录、规划、创作。至于用什么来驱动它�
 • 首月结束后，整个应用和你的数据都还在；AI 额度是可选的
 
 同样的多巴胺。这一次，给你真实的人生。
+
+使用条款（EULA）: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/

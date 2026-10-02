@@ -67,5 +67,5 @@ export function formatearFecha(fecha: string) {
   })
 }
 
-// Igual que Finanzas: moneda fija, formateo compartido (`core/moneda.ts`).
-export const dinero = (n: number) => fmtDinero(n, { moneda: 'MXN', locale: 'es-MX', decimales: 0 })
+// Igual que Finanzas: la moneda del ajuste y el formato del idioma (`core/moneda.ts`).
+export const dinero = (n: number) => fmtDinero(n, { decimales: 0 })

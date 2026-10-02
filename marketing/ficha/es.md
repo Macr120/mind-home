@@ -19,7 +19,7 @@ Tu vida, en una casa 3D: hábitos, metas, finanzas, comidas y más.
 
 hábitos,metas,agenda,diario,finanzas,nutrición,ejercicio,sueño,estudio,ia,asistente,organizar
 
-## Descripción (3417/4000)
+## Descripción (3508/4000)
 
 Organiza tus hábitos, metas, finanzas, comidas y más en una casa isométrica 3D donde cada cuarto es una app.
 
@@ -57,3 +57,5 @@ LA APP
 • Al terminar el mes conservas la app entera y tus datos; los créditos de IA son opcionales
 
 La misma dopamina. Esta vez, para tu vida real.
+
+Términos de uso (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/

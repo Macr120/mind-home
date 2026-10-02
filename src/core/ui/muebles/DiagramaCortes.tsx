@@ -4,6 +4,7 @@ import { letra } from '../../muebles/corte'
 import type { Despiece } from '../../muebles/tipos'
 import { useEditorUi } from '../../state/editorUiStore'
 import { useT } from '../../i18n/useT'
+import { nombreTablero } from '../../muebles/materiales'
 import { Icono } from '../iconos/Icono'
 import { BotonSecundario } from '../../../rooms/_shared/ui'
 import { MARGEN_MM, paletaCorte, primitivasHoja, viewBoxHoja, type OpcsDibujo, type Primitiva } from './corteSvg'
@@ -183,7 +184,7 @@ export function DiagramaCortes({
         <div key={`${g.materialId}-${g.grosor}`} className="space-y-2">
           <div className="flex items-baseline justify-between gap-2">
             <p className="text-[11px] font-semibold text-white/70">
-              {t(`muebles.mat.${g.materialId}`, g.materialId)} · {g.grosor} mm
+              {nombreTablero(g.materialId, t)} · {g.grosor} mm
             </p>
             <p className="text-[10px] tabular-nums text-white/40">
               {t('muebles.corte.nHojas', '{n} hojas', { n: g.hojas.length })} ·{' '}

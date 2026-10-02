@@ -4,6 +4,7 @@ import { planesMetaRepo, rutinasRepo } from '../../data/repository'
 import { fechaLocalISO, isoMasDias } from '../../fechaLocal'
 import { iaActiva } from '../../chat/ia'
 import { localeActual, useT } from '../../i18n/useT'
+import { mensajeErrorIA } from '../../cuenta/api'
 import { appsParaEnlace, destinosDeApp } from '../../enlaceApp'
 import { generarPlan, type AppParaPlan, type ContextoPlanApp, type PlanPropuesto } from '../../planIA'
 import { aplanar, diasDePlan, siguienteNombrePlan } from '../../planMeta'
@@ -15,6 +16,7 @@ import { Icono } from '../iconos/Icono'
 import { ChipApp } from './ChipApp'
 import { Creditos } from '../Creditos'
 import { OP_PLAN_IA } from '../../cuenta/catalogoNucleo'
+import { textoMin } from '../../i18n/duracion'
 
 /** Los mismos que ofrece el formulario; el usuario no escribe un número libre. */
 const HORAS = [2, 5, 10, 20]
@@ -176,7 +178,7 @@ export function GeneradorPlan({
     } catch (e) {
       // `generarPlan` lanza a propósito: sin plan no hay nada que enseñar.
       console.error('[plan IA]', e)
-      setFallo(e instanceof Error ? e.message : String(e))
+      setFallo(mensajeErrorIA(e, t))
     }
     setCargando(false)
   }
@@ -359,7 +361,7 @@ export function GeneradorPlan({
                     }`}
                     style={horasSemana === n ? { background: color } : undefined}
                   >
-                    {n} h
+                    {t('ui.dur.h', '{n} h', { n })}
                   </button>
                 ))}
               </div>
@@ -579,7 +581,7 @@ export function GeneradorPlan({
                       </span>
                       <span className="shrink-0 text-2xs text-white/35">
                         {s.r.tipoEtiqueta}
-                        {s.r.actividad.duracionMin ? ` · ${s.r.actividad.duracionMin} min` : ''}
+                        {s.r.actividad.duracionMin ? ` · ${textoMin(s.r.actividad.duracionMin)}` : ''}
                       </span>
                     </div>
                     {s.activa && (

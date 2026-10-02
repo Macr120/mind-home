@@ -351,7 +351,7 @@ export function PlanoPanelProps() {
                   onClick={() => void colocarApp(r.id, seleccion.col, seleccion.row)}
                   className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-start text-xs text-white/80 hover:bg-white/10"
                 >
-                  <Icono emoji={r.icon} /> {r.nombre.split(' · ')[0]}
+                  <Icono emoji={r.icon} /> {nombreCuarto(r)}
                 </button>
               ))}
             </div>
@@ -400,7 +400,7 @@ export function PlanoPanelProps() {
                 }}
                 className="rounded-lg border border-dashed border-white/15 px-2 py-1.5 text-start text-xs text-white/60 hover:border-emerald-400/40 hover:text-white"
               >
-                + <Icono emoji={r.icon} /> {r.nombre.split(' · ')[0]}
+                + <Icono emoji={r.icon} /> {nombreCuarto(r)}
               </button>
             ))}
           </div>

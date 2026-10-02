@@ -1,0 +1,164 @@
+<!-- Generado: una rama por idioma según {{ .Data.idioma }} (user_metadata; ver sesionStore.ts). Sin idioma, español.
+     Reset password: se pega en Supabase → Authentication → Emails, o lo carga supabase/config.toml en local. -->
+{{ $idioma := or .Data.idioma "es" }}
+{{ if eq $idioma "en" }}
+<div dir="ltr" lang="en" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">Reset your password</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">You asked to change the password for your MindHaOS account. Tap the button to choose a new one.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">Choose a new password</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">If the button doesn't work, paste this link into your browser:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">If this wasn't you, ignore this email: nothing has changed in your account.</p>
+</div>
+{{ else if eq $idioma "pt" }}
+<div dir="ltr" lang="pt" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">Redefina sua senha</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">Você pediu para trocar a senha da sua conta do MindHaOS. Toque no botão para escolher uma nova.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">Escolher nova senha</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">Se o botão não funcionar, copie este link no seu navegador:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">Se não foi você, ignore este e-mail: sua conta continua igual.</p>
+</div>
+{{ else if eq $idioma "fr" }}
+<div dir="ltr" lang="fr" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">Réinitialise ton mot de passe</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">Tu as demandé à changer le mot de passe de ton compte MindHaOS. Touche le bouton pour en choisir un nouveau.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">Choisir un nouveau mot de passe</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">Si le bouton ne fonctionne pas, colle ce lien dans ton navigateur :</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">Si ce n'était pas toi, ignore cet e-mail : ton compte n'a pas changé.</p>
+</div>
+{{ else if eq $idioma "de" }}
+<div dir="ltr" lang="de" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">Passwort zurücksetzen</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">Du möchtest das Passwort deines MindHaOS-Kontos ändern. Tippe auf die Schaltfläche, um ein neues zu wählen.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">Neues Passwort wählen</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">Falls die Schaltfläche nicht funktioniert, kopiere diesen Link in deinen Browser:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">Warst du das nicht? Dann ignoriere diese E-Mail: An deinem Konto hat sich nichts geändert.</p>
+</div>
+{{ else if eq $idioma "it" }}
+<div dir="ltr" lang="it" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">Reimposta la password</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">Hai chiesto di cambiare la password del tuo account MindHaOS. Tocca il pulsante per sceglierne una nuova.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">Scegli una nuova password</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">Se il pulsante non funziona, copia questo link nel browser:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">Se non sei stato tu, ignora questa email: il tuo account non è cambiato.</p>
+</div>
+{{ else if eq $idioma "ja" }}
+<div dir="ltr" lang="ja" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">パスワードの再設定</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">MindHaOS アカウントのパスワード変更のリクエストを受け付けました。ボタンをタップして新しいパスワードを設定してください。</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">新しいパスワードを設定</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">ボタンが使えない場合は、このリンクをブラウザに貼り付けてください：</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">心当たりがない場合は、このメールを無視してください。アカウントは変更されていません。</p>
+</div>
+{{ else if eq $idioma "zh" }}
+<div dir="ltr" lang="zh" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">重置密码</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">你申请了更改 MindHaOS 账户的密码。点按下面的按钮设置新密码。</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">设置新密码</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">如果按钮无法使用，请将此链接复制到浏览器中：</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">如果这不是你本人的操作，请忽略此邮件，你的账户没有任何变化。</p>
+</div>
+{{ else if eq $idioma "ko" }}
+<div dir="ltr" lang="ko" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">비밀번호 재설정</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">MindHaOS 계정의 비밀번호 변경을 요청하셨습니다. 버튼을 눌러 새 비밀번호를 정하세요.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">새 비밀번호 정하기</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">버튼이 작동하지 않으면 이 링크를 브라우저에 붙여 넣으세요:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">본인이 요청하지 않았다면 이 이메일을 무시하세요. 계정은 그대로입니다.</p>
+</div>
+{{ else if eq $idioma "ru" }}
+<div dir="ltr" lang="ru" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">Сброс пароля</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">Вы запросили смену пароля для аккаунта MindHaOS. Нажмите кнопку, чтобы задать новый.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">Задать новый пароль</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">Если кнопка не работает, скопируйте эту ссылку в браузер:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">Если это были не вы, просто проигнорируйте письмо: с аккаунтом ничего не произошло.</p>
+</div>
+{{ else if eq $idioma "hi" }}
+<div dir="ltr" lang="hi" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">पासवर्ड रीसेट करें</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">आपने अपने MindHaOS खाते का पासवर्ड बदलने का अनुरोध किया है। नया पासवर्ड चुनने के लिए बटन दबाएँ।</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">नया पासवर्ड चुनें</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">अगर बटन काम न करे, तो यह लिंक अपने ब्राउज़र में चिपकाएँ:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">अगर यह आपने नहीं किया, तो इस ईमेल को अनदेखा करें: आपके खाते में कुछ नहीं बदला है।</p>
+</div>
+{{ else if eq $idioma "tr" }}
+<div dir="ltr" lang="tr" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">Şifreni sıfırla</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">MindHaOS hesabının şifresini değiştirmek istedin. Yeni bir şifre seçmek için düğmeye dokun.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">Yeni şifre seç</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">Düğme çalışmazsa bu bağlantıyı tarayıcına yapıştır:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">Bu isteği sen yapmadıysan bu e-postayı yok say: hesabında hiçbir şey değişmedi.</p>
+</div>
+{{ else if eq $idioma "id" }}
+<div dir="ltr" lang="id" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">Atur ulang kata sandi</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">Kamu meminta untuk mengganti kata sandi akun MindHaOS. Ketuk tombol untuk memilih yang baru.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">Pilih kata sandi baru</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">Jika tombol tidak berfungsi, tempel tautan ini di browser:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">Jika ini bukan kamu, abaikan email ini: akunmu tidak berubah.</p>
+</div>
+{{ else if eq $idioma "pl" }}
+<div dir="ltr" lang="pl" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">Zresetuj hasło</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">Poproszono o zmianę hasła do Twojego konta MindHaOS. Dotknij przycisku, aby wybrać nowe.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">Wybierz nowe hasło</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">Jeśli przycisk nie działa, wklej ten link do przeglądarki:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">Jeśli to nie Ty, zignoruj tę wiadomość: Twoje konto się nie zmieniło.</p>
+</div>
+{{ else if eq $idioma "nl" }}
+<div dir="ltr" lang="nl" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">Wachtwoord opnieuw instellen</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">Je hebt gevraagd het wachtwoord van je MindHaOS-account te wijzigen. Tik op de knop om een nieuw wachtwoord te kiezen.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">Nieuw wachtwoord kiezen</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">Werkt de knop niet? Plak deze link dan in je browser:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">Was jij dit niet? Negeer dan deze e-mail: er is niets aan je account veranderd.</p>
+</div>
+{{ else if eq $idioma "ar" }}
+<div dir="rtl" lang="ar" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">إعادة تعيين كلمة المرور</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">طلبتَ تغيير كلمة مرور حسابك في MindHaOS. اضغط على الزر لاختيار كلمة مرور جديدة.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">اختيار كلمة مرور جديدة</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">إذا لم يعمل الزر، فانسخ هذا الرابط والصقه في المتصفح:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">إذا لم تكن أنت من طلب ذلك، فتجاهل هذه الرسالة: لم يتغيّر شيء في حسابك.</p>
+</div>
+{{ else }}
+<div dir="ltr" lang="es" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">Restablece tu contraseña</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">Pediste cambiar la contraseña de tu cuenta de MindHaOS. Toca el botón para elegir una nueva.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">Elegir contraseña nueva</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">Si el botón no funciona, copia este enlace en tu navegador:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">Si no fuiste tú, ignora este correo: tu cuenta sigue igual.</p>
+</div>
+{{ end }}

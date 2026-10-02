@@ -11,11 +11,11 @@ function mesCorto(mes: string): string {
   return deIso(`${mes}-01`).toLocaleDateString(localeActual(), { month: 'short' })
 }
 
-// Finanzas fija su moneda a propósito: cambiar lo que el usuario ya ve aquí
-// sería otra decisión. El formateo lo pone `core/moneda.ts`.
-export const money = (n: number) => dinero(n, { moneda: 'MXN', locale: 'es-MX', decimales: 0 })
+// La moneda es la del ajuste de Configuraciones (`monedaActual`); el formato,
+// el del idioma. Los importes guardados no se convierten.
+export const money = (n: number) => dinero(n, { decimales: 0 })
 
-export const money2 = (n: number) => dinero(n, { moneda: 'MXN', locale: 'es-MX' })
+export const money2 = (n: number) => dinero(n)
 
 // ----- Periodos (el filtro del Balance y el plazo de cada movimiento) -----
 

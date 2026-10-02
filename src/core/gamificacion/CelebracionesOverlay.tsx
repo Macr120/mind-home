@@ -38,6 +38,7 @@ export function CelebracionesOverlay() {
 
 /** La barra de nivel animándose del XP viejo al nuevo (a tope si cruza nivel). */
 function BarraXp({ xpAntes, xpDespues, color }: { xpAntes: number; xpDespues: number; color: string }) {
+  const t = useT()
   const cruzaNivel = Math.floor(xpDespues / XP_POR_NIVEL) > Math.floor(xpAntes / XP_POR_NIVEL)
   const [valor, setValor] = useState((xpAntes % XP_POR_NIVEL) / XP_POR_NIVEL)
   useEffect(() => {
@@ -49,7 +50,7 @@ function BarraXp({ xpAntes, xpDespues, color }: { xpAntes: number; xpDespues: nu
   return (
     <div className="flex items-center gap-2">
       <Barra valor={valor} color={color} />
-      <span className="shrink-0 text-[10px] text-white/45">{xpDespues} XP</span>
+      <span className="shrink-0 text-[10px] text-white/45">{t('progreso.xp', '{n} XP', { n: xpDespues })}</span>
     </div>
   )
 }

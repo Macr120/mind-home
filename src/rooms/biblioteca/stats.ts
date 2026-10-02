@@ -36,10 +36,5 @@ export function rachaActual(fechas: Set<string>): number {
   return n
 }
 
-/** Formatea minutos: "45 m" o "1 h 35 m". */
-export function fmtMin(min: number): string {
-  if (min < 60) return `${min} m`
-  const h = Math.floor(min / 60)
-  const m = min % 60
-  return m ? `${h} h ${m} m` : `${h} h`
-}
+/** Formatea minutos: «45 min» o «1 h 35 min», en el idioma de la app. */
+export { duracionMin as fmtMin } from '../../core/i18n/duracion'

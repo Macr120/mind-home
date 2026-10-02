@@ -61,7 +61,7 @@ export default {
     {
       "dia": -178,
       "titulo": "Werkstatt: Motorcheck am Auto",
-      "lugar": "Taller Ruiz"
+      "lugar": "Werkstatt Ruiz"
     },
     {
       "dia": -168,
@@ -268,35 +268,35 @@ export default {
   "contactos": [
     {
       "nombre": "Rosa Vidal",
-      "relacion": "Familia"
+      "relacion": "Familie"
     },
     {
       "nombre": "Camila Vidal",
-      "relacion": "Familia"
+      "relacion": "Familie"
     },
     {
       "nombre": "Nadia Serrano",
-      "relacion": "Amistades"
+      "relacion": "Freundeskreis"
     },
     {
       "nombre": "Tomás Iriarte",
-      "relacion": "Amistades"
+      "relacion": "Freundeskreis"
     },
     {
       "nombre": "Marisol Cáceres",
-      "relacion": "Trabajo"
+      "relacion": "Arbeit"
     },
     {
       "nombre": "Bruno Ferrer",
-      "relacion": "Trabajo"
+      "relacion": "Arbeit"
     },
     {
       "nombre": "Iker Domínguez",
-      "relacion": "Universidad"
+      "relacion": "Uni"
     },
     {
       "nombre": "Elena Puig",
-      "relacion": "Universidad"
+      "relacion": "Uni"
     }
   ]
 }

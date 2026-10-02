@@ -4,6 +4,7 @@ import type { Idea } from '../../core/data/db'
 import { VACIO, carpetasIdeaRepo, ideasRepo } from '../../core/data/repository'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { useT } from '../../core/i18n/useT'
+import { mensajeErrorIA } from '../../core/cuenta/api'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { vivo } from '../../core/ui/estilos'
 import { Archivador } from '../_shared/Archivador'
@@ -106,7 +107,7 @@ export function DiarioTab({ onAbrirMapa }: { onAbrirMapa: (mapaId: number) => vo
       onAbrirMapa(id)
     } catch (e) {
       console.error('[ideas] fallo al generar el árbol etimológico:', e)
-      setErrorArbol(e instanceof Error ? e.message : String(e))
+      setErrorArbol(mensajeErrorIA(e, t))
     } finally {
       setGenerandoArbol(false)
     }

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { TallerVehiculo, TipoTramite, TramiteVehiculo, Vehiculo } from '../../core/data/db'
 import { useT } from '../../core/i18n/useT'
+import { monedaActual } from '../../core/moneda'
 import { vivo } from '../../core/ui/estilos'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { GrupoTramite } from './constantes'
@@ -187,7 +188,7 @@ export function FormularioTramite({
       </div>
 
       <div className="grid grid-cols-2 gap-2">
-        <Campo etiqueta={t('garage.tram.costo', 'Costo estimado (MXN)')}>
+        <Campo etiqueta={t('garage.tram.costo', 'Costo estimado ({moneda})', { moneda: monedaActual() })}>
           <input
             type="number"
             min={0}

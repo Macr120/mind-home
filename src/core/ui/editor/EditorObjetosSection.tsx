@@ -18,7 +18,7 @@ import {
 import { useTallerMuebles } from '../../state/tallerMueblesStore'
 import { PestanasCarpeta, type ItemPestana } from '../../../rooms/_shared/PestanasCarpeta'
 import { Carpeta } from '../comun/Carpeta'
-import { ObjetosCatalogo, BotonRestaurarObjetos } from '../ObjetosCatalogo'
+import { ObjetosCatalogo, BotonRestaurarObjetos, nombreObjeto as nombreSembrado } from '../ObjetosCatalogo'
 import { CATS_ESPECIALES } from '../inventarioGrupos'
 import { baseDe, getTema } from '../../house/temas'
 import { MiniaturaModelo } from '../../house/Miniatura'
@@ -44,6 +44,7 @@ import { nivelesDe } from '../../muebles/superficies'
 import { NIVEL_SUELO, superficiesDeObjeto } from '../../house/apoyos'
 import { META_ESPECIAL_PLANTILLA } from '../../house/especialesPlantillaMeta'
 import { useT, type TFunc } from '../../i18n/useT'
+import { useNombreCuarto } from '../roomDisplay'
 import { Icono } from '../iconos/Icono'
 import type { NombreIcono } from '../iconos/catalogo'
 
@@ -63,7 +64,8 @@ const nombreRecurso = (id: number, t: TFunc) => {
 
 /** Nombre legible de un objeto colocado. */
 export function nombreObjeto(o: ObjetoCuarto, t: TFunc): string {
-  if (o.nombre) return o.nombre
+  // El nombre sembrado de fábrica se traduce; el que puso el usuario, tal cual.
+  if (o.nombre) return nombreSembrado(t, o)
   if (o.tipo === TIPO_PIEZAS) return t('objetos.nombrePiezas', 'Objeto de piezas')
   if (o.tipo === TIPO_GLB) return t('objetos.nombreGlb', 'Modelo subido')
   if (o.tipo === TIPO_CUADRO_FOTO) return t('recursoExtra.cuadro-foto', 'Cuadro con foto')
@@ -158,6 +160,7 @@ type FuncionEspecial = GrupoAccion | 'vida' | ''
 
 export function EditorObjetosSection() {
   const t = useT()
+  const nombreCuarto = useNombreCuarto()
   const cuartos = useCuartos((s) => s.cuartos)
   const objetos = useDiseño((s) => s.objetos)
   const temaId = useDiseño((s) => s.temaGlobal)
@@ -208,13 +211,13 @@ export function EditorObjetosSection() {
     const arr: Ubicacion[] = []
     for (const c of cuartos) {
       const objs = objetos.filter((o) => o.roomId === c.id)
-      if (objs.length) arr.push({ id: c.id, icon: c.icon, nombre: c.nombre.split(' · ')[0], objetos: objs })
+      if (objs.length) arr.push({ id: c.id, icon: c.icon, nombre: nombreCuarto(c), objetos: objs })
     }
     // El mapa (los objetos de la biblioteca NO se listan aquí; se editan de a uno desde el inventario).
     const mapa = objetos.filter((o) => o.roomId === MAPA_ROOM)
     if (mapa.length) arr.push({ id: MAPA_ROOM, icon: '🗺️', nombre: t('editor.obj.mapa', 'Mapa'), objetos: mapa })
     return arr
-  }, [cuartos, objetos, t])
+  }, [cuartos, objetos, t, nombreCuarto])
 
   // Con el catálogo del inventario abierto, los objetos ya colocados se pueden
   // arrastrar en la escena aunque se esté editando un cuarto concreto: es lo que

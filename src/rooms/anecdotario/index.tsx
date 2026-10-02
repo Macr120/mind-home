@@ -4,6 +4,7 @@ import { vTexto, vFecha } from '../../core/appContrato'
 import { anecdotasRepo } from '../../core/data/repository'
 import { esencialAnecdotario, flujosAnecdotario } from './tutorial.meta'
 import { planMetasAnecdotario } from './plan'
+import { tGlobal } from '../../core/i18n/useT'
 
 const esquemas: EsquemaCaptura[] = [
   {
@@ -18,7 +19,7 @@ const esquemas: EsquemaCaptura[] = [
     guardar: async (v) => {
       await anecdotasRepo.add({
         fecha: vFecha(v.fecha),
-        titulo: vTexto(v.titulo, 'Anécdota'),
+        titulo: vTexto(v.titulo, tGlobal('anec.tituloDefecto', 'Anécdota')),
         contenido: vTexto(v.contenido),
         animo: vTexto(v.animo, '🙂'),
       })

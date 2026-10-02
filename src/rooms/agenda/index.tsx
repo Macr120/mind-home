@@ -39,7 +39,8 @@ const agenda: Plantilla = {
       uid: c.uid,
       titulo: c.nombre,
       // «Rosa Vidal» también es «Rosa»: casi nadie nombra a los suyos con apellido.
-      alias: c.nombre.trim().includes(' ') ? [c.nombre.trim().split(/\s+/)[0] ?? ''] : undefined,
+      // En japonés y chino el nombre y el apellido van separados por «・» o «·».
+      alias: /[\s・·]/.test(c.nombre.trim()) ? [c.nombre.trim().split(/[\s・·]+/)[0] ?? ''] : undefined,
       resumen:
         [c.relacion, c.cumple && `cumple ${c.cumple}`, c.alCuidado && 'a su cuidado'].filter(Boolean).join(' · ') ||
         undefined,

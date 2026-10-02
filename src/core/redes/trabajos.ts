@@ -14,6 +14,7 @@ import { notificar } from '../notificaciones'
 import { publicar } from './api'
 import { useRedes } from './redesStore'
 import { ErrorRedes, type MetaPublicacion, type Plataforma, type TrabajoPublicacion } from './tipos'
+import { mensajeErrorRedes } from './errores'
 
 export interface OpcionesTrabajo {
   proyectoId: number
@@ -88,7 +89,7 @@ async function correr(id: string, o: OpcionesTrabajo, abort: AbortController): P
       actualizar(id, { estado: 'cancelado' })
       return
     }
-    const error = e instanceof Error ? e.message : String(e)
+    const error = mensajeErrorRedes(e)
     actualizar(id, { estado: 'error', error })
     void notificar({ clave: `redes:${id}`, titulo: o.textos.fallo, cuerpo: error, plantillaId: 'video', seccion: 'videos' })
   } finally {

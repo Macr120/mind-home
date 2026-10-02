@@ -350,5 +350,129 @@
   {
     "ruta": "pendientes.4",
     "texto": "给吧台的新磨豆机询价"
+  },
+  {
+    "ruta": "contactos.0.relacion",
+    "texto": "家人"
+  },
+  {
+    "ruta": "contactos.1.relacion",
+    "texto": "家人"
+  },
+  {
+    "ruta": "contactos.2.relacion",
+    "texto": "朋友"
+  },
+  {
+    "ruta": "contactos.3.relacion",
+    "texto": "朋友"
+  },
+  {
+    "ruta": "contactos.4.relacion",
+    "texto": "同事"
+  },
+  {
+    "ruta": "contactos.5.relacion",
+    "texto": "同事"
+  },
+  {
+    "ruta": "contactos.6.relacion",
+    "texto": "大学"
+  },
+  {
+    "ruta": "contactos.7.relacion",
+    "texto": "大学"
+  },
+  {
+    "ruta": "trabajo.7.lugar",
+    "texto": "北广场"
+  },
+  {
+    "ruta": "personas.0.con",
+    "texto": "娜迪亚·塞拉诺"
+  },
+  {
+    "ruta": "personas.1.con",
+    "texto": "罗莎·比达尔"
+  },
+  {
+    "ruta": "personas.2.con",
+    "texto": "伊克尔·多明格斯"
+  },
+  {
+    "ruta": "personas.3.con",
+    "texto": "娜迪亚·塞拉诺"
+  },
+  {
+    "ruta": "personas.4.con",
+    "texto": "托马斯·伊里亚特"
+  },
+  {
+    "ruta": "personas.5.con",
+    "texto": "罗莎·比达尔"
+  },
+  {
+    "ruta": "personas.6.con",
+    "texto": "玛丽索尔·卡塞雷斯"
+  },
+  {
+    "ruta": "personas.7.con",
+    "texto": "卡米拉·比达尔"
+  },
+  {
+    "ruta": "personas.8.con",
+    "texto": "罗莎·比达尔"
+  },
+  {
+    "ruta": "personas.9.con",
+    "texto": "托马斯·伊里亚特"
+  },
+  {
+    "ruta": "personas.10.con",
+    "texto": "娜迪亚·塞拉诺"
+  },
+  {
+    "ruta": "personas.11.con",
+    "texto": "布鲁诺·费雷尔"
+  },
+  {
+    "ruta": "personas.12.con",
+    "texto": "罗莎·比达尔"
+  },
+  {
+    "ruta": "personas.13.con",
+    "texto": "伊克尔·多明格斯"
+  },
+  {
+    "ruta": "contactos.0.nombre",
+    "texto": "罗莎·比达尔"
+  },
+  {
+    "ruta": "contactos.1.nombre",
+    "texto": "卡米拉·比达尔"
+  },
+  {
+    "ruta": "contactos.2.nombre",
+    "texto": "娜迪亚·塞拉诺"
+  },
+  {
+    "ruta": "contactos.3.nombre",
+    "texto": "托马斯·伊里亚特"
+  },
+  {
+    "ruta": "contactos.4.nombre",
+    "texto": "玛丽索尔·卡塞雷斯"
+  },
+  {
+    "ruta": "contactos.5.nombre",
+    "texto": "布鲁诺·费雷尔"
+  },
+  {
+    "ruta": "contactos.6.nombre",
+    "texto": "伊克尔·多明格斯"
+  },
+  {
+    "ruta": "contactos.7.nombre",
+    "texto": "埃琳娜·普伊格"
   }
 ]

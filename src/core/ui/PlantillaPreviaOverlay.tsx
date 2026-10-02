@@ -48,7 +48,7 @@ export default function PlantillaPreviaOverlay() {
       </header>
       <main className="min-h-0 flex-1 overflow-auto p-4 md:p-6">
         <ErrorBoundary
-          titulo={`Error en ${previa.nombre}`}
+          titulo={t('ui.errorEn', 'Error en {app}', { app: t(`room.${previa.id}.nombre`, previa.nombre).split(' · ')[0] })}
           textoReintentar={t('ui.reintentar', 'Reintentar')}
         >
           <Suspense

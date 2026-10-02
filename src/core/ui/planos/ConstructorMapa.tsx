@@ -31,6 +31,7 @@ import { pintarCuarto } from '../../state/pintarCuarto'
 import type { DirGrid } from '../../state/layoutStore'
 import { EnZonaPreview, useEnZonaPreview } from '../editor/zonaPreview'
 import { useT } from '../../i18n/useT'
+import { useNombreCuarto } from '../roomDisplay'
 import { Icono } from '../iconos/Icono'
 import { vivo } from '../estilos'
 
@@ -605,6 +606,7 @@ function FormaCuartoOverlay({
 /** Panel compacto del modo Cuartos: nombre, color y lista de cuartos colocados. */
 function CuartosPanel() {
   const t = useT()
+  const nombreCuarto = useNombreCuarto()
   const seleccion = usePlanos((s) => s.seleccion)
   const setSeleccion = usePlanos((s) => s.setSeleccion)
   const cuartos = useCuartos((s) => s.cuartos)
@@ -617,10 +619,12 @@ function CuartosPanel() {
 
   const roomId = seleccion?.tipo === 'cuarto' ? seleccion.roomId : null
   const room = cuartos.find((c) => c.id === roomId) ?? null
-  const [nombre, setNombre] = useState(room?.nombre ?? '')
+  // El borrador parte del nombre que se ve (traducido) y solo se guarda si cambia:
+  // así un «Cuarto 3» de la casa no se queda fijo en otro idioma.
+  const nombreGuardado = room ? nombreCuarto(room) : ''
+  const [nombre, setNombre] = useState(nombreGuardado)
 
   // Re-siembra el borrador al cambiar el cuarto o su nombre guardado (ajuste en render, sin efecto).
-  const nombreGuardado = room?.nombre ?? ''
   const [prevNombre, setPrevNombre] = useState({ roomId, nombreGuardado })
   if (prevNombre.roomId !== roomId || prevNombre.nombreGuardado !== nombreGuardado) {
     setPrevNombre({ roomId, nombreGuardado })
@@ -628,7 +632,7 @@ function CuartosPanel() {
   }
 
   const guardarNombre = () => {
-    if (roomId && nombre.trim()) void renombrar(roomId, nombre.trim())
+    if (roomId && nombre.trim() && nombre.trim() !== nombreGuardado) void renombrar(roomId, nombre.trim())
   }
 
   /** Llenar de agua un sótano lo vuelve alberca: nace con su dona flotadora. */
@@ -705,7 +709,7 @@ function CuartosPanel() {
                 }
               >
                 <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: r.color }} />
-                <span className="truncate">{r.nombre}</span>
+                <span className="truncate">{nombreCuarto(r)}</span>
               </button>
             )
           })}

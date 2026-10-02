@@ -1,5 +1,6 @@
 import type { GratitudDiaria, SesionMindfulness } from '../../core/data/db'
 import { useT } from '../../core/i18n/useT'
+import { duracionMin, textoMin } from '../../core/i18n/duracion'
 import { vivo } from '../../core/ui/estilos'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { diasConCalmaMes, etapaActual, minutosTotales, siguienteEtapa } from './calma'
@@ -22,7 +23,7 @@ export function CalmaHeader({
   const sig = siguienteEtapa(total)
   const dias = diasConCalmaMes(sesiones, gratitudes)
   const pct = sig ? ((total - etapa.min) / (sig.min - etapa.min)) * 100 : 100
-  const totalFmt = total >= 120 ? `${Math.floor(total / 60)} h ${total % 60} min` : `${total} min`
+  const totalFmt = total >= 120 ? duracionMin(total) : textoMin(total)
 
   return (
     <div className="rounded-xl border border-white/10 p-4" style={{ background: `color-mix(in srgb, ${COLOR} 7%, transparent)` }}>

@@ -60,7 +60,7 @@ export function GrabacionesPanel() {
     const blob = await blobDe(g)
     if (!blob) return
     const ext = blob.type.includes('wav') ? '.wav' : blob.type.includes('mp4') ? '.m4a' : blob.type.includes('ogg') ? '.ogg' : '.webm'
-    await descargarArchivo(blob, `${g.nombre || 'toma'}${ext}`)
+    await descargarArchivo(blob, `${g.nombre || t('archivo.nombre.toma', 'toma')}${ext}`)
   }
 
   const borrar = async (g: GrabacionAudio) => {

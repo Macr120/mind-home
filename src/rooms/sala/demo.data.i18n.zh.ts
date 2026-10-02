@@ -30,7 +30,7 @@ export default {
       "destino": "东京·涩谷和下北泽",
       "hospedaje": "黑猫浅草旅舍",
       "actividades": "在涩谷十字路口来回穿了好几趟,就为了看人群是怎么互不相撞地走过去的,然后一头扎进下北泽的二手唱片店。在一家只有七个座位的拉面馆吃了晚饭,用按钮机点单。",
-      "transporte": "JR Yamanote + Keiō Inokashira"
+      "transporte": "JR山手线 + 京王井之头线"
     },
     {
       "n": 4,
@@ -51,14 +51,14 @@ export default {
     {
       "n": 6,
       "inicio": "东京·浅草",
-      "destino": "Hakone · Gōra",
+      "destino": "箱根·强罗",
       "hospedaje": "月见庄旅馆",
       "actividades": "抱着一个便当坐上了浪漫特快列车,到了一间铺着榻榻米、闻起来全是新稻草味的房间。在大涌谷的蒸汽和硫磺味里吃了一颗黑蛋,晚上第一次泡了温泉。",
       "transporte": "小田急浪漫特快 + 箱根登山缆车"
     },
     {
       "n": 7,
-      "inicio": "Hakone · Gōra",
+      "inicio": "箱根·强罗",
       "destino": "河口湖·湖北岸",
       "hospedaje": "富士见庵民宿",
       "actividades": "坐大巴翻过山,租了辆自行车绕湖骑,富士山被云挡了整整一个下午。快六点的时候云散开了十分钟,我站在湖边一动不动,直到它又被藏了起来。",
@@ -66,7 +66,7 @@ export default {
     },
     {
       "n": 8,
-      "inicio": "Kawaguchiko",
+      "inicio": "河口湖",
       "destino": "京都·祇园",
       "hospedaje": "菊乃屋町屋",
       "actividades": "坐大巴下到三岛,再换新干线,一路上感觉是国家在动而我没动。晚上才到町屋,一进门就被横梁磕了脑袋,在街角吃了碗乌冬面收尾。",
@@ -115,14 +115,14 @@ export default {
     {
       "n": 14,
       "inicio": "京都·祇园",
-      "destino": "Osaka · Namba",
+      "destino": "大阪·难波",
       "hospedaje": "惠比寿难波旅舍",
       "actividades": "中午离开町屋,到了大阪,一进街区就感觉比京都吵闹得多。第一口章鱼烧就把嘴烫了,晚上站着在一个吧台吃饭,旁边的大叔没问就给我倒了啤酒。",
       "transporte": "阪急特急电车"
     },
     {
       "n": 15,
-      "inicio": "Osaka · Namba",
+      "inicio": "大阪·难波",
       "destino": "大阪·大阪城和新世界",
       "hospedaje": "惠比寿难波旅舍",
       "actividades": "一早去了大阪城,与其说是看城,不如说是逛公园,在新世界吃了串炸,严格遵守酱汁不能蘸第二次的规矩。晚上和旅舍认识的两个人去了卡拉OK,唱了一堆九十年代的歌。",
@@ -130,31 +130,31 @@ export default {
     },
     {
       "n": 16,
-      "inicio": "Osaka · Namba",
-      "destino": "Hiroshima · Naka-ku",
+      "inicio": "大阪·难波",
+      "destino": "广岛·中区",
       "hospedaje": "晓宾馆",
       "actividades": "上午到的,在和平纪念馆和公园里待了四个小时,没什么心情跟人说话。沿着河一直走到天黑,和六个陌生人围着铁板吃了广岛烧。",
       "transporte": "希望号新干线"
     },
     {
       "n": 17,
-      "inicio": "Hiroshima · Naka-ku",
-      "destino": "Miyajima · Itsukushima",
+      "inicio": "广岛·中区",
+      "destino": "宫岛·严岛神社",
       "hospedaje": "晓宾馆",
       "actividades": "退潮时坐渡轮过去,踩着湿沙子一直走到大鸟居,近看全是老木头和钉子。爬到半山腰,天太热就放弃了,下来在街上吃了烤生蚝。",
       "transporte": "JR山阳线 + 渡轮"
     },
     {
       "n": 18,
-      "inicio": "Hiroshima · Naka-ku",
-      "destino": "Osaka · Nakazakichō",
+      "inicio": "广岛·中区",
+      "destino": "大阪·中崎町",
       "hospedaje": "北梅田胶囊旅馆",
       "actividades": "回到大阪,泡在中崎町的老咖啡馆里,一路开着手机计算器买礼物。在胶囊旅馆的地板上重新整理行李,发现还剩两盒茶没送完。",
       "transporte": "樱号新干线"
     },
     {
       "n": 19,
-      "inicio": "Osaka · Nakazakichō",
+      "inicio": "大阪·中崎町",
       "destino": "东京·中目黑",
       "hospedaje": "星町中目黑旅舍",
       "actividades": "带着车站买的便当坐上新干线,富士山从右边车窗一闪而过。在中目黑沿着河道散了步,泡在一家椅子很不舒服的书店里直到打烊。",
@@ -166,7 +166,7 @@ export default {
       "destino": "东京·下北泽和涩谷",
       "hospedaje": "星町中目黑旅舍",
       "actividades": "完整的最后一天:寄了明信片,晚上七点买了给妹妹的礼物,坐下来喝了杯滤挂咖啡,把这三周想留住的东西写进本子。晚上又回涩谷十字路口告别了一次。",
-      "transporte": "Keiō Inokashira + JR Yamanote"
+      "transporte": "京王井之头线 + JR山手线"
     },
     {
       "n": 21,
@@ -229,14 +229,14 @@ export default {
     {
       "n": 5,
       "inicio": "首尔",
-      "destino": "Busan · Haeundae",
+      "destino": "釜山·海云台",
       "hospedaje": "月光海云台旅舍",
       "actividades": "一早坐KTX,手里一罐咖啡,看着窗外的风景变了两个半小时。到了以后什么都不管,先把脚伸进海里,哪怕水冰得要命。",
       "transporte": "KTX首尔–釜山 + 地铁"
     },
     {
       "n": 6,
-      "inicio": "Busan · Haeundae",
+      "inicio": "釜山·海云台",
       "destino": "釜山·甘川洞和札嘎其",
       "hospedaje": "月光海云台旅舍",
       "actividades": "上午爬上甘川文化村,顺着彩色的台阶慢慢往下走,想在哪儿停就在哪儿停。然后去札嘎其鱼市场,晚饭在吧台随便指最新鲜的吃。",
@@ -244,7 +244,7 @@ export default {
     },
     {
       "n": 7,
-      "inicio": "Busan · Haeundae",
+      "inicio": "釜山·海云台",
       "destino": "釜山·海东龙宫寺和松亭",
       "hospedaje": "月光海云台旅舍",
       "actividades": "一大早就去悬崖上的寺庙,那会儿人还不多,还能听见海浪的声音。最后在松亭海边喝杯露天咖啡,翻开本子算算这趟旅行的收支。",
@@ -252,7 +252,7 @@ export default {
     },
     {
       "n": 8,
-      "inicio": "Busan",
+      "inicio": "釜山",
       "destino": "仁川·回程航班",
       "hospedaje": "直飞回程",
       "actividades": "KTX留足了时间往回赶,不想再在车站里狂奔一次。登机前把剩下的韩元花在茶叶和给莱卡的礼物上。",
@@ -309,7 +309,7 @@ export default {
     {
       "dia": -280,
       "lugar": "oaxaca",
-      "texto": "和两个朋友去了四天鹿儿岛,正赶上天文馆商店街的黑豚串烧摊冒烟的点,那股炭火味整晚都黏在衣服上。控制饮食三个星期,第一天就全破了功:黑豚涮涮锅、萨摩炸鱼饼,还有一杯芋烧酒呛得我直咳嗽,老板娘在旁边笑我。回程的路上出了岔子——从雾岛回来的巴士晚了两个小时,结果我坐在一块石头上看日落,手机只剩4%的电。就在那儿冥想的,没开app,没计时器,只听着背后有人说鹿儿岛方言。清晨六点半沿着天文馆的商店街跑了两趟步,整座城市飘着面包和湿灰泥的味道。回来时带了五条枕崎的鲣鱼干,还多了一个念头:只要计划得好,我一个人也能去旅行。",
+      "texto": "和两个朋友去了四天鹿儿岛，正赶上天文馆商店街的黑豚串烧摊冒烟的点，那股炭火味整晚都黏在衣服上。控制饮食三个星期，第一天就全破了功：黑豚涮涮锅、萨摩炸鱼饼，还有一杯芋烧酒呛得我直咳嗽，老板娘在旁边笑我。回程的路上出了岔子——从雾岛回来的巴士晚了两个小时，结果我坐在一块石头上看日落，手机只剩4%的电。我就在那儿冥想了一会儿，没开软件，也没计时，只听着背后有人说鹿儿岛方言。清晨六点半沿着天文馆的商店街跑了两趟步，整座城市飘着面包和湿灰泥的味道。回来时带了五条枕崎的鲣鱼干，还多了一个念头：只要计划得好，我一个人也能去旅行。",
       "foto": "mexico-oaxaca"
     },
     {

@@ -2,7 +2,7 @@ import { Icono } from '../../core/ui/iconos/Icono'
 import { useMemo, useState } from 'react'
 import type { LugarViaje, RutaViaje } from '../../core/data/db'
 import { VACIO, rutasViajeRepo } from '../../core/data/repository'
-import { useT } from '../../core/i18n/useT'
+import { localeActual, useT } from '../../core/i18n/useT'
 import { etiquetaLugar } from './datos'
 import { MapaMundi } from './MapaMundi'
 
@@ -230,7 +230,7 @@ export function RutasTab({ lugares }: Props) {
               </div>
               <p className="mt-0.5 text-[11px] text-white/45">
                 {t('sala.rutas.paradas', '{n} paradas').replace('{n}', String(r.lugarIds.length))}
-                {km > 0 ? ` · ≈ ${km.toLocaleString()} km` : ''}
+                {km > 0 ? ` · ≈ ${km.toLocaleString(localeActual())} km` : ''}
               </p>
               {pts.length > 0 && (
                 <p className="mt-1 truncate text-xs text-white/60">

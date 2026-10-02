@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { EnlaceApp, EnlaceObjetoApp } from '../../data/db'
 import type { NodoEntidadApp } from '../../grafoApps'
-import { abrirEnlace, appsParaEnlace, destinosDeApp, textoEnlace } from '../../enlaceApp'
+import { abrirEnlace, appsParaEnlace, destinosDeApp, nombreApp, textoEnlace } from '../../enlaceApp'
 import { useT } from '../../i18n/useT'
 import type { Plantilla } from '../../registry'
 import { vivo } from '../estilos'
@@ -32,6 +32,7 @@ export function ChipApp({
   const [perdida, setPerdida] = useState(false)
   const { app, seccion } = textoEnlace(enlace)
   if (!app) return null
+  const nombre = nombreApp(app)
 
   return (
     <span
@@ -50,8 +51,8 @@ export function ChipApp({
           perdida
             ? t('cal.enlace.perdida', 'Esa app ya no está en ningún cuarto de tu MindHaOS.')
             : soloLectura
-              ? t('cal.enlace.dondeSeRegistra', 'Se registra en {app}', { app: app.nombre })
-              : t('cal.enlace.abrir', 'Abrir {app}', { app: app.nombre })
+              ? t('cal.enlace.dondeSeRegistra', 'Se registra en {app}', { app: nombre })
+              : t('cal.enlace.abrir', 'Abrir {app}', { app: nombre })
         }
         className={`ui-presion flex items-center gap-1 text-[10px] font-semibold leading-none transition disabled:cursor-default ${
           perdida ? 'text-amber-300' : 'texto-vivo hover:brightness-125'
@@ -59,7 +60,7 @@ export function ChipApp({
         style={vivo(app.color)}
       >
         <Icono emoji={app.icon} />
-        <span className="max-w-[7rem] truncate">{seccion ?? app.nombre}</span>
+        <span className="max-w-[7rem] truncate">{seccion ?? nombre}</span>
       </button>
       {onQuitar && (
         <button
@@ -132,7 +133,7 @@ export function SelectorApp({
         )}
         <p className="min-w-0 flex-1 truncate text-[10px] uppercase tracking-wide text-white/40">
           {app
-            ? t('cal.enlace.elegirSeccion', '¿A qué parte de {app}?', { app: app.nombre })
+            ? t('cal.enlace.elegirSeccion', '¿A qué parte de {app}?', { app: nombreApp(app) })
             : (pregunta ?? t('cal.enlace.elegirApp', '¿Dónde se registra este paso?'))}
         </p>
         <button
@@ -163,7 +164,7 @@ export function SelectorApp({
               </span>
               {/* El nombre corto, como el del cuarto: «Cocina», no «Cocina · Nutrición». */}
               <span className="w-full truncate text-center text-[11px] font-semibold text-white/85">
-                {p.nombre.split(' · ')[0]}
+                {nombreApp(p).split(' · ')[0]}
               </span>
             </button>
           ))}
@@ -189,7 +190,7 @@ export function SelectorApp({
               }}
             >
               <span className="texto-vivo" style={vivo(p.color)}>
-                <Icono emoji={p.icon} /> {p.nombre}
+                <Icono emoji={p.icon} /> {nombreApp(p)}
               </span>
             </button>
           ))}

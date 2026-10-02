@@ -2,7 +2,7 @@ import { useState } from 'react'
 import type { PerfilIdioma, TipoTarjeta } from '../../core/data/db'
 import { tarjetasIdiomaRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
-import { COLOR, NIVELES, TIPOS_TARJETA, promptTarjeta } from './constantes'
+import { COLOR, NIVELES, TIPOS_TARJETA, nombreIdioma, promptTarjeta } from './constantes'
 import { OpcionesTemas } from './OpcionesTemas'
 import { useTemario } from './temarioVivo'
 import { hoyISO } from './stats'
@@ -101,7 +101,7 @@ export function TarjetaForm({ perfil, inicial, tarjetaId, aviso, onCerrar }: {
         )}
 
         <div className="space-y-1">
-          <p className={labelCampo}>{t('idiomas.form.termino', 'Término (en {idioma})', { idioma: perfil.nombre })}</p>
+          <p className={labelCampo}>{t('idiomas.form.termino', 'Término (en {idioma})', { idioma: nombreIdioma(perfil) })}</p>
           <input
             value={termino}
             onChange={(e) => setTermino(e.target.value)}

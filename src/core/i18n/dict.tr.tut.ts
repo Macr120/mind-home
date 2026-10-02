@@ -1298,7 +1298,7 @@ export const TR_TUT: Dict = {
     'Form adım adım ilerliyor: tutar, değişken mi sabit mi, kategori (kendi kategorini yazarsın, bilinenleri de önerir), ne sıklıkla tekrarlandığı ve not.',
   'tut.app-despacho--captura.3.titulo': 'Bir yıllık işlem',
   'tut.app-despacho--captura.3.texto':
-    'Yıl ve ay klasörlerinde saklanan yüzlerce gider. 7. ayı ara: tek seferde neredeyse on bin peso götüren arıza orada.',
+    'Yıl ve ay klasörlerinde saklanan yüzlerce gider. 7. ayı ara: hesabı tek seferde boşaltan arıza orada.',
   'tut.app-despacho--captura.4.titulo': 'Para nereden geliyor',
   'tut.app-despacho--captura.4.texto':
     'Kafeden on beş günde bir yatan iki maaş, seyahate karar verince vermeye başladığı fizik dersleri ve asla birbirini tutmayan haftalık bahşişler.',
@@ -1353,7 +1353,7 @@ export const TR_TUT: Dict = {
     'Gerçek ulaşımı: zincir, iç lastik, fren; her biri kendi satırında — diğer uygulamaların kullandığı, yıl ve ay klasörlerinden oluşan aynı arşiv. Servislerin son aylarda nasıl kümelendiğine bak: maraton antrenmanı faturasını kesiyor.',
   'tut.app-garage--vehiculos.4.titulo': 'Bir de miras kalan araba',
   'tut.app-garage--vehiculos.4.texto':
-    '7. ayın arızası burada: yolda kaldı, çekici geldi ve elinde olmayan neredeyse on bin peso gitti. Her bakım kaydı kendi maliyetini, kilometresini ve hangi tamircide yapıldığını saklıyor.',
+    '7. ayın arızası burada: yolda kaldı, çekici geldi ve ödeyemeyeceği bir fatura çıktı. Her bakım kaydı kendi maliyetini, kilometresini ve hangi tamircide yapıldığını saklıyor.',
   'tut.app-garage--vehiculos.5.titulo': 'Araç kartı',
   'tut.app-garage--vehiculos.5.texto':
     'Marka, model, yıl, plaka ve güncel kilometre. Plaka girildiğinde garaj, yalnızca arabaya işleyen işlemlerin kilidini açıyor.',

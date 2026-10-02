@@ -1,4 +1,5 @@
 // Búsqueda de lugares con Nominatim (OpenStreetMap), gratis y sin API key.
+import { idiomaActual } from '../../core/i18n/useT'
 // Si no hay internet la app sigue funcionando: el lugar se captura a mano.
 
 export interface LugarGeo {
@@ -45,7 +46,7 @@ function aLugar(r: RespuestaNominatim): LugarGeo {
 /** Busca lugares por texto libre ("parís", "chichén itzá", "japón"). */
 export async function buscarLugares(consulta: string): Promise<LugarGeo[]> {
   const url =
-    'https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&limit=6&accept-language=es&q=' +
+    `https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&limit=6&accept-language=${idiomaActual()}&q=` +
     encodeURIComponent(consulta)
   const res = await fetch(url)
   if (!res.ok) throw new Error(`Nominatim ${res.status}`)
@@ -55,7 +56,7 @@ export async function buscarLugares(consulta: string): Promise<LugarGeo[]> {
 
 /** Geocodificación inversa: qué hay en unas coordenadas (para pines puestos a mano). */
 export async function lugarDesdeCoords(lat: number, lng: number): Promise<LugarGeo | null> {
-  const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&addressdetails=1&zoom=10&accept-language=es&lat=${lat}&lon=${lng}`
+  const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&addressdetails=1&zoom=10&accept-language=${idiomaActual()}&lat=${lat}&lon=${lng}`
   const res = await fetch(url)
   if (!res.ok) return null
   const dato = (await res.json()) as RespuestaNominatim & { error?: string }

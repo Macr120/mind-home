@@ -19,7 +19,7 @@ Hayatın bir 3D evde: alışkanlıklar, hedefler, finans, öğünler ve dahası.
 
 alışkanlık,hedef,ajanda,günlük,bütçe,beslenme,egzersiz,uyku,çalışma,yapay zeka,asistan
 
-## Descripción (3444/4000)
+## Descripción (3538/4000)
 
 Alışkanlıklarını, hedeflerini, finansını, öğünlerini ve daha fazlasını her odası bir uygulama olan izometrik bir 3D evde düzenle.
 
@@ -34,7 +34,7 @@ Odaya 17 uygulamadan birini atarsın — beslenme, egzersiz, uyku, finans, küt�
 3. Her şey aynı yere düşer
 17 uygulama ve Stüdyo’daki dördü tek bir takvimi, günlük görevlerden oluşan tek bir listeyi ve kişisel hedeflerini paylaşır. MindHaOS'unun (Zihin Evi OS) tamamı da telefondan bilgisayara seni takip eder.
 
-BIR MINDHAOS, BIR SÜRÜ UYGULAMA
+BİR MINDHAOS, BİR SÜRÜ UYGULAMA
 • Gerçekten hepsi bir arada: Yirmi uygulama yerine bir tane: yemek, para, uyku, çalışma, alışkanlıklar ve hedefler aynı çatı altında — üstelik birbirleriyle konuşarak, ki bunu ayrı uygulamalar yapamaz.
 • Ödemeyi bırakınca kapanmaz: Bir kez alırsın, senindir. Abonelikli uygulamalar ödemeyi kestiğin anda kapanır; burada yapay zekâyı bıraksan bile MindHaOS'un tamamı ve cihazındaki tüm verin sende kalır.
 • Uygulama olan odalar: Egzersiz, mutfak, finans, uyku, kütüphane, diller, seyahat, hobiler, farkındalık ve dahası: her oda eksiksiz bir mini uygulama barındırır.
@@ -45,7 +45,7 @@ BIR MINDHAOS, BIR SÜRÜ UYGULAMA
 • Takvim ve hedefler: 24 saatlik rutinler, iç içe hedefler, yapay zekâ ile kurulan zaman çizelgeleri ve gerçekten anlaşılan tamamlanma ölçüleri.
 • Verin, yanında: Uygulama local-first: her şey önce senin cihazında yaşar. İptal edersen verini kaybetmezsin — yerel modda devam edersin.
 
-ASISTANIN, BULUTLU YA DA BULUTSUZ
+ASİSTANIN, BULUTLU YA DA BULUTSUZ
 
 MindHaOS'unun yapay zekâsı seninle birlikte kaydeder, planlar ve üretir. Onu neyin çalıştıracağına da sen karar verirsin: bulutta bir sağlayıcı ya da kendi bilgisayarın.
 
@@ -57,3 +57,5 @@ UYGULAMA
 • Ay bittiğinde uygulamanın tamamı ve verilerin sende kalır; yapay zekâ kredileri isteğe bağlı
 
 Aynı dopamin. Bu kez gerçek hayatın için.
+
+Kullanım Koşulları (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/

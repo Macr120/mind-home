@@ -52,7 +52,7 @@ export default {
       "n": 6,
       "inicio": "Tokyo · Asakusa",
       "destino": "Hakone · Gōra",
-      "hospedaje": "Ryokan Tsukimisō",
+      "hospedaje": "Tsukimisō Ryokan",
       "actividades": "Kucağımda bir bentō’yla Romancecar’a bindim ve taze hasır kokan bir tatami odasına vardım. Ōwakudani’de kükürt dumanları arasında siyah bir yumurta yedim, gece de ilk kez bir onsen’e girdim.",
       "transporte": "Odakyu Romancecar + Hakone füniküleri"
     },
@@ -60,7 +60,7 @@ export default {
       "n": 7,
       "inicio": "Hakone · Gōra",
       "destino": "Kawaguchiko · gölün kuzey kıyısı",
-      "hospedaje": "Minshuku Fujimien",
+      "hospedaje": "Fujimien Pansiyon",
       "actividades": "Dağı otobüsle geçtim ve gölün etrafını dolaşmak için bisiklet kiraladım; Fuji bütün öğleden sonra bulutların ardında kaldı. Saat altıya çeyrek kala on dakikalığına açıldı ve tekrar saklanana kadar kıyıda kıpırdamadan durdum.",
       "transporte": "Dağ otobüsü + kiralık bisiklet"
     },
@@ -68,7 +68,7 @@ export default {
       "n": 8,
       "inicio": "Kawaguchiko",
       "destino": "Kyoto · Gion",
-      "hospedaje": "Machiya Kikunoya",
+      "hospedaje": "Kikunoya Machiya",
       "actividades": "Otobüsle Mishima’ya indim ve şinkansene bindim; ülke hareket ediyor, ben duruyormuşum gibi hissettim. Machiya’ya gece vardım, girişteki kirişe kafamı çarptım ve köşede udon yedim.",
       "transporte": "Mishima otobüsü + Hikari Şinkanseni"
     },
@@ -76,7 +76,7 @@ export default {
       "n": 9,
       "inicio": "Kyoto · Gion",
       "destino": "Kyoto · Arashiyama",
-      "hospedaje": "Machiya Kikunoya",
+      "hospedaje": "Kikunoya Machiya",
       "actividades": "Bambu ormanına kimse yokken girebilmek için alarmı beşe kurdum, sekize kadar işe yaradı. Sonra eylül nemiyle terleyerek maymun dağına çıktım ve nehir kenarında tofu yedim.",
       "transporte": "JR Sagano treni"
     },
@@ -84,7 +84,7 @@ export default {
       "n": 10,
       "inicio": "Kyoto · Gion",
       "destino": "Kyoto · Fushimi Inari ve Tōfuku-ji",
-      "hospedaje": "Machiya Kikunoya",
+      "hospedaje": "Kikunoya Machiya",
       "actividades": "Sıcak bastırmadan torii’lerin tepesine kadar çıktım ve şehir aşağıda düz uzanırken zirvede soğuk bir kutu kahve içtim. Dede gibi öğle uykusu çekmek için machiya’ya döndüm ve gün batımında yine dışarı çıktım.",
       "transporte": "Keihan treni + yürüyüş"
     },
@@ -92,7 +92,7 @@ export default {
       "n": 11,
       "inicio": "Kyoto · Gion",
       "destino": "Nara · Nara Parkı ve Tōdai-ji",
-      "hospedaje": "Machiya Kikunoya",
+      "hospedaje": "Kikunoya Machiya",
       "actividades": "Tōdai-ji’ye varmadan bir geyik cebimdeki haritayı yedi. Öğleden sonrayı Kasuga’nın taş fenerleri arasında geçirdim, dönüşte trende Trabzon hurması yaprağına sarılı suşi yedim.",
       "transporte": "Kintetsu treni, gidiş dönüş"
     },
@@ -100,7 +100,7 @@ export default {
       "n": 12,
       "inicio": "Kyoto · Gion",
       "destino": "Kyoto · Higashiyama ve Kiyomizu-dera",
-      "hospedaje": "Machiya Kikunoya",
+      "hospedaje": "Kikunoya Machiya",
       "actividades": "Saat yedide dükkânlar kapalıyken Sannenzaka’da yürüdüm, bütün mahalle ıslak tahta kokuyordu. Öğleden sonra sağanak bastırdı ve iki saat sifon kahveli bir kissaten’e sığındım.",
       "transporte": "206 numaralı otobüs + yürüyerek"
     },
@@ -108,7 +108,7 @@ export default {
       "n": 13,
       "inicio": "Kyoto · Gion",
       "destino": "Kyoto · Kinkaku-ji ve Nishijin",
-      "hospedaje": "Machiya Kikunoya",
+      "hospedaje": "Kikunoya Machiya",
       "actividades": "Altın Köşk’ü iki yüzden fazla insanla birlikte gördüm, arkasındaki yosunlu bahçeyi daha çok sevdim. Nishijin’de bir öğrenciyle bir saat Türkçe karşılığında bir saat Japonca konuştuk, eve götürmek üzere çay ve kahve aldım.",
       "transporte": "205 numaralı otobüs"
     },

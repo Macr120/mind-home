@@ -4,6 +4,7 @@ import { rutinasRepo } from '../data/repository'
 import { getPlantilla } from '../registry'
 import {
   buscarAgenda,
+  diasSemana,
   hoyISO,
   marcarActividadHecha,
   toggleHecho,
@@ -14,7 +15,7 @@ import { pedirPermiso, permisoNotificaciones } from '../notificaciones'
 import { useT } from '../i18n/useT'
 import { FilaAviso } from './FilaAviso'
 import { Icono } from './iconos/Icono'
-import { DIAS, EditorRutina, MODOS_REPETICION, rutinaNueva } from './RutinasPanel'
+import { EditorRutina, MODOS_REPETICION, rutinaNueva } from './RutinasPanel'
 import { vivo } from './estilos'
 
 /**
@@ -26,7 +27,7 @@ import { vivo } from './estilos'
  * Es un control compacto propio y NO un envoltorio de `EditorRutina`: el editor
  * completo pregunta emoji, nombre, app y color, y para poner la hora de la cena eso
  * es un formulario de administración donde el usuario quería un reloj (la cena ya
- * sabe cómo se llama). Lo que sí reusa: `rutinaNueva`, `MODOS_REPETICION`, `DIAS`,
+ * sabe cómo se llama). Lo que sí reusa: `rutinaNueva`, `MODOS_REPETICION`, `diasSemana`,
  * los toggles, y el editor entero detrás de «Más opciones» para la cola larga.
  */
 
@@ -159,10 +160,11 @@ export function HorarioActividad({
 
   const rep = fila.repeticion === 'personalizado' ? 'semanal' : fila.repeticion ?? 'indefinido'
   const muestraDias = rep === 'semanal' || rep === 'indefinido'
+  const letrasDias = diasSemana()
   const resumenDias =
     fila.dias.length === 0
       ? t('horario.todosDias', 'todos los días')
-      : fila.dias.map((d) => DIAS[d]).join(' ')
+      : fila.dias.map((d) => letrasDias[d]).join(' ')
 
   if (!abierto) {
     return (
@@ -241,7 +243,7 @@ export function HorarioActividad({
               {t('horario.dias', 'Días')}
             </p>
             <div className="flex gap-1">
-              {DIAS.map((d, i) => {
+              {letrasDias.map((d, i) => {
                 const activo = fila.dias.includes(i)
                 return (
                   <button

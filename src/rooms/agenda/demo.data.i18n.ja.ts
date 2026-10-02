@@ -46,7 +46,7 @@ export default {
     {
       "dia": -222,
       "titulo": "地元のお祭りでダブルシフト",
-      "lugar": "Plaza Norte"
+      "lugar": "北広場"
     },
     {
       "dia": -200,
@@ -190,72 +190,72 @@ export default {
     {
       "dia": -355,
       "titulo": "愚痴だらけのロングコーヒー",
-      "con": "Nadia Serrano"
+      "con": "ナディア・セラーノ"
     },
     {
       "dia": -326,
       "titulo": "日曜日の自宅ディナー",
-      "con": "Rosa Vidal"
+      "con": "ロサ・ビダル"
     },
     {
       "dia": -292,
       "titulo": "イケルの誕生日",
-      "con": "Iker Domínguez"
+      "con": "イケル・ドミンゲス"
     },
     {
       "dia": -258,
       "titulo": "5kmレース後の朝食",
-      "con": "Nadia Serrano"
+      "con": "ナディア・セラーノ"
     },
     {
       "dia": -230,
       "titulo": "SF映画マラソン",
-      "con": "Tomás Iriarte"
+      "con": "トマス・イリアルテ"
     },
     {
       "dia": -190,
       "titulo": "母の誕生日",
-      "con": "Rosa Vidal"
+      "con": "ロサ・ビダル"
     },
     {
       "dia": -160,
       "titulo": "愚痴を吐き出すカフェタイム",
-      "con": "Marisol Cáceres"
+      "con": "マリソル・カセレス"
     },
     {
       "dia": -134,
       "titulo": "メキシコへ出発前の送別ディナー",
-      "con": "Camila Vidal"
+      "con": "カミラ・ビダル"
     },
     {
       "dia": -110,
       "titulo": "オアハカからのビデオ通話",
-      "con": "Rosa Vidal"
+      "con": "ロサ・ビダル"
     },
     {
       "dia": -88,
       "titulo": "旅行写真の夜",
-      "con": "Tomás Iriarte"
+      "con": "トマス・イリアルテ"
     },
     {
       "dia": -60,
       "titulo": "ナディアの誕生日",
-      "con": "Nadia Serrano"
+      "con": "ナディア・セラーノ"
     },
     {
       "dia": -36,
       "titulo": "カフェの仲間とブランチ",
-      "con": "Bruno Ferrer"
+      "con": "ブルーノ・フェレール"
     },
     {
       "dia": -10,
       "titulo": "おうちコンサート:月の光",
-      "con": "Rosa Vidal"
+      "con": "ロサ・ビダル"
     },
     {
       "dia": -3,
       "titulo": "カフェで:大学院か就職か？",
-      "con": "Iker Domínguez"
+      "con": "イケル・ドミンゲス"
     }
   ],
   "pendientes": [
@@ -267,36 +267,36 @@ export default {
   ],
   "contactos": [
     {
-      "nombre": "Rosa Vidal",
-      "relacion": "Familia"
+      "nombre": "ロサ・ビダル",
+      "relacion": "家族"
     },
     {
-      "nombre": "Camila Vidal",
-      "relacion": "Familia"
+      "nombre": "カミラ・ビダル",
+      "relacion": "家族"
     },
     {
-      "nombre": "Nadia Serrano",
-      "relacion": "Amistades"
+      "nombre": "ナディア・セラーノ",
+      "relacion": "友人"
     },
     {
-      "nombre": "Tomás Iriarte",
-      "relacion": "Amistades"
+      "nombre": "トマス・イリアルテ",
+      "relacion": "友人"
     },
     {
-      "nombre": "Marisol Cáceres",
-      "relacion": "Trabajo"
+      "nombre": "マリソル・カセレス",
+      "relacion": "仕事"
     },
     {
-      "nombre": "Bruno Ferrer",
-      "relacion": "Trabajo"
+      "nombre": "ブルーノ・フェレール",
+      "relacion": "仕事"
     },
     {
-      "nombre": "Iker Domínguez",
-      "relacion": "Universidad"
+      "nombre": "イケル・ドミンゲス",
+      "relacion": "大学"
     },
     {
-      "nombre": "Elena Puig",
-      "relacion": "Universidad"
+      "nombre": "エレナ・プッチ",
+      "relacion": "大学"
     }
   ]
 }

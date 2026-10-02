@@ -3,7 +3,7 @@ import { abrirAppOPlantilla } from '../../abrirApp'
 import { useEspacios } from '../../espacios/cache'
 import { nombreTipo } from '../../espacios/enlaces'
 import { ICONO_TIPO, type TipoEspacio } from '../../espacios/tipos'
-import { useT } from '../../i18n/useT'
+import { idiomaActual, useT } from '../../i18n/useT'
 import { mensajeErrorPartida } from '../../partida/api'
 import { JUEGOS_INVITABLES, type JuegoInvitable } from '../../partida/juegosInvitables'
 import { pedirTexto } from '../../state/confirmarStore'
@@ -98,7 +98,7 @@ function PanelJugar({ contacto, correr, onCerrar }: { contacto: Contacto; correr
     <Marco titulo={t('buzon.panel.jugar', '¿A qué quieren jugar?')} icono="joystick" onCerrar={onCerrar}>
       <div className="grid grid-cols-2 gap-1 sm:grid-cols-3">
         {(Object.entries(JUEGOS_INVITABLES) as [JuegoInvitable, (typeof JUEGOS_INVITABLES)[JuegoInvitable]][]).map(([id, j]) => (
-          <button key={id} type="button" onClick={() => correr(`jugar ${j.es.toLowerCase()}`)} className={FILA}>
+          <button key={id} type="button" onClick={() => correr(idiomaActual() === 'es' ? `jugar ${j.es.toLowerCase()}` : `play ${j.en}`)} className={FILA}>
             <span className="text-lg">
               <Icono emoji={j.emoji} />
             </span>
@@ -113,12 +113,21 @@ function PanelJugar({ contacto, correr, onCerrar }: { contacto: Contacto; correr
   )
 }
 
+/** Las palabras de las órdenes en inglés: fuera del español las órdenes de Amigos se enseñan así. */
+const PALABRA_EN: Record<string, string> = {
+  receta: 'recipe', dieta: 'diet', hoja: 'sheet', rutina: 'routine', documento: 'document', idea: 'idea',
+  mapa: 'map', itinerario: 'itinerary', dibujo: 'drawing', pelicula: 'movie', serie: 'series', libro: 'book',
+  videojuego: 'videogame', mazo: 'deck', entrada: 'entry', meta: 'goal', proyecto: 'project', cancion: 'song',
+  audio: 'audio', video: 'video', calendario: 'calendar',
+}
+const enOrden = (palabra: string) => (idiomaActual() === 'es' ? palabra : (PALABRA_EN[palabra] ?? palabra))
+
 /** La palabra de la orden para un contenido («receta», «rutina»…). */
 function palabraDe(p: Paquete): string {
   // Una obra se pide por lo que es («enviar libro …»): su tipo ya es una palabra de la orden.
   const tipoObra = (p.datos as { tipo?: unknown } | null)?.tipo
-  if (p.app === 'entretenimiento' && typeof tipoObra === 'string' && tipoObra in TIPOS_ENVIAR) return tipoObra
-  return Object.entries(TIPOS_ENVIAR).find(([, [app, tipo]]) => app === p.app && tipo === p.tipo)?.[0] ?? p.tipo
+  if (p.app === 'entretenimiento' && typeof tipoObra === 'string' && tipoObra in TIPOS_ENVIAR) return enOrden(tipoObra)
+  return enOrden(Object.entries(TIPOS_ENVIAR).find(([, [app, tipo]]) => app === p.app && tipo === p.tipo)?.[0] ?? p.tipo)
 }
 
 function PanelEnviar({ contacto, onCerrar }: { contacto: Contacto; onCerrar: () => void }) {
@@ -129,7 +138,7 @@ function PanelEnviar({ contacto, onCerrar }: { contacto: Contacto; onCerrar: () 
 
   const enviarPaquete = async (p: Paquete) => {
     onCerrar()
-    void guardarNotaSistema(hiloId, `enviar ${palabraDe(p)} ${p.nombre}`, true)
+    void guardarNotaSistema(hiloId, `${idiomaActual() === 'es' ? 'enviar' : 'send'} ${palabraDe(p)} ${p.nombre}`, true)
     let respuesta: string
     try {
       await enviar(hiloId, { texto: '', paquete: p })
@@ -187,6 +196,8 @@ function PanelEnviar({ contacto, onCerrar }: { contacto: Contacto; onCerrar: () 
   )
 }
 
+const verboColaborar = () => (idiomaActual() === 'es' ? 'colaborar' : 'collaborate on')
+
 /** Tipo de espacio → la app donde se crea y se comparte. */
 const APP_DE: Record<TipoEspacio, string | null> = {
   documento: 'escritura',
@@ -203,7 +214,7 @@ function PanelColaborar({ correr, onCerrar }: { correr: (orden: string) => void;
 
   const nuevoCalendario = async () => {
     const nombre = await pedirTexto({ titulo: t('buzon.panel.nombreCal', 'Nombre del calendario compartido') })
-    if (nombre?.trim()) correr(`colaborar calendario ${nombre.trim()}`)
+    if (nombre?.trim()) correr(`${verboColaborar()} ${enOrden('calendario')} ${nombre.trim()}`)
   }
 
   return (
@@ -217,7 +228,7 @@ function PanelColaborar({ correr, onCerrar }: { correr: (orden: string) => void;
               <Icono nombre={ICONO_TIPO[tipo]} /> {nombreTipo(tipo)}
             </p>
             {lista.map((e) => (
-              <button key={e.espacioId} type="button" onClick={() => correr(`colaborar ${tipo} ${e.titulo}`)} className={FILA}>
+              <button key={e.espacioId} type="button" onClick={() => correr(`${verboColaborar()} ${enOrden(tipo)} ${e.titulo}`)} className={FILA}>
                 <Icono nombre={ICONO_TIPO[tipo]} /> <span className="truncate">{e.titulo}</span>
               </button>
             ))}

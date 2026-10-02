@@ -1,4 +1,5 @@
 import { zonasRepo } from '../../data/repository'
+import { tGlobal } from '../../i18n/useT'
 import type { ZonaPlano } from '../../data/db'
 import {
   claveCeldaAbs,
@@ -67,5 +68,5 @@ export async function aplicarFormaEnPlano(opts: {
     return
   }
 
-  setAviso('Selecciona una celda dentro de un cuarto.')
+  setAviso(tGlobal('planos.aviso.celdaEnCuarto', 'Selecciona una celda dentro de un cuarto.'))
 }

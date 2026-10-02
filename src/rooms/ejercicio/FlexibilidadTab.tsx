@@ -31,6 +31,7 @@ import { metaDelPeriodo, sesionesPeriodo, type Periodo } from './periodo'
 import { HistorialSesiones, StatCard } from './ResistenciaTab'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { textoMin } from '../../core/i18n/duracion'
 
 const SUBS_F = [
   { id: 'catalogo', icono: 'cuarto-biblioteca', labelEs: 'Catálogo' },
@@ -240,7 +241,7 @@ export function FlexibilidadTab({
                   <Icono nombre="calendario" /> {t('ejercicio.plan.dia', 'Plan del día')}
                   {p.hora ? ` · ${p.hora}` : ''}:
                 </span>{' '}
-                {nombreRutina(t, p.rutinaNombre)} · {p.duracionMin} min
+                {nombreRutina(t, p.rutinaNombre)} · {textoMin(p.duracionMin)}
               </p>
               <button
                 type="button"

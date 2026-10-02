@@ -13,7 +13,7 @@ export default {
       "tipo": "pelicula",
       "titulo": "Blade Runner 2049",
       "autor": "Denis Villeneuve",
-      "genero": "Ciencia ficción",
+      "genero": "Science-Fiction",
       "estado": "completado",
       "calificacion": 5,
       "resena": "Ich hab ihn um ein Uhr nachts angemacht, weil ich mal wieder nicht einschlafen konnte, und am Ende hab ich vom Sofa aus mit Laika auf dem Schoß den Sonnenaufgang gesehen. Ich hab mich zu sehr in dieser Stadt wiedererkannt, in der alle funktionieren und niemand wirklich lebt; danach wollte ich etwas ändern, auch wenn ich noch nicht wusste, was. In der Mitte gibt es zwanzig Minuten, bei denen ich abgeschweift bin und zurückspulen musste, aber das ist mir egal."
@@ -33,7 +33,7 @@ export default {
       "tipo": "libro",
       "titulo": "Die linke Hand der Dunkelheit",
       "autor": "Ursula K. Le Guin",
-      "genero": "Ciencia ficción",
+      "genero": "Science-Fiction",
       "estado": "completado",
       "calificacion": 4,
       "resena": "Ich hab damit angefangen, um vorm Schlafen das Handy wegzulegen, und es hat besser funktioniert als jeder Ratgeber im Netz. Le Guin zwingt dich dazu, Identität als etwas zu sehen, das ohne Gebrauchsanweisung kommt, und das hat mich genau in dem Moment erwischt, in dem mein ganzes Leben auf dem Kopf stand. Die ersten hundert Seiten waren mit all den Namen und dem Hofprotokoll ziemlich zäh."
@@ -43,7 +43,7 @@ export default {
       "tipo": "pelicula",
       "titulo": "Arrival",
       "autor": "Denis Villeneuve",
-      "genero": "Ciencia ficción",
+      "genero": "Science-Fiction",
       "estado": "completado",
       "calificacion": 5,
       "resena": "Ich hab ihn in derselben Woche gesehen, in der ich mein Budget aufgestellt und mir eine feste Schlafenszeit gesetzt habe, und die Idee, dass Sprache dein Denken verändert, hat mich total gepackt. Ich bin danach eine ganze Weile still sitzen geblieben, mit dem Abspann noch auf dem Bildschirm. Am nächsten Tag hab ich angefangen, Vokabelkarten auf Englisch zu machen – irgendwas hat er also bewirkt."
@@ -53,7 +53,7 @@ export default {
       "tipo": "libro",
       "titulo": "Cosmos",
       "autor": "Carl Sagan",
-      "genero": "Divulgación",
+      "genero": "Sachbuch",
       "estado": "completado",
       "calificacion": 5,
       "resena": "Ich hab ihn in den toten Minuten im Café gelesen, zwischen einer Kaffeerunde und der nächsten, und er hat mir richtig Lust gemacht, mich wieder ernsthaft mit Physik zu beschäftigen. Sagan erklärt, ohne dich von oben herab zu behandeln und ohne dir was vorzugaukeln, und genau das hat mir dieses Semester in der Vorlesung gefehlt. Nach einem Kapitel bin ich mit dem Handy auf den Balkon, um den Mond zu fotografieren; ist grandios danebengegangen, und das war mir egal."
@@ -63,7 +63,7 @@ export default {
       "tipo": "videojuego",
       "titulo": "Outer Wilds",
       "autor": "Mobius Digital",
-      "genero": "Ciencia ficción",
+      "genero": "Science-Fiction",
       "estado": "completado",
       "calificacion": 5,
       "resena": "Ich hab es in kurzen Sessions nach den Nachmittagsschichten gespielt, und so etwas hatte ich seit Jahren nicht mehr: Hier wächst nur eine Sache – du selbst, weil das, was du lernst, im Kopf bleibt und nicht im Inventar. Es durchzuspielen hat mich emotional ziemlich mitgenommen, im guten Sinne. Das Raumschiff zu steuern ist nach wie vor eine Katastrophe, und ich bin öfter abgestürzt, als ich zugeben will."
@@ -73,7 +73,7 @@ export default {
       "tipo": "pelicula",
       "titulo": "2001: Odyssee im Weltraum",
       "autor": "Stanley Kubrick",
-      "genero": "Sci-fi clásico",
+      "genero": "Sci-Fi-Klassiker",
       "estado": "completado",
       "calificacion": 4,
       "resena": "Der erste von der Klassiker-Liste, die ich mir dieses Jahr als Hausaufgabe vorgenommen habe. Optisch ist er für 1968 von einem anderen Stern, und HAL kam mir menschlicher vor als die halbe Filmwelt von heute. Aber die Schlusssequenz zog sich endlos, und ich bin mittendrin aufgestanden, um mir einen Tee zu machen – ich tu also nicht so, als hätte ich alles verstanden."
@@ -93,7 +93,7 @@ export default {
       "tipo": "pelicula",
       "titulo": "Metropolis",
       "autor": "Fritz Lang",
-      "genero": "Sci-fi clásico",
+      "genero": "Sci-Fi-Klassiker",
       "estado": "completado",
       "calificacion": 4,
       "resena": "Ich hab ihn das Wochenende nach meinem ersten 5-Kilometer-Lauf gesehen, mit fix und fertigen Beinen und ohne jede Lust, vom Sofa aufzustehen. Fasziniert hat mich, wie viel von dem Film Musik ist: Ich saß schon zwei Monate am Keyboard und hab endlich verstanden, wofür eine Begleitung eigentlich da ist. Die moralischen Zwischentitel sind von einer gewaltigen Naivität, aber die Bilder der Stadt sind mir im Kopf geblieben."
@@ -103,7 +103,7 @@ export default {
       "tipo": "libro",
       "titulo": "Der Marsianer",
       "autor": "Andy Weir",
-      "genero": "Ciencia ficción",
+      "genero": "Science-Fiction",
       "estado": "completado",
       "calificacion": 4,
       "resena": "Ich hab ihn genau gelesen, als ich mich für Japan entschieden und die Sparkalkulation aufgesetzt habe, und diese Marotte des Protagonisten, die Katastrophe in kleine Probleme zu zerlegen und eins nach dem anderen zu lösen, kam mir wie gerufen. Seine Berechnungen für Essen und Wasser haben mich verdächtig an meine eigenen Trinkgeldabrechnungen erinnert. Der Humor übertreibt es manchmal mit der Cleverness und die Prosa ist flach, aber man liest es in einem Rutsch durch."
@@ -123,7 +123,7 @@ export default {
       "tipo": "videojuego",
       "titulo": "Portal 2",
       "autor": "Valve",
-      "genero": "Ciencia ficción",
+      "genero": "Science-Fiction",
       "estado": "completado",
       "calificacion": 5,
       "resena": "Ich hab's mir als Belohnung für den 10-Kilometer-Lauf gegönnt und in zwei Wochenenden durchgespielt. Es gehört zu den wenigen Sachen, bei denen ich allein zu Hause laut auflache, und die Rätsel behandeln dich obendrein, als hättest du Grips. Den Koop-Modus hab ich nicht zu Ende gebracht, weil ich niemanden gefunden hab, mit dem ich regelmäßig spielen konnte."
@@ -133,7 +133,7 @@ export default {
       "tipo": "serie",
       "titulo": "The Expanse",
       "autor": "Mark Fergus und Hawk Ostby",
-      "genero": "Ciencia ficción",
+      "genero": "Science-Fiction",
       "estado": "completado",
       "calificacion": 4,
       "resena": "Ich hab die erste Staffel mit Folgen an Wochentagabenden durchgebracht. Mir gefällt, dass die Physik hier wirklich zählt: Manöver kosten Treibstoff, und Schwerkraft ist kein Dekorationsdetail – das weiß ich nach einem Semester Mechanik sehr zu schätzen. Mit dem Detektiv-Handlungsstrang der ersten Folgen hab ich mich schwergetan, aber ab der Mitte konnte ich nicht mehr aufhören."
@@ -143,7 +143,7 @@ export default {
       "tipo": "libro",
       "titulo": "Solaris",
       "autor": "Stanisław Lem",
-      "genero": "Ciencia ficción",
+      "genero": "Science-Fiction",
       "estado": "completado",
       "calificacion": 3,
       "resena": "Mich hat die Idee gereizt, dass es einen Kontakt geben kann, der sich niemals wirklich verstehen lässt, und der Gedanke hat mich tagelang beschäftigt. Was bei mir nicht funktioniert hat, waren die ganzen Kapitel mit erfundener Solaristik-Bibliografie: Die hab ich ohne schlechtes Gewissen quergelesen. Trotzdem ist mir das Buch mehr im Gedächtnis geblieben als andere, die ich mehr genossen habe."
@@ -153,7 +153,7 @@ export default {
       "tipo": "pelicula",
       "titulo": "Alien",
       "autor": "Ridley Scott",
-      "genero": "Terror",
+      "genero": "Horror",
       "estado": "completado",
       "calificacion": 5,
       "resena": "Wieder einer von der Klassiker-Liste, gesehen mit komplett ausgeschaltetem Licht und Laika auf Wache. Am meisten beeindruckt hat mich, wie wenig er zeigt und wie müde und dreckig diese Crew aussieht: Das wirkt wie Nachtschicht-Arbeiter, nicht wie Helden. Am nächsten Tag bin ich zur Arbeit gekommen und hab die Dampfdüse der Espressomaschine ganz komisch angeschaut."
@@ -163,7 +163,7 @@ export default {
       "tipo": "pelicula",
       "titulo": "Moon",
       "autor": "Duncan Jones",
-      "genero": "Ciencia ficción",
+      "genero": "Science-Fiction",
       "estado": "completado",
       "calificacion": 4,
       "resena": "Erste Woche mit bandagiertem Knie und dem Sofa als Hauptquartier, und dabei bin ich hierauf gestoßen. Die Idee von jemandem, der in einer Routine gefangen ist, die nicht mal seine eigene ist, hat voll eingeschlagen – genau in der Zeit, in der ich tagelang aus dem Fenster auf die Laufstrecke gestarrt hab, die ich nicht laufen konnte. Die Wendung sieht man nach zwanzig Minuten kommen, aber das ist egal: Worauf es ankommt, ist die Erschöpfung der Hauptfigur."
@@ -173,7 +173,7 @@ export default {
       "tipo": "pelicula",
       "titulo": "Children of Men",
       "autor": "Alfonso Cuarón",
-      "genero": "Ciencia ficción",
+      "genero": "Science-Fiction",
       "estado": "completado",
       "calificacion": 5,
       "resena": "Ich hab ihn an einem miesgelaunten Nachmittag angemacht, mit einem Budget, das die Autoreparatur komplett durcheinandergebracht hatte, und danach hatte ich eine Weile keine Lust zu reden. Die langen Einstellungen sind kein Angeber-Trick: Sie ziehen dich mitten in den Lärm und lassen dich nicht mal kurz durchatmen. Das ist der beklemmendste Film, den ich dieses Jahr gesehen hab, und trotzdem würde ich ihn mir wieder ansehen."
@@ -183,7 +183,7 @@ export default {
       "tipo": "pelicula",
       "titulo": "Gattaca",
       "autor": "Andrew Niccol",
-      "genero": "Sci-fi clásico",
+      "genero": "Sci-Fi-Klassiker",
       "estado": "completado",
       "calificacion": 4,
       "resena": "Ihn genau in der Woche zu sehen, in der mir der Physio erklärt hat, was mein Knie darf und was nicht, war fast wie ein Scherz des Universums. Hängen geblieben sind bei mir die Schwimmbadszene und der Gedanke, sich für den Rückweg immer etwas Kraft aufzuheben. Die Anzug-und-Krawatte-Ästhetik ist total merkwürdig gealtert, aber der Kloß im Magen funktioniert trotzdem noch."
@@ -193,7 +193,7 @@ export default {
       "tipo": "videojuego",
       "titulo": "Death Stranding",
       "autor": "Kojima Productions",
-      "genero": "Ciencia ficción",
+      "genero": "Science-Fiction",
       "estado": "completado",
       "calificacion": 3,
       "resena": "Mit dem Bein hochgelegt hab ich ein Spiel angefangen, bei dem es im Grunde nur ums Gehen geht; die Ironie hat mich mehrere Abende begleitet. Die Bergabschnitte mit schlecht verteilter Fracht haben mich angespannter gemacht als eine Klausur, und das hat mir gefallen. Was ich nicht ausgehalten hab, waren die Dialoge: Zwanzig Minuten Erklärungen alle zwei Spielstunden haben mich jedes Mal komplett rausgerissen."
@@ -213,7 +213,7 @@ export default {
       "tipo": "pelicula",
       "titulo": "Godzilla",
       "autor": "Ishirō Honda",
-      "genero": "Sci-fi clásico",
+      "genero": "Sci-Fi-Klassiker",
       "estado": "completado",
       "calificacion": 4,
       "resena": "Ich hab mit der Reihe japanischer Filme angefangen, um mit mehr als nur einem Reiseführer und einem U-Bahn-Plan anzukommen. Ich hab nicht mit einem so traurigen Film gerechnet, so nah an der echten Wunde von 1954; mit Hiroshima auf der Reiseroute hab ich ihn anders gesehen. Die wissenschaftlichen Konferenzszenen ziehen sich, aber die Szene mit dem Kinderchor hat mich innerlich verstummen lassen."
@@ -243,7 +243,7 @@ export default {
       "tipo": "libro",
       "titulo": "Die drei Sonnen",
       "autor": "Liu Cixin",
-      "genero": "Ciencia ficción",
+      "genero": "Science-Fiction",
       "estado": "completado",
       "calificacion": 4,
       "resena": "Ich hab es mir für den Flug gekauft und fast komplett durchgelesen, zwischen dem Flugzeug und der ersten schlaflosen Nacht wegen der Zeitumstellung. Die Kapitel zur Kulturrevolution fand ich deutlich stärker als die zum Videospiel, die ich nur quergelesen hab. Dass der Kern des Buches buchstäblich ein Problem ohne analytische Lösung ist, hat mich in fünfunddreißigtausend Fuß Höhe absurd glücklich gemacht."
@@ -253,7 +253,7 @@ export default {
       "tipo": "videojuego",
       "titulo": "Outer Wilds",
       "autor": "Mobius Digital",
-      "genero": "Ciencia ficción",
+      "genero": "Science-Fiction",
       "estado": "completado",
       "calificacion": 5,
       "resena": "Ich bin aus Japan zurückgekommen mit Lust, Dinge zu erkunden, und genau das ist dieses Spiel: keine Waffen, nur Fragen. Ich hab drei Nächte damit verbracht, das Schiff immer wieder gegen denselben Mond zu steuern, bis ich die Orbitalmechanik mit dem Kopf durch die Wand verstanden hab, und ich hab dabei mehr über Gravitation gelernt als in zwei Wochen Übungsaufgaben. Das Ende hat mich erwischt, während Laika eingeschlafen auf mir lag, und ich bin eine Weile still liegen geblieben, um sie nicht zu wecken."
@@ -263,7 +263,7 @@ export default {
       "tipo": "libro",
       "titulo": "Die Ordnung der Zeit",
       "autor": "Carlo Rovelli",
-      "genero": "Divulgación",
+      "genero": "Sachbuch",
       "estado": "completado",
       "calificacion": 4,
       "resena": "Ich hab es in Häppchen gelesen, zwischen den Schichten, am hinteren Tisch im Café vor der Öffnung. Der Teil über Entropie und darüber, warum wir uns an die Vergangenheit erinnern und nicht an die Zukunft, hat mir geholfen, etwas zu verstehen, das ich in der Vorlesung nur als Formel hin- und hergeschoben hatte. In manchen Kapiteln wird es mir zu poetisch, und da schalte ich ab, aber es lohnt sich trotzdem."
@@ -273,7 +273,7 @@ export default {
       "tipo": "libro",
       "titulo": "Die Enteigneten",
       "autor": "Ursula K. Le Guin",
-      "genero": "Ciencia ficción",
+      "genero": "Science-Fiction",
       "estado": "completado",
       "calificacion": 5,
       "resena": "Ich hab genau in der Woche damit angefangen, in der ich das Diagramm Promotion gegen Job gezeichnet hab, und das war ein Gespräch zur genau richtigen Zeit. Shevek, der darüber grübelt, ob seine Physik ihm gehört, seinen Leuten oder niemandem, hat mich gleichzeitig schlechter und besser zurückgelassen. Für mich ist das ohne Diskussion das Buch des Jahres."
@@ -283,7 +283,7 @@ export default {
       "tipo": "pelicula",
       "titulo": "Arrival",
       "autor": "Denis Villeneuve",
-      "genero": "Ciencia ficción",
+      "genero": "Science-Fiction",
       "estado": "completado",
       "calificacion": 5,
       "resena": "Nach einem Jahr Englisch-Vokabelkarten und rudimentärem Überlebensjapanisch in Kyoto hat mich ein Film darüber, wie eine neue Sprache den Kopf verändert, direkt getroffen. Die Szene mit der Tafel und dem missverstandenen Wort fand ich spannender als jede Verfolgungsjagd. Der Militär-Nebenstrang ist der schwächste Teil, aber der Rest macht das locker wett."
@@ -293,7 +293,7 @@ export default {
       "tipo": "libro",
       "titulo": "Anathem",
       "autor": "Neal Stephenson",
-      "genero": "Ciencia ficción",
+      "genero": "Science-Fiction",
       "estado": "en_curso",
       "calificacion": 4,
       "resena": "Ich bin bei Seite dreihundertirgendwas von einem Wälzer, der mehr wiegt als mein Laborrucksack. Die ersten hundert Seiten mit dem ganzen erfundenen Vokabular hätten mich fast zum Aufgeben gebracht, und jetzt will ich nicht, dass es aufhört. Ich komm langsam voran, zwanzig Seiten an den Abenden, an denen ich nicht Klavier spiele."
@@ -303,7 +303,7 @@ export default {
       "tipo": "serie",
       "titulo": "Severance",
       "autor": "Dan Erickson",
-      "genero": "Ciencia ficción",
+      "genero": "Science-Fiction",
       "estado": "en_curso",
       "calificacion": 4,
       "resena": "Ich bin bei der Hälfte der ersten Staffel, eine Folge alle zwei, drei Abende, damit es länger reicht. Mit aufgesetztem Lächeln Kundenkontakt zu haben und dann als jemand anderes nach Hause zu kommen, fühlt sich für mich weniger fremd an, als es sollte. Diese weißen Flure lösen bei mir etwas Körperliches aus, und genau das will ich von einer Serie."
@@ -313,7 +313,7 @@ export default {
       "tipo": "libro",
       "titulo": "Blindsight",
       "autor": "Peter Watts",
-      "genero": "Ciencia ficción",
+      "genero": "Science-Fiction",
       "estado": "pendiente",
       "calificacion": 0,
       "resena": ""
@@ -323,7 +323,7 @@ export default {
       "tipo": "pelicula",
       "titulo": "Solaris",
       "autor": "Andrei Tarkowski",
-      "genero": "Sci-fi clásico",
+      "genero": "Sci-Fi-Klassiker",
       "estado": "pendiente",
       "calificacion": 0,
       "resena": ""
@@ -333,7 +333,7 @@ export default {
       "tipo": "videojuego",
       "titulo": "Citizen Sleeper",
       "autor": "Jump Over the Age",
-      "genero": "Ciencia ficción",
+      "genero": "Science-Fiction",
       "estado": "pendiente",
       "calificacion": 0,
       "resena": ""

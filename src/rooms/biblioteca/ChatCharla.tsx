@@ -9,7 +9,7 @@ import {
 import { conversarIA, iaActiva, ventanaEstable, type MensajeIA } from '../../core/chat/ia'
 import { useAsistentes } from '../../core/state/asistentesStore'
 import { asistenteDePlantilla, semillaAsistente } from '../../core/gamificacion/asistentesPlantilla'
-import { useT } from '../../core/i18n/useT'
+import { localeActual, useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { BotonVoz, ToggleVozAuto } from '../../core/ui/BotonVoz'
 import { COLOR, PILAR_GENERAL, getPilar } from './constantes'
@@ -325,7 +325,7 @@ export function ChatCharla({
               {dia !== diaPrevio && (
                 <div className="my-2 flex justify-center">
                   <span className="rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] text-white/45">
-                    {new Date(m.creado).toLocaleDateString(undefined, { day: 'numeric', month: 'short' })}
+                    {new Date(m.creado).toLocaleDateString(localeActual(), { day: 'numeric', month: 'short' })}
                   </span>
                 </div>
               )}
@@ -346,7 +346,7 @@ export function ChatCharla({
                     }`}
                   >
                     {!esUsuario && <BotonVoz texto={m.texto} asistenteId={vozId} />}
-                    <span>{new Date(m.creado).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })}</span>
+                    <span>{new Date(m.creado).toLocaleTimeString(localeActual(), { hour: '2-digit', minute: '2-digit' })}</span>
                   </div>
                 </div>
               </div>

@@ -1,7 +1,9 @@
 import { conversarIA, extraerJSON } from './chat/ia'
+import { ErrorIA } from './cuenta/api'
 import type { EnlaceApp, EntradaPlan, MaterialPlan, NivelPartida } from './data/db'
 import { DIA_MS, deIso } from './fechaLocal'
-import { localeActual } from './i18n/useT'
+import { datosIdioma } from './i18n/idiomas'
+import { idiomaActual } from './i18n/useT'
 
 /**
  * Le pide a la IA un cronograma para una meta grande ("preparar un maratón").
@@ -410,7 +412,7 @@ export async function generarPlan(
   // El día 0 del plan es el inicio elegido, no hoy: el plan puede arrancar a futuro.
   const inicioIso = entrada.fechaInicio ?? hoyIso
   const tope = topeDe(entrada, inicioIso)
-  const idioma = localeActual().startsWith('es') ? 'español' : 'inglés'
+  const idioma = datosIdioma(idiomaActual()).nombreIA
   const recorta = (l: string) => l.slice(0, MAX_LARGO_LINEA)
   const guia = (app?.guia ?? []).slice(0, MAX_LINEAS_GUIA).map(recorta)
   const contexto = (app?.contexto ?? []).slice(0, MAX_LINEAS_CONTEXTO).map(recorta)
@@ -494,9 +496,9 @@ export async function generarPlan(
   )
   const json = jsonDePlan(respuesta)
   // La guía de la app permite rechazar metas fuera de su dominio: el motivo viaja
-  // como error porque el panel ya enseña motivos literales.
+  // como error porque el panel ya enseña motivos literales (ya en su idioma).
   if (typeof json.rechazo === 'string' && json.rechazo.trim())
-    throw new Error(recorta(json.rechazo.trim()))
+    throw new ErrorIA('rechazo', recorta(json.rechazo.trim()))
   const plan = validarPlan(json, tope, catalogo)
   plan.rutinas = validarRutinas(json, rutinas)
   // La IA no eligió ninguna (o mandó nombres inventados): decide la capa sin IA.

@@ -309,7 +309,8 @@ export function EditPanel() {
               <EditorPersonajesSection />
               <AyudaPie>
                 {t('editor.ayuda.pers.a', 'Elige un')} <b className="text-white/65">{t('editor.ayuda.pers.b', 'personaje')}</b>{' '}
-                {t('editor.ayuda.pers.c', 'y edita su')} <b className="text-white/65">{t('editor.ayuda.pers.d', 'nombre, cuerpo y avatar 3D')}</b>.
+                {t('editor.ayuda.pers.c', 'y edita su')} <b className="text-white/65">{t('editor.ayuda.pers.d', 'nombre, cuerpo y avatar 3D')}</b>
+                {t('editor.ayuda.punto', '.')}
               </AyudaPie>
             </div>
           ) : tab === 'objetos' ? (
@@ -317,7 +318,8 @@ export function EditPanel() {
               <EditorObjetosSection />
               <AyudaPie>
                 {t('editor.ayuda.obj.a', 'Elige un')} <b className="text-white/65">{t('editor.ayuda.obj.b', 'objeto')}</b>{' '}
-                {t('editor.ayuda.obj.c', 'y edita su')} <b className="text-white/65">{t('editor.ayuda.obj.d', 'color, tamaño y rotación')}</b>.
+                {t('editor.ayuda.obj.c', 'y edita su')} <b className="text-white/65">{t('editor.ayuda.obj.d', 'color, tamaño y rotación')}</b>
+                {t('editor.ayuda.punto', '.')}
               </AyudaPie>
             </div>
           ) : (
@@ -348,7 +350,8 @@ export function EditPanel() {
                 })}
               <AyudaPie>
                 {t('editor.ayuda.conf.a', 'El')} <b className="text-white/65">{t('editor.ayuda.conf.b', 'estilo visual del mapa')}</b>
-                {t('editor.ayuda.conf.c', ', idioma e')} <b className="text-white/65">{t('editor.ayuda.conf.d', 'interfaz')}</b>.
+                {t('editor.ayuda.conf.c', ', idioma e')} <b className="text-white/65">{t('editor.ayuda.conf.d', 'interfaz')}</b>
+                {t('editor.ayuda.punto', '.')}
               </AyudaPie>
             </div>
           )}

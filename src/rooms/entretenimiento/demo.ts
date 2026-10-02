@@ -26,8 +26,15 @@ export async function construirDemoEntretenimiento(ctx: CtxDemo): Promise<void> 
   //
   // Solo entran las que tienen carátula: una tarjeta con su emoji suelto entre
   // treinta portadas se lee como un fallo de la app. Hoy quedan fuera las series
-  // que ni Wikipedia ni Open Library indexan con ese título.
-  const fichas = datos.fichas.filter((f) => PORTADAS_DEMO[f.titulo])
+  // que ni Wikipedia ni Open Library indexan con ese título. La carátula se busca
+  // por el título ESPAÑOL de la misma ficha (las ramas son copias en el mismo
+  // orden): el índice solo conoce títulos es/en y fuera de ellos se perdían fichas.
+  const portadaDe = (i: number): string | undefined =>
+    PORTADAS_DEMO[DEMO_ENTRETENIMIENTO.es.fichas[i]?.titulo ?? ''] ?? PORTADAS_DEMO[datos.fichas[i].titulo]
+  const fichas = datos.fichas.flatMap((f, i) => {
+    const portada = portadaDe(i)
+    return portada ? [{ ...f, portada }] : []
+  })
   await mediaArchivoRepo.bulkAdd(
     fichas.map((f) => ({
       tipo: f.tipo,
@@ -39,7 +46,7 @@ export async function construirDemoEntretenimiento(ctx: CtxDemo): Promise<void> 
       autor: f.autor,
       // Carátula ya resuelta: el visitante ve el archivo con sus portadas sin
       // esperar a la búsqueda en lote (y sin depender de tener red).
-      ...(PORTADAS_DEMO[f.titulo] ? { portada: PORTADAS_DEMO[f.titulo] } : {}),
+      portada: f.portada,
       fecha: ctx.fecha(f.dia),
       creadoEn: `${ctx.fecha(f.dia)}T22:00:00.000Z`,
     })),

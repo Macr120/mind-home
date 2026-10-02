@@ -1,3 +1,4 @@
+import { tGlobal } from '../../core/i18n/useT'
 /**
  * Piezas comunes de OOXML: las comparten el escritor de hojas (`xlsx.ts`) y el
  * de gráficas (`xlsxChart.ts`). Viven aparte para que los dos usen el MISMO
@@ -15,7 +16,7 @@ export const nombreHoja = (s: string, i: number) => {
   // El segundo `trim` es por el recorte: un nombre largo cortado en 31 puede
   // acabar en espacio, y ese espacio final viaja luego a los `<c:f>`.
   const limpio = s.replace(/[[\]:*?/\\]/g, ' ').trim().slice(0, 31).trim()
-  return limpio || `Hoja${i + 1}`
+  return limpio || tGlobal('computo.hojaN', 'Hoja{n}', { n: i + 1 })
 }
 
 /** 'B2' → '$B$2'. Una referencia de gráfica es absoluta siempre. */

@@ -269,7 +269,7 @@
   },
   {
     "ruta": "gratitudes.16.item1",
-    "texto": "Altri sessanta euro nel fondo per il Giappone"
+    "texto": "Altri {monto:1040} nel fondo per il Giappone"
   },
   {
     "ruta": "gratitudes.16.item2",
@@ -297,7 +297,7 @@
   },
   {
     "ruta": "gratitudes.18.item3",
-    "texto": "La bici sistemata per dodici euro"
+    "texto": "La bici sistemata per {monto:210}"
   },
   {
     "ruta": "gratitudes.19.item1",

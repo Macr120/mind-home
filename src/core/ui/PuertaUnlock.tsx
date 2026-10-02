@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
 import { idiomaActual, useT } from '../i18n/useT'
 import { esDemo, esProbar, tieneUnlock } from '../edicion'
-import { useSesion } from '../cuenta/sesionStore'
+import { mensajeCuenta, useSesion } from '../cuenta/sesionStore'
 import { canalPago } from '../plataforma'
 import { hayBackend } from '../cuenta/supabase'
 import {
@@ -643,9 +643,9 @@ function FilaCupon() {
     if (!codigo.trim() || ocupado) return
     setOcupado(true)
     setError(null)
-    const mensaje = await canjearCupon(codigo)
+    const err = await canjearCupon(codigo)
     setOcupado(false)
-    if (mensaje) setError(mensaje)
+    if (err) setError(mensajeCuenta(err, t))
   }
 
   return (

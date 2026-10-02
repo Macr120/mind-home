@@ -8,6 +8,7 @@ import type {
   Mm,
   PerfilTubo,
 } from './tipos'
+import type { TFunc } from '../i18n/useT'
 
 /**
  * Catálogo físico del taller: qué materiales existen, en qué grosores se
@@ -51,6 +52,12 @@ export const TABLEROS: DefTablero[] = [
 
 export const getTablero = (id: MaterialTableroId): DefTablero =>
   TABLEROS.find((m) => m.id === id) ?? TABLEROS[0]
+
+/** Nombre del tablero en el idioma de la app (el id no siempre coincide con su clave). */
+export function nombreTablero(id: MaterialTableroId, t: TFunc): string {
+  const def = getTablero(id)
+  return t(def.clave, def.nombreEs)
+}
 
 export interface DefTubo {
   id: MaterialTuboId

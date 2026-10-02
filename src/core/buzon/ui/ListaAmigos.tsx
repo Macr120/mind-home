@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom'
 import { haySesionProbable, useSesion } from '../../cuenta/sesionStore'
 import { hayBackend } from '../../cuenta/supabase'
 import { esDemo, esVisita } from '../../edicion'
-import { useT, type TFunc } from '../../i18n/useT'
+import { localeActual, type TFunc, useT } from '../../i18n/useT'
 import { mensajeErrorPartida } from '../../partida/api'
 import { usePartida } from '../../partida/partidaStore'
 import { PanelSala } from '../../partida/ui/PanelSala'
@@ -141,7 +141,7 @@ export function ListaAmigos({ onAbrir, onContactos }: { onAbrir: (hiloId: string
                   <span className="truncate text-sm font-semibold text-white/85">{c.nombre || `@${c.alias}`}</span>
                   {u && (
                     <span className="shrink-0 text-[10px] text-white/35">
-                      {new Date(u.creadoEn).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })}
+                      {new Date(u.creadoEn).toLocaleTimeString(localeActual(), { hour: '2-digit', minute: '2-digit' })}
                     </span>
                   )}
                 </p>

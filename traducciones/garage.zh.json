@@ -29,7 +29,7 @@
   },
   {
     "ruta": "servicios.2.nota",
-    "texto": "去咖啡馆的路上在Doctor Vértiz爆胎了；我就在人行道上学会了换内胎，虽然学得晚，但总算学会了。"
+    "texto": "去咖啡馆的路上在贝尔蒂斯医生大道爆胎了；我就在人行道上学会了换内胎，虽然学得晚，但总算学会了。"
   },
   {
     "ruta": "servicios.3.titulo",
@@ -69,11 +69,11 @@
   },
   {
     "ruta": "servicios.7.nota",
-    "texto": "在Eje 8轧到玻璃碴，只好推着车走，到实验室时晚了二十分钟。"
+    "texto": "在8号干道上轧到玻璃碴，只好推着车走，到实验室时晚了二十分钟。"
   },
   {
     "ruta": "servicios.8.titulo",
-    "texto": "在Calzada de Tlalpan抛锚"
+    "texto": "在特拉尔潘大道抛锚"
   },
   {
     "ruta": "servicios.8.nota",
@@ -137,43 +137,43 @@
   },
   {
     "ruta": "talleres.0.nombre",
-    "texto": "Taller Mecánico Rivas"
+    "texto": "里瓦斯汽修厂"
   },
   {
     "ruta": "talleres.0.direccion",
-    "texto": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez"
+    "texto": "贝尼托·华雷斯区纳尔瓦特街区夸乌特莫克大道812号"
   },
   {
     "ruta": "talleres.0.notas",
-    "texto": "Rivas师傅总能说清楚什么真的急、什么可以再等，账单也从没虚报过；这辆车的事，我只信他一个人。"
+    "texto": "里瓦斯师傅总能说清楚什么真的急、什么可以再等，账单也从没虚报过；这辆车的事，我只信他一个人。"
   },
   {
     "ruta": "talleres.1.nombre",
-    "texto": "Seguros Meridiano - agente Nadia Ortega"
+    "texto": "梅里迪亚诺保险 - 代理人娜迪亚·奥尔特加"
   },
   {
     "ruta": "talleres.1.direccion",
-    "texto": "Av. Insurgentes Sur 1234, piso 3, Col. Del Valle"
+    "texto": "德尔巴列街区起义者南大道1234号3楼"
   },
   {
     "ruta": "talleres.1.notas",
-    "texto": "哪怕是周日，Nadia也会回WhatsApp消息；升级到全险的时候，是她帮我安排了按月付款。"
+    "texto": "哪怕是周日，娜迪亚也会回WhatsApp消息；升级到全险的时候，是她帮我安排了按月付款。"
   },
   {
     "ruta": "talleres.2.nombre",
-    "texto": "Verificentro 09-118 Iztaccíhuatl"
+    "texto": "伊斯塔西瓦特尔尾气检测中心（09-118）"
   },
   {
     "ruta": "talleres.2.direccion",
-    "texto": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez"
+    "texto": "贝尼托·华雷斯区伊斯塔西瓦特尔街区伊斯塔西瓦特尔大道240号"
   },
   {
     "ruta": "talleres.2.notas",
-    "texto": "预约早上七点，四十分钟就能搞定；Coyoacán那家检测中心排队排掉了大半个上午。"
+    "texto": "预约早上七点，四十分钟就能搞定；科约阿坎那家检测中心排队排掉了大半个上午。"
   },
   {
     "ruta": "talleres.3.direccion",
-    "texto": "Zacatecas 145, Col. Roma Sur, Cuauhtémoc"
+    "texto": "夸乌特莫克区罗马南街区萨卡特卡斯街145号"
   },
   {
     "ruta": "talleres.3.notas",
@@ -181,11 +181,11 @@
   },
   {
     "ruta": "talleres.4.nombre",
-    "texto": "Grúas Tepeyac 24 horas"
+    "texto": "特佩亚克24小时拖车"
   },
   {
     "ruta": "talleres.4.direccion",
-    "texto": "Base en Eje Central Lázaro Cárdenas 1105, Col. Álamos"
+    "texto": "驻点位于阿拉莫斯街区拉萨罗·卡德纳斯中央干道1105号"
   },
   {
     "ruta": "talleres.4.notas",
@@ -205,7 +205,7 @@
   },
   {
     "ruta": "tramites.1.nota",
-    "texto": "那次抛锚吓到我之后，今年跟Nadia升级成了全险；按月付款，我把它算进每月的预算里。"
+    "texto": "那次抛锚吓到我之后，今年跟娜迪亚升级成了全险；按月付款，我把它算进每月的预算里。"
   },
   {
     "ruta": "tramites.2.titulo",
@@ -229,6 +229,18 @@
   },
   {
     "ruta": "tramites.4.nota",
-    "texto": "每半年去一次Ciclos Malinche：调正车轮、检查刹车线和刹车，比修一个歪掉的轮子便宜太多了。"
+    "texto": "每半年去一次马林切自行车行：调正车轮、检查刹车线和刹车，比修一个歪掉的轮子便宜太多了。"
+  },
+  {
+    "ruta": "vehiculos.biciNombre",
+    "texto": "灰鹤"
+  },
+  {
+    "ruta": "vehiculos.autoNombre",
+    "texto": "老猛犸"
+  },
+  {
+    "ruta": "talleres.3.nombre",
+    "texto": "马林切自行车行"
   }
 ]

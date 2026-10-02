@@ -22,6 +22,7 @@ import { sembrarMetasApp } from '../../demo/metasPep'
 import { reconciliarGarage } from './calendario'
 import { sumarDias } from './fecha'
 import { DEMO_GARAGE } from './demo.data'
+import { montoDemo } from '../../core/moneda'
 
 /** Kilometraje al empezar y al terminar el año, por vehículo. */
 const BICI_KM = { inicio: 1240, fin: 4860 }
@@ -145,7 +146,7 @@ export async function construirDemoGarage(ctx: CtxDemo): Promise<void> {
         ) ?? '15:00',
       cadaMeses: def.cadaMeses,
       avisoDias: def.aviso,
-      costo: def.costo,
+      costo: montoDemo(def.costo),
       nota: t.nota,
       ...(def.taller ? { tallerId: def.taller } : {}),
       activo: true,
@@ -176,7 +177,7 @@ export async function construirDemoGarage(ctx: CtxDemo): Promise<void> {
       fecha: ctx.fecha(s.dia),
       tipo: s.tipo,
       titulo: s.titulo,
-      costo,
+      costo: montoDemo(costo),
       odometro: odometro(s.vehiculo, s.dia),
       nota: s.nota,
       ...(esAveria ? { taller: datos.talleres.find((t) => t.clave === 'grua')?.nombre } : {}),

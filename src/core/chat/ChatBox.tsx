@@ -114,7 +114,7 @@ async function interpretarEdicionDiferida(texto: string): Promise<EdicionLocal |
   const e = editorLocal.interpretarEdicionLocal(texto)
   return e?.soloSinIA && iaActiva() ? null : e
 }
-import { useT } from '../i18n/useT'
+import { localeActual, useT } from '../i18n/useT'
 import { Icono } from '../ui/iconos/Icono'
 import { IconoMarca } from '../ui/iconos/glifosApps'
 import { LogoIA } from '../ui/iconos/logosIA'
@@ -122,6 +122,7 @@ import { useHud } from '../state/hudStore'
 import { BotonPlegarHud } from '../ui/HudPlegable'
 import { useTopeHud, anclajeChat } from '../ui/hudMedida'
 import { vivo } from '../ui/estilos'
+import { nombreCuartoGlobal } from '../ui/roomDisplay'
 import { esDemo, iaHabilitada } from '../edicion'
 import { ErrorIA, usarViaCuenta } from '../cuenta/api'
 import { haySesionProbable, useSesion } from '../cuenta/sesionStore'
@@ -632,9 +633,13 @@ export function ChatBox({
 
   const nombreCorto = (roomId: string) =>
     (getPlantilla(roomId) ?? getCuarto(roomId))?.nombre.split(' · ')[0] ?? roomId
-  /** Nombre corto traducido (para mostrar en la UI). */
-  const nombreCortoT = (roomId: string) =>
-    t(`room.${roomId}.nombre`, nombreCorto(roomId))
+  /** Nombre corto traducido (para mostrar en la UI); el de un cuarto, con la regla de la casa. */
+  const nombreCortoT = (roomId: string) => {
+    const cuarto = getPlantilla(roomId) ? undefined : getCuarto(roomId)
+    return cuarto ? nombreCuartoGlobal(cuarto) : t(`room.${roomId}.nombre`, nombreCorto(roomId))
+  }
+  /** «Cocina y Ejercicio», unidos como se unen en el idioma de la interfaz. */
+  const unir = (nombres: string[]) => new Intl.ListFormat(localeActual(), { type: 'conjunction' }).format(nombres)
   /** Nombre corto del objetivo de una ayuda (app traducida o menú sin el prefijo "Menú ·"). */
   const nombreAyuda = (a: AyudaDetectada) =>
     (a.plantillaId
@@ -701,7 +706,7 @@ export function ChatBox({
     mensajesChatRepo.add({
       asistenteId: destinoId,
       rol: 'usuario',
-      texto: interp.texto.trim() || '📷 Foto',
+      texto: interp.texto.trim() || `📷 ${t('chat.fotoMensaje', 'Foto')}`,
       creado: new Date().toISOString(),
     })
 
@@ -872,7 +877,7 @@ export function ChatBox({
         creado: new Date().toISOString(),
         procesado: true,
       })
-      decir('objeto', nombreCorto(roomId), t(`objeto.${item.id}`, item.nombre).toLowerCase())
+      decir('objeto', nombreCortoT(roomId), t(`objeto.${item.id}`, item.nombre).toLowerCase())
       setTexto('')
       return
     }
@@ -880,14 +885,14 @@ export function ChatBox({
     // Memoria del arquitecto: "recuerda que…" (puede no tener cuarto).
     if (interp.comando === 'recordar') {
       await guardarMemoria({ hecho: interp.texto, roomId: interp.roomId ?? undefined, asistenteId: destinoId })
-      decir('recordado', interp.roomId ? nombreCorto(interp.roomId) : undefined)
+      decir('recordado', interp.roomId ? nombreCortoT(interp.roomId) : undefined)
       setTexto('')
       return
     }
 
     // Comandos del arquitecto: agregar (asegura colocación) / quitar (elimina) cuarto
     if (interp.comando && interp.roomId) {
-      const nom = nombreCorto(interp.roomId)
+      const nom = nombreCortoT(interp.roomId)
       if (interp.comando === 'quitar') await useCuartos.getState().eliminar(interp.roomId)
       else await addRoomGround(interp.roomId)
       decir(interp.comando, nom)
@@ -949,7 +954,7 @@ export function ChatBox({
             await bitacoraRepo.add({ texto: interp.texto, roomId: hechos[0].id, creado: new Date().toISOString(), procesado: true })
             decir(
               'capturado',
-              hechos.map((h) => (h.n > 1 ? `${nombreCorto(h.id)} ×${h.n}` : nombreCorto(h.id))).join(' y '),
+              unir(hechos.map((h) => (h.n > 1 ? `${nombreCortoT(h.id)} ×${h.n}` : nombreCortoT(h.id)))),
               undefined,
               hechos.map((h): DestinoChat => ({ tipo: 'app', appId: h.id })),
             )
@@ -962,7 +967,7 @@ export function ChatBox({
         // La emoción etiquetada por el modelo; las ramas de evento (decir) pueden pisarla.
         reaccionar(destinoId, r.emocion)
         await bitacoraRepo.add({
-          texto: interp.texto.trim() || (adjunto?.tipo === 'pdf' ? `📄 ${adjunto.nombre}` : '📷 Foto'),
+          texto: interp.texto.trim() || (adjunto?.tipo === 'pdf' ? `📄 ${adjunto.nombre}` : `📷 ${t('chat.fotoMensaje', 'Foto')}`),
           roomId: r.roomIds[0],
           creado: new Date().toISOString(),
           procesado: r.capturado || r.ediciones.length > 0 || !!r.creado3d || !!r.imagen,
@@ -983,7 +988,7 @@ export function ChatBox({
         else if (r.imagenFallo) hablar(t('chat.imagenFallo', 'No pude generar la imagen, inténtalo de nuevo.'), { ...opts, sistema: true })
         else if (r.rutinaCreada) hablar(t('chat.rutinaCreada', '⏰ Rutina «{n}» creada. La verás en el panel de rutinas.', { n: r.rutinaCreada }), opts)
         else if (r.ediciones.length) hablar(r.ediciones.join(' '), opts)
-        else if (r.capturado) decir('capturado', r.roomIds.map(nombreCorto).join(' y '), undefined, r.destinos)
+        else if (r.capturado) decir('capturado', unir(r.roomIds.map(nombreCortoT)), undefined, r.destinos)
         else if (r.memoriaGuardada) decir('recordado')
         else decir('sinClasificar')
         // Charla de explicación con forma de mapa: ofrecerlo en el hilo de ese
@@ -1045,12 +1050,12 @@ export function ChatBox({
         decir(
           'capturado',
           // El «×n» avisa de que cuajaron varias entradas en la misma app.
-          hechos.map((h) => (h.n > 1 ? `${nombreCorto(h.id)} ×${h.n}` : nombreCorto(h.id))).join(' y '),
+          unir(hechos.map((h) => (h.n > 1 ? `${nombreCortoT(h.id)} ×${h.n}` : nombreCortoT(h.id)))),
           undefined,
           hechos.map((h): DestinoChat => ({ tipo: 'app', appId: h.id })),
         )
       } else {
-        decir('clasificado', interp.roomIds.map(nombreCorto).join(' y '))
+        decir('clasificado', unir(interp.roomIds.map(nombreCortoT)))
       }
     } else if (iaFallo) {
       // Nada que archivar sin la IA: decirlo, no fingir que se guardó.
@@ -1451,7 +1456,7 @@ export function ChatBox({
                       <span className="truncate text-sm font-semibold text-white/85">{nombreAsistente(t, m)}</span>
                       {u && (
                         <span className="shrink-0 text-[10px] text-white/35">
-                          {new Date(u.creado).toLocaleTimeString(undefined, {
+                          {new Date(u.creado).toLocaleTimeString(localeActual(), {
                             hour: '2-digit',
                             minute: '2-digit',
                           })}

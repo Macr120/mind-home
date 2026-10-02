@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from 'react'
-import { useT } from '../../core/i18n/useT'
+import { localeActual, useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { IconoCuarto } from '../../core/ui/IconoCuarto'
 import type { PropsArrastre } from '../../core/ui/comun/arrastre'
@@ -83,7 +83,7 @@ export function Vista(p: PropsVista) {
     }
     const bytes = i.tipo === 'archivo' ? i.archivo.bytes : i.elem.bytes
     const fecha = fechaDe(i)
-    return fecha ? `${formatoBytes(bytes)} · ${new Date(fecha).toLocaleDateString()}` : formatoBytes(bytes)
+    return fecha ? `${formatoBytes(bytes)} · ${new Date(fecha).toLocaleDateString(localeActual())}` : formatoBytes(bytes)
   }
 
   const propsComunes = (i: Item) => {

@@ -21,12 +21,12 @@ export default {
     {
       "dia": -312,
       "titulo": "Miesięczna inwentaryzacja baru",
-      "lugar": "Café Mirasol"
+      "lugar": "Kawiarnia Mirasol"
     },
     {
       "dia": -298,
       "titulo": "Dodatkowa zmiana: degustacja kawy single origin",
-      "lugar": "Café Mirasol"
+      "lugar": "Kawiarnia Mirasol"
     },
     {
       "dia": -270,
@@ -81,12 +81,12 @@ export default {
     {
       "dia": -134,
       "titulo": "Poprosić Marisol o zgodę na wyjazd",
-      "lugar": "Café Mirasol"
+      "lugar": "Kawiarnia Mirasol"
     },
     {
       "dia": -131,
       "titulo": "Szkolenie z obsługi nowej maszyny",
-      "lugar": "Café Mirasol"
+      "lugar": "Kawiarnia Mirasol"
     },
     {
       "dia": -80,
@@ -111,7 +111,7 @@ export default {
     {
       "dia": -8,
       "titulo": "Specjalna zmiana: degustacja herbat",
-      "lugar": "Café Mirasol"
+      "lugar": "Kawiarnia Mirasol"
     }
   ],
   "salud": [
@@ -268,35 +268,35 @@ export default {
   "contactos": [
     {
       "nombre": "Rosa Vidal",
-      "relacion": "Familia"
+      "relacion": "Rodzina"
     },
     {
       "nombre": "Camila Vidal",
-      "relacion": "Familia"
+      "relacion": "Rodzina"
     },
     {
       "nombre": "Nadia Serrano",
-      "relacion": "Amistades"
+      "relacion": "Znajomi"
     },
     {
       "nombre": "Tomás Iriarte",
-      "relacion": "Amistades"
+      "relacion": "Znajomi"
     },
     {
       "nombre": "Marisol Cáceres",
-      "relacion": "Trabajo"
+      "relacion": "Praca"
     },
     {
       "nombre": "Bruno Ferrer",
-      "relacion": "Trabajo"
+      "relacion": "Praca"
     },
     {
       "nombre": "Iker Domínguez",
-      "relacion": "Universidad"
+      "relacion": "Uczelnia"
     },
     {
       "nombre": "Elena Puig",
-      "relacion": "Universidad"
+      "relacion": "Uczelnia"
     }
   ]
 }

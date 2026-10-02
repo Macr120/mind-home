@@ -13,30 +13,76 @@ import { LS_FUE_PRO, LS_PLAN_EXPIRA, LS_PLAN_REAL, LS_UNLOCK, type Plan } from '
 import { recibirRetornoRedes } from '../redes/retorno'
 
 /**
- * Traduce los errores de auth de Supabase a mensajes propios. Nunca se pinta
+ * Qué falló en una operación de cuenta. El store devuelve el CÓDIGO y cada
+ * pantalla lo pone en su idioma con `mensajeCuenta`: lo leen la app y la web
+ * /cuenta, que tienen diccionarios distintos (los dos llevan `cuenta.err.*`).
+ */
+export type ErrorCuenta =
+  | 'credenciales'
+  | 'sin-confirmar'
+  | 'correo-ocupado'
+  | 'contrasena-debil'
+  | 'contrasena-igual'
+  | 'demasiados-intentos'
+  | 'correo-invalido'
+  | 'contrasena-corta'
+  | 'sin-backend'
+  | 'apple'
+  | 'borrar'
+  | 'cupon'
+  | 'cupon-canjeado'
+  | 'cupon-invalido'
+  | 'generico'
+
+/** El español de cada código: el original y el último respaldo de `t()`. */
+const TEXTO_ERROR: Record<ErrorCuenta, string> = {
+  credenciales: 'Correo o contraseña incorrectos.',
+  'sin-confirmar': 'Confirma tu correo antes de entrar (revisa tu bandeja).',
+  'correo-ocupado': 'No se pudo crear la cuenta con ese correo. Si ya tienes una, inicia sesión.',
+  'contrasena-debil': 'La contraseña es demasiado débil: usa al menos 8 caracteres.',
+  'contrasena-igual': 'La contraseña nueva debe ser distinta de la actual.',
+  'demasiados-intentos': 'Demasiados intentos. Espera un momento y vuelve a intentarlo.',
+  'correo-invalido': 'Ese correo no parece válido.',
+  'contrasena-corta': 'La contraseña necesita al menos 8 caracteres.',
+  'sin-backend': 'Esta versión no tiene servidor de cuentas.',
+  apple: 'No se pudo entrar con Apple. Intenta de nuevo.',
+  borrar: 'No se pudo borrar la cuenta. Intenta de nuevo.',
+  cupon: 'No se pudo canjear el cupón. Intenta de nuevo.',
+  'cupon-canjeado': 'Este cupón ya se canjeó en esta cuenta.',
+  'cupon-invalido': 'Ese cupón no existe o ya no está disponible.',
+  generico: 'No se pudo completar la operación. Intenta de nuevo.',
+}
+
+/** El error en el idioma de quien lo lee; `t` es el de la app o el de la web. */
+export function mensajeCuenta(codigo: ErrorCuenta, t: (clave: string, es: string) => string): string {
+  return t(`cuenta.err.${codigo}`, TEXTO_ERROR[codigo])
+}
+
+/**
+ * Traduce los errores de auth de Supabase a códigos propios. Nunca se pinta
  * `error.message` crudo: llega en inglés y algunos («User already registered»)
  * permiten enumerar qué correos tienen cuenta.
  */
-function mensajeAuth(error: AuthError): string {
+function codigoAuth(error: AuthError): ErrorCuenta {
   switch (error.code) {
     case 'invalid_credentials':
-      return 'Correo o contraseña incorrectos.'
+      return 'credenciales'
     case 'email_not_confirmed':
-      return 'Confirma tu correo antes de entrar (revisa tu bandeja).'
+      return 'sin-confirmar'
     case 'user_already_exists':
     case 'email_exists':
-      return 'No se pudo crear la cuenta con ese correo. Si ya tienes una, inicia sesión.'
+      return 'correo-ocupado'
     case 'weak_password':
-      return 'La contraseña es demasiado débil: usa al menos 8 caracteres.'
+      return 'contrasena-debil'
     case 'same_password':
-      return 'La contraseña nueva debe ser distinta de la actual.'
+      return 'contrasena-igual'
     case 'over_request_rate_limit':
     case 'over_email_send_rate_limit':
-      return 'Demasiados intentos. Espera un momento y vuelve a intentarlo.'
+      return 'demasiados-intentos'
     case 'email_address_invalid':
-      return 'Ese correo no parece válido.'
+      return 'correo-invalido'
     default:
-      return 'No se pudo completar la operación. Intenta de nuevo.'
+      return 'generico'
   }
 }
 
@@ -92,16 +138,17 @@ interface SesionState {
   estadoSync: EstadoSync
   ultimaSync: number | null
   errorSync: string | null
-  /** Devuelven el mensaje de error, o null si todo bien. */
-  registrar: (email: string, contrasena: string) => Promise<string | null>
-  entrar: (email: string, contrasena: string) => Promise<string | null>
-  entrarConProveedor: (proveedor: 'google' | 'apple') => Promise<string | null>
+  /** Devuelven el código del error (se pinta con `mensajeCuenta`), o null si todo bien. */
+  /** `idioma`: el de la app, para que los correos de Auth puedan salir en él. */
+  registrar: (email: string, contrasena: string, idioma?: string) => Promise<ErrorCuenta | null>
+  entrar: (email: string, contrasena: string) => Promise<ErrorCuenta | null>
+  entrarConProveedor: (proveedor: 'google' | 'apple') => Promise<ErrorCuenta | null>
   salir: () => Promise<void>
-  restablecer: (email: string) => Promise<string | null>
-  cambiarContrasena: (nueva: string) => Promise<string | null>
-  eliminarCuenta: () => Promise<string | null>
+  restablecer: (email: string) => Promise<ErrorCuenta | null>
+  cambiarContrasena: (nueva: string) => Promise<ErrorCuenta | null>
+  eliminarCuenta: () => Promise<ErrorCuenta | null>
   /** Canjea un cupón de acceso (unlock + trial); devuelve el error o null. */
-  canjearCupon: (codigo: string) => Promise<string | null>
+  canjearCupon: (codigo: string) => Promise<ErrorCuenta | null>
   /**
    * Relee `perfiles`. No lanza —lo llaman sitios que no pueden atraparlo—,
    * pero deja el último fallo en `errorPerfil` para que quien espera una
@@ -183,11 +230,11 @@ export const useSesion = create<SesionState>((set, get) => ({
   ultimaSync: null,
   errorSync: null,
 
-  registrar: async (email, contrasena) => {
+  registrar: async (email, contrasena, idioma) => {
     const sb = await obtenerSupabase()
-    if (!sb) return 'Sin backend'
+    if (!sb) return 'sin-backend'
     // Espejo del mínimo configurado en el Dashboard: falla aquí, sin viaje.
-    if (contrasena.length < 8) return 'La contraseña necesita al menos 8 caracteres.'
+    if (contrasena.length < 8) return 'contrasena-corta'
     // En la app, el enlace de confirmación del correo vuelve a la APP por el
     // mismo deep link que el login social (`canjearCodigoDeepLink` canjea el
     // code y deja la sesión abierta). Sin esto aterrizaba en la URL del sitio:
@@ -196,9 +243,13 @@ export const useSesion = create<SesionState>((set, get) => ({
     const { data, error } = await sb.auth.signUp({
       email,
       password: contrasena,
-      options: nativa ? { emailRedirectTo: REDIRECT_NATIVO } : undefined,
+      options: {
+        ...(nativa ? { emailRedirectTo: REDIRECT_NATIVO } : {}),
+        // Queda en user_metadata: las plantillas de correo de Auth lo leen con {{ .Data.idioma }}.
+        ...(idioma ? { data: { idioma } } : {}),
+      },
     })
-    if (error) return mensajeAuth(error)
+    if (error) return codigoAuth(error)
     // Sin sesión = falta confirmar el correo. Se recuerdan las credenciales EN
     // MEMORIA para entrar solos en cuanto la persona vuelva (`entrarSiYaConfirmo`).
     pendienteConfirmar = data.session ? null : { email, contrasena }
@@ -207,14 +258,14 @@ export const useSesion = create<SesionState>((set, get) => ({
 
   entrar: async (email, contrasena) => {
     const sb = await obtenerSupabase()
-    if (!sb) return 'Sin backend'
+    if (!sb) return 'sin-backend'
     const { error } = await sb.auth.signInWithPassword({ email, password: contrasena })
-    return error ? mensajeAuth(error) : null
+    return error ? codigoAuth(error) : null
   },
 
   entrarConProveedor: async (proveedor) => {
     const sb = await obtenerSupabase()
-    if (!sb) return 'Sin backend'
+    if (!sb) return 'sin-backend'
     if (proveedor === 'apple' && esAppNativa() && nombrePlataforma() === 'ios') {
       // En iOS, Apple va por la hoja NATIVA y no por la web: el login web se
       // quedó en blanco en el iPad de App Review (24-sep-2026). `appleNativo.ts`.
@@ -222,13 +273,14 @@ export const useSesion = create<SesionState>((set, get) => ({
       try {
         const cred = await pedirCredencialApple()
         const { error } = await sb.auth.signInWithIdToken({ provider: 'apple', token: cred.token, nonce: cred.nonce })
-        if (error) return mensajeAuth(error)
+        if (error) return codigoAuth(error)
         // Apple da el nombre solo la primera vez: se guarda o se pierde.
         if (cred.nombre) void sb.auth.updateUser({ data: { full_name: cred.nombre } })
         return null
       } catch (e) {
         if (e instanceof LoginAppleCancelado) return null
-        return e instanceof Error ? e.message : String(e)
+        console.warn('[MPH] Apple no completó el login:', e)
+        return 'apple'
       }
     }
     if (esAppNativa() || esEscritorio()) {
@@ -240,8 +292,8 @@ export const useSesion = create<SesionState>((set, get) => ({
         provider: proveedor,
         options: { redirectTo: REDIRECT_NATIVO, skipBrowserRedirect: true, queryParams: elegirCuenta(proveedor) },
       })
-      if (error) return mensajeAuth(error)
-      if (!data.url) return 'Sin backend'
+      if (error) return codigoAuth(error)
+      if (!data.url) return 'sin-backend'
       if (esAppNativa()) {
         const { Browser } = await import('@capacitor/browser')
         await Browser.open({ url: data.url })
@@ -259,7 +311,7 @@ export const useSesion = create<SesionState>((set, get) => ({
       provider: proveedor,
       options: { redirectTo: window.location.origin + window.location.pathname, queryParams: elegirCuenta(proveedor) },
     })
-    return error ? mensajeAuth(error) : null
+    return error ? codigoAuth(error) : null
   },
 
   salir: async () => {
@@ -270,28 +322,28 @@ export const useSesion = create<SesionState>((set, get) => ({
 
   restablecer: async (email) => {
     const sb = await obtenerSupabase()
-    if (!sb) return 'Sin backend'
+    if (!sb) return 'sin-backend'
     // El enlace del correo aterriza en la página /cuenta de la web pública.
     const base = (import.meta.env.VITE_URL_WEB as string | undefined) ?? window.location.origin
     const { error } = await sb.auth.resetPasswordForEmail(email, {
       redirectTo: `${base}/cuenta`,
     })
-    return error ? mensajeAuth(error) : null
+    return error ? codigoAuth(error) : null
   },
 
   cambiarContrasena: async (nueva) => {
     const sb = await obtenerSupabase()
-    if (!sb) return 'Sin backend'
-    if (nueva.length < 8) return 'La contraseña necesita al menos 8 caracteres.'
+    if (!sb) return 'sin-backend'
+    if (nueva.length < 8) return 'contrasena-corta'
     const { error } = await sb.auth.updateUser({ password: nueva })
-    return error ? mensajeAuth(error) : null
+    return error ? codigoAuth(error) : null
   },
 
   eliminarCuenta: async () => {
     const sb = await obtenerSupabase()
-    if (!sb) return 'Sin backend'
+    if (!sb) return 'sin-backend'
     const { error } = await sb.functions.invoke('borrar-cuenta')
-    if (error) return 'No se pudo borrar la cuenta. Intenta de nuevo.'
+    if (error) return 'borrar'
     // El usuario ya no existe en el servidor: basta cerrar la sesión local.
     await sb.auth.signOut({ scope: 'local' }).catch(() => {})
     return null
@@ -299,16 +351,14 @@ export const useSesion = create<SesionState>((set, get) => ({
 
   canjearCupon: async (codigo) => {
     const sb = await obtenerSupabase()
-    if (!sb) return 'Sin backend'
+    if (!sb) return 'sin-backend'
     const { data, error } = await sb.functions.invoke<{ ok: boolean; resultado: string }>(
       'canjear-cupon',
       { body: { codigo } },
     )
-    if (error || !data) return 'No se pudo canjear el cupón. Intenta de nuevo.'
+    if (error || !data) return 'cupon'
     if (!data.ok) {
-      return data.resultado === 'ya-canjeado'
-        ? 'Este cupón ya se canjeó en esta cuenta.'
-        : 'Ese cupón no existe o ya no está disponible.'
+      return data.resultado === 'ya-canjeado' ? 'cupon-canjeado' : 'cupon-invalido'
     }
     // El unlock (y el trial) ya están en el perfil: al refrescar el espejo, la
     // PuertaUnlock se abre sola.
@@ -512,6 +562,13 @@ export function iniciarSesion(): void {
           usoIA: null,
         })
       } else if (usuario && (evento === 'SIGNED_IN' || evento === 'USER_UPDATED')) {
+        // Las plantillas de correo de Auth eligen idioma con {{ .Data.idioma }}: las
+        // cuentas sociales o anteriores al registro con idioma no lo tenían. Se lee
+        // del localStorage (no del store) para no cargar los ajustes en la web /cuenta.
+        const idioma = localStorage.getItem('mh.idioma')
+        if (evento === 'SIGNED_IN' && idioma && usuario.user_metadata?.idioma !== idioma) {
+          void sb.auth.updateUser({ data: { idioma } })
+        }
         void useSesion
           .getState()
           .refrescarPerfil()

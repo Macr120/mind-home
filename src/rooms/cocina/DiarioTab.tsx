@@ -101,7 +101,7 @@ export function DiarioTab({
                     <div className="flex-1 min-w-0">
                       <p className="font-medium text-white/90">{item.nombre}</p>
                       <p className="text-xs text-white/40">
-                        P {item.proteinas}g · C {item.carbohidratos}g · G {item.grasas}g
+                        {t('cocina.macros', 'P {p}g · C {c}g · G {g}g', { p: item.proteinas, c: item.carbohidratos, g: item.grasas })}
                         {item.nota ? ` · ${item.nota}` : ''}
                       </p>
                     </div>
@@ -138,7 +138,7 @@ export function DiarioTab({
               <div className="min-w-0 flex-1">
                 <p className="truncate font-medium text-white/90">{c.nombre}</p>
                 <p className="text-xs text-white/40">
-                  {c.fecha} · P {c.proteinas}g · C {c.carbohidratos}g · G {c.grasas}g
+                  {c.fecha} · {t('cocina.macros', 'P {p}g · C {c}g · G {g}g', { p: c.proteinas, c: c.carbohidratos, g: c.grasas })}
                 </p>
               </div>
               <span className="shrink-0 font-semibold text-white/70">{c.calorias}</span>

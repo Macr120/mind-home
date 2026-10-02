@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import { obtenerClimaReal, type ClimaActual, ClimaError } from '../clima'
 import { estadoCielo, fijarSolReal, type ConfigSol } from '../house/cielo'
 import { useDiseño } from './disenoStore'
+import { tGlobal } from '../i18n/useT'
 
 /**
  * Ciclo día/noche (sistema de 24 h). `minutos` (0..1439) es el minuto del día que
@@ -149,7 +150,7 @@ export const useCiclo = create<CicloState>((set, get) => ({
       if (id !== climaFetchId || get().climaEstado !== 'cargando') return
       set({
         climaEstado: 'error',
-        climaError: 'Tiempo agotado. Pulsa Reintentar o revisa tu conexión.',
+        climaError: tGlobal('clima.err.agotado', 'Tiempo agotado. Pulsa Reintentar o revisa tu conexión.'),
       })
     }, 22_000)
 
@@ -164,7 +165,7 @@ export const useCiclo = create<CicloState>((set, get) => ({
           ? e.message
           : e instanceof Error
             ? e.message
-            : 'No se pudo obtener el clima.'
+            : tGlobal('clima.err.generico', 'No se pudo obtener el clima.')
       set({ climaEstado: 'error', climaError: msg })
     } finally {
       clearTimeout(guard)

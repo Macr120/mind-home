@@ -1,4 +1,5 @@
 import type { TipoTarjeta } from '../../core/data/db'
+import { localeActual } from '../../core/i18n/useT'
 
 export const COLOR_FABRICA = '#f472b6'
 /**
@@ -57,3 +58,18 @@ export const CATALOGO_IDIOMAS: IdiomaCatalogo[] = [
   { codigo: 'tr-TR', nombre: 'Turco', bandera: '🇹🇷' },
   { codigo: 'el-GR', nombre: 'Griego', bandera: '🇬🇷' },
 ]
+
+/**
+ * Nombre visible de un idioma que se estudia. Los del catálogo se nombran en el
+ * idioma de la interfaz (en español, con el nombre del catálogo); los que el
+ * usuario escribió a mano («Otro») salen tal cual.
+ */
+export function nombreIdioma(i: { codigo: string; nombre: string }): string {
+  const cat = CATALOGO_IDIOMAS.find((c) => c.codigo === i.codigo)
+  if (!cat) return i.nombre
+  const locale = localeActual()
+  if (locale.startsWith('es')) return cat.nombre
+  // Solo el inglés británico se distingue por región; los demás, por su idioma.
+  const codigo = i.codigo === 'en-GB' ? i.codigo : i.codigo.split('-')[0]
+  return new Intl.DisplayNames(locale, { type: 'language' }).of(codigo) ?? cat.nombre
+}

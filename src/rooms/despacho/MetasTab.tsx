@@ -617,7 +617,11 @@ function MetaCard({ meta, tipo, foco, onFocoUsado, onIrAFila }: { meta: Meta; ti
         />
       </div>
       <p className="mt-1.5 text-xs text-white/55">
-        {money2(meta.ahorrado)} de {money2(meta.objetivo)} ({Math.round(pct)}%)
+        {t('despacho.meta.deObjetivo', '{a} de {b} ({p}%)', {
+          a: money2(meta.ahorrado),
+          b: money2(meta.objetivo),
+          p: Math.round(pct),
+        })}
       </p>
 
       <TasaMeta meta={meta} tipo={tipo} fila={filaEnlazada} movimientos={movimientos} />

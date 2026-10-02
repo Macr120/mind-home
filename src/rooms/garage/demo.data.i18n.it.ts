@@ -8,9 +8,9 @@
  */
 export default {
   "vehiculos": {
-    "biciNombre": "La Grulla",
+    "biciNombre": "La Gru",
     "biciNota": "Bici d'acciaio di seconda mano, grigia e un po' rumorosa, con cui vado a lavoro, in laboratorio e ad allenarmi ogni giorno. In un anno non mi ha mai lasciato a piedi.",
-    "autoNombre": "El Mastodonte",
+    "autoNombre": "Il Mastodonte",
     "autoNota": "Berlina ereditata da mio zio, più vecchia di me, con il cruscotto scolorito dal sole. La accendo una volta ogni quindici giorni e mi fa pagare con gli interessi ogni volta che la trascuro."
   },
   "servicios": [
@@ -130,31 +130,31 @@ export default {
   "talleres": [
     {
       "clave": "taller",
-      "nombre": "Taller Mecánico Rivas",
+      "nombre": "Officina Meccanica Rivas",
       "direccion": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez",
       "notas": "Don Rivas mi spiega cosa è urgente e cosa può aspettare, e non mi ha mai gonfiato una fattura; è l'unico di cui mi fido con questa macchina."
     },
     {
       "clave": "aseguradora",
-      "nombre": "Seguros Meridiano - agente Nadia Ortega",
-      "direccion": "Av. Insurgentes Sur 1234, piano 3, Col. Del Valle",
+      "nombre": "Assicurazioni Meridiano - agente Nadia Ortega",
+      "direccion": "Av. Insurgentes Sur 1234, 3° piano, Col. Del Valle",
       "notas": "Nadia risponde su WhatsApp anche di domenica e mi ha organizzato dei pagamenti mensili quando sono passato alla copertura completa."
     },
     {
       "clave": "verificentro",
-      "nombre": "Verificentro 09-118 Iztaccíhuatl",
+      "nombre": "Centro Revisioni 09-118 Iztaccíhuatl",
       "direccion": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez",
       "notas": "Appuntamento alle sette del mattino e esco in quaranta minuti; quello di Coyoacán mi è costato mezza mattinata di fila."
     },
     {
       "clave": "ciclos",
-      "nombre": "Ciclos Malinche",
+      "nombre": "Cicli Malinche",
       "direccion": "Zacatecas 145, Col. Roma Sur, Cuauhtémoc",
       "notas": "Lì ho comprato la bici e lì la metto a punto; mi prestano gli attrezzi e mi insegnano a farlo io, invece di farmi pagare tutto."
     },
     {
       "clave": "grua",
-      "nombre": "Grúas Tepeyac 24 horas",
+      "nombre": "Soccorso Stradale Tepeyac 24 ore",
       "direccion": "Sede in Eje Central Lázaro Cárdenas 1105, Col. Álamos",
       "notas": "È il numero che ho chiamato la notte del guasto in mezzo alla strada; sono arrivati in un'ora e mezza e non hanno cercato di fregarmi sul prezzo."
     }
@@ -183,7 +183,7 @@ export default {
     {
       "clave": "afinacionBici",
       "titulo": "Messa a punto della bici",
-      "nota": "Ogni sei mesi da Ciclos Malinche: centraggio ruote, cavi e freni, che costa molto meno che aggiustare una ruota storta."
+      "nota": "Ogni sei mesi da Cicli Malinche: centraggio ruote, cavi e freni, che costa molto meno che aggiustare una ruota storta."
     }
   ]
 }

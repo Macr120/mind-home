@@ -11,6 +11,7 @@ import { esencialHobbies, flujosHobbies } from './tutorial.meta'
 import { filasNodo } from '../../core/grafoApps'
 import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
 import { sinEjemplos } from '../../core/data/ejemplos'
+import { textoMin } from '../../core/i18n/duracion'
 
 /** Duración en minutos detectada en el texto ("30 min", "1 hora", "45m"), o 0. */
 function extraerMinutos(norm: string): number {
@@ -259,7 +260,7 @@ const hobbies: Plantilla = {
       return {
         hecho: sesiones.length,
         objetivo: 1,
-        detalle: minutos > 0 ? `${minutos} min` : undefined,
+        detalle: minutos > 0 ? `${textoMin(minutos)}` : undefined,
       }
     },
   },

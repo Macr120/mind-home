@@ -362,7 +362,7 @@ export const DE_TUT: Dict = {
     'Der Kopfbereich zeigt den Raum und die geöffnete App. Hat der Raum mehrere Apps, führt der Pfeil ‹ zurück zu den Apps des Raums.',
   'tut.app-generica.2.titulo': 'Missionen',
   'tut.app-generica.2.texto':
-    'Der Button Missionen öffnet, was heute in dieser App ansteht: deine Tagesziele, was du eingeplant hast und was deine Ziele einfordern. Jeder Schritt streicht sich von selbst durch, sobald du einträgst – und erst die ganze erfüllte Liste bringt die XP des Tages.',
+    'Der Button Missionen öffnet, was heute in dieser App ansteht: deine Tagesziele, was du eingeplant hast und was deine Ziele einfordern. Jeder Schritt streicht sich von selbst durch, sobald du einträgst – und erst die ganze erfüllte Liste bringt die EP des Tages.',
   'tut.app-generica.3.titulo': 'Die Bausteine',
   'tut.app-generica.3.texto':
     'Diese Vorlage ist aus Bausteinen zusammengesetzt (Notizen, Listen, Zähler, Gewohnheiten…). Ändern kannst du sie unter Menü › Vorlagen › Bearbeiten.',
@@ -414,7 +414,7 @@ export const DE_TUT: Dict = {
   'tut.ejemplos.2.texto':
     'Unten im Bereich entfernt „Beispiel löschen“ es ganz, sobald du mit „Ja, Beispiel löschen“ bestätigst, und deine eigenen Einträge bleiben unberührt. Ist nichts mehr davon übrig, erscheint an derselben Stelle „Mitgeliefertes Beispiel wiederherstellen“.',
   'tut.ejemplos.3.texto':
-    'Das Beispiel bringt weder XP noch Serien, löst keine Erinnerungen aus, landet nicht in deinem Wrapped, und die KI berücksichtigt es nicht. Im Demo-MindHaOS gibt es diese Leiste nicht: Kims ganzes Jahr ist dort schon das Beispiel.',
+    'Das Beispiel bringt weder EP noch Serien, löst keine Erinnerungen aus, landet nicht in deinem Wrapped, und die KI berücksichtigt es nicht. Im Demo-MindHaOS gibt es diese Leiste nicht: Kims ganzes Jahr ist dort schon das Beispiel.',
   'tut.ejemplos.1.titulo': 'Es kommt von selbst',
   'tut.ejemplos.2.titulo': 'Löschen oder wiederherstellen',
   'tut.ejemplos.3.titulo': 'Zählt nicht als deins',
@@ -437,7 +437,7 @@ export const DE_TUT: Dict = {
     'Es wandert nach unten zu „Erledigt“, eingeklappt: zu sehen, wie der Eintrag wirkt, gehört zur Belohnung – und von dort lässt es sich rückgängig machen, falls einer zu viel hineingerutscht ist.',
   'tut.hoy.6b.titulo': 'Erst die ganze Liste zählt',
   'tut.hoy.6b.texto':
-    'Alle Missionen des Tages abzuschließen zündet die Feier und bringt die XP der App: Das Level wächst durch erfüllte Listen, nicht durch einzelne Einträge.',
+    'Alle Missionen des Tages abzuschließen zündet die Feier und bringt die EP der App: Das Level wächst durch erfüllte Listen, nicht durch einzelne Einträge.',
   'tut.hoy.7.texto':
     'Und wenn dir etwas fehlt: «Mission hinzufügen» bietet an, was diese App üblicherweise vorschlägt, und «Neue Checkliste» legt deine eigene an — eine Liste, die sich jeden Tag wiederholt.',
   'tut.hoy.8.titulo': 'Die roten Kugeln',
@@ -465,7 +465,7 @@ export const DE_TUT: Dict = {
     'Wrapped baut den Rückblick auf deine Woche, deinen Monat oder dein Jahr in Folien – es hat sein eigenes Tutorial, und in einem Jahr wie dem von Kim gibt es Daten mehr als genug.',
   'tut.progreso.7.titulo': 'Das Radar pro Raum',
   'tut.progreso.7.texto':
-    'Jede Spitze ist ein Raum des MindHaOS, und ihre Größe ist die Summe der XP aus den Apps, die ihm zugewiesen sind. Ein Raum ohne Aktivität fällt sofort auf: Seine Spitze sackt zur Mitte hin ein.',
+    'Jede Spitze ist ein Raum des MindHaOS, und ihre Größe ist die Summe der EP aus den Apps, die ihm zugewiesen sind. Ein Raum ohne Aktivität fällt sofort auf: Seine Spitze sackt zur Mitte hin ein.',
   'tut.wrapped.1.texto':
     'Wie Stories: Tipp rechts, um weiterzugehen, links, um zurückzugehen, und halte gedrückt, um auf einer Folie zu pausieren.',
   'tut.wrapped.2.titulo': 'Woche, Monat oder Jahr',
@@ -889,7 +889,7 @@ export const DE_TUT: Dict = {
     'Dein Formelbuch, eingeklappt über dem Rechner. Mathematik, Physik und Chemie sind schon eingetragen, in Ordnern, die du verschachteln kannst. Jede Formel öffnet sich, um ihre Variablen auszufüllen, und lässt sich bearbeiten oder löschen.',
   'tut.app-computo--esencial.5.titulo': 'Tabellen',
   'tut.app-computo--esencial.5.texto':
-    'Tabellen mit Zellbezügen und Formeln in Klartext (etwa =SUMA), dazu Diagramme über den Bereich, den du markierst. Sie werden als Excel-Datei mit erhaltenen Formeln oder als PDF exportiert.',
+    'Tabellen mit Zellbezügen und Formeln in Klartext (etwa =SUM), dazu Diagramme über den Bereich, den du markierst. Sie werden als Excel-Datei mit erhaltenen Formeln oder als PDF exportiert.',
   'tut.app-descanso--esencial.1.titulo': 'Schlaf',
   'tut.app-descanso--esencial.1.texto':
     'Diese App behält deinen Schlaf auf einem einzigen Bildschirm im Blick: die Bewertung der letzten Nacht, deinen Zeitplan mit seinen Erinnerungen, das Tagesprotokoll und den vollständigen Verlauf.',
@@ -1306,7 +1306,7 @@ export const DE_TUT: Dict = {
     'Das Formular geht Schritt für Schritt: Betrag, variabel oder fix, Kategorie (du tippst deine eigene, die geläufigen schlägt es dir vor), wie oft sie sich wiederholt und die Notiz.',
   'tut.app-despacho--captura.3.titulo': 'Ein Jahr voller Einträge',
   'tut.app-despacho--captura.3.texto':
-    'Hunderte Ausgaben, abgelegt in Ordnern nach Jahr und Monat. Such Monat 7: Da steht die Panne, die auf einen Schlag fast zehntausend Pesos verschlungen hat.',
+    'Hunderte Ausgaben, abgelegt in Ordnern nach Jahr und Monat. Such Monat 7: Da steht die Panne, die das Konto auf einen Schlag leergeräumt hat.',
   'tut.app-despacho--captura.4.titulo': 'Woher das Geld kommt',
   'tut.app-despacho--captura.4.texto':
     'Zwei Halbmonatslöhne aus dem Café, die Physiknachhilfe, die mit dem Entschluss zur Reise dazukam, und das Trinkgeld jede Woche, das nie gleich ausfällt.',
@@ -1361,7 +1361,7 @@ export const DE_TUT: Dict = {
     'Kims echtes Verkehrsmittel: Kette, Schläuche, Bremsen, jedes in seiner eigenen Zeile – dasselbe Archiv mit Ordnern nach Jahr und Monat wie in den anderen Apps. Schau, wie sich die Wartungen in den letzten Monaten häufen: Das Marathontraining fordert seinen Preis.',
   'tut.app-garage--vehiculos.4.titulo': 'Und das geerbte Auto',
   'tut.app-garage--vehiculos.4.texto':
-    'Hier ist die Panne aus Monat 7: liegen geblieben, Abschleppdienst und fast zehntausend Pesos, die nicht da waren. Jede Wartung merkt sich ihre Kosten, den Kilometerstand und die Werkstatt.',
+    'Hier ist die Panne aus Monat 7: liegen geblieben, Abschleppdienst und eine Rechnung, die nicht zu bezahlen war. Jede Wartung merkt sich ihre Kosten, den Kilometerstand und die Werkstatt.',
   'tut.app-garage--vehiculos.5.titulo': 'Die Akte',
   'tut.app-garage--vehiculos.5.texto':
     'Marke, Modell, Baujahr, Kennzeichen und der aktuelle Kilometerstand. Mit hinterlegtem Kennzeichen schaltet die Garage die Behördengänge frei, die es nur beim Auto gibt.',

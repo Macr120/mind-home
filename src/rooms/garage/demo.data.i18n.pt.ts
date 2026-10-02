@@ -8,9 +8,9 @@
  */
 export default {
   "vehiculos": {
-    "biciNombre": "La Grulla",
+    "biciNombre": "A Garça",
     "biciNota": "Bicicleta de aço, usada, cinza e barulhenta, com a qual faço turnos, laboratório e treinos todos os dias. Em um ano nunca me deixou na mão.",
-    "autoNombre": "El Mastodonte",
+    "autoNombre": "O Mastodonte",
     "autoNota": "Sedã herdado do meu tio, mais velho do que eu e com o painel desbotado pelo sol. Ligo o carro a cada quinze dias, e ele me cobra juros por cada esquecimento."
   },
   "servicios": [
@@ -130,7 +130,7 @@ export default {
   "talleres": [
     {
       "clave": "taller",
-      "nombre": "Taller Mecánico Rivas",
+      "nombre": "Oficina Mecânica Rivas",
       "direccion": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez",
       "notas": "Seu Rivas me explica o que é urgente e o que pode esperar, e nunca inflou uma conta; é o único em quem confio com esse carro."
     },
@@ -142,7 +142,7 @@ export default {
     },
     {
       "clave": "verificentro",
-      "nombre": "Verificentro 09-118 Iztaccíhuatl",
+      "nombre": "Centro de Inspeção 09-118 Iztaccíhuatl",
       "direccion": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez",
       "notas": "Horário marcado às sete da manhã, e saio em quarenta minutos; o de Coyoacán me custou meia manhã de fila."
     },
@@ -154,8 +154,8 @@ export default {
     },
     {
       "clave": "grua",
-      "nombre": "Grúas Tepeyac 24 horas",
-      "direccion": "Base na Eje Central Lázaro Cárdenas 1105, Col. Álamos",
+      "nombre": "Guincho Tepeyac 24 horas",
+      "direccion": "Base no Eje Central Lázaro Cárdenas 1105, Col. Álamos",
       "notas": "É o número que liguei na noite em que o carro me deixou na mão; chegaram em uma hora e meia e não tentaram me passar a perna no preço."
     }
   ],

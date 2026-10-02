@@ -13,6 +13,7 @@ import { tGlobal } from '../../core/i18n/useT'
 import { nombreRutina } from './nombres'
 import { normalizarEjercicio } from './stats'
 import type { RutinaCatalogo } from './TarjetaRutina'
+import { textoMin } from '../../core/i18n/duracion'
 
 /**
  * Las rutinas que el gimnasio manda por el buzón. Una rutina referencia sus
@@ -42,7 +43,7 @@ const etiquetaModalidad = (m: TipoEntrenamiento) =>
       ? tGlobal('room.ejercicio.cmd.flexibilidad', 'Flexibilidad')
       : tGlobal('room.ejercicio.cmd.resistencia', 'Resistencia')
 
-const resumen = (d: RutinaDatos) => `${etiquetaModalidad(d.modalidad)} · ${d.duracionMin} min`
+const resumen = (d: RutinaDatos) => `${etiquetaModalidad(d.modalidad)} · ${textoMin(d.duracionMin)}`
 
 function datosDe(modalidad: TipoEntrenamiento, r: RutinaCatalogo & { enfoque?: string }): RutinaDatos {
   return {

@@ -1,6 +1,7 @@
 import type { PlanCorte } from '../../muebles/corte'
 import type { AvisoMueble, Despiece } from '../../muebles/tipos'
 import { useT } from '../../i18n/useT'
+import { nombreTablero } from '../../muebles/materiales'
 import { Icono } from '../iconos/Icono'
 import { DiagramaCortes } from './DiagramaCortes'
 
@@ -94,7 +95,7 @@ export function PanelDespiece({
                       <span className="min-w-0 truncate">{t(p.clave, p.nombreEs)}</span>
                     </span>
                     <span className="block text-[9px] text-white/30">
-                      {t(`muebles.mat.${p.materialId}`, p.materialId)} · {p.grosor} mm
+                      {nombreTablero(p.materialId, t)} · {p.grosor} mm
                     </span>
                   </td>
                   <td className="px-1 py-1.5 text-end tabular-nums text-white/70">{p.cantidad}</td>
@@ -140,7 +141,7 @@ export function PanelDespiece({
           </p>
           <p className="text-[11px] leading-relaxed text-white/60">
             {despiece.herrajes
-              .map((h) => `${h.cantidad} ${h.unidad} · ${t(h.clave, h.nombreEs)}`)
+              .map((h) => `${h.cantidad} ${t(`muebles.unidad.${h.unidad}`, h.unidad)} · ${t(h.clave, h.nombreEs)}`)
               .join('  ·  ')}
           </p>
         </div>

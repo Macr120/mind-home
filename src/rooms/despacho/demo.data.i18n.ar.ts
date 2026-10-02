@@ -178,7 +178,7 @@ export default {
     },
     {
       "clave": "jrPass",
-      "nota": "تذكرة JR Pass جاهزة، ثلاثة أسابيع من القطارات باسمي."
+      "nota": "تذكرة جيه آر باس جاهزة، ثلاثة أسابيع من القطارات باسمي."
     },
     {
       "clave": "hospedajeJapon",

@@ -5,7 +5,8 @@ import type { NombreIcono } from './iconos/catalogo'
 import { useAsistentes } from '../state/asistentesStore'
 import { vehiculoDe, VEHICULOS_JUGABLES, type TipoVehiculo } from '../house/vehiculos'
 import { SliderProp } from './comun/SliderProp'
-import { useT } from '../i18n/useT'
+import { useT, type TFunc } from '../i18n/useT'
+import { nombreAsistente } from '../chat/mascotas'
 import { Icono } from './iconos/Icono'
 import { useTopeHud } from './hudMedida'
 
@@ -99,7 +100,7 @@ function TablaTiempos({
   t,
 }: {
   vehiculo: TipoVehiculo
-  t: (k: string, d: string) => string
+  t: TFunc
 }) {
   const records = useRecordsDeMeta(carreraFrame.metaCol, carreraFrame.metaRow)
   const porVehiculo = new Map((records ?? []).map((r) => [r.vehiculo, r]))
@@ -118,13 +119,13 @@ function TablaTiempos({
           const cls = v.tipo === vehiculo ? 'text-amber-300' : 'text-white/70'
           return (
             <Fragment key={v.tipo}>
-              <span className={cls} title={v.nombre}>
+              <span className={cls} title={t(`herr.veh.${v.tipo}`, v.nombre)}>
                 <Icono emoji={v.icono} />
               </span>
               <span className={cls}>{r?.mejorVuelta != null ? fmtMs(r.mejorVuelta) : '—'}</span>
               <span className={cls}>
                 {r?.mejorTotal != null
-                  ? `${fmtMs(r.mejorTotal)} · ${r.vueltasDeTotal ?? '?'}v`
+                  ? `${fmtMs(r.mejorTotal)} · ${t('carrera.nVueltas', '{n}v', { n: r.vueltasDeTotal ?? '?' })}`
                   : '—'}
               </span>
               <span className={cls}>
@@ -199,7 +200,7 @@ export function CarreraOverlay() {
       <div className="pointer-events-none absolute start-0 end-0 top-14 z-30 flex justify-center px-3">
         <div className="ui-hud ui-pop pointer-events-auto flex w-full max-w-sm flex-col gap-2 rounded-2xl border border-white/10 p-3">
           <p className="text-center text-sm font-black text-white">
-            <Icono nombre="bandera" /> {t('carrera.titulo', 'Carrera')} · {def.nombre}
+            <Icono nombre="bandera" /> {t('carrera.titulo', 'Carrera')} · {t(`herr.veh.${def.tipo}`, def.nombre)}
           </p>
           {!montadoPropio && (
             // A pie: se elige el vehículo que se presta para la carrera.
@@ -215,7 +216,7 @@ export function CarreraOverlay() {
                       : 'border-white/10 bg-white/10 hover:bg-white/20'
                   }`}
                 >
-                  <Icono emoji={v.icono} /> {v.nombre}
+                  <Icono emoji={v.icono} /> {t(`herr.veh.${v.tipo}`, v.nombre)}
                 </button>
               ))}
             </div>
@@ -270,10 +271,10 @@ export function CarreraOverlay() {
               <button
                 key={a.id}
                 type="button"
-                onClick={() => c.iniciar(vueltas, { id: a.id, nombre: a.nombre, color: a.color })}
+                onClick={() => c.iniciar(vueltas, { id: a.id, nombre: nombreAsistente(t, a), color: a.color })}
                 className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/10 px-2.5 py-1.5 text-xs font-semibold text-white transition hover:bg-white/20 active:scale-95"
               >
-                <Icono emoji={a.emoji} /> {a.nombre}
+                <Icono emoji={a.emoji} /> {nombreAsistente(t, a)}
               </button>
             ))}
           </div>

@@ -72,7 +72,7 @@ export default {
       "clave": "bowl-pollo",
       "nombre": "Haftalık tavuk kâsesi",
       "emoji": "🍗",
-      "carpeta": "Batch cooking",
+      "carpeta": "Haftalık hazırlık",
       "porciones": 4,
       "minutos": 45,
       "ingredientes": [
@@ -207,7 +207,7 @@ export default {
       "clave": "crema-lentejas",
       "nombre": "Kırmızı mercimek çorbası",
       "emoji": "🍲",
-      "carpeta": "Batch cooking",
+      "carpeta": "Haftalık hazırlık",
       "porciones": 4,
       "minutos": 35,
       "ingredientes": [
@@ -272,7 +272,7 @@ export default {
       "clave": "tacos-lentejas",
       "nombre": "Füme mercimek tacosu",
       "emoji": "🌮",
-      "carpeta": "Batch cooking",
+      "carpeta": "Haftalık hazırlık",
       "porciones": 4,
       "minutos": 30,
       "ingredientes": [

@@ -16,14 +16,14 @@ export default {
     },
     {
       "dia": -361,
-      "titulo": "Dubbele dienst en acht euro fooi",
-      "texto": "Ik heb Nadia's dienst overgenomen en ging om negen uur naar huis met een rug aan diggelen. Acht euro fooi en een mevrouw die tegen me praatte alsof ik een koffiemachine met benen was. Ik at staand cornflakes terwijl ik tot één uur op mijn telefoon zat. Morgen heb ik om acht uur practicum en ik weet nu al hoe dat gaat aflopen.",
+      "titulo": "Dubbele dienst en {monto:140} fooi",
+      "texto": "Ik heb Nadia's dienst overgenomen en ging om negen uur naar huis met een rug aan diggelen. {monto:140} fooi en een mevrouw die tegen me praatte alsof ik een koffiemachine met benen was. Ik at staand cornflakes terwijl ik tot één uur op mijn telefoon zat. Morgen heb ik om acht uur practicum en ik weet nu al hoe dat gaat aflopen.",
       "animo": "😣"
     },
     {
       "dia": -358,
       "titulo": "Waar is mijn salaris gebleven",
-      "texto": "Ik werd vrijdag betaald en vandaag, woensdag, staat er nog 41 euro op mijn rekening. Ik probeerde de uitgaven uit mijn hoofd te reconstrueren en kom bijna zeventig euro tekort die ik nergens kan plaatsen. Abonnementen die ik niet gebruik, biertjes, bezorgeten op de dagen dat ik niet kookte. Wat me het meest dwarszit is niet het geld, het is dat ik niet eens dát van mijn eigen leven weet.",
+      "texto": "Ik werd vrijdag betaald en vandaag, woensdag, staat er nog {monto:710} op mijn rekening. Ik probeerde de uitgaven uit mijn hoofd te reconstrueren en kom bijna {monto:1210} tekort die ik nergens kan plaatsen. Abonnementen die ik niet gebruik, biertjes, bezorgeten op de dagen dat ik niet kookte. Wat me het meest dwarszit is niet het geld, het is dat ik niet eens dát van mijn eigen leven weet.",
       "animo": "😔"
     },
     {
@@ -71,7 +71,7 @@ export default {
     {
       "dia": -334,
       "titulo": "Spreadsheet, eerste poging",
-      "texto": "Twee uur bezig met een budget met de echte categorieën van mijn leven: huur, eten, vervoer, universiteit, onzin. Er komt 1.180 aan uitgaven uit tegenover 1.240 aan salaris en fooien samen. De marge is belachelijk klein, maar hij bestaat, en het rustig zwart-op-wit zien kalmeert me meer dan ik verwachtte. Nieuwe regel: fooien worden niet dezelfde dag uitgegeven.",
+      "texto": "Twee uur bezig met een budget met de echte categorieën van mijn leven: huur, eten, vervoer, universiteit, onzin. Er komt {monto:20400} aan uitgaven uit tegenover {monto:21500} aan salaris en fooien samen. De marge is belachelijk klein, maar hij bestaat, en het rustig zwart-op-wit zien kalmeert me meer dan ik verwachtte. Nieuwe regel: fooien worden niet dezelfde dag uitgegeven.",
       "animo": "😐"
     },
     {
@@ -89,7 +89,7 @@ export default {
     {
       "dia": -325,
       "titulo": "Een glazen pot voor fooien",
-      "texto": "Ik heb een jampot leeggemaakt en daar gaan nu elke avond na de dienst de fooien in. Deze week: 23 euro die vroeger in etentjes buiten de deur waren opgegaan. Ik weet nog niet waar de pot voor is, en ik denk dat dat juist helpt: het is geld zonder haast. Het op zondag tellen is een klein ritueel geworden.",
+      "texto": "Ik heb een jampot leeggemaakt en daar gaan nu elke avond na de dienst de fooien in. Deze week: {monto:400} die vroeger in etentjes buiten de deur waren opgegaan. Ik weet nog niet waar de pot voor is, en ik denk dat dat juist helpt: het is geld zonder haast. Het op zondag tellen is een klein ritueel geworden.",
       "animo": "🙂"
     },
     {
@@ -101,7 +101,7 @@ export default {
     {
       "dia": -319,
       "titulo": "Het keyboard is er",
-      "texto": "88 toetsen, tweedehands, 90 euro, gekocht van een man die stopte met spelen toen zijn dochter werd geboren. Ik heb het in de kofferbak vervoerd, ingepakt in twee dekens, en in de hoek van de woonkamer opgesteld. Het maakt een licht gezoem als het aangaat en het pedaal ontbreekt, maar het klinkt. Ik heb twintig minuten willekeurige noten gespeeld en gegrijnsd als een idioot. Officieel doel van het jaar: heel «Clair de Lune» leren spelen.",
+      "texto": "88 toetsen, tweedehands, {monto:1560}, gekocht van een man die stopte met spelen toen zijn dochter werd geboren. Ik heb het in de kofferbak vervoerd, ingepakt in twee dekens, en in de hoek van de woonkamer opgesteld. Het maakt een licht gezoem als het aangaat en het pedaal ontbreekt, maar het klinkt. Ik heb twintig minuten willekeurige noten gespeeld en gegrijnsd als een idioot. Officieel doel van het jaar: heel «Clair de Lune» leren spelen.",
       "animo": "🤩",
       "foto": "teclado"
     },
@@ -120,7 +120,7 @@ export default {
     {
       "dia": -310,
       "titulo": "De maandelijkse rekening klopte",
-      "texto": "Voor het eerst in jaren kom ik aan het einde van de maand en weet ik waar elke euro naartoe is gegaan. Ik hou 62 euro over, een belachelijk bedrag en tegelijk enorm vergeleken met de rode cijfers van vorige maand. Ik heb twee abonnementen opgezegd en de uitgaven aan bezorgeten zijn gehalveerd. Niets hiervan is deugdzaamheid: het is gewoon dat ik het nu zie.",
+      "texto": "Voor het eerst in jaren kom ik aan het einde van de maand en weet ik waar elke uitgave naartoe is gegaan. Ik hou {monto:1070} over, een belachelijk bedrag en tegelijk enorm vergeleken met de rode cijfers van vorige maand. Ik heb twee abonnementen opgezegd en de uitgaven aan bezorgeten zijn gehalveerd. Niets hiervan is deugdzaamheid: het is gewoon dat ik het nu zie.",
       "animo": "🙂"
     },
     {
@@ -163,7 +163,7 @@ export default {
     {
       "dia": -289,
       "titulo": "Zondag vol bakjes",
-      "texto": "Twee uur koken op zondag: linzen, rijst, ovenkip en groente voor vijf dagen. Het kostte me 18 euro en scheelt me de kebabs na de avonddienst. Laika ging op het aanrecht zitten toezien en ik heb haar elf keer naar beneden getild. Een volle koelkast geeft me een rust die ik niet had verwacht van iets zo onnozels.",
+      "texto": "Twee uur koken op zondag: linzen, rijst, ovenkip en groente voor vijf dagen. Het kostte me {monto:310} en scheelt me de kebabs na de avonddienst. Laika ging op het aanrecht zitten toezien en ik heb haar elf keer naar beneden getild. Een volle koelkast geeft me een rust die ik niet had verwacht van iets zo onnozels.",
       "animo": "🙂"
     },
     {
@@ -223,7 +223,7 @@ export default {
     {
       "dia": -259,
       "titulo": "Cijfers voor Japan",
-      "texto": "Ik ging aan de spreadsheet zitten en gaf de fantasie echte cijfers: 2.400 in totaal, ongeveer 800 aan vluchten, de rest goedkope overnachtingen, treinen en eten. Ik heb al 600 uit de maanden dat er iets van het budget overbleef, dus kom ik zo'n 360 per maand tekort. Het lukt als ik twee extra diensten per maand pak en de fooien van het weekend rechtstreeks in de envelop gaan. Ik opende een nieuwe regel in de app en noemde hem gewoon Japan.",
+      "texto": "Ik ging aan de spreadsheet zitten en gaf de fantasie echte cijfers: {monto:41500} in totaal, ongeveer {monto:13840} aan vluchten, de rest goedkope overnachtingen, treinen en eten. Ik heb al {monto:10380} uit de maanden dat er iets van het budget overbleef, dus kom ik zo'n {monto:6230} per maand tekort. Het lukt als ik twee extra diensten per maand pak en de fooien van het weekend rechtstreeks in de envelop gaan. Ik opende een nieuwe regel in de app en noemde hem gewoon Japan.",
       "animo": "😀"
     },
     {
@@ -271,7 +271,7 @@ export default {
     {
       "dia": -235,
       "titulo": "De fooien gaan de envelop in",
-      "texto": "Zaterdag met een volle terras: 38 euro fooi in de pot en een klant die vijf euro achterliet voor een cortado. Vroeger ging dat ongemerkt op aan biertjes en doordeweeks eten. Vandaag telde ik de muntjes op de keukentafel en zette het hele bedrag over naar de Japan-regel. 1.010 gespaard. Het geld heeft nu een bestemming en dat verandert de manier waarop ik werk.",
+      "texto": "Zaterdag met een volle terras: {monto:660} fooi in de pot en een klant die {monto:87} achterliet voor een cortado. Vroeger ging dat ongemerkt op aan biertjes en doordeweeks eten. Vandaag telde ik de muntjes op de keukentafel en zette het hele bedrag over naar de Japan-regel. {monto:17500} gespaard. Het geld heeft nu een bestemming en dat verandert de manier waarop ik werk.",
       "animo": "😀"
     },
     {
@@ -325,7 +325,7 @@ export default {
     {
       "dia": -208,
       "titulo": "Tweedehands statief",
-      "texto": "Ik vond op de rommelmarkt een oud statief voor twaalf euro en heb er mijn telefoon met een plastic klem aan vastgemaakt. Ik ging om elf uur naar het dak en voor het eerst kwamen de sterren eruit als puntjes en niet als wormpjes. De Pleiaden zijn te onderscheiden en een stukje van de gordel van Orion, wazig maar herkenbaar. Ik was daar een uur met een deken en thee; ik weet niet of het astrofotografie is, maar het werkt.",
+      "texto": "Ik vond op de rommelmarkt een oud statief voor {monto:210} en heb er mijn telefoon met een plastic klem aan vastgemaakt. Ik ging om elf uur naar het dak en voor het eerst kwamen de sterren eruit als puntjes en niet als wormpjes. De Pleiaden zijn te onderscheiden en een stukje van de gordel van Orion, wazig maar herkenbaar. Ik was daar een uur met een deken en thee; ik weet niet of het astrofotografie is, maar het werkt.",
       "animo": "🙂"
     },
     {
@@ -343,7 +343,7 @@ export default {
     {
       "dia": -199,
       "titulo": "Halverwege de pot",
-      "texto": "1.210 van 2.400. Precies de helft van de reis staat op de rekening en er zijn nog drie maanden aan fooien en extra diensten te gaan. Ik heb het twee keer nagerekend omdat ik het niet geloofde, en heb het toen aan Laika verteld, mijn emotionele boekhouder. Wat me het meest verbaast is niet het geld, het is dat ik al vijf maanden op rij elke uitgave bijhoud zonder ermee te stoppen.",
+      "texto": "{monto:20900} van {monto:41500}. Precies de helft van de reis staat op de rekening en er zijn nog drie maanden aan fooien en extra diensten te gaan. Ik heb het twee keer nagerekend omdat ik het niet geloofde, en heb het toen aan Laika verteld, mijn emotionele boekhouder. Wat me het meest verbaast is niet het geld, het is dat ik al vijf maanden op rij elke uitgave bijhoud zonder ermee te stoppen.",
       "animo": "🤩"
     },
     {
@@ -391,13 +391,13 @@ export default {
     {
       "dia": -176,
       "titulo": "De auto ook, natuurlijk",
-      "texto": "Ik wilde de auto starten om naar het practicum te gaan en hij klonk als een blik vol schroeven. Ik bracht hem naar de garage in de Robles-straat: waterpomp en riem, 380 euro en twee dagen zonder auto. Precies deze week, met een knie aan de kant en een dubbele dienst op vrijdag. Ik stond alleen op straat te lachen, want huilen op straat vond ik nog gênanter.",
+      "texto": "Ik wilde de auto starten om naar het practicum te gaan en hij klonk als een blik vol schroeven. Ik bracht hem naar de garage in de Robles-straat: waterpomp en riem, {monto:6570} en twee dagen zonder auto. Precies deze week, met een knie aan de kant en een dubbele dienst op vrijdag. Ik stond alleen op straat te lachen, want huilen op straat vond ik nog gênanter.",
       "animo": "😣"
     },
     {
       "dia": -173,
       "titulo": "Waar dat geld vandaan komt",
-      "texto": "Ik heb besloten dat de 380 euro uit de noodbuffer komt en niet uit de Japan-envelop, ook al blijft er van de buffer dan bijna niets over. Ik schrap deze maand twee dingen: geen koffie meer buiten de deur en geen bezorgeten. De fooien van de afgelopen twee weken vielen tegen, 46 euro, dus nu moet er echt op de rem. Tenminste weet ik nu precies wat ik heb, wat ik in oktober absoluut niet wist.",
+      "texto": "Ik heb besloten dat de {monto:6570} uit de noodbuffer komt en niet uit de Japan-envelop, ook al blijft er van de buffer dan bijna niets over. Ik schrap deze maand twee dingen: geen koffie meer buiten de deur en geen bezorgeten. De fooien van de afgelopen twee weken vielen tegen, {monto:800}, dus nu moet er echt op de rem. Tenminste weet ik nu precies wat ik heb, wat ik in oktober absoluut niet wist.",
       "animo": "😔"
     },
     {
@@ -409,7 +409,7 @@ export default {
     {
       "dia": -168,
       "titulo": "Lelijke aantekening, zonder filter",
-      "texto": "Ik ben het zat dat alles tegelijk komt: tentamen elektromagnetisme op donderdag, dubbele dienst op zaterdag, een strakke knie en 190 euro op de rekening. Ik schrijf dit met het ijs erop en met zin om het hele jaar te laten voor wat het is. Ik ga niet doen alsof er een mooie les uit vandaag te halen valt. Het enige wat ik doe, is het opschrijven zodat ik me herinner dat dit ook is gebeurd.",
+      "texto": "Ik ben het zat dat alles tegelijk komt: tentamen elektromagnetisme op donderdag, dubbele dienst op zaterdag, een strakke knie en {monto:3290} op de rekening. Ik schrijf dit met het ijs erop en met zin om het hele jaar te laten voor wat het is. Ik ga niet doen alsof er een mooie les uit vandaag te halen valt. Het enige wat ik doe, is het opschrijven zodat ik me herinner dat dit ook is gebeurd.",
       "animo": "😣"
     },
     {
@@ -433,7 +433,7 @@ export default {
     {
       "dia": -156,
       "titulo": "Afspraak bij de fysio",
-      "texto": "Donderdag om elf uur, eerste sessie, 35 euro per keer en ik heb er vier of vijf nodig. Ik heb het in het budget gezet als gezondheidsuitgave en niet als gril, wat ik er in januari nog van gedacht zou hebben. De knie laat me de trap nu bijna normaal af lopen. Ik begin te geloven dat dit goedkomt en dat ik in september probleemloos veel door Japan ga lopen.",
+      "texto": "Donderdag om elf uur, eerste sessie, {monto:600} per keer en ik heb er vier of vijf nodig. Ik heb het in het budget gezet als gezondheidsuitgave en niet als gril, wat ik er in januari nog van gedacht zou hebben. De knie laat me de trap nu bijna normaal af lopen. Ik begin te geloven dat dit goedkomt en dat ik in september probleemloos veel door Japan ga lopen.",
       "animo": "🙂"
     },
     {
@@ -457,13 +457,13 @@ export default {
     {
       "dia": -140,
       "titulo": "Twintig minuten aan één stuk",
-      "texto": "Twintig minuten zonder stoppen, heel langzaam, en de knie vertrok geen spier. Ik dwing mezelf om niet meer dan tien procent per week op te bouwen, ook al heb ik zin om morgen een uur te gaan. Ik heb de les duur geleerd: 380 euro en drie weken. Het schema tot Japan is simpel: comfortabele veertig minuten en geen lange duurlopen.",
+      "texto": "Twintig minuten zonder stoppen, heel langzaam, en de knie vertrok geen spier. Ik dwing mezelf om niet meer dan tien procent per week op te bouwen, ook al heb ik zin om morgen een uur te gaan. Ik heb de les duur geleerd: {monto:6570} en drie weken. Het schema tot Japan is simpel: comfortabele veertig minuten en geen lange duurlopen.",
       "animo": "😀"
     },
     {
       "dia": -137,
       "titulo": "De rekening haalt weer adem",
-      "texto": "Japan-envelop op 85 procent van het doel: 2.210 van 2.600 euro. De noodbuffer heeft na de klap van de garage weer 200 euro. Nog twee salarisperiodes en ik haal het precies op tijd, de fooien van augustus meegerekend, die meestal goed zijn. Ik schrijf het hier op omdat ik in oktober niet eens wist hoeveel ik aan koffie uitgaf.",
+      "texto": "Japan-envelop op 85 procent van het doel: {monto:38200} van {monto:45000}. De noodbuffer heeft na de klap van de garage weer {monto:3460}. Nog twee salarisperiodes en ik haal het precies op tijd, de fooien van augustus meegerekend, die meestal goed zijn. Ik schrijf het hier op omdat ik in oktober niet eens wist hoeveel ik aan koffie uitgaf.",
       "animo": "🙂"
     },
     {
@@ -506,7 +506,7 @@ export default {
     {
       "dia": -121,
       "titulo": "Tokio te voet, 21 km",
-      "texto": "Eenentwintig kilometer lopen tussen Shinjuku, Yanaka en een boekwinkel waar ik een uur stond zonder bijna iets te begrijpen. De treinen komen op de seconde aan en ik, die thuis altijd te laat op mijn dienst kom, voel me persoonlijk beoordeeld door het systeem. Ik at bij een konbini: onigiri, een gekookt ei en een soep, vijf euro en beter dan veel duurdere dingen. De knie: stil.",
+      "texto": "Eenentwintig kilometer lopen tussen Shinjuku, Yanaka en een boekwinkel waar ik een uur stond zonder bijna iets te begrijpen. De treinen komen op de seconde aan en ik, die thuis altijd te laat op mijn dienst kom, voel me persoonlijk beoordeeld door het systeem. Ik at bij een konbini: onigiri, een gekookt ei en een soep, {monto:87} en beter dan veel duurdere dingen. De knie: stil.",
       "animo": "🤩"
     },
     {
@@ -567,7 +567,7 @@ export default {
     {
       "dia": -101,
       "titulo": "De reisrekening",
-      "texto": "Laatste avond in Osaka en ik heb de som gemaakt: 2.480 euro van de 2.600 gespaarde, inclusief vlucht, trein, bedden en eten. Het klopte bijna tot op de euro, wat me een vreemd, heel boekhoudkundig soort trots geeft. Ik neem thee van drie plekken mee, een notitieboekje, een klein plectrumcadeautje voor bij het keyboard en eenenzestig geschreven pagina's. Morgen de lange vlucht en donderdag alweer de dienst van zeven uur in de koffiebar.",
+      "texto": "Laatste avond in Osaka en ik heb de som gemaakt: {monto:42900} van de gespaarde {monto:45000}, inclusief vlucht, trein, bedden en eten. Het klopte bijna precies, wat me een vreemd, heel boekhoudkundig soort trots geeft. Ik neem thee van drie plekken mee, een notitieboekje, een klein plectrumcadeautje voor bij het keyboard en eenenzestig geschreven pagina's. Morgen de lange vlucht en donderdag alweer de dienst van zeven uur in de koffiebar.",
       "animo": "🙂"
     },
     {
@@ -603,7 +603,7 @@ export default {
     {
       "dia": -81,
       "titulo": "Budget na de reis",
-      "texto": "Ik heb het envelopbudget weer opgezet na drie weken er niet naar te hebben omgekeken. De reisrekening kwam uit op 118 euro en dat is geen mislukking: dat was precies het plan. Nieuwe regel vanaf deze salarisperiode: noodfonds, 40 euro per uitbetaling. De fooien van deze week waren 27 euro en gaan er in hun geheel naartoe.",
+      "texto": "Ik heb het envelopbudget weer opgezet na drie weken er niet naar te hebben omgekeken. De reisrekening kwam uit op {monto:2040} en dat is geen mislukking: dat was precies het plan. Nieuwe regel vanaf deze salarisperiode: noodfonds, {monto:690} per uitbetaling. De fooien van deze week waren {monto:470} en gaan er in hun geheel naartoe.",
       "animo": "🙂"
     },
     {
@@ -627,7 +627,7 @@ export default {
     {
       "dia": -68,
       "titulo": "Weer de accu van de auto",
-      "texto": "De auto startte niet om half zeven en ik racete met de fiets naar de koffiebar. Nieuwe accu: 72 euro uit het nieuwe noodfonds, dat nu op 8 staat. De auto is negentien jaar oud en herinnert me elk kwartaal weer aan zijn bestaan. Deze keer verpestte het tenminste niet mijn hele maand, het irriteerde me alleen maar.",
+      "texto": "De auto startte niet om half zeven en ik racete met de fiets naar de koffiebar. Nieuwe accu: {monto:1250} uit het nieuwe noodfonds, dat nu op {monto:140} staat. De auto is negentien jaar oud en herinnert me elk kwartaal weer aan zijn bestaan. Deze keer verpestte het tenminste niet mijn hele maand, het irriteerde me alleen maar.",
       "animo": "😔"
     },
     {
@@ -675,7 +675,7 @@ export default {
     {
       "dia": -43,
       "titulo": "Inschrijving gedaan: marathon",
-      "texto": "Inschrijving gedaan: marathon, 38 euro, vijf weken schema. Nadia zei ja, met twee voorwaarden: elke twee weken naar de fysio en meteen stoppen bij het eerste signaal van de knie. Het is agressief en dat weet ik; ik weet ook dat ik al zes maanden kilometers opstapel, bijna zonder te missen. Ik schreef 42,195 op het krijtbord in de keuken en bleef er een tijdje naar staren.",
+      "texto": "Inschrijving gedaan: marathon, {monto:660}, vijf weken schema. Nadia zei ja, met twee voorwaarden: elke twee weken naar de fysio en meteen stoppen bij het eerste signaal van de knie. Het is agressief en dat weet ik; ik weet ook dat ik al zes maanden kilometers opstapel, bijna zonder te missen. Ik schreef 42,195 op het krijtbord in de keuken en bleef er een tijdje naar staren.",
       "animo": "😀"
     },
     {
@@ -742,7 +742,7 @@ export default {
     {
       "dia": -5,
       "titulo": "Wandelen, thee en Laika",
-      "texto": "Uurwandelingen in plaats van hardlopen, thee in plaats van koffie in de middag en Laika ondraaglijk aanhankelijk. Ik heb vluchten naar Seoel bekeken voor over een jaar, zonder iets te kopen, alleen om uit te rekenen hoeveel ik per salarisperiode opzij zou moeten leggen: zo'n 55 euro. Ik heb ook de partituur van Arabesque nr. 1 tevoorschijn gehaald en in mijn eentje gelachen. Morgen oefen ik Clair de Lune drie keer achter elkaar, want zondag speel ik hem voor mijn familie.",
+      "texto": "Uurwandelingen in plaats van hardlopen, thee in plaats van koffie in de middag en Laika ondraaglijk aanhankelijk. Ik heb vluchten naar Seoel bekeken voor over een jaar, zonder iets te kopen, alleen om uit te rekenen hoeveel ik per salarisperiode opzij zou moeten leggen: zo'n {monto:950}. Ik heb ook de partituur van Arabesque nr. 1 tevoorschijn gehaald en in mijn eentje gelachen. Morgen oefen ik Clair de Lune drie keer achter elkaar, want zondag speel ik hem voor mijn familie.",
       "animo": "🙂"
     },
     {
@@ -754,7 +754,7 @@ export default {
     {
       "dia": -1,
       "titulo": "De cijfers van het jaar",
-      "texto": "Ik heb een half uur het jaar in de app doorgenomen. 74 kg toen, 67,0 vanmorgen; 1.214 kilometer hardgelopen; een 5K, een 10K, een halve en een hele marathon. 2.600 euro gespaard en uitgegeven in drie weken Japan, 61 pagina's reislogboek en 118 aantekeningen hier. Wat niet uit de cijfers blijkt: een jaar geleden ging ik om twee uur naar bed met mijn telefoon voor mijn gezicht.",
+      "texto": "Ik heb een half uur het jaar in de app doorgenomen. 74 kg toen, 67,0 vanmorgen; 1.214 kilometer hardgelopen; een 5K, een 10K, een halve en een hele marathon. {monto:45000} gespaard en uitgegeven in drie weken Japan, 61 pagina's reislogboek en 118 aantekeningen hier. Wat niet uit de cijfers blijkt: een jaar geleden ging ik om twee uur naar bed met mijn telefoon voor mijn gezicht.",
       "animo": "🙂"
     },
     {

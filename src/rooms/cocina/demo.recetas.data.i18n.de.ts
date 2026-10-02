@@ -72,7 +72,7 @@ export default {
       "clave": "bowl-pollo",
       "nombre": "Hähnchen-Bowl für die ganze Woche",
       "emoji": "🍗",
-      "carpeta": "Batch cooking",
+      "carpeta": "Vorkochen",
       "porciones": 4,
       "minutos": 45,
       "ingredientes": [
@@ -207,7 +207,7 @@ export default {
       "clave": "crema-lentejas",
       "nombre": "Cremesuppe aus roten Linsen",
       "emoji": "🍲",
-      "carpeta": "Batch cooking",
+      "carpeta": "Vorkochen",
       "porciones": 4,
       "minutos": 35,
       "ingredientes": [
@@ -272,7 +272,7 @@ export default {
       "clave": "tacos-lentejas",
       "nombre": "Tacos mit rauchigen Linsen",
       "emoji": "🌮",
-      "carpeta": "Batch cooking",
+      "carpeta": "Vorkochen",
       "porciones": 4,
       "minutos": 30,
       "ingredientes": [

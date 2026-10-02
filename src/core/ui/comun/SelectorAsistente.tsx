@@ -1,5 +1,6 @@
 import { useAsistentes } from '../../state/asistentesStore'
-import type { Asistente } from '../../chat/mascotas'
+import { nombreAsistente, type Asistente } from '../../chat/mascotas'
+import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 
 /**
@@ -17,6 +18,7 @@ export function SelectorAsistente({
   elegidoId?: string | null
   onElegir: (a: Asistente) => void
 }) {
+  const t = useT()
   const asistentes = useAsistentes((s) => s.lista)
   return (
     <>
@@ -33,7 +35,7 @@ export function SelectorAsistente({
                 : 'border-white/10 bg-white/10 hover:bg-white/20'
             }`}
           >
-            <Icono emoji={a.emoji} /> {a.nombre}
+            <Icono emoji={a.emoji} /> {nombreAsistente(t, a)}
           </button>
         ))}
       </div>

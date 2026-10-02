@@ -8,9 +8,9 @@
  */
 export default {
   "vehiculos": {
-    "biciNombre": "La Grulla",
+    "biciNombre": "Turna",
     "biciNota": "İkinci el çelik bisikletim, gri ve biraz gürültülü; her gün onunla vardiyalara, laboratuvara ve antrenmanlara gidiyorum. Bir yıl boyunca beni bir kez bile yolda bırakmadı.",
-    "autoNombre": "El Mastodonte",
+    "autoNombre": "Mamut",
     "autoNota": "Amcamdan miras kalan bir sedan; benden bile daha yaşlı, gösterge paneli güneşten solmuş. On beş günde bir çalıştırıyorum ve her ihmalimin faizini bana ödetiyor."
   },
   "servicios": [
@@ -130,19 +130,19 @@ export default {
   "talleres": [
     {
       "clave": "taller",
-      "nombre": "Taller Mecánico Rivas",
+      "nombre": "Rivas Oto Tamirhanesi",
       "direccion": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez",
       "notas": "Don Rivas bana neyin gerçekten acil neyin bekleyebileceğini anlatıyor ve hiç faturayı şişirmedi; bu arabayla ilgili güvendiğim tek kişi o."
     },
     {
       "clave": "aseguradora",
-      "nombre": "Seguros Meridiano - agente Nadia Ortega",
-      "direccion": "Av. Insurgentes Sur 1234, piso 3, Col. Del Valle",
+      "nombre": "Meridiano Sigorta - acente Nadia Ortega",
+      "direccion": "Av. Insurgentes Sur 1234, 3. kat, Col. Del Valle",
       "notas": "Nadia pazar günü bile WhatsApp’a cevap veriyor ve geniş kapsamlı sigortaya geçtiğimde bana aylık ödeme planı hazırladı."
     },
     {
       "clave": "verificentro",
-      "nombre": "Verificentro 09-118 Iztaccíhuatl",
+      "nombre": "Egzoz Muayene İstasyonu 09-118 Iztaccíhuatl",
       "direccion": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez",
       "notas": "Randevu sabah yedide ve kırk dakikada çıkıyorum; Coyoacán’daki bana yarım sabah süren bir kuyruğa mal oldu."
     },
@@ -154,8 +154,8 @@ export default {
     },
     {
       "clave": "grua",
-      "nombre": "Grúas Tepeyac 24 horas",
-      "direccion": "Base en Eje Central Lázaro Cárdenas 1105, Col. Álamos",
+      "nombre": "Tepeyac Çekici 7/24",
+      "direccion": "Merkez: Eje Central Lázaro Cárdenas 1105, Col. Álamos",
       "notas": "Yolda kaldığım gece aradığım numara bu; bir buçuk saatte geldiler ve fiyatla beni kazıklamadılar."
     }
   ],

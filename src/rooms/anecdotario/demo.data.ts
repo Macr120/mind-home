@@ -13,14 +13,14 @@ export const DEMO_ANECDOTARIO = {
       },
       {
         "dia": -361,
-        "titulo": "Turno doble y ocho euros",
-        "texto": "Cubrí el turno de Nadia y salí a las nueve con la espalda destrozada. Ocho euros de propina y una señora que me habló como si fuera una máquina de café con piernas. Cené cereales de pie mirando el móvil hasta la una. Mañana tengo laboratorio a las ocho y ya sé cómo va a salir.",
+        "titulo": "Turno doble y {monto:140}",
+        "texto": "Cubrí el turno de Nadia y salí a las nueve con la espalda destrozada. {monto:140} de propina y una señora que me habló como si fuera una máquina de café con piernas. Cené cereales de pie mirando el móvil hasta la una. Mañana tengo laboratorio a las ocho y ya sé cómo va a salir.",
         "animo": "😣"
       },
       {
         "dia": -358,
         "titulo": "No sé dónde fue la quincena",
-        "texto": "Cobré el viernes y hoy, miércoles, la cuenta está en 41 euros. Intenté reconstruir los gastos de memoria y me faltan casi setenta que no consigo ubicar. Suscripciones que no uso, cervezas, comida a domicilio los días que no cociné. Lo que más me molesta no es el dinero, es no saber ni eso de mi propia vida.",
+        "texto": "Cobré el viernes y hoy, miércoles, la cuenta está en {monto:710}. Intenté reconstruir los gastos de memoria y me faltan casi {monto:1210} que no consigo ubicar. Suscripciones que no uso, cervezas, comida a domicilio los días que no cociné. Lo que más me molesta no es el dinero, es no saber ni eso de mi propia vida.",
         "animo": "😔"
       },
       {
@@ -68,7 +68,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -334,
         "titulo": "Hoja de cálculo, primer intento",
-        "texto": "Dos horas montando un presupuesto con las categorías reales de mi vida: alquiler, comida, transporte, universidad, tonterías. Salen 1.180 de gastos frente a 1.240 entre sueldo quincenal y propinas. El margen es ridículo pero existe, y verlo escrito me calma más de lo que esperaba. Regla nueva: las propinas no se gastan el mismo día.",
+        "texto": "Dos horas montando un presupuesto con las categorías reales de mi vida: alquiler, comida, transporte, universidad, tonterías. Salen {monto:20400} de gastos frente a {monto:21500} entre sueldo quincenal y propinas. El margen es ridículo pero existe, y verlo escrito me calma más de lo que esperaba. Regla nueva: las propinas no se gastan el mismo día.",
         "animo": "😐"
       },
       {
@@ -86,7 +86,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -325,
         "titulo": "Bote de cristal para propinas",
-        "texto": "He vaciado un tarro de mermelada y ahí van las propinas cada noche de turno. Esta semana: 23 euros que antes se habrían convertido en cenas fuera. Todavía no sé para qué es el bote, y creo que eso ayuda: es dinero que no tiene prisa. Contarlo el domingo se ha convertido en un pequeño ritual.",
+        "texto": "He vaciado un tarro de mermelada y ahí van las propinas cada noche de turno. Esta semana: {monto:400} que antes se habrían convertido en cenas fuera. Todavía no sé para qué es el bote, y creo que eso ayuda: es dinero que no tiene prisa. Contarlo el domingo se ha convertido en un pequeño ritual.",
         "animo": "🙂"
       },
       {
@@ -98,7 +98,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -319,
         "titulo": "Llegó el teclado",
-        "texto": "88 teclas de segunda mano, 90 euros, comprado a un señor que dejó de tocar cuando nació su hija. Lo traje en el maletero del coche con dos mantas y lo he montado en el rincón del salón. Hace un zumbido leve al encenderse y le falta el pedal, pero suena. He tocado notas al azar veinte minutos y he sonreído como un idiota. Meta declarada del año: aprender el «Clair de Lune» entero.",
+        "texto": "88 teclas de segunda mano, {monto:1560}, comprado a un señor que dejó de tocar cuando nació su hija. Lo traje en el maletero del coche con dos mantas y lo he montado en el rincón del salón. Hace un zumbido leve al encenderse y le falta el pedal, pero suena. He tocado notas al azar veinte minutos y he sonreído como un idiota. Meta declarada del año: aprender el «Clair de Lune» entero.",
         "animo": "🤩",
         "foto": "teclado"
       },
@@ -117,7 +117,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -310,
         "titulo": "Cuadré las cuentas del mes",
-        "texto": "Primera vez en años que llego al final del mes sabiendo dónde fue cada euro. Me sobran 62 euros, cifra ridícula y a la vez enorme comparada con el descubierto del mes pasado. Cancelé dos suscripciones y el gasto de comida a domicilio bajó a la mitad. Nada de esto es virtud: es que ahora lo veo.",
+        "texto": "Primera vez en años que llego al final del mes sabiendo dónde fue a parar cada gasto. Me sobran {monto:1070}, cifra ridícula y a la vez enorme comparada con el descubierto del mes pasado. Cancelé dos suscripciones y el gasto de comida a domicilio bajó a la mitad. Nada de esto es virtud: es que ahora lo veo.",
         "animo": "🙂"
       },
       {
@@ -160,7 +160,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -289,
         "titulo": "Domingo de tápers",
-        "texto": "Dos horas de cocina el domingo: lentejas, arroz, pollo al horno y verdura para cinco días. Me costó 18 euros y me ahorra los kebabs de después del turno de noche. Laika se ha sentado en la encimera a supervisar y la he bajado once veces. La nevera llena me da una tranquilidad que no esperaba de algo tan tonto.",
+        "texto": "Dos horas de cocina el domingo: lentejas, arroz, pollo al horno y verdura para cinco días. Me costó {monto:310} y me ahorra los kebabs de después del turno de noche. Laika se ha sentado en la encimera a supervisar y la he bajado once veces. La nevera llena me da una tranquilidad que no esperaba de algo tan tonto.",
         "animo": "🙂"
       },
       {
@@ -220,7 +220,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -259,
         "titulo": "Números para Japón",
-        "texto": "Me senté con la hoja de cuentas y le puse cifras a la fantasía: 2.400 en total, vuelos unos 800, el resto alojamiento barato, trenes y comer. Tengo 600 de los meses en que sobró algo del presupuesto, así que me faltan unos 360 al mes. Sale si cojo dos turnos extra al mes y si las propinas del fin de semana van directas al sobre. Abrí una línea nueva en la app y la llamé Japón, sin más.",
+        "texto": "Me senté con la hoja de cuentas y le puse cifras a la fantasía: {monto:41500} en total, vuelos unos {monto:13840}, el resto alojamiento barato, trenes y comer. Tengo {monto:10380} de los meses en que sobró algo del presupuesto, así que me faltan unos {monto:6230} al mes. Sale si cojo dos turnos extra al mes y si las propinas del fin de semana van directas al sobre. Abrí una línea nueva en la app y la llamé Japón, sin más.",
         "animo": "😀"
       },
       {
@@ -268,7 +268,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -235,
         "titulo": "Las propinas van al sobre",
-        "texto": "Sábado de terraza llena: 38 euros de propina en el bote y un cliente que dejó cinco por una cortado. Antes eso se me iba en cervezas y comida de mitad de semana sin darme cuenta. Hoy conté las monedas en la mesa de la cocina y las pasé enteras a la línea de Japón. 1.010 acumulados. Los billetes ahora tienen un destino y eso me hace trabajar de otra manera.",
+        "texto": "Sábado de terraza llena: {monto:660} de propina en el bote y un cliente que dejó {monto:87} por un cortado. Antes eso se me iba en cervezas y comida de mitad de semana sin darme cuenta. Hoy conté las monedas en la mesa de la cocina y las pasé enteras a la línea de Japón. {monto:17500} acumulados. Los billetes ahora tienen un destino y eso me hace trabajar de otra manera.",
         "animo": "😀"
       },
       {
@@ -322,7 +322,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -208,
         "titulo": "Trípode de segunda mano",
-        "texto": "Encontré un trípode viejo por doce euros en el mercadillo y le he acoplado el móvil con una pinza de plástico. Subí a la azotea a las once y por primera vez las estrellas salieron como puntos y no como gusanos. Se distinguen las Pléyades y algo del cinturón de Orión, borroso pero reconocible. Estuve una hora ahí arriba con una manta y el té; no sé si es astrofotografía, pero funciona.",
+        "texto": "Encontré un trípode viejo por {monto:210} en el mercadillo y le he acoplado el móvil con una pinza de plástico. Subí a la azotea a las once y por primera vez las estrellas salieron como puntos y no como gusanos. Se distinguen las Pléyades y algo del cinturón de Orión, borroso pero reconocible. Estuve una hora ahí arriba con una manta y el té; no sé si es astrofotografía, pero funciona.",
         "animo": "🙂"
       },
       {
@@ -340,7 +340,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -199,
         "titulo": "La mitad del bote",
-        "texto": "1.210 de 2.400. Justo la mitad del viaje está en la cuenta y todavía quedan tres meses de propinas y turnos extra. Hice la cuenta dos veces porque no me lo creía, y luego se lo conté a Laika, que es mi contable emocional. Lo que más me sorprende no es el dinero, es que llevo cinco meses seguidos apuntando cada gasto sin abandonar.",
+        "texto": "{monto:20900} de {monto:41500}. Justo la mitad del viaje está en la cuenta y todavía quedan tres meses de propinas y turnos extra. Hice la cuenta dos veces porque no me lo creía, y luego se lo conté a Laika, que es mi contable emocional. Lo que más me sorprende no es el dinero, es que llevo cinco meses seguidos apuntando cada gasto sin abandonar.",
         "animo": "🤩"
       },
       {
@@ -388,13 +388,13 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -176,
         "titulo": "El coche también, claro",
-        "texto": "Fui a arrancar el coche para ir al laboratorio y sonó como una lata de tornillos. Lo llevé al taller de la calle Robles: bomba de agua y correa, 380 euros y dos días sin coche. Justo esta semana, con la rodilla parada y el turno del viernes doblado. Me reí solo en la acera porque llorar en la acera me daba más vergüenza.",
+        "texto": "Fui a arrancar el coche para ir al laboratorio y sonó como una lata de tornillos. Lo llevé al taller de la calle Robles: bomba de agua y correa, {monto:6570} y dos días sin coche. Justo esta semana, con la rodilla parada y el turno del viernes doblado. Me reí solo en la acera porque llorar en la acera me daba más vergüenza.",
         "animo": "😣"
       },
       {
         "dia": -173,
         "titulo": "De dónde sale ese dinero",
-        "texto": "He decidido que los 380 euros salen del colchón de imprevistos y no del sobre de Japón, aunque el colchón se quede en nada. Recorto dos cosas este mes: cero cafés fuera y cero pedidos de comida. Las propinas de la quincena fueron flojas, 46 euros, así que toca apretar de verdad. Al menos ahora sé exactamente cuánto tengo, que en octubre no lo sabía ni de broma.",
+        "texto": "He decidido que los {monto:6570} salen del colchón de imprevistos y no del sobre de Japón, aunque el colchón se quede en nada. Recorto dos cosas este mes: cero cafés fuera y cero pedidos de comida. Las propinas de la quincena fueron flojas, {monto:800}, así que toca apretar de verdad. Al menos ahora sé exactamente cuánto tengo, que en octubre no lo sabía ni de broma.",
         "animo": "😔"
       },
       {
@@ -406,7 +406,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -168,
         "titulo": "Entrada fea, sin filtro",
-        "texto": "Estoy harto de que todo caiga a la vez: parcial de electromagnetismo el jueves, turno doble el sábado, la rodilla tirante y la cuenta en 190 euros. Escribo esto con el hielo puesto y con ganas de mandar el año a paseo. No voy a fingir que tengo una lección bonita que sacar de hoy. Lo único que hago es apuntarlo para acordarme de que también pasó.",
+        "texto": "Estoy harto de que todo caiga a la vez: parcial de electromagnetismo el jueves, turno doble el sábado, la rodilla tirante y la cuenta en {monto:3290}. Escribo esto con el hielo puesto y con ganas de mandar el año a paseo. No voy a fingir que tengo una lección bonita que sacar de hoy. Lo único que hago es apuntarlo para acordarme de que también pasó.",
         "animo": "😣"
       },
       {
@@ -430,7 +430,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -156,
         "titulo": "Cita con la fisio",
-        "texto": "Jueves a las once, primera sesión, 35 euros cada una y necesito cuatro o cinco. Lo he metido en el presupuesto como gasto de salud y no como capricho, que es lo que habría pensado en enero. La rodilla ya me deja bajar escaleras casi normal. Empiezo a creer que esto se arregla y que en septiembre voy a andar mucho por Japón sin problema.",
+        "texto": "Jueves a las once, primera sesión, {monto:600} cada una y necesito cuatro o cinco. Lo he metido en el presupuesto como gasto de salud y no como capricho, que es lo que habría pensado en enero. La rodilla ya me deja bajar escaleras casi normal. Empiezo a creer que esto se arregla y que en septiembre voy a andar mucho por Japón sin problema.",
         "animo": "🙂"
       },
       {
@@ -454,13 +454,13 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -140,
         "titulo": "Veinte minutos seguidos",
-        "texto": "Veinte minutos sin parar, muy lento, y la rodilla ni se ha inmutado. Me obligo a no subir más de un diez por ciento por semana aunque tenga ganas de hacer una hora mañana. He aprendido la lección caro: 380 euros y tres semanas. El plan hasta Japón es sencillo, cuarenta minutos cómodos y nada de largos.",
+        "texto": "Veinte minutos sin parar, muy lento, y la rodilla ni se ha inmutado. Me obligo a no subir más de un diez por ciento por semana aunque tenga ganas de hacer una hora mañana. He aprendido la lección caro: {monto:6570} y tres semanas. El plan hasta Japón es sencillo, cuarenta minutos cómodos y nada de largos.",
         "animo": "😀"
       },
       {
         "dia": -137,
         "titulo": "Las cuentas respiran",
-        "texto": "Sobre de Japón al 85 por ciento del objetivo: 2.210 de 2.600 euros. El colchón de imprevistos vuelve a tener 200 después del sablazo del taller. Dos quincenas más y llego justo, contando propinas de agosto que suelen ser buenas. Lo escribo aquí porque en octubre yo no sabía ni cuánto gastaba en café.",
+        "texto": "Sobre de Japón al 85 por ciento del objetivo: {monto:38200} de {monto:45000}. El colchón de imprevistos vuelve a tener {monto:3460} después del sablazo del taller. Dos quincenas más y llego justo, contando propinas de agosto que suelen ser buenas. Lo escribo aquí porque en octubre yo no sabía ni cuánto gastaba en café.",
         "animo": "🙂"
       },
       {
@@ -503,7 +503,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -121,
         "titulo": "Tokio a pie, 21 km",
-        "texto": "Veintiún kilómetros andando entre Shinjuku, Yanaka y una librería en la que estuve una hora sin entender casi nada. Los trenes llegan al segundo y yo, que en casa llego tarde al turno, me siento observado por el sistema. Cené en un konbini: onigiri, huevo cocido y una sopa, cinco euros y mejor que muchas cosas caras. La rodilla, callada.",
+        "texto": "Veintiún kilómetros andando entre Shinjuku, Yanaka y una librería en la que estuve una hora sin entender casi nada. Los trenes llegan al segundo y yo, que en casa llego tarde al turno, me siento observado por el sistema. Cené en un konbini: onigiri, huevo cocido y una sopa, {monto:87} y mejor que muchas cosas caras. La rodilla, callada.",
         "animo": "🤩"
       },
       {
@@ -564,7 +564,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -101,
         "titulo": "Cuentas del viaje",
-        "texto": "Última noche en Osaka y he hecho la suma: 2.480 euros de los 2.600 ahorrados, incluyendo vuelo, tren, camas y comida. Cuadró casi al euro, lo cual me da un orgullo raro y muy contable. Me llevo té de tres sitios, un cuaderno, una púa de nada para el teclado y sesenta y una páginas escritas. Mañana el vuelo largo y el jueves el turno de las siete en la cafetería.",
+        "texto": "Última noche en Osaka y he hecho la suma: {monto:42900} de los {monto:45000} ahorrados, incluyendo vuelo, tren, camas y comida. Cuadró casi exacto, lo cual me da un orgullo raro y muy contable. Me llevo té de tres sitios, un cuaderno, una púa de nada para el teclado y sesenta y una páginas escritas. Mañana el vuelo largo y el jueves el turno de las siete en la cafetería.",
         "animo": "🙂"
       },
       {
@@ -600,7 +600,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -81,
         "titulo": "Presupuesto después del viaje",
-        "texto": "He vuelto a montar el presupuesto por sobres tras tres semanas sin mirarlo. La cuenta del viaje quedó en 118 euros y eso no es un fracaso: era exactamente el plan. Línea nueva desde esta quincena: fondo de emergencia, 40 euros por paga. Las propinas de la semana fueron 27 euros y van enteras ahí.",
+        "texto": "He vuelto a montar el presupuesto por sobres tras tres semanas sin mirarlo. La cuenta del viaje quedó en {monto:2040} y eso no es un fracaso: era exactamente el plan. Línea nueva desde esta quincena: fondo de emergencia, {monto:690} por paga. Las propinas de la semana fueron {monto:470} y van enteras ahí.",
         "animo": "🙂"
       },
       {
@@ -624,7 +624,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -68,
         "titulo": "La batería del coche",
-        "texto": "El coche no arrancó a las seis y media y fui a la cafetería en bici a toda prisa. Batería nueva: 72 euros del fondo de emergencia recién estrenado, que ahora está en 8. Diecinueve años tiene el coche y cada trimestre me recuerda que existe. Al menos esta vez no me hundió el mes, solo me molestó.",
+        "texto": "El coche no arrancó a las seis y media y fui a la cafetería en bici a toda prisa. Batería nueva: {monto:1250} del fondo de emergencia recién estrenado, que ahora está en {monto:140}. Diecinueve años tiene el coche y cada trimestre me recuerda que existe. Al menos esta vez no me hundió el mes, solo me molestó.",
         "animo": "😔"
       },
       {
@@ -672,7 +672,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -43,
         "titulo": "Inscripción hecha: maratón",
-        "texto": "Inscripción hecha: maratón, 38 euros, cinco semanas de plan. Nadia dijo que sí con dos condiciones: fisio cada quince días y frenar al primer aviso de la rodilla. Es agresivo y lo sé; también sé que llevo seis meses sumando kilómetros casi sin fallar. Escribí 42,195 en la pizarra de la cocina y me quedé mirándolo un rato.",
+        "texto": "Inscripción hecha: maratón, {monto:660}, cinco semanas de plan. Nadia dijo que sí con dos condiciones: fisio cada quince días y frenar al primer aviso de la rodilla. Es agresivo y lo sé; también sé que llevo seis meses sumando kilómetros casi sin fallar. Escribí 42,195 en la pizarra de la cocina y me quedé mirándolo un rato.",
         "animo": "😀"
       },
       {
@@ -739,7 +739,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -5,
         "titulo": "Caminar, té y Laika",
-        "texto": "Caminatas de una hora en lugar de correr, té en vez de café por la tarde y Laika insoportablemente pegada. He mirado vuelos a Seúl para dentro de un año, sin comprar nada, solo para calcular cuánto tendría que apartar por quincena: unos 55 euros. También he sacado la partitura de la Arabesca nº 1 y me he reído a solas. Mañana ensayo Clair de Lune tres veces seguidas, que el domingo toco para mi familia.",
+        "texto": "Caminatas de una hora en lugar de correr, té en vez de café por la tarde y Laika insoportablemente pegada. He mirado vuelos a Seúl para dentro de un año, sin comprar nada, solo para calcular cuánto tendría que apartar por quincena: unos {monto:950}. También he sacado la partitura de la Arabesca nº 1 y me he reído a solas. Mañana ensayo Clair de Lune tres veces seguidas, que el domingo toco para mi familia.",
         "animo": "🙂"
       },
       {
@@ -751,7 +751,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -1,
         "titulo": "Las cuentas del año",
-        "texto": "He estado media hora repasando el año en la app. 74 kg entonces, 67,0 esta mañana; 1.214 kilómetros corridos; un 5K, un 10K, un medio y un maratón. 2.600 euros ahorrados y gastados en tres semanas de Japón, 61 páginas de bitácora y 118 entradas aquí. Lo que no sale en los números: hace un año me acostaba a las dos con el móvil en la cara.",
+        "texto": "He estado media hora repasando el año en la app. 74 kg entonces, 67,0 esta mañana; 1.214 kilómetros corridos; un 5K, un 10K, un medio y un maratón. {monto:45000} ahorrados y gastados en tres semanas de Japón, 61 páginas de bitácora y 118 entradas aquí. Lo que no sale en los números: hace un año me acostaba a las dos con el móvil en la cara.",
         "animo": "🙂"
       },
       {
@@ -772,14 +772,14 @@ export const DEMO_ANECDOTARIO = {
       },
       {
         "dia": -361,
-        "titulo": "Double shift, eight euros in tips",
-        "texto": "I covered Nadia's shift and clocked out at nine with my back in pieces. Eight euros in tips and a customer who talked to me like I was a coffee machine with legs. I ate cereal standing up, staring at my phone until one. Lab at eight tomorrow and I already know how that's going to go.",
+        "titulo": "Double shift, {monto:140} in tips",
+        "texto": "I covered Nadia's shift and clocked out at nine with my back in pieces. {monto:140} in tips and a customer who talked to me like I was a coffee machine with legs. I ate cereal standing up, staring at my phone until one. Lab at eight tomorrow and I already know how that's going to go.",
         "animo": "😣"
       },
       {
         "dia": -358,
         "titulo": "Where did the paycheck go",
-        "texto": "I got paid Friday and today, Wednesday, there are 41 euros left in my account. I tried to reconstruct my spending from memory and about seventy euros are simply unaccounted for. Subscriptions I don't use, beers, delivery food on the nights I didn't cook. What bothers me isn't the money, it's not knowing even that much about my own life.",
+        "texto": "I got paid Friday and today, Wednesday, there is {monto:710} left in my account. I tried to reconstruct my spending from memory and about {monto:1210} is simply unaccounted for. Subscriptions I don't use, beers, delivery food on the nights I didn't cook. What bothers me isn't the money, it's not knowing even that much about my own life.",
         "animo": "😔"
       },
       {
@@ -827,7 +827,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -334,
         "titulo": "Spreadsheet, first attempt",
-        "texto": "Two hours building a budget with the real categories of my life: rent, food, transport, university, nonsense. It comes out to 1,180 in expenses against 1,240 between my fortnightly pay and tips. The margin is laughable, but it exists, and seeing it written down calms me more than I expected. New rule: tips don't get spent the same day.",
+        "texto": "Two hours building a budget with the real categories of my life: rent, food, transport, university, nonsense. It comes out to {monto:20400} in expenses against {monto:21500} between my fortnightly pay and tips. The margin is laughable, but it exists, and seeing it written down calms me more than I expected. New rule: tips don't get spent the same day.",
         "animo": "😐"
       },
       {
@@ -845,7 +845,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -325,
         "titulo": "A glass jar for tips",
-        "texto": "I emptied a jam jar and now the tips go in there after every shift. This week: 23 euros that would previously have turned into dinner out. I don't know yet what the jar is for, and I think that helps: it's money in no hurry. Counting it on Sundays has quietly become a ritual.",
+        "texto": "I emptied a jam jar and now the tips go in there after every shift. This week: {monto:400} that would previously have turned into dinner out. I don't know yet what the jar is for, and I think that helps: it's money in no hurry. Counting it on Sundays has quietly become a ritual.",
         "animo": "🙂"
       },
       {
@@ -857,7 +857,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -319,
         "titulo": "The keyboard arrived",
-        "texto": "88 second-hand keys, 90 euros, bought from a man who stopped playing when his daughter was born. I hauled it home in the car boot wrapped in two blankets and set it up in the corner of the living room. It hums faintly when it powers on and there's no pedal, but it works. I played random notes for twenty minutes grinning like an idiot. Stated goal for the year: learn all of Clair de Lune.",
+        "texto": "88 second-hand keys, {monto:1560}, bought from a man who stopped playing when his daughter was born. I hauled it home in the car boot wrapped in two blankets and set it up in the corner of the living room. It hums faintly when it powers on and there's no pedal, but it works. I played random notes for twenty minutes grinning like an idiot. Stated goal for the year: learn all of Clair de Lune.",
         "animo": "🤩",
         "foto": "teclado"
       },
@@ -876,7 +876,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -310,
         "titulo": "The month actually balanced",
-        "texto": "First time in years I reach the end of a month knowing where every euro went. I have 62 euros left over, a ridiculous number that feels enormous next to last month's overdraft. I cancelled two subscriptions and my delivery spending halved. None of this is virtue: it's just that now I can see it.",
+        "texto": "First time in years I reach the end of a month knowing where every cent went. I have {monto:1070} left over, a ridiculous number that feels enormous next to last month's overdraft. I cancelled two subscriptions and my delivery spending halved. None of this is virtue: it's just that now I can see it.",
         "animo": "🙂"
       },
       {
@@ -919,7 +919,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -289,
         "titulo": "Sunday of containers",
-        "texto": "Two hours of cooking on Sunday: lentils, rice, roast chicken and vegetables for five days. It cost 18 euros and saves me the late-night kebabs after closing shifts. Laika sat on the counter supervising and I lifted her down eleven times. A full fridge gives me a calm I didn't expect from something so dumb.",
+        "texto": "Two hours of cooking on Sunday: lentils, rice, roast chicken and vegetables for five days. It cost {monto:310} and saves me the late-night kebabs after closing shifts. Laika sat on the counter supervising and I lifted her down eleven times. A full fridge gives me a calm I didn't expect from something so dumb.",
         "animo": "🙂"
       },
       {
@@ -979,7 +979,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -259,
         "titulo": "Putting numbers on Japan",
-        "texto": "I sat down with the spreadsheet and gave the fantasy actual figures: 2,400 total, around 800 for flights, the rest cheap beds, trains and food. I already have 600 from the months my budget came out ahead, so I need about 360 a month. It works if I pick up two extra shifts a month and send every weekend tip straight to the envelope. I opened a new line in the app and just called it Japan.",
+        "texto": "I sat down with the spreadsheet and gave the fantasy actual figures: {monto:41500} total, around {monto:13840} for flights, the rest cheap beds, trains and food. I already have {monto:10380} from the months my budget came out ahead, so I need about {monto:6230} a month. It works if I pick up two extra shifts a month and send every weekend tip straight to the envelope. I opened a new line in the app and just called it Japan.",
         "animo": "😀"
       },
       {
@@ -1027,7 +1027,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -235,
         "titulo": "Tips go to the envelope",
-        "texto": "Busy Saturday on the terrace: 38 in the tip jar and one customer who left five for a single cortado. That money used to vanish into beers and midweek takeaway without me noticing. Tonight I counted the coins on the kitchen table and moved the whole lot to the Japan line. 1,010 saved. The money has a destination now and it changes how I work.",
+        "texto": "Busy Saturday on the terrace: {monto:660} in the tip jar and one customer who left {monto:87} for a single cortado. That money used to vanish into beers and midweek takeaway without me noticing. Tonight I counted the coins on the kitchen table and moved the whole lot to the Japan line. {monto:17500} saved. The money has a destination now and it changes how I work.",
         "animo": "😀"
       },
       {
@@ -1081,7 +1081,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -208,
         "titulo": "Second-hand tripod",
-        "texto": "I found an old tripod for twelve at the flea market and clamped my phone to it with a plastic mount. Went up to the roof at eleven and for the first time the stars came out as dots instead of worms. You can make out the Pleiades and part of Orion's belt, blurry but recognisable. I stayed up there an hour with a blanket and tea; not sure it's astrophotography, but it works.",
+        "texto": "I found an old tripod for {monto:210} at the flea market and clamped my phone to it with a plastic mount. Went up to the roof at eleven and for the first time the stars came out as dots instead of worms. You can make out the Pleiades and part of Orion's belt, blurry but recognisable. I stayed up there an hour with a blanket and tea; not sure it's astrophotography, but it works.",
         "animo": "🙂"
       },
       {
@@ -1099,7 +1099,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -199,
         "titulo": "Halfway to the trip",
-        "texto": "1,210 out of 2,400. Exactly half the trip is in the account and there are still three months of tips and extra shifts to go. I did the maths twice because I didn't believe it, then told Laika, my emotional accountant. What surprises me isn't the money, it's that I've logged every expense for five months without quitting.",
+        "texto": "{monto:20900} out of {monto:41500}. Exactly half the trip is in the account and there are still three months of tips and extra shifts to go. I did the maths twice because I didn't believe it, then told Laika, my emotional accountant. What surprises me isn't the money, it's that I've logged every expense for five months without quitting.",
         "animo": "🤩"
       },
       {
@@ -1147,13 +1147,13 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -176,
         "titulo": "The car, of course",
-        "texto": "I turned the key to drive to the lab and it sounded like a tin of loose screws. Took it to the garage on Robles street: water pump and belt, 380 euros and two days without a car. Exactly this week, with my knee benched and a double shift on Friday. I laughed out loud on the pavement because crying on the pavement felt worse.",
+        "texto": "I turned the key to drive to the lab and it sounded like a tin of loose screws. Took it to the garage on Robles street: water pump and belt, {monto:6570} and two days without a car. Exactly this week, with my knee benched and a double shift on Friday. I laughed out loud on the pavement because crying on the pavement felt worse.",
         "animo": "😣"
       },
       {
         "dia": -173,
         "titulo": "Where that money comes from",
-        "texto": "I decided the 380 euros comes out of the emergency cushion and not out of the Japan envelope, even if the cushion ends up at almost nothing. Two cuts this month: no coffee out, no delivery food. Tips this fortnight were thin, 46 euros, so it's real belt-tightening. At least I know exactly what I have, which in October I absolutely did not.",
+        "texto": "I decided the {monto:6570} comes out of the emergency cushion and not out of the Japan envelope, even if the cushion ends up at almost nothing. Two cuts this month: no coffee out, no delivery food. Tips this fortnight were thin, {monto:800}, so it's real belt-tightening. At least I know exactly what I have, which in October I absolutely did not.",
         "animo": "😔"
       },
       {
@@ -1165,7 +1165,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -168,
         "titulo": "Ugly entry, no filter",
-        "texto": "I'm fed up with everything landing at once: electromagnetism midterm on Thursday, double shift Saturday, knee tight, 190 euros in the account. I'm writing this with an ice pack on and a serious urge to write off the whole year. I'm not going to pretend there's a nice lesson hiding in today. I'm only logging it so I remember it happened too.",
+        "texto": "I'm fed up with everything landing at once: electromagnetism midterm on Thursday, double shift Saturday, knee tight, {monto:3290} in the account. I'm writing this with an ice pack on and a serious urge to write off the whole year. I'm not going to pretend there's a nice lesson hiding in today. I'm only logging it so I remember it happened too.",
         "animo": "😣"
       },
       {
@@ -1189,7 +1189,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -156,
         "titulo": "Booked the physio",
-        "texto": "Thursday at eleven, first session, 35 euros each and I need four or five of them. I've put it in the budget as a health expense and not as a treat, which is what I'd have called it in January. The knee already lets me go downstairs almost normally. I'm starting to believe this gets fixed and that in September I'll be walking all over Japan just fine.",
+        "texto": "Thursday at eleven, first session, {monto:600} each and I need four or five of them. I've put it in the budget as a health expense and not as a treat, which is what I'd have called it in January. The knee already lets me go downstairs almost normally. I'm starting to believe this gets fixed and that in September I'll be walking all over Japan just fine.",
         "animo": "🙂"
       },
       {
@@ -1213,13 +1213,13 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -140,
         "titulo": "Twenty minutes unbroken",
-        "texto": "Twenty minutes without stopping, very slow, and the knee didn't flinch. I'm forcing myself not to add more than ten percent a week even though I want to go out and do an hour tomorrow. I learned that lesson expensively: 380 euros and three weeks. The plan until Japan is simple, comfortable forty-minute runs and no long ones.",
+        "texto": "Twenty minutes without stopping, very slow, and the knee didn't flinch. I'm forcing myself not to add more than ten percent a week even though I want to go out and do an hour tomorrow. I learned that lesson expensively: {monto:6570} and three weeks. The plan until Japan is simple, comfortable forty-minute runs and no long ones.",
         "animo": "😀"
       },
       {
         "dia": -137,
         "titulo": "The budget breathes again",
-        "texto": "Japan envelope at 85 percent of target: 2,210 of 2,600 euros. The emergency cushion is back to 200 after the garage hit. Two more paydays and I get there just in time, counting August tips, which are usually decent. I'm writing it down because last October I had no idea how much I spent on coffee.",
+        "texto": "Japan envelope at 85 percent of target: {monto:38200} of {monto:45000}. The emergency cushion is back to {monto:3460} after the garage hit. Two more paydays and I get there just in time, counting August tips, which are usually decent. I'm writing it down because last October I had no idea how much I spent on coffee.",
         "animo": "🙂"
       },
       {
@@ -1262,7 +1262,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -121,
         "titulo": "Tokyo on foot, 21 km",
-        "texto": "Twenty-one kilometres between Shinjuku, Yanaka and a bookshop where I spent an hour understanding almost nothing. Trains arrive to the second and I, who am regularly late for my own shift, feel personally judged by the system. Dinner from a convenience store: onigiri, boiled egg and a soup, five euros and better than plenty of expensive meals. Knee: silent.",
+        "texto": "Twenty-one kilometres between Shinjuku, Yanaka and a bookshop where I spent an hour understanding almost nothing. Trains arrive to the second and I, who am regularly late for my own shift, feel personally judged by the system. Dinner from a convenience store: onigiri, boiled egg and a soup, {monto:87} and better than plenty of expensive meals. Knee: silent.",
         "animo": "🤩"
       },
       {
@@ -1323,7 +1323,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -101,
         "titulo": "Trip accounts",
-        "texto": "Last night in Osaka and I've done the sum: 2,480 euros of the 2,600 I saved, flights, rail, beds and food included. It came out almost to the euro, which gives me a strange, very accountant-like pride. I'm bringing home tea from three places, a notebook, a tiny gift for the keyboard corner and sixty-one written pages. Tomorrow the long flight, Thursday the seven o'clock shift at the café.",
+        "texto": "Last night in Osaka and I've done the sum: {monto:42900} of the {monto:45000} I saved, flights, rail, beds and food included. It came out almost to the cent, which gives me a strange, very accountant-like pride. I'm bringing home tea from three places, a notebook, a tiny gift for the keyboard corner and sixty-one written pages. Tomorrow the long flight, Thursday the seven o'clock shift at the café.",
         "animo": "🙂"
       },
       {
@@ -1359,7 +1359,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -81,
         "titulo": "Budget after the trip",
-        "texto": "I rebuilt the envelope budget after three weeks of not looking at it. The travel fund ended at 118 euros and that isn't a failure, it was exactly the plan. New line as of this payday: emergency fund, 40 euros per pay cheque. Tips this week came to 27 euros and all of it went straight in.",
+        "texto": "I rebuilt the envelope budget after three weeks of not looking at it. The travel fund ended at {monto:2040} and that isn't a failure, it was exactly the plan. New line as of this payday: emergency fund, {monto:690} per pay cheque. Tips this week came to {monto:470} and all of it went straight in.",
         "animo": "🙂"
       },
       {
@@ -1383,7 +1383,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -68,
         "titulo": "The car battery again",
-        "texto": "The car wouldn't start at half six and I had to sprint to the café on the bike. New battery: 72 euros out of the brand new emergency fund, which is now down to 8. The car is nineteen years old and it reminds me it exists every single quarter. At least this time it annoyed me instead of sinking the month.",
+        "texto": "The car wouldn't start at half six and I had to sprint to the café on the bike. New battery: {monto:1250} out of the brand new emergency fund, which is now down to {monto:140}. The car is nineteen years old and it reminds me it exists every single quarter. At least this time it annoyed me instead of sinking the month.",
         "animo": "😔"
       },
       {
@@ -1431,7 +1431,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -43,
         "titulo": "Marathon entry paid",
-        "texto": "Entry paid: marathon, 38 euros, five weeks of plan. Nadia said yes with two conditions, physio every two weeks and stopping at the first hint from the knee. It's aggressive and I know it; I also know I've been stacking kilometres for six months with barely a miss. I wrote 42.195 on the kitchen board and stood there looking at it.",
+        "texto": "Entry paid: marathon, {monto:660}, five weeks of plan. Nadia said yes with two conditions, physio every two weeks and stopping at the first hint from the knee. It's aggressive and I know it; I also know I've been stacking kilometres for six months with barely a miss. I wrote 42.195 on the kitchen board and stood there looking at it.",
         "animo": "😀"
       },
       {
@@ -1498,7 +1498,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -5,
         "titulo": "Walking, tea and Laika",
-        "texto": "Hour-long walks instead of runs, tea instead of afternoon coffee, and Laika unbearably attached to me. I looked at flights to Seoul for a year from now, bought nothing, just to work out the fortnightly figure: about 55 euros. I also pulled out the score for Arabesque no. 1 and laughed at my own face. Tomorrow I run through Clair de Lune three times, because on Sunday I play it for my family.",
+        "texto": "Hour-long walks instead of runs, tea instead of afternoon coffee, and Laika unbearably attached to me. I looked at flights to Seoul for a year from now, bought nothing, just to work out the fortnightly figure: about {monto:950}. I also pulled out the score for Arabesque no. 1 and laughed at my own face. Tomorrow I run through Clair de Lune three times, because on Sunday I play it for my family.",
         "animo": "🙂"
       },
       {
@@ -1510,7 +1510,7 @@ export const DEMO_ANECDOTARIO = {
       {
         "dia": -1,
         "titulo": "The year in numbers",
-        "texto": "I spent half an hour going back through the year in the app. 74 kg then, 67.0 this morning; 1,214 kilometres run; a 5K, a 10K, a half and a marathon. 2,600 euros saved and spent on three weeks in Japan, 61 pages of travel log, 118 entries in here. What the numbers don't show: a year ago I went to bed at two with my phone in my face.",
+        "texto": "I spent half an hour going back through the year in the app. 74 kg then, 67.0 this morning; 1,214 kilometres run; a 5K, a 10K, a half and a marathon. {monto:45000} saved and spent on three weeks in Japan, 61 pages of travel log, 118 entries in here. What the numbers don't show: a year ago I went to bed at two with my phone in my face.",
         "animo": "🙂"
       },
       {

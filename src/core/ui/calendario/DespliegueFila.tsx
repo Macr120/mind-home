@@ -122,7 +122,7 @@ export function DespliegueFila({
                     rutina.activa ? 'bg-emerald-500/20 text-emerald-400' : 'bg-white/10 text-white/40'
                   }`}
                 >
-                  {rutina.activa ? 'ON' : 'OFF'}
+                  {rutina.activa ? t('ui.on', 'ON') : t('ui.off', 'OFF')}
                 </button>
               </>
             )}

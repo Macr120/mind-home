@@ -137,7 +137,7 @@
   },
   {
     "ruta": "talleres.0.nombre",
-    "texto": "Taller Mecánico Rivas"
+    "texto": "Officina Meccanica Rivas"
   },
   {
     "ruta": "talleres.0.direccion",
@@ -149,11 +149,11 @@
   },
   {
     "ruta": "talleres.1.nombre",
-    "texto": "Seguros Meridiano - agente Nadia Ortega"
+    "texto": "Assicurazioni Meridiano - agente Nadia Ortega"
   },
   {
     "ruta": "talleres.1.direccion",
-    "texto": "Av. Insurgentes Sur 1234, piano 3, Col. Del Valle"
+    "texto": "Av. Insurgentes Sur 1234, 3° piano, Col. Del Valle"
   },
   {
     "ruta": "talleres.1.notas",
@@ -161,7 +161,7 @@
   },
   {
     "ruta": "talleres.2.nombre",
-    "texto": "Verificentro 09-118 Iztaccíhuatl"
+    "texto": "Centro Revisioni 09-118 Iztaccíhuatl"
   },
   {
     "ruta": "talleres.2.direccion",
@@ -181,7 +181,7 @@
   },
   {
     "ruta": "talleres.4.nombre",
-    "texto": "Grúas Tepeyac 24 horas"
+    "texto": "Soccorso Stradale Tepeyac 24 ore"
   },
   {
     "ruta": "talleres.4.direccion",
@@ -229,6 +229,18 @@
   },
   {
     "ruta": "tramites.4.nota",
-    "texto": "Ogni sei mesi da Ciclos Malinche: centraggio ruote, cavi e freni, che costa molto meno che aggiustare una ruota storta."
+    "texto": "Ogni sei mesi da Cicli Malinche: centraggio ruote, cavi e freni, che costa molto meno che aggiustare una ruota storta."
+  },
+  {
+    "ruta": "vehiculos.biciNombre",
+    "texto": "La Gru"
+  },
+  {
+    "ruta": "vehiculos.autoNombre",
+    "texto": "Il Mastodonte"
+  },
+  {
+    "ruta": "talleres.3.nombre",
+    "texto": "Cicli Malinche"
   }
 ]

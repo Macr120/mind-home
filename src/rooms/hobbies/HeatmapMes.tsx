@@ -1,9 +1,10 @@
 import { useMemo, useState } from 'react'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { localeActual, useT } from '../../core/i18n/useT'
+import { diasSemanaLunes } from '../../core/rutinas'
 import { hoyISO, rgba } from './stats'
+import { textoMin } from '../../core/i18n/duracion'
 
-const DIAS = ['L', 'M', 'X', 'J', 'V', 'S', 'D']
 
 /**
  * Mapa de calor mensual: cuadrícula tipo calendario donde cada día se colorea
@@ -78,7 +79,7 @@ export function HeatmapMes({
         <div className="text-center">
           <p className="text-xs font-semibold capitalize">{nombreMes}</p>
           <p className="text-[9px] text-white/45">
-            {totalMes} min · {diasActivos} {t('hobbies.heatmap.dias', 'días activos')}
+            {textoMin(totalMes)} · {diasActivos} {t('hobbies.heatmap.dias', 'días activos')}
           </p>
         </div>
         <button
@@ -91,7 +92,7 @@ export function HeatmapMes({
       </div>
 
       <div className="grid w-full grid-cols-7 gap-0.5">
-        {DIAS.map((d, i) => (
+        {diasSemanaLunes().map((d, i) => (
           <div key={i} className="text-center text-[8px] text-white/35">
             {d}
           </div>
@@ -105,7 +106,7 @@ export function HeatmapMes({
                 type="button"
                 disabled={c.min === 0}
                 onClick={() => onDia(c.iso)}
-                title={`${c.iso} · ${c.min} min${
+                title={`${c.iso} · ${textoMin(c.min)}${
                   c.min > 0 ? ` · ${t('hobbies.heatmap.verDia', 'ver en el historial')}` : ''
                 }`}
                 className={`aspect-square rounded-sm flex items-center justify-center text-[7px] transition ${

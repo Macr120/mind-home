@@ -3,6 +3,7 @@ import { asegurarBlob, rutinasRepo, suenoRepo, perfilSuenoRepo, pistasMusicaRepo
 import type { PerfilSueno, RegistroSueno } from '../../core/data/db'
 import { esDemo } from '../../core/edicion'
 import { useT } from '../../core/i18n/useT'
+import { duracionMin } from '../../core/i18n/duracion'
 import { vivo } from '../../core/ui/estilos'
 import { BannerAviso } from '../../core/ui/BannerAviso'
 import { FilaAviso } from '../../core/ui/FilaAviso'
@@ -39,9 +40,7 @@ const PERFIL_DEFAULT: Omit<PerfilSueno, 'id'> = {
 /** '7.5' → '7 h 30 min'; menos de una hora se dice solo en minutos. */
 function formatoHoras(horas: number): string {
   const h = Math.floor(horas)
-  const m = Math.round((horas - h) * 60)
-  if (!h) return `${m} min`
-  return m ? `${h} h ${m} min` : `${h} h`
+  return duracionMin(h * 60 + Math.round((horas - h) * 60))
 }
 
 const dd = (n: number) => String(n).padStart(2, '0')
@@ -477,7 +476,7 @@ export function DescansoApp() {
               }}
               className="w-20 rounded-lg border border-white/10 bg-black/30 px-3 py-1.5 text-center font-bold outline-none focus:border-white/30"
             />
-            h
+            {t('ui.unidad.h', 'h')}
           </span>
         </label>
         <p className={`text-sm ${horasHorario >= perfil.objetivoHoras ? 'text-emerald-400' : 'text-amber-400'}`}>

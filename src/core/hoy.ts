@@ -6,7 +6,7 @@ import { rutinasRepo } from './data/repository'
 import { appsParaEnlace } from './enlaceApp'
 import { fechaLocalISO } from './fechaLocal'
 import { tGlobal } from './i18n/useT'
-import { estadoObjetivoDia, objetivosDiaDe } from './metaDiaria'
+import { estadoObjetivoDia, objetivosDiaDe, unidadObjetivo } from './metaDiaria'
 import { esMeta, rangoDe, vigenteEn } from './metas'
 // Del contrato HOJA, no de `registry` (que importa los 22 cuartos): esto lo
 // consumen las apps y cerrar el ciclo rompe el hot-reload en desarrollo.
@@ -110,7 +110,7 @@ function detalleObjetivo(o: ObjetivoDia, avance: AvanceDiario): string | undefin
   if (avance.detalle) return avance.detalle
   // Un objetivo de hacerlo o no hacerlo: "1 / 1" no le dice nada a nadie.
   if (!o.unidad && avance.objetivo === 1) return undefined
-  return `${avance.hecho} / ${avance.objetivo}${o.unidad ? ` ${o.unidad}` : ''}`
+  return `${avance.hecho} / ${avance.objetivo}${o.unidad ? ` ${unidadObjetivo(o.unidad)}` : ''}`
 }
 
 /** Minutos transcurridos desde su hora; negativo si aún no llega. */

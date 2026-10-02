@@ -26,6 +26,7 @@ import { empaquetarReceta } from './compartible'
 import { ConectadoCon } from '../../core/ui/grafo/ConectadoCon'
 import { refNodo } from '../../core/grafo/memoria'
 import { usePublicarEntrada } from '../../core/state/entradaAbiertaStore'
+import { textoMin } from '../../core/i18n/duracion'
 
 export function RecetasTab({
   recetas,
@@ -275,7 +276,7 @@ function TarjetaReceta({ receta: r, onClick }: { receta: Receta; onClick: () => 
           <p className="text-xs text-white/40">
             {r.calorias > 0 &&
               `${t('cocina.rec.kcalPorPorcion', '{n} kcal/porción', { n: String(r.calorias) })} · `}
-            {r.minutos > 0 && `${r.minutos} min · `}
+            {r.minutos > 0 && `${textoMin(r.minutos)} · `}
             {t('cocina.rec.porciones', `${r.porciones} porciones`, { n: String(r.porciones) })}
           </p>
         </div>
@@ -427,7 +428,7 @@ export function DetalleReceta({
             <p className="text-xs text-white/40">
               {receta.minutos > 0 && (
                 <>
-                  <Icono nombre="cronometro" /> {receta.minutos} min ·{' '}
+                  <Icono nombre="cronometro" /> {textoMin(receta.minutos)} ·{' '}
                 </>
               )}
               {t('cocina.rec.porciones', `${receta.porciones} porciones`, { n: String(receta.porciones) })}
@@ -439,7 +440,8 @@ export function DetalleReceta({
             <span className="font-semibold text-amber-400">{receta.calorias} kcal</span>
             <span className="text-white/40 text-xs">
               {' '}
-              {t('cocina.rec.porPorcion', 'por porción')} · P {receta.proteinas}g · C {receta.carbohidratos}g · G {receta.grasas}g
+              {t('cocina.rec.porPorcion', 'por porción')} ·{' '}
+              {t('cocina.macros', 'P {p}g · C {c}g · G {g}g', { p: receta.proteinas, c: receta.carbohidratos, g: receta.grasas })}
             </span>
           </p>
         )}
@@ -692,7 +694,7 @@ function FormReceta({
             value={ingredientes}
             onChange={(e) => setIngredientes(e.target.value)}
             rows={5}
-            placeholder={'200 g de arroz\n1 pechuga de pollo\n...'}
+            placeholder={t('cocina.rec.phIngredientes', '200 g de arroz\n1 pechuga de pollo\n...')}
             className="mt-0.5 w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none"
           />
         </label>
@@ -710,9 +712,9 @@ function FormReceta({
         <p className="text-[10px] text-white/45">{t('cocina.rec.macrosPorcion', 'Macros por porción')}</p>
         <div className="grid grid-cols-4 gap-2">
           <CampoNum label="kcal" value={calorias} onChange={setCalorias} />
-          <CampoNum label="P" value={proteinas} onChange={setProteinas} />
-          <CampoNum label="C" value={carbos} onChange={setCarbos} />
-          <CampoNum label="G" value={grasas} onChange={setGrasas} />
+          <CampoNum label={t('cocina.macro.p', 'P')} value={proteinas} onChange={setProteinas} />
+          <CampoNum label={t('cocina.macro.c', 'C')} value={carbos} onChange={setCarbos} />
+          <CampoNum label={t('cocina.macro.g', 'G')} value={grasas} onChange={setGrasas} />
         </div>
         <button
           type="submit"

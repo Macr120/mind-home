@@ -182,5 +182,141 @@
   {
     "ruta": "programa.items.0.detalle",
     "texto": "Ich hab zuerst die Fortsetzung gesehen und nie das Original – der kommt jetzt ganz nach oben auf die Liste."
+  },
+  {
+    "ruta": "fichas.0.genero",
+    "texto": "Science-Fiction"
+  },
+  {
+    "ruta": "fichas.1.genero",
+    "texto": "Drama"
+  },
+  {
+    "ruta": "fichas.2.genero",
+    "texto": "Science-Fiction"
+  },
+  {
+    "ruta": "fichas.3.genero",
+    "texto": "Science-Fiction"
+  },
+  {
+    "ruta": "fichas.4.genero",
+    "texto": "Sachbuch"
+  },
+  {
+    "ruta": "fichas.5.genero",
+    "texto": "Science-Fiction"
+  },
+  {
+    "ruta": "fichas.6.genero",
+    "texto": "Sci-Fi-Klassiker"
+  },
+  {
+    "ruta": "fichas.7.genero",
+    "texto": "Anime"
+  },
+  {
+    "ruta": "fichas.8.genero",
+    "texto": "Sci-Fi-Klassiker"
+  },
+  {
+    "ruta": "fichas.9.genero",
+    "texto": "Science-Fiction"
+  },
+  {
+    "ruta": "fichas.10.genero",
+    "texto": "Anime"
+  },
+  {
+    "ruta": "fichas.11.genero",
+    "texto": "Science-Fiction"
+  },
+  {
+    "ruta": "fichas.12.genero",
+    "texto": "Science-Fiction"
+  },
+  {
+    "ruta": "fichas.13.genero",
+    "texto": "Science-Fiction"
+  },
+  {
+    "ruta": "fichas.14.genero",
+    "texto": "Horror"
+  },
+  {
+    "ruta": "fichas.15.genero",
+    "texto": "Science-Fiction"
+  },
+  {
+    "ruta": "fichas.16.genero",
+    "texto": "Science-Fiction"
+  },
+  {
+    "ruta": "fichas.17.genero",
+    "texto": "Sci-Fi-Klassiker"
+  },
+  {
+    "ruta": "fichas.18.genero",
+    "texto": "Science-Fiction"
+  },
+  {
+    "ruta": "fichas.19.genero",
+    "texto": "Anime"
+  },
+  {
+    "ruta": "fichas.20.genero",
+    "texto": "Sci-Fi-Klassiker"
+  },
+  {
+    "ruta": "fichas.21.genero",
+    "texto": "Anime"
+  },
+  {
+    "ruta": "fichas.22.genero",
+    "texto": "Drama"
+  },
+  {
+    "ruta": "fichas.23.genero",
+    "texto": "Science-Fiction"
+  },
+  {
+    "ruta": "fichas.24.genero",
+    "texto": "Science-Fiction"
+  },
+  {
+    "ruta": "fichas.25.genero",
+    "texto": "Sachbuch"
+  },
+  {
+    "ruta": "fichas.26.genero",
+    "texto": "Science-Fiction"
+  },
+  {
+    "ruta": "fichas.27.genero",
+    "texto": "Science-Fiction"
+  },
+  {
+    "ruta": "fichas.28.genero",
+    "texto": "Science-Fiction"
+  },
+  {
+    "ruta": "fichas.29.genero",
+    "texto": "Science-Fiction"
+  },
+  {
+    "ruta": "fichas.30.genero",
+    "texto": "Science-Fiction"
+  },
+  {
+    "ruta": "fichas.31.genero",
+    "texto": "Sci-Fi-Klassiker"
+  },
+  {
+    "ruta": "fichas.32.genero",
+    "texto": "Science-Fiction"
+  },
+  {
+    "ruta": "fichas.33.genero",
+    "texto": "Anime"
   }
 ]

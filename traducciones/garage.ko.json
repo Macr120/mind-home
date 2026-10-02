@@ -29,7 +29,7 @@
   },
   {
     "ruta": "servicios.2.nota",
-    "texto": "카페 가는 길에 Doctor Vértiz에서 펑크가 났어요. 인도에서 튜브 가는 법을 배웠어요. 늦었지만 그래도 배웠네요."
+    "texto": "카페 가는 길에 독토르 베르티스 거리에서 펑크가 났어요. 인도에서 튜브 가는 법을 배웠어요. 늦었지만 그래도 배웠네요."
   },
   {
     "ruta": "servicios.3.titulo",
@@ -69,11 +69,11 @@
   },
   {
     "ruta": "servicios.7.nota",
-    "texto": "Eje 8에서 유리 조각을 밟아서, 자전거를 끌고 실험실에 20분 늦게 도착했어요."
+    "texto": "에헤 8번 도로에서 유리 조각을 밟아서, 자전거를 끌고 실험실에 20분 늦게 도착했어요."
   },
   {
     "ruta": "servicios.8.titulo",
-    "texto": "Calzada de Tlalpan에서 멈춰버린 차"
+    "texto": "틀랄판 대로에서 멈춰버린 차"
   },
   {
     "ruta": "servicios.8.nota",
@@ -137,43 +137,43 @@
   },
   {
     "ruta": "talleres.0.nombre",
-    "texto": "Taller Mecánico Rivas"
+    "texto": "리바스 자동차 정비소"
   },
   {
     "ruta": "talleres.0.direccion",
-    "texto": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez"
+    "texto": "베니토 후아레스구 나르바르테 지구 쿠아우테모크 대로 812"
   },
   {
     "ruta": "talleres.0.notas",
-    "texto": "Rivas 씨는 뭐가 정말 급하고 뭐가 미뤄도 되는지 항상 설명해 주시고, 청구서를 부풀린 적도 한 번도 없어요. 이 차에 관해서는 이분만 믿어요."
+    "texto": "리바스 씨는 뭐가 정말 급하고 뭐가 미뤄도 되는지 항상 설명해 주시고, 청구서를 부풀린 적도 한 번도 없어요. 이 차에 관해서는 이분만 믿어요."
   },
   {
     "ruta": "talleres.1.nombre",
-    "texto": "Seguros Meridiano - agente Nadia Ortega"
+    "texto": "메리디아노 보험 - 담당 설계사 나디아 오르테가"
   },
   {
     "ruta": "talleres.1.direccion",
-    "texto": "Av. Insurgentes Sur 1234, piso 3, Col. Del Valle"
+    "texto": "델 바예 지구 인수르헨테스 수르 대로 1234, 3층"
   },
   {
     "ruta": "talleres.1.notas",
-    "texto": "Nadia는 일요일에도 WhatsApp에 답장해 주고, 종합보험으로 올렸을 때 월 납부로 정리해 줬어요."
+    "texto": "나디아는 일요일에도 WhatsApp에 답장해 주고, 종합보험으로 올렸을 때 월 납부로 정리해 줬어요."
   },
   {
     "ruta": "talleres.2.nombre",
-    "texto": "Verificentro 09-118 Iztaccíhuatl"
+    "texto": "이스탁시우아틀 배출가스 검사소 09-118"
   },
   {
     "ruta": "talleres.2.direccion",
-    "texto": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez"
+    "texto": "베니토 후아레스구 이스탁시우아틀 지구 이스탁시우아틀 대로 240"
   },
   {
     "ruta": "talleres.2.notas",
-    "texto": "아침 7시에 예약하면 40분이면 끝나요. Coyoacán 쪽 검사소는 줄 서느라 오전 반나절을 날렸어요."
+    "texto": "아침 7시에 예약하면 40분이면 끝나요. 코요아칸 쪽 검사소는 줄 서느라 오전 반나절을 날렸어요."
   },
   {
     "ruta": "talleres.3.direccion",
-    "texto": "Zacatecas 145, Col. Roma Sur, Cuauhtémoc"
+    "texto": "쿠아우테모크구 로마 수르 지구 사카테카스 거리 145"
   },
   {
     "ruta": "talleres.3.notas",
@@ -181,11 +181,11 @@
   },
   {
     "ruta": "talleres.4.nombre",
-    "texto": "Grúas Tepeyac 24 horas"
+    "texto": "테페야크 24시 견인"
   },
   {
     "ruta": "talleres.4.direccion",
-    "texto": "Base en Eje Central Lázaro Cárdenas 1105, Col. Álamos"
+    "texto": "차고지: 알라모스 지구 에헤 센트랄 라사로 카르데나스 1105"
   },
   {
     "ruta": "talleres.4.notas",
@@ -205,7 +205,7 @@
   },
   {
     "ruta": "tramites.1.nota",
-    "texto": "차가 고장 나서 놀란 뒤로, 올해는 Nadia한테 종합보험으로 올렸어요. 월 납부로 하고, 매달 예산에 꼭 넣어둬요."
+    "texto": "차가 고장 나서 놀란 뒤로, 올해는 나디아한테 종합보험으로 올렸어요. 월 납부로 하고, 매달 예산에 꼭 넣어둬요."
   },
   {
     "ruta": "tramites.2.titulo",
@@ -229,6 +229,18 @@
   },
   {
     "ruta": "tramites.4.nota",
-    "texto": "반년마다 Ciclos Malinche에서 바퀴 휨 잡고 케이블이랑 브레이크 손봐요. 휜 바퀴 고치는 것보다 훨씬 싸게 먹혀요."
+    "texto": "반년마다 말린체 사이클에서 바퀴 휨 잡고 케이블이랑 브레이크 손봐요. 휜 바퀴 고치는 것보다 훨씬 싸게 먹혀요."
+  },
+  {
+    "ruta": "vehiculos.biciNombre",
+    "texto": "두루미"
+  },
+  {
+    "ruta": "vehiculos.autoNombre",
+    "texto": "매머드"
+  },
+  {
+    "ruta": "talleres.3.nombre",
+    "texto": "말린체 사이클"
   }
 ]

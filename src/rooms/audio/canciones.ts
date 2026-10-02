@@ -97,7 +97,7 @@ export const SEMILLAS_CANCIONES: SemillaCancion[] = [
     // En 3/4 sobre la rejilla de semicorcheas (las barras del 4/4 no aplican).
     id: 'sem-cumpleanos',
     tituloEs: 'Cumpleaños feliz',
-    compositor: 'M. y P. Hill',
+    compositor: 'M. & P. Hill',
     nivel: 1,
     bpm: 90,
     compases: 7,

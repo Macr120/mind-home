@@ -48,6 +48,7 @@ import { fmtPeso, fmtVolumen, numPeso, pesoAKg, unidadPeso } from './unidades'
 import { Archivador } from '../_shared/Archivador'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { textoMin } from '../../core/i18n/duracion'
 
 interface FilaEjercicio {
   ejercicio: string
@@ -316,7 +317,7 @@ export function FuerzaTab({
                   <Icono nombre="calendario" /> {t('ejercicio.plan.dia', 'Plan del día')}
                   {p.hora ? ` · ${p.hora}` : ''}:
                 </span>{' '}
-                {nombreRutina(t, p.rutinaNombre)} · {p.duracionMin} min
+                {nombreRutina(t, p.rutinaNombre)} · {textoMin(p.duracionMin)}
               </p>
               <button
                 type="button"
@@ -649,13 +650,13 @@ function SesionForm({
                   <input
                     value={f.series}
                     onChange={(e) => actualizarFila(i, { series: e.target.value })}
-                    placeholder="S"
+                    placeholder={t('ejercicio.fuerza.ph.series', 'S')}
                     className="col-span-2 rounded-lg bg-black/30 px-1 py-1.5 border border-white/10 text-center"
                   />
                   <input
                     value={f.repeticiones}
                     onChange={(e) => actualizarFila(i, { repeticiones: e.target.value })}
-                    placeholder="R"
+                    placeholder={t('ejercicio.fuerza.ph.reps', 'R')}
                     className="col-span-2 rounded-lg bg-black/30 px-1 py-1.5 border border-white/10 text-center"
                   />
                   <input
@@ -755,7 +756,7 @@ function ListaSesiones({
         fecha={(s) => s.fecha}
         clave={(s) => s.id ?? s.fecha}
         vacio={t('ejercicio.sinEntrenos', 'Aún no hay entrenos registrados.')}
-        resumen={(ses) => `${ses.reduce((acc, s) => acc + s.duracionMin, 0)} min`}
+        resumen={(ses) => `${textoMin(ses.reduce((acc, s) => acc + s.duracionMin, 0))}`}
       >
         {(s) => {
           const series = todasSeries
@@ -773,7 +774,7 @@ function ListaSesiones({
               <div className="flex items-center gap-2">
                 <span className="line-clamp-2 min-w-0 flex-1 break-words font-medium">{s.titulo}</span>
                 <span className="shrink-0 text-xs text-white/40">{s.fecha.slice(5)}</span>
-                <span className="shrink-0 text-white/40">{s.duracionMin} min</span>
+                <span className="shrink-0 text-white/40">{textoMin(s.duracionMin)}</span>
                 <button
                   type="button"
                   onClick={() => onEditar(s)}

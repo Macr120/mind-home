@@ -1,7 +1,12 @@
 import { getCuarto, useCuartos } from '../../state/cuartosStore'
+import { tGlobal } from '../../i18n/useT'
 import { useLayout } from '../../state/layoutStore'
 import { useDiseño } from '../../state/disenoStore'
 import { useAsignar } from '../../state/asignarStore'
+import { usePlanos } from '../../state/planosStore'
+import { useHud } from '../../state/hudStore'
+import { useEditorUi } from '../../state/editorUiStore'
+import { useHerramienta } from '../../state/herramientaStore'
 import { hayTutorialActivo } from '../../data/intencion'
 import type { ZonaPlano } from '../../data/db'
 import {
@@ -56,11 +61,43 @@ const _creadosSinApp: string[] = []
  * el diálogo por su cuenta, así que ahí no se interfiere.
  */
 export function ofrecerAsignarCuartoNuevo(): void {
+  _crearUnoYAsignar = false
   const creados = _creadosSinApp.splice(0).reverse()
   if (hayTutorialActivo()) return
   const objetos = useDiseño.getState().objetos
   const id = creados.find((rid) => getCuarto(rid) && !objetos.some((o) => o.roomId === rid && o.plantillaId))
   if (id) useAsignar.getState().abrir(id)
+}
+
+// «Crear cuarto» (menú lateral y panel de cuartos): se coloca UN cuarto y se pasa
+// directo a «Asignar app», sin quedarse en el editor ni en el constructor.
+let _crearUnoYAsignar = false
+
+/**
+ * Abre el pincel de cuartos (cuadrado, celda entera). En teléfono vertical es el
+ * modo constructor sobre el mapa (el atajo de la rueda); en el resto, el editor de mapa.
+ */
+export function iniciarCrearCuarto(): void {
+  const planos = usePlanos.getState()
+  planos.setModo('cuartos')
+  planos.setDetalleRejilla('celda')
+  planos.setPincelForma('cuadrado')
+  _crearUnoYAsignar = true
+  if (useHud.getState().movilVertical) {
+    if (!useHerramienta.getState().equipadas.includes('construir')) useHerramienta.getState().equipar('construir')
+    useHud.getState().setPlegado('infDer', false)
+  } else {
+    useEditorUi.getState().setTab('mapa')
+    useLayout.getState().setEditMode(true)
+  }
+}
+
+/** Tras colocar el cuarto de «Crear cuarto» se sale del editor; al salir se abre su «Asignar app». */
+function salirSiCreaUno(): void {
+  if (!_crearUnoYAsignar) return
+  if (useLayout.getState().editMode) useLayout.getState().setEditMode(false)
+  // `equipar` alterna: con el constructor puesto, lo quita.
+  if (useHerramienta.getState().equipadas.includes('construir')) useHerramienta.getState().equipar('construir')
 }
 
 interface ContextoColocar {
@@ -100,8 +137,8 @@ async function crearCuartoEnCeldaLibre(celdaClic: Cell, ctx: ContextoColocar): P
       !footprintConSoporteDirecto(celda, FOOTPRINT_DEFAULT, nivel, placed, cells, footprints, niveles)
     setAviso(
       sinSoporte
-        ? 'En pisos altos solo puedes construir sobre un cuarto del nivel de abajo.'
-        : 'Esa celda ya está ocupada. Elige un espacio libre.',
+        ? tGlobal('planos.aviso.sinSoporte', 'En pisos altos solo puedes construir sobre un cuarto del nivel de abajo.')
+        : tGlobal('planos.aviso.ocupada', 'Esa celda ya está ocupada. Elige un espacio libre.'),
     )
     return null
   }
@@ -223,6 +260,7 @@ export async function aplicarPincelCuarto(opts: {
   setSeleccion({ tipo: 'cuarto', roomId: id })
   if (forma === 'cuadrado') onCuartoCreado?.()
   setAviso(null)
+  salirSiCreaUno()
 }
 
 /**

@@ -16,14 +16,14 @@ export default {
     },
     {
       "dia": -361,
-      "titulo": "Doppelschicht und acht Euro Trinkgeld",
-      "texto": "Ich habe Nadias Schicht übernommen und bin um neun mit kaputtem Rücken rausgegangen. Acht Euro Trinkgeld und eine Kundin, die mit mir geredet hat, als wäre ich eine Kaffeemaschine mit Beinen. Ich habe im Stehen Cornflakes gegessen und bis eins aufs Handy gestarrt. Morgen habe ich um acht Uhr Laborpraktikum, und ich weiß schon, wie das laufen wird.",
+      "titulo": "Doppelschicht und {monto:140} Trinkgeld",
+      "texto": "Ich habe Nadias Schicht übernommen und bin um neun mit kaputtem Rücken rausgegangen. {monto:140} Trinkgeld und eine Kundin, die mit mir geredet hat, als wäre ich eine Kaffeemaschine mit Beinen. Ich habe im Stehen Cornflakes gegessen und bis eins aufs Handy gestarrt. Morgen habe ich um acht Uhr Laborpraktikum, und ich weiß schon, wie das laufen wird.",
       "animo": "😣"
     },
     {
       "dia": -358,
       "titulo": "Wo ist bloß der Lohn geblieben",
-      "texto": "Ich wurde am Freitag bezahlt, und heute, Mittwoch, sind noch 41 Euro auf dem Konto. Ich habe versucht, die Ausgaben aus dem Gedächtnis zu rekonstruieren, und mir fehlen fast siebzig Euro, die ich nirgends unterbringen kann. Abos, die ich nicht nutze, Bier, Lieferessen an den Tagen, an denen ich nicht gekocht habe. Am meisten stört mich nicht das Geld, sondern dass ich nicht mal das über mein eigenes Leben weiß.",
+      "texto": "Ich wurde am Freitag bezahlt, und heute, Mittwoch, sind noch {monto:710} auf dem Konto. Ich habe versucht, die Ausgaben aus dem Gedächtnis zu rekonstruieren, und mir fehlen fast {monto:1210}, die ich nirgends unterbringen kann. Abos, die ich nicht nutze, Bier, Lieferessen an den Tagen, an denen ich nicht gekocht habe. Am meisten stört mich nicht das Geld, sondern dass ich nicht mal das über mein eigenes Leben weiß.",
       "animo": "😔"
     },
     {
@@ -71,7 +71,7 @@ export default {
     {
       "dia": -334,
       "titulo": "Tabellenkalkulation, erster Versuch",
-      "texto": "Zwei Stunden habe ich an einem Budget mit den echten Kategorien meines Lebens gebastelt: Miete, Essen, Verkehr, Uni, Kleinkram. Es kommen 1.180 Euro Ausgaben heraus gegenüber 1.240 Euro aus Lohn und Trinkgeld zusammen. Der Spielraum ist lächerlich, aber er existiert, und ihn schwarz auf weiß zu sehen, beruhigt mich mehr, als ich erwartet hätte. Neue Regel: Trinkgeld wird nicht am selben Tag ausgegeben.",
+      "texto": "Zwei Stunden habe ich an einem Budget mit den echten Kategorien meines Lebens gebastelt: Miete, Essen, Verkehr, Uni, Kleinkram. Es kommen {monto:20400} Ausgaben heraus gegenüber {monto:21500} aus Lohn und Trinkgeld zusammen. Der Spielraum ist lächerlich, aber er existiert, und ihn schwarz auf weiß zu sehen, beruhigt mich mehr, als ich erwartet hätte. Neue Regel: Trinkgeld wird nicht am selben Tag ausgegeben.",
       "animo": "😐"
     },
     {
@@ -89,7 +89,7 @@ export default {
     {
       "dia": -325,
       "titulo": "Ein Marmeladenglas für Trinkgeld",
-      "texto": "Ich habe ein Marmeladenglas leergemacht, und da hinein kommt jetzt nach jeder Schicht das Trinkgeld. Diese Woche: 23 Euro, die früher in Abendessen außer Haus geflossen wären. Ich weiß noch nicht, wofür das Glas ist, und ich glaube, gerade das hilft: Es ist Geld ohne Eile. Es sonntags zu zählen, ist zu einem kleinen Ritual geworden.",
+      "texto": "Ich habe ein Marmeladenglas leergemacht, und da hinein kommt jetzt nach jeder Schicht das Trinkgeld. Diese Woche: {monto:400}, die früher in Abendessen außer Haus geflossen wären. Ich weiß noch nicht, wofür das Glas ist, und ich glaube, gerade das hilft: Es ist Geld ohne Eile. Es sonntags zu zählen, ist zu einem kleinen Ritual geworden.",
       "animo": "🙂"
     },
     {
@@ -101,7 +101,7 @@ export default {
     {
       "dia": -319,
       "titulo": "Das Klavier ist angekommen",
-      "texto": "88 Tasten, gebraucht, 90 Euro, gekauft von einem Mann, der aufgehört hat zu spielen, als seine Tochter geboren wurde. Ich habe es im Kofferraum, eingewickelt in zwei Decken, nach Hause gebracht und in die Ecke des Wohnzimmers gestellt. Beim Einschalten summt es leise, und das Pedal fehlt, aber es klingt. Ich habe zwanzig Minuten lang wahllos Töne gespielt und dabei wie ein Idiot gegrinst. Erklärtes Jahresziel: den ganzen 'Clair de Lune' lernen.",
+      "texto": "88 Tasten, gebraucht, {monto:1560}, gekauft von einem Mann, der aufgehört hat zu spielen, als seine Tochter geboren wurde. Ich habe es im Kofferraum, eingewickelt in zwei Decken, nach Hause gebracht und in die Ecke des Wohnzimmers gestellt. Beim Einschalten summt es leise, und das Pedal fehlt, aber es klingt. Ich habe zwanzig Minuten lang wahllos Töne gespielt und dabei wie ein Idiot gegrinst. Erklärtes Jahresziel: den ganzen 'Clair de Lune' lernen.",
       "animo": "🤩",
       "foto": "teclado"
     },
@@ -120,7 +120,7 @@ export default {
     {
       "dia": -310,
       "titulo": "Die Rechnung ist aufgegangen",
-      "texto": "Zum ersten Mal seit Jahren komme ich ans Monatsende und weiß, wo jeder Euro geblieben ist. Es bleiben 62 Euro übrig, eine lächerliche Zahl und gleichzeitig riesig im Vergleich zum Dispo des letzten Monats. Ich habe zwei Abos gekündigt, und die Ausgaben für Lieferessen haben sich halbiert. Das ist keine Tugend: Ich sehe es jetzt einfach.",
+      "texto": "Zum ersten Mal seit Jahren komme ich ans Monatsende und weiß, wo jede Ausgabe geblieben ist. Es bleiben {monto:1070} übrig, eine lächerliche Zahl und gleichzeitig riesig im Vergleich zum Dispo des letzten Monats. Ich habe zwei Abos gekündigt, und die Ausgaben für Lieferessen haben sich halbiert. Das ist keine Tugend: Ich sehe es jetzt einfach.",
       "animo": "🙂"
     },
     {
@@ -163,7 +163,7 @@ export default {
     {
       "dia": -289,
       "titulo": "Sonntag der Tupperdosen",
-      "texto": "Zwei Stunden Kochen am Sonntag: Linsen, Reis, Ofenhähnchen und Gemüse für fünf Tage. Es hat 18 Euro gekostet und erspart mir den Döner nach der Nachtschicht. Laika hat sich auf die Arbeitsplatte gesetzt, um alles zu überwachen, und ich habe sie elf Mal runtergehoben. Ein voller Kühlschrank gibt mir eine Ruhe, die ich von etwas so Banalem nicht erwartet hätte.",
+      "texto": "Zwei Stunden Kochen am Sonntag: Linsen, Reis, Ofenhähnchen und Gemüse für fünf Tage. Es hat {monto:310} gekostet und erspart mir den Döner nach der Nachtschicht. Laika hat sich auf die Arbeitsplatte gesetzt, um alles zu überwachen, und ich habe sie elf Mal runtergehoben. Ein voller Kühlschrank gibt mir eine Ruhe, die ich von etwas so Banalem nicht erwartet hätte.",
       "animo": "🙂"
     },
     {
@@ -223,7 +223,7 @@ export default {
     {
       "dia": -259,
       "titulo": "Zahlen für Japan",
-      "texto": "Ich habe mich mit der Haushaltstabelle hingesetzt und der Fantasie Zahlen gegeben: 2.400 insgesamt, etwa 800 für den Flug, der Rest günstige Unterkünfte, Züge und Essen. Ich habe schon 600 aus den Monaten, in denen etwas vom Budget übrig war, also fehlen mir noch etwa 360 im Monat. Es geht auf, wenn ich zwei zusätzliche Schichten im Monat übernehme und das Wochenend-Trinkgeld direkt in den Umschlag wandert. Ich habe eine neue Zeile in der App angelegt und sie einfach Japan genannt.",
+      "texto": "Ich habe mich mit der Haushaltstabelle hingesetzt und der Fantasie Zahlen gegeben: {monto:41500} insgesamt, etwa {monto:13840} für den Flug, der Rest günstige Unterkünfte, Züge und Essen. Ich habe schon {monto:10380} aus den Monaten, in denen etwas vom Budget übrig war, also fehlen mir noch etwa {monto:6230} im Monat. Es geht auf, wenn ich zwei zusätzliche Schichten im Monat übernehme und das Wochenend-Trinkgeld direkt in den Umschlag wandert. Ich habe eine neue Zeile in der App angelegt und sie einfach Japan genannt.",
       "animo": "😀"
     },
     {
@@ -271,7 +271,7 @@ export default {
     {
       "dia": -235,
       "titulo": "Das Trinkgeld wandert in den Umschlag",
-      "texto": "Samstag mit voller Terrasse: 38 Euro Trinkgeld im Glas und ein Kunde, der für einen Cortado fünf Euro dagelassen hat. Früher wäre das unbemerkt in Bier und Essen unter der Woche gegangen. Heute habe ich die Münzen am Küchentisch gezählt und alles in die Japan-Zeile überführt. 1.010 Euro insgesamt. Die Scheine haben jetzt ein Ziel, und das verändert, wie ich arbeite.",
+      "texto": "Samstag mit voller Terrasse: {monto:660} Trinkgeld im Glas und ein Kunde, der für einen Cortado {monto:87} dagelassen hat. Früher wäre das unbemerkt in Bier und Essen unter der Woche gegangen. Heute habe ich die Münzen am Küchentisch gezählt und alles in die Japan-Zeile überführt. {monto:17500} insgesamt. Die Scheine haben jetzt ein Ziel, und das verändert, wie ich arbeite.",
       "animo": "😀"
     },
     {
@@ -325,7 +325,7 @@ export default {
     {
       "dia": -208,
       "titulo": "Gebrauchtes Stativ",
-      "texto": "Ich habe auf dem Flohmarkt für zwölf Euro ein altes Stativ gefunden und das Handy mit einer Plastikklemme daran befestigt. Ich bin um elf aufs Dach gestiegen, und zum ersten Mal kamen die Sterne als Punkte heraus und nicht als Würmer. Man erkennt die Plejaden und einen Teil des Orionsgürtels, unscharf, aber erkennbar. Ich war eine Stunde dort oben mit Decke und Tee; ich weiß nicht, ob das Astrofotografie ist, aber es funktioniert.",
+      "texto": "Ich habe auf dem Flohmarkt für {monto:210} ein altes Stativ gefunden und das Handy mit einer Plastikklemme daran befestigt. Ich bin um elf aufs Dach gestiegen, und zum ersten Mal kamen die Sterne als Punkte heraus und nicht als Würmer. Man erkennt die Plejaden und einen Teil des Orionsgürtels, unscharf, aber erkennbar. Ich war eine Stunde dort oben mit Decke und Tee; ich weiß nicht, ob das Astrofotografie ist, aber es funktioniert.",
       "animo": "🙂"
     },
     {
@@ -343,7 +343,7 @@ export default {
     {
       "dia": -199,
       "titulo": "Die Hälfte des Glases",
-      "texto": "1.210 von 2.400. Genau die Hälfte der Reise ist auf dem Konto, und es bleiben noch drei Monate Trinkgeld und Extraschichten. Ich habe zweimal nachgerechnet, weil ich es nicht glauben konnte, und es dann Laika erzählt, meiner emotionalen Buchhalterin. Am meisten überrascht mich nicht das Geld, sondern dass ich seit fünf Monaten ohne Unterbrechung jede Ausgabe notiere.",
+      "texto": "{monto:20900} von {monto:41500}. Genau die Hälfte der Reise ist auf dem Konto, und es bleiben noch drei Monate Trinkgeld und Extraschichten. Ich habe zweimal nachgerechnet, weil ich es nicht glauben konnte, und es dann Laika erzählt, meiner emotionalen Buchhalterin. Am meisten überrascht mich nicht das Geld, sondern dass ich seit fünf Monaten ohne Unterbrechung jede Ausgabe notiere.",
       "animo": "🤩"
     },
     {
@@ -391,13 +391,13 @@ export default {
     {
       "dia": -176,
       "titulo": "Das Auto natürlich auch",
-      "texto": "Ich wollte losfahren, um ins Labor zu kommen, und der Motor klang wie eine Dose voller loser Schrauben. Ich habe es in die Werkstatt in der Calle Robles gebracht: Wasserpumpe und Keilriemen, 380 Euro und zwei Tage ohne Auto. Ausgerechnet diese Woche, mit lahmgelegtem Knie und Doppelschicht am Freitag. Ich habe allein auf dem Bürgersteig gelacht, weil Weinen auf dem Bürgersteig mir noch peinlicher gewesen wäre.",
+      "texto": "Ich wollte losfahren, um ins Labor zu kommen, und der Motor klang wie eine Dose voller loser Schrauben. Ich habe es in die Werkstatt in der Calle Robles gebracht: Wasserpumpe und Keilriemen, {monto:6570} und zwei Tage ohne Auto. Ausgerechnet diese Woche, mit lahmgelegtem Knie und Doppelschicht am Freitag. Ich habe allein auf dem Bürgersteig gelacht, weil Weinen auf dem Bürgersteig mir noch peinlicher gewesen wäre.",
       "animo": "😣"
     },
     {
       "dia": -173,
       "titulo": "Woher kommt das Geld",
-      "texto": "Ich habe entschieden, dass die 380 Euro aus dem Notgroschen kommen und nicht aus dem Japan-Umschlag, auch wenn der Notgroschen dann bei fast nichts landet. Ich streiche diesen Monat zwei Dinge: keinen Kaffee auswärts und kein Lieferessen. Das Trinkgeld dieser Lohnperiode war mager, 46 Euro, also muss ich wirklich den Gürtel enger schnallen. Immerhin weiß ich jetzt genau, was ich habe, was ich im Oktober nicht mal ansatzweise wusste.",
+      "texto": "Ich habe entschieden, dass die {monto:6570} aus dem Notgroschen kommen und nicht aus dem Japan-Umschlag, auch wenn der Notgroschen dann bei fast nichts landet. Ich streiche diesen Monat zwei Dinge: keinen Kaffee auswärts und kein Lieferessen. Das Trinkgeld dieser Lohnperiode war mager, {monto:800}, also muss ich wirklich den Gürtel enger schnallen. Immerhin weiß ich jetzt genau, was ich habe, was ich im Oktober nicht mal ansatzweise wusste.",
       "animo": "😔"
     },
     {
@@ -409,7 +409,7 @@ export default {
     {
       "dia": -168,
       "titulo": "Hässlicher Eintrag, ohne Filter",
-      "texto": "Ich habe es satt, dass alles gleichzeitig kommt: Donnerstag Zwischenprüfung Elektromagnetismus, Samstag Doppelschicht, das Knie verspannt und 190 Euro auf dem Konto. Ich schreibe das mit Eis auf dem Knie und ernsthafter Lust, das ganze Jahr abzuschreiben. Ich werde nicht so tun, als hätte ich eine hübsche Lehre aus heute zu ziehen. Ich schreibe es nur auf, damit ich mich daran erinnere, dass es auch das gab.",
+      "texto": "Ich habe es satt, dass alles gleichzeitig kommt: Donnerstag Zwischenprüfung Elektromagnetismus, Samstag Doppelschicht, das Knie verspannt und {monto:3290} auf dem Konto. Ich schreibe das mit Eis auf dem Knie und ernsthafter Lust, das ganze Jahr abzuschreiben. Ich werde nicht so tun, als hätte ich eine hübsche Lehre aus heute zu ziehen. Ich schreibe es nur auf, damit ich mich daran erinnere, dass es auch das gab.",
       "animo": "😣"
     },
     {
@@ -433,7 +433,7 @@ export default {
     {
       "dia": -156,
       "titulo": "Termin bei der Physio",
-      "texto": "Donnerstag um elf, erste Sitzung, 35 Euro pro Termin, und ich brauche vier oder fünf. Ich habe es im Budget als Gesundheitsausgabe eingetragen und nicht als Laune, was ich im Januar noch gedacht hätte. Das Knie lässt mich inzwischen fast normal Treppen runtergehen. Ich fange an zu glauben, dass sich das regelt und ich im September problemlos durch Japan laufen kann.",
+      "texto": "Donnerstag um elf, erste Sitzung, {monto:600} pro Termin, und ich brauche vier oder fünf. Ich habe es im Budget als Gesundheitsausgabe eingetragen und nicht als Laune, was ich im Januar noch gedacht hätte. Das Knie lässt mich inzwischen fast normal Treppen runtergehen. Ich fange an zu glauben, dass sich das regelt und ich im September problemlos durch Japan laufen kann.",
       "animo": "🙂"
     },
     {
@@ -457,13 +457,13 @@ export default {
     {
       "dia": -140,
       "titulo": "Zwanzig Minuten am Stück",
-      "texto": "Zwanzig Minuten ohne Pause, sehr langsam, und das Knie hat nicht mit der Wimper gezuckt. Ich zwinge mich, nicht mehr als zehn Prozent pro Woche zu steigern, auch wenn ich morgen am liebsten eine ganze Stunde laufen würde. Die Lektion war teuer: 380 Euro und drei Wochen. Der Plan bis Japan ist einfach: vierzig bequeme Minuten und keine langen Läufe.",
+      "texto": "Zwanzig Minuten ohne Pause, sehr langsam, und das Knie hat nicht mit der Wimper gezuckt. Ich zwinge mich, nicht mehr als zehn Prozent pro Woche zu steigern, auch wenn ich morgen am liebsten eine ganze Stunde laufen würde. Die Lektion war teuer: {monto:6570} und drei Wochen. Der Plan bis Japan ist einfach: vierzig bequeme Minuten und keine langen Läufe.",
       "animo": "😀"
     },
     {
       "dia": -137,
       "titulo": "Die Kasse atmet wieder",
-      "texto": "Japan-Umschlag bei 85 Prozent des Ziels: 2.210 von 2.600 Euro. Der Notgroschen liegt nach dem Werkstatt-Schlag wieder bei 200. Noch zwei Lohnperioden, und ich schaffe es knapp, das August-Trinkgeld eingerechnet, das meistens gut ausfällt. Ich schreibe es hier auf, weil ich im Oktober nicht mal wusste, wie viel ich für Kaffee ausgab.",
+      "texto": "Japan-Umschlag bei 85 Prozent des Ziels: {monto:38200} von {monto:45000}. Der Notgroschen liegt nach dem Werkstatt-Schlag wieder bei {monto:3460}. Noch zwei Lohnperioden, und ich schaffe es knapp, das August-Trinkgeld eingerechnet, das meistens gut ausfällt. Ich schreibe es hier auf, weil ich im Oktober nicht mal wusste, wie viel ich für Kaffee ausgab.",
       "animo": "🙂"
     },
     {
@@ -506,7 +506,7 @@ export default {
     {
       "dia": -121,
       "titulo": "Tokio zu Fuß, 21 km",
-      "texto": "Einundzwanzig Kilometer zwischen Shinjuku, Yanaka und einer Buchhandlung, in der ich eine Stunde verbracht habe, ohne fast irgendetwas zu verstehen. Die Züge kommen auf die Sekunde genau, und ich, der zu Hause regelmäßig zu spät zur eigenen Schicht kommt, fühle mich vom System persönlich beobachtet. Zum Abendessen aus dem Konbini: Onigiri, gekochtes Ei und eine Suppe, fünf Euro und besser als viele teure Sachen. Das Knie: still.",
+      "texto": "Einundzwanzig Kilometer zwischen Shinjuku, Yanaka und einer Buchhandlung, in der ich eine Stunde verbracht habe, ohne fast irgendetwas zu verstehen. Die Züge kommen auf die Sekunde genau, und ich, der zu Hause regelmäßig zu spät zur eigenen Schicht kommt, fühle mich vom System persönlich beobachtet. Zum Abendessen aus dem Konbini: Onigiri, gekochtes Ei und eine Suppe, {monto:87} und besser als viele teure Sachen. Das Knie: still.",
       "animo": "🤩"
     },
     {
@@ -567,7 +567,7 @@ export default {
     {
       "dia": -101,
       "titulo": "Die Reisekasse",
-      "texto": "Letzte Nacht in Osaka, und ich habe die Summe gemacht: 2.480 von den 2.600 gesparten Euro, Flug, Zug, Betten und Essen eingerechnet. Es ging fast auf den Euro genau auf, was mir einen komischen, sehr buchhalterischen Stolz gibt. Ich bringe Tee von drei Orten mit, ein Heft, ein kleines Souvenir für die Klavierecke und einundsechzig geschriebene Seiten. Morgen der lange Flug, und Donnerstag die Sieben-Uhr-Schicht im Café.",
+      "texto": "Letzte Nacht in Osaka, und ich habe die Summe gemacht: {monto:42900} von den gesparten {monto:45000}, Flug, Zug, Betten und Essen eingerechnet. Es ging fast exakt auf, was mir einen komischen, sehr buchhalterischen Stolz gibt. Ich bringe Tee von drei Orten mit, ein Heft, ein kleines Souvenir für die Klavierecke und einundsechzig geschriebene Seiten. Morgen der lange Flug, und Donnerstag die Sieben-Uhr-Schicht im Café.",
       "animo": "🙂"
     },
     {
@@ -603,7 +603,7 @@ export default {
     {
       "dia": -81,
       "titulo": "Budget nach der Reise",
-      "texto": "Ich habe das Umschlag-Budget nach drei Wochen ohne einen Blick darauf wieder aufgesetzt. Die Reisekasse endete bei 118 Euro, und das ist kein Scheitern: Es war genau der Plan. Neue Zeile ab dieser Lohnperiode: Notgroschen, 40 Euro pro Zahltag. Das Trinkgeld dieser Woche waren 27 Euro, komplett dorthin.",
+      "texto": "Ich habe das Umschlag-Budget nach drei Wochen ohne einen Blick darauf wieder aufgesetzt. Die Reisekasse endete bei {monto:2040}, und das ist kein Scheitern: Es war genau der Plan. Neue Zeile ab dieser Lohnperiode: Notgroschen, {monto:690} pro Zahltag. Das Trinkgeld dieser Woche waren {monto:470}, komplett dorthin.",
       "animo": "🙂"
     },
     {
@@ -627,7 +627,7 @@ export default {
     {
       "dia": -68,
       "titulo": "Die Autobatterie, schon wieder",
-      "texto": "Das Auto sprang um halb sieben nicht an, und ich bin in aller Eile mit dem Fahrrad ins Café. Neue Batterie: 72 Euro aus dem gerade erst neu eingerichteten Notgroschen, der jetzt bei 8 steht. Das Auto ist neunzehn Jahre alt und erinnert mich jedes Quartal daran, dass es existiert. Wenigstens hat es diesmal nicht den ganzen Monat versenkt, nur genervt.",
+      "texto": "Das Auto sprang um halb sieben nicht an, und ich bin in aller Eile mit dem Fahrrad ins Café. Neue Batterie: {monto:1250} aus dem gerade erst neu eingerichteten Notgroschen, der jetzt bei {monto:140} steht. Das Auto ist neunzehn Jahre alt und erinnert mich jedes Quartal daran, dass es existiert. Wenigstens hat es diesmal nicht den ganzen Monat versenkt, nur genervt.",
       "animo": "😔"
     },
     {
@@ -675,7 +675,7 @@ export default {
     {
       "dia": -43,
       "titulo": "Anmeldung erledigt: Marathon",
-      "texto": "Anmeldung erledigt: Marathon, 38 Euro, fünf Wochen Plan. Nadia hat mit zwei Bedingungen zugestimmt: alle zwei Wochen Physio, und beim ersten Warnsignal vom Knie sofort abbrechen. Es ist ehrgeizig, das weiß ich; ich weiß aber auch, dass ich seit sechs Monaten fast lückenlos Kilometer sammle. Ich habe 42,195 auf die Küchentafel geschrieben und eine Weile draufgestarrt.",
+      "texto": "Anmeldung erledigt: Marathon, {monto:660}, fünf Wochen Plan. Nadia hat mit zwei Bedingungen zugestimmt: alle zwei Wochen Physio, und beim ersten Warnsignal vom Knie sofort abbrechen. Es ist ehrgeizig, das weiß ich; ich weiß aber auch, dass ich seit sechs Monaten fast lückenlos Kilometer sammle. Ich habe 42,195 auf die Küchentafel geschrieben und eine Weile draufgestarrt.",
       "animo": "😀"
     },
     {
@@ -742,7 +742,7 @@ export default {
     {
       "dia": -5,
       "titulo": "Gehen, Tee und Laika",
-      "texto": "Statt zu laufen jetzt einstündige Spaziergänge, nachmittags Tee statt Kaffee, und Laika unerträglich anhänglich. Ich habe Flüge nach Seoul in einem Jahr angeschaut, nichts gekauft, nur um auszurechnen, wie viel ich pro Lohnperiode zurücklegen müsste: etwa 55 Euro. Außerdem habe ich die Noten der Arabeske Nr. 1 rausgeholt und über mein eigenes Gesicht gelacht. Morgen spiele ich Clair de Lune dreimal durch, denn am Sonntag spiele ich es für meine Familie.",
+      "texto": "Statt zu laufen jetzt einstündige Spaziergänge, nachmittags Tee statt Kaffee, und Laika unerträglich anhänglich. Ich habe Flüge nach Seoul in einem Jahr angeschaut, nichts gekauft, nur um auszurechnen, wie viel ich pro Lohnperiode zurücklegen müsste: etwa {monto:950}. Außerdem habe ich die Noten der Arabeske Nr. 1 rausgeholt und über mein eigenes Gesicht gelacht. Morgen spiele ich Clair de Lune dreimal durch, denn am Sonntag spiele ich es für meine Familie.",
       "animo": "🙂"
     },
     {
@@ -754,7 +754,7 @@ export default {
     {
       "dia": -1,
       "titulo": "Die Bilanz des Jahres",
-      "texto": "Ich habe eine halbe Stunde damit verbracht, das Jahr in der App durchzugehen. 74 kg damals, 67,0 heute Morgen; 1.214 gelaufene Kilometer; ein 5K, ein 10K, ein Halbmarathon und ein Marathon. 2.600 Euro gespart und in drei Wochen Japan ausgegeben, 61 Seiten Reisetagebuch und 118 Einträge hier. Was in den Zahlen nicht steht: Vor einem Jahr bin ich um zwei mit dem Handy vor dem Gesicht ins Bett gegangen.",
+      "texto": "Ich habe eine halbe Stunde damit verbracht, das Jahr in der App durchzugehen. 74 kg damals, 67,0 heute Morgen; 1.214 gelaufene Kilometer; ein 5K, ein 10K, ein Halbmarathon und ein Marathon. {monto:45000} gespart und in drei Wochen Japan ausgegeben, 61 Seiten Reisetagebuch und 118 Einträge hier. Was in den Zahlen nicht steht: Vor einem Jahr bin ich um zwei mit dem Handy vor dem Gesicht ins Bett gegangen.",
       "animo": "🙂"
     },
     {

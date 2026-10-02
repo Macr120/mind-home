@@ -72,7 +72,7 @@ export default {
       "clave": "bowl-pollo",
       "nombre": "Mangkuk ayam untuk seminggu penuh",
       "emoji": "🍗",
-      "carpeta": "Batch cooking",
+      "carpeta": "Meal prep",
       "porciones": 4,
       "minutos": 45,
       "ingredientes": [
@@ -207,7 +207,7 @@ export default {
       "clave": "crema-lentejas",
       "nombre": "Sup krim lentil merah",
       "emoji": "🍲",
-      "carpeta": "Batch cooking",
+      "carpeta": "Meal prep",
       "porciones": 4,
       "minutos": 35,
       "ingredientes": [
@@ -272,7 +272,7 @@ export default {
       "clave": "tacos-lentejas",
       "nombre": "Taco lentil paprika asap",
       "emoji": "🌮",
-      "carpeta": "Batch cooking",
+      "carpeta": "Meal prep",
       "porciones": 4,
       "minutos": 30,
       "ingredientes": [

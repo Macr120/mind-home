@@ -1,7 +1,7 @@
 import { lazy, memo, Suspense, useEffect, useRef, useState, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react'
 import { VistaBlob } from '../../../rooms/_shared/ImagenIA'
 import { descargarArchivo } from '../../descargarArchivo'
-import { useT } from '../../i18n/useT'
+import { localeActual, useT } from '../../i18n/useT'
 import { useMascota } from '../../state/mascotaStore'
 import { Icono } from '../../ui/iconos/Icono'
 import { bloquear, mensajeErrorBuzon, reportar } from '../api'
@@ -208,7 +208,7 @@ function ChatConversacionPersonaInterno({ hiloId, onCerrar }: { hiloId: string; 
               {dia !== diaPrevio && (
                 <div className="my-2 flex justify-center">
                   <span className="rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] text-white/45">
-                    {new Date(m.creadoEn).toLocaleDateString(undefined, { day: 'numeric', month: 'short' })}
+                    {new Date(m.creadoEn).toLocaleDateString(localeActual(), { day: 'numeric', month: 'short' })}
                   </span>
                 </div>
               )}
@@ -416,7 +416,7 @@ function Burbuja({
     setOcupado(true)
     try {
       const blob = m.blob ?? (await descargarBlobDe(m))
-      if (blob && m.tipo === 'pdf') await descargarArchivo(blob, m.adjunto?.nombre || 'documento.pdf')
+      if (blob && m.tipo === 'pdf') await descargarArchivo(blob, m.adjunto?.nombre || `${t('archivo.nombre.documento', 'documento')}.pdf`)
     } catch (e) {
       fallo(e)
     } finally {
@@ -605,7 +605,7 @@ function Burbuja({
             </span>
           )}
           <p className={`text-[9px] ${m.mio ? 'text-emerald-400/80' : 'text-white/30'}`}>
-            {new Date(m.creadoEn).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })}
+            {new Date(m.creadoEn).toLocaleTimeString(localeActual(), { hour: '2-digit', minute: '2-digit' })}
           </p>
         </div>
       </div>

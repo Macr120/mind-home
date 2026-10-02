@@ -21,6 +21,7 @@ function Joystick({
   onChange: (x: number, y: number) => void
   onEnd: () => void
 }) {
+  const t = useT()
   const baseRef = useRef<HTMLDivElement>(null)
   const [knob, setKnob] = useState({ x: 0, y: 0 })
   const activo = useRef(false)
@@ -70,7 +71,7 @@ function Joystick({
       onPointerCancel={onUp}
       onPointerLeave={onUp}
       className="ui-hud relative flex h-24 w-24 touch-none items-center justify-center rounded-full border border-white/10"
-      title={`Arrastra para ${label}`}
+      title={t('hud.arrastraPara', 'Arrastra para {accion}', { accion: label })}
     >
       <span className="pointer-events-none absolute text-[10px] text-white/25">{label}</span>
       <div

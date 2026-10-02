@@ -5,6 +5,7 @@ import type { DietaGuardada, MomentoComida, Receta } from '../../core/data/db'
 import { dietasGuardadasRepo, recetasRepo } from '../../core/data/repository'
 import { tGlobal } from '../../core/i18n/useT'
 import { miniaturaFoto } from '../_shared/fotos'
+import { textoMin } from '../../core/i18n/duracion'
 
 /**
  * Lo que la cocina manda por el buzón: recetas (con su foto) y dietas (con sus
@@ -60,7 +61,7 @@ function datosDe(r: Receta): RecetaDatos {
 const resumenReceta = (r: RecetaDatos) =>
   [
     tGlobal('cocina.rec.porciones', `${r.porciones} porciones`, { n: String(r.porciones) }),
-    r.minutos > 0 ? `${r.minutos} min` : '',
+    r.minutos > 0 ? `${textoMin(r.minutos)}` : '',
   ]
     .filter(Boolean)
     .join(' · ')

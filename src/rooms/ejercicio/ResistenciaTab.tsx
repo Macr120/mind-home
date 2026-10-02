@@ -45,6 +45,7 @@ import {
 import { Archivador } from '../_shared/Archivador'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { textoMin } from '../../core/i18n/duracion'
 
 const SUBS_R = [
   { id: 'catalogo', icono: 'cuarto-biblioteca', labelEs: 'Catálogo' },
@@ -275,7 +276,7 @@ export function ResistenciaTab({
                   <Icono nombre="calendario" /> {t('ejercicio.plan.dia', 'Plan del día')}
                   {p.hora ? ` · ${p.hora}` : ''}:
                 </span>{' '}
-                {nombreRutina(t, p.rutinaNombre)} · {p.duracionMin} min
+                {nombreRutina(t, p.rutinaNombre)} · {textoMin(p.duracionMin)}
               </p>
               <button
                 type="button"
@@ -364,7 +365,7 @@ export function ResistenciaTab({
             <label className="block text-xs font-semibold text-white/70">
               {t('ejercicio.cardio.titulo', 'Título de la actividad')}
               <input
-                value={titulo}
+                value={nombreEjercicio(t, titulo)}
                 onChange={(e) => setTitulo(e.target.value)}
                 className="mt-0.5 w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none"
                 placeholder={t('ejercicio.cardio.ph.titulo', 'Título de la sesión')}
@@ -376,7 +377,7 @@ export function ResistenciaTab({
                 {t('ejercicio.cardio.suma', 'Suma de los tramos')}
               </span>
               <span className="text-base font-bold text-sky-400">
-                {sumaMin} min
+                {textoMin(sumaMin)}
                 {sumaDist > 0 ? ` · ${sumaDist.toFixed(2)} ${unidadDistancia(unidades)}` : ''}
               </span>
             </div>
@@ -653,7 +654,7 @@ export function HistorialSesiones({
         fecha={(s) => s.fecha}
         clave={(s) => s.id ?? s.fecha}
         vacio={t('ejercicio.sinEntrenos', 'Aún no hay entrenos registrados.')}
-        resumen={(ses) => `${ses.reduce((acc, s) => acc + s.duracionMin, 0)} min`}
+        resumen={(ses) => `${textoMin(ses.reduce((acc, s) => acc + s.duracionMin, 0))}`}
       >
         {(s) => {
           const splits = s.id ? (splitsPorSesion?.get(s.id) ?? []) : []
@@ -665,12 +666,12 @@ export function HistorialSesiones({
             >
               <div className="flex items-center gap-2">
                 <div className="flex-1 min-w-0">
-                  <p className="truncate font-medium">{s.titulo}</p>
+                  <p className="truncate font-medium">{nombreEjercicio(t, s.titulo)}</p>
                   <p className="text-xs text-white/40">
-                    {s.fecha.slice(5)} · {s.duracionMin} min
+                    {s.fecha.slice(5)} · {textoMin(s.duracionMin)}
                     {s.distanciaKm ? ` · ${fmtDistancia(s.distanciaKm, unidades, 2)}` : ''}
                     {s.distanciaKm ? ` · ${fmtRitmo(s.duracionMin, s.distanciaKm, unidades)}` : ''}
-                    {s.ppmProm ? ` · ⌀${s.ppmProm} ppm` : ''}
+                    {s.ppmProm ? ` · ⌀${t('ejercicio.ppmN', '{n} ppm', { n: s.ppmProm })}` : ''}
                     {s.rpe ? ` · RPE ${s.rpe}` : ''}
                   </p>
                 </div>
@@ -708,7 +709,7 @@ export function HistorialSesiones({
                 <ul className="mt-1 text-xs text-white/55">
                   {splits.map((x) => (
                     <li key={x.id}>
-                      {nombreEjercicio(t, x.actividad)}: {x.minutos} min
+                      {nombreEjercicio(t, x.actividad)}: {textoMin(x.minutos)}
                       {x.km ? ` · ${fmtDistancia(x.km, unidades, 2)}` : ''}
                     </li>
                   ))}

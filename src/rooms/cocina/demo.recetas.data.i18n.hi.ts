@@ -72,7 +72,7 @@ export default {
       "clave": "bowl-pollo",
       "nombre": "पूरे हफ़्ते के लिए चिकन बाउल",
       "emoji": "🍗",
-      "carpeta": "Batch cooking",
+      "carpeta": "मील प्रेप",
       "porciones": 4,
       "minutos": 45,
       "ingredientes": [
@@ -207,7 +207,7 @@ export default {
       "clave": "crema-lentejas",
       "nombre": "लाल मसूर का सूप",
       "emoji": "🍲",
-      "carpeta": "Batch cooking",
+      "carpeta": "मील प्रेप",
       "porciones": 4,
       "minutos": 35,
       "ingredientes": [
@@ -272,7 +272,7 @@ export default {
       "clave": "tacos-lentejas",
       "nombre": "स्मोकी दाल टैको",
       "emoji": "🌮",
-      "carpeta": "Batch cooking",
+      "carpeta": "मील प्रेप",
       "porciones": 4,
       "minutos": 30,
       "ingredientes": [

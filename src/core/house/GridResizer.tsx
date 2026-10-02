@@ -1,10 +1,13 @@
 import { Html } from '@react-three/drei'
+import { tGlobal } from '../i18n/useT'
 import { useLayout } from '../state/layoutStore'
 import { SPACING, footprintCells, FOOTPRINT_DEFAULT, MAX_GRID, type Cell, type Footprint } from './walls'
 
 const MIN_GRID = 1
 
 type Dir = 'N' | 'S' | 'E' | 'O'
+
+const NOMBRE_DIR: Record<Dir, string> = { N: 'norte', S: 'sur', E: 'este', O: 'oeste' }
 
 function puedeContraer(
   dir: Dir,
@@ -76,7 +79,7 @@ export function GridResizer() {
                 type="button"
                 onClick={() => expandGrid(dir)}
                 disabled={!puedeExpandir}
-                title={`Expandir hacia ${dir}`}
+                title={tGlobal(`editor.grid.expandir.${dir}`, `Expandir hacia el ${NOMBRE_DIR[dir]}`)}
                 className="ui-panel-glass flex h-7 w-7 items-center justify-center rounded-md border border-white/20 text-base font-bold text-emerald-400 backdrop-blur-sm transition hover:bg-emerald-400/20 disabled:cursor-not-allowed disabled:text-white/20"
               >
                 +
@@ -85,7 +88,7 @@ export function GridResizer() {
                 type="button"
                 onClick={() => contractGrid(dir)}
                 disabled={!puedeContr}
-                title={`Contraer desde ${dir}`}
+                title={tGlobal(`editor.grid.contraer.${dir}`, `Contraer desde el ${NOMBRE_DIR[dir]}`)}
                 className="ui-panel-glass flex h-7 w-7 items-center justify-center rounded-md border border-white/20 text-base font-bold text-red-400 backdrop-blur-sm transition hover:bg-red-400/20 disabled:cursor-not-allowed disabled:text-white/20"
               >
                 −

@@ -137,11 +137,11 @@
   },
   {
     "ruta": "talleres.0.nombre",
-    "texto": "Taller Mecánico Rivas"
+    "texto": "ورشة ريفاس للميكانيكا"
   },
   {
     "ruta": "talleres.0.direccion",
-    "texto": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez"
+    "texto": "جادة كواوتيموك 812، حي نارفارتي، بينيتو خواريز"
   },
   {
     "ruta": "talleres.0.notas",
@@ -149,11 +149,11 @@
   },
   {
     "ruta": "talleres.1.nombre",
-    "texto": "Seguros Meridiano - agente Nadia Ortega"
+    "texto": "ميريديانو للتأمين - الوكيلة ناديا أورتيغا"
   },
   {
     "ruta": "talleres.1.direccion",
-    "texto": "Av. Insurgentes Sur 1234, piso 3, Col. Del Valle"
+    "texto": "جادة إنسورخينتس سور 1234، الطابق 3، حي ديل فالي"
   },
   {
     "ruta": "talleres.1.notas",
@@ -161,11 +161,11 @@
   },
   {
     "ruta": "talleres.2.nombre",
-    "texto": "Verificentro 09-118 Iztaccíhuatl"
+    "texto": "مركز فحص الانبعاثات 09-118 إيستاكسيواتل"
   },
   {
     "ruta": "talleres.2.direccion",
-    "texto": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez"
+    "texto": "طريق إيستاكسيواتل 240، حي إيستاكسيواتل، بينيتو خواريز"
   },
   {
     "ruta": "talleres.2.notas",
@@ -173,7 +173,7 @@
   },
   {
     "ruta": "talleres.3.direccion",
-    "texto": "Zacatecas 145, Col. Roma Sur, Cuauhtémoc"
+    "texto": "شارع زاكاتيكاس 145، حي روما سور، كواوتيموك"
   },
   {
     "ruta": "talleres.3.notas",
@@ -181,11 +181,11 @@
   },
   {
     "ruta": "talleres.4.nombre",
-    "texto": "Grúas Tepeyac 24 horas"
+    "texto": "تيبياك لسحب السيارات على مدار 24 ساعة"
   },
   {
     "ruta": "talleres.4.direccion",
-    "texto": "Base en Eje Central Lázaro Cárdenas 1105, Col. Álamos"
+    "texto": "المقر: طريق إيخي سنترال لازارو كارديناس 1105، حي ألاموس"
   },
   {
     "ruta": "talleres.4.notas",
@@ -230,5 +230,17 @@
   {
     "ruta": "tramites.4.nota",
     "texto": "كل ستة أشهر في سيكلوس مالينتشي: ضبط العجلات والكابلات والفرامل، وهذا أرخص بكثير من إصلاح عجلة معوجة."
+  },
+  {
+    "ruta": "vehiculos.biciNombre",
+    "texto": "الكركي"
+  },
+  {
+    "ruta": "vehiculos.autoNombre",
+    "texto": "الماموث"
+  },
+  {
+    "ruta": "talleres.3.nombre",
+    "texto": "سيكلوس مالينتشي"
   }
 ]

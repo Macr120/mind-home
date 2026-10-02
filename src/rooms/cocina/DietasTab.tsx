@@ -335,9 +335,9 @@ function DetalleDieta({
             <p className="mt-3 text-sm">
               {dieta.calorias != null && <span className="font-semibold text-amber-400">{dieta.calorias} kcal</span>}
               <span className="text-white/40 text-xs">
-                {dieta.proteinas != null ? ` · P ${dieta.proteinas}g` : ''}
-                {dieta.carbohidratos != null ? ` · C ${dieta.carbohidratos}g` : ''}
-                {dieta.grasas != null ? ` · G ${dieta.grasas}g` : ''}
+                {dieta.proteinas != null ? ` · ${t('cocina.macro.p', 'P')} ${dieta.proteinas}g` : ''}
+                {dieta.carbohidratos != null ? ` · ${t('cocina.macro.c', 'C')} ${dieta.carbohidratos}g` : ''}
+                {dieta.grasas != null ? ` · ${t('cocina.macro.g', 'G')} ${dieta.grasas}g` : ''}
               </span>
             </p>
             <BarraReparto dieta={dieta} />
@@ -555,19 +555,19 @@ function FormDieta({
             {t('cocina.dieta.reparto', 'Reparto de macros')}
           </span>
           <CampoNum
-            label="P %"
+            label={`${t('cocina.macro.p', 'P')} %`}
             value={reparto ? String(reparto.proteinas) : ''}
             onChange={ponerPct(setProteinas, 4)}
             disabled={kcal <= 0}
           />
           <CampoNum
-            label="C %"
+            label={`${t('cocina.macro.c', 'C')} %`}
             value={reparto ? String(reparto.carbohidratos) : ''}
             onChange={ponerPct(setCarbos, 4)}
             disabled={kcal <= 0}
           />
           <CampoNum
-            label="G %"
+            label={`${t('cocina.macro.g', 'G')} %`}
             value={reparto ? String(reparto.grasas) : ''}
             onChange={ponerPct(setGrasas, 9)}
             disabled={kcal <= 0}

@@ -1303,7 +1303,7 @@ export const NL_TUT: Dict = {
     'Het formulier gaat stap voor stap: bedrag, variabel of vast, categorie (schrijf je eigen of kies een bekende), hoe vaak het terugkomt en de notitie.',
   'tut.app-despacho--captura.3.titulo': 'Een jaar aan transacties',
   'tut.app-despacho--captura.3.texto':
-    'Honderden uitgaven, opgeborgen in mappen per jaar en maand. Zoek maand 7 op: daar staat de autopech die in één klap bijna tienduizend peso\'s kostte.',
+    'Honderden uitgaven, opgeborgen in mappen per jaar en maand. Zoek maand 7 op: daar staat de autopech die in één klap de rekening leegmaakte.',
   'tut.app-despacho--captura.4.titulo': 'Waar het geld vandaan komt',
   'tut.app-despacho--captura.4.texto':
     'Twee halfmaandelijkse lonen van de koffiebar, de natuurkundelessen die Sam ging geven toen de reis besloten was, en de fooien van elke week, nooit twee keer hetzelfde.',
@@ -1358,7 +1358,7 @@ export const NL_TUT: Dict = {
     'Sams echte vervoer: ketting, binnenbanden, remmen, elk op een eigen regel — hetzelfde archief met mappen per jaar en maand als in de andere apps. Kijk hoe de beurten zich in de laatste maanden opstapelen: dat is de marathontraining die zijn tol eist.',
   'tut.app-garage--vehiculos.4.titulo': 'En de geërfde auto',
   'tut.app-garage--vehiculos.4.texto':
-    'Hier is de pech uit maand 7: stilgevallen langs de weg, een sleepdienst en bijna tienduizend peso\'s die er niet waren. Elke beurt bewaart de kosten, de kilometerstand en in welke werkplaats het gebeurde.',
+    'Hier is de pech uit maand 7: stilgevallen langs de weg, een sleepdienst en een rekening die niet te betalen was. Elke beurt bewaart de kosten, de kilometerstand en in welke werkplaats het gebeurde.',
   'tut.app-garage--vehiculos.5.titulo': 'De kaart',
   'tut.app-garage--vehiculos.5.texto':
     'Merk, model, bouwjaar, kenteken en de tellerstand van vandaag. Met het kenteken erbij zet de garage de administratie aan die alleen voor een auto geldt.',

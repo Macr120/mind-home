@@ -21,12 +21,12 @@ export default {
     {
       "dia": -312,
       "titulo": "الجرد الشهري للبار",
-      "lugar": "Café Mirasol"
+      "lugar": "مقهى ميراسول"
     },
     {
       "dia": -298,
       "titulo": "مناوبة إضافية: تذوق قهوة أحادية المصدر",
-      "lugar": "Café Mirasol"
+      "lugar": "مقهى ميراسول"
     },
     {
       "dia": -270,
@@ -46,7 +46,7 @@ export default {
     {
       "dia": -222,
       "titulo": "مناوبة مزدوجة بسبب مهرجان الحي",
-      "lugar": "Plaza Norte"
+      "lugar": "بلازا نورتي"
     },
     {
       "dia": -200,
@@ -81,12 +81,12 @@ export default {
     {
       "dia": -134,
       "titulo": "طلب إذن السفر من ماريسول",
-      "lugar": "Café Mirasol"
+      "lugar": "مقهى ميراسول"
     },
     {
       "dia": -131,
       "titulo": "تدريب على الماكينة الجديدة",
-      "lugar": "Café Mirasol"
+      "lugar": "مقهى ميراسول"
     },
     {
       "dia": -80,
@@ -111,7 +111,7 @@ export default {
     {
       "dia": -8,
       "titulo": "مناوبة خاصة: تذوق الشاي",
-      "lugar": "Café Mirasol"
+      "lugar": "مقهى ميراسول"
     }
   ],
   "salud": [
@@ -190,72 +190,72 @@ export default {
     {
       "dia": -355,
       "titulo": "قهوة طويلة مليئة بالشكاوى",
-      "con": "Nadia Serrano"
+      "con": "ناديا سيرانو"
     },
     {
       "dia": -326,
       "titulo": "عشاء الأحد في البيت",
-      "con": "Rosa Vidal"
+      "con": "روزا فيدال"
     },
     {
       "dia": -292,
       "titulo": "عيد ميلاد إيكر",
-      "con": "Iker Domínguez"
+      "con": "إيكر دومينغيز"
     },
     {
       "dia": -258,
       "titulo": "الإفطار بعد سباق 5 كم",
-      "con": "Nadia Serrano"
+      "con": "ناديا سيرانو"
     },
     {
       "dia": -230,
       "titulo": "ماراثون أفلام الخيال العلمي",
-      "con": "Tomás Iriarte"
+      "con": "توماس إيرياردي"
     },
     {
       "dia": -190,
       "titulo": "عيد ميلاد أمي",
-      "con": "Rosa Vidal"
+      "con": "روزا فيدال"
     },
     {
       "dia": -160,
       "titulo": "قهوة للتنفيس عن النفس",
-      "con": "Marisol Cáceres"
+      "con": "ماريسول كاسيريس"
     },
     {
       "dia": -134,
       "titulo": "عشاء وداعي قبل اليابان",
-      "con": "Camila Vidal"
+      "con": "كاميلا فيدال"
     },
     {
       "dia": -110,
       "titulo": "مكالمة فيديو من كيوتو",
-      "con": "Rosa Vidal"
+      "con": "روزا فيدال"
     },
     {
       "dia": -88,
       "titulo": "أمسية صور الرحلة",
-      "con": "Tomás Iriarte"
+      "con": "توماس إيرياردي"
     },
     {
       "dia": -60,
       "titulo": "عيد ميلاد ناديا",
-      "con": "Nadia Serrano"
+      "con": "ناديا سيرانو"
     },
     {
       "dia": -36,
       "titulo": "برانش مع فريق المقهى",
-      "con": "Bruno Ferrer"
+      "con": "برونو فيرير"
     },
     {
       "dia": -10,
       "titulo": "حفل منزلي: كلير دو لون",
-      "con": "Rosa Vidal"
+      "con": "روزا فيدال"
     },
     {
       "dia": -3,
       "titulo": "قهوة: دراسات عليا أم عمل؟",
-      "con": "Iker Domínguez"
+      "con": "إيكر دومينغيز"
     }
   ],
   "pendientes": [
@@ -267,36 +267,36 @@ export default {
   ],
   "contactos": [
     {
-      "nombre": "Rosa Vidal",
-      "relacion": "Familia"
+      "nombre": "روزا فيدال",
+      "relacion": "العائلة"
     },
     {
-      "nombre": "Camila Vidal",
-      "relacion": "Familia"
+      "nombre": "كاميلا فيدال",
+      "relacion": "العائلة"
     },
     {
-      "nombre": "Nadia Serrano",
-      "relacion": "Amistades"
+      "nombre": "ناديا سيرانو",
+      "relacion": "الأصدقاء"
     },
     {
-      "nombre": "Tomás Iriarte",
-      "relacion": "Amistades"
+      "nombre": "توماس إيرياردي",
+      "relacion": "الأصدقاء"
     },
     {
-      "nombre": "Marisol Cáceres",
-      "relacion": "Trabajo"
+      "nombre": "ماريسول كاسيريس",
+      "relacion": "العمل"
     },
     {
-      "nombre": "Bruno Ferrer",
-      "relacion": "Trabajo"
+      "nombre": "برونو فيرير",
+      "relacion": "العمل"
     },
     {
-      "nombre": "Iker Domínguez",
-      "relacion": "Universidad"
+      "nombre": "إيكر دومينغيز",
+      "relacion": "الجامعة"
     },
     {
-      "nombre": "Elena Puig",
-      "relacion": "Universidad"
+      "nombre": "إيلينا بويغ",
+      "relacion": "الجامعة"
     }
   ]
 }

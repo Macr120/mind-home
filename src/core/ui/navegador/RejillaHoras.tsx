@@ -22,7 +22,7 @@ export function RejillaHoras({ datos, color }: { datos: number[][]; color: strin
       <span />
       {[0, 6, 12, 18].map((h, i) => (
         <span key={h} className="text-[9px] text-white/35" style={{ gridColumn: `${h + 2} / span ${i === 3 ? 6 : 6}` }}>
-          {h}h
+          {t('ui.horaEje', '{n}h', { n: h })}
         </span>
       ))}
       {datos.map((fila, d) => (

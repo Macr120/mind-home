@@ -699,7 +699,7 @@ export default {
           }
         },
         "A17": {
-          "crudo": "Total ¥",
+          "crudo": "الإجمالي ¥",
           "fmt": {
             "neg": true
           }
@@ -1175,7 +1175,7 @@ export default {
           }
         },
         "A21": {
-          "crudo": "Total",
+          "crudo": "الإجمالي",
           "fmt": {
             "neg": true
           }
@@ -1321,7 +1321,7 @@ export default {
           }
         },
         "A6": {
-          "crudo": "Final"
+          "crudo": "الاختبار النهائي"
         },
         "B6": {
           "crudo": "0.3",

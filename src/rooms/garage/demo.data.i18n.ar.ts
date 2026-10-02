@@ -8,9 +8,9 @@
  */
 export default {
   "vehiculos": {
-    "biciNombre": "La Grulla",
+    "biciNombre": "الكركي",
     "biciNota": "دراجة فولاذية مستعملة، رمادية اللون وصاخبة بعض الشيء، أستخدمها كل يوم للذهاب إلى المناوبات والمختبر والتدريبات. طوال سنة كاملة لم تتركني عالقًا ولو مرة واحدة.",
-    "autoNombre": "El Mastodonte",
+    "autoNombre": "الماموث",
     "autoNota": "سيارة سيدان ورثتها عن عمي، أقدم مني، ولوحة القيادة فيها باهتة من أثر الشمس. أشغّلها مرة كل أسبوعين، وهي تحاسبني على كل إهمال بفائدة إضافية."
   },
   "servicios": [
@@ -130,32 +130,32 @@ export default {
   "talleres": [
     {
       "clave": "taller",
-      "nombre": "Taller Mecánico Rivas",
-      "direccion": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez",
+      "nombre": "ورشة ريفاس للميكانيكا",
+      "direccion": "جادة كواوتيموك 812، حي نارفارتي، بينيتو خواريز",
       "notas": "دون ريفاس يشرح لي دائمًا ما هو عاجل فعلًا وما يمكن أن ينتظر، ولم يبالغ في فاتورة قط؛ هو الوحيد الذي أثق به مع هذه السيارة."
     },
     {
       "clave": "aseguradora",
-      "nombre": "Seguros Meridiano - agente Nadia Ortega",
-      "direccion": "Av. Insurgentes Sur 1234, piso 3, Col. Del Valle",
+      "nombre": "ميريديانو للتأمين - الوكيلة ناديا أورتيغا",
+      "direccion": "جادة إنسورخينتس سور 1234، الطابق 3، حي ديل فالي",
       "notas": "ناديا ترد على واتساب حتى في يوم الأحد، ورتّبت لي دفعات شهرية عندما انتقلت إلى التغطية الشاملة."
     },
     {
       "clave": "verificentro",
-      "nombre": "Verificentro 09-118 Iztaccíhuatl",
-      "direccion": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez",
+      "nombre": "مركز فحص الانبعاثات 09-118 إيستاكسيواتل",
+      "direccion": "طريق إيستاكسيواتل 240، حي إيستاكسيواتل، بينيتو خواريز",
       "notas": "موعد الساعة السابعة صباحًا وأخرج خلال أربعين دقيقة؛ أما مركز كوياكان فكلّفني نصف الصباح في الطابور."
     },
     {
       "clave": "ciclos",
-      "nombre": "Ciclos Malinche",
-      "direccion": "Zacatecas 145, Col. Roma Sur, Cuauhtémoc",
+      "nombre": "سيكلوس مالينتشي",
+      "direccion": "شارع زاكاتيكاس 145، حي روما سور، كواوتيموك",
       "notas": "هناك اشتريت الدراجة وهناك أضبطها؛ يعيرونني الأدوات ويعلمونني كيف أفعل ذلك بنفسي بدلًا من تحصيل المال مني على كل شيء."
     },
     {
       "clave": "grua",
-      "nombre": "Grúas Tepeyac 24 horas",
-      "direccion": "Base en Eje Central Lázaro Cárdenas 1105, Col. Álamos",
+      "nombre": "تيبياك لسحب السيارات على مدار 24 ساعة",
+      "direccion": "المقر: طريق إيخي سنترال لازارو كارديناس 1105، حي ألاموس",
       "notas": "هذا هو الرقم الذي اتصلت به في الليلة التي تعطلت فيها السيارة بي في الطريق؛ وصلوا خلال ساعة ونصف ولم يحاولوا استغلال الموقف في السعر."
     }
   ],

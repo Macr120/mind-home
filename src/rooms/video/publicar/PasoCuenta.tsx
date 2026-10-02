@@ -124,7 +124,7 @@ function PaginaAMano() {
       <input
         value={texto}
         onChange={(e) => setTexto(e.target.value)}
-        placeholder="https://www.facebook.com/MiPagina"
+        placeholder={t('video.publicar.fb.phPagina', 'https://www.facebook.com/MiPagina')}
         className="w-full rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-xs text-white/85 outline-none focus:border-white/25"
       />
       <button type="button" onClick={() => void enviar()} disabled={enviando || !texto.trim()} className={BOTON_CONECTAR}>

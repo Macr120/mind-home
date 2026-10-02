@@ -37,6 +37,8 @@ export interface DefJuegoInvitable {
   emoji: string
   /** Nombre en español: respaldo de la clave de traducción. */
   es: string
+  /** Nombre de la orden en inglés: fuera del español las órdenes de Amigos se enseñan en inglés. */
+  en: string
   /** Clave i18n del nombre (reutiliza las que ya traducen canchas y mesa). */
   clave: string
   /** Nombres normalizados que acepta el parser del chat (sin acentos, en minúsculas). */
@@ -51,12 +53,14 @@ export const JUEGOS_INVITABLES: Record<JuegoInvitable, DefJuegoInvitable> = {
   paintball: {
     emoji: '🥎',
     es: 'Paintball',
+    en: 'paintball',
     clave: 'paintball.titulo',
     nombres: ['paintball', 'gotcha'],
   },
   futbol: {
     emoji: '⚽',
     es: 'Fútbol',
+    en: 'soccer',
     clave: 'canchas.clase.futbol',
     nombres: ['futbol', 'futbolito', 'futsal', 'soccer', 'football'],
     cancha: 'futbol',
@@ -64,6 +68,7 @@ export const JUEGOS_INVITABLES: Record<JuegoInvitable, DefJuegoInvitable> = {
   basquet: {
     emoji: '🏀',
     es: 'Básquet',
+    en: 'basketball',
     clave: 'canchas.clase.basket',
     nombres: ['basquet', 'basquetbol', 'basket', 'basketball', 'baloncesto'],
     cancha: 'basket',
@@ -71,6 +76,7 @@ export const JUEGOS_INVITABLES: Record<JuegoInvitable, DefJuegoInvitable> = {
   tenis: {
     emoji: '🎾',
     es: 'Tenis',
+    en: 'tennis',
     clave: 'canchas.clase.tenis',
     nombres: ['tenis', 'tennis'],
     cancha: 'tenis',
@@ -78,6 +84,7 @@ export const JUEGOS_INVITABLES: Record<JuegoInvitable, DefJuegoInvitable> = {
   cuatroenlinea: {
     emoji: '🟡',
     es: '4 en línea',
+    en: 'connect 4',
     clave: 'entre.j.cuatroenlinea.nombre',
     nombres: ['4 en linea', 'cuatro en linea', 'conecta 4', 'conecta cuatro', 'connect 4', 'connect four'],
     mesa: 'cuatroenlinea',
@@ -85,6 +92,7 @@ export const JUEGOS_INVITABLES: Record<JuegoInvitable, DefJuegoInvitable> = {
   damas: {
     emoji: '🔴',
     es: 'Damas',
+    en: 'checkers',
     clave: 'entre.j.damas.nombre',
     nombres: ['damas', 'checkers'],
     mesa: 'damas',
@@ -92,6 +100,7 @@ export const JUEGOS_INVITABLES: Record<JuegoInvitable, DefJuegoInvitable> = {
   ajedrez: {
     emoji: '♟️',
     es: 'Ajedrez',
+    en: 'chess',
     clave: 'entre.j.ajedrez.nombre',
     nombres: ['ajedrez', 'chess'],
     mesa: 'ajedrez',
@@ -99,13 +108,15 @@ export const JUEGOS_INVITABLES: Record<JuegoInvitable, DefJuegoInvitable> = {
   conocerse: {
     emoji: '💬',
     es: 'Para conocerse',
+    en: 'cards',
     clave: 'entre.j.conocerse.nombre',
-    nombres: ['cartas de preguntas', 'para conocerse', 'conocerse', 'cartas'],
+    nombres: ['cartas de preguntas', 'question cards', 'para conocerse', 'conocerse', 'cartas', 'cards'],
     mesa: 'conocerse',
   },
   debates: {
     emoji: '🔥',
     es: 'Debates',
+    en: 'debates',
     clave: 'entre.j.debates.nombre',
     nombres: ['debates'],
     mesa: 'debates',

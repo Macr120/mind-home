@@ -147,7 +147,7 @@ export function EstadisticasCardio({
           <Fila
             icono="corazon"
             label={t('ejercicio.det.fcMedia', 'FC media')}
-            valor={`${sesion.ppmProm} ppm${
+            valor={`${t('ejercicio.ppmN', '{n} ppm', { n: sesion.ppmProm })}${
               sesion.ppmMax ? ` · ${t('ejercicio.det.max', 'máx')} ${sesion.ppmMax}` : ''
             }`}
           />
@@ -217,7 +217,7 @@ function GraficaRitmo({ metricas, unidad }: { metricas: MetricasRuta; unidad: st
     <div className="rounded-xl bg-white/5 border border-white/10 p-3">
       <p className="text-xs font-semibold text-white/70">
         <Icono nombre="tendencia" /> {t('ejercicio.det.grafRitmo', 'Ritmo')}{' '}
-        <span className="font-normal text-white/40">min/{unidad}</span>
+        <span className="font-normal text-white/40">{t('ejercicio.det.minPor', 'min/{u}', { u: unidad })}</span>
       </p>
       <div className="flex justify-between text-[9px] text-white/35">
         <span>

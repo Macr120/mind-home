@@ -105,7 +105,7 @@ export const cuerpoCaptura: CuerpoTutorial = {
       titulo: T('tut.app-despacho--captura.3.titulo', 'Un año de movimientos'),
       texto: T(
         'tut.app-despacho--captura.3.texto',
-        'Cientos de gastos guardados en carpetas de año y mes. Busca el mes 7: ahí está la avería que se llevó casi diez mil pesos de golpe.',
+        'Cientos de gastos guardados en carpetas de año y mes. Busca el mes 7: ahí está la avería que vació la cuenta de golpe.',
       ),
     },
     {

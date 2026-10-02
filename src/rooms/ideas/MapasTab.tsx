@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useT } from '../../core/i18n/useT'
+import { mensajeErrorIA } from '../../core/cuenta/api'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { vivo } from '../../core/ui/estilos'
 import { iaActiva } from '../../core/chat/ia'
@@ -101,7 +102,7 @@ export function MapasTab({ familia }: { familia: 'mapas' | 'diagramas' }) {
       // El motivo REAL (clave inválida, red, cuota, formato…): sin esto todos
       // los fallos parecían el mismo y no había por dónde empezar.
       console.error('[ideas] fallo al generar el mapa con IA:', e)
-      setErrorIA(e instanceof Error ? e.message : String(e))
+      setErrorIA(mensajeErrorIA(e, t))
     } finally {
       setGenerando(false)
     }

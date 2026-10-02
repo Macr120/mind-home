@@ -6,6 +6,7 @@ import { COLOR } from './constantes'
 import { buscarPortada } from './portadaMedia'
 import { generarResumenMedia } from './resumenIA'
 import { useT } from '../../core/i18n/useT'
+import { mensajeErrorIA } from '../../core/cuenta/api'
 import { vivo } from '../../core/ui/estilos'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { Creditos } from '../../core/ui/Creditos'
@@ -37,7 +38,7 @@ export function BloqueResumenIA({ item }: { item: MediaArchivo }) {
       }
     } catch (e) {
       console.warn('[MPH] No se pudo resumir la obra:', e)
-      setError(e instanceof Error ? e.message : t('entre.res.error', 'No se pudo generar el resumen.'))
+      setError(mensajeErrorIA(e, t, t('entre.res.error', 'No se pudo generar el resumen.')))
     } finally {
       setGenerando(false)
     }

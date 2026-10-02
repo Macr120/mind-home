@@ -4,6 +4,8 @@ import type { PlanCorte } from '../../muebles/corte'
 import type { Presupuesto } from '../../muebles/costos'
 import type { Despiece } from '../../muebles/tipos'
 import { PALETA_PAPEL, svgTexto, type OpcsDibujo } from './corteSvg'
+import { localeActual, tGlobal } from '../../i18n/useT'
+import { nombreTablero } from '../../muebles/materiales'
 import type { HojaCorte } from '../../muebles/corte'
 
 /**
@@ -42,7 +44,7 @@ function nombreArchivo(base: string, sufijo: string, ext: string): string {
     .replace(/[^a-zA-Z0-9]+/g, '-')
     .replace(/^-|-$/g, '')
     .toLowerCase()
-  return `${limpio || 'mueble'}-${sufijo}.${ext}`
+  return `${limpio || tGlobal('archivo.nombre.mueble', 'mueble')}-${sufijo}.${ext}`
 }
 
 export const sePuedeImprimir = (): boolean => puedeImprimir()
@@ -80,13 +82,13 @@ export async function imprimirPlanCorte(
       const filas = h.piezas
         .map(
           (p) =>
-            `<tr><td>${esc(p.etiqueta)}</td><td>${esc(p.nombreEs)}</td><td class="num">${
+            `<tr><td>${esc(p.etiqueta)}</td><td>${esc(tGlobal(p.clave, p.nombreEs))}</td><td class="num">${
               p.forma === 'circular' ? `Ø ${p.ancho}` : `${p.ancho} × ${p.alto}`
             }</td></tr>`,
         )
         .join('')
       secciones.push(
-        `<section class="hoja"><h2>${esc(g.materialId)} ${g.grosor} mm · ${esc(textos.hoja)} ${
+        `<section class="hoja"><h2>${esc(nombreTablero(g.materialId, tGlobal))} ${g.grosor} mm · ${esc(textos.hoja)} ${
           h.indice
         }/${g.hojas.length} · ${esc(textos.aprov)} ${Math.round(h.aprovechamiento * 100)} %</h2>` +
           svgTexto(h, PALETA_PAPEL, OPCS_PAPEL) +
@@ -99,7 +101,7 @@ export async function imprimirPlanCorte(
   const total = despiece.tableros.reduce((a, t) => a + t.cantidad, 0)
   const html =
     `<h1>${esc(titulo)}</h1>` +
-    `<p class="meta">${total} ${esc(textos.cant)} · ${new Date().toLocaleDateString()}</p>` +
+    `<p class="meta">${total} ${esc(textos.cant)} · ${new Date().toLocaleDateString(localeActual())}</p>` +
     secciones.join('')
   await imprimir(html, titulo, ESTILO_IMPRESION)
 }
@@ -116,14 +118,14 @@ export async function imprimirPresupuesto(
       (r) =>
         `<tr><td>${esc(r.concepto)}${
           r.detalle ? ` <span style="color:#71717a">· ${esc(r.detalle)}</span>` : ''
-        }</td><td class="num">${r.cantidad} ${esc(r.unidad)}</td><td class="num">${esc(
+        }</td><td class="num">${r.cantidad} ${esc(tGlobal(`muebles.unidad.${r.unidad}`, r.unidad))}</td><td class="num">${esc(
           fmt(r.unitario),
         )}</td><td class="num">${esc(fmt(r.subtotal))}</td></tr>`,
     )
     .join('')
   const html =
     `<h1>${esc(titulo)}</h1>` +
-    `<p class="meta">${new Date().toLocaleDateString()}</p>` +
+    `<p class="meta">${new Date().toLocaleDateString(localeActual())}</p>` +
     `<table><thead><tr><th>${esc(textos.concepto)}</th><th>${esc(textos.cant)}</th><th>${esc(
       textos.unitario,
     )}</th><th>${esc(textos.importe)}</th></tr></thead><tbody>${filas}</tbody>` +
@@ -143,7 +145,7 @@ export async function descargarHojaSvg(hoja: HojaCorte, nombre: string, pie?: st
   const txt = svgTexto(hoja, PALETA_PAPEL, OPCS_PAPEL, pie)
   await descargarArchivo(
     new Blob([txt], { type: 'image/svg+xml;charset=utf-8' }),
-    nombreArchivo(nombre, `corte-${hoja.id}`, 'svg'),
+    nombreArchivo(nombre, `${tGlobal('archivo.nombre.corte', 'corte')}-${hoja.id}`, 'svg'),
   )
 }
 
@@ -173,7 +175,7 @@ export async function descargarHojaPng(hoja: HojaCorte, nombre: string): Promise
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
     const blob = await new Promise<Blob | null>((res) => canvas.toBlob(res, 'image/png'))
     if (!blob) throw new Error('sin blob')
-    await descargarArchivo(blob, nombreArchivo(nombre, `corte-${hoja.id}`, 'png'))
+    await descargarArchivo(blob, nombreArchivo(nombre, `${tGlobal('archivo.nombre.corte', 'corte')}-${hoja.id}`, 'png'))
   } catch {
     await descargarHojaSvg(hoja, nombre)
   } finally {
@@ -217,7 +219,14 @@ export async function descargarPresupuestoXlsx(
       nombre: textos.presupuesto,
       filas: [
         [textos.concepto, textos.detalle, textos.cant, textos.unidad, textos.unitario, textos.importe],
-        ...p.renglones.map((r) => [r.concepto, r.detalle ?? '', r.cantidad, r.unidad, r.unitario, r.subtotal]),
+        ...p.renglones.map((r) => [
+          r.concepto,
+          r.detalle ?? '',
+          r.cantidad,
+          tGlobal(`muebles.unidad.${r.unidad}`, r.unidad),
+          r.unitario,
+          r.subtotal,
+        ]),
         [textos.total, '', '', '', '', p.total],
       ],
     },
@@ -225,7 +234,15 @@ export async function descargarPresupuestoXlsx(
       nombre: textos.despiece,
       filas: [
         [textos.pieza, textos.cant, textos.ancho, textos.alto, textos.grosor, textos.material, textos.veta],
-        ...d.tableros.map((t) => [t.nombreEs, t.cantidad, t.ancho, t.alto, t.grosor, t.materialId, t.veta]),
+        ...d.tableros.map((pz) => [
+          tGlobal(pz.clave, pz.nombreEs),
+          pz.cantidad,
+          pz.ancho,
+          pz.alto,
+          pz.grosor,
+          nombreTablero(pz.materialId, tGlobal),
+          tGlobal(`muebles.veta.${pz.veta}`, pz.veta),
+        ]),
       ],
     },
   ]
@@ -236,7 +253,16 @@ export async function descargarPresupuestoXlsx(
         [textos.hoja, '#', textos.pieza, 'X', 'Y', textos.ancho, textos.alto, textos.girada],
         ...plan.grupos.flatMap((g) =>
           g.hojas.flatMap((h) =>
-            h.piezas.map((pc) => [h.id, pc.etiqueta, pc.nombreEs, pc.x, pc.y, pc.ancho, pc.alto, pc.rotada ? 1 : 0]),
+            h.piezas.map((pc) => [
+              h.id,
+              pc.etiqueta,
+              tGlobal(pc.clave, pc.nombreEs),
+              pc.x,
+              pc.y,
+              pc.ancho,
+              pc.alto,
+              pc.rotada ? 1 : 0,
+            ]),
           ),
         ),
       ],
@@ -245,5 +271,5 @@ export async function descargarPresupuestoXlsx(
   const blob = await construirXlsx(
     hojas.map((h) => ({ nombre: h.nombre, celdas: celdasDeFilas(h.filas) })),
   )
-  await descargarArchivo(blob, nombreArchivo(nombre, 'presupuesto', 'xlsx'))
+  await descargarArchivo(blob, nombreArchivo(nombre, tGlobal('archivo.nombre.presupuesto', 'presupuesto'), 'xlsx'))
 }

@@ -206,9 +206,9 @@ function EnlaceObjetoInterior({ objetoId }: { objetoId: number }) {
                 {elegida?.app ? <Icono emoji={elegida.app.icon} /> : <Icono nombre="cuartos" />}
               </span>
               <p className="min-w-0 flex-1 truncate text-sm text-white/90">
-                {entrada.titulo ?? elegida?.seccion ?? elegida?.app?.nombre}
+                {entrada.titulo ?? elegida?.seccion ?? elegida?.nombre}
                 {elegida?.app && (entrada.titulo || elegida.seccion) && (
-                  <span className="text-white/45"> · {elegida.app.nombre}</span>
+                  <span className="text-white/45"> · {elegida.nombre}</span>
                 )}
               </p>
               <button

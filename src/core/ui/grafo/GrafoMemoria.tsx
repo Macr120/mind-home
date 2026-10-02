@@ -153,7 +153,10 @@ export default function GrafoMemoria() {
       for (const ref of [e.desde, e.hacia]) {
         if (tipoDeRef(ref) !== 'app' || universo.has(ref)) continue
         const p = getPlantilla(idDeRef(ref))
-        if (p) universo.set(ref, { ref, tipo: 'app', titulo: p.nombre.split(' · ')[0] ?? p.nombre, emoji: p.icon, color: p.color })
+        if (p) {
+          const titulo = t(`room.${p.id}.nombre`, p.nombre).split(' · ')[0]
+          universo.set(ref, { ref, tipo: 'app', titulo, emoji: p.icon, color: p.color })
+        }
       }
     }
     const base = new Set([...universo.keys()].filter((r) => (ambito ? ambitoDe(r) === ambito : ambitoDe(r) !== null)))
@@ -173,7 +176,7 @@ export default function GrafoMemoria() {
       aristas: enlaces.filter((e) => mapa.has(e.desde) && mapa.has(e.hacia)),
       baseVacia: base.size === 0,
     }
-  }, [memorias, entidades, enlaces, asistente, ambito])
+  }, [memorias, entidades, enlaces, asistente, ambito, t])
 
   // «Conectar con…» ofrece cualquier memoria o cosa de las apps, no solo lo que ya se ve.
   const candidatos = useMemo(

@@ -363,7 +363,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "pelicula",
         "titulo": "Blade Runner 2049",
         "autor": "Denis Villeneuve",
-        "genero": "Ciencia ficción",
+        "genero": "Science fiction",
         "estado": "completado",
         "calificacion": 5,
         "resena": "I started it at one in the morning because sleep wasn't happening again, and I watched the sunrise from the couch with Laika on my lap. I saw way too much of myself in that grey city where everyone functions and nobody actually lives; I finished it wanting to change something, without a clue what. There's a twenty-minute stretch in the middle where I drifted off and had to rewind, and I still don't care."
@@ -383,7 +383,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "libro",
         "titulo": "The Left Hand of Darkness",
         "autor": "Ursula K. Le Guin",
-        "genero": "Ciencia ficción",
+        "genero": "Science fiction",
         "estado": "completado",
         "calificacion": 4,
         "resena": "I picked it up just to keep my phone out of bed, and it worked better than any advice article I'd read. Le Guin makes you look at identity as something that doesn't come with instructions, and that landed hard while my whole life was upside down. The first hundred pages were a slog, too many names and court protocols to keep straight."
@@ -393,7 +393,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "pelicula",
         "titulo": "Arrival",
         "autor": "Denis Villeneuve",
-        "genero": "Ciencia ficción",
+        "genero": "Science fiction",
         "estado": "completado",
         "calificacion": 5,
         "resena": "I watched it the same week I built my first budget and set a fixed bedtime, and the idea that a language reshapes how you think stuck to me. I sat through the whole credits without moving. The next day I started making vocabulary cards, so it clearly did something."
@@ -403,7 +403,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "libro",
         "titulo": "Cosmos",
         "autor": "Carl Sagan",
-        "genero": "Divulgación",
+        "genero": "Popular science",
         "estado": "completado",
         "calificacion": 5,
         "resena": "I read it in the dead minutes at the coffee shop, between one order and the next, and it gave me back an actual appetite for studying physics. Sagan explains without talking down to you and without selling anything, which is exactly what my lectures were missing that term. After one chapter I went out to the balcony to shoot the Moon with my phone; it came out terrible and I didn't mind."
@@ -413,7 +413,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "videojuego",
         "titulo": "Outer Wilds",
         "autor": "Mobius Digital",
-        "genero": "Ciencia ficción",
+        "genero": "Science fiction",
         "estado": "completado",
         "calificacion": 5,
         "resena": "I played it in short sessions after late shifts and I haven't had anything like it in years: the only thing that levels up is you, because the progress lives in your head, not in an inventory. Finishing it wrecked me a little, in the best way. Flying the ship is still a disaster and I crashed more times than I want to admit."
@@ -423,7 +423,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "pelicula",
         "titulo": "2001: A Space Odyssey",
         "autor": "Stanley Kubrick",
-        "genero": "Sci-fi clásico",
+        "genero": "Classic sci-fi",
         "estado": "completado",
         "calificacion": 4,
         "resena": "First one off the classics homework list I set for myself. For 1968 it looks impossible, and HAL felt more human than half the characters in current cinema. The final sequence went on forever though, and I got up to make tea halfway through it, so I won't pretend I understood the whole thing."
@@ -443,7 +443,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "pelicula",
         "titulo": "Metropolis",
         "autor": "Fritz Lang",
-        "genero": "Sci-fi clásico",
+        "genero": "Classic sci-fi",
         "estado": "completado",
         "calificacion": 4,
         "resena": "I watched it the weekend after my first 5K, legs destroyed, zero intention of leaving the couch. What got me was how much of the film is music: two months into the keyboard and I finally understood what an accompaniment is for. The moralising intertitles are painfully naive, but the images of the city stayed with me."
@@ -453,7 +453,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "libro",
         "titulo": "The Martian",
         "autor": "Andy Weir",
-        "genero": "Ciencia ficción",
+        "genero": "Science fiction",
         "estado": "completado",
         "calificacion": 4,
         "resena": "I read it right when I committed to Japan and set up the savings sheet, and the habit of chopping a disaster into small solvable problems was exactly the mindset I needed. His food and water maths reminded me suspiciously of my own tip-jar spreadsheets. The humour tries too hard sometimes and the prose is flat, but it flies by."
@@ -473,7 +473,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "videojuego",
         "titulo": "Portal 2",
         "autor": "Valve",
-        "genero": "Ciencia ficción",
+        "genero": "Science fiction",
         "estado": "completado",
         "calificacion": 5,
         "resena": "I bought it as a reward for the 10K and finished it over two weekends. It's one of the few things that makes me laugh out loud alone in my flat, and the puzzles treat you like you have a brain. The co-op campaign stayed unfinished because I never found anyone to play it with regularly."
@@ -483,7 +483,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "serie",
         "titulo": "The Expanse",
         "autor": "Mark Fergus and Hawk Ostby",
-        "genero": "Ciencia ficción",
+        "genero": "Science fiction",
         "estado": "completado",
         "calificacion": 4,
         "resena": "Finished season one on weeknight episodes. I love that the physics actually matters here: burns cost fuel and gravity isn't set dressing, which I appreciated a lot after a semester of mechanics. The noir detective thread in the early episodes dragged for me, but from the midpoint on I couldn't stop."
@@ -493,7 +493,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "libro",
         "titulo": "Solaris",
         "autor": "Stanisław Lem",
-        "genero": "Ciencia ficción",
+        "genero": "Science fiction",
         "estado": "completado",
         "calificacion": 3,
         "resena": "The idea of a contact you can never actually understand is what pulled me in, and it kept me thinking for days. What didn't work were the whole chapters of invented solaristics bibliography; I skimmed them without a shred of guilt. Even so, the book stuck with me more than others I enjoyed more."
@@ -503,7 +503,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "pelicula",
         "titulo": "Alien",
         "autor": "Ridley Scott",
-        "genero": "Terror",
+        "genero": "Horror",
         "estado": "completado",
         "calificacion": 5,
         "resena": "Another one off the classics list, watched with every light off and Laika on guard duty. What impressed me most is how little it shows and how tired and grubby that crew looks: they're night-shift workers, not heroes. I went into work the next morning side-eyeing the steam wand on the espresso machine."
@@ -513,7 +513,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "pelicula",
         "titulo": "Moon",
         "autor": "Duncan Jones",
-        "genero": "Ciencia ficción",
+        "genero": "Science fiction",
         "estado": "completado",
         "calificacion": 4,
         "resena": "First week with the knee strapped up and the couch as headquarters, so this one happened. The idea of someone stuck in a routine that isn't even his own hit hard while I was staring out the window at the route I couldn't run. You see the twist coming twenty minutes in, but that's not the point: the tiredness is."
@@ -523,7 +523,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "pelicula",
         "titulo": "Children of Men",
         "autor": "Alfonso Cuarón",
-        "genero": "Ciencia ficción",
+        "genero": "Science fiction",
         "estado": "completado",
         "calificacion": 5,
         "resena": "I put it on during a foul afternoon, budget wrecked by the car repair, and afterwards I didn't feel like talking. The long takes aren't showing off: they drop you inside the noise and never let you step out for air. Most suffocating thing I watched all year and I'd still watch it again."
@@ -533,7 +533,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "pelicula",
         "titulo": "Gattaca",
         "autor": "Andrew Niccol",
-        "genero": "Sci-fi clásico",
+        "genero": "Classic sci-fi",
         "estado": "completado",
         "calificacion": 4,
         "resena": "Watching it the same week the physio was explaining what my knee is and isn't allowed to do felt like a joke at my expense. The swimming scene stuck, and so did the line about never saving anything for the way back. The suits-and-ties look has aged strangely, but the knot in the stomach still works."
@@ -543,7 +543,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "videojuego",
         "titulo": "Death Stranding",
         "autor": "Kojima Productions",
-        "genero": "Ciencia ficción",
+        "genero": "Science fiction",
         "estado": "completado",
         "calificacion": 3,
         "resena": "Leg on a cushion, and I chose a game that is mostly about walking; the irony kept me company for several nights. Climbing a slope with the cargo badly balanced had me tenser than a midterm, and I mean that as praise. What I couldn't take was the talking: twenty minutes of explanation for every two hours of play pulled me right out."
@@ -563,7 +563,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "pelicula",
         "titulo": "Godzilla",
         "autor": "Ishirō Honda",
-        "genero": "Sci-fi clásico",
+        "genero": "Classic sci-fi",
         "estado": "completado",
         "calificacion": 4,
         "resena": "I started the Japanese film run so I'd arrive with more than a guidebook and a subway map. I didn't expect something this sad, or this close to a real 1954 wound; with Hiroshima on the itinerary I watched it differently. The scientific conference scenes drag, but the children's choir left me silent."
@@ -593,7 +593,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "libro",
         "titulo": "The Three-Body Problem",
         "autor": "Liu Cixin",
-        "genero": "Ciencia ficción",
+        "genero": "Science fiction",
         "estado": "completado",
         "calificacion": 4,
         "resena": "Bought it for the flight and finished nearly all of it between the plane and the first jet-lagged night. The Cultural Revolution chapters are far better than the videogame ones, which I skimmed without guilt. Having the whole plot hang on a problem with no closed solution delighted me in a ridiculous way at thirty-five thousand feet."
@@ -603,7 +603,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "videojuego",
         "titulo": "Outer Wilds",
         "autor": "Mobius Digital",
-        "genero": "Ciencia ficción",
+        "genero": "Science fiction",
         "estado": "completado",
         "calificacion": 5,
         "resena": "I came back from Japan wanting to poke at things, and this game is exactly that: no weapons, just questions. I spent three nights crashing the ship into the same moon until orbital mechanics finally clicked, and I learned more about gravitation there than in two weeks of problem sets. The ending caught me with Laika asleep on my lap and I sat still so I wouldn't wake her."
@@ -613,7 +613,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "libro",
         "titulo": "The Order of Time",
         "autor": "Carlo Rovelli",
-        "genero": "Divulgación",
+        "genero": "Popular science",
         "estado": "completado",
         "calificacion": 4,
         "resena": "Read it in scraps, before opening, at the back table of the café. The entropy chapters, and the bit about why we remember the past and not the future, finally gave meaning to something I'd only been pushing around as a formula in class. He gets too lyrical for me in places and I drift off, but it's worth it."
@@ -623,7 +623,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "libro",
         "titulo": "The Dispossessed",
         "autor": "Ursula K. Le Guin",
-        "genero": "Ciencia ficción",
+        "genero": "Science fiction",
         "estado": "completado",
         "calificacion": 5,
         "resena": "I started it the same week I drew the grad-school-versus-job diagram, and it turned into a conversation at exactly the right moment. Shevek arguing about whether his physics belongs to him, to his people or to nobody left me both worse and better. My book of the year, no contest."
@@ -633,7 +633,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "pelicula",
         "titulo": "Arrival",
         "autor": "Denis Villeneuve",
-        "genero": "Ciencia ficción",
+        "genero": "Science fiction",
         "estado": "completado",
         "calificacion": 5,
         "resena": "After a year of English flashcards and stumbling through survival Japanese in Kyoto, a film about how learning a language rewires you landed straight on target. The whiteboard scene, and the word everyone misreads, is tenser than any chase I've watched. The military subplot is the weak part, but everything else forgives it."
@@ -643,7 +643,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "libro",
         "titulo": "Anathem",
         "autor": "Neal Stephenson",
-        "genero": "Ciencia ficción",
+        "genero": "Science fiction",
         "estado": "en_curso",
         "calificacion": 4,
         "resena": "I'm somewhere past page three hundred of a brick that weighs more than my lab backpack. The first hundred pages of invented vocabulary nearly made me quit, and now I don't want it to end. I move slowly, twenty pages on the nights I don't sit at the keyboard."
@@ -653,7 +653,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "serie",
         "titulo": "Severance",
         "autor": "Dan Erickson",
-        "genero": "Ciencia ficción",
+        "genero": "Science fiction",
         "estado": "en_curso",
         "calificacion": 4,
         "resena": "Halfway through season one, one episode every two or three nights to make it last. Working a counter with the smile on and then going home as someone else doesn't feel as alien to me as it should. Those white corridors do something physical to me, which is exactly what I want from a show."
@@ -663,7 +663,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "libro",
         "titulo": "Blindsight",
         "autor": "Peter Watts",
-        "genero": "Ciencia ficción",
+        "genero": "Science fiction",
         "estado": "pendiente",
         "calificacion": 0,
         "resena": ""
@@ -673,7 +673,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "pelicula",
         "titulo": "Solaris",
         "autor": "Andrei Tarkovsky",
-        "genero": "Sci-fi clásico",
+        "genero": "Classic sci-fi",
         "estado": "pendiente",
         "calificacion": 0,
         "resena": ""
@@ -683,7 +683,7 @@ export const DEMO_ENTRETENIMIENTO = {
         "tipo": "videojuego",
         "titulo": "Citizen Sleeper",
         "autor": "Jump Over the Age",
-        "genero": "Ciencia ficción",
+        "genero": "Science fiction",
         "estado": "pendiente",
         "calificacion": 0,
         "resena": ""

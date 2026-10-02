@@ -5,6 +5,7 @@ import { useDiseño, idsPlantillasAsignadas } from '../state/disenoStore'
 import { getCuarto } from '../state/cuartosStore'
 import { iniciarAsignacion } from '../state/amueblarStore'
 import { useT } from '../i18n/useT'
+import { useNombreCuarto } from './roomDisplay'
 import { Icono } from './iconos/Icono'
 
 /**
@@ -29,6 +30,7 @@ export function AsignarPlantillaDialog() {
 
 function AsignarPlantillaInterior({ cuartoId }: { cuartoId: string }) {
   const t = useT()
+  const nombreCuarto = useNombreCuarto()
   const objetoId = useAsignar((s) => s.objetoId)
   const cerrar = useAsignar((s) => s.cerrar)
   const idsAsignadas = useDiseño(useShallow((s) => idsPlantillasAsignadas(s.objetos)))
@@ -55,7 +57,7 @@ function AsignarPlantillaInterior({ cuartoId }: { cuartoId: string }) {
         <header className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
           <span className="text-base font-black text-white/90">
             {t('asignar.titulo', 'Asignar app')}
-            {cuarto && <span className="text-white/40"> · {cuarto.nombre}</span>}
+            {cuarto && <span className="text-white/40"> · {nombreCuarto(cuarto)}</span>}
           </span>
           <button
             type="button"
@@ -82,7 +84,7 @@ function AsignarPlantillaInterior({ cuartoId }: { cuartoId: string }) {
               onClick={() => elegir(p.id)}
               className="flex flex-col items-start gap-1.5 rounded-xl border p-3 text-start transition hover:bg-white/8"
               style={{ borderColor: `${p.color}44`, background: `${p.color}10` }}
-              title={DESCRIPCIONES[p.id] ?? p.nombre}
+              title={t(`room.${p.id}.desc`, DESCRIPCIONES[p.id] ?? p.nombre)}
             >
               <span
                 className="flex h-9 w-9 items-center justify-center rounded-md text-lg"

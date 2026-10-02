@@ -1,13 +1,14 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import type { CeldaHoja, GraficaHoja, HojaCalculo } from '../../core/data/db'
 import { useT } from '../../core/i18n/useT'
+import { mensajeErrorIA } from '../../core/cuenta/api'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { ALTO_FILA, ANCHO_COL, COLOR, MAX_COLS, MAX_FILAS } from './constantes'
 import { BarraAcciones } from './BarraAcciones'
 import { BotonIA } from './BotonIA'
 import { OP_ANALIZAR } from './costosIA'
 import { detectarEncabezados } from './datosGrafica'
-import { analizarDatos, graficaSugerida } from './ia'
+import { analizarDatos, graficaSugerida, textoAnalisis } from './ia'
 import { PanelGraficas } from './PanelGraficas'
 import {
   celdasDeRango,
@@ -275,7 +276,7 @@ export function Rejilla({
     try {
       setAnalisis({ rango, texto: await analizarDatos(aTsv(hoja.celdas, rect, resultados), rango) })
     } catch (e) {
-      setErrorIA(e instanceof Error ? e.message : t('computo.ia.falloAnalizar', 'No se pudieron leer los datos.'))
+      setErrorIA(mensajeErrorIA(e, t, t('computo.ia.falloAnalizar', 'No se pudieron leer los datos.')))
     } finally {
       setPensando(false)
     }
@@ -738,7 +739,7 @@ export function Rejilla({
               <Icono nombre="cerrar" />
             </button>
           </div>
-          <p className="whitespace-pre-wrap text-sm leading-relaxed text-white/80">{analisis.texto}</p>
+          <p className="whitespace-pre-wrap text-sm leading-relaxed text-white/80">{textoAnalisis(analisis.texto)}</p>
           {(() => {
             // La IA solo PROPONE el tipo; la gráfica la inserta el usuario.
             const sugerida = graficaSugerida(analisis.texto)

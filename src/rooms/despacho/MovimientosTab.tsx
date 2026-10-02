@@ -1,7 +1,7 @@
 import { useMemo, useState, type ReactNode } from 'react'
 import type { PeriodoMovimiento, Transaccion } from '../../core/data/db'
 import { finanzasRepo } from '../../core/data/repository'
-import { getCategoria, sugerenciasCategorias } from './categorias'
+import { getCategoria, nombreCategoria, sugerenciasCategorias } from './categorias'
 import { acumulado, esFijo, hoyISO, money2 } from './mes'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
@@ -60,8 +60,9 @@ export function MovimientosTab({ tipo, movimientos }: { tipo: 'gasto' | 'ingreso
     await finanzasRepo.add({
       fecha,
       tipo,
-      // Sin categoría cae en 'Otros', igual que la captura por chat.
-      categoria: categoria.trim() || 'Otros',
+      // Sin categoría cae en 'Otros', igual que la captura por chat. Una de fábrica
+      // elegida en otro idioma se guarda con su nombre en español, el que se traduce.
+      categoria: getCategoria(categoria.trim() || 'Otros').nombre,
       monto: valor,
       nota: nota.trim() || undefined,
       periodo: fijo ? plazo : 'unico',
@@ -125,7 +126,7 @@ export function MovimientosTab({ tipo, movimientos }: { tipo: 'gasto' | 'ingreso
           />
           <datalist id={`despacho-cats-${tipo}`}>
             {sugerencias.map((c) => (
-              <option key={c.id} value={c.nombre} />
+              <option key={c.id} value={nombreCategoria(t, c)} />
             ))}
           </datalist>
         </Paso>
@@ -268,7 +269,7 @@ function Fila({
       </span>
       <div className="min-w-0">
         <p className="text-sm font-medium truncate">
-          {c.nombre}
+          {nombreCategoria(t, c)}
           {mov.nota ? <span className="text-white/40"> · {mov.nota}</span> : null}
         </p>
         <p className="text-xs text-white/40">

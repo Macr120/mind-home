@@ -20,6 +20,7 @@ import { sembrarMetasApp } from '../../demo/metasPep'
 import { DEMO_DESCANSO } from './demo.data'
 import { duracionHoras } from './puntuacion'
 import { sincronizarRutinaSueno } from './rutinaSueno'
+import { tGlobal } from '../../core/i18n/useT'
 
 type Noche = Omit<RegistroSueno, 'id'>
 type Tono = 'mala' | 'regular' | 'buena' | 'excelente'
@@ -89,7 +90,8 @@ export async function construirDemoDescanso(ctx: CtxDemo): Promise<void> {
     undefined,
     PERFIL.horaDormir,
     PERFIL.horaDespertar,
-    ctx.idioma === 'en' ? 'Sleep' : 'Dormir',
+    // El mismo nombre que le pone la app al sincronizarla (`DescansoApp`).
+    tGlobal('descanso.rutina.nombre', 'Dormir'),
   )
 
   /** Una noche cualquiera del año, según su tramo. */

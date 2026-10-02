@@ -58,7 +58,8 @@ export function AutocompleteEjercicio({
   return (
     <div className={`relative ${className}`}>
       <input
-        value={value}
+        // Un nombre del catálogo se guarda canónico (en español) y se ve traducido.
+        value={nombreEjercicio(t, value)}
         onChange={(e) => {
           onChange(e.target.value)
           setAbierto(true)

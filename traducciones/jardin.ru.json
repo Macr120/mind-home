@@ -269,7 +269,7 @@
   },
   {
     "ruta": "gratitudes.16.item1",
-    "texto": "Ещё шесть тысяч рублей — в фонд на Японию"
+    "texto": "Ещё {monto:1040} — в фонд на Японию"
   },
   {
     "ruta": "gratitudes.16.item2",
@@ -297,7 +297,7 @@
   },
   {
     "ruta": "gratitudes.18.item3",
-    "texto": "Велосипед починен за тысячу двести рублей"
+    "texto": "Велосипед починен за {monto:210}"
   },
   {
     "ruta": "gratitudes.19.item1",
@@ -721,7 +721,7 @@
   },
   {
     "ruta": "gratitudes.58.item1",
-    "texto": "Первая часть Clair de Lune — выучена"
+    "texto": "Первая часть «Лунного света» — выучена"
   },
   {
     "ruta": "gratitudes.58.item2",
@@ -785,7 +785,7 @@
   },
   {
     "ruta": "gratitudes.64.item1",
-    "texto": "Вторая часть Clair de Lune"
+    "texto": "Вторая часть «Лунного света»"
   },
   {
     "ruta": "gratitudes.64.item2",
@@ -917,7 +917,7 @@
   },
   {
     "ruta": "gratitudes.76.item2",
-    "texto": "Clair de Lune наизусть — до сорокового такта"
+    "texto": "«Лунный свет» наизусть — до сорокового такта"
   },
   {
     "ruta": "gratitudes.76.item3",
@@ -949,7 +949,7 @@
   },
   {
     "ruta": "gratitudes.79.item1",
-    "texto": "Clair de Lune целиком — с ошибками, но целиком"
+    "texto": "«Лунный свет» целиком — с ошибками, но целиком"
   },
   {
     "ruta": "gratitudes.79.item2",
@@ -1013,7 +1013,7 @@
   },
   {
     "ruta": "gratitudes.85.item1",
-    "texto": "Clair de Lune целиком — сыграно для семьи"
+    "texto": "«Лунный свет» целиком — сыгран для семьи"
   },
   {
     "ruta": "gratitudes.85.item2",
@@ -1042,5 +1042,9 @@
   {
     "ruta": "gratitudes.87.item2",
     "texto": "Блокнот, полный маленьких вещей, которые действительно случились"
+  },
+  {
+    "ruta": "gratitudes.87.item3",
+    "texto": "Лайка"
   }
 ]

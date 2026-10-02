@@ -11,6 +11,9 @@
 import { db, type ObjetoCuarto } from '../core/data/db'
 import { marcarEscrituraSilenciosa } from '../core/data/sync/middleware'
 import { esObjetoLibreria } from '../core/state/disenoStore'
+import { nombreAnimalEn } from '../core/house/nombresAnimales'
+import { idiomaActual, localeActual, tGlobal } from '../core/i18n/useT'
+import { textoDemo, type ClaveDemo } from './textosDemo'
 
 /** Tablas que definen la casa (hidratan los stores de casa + infra viva). */
 const TABLAS_CASA = [
@@ -119,6 +122,52 @@ export async function exportarSnapshot(): Promise<SnapshotCasa> {
     tablas[nombre] = await Promise.all(filas.map(serializarFila))
   }
   return { version: 1, exportadoEn: Date.now(), tablas }
+}
+
+/** Zona del croquis → su nombre en `textosDemo`. */
+const ZONAS: Record<string, ClaveDemo> = {
+  'zona-casa': 'casa.zona.casa',
+  'zona-canchas': 'casa.zona.canchas',
+  'zona-santuario': 'casa.zona.santuario',
+  'zona-pista': 'casa.zona.pista',
+  'zona-mindfulness': 'casa.zona.mindfulness',
+  'zona-feria': 'casa.zona.feria',
+}
+
+/**
+ * El snapshot guarda la casa de Pep@ en español (se exporta así y así se queda):
+ * al restaurarla, los textos que la casa trae escritos —zonas, Laika, el coche,
+ * los letreros, la alberca, el nombre del avatar y los de los animales— pasan al
+ * idioma activo. Y la
+ * carpeta «Memorias y salud mental» se llama «Salud mental», como hizo la
+ * migración v140 con las BD reales: el snapshot no pasa por migraciones.
+ */
+export function localizarSnapshot(snap: SnapshotCasa): void {
+  const idioma = idiomaActual()
+  const nombre = tGlobal('demo.pep.nombre', 'Pep@')
+  const tx = (clave: ClaveDemo) => textoDemo(idioma, clave, { nombre })
+  const filas = (tabla: string) => snap.tablas[tabla] ?? []
+  for (const m of filas('mapaConfig')) {
+    for (const z of (m.cuadrantes as { id: string; nombre: string }[] | undefined) ?? []) {
+      if (ZONAS[z.id]) z.nombre = tx(ZONAS[z.id])
+    }
+  }
+  for (const c of filas('cuartos')) if (c.nombre === 'Alberca') c.nombre = tx('casa.alberca')
+  for (const o of filas('objetosCuarto')) {
+    if (o.nombre === 'Coche viejo') o.nombre = tx('casa.coche')
+    if (o.texto === 'CASA DE PEP@') o.texto = tx('casa.letrero').toLocaleUpperCase(localeActual())
+    if (o.texto === 'FERIA') o.texto = tx('casa.feria')
+  }
+  for (const a of filas('asistentes')) {
+    if (a.asistenteId !== 'custom-laika') continue
+    a.nombre = tx('casa.laika.nombre')
+    a.historia = tx('casa.laika.historia')
+    a.personalidad = tx('casa.laika.personalidad')
+    a.saludo = tx('casa.laika.saludo')
+  }
+  for (const a of filas('disenoAvatar')) a.nombre = nombre
+  for (const a of filas('animales')) if (typeof a.nombre === 'string') a.nombre = nombreAnimalEn(a.nombre, idioma)
+  for (const g of filas('gruposPlantilla')) if (g.nombre === 'Memorias y salud mental') g.nombre = 'Salud mental'
 }
 
 /** Restaura el snapshot en la BD abierta (ids originales, sin outbox). */

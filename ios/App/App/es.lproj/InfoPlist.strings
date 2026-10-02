@@ -5,3 +5,4 @@
 "NSLocationWhenInUseUsageDescription" = "Para mostrar tu posición en el mapa, guiarte por una ruta y registrar tus entrenamientos al aire libre.";
 "NSSpeechRecognitionUsageDescription" = "Para convertir en texto lo que dictas.";
 "NSPhotoLibraryAddUsageDescription" = "Para guardar imágenes de tu casa en tus fotos.";
+"NSAppleEventsUsageDescription" = "Para mostrar en tu fondo de pantalla lo que suena en Música o Spotify.";

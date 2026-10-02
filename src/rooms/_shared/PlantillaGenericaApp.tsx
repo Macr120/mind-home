@@ -20,10 +20,11 @@ import {
 import { emojiTipo } from '../../core/ui/paletaBloques'
 import { BarraEdicion, CabeceraBloqueEdicion } from './PlantillaEdicion'
 import { PestanasCarpeta } from './PestanasCarpeta'
-import { useT } from '../../core/i18n/useT'
+import { localeActual, useT } from '../../core/i18n/useT'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { comprimirFoto, Foto } from './fotos'
 import { vivo } from '../../core/ui/estilos'
+import { textoMin } from '../../core/i18n/duracion'
 
 // Perezoso: el editor completo solo pesa cuando el usuario lo abre.
 const EditorPlantilla = lazy(() =>
@@ -811,9 +812,12 @@ function BloqueSesiones({
         <span className="texto-vivo text-lg font-black tabular-nums" style={vivo(color)}>
           {total}
         </span>
-        <span className="text-xs text-white/45">min{bloque.meta ? ` / ${bloque.meta}` : ''}</span>
+        <span className="text-xs text-white/45">
+          {t('ui.unidad.min', 'min')}
+          {bloque.meta ? ` / ${bloque.meta}` : ''}
+        </span>
       </div>
-      {bloque.meta != null && <BarraMeta valor={total} meta={bloque.meta} color={color} unidad="min" />}
+      {bloque.meta != null && <BarraMeta valor={total} meta={bloque.meta} color={color} unidad={t('ui.unidad.min', 'min')} />}
       {items.length === 0 && (
         <p className="text-xs text-white/40">
           {t('plantillaCustom.sesionVacio', 'Sin sesiones todavía.')}
@@ -823,7 +827,7 @@ function BloqueSesiones({
         {[...items].reverse().map((i) => (
           <li key={i.id} className="group flex items-center gap-2 rounded-lg px-1 py-0.5 hover:bg-white/5">
             <span className="texto-vivo shrink-0 text-sm font-semibold tabular-nums" style={vivo(color)}>
-              {i.valor} min
+              {textoMin(i.valor ?? 0)}
             </span>
             {i.texto && <span className="min-w-0 flex-1 truncate text-sm text-white/70">{i.texto}</span>}
             <span className="ms-auto shrink-0 text-[10px] text-white/35">{fechaCorta(i.creadoEn)}</span>
@@ -1011,7 +1015,7 @@ function BloqueGaleria({
 
 /** Fecha corta legible (local) desde un ISO. */
 function fechaCorta(iso: string): string {
-  return new Date(iso).toLocaleDateString()
+  return new Date(iso).toLocaleDateString(localeActual())
 }
 
 /** Suma días a una fecha `yyyy-mm-dd` local. */

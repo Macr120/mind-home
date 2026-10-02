@@ -269,7 +269,7 @@
   },
   {
     "ruta": "gratitudes.16.item1",
-    "texto": "जापान फंड में 5,400 रुपये और"
+    "texto": "जापान फंड में {monto:1040} और"
   },
   {
     "ruta": "gratitudes.16.item2",
@@ -297,7 +297,7 @@
   },
   {
     "ruta": "gratitudes.18.item3",
-    "texto": "1,080 रुपये में साइकिल ठीक हो गई"
+    "texto": "{monto:210} में साइकिल ठीक हो गई"
   },
   {
     "ruta": "gratitudes.19.item1",
@@ -721,7 +721,7 @@
   },
   {
     "ruta": "gratitudes.58.item1",
-    "texto": "Clair de Lune का पहला हिस्सा याद हो गया"
+    "texto": "«क्लेयर डी ल्यून» का पहला हिस्सा याद हो गया"
   },
   {
     "ruta": "gratitudes.58.item2",
@@ -785,7 +785,7 @@
   },
   {
     "ruta": "gratitudes.64.item1",
-    "texto": "Clair de Lune का दूसरा हिस्सा"
+    "texto": "«क्लेयर डी ल्यून» का दूसरा हिस्सा"
   },
   {
     "ruta": "gratitudes.64.item2",
@@ -917,7 +917,7 @@
   },
   {
     "ruta": "gratitudes.76.item2",
-    "texto": "Clair de Lune बार 40 तक ज़ुबानी"
+    "texto": "«क्लेयर डी ल्यून» 40वें ताल तक ज़ुबानी"
   },
   {
     "ruta": "gratitudes.76.item3",
@@ -949,7 +949,7 @@
   },
   {
     "ruta": "gratitudes.79.item1",
-    "texto": "पूरा Clair de Lune बज गया, ग़लतियों के साथ, पर पूरा"
+    "texto": "पूरा «क्लेयर डी ल्यून» बज गया, ग़लतियों के साथ, पर पूरा"
   },
   {
     "ruta": "gratitudes.79.item2",
@@ -1013,7 +1013,7 @@
   },
   {
     "ruta": "gratitudes.85.item1",
-    "texto": "परिवार के लिए पूरा Clair de Lune बज गया"
+    "texto": "परिवार के लिए पूरा «क्लेयर डी ल्यून» बज गया"
   },
   {
     "ruta": "gratitudes.85.item2",
@@ -1042,5 +1042,9 @@
   {
     "ruta": "gratitudes.87.item2",
     "texto": "छोटी-छोटी बातों से भरी नोटबुक, जो सच में हुईं"
+  },
+  {
+    "ruta": "gratitudes.87.item3",
+    "texto": "लाइका"
   }
 ]

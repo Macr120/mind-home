@@ -12,7 +12,7 @@ export default {
       "n": 1,
       "inicio": "Meksyk · lotnisko AICM",
       "destino": "Tokio · Asakusa",
-      "hospedaje": "Hostal Kuroneko Asakusa",
+      "hospedaje": "Hostel Kuroneko Asakusa",
       "actividades": "Czternaście godzin lotu na karku, plecak zostawiony w hostelu i spacer do niemal pustej świątyni Sensō-ji o jedenastej w nocy. Na kolację onigiri z konbini, zjedzone na schodach przy wejściu do hostelu.",
       "transporte": "Lot AICM–Narita z międzylądowaniem + Keisei Skyliner"
     },
@@ -20,7 +20,7 @@ export default {
       "n": 2,
       "inicio": "Tokio · Asakusa",
       "destino": "Tokio · Asakusa i Ueno",
-      "hospedaje": "Hostal Kuroneko Asakusa",
+      "hospedaje": "Hostel Kuroneko Asakusa",
       "actividades": "Powrót do świątyni o siódmej, gdy jeszcze zamiatano dziedziniec, i zgubienie się na targu Ameyoko w poszukiwaniu baterii do aparatu. Po południu dwie godziny pisania w parku Ueno, z jet lagiem na karku.",
       "transporte": "Pieszo + metro Ginza"
     },
@@ -28,7 +28,7 @@ export default {
       "n": 3,
       "inicio": "Tokio · Asakusa",
       "destino": "Tokio · Shibuya i Shimokitazawa",
-      "hospedaje": "Hostal Kuroneko Asakusa",
+      "hospedaje": "Hostel Kuroneko Asakusa",
       "actividades": "Kilka przejść przez skrzyżowanie Shibuya, tylko po to, żeby zobaczyć, jak to działa, a potem sklepy z używanymi płytami w Shimokitazawa. Na kolację ramen przy siedmioosobowym barze, zamówiony z automatu z guzikami.",
       "transporte": "JR Yamanote + Keiō Inokashira"
     },
@@ -36,7 +36,7 @@ export default {
       "n": 4,
       "inicio": "Tokio · Asakusa",
       "destino": "Tokio · Shinjuku i Golden Gai",
-      "hospedaje": "Hostal Kuroneko Asakusa",
+      "hospedaje": "Hostel Kuroneko Asakusa",
       "actividades": "Cały ranek w ogrodzie Shinjuku Gyoen, czytanie pod ogromnym drzewem, a wieczorem sześcioosobowy bar w Golden Gai. Ćwiczenie japońskiego przetrwania z barmanem i parą z Nagoi.",
       "transporte": "Metro Marunouchi + pieszo"
     },
@@ -44,7 +44,7 @@ export default {
       "n": 5,
       "inicio": "Tokio · Asakusa",
       "destino": "Tokio · Yanaka i Akihabara",
-      "hospedaje": "Hostal Kuroneko Asakusa",
+      "hospedaje": "Hostel Kuroneko Asakusa",
       "actividades": "Pranie w hostelu i spacer po cmentarzu Yanaka wśród kotów i kobiet podlewających groby. W Akihabara zakup używanego obiektywu 50 mm, z myślą o zimowych zdjęciach gwiazd.",
       "transporte": "JR Yamanote + metro Chiyoda"
     },
@@ -116,7 +116,7 @@ export default {
       "n": 14,
       "inicio": "Kioto · Gion",
       "destino": "Osaka · Namba",
-      "hospedaje": "Hostal Ebisu Namba",
+      "hospedaje": "Hostel Ebisu Namba",
       "actividades": "Wymeldowanie z machiya w południe i przyjazd do Osaki, do dzielnicy, która krzyczy w porównaniu z Kioto. Poparzone podniebienie od pierwszego takoyaki, i kolacja na stojąco przy barze, gdzie sąsiad nalał piwa bez pytania.",
       "transporte": "Pociąg pospieszny Hankyū"
     },
@@ -124,7 +124,7 @@ export default {
       "n": 15,
       "inicio": "Osaka · Namba",
       "destino": "Osaka · zamek i Shinsekai",
-      "hospedaje": "Hostal Ebisu Namba",
+      "hospedaje": "Hostel Ebisu Namba",
       "actividades": "Wczesna wizyta na zamku, bardziej dla parku niż dla samego zamku, i kushikatsu w Shinsekai z żelazną zasadą: nie maczać dwa razy w tym samym sosie. Na koniec karaoke z dwiema osobami z hostelu, śpiewanie piosenek z lat dziewięćdziesiątych.",
       "transporte": "Metro Midōsuji + Sakaisuji"
     },
@@ -148,7 +148,7 @@ export default {
       "n": 18,
       "inicio": "Hiroshima · Naka-ku",
       "destino": "Osaka · Nakazakichō",
-      "hospedaje": "Hotel cápsula Kita Umeda",
+      "hospedaje": "Hotel kapsułowy Kita Umeda",
       "actividades": "Powrót do Osaki i stare kawiarnie Nakazakichō, zakupy prezentów z kalkulatorem w telefonie cały czas otwartym. Pakowanie walizki na podłodze kapsułowego hotelu, i wciąż dwa pudełka herbaty za dużo.",
       "transporte": "Shinkansen Sakura"
     },
@@ -156,7 +156,7 @@ export default {
       "n": 19,
       "inicio": "Osaka · Nakazakichō",
       "destino": "Tokio · Nakameguro",
-      "hospedaje": "Hostal Hoshimachi Nakameguro",
+      "hospedaje": "Hostel Hoshimachi Nakameguro",
       "actividades": "Shinkansen z dworcowym bentō, i Fudżi przesuwający się za prawym oknem. W Nakameguro spacer wzdłuż kanału, i pozostanie do zamknięcia w księgarni z niewygodnymi krzesłami.",
       "transporte": "Shinkansen Nozomi + Tōkyū Tōyoko"
     },
@@ -164,7 +164,7 @@ export default {
       "n": 20,
       "inicio": "Tokio · Nakameguro",
       "destino": "Tokio · Shimokitazawa i Shibuya",
-      "hospedaje": "Hostal Hoshimachi Nakameguro",
+      "hospedaje": "Hostel Hoshimachi Nakameguro",
       "actividades": "Ostatni pełny dzień: pocztówki wysłane, prezent dla siostry kupiony o siódmej wieczorem, i przefiltrowana kawa nad listą tego, co warto zabrać z tych trzech tygodni. Powrót do Shibuyi wieczorem, na pożegnanie ze skrzyżowaniem.",
       "transporte": "Keiō Inokashira + JR Yamanote"
     },
@@ -230,7 +230,7 @@ export default {
       "n": 5,
       "inicio": "Seul",
       "destino": "Busan · Haeundae",
-      "hospedaje": "Hostal Dalbit Haeundae",
+      "hospedaje": "Hostel Dalbit Haeundae",
       "actividades": "Wczesny KTX z puszką kawy i obserwowanie zmieniającego się krajobrazu przez dwie i pół godziny. Przyjazd, zostawienie wszystkiego i zanurzenie stóp w morzu, nawet jeśli woda będzie zimna.",
       "transporte": "KTX Seul–Busan + metro"
     },
@@ -238,7 +238,7 @@ export default {
       "n": 6,
       "inicio": "Busan · Haeundae",
       "destino": "Busan · Gamcheon i Jagalchi",
-      "hospedaje": "Hostal Dalbit Haeundae",
+      "hospedaje": "Hostel Dalbit Haeundae",
       "actividades": "Wejście do Gamcheon w połowie przedpołudnia i powolne schodzenie kolorowymi schodami, z przystankami, gdzie akurat zechce się stanąć. Potem targ rybny Jagalchi i kolacja przy barze z tym, co najświeższe, wskazane palcem.",
       "transporte": "Autobus lokalny + metro, linia 1"
     },
@@ -246,7 +246,7 @@ export default {
       "n": 7,
       "inicio": "Busan · Haeundae",
       "destino": "Busan · Haedong Yonggungsa i Songjeong",
-      "hospedaje": "Hostal Dalbit Haeundae",
+      "hospedaje": "Hostel Dalbit Haeundae",
       "actividades": "Wyjście do świątyni na klifie o pierwszej godzinie, gdy morze wciąż słychać ponad ludźmi. Zakończenie na plaży Songjeong, z kawą na świeżym powietrzu i notesem, podsumowanie podróży.",
       "transporte": "Autobus 181 + pociąg wybrzeżny"
     },

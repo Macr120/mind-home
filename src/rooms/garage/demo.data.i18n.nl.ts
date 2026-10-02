@@ -8,9 +8,9 @@
  */
 export default {
   "vehiculos": {
-    "biciNombre": "La Grulla",
+    "biciNombre": "De Kraanvogel",
     "biciNota": "Tweedehands stalen fiets, grijs en een beetje lawaaierig, waarmee ik elke dag naar diensten, het lab en trainingen ga. In een heel jaar heeft hij me nog geen enkele keer in de steek gelaten.",
-    "autoNombre": "El Mastodonte",
+    "autoNombre": "De Mastodont",
     "autoNota": "Sedan geërfd van mijn oom, ouder dan ikzelf, met een dashboard dat door de zon is verbleekt. Ik start hem hooguit één keer per twee weken en hij laat me elke verwaarlozing met rente terugbetalen."
   },
   "servicios": [
@@ -130,19 +130,19 @@ export default {
   "talleres": [
     {
       "clave": "taller",
-      "nombre": "Taller Mecánico Rivas",
+      "nombre": "Autogarage Rivas",
       "direccion": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez",
       "notas": "Don Rivas legt me altijd uit wat echt dringend is en wat kan wachten, en heeft nooit een rekening opgeblazen; hij is de enige die ik met deze auto vertrouw."
     },
     {
       "clave": "aseguradora",
-      "nombre": "Seguros Meridiano - verzekeringsagent Nadia Ortega",
+      "nombre": "Meridiano Verzekeringen - adviseur Nadia Ortega",
       "direccion": "Av. Insurgentes Sur 1234, 3e verdieping, Col. Del Valle",
       "notas": "Nadia reageert op WhatsApp, ook op zondag, en ze regelde maandelijkse betalingen toen ik overstapte naar volledige dekking."
     },
     {
       "clave": "verificentro",
-      "nombre": "Verificentro 09-118 Iztaccíhuatl",
+      "nombre": "Emissiekeuring 09-118 Iztaccíhuatl",
       "direccion": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez",
       "notas": "Afspraak om zeven uur 's ochtends en binnen veertig minuten ben ik klaar; die van Coyoacán kostte me een halve ochtend in de rij."
     },
@@ -154,7 +154,7 @@ export default {
     },
     {
       "clave": "grua",
-      "nombre": "Grúas Tepeyac 24 horas",
+      "nombre": "Sleepdienst Tepeyac 24 uur",
       "direccion": "Vestiging: Eje Central Lázaro Cárdenas 1105, Col. Álamos",
       "notas": "Dat is het nummer dat ik belde op de avond dat ik gestrand raakte; ze kwamen binnen anderhalf uur en probeerden me niet op te lichten met de prijs."
     }

@@ -329,7 +329,7 @@ export function campoDe(id: string): { id: string; titulo: string; icon: string 
   const vivo = instantanea.porId.get(id)
   if (vivo?.nivel === 'campo') return { id: vivo.id, titulo: vivo.titulo, icon: vivo.icono ?? '📚' }
   const p = PILARES.find((x) => x.id === id)
-  return p ? { id: p.id, titulo: p.titulo, icon: p.icon } : undefined
+  return p ? { id: p.id, titulo: tGlobal(`biblioteca.nodo.${p.id}`, p.titulo), icon: p.icon } : undefined
 }
 
 // ----- Escrituras -----

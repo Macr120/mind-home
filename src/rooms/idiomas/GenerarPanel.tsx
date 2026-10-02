@@ -3,10 +3,10 @@ import type { PerfilIdioma } from '../../core/data/db'
 import { tarjetasIdiomaRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
-import { COLOR } from './constantes'
+import { COLOR, nombreIdioma } from './constantes'
 import { TEMARIO } from './temario'
 import { OpcionesTemas } from './OpcionesTemas'
-import { useTemario } from './temarioVivo'
+import { tituloNodo, useTemario } from './temarioVivo'
 import { generarTarjetasTema, type TarjetaPropuesta } from './tutor'
 import { hoyISO } from './stats'
 import { Creditos } from '../../core/ui/Creditos'
@@ -38,7 +38,7 @@ export function GenerarPanel({ perfil, temaFijo, onCerrar }: {
     temaFijo ??
     (() => {
       const n = tx.porId.get(temaId)
-      return n ? { id: n.id, titulo: n.titulo, nivel: n.nivel, area: n.areaId } : null
+      return n ? { id: n.id, titulo: tituloNodo(n, t), nivel: n.nivel, area: n.areaId } : null
     })()
 
   const generar = async () => {
@@ -107,7 +107,7 @@ export function GenerarPanel({ perfil, temaFijo, onCerrar }: {
                 {t('idiomas.gen.temaFijo', 'Tarjetas de «{tema}» (nivel {nivel}) en {idioma}.', {
                   tema: temaFijo.titulo,
                   nivel: temaFijo.nivel,
-                  idioma: perfil.nombre,
+                  idioma: nombreIdioma(perfil),
                 })}
               </p>
             ) : (

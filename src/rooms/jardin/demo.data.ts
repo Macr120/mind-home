@@ -225,7 +225,7 @@ export const DEMO_JARDIN = {
       },
       {
         "dia": -250,
-        "item1": "Sesenta euros más al fondo de Japón",
+        "item1": "{monto:1040} más al fondo de Japón",
         "item2": "Ya digo sumimasen sin trabarme",
         "item3": "Cata gratis de un café de Etiopía"
       },
@@ -239,7 +239,7 @@ export const DEMO_JARDIN = {
         "dia": -243,
         "item1": "Nueve kilómetros y me sobró aire al final",
         "item2": "Cambié el refresco por agua con gas y sigo viv@",
-        "item3": "La bici arreglada por doce euros"
+        "item3": "La bici arreglada por {monto:210}"
       },
       {
         "dia": -239,
@@ -879,7 +879,7 @@ export const DEMO_JARDIN = {
       },
       {
         "dia": -250,
-        "item1": "Another sixty into the Japan fund",
+        "item1": "Another {monto:1040} into the Japan fund",
         "item2": "I can say sumimasen without stumbling",
         "item3": "Free tasting of an Ethiopian coffee"
       },
@@ -893,7 +893,7 @@ export const DEMO_JARDIN = {
         "dia": -243,
         "item1": "Nine kilometres with air to spare at the end",
         "item2": "Swapped soda for sparkling water and I'm still alive",
-        "item3": "Bike fixed for twelve euros"
+        "item3": "Bike fixed for {monto:210}"
       },
       {
         "dia": -239,

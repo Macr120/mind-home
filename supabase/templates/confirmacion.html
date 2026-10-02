@@ -1,0 +1,164 @@
+<!-- Generado: una rama por idioma según {{ .Data.idioma }} (user_metadata; ver sesionStore.ts). Sin idioma, español.
+     Confirm signup: se pega en Supabase → Authentication → Emails, o lo carga supabase/config.toml en local. -->
+{{ $idioma := or .Data.idioma "es" }}
+{{ if eq $idioma "en" }}
+<div dir="ltr" lang="en" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">Confirm your email</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">Tap the button to confirm your email and step into your MindHaOS home.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">Confirm email</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">If the button doesn't work, paste this link into your browser:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">If this wasn't you, ignore this email: nothing has changed in your account.</p>
+</div>
+{{ else if eq $idioma "pt" }}
+<div dir="ltr" lang="pt" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">Confirme seu e-mail</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">Toque no botão para confirmar seu e-mail e entrar na sua casa no MindHaOS.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">Confirmar e-mail</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">Se o botão não funcionar, copie este link no seu navegador:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">Se não foi você, ignore este e-mail: sua conta continua igual.</p>
+</div>
+{{ else if eq $idioma "fr" }}
+<div dir="ltr" lang="fr" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">Confirme ton adresse e-mail</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">Touche le bouton pour confirmer ton adresse et entrer dans ta maison MindHaOS.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">Confirmer l'adresse</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">Si le bouton ne fonctionne pas, colle ce lien dans ton navigateur :</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">Si ce n'était pas toi, ignore cet e-mail : ton compte n'a pas changé.</p>
+</div>
+{{ else if eq $idioma "de" }}
+<div dir="ltr" lang="de" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">Bestätige deine E-Mail-Adresse</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">Tippe auf die Schaltfläche, um deine E-Mail-Adresse zu bestätigen und dein Zuhause in MindHaOS zu betreten.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">E-Mail bestätigen</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">Falls die Schaltfläche nicht funktioniert, kopiere diesen Link in deinen Browser:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">Warst du das nicht? Dann ignoriere diese E-Mail: An deinem Konto hat sich nichts geändert.</p>
+</div>
+{{ else if eq $idioma "it" }}
+<div dir="ltr" lang="it" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">Conferma la tua email</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">Tocca il pulsante per confermare la tua email ed entrare nella tua casa su MindHaOS.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">Conferma email</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">Se il pulsante non funziona, copia questo link nel browser:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">Se non sei stato tu, ignora questa email: il tuo account non è cambiato.</p>
+</div>
+{{ else if eq $idioma "ja" }}
+<div dir="ltr" lang="ja" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">メールアドレスの確認</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">ボタンをタップしてメールアドレスを確認し、MindHaOS のあなたの家に入りましょう。</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">メールアドレスを確認</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">ボタンが使えない場合は、このリンクをブラウザに貼り付けてください：</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">心当たりがない場合は、このメールを無視してください。アカウントは変更されていません。</p>
+</div>
+{{ else if eq $idioma "zh" }}
+<div dir="ltr" lang="zh" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">确认你的邮箱</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">点按下面的按钮确认邮箱，进入你在 MindHaOS 的家。</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">确认邮箱</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">如果按钮无法使用，请将此链接复制到浏览器中：</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">如果这不是你本人的操作，请忽略此邮件，你的账户没有任何变化。</p>
+</div>
+{{ else if eq $idioma "ko" }}
+<div dir="ltr" lang="ko" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">이메일 주소 확인</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">버튼을 눌러 이메일 주소를 확인하고 MindHaOS의 내 집으로 들어가세요.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">이메일 확인</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">버튼이 작동하지 않으면 이 링크를 브라우저에 붙여 넣으세요:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">본인이 요청하지 않았다면 이 이메일을 무시하세요. 계정은 그대로입니다.</p>
+</div>
+{{ else if eq $idioma "ru" }}
+<div dir="ltr" lang="ru" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">Подтвердите адрес почты</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">Нажмите кнопку, чтобы подтвердить адрес и войти в свой дом в MindHaOS.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">Подтвердить адрес</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">Если кнопка не работает, скопируйте эту ссылку в браузер:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">Если это были не вы, просто проигнорируйте письмо: с аккаунтом ничего не произошло.</p>
+</div>
+{{ else if eq $idioma "hi" }}
+<div dir="ltr" lang="hi" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">अपना ईमेल पुष्टि करें</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">अपना ईमेल पुष्टि करने और MindHaOS में अपने घर में आने के लिए बटन दबाएँ।</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">ईमेल पुष्टि करें</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">अगर बटन काम न करे, तो यह लिंक अपने ब्राउज़र में चिपकाएँ:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">अगर यह आपने नहीं किया, तो इस ईमेल को अनदेखा करें: आपके खाते में कुछ नहीं बदला है।</p>
+</div>
+{{ else if eq $idioma "tr" }}
+<div dir="ltr" lang="tr" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">E-posta adresini doğrula</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">E-posta adresini doğrulamak ve MindHaOS'taki evine girmek için düğmeye dokun.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">E-postayı doğrula</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">Düğme çalışmazsa bu bağlantıyı tarayıcına yapıştır:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">Bu isteği sen yapmadıysan bu e-postayı yok say: hesabında hiçbir şey değişmedi.</p>
+</div>
+{{ else if eq $idioma "id" }}
+<div dir="ltr" lang="id" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">Konfirmasi email kamu</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">Ketuk tombol untuk mengonfirmasi email dan masuk ke rumahmu di MindHaOS.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">Konfirmasi email</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">Jika tombol tidak berfungsi, tempel tautan ini di browser:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">Jika ini bukan kamu, abaikan email ini: akunmu tidak berubah.</p>
+</div>
+{{ else if eq $idioma "pl" }}
+<div dir="ltr" lang="pl" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">Potwierdź swój e-mail</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">Dotknij przycisku, aby potwierdzić adres e-mail i wejść do swojego domu w MindHaOS.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">Potwierdź e-mail</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">Jeśli przycisk nie działa, wklej ten link do przeglądarki:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">Jeśli to nie Ty, zignoruj tę wiadomość: Twoje konto się nie zmieniło.</p>
+</div>
+{{ else if eq $idioma "nl" }}
+<div dir="ltr" lang="nl" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">Bevestig je e-mailadres</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">Tik op de knop om je e-mailadres te bevestigen en je huis in MindHaOS binnen te gaan.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">E-mailadres bevestigen</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">Werkt de knop niet? Plak deze link dan in je browser:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">Was jij dit niet? Negeer dan deze e-mail: er is niets aan je account veranderd.</p>
+</div>
+{{ else if eq $idioma "ar" }}
+<div dir="rtl" lang="ar" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">أكّد بريدك الإلكتروني</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">اضغط على الزر لتأكيد بريدك الإلكتروني والدخول إلى بيتك في MindHaOS.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">تأكيد البريد</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">إذا لم يعمل الزر، فانسخ هذا الرابط والصقه في المتصفح:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">إذا لم تكن أنت من طلب ذلك، فتجاهل هذه الرسالة: لم يتغيّر شيء في حسابك.</p>
+</div>
+{{ else }}
+<div dir="ltr" lang="es" style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;color:#1f2937">
+  <p style="font-size:20px;font-weight:700;margin:0 0 24px">MindHaOS</p>
+  <h1 style="font-size:22px;margin:0 0 12px">Confirma tu correo</h1>
+  <p style="font-size:15px;line-height:1.5;margin:0 0 24px">Toca el botón para confirmar tu correo y entrar a tu casa en MindHaOS.</p>
+  <p style="margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#7c3aed;color:#ffffff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:10px">Confirmar correo</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0 0 8px">Si el botón no funciona, copia este enlace en tu navegador:</p>
+  <p style="font-size:13px;word-break:break-all;margin:0 0 24px"><a href="{{ .ConfirmationURL }}" style="color:#7c3aed">{{ .ConfirmationURL }}</a></p>
+  <p style="font-size:13px;line-height:1.5;color:#6b7280;margin:0">Si no fuiste tú, ignora este correo: tu cuenta sigue igual.</p>
+</div>
+{{ end }}

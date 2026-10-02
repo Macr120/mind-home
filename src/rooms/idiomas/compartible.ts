@@ -5,6 +5,7 @@ import { idiomasRepo, tarjetasIdiomaRepo } from '../../core/data/repository'
 import { claveLS } from '../../core/edicion'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { tGlobal } from '../../core/i18n/useT'
+import { nombreIdioma } from './constantes'
 import { cargarTemario, crearNodo, tituloTema } from './temarioVivo'
 
 /**
@@ -57,7 +58,7 @@ export async function listarMazos(): Promise<ItemCompartible[]> {
     const idioma = idiomas.find((i) => i.id === g.idiomaId)
     if (!idioma) continue
     const titulo = tituloTema(await cargarTemario(g.idiomaId), g.temaId) ?? g.temaId
-    salida.push({ clave: `mazo:${g.idiomaId}:${g.temaId}`, nombre: `${idioma.bandera} ${titulo}`, detalle: detalleMazo(g.n, idioma.nombre) })
+    salida.push({ clave: `mazo:${g.idiomaId}:${g.temaId}`, nombre: `${idioma.bandera} ${titulo}`, detalle: detalleMazo(g.n, nombreIdioma(idioma)) })
   }
   return salida
 }
@@ -89,7 +90,7 @@ export async function empaquetarMazo(idiomaId: number, temaId: string): Promise<
     tipo: 'mazo',
     version: 1,
     nombre: titulo,
-    resumen: detalleMazo(tarjetas.length, idioma.nombre),
+    resumen: detalleMazo(tarjetas.length, nombreIdioma(idioma)),
     emoji: idioma.bandera,
     datos,
     ...(Object.keys(blobs).length ? { blobs } : {}),

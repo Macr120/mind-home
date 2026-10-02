@@ -19,7 +19,7 @@ Dein Leben, in einem 3D-Haus: Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr
 
 gewohnheiten,ziele,planer,tagebuch,finanzen,ernährung,training,schlaf,lernen,ki,assistent
 
-## Descripción (3687/4000)
+## Descripción (3782/4000)
 
 Ordne deine Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr in einem isometrischen 3D-Haus, in dem jeder Raum eine App ist.
 
@@ -57,3 +57,5 @@ DIE APP
 • Nach dem Monat behältst du die ganze App und deine Daten; die KI-Credits sind optional
 
 Dasselbe Dopamin. Diesmal für dein echtes Leben.
+
+Nutzungsbedingungen (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/

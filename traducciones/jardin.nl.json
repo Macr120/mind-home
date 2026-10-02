@@ -269,7 +269,7 @@
   },
   {
     "ruta": "gratitudes.16.item1",
-    "texto": "Nog eens zestig euro in de Japanspaarpot"
+    "texto": "Nog eens {monto:1040} in de Japanspaarpot"
   },
   {
     "ruta": "gratitudes.16.item2",
@@ -297,7 +297,7 @@
   },
   {
     "ruta": "gratitudes.18.item3",
-    "texto": "De fiets gerepareerd voor twaalf euro"
+    "texto": "De fiets gerepareerd voor {monto:210}"
   },
   {
     "ruta": "gratitudes.19.item1",

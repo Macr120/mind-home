@@ -1,4 +1,5 @@
 import { Component, type ErrorInfo, type ReactNode } from 'react'
+import { tGlobal } from '../i18n/useT'
 
 interface Props {
   children: ReactNode
@@ -38,7 +39,7 @@ export class ErrorBoundary extends Component<Props, State> {
       return (
         <div className="rounded-xl border border-red-500/40 bg-red-500/10 p-6 text-center">
           <p className="text-lg font-bold text-red-400">
-            {this.props.titulo ?? 'Algo falló al cargar'}
+            {this.props.titulo ?? tGlobal('ui.algoFallo', 'Algo falló al cargar')}
           </p>
           <p className="mt-2 text-sm text-white/60">{this.state.error.message}</p>
           <button
@@ -46,7 +47,7 @@ export class ErrorBoundary extends Component<Props, State> {
             onClick={this.reintentar}
             className="mt-4 rounded-lg bg-white/10 px-4 py-2 text-sm font-semibold hover:bg-white/20"
           >
-            {this.props.textoReintentar ?? 'Reintentar'}
+            {this.props.textoReintentar ?? tGlobal('ui.reintentar', 'Reintentar')}
           </button>
         </div>
       )

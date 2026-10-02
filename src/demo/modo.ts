@@ -50,7 +50,17 @@ import { idiomaActual } from '../core/i18n/useT'
 // y el rack del gimnasio pasa al taller.
 // v39: las pantallas (TV y monitores) traen ejemplos de imagen y GIF animado
 // (`pantallasDemo.ts`). Sin subirla, la demo cacheada se repone sin ellos.
-const DEMO_VERSION = 39
+// v40: Pep@ viste los colores de la app: playera morada y pantalón rojo.
+// v41: la casa se restaura traducida (`localizarSnapshot`) y los builders sacan
+// sus rótulos de `textosDemo.ts`: sin subirla, la demo cacheada sigue en español.
+// v42: la construcción espera al diccionario (el avatar se grababa «Pep@» si el
+// chunk del idioma llegaba tarde) y se traducen contactos, obras, talleres,
+// Laika y los animales.
+// v43: los importes del año (escritos en pesos) se guardan en la moneda de la demo
+// (`montoDemo`): la del idioma y la región del dispositivo.
+// v44: las cifras del diario y de las gratitudes van como `{monto:N}` y salen en
+// esa misma moneda (`conMontos`); antes decían «euros» en todos los idiomas.
+const DEMO_VERSION = 44
 const LS_VERSION = 'mh.demo.version'
 const LS_INTENT = 'mh.demo.intent'
 

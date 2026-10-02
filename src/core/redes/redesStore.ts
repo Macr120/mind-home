@@ -39,7 +39,8 @@ interface RedesState {
 const VIGENCIA_PENDIENTE_MS = 10 * 60_000
 let ultimoRefresco = 0
 
-const mensajeDe = (e: unknown) => (e instanceof Error ? e.message : String(e))
+/** Texto de un error; la app pone el traducido al arrancar (ver `arrancarRedes`). */
+let mensajeDe = (e: unknown): string => (e instanceof Error ? e.message : String(e))
 
 export const useRedes = create<RedesState>((set, get) => ({
   cuentas: [],
@@ -144,7 +145,8 @@ export const useRedes = create<RedesState>((set, get) => ({
  * `?redes=` en la web, y el refresco al volver a primer plano mientras hay una
  * conexión pendiente (el deep link lo reparte `escucharDeepLinkAuth`).
  */
-export function arrancarRedes(): void {
+export function arrancarRedes(traducirError?: (e: unknown) => string): void {
+  if (traducirError) mensajeDe = traducirError
   if (typeof window === 'undefined') return
   void (async () => {
     const { recibirMensajeRedes, recibirQueryRedes } = await import('./retorno')

@@ -2,7 +2,7 @@ import { useDeferredValue, useEffect, useMemo, useRef, useState } from 'react'
 import { VACIO, conversacionesBiblioRepo, entradasBiblioRepo } from '../../core/data/repository'
 import type { EntradaBiblio } from '../../core/data/db'
 import { iaActiva, type MensajeIA } from '../../core/chat/ia'
-import { useT } from '../../core/i18n/useT'
+import { localeActual, useT } from '../../core/i18n/useT'
 import { confirmar, pedirTexto } from '../../core/state/confirmarStore'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { PILAR_GENERAL, getPilar } from './constantes'
@@ -716,7 +716,7 @@ export function EnciclopediaTab({
               <span />
             )}
             <span className="text-[10px] text-white/30">
-              {new Date(entrada.actualizadoEn).toLocaleDateString(undefined, {
+              {new Date(entrada.actualizadoEn).toLocaleDateString(localeActual(), {
                 day: 'numeric',
                 month: 'short',
                 year: 'numeric',

@@ -9,6 +9,7 @@ import { abrirDibujoCompartido, type DibujoCompartido } from '../../core/espacio
 import { BotonCompartir } from '../../core/espacios/ui/BotonCompartir'
 import { ChipMiembros } from '../../core/espacios/ui/ChipMiembros'
 import { tGlobal, useT } from '../../core/i18n/useT'
+import { mensajeErrorIA } from '../../core/cuenta/api'
 import { generarImagen, imagenIaActiva, type AspectoImagen } from '../../core/imagenIA'
 import { useAjustes } from '../../core/state/ajustesStore'
 import { confirmar, pedirTexto } from '../../core/state/confirmarStore'
@@ -1104,7 +1105,7 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
         }
       }
     } catch (e) {
-      setErrorIA(e instanceof Error ? e.message : String(e))
+      setErrorIA(mensajeErrorIA(e, t))
     } finally {
       setGenerando(false)
     }
@@ -1114,7 +1115,7 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
     const lienzo = lienzoRef.current
     if (!lienzo || !dibujo) return
     await guardarRef.current()
-    void descargarArchivo(await lienzo.aBlob(), `${dibujo.nombre || 'dibujo'}.png`)
+    void descargarArchivo(await lienzo.aBlob(), `${dibujo.nombre || tGlobal('archivo.nombre.dibujo', 'dibujo')}.png`)
   }
 
   // ─── Barra de herramientas ───────────────────────────────────────────────

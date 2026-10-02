@@ -2,7 +2,8 @@ import { useHuerto, type HerramientaHuerto } from '../state/huertoStore'
 import { ESPECIES } from '../house/cultivos'
 import { VACIO, cestaRepo } from '../data/repository'
 import type { EspecieCultivo } from '../data/db'
-import { useT } from '../i18n/useT'
+import { tGlobal, useT } from '../i18n/useT'
+import { textoMin } from '../i18n/duracion'
 import { Icono } from './iconos/Icono'
 import type { NombreIcono } from './iconos/catalogo'
 import { MarcoEditorInfra } from './MarcoEditorInfra'
@@ -18,9 +19,9 @@ const btn =
 
 /** Duración legible de una especie ("30 min", "2 h", "1 d"). */
 function duracion(min: number): string {
-  if (min < 60) return `${min} min`
-  if (min < 1440) return `${Math.round(min / 60)} h`
-  return `${Math.round(min / 1440)} d`
+  if (min < 60) return textoMin(min)
+  if (min < 1440) return tGlobal('ui.dur.h', '{n} h', { n: Math.round(min / 60) })
+  return tGlobal('ui.dur.d', '{n} d', { n: Math.round(min / 1440) })
 }
 
 /**

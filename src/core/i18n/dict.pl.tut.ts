@@ -359,7 +359,7 @@ export const PL_TUT: Dict = {
     'Nagłówek pokazuje pokój i otwartą aplikację. Jeśli pokój ma kilka aplikacji, strzałka ‹ wraca do ich listy.',
   'tut.app-generica.2.titulo': 'Misje',
   'tut.app-generica.2.texto':
-    'Przycisk Misje otwiera dzisiejszą listę tej aplikacji: twoje dzienne cele, to, co zaplanowane, i to, czego wymagają twoje cele. Każdy krok skreśla się sam, gdy tylko coś zapiszesz, a XP za dzień daje dopiero wykonanie całej listy.',
+    'Przycisk Misje otwiera dzisiejszą listę tej aplikacji: twoje dzienne cele, to, co zaplanowane, i to, czego wymagają twoje cele. Każdy krok skreśla się sam, gdy tylko coś zapiszesz, a PD za dzień daje dopiero wykonanie całej listy.',
   'tut.app-generica.3.titulo': 'Narzędzia',
   'tut.app-generica.3.texto':
     'Ten szablon jest zbudowany z narzędzi (notatki, listy, liczniki, nawyki…). Możesz je zmienić w Menu › Szablony › Edytuj.',
@@ -411,7 +411,7 @@ export const PL_TUT: Dict = {
   'tut.ejemplos.2.texto':
     'Na dole sekcji „Usuń gotowy przykład” usuwa go w całości po potwierdzeniu przyciskiem „Tak, usuń gotowy przykład”, a twoich danych nic nie rusza. Gdy nic z niego nie zostanie, w tym samym miejscu pojawia się „Przywróć gotowy przykład”.',
   'tut.ejemplos.3.texto':
-    'Przykład nie dodaje XP ani serii, nie wywołuje przypomnień, nie trafia do twojego Wrapped, a AI go nie uwzględnia. W MindHaOS demo tego paska nie ma: cały rok Alexa już jest przykładem.',
+    'Przykład nie dodaje PD ani serii, nie wywołuje przypomnień, nie trafia do twojego Wrapped, a AI go nie uwzględnia. W MindHaOS demo tego paska nie ma: cały rok Alexa już jest przykładem.',
   'tut.ejemplos.1.titulo': 'Pojawia się sam',
   'tut.ejemplos.2.titulo': 'Usuwanie i przywracanie',
   'tut.ejemplos.3.titulo': 'Nie liczy się jako twój',
@@ -434,7 +434,7 @@ export const PL_TUT: Dict = {
     'Ląduje w zwiniętej sekcji „Zrobione”: widok wpisu, który zadziałał, to część nagrody, a stamtąd można go cofnąć, jeśli wkradł się jeden za dużo.',
   'tut.hoy.6b.titulo': 'Punktuje dopiero cała lista',
   'tut.hoy.6b.texto':
-    'Wykonanie wszystkich misji dnia odpala świętowanie i dolicza XP aplikacji: poziom rośnie za zaliczone listy, nie za pojedyncze wpisy.',
+    'Wykonanie wszystkich misji dnia odpala świętowanie i dolicza PD aplikacji: poziom rośnie za zaliczone listy, nie za pojedyncze wpisy.',
   'tut.hoy.7.texto':
     'A jeśli czegoś brakuje, «Dodaj misję» podpowie to, co zwykle proponuje ta aplikacja, a «Nowa lista» stworzy twoją własną — listę, która powtarza się każdego dnia.',
   'tut.hoy.8.titulo': 'Czerwone kule',
@@ -462,7 +462,7 @@ export const PL_TUT: Dict = {
     'Wrapped układa podsumowanie twojego tygodnia, miesiąca albo roku w slajdy — ma własny samouczek, a w roku takim jak rok Alexa danych jest aż nadto.',
   'tut.progreso.7.titulo': 'Radar według pokoi',
   'tut.progreso.7.texto':
-    'Każdy wierzchołek to jeden pokój w MindHaOS, a jego wielkość to suma XP z przypisanych mu aplikacji. Pokój bez aktywności widać od razu: jego wierzchołek zapada się ku środkowi.',
+    'Każdy wierzchołek to jeden pokój w MindHaOS, a jego wielkość to suma PD z przypisanych mu aplikacji. Pokój bez aktywności widać od razu: jego wierzchołek zapada się ku środkowi.',
   'tut.wrapped.1.texto':
     'Jak w relacjach: dotknij prawej strony, żeby przejść dalej, lewej, żeby się cofnąć, a przytrzymaj, żeby zatrzymać się na slajdzie.',
   'tut.wrapped.2.titulo': 'Tydzień, miesiąc albo rok',
@@ -886,7 +886,7 @@ export const PL_TUT: Dict = {
     'Twoja książka wzorów, złożona nad kalkulatorem. Matematyka, Fizyka i Chemia są już gotowe, w folderach, które można zagnieżdżać. Każdy wzór otwiera się, żeby uzupełnić jego zmienne, i można go edytować albo usunąć.',
   'tut.app-computo--esencial.5.titulo': 'Arkusze kalkulacyjne',
   'tut.app-computo--esencial.5.texto':
-    'Arkusze z odniesieniami do komórek i formułami po polsku, plus wykresy nad zakresem, który zaznaczysz. Eksportują się do Excela z zachowaniem formuł albo do PDF.',
+    'Arkusze z odniesieniami do komórek i formułami po hiszpańsku, plus wykresy nad zakresem, który zaznaczysz. Eksportują się do Excela z zachowaniem formuł albo do PDF.',
   'tut.app-descanso--esencial.1.titulo': 'Odpoczynek',
   'tut.app-descanso--esencial.1.texto':
     'Ta aplikacja śledzi twój sen na jednym ekranie: ocenę ostatniej nocy, twój harmonogram z przypomnieniami, dzienny rejestr i pełną historię.',
@@ -1303,7 +1303,7 @@ export const PL_TUT: Dict = {
     'Formularz idzie krok po kroku: kwota, zmienny czy stały, kategoria (wpisujesz własną, a on podpowiada znane), jak często się powtarza i notatka.',
   'tut.app-despacho--captura.3.titulo': 'Rok transakcji',
   'tut.app-despacho--captura.3.texto':
-    'Setki wydatków poukładanych w folderach roku i miesiąca. Poszukaj 7. miesiąca: to tam awaria, która jednym ciosem zabrała prawie dziesięć tysięcy pesos.',
+    'Setki wydatków poukładanych w folderach roku i miesiąca. Poszukaj 7. miesiąca: to tam awaria, która jednym ciosem opróżniła konto.',
   'tut.app-despacho--captura.4.titulo': 'Skąd biorą się pieniądze',
   'tut.app-despacho--captura.4.texto':
     'Dwie wypłaty co dwa tygodnie z kawiarni, korepetycje z fizyki, które ruszyły wraz z decyzją o podróży, i cotygodniowe napiwki — nigdy takie same.',
@@ -1358,7 +1358,7 @@ export const PL_TUT: Dict = {
     'Prawdziwy środek transportu Alexa: łańcuch, dętki, hamulce — każde w swoim wierszu, w tym samym archiwum folderów roku i miesiąca, którego używają inne aplikacje. Zobacz, jak serwisy zbijają się w ostatnich miesiącach: to treningi do maratonu zbierają swoje żniwo.',
   'tut.app-garage--vehiculos.4.titulo': 'I odziedziczony samochód',
   'tut.app-garage--vehiculos.4.texto':
-    'Tu jest awaria z 7. miesiąca: samochód stanął w drodze, przyjechała pomoc drogowa i poszło prawie dziesięć tysięcy pesos, których nie było. Każdy serwis zachowuje swój koszt, przebieg i warsztat, w którym się odbył.',
+    'Tu jest awaria z 7. miesiąca: samochód stanął w drodze, przyjechała pomoc drogowa i przyszedł rachunek, którego nie było z czego zapłacić. Każdy serwis zachowuje swój koszt, przebieg i warsztat, w którym się odbył.',
   'tut.app-garage--vehiculos.5.titulo': 'Karta pojazdu',
   'tut.app-garage--vehiculos.5.texto':
     'Marka, model, rok, tablice i przebieg na dziś. Gdy tablice są wpisane, garaż odblokowuje formalności, które dotyczą tylko samochodu.',

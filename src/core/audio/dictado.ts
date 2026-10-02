@@ -81,7 +81,7 @@ async function sttGemini(blob: Blob, mime: string, key: string, idioma?: string)
     .map((p) => p.text ?? '')
     .join('')
     .trim()
-  if (!texto) throw new Error('Gemini no devolvió texto')
+  if (!texto) throw new Error(tGlobal('chat.voz.sinTexto', '{proveedor} no devolvió texto', { proveedor: 'Gemini' }))
   return texto
 }
 
@@ -117,7 +117,7 @@ export async function transcribir(blob: Blob, idioma?: string, duracionSeg?: num
   })
   if (!res.ok) throw new Error(`OpenAI ${res.status}: ${(await res.text()).slice(0, 200)}`)
   const data = (await res.json()) as { text?: string }
-  if (typeof data.text !== 'string') throw new Error('OpenAI no devolvió texto')
+  if (typeof data.text !== 'string') throw new Error(tGlobal('chat.voz.sinTexto', '{proveedor} no devolvió texto', { proveedor: 'OpenAI' }))
   if (duracionSeg) useGastoByok.getState().sumar('voz', costoVoz(duracionSeg))
   return data.text
 }

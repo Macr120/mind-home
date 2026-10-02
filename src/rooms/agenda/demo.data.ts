@@ -559,35 +559,35 @@ export const DEMO_AGENDA = {
     "contactos": [
       {
         "nombre": "Rosa Vidal",
-        "relacion": "Familia"
+        "relacion": "Family"
       },
       {
         "nombre": "Camila Vidal",
-        "relacion": "Familia"
+        "relacion": "Family"
       },
       {
         "nombre": "Nadia Serrano",
-        "relacion": "Amistades"
+        "relacion": "Friends"
       },
       {
         "nombre": "Tomás Iriarte",
-        "relacion": "Amistades"
+        "relacion": "Friends"
       },
       {
         "nombre": "Marisol Cáceres",
-        "relacion": "Trabajo"
+        "relacion": "Work"
       },
       {
         "nombre": "Bruno Ferrer",
-        "relacion": "Trabajo"
+        "relacion": "Work"
       },
       {
         "nombre": "Iker Domínguez",
-        "relacion": "Universidad"
+        "relacion": "University"
       },
       {
         "nombre": "Elena Puig",
-        "relacion": "Universidad"
+        "relacion": "University"
       }
     ]
   }

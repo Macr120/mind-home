@@ -18,6 +18,7 @@ import { ControlesTiro } from './ControlesTiro'
 import { LookPad } from './MoveControls'
 import { SliderProp } from './comun/SliderProp'
 import { useT, type TFunc } from '../i18n/useT'
+import { nombreAsistente } from '../chat/mascotas'
 import { Icono } from './iconos/Icono'
 import { useTopeHud } from './hudMedida'
 import { vivo } from './estilos'
@@ -248,7 +249,7 @@ export function PaintballOverlay() {
                     onClick={() => p.empezar('1v1', [a.id])}
                     className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/10 px-2.5 py-1.5 text-xs font-semibold text-white transition hover:bg-white/20 active:scale-95"
                   >
-                    <Icono emoji={a.emoji} /> {a.nombre}
+                    <Icono emoji={a.emoji} /> {nombreAsistente(t, a)}
                   </button>
                 ))}
               </div>
@@ -276,7 +277,7 @@ export function PaintballOverlay() {
                       }}
                       className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/10 px-2.5 py-1.5 text-xs font-semibold text-white transition hover:bg-white/20 active:scale-95"
                     >
-                      <Icono emoji={a.emoji} /> {a.nombre}
+                      <Icono emoji={a.emoji} /> {nombreAsistente(t, a)}
                     </button>
                   ))}
                 </div>

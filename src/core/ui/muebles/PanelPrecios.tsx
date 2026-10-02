@@ -11,7 +11,7 @@ import { reponerCatalogo } from '../../muebles/catalogoSiembra'
 import type { Despiece } from '../../muebles/tipos'
 import { dinero } from '../../moneda'
 import { confirmar } from '../../state/confirmarStore'
-import { useT } from '../../i18n/useT'
+import { useT, type TFunc } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 import {
   BotonPrimario,
@@ -36,6 +36,9 @@ const TIPOS: { id: MaterialTaller['tipo']; clave: string; nombreEs: string }[] =
   { id: 'herraje', clave: 'muebles.mat.tipo.herraje', nombreEs: 'Herrajes' },
   { id: 'servicio', clave: 'muebles.mat.tipo.servicio', nombreEs: 'Servicios' },
 ]
+
+/** El impuesto de fábrica («IVA») se dice como en el idioma de la app; uno propio, tal cual. */
+const nombreImpuesto = (nombre: string, t: TFunc) => (nombre === 'IVA' ? t('muebles.cot.iva', 'IVA') : nombre)
 
 export function PanelPrecios({
   despiece,
@@ -101,7 +104,7 @@ export function PanelPrecios({
           {presupuesto.subtotalManoObra > 0 &&
             ` · ${t('muebles.cot.manoObra', 'Mano de obra')} ${fmt(presupuesto.subtotalManoObra)}`}
           {presupuesto.impuesto > 0 &&
-            ` · ${aj.impuestoNombre} ${fmt(presupuesto.impuesto)}${
+            ` · ${nombreImpuesto(aj.impuestoNombre, t)} ${fmt(presupuesto.impuesto)}${
               aj.impuestoIncluido ? ` (${t('muebles.cot.incluido', 'incluido')})` : ''
             }`}
         </p>
@@ -126,7 +129,7 @@ export function PanelPrecios({
                 unitario: t('muebles.cot.unitario', 'Unitario'),
                 importe: t('muebles.cot.importe', 'Importe'),
                 total: t('muebles.cot.total', 'Total'),
-                impuesto: aj.impuestoNombre,
+                impuesto: nombreImpuesto(aj.impuestoNombre, t),
               })
             }
           >
@@ -419,7 +422,7 @@ function AjustesPanel({ onCerrar }: { onCerrar: () => void }) {
         </div>
         <div>
           <p className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-white/40">
-            {aj.impuestoNombre} (%)
+            {nombreImpuesto(aj.impuestoNombre, t)} (%)
           </p>
           <input
             type="number"

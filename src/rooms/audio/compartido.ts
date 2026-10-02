@@ -248,7 +248,7 @@ export async function asegurarProyectoLocal(e: Pick<Espacio, 'espacioId' | 'titu
     ...campos,
     pistas: campos?.pistas?.length
       ? campos.pistas
-      : [{ pistaId: nuevaPistaId(), nombre: 'Pista 1', instrumento: 'piano', volumen: 0.8, notas: [] }],
+      : [{ pistaId: nuevaPistaId(), nombre: tGlobal('audio.pistaN', 'Pista {n}', { n: 1 }), instrumento: 'piano', volumen: 0.8, notas: [] }],
     // El nombre del espacio manda: es el que ve quien lo comparte.
     nombre: e.titulo || campos?.nombre || sinTitulo(),
     espacioId: e.espacioId,

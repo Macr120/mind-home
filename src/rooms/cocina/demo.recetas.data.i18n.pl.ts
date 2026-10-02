@@ -72,7 +72,7 @@ export default {
       "clave": "bowl-pollo",
       "nombre": "Bowl z kurczakiem na cały tydzień",
       "emoji": "🍗",
-      "carpeta": "Batch cooking",
+      "carpeta": "Gotowanie na zapas",
       "porciones": 4,
       "minutos": 45,
       "ingredientes": [
@@ -207,7 +207,7 @@ export default {
       "clave": "crema-lentejas",
       "nombre": "Krem z czerwonej soczewicy",
       "emoji": "🍲",
-      "carpeta": "Batch cooking",
+      "carpeta": "Gotowanie na zapas",
       "porciones": 4,
       "minutos": 35,
       "ingredientes": [
@@ -272,7 +272,7 @@ export default {
       "clave": "tacos-lentejas",
       "nombre": "Tacos z soczewicą o dymnym aromacie",
       "emoji": "🌮",
-      "carpeta": "Batch cooking",
+      "carpeta": "Gotowanie na zapas",
       "porciones": 4,
       "minutos": 30,
       "ingredientes": [

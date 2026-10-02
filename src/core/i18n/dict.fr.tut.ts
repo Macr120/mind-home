@@ -1304,7 +1304,7 @@ export const FR_TUT: Dict = {
     'Le formulaire avance par étapes : montant, variable ou fixe, catégorie (tu écris la tienne, il te suggère les habituelles), à quelle fréquence ça se répète et la note.',
   'tut.app-despacho--captura.3.titulo': 'Une année d’opérations',
   'tut.app-despacho--captura.3.texto':
-    'Des centaines de dépenses rangées dans des dossiers d’année et de mois. Cherche le mois 7 : c’est là qu’est la panne qui a emporté presque dix mille pesos d’un coup.',
+    'Des centaines de dépenses rangées dans des dossiers d’année et de mois. Cherche le mois 7 : c’est là qu’est la panne qui a vidé le compte d’un coup.',
   'tut.app-despacho--captura.4.titulo': 'D’où vient l’argent',
   'tut.app-despacho--captura.4.texto':
     'Deux paies à la quinzaine du café, les cours de physique particuliers commencés en même temps que la décision du voyage, et les pourboires de la semaine, jamais deux fois pareils.',
@@ -1359,7 +1359,7 @@ export const FR_TUT: Dict = {
     'Le vrai moyen de transport de Dominique : chaîne, chambres à air, freins, chacun sur sa propre ligne — le même classeur en dossiers d’année et de mois que dans les autres apps. Regarde comme les entretiens s’accumulent sur les derniers mois : c’est l’entraînement du marathon qui présente la facture.',
   'tut.app-garage--vehiculos.4.titulo': 'Et la voiture héritée',
   'tut.app-garage--vehiculos.4.texto':
-    'Voilà la panne du mois 7 : en rade sur le bas-côté, une dépanneuse et presque dix mille pesos qui manquaient. Chaque entretien garde son coût, son kilométrage et l’atelier qui s’en est occupé.',
+    'Voilà la panne du mois 7 : en rade sur le bas-côté, une dépanneuse et une facture impossible à payer. Chaque entretien garde son coût, son kilométrage et l’atelier qui s’en est occupé.',
   'tut.app-garage--vehiculos.5.titulo': 'La fiche',
   'tut.app-garage--vehiculos.5.texto':
     'Marque, modèle, année, plaque et le kilométrage à jour. Une fois la plaque renseignée, le garage débloque les démarches qui ne concernent qu’une voiture.',

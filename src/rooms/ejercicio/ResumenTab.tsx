@@ -11,6 +11,7 @@ import { Archivador } from '../_shared/Archivador'
 import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { ejemploEjercicio } from './ejemplos'
 import { localeActual, useT } from '../../core/i18n/useT'
+import { textoMin } from '../../core/i18n/duracion'
 
 /** Barras de la gráfica: por día en semana/mes, por mes en año/todo. */
 function tendenciaPeriodo(sesiones: SesionEjercicio[], periodo: Periodo) {
@@ -100,14 +101,14 @@ export function ResumenTab({
           label={t('ejercicio.min.resistencia', 'Minutos resistencia')}
           actual={res.minResistencia}
           objetivo={res.metaResistencia}
-          unidad="min"
+          unidad={t('ui.unidad.min', 'min')}
           color="#38bdf8"
         />
         <BarraProgreso
           label={t('ejercicio.min.flex', 'Minutos flexibilidad')}
           actual={res.minFlex}
           objetivo={res.metaFlex}
-          unidad="min"
+          unidad={t('ui.unidad.min', 'min')}
           color="#a78bfa"
         />
       </div>
@@ -126,7 +127,7 @@ export function ResumenTab({
                     height: `${Math.max(6, (punto.min / maxMin) * 100)}%`,
                     background: punto.actual ? '#fb7185' : 'rgba(251,113,133,0.45)',
                   }}
-                  title={`${punto.min} min`}
+                  title={`${textoMin(punto.min)}`}
                 />
               </div>
               <span className="text-[9px] text-white/40">{punto.etiqueta}</span>
@@ -142,7 +143,7 @@ export function ResumenTab({
           fecha={(s) => s.fecha}
           clave={(s) => s.id ?? s.fecha}
           vacio={t('ejercicio.sinEntrenos', 'Aún no hay entrenos registrados.')}
-          resumen={(ses) => `${ses.reduce((acc, s) => acc + s.duracionMin, 0)} min`}
+          resumen={(ses) => `${textoMin(ses.reduce((acc, s) => acc + s.duracionMin, 0))}`}
         >
           {(s) => {
             const tipo = TIPOS.find((x) => x.id === s.tipo) ?? TIPOS[0]
@@ -151,7 +152,7 @@ export function ResumenTab({
                 <span><Icono emoji={tipo.icon} /></span>
                 <span className="line-clamp-2 min-w-0 flex-1 break-words text-white/85">{s.titulo}</span>
                 <span className="shrink-0 text-xs text-white/40">{s.fecha.slice(5)}</span>
-                <span className="shrink-0 text-white/40">{s.duracionMin} min</span>
+                <span className="shrink-0 text-white/40">{textoMin(s.duracionMin)}</span>
               </div>
             )
           }}

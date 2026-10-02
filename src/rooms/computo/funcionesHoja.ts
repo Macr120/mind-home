@@ -145,7 +145,8 @@ export const ALIAS_PUNTO: Record<string, string> = { 'CONTAR.SI': 'CONTARSI', 'S
 /**
  * Los nombres canónicos de OOXML valen también al evaluar (`=SUM(A1:A5)` ≡
  * `=SUMA(A1:A5)`): la UI en inglés y alemán enseña esas grafías. Ninguno lleva
- * punto, y al exportar `formulaOoxml` ya los deja pasar tal cual.
+ * punto, y al exportar `formulaOoxml` ya los deja pasar tal cual. Los demás
+ * idiomas enseñan las españolas: un nombre traducido como `SOMA` no existe aquí.
  */
 for (const [es, en] of Object.entries(A_OOXML)) {
   FUNCIONES_HOJA[en] ??= FUNCIONES_HOJA[ALIAS_PUNTO[es] ?? es]

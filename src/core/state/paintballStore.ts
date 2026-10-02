@@ -6,6 +6,8 @@ import { useCam, setPitchLibre, type Vista } from './cameraStore'
 import { playerPos } from './playerPosition'
 import { setCuartoAbierto } from '../house/movement'
 import { getAsistente, useAsistentes } from './asistentesStore'
+import { nombreAsistente } from '../chat/mascotas'
+import { tGlobal } from '../i18n/useT'
 import { useHerramienta, type Herramienta } from './herramientaStore'
 import { claveLS } from '../edicion'
 import { miraFrame } from './miraFrame'
@@ -340,7 +342,7 @@ export const usePaintball = create<PaintballState>((set, get) => ({
       const equipo = modo === '2v2' ? (i === 0 ? 0 : 1) : modo === 'royale' ? i + 1 : 1
       jugadores.push({
         id,
-        nombre: a.nombre,
+        nombre: nombreAsistente(tGlobal, a),
         color: a.color || PALETA_PINTURA[i % PALETA_PINTURA.length],
         equipo,
         vidas: VIDAS_PAINTBALL,

@@ -20,7 +20,7 @@ import { useMontura } from '../state/monturaStore'
 import { VEHICULOS_JUGABLES, esVehiculo } from '../house/vehiculos'
 import { abrirApp } from '../abrirApp'
 import { nombreCuartoGlobal } from '../ui/roomDisplay'
-import { tGlobal } from '../i18n/useT'
+import { idiomaActual, tGlobal } from '../i18n/useT'
 import {
   footprintCells,
   cellId,
@@ -155,6 +155,8 @@ const nombreTecho = (t: ConNombre): string => tGlobal(`techo.${t.id}`, t.nombre)
 const nombreTema = (t: ConNombre): string => tGlobal(`tema.${t.id}`, t.nombre)
 const nombreFondo = (f: ConNombre): string => tGlobal(`fondo.${f.id}`, f.nombre)
 const nombreObjeto = (o: ConNombre): string => tGlobal(`objeto.${o.id}`, o.nombre)
+// Nombre metido a media frase: en alemán los sustantivos SIEMPRE van con mayúscula.
+const enMinuscula = (nom: string): string => (idiomaActual() === 'de' ? nom : nom.toLowerCase())
 const nombrePrenda = (id: string): string =>
   tGlobal(`editor.pers.prenda.${id}`, PRENDAS.find((p) => p.id === id)?.nombre ?? id)
 
@@ -439,7 +441,7 @@ function resolverApp(texto: string): Plantilla | null {
 }
 
 /** Nombre corto de una app para chips y mensajes. */
-const nombreApp = (app: Plantilla): string => app.nombre.split(' · ')[0]
+const nombreApp = (app: Plantilla): string => tGlobal(`room.${app.id}.nombre`, app.nombre).split(' · ')[0]
 
 /** Lista de cuartos para el system prompt de la IA (id = nombre). */
 export function descripcionCuartos(): string {
@@ -587,7 +589,7 @@ export async function ejecutarToolEditor(
       if (!cu || !forma) return null
       await d.setRoomTechoForma(cu.id, forma.id as TechoFormaId)
       return tGlobal('chat.ed.techoForma', 'Le puse techo {forma} a «{cuarto}».', {
-        forma: tGlobal(`editor.techoForma.${forma.id}`, forma.nombre).toLowerCase(),
+        forma: enMinuscula(tGlobal(`editor.techoForma.${forma.id}`, forma.nombre)),
         cuarto: nombreCuarto(cu.id),
       })
     }
@@ -603,7 +605,7 @@ export async function ejecutarToolEditor(
       }
       await d.addObjeto(roomId, item.id, item.defaultColor)
       return tGlobal('chat.ed.objetoAgregado', 'Agregué {objeto} a «{cuarto}».', {
-        objeto: nombreObjeto(item).toLowerCase(),
+        objeto: enMinuscula(nombreObjeto(item)),
         cuarto: nombreCuarto(roomId),
       })
     }
@@ -640,12 +642,12 @@ export async function ejecutarToolEditor(
       if (bool(input, 'quitar')) {
         await d.setAvatarPrenda(prenda, null)
         return tGlobal('chat.ed.prendaQuitada', 'Le quité {prenda} a tu personaje.', {
-          prenda: nombrePrenda(prenda).toLowerCase(),
+          prenda: enMinuscula(nombrePrenda(prenda)),
         })
       }
       const hex = str(input, 'color') ? resolverColor(str(input, 'color')!) : null
       await d.setAvatarPrenda(prenda, hex ?? PRENDA_COLOR_DEFAULT[prenda])
-      const nomPrenda = nombrePrenda(prenda).toLowerCase()
+      const nomPrenda = enMinuscula(nombrePrenda(prenda))
       return hex
         ? tGlobal('chat.ed.prendaPuestaColor', 'Le puse {prenda} {color} a tu personaje.', {
             prenda: nomPrenda,
@@ -769,7 +771,7 @@ export async function ejecutarToolEditor(
           await d.setEfectosVisuales(true)
         }
         return tGlobal('chat.ed.estiloMapa', 'Le puse el estilo {estilo} al mapa.', {
-          estilo: tGlobal(`estilo.${estilo.id}`, estilo.nombre).toLowerCase(),
+          estilo: enMinuscula(tGlobal(`estilo.${estilo.id}`, estilo.nombre)),
         })
       }
       if ('efectos' in input) {
@@ -1167,7 +1169,7 @@ export async function ejecutarToolEditor(
       }
       marcarUltimoMapa(id)
       const roomId = abrirApp('ideas', def.familia, String(id))
-      const etiqueta = tGlobal(`ideas.tipo.${def.id}`, def.nombreEs).toLowerCase()
+      const etiqueta = enMinuscula(tGlobal(`ideas.tipo.${def.id}`, def.nombreEs))
       return roomId
         ? tGlobal('chat.ed.mapaDibujado', 'Dibujé «{nombre}» ({tipo}) y lo abrí en «{cuarto}».', {
             nombre,
@@ -1314,7 +1316,7 @@ export async function ejecutarToolEditor(
           const esp = str(input, 'especie')
           if (esp && esp in ESPECIES) {
             h.setEspecie(esp as EspecieCultivo) // ya deja la herramienta en 'sembrar'
-            const nom = tGlobal(`huerto.especie.${esp}`, ESPECIES[esp as EspecieCultivo].nombre).toLowerCase()
+            const nom = enMinuscula(tGlobal(`huerto.especie.${esp}`, ESPECIES[esp as EspecieCultivo].nombre))
             infraNota(
               tGlobal('chat.ed.huertoNotaEspecie', 'Listo para sembrar {especie}: toca las parcelas del mapa.', {
                 especie: nom,
@@ -1334,7 +1336,7 @@ export async function ejecutarToolEditor(
           const an = str(input, 'animal')
           if (an && an in ANIMALES) {
             g.setTipo(an as TipoAnimal) // ya deja la herramienta en 'animal'
-            const nom = tGlobal(`granja.animal.${an}`, ANIMALES[an as TipoAnimal].nombre).toLowerCase()
+            const nom = enMinuscula(tGlobal(`granja.animal.${an}`, ANIMALES[an as TipoAnimal].nombre))
             // La «s» del plural vive DENTRO de cada traducción: cada idioma la pone o no.
             infraNota(
               tGlobal('chat.ed.granjaNotaAnimal', 'Toca dentro de un corral para poner {animal}s.', { animal: nom }),
@@ -1391,8 +1393,11 @@ export async function ejecutarToolEditor(
       // para no dejarlo dentro de la cancha.
       const def = CANCHAS[clase as ClaseCancha]
       await k.colocar(playerPos.x + (def.largo * escalaCancha(escala)) / 2 + 2, playerPos.z)
-      return tGlobal('chat.ed.canchaPuesta', 'Puse una {cancha} junto a ti. Camina dentro para jugar.', {
-        cancha: tGlobal(`canchas.clase.${clase}`, def.corto).toLowerCase(),
+      // El nombre completo («Cancha de fútbol») va a media frase: en minúscula,
+      // salvo en alemán, donde el sustantivo lleva mayúscula siempre.
+      const nom = tGlobal(`canchas.nombre.${clase}`, def.nombre)
+      return tGlobal('chat.ed.canchaPuesta', 'Listo: {cancha} junto a ti. Camina dentro para jugar.', {
+        cancha: enMinuscula(nom),
       })
     }
 
@@ -1640,7 +1645,7 @@ export async function ejecutarToolEditor(
         const veh = pedido ? VEHICULOS_JUGABLES.find((v) => v.tipo === pedido) : null
         return veh
           ? tGlobal('chat.ed.sinVehiculoTipo', 'No hay ninguna {vehiculo} en el mapa: créala desde Editor → Vehículos.', {
-              vehiculo: tGlobal(`herr.veh.${veh.tipo}`, veh.nombre).toLowerCase(),
+              vehiculo: enMinuscula(tGlobal(`herr.veh.${veh.tipo}`, veh.nombre)),
             })
           : tGlobal('chat.ed.sinVehiculos', 'No tienes vehículos en el mapa: créalos desde Editor → Vehículos.')
       }
@@ -1652,7 +1657,7 @@ export async function ejecutarToolEditor(
       const dist = Math.hypot((cerca.x ?? 0) - playerPos.x, (cerca.z ?? 0) - playerPos.z)
       const dato = VEHICULOS_JUGABLES.find((v) => v.tipo === cerca.tipo)
       const nombre = dato
-        ? tGlobal(`herr.veh.${dato.tipo}`, dato.nombre).toLowerCase()
+        ? enMinuscula(tGlobal(`herr.veh.${dato.tipo}`, dato.nombre))
         : tGlobal('chat.ed.vehiculoGenerico', 'vehículo')
       if (m.tipo) return tGlobal('chat.ed.yaMontadoCambiar', 'Ya vas montado: bájate primero para cambiar de vehículo.')
       if (dist <= 2.5) {

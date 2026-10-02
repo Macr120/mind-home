@@ -137,7 +137,7 @@
   },
   {
     "ruta": "talleres.0.nombre",
-    "texto": "Taller Mecánico Rivas"
+    "texto": "Rivas Oto Tamirhanesi"
   },
   {
     "ruta": "talleres.0.direccion",
@@ -149,11 +149,11 @@
   },
   {
     "ruta": "talleres.1.nombre",
-    "texto": "Seguros Meridiano - agente Nadia Ortega"
+    "texto": "Meridiano Sigorta - acente Nadia Ortega"
   },
   {
     "ruta": "talleres.1.direccion",
-    "texto": "Av. Insurgentes Sur 1234, piso 3, Col. Del Valle"
+    "texto": "Av. Insurgentes Sur 1234, 3. kat, Col. Del Valle"
   },
   {
     "ruta": "talleres.1.notas",
@@ -161,7 +161,7 @@
   },
   {
     "ruta": "talleres.2.nombre",
-    "texto": "Verificentro 09-118 Iztaccíhuatl"
+    "texto": "Egzoz Muayene İstasyonu 09-118 Iztaccíhuatl"
   },
   {
     "ruta": "talleres.2.direccion",
@@ -181,11 +181,11 @@
   },
   {
     "ruta": "talleres.4.nombre",
-    "texto": "Grúas Tepeyac 24 horas"
+    "texto": "Tepeyac Çekici 7/24"
   },
   {
     "ruta": "talleres.4.direccion",
-    "texto": "Base en Eje Central Lázaro Cárdenas 1105, Col. Álamos"
+    "texto": "Merkez: Eje Central Lázaro Cárdenas 1105, Col. Álamos"
   },
   {
     "ruta": "talleres.4.notas",
@@ -230,5 +230,13 @@
   {
     "ruta": "tramites.4.nota",
     "texto": "Her altı ayda bir Ciclos Malinche’de: jant hizalama, kablo ve fren kontrolü — eğrilmiş bir jantı düzeltmekten çok daha ucuza geliyor."
+  },
+  {
+    "ruta": "vehiculos.biciNombre",
+    "texto": "Turna"
+  },
+  {
+    "ruta": "vehiculos.autoNombre",
+    "texto": "Mamut"
   }
 ]

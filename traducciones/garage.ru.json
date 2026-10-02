@@ -29,7 +29,7 @@
   },
   {
     "ruta": "servicios.2.nota",
-    "texto": "Прокол на Doctor Vértiz по дороге в кафе; на тротуаре довелось научиться менять камеру — поздно, но довелось."
+    "texto": "Прокол на улице Доктор-Вертис по дороге в кафе; на тротуаре довелось научиться менять камеру — поздно, но довелось."
   },
   {
     "ruta": "servicios.3.titulo",
@@ -69,11 +69,11 @@
   },
   {
     "ruta": "servicios.7.nota",
-    "texto": "Осколок стекла на Eje 8 — пришлось катить велосипед пешком до самой лаборатории, с опозданием на двадцать минут."
+    "texto": "Осколок стекла на магистрали Эхе 8 — пришлось катить велосипед пешком до самой лаборатории, с опозданием на двадцать минут."
   },
   {
     "ruta": "servicios.8.titulo",
-    "texto": "Поломка на Calzada de Tlalpan"
+    "texto": "Поломка на шоссе Тлальпан"
   },
   {
     "ruta": "servicios.8.nota",
@@ -137,11 +137,11 @@
   },
   {
     "ruta": "talleres.0.nombre",
-    "texto": "Taller Mecánico Rivas"
+    "texto": "Автосервис «Ривас»"
   },
   {
     "ruta": "talleres.0.direccion",
-    "texto": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez"
+    "texto": "просп. Куаутемок, 812, р-н Нарварте, Бенито-Хуарес"
   },
   {
     "ruta": "talleres.0.notas",
@@ -149,11 +149,11 @@
   },
   {
     "ruta": "talleres.1.nombre",
-    "texto": "Seguros Meridiano - agente Nadia Ortega"
+    "texto": "Страховая «Меридиано» — агент Надя Ортега"
   },
   {
     "ruta": "talleres.1.direccion",
-    "texto": "Av. Insurgentes Sur 1234, piso 3, Col. Del Valle"
+    "texto": "просп. Инсурхентес-Сур, 1234, 3-й этаж, р-н Дель-Валье"
   },
   {
     "ruta": "talleres.1.notas",
@@ -161,19 +161,19 @@
   },
   {
     "ruta": "talleres.2.nombre",
-    "texto": "Verificentro 09-118 Iztaccíhuatl"
+    "texto": "Пункт техосмотра 09-118 «Истаксиуатль»"
   },
   {
     "ruta": "talleres.2.direccion",
-    "texto": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez"
+    "texto": "ш. Истаксиуатль, 240, р-н Истаксиуатль, Бенито-Хуарес"
   },
   {
     "ruta": "talleres.2.notas",
-    "texto": "Запись на семь утра, и уже через сорок минут я ухожу; тот, что в Coyoacán, стоил мне полдня в очереди."
+    "texto": "Запись на семь утра, и уже через сорок минут я ухожу; тот, что в Койоакане, стоил мне полдня в очереди."
   },
   {
     "ruta": "talleres.3.direccion",
-    "texto": "Zacatecas 145, Col. Roma Sur, Cuauhtémoc"
+    "texto": "ул. Сакатекас, 145, р-н Рома-Сур, Куаутемок"
   },
   {
     "ruta": "talleres.3.notas",
@@ -181,11 +181,11 @@
   },
   {
     "ruta": "talleres.4.nombre",
-    "texto": "Grúas Tepeyac 24 horas"
+    "texto": "Круглосуточный эвакуатор «Тепейак»"
   },
   {
     "ruta": "talleres.4.direccion",
-    "texto": "Base en Eje Central Lázaro Cárdenas 1105, Col. Álamos"
+    "texto": "База: Эхе-Сентраль Ласаро Карденас, 1105, р-н Аламос"
   },
   {
     "ruta": "talleres.4.notas",
@@ -229,6 +229,18 @@
   },
   {
     "ruta": "tramites.4.nota",
-    "texto": "Каждые полгода в Ciclos Malinche: центровка колёс, тросики и тормоза — намного дешевле, чем потом чинить погнутое колесо."
+    "texto": "Каждые полгода в веломастерской «Малинче»: центровка колёс, тросики и тормоза — намного дешевле, чем потом чинить погнутое колесо."
+  },
+  {
+    "ruta": "vehiculos.biciNombre",
+    "texto": "Журавль"
+  },
+  {
+    "ruta": "vehiculos.autoNombre",
+    "texto": "Мастодонт"
+  },
+  {
+    "ruta": "talleres.3.nombre",
+    "texto": "Веломастерская «Малинче»"
   }
 ]

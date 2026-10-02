@@ -269,7 +269,7 @@
   },
   {
     "ruta": "gratitudes.16.item1",
-    "texto": "Japonya fonuna 2.700 ₺ daha"
+    "texto": "Japonya fonuna {monto:1040} daha"
   },
   {
     "ruta": "gratitudes.16.item2",
@@ -297,7 +297,7 @@
   },
   {
     "ruta": "gratitudes.18.item3",
-    "texto": "Bisiklet 540 ₺’ye tamir edildi"
+    "texto": "Bisiklet {monto:210} karşılığında tamir edildi"
   },
   {
     "ruta": "gratitudes.19.item1",

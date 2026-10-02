@@ -182,5 +182,329 @@
   {
     "ruta": "programa.items.0.detalle",
     "texto": "続編を先に見てしまって、まだ元の作品を見ていません。順番を直さないと。"
+  },
+  {
+    "ruta": "fichas.0.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.1.genero",
+    "texto": "ドラマ"
+  },
+  {
+    "ruta": "fichas.2.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.3.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.4.genero",
+    "texto": "科学読み物"
+  },
+  {
+    "ruta": "fichas.5.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.6.genero",
+    "texto": "古典SF"
+  },
+  {
+    "ruta": "fichas.7.genero",
+    "texto": "アニメ"
+  },
+  {
+    "ruta": "fichas.8.genero",
+    "texto": "古典SF"
+  },
+  {
+    "ruta": "fichas.9.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.10.genero",
+    "texto": "アニメ"
+  },
+  {
+    "ruta": "fichas.11.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.12.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.13.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.14.genero",
+    "texto": "ホラー"
+  },
+  {
+    "ruta": "fichas.15.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.16.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.17.genero",
+    "texto": "古典SF"
+  },
+  {
+    "ruta": "fichas.18.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.19.genero",
+    "texto": "アニメ"
+  },
+  {
+    "ruta": "fichas.20.genero",
+    "texto": "古典SF"
+  },
+  {
+    "ruta": "fichas.21.genero",
+    "texto": "アニメ"
+  },
+  {
+    "ruta": "fichas.22.genero",
+    "texto": "ドラマ"
+  },
+  {
+    "ruta": "fichas.23.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.24.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.25.genero",
+    "texto": "科学読み物"
+  },
+  {
+    "ruta": "fichas.26.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.27.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.28.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.29.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.30.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.31.genero",
+    "texto": "古典SF"
+  },
+  {
+    "ruta": "fichas.32.genero",
+    "texto": "SF"
+  },
+  {
+    "ruta": "fichas.33.genero",
+    "texto": "アニメ"
+  },
+  {
+    "ruta": "fichas.0.titulo",
+    "texto": "ブレードランナー 2049"
+  },
+  {
+    "ruta": "fichas.0.autor",
+    "texto": "ドゥニ・ヴィルヌーヴ"
+  },
+  {
+    "ruta": "fichas.1.titulo",
+    "texto": "ブラック・ミラー"
+  },
+  {
+    "ruta": "fichas.1.autor",
+    "texto": "チャーリー・ブルッカー"
+  },
+  {
+    "ruta": "fichas.2.autor",
+    "texto": "アーシュラ・K・ル・グウィン"
+  },
+  {
+    "ruta": "fichas.3.autor",
+    "texto": "ドゥニ・ヴィルヌーヴ"
+  },
+  {
+    "ruta": "fichas.4.titulo",
+    "texto": "COSMOS"
+  },
+  {
+    "ruta": "fichas.4.autor",
+    "texto": "カール・セーガン"
+  },
+  {
+    "ruta": "fichas.6.autor",
+    "texto": "スタンリー・キューブリック"
+  },
+  {
+    "ruta": "fichas.7.titulo",
+    "texto": "カウボーイビバップ"
+  },
+  {
+    "ruta": "fichas.7.autor",
+    "texto": "渡辺信一郎"
+  },
+  {
+    "ruta": "fichas.8.autor",
+    "texto": "フリッツ・ラング"
+  },
+  {
+    "ruta": "fichas.9.autor",
+    "texto": "アンディ・ウィアー"
+  },
+  {
+    "ruta": "fichas.10.titulo",
+    "texto": "AKIRA"
+  },
+  {
+    "ruta": "fichas.10.autor",
+    "texto": "大友克洋"
+  },
+  {
+    "ruta": "fichas.12.titulo",
+    "texto": "エクスパンス -巨獣めざめる-"
+  },
+  {
+    "ruta": "fichas.13.titulo",
+    "texto": "ソラリス"
+  },
+  {
+    "ruta": "fichas.13.autor",
+    "texto": "スタニスワフ・レム"
+  },
+  {
+    "ruta": "fichas.14.titulo",
+    "texto": "エイリアン"
+  },
+  {
+    "ruta": "fichas.14.autor",
+    "texto": "リドリー・スコット"
+  },
+  {
+    "ruta": "fichas.15.titulo",
+    "texto": "月に囚われた男"
+  },
+  {
+    "ruta": "fichas.15.autor",
+    "texto": "ダンカン・ジョーンズ"
+  },
+  {
+    "ruta": "fichas.16.autor",
+    "texto": "アルフォンソ・キュアロン"
+  },
+  {
+    "ruta": "fichas.17.titulo",
+    "texto": "ガタカ"
+  },
+  {
+    "ruta": "fichas.17.autor",
+    "texto": "アンドリュー・ニコル"
+  },
+  {
+    "ruta": "fichas.18.titulo",
+    "texto": "DEATH STRANDING"
+  },
+  {
+    "ruta": "fichas.18.autor",
+    "texto": "コジマプロダクション"
+  },
+  {
+    "ruta": "fichas.19.titulo",
+    "texto": "プラネテス"
+  },
+  {
+    "ruta": "fichas.19.autor",
+    "texto": "サンライズ"
+  },
+  {
+    "ruta": "fichas.20.titulo",
+    "texto": "ゴジラ"
+  },
+  {
+    "ruta": "fichas.20.autor",
+    "texto": "本多猪四郎"
+  },
+  {
+    "ruta": "fichas.21.titulo",
+    "texto": "GHOST IN THE SHELL／攻殻機動隊"
+  },
+  {
+    "ruta": "fichas.21.autor",
+    "texto": "押井守"
+  },
+  {
+    "ruta": "fichas.22.autor",
+    "texto": "小津安二郎"
+  },
+  {
+    "ruta": "fichas.23.autor",
+    "texto": "劉慈欣"
+  },
+  {
+    "ruta": "fichas.25.autor",
+    "texto": "カルロ・ロヴェッリ"
+  },
+  {
+    "ruta": "fichas.26.autor",
+    "texto": "アーシュラ・K・ル・グウィン"
+  },
+  {
+    "ruta": "fichas.27.autor",
+    "texto": "ドゥニ・ヴィルヌーヴ"
+  },
+  {
+    "ruta": "fichas.28.titulo",
+    "texto": "アナセム"
+  },
+  {
+    "ruta": "fichas.28.autor",
+    "texto": "ニール・スティーヴンスン"
+  },
+  {
+    "ruta": "fichas.29.titulo",
+    "texto": "セヴェランス"
+  },
+  {
+    "ruta": "fichas.29.autor",
+    "texto": "ダン・エリクソン"
+  },
+  {
+    "ruta": "fichas.30.autor",
+    "texto": "ピーター・ワッツ"
+  },
+  {
+    "ruta": "fichas.31.titulo",
+    "texto": "惑星ソラリス"
+  },
+  {
+    "ruta": "fichas.33.titulo",
+    "texto": "PLUTO"
+  },
+  {
+    "ruta": "fichas.33.autor",
+    "texto": "スタジオM2"
+  },
+  {
+    "ruta": "programa.items.0.titulo",
+    "texto": "ブレードランナー（1982）"
   }
 ]

@@ -1,5 +1,6 @@
 import { useCuartos } from '../state/cuartosStore'
 import { useT } from '../i18n/useT'
+import { useNombreCuarto } from './roomDisplay'
 import { Icono } from './iconos/Icono'
 
 /**
@@ -9,6 +10,7 @@ import { Icono } from './iconos/Icono'
  */
 export function EliminarCuartoDialog() {
   const t = useT()
+  const nombreCuarto = useNombreCuarto()
   const pendiente = useCuartos((s) => s.eliminarPendiente)
   const confirmar = useCuartos((s) => s.confirmarEliminarCuarto)
   const cancelar = useCuartos((s) => s.cancelarEliminarCuarto)
@@ -36,7 +38,7 @@ export function EliminarCuartoDialog() {
               {t(
                 'casa.confirmarEliminarCuarto',
                 '«{nombre}» tiene una app asignada. Si eliminas el cuarto, la app y toda su información se conservan: la encontrarás en Plantillas, donde puedes abrirla o asignarla a otro cuarto.',
-                { nombre: pendiente.nombre },
+                { nombre: nombreCuarto(pendiente) },
               )}
             </p>
           </div>

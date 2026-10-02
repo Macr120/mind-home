@@ -23,7 +23,7 @@ import {
   TINTA_CTA,
 } from './ui'
 import { Archivador } from '../_shared/Archivador'
-import { useT } from '../../core/i18n/useT'
+import { localeActual, useT } from '../../core/i18n/useT'
 import { vivo } from '../../core/ui/estilos'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
@@ -125,7 +125,7 @@ export function DetalleVehiculo({
           <div className="min-w-0 flex-1">
             <h2 className="truncate text-xl font-black">{vehiculo.nombre}</h2>
             <p className="truncate text-sm text-white/60">
-              {tipo.label}
+              {t(`garage.vehTipo.${tipo.id}`, tipo.label)}
               {vehiculo.marca && ` · ${vehiculo.marca}`}
               {vehiculo.modelo && ` ${vehiculo.modelo}`}
               {vehiculo.anio && ` (${vehiculo.anio})`}
@@ -250,9 +250,9 @@ export function DetalleVehiculo({
                   <div className="min-w-0">
                     <p className="truncate text-sm font-semibold">{r.titulo}</p>
                     <p className="text-xs text-white/45">
-                      {formatearFecha(r.fecha)} · {tm.label}
+                      {formatearFecha(r.fecha)} · {t(`garage.mantTipo.${tm.id}`, tm.label)}
                       {r.odometro != null &&
-                        ` · ${r.odometro.toLocaleString('es-MX')} ${vehiculo.unidad}`}
+                        ` · ${r.odometro.toLocaleString(localeActual())} ${vehiculo.unidad}`}
                     </p>
                     {r.taller && (
                       <p className="mt-0.5 truncate text-xs text-white/40">
@@ -263,7 +263,7 @@ export function DetalleVehiculo({
                       <p className="mt-1 text-xs texto-vivo" style={vivo(COLOR)}>
                         {t('garage.detalle.proximo', 'Próximo:')}
                         {r.proximoOdometro != null &&
-                          ` ${r.proximoOdometro.toLocaleString('es-MX')} ${vehiculo.unidad}`}
+                          ` ${r.proximoOdometro.toLocaleString(localeActual())} ${vehiculo.unidad}`}
                         {r.proximoOdometro != null && r.proximaFecha && ' · '}
                         {r.proximaFecha && formatearFecha(r.proximaFecha)}
                       </p>

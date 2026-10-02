@@ -178,7 +178,7 @@ export default {
     },
     {
       "clave": "jrPass",
-      "nota": "JR Pass तैयार — मेरे नाम तीन हफ़्तों की ट्रेनें।"
+      "nota": "जेआर पास तैयार — मेरे नाम तीन हफ़्तों की ट्रेनें।"
     },
     {
       "clave": "hospedajeJapon",

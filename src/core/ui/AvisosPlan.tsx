@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useT } from '../i18n/useT'
+import { localeActual, useT } from '../i18n/useT'
 import { useAvisoDemo, useAvisoRenovar, useAvisoSesion, useCuotaAgotada } from '../state/avisosPlanStore'
 import { canalPago } from '../plataforma'
 import {
@@ -285,7 +285,7 @@ function CuotaAgotada() {
           {t(
             'cuenta.techo.cuerpo',
             'Este mes tus peticiones usaron mucho más contexto de lo normal y se llegó al límite de uso justo. Se restablece el {f}.',
-            { f: renueva.toLocaleDateString() },
+            { f: renueva.toLocaleDateString(localeActual()) },
           )}
         </p>
         <div className="space-y-1.5 pt-1">
@@ -313,7 +313,7 @@ function CuotaAgotada() {
     ? t(
         'cuenta.cuota.cuerpoNivel',
         'Tus créditos se renuevan el {f}. Si se te quedan cortos cada mes, sube de nivel.',
-        { f: renueva.toLocaleDateString() },
+        { f: renueva.toLocaleDateString(localeActual()) },
       )
     : vencida
       ? t(

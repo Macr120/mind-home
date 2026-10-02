@@ -6,6 +6,7 @@ import {
   grupoFx,
 } from '../house/especiales'
 import { esEspecialPlantilla } from '../house/especialesPlantillaMeta'
+import type { TFunc } from '../i18n/useT'
 import type { NombreIcono } from './iconos/catalogo'
 
 /**
@@ -69,6 +70,44 @@ export function grupoDeCategoria(_categoria: string): string {
 
 /** Las carpetas retiradas viven en el catálogo de recursos: ver `recursos.ts`. */
 export { CATS_RETIRADAS } from '../house/recursos'
+
+/** Carpetas de fábrica (`recursos.ts` y la siembra de `disenoStore`) → su clave `inv.cat.<id>`. */
+const CLAVE_CATEGORIA: Record<string, string> = {
+  Mobiliario: 'mobiliario',
+  Decoración: 'decoracion',
+  Vegetación: 'vegetacion',
+  Almacenamiento: 'almacenamiento',
+  Iluminación: 'iluminacion',
+  Textiles: 'textiles',
+  Pistolas: 'pistolas',
+  Props: 'props',
+  Electrónica: 'electronica',
+  Equipo: 'equipo',
+  'Equipo fuerza': 'equipoFuerza',
+  'Equipo cardio': 'equipoCardio',
+  Electrodomésticos: 'electrodomesticos',
+  Plomería: 'plomeria',
+  Juego: 'juego',
+  Piso: 'piso',
+  'Mobiliario / Juego': 'mobiliarioJuego',
+  'Decoración / Func.': 'decoracionFunc',
+  'Almacenamiento / Deco': 'almacenamientoDeco',
+  Vehículos: 'vehiculos',
+  'Cuadro y espejo': 'cuadroEspejo',
+  Fuentes: 'fuentes',
+  Alberca: 'alberca',
+  Parque: 'parque',
+  Luces: 'luces',
+  Anuncios: 'anuncios',
+  Principales: 'principales',
+  Otros: 'otros',
+}
+
+/** Nombre a mostrar de una carpeta: la de fábrica se traduce; la que renombraste, tal cual. */
+export function nombreCategoria(categoria: string, t: TFunc): string {
+  const id = CLAVE_CATEGORIA[categoria]
+  return id ? t(`inv.cat.${id}`, categoria) : categoria
+}
 
 // ----- Sub-pestaña «Objetos especiales» -----
 

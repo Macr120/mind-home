@@ -55,7 +55,7 @@ Deno.serve(async (req) => {
   const pf = preflight(req)
   if (pf) return pf
   const url = new URL(req.url)
-  if (req.method === 'GET' && url.pathname.endsWith('/callback')) return callback(url)
+  if (req.method === 'GET' && url.pathname.endsWith('/callback')) return callback(url, req.headers.get('accept-language') ?? '')
 
   const cors = corsDe(req)
   if (req.method !== 'POST') return json({ error: 'peticion-invalida', mensaje: 'Método no soportado.' }, 400, cors)
@@ -130,10 +130,10 @@ function leerRetorno(r: unknown): Retorno {
 
 // ─── callback (sin JWT) ──────────────────────────────────────────────────────
 
-async function callback(url: URL): Promise<Response> {
+async function callback(url: URL, idiomas: string): Promise<Response> {
   const state = url.searchParams.get('state') ?? ''
   const id = await verificarState(state)
-  if (!id) return paginaError()
+  if (!id) return paginaError(idiomas)
 
   const admin = clienteAdmin()
   // Caducidad (10 min) y un solo uso en un mismo statement.
@@ -144,7 +144,7 @@ async function callback(url: URL): Promise<Response> {
     .gt('creado_en', new Date(Date.now() - 10 * 60_000).toISOString())
     .select()
     .maybeSingle()
-  if (!pendiente) return paginaError()
+  if (!pendiente) return paginaError(idiomas)
 
   const p = pendiente as { user_id: string; proveedor: Proveedor; plataforma: Plataforma; code_verifier: string | null; retorno: string }
   const volver = (ok: boolean, motivo?: MotivoVuelta) => respuestaVuelta(p.retorno, p.plataforma, ok, motivo)
@@ -331,20 +331,40 @@ function redirigir(destino: string): Response {
   return new Response(null, { status: 302, headers: { Location: destino, 'Cache-Control': 'no-store' } })
 }
 
-const CABECERAS_HTML = {
-  'Content-Type': 'text/html; charset=utf-8',
-  'Cache-Control': 'no-store',
-  'Referrer-Policy': 'no-referrer',
-  'Content-Security-Policy': "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'",
+/** El aviso de enlace caducado en los 16 idiomas de la app. */
+const ENLACE_CADUCADO: Record<string, string> = {
+  es: 'Enlace caducado. Vuelve a la app e inténtalo de nuevo.',
+  en: 'Link expired. Go back to the app and try again.',
+  pt: 'Link expirado. Volte ao app e tente de novo.',
+  fr: "Lien expiré. Reviens dans l'appli et réessaie.",
+  de: 'Link abgelaufen. Geh zurück zur App und versuch es noch einmal.',
+  it: "Link scaduto. Torna all'app e riprova.",
+  ja: 'リンクの有効期限が切れました。アプリに戻って、もう一度お試しください。',
+  zh: '链接已过期。请返回应用后重试。',
+  ko: '링크가 만료되었어요. 앱으로 돌아가 다시 시도해 주세요.',
+  ru: 'Ссылка устарела. Вернитесь в приложение и попробуйте ещё раз.',
+  hi: 'लिंक की समय-सीमा खत्म हो गई। ऐप पर लौटें और फिर से कोशिश करें।',
+  tr: 'Bağlantının süresi doldu. Uygulamaya dön ve tekrar dene.',
+  id: 'Tautan kedaluwarsa. Kembali ke aplikasi dan coba lagi.',
+  pl: 'Link wygasł. Wróć do aplikacji i spróbuj ponownie.',
+  nl: 'Link verlopen. Ga terug naar de app en probeer het opnieuw.',
+  ar: 'انتهت صلاحية الرابط. ارجع إلى التطبيق وحاول مرة أخرى.',
 }
 
-const ESTILO = 'body{margin:0;min-height:100vh;display:grid;place-items:center;font:15px system-ui,sans-serif;background:#0f1115;color:#eee;text-align:center}p{opacity:.7}'
-
-/** `state` inválido o caducado: no se sabe a dónde volver, así que solo se avisa. */
-function paginaError(): Response {
-  const html = `<!doctype html><html lang="es"><head><meta charset="utf-8"><title>MindHaOS</title><style>${ESTILO}</style></head><body>
-<div><h1>Enlace caducado · Link expired</h1><p>Vuelve a la app e inténtalo de nuevo · Go back to the app and try again</p></div></body></html>`
-  return new Response(html, { status: 400, headers: CABECERAS_HTML })
+/**
+ * `state` inválido o caducado: no se sabe a dónde volver, así que solo se avisa,
+ * en el primer idioma del navegador que tenga la app. Texto plano: Supabase sirve
+ * las Edge Functions como `text/plain` (ver `respuestaVuelta`) y el HTML salía crudo.
+ */
+function paginaError(idiomas: string): Response {
+  const idioma = idiomas
+    .split(',')
+    .map((l) => l.trim().slice(0, 2).toLowerCase())
+    .find((l) => l in ENLACE_CADUCADO)
+  return new Response(`MindHaOS\n\n${ENLACE_CADUCADO[idioma ?? 'en']}\n`, {
+    status: 400,
+    headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store', 'Referrer-Policy': 'no-referrer' },
+  })
 }
 
 // ─── estado / elegir / desconectar ───────────────────────────────────────────

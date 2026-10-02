@@ -1,4 +1,5 @@
 import type { ZonaPlano } from '../../data/db'
+import { tGlobal } from '../../i18n/useT'
 import type { Cell, Footprint } from '../../house/walls'
 import { puedeMoverCuartoRegistro } from '../../house/planoGeometria'
 
@@ -49,7 +50,7 @@ export async function finalizarArrastreCuartoRegistro(opts: {
   })
 
   if (!valido) {
-    setAviso('No se puede colocar el cuarto ahí.')
+    setAviso(tGlobal('planos.aviso.noCabe', 'No se puede colocar el cuarto ahí.'))
     return false
   }
 

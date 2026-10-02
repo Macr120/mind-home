@@ -14,7 +14,8 @@ import { tocarCampana } from './campana'
 import { COLOR } from './constantes'
 import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { hoyISO } from './fecha'
-import { DURACIONES_PISTA, PISTAS } from './pistas'
+import { DURACIONES_PISTA, PISTAS, tituloSesion } from './pistas'
+import { textoMin } from '../../core/i18n/duracion'
 
 type TemaId = PaisajeId | 'libre'
 
@@ -29,12 +30,6 @@ type Estado =
   | { fase: 'antes'; config: Config }
   | { fase: 'activa'; config: Config }
   | { fase: 'despues'; config: Config; minReales: number }
-
-function tituloSesion(tema: TemaId) {
-  if (tema === 'libre') return 'Meditación libre'
-  const nombre = PISTAS.find((p) => p.id === tema)?.nombre ?? tema
-  return `Meditación · ${nombre}`
-}
 
 export function MeditacionTab({
   onSesion,
@@ -134,7 +129,7 @@ export function MeditacionTab({
           <span className="text-xs text-white/50">{t('jardin.med.duracion', 'Duración')}</span>
           <div className="min-w-0 flex-1">
             <PestanasCarpeta
-              items={DURACIONES_PISTA.map((d) => ({ id: String(d), label: `${d} min` }))}
+              items={DURACIONES_PISTA.map((d) => ({ id: String(d), label: `${textoMin(d)}` }))}
               activo={String(durSel)}
               onCambio={(id) => setDurSel(Number(id))}
               color={COLOR}
@@ -194,7 +189,7 @@ export function MeditacionTab({
             className="w-full"
           />
           <span className="w-16 shrink-0 text-end text-lg font-black tabular-nums texto-vivo" style={vivo(COLOR)}>
-            {minLibre} min
+            {textoMin(minLibre)}
           </span>
         </div>
         <button
@@ -226,7 +221,7 @@ export function MeditacionTab({
               <span className="shrink-0 text-white/45">{s.fecha}</span>
               <span className="min-w-0 flex-1 truncate text-white/80">{s.titulo}</span>
               <span className="shrink-0 font-semibold texto-vivo" style={vivo(COLOR)}>
-                {s.duracionMin} min
+                {textoMin(s.duracionMin)}
               </span>
             </div>
           )}
@@ -282,7 +277,7 @@ function SesionActiva({ config, onFin }: { config: Config; onFin: (minReales: nu
   return (
     <div className="rounded-xl bg-white/5 border border-white/10 p-6 flex flex-col items-center gap-4">
       <p className="text-sm font-semibold text-white/70">
-        {tituloSesion(config.tema)} · {config.duracionMin} min
+        {tituloSesion(config.tema)} · {textoMin(config.duracionMin)}
       </p>
 
       <div className="relative w-56 h-56">

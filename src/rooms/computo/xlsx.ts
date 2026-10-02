@@ -27,6 +27,7 @@ import {
   relsHoja,
   type GraficaXlsx,
 } from './xlsxChart'
+import { tGlobal } from '../../core/i18n/useT'
 
 export interface CeldaXlsx {
   /** Referencia A1. */
@@ -118,7 +119,7 @@ const RELS_RAIZ = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 /** Construye el .xlsx completo. */
 export async function construirXlsx(hojas: HojaXlsx[]): Promise<Blob> {
   const { zipSync, strToU8 } = await import('fflate')
-  const utiles: HojaXlsx[] = hojas.length > 0 ? hojas : [{ nombre: 'Hoja1', celdas: [] }]
+  const utiles: HojaXlsx[] = hojas.length > 0 ? hojas : [{ nombre: tGlobal('computo.hojaN', 'Hoja{n}', { n: 1 }), celdas: [] }]
   // El nombre saneado se calcula UNA vez: el libro y los `<c:f>` de las gráficas
   // tienen que nombrar la hoja exactamente igual.
   const nombres = utiles.map((h, i) => nombreHoja(h.nombre, i))

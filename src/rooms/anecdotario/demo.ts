@@ -6,6 +6,7 @@
 import { anecdotasRepo } from '../../core/data/repository'
 import type { CtxDemo } from '../../demo/builders'
 import { sembrarMetasApp } from '../../demo/metasPep'
+import { conMontos } from '../../core/moneda'
 import { DEMO_ANECDOTARIO } from './demo.data'
 
 export async function construirDemoAnecdotario(ctx: CtxDemo): Promise<void> {
@@ -22,8 +23,8 @@ export async function construirDemoAnecdotario(ctx: CtxDemo): Promise<void> {
     }
     await anecdotasRepo.add({
       fecha: ctx.fecha(e.dia),
-      titulo: e.titulo,
-      contenido: e.texto,
+      titulo: conMontos(e.titulo),
+      contenido: conMontos(e.texto),
       animo: e.animo,
       ...(fotos ? { fotos } : {}),
     })

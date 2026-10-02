@@ -1,5 +1,6 @@
 import type { CicloPomodoro } from './estudioStore'
 import { campoDe } from './semilla'
+import { tGlobal } from '../../core/i18n/useT'
 
 const COLOR_FABRICA = '#818cf8'
 /**
@@ -12,7 +13,10 @@ export const COLOR = `var(--ui-app, ${COLOR_FABRICA})`
 /** Campo comodín para charlas y entradas aún sin clasificar. */
 export const PILAR_GENERAL = {
   id: 'general',
-  titulo: 'General',
+  // Getter: se traduce al leerlo, como los campos de fábrica de `campoDe`.
+  get titulo() {
+    return tGlobal('biblioteca.nodo.general', 'General')
+  },
   icon: '🗂️',
   descripcion: 'Charlas y entradas sin campo asignado todavía.',
 }

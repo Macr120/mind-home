@@ -1,5 +1,8 @@
 import { useMascota } from './state/mascotaStore'
-import { esAppNativa } from './plataforma'
+import { esAppNativa, nombrePlataforma } from './plataforma'
+import { useAjustes } from './state/ajustesStore'
+import { dictStore } from './i18n/dict'
+import { tGlobal } from './i18n/useT'
 
 /**
  * La única puerta por la que sale un aviso. Escribe en cuatro sitios: la mascota
@@ -144,6 +147,25 @@ export async function iniciarAvisosNativos(alTocar: (d: DestinoAviso) => void): 
     await p.addListener('localNotificationActionPerformed', (e) => {
       alTocar((e.notification.extra ?? {}) as DestinoAviso)
     })
+    // Android: el plugin crea el canal «default» con el nombre «Default» (en inglés).
+    // Volver a crearlo con el mismo id solo le cambia el nombre: la importancia y
+    // lo que el usuario ajustó en el sistema se quedan como estaban.
+    if (nombrePlataforma() === 'android') {
+      const nombrar = () =>
+        void p
+          .createChannel({
+            id: 'default',
+            name: tGlobal('notif.canal', 'Avisos'),
+            description: tGlobal('notif.canalDesc', 'Misiones, recordatorios y mensajes de la MindHaOS'),
+            importance: 3,
+          })
+          .catch(() => {})
+      nombrar()
+      useAjustes.subscribe((s, prev) => {
+        if (s.idioma !== prev.idioma) nombrar()
+      })
+      dictStore.subscribe(nombrar)
+    }
   } catch (err) {
     console.warn('[MPH] No se pudieron iniciar las notificaciones nativas:', err)
   }

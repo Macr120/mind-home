@@ -8,9 +8,9 @@
  */
 export default {
   "vehiculos": {
-    "biciNombre": "La Grulla",
+    "biciNombre": "ツル号",
     "biciNota": "中古のスチール製自転車。グレーで少しうるさいけれど、シフト勤務にも実験室にもトレーニングにも毎日欠かさず乗っています。一年間、一度も途中で止まったことがありません。",
-    "autoNombre": "El Mastodonte",
+    "autoNombre": "マンモス号",
     "autoNota": "叔父から譲り受けたセダン。私より古い車で、ダッシュボードは日焼けで色あせています。月に二回ほどしかエンジンをかけませんが、放っておいた分は利子つきで払わされます。"
   },
   "servicios": [
@@ -33,7 +33,7 @@ export default {
       "vehiculo": "bici",
       "tipo": "llantas",
       "titulo": "新しいチューブと初めてのパンク修理",
-      "nota": "カフェに向かう途中、Doctor Vértiz通りでパンク。歩道でチューブ交換を覚えました。遅くなりましたが、ちゃんと覚えました。"
+      "nota": "カフェに向かう途中、ドクトル・ベルティス通りでパンク。歩道でチューブ交換を覚えました。遅ればせながら、ちゃんと覚えました。"
     },
     {
       "dia": -300,
@@ -68,13 +68,13 @@ export default {
       "vehiculo": "bici",
       "tipo": "llantas",
       "titulo": "ラボへ向かう途中でパンク",
-      "nota": "Eje 8でガラスの破片を踏んでしまい、自転車を押して二十分遅れで研究室に着きました。"
+      "nota": "エヘ8通りでガラスの破片を踏んでしまい、自転車を押して二十分遅れで研究室に着きました。"
     },
     {
       "dia": -178,
       "vehiculo": "auto",
       "tipo": "otro",
-      "titulo": "Calzada de Tlalpanで立ち往生",
+      "titulo": "トラルパン大通りで立ち往生",
       "nota": "火曜の夜、大通りのど真ん中で車が止まってしまい、レッカー車を待つ間、歩道で一時間半、ないお金の計算をしていました。あの瞬間、その月すべての重みが一気にのしかかってきました。"
     },
     {
@@ -130,32 +130,32 @@ export default {
   "talleres": [
     {
       "clave": "taller",
-      "nombre": "Taller Mecánico Rivas",
-      "direccion": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez",
-      "notas": "Rivasさんはいつも、本当に急ぎのことと後回しにできることをきちんと説明してくれて、請求書を水増ししたことも一度もありません。この車のことで信頼できるのは彼だけです。"
+      "nombre": "リバス整備工場",
+      "direccion": "ベニート・フアレス区 ナルバルテ地区 クアウテモック通り812番地",
+      "notas": "リバスさんはいつも、本当に急ぎのことと後回しにできることをきちんと説明してくれて、請求書を水増ししたことも一度もありません。この車のことで信頼できるのは彼だけです。"
     },
     {
       "clave": "aseguradora",
-      "nombre": "Seguros Meridiano - agente Nadia Ortega",
-      "direccion": "Av. Insurgentes Sur 1234, piso 3, Col. Del Valle",
-      "notas": "Nadiaは日曜日でもWhatsAppにすぐ返信してくれて、フルカバー保険に切り替えたときは月払いのプランを組んでくれました。"
+      "nombre": "メリディアーノ保険（担当：ナディア・オルテガ）",
+      "direccion": "デル・バジェ地区 インスルヘンテス・スール通り1234番地 3階",
+      "notas": "ナディアさんは日曜日でもWhatsAppにすぐ返信してくれて、フルカバー保険に切り替えたときは月払いのプランを組んでくれました。"
     },
     {
       "clave": "verificentro",
-      "nombre": "Verificentro 09-118 Iztaccíhuatl",
-      "direccion": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez",
-      "notas": "朝七時に予約を入れると四十分で終わります。Coyoacánの検査場では、行列で午前中を丸々潰されました。"
+      "nombre": "イスタクシワトル排ガス検査場 09-118",
+      "direccion": "ベニート・フアレス区 イスタクシワトル地区 イスタクシワトル通り240番地",
+      "notas": "朝七時に予約を入れると四十分で終わります。コヨアカンの検査場では、行列で午前中が半分つぶれました。"
     },
     {
       "clave": "ciclos",
-      "nombre": "Ciclos Malinche",
-      "direccion": "Zacatecas 145, Col. Roma Sur, Cuauhtémoc",
+      "nombre": "マリンチェ自転車店",
+      "direccion": "クアウテモック区 ローマ・スール地区 サカテカス通り145番地",
       "notas": "あの自転車を買ったのもそこで、整備するのもそこです。工具を貸してくれて、何でも代金を取る代わりに自分でできるように教えてくれます。"
     },
     {
       "clave": "grua",
-      "nombre": "Grúas Tepeyac 24 horas",
-      "direccion": "Base en Eje Central Lázaro Cárdenas 1105, Col. Álamos",
+      "nombre": "テペヤック24時間レッカー",
+      "direccion": "拠点：アラモス地区 エヘ・セントラル・ラサロ・カルデナス通り1105番地",
       "notas": "立ち往生したあの夜に電話した番号です。一時間半で来てくれて、料金でぼったくられることもありませんでした。"
     }
   ],
@@ -168,7 +168,7 @@ export default {
     {
       "clave": "seguro",
       "titulo": "保険の更新",
-      "nota": "車が故障して肝を冷やしたあと、今年はNadiaのところでフルカバー保険に切り替えました。月払いにして、毎月の予算にきちんと組み込んでいます。"
+      "nota": "車が故障して肝を冷やしたあと、今年はナディアさんのところでフルカバー保険に切り替えました。月払いにして、毎月の予算にきちんと組み込んでいます。"
     },
     {
       "clave": "tenencia",
@@ -183,7 +183,7 @@ export default {
     {
       "clave": "afinacionBici",
       "titulo": "自転車のチューンナップ",
-      "nota": "半年ごとにCiclos Malincheで、ホイールの振れ取り、ワイヤーとブレーキの点検をしています。曲がったホイールを直すよりずっと安上がりです。"
+      "nota": "半年ごとにマリンチェ自転車店で、ホイールの振れ取り、ワイヤーとブレーキの点検をしています。曲がったホイールを直すよりずっと安上がりです。"
     }
   ]
 }

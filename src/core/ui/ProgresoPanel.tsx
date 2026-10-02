@@ -88,13 +88,14 @@ function RadarCuartos({ enfoques }: { enfoques: ProgresoPlantilla[] }) {
         {datos.map((d, i) => {
           const [x, y] = punto(i, R * (d.xp / maxXp))
           const [ex, ey] = punto(i, R + 16)
+          const titulo = `${d.nombre}: ${t('progreso.xp', '{n} XP', { n: d.xp })}`
           return (
             <g key={d.id}>
               <circle cx={x} cy={y} r="2.6" fill={d.color}>
-                <title>{`${d.nombre}: ${d.xp} XP`}</title>
+                <title>{titulo}</title>
               </circle>
               <text x={ex} y={ey} textAnchor="middle" dominantBaseline="central" fontSize="12">
-                <title>{`${d.nombre}: ${d.xp} XP`}</title>
+                <title>{titulo}</title>
                 {d.icon}
               </text>
             </g>
@@ -425,7 +426,9 @@ export function ResumenJugador({ progreso }: { progreso: ProgresoJugador | undef
                 <span className="shrink-0 text-[10px] text-white/40">
                   {Math.round(progreso.avanceNivel * 100)}%
                 </span>
-                <span className="shrink-0 text-[10px] text-white/45">{progreso.xp} XP</span>
+                <span className="shrink-0 text-[10px] text-white/45">
+                  {t('progreso.xp', '{n} XP', { n: progreso.xp })}
+                </span>
               </div>
               <p className="text-[11px] text-white/60">
                 <Icono nombre="racha" /> {t('progreso.racha', 'Racha')}:{' '}
@@ -465,7 +468,7 @@ export function ProgresoApp({
       <div className="flex items-center gap-2">
         <span className="shrink-0 text-[10px] font-bold text-white/55">{t('progreso.nv', 'Nv')} {enfoque.nivel}</span>
         <Barra valor={enfoque.avanceNivel} color={color} />
-        <span className="shrink-0 text-[10px] text-white/40">{enfoque.xp} XP</span>
+        <span className="shrink-0 text-[10px] text-white/40">{t('progreso.xp', '{n} XP', { n: enfoque.xp })}</span>
       </div>
       <div className="mt-1 flex gap-3 text-[10px] text-white/45">
         <span title={t('progreso.rachaTitulo', 'Racha de días con actividad')}>

@@ -88,7 +88,7 @@ const esquemas: EsquemaCaptura[] = [
       const estado = vTexto(v.estado, 'completado')
       await mediaArchivoRepo.add({
         tipo: (['pelicula', 'serie', 'libro', 'videojuego'].includes(tipo) ? tipo : 'pelicula') as TipoMedia,
-        titulo: vTexto(v.titulo, 'Sin título').slice(0, 120),
+        titulo: vTexto(v.titulo, tGlobal('esp.sinTitulo', 'Sin título')).slice(0, 120),
         genero: vTexto(v.genero),
         fecha: vFecha(v.fecha),
         estado: (['pendiente', 'en_curso', 'completado'].includes(estado) ? estado : 'completado') as EstadoMedia,

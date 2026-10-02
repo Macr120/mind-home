@@ -5,3 +5,4 @@
 "NSLocationWhenInUseUsageDescription" = "To show your position on the map, guide you along a route and track your outdoor workouts.";
 "NSSpeechRecognitionUsageDescription" = "To turn what you dictate into text.";
 "NSPhotoLibraryAddUsageDescription" = "To save images from your house to your photos.";
+"NSAppleEventsUsageDescription" = "To show what's playing in Music or Spotify on your wallpaper.";

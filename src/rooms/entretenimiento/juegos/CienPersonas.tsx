@@ -4,7 +4,7 @@ import { Icono } from '../../../core/ui/iconos/Icono'
 import { COLOR } from '../constantes'
 import { AvisoJev } from './AvisoJev'
 import { CapturaCaras } from './cien.caras'
-import { CARAS, GRUPOS_EDAD, PERSONAS, type Persona } from './cien.personas'
+import { CARAS, GRUPOS_EDAD, PERSONAS, rasgosPersona, type Persona } from './cien.personas'
 import { preguntarJevLote, type FaltaJev } from './jev'
 
 /** Personas por petición: el servidor acepta hasta 25 y las decide en paralelo. */
@@ -154,11 +154,13 @@ export function CienPersonas() {
           <p className="text-[10px] uppercase tracking-wide text-white/45">{t('entre.j.cien.decisiones', 'Decisiones')}</p>
         </div>
         <div className="rounded-xl bg-white/5 p-2">
-          <p className="text-lg font-black">{segundos.toFixed(1)} s</p>
+          <p className="text-lg font-black">{t('ui.dur.s', '{n} s', { n: segundos.toFixed(1) })}</p>
           <p className="text-[10px] uppercase tracking-wide text-white/45">{t('entre.j.cien.tiempo', 'Tiempo')}</p>
         </div>
         <div className="rounded-xl bg-white/5 p-2">
-          <p className="text-lg font-black">{segundos > 0 ? Math.round(validas.length / segundos) : 0}/s</p>
+          <p className="text-lg font-black">
+            {t('entre.j.cien.porSegundoN', '{n}/s', { n: segundos > 0 ? Math.round(validas.length / segundos) : 0 })}
+          </p>
           <p className="text-[10px] uppercase tracking-wide text-white/45">{t('entre.j.cien.porSegundo', 'Por segundo')}</p>
         </div>
       </div>
@@ -244,9 +246,9 @@ export function CienPersonas() {
               {persona.nombre}, {persona.edad}
             </p>
             <p className="text-xs text-white/60">
-              {persona.ocupacion} · {persona.ciudad}
+              {rasgosPersona(persona, t).ocupacion} · {rasgosPersona(persona, t).ciudad}
             </p>
-            <p className="text-xs text-white/45">{persona.forma}</p>
+            <p className="text-xs text-white/45">{rasgosPersona(persona, t).forma}</p>
             {celdaElegida && celdaElegida.voto !== 'nada' && (
               <p className="mt-1 text-xs font-semibold">
                 <Icono nombre="memoria" /> Jev ·{' '}

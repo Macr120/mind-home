@@ -426,5 +426,17 @@
   {
     "ruta": "hojas.2.celdas.A10.crudo",
     "texto": "期末に必要な点数"
+  },
+  {
+    "ruta": "hojas.0.celdas.A17.crudo",
+    "texto": "合計 ¥"
+  },
+  {
+    "ruta": "hojas.1.celdas.A21.crudo",
+    "texto": "合計"
+  },
+  {
+    "ruta": "hojas.2.celdas.A6.crudo",
+    "texto": "期末テスト"
   }
 ]

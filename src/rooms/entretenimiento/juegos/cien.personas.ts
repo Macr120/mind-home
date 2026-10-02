@@ -1,6 +1,7 @@
 // Las 100 personas SINTÉTICAS de «Pregúntale a 100 personas»: gente inventada
 // (no es una encuesta real). Cada rasgo entra al estado de su decisión en Jev.
 // Se generan con semilla fija: siempre son las mismas 100.
+import type { TFunc } from '../../../core/i18n/useT'
 
 export interface Persona {
   nombre: string
@@ -82,6 +83,19 @@ function crearPersonas(): Persona[] {
 }
 
 export const PERSONAS = crearPersonas()
+
+/**
+ * Los rasgos de la tarjeta en el idioma de la app. A Jev le llegan siempre en
+ * español (son material de su prompt). La clave es la posición en su lista: lo
+ * nuevo va al final.
+ */
+export function rasgosPersona(p: Persona, t: TFunc): { ocupacion: string; ciudad: string; forma: string } {
+  return {
+    ocupacion: t(`entre.j.cien.ocup.${OCUPACIONES.indexOf(p.ocupacion)}`, p.ocupacion),
+    ciudad: t(`entre.j.cien.ciudad.${CIUDADES.indexOf(p.ciudad)}`, p.ciudad),
+    forma: t(`entre.j.cien.forma.${FORMAS.indexOf(p.forma)}`, p.forma),
+  }
+}
 
 /** Caras ya capturadas (data URL; '' = falló), por índice de persona. Viven lo que la sesión. */
 export const CARAS: (string | undefined)[] = []

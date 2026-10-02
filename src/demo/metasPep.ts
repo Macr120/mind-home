@@ -28,6 +28,8 @@ import { colorPorProfundidad } from '../core/ui/coloresRutina'
 import type { CtxDemo } from './builders'
 import { PLANES_DEMO, sembrarPlanDemo, type ClavePlan } from './planesPep'
 import { enIdioma, type PorIdioma } from '../core/i18n/porIdioma'
+import { dinero, montoDemo } from '../core/moneda'
+import { META_JAPON } from './hitosPep'
 
 /** Un texto de la casa demo: se escribe en los dos idiomas o no se escribe. */
 /** Un texto del catálogo: español obligatorio, el resto según se vaya traduciendo. */
@@ -1429,23 +1431,23 @@ const METAS_PEP: Record<string, CarpetaMetas> = {
       },
       {
         nombre: {
-          es: 'Ahorrar 45 000 para Japón',
-          en: 'Save 45,000 for Japan',
-          pt: 'Poupar 45.000 para o Japão',
-          fr: 'Économiser 45 000 pour le Japon',
-          de: '45.000 für Japan sparen',
-          it: 'Risparmiare 45.000 per il Giappone',
-          // Cifras ya fijadas en rooms/anecdotario/demo.data.i18n.ts (mismo ahorro del año demo)
-          ja: 'メキシコに向けて390,000円貯める',
-          zh: '存19,500元去日本',
-          ko: '일본 여행 자금 3,900,000원 모으기',
-          ru: 'Накопить 260 000 рублей на Японию',
-          hi: 'जापान के लिए 234,000 रुपये बचाना',
-          tr: 'Japonya için 117.000 ₺ biriktirmek',
-          id: 'Menabung Rp45,5 juta untuk Jepang',
-          pl: 'Zaoszczędzić 11 000 zł na Japonię',
-          nl: '2.600 € sparen voor Japan',
-          ar: 'ادّخار 10.400 ر.س لليابان',
+          es: 'Ahorrar {monto} para Japón',
+          en: 'Save {monto} for Japan',
+          pt: 'Poupar {monto} para o Japão',
+          fr: 'Économiser {monto} pour le Japon',
+          de: '{monto} für Japan sparen',
+          it: 'Risparmiare {monto} per il Giappone',
+          // {monto}: META_JAPON en la moneda de la demo (ver `sembrarMeta`).
+          ja: 'メキシコに向けて{monto}貯める',
+          zh: '存{monto}去日本',
+          ko: '일본 여행 자금 {monto} 모으기',
+          ru: 'Накопить {monto} на Японию',
+          hi: 'जापान के लिए {monto} बचाना',
+          tr: 'Japonya için {monto} biriktirmek',
+          id: 'Menabung {monto} untuk Jepang',
+          pl: 'Zaoszczędzić {monto} na Japonię',
+          nl: '{monto} sparen voor Japan',
+          ar: 'ادّخار {monto} لليابان',
         },
         dia: -130,
         nace: -280,
@@ -1553,7 +1555,7 @@ async function sembrarMeta(ctx: CtxDemo, app: string, meta: MetaDemo, sitio: Sit
   const pasos: PasoRutina[] = (meta.pasos ?? []).map((p) => ({ titulo: enIdioma(p, idioma), roomId: '' }))
 
   const id = await rutinasRepo.add({
-    nombre: enIdioma(meta.nombre, idioma),
+    nombre: enIdioma(meta.nombre, idioma).replace('{monto}', dinero(montoDemo(META_JAPON), { decimales: 0 })),
     emoji: '🎯',
     dias: [],
     pasos,

@@ -11,6 +11,7 @@ import { bindKeyboard } from './core/house/movement'
 import { bindAtajosPersonaje } from './core/house/atajosTeclado'
 import { escucharDeepLinkAuth, iniciarSesion } from './core/cuenta/sesionStore'
 import { arrancarRedes } from './core/redes/redesStore'
+import { mensajeErrorRedes } from './core/redes/errores'
 import { esDemo, esProbar, esVisita, limpiarDerechosViejos } from './core/edicion'
 import { conectarMotorSync } from './core/data/sync/motor'
 import { conectarBuzon } from './core/buzon/motor'
@@ -19,6 +20,7 @@ import { atenderDeepLinkEspacio } from './core/espacios/enlaces'
 import { espacioLocal } from './core/espacios/transporte'
 import { useBuzon } from './core/buzon/buzonStore'
 import { esModoFondo } from './core/plataforma'
+import { sincronizarTextosEscritorio } from './core/i18n/textosEscritorio'
 import { esAccionGlobal, lanzarAccionGlobal } from './core/state/accionGlobal'
 import { abrirApp } from './core/abrirApp'
 import { abrirObjetoAlLlegar } from './core/abrirObjeto'
@@ -147,8 +149,10 @@ if ('serviceWorker' in navigator) {
 void iniciarAvisosNativos(seguirAviso)
 // Y la vuelta del navegador tras el login con Google/Apple.
 void escucharDeepLinkAuth()
+// El menú y los diálogos del shell de escritorio, en el idioma de la app.
+sincronizarTextosEscritorio()
 // La vuelta del OAuth de las redes del Studio de video (ventana emergente o `?redes=` en la web).
-arrancarRedes()
+arrancarRedes(mensajeErrorRedes)
 
 /** Los sitios a los que puede llevar un panel del fondo de pantalla. */
 function irA(donde: string): void {

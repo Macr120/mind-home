@@ -134,7 +134,7 @@ export function TarjetaMedia({
                 {formatearFecha(item.fecha)}
               </span>
               <span className="whitespace-nowrap rounded-md bg-white/10 px-2 py-0.5 text-white/55">
-                {estado.label}
+                {t(`entre.estado.${estado.id}`, estado.label)}
               </span>
             </div>
 

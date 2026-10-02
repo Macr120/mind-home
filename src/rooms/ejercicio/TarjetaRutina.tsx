@@ -9,6 +9,7 @@ import { nombreEjercicio, nombreRutina, descRutina } from './nombres'
 import { acento as estiloAcento } from '../_shared/acento'
 import { BotonEnviarAContacto } from '../_shared/BotonEnviarAContacto'
 import { empaquetarRutina } from './compartible'
+import { textoMin } from '../../core/i18n/duracion'
 
 /**
  * La tarjeta de una rutina del catálogo, con su horario. Es la misma en Fuerza,
@@ -63,7 +64,7 @@ export function TarjetaRutina({
           <p className="break-words text-base font-bold">{nombreRutina(t, rutina.nombre)}</p>
           {rutina.descripcion && (
             <p className="text-xs text-white/45">
-              {descRutina(t, rutina.nombre, rutina.descripcion)} · {rutina.duracionMin} min
+              {descRutina(t, rutina.nombre, rutina.descripcion)} · {textoMin(rutina.duracionMin)}
             </p>
           )}
         </div>

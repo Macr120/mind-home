@@ -1,7 +1,8 @@
 /* Permisos que enseñan iOS y el Mac (el escritorio reusa estos mismos archivos). El original vive en Info.plist (inglés). */
 "NSCameraUsageDescription" = "لرؤية ما حولك في دردشة الواقع المعزّز والتقاط صور لتطبيقاتك.";
-"NSMicrophoneUsageDescription" = "لإملاء رسائلك على منزلك بدل كتابتها.";
+"NSMicrophoneUsageDescription" = "لإملاء رسائلك على منزلك وتسجيل الصوت أو الآلات الموسيقية في استوديو الصوت.";
 "NSPhotoLibraryUsageDescription" = "لاختيار صور لذكرياتك وغرفك والدردشة.";
 "NSLocationWhenInUseUsageDescription" = "لعرض موقعك على الخريطة وإرشادك على طول المسار وتسجيل تمارينك في الهواء الطلق.";
 "NSSpeechRecognitionUsageDescription" = "لتحويل ما تمليه إلى نص.";
 "NSPhotoLibraryAddUsageDescription" = "لحفظ صور منزلك في صورك.";
+"NSAppleEventsUsageDescription" = "لعرض ما يُشغَّل في الموسيقى أو Spotify على خلفية شاشتك.";

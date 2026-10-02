@@ -12,7 +12,7 @@ import { actividadId } from '../../core/rutinas'
 import { tGlobal } from '../../core/i18n/useT'
 import { planMetasIdiomas } from './plan'
 import { esencialIdiomas, flujosIdiomas } from './tutorial.meta'
-import { COLOR_FABRICA, NIVELES, TIPOS_TARJETA } from './constantes'
+import { COLOR_FABRICA, NIVELES, TIPOS_TARJETA, nombreIdioma } from './constantes'
 import { tarjetasVencidas } from './srs'
 import { hoyISO } from './stats'
 import { OPERACIONES_IA } from './costosIA'
@@ -171,7 +171,7 @@ const idiomas: Plantilla = {
       actividad: {
         actividadId: actividadId('idioma', i.id!),
         plantillaId: 'idiomas',
-        nombre: tGlobal('idiomas.rep.bloque', 'Repasar {idioma}', { idioma: i.nombre }),
+        nombre: tGlobal('idiomas.rep.bloque', 'Repasar {idioma}', { idioma: nombreIdioma(i) }),
         emoji: '🌐',
         horaSugerida: '20:00',
         seccion: 'repaso',

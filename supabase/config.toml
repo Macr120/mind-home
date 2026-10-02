@@ -244,6 +244,17 @@ otp_expiry = 3600
 # admin_email = "admin@email.com"
 # sender_name = "Admin"
 
+# Correos en el idioma de la cuenta: cada plantilla ramifica por {{ .Data.idioma }}.
+# Los asuntos están en supabase/templates/*.asunto.txt; en el proyecto alojado, plantilla
+# y asunto se pegan en Authentication → Emails.
+[auth.email.template.confirmation]
+subject = "Confirma tu correo en MindHaOS"
+content_path = "./supabase/templates/confirmacion.html"
+
+[auth.email.template.recovery]
+subject = "Restablece tu contraseña de MindHaOS"
+content_path = "./supabase/templates/recuperacion.html"
+
 # Uncomment to customize email template
 # [auth.email.template.invite]
 # subject = "You have been invited"

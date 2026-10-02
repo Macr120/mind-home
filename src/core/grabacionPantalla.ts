@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { abrirApp } from './abrirApp'
 import { mediosVideoRepo } from './data/repository'
-import { tGlobal } from './i18n/useT'
+import { localeActual, tGlobal } from './i18n/useT'
 import { esEscritorio } from './plataforma'
 import { useHouse } from './state/houseStore'
 import { useHud } from './state/hudStore'
@@ -267,7 +267,7 @@ async function terminar() {
       const medioId = await mediosVideoRepo.add({
         tipo: 'video',
         nombre: tGlobal('video.grabar.nombreMedio', 'Grabación de la app · {h}', {
-          h: ahora.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          h: ahora.toLocaleTimeString(localeActual(), { hour: '2-digit', minute: '2-digit' }),
         }),
         blob,
         duracion,

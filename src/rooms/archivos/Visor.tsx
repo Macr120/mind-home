@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useT } from '../../core/i18n/useT'
+import { localeActual, useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 import { formatoBytes } from '../../core/cuenta/almacen'
@@ -83,7 +83,7 @@ export function Visor({
       <div className="grid min-h-32 place-items-center">{vista}</div>
       <p className="text-xs text-white/45">
         {formatoBytes(archivo.bytes)}
-        {archivo.creadoEn && ` · ${new Date(archivo.creadoEn).toLocaleString()}`}
+        {archivo.creadoEn && ` · ${new Date(archivo.creadoEn).toLocaleString(localeActual())}`}
       </p>
       <div className="flex flex-wrap gap-2">
         <BotonPrimario pequeno app={COLOR} onClick={onDescargar}>

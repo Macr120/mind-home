@@ -269,11 +269,11 @@
   },
   {
     "ruta": "gratitudes.16.item1",
-    "texto": "日本旅行基金又多了450元"
+    "texto": "日本旅行基金又多了{monto:1040}"
   },
   {
     "ruta": "gratitudes.16.item2",
-    "texto": "已经能脱口而出“sumimasen”了"
+    "texto": "已经能脱口而出“すみません”了"
   },
   {
     "ruta": "gratitudes.16.item3",
@@ -297,7 +297,7 @@
   },
   {
     "ruta": "gratitudes.18.item3",
-    "texto": "自行车维修只花了90块钱"
+    "texto": "自行车维修只花了{monto:210}"
   },
   {
     "ruta": "gratitudes.19.item1",
@@ -721,7 +721,7 @@
   },
   {
     "ruta": "gratitudes.58.item1",
-    "texto": "学会了《Clair de Lune》的第一段"
+    "texto": "学会了《月光》的第一段"
   },
   {
     "ruta": "gratitudes.58.item2",
@@ -785,7 +785,7 @@
   },
   {
     "ruta": "gratitudes.64.item1",
-    "texto": "《Clair de Lune》的第二段"
+    "texto": "《月光》的第二段"
   },
   {
     "ruta": "gratitudes.64.item2",
@@ -917,7 +917,7 @@
   },
   {
     "ruta": "gratitudes.76.item2",
-    "texto": "《Clair de Lune》背谱到第40小节"
+    "texto": "《月光》背谱到第40小节"
   },
   {
     "ruta": "gratitudes.76.item3",
@@ -949,7 +949,7 @@
   },
   {
     "ruta": "gratitudes.79.item1",
-    "texto": "完整弹完了《Clair de Lune》，虽然有错音，但是完整的"
+    "texto": "完整弹完了《月光》，虽然有错音，但是完整的"
   },
   {
     "ruta": "gratitudes.79.item2",
@@ -1013,7 +1013,7 @@
   },
   {
     "ruta": "gratitudes.85.item1",
-    "texto": "为家人完整弹了一遍《Clair de Lune》"
+    "texto": "为家人完整弹了一遍《月光》"
   },
   {
     "ruta": "gratitudes.85.item2",
@@ -1042,5 +1042,9 @@
   {
     "ruta": "gratitudes.87.item2",
     "texto": "写满了那些真实发生过的小事的笔记本"
+  },
+  {
+    "ruta": "gratitudes.87.item3",
+    "texto": "莱卡"
   }
 ]

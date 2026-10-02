@@ -1,10 +1,10 @@
 import { useMemo, useState } from 'react'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { localeActual, useT } from '../../core/i18n/useT'
+import { diasSemanaLunes } from '../../core/rutinas'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { ANIMOS, colorDeAnimo } from './animos'
 
-const DIAS = ['L', 'M', 'X', 'J', 'V', 'S', 'D']
 
 /** Convierte "#rrggbb" + alfa en rgba(). */
 function rgba(hex: string, alpha: number) {
@@ -96,7 +96,7 @@ export function CalendarioAnimo({
       </div>
 
       <div className="grid w-full grid-cols-7 gap-0.5">
-        {DIAS.map((d, i) => (
+        {diasSemanaLunes().map((d, i) => (
           <div key={i} className="text-center text-[8px] text-white/35">
             {d}
           </div>

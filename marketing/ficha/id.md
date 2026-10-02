@@ -19,7 +19,7 @@ Hidupmu dalam rumah 3D: kebiasaan, target, keuangan, makanan, dan lainnya.
 
 kebiasaan,tujuan,agenda,jurnal,anggaran,nutrisi,olahraga,tidur,belajar,ai,asisten,atur
 
-## Descripción (3679/4000)
+## Descripción (3775/4000)
 
 Atur kebiasaan, target, keuangan, makanan, dan lainnya di rumah isometrik 3D tempat setiap ruangan adalah sebuah aplikasi.
 
@@ -57,3 +57,5 @@ APLIKASINYA
 • Setelah bulan itu berakhir, seluruh aplikasi dan datamu tetap milikmu; kredit AI opsional
 
 Dopamin yang sama. Kali ini untuk hidupmu yang nyata.
+
+Ketentuan Penggunaan (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/

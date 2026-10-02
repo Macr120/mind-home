@@ -8,9 +8,9 @@
  */
 export default {
   "vehiculos": {
-    "biciNombre": "La Grulla",
+    "biciNombre": "Żuraw",
     "biciNota": "Używany rower ze stali, szary i trochę hałaśliwy, którym codziennie jeżdżę na zmiany, do laboratorium i na treningi. Przez cały rok ani razu nie zostawił mnie na lodzie.",
-    "autoNombre": "El Mastodonte",
+    "autoNombre": "Mastodont",
     "autoNota": "Sedan odziedziczony po wuju, starszy ode mnie, z deską rozdzielczą wypłowiałą od słońca. Uruchamiam go raz na dwa tygodnie, a on każde zaniedbanie każe mi odpokutować z nawiązką."
   },
   "servicios": [
@@ -130,19 +130,19 @@ export default {
   "talleres": [
     {
       "clave": "taller",
-      "nombre": "Taller Mecánico Rivas",
+      "nombre": "Warsztat Samochodowy Rivas",
       "direccion": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez",
       "notas": "Pan Rivas zawsze tłumaczy, co naprawdę pilne, a co może poczekać, i nigdy nie zawyżył rachunku; to jedyny mechanik, któremu ufam z tym samochodem."
     },
     {
       "clave": "aseguradora",
-      "nombre": "Seguros Meridiano - agentka Nadia Ortega",
+      "nombre": "Ubezpieczenia Meridiano - agentka Nadia Ortega",
       "direccion": "Av. Insurgentes Sur 1234, piętro 3, Col. Del Valle",
       "notas": "Nadia odpowiada na WhatsAppie nawet w niedzielę i ustawiła płatności miesięczne przy przejściu na pełne ubezpieczenie."
     },
     {
       "clave": "verificentro",
-      "nombre": "Verificentro 09-118 Iztaccíhuatl",
+      "nombre": "Ośrodek Kontroli Emisji 09-118 Iztaccíhuatl",
       "direccion": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez",
       "notas": "Wizyta o siódmej rano i wychodzę po czterdziestu minutach; ten w Coyoacán kosztował mnie pół poranka w kolejce."
     },
@@ -154,7 +154,7 @@ export default {
     },
     {
       "clave": "grua",
-      "nombre": "Grúas Tepeyac 24 horas",
+      "nombre": "Pomoc Drogowa Tepeyac 24h",
       "direccion": "Baza przy Eje Central Lázaro Cárdenas 1105, Col. Álamos",
       "notas": "To numer, pod który zadzwoniło się tamtej nocy, kiedy auto zostawiło mnie na ulicy; przyjechali po półtorej godziny i nie próbowali zedrzeć więcej, niż trzeba."
     }

@@ -9,10 +9,10 @@ import {
 import { conversarIA, iaActiva, ventanaEstable, type MensajeIA } from '../../core/chat/ia'
 import { useAsistentes } from '../../core/state/asistentesStore'
 import { asistenteDePlantilla, semillaAsistente } from '../../core/gamificacion/asistentesPlantilla'
-import { useT } from '../../core/i18n/useT'
+import { localeActual, useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
-import { COLOR } from './constantes'
-import { todosVivos, useTemario } from './temarioVivo'
+import { COLOR, nombreIdioma } from './constantes'
+import { tituloNodo, tituloTema, todosVivos, useTemario } from './temarioVivo'
 import { TextoConEnlaces } from '../_shared/TextoConEnlaces'
 import { systemTutor, tituloDerivado } from './tutor'
 import { ubicarCharla, type AnclaTema } from './arbol'
@@ -64,11 +64,11 @@ export function ChatTutor({ perfil, conversacionId, borradorInicial, anclaInicia
 
   // Lo que el texto del tutor puede enlazar: todos los temas vivos del idioma.
   const temasEnlazables = useMemo(
-    () => todosVivos(tx).map((x) => ({ id: x.id, titulo: x.titulo })),
-    [tx],
+    () => todosVivos(tx).map((x) => ({ id: x.id, titulo: tituloNodo(x, t) })),
+    [tx, t],
   )
   const temaId = conv?.temaId ?? anclaInicial?.temaId
-  const temaTitulo = (temaId ? tx.porId.get(temaId)?.titulo : null) ?? anclaInicial?.titulo ?? null
+  const temaTitulo = tituloTema(tx, temaId) ?? anclaInicial?.titulo ?? null
   // El vocabulario de una charla se extrae UNA vez: solo se vuelve a ofrecer si
   // desde entonces se ha seguido conversando (hay material nuevo que sacar).
   const yaExtraido = !!conv?.destiladaEn && !(conv.actualizadoEn > conv.destiladaEn)
@@ -208,7 +208,7 @@ export function ChatTutor({ perfil, conversacionId, borradorInicial, anclaInicia
               </button>
             )}
             <p className="truncate text-[10px] text-white/40">
-              {voz.nombre} · {t('idiomas.charla.sub', 'Tutor de {idioma} · nivel {nivel}', { idioma: perfil.nombre, nivel: perfil.nivel })}
+              {voz.nombre} · {t('idiomas.charla.sub', 'Tutor de {idioma} · nivel {nivel}', { idioma: nombreIdioma(perfil), nivel: perfil.nivel })}
               {temaTitulo && ` · ${temaTitulo}`}
             </p>
           </div>
@@ -288,7 +288,7 @@ export function ChatTutor({ perfil, conversacionId, borradorInicial, anclaInicia
       <div ref={refLista} className="min-h-0 flex-1 space-y-1 overflow-y-auto px-3 py-2">
         {(!mensajes || mensajes.length === 0) && (
           <p className="px-2 py-8 text-center text-xs leading-relaxed text-white/35">
-            {t('idiomas.charla.vacia', 'Salúdalo en {idioma} o en español: {tutor} conversa a tu nivel, te corrige con suavidad y al final puedes extraer el vocabulario nuevo.', { idioma: perfil.nombre, tutor: voz.nombre })}
+            {t('idiomas.charla.vaciaPropio', 'Salúdalo en {idioma} o en tu idioma: {tutor} conversa a tu nivel, te corrige con suavidad y al final puedes extraer el vocabulario nuevo.', { idioma: nombreIdioma(perfil), tutor: voz.nombre })}
           </p>
         )}
         {mensajes?.map((m, i) => {
@@ -300,7 +300,7 @@ export function ChatTutor({ perfil, conversacionId, borradorInicial, anclaInicia
               {dia !== diaPrevio && (
                 <div className="my-2 flex justify-center">
                   <span className="rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] text-white/45">
-                    {new Date(m.creado).toLocaleDateString(undefined, { day: 'numeric', month: 'short' })}
+                    {new Date(m.creado).toLocaleDateString(localeActual(), { day: 'numeric', month: 'short' })}
                   </span>
                 </div>
               )}
@@ -331,7 +331,7 @@ export function ChatTutor({ perfil, conversacionId, borradorInicial, anclaInicia
                         <Icono nombre="bocina" />
                       </button>
                     )}
-                    <span>{new Date(m.creado).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })}</span>
+                    <span>{new Date(m.creado).toLocaleTimeString(localeActual(), { hour: '2-digit', minute: '2-digit' })}</span>
                   </div>
                 </div>
               </div>
@@ -375,7 +375,7 @@ export function ChatTutor({ perfil, conversacionId, borradorInicial, anclaInicia
           disabled={!conIA}
           placeholder={
             conIA
-              ? t('idiomas.charla.placeholder', 'Escribe en {idioma} o en español…', { idioma: perfil.nombre })
+              ? t('idiomas.charla.placeholderPropio', 'Escribe en {idioma} o en tu idioma…', { idioma: nombreIdioma(perfil) })
               : t('idiomas.charla.sinIAInput', 'Configura tu IA en Ajustes para charlar')
           }
           className="min-w-0 flex-1 rounded-xl border border-white/10 bg-black/30 px-3 py-2 text-sm outline-none focus:border-white/30 disabled:opacity-40"

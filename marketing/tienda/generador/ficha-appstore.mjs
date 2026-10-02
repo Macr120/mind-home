@@ -4,9 +4,13 @@
  * que ya se subió en inglés. Salida: `marketing/tienda/appstore/textos/<id>.json`.
  *
  *   node marketing/tienda/generador/ficha-appstore.mjs
+ *
+ * `scripts/ficha-tienda.mjs` (el markdown que sube `asc:ficha`) importa de aquí
+ * `EULA`, `TERMINOS` y `mayus`: importar este módulo NO genera nada, solo
+ * ejecutarlo.
  */
 import { writeFile, mkdir } from 'node:fs/promises'
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath, pathToFileURL } from 'node:url'
 import { dirname, join } from 'node:path'
 
 const AQUI = dirname(fileURLToPath(import.meta.url))
@@ -68,8 +72,8 @@ const SUBTITULO = {
  * Se deja «(EULA)» sin traducir en los 16 idiomas para que el revisor lo
  * reconozca de un vistazo.
  */
-const EULA = 'https://www.apple.com/legal/internet-services/itunes/dev/stdeula/'
-const TERMINOS = {
+export const EULA = 'https://www.apple.com/legal/internet-services/itunes/dev/stdeula/'
+export const TERMINOS = {
   es: 'Términos de uso (EULA)',
   en: 'Terms of Use (EULA)',
   pt: 'Termos de uso (EULA)',
@@ -87,6 +91,13 @@ const TERMINOS = {
   nl: 'Gebruiksvoorwaarden (EULA)',
   ar: 'شروط الاستخدام (EULA)',
 }
+
+/**
+ * Mayúsculas de los encabezados con las reglas del idioma: sin locale, el turco
+ * sale «BIR» en vez de «BİR». La marca no se localiza: en turco seguiría
+ * «MİNDHAOS», y se devuelve a «MINDHAOS».
+ */
+export const mayus = (s, id) => s.toLocaleUpperCase(id).replace(/MİNDHAOS/g, 'MINDHAOS')
 
 /** Quita etiquetas HTML y deja el texto plano de una sola línea. */
 const plano = (s) =>
@@ -115,85 +126,88 @@ function sinPrecio(s) {
   return buenas.join(' ').replace(/([。！？।、，：])\s+/g, '$1')
 }
 
-const textos = {}
-for (const id of IDIOMAS) {
-  const { TEXTOS: t } = await import(`../../../web/i18n/paginas/${id}.mjs`)
-  const bullet = (k) => `• ${plano(t[`${k}.t`])}: ${plano(t[`${k}.p`])}`
+// Solo genera al ejecutarse; importado (desde ficha-tienda.mjs) solo presta las constantes.
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  const textos = {}
+  for (const id of IDIOMAS) {
+    const { TEXTOS: t } = await import(`../../../web/i18n/paginas/${id}.mjs`)
+    const bullet = (k) => `• ${plano(t[`${k}.t`])}: ${plano(t[`${k}.p`])}`
 
-  const descripcion = [
-    sinPrecio(t['meta.desc']),
-    '',
-    plano(t['como.h2']).toUpperCase(),
-    '',
-    `1. ${plano(t['como.1.t'])}`,
-    plano(t['como.1.p']),
-    '',
-    `2. ${plano(t['como.2.t'])}`,
-    plano(t['como.2.p']),
-    '',
-    `3. ${plano(t['como.3.t'])}`,
-    plano(t['como.3.p']),
-    '',
-    plano(t['car.h2']).toUpperCase(),
-    bullet('car.todo'),
-    bullet('car.nocaduca'),
-    bullet('car.1'),
-    bullet('car.2'),
-    bullet('car.3'),
-    bullet('car.4'),
-    bullet('car.5'),
-    bullet('car.6'),
-    '',
-    plano(t['ia.h2']).toUpperCase(),
-    '',
-    plano(t['ia.sub']),
-    '',
-    bullet('ia.local'),
-    '',
-    plano(t['precio.app.nombre']).toUpperCase(),
-    `• ${plano(t['precio.app.1'])}`,
-    `• ${plano(t['precio.app.2'])}`,
-    `• ${plano(t['precio.app.3'])}`,
-    '',
-    plano(t['mani.cierre']),
-    '',
-    `${TERMINOS[id]}: ${EULA}`,
-  ].join('\n')
+    const descripcion = [
+      sinPrecio(t['meta.desc']),
+      '',
+      mayus(plano(t['como.h2']), id),
+      '',
+      `1. ${plano(t['como.1.t'])}`,
+      plano(t['como.1.p']),
+      '',
+      `2. ${plano(t['como.2.t'])}`,
+      plano(t['como.2.p']),
+      '',
+      `3. ${plano(t['como.3.t'])}`,
+      plano(t['como.3.p']),
+      '',
+      mayus(plano(t['car.h2']), id),
+      bullet('car.todo'),
+      bullet('car.nocaduca'),
+      bullet('car.1'),
+      bullet('car.2'),
+      bullet('car.3'),
+      bullet('car.4'),
+      bullet('car.5'),
+      bullet('car.6'),
+      '',
+      mayus(plano(t['ia.h2']), id),
+      '',
+      plano(t['ia.sub']),
+      '',
+      bullet('ia.local'),
+      '',
+      mayus(plano(t['precio.app.nombre']), id),
+      `• ${plano(t['precio.app.1'])}`,
+      `• ${plano(t['precio.app.2'])}`,
+      `• ${plano(t['precio.app.3'])}`,
+      '',
+      plano(t['mani.cierre']),
+      '',
+      `${TERMINOS[id]}: ${EULA}`,
+    ].join('\n')
 
-  textos[id] = {
-    locale: LOCALE[id],
-    // El nombre NO se traduce: el icono del teléfono dice «MindHaOS»
-    // en los 16 idiomas (`app_name` de Android no está localizado) y Apple pide
-    // que la ficha coincida con el nombre instalado.
-    nombre: 'MindHaOS',
-    subtitulo: SUBTITULO[id] || plano(t['hero.h1']),
-    promocional: sinPrecio(t['og.desc']),
-    descripcion,
-    claves: CLAVES[id],
-    soporte: `https://mindhaos.com/${id === 'es' ? '' : id + '/'}soporte`,
-    marketing: `https://mindhaos.com/${id === 'es' ? '' : id + '/'}`,
-    privacidad: `https://mindhaos.com/${id === 'es' ? '' : id + '/'}privacidad`,
+    textos[id] = {
+      locale: LOCALE[id],
+      // El nombre NO se traduce: el icono del teléfono dice «MindHaOS»
+      // en los 16 idiomas (`app_name` de Android no está localizado) y Apple pide
+      // que la ficha coincida con el nombre instalado.
+      nombre: 'MindHaOS',
+      subtitulo: SUBTITULO[id] || plano(t['hero.h1']),
+      promocional: sinPrecio(t['og.desc']),
+      descripcion,
+      claves: CLAVES[id],
+      soporte: `https://mindhaos.com/${id === 'es' ? '' : id + '/'}soporte`,
+      marketing: `https://mindhaos.com/${id === 'es' ? '' : id + '/'}`,
+      privacidad: `https://mindhaos.com/${id === 'es' ? '' : id + '/'}privacidad`,
+    }
   }
-}
 
-await mkdir(SALIDA, { recursive: true })
-for (const [id, v] of Object.entries(textos)) {
-  await writeFile(join(SALIDA, `${id}.json`), JSON.stringify(v, null, 2) + '\n', 'utf8')
-}
+  await mkdir(SALIDA, { recursive: true })
+  for (const [id, v] of Object.entries(textos)) {
+    await writeFile(join(SALIDA, `${id}.json`), JSON.stringify(v, null, 2) + '\n', 'utf8')
+  }
 
-// Tabla de control: los límites de App Store Connect.
-const LIM = { nombre: 30, subtitulo: 30, promocional: 170, descripcion: 4000, claves: 100 }
-console.log('id  locale                 nombre sub  promo desc  claves')
-for (const [id, v] of Object.entries(textos)) {
-  const marca = (c, n) => (v[c].length > LIM[c] ? `${v[c].length}!!` : String(v[c].length))
-  console.log(
-    id.padEnd(4),
-    v.locale.padEnd(22),
-    marca('nombre').padStart(4),
-    marca('subtitulo').padStart(5),
-    marca('promocional').padStart(5),
-    marca('descripcion').padStart(5),
-    marca('claves').padStart(5),
-  )
+  // Tabla de control: los límites de App Store Connect.
+  const LIM = { nombre: 30, subtitulo: 30, promocional: 170, descripcion: 4000, claves: 100 }
+  console.log('id  locale                 nombre sub  promo desc  claves')
+  for (const [id, v] of Object.entries(textos)) {
+    const marca = (c, n) => (v[c].length > LIM[c] ? `${v[c].length}!!` : String(v[c].length))
+    console.log(
+      id.padEnd(4),
+      v.locale.padEnd(22),
+      marca('nombre').padStart(4),
+      marca('subtitulo').padStart(5),
+      marca('promocional').padStart(5),
+      marca('descripcion').padStart(5),
+      marca('claves').padStart(5),
+    )
+  }
+  console.log(`\n${Object.keys(textos).length} fichas en ${SALIDA}`)
 }
-console.log(`\n${Object.keys(textos).length} fichas en ${SALIDA}`)

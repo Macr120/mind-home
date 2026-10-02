@@ -9,7 +9,7 @@
   },
   {
     "ruta": "fichas.2.titulo",
-    "texto": "The Left Hand of Darkness"
+    "texto": "द लेफ़्ट हैंड ऑफ़ डार्कनेस"
   },
   {
     "ruta": "fichas.2.resena",
@@ -17,7 +17,7 @@
   },
   {
     "ruta": "fichas.3.titulo",
-    "texto": "Arrival"
+    "texto": "अराइवल"
   },
   {
     "ruta": "fichas.3.resena",
@@ -33,7 +33,7 @@
   },
   {
     "ruta": "fichas.6.titulo",
-    "texto": "2001: A Space Odyssey"
+    "texto": "2001: ए स्पेस ओडिसी"
   },
   {
     "ruta": "fichas.6.resena",
@@ -45,7 +45,7 @@
   },
   {
     "ruta": "fichas.8.titulo",
-    "texto": "Metropolis"
+    "texto": "मेट्रोपोलिस"
   },
   {
     "ruta": "fichas.8.resena",
@@ -53,7 +53,7 @@
   },
   {
     "ruta": "fichas.9.titulo",
-    "texto": "The Martian"
+    "texto": "द मार्शियन"
   },
   {
     "ruta": "fichas.9.resena",
@@ -89,7 +89,7 @@
   },
   {
     "ruta": "fichas.16.titulo",
-    "texto": "Children of Men"
+    "texto": "चिल्ड्रन ऑफ़ मेन"
   },
   {
     "ruta": "fichas.16.resena",
@@ -117,7 +117,7 @@
   },
   {
     "ruta": "fichas.22.titulo",
-    "texto": "Tokyo Story"
+    "texto": "टोक्यो स्टोरी"
   },
   {
     "ruta": "fichas.22.resena",
@@ -125,7 +125,7 @@
   },
   {
     "ruta": "fichas.23.titulo",
-    "texto": "The Three-Body Problem"
+    "texto": "द थ्री-बॉडी प्रॉब्लम"
   },
   {
     "ruta": "fichas.23.resena",
@@ -137,7 +137,7 @@
   },
   {
     "ruta": "fichas.25.titulo",
-    "texto": "The Order of Time"
+    "texto": "द ऑर्डर ऑफ़ टाइम"
   },
   {
     "ruta": "fichas.25.resena",
@@ -145,7 +145,7 @@
   },
   {
     "ruta": "fichas.26.titulo",
-    "texto": "The Dispossessed"
+    "texto": "द डिस्पज़ेस्ड"
   },
   {
     "ruta": "fichas.26.resena",
@@ -153,7 +153,7 @@
   },
   {
     "ruta": "fichas.27.titulo",
-    "texto": "Arrival"
+    "texto": "अराइवल"
   },
   {
     "ruta": "fichas.27.resena",
@@ -169,7 +169,7 @@
   },
   {
     "ruta": "fichas.30.titulo",
-    "texto": "Blindsight"
+    "texto": "ब्लाइंडसाइट"
   },
   {
     "ruta": "fichas.31.autor",
@@ -182,5 +182,361 @@
   {
     "ruta": "programa.items.0.detalle",
     "texto": "पहले सीक्वल देखी गई और ओरिजिनल छूट गई: अब क्रम ठीक करने की बारी है।"
+  },
+  {
+    "ruta": "fichas.0.genero",
+    "texto": "साइंस फ़िक्शन"
+  },
+  {
+    "ruta": "fichas.1.genero",
+    "texto": "ड्रामा"
+  },
+  {
+    "ruta": "fichas.2.genero",
+    "texto": "साइंस फ़िक्शन"
+  },
+  {
+    "ruta": "fichas.3.genero",
+    "texto": "साइंस फ़िक्शन"
+  },
+  {
+    "ruta": "fichas.4.genero",
+    "texto": "लोकप्रिय विज्ञान"
+  },
+  {
+    "ruta": "fichas.5.genero",
+    "texto": "साइंस फ़िक्शन"
+  },
+  {
+    "ruta": "fichas.6.genero",
+    "texto": "क्लासिक साइ-फ़ाई"
+  },
+  {
+    "ruta": "fichas.7.genero",
+    "texto": "एनिमे"
+  },
+  {
+    "ruta": "fichas.8.genero",
+    "texto": "क्लासिक साइ-फ़ाई"
+  },
+  {
+    "ruta": "fichas.9.genero",
+    "texto": "साइंस फ़िक्शन"
+  },
+  {
+    "ruta": "fichas.10.genero",
+    "texto": "एनिमे"
+  },
+  {
+    "ruta": "fichas.11.genero",
+    "texto": "साइंस फ़िक्शन"
+  },
+  {
+    "ruta": "fichas.12.genero",
+    "texto": "साइंस फ़िक्शन"
+  },
+  {
+    "ruta": "fichas.13.genero",
+    "texto": "साइंस फ़िक्शन"
+  },
+  {
+    "ruta": "fichas.14.genero",
+    "texto": "हॉरर"
+  },
+  {
+    "ruta": "fichas.15.genero",
+    "texto": "साइंस फ़िक्शन"
+  },
+  {
+    "ruta": "fichas.16.genero",
+    "texto": "साइंस फ़िक्शन"
+  },
+  {
+    "ruta": "fichas.17.genero",
+    "texto": "क्लासिक साइ-फ़ाई"
+  },
+  {
+    "ruta": "fichas.18.genero",
+    "texto": "साइंस फ़िक्शन"
+  },
+  {
+    "ruta": "fichas.19.genero",
+    "texto": "एनिमे"
+  },
+  {
+    "ruta": "fichas.20.genero",
+    "texto": "क्लासिक साइ-फ़ाई"
+  },
+  {
+    "ruta": "fichas.21.genero",
+    "texto": "एनिमे"
+  },
+  {
+    "ruta": "fichas.22.genero",
+    "texto": "ड्रामा"
+  },
+  {
+    "ruta": "fichas.23.genero",
+    "texto": "साइंस फ़िक्शन"
+  },
+  {
+    "ruta": "fichas.24.genero",
+    "texto": "साइंस फ़िक्शन"
+  },
+  {
+    "ruta": "fichas.25.genero",
+    "texto": "लोकप्रिय विज्ञान"
+  },
+  {
+    "ruta": "fichas.26.genero",
+    "texto": "साइंस फ़िक्शन"
+  },
+  {
+    "ruta": "fichas.27.genero",
+    "texto": "साइंस फ़िक्शन"
+  },
+  {
+    "ruta": "fichas.28.genero",
+    "texto": "साइंस फ़िक्शन"
+  },
+  {
+    "ruta": "fichas.29.genero",
+    "texto": "साइंस फ़िक्शन"
+  },
+  {
+    "ruta": "fichas.30.genero",
+    "texto": "साइंस फ़िक्शन"
+  },
+  {
+    "ruta": "fichas.31.genero",
+    "texto": "क्लासिक साइ-फ़ाई"
+  },
+  {
+    "ruta": "fichas.32.genero",
+    "texto": "साइंस फ़िक्शन"
+  },
+  {
+    "ruta": "fichas.33.genero",
+    "texto": "एनिमे"
+  },
+  {
+    "ruta": "fichas.0.titulo",
+    "texto": "ब्लेड रनर 2049"
+  },
+  {
+    "ruta": "fichas.0.autor",
+    "texto": "डेनिस विलेन्यूव"
+  },
+  {
+    "ruta": "fichas.1.titulo",
+    "texto": "ब्लैक मिरर"
+  },
+  {
+    "ruta": "fichas.1.autor",
+    "texto": "चार्ली ब्रूकर"
+  },
+  {
+    "ruta": "fichas.2.autor",
+    "texto": "उर्सुला के. ले गिन"
+  },
+  {
+    "ruta": "fichas.3.autor",
+    "texto": "डेनिस विलेन्यूव"
+  },
+  {
+    "ruta": "fichas.4.titulo",
+    "texto": "कॉसमॉस"
+  },
+  {
+    "ruta": "fichas.4.autor",
+    "texto": "कार्ल सागान"
+  },
+  {
+    "ruta": "fichas.5.titulo",
+    "texto": "आउटर वाइल्ड्स"
+  },
+  {
+    "ruta": "fichas.5.autor",
+    "texto": "मोबियस डिजिटल"
+  },
+  {
+    "ruta": "fichas.6.autor",
+    "texto": "स्टैनली कुब्रिक"
+  },
+  {
+    "ruta": "fichas.7.titulo",
+    "texto": "काउबॉय बीबॉप"
+  },
+  {
+    "ruta": "fichas.7.autor",
+    "texto": "शिनइचिरो वातानाबे"
+  },
+  {
+    "ruta": "fichas.8.autor",
+    "texto": "फ़्रिट्ज़ लांग"
+  },
+  {
+    "ruta": "fichas.9.autor",
+    "texto": "एंडी वियर"
+  },
+  {
+    "ruta": "fichas.10.titulo",
+    "texto": "अकीरा"
+  },
+  {
+    "ruta": "fichas.10.autor",
+    "texto": "कात्सुहिरो ओतोमो"
+  },
+  {
+    "ruta": "fichas.11.titulo",
+    "texto": "पोर्टल 2"
+  },
+  {
+    "ruta": "fichas.11.autor",
+    "texto": "वाल्व"
+  },
+  {
+    "ruta": "fichas.12.titulo",
+    "texto": "द एक्सपैंस"
+  },
+  {
+    "ruta": "fichas.13.titulo",
+    "texto": "सोलारिस"
+  },
+  {
+    "ruta": "fichas.13.autor",
+    "texto": "स्तानिस्वाव लेम"
+  },
+  {
+    "ruta": "fichas.14.titulo",
+    "texto": "एलियन"
+  },
+  {
+    "ruta": "fichas.14.autor",
+    "texto": "रिडली स्कॉट"
+  },
+  {
+    "ruta": "fichas.15.titulo",
+    "texto": "मून"
+  },
+  {
+    "ruta": "fichas.15.autor",
+    "texto": "डंकन जोन्स"
+  },
+  {
+    "ruta": "fichas.16.autor",
+    "texto": "अल्फ़ांसो क्वारोन"
+  },
+  {
+    "ruta": "fichas.17.titulo",
+    "texto": "गटाका"
+  },
+  {
+    "ruta": "fichas.17.autor",
+    "texto": "एंड्रयू निकोल"
+  },
+  {
+    "ruta": "fichas.18.titulo",
+    "texto": "डेथ स्ट्रैंडिंग"
+  },
+  {
+    "ruta": "fichas.18.autor",
+    "texto": "कोजिमा प्रोडक्शंस"
+  },
+  {
+    "ruta": "fichas.19.titulo",
+    "texto": "प्लानेटेस"
+  },
+  {
+    "ruta": "fichas.19.autor",
+    "texto": "सनराइज़"
+  },
+  {
+    "ruta": "fichas.20.titulo",
+    "texto": "गॉडज़िला"
+  },
+  {
+    "ruta": "fichas.20.autor",
+    "texto": "इशिरो होंडा"
+  },
+  {
+    "ruta": "fichas.21.titulo",
+    "texto": "घोस्ट इन द शेल"
+  },
+  {
+    "ruta": "fichas.21.autor",
+    "texto": "मामोरु ओशी"
+  },
+  {
+    "ruta": "fichas.22.autor",
+    "texto": "यासुजिरो ओज़ु"
+  },
+  {
+    "ruta": "fichas.23.autor",
+    "texto": "लियू त्सीशिन"
+  },
+  {
+    "ruta": "fichas.24.titulo",
+    "texto": "आउटर वाइल्ड्स"
+  },
+  {
+    "ruta": "fichas.24.autor",
+    "texto": "मोबियस डिजिटल"
+  },
+  {
+    "ruta": "fichas.25.autor",
+    "texto": "कार्लो रोवेली"
+  },
+  {
+    "ruta": "fichas.26.autor",
+    "texto": "उर्सुला के. ले गिन"
+  },
+  {
+    "ruta": "fichas.27.autor",
+    "texto": "डेनिस विलेन्यूव"
+  },
+  {
+    "ruta": "fichas.28.titulo",
+    "texto": "ऐनाथेम"
+  },
+  {
+    "ruta": "fichas.28.autor",
+    "texto": "नील स्टीफ़ेनसन"
+  },
+  {
+    "ruta": "fichas.29.titulo",
+    "texto": "सेवरेंस"
+  },
+  {
+    "ruta": "fichas.29.autor",
+    "texto": "डैन एरिक्सन"
+  },
+  {
+    "ruta": "fichas.30.autor",
+    "texto": "पीटर वॉट्स"
+  },
+  {
+    "ruta": "fichas.31.titulo",
+    "texto": "सोलारिस"
+  },
+  {
+    "ruta": "fichas.32.titulo",
+    "texto": "सिटिज़न स्लीपर"
+  },
+  {
+    "ruta": "fichas.32.autor",
+    "texto": "जंप ओवर द एज"
+  },
+  {
+    "ruta": "fichas.33.titulo",
+    "texto": "प्लूटो"
+  },
+  {
+    "ruta": "fichas.33.autor",
+    "texto": "स्टूडियो एम2"
+  },
+  {
+    "ruta": "programa.items.0.titulo",
+    "texto": "ब्लेड रनर (1982)"
   }
 ]

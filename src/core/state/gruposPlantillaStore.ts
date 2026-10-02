@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { db, GRUPOS_PLANTILLA_BASE, type GrupoPlantilla } from '../data/db'
 import { filasSeed } from '../data/sync/syncables'
-import type { TFunc } from '../i18n/useT'
+import { tGlobal, type TFunc } from '../i18n/useT'
 
 /**
  * Carpetas del catálogo de plantillas: agrupan apps del sistema y plantillas
@@ -62,7 +62,13 @@ export const useGruposPlantilla = create<GruposPlantillaState>((set, get) => ({
   grupos: [],
   crear: async (nombre, emoji) => {
     const orden = get().grupos.reduce((m, g) => Math.max(m, g.orden), -1) + 1
-    const grupo: GrupoPlantilla = { nombre: nombre.trim() || 'Nuevo grupo', emoji, orden, miembros: [], esBase: false }
+    const grupo: GrupoPlantilla = {
+      nombre: nombre.trim() || tGlobal('plantillas.grupoNuevo', 'Nuevo grupo'),
+      emoji,
+      orden,
+      miembros: [],
+      esBase: false,
+    }
     const id = await db.gruposPlantilla.add(grupo)
     set((s) => ({ grupos: [...s.grupos, { id, ...grupo }] }))
   },

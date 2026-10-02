@@ -268,35 +268,35 @@ export default {
   "contactos": [
     {
       "nombre": "Rosa Vidal",
-      "relacion": "Familia"
+      "relacion": "Famille"
     },
     {
       "nombre": "Camila Vidal",
-      "relacion": "Familia"
+      "relacion": "Famille"
     },
     {
       "nombre": "Nadia Serrano",
-      "relacion": "Amistades"
+      "relacion": "Amis"
     },
     {
       "nombre": "Tomás Iriarte",
-      "relacion": "Amistades"
+      "relacion": "Amis"
     },
     {
       "nombre": "Marisol Cáceres",
-      "relacion": "Trabajo"
+      "relacion": "Travail"
     },
     {
       "nombre": "Bruno Ferrer",
-      "relacion": "Trabajo"
+      "relacion": "Travail"
     },
     {
       "nombre": "Iker Domínguez",
-      "relacion": "Universidad"
+      "relacion": "Université"
     },
     {
       "nombre": "Elena Puig",
-      "relacion": "Universidad"
+      "relacion": "Université"
     }
   ]
 }

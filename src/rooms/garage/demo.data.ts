@@ -186,9 +186,9 @@ export const DEMO_GARAGE = {
   },
   "en": {
     "vehiculos": {
-      "biciNombre": "La Grulla",
+      "biciNombre": "The Crane",
       "biciNota": "Secondhand steel bike, grey and a little noisy, that gets me to shifts, labs and training runs every single day. In a whole year it has never left me stranded.",
-      "autoNombre": "El Mastodonte",
+      "autoNombre": "The Mastodon",
       "autoNota": "A sedan I inherited from my uncle, older than me, with a dashboard bleached by the sun. I start it maybe twice a month and it charges me interest on every neglected thing."
     },
     "servicios": [

@@ -4,6 +4,7 @@ import { opImagen, CREDITOS } from '../../core/cuenta/costos'
 import { Creditos } from '../../core/ui/Creditos'
 import { useAjustes } from '../../core/state/ajustesStore'
 import { useT } from '../../core/i18n/useT'
+import { mensajeErrorIA } from '../../core/cuenta/api'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { VisorImagen } from '../../core/ui/VisorImagen'
 
@@ -92,7 +93,7 @@ export function ImagenIA({
       await onCambiar(await generarImagen(prompt, max, undefined, aspecto))
     } catch (e) {
       console.warn('[MPH] No se pudo generar la imagen:', e)
-      setError(e instanceof Error ? e.message : t('imagenIA.error', 'No se pudo generar la imagen.'))
+      setError(mensajeErrorIA(e, t, t('imagenIA.error', 'No se pudo generar la imagen.')))
     } finally {
       setGenerando(false)
     }

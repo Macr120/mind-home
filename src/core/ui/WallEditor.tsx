@@ -561,7 +561,7 @@ export function WallEditor({ roomId, sinCroquis }: { roomId: string; sinCroquis?
                     <button
                       key={tp.id}
                       type="button"
-                      title={tp.nombre}
+                      title={t(`paredes.puerta.${tp.id}` as Parameters<typeof t>[0], tp.nombre)}
                       onClick={() =>
                         setEdgeEstilo(roomId, sel.off, sel.side, {
                           puerta: { tipo: tp.id, color: tp.defaultColor },
@@ -752,7 +752,7 @@ export function WallEditor({ roomId, sinCroquis }: { roomId: string; sinCroquis?
                   <button
                     key={tm.id}
                     type="button"
-                    title={tm.nombre}
+                    title={t(`paredes.muro.${tm.id}` as Parameters<typeof t>[0], tm.nombre)}
                     onClick={() => setEdgeEstilo(roomId, sel.off, sel.side, { muro: { tipo: tm.id } })}
                     className={`flex flex-col items-center gap-1 rounded-lg p-1 transition ${
                       tipoMuroSel === tm.id

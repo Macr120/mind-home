@@ -5,6 +5,7 @@ import { COLOR, PLANTILLAS_SERVICIO, TIPOS_MANTENIMIENTO } from './constantes'
 import { hoyISO, sumarDias } from './fecha'
 import { Campo, Formulario, INPUT } from './ui'
 import { useT } from '../../core/i18n/useT'
+import { monedaActual } from '../../core/moneda'
 import { vivo } from '../../core/ui/estilos'
 
 export function FormularioMantenimiento({
@@ -39,7 +40,7 @@ export function FormularioMantenimiento({
 
   const aplicarPlantilla = (p: (typeof PLANTILLAS_SERVICIO)[0]) => {
     setTipo(p.tipo)
-    setTitulo(p.titulo)
+    setTitulo(t(`garage.servicio.${p.tipo}`, p.titulo))
     const odo = odometro ? parseFloat(odometro) : vehiculo.odometroActual
     if (p.sugerirKm != null && odo != null && !Number.isNaN(odo)) {
       setProximoOdometro(String(odo + p.sugerirKm))
@@ -83,14 +84,14 @@ export function FormularioMantenimiento({
       <div className="flex flex-wrap gap-1.5">
         {PLANTILLAS_SERVICIO.map((p) => (
           <button
-            key={p.titulo}
+            key={p.tipo}
             type="button"
             onClick={() => aplicarPlantilla(p)}
             className="rounded-full px-2.5 py-1 text-[11px] font-semibold transition hover:brightness-125"
             style={{ background: `color-mix(in srgb, ${COLOR} 12%, transparent)`, boxShadow: `inset 0 0 0 1px color-mix(in srgb, ${COLOR} 24%, transparent)` }}
           >
             <span className="texto-vivo" style={vivo(COLOR)}>
-              {p.titulo}
+              {t(`garage.servicio.${p.tipo}`, p.titulo)}
             </span>
           </button>
         ))}
@@ -113,7 +114,7 @@ export function FormularioMantenimiento({
           >
             {TIPOS_MANTENIMIENTO.map((tm) => (
               <option key={tm.id} value={tm.id}>
-                {tm.label}
+                {t(`garage.mantTipo.${tm.id}`, tm.label)}
               </option>
             ))}
           </select>
@@ -125,7 +126,7 @@ export function FormularioMantenimiento({
       </Campo>
 
       <div className="grid grid-cols-2 gap-2">
-        <Campo etiqueta={t('garage.mant.costo', 'Costo (MXN)')}>
+        <Campo etiqueta={t('garage.mant.costo', 'Costo ({moneda})', { moneda: monedaActual() })}>
           <input
             type="number"
             min={0}

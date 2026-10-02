@@ -21,7 +21,7 @@
   },
   {
     "ruta": "trabajo.2.lugar",
-    "texto": "Café Mirasol"
+    "texto": "مقهى ميراسول"
   },
   {
     "ruta": "trabajo.3.titulo",
@@ -29,7 +29,7 @@
   },
   {
     "ruta": "trabajo.3.lugar",
-    "texto": "Café Mirasol"
+    "texto": "مقهى ميراسول"
   },
   {
     "ruta": "trabajo.4.titulo",
@@ -113,7 +113,7 @@
   },
   {
     "ruta": "trabajo.14.lugar",
-    "texto": "Café Mirasol"
+    "texto": "مقهى ميراسول"
   },
   {
     "ruta": "trabajo.15.titulo",
@@ -121,7 +121,7 @@
   },
   {
     "ruta": "trabajo.15.lugar",
-    "texto": "Café Mirasol"
+    "texto": "مقهى ميراسول"
   },
   {
     "ruta": "trabajo.16.titulo",
@@ -161,7 +161,7 @@
   },
   {
     "ruta": "trabajo.20.lugar",
-    "texto": "Café Mirasol"
+    "texto": "مقهى ميراسول"
   },
   {
     "ruta": "salud.0.titulo",
@@ -350,5 +350,129 @@
   {
     "ruta": "pendientes.4",
     "texto": "طلب عروض أسعار لمطحنة جديدة للبار"
+  },
+  {
+    "ruta": "contactos.0.relacion",
+    "texto": "العائلة"
+  },
+  {
+    "ruta": "contactos.1.relacion",
+    "texto": "العائلة"
+  },
+  {
+    "ruta": "contactos.2.relacion",
+    "texto": "الأصدقاء"
+  },
+  {
+    "ruta": "contactos.3.relacion",
+    "texto": "الأصدقاء"
+  },
+  {
+    "ruta": "contactos.4.relacion",
+    "texto": "العمل"
+  },
+  {
+    "ruta": "contactos.5.relacion",
+    "texto": "العمل"
+  },
+  {
+    "ruta": "contactos.6.relacion",
+    "texto": "الجامعة"
+  },
+  {
+    "ruta": "contactos.7.relacion",
+    "texto": "الجامعة"
+  },
+  {
+    "ruta": "trabajo.7.lugar",
+    "texto": "بلازا نورتي"
+  },
+  {
+    "ruta": "personas.0.con",
+    "texto": "ناديا سيرانو"
+  },
+  {
+    "ruta": "personas.1.con",
+    "texto": "روزا فيدال"
+  },
+  {
+    "ruta": "personas.2.con",
+    "texto": "إيكر دومينغيز"
+  },
+  {
+    "ruta": "personas.3.con",
+    "texto": "ناديا سيرانو"
+  },
+  {
+    "ruta": "personas.4.con",
+    "texto": "توماس إيرياردي"
+  },
+  {
+    "ruta": "personas.5.con",
+    "texto": "روزا فيدال"
+  },
+  {
+    "ruta": "personas.6.con",
+    "texto": "ماريسول كاسيريس"
+  },
+  {
+    "ruta": "personas.7.con",
+    "texto": "كاميلا فيدال"
+  },
+  {
+    "ruta": "personas.8.con",
+    "texto": "روزا فيدال"
+  },
+  {
+    "ruta": "personas.9.con",
+    "texto": "توماس إيرياردي"
+  },
+  {
+    "ruta": "personas.10.con",
+    "texto": "ناديا سيرانو"
+  },
+  {
+    "ruta": "personas.11.con",
+    "texto": "برونو فيرير"
+  },
+  {
+    "ruta": "personas.12.con",
+    "texto": "روزا فيدال"
+  },
+  {
+    "ruta": "personas.13.con",
+    "texto": "إيكر دومينغيز"
+  },
+  {
+    "ruta": "contactos.0.nombre",
+    "texto": "روزا فيدال"
+  },
+  {
+    "ruta": "contactos.1.nombre",
+    "texto": "كاميلا فيدال"
+  },
+  {
+    "ruta": "contactos.2.nombre",
+    "texto": "ناديا سيرانو"
+  },
+  {
+    "ruta": "contactos.3.nombre",
+    "texto": "توماس إيرياردي"
+  },
+  {
+    "ruta": "contactos.4.nombre",
+    "texto": "ماريسول كاسيريس"
+  },
+  {
+    "ruta": "contactos.5.nombre",
+    "texto": "برونو فيرير"
+  },
+  {
+    "ruta": "contactos.6.nombre",
+    "texto": "إيكر دومينغيز"
+  },
+  {
+    "ruta": "contactos.7.nombre",
+    "texto": "إيلينا بويغ"
   }
 ]

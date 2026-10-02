@@ -23,6 +23,7 @@ import { rngDemo, type CtxDemo } from './builders'
 import { bloqueFijo } from './horarioPep'
 import { PLANES_DEMO, sembrarPlanDemo } from './planesPep'
 import { enIdioma } from '../core/i18n/porIdioma'
+import { porIdiomaDemo, textoDemo } from './textosDemo'
 
 /**
  * Los hábitos del año, con el mes en que Pep@ los adoptó. La HORA y los DÍAS no
@@ -40,21 +41,21 @@ import { enIdioma } from '../core/i18n/porIdioma'
 const HABITOS = [
   {
     clave: 'turno',
-    nombre: { es: 'Turno en la cafetería', en: 'Shift at the coffee shop' },
+    nombre: porIdiomaDemo('cal.turno'),
     emoji: '☕',
     color: '#f59e0b',
     nace: -364,
   },
   {
     clave: 'clases',
-    nombre: { es: 'Clases de física', en: 'Physics classes' },
+    nombre: porIdiomaDemo('cal.clases'),
     emoji: '📐',
     color: '#3b82f6',
     nace: -364,
   },
   {
     clave: 'estudiar',
-    nombre: { es: 'Estudiar física', en: 'Study physics' },
+    nombre: porIdiomaDemo('cal.estudiar'),
     emoji: '📚',
     color: '#a78bfa',
     nace: -350,
@@ -64,7 +65,7 @@ const HABITOS = [
   },
   {
     clave: 'pantallas',
-    nombre: { es: 'Apagar todo y dormir', en: 'Screens off, sleep' },
+    nombre: porIdiomaDemo('cal.pantallas'),
     emoji: '😴',
     color: '#64748b',
     nace: -334,
@@ -74,7 +75,7 @@ const HABITOS = [
   },
   {
     clave: 'piano',
-    nombre: { es: 'Piano 20 minutos', en: 'Piano, 20 minutes' },
+    nombre: porIdiomaDemo('cal.piano'),
     emoji: '🎹',
     color: '#f472b6',
     nace: -334,
@@ -84,7 +85,7 @@ const HABITOS = [
   },
   {
     clave: 'idioma',
-    nombre: { es: 'Repaso de idioma', en: 'Language review' },
+    nombre: porIdiomaDemo('cal.idioma'),
     emoji: '🌐',
     color: '#14b8a6',
     nace: -320,
@@ -94,7 +95,7 @@ const HABITOS = [
   },
   {
     clave: 'meditar',
-    nombre: { es: 'Meditar antes de salir', en: 'Meditate before heading out' },
+    nombre: porIdiomaDemo('cal.meditar'),
     emoji: '🧘',
     color: '#10b981',
     nace: -304,
@@ -104,7 +105,7 @@ const HABITOS = [
   },
   {
     clave: 'correr',
-    nombre: { es: 'Salir a correr', en: 'Go for a run' },
+    nombre: porIdiomaDemo('cal.correr'),
     emoji: '🏃',
     color: '#ef4444',
     nace: -300,
@@ -209,7 +210,7 @@ export async function construirDemoCalendario(ctx: CtxDemo): Promise<void> {
   // sin turno (el siguiente a uno de turno) y termina antes de la toma de
   // vitamina de las 14:00, así que no se encima con nada.
   const movidoId = await rutinasRepo.add({
-    nombre: idioma === 'es' ? 'Turno en la cafetería' : 'Shift at the coffee shop',
+    nombre: textoDemo(idioma, 'cal.turno'),
     emoji: '☕',
     hora: '09:00',
     horaFin: '14:00',
@@ -219,7 +220,7 @@ export async function construirDemoCalendario(ctx: CtxDemo): Promise<void> {
     color: '#f59e0b',
     pasos: [],
     activa: true,
-    nota: idioma === 'es' ? 'Cambié el turno con Nuria.' : 'Swapped shifts with Nuria.',
+    nota: textoDemo(idioma, 'cal.notaTurno'),
     creadoEn: `${ctx.fecha(DIA_MOVIDO - 2)}T18:00:00.000Z`,
   })
   await ejecucionesRutinaRepo.bulkAdd([

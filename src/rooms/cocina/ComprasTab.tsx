@@ -6,6 +6,7 @@ import { COLOR } from './constantes'
 import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { hoyISO } from './fecha'
 import { money2 } from '../despacho/mes'
+import { monedaActual, simboloMoneda } from '../../core/moneda'
 import { localeActual, useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 
@@ -133,7 +134,7 @@ function FilaItem({ item, conCheck, conPrecio }: { item: ItemCompra; conCheck: b
           step="0.01"
           value={item.precio ?? ''}
           onChange={(e) => guardar({ precio: parseFloat(e.target.value) || undefined })}
-          placeholder={t('cocina.comp.ph.precio', '$')}
+          placeholder={simboloMoneda(monedaActual())}
           aria-label={t('cocina.comp.precio', 'Precio')}
           className="w-16 shrink-0 rounded-lg bg-black/30 border border-white/10 px-1.5 py-1 text-xs text-end outline-none focus:border-amber-400/50"
         />

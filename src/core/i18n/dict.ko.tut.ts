@@ -275,7 +275,7 @@ export const KO_TUT: Dict = {
   'tut.app-generica.1.texto': '헤더에 방과 열려 있는 앱이 나와요. 방에 앱이 여러 개면 ‹ 화살표로 방의 앱 목록으로 돌아가요.',
   'tut.app-generica.2.titulo': '미션',
   'tut.app-generica.2.texto':
-    '\'미션\' 버튼은 이 앱의 오늘 할 일을 열어줘요. 매일의 목표, 일정에 넣어 둔 것, 그리고 목표가 요구하는 것이에요. 기록하는 순간 각 단계가 알아서 지워지고, 목록을 전부 끝내는 것이 그날의 XP가 돼요.',
+    "'미션' 버튼은 이 앱의 오늘 할 일을 열어줘요. 매일의 목표, 일정에 넣어 둔 것, 그리고 목표가 요구하는 것이에요. 기록하는 순간 각 단계가 알아서 지워지고, 목록을 전부 끝내는 것이 그날의 경험치가 돼요.",
   'tut.app-generica.3.titulo': '블록',
   'tut.app-generica.3.texto': '이 템플릿은 블록(메모, 목록, 카운터, 습관…)으로 만들어져 있어요. 메뉴 › 템플릿 › 편집에서 바꿀 수 있어요.',
   'tut.app-generica.4.titulo': '나가기',
@@ -311,7 +311,7 @@ export const KO_TUT: Dict = {
   'tut.ejemplos.2.texto':
     '섹션 아래의 \'예시 삭제\'를 누르고 \'네, 예시 삭제\'로 확인하면 예시가 통째로 지워지고, 내 데이터는 전혀 건드리지 않아요. 예시가 하나도 남지 않으면 같은 자리에 \'기본 예시 복원\'이 나타나요.',
   'tut.ejemplos.3.texto':
-    '예시는 XP나 연속 기록에 더해지지 않고, 알림을 만들지 않으며, Wrapped에도 들어가지 않고, AI도 계산에 넣지 않아요. 데모 MindHaOS에는 이 막대가 없어요. 지민의 1년 전체가 이미 예시거든요.',
+    '예시는 경험치나 연속 기록에 더해지지 않고, 알림을 만들지 않으며, Wrapped에도 들어가지 않고, AI도 계산에 넣지 않아요. 데모 MindHaOS에는 이 막대가 없어요. 지민의 1년 전체가 이미 예시거든요.',
   'tut.ejemplos.1.titulo': '자동으로 들어가는 예시',
   'tut.ejemplos.3.titulo': '내 기록에서 제외',
   'tut.ejemplos.2.titulo': '삭제와 복원',
@@ -328,7 +328,7 @@ export const KO_TUT: Dict = {
   'tut.hoy.6.titulo': '끝낸 것도 사라지지 않아요',
   'tut.hoy.6.texto': '접혀 있는 \'완료\'로 내려가요. 기록이 반영되는 걸 보는 것도 보상의 일부고, 하나 더 들어갔다면 거기서 되돌릴 수 있어요.',
   'tut.hoy.6b.titulo': '점수는 목록 전체가 내요',
-  'tut.hoy.6b.texto': '그날의 미션을 전부 끝내면 축하가 켜지고 앱의 XP가 쌓여요. 레벨을 키우는 건 다 끝낸 목록이지, 흩어진 기록 몇 개가 아니에요.',
+  'tut.hoy.6b.texto': '그날의 미션을 전부 끝내면 축하가 켜지고 앱의 경험치가 쌓여요. 레벨을 키우는 건 다 끝낸 목록이지, 흩어진 기록 몇 개가 아니에요.',
   'tut.hoy.7.texto': '빠진 게 있으면 「미션 추가」가 이 앱이 흔히 제안하는 것들을 보여 주고, 「새 체크리스트」로는 매일 반복되는 나만의 목록을 만들 수 있어요.',
   'tut.hoy.8.titulo': '빨간 오브',
   'tut.hoy.8.texto':
@@ -349,7 +349,7 @@ export const KO_TUT: Dict = {
   'tut.progreso.6.titulo': '나의 요약',
   'tut.progreso.6.texto': 'Wrapped은 한 주, 한 달, 한 해의 요약을 슬라이드로 만들어요. 자체 튜토리얼도 있고, 지민처럼 1년이 쌓이면 보여줄 게 넘쳐요.',
   'tut.progreso.7.titulo': '방별 레이더',
-  'tut.progreso.7.texto': '꼭짓점 하나하나가 MindHaOS의 방이고, 크기는 그 방에 배정된 앱들의 XP 합계예요. 활동이 없는 방은 금방 눈에 띄어요. 꼭짓점이 중심 쪽으로 꺼지거든요.',
+  'tut.progreso.7.texto': '꼭짓점 하나하나가 MindHaOS의 방이고, 크기는 그 방에 배정된 앱들의 경험치 합계예요. 활동이 없는 방은 금방 눈에 띄어요. 꼭짓점이 중심 쪽으로 꺼지거든요.',
   'tut.wrapped.1.texto': '스토리처럼 넘겨봐요. 오른쪽을 탭하면 다음으로, 왼쪽을 탭하면 이전으로 가고, 길게 누르면 그 슬라이드에서 멈춰요.',
   'tut.wrapped.2.titulo': '주, 월 또는 년',
   'tut.wrapped.2.texto': '종류마다 자기 데이터로 슬라이드를 따로 만들어요. 지민의 연간 요약이 가장 길고, 한 해에서 가장 높았던 순간과 가장 낮았던 순간이 함께 담겨요.',
@@ -427,7 +427,7 @@ export const KO_TUT: Dict = {
     '점수는 코트마다 저장돼요. 지민은 농구에서 21-15, 테니스에서 랠리 18회 연속 기록을 남겼어요. 데모에서도 경기가 진짜로 집계돼요. 기록을 넘어 보세요.',
   'tut.infra-paintball--batalla.1.texto': '도구 휠을 열어 보세요. Paintball은 거기 \'건축\' 카테고리에, 탈것 옆에 있어요.',
   'tut.infra-paintball--batalla.2.texto':
-    '모드를 골라요. 1 vs 1, 2 vs 2, 배틀로얄이 있어요. 상대는 지도에 있는 어시스턴트예요. Laika도 포함이고, 플레이는 1층에서 해요.',
+    '모드를 골라요. 1 vs 1, 2 vs 2, 배틀로얄이 있어요. 상대는 지도에 있는 어시스턴트예요. 라이카도 포함이고, 플레이는 1층에서 해요.',
   'tut.infra-paintball--batalla.3.texto':
     'MindHaOS 전체가 전장이에요. 벽 뒤에 숨고, 고개를 내밀어 쏘고, 등 뒤를 조심하세요. 튄 페인트는 대결이 끝날 때까지 남아 있어요.',
   'tut.infra-paintball--batalla.4.texto': '지민의 전적은 47승 23패예요. 데모에서도 대결이 진짜로 집계돼요. 떠나기 전에 기록을 올려 보세요.',
@@ -440,7 +440,7 @@ export const KO_TUT: Dict = {
     '하루하루가 그날의 기분으로 칠해져요. 7개월째의 슬럼프(부상)와 일본이 얼마나 환해 보이는지 살펴보세요. 날짜를 누르면 그날 기록만 남아요.',
   'tut.app-anecdotario--diario.4.titulo': '기록 보관함',
   'tut.app-anecdotario--diario.4.texto': '기록은 연·월·주 폴더에 알아서 정리돼요. 일본에 있던 주들을 열어서 여행 전체를 읽어보세요.',
-  'tut.app-anecdotario--fotos.1.texto': '지민님의 한 해 이정표에는 사진이 있어요. 중고 키보드, Laika가 온 날, 일본에서 온 엽서 두 장, 그리고 마라톤 메달이에요.',
+  'tut.app-anecdotario--fotos.1.texto': '지민님의 한 해 이정표에는 사진이 있어요. 중고 키보드, 라이카가 온 날, 일본에서 온 엽서 두 장, 그리고 마라톤 메달이에요.',
   'tut.app-anecdotario--fotos.2.titulo': '기록에서 찾아보세요',
   'tut.app-anecdotario--fotos.2.texto': '2개월째(키보드), 9개월째(일본), 2주 전(메달)을 열어보세요. 사진을 누르면 전체 화면으로 열려요.',
   'tut.app-anecdotario--fotos.3.texto': '기록 하나하나가 연속 기록을 이어주고 캐릭터를 깨워요. 여기에 쓰는 것도 MindHaOS를 돌보는 일이에요.',
@@ -456,7 +456,7 @@ export const KO_TUT: Dict = {
   'tut.app-jardin--gratitud.1.titulo': '오늘 감사한 일…',
   'tut.app-jardin--gratitud.1.texto': '하루 세 줄이에요. 하나면 충분하고, 셋이면 더 좋아요. 하루에 하나씩 저장되고 언제든 고칠 수 있어요.',
   'tut.app-jardin--gratitud.2.titulo': '지민님의 기록',
-  'tut.app-jardin--gratitud.2.texto': '90일치 진짜 감사예요. 키보드, 필기 위에서 잠든 Laika, 나아가는 무릎, 일본에서 돌아온 것. 천천히 읽어보세요.',
+  'tut.app-jardin--gratitud.2.texto': '90일치 진짜 감사예요. 키보드, 필기 위에서 잠든 라이카, 나아가는 무릎, 일본에서 돌아온 것. 천천히 읽어보세요.',
   'tut.app-jardin--gratitud.3.texto': '이 방에는 연속 기록이 없고, 하루 빠져도 뭐라 하지 않아요. 일부러 그렇게 했어요. 평온은 겨루는 게 아니니까요.',
   'tut.app-hobbies--piano.1.titulo': '취미 둘, 1년',
   'tut.app-hobbies--piano.1.texto': '지민님이 기록한 건 두 가지예요. 피아노(그해의 프로젝트, 주 4일 목표)와 천체 사진이에요. 카드마다 이번 주와 연속 기록이 보여요.',
@@ -465,13 +465,13 @@ export const KO_TUT: Dict = {
   'tut.app-hobbies--piano.3.titulo': '히트맵',
   'tut.app-hobbies--piano.3.texto': '네모 하나가 하루예요. 2개월째의 시작, 피아노가 7개월째 슬럼프를 어떻게 버텨줬는지, 일본에서 보낸 3주의 빈자리가 보여요.',
   'tut.app-hobbies--piano.4.titulo': '나의 세션',
-  'tut.app-hobbies--piano.4.texto': '연습마다 분이 남고, 대부분 메모도 있어요. “손이 아파요”부터 “Clair de Lune” 완주까지요.',
+  'tut.app-hobbies--piano.4.texto': '연습마다 분이 남고, 대부분 메모도 있어요. “손이 아파요”부터 “달빛” 완주까지요.',
   'tut.app-hobbies--piano.5.titulo': '프로젝트',
-  'tut.app-hobbies--piano.5.texto': '방향이 있는 연습이에요. 첫 곡(5개월째 완성)과 “Clair de Lune”, 일주일 전에 가족 앞에서 연주했어요.',
+  'tut.app-hobbies--piano.5.texto': '방향이 있는 연습이에요. 첫 곡(5개월째 완성)과 “달빛”, 일주일 전에 가족 앞에서 연주했어요.',
   'tut.app-hobbies--proyectos.1.titulo': '피아노 프로젝트',
   'tut.app-hobbies--proyectos.1.texto': '프로젝트는 거기에 쏟은 세션을 모아줘요. 몇 번이고 몇 분인지 여기서 볼 수 있어요.',
   'tut.app-hobbies--proyectos.2.titulo': '사진으로 보는 진행 상황',
-  'tut.app-hobbies--proyectos.2.texto': '“Clair de Lune”에는 메모한 악보가 있어요. 천체 사진에서는 보름달 열두 번 프로젝트가 그해 최고의 사진들을 모았어요.',
+  'tut.app-hobbies--proyectos.2.texto': '“달빛”에는 메모한 악보가 있어요. 천체 사진에서는 보름달 열두 번 프로젝트가 그해 최고의 사진들을 모았어요.',
   'tut.app-hobbies--proyectos.3.texto': '세션은 채팅으로도 기록할 수 있어요(“피아노 30분 연습했어”). 프로젝트 목표는 플래너로 계획해요.',
   'tut.app-hobbies--gestion.1.titulo': '새 취미 등록하기',
   'tut.app-hobbies--gestion.1.texto': '이름, 이모지, 색, 그리고 원하면 주간 목표 일수까지. 기록을 시작하는 데 필요한 건 이 양식이 전부예요.',
@@ -485,7 +485,7 @@ export const KO_TUT: Dict = {
     '떠오른 생각을 적으면 끝이에요. 지민님은 한 해 동안 여기에 90개쯤 던져 놨어요. 물리 이야기, 카페 이야기, 훈련 이야기요. 별표는 즐겨찾기 표시예요.',
   'tut.app-ideas--diario.2.titulo': '주제별 브레인스토밍',
   'tut.app-ideas--diario.2.texto':
-    '브레인스토밍은 하나의 주제 아래 전부 모아줘요. 지민님의 것을 찾아보세요. 고양이 이름 짓기(Laika가 뽑혔어요), 일본 여행비 마련하기, 무엇을 챙겨 갈지요.',
+    '브레인스토밍은 하나의 주제 아래 전부 모아줘요. 지민님의 것을 찾아보세요. 고양이 이름 짓기(라이카가 뽑혔어요), 일본 여행비 마련하기, 무엇을 챙겨 갈지요.',
   'tut.app-ideas--diario.3.texto': '브레인스토밍이 무르익으면 버튼 하나로 마인드맵이 되고, 캔버스에서 계속 정리할 수 있어요.',
   'tut.app-ideas--mapas.1.titulo': '열 가지 형식',
   'tut.app-ideas--mapas.1.texto':
@@ -1054,7 +1054,7 @@ export const KO_TUT: Dict = {
   'tut.app-despacho--captura.2.titulo': '기록하는 법',
   'tut.app-despacho--captura.2.texto': '입력 폼은 단계별로 진행돼요. 금액, 변동인지 고정인지, 카테고리(직접 적으면 흔한 것들을 제안해요), 반복 주기, 그리고 메모예요.',
   'tut.app-despacho--captura.3.titulo': '1년치 기록',
-  'tut.app-despacho--captura.3.texto': '수백 건의 지출이 연도와 월 폴더에 정리돼 있어요. 7개월 차를 찾아보세요. 한 번에 1만 페소 가까이 가져간 그 고장이 거기 있어요.',
+  'tut.app-despacho--captura.3.texto': '수백 건의 지출이 연도와 월 폴더에 정리돼 있어요. 7개월 차를 찾아보세요. 계좌를 한 번에 비워버린 그 고장이 거기 있어요.',
   'tut.app-despacho--captura.4.titulo': '돈은 어디서 오나',
   'tut.app-despacho--captura.4.texto': '카페에서 받는 격주 급여 두 건, 여행을 정하고 나서 시작한 물리 과외, 그리고 매주 들어오는 팁이에요. 팁은 매번 달라요.',
   'tut.app-despacho--captura.5.texto': '내 MindHaOS에서는 채팅으로도 기록할 수 있어요. \'마트에서 250 썼어\'라고 하면 그대로 적혀요.',
@@ -1101,7 +1101,7 @@ export const KO_TUT: Dict = {
     '지민의 진짜 이동 수단이에요. 체인, 튜브, 브레이크가 하나씩 각자의 줄에 있어요. 다른 앱들이 쓰는 것과 같은, 연도와 월 폴더 보관함이에요. 최근 몇 달에 정비가 몰려 있는 걸 보세요. 마라톤 훈련이 값을 치르게 한 거예요.',
   'tut.app-garage--vehiculos.4.titulo': '그리고 물려받은 차',
   'tut.app-garage--vehiculos.4.texto':
-    '7개월 차의 고장이 여기 있어요. 길에 멈춰 섰고, 견인차를 불렀고, 없던 돈 1만 페소 가까이가 나갔어요. 정비마다 비용과 주행거리, 어느 정비소였는지가 남아요.',
+    '7개월 차의 고장이 여기 있어요. 길에 멈춰 섰고, 견인차를 불렀고, 감당할 수 없는 청구서가 나왔어요. 정비마다 비용과 주행거리, 어느 정비소였는지가 남아요.',
   'tut.app-garage--vehiculos.5.titulo': '정보 카드',
   'tut.app-garage--vehiculos.5.texto': '제조사, 모델, 연식, 번호판, 그리고 최신 주행거리예요. 번호판을 넣어두면 차에만 해당하는 서류 업무를 차고가 열어줘요.',
   'tut.app-garage--tramites.tabs.titulo': '수첩 세 권',
@@ -1166,7 +1166,7 @@ export const KO_TUT: Dict = {
   'tut.app-diario--reparto.1.texto': '누가 무엇을 가져다줄지 여기서 정해요. 그냥 알림이 아니에요. 어시스턴트가 자기 말투로 보내는 메시지로 도착해요.',
   'tut.app-diario--reparto.2.titulo': '배달원은 둘',
   'tut.app-diario--reparto.2.texto':
-    '마법사는 7:30에 세계, 기술, 경제를 가져다줘요. Laika는 내킬 때 가벼운 소식을 물어다 줘요. 어시스턴트마다 섹션과 방식을 고를 수 있어요.',
+    '마법사는 7:30에 세계, 기술, 경제를 가져다줘요. 라이카는 내킬 때 가벼운 소식을 물어다 줘요. 어시스턴트마다 섹션과 방식을 고를 수 있어요.',
   'tut.app-entretenimiento--esencial.3.texto':
     '카탈로그는 보드, 퍼즐, 아케이드, 카드, 여럿이 함께 다섯 갈래로 나뉘고 각각 고유한 색을 가져요. 아무 카드나 누르면 게임이 전체 화면으로 열려요.',
   'tut.app-entretenimiento--juegos.2.texto':

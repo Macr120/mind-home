@@ -3,6 +3,7 @@ import { useCuartos } from '../state/cuartosStore'
 import { useLayout } from '../state/layoutStore'
 import { MAPA_ROOM } from '../state/disenoStore'
 import { useT } from '../i18n/useT'
+import { useNombreCuarto } from './roomDisplay'
 import { Icono } from './iconos/Icono'
 
 /**
@@ -11,6 +12,7 @@ import { Icono } from './iconos/Icono'
  */
 export function DestinoObjetoDialog() {
   const t = useT()
+  const nombreCuarto = useNombreCuarto()
   const abierto = useDestinoObjeto((s) => s.resolver != null)
   const elegir = useDestinoObjeto((s) => s.elegir)
   const cuartos = useCuartos((s) => s.cuartos)
@@ -71,7 +73,7 @@ export function DestinoObjetoDialog() {
                 key={c.id}
                 type="button"
                 onClick={() => elegir(c.id)}
-                title={c.nombre}
+                title={nombreCuarto(c)}
                 className="flex items-center gap-2 rounded-xl border p-2.5 text-start transition hover:bg-white/8"
                 style={{ borderColor: `${c.color}44`, background: `${c.color}10` }}
               >
@@ -82,7 +84,7 @@ export function DestinoObjetoDialog() {
                   <Icono emoji={c.icon} />
                 </span>
                 <span className="min-w-0 flex-1 truncate text-xs font-semibold text-white/85">
-                  {c.nombre.split(' · ')[0]}
+                  {nombreCuarto(c)}
                 </span>
               </button>
             ))}

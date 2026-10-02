@@ -1,6 +1,7 @@
 import type { AjustesCotizacion, MaterialTaller } from '../data/db'
 import type { PlanCorte } from './corte'
-import { getTubo } from './materiales'
+import { getTubo, nombreTablero } from './materiales'
+import { tGlobal } from '../i18n/useT'
 import type { AvisoMueble, Despiece, Mm } from './tipos'
 
 /**
@@ -140,7 +141,7 @@ export function cotizar(
       return m.grosor ? 1 : 2
     })
     if (!mat) {
-      faltantes.push(g.materialId)
+      faltantes.push(nombreTablero(g.materialId, tGlobal))
       continue
     }
     const areaHoja = m2DeHoja(mat)
@@ -148,7 +149,8 @@ export function cotizar(
     const precioM2 = mat.unidad === 'hoja' ? mat.precio / areaHoja : mat.precio
     // Si la fila del catálogo no es del grosor exacto se dice en el detalle,
     // no pegado al nombre («Melamina 16 mm 3 mm» no es un concepto).
-    const otroGrosor = mat.grosor !== g.grosor && g.grosor ? `para ${g.grosor} mm` : ''
+    const otroGrosor =
+      mat.grosor !== g.grosor && g.grosor ? tGlobal('muebles.cot.paraGrosor', 'para {g} mm', { g: g.grosor }) : ''
 
     if (modo === 'hoja') {
       empuja({
@@ -175,7 +177,10 @@ export function cotizar(
         grupo: 'tablero',
         clave: mat.clave,
         concepto: mat.nombre,
-        detalle: [modo === 'm2-con-merma' ? `+${Math.round(aj.mermaPct)} % de merma` : '', otroGrosor]
+        detalle: [
+          modo === 'm2-con-merma' ? tGlobal('muebles.cot.merma', '+{n} % de merma', { n: Math.round(aj.mermaPct) }) : '',
+          otroGrosor,
+        ]
           .filter(Boolean)
           .join(' · '),
         cantidad: red(g.m2Piezas * merma, 2),
@@ -201,7 +206,7 @@ export function cotizar(
   for (const c of despiece.cantoMl) {
     const mat = buscar(catalogo, 'canto', (m) => (m.cintaMm === c.cintaMm ? 3 : 1))
     if (!mat) {
-      faltantes.push('canto')
+      faltantes.push(tGlobal('muebles.desp.canto', 'Canto'))
       continue
     }
     empuja({
@@ -229,7 +234,7 @@ export function cotizar(
       return mismaSeccion ? 3 : 1
     })
     if (!mat) {
-      faltantes.push('tubo')
+      faltantes.push(tGlobal('muebles.desp.tubo', 'Tubo'))
       continue
     }
     const nombreTubo = `${mat.nombre}`
@@ -241,7 +246,7 @@ export function cotizar(
         grupo: 'tubo',
         clave: mat.clave,
         concepto: nombreTubo,
-        detalle: `${largoTramo.toFixed(1)} m por tramo`,
+        detalle: tGlobal('muebles.cot.porTramo', '{m} m por tramo', { m: largoTramo.toFixed(1) }),
         cantidad: tramos,
         unidad: 'tramo',
         unitario: mat.precio * largoTramo,
@@ -266,7 +271,7 @@ export function cotizar(
   for (const h of despiece.herrajes) {
     const mat = buscar(catalogo, 'herraje', (m) => (m.herrajeClave === h.id ? 3 : 0))
     if (!mat) {
-      faltantes.push(h.nombreEs)
+      faltantes.push(tGlobal(h.clave, h.nombreEs))
       continue
     }
     if (mat.unidad !== h.unidad) {
@@ -275,7 +280,11 @@ export function cotizar(
         nivel: 'aviso',
         clave: 'muebles.cot.unidadDistinta',
         textoEs: '«{material}» se cotiza por {catalogo} en tu catálogo y el mueble lo pide por {mueble}.',
-        vars: { material: mat.nombre, catalogo: mat.unidad, mueble: h.unidad },
+        vars: {
+          material: mat.nombre,
+          catalogo: tGlobal(`muebles.unidad.${mat.unidad}`, mat.unidad),
+          mueble: tGlobal(`muebles.unidad.${h.unidad}`, h.unidad),
+        },
       })
     }
     empuja({
@@ -332,8 +341,8 @@ export function cotizar(
       empuja({
         id: 'manoObra',
         grupo: 'manoObra',
-        concepto: 'Mano de obra',
-        detalle: `${aj.horasPorM2} h por m²`,
+        concepto: tGlobal('muebles.cot.manoObra', 'Mano de obra'),
+        detalle: tGlobal('muebles.cot.horasM2', '{h} h por m²', { h: aj.horasPorM2 }),
         cantidad: red(m2Totales * aj.horasPorM2, 1),
         unidad: 'hora',
         unitario: aj.manoObraValor,
@@ -343,8 +352,8 @@ export function cotizar(
       empuja({
         id: 'manoObra',
         grupo: 'manoObra',
-        concepto: 'Mano de obra',
-        detalle: `${aj.manoObraValor} % de los materiales`,
+        concepto: tGlobal('muebles.cot.manoObra', 'Mano de obra'),
+        detalle: tGlobal('muebles.cot.pctMateriales', '{n} % de los materiales', { n: aj.manoObraValor }),
         cantidad: 1,
         unidad: 'pz',
         unitario: red((subtotalMateriales * aj.manoObraValor) / 100, dec),
@@ -354,7 +363,7 @@ export function cotizar(
       empuja({
         id: 'manoObra',
         grupo: 'manoObra',
-        concepto: 'Mano de obra',
+        concepto: tGlobal('muebles.cot.manoObra', 'Mano de obra'),
         cantidad: piezas,
         unidad: 'pz',
         unitario: aj.manoObraValor,
@@ -384,7 +393,7 @@ export function cotizar(
     renglones.push({
       id: 'descuento',
       grupo: 'descuento',
-      concepto: 'Descuento',
+      concepto: tGlobal('muebles.cot.descuento', 'Descuento'),
       detalle: `${aj.descuentoPct} %`,
       cantidad: 1,
       unidad: 'pz',

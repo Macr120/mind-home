@@ -43,6 +43,7 @@
     "traducir:contenido": "node scripts/traducir-contenido.mjs",
     "traducir:manual": "node scripts/traducir-manual-faltantes.mjs",
     "traducir:verificar": "node scripts/verificar-i18n.mjs",
+    "traducir:auditar": "node scripts/auditar-i18n.mjs",
     "demo:texto": "node scripts/generar-demo.mjs",
     "demo:imagenes": "node scripts/generar-demo.mjs --imagenes",
     "escritorio:dev": "electron electron/main.js --dev",

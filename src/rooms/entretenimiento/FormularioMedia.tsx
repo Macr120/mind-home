@@ -11,6 +11,7 @@ import { Foto } from '../_shared/fotos'
 import { completarMediaIA } from './resumenIA'
 import { buscarSugerencias, type SugerenciaMedia } from './sugerenciasMedia'
 import { useT } from '../../core/i18n/useT'
+import { mensajeErrorIA } from '../../core/cuenta/api'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { Creditos } from '../../core/ui/Creditos'
 import { OP_FICHA } from './costosIA'
@@ -105,7 +106,7 @@ export function FormularioMedia({
       }
     } catch (e) {
       console.warn('[MPH] No se pudo consultar la obra:', e)
-      setErrorIA(e instanceof Error ? e.message : t('entre.res.error', 'No se pudo generar el resumen.'))
+      setErrorIA(mensajeErrorIA(e, t, t('entre.res.error', 'No se pudo generar el resumen.')))
     } finally {
       setConsultando(false)
     }
@@ -152,7 +153,12 @@ export function FormularioMedia({
       </p>
 
       <PestanasCarpeta
-        items={TIPOS_MEDIA.map((tipoItem) => ({ id: tipoItem.id, emoji: tipoItem.icon, label: tipoItem.label }))}
+        items={TIPOS_MEDIA.map((tipoItem) => ({
+          id: tipoItem.id,
+          emoji: tipoItem.icon,
+          clave: `entre.tipo.${tipoItem.id}`,
+          labelEs: tipoItem.label,
+        }))}
         activo={tipo}
         onCambio={setTipo}
         color={COLOR}
@@ -320,7 +326,7 @@ export function FormularioMedia({
           >
             {ESTADOS_MEDIA.map((e) => (
               <option key={e.id} value={e.id}>
-                {e.label}
+                {t(`entre.estado.${e.id}`, e.label)}
               </option>
             ))}
           </select>

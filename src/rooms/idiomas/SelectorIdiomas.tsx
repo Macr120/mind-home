@@ -11,7 +11,7 @@ import { borrarMetasDeAmbito } from '../../core/metas'
 import { actividadId, buscarAgenda } from '../../core/rutinas'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
-import { CATALOGO_IDIOMAS, COLOR, NIVELES } from './constantes'
+import { CATALOGO_IDIOMAS, COLOR, NIVELES, nombreIdioma } from './constantes'
 import { TEMARIO } from './temario'
 
 const DIACRITICOS = new RegExp('[\\u0300-\\u036f]', 'g')
@@ -90,7 +90,7 @@ export function AltaIdioma({ existentes, onCreado }: {
               }`}
               style={activo ? { background: COLOR } : undefined}
             >
-              <Icono emoji={c.bandera} /> <span className="truncate">{c.nombre}</span>
+              <Icono emoji={c.bandera} /> <span className="truncate">{nombreIdioma(c)}</span>
             </button>
           )
         })}
@@ -113,7 +113,7 @@ export function AltaIdioma({ existentes, onCreado }: {
             <input
               value={nombreOtro}
               onChange={(e) => setNombreOtro(e.target.value)}
-              placeholder="Náhuatl"
+              placeholder={t('idiomas.sel.phOtro', 'Náhuatl')}
               className={inputBase}
             />
           </div>
@@ -179,7 +179,7 @@ function ConfigIdioma({ idioma, onCerrar }: { idioma: PerfilIdioma; onCerrar: ()
       >
         <div className="flex items-center justify-between gap-2">
           <p className="text-sm font-semibold">
-            <Icono emoji={idioma.bandera} /> {idioma.nombre}
+            <Icono emoji={idioma.bandera} /> {nombreIdioma(idioma)}
           </p>
           <button
             type="button"
@@ -207,7 +207,7 @@ function ConfigIdioma({ idioma, onCerrar }: { idioma: PerfilIdioma; onCerrar: ()
               {t('idiomas.sel.confirmarBorrar', 'Se borrarán {tarjetas} tarjetas y {charlas} charlas de {idioma}. No hay vuelta atrás.', {
                 tarjetas: String(nTarjetas),
                 charlas: String(nCharlas),
-                idioma: idioma.nombre,
+                idioma: nombreIdioma(idioma),
               })}
             </p>
             <div className="flex justify-end gap-2">
@@ -263,10 +263,10 @@ export function SelectorIdiomas({ idiomas, activoId, onElegir }: {
             title={
               activo
                 ? t('idiomas.sel.configTip', 'Nivel {nivel} · tocar para configurar', { nivel: i.nivel })
-                : t('idiomas.sel.cambiarTip', 'Cambiar a {idioma}', { idioma: i.nombre })
+                : t('idiomas.sel.cambiarTip', 'Cambiar a {idioma}', { idioma: nombreIdioma(i) })
             }
           >
-            <Icono emoji={i.bandera} /> {i.nombre}
+            <Icono emoji={i.bandera} /> {nombreIdioma(i)}
             {activo && <Icono nombre="ajustes" />}
           </button>
         )

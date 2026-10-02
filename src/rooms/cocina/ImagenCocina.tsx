@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { comprimirImagen, generarImagen, imagenIaActiva } from '../../core/imagenIA'
 import { Portada } from './Portada'
 import { useT } from '../../core/i18n/useT'
+import { mensajeErrorIA } from '../../core/cuenta/api'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { Creditos } from '../../core/ui/Creditos'
 import { OP_PORTADA } from './costosIA'
@@ -50,7 +51,7 @@ export function ImagenCocina({
       await onCambiar(await generarImagen(prompt, 1024))
     } catch (e) {
       console.warn('[MPH] No se pudo generar la imagen:', e)
-      setError(e instanceof Error ? e.message : t('cocina.img.error', 'No se pudo generar la imagen.'))
+      setError(mensajeErrorIA(e, t, t('cocina.img.error', 'No se pudo generar la imagen.')))
     } finally {
       setGenerando(false)
     }

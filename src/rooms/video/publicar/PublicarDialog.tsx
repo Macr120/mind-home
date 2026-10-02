@@ -4,6 +4,7 @@ import { abrirEnlace } from '../../../core/enlaces'
 import { localeActual, useT } from '../../../core/i18n/useT'
 import { opcionesPublicacion } from '../../../core/redes/api'
 import { useRedes } from '../../../core/redes/redesStore'
+import { mensajeErrorRedes } from '../../../core/redes/errores'
 import { NOMBRE_RED, type AvisosRedes, type CuentaRed, type MetaPublicacion, type OpcionesTikTok, type Plataforma } from '../../../core/redes/tipos'
 import { cancelarTrabajo, descartarTrabajo, lanzarTrabajo, marcarVisto } from '../../../core/redes/trabajos'
 import { confirmar } from '../../../core/state/confirmarStore'
@@ -136,7 +137,7 @@ export function PublicarDialog({
     const clave = claveOpciones
     opcionesPublicacion('tiktok')
       .then((o) => vivo && setRespuestaOpciones({ clave, info: o as OpcionesTikTok, error: null }))
-      .catch((e: unknown) => vivo && setRespuestaOpciones({ clave, info: null, error: e instanceof Error ? e.message : String(e) }))
+      .catch((e: unknown) => vivo && setRespuestaOpciones({ clave, info: null, error: mensajeErrorRedes(e) }))
     return () => {
       vivo = false
     }

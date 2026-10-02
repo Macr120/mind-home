@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { VACIO, conversacionesBiblioRepo } from '../../core/data/repository'
 import { iaActiva } from '../../core/chat/ia'
-import { useT } from '../../core/i18n/useT'
+import { localeActual, useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { PILAR_GENERAL, getPilar } from './constantes'
 import { ChatCharla } from './ChatCharla'
@@ -118,7 +118,7 @@ export function CharlasTab({
                 </span>
               </span>
               <span className="shrink-0 text-[10px] text-white/35">
-                {new Date(c.actualizadoEn).toLocaleDateString(undefined, { day: 'numeric', month: 'short' })}
+                {new Date(c.actualizadoEn).toLocaleDateString(localeActual(), { day: 'numeric', month: 'short' })}
               </span>
             </button>
           )

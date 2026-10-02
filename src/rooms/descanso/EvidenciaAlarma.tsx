@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import type { PerfilSueno } from '../../core/data/db'
 import { useT } from '../../core/i18n/useT'
+import { mensajeErrorIA } from '../../core/cuenta/api'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { fotoAAdjunta, verificarEvidencia, type Veredicto } from './evidencia'
 
@@ -115,7 +116,7 @@ export function RetoEvidencia({
       setVeredicto(v)
       if (v.cumple && !prueba) onDetener()
     } catch (e) {
-      setError(e instanceof Error ? e.message : String(e))
+      setError(mensajeErrorIA(e, t))
     } finally {
       setRevisando(false)
     }

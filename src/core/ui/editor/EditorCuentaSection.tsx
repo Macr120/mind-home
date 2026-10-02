@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { idiomaActual, useT } from '../../i18n/useT'
+import { idiomaActual, localeActual, useT } from '../../i18n/useT'
 import { hayBackend } from '../../cuenta/supabase'
-import { esperaConfirmacion, useSesion } from '../../cuenta/sesionStore'
+import { esperaConfirmacion, mensajeCuenta, useSesion } from '../../cuenta/sesionStore'
 import { refrescarUsoAlmacen, useAlmacen } from '../../cuenta/almacen'
 import { GB_POR_NIVEL, fechaPurga, formatoBytes, formatoUso } from '../../cuenta/almacenUso'
 import {
@@ -97,7 +97,7 @@ export function FormularioAcceso({ inicial = 'entrar' }: { inicial?: 'entrar' | 
     setAviso(null)
     try {
       const err = await restablecer(email.trim())
-      if (err) setError(err)
+      if (err) setError(mensajeCuenta(err, t))
       else setAviso(t('cuenta.olvide.enviado', 'Te enviamos un correo para restablecerla.'))
     } finally {
       setOcupado(false)
@@ -112,10 +112,10 @@ export function FormularioAcceso({ inicial = 'entrar' }: { inicial?: 'entrar' | 
     try {
       if (modo === 'entrar') {
         const err = await entrar(email.trim(), contrasena)
-        if (err) setError(err)
+        if (err) setError(mensajeCuenta(err, t))
       } else {
-        const err = await registrar(email.trim(), contrasena)
-        if (err) setError(err)
+        const err = await registrar(email.trim(), contrasena, idiomaActual())
+        if (err) setError(mensajeCuenta(err, t))
         // Con la confirmación de correo apagada en Supabase la sesión ya está
         // abierta y la puerta pasa sola a la compra: no hay nada que avisar.
         else if (esperaConfirmacion())
@@ -229,7 +229,7 @@ function BotonesOAuth() {
     // En la web, sin error, la página está saliendo hacia el proveedor: se
     // queda deshabilitado hasta la redirección. En la app no se sale de la
     // página (hoja nativa o navegador encima) y cerrarlos debe dejar reintentar.
-    if (err) setError(err)
+    if (err) setError(mensajeCuenta(err, t))
     if (err || esAppNativa() || esEscritorio()) setOcupado(false)
   }
 
@@ -296,10 +296,10 @@ function CuentaConSesion() {
         <p className="text-[11px] text-white/45">
           {plan === 'trial'
             ? t('cuenta.plan.trialExpira', 'Tu mes incluido termina el {f}.', {
-                f: new Date(planExpira).toLocaleDateString(),
+                f: new Date(planExpira).toLocaleDateString(localeActual()),
               })
             : t('cuenta.plan.expira', 'Renueva o vence: {f}', {
-                f: new Date(planExpira).toLocaleDateString(),
+                f: new Date(planExpira).toLocaleDateString(localeActual()),
               })}
         </p>
       )}
@@ -356,7 +356,7 @@ function CuentaConSesion() {
                 const f = fechaPurga({ plan, planExpira, sinPlanDesde })
                 return f
                   ? t('archivos.purga', 'Se borran de la nube el {fecha}: bájalos antes o reactiva Pro.', {
-                      fecha: f.toLocaleDateString(),
+                      fecha: f.toLocaleDateString(localeActual()),
                     })
                   : null
               })()}
@@ -408,7 +408,7 @@ export function BotonEliminarCuenta() {
     setError(null)
     try {
       const err = await eliminarCuenta()
-      if (err) setError(err)
+      if (err) setError(mensajeCuenta(err, t))
     } finally {
       setOcupado(false)
     }
@@ -444,7 +444,7 @@ function FilaSync() {
             ? t('cuenta.sync.activo', 'Sincronizando…')
             : ultima
               ? t('cuenta.sync.ultima', 'Sincronizado: {f}', {
-                  f: new Date(ultima).toLocaleTimeString(),
+                  f: new Date(ultima).toLocaleTimeString(localeActual()),
                 })
               : t('cuenta.sync.nunca', 'Sin sincronizar todavía')}
         </span>

@@ -3,13 +3,13 @@ import { useT } from '../../core/i18n/useT'
 import { tituloNodo, type NodoTema, type Temario } from './temarioVivo'
 
 /** Un tema y, sangrados con «·», sus subtemas. */
-function opciones(tema: NodoTema, prof: number): ReactNode[] {
+function opciones(tema: NodoTema, prof: number, t: ReturnType<typeof useT>): ReactNode[] {
   return [
     <option key={tema.id} value={tema.id}>
       {'· '.repeat(prof)}
-      {tema.titulo}
+      {tituloNodo(tema, t)}
     </option>,
-    ...tema.hijos.flatMap((h) => opciones(h, prof + 1)),
+    ...tema.hijos.flatMap((h) => opciones(h, prof + 1, t)),
   ]
 }
 
@@ -31,7 +31,7 @@ export function OpcionesTemas({ tx }: { tx: Temario }) {
               key={nivel.id}
               label={`${nivel.nivel} · ${tituloNodo(area.id === 'temas' ? nivel : area, t)}`}
             >
-              {nivel.hijos.flatMap((tema) => opciones(tema, 0))}
+              {nivel.hijos.flatMap((tema) => opciones(tema, 0, t))}
             </optgroup>
           )),
       )}

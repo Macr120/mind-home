@@ -18,6 +18,7 @@ import {
   cultivosRepo,
 } from '../../core/data/repository'
 import { nombreAleatorio } from '../../core/house/nombresAnimales'
+import { idiomaActual } from '../../core/i18n/useT'
 import { areaUtilZona, celdasRect } from './cuadrantes'
 
 const MIN = 60_000
@@ -45,7 +46,7 @@ export async function construirSantuario(cols: number, rows: number): Promise<vo
       tipo,
       alimentadoEn: ahora,
       mimadoEn: ahora,
-      nombre: nombreAleatorio(),
+      nombre: nombreAleatorio(idiomaActual()),
     })
   }
 
@@ -70,7 +71,7 @@ export async function construirSantuario(cols: number, rows: number): Promise<vo
       tipo,
       alimentadoEn: ahora,
       mimadoEn: ahora,
-      nombre: nombreAleatorio(),
+      nombre: nombreAleatorio(idiomaActual()),
     })
   }
   await animalesRepo.add({
@@ -79,7 +80,7 @@ export async function construirSantuario(cols: number, rows: number): Promise<vo
     alimentadoEn: ahora,
     mimadoEn: ahora,
     enfermoDesde: ahora - 2 * 3_600_000,
-    nombre: nombreAleatorio(),
+    nombre: nombreAleatorio(idiomaActual()),
   })
 
   // ── Huerto: las 4 etapas del ciclo, tierra libre y un aspersor. Las

@@ -22,6 +22,7 @@ import { rngDemo, type CtxDemo } from '../../demo/builders'
 import { sembrarMetasApp } from '../../demo/metasPep'
 import { PLANES_DEMO, sembrarPlanDemo } from '../../demo/planesPep'
 import { DEMO_BIBLIOTECA } from './demo.data'
+import { textoDemo } from '../../demo/textosDemo'
 import { enIdioma } from '../../core/i18n/porIdioma'
 
 /** El pilar al que pertenece cada tema del temario que usa el contenido. */
@@ -46,9 +47,6 @@ function probabilidad(off: number): number {
 
 export async function construirDemoBiblioteca(ctx: CtxDemo): Promise<void> {
   const datos = await ctx.textos(DEMO_BIBLIOTECA, () => import('./demo.data.i18n'))
-  // Aquí «es» significa «no es inglés»: los idiomas que todavía no tienen
-  // su variante inline leen el español, que es el respaldo de todo.
-  const es = ctx.idioma !== 'en'
   const r = rngDemo(14031879)
   const enHora = (off: number, hora: string) => `${ctx.fecha(off)}T${hora}:00.000Z`
 
@@ -75,9 +73,7 @@ export async function construirDemoBiblioteca(ctx: CtxDemo): Promise<void> {
         pilarId: 'naturales',
         padreId: null,
         titulo,
-        descripcion: es
-          ? 'Salió hablando con el tutor; lo dejé apuntado para volver.'
-          : 'Came up while talking with the tutor; noted it to come back to it.',
+        descripcion: textoDemo(ctx.idioma, 'bib.ramaDesc'),
         creadoEn: enHora(ch.dia, '19:10'),
         conversacionId: convId,
       })),

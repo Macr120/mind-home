@@ -1305,7 +1305,7 @@ export const ID_TUT: Dict = {
     'Formulirnya berjalan selangkah demi selangkah: jumlah, variabel atau tetap, kategori (kamu menulis kategorimu sendiri dan ia menyarankan yang sudah ada), seberapa sering berulang, dan catatan.',
   'tut.app-despacho--captura.3.titulo': 'Setahun penuh transaksi',
   'tut.app-despacho--captura.3.texto':
-    'Ratusan pengeluaran tersimpan dalam folder tahun dan bulan. Cari bulan ke-7: di situlah kerusakan yang menelan hampir sepuluh ribu peso sekaligus.',
+    'Ratusan pengeluaran tersimpan dalam folder tahun dan bulan. Cari bulan ke-7: di situlah kerusakan yang menguras rekening sekaligus.',
   'tut.app-despacho--captura.4.titulo': 'Uangnya datang dari mana',
   'tut.app-despacho--captura.4.texto':
     'Dua gaji dua mingguan dari kafe, kelas fisika yang mulai Ari ajarkan begitu perjalanan itu diputuskan, dan tip mingguan yang jumlahnya tidak pernah sama.',
@@ -1360,7 +1360,7 @@ export const ID_TUT: Dict = {
     'Transportasi sungguhannya: rantai, ban dalam, rem, satu per satu di barisnya sendiri — arsip folder per tahun dan bulan yang sama seperti di aplikasi lain. Perhatikan servisnya menumpuk di bulan-bulan terakhir: itu latihan maraton yang menagih ongkosnya.',
   'tut.app-garage--vehiculos.4.titulo': 'Dan mobil warisan itu',
   'tut.app-garage--vehiculos.4.texto':
-    'Kerusakan bulan ke-7 ada di sini: mogok di jalan, ada derek, dan hampir sepuluh ribu peso yang tidak dia punya. Tiap servis menyimpan biayanya, jarak tempuhnya, dan bengkel mana yang mengerjakannya.',
+    'Kerusakan bulan ke-7 ada di sini: mogok di jalan, ada derek, dan tagihan yang tidak sanggup dia bayar. Tiap servis menyimpan biayanya, jarak tempuhnya, dan bengkel mana yang mengerjakannya.',
   'tut.app-garage--vehiculos.5.titulo': 'Kartu kendaraan',
   'tut.app-garage--vehiculos.5.texto':
     'Merek, model, tahun, pelat nomor, dan odometer terkini. Begitu pelatnya diisi, garasi membuka administrasi yang hanya berlaku untuk mobil.',

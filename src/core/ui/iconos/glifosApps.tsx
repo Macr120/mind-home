@@ -456,6 +456,28 @@ const GLIFOS_NOMBRE = {
     </>
   ),
 
+  // — Tours del reloj (selector de tutoriales) —
+  calendario: (
+    <>
+      <rect x="4" y="9" width="34" height="32" rx="5" fill={M} />
+      <path d="M4 14a5 5 0 0 1 5-5h24a5 5 0 0 1 5 5v5H4z" fill={N} />
+      <rect x="10" y="24" width="6" height="5" rx="1.5" fill={N} />
+      <rect x="19" y="24" width="6" height="5" rx="1.5" fill={N} />
+      <rect x="10" y="32" width="6" height="5" rx="1.5" fill={N} />
+      <circle cx="35" cy="35" r="10" fill={R} />
+      <path d="M35 29.5V35l3.5 2.5" fill="none" stroke={TN} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    </>
+  ),
+  misiones: (
+    <>
+      <rect x="7" y="6" width="34" height="38" rx="5" fill={R} />
+      <rect x="16" y="3" width="16" height="7" rx="3" fill={N} />
+      <path d="M13 19l3 3 5-5M13 31l3 3 5-5" fill="none" stroke={TN} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="25" y="18" width="10" height="4" rx="2" fill={M} />
+      <rect x="25" y="30" width="10" height="4" rx="2" fill={M} />
+    </>
+  ),
+
   // — Pestañas del editor —
   mapa: (
     <g strokeWidth="2" strokeLinejoin="round">
@@ -556,5 +578,23 @@ export function IconoMarca({ glifo, emoji, nombre, size = '1.3em', estilo }: Pro
     >
       {dibujo}
     </svg>
+  )
+}
+
+/** Los iconos de la app: las tres piezas del logo (Hogar, Interior, Exterior) en fila. */
+export function PiezasLogo({
+  size = '1.3em',
+  apretado = false,
+}: {
+  size?: number | string
+  /** Sin aire entre piezas: para botones redondos o pastillas estrechas. */
+  apretado?: boolean
+}) {
+  return (
+    <span className={`inline-flex items-center ${apretado ? 'gap-px' : 'gap-1'}`} aria-hidden="true">
+      <IconoMarca glifo="hogar" nombre="casa" size={size} />
+      <IconoMarca glifo="interior" nombre="cuartos" size={size} />
+      <IconoMarca glifo="exterior" nombre="construir" size={size} />
+    </span>
   )
 }

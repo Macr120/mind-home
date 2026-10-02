@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react'
 import type { LugarViaje } from '../../core/data/db'
 import { lugaresViajeRepo } from '../../core/data/repository'
 import { fechaLocalISO } from '../../core/fechaLocal'
-import { useT } from '../../core/i18n/useT'
+import { localeActual, useT } from '../../core/i18n/useT'
 import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { COLOR } from './constantes'
 import { FormularioLugar } from './FormularioLugar'
@@ -19,7 +19,7 @@ interface Props {
 
 /** "agosto 2026" a partir de "2026-08". */
 function mesLargo(aaaaMm: string) {
-  return new Date(`${aaaaMm}-15T12:00:00`).toLocaleDateString(undefined, {
+  return new Date(`${aaaaMm}-15T12:00:00`).toLocaleDateString(localeActual(), {
     month: 'long',
     year: 'numeric',
   })

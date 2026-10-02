@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { MascaraApp, type TextosMascara } from '../../../marketing/mascara/src/MascaraApp'
 import { hayBackend } from '../cuenta/supabase'
 import { entregarTomaAlStudio } from '../grabacionPantalla'
-import { useT } from '../i18n/useT'
+import { localeActual, useT } from '../i18n/useT'
 import { useMascaraUi } from '../state/mascaraUiStore'
 import { crearSenalMascara } from './mascaraSenal'
 
@@ -93,7 +93,7 @@ export default function MascaraOverlay() {
   // proyecto como clip (mismo canal que la grabación de la app); la máscara se cierra sola.
   const onToma = destino
     ? async (blob: Blob, duracion: number) => {
-        const h = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        const h = new Date().toLocaleTimeString(localeActual(), { hour: '2-digit', minute: '2-digit' })
         await entregarTomaAlStudio(destino, {
           blob,
           duracion: Math.round(duracion * 100) / 100,

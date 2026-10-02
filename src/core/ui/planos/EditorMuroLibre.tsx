@@ -160,7 +160,7 @@ export function EditorMuroLibre({ muroId }: { muroId: number }) {
                     <button
                       key={tp.id}
                       type="button"
-                      title={tp.nombre}
+                      title={t(`paredes.puerta.${tp.id}` as Parameters<typeof t>[0], tp.nombre)}
                       onClick={() =>
                         set({
                           puertaTipo: tp.id,
@@ -523,7 +523,7 @@ export function EditorMuroLibre({ muroId }: { muroId: number }) {
             <button
               key={tm.id}
               type="button"
-              title={tm.nombre}
+              title={t(`paredes.muro.${tm.id}` as Parameters<typeof t>[0], tm.nombre)}
               onClick={() => void setEstiloMuroLibre(muroId, { tipo: tm.id, color: tm.defaultColor })}
               className={`flex flex-col items-center gap-1 rounded-lg p-1 transition ${
                 tipo === tm.id ? 'bg-white/10 ring-1 ring-amber-400/70' : 'bg-white/5 hover:bg-white/10'

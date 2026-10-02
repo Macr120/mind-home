@@ -1,6 +1,7 @@
 import type { ComponentType, ReactNode } from 'react'
 import { getPlantilla } from '../registry'
-import { useT } from '../i18n/useT'
+import { localeActual, useT } from '../i18n/useT'
+import { duracionMin } from '../i18n/duracion'
 import { AvatarMini } from '../ui/ProgresoPanel'
 import { Icono } from '../ui/iconos/Icono'
 import { vivo } from '../ui/estilos'
@@ -27,12 +28,7 @@ export interface SlideDef {
 /** Acento neutro del wrapped (heatmap y portada); los dominios usan su color de app. */
 const ACENTO = '#a78bfa'
 
-const fmtMin = (min: number): string => {
-  if (min < 60) return `${min} m`
-  const h = Math.floor(min / 60)
-  const m = min % 60
-  return m ? `${h} h ${m} m` : `${h} h`
-}
+const fmtMin = duracionMin
 
 /** Número protagonista con etiqueta debajo. */
 function Dato({
@@ -143,7 +139,7 @@ function SlideTopApp({ resumen }: PropsSlide) {
             <Icono emoji={pl0.icon} />
           </span>
           <p className="texto-vivo text-3xl font-black" style={vivo(pl0.color)}>
-            {pl0.nombre}
+            {t(`room.${pl0.id}.nombre`, pl0.nombre).split(' · ')[0]}
           </p>
         </>
       )}
@@ -158,7 +154,9 @@ function SlideTopApp({ resumen }: PropsSlide) {
               </span>
               <div className="min-w-0 flex-1">
                 <div className="flex items-baseline justify-between gap-2">
-                  <span className="truncate text-xs font-semibold text-white/80">{pl.nombre}</span>
+                  <span className="truncate text-xs font-semibold text-white/80">
+                    {t(`room.${pl.id}.nombre`, pl.nombre).split(' · ')[0]}
+                  </span>
                   <span className="text-[11px] text-white/50">
                     {t('wrapped.topApp.n', '{n} registros', { n: a.registros })}
                   </span>
@@ -219,7 +217,7 @@ function SlideEjercicio({ resumen }: PropsSlide) {
   if (d.km > 0) datos.push({ valor: `${d.km} km`, etiqueta: t('wrapped.ej.km', 'recorridos') })
   if (d.volumenKg > 0)
     datos.push({
-      valor: d.volumenKg.toLocaleString(),
+      valor: d.volumenKg.toLocaleString(localeActual()),
       etiqueta: t('wrapped.ej.kg', 'kg levantados'),
     })
   return <SlideApp plantillaId="ejercicio" titulo={t('wrapped.ej.titulo', 'Moviste el cuerpo')} datos={datos} />
@@ -329,8 +327,8 @@ function SlideFinanzas({ resumen }: PropsSlide) {
   const d = resumen.dominios.finanzas
   if (!d) return null
   const datos = [
-    { valor: `$${d.ingresos.toLocaleString()}`, etiqueta: t('wrapped.fin.ingresos', 'de ingresos') },
-    { valor: `$${d.gastos.toLocaleString()}`, etiqueta: t('wrapped.fin.gastos', 'de gastos') },
+    { valor: `$${d.ingresos.toLocaleString(localeActual())}`, etiqueta: t('wrapped.fin.ingresos', 'de ingresos') },
+    { valor: `$${d.gastos.toLocaleString(localeActual())}`, etiqueta: t('wrapped.fin.gastos', 'de gastos') },
   ]
   if (d.topCategoriaGasto)
     datos.push({
@@ -518,7 +516,7 @@ function SlideCierre({ resumen }: PropsSlide) {
         <Icono nombre="fiesta" />
       </span>
       <p className="texto-vivo text-5xl font-black tracking-tight" style={vivo(ACENTO)}>
-        +{resumen.xpGanado.toLocaleString()} XP
+        {t('celebra.lista.xp', '+{xp} XP', { xp: resumen.xpGanado.toLocaleString(localeActual()) })}
       </p>
       <p className="text-sm text-white/70">{frase}</p>
       <p className="text-xs text-white/40">

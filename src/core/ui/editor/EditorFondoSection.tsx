@@ -146,7 +146,7 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
 
   const onArchivo = (file: File | undefined) => {
     if (!file?.type.startsWith('image/')) return
-    abrirBorrador(file, file.name.replace(/\.[^.]+$/, '').slice(0, 32) || 'Mi fondo')
+    abrirBorrador(file, file.name.replace(/\.[^.]+$/, '').slice(0, 32) || t('fondo.nombreDefecto', 'Mi fondo'))
   }
 
   const editarExistente = (item: FondoImagen) => {
@@ -168,7 +168,7 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
     try {
       if (editandoId != null) {
         await actualizarFondoImagen(editandoId, {
-          nombre: borrador.nombre.trim() || 'Mi fondo',
+          nombre: borrador.nombre.trim() || t('fondo.nombreDefecto', 'Mi fondo'),
           ...ajusteADb(borrador.ajuste),
         })
         await setFondoImagenActivo(editandoId)

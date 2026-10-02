@@ -29,7 +29,7 @@
   },
   {
     "ruta": "servicios.2.nota",
-    "texto": "カフェに向かう途中、Doctor Vértiz通りでパンク。歩道でチューブ交換を覚えました。遅くなりましたが、ちゃんと覚えました。"
+    "texto": "カフェに向かう途中、ドクトル・ベルティス通りでパンク。歩道でチューブ交換を覚えました。遅ればせながら、ちゃんと覚えました。"
   },
   {
     "ruta": "servicios.3.titulo",
@@ -69,11 +69,11 @@
   },
   {
     "ruta": "servicios.7.nota",
-    "texto": "Eje 8でガラスの破片を踏んでしまい、自転車を押して二十分遅れで研究室に着きました。"
+    "texto": "エヘ8通りでガラスの破片を踏んでしまい、自転車を押して二十分遅れで研究室に着きました。"
   },
   {
     "ruta": "servicios.8.titulo",
-    "texto": "Calzada de Tlalpanで立ち往生"
+    "texto": "トラルパン大通りで立ち往生"
   },
   {
     "ruta": "servicios.8.nota",
@@ -137,43 +137,43 @@
   },
   {
     "ruta": "talleres.0.nombre",
-    "texto": "Taller Mecánico Rivas"
+    "texto": "リバス整備工場"
   },
   {
     "ruta": "talleres.0.direccion",
-    "texto": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez"
+    "texto": "ベニート・フアレス区 ナルバルテ地区 クアウテモック通り812番地"
   },
   {
     "ruta": "talleres.0.notas",
-    "texto": "Rivasさんはいつも、本当に急ぎのことと後回しにできることをきちんと説明してくれて、請求書を水増ししたことも一度もありません。この車のことで信頼できるのは彼だけです。"
+    "texto": "リバスさんはいつも、本当に急ぎのことと後回しにできることをきちんと説明してくれて、請求書を水増ししたことも一度もありません。この車のことで信頼できるのは彼だけです。"
   },
   {
     "ruta": "talleres.1.nombre",
-    "texto": "Seguros Meridiano - agente Nadia Ortega"
+    "texto": "メリディアーノ保険（担当：ナディア・オルテガ）"
   },
   {
     "ruta": "talleres.1.direccion",
-    "texto": "Av. Insurgentes Sur 1234, piso 3, Col. Del Valle"
+    "texto": "デル・バジェ地区 インスルヘンテス・スール通り1234番地 3階"
   },
   {
     "ruta": "talleres.1.notas",
-    "texto": "Nadiaは日曜日でもWhatsAppにすぐ返信してくれて、フルカバー保険に切り替えたときは月払いのプランを組んでくれました。"
+    "texto": "ナディアさんは日曜日でもWhatsAppにすぐ返信してくれて、フルカバー保険に切り替えたときは月払いのプランを組んでくれました。"
   },
   {
     "ruta": "talleres.2.nombre",
-    "texto": "Verificentro 09-118 Iztaccíhuatl"
+    "texto": "イスタクシワトル排ガス検査場 09-118"
   },
   {
     "ruta": "talleres.2.direccion",
-    "texto": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez"
+    "texto": "ベニート・フアレス区 イスタクシワトル地区 イスタクシワトル通り240番地"
   },
   {
     "ruta": "talleres.2.notas",
-    "texto": "朝七時に予約を入れると四十分で終わります。Coyoacánの検査場では、行列で午前中を丸々潰されました。"
+    "texto": "朝七時に予約を入れると四十分で終わります。コヨアカンの検査場では、行列で午前中が半分つぶれました。"
   },
   {
     "ruta": "talleres.3.direccion",
-    "texto": "Zacatecas 145, Col. Roma Sur, Cuauhtémoc"
+    "texto": "クアウテモック区 ローマ・スール地区 サカテカス通り145番地"
   },
   {
     "ruta": "talleres.3.notas",
@@ -181,11 +181,11 @@
   },
   {
     "ruta": "talleres.4.nombre",
-    "texto": "Grúas Tepeyac 24 horas"
+    "texto": "テペヤック24時間レッカー"
   },
   {
     "ruta": "talleres.4.direccion",
-    "texto": "Base en Eje Central Lázaro Cárdenas 1105, Col. Álamos"
+    "texto": "拠点：アラモス地区 エヘ・セントラル・ラサロ・カルデナス通り1105番地"
   },
   {
     "ruta": "talleres.4.notas",
@@ -205,7 +205,7 @@
   },
   {
     "ruta": "tramites.1.nota",
-    "texto": "車が故障して肝を冷やしたあと、今年はNadiaのところでフルカバー保険に切り替えました。月払いにして、毎月の予算にきちんと組み込んでいます。"
+    "texto": "車が故障して肝を冷やしたあと、今年はナディアさんのところでフルカバー保険に切り替えました。月払いにして、毎月の予算にきちんと組み込んでいます。"
   },
   {
     "ruta": "tramites.2.titulo",
@@ -229,6 +229,18 @@
   },
   {
     "ruta": "tramites.4.nota",
-    "texto": "半年ごとにCiclos Malincheで、ホイールの振れ取り、ワイヤーとブレーキの点検をしています。曲がったホイールを直すよりずっと安上がりです。"
+    "texto": "半年ごとにマリンチェ自転車店で、ホイールの振れ取り、ワイヤーとブレーキの点検をしています。曲がったホイールを直すよりずっと安上がりです。"
+  },
+  {
+    "ruta": "vehiculos.biciNombre",
+    "texto": "ツル号"
+  },
+  {
+    "ruta": "vehiculos.autoNombre",
+    "texto": "マンモス号"
+  },
+  {
+    "ruta": "talleres.3.nombre",
+    "texto": "マリンチェ自転車店"
   }
 ]

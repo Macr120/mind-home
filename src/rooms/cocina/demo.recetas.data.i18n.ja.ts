@@ -72,7 +72,7 @@ export default {
       "clave": "bowl-pollo",
       "nombre": "一週間分の鶏肉ボウル",
       "emoji": "🍗",
-      "carpeta": "Batch cooking",
+      "carpeta": "作り置き",
       "porciones": 4,
       "minutos": 45,
       "ingredientes": [
@@ -207,7 +207,7 @@ export default {
       "clave": "crema-lentejas",
       "nombre": "赤レンズ豆のポタージュ",
       "emoji": "🍲",
-      "carpeta": "Batch cooking",
+      "carpeta": "作り置き",
       "porciones": 4,
       "minutos": 35,
       "ingredientes": [
@@ -272,7 +272,7 @@ export default {
       "clave": "tacos-lentejas",
       "nombre": "スモークパプリカのレンズ豆タコス",
       "emoji": "🌮",
-      "carpeta": "Batch cooking",
+      "carpeta": "作り置き",
       "porciones": 4,
       "minutos": 30,
       "ingredientes": [

@@ -5,6 +5,8 @@ import { useT } from '../../core/i18n/useT'
 import { getTipoEfemeride } from './constantes'
 import { ImagenNoticia } from './ImagenNoticia'
 import { ProfundizarModal } from './ProfundizarModal'
+import { NarradorSeccion } from './NarradorSeccion'
+import { seccionEfemeride } from './reparto'
 import { vivo } from '../../core/ui/estilos'
 
 /**
@@ -31,7 +33,13 @@ export function TarjetaEfemeride({ efemeride }: { efemeride: Efemeride }) {
   )
 
   return (
-    <article className="overflow-hidden rounded-2xl border border-white/15 bg-white/5">
+    <article className="relative overflow-hidden rounded-2xl border border-white/15 bg-white/5">
+      <NarradorSeccion
+        seccion={seccionEfemeride(tipo.id)}
+        color={tipo.color}
+        emoji={tipo.emoji}
+        etiqueta={t(`diario.ef.${tipo.id}`, tipo.label)}
+      />
       {tipografica ? (
         <div
           className="flex aspect-video flex-col items-center justify-center gap-2 px-6 text-center"
@@ -60,12 +68,6 @@ export function TarjetaEfemeride({ efemeride }: { efemeride: Efemeride }) {
         />
       )}
       <div className="space-y-2 p-3.5">
-        <span
-          className="texto-vivo inline-block rounded-md px-2 py-0.5 text-[10px] font-bold"
-          style={{ background: `${tipo.color}33`, ...vivo(tipo.color) }}
-        >
-          <Icono emoji={tipo.emoji} /> {t(`diario.ef.${tipo.id}`, tipo.label)}
-        </span>
         {!tipografica && (
           <h3 className="text-sm font-bold leading-snug">
             {efemeride.titulo}

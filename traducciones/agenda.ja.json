@@ -350,5 +350,129 @@
   {
     "ruta": "pendientes.4",
     "texto": "カウンター用の新しいグラインダーの見積もりを取る"
+  },
+  {
+    "ruta": "contactos.0.relacion",
+    "texto": "家族"
+  },
+  {
+    "ruta": "contactos.1.relacion",
+    "texto": "家族"
+  },
+  {
+    "ruta": "contactos.2.relacion",
+    "texto": "友人"
+  },
+  {
+    "ruta": "contactos.3.relacion",
+    "texto": "友人"
+  },
+  {
+    "ruta": "contactos.4.relacion",
+    "texto": "仕事"
+  },
+  {
+    "ruta": "contactos.5.relacion",
+    "texto": "仕事"
+  },
+  {
+    "ruta": "contactos.6.relacion",
+    "texto": "大学"
+  },
+  {
+    "ruta": "contactos.7.relacion",
+    "texto": "大学"
+  },
+  {
+    "ruta": "trabajo.7.lugar",
+    "texto": "北広場"
+  },
+  {
+    "ruta": "personas.0.con",
+    "texto": "ナディア・セラーノ"
+  },
+  {
+    "ruta": "personas.1.con",
+    "texto": "ロサ・ビダル"
+  },
+  {
+    "ruta": "personas.2.con",
+    "texto": "イケル・ドミンゲス"
+  },
+  {
+    "ruta": "personas.3.con",
+    "texto": "ナディア・セラーノ"
+  },
+  {
+    "ruta": "personas.4.con",
+    "texto": "トマス・イリアルテ"
+  },
+  {
+    "ruta": "personas.5.con",
+    "texto": "ロサ・ビダル"
+  },
+  {
+    "ruta": "personas.6.con",
+    "texto": "マリソル・カセレス"
+  },
+  {
+    "ruta": "personas.7.con",
+    "texto": "カミラ・ビダル"
+  },
+  {
+    "ruta": "personas.8.con",
+    "texto": "ロサ・ビダル"
+  },
+  {
+    "ruta": "personas.9.con",
+    "texto": "トマス・イリアルテ"
+  },
+  {
+    "ruta": "personas.10.con",
+    "texto": "ナディア・セラーノ"
+  },
+  {
+    "ruta": "personas.11.con",
+    "texto": "ブルーノ・フェレール"
+  },
+  {
+    "ruta": "personas.12.con",
+    "texto": "ロサ・ビダル"
+  },
+  {
+    "ruta": "personas.13.con",
+    "texto": "イケル・ドミンゲス"
+  },
+  {
+    "ruta": "contactos.0.nombre",
+    "texto": "ロサ・ビダル"
+  },
+  {
+    "ruta": "contactos.1.nombre",
+    "texto": "カミラ・ビダル"
+  },
+  {
+    "ruta": "contactos.2.nombre",
+    "texto": "ナディア・セラーノ"
+  },
+  {
+    "ruta": "contactos.3.nombre",
+    "texto": "トマス・イリアルテ"
+  },
+  {
+    "ruta": "contactos.4.nombre",
+    "texto": "マリソル・カセレス"
+  },
+  {
+    "ruta": "contactos.5.nombre",
+    "texto": "ブルーノ・フェレール"
+  },
+  {
+    "ruta": "contactos.6.nombre",
+    "texto": "イケル・ドミンゲス"
+  },
+  {
+    "ruta": "contactos.7.nombre",
+    "texto": "エレナ・プッチ"
   }
 ]

@@ -228,7 +228,7 @@ export default {
     },
     {
       "dia": -250,
-      "item1": "Sechzig Euro mehr in den Japan-Fonds",
+      "item1": "{monto:1040} mehr in den Japan-Fonds",
       "item2": "Ich sage inzwischen sumimasen, ohne zu stocken",
       "item3": "Kostenlose Verkostung eines äthiopischen Kaffees"
     },
@@ -242,7 +242,7 @@ export default {
       "dia": -243,
       "item1": "Neun Kilometer, und am Ende war noch Luft übrig",
       "item2": "Limo gegen Sprudelwasser getauscht, und ich lebe immer noch",
-      "item3": "Das Fahrrad für zwölf Euro repariert"
+      "item3": "Das Fahrrad für {monto:210} repariert"
     },
     {
       "dia": -239,

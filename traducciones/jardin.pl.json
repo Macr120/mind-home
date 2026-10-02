@@ -269,7 +269,7 @@
   },
   {
     "ruta": "gratitudes.16.item1",
-    "texto": "255 zł więcej do funduszu na Japonię"
+    "texto": "{monto:1040} więcej do funduszu na Japonię"
   },
   {
     "ruta": "gratitudes.16.item2",
@@ -297,7 +297,7 @@
   },
   {
     "ruta": "gratitudes.18.item3",
-    "texto": "Rower naprawiony za 51 zł"
+    "texto": "Rower naprawiony za {monto:210}"
   },
   {
     "ruta": "gratitudes.19.item1",

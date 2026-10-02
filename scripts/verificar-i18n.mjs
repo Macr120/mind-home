@@ -53,7 +53,8 @@ const CAPAS = [
   { id: 'tut', fuente: ['dict.en.tut.ts', 'EN_TUT'], destino: (id) => [`dict.${id}.tut.ts`, `${id.toUpperCase()}_TUT`] },
 ]
 
-const RE_MARCADOR = /\{\w+\}/g
+// Con letras de cualquier alfabeto: `\w` no veía `{año}`.
+const RE_MARCADOR = /\{[\p{L}\p{N}_]+\}/gu
 // `Extended_Pictographic` cubre emoji y pictogramas; las banderas van aparte
 // porque son pares de indicadores regionales.
 const RE_EMOJI = /\p{Extended_Pictographic}|\p{Regional_Indicator}/u
@@ -205,6 +206,8 @@ async function main() {
       const rotas = []
       const vacias = []
       const conEmoji = []
+      // `${n}`: el `$` de una plantilla JS colado en la traducción se ve en pantalla.
+      const conDolar = []
       const largas = []
       const factor = factorDe(id)
 
@@ -216,6 +219,7 @@ async function main() {
         const b = marcadores(traducido).join(',')
         if (a !== b) rotas.push(`${k}: {${a}} → {${b}}`)
         if (!RE_EMOJI.test(fuente[k]) && RE_EMOJI.test(traducido)) conEmoji.push(k)
+        if (traducido.includes('${') && !fuente[k].includes('${')) conDolar.push(k)
         if (fuente[k].length >= MINIMO_LARGO && traducido.length > fuente[k].length * factor) {
           largas.push(`${k}: ${fuente[k].length}→${traducido.length}`)
         }
@@ -227,9 +231,10 @@ async function main() {
       if (vacias.length) problemas.push(`${vacias.length} vacías`)
       if (rotas.length) problemas.push(`${rotas.length} con marcadores rotos`)
       if (conEmoji.length) problemas.push(`${conEmoji.length} con emoji nuevo`)
+      if (conDolar.length) problemas.push(`${conDolar.length} con «$» sobrante`)
 
       // Los idiomas van al 100 %: una clave sin traducir es error, no aviso.
-      const grave = rotas.length + vacias.length + faltan.length
+      const grave = rotas.length + vacias.length + faltan.length + conDolar.length
       errores += grave
       avisos += largas.length
 
@@ -239,6 +244,7 @@ async function main() {
       for (const r of rotas.slice(0, 8)) console.log(`    marcador: ${r}`)
       for (const k of vacias.slice(0, 8)) console.log(`    vacía: ${k}`)
       for (const k of conEmoji.slice(0, 8)) console.log(`    emoji: ${k} = ${dict[k]}`)
+      for (const k of conDolar.slice(0, 8)) console.log(`    $: ${k} = ${dict[k]}`)
       if (largas.length) console.log(`    largas (>${factor}×, revisar en su botón): ${largas.slice(0, 5).join(' · ')}${largas.length > 5 ? ` …+${largas.length - 5}` : ''}`)
       if (faltan.length && faltan.length <= 8) console.log(`    faltan: ${faltan.join(', ')}`)
     }

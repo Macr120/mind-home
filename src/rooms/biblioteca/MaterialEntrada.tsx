@@ -3,6 +3,7 @@ import type { MaterialEntrada as Enlace, TipoMaterial } from '../../core/data/db
 import { VACIO, materialEntradaRepo, useMaterialDeEntrada } from '../../core/data/repository'
 import { iaActiva } from '../../core/chat/ia'
 import { useT } from '../../core/i18n/useT'
+import { mensajeErrorIA } from '../../core/cuenta/api'
 import {
   CAMPO_ID_MATERIAL,
   abrirMaterial,
@@ -128,7 +129,7 @@ export function MaterialEntrada({
       const materialId = await enlazar(tipo, r.id, r.nombre)
       setAbiertos((prev) => new Set(prev).add(materialId))
     } catch (e) {
-      setAviso(e instanceof Error ? e.message : t('biblioteca.mat.falloIA', 'La IA no pudo generar el material.'))
+      setAviso(mensajeErrorIA(e, t, t('biblioteca.mat.falloIA', 'La IA no pudo generar el material.')))
     } finally {
       setGenerando(null)
     }

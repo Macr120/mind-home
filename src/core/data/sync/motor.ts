@@ -653,7 +653,10 @@ export async function sincronizar(manual = false): Promise<void> {
           errorSync: tGlobal('cuenta.sync.soloPro', 'La sincronización entre dispositivos es parte de Pro.'),
         })
       } else {
-        useSesion.setState({ estadoSync: 'error', errorSync: msg })
+        useSesion.setState({
+          estadoSync: 'error',
+          errorSync: tGlobal('cuenta.sync.fallo', 'No se pudo sincronizar ({e}). Se reintentará solo.', { e: msg }),
+        })
       }
     } finally {
       sincronizando = false

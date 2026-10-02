@@ -145,7 +145,7 @@ export function RejillaTransiciones({
               activo={(valor?.duracion ?? (tipo === 'fundido' ? DUR_FUNDIDO : DUR_TRANSICION)) === d}
               onClick={() => onCambiar({ ...valor, tipo, duracion: d })}
             >
-              {d}s
+              {t('ui.dur.s', '{n} s', { n: d })}
             </Chip>
           ))}
         </div>

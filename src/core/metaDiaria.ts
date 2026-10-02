@@ -3,6 +3,7 @@ import { db, type EjecucionRutina, type Rutina } from './data/db'
 import { sinEjemplos } from './data/ejemplos'
 import { borrarMetaDiariaManual, fijarMetaDiariaManual, rutinasRepo } from './data/repository'
 import { DIA_MS, fechaLocalISO } from './fechaLocal'
+import { tGlobal } from './i18n/useT'
 import { esMeta, rangoDe, vigenteEn } from './metas'
 import { getPlantilla, type ObjetivoDia } from './registry'
 import { marcarHecho, tocaFecha } from './rutinas'
@@ -36,6 +37,15 @@ export function objetivosDiaDe(plantillaId: string | undefined): ObjetivoDia[] {
   if (!plantilla || plantilla.sinMetaDiaria) return []
   if (plantilla.objetivosDia?.length) return plantilla.objetivosDia
   return plantilla.metaDiaria ? [plantilla.metaDiaria] : []
+}
+
+/** Las unidades que declaran las apps (en español) → su clave `hoy.unidad.<id>`. */
+const CLAVE_UNIDAD: Record<string, string> = { min: 'min', ml: 'ml', tarjetas: 'tarjetas', 'cálculos': 'calculos' }
+
+/** La unidad de un objetivo en el idioma de la app. */
+export function unidadObjetivo(unidad: string): string {
+  const id = CLAVE_UNIDAD[unidad]
+  return id ? tGlobal(`hoy.unidad.${id}`, unidad) : unidad
 }
 
 /** El objetivo principal de una app (la vieja meta diaria), o ninguno. */

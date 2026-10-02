@@ -228,7 +228,7 @@ export default {
     },
     {
       "dia": -250,
-      "item1": "255 zł więcej do funduszu na Japonię",
+      "item1": "{monto:1040} więcej do funduszu na Japonię",
       "item2": "Mówię już sumimasen bez zacinania się",
       "item3": "Darmowa degustacja kawy z Etiopii"
     },
@@ -242,7 +242,7 @@ export default {
       "dia": -243,
       "item1": "Dziewięć kilometrów i oddechu starczyło do końca",
       "item2": "Słodki napój zamieniony na wodę gazowaną i jak widać nadal żyję",
-      "item3": "Rower naprawiony za 51 zł"
+      "item3": "Rower naprawiony za {monto:210}"
     },
     {
       "dia": -239,

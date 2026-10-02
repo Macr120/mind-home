@@ -26,18 +26,25 @@ import {
   META_COREA,
 } from '../../demo/hitosPep'
 import { sembrarMetasApp } from '../../demo/metasPep'
+import { textoDemo } from '../../demo/textosDemo'
+import type { Idioma } from '../../core/i18n/idiomas'
+import { localeActual } from '../../core/i18n/useT'
 import { DEMO_SALA } from './demo.data'
+import { montoDemo } from '../../core/moneda'
 
 type ClaveLugar =
   | 'tokio' | 'hakone' | 'kawaguchiko' | 'kioto' | 'nara' | 'osaka' | 'hiroshima'
   | 'oaxaca' | 'valle' | 'seul' | 'patagonia' | 'islandia'
 
-/** El mapa de Pep@: coordenadas reales, sin pedirle nada a la red. */
+/**
+ * El mapa de Pep@: coordenadas reales, sin pedirle nada a la red. El nombre sale
+ * de `textosDemo` (`sala.lugar.<clave>`) y el país lo nombra `Intl` desde su ISO.
+ */
 const LUGARES: Record<ClaveLugar, {
-  nombre: string
-  pais: string
-  paisEn: string
-  ciudad?: string
+  /** País (ISO 3166-1). */
+  iso: string
+  /** El pin es una ciudad y se apunta también como tal. */
+  ciudad?: true
   lat: number
   lng: number
   visitado: 0 | 1
@@ -45,18 +52,67 @@ const LUGARES: Record<ClaveLugar, {
   visita?: number
   apuntado: number
 }> = {
-  tokio: { nombre: 'Tokio', pais: 'Japón', paisEn: 'Japan', ciudad: 'Tokio', lat: 35.6762, lng: 139.6503, visitado: 1, visita: JAPON_INICIO, apuntado: -270 },
-  hakone: { nombre: 'Hakone', pais: 'Japón', paisEn: 'Japan', lat: 35.2324, lng: 139.1069, visitado: 1, visita: -119, apuntado: -200 },
-  kawaguchiko: { nombre: 'Lago Kawaguchi', pais: 'Japón', paisEn: 'Japan', lat: 35.4975, lng: 138.7541, visitado: 1, visita: -118, apuntado: -200 },
-  kioto: { nombre: 'Kioto', pais: 'Japón', paisEn: 'Japan', ciudad: 'Kioto', lat: 35.0116, lng: 135.7681, visitado: 1, visita: -117, apuntado: -265 },
-  nara: { nombre: 'Nara', pais: 'Japón', paisEn: 'Japan', lat: 34.6851, lng: 135.8048, visitado: 1, visita: -113, apuntado: -198 },
-  osaka: { nombre: 'Osaka', pais: 'Japón', paisEn: 'Japan', ciudad: 'Osaka', lat: 34.6937, lng: 135.5023, visitado: 1, visita: -111, apuntado: -198 },
-  hiroshima: { nombre: 'Hiroshima', pais: 'Japón', paisEn: 'Japan', lat: 34.3853, lng: 132.4553, visitado: 1, visita: -109, apuntado: -190 },
-  oaxaca: { nombre: 'Oaxaca', pais: 'México', paisEn: 'Mexico', ciudad: 'Oaxaca de Juárez', lat: 17.0732, lng: -96.7266, visitado: 1, visita: -280, apuntado: -292 },
-  valle: { nombre: 'Valle de Bravo', pais: 'México', paisEn: 'Mexico', lat: 19.1953, lng: -100.131, visitado: 1, visita: -40, apuntado: -46 },
-  seul: { nombre: 'Seúl', pais: 'Corea del Sur', paisEn: 'South Korea', ciudad: 'Seúl', lat: 37.5665, lng: 126.978, visitado: 0, apuntado: -12 },
-  patagonia: { nombre: 'Patagonia', pais: 'Argentina', paisEn: 'Argentina', lat: -49.3315, lng: -72.8863, visitado: 0, apuntado: -60 },
-  islandia: { nombre: 'Reikiavik', pais: 'Islandia', paisEn: 'Iceland', lat: 64.1466, lng: -21.9426, visitado: 0, apuntado: -120 },
+  tokio: { iso: 'JP', ciudad: true, lat: 35.6762, lng: 139.6503, visitado: 1, visita: JAPON_INICIO, apuntado: -270 },
+  hakone: { iso: 'JP', lat: 35.2324, lng: 139.1069, visitado: 1, visita: -119, apuntado: -200 },
+  kawaguchiko: { iso: 'JP', lat: 35.4975, lng: 138.7541, visitado: 1, visita: -118, apuntado: -200 },
+  kioto: { iso: 'JP', ciudad: true, lat: 35.0116, lng: 135.7681, visitado: 1, visita: -117, apuntado: -265 },
+  nara: { iso: 'JP', lat: 34.6851, lng: 135.8048, visitado: 1, visita: -113, apuntado: -198 },
+  osaka: { iso: 'JP', ciudad: true, lat: 34.6937, lng: 135.5023, visitado: 1, visita: -111, apuntado: -198 },
+  hiroshima: { iso: 'JP', lat: 34.3853, lng: 132.4553, visitado: 1, visita: -109, apuntado: -190 },
+  oaxaca: { iso: 'MX', ciudad: true, lat: 17.0732, lng: -96.7266, visitado: 1, visita: -280, apuntado: -292 },
+  valle: { iso: 'MX', lat: 19.1953, lng: -100.131, visitado: 1, visita: -40, apuntado: -46 },
+  seul: { iso: 'KR', ciudad: true, lat: 37.5665, lng: 126.978, visitado: 0, apuntado: -12 },
+  patagonia: { iso: 'AR', lat: -49.3315, lng: -72.8863, visitado: 0, apuntado: -60 },
+  islandia: { iso: 'IS', lat: 64.1466, lng: -21.9426, visitado: 0, apuntado: -120 },
+}
+
+/** Un pin que el idioma cambió de sitio: nombre ya escrito en ese idioma. */
+interface LugarAdaptado {
+  nombre: string
+  iso: string
+  lat: number
+  lng: number
+}
+
+/**
+ * Lo que cada idioma ADAPTÓ del viaje al traducir el contenido (`demo.data.i18n.<id>.ts`):
+ * en japonés el viaje grande es a México y los dos cortos, por Japón; en chino,
+ * turco e indonesio los dos cortos son por su país; en coreano el próximo viaje
+ * es a Vietnam. Los pines siguen al relato: nombre, país y sitio.
+ */
+const ADAPTADOS: Partial<Record<Idioma, Partial<Record<ClaveLugar, LugarAdaptado>>>> = {
+  ja: {
+    tokio: { nombre: 'メキシコシティ', iso: 'MX', lat: 19.4326, lng: -99.1332 },
+    hakone: { nombre: 'サン・ミゲル・デ・アジェンデ', iso: 'MX', lat: 20.9144, lng: -100.7452 },
+    kawaguchiko: { nombre: 'プレサ・デ・アジェンデ', iso: 'MX', lat: 20.8536, lng: -100.8156 },
+    kioto: { nombre: 'オアハカ', iso: 'MX', lat: 17.0732, lng: -96.7266 },
+    nara: { nombre: 'チチェン・イッツァ', iso: 'MX', lat: 20.6843, lng: -88.5678 },
+    osaka: { nombre: 'メリダ', iso: 'MX', lat: 20.9674, lng: -89.5926 },
+    hiroshima: { nombre: 'テオティワカン', iso: 'MX', lat: 19.6925, lng: -98.8438 },
+    oaxaca: { nombre: '鹿児島', iso: 'JP', lat: 31.5966, lng: 130.5571 },
+    valle: { nombre: '長野', iso: 'JP', lat: 36.6485, lng: 138.195 },
+  },
+  zh: {
+    oaxaca: { nombre: '鹿儿岛', iso: 'JP', lat: 31.5966, lng: 130.5571 },
+    valle: { nombre: '长野', iso: 'JP', lat: 36.6485, lng: 138.195 },
+  },
+  ko: {
+    seul: { nombre: '하노이', iso: 'VN', lat: 21.0285, lng: 105.8542 },
+  },
+  tr: {
+    oaxaca: { nombre: 'Gaziantep', iso: 'TR', lat: 37.0662, lng: 37.3833 },
+    valle: { nombre: 'Ölüdeniz', iso: 'TR', lat: 36.5494, lng: 29.115 },
+  },
+  id: {
+    oaxaca: { nombre: 'Yogyakarta', iso: 'ID', lat: -7.7956, lng: 110.3695 },
+    valle: { nombre: 'Dieng', iso: 'ID', lat: -7.2079, lng: 109.9189 },
+  },
+}
+
+/** Y las rutas cambian de nombre donde cambió el viaje. */
+const RUTAS_ADAPTADAS: Partial<Record<Idioma, { japon?: string; corea?: string }>> = {
+  ja: { japon: 'メキシコ：メキシコシティからテオティワカンまで' },
+  ko: { corea: '다음은: 베트남' },
 }
 
 /** Gasto de cada día en Japón (MXN): suma 25 200 — con el vuelo, la meta. */
@@ -100,9 +156,11 @@ function unicos<T extends object>(filas: readonly T[], clave: (f: T) => string |
 
 export async function construirDemoSala(ctx: CtxDemo): Promise<void> {
   const datos = await ctx.textos(DEMO_SALA, () => import('./demo.data.i18n'))
-  // Aquí «es» significa «no es inglés»: los idiomas que todavía no tienen
-  // su variante inline leen el español, que es el respaldo de todo.
-  const es = ctx.idioma !== 'en'
+  const adaptados = ADAPTADOS[ctx.idioma] ?? {}
+  const nombreDe = (clave: ClaveLugar): string =>
+    adaptados[clave]?.nombre ?? textoDemo(ctx.idioma, `sala.lugar.${clave}`)
+  const regiones = new Intl.DisplayNames([localeActual()], { type: 'region' })
+  const paisDe = (iso: string): string => regiones.of(iso) ?? iso
   // El `as const` del contenido genera tuplas literales distintas por idioma:
   // se copian a un tipo propio para poder trabajarlas.
   const lugaresTxt = unicos<{ clave: string; nota: string }>([...datos.lugares], (l) => l.clave)
@@ -113,12 +171,16 @@ export async function construirDemoSala(ctx: CtxDemo): Promise<void> {
   // ── Los 12 pines del mapa ────────────────────────────────────────────────
   const idPorClave = new Map<ClaveLugar, number>()
   for (const [clave, l] of Object.entries(LUGARES) as [ClaveLugar, (typeof LUGARES)[ClaveLugar]][]) {
+    const a = adaptados[clave]
+    const nombre = nombreDe(clave)
+    // La única ciudad que no se llama como su pin: Oaxaca (de Juárez).
+    const ciudad = clave === 'oaxaca' && !a ? textoDemo(ctx.idioma, 'sala.ciudad.oaxaca') : nombre
     const id = await lugaresViajeRepo.add({
-      nombre: l.nombre,
-      pais: es ? l.pais : l.paisEn,
-      ...(l.ciudad ? { ciudad: l.ciudad } : {}),
-      lat: l.lat,
-      lng: l.lng,
+      nombre,
+      pais: paisDe(a?.iso ?? l.iso),
+      ...(l.ciudad ? { ciudad } : {}),
+      lat: a?.lat ?? l.lat,
+      lng: a?.lng ?? l.lng,
       visitado: l.visitado,
       ...(l.visita != null ? { fechaVisita: ctx.fecha(l.visita) } : {}),
       ...(clave === 'seul' ? { fechaPlan: isoMasDias(ctx.hoy, COREA_EN_DIAS) } : {}),
@@ -140,16 +202,16 @@ export async function construirDemoSala(ctx: CtxDemo): Promise<void> {
       hospedaje: d.hospedaje,
       actividades: d.actividades,
       transporte: d.transporte,
-      presupuesto: PRESUPUESTO_JAPON[d.n - 1] ?? 900,
+      presupuesto: montoDemo(PRESUPUESTO_JAPON[d.n - 1] ?? 900),
     })),
   )
 
   // ── Corea: el plan que viene, con su meta de ahorro en el despacho ───────
   const seulId = idPorClave.get('seul')!
   const metaId = await metasRepo.add({
-    nombre: `✈️ ${LUGARES.seul.nombre}`,
-    objetivo: META_COREA,
-    ahorrado: AHORRADO_COREA,
+    nombre: `✈️ ${nombreDe('seul')}`,
+    objetivo: montoDemo(META_COREA),
+    ahorrado: montoDemo(AHORRADO_COREA),
     tipo: 'ahorro',
   })
   await lugaresViajeRepo.update(seulId, { metaId })
@@ -163,7 +225,7 @@ export async function construirDemoSala(ctx: CtxDemo): Promise<void> {
       hospedaje: d.hospedaje,
       actividades: d.actividades,
       transporte: d.transporte,
-      presupuesto: PRESUPUESTO_COREA[d.n - 1] ?? 4000,
+      presupuesto: montoDemo(PRESUPUESTO_COREA[d.n - 1] ?? 4000),
     })),
   )
 
@@ -173,7 +235,7 @@ export async function construirDemoSala(ctx: CtxDemo): Promise<void> {
     await diasItinerarioRepo.add({
       lugarId: idPorClave.get(clave)!,
       dia: 1,
-      destino: LUGARES[clave].nombre,
+      destino: nombreDe(clave),
       actividades: notaDe.get(clave) ?? '',
     })
   }
@@ -182,7 +244,8 @@ export async function construirDemoSala(ctx: CtxDemo): Promise<void> {
   for (const rec of datos.recuerdos) {
     const lugarId = idPorClave.get(rec.lugar as ClaveLugar)
     if (!lugarId) continue
-    const clave = 'foto' in rec ? rec.foto : undefined
+    // Sin foto si el idioma cambió el lugar de sitio: la foto es del original.
+    const clave = 'foto' in rec && !adaptados[rec.lugar as ClaveLugar] ? rec.foto : undefined
     const foto = clave ? await ctx.foto(`sala/${clave}`) : null
     await bitacoraViajeRepo.add({
       lugarId,
@@ -194,24 +257,25 @@ export async function construirDemoSala(ctx: CtxDemo): Promise<void> {
   }
 
   // Portadas: una por país (índice único) y la de Kioto como lugar destacado.
+  // Van por ISO: el Fuji es de Japón y Oaxaca de México en cualquier relato.
   const portadaJapon = await ctx.foto('sala/japon-fuji')
-  if (portadaJapon) await portadasViajeRepo.add({ pais: es ? 'Japón' : 'Japan', foto: portadaJapon })
+  if (portadaJapon) await portadasViajeRepo.add({ pais: paisDe('JP'), foto: portadaJapon })
   const portadaMexico = await ctx.foto('sala/mexico-oaxaca')
-  if (portadaMexico) await portadasViajeRepo.add({ pais: es ? 'México' : 'Mexico', foto: portadaMexico })
-  const portadaKioto = await ctx.foto('sala/japon-kioto-bambu')
+  if (portadaMexico) await portadasViajeRepo.add({ pais: paisDe('MX'), foto: portadaMexico })
+  const portadaKioto = adaptados.kioto ? null : await ctx.foto('sala/japon-kioto-bambu')
   if (portadaKioto) await portadasLugarRepo.add({ lugarId: idPorClave.get('kioto')!, foto: portadaKioto })
 
   // ── Dos rutas: la que ya caminó y la que sueña ───────────────────────────
   await rutasViajeRepo.bulkAdd([
     {
-      nombre: es ? 'Japón: de Tokio a Hiroshima' : 'Japan: Tokyo to Hiroshima',
+      nombre: RUTAS_ADAPTADAS[ctx.idioma]?.japon ?? textoDemo(ctx.idioma, 'sala.ruta.japon'),
       lugarIds: (['tokio', 'hakone', 'kawaguchiko', 'kioto', 'nara', 'osaka', 'hiroshima'] as const).map(
         (c) => idPorClave.get(c)!,
       ),
       creadoEn: `${ctx.fecha(-190)}T12:00:00.000Z`,
     },
     {
-      nombre: es ? 'Lo que sigue: Corea' : "What's next: Korea",
+      nombre: RUTAS_ADAPTADAS[ctx.idioma]?.corea ?? textoDemo(ctx.idioma, 'sala.ruta.corea'),
       lugarIds: [seulId],
       creadoEn: `${ctx.fecha(-12)}T12:00:00.000Z`,
     },

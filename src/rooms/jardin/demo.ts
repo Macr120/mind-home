@@ -8,6 +8,7 @@ import { gratitudDiariaRepo, sesionesMindfulnessRepo } from '../../core/data/rep
 import type { TipoPractica } from '../../core/data/db'
 import { rngDemo, type CtxDemo } from '../../demo/builders'
 import { sembrarMetasApp } from '../../demo/metasPep'
+import { conMontos } from '../../core/moneda'
 import type { Idioma } from '../../core/i18n/idiomas'
 import { enIdioma, type PorIdioma } from '../../core/i18n/porIdioma'
 import { DEMO_JARDIN } from './demo.data'
@@ -172,9 +173,9 @@ export async function construirDemoJardin(ctx: CtxDemo): Promise<void> {
   await gratitudDiariaRepo.bulkAdd(
     datos.gratitudes.map((g) => ({
       fecha: ctx.fecha(g.dia),
-      item1: g.item1,
-      item2: g.item2 ?? '',
-      item3: g.item3 ?? '',
+      item1: conMontos(g.item1),
+      item2: conMontos(g.item2 ?? ''),
+      item3: conMontos(g.item3 ?? ''),
     })),
   )
 

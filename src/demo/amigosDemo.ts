@@ -183,10 +183,24 @@ export function sembrarAmigosDemo(): Promise<void> {
   return sembrado
 }
 
+/**
+ * Los dos amigos con el nombre que les da la Agenda en el idioma activo (en ja,
+ * ナディア・セラーノ…): el grafo los une con su ficha por ese nombre exacto.
+ */
+async function nombresDeAgenda(nombresEs: string[]): Promise<string[]> {
+  const [{ DEMO_AGENDA }, { crearCtxDemo }] = await Promise.all([
+    import('../rooms/agenda/demo.data'),
+    import('./builders'),
+  ])
+  const datos = await crearCtxDemo().textos(DEMO_AGENDA, () => import('../rooms/agenda/demo.data.i18n'))
+  return nombresEs.map((n) => datos.contactos[DEMO_AGENDA.es.contactos.findIndex((c) => c.nombre === n)]?.nombre ?? n)
+}
+
 async function sembrar(): Promise<void> {
   if (!esDemo()) return
   await limpiarCacheBuzon()
   const f = FRASES[idiomaActual()] ?? FRASES.es!
+  const [nadia, tomas] = await nombresDeAgenda(['Nadia Serrano', 'Tomás Iriarte'])
   const hace = (min: number) => new Date(Date.now() - min * 60_000).toISOString()
 
   const contacto = (id: string, hiloId: string, alias: string, nombre: string, emoji: string): Contacto => ({
@@ -202,8 +216,8 @@ async function sembrar(): Promise<void> {
     actualizadoEn: hace(60 * 24 * 30),
   })
   await guardarContactos([
-    contacto('demo-ct-nadia', HILO_NADIA, 'nadia_s', 'Nadia Serrano', '🦊'),
-    contacto('demo-ct-tomas', HILO_TOMAS, 'tomas_iri', 'Tomás Iriarte', '🐻'),
+    contacto('demo-ct-nadia', HILO_NADIA, 'nadia_s', nadia, '🦊'),
+    contacto('demo-ct-tomas', HILO_TOMAS, 'tomas_iri', tomas, '🐻'),
   ])
 
   // La receta que comparte Nadia: una del recetario del demo, con preferencia por los tacos.

@@ -269,7 +269,7 @@
   },
   {
     "ruta": "gratitudes.16.item1",
-    "texto": "240 ر.س إضافية إلى صندوق اليابان"
+    "texto": "إضافة {monto:1040} إلى صندوق اليابان"
   },
   {
     "ruta": "gratitudes.16.item2",
@@ -297,7 +297,7 @@
   },
   {
     "ruta": "gratitudes.18.item3",
-    "texto": "إصلاح الدرّاجة كلّف 48 ر.س"
+    "texto": "إصلاح الدرّاجة كلّف {monto:210}"
   },
   {
     "ruta": "gratitudes.19.item1",
@@ -1042,5 +1042,9 @@
   {
     "ruta": "gratitudes.87.item2",
     "texto": "دفتر مليء بأشياء صغيرة حدثت فعلاً"
+  },
+  {
+    "ruta": "gratitudes.87.item3",
+    "texto": "لايكا"
   }
 ]

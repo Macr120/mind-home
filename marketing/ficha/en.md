@@ -19,7 +19,7 @@ Your life, in a 3D house: habits, goals, finances, meals and more.
 
 habits,goals,planner,journal,budget,nutrition,workout,sleep,study,ai,assistant,organizer
 
-## Descripción (3445/4000)
+## Descripción (3533/4000)
 
 Organise your habits, goals, finances, meals and more in an isometric 3D house where every room is an app.
 
@@ -57,3 +57,5 @@ THE APP
 • When the month ends you keep the whole app and your data; the AI credits are optional
 
 The same dopamine. This time, for your real life.
+
+Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/

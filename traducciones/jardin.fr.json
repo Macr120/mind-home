@@ -269,7 +269,7 @@
   },
   {
     "ruta": "gratitudes.16.item1",
-    "texto": "Soixante euros de plus dans le fonds Japon"
+    "texto": "{monto:1040} de plus dans le fonds Japon"
   },
   {
     "ruta": "gratitudes.16.item2",
@@ -297,7 +297,7 @@
   },
   {
     "ruta": "gratitudes.18.item3",
-    "texto": "Le vélo réparé pour douze euros"
+    "texto": "Le vélo réparé pour {monto:210}"
   },
   {
     "ruta": "gratitudes.19.item1",

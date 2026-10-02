@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { deIso, fechaLocalISO, inicioSemana, isoMasDias } from '../fechaLocal'
 import { localeActual } from '../i18n/useT'
+import { diasSemanaLunes } from '../rutinas'
 import type { Periodo } from './periodo'
 
 /**
@@ -10,7 +11,6 @@ import type { Periodo } from './periodo'
  * Solo se usa dentro del overlay (`.ui-noche`), por eso los text-white/X.
  */
 
-const DIAS = ['L', 'M', 'X', 'J', 'V', 'S', 'D']
 
 // Copia mínima de hobbies/stats.rgba (los cuartos no se importan desde core).
 function rgba(hex: string, alpha: number) {
@@ -59,7 +59,7 @@ export function HeatmapWrapped({
               >
                 {n > 0 ? n : ''}
               </div>
-              <span className="text-[10px] text-white/45">{DIAS[i]}</span>
+              <span className="text-[10px] text-white/45">{diasSemanaLunes()[i]}</span>
             </div>
           )
         })}
@@ -80,7 +80,7 @@ export function HeatmapWrapped({
     })
     return (
       <div className="mx-auto grid w-full max-w-xs grid-cols-7 gap-1">
-        {DIAS.map((d, i) => (
+        {diasSemanaLunes().map((d, i) => (
           <div key={i} className="text-center text-[9px] text-white/40">
             {d}
           </div>

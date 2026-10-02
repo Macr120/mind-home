@@ -230,9 +230,9 @@ function BurbujaEntrada({
   onAbierto: () => void
 }) {
   const t = useT()
-  const { app, seccion } = textoEnlace(e)
+  const { app, nombre: nombreApp, seccion } = textoEnlace(e)
   const color = app?.color ?? '#94a3b8'
-  const destino = e.titulo ?? seccion ?? app?.nombre ?? ''
+  const destino = e.titulo ?? seccion ?? nombreApp ?? ''
   const verbo = t('enlace.abrir', 'Abrir')
   return (
     <div className="flex flex-col items-center select-none">

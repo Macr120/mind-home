@@ -2,6 +2,7 @@ import { Component, Suspense, type ReactNode } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { CapturaBusto, reducir } from '../buzon/RetratoAvatar'
 import { AsistenteModelo } from '../house/AsistenteModelo'
+import { anclasDe } from '../house/apariencia'
 import { firmaCara, useCarasAsistentes } from './carasAsistentes'
 import type { Asistente } from './mascotas'
 
@@ -25,6 +26,12 @@ class LimiteCaptura extends Component<{ children: ReactNode; onError: () => void
  */
 export function CapturaCarasAsistentes({ asistente }: { asistente: Asistente }) {
   const firma = firmaCara(asistente)
+  // Un .glb trae sus propias medidas: ahí no valen las anclas y se encuadra por la caja.
+  const anclas = asistente.modeloGlb ? null : anclasDe(asistente)
+  const escala = asistente.escala ?? 1
+  const cara = anclas
+    ? { y: anclas.cabezaY * escala, z: (anclas.caraZ - anclas.cabezaR) * escala, r: anclas.cabezaR * escala }
+    : undefined
   const guardar = (url: string | null) => {
     const previa = useCarasAsistentes.getState().caras[asistente.id]?.url
     // Aun sin captura se guarda la firma: si no, se reintentaría sin fin.
@@ -44,7 +51,7 @@ export function CapturaCarasAsistentes({ asistente }: { asistente: Asistente }) 
           <directionalLight position={[-4, 3, -3]} intensity={0.35} />
           {/* El .glb suspende: la captura empieza cuando ya está cargado. */}
           <Suspense fallback={null}>
-            <CapturaBusto onListo={(canvas) => guardar(reducir(canvas))}>
+            <CapturaBusto cara={cara} onListo={(canvas) => guardar(reducir(canvas))}>
               <AsistenteModelo asistente={asistente} />
             </CapturaBusto>
           </Suspense>

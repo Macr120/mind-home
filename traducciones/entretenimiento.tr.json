@@ -182,5 +182,141 @@
   {
     "ruta": "programa.items.0.detalle",
     "texto": "Devam filmini önce izledim ve orijinali eksik kaldı: sırayı düzeltmem lazım."
+  },
+  {
+    "ruta": "fichas.0.genero",
+    "texto": "Bilim kurgu"
+  },
+  {
+    "ruta": "fichas.1.genero",
+    "texto": "Dram"
+  },
+  {
+    "ruta": "fichas.2.genero",
+    "texto": "Bilim kurgu"
+  },
+  {
+    "ruta": "fichas.3.genero",
+    "texto": "Bilim kurgu"
+  },
+  {
+    "ruta": "fichas.4.genero",
+    "texto": "Popüler bilim"
+  },
+  {
+    "ruta": "fichas.5.genero",
+    "texto": "Bilim kurgu"
+  },
+  {
+    "ruta": "fichas.6.genero",
+    "texto": "Klasik bilim kurgu"
+  },
+  {
+    "ruta": "fichas.7.genero",
+    "texto": "Anime"
+  },
+  {
+    "ruta": "fichas.8.genero",
+    "texto": "Klasik bilim kurgu"
+  },
+  {
+    "ruta": "fichas.9.genero",
+    "texto": "Bilim kurgu"
+  },
+  {
+    "ruta": "fichas.10.genero",
+    "texto": "Anime"
+  },
+  {
+    "ruta": "fichas.11.genero",
+    "texto": "Bilim kurgu"
+  },
+  {
+    "ruta": "fichas.12.genero",
+    "texto": "Bilim kurgu"
+  },
+  {
+    "ruta": "fichas.13.genero",
+    "texto": "Bilim kurgu"
+  },
+  {
+    "ruta": "fichas.14.genero",
+    "texto": "Korku"
+  },
+  {
+    "ruta": "fichas.15.genero",
+    "texto": "Bilim kurgu"
+  },
+  {
+    "ruta": "fichas.16.genero",
+    "texto": "Bilim kurgu"
+  },
+  {
+    "ruta": "fichas.17.genero",
+    "texto": "Klasik bilim kurgu"
+  },
+  {
+    "ruta": "fichas.18.genero",
+    "texto": "Bilim kurgu"
+  },
+  {
+    "ruta": "fichas.19.genero",
+    "texto": "Anime"
+  },
+  {
+    "ruta": "fichas.20.genero",
+    "texto": "Klasik bilim kurgu"
+  },
+  {
+    "ruta": "fichas.21.genero",
+    "texto": "Anime"
+  },
+  {
+    "ruta": "fichas.22.genero",
+    "texto": "Dram"
+  },
+  {
+    "ruta": "fichas.23.genero",
+    "texto": "Bilim kurgu"
+  },
+  {
+    "ruta": "fichas.24.genero",
+    "texto": "Bilim kurgu"
+  },
+  {
+    "ruta": "fichas.25.genero",
+    "texto": "Popüler bilim"
+  },
+  {
+    "ruta": "fichas.26.genero",
+    "texto": "Bilim kurgu"
+  },
+  {
+    "ruta": "fichas.27.genero",
+    "texto": "Bilim kurgu"
+  },
+  {
+    "ruta": "fichas.28.genero",
+    "texto": "Bilim kurgu"
+  },
+  {
+    "ruta": "fichas.29.genero",
+    "texto": "Bilim kurgu"
+  },
+  {
+    "ruta": "fichas.30.genero",
+    "texto": "Bilim kurgu"
+  },
+  {
+    "ruta": "fichas.31.genero",
+    "texto": "Klasik bilim kurgu"
+  },
+  {
+    "ruta": "fichas.32.genero",
+    "texto": "Bilim kurgu"
+  },
+  {
+    "ruta": "fichas.33.genero",
+    "texto": "Anime"
   }
 ]

@@ -15,11 +15,19 @@
  * mismo, sin tienda de por medio». Si algún día se añaden textos nuevos a la
  * descripción, revisar que no vuelvan a colarse.
  *
+ * Lo que SÍ es obligatorio es lo contrario: con suscripciones auto-renovables,
+ * Apple rechaza la ficha si la descripción no enlaza los Términos de uso (EULA).
+ * La línea final es la misma de `ficha-appstore.mjs` (de ahí salen `EULA` y
+ * `TERMINOS`): enlaza el EULA estándar de Apple, no la web, así que no choca
+ * con la 3.1.1. Sin ella, `asc:ficha` (que sube ESTE markdown) borraría el
+ * enlace de la ficha publicada.
+ *
  * Los límites los IMPONE App Store Connect: pasarse no da un aviso, corta.
  */
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
+import { EULA, TERMINOS, mayus } from '../marketing/tienda/generador/ficha-appstore.mjs'
 
 const raiz = join(dirname(fileURLToPath(import.meta.url)), '..')
 const destino = join(raiz, 'marketing/ficha')
@@ -68,6 +76,8 @@ const limpiar = (s) =>
   String(s ?? '')
     .replace(/<[^>]+>/g, ' ')
     .replace(/\s+/g, ' ')
+    // En japonés y chino la puntuación de ancho completo no lleva espacio alrededor.
+    .replace(/\s*([，、。！？；：])\s*/g, '$1')
     .trim()
 
 /**
@@ -96,26 +106,26 @@ const quitarPrecio = (texto) =>
     .replace(/\s+/g, ' ')
     .trim()
 
-function descripcion(t) {
+function descripcion(t, id) {
   const bloques = [
     quitarPrecio(limpiar(t['meta.desc'])),
     // Cómo funciona: los tres pasos.
     [
-      limpiar(t['como.h2']).toUpperCase(),
+      mayus(limpiar(t['como.h2']), id),
       `1. ${limpiar(t['como.1.t'])}\n${limpiar(t['como.1.p'])}`,
       `2. ${limpiar(t['como.2.t'])}\n${limpiar(t['como.2.p'])}`,
       `3. ${limpiar(t['como.3.t'])}\n${limpiar(t['como.3.p'])}`,
     ].join('\n\n'),
     // Qué trae: las siete tarjetas más las dos de cabecera.
     [
-      limpiar(t['car.h2']).toUpperCase(),
+      mayus(limpiar(t['car.h2']), id),
       ...['todo', 'nocaduca', '1', 'studio', '2', '3', '4', '5', '6'].map(
         (n) => `• ${limpiar(t[`car.${n}.t`])}: ${limpiar(t[`car.${n}.p`])}`,
       ),
     ].join('\n'),
     // La IA, incluido que puede ser local (es diferencial y Apple lo agradece).
     [
-      limpiar(t['ia.h2']).toUpperCase(),
+      mayus(limpiar(t['ia.h2']), id),
       limpiar(t['ia.sub']),
       `• ${limpiar(t['ia.local.t'])}: ${limpiar(t['ia.local.p'])}`,
     ].join('\n\n'),
@@ -123,12 +133,13 @@ function descripcion(t) {
     // sección manda a comprar en la web y eso aquí es 3.1.1 (ver cabecera).
     [
       // El encabezado va SIN la cifra (ver quitarPrecio).
-      limpiar(t['precio.app.nombre']).toUpperCase(),
+      mayus(limpiar(t['precio.app.nombre']), id),
       `• ${limpiar(t['precio.app.1'])}`,
       `• ${limpiar(t['precio.app.2'])}`,
       `• ${limpiar(t['precio.app.3'])}`,
     ].join('\n'),
     limpiar(t['mani.cierre']),
+    `${TERMINOS[id]}: ${EULA}`,
   ]
   return bloques.join('\n\n')
 }
@@ -139,7 +150,7 @@ function campos(id, t) {
     subtitulo: SUBTITULO_PROPIO[id] ?? limpiar(t['hero.h1']),
     promocional: quitarPrecio(limpiar(t['og.desc'])),
     palabras: PALABRAS[id],
-    descripcion: descripcion(t),
+    descripcion: descripcion(t, id),
   }
 }
 

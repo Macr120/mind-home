@@ -182,5 +182,313 @@
   {
     "ruta": "programa.items.0.detalle",
     "texto": "Сначала посмотрелся сиквел, а до оригинала так и не дошли руки — пора навести порядок."
+  },
+  {
+    "ruta": "fichas.0.genero",
+    "texto": "Фантастика"
+  },
+  {
+    "ruta": "fichas.1.genero",
+    "texto": "Драма"
+  },
+  {
+    "ruta": "fichas.2.genero",
+    "texto": "Фантастика"
+  },
+  {
+    "ruta": "fichas.3.genero",
+    "texto": "Фантастика"
+  },
+  {
+    "ruta": "fichas.4.genero",
+    "texto": "Научпоп"
+  },
+  {
+    "ruta": "fichas.5.genero",
+    "texto": "Фантастика"
+  },
+  {
+    "ruta": "fichas.6.genero",
+    "texto": "Классическая фантастика"
+  },
+  {
+    "ruta": "fichas.7.genero",
+    "texto": "Аниме"
+  },
+  {
+    "ruta": "fichas.8.genero",
+    "texto": "Классическая фантастика"
+  },
+  {
+    "ruta": "fichas.9.genero",
+    "texto": "Фантастика"
+  },
+  {
+    "ruta": "fichas.10.genero",
+    "texto": "Аниме"
+  },
+  {
+    "ruta": "fichas.11.genero",
+    "texto": "Фантастика"
+  },
+  {
+    "ruta": "fichas.12.genero",
+    "texto": "Фантастика"
+  },
+  {
+    "ruta": "fichas.13.genero",
+    "texto": "Фантастика"
+  },
+  {
+    "ruta": "fichas.14.genero",
+    "texto": "Ужасы"
+  },
+  {
+    "ruta": "fichas.15.genero",
+    "texto": "Фантастика"
+  },
+  {
+    "ruta": "fichas.16.genero",
+    "texto": "Фантастика"
+  },
+  {
+    "ruta": "fichas.17.genero",
+    "texto": "Классическая фантастика"
+  },
+  {
+    "ruta": "fichas.18.genero",
+    "texto": "Фантастика"
+  },
+  {
+    "ruta": "fichas.19.genero",
+    "texto": "Аниме"
+  },
+  {
+    "ruta": "fichas.20.genero",
+    "texto": "Классическая фантастика"
+  },
+  {
+    "ruta": "fichas.21.genero",
+    "texto": "Аниме"
+  },
+  {
+    "ruta": "fichas.22.genero",
+    "texto": "Драма"
+  },
+  {
+    "ruta": "fichas.23.genero",
+    "texto": "Фантастика"
+  },
+  {
+    "ruta": "fichas.24.genero",
+    "texto": "Фантастика"
+  },
+  {
+    "ruta": "fichas.25.genero",
+    "texto": "Научпоп"
+  },
+  {
+    "ruta": "fichas.26.genero",
+    "texto": "Фантастика"
+  },
+  {
+    "ruta": "fichas.27.genero",
+    "texto": "Фантастика"
+  },
+  {
+    "ruta": "fichas.28.genero",
+    "texto": "Фантастика"
+  },
+  {
+    "ruta": "fichas.29.genero",
+    "texto": "Фантастика"
+  },
+  {
+    "ruta": "fichas.30.genero",
+    "texto": "Фантастика"
+  },
+  {
+    "ruta": "fichas.31.genero",
+    "texto": "Классическая фантастика"
+  },
+  {
+    "ruta": "fichas.32.genero",
+    "texto": "Фантастика"
+  },
+  {
+    "ruta": "fichas.33.genero",
+    "texto": "Аниме"
+  },
+  {
+    "ruta": "fichas.0.titulo",
+    "texto": "Бегущий по лезвию 2049"
+  },
+  {
+    "ruta": "fichas.0.autor",
+    "texto": "Дени Вильнёв"
+  },
+  {
+    "ruta": "fichas.1.titulo",
+    "texto": "Чёрное зеркало"
+  },
+  {
+    "ruta": "fichas.1.autor",
+    "texto": "Чарли Брукер"
+  },
+  {
+    "ruta": "fichas.2.autor",
+    "texto": "Урсула К. Ле Гуин"
+  },
+  {
+    "ruta": "fichas.3.autor",
+    "texto": "Дени Вильнёв"
+  },
+  {
+    "ruta": "fichas.4.titulo",
+    "texto": "Космос"
+  },
+  {
+    "ruta": "fichas.4.autor",
+    "texto": "Карл Саган"
+  },
+  {
+    "ruta": "fichas.6.autor",
+    "texto": "Стэнли Кубрик"
+  },
+  {
+    "ruta": "fichas.7.titulo",
+    "texto": "Ковбой Бибоп"
+  },
+  {
+    "ruta": "fichas.7.autor",
+    "texto": "Синъитиро Ватанабэ"
+  },
+  {
+    "ruta": "fichas.8.autor",
+    "texto": "Фриц Ланг"
+  },
+  {
+    "ruta": "fichas.9.autor",
+    "texto": "Энди Вейер"
+  },
+  {
+    "ruta": "fichas.10.titulo",
+    "texto": "Акира"
+  },
+  {
+    "ruta": "fichas.10.autor",
+    "texto": "Кацухиро Отомо"
+  },
+  {
+    "ruta": "fichas.12.titulo",
+    "texto": "Пространство"
+  },
+  {
+    "ruta": "fichas.13.titulo",
+    "texto": "Солярис"
+  },
+  {
+    "ruta": "fichas.13.autor",
+    "texto": "Станислав Лем"
+  },
+  {
+    "ruta": "fichas.14.titulo",
+    "texto": "Чужой"
+  },
+  {
+    "ruta": "fichas.14.autor",
+    "texto": "Ридли Скотт"
+  },
+  {
+    "ruta": "fichas.15.titulo",
+    "texto": "Луна 2112"
+  },
+  {
+    "ruta": "fichas.15.autor",
+    "texto": "Дункан Джонс"
+  },
+  {
+    "ruta": "fichas.16.autor",
+    "texto": "Альфонсо Куарон"
+  },
+  {
+    "ruta": "fichas.17.titulo",
+    "texto": "Гаттака"
+  },
+  {
+    "ruta": "fichas.17.autor",
+    "texto": "Эндрю Никкол"
+  },
+  {
+    "ruta": "fichas.19.titulo",
+    "texto": "Планетес"
+  },
+  {
+    "ruta": "fichas.20.titulo",
+    "texto": "Годзилла"
+  },
+  {
+    "ruta": "fichas.20.autor",
+    "texto": "Исиро Хонда"
+  },
+  {
+    "ruta": "fichas.21.titulo",
+    "texto": "Призрак в доспехах"
+  },
+  {
+    "ruta": "fichas.21.autor",
+    "texto": "Мамору Осии"
+  },
+  {
+    "ruta": "fichas.22.autor",
+    "texto": "Ясудзиро Одзу"
+  },
+  {
+    "ruta": "fichas.23.autor",
+    "texto": "Лю Цысинь"
+  },
+  {
+    "ruta": "fichas.25.autor",
+    "texto": "Карло Ровелли"
+  },
+  {
+    "ruta": "fichas.26.autor",
+    "texto": "Урсула К. Ле Гуин"
+  },
+  {
+    "ruta": "fichas.27.autor",
+    "texto": "Дени Вильнёв"
+  },
+  {
+    "ruta": "fichas.28.titulo",
+    "texto": "Анафем"
+  },
+  {
+    "ruta": "fichas.28.autor",
+    "texto": "Нил Стивенсон"
+  },
+  {
+    "ruta": "fichas.29.titulo",
+    "texto": "Разделение"
+  },
+  {
+    "ruta": "fichas.29.autor",
+    "texto": "Дэн Эриксон"
+  },
+  {
+    "ruta": "fichas.30.autor",
+    "texto": "Питер Уоттс"
+  },
+  {
+    "ruta": "fichas.31.titulo",
+    "texto": "Солярис"
+  },
+  {
+    "ruta": "fichas.33.titulo",
+    "texto": "Плутон"
+  },
+  {
+    "ruta": "programa.items.0.titulo",
+    "texto": "Бегущий по лезвию (1982)"
   }
 ]

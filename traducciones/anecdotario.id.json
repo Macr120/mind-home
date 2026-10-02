@@ -9,11 +9,11 @@
   },
   {
     "ruta": "entradas.1.titulo",
-    "texto": "Shift dobel, tip Rp90.000"
+    "texto": "Shift dobel, tip {monto:140}"
   },
   {
     "ruta": "entradas.1.texto",
-    "texto": "Aku gantiin shift Nadia dan pulang jam sembilan dengan punggung remuk. Tip Rp90.000 dan ada pelanggan yang ngomong ke aku kayak aku ini mesin kopi berkaki. Makan malam sereal sambil berdiri, mata di HP sampai jam satu. Besok ada praktikum jam delapan dan aku udah tahu bakal gimana jadinya."
+    "texto": "Aku gantiin shift Nadia dan pulang jam sembilan dengan punggung remuk. Tip {monto:140} dan ada pelanggan yang ngomong ke aku kayak aku ini mesin kopi berkaki. Makan malam sereal sambil berdiri, mata di HP sampai jam satu. Besok ada praktikum jam delapan dan aku udah tahu bakal gimana jadinya."
   },
   {
     "ruta": "entradas.2.titulo",
@@ -21,7 +21,7 @@
   },
   {
     "ruta": "entradas.2.texto",
-    "texto": "Gajian hari Jumat, dan hari ini, Rabu, saldo tinggal Rp720.000. Aku coba nginget-inget pengeluaran dan ada hampir Rp1,2 juta yang nggak ketahuan larinya ke mana. Langganan yang nggak kepake, bir, makanan pesan-antar di hari-hari aku nggak masak. Yang paling ganggu bukan soal uangnya, tapi nggak tahu bahkan sebanyak itu soal hidupku sendiri."
+    "texto": "Gajian hari Jumat, dan hari ini, Rabu, saldo tinggal {monto:710}. Aku coba nginget-inget pengeluaran dan ada hampir {monto:1210} yang nggak ketahuan larinya ke mana. Langganan yang nggak kepake, bir, makanan pesan-antar di hari-hari aku nggak masak. Yang paling ganggu bukan soal uangnya, tapi nggak tahu bahkan sebanyak itu soal hidupku sendiri."
   },
   {
     "ruta": "entradas.3.titulo",
@@ -85,7 +85,7 @@
   },
   {
     "ruta": "entradas.10.texto",
-    "texto": "Dua jam nyusun anggaran dengan kategori nyata hidupku: sewa, makan, transportasi, kuliah, hal-hal receh. Hasilnya Rp20,7 juta pengeluaran lawan Rp21,7 juta dari gaji dua mingguan plus tip. Marginnya konyol tapi ada, dan lihat angkanya tertulis bikin aku lebih tenang dari yang kukira. Aturan baru: tip nggak boleh langsung dihabiskan hari itu juga."
+    "texto": "Dua jam nyusun anggaran dengan kategori nyata hidupku: sewa, makan, transportasi, kuliah, hal-hal receh. Hasilnya {monto:20400} pengeluaran lawan {monto:21500} dari gaji dua mingguan plus tip. Marginnya konyol tapi ada, dan lihat angkanya tertulis bikin aku lebih tenang dari yang kukira. Aturan baru: tip nggak boleh langsung dihabiskan hari itu juga."
   },
   {
     "ruta": "entradas.11.titulo",
@@ -109,7 +109,7 @@
   },
   {
     "ruta": "entradas.13.texto",
-    "texto": "Aku kosongin toples selai dan sekarang tip tiap malam shift masuk situ. Minggu ini: Rp400.000 yang dulu bakal jadi makan malam di luar. Aku masih belum tahu toples ini buat apa, dan menurutku itu justru membantu: ini uang yang nggak buru-buru. Ngitung tiap Minggu udah jadi ritual kecil."
+    "texto": "Aku kosongin toples selai dan sekarang tip tiap malam shift masuk situ. Minggu ini: {monto:400} yang dulu bakal jadi makan malam di luar. Aku masih belum tahu toples ini buat apa, dan menurutku itu justru membantu: ini uang yang nggak buru-buru. Ngitung tiap Minggu udah jadi ritual kecil."
   },
   {
     "ruta": "entradas.14.titulo",
@@ -125,7 +125,7 @@
   },
   {
     "ruta": "entradas.15.texto",
-    "texto": "Piano 88 tuts bekas, Rp1,6 juta, beli dari seorang bapak yang berhenti main pas anak perempuannya lahir. Aku bawa pakai bagasi mobil dibungkus dua selimut dan pasang di sudut ruang tamu. Nyalanya berdengung pelan dan pedalnya nggak ada, tapi bunyi. Aku pencet not sembarangan dua puluh menit dan senyum-senyum kayak orang bodoh. Target resmi tahun ini: belajar “Clair de Lune” sampai tuntas."
+    "texto": "Piano 88 tuts bekas, {monto:1560}, beli dari seorang bapak yang berhenti main pas anak perempuannya lahir. Aku bawa pakai bagasi mobil dibungkus dua selimut dan pasang di sudut ruang tamu. Nyalanya berdengung pelan dan pedalnya nggak ada, tapi bunyi. Aku pencet not sembarangan dua puluh menit dan senyum-senyum kayak orang bodoh. Target resmi tahun ini: belajar “Clair de Lune” sampai tuntas."
   },
   {
     "ruta": "entradas.16.titulo",
@@ -149,7 +149,7 @@
   },
   {
     "ruta": "entradas.18.texto",
-    "texto": "Pertama kalinya dalam bertahun-tahun aku sampai akhir bulan dan tahu ke mana perginya tiap rupiah. Sisa Rp1,1 juta, angka yang konyol tapi terasa besar dibanding minus bulan lalu. Aku batalin dua langganan dan pengeluaran makanan pesan-antar turun setengah. Ini semua bukan soal kehebatan: aku cuma sekarang bisa lihat."
+    "texto": "Pertama kalinya dalam bertahun-tahun aku sampai akhir bulan dan tahu ke mana perginya tiap pengeluaran. Sisa {monto:1070}, angka yang konyol tapi terasa besar dibanding minus bulan lalu. Aku batalin dua langganan dan pengeluaran makanan pesan-antar turun setengah. Ini semua bukan soal kehebatan: aku cuma sekarang bisa lihat."
   },
   {
     "ruta": "entradas.19.titulo",
@@ -201,7 +201,7 @@
   },
   {
     "ruta": "entradas.25.texto",
-    "texto": "Dua jam masak hari Minggu: lentil, nasi, ayam panggang, dan sayur buat lima hari. Habis Rp315.000 dan bikin aku hemat kebab habis shift malam. Laika duduk di meja dapur ngawasin, aku turunin dia sebelas kali. Kulkas penuh bikin aku tenang, nggak nyangka dari hal sekonyol ini."
+    "texto": "Dua jam masak hari Minggu: lentil, nasi, ayam panggang, dan sayur buat lima hari. Habis {monto:310} dan bikin aku hemat kebab habis shift malam. Laika duduk di meja dapur ngawasin, aku turunin dia sebelas kali. Kulkas penuh bikin aku tenang, nggak nyangka dari hal sekonyol ini."
   },
   {
     "ruta": "entradas.26.titulo",
@@ -281,7 +281,7 @@
   },
   {
     "ruta": "entradas.35.texto",
-    "texto": "Aku duduk dengan lembar catatan keuangan dan kasih angka ke khayalan ini: total Rp42 juta, tiket pesawat sekitar Rp14 juta, sisanya penginapan murah, kereta, dan makan. Aku punya Rp10,5 juta dari bulan-bulan yang anggarannya lebih, jadi masih kurang sekitar Rp6,3 juta per bulan. Ini bisa kekejar kalau aku ambil dua shift ekstra sebulan dan tip akhir pekan langsung masuk amplop. Aku buka baris baru di aplikasi dan namain Jepang, gitu aja."
+    "texto": "Aku duduk dengan lembar catatan keuangan dan kasih angka ke khayalan ini: total {monto:41500}, tiket pesawat sekitar {monto:13840}, sisanya penginapan murah, kereta, dan makan. Aku punya {monto:10380} dari bulan-bulan yang anggarannya lebih, jadi masih kurang sekitar {monto:6230} per bulan. Ini bisa kekejar kalau aku ambil dua shift ekstra sebulan dan tip akhir pekan langsung masuk amplop. Aku buka baris baru di aplikasi dan namain Jepang, gitu aja."
   },
   {
     "ruta": "entradas.36.titulo",
@@ -345,7 +345,7 @@
   },
   {
     "ruta": "entradas.43.texto",
-    "texto": "Sabtu dengan teras penuh: Rp665.000 tip di toples dan satu pelanggan yang kasih Rp90.000 buat satu kopi. Dulu itu bakal ludes buat bir dan makanan tengah minggu tanpa aku sadar. Malam ini aku itung koinnya di meja dapur dan pindahin semua ke baris Jepang. Total terkumpul Rp17,7 juta. Uangnya sekarang punya tujuan dan itu bikin aku kerja dengan cara berbeda."
+    "texto": "Sabtu dengan teras penuh: {monto:660} tip di toples dan satu pelanggan yang kasih {monto:87} buat satu kopi. Dulu itu bakal ludes buat bir dan makanan tengah minggu tanpa aku sadar. Malam ini aku itung koinnya di meja dapur dan pindahin semua ke baris Jepang. Total terkumpul {monto:17500}. Uangnya sekarang punya tujuan dan itu bikin aku kerja dengan cara berbeda."
   },
   {
     "ruta": "entradas.44.titulo",
@@ -417,7 +417,7 @@
   },
   {
     "ruta": "entradas.52.texto",
-    "texto": "Aku nemu tripod tua Rp210.000 di pasar loak dan aku pasang HP pakai penjepit plastik. Aku naik ke atap jam sebelas dan buat pertama kalinya bintang-bintang kelihatan kayak titik, bukan kayak cacing. Kelihatan gugusan Pleiades dan sebagian sabuk Orion, buram tapi masih kekenalan. Aku sejam di atas sana pakai selimut dan teh; nggak tahu ini astrofotografi beneran atau bukan, tapi berhasil."
+    "texto": "Aku nemu tripod tua {monto:210} di pasar loak dan aku pasang HP pakai penjepit plastik. Aku naik ke atap jam sebelas dan buat pertama kalinya bintang-bintang kelihatan kayak titik, bukan kayak cacing. Kelihatan gugusan Pleiades dan sebagian sabuk Orion, buram tapi masih kekenalan. Aku sejam di atas sana pakai selimut dan teh; nggak tahu ini astrofotografi beneran atau bukan, tapi berhasil."
   },
   {
     "ruta": "entradas.53.titulo",
@@ -441,7 +441,7 @@
   },
   {
     "ruta": "entradas.55.texto",
-    "texto": "Rp21,2 juta dari Rp42 juta. Tepat setengah dana perjalanan udah kekumpul dan masih ada tiga bulan tip dan shift ekstra lagi. Aku ngitung dua kali karena nggak percaya, terus cerita ke Laika, akuntan emosionalku. Yang paling bikin kaget bukan uangnya, tapi aku udah lima bulan berturut-turut nyatet tiap pengeluaran tanpa bolong."
+    "texto": "{monto:20900} dari {monto:41500}. Tepat setengah dana perjalanan udah kekumpul dan masih ada tiga bulan tip dan shift ekstra lagi. Aku ngitung dua kali karena nggak percaya, terus cerita ke Laika, akuntan emosionalku. Yang paling bikin kaget bukan uangnya, tapi aku udah lima bulan berturut-turut nyatet tiap pengeluaran tanpa bolong."
   },
   {
     "ruta": "entradas.56.titulo",
@@ -505,7 +505,7 @@
   },
   {
     "ruta": "entradas.63.texto",
-    "texto": "Aku starter mobil buat ke lab dan bunyinya kayak kaleng penuh baut. Aku bawa ke bengkel di jalan Robles: pompa air dan tali kipas, Rp6,7 juta dan dua hari tanpa mobil. Pas banget minggu ini, lutut lagi istirahat dan shift Jumat dobel. Aku ketawa sendiri di trotoar karena nangis di trotoar bikin lebih malu."
+    "texto": "Aku starter mobil buat ke lab dan bunyinya kayak kaleng penuh baut. Aku bawa ke bengkel di jalan Robles: pompa air dan tali kipas, {monto:6570} dan dua hari tanpa mobil. Pas banget minggu ini, lutut lagi istirahat dan shift Jumat dobel. Aku ketawa sendiri di trotoar karena nangis di trotoar bikin lebih malu."
   },
   {
     "ruta": "entradas.64.titulo",
@@ -513,7 +513,7 @@
   },
   {
     "ruta": "entradas.64.texto",
-    "texto": "Aku putusin Rp6,7 juta itu keluar dari dana darurat, bukan dari amplop Jepang, walaupun dana daruratnya jadi nyaris kosong. Dua hal kupotong bulan ini: nol kopi di luar, nol pesan makanan. Tip dua minggu ini tipis, Rp800.000, jadi harus bener-bener irit. Setidaknya sekarang aku tahu persis berapa yang kupunya, yang bulan Oktober lalu aku bener-bener nggak tahu."
+    "texto": "Aku putusin {monto:6570} itu keluar dari dana darurat, bukan dari amplop Jepang, walaupun dana daruratnya jadi nyaris kosong. Dua hal kupotong bulan ini: nol kopi di luar, nol pesan makanan. Tip dua minggu ini tipis, {monto:800}, jadi harus bener-bener irit. Setidaknya sekarang aku tahu persis berapa yang kupunya, yang bulan Oktober lalu aku bener-bener nggak tahu."
   },
   {
     "ruta": "entradas.65.titulo",
@@ -529,7 +529,7 @@
   },
   {
     "ruta": "entradas.66.texto",
-    "texto": "Aku capek segalanya numpuk bareng: UTS elektromagnetika hari Kamis, shift dobel Sabtu, lutut tegang, dan saldo Rp3,3 juta. Aku nulis ini sambil kompres es dan pengen banget buang tahun ini. Aku nggak bakal pura-pura ada pelajaran indah dari hari ini. Yang kulakukan cuma catat, biar inget ini juga pernah terjadi."
+    "texto": "Aku capek segalanya numpuk bareng: UTS elektromagnetika hari Kamis, shift dobel Sabtu, lutut tegang, dan saldo {monto:3290}. Aku nulis ini sambil kompres es dan pengen banget buang tahun ini. Aku nggak bakal pura-pura ada pelajaran indah dari hari ini. Yang kulakukan cuma catat, biar inget ini juga pernah terjadi."
   },
   {
     "ruta": "entradas.67.titulo",
@@ -561,7 +561,7 @@
   },
   {
     "ruta": "entradas.70.texto",
-    "texto": "Kamis jam sebelas, sesi pertama, Rp615.000 tiap sesi dan aku butuh empat sampai lima kali. Aku masukin ke anggaran sebagai pengeluaran kesehatan, bukan kemewahan, yang mana itu yang bakal kupikir kalau di bulan Januari. Lutut sekarang udah bisa turun tangga hampir normal. Aku mulai percaya ini bisa sembuh dan bulan September nanti aku bisa jalan jauh-jauh di Jepang tanpa masalah."
+    "texto": "Kamis jam sebelas, sesi pertama, {monto:600} tiap sesi dan aku butuh empat sampai lima kali. Aku masukin ke anggaran sebagai pengeluaran kesehatan, bukan kemewahan, yang mana itu yang bakal kupikir kalau di bulan Januari. Lutut sekarang udah bisa turun tangga hampir normal. Aku mulai percaya ini bisa sembuh dan bulan September nanti aku bisa jalan jauh-jauh di Jepang tanpa masalah."
   },
   {
     "ruta": "entradas.71.titulo",
@@ -593,7 +593,7 @@
   },
   {
     "ruta": "entradas.74.texto",
-    "texto": "Dua puluh menit tanpa henti, pelan banget, dan lutut nggak bereaksi sama sekali. Aku paksa diri nggak nambah lebih dari sepuluh persen per minggu walau pengen banget lari sejam besok. Aku belajar pelajaran ini mahal banget: Rp6,7 juta dan tiga minggu. Rencana sampai Jepang sederhana, empat puluh menit yang nyaman dan nggak ada lari panjang."
+    "texto": "Dua puluh menit tanpa henti, pelan banget, dan lutut nggak bereaksi sama sekali. Aku paksa diri nggak nambah lebih dari sepuluh persen per minggu walau pengen banget lari sejam besok. Aku belajar pelajaran ini mahal banget: {monto:6570} dan tiga minggu. Rencana sampai Jepang sederhana, empat puluh menit yang nyaman dan nggak ada lari panjang."
   },
   {
     "ruta": "entradas.75.titulo",
@@ -601,7 +601,7 @@
   },
   {
     "ruta": "entradas.75.texto",
-    "texto": "Amplop Jepang di 85 persen target: Rp38,7 juta dari Rp45,5 juta. Dana darurat balik lagi ke Rp3,5 juta setelah kena pukulan dari bengkel. Dua gajian lagi dan pas banget, itung tip Agustus yang biasanya lumayan. Aku nulis ini di sini karena bulan Oktober lalu aku bahkan nggak tahu berapa banyak yang kuhabisin buat kopi."
+    "texto": "Amplop Jepang di 85 persen target: {monto:38200} dari {monto:45000}. Dana darurat balik lagi ke {monto:3460} setelah kena pukulan dari bengkel. Dua gajian lagi dan pas banget, itung tip Agustus yang biasanya lumayan. Aku nulis ini di sini karena bulan Oktober lalu aku bahkan nggak tahu berapa banyak yang kuhabisin buat kopi."
   },
   {
     "ruta": "entradas.76.titulo",
@@ -657,7 +657,7 @@
   },
   {
     "ruta": "entradas.82.texto",
-    "texto": "Dua puluh satu kilometer jalan kaki antara Shinjuku, Yanaka, dan satu toko buku tempat aku sejam di sana nggak ngerti hampir apa pun. Kereta datang tepat detik, dan aku, yang di rumah sering telat shift, ngerasa diawasin sama sistemnya. Makan malam di konbini: onigiri, telur rebus, dan sup, Rp90.000 dan lebih enak dari banyak hal yang mahal. Lutut: diam aja."
+    "texto": "Dua puluh satu kilometer jalan kaki antara Shinjuku, Yanaka, dan satu toko buku tempat aku sejam di sana nggak ngerti hampir apa pun. Kereta datang tepat detik, dan aku, yang di rumah sering telat shift, ngerasa diawasin sama sistemnya. Makan malam di konbini: onigiri, telur rebus, dan sup, {monto:87} dan lebih enak dari banyak hal yang mahal. Lutut: diam aja."
   },
   {
     "ruta": "entradas.83.titulo",
@@ -737,7 +737,7 @@
   },
   {
     "ruta": "entradas.92.texto",
-    "texto": "Malam terakhir di Osaka dan aku udah jumlahin: Rp43,4 juta dari Rp45,5 juta yang ditabung, termasuk tiket, kereta, penginapan, dan makan. Hasilnya nyaris pas, yang bikin aku bangga dengan cara yang aneh dan sangat akuntan. Aku bawa pulang teh dari tiga tempat, satu buku catatan, satu pick kecil buat piano, dan enam puluh satu halaman tulisan. Besok penerbangan panjang dan Kamis shift jam tujuh di kedai."
+    "texto": "Malam terakhir di Osaka dan aku udah jumlahin: {monto:42900} dari {monto:45000} yang ditabung, termasuk tiket, kereta, penginapan, dan makan. Hasilnya nyaris pas, yang bikin aku bangga dengan cara yang aneh dan sangat akuntan. Aku bawa pulang teh dari tiga tempat, satu buku catatan, satu pick kecil buat piano, dan enam puluh satu halaman tulisan. Besok penerbangan panjang dan Kamis shift jam tujuh di kedai."
   },
   {
     "ruta": "entradas.93.titulo",
@@ -785,7 +785,7 @@
   },
   {
     "ruta": "entradas.98.texto",
-    "texto": "Aku susun ulang anggaran amplop setelah tiga minggu nggak dicek. Dana perjalanan tersisa Rp2,1 juta dan itu bukan kegagalan: itu emang rencananya. Baris baru mulai gajian ini: dana darurat, Rp700.000 tiap gajian. Tip minggu ini Rp470.000 dan semuanya masuk situ."
+    "texto": "Aku susun ulang anggaran amplop setelah tiga minggu nggak dicek. Dana perjalanan tersisa {monto:2040} dan itu bukan kegagalan: itu emang rencananya. Baris baru mulai gajian ini: dana darurat, {monto:690} tiap gajian. Tip minggu ini {monto:470} dan semuanya masuk situ."
   },
   {
     "ruta": "entradas.99.titulo",
@@ -817,7 +817,7 @@
   },
   {
     "ruta": "entradas.102.texto",
-    "texto": "Mobil nggak nyala jam setengah tujuh dan aku ngebut ke kedai naik sepeda. Aki baru: Rp1,3 juta dari dana darurat yang baru aja kubuka, sekarang tinggal Rp140.000. Mobilnya umur sembilan belas tahun dan tiap tiga bulan dia ngingetin aku dia masih ada. Setidaknya kali ini nggak bikin bulan ini ambruk, cuma bikin kesel."
+    "texto": "Mobil nggak nyala jam setengah tujuh dan aku ngebut ke kedai naik sepeda. Aki baru: {monto:1250} dari dana darurat yang baru aja kubuka, sekarang tinggal {monto:140}. Mobilnya umur sembilan belas tahun dan tiap tiga bulan dia ngingetin aku dia masih ada. Setidaknya kali ini nggak bikin bulan ini ambruk, cuma bikin kesel."
   },
   {
     "ruta": "entradas.103.titulo",
@@ -881,7 +881,7 @@
   },
   {
     "ruta": "entradas.110.texto",
-    "texto": "Pendaftaran selesai: maraton, Rp665.000, rencana lima minggu. Nadia bilang oke dengan dua syarat: fisioterapi tiap dua minggu dan berhenti begitu ada tanda pertama dari lutut. Ini agresif dan aku sadar; aku juga sadar udah enam bulan numpuk kilometer nyaris tanpa bolong. Aku tulis 42,195 di papan tulis dapur dan natapnya sebentar."
+    "texto": "Pendaftaran selesai: maraton, {monto:660}, rencana lima minggu. Nadia bilang oke dengan dua syarat: fisioterapi tiap dua minggu dan berhenti begitu ada tanda pertama dari lutut. Ini agresif dan aku sadar; aku juga sadar udah enam bulan numpuk kilometer nyaris tanpa bolong. Aku tulis 42,195 di papan tulis dapur dan natapnya sebentar."
   },
   {
     "ruta": "entradas.111.titulo",
@@ -969,7 +969,7 @@
   },
   {
     "ruta": "entradas.121.texto",
-    "texto": "Jalan kaki sejam ganti lari, teh ganti kopi sore, dan Laika nempel nggak ketulungan. Aku udah cek tiket ke Seoul buat setahun lagi, nggak beli apa-apa, cuma buat ngitung berapa yang harus disisihin tiap gajian: sekitar Rp960.000. Aku juga keluarin partitur Arabesque no. 1 dan ketawa sendiri. Besok aku latihan Clair de Lune tiga kali berturut-turut, karena hari Minggu aku mainin buat keluargaku."
+    "texto": "Jalan kaki sejam ganti lari, teh ganti kopi sore, dan Laika nempel nggak ketulungan. Aku udah cek tiket ke Seoul buat setahun lagi, nggak beli apa-apa, cuma buat ngitung berapa yang harus disisihin tiap gajian: sekitar {monto:950}. Aku juga keluarin partitur Arabesque no. 1 dan ketawa sendiri. Besok aku latihan Clair de Lune tiga kali berturut-turut, karena hari Minggu aku mainin buat keluargaku."
   },
   {
     "ruta": "entradas.122.titulo",
@@ -985,7 +985,7 @@
   },
   {
     "ruta": "entradas.123.texto",
-    "texto": "Aku habisin setengah jam ngeliat ulang setahun ini di aplikasi. 74 kg waktu itu, 67,0 pagi ini; 1.214 kilometer lari; satu 5K, satu 10K, satu half marathon, satu maraton. Rp45,5 juta ditabung dan dihabiskan buat tiga minggu di Jepang, 61 halaman jurnal perjalanan, dan 118 entri di sini. Yang nggak muncul di angka-angka: setahun lalu aku tidur jam dua dengan HP nempel di muka."
+    "texto": "Aku habisin setengah jam ngeliat ulang setahun ini di aplikasi. 74 kg waktu itu, 67,0 pagi ini; 1.214 kilometer lari; satu 5K, satu 10K, satu half marathon, satu maraton. {monto:45000} ditabung dan dihabiskan buat tiga minggu di Jepang, 61 halaman jurnal perjalanan, dan 118 entri di sini. Yang nggak muncul di angka-angka: setahun lalu aku tidur jam dua dengan HP nempel di muka."
   },
   {
     "ruta": "entradas.124.titulo",

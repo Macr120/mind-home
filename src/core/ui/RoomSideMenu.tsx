@@ -7,9 +7,7 @@ import { useLayout } from '../state/layoutStore'
 import { useCuartos } from '../state/cuartosStore'
 import { confirmar } from '../state/confirmarStore'
 import { useAsignar } from '../state/asignarStore'
-import { usePlanos } from '../state/planosStore'
-import { useEditorUi } from '../state/editorUiStore'
-import { useHerramienta } from '../state/herramientaStore'
+import { iniciarCrearCuarto } from './comun/planoPincelCuarto'
 import { tituloSubtituloCuarto, useNombreCuarto } from './roomDisplay'
 import { TechoToggleButton, ExplotarToggleButton } from './TechoToggleButton'
 import { ResumenJugador, ProgresoApp } from './ProgresoPanel'
@@ -18,7 +16,7 @@ import { InfraestructuraCatalogo } from './InfraestructuraCatalogo'
 import { useProgreso } from '../gamificacion/actividad'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
-import { IconoMarca } from './iconos/glifosApps'
+import { IconoMarca, PiezasLogo } from './iconos/glifosApps'
 import { vivo } from './estilos'
 import type { NombreIcono } from './iconos/catalogo'
 import { BotonTutoriales } from '../tutorial/SelectorTutorial'
@@ -66,7 +64,6 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
     }),
   )
   const editRoom = useLayout((s) => s.editRoom)
-  const setEditMode = useLayout((s) => s.setEditMode)
   const cuartos = useCuartos((s) => s.cuartos)
   const intercambiarOrden = useCuartos((s) => s.intercambiarOrden)
   const eliminarCuarto = useCuartos((s) => s.eliminar)
@@ -197,7 +194,12 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
               {/* Hasta dos líneas: el nombre de fábrica no cabe en una sola y ya
                   nadie le quita ancho, así que se lee entero en vez de cortarse. */}
               <h1 className="line-clamp-2 min-w-0 flex-1 text-base leading-tight font-black tracking-tight text-white/90">
-                {nombreApp || t('app.brand', 'MindHaOS')}
+                {/* Sin nombre propio, los iconos de la app en vez de la palabra. */}
+                {nombreApp || (
+                  <span role="img" aria-label={t('app.brand', 'MindHaOS')}>
+                    <PiezasLogo size="1.5em" />
+                  </span>
+                )}
               </h1>
               <button
                 type="button"
@@ -253,35 +255,6 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
             <IconoMarca glifo="exterior" nombre="construir" /> {t('inv.subPlantInfra', 'Exterior')}
           </button>
         </div>
-        {/* Vista de los cuartos (la misma del panel de apps): lista, 3D o dos columnas. */}
-        {menu === 'cuartos' && (
-          <div
-            role="radiogroup"
-            aria-label={t('nav.vistaCuartos', 'Vista de los cuartos')}
-            className="mt-2 flex overflow-hidden rounded-lg border border-white/10 bg-black/20"
-          >
-            {(
-              [
-                { id: 'iconos', icono: 'cuartos', etiqueta: t('nav.vista.lista', 'Lista') },
-                { id: '3d', icono: 'cubo-vistas', etiqueta: t('nav.vista.3d', '3D') },
-                { id: 'apps', icono: 'rejilla', etiqueta: t('nav.vista.apps', 'Apps') },
-              ] as { id: VistaCuartos; icono: NombreIcono; etiqueta: string }[]
-            ).map((v) => (
-              <button
-                key={v.id}
-                type="button"
-                role="radio"
-                aria-checked={vista === v.id}
-                onClick={() => setVista(v.id)}
-                className={`h-7 flex-1 whitespace-nowrap text-[11px] font-semibold transition ${
-                  vista === v.id ? 'bg-white/12 text-white' : 'text-white/45 hover:bg-white/6 hover:text-white/70'
-                }`}
-              >
-                <Icono nombre={v.icono} /> {v.etiqueta}
-              </button>
-            ))}
-          </div>
-        )}
       </div>
 
       <div className="min-h-0 flex-1 overflow-y-auto px-2 py-3">
@@ -325,9 +298,37 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
         <div data-tut="menu.resumen">
           <ResumenJugador progreso={progreso} />
         </div>
+        {/* Vista de los cuartos (la misma del panel de apps): lista, 3D o dos
+            columnas. Bajo la carta del personaje, justo encima de los cuartos. */}
+        <div
+          role="radiogroup"
+          aria-label={t('nav.vistaCuartos', 'Vista de los cuartos')}
+          className="mt-2 mb-2 flex overflow-hidden rounded-lg border border-white/10 bg-black/20"
+        >
+          {(
+            [
+              { id: 'iconos', icono: 'cuartos', etiqueta: t('nav.vista.lista', 'Lista') },
+              { id: '3d', icono: 'cubo-vistas', etiqueta: t('nav.vista.3d', '3D') },
+              { id: 'apps', icono: 'rejilla', etiqueta: t('nav.vista.apps', 'Apps') },
+            ] as { id: VistaCuartos; icono: NombreIcono; etiqueta: string }[]
+          ).map((v) => (
+            <button
+              key={v.id}
+              type="button"
+              role="radio"
+              aria-checked={vista === v.id}
+              onClick={() => setVista(v.id)}
+              className={`h-7 flex-1 whitespace-nowrap text-[11px] font-semibold transition ${
+                vista === v.id ? 'bg-white/12 text-white' : 'text-white/45 hover:bg-white/6 hover:text-white/70'
+              }`}
+            >
+              <Icono nombre={v.icono} /> {v.etiqueta}
+            </button>
+          ))}
+        </div>
         {cuartos.length === 0 && (
-          <p className="px-2 py-6 text-center text-xs leading-relaxed text-white/40">
-            {t('nav.sinCuartos', 'Aún no hay cuartos. Crea el primero abajo.')}
+          <p className="px-2 pt-4 pb-1 text-center text-xs leading-relaxed text-white/40">
+            {t('nav.sinCuartosCrear', 'Aún no hay cuartos.')}
           </p>
         )}
 
@@ -534,27 +535,21 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
         })}
         </div>
 
-        {/* Crear cuarto: modo Cuartos con el pincel cuadrado. En teléfono entra al
-            modo constructor sobre el mapa (el atajo de la rueda, pantalla completa);
-            en el resto abre el editor de mapa. */}
+        {/* Crear cuarto: el pincel cuadrado (en teléfono, el constructor sobre el
+            mapa; en el resto, el editor de mapa). Al colocarlo se sale solo y se
+            abre «Asignar app». Con la casa vacía es el botón principal. */}
         <button
           type="button"
           data-tut="menu.cuartos.crear"
           onClick={() => {
-            usePlanos.getState().setModo('cuartos')
-            usePlanos.getState().setDetalleRejilla('celda')
-            usePlanos.getState().setPincelForma('cuadrado')
-            if (useHud.getState().movilVertical) {
-              if (!useHerramienta.getState().equipadas.includes('construir'))
-                useHerramienta.getState().equipar('construir')
-              useHud.getState().setPlegado('infDer', false)
-              onToggle()
-            } else {
-              useEditorUi.getState().setTab('mapa')
-              setEditMode(true)
-            }
+            iniciarCrearCuarto()
+            if (useHud.getState().movilVertical) onToggle()
           }}
-          className="mt-1 flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-white/15 py-2.5 text-sm font-semibold text-white/60 transition hover:border-white/30 hover:text-white/90"
+          className={
+            cuartos.length === 0
+              ? 'ui-accent-bg mt-1 flex w-full items-center justify-center gap-2 rounded-lg py-3 text-sm font-bold transition hover:brightness-110'
+              : 'mt-1 flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-white/15 py-2.5 text-sm font-semibold text-white/60 transition hover:border-white/30 hover:text-white/90'
+          }
         >
           <Icono nombre="agregar" /> {t('nav.crearCuarto', 'Crear cuarto')}
         </button>
@@ -628,7 +623,8 @@ export function FloatingMenuButton({ onToggle }: { onToggle: () => void }) {
     return (
       <div className="safe-sup safe-ini absolute start-3 top-3 z-30">
         <TiradorHud zona="supIzq">
-          <Icono nombre="casa" />
+          {/* El logo de la app (sus tres piezas) en el mismo círculo. */}
+          <PiezasLogo size="0.6em" apretado />
         </TiradorHud>
       </div>
     )
@@ -660,12 +656,12 @@ export function FloatingMenuButton({ onToggle }: { onToggle: () => void }) {
           title={t('nav.rapido', 'Acceso rápido a los cuartos')}
           className="flex items-center px-3 py-2 transition hover:bg-white/15"
         >
-          {/* Con una app abierta en móvil, la casa en vez del nombre: con él la
+          {/* Con una app abierta en móvil, el logo apretado en vez del nombre: con él la
               pastilla medía ~141 px y tapaba el chip de Misiones del encabezado,
               que solo le reserva `ps-28` (RoomOverlay). */}
           {appAbierta && (
             <span className="text-sm text-white/90 sm:hidden">
-              <Icono nombre="casa" />
+              <PiezasLogo size="0.8em" apretado />
             </span>
           )}
           <span
@@ -673,7 +669,11 @@ export function FloatingMenuButton({ onToggle }: { onToggle: () => void }) {
           >
             {/* Botón flotante: del nombre de fábrica cabe solo la sigla; el que
                 haya puesto el usuario ya es corto (o se recorta). */}
-            {nombreApp || t('app.brandCorto', 'MindHaOS')}
+            {nombreApp || (
+              <span role="img" aria-label={t('app.brandCorto', 'MindHaOS')}>
+                <PiezasLogo />
+              </span>
+            )}
           </span>
         </button>
       </div>

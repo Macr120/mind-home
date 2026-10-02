@@ -360,7 +360,7 @@ export const IT_TUT: Dict = {
     'L\'intestazione mostra la stanza e l\'app aperta. Se la stanza ha più app, la freccia ‹ torna alla selezione delle app.',
   'tut.app-generica.2.titulo': 'Missioni',
   'tut.app-generica.2.texto':
-    'Il pulsante Missioni apre l\'oggi di questa app: i suoi obiettivi, quello che hai in agenda e quello che chiedono i tuoi obiettivi in corso. Ogni passo si spunta da solo appena registri, e completare la lista intera è ciò che dà gli XP del giorno.',
+    "Il pulsante Missioni apre l'oggi di questa app: i suoi obiettivi, quello che hai in agenda e quello che chiedono i tuoi obiettivi in corso. Ogni passo si spunta da solo appena registri, e completare la lista intera è ciò che dà i PE del giorno.",
   'tut.app-generica.3.titulo': 'I blocchi',
   'tut.app-generica.3.texto':
     'Questo modello è costruito con blocchi (note, liste, contatori, abitudini…). Puoi cambiarli in Menu › Modelli › modifica.',
@@ -412,7 +412,7 @@ export const IT_TUT: Dict = {
   'tut.ejemplos.2.texto':
     'In fondo alla sezione, «Elimina l\'esempio» lo toglie per intero dopo che confermi con «Sì, elimina l\'esempio», e le tue cose non vengono mai toccate. Quando non ne resta più nulla, lì compare «Ripristina l’esempio originale».',
   'tut.ejemplos.3.texto':
-    'L’esempio non dà XP né serie, non genera promemoria, non entra nel tuo Wrapped e l’IA non ne tiene conto. Nella MindHaOS demo questa barra non compare: l’anno intero di Andrea è già l’esempio.',
+    'L’esempio non dà PE né serie, non genera promemoria, non entra nel tuo Wrapped e l’IA non ne tiene conto. Nella MindHaOS demo questa barra non compare: l’anno intero di Andrea è già l’esempio.',
   'tut.ejemplos.1.titulo': 'Si inserisce da solo',
   'tut.ejemplos.2.titulo': 'Eliminare o ripristinare',
   'tut.ejemplos.3.titulo': 'Non conta come tuo',
@@ -435,7 +435,7 @@ export const IT_TUT: Dict = {
     'Scende in «Fatti», chiuso: vedere la registrazione fare effetto fa parte della ricompensa, e da lì puoi annullarla se ne è scappata una di troppo.',
   'tut.hoy.6b.titulo': 'È la lista intera a fare punti',
   'tut.hoy.6b.texto':
-    'Completare tutte le missioni del giorno accende la celebrazione e somma gli XP dell\'app: il livello cresce per liste completate, non per registrazioni sparse.',
+    "Completare tutte le missioni del giorno accende la celebrazione e somma i PE dell'app: il livello cresce per liste completate, non per registrazioni sparse.",
   'tut.hoy.7.texto':
     'E se ti manca qualcosa, «Aggiungi missione» ti offre quello che di solito propone quest’app, e «Nuova checklist» crea la tua: un elenco tuo che si ripete ogni giorno.',
   'tut.hoy.8.titulo': 'Le sfere rosse',
@@ -463,7 +463,7 @@ export const IT_TUT: Dict = {
     'Wrapped costruisce il riepilogo della tua settimana, del mese o dell\'anno in slide — ha un tour tutto suo, con dati in abbondanza in un anno come quello di Andrea.',
   'tut.progreso.7.titulo': 'Il radar per stanza',
   'tut.progreso.7.texto':
-    'Ogni vertice è una stanza della MindHaOS, e la sua dimensione è la somma degli XP delle app che le sono assegnate. Una stanza senza attività si nota al volo: il suo vertice sprofonda verso il centro.',
+    'Ogni vertice è una stanza della MindHaOS, e la sua dimensione è la somma dei PE delle app che le sono assegnate. Una stanza senza attività si nota al volo: il suo vertice sprofonda verso il centro.',
   'tut.wrapped.1.texto':
     'Stile storie: tocca il lato destro per andare avanti, il sinistro per tornare indietro, e tieni premuto per fermarti su una slide.',
   'tut.wrapped.2.titulo': 'Settimana, mese o anno',
@@ -1304,7 +1304,7 @@ export const IT_TUT: Dict = {
     'Il modulo va per passi: importo, se è variabile o fissa, categoria (scrivi la tua e ti suggerisce quelle solite), ogni quanto si ripete e la nota.',
   'tut.app-despacho--captura.3.titulo': 'Un anno di movimenti',
   'tut.app-despacho--captura.3.texto':
-    'Centinaia di spese archiviate in cartelle di anno e mese. Cerca il mese 7: lì c\'è il guasto che si è portato via quasi diecimila pesos in un colpo solo.',
+    'Centinaia di spese archiviate in cartelle di anno e mese. Cerca il mese 7: lì c\'è il guasto che ha svuotato il conto in un colpo solo.',
   'tut.app-despacho--captura.4.titulo': 'Da dove arrivano i soldi',
   'tut.app-despacho--captura.4.texto':
     'Due stipendi quindicinali del bar, le ripetizioni di fisica che ha iniziato a dare quando ha deciso il viaggio, e le mance settimanali, mai uguali.',
@@ -1359,7 +1359,7 @@ export const IT_TUT: Dict = {
     'Il suo mezzo di tutti i giorni: catena, camere d\'aria, freni, uno per uno nella sua riga — lo stesso archivio a cartelle di anno e mese delle altre app. Guarda come i servizi si affollano negli ultimi mesi: è l\'allenamento per la maratona che presenta il conto.',
   'tut.app-garage--vehiculos.4.titulo': 'E l\'auto ereditata',
   'tut.app-garage--vehiculos.4.texto':
-    'Ecco il guasto del mese 7: auto in panne, carro attrezzi e quasi diecimila pesos che non c\'erano. Ogni servizio conserva il costo, il chilometraggio e l\'officina dov\'è stato fatto.',
+    'Ecco il guasto del mese 7: auto in panne, carro attrezzi e una fattura che non si poteva pagare. Ogni servizio conserva il costo, il chilometraggio e l\'officina dov\'è stato fatto.',
   'tut.app-garage--vehiculos.5.titulo': 'La scheda',
   'tut.app-garage--vehiculos.5.texto':
     'Marca, modello, anno, targa e il chilometraggio aggiornato. Con la targa inserita, il garage sblocca le pratiche che valgono solo per un\'auto.',

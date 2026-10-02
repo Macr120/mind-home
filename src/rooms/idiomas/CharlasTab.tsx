@@ -3,9 +3,9 @@ import { VACIO, conversacionesIdiomaRepo } from '../../core/data/repository'
 import { iaActiva } from '../../core/chat/ia'
 import { useAsistentes } from '../../core/state/asistentesStore'
 import { asistenteDePlantilla, semillaAsistente } from '../../core/gamificacion/asistentesPlantilla'
-import { useT } from '../../core/i18n/useT'
+import { localeActual, useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
-import { COLOR } from './constantes'
+import { COLOR, nombreIdioma } from './constantes'
 import { tituloTema as tituloDeTema, useTemario } from './temarioVivo'
 import { ChatTutor } from './ChatTutor'
 import type { AnclaTema } from './arbol'
@@ -68,7 +68,7 @@ export function CharlasTab({ perfil, abierta, onAbrir, onCerrar, borradorInicial
 
       {charlas.length === 0 && (
         <p className="px-4 py-10 text-center text-xs leading-relaxed text-white/35">
-          {t('idiomas.charla.vacio', 'Aún no hay charlas de {idioma}. Tu tutor conversa a tu nivel, te corrige con suavidad y del chat salen tarjetas de vocabulario.', { idioma: perfil.nombre })}
+          {t('idiomas.charla.vacio', 'Aún no hay charlas de {idioma}. Tu tutor conversa a tu nivel, te corrige con suavidad y del chat salen tarjetas de vocabulario.', { idioma: nombreIdioma(perfil) })}
         </p>
       )}
 
@@ -96,7 +96,7 @@ export function CharlasTab({ perfil, abierta, onAbrir, onCerrar, borradorInicial
                 </span>
               </span>
               <span className="shrink-0 text-[10px] text-white/35">
-                {new Date(c.actualizadoEn).toLocaleDateString(undefined, { day: 'numeric', month: 'short' })}
+                {new Date(c.actualizadoEn).toLocaleDateString(localeActual(), { day: 'numeric', month: 'short' })}
               </span>
             </button>
           )

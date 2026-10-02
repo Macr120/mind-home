@@ -890,5 +890,17 @@
   {
     "ruta": "listas.1.items.13",
     "texto": "1 Glas gemahlener Kreuzkümmel"
+  },
+  {
+    "ruta": "recetas.2.carpeta",
+    "texto": "Vorkochen"
+  },
+  {
+    "ruta": "recetas.6.carpeta",
+    "texto": "Vorkochen"
+  },
+  {
+    "ruta": "recetas.8.carpeta",
+    "texto": "Vorkochen"
   }
 ]

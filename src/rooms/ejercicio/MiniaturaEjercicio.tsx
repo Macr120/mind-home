@@ -1,4 +1,5 @@
 import { useT } from '../../core/i18n/useT'
+import { mensajeErrorIA } from '../../core/cuenta/api'
 import { Suspense, useRef, useState } from 'react'
 import type { ImagenEjercicio } from '../../core/data/db'
 import { Icono } from '../../core/ui/iconos/Icono'
@@ -158,7 +159,7 @@ function DialogoImagen({
       await guardarImagenEjercicio(nombre, registro, await generarImagenEjercicio(nombre, descripcion))
     } catch (e) {
       console.warn('[MPH] No se pudo generar la imagen:', e)
-      setError(e instanceof Error ? e.message : 'Error al generar')
+      setError(mensajeErrorIA(e, t, t('imagenIA.error', 'No se pudo generar la imagen.')))
     } finally {
       setGenerando(false)
     }

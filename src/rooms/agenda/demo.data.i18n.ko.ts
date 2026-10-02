@@ -46,7 +46,7 @@ export default {
     {
       "dia": -222,
       "titulo": "동네 축제 때문에 더블 근무",
-      "lugar": "Plaza Norte"
+      "lugar": "노르테 광장"
     },
     {
       "dia": -200,
@@ -190,72 +190,72 @@ export default {
     {
       "dia": -355,
       "titulo": "불평으로 가득한 긴 커피타임",
-      "con": "Nadia Serrano"
+      "con": "나디아 세라노"
     },
     {
       "dia": -326,
       "titulo": "일요일 집밥 저녁",
-      "con": "Rosa Vidal"
+      "con": "로사 비달"
     },
     {
       "dia": -292,
       "titulo": "이케르의 생일",
-      "con": "Iker Domínguez"
+      "con": "이케르 도밍게스"
     },
     {
       "dia": -258,
       "titulo": "5km 달리기 후 아침 식사",
-      "con": "Nadia Serrano"
+      "con": "나디아 세라노"
     },
     {
       "dia": -230,
       "titulo": "SF 영화 마라톤",
-      "con": "Tomás Iriarte"
+      "con": "토마스 이리아르테"
     },
     {
       "dia": -190,
       "titulo": "엄마 생신",
-      "con": "Rosa Vidal"
+      "con": "로사 비달"
     },
     {
       "dia": -160,
       "titulo": "속풀이 커피타임",
-      "con": "Marisol Cáceres"
+      "con": "마리솔 카세레스"
     },
     {
       "dia": -134,
       "titulo": "일본 가기 전 송별 저녁 식사",
-      "con": "Camila Vidal"
+      "con": "카밀라 비달"
     },
     {
       "dia": -110,
       "titulo": "교토에서 온 영상통화",
-      "con": "Rosa Vidal"
+      "con": "로사 비달"
     },
     {
       "dia": -88,
       "titulo": "여행 사진 보는 밤",
-      "con": "Tomás Iriarte"
+      "con": "토마스 이리아르테"
     },
     {
       "dia": -60,
       "titulo": "나디아의 생일",
-      "con": "Nadia Serrano"
+      "con": "나디아 세라노"
     },
     {
       "dia": -36,
       "titulo": "카페 동료들과 브런치",
-      "con": "Bruno Ferrer"
+      "con": "브루노 페레르"
     },
     {
       "dia": -10,
       "titulo": "집콘서트: 달빛",
-      "con": "Rosa Vidal"
+      "con": "로사 비달"
     },
     {
       "dia": -3,
       "titulo": "커피 마시며: 대학원이냐 취업이냐?",
-      "con": "Iker Domínguez"
+      "con": "이케르 도밍게스"
     }
   ],
   "pendientes": [
@@ -267,36 +267,36 @@ export default {
   ],
   "contactos": [
     {
-      "nombre": "Rosa Vidal",
-      "relacion": "Familia"
+      "nombre": "로사 비달",
+      "relacion": "가족"
     },
     {
-      "nombre": "Camila Vidal",
-      "relacion": "Familia"
+      "nombre": "카밀라 비달",
+      "relacion": "가족"
     },
     {
-      "nombre": "Nadia Serrano",
-      "relacion": "Amistades"
+      "nombre": "나디아 세라노",
+      "relacion": "친구"
     },
     {
-      "nombre": "Tomás Iriarte",
-      "relacion": "Amistades"
+      "nombre": "토마스 이리아르테",
+      "relacion": "친구"
     },
     {
-      "nombre": "Marisol Cáceres",
-      "relacion": "Trabajo"
+      "nombre": "마리솔 카세레스",
+      "relacion": "직장"
     },
     {
-      "nombre": "Bruno Ferrer",
-      "relacion": "Trabajo"
+      "nombre": "브루노 페레르",
+      "relacion": "직장"
     },
     {
-      "nombre": "Iker Domínguez",
-      "relacion": "Universidad"
+      "nombre": "이케르 도밍게스",
+      "relacion": "대학교"
     },
     {
-      "nombre": "Elena Puig",
-      "relacion": "Universidad"
+      "nombre": "엘레나 푸이그",
+      "relacion": "대학교"
     }
   ]
 }

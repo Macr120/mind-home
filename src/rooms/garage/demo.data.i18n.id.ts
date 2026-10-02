@@ -8,9 +8,9 @@
  */
 export default {
   "vehiculos": {
-    "biciNombre": "La Grulla",
+    "biciNombre": "Si Bangau",
     "biciNota": "Sepeda baja bekas, warna abu-abu dan agak berisik, yang kupakai setiap hari untuk shift kerja, ke laboratorium, dan latihan. Setahun penuh, sepeda ini belum pernah sekali pun meninggalkanku di jalan.",
-    "autoNombre": "El Mastodonte",
+    "autoNombre": "Si Mastodon",
     "autoNota": "Sedan warisan dari pamanku, lebih tua dariku, dengan dasbor yang sudah pudar kena matahari. Kunyalakan sekali tiap dua minggu, dan setiap kali lupa, dia menagih bunga."
   },
   "servicios": [
@@ -130,19 +130,19 @@ export default {
   "talleres": [
     {
       "clave": "taller",
-      "nombre": "Taller Mecánico Rivas",
+      "nombre": "Bengkel Mobil Rivas",
       "direccion": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez",
       "notas": "Don Rivas selalu menjelaskan mana yang benar-benar mendesak dan mana yang bisa menunggu, dan tidak pernah menggelembungkan tagihan; dia satu-satunya yang kupercaya soal mobil ini."
     },
     {
       "clave": "aseguradora",
-      "nombre": "Seguros Meridiano - agente Nadia Ortega",
-      "direccion": "Av. Insurgentes Sur 1234, piso 3, Col. Del Valle",
+      "nombre": "Asuransi Meridiano - agen Nadia Ortega",
+      "direccion": "Av. Insurgentes Sur 1234, lantai 3, Col. Del Valle",
       "notas": "Nadia selalu membalas WhatsApp meski hari Minggu, dan dia yang mengatur cicilan bulanan waktu aku naik ke asuransi lengkap."
     },
     {
       "clave": "verificentro",
-      "nombre": "Verificentro 09-118 Iztaccíhuatl",
+      "nombre": "Pusat Uji Emisi 09-118 Iztaccíhuatl",
       "direccion": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez",
       "notas": "Janji jam tujuh pagi dan aku sudah keluar dalam empat puluh menit; yang di Coyoacán dulu menghabiskan setengah pagi cuma buat antre."
     },
@@ -154,8 +154,8 @@ export default {
     },
     {
       "clave": "grua",
-      "nombre": "Grúas Tepeyac 24 horas",
-      "direccion": "Base en Eje Central Lázaro Cárdenas 1105, Col. Álamos",
+      "nombre": "Jasa Derek Tepeyac 24 jam",
+      "direccion": "Pangkalan di Eje Central Lázaro Cárdenas 1105, Col. Álamos",
       "notas": "Ini nomor yang kutelepon malam waktu aku mogok di jalan; mereka datang dalam satu setengah jam dan tidak coba menipu soal harga."
     }
   ],

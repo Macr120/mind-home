@@ -426,5 +426,17 @@
   {
     "ruta": "hojas.2.celdas.A10.crudo",
     "texto": "Nötig in der Endklausur"
+  },
+  {
+    "ruta": "hojas.0.celdas.A17.crudo",
+    "texto": "Gesamt ¥"
+  },
+  {
+    "ruta": "hojas.1.celdas.A21.crudo",
+    "texto": "Gesamt"
+  },
+  {
+    "ruta": "hojas.2.celdas.A6.crudo",
+    "texto": "Endklausur"
   }
 ]

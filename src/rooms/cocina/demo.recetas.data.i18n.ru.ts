@@ -72,7 +72,7 @@ export default {
       "clave": "bowl-pollo",
       "nombre": "Боул с курицей на всю неделю",
       "emoji": "🍗",
-      "carpeta": "Batch cooking",
+      "carpeta": "Готовка впрок",
       "porciones": 4,
       "minutos": 45,
       "ingredientes": [
@@ -207,7 +207,7 @@ export default {
       "clave": "crema-lentejas",
       "nombre": "Крем-суп из красной чечевицы",
       "emoji": "🍲",
-      "carpeta": "Batch cooking",
+      "carpeta": "Готовка впрок",
       "porciones": 4,
       "minutos": 35,
       "ingredientes": [
@@ -272,7 +272,7 @@ export default {
       "clave": "tacos-lentejas",
       "nombre": "Тако с чечевицей и копчёной паприкой",
       "emoji": "🌮",
-      "carpeta": "Batch cooking",
+      "carpeta": "Готовка впрок",
       "porciones": 4,
       "minutos": 30,
       "ingredientes": [

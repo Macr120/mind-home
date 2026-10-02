@@ -51,14 +51,19 @@ export function reducir(fuente: HTMLCanvasElement, lado = LADO): string | null {
  * Encuadra cabeza y hombros: mide el personaje ya pintado (los cuerpos y
  * sombreros varían mucho), apunta al tercio superior y acerca la cámara.
  * `children` sustituye al avatar (un asistente, con su `AsistenteModelo`).
+ * Con `cara` (centro y radio de la cabeza) se encuadra la cara y no la caja:
+ * un sombrero de mago u orejas altas subirían el encuadre y la cara quedaría
+ * fuera del recorte circular.
  */
 export function CapturaBusto({
   av,
   children,
+  cara,
   onListo,
 }: {
   av?: Avatar
   children?: ReactNode
+  cara?: { y: number; z: number; r: number }
   onListo: (canvas: HTMLCanvasElement) => void
 }) {
   const { gl, camera } = useThree()
@@ -78,7 +83,31 @@ export function CapturaBusto({
         )
         // Tres cuartos de frente, un poco desde arriba; con fov 30 se ve ~55 % del alto.
         const dir = new THREE.Vector3(0.55, 0.25, 1).normalize()
-        camera.position.copy(objetivo).addScaledVector(dir, Math.max(0.6, alto * 1.05))
+        let distancia = Math.max(0.6, alto * 1.05)
+        if (cara) {
+          // La cabeza con todo lo que lleva encima (sombrero, ala, orejas): la
+          // esfera de las anclas más las piezas que quedan ENTERAS de la barbilla
+          // para arriba. Una túnica o un torso que suben hasta el cuello no
+          // entran, o su ancho alejaría la cámara.
+          const barbilla = cara.y - cara.r * 1.15
+          const cabeza = new THREE.Box3().setFromCenterAndSize(
+            new THREE.Vector3(0, cara.y, cara.z),
+            new THREE.Vector3(cara.r * 2, cara.r * 2, cara.r * 2),
+          )
+          grupo.current.traverse((o) => {
+            if (!(o as THREE.Mesh).isMesh) return
+            const pieza = new THREE.Box3().setFromObject(o)
+            if (pieza.min.y >= barbilla) cabeza.union(pieza)
+          })
+          const t = cabeza.getSize(new THREE.Vector3())
+          cabeza.getCenter(objetivo)
+          // Ancho que se ve desde los tres cuartos de `dir` (~29° de giro).
+          const ancho = t.x * 0.88 + t.z * 0.48
+          // Con fov 30 se ven ~0,54 × distancia de alto; ×1,2 de margen para que
+          // la punta del sombrero y el ala quepan también en el recorte redondo.
+          distancia = (Math.max(t.y, ancho) * 1.2) / 0.536 + Math.max(t.x, t.z) / 2
+        }
+        camera.position.copy(objetivo).addScaledVector(dir, distancia)
         camera.lookAt(objetivo)
         // Un rAF más: que pinte con la cámara ya puesta antes de capturar.
         requestAnimationFrame(() => {

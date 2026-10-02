@@ -81,7 +81,12 @@ export function textoDeFallo(e: unknown, t: TFunc): string {
   if (e instanceof TiendaSinRespuesta) {
     return t('puerta.sinOferta', 'La tienda no respondió. Revisa tu conexión y vuelve a intentarlo.')
   }
-  return e instanceof Error ? e.message : String(e)
+  // El mensaje de RevenueCat viene en inglés: fuera del inglés se dice uno propio
+  // y el técnico sigue debajo (`detalleDeFallo`).
+  // Idioma por `<html lang>` (lo fijan la app y la web): importar `useT` aquí
+  // metería el estado de la app en el bundle ligero de /cuenta.
+  if (document.documentElement.lang === 'en' && e instanceof Error && e.message) return e.message
+  return t('puerta.falloCompra', 'No se pudo completar la compra. Inténtalo de nuevo en un momento.')
 }
 
 /**

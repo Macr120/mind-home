@@ -2,7 +2,7 @@ import { Icono } from '../../core/ui/iconos/Icono'
 import { useState } from 'react'
 import type { ItinerarioGuardado } from '../../core/data/db'
 import { VACIO, itinerariosGuardadosRepo } from '../../core/data/repository'
-import { useT } from '../../core/i18n/useT'
+import { localeActual, useT } from '../../core/i18n/useT'
 import { BotonCompartir } from './BotonCompartir'
 import { tablaItinerario } from './itinerarioTexto'
 import { BotonEnviarAContacto } from '../_shared/BotonEnviarAContacto'
@@ -56,7 +56,7 @@ function TarjetaGuardado({ it }: { it: ItinerarioGuardado }) {
                 <td className="px-2 py-1.5">{f.actividades ?? ''}</td>
                 <td className="px-2 py-1.5">{f.transporte ?? ''}</td>
                 <td className="px-2 py-1.5 text-end tabular-nums">
-                  {f.presupuesto ? `$${f.presupuesto.toLocaleString()}` : ''}
+                  {f.presupuesto ? `$${f.presupuesto.toLocaleString(localeActual())}` : ''}
                 </td>
               </tr>
             ))}
@@ -67,7 +67,7 @@ function TarjetaGuardado({ it }: { it: ItinerarioGuardado }) {
                 <td colSpan={7} className="px-2 py-1.5 text-end text-white/60">
                   {t('sala.hoja.total', 'Total')}
                 </td>
-                <td className="px-2 py-1.5 text-end tabular-nums text-teal-300">${total.toLocaleString()}</td>
+                <td className="px-2 py-1.5 text-end tabular-nums text-teal-300">${total.toLocaleString(localeActual())}</td>
               </tr>
             </tfoot>
           )}

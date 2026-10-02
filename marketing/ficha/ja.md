@@ -7,9 +7,9 @@
 
 MindHaOS
 
-## Subtítulo (13/30)
+## Subtítulo (12/30)
 
-あなたの心を、 3Dの家に
+あなたの心を、3Dの家に
 
 ## Texto promocional (35/170)
 
@@ -19,7 +19,7 @@ MindHaOS
 
 習慣,目標,手帳,日記,家計簿,栄養,運動,睡眠,学習,AI,アシスタント,管理,ライフログ
 
-## Descripción (1672/4000)
+## Descripción (1751/4000)
 
 習慣、目標、家計、食事などを、部屋ごとがアプリになったアイソメトリックな3Dの家で整理。無料で試せます。
 
@@ -57,3 +57,5 @@ MindHaOSのAIは、記録し、計画し、いっしょにつくります。動�
 • 1か月が終わってもアプリ全体とデータはそのまま。AIクレジットは任意です
 
 同じドーパミンを、こんどは現実の人生に。
+
+利用規約（EULA）: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/

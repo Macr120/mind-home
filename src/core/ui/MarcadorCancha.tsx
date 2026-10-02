@@ -5,6 +5,7 @@ import { abrirPartido } from '../partida/cancha'
 import { usePartida } from '../partida/partidaStore'
 import { SliderProp } from './comun/SliderProp'
 import { useT } from '../i18n/useT'
+import { nombreAsistente } from '../chat/mascotas'
 import { Icono } from './iconos/Icono'
 
 /** Textos por defecto de los mensajes del minijuego (los emojis de celebración se quedan). */
@@ -149,10 +150,10 @@ export function MarcadorCancha() {
               <button
                 key={a.id}
                 type="button"
-                onClick={() => j.elegirModo('ia', { id: a.id, nombre: a.nombre, color: a.color })}
+                onClick={() => j.elegirModo('ia', { id: a.id, nombre: nombreAsistente(t, a), color: a.color })}
                 className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/10 px-2.5 py-1.5 text-xs font-semibold text-white transition hover:bg-white/20 active:scale-95"
               >
-                <Icono emoji={a.emoji} /> {a.nombre}
+                <Icono emoji={a.emoji} /> {nombreAsistente(t, a)}
               </button>
             ))}
           </div>

@@ -991,8 +991,8 @@ const SECCIONES: Seccion[] = [
               { frase: '[Cómo funciona] el {chat}', en: '[How does] the {chat} [work]' },
               { frase: '[Qué hace] el {inventario}', en: '[What does] the {inventory} [do]' },
               { frase: '[Para qué sirve] la {cámara}', en: '[What is] the {camera} [for]' },
-              { frase: '[Tutorial de] {ejercicio}', en: '[Tutorial of] the {editor}' },
-              { frase: '[Tutorial de] la {biblioteca}', en: '[Tutorial of] the {chat}' },
+              { frase: '[Tutorial de] {ejercicio}', en: '{Exercise} [tutorial]' },
+              { frase: '[Tutorial de] la {biblioteca}', en: '{Library} [tutorial]' },
               { frase: '[Tutorial] {general}', en: '{General} [tutorial]' },
             ],
           },
@@ -1134,8 +1134,13 @@ export function ManualComandos({
   // abrir el manual y, mientras llegan (o si falta la frase), se ve el español.
   const manual = useManualTraducido(idioma)
 
-  /** Frase a mostrar/enviar según el idioma de la app. */
-  const fraseDe = (ej: Ejemplo) => manual?.frases[ej.frase] ?? (idioma === 'en' ? ej.en : ej.frase)
+  /**
+   * Frase a mostrar/enviar según el idioma de la app. Las órdenes del chat de un
+   * amigo solo se entienden en español o en inglés (`buzon/ordenesHilo.ts`), como
+   * dice su nota: fuera del español se enseñan en inglés, no traducidas.
+   */
+  const fraseDe = (ej: Ejemplo, c: Carpeta) =>
+    c.id === 'amigos' && idioma !== 'es' ? ej.en : (manual?.frases[ej.frase] ?? (idioma === 'en' ? ej.en : ej.frase))
 
   const cabecera = (c: Carpeta) => cabeceraDe(c, t)
 
@@ -1233,7 +1238,7 @@ export function ManualComandos({
                                   <button
                                     key={ej.frase}
                                     type="button"
-                                    onClick={() => onUsar(sinMarcado(fraseDe(ej)))}
+                                    onClick={() => onUsar(sinMarcado(fraseDe(ej, carpeta)))}
                                     className={`rounded-lg border px-2 py-1 text-start text-[11px] text-white/70 transition hover:text-white/90 ${
                                       grupo.id === 'ia'
                                         ? 'border-violet-400/20 bg-violet-400/5 hover:bg-violet-400/15'
@@ -1243,7 +1248,7 @@ export function ManualComandos({
                                     {ej.roomId && (
                                       <span className="me-1"><Icono emoji={getPlantilla(ej.roomId)?.icon ?? '🗒️'} /></span>
                                     )}
-                                    {segmentar(fraseDe(ej)).map((seg, i) => (
+                                    {segmentar(fraseDe(ej, carpeta)).map((seg, i) => (
                                       <span key={i} className={COLOR_SEG[seg.tipo]}>{seg.texto}</span>
                                     ))}
                                     {ej.creditos != null && (
@@ -1350,7 +1355,8 @@ export function PanelAccionesAsistente({
   const t = useT()
   const idioma = useAjustes((s) => s.idioma)
   const manual = useManualTraducido(idioma)
-  const fraseDe = (ej: Ejemplo) => manual?.frases[ej.frase] ?? (idioma === 'en' ? ej.en : ej.frase)
+  const fraseDe = (ej: Ejemplo, c: Carpeta) =>
+    c.id === 'amigos' && idioma !== 'es' ? ej.en : (manual?.frases[ej.frase] ?? (idioma === 'en' ? ej.en : ej.frase))
   const carpetas = SECCIONES.flatMap((sec) => sec.carpetas)
     .map((c) => ({ c, ejemplos: ejemplosDe(accion, c) }))
     .filter((x) => x.ejemplos.length > 0)
@@ -1398,14 +1404,14 @@ export function PanelAccionesAsistente({
                   <button
                     key={ej.frase}
                     type="button"
-                    onClick={() => onUsar(sinMarcado(fraseDe(ej)), accion === 'jugar')}
+                    onClick={() => onUsar(sinMarcado(fraseDe(ej, c)), accion === 'jugar')}
                     className={`rounded-lg border px-2 py-1 text-start text-[11px] text-white/70 transition hover:text-white/90 ${
                       ia
                         ? 'border-violet-400/20 bg-violet-400/5 hover:bg-violet-400/15'
                         : 'border-white/10 bg-white/5 hover:bg-white/15'
                     }`}
                   >
-                    {segmentar(fraseDe(ej)).map((seg, i) => (
+                    {segmentar(fraseDe(ej, c)).map((seg, i) => (
                       <span key={i} className={COLOR_SEG[seg.tipo]}>
                         {seg.texto}
                       </span>

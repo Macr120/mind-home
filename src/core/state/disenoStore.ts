@@ -84,6 +84,7 @@ import { useLayout, roomWorldPos, cuartoEnMundo } from './layoutStore'
 import { footprintCells, FOOTPRINT_DEFAULT, cellId, tileOcupado, SIZE, SIZE_DEFAULT } from '../house/walls'
 import { remapearFormasOffTrasAncla } from '../house/formasLoseta'
 import { celdasConexas } from '../house/techoCeldas'
+import { tGlobal } from '../i18n/useT'
 
 /** Color por defecto de un cuarto (su color de instancia, o gris si no existe). */
 const colorCuarto = (roomId: string): string =>
@@ -142,13 +143,14 @@ export const esObjetoLibreria = (o: ObjetoCuarto) => o.roomId === LIBRERIA_ROOM
 export const SEED_LIBRERIA = claveLS('mh_libreria_seeded_v14')
 
 /**
- * Colores del avatar por defecto (estilo Roblox).
+ * Colores del avatar por defecto (estilo Roblox): los de la app — piel amarilla,
+ * playera roja y pantalón morado (rojo y morado del logo).
  * Se sobreescriben con los datos guardados en DB.
  */
 export const AVATAR_DEFAULT = {
   cabeza: '#ffd23b',
-  torso: '#e23b3b',
-  piernas: '#2f5fd0',
+  torso: '#f53b4b',
+  piernas: '#b36bfb',
 }
 
 /** Una prenda a medida puesta: copia de la geometría + `refId` al guardarropa. */
@@ -1827,7 +1829,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   agregarFondoImagen: async (blob, nombre, ajuste = AJUSTE_FONDO_DEFAULT) => {
     const { ancho, alto } = await medirImagen(blob)
     const item: Omit<FondoImagen, 'id'> = {
-      nombre: nombre.trim() || 'Mi fondo',
+      nombre: nombre.trim() || tGlobal('fondo.nombreDefecto', 'Mi fondo'),
       imagen: blob,
       ancho,
       alto,
@@ -1877,7 +1879,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   agregarFondoPanel: async (blob, nombre) => {
     const { ancho, alto } = await medirImagen(blob)
     const item: Omit<FondoImagen, 'id'> = {
-      nombre: nombre.trim() || 'Mi fondo',
+      nombre: nombre.trim() || tGlobal('fondo.nombreDefecto', 'Mi fondo'),
       imagen: blob,
       ancho,
       alto,
@@ -1912,7 +1914,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     // Sin tema activo no hay nada que congelar (la personalización vive por tema base).
     if (!base) return
     const item: Omit<TemaPropio, 'id'> = {
-      nombre: nombre.trim().slice(0, 40) || 'Mi tema',
+      nombre: nombre.trim().slice(0, 40) || tGlobal('tema.nombreDefecto', 'Mi tema'),
       base,
       override: get().temasOverrides[base] ?? {},
       fondoId: get().fondoId,

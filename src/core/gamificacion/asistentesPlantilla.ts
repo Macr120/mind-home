@@ -107,7 +107,7 @@ export function semillaAsistente(plantillaId: string): SemillaAsistente {
   if (s) return { ...s, nombre: tGlobal(`asistente.${plantillaId}.nombre`, s.nombre) }
   const p = getPlantilla(plantillaId)
   return {
-    nombre: p?.nombre.split(' · ')[0] ?? plantillaId,
+    nombre: p ? tGlobal(`room.${p.id}.nombre`, p.nombre).split(' · ')[0] : plantillaId,
     emoji: p?.icon ?? '✨',
     forma: 'mago',
     personalidad: '',

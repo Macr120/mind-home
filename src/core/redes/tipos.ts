@@ -115,6 +115,7 @@ export type CodigoErrorRedes =
   | 'cuota-youtube'
   | 'orden'
   | 'sesion-caducada'
+  | 'sin-unlock'
   | 'cancelado'
 
 /** Error tipado de la vía redes; `message` ya viene listo para mostrarse. */

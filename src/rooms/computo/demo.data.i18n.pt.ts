@@ -1321,7 +1321,7 @@ export default {
           }
         },
         "A6": {
-          "crudo": "Final"
+          "crudo": "Prova final"
         },
         "B6": {
           "crudo": "0.3",

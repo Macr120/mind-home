@@ -175,7 +175,7 @@ const esquemas: EsquemaCaptura[] = [
       await comidasRepo.add({
         fecha: vFecha(v.fecha),
         momento: (MOMENTOS_VALIDOS.has(m) ? m : 'comida') as MomentoComida,
-        nombre: vTexto(v.nombre, 'Comida'),
+        nombre: vTexto(v.nombre, tGlobal('cocina.comidaDefecto', 'Comida')),
         calorias: vNumero(v.calorias),
         proteinas: vNumero(v.proteinas),
         carbohidratos: vNumero(v.carbohidratos),
@@ -419,7 +419,7 @@ const cocina: Plantilla = {
       actividad: {
         actividadId: actividadId('momento', m.id),
         plantillaId: 'cocina',
-        nombre: m.label,
+        nombre: tGlobal(`cocina.momento.${m.id}`, m.label),
         emoji: m.icon,
         horaSugerida: HORA_SUGERIDA[m.id],
         seccion: 'diario',

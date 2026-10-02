@@ -46,7 +46,7 @@ export default {
     {
       "dia": -222,
       "titulo": "Двойная смена из-за районной ярмарки",
-      "lugar": "Plaza Norte"
+      "lugar": "Пласа-Норте"
     },
     {
       "dia": -200,
@@ -190,72 +190,72 @@ export default {
     {
       "dia": -355,
       "titulo": "Долгий кофе, в основном чтобы пожаловаться",
-      "con": "Nadia Serrano"
+      "con": "Надя Серрано"
     },
     {
       "dia": -326,
       "titulo": "Воскресный ужин дома",
-      "con": "Rosa Vidal"
+      "con": "Роса Видаль"
     },
     {
       "dia": -292,
       "titulo": "День рождения Икера",
-      "con": "Iker Domínguez"
+      "con": "Икер Домингес"
     },
     {
       "dia": -258,
       "titulo": "Завтрак после забега на 5 км",
-      "con": "Nadia Serrano"
+      "con": "Надя Серрано"
     },
     {
       "dia": -230,
       "titulo": "Киномарафон научной фантастики",
-      "con": "Tomás Iriarte"
+      "con": "Томас Ириарте"
     },
     {
       "dia": -190,
       "titulo": "День рождения мамы",
-      "con": "Rosa Vidal"
+      "con": "Роса Видаль"
     },
     {
       "dia": -160,
       "titulo": "Кофе, чтобы выговориться",
-      "con": "Marisol Cáceres"
+      "con": "Марисоль Касерес"
     },
     {
       "dia": -134,
       "titulo": "Прощальный ужин перед Японией",
-      "con": "Camila Vidal"
+      "con": "Камила Видаль"
     },
     {
       "dia": -110,
       "titulo": "Видеозвонок из Киото",
-      "con": "Rosa Vidal"
+      "con": "Роса Видаль"
     },
     {
       "dia": -88,
       "titulo": "Вечер фотографий с поездки",
-      "con": "Tomás Iriarte"
+      "con": "Томас Ириарте"
     },
     {
       "dia": -60,
       "titulo": "День рождения Нади",
-      "con": "Nadia Serrano"
+      "con": "Надя Серрано"
     },
     {
       "dia": -36,
       "titulo": "Бранч с коллегами из кафе",
-      "con": "Bruno Ferrer"
+      "con": "Бруно Феррер"
     },
     {
       "dia": -10,
-      "titulo": "Домашний концерт: Clair de Lune",
-      "con": "Rosa Vidal"
+      "titulo": "Домашний концерт: «Лунный свет»",
+      "con": "Роса Видаль"
     },
     {
       "dia": -3,
       "titulo": "Кофе: магистратура или работа?",
-      "con": "Iker Domínguez"
+      "con": "Икер Домингес"
     }
   ],
   "pendientes": [
@@ -267,36 +267,36 @@ export default {
   ],
   "contactos": [
     {
-      "nombre": "Rosa Vidal",
-      "relacion": "Familia"
+      "nombre": "Роса Видаль",
+      "relacion": "Семья"
     },
     {
-      "nombre": "Camila Vidal",
-      "relacion": "Familia"
+      "nombre": "Камила Видаль",
+      "relacion": "Семья"
     },
     {
-      "nombre": "Nadia Serrano",
-      "relacion": "Amistades"
+      "nombre": "Надя Серрано",
+      "relacion": "Друзья"
     },
     {
-      "nombre": "Tomás Iriarte",
-      "relacion": "Amistades"
+      "nombre": "Томас Ириарте",
+      "relacion": "Друзья"
     },
     {
-      "nombre": "Marisol Cáceres",
-      "relacion": "Trabajo"
+      "nombre": "Марисоль Касерес",
+      "relacion": "Работа"
     },
     {
-      "nombre": "Bruno Ferrer",
-      "relacion": "Trabajo"
+      "nombre": "Бруно Феррер",
+      "relacion": "Работа"
     },
     {
-      "nombre": "Iker Domínguez",
-      "relacion": "Universidad"
+      "nombre": "Икер Домингес",
+      "relacion": "Университет"
     },
     {
-      "nombre": "Elena Puig",
-      "relacion": "Universidad"
+      "nombre": "Елена Пуч",
+      "relacion": "Университет"
     }
   ]
 }

@@ -7,7 +7,7 @@ import { CATEGORIAS, COLOR } from './constantes'
 import { TarjetaTitular } from './TarjetaTitular'
 
 /** Chip de categoría: entintado con su color de marca (legible en claro y oscuro). */
-function ChipCategoria({
+export function ChipCategoria({
   color,
   activo,
   onClick,

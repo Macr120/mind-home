@@ -214,9 +214,9 @@ export function Billar({ dificultad = 'medio' }: PropsDificultad) {
             </>
           ) : (
             <>
-              <span className={turno === 1 ? 'texto-vivo' : undefined} style={turno === 1 ? vivo(COLOR) : undefined}>J1 {puntos.j1}</span>
+              <span className={turno === 1 ? 'texto-vivo' : undefined} style={turno === 1 ? vivo(COLOR) : undefined}>{t('entre.j.billar.j1', 'J1')} {puntos.j1}</span>
               {' · '}
-              <span className={turno === 2 ? 'texto-vivo' : undefined} style={turno === 2 ? vivo(COLOR) : undefined}>J2 {puntos.j2}</span>
+              <span className={turno === 2 ? 'texto-vivo' : undefined} style={turno === 2 ? vivo(COLOR) : undefined}>{t('entre.j.billar.j2', 'J2')} {puntos.j2}</span>
             </>
           )}
           {aviso === 'falta' && <span className="ms-2 text-red-400">{t('entre.j.billar.falta', 'Falta: la blanca se metió')}</span>}
@@ -249,7 +249,7 @@ export function Billar({ dificultad = 'medio' }: PropsDificultad) {
                 ? t('entre.j.billar.fin1j', 'Mesa limpia en {n} tiros', { n: tiros })
                 : puntos.j1 === puntos.j2
                   ? t('entre.j.cuatroenlinea.empate', 'Empate: tablero lleno')
-                  : t('entre.j.pong.gana', 'Gana {j}', { j: puntos.j1 > puntos.j2 ? 'J1' : 'J2' })}
+                  : t('entre.j.pong.gana', 'Gana {j}', { j: puntos.j1 > puntos.j2 ? t('entre.j.billar.j1', 'J1') : t('entre.j.billar.j2', 'J2') })}
             </p>
             <button type="button" onClick={() => reiniciar(modo)} className="rounded-xl px-4 py-2 font-bold text-black" style={{ background: COLOR }}>
               {t('entre.j.nueva', 'Nueva partida')}

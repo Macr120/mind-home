@@ -20,11 +20,14 @@ import { Creditos } from '../ui/Creditos'
 import { OP_ASISTENTE_3D, OP_ASISTENTE_VOZ } from '../cuenta/catalogoNucleo'
 import { getPlantilla } from '../registry'
 import { appsAsignadas } from './dispatcher'
-import { useT } from '../i18n/useT'
+import { localeActual, tGlobal, useT } from '../i18n/useT'
 import { Icono } from '../ui/iconos/Icono'
 
 /** Nombre corto de la app (sin el "· algo"). */
-const nombreCorto = (roomId: string) => getPlantilla(roomId)?.nombre.split(' · ')[0] ?? roomId
+const nombreCorto = (roomId: string) => {
+  const p = getPlantilla(roomId)
+  return p ? tGlobal(`room.${p.id}.nombre`, p.nombre).split(' · ')[0] : roomId
+}
 
 /**
  * Panel ⚙️ de gestión de asistentes: crear y eliminar, personalizar su
@@ -96,7 +99,7 @@ export function AsistentesConfig() {
                 <p className="truncate text-[10px] text-white/35">
                   <Icono nombre="archivador" />{' '}
                   {a.cuartos.length > 0
-                    ? a.cuartos.map(nombreCorto).join(', ')
+                    ? new Intl.ListFormat(localeActual(), { style: 'narrow', type: 'unit' }).format(a.cuartos.map(nombreCorto))
                     : t('chat.config.archivaTodo', 'Archiva en todos los cuartos')}
                 </p>
               </div>

@@ -46,7 +46,7 @@ export default {
     {
       "dia": -222,
       "titulo": "मोहल्ले के मेले के कारण डबल शिफ्ट",
-      "lugar": "Plaza Norte"
+      "lugar": "प्लाज़ा नोर्ते"
     },
     {
       "dia": -200,
@@ -190,72 +190,72 @@ export default {
     {
       "dia": -355,
       "titulo": "लंबी कॉफ़ी, बस शिकायतें",
-      "con": "Nadia Serrano"
+      "con": "नादिया सेरानो"
     },
     {
       "dia": -326,
       "titulo": "घर पर रविवार का डिनर",
-      "con": "Rosa Vidal"
+      "con": "रोसा विदाल"
     },
     {
       "dia": -292,
       "titulo": "इकर का जन्मदिन",
-      "con": "Iker Domínguez"
+      "con": "इकर दोमिंगेज़"
     },
     {
       "dia": -258,
       "titulo": "5K रेस के बाद नाश्ता",
-      "con": "Nadia Serrano"
+      "con": "नादिया सेरानो"
     },
     {
       "dia": -230,
       "titulo": "साइंस फ़िक्शन फ़िल्मों का मैराथन",
-      "con": "Tomás Iriarte"
+      "con": "तोमास इरियार्ते"
     },
     {
       "dia": -190,
       "titulo": "मम्मी का जन्मदिन",
-      "con": "Rosa Vidal"
+      "con": "रोसा विदाल"
     },
     {
       "dia": -160,
       "titulo": "मन हल्का करने के लिए कॉफ़ी",
-      "con": "Marisol Cáceres"
+      "con": "मारिसोल कासेरेस"
     },
     {
       "dia": -134,
       "titulo": "जापान जाने से पहले विदाई डिनर",
-      "con": "Camila Vidal"
+      "con": "कामिला विदाल"
     },
     {
       "dia": -110,
       "titulo": "क्योटो से वीडियो कॉल",
-      "con": "Rosa Vidal"
+      "con": "रोसा विदाल"
     },
     {
       "dia": -88,
       "titulo": "यात्रा की तस्वीरों वाली शाम",
-      "con": "Tomás Iriarte"
+      "con": "तोमास इरियार्ते"
     },
     {
       "dia": -60,
       "titulo": "नादिया का जन्मदिन",
-      "con": "Nadia Serrano"
+      "con": "नादिया सेरानो"
     },
     {
       "dia": -36,
       "titulo": "कैफ़े के साथियों के साथ ब्रंच",
-      "con": "Bruno Ferrer"
+      "con": "ब्रूनो फ़ेरेर"
     },
     {
       "dia": -10,
-      "titulo": "घर पर कॉन्सर्ट: Clair de Lune",
-      "con": "Rosa Vidal"
+      "titulo": "घर पर कॉन्सर्ट: «क्लेयर डी ल्यून»",
+      "con": "रोसा विदाल"
     },
     {
       "dia": -3,
       "titulo": "कॉफ़ी: पोस्टग्रैजुएट या नौकरी?",
-      "con": "Iker Domínguez"
+      "con": "इकर दोमिंगेज़"
     }
   ],
   "pendientes": [
@@ -267,36 +267,36 @@ export default {
   ],
   "contactos": [
     {
-      "nombre": "Rosa Vidal",
-      "relacion": "Familia"
+      "nombre": "रोसा विदाल",
+      "relacion": "परिवार"
     },
     {
-      "nombre": "Camila Vidal",
-      "relacion": "Familia"
+      "nombre": "कामिला विदाल",
+      "relacion": "परिवार"
     },
     {
-      "nombre": "Nadia Serrano",
-      "relacion": "Amistades"
+      "nombre": "नादिया सेरानो",
+      "relacion": "दोस्त"
     },
     {
-      "nombre": "Tomás Iriarte",
-      "relacion": "Amistades"
+      "nombre": "तोमास इरियार्ते",
+      "relacion": "दोस्त"
     },
     {
-      "nombre": "Marisol Cáceres",
-      "relacion": "Trabajo"
+      "nombre": "मारिसोल कासेरेस",
+      "relacion": "काम"
     },
     {
-      "nombre": "Bruno Ferrer",
-      "relacion": "Trabajo"
+      "nombre": "ब्रूनो फ़ेरेर",
+      "relacion": "काम"
     },
     {
-      "nombre": "Iker Domínguez",
-      "relacion": "Universidad"
+      "nombre": "इकर दोमिंगेज़",
+      "relacion": "यूनिवर्सिटी"
     },
     {
-      "nombre": "Elena Puig",
-      "relacion": "Universidad"
+      "nombre": "एलेना पुइग",
+      "relacion": "यूनिवर्सिटी"
     }
   ]
 }

@@ -72,7 +72,7 @@ export default {
       "clave": "bowl-pollo",
       "nombre": "Kipbowl voor de hele week",
       "emoji": "🍗",
-      "carpeta": "Batch cooking",
+      "carpeta": "Vooruitkoken",
       "porciones": 4,
       "minutos": 45,
       "ingredientes": [
@@ -207,7 +207,7 @@ export default {
       "clave": "crema-lentejas",
       "nombre": "Romige rode linzensoep",
       "emoji": "🍲",
-      "carpeta": "Batch cooking",
+      "carpeta": "Vooruitkoken",
       "porciones": 4,
       "minutos": 35,
       "ingredientes": [
@@ -272,7 +272,7 @@ export default {
       "clave": "tacos-lentejas",
       "nombre": "Rokerige linzentaco's",
       "emoji": "🌮",
-      "carpeta": "Batch cooking",
+      "carpeta": "Vooruitkoken",
       "porciones": 4,
       "minutos": 30,
       "ingredientes": [

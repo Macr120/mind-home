@@ -5,6 +5,7 @@ import { useT } from '../../core/i18n/useT'
 import { getCategoria } from './constantes'
 import { ImagenNoticia } from './ImagenNoticia'
 import { vivo } from '../../core/ui/estilos'
+import { NarradorSeccion } from './NarradorSeccion'
 
 /** Tarjeta estilo feed: imagen arriba (con respaldo si falla) y texto abajo. */
 export function TarjetaTitular({ titular }: { titular: Titular }) {
@@ -13,7 +14,13 @@ export function TarjetaTitular({ titular }: { titular: Titular }) {
   const [sinImagen, setSinImagen] = useState(!titular.imagen)
 
   return (
-    <article className="overflow-hidden rounded-2xl border border-white/15 bg-white/5">
+    <article className="relative overflow-hidden rounded-2xl border border-white/15 bg-white/5">
+      <NarradorSeccion
+        seccion={titular.categoria}
+        color={cat.color}
+        emoji={cat.emoji}
+        etiqueta={t(`diario.cat.${cat.id}`, cat.label)}
+      />
       {sinImagen ? (
         <div
           className="flex aspect-video items-center justify-center text-5xl"
@@ -29,15 +36,7 @@ export function TarjetaTitular({ titular }: { titular: Titular }) {
         />
       )}
       <div className="space-y-2 p-3.5">
-        <div className="flex items-center gap-2">
-          <span
-            className="texto-vivo rounded-md px-2 py-0.5 text-[10px] font-bold"
-            style={{ background: `${cat.color}33`, ...vivo(cat.color) }}
-          >
-            <Icono emoji={cat.emoji} /> {t(`diario.cat.${cat.id}`, cat.label)}
-          </span>
-          <span className="text-[10px] text-white/35">{titular.fuente}</span>
-        </div>
+        <p className="text-[10px] text-white/35">{titular.fuente}</p>
         <h3 className="text-sm font-bold leading-snug">{titular.titulo}</h3>
         {titular.resumen && (
           <p className="line-clamp-3 text-xs leading-relaxed text-white/55">{titular.resumen}</p>

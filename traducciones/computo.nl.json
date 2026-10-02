@@ -426,5 +426,17 @@
   {
     "ruta": "hojas.2.celdas.A10.crudo",
     "texto": "Nodig in het eindexamen"
+  },
+  {
+    "ruta": "hojas.0.celdas.A17.crudo",
+    "texto": "Totaal ¥"
+  },
+  {
+    "ruta": "hojas.1.celdas.A21.crudo",
+    "texto": "Totaal"
+  },
+  {
+    "ruta": "hojas.2.celdas.A6.crudo",
+    "texto": "Eindexamen"
   }
 ]

@@ -8,7 +8,7 @@ import {
   lugaresViajeRepo,
   metasRepo,
 } from '../../core/data/repository'
-import { useT } from '../../core/i18n/useT'
+import { localeActual, useT } from '../../core/i18n/useT'
 import { BotonCompartir } from './BotonCompartir'
 import { tablaItinerario } from './itinerarioTexto'
 import { BotonEnviarAContacto } from '../_shared/BotonEnviarAContacto'
@@ -195,7 +195,7 @@ export function HojaItinerario({ lugar }: { lugar: LugarViaje }) {
                   {t('sala.hoja.total', 'Total')}
                 </td>
                 <td className="px-2 py-1.5 text-end tabular-nums text-teal-300">
-                  ${total.toLocaleString()}
+                  ${total.toLocaleString(localeActual())}
                 </td>
                 <td />
               </tr>

@@ -169,7 +169,11 @@ function Alimentacion({
             </span>
           </p>
           <p className="mt-0.5 text-xs text-white/50">
-            P {res.promedio.proteinas}g · C {res.promedio.carbohidratos}g · G {res.promedio.grasas}g
+            {t('cocina.macros', 'P {p}g · C {c}g · G {g}g', {
+              p: res.promedio.proteinas,
+              c: res.promedio.carbohidratos,
+              g: res.promedio.grasas,
+            })}
           </p>
 
           <Barras barras={barras} objetivo={perfil.calorias} color={COLOR} />

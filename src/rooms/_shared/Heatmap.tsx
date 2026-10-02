@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { deIso, fechaLocalISO, inicioSemana, isoMasDias } from '../../core/fechaLocal'
 import { localeActual } from '../../core/i18n/useT'
+import { diasSemanaLunes, mesesCortos } from '../../core/rutinas'
+import { textoMin } from '../../core/i18n/duracion'
 
 /** Convierte "#rrggbb" + alfa en rgba(). Única copia: antes vivía duplicada por cuarto. */
 export function rgba(hex: string, alpha: number) {
@@ -8,9 +10,6 @@ export function rgba(hex: string, alpha: number) {
   return `rgba(${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}, ${alpha})`
 }
 
-const DIAS = ['L', 'M', 'X', 'J', 'V', 'S', 'D']
-const FILAS = ['L', '', 'X', '', 'V', '', '']
-const MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic']
 
 /** Fondo de un día sin actividad. */
 const VACIO = 'rgba(255,255,255,0.04)'
@@ -123,7 +122,7 @@ function GridMes({ datos, color, textos }: { datos: Map<string, number>; color: 
         <div className="text-center">
           <p className="text-xs font-semibold capitalize">{nombreMes}</p>
           <p className="text-[9px] text-white/45">
-            {totalMes} min · {diasActivos} {textos.dias}
+            {textoMin(totalMes)} · {diasActivos} {textos.dias}
           </p>
         </div>
         <button
@@ -136,7 +135,7 @@ function GridMes({ datos, color, textos }: { datos: Map<string, number>; color: 
       </div>
 
       <div className="grid w-full grid-cols-7 gap-0.5">
-        {DIAS.map((d, i) => (
+        {diasSemanaLunes().map((d, i) => (
           <div key={i} className="text-center text-[8px] text-white/35">
             {d}
           </div>
@@ -145,7 +144,7 @@ function GridMes({ datos, color, textos }: { datos: Map<string, number>; color: 
           semana.map((c) => (
             <div
               key={`${wi}-${c.iso}`}
-              title={`${c.iso} · ${c.min} min`}
+              title={`${c.iso} · ${textoMin(c.min)}`}
               className={`aspect-square rounded-sm flex items-center justify-center text-[7px] ${
                 c.enMes ? 'text-white/50' : 'text-white/15'
               } ${c.iso === hoy ? 'ring-1 ring-white/60' : ''}`}
@@ -183,7 +182,7 @@ function GridAnual({
     const columnas = Array.from({ length: 53 }, (_, i) => {
       const lunes = isoMasDias(lunesFinal, -7 * (52 - i))
       // Etiqueta de mes solo en la semana que lo estrena (lunes en los primeros 7 días).
-      const mes = Number(lunes.slice(8, 10)) <= 7 ? MESES[Number(lunes.slice(5, 7)) - 1] : ''
+      const mes = Number(lunes.slice(8, 10)) <= 7 ? Number(lunes.slice(5, 7)) - 1 : -1
       return { lunes, mes, dias: Array.from({ length: 7 }, (_, j) => isoMasDias(lunes, j)) }
     })
     let total = 0
@@ -211,28 +210,28 @@ function GridAnual({
       <div className="mb-2 flex items-center justify-between gap-2">
         <p className="text-xs font-semibold">{titulo}</p>
         <p className="text-[9px] text-white/45">
-          {total} min · {diasActivos} {textos.dias}
+          {textoMin(total)} · {diasActivos} {textos.dias}
         </p>
       </div>
 
       <div className="flex gap-1">
         <div className="flex flex-col gap-0.5 pt-3.5 text-[8px] text-white/35">
-          {FILAS.map((d, i) => (
+          {diasSemanaLunes().map((d, i) => (
             <span key={i} className="flex h-2.5 items-center">
-              {d}
+              {i % 2 === 0 && i < 6 ? d : ''}
             </span>
           ))}
         </div>
         <div ref={scrollRef} className="flex gap-0.5 overflow-x-auto pb-1">
           {columnas.map((c) => (
             <div key={c.lunes} className="flex shrink-0 flex-col gap-0.5">
-              <span className="h-3 text-[8px] leading-none text-white/35">{c.mes}</span>
+              <span className="h-3 text-[8px] leading-none text-white/35">{mesesCortos()[c.mes] ?? ''}</span>
               {c.dias.map((f) => {
                 const min = datos.get(f) ?? 0
                 return (
                   <div
                     key={f}
-                    title={`${f} · ${min} min`}
+                    title={`${f} · ${textoMin(min)}`}
                     className={`h-2.5 w-2.5 rounded-[2px] ${f === hoy ? 'ring-1 ring-white/60' : ''} ${
                       f > hoy ? 'opacity-0' : ''
                     }`}

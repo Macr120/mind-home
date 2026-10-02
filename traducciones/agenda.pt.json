@@ -81,7 +81,7 @@
   },
   {
     "ruta": "trabajo.10.lugar",
-    "texto": "Taller Ruiz"
+    "texto": "Oficina Ruiz"
   },
   {
     "ruta": "trabajo.11.titulo",
@@ -350,5 +350,37 @@
   {
     "ruta": "pendientes.4",
     "texto": "Pedir orçamento de um moedor novo para o balcão"
+  },
+  {
+    "ruta": "contactos.0.relacion",
+    "texto": "Família"
+  },
+  {
+    "ruta": "contactos.1.relacion",
+    "texto": "Família"
+  },
+  {
+    "ruta": "contactos.2.relacion",
+    "texto": "Amizades"
+  },
+  {
+    "ruta": "contactos.3.relacion",
+    "texto": "Amizades"
+  },
+  {
+    "ruta": "contactos.4.relacion",
+    "texto": "Trabalho"
+  },
+  {
+    "ruta": "contactos.5.relacion",
+    "texto": "Trabalho"
+  },
+  {
+    "ruta": "contactos.6.relacion",
+    "texto": "Faculdade"
+  },
+  {
+    "ruta": "contactos.7.relacion",
+    "texto": "Faculdade"
   }
 ]

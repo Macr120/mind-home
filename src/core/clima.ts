@@ -1,6 +1,7 @@
 /**
  * Clima real: ubicación del dispositivo (con respaldo por IP) + Open-Meteo (sin API key).
  */
+import { idiomaActual, tGlobal, type TFunc } from './i18n/useT'
 
 export interface ClimaActual {
   temp: number
@@ -38,26 +39,36 @@ async function fetchConTimeout(url: string, ms = TIMEOUT_FETCH): Promise<Respons
   try {
     return await fetch(url, { signal: ctrl.signal })
   } catch {
-    if (ctrl.signal.aborted) throw new ClimaError('red', 'Tiempo de espera agotado al consultar el servicio.')
-    throw new ClimaError('red', 'Sin conexión al servicio de clima.')
+    if (ctrl.signal.aborted) {
+      throw new ClimaError('red', tGlobal('clima.err.espera', 'Tiempo de espera agotado al consultar el servicio.'))
+    }
+    throw new ClimaError('red', tGlobal('clima.err.sinConexion', 'Sin conexión al servicio de clima.'))
   } finally {
     clearTimeout(t)
   }
 }
 
-/** Etiqueta e icono según código WMO (Open-Meteo). */
-function climaDeCodigo(codigo: number): { icono: string; descripcion: string } {
-  if (codigo === 0) return { icono: '☀️', descripcion: 'Despejado' }
-  if (codigo <= 3) return { icono: '⛅', descripcion: 'Parcialmente nublado' }
-  if (codigo <= 48) return { icono: '🌫️', descripcion: 'Niebla' }
-  if (codigo <= 57) return { icono: '🌦️', descripcion: 'Llovizna' }
-  if (codigo <= 67) return { icono: '🌧️', descripcion: 'Lluvia' }
-  if (codigo <= 77) return { icono: '🌨️', descripcion: 'Nieve' }
-  if (codigo <= 82) return { icono: '🌧️', descripcion: 'Chubascos' }
-  if (codigo <= 86) return { icono: '🌨️', descripcion: 'Nieve intensa' }
-  if (codigo <= 99) return { icono: '⛈️', descripcion: 'Tormenta' }
-  return { icono: '🌡️', descripcion: 'Clima variable' }
+/** Etiqueta e icono según código WMO (Open-Meteo); `id` es su clave `clima.<id>`. */
+function climaDeCodigo(codigo: number): { icono: string; id: string; descripcion: string } {
+  if (codigo === 0) return { icono: '☀️', id: 'despejado', descripcion: 'Despejado' }
+  if (codigo <= 3) return { icono: '⛅', id: 'nublado', descripcion: 'Parcialmente nublado' }
+  if (codigo <= 48) return { icono: '🌫️', id: 'niebla', descripcion: 'Niebla' }
+  if (codigo <= 57) return { icono: '🌦️', id: 'llovizna', descripcion: 'Llovizna' }
+  if (codigo <= 67) return { icono: '🌧️', id: 'lluvia', descripcion: 'Lluvia' }
+  if (codigo <= 77) return { icono: '🌨️', id: 'nieve', descripcion: 'Nieve' }
+  if (codigo <= 82) return { icono: '🌧️', id: 'chubascos', descripcion: 'Chubascos' }
+  if (codigo <= 86) return { icono: '🌨️', id: 'nieveIntensa', descripcion: 'Nieve intensa' }
+  if (codigo <= 99) return { icono: '⛈️', id: 'tormenta', descripcion: 'Tormenta' }
+  return { icono: '🌡️', id: 'variable', descripcion: 'Clima variable' }
 }
+
+/** La descripción del clima en el idioma de la app (la guardada queda en español). */
+export function descripcionClima(codigo: number, t: TFunc): string {
+  const { id, descripcion } = climaDeCodigo(codigo)
+  return t(`clima.${id}`, descripcion)
+}
+
+const ciudadDeMexico = () => tGlobal('clima.cdmx', 'Ciudad de México')
 
 interface Ubicacion {
   lat: number
@@ -71,7 +82,6 @@ const CIUDAD_POR_ZONA: Record<string, Ubicacion> = {
   'America/Mexico_City': {
     lat: 19.4326,
     lon: -99.1332,
-    ciudad: 'Ciudad de México',
     aproximada: true,
   },
 }
@@ -170,7 +180,7 @@ async function ubicacionPorIp(): Promise<Ubicacion | null> {
 async function ubicacionDeZonaHoraria(): Promise<Ubicacion> {
   const tz = zonaHoraria()
   const fija = CIUDAD_POR_ZONA[tz]
-  if (fija) return { ...fija }
+  if (fija) return { ...fija, ciudad: ciudadDeMexico() }
 
   let nombre = 'Ciudad de México'
   if (tz.includes('/')) nombre = tz.split('/').pop()!.replace(/_/g, ' ')
@@ -178,7 +188,7 @@ async function ubicacionDeZonaHoraria(): Promise<Ubicacion> {
   const url = new URL('https://geocoding-api.open-meteo.com/v1/search')
   url.searchParams.set('name', nombre)
   url.searchParams.set('count', '1')
-  url.searchParams.set('language', 'es')
+  url.searchParams.set('language', idiomaActual())
   if (tz.startsWith('America/') && (nombre.includes('Mexico') || tz.includes('Mexico'))) {
     url.searchParams.set('countryCode', 'MX')
   }
@@ -198,7 +208,7 @@ async function ubicacionDeZonaHoraria(): Promise<Ubicacion> {
     /* fallback */
   }
 
-  return { lat: 19.4326, lon: -99.1332, ciudad: 'Ciudad de México', aproximada: true }
+  return { lat: 19.4326, lon: -99.1332, ciudad: ciudadDeMexico(), aproximada: true }
 }
 
 /** GPS → zona horaria → IP (la IP suele marcar ciudad del proveedor, no la tuya). */
@@ -212,7 +222,7 @@ async function resolverUbicacion(): Promise<Ubicacion> {
   const ip = await ubicacionPorIp()
   if (ip) return ip
 
-  return { lat: 19.4326, lon: -99.1332, ciudad: 'Ciudad de México', aproximada: true }
+  return { lat: 19.4326, lon: -99.1332, ciudad: ciudadDeMexico(), aproximada: true }
 }
 
 function probLluviaDeHorario(
@@ -250,7 +260,7 @@ async function fetchOpenMeteo(lat: number, lon: number) {
   url.searchParams.set('timezone', 'auto')
 
   const res = await fetchConTimeout(url.toString())
-  if (!res.ok) throw new ClimaError('red', 'No se pudo consultar el clima.')
+  if (!res.ok) throw new ClimaError('red', tGlobal('clima.err.consulta', 'No se pudo consultar el clima.'))
   const data = (await res.json()) as {
     current?: {
       time?: string
@@ -264,7 +274,7 @@ async function fetchOpenMeteo(lat: number, lon: number) {
   }
   const c = data.current
   if (!c || c.temperature_2m == null || c.weather_code == null) {
-    throw new ClimaError('red', 'Respuesta de clima incompleta.')
+    throw new ClimaError('red', tGlobal('clima.err.incompleta', 'Respuesta de clima incompleta.'))
   }
   const { icono, descripcion } = climaDeCodigo(c.weather_code)
   return {
@@ -288,7 +298,7 @@ async function reverseGeocode(lat: number, lon: number): Promise<string> {
     const url = new URL('https://api.bigdatacloud.net/data/reverse-geocode-client')
     url.searchParams.set('latitude', String(lat))
     url.searchParams.set('longitude', String(lon))
-    url.searchParams.set('localityLanguage', 'es')
+    url.searchParams.set('localityLanguage', idiomaActual())
     const res = await fetchConTimeout(url.toString(), 6_000)
     if (!res.ok) return `${lat.toFixed(2)}°, ${lon.toFixed(2)}°`
     const data = (await res.json()) as {

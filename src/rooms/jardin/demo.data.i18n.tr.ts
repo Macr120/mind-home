@@ -228,7 +228,7 @@ export default {
     },
     {
       "dia": -250,
-      "item1": "Japonya fonuna 2.700 ₺ daha",
+      "item1": "Japonya fonuna {monto:1040} daha",
       "item2": "Artık takılmadan sumimasen diyorum",
       "item3": "Etiyopya kahvesinden bedava tadım"
     },
@@ -242,7 +242,7 @@ export default {
       "dia": -243,
       "item1": "Dokuz kilometre koştum ve sonunda nefesim yetti",
       "item2": "Gazozu maden suyuyla değiştirdim ve hâlâ hayattayım",
-      "item3": "Bisiklet 540 ₺’ye tamir edildi"
+      "item3": "Bisiklet {monto:210} karşılığında tamir edildi"
     },
     {
       "dia": -239,

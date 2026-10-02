@@ -1301,7 +1301,7 @@ function PanelContextual() {
             : a.destino === 'programa'
               ? nombreDePrograma(o?.programa ?? '')
               : o?.enlaceApp
-                ? (o.enlaceApp.titulo ?? textoEnlace(o.enlaceApp).seccion ?? textoEnlace(o.enlaceApp).app?.nombre ?? '')
+                ? (o.enlaceApp.titulo ?? textoEnlace(o.enlaceApp).seccion ?? textoEnlace(o.enlaceApp).nombre ?? '')
                 : ''
         return {
           sub: a.destino === 'web' ? t('enlace.visitar', 'Visitar') : t('enlace.abrir', 'Abrir'),

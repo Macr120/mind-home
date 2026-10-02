@@ -1,4 +1,4 @@
-import { localeActual } from './i18n/useT'
+import { localeActual, tGlobal } from './i18n/useT'
 import { db, type Rutina, type EjecucionRutina, type RepeticionRutina } from './data/db'
 import { perfilSuenoRepo, rutinasRepo } from './data/repository'
 import { getPlantilla } from './appContrato'
@@ -8,6 +8,34 @@ import { useSesion } from './cuenta/sesionStore'
 
 /** Etiquetas cortas de los días (índice = getDay(): 0=domingo). */
 export const DIAS_SEMANA = ['D', 'L', 'M', 'X', 'J', 'V', 'S'] as const
+
+/**
+ * Las mismas iniciales en el idioma activo. El español conserva su «X» de
+ * miércoles (con `Intl` saldrían dos «M»); los demás idiomas las toman de `Intl`.
+ */
+export function diasSemana(): string[] {
+  const locale = localeActual()
+  if (locale.startsWith('es')) return [...DIAS_SEMANA]
+  // El 7 de enero de 2024 fue domingo: el índice coincide con getDay().
+  return Array.from({ length: 7 }, (_, i) =>
+    new Date(2024, 0, 7 + i).toLocaleDateString(locale, { weekday: 'narrow' }),
+  )
+}
+
+/** Las iniciales de `diasSemana` empezando en lunes, como las rejillas de los mapas de calor. */
+export function diasSemanaLunes(): string[] {
+  const d = diasSemana()
+  return [...d.slice(1), d[0]]
+}
+
+const MESES_CORTOS = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic']
+
+/** Meses abreviados en el idioma activo (enero = 0). */
+export function mesesCortos(): string[] {
+  const locale = localeActual()
+  if (locale.startsWith('es')) return MESES_CORTOS
+  return Array.from({ length: 12 }, (_, i) => new Date(2024, i, 15).toLocaleDateString(locale, { month: 'short' }))
+}
 
 /** Modo de repetición efectivo (rutinas antiguas sin campo o legacy `personalizado`). */
 function repeticionDe(r: Rutina): RepeticionRutina {
@@ -40,32 +68,43 @@ export function textoRepeticion(r: Rutina): string {
   if (rep === 'rango') {
     const corta = (iso: string) =>
       new Date(iso + 'T12:00').toLocaleDateString(localeActual(), { day: 'numeric', month: 'short' })
-    if (r.fechaInicio && r.fechaFin) return `del ${corta(r.fechaInicio)} al ${corta(r.fechaFin)}`
-    return r.fechaInicio ? corta(r.fechaInicio) : 'sin fechas'
+    if (r.fechaInicio && r.fechaFin)
+      return tGlobal('rutinas.rep.txt.rango', 'del {desde} al {hasta}', {
+        desde: corta(r.fechaInicio),
+        hasta: corta(r.fechaFin),
+      })
+    return r.fechaInicio ? corta(r.fechaInicio) : tGlobal('rutinas.rep.txt.sinFechas', 'sin fechas')
   }
   if (rep === 'mensual') {
     const dia = r.fechaInicio ? Number(r.fechaInicio.slice(8, 10)) : null
-    return dia ? `cada mes (día ${dia})` : 'cada mes'
+    return dia
+      ? tGlobal('rutinas.rep.txt.mensualDia', 'cada mes (día {dia})', { dia })
+      : tGlobal('rutinas.rep.txt.mensual', 'cada mes')
   }
   if (rep === 'anual') {
     const f = r.fechaInicio
     const fechaTxt = f
       ? new Date(f + 'T12:00').toLocaleDateString(localeActual(), { day: 'numeric', month: 'long' })
       : ''
-    return fechaTxt ? `cada año (${fechaTxt})` : 'cada año'
+    return fechaTxt
+      ? tGlobal('rutinas.rep.txt.anualFecha', 'cada año ({fecha})', { fecha: fechaTxt })
+      : tGlobal('rutinas.rep.txt.anual', 'cada año')
   }
   const dias = diasEfectivos(r)
+  const letras = diasSemana()
   const diasTxt =
     dias.length === 0
-      ? 'todos los días'
-      : dias.map((d) => DIAS_SEMANA[d]).join(' ')
+      ? tGlobal('horario.todosDias', 'todos los días')
+      : dias.map((d) => letras[d]).join(' ')
   if (rep === 'semanal') {
-    const fin = r.fechaFin
-      ? ` hasta ${new Date(r.fechaFin + 'T12:00').toLocaleDateString(localeActual(), { day: 'numeric', month: 'short' })}`
-      : ''
-    return `cada semana (${diasTxt})${fin}`
+    return r.fechaFin
+      ? tGlobal('rutinas.rep.txt.semanalHasta', 'cada semana ({dias}) hasta {fecha}', {
+          dias: diasTxt,
+          fecha: new Date(r.fechaFin + 'T12:00').toLocaleDateString(localeActual(), { day: 'numeric', month: 'short' }),
+        })
+      : tGlobal('rutinas.rep.txt.semanal', 'cada semana ({dias})', { dias: diasTxt })
   }
-  return `indefinidamente (${diasTxt})`
+  return tGlobal('rutinas.rep.txt.indefinido', 'indefinidamente ({dias})', { dias: diasTxt })
 }
 
 /**

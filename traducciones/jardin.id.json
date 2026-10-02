@@ -269,7 +269,7 @@
   },
   {
     "ruta": "gratitudes.16.item1",
-    "texto": "Rp1.050.000 lagi masuk dana Jepang"
+    "texto": "{monto:1040} lagi masuk dana Jepang"
   },
   {
     "ruta": "gratitudes.16.item2",
@@ -297,7 +297,7 @@
   },
   {
     "ruta": "gratitudes.18.item3",
-    "texto": "Sepeda diperbaiki dengan Rp210.000"
+    "texto": "Sepeda diperbaiki dengan {monto:210}"
   },
   {
     "ruta": "gratitudes.19.item1",

@@ -122,7 +122,7 @@ const esquemas: EsquemaCaptura[] = [
       await sesionesEjercicioRepo.add({
         fecha: vFecha(v.fecha),
         tipo: tipo === 'fuerza' || tipo === 'flexibilidad' ? tipo : 'resistencia',
-        titulo: vTexto(v.titulo, 'Sesión de ejercicio'),
+        titulo: vTexto(v.titulo, tGlobal('ejercicio.sesionDefecto', 'Sesión de ejercicio')),
         duracionMin: duracion,
         distanciaKm: distancia > 0 ? distancia : undefined,
         rpe: rpe >= 1 && rpe <= 10 ? rpe : undefined,

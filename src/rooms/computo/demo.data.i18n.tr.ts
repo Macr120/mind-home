@@ -699,7 +699,7 @@ export default {
           }
         },
         "A17": {
-          "crudo": "Total ¥",
+          "crudo": "Toplam ¥",
           "fmt": {
             "neg": true
           }
@@ -1175,7 +1175,7 @@ export default {
           }
         },
         "A21": {
-          "crudo": "Total",
+          "crudo": "Toplam",
           "fmt": {
             "neg": true
           }

@@ -2,30 +2,41 @@ import { Icono } from '../../core/ui/iconos/Icono'
 import { useState } from 'react'
 import type { Efemeride } from '../../core/data/db'
 import { abrirApp } from '../../core/abrirApp'
-import { useT } from '../../core/i18n/useT'
+import { useT, type TFunc } from '../../core/i18n/useT'
 // Se reutiliza la charla del Sabio de la biblioteca: la conversación queda
 // guardada ahí y el usuario puede seguir profundizando desde ese cuarto.
 import { ChatCharla } from '../biblioteca/ChatCharla'
 import type { AnclaTema } from '../biblioteca/arbol'
 
 /** Pregunta semilla para abrir la charla según el tipo de efeméride. */
-function promptProfundizar(e: Efemeride): string {
+function promptProfundizar(e: Efemeride, t: TFunc): string {
   const titulo = e.titulo.replace(/^«|»$/g, '')
+  const v = { titulo, anio: e.anio ?? '', autor: e.subtitulo ?? '' }
   switch (e.tipo) {
     case 'historia':
-      return `Cuéntame más sobre este hecho histórico${e.anio ? ` de ${e.anio}` : ''}: ${titulo}. ¿Qué ocurrió, por qué fue importante y qué consecuencias tuvo?`
+      return e.anio
+        ? t('diario.prof.historiaAnio', 'Cuéntame más sobre este hecho histórico de {anio}: {titulo}. ¿Qué ocurrió, por qué fue importante y qué consecuencias tuvo?', v)
+        : t('diario.prof.historia', 'Cuéntame más sobre este hecho histórico: {titulo}. ¿Qué ocurrió, por qué fue importante y qué consecuencias tuvo?', v)
     case 'arte':
-      return `Háblame de la obra «${titulo}»${e.subtitulo ? ` de ${e.subtitulo}` : ''}. ¿Qué representa, cómo se creó y por qué es importante en la historia del arte?`
+      return e.subtitulo
+        ? t('diario.prof.arteAutor', 'Háblame de la obra «{titulo}» de {autor}. ¿Qué representa, cómo se creó y por qué es importante en la historia del arte?', v)
+        : t('diario.prof.arte', 'Háblame de la obra «{titulo}». ¿Qué representa, cómo se creó y por qué es importante en la historia del arte?', v)
     case 'libro':
-      return `Háblame del libro «${titulo}»${e.subtitulo ? ` de ${e.subtitulo}` : ''}. ¿De qué trata, cuál es su estilo y por qué es una obra relevante?`
+      return e.subtitulo
+        ? t('diario.prof.libroAutor', 'Háblame del libro «{titulo}» de {autor}. ¿De qué trata, cuál es su estilo y por qué es una obra relevante?', v)
+        : t('diario.prof.libro', 'Háblame del libro «{titulo}». ¿De qué trata, cuál es su estilo y por qué es una obra relevante?', v)
     case 'personalidad':
-      return `¿Quién fue ${titulo}? Cuéntame su vida, su obra y por qué es una figura importante.`
+      return t('diario.prof.personalidad', '¿Quién fue {titulo}? Cuéntame su vida, su obra y por qué es una figura importante.', v)
     case 'especie':
-      return `Háblame del ${titulo}${e.subtitulo ? ` (${e.subtitulo})` : ''}. ¿Cómo vive, de qué se alimenta, qué lo hace especial y cómo está su conservación?`
+      return e.subtitulo
+        ? t('diario.prof.especieCientifico', 'Háblame del {titulo} ({autor}). ¿Cómo vive, de qué se alimenta, qué lo hace especial y cómo está su conservación?', v)
+        : t('diario.prof.especie', 'Háblame del {titulo}. ¿Cómo vive, de qué se alimenta, qué lo hace especial y cómo está su conservación?', v)
     case 'palabra':
-      return `Profundiza en la palabra «${titulo}»: su origen o etimología, sus significados y cómo usarla bien.`
+      return t('diario.prof.palabra', 'Profundiza en la palabra «{titulo}»: su origen o etimología, sus significados y cómo usarla bien.', v)
     case 'frase':
-      return `Explícame esta frase${e.subtitulo ? ` de ${e.subtitulo}` : ''}: ${titulo}. ¿Qué significa, en qué contexto surge y qué enseña?`
+      return e.subtitulo
+        ? t('diario.prof.fraseAutor', 'Explícame esta frase de {autor}: {titulo}. ¿Qué significa, en qué contexto surge y qué enseña?', v)
+        : t('diario.prof.frase', 'Explícame esta frase: {titulo}. ¿Qué significa, en qué contexto surge y qué enseña?', v)
   }
 }
 
@@ -48,7 +59,7 @@ export function ProfundizarModal({
   const t = useT()
   const [estado, setEstado] = useState<Estado>(() => ({
     id: null,
-    borrador: promptProfundizar(efemeride),
+    borrador: promptProfundizar(efemeride, t),
     ancla: null,
     key: 0,
   }))

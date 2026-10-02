@@ -83,7 +83,7 @@ export const cuerpoVehiculos: CuerpoTutorial = {
       titulo: T('tut.app-garage--vehiculos.4.titulo', 'Y el coche heredado'),
       texto: T(
         'tut.app-garage--vehiculos.4.texto',
-        'Aquí está la avería del mes 7: se quedó tirado, hubo grúa y casi diez mil pesos que no tenía. Cada servicio guarda su costo, su kilometraje y en qué taller fue.',
+        'Aquí está la avería del mes 7: se quedó tirado, hubo grúa y una factura que no podía pagar. Cada servicio guarda su costo, su kilometraje y en qué taller fue.',
       ),
     },
     {

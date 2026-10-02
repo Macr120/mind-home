@@ -29,7 +29,7 @@
   },
   {
     "ruta": "servicios.2.nota",
-    "texto": "कैफ़े जाते वक़्त Doctor Vértiz पर पंचर हो गया; फुटपाथ पर ट्यूब बदलना सीखा — देर से सही, पर सीखा।"
+    "texto": "कैफ़े जाते वक़्त डॉक्टर वेर्तिज़ रोड पर पंचर हो गया; फुटपाथ पर ट्यूब बदलना सीखा — देर से सही, पर सीखा।"
   },
   {
     "ruta": "servicios.3.titulo",
@@ -69,11 +69,11 @@
   },
   {
     "ruta": "servicios.7.nota",
-    "texto": "Eje 8 पर शीशे का टुकड़ा — साइकिल धकेलते हुए लैब तक पहुंचना पड़ा, बीस मिनट की देरी से।"
+    "texto": "एहे 8 रोड पर शीशे का टुकड़ा — साइकिल धकेलते हुए लैब तक पहुंचना पड़ा, बीस मिनट की देरी से।"
   },
   {
     "ruta": "servicios.8.titulo",
-    "texto": "Calzada de Tlalpan पर गाड़ी बंद"
+    "texto": "त्लालपान मार्ग पर गाड़ी बंद"
   },
   {
     "ruta": "servicios.8.nota",
@@ -137,11 +137,11 @@
   },
   {
     "ruta": "talleres.0.nombre",
-    "texto": "Taller Mecánico Rivas"
+    "texto": "रिवास मोटर गैराज"
   },
   {
     "ruta": "talleres.0.direccion",
-    "texto": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez"
+    "texto": "812, क्वाउतेमोक एवेन्यू, नारवार्ते कॉलोनी, बेनितो हुआरेज़"
   },
   {
     "ruta": "talleres.0.notas",
@@ -149,11 +149,11 @@
   },
   {
     "ruta": "talleres.1.nombre",
-    "texto": "Seguros Meridiano - agente Nadia Ortega"
+    "texto": "मेरिदियानो बीमा - एजेंट नादिया ओर्तेगा"
   },
   {
     "ruta": "talleres.1.direccion",
-    "texto": "Av. Insurgentes Sur 1234, piso 3, Col. Del Valle"
+    "texto": "तीसरी मंज़िल, 1234, इंसुरहेंतेस सुर एवेन्यू, देल वाये कॉलोनी"
   },
   {
     "ruta": "talleres.1.notas",
@@ -161,19 +161,19 @@
   },
   {
     "ruta": "talleres.2.nombre",
-    "texto": "Verificentro 09-118 Iztaccíhuatl"
+    "texto": "फिटनेस जांच केंद्र 09-118 इज़्ताक्सीवात्ल"
   },
   {
     "ruta": "talleres.2.direccion",
-    "texto": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez"
+    "texto": "240, इज़्ताक्सीवात्ल मार्ग, इज़्ताक्सीवात्ल कॉलोनी, बेनितो हुआरेज़"
   },
   {
     "ruta": "talleres.2.notas",
-    "texto": "सुबह सात बजे अपॉइंटमेंट, और चालीस मिनट में काम ख़त्म; Coyoacán वाले में तो आधी सुबह लाइन में गुज़रनी पड़ी थी।"
+    "texto": "सुबह सात बजे अपॉइंटमेंट, और चालीस मिनट में काम ख़त्म; कोयोआकान वाले में तो आधी सुबह लाइन में गुज़रनी पड़ी थी।"
   },
   {
     "ruta": "talleres.3.direccion",
-    "texto": "Zacatecas 145, Col. Roma Sur, Cuauhtémoc"
+    "texto": "145, ज़ाकातेकास स्ट्रीट, रोमा सुर कॉलोनी, क्वाउतेमोक"
   },
   {
     "ruta": "talleres.3.notas",
@@ -181,11 +181,11 @@
   },
   {
     "ruta": "talleres.4.nombre",
-    "texto": "Grúas Tepeyac 24 horas"
+    "texto": "तेपेयाक टो सर्विस 24 घंटे"
   },
   {
     "ruta": "talleres.4.direccion",
-    "texto": "Base en Eje Central Lázaro Cárdenas 1105, Col. Álamos"
+    "texto": "अड्डा: 1105, एहे सेंत्राल लाज़ारो कार्देनास, अलामोस कॉलोनी"
   },
   {
     "ruta": "talleres.4.notas",
@@ -229,6 +229,18 @@
   },
   {
     "ruta": "tramites.4.nota",
-    "texto": "हर छह महीने में Ciclos Malinche पर: पहिए सीधे करना, केबल और ब्रेक जांचना — यह मुड़े हुए पहिए को बाद में ठीक कराने से कहीं सस्ता पड़ता है।"
+    "texto": "हर छह महीने में मालिंचे साइकिल्स पर: पहिए सीधे करना, केबल और ब्रेक जांचना — यह मुड़े हुए पहिए को बाद में ठीक कराने से कहीं सस्ता पड़ता है।"
+  },
+  {
+    "ruta": "vehiculos.biciNombre",
+    "texto": "सारस"
+  },
+  {
+    "ruta": "vehiculos.autoNombre",
+    "texto": "गजराज"
+  },
+  {
+    "ruta": "talleres.3.nombre",
+    "texto": "मालिंचे साइकिल्स"
   }
 ]

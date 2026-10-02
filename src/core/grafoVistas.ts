@@ -111,7 +111,7 @@ async function amigosYEspacios(deApps: readonly NodoEntidadApp[]): Promise<NodoE
       ref: refNodo('amigo', c.contactoId),
       tipo: 'amigo',
       titulo: c.nombre || c.alias,
-      alias: [c.alias, c.nombre.trim().split(/\s+/)[0] ?? ''].filter((x) => x && x !== c.nombre),
+      alias: [c.alias, c.nombre.trim().split(/[\s・·]+/)[0] ?? ''].filter((x) => x && x !== c.nombre),
       resumen: `amigo en MindHaOS (@${c.alias})`,
       emoji: c.emoji,
       color: COLOR_AMIGO,

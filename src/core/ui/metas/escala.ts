@@ -1,4 +1,5 @@
 import { addDias, deIso, DIA_MS, fechaLocalISO, inicioSemana } from '../../fechaLocal'
+import { tGlobal } from '../../i18n/useT'
 
 // Viven en `fechaLocal.ts` (solo necesitan `addDias`): el dominio de los planes
 // también las usa y no puede importar de `core/ui/`. Se siguen exportando desde
@@ -97,13 +98,11 @@ function siguienteUnidad(u: Unidad, d: Date): Date {
   return new Date(d.getFullYear() + 1, 0, 1)
 }
 
-// Iniciales del día de la semana, índice = `Date.getDay()` (0 = domingo). Un
-// juego por idioma porque no es el abreviado de tres letras que ya da
-// `toLocaleDateString` — "MI" en vez de "X" evita confundir miércoles con
-// martes, y el inglés necesita dos letras por la misma razón (martes/jueves,
-// sábado/domingo comparten inicial).
+// Iniciales del día de la semana, índice = `Date.getDay()` (0 = domingo). No es
+// el abreviado de tres letras que ya da `toLocaleDateString` — "MI" en vez de "X"
+// evita confundir miércoles con martes; los demás idiomas usan sus dos letras
+// de `cal.plan.dia.<n>` (en inglés martes/jueves y sábado/domingo comparten inicial).
 const LETRA_DIA_ES = ['D', 'L', 'M', 'MI', 'J', 'V', 'S']
-const LETRA_DIA_EN = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
 
 /**
  * Semana del año (1-52/53): cuenta de lunes en lunes desde el lunes de la
@@ -118,14 +117,16 @@ function semanaDelAnio(d: Date): number {
 
 function etiquetaDe(u: Unidad, d: Date, locale: string): string {
   if (u === 'dia') {
-    const letras = locale.startsWith('es') ? LETRA_DIA_ES : LETRA_DIA_EN
-    return `${letras[d.getDay()]} ${d.getDate()}`
+    const letra = locale.startsWith('es')
+      ? LETRA_DIA_ES[d.getDay()]
+      : tGlobal(`cal.plan.dia.${d.getDay()}`, LETRA_DIA_ES[d.getDay()])
+    return `${letra} ${d.getDate()}`
   }
   if (u === 'semana') {
     // "S32 3-9": el número de semana y, igual que el mes, los días que abarca
     // (inicio-fin, aunque cruce de mes — el mes de arriba ya dice cuál es cuál).
     const fin = addDias(d, 6)
-    return `S${semanaDelAnio(d)} ${d.getDate()}-${fin.getDate()}`
+    return `${tGlobal('cal.crono.semana', 'S{n}', { n: semanaDelAnio(d) })} ${d.getDate()}-${fin.getDate()}`
   }
   if (u === 'mes') {
     // Marca inicio y fin del mes en la misma etiqueta ("1-31 jul 26"): el borde

@@ -1,4 +1,5 @@
 import type { SistemaUnidades } from '../../core/data/db'
+import { localeActual } from '../../core/i18n/useT'
 
 /**
  * Conversión de unidades del cuarto de ejercicio.
@@ -49,7 +50,7 @@ export const numDistancia = (km: number, u: SistemaUnidades | undefined, decimal
 
 /** Volumen total de una sesión, con separador de miles. */
 export const fmtVolumen = (kg: number, u: SistemaUnidades | undefined) =>
-  `${Math.round(pesoDesdeKg(kg, u)).toLocaleString()} ${unidadPeso(u)}`
+  `${Math.round(pesoDesdeKg(kg, u)).toLocaleString(localeActual())} ${unidadPeso(u)}`
 
 /** Ritmo m:ss por km o por milla, según el sistema. */
 export function fmtRitmo(

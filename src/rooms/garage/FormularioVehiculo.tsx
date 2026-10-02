@@ -70,7 +70,7 @@ export function FormularioVehiculo({
         >
           {TIPOS_VEHICULO.map((tipoItem) => (
             <option key={tipoItem.id} value={tipoItem.id}>
-              {tipoItem.icon} {tipoItem.label}
+              {tipoItem.icon} {t(`garage.vehTipo.${tipoItem.id}`, tipoItem.label)}
             </option>
           ))}
         </select>

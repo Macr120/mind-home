@@ -8,6 +8,7 @@ import { getTema } from '../../house/temas'
 import { sitioDe } from '../../navegador/dominio'
 import { esObjetoLibreria, useDiseño } from '../../state/disenoStore'
 import { useT } from '../../i18n/useT'
+import { mensajeErrorIA } from '../../cuenta/api'
 import { iaOperativa } from '../../chat/ia'
 import { categoriaDe, categoriaDeFabrica, categoriasVisibles, type CategoriaVisible } from '../../navegador/categoriasWeb'
 import { clasificarSitiosIA } from '../../navegador/clasificarIA'
@@ -143,7 +144,7 @@ export function TabSitios({ onAbrir }: { onAbrir: (url: string) => void }) {
       )
       setAvisoIA(t('nav.sitios.iaListo', 'La IA clasificó {n} sitios; puedes corregir cualquiera.', { n }))
     } catch (e) {
-      setAvisoIA(e instanceof Error ? e.message : t('nav.sitios.iaError', 'La IA no pudo clasificar ahora.'))
+      setAvisoIA(mensajeErrorIA(e, t, t('nav.sitios.iaError', 'La IA no pudo clasificar ahora.')))
     } finally {
       setClasificando(false)
     }

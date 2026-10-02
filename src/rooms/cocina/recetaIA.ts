@@ -1,6 +1,8 @@
 import type { MomentoComida } from '../../core/data/db'
 import type { CampoCaptura } from '../../core/appContrato'
 import { conversarIA, extraerJSON } from '../../core/chat/ia'
+import { datosIdioma } from '../../core/i18n/idiomas'
+import { idiomaActual } from '../../core/i18n/useT'
 import { CLAUSULA_SALUD } from '../../core/planIA'
 import { vLista, vNumero, vTexto } from '../../core/appContrato'
 import { vMomentos } from './momentos'
@@ -59,8 +61,11 @@ const SYSTEM_RECETA = [
   'Eres un chef que escribe recetas caseras claras y realistas.',
   'Responde ÚNICAMENTE con un objeto JSON plano, sin texto ni markdown alrededor, con estas claves:',
   contrato(CAMPOS_RECETA),
-  'Inventa la receta completa aunque el usuario solo diga el nombre del platillo. Escribe en español.',
+  'Inventa la receta completa aunque el usuario solo diga el nombre del platillo.',
 ].join('\n')
+
+/** La receta y la dieta se guardan tal cual: se escriben en el idioma de la interfaz. */
+const enIdioma = (system: string) => `${system}\nEscribe en ${datosIdioma(idiomaActual()).nombreIA}.`
 
 export interface RecetaIA {
   nombre: string
@@ -79,7 +84,7 @@ export interface RecetaIA {
 
 /** Pide una receta a la IA. No guarda nada: el usuario revisa y confirma. */
 export async function crearRecetaIA(peticion: string): Promise<RecetaIA> {
-  const respuesta = await conversarIA(SYSTEM_RECETA, [{ rol: 'usuario', texto: peticion }], 1200)
+  const respuesta = await conversarIA(enIdioma(SYSTEM_RECETA), [{ rol: 'usuario', texto: peticion }], 1200)
   const json = extraerJSON(respuesta)
   const nombre = vTexto(json.nombre)
   const ingredientes = vLista(json.ingredientes)
@@ -109,7 +114,6 @@ const SYSTEM_DIETA = [
   'Responde ÚNICAMENTE con un objeto JSON plano, sin texto ni markdown alrededor, con estas claves:',
   contrato(CAMPOS_DIETA),
   '"recetas": string[] — 3 o 4 platillos que compongan la dieta, solo sus nombres.',
-  'Escribe en español.',
 ].join('\n')
 
 export interface DietaIA {
@@ -125,7 +129,7 @@ export interface DietaIA {
 
 /** Pide una dieta a la IA. Devuelve las metas y los platillos que la componen. */
 export async function crearDietaIA(peticion: string): Promise<DietaIA> {
-  const respuesta = await conversarIA(SYSTEM_DIETA, [{ rol: 'usuario', texto: peticion }], 800)
+  const respuesta = await conversarIA(enIdioma(SYSTEM_DIETA), [{ rol: 'usuario', texto: peticion }], 800)
   const json = extraerJSON(respuesta)
   const nombre = vTexto(json.nombre)
   if (!nombre) throw new Error('La IA no devolvió una dieta usable')

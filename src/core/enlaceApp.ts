@@ -1,6 +1,7 @@
 import { abrirApp, abrirAppOPlantilla } from './abrirApp'
 import type { EnlaceApp, EnlaceObjetoApp } from './data/db'
-import { getPlantilla, plantillasTodas, type Plantilla } from './registry'
+import { tGlobal } from './i18n/useT'
+import { getPlantilla, plantillasTodas, type ComandoApp, type Plantilla } from './registry'
 import { esObjetoLibreria, esObjetoMapa, useDiseño } from './state/disenoStore'
 import { useRutinasUI } from './state/rutinasUiStore'
 
@@ -34,20 +35,29 @@ export function appsParaEnlace(): Plantilla[] {
   return plantillasTodas().filter((p) => ids.has(p.id))
 }
 
+/** Nombre corto visible de una app; el de fábrica en español es el respaldo (y el de las propias). */
+export const nombreApp = (p: Plantilla): string => tGlobal(`room.${p.id}.nombre`, p.nombre).split(' · ')[0]
+
+/** Etiqueta visible de una sección, con las mismas claves que los chips del chat. */
+function etiquetaSeccion(appId: string, c: ComandoApp): string {
+  if (appId === 'entretenimiento' && c.dato) return tGlobal(`entre.j.${c.dato}.nombre`, c.etiqueta)
+  return tGlobal(`room.${appId}.cmd.${c.seccion}`, c.etiqueta)
+}
+
 /** Dónde se puede caer dentro de una app: su portada y las secciones que declara. */
 export function destinosDeApp(p: Plantilla): DestinoApp[] {
   return [
-    { etiqueta: p.nombre },
-    ...(p.comandos ?? []).map((c) => ({ seccion: c.seccion, dato: c.dato, etiqueta: c.etiqueta })),
+    { etiqueta: nombreApp(p) },
+    ...(p.comandos ?? []).map((c) => ({ seccion: c.seccion, dato: c.dato, etiqueta: etiquetaSeccion(p.id, c) })),
   ]
 }
 
-/** Cómo se pinta un enlace: la app y, si apunta a una sección, su etiqueta. */
-export function textoEnlace(e: EnlaceApp): { app?: Plantilla; seccion?: string } {
+/** Cómo se pinta un enlace: la app (con su nombre visible) y, si apunta a una sección, su etiqueta. */
+export function textoEnlace(e: EnlaceApp): { app?: Plantilla; nombre?: string; seccion?: string } {
   const app = getPlantilla(e.plantillaId)
   if (!app) return {}
   const destino = app.comandos?.find((c) => c.seccion === e.seccion && (c.dato ?? undefined) === e.dato)
-  return { app, seccion: destino?.etiqueta }
+  return { app, nombre: nombreApp(app), seccion: destino && etiquetaSeccion(app.id, destino) }
 }
 
 /**

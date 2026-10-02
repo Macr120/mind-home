@@ -8,6 +8,7 @@ import { useParque, parqueFrame, esJuegoParque, ESCALA_JUEGO, anguloColumpio } f
 import { TIPO_FLOTADOR } from '../state/flotadorStore'
 import { esEspecialPlantilla } from './especialesPlantillaMeta'
 import { useCiclo } from '../state/cicloStore'
+import { useT } from '../i18n/useT'
 import { estadoCielo } from './cielo'
 
 /**
@@ -993,7 +994,7 @@ export function VelaCandelabro({ color, simple = false, fx = 1 }: { color: strin
  * el slider de efectos (fx, grupo 'luz') regula ese brillo.
  */
 
-/** Textos de muestra cuando el anuncio aún no tiene texto propio. */
+/** Textos de muestra cuando el anuncio aún no tiene texto propio (en el idioma de la app). */
 const TEXTO_ESPECTACULAR = 'TU ANUNCIO\nAQUÍ'
 const TEXTO_VEGAS = 'BIENVENIDOS'
 const TEXTO_NEON = 'MI CASA'
@@ -1225,8 +1226,9 @@ export function Espectacular({
   simple?: boolean
   fx?: number
 }) {
+  const t = useT()
   const fuerza = useFuerzaNoche(simple)
-  const txt = texto?.trim() || (foto ? '' : TEXTO_ESPECTACULAR)
+  const txt = texto?.trim() || (foto ? '' : t('anuncio.espectacular', TEXTO_ESPECTACULAR))
   if (!foto) {
     return (
       <CascoEspectacular color={color} fuerza={fuerza} fx={fx}>
@@ -1265,9 +1267,10 @@ export function LetreroVegas({
   simple?: boolean
   fx?: number
 }) {
+  const t = useT()
   const fuerza = useFuerzaNoche(simple)
   const on = fuerza >= 0.04
-  const tex = useTexturaTexto(texto?.trim() || TEXTO_VEGAS, 512, 392, '#101623', '#ffedbc', '#f59e0b')
+  const tex = useTexturaTexto(texto?.trim() || t('anuncio.vegas', TEXTO_VEGAS), 512, 392, '#101623', '#ffedbc', '#f59e0b')
   // 3 materiales compartidos por las bombillas: el "chase" solo cambia la
   // intensidad de cada grupo (barato; en miniaturas quedan encendidas).
   const matsBombilla = useMemo(
@@ -1373,8 +1376,9 @@ export function LetreroNeon({
   simple?: boolean
   fx?: number
 }) {
+  const t = useT()
   const fuerza = useFuerzaNoche(simple)
-  const tex = useTexturaTexto(texto?.trim() || TEXTO_NEON, 1024, 400, null, '#ffffff', color)
+  const tex = useTexturaTexto(texto?.trim() || t('anuncio.neon', TEXTO_NEON), 1024, 400, null, '#ffffff', color)
   const matTubo = useMemo(
     () =>
       new THREE.MeshStandardMaterial({

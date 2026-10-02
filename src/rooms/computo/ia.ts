@@ -11,16 +11,21 @@
  */
 import { conversarIA, extraerJSON } from '../../core/chat/ia'
 import { fechaLocalISO } from '../../core/fechaLocal'
+import { datosIdioma } from '../../core/i18n/idiomas'
+import { idiomaActual } from '../../core/i18n/useT'
 import type { TipoGraficaHoja, VariableFormula } from '../../core/data/db'
 import { MAX_VARIABLES_IA, MAX_CELDAS_IA } from './constantes'
 import { ALIAS_PUNTO, FUNCIONES_HOJA } from './funcionesHoja'
 import { deRef } from './hoja'
 import type { Motor } from './motor'
 
-const SISTEMA =
+const SISTEMA_BASE =
   'Eres un asistente de matemáticas, física y química dentro de una app personal. ' +
-  'Respondes en el idioma en que te escriben. Eres exacto y breve: nada de rodeos ni disculpas. ' +
+  'Eres exacto y breve: nada de rodeos ni disculpas. ' +
   'Cuando se te pida JSON, respondes SOLO con el objeto JSON, sin texto alrededor ni ```.'
+
+/** Las peticiones se arman en español; la respuesta, en el idioma de la app. */
+const sistema = () => `${SISTEMA_BASE}\nEscribe en ${datosIdioma(idiomaActual()).nombreIA}.`
 
 const texto = (v: unknown) => (typeof v === 'string' ? v.trim() : '')
 
@@ -42,7 +47,7 @@ export interface FormulaPropuesta {
  */
 export async function formulaDesdeTexto(peticion: string, motor: Motor): Promise<FormulaPropuesta> {
   const respuesta = await conversarIA(
-    SISTEMA,
+    sistema(),
     [
       {
         rol: 'usuario',
@@ -110,7 +115,7 @@ export async function formulaDesdeTexto(peticion: string, motor: Motor): Promise
  */
 export async function explicarPasoAPaso(entrada: string): Promise<string> {
   const respuesta = await conversarIA(
-    SISTEMA,
+    sistema(),
     [
       {
         rol: 'usuario',
@@ -151,7 +156,7 @@ const FUNCIONES = [...Object.keys(FUNCIONES_HOJA), ...Object.keys(ALIAS_PUNTO)].
  */
 export async function hojaDesdeTexto(peticion: string): Promise<HojaPropuesta> {
   const respuesta = await conversarIA(
-    SISTEMA,
+    sistema(),
     [
       {
         rol: 'usuario',
@@ -201,7 +206,7 @@ export async function hojaDesdeTexto(peticion: string): Promise<HojaPropuesta> {
  */
 export async function analizarDatos(tabla: string, rango: string): Promise<string> {
   const respuesta = await conversarIA(
-    SISTEMA,
+    sistema(),
     [
       {
         rol: 'usuario',
@@ -212,7 +217,8 @@ export async function analizarDatos(tabla: string, rango: string): Promise<strin
           '',
           'Dime en 4 o 5 frases qué se ve ahí: la tendencia, lo que se sale de lo normal y la relación entre las columnas.',
           'Usa los números concretos de la tabla. Nada de consejos financieros ni de inversión.',
-          'Termina con una línea «Gráfica: <barras|lineas|area|pastel|dispersion> — <por qué>».',
+          'Termina con una frase de qué gráfica le va mejor y por qué, y en la última línea, sola y sin traducir,',
+          'la etiqueta «#grafica: <barras|lineas|area|pastel|dispersion>».',
         ].join('\n'),
       },
     ],
@@ -226,9 +232,15 @@ export async function analizarDatos(tabla: string, rango: string): Promise<strin
 const DIACRITICOS = new RegExp('[\\u0300-\\u036f]', 'g')
 const TIPOS_VALIDOS = new Set<TipoGraficaHoja>(['barras', 'lineas', 'area', 'pastel', 'dispersion'])
 
+/** La etiqueta con la que el análisis propone su gráfica: no se enseña, se lee. */
+const ETIQUETA_GRAFICA = /^\s*#gr[áa]fica:\s*([a-záéíóú]+)\s*$/im
+
+/** El análisis sin la etiqueta de la gráfica, para pintarlo. */
+export const textoAnalisis = (analisis: string) => analisis.replace(ETIQUETA_GRAFICA, '').trim()
+
 /** El tipo de gráfica que sugirió el análisis, si sugirió alguno reconocible. */
 export function graficaSugerida(analisis: string): TipoGraficaHoja | null {
-  const m = /Gr[áa]fica:\s*([a-záéíóú]+)/i.exec(analisis)
+  const m = ETIQUETA_GRAFICA.exec(analisis) ?? /Gr[áa]fica:\s*([a-záéíóú]+)/i.exec(analisis)
   if (!m) return null
   const tipo = m[1].toLowerCase().normalize('NFD').replace(DIACRITICOS, '')
   return TIPOS_VALIDOS.has(tipo as TipoGraficaHoja) ? (tipo as TipoGraficaHoja) : null

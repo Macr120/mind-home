@@ -30,6 +30,7 @@ import { sembrarMetasApp } from '../../demo/metasPep'
 import { adivinarCategoria } from './categoriasCompra'
 import { DEMO_COCINA } from './demo.data'
 import { DEMO_COCINA_RECETAS } from './demo.recetas.data'
+import { montoDemo } from '../../core/moneda'
 
 type Comida = Omit<RegistroComida, 'id'>
 type Agua = Omit<RegistroAgua, 'id'>
@@ -132,7 +133,7 @@ export async function construirDemoCocina(ctx: CtxDemo): Promise<void> {
   const uno = <T,>(xs: readonly T[]): T => xs[Math.floor(r() * xs.length)]
 
   // ── Retirar lo que el seed dejó como «ejemplo» ──────────────────────────
-  // El seed escribe un día completo de AYER y una lista llamada «Ejemplo:…».
+  // El seed escribe un día completo de AYER y la lista del súper de ejemplo.
   // Son filas normales (uid `seed-*`, sin marca de ejemplo): si se quedan,
   // ese día sumaría 2 020 kcal ajenas y el recetario tendría una lista que no
   // es de Pep@.
@@ -143,7 +144,8 @@ export async function construirDemoCocina(ctx: CtxDemo): Promise<void> {
   for (const a of await aguaRepo.list()) {
     if (a.fecha === ayer && a.id != null) await aguaRepo.remove(a.id)
   }
-  const listaEjemplo = (await listasCompraRepo.list()).find((l) => l.nombre.startsWith('Ejemplo:'))
+  // Por su uid: el nombre sale traducido y solo en español empieza por «Ejemplo:».
+  const listaEjemplo = (await listasCompraRepo.list()).find((l) => l.uid === 'seed-listasCompra-super')
   if (listaEjemplo?.id != null) {
     for (const i of await itemsCompraRepo.list()) {
       if (i.listaId === listaEjemplo.id && i.id != null) await itemsCompraRepo.remove(i.id)
@@ -275,7 +277,7 @@ export async function construirDemoCocina(ctx: CtxDemo): Promise<void> {
         categoria: adivinarCategoria(texto),
         // La compra vieja está hecha; en la reciente aún faltan cosas.
         comprado: l.dia < -30 || i % 4 !== 0,
-        precio: 25 + Math.round(r() * 90),
+        precio: montoDemo(25 + Math.round(r() * 90)),
         creadoEn,
         listaId,
       })),

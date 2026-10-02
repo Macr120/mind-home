@@ -5,7 +5,7 @@ import { getPlantilla, plantillasAgendables } from '../registry'
 import { useCalendariosCompartidos, usePuedeEditarRutina } from '../espacios/calendario'
 import { useSesion } from '../cuenta/sesionStore'
 import { appsAsignadas } from '../chat/dispatcher'
-import { hoyISO, textoRepeticion, DIAS_SEMANA } from '../rutinas'
+import { hoyISO, textoRepeticion, diasSemana } from '../rutinas'
 import { pedirPermiso, permisoNotificaciones } from '../notificaciones'
 import { useT } from '../i18n/useT'
 import { COLORES_RUTINA } from './coloresRutina'
@@ -14,7 +14,7 @@ import { Icono } from './iconos/Icono'
 
 /**
  * El editor manual de rutinas/eventos y sus piezas compartidas (`rutinaNueva`,
- * `MODOS_REPETICION`, `DIAS`). Lo usan el calendario (+ Nueva y editar un
+ * `MODOS_REPETICION`). Lo usan el calendario (+ Nueva y editar un
  * bloque), las Misiones de cada app y de la casa (la «checklist» del camino
  * largo) y `HorarioActividad`.
  *
@@ -22,9 +22,6 @@ import { Icono } from './iconos/Icono'
  * en Misiones (`AnadirObjetivo` y este editor) y la gestión —pausar, editar,
  * borrar— en la fila del calendario (`DespliegueFila`).
  */
-
-/** Etiquetas cortas de los días (índice = getDay(): 0=domingo). */
-export const DIAS = [...DIAS_SEMANA]
 
 const PASO_VACIO: PasoRutina = { titulo: '', roomId: 'cocina' }
 
@@ -312,7 +309,7 @@ export function EditorRutina({ rutina, onCerrar }: { rutina: Rutina; onCerrar: (
         {muestraDias && (
           <>
             <div className="flex gap-1">
-              {DIAS.map((d, i) => {
+              {diasSemana().map((d, i) => {
                 const activo = r.dias.includes(i)
                 return (
                   <button

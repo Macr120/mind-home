@@ -8,9 +8,9 @@
  */
 export default {
   "vehiculos": {
-    "biciNombre": "La Grulla",
+    "biciNombre": "두루미",
     "biciNota": "중고 스틸 자전거예요. 회색에 좀 시끄럽지만, 매일 근무 교대와 실험실, 훈련까지 이걸 타고 다녀요. 일 년 동안 한 번도 길에서 멈춘 적이 없어요.",
-    "autoNombre": "El Mastodonte",
+    "autoNombre": "매머드",
     "autoNota": "삼촌한테 물려받은 세단이에요. 저보다 오래됐고, 계기판은 햇볕에 다 바랬어요. 보름에 한 번 정도 시동을 거는데, 소홀히 한 만큼 이자까지 붙여서 갚게 만들어요."
   },
   "servicios": [
@@ -33,7 +33,7 @@ export default {
       "vehiculo": "bici",
       "tipo": "llantas",
       "titulo": "새 튜브와 첫 펑크 수리",
-      "nota": "카페 가는 길에 Doctor Vértiz에서 펑크가 났어요. 인도에서 튜브 가는 법을 배웠어요. 늦었지만 그래도 배웠네요."
+      "nota": "카페 가는 길에 독토르 베르티스 거리에서 펑크가 났어요. 인도에서 튜브 가는 법을 배웠어요. 늦었지만 그래도 배웠네요."
     },
     {
       "dia": -300,
@@ -68,13 +68,13 @@ export default {
       "vehiculo": "bici",
       "tipo": "llantas",
       "titulo": "실험실 가는 길에 펑크",
-      "nota": "Eje 8에서 유리 조각을 밟아서, 자전거를 끌고 실험실에 20분 늦게 도착했어요."
+      "nota": "에헤 8번 도로에서 유리 조각을 밟아서, 자전거를 끌고 실험실에 20분 늦게 도착했어요."
     },
     {
       "dia": -178,
       "vehiculo": "auto",
       "tipo": "otro",
-      "titulo": "Calzada de Tlalpan에서 멈춰버린 차",
+      "titulo": "틀랄판 대로에서 멈춰버린 차",
       "nota": "화요일 밤, 대로 한복판에서 차가 멈춰버렸어요. 보도에 앉아 견인차를 기다린 한 시간 반 동안, 있지도 않은 돈을 계산하고 있었어요. 그때 한 달치 무게가 한꺼번에 저를 덮쳤어요."
     },
     {
@@ -130,32 +130,32 @@ export default {
   "talleres": [
     {
       "clave": "taller",
-      "nombre": "Taller Mecánico Rivas",
-      "direccion": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez",
-      "notas": "Rivas 씨는 뭐가 정말 급하고 뭐가 미뤄도 되는지 항상 설명해 주시고, 청구서를 부풀린 적도 한 번도 없어요. 이 차에 관해서는 이분만 믿어요."
+      "nombre": "리바스 자동차 정비소",
+      "direccion": "베니토 후아레스구 나르바르테 지구 쿠아우테모크 대로 812",
+      "notas": "리바스 씨는 뭐가 정말 급하고 뭐가 미뤄도 되는지 항상 설명해 주시고, 청구서를 부풀린 적도 한 번도 없어요. 이 차에 관해서는 이분만 믿어요."
     },
     {
       "clave": "aseguradora",
-      "nombre": "Seguros Meridiano - agente Nadia Ortega",
-      "direccion": "Av. Insurgentes Sur 1234, piso 3, Col. Del Valle",
-      "notas": "Nadia는 일요일에도 WhatsApp에 답장해 주고, 종합보험으로 올렸을 때 월 납부로 정리해 줬어요."
+      "nombre": "메리디아노 보험 - 담당 설계사 나디아 오르테가",
+      "direccion": "델 바예 지구 인수르헨테스 수르 대로 1234, 3층",
+      "notas": "나디아는 일요일에도 WhatsApp에 답장해 주고, 종합보험으로 올렸을 때 월 납부로 정리해 줬어요."
     },
     {
       "clave": "verificentro",
-      "nombre": "Verificentro 09-118 Iztaccíhuatl",
-      "direccion": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez",
-      "notas": "아침 7시에 예약하면 40분이면 끝나요. Coyoacán 쪽 검사소는 줄 서느라 오전 반나절을 날렸어요."
+      "nombre": "이스탁시우아틀 배출가스 검사소 09-118",
+      "direccion": "베니토 후아레스구 이스탁시우아틀 지구 이스탁시우아틀 대로 240",
+      "notas": "아침 7시에 예약하면 40분이면 끝나요. 코요아칸 쪽 검사소는 줄 서느라 오전 반나절을 날렸어요."
     },
     {
       "clave": "ciclos",
-      "nombre": "Ciclos Malinche",
-      "direccion": "Zacatecas 145, Col. Roma Sur, Cuauhtémoc",
+      "nombre": "말린체 사이클",
+      "direccion": "쿠아우테모크구 로마 수르 지구 사카테카스 거리 145",
       "notas": "자전거도 거기서 샀고 정비도 거기서 해요. 공구를 빌려주고, 다 돈 받고 해주는 대신 직접 할 수 있게 가르쳐줘요."
     },
     {
       "clave": "grua",
-      "nombre": "Grúas Tepeyac 24 horas",
-      "direccion": "Base en Eje Central Lázaro Cárdenas 1105, Col. Álamos",
+      "nombre": "테페야크 24시 견인",
+      "direccion": "차고지: 알라모스 지구 에헤 센트랄 라사로 카르데나스 1105",
       "notas": "그날 밤 차가 서버렸을 때 전화한 번호예요. 한 시간 반 만에 와줬고, 가격으로 바가지도 안 씌웠어요."
     }
   ],
@@ -168,7 +168,7 @@ export default {
     {
       "clave": "seguro",
       "titulo": "보험 갱신",
-      "nota": "차가 고장 나서 놀란 뒤로, 올해는 Nadia한테 종합보험으로 올렸어요. 월 납부로 하고, 매달 예산에 꼭 넣어둬요."
+      "nota": "차가 고장 나서 놀란 뒤로, 올해는 나디아한테 종합보험으로 올렸어요. 월 납부로 하고, 매달 예산에 꼭 넣어둬요."
     },
     {
       "clave": "tenencia",
@@ -183,7 +183,7 @@ export default {
     {
       "clave": "afinacionBici",
       "titulo": "자전거 튠업",
-      "nota": "반년마다 Ciclos Malinche에서 바퀴 휨 잡고 케이블이랑 브레이크 손봐요. 휜 바퀴 고치는 것보다 훨씬 싸게 먹혀요."
+      "nota": "반년마다 말린체 사이클에서 바퀴 휨 잡고 케이블이랑 브레이크 손봐요. 휜 바퀴 고치는 것보다 훨씬 싸게 먹혀요."
     }
   ]
 }

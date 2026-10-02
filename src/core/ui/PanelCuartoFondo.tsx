@@ -99,7 +99,7 @@ export function PanelCuartoFondo({ onCerrar }: { onCerrar: () => void }) {
         onChange={(e) => {
           const f = e.target.files?.[0]
           if (f?.type.startsWith('image/')) {
-            void usarNueva(f, f.name.replace(/\.[^.]+$/, '').slice(0, 32) || 'Mi fondo')
+            void usarNueva(f, f.name.replace(/\.[^.]+$/, '').slice(0, 32) || t('fondo.nombreDefecto', 'Mi fondo'))
           }
           e.target.value = ''
         }}

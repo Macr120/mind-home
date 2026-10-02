@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { imagenIaActiva } from '../../imagenIA'
 import { generarTextura, type SuperficieTextura } from '../../texturaIA'
 import { useT } from '../../i18n/useT'
+import { mensajeErrorIA } from '../../cuenta/api'
 import { Icono } from '../iconos/Icono'
 import { Creditos } from '../Creditos'
 import { OP_FONDO, OP_TEXTURA } from '../../cuenta/catalogoNucleo'
@@ -89,7 +90,7 @@ export function GenerarTexturaIA({
     } catch (e) {
       console.warn('[MPH] No se pudo generar la textura:', e)
       setError(
-        e instanceof Error ? e.message : t('editor.texturaIA.error', 'No se pudo generar la textura.'),
+        mensajeErrorIA(e, t, t('editor.texturaIA.error', 'No se pudo generar la textura.')),
       )
     } finally {
       setGenerando(false)

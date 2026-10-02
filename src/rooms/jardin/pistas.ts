@@ -1,4 +1,5 @@
 import type { PaisajeId } from '../../core/audio/paisaje'
+import { tGlobal } from '../../core/i18n/useT'
 
 export interface Pista {
   id: PaisajeId
@@ -19,3 +20,13 @@ export const PISTAS: Pista[] = [
 ]
 
 export const DURACIONES_PISTA = [2, 5, 10, 20]
+
+/** Título con que se guarda una sesión: en el idioma de la app, como un nombre escrito a mano. */
+export function tituloSesion(tema: string): string {
+  if (tema === 'libre') return tGlobal('jardin.sesion.libre', 'Meditación libre')
+  const pista = PISTAS.find((p) => p.id === tema)
+  if (!pista) return tGlobal('jardin.sesion.meditacion', 'Meditación')
+  return tGlobal('jardin.sesion.con', 'Meditación · {pista}', {
+    pista: tGlobal(`jardin.pista.${pista.id}`, pista.nombre),
+  })
+}

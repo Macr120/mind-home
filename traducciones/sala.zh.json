@@ -581,7 +581,7 @@
   },
   {
     "ruta": "recuerdos.8.texto",
-    "texto": "和两个朋友去了四天鹿儿岛,正赶上天文馆商店街的黑豚串烧摊冒烟的点,那股炭火味整晚都黏在衣服上。控制饮食三个星期,第一天就全破了功:黑豚涮涮锅、萨摩炸鱼饼,还有一杯芋烧酒呛得我直咳嗽,老板娘在旁边笑我。回程的路上出了岔子——从雾岛回来的巴士晚了两个小时,结果我坐在一块石头上看日落,手机只剩4%的电。就在那儿冥想的,没开app,没计时器,只听着背后有人说鹿儿岛方言。清晨六点半沿着天文馆的商店街跑了两趟步,整座城市飘着面包和湿灰泥的味道。回来时带了五条枕崎的鲣鱼干,还多了一个念头:只要计划得好,我一个人也能去旅行。"
+    "texto": "和两个朋友去了四天鹿儿岛，正赶上天文馆商店街的黑豚串烧摊冒烟的点，那股炭火味整晚都黏在衣服上。控制饮食三个星期，第一天就全破了功：黑豚涮涮锅、萨摩炸鱼饼，还有一杯芋烧酒呛得我直咳嗽，老板娘在旁边笑我。回程的路上出了岔子——从雾岛回来的巴士晚了两个小时，结果我坐在一块石头上看日落，手机只剩4%的电。我就在那儿冥想了一会儿，没开软件，也没计时，只听着背后有人说鹿儿岛方言。清晨六点半沿着天文馆的商店街跑了两趟步，整座城市飘着面包和湿灰泥的味道。回来时带了五条枕崎的鲣鱼干，还多了一个念头：只要计划得好，我一个人也能去旅行。"
   },
   {
     "ruta": "recuerdos.9.texto",
@@ -638,5 +638,77 @@
   {
     "ruta": "lugares.12.nota",
     "texto": "长远清单上的一项:冬天带着三脚架去,哪怕冻僵双手也要试着拍一次极光。"
+  },
+  {
+    "ruta": "itinerarioJapon.2.transporte",
+    "texto": "JR山手线 + 京王井之头线"
+  },
+  {
+    "ruta": "itinerarioJapon.5.destino",
+    "texto": "箱根·强罗"
+  },
+  {
+    "ruta": "itinerarioJapon.6.inicio",
+    "texto": "箱根·强罗"
+  },
+  {
+    "ruta": "itinerarioJapon.7.inicio",
+    "texto": "河口湖"
+  },
+  {
+    "ruta": "itinerarioJapon.13.destino",
+    "texto": "大阪·难波"
+  },
+  {
+    "ruta": "itinerarioJapon.14.inicio",
+    "texto": "大阪·难波"
+  },
+  {
+    "ruta": "itinerarioJapon.15.inicio",
+    "texto": "大阪·难波"
+  },
+  {
+    "ruta": "itinerarioJapon.15.destino",
+    "texto": "广岛·中区"
+  },
+  {
+    "ruta": "itinerarioJapon.16.inicio",
+    "texto": "广岛·中区"
+  },
+  {
+    "ruta": "itinerarioJapon.16.destino",
+    "texto": "宫岛·严岛神社"
+  },
+  {
+    "ruta": "itinerarioJapon.17.inicio",
+    "texto": "广岛·中区"
+  },
+  {
+    "ruta": "itinerarioJapon.17.destino",
+    "texto": "大阪·中崎町"
+  },
+  {
+    "ruta": "itinerarioJapon.18.inicio",
+    "texto": "大阪·中崎町"
+  },
+  {
+    "ruta": "itinerarioJapon.19.transporte",
+    "texto": "京王井之头线 + JR山手线"
+  },
+  {
+    "ruta": "itinerarioCorea.5.destino",
+    "texto": "釜山·海云台"
+  },
+  {
+    "ruta": "itinerarioCorea.6.inicio",
+    "texto": "釜山·海云台"
+  },
+  {
+    "ruta": "itinerarioCorea.7.inicio",
+    "texto": "釜山·海云台"
+  },
+  {
+    "ruta": "itinerarioCorea.8.inicio",
+    "texto": "釜山"
   }
 ]

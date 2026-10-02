@@ -72,7 +72,7 @@ export default {
       "clave": "bowl-pollo",
       "nombre": "Bowl de frango para a semana toda",
       "emoji": "🍗",
-      "carpeta": "Batch cooking",
+      "carpeta": "Marmitas",
       "porciones": 4,
       "minutos": 45,
       "ingredientes": [
@@ -207,7 +207,7 @@ export default {
       "clave": "crema-lentejas",
       "nombre": "Creme de lentilha vermelha",
       "emoji": "🍲",
-      "carpeta": "Batch cooking",
+      "carpeta": "Marmitas",
       "porciones": 4,
       "minutos": 35,
       "ingredientes": [
@@ -272,7 +272,7 @@ export default {
       "clave": "tacos-lentejas",
       "nombre": "Tacos de lentilha com páprica defumada",
       "emoji": "🌮",
-      "carpeta": "Batch cooking",
+      "carpeta": "Marmitas",
       "porciones": 4,
       "minutos": 30,
       "ingredientes": [

@@ -21,12 +21,12 @@ export default {
     {
       "dia": -312,
       "titulo": "Aylık bar stok sayımı",
-      "lugar": "Café Mirasol"
+      "lugar": "Mirasol Kafe"
     },
     {
       "dia": -298,
       "titulo": "Ekstra mesai: tek kökenli kahve tadımı",
-      "lugar": "Café Mirasol"
+      "lugar": "Mirasol Kafe"
     },
     {
       "dia": -270,
@@ -81,12 +81,12 @@ export default {
     {
       "dia": -134,
       "titulo": "Marisol’dan seyahat izni istemek",
-      "lugar": "Café Mirasol"
+      "lugar": "Mirasol Kafe"
     },
     {
       "dia": -131,
       "titulo": "Yeni makine eğitimi",
-      "lugar": "Café Mirasol"
+      "lugar": "Mirasol Kafe"
     },
     {
       "dia": -80,
@@ -111,7 +111,7 @@ export default {
     {
       "dia": -8,
       "titulo": "Özel mesai: çay tadımı",
-      "lugar": "Café Mirasol"
+      "lugar": "Mirasol Kafe"
     }
   ],
   "salud": [
@@ -268,35 +268,35 @@ export default {
   "contactos": [
     {
       "nombre": "Rosa Vidal",
-      "relacion": "Familia"
+      "relacion": "Aile"
     },
     {
       "nombre": "Camila Vidal",
-      "relacion": "Familia"
+      "relacion": "Aile"
     },
     {
       "nombre": "Nadia Serrano",
-      "relacion": "Amistades"
+      "relacion": "Arkadaşlar"
     },
     {
       "nombre": "Tomás Iriarte",
-      "relacion": "Amistades"
+      "relacion": "Arkadaşlar"
     },
     {
       "nombre": "Marisol Cáceres",
-      "relacion": "Trabajo"
+      "relacion": "İş"
     },
     {
       "nombre": "Bruno Ferrer",
-      "relacion": "Trabajo"
+      "relacion": "İş"
     },
     {
       "nombre": "Iker Domínguez",
-      "relacion": "Universidad"
+      "relacion": "Üniversite"
     },
     {
       "nombre": "Elena Puig",
-      "relacion": "Universidad"
+      "relacion": "Üniversite"
     }
   ]
 }

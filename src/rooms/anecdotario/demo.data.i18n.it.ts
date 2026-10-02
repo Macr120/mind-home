@@ -16,14 +16,14 @@ export default {
     },
     {
       "dia": -361,
-      "titulo": "Doppio turno, otto euro",
-      "texto": "Ho coperto il turno di Nadia e ho staccato alle nove con la schiena a pezzi. Otto euro di mancia e una cliente che mi ha parlato come se fossi una macchina del caffè con le gambe. Ho cenato cereali in piedi, telefono in mano fino all'una. Domani ho laboratorio alle otto e il risultato è già scritto.",
+      "titulo": "Doppio turno, {monto:140}",
+      "texto": "Ho coperto il turno di Nadia e ho staccato alle nove con la schiena a pezzi. {monto:140} di mancia e una cliente che mi ha parlato come se fossi una macchina del caffè con le gambe. Ho cenato cereali in piedi, telefono in mano fino all'una. Domani ho laboratorio alle otto e il risultato è già scritto.",
       "animo": "😣"
     },
     {
       "dia": -358,
       "titulo": "Dov'è finita la busta paga",
-      "texto": "Ho preso lo stipendio venerdì e oggi, mercoledì, il conto segna 41 euro. Ho provato a ricostruire le spese a memoria e mancano quasi settanta euro che non riesco a collocare da nessuna parte. Abbonamenti che non uso, birre, cibo a domicilio nei giorni in cui non ho cucinato. Quello che dà più fastidio non sono i soldi, è non sapere nemmeno questo della mia vita.",
+      "texto": "Ho preso lo stipendio venerdì e oggi, mercoledì, il conto segna {monto:710}. Ho provato a ricostruire le spese a memoria e mancano quasi {monto:1210} che non riesco a collocare da nessuna parte. Abbonamenti che non uso, birre, cibo a domicilio nei giorni in cui non ho cucinato. Quello che dà più fastidio non sono i soldi, è non sapere nemmeno questo della mia vita.",
       "animo": "😔"
     },
     {
@@ -71,7 +71,7 @@ export default {
     {
       "dia": -334,
       "titulo": "Foglio di calcolo, primo tentativo",
-      "texto": "Due ore a costruire un budget con le categorie reali della mia vita: affitto, cibo, trasporti, università, sciocchezze. Vengono fuori 1.180 di spese contro 1.240 tra stipendio quindicinale e mance. Il margine è ridicolo ma esiste, e vederlo scritto calma più di quanto mi aspettassi. Regola nuova: le mance non si spendono lo stesso giorno.",
+      "texto": "Due ore a costruire un budget con le categorie reali della mia vita: affitto, cibo, trasporti, università, sciocchezze. Vengono fuori {monto:20400} di spese contro {monto:21500} tra stipendio quindicinale e mance. Il margine è ridicolo ma esiste, e vederlo scritto calma più di quanto mi aspettassi. Regola nuova: le mance non si spendono lo stesso giorno.",
       "animo": "😐"
     },
     {
@@ -89,7 +89,7 @@ export default {
     {
       "dia": -325,
       "titulo": "Un barattolo di vetro per le mance",
-      "texto": "Ho svuotato un vasetto di marmellata e lì dentro finiscono le mance ogni sera di turno. Questa settimana: 23 euro che prima sarebbero finiti in cene fuori. Non so ancora a cosa serva il barattolo, e credo che questo aiuti: è denaro che non ha fretta. Contarlo la domenica è diventato un piccolo rituale.",
+      "texto": "Ho svuotato un vasetto di marmellata e lì dentro finiscono le mance ogni sera di turno. Questa settimana: {monto:400} che prima sarebbero finiti in cene fuori. Non so ancora a cosa serva il barattolo, e credo che questo aiuti: è denaro che non ha fretta. Contarlo la domenica è diventato un piccolo rituale.",
       "animo": "🙂"
     },
     {
@@ -101,7 +101,7 @@ export default {
     {
       "dia": -319,
       "titulo": "È arrivata la tastiera",
-      "texto": "88 tasti di seconda mano, 90 euro, comprata da un signore che ha smesso di suonare quando è nata sua figlia. L'ho portata nel bagagliaio avvolta in due coperte e l'ho montata nell'angolo del salotto. Fa un leggero ronzio all'accensione e manca il pedale, ma suona. Ho suonato note a caso per venti minuti con un sorriso da idiota stampato in faccia. Obiettivo dichiarato dell'anno: imparare il «Clair de Lune» per intero.",
+      "texto": "88 tasti di seconda mano, {monto:1560}, comprata da un signore che ha smesso di suonare quando è nata sua figlia. L'ho portata nel bagagliaio avvolta in due coperte e l'ho montata nell'angolo del salotto. Fa un leggero ronzio all'accensione e manca il pedale, ma suona. Ho suonato note a caso per venti minuti con un sorriso da idiota stampato in faccia. Obiettivo dichiarato dell'anno: imparare il «Clair de Lune» per intero.",
       "animo": "🤩",
       "foto": "teclado"
     },
@@ -120,7 +120,7 @@ export default {
     {
       "dia": -310,
       "titulo": "I conti del mese tornano",
-      "texto": "Prima volta in anni che arrivo a fine mese sapendo dove è andato ogni euro. Mi avanzano 62 euro, cifra ridicola e allo stesso tempo enorme rispetto allo scoperto del mese scorso. Ho cancellato due abbonamenti e la spesa in cibo a domicilio si è dimezzata. Niente di tutto questo è virtù: è che adesso lo vedo.",
+      "texto": "Prima volta in anni che arrivo a fine mese sapendo dove è andato ogni spesa. Mi avanzano {monto:1070}, cifra ridicola e allo stesso tempo enorme rispetto allo scoperto del mese scorso. Ho cancellato due abbonamenti e la spesa in cibo a domicilio si è dimezzata. Niente di tutto questo è virtù: è che adesso lo vedo.",
       "animo": "🙂"
     },
     {
@@ -163,7 +163,7 @@ export default {
     {
       "dia": -289,
       "titulo": "Domenica di contenitori",
-      "texto": "Due ore di cucina la domenica: lenticchie, riso, pollo al forno e verdura per cinque giorni. Mi è costato 18 euro e mi risparmia i kebab di dopo il turno di notte. Laika si è seduta sul bancone a supervisionare e l'ho fatta scendere undici volte. Il frigo pieno mi dà una calma che non mi aspettavo da una cosa così stupida.",
+      "texto": "Due ore di cucina la domenica: lenticchie, riso, pollo al forno e verdura per cinque giorni. Mi è costato {monto:310} e mi risparmia i kebab di dopo il turno di notte. Laika si è seduta sul bancone a supervisionare e l'ho fatta scendere undici volte. Il frigo pieno mi dà una calma che non mi aspettavo da una cosa così stupida.",
       "animo": "🙂"
     },
     {
@@ -223,7 +223,7 @@ export default {
     {
       "dia": -259,
       "titulo": "Cifre per il Giappone",
-      "texto": "Mi metto davanti al foglio dei conti e do numeri alla fantasia: 2.400 in totale, voli circa 800, il resto alloggi economici, treni e cibo. Ho già 600 euro dai mesi in cui è avanzato qualcosa dal budget, quindi mi mancano circa 360 al mese. Torna se prendo due turni extra al mese e se le mance del weekend vanno dritte nella busta. Apro una nuova voce nell'app e la chiamo Giappone, punto.",
+      "texto": "Mi metto davanti al foglio dei conti e do numeri alla fantasia: {monto:41500} in totale, voli circa {monto:13840}, il resto alloggi economici, treni e cibo. Ho già {monto:10380} dai mesi in cui è avanzato qualcosa dal budget, quindi mi mancano circa {monto:6230} al mese. Torna se prendo due turni extra al mese e se le mance del weekend vanno dritte nella busta. Apro una nuova voce nell'app e la chiamo Giappone, punto.",
       "animo": "😀"
     },
     {
@@ -271,7 +271,7 @@ export default {
     {
       "dia": -235,
       "titulo": "Le mance vanno nella busta",
-      "texto": "Sabato con la terrazza piena: 38 euro di mancia nel barattolo e un cliente che ha lasciato cinque euro per un cortado. Prima quei soldi finivano in birre e cibo di metà settimana senza che me ne accorgessi. Oggi ho contato le monete sul tavolo della cucina e le ho passate tutte alla voce Giappone. 1.010 accumulati. Le banconote adesso hanno una destinazione e questo mi fa lavorare in un altro modo.",
+      "texto": "Sabato con la terrazza piena: {monto:660} di mancia nel barattolo e un cliente che ha lasciato {monto:87} per un cortado. Prima quei soldi finivano in birre e cibo di metà settimana senza che me ne accorgessi. Oggi ho contato le monete sul tavolo della cucina e le ho passate tutte alla voce Giappone. {monto:17500} accumulati. Le banconote adesso hanno una destinazione e questo mi fa lavorare in un altro modo.",
       "animo": "😀"
     },
     {
@@ -325,7 +325,7 @@ export default {
     {
       "dia": -208,
       "titulo": "Treppiede di seconda mano",
-      "texto": "Trovo un treppiede vecchio per dodici euro al mercatino e ci aggancio il telefono con una molletta di plastica. Salgo in terrazza alle undici e per la prima volta le stelle vengono fuori come puntini e non come vermi. Si distinguono le Pleiadi e un pezzo della cintura di Orione, sfocato ma riconoscibile. Resto un'ora lassù con una coperta e il tè; non so se è astrofotografia, ma funziona.",
+      "texto": "Trovo un treppiede vecchio per {monto:210} al mercatino e ci aggancio il telefono con una molletta di plastica. Salgo in terrazza alle undici e per la prima volta le stelle vengono fuori come puntini e non come vermi. Si distinguono le Pleiadi e un pezzo della cintura di Orione, sfocato ma riconoscibile. Resto un'ora lassù con una coperta e il tè; non so se è astrofotografia, ma funziona.",
       "animo": "🙂"
     },
     {
@@ -343,7 +343,7 @@ export default {
     {
       "dia": -199,
       "titulo": "A metà del barattolo",
-      "texto": "1.210 su 2.400. Esattamente metà del viaggio è già in banca e restano ancora tre mesi di mance e turni extra. Ho fatto il conto due volte perché non ci credevo, e poi l'ho raccontato a Laika, la mia contabile emotiva. Quello che sorprende di più non sono i soldi, è che sono cinque mesi di fila che segno ogni spesa senza mollare.",
+      "texto": "{monto:20900} su {monto:41500}. Esattamente metà del viaggio è già in banca e restano ancora tre mesi di mance e turni extra. Ho fatto il conto due volte perché non ci credevo, e poi l'ho raccontato a Laika, la mia contabile emotiva. Quello che sorprende di più non sono i soldi, è che sono cinque mesi di fila che segno ogni spesa senza mollare.",
       "animo": "🤩"
     },
     {
@@ -391,13 +391,13 @@ export default {
     {
       "dia": -176,
       "titulo": "Anche la macchina, ovvio",
-      "texto": "Vado ad avviare la macchina per andare in laboratorio e suona come una lattina di viti. La porto all'officina di via Robles: pompa dell'acqua e cinghia, 380 euro e due giorni senza macchina. Proprio questa settimana, con il ginocchio fermo e il turno di venerdì raddoppiato. Mi metto a ridere sul marciapiede tra me e me, perché piangere sul marciapiede mi metteva più in imbarazzo.",
+      "texto": "Vado ad avviare la macchina per andare in laboratorio e suona come una lattina di viti. La porto all'officina di via Robles: pompa dell'acqua e cinghia, {monto:6570} e due giorni senza macchina. Proprio questa settimana, con il ginocchio fermo e il turno di venerdì raddoppiato. Mi metto a ridere sul marciapiede tra me e me, perché piangere sul marciapiede mi metteva più in imbarazzo.",
       "animo": "😣"
     },
     {
       "dia": -173,
       "titulo": "Da dove escono quei soldi",
-      "texto": "Ho deciso che i 380 euro escono dal fondo per gli imprevisti e non dalla busta del Giappone, anche se il fondo resta quasi a zero. Taglio due cose questo mese: zero caffè fuori e zero cibo a domicilio. Le mance della quindicina sono state scarse, 46 euro, quindi tocca stringere sul serio. Almeno adesso so esattamente quanto ho, cosa che a ottobre non sapevo nemmeno per sbaglio.",
+      "texto": "Ho deciso che i {monto:6570} escono dal fondo per gli imprevisti e non dalla busta del Giappone, anche se il fondo resta quasi a zero. Taglio due cose questo mese: zero caffè fuori e zero cibo a domicilio. Le mance della quindicina sono state scarse, {monto:800}, quindi tocca stringere sul serio. Almeno adesso so esattamente quanto ho, cosa che a ottobre non sapevo nemmeno per sbaglio.",
       "animo": "😔"
     },
     {
@@ -409,7 +409,7 @@ export default {
     {
       "dia": -168,
       "titulo": "Annotazione brutta, senza filtri",
-      "texto": "Non ne posso più che tutto crolli addosso insieme: compito di elettromagnetismo giovedì, doppio turno sabato, ginocchio teso e conto a 190 euro. Scrivo questo con il ghiaccio addosso e la voglia di mandare l'anno a quel paese. Non fingerò che oggi ci sia una lezione carina da tirare fuori. L'unica cosa che faccio è annotarlo, per ricordarmi che è successo anche questo.",
+      "texto": "Non ne posso più che tutto crolli addosso insieme: compito di elettromagnetismo giovedì, doppio turno sabato, ginocchio teso e conto a {monto:3290}. Scrivo questo con il ghiaccio addosso e la voglia di mandare l'anno a quel paese. Non fingerò che oggi ci sia una lezione carina da tirare fuori. L'unica cosa che faccio è annotarlo, per ricordarmi che è successo anche questo.",
       "animo": "😣"
     },
     {
@@ -433,7 +433,7 @@ export default {
     {
       "dia": -156,
       "titulo": "Appuntamento con la fisioterapista",
-      "texto": "Giovedì alle undici, prima seduta, 35 euro l'una e me ne servono quattro o cinque. L'ho inserito nel budget come spesa per la salute e non come capriccio, che è quello che avrei pensato a gennaio. Il ginocchio ormai mi lascia scendere le scale quasi normalmente. Comincio a credere che questo si sistemi e che a settembre camminerò molto per il Giappone senza problemi.",
+      "texto": "Giovedì alle undici, prima seduta, {monto:600} l'una e me ne servono quattro o cinque. L'ho inserito nel budget come spesa per la salute e non come capriccio, che è quello che avrei pensato a gennaio. Il ginocchio ormai mi lascia scendere le scale quasi normalmente. Comincio a credere che questo si sistemi e che a settembre camminerò molto per il Giappone senza problemi.",
       "animo": "🙂"
     },
     {
@@ -457,13 +457,13 @@ export default {
     {
       "dia": -140,
       "titulo": "Venti minuti di fila",
-      "texto": "Venti minuti senza fermarmi, lentissimo, e il ginocchio non si è nemmeno mosso. Mi obbligo a non aumentare più del dieci per cento a settimana anche se domani avrei voglia di fare un'ora intera. Ho imparato la lezione a caro prezzo: 380 euro e tre settimane. Il piano fino al Giappone è semplice, quaranta minuti comodi e niente lunghi.",
+      "texto": "Venti minuti senza fermarmi, lentissimo, e il ginocchio non si è nemmeno mosso. Mi obbligo a non aumentare più del dieci per cento a settimana anche se domani avrei voglia di fare un'ora intera. Ho imparato la lezione a caro prezzo: {monto:6570} e tre settimane. Il piano fino al Giappone è semplice, quaranta minuti comodi e niente lunghi.",
       "animo": "😀"
     },
     {
       "dia": -137,
       "titulo": "I conti respirano",
-      "texto": "Busta del Giappone all'85 per cento dell'obiettivo: 2.210 su 2.600 euro. Il fondo per gli imprevisti torna a 200 dopo la batosta dell'officina. Altre due quindicine e arrivo giusto giusto, contando le mance di agosto che di solito sono buone. Lo scrivo qui perché a ottobre non sapevo nemmeno quanto spendevo in caffè.",
+      "texto": "Busta del Giappone all'85 per cento dell'obiettivo: {monto:38200} su {monto:45000}. Il fondo per gli imprevisti torna a {monto:3460} dopo la batosta dell'officina. Altre due quindicine e arrivo giusto giusto, contando le mance di agosto che di solito sono buone. Lo scrivo qui perché a ottobre non sapevo nemmeno quanto spendevo in caffè.",
       "animo": "🙂"
     },
     {
@@ -506,7 +506,7 @@ export default {
     {
       "dia": -121,
       "titulo": "Tokyo a piedi, 21 km",
-      "texto": "Ventuno chilometri a piedi tra Shinjuku, Yanaka e una libreria dove resto un'ora senza capire quasi niente. I treni arrivano al secondo e io, che a casa arrivo sempre tardi al turno, mi sento sotto osservazione da parte del sistema. Ceno in un konbini: onigiri, uovo sodo e una zuppa, cinque euro e meglio di tante cose costose. Il ginocchio, silenzioso.",
+      "texto": "Ventuno chilometri a piedi tra Shinjuku, Yanaka e una libreria dove resto un'ora senza capire quasi niente. I treni arrivano al secondo e io, che a casa arrivo sempre tardi al turno, mi sento sotto osservazione da parte del sistema. Ceno in un konbini: onigiri, uovo sodo e una zuppa, {monto:87} e meglio di tante cose costose. Il ginocchio, silenzioso.",
       "animo": "🤩"
     },
     {
@@ -567,7 +567,7 @@ export default {
     {
       "dia": -101,
       "titulo": "I conti del viaggio",
-      "texto": "Ultima notte a Osaka e ho fatto la somma: 2.480 euro dei 2.600 risparmiati, tra volo, treno, letti e cibo. È tornato quasi all'euro, il che mi dà un orgoglio strano e molto contabile. Porto a casa tè da tre posti, un quaderno, un plettro da niente per la tastiera e sessantuno pagine scritte. Domani il volo lungo e giovedì il turno delle sette al bar.",
+      "texto": "Ultima notte a Osaka e ho fatto la somma: {monto:42900} dei {monto:45000} risparmiati, tra volo, treno, letti e cibo. È tornato quasi alla perfezione, il che mi dà un orgoglio strano e molto contabile. Porto a casa tè da tre posti, un quaderno, un plettro da niente per la tastiera e sessantuno pagine scritte. Domani il volo lungo e giovedì il turno delle sette al bar.",
       "animo": "🙂"
     },
     {
@@ -603,7 +603,7 @@ export default {
     {
       "dia": -81,
       "titulo": "Il budget dopo il viaggio",
-      "texto": "Rimetto in piedi il budget a buste dopo tre settimane senza guardarlo. Il conto del viaggio è rimasto a 118 euro e non è un fallimento: era esattamente il piano. Voce nuova da questa quindicina: fondo di emergenza, 40 euro a paga. Le mance della settimana sono state 27 euro e finiscono tutte lì.",
+      "texto": "Rimetto in piedi il budget a buste dopo tre settimane senza guardarlo. Il conto del viaggio è rimasto a {monto:2040} e non è un fallimento: era esattamente il piano. Voce nuova da questa quindicina: fondo di emergenza, {monto:690} a paga. Le mance della settimana sono state {monto:470} e finiscono tutte lì.",
       "animo": "🙂"
     },
     {
@@ -627,7 +627,7 @@ export default {
     {
       "dia": -68,
       "titulo": "La batteria della macchina",
-      "texto": "La macchina non parte alle sei e mezza e vado al bar in bici a tutta velocità. Batteria nuova: 72 euro dal fondo di emergenza appena inaugurato, che ora è a 8. Diciannove anni ha la macchina e ogni trimestre mi ricorda che esiste. Almeno stavolta non mi ha affondato il mese, mi ha solo dato fastidio.",
+      "texto": "La macchina non parte alle sei e mezza e vado al bar in bici a tutta velocità. Batteria nuova: {monto:1250} dal fondo di emergenza appena inaugurato, che ora è a {monto:140}. Diciannove anni ha la macchina e ogni trimestre mi ricorda che esiste. Almeno stavolta non mi ha affondato il mese, mi ha solo dato fastidio.",
       "animo": "😔"
     },
     {
@@ -675,7 +675,7 @@ export default {
     {
       "dia": -43,
       "titulo": "Iscrizione fatta: maratona",
-      "texto": "Iscrizione fatta: maratona, 38 euro, cinque settimane di piano. Nadia ha detto sì con due condizioni: fisioterapia ogni due settimane e fermarmi al primo avviso del ginocchio. È aggressivo e lo so; so anche che sono sei mesi che accumulo chilometri quasi senza saltare. Scrivo 42,195 sulla lavagna della cucina e resto a guardarlo un po'.",
+      "texto": "Iscrizione fatta: maratona, {monto:660}, cinque settimane di piano. Nadia ha detto sì con due condizioni: fisioterapia ogni due settimane e fermarmi al primo avviso del ginocchio. È aggressivo e lo so; so anche che sono sei mesi che accumulo chilometri quasi senza saltare. Scrivo 42,195 sulla lavagna della cucina e resto a guardarlo un po'.",
       "animo": "😀"
     },
     {
@@ -742,7 +742,7 @@ export default {
     {
       "dia": -5,
       "titulo": "Camminare, tè e Laika",
-      "texto": "Passeggiate di un'ora al posto della corsa, tè invece di caffè al pomeriggio e Laika insopportabilmente appiccicata. Ho guardato voli per Seoul tra un anno, senza comprare niente, solo per calcolare quanto dovrei mettere via a quindicina: una cinquantina di euro. Ho anche tirato fuori lo spartito dell'Arabesque n. 1 e ho riso tra me e me. Domani provo Clair de Lune tre volte di fila, perché domenica la suono per la mia famiglia.",
+      "texto": "Passeggiate di un'ora al posto della corsa, tè invece di caffè al pomeriggio e Laika insopportabilmente appiccicata. Ho guardato voli per Seoul tra un anno, senza comprare niente, solo per calcolare quanto dovrei mettere via a quindicina: circa {monto:950}. Ho anche tirato fuori lo spartito dell'Arabesque n. 1 e ho riso tra me e me. Domani provo Clair de Lune tre volte di fila, perché domenica la suono per la mia famiglia.",
       "animo": "🙂"
     },
     {
@@ -754,7 +754,7 @@ export default {
     {
       "dia": -1,
       "titulo": "I conti dell'anno",
-      "texto": "Ho passato mezz'ora a rivedere l'anno nell'app. 74 kg allora, 67,0 stamattina; 1.214 chilometri corsi; un 5K, un 10K, una mezza e una maratona. 2.600 euro risparmiati e spesi in tre settimane di Giappone, 61 pagine di diario e 118 annotazioni qui. Quello che non esce nei numeri: un anno fa andavo a letto alle due con il telefono in faccia.",
+      "texto": "Ho passato mezz'ora a rivedere l'anno nell'app. 74 kg allora, 67,0 stamattina; 1.214 chilometri corsi; un 5K, un 10K, una mezza e una maratona. {monto:45000} risparmiati e spesi in tre settimane di Giappone, 61 pagine di diario e 118 annotazioni qui. Quello che non esce nei numeri: un anno fa andavo a letto alle due con il telefono in faccia.",
       "animo": "🙂"
     },
     {

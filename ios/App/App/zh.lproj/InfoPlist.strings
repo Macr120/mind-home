@@ -1,7 +1,8 @@
 /* Permisos que enseñan iOS y el Mac (el escritorio reusa estos mismos archivos). El original vive en Info.plist (inglés). */
 "NSCameraUsageDescription" = "用于在 AR 聊天中查看你周围的环境，并为你的应用拍照。";
-"NSMicrophoneUsageDescription" = "用于对你的家口述，而不用打字。";
+"NSMicrophoneUsageDescription" = "用于对你的家口述，以及在音频工作室录制人声或乐器。";
 "NSPhotoLibraryUsageDescription" = "用于为你的回忆、房间和聊天选择照片。";
-"NSLocationWhenInUseUsageDescription" = "用于在地图上显示您的位置、沿路线为您导航并记录您的户外锻炼。";
+"NSLocationWhenInUseUsageDescription" = "用于在地图上显示你的位置、沿路线为你导航并记录你的户外锻炼。";
 "NSSpeechRecognitionUsageDescription" = "将你口述的内容转换为文字。";
 "NSPhotoLibraryAddUsageDescription" = "将你家中的图片保存到照片。";
+"NSAppleEventsUsageDescription" = "用于在你的壁纸上显示“音乐”或 Spotify 正在播放的内容。";

@@ -6,6 +6,7 @@ import { BotonEnviarAContacto } from '../_shared/BotonEnviarAContacto'
 import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { empaquetarHoja } from './compartible'
 import { useT } from '../../core/i18n/useT'
+import { mensajeErrorIA } from '../../core/cuenta/api'
 import { confirmar, pedirTexto } from '../../core/state/confirmarStore'
 import { intencionApp } from '../../core/state/intencionApp'
 import { Icono } from '../../core/ui/iconos/Icono'
@@ -133,7 +134,7 @@ export function HojasTab() {
       setPeticion('')
       setAbiertaId(id)
     } catch (e) {
-      setErrorIA(e instanceof Error ? e.message : t('computo.ia.falloHoja', 'No se pudo armar la hoja.'))
+      setErrorIA(mensajeErrorIA(e, t, t('computo.ia.falloHoja', 'No se pudo armar la hoja.')))
     } finally {
       setPensando(false)
     }

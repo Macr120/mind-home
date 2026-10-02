@@ -1,4 +1,5 @@
 import { Html } from '@react-three/drei'
+import { tGlobal } from '../i18n/useT'
 import { useLayout, SIN_OCUPACION } from '../state/layoutStore'
 import { useDiseño } from '../state/disenoStore'
 import { useHouse } from '../state/houseStore'
@@ -94,7 +95,7 @@ export function TechoCeldaEditor() {
                 e.stopPropagation()
                 void removeTechoLinea(roomId, celdas)
               }}
-              title={`Retraer techo del ${ETIQUETA_DIR[dir]}`}
+              title={tGlobal(`editor.techo.retraer.${dir}`, `Retraer techo del ${ETIQUETA_DIR[dir]}`)}
               className="ui-panel-glass flex h-7 w-7 items-center justify-center rounded-md border border-white/20 text-base font-bold text-red-400 backdrop-blur-sm transition hover:bg-red-400/25"
             >
               −
@@ -120,7 +121,7 @@ export function TechoCeldaEditor() {
                 e.stopPropagation()
                 void addTechoLinea(roomId, celdas)
               }}
-              title={`Extender techo hacia el ${ETIQUETA_DIR[dir]}`}
+              title={tGlobal(`editor.techo.extender.${dir}`, `Extender techo hacia el ${ETIQUETA_DIR[dir]}`)}
               className="ui-panel-glass flex h-8 w-8 items-center justify-center rounded-md border border-amber-400/45 text-lg font-bold text-amber-400 backdrop-blur-sm transition hover:bg-amber-400/20"
             >
               +

@@ -4,6 +4,8 @@ import { CREDITOS, opImagen } from '../../core/cuenta/costos'
 import type { AnimacionTexto, EstiloTexto, FiltroEscena, FiltroVoz, FuenteTexto, FuenteVisual, MedioVideo } from '../../core/data/db'
 import { mediosVideoRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
+import { nombreAsistente } from '../../core/chat/mascotas'
+import { mensajeErrorIA } from '../../core/cuenta/api'
 import { generarImagen, imagenIaActiva } from '../../core/imagenIA'
 import { useAjustes } from '../../core/state/ajustesStore'
 import { MODELOS_PERSONAJE, useAsistentes } from '../../core/state/asistentesStore'
@@ -121,7 +123,7 @@ export function SelectorPersonaje({
         </Chip>
         {asistentes.map((a) => (
           <Chip key={a.id} activo={elegidoId === a.id} onClick={() => onElegir(a.id)}>
-            <Icono emoji={a.emoji} /> {a.nombre}
+            <Icono emoji={a.emoji} /> {nombreAsistente(t, a)}
           </Chip>
         ))}
       </div>
@@ -224,7 +226,7 @@ export function SeccionFuenteVisual({
       onCambiar({ tipo: 'imagen', medioId })
       setPrompt('')
     } catch (e) {
-      setError(e instanceof Error ? e.message : String(e))
+      setError(mensajeErrorIA(e, t))
     } finally {
       setGenerando(false)
     }

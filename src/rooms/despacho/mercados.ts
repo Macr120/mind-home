@@ -103,6 +103,20 @@ export const CATALOGO_DIVISAS: { codigo: string; nombre: string }[] = [
 ]
 
 /**
+ * Nombre de la divisa en el idioma de la app (`Intl`). En español se queda el del
+ * catálogo: el de `Intl` va en minúsculas («dólar australiano»).
+ */
+export function nombreDivisa(codigo: string, locale: string): string {
+  const propio = CATALOGO_DIVISAS.find((d) => d.codigo === codigo)?.nombre ?? codigo
+  if (locale.startsWith('es')) return propio
+  try {
+    return new Intl.DisplayNames(locale, { type: 'currency' }).of(codigo) ?? propio
+  } catch {
+    return propio
+  }
+}
+
+/**
  * Top 10 de Wall Street por capitalización. La pertenencia es fija (cambia unas
  * pocas veces al año) pero el ORDEN se recalcula con la cap que devuelve la API,
  * así que la tabla sale bien ordenada aunque esta lista quede algo vieja.

@@ -15,6 +15,7 @@ import { Icono } from '../../core/ui/iconos/Icono'
 import { acento } from '../_shared/acento'
 import { C_FUERZA } from './constantes'
 import { useAvisoAgregado } from './avisoAgregado'
+import { textoMin } from '../../core/i18n/duracion'
 
 /**
  * Pirámide de especificidad: al elegir un enfoque muestra sus ejercicios
@@ -369,7 +370,7 @@ export function CatalogoFuerza({
                   >
                     <div className="flex items-center gap-2">
                       <span className="flex-1 text-sm font-semibold text-white/90">{nombreRutina(t, r.nombre)}</span>
-                      <span className="shrink-0 text-xs text-white/40">{r.duracionMin} min</span>
+                      <span className="shrink-0 text-xs text-white/40">{textoMin(r.duracionMin)}</span>
                     </div>
                     {r.ejercicios && r.ejercicios.length > 0 && (
                       <p className="mt-0.5 text-xs text-white/55">

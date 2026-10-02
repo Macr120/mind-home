@@ -5,6 +5,7 @@ import { asignarAsistenteAApp, asistenteResponsable } from '../../gamificacion/a
 import { nombreAsistente } from '../../chat/mascotas'
 import { useT } from '../../i18n/useT'
 import { esMeta, rangoDe } from '../../metas'
+import { unidadObjetivo } from '../../metaDiaria'
 import {
   actividadDeSugerencia,
   idActividadSugerencia,
@@ -12,12 +13,12 @@ import {
   type ObjetivoSugerido,
 } from '../../objetivosSugeridos'
 import { getPlantilla } from '../../registry'
-import { buscarAgenda } from '../../rutinas'
+import { buscarAgenda, diasSemana } from '../../rutinas'
 import { useAsistentes } from '../../state/asistentesStore'
 import { useMascota } from '../../state/mascotaStore'
 import { agendarActividad } from '../HorarioActividad'
 import { Icono } from '../iconos/Icono'
-import { DIAS, rutinaNueva } from '../RutinasPanel'
+import { rutinaNueva } from '../RutinasPanel'
 import { vivo } from '../estilos'
 
 /**
@@ -184,7 +185,7 @@ export function AnadirObjetivo({
           {t('objetivos.nuevo.dias', '¿Qué días?')}
         </p>
         <div className="flex gap-1">
-          {DIAS.map((d, i) => {
+          {diasSemana().map((d, i) => {
             const activo = dias.includes(i)
             return (
               <button
@@ -214,7 +215,7 @@ export function AnadirObjetivo({
             onChange={(e) => setCantidad(Math.max(1, Number(e.target.value)))}
             className="w-20 rounded-md border border-white/10 bg-black/30 px-2 py-1 text-xs tabular-nums text-white outline-none focus:border-white/30"
           />
-          <span className="text-white/40">{s.cantidad.unidad}</span>
+          <span className="text-white/40">{unidadObjetivo(s.cantidad.unidad)}</span>
         </label>
       )}
 

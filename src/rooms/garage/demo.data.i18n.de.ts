@@ -8,9 +8,9 @@
  */
 export default {
   "vehiculos": {
-    "biciNombre": "La Grulla",
+    "biciNombre": "Der Kranich",
     "biciNota": "Gebrauchtes Stahlrad, grau und ein bisschen quietschend, mit dem ich jeden Tag zu Schichten, ins Labor und zum Training fahre. Im ganzen Jahr hat es mich kein einziges Mal im Stich gelassen.",
-    "autoNombre": "El Mastodonte",
+    "autoNombre": "Das Mammut",
     "autoNota": "Limousine, die ich von meinem Onkel geerbt habe, älter als ich und mit einem von der Sonne ausgeblichenen Armaturenbrett. Ich starte ihn etwa alle zwei Wochen, und er lässt mich jede Vernachlässigung mit Zinsen bezahlen."
   },
   "servicios": [
@@ -130,19 +130,19 @@ export default {
   "talleres": [
     {
       "clave": "taller",
-      "nombre": "Taller Mecánico Rivas",
+      "nombre": "Autowerkstatt Rivas",
       "direccion": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez",
       "notas": "Don Rivas erklärt mir, was wirklich dringend ist und was warten kann, und er hat mir noch nie eine Rechnung aufgebläht; er ist der Einzige, dem ich bei diesem Auto vertraue."
     },
     {
       "clave": "aseguradora",
-      "nombre": "Seguros Meridiano - Agentin Nadia Ortega",
+      "nombre": "Meridiano Versicherung - Vertreterin Nadia Ortega",
       "direccion": "Av. Insurgentes Sur 1234, 3. Stock, Col. Del Valle",
       "notas": "Nadia antwortet auf WhatsApp, selbst sonntags, und sie hat mir eine monatliche Ratenzahlung eingerichtet, als ich auf Vollkasko umgestiegen bin."
     },
     {
       "clave": "verificentro",
-      "nombre": "Verificentro 09-118 Iztaccíhuatl",
+      "nombre": "Abgasprüfstelle 09-118 Iztaccíhuatl",
       "direccion": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez",
       "notas": "Termin um sieben Uhr morgens, und ich bin in vierzig Minuten fertig; die Prüfstelle in Coyoacán hat mich einen halben Vormittag Schlangestehen gekostet."
     },
@@ -154,7 +154,7 @@ export default {
     },
     {
       "clave": "grua",
-      "nombre": "Grúas Tepeyac 24 Stunden",
+      "nombre": "Abschleppdienst Tepeyac 24 Stunden",
       "direccion": "Standort: Eje Central Lázaro Cárdenas 1105, Col. Álamos",
       "notas": "Das ist die Nummer, die ich in der Nacht gewählt habe, in der ich liegengeblieben bin; sie kamen in anderthalb Stunden und haben mich beim Preis nicht über den Tisch gezogen."
     }

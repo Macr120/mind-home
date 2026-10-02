@@ -1,6 +1,7 @@
 import { analizarImagenIA, extraerJSON, type ImagenAdjunta } from '../../core/chat/ia'
 import { blobABase64, comprimirImagen } from '../../core/imagenIA'
-import { localeActual } from '../../core/i18n/useT'
+import { datosIdioma } from '../../core/i18n/idiomas'
+import { idiomaActual } from '../../core/i18n/useT'
 
 /**
  * Juez de la evidencia del despertador: la alarma solo se apaga si una foto
@@ -27,7 +28,7 @@ export async function fotoAAdjunta(archivo: File): Promise<ImagenAdjunta> {
 }
 
 export async function verificarEvidencia(tarea: string, imagen: ImagenAdjunta): Promise<Veredicto> {
-  const idioma = localeActual().startsWith('es') ? 'español' : 'inglés'
+  const idioma = datosIdioma(idiomaActual()).nombreIA
   const respuesta = await analizarImagenIA(
     SYSTEM,
     `Tarea que debe demostrar la foto: «${tarea}».\nEscribe el motivo en ${idioma}.`,

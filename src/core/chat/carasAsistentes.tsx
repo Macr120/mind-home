@@ -36,7 +36,8 @@ export function firmaCara(a: Asistente): string {
   ])
   let h = 5381
   for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0
-  return `${s.length}:${h}`
+  // `c5`: encuadre de la cabeza entera con sombrero (1 oct 2026); cambiarlo recaptura las ya guardadas.
+  return `c5:${s.length}:${h}`
 }
 
 function leerGuardadas(): Record<string, Cara> {
