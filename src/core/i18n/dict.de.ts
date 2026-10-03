@@ -11047,11 +11047,6 @@ export const DE: Dict = {
   'escritorio.menu.ayuda': 'Hilfe',
   'escritorio.menu.soporte': 'Support',
   'escritorio.menu.sitioWeb': 'Website',
-  'escritorio.version.nueva': 'Es gibt eine neue Version ({v}).',
-  'escritorio.version.detalle':
-    'Lade sie herunter, um die neuesten Verbesserungen zu bekommen. Deine Daten bleiben, wie sie sind.',
-  'escritorio.version.descargar': 'Herunterladen',
-  'escritorio.version.ahoraNo': 'Jetzt nicht',
   'escritorio.programa.elegir': 'Programm auswählen',
   'escritorio.programa.programas': 'Programme',
   'escritorio.programa.todos': 'Alle Dateien',

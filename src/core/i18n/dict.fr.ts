@@ -11017,11 +11017,6 @@ export const FR: Dict = {
   'escritorio.menu.ayuda': 'Aide',
   'escritorio.menu.soporte': 'Assistance',
   'escritorio.menu.sitioWeb': 'Site web',
-  'escritorio.version.nueva': 'Une nouvelle version est disponible ({v}).',
-  'escritorio.version.detalle':
-    'Télécharge-la pour profiter des dernières améliorations. Tes données restent telles quelles.',
-  'escritorio.version.descargar': 'Télécharger',
-  'escritorio.version.ahoraNo': 'Pas maintenant',
   'escritorio.programa.elegir': 'Choisir un programme',
   'escritorio.programa.programas': 'Programmes',
   'escritorio.programa.todos': 'Tous les fichiers',

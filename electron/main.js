@@ -460,21 +460,10 @@ const TEXTOS = {
   ayuda: 'Ayuda',
   soporte: 'Soporte',
   sitioWeb: 'Sitio web',
-  versionNueva: 'Hay una versión nueva ({v}).',
-  versionDetalle: 'Descárgala para tener las últimas mejoras. Tus datos se quedan como están.',
-  descargar: 'Descargar',
-  ahoraNo: 'Ahora no',
   elegirPrograma: 'Elegir programa',
   programas: 'Programas',
   todosArchivos: 'Todos los archivos',
 }
-
-/** Resuelve al llegar los textos de la app (o a los 10 s, y se queda el español). */
-let avisarTextos = () => {}
-const textosListos = new Promise((resolver) => {
-  avisarTextos = resolver
-  setTimeout(resolver, 10_000)
-})
 
 ipcMain.handle('mph:idioma', (_e, nuevos) => {
   if (!nuevos || typeof nuevos !== 'object') return
@@ -483,61 +472,7 @@ ipcMain.handle('mph:idioma', (_e, nuevos) => {
     if (typeof v === 'string' && v.trim() && v.length <= 200) TEXTOS[k] = v
   }
   Menu.setApplicationMenu(construirMenu())
-  avisarTextos()
 })
-
-/**
- * Aviso de versión nueva, sin electron-updater en v1: mira la última release de
- * GitHub y ofrece abrirla en el navegador. Falla en silencio (sin red, sin
- * releases todavía) y solo corre empaquetada: en dev sería ruido.
- */
-async function avisarVersionNueva() {
-  try {
-    const res = await net.fetch('https://api.github.com/repos/Macr120/mind-home/releases/latest')
-    if (!res.ok) return
-    const release = await res.json()
-    const remota = String(release.tag_name ?? '').replace(/^v/, '')
-    if (!remota || !esMayor(remota, app.getVersion()) || !ventana) return
-    // El destino sale de la respuesta JSON de GitHub: se abre SOLO si es una URL
-    // https de github.com, no lo que venga en el campo (auditoría 26-ago-2026).
-    const destino = urlReleaseSegura(release.html_url)
-    if (!destino) return
-    await textosListos
-    if (!ventana) return
-    const { response } = await dialog.showMessageBox(ventana, {
-      type: 'info',
-      title: 'MindHaOS',
-      message: TEXTOS.versionNueva.replace('{v}', remota),
-      detail: TEXTOS.versionDetalle,
-      buttons: [TEXTOS.descargar, TEXTOS.ahoraNo],
-      cancelId: 1,
-    })
-    if (response === 0) void shell.openExternal(destino)
-  } catch {
-    /* sin red o sin releases: no se molesta */
-  }
-}
-
-/** Solo una URL https del propio repo en github.com; si no, null (no se abre). */
-function urlReleaseSegura(valor) {
-  try {
-    const u = new URL(String(valor))
-    return u.protocol === 'https:' && (u.hostname === 'github.com' || u.hostname.endsWith('.github.com'))
-      ? u.toString()
-      : null
-  } catch {
-    return null
-  }
-}
-
-function esMayor(a, b) {
-  const pa = a.split('.').map(Number)
-  const pb = b.split('.').map(Number)
-  for (let i = 0; i < 3; i++) {
-    if ((pa[i] || 0) !== (pb[i] || 0)) return (pa[i] || 0) > (pb[i] || 0)
-  }
-  return false
-}
 
 /**
  * Tamaño y posición con los que se cerró. La posición solo se reusa si aquella
@@ -1406,9 +1341,6 @@ void app.whenReady().then(() => {
   // Windows: si el SO nos arrancó POR el enlace, viene en nuestro propio argv.
   const enlaceInicial = process.argv.find((a) => a.startsWith(`${ESQUEMA_PROFUNDO}://`))
   if (enlaceInicial) repartirEnlace(enlaceInicial)
-  // En Store no: actualiza la propia tienda, y mandar al usuario a descargar un
-  // instalador de fuera es justo lo que la certificación no quiere ver.
-  if (app.isPackaged && !process.windowsStore) void avisarVersionNueva()
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) crearVentana()
   })

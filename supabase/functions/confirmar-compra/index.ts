@@ -67,6 +67,19 @@ Deno.serve(async (req) => {
 
   const admin = clienteAdmin()
 
+  // Un fallo al aplicar la compra también queda en la bitácora, con el mensaje
+  // de la base: el 30-sep-2026 el unlock de App Review falló con un «bd» mudo.
+  const anotarFallo = (producto: string, e: { message?: string }) =>
+    admin.from('compras_log').insert({
+      user_id: usuario.id,
+      plataforma: texto(cuerpo.plataforma, 20),
+      paso: 'confirmar',
+      producto: texto(producto, 80),
+      resultado: 'error',
+      codigo: 'bd',
+      mensaje: texto(e.message, 500),
+    })
+
   // Bitácora primero: aunque RevenueCat no conteste, el paso queda escrito.
   const { error: errLog } = await admin.from('compras_log').insert({
     user_id: usuario.id,
@@ -118,6 +131,7 @@ Deno.serve(async (req) => {
     const error = await aplicarUnlock(admin, usuario.id, compras?.[0]?.store_transaction_id ?? null)
     if (error) {
       console.error('[confirmar-compra] unlock:', error)
+      await anotarFallo(producto, error)
       return json({ ok: false, error: 'bd' }, 500, cors)
     }
     unlock = true
@@ -138,6 +152,7 @@ Deno.serve(async (req) => {
     const error = await aplicarSuscripcion(admin, usuario.id, mejor.producto, mejor.expiraMs)
     if (error) {
       console.error('[confirmar-compra] suscripción:', error)
+      await anotarFallo(mejor.producto, error)
       return json({ ok: false, error: 'bd' }, 500, cors)
     }
     plan = 'pro'

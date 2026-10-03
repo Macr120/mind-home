@@ -27,7 +27,10 @@ import {
 /** Error de BD: se registra el detalle en el log del servidor, no en la respuesta. */
 function errorBd(e: unknown): Response {
   console.error('[rc-webhook] error de base de datos:', e)
-  return json({ error: 'bd' }, 500)
+  // El detalle viaja en la respuesta (solo la ve RevenueCat, ya autenticado):
+  // así un fallo se lee en el panel de RC sin depender de los logs de Supabase.
+  const detalle = (e as { message?: unknown } | null)?.message
+  return json({ error: 'bd', detalle: String(detalle ?? e).slice(0, 300) }, 500)
 }
 
 /**
@@ -68,6 +71,9 @@ Deno.serve(async (req) => {
     app_user_id?: unknown
     expiration_at_ms?: unknown
     product_id?: unknown
+    new_product_id?: unknown
+    original_transaction_id?: unknown
+    transaction_id?: unknown
   }
   let evento: EventoRC | undefined
   try {
@@ -110,11 +116,13 @@ Deno.serve(async (req) => {
   const tipo = String(evento.type)
   if (ACTIVAN.includes(tipo)) {
     // El nivel viaja en el product_id. PRODUCT_CHANGE (subir o bajar de nivel)
-    // entra por aquí, así que el mismo update lo actualiza.
+    // entra por aquí, pero en ese evento `product_id` es el producto VIEJO y el
+    // nuevo llega en `new_product_id`.
+    const producto = tipo === 'PRODUCT_CHANGE' && evento.new_product_id ? evento.new_product_id : evento.product_id
     const error = await aplicarSuscripcion(
       admin,
       uid,
-      String(evento.product_id ?? ''),
+      String(producto ?? ''),
       Number(evento.expiration_at_ms ?? 0),
     )
     if (error) return errorBd(error)

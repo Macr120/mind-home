@@ -116,6 +116,30 @@ async function recuperarCompra(productoId: string): Promise<boolean> {
   return false
 }
 
+/**
+ * Cambio de nivel en Google Play. En Play cada nivel es una suscripción
+ * distinta y, sin decirle cuál sustituye, comprar ×2 teniendo ×1 deja las DOS
+ * activas y cobrándose. En Apple no hace falta: los niveles comparten grupo y
+ * la tienda los sustituye sola. Play pide el id de la suscripción vieja SIN el
+ * plan base (`pro_x1_v2`, no `pro_x1_v2:mensual`).
+ */
+async function cambioEnPlay(paquete: PurchasesPackage): Promise<{ oldProductIdentifier: string } | null> {
+  if (nombrePlataforma() !== 'android' || !paquete.product.subscriptionPeriod) return null
+  const nueva = paquete.product.identifier.split(':')[0]
+  try {
+    const { customerInfo } = await plugin().getCustomerInfo()
+    // Solo las de Play (llevan `:plan`): el customerInfo es de todo el proyecto
+    // y una suscripción de la web o de Apple no se puede sustituir desde aquí.
+    const vieja = customerInfo.activeSubscriptions
+      .filter((id) => id.includes(':'))
+      .map((id) => id.split(':')[0])
+      .find((id) => id !== nueva)
+    return vieja ? { oldProductIdentifier: vieja } : null
+  } catch {
+    return null
+  }
+}
+
 export const cajaNativa: Caja = {
   disponible: () => !!clave(),
 
@@ -139,7 +163,7 @@ export const cajaNativa: Caja = {
     const paquete = ref as PurchasesPackage
     try {
       await preparar(userId)
-      await plugin().purchasePackage({ aPackage: paquete })
+      await plugin().purchasePackage({ aPackage: paquete, storeProductChangeInfo: await cambioEnPlay(paquete) })
     } catch (e) {
       if (cancelada(e)) throw new CompraCancelada()
       // Error 8, INVALID_RECEIPT («the purchased product was missing in the

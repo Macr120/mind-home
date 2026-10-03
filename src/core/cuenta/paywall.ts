@@ -370,6 +370,19 @@ export async function comprar(oferta: OfertaPro): Promise<boolean> {
  * `perfiles.nivel`, así que aquí se espera a ver el nivel nuevo.
  */
 export async function cambiarNivel(oferta: OfertaPro): Promise<boolean> {
+  // En la web (y el escritorio) comprar otro nivel abriría una SEGUNDA
+  // suscripción: ahí el cambio se hace en el portal del cliente, donde
+  // RevenueCat Billing tiene definidas las subidas (inmediatas, prorrateadas) y
+  // las bajadas (al final del ciclo). Si el plan viene de una tienda, el portal
+  // que devuelve RevenueCat es el de esa tienda, que es donde toca cambiarlo.
+  if (!esAppNativa() && useSesion.getState().plan === 'pro') {
+    const url = await urlGestion()
+    if (url) {
+      // Tras el await el navegador puede bloquear la ventana nueva: entonces se va en esta.
+      if (!window.open(url, '_blank')) window.location.href = url
+      throw new CompraCancelada()
+    }
+  }
   await pasarPorCaja(oferta)
   return aterrizar(oferta, () => useSesion.getState().nivel === oferta.nivel && useSesion.getState().plan === 'pro')
 }
