@@ -55,14 +55,15 @@ appx:
   # Copiada TAL CUAL de Partner Center → producto → Product identity: si no
   # coincide al carácter, la tienda rechaza el paquete. Store ID 9N893LFZHR0T
   # (https://apps.microsoft.com/detail/9N893LFZHR0T).
-  # La identidad y el nombre del editor NO cambian con el renombre a MindHaOS
+  # La identidad NO cambia con el renombre a MindHaOS
   # (17 sep 2026): son los de la cuenta de Partner Center, no los de la app. Lo
   # que sí hay que hacer antes de subir el paquete es RESERVAR el nombre
   # «MindHaOS» en Partner Center: el DisplayName del manifiesto (productName)
   # tiene que coincidir con un nombre reservado o la tienda lo rechaza.
   identityName: MindPlannerHome.MindPlannerHome
   publisher: CN=7F375BA0-7942-4F15-B517-65268E256FDE
-  publisherDisplayName: Mind Planner Home
+  # Igual al «Nombre del editor» de la cuenta (LABX3 desde el 2-oct-2026).
+  publisherDisplayName: LABX3
   # Los 16 de `src/core/i18n/idiomas.ts`. Van aquí porque **Partner Center saca
   # del PAQUETE los idiomas de la ficha**: sin declararlos, la tienda daría MPH
   # por monolingüe. El primero es el de reserva.
