@@ -78,6 +78,8 @@ const ECO_ESTADO = 1500
  */
 const REENVIO = 1500
 const REENVIOS = 2
+/** Reintentos de abrir o sentarse: cubren los segundos que tarda en suscribirse el canal. */
+const REENVIOS_ASIENTO = 6
 
 const JUEGOS = new Map<JuegoMesa, JuegoMesaDef<unknown, unknown>>()
 
@@ -314,20 +316,26 @@ function vigilarPendiente(): void {
   }, REENVIO)
 }
 
-/** ¿Ya se cumplió lo que pedí? Sentado a esta mesa, o fuera de ella. */
-function asientoCumplido(g: JuegoMesa, ac: 'sentar' | 'levantar', yo: Ranura): boolean {
+/** ¿Ya se cumplió lo que pedí? La mesa existe, sentado a ella, o fuera de ella. */
+function asientoCumplido(g: JuegoMesa, ac: 'abrir' | 'sentar' | 'levantar', yo: Ranura): boolean {
+  if (ac === 'abrir') return mesa?.g === g
   if (mesa?.g !== g) return ac === 'levantar'
   return (asientoDe(mesa, yo) !== null) === (ac === 'sentar')
 }
 
-/** Un solo reintento: la petición de asiento también se pierde por la subida. */
-function vigilarAsiento(g: JuegoMesa, ac: 'sentar' | 'levantar'): void {
+/**
+ * La petición de mesa o de asiento también se pierde por la subida, sobre todo
+ * la primera: quien llega por una invitación abre el juego en cuanto entra a la
+ * sala, antes de que su canal termine de suscribirse. Se repite hasta cumplirse.
+ */
+function vigilarAsiento(g: JuegoMesa, ac: 'abrir' | 'sentar' | 'levantar', quedan = REENVIOS_ASIENTO): void {
   if (asientoTimer) clearTimeout(asientoTimer)
   asientoTimer = setTimeout(() => {
     asientoTimer = null
     const yo = salaViva()?.miRanura
-    if (!yo || asientoCumplido(g, ac, yo)) return
+    if (!yo || asientoCumplido(g, ac, yo) || quedan <= 0) return
     emitir('sentar', { j: yo, g, ac })
+    vigilarAsiento(g, ac, quedan - 1)
   }, REENVIO)
 }
 
@@ -340,7 +348,7 @@ function accion(g: JuegoMesa, ac: 'abrir' | 'sentar' | 'levantar'): void {
     return
   }
   emitir('sentar', { j: yo, g, ac })
-  if (ac !== 'abrir') vigilarAsiento(g, ac)
+  vigilarAsiento(g, ac)
 }
 
 /** Hook para la UI del juego. Sin sala, `enLinea` es false y todo lo demás inerte. */
