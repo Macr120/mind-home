@@ -1,6 +1,6 @@
 /* Permisos que enseñan iOS y el Mac (el escritorio reusa estos mismos archivos). El original vive en Info.plist (inglés). */
 "NSCameraUsageDescription" = "Para ver o que está ao seu redor no chat AR e tirar fotos para os seus apps.";
-"NSMicrophoneUsageDescription" = "Para ditar para a sua casa e gravar voz ou instrumentos no estúdio de áudio.";
+"NSMicrophoneUsageDescription" = "Para ditar para a sua casa, gravar voz ou instrumentos no estúdio de áudio e conversar por voz com seus amigos enquanto jogam.";
 "NSPhotoLibraryUsageDescription" = "Para escolher fotos para as suas lembranças, os seus cômodos e o chat.";
 "NSLocationWhenInUseUsageDescription" = "Para mostrar a sua posição no mapa, guiar você em um trajeto e registrar os seus treinos ao ar livre.";
 "NSSpeechRecognitionUsageDescription" = "Para transformar em texto o que você dita.";

@@ -1,10 +1,10 @@
 import { contextoAudio, desbloquearAudio } from '../../core/audio/motor'
 import type { ProyectoAudio } from '../../core/data/db'
-import { leerTomaDeClip } from '../../core/data/repository'
-import { MAESTRO_DEFAULT } from './constantes'
+import { grabacionesAudioRepo, leerTomaDeClip } from '../../core/data/repository'
+import { MAESTRO_DEFAULT, MAX_SEG_CLIP } from './constantes'
 import { detectarBpm } from './detectorBpm'
 import { crearBusMaestro, type BusMaestro } from './efectos'
-import { renderizarBuffer } from './exportarWav'
+import { renderizarBuffer, wavDesdeBuffer } from './exportarWav'
 import { calcularPicos } from './grabadorClip'
 
 /**
@@ -35,6 +35,23 @@ interface CancionPlato {
   duracionSeg: number
   /** ~200 cubetas 0..1 para pintar la onda. */
   picos: number[]
+  /**
+   * Segundo del primer tiempo, si se conoce (render de un proyecto: sus notas
+   * arrancan a +0.05 s). Con él el auto-loop se alinea a la rejilla de tiempos;
+   * sin él (audio importado) arranca justo donde está la aguja.
+   */
+  faseSeg?: number
+}
+
+/**
+ * Bucle del plato en segundos del BUFFER (no de reloj: el pitch no lo mueve).
+ * `fin: null` = IN marcado esperando el OUT. Inactivo conserva la región para
+ * el «reloop».
+ */
+export interface LoopPlato {
+  inicio: number
+  fin: number | null
+  activo: boolean
 }
 
 export interface SnapshotPlato {
@@ -44,6 +61,7 @@ export interface SnapshotPlato {
   volumen: number
   eq: Record<BandaEq, number>
   cueSeg: number
+  loop: LoopPlato | null
 }
 
 export interface SnapshotMezclador {
@@ -51,6 +69,8 @@ export interface SnapshotMezclador {
   b: SnapshotPlato
   /** 0 = todo A · 1 = todo B. */
   crossfade: number
+  /** `performance.now()` del arranque de la grabación de la mezcla; null = sin grabar. */
+  grabandoDesde: number | null
 }
 
 export const RATE_MIN = 0.5
@@ -58,6 +78,8 @@ export const RATE_MAX = 1.5
 export const EQ_DB = 12
 /** Una vuelta del disco = 1.8 s de audio (33⅓ RPM, como un vinilo real). */
 export const SEG_POR_VUELTA = 1.8
+/** Bucle más corto que se admite (al partirlo a la mitad o con IN/OUT pegados). */
+export const LOOP_MIN_SEG = 0.05
 
 const VOL_DEFAULT = 0.9
 
@@ -73,6 +95,7 @@ interface Plato {
   volumen: number
   eq: Record<BandaEq, number>
   cueSeg: number
+  loop: LoopPlato | null
   // Nodos fijos del plato (nacen con `armarGrafo`, mueren con `liberar`).
   eqNodos: Record<BandaEq, BiquadFilterNode> | null
   gainVol: GainNode | null
@@ -93,6 +116,7 @@ const platoNuevo = (): Plato => ({
   volumen: VOL_DEFAULT,
   eq: { grave: 0, medio: 0, agudo: 0 },
   cueSeg: 0,
+  loop: null,
   eqNodos: null,
   gainVol: null,
   analyser: null,
@@ -104,6 +128,17 @@ const platoNuevo = (): Plato => ({
 const platos: Record<LadoPlato, Plato> = { a: platoNuevo(), b: platoNuevo() }
 let crossfade = 0.5
 let maestro: BusMaestro | null = null
+/** Ganancia unitaria entre el maestro y el destino: de aquí cuelga la grabación de la mezcla. */
+let salida: GainNode | null = null
+
+interface GrabacionMezcla {
+  desde: number
+  rec: MediaRecorder
+  destino: MediaStreamAudioDestinationNode
+  tope: number
+}
+/** La grabación de la mezcla en curso (ver `grabarMezcla`). */
+let grabacion: GrabacionMezcla | null = null
 let contadorCarga = 0
 /** La carga vigente de cada plato: otra en ESE plato (o `liberar`) la invalida; la del otro plato, no. */
 const cargaDe = new WeakMap<Plato, number>()
@@ -117,9 +152,15 @@ const snapshotPlato = (p: Plato): SnapshotPlato => ({
   volumen: p.volumen,
   eq: { ...p.eq },
   cueSeg: p.cueSeg,
+  loop: p.loop && { ...p.loop },
 })
 
-const construirSnapshot = (): SnapshotMezclador => ({ a: snapshotPlato(platos.a), b: snapshotPlato(platos.b), crossfade })
+const construirSnapshot = (): SnapshotMezclador => ({
+  a: snapshotPlato(platos.a),
+  b: snapshotPlato(platos.b),
+  crossfade,
+  grabandoDesde: grabacion?.desde ?? null,
+})
 
 let snapshot = construirSnapshot()
 const oyentes = new Set<() => void>()
@@ -141,32 +182,42 @@ export const mezcladorStore = {
 const ganCross = (lado: LadoPlato) => (lado === 'a' ? Math.cos((crossfade * Math.PI) / 2) : Math.sin((crossfade * Math.PI) / 2))
 
 /** Arma maestro + cadena de cada plato con los valores vigentes; idempotente. */
+/** Las 3 bandas del EQ encadenadas (grave → medio → agudo) con las ganancias dadas. */
+function crearEq(ctx: BaseAudioContext, eq: Record<BandaEq, number>): Record<BandaEq, BiquadFilterNode> {
+  const grave = ctx.createBiquadFilter()
+  grave.type = 'lowshelf'
+  grave.frequency.value = 200
+  const medio = ctx.createBiquadFilter()
+  medio.type = 'peaking'
+  medio.frequency.value = 1000
+  medio.Q.value = 0.8
+  const agudo = ctx.createBiquadFilter()
+  agudo.type = 'highshelf'
+  agudo.frequency.value = 4000
+  grave.gain.value = eq.grave
+  medio.gain.value = eq.medio
+  agudo.gain.value = eq.agudo
+  grave.connect(medio)
+  medio.connect(agudo)
+  return { grave, medio, agudo }
+}
+
 function armarGrafo(ctx: AudioContext) {
-  if (!maestro) maestro = crearBusMaestro(ctx, ctx.destination, MAESTRO_DEFAULT)
+  if (!maestro) {
+    salida = ctx.createGain()
+    salida.connect(ctx.destination)
+    maestro = crearBusMaestro(ctx, salida, MAESTRO_DEFAULT)
+  }
   for (const lado of ['a', 'b'] as const) {
     const p = platos[lado]
     if (p.eqNodos) continue
-    const grave = ctx.createBiquadFilter()
-    grave.type = 'lowshelf'
-    grave.frequency.value = 200
-    const medio = ctx.createBiquadFilter()
-    medio.type = 'peaking'
-    medio.frequency.value = 1000
-    medio.Q.value = 0.8
-    const agudo = ctx.createBiquadFilter()
-    agudo.type = 'highshelf'
-    agudo.frequency.value = 4000
-    grave.gain.value = p.eq.grave
-    medio.gain.value = p.eq.medio
-    agudo.gain.value = p.eq.agudo
+    const { grave, medio, agudo } = crearEq(ctx, p.eq)
     const gainVol = ctx.createGain()
     gainVol.gain.value = p.volumen
     const analyser = ctx.createAnalyser()
     analyser.fftSize = 256
     const gainCross = ctx.createGain()
     gainCross.gain.value = ganCross(lado)
-    grave.connect(medio)
-    medio.connect(agudo)
     agudo.connect(gainVol)
     gainVol.connect(analyser)
     analyser.connect(gainCross)
@@ -181,12 +232,33 @@ function armarGrafo(ctx: AudioContext) {
 
 // ─── Transporte ─────────────────────────────────────────────────────────────
 
+const loopCerrado = (l: LoopPlato | null): l is LoopPlato & { fin: number } => !!l?.activo && l.fin != null
+
+/** Una posición más allá del OUT del bucle activo, plegada dentro de él (como lo hace el source). */
+function plegar(l: LoopPlato | null, pos: number): number {
+  if (!loopCerrado(l) || pos < l.fin) return pos
+  return l.inicio + ((pos - l.inicio) % (l.fin - l.inicio))
+}
+
 export function posicionSeg(lado: LadoPlato): number {
   const p = platos[lado]
   const ctx = contextoAudio()
   const dur = p.cancion?.duracionSeg ?? 0
-  if (p.source && ctx) return Math.min(dur, p.posSeg + (ctx.currentTime - p.t0) * p.rate)
+  // El source arranca siempre ANTES del OUT (arrancarSource pliega): lo que
+  // pase del OUT es una vuelta del bucle nativo del nodo.
+  if (p.source && ctx) return Math.min(dur, plegar(p.loop, p.posSeg + (ctx.currentTime - p.t0) * p.rate))
   return Math.min(dur, p.posSeg)
+}
+
+/** Copia el bucle del plato al nodo (loopStart/loopEnd en segundos del buffer). */
+function cablearLoop(p: Plato, src: AudioBufferSourceNode) {
+  if (loopCerrado(p.loop)) {
+    src.loopStart = p.loop.inicio
+    src.loopEnd = p.loop.fin
+    src.loop = true
+  } else {
+    src.loop = false
+  }
 }
 
 /** Para el source SIN disparar el fin natural (limpia `onended` antes). */
@@ -210,6 +282,9 @@ function arrancarSource(lado: LadoPlato, desdeSeg: number) {
   const src = ctx.createBufferSource()
   src.buffer = p.buffer
   src.playbackRate.value = p.rate
+  // Con bucle activo, un arranque pasado el OUT entra plegado dentro del bucle.
+  desdeSeg = plegar(p.loop, desdeSeg)
+  cablearLoop(p, src)
   src.connect(p.eqNodos.grave)
   src.onended = () => {
     // Fin natural: el plato vuelve al cue, pausado (los stops manuales limpian onended).
@@ -253,7 +328,7 @@ export function cue(lado: LadoPlato): void {
   const p = platos[lado]
   if (!p.cancion) return
   if (p.estado === 'sonando') {
-    arrancarSource(lado, Math.min(p.cueSeg, p.cancion.duracionSeg))
+    buscar(lado, p.cueSeg)
   } else if (p.estado === 'pausado') {
     p.cueSeg = p.posSeg
     emitir()
@@ -264,8 +339,207 @@ export function buscar(lado: LadoPlato, seg: number): void {
   const p = platos[lado]
   if (!p.cancion) return
   const destino = Math.max(0, Math.min(p.cancion.duracionSeg, seg))
+  // Saltar fuera del bucle activo lo suelta (la región queda para el reloop).
+  if (loopCerrado(p.loop) && (destino < p.loop.inicio || destino >= p.loop.fin)) {
+    p.loop = { ...p.loop, activo: false }
+    if (p.source) cablearLoop(p, p.source)
+    emitir()
+  }
   if (p.estado === 'sonando') arrancarSource(lado, destino)
   else p.posSeg = destino
+}
+
+// ─── Bucles (auto por tiempos, IN/OUT manual, mitad/doble, guardar como clip) ─
+
+/**
+ * Cambia el bucle del plato sin que la aguja salte: consolida la posición con
+ * el bucle VIEJO y re-ancla; si la aguja quedó pasado el nuevo OUT, re-arranca
+ * el source plegado dentro (un `loopEnd` por detrás del cabezal no es fiable).
+ */
+function cambiarLoop(lado: LadoPlato, nuevo: LoopPlato | null) {
+  const p = platos[lado]
+  const ctx = contextoAudio()
+  const pos = posicionSeg(lado)
+  p.loop = nuevo
+  if (p.source && ctx) {
+    if (loopCerrado(nuevo) && pos >= nuevo.fin) arrancarSource(lado, pos)
+    else {
+      p.posSeg = pos
+      p.t0 = ctx.currentTime
+      cablearLoop(p, p.source)
+    }
+  } else {
+    p.posSeg = plegar(nuevo, pos)
+  }
+  emitir()
+}
+
+/** Duración de un tiempo (negra) en segundos del buffer. */
+const segPorTiempo = (c: CancionPlato) => 60 / c.bpm
+
+/**
+ * Auto-loop de `tiempos` tiempos desde el tiempo donde está la aguja (alineado
+ * a la rejilla si se conoce la fase). Pulsar el tamaño que ya está activo lo suelta.
+ */
+export function autoLoop(lado: LadoPlato, tiempos: number): void {
+  const p = platos[lado]
+  const c = p.cancion
+  if (!c) return
+  const largo = tiempos * segPorTiempo(c)
+  if (loopCerrado(p.loop) && Math.abs(p.loop.fin - p.loop.inicio - largo) < 1e-3) return salirLoop(lado)
+  const pos = posicionSeg(lado)
+  let inicio = pos
+  if (c.faseSeg != null) {
+    const rejilla = Math.min(1, tiempos) * segPorTiempo(c)
+    inicio = c.faseSeg + Math.floor((pos - c.faseSeg + 1e-6) / rejilla) * rejilla
+    if (inicio < 0) inicio += rejilla // aguja antes del primer tiempo: el bucle arranca en él
+  }
+  const fin = Math.min(c.duracionSeg, inicio + largo)
+  if (fin - inicio < LOOP_MIN_SEG) return
+  cambiarLoop(lado, { inicio, fin, activo: true })
+}
+
+/** IN: marca el arranque del bucle manual donde está la aguja (suelta el que hubiera). */
+export function loopIn(lado: LadoPlato): void {
+  if (!platos[lado].cancion) return
+  cambiarLoop(lado, { inicio: posicionSeg(lado), fin: null, activo: false })
+}
+
+/** OUT: cierra el bucle manual en la aguja y vuelve al IN (como un DJ). */
+export function loopOut(lado: LadoPlato): void {
+  const p = platos[lado]
+  const pos = posicionSeg(lado)
+  if (!p.cancion || !p.loop || pos - p.loop.inicio < LOOP_MIN_SEG) return
+  cambiarLoop(lado, { inicio: p.loop.inicio, fin: pos, activo: true })
+}
+
+/** Mitad (f = 0.5) o doble (f = 2) del bucle, anclado en su IN. */
+export function escalarLoop(lado: LadoPlato, f: number): void {
+  const p = platos[lado]
+  const l = p.loop
+  if (!p.cancion || !l || l.fin == null) return
+  const fin = Math.min(p.cancion.duracionSeg, l.inicio + (l.fin - l.inicio) * f)
+  if (fin - l.inicio < LOOP_MIN_SEG || fin === l.fin) return
+  cambiarLoop(lado, { ...l, fin })
+}
+
+/** Sale del bucle (la canción sigue de largo); la región se queda para el reloop. */
+export function salirLoop(lado: LadoPlato): void {
+  const l = platos[lado].loop
+  if (l?.activo) cambiarLoop(lado, { ...l, activo: false })
+}
+
+/** Re-entra al último bucle cerrado; si la aguja está fuera, salta a su IN. */
+export function reloop(lado: LadoPlato): void {
+  const p = platos[lado]
+  const l = p.loop
+  if (!p.cancion || !l || l.fin == null || l.activo) return
+  const pos = posicionSeg(lado)
+  const dentro = pos >= l.inicio && pos < l.fin
+  cambiarLoop(lado, { ...l, activo: true })
+  if (!dentro) buscar(lado, l.inicio)
+}
+
+/**
+ * Renderiza EXACTAMENTE el tramo del bucle tal como suena en el plato (pitch y
+ * EQ; sin volumen ni crossfader) y lo guarda en Grabaciones como WAV: un loop
+ * sin cortes listo para las pistas de audio. Devuelve el id de la fila.
+ */
+export async function guardarLoopComoClip(lado: LadoPlato, nombre: string): Promise<number | null> {
+  const p = platos[lado]
+  const l = p.loop
+  if (!p.buffer || !l || l.fin == null) return null
+  const largo = l.fin - l.inicio
+  const durSalida = largo / p.rate
+  if (durSalida > MAX_SEG_CLIP) return null
+  const sr = p.buffer.sampleRate
+  const off = new OfflineAudioContext(Math.min(2, p.buffer.numberOfChannels), Math.max(1, Math.round(durSalida * sr)), sr)
+  const src = off.createBufferSource()
+  src.buffer = p.buffer
+  src.playbackRate.value = p.rate
+  const eq = crearEq(off, p.eq)
+  src.connect(eq.grave)
+  eq.agudo.connect(off.destination)
+  src.start(0, l.inicio, largo)
+  const buffer = await off.startRendering()
+  return grabacionesAudioRepo.add({
+    nombre,
+    blob: wavDesdeBuffer(buffer),
+    duracionSeg: buffer.duration,
+    picos: calcularPicos(buffer, 0),
+    creadoEn: new Date().toISOString(),
+  })
+}
+
+// ─── Grabar la mezcla (salida maestra → Grabaciones) ────────────────────────
+
+/**
+ * Graba lo que suena (ambos platos tras EQ, volumen, crossfader y limitador)
+ * con MediaRecorder sobre un tap de la salida: opus pesa ~1/20 de un WAV y la
+ * fila puede subir a la nube. Resuelve al terminar —por el botón, el tope
+ * `MAX_SEG_CLIP`, la pestaña oculta o `liberar`— con la fila guardada (o null
+ * si salió vacía).
+ */
+export function grabarMezcla(nombre: string): Promise<{ id: number; duracionSeg: number } | null> {
+  if (grabacion) return Promise.resolve(null)
+  desbloquearAudio()
+  const ctx = contextoAudio()
+  if (!ctx || typeof MediaRecorder === 'undefined') return Promise.resolve(null)
+  armarGrafo(ctx)
+  if (!salida) return Promise.resolve(null)
+  const destino = ctx.createMediaStreamDestination()
+  salida.connect(destino)
+  const rec = new MediaRecorder(destino.stream)
+  const trozos: Blob[] = []
+  rec.ondataavailable = (ev) => {
+    if (ev.data.size > 0) trozos.push(ev.data)
+  }
+  const procesar = async () => {
+    const blob = new Blob(trozos, { type: rec.mimeType || 'audio/webm' })
+    if (blob.size === 0) return null
+    // Duración real por decode: los webm de MediaRecorder la traen mal.
+    const buffer = await ctx.decodeAudioData(await blob.arrayBuffer())
+    if (buffer.duration < 0.2) return null
+    const id = await grabacionesAudioRepo.add({
+      nombre,
+      blob,
+      duracionSeg: buffer.duration,
+      picos: calcularPicos(buffer, 0),
+      creadoEn: new Date().toISOString(),
+    })
+    return { id, duracionSeg: buffer.duration }
+  }
+  const fin = new Promise<{ id: number; duracionSeg: number } | null>((resolver) => {
+    rec.onstop = () => {
+      destino.stream.getTracks().forEach((tr) => tr.stop())
+      procesar()
+        .catch(() => null)
+        .then(resolver)
+    }
+  })
+  grabacion = {
+    desde: performance.now(),
+    rec,
+    destino,
+    tope: window.setTimeout(pararGrabacionMezcla, MAX_SEG_CLIP * 1000),
+  }
+  rec.start()
+  emitir()
+  return fin
+}
+
+export function pararGrabacionMezcla(): void {
+  const g = grabacion
+  if (!g) return
+  grabacion = null
+  window.clearTimeout(g.tope)
+  if (g.rec.state !== 'inactive') g.rec.stop()
+  try {
+    salida?.disconnect(g.destino)
+  } catch {
+    // el grafo ya se había soltado
+  }
+  emitir()
 }
 
 // ─── Ajustes (preview imperativo + commit que emite, patrón Knob) ───────────
@@ -277,7 +551,7 @@ function aplicarRate(lado: LadoPlato, r: number) {
   const ctx = contextoAudio()
   if (p.source && ctx) {
     // Consolidar con el rate viejo y re-anclar ANTES de tocar el nodo (si no, la aguja salta).
-    p.posSeg = p.posSeg + (ctx.currentTime - p.t0) * p.rate
+    p.posSeg = posicionSeg(lado) // ya plegada dentro del bucle, si lo hay
     p.t0 = ctx.currentTime
     p.source.playbackRate.value = nuevo
   }
@@ -456,19 +730,27 @@ function prepararCarga(p: Plato): number {
   p.cancion = null
   p.posSeg = 0
   p.cueSeg = 0
+  p.loop = null
   p.estado = 'cargando'
   emitir()
   return miCarga
 }
 
 /** Pone el buffer listo en el plato (si la carga sigue vigente) → `pausado` en 0. */
-function ponerBuffer(lado: LadoPlato, miCarga: number, buffer: AudioBuffer, titulo: string, bpm: number): boolean {
+function ponerBuffer(
+  lado: LadoPlato,
+  miCarga: number,
+  buffer: AudioBuffer,
+  titulo: string,
+  bpm: number,
+  faseSeg?: number,
+): boolean {
   if (cargaDe.get(platos[lado]) !== miCarga) return false // eligieron otra canción en este plato (o liberaron) mientras tanto
   const ctx = contextoAudio()
   if (ctx) armarGrafo(ctx)
   const p = platos[lado]
   p.buffer = buffer
-  p.cancion = { titulo, bpm, duracionSeg: buffer.duration, picos: calcularPicos(buffer, 0) }
+  p.cancion = { titulo, bpm, duracionSeg: buffer.duration, picos: calcularPicos(buffer, 0), faseSeg }
   p.estado = 'pausado'
   emitir()
   return true
@@ -490,7 +772,7 @@ export async function cargarCancion(lado: LadoPlato, proyecto: ProyectoAudio, ti
     if (!ctx) throw new Error('sin-audio')
     const clips = await buffersDeClipsProyecto(ctx, proyecto)
     const buffer = await renderizarBuffer(proyecto, clips)
-    ponerBuffer(lado, miCarga, buffer, titulo, proyecto.bpm)
+    ponerBuffer(lado, miCarga, buffer, titulo, proyecto.bpm, 0.05) // renderizarBuffer arranca las notas a +0.05 s
   } catch (e) {
     cargaFallida(p, miCarga)
     throw e
@@ -535,12 +817,14 @@ export function quitarCancion(lado: LadoPlato): void {
   p.cancion = null
   p.posSeg = 0
   p.cueSeg = 0
+  p.loop = null
   p.estado = 'vacio'
   emitir()
 }
 
 /** Suelta TODO (buffers, grafo) y vuelve a los valores de fábrica; al salir de la vista. */
 export function liberar(): void {
+  pararGrabacionMezcla() // lo grabado hasta aquí se guarda igual
   contadorCarga++
   for (const lado of ['a', 'b'] as const) {
     const p = platos[lado]
@@ -555,6 +839,8 @@ export function liberar(): void {
   }
   maestro?.desconectar()
   maestro = null
+  salida?.disconnect()
+  salida = null
   crossfade = 0.5
   emitir()
 }
@@ -562,6 +848,7 @@ export function liberar(): void {
 // Con la pestaña oculta los platos se pausan (como el DAW: nada suena en background).
 document.addEventListener('visibilitychange', () => {
   if (!document.hidden) return
+  pararGrabacionMezcla()
   for (const lado of ['a', 'b'] as const) {
     terminarScratch(lado)
     pausar(lado)

@@ -307,6 +307,44 @@ export interface MsgJugada extends Sobre {
   m: unknown
 }
 
+// ─── Charla y voz de la sala ─────────────────────────────────────────────────
+
+/**
+ * Mensaje de texto de la sala. Efímero: no se guarda en ningún sitio. `n` es un
+ * id aleatorio del emisor (dedup por `j:n`), no un contador: sobrevive a que
+ * quien lo manda recargue la pestaña.
+ */
+export interface MsgCharla extends Sobre {
+  j: Ranura
+  n: number
+  tx: string
+}
+
+/**
+ * Presencia en la voz en vivo. `entra` también es el latido y el aviso de
+ * micro silenciado (`mu`); `re` marca una respuesta, que no se contesta (así
+ * dos que se presentan no rebotan para siempre).
+ */
+export interface MsgVoz extends Sobre {
+  j: Ranura
+  ac: 'entra' | 'sale'
+  mu: 0 | 1
+  re?: 1
+}
+
+/**
+ * Señalización WebRTC dirigida a UN jugador (`a`). Sin trickle: el SDP viaja
+ * con todos sus candidatos ICE ya reunidos. `s` identifica la conexión que
+ * abrió quien ofrece; una respuesta con otro `s` es de un intento viejo.
+ */
+export interface MsgSenal extends Sobre {
+  j: Ranura
+  a: Ranura
+  k: 'oferta' | 'respuesta'
+  s: number
+  sd: string
+}
+
 // ─── Sala ────────────────────────────────────────────────────────────────────
 
 export type JuegoPartida = 'visita' | 'paintball' | 'futbol' | 'tenis' | 'basquet'

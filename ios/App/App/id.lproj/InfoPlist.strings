@@ -1,6 +1,6 @@
 /* Permisos que enseñan iOS y el Mac (el escritorio reusa estos mismos archivos). El original vive en Info.plist (inglés). */
 "NSCameraUsageDescription" = "Untuk melihat sekitarmu di obrolan AR dan mengambil foto untuk aplikasimu.";
-"NSMicrophoneUsageDescription" = "Untuk mendikte ke rumahmu dan merekam suara atau alat musik di studio audio.";
+"NSMicrophoneUsageDescription" = "Untuk mendikte ke rumahmu, merekam suara atau alat musik di studio audio, dan mengobrol suara dengan teman saat bermain bersama.";
 "NSPhotoLibraryUsageDescription" = "Untuk memilih foto bagi kenanganmu, kamarmu, dan obrolan.";
 "NSLocationWhenInUseUsageDescription" = "Untuk menampilkan posisimu di peta, memandumu di sepanjang rute, dan mencatat latihan luar ruanganmu.";
 "NSSpeechRecognitionUsageDescription" = "Untuk mengubah apa yang kamu diktekan menjadi teks.";

@@ -2,13 +2,13 @@ import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import type { ProyectoAudio } from '../../core/data/db'
 import { musicaImportadaRepo } from '../../core/data/repository'
 import { claveLS } from '../../core/edicion'
-import { tGlobal, useT } from '../../core/i18n/useT'
+import { localeActual, tGlobal, useT } from '../../core/i18n/useT'
 import { confirmar } from '../../core/state/confirmarStore'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { BotonSecundario, Spinner, TARJETA, Vacio } from '../_shared/ui'
 import { proyectoDeSemilla } from './Albumes'
 import { SEMILLAS_CANCIONES } from './canciones'
-import { COLOR } from './constantes'
+import { COLOR, MAX_SEG_CLIP } from './constantes'
 import { Knob } from './Knob'
 import * as mezclador from './platos'
 import { EQ_DB, RATE_MAX, RATE_MIN, SEG_POR_VUELTA, type LadoPlato, type SnapshotPlato } from './platos'
@@ -34,6 +34,11 @@ const DOM: Record<LadoPlato, DomPlato> = {
   a: { disco: null, aguja: null, tiempo: null, vu: null },
   b: { disco: null, aguja: null, tiempo: null, vu: null },
 }
+/** El reloj de la grabación de la mezcla (también lo mueve el rAF). */
+const DOM_REC: { reloj: HTMLElement | null } = { reloj: null }
+
+/** Tamaños de auto-loop, en tiempos. */
+const TIEMPOS_LOOP = [0.5, 1, 2, 4, 8]
 
 const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`
 
@@ -91,6 +96,7 @@ export function Mezclador() {
     let raf = 0
     const tick = () => {
       const s = mezclador.mezcladorStore.getSnapshot()
+      if (s.grabandoDesde != null && DOM_REC.reloj) DOM_REC.reloj.textContent = fmt((performance.now() - s.grabandoDesde) / 1000)
       for (const lado of ['a', 'b'] as const) {
         const n = DOM[lado]
         const c = s[lado].cancion
@@ -155,6 +161,9 @@ export function Mezclador() {
         </div>
         <div className="order-2 sm:order-3 sm:col-span-2">
           <Crossfader valor={snap.crossfade} />
+        </div>
+        <div className="order-4 sm:col-span-2">
+          <GrabarMezcla grabandoDesde={snap.grabandoDesde} />
         </div>
       </div>
       {selector != null && (
@@ -297,6 +306,8 @@ function Plato({ lado, plato, onCargar }: { lado: LadoPlato; plato: SnapshotPlat
         </div>
       </div>
 
+      <ControlesLoop lado={lado} plato={plato} />
+
       <div className="flex items-start justify-around gap-1">
         {(['grave', 'medio', 'agudo'] as const).map((banda) => (
           <Knob
@@ -317,6 +328,184 @@ function Plato({ lado, plato, onCargar }: { lado: LadoPlato; plato: SnapshotPlat
             onCommit={(v) => mezclador.fijarEq(lado, banda, v)}
           />
         ))}
+      </div>
+    </div>
+  )
+}
+
+// ─── Bucles del plato ───────────────────────────────────────────────────────
+
+const CHIP = 'ui-boton rounded-md px-2 py-1 text-[10px] font-bold tabular-nums transition disabled:opacity-35'
+const CHIP_OFF = 'bg-white/10 hover:bg-white/15'
+
+function ControlesLoop({ lado, plato }: { lado: LadoPlato; plato: SnapshotPlato }) {
+  const t = useT()
+  const [aviso, setAviso] = useState('')
+  const [guardando, setGuardando] = useState(false)
+  const c = plato.cancion!
+  const l = plato.loop
+  const largo = l?.fin != null ? l.fin - l.inicio : 0
+  // Tiempos del bucle (con la base del plato: el pitch no cambia cuántos tiempos caben).
+  const tiempos = Math.round(((largo * c.bpm) / 60) * 100) / 100
+  const cerrado = l?.fin != null
+  const fmtTiempos = (n: number) => (n === 0.5 ? '½' : n === 0.25 ? '¼' : String(n))
+
+  const guardar = async () => {
+    if (!cerrado || guardando) return
+    setGuardando(true)
+    try {
+      const nombre = t('audio.mezclar.nombreLoop', 'Loop {n} tiempos · {cancion}', { n: fmtTiempos(tiempos), cancion: c.titulo })
+      const id = await mezclador.guardarLoopComoClip(lado, nombre)
+      setAviso(id == null ? '' : t('audio.mezclar.guardadoEn', 'Guardado en Grabaciones: «{nombre}»', { nombre }))
+      window.setTimeout(() => setAviso(''), 4000)
+    } finally {
+      setGuardando(false)
+    }
+  }
+
+  return (
+    <div className="space-y-1.5">
+      <div className="flex flex-wrap items-center gap-1">
+        <span className="mr-0.5 text-[10px] font-semibold text-white/50">{t('audio.mezclar.loop', 'Loop')}</span>
+        {TIEMPOS_LOOP.map((n) => {
+          const activo = !!l?.activo && cerrado && Math.abs(largo - (n * 60) / c.bpm) < 1e-3
+          return (
+            <button
+              key={n}
+              type="button"
+              onClick={() => mezclador.autoLoop(lado, n)}
+              aria-pressed={activo}
+              aria-label={t('audio.mezclar.autoLoop', 'Loop de {n} tiempos', { n: fmtTiempos(n) })}
+              title={t('audio.mezclar.autoLoop', 'Loop de {n} tiempos', { n: fmtTiempos(n) })}
+              className={`${CHIP} min-w-7 ${activo ? 'ui-accent-bg' : CHIP_OFF}`}
+            >
+              {fmtTiempos(n)}
+            </button>
+          )
+        })}
+      </div>
+      <div className="flex flex-wrap items-center gap-1">
+        <button
+          type="button"
+          onClick={() => mezclador.loopIn(lado)}
+          title={t('audio.mezclar.loopIn', 'Marcar el inicio del loop')}
+          className={`${CHIP} ${l && l.fin == null ? 'bg-green-500/30 text-green-300' : CHIP_OFF}`}
+        >
+          {t('audio.mezclar.in', 'IN')}
+        </button>
+        <button
+          type="button"
+          onClick={() => mezclador.loopOut(lado)}
+          disabled={!l}
+          title={t('audio.mezclar.loopOut', 'Cerrar el loop aquí')}
+          className={`${CHIP} ${CHIP_OFF}`}
+        >
+          {t('audio.mezclar.out', 'OUT')}
+        </button>
+        <button
+          type="button"
+          onClick={() => mezclador.escalarLoop(lado, 0.5)}
+          disabled={!cerrado}
+          aria-label={t('audio.mezclar.loopMitad', 'Loop a la mitad')}
+          title={t('audio.mezclar.loopMitad', 'Loop a la mitad')}
+          className={`${CHIP} ${CHIP_OFF}`}
+        >
+          ÷2
+        </button>
+        <button
+          type="button"
+          onClick={() => mezclador.escalarLoop(lado, 2)}
+          disabled={!cerrado}
+          aria-label={t('audio.mezclar.loopDoble', 'Loop al doble')}
+          title={t('audio.mezclar.loopDoble', 'Loop al doble')}
+          className={`${CHIP} ${CHIP_OFF}`}
+        >
+          ×2
+        </button>
+        <button
+          type="button"
+          onClick={() => (l?.activo ? mezclador.salirLoop(lado) : mezclador.reloop(lado))}
+          disabled={!cerrado}
+          aria-pressed={!!l?.activo}
+          title={l?.activo ? t('audio.mezclar.salirLoop', 'Salir del loop') : t('audio.mezclar.reloop', 'Volver al loop')}
+          className={`${CHIP} flex items-center gap-1 ${l?.activo ? 'bg-green-500/30 text-green-300' : CHIP_OFF}`}
+        >
+          <Icono nombre="repetir" />
+          {l?.activo ? t('audio.mezclar.salir', 'Salir') : t('audio.mezclar.reloopCorto', 'Reloop')}
+        </button>
+        <button
+          type="button"
+          onClick={() => void guardar()}
+          disabled={!cerrado || guardando || largo / plato.rate > MAX_SEG_CLIP}
+          title={t('audio.mezclar.guardarLoop', 'Guardar el loop como clip (en Grabaciones)')}
+          className={`${CHIP} ${CHIP_OFF} ml-auto flex items-center gap-1`}
+        >
+          <Icono nombre="guardar" />
+          {t('audio.mezclar.clip', 'Clip')}
+        </button>
+      </div>
+      {aviso && <p className="truncate text-[10px] text-green-300">{aviso}</p>}
+    </div>
+  )
+}
+
+// ─── Grabar la mezcla ───────────────────────────────────────────────────────
+
+function GrabarMezcla({ grabandoDesde }: { grabandoDesde: number | null }) {
+  const t = useT()
+  const [aviso, setAviso] = useState('')
+  const grabando = grabandoDesde != null
+
+  const alternar = () => {
+    if (grabando) return mezclador.pararGrabacionMezcla()
+    setAviso('')
+    const fecha = new Date().toLocaleString(localeActual(), { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })
+    const nombre = t('audio.mezclar.nombreMezcla', 'Mezcla {fecha}', { fecha })
+    void mezclador.grabarMezcla(nombre).then((res) => {
+      setAviso(
+        res
+          ? t('audio.mezclar.guardadoEn', 'Guardado en Grabaciones: «{nombre}»', { nombre })
+          : t('audio.mezclar.grabVacia', 'La grabación salió vacía.'),
+      )
+    })
+  }
+
+  return (
+    <div className={`${TARJETA} flex items-center gap-3 !p-3`}>
+      <button
+        type="button"
+        onClick={alternar}
+        aria-pressed={grabando}
+        aria-label={grabando ? t('audio.mezclar.pararGrab', 'Parar y guardar') : t('audio.mezclar.grabar', 'Grabar la mezcla')}
+        title={grabando ? t('audio.mezclar.pararGrab', 'Parar y guardar') : t('audio.mezclar.grabar', 'Grabar la mezcla')}
+        className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg border transition active:scale-90 ${
+          grabando ? 'animate-pulse border-red-400/60 bg-red-500/30 text-red-300' : 'border-white/10 bg-white/10 text-red-400 hover:bg-white/20'
+        }`}
+      >
+        <Icono nombre={grabando ? 'detener' : 'grabar'} />
+      </button>
+      <div className="min-w-0 flex-1">
+        <p className="text-xs font-semibold">
+          {grabando ? (
+            <>
+              {t('audio.mezclar.grabando', 'Grabando la mezcla')} ·{' '}
+              <span
+                className="tabular-nums text-red-300"
+                ref={(el) => {
+                  DOM_REC.reloj = el
+                }}
+              >
+                0:00
+              </span>{' '}
+              / {fmt(MAX_SEG_CLIP)}
+            </>
+          ) : (
+            t('audio.mezclar.grabar', 'Grabar la mezcla')
+          )}
+        </p>
+        <p className="truncate text-[10px] text-white/45">
+          {aviso || t('audio.mezclar.grabarSub', 'Lo que suena se guarda como clip en Grabaciones, listo para tus canciones.')}
+        </p>
       </div>
     </div>
   )
@@ -365,6 +554,19 @@ function Onda({ lado, plato }: { lado: LadoPlato; plato: SnapshotPlato }) {
           />
         ))}
       </svg>
+      {plato.loop && (
+        // Región del bucle: llena si está activo, tenue si quedó para el reloop; sin OUT, solo la raya del IN.
+        <div
+          aria-hidden
+          className={`absolute inset-y-0 border-l-2 border-green-400 ${
+            plato.loop.fin == null ? '' : plato.loop.activo ? 'border-r-2 bg-green-400/25' : 'border-r-2 border-dashed bg-green-400/10'
+          }`}
+          style={{
+            left: `${(plato.loop.inicio / c.duracionSeg) * 100}%`,
+            width: plato.loop.fin == null ? 0 : `${((plato.loop.fin - plato.loop.inicio) / c.duracionSeg) * 100}%`,
+          }}
+        />
+      )}
       {plato.cueSeg > 0 && (
         <div
           className="absolute inset-y-0 w-0.5 bg-amber-300/80"

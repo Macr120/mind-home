@@ -13,6 +13,7 @@ import type {
   MsgAccion,
   MsgAspecto,
   MsgB,
+  MsgCharla,
   MsgPartido,
   MsgDisparo,
   MsgFin,
@@ -26,9 +27,11 @@ import type {
   MsgS,
   MsgSala,
   MsgSalir,
+  MsgSenal,
   MsgSentar,
   MsgVeredicto,
   MsgVuelo,
+  MsgVoz,
   MsgW,
   Pose,
   PoseCuerpo,
@@ -59,6 +62,9 @@ export type Evento =
   | 'jugada'
   | 'partido'
   | 'accion'
+  | 'charla'
+  | 'voz'
+  | 'senal'
 
 export interface PayloadPorEvento {
   s: MsgS
@@ -81,6 +87,9 @@ export interface PayloadPorEvento {
   jugada: MsgJugada
   partido: MsgPartido
   accion: MsgAccion
+  charla: MsgCharla
+  voz: MsgVoz
+  senal: MsgSenal
 }
 
 export type PayloadDe<E extends Evento> = PayloadPorEvento[E]
@@ -156,6 +165,10 @@ const MESA_JUGADA = 4 * 1024
 /** Jugadas de una mesa: con 100 000 se acaba antes la paciencia que el contador. */
 const MESA_N_MAX = 1e5
 const MESA_HONDURA = 8
+
+/** Charla de la sala: un mensaje de texto y una descripción de sesión WebRTC. */
+const CHARLA_TX = 500
+const SENAL_SD = 16 * 1024
 
 let invalidosN = 0
 
@@ -506,6 +519,29 @@ function armar(ev: Evento, o: Record<string, unknown>, t: number, seq: number, d
       const ch = num(o.ch, -CHANFLE_MAX, CHANFLE_MAX)
       if (fu === null || ch === null) return null
       return { v: VERSION_PROTO, t, seq, j: o.j, q: o.q, fu, ch, dx, dz }
+    }
+    case 'charla':
+    case 'voz':
+    case 'senal': {
+      // Broadcast no firma: por la bajada solo habla el anfitrión (`j0`) y por
+      // la subida nadie puede hacerse pasar por él.
+      if (!esRanura(o.j) || (direccion === 'bajada') !== (o.j === 'j0')) return null
+      if (ev === 'charla') {
+        const n = num(o.n, 0, Number.MAX_SAFE_INTEGER)
+        const tx = texto(o.tx, CHARLA_TX)
+        if (n === null || tx === null || tx.trim() === '') return null
+        return { v: VERSION_PROTO, t, j: o.j, n, tx }
+      }
+      if (ev === 'voz') {
+        if ((o.ac !== 'entra' && o.ac !== 'sale') || (o.mu !== 0 && o.mu !== 1)) return null
+        if (o.re !== undefined && o.re !== 1) return null
+        return { v: VERSION_PROTO, t, j: o.j, ac: o.ac, mu: o.mu, ...(o.re === 1 ? { re: 1 } : {}) }
+      }
+      const s = num(o.s, 0, Number.MAX_SAFE_INTEGER)
+      const sd = texto(o.sd, SENAL_SD)
+      if (!esRanura(o.a) || o.a === o.j || s === null || sd === null || sd === '') return null
+      if (o.k !== 'oferta' && o.k !== 'respuesta') return null
+      return { v: VERSION_PROTO, t, j: o.j, a: o.a, k: o.k, s, sd }
     }
     case 'b': {
       const bx = num(o.bx, -CANCHA, CANCHA)

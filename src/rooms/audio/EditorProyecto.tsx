@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import type { ClipAudio, NotaAudio, PistaAudio, ProyectoAudio } from '../../core/data/db'
+import type { ClipAudio, GrabacionAudio, NotaAudio, PistaAudio, ProyectoAudio } from '../../core/data/db'
 import { buscarTomaDeClip, proyectosAudioRepo } from '../../core/data/repository'
 import { descargarArchivo } from '../../core/descargarArchivo'
 import * as apiEspacios from '../../core/espacios/api'
@@ -36,6 +36,7 @@ import { OP_CONTINUAR, OP_GENERAR } from './costosIA'
 import { renderizarWav } from './exportarWav'
 import { crearGrabacion, fusionarNotas, type Grabacion } from './grabacion'
 import { iniciarTomaAudio, type TomaAudio } from './grabadorClip'
+import { ElegirGrabacion } from './ElegirGrabacion'
 import { generarNotas, continuarNotas } from './ia'
 import { conectarMidi, haySoporteMidi, listarEntradas, suscribirNotas } from './midi'
 import * as motor from './motor'
@@ -113,6 +114,7 @@ export function EditorProyecto({
   const [iaOcupado, setIaOcupado] = useState(false)
   const [iaError, setIaError] = useState('')
   const [iaAplicada, setIaAplicada] = useState<NotaAudio[] | null>(null)
+  const [elegirGrab, setElegirGrab] = useState(false)
 
   const grabacionRef = useRef<Grabacion | null>(null)
   // Con la vista cascada abierta, TODA la entrada (teclado, QWERTY, MIDI) se
@@ -834,6 +836,35 @@ export function EditorProyecto({
     const idPista = pista.pistaId
     mutar((p) => ({ ...p, pistas: p.pistas.map((x) => (x.pistaId === idPista ? { ...x, clips } : x)) }))
   }
+  /** Mete una grabación existente en la pista de audio activa desde el marcador, `veces` seguidas. */
+  const insertarGrabacion = (g: GrabacionAudio, veces: number) => {
+    setElegirGrab(false)
+    if (g.id == null) return
+    const idPista = pista.pistaId
+    const grabacionId = g.id
+    picosClips.set(grabacionId, g.picos ?? [])
+    mutar((p) => {
+      const spb = segPorPaso(p.bpm)
+      const actual = p.pistas.find((x) => x.pistaId === idPista)
+      const n = Math.min(veces, MAX_CLIPS_POR_PISTA - (actual?.clips?.length ?? 0))
+      if (n <= 0) return p
+      const nuevos: ClipAudio[] = Array.from({ length: n }, (_, k) => ({
+        clipId: nuevoClipId(),
+        grabacionId,
+        sello: g.creadoEn,
+        inicio: posInicio + (k * g.duracionSeg) / spb,
+        duracionSeg: g.duracionSeg,
+        recorteSeg: 0,
+        nombre: g.nombre,
+      }))
+      const finPaso = posInicio + (n * g.duracionSeg) / spb
+      return {
+        ...p,
+        compases: Math.max(p.compases, Math.min(MAX_COMPASES, Math.ceil(finPaso / PASOS_POR_COMPAS))),
+        pistas: p.pistas.map((x) => (x.pistaId === idPista ? { ...x, clips: [...(x.clips ?? []), ...nuevos] } : x)),
+      }
+    })
+  }
   const velToque = esInstrumentoBateria(pista.instrumento) ? fuerza : 100
 
   // Un clip cuya toma no está en este dispositivo (llegó compartida): el roll ya
@@ -990,10 +1021,18 @@ export function EditorProyecto({
         <PanelClips
           bloqueado={sinTurno}
           pista={pista}
+          onAgregarGrabacion={() => setElegirGrab(true)}
           onFx={(fx) => {
             const idPista = pista.pistaId
             mutar((p) => ({ ...p, pistas: p.pistas.map((x) => (x.pistaId === idPista ? { ...x, efectos: fx } : x)) }))
           }}
+        />
+      )}
+      {elegirGrab && pista.tipo === 'audio' && (
+        <ElegirGrabacion
+          libres={MAX_CLIPS_POR_PISTA - (pista.clips?.length ?? 0)}
+          onElegir={insertarGrabacion}
+          onCerrar={() => setElegirGrab(false)}
         />
       )}
       {pista.tipo !== 'audio' && (

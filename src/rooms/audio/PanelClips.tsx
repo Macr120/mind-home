@@ -1,6 +1,7 @@
 import type { EfectosPista, PistaAudio } from '../../core/data/db'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { BotonSecundario } from '../_shared/ui'
 import { FX_DEFAULT } from './constantes'
 import { Knob } from './Knob'
 import * as motor from './motor'
@@ -12,10 +13,13 @@ import * as motor from './motor'
 export function PanelClips({
   pista,
   onFx,
+  onAgregarGrabacion,
   bloqueado,
 }: {
   pista: PistaAudio
   onFx: (fx: EfectosPista) => void
+  /** Abre el selector de grabaciones existentes (tomas, mezclas y loops). */
+  onAgregarGrabacion: () => void
   /** Compartido y sin el turno: los efectos se ven, pero no se tocan. */
   bloqueado?: boolean
 }) {
@@ -44,6 +48,9 @@ export function PanelClips({
           'Pulsa el botón de grabar para cantar o tocar con el micrófono mientras suenan las demás pistas (hay un compás de cuenta). Usa audífonos: sin ellos el metrónomo se cuela en la toma.',
         )}
       </p>
+      <BotonSecundario pequeno onClick={onAgregarGrabacion} className="shrink-0">
+        <Icono nombre="agregar" /> {t('audio.grab.agregarExistente', 'Añadir una grabación')}
+      </BotonSecundario>
       <div className="flex shrink-0 items-start gap-1">
         {knobFx('reverb', t('audio.fx.reverb', 'Reverb'))}
         {knobFx('delay', t('audio.fx.delay', 'Delay'))}

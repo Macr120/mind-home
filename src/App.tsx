@@ -10,6 +10,7 @@ import { AsignarPlantillaDialog } from './core/ui/AsignarPlantillaDialog'
 import { EnviarAContacto } from './core/buzon/ui/EnviarAContacto'
 import { HudRedDev } from './core/partida/ui/HudRedDev'
 import { InvitacionModal } from './core/partida/ui/InvitacionModal'
+import { CharlaSala } from './core/partida/ui/CharlaSala'
 import { PanelCompartirGlobal } from './core/espacios/ui/PanelCompartirGlobal'
 import { RetratoAvatar } from './core/buzon/RetratoAvatar'
 import { EnlaceObjetoDialog } from './core/ui/EnlaceObjetoDialog'
@@ -322,6 +323,8 @@ export default function App() {
       <EnviarAContacto />
       {/* El timbre de «te invito a mi casa», por el mismo motivo. */}
       <InvitacionModal />
+      {/* Charla y voz de la sala mientras se juega (también dentro de cuartos y juegos). */}
+      <CharlaSala />
       {/* Quién ve un calendario o un documento compartido: se abre desde varios
           sitios que se desmontan al abrirlo (un editor, una lista, el chat). */}
       <PanelCompartirGlobal />
