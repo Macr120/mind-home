@@ -4,11 +4,14 @@ import { vibrar } from '../../core/audio/vibrar'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
+import { IconoMarca, type NombreGlifo } from '../../core/ui/iconos/glifosApps'
 import { acento, tinta } from './acento'
 
 export interface ItemPestana<T extends string> {
   id: T
   icono?: NombreIcono
+  /** Glifo propio (a color en «Coloridos»); manda sobre `icono` y `emoji`. */
+  glifo?: NombreGlifo
   /** Emoji guardado como dato (secciones de plantillas custom); `icono` manda si están los dos. */
   emoji?: string
   labelEs?: string
@@ -166,7 +169,11 @@ export function PestanasCarpeta<T extends string>({
             style={esActiva ? { color: colorActivo ? tinta(colorActivo) : 'var(--ui-accent-ink)' } : undefined}
           >
             {/* En fila flex los espacios sueltos no cuentan: separa el `gap`. */}
-            {item.icono ? (
+            {/* Sobre la píldora de color, el glifo pasa a contornos con la tinta:
+                a color se perdería contra su propio fondo. */}
+            {item.glifo ? (
+              <IconoMarca glifo={item.glifo} nombre={item.icono} estilo={esActiva ? 'profesional' : undefined} />
+            ) : item.icono ? (
               <Icono nombre={item.icono} />
             ) : item.emoji ? (
               <Icono emoji={item.emoji} />

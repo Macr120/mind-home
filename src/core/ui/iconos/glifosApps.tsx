@@ -416,6 +416,27 @@ const pieza = (d: string, cara: string, canto: string) => (
   </>
 )
 
+// Dificultad de los juegos: tres barras de señal crecientes, encendidas 1/2/3.
+// Las encendidas van del color del nivel con su canto (como las piezas del
+// logo); las apagadas, en el color del texto muy tenue para que la escalera se
+// lea completa aunque solo brille un peldaño.
+const barrasDificultad = (encendidas: 1 | 2 | 3, cara: string, canto: string) => (
+  <>
+    {[14, 25, 36].map((alto, i) => {
+      const x = 3 + i * 15
+      const y = 42 - alto
+      return i < encendidas ? (
+        <g key={alto}>
+          <rect x={x} y={y} width="9" height={alto} rx="2.5" fill={canto} stroke="none" transform="translate(2 2)" />
+          <rect x={x} y={y} width="9" height={alto} rx="2.5" fill={cara} />
+        </g>
+      ) : (
+        <rect key={alto} x={x} y={y} width="9" height={alto} rx="2.5" fill="currentColor" fillOpacity="0.3" />
+      )
+    })}
+  </>
+)
+
 /** Glifos por nombre: vistas del chat, pestañas del editor y del menú MindHaOS. */
 const GLIFOS_NOMBRE = {
   // — Menú MindHaOS: las tres piezas del logo —
@@ -562,7 +583,15 @@ const GLIFOS_NOMBRE = {
       <circle cx="22" cy="36" r="5" fill={N} />
     </>
   ),
+
+  // — Dificultad de los juegos (Entretenimiento) —
+  dificultadFacil: barrasDificultad(1, 'var(--glifo-verde)', 'var(--glifo-canto-verde)'),
+  dificultadMedio: barrasDificultad(2, 'var(--glifo-ambar)', 'var(--glifo-canto-ambar)'),
+  dificultadDificil: barrasDificultad(3, 'var(--glifo-rojo)', 'var(--glifo-canto-rojo)'),
 } satisfies Record<string, ReactNode>
+
+/** Color de cada nivel de dificultad en «Coloridos» (el mismo del glifo). */
+export const COLOR_DIFICULTAD = { facil: '#22c55e', medio: '#f6a413', dificil: '#f53b4b' } as const
 
 export type NombreGlifo = keyof typeof GLIFOS_NOMBRE
 
@@ -594,6 +623,12 @@ const PALETAS: Record<EstiloIconos, CSSProperties> = {
     '--glifo-canto-n': '#c14a05',
     '--glifo-canto-r': '#8e0a24',
     '--glifo-canto-m': '#8935d8',
+    '--glifo-verde': COLOR_DIFICULTAD.facil,
+    '--glifo-ambar': COLOR_DIFICULTAD.medio,
+    '--glifo-rojo': COLOR_DIFICULTAD.dificil,
+    '--glifo-canto-verde': '#15803d',
+    '--glifo-canto-ambar': '#c14a05',
+    '--glifo-canto-rojo': '#8e0a24',
   } as CSSProperties,
   profesional: {
     '--glifo-n': FONDO,
@@ -605,6 +640,13 @@ const PALETAS: Record<EstiloIconos, CSSProperties> = {
     '--glifo-canto-n': 'none',
     '--glifo-canto-r': 'none',
     '--glifo-canto-m': 'none',
+    // Barras de dificultad: las encendidas macizas, las apagadas en contorno con un velo.
+    '--glifo-verde': 'currentColor',
+    '--glifo-ambar': 'currentColor',
+    '--glifo-rojo': 'currentColor',
+    '--glifo-canto-verde': 'none',
+    '--glifo-canto-ambar': 'none',
+    '--glifo-canto-rojo': 'none',
     stroke: 'currentColor',
     strokeWidth: 3,
     strokeLinejoin: 'round',

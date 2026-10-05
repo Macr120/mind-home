@@ -38,6 +38,8 @@ import { usePartida } from '../../core/partida/partidaStore'
 import type { JuegoMesa } from '../../core/partida/tipos'
 import { vivo } from '../../core/ui/estilos'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { COLOR_DIFICULTAD, type NombreGlifo } from '../../core/ui/iconos/glifosApps'
+import { useAjustes } from '../../core/state/ajustesStore'
 
 type Seccion = '12' | '3mas'
 
@@ -74,10 +76,24 @@ const COMPONENTES: Record<IdJuegoReal, ComponentType<PropsDificultad>> = {
   dilemas: Dilemas,
 }
 
+const GLIFO_DIFICULTAD = {
+  facil: 'dificultadFacil',
+  medio: 'dificultadMedio',
+  dificil: 'dificultadDificil',
+} as const satisfies Record<Dificultad, NombreGlifo>
+
 function SelectorDificultad({ valor, alCambiar }: { valor: Dificultad; alCambiar: (d: Dificultad) => void }) {
+  // En «Coloridos» la píldora activa toma el color del nivel (verde/ámbar/rojo);
+  // en «Profesional» se queda con el de la app, todo monocromo.
+  const coloridos = useAjustes((s) => s.estiloIconos) === 'emoji'
   return (
     <PestanasCarpeta
-      items={DIFICULTADES.map((d) => ({ id: d, labelEs: ETIQUETAS_DIFICULTAD[d] }))}
+      items={DIFICULTADES.map((d) => ({
+        id: d,
+        labelEs: ETIQUETAS_DIFICULTAD[d],
+        glifo: GLIFO_DIFICULTAD[d],
+        color: coloridos ? COLOR_DIFICULTAD[d] : undefined,
+      }))}
       activo={valor}
       onCambio={alCambiar}
       prefijoClave="entre.j.dif"
