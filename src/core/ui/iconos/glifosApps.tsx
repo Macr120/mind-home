@@ -420,7 +420,7 @@ const pieza = (d: string, cara: string, canto: string) => (
 // con su canto (como las piezas del logo); en «Profesional», macizas del color
 // del texto.
 const ESTRELLAS: Record<1 | 2 | 3, [number, number, number][]> = {
-  1: [[24, 25, 20]],
+  1: [[24, 25, 12]],
   2: [
     [13, 25, 12],
     [35, 25, 12],
