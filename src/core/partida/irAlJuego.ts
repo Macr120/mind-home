@@ -26,7 +26,9 @@ export function irAlJuego(juego: JuegoInvitable, lado: -1 | 1, anfitrion: boolea
   const def = JUEGOS_INVITABLES[juego]
   if (def.mesa) {
     // Sin Entretenimiento en la casa se juega en la plantilla, sin cuarto.
-    abrirAppOPlantilla('entretenimiento', 'mesa', def.mesa)
+    // `mesaOnline`: el juego arranca directo en «En línea», sin elegir modo
+    // (si no, cada quien acababa jugando su partida local).
+    abrirAppOPlantilla('entretenimiento', 'mesaOnline', def.mesa)
     return true
   }
   if (!def.cancha) {

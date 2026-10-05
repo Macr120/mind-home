@@ -142,6 +142,8 @@ export function nombreJuego(juego: JuegoInvitable, t: TFunc): string {
  */
 export function enlaceJuego(partidaId: string, juego: JuegoInvitable, apps: readonly string[]): string {
   const raiz = `${urlApp()}/`
+  // La mesa se juega desde la casa de cada quien: el enlace solo une a la sala.
+  if (JUEGOS_INVITABLES[juego].mesa) return `${raiz}?jugar=${encodeURIComponent(partidaId)}&juego=${juego}`
   const extra = apps.length ? `&visitaApps=${encodeURIComponent(apps.join(','))}` : ''
   return `${raiz}?visita=${encodeURIComponent(partidaId)}&juego=${juego}${extra}`
 }

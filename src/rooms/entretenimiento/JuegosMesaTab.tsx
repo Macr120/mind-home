@@ -130,14 +130,15 @@ function JuegoAbierto({
   )
 }
 
-export function JuegosMesaTab({ juegoInicial }: { juegoInicial?: IdJuegoReal }) {
+export function JuegosMesaTab({ juegoInicial, enLinea = false }: { juegoInicial?: IdJuegoReal; enLinea?: boolean }) {
   const t = useT()
   const [seccion, setSeccion] = useState<Seccion>('12')
   // Arranca con el juego pedido por chat («quiero jugar la viborita»), si lo hay.
   const [juegoActivo, setJuegoActivo] = useState<JuegoReal | null>(
     () => JUEGOS_REALES.find((j) => j.id === juegoInicial) ?? null,
   )
-  const [desdeMesa, setDesdeMesa] = useState(false)
+  // Llegar por una invitación a jugar («jugar ajedrez @ana») entra ya en línea.
+  const [desdeMesa, setDesdeMesa] = useState(() => enLinea && !!juegoInicial)
   const abiertas = useMesasAbiertas()
   // El mazo de cartas de la mesa abierta decide a cuál de los dos juegos lleva.
   const mesaCartas = useMesa<EstadoCartas, never>('cartas')

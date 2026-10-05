@@ -10654,6 +10654,7 @@ export const NL: Dict = {
   'partida.jugar.salaSinApp':
     'Je open kamer bevat geen Entertainment. Sluit die via Vrienden · Jouw kamer en vraag het me opnieuw',
   'partida.jugar.mensaje': 'Zullen we {j} spelen bij mij? {url}',
+  'partida.jugar.mensajeMesa': 'Zullen we {j} spelen? {url}',
   'partida.jugar.salaNueva': 'Ik heb je MindHaOS alleen met de kaart geopend.',
   'partida.jugar.salaNuevaMesa': 'Ik heb je MindHaOS geopend met de kaart en Entertainment.',
   'partida.jugar.enviada.paintball':

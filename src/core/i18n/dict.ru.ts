@@ -10543,6 +10543,7 @@ export const RU: Dict = {
   'partida.jugar.salaSinApp':
     'Твоя открытая комната не включает «Развлечения». Закрой её в «Друзья · Твоя комната» и попроси снова',
   'partida.jugar.mensaje': 'Сыграем в {j} у меня дома? {url}',
+  'partida.jugar.mensajeMesa': 'Сыграем в {j}? {url}',
   'partida.jugar.salaNueva': 'Твой MindHaOS открыт — только с картой.',
   'partida.jugar.salaNuevaMesa': 'Твой MindHaOS открыт — с картой и «Развлечениями».',
   'partida.jugar.enviada.paintball':

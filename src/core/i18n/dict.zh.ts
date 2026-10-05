@@ -10126,6 +10126,7 @@ export const ZH: Dict = {
   'partida.jugar.sinHilo': '这个联系人还没有聊天',
   'partida.jugar.salaSinApp': '你开放的房间不包含娱乐。去“朋友 · 你的房间”关掉它，再来跟我说一次',
   'partida.jugar.mensaje': '来我家玩{j}吗？{url}',
+  'partida.jugar.mensajeMesa': '一起玩{j}？{url}',
   'partida.jugar.salaNueva': '我只带着地图打开了你的MindHaOS。',
   'partida.jugar.salaNuevaMesa': '我带着地图和娱乐打开了你的MindHaOS。',
   'partida.jugar.enviada.paintball': '我把彩弹的链接发给@{a}了。等TA进到你的MindHaOS，在对战菜单里选“在线”。',

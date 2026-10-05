@@ -10617,6 +10617,7 @@ export const ID: Dict = {
   'partida.jugar.sinHilo': 'Kontak itu belum punya obrolan',
   'partida.jugar.salaSinApp': 'Ruang terbukamu tidak memuat Hiburan. Tutup dari Teman · Ruangmu lalu minta lagi ke aku',
   'partida.jugar.mensaje': 'Main {j} di rumahku, yuk? {url}',
+  'partida.jugar.mensajeMesa': 'Main {j}, yuk? {url}',
   'partida.jugar.salaNueva': 'Aku membuka MindHaOS-mu hanya dengan peta.',
   'partida.jugar.salaNuevaMesa': 'Aku membuka MindHaOS-mu dengan peta dan Hiburan.',
   'partida.jugar.enviada.paintball':

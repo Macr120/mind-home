@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { BotonPrimario, BotonSecundario, Modal } from '../../../rooms/_shared/ui'
 import { sonar } from '../../audio/sfx'
+import { abrirAppOPlantilla } from '../../abrirApp'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../../ui/iconos/Icono'
 import { Retrato } from '../../buzon/ui/Retrato'
@@ -44,6 +45,9 @@ function Dialogo({ invitacion }: { invitacion: InvitacionRecibida }) {
         entrarAVisita(sala.partidaId, sala.apps)
         return
       }
+      // Sala de mesa (sin casa, con Entretenimiento): se juega desde la casa
+      // propia; la pestaña de la mesa enseña «@alias te espera en…».
+      if (sala.apps.includes('entretenimiento')) abrirAppOPlantilla('entretenimiento', 'mesa')
       cerrar()
     } catch (e) {
       setError(mensajeErrorPartida(e, t))

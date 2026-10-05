@@ -111,12 +111,6 @@ export async function invitarAJugar(juego: JuegoInvitable, contacto: Contacto, t
   // momento de crearla, así que una sala sin Entretenimiento no sirve para mesa.
   const viva = salaViva()
   if (viva && !viva.soyAnfitrion) return enVisita
-  if (viva && def.mesa && !viva.apps.includes('entretenimiento')) {
-    return t(
-      'partida.jugar.salaSinApp',
-      'Tu sala abierta no incluye Entretenimiento. Ciérrala desde Amigos · Tu sala y pídemelo otra vez',
-    )
-  }
   let partidaId: string
   let apps: readonly string[]
   if (viva) {
@@ -124,11 +118,12 @@ export async function invitarAJugar(juego: JuegoInvitable, contacto: Contacto, t
     apps = viva.apps
     // Una sala abierta sin plano (se cayó la subida, o se abrió desde otro
     // sitio) dejaría al invitado en su propia casa al pulsar el enlace.
-    if (!viva.casa) await guardarPlano(partidaId, await armarPlano(apps))
+    if (!viva.casa && !def.mesa) await guardarPlano(partidaId, await armarPlano(apps))
   } else {
     const nuevas = def.mesa ? ['entretenimiento'] : []
     const sala = await crearYConectar('visita', nuevas)
-    await guardarPlano(sala.partidaId, await armarPlano(nuevas))
+    // La mesa se juega cada quien desde su casa: sin plano no hay visita.
+    if (!def.mesa) await guardarPlano(sala.partidaId, await armarPlano(nuevas))
     partidaId = sala.partidaId
     apps = sala.apps
   }
@@ -139,7 +134,9 @@ export async function invitarAJugar(juego: JuegoInvitable, contacto: Contacto, t
   if (!dentro) await invitar(partidaId, contacto.contactoId)
   const url = enlaceJuego(partidaId, juego, apps)
   await enviar(hiloId, {
-    texto: t('partida.jugar.mensaje', '¿Jugamos {j} en mi casa? {url}', { j, url }),
+    texto: def.mesa
+      ? t('partida.jugar.mensajeMesa', '¿Jugamos {j}? {url}', { j, url })
+      : t('partida.jugar.mensaje', '¿Jugamos {j} en mi casa? {url}', { j, url }),
     paquete: {
       app: 'partida',
       tipo: 'juego',
@@ -162,9 +159,6 @@ export async function invitarAJugar(juego: JuegoInvitable, contacto: Contacto, t
           'Le mandé a @{a} el enlace al paintball. Cuando entre a tu MindHaOS, elige «En línea» en el menú de batalla.',
           { a },
         )
-  if (viva) return confirmacion
-  const aviso = def.mesa
-    ? t('partida.jugar.salaNuevaMesa', 'Abrí tu MindHaOS con el mapa y Entretenimiento.')
-    : t('partida.jugar.salaNueva', 'Abrí tu MindHaOS solo con el mapa.')
-  return `${aviso} ${confirmacion}`
+  if (viva || def.mesa) return confirmacion
+  return `${t('partida.jugar.salaNueva', 'Abrí tu MindHaOS solo con el mapa.')} ${confirmacion}`
 }

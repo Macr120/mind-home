@@ -47,10 +47,10 @@ export function TarjetaJuego({ m }: { m: MensajeBuzon }) {
       }
       const sala = await entrarYConectar(datos.partidaId)
       sonar('tick')
-      if (sala.casa) entrarAVisita(sala.partidaId, sala.apps, datos.juego)
-      // Sin plano no hay casa a la que ir. La mesa en línea no la necesita (se
-      // juega por la sala desde cualquier casa); la cancha y el paintball, sí.
-      else if (JUEGOS_INVITABLES[datos.juego].mesa) irAlJuego(datos.juego, 1, false)
+      // La mesa en línea se juega por la sala desde la casa de cada quien: no
+      // se entra a la del otro. La cancha y el paintball sí necesitan su casa.
+      if (JUEGOS_INVITABLES[datos.juego].mesa) irAlJuego(datos.juego, 1, false)
+      else if (sala.casa) entrarAVisita(sala.partidaId, sala.apps, datos.juego)
       else setError(t('partida.jugar.sinCasa', '@{a} aún no abrió su casa: pídele que te invite otra vez', { a: contacto?.alias ?? '' }))
     } catch (e) {
       console.error('[partida] unirse', e)

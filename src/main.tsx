@@ -74,6 +74,11 @@ if (esVisita()) aplicarSpawnVisita()
 // Y si la visita anterior se cortó, aquí se dice por qué (C10). Con margen: la
 // burbuja del asistente necesita que el chat esté montado.
 setTimeout(avisarVisitaAbortada, 800)
+// Enlace a un juego de mesa (`?jugar=<sala>&juego=`): se une a la sala y abre
+// la mesa en la casa propia, sin visitar la del otro.
+if (/[?&]jugar=/.test(location.search) && !esDemo() && !esProbar() && !esVisita()) {
+  setTimeout(() => void import('./core/partida/enlaceJugar').then((m) => m.unirseDesdeEnlace()), 800)
+}
 
 // Pide al navegador marcar el almacenamiento como persistente: sin esto puede
 // purgar IndexedDB (todos los datos del usuario) bajo presión de disco.

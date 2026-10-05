@@ -10179,6 +10179,7 @@ export const JA: Dict = {
   'partida.jugar.sinHilo': 'その連絡先にはまだチャットがありません',
   'partida.jugar.salaSinApp': '公開中のルームにエンタメが含まれていません。フレンド · 自分のルームから閉じて、もう一度頼んでください',
   'partida.jugar.mensaje': 'うちで{j}をしませんか? {url}',
+  'partida.jugar.mensajeMesa': '{j}、やりませんか？ {url}',
   'partida.jugar.salaNueva': 'マップだけでMindHaOSを公開しました。',
   'partida.jugar.salaNuevaMesa': 'マップとエンタメでMindHaOSを公開しました。',
   'partida.jugar.enviada.paintball': '@{a}にペイントボールのリンクを送りました。あなたのMindHaOSに入ったら、バトルメニューで「オンライン」を選んでください。',

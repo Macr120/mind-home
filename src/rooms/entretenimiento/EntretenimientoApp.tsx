@@ -45,7 +45,12 @@ export function EntretenimientoApp() {
       {!plegado && (
         <>
           {tab === 'archivo' && <ArchivoTab items={media} />}
-          {tab === 'mesa' && <JuegosMesaTab juegoInicial={intencion?.dato as IdJuegoReal | undefined} />}
+          {tab === 'mesa' && (
+            <JuegosMesaTab
+              juegoInicial={intencion?.dato as IdJuegoReal | undefined}
+              enLinea={intencion?.seccion === 'mesaOnline'}
+            />
+          )}
         </>
       )}
 

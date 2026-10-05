@@ -10670,6 +10670,7 @@ export const EN: Dict = {
   'partida.jugar.salaSinApp':
     'Your open room does not include Entertainment. Close it from Friends · Your room and ask me again',
   'partida.jugar.mensaje': 'Shall we play {j} at my place? {url}',
+  'partida.jugar.mensajeMesa': 'Shall we play {j}? {url}',
   'partida.jugar.salaNueva': 'I opened your MindHaOS with the map only.',
   'partida.jugar.salaNuevaMesa': 'I opened your MindHaOS with the map and Entertainment.',
   'partida.jugar.enviada.paintball':
