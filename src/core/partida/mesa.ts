@@ -288,6 +288,13 @@ usePartida.subscribe((s, previo) => {
   // Acabo de entrar: la mesa pudo abrirse antes de que llegara, y sin esto no
   // me enteraría hasta que abriera ese juego.
   if (!previo.sala && !mesa && !soyArbitro()) pedirResync(['mesa'])
+  // Y como árbitro: quien entra pide el estado justo mientras su canal aún se
+  // suscribe, así que ese `resync` se suele perder. Se le repite la mesa unas
+  // cuantas veces en cuanto aparece en el roster.
+  const dentro = (x: { jugadores: { estado: string }[] } | null) => x?.jugadores.filter((j) => j.estado === 'dentro').length ?? 0
+  if (mesa && soyArbitro() && dentro(s.sala) > dentro(previo.sala)) {
+    for (const ms of [1500, 4000, 8000]) setTimeout(reemitirEstado, ms)
+  }
 })
 
 // ─── interfaz ────────────────────────────────────────────────────────────────
