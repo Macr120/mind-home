@@ -62,7 +62,7 @@ export function EjercicioApp() {
   const miniaturasAnimadas = useMiniaturas((st) => st.modo === 'animacion')
 
   return (
-    <div className="mx-auto max-w-2xl space-y-4">
+    <div className={`mx-auto max-w-2xl space-y-4 ${tab === 'metas' ? 'ui-ancho' : ''}`}>
       {miniaturasAnimadas && (
         <Suspense fallback={null}>
           <RenderizadorMiniaturas />

@@ -209,7 +209,7 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
           botón debajo de ella. */}
       <main
         data-tut-zona={activa ? `app:${activa.id}` : undefined}
-        className={`${conPildora ? '' : 'safe-inf '}safe-ini safe-fin min-h-0 flex-1 overflow-auto p-4 md:p-6`}
+        className={`${conPildora ? '' : 'safe-inf '}ui-app-cuerpo safe-ini safe-fin min-h-0 flex-1 overflow-auto p-4 md:p-6`}
       >
         {apps.length === 0 ? (
           <div className="flex min-h-[40vh] flex-col items-center justify-center gap-2 text-center text-white/50">

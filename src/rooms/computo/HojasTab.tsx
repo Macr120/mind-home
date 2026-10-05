@@ -221,7 +221,7 @@ export function HojasTab() {
   }
 
   return (
-    <div className="mx-auto w-full max-w-3xl space-y-3 pb-4">
+    <div className="ui-ancho mx-auto w-full max-w-3xl space-y-3 pb-4">
       <section className="space-y-2" data-tut="computo.hojas.lista">
         <div className="flex items-center gap-2">
           <h2 className="min-w-0 flex-1 text-xs font-semibold uppercase tracking-wide text-white/45">

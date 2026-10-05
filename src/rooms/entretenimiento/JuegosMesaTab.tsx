@@ -147,13 +147,16 @@ export function JuegosMesaTab({ juegoInicial }: { juegoInicial?: IdJuegoReal }) 
   const juegosDigitales = JUEGOS_REALES.filter((j) => (seccion === '12' ? true : j.jugadores === '2+'))
 
   if (juegoActivo) {
+    // El catálogo se abre en ultrawide; la partida se queda en su riel.
     return (
-      <JuegoAbierto
-        key={juegoActivo.id}
-        juego={juegoActivo}
-        mesaOnline={desdeMesa}
-        alVolver={() => setJuegoActivo(null)}
-      />
+      <div className="mx-auto max-w-2xl">
+        <JuegoAbierto
+          key={juegoActivo.id}
+          juego={juegoActivo}
+          mesaOnline={desdeMesa}
+          alVolver={() => setJuegoActivo(null)}
+        />
+      </div>
     )
   }
 
@@ -217,7 +220,7 @@ export function JuegosMesaTab({ juegoInicial }: { juegoInicial?: IdJuegoReal }) 
               {t(`entre.j.fam.${familia.id}`, familia.labelEs)}
               <span className="text-xs font-normal text-white/35">{juegos.length}</span>
             </p>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-2 ultra:grid-cols-[repeat(auto-fill,minmax(16rem,1fr))]">
               {juegos.map((j) => (
                 <button
                   key={j.id}

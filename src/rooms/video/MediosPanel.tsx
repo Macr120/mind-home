@@ -89,7 +89,7 @@ export function MediosPanel({
   )
 
   return (
-    <div className={compacto ? 'space-y-3' : 'mx-auto w-full max-w-3xl space-y-3'}>
+    <div className={compacto ? 'space-y-3' : 'ui-ancho mx-auto w-full max-w-3xl space-y-3'}>
       {botones}
       {medios.length === 0 ? (
         <Vacio
@@ -99,7 +99,7 @@ export function MediosPanel({
         />
       ) : (
         <>
-          <ul className={`grid grid-cols-2 gap-3 ${compacto ? '' : 'sm:grid-cols-3'}`}>
+          <ul className={`grid grid-cols-2 gap-3 ${compacto ? '' : 'sm:grid-cols-3 ultra:grid-cols-[repeat(auto-fill,minmax(14rem,1fr))]'}`}>
             {medios.map((m) => (
               <li
                 key={m.id}

@@ -197,7 +197,7 @@ export function Vista(p: PropsVista) {
   return (
     <div className="space-y-3">
       {compactos.length > 0 && (
-        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 ultra:grid-cols-[repeat(auto-fill,minmax(14rem,1fr))]">
           {compactos.map((i) => (
             <div
               key={i.k}
@@ -219,7 +219,7 @@ export function Vista(p: PropsVista) {
         </div>
       )}
       {conVista.length > 0 && (
-        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 ultra:grid-cols-[repeat(auto-fill,minmax(14rem,1fr))]">
           {conVista.map((i) => (
             <div
               key={i.k}

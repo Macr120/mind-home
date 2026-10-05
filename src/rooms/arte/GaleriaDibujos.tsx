@@ -78,7 +78,7 @@ export function GaleriaDibujos({ onAbrir }: { onAbrir: (id: number) => void }) {
   }
 
   return (
-    <div className="mx-auto w-full max-w-3xl space-y-3" data-tut="arte.galeria">
+    <div className="ui-ancho mx-auto w-full max-w-3xl space-y-3" data-tut="arte.galeria">
       {dibujos.length === 0 ? (
         <Vacio
           icono="pincel"
@@ -93,7 +93,7 @@ export function GaleriaDibujos({ onAbrir }: { onAbrir: (id: number) => void }) {
               <Icono nombre="agregar" /> {t('arte.lista.nuevo', 'Nuevo dibujo')}
             </BotonPrimario>
           </div>
-          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 ultra:grid-cols-[repeat(auto-fill,minmax(14rem,1fr))]">
             {dibujos.map((d) => (
               <li key={d.id} className={`${TARJETA} space-y-2 !p-2`}>
                 <button

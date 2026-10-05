@@ -401,7 +401,7 @@ export function BitacoraTab({ lugares, lugarInicial }: Props) {
             onChange={(e) => void cambiarPortada(e.target.files)}
           />
         </header>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 ultra:grid-cols-[repeat(auto-fill,minmax(14rem,1fr))]">
           {delPais.map((l) => {
             const recuerdos = porLugar.get(l.id!) ?? []
             const nFotos = fotosDe([l])
@@ -433,7 +433,7 @@ export function BitacoraTab({ lugares, lugarInicial }: Props) {
           {t('sala.bit.sinVisitados', 'La bitácora se escribe con lugares visitados. Pon un pin en el mapa o marca con ✓ tu itinerario.')}
         </p>
       ) : (
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 ultra:grid-cols-[repeat(auto-fill,minmax(14rem,1fr))]">
           {paises.map(([pais, ls]) => {
             const nFotos = fotosDe(ls)
             return (

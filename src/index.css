@@ -8,6 +8,9 @@
    las tablets y los monitores no se enteran. */
 @custom-variant holgado (@media (width >= 40rem) and (height >= 34rem));
 @custom-variant amplio (@media (width >= 48rem) and (height >= 34rem));
+/* Monitores anchos y ultrawide: el contenido de las apps se abre (ver
+   `.ui-app-cuerpo`) y las rejillas de tarjetas suman columnas. */
+@custom-variant ultra (@media (width >= 100rem));
 
 /* Registra el acento del tema como color de Tailwind: genera `bg-accent`,
    `border-accent`, `ring-accent`, `accent-accent` (inputs range) y sus
@@ -1180,6 +1183,19 @@ html[data-modo-ui='transparente']
   --presion-dur: var(--dur-presion);
   --presion-ease: var(--ease-fluida);
   scale: var(--escala-presion);
+}
+
+/* Ultrawide: solo se abren las vistas marcadas con `ui-ancho` (galerías, mapas,
+   hojas, tableros). Lo que se LEE o se escribe se queda en su riel: párrafos y
+   cajas de 1900 px no se leen. Las pestañas conservan su ancho, centradas. */
+@media (width >= 100rem) {
+  .ui-app-cuerpo .ui-ancho {
+    max-width: min(88vw, 120rem);
+  }
+  .ui-app-cuerpo .ui-pestanas {
+    max-width: 42rem;
+    margin-inline: auto;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

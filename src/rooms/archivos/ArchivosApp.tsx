@@ -634,7 +634,7 @@ function Explorador({ puedeSubir }: { puedeSubir: boolean }) {
   return (
     <div
       data-tut="archivos.explorador"
-      className={`mx-auto flex w-full max-w-6xl flex-col gap-3 rounded-2xl md:flex-row md:gap-5 ${soltarSO === 'aqui' ? 'outline-2 outline-dashed outline-sky-400/60' : ''}`}
+      className={`ui-ancho mx-auto flex w-full max-w-6xl flex-col gap-3 rounded-2xl md:flex-row md:gap-5 ${soltarSO === 'aqui' ? 'outline-2 outline-dashed outline-sky-400/60' : ''}`}
       onDragOver={(e) => {
         if (!puedeSubir || !e.dataTransfer.types.includes('Files')) return
         e.preventDefault()

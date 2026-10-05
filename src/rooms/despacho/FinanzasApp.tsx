@@ -155,7 +155,7 @@ export function FinanzasApp() {
   const focoUsado = () => setFoco(null)
 
   return (
-    <div className="mx-auto max-w-2xl space-y-4">
+    <div className={`mx-auto max-w-2xl space-y-4 ${tab === 'balance' && subBalance === 'balance' ? 'ui-ancho' : ''}`}>
       <PestanasCarpeta
         items={TABS}
         activo={tab}

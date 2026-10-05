@@ -447,7 +447,7 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
   )
 
   return (
-    <div className="mx-auto w-full max-w-2xl space-y-4 pb-4">
+    <div className="ui-ancho mx-auto w-full max-w-2xl space-y-4 pb-4">
       <section className="space-y-2">
         {albumActivo == null ? (
           <TituloSeccion icono="piano" titulo={t('audio.tab.canciones', 'Canciones')}>
@@ -501,7 +501,7 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
             {t('audio.lista.albumVacio', 'Este álbum está vacío: guarda canciones con el botón de la carpeta.')}
           </p>
         ) : (
-          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 ultra:grid-cols-[repeat(auto-fill,minmax(14rem,1fr))]">
             {albumActivo == null && albumes.map((a) => tarjetaAlbum(a, porAlbum.get(a) ?? []))}
             {enLista.map((p) =>
               album(

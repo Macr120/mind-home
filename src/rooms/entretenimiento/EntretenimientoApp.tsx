@@ -26,7 +26,7 @@ export function EntretenimientoApp() {
 
   return (
     // El Archivo despliega sus tarjetas en rejilla: usa todo el ancho disponible.
-    <div className={`mx-auto space-y-4 ${tab === 'archivo' ? '' : 'max-w-2xl'}`}>
+    <div className={`mx-auto space-y-4 ${tab === 'archivo' ? '' : 'ui-ancho max-w-2xl'}`}>
       <PestanasCarpeta
         items={TABS}
         activo={tab}

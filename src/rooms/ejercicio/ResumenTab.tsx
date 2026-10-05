@@ -83,80 +83,82 @@ export function ResumenTab({
         />
       </div>
 
-      <div className="rounded-xl bg-white/5 p-4 border border-white/10 space-y-4">
-        <div>
-          <p className="text-base font-bold">{t('ejercicio.progreso.rango', 'Progreso')}</p>
-          <p className="text-[10px] text-white/40">
-            {t('ejercicio.periodo.objetivo', 'Objetivo ajustado a: {p}', { p: etiquetaPeriodo })}
+      <div className="space-y-5 ultra:grid ultra:items-start ultra:gap-5 ultra:space-y-0 ultra:grid-cols-3">
+        <div className="rounded-xl bg-white/5 p-4 border border-white/10 space-y-4">
+          <div>
+            <p className="text-base font-bold">{t('ejercicio.progreso.rango', 'Progreso')}</p>
+            <p className="text-[10px] text-white/40">
+              {t('ejercicio.periodo.objetivo', 'Objetivo ajustado a: {p}', { p: etiquetaPeriodo })}
+            </p>
+          </div>
+          <BarraProgreso
+            label={t('ejercicio.ses.fuerza', 'Sesiones de fuerza')}
+            actual={res.fuerza}
+            objetivo={res.metaFuerza}
+            unidad={t('ejercicio.unidad.ses', 'ses.')}
+            color="#f97316"
+          />
+          <BarraProgreso
+            label={t('ejercicio.min.resistencia', 'Minutos resistencia')}
+            actual={res.minResistencia}
+            objetivo={res.metaResistencia}
+            unidad={t('ui.unidad.min', 'min')}
+            color="#38bdf8"
+          />
+          <BarraProgreso
+            label={t('ejercicio.min.flex', 'Minutos flexibilidad')}
+            actual={res.minFlex}
+            objetivo={res.metaFlex}
+            unidad={t('ui.unidad.min', 'min')}
+            color="#a78bfa"
+          />
+        </div>
+
+        <div className="rounded-xl bg-white/5 p-4 border border-white/10">
+          <p className="text-base font-bold mb-3">
+            {t('ejercicio.minTotales.rango', 'Minutos entrenados')}
           </p>
-        </div>
-        <BarraProgreso
-          label={t('ejercicio.ses.fuerza', 'Sesiones de fuerza')}
-          actual={res.fuerza}
-          objetivo={res.metaFuerza}
-          unidad={t('ejercicio.unidad.ses', 'ses.')}
-          color="#f97316"
-        />
-        <BarraProgreso
-          label={t('ejercicio.min.resistencia', 'Minutos resistencia')}
-          actual={res.minResistencia}
-          objetivo={res.metaResistencia}
-          unidad={t('ui.unidad.min', 'min')}
-          color="#38bdf8"
-        />
-        <BarraProgreso
-          label={t('ejercicio.min.flex', 'Minutos flexibilidad')}
-          actual={res.minFlex}
-          objetivo={res.metaFlex}
-          unidad={t('ui.unidad.min', 'min')}
-          color="#a78bfa"
-        />
-      </div>
-
-      <div className="rounded-xl bg-white/5 p-4 border border-white/10">
-        <p className="text-base font-bold mb-3">
-          {t('ejercicio.minTotales.rango', 'Minutos entrenados')}
-        </p>
-        <div className="flex items-stretch justify-between gap-1.5 h-24">
-          {tendencia.map((punto) => (
-            <div key={punto.clave} className="flex-1 flex flex-col items-center gap-1">
-              <div className="flex-1 w-full flex items-end justify-center">
-                <div
-                  className="w-full max-w-8 rounded-t"
-                  style={{
-                    height: `${Math.max(6, (punto.min / maxMin) * 100)}%`,
-                    background: punto.actual ? '#fb7185' : 'rgba(251,113,133,0.45)',
-                  }}
-                  title={`${textoMin(punto.min)}`}
-                />
+          <div className="flex items-stretch justify-between gap-1.5 h-24">
+            {tendencia.map((punto) => (
+              <div key={punto.clave} className="flex-1 flex flex-col items-center gap-1">
+                <div className="flex-1 w-full flex items-end justify-center">
+                  <div
+                    className="w-full max-w-8 rounded-t"
+                    style={{
+                      height: `${Math.max(6, (punto.min / maxMin) * 100)}%`,
+                      background: punto.actual ? '#fb7185' : 'rgba(251,113,133,0.45)',
+                    }}
+                    title={`${textoMin(punto.min)}`}
+                  />
+                </div>
+                <span className="text-[9px] text-white/40">{punto.etiqueta}</span>
               </div>
-              <span className="text-[9px] text-white/40">{punto.etiqueta}</span>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div className="rounded-xl bg-white/5 p-4 border border-white/10">
-        <p className="text-base font-bold mb-2">{t('ejercicio.historial', 'Tus sesiones')}</p>
-        <Archivador
-          items={delPeriodo}
-          fecha={(s) => s.fecha}
-          clave={(s) => s.id ?? s.fecha}
-          vacio={t('ejercicio.sinEntrenos', 'Aún no hay entrenos registrados.')}
-          resumen={(ses) => `${textoMin(ses.reduce((acc, s) => acc + s.duracionMin, 0))}`}
-        >
-          {(s) => {
-            const tipo = TIPOS.find((x) => x.id === s.tipo) ?? TIPOS[0]
-            return (
-              <div className="flex items-center gap-2 text-sm rounded-lg bg-black/20 px-2 py-1.5">
-                <span><Icono emoji={tipo.icon} /></span>
-                <span className="line-clamp-2 min-w-0 flex-1 break-words text-white/85">{s.titulo}</span>
-                <span className="shrink-0 text-xs text-white/40">{s.fecha.slice(5)}</span>
-                <span className="shrink-0 text-white/40">{textoMin(s.duracionMin)}</span>
-              </div>
-            )
-          }}
-        </Archivador>
+        <div className="rounded-xl bg-white/5 p-4 border border-white/10">
+          <p className="text-base font-bold mb-2">{t('ejercicio.historial', 'Tus sesiones')}</p>
+          <Archivador
+            items={delPeriodo}
+            fecha={(s) => s.fecha}
+            clave={(s) => s.id ?? s.fecha}
+            vacio={t('ejercicio.sinEntrenos', 'Aún no hay entrenos registrados.')}
+            resumen={(ses) => `${textoMin(ses.reduce((acc, s) => acc + s.duracionMin, 0))}`}
+          >
+            {(s) => {
+              const tipo = TIPOS.find((x) => x.id === s.tipo) ?? TIPOS[0]
+              return (
+                <div className="flex items-center gap-2 text-sm rounded-lg bg-black/20 px-2 py-1.5">
+                  <span><Icono emoji={tipo.icon} /></span>
+                  <span className="line-clamp-2 min-w-0 flex-1 break-words text-white/85">{s.titulo}</span>
+                  <span className="shrink-0 text-xs text-white/40">{s.fecha.slice(5)}</span>
+                  <span className="shrink-0 text-white/40">{textoMin(s.duracionMin)}</span>
+                </div>
+              )
+            }}
+          </Archivador>
+        </div>
       </div>
 
       <BarraEjemplo paquete={ejemploEjercicio} />

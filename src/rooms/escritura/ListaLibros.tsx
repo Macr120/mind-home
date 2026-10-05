@@ -105,7 +105,7 @@ export function ListaLibros({ onAbrir }: { onAbrir: (id: number) => void }) {
 
   if (libros.length === 0 && sueltos.length === 0) {
     return (
-      <div className="mx-auto w-full max-w-2xl" data-tut="escritura.libros">
+      <div className="ui-ancho mx-auto w-full max-w-2xl" data-tut="escritura.libros">
         <Vacio
           icono="libro"
           titulo={t('escritura.libros.vacio', 'Aún no hay libros')}
@@ -188,13 +188,13 @@ export function ListaLibros({ onAbrir }: { onAbrir: (id: number) => void }) {
   )
 
   return (
-    <div className="mx-auto w-full max-w-2xl space-y-3" data-tut="escritura.libros">
+    <div className="ui-ancho mx-auto w-full max-w-2xl space-y-3" data-tut="escritura.libros">
       <div className="flex justify-end">
         <BotonPrimario type="button" pequeno app={COLOR} onClick={() => setEligiendo(true)}>
           <Icono nombre="agregar" /> {t('escritura.libros.nuevo', 'Nuevo libro')}
         </BotonPrimario>
       </div>
-      <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
+      <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 ultra:grid-cols-[repeat(auto-fill,minmax(14rem,1fr))]">
         {libros.map((h) => (
           <li key={`h${h.id}`} className="flex flex-col gap-1">
             <Portada

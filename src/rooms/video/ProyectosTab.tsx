@@ -81,7 +81,7 @@ export function ProyectosTab({ escenario, onAbrir }: { escenario: 'video' | '3d'
 
   if (proyectos.length === 0) {
     return (
-      <div className="mx-auto w-full max-w-2xl">
+      <div className="ui-ancho mx-auto w-full max-w-2xl">
         <Vacio
           icono={es3d ? 'cubo-vistas' : 'pelicula'}
           titulo={es3d ? t('video.lista.vacio3d', 'Aún no hay animaciones 3D') : t('video.lista.vacio', 'Aún no hay videos')}
@@ -100,13 +100,13 @@ export function ProyectosTab({ escenario, onAbrir }: { escenario: 'video' | '3d'
   }
 
   return (
-    <div className="mx-auto w-full max-w-2xl space-y-3">
+    <div className="ui-ancho mx-auto w-full max-w-2xl space-y-3">
       <div className="flex justify-end">
         <BotonPrimario type="button" pequeno app={COLOR} onClick={() => void crear()}>
           <Icono nombre="agregar" /> {nuevo}
         </BotonPrimario>
       </div>
-      <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+      <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 ultra:grid-cols-[repeat(auto-fill,minmax(14rem,1fr))]">
         {proyectos.map((p) => {
           // Resumen en cualquier formato: migra en memoria (nunca persiste aquí).
           const { clips } = migrarProyecto(p, () => undefined).proyecto
