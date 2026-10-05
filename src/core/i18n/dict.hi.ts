@@ -10484,6 +10484,7 @@ export const HI: Dict = {
   'partida.sala.salir.anfitrion': 'रूम सबके लिए बंद हो जाएगा।',
   'partida.sala.salir.invitado': 'आप अपने MindHaOS में लौट आएँगे।',
   'partida.charla.abrir': 'कमरे की बातचीत',
+  'partida.charla.mover': 'चैट खिसकाएँ',
   'partida.charla.titulo': 'कमरा · {n}',
   'partida.charla.plegar': 'समेटें',
   'partida.charla.vacia': 'कमरे को नमस्ते कहें',

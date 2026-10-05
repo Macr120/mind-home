@@ -10572,6 +10572,7 @@ export const ID: Dict = {
   'partida.sala.salir.anfitrion': 'Ruang akan ditutup untuk semua.',
   'partida.sala.salir.invitado': 'Kamu akan kembali ke MindHaOS-mu.',
   'partida.charla.abrir': 'Obrolan ruangan',
+  'partida.charla.mover': 'Pindahkan chat',
   'partida.charla.titulo': 'Ruangan · {n}',
   'partida.charla.plegar': 'Tutup',
   'partida.charla.vacia': 'Sapa ruangan',

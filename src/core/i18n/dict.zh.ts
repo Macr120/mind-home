@@ -10081,6 +10081,7 @@ export const ZH: Dict = {
   'partida.sala.salir.anfitrion': '房间会对所有人关闭。',
   'partida.sala.salir.invitado': '你会回到自己的MindHaOS。',
   'partida.charla.abrir': '房间聊天',
+  'partida.charla.mover': '移动聊天窗',
   'partida.charla.titulo': '房间 · {n}',
   'partida.charla.plegar': '收起',
   'partida.charla.vacia': '跟房间打个招呼',

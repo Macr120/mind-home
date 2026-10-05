@@ -10360,6 +10360,7 @@ export const AR: Dict = {
   'partida.sala.salir.anfitrion': 'ستُغلق الغرفة للجميع.',
   'partida.sala.salir.invitado': 'ستعود إلى MindHaOS الخاص بك.',
   'partida.charla.abrir': 'دردشة الغرفة',
+  'partida.charla.mover': 'نقل المحادثة',
   'partida.charla.titulo': 'غرفة · {n}',
   'partida.charla.plegar': 'طيّ',
   'partida.charla.vacia': 'سلّم على الغرفة',

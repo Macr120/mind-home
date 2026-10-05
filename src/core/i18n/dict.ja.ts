@@ -10134,6 +10134,7 @@ export const JA: Dict = {
   'partida.sala.salir.anfitrion': '全員のルームが閉じます。',
   'partida.sala.salir.invitado': '自分のMindHaOSに戻ります。',
   'partida.charla.abrir': 'ルームのチャット',
+  'partida.charla.mover': 'チャットを移動',
   'partida.charla.titulo': 'ルーム · {n}',
   'partida.charla.plegar': 'たたむ',
   'partida.charla.vacia': 'ルームにあいさつ',

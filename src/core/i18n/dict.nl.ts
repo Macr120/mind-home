@@ -10608,6 +10608,7 @@ export const NL: Dict = {
   'partida.sala.salir.anfitrion': 'De kamer gaat voor iedereen dicht.',
   'partida.sala.salir.invitado': 'Je gaat terug naar je eigen MindHaOS.',
   'partida.charla.abrir': 'Kamerchat',
+  'partida.charla.mover': 'Chat verplaatsen',
   'partida.charla.titulo': 'Kamer · {n}',
   'partida.charla.plegar': 'Inklappen',
   'partida.charla.vacia': 'Groet de kamer',

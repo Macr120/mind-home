@@ -10623,6 +10623,7 @@ export const EN: Dict = {
   'partida.sala.salir.anfitrion': 'The room will close for everyone.',
   'partida.sala.salir.invitado': 'You will go back to your own MindHaOS.',
   'partida.charla.abrir': 'Room chat',
+  'partida.charla.mover': 'Move the chat',
   'partida.charla.titulo': 'Room · {n}',
   'partida.charla.plegar': 'Collapse',
   'partida.charla.vacia': 'Say hi to the room',

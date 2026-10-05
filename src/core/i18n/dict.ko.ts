@@ -10154,6 +10154,7 @@ export const KO: Dict = {
   'partida.sala.salir.anfitrion': '모두에게 방이 닫혀요.',
   'partida.sala.salir.invitado': '내 MindHaOS로 돌아가요.',
   'partida.charla.abrir': '방 채팅',
+  'partida.charla.mover': '채팅 옮기기',
   'partida.charla.titulo': '방 · {n}',
   'partida.charla.plegar': '접기',
   'partida.charla.vacia': '방에 인사하기',

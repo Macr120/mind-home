@@ -10524,6 +10524,7 @@ export const PT: Dict = {
   'partida.sala.salir.anfitrion': 'A sala vai fechar para todo mundo.',
   'partida.sala.salir.invitado': 'Você vai voltar para sua MindHaOS.',
   'partida.charla.abrir': 'Papo da sala',
+  'partida.charla.mover': 'Mover o chat',
   'partida.charla.titulo': 'Sala · {n}',
   'partida.charla.plegar': 'Recolher',
   'partida.charla.vacia': 'Dê um oi para a sala',

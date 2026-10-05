@@ -10498,6 +10498,7 @@ export const TR: Dict = {
   'partida.sala.salir.anfitrion': 'Oda herkes için kapanacak.',
   'partida.sala.salir.invitado': 'Kendi MindHaOS\'una döneceksin.',
   'partida.charla.abrir': 'Oda sohbeti',
+  'partida.charla.mover': 'Sohbeti taşı',
   'partida.charla.titulo': 'Oda · {n}',
   'partida.charla.plegar': 'Katla',
   'partida.charla.vacia': 'Odaya selam ver',
