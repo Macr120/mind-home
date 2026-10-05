@@ -13,6 +13,7 @@
  *   `pagehide`.
  */
 import { create } from 'zustand'
+import { esperarSesion } from '../cuenta/sesionStore'
 import { obtenerSupabase } from '../cuenta/supabase'
 import { usePartida } from './partidaStore'
 import { alRecibir, emitir, salaViva } from './sala'
@@ -39,15 +40,26 @@ let turn: { servidores: RTCIceServer[]; caduca: number } | null = null
 /** Pide credenciales TURN si no hay o están por caducar. Sin backend o si falla, se sigue con STUN. */
 async function prepararTurn(): Promise<void> {
   if (turn && turn.caduca > Date.now() + 10 * 60_000) return
-  try {
-    const sb = await obtenerSupabase()
-    if (!sb) return
-    const { data, error } = await sb.functions.invoke<{ iceServers?: RTCIceServer[]; ttl?: number }>('voz-turn')
-    if (error || !data?.iceServers?.length) return
-    turn = { servidores: data.iceServers, caduca: Date.now() + (data.ttl ?? 0) * 1000 }
-  } catch {
-    // Sin TURN: conecta igual en la mayoría de redes.
+  const sb = await obtenerSupabase()
+  if (!sb) return
+  // Con la sesión recién renovada o la función en frío la primera llamada puede
+  // fallar: se espera a la sesión y se reintenta una vez.
+  await esperarSesion()
+  for (let intento = 0; intento < 2; intento++) {
+    try {
+      const { data, error } = await sb.functions.invoke<{ iceServers?: RTCIceServer[]; ttl?: number }>('voz-turn')
+      if (!error && data?.iceServers?.length) {
+        turn = { servidores: data.iceServers, caduca: Date.now() + (data.ttl ?? 0) * 1000 }
+        return
+      }
+      if (!error) return
+      console.warn('[voz] turn', error)
+    } catch (e) {
+      console.warn('[voz] turn', e)
+    }
+    await new Promise((r) => setTimeout(r, 800))
   }
+  // Sin TURN: conecta igual en la mayoría de redes.
 }
 
 function servidoresIce(): RTCIceServer[] {
