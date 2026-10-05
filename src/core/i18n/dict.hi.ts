@@ -10532,6 +10532,10 @@ export const HI: Dict = {
     'आपके खुले कमरे में मनोरंजन शामिल नहीं है। उसे दोस्त · आपका कमरा से बंद करें और मुझसे फिर कहें',
   'partida.jugar.mensaje': 'मेरे घर पर {j} खेलें? {url}',
   'partida.jugar.mensajeMesa': '{j} खेलें? {url}',
+  'partida.invitacion.jugarJuego': '{n} आपको {j} खेलने के लिए बुला रहे हैं',
+  'partida.invitacion.jugarMesa': '{n} आपको खेलने के लिए बुला रहे हैं',
+  'partida.invitacion.desdeTuCasa': 'अपने MindHaOS से, हर कोई अपने खाते में',
+  'partida.invitacion.enSuCasa': 'उनके MindHaOS में',
   'partida.jugar.salaNueva': 'मैंने आपका MindHaOS सिर्फ़ नक्शे के साथ खोला।',
   'partida.jugar.salaNuevaMesa': 'मैंने आपका MindHaOS नक्शे और मनोरंजन के साथ खोला।',
   'partida.jugar.enviada.paintball':

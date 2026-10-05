@@ -12,11 +12,11 @@ import type { JugadorSala, Ranura } from '../tipos'
  * la raíz de `App.tsx` (el `ChatBox` está desmontado dentro de cuartos, en la
  * carrera y en el paintball). Solo existe con sala viva y al menos dos personas.
  *
- * Calca la barra del chat de la casa: las caras de la sala a la izquierda (abren
- * y cierran los mensajes), la caja de texto en medio y el micrófono y enviar a
- * la derecha. Se mueve por su asa a donde el usuario quiera; la posición se
- * recuerda por el borde de ABAJO, así los mensajes crecen hacia arriba como en
- * el chat. Sin posición guardada va al borde derecho, a media altura.
+ * Calca la barra del chat de la casa: arriba los personajes de la sala (con su
+ * voz) y los mensajes, y abajo la caja de texto, el micrófono y enviar. Se
+ * pliega a una pastilla (chat + micro) y se mueve por su asa a donde el usuario
+ * quiera; la posición se recuerda por el borde de ABAJO, así los mensajes crecen
+ * hacia arriba como en el chat. Sin posición guardada va al borde derecho, a media altura.
  */
 export function CharlaSala() {
   const sala = usePartida((s) => s.sala)
@@ -60,20 +60,22 @@ function Charla({ jugadores, mi }: { jugadores: JugadorSala[]; mi: Ranura }) {
   const voz = useVoz()
   const [texto, setTexto] = useState('')
   const [pos, setPos] = useState<Pos | null>(leerPos)
-  const barra = useRef<HTMLFormElement>(null)
+  const caja = useRef<HTMLDivElement>(null)
   const campo = useRef<HTMLInputElement>(null)
-  /** Dónde se agarró la barra, relativo a su esquina inferior izquierda. */
+  /** Dónde se agarró la caja, relativo a su esquina inferior izquierda. */
   const agarre = useRef<{ dx: number; dy: number } | null>(null)
 
-  // Al cambiar el tamaño de la ventana la posición guardada puede quedar fuera.
+  // Al cambiar el tamaño de la ventana (o al desplegar) la posición guardada
+  // puede quedar fuera: se acota con la caja entera, mensajes incluidos.
   useEffect(() => {
     const ajustar = () => {
-      const r = barra.current?.getBoundingClientRect()
+      const r = caja.current?.getBoundingClientRect()
       if (r) setPos((p) => (p ? acotar(p, r.width, r.height) : p))
     }
+    ajustar()
     addEventListener('resize', ajustar)
     return () => removeEventListener('resize', ajustar)
-  }, [])
+  }, [abierta])
 
   const nombre = (r: Ranura) => {
     if (r === mi) return t('partida.sala.tu', 'Tú')
@@ -88,14 +90,14 @@ function Charla({ jugadores, mi }: { jugadores: JugadorSala[]; mi: Ranura }) {
   // Arrastre por el asa: la captura va SOLO en el asa (en la caja entera
   // dejaría muertos los botones de dentro).
   const empezar = (e: ReactPointerEvent<HTMLButtonElement>) => {
-    const r = barra.current?.getBoundingClientRect()
+    const r = caja.current?.getBoundingClientRect()
     if (!r) return
     e.currentTarget.setPointerCapture(e.pointerId)
     agarre.current = { dx: e.clientX - r.left, dy: r.bottom - e.clientY }
   }
   const mover = (e: ReactPointerEvent<HTMLButtonElement>) => {
     const a = agarre.current
-    const r = barra.current?.getBoundingClientRect()
+    const r = caja.current?.getBoundingClientRect()
     if (!a || !r) return
     setPos(acotar({ x: e.clientX - a.dx, b: innerHeight - (e.clientY + a.dy) }, r.width, r.height))
   }
@@ -109,6 +111,21 @@ function Charla({ jugadores, mi }: { jugadores: JugadorSala[]; mi: Ranura }) {
     }
   }
 
+  const asa = (
+    <button
+      type="button"
+      onPointerDown={empezar}
+      onPointerMove={mover}
+      onPointerUp={soltar}
+      onPointerCancel={soltar}
+      title={t('partida.charla.mover', 'Mover el chat')}
+      aria-label={t('partida.charla.mover', 'Mover el chat')}
+      className="grid h-9 w-5 shrink-0 cursor-grab touch-none place-items-center rounded-lg text-white/35 hover:bg-white/10 hover:text-white/70 active:cursor-grabbing"
+    >
+      <Icono nombre="mover" />
+    </button>
+  )
+
   const tituloMicro = !voz.activa
     ? voz.pidiendo
       ? t('partida.voz.pidiendo', 'Pidiendo micro…')
@@ -116,11 +133,41 @@ function Charla({ jugadores, mi }: { jugadores: JugadorSala[]; mi: Ranura }) {
     : voz.microMudo
       ? t('partida.voz.activarMicro', 'Activar micro')
       : t('partida.voz.silenciarMicro', 'Silenciar micro')
-  const tituloCaras = abierta ? t('partida.charla.plegar', 'Plegar') : t('partida.charla.abrir', 'Charla de la sala')
+  // Micrófono: entra a la voz y, ya dentro, se silencia o se activa.
+  const micro = (
+    <button
+      type="button"
+      disabled={voz.pidiendo}
+      onClick={() => (voz.activa ? alternarMicro() : void entrarVoz())}
+      title={tituloMicro}
+      aria-label={tituloMicro}
+      className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl text-lg transition disabled:animate-pulse ${
+        voz.activa && !voz.microMudo
+          ? `bg-emerald-500/20 text-emerald-400 ${voz.hablando[mi] ? 'ring-2 ring-emerald-400' : ''}`
+          : voz.activa
+            ? 'bg-red-500/15 text-red-400'
+            : 'text-white/45 hover:bg-white/10 hover:text-white/85'
+      }`}
+    >
+      <Icono nombre={voz.activa && voz.microMudo ? 'silencio' : 'microfono'} />
+    </button>
+  )
+  const colgar = voz.activa && (
+    <button
+      type="button"
+      onClick={() => salirVoz()}
+      title={t('partida.voz.salir', 'Salir de la voz')}
+      aria-label={t('partida.voz.salir', 'Salir de la voz')}
+      className="grid h-9 w-9 shrink-0 place-items-center rounded-xl text-lg text-red-400 transition hover:bg-red-500/15"
+    >
+      <Icono nombre="telefono" />
+    </button>
+  )
 
   return (
     <div
-      className={`pointer-events-auto fixed z-40 flex w-80 max-w-[calc(100vw-0.5rem)] flex-col gap-2 ${
+      ref={caja}
+      className={`pointer-events-auto fixed z-40 flex flex-col gap-2 ${abierta ? 'w-80 max-w-[calc(100vw-0.5rem)]' : 'items-end'} ${
         pos ? '' : 'safe-fin end-2 bottom-[40%]'
       }`}
       style={pos ? { left: pos.x, bottom: pos.b } : undefined}
@@ -128,7 +175,7 @@ function Charla({ jugadores, mi }: { jugadores: JugadorSala[]; mi: Ranura }) {
       onPointerDown={parar}
       onTouchStart={parar}
     >
-      {abierta && <Panel jugadores={jugadores} mi={mi} nombre={nombre} />}
+      {abierta && <Panel jugadores={jugadores} mi={mi} nombre={nombre} onPlegar={() => setAbierta(false)} />}
 
       {voz.audioBloqueado && (
         <button
@@ -140,120 +187,79 @@ function Charla({ jugadores, mi }: { jugadores: JugadorSala[]; mi: Ranura }) {
         </button>
       )}
 
-      {/* La barra, como la del chat de la casa. */}
-      <form
-        ref={barra}
-        className="ui-panel-glass flex items-center gap-1.5 rounded-2xl border border-white/10 p-1.5 shadow-xl backdrop-blur-md"
-        onSubmit={(e) => {
-          e.preventDefault()
-          enviar()
-        }}
-      >
-        <button
-          type="button"
-          onPointerDown={empezar}
-          onPointerMove={mover}
-          onPointerUp={soltar}
-          onPointerCancel={soltar}
-          title={t('partida.charla.mover', 'Mover el chat')}
-          aria-label={t('partida.charla.mover', 'Mover el chat')}
-          className="grid h-9 w-5 shrink-0 cursor-grab touch-none place-items-center rounded-lg text-white/35 hover:bg-white/10 hover:text-white/70 active:cursor-grabbing"
-        >
-          <Icono nombre="mover" />
-        </button>
-
-        {/* Las caras de la sala: abren y cierran los mensajes. */}
-        <button
-          type="button"
-          onClick={() => setAbierta(!abierta)}
-          title={tituloCaras}
-          aria-label={tituloCaras}
-          className={`relative flex h-10 shrink-0 items-center rounded-xl px-1.5 transition ${
-            abierta ? 'bg-accent/20' : 'bg-white/5 hover:bg-white/10'
-          }`}
-        >
-          {jugadores.slice(0, 4).map((j, i) => (
-            <span
-              key={j.ranura}
-              className={`rounded-full ring-2 ${voz.hablando[j.ranura] ? 'ring-emerald-400' : 'ring-transparent'} ${i ? '-ms-2' : ''}`}
-            >
-              <Retrato retrato={j.retrato} emoji={j.emoji} className="h-7 w-7" textoClase="text-base" />
-            </span>
-          ))}
-          {noLeidos > 0 && !abierta && (
-            <span className="absolute -end-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-red-500 px-1 text-[10px] font-black text-white tabular-nums">
-              {noLeidos > 9 ? '9+' : noLeidos}
-            </span>
-          )}
-        </button>
-
-        <input
-          ref={campo}
-          value={texto}
-          maxLength={MAX_TEXTO}
-          onChange={(e) => setTexto(e.target.value)}
-          onKeyDown={(e) => {
-            // Escape suelta el foco y devuelve las teclas al juego.
-            if (e.key === 'Escape') campo.current?.blur()
+      {abierta ? (
+        // La barra, como la del chat de la casa: escribir, micrófono y enviar.
+        <form
+          className="ui-panel-glass flex items-center gap-1.5 rounded-2xl border border-white/10 p-1.5 shadow-xl backdrop-blur-md"
+          onSubmit={(e) => {
+            e.preventDefault()
+            enviar()
           }}
-          placeholder={t('partida.charla.escribe', 'Escribe a la sala…')}
-          aria-label={t('partida.charla.escribe', 'Escribe a la sala…')}
-          className="min-w-0 flex-1 bg-transparent px-1 py-1.5 text-sm text-white/90 outline-none"
-        />
-
-        {/* Micrófono: entra a la voz y, ya dentro, se silencia o se activa. */}
-        <button
-          type="button"
-          disabled={voz.pidiendo}
-          onClick={() => (voz.activa ? alternarMicro() : void entrarVoz())}
-          title={tituloMicro}
-          aria-label={tituloMicro}
-          className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl text-lg transition disabled:animate-pulse ${
-            voz.activa && !voz.microMudo
-              ? `bg-emerald-500/20 text-emerald-400 ${voz.hablando[mi] ? 'ring-2 ring-emerald-400' : ''}`
-              : voz.activa
-                ? 'bg-red-500/15 text-red-400'
-                : 'text-white/45 hover:bg-white/10 hover:text-white/85'
-          }`}
         >
-          <Icono nombre={voz.activa && voz.microMudo ? 'silencio' : 'microfono'} />
-        </button>
-        {voz.activa && (
+          {asa}
+          <input
+            ref={campo}
+            value={texto}
+            maxLength={MAX_TEXTO}
+            onChange={(e) => setTexto(e.target.value)}
+            onKeyDown={(e) => {
+              // Escape suelta el foco y devuelve las teclas al juego.
+              if (e.key === 'Escape') campo.current?.blur()
+            }}
+            placeholder={t('partida.charla.escribe', 'Escribe a la sala…')}
+            aria-label={t('partida.charla.escribe', 'Escribe a la sala…')}
+            className="min-w-0 flex-1 bg-transparent px-1 py-1.5 text-sm text-white/90 outline-none"
+          />
+          {micro}
+          {colgar}
+          {texto.trim() && (
+            <button
+              type="submit"
+              title={t('partida.charla.enviar', 'Enviar')}
+              aria-label={t('partida.charla.enviar', 'Enviar')}
+              className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-accent text-lg text-accent-ink transition"
+            >
+              <Icono nombre="enviar" />
+            </button>
+          )}
+        </form>
+      ) : (
+        // Plegada: una pastilla con el chat (y sus no leídos) y el micrófono.
+        <div className="ui-panel-glass flex items-center gap-1 rounded-2xl border border-white/10 p-1.5 shadow-xl backdrop-blur-md">
+          {asa}
           <button
             type="button"
-            onClick={() => salirVoz()}
-            title={t('partida.voz.salir', 'Salir de la voz')}
-            aria-label={t('partida.voz.salir', 'Salir de la voz')}
-            className="grid h-9 w-9 shrink-0 place-items-center rounded-xl text-lg text-red-400 transition hover:bg-red-500/15"
+            onClick={() => setAbierta(true)}
+            title={t('partida.charla.abrir', 'Charla de la sala')}
+            aria-label={t('partida.charla.abrir', 'Charla de la sala')}
+            className="relative grid h-9 w-9 shrink-0 place-items-center rounded-xl text-lg text-white/70 transition hover:bg-white/10"
           >
-            <Icono nombre="telefono" />
+            <Icono nombre="chat" />
+            {noLeidos > 0 && (
+              <span className="absolute -end-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-red-500 px-1 text-[10px] font-black text-white tabular-nums">
+                {noLeidos > 9 ? '9+' : noLeidos}
+              </span>
+            )}
           </button>
-        )}
-
-        {texto.trim() && (
-          <button
-            type="submit"
-            title={t('partida.charla.enviar', 'Enviar')}
-            aria-label={t('partida.charla.enviar', 'Enviar')}
-            className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-accent text-lg text-accent-ink transition"
-          >
-            <Icono nombre="enviar" />
-          </button>
-        )}
-      </form>
+          {micro}
+          {colgar}
+        </div>
+      )}
     </div>
   )
 }
 
-/** Encima de la barra: quién está (con su voz) y los mensajes. */
+/** Encima de la barra: arriba quién está (con su voz) y debajo los mensajes. */
 function Panel({
   jugadores,
   mi,
   nombre,
+  onPlegar,
 }: {
   jugadores: JugadorSala[]
   mi: Ranura
   nombre: (r: Ranura) => string
+  onPlegar: () => void
 }) {
   const t = useT()
   const mensajes = useCharla((s) => s.mensajes)
@@ -269,7 +275,18 @@ function Panel({
 
   return (
     <div className="ui-panel-glass ui-pop flex flex-col gap-2 rounded-2xl border border-white/10 p-2.5 shadow-xl backdrop-blur-md">
-      <p className="truncate text-xs font-bold">{t('partida.charla.titulo', 'Sala · {n}', { n: jugadores.length })}</p>
+      <div className="flex items-center justify-between gap-2">
+        <p className="truncate text-xs font-bold">{t('partida.charla.titulo', 'Sala · {n}', { n: jugadores.length })}</p>
+        <button
+          type="button"
+          onClick={onPlegar}
+          title={t('partida.charla.plegar', 'Plegar')}
+          aria-label={t('partida.charla.plegar', 'Plegar')}
+          className="grid h-7 w-7 place-items-center rounded-lg text-white/50 transition hover:bg-white/10 hover:text-white/80"
+        >
+          <Icono nombre="bajar" />
+        </button>
+      </div>
 
       {/* Quién está y quién habla. */}
       <div className="flex flex-wrap gap-1.5">

@@ -38,7 +38,28 @@ export const usePartida = create<PartidaState>((set) => ({
  */
 export function recibirInvitacion(bruto: unknown): void {
   const i = leerInvitacion(bruto)
-  if (i) usePartida.getState().abrirInvitacion(i)
+  if (i && !recienVista(i.partidaId)) usePartida.getState().abrirInvitacion(i)
+}
+
+/** Cuándo se enseñó por última vez la invitación de cada sala. */
+const vistas = new Map<string, number>()
+/** El timbre y su respaldo pueden llegar los dos: la segunda vez no reabre el modal. */
+const VENTANA_VISTA = 60_000
+
+function recienVista(partidaId: string): boolean {
+  const antes = vistas.get(partidaId)
+  vistas.set(partidaId, Date.now())
+  return antes !== undefined && Date.now() - antes < VENTANA_VISTA
+}
+
+/**
+ * Respaldo del timbre: el aviso del servidor solo viaja en vivo y se pierde si
+ * el canal del invitado se estaba (re)conectando. El mensaje «¿Jugamos…?» del
+ * buzón sí llega siempre (por el pull), así que con él también se abre el modal.
+ */
+export function invitacionDesdeMensaje(i: InvitacionRecibida): void {
+  if (salaViva()?.partidaId === i.partidaId || recienVista(i.partidaId)) return
+  usePartida.getState().abrirInvitacion(i)
 }
 
 // El motor no puede importar el store (el store es quien lo importa): le deja

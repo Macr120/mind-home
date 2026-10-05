@@ -10407,6 +10407,10 @@ export const AR: Dict = {
   'partida.jugar.salaSinApp': 'غرفتك المفتوحة لا تتضمّن الترفيه. أغلِقها من الأصدقاء · غرفتك ثم اطلب مني ذلك مجددًا',
   'partida.jugar.mensaje': 'هل نلعب {j} في بيتي؟ {url}',
   'partida.jugar.mensajeMesa': 'هل نلعب {j}؟ {url}',
+  'partida.invitacion.jugarJuego': '{n} يدعوك للعب {j}',
+  'partida.invitacion.jugarMesa': '{n} يدعوك للعب',
+  'partida.invitacion.desdeTuCasa': 'من MindHaOS الخاص بك، كلٌّ من حسابه',
+  'partida.invitacion.enSuCasa': 'في MindHaOS الخاص به',
   'partida.jugar.salaNueva': 'فتحت MindHaOS الخاص بك بالخريطة فقط.',
   'partida.jugar.salaNuevaMesa': 'فتحت MindHaOS الخاص بك بالخريطة والترفيه.',
   'partida.jugar.enviada.paintball':

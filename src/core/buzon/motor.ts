@@ -5,7 +5,9 @@ import { esDemo } from '../edicion'
 import { tGlobal } from '../i18n/useT'
 import { comprimirImagen } from '../imagenIA'
 import { notificar } from '../notificaciones'
-import { recibirInvitacion } from '../partida/partidaStore'
+import { invitacionDesdeMensaje, recibirInvitacion } from '../partida/partidaStore'
+import { JUEGOS_INVITABLES, leerDatosJuego } from '../partida/juegosInvitables'
+import { VERSION_PROTO } from '../partida/protocolo'
 import { recibirAvisoEspacio } from '../espacios/avisos'
 import * as api from './api'
 import * as cache from './cache'
@@ -283,6 +285,22 @@ async function avisar(nuevos: MensajeBuzon[]): Promise<void> {
       continue
     }
     const c = await cache.contactoDeHilo(m.hiloId)
+    // Invitación a jugar reciente: además del aviso, el modal (respaldo del timbre).
+    const juego = m.contenido?.app === 'partida' ? leerDatosJuego(m.contenido.datos) : null
+    if (juego && Date.now() - Date.parse(m.creadoEn) < 3 * 60_000) {
+      invitacionDesdeMensaje({
+        partidaId: juego.partidaId,
+        juego: 'visita',
+        proto: VERSION_PROTO,
+        apps: juego.apps,
+        casa: !JUEGOS_INVITABLES[juego.juego].mesa,
+        alias: c?.alias ?? null,
+        nombre: c?.nombre ?? '',
+        emoji: c?.emoji ?? '🙂',
+        retrato: c?.retrato ?? null,
+        juegoInvitable: juego.juego,
+      })
+    }
     const quien = c?.nombre || (c?.alias ? `@${c.alias}` : tGlobal('buzon.amigos', 'Amigos'))
     const cuerpo =
       m.tipo === 'imagen'

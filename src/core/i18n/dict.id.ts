@@ -10619,6 +10619,10 @@ export const ID: Dict = {
   'partida.jugar.salaSinApp': 'Ruang terbukamu tidak memuat Hiburan. Tutup dari Teman · Ruangmu lalu minta lagi ke aku',
   'partida.jugar.mensaje': 'Main {j} di rumahku, yuk? {url}',
   'partida.jugar.mensajeMesa': 'Main {j}, yuk? {url}',
+  'partida.invitacion.jugarJuego': '{n} mengajak kamu main {j}',
+  'partida.invitacion.jugarMesa': '{n} mengajak kamu main',
+  'partida.invitacion.desdeTuCasa': 'Dari MindHaOS kamu sendiri, masing-masing di akunnya',
+  'partida.invitacion.enSuCasa': 'Di MindHaOS-nya',
   'partida.jugar.salaNueva': 'Aku membuka MindHaOS-mu hanya dengan peta.',
   'partida.jugar.salaNuevaMesa': 'Aku membuka MindHaOS-mu dengan peta dan Hiburan.',
   'partida.jugar.enviada.paintball':

@@ -10696,6 +10696,10 @@ export const FR: Dict = {
     'Ta salle ouverte n’inclut pas Divertissement. Ferme-la depuis Amis · Ta salle et redemande-le-moi',
   'partida.jugar.mensaje': 'On joue à {j} chez moi ? {url}',
   'partida.jugar.mensajeMesa': 'On joue à {j} ? {url}',
+  'partida.invitacion.jugarJuego': '{n} t’invite à jouer à {j}',
+  'partida.invitacion.jugarMesa': '{n} t’invite à jouer',
+  'partida.invitacion.desdeTuCasa': 'Depuis ta MindHaOS, chacun sur son compte',
+  'partida.invitacion.enSuCasa': 'Dans sa MindHaOS',
   'partida.jugar.salaNueva': 'J’ai ouvert ta MindHaOS avec le plan seulement.',
   'partida.jugar.salaNuevaMesa': 'J’ai ouvert ta MindHaOS avec le plan et Divertissement.',
   'partida.jugar.enviada.paintball':

@@ -10545,6 +10545,10 @@ export const RU: Dict = {
     'Твоя открытая комната не включает «Развлечения». Закрой её в «Друзья · Твоя комната» и попроси снова',
   'partida.jugar.mensaje': 'Сыграем в {j} у меня дома? {url}',
   'partida.jugar.mensajeMesa': 'Сыграем в {j}? {url}',
+  'partida.invitacion.jugarJuego': '{n} зовёт тебя сыграть в {j}',
+  'partida.invitacion.jugarMesa': '{n} зовёт тебя сыграть',
+  'partida.invitacion.desdeTuCasa': 'Из своего MindHaOS, каждый со своего аккаунта',
+  'partida.invitacion.enSuCasa': 'В своём MindHaOS',
   'partida.jugar.salaNueva': 'Твой MindHaOS открыт — только с картой.',
   'partida.jugar.salaNuevaMesa': 'Твой MindHaOS открыт — с картой и «Развлечениями».',
   'partida.jugar.enviada.paintball':

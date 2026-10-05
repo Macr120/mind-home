@@ -10545,6 +10545,10 @@ export const TR: Dict = {
   'partida.jugar.salaSinApp': 'Açık odanda Eğlence yok. Arkadaşlar · Odan bölümünden kapat ve bana tekrar söyle',
   'partida.jugar.mensaje': 'Bizim evde {j} oynayalım mı? {url}',
   'partida.jugar.mensajeMesa': '{j} oynayalım mı? {url}',
+  'partida.invitacion.jugarJuego': '{n} seni {j} oynamaya davet ediyor',
+  'partida.invitacion.jugarMesa': '{n} seni oynamaya davet ediyor',
+  'partida.invitacion.desdeTuCasa': 'Kendi MindHaOS\'undan, herkes kendi hesabında',
+  'partida.invitacion.enSuCasa': 'Onun MindHaOS\'unda',
   'partida.jugar.salaNueva': 'MindHaOS\'unu sadece haritayla açtım.',
   'partida.jugar.salaNuevaMesa': 'MindHaOS\'unu haritayla ve Eğlence\'yle açtım.',
   'partida.jugar.enviada.paintball':

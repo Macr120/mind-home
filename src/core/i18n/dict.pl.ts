@@ -10570,6 +10570,10 @@ export const PL: Dict = {
     'Twój otwarty pokój nie zawiera Rozrywki. Zamknij go w Znajomi · Twój pokój i poproś mnie jeszcze raz',
   'partida.jugar.mensaje': 'Zagramy w {j} u mnie? {url}',
   'partida.jugar.mensajeMesa': 'Zagramy w {j}? {url}',
+  'partida.invitacion.jugarJuego': '{n} zaprasza cię do gry w {j}',
+  'partida.invitacion.jugarMesa': '{n} zaprasza cię do gry',
+  'partida.invitacion.desdeTuCasa': 'Z twojego MindHaOS, każdy na swoim koncie',
+  'partida.invitacion.enSuCasa': 'W swoim MindHaOS',
   'partida.jugar.salaNueva': 'Twój MindHaOS jest już otwarty, tylko z mapą.',
   'partida.jugar.salaNuevaMesa': 'Twój MindHaOS jest już otwarty, z mapą i Rozrywką.',
   'partida.jugar.enviada.paintball':

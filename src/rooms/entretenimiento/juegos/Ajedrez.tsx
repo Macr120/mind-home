@@ -479,7 +479,9 @@ export function Ajedrez({ dificultad = 'medio', mesaOnline = false }: PropsDific
       {online && <BarraMesa abierta={mesa.abierta} cerrada={mesa.cerrada} asientos={mesa.asientos} miAsiento={mesa.miAsiento} />}
 
       <div className="mx-auto grid max-w-[440px] select-none grid-cols-8 overflow-hidden rounded-xl border border-white/15 shadow-lg">
-        {estado.tab.map((pieza, i) => {
+        {/* Con negras en línea el tablero se gira 180°: tus piezas quedan abajo. */}
+        {(miBando === 'n' ? [...estado.tab.keys()].reverse() : [...estado.tab.keys()]).map((i) => {
+          const pieza = estado.tab[i]
           const f = Math.floor(i / 8)
           const c = i % 8
           const oscura = (f + c) % 2 === 1

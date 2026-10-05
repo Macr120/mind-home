@@ -6,6 +6,8 @@ import { useT } from '../../i18n/useT'
 import { Icono } from '../../ui/iconos/Icono'
 import { Retrato } from '../../buzon/ui/Retrato'
 import { mensajeErrorPartida } from '../api'
+import { irAlJuego } from '../irAlJuego'
+import { JUEGOS_INVITABLES, nombreJuego } from '../juegosInvitables'
 import { usePartida } from '../partidaStore'
 import { entrarYConectar } from '../sala'
 import { entrarAVisita } from '../../visita/visitaStore'
@@ -30,6 +32,15 @@ function Dialogo({ invitacion }: { invitacion: InvitacionRecibida }) {
   const [ocupado, setOcupado] = useState(false)
   const [error, setError] = useState('')
   const quien = invitacion.alias ? `@${invitacion.alias}` : invitacion.nombre || t('partida.alguien', 'Alguien')
+  // Juego de mesa: no hay visita, cada quien juega desde su casa.
+  const deMesa = invitacion.juegoInvitable
+    ? !!JUEGOS_INVITABLES[invitacion.juegoInvitable].mesa
+    : !invitacion.casa && invitacion.apps.includes('entretenimiento')
+  const titulo = invitacion.juegoInvitable
+    ? t('partida.invitacion.jugarJuego', '{n} te invita a jugar {j}', { n: quien, j: nombreJuego(invitacion.juegoInvitable, t) })
+    : deMesa
+      ? t('partida.invitacion.jugarMesa', '{n} te invita a jugar', { n: quien })
+      : t('partida.invitacion.texto', '{n} te invita a su MindHaOS', { n: quien })
 
   const aceptar = async () => {
     setOcupado(true)
@@ -37,6 +48,18 @@ function Dialogo({ invitacion }: { invitacion: InvitacionRecibida }) {
     try {
       const sala = await entrarYConectar(invitacion.partidaId)
       sonar('tick')
+      // Se sabe el juego (respaldo del mensaje): la mesa se abre en mi casa y en
+      // línea; la cancha y el paintball, en la del anfitrión.
+      const j = invitacion.juegoInvitable
+      if (j && JUEGOS_INVITABLES[j].mesa) {
+        irAlJuego(j, 1, false)
+        cerrar()
+        return
+      }
+      if (j && sala.casa) {
+        entrarAVisita(sala.partidaId, sala.apps, j)
+        return
+      }
       // `casa` y `apps` se leen del RESULTADO, no de la invitación: el timbre
       // llegó por broadcast y pudo quedarse viejo (el anfitrión pudo subir el
       // plano o cambiar las apps entre el timbre y el «Aceptar»).
@@ -62,11 +85,15 @@ function Dialogo({ invitacion }: { invitacion: InvitacionRecibida }) {
         <div className="flex items-center gap-3">
           <Retrato retrato={invitacion.retrato} emoji={invitacion.emoji} className="h-14 w-14" textoClase="text-3xl" />
           <div className="min-w-0 flex-1">
-            <p className="text-sm font-semibold">{t('partida.invitacion.texto', '{n} te invita a su MindHaOS', { n: quien })}</p>
+            <p className="text-sm font-semibold">{titulo}</p>
             <p className="text-[11px] text-white/45">
-              {invitacion.juego === 'visita'
+              {deMesa
+                ? t('partida.invitacion.desdeTuCasa', 'Desde tu MindHaOS, cada quien en su cuenta')
+                : invitacion.juegoInvitable
+                  ? t('partida.invitacion.enSuCasa', 'En su MindHaOS')
+                  : invitacion.juego === 'visita'
                 ? t('partida.invitacion.pasear', 'Para pasear juntos')
-                : t('partida.invitacion.jugar', 'Para jugar')}
+                  : t('partida.invitacion.jugar', 'Para jugar')}
             </p>
           </div>
         </div>

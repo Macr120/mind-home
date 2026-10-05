@@ -10656,6 +10656,10 @@ export const NL: Dict = {
     'Je open kamer bevat geen Entertainment. Sluit die via Vrienden · Jouw kamer en vraag het me opnieuw',
   'partida.jugar.mensaje': 'Zullen we {j} spelen bij mij? {url}',
   'partida.jugar.mensajeMesa': 'Zullen we {j} spelen? {url}',
+  'partida.invitacion.jugarJuego': '{n} nodigt je uit om {j} te spelen',
+  'partida.invitacion.jugarMesa': '{n} nodigt je uit om te spelen',
+  'partida.invitacion.desdeTuCasa': 'Vanuit je eigen MindHaOS, ieder op zijn account',
+  'partida.invitacion.enSuCasa': 'In hun MindHaOS',
   'partida.jugar.salaNueva': 'Ik heb je MindHaOS alleen met de kaart geopend.',
   'partida.jugar.salaNuevaMesa': 'Ik heb je MindHaOS geopend met de kaart en Entertainment.',
   'partida.jugar.enviada.paintball':

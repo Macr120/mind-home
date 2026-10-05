@@ -5,6 +5,7 @@
  * Lo ÚNICO que viaja por el canal es la ranura efímera (`j0`..`j3`): ningún
  * uuid ajeno sale al cliente, igual que en el buzón (`buzon/tipos.ts`).
  */
+import type { JuegoInvitable } from './juegosInvitables'
 
 /** Ranura efímera dentro de una sala. Es el id que viaja por el canal. */
 export type Ranura = 'j0' | 'j1' | 'j2' | 'j3'
@@ -390,6 +391,11 @@ export interface InvitacionRecibida {
   nombre: string
   emoji: string
   retrato: string | null
+  /**
+   * El juego concreto, cuando se sabe: solo lo trae el respaldo que sale del
+   * mensaje del buzón («¿Jugamos Ajedrez?»); el timbre del servidor no lo lleva.
+   */
+  juegoInvitable?: JuegoInvitable
 }
 
 /** Códigos de error que devuelven las RPC de partida (contrato `{error:'<codigo>'}`). */
