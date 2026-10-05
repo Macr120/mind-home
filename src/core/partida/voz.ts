@@ -13,24 +13,45 @@
  *   `pagehide`.
  */
 import { create } from 'zustand'
+import { obtenerSupabase } from '../cuenta/supabase'
 import { usePartida } from './partidaStore'
 import { alRecibir, emitir, salaViva } from './sala'
 import type { MsgSenal, MsgVoz, Ranura } from './tipos'
 
 const STUN: RTCIceServer[] = [{ urls: ['stun:stun.l.google.com:19302', 'stun:stun.cloudflare.com:3478'] }]
 
-/** TURN opcional por entorno (`VITE_TURN_URL`, `VITE_TURN_USER`, `VITE_TURN_PASS`). */
-function servidoresIce(): RTCIceServer[] {
+/** TURN fijo por entorno (`VITE_TURN_URL`, `VITE_TURN_USER`, `VITE_TURN_PASS`), para pruebas. */
+function turnDeEntorno(): RTCIceServer[] {
   const url = import.meta.env.VITE_TURN_URL as string | undefined
-  if (!url) return STUN
+  if (!url) return []
   return [
-    ...STUN,
     {
       urls: url.split(',').map((u) => u.trim()),
       username: import.meta.env.VITE_TURN_USER as string | undefined,
       credential: import.meta.env.VITE_TURN_PASS as string | undefined,
     },
   ]
+}
+
+/** Credenciales TURN de corta duración (edge function `voz-turn`, Cloudflare). */
+let turn: { servidores: RTCIceServer[]; caduca: number } | null = null
+
+/** Pide credenciales TURN si no hay o están por caducar. Sin backend o si falla, se sigue con STUN. */
+async function prepararTurn(): Promise<void> {
+  if (turn && turn.caduca > Date.now() + 10 * 60_000) return
+  try {
+    const sb = await obtenerSupabase()
+    if (!sb) return
+    const { data, error } = await sb.functions.invoke<{ iceServers?: RTCIceServer[]; ttl?: number }>('voz-turn')
+    if (error || !data?.iceServers?.length) return
+    turn = { servidores: data.iceServers, caduca: Date.now() + (data.ttl ?? 0) * 1000 }
+  } catch {
+    // Sin TURN: conecta igual en la mayoría de redes.
+  }
+}
+
+function servidoresIce(): RTCIceServer[] {
+  return [...STUN, ...(turn?.servidores ?? []), ...turnDeEntorno()]
 }
 
 /** Lo más que se espera a reunir candidatos antes de mandar el SDP igualmente. */
@@ -337,6 +358,8 @@ export async function entrarVoz(): Promise<void> {
   } catch {
     ctx = null
   }
+  // En paralelo al permiso del micro: cuando lo conceda ya estarán las credenciales.
+  const turnListo = prepararTurn()
   try {
     micro = await navigator.mediaDevices.getUserMedia({
       audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true },
@@ -345,6 +368,7 @@ export async function entrarVoz(): Promise<void> {
     useVoz.setState({ pidiendo: false, error: 'permiso' })
     return
   }
+  await turnListo
   // La sala pudo cerrarse mientras el permiso estaba en pantalla.
   if (!salaViva()) {
     soltarMicro()
@@ -357,6 +381,7 @@ export async function entrarVoz(): Promise<void> {
   conectarPendientes()
   medidor = setInterval(medir, 150)
   latido = setInterval(() => {
+    void prepararTurn()
     anunciar('entra', true)
     conectarPendientes()
   }, LATIDO_VOZ)
