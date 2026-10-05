@@ -4,7 +4,7 @@ import { useT } from '../../i18n/useT'
 import { Icono } from '../../ui/iconos/Icono'
 import { enviarCharla, MAX_TEXTO, useCharla } from '../charla'
 import { usePartida } from '../partidaStore'
-import { alternarMicro, alternarSilencio, entrarVoz, reanudarAudio, salirVoz, useVoz } from '../voz'
+import { alternarMicro, entrarVoz, reanudarAudio, salirVoz, useVoz } from '../voz'
 import type { JugadorSala, Ranura } from '../tipos'
 
 /**
@@ -12,9 +12,9 @@ import type { JugadorSala, Ranura } from '../tipos'
  * la raíz de `App.tsx` (el `ChatBox` está desmontado dentro de cuartos, en la
  * carrera y en el paintball). Solo existe con sala viva y al menos dos personas.
  *
- * Calca la barra del chat de la casa: arriba los personajes de la sala (con su
- * voz) y los mensajes, y abajo la caja de texto, el micrófono y enviar. Se
- * pliega a una pastilla (chat + micro) y se mueve por su asa a donde el usuario
+ * Calca la barra del chat de la casa: los participantes a la izquierda (abren
+ * los mensajes, que salen encima), la caja de texto, el micrófono y enviar. Se
+ * pliega a una pastilla (participantes + micro) y se mueve por su asa a donde el usuario
  * quiera; la posición se recuerda por el borde de ABAJO, así los mensajes crecen
  * hacia arriba como en el chat. Sin posición guardada va al borde derecho, a media altura.
  */
@@ -126,6 +126,42 @@ function Charla({ jugadores, mi }: { jugadores: JugadorSala[]; mi: Ranura }) {
     </button>
   )
 
+  // Los participantes, a la izquierda como el asistente en el chat de la casa:
+  // abren y cierran los mensajes. El aro dice quién habla (verde) o quién se
+  // quedó sin conexión de voz (rojo).
+  const caras = (
+    <button
+      type="button"
+      onClick={() => setAbierta(!abierta)}
+      title={abierta ? t('partida.charla.plegar', 'Plegar') : t('partida.charla.abrir', 'Charla de la sala')}
+      aria-label={abierta ? t('partida.charla.plegar', 'Plegar') : t('partida.charla.abrir', 'Charla de la sala')}
+      className={`relative flex h-10 shrink-0 items-center rounded-xl px-1.5 transition ${
+        abierta ? 'bg-accent/20' : 'bg-white/5 hover:bg-white/10'
+      }`}
+    >
+      {jugadores.slice(0, 4).map((j, i) => (
+        <span
+          key={j.ranura}
+          title={nombre(j.ranura)}
+          className={`rounded-full ring-2 ${
+            voz.hablando[j.ranura]
+              ? 'ring-emerald-400'
+              : voz.conexiones[j.ranura] === 'fallo'
+                ? 'ring-red-400'
+                : 'ring-transparent'
+          } ${i ? '-ms-2' : ''}`}
+        >
+          <Retrato retrato={j.retrato} emoji={j.emoji} className="h-7 w-7" textoClase="text-base" />
+        </span>
+      ))}
+      {noLeidos > 0 && !abierta && (
+        <span className="absolute -end-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-red-500 px-1 text-[10px] font-black text-white tabular-nums">
+          {noLeidos > 9 ? '9+' : noLeidos}
+        </span>
+      )}
+    </button>
+  )
+
   const tituloMicro = !voz.activa
     ? voz.pidiendo
       ? t('partida.voz.pidiendo', 'Pidiendo micro…')
@@ -197,6 +233,7 @@ function Charla({ jugadores, mi }: { jugadores: JugadorSala[]; mi: Ranura }) {
           }}
         >
           {asa}
+          {caras}
           <input
             ref={campo}
             value={texto}
@@ -224,23 +261,10 @@ function Charla({ jugadores, mi }: { jugadores: JugadorSala[]; mi: Ranura }) {
           )}
         </form>
       ) : (
-        // Plegada: una pastilla con el chat (y sus no leídos) y el micrófono.
+        // Plegada: una pastilla con los participantes (y los no leídos) y el micrófono.
         <div className="ui-panel-glass flex items-center gap-1 rounded-2xl border border-white/10 p-1.5 shadow-xl backdrop-blur-md">
           {asa}
-          <button
-            type="button"
-            onClick={() => setAbierta(true)}
-            title={t('partida.charla.abrir', 'Charla de la sala')}
-            aria-label={t('partida.charla.abrir', 'Charla de la sala')}
-            className="relative grid h-9 w-9 shrink-0 place-items-center rounded-xl text-lg text-white/70 transition hover:bg-white/10"
-          >
-            <Icono nombre="chat" />
-            {noLeidos > 0 && (
-              <span className="absolute -end-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-red-500 px-1 text-[10px] font-black text-white tabular-nums">
-                {noLeidos > 9 ? '9+' : noLeidos}
-              </span>
-            )}
-          </button>
+          {caras}
           {micro}
           {colgar}
         </div>
@@ -249,7 +273,7 @@ function Charla({ jugadores, mi }: { jugadores: JugadorSala[]; mi: Ranura }) {
   )
 }
 
-/** Encima de la barra: arriba quién está (con su voz) y debajo los mensajes. */
+/** Encima de la barra: solo los mensajes (los participantes van en la barra). */
 function Panel({
   jugadores,
   mi,
@@ -288,48 +312,6 @@ function Panel({
         </button>
       </div>
 
-      {/* Quién está y quién habla. */}
-      <div className="flex flex-wrap gap-1.5">
-        {jugadores.map((j) => {
-          const enVoz = j.ranura === mi ? voz.activa : !!voz.enVoz[j.ranura]
-          const mudo = j.ranura === mi ? voz.microMudo : !!voz.enVoz[j.ranura]?.mu
-          const conexion = voz.conexiones[j.ranura]
-          const silenciado = !!voz.silenciados[j.ranura]
-          return (
-            <div key={j.ranura} className="flex items-center gap-1 rounded-full border border-white/10 bg-white/5 py-0.5 ps-0.5 pe-1.5">
-              <span className={`rounded-full ${voz.hablando[j.ranura] ? 'ring-2 ring-emerald-400' : ''}`}>
-                <Retrato retrato={j.retrato} emoji={j.emoji} className="h-6 w-6" textoClase="text-sm" />
-              </span>
-              <span className="max-w-[5.5rem] truncate text-[11px]">{nombre(j.ranura)}</span>
-              {enVoz && (
-                <span
-                  className={`text-[11px] ${conexion === 'fallo' ? 'text-red-400' : conexion === 'conectando' ? 'text-amber-300' : 'text-white/60'}`}
-                  title={
-                    conexion === 'fallo'
-                      ? t('partida.voz.fallo', 'Sin conexión de voz')
-                      : conexion === 'conectando'
-                        ? t('partida.voz.conectando', 'Conectando…')
-                        : t('partida.voz.enVoz', 'En la voz')
-                  }
-                >
-                  <Icono nombre={mudo ? 'silencio' : 'microfono'} />
-                </span>
-              )}
-              {voz.activa && j.ranura !== mi && enVoz && (
-                <button
-                  type="button"
-                  onClick={() => alternarSilencio(j.ranura)}
-                  title={silenciado ? t('partida.voz.oir', 'Volver a oír') : t('partida.voz.silenciar', 'Silenciar')}
-                  aria-label={silenciado ? t('partida.voz.oir', 'Volver a oír') : t('partida.voz.silenciar', 'Silenciar')}
-                  className={`rounded-full px-1 text-[11px] transition hover:bg-white/10 ${silenciado ? 'text-red-400' : 'text-white/50'}`}
-                >
-                  <Icono nombre={silenciado ? 'silencio' : 'bocina'} />
-                </button>
-              )}
-            </div>
-          )
-        })}
-      </div>
       {voz.error && (
         <p className="text-[11px] leading-snug text-red-400/90">
           {voz.error === 'permiso'
