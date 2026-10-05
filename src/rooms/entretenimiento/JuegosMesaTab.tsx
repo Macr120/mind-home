@@ -92,6 +92,7 @@ function SelectorDificultad({ valor, alCambiar }: { valor: Dificultad; alCambiar
         id: d,
         labelEs: ETIQUETAS_DIFICULTAD[d],
         glifo: GLIFO_DIFICULTAD[d],
+        soloIcono: true,
         color: coloridos ? COLOR_DIFICULTAD[d] : undefined,
       }))}
       activo={valor}

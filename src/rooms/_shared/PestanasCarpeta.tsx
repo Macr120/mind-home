@@ -21,6 +21,8 @@ export interface ItemPestana<T extends string> {
   clave?: string
   /** Color propio del ítem activo (caso agenda: un color por área, no por app). */
   color?: string
+  /** Solo el icono: el rótulo queda para lectores de pantalla y en el `title`. */
+  soloIcono?: boolean
   /** Nodo extra tras el texto (caso biblioteca: puntito de estudio en curso). */
   extra?: ReactNode
 }
@@ -165,6 +167,7 @@ export function PestanasCarpeta<T extends string>({
               if (plegado) onAlternarPliegue()
               else if (esActiva && e.isTrusted) onAlternarPliegue()
             }}
+            title={item.soloIcono ? (item.label ?? t(item.clave ?? `${prefijoClave}.${item.id}`, item.labelEs ?? '')) : undefined}
             className={`relative ${BASE[variante]} ${ancho} ${clase}`}
             style={esActiva ? { color: colorActivo ? tinta(colorActivo) : 'var(--ui-accent-ink)' } : undefined}
           >
@@ -181,7 +184,11 @@ export function PestanasCarpeta<T extends string>({
             {/* En una línea: partido en dos, el rótulo descuadra la fila entera. En la
                 rejilla no: cada celda es independiente, y en una sola línea «Diagrama de
                 flujo» se salía de su celda y del panel (con la píldora detrás). */}
-            <span className={rejilla ? 'min-w-0 break-words leading-tight hyphens-auto' : 'whitespace-nowrap'}>
+            <span
+              className={
+                item.soloIcono ? 'sr-only' : rejilla ? 'min-w-0 break-words leading-tight hyphens-auto' : 'whitespace-nowrap'
+              }
+            >
               {item.label ?? t(item.clave ?? `${prefijoClave}.${item.id}`, item.labelEs ?? '')}
             </span>
             {item.extra}

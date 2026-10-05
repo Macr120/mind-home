@@ -416,22 +416,40 @@ const pieza = (d: string, cara: string, canto: string) => (
   </>
 )
 
-// Dificultad de los juegos: tres barras de señal crecientes, encendidas 1/2/3.
-// Las encendidas van del color del nivel con su canto (como las piezas del
-// logo); las apagadas, en el color del texto muy tenue para que la escalera se
-// lea completa aunque solo brille un peldaño.
-const barrasDificultad = (encendidas: 1 | 2 | 3, cara: string, canto: string) => (
+// Dificultad de los juegos: una, dos y tres estrellas. En «Coloridos» doradas
+// con su canto (como las piezas del logo); en «Profesional», macizas del color
+// del texto.
+const ESTRELLAS: Record<1 | 2 | 3, [number, number, number][]> = {
+  1: [[24, 25, 20]],
+  2: [
+    [13, 25, 12],
+    [35, 25, 12],
+  ],
+  3: [
+    [24, 14, 11],
+    [12, 34, 11],
+    [36, 34, 11],
+  ],
+}
+
+/** Puntos de una estrella de cinco picos centrada en (cx, cy) con radio r. */
+function puntosEstrella(cx: number, cy: number, r: number): string {
+  return Array.from({ length: 10 }, (_, i) => {
+    const radio = i % 2 ? r * 0.45 : r
+    const ang = -Math.PI / 2 + (i * Math.PI) / 5
+    return `${(cx + radio * Math.cos(ang)).toFixed(1)},${(cy + radio * Math.sin(ang)).toFixed(1)}`
+  }).join(' ')
+}
+
+const estrellasDificultad = (n: 1 | 2 | 3) => (
   <>
-    {[14, 25, 36].map((alto, i) => {
-      const x = 3 + i * 15
-      const y = 42 - alto
-      return i < encendidas ? (
-        <g key={alto}>
-          <rect x={x} y={y} width="9" height={alto} rx="2.5" fill={canto} stroke="none" transform="translate(2 2)" />
-          <rect x={x} y={y} width="9" height={alto} rx="2.5" fill={cara} />
+    {ESTRELLAS[n].map(([cx, cy, r]) => {
+      const p = puntosEstrella(cx, cy, r)
+      return (
+        <g key={`${cx}-${cy}`}>
+          <polygon points={p} fill="var(--glifo-canto-estrella)" stroke="none" transform="translate(1.5 1.5)" />
+          <polygon points={p} fill="var(--glifo-estrella)" strokeWidth="2" />
         </g>
-      ) : (
-        <rect key={alto} x={x} y={y} width="9" height={alto} rx="2.5" fill="currentColor" fillOpacity="0.3" />
       )
     })}
   </>
@@ -585,9 +603,9 @@ const GLIFOS_NOMBRE = {
   ),
 
   // — Dificultad de los juegos (Entretenimiento) —
-  dificultadFacil: barrasDificultad(1, 'var(--glifo-verde)', 'var(--glifo-canto-verde)'),
-  dificultadMedio: barrasDificultad(2, 'var(--glifo-ambar)', 'var(--glifo-canto-ambar)'),
-  dificultadDificil: barrasDificultad(3, 'var(--glifo-rojo)', 'var(--glifo-canto-rojo)'),
+  dificultadFacil: estrellasDificultad(1),
+  dificultadMedio: estrellasDificultad(2),
+  dificultadDificil: estrellasDificultad(3),
 } satisfies Record<string, ReactNode>
 
 /** Color de cada nivel de dificultad en «Coloridos» (el mismo del glifo). */
@@ -623,12 +641,8 @@ const PALETAS: Record<EstiloIconos, CSSProperties> = {
     '--glifo-canto-n': '#c14a05',
     '--glifo-canto-r': '#8e0a24',
     '--glifo-canto-m': '#8935d8',
-    '--glifo-verde': COLOR_DIFICULTAD.facil,
-    '--glifo-ambar': COLOR_DIFICULTAD.medio,
-    '--glifo-rojo': COLOR_DIFICULTAD.dificil,
-    '--glifo-canto-verde': '#15803d',
-    '--glifo-canto-ambar': '#c14a05',
-    '--glifo-canto-rojo': '#8e0a24',
+    '--glifo-estrella': '#fbbf24',
+    '--glifo-canto-estrella': '#b45309',
   } as CSSProperties,
   profesional: {
     '--glifo-n': FONDO,
@@ -640,13 +654,9 @@ const PALETAS: Record<EstiloIconos, CSSProperties> = {
     '--glifo-canto-n': 'none',
     '--glifo-canto-r': 'none',
     '--glifo-canto-m': 'none',
-    // Barras de dificultad: las encendidas macizas, las apagadas en contorno con un velo.
-    '--glifo-verde': 'currentColor',
-    '--glifo-ambar': 'currentColor',
-    '--glifo-rojo': 'currentColor',
-    '--glifo-canto-verde': 'none',
-    '--glifo-canto-ambar': 'none',
-    '--glifo-canto-rojo': 'none',
+    // Estrellas de dificultad: macizas del color del texto, sin canto.
+    '--glifo-estrella': 'currentColor',
+    '--glifo-canto-estrella': 'none',
     stroke: 'currentColor',
     strokeWidth: 3,
     strokeLinejoin: 'round',
