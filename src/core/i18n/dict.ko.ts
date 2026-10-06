@@ -6946,7 +6946,7 @@ export const KO: Dict = {
   'probar.conv.migrando': 'MindHaOS를 복구하는 중…',
   'probar.conv.comprobando': 'MindHaOS를 준비하는 중…',
   'puerta.cupon.tengo': '쿠폰이 있어요',
-  'puerta.cupon.desc': '추천 링크',
+  'puerta.cupon.desc': '코드가 있나요?',
   'puerta.cupon.codigo': '쿠폰 코드',
   'puerta.cupon.canjear': '사용',
   'queEs.titulo': '{n}은 무엇인가요?',
@@ -7326,6 +7326,9 @@ export const KO: Dict = {
   'cuenta.sync.nunca': '아직 동기화하지 않음',
   'cuenta.sync.ahora': '지금 동기화',
   'cuenta.sync.activar': '기기 간 동기화 켜기',
+  'cuenta.codigo.canjear': '프로모션 코드 사용하기',
+  'cuenta.codigo.listo': '코드를 사용했어요. 구독이 활성화되었습니다.',
+  'cuenta.codigo.pendiente': '코드를 사용했다면 몇 분 안에 구독이 여기에 표시돼요.',
   'cuenta.sync.otraCuenta':
     '이 MindHaOS는 다른 계정에 연결되어 있었어요. 로컬 데이터를 유지하고 새 계정에 합칠까요? (취소 = 이 MindHaOS를 비우고 계정 데이터만 내려받기)',
   'cuenta.sync.respaldoPrevio': '이 MindHaOS를 처음으로 동기화하려고 해요. 먼저 로컬 백업을 내려받을까요? (추천)',

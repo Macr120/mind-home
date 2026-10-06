@@ -7313,7 +7313,7 @@ export const EN: Dict = {
   'probar.conv.migrando': 'Recovering your MindHaOS…',
   'probar.conv.comprobando': 'Preparing your MindHaOS…',
   'puerta.cupon.tengo': 'I have a coupon',
-  'puerta.cupon.desc': 'Referral link',
+  'puerta.cupon.desc': 'Have a code?',
   'puerta.cupon.codigo': 'Coupon code',
   'puerta.cupon.canjear': 'Redeem',
   'queEs.titulo': 'What is {n}?',
@@ -7739,6 +7739,9 @@ export const EN: Dict = {
   'cuenta.sync.nunca': 'Not synced yet',
   'cuenta.sync.ahora': 'Sync now',
   'cuenta.sync.activar': 'Turn on sync across devices',
+  'cuenta.codigo.canjear': 'Redeem a promo code',
+  'cuenta.codigo.listo': 'Code redeemed: your subscription is now active.',
+  'cuenta.codigo.pendiente': 'If you redeemed a code, your subscription will show up here in a few minutes.',
   'cuenta.sync.otraCuenta':
     'This MindHaOS was linked to another account. Keep local data and merge it into the new account? (Cancel = empty this MindHaOS and download only the account data)',
   'cuenta.sync.respaldoPrevio':

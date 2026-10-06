@@ -62,7 +62,7 @@ export const TEXTOS: Record<string, string> = {
   'mi.salir': 'Çıkış yap',
   'mi.boletin': 'Günlük e-posta: ruh sağlığı, kampanyalar ve önemli haberler',
   'cupon.titulo': 'Kuponum var',
-  'cupon.desc': 'Davet bağlantısı',
+  'cupon.desc': 'Kodun var mı?',
   'cupon.codigo': 'Kupon kodu',
   'cupon.canjear': 'Kullan',
 

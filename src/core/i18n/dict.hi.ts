@@ -7178,7 +7178,7 @@ export const HI: Dict = {
   'probar.conv.migrando': 'आपका MindHaOS वापस लाया जा रहा है…',
   'probar.conv.comprobando': 'आपका MindHaOS तैयार हो रहा है…',
   'puerta.cupon.tengo': 'मेरे पास कूपन है',
-  'puerta.cupon.desc': 'रेफ़रल लिंक',
+  'puerta.cupon.desc': 'क्या आपके पास कोड है?',
   'puerta.cupon.codigo': 'कूपन कोड',
   'puerta.cupon.canjear': 'रिडीम करें',
   'queEs.titulo': '{n} क्या है?',
@@ -7598,6 +7598,9 @@ export const HI: Dict = {
   'cuenta.sync.nunca': 'अभी तक सिंक नहीं हुआ',
   'cuenta.sync.ahora': 'सिंक करें',
   'cuenta.sync.activar': 'उपकरणों के बीच सिंक चालू करें',
+  'cuenta.codigo.canjear': 'प्रोमो कोड भुनाएँ',
+  'cuenta.codigo.listo': 'कोड भुना लिया गया: आपकी सदस्यता अब सक्रिय है।',
+  'cuenta.codigo.pendiente': 'अगर आपने कोड भुनाया है, तो आपकी सदस्यता कुछ मिनटों में यहाँ दिखेगी।',
   'cuenta.sync.otraCuenta':
     'यह MindHaOS किसी और खाते से जुड़ा हुआ था। लोकल डेटा रखकर उसे नए खाते में मिला दें? (रद्द करें = इस MindHaOS को खाली करें और सिर्फ़ खाते का डेटा डाउनलोड करें)',
   'cuenta.sync.respaldoPrevio':

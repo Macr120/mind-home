@@ -62,7 +62,7 @@ export const TEXTOS: Record<string, string> = {
   'mi.salir': 'تسجيل الخروج',
   'mi.boletin': 'بريد يومي: الصحة النفسية والعروض والأخبار المهمة',
   'cupon.titulo': 'لديّ قسيمة',
-  'cupon.desc': 'رابط الإحالة',
+  'cupon.desc': 'هل لديك رمز؟',
   'cupon.codigo': 'رمز القسيمة',
   'cupon.canjear': 'استبدال',
 

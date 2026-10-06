@@ -62,7 +62,7 @@ export const TEXTOS: Record<string, string> = {
   'mi.estado.pruebaVencida': 'Seu teste terminou: sua casa e seus dados continuam com você. Assine para continuar com a IA, a sincronização e a nuvem.',
   'mi.estado.gratis': 'Sua casa é grátis e seus dados vivem no seu dispositivo. A IA, a sincronização e a nuvem vêm com a assinatura.',
   'cupon.titulo': 'Tenho um cupom',
-  'cupon.desc': 'Link de indicação',
+  'cupon.desc': 'Tem um código?',
   'cupon.codigo': 'Código do cupom',
   'cupon.canjear': 'Trocar',
 

@@ -62,7 +62,7 @@ export const TEXTOS: Record<string, string> = {
   'mi.salir': 'साइन आउट',
   'mi.boletin': 'दैनिक ईमेल: मानसिक स्वास्थ्य, ऑफ़र और ज़रूरी खबरें',
   'cupon.titulo': 'मेरे पास कूपन है',
-  'cupon.desc': 'रेफ़रल लिंक',
+  'cupon.desc': 'क्या आपके पास कोड है?',
   'cupon.codigo': 'कूपन कोड',
   'cupon.canjear': 'भुनाएँ',
 

@@ -60,7 +60,7 @@ export const TEXTOS: Record<string, string> = {
   'mi.salir': 'ログアウト',
   'mi.boletin': '毎日のメール：メンタルヘルス、キャンペーン、重要なお知らせ',
   'cupon.titulo': 'クーポンがある',
-  'cupon.desc': '紹介リンク',
+  'cupon.desc': 'コードをお持ちですか？',
   'cupon.codigo': 'クーポンコード',
   'cupon.canjear': '引き換える',
 

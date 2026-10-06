@@ -7254,7 +7254,7 @@ export const ID: Dict = {
   'probar.conv.migrando': 'Memulihkan MindHaOS-mu…',
   'probar.conv.comprobando': 'Menyiapkan MindHaOS-mu…',
   'puerta.cupon.tengo': 'Saya punya kupon',
-  'puerta.cupon.desc': 'Tautan rujukan',
+  'puerta.cupon.desc': 'Punya kode?',
   'puerta.cupon.codigo': 'Kode kupon',
   'puerta.cupon.canjear': 'Tukarkan',
   'queEs.titulo': 'Apa itu {n}?',
@@ -7681,6 +7681,9 @@ export const ID: Dict = {
   'cuenta.sync.nunca': 'Belum disinkronkan',
   'cuenta.sync.ahora': 'Sinkronkan sekarang',
   'cuenta.sync.activar': 'Aktifkan sinkronisasi antarperangkat',
+  'cuenta.codigo.canjear': 'Tukarkan kode promo',
+  'cuenta.codigo.listo': 'Kode berhasil ditukar: langgananmu sudah aktif.',
+  'cuenta.codigo.pendiente': 'Jika kamu sudah menukar kode, langgananmu akan muncul di sini dalam beberapa menit.',
   'cuenta.sync.otraCuenta':
     'MindHaOS ini terhubung ke akun lain. Simpan data lokal dan gabungkan dengan akun baru? (Batal = kosongkan MindHaOS ini dan unduh hanya data akun)',
   'cuenta.sync.respaldoPrevio':

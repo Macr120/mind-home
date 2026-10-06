@@ -47,4 +47,11 @@ export interface Caja {
   restaurar(userId: string): Promise<boolean>
   /** Portal para cancelar o cambiar el pago; null si la tienda no da uno. */
   urlGestion(userId: string): Promise<string | null>
+  /**
+   * Canje de un código promocional de la TIENDA (Offer Codes de Apple, códigos
+   * de Google Play). Solo la caja nativa lo tiene: en la web el cupón es propio.
+   * Vuelve cuando la persona terminó en la pantalla de la tienda, haya canjeado
+   * o no; quien llama comprueba después si el plan llegó.
+   */
+  canjearCodigo?(userId: string): Promise<void>
 }

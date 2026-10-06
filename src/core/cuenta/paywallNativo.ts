@@ -184,6 +184,32 @@ export const cajaNativa: Caja = {
     return true
   },
 
+  /**
+   * iOS: la hoja oficial de Apple para Offer Codes (la única forma admitida de
+   * canjear un código que dé suscripción; un campo propio fue el rechazo 3.1.1
+   * del 13-sep-2026). Android: la pantalla de canje de Play, que se abre en la
+   * app de Play Store; al volver se sincronizan las compras para que RevenueCat
+   * vea el canje sin esperar.
+   */
+  async canjearCodigo(userId) {
+    await preparar(userId)
+    if (nombrePlataforma() === 'ios') {
+      await plugin().presentCodeRedemptionSheet()
+      return
+    }
+    await new Promise<void>((volver) => {
+      const alVolver = () => {
+        if (document.visibilityState !== 'visible') return
+        document.removeEventListener('visibilitychange', alVolver)
+        volver()
+      }
+      document.addEventListener('visibilitychange', alVolver)
+      // Capacitor manda la URL externa a Android, que la abre en Play Store.
+      window.location.href = 'https://play.google.com/redeem'
+    })
+    await plugin().syncPurchases()
+  },
+
   async urlGestion(userId) {
     try {
       await preparar(userId)

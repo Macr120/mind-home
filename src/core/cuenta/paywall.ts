@@ -370,6 +370,32 @@ export async function restaurarCompras(): Promise<boolean> {
   return esperarPerfil(() => useSesion.getState().plan !== 'local', 5)
 }
 
+/** ¿Esta plataforma canjea códigos de tienda? (iOS y Android con pagos) */
+export function puedeCanjearCodigo(): boolean {
+  return esAppNativa() && hayPagos() && !!caja().canjearCodigo
+}
+
+/**
+ * Canje de un código promocional de la tienda. El canje lo procesa la tienda y
+ * llega a RevenueCat por su cuenta; aquí se le pide al servidor que lo confirme
+ * y se relee el perfil un rato (en iOS la hoja de Apple no avisa de cuándo se
+ * cerró). Devuelve true si el plan llegó.
+ */
+export async function canjearCodigo(): Promise<boolean> {
+  const usuario = useSesion.getState().usuario
+  const c = caja()
+  if (!usuario || !c.canjearCodigo) return false
+  await c.canjearCodigo(usuario.id)
+  for (let i = 0; i < 20; i++) {
+    await confirmarCompra('codigo')
+    await useSesion.getState().refrescarPerfil()
+    if (useSesion.getState().plan === 'pro') break
+    await new Promise((r) => setTimeout(r, 3000))
+  }
+  void useSesion.getState().refrescarUso()
+  return useSesion.getState().plan === 'pro'
+}
+
 /** URL del portal de gestión de la suscripción (cancelar, cambiar pago). */
 export async function urlGestion(): Promise<string | null> {
   const usuario = useSesion.getState().usuario

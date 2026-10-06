@@ -62,7 +62,7 @@ export const TEXTOS: Record<string, string> = {
   'mi.salir': 'Выйти',
   'mi.boletin': 'Ежедневное письмо: психическое здоровье, акции и важные новости',
   'cupon.titulo': 'У меня есть купон',
-  'cupon.desc': 'Реферальная ссылка',
+  'cupon.desc': 'Есть код?',
   'cupon.codigo': 'Код купона',
   'cupon.canjear': 'Активировать',
 

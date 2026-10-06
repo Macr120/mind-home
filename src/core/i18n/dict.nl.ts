@@ -7278,7 +7278,7 @@ export const NL: Dict = {
   'probar.conv.migrando': 'Je MindHaOS wordt teruggehaald…',
   'probar.conv.comprobando': 'Je MindHaOS wordt voorbereid…',
   'puerta.cupon.tengo': 'Ik heb een coupon',
-  'puerta.cupon.desc': 'Verwijzingslink',
+  'puerta.cupon.desc': 'Heb je een code?',
   'puerta.cupon.codigo': 'Couponcode',
   'puerta.cupon.canjear': 'Inwisselen',
   'queEs.titulo': 'Wat is {n}?',
@@ -7704,6 +7704,9 @@ export const NL: Dict = {
   'cuenta.sync.nunca': 'Nog niet gesynchroniseerd',
   'cuenta.sync.ahora': 'Synchroniseren',
   'cuenta.sync.activar': 'Synchronisatie tussen apparaten inschakelen',
+  'cuenta.codigo.canjear': 'Promotiecode inwisselen',
+  'cuenta.codigo.listo': 'Code ingewisseld: je abonnement is nu actief.',
+  'cuenta.codigo.pendiente': 'Als je een code hebt ingewisseld, verschijnt je abonnement hier binnen een paar minuten.',
   'cuenta.sync.otraCuenta':
     'Dit MindHaOS was gekoppeld aan een ander account. Lokale gegevens bewaren en samenvoegen met het nieuwe account? (Annuleren = dit MindHaOS leegmaken en alleen de accountgegevens downloaden)',
   'cuenta.sync.respaldoPrevio':

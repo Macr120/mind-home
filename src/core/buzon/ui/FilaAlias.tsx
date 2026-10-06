@@ -7,15 +7,18 @@ import { fijarAlias, mensajeErrorBuzon } from '../api'
 import { ALIAS_REGEX } from '../tipos'
 import { Retrato } from './Retrato'
 
-/** Formulario del alias público (alias, nombre visible y emoji). */
+/**
+ * Formulario del alias público. Solo se edita el alias: la cara es el retrato
+ * del personaje (el emoji queda de respaldo si aún no hay retrato) y el nombre
+ * visible se conserva tal cual.
+ */
 export function FormAlias({ onListo, onCancelar }: { onListo?: () => void; onCancelar?: () => void }) {
   const t = useT()
   const actual = useSesion((s) => s.alias)
   const nombreActual = useSesion((s) => s.nombre)
   const emojiActual = useSesion((s) => s.emoji)
+  const retrato = useSesion((s) => s.retrato)
   const [alias, setAlias] = useState(actual ?? '')
-  const [nombre, setNombre] = useState(nombreActual)
-  const [emoji, setEmoji] = useState(emojiActual)
   const [error, setError] = useState('')
   const [ocupado, setOcupado] = useState(false)
 
@@ -28,7 +31,7 @@ export function FormAlias({ onListo, onCancelar }: { onListo?: () => void; onCan
     setOcupado(true)
     setError('')
     try {
-      await fijarAlias(a, nombre.trim(), emoji.trim() || '🙂')
+      await fijarAlias(a, nombreActual.trim(), emojiActual.trim() || '🙂')
       onListo?.()
     } catch (e) {
       setError(mensajeErrorBuzon(e, t))
@@ -39,16 +42,8 @@ export function FormAlias({ onListo, onCancelar }: { onListo?: () => void; onCan
 
   return (
     <div className="space-y-1.5">
-      <div className="flex gap-1.5">
-        <input
-          value={emoji}
-          onChange={(e) => setEmoji(e.target.value.slice(0, 8))}
-          maxLength={8}
-          // INPUT trae `w-full` y ganaba al `w-12`: el emoji ocupaba toda la fila y sacaba el alias.
-          className={`${INPUT.replace('w-full ', '')} w-12 shrink-0 px-1 text-center`}
-          title={t('buzon.alias.emoji', 'Emoji')}
-          aria-label={t('buzon.alias.emoji', 'Emoji')}
-        />
+      <div className="flex items-center gap-1.5">
+        <Retrato retrato={retrato} emoji={emojiActual} className="h-9 w-9 shrink-0" textoClase="text-lg" />
         <div className={`${INPUT} flex min-w-0 flex-1 items-center gap-1 py-0`}>
           <span className="text-white/40">@</span>
           <input
@@ -65,15 +60,6 @@ export function FormAlias({ onListo, onCancelar }: { onListo?: () => void; onCan
           />
         </div>
       </div>
-      <input
-        value={nombre}
-        onChange={(e) => setNombre(e.target.value.slice(0, 40))}
-        onKeyDown={(e) => e.key === 'Enter' && void guardar()}
-        maxLength={40}
-        placeholder={t('buzon.alias.nombre', 'Nombre visible')}
-        className={`${INPUT} w-full`}
-        aria-label={t('buzon.alias.nombre', 'Nombre visible')}
-      />
       {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
       <div className="flex justify-end gap-1.5">
         {onCancelar && (
@@ -98,11 +84,10 @@ export function FormAlias({ onListo, onCancelar }: { onListo?: () => void; onCan
   )
 }
 
-/** La fila de la sección Cuenta: `@alias · nombre` con su emoji, y Editar. */
+/** La fila de la sección Cuenta: `@alias` con el retrato del personaje, y Editar. */
 export function FilaAlias() {
   const t = useT()
   const alias = useSesion((s) => s.alias)
-  const nombre = useSesion((s) => s.nombre)
   const emoji = useSesion((s) => s.emoji)
   const retrato = useSesion((s) => s.retrato)
   const [editando, setEditando] = useState(false)
@@ -118,7 +103,7 @@ export function FilaAlias() {
     <div className="flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5">
       <Retrato retrato={retrato} emoji={emoji} className="h-7 w-7" textoClase="text-base" />
       <span className="min-w-0 flex-1 truncate text-xs text-white/75">
-        {alias ? `@${alias}${nombre ? ` · ${nombre}` : ''}` : t('buzon.alias.sin', 'Elige un alias para que te encuentren')}
+        {alias ? `@${alias}` : t('buzon.alias.sin', 'Elige un alias para que te encuentren')}
       </span>
       <button
         type="button"

@@ -6937,7 +6937,7 @@ export const JA: Dict = {
   'probar.conv.migrando': 'MindHaOSを復元しています…',
   'probar.conv.comprobando': 'MindHaOSを準備しています…',
   'puerta.cupon.tengo': 'クーポンがある',
-  'puerta.cupon.desc': '紹介リンク',
+  'puerta.cupon.desc': 'コードをお持ちですか？',
   'puerta.cupon.codigo': 'クーポンコード',
   'puerta.cupon.canjear': '使う',
   'queEs.titulo': '{n}とは？',
@@ -7308,6 +7308,9 @@ export const JA: Dict = {
   'cuenta.sync.nunca': 'まだ同期していません',
   'cuenta.sync.ahora': '同期する',
   'cuenta.sync.activar': '端末間の同期をオンにする',
+  'cuenta.codigo.canjear': 'プロモーションコードを使う',
+  'cuenta.codigo.listo': 'コードを使いました。サブスクリプションが有効になりました。',
+  'cuenta.codigo.pendiente': 'コードを使った場合、数分でここにサブスクリプションが表示されます。',
   'cuenta.sync.otraCuenta':
     'このMindHaOSは別のアカウントに紐づいていました。ローカルのデータを残して新しいアカウントに統合しますか？（キャンセル=このMindHaOSを空にして、アカウントのデータだけをダウンロード）',
   'cuenta.sync.respaldoPrevio': 'このMindHaOSを初めて同期しようとしています。先にローカルバックアップをダウンロードしますか？（推奨）',

@@ -74,7 +74,7 @@ export const TEXTOS: Record<string, string> = {
   'mi.estado.gratis': 'Your house is free and your data lives on your device. AI, sync and the cloud come with the subscription.',
 
   'cupon.titulo': 'I have a coupon',
-  'cupon.desc': 'Referral link',
+  'cupon.desc': 'Have a code?',
   'cupon.codigo': 'Coupon code',
   'cupon.canjear': 'Redeem',
 

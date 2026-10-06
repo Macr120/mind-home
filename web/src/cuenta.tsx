@@ -603,7 +603,7 @@ function Cupon() {
     <Panel>
       <h2 className="text-sm font-bold text-white/90">{t('cupon.titulo', 'Tengo un cupón')}</h2>
       <p className="text-[10px] font-bold uppercase tracking-wider text-white/45">
-        {t('cupon.desc', 'Link de referido')}
+        {t('cupon.desc', '¿Tienes un código?')}
       </p>
       {/* Rejilla y no flex: `botonPrincipal` ya trae `w-full`, y añadirle
           `w-auto` no lo vence —entre dos utilidades de la misma propiedad manda

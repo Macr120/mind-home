@@ -11,6 +11,8 @@ import {
   cambiarNivel,
   detalleDeFallo,
   restaurarCompras,
+  canjearCodigo,
+  puedeCanjearCodigo,
   textoDeFallo,
   urlGestion,
   type OfertaPro,
@@ -82,10 +84,10 @@ export function FormularioAcceso({ inicial = 'entrar' }: { inicial?: 'entrar' | 
   const [modo, setModo] = useState<'entrar' | 'registrar'>(inicial)
   const [email, setEmail] = useState('')
   const [contrasena, setContrasena] = useState('')
-  const [error, setError] = useState<string | null>(null)
-  const [aviso, setAviso] = useState<string | null>(null)
   // Opt-in: desmarcada por defecto, nadie queda suscrito sin decir que sí.
   const [boletin, setBoletin] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [aviso, setAviso] = useState<string | null>(null)
   const [ocupado, setOcupado] = useState(false)
 
   const olvide = async () => {
@@ -176,8 +178,6 @@ export function FormularioAcceso({ inicial = 'entrar' }: { inicial?: 'entrar' | 
         autoComplete={modo === 'entrar' ? 'current-password' : 'new-password'}
         className={inputCls}
       />
-      {error && <p className="whitespace-pre-line text-[11px] leading-snug text-red-400/90">{error}</p>}
-      {aviso && <p className="text-[11px] leading-snug text-accent/90">{aviso}</p>}
       {modo === 'registrar' && (
         <label className="flex cursor-pointer items-start gap-2 px-0.5 text-[11px] leading-snug text-white/60">
           <input
@@ -192,6 +192,8 @@ export function FormularioAcceso({ inicial = 'entrar' }: { inicial?: 'entrar' | 
           )}
         </label>
       )}
+      {error && <p className="whitespace-pre-line text-[11px] leading-snug text-red-400/90">{error}</p>}
+      {aviso && <p className="text-[11px] leading-snug text-accent/90">{aviso}</p>}
       <button
         type="button"
         onClick={() => void enviar()}
@@ -267,8 +269,6 @@ function BotonesOAuth() {
   )
 }
 
-function CuentaConSesion() {
-  const t = useT()
 /** Interruptor del boletín diario por correo: se puede cambiar cuando se quiera. */
 function FilaBoletin() {
   const t = useT()
@@ -295,6 +295,8 @@ function FilaBoletin() {
   )
 }
 
+function CuentaConSesion() {
+  const t = useT()
   const usuario = useSesion((s) => s.usuario)
   const plan = useSesion((s) => s.plan)
   const planExpira = useSesion((s) => s.planExpira)
@@ -334,9 +336,9 @@ function FilaBoletin() {
       </div>
       {/* Alias público del buzón (mensajería entre usuarios) */}
       <FilaAlias />
+      <FilaBoletin />
       {conAcceso && planExpira && (
         <p className="text-[11px] text-white/45">
-      <FilaBoletin />
           {plan === 'trial'
             ? t('cuenta.plan.pruebaExpira', 'Tu prueba termina el {f}.', {
                 f: new Date(planExpira).toLocaleDateString(localeActual()),
@@ -540,7 +542,7 @@ function BloquePaywall() {
     if (!URL_WEB) return null
     return (
       <a
-        href={`${URL_WEB}/cuenta`}
+        href={`${URL_WEB}/cuenta#planes`}
         target="_blank"
         rel="noreferrer"
         className={
@@ -576,6 +578,7 @@ function BloquePaywall() {
   return (
     <div className="space-y-1.5">
       <Niveles />
+      <CanjearCodigo />
       <Restaurar />
       {canalPago() !== 'iap' && <FilaCupon />}
       {plan === 'pro' && urlG && (
@@ -668,6 +671,53 @@ export function EnlacesLegales() {
         </a>
       ))}
     </p>
+  )
+}
+
+/**
+ * Canje de códigos promocionales de la TIENDA (Offer Codes de Apple, códigos
+ * de Google Play): la vía admitida para regalar o promocionar la suscripción
+ * dentro de las apps de tienda. Abre la pantalla oficial de la tienda; el
+ * cupón propio (`FilaCupon`) solo existe fuera de ellas.
+ */
+function CanjearCodigo() {
+  const t = useT()
+  const [ocupado, setOcupado] = useState(false)
+  const [aviso, setAviso] = useState<string | null>(null)
+
+  if (!puedeCanjearCodigo()) return null
+
+  const alCanjear = async () => {
+    if (ocupado) return
+    setOcupado(true)
+    setAviso(null)
+    try {
+      const ok = await canjearCodigo()
+      setAviso(
+        ok
+          ? t('cuenta.codigo.listo', 'Código canjeado: tu suscripción ya está activa.')
+          : t('cuenta.codigo.pendiente', 'Si canjeaste un código, tu suscripción aparecerá aquí en unos minutos.'),
+      )
+    } catch (e) {
+      setAviso(textoDeFallo(e, t))
+    } finally {
+      setOcupado(false)
+    }
+  }
+
+  return (
+    <div className="space-y-1">
+      <button
+        type="button"
+        onClick={() => void alCanjear()}
+        disabled={ocupado}
+        className="flex w-full items-center justify-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] font-semibold text-white/60 transition hover:bg-white/10 disabled:opacity-50"
+      >
+        <Icono nombre="regalo" />
+        {ocupado ? '…' : t('cuenta.codigo.canjear', 'Canjear un código promocional')}
+      </button>
+      {aviso && <p className="text-[11px] leading-snug text-white/45">{aviso}</p>}
+    </div>
   )
 }
 
@@ -882,7 +932,7 @@ function FilaCupon() {
   return (
     <div className="space-y-1.5 rounded-md border border-white/10 bg-white/5 p-2">
       <p className="text-[10px] font-bold uppercase tracking-wider text-white/40">
-        {t('puerta.cupon.desc', 'Link de referido')}
+        {t('puerta.cupon.desc', '¿Tienes un código?')}
       </p>
       <div className="flex gap-1.5">
         <input

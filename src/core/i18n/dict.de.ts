@@ -7327,7 +7327,7 @@ export const DE: Dict = {
   'probar.conv.migrando': 'Dein MindHaOS wird wiederhergestellt…',
   'probar.conv.comprobando': 'Dein MindHaOS wird vorbereitet…',
   'puerta.cupon.tengo': 'Ich habe einen Gutschein',
-  'puerta.cupon.desc': 'Empfehlungslink',
+  'puerta.cupon.desc': 'Hast du einen Code?',
   'puerta.cupon.codigo': 'Gutscheincode',
   'puerta.cupon.canjear': 'Einlösen',
   'queEs.titulo': 'Was ist {n}?',
@@ -7756,6 +7756,9 @@ export const DE: Dict = {
   'cuenta.sync.nunca': 'Noch nicht synchronisiert',
   'cuenta.sync.ahora': 'Synchronisieren',
   'cuenta.sync.activar': 'Sync zwischen Geräten aktivieren',
+  'cuenta.codigo.canjear': 'Aktionscode einlösen',
+  'cuenta.codigo.listo': 'Code eingelöst: Dein Abo ist jetzt aktiv.',
+  'cuenta.codigo.pendiente': 'Wenn du einen Code eingelöst hast, erscheint dein Abo in ein paar Minuten hier.',
   'cuenta.sync.otraCuenta':
     'Dieses MindHaOS war mit einem anderen Konto verknüpft. Lokale Daten behalten und mit dem neuen Konto zusammenführen? (Abbrechen = dieses MindHaOS leeren und nur die Kontodaten herunterladen)',
   'cuenta.sync.respaldoPrevio':

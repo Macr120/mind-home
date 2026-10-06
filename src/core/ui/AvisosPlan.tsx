@@ -111,7 +111,7 @@ function AvisoRenovar() {
             cuota o desde Editor › Cuenta, con compra in-app. */}
         {canalPago() !== 'iap' && urlWeb && (
           <a
-            href={`${urlWeb}/cuenta`}
+            href={`${urlWeb}/cuenta#planes`}
             target="_blank"
             rel="noreferrer"
             className="ui-accent-bg block w-full rounded-md px-2 py-1.5 text-center text-xs font-bold"
@@ -436,7 +436,7 @@ function CuotaAgotada() {
         {/* Sin compra embebida (escritorio, sin sesión) el checkout vive en la web. */}
         {enlaceWeb && (
           <a
-            href={`${urlWeb}/cuenta`}
+            href={`${urlWeb}/cuenta#planes`}
             target="_blank"
             rel="noreferrer"
             className="ui-accent-bg block w-full rounded-md px-2 py-1.5 text-center text-xs font-bold"

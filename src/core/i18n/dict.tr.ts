@@ -7193,7 +7193,7 @@ export const TR: Dict = {
   'probar.conv.migrando': 'MindHaOS\'un geri getiriliyor…',
   'probar.conv.comprobando': 'MindHaOS\'un hazırlanıyor…',
   'puerta.cupon.tengo': 'Kuponum var',
-  'puerta.cupon.desc': 'Davet bağlantısı',
+  'puerta.cupon.desc': 'Kodun var mı?',
   'puerta.cupon.codigo': 'Kupon kodu',
   'puerta.cupon.canjear': 'Kullan',
   'queEs.titulo': '{n} nedir?',
@@ -7617,6 +7617,9 @@ export const TR: Dict = {
   'cuenta.sync.nunca': 'Henüz senkronize edilmedi',
   'cuenta.sync.ahora': 'Şimdi senkronize et',
   'cuenta.sync.activar': 'Cihazlar arası eşitlemeyi etkinleştir',
+  'cuenta.codigo.canjear': 'Promosyon kodu kullan',
+  'cuenta.codigo.listo': 'Kod kullanıldı: aboneliğin artık etkin.',
+  'cuenta.codigo.pendiente': 'Bir kod kullandıysan aboneliğin birkaç dakika içinde burada görünecek.',
   'cuenta.sync.otraCuenta':
     'Bu MindHaOS başka bir hesaba bağlıydı. Yerel verileri koruyup yeni hesapla birleştirelim mi? (İptal = bu MindHaOS\'u boşalt ve sadece hesaptakileri indir)',
   'cuenta.sync.respaldoPrevio':

@@ -62,7 +62,7 @@ export const TEXTOS: Record<string, string> = {
   'mi.estado.pruebaVencida': 'Ton essai est terminé : ta maison et tes données restent avec toi. Abonne-toi pour garder l’IA, la synchronisation et le cloud.',
   'mi.estado.gratis': 'Ta maison est gratuite et tes données vivent sur ton appareil. L’IA, la synchronisation et le cloud viennent avec l’abonnement.',
   'cupon.titulo': 'J’ai un coupon',
-  'cupon.desc': 'Lien de parrainage',
+  'cupon.desc': 'Tu as un code ?',
   'cupon.codigo': 'Code du coupon',
   'cupon.canjear': 'Utiliser',
 

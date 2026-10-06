@@ -60,7 +60,7 @@ export const TEXTOS: Record<string, string> = {
   'mi.salir': '로그아웃',
   'mi.boletin': '매일 이메일: 정신 건강, 프로모션, 중요한 소식',
   'cupon.titulo': '쿠폰이 있어요',
-  'cupon.desc': '추천 링크',
+  'cupon.desc': '코드가 있나요?',
   'cupon.codigo': '쿠폰 코드',
   'cupon.canjear': '사용하기',
 

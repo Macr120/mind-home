@@ -60,7 +60,7 @@ export const TEXTOS: Record<string, string> = {
   'mi.salir': '退出登录',
   'mi.boletin': '每日邮件：心理健康、优惠和重要消息',
   'cupon.titulo': '我有优惠码',
-  'cupon.desc': '推荐链接',
+  'cupon.desc': '有兑换码吗？',
   'cupon.codigo': '优惠码',
   'cupon.canjear': '兑换',
 

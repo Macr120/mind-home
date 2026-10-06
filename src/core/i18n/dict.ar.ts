@@ -7085,7 +7085,7 @@ export const AR: Dict = {
   'probar.conv.migrando': 'جارٍ استعادة MindHaOS الخاص بك…',
   'probar.conv.comprobando': 'جارٍ تجهيز MindHaOS الخاص بك…',
   'puerta.cupon.tengo': 'لديّ قسيمة',
-  'puerta.cupon.desc': 'رابط الإحالة',
+  'puerta.cupon.desc': 'هل لديك رمز؟',
   'puerta.cupon.codigo': 'رمز القسيمة',
   'puerta.cupon.canjear': 'استخدام',
   'queEs.titulo': 'ما هو {n}؟',
@@ -7502,6 +7502,9 @@ export const AR: Dict = {
   'cuenta.sync.nunca': 'لم تتم المزامنة بعد',
   'cuenta.sync.ahora': 'مزامنة',
   'cuenta.sync.activar': 'تفعيل المزامنة بين الأجهزة',
+  'cuenta.codigo.canjear': 'استرداد رمز ترويجي',
+  'cuenta.codigo.listo': 'تم استرداد الرمز: اشتراكك مفعّل الآن.',
+  'cuenta.codigo.pendiente': 'إذا استرددت رمزًا، فسيظهر اشتراكك هنا خلال بضع دقائق.',
   'cuenta.sync.otraCuenta':
     'كان MindHaOS هذا مرتبطًا بحساب آخر. هل تريد الاحتفاظ بالبيانات المحلية ودمجها مع الحساب الجديد؟ (إلغاء = إفراغ MindHaOS هذا وتنزيل بيانات الحساب فقط)',
   'cuenta.sync.respaldoPrevio':

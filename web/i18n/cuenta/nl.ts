@@ -62,7 +62,7 @@ export const TEXTOS: Record<string, string> = {
   'mi.salir': 'Uitloggen',
   'mi.boletin': 'Dagelijkse e-mail: mentale gezondheid, aanbiedingen en belangrijk nieuws',
   'cupon.titulo': 'Ik heb een coupon',
-  'cupon.desc': 'Verwijzingslink',
+  'cupon.desc': 'Heb je een code?',
   'cupon.codigo': 'Couponcode',
   'cupon.canjear': 'Verzilveren',
 

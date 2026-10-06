@@ -7189,7 +7189,7 @@ export const RU: Dict = {
   'probar.conv.migrando': 'Восстанавливаем твой MindHaOS…',
   'probar.conv.comprobando': 'Готовим твой MindHaOS…',
   'puerta.cupon.tengo': 'У меня есть купон',
-  'puerta.cupon.desc': 'Реферальная ссылка',
+  'puerta.cupon.desc': 'Есть код?',
   'puerta.cupon.codigo': 'Код купона',
   'puerta.cupon.canjear': 'Активировать',
   'queEs.titulo': 'Что такое {n}?',
@@ -7609,6 +7609,9 @@ export const RU: Dict = {
   'cuenta.sync.nunca': 'Ещё не синхронизировано',
   'cuenta.sync.ahora': 'Синхронизировать',
   'cuenta.sync.activar': 'Включить синхронизацию между устройствами',
+  'cuenta.codigo.canjear': 'Активировать промокод',
+  'cuenta.codigo.listo': 'Код активирован: подписка уже действует.',
+  'cuenta.codigo.pendiente': 'Если вы активировали код, подписка появится здесь через несколько минут.',
   'cuenta.sync.otraCuenta':
     'Этот MindHaOS был привязан к другому аккаунту. Оставить локальные данные и объединить их с новым аккаунтом? (Отмена = очистить этот MindHaOS и загрузить только данные аккаунта)',
   'cuenta.sync.respaldoPrevio':

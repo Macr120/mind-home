@@ -62,7 +62,7 @@ export const TEXTOS: Record<string, string> = {
   'mi.salir': 'Keluar',
   'mi.boletin': 'Email harian: kesehatan mental, promo, dan kabar penting',
   'cupon.titulo': 'Saya punya kupon',
-  'cupon.desc': 'Tautan rujukan',
+  'cupon.desc': 'Punya kode?',
   'cupon.codigo': 'Kode kupon',
   'cupon.canjear': 'Tukarkan',
 
