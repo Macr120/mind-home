@@ -201,7 +201,7 @@ export const TEXTOS = {
   'faq.8.a':
     'Pour arrêter le prélèvement, « Gérer l’abonnement » dans <a href="/cuenta">ton compte</a>. Pour supprimer ton compte et toutes tes données de nos serveurs, depuis l’app : Éditeur → Réglages → Compte.',
 
-  'legal.fecha': 'Dernière mise à jour : août 2026.',
+  'legal.fecha': 'Dernière mise à jour : octobre 2026.',
   'legal.original':
     'Traduction de courtoisie. En cas de divergence, la version en <a href="/original">espagnol</a> prévaut.',
 
@@ -209,6 +209,7 @@ export const TEXTOS = {
   'priv.quienes.h': 'Qui nous sommes',
   'priv.quienes.p':
     'MindHaOS (« l’app ») est une application d’organisation personnelle. Contact : <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+  'priv.quienes.dir': 'Adresse : Calle Riff 1036, code postal 03340, Mexico, Mexique.',
   'priv.datos.h': 'Quelles données nous collectons',
   'priv.datos.1':
     '<strong>Compte :</strong> ton adresse e-mail et un mot de passe chiffré, gérés par Supabase (notre fournisseur de backend).',
@@ -257,6 +258,9 @@ export const TEXTOS = {
   'priv.cancelas.h': 'Si tu résilies ton abonnement',
   'priv.cancelas.p':
     'Tes données locales restent sur tes appareils. Les données synchronisées restent stockées (inaccessibles jusqu’à ce que tu reprennes) et tu peux les effacer définitivement en supprimant ton compte.',
+  'priv.boletin.h': 'Newsletter quotidienne par e-mail',
+  'priv.boletin.p':
+    'Uniquement si tu acceptes de la recevoir —avec la case lors de la création de ton compte ou en répondant à la question de l’app—, nous t’envoyons un e-mail par jour avec un conseil de santé mentale, des promotions et des nouvelles importantes de MindHaOS. Pour cela, nous utilisons uniquement ton adresse e-mail et ta langue. Le conseil est rédigé par une IA de façon générale et il est identique pour tous les abonnés d’une même langue : tes données de l’app ne servent pas à l’écrire, et il ne remplace pas une aide professionnelle. Tu peux te désabonner à tout moment avec le lien de chaque e-mail ou depuis Compte, dans l’app ou sur le web ; sans ton consentement, nous ne t’envoyons rien de tout cela.',
   'priv.borrar.h': 'Comment supprimer ton compte et tes données',
   'priv.borrar.p': 'Depuis l’app : Éditeur → Paramètres → Compte. La suppression efface ton utilisateur, tes données synchronisées et tes fichiers de nos serveurs ; seuls les registres de facturation que la loi oblige à conserver sont gardés.',
   'priv.proveedores.h': 'Prestataires',
@@ -268,6 +272,7 @@ export const TEXTOS = {
   'priv.proveedores.5':
     'HERE Technologies (plans, recherche de lieux et itinéraires, à la demande).',
   'priv.proveedores.6': "Cloudflare (stockage de fichiers dans le cloud, R2).",
+  'priv.proveedores.7': 'Resend (envoi de la newsletter par e-mail, uniquement si tu l’acceptes).',
   'priv.cambios.h': 'Modifications',
   'priv.cambios.p':
     'Si cette politique change, nous publierons ici la nouvelle version avec sa date. Les questions sont traitées à l’adresse de contact.',

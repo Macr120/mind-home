@@ -247,6 +247,8 @@ otp_expiry = 3600
 # Correos en el idioma de la cuenta: cada plantilla ramifica por {{ .Data.idioma }}.
 # Los asuntos están en supabase/templates/*.asunto.txt; en el proyecto alojado, plantilla
 # y asunto se pegan en Authentication → Emails.
+# El asunto admite como mucho 255 caracteres: lleva es/pt/fr/de y el resto sale en
+# inglés (el cuerpo sí va en los 16). Pegadas en producción el 5-oct-2026.
 [auth.email.template.confirmation]
 subject = "Confirma tu correo en MindHaOS"
 content_path = "./supabase/templates/confirmacion.html"
@@ -454,4 +456,13 @@ verify_jwt = false
 # La capacidad (métricas, alertas y subida de compute) la dispara el cron de la
 # base cada hora, sin JWT: se autentica contra CAPACIDAD_AUTH.
 [functions.capacidad]
+verify_jwt = false
+
+# El boletín diario lo dispara el cron de la base, sin JWT: se autentica
+# contra BOLETIN_AUTH.
+[functions.boletin-diario]
+verify_jwt = false
+
+# La baja del boletín la abre el enlace del correo, sin sesión.
+[functions.boletin-baja]
 verify_jwt = false

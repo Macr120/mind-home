@@ -187,7 +187,7 @@ export const TEXTOS = {
   'faq.8.a':
     '결제를 멈추려면 <a href="/cuenta">계정</a>의 「구독 관리」에서요. 계정과 서버의 모든 데이터를 지우려면 앱에서: 에디터 → 설정 → 계정.',
 
-  'legal.fecha': '최종 업데이트: 2026년 8월.',
+  'legal.fecha': '최종 업데이트: 2026년 10월.',
   'legal.original':
     '참고용 번역입니다. 내용이 다를 경우 <a href="/original">스페인어</a> 판이 우선합니다.',
 
@@ -195,6 +195,7 @@ export const TEXTOS = {
   'priv.quienes.h': '운영자',
   'priv.quienes.p':
     'MindHaOS(「본 앱」)은 개인 정리용 애플리케이션입니다. 연락처: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+  'priv.quienes.dir': '주소: Calle Riff 1036, 우편번호 03340, 멕시코시티, 멕시코.',
   'priv.datos.h': '수집하는 데이터',
   'priv.datos.1':
     '<strong>계정:</strong> 이메일 주소와 암호화된 비밀번호로, 백엔드 제공사인 Supabase가 관리합니다.',
@@ -242,6 +243,9 @@ export const TEXTOS = {
   'priv.cancelas.h': '구독을 해지하면',
   'priv.cancelas.p':
     '로컬 데이터는 기기에 그대로 남습니다. 동기화된 데이터는 보관되며(재구독 전까지 접근 불가), 계정을 삭제하면 완전히 지울 수 있습니다.',
+  'priv.boletin.h': '매일 이메일 뉴스레터',
+  'priv.boletin.p':
+    '계정을 만들 때 체크박스를 선택하거나 앱의 질문에 답해 수신에 동의한 경우에만, 정신 건강 팁과 프로모션, MindHaOS의 중요한 소식을 담은 이메일을 하루에 한 통 보내 드립니다. 이를 위해 이메일 주소와 언어만 사용합니다. 팁은 AI가 일반적인 내용으로 작성하며 같은 언어의 모든 구독자에게 동일하게 전달됩니다. 앱 데이터는 작성에 사용되지 않으며, 전문적인 도움을 대신하지 않습니다. 각 이메일의 링크나 앱 또는 웹의 계정에서 언제든지 수신 거부할 수 있으며, 동의 없이는 이러한 이메일을 보내지 않습니다.',
   'priv.borrar.h': '계정과 데이터를 지우는 방법',
   'priv.borrar.p': '앱에서: 에디터 → 설정 → 계정. 삭제하면 사용자, 동기화 데이터, 파일이 저희 서버에서 사라지며, 법이 보관을 요구하는 청구 기록만 남습니다.',
   'priv.proveedores.h': '제공사',
@@ -253,6 +257,7 @@ export const TEXTOS = {
   'priv.proveedores.5':
     'HERE Technologies(지도, 장소 검색과 경로, 요청 시).',
   'priv.proveedores.6': "Cloudflare(클라우드 파일 저장, R2).",
+  'priv.proveedores.7': 'Resend(이메일 뉴스레터 발송, 동의한 경우에만).',
   'priv.cambios.h': '변경',
   'priv.cambios.p':
     '본 방침이 바뀌면 새 버전을 날짜와 함께 여기에 게시합니다. 문의는 연락처 이메일로 받습니다.',

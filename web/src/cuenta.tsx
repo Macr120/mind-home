@@ -160,6 +160,8 @@ function Acceso() {
   const [modo, setModo] = useState<'entrar' | 'registrar'>('entrar')
   const [email, setEmail] = useState('')
   const [contrasena, setContrasena] = useState('')
+  // Opt-in: desmarcada por defecto, nadie queda suscrito sin decir que sí.
+  const [boletin, setBoletin] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [aviso, setAviso] = useState<string | null>(null)
   const [ocupado, setOcupado] = useState(false)
@@ -174,7 +176,7 @@ function Acceso() {
         const err = await entrar(email.trim(), contrasena)
         if (err) setError(mensajeCuenta(err, t))
       } else {
-        const err = await registrar(email.trim(), contrasena, IDIOMA)
+        const err = await registrar(email.trim(), contrasena, IDIOMA, boletin)
         if (err) setError(mensajeCuenta(err, t))
         else setAviso(t('acc.creada', 'Cuenta creada: revisa tu correo y confírmalo para poder entrar.'))
       }
@@ -230,6 +232,20 @@ function Acceso() {
         autoComplete={modo === 'entrar' ? 'current-password' : 'new-password'}
         className={inputCls}
       />
+      {modo === 'registrar' && (
+        <label className="flex cursor-pointer items-start gap-2 text-xs leading-snug text-white/60">
+          <input
+            type="checkbox"
+            checked={boletin}
+            onChange={(e) => setBoletin(e.target.checked)}
+            className="mt-0.5 shrink-0"
+          />
+          {t(
+            'acc.boletin',
+            'Quiero recibir un correo diario con consejos de salud mental, promociones y noticias importantes. Puedo darme de baja cuando quiera.',
+          )}
+        </label>
+      )}
       {error && <p className="text-xs leading-snug text-red-400/90">{error}</p>}
       {aviso && <p className="text-xs leading-snug text-emerald-300/90">{aviso}</p>}
       <button type="button" onClick={() => void enviar()} disabled={ocupado} className={botonPrincipal}>
@@ -476,6 +492,7 @@ function MiCuenta() {
             })}
           </p>
         )}
+        <FilaBoletin />
       </Panel>
 
       {plan === 'pro' || trialVigente ? (
@@ -533,6 +550,32 @@ function MiCuenta() {
         </button>
       </Panel>
     </>
+  )
+}
+
+/** Interruptor del boletín diario (el mismo de la app, en Cuenta). */
+function FilaBoletin() {
+  const boletin = useSesion((s) => s.boletin)
+  const elegirBoletin = useSesion((s) => s.elegirBoletin)
+  const [ocupado, setOcupado] = useState(false)
+  // Sin leer (o sin la tabla en el servidor): no se pinta.
+  if (boletin === undefined) return null
+  return (
+    <label className="flex cursor-pointer items-start gap-2 text-xs leading-snug text-white/60">
+      <input
+        type="checkbox"
+        checked={boletin === true}
+        disabled={ocupado}
+        onChange={async (e) => {
+          setOcupado(true)
+          // Sin idioma: el boletín sigue el de la cuenta (el de la app), no el de esta página.
+          await elegirBoletin(e.target.checked)
+          setOcupado(false)
+        }}
+        className="mt-0.5 shrink-0"
+      />
+      {t('mi.boletin', 'Correo diario: salud mental, promociones y noticias importantes')}
+    </label>
   )
 }
 

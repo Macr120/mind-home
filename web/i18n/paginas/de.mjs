@@ -201,7 +201,7 @@ export const TEXTOS = {
   'faq.8.a':
     'Zum Kündigen der Abbuchung «Abo verwalten» in <a href="/cuenta">deinem Konto</a>. Zum Löschen deines Kontos und all deiner Daten von unseren Servern aus der App: Editor → Einstellungen → Konto.',
 
-  'legal.fecha': 'Zuletzt aktualisiert: August 2026.',
+  'legal.fecha': 'Zuletzt aktualisiert: Oktober 2026.',
   'legal.original':
     'Übersetzung als Service. Bei Abweichungen gilt die <a href="/original">spanische</a> Fassung.',
 
@@ -209,6 +209,7 @@ export const TEXTOS = {
   'priv.quienes.h': 'Wer wir sind',
   'priv.quienes.p':
     'MindHaOS («die App») ist eine Anwendung zur persönlichen Organisation. Kontakt: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+  'priv.quienes.dir': 'Anschrift: Calle Riff 1036, Postleitzahl 03340, Mexiko-Stadt, Mexiko.',
   'priv.datos.h': 'Welche Daten wir erheben',
   'priv.datos.1':
     '<strong>Konto:</strong> deine E-Mail-Adresse und ein verschlüsseltes Passwort, verwaltet von Supabase (unserem Backend-Anbieter).',
@@ -257,6 +258,9 @@ export const TEXTOS = {
   'priv.cancelas.h': 'Wenn du dein Abo kündigst',
   'priv.cancelas.p':
     'Deine lokalen Daten bleiben auf deinen Geräten. Die synchronisierten Daten bleiben gespeichert (unzugänglich, bis du erneuerst) und du kannst sie endgültig löschen, indem du dein Konto löschst.',
+  'priv.boletin.h': 'Täglicher E-Mail-Newsletter',
+  'priv.boletin.p':
+    'Nur wenn du zustimmst —mit dem Kästchen beim Erstellen deines Kontos oder indem du die Frage in der App beantwortest—, schicken wir dir täglich eine E-Mail mit einem Tipp zur mentalen Gesundheit, Angeboten und wichtigen Neuigkeiten von MindHaOS. Dafür verwenden wir nur deine E-Mail-Adresse und deine Sprache. Der Tipp wird von einer KI allgemein verfasst und ist für alle Abonnenten einer Sprache gleich: Deine App-Daten werden dafür nicht verwendet, und er ersetzt keine professionelle Hilfe. Du kannst dich jederzeit über den Link in jeder E-Mail oder unter Konto abmelden, in der App oder im Web; ohne deine Zustimmung senden wir dir nichts davon.',
   'priv.borrar.h': 'Wie du dein Konto und deine Daten löschst',
   'priv.borrar.p': 'In der App: Editor → Einstellungen → Konto. Die Löschung entfernt deinen Nutzer, deine synchronisierten Daten und deine Dateien von unseren Servern; aufbewahrt werden nur die Abrechnungsunterlagen, die das Gesetz vorschreibt.',
   'priv.proveedores.h': 'Dienstleister',
@@ -268,6 +272,7 @@ export const TEXTOS = {
   'priv.proveedores.5':
     'HERE Technologies (Karten, Ortssuche und Routen, auf Anfrage).',
   'priv.proveedores.6': "Cloudflare (Dateispeicher in der Cloud, R2).",
+  'priv.proveedores.7': 'Resend (Versand des E-Mail-Newsletters, nur mit deiner Zustimmung).',
   'priv.cambios.h': 'Änderungen',
   'priv.cambios.p':
     'Wenn sich diese Erklärung ändert, veröffentlichen wir hier die neue Fassung mit ihrem Datum. Fragen beantworten wir unter der Kontaktadresse.',

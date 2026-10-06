@@ -198,7 +198,7 @@ export const TEXTOS = {
   'faq.8.a':
     'Untuk menghentikan penagihan, «Kelola langganan» di <a href="/cuenta">akunmu</a>. Untuk menghapus akunmu dan seluruh datamu dari server kami, lewat aplikasi: Editor → Pengaturan → Akun.',
 
-  'legal.fecha': 'Terakhir diperbarui: Agustus 2026.',
+  'legal.fecha': 'Terakhir diperbarui: Oktober 2026.',
   'legal.original':
     'Terjemahan sebagai layanan. Bila ada perbedaan, versi <a href="/original">bahasa Spanyol</a> yang berlaku.',
 
@@ -206,6 +206,7 @@ export const TEXTOS = {
   'priv.quienes.h': 'Siapa kami',
   'priv.quienes.p':
     'MindHaOS («aplikasinya») adalah aplikasi penataan pribadi. Kontak: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+  'priv.quienes.dir': 'Alamat: Calle Riff 1036, kode pos 03340, Kota Meksiko, Meksiko.',
   'priv.datos.h': 'Data apa yang kami kumpulkan',
   'priv.datos.1':
     '<strong>Akun:</strong> alamat emailmu dan kata sandi terenkripsi, dikelola oleh Supabase (penyedia backend kami).',
@@ -253,6 +254,9 @@ export const TEXTOS = {
   'priv.cancelas.h': 'Kalau kamu berhenti berlangganan',
   'priv.cancelas.p':
     'Data lokalmu tetap di perangkatmu. Data yang tersinkron tetap tersimpan (tidak bisa diakses sampai kamu berlangganan lagi) dan bisa kamu hapus selamanya dengan menghapus akunmu.',
+  'priv.boletin.h': 'Buletin harian lewat email',
+  'priv.boletin.p':
+    'Hanya jika kamu setuju menerimanya —lewat kotak centang saat membuat akun atau dengan menjawab pertanyaan di aplikasi— kami mengirimimu satu email per hari berisi tips kesehatan mental, promo, dan kabar penting MindHaOS. Untuk itu kami hanya memakai alamat email dan bahasamu. Tips ditulis oleh AI secara umum dan sama untuk semua pelanggan di setiap bahasa: data aplikasimu tidak dipakai untuk menulisnya, dan tips ini bukan pengganti bantuan profesional. Kamu bisa berhenti berlangganan kapan saja lewat tautan di setiap email atau dari Akun, di aplikasi maupun di web; tanpa persetujuanmu kami tidak mengirim semua ini.',
   'priv.borrar.h': 'Cara menghapus akun dan datamu',
   'priv.borrar.p': 'Dari aplikasi: Editor → Pengaturan → Akun. Penghapusan menghapus pengguna, data tersinkron, dan berkasmu dari server kami; hanya catatan tagihan yang wajib disimpan menurut hukum yang dipertahankan.',
   'priv.proveedores.h': 'Penyedia',
@@ -264,6 +268,7 @@ export const TEXTOS = {
   'priv.proveedores.5':
     'HERE Technologies (peta, pencarian tempat dan rute, sesuai permintaan).',
   'priv.proveedores.6': "Cloudflare (penyimpanan berkas di cloud, R2).",
+  'priv.proveedores.7': 'Resend (pengiriman buletin lewat email, hanya jika kamu setuju).',
   'priv.cambios.h': 'Perubahan',
   'priv.cambios.p':
     'Kalau kebijakan ini berubah, kami akan menerbitkan versi barunya di sini beserta tanggalnya. Pertanyaan dijawab lewat email kontak.',

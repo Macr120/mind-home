@@ -184,7 +184,7 @@ export const TEXTOS = {
   'faq.8.a':
     '要停止扣费，去<a href="/cuenta">你的账户</a>点「管理订阅」。要从我们的服务器上删除账户和全部数据，请在应用里操作：编辑器 → 设置 → 账户。',
 
-  'legal.fecha': '最后更新：2026 年 8 月。',
+  'legal.fecha': '最后更新：2026 年 10 月。',
   'legal.original':
     '本译文仅供参考。如有出入，以<a href="/original">西班牙语</a>版本为准。',
 
@@ -192,6 +192,7 @@ export const TEXTOS = {
   'priv.quienes.h': '我们是谁',
   'priv.quienes.p':
     'MindHaOS（「本应用」）是一款个人整理应用。联系方式：<a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>。',
+  'priv.quienes.dir': '地址：Calle Riff 1036，邮政编码 03340，墨西哥城，墨西哥。',
   'priv.datos.h': '我们收集哪些数据',
   'priv.datos.1':
     '<strong>账户：</strong>你的邮箱和一份加密的密码，由 Supabase（我们的后端服务商）管理。',
@@ -239,6 +240,9 @@ export const TEXTOS = {
   'priv.cancelas.h': '如果你取消订阅',
   'priv.cancelas.p':
     '本地数据仍在你的设备上。已同步的数据会保留存储（在你续订前无法访问），你可以通过删除账户把它们彻底清除。',
+  'priv.boletin.h': '每日邮件简报',
+  'priv.boletin.p':
+    '只有在你同意接收时——在创建账户时勾选复选框，或回答应用中的提问——我们才会每天给你发送一封邮件，内容包括一条心理健康建议、优惠以及 MindHaOS 的重要消息。为此我们只使用你的邮箱地址和语言。建议由 AI 以通用方式撰写，同一语言的所有订阅者收到的内容相同：撰写时不会使用你在应用中的数据，也不能替代专业帮助。你可以随时通过每封邮件中的链接，或在应用或网页的“账户”中退订；未经你同意，我们不会向你发送任何此类邮件。',
   'priv.borrar.h': '如何删除账户和数据',
   'priv.borrar.p': '在应用里：编辑器 → 设置 → 账户。删除会从我们的服务器上清除你的用户、同步数据和文件；只保留法律要求留存的账务记录。',
   'priv.proveedores.h': '服务商',
@@ -250,6 +254,7 @@ export const TEXTOS = {
   'priv.proveedores.5':
     'HERE Technologies（地图、地点搜索和路线，按需调用）。',
   'priv.proveedores.6': "Cloudflare（云端文件存储，R2）。",
+  'priv.proveedores.7': 'Resend（发送邮件简报，仅在你同意时）。',
   'priv.cambios.h': '变更',
   'priv.cambios.p':
     '如果本政策有变更，我们会在此发布带日期的新版本。有疑问请写到联系邮箱。',

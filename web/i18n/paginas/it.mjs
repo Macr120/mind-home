@@ -201,7 +201,7 @@ export const TEXTOS = {
   'faq.8.a':
     'Per fermare l’addebito, «Gestisci abbonamento» nel <a href="/cuenta">tuo account</a>. Per cancellare l’account e tutti i tuoi dati dai nostri server, dall’app: Editor → Impostazioni → Account.',
 
-  'legal.fecha': 'Ultimo aggiornamento: agosto 2026.',
+  'legal.fecha': 'Ultimo aggiornamento: ottobre 2026.',
   'legal.original':
     'Traduzione di cortesia. In caso di discrepanza prevale la versione in <a href="/original">spagnolo</a>.',
 
@@ -209,6 +209,7 @@ export const TEXTOS = {
   'priv.quienes.h': 'Chi siamo',
   'priv.quienes.p':
     'MindHaOS («l’app») è un’applicazione di organizzazione personale. Contatto: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+  'priv.quienes.dir': 'Indirizzo: Calle Riff 1036, codice postale 03340, Città del Messico, Messico.',
   'priv.datos.h': 'Quali dati raccogliamo',
   'priv.datos.1':
     '<strong>Account:</strong> la tua email e una password cifrata, gestite da Supabase (il nostro fornitore di backend).',
@@ -256,6 +257,9 @@ export const TEXTOS = {
   'priv.cancelas.h': 'Se disdici l’abbonamento',
   'priv.cancelas.p':
     'I tuoi dati locali restano sui tuoi dispositivi. I dati sincronizzati restano archiviati (inaccessibili finché non rinnovi) e puoi cancellarli definitivamente eliminando il tuo account.',
+  'priv.boletin.h': 'Newsletter quotidiana via e-mail',
+  'priv.boletin.p':
+    'Solo se accetti di riceverla —con la casella quando crei l’account o rispondendo alla domanda dell’app—, ti inviamo un’e-mail al giorno con un consiglio di salute mentale, promozioni e notizie importanti di MindHaOS. Per farlo usiamo soltanto il tuo indirizzo e-mail e la tua lingua. Il consiglio è scritto da un’IA in modo generale ed è uguale per tutti gli iscritti di ciascuna lingua: i tuoi dati dell’app non vengono usati per scriverlo, e non sostituisce l’aiuto professionale. Puoi annullare l’iscrizione quando vuoi con il link presente in ogni e-mail o da Account, nell’app o sul web; senza il tuo consenso non ti inviamo nulla di tutto ciò.',
   'priv.borrar.h': 'Come cancellare account e dati',
   'priv.borrar.p': 'Dall’app: Editor → Impostazioni → Account. La cancellazione elimina il tuo utente, i tuoi dati sincronizzati e i tuoi file dai nostri server; si conservano solo i registri di fatturazione che la legge obbliga a tenere.',
   'priv.proveedores.h': 'Fornitori',
@@ -267,6 +271,7 @@ export const TEXTOS = {
   'priv.proveedores.5':
     'HERE Technologies (mappe, ricerca di luoghi e percorsi, su richiesta).',
   'priv.proveedores.6': "Cloudflare (archiviazione di file nel cloud, R2).",
+  'priv.proveedores.7': 'Resend (invio della newsletter via e-mail, solo se la accetti).',
   'priv.cambios.h': 'Modifiche',
   'priv.cambios.p':
     'Se questa informativa cambia, pubblicheremo qui la nuova versione con la sua data. I dubbi si scrivono all’indirizzo di contatto.',

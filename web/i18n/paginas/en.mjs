@@ -199,7 +199,7 @@ export const TEXTOS = {
   'faq.8.a':
     'To cancel the charge, “Manage subscription” in <a href="/cuenta">your account</a>. To delete your account and all your data from our servers, from the app: Editor → Settings → Account.',
 
-  'legal.fecha': 'Last updated: August 2026.',
+  'legal.fecha': 'Last updated: October 2026.',
   'legal.original':
     'Courtesy translation. In case of any discrepancy, the <a href="/original">Spanish</a> version prevails.',
 
@@ -207,6 +207,7 @@ export const TEXTOS = {
   'priv.quienes.h': 'Who we are',
   'priv.quienes.p':
     'MindHaOS (“the app”) is a personal organisation application. Contact: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+  'priv.quienes.dir': 'Address: Calle Riff 1036, postal code 03340, Mexico City, Mexico.',
   'priv.datos.h': 'What data we collect',
   'priv.datos.1':
     '<strong>Account:</strong> your email address and an encrypted password, managed by Supabase (our backend provider).',
@@ -254,6 +255,9 @@ export const TEXTOS = {
   'priv.cancelas.h': 'If you cancel your subscription',
   'priv.cancelas.p':
     'Your local data stays on your devices. Synced data remains stored (inaccessible until you renew) and you can delete it for good by deleting your account.',
+  'priv.boletin.h': 'Daily email newsletter',
+  'priv.boletin.p':
+    'Only if you agree to receive it —with the checkbox when you create your account or by answering the question in the app— we send you one email a day with a mental health tip, promotions and important MindHaOS news. For this we use only your email address and your language. The tip is written by an AI in general terms and is the same for every subscriber in each language: your app data is not used to write it, and it is not a substitute for professional help. You can unsubscribe anytime with the link in every email or from Account, in the app or on the web; without your consent we send you none of this.',
   'priv.borrar.h': 'How to delete your account and your data',
   'priv.borrar.p': 'From the app: Editor → Settings → Account. Deletion removes your user, your synced data and your files from our servers; only the billing records the law requires us to keep are retained.',
   'priv.proveedores.h': 'Providers',
@@ -265,6 +269,7 @@ export const TEXTOS = {
   'priv.proveedores.5':
     'HERE Technologies (maps, place search and routes, on demand).',
   'priv.proveedores.6': "Cloudflare (cloud file storage, R2).",
+  'priv.proveedores.7': 'Resend (sending the email newsletter, only if you opt in).',
   'priv.cambios.h': 'Changes',
   'priv.cambios.p':
     'If this policy changes, we will publish the new version here with its date. Questions are answered at the contact address.',

@@ -84,6 +84,8 @@ export function FormularioAcceso({ inicial = 'entrar' }: { inicial?: 'entrar' | 
   const [contrasena, setContrasena] = useState('')
   const [error, setError] = useState<string | null>(null)
   const [aviso, setAviso] = useState<string | null>(null)
+  // Opt-in: desmarcada por defecto, nadie queda suscrito sin decir que sí.
+  const [boletin, setBoletin] = useState(false)
   const [ocupado, setOcupado] = useState(false)
 
   const olvide = async () => {
@@ -114,7 +116,7 @@ export function FormularioAcceso({ inicial = 'entrar' }: { inicial?: 'entrar' | 
         const err = await entrar(email.trim(), contrasena)
         if (err) setError(mensajeCuenta(err, t))
       } else {
-        const err = await registrar(email.trim(), contrasena, idiomaActual())
+        const err = await registrar(email.trim(), contrasena, idiomaActual(), boletin)
         if (err) setError(mensajeCuenta(err, t))
         // Con la confirmación de correo apagada en Supabase la sesión ya está
         // abierta y la puerta pasa sola a la compra: no hay nada que avisar.
@@ -176,6 +178,20 @@ export function FormularioAcceso({ inicial = 'entrar' }: { inicial?: 'entrar' | 
       />
       {error && <p className="whitespace-pre-line text-[11px] leading-snug text-red-400/90">{error}</p>}
       {aviso && <p className="text-[11px] leading-snug text-accent/90">{aviso}</p>}
+      {modo === 'registrar' && (
+        <label className="flex cursor-pointer items-start gap-2 px-0.5 text-[11px] leading-snug text-white/60">
+          <input
+            type="checkbox"
+            checked={boletin}
+            onChange={(e) => setBoletin(e.target.checked)}
+            className="mt-0.5 shrink-0 accent-[var(--color-accent)]"
+          />
+          {t(
+            'cuenta.boletin',
+            'Quiero recibir un correo diario con consejos de salud mental, promociones y noticias importantes. Puedo darme de baja cuando quiera.',
+          )}
+        </label>
+      )}
       <button
         type="button"
         onClick={() => void enviar()}
@@ -253,6 +269,32 @@ function BotonesOAuth() {
 
 function CuentaConSesion() {
   const t = useT()
+/** Interruptor del boletín diario por correo: se puede cambiar cuando se quiera. */
+function FilaBoletin() {
+  const t = useT()
+  const boletin = useSesion((s) => s.boletin)
+  const elegirBoletin = useSesion((s) => s.elegirBoletin)
+  const [ocupado, setOcupado] = useState(false)
+  // Sin leer (o sin la tabla en el servidor): no se pinta.
+  if (boletin === undefined) return null
+  return (
+    <label className="flex cursor-pointer items-start gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] leading-snug text-white/60">
+      <input
+        type="checkbox"
+        checked={boletin === true}
+        disabled={ocupado}
+        onChange={async (e) => {
+          setOcupado(true)
+          await elegirBoletin(e.target.checked, idiomaActual())
+          setOcupado(false)
+        }}
+        className="mt-0.5 shrink-0 accent-[var(--color-accent)]"
+      />
+      {t('cuenta.boletinFila', 'Correo diario: salud mental, promociones y noticias importantes')}
+    </label>
+  )
+}
+
   const usuario = useSesion((s) => s.usuario)
   const plan = useSesion((s) => s.plan)
   const planExpira = useSesion((s) => s.planExpira)
@@ -294,6 +336,7 @@ function CuentaConSesion() {
       <FilaAlias />
       {conAcceso && planExpira && (
         <p className="text-[11px] text-white/45">
+      <FilaBoletin />
           {plan === 'trial'
             ? t('cuenta.plan.pruebaExpira', 'Tu prueba termina el {f}.', {
                 f: new Date(planExpira).toLocaleDateString(localeActual()),

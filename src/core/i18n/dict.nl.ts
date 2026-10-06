@@ -7204,6 +7204,12 @@ export const NL: Dict = {
   'cuenta.registrar': 'Account aanmaken',
   'cuenta.cambioRegistrar': 'Ik heb nog geen account: maak er een aan',
   'cuenta.cambioEntrar': 'Ik heb al een account: inloggen',
+  'cuenta.boletin': 'Ik wil een dagelijkse e-mail met tips over mentale gezondheid, aanbiedingen en belangrijk nieuws. Ik kan me altijd afmelden.',
+  'cuenta.boletinFila': 'Dagelijkse e-mail: mentale gezondheid, aanbiedingen en belangrijk nieuws',
+  'boletin.titulo': 'Wil je onze dagelijkse e-mail ontvangen?',
+  'boletin.mensaje': 'Elke dag een korte tip over mentale gezondheid, plus aanbiedingen en belangrijk nieuws van MindHaOS. Je kunt je altijd afmelden via de e-mail zelf of onder Account.',
+  'boletin.si': 'Ja, aanmelden',
+  'boletin.no': 'Nee, bedankt',
   'cuenta.confirmaCorreo': 'Account aangemaakt: controleer je e-mail en bevestig die voordat je inlogt.',
   'cuenta.confirmaCorreoVuelve':
     'Account aangemaakt: open de link die we je hebben gemaild en ga terug naar de app. Je wordt automatisch aangemeld.',

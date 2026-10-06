@@ -230,7 +230,7 @@ export const TEXTOS = {
     'Para cancelar el cobro, «Gestionar suscripción» en <a href="/cuenta">tu cuenta</a>. Para borrar tu cuenta y todos tus datos de nuestros servidores, desde la app: Editor → Configuraciones → Cuenta.',
 
   // ─── Legales, comunes ────────────────────────────────────────────────────
-  'legal.fecha': 'Última actualización: agosto de 2026.',
+  'legal.fecha': 'Última actualización: octubre de 2026.',
   // Vacío en el ORIGINAL: el aviso de «esto es una traducción» solo lo llevan
   // los demás idiomas. `.fecha:empty` no se pinta (estilos.css).
   'legal.original': '',
@@ -240,6 +240,7 @@ export const TEXTOS = {
   'priv.quienes.h': 'Quiénes somos',
   'priv.quienes.p':
     'MindHaOS («la app») es una aplicación de organización personal. Contacto: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+  'priv.quienes.dir': 'Domicilio: Calle Riff 1036, código postal 03340, Ciudad de México, México.',
   'priv.datos.h': 'Qué datos recopilamos',
   'priv.datos.1':
     '<strong>Cuenta:</strong> tu correo electrónico y una contraseña cifrada, gestionados por Supabase (nuestro proveedor de backend).',
@@ -288,6 +289,9 @@ export const TEXTOS = {
   'priv.cancelas.h': 'Si cancelas tu suscripción',
   'priv.cancelas.p':
     'Tus datos locales siguen en tus dispositivos. Los datos sincronizados quedan almacenados (inaccesibles hasta que renueves) y puedes borrarlos definitivamente eliminando tu cuenta.',
+  'priv.boletin.h': 'Boletín diario por correo',
+  'priv.boletin.p':
+    'Solo si aceptas recibirlo —con la casilla al crear tu cuenta o respondiendo a la pregunta de la app—, te enviamos un correo al día con un consejo de salud mental, promociones y noticias importantes de MindHaOS. Para eso usamos únicamente tu correo electrónico y tu idioma. El consejo lo redacta una IA de forma general e igual para todos los suscriptores de cada idioma: no se usan tus datos de la app para escribirlo, y no sustituye la ayuda profesional. Puedes darte de baja cuando quieras con el enlace de cada correo o desde Cuenta, en la app o en la web; sin tu consentimiento no te enviamos nada de esto.',
   'priv.borrar.h': 'Cómo borrar tu cuenta y tus datos',
   'priv.borrar.p':
     'Desde la app: Editor → Configuraciones → Cuenta. El borrado elimina tu usuario, tus datos sincronizados y tus archivos de nuestros servidores; se conservan solo los registros de facturación que la ley exige guardar.',
@@ -300,6 +304,7 @@ export const TEXTOS = {
   'priv.proveedores.5':
     'HERE Technologies (mapas, búsqueda de lugares y rutas, bajo demanda).',
   'priv.proveedores.6': "Cloudflare (almacenamiento de archivos en la nube, R2).",
+  'priv.proveedores.7': 'Resend (envío del boletín por correo, solo si lo aceptas).',
   'priv.cambios.h': 'Cambios',
   'priv.cambios.p':
     'Si esta política cambia, publicaremos aquí la versión nueva con su fecha. Las dudas se atienden en el correo de contacto.',

@@ -134,13 +134,21 @@ interface SesionState {
   retrato: string | null
   /** Saldo suelto que quede de las recargas viejas (perfiles.creditos_extra). */
   creditosExtra: number
+  /**
+   * Boletín diario por correo (`boletin_suscripciones`): true/false = lo que
+   * respondió; null = aún no se le ha preguntado; undefined = sin leer todavía.
+   */
+  boletin: boolean | null | undefined
   usoIA: UsoIA | null
   estadoSync: EstadoSync
   ultimaSync: number | null
   errorSync: string | null
   /** Devuelven el código del error (se pinta con `mensajeCuenta`), o null si todo bien. */
   /** `idioma`: el de la app, para que los correos de Auth puedan salir en él. */
-  registrar: (email: string, contrasena: string, idioma?: string) => Promise<ErrorCuenta | null>
+  /** `boletin`: la casilla del formulario; viaja al alta y la apunta el trigger `al_alta_boletin`. */
+  registrar: (email: string, contrasena: string, idioma?: string, boletin?: boolean) => Promise<ErrorCuenta | null>
+  /** Sí/no al boletín diario. `idioma` por defecto: el de la cuenta (el de la app). Devuelve false si falló. */
+  elegirBoletin: (acepta: boolean, idioma?: string) => Promise<boolean>
   entrar: (email: string, contrasena: string) => Promise<ErrorCuenta | null>
   entrarConProveedor: (proveedor: 'google' | 'apple') => Promise<ErrorCuenta | null>
   salir: () => Promise<void>
@@ -170,6 +178,19 @@ interface SesionState {
  * menos que mantener.
  */
 const REDIRECT_NATIVO = 'com.macr120.mindhome://oauth'
+
+/**
+ * Lleva el idioma de la app a la cuenta (`user_metadata.idioma`) en cuanto
+ * cambia: con él salen los correos de Auth (confirmación, contraseña) y el
+ * boletín diario (el trigger `al_cambiar_idioma_boletin` lo copia). Sin sesión
+ * no hace nada; al iniciarla se sincroniza igual (`onAuthStateChange`).
+ */
+export async function idiomaACuenta(idioma: string): Promise<void> {
+  const usuario = useSesion.getState().usuario
+  if (!usuario || usuario.user_metadata?.idioma === idioma) return
+  const sb = await obtenerSupabase()
+  await sb?.auth.updateUser({ data: { idioma } })
+}
 
 /**
  * Google, sin esto, entra directo con la última cuenta usada en el navegador y
@@ -220,6 +241,7 @@ export const useSesion = create<SesionState>((set, get) => ({
   unlock: false,
   nivel: 1,
   ilimitado: false,
+  boletin: undefined,
   alias: null,
   nombre: '',
   emoji: '🙂',
@@ -230,7 +252,7 @@ export const useSesion = create<SesionState>((set, get) => ({
   ultimaSync: null,
   errorSync: null,
 
-  registrar: async (email, contrasena, idioma) => {
+  registrar: async (email, contrasena, idioma, boletin) => {
     const sb = await obtenerSupabase()
     if (!sb) return 'sin-backend'
     // Espejo del mínimo configurado en el Dashboard: falla aquí, sin viaje.
@@ -246,7 +268,7 @@ export const useSesion = create<SesionState>((set, get) => ({
       options: {
         ...(nativa ? { emailRedirectTo: REDIRECT_NATIVO } : {}),
         // Queda en user_metadata: las plantillas de correo de Auth lo leen con {{ .Data.idioma }}.
-        ...(idioma ? { data: { idioma } } : {}),
+        data: { ...(idioma ? { idioma } : {}), ...(boletin !== undefined ? { boletin } : {}) },
       },
     })
     if (error) return codigoAuth(error)
@@ -400,6 +422,20 @@ export const useSesion = create<SesionState>((set, get) => ({
       retrato: (data.retrato as string | null) ?? null,
       creditosExtra: (data.creditos_extra as number | null) ?? 0,
     })
+    const boletin = await sb.from('boletin_suscripciones').select('acepta').eq('user_id', usuario.id).maybeSingle()
+    if (!boletin.error) set({ boletin: boletin.data ? boletin.data.acepta === true : null })
+  },
+
+  elegirBoletin: async (acepta, idioma) => {
+    const sb = await obtenerSupabase()
+    if (!sb || !get().usuario) return false
+    const { error } = await sb.rpc('boletin_elegir', {
+      p_acepta: acepta,
+      p_idioma: idioma ?? get().usuario?.user_metadata?.idioma ?? localStorage.getItem('mh.idioma') ?? 'es',
+    })
+    if (error) return false
+    set({ boletin: acepta })
+    return true
   },
 
   refrescarUso: async () => {
@@ -556,6 +592,7 @@ export function iniciarSesion(): void {
           emoji: '🙂',
           retrato: null,
           creditosExtra: 0,
+          boletin: undefined,
           usoIA: null,
         })
       } else if (usuario && (evento === 'SIGNED_IN' || evento === 'USER_UPDATED')) {

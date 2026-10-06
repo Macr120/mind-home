@@ -7119,6 +7119,12 @@ export const TR: Dict = {
   'cuenta.registrar': 'Hesap oluştur',
   'cuenta.cambioRegistrar': 'Hesabım yok: bir tane oluştur',
   'cuenta.cambioEntrar': 'Zaten hesabım var: giriş yap',
+  'cuenta.boletin': 'Ruh sağlığı ipuçları, kampanyalar ve önemli haberler içeren günlük bir e-posta almak istiyorum. İstediğim zaman abonelikten çıkabilirim.',
+  'cuenta.boletinFila': 'Günlük e-posta: ruh sağlığı, kampanyalar ve önemli haberler',
+  'boletin.titulo': 'Günlük e-postamızı almak ister misiniz?',
+  'boletin.mensaje': 'Her gün kısa bir ruh sağlığı ipucu, ayrıca MindHaOS kampanyaları ve önemli haberler. E-postanın içinden veya Hesap bölümünden istediğiniz zaman abonelikten çıkabilirsiniz.',
+  'boletin.si': 'Evet, abone ol',
+  'boletin.no': 'Hayır, teşekkürler',
   'cuenta.confirmaCorreo': 'Hesap oluşturuldu: giriş yapabilmek için e-postanı kontrol edip onayla.',
   'cuenta.confirmaCorreoVuelve':
     'Hesap oluşturuldu: e-postana gönderdiğimiz bağlantıyı aç ve uygulamaya geri dön. Oturumun otomatik olarak açılacak.',

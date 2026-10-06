@@ -199,7 +199,7 @@ export const TEXTOS = {
   'faq.8.a':
     'Om de afschrijving te stoppen: «Abonnement beheren» in <a href="/cuenta">je account</a>. Om je account en al je gegevens van onze servers te verwijderen, vanuit de app: Editor → Instellingen → Account.',
 
-  'legal.fecha': 'Laatst bijgewerkt: augustus 2026.',
+  'legal.fecha': 'Laatst bijgewerkt: oktober 2026.',
   'legal.original':
     'Vertaling uit service. Bij afwijkingen geldt de <a href="/original">Spaanse</a> versie.',
 
@@ -207,6 +207,7 @@ export const TEXTOS = {
   'priv.quienes.h': 'Wie we zijn',
   'priv.quienes.p':
     'MindHaOS («de app») is een applicatie voor persoonlijke organisatie. Contact: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+  'priv.quienes.dir': 'Adres: Calle Riff 1036, postcode 03340, Mexico-Stad, Mexico.',
   'priv.datos.h': 'Welke gegevens we verzamelen',
   'priv.datos.1':
     '<strong>Account:</strong> je e-mailadres en een versleuteld wachtwoord, beheerd door Supabase (onze backendleverancier).',
@@ -254,6 +255,9 @@ export const TEXTOS = {
   'priv.cancelas.h': 'Als je je abonnement opzegt',
   'priv.cancelas.p':
     'Je lokale gegevens blijven op je apparaten staan. De gesynchroniseerde gegevens blijven opgeslagen (onbereikbaar tot je verlengt) en je kunt ze definitief wissen door je account te verwijderen.',
+  'priv.boletin.h': 'Dagelijkse nieuwsbrief per e-mail',
+  'priv.boletin.p':
+    'Alleen als je ermee instemt —met het vakje bij het aanmaken van je account of door de vraag in de app te beantwoorden— sturen we je één e-mail per dag met een tip over mentale gezondheid, aanbiedingen en belangrijk nieuws van MindHaOS. Daarvoor gebruiken we alleen je e-mailadres en je taal. De tip wordt door een AI in algemene termen geschreven en is voor alle abonnees in dezelfde taal gelijk: je appgegevens worden er niet voor gebruikt, en hij vervangt geen professionele hulp. Je kunt je altijd afmelden via de link in elke e-mail of via Account, in de app of op het web; zonder je toestemming sturen we je hier niets van.',
   'priv.borrar.h': 'Hoe je je account en je gegevens verwijdert',
   'priv.borrar.p': 'Vanuit de app: Editor → Instellingen → Account. Verwijderen wist je gebruiker, je gesynchroniseerde gegevens en je bestanden van onze servers; alleen de factuurgegevens die we wettelijk moeten bewaren blijven behouden.',
   'priv.proveedores.h': 'Leveranciers',
@@ -265,6 +269,7 @@ export const TEXTOS = {
   'priv.proveedores.5':
     'HERE Technologies (kaarten, zoeken naar plaatsen en routes, op verzoek).',
   'priv.proveedores.6': "Cloudflare (bestandsopslag in de cloud, R2).",
+  'priv.proveedores.7': 'Resend (verzending van de nieuwsbrief per e-mail, alleen met je toestemming).',
   'priv.cambios.h': 'Wijzigingen',
   'priv.cambios.p':
     'Als dit beleid verandert, publiceren we hier de nieuwe versie met haar datum. Vragen beantwoorden we op het contactadres.',

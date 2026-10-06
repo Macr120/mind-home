@@ -197,7 +197,7 @@ export const TEXTOS = {
   'faq.8.a':
     'Tahsilatı durdurmak için <a href="/cuenta">hesabındaki</a> «Aboneliği yönet». Hesabını ve sunucularımızdaki bütün verilerini silmek için uygulamadan: Düzenleyici → Ayarlar → Hesap.',
 
-  'legal.fecha': 'Son güncelleme: Ağustos 2026.',
+  'legal.fecha': 'Son güncelleme: Ekim 2026.',
   'legal.original':
     'Nezaket çevirisidir. Herhangi bir uyuşmazlıkta <a href="/original">İspanyolca</a> sürüm geçerlidir.',
 
@@ -205,6 +205,7 @@ export const TEXTOS = {
   'priv.quienes.h': 'Biz kimiz',
   'priv.quienes.p':
     'MindHaOS («uygulama») kişisel düzen için bir uygulamadır. İletişim: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+  'priv.quienes.dir': 'Adres: Calle Riff 1036, posta kodu 03340, Mexico City, Meksika.',
   'priv.datos.h': 'Hangi verileri topluyoruz',
   'priv.datos.1':
     '<strong>Hesap:</strong> e-posta adresin ve şifrelenmiş bir parola; bunları arka uç sağlayıcımız Supabase yönetir.',
@@ -252,6 +253,9 @@ export const TEXTOS = {
   'priv.cancelas.h': 'Aboneliğini iptal edersen',
   'priv.cancelas.p':
     'Yerel verilerin cihazlarında kalır. Eşitlenen veriler saklanmaya devam eder (yenileyene kadar erişilemez) ve hesabını silerek onları kalıcı olarak kaldırabilirsin.',
+  'priv.boletin.h': 'Günlük e-posta bülteni',
+  'priv.boletin.p':
+    'Yalnızca almayı kabul edersen —hesabını oluştururken kutuyu işaretleyerek ya da uygulamadaki soruyu yanıtlayarak— sana her gün bir ruh sağlığı ipucu, kampanyalar ve MindHaOS’un önemli haberlerini içeren bir e-posta göndeririz. Bunun için yalnızca e-posta adresini ve dilini kullanırız. İpucu bir yapay zekâ tarafından genel olarak yazılır ve her dildeki tüm aboneler için aynıdır: yazılırken uygulama verilerin kullanılmaz ve profesyonel yardımın yerini tutmaz. Her e-postadaki bağlantıyla ya da uygulamada veya webde Hesap bölümünden istediğin zaman abonelikten çıkabilirsin; onayın olmadan bunların hiçbirini göndermeyiz.',
   'priv.borrar.h': 'Hesabını ve verilerini nasıl silersin',
   'priv.borrar.p': 'Uygulamadan: Düzenleyici → Ayarlar → Hesap. Silme işlemi kullanıcını, eşitlenmiş verilerini ve dosyalarını sunucularımızdan kaldırır; yalnızca yasanın saklanmasını zorunlu kıldığı fatura kayıtları tutulur.',
   'priv.proveedores.h': 'Sağlayıcılar',
@@ -263,6 +267,7 @@ export const TEXTOS = {
   'priv.proveedores.5':
     'HERE Technologies (haritalar, yer arama ve rotalar, talep üzerine).',
   'priv.proveedores.6': "Cloudflare (bulutta dosya depolama, R2).",
+  'priv.proveedores.7': 'Resend (e-posta bülteninin gönderimi, yalnızca kabul edersen).',
   'priv.cambios.h': 'Değişiklikler',
   'priv.cambios.p':
     'Bu politika değişirse yeni sürümü tarihiyle birlikte burada yayımlarız. Sorular iletişim adresinden yanıtlanır.',

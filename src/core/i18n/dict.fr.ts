@@ -7233,6 +7233,12 @@ export const FR: Dict = {
   'cuenta.registrar': 'Créer un compte',
   'cuenta.cambioRegistrar': 'Je n’ai pas de compte : en créer un',
   'cuenta.cambioEntrar': 'J’ai déjà un compte : me connecter',
+  'cuenta.boletin': 'Je veux recevoir un e-mail quotidien avec des conseils de santé mentale, des promotions et des nouvelles importantes. Je peux me désabonner à tout moment.',
+  'cuenta.boletinFila': 'E-mail quotidien : santé mentale, promotions et nouvelles importantes',
+  'boletin.titulo': 'Voulez-vous recevoir notre e-mail quotidien ?',
+  'boletin.mensaje': 'Chaque jour, un court conseil de santé mentale, ainsi que des promotions et des nouvelles importantes de MindHaOS. Vous pouvez vous désabonner à tout moment depuis l’e-mail ou dans Compte.',
+  'boletin.si': 'Oui, je m’abonne',
+  'boletin.no': 'Non, merci',
   'cuenta.confirmaCorreo': 'Compte créé : vérifie ton e-mail et confirme-le pour pouvoir te connecter.',
   'cuenta.confirmaCorreoVuelve':
     'Compte créé : ouvre le lien que nous t’avons envoyé par e-mail et reviens dans l’app. Tu seras connecté automatiquement.',

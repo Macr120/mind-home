@@ -413,6 +413,8 @@ export const useAjustes = create<AjustesState>((set, get) => ({
     // al cambiar de idioma hay que recalcular cuál se aplica de verdad.
     aplicarTipografia(get().tipografia, idioma)
     set({ idioma })
+    // Los correos de la cuenta salen en el idioma de la app.
+    void import('../cuenta/sesionStore').then((m) => m.idiomaACuenta(idioma))
   },
 
   // Pasa al siguiente del catálogo: con más de dos idiomas ya no es un conmutador.

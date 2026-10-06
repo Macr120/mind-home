@@ -14,7 +14,8 @@ import {
 import { URL_WEB as urlWeb } from '../cuenta/urlWeb'
 import { haySesionProbable, useSesion } from '../cuenta/sesionStore'
 import { hayBackend } from '../cuenta/supabase'
-import { esPro, esProbar, esTrial, fuePro } from '../edicion'
+import { esDemo, esPro, esProbar, esTrial, fuePro } from '../edicion'
+import { elegir } from '../state/confirmarStore'
 import { salirDemo } from '../../demo/modo'
 import { salirProbar } from '../../probar/modo'
 import { AvisoRenovacion, EnlacesLegales, FormularioAcceso, irAPreciosIA } from './editor/EditorCuentaSection'
@@ -38,8 +39,44 @@ export function AvisosPlan() {
       <CuotaAgotada />
       <AvisoDemo />
       <AvisoSesion />
+      <PreguntaBoletin />
     </>
   )
+}
+
+/** Una sola vez por arranque: si la cierra sin responder, se le pregunta en la próxima. */
+let boletinPreguntado = false
+
+/**
+ * Quien se registró con Google/Apple (o antes de que existiera el boletín) no
+ * vio la casilla del formulario: se le pregunta una vez, ya con la sesión
+ * abierta. `boletin === null` = sin respuesta guardada en el servidor.
+ */
+function PreguntaBoletin() {
+  const t = useT()
+  const pendiente = useSesion((s) => !!s.usuario && s.boletin === null)
+  useEffect(() => {
+    if (!pendiente || boletinPreguntado || esDemo() || esProbar()) return
+    // Unos segundos de margen: que no salte encima del arranque o del login.
+    const id = setTimeout(async () => {
+      if (boletinPreguntado) return
+      boletinPreguntado = true
+      const r = await elegir({
+        titulo: t('boletin.titulo', '¿Quieres recibir nuestro correo diario?'),
+        mensaje: t(
+          'boletin.mensaje',
+          'Cada día, un consejo breve de salud mental, además de promociones y noticias importantes de MindHaOS. Puedes darte de baja cuando quieras desde el propio correo o en Cuenta.',
+        ),
+        opciones: [
+          { valor: 'si', texto: t('boletin.si', 'Sí, suscribirme') },
+          { valor: 'no', texto: t('boletin.no', 'No, gracias') },
+        ],
+      })
+      if (r) void useSesion.getState().elegirBoletin(r === 'si')
+    }, 4000)
+    return () => clearTimeout(id)
+  }, [pendiente, t])
+  return null
 }
 
 function Marco({ children }: { children: React.ReactNode }) {

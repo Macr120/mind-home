@@ -198,7 +198,7 @@ export const TEXTOS = {
   'faq.8.a':
     'Aby zatrzymać płatności, «Zarządzaj abonamentem» w <a href="/cuenta">twoim koncie</a>. Aby usunąć konto i wszystkie dane z naszych serwerów, z poziomu aplikacji: Edytor → Ustawienia → Konto.',
 
-  'legal.fecha': 'Ostatnia aktualizacja: sierpień 2026.',
+  'legal.fecha': 'Ostatnia aktualizacja: październik 2026.',
   'legal.original':
     'Tłumaczenie pomocnicze. W razie rozbieżności obowiązuje wersja <a href="/original">hiszpańska</a>.',
 
@@ -206,6 +206,7 @@ export const TEXTOS = {
   'priv.quienes.h': 'Kim jesteśmy',
   'priv.quienes.p':
     'MindHaOS («aplikacja») to aplikacja do organizacji osobistej. Kontakt: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+  'priv.quienes.dir': 'Adres: Calle Riff 1036, kod pocztowy 03340, Meksyk (miasto), Meksyk.',
   'priv.datos.h': 'Jakie dane zbieramy',
   'priv.datos.1':
     '<strong>Konto:</strong> twój adres e-mail i zaszyfrowane hasło, zarządzane przez Supabase (naszego dostawcę backendu).',
@@ -253,6 +254,9 @@ export const TEXTOS = {
   'priv.cancelas.h': 'Jeśli zrezygnujesz z abonamentu',
   'priv.cancelas.p':
     'Dane lokalne zostają na twoich urządzeniach. Dane zsynchronizowane pozostają przechowywane (niedostępne do czasu wznowienia) i możesz je trwale usunąć, kasując konto.',
+  'priv.boletin.h': 'Codzienny newsletter e-mailowy',
+  'priv.boletin.p':
+    'Tylko jeśli zgodzisz się go otrzymywać —zaznaczając pole przy zakładaniu konta albo odpowiadając na pytanie w aplikacji— wysyłamy ci jeden e-mail dziennie z poradą o zdrowiu psychicznym, promocjami i ważnymi wiadomościami od MindHaOS. Używamy do tego wyłącznie twojego adresu e-mail i języka. Poradę pisze AI w sposób ogólny i jest ona taka sama dla wszystkich subskrybentów w danym języku: twoje dane z aplikacji nie są do tego używane, a porada nie zastępuje profesjonalnej pomocy. Możesz się wypisać w każdej chwili przez link w każdym e-mailu albo w sekcji Konto, w aplikacji lub w sieci; bez twojej zgody nie wysyłamy niczego z tych rzeczy.',
   'priv.borrar.h': 'Jak usunąć konto i dane',
   'priv.borrar.p': 'Z aplikacji: Edytor → Ustawienia → Konto. Usunięcie kasuje twojego użytkownika, zsynchronizowane dane i pliki z naszych serwerów; zachowujemy tylko dokumenty rozliczeniowe, których przechowywania wymaga prawo.',
   'priv.proveedores.h': 'Dostawcy',
@@ -264,6 +268,7 @@ export const TEXTOS = {
   'priv.proveedores.5':
     'HERE Technologies (mapy, wyszukiwanie miejsc i trasy, na żądanie).',
   'priv.proveedores.6': "Cloudflare (przechowywanie plików w chmurze, R2).",
+  'priv.proveedores.7': 'Resend (wysyłka newslettera e-mailem, tylko jeśli się zgodzisz).',
   'priv.cambios.h': 'Zmiany',
   'priv.cambios.p':
     'Jeśli ta polityka się zmieni, opublikujemy tutaj nową wersję z datą. Pytania odbieramy pod adresem kontaktowym.',

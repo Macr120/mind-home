@@ -187,7 +187,7 @@ export const TEXTOS = {
   'faq.8.a':
     '請求を止めるには<a href="/cuenta">アカウント</a>ページの「サブスクリプションを管理」から。アカウントとサーバー上のデータをすべて削除するにはアプリから：エディター → 設定 → アカウント。',
 
-  'legal.fecha': '最終更新：2026年8月。',
+  'legal.fecha': '最終更新：2026年10月。',
   'legal.original':
     '参考訳です。相違がある場合は<a href="/original">スペイン語版</a>が優先します。',
 
@@ -195,6 +195,7 @@ export const TEXTOS = {
   'priv.quienes.h': '運営者',
   'priv.quienes.p':
     'MindHaOS（以下「本アプリ」）は個人向けの整理アプリです。連絡先：<a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>。',
+  'priv.quienes.dir': '所在地：Calle Riff 1036、郵便番号 03340、メキシコシティ、メキシコ。',
   'priv.datos.h': '取得するデータ',
   'priv.datos.1':
     '<strong>アカウント：</strong>メールアドレスと暗号化されたパスワード。バックエンド事業者のSupabaseが管理します。',
@@ -242,6 +243,9 @@ export const TEXTOS = {
   'priv.cancelas.h': 'サブスクリプションを解約した場合',
   'priv.cancelas.p':
     'ローカルのデータは端末に残ります。同期されたデータは保存されたまま（再開するまでアクセスできません）で、アカウントを削除すれば完全に消せます。',
+  'priv.boletin.h': '毎日のメールニュースレター',
+  'priv.boletin.p':
+    'アカウント作成時のチェックボックス、またはアプリ内の質問への回答で受け取りに同意した場合に限り、メンタルヘルスのヒント、キャンペーン、MindHaOS の重要なお知らせを1日1通メールでお送りします。そのために使うのはメールアドレスと言語だけです。ヒントは AI が一般的な内容として作成し、同じ言語の購読者全員に同じものが届きます。アプリのデータは作成に使われず、専門家の支援に代わるものではありません。各メールのリンク、またはアプリやウェブの「アカウント」からいつでも配信停止できます。同意がない限り、これらは一切送信しません。',
   'priv.borrar.h': 'アカウントとデータの削除方法',
   'priv.borrar.p': 'アプリから：エディター → 設定 → アカウント。削除するとユーザー、同期データ、ファイルが当方のサーバーから消えます。法令上の保存義務がある請求記録だけが残ります。',
   'priv.proveedores.h': '委託先',
@@ -253,6 +257,7 @@ export const TEXTOS = {
   'priv.proveedores.5':
     'HERE Technologies(マップ、場所の検索とルート、必要なときのみ)。',
   'priv.proveedores.6': "Cloudflare（クラウドのファイル保存、R2）。",
+  'priv.proveedores.7': 'Resend（メールニュースレターの送信。同意した場合のみ）。',
   'priv.cambios.h': '変更',
   'priv.cambios.p':
     '本ポリシーを変更した場合は、日付とともに新しい版をここに掲載します。ご質問は連絡先のメールで承ります。',

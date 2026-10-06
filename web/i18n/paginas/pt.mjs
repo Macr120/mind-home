@@ -198,7 +198,7 @@ export const TEXTOS = {
   'faq.8.a':
     'Para cancelar a cobrança, «Gerenciar assinatura» na <a href="/cuenta">sua conta</a>. Para apagar sua conta e todos os seus dados dos nossos servidores, pelo app: Editor → Configurações → Conta.',
 
-  'legal.fecha': 'Última atualização: agosto de 2026.',
+  'legal.fecha': 'Última atualização: outubro de 2026.',
   'legal.original':
     'Tradução de cortesia. Em caso de divergência, prevalece a versão em <a href="/original">espanhol</a>.',
 
@@ -206,6 +206,7 @@ export const TEXTOS = {
   'priv.quienes.h': 'Quem somos',
   'priv.quienes.p':
     'MindHaOS («o app») é um aplicativo de organização pessoal. Contato: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+  'priv.quienes.dir': 'Endereço: Calle Riff 1036, código postal 03340, Cidade do México, México.',
   'priv.datos.h': 'Que dados coletamos',
   'priv.datos.1':
     '<strong>Conta:</strong> seu e-mail e uma senha criptografada, gerenciados pelo Supabase (nosso provedor de backend).',
@@ -253,6 +254,9 @@ export const TEXTOS = {
   'priv.cancelas.h': 'Se você cancelar sua assinatura',
   'priv.cancelas.p':
     'Seus dados locais continuam nos seus dispositivos. Os dados sincronizados ficam armazenados (inacessíveis até você renovar) e podem ser apagados definitivamente eliminando sua conta.',
+  'priv.boletin.h': 'Boletim diário por e-mail',
+  'priv.boletin.p':
+    'Somente se você aceitar recebê-lo —com a caixa ao criar sua conta ou respondendo à pergunta do app—, enviamos um e-mail por dia com uma dica de saúde mental, promoções e notícias importantes do MindHaOS. Para isso usamos apenas seu e-mail e seu idioma. A dica é redigida por uma IA de forma geral e é igual para todos os assinantes de cada idioma: seus dados do app não são usados para escrevê-la, e ela não substitui a ajuda profissional. Você pode cancelar quando quiser pelo link de cada e-mail ou em Conta, no app ou na web; sem o seu consentimento não enviamos nada disso.',
   'priv.borrar.h': 'Como apagar sua conta e seus dados',
   'priv.borrar.p': 'Pelo app: Editor → Configurações → Conta. A exclusão remove seu usuário, seus dados sincronizados e seus arquivos dos nossos servidores; são mantidos apenas os registros de faturamento que a lei exige guardar.',
   'priv.proveedores.h': 'Provedores',
@@ -264,6 +268,7 @@ export const TEXTOS = {
   'priv.proveedores.5':
     'HERE Technologies (mapas, busca de lugares e rotas, sob demanda).',
   'priv.proveedores.6': "Cloudflare (armazenamento de arquivos na nuvem, R2).",
+  'priv.proveedores.7': 'Resend (envio do boletim por e-mail, somente se você aceitar).',
   'priv.cambios.h': 'Mudanças',
   'priv.cambios.p':
     'Se esta política mudar, publicaremos aqui a versão nova com a sua data. As dúvidas são atendidas no e-mail de contato.',

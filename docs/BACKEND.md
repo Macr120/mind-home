@@ -1036,6 +1036,47 @@ en cuanto hay mensajería entre personas. Migración
   mandando por la subida compartida, por compatibilidad con anfitriones viejos.
 - Con invitados moviéndose, el anfitrión quieto emite igual.
 
+### 12. Boletín diario por correo — 5-oct-2026
+
+Consejo de salud mental + promociones y noticias, una vez al día, SOLO a quien
+dijo que sí (migración `20261005000002_boletin.sql`).
+
+- **Consentimiento**: casilla desmarcada en el registro por correo (app y web
+  /cuenta) → `user_metadata.boletin` → trigger `al_alta_boletin`. Google/Apple y
+  cuentas anteriores: sin fila en `boletin_suscripciones` = sin preguntar; la
+  app pregunta UNA vez (`PreguntaBoletin` en `AvisosPlan.tsx`) y responde por
+  la RPC `boletin_elegir`. Interruptor en Cuenta (`FilaBoletin`).
+- **Envío**: función `boletin-diario` (cron 14:07/14:27/14:47 UTC; las pasadas
+  extra solo terminan lo que la primera no alcanzó). Genera una edición por
+  idioma con Haiku (`boletin_ediciones`, no repite los temas de 14 días) y la
+  manda por Resend en lotes de 100, solo a correos confirmados.
+- **Baja**: enlace en cada correo + `List-Unsubscribe` de un clic → función
+  `boletin-baja?t=<token>`. Textos fijos (pie, baja, aviso de crisis) en
+  `_shared/boletinTextos.ts`, 16 idiomas.
+- **Idioma**: el de la app. `setIdioma` → `idiomaACuenta` actualiza `user_metadata.idioma`
+  (lo usan también las plantillas de Auth) y el trigger `al_cambiar_idioma_boletin`
+  (migración `20261005000003`) lo copia a `boletin_suscripciones`.
+- **Promos y noticias**: las escribe el dueño en español, se traducen solas:
+
+  ```sql
+  insert into boletin_avisos (tipo, titulo, texto, url, hasta)
+  values ('promo', 'Título', 'Texto', 'https://mindhaos.com', current_date + 7);
+  ```
+
+- **Puesta en marcha** (en este orden):
+  1. Dominio remitente verificado en Resend.
+  2. `supabase secrets set BOLETIN_AUTH=<aleatorio> BOLETIN_DE="MindHaOS <hola@dominio>"`
+     (`RESEND_API_KEY` y `ANTHROPIC_API_KEY` ya existen).
+  3. `supabase db push` y
+     `supabase functions deploy boletin-diario boletin-baja --no-verify-jwt`.
+  4. En Vault: `boletin_url` (…/functions/v1/boletin-diario) y `boletin_auth`
+     (el mismo valor de `BOLETIN_AUTH`).
+  5. Prueba: `POST …/boletin-diario` con `{"prueba":"tu@correo","idioma":"es"}`
+     manda la edición de hoy solo a esa dirección.
+- **Cupo de Resend**: el plan gratis da 100 correos/día y 3.000/mes; con más
+  suscriptores, la siguiente pasada del cron reintenta y luego hace falta plan
+  de pago.
+
 ## Comandos útiles
 
 ```bash

@@ -7180,6 +7180,12 @@ export const ID: Dict = {
   'cuenta.registrar': 'Buat akun',
   'cuenta.cambioRegistrar': 'Saya belum punya akun: buat satu',
   'cuenta.cambioEntrar': 'Saya sudah punya akun: masuk',
+  'cuenta.boletin': 'Saya ingin menerima email harian berisi tips kesehatan mental, promo, dan kabar penting. Saya bisa berhenti berlangganan kapan saja.',
+  'cuenta.boletinFila': 'Email harian: kesehatan mental, promo, dan kabar penting',
+  'boletin.titulo': 'Mau menerima email harian kami?',
+  'boletin.mensaje': 'Setiap hari, satu tips singkat kesehatan mental, ditambah promo dan kabar penting dari MindHaOS. Kamu bisa berhenti berlangganan kapan saja dari email itu sendiri atau di Akun.',
+  'boletin.si': 'Ya, berlangganan',
+  'boletin.no': 'Tidak, terima kasih',
   'cuenta.confirmaCorreo': 'Akun dibuat: periksa emailmu dan konfirmasi sebelum masuk.',
   'cuenta.confirmaCorreoVuelve':
     'Akun dibuat: buka tautan yang kami kirim ke emailmu lalu kembali ke aplikasi. Kamu akan masuk secara otomatis.',
