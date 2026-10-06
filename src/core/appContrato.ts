@@ -290,6 +290,14 @@ export interface ComandoApp {
   etiqueta: string
   /** Nombres con los que el usuario la pide (en minúsculas y sin acentos). */
   nombres: string[]
+  /**
+   * `seccion` del menú principal del que cuelga (un submenú). Sin él es un menú
+   * principal. Solo ordena el selector de «Entrada de app» (menú → submenú); el
+   * chat y el planificador siguen viendo la lista plana.
+   */
+  menu?: string
+  /** Solo para pedirla por chat: un alias que en el selector duplicaría otra entrada. */
+  soloChat?: boolean
 }
 
 /* ── Catálogo vivo ──────────────────────────────────────────────────────────

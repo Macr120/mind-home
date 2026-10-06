@@ -44,8 +44,8 @@ export function HeatmapIdiomas({ porDia, color }: { porDia: Map<string, number>;
   return (
     <div className="rounded-xl border border-white/10 bg-white/5 p-3">
       <div className="mb-2 flex items-center justify-between gap-2">
-        <p className="text-xs font-semibold">{t('idiomas.heatmap.anual', 'Último año de práctica')}</p>
-        <p className="text-[9px] text-white/45">
+        <p className="text-sm font-bold">{t('idiomas.heatmap.anual', 'Último año de práctica')}</p>
+        <p className="text-[11px] text-white/60">
           {t('idiomas.heatmap.resumen', '{n} repasos · {d} días activos', {
             n: String(total),
             d: String(diasActivos),
@@ -54,7 +54,7 @@ export function HeatmapIdiomas({ porDia, color }: { porDia: Map<string, number>;
       </div>
 
       <div className="flex gap-1">
-        <div className="flex flex-col gap-0.5 pt-3.5 text-[8px] text-white/35">
+        <div className="flex flex-col gap-0.5 pt-3.5 text-[10px] font-semibold leading-none text-white/55">
           {diasSemanaLunes().map((d, i) => (
             <span key={i} className="flex h-2.5 items-center">
               {i % 2 === 0 && i < 6 ? d : ''}
@@ -64,7 +64,7 @@ export function HeatmapIdiomas({ porDia, color }: { porDia: Map<string, number>;
         <div ref={scrollRef} className="flex gap-0.5 overflow-x-auto pb-1">
           {columnas.map((c) => (
             <div key={c.lunes} className="flex shrink-0 flex-col gap-0.5">
-              <span className="h-3 text-[8px] leading-none text-white/35">{mesesCortos()[c.mes] ?? ''}</span>
+              <span className="h-3 whitespace-nowrap text-[10px] font-semibold leading-none text-white/55">{mesesCortos()[c.mes] ?? ''}</span>
               {c.dias.map((f) => {
                 const n = porDia.get(f) ?? 0
                 const alpha = n > 0 ? 0.25 + 0.75 * Math.min(1, n / (max || 1)) : 0
@@ -84,7 +84,7 @@ export function HeatmapIdiomas({ porDia, color }: { porDia: Map<string, number>;
         </div>
       </div>
 
-      <div className="mt-2 flex items-center justify-end gap-1 text-[8px] text-white/35">
+      <div className="mt-2 flex items-center justify-end gap-1 text-[10px] text-white/55">
         <span>{t('idiomas.heatmap.menos', 'menos')}</span>
         {[0.04, 0.35, 0.6, 0.85, 1].map((a, i) => (
           <span

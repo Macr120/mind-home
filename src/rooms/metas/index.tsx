@@ -54,6 +54,13 @@ const metas: Plantilla = {
   // Sus tours de EJEMPLO viven con los del reloj (core/tutorial/calendario.meta.ts):
   // sin esto el «?» del cuarto caía en el tutorial genérico.
   flujos: FLUJOS_METAS,
+  // Sus tres menús (`Cronograma` lee la intención). Sin «metas» a secas: lo piden
+  // también Finanzas y Ejercicio para las suyas.
+  comandos: [
+    { seccion: 'metas', etiqueta: 'Metas', nombres: ['mis metas', 'todas mis metas'] },
+    { seccion: 'planes', etiqueta: 'Planes', nombres: ['mis planes', 'planes de mis metas'] },
+    { seccion: 'cronograma', etiqueta: 'Cronograma', nombres: ['cronograma de metas', 'mi cronograma'] },
+  ],
   // Las metas de toda la casa; cada una cuelga en el grafo de la app que la lleva.
   nodosGrafo: async () =>
     (await filasNodo(rutinasRepo))

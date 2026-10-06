@@ -82,6 +82,9 @@ function tabDeArranque(): Tab {
   // Compat: la pestaña 'cronograma' vive ahora dentro de Metas.
   if (seccion === 'cronograma') return 'metas'
   if (seccion && TODAS.includes(seccion as Tab)) return seccion as Tab
+  // Un menú principal entero: su primera pestaña.
+  const pedido = ENFOQUES.find((e) => e.id === seccion)
+  if (pedido) return pedido.tabs[0]
   const guardado = localStorage.getItem(CLAVE_ENFOQUE)
   // El fallback sigue al primer enfoque: si mañana cambia el orden, no hay que tocar esto.
   return ENFOQUES.find((e) => e.id === guardado)?.tabs[0] ?? ENFOQUES[0].tabs[0]

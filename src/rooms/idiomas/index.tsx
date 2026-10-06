@@ -199,7 +199,7 @@ const idiomas: Plantilla = {
     },
   },
   comandos: [
-    { seccion: 'charlas', etiqueta: 'Tutor', nombres: ['tutor', 'tutor de idiomas'] },
+    { seccion: 'charlas', etiqueta: 'Charlas', nombres: ['tutor', 'tutor de idiomas'] },
     { seccion: 'repaso', etiqueta: 'Repaso', nombres: ['repaso', 'ejercicios', 'repasar'] },
     // El vocabulario vive DENTRO del temario desde que las tarjetas cuelgan de
     // sus temas: la palabra sigue llevando ahí.

@@ -40,7 +40,10 @@ const TABS: ItemPestana<Tab>[] = [
 
 export function EjercicioApp() {
   const t = useT()
-  const [tab, setTab] = useState<Tab>(() => tabInicial('ejercicio', TABS.map((x) => x.id), 'metas'))
+  // `fuerza.rutinas` abre Fuerza (y Fuerza abre Rutinas): el menú es lo de antes del punto.
+  const [tab, setTab] = useState<Tab>(() =>
+    tabInicial('ejercicio', TABS.map((x) => x.id), 'metas', (s) => s.split('.')[0]),
+  )
   const [plegado, setPlegado] = useState(false)
   const [fecha, setFecha] = useState(hoyISO())
   // Un solo filtro para todo el cuarto: Metas y los tres «Progreso» lo comparten.

@@ -105,22 +105,28 @@ const despacho: Plantilla = {
   planMetas: planMetasDespacho,
   capturar,
   esquemas,
+  // Los cuatro menús de FinanzasApp con sus submenús (`destinoInicial` los resuelve todos).
   comandos: [
-    { seccion: 'balance', etiqueta: 'Balance', nombres: ['balance', 'flujo', 'presupuesto', 'resumen de finanzas'] },
-    { seccion: 'patrimonio', etiqueta: 'Patrimonio', nombres: ['patrimonio', 'activos', 'pasivos', 'bienes', 'deudas'] },
-    { seccion: 'gastos', etiqueta: 'Gastos', nombres: ['gastos', 'mis gastos', 'gastos fijos'] },
-    { seccion: 'ingresos', etiqueta: 'Ingresos', nombres: ['ingresos', 'mis ingresos', 'ingresos fijos'] },
-    { seccion: 'metas', etiqueta: 'Ahorro e inversión', nombres: ['metas de ahorro', 'metas de inversion', 'ahorro e inversion', 'metas'] },
-    { seccion: 'financieras', etiqueta: 'Calculadoras financieras', nombres: ['calculadoras financieras', 'financieras', 'fondo de emergencia', 'libertad financiera'] },
-    { seccion: 'deuda', etiqueta: 'Metas de deuda', nombres: ['deudas', 'metas de deuda'] },
-    { seccion: 'simuladores', etiqueta: 'Simuladores', nombres: ['simuladores', 'simulador'] },
-    // Sin 'simulador' a secas: ya lo reclama el de arriba y el chat se quedaría
+    { seccion: 'patrimonio', etiqueta: 'Patrimonio', nombres: ['patrimonio', 'bienes'] },
+    { seccion: 'activos', etiqueta: 'Activos', nombres: ['activos', 'mis activos'], menu: 'patrimonio' },
+    { seccion: 'pasivos', etiqueta: 'Pasivos', nombres: ['pasivos', 'mis pasivos', 'deudas'], menu: 'patrimonio' },
+    // Sin 'simulador' a secas: ya lo reclama `simuladores` y el chat se quedaría
     // con dos candidatos empatados.
-    { seccion: 'simulacion', etiqueta: 'Simulación de patrimonio', nombres: ['simulacion de patrimonio', 'proyeccion de patrimonio', 'simular mi patrimonio', 'proyectar mi patrimonio'] },
-    { seccion: 'divisas', etiqueta: 'Divisas', nombres: ['divisas', 'tipo de cambio', 'dolar', 'mercados'] },
-    { seccion: 'criptos', etiqueta: 'Criptomonedas', nombres: ['criptomonedas', 'cripto', 'bitcoin'] },
-    { seccion: 'acciones', etiqueta: 'Acciones', nombres: ['acciones', 'bolsa', 'wall street'] },
-    { seccion: 'commodities', etiqueta: 'Materias primas', nombres: ['materias primas', 'commodities', 'oro', 'petroleo'] },
+    { seccion: 'simulacion', etiqueta: 'Simulación de patrimonio', nombres: ['simulacion de patrimonio', 'proyeccion de patrimonio', 'simular mi patrimonio', 'proyectar mi patrimonio'], menu: 'patrimonio' },
+    { seccion: 'flujo', etiqueta: 'Flujo', nombres: ['flujo', 'flujo de dinero'] },
+    { seccion: 'gastos', etiqueta: 'Gastos', nombres: ['gastos', 'mis gastos', 'gastos fijos'], menu: 'flujo' },
+    { seccion: 'ingresos', etiqueta: 'Ingresos', nombres: ['ingresos', 'mis ingresos', 'ingresos fijos'], menu: 'flujo' },
+    { seccion: 'balance', etiqueta: 'Balance', nombres: ['balance', 'presupuesto', 'resumen de finanzas'], menu: 'flujo' },
+    { seccion: 'metas', etiqueta: 'Metas', nombres: ['metas', 'metas financieras'] },
+    { seccion: 'financieras', etiqueta: 'Calculadoras financieras', nombres: ['calculadoras financieras', 'financieras', 'fondo de emergencia', 'libertad financiera'], menu: 'metas' },
+    { seccion: 'ahorroInversion', etiqueta: 'Ahorro e inversión', nombres: ['metas de ahorro', 'metas de inversion', 'ahorro e inversion'], menu: 'metas' },
+    { seccion: 'deuda', etiqueta: 'Metas de deuda', nombres: ['metas de deuda'], menu: 'metas' },
+    { seccion: 'simuladores', etiqueta: 'Simuladores', nombres: ['simuladores', 'simulador'], menu: 'metas', soloChat: true },
+    { seccion: 'mercados', etiqueta: 'Mercados', nombres: ['mercados', 'mercados financieros'] },
+    { seccion: 'divisas', etiqueta: 'Divisas', nombres: ['divisas', 'tipo de cambio', 'dolar'], menu: 'mercados' },
+    { seccion: 'criptos', etiqueta: 'Criptomonedas', nombres: ['criptomonedas', 'cripto', 'bitcoin'], menu: 'mercados' },
+    { seccion: 'acciones', etiqueta: 'Acciones', nombres: ['acciones', 'bolsa', 'wall street'], menu: 'mercados' },
+    { seccion: 'commodities', etiqueta: 'Materias primas', nombres: ['materias primas', 'commodities', 'oro', 'petroleo'], menu: 'mercados' },
   ],
 }
 

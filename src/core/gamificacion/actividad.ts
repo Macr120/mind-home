@@ -233,7 +233,12 @@ export interface ProgresoPlantilla {
   dias3: number
   /** Días activos en los últimos 7 días. */
   dias7: number
+  /** Registros por día de las últimas `DIAS_CALOR` jornadas (el último es hoy): el mapa de calor. */
+  porDia: number[]
 }
+
+/** Cuántos días abarca el mapa de calor de cada app (4 semanas). */
+export const DIAS_CALOR = 28
 
 export type Humor = 'feliz' | 'contento' | 'triste' | 'dormido'
 
@@ -277,6 +282,10 @@ function progresoDePlantilla(plantillaId: string, fechasCrudas: string[], listas
     hoy: fechas.filter((f) => f === hoy).length,
     dias3: [...setFechas].filter((f) => f >= hace3 && f <= hoy).length,
     dias7: [...setFechas].filter((f) => f >= hace7 && f <= hoy).length,
+    porDia: Array.from({ length: DIAS_CALOR }, (_, i) => {
+      const dia = restarDias(DIAS_CALOR - 1 - i)
+      return fechas.filter((f) => f === dia).length
+    }),
   }
 }
 

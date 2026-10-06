@@ -36,6 +36,8 @@ export function PanelMetricas({
   onEditar,
   onIrACronograma,
   onAbrir,
+  lado,
+  onCambiarLado,
 }: {
   /** Ya filtradas por app. */
   rutinas: Rutina[]
@@ -47,6 +49,10 @@ export function PanelMetricas({
   onEditar: (r: Rutina) => void
   onIrACronograma: () => void
   onAbrir: (columna: ColumnaRango) => void
+  /** Dónde va la sección: bajo la rejilla o en una columna a su izquierda. */
+  lado?: 'abajo' | 'izquierda'
+  /** Pasa la sección al otro lado (sin él, no hay botón). */
+  onCambiarLado?: () => void
 }) {
   const t = useT()
   const [desplegada, setDesplegada] = useState<number | null>(null)
@@ -55,7 +61,7 @@ export function PanelMetricas({
   const metas = useMemo(() => rutinas.filter(esMeta), [rutinas])
 
   return (
-    <div data-tut="cal.metas" className="mt-4 border-t border-white/10 pt-3">
+    <div data-tut="cal.metas" className={lado === 'izquierda' ? '' : 'mt-4 border-t border-white/10 pt-3'}>
       <div className="mb-2 flex flex-wrap items-center gap-2">
         <span className="text-sm text-amber-400/80">
           <Icono nombre="objetivo" />
@@ -71,11 +77,30 @@ export function PanelMetricas({
         )}
         {/* Del catálogo de las apps o personal, con sus días: el mismo alta que el
             panel de Objetivos de cada cuarto, aquí sin app dada de antemano. */}
+        {onCambiarLado && (
+          <button
+            type="button"
+            onClick={onCambiarLado}
+            title={
+              lado === 'izquierda'
+                ? t('cal.misiones.abajo', 'Poner las misiones debajo del calendario')
+                : t('cal.misiones.izquierda', 'Poner las misiones a la izquierda del calendario')
+            }
+            aria-label={
+              lado === 'izquierda'
+                ? t('cal.misiones.abajo', 'Poner las misiones debajo del calendario')
+                : t('cal.misiones.izquierda', 'Poner las misiones a la izquierda del calendario')
+            }
+            className="ms-auto grid h-7 w-7 shrink-0 place-items-center rounded-lg border border-white/15 text-[11px] text-white/60 transition hover:bg-white/10"
+          >
+            <Icono nombre={lado === 'izquierda' ? 'bajar' : 'izquierda'} />
+          </button>
+        )}
         {detalle && (
           <button
             type="button"
             onClick={() => setAnadiendo(true)}
-            className="ms-auto flex shrink-0 items-center gap-1 rounded-lg border border-white/15 px-2 py-1 text-[11px] font-semibold text-white/60 transition hover:bg-white/10"
+            className={`${onCambiarLado ? '' : 'ms-auto '}flex shrink-0 items-center gap-1 rounded-lg border border-white/15 px-2 py-1 text-[11px] font-semibold text-white/60 transition hover:bg-white/10`}
           >
             <Icono nombre="agregar" /> {t('cal.objetivo.nuevo', 'Misión')}
           </button>

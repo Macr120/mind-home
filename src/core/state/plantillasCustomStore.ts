@@ -290,6 +290,7 @@ function aPlantilla(def: PlantillaCustom): Plantilla {
       seccion: s.id,
       etiqueta: s.nombre,
       nombres: [normalizar(`${s.nombre} de ${def.nombre}`)],
+      menu: s.padreId ?? undefined,
     })),
   }
 }

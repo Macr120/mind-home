@@ -114,7 +114,7 @@ const hobbies: Plantilla = {
   // El cronograma ya no es una pestaña: cada hobby y cada proyecto lleva el suyo,
   // así que el deep-link solo puede llevar a la lista.
   comandos: [
-    { seccion: 'hobbies', etiqueta: 'Hobbies', nombres: ['mis hobbies', 'pasatiempos', 'mis proyectos'] },
+    { seccion: 'hobbies', etiqueta: 'Hobbies', nombres: ['mis hobbies', 'pasatiempos', 'mis proyectos'], soloChat: true },
   ],
   // El planificador ✨ de los cronogramas (por hobby o por proyecto) ofrece la
   // práctica del hobby del ámbito: aceptar el plan le pone hora y días en el

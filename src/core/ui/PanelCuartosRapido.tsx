@@ -34,6 +34,7 @@ import { PanelCuartoEditar } from './PanelCuartoEditar'
 import { PanelCuartoFondo } from './PanelCuartoFondo'
 import { iniciarCrearCuarto } from './comun/planoPincelCuarto'
 import { PiezasLogo } from './iconos/glifosApps'
+import { CalorApp } from './CalorApp'
 
 /** Mismo orden que el menú lateral; aquí tampoco se pinta el rótulo de la categoría. */
 const ORDEN: Cuarto['categoria'][] = ['cuerpo', 'mente', 'complemento', 'config']
@@ -44,8 +45,9 @@ const ORDEN: Cuarto['categoria'][] = ['cuerpo', 'mente', 'complemento', 'config'
  * - `apps`: como la pantalla de un teléfono: solo el icono (que es el botón)
  *   con su nombre debajo, sin tarjeta ni estadísticas.
  * - `3d`: el cuarto amueblado en 3D, con sus estadísticas.
+ * - `calor`: la actividad de 4 semanas de cada app como mapa de calor.
  */
-const SIGUIENTE: Record<VistaCuartos, VistaCuartos> = { iconos: 'apps', apps: '3d', '3d': 'iconos' }
+const SIGUIENTE: Record<VistaCuartos, VistaCuartos> = { iconos: 'apps', apps: '3d', '3d': 'calor', calor: 'iconos' }
 
 /** Una sola lista: la rejilla entera es el destino del arrastre. */
 const LISTA = 'pantalla'
@@ -344,7 +346,9 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
                         ? t('nav.vistaApps', 'Ver solo las apps, sin estadísticas')
                         : siguiente === '3d'
                           ? t('nav.vista3D', 'Ver los cuartos en 3D')
-                          : t('nav.vistaIconos', 'Ver los cuartos con su icono')
+                          : siguiente === 'calor'
+                            ? t('nav.vistaCalor', 'Ver la actividad de cada app como mapa de calor')
+                            : t('nav.vistaIconos', 'Ver los cuartos con su icono')
                     }
                     className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg border text-sm transition ${
                       vista !== 'iconos'
@@ -352,7 +356,11 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
                         : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/12'
                     }`}
                   >
-                    <Icono nombre={siguiente === 'apps' ? 'rejilla' : siguiente === '3d' ? 'cubo-vistas' : 'cuartos'} />
+                    <Icono
+                      nombre={
+                        siguiente === 'apps' ? 'rejilla' : siguiente === '3d' ? 'cubo-vistas' : siguiente === 'calor' ? 'racha' : 'cuartos'
+                      }
+                    />
                   </button>
                 )}
               </>
@@ -483,7 +491,9 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
                         )}
                       </span>
                       <span className="w-full truncate text-[11px] font-semibold text-white/90 holgado:text-xs">{titulo}</span>
-                      {telefono ? null : appId ? (
+                      {telefono ? null : appId && vista === 'calor' ? (
+                        <CalorApp enfoque={enfoque} color={color} />
+                      ) : appId ? (
                         <CifrasApp
                           enfoque={enfoque}
                           color={color}

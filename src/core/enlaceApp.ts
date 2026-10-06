@@ -22,6 +22,10 @@ export interface DestinoApp {
   dato?: string
   /** Etiqueta del comando («Recetario»); sin sección, el nombre de la app. */
   etiqueta: string
+  /** Menú principal del que cuelga (`ComandoApp.menu`); sin él, es un menú principal. */
+  menu?: string
+  /** Alias solo para el chat: el selector no lo enseña. */
+  soloChat?: boolean
 }
 
 /**
@@ -52,8 +56,28 @@ function etiquetaSeccion(appId: string, c: ComandoApp): string {
 export function destinosDeApp(p: Plantilla): DestinoApp[] {
   return [
     { etiqueta: nombreApp(p) },
-    ...(p.comandos ?? []).map((c) => ({ seccion: c.seccion, dato: c.dato, etiqueta: etiquetaSeccion(p.id, c) })),
+    ...(p.comandos ?? []).map((c) => ({
+      seccion: c.seccion,
+      dato: c.dato,
+      etiqueta: etiquetaSeccion(p.id, c),
+      menu: c.menu,
+      soloChat: c.soloChat,
+    })),
   ]
+}
+
+/**
+ * Los destinos de una app como árbol para el selector: los menús principales
+ * (con la portada primero) y, colgando de cada uno, sus submenús. Sin alias de
+ * chat. Un submenú cuyo menú no existe sube a principal.
+ */
+export function arbolDeApp(p: Plantilla): { raiz: DestinoApp; hijos: DestinoApp[] }[] {
+  const visibles = destinosDeApp(p).filter((d) => !d.soloChat)
+  const esRaiz = (d: DestinoApp) => !d.menu || !visibles.some((r) => !r.menu && r.seccion === d.menu)
+  return visibles.filter(esRaiz).map((raiz) => ({
+    raiz,
+    hijos: raiz.seccion ? visibles.filter((d) => d.menu === raiz.seccion && !esRaiz(d)) : [],
+  }))
 }
 
 /** Cómo se pinta un enlace: la app (con su nombre visible) y, si apunta a una sección, su etiqueta. */

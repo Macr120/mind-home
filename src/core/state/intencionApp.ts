@@ -34,8 +34,26 @@ export function intencionAppActiva(): (IntencionApp & { creada: number }) | null
   return pendiente
 }
 
-/** Pestaña inicial de una app: la de la intención vigente si existe en `tabs`, o la default. */
-export function tabInicial<T extends string>(appId: string, tabs: readonly T[], porDefecto: T): T {
+/**
+ * Submenú inicial dentro de `menu`: la intención puede pedirlo como `menu.sub`
+ * (cuando el id se repite entre menús, como «rutinas» en cada tipo de ejercicio)
+ * o con el id a secas (cuando es único en la app). Si no, el default.
+ */
+export function subInicial<T extends string>(appId: string, menu: string, subs: readonly T[], porDefecto: T): T {
   const s = intencionApp(appId)?.seccion
+  const sub = s?.startsWith(`${menu}.`) ? s.slice(menu.length + 1) : s
+  return sub && (subs as readonly string[]).includes(sub) ? (sub as T) : porDefecto
+}
+
+/** Pestaña inicial de una app: la de la intención vigente si existe en `tabs`, o la default. */
+export function tabInicial<T extends string>(
+  appId: string,
+  tabs: readonly T[],
+  porDefecto: T,
+  /** Cómo sacar el menú de la sección pedida (p. ej. `fuerza.rutinas` → `fuerza`). */
+  menuDe: (seccion: string) => string = (s) => s,
+): T {
+  const pedida = intencionApp(appId)?.seccion
+  const s = pedida && menuDe(pedida)
   return s && (tabs as readonly string[]).includes(s) ? (s as T) : porDefecto
 }

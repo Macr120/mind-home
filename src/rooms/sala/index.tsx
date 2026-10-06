@@ -150,8 +150,8 @@ const sala: Plantilla = {
     }
   },
   comandos: [
-    { seccion: 'mapa', etiqueta: 'Mapamundi', nombres: ['mapamundi', 'mapa de viajes'] },
-    { seccion: 'porConocer', etiqueta: 'Por conocer', nombres: ['por conocer', 'itinerario'] },
+    { seccion: 'mapa', etiqueta: 'Mapa', nombres: ['mapamundi', 'mapa de viajes'] },
+    { seccion: 'porConocer', etiqueta: 'Itinerario', nombres: ['por conocer', 'itinerario'] },
     { seccion: 'rutas', etiqueta: 'Rutas', nombres: ['rutas'] },
     { seccion: 'bitacora', etiqueta: 'Bitácora', nombres: ['bitacora', 'bitacora de viajes'] },
   ],

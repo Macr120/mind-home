@@ -31,6 +31,7 @@ const garage: Plantilla = {
       seccion: 'vehiculos',
       etiqueta: 'Contactos',
       nombres: ['contactos', 'talleres', 'mi taller', 'aseguradora', 'contactos del taller'],
+      soloChat: true,
     },
   ],
 }

@@ -86,7 +86,7 @@ const descanso: Plantilla = {
   operacionesIA: OPERACIONES_IA,
   // La app es de página única: el deep link solo la abre (la sección se ignora).
   comandos: [
-    { seccion: 'sueno', etiqueta: 'Descanso', nombres: ['despertador', 'mi sueno', 'horario de sueno', 'registrar noche'] },
+    { seccion: 'sueno', etiqueta: 'Descanso', nombres: ['despertador', 'mi sueno', 'horario de sueno', 'registrar noche'], soloChat: true },
   ],
   metaDiaria: {
     clave: 'descanso.metaDiaria',

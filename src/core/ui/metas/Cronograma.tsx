@@ -1,4 +1,5 @@
 import { useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import { tabInicial } from '../../state/intencionApp'
 import type { PlanMeta, Rutina } from '../../data/db'
 import { planesMetaRepo } from '../../data/repository'
 import { claveLS, iaHabilitada } from '../../edicion'
@@ -202,7 +203,7 @@ export function Cronograma({
   // El recorrido se lee en este orden: primero las metas, luego los planes que las
   // desarrollan y al final el eje donde caen. Abre en Metas, que es el menú que
   // nunca está vacío.
-  const [modo, setModo] = useState<Modo>('metas')
+  const [modo, setModo] = useState<Modo>(() => tabInicial('metas', MENUS.map((m) => m.id), 'metas'))
   // Re-pulsar el menú activo esconde su cuerpo, como en el resto de las apps.
   const [plegado, setPlegado] = useState(false)
   const [pantalla, setPantalla] = useState<Pantalla>({ tipo: 'lista' })

@@ -100,6 +100,8 @@ const escritura: Plantilla = {
       seccion: 'libros',
       etiqueta: 'Libros',
       nombres: ['libro', 'libros', 'documento', 'documentos', 'escribir', 'escritura', 'historia', 'historias', 'novela', 'cuento', 'guion', 'word'],
+      // Alias de la portada: la app no tiene menús. Solo por chat.
+      soloChat: true,
     },
   ],
 }

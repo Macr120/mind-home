@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { subInicial } from '../../core/state/intencionApp'
 import type { RutinaCardio, SesionEjercicio, SistemaUnidades, SplitCardio } from '../../core/data/db'
 import { VACIO,
   gruposCardioRepo,
@@ -89,7 +90,7 @@ export function ResistenciaTab({
   periodo: Periodo
   setPeriodo: (p: Periodo) => void
 }) {
-  const [subR, setSubR] = useState<SubResistencia>('catalogo')
+  const [subR, setSubR] = useState<SubResistencia>(() => subInicial('ejercicio', 'resistencia', SUBS_R.map((s) => s.id), 'catalogo'))
   const [titulo, setTitulo] = useState(TITULO_DEFECTO)
   const [filas, setFilas] = useState<FilaCardio[]>([{ ...filaVacia(), actividad: TITULO_DEFECTO }])
   const [ppm, setPpm] = useState('')

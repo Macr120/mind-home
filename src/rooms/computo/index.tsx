@@ -94,6 +94,7 @@ const computo: Plantilla = {
       seccion: 'formulario',
       etiqueta: 'Formulario',
       nombres: ['formulario', 'formulas', 'mis formulas', 'libro de formulas'],
+      menu: 'calculadora',
     },
     {
       seccion: 'calculadora',
@@ -102,13 +103,16 @@ const computo: Plantilla = {
     },
     {
       seccion: 'grafica',
-      etiqueta: 'Graficador',
+      etiqueta: 'Gráfica',
       nombres: ['graficador', 'graficar', 'grafica una funcion', 'grafica'],
+      menu: 'calculadora',
     },
     {
       seccion: 'ecuacion',
       etiqueta: 'Resolver ecuación',
       nombres: ['resolver ecuacion', 'resuelve la ecuacion', 'despejar', 'raices'],
+      // No hay modo ecuación: abre la calculadora. Solo por chat.
+      soloChat: true,
     },
     {
       seccion: 'hojas',
@@ -121,31 +125,37 @@ const computo: Plantilla = {
       seccion: 'bases',
       etiqueta: 'Bases (binario y hexadecimal)',
       nombres: ['binario', 'hexadecimal', 'octal', 'bases', 'sistema de numeracion', 'convertir a binario'],
+      menu: 'calculadora',
     },
     {
       seccion: 'matrices',
       etiqueta: 'Matrices',
       nombres: ['matrices', 'matriz', 'determinante', 'multiplicar matrices', 'matriz inversa'],
+      menu: 'calculadora',
     },
     {
       seccion: 'sistemas',
       etiqueta: 'Sistemas de ecuaciones',
       nombres: ['sistema de ecuaciones', 'sistemas de ecuaciones', 'dos ecuaciones', 'ecuaciones simultaneas'],
+      menu: 'calculadora',
     },
     {
       seccion: 'unidades',
       etiqueta: 'Conversión de unidades',
       nombres: ['convertir unidades', 'conversor', 'conversion de unidades', 'unidades', 'convertir'],
+      menu: 'calculadora',
     },
     {
       seccion: 'propina',
       etiqueta: 'Cuenta con propina',
       nombres: ['propina', 'la cuenta', 'dividir la cuenta', 'cuanto de propina'],
+      menu: 'calculadora',
     },
     {
       seccion: 'regla3',
       etiqueta: 'Regla de tres',
       nombres: ['regla de tres', 'regla de 3', 'proporcion'],
+      menu: 'calculadora',
     },
   ],
   esquemas: [

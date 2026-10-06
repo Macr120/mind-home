@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { EnlaceApp, EnlaceObjetoApp } from '../../data/db'
 import type { NodoEntidadApp } from '../../grafoApps'
-import { abrirEnlace, appsParaEnlace, destinosDeApp, nombreApp, textoEnlace } from '../../enlaceApp'
+import { abrirEnlace, appsParaEnlace, arbolDeApp, nombreApp, textoEnlace } from '../../enlaceApp'
 import { useT } from '../../i18n/useT'
 import type { Plantilla } from '../../registry'
 import { vivo } from '../estilos'
@@ -111,6 +111,15 @@ export function SelectorApp({
   // Una sola app posible: no hay nada que elegir, se empieza dentro de ella.
   const unica = soloApps?.length && apps.length === 1 ? apps[0] : null
   const [app, setApp] = useState<Plantilla | null>(unica)
+  // Menú principal abierto (su `seccion`): se ven sus submenús en vez de los menús.
+  const [menu, setMenu] = useState<string | null>(null)
+  const arbol = app ? arbolDeApp(app) : []
+  const abierto = menu != null ? arbol.find((n) => n.raiz.seccion === menu) : undefined
+  // Sin nada que elegir dentro (solo la portada) la app ES el destino.
+  const entrar = (p: Plantilla) =>
+    conEntradas || arbolDeApp(p).length > 1 ? setApp(p) : onElegir({ plantillaId: p.id })
+  const elegir = (d: { seccion?: string; dato?: string }) =>
+    onElegir({ plantillaId: app!.id, seccion: d.seccion, dato: d.dato })
 
   if (apps.length === 0)
     return (
@@ -132,16 +141,24 @@ export function SelectorApp({
           </span>
         )}
         <p className="min-w-0 flex-1 truncate text-[10px] uppercase tracking-wide text-white/40">
-          {app
-            ? t('cal.enlace.elegirSeccion', '¿A qué parte de {app}?', { app: nombreApp(app) })
-            : (pregunta ?? t('cal.enlace.elegirApp', '¿Dónde se registra este paso?'))}
+          {abierto
+            ? `${nombreApp(app!)} › ${abierto.raiz.etiqueta}`
+            : app
+              ? t('cal.enlace.elegirSeccion', '¿A qué parte de {app}?', { app: nombreApp(app) })
+              : (pregunta ?? t('cal.enlace.elegirApp', '¿Dónde se registra este paso?'))}
         </p>
         <button
           type="button"
-          onClick={() => (app && !unica ? setApp(null) : onCerrar())}
+          onClick={() => (abierto ? setMenu(null) : app && !unica ? setApp(null) : onCerrar())}
           className="ui-presion shrink-0 text-[10px] text-white/35 transition hover:text-white/80"
         >
-          {app && !unica ? `‹ ${t('cal.enlace.otraApp', 'Otra app')}` : <Icono nombre="cerrar" />}
+          {abierto ? (
+            `‹ ${t('enlace.app.menus', 'Menús')}`
+          ) : app && !unica ? (
+            `‹ ${t('cal.enlace.otraApp', 'Otra app')}`
+          ) : (
+            <Icono nombre="cerrar" />
+          )}
         </button>
       </div>
 
@@ -151,9 +168,7 @@ export function SelectorApp({
             <button
               key={p.id}
               type="button"
-              onClick={() =>
-                conEntradas || (p.comandos?.length ?? 0) > 0 ? setApp(p) : onElegir({ plantillaId: p.id })
-              }
+              onClick={() => entrar(p)}
               className="ui-presion flex min-w-0 flex-col items-center gap-1 rounded-xl p-1 transition hover:bg-white/5"
             >
               <span
@@ -180,9 +195,7 @@ export function SelectorApp({
               type="button"
               // Con una sola sección (o ninguna) no hay nada que preguntar: la app
               // entera ES el destino y un segundo paso sería un clic de trámite.
-              onClick={() =>
-                conEntradas || (p.comandos?.length ?? 0) > 0 ? setApp(p) : onElegir({ plantillaId: p.id })
-              }
+              onClick={() => entrar(p)}
               className="ui-presion flex items-center gap-1 rounded-full border px-2 py-1 text-[10px] font-semibold transition hover:brightness-125"
               style={{
                 borderColor: `color-mix(in srgb, ${p.color} 40%, transparent)`,
@@ -194,19 +207,50 @@ export function SelectorApp({
               </span>
             </button>
           ))}
+        {/* Menús principales: los que tienen submenús llevan «›» y se abren. */}
         {app &&
-          destinosDeApp(app).map((d) => (
+          !abierto &&
+          arbol.map(({ raiz, hijos }) => (
             <button
-              key={`${d.seccion ?? ''}|${d.dato ?? ''}`}
+              key={`${raiz.seccion ?? ''}|${raiz.dato ?? ''}`}
               type="button"
-              onClick={() => onElegir({ plantillaId: app.id, seccion: d.seccion, dato: d.dato })}
+              onClick={() => (hijos.length ? setMenu(raiz.seccion!) : elegir(raiz))}
               className="ui-presion rounded-full border border-white/15 px-2 py-1 text-[10px] font-semibold text-white/70 transition hover:border-white/35 hover:text-white"
             >
-              {d.etiqueta}
+              {raiz.etiqueta}
+              {hijos.length > 0 && <span className="ms-1 text-white/40">›</span>}
             </button>
           ))}
+        {/* Dentro de un menú: el menú entero primero y luego cada submenú. */}
+        {abierto && (
+          <>
+            <button
+              type="button"
+              onClick={() => elegir(abierto.raiz)}
+              className="ui-presion rounded-full border border-white/30 bg-white/10 px-2 py-1 text-[10px] font-semibold text-white/85 transition hover:border-white/50 hover:text-white"
+            >
+              {t('enlace.app.todoMenu', 'Todo «{menu}»', { menu: abierto.raiz.etiqueta })}
+            </button>
+            {abierto.hijos.map((d) => (
+              <button
+                key={`${d.seccion ?? ''}|${d.dato ?? ''}`}
+                type="button"
+                onClick={() => elegir(d)}
+                className="ui-presion rounded-full border border-white/15 px-2 py-1 text-[10px] font-semibold text-white/70 transition hover:border-white/35 hover:text-white"
+              >
+                {d.etiqueta}
+              </button>
+            ))}
+          </>
+        )}
       </div>
-      {app && conEntradas && <EntradasDeApp appId={app.id} onElegir={onElegir} />}
+      {app && conEntradas && (
+        <EntradasDeApp
+          appId={app.id}
+          onElegir={onElegir}
+          secciones={abierto ? [abierto.raiz.seccion!, ...abierto.hijos.map((d) => d.seccion!)] : undefined}
+        />
+      )}
     </div>
   )
 }
@@ -219,7 +263,16 @@ const MAX_ENTRADAS = 40
  * nodos del grafo de memoria. El enlace guarda además el `ref` estable del nodo:
  * el `dato` es un id local que en otro dispositivo apuntaría a otra fila.
  */
-function EntradasDeApp({ appId, onElegir }: { appId: string; onElegir: (e: EnlaceObjetoApp) => void }) {
+function EntradasDeApp({
+  appId,
+  onElegir,
+  secciones,
+}: {
+  appId: string
+  onElegir: (e: EnlaceObjetoApp) => void
+  /** Dentro de un menú: solo los registros de ese menú y sus submenús. */
+  secciones?: string[]
+}) {
   const t = useT()
   const [nodos, setNodos] = useState<NodoEntidadApp[] | null>(null)
   const [busca, setBusca] = useState('')
@@ -233,13 +286,14 @@ function EntradasDeApp({ appId, onElegir }: { appId: string; onElegir: (e: Enlac
       vivoAun = false
     }
   }, [appId])
-  if (!nodos?.length) return null
+  const delMenu = secciones ? (nodos ?? []).filter((n) => n.seccion && secciones.includes(n.seccion)) : nodos
+  if (!delMenu?.length) return null
   const q = busca.trim().toLowerCase()
-  const lista = (q ? nodos.filter((n) => n.titulo.toLowerCase().includes(q)) : nodos).slice(0, MAX_ENTRADAS)
+  const lista = (q ? delMenu.filter((n) => n.titulo.toLowerCase().includes(q)) : delMenu).slice(0, MAX_ENTRADAS)
   return (
     <div className="space-y-1 pt-1">
       <p className="text-[10px] uppercase tracking-wide text-white/40">{t('enlace.app.registros', 'Tus registros')}</p>
-      {nodos.length > 8 && (
+      {delMenu.length > 8 && (
         <input
           value={busca}
           onChange={(e) => setBusca(e.target.value)}

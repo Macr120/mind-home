@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { subInicial } from '../../core/state/intencionApp'
 import type { RutinaFlex, SerieFlex, SesionEjercicio } from '../../core/data/db'
 import { VACIO,
   gruposFlexRepo,
@@ -80,7 +81,7 @@ export function FlexibilidadTab({
   const catalogoNombres = useMemo(() => aGrupoCatalogo(gruposFlex), [gruposFlex])
   const imgPorClave = useImagenesPorClave()
 
-  const [subF, setSubF] = useState<SubFlex>('catalogo')
+  const [subF, setSubF] = useState<SubFlex>(() => subInicial('ejercicio', 'flexibilidad', SUBS_F.map((s) => s.id), 'catalogo'))
   const [titulo, setTitulo] = useState('')
   const [enfoque, setEnfoque] = useState(catalogoNombres[0]?.label ?? '')
   const [filas, setFilas] = useState<FilaFlex[]>([filaVacia(), filaVacia()])

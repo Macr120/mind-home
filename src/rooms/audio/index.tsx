@@ -59,7 +59,7 @@ const audio: Plantilla = {
     },
     {
       seccion: 'mezclar',
-      etiqueta: 'Mezclador DJ',
+      etiqueta: 'Mezclar',
       nombres: ['dj', 'mezclador', 'mezclador dj', 'tornamesa', 'mezclar musica'],
     },
   ],

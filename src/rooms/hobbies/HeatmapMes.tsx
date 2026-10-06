@@ -77,8 +77,8 @@ export function HeatmapMes({
           ‹
         </button>
         <div className="text-center">
-          <p className="text-xs font-semibold capitalize">{nombreMes}</p>
-          <p className="text-[9px] text-white/45">
+          <p className="text-sm font-bold capitalize">{nombreMes}</p>
+          <p className="text-[11px] text-white/60">
             {textoMin(totalMes)} · {diasActivos} {t('hobbies.heatmap.dias', 'días activos')}
           </p>
         </div>
@@ -91,9 +91,9 @@ export function HeatmapMes({
         </button>
       </div>
 
-      <div className="grid w-full grid-cols-7 gap-0.5">
+      <div className="@container grid w-full grid-cols-7 gap-1">
         {diasSemanaLunes().map((d, i) => (
-          <div key={i} className="text-center text-[8px] text-white/35">
+          <div key={i} className="pb-0.5 text-center text-[length:clamp(9px,2.4cqi,14px)] font-semibold text-white/60">
             {d}
           </div>
         ))}
@@ -109,8 +109,8 @@ export function HeatmapMes({
                 title={`${c.iso} · ${textoMin(c.min)}${
                   c.min > 0 ? ` · ${t('hobbies.heatmap.verDia', 'ver en el historial')}` : ''
                 }`}
-                className={`aspect-square rounded-sm flex items-center justify-center text-[7px] transition ${
-                  c.enMes ? 'text-white/50' : 'text-white/15'
+                className={`aspect-square rounded-md flex items-center justify-center text-[length:clamp(10px,3.4cqi,20px)] font-semibold tabular-nums transition ${
+                  !c.enMes ? (c.min > 0 ? 'text-white/80' : 'text-white/30') : c.min > 0 ? 'font-bold text-white' : 'text-white/75'
                 } ${c.min > 0 ? 'hover:brightness-125' : ''} ${
                   c.iso === sel ? 'ring-2 ring-white/80' : c.iso === hoy ? 'ring-1 ring-white/60' : ''
                 }`}
@@ -126,7 +126,7 @@ export function HeatmapMes({
         )}
       </div>
 
-      <div className="mt-2 flex items-center justify-end gap-1 text-[8px] text-white/35">
+      <div className="mt-2 flex items-center justify-end gap-1 text-[10px] text-white/55">
         <span>{t('hobbies.heatmap.menos', 'menos')}</span>
         {[0.04, 0.35, 0.6, 0.85, 1].map((a, i) => (
           <span

@@ -46,7 +46,7 @@ const anecdotario: Plantilla = {
   esquemas,
   // La app es de página única: el deep link solo la abre (la sección se ignora).
   comandos: [
-    { seccion: 'anecdotas', etiqueta: 'Anecdotario', nombres: ['anecdotas', 'mis recuerdos', 'album de fotos', 'calendario de animo'] },
+    { seccion: 'anecdotas', etiqueta: 'Anecdotario', nombres: ['anecdotas', 'mis recuerdos', 'album de fotos', 'calendario de animo'], soloChat: true },
   ],
 }
 

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { subInicial } from '../../core/state/intencionApp'
 import type { ContactoAgenda, EventoAgenda } from '../../core/data/db'
 import { eventosAgendaRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
@@ -28,7 +29,7 @@ export function TrabajoTab({
   contactos: ContactoAgenda[]
 }) {
   const t = useT()
-  const [vista, setVista] = useState<Vista>('pendientes')
+  const [vista, setVista] = useState<Vista>(() => subInicial('agenda', 'trabajo', ['pendientes', 'tablero'], 'pendientes'))
   const [editando, setEditando] = useState<EventoAgenda | null>(null)
   const [creando, setCreando] = useState(false)
 

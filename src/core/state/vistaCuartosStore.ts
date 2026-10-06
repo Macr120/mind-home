@@ -6,8 +6,9 @@ import { create } from 'zustand'
  * - `iconos`: icono, nombre y estadísticas.
  * - `apps`: solo el icono con su nombre, como la pantalla de un teléfono.
  * - `3d`: el cuarto amueblado en vez del icono, con sus estadísticas.
+ * - `calor`: la actividad de las últimas 4 semanas de cada app, como mapa de calor.
  */
-export type VistaCuartos = 'iconos' | 'apps' | '3d'
+export type VistaCuartos = 'iconos' | 'apps' | '3d' | 'calor'
 
 const LS_VISTA = 'mh.cuartosVista'
 /** Clave vieja (solo iconos/3D): se lee para no perder la preferencia de antes. */
@@ -16,7 +17,7 @@ const LS_VISTA_3D = 'mh.cuartos3D'
 function leerVista(): VistaCuartos {
   try {
     const v = localStorage.getItem(LS_VISTA)
-    if (v === 'iconos' || v === 'apps' || v === '3d') return v
+    if (v === 'iconos' || v === 'apps' || v === '3d' || v === 'calor') return v
     return localStorage.getItem(LS_VISTA_3D) === '1' ? '3d' : 'iconos'
   } catch {
     return 'iconos'

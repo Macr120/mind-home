@@ -469,8 +469,62 @@ const esVista = (v?: string): v is Vista =>
  * El calendario en sí (cabecera + rejilla). Lo monta el modal del reloj; sin
  * `onCerrar` no se dibuja la ✕.
  */
+/** Dónde van las misiones del calendario y cuánto ancho (%) se llevan a la izquierda. */
+const LS_MISIONES_LADO = 'mh.cal.misionesLado'
+const LS_MISIONES_ANCHO = 'mh.cal.misionesAncho'
+/** Por debajo de este ancho las dos columnas no caben: las misiones vuelven abajo. */
+const MIN_DOS_COLUMNAS = 720
+
+function leerLS(clave: string): string | null {
+  try {
+    return localStorage.getItem(clave)
+  } catch {
+    return null
+  }
+}
+function guardarLS(clave: string, valor: string) {
+  try {
+    localStorage.setItem(clave, valor)
+  } catch {
+    /* sin almacenamiento vale la elección de esta sesión */
+  }
+}
+
 export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => void; vistaInicial?: string }) {
   const t = useT()
+  // Misiones a la izquierda con una barra que reparte el ancho (como el mapa de
+  // Lugares), o debajo de la rejilla como siempre. Se recuerda entre sesiones.
+  const [ladoMisiones, setLadoMisiones] = useState<'abajo' | 'izquierda'>(() =>
+    leerLS(LS_MISIONES_LADO) === 'izquierda' ? 'izquierda' : 'abajo',
+  )
+  const [anchoMisiones, setAnchoMisiones] = useState(() => {
+    const n = Number(leerLS(LS_MISIONES_ANCHO))
+    return n >= 20 && n <= 70 ? n : 34
+  })
+  const cuerpoRef = useRef<HTMLDivElement>(null)
+  const [anchoCuerpo, setAnchoCuerpo] = useState(0)
+  const [arrastrandoBarra, setArrastrandoBarra] = useState(false)
+  useEffect(() => {
+    const el = cuerpoRef.current
+    if (!el) return
+    const ro = new ResizeObserver(([e]) => setAnchoCuerpo(e.contentRect.width))
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [])
+  const misionesAlLado = ladoMisiones === 'izquierda' && anchoCuerpo >= MIN_DOS_COLUMNAS
+  const cambiarLadoMisiones = () => {
+    const nuevo = ladoMisiones === 'izquierda' ? 'abajo' : 'izquierda'
+    setLadoMisiones(nuevo)
+    guardarLS(LS_MISIONES_LADO, nuevo)
+  }
+  const moverBarra = (e: React.PointerEvent<HTMLDivElement>) => {
+    const el = cuerpoRef.current
+    if (!arrastrandoBarra || !el) return
+    const r = el.getBoundingClientRect()
+    const rtl = getComputedStyle(el).direction === 'rtl'
+    const pct = ((rtl ? r.right - e.clientX : e.clientX - r.left) / r.width) * 100
+    setAnchoMisiones(Math.round(Math.min(70, Math.max(20, pct))))
+  }
   const [vista, setVista] = useState<Vista>(() => (esVista(vistaInicial) ? vistaInicial : 'semana'))
   // Pedir una vista con el calendario YA abierto («abre el cronograma» desde el
   // chat) también tiene que cambiarla: el estado inicial solo se lee al montar.
@@ -742,8 +796,52 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
         {vista === 'objetivos' ? (
           <ObjetivosCasa fecha={hoyISO()} />
         ) : (
-        /* Cuerpo: la rejilla sigue visible debajo (el editor flota como notificación, ver abajo) */
-        <div data-scroll-cal className="min-h-0 flex-1 overflow-y-auto p-3">
+        /* Cuerpo: la rejilla y las misiones, debajo o en una columna a la izquierda
+           con una barra que reparte el ancho (el editor flota como notificación). */
+        <div ref={cuerpoRef} className="flex min-h-0 flex-1">
+          {misionesAlLado && (
+            <>
+              <div className="min-h-0 shrink-0 overflow-y-auto p-3" style={{ width: `${anchoMisiones}%` }}>
+              <PanelMetricas
+                rutinas={rutinasVis}
+                idx={idx}
+                columnas={columnasMetricas}
+                detalle={vista === 'dia' || vista === 'semana'}
+                onToggle={(r, iso) => (esMeta(r) ? void toggleMeta(r) : void toggleHecho(r, iso))}
+                onEditar={(r) => setEditando({ ...r, pasos: r.pasos.map((p) => ({ ...p })) })}
+                onIrACronograma={irAlCuartoDeMetas}
+                lado={misionesAlLado ? 'izquierda' : 'abajo'}
+                onCambiarLado={anchoCuerpo >= MIN_DOS_COLUMNAS ? cambiarLadoMisiones : undefined}
+                onAbrir={(c) => (vista === 'mes' ? abrirDia(deIso(c.isos[0])) : abrirMes(deIso(c.isos[0]).getMonth()))}
+              />
+              </div>
+              <div
+                role="separator"
+                aria-orientation="vertical"
+                title={t('cal.misiones.barra', 'Arrastra para ajustar el ancho; doble clic para volver al tamaño de siempre')}
+                onPointerDown={(e) => {
+                  e.currentTarget.setPointerCapture(e.pointerId)
+                  setArrastrandoBarra(true)
+                }}
+                onPointerMove={moverBarra}
+                onPointerUp={() => {
+                  setArrastrandoBarra(false)
+                  guardarLS(LS_MISIONES_ANCHO, String(anchoMisiones))
+                }}
+                onPointerCancel={() => setArrastrandoBarra(false)}
+                onDoubleClick={() => {
+                  setAnchoMisiones(34)
+                  guardarLS(LS_MISIONES_ANCHO, '34')
+                }}
+                className={`group flex w-2 shrink-0 cursor-col-resize touch-none items-center justify-center transition ${
+                  arrastrandoBarra ? 'bg-white/20' : 'hover:bg-white/10'
+                }`}
+              >
+                <span className="h-10 w-1 rounded-full bg-white/25 group-hover:bg-white/50" />
+              </div>
+            </>
+          )}
+          <div data-scroll-cal className="min-h-0 min-w-0 flex-1 overflow-y-auto p-3">
           {/* Mes y Año coronan su rejilla con el avance del periodo; en Día y Semana
               la marca vive dentro de la propia rejilla (barra del margen y línea de hora). */}
           {(vista === 'mes' || vista === 'anio') && (
@@ -795,16 +893,21 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
               onPlegarMetas={setMetasPlegadas}
             />
           )}
-          <PanelMetricas
-            rutinas={rutinasVis}
-            idx={idx}
-            columnas={columnasMetricas}
-            detalle={vista === 'dia' || vista === 'semana'}
-            onToggle={(r, iso) => (esMeta(r) ? void toggleMeta(r) : void toggleHecho(r, iso))}
-            onEditar={(r) => setEditando({ ...r, pasos: r.pasos.map((p) => ({ ...p })) })}
-            onIrACronograma={irAlCuartoDeMetas}
-            onAbrir={(c) => (vista === 'mes' ? abrirDia(deIso(c.isos[0])) : abrirMes(deIso(c.isos[0]).getMonth()))}
-          />
+          {!misionesAlLado && (
+            <PanelMetricas
+              rutinas={rutinasVis}
+              idx={idx}
+              columnas={columnasMetricas}
+              detalle={vista === 'dia' || vista === 'semana'}
+              onToggle={(r, iso) => (esMeta(r) ? void toggleMeta(r) : void toggleHecho(r, iso))}
+              onEditar={(r) => setEditando({ ...r, pasos: r.pasos.map((p) => ({ ...p })) })}
+              onIrACronograma={irAlCuartoDeMetas}
+              lado={misionesAlLado ? 'izquierda' : 'abajo'}
+              onCambiarLado={anchoCuerpo >= MIN_DOS_COLUMNAS ? cambiarLadoMisiones : undefined}
+              onAbrir={(c) => (vista === 'mes' ? abrirDia(deIso(c.isos[0])) : abrirMes(deIso(c.isos[0]).getMonth()))}
+            />
+          )}
+          </div>
         </div>
         )}
 

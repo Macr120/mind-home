@@ -55,6 +55,8 @@ const arte: Plantilla = {
       seccion: 'galeria',
       etiqueta: 'Galería',
       nombres: ['dibujo', 'dibujos', 'dibujar', 'pintar', 'lienzo', 'paint', 'galeria de arte'],
+      // Alias de la portada: la app no tiene menús. Solo por chat.
+      soloChat: true,
     },
   ],
 }

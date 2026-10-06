@@ -121,6 +121,7 @@ const comandosJuegos: ComandoApp[] = JUEGOS_REALES.map((j) => ({
   dato: j.id,
   etiqueta: j.nombre,
   nombres: [normalizar(j.nombre), ...(SINONIMOS_JUEGO[j.id] ?? [])],
+  menu: 'mesa',
 }))
 
 // Las obras del archivo se pueden recomendar a otra persona por el buzón (registro eager, datos con import()).

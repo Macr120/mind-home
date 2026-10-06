@@ -7,7 +7,7 @@ import { VACIO,
   mascotasRepo,
   medicamentosRepo,
 } from '../../core/data/repository'
-import { tabInicial } from '../../core/state/intencionApp'
+import { intencionApp, tabInicial } from '../../core/state/intencionApp'
 import { PestanasCarpeta, type ItemPestana } from '../_shared/PestanasCarpeta'
 import { reconciliarAgenda } from './calendario'
 import { COLOR_AREA } from './constantes'
@@ -22,9 +22,18 @@ const TABS: ItemPestana<AreaAgenda>[] = [
   { id: 'personas', icono: 'companeros', labelEs: 'Personas', color: COLOR_AREA.personas },
 ]
 
+/** De qué menú es cada submenú: pedir uno abre su menú (y el menú, el submenú). */
+const MENU_DE_SUB: Record<string, AreaAgenda> = {
+  pendientes: 'trabajo',
+  tablero: 'trabajo',
+  yo: 'salud',
+  projimos: 'salud',
+  mascotas: 'salud',
+}
+
 export function AgendaApp() {
-  const [tab, setTab] = useState<AreaAgenda>(() =>
-    tabInicial('agenda', TABS.map((x) => x.id), 'trabajo'),
+  const [tab, setTab] = useState<AreaAgenda>(
+    () => MENU_DE_SUB[intencionApp('agenda')?.seccion ?? ''] ?? tabInicial('agenda', TABS.map((x) => x.id), 'trabajo'),
   )
   const [plegado, setPlegado] = useState(false)
   const eventos = eventosAgendaRepo.useAll() ?? VACIO

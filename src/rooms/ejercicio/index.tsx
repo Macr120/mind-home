@@ -238,6 +238,16 @@ const ejercicio: Plantilla = {
     { seccion: 'fuerza', etiqueta: 'Fuerza', nombres: ['fuerza', 'pesas', 'piramide'] },
     { seccion: 'resistencia', etiqueta: 'Resistencia', nombres: ['resistencia', 'cardio'] },
     { seccion: 'flexibilidad', etiqueta: 'Flexibilidad', nombres: ['flexibilidad', 'estiramientos'] },
+    // Cada tipo con sus tres submenús; el id lleva el tipo delante porque se repiten.
+    { seccion: 'fuerza.catalogo', etiqueta: 'Catálogo', nombres: ['catalogo de fuerza'], menu: 'fuerza' },
+    { seccion: 'fuerza.rutinas', etiqueta: 'Rutinas', nombres: ['rutinas de fuerza'], menu: 'fuerza' },
+    { seccion: 'fuerza.progreso', etiqueta: 'Progreso', nombres: ['progreso de fuerza'], menu: 'fuerza' },
+    { seccion: 'resistencia.catalogo', etiqueta: 'Catálogo', nombres: ['catalogo de cardio'], menu: 'resistencia' },
+    { seccion: 'resistencia.rutinas', etiqueta: 'Rutinas', nombres: ['rutinas de cardio'], menu: 'resistencia' },
+    { seccion: 'resistencia.progreso', etiqueta: 'Progreso', nombres: ['progreso de cardio'], menu: 'resistencia' },
+    { seccion: 'flexibilidad.catalogo', etiqueta: 'Catálogo', nombres: ['catalogo de flexibilidad'], menu: 'flexibilidad' },
+    { seccion: 'flexibilidad.rutinas', etiqueta: 'Rutinas', nombres: ['rutinas de flexibilidad'], menu: 'flexibilidad' },
+    { seccion: 'flexibilidad.progreso', etiqueta: 'Progreso', nombres: ['progreso de flexibilidad'], menu: 'flexibilidad' },
   ],
 }
 

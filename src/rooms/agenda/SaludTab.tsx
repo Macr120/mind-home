@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { subInicial } from '../../core/state/intencionApp'
 import type {
   ContactoAgenda,
   CuidadoMascota,
@@ -63,7 +64,7 @@ export function SaludTab({
   cuidados: CuidadoMascota[]
 }) {
   const t = useT()
-  const [sub, setSub] = useState<SubSalud>('yo')
+  const [sub, setSub] = useState<SubSalud>(() => subInicial('agenda', 'salud', SUBS.map((s) => s.id), 'yo'))
   const [editando, setEditando] = useState<EventoAgenda | null>(null)
   const [creando, setCreando] = useState(false)
   const [medicina, setMedicina] = useState<Medicamento | null>(null)

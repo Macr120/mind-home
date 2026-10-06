@@ -440,17 +440,22 @@ const cocina: Plantilla = {
   planMetas: planMetasCocina,
   // Nada de nombres de UNA palabra como 'peso': se matchean por token y
   // secuestrarían «peso 78 kg», que debe caer en el registro de pesaje.
+  // Los dos menús principales (los enfoques de CocinaApp) y sus pestañas.
   comandos: [
+    { seccion: 'recetario', etiqueta: 'Recetario', nombres: ['mi recetario'] },
+    { seccion: 'plan', etiqueta: 'Dieta', nombres: ['dieta', 'plan de comidas', 'plan semanal de comidas'], menu: 'recetario' },
+    { seccion: 'recetas', etiqueta: 'Recetas', nombres: ['recetario', 'recetas'], menu: 'recetario' },
+    { seccion: 'compras', etiqueta: 'Compras', nombres: ['compras', 'lista del super', 'lista de compras'], menu: 'recetario' },
+    { seccion: 'peso', etiqueta: 'Control de alimentación', nombres: ['control de alimentacion'] },
     {
       seccion: 'metas',
       etiqueta: 'Metas',
       nombres: ['metas de nutricion', 'mis macros', 'mis metas de peso'],
+      menu: 'peso',
     },
-    { seccion: 'diario', etiqueta: 'Registro', nombres: ['diario de comidas', 'mis comidas', 'registrar comida'] },
-    { seccion: 'progreso', etiqueta: 'Progreso', nombres: ['mi progreso', 'mi peso', 'estadisticas de nutricion'] },
-    { seccion: 'plan', etiqueta: 'Dieta', nombres: ['dieta', 'plan de comidas', 'plan semanal de comidas'] },
-    { seccion: 'recetas', etiqueta: 'Recetario', nombres: ['recetario', 'recetas'] },
-    { seccion: 'compras', etiqueta: 'Compras', nombres: ['compras', 'lista del super', 'lista de compras'] },
+    { seccion: 'diario', etiqueta: 'Registro', nombres: ['diario de comidas', 'mis comidas', 'registrar comida'], menu: 'peso' },
+    { seccion: 'planComidas', etiqueta: 'Plan de comidas', nombres: ['mi semana de comidas', 'rejilla de comidas'], menu: 'peso' },
+    { seccion: 'progreso', etiqueta: 'Progreso', nombres: ['mi progreso', 'mi peso', 'estadisticas de nutricion'], menu: 'peso' },
   ],
 }
 

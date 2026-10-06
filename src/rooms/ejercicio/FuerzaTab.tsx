@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { subInicial } from '../../core/state/intencionApp'
 import type {
   ImagenEjercicio,
   RutinaFuerza,
@@ -104,7 +105,7 @@ export function FuerzaTab({
   // idioma (el diccionario llega perezoso, después del primer render).
   const tituloDefecto = t('ejercicio.fuerza.tituloDefecto', 'Entrenamiento de fuerza')
 
-  const [sub, setSub] = useState<SubFuerza>('catalogo')
+  const [sub, setSub] = useState<SubFuerza>(() => subInicial('ejercicio', 'fuerza', SUBS.map((s) => s.id), 'catalogo'))
   const [rutinasAbierto, setRutinasAbierto] = useState(true)
   const [titulo, setTitulo] = useState('')
   const [duracion, setDuracion] = useState('45')

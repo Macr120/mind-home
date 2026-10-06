@@ -25,11 +25,11 @@ export function diasSemana(desdeLunes: string): string[] {
 
 /** Convierte "#rrggbb" + alfa en rgba(). */
 export function rgba(hex: string, alpha: number) {
+  // Un color que no es «#rrggbb» (el `var(--ui-app, …)` del tinte de la app) no
+  // se puede partir en canales: se mezcla con transparente, que da lo mismo.
+  if (!/^#[0-9a-f]{6}$/i.test(hex)) return `color-mix(in srgb, ${hex} ${Math.round(alpha * 100)}%, transparent)`
   const n = parseInt(hex.slice(1), 16)
-  const r = (n >> 16) & 255
-  const g = (n >> 8) & 255
-  const b = n & 255
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`
+  return `rgba(${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}, ${alpha})`
 }
 
 /** Repasos por fecha (yyyy-mm-dd). */

@@ -6,6 +6,9 @@ import { textoMin } from '../../core/i18n/duracion'
 
 /** Convierte "#rrggbb" + alfa en rgba(). Única copia: antes vivía duplicada por cuarto. */
 export function rgba(hex: string, alpha: number) {
+  // Un color que no es «#rrggbb» (el `var(--ui-app, …)` del tinte de la app) no
+  // se puede partir en canales: se mezcla con transparente, que da lo mismo.
+  if (!/^#[0-9a-f]{6}$/i.test(hex)) return `color-mix(in srgb, ${hex} ${Math.round(alpha * 100)}%, transparent)`
   const n = parseInt(hex.slice(1), 16)
   return `rgba(${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}, ${alpha})`
 }
@@ -53,7 +56,7 @@ export function Heatmap({
       ) : (
         <GridAnual datos={datos} color={color} titulo={titulo} textos={textos} />
       )}
-      <div className="mt-2 flex items-center justify-end gap-1 text-[8px] text-white/35">
+      <div className="mt-2 flex items-center justify-end gap-1 text-[10px] text-white/55">
         <span>{textos.menos}</span>
         {[0.04, 0.35, 0.6, 0.85, 1].map((a, i) => (
           <span key={i} className="h-2 w-2 rounded-sm" style={{ background: i === 0 ? VACIO : rgba(color, a) }} />
@@ -120,8 +123,8 @@ function GridMes({ datos, color, textos }: { datos: Map<string, number>; color: 
           ‹
         </button>
         <div className="text-center">
-          <p className="text-xs font-semibold capitalize">{nombreMes}</p>
-          <p className="text-[9px] text-white/45">
+          <p className="text-sm font-bold capitalize">{nombreMes}</p>
+          <p className="text-[11px] text-white/60">
             {textoMin(totalMes)} · {diasActivos} {textos.dias}
           </p>
         </div>
@@ -134,9 +137,9 @@ function GridMes({ datos, color, textos }: { datos: Map<string, number>; color: 
         </button>
       </div>
 
-      <div className="grid w-full grid-cols-7 gap-0.5">
+      <div className="@container grid w-full grid-cols-7 gap-1">
         {diasSemanaLunes().map((d, i) => (
-          <div key={i} className="text-center text-[8px] text-white/35">
+          <div key={i} className="pb-0.5 text-center text-[length:clamp(9px,2.4cqi,14px)] font-semibold text-white/60">
             {d}
           </div>
         ))}
@@ -145,8 +148,8 @@ function GridMes({ datos, color, textos }: { datos: Map<string, number>; color: 
             <div
               key={`${wi}-${c.iso}`}
               title={`${c.iso} · ${textoMin(c.min)}`}
-              className={`aspect-square rounded-sm flex items-center justify-center text-[7px] ${
-                c.enMes ? 'text-white/50' : 'text-white/15'
+              className={`aspect-square rounded-md flex items-center justify-center text-[length:clamp(10px,3.4cqi,20px)] font-semibold tabular-nums ${
+                !c.enMes ? (c.min > 0 ? 'text-white/80' : 'text-white/30') : c.min > 0 ? 'font-bold text-white' : 'text-white/75'
               } ${c.iso === hoy ? 'ring-1 ring-white/60' : ''}`}
               style={{
                 background: c.min > 0 ? rgba(color, alfaDia(c.min, maxDia)) : VACIO,
@@ -208,14 +211,14 @@ function GridAnual({
   return (
     <>
       <div className="mb-2 flex items-center justify-between gap-2">
-        <p className="text-xs font-semibold">{titulo}</p>
-        <p className="text-[9px] text-white/45">
+        <p className="text-sm font-bold">{titulo}</p>
+        <p className="text-[11px] text-white/60">
           {textoMin(total)} · {diasActivos} {textos.dias}
         </p>
       </div>
 
       <div className="flex gap-1">
-        <div className="flex flex-col gap-0.5 pt-3.5 text-[8px] text-white/35">
+        <div className="flex flex-col gap-0.5 pt-3.5 text-[10px] font-semibold leading-none text-white/55">
           {diasSemanaLunes().map((d, i) => (
             <span key={i} className="flex h-2.5 items-center">
               {i % 2 === 0 && i < 6 ? d : ''}
@@ -225,7 +228,7 @@ function GridAnual({
         <div ref={scrollRef} className="flex gap-0.5 overflow-x-auto pb-1">
           {columnas.map((c) => (
             <div key={c.lunes} className="flex shrink-0 flex-col gap-0.5">
-              <span className="h-3 text-[8px] leading-none text-white/35">{mesesCortos()[c.mes] ?? ''}</span>
+              <span className="h-3 whitespace-nowrap text-[10px] font-semibold leading-none text-white/55">{mesesCortos()[c.mes] ?? ''}</span>
               {c.dias.map((f) => {
                 const min = datos.get(f) ?? 0
                 return (

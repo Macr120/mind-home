@@ -72,6 +72,9 @@ function destinoInicial() {
     mercados: 'divisas' as SeccionMercado,
   }
   switch (s) {
+    // `flujo` es el menú (su id de pestaña es `balance`, que también es su submenú).
+    case 'flujo':
+      return d
     case 'patrimonio':
     case 'activos':
       return { ...d, tab: 'patrimonio' as const }
@@ -91,6 +94,7 @@ function destinoInicial() {
     // Ahorro e inversión viven juntos en una sola pestaña; `financieras` es
     // la de las calculadoras (antes ahí vivía «ahorro»).
     case 'metas':
+    case 'ahorroInversion':
     case 'ahorro':
     case 'inversion':
     case 'simuladores':

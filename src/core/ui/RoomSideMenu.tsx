@@ -34,6 +34,7 @@ import { esMeta, metasCumplidasDe } from '../metas'
 import { objetosDe } from '../state/objetosPlantillaStore'
 import { MiniaturaCuarto } from '../house/Miniatura'
 import { getTema } from '../house/temas'
+import { CalorApp } from './CalorApp'
 import { useVistaCuartos, type VistaCuartos } from '../state/vistaCuartosStore'
 
 /** Orden en que se listan los cuartos; el rótulo de cada categoría ya no se pinta. */
@@ -310,6 +311,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
               { id: 'iconos', icono: 'cuartos', etiqueta: t('nav.vista.lista', 'Lista') },
               { id: '3d', icono: 'cubo-vistas', etiqueta: t('nav.vista.3d', '3D') },
               { id: 'apps', icono: 'rejilla', etiqueta: t('nav.vista.apps', 'Apps') },
+              { id: 'calor', icono: 'racha', etiqueta: t('nav.vista.calor', 'Calor') },
             ] as { id: VistaCuartos; icono: NombreIcono; etiqueta: string }[]
           ).map((v) => (
             <button
@@ -460,8 +462,12 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
                             )}
                           </span>
                         </div>
-                        {/* Progreso de la app del cuarto, dentro de su card. */}
-                        {enfoque && (
+                        {/* Progreso de la app del cuarto, dentro de su card (o su mapa de calor). */}
+                        {appId && vista === 'calor' ? (
+                          <div className="mt-1.5">
+                            <CalorApp enfoque={enfoque} color={color} filas={2} />
+                          </div>
+                        ) : enfoque && (
                           <ProgresoApp
                             enfoque={enfoque}
                             color={color}
