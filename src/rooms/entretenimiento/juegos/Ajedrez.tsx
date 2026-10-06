@@ -7,6 +7,7 @@ import type { Dificultad, PropsDificultad } from './dificultad'
 import { ElegirModo } from './ElegirModo'
 import { BarraMesa, nombreAsiento, opcionEnLinea } from './mesaJuego'
 import { vivo } from '../../../core/ui/estilos'
+import { registrarApariencia, useApariencia } from './apariencia'
 
 type TipoPieza = 'p' | 'c' | 'a' | 't' | 'd' | 'r'
 type Bando = 'b' | 'n'
@@ -246,6 +247,14 @@ function aplicarMesaAjedrez(e: EstadoAjedrez, m: MovAjedrezMesa, bando: Bando): 
   return mov ? aplicar(e, mov) : null
 }
 
+registrarApariencia('ajedrez', [
+  { clave: 'claras', labelEs: 'Casillas claras', papel: 'claro', porDefecto: '#f0d9b5' },
+  { clave: 'oscuras', labelEs: 'Casillas oscuras', papel: 'oscuro', porDefecto: '#b58863' },
+  { clave: 'blancas', labelEs: 'Piezas blancas', papel: 'uno', porDefecto: '#fafafa' },
+  { clave: 'negras', labelEs: 'Piezas negras', papel: 'dos', porDefecto: '#111827' },
+  { clave: 'marca', labelEs: 'Selección', papel: 'acento', porDefecto: '#7fb069' },
+])
+
 registrarJuegoMesa<EstadoAjedrez, MovAjedrezMesa>('ajedrez', {
   inicial: estadoInicial,
   aplicar: (e, m, asiento) => aplicarMesaAjedrez(e, m, BANDO_DE[asiento]),
@@ -307,6 +316,7 @@ function capturadas(tab: TableroAjedrez, b: Bando): TipoPieza[] {
 export function Ajedrez({ dificultad = 'medio', mesaOnline = false }: PropsDificultad) {
   const t = useT()
   const mesa = useMesa<EstadoAjedrez, MovAjedrezMesa>('ajedrez')
+  const col = useApariencia('ajedrez')
   const [modo, setModo] = useState<Modo | null>(mesaOnline ? 'online' : null)
   const [estadoLocal, setEstado] = useState<EstadoAjedrez>(estadoInicial)
   const [sel, setSel] = useState<number | null>(null)
@@ -488,9 +498,10 @@ export function Ajedrez({ dificultad = 'medio', mesaOnline = false }: PropsDific
           const mov = movsSel.find((m) => m.a === i)
           const esUlt = ultMov !== null && (ultMov.de === i || ultMov.a === i)
           const esReyEnJaque = jaque && pieza?.t === 'r' && pieza.b === estado.turno
-          let fondo = oscura ? '#b58863' : '#f0d9b5'
-          if (esUlt) fondo = oscura ? '#b3a04a' : '#e8d982'
-          if (sel === i) fondo = '#7fb069'
+          const base = oscura ? col.oscuras : col.claras
+          // La última jugada, teñida con el color de la selección sobre su casilla.
+          let fondo = esUlt ? `color-mix(in srgb, ${col.marca} 45%, ${base})` : base
+          if (sel === i) fondo = col.marca
           if (esReyEnJaque) fondo = '#d16060'
           return (
             <button
@@ -508,7 +519,7 @@ export function Ajedrez({ dificultad = 'medio', mesaOnline = false }: PropsDific
                   style={{
                     fontSize: 'min(9vw, 34px)',
                     lineHeight: 1,
-                    color: pieza.b === 'b' ? '#fafafa' : '#111827',
+                    color: pieza.b === 'b' ? col.blancas : col.negras,
                     textShadow: pieza.b === 'b' ? '0 1px 2px rgba(0,0,0,0.85)' : '0 1px 1px rgba(255,255,255,0.3)',
                   }}
                 >

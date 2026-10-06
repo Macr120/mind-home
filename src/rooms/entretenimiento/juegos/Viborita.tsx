@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
 import { guardarRecord, leerNumero } from './almacen'
+import { registrarApariencia, useApariencia } from './apariencia'
+import { FONDO_LIENZO } from './arcade'
 import { claveDificultad, type Dificultad, type PropsDificultad } from './dificultad'
 
 type Dir = 'izq' | 'der' | 'arr' | 'aba'
@@ -24,6 +26,13 @@ interface Partida {
   puntos: number
   viva: boolean
 }
+
+registrarApariencia('viborita', [
+  { clave: 'fondo', labelEs: 'Fondo', papel: 'fondo', porDefecto: FONDO_LIENZO },
+  { clave: 'cuerpo', labelEs: 'Viborita', papel: 'uno', porDefecto: '#34d399' },
+  { clave: 'cabeza', labelEs: 'Cabeza', papel: 'claro', porDefecto: '#a7f3d0' },
+  { clave: 'manzana', labelEs: 'Manzana', papel: 'acento', porDefecto: '#ef4444' },
+])
 
 const OPUESTAS: Record<Dir, Dir> = { izq: 'der', der: 'izq', arr: 'aba', aba: 'arr' }
 const DELTAS: Record<Dir, [number, number]> = { izq: [0, -1], der: [0, 1], arr: [-1, 0], aba: [1, 0] }
@@ -61,6 +70,7 @@ function avanzar(p: Partida): Partida {
 
 export function Viborita({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
+  const col = useApariencia('viborita')
   const clave = claveDificultad('viborita-record', dificultad)
   const [p, setP] = useState<Partida>(partidaInicial)
   const [fase, setFase] = useState<Fase>('lista')
@@ -151,8 +161,8 @@ export function Viborita({ dificultad = 'medio' }: PropsDificultad) {
       </div>
 
       <div
-        className="relative mx-auto max-w-[360px] overflow-hidden rounded-xl bg-white/5 p-1"
-        style={{ touchAction: 'none' }}
+        className="relative mx-auto max-w-[360px] overflow-hidden rounded-xl p-1"
+        style={{ touchAction: 'none', background: col.fondo }}
         onTouchStart={(e) => {
           toque.current = { x: e.touches[0].clientX, y: e.touches[0].clientY }
         }}
@@ -172,7 +182,7 @@ export function Viborita({ dificultad = 'medio' }: PropsDificultad) {
               className="aspect-square rounded-[2px]"
               style={{
                 background:
-                  i === cabeza ? '#a7f3d0' : cuerpo.has(i) ? COLOR : i === p.manzana ? '#ef4444' : 'rgba(255,255,255,0.05)',
+                  i === cabeza ? col.cabeza : cuerpo.has(i) ? col.cuerpo : i === p.manzana ? col.manzana : 'rgba(255,255,255,0.05)',
               }}
             />
           ))}

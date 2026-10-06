@@ -5,6 +5,7 @@ import { COLOR } from '../constantes'
 import { guardarRecord, leerNumero } from './almacen'
 import { barajar } from './cartas'
 import type { Dificultad, PropsDificultad } from './dificultad'
+import { registrarApariencia, useApariencia } from './apariencia'
 
 type Nivel = Dificultad
 type EstadoCarta = 'oculta' | 'vista' | 'lograda'
@@ -23,6 +24,17 @@ const NIVELES: Record<Nivel, { cols: number; filas: number; espera: number }> = 
 
 const EMOJIS = ['🐶', '🐱', '🦊', '🐼', '🐸', '🦁', '🐷', '🐵', '🐰', '🦄', '🐙', '🦋', '🍎', '🍕', '🚀', '🌵', '⚽', '🎈']
 
+// Dorso y cara son, de fábrica, blancos translúcidos (que el tema claro remapea):
+// con esos valores se conservan las clases y solo un color elegido va en línea.
+const DORSO = '#27292c'
+const CARA = '#4b4d50'
+
+registrarApariencia('memorama', [
+  { clave: 'dorso', labelEs: 'Dorso', papel: 'oscuro', porDefecto: DORSO },
+  { clave: 'cara', labelEs: 'Cara volteada', papel: 'claro', porDefecto: CARA },
+  { clave: 'acierto', labelEs: 'Pares logrados', papel: 'acento', porDefecto: '#10b981' },
+])
+
 function mazoInicial(nivel: Nivel): Carta[] {
   const { cols, filas } = NIVELES[nivel]
   const pares = (cols * filas) / 2
@@ -32,6 +44,7 @@ function mazoInicial(nivel: Nivel): Carta[] {
 
 export function Memorama({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
+  const col = useApariencia('memorama')
   const nivel: Nivel = dificultad
   const [cartas, setCartas] = useState<Carta[]>(() => mazoInicial(nivel))
   const [volteadas, setVolteadas] = useState<number[]>([])
@@ -110,10 +123,36 @@ export function Memorama({ dificultad = 'medio' }: PropsDificultad) {
               type="button"
               onClick={() => voltear(i)}
               className={`flex aspect-square items-center justify-center rounded-lg transition ${
-                c.estado === 'oculta' ? 'bg-white/10 hover:bg-white/20' : c.estado === 'vista' ? 'bg-white/25' : 'bg-emerald-500/25'
+                c.estado === 'oculta'
+                  ? col.dorso === DORSO
+                    ? 'bg-white/10 hover:bg-white/20'
+                    : 'hover:brightness-125'
+                  : c.estado === 'vista'
+                    ? col.cara === CARA
+                      ? 'bg-white/25'
+                      : ''
+                    : ''
               } ${cols === 6 ? 'text-xl' : 'text-3xl'}`}
+              style={{
+                background:
+                  c.estado === 'oculta'
+                    ? col.dorso === DORSO ? undefined : col.dorso
+                    : c.estado === 'vista'
+                      ? col.cara === CARA ? undefined : col.cara
+                      : `color-mix(in srgb, ${col.acierto} 25%, transparent)`,
+              }}
             >
-              {c.estado === 'oculta' ? <span className="text-white/30">?</span> : <Icono emoji={c.emoji} />}
+              {c.estado === 'oculta' ? (
+                // Con un dorso elegido el signo lleva sombra: se lee sobre claro y sobre oscuro.
+                <span
+                  className={col.dorso === DORSO ? 'text-white/30' : 'text-white/70'}
+                  style={col.dorso === DORSO ? undefined : { textShadow: '0 1px 2px rgba(0,0,0,0.7)' }}
+                >
+                  ?
+                </span>
+              ) : (
+                <Icono emoji={c.emoji} />
+              )}
             </button>
           ))}
         </div>

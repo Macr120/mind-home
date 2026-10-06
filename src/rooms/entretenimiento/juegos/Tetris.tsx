@@ -2,6 +2,8 @@ import { useCallback, useEffect, useState } from 'react'
 import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
 import { guardarRecord, leerNumero } from './almacen'
+import { registrarApariencia, useApariencia } from './apariencia'
+import { FONDO_LIENZO } from './arcade'
 import { barajar } from './cartas'
 import { claveDificultad, type Dificultad, type PropsDificultad } from './dificultad'
 
@@ -20,15 +22,25 @@ const FILAS = 20
 const TIPOS: Tipo[] = ['I', 'O', 'T', 'S', 'Z', 'J', 'L']
 const PUNTOS_LINEAS = [0, 100, 300, 500, 800]
 
+// `color` es la clave del grupo en la apariencia: las piezas espejo (S/Z, J/L) comparten color
 const FORMAS: Record<Tipo, { m: number[][]; color: string }> = {
-  I: { m: [[0, 0, 0, 0], [1, 1, 1, 1], [0, 0, 0, 0], [0, 0, 0, 0]], color: '#22d3ee' },
-  O: { m: [[1, 1], [1, 1]], color: '#facc15' },
-  T: { m: [[0, 1, 0], [1, 1, 1], [0, 0, 0]], color: '#a78bfa' },
-  S: { m: [[0, 1, 1], [1, 1, 0], [0, 0, 0]], color: '#4ade80' },
-  Z: { m: [[1, 1, 0], [0, 1, 1], [0, 0, 0]], color: '#f87171' },
-  J: { m: [[1, 0, 0], [1, 1, 1], [0, 0, 0]], color: '#60a5fa' },
-  L: { m: [[0, 0, 1], [1, 1, 1], [0, 0, 0]], color: '#fb923c' },
+  I: { m: [[0, 0, 0, 0], [1, 1, 1, 1], [0, 0, 0, 0], [0, 0, 0, 0]], color: 'recta' },
+  O: { m: [[1, 1], [1, 1]], color: 'cuadro' },
+  T: { m: [[0, 1, 0], [1, 1, 1], [0, 0, 0]], color: 'te' },
+  S: { m: [[0, 1, 1], [1, 1, 0], [0, 0, 0]], color: 'eses' },
+  Z: { m: [[1, 1, 0], [0, 1, 1], [0, 0, 0]], color: 'eses' },
+  J: { m: [[1, 0, 0], [1, 1, 1], [0, 0, 0]], color: 'eles' },
+  L: { m: [[0, 0, 1], [1, 1, 1], [0, 0, 0]], color: 'eles' },
 }
+
+registrarApariencia('tetris', [
+  { clave: 'fondo', labelEs: 'Fondo', papel: 'fondo', porDefecto: FONDO_LIENZO },
+  { clave: 'recta', labelEs: 'Pieza I', papel: 'uno', porDefecto: '#22d3ee' },
+  { clave: 'cuadro', labelEs: 'Pieza O', papel: 'acento', porDefecto: '#facc15' },
+  { clave: 'te', labelEs: 'Pieza T', papel: 'dos', porDefecto: '#a78bfa' },
+  { clave: 'eses', labelEs: 'Piezas S y Z', papel: 'oscuro', porDefecto: '#4ade80' },
+  { clave: 'eles', labelEs: 'Piezas J y L', papel: 'claro', porDefecto: '#60a5fa' },
+])
 
 interface Pieza {
   m: number[][]
@@ -147,6 +159,7 @@ function girar(p: Partida): Partida {
 
 export function Tetris({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
+  const col = useApariencia('tetris')
   const clave = claveDificultad('tetris-record', dificultad)
   const [p, setP] = useState<Partida>(partidaInicial)
   const [fase, setFase] = useState<Fase>('lista')
@@ -228,12 +241,12 @@ export function Tetris({ dificultad = 'medio' }: PropsDificultad) {
     <div className="space-y-3">
       <div className="mx-auto flex max-w-[380px] items-start justify-center gap-3">
         <div className="relative shrink-0" style={{ width: 'min(240px, 56vw)' }}>
-          <div className="grid grid-cols-10 gap-px rounded-lg bg-white/5 p-1">
+          <div className="grid grid-cols-10 gap-px rounded-lg p-1" style={{ background: col.fondo }}>
             {p.fijas.map((color, i) => (
               <div
                 key={i}
                 className="aspect-square rounded-[2px]"
-                style={{ background: activas.get(i) ?? color ?? 'rgba(255,255,255,0.05)' }}
+                style={{ background: col[activas.get(i) ?? color ?? ''] ?? 'rgba(255,255,255,0.05)' }}
               />
             ))}
           </div>
@@ -261,7 +274,7 @@ export function Tetris({ dificultad = 'medio' }: PropsDificultad) {
                 const f = Math.floor(i / 4)
                 const c = i % 4
                 const lleno = fase !== 'lista' && !!formaSig.m[f]?.[c]
-                return <div key={i} className="aspect-square rounded-[2px]" style={{ background: lleno ? formaSig.color : 'transparent' }} />
+                return <div key={i} className="aspect-square rounded-[2px]" style={{ background: lleno ? col[formaSig.color] : 'transparent' }} />
               })}
             </div>
           </div>

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
 import { guardarRecord, leerNumero } from './almacen'
+import { registrarApariencia, useApariencia, type ColorJuego } from './apariencia'
 import { vivo } from '../../../core/ui/estilos'
 
 type Dir = 'izq' | 'der' | 'arr' | 'aba'
@@ -18,6 +19,28 @@ const FONDOS: Record<number, string> = {
   512: '#edc850',
   1024: '#edc53f',
   2048: '#edc22e',
+}
+
+const APARIENCIA: ColorJuego[] = [
+  { clave: 'tablero', labelEs: 'Tablero', papel: 'oscuro', porDefecto: '#bbada0' },
+  { clave: 'vacias', labelEs: 'Celdas vacías', papel: 'claro', porDefecto: '#cdc0b4' },
+  { clave: 'fichaBaja', labelEs: 'Fichas bajas', papel: 'uno', porDefecto: '#eee4da' },
+  { clave: 'fichaAlta', labelEs: 'Fichas altas', papel: 'dos', porDefecto: '#edc22e' },
+]
+registrarApariencia('j2048', APARIENCIA)
+
+/** Mezcla dos `#rrggbb` (`k` = cuánto de `b`, de 0 a 1). */
+function mezclar(a: string, b: string, k: number): string {
+  const x = parseInt(a.slice(1), 16)
+  const y = parseInt(b.slice(1), 16)
+  const canal = (d: number) => Math.round(((x >> d) & 255) * (1 - k) + ((y >> d) & 255) * k)
+  return `#${((canal(16) << 16) | (canal(8) << 8) | canal(0)).toString(16).padStart(6, '0')}`
+}
+
+/** Luminancia aproximada (0 = negro, 1 = blanco) de un `#rrggbb`. */
+function luz(hex: string): number {
+  const n = parseInt(hex.slice(1), 16)
+  return (0.299 * (n >> 16) + 0.587 * ((n >> 8) & 255) + 0.114 * (n & 255)) / 255
 }
 
 function lineasPara(dir: Dir): number[][] {
@@ -60,6 +83,15 @@ function hayMovimientos(celdas: number[]): boolean {
 
 export function Juego2048() {
   const t = useT()
+  const col = useApariencia('j2048')
+  // Con las fichas de fábrica, la escala original; si no, de la baja a la alta
+  // por nivel (2 → 2048) y el número claro u oscuro según el fondo.
+  const fichasDeFabrica = col.fichaBaja === '#eee4da' && col.fichaAlta === '#edc22e'
+  const ficha = (v: number) => {
+    if (fichasDeFabrica) return { fondo: FONDOS[v] ?? '#3c3a32', tinta: v <= 4 ? '#776e65' : '#f9f6f2' }
+    const fondo = mezclar(col.fichaBaja, col.fichaAlta, Math.min(1, (Math.log2(v) - 1) / 10))
+    return { fondo, tinta: luz(fondo) > 0.6 ? '#776e65' : '#f9f6f2' }
+  }
   const [celdas, setCeldas] = useState<number[]>(tableroInicial)
   const [puntos, setPuntos] = useState(0)
   const [record, setRecord] = useState(() => leerNumero('2048-record', 0))
@@ -148,7 +180,7 @@ export function Juego2048() {
 
       <div
         className="relative mx-auto max-w-[360px] rounded-xl p-2 shadow-lg"
-        style={{ touchAction: 'none', background: '#bbada0' }}
+        style={{ touchAction: 'none', background: col.tablero }}
         onTouchStart={(e) => {
           toque.current = { x: e.touches[0].clientX, y: e.touches[0].clientY }
         }}
@@ -167,8 +199,8 @@ export function Juego2048() {
               key={i}
               className="flex aspect-square items-center justify-center rounded-lg font-black"
               style={{
-                background: v ? (FONDOS[v] ?? '#3c3a32') : 'rgba(238,228,218,0.35)',
-                color: v <= 4 ? '#776e65' : '#f9f6f2',
+                background: v ? ficha(v).fondo : col.vacias,
+                color: v ? ficha(v).tinta : undefined,
                 fontSize: v >= 1024 ? 18 : v >= 128 ? 22 : 26,
               }}
             >

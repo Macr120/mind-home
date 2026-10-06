@@ -1,7 +1,9 @@
 import { useRef, useState } from 'react'
 import { useT } from '../../../core/i18n/useT'
 import { Icono } from '../../../core/ui/iconos/Icono'
+import { vivo } from '../../../core/ui/estilos'
 import { COLOR } from '../constantes'
+import { registrarApariencia, useApariencia } from './apariencia'
 import { AvisoJev } from './AvisoJev'
 import { CapturaCaras } from './cien.caras'
 import { CARAS, GRUPOS_EDAD, PERSONAS, rasgosPersona, type Persona } from './cien.personas'
@@ -19,12 +21,14 @@ function votoDe(p: number): Voto {
   return p >= 0.6 ? 'si' : p <= 0.4 ? 'no' : 'duda'
 }
 
-const COLOR_VOTO: Record<Voto, string> = {
-  si: 'bg-emerald-500/70',
-  no: 'bg-red-500/65',
-  duda: 'bg-amber-400/65',
-  nada: 'bg-white/10',
-}
+registrarApariencia('cienpersonas', [
+  { clave: 'si', labelEs: 'Sí', papel: 'uno', porDefecto: '#10b981' },
+  { clave: 'no', labelEs: 'No', papel: 'oscuro', porDefecto: '#ef4444' },
+  { clave: 'duda', labelEs: 'Indecisos', papel: 'acento', porDefecto: '#fbbf24' },
+])
+
+/** Opacidad de la celda de cada voto (sin respuesta va con el gris del tema). */
+const ALFA_VOTO: Record<Voto, number> = { si: 70, no: 65, duda: 65, nada: 0 }
 
 function estadoPersona(p: Persona) {
   return {
@@ -41,6 +45,10 @@ function estadoPersona(p: Persona) {
  */
 export function CienPersonas() {
   const t = useT()
+  const col = useApariencia('cienpersonas')
+  /** El color del voto con su opacidad; `undefined` si no hay voto (queda el gris). */
+  const tonoVoto = (c: Celda) =>
+    c && c.voto !== 'nada' ? `color-mix(in srgb, ${col[c.voto]} ${ALFA_VOTO[c.voto]}%, transparent)` : undefined
   const [pregunta, setPregunta] = useState('')
   const [preguntada, setPreguntada] = useState('')
   const [celdas, setCeldas] = useState<Celda[]>(() => PERSONAS.map(() => null))
@@ -176,8 +184,9 @@ export function CienPersonas() {
               onClick={() => setElegida(i)}
               aria-label={`${p.nombre}, ${p.edad}`}
               className={`aspect-square overflow-hidden rounded-md text-[10px] font-bold transition ${
-                c ? COLOR_VOTO[c.voto] : corriendo ? 'animate-pulse bg-white/10' : 'bg-white/10'
+                tonoVoto(c) ? '' : !c && corriendo ? 'animate-pulse bg-white/10' : 'bg-white/10'
               } ${elegida === i ? 'ring-2 ring-white' : ''}`}
+              style={{ background: tonoVoto(c) }}
             >
               {CARAS[i] ? <img src={CARAS[i]} alt="" draggable={false} className="h-full w-full object-cover" /> : p.nombre.charAt(0)}
             </button>
@@ -190,18 +199,27 @@ export function CienPersonas() {
       {validas.length > 0 && (
         <div className="space-y-2 rounded-xl bg-white/5 p-3">
           <div className="flex h-3 overflow-hidden rounded-full bg-white/10">
-            <div className="h-full bg-emerald-500/80" style={{ width: `${pct(cuenta('si'), validas.length)}%` }} />
-            <div className="h-full bg-amber-400/75" style={{ width: `${pct(cuenta('duda'), validas.length)}%` }} />
-            <div className="h-full bg-red-500/75" style={{ width: `${pct(cuenta('no'), validas.length)}%` }} />
+            <div
+              className="h-full"
+              style={{ width: `${pct(cuenta('si'), validas.length)}%`, background: `color-mix(in srgb, ${col.si} 80%, transparent)` }}
+            />
+            <div
+              className="h-full"
+              style={{ width: `${pct(cuenta('duda'), validas.length)}%`, background: `color-mix(in srgb, ${col.duda} 75%, transparent)` }}
+            />
+            <div
+              className="h-full"
+              style={{ width: `${pct(cuenta('no'), validas.length)}%`, background: `color-mix(in srgb, ${col.no} 75%, transparent)` }}
+            />
           </div>
           <div className="flex justify-between text-xs font-semibold">
-            <span className="text-emerald-400">
+            <span className="texto-vivo" style={vivo(col.si)}>
               {t('entre.j.cien.si', 'Sí')} {cuenta('si')}
             </span>
-            <span className="text-amber-300">
+            <span className="texto-vivo" style={vivo(col.duda)}>
               {t('entre.j.cien.duda', 'Indecisos')} {cuenta('duda')}
             </span>
-            <span className="text-red-400">
+            <span className="texto-vivo" style={vivo(col.no)}>
               {t('entre.j.cien.no', 'No')} {cuenta('no')}
             </span>
           </div>
@@ -220,7 +238,10 @@ export function CienPersonas() {
                       {g.hasta > 100 ? `${g.desde}+` : `${g.desde}–${g.hasta}`}
                     </span>
                     <div className="h-2 flex-1 overflow-hidden rounded-full bg-white/10">
-                      <div className="h-full bg-emerald-500/75" style={{ width: `${v}%` }} />
+                      <div
+                        className="h-full"
+                        style={{ width: `${v}%`, background: `color-mix(in srgb, ${col.si} 75%, transparent)` }}
+                      />
                     </div>
                     <span className="w-9 shrink-0 text-end font-semibold">{v} %</span>
                   </div>
@@ -238,7 +259,8 @@ export function CienPersonas() {
               src={CARAS[elegida]}
               alt=""
               draggable={false}
-              className={`h-16 w-16 shrink-0 rounded-xl object-cover ${celdaElegida ? COLOR_VOTO[celdaElegida.voto] : 'bg-white/10'}`}
+              className={`h-16 w-16 shrink-0 rounded-xl object-cover ${tonoVoto(celdaElegida) ? '' : 'bg-white/10'}`}
+              style={{ background: tonoVoto(celdaElegida) }}
             />
           )}
           <div className="min-w-0">

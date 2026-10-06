@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
 import { formatearTiempo, guardarRecord, leerNumero } from './almacen'
+import { registrarApariencia, useApariencia, type ColorJuego } from './apariencia'
 import { barajar } from './cartas'
 import type { Dificultad, PropsDificultad } from './dificultad'
 
@@ -35,6 +36,30 @@ const COLORES_NUM = [
   'text-fuchsia-400',
   'text-white/70',
 ]
+/** Los mismos tonos en hex, para cuando el tablero lleva colores propios. */
+const HEX_NUM = ['', '#60a5fa', '#4ade80', '#f87171', '#a78bfa', '#fbbf24', '#22d3ee', '#e879f9', '#d1d5db']
+
+// En «Clásico» las casillas siguen al tema (blancos translúcidos); con otro
+// estilo o color propio pasan a esta paleta fija (los de fábrica, en oscuro).
+const APARIENCIA: ColorJuego[] = [
+  { clave: 'tapadas', labelEs: 'Casillas tapadas', papel: 'acento', porDefecto: '#4a4c50' },
+  { clave: 'destapadas', labelEs: 'Casillas abiertas', papel: 'fondo', porDefecto: '#2a2c30' },
+  { clave: 'bandera', labelEs: 'Banderas', papel: 'dos', porDefecto: '#f59e0b' },
+  { clave: 'mina', labelEs: 'Mina', papel: 'uno', porDefecto: '#ef4444' },
+]
+registrarApariencia('buscaminas', APARIENCIA)
+
+/** Luminancia aproximada (0 = negro, 1 = blanco) de un `#rrggbb`. */
+function luz(hex: string): number {
+  const n = parseInt(hex.slice(1), 16)
+  return (0.299 * (n >> 16) + 0.587 * ((n >> 8) & 255) + 0.114 * (n & 255)) / 255
+}
+
+/** El color tal cual o, si se pierde sobre el fondo, empujado hacia negro o blanco. */
+function legible(color: string, fondo: string): string {
+  if (Math.abs(luz(color) - luz(fondo)) >= 0.4) return color
+  return `color-mix(in srgb, ${color} 40%, ${luz(fondo) > 0.5 ? '#000' : '#fff'})`
+}
 
 function tableroVacio(nivel: Nivel): Celda[] {
   return Array.from({ length: NIVELES[nivel].lado ** 2 }, () => ({
@@ -92,6 +117,8 @@ function revelarDesde(celdas: Celda[], inicio: number[], lado: number): { celdas
 
 export function Buscaminas({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
+  const col = useApariencia('buscaminas')
+  const clasico = APARIENCIA.every((c) => col[c.clave] === c.porDefecto)
   const nivel: Nivel = dificultad
   const [celdas, setCeldas] = useState<Celda[]>(() => tableroVacio(nivel))
   const [fase, setFase] = useState<Fase>('lista')
@@ -225,12 +252,33 @@ export function Buscaminas({ dificultad = 'medio' }: PropsDificultad) {
                 alternarBandera(i)
               }}
               className={`aspect-square rounded-[3px] font-bold leading-none transition ${tamFuente} ${
-                c.revelada
-                  ? i === explotada
-                    ? 'bg-red-500/80'
-                    : 'bg-white/10'
-                  : 'bg-white/25 hover:bg-white/35'
-              } ${c.revelada && !c.mina && c.num > 0 ? COLORES_NUM[c.num] : ''}`}
+                !clasico
+                  ? c.revelada
+                    ? ''
+                    : 'hover:brightness-110'
+                  : c.revelada
+                    ? i === explotada
+                      ? 'bg-red-500/80'
+                      : 'bg-white/10'
+                    : 'bg-white/25 hover:bg-white/35'
+              } ${clasico && c.revelada && !c.mina && c.num > 0 ? COLORES_NUM[c.num] : ''}`}
+              // Con colores propios: paleta fija y números con contraste sobre ella.
+              style={
+                clasico
+                  ? undefined
+                  : {
+                      background: c.revelada
+                        ? i === explotada
+                          ? col.mina
+                          : col.destapadas
+                        : c.bandera
+                          ? `color-mix(in srgb, ${col.bandera} 45%, ${col.tapadas})`
+                          : col.tapadas,
+                      color: c.revelada
+                        ? legible(c.mina || !c.num ? '#d1d5db' : HEX_NUM[c.num], i === explotada ? col.mina : col.destapadas)
+                        : legible('#d1d5db', col.tapadas),
+                    }
+              }
             >
               {contenido}
             </button>

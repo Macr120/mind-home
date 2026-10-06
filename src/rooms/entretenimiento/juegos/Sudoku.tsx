@@ -4,8 +4,33 @@ import { useT } from '../../../core/i18n/useT'
 import { vivo } from '../../../core/ui/estilos'
 import { COLOR } from '../constantes'
 import { formatearTiempo, guardarRecord, leerNumero } from './almacen'
+import { registrarApariencia, useApariencia, type ColorJuego } from './apariencia'
 import { barajar } from './cartas'
 import type { Dificultad, PropsDificultad } from './dificultad'
+
+// En «Clásico» el tablero sigue al tema (transparente, tinta y color del cuarto);
+// con cualquier otro estilo o color propio pasa a esta paleta fija. Los de
+// fábrica son su equivalente en el tema oscuro.
+const APARIENCIA: ColorJuego[] = [
+  { clave: 'celdas', labelEs: 'Celdas', papel: 'fondo', porDefecto: '#14161b' },
+  { clave: 'bloques', labelEs: 'Líneas de bloque', papel: 'oscuro', porDefecto: '#5f6166' },
+  { clave: 'fijas', labelEs: 'Números fijos', papel: 'claro', porDefecto: '#e5e7eb' },
+  { clave: 'tuyos', labelEs: 'Tus números', papel: 'acento', porDefecto: '#34d399' },
+  { clave: 'seleccion', labelEs: 'Selección', papel: 'uno', porDefecto: '#34d399' },
+]
+registrarApariencia('sudoku', APARIENCIA)
+
+/** Luminancia aproximada (0 = negro, 1 = blanco) de un `#rrggbb`. */
+function luz(hex: string): number {
+  const n = parseInt(hex.slice(1), 16)
+  return (0.299 * (n >> 16) + 0.587 * ((n >> 8) & 255) + 0.114 * (n & 255)) / 255
+}
+
+/** El color tal cual o, si se pierde sobre el fondo, empujado hacia negro o blanco. */
+function legible(color: string, fondo: string): string {
+  if (Math.abs(luz(color) - luz(fondo)) >= 0.4) return color
+  return `color-mix(in srgb, ${color} 40%, ${luz(fondo) > 0.5 ? '#000' : '#fff'})`
+}
 
 const PISTAS: Record<Dificultad, number> = { facil: 40, medio: 32, dificil: 26 }
 const DIGITOS = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -63,6 +88,8 @@ function compartenUnidad(a: number, b: number): boolean {
 
 export function Sudoku({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
+  const col = useApariencia('sudoku')
+  const clasico = APARIENCIA.every((c) => col[c.clave] === c.porDefecto)
   const [partida, setPartida] = useState<Partida>(() => generarPartida(dificultad))
   const [tablero, setTablero] = useState<number[]>(() => [...partida.inicial])
   const [notas, setNotas] = useState<number[][]>(() => Array.from({ length: 81 }, () => []))
@@ -142,6 +169,11 @@ export function Sudoku({ dificultad = 'medio' }: PropsDificultad) {
   const selFila = sel !== null ? Math.floor(sel / 9) : -1
   const selCol = sel !== null ? sel % 9 : -1
   const valorSel = sel !== null ? tablero[sel] : 0
+  // Base de las celdas, tinta de los resaltes y color de la selección.
+  const base = clasico ? 'transparent' : col.celdas
+  const tinta = clasico ? 'var(--ui-ink)' : luz(col.celdas) > 0.5 ? '#000' : '#fff'
+  const marca = clasico ? COLOR : col.seleccion
+  const fijas = clasico ? 'var(--ui-ink)' : legible(col.fijas, col.celdas)
 
   return (
     <div className="space-y-3">
@@ -155,7 +187,12 @@ export function Sudoku({ dificultad = 'medio' }: PropsDificultad) {
         </div>
       </div>
 
-      <div className="mx-auto grid max-w-[400px] select-none grid-cols-9 overflow-hidden rounded-xl border-2 border-white/40 bg-black/30 shadow-lg">
+      <div
+        className={`mx-auto grid max-w-[400px] select-none grid-cols-9 overflow-hidden rounded-xl border-2 bg-black/30 shadow-lg ${
+          clasico ? 'border-white/40' : ''
+        }`}
+        style={clasico ? undefined : { borderColor: col.bloques }}
+      >
         {tablero.map((v, i) => {
           const f = Math.floor(i / 9)
           const c = i % 9
@@ -169,29 +206,46 @@ export function Sudoku({ dificultad = 'medio' }: PropsDificultad) {
           const incorrecto = v !== 0 && !esInicial && v !== partida.solucion[i]
           // Los resaltes se mezclan con la tinta del tema (en claro, un blanco
           // literal sobre papel blanco no se vería).
-          let fondo = 'transparent'
-          if (i === sel) fondo = `color-mix(in srgb, ${COLOR} 25%, transparent)`
-          else if (mismoNumero) fondo = 'color-mix(in srgb, var(--ui-ink) 18%, transparent)'
-          else if (enUnidad) fondo = 'color-mix(in srgb, var(--ui-ink) 7%, transparent)'
+          let fondo = base
+          if (i === sel) fondo = `color-mix(in srgb, ${marca} 25%, ${base})`
+          else if (mismoNumero) fondo = `color-mix(in srgb, ${tinta} 18%, ${base})`
+          else if (enUnidad) fondo = `color-mix(in srgb, ${tinta} 7%, ${base})`
+          const gruesaE = c % 3 === 2
+          const gruesaB = f % 3 === 2
           return (
             <button
               key={i}
               type="button"
               onClick={() => setSel(i)}
               className={`relative aspect-square text-base font-semibold sm:text-lg ${
-                c < 8 ? (c % 3 === 2 ? 'border-e-2 border-e-white/35' : 'border-e border-e-white/10') : ''
-              } ${f < 8 ? (f % 3 === 2 ? 'border-b-2 border-b-white/35' : 'border-b border-b-white/10') : ''} ${
-                incorrecto ? 'text-red-400' : esInicial ? '' : 'texto-vivo'
+                c < 8 ? (gruesaE ? 'border-e-2' : 'border-e') + (clasico ? (gruesaE ? ' border-e-white/35' : ' border-e-white/10') : '') : ''
+              } ${f < 8 ? (gruesaB ? 'border-b-2' : 'border-b') + (clasico ? (gruesaB ? ' border-b-white/35' : ' border-b-white/10') : '') : ''} ${
+                incorrecto ? 'text-red-400' : esInicial || !clasico ? '' : 'texto-vivo'
               }`}
               style={{
                 background: fondo,
-                ...(esInicial ? { color: 'var(--ui-ink)' } : incorrecto ? {} : vivo(COLOR)),
+                ...(clasico
+                  ? {}
+                  : {
+                      borderInlineEndColor: gruesaE ? col.bloques : `color-mix(in srgb, ${col.bloques} 35%, transparent)`,
+                      borderBottomColor: gruesaB ? col.bloques : `color-mix(in srgb, ${col.bloques} 35%, transparent)`,
+                    }),
+                ...(esInicial
+                  ? { color: fijas }
+                  : incorrecto
+                    ? {}
+                    : clasico
+                      ? vivo(COLOR)
+                      : { color: legible(col.tuyos, col.celdas) }),
               }}
             >
               {v !== 0 ? (
                 v
               ) : notas[i].length > 0 ? (
-                <span className="absolute inset-0 grid grid-cols-3 text-[7px] leading-none text-white/50">
+                <span
+                  className={`absolute inset-0 grid grid-cols-3 text-[7px] leading-none ${clasico ? 'text-white/50' : ''}`}
+                  style={clasico ? undefined : { color: `color-mix(in srgb, ${fijas} 55%, transparent)` }}
+                >
                   {DIGITOS.map((d) => (
                     <span key={d} className="flex items-center justify-center">
                       {notas[i].includes(d) ? d : ''}

@@ -7,6 +7,7 @@ import type { Dificultad, PropsDificultad } from './dificultad'
 import { ElegirModo } from './ElegirModo'
 import { BarraMesa, nombreAsiento, opcionEnLinea } from './mesaJuego'
 import { vivo } from '../../../core/ui/estilos'
+import { registrarApariencia, useApariencia } from './apariencia'
 
 type ColorFicha = 'clara' | 'oscura'
 type Modo = '2j' | 'ia' | 'online'
@@ -130,6 +131,14 @@ function aplicarDamas(e: EstadoDamas, m: MovDamasMesa, color: ColorFicha): Estad
 
 const VACIO_DAMAS = inicialDamas()
 
+registrarApariencia('damas', [
+  { clave: 'claras', labelEs: 'Casillas claras', papel: 'claro', porDefecto: '#f0d9b5' },
+  { clave: 'oscuras', labelEs: 'Casillas oscuras', papel: 'oscuro', porDefecto: '#b58863' },
+  { clave: 'fichaClara', labelEs: 'Fichas claras', papel: 'uno', porDefecto: '#ffffff' },
+  { clave: 'fichaOscura', labelEs: 'Fichas oscuras', papel: 'dos', porDefecto: '#475569' },
+  { clave: 'marca', labelEs: 'Selección', papel: 'acento', porDefecto: '#34d399' },
+])
+
 registrarJuegoMesa<EstadoDamas, MovDamasMesa>('damas', {
   inicial: inicialDamas,
   aplicar: (e, m, asiento) => aplicarDamas(e, m, COLOR_DE[asiento]),
@@ -173,6 +182,7 @@ function movIA(tablero: TableroDamas, opciones: MovDama[], dif: Dificultad): Mov
 export function Damas({ dificultad = 'medio', mesaOnline = false }: PropsDificultad) {
   const t = useT()
   const mesa = useMesa<EstadoDamas, MovDamasMesa>('damas')
+  const col = useApariencia('damas')
   const [modo, setModo] = useState<Modo | null>(mesaOnline ? 'online' : null)
   const [local, setLocal] = useState<EstadoDamas>(inicialDamas)
   const [sel, setSel] = useState<number | null>(null)
@@ -329,33 +339,40 @@ export function Damas({ dificultad = 'medio', mesaOnline = false }: PropsDificul
           const c = i % 8
           const jugable = (f + c) % 2 === 1
           const destino = destinos.find((m) => m.a === i)
+          const tono = ficha?.color === 'clara' ? col.fichaClara : col.fichaOscura
           return (
             <button
               key={i}
               type="button"
               onClick={() => clickCasilla(i)}
               className="relative flex aspect-square items-center justify-center"
-              style={{ background: jugable ? '#b58863' : '#f0d9b5' }}
+              style={{ background: jugable ? col.oscuras : col.claras }}
             >
               {ficha && (
                 <span
-                  className={`flex h-[76%] w-[76%] items-center justify-center rounded-full border-2 shadow-md ${
-                    ficha.color === 'clara'
-                      ? 'border-slate-400 bg-gradient-to-br from-[#ffffff] to-slate-300'
-                      : 'border-black bg-gradient-to-br from-slate-600 to-slate-950'
-                  } ${seleccion === i ? 'ring-2 ring-emerald-400' : ''}`}
+                  className="flex h-[76%] w-[76%] items-center justify-center rounded-full border-2 shadow-md"
+                  style={{
+                    // El relieve sale del propio color de la ficha, oscurecido hacia la esquina.
+                    background: `linear-gradient(to bottom right, ${tono}, color-mix(in srgb, ${tono} ${ficha.color === 'clara' ? 80 : 25}%, #000))`,
+                    borderColor: ficha.color === 'clara' ? `color-mix(in srgb, ${tono} 60%, #000)` : '#000',
+                    boxShadow: seleccion === i ? `0 0 0 2px ${col.marca}, 0 4px 6px -1px rgba(0,0,0,0.3)` : undefined,
+                  }}
                 >
-                  {/* Tonos 500/600: no se remapean en claro, y las fichas son de color fijo. */}
+                  {/* Tonos 500/600: no se remapean en claro; la sombra lo despega de cualquier color de ficha. */}
                   {ficha.dama && (
-                    <span className={ficha.color === 'clara' ? 'text-amber-600' : 'text-amber-500'}>♛</span>
+                    <span
+                      className={ficha.color === 'clara' ? 'text-amber-600' : 'text-amber-500'}
+                      style={{ textShadow: '0 1px 2px rgba(0,0,0,0.6)' }}
+                    >
+                      ♛
+                    </span>
                   )}
                 </span>
               )}
               {destino && (
                 <span
-                  className={`absolute h-[30%] w-[30%] rounded-full ${
-                    destino.captura != null ? 'bg-red-400/85' : 'bg-emerald-400/80'
-                  }`}
+                  className={`absolute h-[30%] w-[30%] rounded-full ${destino.captura != null ? 'bg-red-400/85' : ''}`}
+                  style={destino.captura != null ? undefined : { background: `color-mix(in srgb, ${col.marca} 80%, transparent)` }}
                 />
               )}
             </button>

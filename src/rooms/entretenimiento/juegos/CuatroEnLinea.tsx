@@ -7,6 +7,7 @@ import type { Dificultad, PropsDificultad } from './dificultad'
 import { ElegirModo } from './ElegirModo'
 import { BarraMesa, nombreAsiento, opcionEnLinea } from './mesaJuego'
 import { vivo } from '../../../core/ui/estilos'
+import { registrarApariencia, useApariencia } from './apariencia'
 
 type Modo = '2j' | 'ia' | 'online'
 type FichaC4 = 'R' | 'A'
@@ -91,6 +92,12 @@ function aplicarC4(e: EstadoC4, col: number, ficha: FichaC4): EstadoC4 | null {
 
 const VACIO_C4 = inicialC4()
 
+registrarApariencia('cuatroenlinea', [
+  { clave: 'tablero', labelEs: 'Tablero', papel: 'oscuro', porDefecto: '#172554' },
+  { clave: 'rojas', labelEs: 'Fichas rojas', papel: 'uno', porDefecto: '#ef4444' },
+  { clave: 'amarillas', labelEs: 'Fichas amarillas', papel: 'dos', porDefecto: '#facc15' },
+])
+
 registrarJuegoMesa<EstadoC4, MovC4>('c4', {
   inicial: inicialC4,
   aplicar: (e, m, asiento) => aplicarC4(e, m?.col, FICHA_DE[asiento]),
@@ -168,6 +175,7 @@ function columnaIA(t: TableroC4, dif: Dificultad): number {
 export function CuatroEnLinea({ dificultad = 'medio', mesaOnline = false }: PropsDificultad) {
   const t = useT()
   const mesa = useMesa<EstadoC4, MovC4>('c4')
+  const col = useApariencia('cuatroenlinea')
   const [modo, setModo] = useState<Modo | null>(mesaOnline ? 'online' : null)
   const [local, setLocal] = useState<EstadoC4>(inicialC4)
 
@@ -250,7 +258,7 @@ export function CuatroEnLinea({ dificultad = 'medio', mesaOnline = false }: Prop
         {ganador === null ? (
           <span className="text-white/60">
             {t('entre.j.turno', 'Turno')}:{' '}
-            <strong className="texto-vivo" style={vivo(turno === 'R' ? '#f87171' : '#facc15')}>
+            <strong className="texto-vivo" style={vivo(turno === 'R' ? col.rojas : col.amarillas)}>
               {modo === 'ia' ? (turno === 'R' ? t('entre.j.tu', 'Tú') : t('entre.j.maquina', 'Máquina')) : nombreFicha(turno)}
             </strong>
           </span>
@@ -284,7 +292,10 @@ export function CuatroEnLinea({ dificultad = 'medio', mesaOnline = false }: Prop
 
       {online && <BarraMesa abierta={mesa.abierta} cerrada={mesa.cerrada} asientos={mesa.asientos} miAsiento={mesa.miAsiento} />}
 
-      <div className="mx-auto grid max-w-[360px] select-none grid-cols-7 gap-1 rounded-xl bg-blue-950/70 p-2">
+      <div
+        className="mx-auto grid max-w-[360px] select-none grid-cols-7 gap-1 rounded-xl p-2"
+        style={{ background: `color-mix(in srgb, ${col.tablero} 70%, transparent)` }}
+      >
         {tablero.map((ficha, i) => (
           <button
             key={i}
@@ -297,7 +308,7 @@ export function CuatroEnLinea({ dificultad = 'medio', mesaOnline = false }: Prop
           >
             <span
               className="h-[88%] w-[88%] rounded-full shadow-inner"
-              style={{ background: ficha === 'R' ? '#ef4444' : ficha === 'A' ? '#facc15' : 'rgba(255,255,255,0.08)' }}
+              style={{ background: ficha === 'R' ? col.rojas : ficha === 'A' ? col.amarillas : 'rgba(255,255,255,0.08)' }}
             />
           </button>
         ))}

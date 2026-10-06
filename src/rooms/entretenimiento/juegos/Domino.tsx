@@ -1,5 +1,5 @@
 import { Icono } from '../../../core/ui/iconos/Icono'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
 import { useT } from '../../../core/i18n/useT'
 import { registrarJuegoMesa, useMesa, type Asiento, type Mesa } from '../../../core/partida/mesa'
 import { COLOR } from '../constantes'
@@ -7,6 +7,7 @@ import { barajar } from './cartas'
 import type { Dificultad, PropsDificultad } from './dificultad'
 import { ElegirModo } from './ElegirModo'
 import { BarraMesa, nombreAsiento, opcionEnLinea } from './mesaJuego'
+import { registrarApariencia, useApariencia } from './apariencia'
 
 interface FichaDom {
   a: number
@@ -237,14 +238,25 @@ registrarJuegoMesa<EstadoDomEnLinea, MovDom>('domino', {
   terminado: (e) => e.fin !== null,
 })
 
-function Mitad({ n, tam }: { n: number; tam: number }) {
+registrarApariencia('domino', [
+  { clave: 'mesa', labelEs: 'Mesa', papel: 'fondo', porDefecto: '#022c22' },
+  { clave: 'cara', labelEs: 'Cara de las fichas', papel: 'claro', porDefecto: '#f5f0e2' },
+  { clave: 'puntos', labelEs: 'Puntos', papel: 'dos', porDefecto: '#0f172a' },
+  { clave: 'dorso', labelEs: 'Dorso', papel: 'oscuro', porDefecto: '#065f46' },
+  { clave: 'marca', labelEs: 'Fichas jugables', papel: 'acento', porDefecto: '#fbbf24' },
+])
+
+/** El aro de las fichas jugables con el color elegido (el de «elegida» lo pone la clase). */
+const aroJugable = (marca: string) => ({ '--tw-ring-color': marca }) as CSSProperties
+
+function Mitad({ n, tam, color }: { n: number; tam: number; color: string }) {
   return (
     <span className="grid shrink-0 grid-cols-3 grid-rows-3 place-items-center" style={{ width: tam, height: tam }}>
       {Array.from({ length: 9 }, (_, i) => (
         <span
           key={i}
-          className="rounded-full bg-slate-900"
-          style={{ width: tam * 0.17, height: tam * 0.17, opacity: PIPS[n].includes(i) ? 1 : 0 }}
+          className="rounded-full"
+          style={{ width: tam * 0.17, height: tam * 0.17, opacity: PIPS[n].includes(i) ? 1 : 0, background: color }}
         />
       ))}
     </span>
@@ -252,24 +264,35 @@ function Mitad({ n, tam }: { n: number; tam: number }) {
 }
 
 function FichaDominoUI({ a, b, vertical = false, tam = 20 }: { a: number; b: number; vertical?: boolean; tam?: number }) {
+  const col = useApariencia('domino')
   return (
     <span
-      className={`inline-flex shrink-0 items-center overflow-hidden rounded-[5px] border border-black/50 bg-[#f5f0e2] shadow-sm ${
+      className={`inline-flex shrink-0 items-center overflow-hidden rounded-[5px] border border-black/50 shadow-sm ${
         vertical ? 'flex-col' : ''
       }`}
+      style={{ background: col.cara }}
     >
-      <Mitad n={a} tam={tam} />
-      <span className={vertical ? 'h-px w-[80%] bg-black/25' : 'w-px self-stretch bg-black/25 my-[2px]'} />
-      <Mitad n={b} tam={tam} />
+      <Mitad n={a} tam={tam} color={col.puntos} />
+      <span
+        className={vertical ? 'h-px w-[80%]' : 'w-px self-stretch my-[2px]'}
+        style={{ background: `color-mix(in srgb, ${col.puntos} 25%, transparent)` }}
+      />
+      <Mitad n={b} tam={tam} color={col.puntos} />
     </span>
   )
 }
 
 function Dorso({ tam = 16 }: { tam?: number }) {
+  const { dorso } = useApariencia('domino')
   return (
     <span
-      className="inline-block shrink-0 rounded-[4px] border border-emerald-700/70 bg-gradient-to-br from-emerald-800 to-emerald-950"
-      style={{ width: tam, height: tam * 2 }}
+      className="inline-block shrink-0 rounded-[4px] border"
+      style={{
+        width: tam,
+        height: tam * 2,
+        background: `linear-gradient(to bottom right, ${dorso}, color-mix(in srgb, ${dorso} 35%, #000))`,
+        borderColor: `color-mix(in srgb, ${dorso} 85%, #fff)`,
+      }}
     />
   )
 }
@@ -312,6 +335,7 @@ export function Domino({ dificultad = 'medio', mesaOnline = false }: PropsDificu
 
 function DominoEnLinea({ mesa, alSalir }: { mesa: Mesa<EstadoDomEnLinea, MovDom>; alSalir: () => void }) {
   const t = useT()
+  const col = useApariencia('domino')
   const [pendiente, setPendiente] = useState<number | null>(null)
   const yo = mesa.miAsiento
   const e = mesa.estado
@@ -391,7 +415,10 @@ function DominoEnLinea({ mesa, alSalir }: { mesa: Mesa<EstadoDomEnLinea, MovDom>
         </span>
       </div>
 
-      <div className="flex min-h-[96px] flex-wrap content-center items-center justify-center gap-[3px] rounded-xl border border-white/10 bg-emerald-950/50 p-3">
+      <div
+        className="flex min-h-[96px] flex-wrap content-center items-center justify-center gap-[3px] rounded-xl border border-white/10 p-3"
+        style={{ background: `color-mix(in srgb, ${col.mesa} 50%, transparent)` }}
+      >
         {e.cadena.map((f, i) => (
           <FichaDominoUI key={i} a={f.a} b={f.b} vertical={f.a === f.b} tam={17} />
         ))}
@@ -432,8 +459,9 @@ function DominoEnLinea({ mesa, alSalir }: { mesa: Mesa<EstadoDomEnLinea, MovDom>
                 type="button"
                 onClick={() => clickFicha(idx)}
                 className={`rounded-[6px] transition ${
-                  jugable ? 'ring-2 ring-amber-400 hover:-translate-y-1' : 'opacity-60'
+                  jugable ? 'ring-2 hover:-translate-y-1' : 'opacity-60'
                 } ${pend === idx ? 'ring-emerald-300 -translate-y-1' : ''}`}
+                style={pend === idx ? undefined : aroJugable(col.marca)}
               >
                 <FichaDominoUI a={f.a} b={f.b} vertical tam={22} />
               </button>
@@ -509,6 +537,7 @@ function DominoEnLinea({ mesa, alSalir }: { mesa: Mesa<EstadoDomEnLinea, MovDom>
 
 function DominoIA({ dificultad, alCambiarModo }: { dificultad: Dificultad; alCambiarModo?: () => void }) {
   const t = useT()
+  const col = useApariencia('domino')
   const [ronda, setRonda] = useState<RondaDom>(repartirRonda)
   const [fin, setFin] = useState<FinRonda | null>(null)
   const [pendiente, setPendiente] = useState<number | null>(null)
@@ -663,7 +692,10 @@ function DominoIA({ dificultad, alCambiarModo }: { dificultad: Dificultad; alCam
         </span>
       </div>
 
-      <div className="flex min-h-[96px] flex-wrap content-center items-center justify-center gap-[3px] rounded-xl border border-white/10 bg-emerald-950/50 p-3">
+      <div
+        className="flex min-h-[96px] flex-wrap content-center items-center justify-center gap-[3px] rounded-xl border border-white/10 p-3"
+        style={{ background: `color-mix(in srgb, ${col.mesa} 50%, transparent)` }}
+      >
         {ronda.cadena.map((f, i) => (
           <FichaDominoUI key={i} a={f.a} b={f.b} vertical={f.a === f.b} tam={17} />
         ))}
@@ -705,8 +737,9 @@ function DominoIA({ dificultad, alCambiarModo }: { dificultad: Dificultad; alCam
               type="button"
               onClick={() => clickFicha(idx)}
               className={`rounded-[6px] transition ${
-                jugable ? 'ring-2 ring-amber-400 hover:-translate-y-1' : 'opacity-60'
+                jugable ? 'ring-2 hover:-translate-y-1' : 'opacity-60'
               } ${pendiente === idx ? 'ring-emerald-300 -translate-y-1' : ''}`}
+              style={pendiente === idx ? undefined : aroJugable(col.marca)}
             >
               <FichaDominoUI a={f.a} b={f.b} vertical tam={22} />
             </button>

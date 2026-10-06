@@ -9,6 +9,7 @@ import type { Dificultad, PropsDificultad } from './dificultad'
 import { ElegirModo } from './ElegirModo'
 import { BarraMesa, nombreAsiento, opcionEnLinea } from './mesaJuego'
 import { vivo } from '../../../core/ui/estilos'
+import { registrarApariencia, useApariencia } from './apariencia'
 
 type Modo = '1j' | '2j' | 'online'
 
@@ -166,6 +167,16 @@ function aplicarBillar(e: EstadoBillar, m: MovBillar, asiento: Asiento): EstadoB
   }
 }
 
+registrarApariencia('billar', [
+  { clave: 'pano', labelEs: 'Paño', papel: 'fondo', porDefecto: '#14532d' },
+  { clave: 'blanca', labelEs: 'Bola de tiro', papel: 'uno', porDefecto: '#f8fafc' },
+  { clave: 'lisas', labelEs: 'Bolas amarillas', papel: 'acento', porDefecto: '#facc15' },
+  { clave: 'rayadas', labelEs: 'Bolas rojas', papel: 'dos', porDefecto: '#ef4444' },
+])
+
+/** Colores elegidos para pintar las bolas (el estado guarda siempre los de fábrica). */
+type TonosBillar = Record<'blanca' | 'lisas' | 'rayadas', string>
+
 registrarJuegoMesa<EstadoBillar, MovBillar>('billar', {
   inicial: inicialBillar,
   aplicar: aplicarBillar,
@@ -179,6 +190,8 @@ export function Billar({ dificultad = 'medio', mesaOnline = false }: PropsDificu
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null)
   const mundo = useRef<Mundo>(mundoInicial())
   const mesa = useMesa<EstadoBillar, MovBillar>('billar')
+  const col = useApariencia('billar')
+  const tonos: TonosBillar = { blanca: col.blanca, lisas: col.lisas, rayadas: col.rayadas }
   /** Jugadas ya pintadas y la mesa en la que acaba la animación en curso. */
   const nVisto = useRef(-1)
   const final = useRef<BolaMesa[] | null>(null)
@@ -233,7 +246,9 @@ export function Billar({ dificultad = 'medio', mesaOnline = false }: PropsDificu
   useEffect(() => {
     if (modo === null) return
     ctxRef.current = prepararLienzo(lienzo.current!, ANCHO, ALTO)
-    dibujar(ctxRef.current, mundo.current, guia)
+    dibujar(ctxRef.current, mundo.current, guia, tonos)
+    // Un cambio de color lo repinta el bucle; aquí solo se prepara el lienzo.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [modo, guia])
 
   const reiniciar = (m: Modo | null) => {
@@ -261,7 +276,7 @@ export function Billar({ dificultad = 'medio', mesaOnline = false }: PropsDificu
           final.current = null
         }
       }
-      dibujar(ctxRef.current!, m, guia)
+      dibujar(ctxRef.current!, m, guia, tonos)
       return
     }
     if (m.moviendo) {
@@ -292,7 +307,7 @@ export function Billar({ dificultad = 'medio', mesaOnline = false }: PropsDificu
         }
       }
     }
-    dibujar(ctxRef.current!, m, guia)
+    dibujar(ctxRef.current!, m, guia, tonos)
   }, modo !== null && (!fin || online))
 
   const bajar = (e: React.PointerEvent<HTMLCanvasElement>) => {
@@ -425,7 +440,7 @@ export function Billar({ dificultad = 'medio', mesaOnline = false }: PropsDificu
           onPointerUp={soltar}
           onPointerCancel={soltar}
           className="w-full rounded-xl"
-          style={{ touchAction: 'none', aspectRatio: `${ANCHO} / ${ALTO}`, background: '#14532d' }}
+          style={{ touchAction: 'none', aspectRatio: `${ANCHO} / ${ALTO}`, background: col.pano }}
         />
         {online && em?.fin && (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-black/70 ui-noche">
@@ -550,7 +565,7 @@ function alcance(m: Mundo, blanca: Bola, dx: number, dy: number): number {
   return Math.max(0, mejor)
 }
 
-function dibujar(ctx: CanvasRenderingContext2D, m: Mundo, guia: (typeof GUIA)[Dificultad]) {
+function dibujar(ctx: CanvasRenderingContext2D, m: Mundo, guia: (typeof GUIA)[Dificultad], tonos: TonosBillar) {
   ctx.clearRect(0, 0, ANCHO, ALTO)
 
   // Troneras
@@ -595,11 +610,20 @@ function dibujar(ctx: CanvasRenderingContext2D, m: Mundo, guia: (typeof GUIA)[Di
   for (const b of m.bolas) {
     ctx.beginPath()
     ctx.arc(b.x, b.y, R, 0, Math.PI * 2)
-    ctx.fillStyle = b.color
+    // El estado (y la mesa en línea) lleva los colores de fábrica: se traducen al pintar.
+    const relleno = b.esBlanca ? tonos.blanca : b.color === '#facc15' ? tonos.lisas : b.color === '#ef4444' ? tonos.rayadas : b.color
+    ctx.fillStyle = relleno
     ctx.fill()
     ctx.lineWidth = 1.5
     ctx.strokeStyle = b.esBlanca ? '#cbd5e1' : 'rgba(0,0,0,0.35)'
-    if (b.color === '#0f172a') ctx.strokeStyle = '#e2e8f0'
+    // Bola oscura (la negra o un color elegido así): borde claro para que no se pierda en el paño.
+    if (oscuro(relleno)) ctx.strokeStyle = '#e2e8f0'
     ctx.stroke()
   }
+}
+
+/** Si un #rrggbb es tan oscuro que se perdería sobre el paño. */
+function oscuro(hex: string): boolean {
+  const n = parseInt(hex.slice(1), 16)
+  return 0.299 * (n >> 16) + 0.587 * ((n >> 8) & 255) + 0.114 * (n & 255) < 60
 }

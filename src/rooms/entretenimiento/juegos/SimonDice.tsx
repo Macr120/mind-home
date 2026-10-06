@@ -2,11 +2,18 @@ import { useEffect, useState } from 'react'
 import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
 import { guardarRecord, leerNumero } from './almacen'
+import { registrarApariencia, useApariencia } from './apariencia'
 import { claveDificultad, type Dificultad, type PropsDificultad } from './dificultad'
 
 type Fase = 'inicio' | 'muestra' | 'turno' | 'fin'
 
-const COLORES = ['#22c55e', '#ef4444', '#eab308', '#3b82f6']
+// Los cuatro botones, de izquierda a derecha y de arriba abajo.
+registrarApariencia('simon', [
+  { clave: 'b1', labelEs: 'Botón 1', papel: 'uno', porDefecto: '#22c55e' },
+  { clave: 'b2', labelEs: 'Botón 2', papel: 'dos', porDefecto: '#ef4444' },
+  { clave: 'b3', labelEs: 'Botón 3', papel: 'acento', porDefecto: '#eab308' },
+  { clave: 'b4', labelEs: 'Botón 4', papel: 'oscuro', porDefecto: '#3b82f6' },
+])
 
 // Ritmo de la demostración: milisegundos por color, cuánto recorta cada ronda y su tope
 const RITMO: Record<Dificultad, { inicial: number; recorte: number; minimo: number }> = {
@@ -26,6 +33,8 @@ export function SimonDice({ dificultad = 'medio' }: PropsDificultad) {
   const [paso, setPaso] = useState(0)
   const [iluminado, setIluminado] = useState<number | null>(null)
   const [record, setRecord] = useState(() => leerNumero(clave, 0))
+  const col = useApariencia('simon')
+  const colores = [col.b1, col.b2, col.b3, col.b4]
 
   const empezar = () => {
     setSecuencia([alAzar()])
@@ -95,7 +104,7 @@ export function SimonDice({ dificultad = 'medio' }: PropsDificultad) {
 
       <div className="relative">
         <div className="grid grid-cols-2 gap-2">
-          {COLORES.map((color, n) => (
+          {colores.map((color, n) => (
             <button
               key={n}
               type="button"

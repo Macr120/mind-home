@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
 import { guardarRecord, leerNumero } from './almacen'
+import { registrarApariencia, useApariencia } from './apariencia'
 import { FONDO_LIENZO, prepararLienzo, useBucle, useTeclas } from './arcade'
 import { claveDificultad, type Dificultad, type PropsDificultad } from './dificultad'
 
@@ -20,6 +21,13 @@ const SUELO = 150
 const DINO_X = 40
 const GRAVEDAD = 2300
 const IMPULSO = 640
+
+// El dino y los cactus son emojis: lo que se pinta es el escenario
+registrarApariencia('dino', [
+  { clave: 'fondo', labelEs: 'Cielo', papel: 'fondo', porDefecto: FONDO_LIENZO },
+  { clave: 'suelo', labelEs: 'Suelo', papel: 'claro', porDefecto: '#ffffff' },
+  { clave: 'marcador', labelEs: 'Distancia', papel: 'acento', porDefecto: '#ffffff' },
+])
 
 const TECLAS_DINO = [' ', 'arrowup'] as const
 
@@ -44,6 +52,7 @@ function mundoInicial(vel: number): Mundo {
 
 export function DinoRunner({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
+  const col = useApariencia('dino')
   const ritmo = RITMO[dificultad]
   const clave = claveDificultad('dino-record', dificultad)
   const lienzo = useRef<HTMLCanvasElement>(null)
@@ -56,8 +65,12 @@ export function DinoRunner({ dificultad = 'medio' }: PropsDificultad) {
 
   useEffect(() => {
     ctxRef.current = prepararLienzo(lienzo.current!, ANCHO, ALTO)
-    dibujar(ctxRef.current, mundo.current)
   }, [])
+
+  // Pinta al abrir y, con la partida parada, también al cambiar los colores.
+  useEffect(() => {
+    dibujar(ctxRef.current!, mundo.current, col)
+  }, [col])
 
   const saltar = (m: Mundo) => {
     if (m.alt <= 0) {
@@ -105,7 +118,7 @@ export function DinoRunner({ dificultad = 'medio' }: PropsDificultad) {
       }
     }
 
-    dibujar(ctxRef.current!, m)
+    dibujar(ctxRef.current!, m, col)
   }, fase === 'jugando')
 
   const toque = () => {
@@ -126,7 +139,7 @@ export function DinoRunner({ dificultad = 'medio' }: PropsDificultad) {
           ref={lienzo}
           onPointerDown={toque}
           className="w-full rounded-xl"
-          style={{ touchAction: 'none', aspectRatio: `${ANCHO} / ${ALTO}`, background: FONDO_LIENZO }}
+          style={{ touchAction: 'none', aspectRatio: `${ANCHO} / ${ALTO}`, background: col.fondo }}
         />
         {fase !== 'jugando' && (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-black/60 ui-noche">
@@ -145,16 +158,18 @@ export function DinoRunner({ dificultad = 'medio' }: PropsDificultad) {
   )
 }
 
-function dibujar(ctx: CanvasRenderingContext2D, m: Mundo) {
+function dibujar(ctx: CanvasRenderingContext2D, m: Mundo, col: Record<string, string>) {
   ctx.clearRect(0, 0, ANCHO, ALTO)
 
   // Suelo
-  ctx.strokeStyle = 'rgba(255,255,255,0.35)'
+  ctx.strokeStyle = col.suelo
+  ctx.globalAlpha = 0.35
   ctx.lineWidth = 2
   ctx.beginPath()
   ctx.moveTo(0, SUELO + 2)
   ctx.lineTo(ANCHO, SUELO + 2)
   ctx.stroke()
+  ctx.globalAlpha = 1
 
   ctx.textBaseline = 'bottom'
   ctx.textAlign = 'left'
@@ -175,7 +190,9 @@ function dibujar(ctx: CanvasRenderingContext2D, m: Mundo) {
 
   // Distancia
   ctx.font = 'bold 14px sans-serif'
-  ctx.fillStyle = 'rgba(255,255,255,0.7)'
+  ctx.fillStyle = col.marcador
+  ctx.globalAlpha = 0.7
   ctx.textAlign = 'right'
   ctx.fillText(String(Math.floor(m.dist)), ANCHO - 10, 22)
+  ctx.globalAlpha = 1
 }

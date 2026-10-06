@@ -3,6 +3,7 @@ import type { ComponentType } from 'react'
 import { COLOR } from './constantes'
 import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { FAMILIAS, JUEGOS_REALES, type IdJuegoReal, type JuegoReal } from './juegos/catalogo'
+import { PanelApariencia, coloresDe } from './juegos/apariencia'
 import { Ahorcado } from './juegos/Ahorcado'
 import { Ajedrez } from './juegos/Ajedrez'
 import { Billar } from './juegos/Billar'
@@ -125,7 +126,9 @@ function JuegoAbierto({
 }) {
   const t = useT()
   const [dif, setDif] = useDificultad(juego.id)
+  const [apariencia, setApariencia] = useState(false)
   const ComponenteJuego = COMPONENTES[juego.id]
+  const personalizable = !!coloresDe(juego.id)?.length
 
   return (
     <div className="space-y-3">
@@ -140,13 +143,30 @@ function JuegoAbierto({
         <h3 className="text-lg font-bold">
           <Icono emoji={juego.icono} /> {t(`entre.j.${juego.id}.nombre`, juego.nombre)}
         </h3>
-        {juego.dificultad && (
-          <div className="ms-auto flex items-center gap-2">
-            <span className="text-xs text-white/45">{t('entre.j.dificultad', 'Dificultad')}</span>
-            <SelectorDificultad valor={dif} alCambiar={setDif} />
-          </div>
-        )}
+        <div className="ms-auto flex items-center gap-2">
+          {personalizable && (
+            <button
+              type="button"
+              onClick={() => setApariencia((v) => !v)}
+              aria-pressed={apariencia}
+              title={t('entre.j.ap.titulo', 'Apariencia')}
+              aria-label={t('entre.j.ap.titulo', 'Apariencia')}
+              className={`grid h-8 w-8 place-items-center rounded-lg text-base transition ${
+                apariencia ? 'bg-accent/25' : 'bg-white/10 hover:bg-white/20'
+              }`}
+            >
+              <Icono nombre="paleta" />
+            </button>
+          )}
+          {juego.dificultad && (
+            <>
+              <span className="text-xs text-white/45">{t('entre.j.dificultad', 'Dificultad')}</span>
+              <SelectorDificultad valor={dif} alCambiar={setDif} />
+            </>
+          )}
+        </div>
       </div>
+      {apariencia && personalizable && <PanelApariencia juego={juego.id} />}
       <ComponenteJuego key={dif} dificultad={dif} mesaOnline={mesaOnline} />
     </div>
   )

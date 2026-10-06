@@ -5,6 +5,7 @@ import { registrarJuegoMesa, useMesa } from '../../../core/partida/mesa'
 import { COLOR } from '../constantes'
 import { FONDO_LIENZO, prepararLienzo, puntoLienzo, useBucle } from './arcade'
 import type { Dificultad, PropsDificultad } from './dificultad'
+import { registrarApariencia, useApariencia } from './apariencia'
 import { ElegirModo } from './ElegirModo'
 import { BarraMesa, PERIODO_VIVO, nombreAsiento, numVivo, opcionEnLinea, useRecibidoVivo } from './mesaJuego'
 
@@ -58,6 +59,15 @@ registrarJuegoMesa<{ v: number }, never>('hockey', {
   terminado: () => false,
 })
 
+registrarApariencia('hockey', [
+  { clave: 'fondo', labelEs: 'Pista', papel: 'fondo', porDefecto: FONDO_LIENZO },
+  { clave: 'lineas', labelEs: 'Líneas', papel: 'claro', porDefecto: '#ffffff' },
+  { clave: 'porterias', labelEs: 'Porterías', papel: 'oscuro', porDefecto: '#34d399' },
+  { clave: 'abajo', labelEs: 'Mazo de abajo', papel: 'uno', porDefecto: '#dc2626' },
+  { clave: 'arriba', labelEs: 'Mazo de arriba', papel: 'dos', porDefecto: '#2563eb' },
+  { clave: 'disco', labelEs: 'Disco', papel: 'acento', porDefecto: '#f8fafc' },
+])
+
 const FASES: readonly Fase[] = ['lista', 'jugando', 'fin']
 const r1 = (n: number) => Math.round(n * 10) / 10
 
@@ -84,6 +94,7 @@ function moverMazo(mazo: Mazo, esAbajo: boolean, velMax: number, dt: number): { 
 
 export function Hockey({ dificultad = 'medio', mesaOnline = false }: PropsDificultad) {
   const t = useT()
+  const col = useApariencia('hockey')
   const rival = RIVAL[dificultad]
   const lienzo = useRef<HTMLCanvasElement>(null)
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null)
@@ -110,8 +121,12 @@ export function Hockey({ dificultad = 'medio', mesaOnline = false }: PropsDificu
   useEffect(() => {
     if (modo === null) return
     ctxRef.current = prepararLienzo(lienzo.current!, ANCHO, ALTO)
-    dibujar(ctxRef.current, mundo.current, girada)
-  }, [modo, girada])
+  }, [modo])
+
+  // Pinta al abrir y, con la partida parada, también al cambiar los colores.
+  useEffect(() => {
+    if (modo !== null && ctxRef.current) dibujar(ctxRef.current, mundo.current, col, girada)
+  }, [modo, col, girada])
 
   useEffect(() => {
     if (online && mesa.enLinea && !mesa.abierta) mesa.abrir()
@@ -175,7 +190,7 @@ export function Hockey({ dificultad = 'medio', mesaOnline = false }: PropsDificu
         m.arriba.y += (numVivo(d.by, 70) - m.arriba.y) * k
       }
     }
-    dibujar(ctxRef.current!, m, girada)
+    dibujar(ctxRef.current!, m, col, girada)
   }
 
   useBucle((dt) => {
@@ -214,7 +229,7 @@ export function Hockey({ dificultad = 'medio', mesaOnline = false }: PropsDificu
       // Si el de enfrente se levanta a media partida, la partida se para.
       if (fase === 'jugando' && sinRival) setFase('lista')
       if (fase !== 'jugando' || sinRival) {
-        dibujar(ctxRef.current!, m)
+        dibujar(ctxRef.current!, m, col)
         return
       }
       // El mazo azul va adonde dice su mando.
@@ -300,7 +315,7 @@ export function Hockey({ dificultad = 'medio', mesaOnline = false }: PropsDificu
       }
     }
 
-    dibujar(ctxRef.current!, mundo.current)
+    dibujar(ctxRef.current!, mundo.current, col)
   }, (fase === 'jugando' && modo !== null) || online)
 
   /** Punto del lienzo en coordenadas de la mesa (la del de enfrente va girada). */
@@ -405,7 +420,7 @@ export function Hockey({ dificultad = 'medio', mesaOnline = false }: PropsDificu
           onPointerUp={soltarPuntero}
           onPointerCancel={soltarPuntero}
           className="w-full rounded-xl"
-          style={{ touchAction: 'none', aspectRatio: `${ANCHO} / ${ALTO}`, background: FONDO_LIENZO }}
+          style={{ touchAction: 'none', aspectRatio: `${ANCHO} / ${ALTO}`, background: col.fondo }}
         />
         {fase !== 'jugando' && (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-black/60 ui-noche">
@@ -441,7 +456,7 @@ export function Hockey({ dificultad = 'medio', mesaOnline = false }: PropsDificu
   )
 }
 
-function dibujar(ctx: CanvasRenderingContext2D, m: Mundo, girada = false) {
+function dibujar(ctx: CanvasRenderingContext2D, m: Mundo, col: Record<string, string>, girada = false) {
   ctx.clearRect(0, 0, ANCHO, ALTO)
   ctx.save()
   if (girada) {
@@ -450,7 +465,8 @@ function dibujar(ctx: CanvasRenderingContext2D, m: Mundo, girada = false) {
   }
 
   // Cancha: línea central, círculo y bocas de portería
-  ctx.strokeStyle = 'rgba(255,255,255,0.15)'
+  ctx.strokeStyle = col.lineas
+  ctx.globalAlpha = 0.15
   ctx.lineWidth = 2
   ctx.beginPath()
   ctx.moveTo(0, ALTO / 2)
@@ -459,7 +475,8 @@ function dibujar(ctx: CanvasRenderingContext2D, m: Mundo, girada = false) {
   ctx.beginPath()
   ctx.arc(ANCHO / 2, ALTO / 2, 40, 0, Math.PI * 2)
   ctx.stroke()
-  ctx.strokeStyle = COLOR
+  ctx.globalAlpha = 1
+  ctx.strokeStyle = col.porterias
   ctx.lineWidth = 4
   ctx.beginPath()
   ctx.moveTo(ANCHO / 2 - PORTERIA / 2, 2)
@@ -470,18 +487,20 @@ function dibujar(ctx: CanvasRenderingContext2D, m: Mundo, girada = false) {
   ctx.lineTo(ANCHO / 2 + PORTERIA / 2, ALTO - 2)
   ctx.stroke()
 
-  // Mazos y disco
-  const circulo = (x: number, y: number, r: number, relleno: string, borde: string) => {
+  // Mazos y disco: el borde es el mismo color, aclarado (mazos) u oscurecido (disco)
+  const circulo = (x: number, y: number, r: number, relleno: string, velo: string) => {
     ctx.beginPath()
     ctx.arc(x, y, r, 0, Math.PI * 2)
     ctx.fillStyle = relleno
     ctx.fill()
     ctx.lineWidth = 3
-    ctx.strokeStyle = borde
+    ctx.strokeStyle = relleno
+    ctx.stroke()
+    ctx.strokeStyle = velo
     ctx.stroke()
   }
-  circulo(m.abajo.x, m.abajo.y, R_MAZO, '#dc2626', '#fca5a5')
-  circulo(m.arriba.x, m.arriba.y, R_MAZO, '#2563eb', '#93c5fd')
-  circulo(m.disco.x, m.disco.y, R_DISCO, '#f8fafc', '#94a3b8')
+  circulo(m.abajo.x, m.abajo.y, R_MAZO, col.abajo, 'rgba(255,255,255,0.55)')
+  circulo(m.arriba.x, m.arriba.y, R_MAZO, col.arriba, 'rgba(255,255,255,0.55)')
+  circulo(m.disco.x, m.disco.y, R_DISCO, col.disco, 'rgba(0,0,0,0.35)')
   ctx.restore()
 }

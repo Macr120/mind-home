@@ -5,6 +5,7 @@ import { registrarJuegoMesa, useMesa } from '../../../core/partida/mesa'
 import { COLOR } from '../constantes'
 import { FONDO_LIENZO, prepararLienzo, puntoLienzo, useBucle, useTeclas } from './arcade'
 import type { Dificultad, PropsDificultad } from './dificultad'
+import { registrarApariencia, useApariencia } from './apariencia'
 import { ElegirModo } from './ElegirModo'
 import { BarraMesa, PERIODO_VIVO, nombreAsiento, numVivo, opcionEnLinea, useRecibidoVivo } from './mesaJuego'
 
@@ -55,6 +56,14 @@ registrarJuegoMesa<{ v: number }, never>('pong', {
   terminado: () => false,
 })
 
+registrarApariencia('pong', [
+  { clave: 'fondo', labelEs: 'Fondo', papel: 'fondo', porDefecto: FONDO_LIENZO },
+  { clave: 'linea', labelEs: 'Línea central', papel: 'claro', porDefecto: '#ffffff' },
+  { clave: 'abajo', labelEs: 'Paleta de abajo', papel: 'uno', porDefecto: '#f8fafc' },
+  { clave: 'arriba', labelEs: 'Paleta de arriba', papel: 'dos', porDefecto: '#f8fafc' },
+  { clave: 'bola', labelEs: 'Bola', papel: 'acento', porDefecto: '#34d399' },
+])
+
 const FASES: readonly Fase[] = ['lista', 'jugando', 'fin']
 const r1 = (n: number) => Math.round(n * 10) / 10
 
@@ -68,6 +77,7 @@ function plegarX(x: number): number {
 
 export function Pong({ dificultad = 'medio', mesaOnline = false }: PropsDificultad) {
   const t = useT()
+  const col = useApariencia('pong')
   const rival = RIVAL[dificultad]
   const lienzo = useRef<HTMLCanvasElement>(null)
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null)
@@ -94,8 +104,12 @@ export function Pong({ dificultad = 'medio', mesaOnline = false }: PropsDificult
   useEffect(() => {
     if (modo === null) return
     ctxRef.current = prepararLienzo(lienzo.current!, ANCHO, ALTO)
-    dibujar(ctxRef.current, mundo.current, girada)
-  }, [modo, girada])
+  }, [modo])
+
+  // Pinta al abrir y, con la partida parada, también al cambiar los colores.
+  useEffect(() => {
+    if (modo !== null && ctxRef.current) dibujar(ctxRef.current, mundo.current, col, girada)
+  }, [modo, col, girada])
 
   useEffect(() => {
     if (online && mesa.enLinea && !mesa.abierta) mesa.abrir()
@@ -157,7 +171,7 @@ export function Pong({ dificultad = 'medio', mesaOnline = false }: PropsDificult
       m.abajo += (numVivo(d.ab, ANCHO / 2) - m.abajo) * Math.min(1, dt * 18)
       if (mesa.miAsiento !== 'b') m.arriba += (numVivo(d.ar, ANCHO / 2) - m.arriba) * Math.min(1, dt * 18)
     }
-    dibujar(ctxRef.current!, m, girada)
+    dibujar(ctxRef.current!, m, col, girada)
   }
 
   useBucle((dt) => {
@@ -193,7 +207,7 @@ export function Pong({ dificultad = 'medio', mesaOnline = false }: PropsDificult
       // Si el de enfrente se levanta a media partida, la partida se para.
       if (fase === 'jugando' && sinRival) setFase('lista')
       if (fase !== 'jugando' || sinRival) {
-        dibujar(ctxRef.current!, m)
+        dibujar(ctxRef.current!, m, col)
         return
       }
     }
@@ -254,7 +268,7 @@ export function Pong({ dificultad = 'medio', mesaOnline = false }: PropsDificult
       if (nuevo.abajo >= META || nuevo.arriba >= META) setFase('fin')
     }
 
-    dibujar(ctxRef.current!, m)
+    dibujar(ctxRef.current!, m, col)
   }, (fase === 'jugando' && modo !== null) || online)
 
   const moverConPuntero = (e: React.PointerEvent<HTMLCanvasElement>) => {
@@ -341,7 +355,7 @@ export function Pong({ dificultad = 'medio', mesaOnline = false }: PropsDificult
           onPointerMove={moverConPuntero}
           onPointerDown={moverConPuntero}
           className="w-full rounded-xl"
-          style={{ touchAction: 'none', aspectRatio: `${ANCHO} / ${ALTO}`, background: FONDO_LIENZO }}
+          style={{ touchAction: 'none', aspectRatio: `${ANCHO} / ${ALTO}`, background: col.fondo }}
         />
         {fase !== 'jugando' && (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-black/60 ui-noche">
@@ -379,7 +393,7 @@ export function Pong({ dificultad = 'medio', mesaOnline = false }: PropsDificult
   )
 }
 
-function dibujar(ctx: CanvasRenderingContext2D, m: Mundo, girada = false) {
+function dibujar(ctx: CanvasRenderingContext2D, m: Mundo, col: Record<string, string>, girada = false) {
   ctx.clearRect(0, 0, ANCHO, ALTO)
   ctx.save()
   if (girada) {
@@ -388,7 +402,8 @@ function dibujar(ctx: CanvasRenderingContext2D, m: Mundo, girada = false) {
   }
 
   // Línea central
-  ctx.strokeStyle = 'rgba(255,255,255,0.15)'
+  ctx.strokeStyle = col.linea
+  ctx.globalAlpha = 0.15
   ctx.lineWidth = 2
   ctx.setLineDash([8, 10])
   ctx.beginPath()
@@ -396,16 +411,18 @@ function dibujar(ctx: CanvasRenderingContext2D, m: Mundo, girada = false) {
   ctx.lineTo(ANCHO, ALTO / 2)
   ctx.stroke()
   ctx.setLineDash([])
+  ctx.globalAlpha = 1
 
   // Paletas
-  ctx.fillStyle = '#f8fafc'
+  ctx.fillStyle = col.abajo
   ctx.fillRect(m.abajo - PALETA_W / 2, ALTO - 20, PALETA_W, PALETA_H)
+  ctx.fillStyle = col.arriba
   ctx.fillRect(m.arriba - PALETA_W / 2, 20 - PALETA_H, PALETA_W, PALETA_H)
 
   // Bola
   ctx.beginPath()
   ctx.arc(m.bola.x, m.bola.y, 6, 0, Math.PI * 2)
-  ctx.fillStyle = COLOR
+  ctx.fillStyle = col.bola
   ctx.fill()
   ctx.restore()
 }

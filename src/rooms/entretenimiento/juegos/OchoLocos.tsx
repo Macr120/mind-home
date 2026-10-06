@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react'
 import { useT } from '../../../core/i18n/useT'
 import { registrarJuegoMesa, useMesa, type Asiento, type Mesa } from '../../../core/partida/mesa'
 import { COLOR } from '../constantes'
-import { CartaView } from './CartaView'
+import { registrarApariencia, useApariencia } from './apariencia'
+import { CartaView, COLORES_CARTA, islaTinta, legible } from './CartaView'
 import { barajar, crearBaraja, type Carta } from './cartas'
 import type { Dificultad, PropsDificultad } from './dificultad'
 import { ElegirModo } from './ElegirModo'
@@ -12,6 +13,23 @@ import { BarraMesa, nombreAsiento, opcionEnLinea } from './mesaJuego'
 type Palo = Carta['palo']
 const PALOS: Palo[] = ['♠', '♥', '♦', '♣']
 const CARTAS_INICIALES = 7
+
+const TAPETE = '#022c22'
+
+registrarApariencia('ocholocos', [
+  { clave: 'tapete', labelEs: 'Tapete', papel: 'fondo', porDefecto: TAPETE },
+  { clave: 'dorso', labelEs: 'Dorso', papel: 'oscuro', porDefecto: COLORES_CARTA.dorso },
+  { clave: 'cara', labelEs: 'Cara', papel: 'claro', porDefecto: COLORES_CARTA.cara },
+  { clave: 'rojo', labelEs: 'Palos rojos', papel: 'uno', porDefecto: COLORES_CARTA.rojo },
+  { clave: 'negro', labelEs: 'Palos negros', papel: 'dos', porDefecto: COLORES_CARTA.negro },
+  { clave: 'marca', labelEs: 'Jugables', papel: 'acento', porDefecto: COLORES_CARTA.marca },
+])
+
+/** La mesa a media transparencia; con un tapete propio, su tinta legible encima. */
+const estiloTapete = (tapete: string) => ({
+  background: `color-mix(in srgb, ${tapete} 50%, transparent)`,
+  ...(tapete !== TAPETE ? islaTinta(tapete) : {}),
+})
 
 interface RondaOcho {
   mano: Carta[]
@@ -249,6 +267,7 @@ function jugadaIA(mano: Carta[], arriba: Carta, palo: Palo, dif: Dificultad, teF
 export function OchoLocos({ dificultad = 'medio', mesaOnline = false }: PropsDificultad) {
   const t = useT()
   const mesa = useMesa<EstadoOchoEnLinea, MovOcho>('ocholocos')
+  const col = useApariencia('ocholocos')
   const [modo, setModo] = useState<'ia' | 'online' | null>(mesaOnline ? 'online' : null)
   const online = modo === 'online'
   // Sin sala no hay nada que elegir: se juega contra la máquina como siempre.
@@ -436,14 +455,14 @@ export function OchoLocos({ dificultad = 'medio', mesaOnline = false }: PropsDif
         </span>
         <div className="flex -space-x-5">
           {ronda.manoIA.map((c, k) => (
-            <CartaView key={k} carta={c} bocaAbajo ancho={30} />
+            <CartaView key={k} carta={c} bocaAbajo ancho={30} colores={col} />
           ))}
         </div>
         <span className="ms-auto shrink-0 text-xs text-white/45">{ronda.manoIA.length}</span>
       </div>
 
       {/* Mesa: mazo, carta de arriba y palo que manda */}
-      <div className="flex items-center justify-center gap-5 rounded-xl border border-white/10 bg-emerald-950/50 p-4">
+      <div className="flex items-center justify-center gap-5 rounded-xl border border-white/10 p-4" style={estiloTapete(col.tapete)}>
         <button
           type="button"
           onClick={robar}
@@ -451,14 +470,19 @@ export function OchoLocos({ dificultad = 'medio', mesaOnline = false }: PropsDif
           className="relative disabled:opacity-60"
           aria-label={t('entre.j.ocholocos.robar', 'Robar del mazo')}
         >
-          <CartaView carta={arriba} bocaAbajo ancho={56} />
+          <CartaView carta={arriba} bocaAbajo ancho={56} colores={col} />
           <span className="absolute -bottom-2 -end-2 rounded-full bg-black/70 px-1.5 text-[10px] font-bold text-white ui-noche">
             {ronda.mazo.length}
           </span>
         </button>
-        <CartaView carta={arriba} ancho={62} />
+        <CartaView carta={arriba} ancho={62} colores={col} />
         <div className="text-center">
-          <p className={`text-4xl leading-none ${rojo ? 'text-red-500' : 'text-white/90'}`}>{ronda.palo}</p>
+          <p
+            className={`text-4xl leading-none ${rojo ? '' : 'text-white/90'}`}
+            style={rojo ? { color: legible(col.rojo, col.tapete) } : undefined}
+          >
+            {ronda.palo}
+          </p>
           <p className="mt-1 text-[10px] uppercase tracking-wide text-white/45">{t('entre.j.ocholocos.palo', 'Palo')}</p>
         </div>
       </div>
@@ -473,9 +497,8 @@ export function OchoLocos({ dificultad = 'medio', mesaOnline = false }: PropsDif
               key={p}
               type="button"
               onClick={() => tirar(ochoPendiente, p)}
-              className={`h-10 w-10 rounded-lg bg-[#ffffff] text-2xl leading-none shadow-sm ${
-                p === '♥' || p === '♦' ? 'text-red-600' : 'text-slate-900'
-              }`}
+              className="h-10 w-10 rounded-lg text-2xl leading-none shadow-sm"
+              style={{ background: col.cara, color: legible(p === '♥' || p === '♦' ? col.rojo : col.negro, col.cara) }}
             >
               {p}
             </button>
@@ -499,7 +522,7 @@ export function OchoLocos({ dificultad = 'medio', mesaOnline = false }: PropsDif
                 ochoPendiente === idx ? '-translate-y-1' : ''
               }`}
             >
-              <CartaView carta={c} ancho={50} seleccionada={jugable || ochoPendiente === idx} />
+              <CartaView carta={c} ancho={50} seleccionada={jugable || ochoPendiente === idx} colores={col} />
             </button>
           )
         })}
@@ -554,6 +577,7 @@ function MesaOcho({ mesa, alSalir }: { mesa: Mesa<EstadoOchoEnLinea, MovOcho>; a
   const t = useT()
   /** Índice del 8 que vas a tirar, mientras eliges el palo. */
   const [ochoPendiente, setOchoPendiente] = useState<number | null>(null)
+  const col = useApariencia('ocholocos')
   const e = mesa.estado
   const yo = mesa.miAsiento
   const nombre = (a: Asiento) => nombreAsiento(t, mesa.asientos, a, yo)
@@ -600,7 +624,7 @@ function MesaOcho({ mesa, alSalir }: { mesa: Mesa<EstadoOchoEnLinea, MovOcho>; a
       <span className="me-1 shrink-0 text-xs font-semibold text-white/60">{nombre(a)}</span>
       <div className="flex -space-x-5">
         {e.manos[a].map((c, k) => (
-          <CartaView key={k} carta={c} bocaAbajo ancho={30} />
+          <CartaView key={k} carta={c} bocaAbajo ancho={30} colores={col} />
         ))}
       </div>
       <span className="ms-auto shrink-0 text-xs text-white/45">{e.manos[a].length}</span>
@@ -625,7 +649,7 @@ function MesaOcho({ mesa, alSalir }: { mesa: Mesa<EstadoOchoEnLinea, MovOcho>; a
       {dorso(enfrente)}
 
       {/* Mesa: mazo, carta de arriba y palo que manda */}
-      <div className="flex items-center justify-center gap-5 rounded-xl border border-white/10 bg-emerald-950/50 p-4">
+      <div className="flex items-center justify-center gap-5 rounded-xl border border-white/10 p-4" style={estiloTapete(col.tapete)}>
         <button
           type="button"
           onClick={robar}
@@ -633,14 +657,19 @@ function MesaOcho({ mesa, alSalir }: { mesa: Mesa<EstadoOchoEnLinea, MovOcho>; a
           className="relative disabled:opacity-60"
           aria-label={t('entre.j.ocholocos.robar', 'Robar del mazo')}
         >
-          <CartaView carta={arriba} bocaAbajo ancho={56} />
+          <CartaView carta={arriba} bocaAbajo ancho={56} colores={col} />
           <span className="absolute -bottom-2 -end-2 rounded-full bg-black/70 px-1.5 text-[10px] font-bold text-white ui-noche">
             {e.mazo.length}
           </span>
         </button>
-        <CartaView carta={arriba} ancho={62} />
+        <CartaView carta={arriba} ancho={62} colores={col} />
         <div className="text-center">
-          <p className={`text-4xl leading-none ${rojo ? 'text-red-500' : 'text-white/90'}`}>{e.palo}</p>
+          <p
+            className={`text-4xl leading-none ${rojo ? '' : 'text-white/90'}`}
+            style={rojo ? { color: legible(col.rojo, col.tapete) } : undefined}
+          >
+            {e.palo}
+          </p>
           <p className="mt-1 text-[10px] uppercase tracking-wide text-white/45">{t('entre.j.ocholocos.palo', 'Palo')}</p>
         </div>
       </div>
@@ -657,9 +686,8 @@ function MesaOcho({ mesa, alSalir }: { mesa: Mesa<EstadoOchoEnLinea, MovOcho>; a
               key={p}
               type="button"
               onClick={() => jugar({ t: 'soltar', i: ochoPendiente, palo: p })}
-              className={`h-10 w-10 rounded-lg bg-[#ffffff] text-2xl leading-none shadow-sm ${
-                p === '♥' || p === '♦' ? 'text-red-600' : 'text-slate-900'
-              }`}
+              className="h-10 w-10 rounded-lg text-2xl leading-none shadow-sm"
+              style={{ background: col.cara, color: legible(p === '♥' || p === '♦' ? col.rojo : col.negro, col.cara) }}
             >
               {p}
             </button>
@@ -684,7 +712,7 @@ function MesaOcho({ mesa, alSalir }: { mesa: Mesa<EstadoOchoEnLinea, MovOcho>; a
                   ochoPendiente === idx ? '-translate-y-1' : ''
                 }`}
               >
-                <CartaView carta={c} ancho={50} seleccionada={jugable || ochoPendiente === idx} />
+                <CartaView carta={c} ancho={50} seleccionada={jugable || ochoPendiente === idx} colores={col} />
               </button>
             )
           })}

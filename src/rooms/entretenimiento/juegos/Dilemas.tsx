@@ -4,6 +4,7 @@ import { useT } from '../../../core/i18n/useT'
 import { Icono } from '../../../core/ui/iconos/Icono'
 import { COLOR } from '../constantes'
 import { guardarRecord, leerNumero } from './almacen'
+import { registrarApariencia, useApariencia } from './apariencia'
 import { barajar } from './cartas'
 import { DILEMAS, type Dilema } from './dilemas.data'
 import { useDilemas } from './dilemas.i18n'
@@ -23,6 +24,33 @@ function pedirDecision(d: Dilema): Promise<Decision> {
   )
 }
 
+/** Los de fábrica: en «Clásico» se pinta con el tema (color del cuarto y blancos translúcidos). */
+const DE_FABRICA = { si: '#34d399', no: '#2a2c30', tarjeta: '#1b1e23' }
+registrarApariencia('dilemas', [
+  { clave: 'si', labelEs: 'Barra «Sí» y Jev', papel: 'uno', porDefecto: DE_FABRICA.si },
+  { clave: 'no', labelEs: 'Barra «No»', papel: 'dos', porDefecto: DE_FABRICA.no },
+  { clave: 'tarjeta', labelEs: 'Tarjeta del dilema', papel: 'fondo', porDefecto: DE_FABRICA.tarjeta },
+])
+
+/** Negro o blanco, lo que se lea mejor sobre un `#rrggbb`. */
+function tintaSobre(hex: string): string {
+  const n = parseInt(hex.slice(1), 16)
+  return 0.299 * (n >> 16) + 0.587 * ((n >> 8) & 255) + 0.114 * (n & 255) > 128 ? '#000' : '#fff'
+}
+
+/** Los colores elegidos; los que siguen de fábrica quedan con los del tema (`undefined` = la clase de siempre). */
+function useColores() {
+  const col = useApariencia('dilemas')
+  const si = col.si === DE_FABRICA.si
+  const tarjeta = col.tarjeta === DE_FABRICA.tarjeta
+  return {
+    si: si ? COLOR : col.si,
+    tintaSi: si ? undefined : tintaSobre(col.si),
+    no: col.no === DE_FABRICA.no ? undefined : col.no,
+    tarjeta: tarjeta ? undefined : { background: col.tarjeta, color: tintaSobre(col.tarjeta) },
+  }
+}
+
 const MAX_SITUACION = 600
 const MAX_PREGUNTA = 200
 
@@ -32,6 +60,7 @@ const MAX_PREGUNTA = 200
  */
 function PreguntaleAJev() {
   const t = useT()
+  const col = useColores()
   const [situacion, setSituacion] = useState('')
   const [pregunta, setPregunta] = useState('')
   const [pensando, setPensando] = useState(false)
@@ -91,8 +120,8 @@ function PreguntaleAJev() {
           <p className="text-sm text-white/60">
             {t('entre.j.dilemas.confianza', 'Confianza de Jev: {n} %', { n: Math.round(Math.max(p, 1 - p) * 100) })}
           </p>
-          <div className="flex h-2.5 overflow-hidden rounded-full bg-white/10">
-            <div className="h-full" style={{ width: `${Math.round(p * 100)}%`, background: COLOR }} />
+          <div className="flex h-2.5 overflow-hidden rounded-full bg-white/10" style={{ background: col.no }}>
+            <div className="h-full" style={{ width: `${Math.round(p * 100)}%`, background: col.si }} />
           </div>
         </div>
       )}
@@ -137,6 +166,7 @@ export function Dilemas() {
  */
 function PartidaDilemas() {
   const t = useT()
+  const col = useColores()
   const traducidos = useDilemas()
   const [ronda, setRonda] = useState(() => barajar(INDICES).slice(0, POR_PARTIDA))
   const [i, setI] = useState(0)
@@ -241,7 +271,7 @@ function PartidaDilemas() {
         <span className="mt-1 flex flex-wrap gap-1.5 text-[11px] font-bold">
           {elegida && <span className="rounded-full bg-white/15 px-2 py-0.5">{t('entre.j.dilemas.tu', 'Tú')}</span>}
           {deJev && (
-            <span className="rounded-full px-2 py-0.5 text-black" style={{ background: COLOR }}>
+            <span className="rounded-full px-2 py-0.5 text-black" style={{ background: col.si, color: col.tintaSi }}>
               <Icono nombre="memoria" /> Jev · {confianza} %
             </span>
           )}
@@ -261,7 +291,7 @@ function PartidaDilemas() {
         </span>
       </div>
 
-      <div className="rounded-2xl bg-white/5 p-4">
+      <div className="rounded-2xl bg-white/5 p-4" style={col.tarjeta}>
         <p className="leading-relaxed">{dilema.texto}</p>
         <p className="mt-2 text-sm font-bold">{dilema.pregunta}</p>
       </div>
@@ -284,8 +314,8 @@ function PartidaDilemas() {
               : t('entre.j.dilemas.distinto', 'Jev decidió distinto')}
           </p>
           {/* Barra: cuánto se inclina Jev hacia cada opción */}
-          <div className="flex h-2.5 overflow-hidden rounded-full bg-white/10">
-            <div className="h-full" style={{ width: `${Math.round(pJev * 100)}%`, background: COLOR }} />
+          <div className="flex h-2.5 overflow-hidden rounded-full bg-white/10" style={{ background: col.no }}>
+            <div className="h-full" style={{ width: `${Math.round(pJev * 100)}%`, background: col.si }} />
           </div>
           <div className="flex justify-between text-[11px] text-white/50">
             <span>{dilema.si} · {Math.round(pJev * 100)} %</span>

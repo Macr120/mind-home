@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
 import { guardarRecord, leerNumero } from './almacen'
+import { registrarApariencia, useApariencia } from './apariencia'
 import { FONDO_LIENZO, prepararLienzo, puntoLienzo, useBucle, useTeclas } from './arcade'
 import { claveDificultad, type Dificultad, type PropsDificultad } from './dificultad'
 
@@ -22,6 +23,14 @@ const SEP_X = 56
 const SEP_Y = 38
 const ENEMIGO = 30
 const NAVE_Y = 445
+
+registrarApariencia('space', [
+  { clave: 'fondo', labelEs: 'Espacio', papel: 'fondo', porDefecto: FONDO_LIENZO },
+  { clave: 'nave', labelEs: 'Nave', papel: 'uno', porDefecto: '#34d399' },
+  { clave: 'balas', labelEs: 'Tus disparos', papel: 'acento', porDefecto: '#a7f3d0' },
+  { clave: 'bombas', labelEs: 'Bombas', papel: 'dos', porDefecto: '#f87171' },
+  { clave: 'marcador', labelEs: 'Marcador', papel: 'claro', porDefecto: '#ffffff' },
+])
 
 const TECLAS_SPACE = ['arrowleft', 'arrowright', 'a', 'd'] as const
 
@@ -75,6 +84,7 @@ function mundoInicial(ajuste: (typeof AJUSTE)[Dificultad]): Mundo {
 
 export function SpaceDefender({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
+  const col = useApariencia('space')
   const ajuste = AJUSTE[dificultad]
   const clave = claveDificultad('space-record', dificultad)
   const lienzo = useRef<HTMLCanvasElement>(null)
@@ -87,8 +97,12 @@ export function SpaceDefender({ dificultad = 'medio' }: PropsDificultad) {
 
   useEffect(() => {
     ctxRef.current = prepararLienzo(lienzo.current!, ANCHO, ALTO)
-    dibujar(ctxRef.current, mundo.current)
   }, [])
+
+  // Pinta al abrir y, con la partida parada, también al cambiar los colores.
+  useEffect(() => {
+    dibujar(ctxRef.current!, mundo.current, col)
+  }, [col])
 
   const empezar = () => {
     mundo.current = mundoInicial(ajuste)
@@ -135,7 +149,7 @@ export function SpaceDefender({ dificultad = 'medio' }: PropsDificultad) {
     }
     if (maxY >= NAVE_Y - 10) {
       perder(m)
-      dibujar(ctxRef.current!, m)
+      dibujar(ctxRef.current!, m, col)
       return
     }
 
@@ -180,7 +194,7 @@ export function SpaceDefender({ dificultad = 'medio' }: PropsDificultad) {
           m.invul = 1.5
           if (m.vidas <= 0) {
             perder(m)
-            dibujar(ctxRef.current!, m)
+            dibujar(ctxRef.current!, m, col)
             return
           }
           break
@@ -194,7 +208,7 @@ export function SpaceDefender({ dificultad = 'medio' }: PropsDificultad) {
       formacion(m, m.oleada, ajuste)
     }
 
-    dibujar(ctxRef.current!, m)
+    dibujar(ctxRef.current!, m, col)
   }, fase === 'jugando')
 
   const arrastrar = (e: React.PointerEvent<HTMLCanvasElement>) => {
@@ -216,7 +230,7 @@ export function SpaceDefender({ dificultad = 'medio' }: PropsDificultad) {
           onPointerMove={arrastrar}
           onPointerDown={arrastrar}
           className="w-full rounded-xl"
-          style={{ touchAction: 'none', aspectRatio: `${ANCHO} / ${ALTO}`, background: FONDO_LIENZO }}
+          style={{ touchAction: 'none', aspectRatio: `${ANCHO} / ${ALTO}`, background: col.fondo }}
         />
         {fase !== 'jugando' && (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-black/60 ui-noche">
@@ -235,7 +249,7 @@ export function SpaceDefender({ dificultad = 'medio' }: PropsDificultad) {
   )
 }
 
-function dibujar(ctx: CanvasRenderingContext2D, m: Mundo) {
+function dibujar(ctx: CanvasRenderingContext2D, m: Mundo, col: Record<string, string>) {
   ctx.clearRect(0, 0, ANCHO, ALTO)
 
   // Enemigos
@@ -249,7 +263,7 @@ function dibujar(ctx: CanvasRenderingContext2D, m: Mundo) {
 
   // Nave (parpadea si es invulnerable)
   if (m.invul === 0 || Math.floor(m.invul * 10) % 2 === 0) {
-    ctx.fillStyle = COLOR
+    ctx.fillStyle = col.nave
     ctx.beginPath()
     ctx.moveTo(m.nave, NAVE_Y - 12)
     ctx.lineTo(m.nave - 14, NAVE_Y + 10)
@@ -259,18 +273,20 @@ function dibujar(ctx: CanvasRenderingContext2D, m: Mundo) {
   }
 
   // Proyectiles
-  ctx.fillStyle = '#a7f3d0'
+  ctx.fillStyle = col.balas
   for (const b of m.balas) ctx.fillRect(b.x - 1.5, b.y - 6, 3, 10)
-  ctx.fillStyle = '#f87171'
+  ctx.fillStyle = col.bombas
   for (const b of m.bombas) ctx.fillRect(b.x - 2, b.y - 5, 4, 9)
 
   // HUD
   ctx.font = 'bold 13px sans-serif'
-  ctx.fillStyle = 'rgba(255,255,255,0.75)'
+  ctx.fillStyle = col.marcador
+  ctx.globalAlpha = 0.75
   ctx.textAlign = 'left'
   ctx.fillText('♥'.repeat(Math.max(0, m.vidas)), 10, 8)
   ctx.textAlign = 'center'
   ctx.fillText(`— ${m.oleada} —`, ANCHO / 2, 8)
   ctx.textAlign = 'right'
   ctx.fillText(String(m.puntos), ANCHO - 10, 8)
+  ctx.globalAlpha = 1
 }

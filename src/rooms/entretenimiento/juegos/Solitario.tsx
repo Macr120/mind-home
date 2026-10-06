@@ -4,7 +4,8 @@ import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
 import type { Carta } from './cartas'
 import { barajar, crearBaraja, esRoja } from './cartas'
-import { CartaView } from './CartaView'
+import { registrarApariencia, useApariencia } from './apariencia'
+import { CartaView, COLORES_CARTA } from './CartaView'
 import type { Dificultad, PropsDificultad } from './dificultad'
 
 interface CartaSol extends Carta {
@@ -34,6 +35,14 @@ const ANCHO = 46
 const ALTO = Math.round(ANCHO * 1.4)
 const SOLAPE_ARRIBA = 21
 const SOLAPE_ABAJO = 9
+
+registrarApariencia('solitario', [
+  { clave: 'dorso', labelEs: 'Dorso', papel: 'oscuro', porDefecto: COLORES_CARTA.dorso },
+  { clave: 'cara', labelEs: 'Cara', papel: 'claro', porDefecto: COLORES_CARTA.cara },
+  { clave: 'rojo', labelEs: 'Palos rojos', papel: 'uno', porDefecto: COLORES_CARTA.rojo },
+  { clave: 'negro', labelEs: 'Palos negros', papel: 'dos', porDefecto: COLORES_CARTA.negro },
+  { clave: 'marca', labelEs: 'Selección', papel: 'acento', porDefecto: COLORES_CARTA.marca },
+])
 
 function repartirSol(): EstadoSol {
   const baraja = barajar(crearBaraja())
@@ -76,6 +85,7 @@ export function Solitario({ dificultad = 'medio' }: PropsDificultad) {
   const [estado, setEstado] = useState<EstadoSol>(repartirSol)
   const [sel, setSel] = useState<SelSol>(null)
   const [historial, setHistorial] = useState<EstadoSol[]>([])
+  const colores = useApariencia('solitario')
 
   const ganado = estado.fundaciones.reduce((s, f) => s + f.length, 0) === 52
 
@@ -249,7 +259,7 @@ export function Solitario({ dificultad = 'medio' }: PropsDificultad) {
           <button type="button" onClick={robar} className="relative" style={{ width: ANCHO, height: ALTO }}>
             {estado.mazo.length ? (
               <>
-                <CartaView carta={{ palo: '♠', valor: 1 }} bocaAbajo ancho={ANCHO} />
+                <CartaView carta={{ palo: '♠', valor: 1 }} bocaAbajo ancho={ANCHO} colores={colores} />
                 <span className="absolute -end-1 -top-1 rounded-full bg-white/20 px-1 text-[9px] font-bold">
                   {estado.mazo.length}
                 </span>
@@ -270,6 +280,7 @@ export function Solitario({ dificultad = 'medio' }: PropsDificultad) {
                 carta={estado.descarte[estado.descarte.length - 1]}
                 seleccionada={sel !== null && sel.zona === 'descarte'}
                 ancho={ANCHO}
+                colores={colores}
               />
             ) : (
               <span className="block h-full w-full rounded-md border border-dashed border-white/15" />
@@ -279,7 +290,7 @@ export function Solitario({ dificultad = 'medio' }: PropsDificultad) {
           {estado.fundaciones.map((pila, f) => (
             <button key={f} type="button" onClick={() => clickFundacion(f)} style={{ width: ANCHO, height: ALTO }}>
               {pila.length ? (
-                <CartaView carta={pila[pila.length - 1]} ancho={ANCHO} />
+                <CartaView carta={pila[pila.length - 1]} ancho={ANCHO} colores={colores} />
               ) : (
                 <span className="flex h-full w-full items-center justify-center rounded-md border border-dashed border-white/30 text-sm text-white/40">
                   A
@@ -321,6 +332,7 @@ export function Solitario({ dificultad = 'medio' }: PropsDificultad) {
                       bocaAbajo={!carta.boca}
                       seleccionada={sel !== null && sel.zona === 'col' && sel.col === colIdx && k >= sel.idx}
                       ancho={ANCHO}
+                      colores={colores}
                     />
                   </button>
                 ))}

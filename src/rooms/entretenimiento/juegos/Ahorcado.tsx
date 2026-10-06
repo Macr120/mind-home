@@ -8,6 +8,8 @@ import { enIdioma } from '../../../core/i18n/porIdioma'
 import { idiomaActual } from '../../../core/i18n/useT'
 import { BANCOS_AHORCADO } from './ahorcado.palabras'
 import { vivo } from '../../../core/ui/estilos'
+import { registrarApariencia, useApariencia } from './apariencia'
+import { islaTinta } from './CartaView'
 
 /**
  * El banco (alfabeto + 100 palabras) vive en `ahorcado.palabras.ts`, por
@@ -35,6 +37,20 @@ const normalizarCon = (letras: string) => (s: string) =>
     .map((c) => (letras.includes(c) ? c : c.normalize('NFD').replace(/[̀-ͯ]/g, '')))
     .join('')
 
+/**
+ * Los de siempre. Fondo, dibujo y horca hoy son blanco translúcido (se invierte
+ * en modo claro): mientras sigan siendo estos se pintan con sus clases de antes.
+ */
+const DE_SIEMPRE = { fondo: '#1b1e22', dibujo: '#b7b8b9', horca: '#5f6163', acierto: '#10b981', fallo: '#ef4444' }
+
+registrarApariencia('ahorcado', [
+  { clave: 'fondo', labelEs: 'Fondo', papel: 'fondo', porDefecto: DE_SIEMPRE.fondo },
+  { clave: 'dibujo', labelEs: 'Muñeco', papel: 'uno', porDefecto: DE_SIEMPRE.dibujo },
+  { clave: 'horca', labelEs: 'Horca', papel: 'acento', porDefecto: DE_SIEMPRE.horca },
+  { clave: 'acierto', labelEs: 'Aciertos', papel: 'dos', porDefecto: DE_SIEMPRE.acierto },
+  { clave: 'fallo', labelEs: 'Fallos', papel: 'oscuro', porDefecto: DE_SIEMPRE.fallo },
+])
+
 function palabraAleatoria(dif: Dificultad): string {
   const { min, max } = AJUSTE[dif]
   const pozo = banco().palabras.filter((p) => p.length >= min && p.length <= max)
@@ -52,6 +68,10 @@ export function Ahorcado({ dificultad = 'medio' }: PropsDificultad) {
   const [usadas, setUsadas] = useState<Set<string>>(new Set())
   const [racha, setRacha] = useState(0)
   const [record, setRecord] = useState(() => leerNumero(clave, 0))
+  const col = useApariencia('ahorcado')
+  const propio = (k: keyof typeof DE_SIEMPRE) => col[k] !== DE_SIEMPRE[k]
+  // Con un fondo propio, la tinta (y los `text-white/X` de dentro) es la que se lee encima.
+  const estiloFondo = propio('fondo') ? { background: col.fondo, ...islaTinta(col.fondo) } : undefined
 
   const letrasPalabra = new Set(normalizar(palabra).split('').filter((c) => letras.includes(c)))
   const fallos = [...usadas].filter((l) => !letrasPalabra.has(l)).length
@@ -103,10 +123,24 @@ export function Ahorcado({ dificultad = 'medio' }: PropsDificultad) {
         </button>
       </div>
 
-      <div className="flex items-center justify-center gap-4 rounded-xl bg-white/5 p-3">
-        <svg viewBox="0 0 120 140" className="h-36 w-28 shrink-0 stroke-white/70" fill="none" strokeWidth="4" strokeLinecap="round">
+      <div
+        className={`flex items-center justify-center gap-4 rounded-xl p-3 ${propio('fondo') ? '' : 'bg-white/5'}`}
+        style={estiloFondo}
+      >
+        <svg
+          viewBox="0 0 120 140"
+          className={`h-36 w-28 shrink-0 ${propio('dibujo') ? '' : 'stroke-white/70'}`}
+          style={propio('dibujo') ? { stroke: col.dibujo } : undefined}
+          fill="none"
+          strokeWidth="4"
+          strokeLinecap="round"
+        >
           {/* Horca */}
-          <path d="M10 130 H70 M30 130 V15 M30 15 H85 M85 15 V32" className="stroke-white/35" />
+          <path
+            d="M10 130 H70 M30 130 V15 M30 15 H85 M85 15 V32"
+            className={propio('horca') ? '' : 'stroke-white/35'}
+            style={propio('horca') ? { stroke: col.horca } : undefined}
+          />
           {/* Muñeco: se va dibujando conforme se gastan los fallos */}
           {partes >= 1 && <circle cx="85" cy="45" r="13" />}
           {partes >= 2 && <path d="M85 58 V95" />}
@@ -154,8 +188,13 @@ export function Ahorcado({ dificultad = 'medio' }: PropsDificultad) {
               onClick={() => probar(l)}
               disabled={usada || terminado}
               className={`rounded-md py-1.5 text-sm font-bold disabled:opacity-90 ${
-                !usada ? 'bg-white/10 hover:bg-white/20 disabled:opacity-35' : acierto ? 'bg-emerald-500/40' : 'bg-red-500/30 text-white/40'
+                !usada ? 'bg-white/10 hover:bg-white/20 disabled:opacity-35' : acierto ? '' : 'text-white/40'
               }`}
+              style={
+                usada
+                  ? { background: `color-mix(in srgb, ${acierto ? col.acierto : col.fallo} ${acierto ? 40 : 30}%, transparent)` }
+                  : undefined
+              }
             >
               {l}
             </button>

@@ -1,8 +1,10 @@
 import { Icono } from '../../../core/ui/iconos/Icono'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState, type CSSProperties } from 'react'
 import { useT } from '../../../core/i18n/useT'
+import { luminancia } from '../../../core/ui/temasUI'
 import { registrarJuegoMesa, useMesa, type Asiento } from '../../../core/partida/mesa'
 import { COLOR } from '../constantes'
+import { registrarApariencia, useApariencia } from './apariencia'
 import { barajar } from './cartas'
 import { ElegirModo } from './ElegirModo'
 import { BarraMesa, opcionEnLinea } from './mesaJuego'
@@ -68,12 +70,30 @@ registrarJuegoMesa<EstadoCartas, MovCartas>('cartas', {
   terminado: (e) => e.pos >= ordenDe(e).length,
 })
 
+/** El verde de fábrica de la app: mientras la barra sea este, se pinta con `COLOR` (el del cuarto, variable CSS). */
+const BARRA_FABRICA = '#34d399'
+
+const GRADIENTES: Record<MazoId, [string, string]> = {
+  conocerse: ['#7c3aed', '#db2777'],
+  debates: ['#ea580c', '#b91c1c'],
+}
+
+for (const id of ['conocerse', 'debates'] as const) {
+  registrarApariencia(id, [
+    { clave: 'inicio', labelEs: 'Carta (inicio)', papel: 'oscuro', porDefecto: GRADIENTES[id][0] },
+    { clave: 'fin', labelEs: 'Carta (final)', papel: 'dos', porDefecto: GRADIENTES[id][1] },
+    { clave: 'barra', labelEs: 'Barra y botón', papel: 'acento', porDefecto: BARRA_FABRICA },
+  ])
+}
+
+/** Tinta legible sobre un fondo elegido por el jugador. */
+const tintaSobre = (l: number) => (l > 0.35 ? '#0f172a' : '#ffffff')
+
 function MazoPreguntas({
   mazoId,
   preguntas,
   traduccion,
   grupos,
-  gradiente,
   icono,
   mesaOnline,
 }: {
@@ -82,12 +102,22 @@ function MazoPreguntas({
   /** El banco del idioma activo, por índice de pregunta; null = español. */
   traduccion: string[] | null
   grupos: GrupoPregunta[]
-  gradiente: string
   icono: string
   mesaOnline: boolean
 }) {
   const t = useT()
   const mesa = useMesa<EstadoCartas, MovCartas>('cartas')
+  const col = useApariencia(mazoId)
+  const gradiente = `linear-gradient(135deg, ${col.inicio}, ${col.fin})`
+  // Con la carta de fábrica el texto sigue como siempre; con una propia, la
+  // tinta (y los `text-white/X` de dentro) pasa a la que se lee sobre ella.
+  const cartaPropia = col.inicio !== GRADIENTES[mazoId][0] || col.fin !== GRADIENTES[mazoId][1]
+  const tintaCarta = tintaSobre((luminancia(col.inicio) + luminancia(col.fin)) / 2)
+  const estiloCarta: CSSProperties = cartaPropia
+    ? ({ background: gradiente, color: tintaCarta, '--color-white': tintaCarta, '--ui-ink': tintaCarta } as CSSProperties)
+    : { background: gradiente }
+  const barraPropia = col.barra !== BARRA_FABRICA
+  const barra = barraPropia ? col.barra : COLOR
   const [modo, setModo] = useState<'local' | 'online' | null>(mesaOnline ? 'online' : null)
   const [activos, setActivos] = useState<string[]>(() => grupos.map((g) => g.id))
   const [mazoLocal, setMazo] = useState<Pregunta[]>(() => barajar(preguntas))
@@ -221,7 +251,7 @@ function MazoPreguntas({
           if (e.key === 'Enter' || e.key === ' ') siguiente()
         }}
         className="relative flex min-h-[280px] w-full cursor-pointer select-none flex-col overflow-hidden rounded-3xl border border-white/15 p-5 shadow-xl"
-        style={{ background: gradiente }}
+        style={estiloCarta}
       >
         <span className="pointer-events-none absolute -bottom-7 -end-3 text-[120px] leading-none opacity-15">
           <Icono emoji={icono} />
@@ -270,7 +300,7 @@ function MazoPreguntas({
       <div className="h-1 overflow-hidden rounded-full bg-white/10">
         <div
           className="h-full rounded-full transition-all"
-          style={{ width: `${mazo.length ? (Math.min(pos, mazo.length) / mazo.length) * 100 : 0}%`, background: COLOR }}
+          style={{ width: `${mazo.length ? (Math.min(pos, mazo.length) / mazo.length) * 100 : 0}%`, background: barra }}
         />
       </div>
 
@@ -288,7 +318,7 @@ function MazoPreguntas({
           onClick={siguiente}
           disabled={pos >= mazo.length || !puedoPasar}
           className="flex-1 rounded-xl py-2.5 font-bold text-black disabled:opacity-30"
-          style={{ background: COLOR }}
+          style={barraPropia ? { background: barra, color: tintaSobre(luminancia(barra)) } : { background: barra }}
         >
           {t('entre.j.cartas.siguiente', 'Siguiente')} ›
         </button>
@@ -305,7 +335,6 @@ export function CartasConocerse({ mesaOnline = false }: PropsDificultad) {
       preguntas={PREGUNTAS_CONOCERSE}
       traduccion={banco?.conocerse ?? null}
       grupos={GRUPOS_CONOCERSE}
-      gradiente="linear-gradient(135deg, #7c3aed, #db2777)"
       icono="💬"
       mesaOnline={mesaOnline}
     />
@@ -320,7 +349,6 @@ export function CartasDebates({ mesaOnline = false }: PropsDificultad) {
       preguntas={PREGUNTAS_DEBATES}
       traduccion={banco?.debates ?? null}
       grupos={GRUPOS_DEBATES}
-      gradiente="linear-gradient(135deg, #ea580c, #b91c1c)"
       icono="🔥"
       mesaOnline={mesaOnline}
     />
