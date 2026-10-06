@@ -58,6 +58,13 @@ function recienVista(partidaId: string): boolean {
  * buzón sí llega siempre (por el pull), así que con él también se abre el modal.
  */
 export function invitacionDesdeMensaje(i: InvitacionRecibida): void {
+  // El timbre llegó antes y no sabe el juego: el mensaje se lo completa, y así
+  // «Aceptar» lleva directo al juego (y no al catálogo con la banda).
+  const abierta = usePartida.getState().invitacionPendiente
+  if (abierta?.partidaId === i.partidaId && !abierta.juegoInvitable && i.juegoInvitable) {
+    usePartida.setState({ invitacionPendiente: { ...abierta, juegoInvitable: i.juegoInvitable } })
+    return
+  }
   if (salaViva()?.partidaId === i.partidaId || recienVista(i.partidaId)) return
   usePartida.getState().abrirInvitacion(i)
 }
