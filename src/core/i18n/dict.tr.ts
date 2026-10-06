@@ -7620,10 +7620,6 @@ export const TR: Dict = {
   'cuenta.codigo.canjear': 'Promosyon kodu kullan',
   'cuenta.codigo.listo': 'Kod kullanıldı: aboneliğin artık etkin.',
   'cuenta.codigo.pendiente': 'Bir kod kullandıysan aboneliğin birkaç dakika içinde burada görünecek.',
-  'cuenta.sync.otraCuenta':
-    'Bu MindHaOS başka bir hesaba bağlıydı. Yerel verileri koruyup yeni hesapla birleştirelim mi? (İptal = bu MindHaOS\'u boşalt ve sadece hesaptakileri indir)',
-  'cuenta.sync.respaldoPrevio':
-    'Bu MindHaOS\'u ilk kez senkronize etmek üzeresin. Önce yerel bir yedek indirmek ister misin? (Önerilir)',
   'carpetas.vacio': 'Henüz kayıt yok.',
   'carpetas.estaSemana': 'Bu hafta',
   'carpetas.nRegistro': '1 kayıt',

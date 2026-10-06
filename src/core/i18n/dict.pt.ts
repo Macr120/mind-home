@@ -7642,10 +7642,6 @@ export const PT: Dict = {
   'cuenta.codigo.canjear': 'Resgatar um código promocional',
   'cuenta.codigo.listo': 'Código resgatado: sua assinatura já está ativa.',
   'cuenta.codigo.pendiente': 'Se você resgatou um código, sua assinatura aparecerá aqui em alguns minutos.',
-  'cuenta.sync.otraCuenta':
-    'Esta MindHaOS estava ligada a outra conta. Manter o que está local e juntar à conta nova? (Cancelar = esvaziar esta MindHaOS e baixar só o da conta)',
-  'cuenta.sync.respaldoPrevio':
-    'Você vai sincronizar esta MindHaOS pela primeira vez. Baixar antes um backup local? (Recomendado)',
   'carpetas.vacio': 'Ainda não há registros.',
   'carpetas.estaSemana': 'Esta semana',
   'carpetas.nRegistro': '1 registro',

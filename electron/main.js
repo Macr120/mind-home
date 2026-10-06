@@ -80,6 +80,8 @@ async function responder(req) {
 
 let ventana = null
 let ventanaFondo = null
+/** El fondo espera a que aparezca su monitor (`crearVentanaFondo`). */
+let esperaFondo = null
 
 /** Lo último que dijo el vigía de la música (Windows); null si no suena nada. */
 let sonando = null
@@ -154,6 +156,33 @@ function apuntarAlArranque(activo) {
 }
 
 /**
+ * El monitor elegido para el fondo; null con «todas» y undefined si no aparece.
+ * El id de Electron no es fiable entre reinicios —Windows lo renumera—, así que
+ * se busca además por el nombre y el sitio que se guardaron al elegirlo
+ * (`monitor` en fondo.json). Sin esto, al arrancar no lo encontraba y el fondo
+ * se estiraba sobre todas las pantallas.
+ */
+function pantallaElegida(eleccion) {
+  if (!eleccion || eleccion === 'todas') return null
+  const pantallas = screen.getAllDisplays()
+  const porId = pantallas.find((p) => String(p.id) === String(eleccion))
+  if (porId) return porId
+  const m = estadoFondo().monitor
+  if (!m) return undefined
+  const mismoSitio = (p) => p.bounds.x === m.x && p.bounds.y === m.y
+  return (
+    pantallas.find((p) => m.nombre && p.label === m.nombre && mismoSitio(p)) ??
+    pantallas.find(mismoSitio) ??
+    pantallas.find((p) => m.nombre && p.label === m.nombre)
+  )
+}
+
+/** Lo que identifica a un monitor aunque cambie su id (ver `pantallaElegida`). */
+function datosMonitor(p) {
+  return { nombre: p.label || '', x: p.bounds.x, y: p.bounds.y }
+}
+
+/**
  * El trozo de escritorio que va a ocupar el fondo. Con `todas` es el rectángulo
  * que envuelve a todas las pantallas —el mismo que cubre el WorkerW—, y con una
  * elegida, la suya. Se devuelve también el origen del escritorio virtual porque
@@ -165,7 +194,9 @@ function zonaFondo(eleccion) {
   const pantallas = screen.getAllDisplays()
   const virtualX = Math.min(...pantallas.map((p) => p.bounds.x))
   const virtualY = Math.min(...pantallas.map((p) => p.bounds.y))
-  const elegida = eleccion && eleccion !== 'todas' ? pantallas.find((p) => String(p.id) === String(eleccion)) : null
+  // Elegida pero ausente (se agotó la espera de `crearVentanaFondo`): la
+  // principal. NUNCA todas: el usuario pidió una sola.
+  const elegida = pantallaElegida(eleccion) ?? (eleccion && eleccion !== 'todas' ? screen.getPrimaryDisplay() : null)
   if (elegida) return { ...elegida.bounds, todas: false, virtualX, virtualY }
   const derecha = Math.max(...pantallas.map((p) => p.bounds.x + p.bounds.width))
   const abajo = Math.max(...pantallas.map((p) => p.bounds.y + p.bounds.height))
@@ -190,7 +221,17 @@ function zonaFondo(eleccion) {
  * el escritorio, para que hacer clic dentro de otra app no mueva al personaje.
  * La app entra en este modo por la query `?fondo=1` (esModoFondo).
  */
-function crearVentanaFondo(eleccion = eleccionFondoGuardada()) {
+function crearVentanaFondo(eleccion = eleccionFondoGuardada(), intento = 0) {
+  if (esperaFondo) return
+  // Al iniciar sesión Windows tarda en enumerar los monitores: si el elegido
+  // aún no está, se espera (hasta ~30 s) en vez de tomar otro.
+  if (pantallaElegida(eleccion) === undefined && intento < 20) {
+    esperaFondo = setTimeout(() => {
+      esperaFondo = null
+      if (!ventanaFondo) crearVentanaFondo(eleccion, intento + 1)
+    }, 1500)
+    return
+  }
   const zona = zonaFondo(eleccion)
   ventanaFondo = new BrowserWindow({
     x: zona.x,
@@ -657,15 +698,23 @@ function construirMenu() {
  * qué decir.
  */
 ipcMain.handle('mph:fondo', (_e, eleccion) => {
-  if (ventanaFondo) {
-    ventanaFondo.close()
+  if (ventanaFondo || esperaFondo) {
+    clearTimeout(esperaFondo)
+    esperaFondo = null
+    ventanaFondo?.close()
     guardarEstadoFondo({ activo: false })
     apuntarAlArranque(false)
     return false
   }
-  guardarEstadoFondo({ pantalla: eleccion ?? 'todas', activo: true })
+  // Se guarda con el id de HOY y con lo que lo reconoce si mañana cambia.
+  const elegida = pantallaElegida(eleccion)
+  guardarEstadoFondo(
+    elegida
+      ? { pantalla: String(elegida.id), monitor: datosMonitor(elegida), activo: true }
+      : { pantalla: 'todas', monitor: null, activo: true },
+  )
   apuntarAlArranque(true)
-  crearVentanaFondo(eleccion)
+  crearVentanaFondo(elegida ? String(elegida.id) : 'todas')
   return true
 })
 

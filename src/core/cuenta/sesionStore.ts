@@ -180,6 +180,14 @@ interface SesionState {
 const REDIRECT_NATIVO = 'com.macr120.mindhome://oauth'
 
 /**
+ * El escritorio vuelve por una página puente (`public/oauth/`) que reenvía el
+ * `code` a REDIRECT_NATIVO: si Supabase saltara directo al esquema propio, la
+ * pestaña del navegador del sistema se quedaba cargando para siempre. En el
+ * teléfono no hace falta: `Browser.close()` cierra la suya.
+ */
+const REDIRECT_ESCRITORIO = `${(import.meta.env.VITE_URL_APP as string | undefined) ?? 'https://app.mindhaos.com'}/oauth/`
+
+/**
  * Lleva el idioma de la app a la cuenta (`user_metadata.idioma`) en cuanto
  * cambia: con él salen los correos de Auth (confirmación, contraseña) y el
  * boletín diario (el trigger `al_cambiar_idioma_boletin` lo copia). Sin sesión
@@ -312,7 +320,11 @@ export const useSesion = create<SesionState>((set, get) => ({
       // `skipBrowserRedirect` deja que seamos nosotros quienes abrimos la URL.
       const { data, error } = await sb.auth.signInWithOAuth({
         provider: proveedor,
-        options: { redirectTo: REDIRECT_NATIVO, skipBrowserRedirect: true, queryParams: elegirCuenta(proveedor) },
+        options: {
+          redirectTo: esAppNativa() ? REDIRECT_NATIVO : REDIRECT_ESCRITORIO,
+          skipBrowserRedirect: true,
+          queryParams: elegirCuenta(proveedor),
+        },
       })
       if (error) return codigoAuth(error)
       if (!data.url) return 'sin-backend'

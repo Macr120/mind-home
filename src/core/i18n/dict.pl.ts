@@ -7636,10 +7636,6 @@ export const PL: Dict = {
   'cuenta.codigo.canjear': 'Zrealizuj kod promocyjny',
   'cuenta.codigo.listo': 'Kod zrealizowany: subskrypcja jest już aktywna.',
   'cuenta.codigo.pendiente': 'Jeśli zrealizowałeś kod, subskrypcja pojawi się tu za kilka minut.',
-  'cuenta.sync.otraCuenta':
-    'Ten MindHaOS był powiązany z innym kontem. Zachować dane lokalne i połączyć je z nowym kontem? (Anuluj = wyczyść ten MindHaOS i pobierz tylko dane z konta)',
-  'cuenta.sync.respaldoPrevio':
-    'Zaraz zsynchronizujesz ten MindHaOS po raz pierwszy. Pobrać najpierw kopię zapasową lokalnie? (Zalecane)',
   'carpetas.vacio': 'Na razie brak wpisów.',
   'carpetas.estaSemana': 'Ten tydzień',
   'carpetas.nRegistro': '1 wpis',

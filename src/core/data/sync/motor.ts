@@ -17,7 +17,6 @@
 import { esDemo, esProbar } from '../../edicion'
 import { db, type EntradaOutbox, type ObjetoCuarto } from '../db'
 import { decidirPorUid } from '../ejemplos'
-import { exportarRespaldo } from '../respaldo'
 import type { RealtimeChannel, SupabaseClient } from '@supabase/supabase-js'
 import { hayBackend, obtenerSupabase } from '../../cuenta/supabase'
 import { notificarRepintado } from './repintar'
@@ -36,6 +35,7 @@ import {
   esTablaSync,
 } from './syncables'
 import { borrarBlobsDeRegistro, extraerBlobs, prepararBajadas, rehidratarBlobs } from './blobs'
+import { borrarCuenta, guardarCuenta, leerCuenta, type FilaCajon } from './cajonCuentas'
 
 const LOTE_PUSH = 200
 const LOTE_PULL = 500
@@ -487,36 +487,42 @@ async function pull(vistos?: Map<string, Set<string>>): Promise<Set<string>> {
 // ----- Bootstrap y cuenta -----
 
 /**
- * Cambio de cuenta en esta casa: el usuario decide si lo local se une a la
- * cuenta nueva (merge) o se vacía para bajar solo lo de la nube. En ambos
- * casos el estado de sync (cursor/outbox) se resetea.
+ * Cambio de cuenta en este dispositivo, sin preguntar: cada cuenta es
+ * independiente. Lo local de la anterior (con su outbox y su cursor) se guarda
+ * aparte (`cajonCuentas`) y se pone lo que la nueva dejó la última vez que
+ * estuvo aquí; si nunca estuvo, queda vacío y el bootstrap baja su nube.
+ * Devuelve si hubo cambio, para repintar todo.
  */
-async function verificarUsuario(userId: string): Promise<void> {
+async function verificarUsuario(userId: string): Promise<boolean> {
   const previo = (await db._syncMeta.get('usuario'))?.valor as string | undefined
   if (previo && previo !== userId) {
-    const conservar = window.confirm(
-      tGlobal(
-        'cuenta.sync.otraCuenta',
-        'Esta MindHaOS estaba ligada a otra cuenta. ¿Conservar lo local y unirlo a la cuenta nueva? (Cancelar = vaciar esta MindHaOS y bajar solo lo de la cuenta)',
-      ),
-    )
-    if (!conservar) {
-      await db.transaction('rw', db.tables, async () => {
-        marcarPull() // vaciar SIN tombstones: no debe tocar la nube de la cuenta nueva
-        // Una tabla con la compuerta cerrada (historialWeb) es local: no se vacía.
-        // Del Studio solo se va lo que está en la nube: lo demás existe solo aquí.
-        for (const tabla of TABLAS_SYNC) {
-          if (!esTablaSync(tabla)) continue
-          if (CAMPOS_LOCALES[tabla]) await db.table(tabla).filter((f: Fila) => !!f.nube).delete()
-          else await db.table(tabla).clear()
-        }
-      })
-    }
-    await db._outbox.clear()
-    await db._pendientes.clear()
-    await db._syncMeta.clear()
+    // Una tabla con la compuerta cerrada (historialWeb) es del dispositivo: no se toca.
+    const nombres = [...TABLAS_SYNC.filter(esTablaSync), '_outbox', '_syncMeta', '_pendientes']
+    const tablas = nombres.map((t) => db.table(t))
+    const saliente: FilaCajon[] = []
+    await db.transaction('r', tablas, async () => {
+      for (const t of tablas) for (const fila of await t.toArray()) saliente.push({ tabla: t.name, fila })
+    })
+    await guardarCuenta(previo, saliente)
+    const entrante = await leerCuenta(userId)
+    await db.transaction('rw', tablas, async () => {
+      marcarPull() // SIN tombstones: no debe tocar la nube de ninguna de las dos
+      for (const t of tablas) await t.clear()
+      const porTabla = new Map<string, unknown[]>()
+      for (const { tabla, fila } of entrante) {
+        if (!porTabla.has(tabla)) porTabla.set(tabla, [])
+        porTabla.get(tabla)!.push(fila)
+      }
+      for (const [tabla, filas] of porTabla) {
+        if (nombres.includes(tabla)) await db.table(tabla).bulkPut(filas)
+      }
+    })
+    await borrarCuenta(userId)
+    await db._syncMeta.put({ clave: 'usuario', valor: userId })
+    return true
   }
   await db._syncMeta.put({ clave: 'usuario', valor: userId })
+  return false
 }
 
 /**
@@ -526,17 +532,6 @@ async function verificarUsuario(userId: string): Promise<void> {
  */
 async function bootstrap(): Promise<Set<string> | null> {
   if ((await db._syncMeta.get('bootstrap'))?.valor === true) return null
-
-  // Primera sincronización con una casa ya usada: ofrecer respaldo previo.
-  if ((await db.objetosCuarto.count()) > 0) {
-    const exportar = window.confirm(
-      tGlobal(
-        'cuenta.sync.respaldoPrevio',
-        'Vas a sincronizar esta MindHaOS por primera vez. ¿Descargar antes un respaldo local? (Recomendado)',
-      ),
-    )
-    if (exportar) await exportarRespaldo()
-  }
 
   const vistos = new Map<string, Set<string>>()
   await pull(vistos)
@@ -616,7 +611,7 @@ export async function sincronizar(manual = false): Promise<void> {
     sincronizando = true
     useSesion.setState({ estadoSync: 'sincronizando', errorSync: null })
     try {
-      await verificarUsuario(usuario.id)
+      const cambioCuenta = await verificarUsuario(usuario.id)
       const tablasBootstrap = await bootstrap()
       const { maxSeq, alDia } = await push()
       if (maxSeq > 0) ultimoSeqPropio = Math.max(ultimoSeqPropio, maxSeq)
@@ -624,6 +619,8 @@ export async function sincronizar(manual = false): Promise<void> {
       // Las tablas del bootstrap se suman: su pull interno ya avanzó el cursor
       // y sin esto el repintado del primer login salía vacío (casa «desde 0»).
       if (tablasBootstrap) for (const t of tablasBootstrap) tocadas.add(t)
+      // Otra cuenta: cambió la casa entera, también lo que la nube no conocía.
+      if (cambioCuenta) for (const t of TABLAS_SYNC) tocadas.add(t)
       // Sana duplicados que dejó la fusión (sus tombstones viajan en el
       // siguiente ciclo): dos dispositivos que asignaron la misma app offline.
       // Es un escaneo completo de objetosCuarto: solo cuando pudo hacer falta.

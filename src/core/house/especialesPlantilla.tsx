@@ -1450,6 +1450,8 @@ function EquipoComputo({ color, pantalla: PANTALLA }: { color: string; pantalla:
                   <meshStandardMaterial color="#0b1020" />
                 </mesh>
               ))}
+          {/* La imagen del usuario, por delante de los trazos. */}
+          <PantallaFoto p={[0, 0, 0.033]} w={0.76} h={0.44} />
         </group>
       ))}
       {/* Teclado, mousepad y ratón */}

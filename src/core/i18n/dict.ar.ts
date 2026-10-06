@@ -7505,10 +7505,6 @@ export const AR: Dict = {
   'cuenta.codigo.canjear': 'استرداد رمز ترويجي',
   'cuenta.codigo.listo': 'تم استرداد الرمز: اشتراكك مفعّل الآن.',
   'cuenta.codigo.pendiente': 'إذا استرددت رمزًا، فسيظهر اشتراكك هنا خلال بضع دقائق.',
-  'cuenta.sync.otraCuenta':
-    'كان MindHaOS هذا مرتبطًا بحساب آخر. هل تريد الاحتفاظ بالبيانات المحلية ودمجها مع الحساب الجديد؟ (إلغاء = إفراغ MindHaOS هذا وتنزيل بيانات الحساب فقط)',
-  'cuenta.sync.respaldoPrevio':
-    'أنت على وشك مزامنة MindHaOS هذا لأول مرة. هل تريد تنزيل نسخة احتياطية محلية أولًا؟ (موصى به)',
   'carpetas.vacio': 'لا توجد تسجيلات بعد.',
   'carpetas.estaSemana': 'هذا الأسبوع',
   'carpetas.nRegistro': 'تسجيل واحد',

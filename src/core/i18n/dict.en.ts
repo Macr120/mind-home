@@ -7742,10 +7742,6 @@ export const EN: Dict = {
   'cuenta.codigo.canjear': 'Redeem a promo code',
   'cuenta.codigo.listo': 'Code redeemed: your subscription is now active.',
   'cuenta.codigo.pendiente': 'If you redeemed a code, your subscription will show up here in a few minutes.',
-  'cuenta.sync.otraCuenta':
-    'This MindHaOS was linked to another account. Keep local data and merge it into the new account? (Cancel = empty this MindHaOS and download only the account data)',
-  'cuenta.sync.respaldoPrevio':
-    'You are about to sync this MindHaOS for the first time. Download a local backup first? (Recommended)',
 
   // Historial en carpetas (año › mes › semana), compartido por las apps
   'carpetas.vacio': 'Nothing logged yet.',

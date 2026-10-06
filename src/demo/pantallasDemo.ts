@@ -23,7 +23,7 @@ async function bajar(archivo: string): Promise<Blob | null> {
 
 export async function ponerPantallasDemo(): Promise<void> {
   const pantallas = (await db.objetosCuarto.toArray()).filter(
-    (o) => o.id != null && esPantalla(o.tipo) && !esObjetoLibreria(o) && !o.separado && !o.foto,
+    (o) => o.id != null && esPantalla(o) && !esObjetoLibreria(o) && !o.separado && !o.foto,
   )
   if (!pantallas.length) return
   const blobs = new Map<string, Blob | null>()

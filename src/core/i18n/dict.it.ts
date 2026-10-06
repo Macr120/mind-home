@@ -7701,10 +7701,6 @@ export const IT: Dict = {
   'cuenta.codigo.canjear': 'Riscatta un codice promozionale',
   'cuenta.codigo.listo': 'Codice riscattato: il tuo abbonamento è attivo.',
   'cuenta.codigo.pendiente': 'Se hai riscattato un codice, il tuo abbonamento apparirà qui tra pochi minuti.',
-  'cuenta.sync.otraCuenta':
-    'Questa MindHaOS era collegata a un altro account. Vuoi conservare i dati locali e unirli al nuovo account? (Annulla = svuota questa MindHaOS e scarica solo i dati dell\'account)',
-  'cuenta.sync.respaldoPrevio':
-    'Stai per sincronizzare questa MindHaOS per la prima volta. Vuoi scaricare prima un backup locale? (Consigliato)',
   'carpetas.vacio': 'Ancora nessuna registrazione.',
   'carpetas.estaSemana': 'Questa settimana',
   'carpetas.nRegistro': '1 registrazione',

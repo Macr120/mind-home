@@ -1,7 +1,9 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import * as THREE from 'three'
 import { useThree } from '@react-three/fiber'
-import { TIPO_LAPTOP } from './especialesPlantillaMeta'
+import type { Pieza3D } from '../chat/mascotas'
+import { panelPantalla } from './panelPantalla'
+import { TIPO_ESTACION_COMPUTO, TIPO_LAPTOP } from './especialesPlantillaMeta'
 
 /**
  * Pantallas personalizables (TV, monitor, computadora del despacho): el usuario
@@ -14,8 +16,14 @@ import { TIPO_LAPTOP } from './especialesPlantillaMeta'
  */
 
 /** Recursos y especiales cuya pantalla acepta imagen. */
-export const TIPOS_PANTALLA = new Set(['recurso:50', 'recurso:58', 'recurso:69', TIPO_LAPTOP])
-export const esPantalla = (tipo: string) => TIPOS_PANTALLA.has(tipo)
+export const TIPOS_PANTALLA = new Set(['recurso:50', 'recurso:58', 'recurso:69', TIPO_LAPTOP, TIPO_ESTACION_COMPUTO])
+/** Compuestos cuyas pantallas se van con las partes al separarlos (separables.ts). */
+const PANTALLA_EN_PARTES = new Set([TIPO_LAPTOP, TIPO_ESTACION_COMPUTO])
+
+export function esPantalla(o: { tipo: string; piezas?: Pieza3D[]; separado?: boolean }): boolean {
+  if (TIPOS_PANTALLA.has(o.tipo)) return !(o.separado && PANTALLA_EN_PARTES.has(o.tipo))
+  return o.tipo === 'piezas' && panelPantalla(o.piezas) >= 0
+}
 
 /** Tope de un GIF guardado tal cual (no se recomprime: perdería la animación). */
 export const GIF_MAX_BYTES = 10 * 1024 * 1024
@@ -145,4 +153,17 @@ function PlanoFoto({ foto, p, w, h }: { foto: Blob; p: [number, number, number];
 export function PantallaFoto({ p, w, h }: { p: [number, number, number]; w: number; h: number }) {
   const foto = useContext(FotoPantallaContext)
   return foto ? <PlanoFoto foto={foto} p={p} w={w} h={h} /> : null
+}
+
+/** La imagen del usuario sobre la pantalla de un objeto de piezas (`panelPantalla`). */
+export function PantallaFotoPiezas({ piezas, foto }: { piezas: Pieza3D[]; foto: Blob }) {
+  const i = panelPantalla(piezas)
+  if (i < 0) return null
+  const p = piezas[i]
+  // Un poco por delante: tapa los trazos dibujados encima del panel.
+  return (
+    <group position={p.pos} rotation={p.rot ?? [0, 0, 0]}>
+      <PlanoFoto foto={foto} p={[0, 0, p.tam[2] / 2 + 0.006]} w={p.tam[0]} h={p.tam[1]} />
+    </group>
+  )
 }

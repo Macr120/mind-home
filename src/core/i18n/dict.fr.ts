@@ -7737,10 +7737,6 @@ export const FR: Dict = {
   'cuenta.codigo.canjear': 'Utiliser un code promo',
   'cuenta.codigo.listo': 'Code utilisé : ton abonnement est actif.',
   'cuenta.codigo.pendiente': 'Si tu as utilisé un code, ton abonnement apparaîtra ici d’ici quelques minutes.',
-  'cuenta.sync.otraCuenta':
-    'Cette MindHaOS était liée à un autre compte. Conserver les données locales et les fusionner avec le nouveau compte ? (Annuler = vider cette MindHaOS et ne télécharger que les données du compte)',
-  'cuenta.sync.respaldoPrevio':
-    'Tu vas synchroniser cette MindHaOS pour la première fois. Télécharger d’abord une sauvegarde locale ? (Recommandé)',
   'carpetas.vacio': 'Encore aucun enregistrement.',
   'carpetas.estaSemana': 'Cette semaine',
   'carpetas.nRegistro': '1 enregistrement',

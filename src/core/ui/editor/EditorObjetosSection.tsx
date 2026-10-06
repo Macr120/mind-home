@@ -609,7 +609,7 @@ export function EditorObjetosSection() {
             )}
 
             {/* Cuadro, espectacular y pantallas: la foto (o GIF, en pantallas) que se muestra dentro. */}
-            {(seleccionado.tipo === TIPO_CUADRO_FOTO || seleccionado.tipo === TIPO_ESPECTACULAR || esPantalla(seleccionado.tipo)) && (
+            {(seleccionado.tipo === TIPO_CUADRO_FOTO || seleccionado.tipo === TIPO_ESPECTACULAR || esPantalla(seleccionado)) && (
               <PropiedadGrupo titulo={<><Icono nombre="foto" /> {t('editor.obj.foto', 'Foto')}</>}>
                 <div className="space-y-1.5">
                   <label className="block cursor-pointer rounded-md border border-accent/30 bg-accent/10 px-2 py-1.5 text-center text-[11px] font-semibold text-accent transition hover:bg-accent/20">
@@ -626,7 +626,7 @@ export function EditorObjetosSection() {
                         e.target.value = ''
                         if (!f || seleccionado.id == null) return
                         // En pantallas el GIF se guarda tal cual: recomprimirlo lo dejaría quieto.
-                        const gif = esPantalla(seleccionado.tipo) && f.type === 'image/gif' && f.size <= GIF_MAX_BYTES
+                        const gif = esPantalla(seleccionado) && f.type === 'image/gif' && f.size <= GIF_MAX_BYTES
                         await setObjetoFoto(seleccionado.id, gif ? f : await comprimirFoto(f))
                       }}
                     />
@@ -641,7 +641,7 @@ export function EditorObjetosSection() {
                     </button>
                   )}
                   <p className="text-[10px] leading-snug text-white/35">
-                    {esPantalla(seleccionado.tipo)
+                    {esPantalla(seleccionado)
                       ? t('editor.obj.fotoAyudaPantalla', 'Una imagen o un GIF animado (hasta 10 MB) llena la pantalla.')
                       : seleccionado.tipo === TIPO_ESPECTACULAR
                         ? t('editor.obj.fotoAyudaPanel', 'La foto llena el panel; el texto queda en una banda encima.')

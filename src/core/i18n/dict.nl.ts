@@ -7707,10 +7707,6 @@ export const NL: Dict = {
   'cuenta.codigo.canjear': 'Promotiecode inwisselen',
   'cuenta.codigo.listo': 'Code ingewisseld: je abonnement is nu actief.',
   'cuenta.codigo.pendiente': 'Als je een code hebt ingewisseld, verschijnt je abonnement hier binnen een paar minuten.',
-  'cuenta.sync.otraCuenta':
-    'Dit MindHaOS was gekoppeld aan een ander account. Lokale gegevens bewaren en samenvoegen met het nieuwe account? (Annuleren = dit MindHaOS leegmaken en alleen de accountgegevens downloaden)',
-  'cuenta.sync.respaldoPrevio':
-    'Je staat op het punt dit MindHaOS voor het eerst te synchroniseren. Eerst een lokale back-up downloaden? (Aanbevolen)',
   'carpetas.vacio': 'Nog niets vastgelegd.',
   'carpetas.estaSemana': 'Deze week',
   'carpetas.nRegistro': '1 registratie',

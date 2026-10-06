@@ -32,7 +32,7 @@ import { FORMA_VEHICULO, VEHICULO_GENERICO_RADIO, esVehiculo } from './vehiculos
 import { baseDe, type TemaId } from './temas'
 import type { Pieza3D } from '../chat/mascotas'
 import type { ObjetoCuarto } from '../data/db'
-import { FotoPantallaContext } from './pantallaFoto'
+import { FotoPantallaContext, PantallaFotoPiezas } from './pantallaFoto'
 
 /** Tipo de objeto construido por el usuario con geometría básica (sus piezas van en `ObjetoCuarto.piezas`). */
 export const TIPO_PIEZAS = 'piezas'
@@ -558,15 +558,23 @@ export function ObjetoView({
       ) : (
         <ModeloPiezas piezas={piezas} />
       )
+    const conFoto = foto ? (
+      <>
+        {contenido}
+        <PantallaFotoPiezas piezas={piezas} foto={foto} />
+      </>
+    ) : (
+      contenido
+    )
     const grupo = grupoAccionDe(tipo, grupoAccion)
     if ((grupo === 'asiento' || grupo === 'acostarse') && objetoId != null) {
       return (
         <AccionGenerica grupo={grupo} objetoId={objetoId}>
-          {contenido}
+          {conFoto}
         </AccionGenerica>
       )
     }
-    return contenido
+    return conFoto
   }
   if (tipo === TIPO_GLB) {
     return modeloGlb ? (

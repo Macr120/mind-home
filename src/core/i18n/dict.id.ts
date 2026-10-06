@@ -7684,10 +7684,6 @@ export const ID: Dict = {
   'cuenta.codigo.canjear': 'Tukarkan kode promo',
   'cuenta.codigo.listo': 'Kode berhasil ditukar: langgananmu sudah aktif.',
   'cuenta.codigo.pendiente': 'Jika kamu sudah menukar kode, langgananmu akan muncul di sini dalam beberapa menit.',
-  'cuenta.sync.otraCuenta':
-    'MindHaOS ini terhubung ke akun lain. Simpan data lokal dan gabungkan dengan akun baru? (Batal = kosongkan MindHaOS ini dan unduh hanya data akun)',
-  'cuenta.sync.respaldoPrevio':
-    'Kamu akan menyinkronkan MindHaOS ini untuk pertama kalinya. Unduh cadangan lokal dulu? (Disarankan)',
   'carpetas.vacio': 'Belum ada catatan.',
   'carpetas.estaSemana': 'Minggu ini',
   'carpetas.nRegistro': '1 catatan',

@@ -7601,10 +7601,6 @@ export const HI: Dict = {
   'cuenta.codigo.canjear': 'प्रोमो कोड भुनाएँ',
   'cuenta.codigo.listo': 'कोड भुना लिया गया: आपकी सदस्यता अब सक्रिय है।',
   'cuenta.codigo.pendiente': 'अगर आपने कोड भुनाया है, तो आपकी सदस्यता कुछ मिनटों में यहाँ दिखेगी।',
-  'cuenta.sync.otraCuenta':
-    'यह MindHaOS किसी और खाते से जुड़ा हुआ था। लोकल डेटा रखकर उसे नए खाते में मिला दें? (रद्द करें = इस MindHaOS को खाली करें और सिर्फ़ खाते का डेटा डाउनलोड करें)',
-  'cuenta.sync.respaldoPrevio':
-    'आप पहली बार इस MindHaOS को सिंक करने जा रहे हैं। पहले लोकल बैकअप डाउनलोड करें? (सुझाया गया)',
   'carpetas.vacio': 'अभी तक कोई रिकॉर्ड नहीं है।',
   'carpetas.estaSemana': 'इस हफ़्ते',
   'carpetas.nRegistro': '1 रिकॉर्ड',

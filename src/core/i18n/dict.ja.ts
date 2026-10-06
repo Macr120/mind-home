@@ -7311,9 +7311,6 @@ export const JA: Dict = {
   'cuenta.codigo.canjear': 'プロモーションコードを使う',
   'cuenta.codigo.listo': 'コードを使いました。サブスクリプションが有効になりました。',
   'cuenta.codigo.pendiente': 'コードを使った場合、数分でここにサブスクリプションが表示されます。',
-  'cuenta.sync.otraCuenta':
-    'このMindHaOSは別のアカウントに紐づいていました。ローカルのデータを残して新しいアカウントに統合しますか？（キャンセル=このMindHaOSを空にして、アカウントのデータだけをダウンロード）',
-  'cuenta.sync.respaldoPrevio': 'このMindHaOSを初めて同期しようとしています。先にローカルバックアップをダウンロードしますか？（推奨）',
   'carpetas.vacio': 'まだ記録がありません。',
   'carpetas.estaSemana': '今週',
   'carpetas.nRegistro': '1件の記録',

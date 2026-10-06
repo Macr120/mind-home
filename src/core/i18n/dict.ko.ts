@@ -7329,9 +7329,6 @@ export const KO: Dict = {
   'cuenta.codigo.canjear': '프로모션 코드 사용하기',
   'cuenta.codigo.listo': '코드를 사용했어요. 구독이 활성화되었습니다.',
   'cuenta.codigo.pendiente': '코드를 사용했다면 몇 분 안에 구독이 여기에 표시돼요.',
-  'cuenta.sync.otraCuenta':
-    '이 MindHaOS는 다른 계정에 연결되어 있었어요. 로컬 데이터를 유지하고 새 계정에 합칠까요? (취소 = 이 MindHaOS를 비우고 계정 데이터만 내려받기)',
-  'cuenta.sync.respaldoPrevio': '이 MindHaOS를 처음으로 동기화하려고 해요. 먼저 로컬 백업을 내려받을까요? (추천)',
   'carpetas.vacio': '아직 기록이 없어요.',
   'carpetas.estaSemana': '이번 주',
   'carpetas.nRegistro': '기록 1개',

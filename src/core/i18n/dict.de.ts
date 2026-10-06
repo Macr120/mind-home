@@ -7759,10 +7759,6 @@ export const DE: Dict = {
   'cuenta.codigo.canjear': 'Aktionscode einlösen',
   'cuenta.codigo.listo': 'Code eingelöst: Dein Abo ist jetzt aktiv.',
   'cuenta.codigo.pendiente': 'Wenn du einen Code eingelöst hast, erscheint dein Abo in ein paar Minuten hier.',
-  'cuenta.sync.otraCuenta':
-    'Dieses MindHaOS war mit einem anderen Konto verknüpft. Lokale Daten behalten und mit dem neuen Konto zusammenführen? (Abbrechen = dieses MindHaOS leeren und nur die Kontodaten herunterladen)',
-  'cuenta.sync.respaldoPrevio':
-    'Du synchronisierst dieses MindHaOS zum ersten Mal. Vorher eine lokale Sicherung herunterladen? (Empfohlen)',
   'carpetas.vacio': 'Noch keine Einträge.',
   'carpetas.estaSemana': 'Diese Woche',
   'carpetas.nRegistro': '1 Eintrag',

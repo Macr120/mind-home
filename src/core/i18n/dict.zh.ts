@@ -7263,8 +7263,6 @@ export const ZH: Dict = {
   'cuenta.codigo.canjear': '兑换促销码',
   'cuenta.codigo.listo': '兑换成功：你的订阅已生效。',
   'cuenta.codigo.pendiente': '如果你已兑换代码，订阅会在几分钟内显示在这里。',
-  'cuenta.sync.otraCuenta': '这个MindHaOS之前关联着另一个账号。要保留本地数据并合并到新账号吗？（取消=清空这个MindHaOS，只下载账号中的数据）',
-  'cuenta.sync.respaldoPrevio': '你即将首次同步这个MindHaOS。要先下载本地备份吗？（推荐）',
   'carpetas.vacio': '还没有记录。',
   'carpetas.estaSemana': '本周',
   'carpetas.nRegistro': '1条记录',

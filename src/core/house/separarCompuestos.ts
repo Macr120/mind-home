@@ -13,6 +13,7 @@ import { db, type ObjetoCuarto } from '../data/db'
 import { tGlobal } from '../i18n/useT'
 import { aCuarto, NIVEL_SUELO, superficiesDeObjeto, yApoyo } from './apoyos'
 import { defSeparable, type DefSeparable, type ParteSeparable } from './separables'
+import { panelPantalla } from './panelPantalla'
 
 /** = `TIPO_PIEZAS` de `catalogo.tsx`; no se importa para no arrastrar la escena. */
 const TIPO_PIEZAS = 'piezas'
@@ -64,6 +65,8 @@ export function planSeparacion(o: ObjetoCuarto): { base: Partial<ObjetoCuarto>; 
       apoyoNivel: nivel,
       y: yApoyo(base, nivel, { tipo: TIPO_PIEZAS, escala: o.escala }),
       ...(p.forma ? { formaEntrada: p.forma } : {}),
+      // La imagen de la pantalla se va con el monitor.
+      ...(o.foto && panelPantalla(piezas) >= 0 ? { foto: o.foto } : {}),
       ...(uidBase ? ({ uid: `${uidBase}-parte-${p.id}` } as object) : {}),
     }
   })
