@@ -48,6 +48,11 @@ const JUEGO_DE_MESA: Record<Exclude<JuegoMesa, 'cartas'>, IdJuegoReal> = {
   c4: 'cuatroenlinea',
   damas: 'damas',
   ajedrez: 'ajedrez',
+  billar: 'billar',
+  domino: 'domino',
+  ocholocos: 'ocholocos',
+  pong: 'pong',
+  hockey: 'hockey',
 }
 
 const COMPONENTES: Record<IdJuegoReal, ComponentType<PropsDificultad>> = {

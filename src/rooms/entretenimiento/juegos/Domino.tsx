@@ -1,9 +1,12 @@
 import { Icono } from '../../../core/ui/iconos/Icono'
 import { useEffect, useState } from 'react'
 import { useT } from '../../../core/i18n/useT'
+import { registrarJuegoMesa, useMesa, type Asiento, type Mesa } from '../../../core/partida/mesa'
 import { COLOR } from '../constantes'
 import { barajar } from './cartas'
 import type { Dificultad, PropsDificultad } from './dificultad'
+import { ElegirModo } from './ElegirModo'
+import { BarraMesa, nombreAsiento, opcionEnLinea } from './mesaJuego'
 
 interface FichaDom {
   a: number
@@ -44,20 +47,25 @@ function todasLasFichas(): FichaDom[] {
 
 const puntosDe = (mano: FichaDom[]) => mano.reduce((s, f) => s + f.a + f.b, 0)
 
-// Abre quien tenga el doble más alto (o la ficha más pesada) y esa ficha sale sola
-function repartirRonda(): RondaDom {
-  const fichas = barajar(todasLasFichas())
-  const mano = fichas.slice(0, 7)
-  const manoIA = fichas.slice(7, 14)
+// Abre quien tenga el doble más alto (o la ficha más pesada) y esa ficha sale sola.
+// Recibe las 28 fichas ya barajadas: la primera mano es la de «a» (tú contra la máquina).
+function repartir(fichas: FichaDom[]) {
+  const a = fichas.slice(0, 7)
+  const b = fichas.slice(7, 14)
   const pozo = fichas.slice(14)
   const valorSalida = (f: FichaDom) => (f.a === f.b ? 100 + f.a : f.a + f.b)
-  const mejorTu = Math.max(...mano.map(valorSalida))
-  const mejorIA = Math.max(...manoIA.map(valorSalida))
-  const abresTu = mejorTu >= mejorIA
-  const origen = abresTu ? mano : manoIA
-  const idx = origen.findIndex((f) => valorSalida(f) === (abresTu ? mejorTu : mejorIA))
+  const mejorA = Math.max(...a.map(valorSalida))
+  const mejorB = Math.max(...b.map(valorSalida))
+  const abreA = mejorA >= mejorB
+  const origen = abreA ? a : b
+  const idx = origen.findIndex((f) => valorSalida(f) === (abreA ? mejorA : mejorB))
   const [salida] = origen.splice(idx, 1)
-  return { mano, manoIA, pozo, cadena: [salida], turno: abresTu ? 'ia' : 'tu', pases: 0 }
+  return { a, b, pozo, cadena: [salida], abreA }
+}
+
+function repartirRonda(): RondaDom {
+  const r = repartir(barajar(todasLasFichas()))
+  return { mano: r.a, manoIA: r.b, pozo: r.pozo, cadena: r.cadena, turno: r.abreA ? 'ia' : 'tu', pases: 0 }
 }
 
 const extremos = (cadena: FichaDom[]) => ({ izq: cadena[0].a, der: cadena[cadena.length - 1].b })
@@ -106,6 +114,129 @@ function jugadaIA(mano: FichaDom[], cadena: FichaDom[], dif: Dificultad): Jugada
   return mejor
 }
 
+// ─── En línea: la ronda por asiento ('a' abre la mesa, 'b' se sienta) ─────────
+
+interface FinMesaDom {
+  ganador: Asiento | 'empate'
+  puntos: number
+  trancado: boolean
+}
+
+/** Partida entera en línea: es lo que viaja en la mesa (`e` de la apertura). */
+interface EstadoDomEnLinea {
+  manos: Record<Asiento, FichaDom[]>
+  pozo: FichaDom[]
+  cadena: FichaDom[]
+  turno: Asiento
+  pases: number
+  marcador: Record<Asiento, number>
+  fin: FinMesaDom | null
+  /** La tira el árbitro al abrir; cada ronda nueva baraja con semilla + ronda. */
+  semilla: number
+  ronda: number
+}
+
+type MovDom =
+  | { ac: 'colocar'; i: number; lado: 'izq' | 'der' }
+  | { ac: 'robar' }
+  | { ac: 'pasar' }
+  | { ac: 'ronda' }
+
+const otro = (s: Asiento): Asiento => (s === 'a' ? 'b' : 'a')
+
+// Barajado determinista (mulberry32): todos los clientes reparten igual la ronda nueva
+function barajarConSemilla<T>(lista: T[], semilla: number): T[] {
+  let x = semilla >>> 0
+  const azar = () => {
+    x = (x + 0x6d2b79f5) >>> 0
+    let z = x
+    z = Math.imul(z ^ (z >>> 15), z | 1)
+    z ^= z + Math.imul(z ^ (z >>> 7), z | 61)
+    return ((z ^ (z >>> 14)) >>> 0) / 4294967296
+  }
+  const r = [...lista]
+  for (let i = r.length - 1; i > 0; i--) {
+    const j = Math.floor(azar() * (i + 1))
+    ;[r[i], r[j]] = [r[j], r[i]]
+  }
+  return r
+}
+
+function rondaEnLinea(semilla: number, ronda: number, marcador: Record<Asiento, number>): EstadoDomEnLinea {
+  const r = repartir(barajarConSemilla(todasLasFichas(), semilla + ronda * 7919))
+  return {
+    manos: { a: r.a, b: r.b },
+    pozo: r.pozo,
+    cadena: r.cadena,
+    turno: r.abreA ? 'b' : 'a',
+    pases: 0,
+    marcador,
+    fin: null,
+    semilla,
+    ronda,
+  }
+}
+
+function finEnLinea(manos: Record<Asiento, FichaDom[]>, pases: number): FinMesaDom | null {
+  if (manos.a.length === 0) return { ganador: 'a', puntos: puntosDe(manos.b), trancado: false }
+  if (manos.b.length === 0) return { ganador: 'b', puntos: puntosDe(manos.a), trancado: false }
+  if (pases >= 2) {
+    const pA = puntosDe(manos.a)
+    const pB = puntosDe(manos.b)
+    if (pA === pB) return { ganador: 'empate', puntos: 0, trancado: true }
+    return pA < pB ? { ganador: 'a', puntos: pB, trancado: true } : { ganador: 'b', puntos: pA, trancado: true }
+  }
+  return null
+}
+
+// Cierra la transición: mira si la ronda acabó y, si sí, suma al marcador
+function conFin(e: EstadoDomEnLinea): EstadoDomEnLinea {
+  const fin = finEnLinea(e.manos, e.pases)
+  if (!fin) return e
+  const marcador = fin.ganador === 'empate' ? e.marcador : { ...e.marcador, [fin.ganador]: e.marcador[fin.ganador] + fin.puntos }
+  return { ...e, fin, marcador }
+}
+
+/**
+ * Reductor puro de la mesa: null si la jugada no vale (no es su turno, la ficha
+ * no casa en esa punta, robar pudiendo jugar, pasar pudiendo robar…). La ronda
+ * nueva la pide cualquiera de los dos cuando la anterior acabó.
+ */
+function aplicarDom(e: EstadoDomEnLinea, m: MovDom, asiento: Asiento): EstadoDomEnLinea | null {
+  if (m?.ac === 'ronda') return e.fin ? rondaEnLinea(e.semilla, e.ronda + 1, e.marcador) : null
+  if (e.fin || e.turno !== asiento) return null
+  const mano = e.manos[asiento]
+  const puede = mano.some((f) => esJugable(f, e.cadena))
+  if (m?.ac === 'colocar') {
+    const f = Number.isInteger(m.i) ? mano[m.i] : undefined
+    if (!f || (m.lado !== 'izq' && m.lado !== 'der')) return null
+    const punta = extremos(e.cadena)[m.lado]
+    if (f.a !== punta && f.b !== punta) return null
+    return conFin({
+      ...e,
+      manos: { ...e.manos, [asiento]: mano.filter((_, k) => k !== m.i) },
+      cadena: colocar(e.cadena, f, m.lado),
+      turno: otro(asiento),
+      pases: 0,
+    })
+  }
+  if (m?.ac === 'robar') {
+    if (puede || !e.pozo.length) return null
+    return { ...e, pozo: e.pozo.slice(0, -1), manos: { ...e.manos, [asiento]: [...mano, e.pozo[e.pozo.length - 1]] } }
+  }
+  if (m?.ac === 'pasar') {
+    if (puede || e.pozo.length) return null
+    return conFin({ ...e, turno: otro(asiento), pases: e.pases + 1 })
+  }
+  return null
+}
+
+registrarJuegoMesa<EstadoDomEnLinea, MovDom>('domino', {
+  inicial: (semilla) => rondaEnLinea(semilla, 0, { a: 0, b: 0 }),
+  aplicar: aplicarDom,
+  terminado: (e) => e.fin !== null,
+})
+
 function Mitad({ n, tam }: { n: number; tam: number }) {
   return (
     <span className="grid shrink-0 grid-cols-3 grid-rows-3 place-items-center" style={{ width: tam, height: tam }}>
@@ -143,7 +274,240 @@ function Dorso({ tam = 16 }: { tam?: number }) {
   )
 }
 
-export function Domino({ dificultad = 'medio' }: PropsDificultad) {
+type Modo = 'ia' | 'online'
+
+export function Domino({ dificultad = 'medio', mesaOnline = false }: PropsDificultad) {
+  const t = useT()
+  const mesa = useMesa<EstadoDomEnLinea, MovDom>('domino')
+  // Sin sala se juega directo contra la máquina, como siempre
+  const [modo, setModo] = useState<Modo | null>(() => (mesaOnline ? 'online' : mesa.enLinea ? null : 'ia'))
+
+  if (modo === 'online')
+    return (
+      <DominoEnLinea
+        mesa={mesa}
+        alSalir={() => {
+          mesa.levantar()
+          setModo(null)
+        }}
+      />
+    )
+  if (modo === 'ia')
+    return <DominoIA dificultad={dificultad} alCambiarModo={mesa.enLinea ? () => setModo(null) : undefined} />
+  return (
+    <ElegirModo
+      opciones={[
+        {
+          clave: 'ia',
+          icono: <Icono nombre="mascota-robot" />,
+          titulo: t('entre.j.modo.ia', 'Contra la máquina'),
+          desc: t('entre.j.domino.desc', 'Doble seis contra la máquina, con pozo.'),
+          alElegir: () => setModo('ia'),
+        },
+        opcionEnLinea(t, mesa.asientos, () => setModo('online')),
+      ]}
+    />
+  )
+}
+
+function DominoEnLinea({ mesa, alSalir }: { mesa: Mesa<EstadoDomEnLinea, MovDom>; alSalir: () => void }) {
+  const t = useT()
+  const [pendiente, setPendiente] = useState<number | null>(null)
+  const yo = mesa.miAsiento
+  const e = mesa.estado
+  const sinAsientoB = mesa.asientos.b === null
+
+  // Al ENTRAR en línea (no cada vez que cambia la mesa: si la que miraba se
+  // cierra, no hay que abrir otra en su lugar).
+  useEffect(() => {
+    if (mesa.enLinea && !mesa.abierta) mesa.abrir()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mesa.enLinea])
+
+  // Sentarse enfrente en cuanto haya mesa y sitio (también viniendo de la banda).
+  useEffect(() => {
+    if (mesa.abierta && mesa.miAsiento === null && sinAsientoB) mesa.sentar()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mesa.abierta, mesa.miAsiento, sinAsientoB])
+
+  const barra = (
+    <div className="flex flex-wrap items-center justify-between gap-2">
+      <BarraMesa abierta={mesa.abierta} cerrada={mesa.cerrada} asientos={mesa.asientos} miAsiento={yo} />
+      <button type="button" onClick={alSalir} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold">
+        {t('entre.j.mesa.salir', 'Salir de la mesa')}
+      </button>
+    </div>
+  )
+  if (!e) return <div className="space-y-3">{barra}</div>
+
+  // Abajo mi asiento; quien mira ve «a» abajo y «b» arriba, las dos boca abajo
+  const abajo: Asiento = yo ?? 'a'
+  const arriba = otro(abajo)
+  const nombre = (s: Asiento) => nombreAsiento(t, mesa.asientos, s, yo)
+  const { izq, der } = extremos(e.cadena)
+  const miMano = yo ? e.manos[yo] : []
+  const turnoMio = !e.fin && yo !== null && e.turno === yo && !sinAsientoB
+  const puedesJugar = miMano.some((f) => esJugable(f, e.cadena))
+  const pend = turnoMio ? pendiente : null
+
+  const jugar = (m: MovDom) => {
+    setPendiente(null)
+    mesa.jugar(m)
+  }
+
+  const clickFicha = (idx: number) => {
+    if (!turnoMio) return
+    const f = miMano[idx]
+    const puedeIzq = f.a === izq || f.b === izq
+    const puedeDer = f.a === der || f.b === der
+    if (!puedeIzq && !puedeDer) return
+    if (puedeIzq && puedeDer && izq !== der) setPendiente(idx)
+    else jugar({ ac: 'colocar', i: idx, lado: puedeIzq ? 'izq' : 'der' })
+  }
+
+  return (
+    <div className="space-y-3">
+      {barra}
+      <div className="flex flex-wrap items-center justify-between gap-2 text-sm">
+        <span className="rounded-lg bg-white/5 px-3 py-1.5 font-semibold">
+          {nombre(abajo)} {e.marcador[abajo]} · {nombre(arriba)} {e.marcador[arriba]}
+        </span>
+        {e.fin === null && (
+          <span className="text-white/60">
+            {t('entre.j.turno', 'Turno')}: <strong className="text-white/90">{nombre(e.turno)}</strong>
+          </span>
+        )}
+      </div>
+
+      <div className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-2">
+        <div className="flex items-center gap-1 overflow-hidden">
+          <span className="me-1 text-xs text-white/60">{nombre(arriba)}</span>
+          {e.manos[arriba].map((_, k) => (
+            <Dorso key={k} tam={13} />
+          ))}
+        </div>
+        <span className="shrink-0 text-xs text-white/45">
+          {t('entre.j.domino.pozo', 'Pozo')}: {e.pozo.length}
+        </span>
+      </div>
+
+      <div className="flex min-h-[96px] flex-wrap content-center items-center justify-center gap-[3px] rounded-xl border border-white/10 bg-emerald-950/50 p-3">
+        {e.cadena.map((f, i) => (
+          <FichaDominoUI key={i} a={f.a} b={f.b} vertical={f.a === f.b} tam={17} />
+        ))}
+      </div>
+
+      {pend !== null && (
+        <div className="flex items-center justify-center gap-2">
+          <span className="text-xs text-white/55">{t('entre.j.domino.eliges', '¿En qué punta?')}</span>
+          <button
+            type="button"
+            onClick={() => jugar({ ac: 'colocar', i: pend, lado: 'izq' })}
+            className="rounded-lg px-3 py-1.5 text-sm font-bold text-black"
+            style={{ background: COLOR }}
+          >
+            ◀ {izq}
+          </button>
+          <button
+            type="button"
+            onClick={() => jugar({ ac: 'colocar', i: pend, lado: 'der' })}
+            className="rounded-lg px-3 py-1.5 text-sm font-bold text-black"
+            style={{ background: COLOR }}
+          >
+            {der} ▶
+          </button>
+          <button type="button" onClick={() => setPendiente(null)} className="text-sm text-white/40">
+            ✕
+          </button>
+        </div>
+      )}
+
+      {yo ? (
+        <div className="flex flex-wrap justify-center gap-1.5">
+          {miMano.map((f, idx) => {
+            const jugable = turnoMio && esJugable(f, e.cadena)
+            return (
+              <button
+                key={`${f.a}-${f.b}`}
+                type="button"
+                onClick={() => clickFicha(idx)}
+                className={`rounded-[6px] transition ${
+                  jugable ? 'ring-2 ring-amber-400 hover:-translate-y-1' : 'opacity-60'
+                } ${pend === idx ? 'ring-emerald-300 -translate-y-1' : ''}`}
+              >
+                <FichaDominoUI a={f.a} b={f.b} vertical tam={22} />
+              </button>
+            )
+          })}
+        </div>
+      ) : (
+        <div className="flex flex-wrap items-center justify-center gap-1">
+          <span className="me-1 text-xs text-white/60">{nombre(abajo)}</span>
+          {e.manos[abajo].map((_, k) => (
+            <Dorso key={k} tam={13} />
+          ))}
+        </div>
+      )}
+
+      {turnoMio && !puedesJugar && (
+        <div className="flex justify-center">
+          {e.pozo.length > 0 ? (
+            <button
+              type="button"
+              onClick={() => jugar({ ac: 'robar' })}
+              className="rounded-xl px-4 py-2 font-bold text-black"
+              style={{ background: COLOR }}
+            >
+              <Icono nombre="domino" /> {t('entre.j.domino.robar', 'Robar del pozo')} ({e.pozo.length})
+            </button>
+          ) : (
+            <button type="button" onClick={() => jugar({ ac: 'pasar' })} className="rounded-xl bg-white/10 px-4 py-2 font-bold">
+              {t('entre.j.domino.pasar', 'Paso')}
+            </button>
+          )}
+        </div>
+      )}
+
+      {e.fin && (
+        <div
+          className={`rounded-xl border p-4 text-center ${
+            e.fin.ganador === 'empate'
+              ? 'border-white/20 bg-white/10'
+              : e.fin.ganador === yo || yo === null
+                ? 'border-emerald-500/40 bg-emerald-500/15'
+                : 'border-red-500/40 bg-red-500/15'
+          }`}
+        >
+          {e.fin.trancado && <p className="text-xs text-white/55"><Icono nombre="candado" /> {t('entre.j.domino.trancado', 'Juego trancado')}</p>}
+          <p className="mt-1 text-lg font-black">
+            {e.fin.ganador === 'empate'
+              ? t('entre.j.domino.empateRonda', 'Empate: nadie suma puntos')
+              : e.fin.ganador === yo
+                ? t('entre.j.ganaste', '¡Ganaste! 🎉')
+                : t('entre.j.mesa.gana', 'Gana {n}', { n: nombre(e.fin.ganador) })}
+          </p>
+          {e.fin.ganador !== 'empate' && (
+            <p className="text-sm text-white/70">
+              {t('entre.j.domino.puntosRonda', '+{n} puntos', { n: String(e.fin.puntos) })}
+            </p>
+          )}
+          {yo && (
+            <button
+              type="button"
+              onClick={() => jugar({ ac: 'ronda' })}
+              className="mt-3 rounded-xl px-4 py-2 font-bold text-black"
+              style={{ background: COLOR }}
+            >
+              {t('entre.j.domino.siguienteRonda', 'Siguiente ronda')}
+            </button>
+          )}
+        </div>
+      )}
+    </div>
+  )
+}
+
+function DominoIA({ dificultad, alCambiarModo }: { dificultad: Dificultad; alCambiarModo?: () => void }) {
   const t = useT()
   const [ronda, setRonda] = useState<RondaDom>(repartirRonda)
   const [fin, setFin] = useState<FinRonda | null>(null)
@@ -275,9 +639,16 @@ export function Domino({ dificultad = 'medio' }: PropsDificultad) {
             </strong>
           </span>
         )}
-        <button type="button" onClick={nuevaPartida} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold">
-          <Icono nombre="sincronizar" /> {t('entre.j.nueva', 'Nueva partida')}
-        </button>
+        <div className="flex gap-2">
+          <button type="button" onClick={nuevaPartida} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold">
+            <Icono nombre="sincronizar" /> {t('entre.j.nueva', 'Nueva partida')}
+          </button>
+          {alCambiarModo && (
+            <button type="button" onClick={alCambiarModo} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold">
+              {t('entre.j.modo.cambiar', 'Cambiar modo')}
+            </button>
+          )}
+        </div>
       </div>
 
       <div className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-2">

@@ -30,6 +30,11 @@ export type JuegoInvitable =
   | 'cuatroenlinea'
   | 'damas'
   | 'ajedrez'
+  | 'billar'
+  | 'domino'
+  | 'ocholocos'
+  | 'pong'
+  | 'hockey'
   | 'conocerse'
   | 'debates'
 
@@ -104,6 +109,46 @@ export const JUEGOS_INVITABLES: Record<JuegoInvitable, DefJuegoInvitable> = {
     clave: 'entre.j.ajedrez.nombre',
     nombres: ['ajedrez', 'chess'],
     mesa: 'ajedrez',
+  },
+  billar: {
+    emoji: '🎱',
+    es: 'Billar',
+    en: 'pool',
+    clave: 'entre.j.billar.nombre',
+    nombres: ['billar', 'pool', 'billiards', 'snooker'],
+    mesa: 'billar',
+  },
+  domino: {
+    emoji: '🁢',
+    es: 'Dominó',
+    en: 'dominoes',
+    clave: 'entre.j.domino.nombre',
+    nombres: ['domino', 'dominos', 'dominoes'],
+    mesa: 'domino',
+  },
+  ocholocos: {
+    emoji: '🎴',
+    es: 'Ocho locos',
+    en: 'crazy eights',
+    clave: 'entre.j.ocholocos.nombre',
+    nombres: ['ocho locos', '8 locos', 'crazy eights', 'crazy 8'],
+    mesa: 'ocholocos',
+  },
+  pong: {
+    emoji: '🏓',
+    es: 'Pong',
+    en: 'pong',
+    clave: 'entre.j.pong.nombre',
+    nombres: ['pong', 'ping pong virtual'],
+    mesa: 'pong',
+  },
+  hockey: {
+    emoji: '🏒',
+    es: 'Hockey de mesa',
+    en: 'air hockey',
+    clave: 'entre.j.hockey.nombre',
+    nombres: ['hockey de mesa', 'air hockey', 'hockey'],
+    mesa: 'hockey',
   },
   conocerse: {
     emoji: '💬',

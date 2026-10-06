@@ -1,8 +1,10 @@
-// Piezas de interfaz que comparten los cuatro juegos de mesa en línea: la
-// tarjeta «En línea» del selector de modo y la línea de asientos del tablero.
+// Piezas que comparten los juegos de mesa en línea: la tarjeta «En línea» del
+// selector de modo, la línea de asientos del tablero y lo que necesitan los de
+// acción (mesa en vivo) para leer lo que les llega.
+import { useEffect, useRef } from 'react'
 import { Icono } from '../../../core/ui/iconos/Icono'
-import { etiquetaAsiento, type Asiento } from '../../../core/partida/mesa'
-import type { JugadorSala } from '../../../core/partida/tipos'
+import { escucharVivo, etiquetaAsiento, type Asiento } from '../../../core/partida/mesa'
+import type { JuegoMesa, JugadorSala } from '../../../core/partida/tipos'
 import { useT, type TFunc } from '../../../core/i18n/useT'
 import type { OpcionModo } from './ElegirModo'
 
@@ -62,4 +64,32 @@ export function BarraMesa({
       {miAsiento === null && ` · ${t('entre.j.mesa.mirando', 'estás mirando')}`}
     </p>
   )
+}
+
+/** Periodo del cuadro y del mando de la mesa en vivo (~15 Hz). */
+export const PERIODO_VIVO = 66
+
+/** Número que llega de la otra pantalla: si no es finito, el de respaldo. */
+export function numVivo(v: unknown, respaldo: number): number {
+  return typeof v === 'number' && Number.isFinite(v) ? v : respaldo
+}
+
+/**
+ * Lo último que llegó por la mesa en vivo, en refs: lo lee el bucle del juego
+ * sin provocar renders. `llegada` es el `performance.now()` de recepción,
+ * para adelantar la pelota el tiempo que lleva en camino.
+ */
+export function useRecibidoVivo(g: JuegoMesa) {
+  const cuadro = useRef<{ d: Record<string, unknown>; llegada: number } | null>(null)
+  const mando = useRef<Record<string, unknown> | null>(null)
+  useEffect(
+    () =>
+      escucharVivo(g, (k, d) => {
+        if (typeof d !== 'object' || d === null) return
+        if (k === 'cuadro') cuadro.current = { d: d as Record<string, unknown>, llegada: performance.now() }
+        else mando.current = d as Record<string, unknown>
+      }),
+    [g],
+  )
+  return { cuadro, mando }
 }

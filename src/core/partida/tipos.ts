@@ -265,7 +265,16 @@ export interface MsgFin extends Sobre {
 // ─── Mesa de juegos 2D (Entretenimiento) ─────────────────────────────────────
 
 /** Juego de mesa que se puede jugar en línea dentro de la sala. */
-export type JuegoMesa = 'c4' | 'damas' | 'ajedrez' | 'cartas'
+export type JuegoMesa =
+  | 'c4'
+  | 'damas'
+  | 'ajedrez'
+  | 'cartas'
+  | 'billar'
+  | 'domino'
+  | 'ocholocos'
+  | 'pong'
+  | 'hockey'
 
 /**
  * La mesa tal como la cuenta el árbitro (el anfitrión de la sala). Lleva el
@@ -306,6 +315,20 @@ export interface MsgJugada extends Sobre {
   n: number
   /** Jugada serializable (≤4 KB). */
   m: unknown
+}
+
+/**
+ * Mesa EN VIVO (juegos de acción: Pong, Hockey). No pasa por el árbitro ni
+ * lleva `seq`: el asiento `a` simula la física y manda el `cuadro` (~15 Hz);
+ * el `b` solo manda su `mando` (dónde tiene la paleta). Un mensaje perdido
+ * lo tapa el siguiente.
+ */
+export interface MsgVivo extends Sobre {
+  j: Ranura
+  g: JuegoMesa
+  k: 'cuadro' | 'mando'
+  /** Datos del juego (≤2 KB). Los interpreta solo el juego. */
+  d: unknown
 }
 
 // ─── Charla y voz de la sala ─────────────────────────────────────────────────

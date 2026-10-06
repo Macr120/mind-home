@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 import { Icono } from '../../../core/ui/iconos/Icono'
 import { useT } from '../../../core/i18n/useT'
+import { registrarJuegoMesa, useMesa } from '../../../core/partida/mesa'
 import { COLOR } from '../constantes'
 import { FONDO_LIENZO, prepararLienzo, puntoLienzo, useBucle, useTeclas } from './arcade'
 import type { Dificultad, PropsDificultad } from './dificultad'
 import { ElegirModo } from './ElegirModo'
+import { BarraMesa, PERIODO_VIVO, nombreAsiento, numVivo, opcionEnLinea, useRecibidoVivo } from './mesaJuego'
 
-type Modo = '2j' | 'ia'
+type Modo = '2j' | 'ia' | 'online'
 type Fase = 'lista' | 'jugando' | 'fin'
 
 // Paleta de la máquina: qué tan rápido se mueve y si persigue la bola también cuando se aleja
@@ -41,38 +43,168 @@ function mundoInicial(): Mundo {
   return { bola: saque(Math.random() < 0.5), abajo: ANCHO / 2, arriba: ANCHO / 2 }
 }
 
-export function Pong({ dificultad = 'medio' }: PropsDificultad) {
+/**
+ * En línea la mesa solo sienta a los dos: la partida va EN VIVO. Quien la abre
+ * (asiento `a`, paleta de abajo) mueve la bola y manda el cuadro; el de
+ * enfrente (`b`, la de arriba) manda dónde tiene su paleta y `go`, que sube
+ * cada vez que pulsa «Jugar».
+ */
+registrarJuegoMesa<{ v: number }, never>('pong', {
+  inicial: () => ({ v: 1 }),
+  aplicar: () => null,
+  terminado: () => false,
+})
+
+const FASES: readonly Fase[] = ['lista', 'jugando', 'fin']
+const r1 = (n: number) => Math.round(n * 10) / 10
+
+/** Pliega una x que se pasó de banda como si hubiera rebotado (la bola adelantada). */
+function plegarX(x: number): number {
+  const min = 6
+  const ancho = ANCHO - 12
+  const p = (((x - min) % (2 * ancho)) + 2 * ancho) % (2 * ancho)
+  return min + (p <= ancho ? p : 2 * ancho - p)
+}
+
+export function Pong({ dificultad = 'medio', mesaOnline = false }: PropsDificultad) {
   const t = useT()
   const rival = RIVAL[dificultad]
   const lienzo = useRef<HTMLCanvasElement>(null)
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null)
   const mundo = useRef<Mundo>(mundoInicial())
-  const [modo, setModo] = useState<Modo | null>(null)
+  const mesa = useMesa<{ v: number }, never>('pong')
+  const recibido = useRecibidoVivo('pong')
+  const [modo, setModo] = useState<Modo | null>(mesaOnline ? 'online' : null)
   const [fase, setFase] = useState<Fase>('lista')
   const [marcador, setMarcador] = useState({ abajo: 0, arriba: 0 })
   const teclas = useTeclas(TECLAS_PONG)
+  /** Tiempo desde el último envío por la mesa en vivo. */
+  const envio = useRef(0)
+  /** Pulsaciones de «Jugar» del de enfrente: las que manda y la última atendida. */
+  const go = useRef(0)
+  const goVisto = useRef(0)
+
+  const online = modo === 'online'
+  // Quien abre simula; el de enfrente y quien mira pintan lo que les llega.
+  const manda = !online || mesa.miAsiento === 'a'
+  // El de enfrente ve la mesa girada: su paleta, como la de todos, abajo.
+  const girada = online && mesa.miAsiento === 'b'
+  const sinRival = online && mesa.asientos.b === null
 
   useEffect(() => {
     if (modo === null) return
     ctxRef.current = prepararLienzo(lienzo.current!, ANCHO, ALTO)
-    dibujar(ctxRef.current, mundo.current)
-  }, [modo])
+    dibujar(ctxRef.current, mundo.current, girada)
+  }, [modo, girada])
+
+  useEffect(() => {
+    if (online && mesa.enLinea && !mesa.abierta) mesa.abrir()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [online, mesa.enLinea])
+
+  useEffect(() => {
+    if (online && mesa.abierta && mesa.miAsiento === null && sinRival) mesa.sentar()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [online, mesa.abierta, mesa.miAsiento, sinRival])
+
+  const empezar = () => {
+    mundo.current = mundoInicial()
+    setMarcador({ abajo: 0, arriba: 0 })
+    setFase('jugando')
+  }
 
   const reiniciar = (m: Modo | null) => {
+    if (online && m !== 'online') mesa.levantar()
     setModo(m)
     mundo.current = mundoInicial()
     setMarcador({ abajo: 0, arriba: 0 })
     setFase('lista')
   }
 
+  /** Lado de quien no simula: pinta el último cuadro con la bola adelantada. */
+  const seguirCuadro = (dt: number) => {
+    const m = mundo.current
+    const c = recibido.cuadro.current
+    if (mesa.miAsiento === 'b') {
+      // Mi paleta va por mi cuenta (respuesta inmediata) y sale como mando. La
+      // mesa está girada: la flecha izquierda va hacia la x del mundo que crece.
+      const dir =
+        (teclas.has('arrowleft') || teclas.has('a') ? 1 : 0) - (teclas.has('arrowright') || teclas.has('d') ? 1 : 0)
+      m.arriba = Math.max(PALETA_W / 2, Math.min(ANCHO - PALETA_W / 2, m.arriba + dir * VEL_PALETA * dt))
+      envio.current += dt * 1000
+      if (envio.current >= PERIODO_VIVO) {
+        envio.current = 0
+        mesa.enVivo({ p: r1(m.arriba), go: go.current })
+      }
+    }
+    if (c) {
+      const d = c.d
+      const f = FASES.find((x) => x === d.f) ?? 'lista'
+      const ma = numVivo(d.ma, 0)
+      const mr = numVivo(d.mr, 0)
+      if (f !== fase) setFase(f)
+      if (ma !== marcador.abajo || mr !== marcador.arriba) setMarcador({ abajo: ma, arriba: mr })
+      const enCamino = f === 'jugando' ? Math.min(0.25, (performance.now() - c.llegada) / 1000) : 0
+      const vx = numVivo(d.vx, 0)
+      const vy = numVivo(d.vy, 0)
+      m.bola = {
+        x: plegarX(numVivo(d.x, ANCHO / 2) + vx * enCamino),
+        y: numVivo(d.y, ALTO / 2) + vy * enCamino,
+        vx,
+        vy,
+      }
+      // La paleta del otro se acerca a la que dice el cuadro (sin saltos).
+      m.abajo += (numVivo(d.ab, ANCHO / 2) - m.abajo) * Math.min(1, dt * 18)
+      if (mesa.miAsiento !== 'b') m.arriba += (numVivo(d.ar, ANCHO / 2) - m.arriba) * Math.min(1, dt * 18)
+    }
+    dibujar(ctxRef.current!, m, girada)
+  }
+
   useBucle((dt) => {
+    if (!manda) {
+      seguirCuadro(dt)
+      return
+    }
     const m = mundo.current
     const { bola } = m
 
+    if (online) {
+      // El de enfrente pulsó «Jugar».
+      const suGo = numVivo(recibido.mando.current?.go, 0)
+      if (suGo > goVisto.current) {
+        goVisto.current = suGo
+        if (fase !== 'jugando' && !sinRival) empezar()
+      }
+      envio.current += dt * 1000
+      if (envio.current >= PERIODO_VIVO) {
+        envio.current = 0
+        mesa.enVivo({
+          x: r1(bola.x),
+          y: r1(bola.y),
+          vx: r1(bola.vx),
+          vy: r1(bola.vy),
+          ab: r1(m.abajo),
+          ar: r1(m.arriba),
+          ma: marcador.abajo,
+          mr: marcador.arriba,
+          f: fase,
+        })
+      }
+      // Si el de enfrente se levanta a media partida, la partida se para.
+      if (fase === 'jugando' && sinRival) setFase('lista')
+      if (fase !== 'jugando' || sinRival) {
+        dibujar(ctxRef.current!, m)
+        return
+      }
+    }
+
     // Paleta de abajo: flechas; la de arriba: A/D (2 jugadores)
-    if (teclas.has('arrowleft')) m.abajo -= VEL_PALETA * dt
-    if (teclas.has('arrowright')) m.abajo += VEL_PALETA * dt
-    if (modo === '2j') {
+    if (teclas.has('arrowleft') || (online && teclas.has('a'))) m.abajo -= VEL_PALETA * dt
+    if (teclas.has('arrowright') || (online && teclas.has('d'))) m.abajo += VEL_PALETA * dt
+    if (online) {
+      // La de arriba es la del de enfrente: la que dice su mando.
+      m.arriba = numVivo(recibido.mando.current?.p, m.arriba)
+    } else if (modo === '2j') {
       if (teclas.has('a')) m.arriba -= VEL_PALETA * dt
       if (teclas.has('d')) m.arriba += VEL_PALETA * dt
     } else {
@@ -123,12 +255,18 @@ export function Pong({ dificultad = 'medio' }: PropsDificultad) {
     }
 
     dibujar(ctxRef.current!, m)
-  }, fase === 'jugando' && modo !== null)
+  }, (fase === 'jugando' && modo !== null) || online)
 
   const moverConPuntero = (e: React.PointerEvent<HTMLCanvasElement>) => {
     if (fase !== 'jugando') return
     const p = puntoLienzo(lienzo.current!, e, ANCHO, ALTO)
     const m = mundo.current
+    if (online) {
+      // En línea cada quien mueve SU paleta, toque donde toque.
+      if (mesa.miAsiento === 'a') m.abajo = p.x
+      else if (mesa.miAsiento === 'b') m.arriba = ANCHO - p.x
+      return
+    }
     if (p.y > ALTO / 2) m.abajo = p.x
     else if (modo === '2j') m.arriba = p.x
   }
@@ -151,13 +289,27 @@ export function Pong({ dificultad = 'medio' }: PropsDificultad) {
             desc: t('entre.j.modo.2jDesc', 'En el mismo dispositivo'),
             alElegir: () => reiniciar('2j'),
           },
+          // Sin tocar el mundo: la partida en línea empieza al pulsar «Jugar».
+          ...(mesa.enLinea ? [opcionEnLinea(t, mesa.asientos, () => setModo('online'))] : []),
         ]}
       />
     )
   }
 
-  const nombreArriba = modo === 'ia' ? t('entre.j.maquina', 'Máquina') : t('entre.j.pong.j2', 'Jugador 2')
-  const nombreAbajo = modo === 'ia' ? t('entre.j.tu', 'Tú') : t('entre.j.pong.j1', 'Jugador 1')
+  const nombreArriba = online
+    ? nombreAsiento(t, mesa.asientos, 'b', mesa.miAsiento)
+    : modo === 'ia'
+      ? t('entre.j.maquina', 'Máquina')
+      : t('entre.j.pong.j2', 'Jugador 2')
+  const nombreAbajo = online
+    ? nombreAsiento(t, mesa.asientos, 'a', mesa.miAsiento)
+    : modo === 'ia'
+      ? t('entre.j.tu', 'Tú')
+      : t('entre.j.pong.j1', 'Jugador 1')
+  const ganaAbajo = marcador.abajo >= META
+  const gane = (modo === 'ia' && ganaAbajo) || (online && mesa.miAsiento === (ganaAbajo ? 'a' : 'b'))
+  // «Jugar» lo pulsan los dos asientos; quien mira solo espera.
+  const puedeEmpezar = !online || (mesa.miAsiento !== null && !sinRival)
 
   return (
     <div className="space-y-3">
@@ -166,14 +318,22 @@ export function Pong({ dificultad = 'medio' }: PropsDificultad) {
           {nombreAbajo} {marcador.abajo} · {marcador.arriba} {nombreArriba}
         </span>
         <div className="flex gap-2">
-          <button type="button" onClick={() => reiniciar(modo)} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold">
-            <Icono nombre="sincronizar" /> {t('entre.j.nueva', 'Nueva partida')}
-          </button>
+          {!online && (
+            <button type="button" onClick={() => reiniciar(modo)} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold">
+              <Icono nombre="sincronizar" /> {t('entre.j.nueva', 'Nueva partida')}
+            </button>
+          )}
           <button type="button" onClick={() => reiniciar(null)} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold">
-            {t('entre.j.modo.cambiar', 'Cambiar modo')}
+            {online ? t('entre.j.mesa.salir', 'Salir de la mesa') : t('entre.j.modo.cambiar', 'Cambiar modo')}
           </button>
         </div>
       </div>
+
+      {online && (
+        <div className="mx-auto max-w-[360px]">
+          <BarraMesa abierta={mesa.abierta} cerrada={mesa.cerrada} asientos={mesa.asientos} miAsiento={mesa.miAsiento} />
+        </div>
+      )}
 
       <div className="relative mx-auto max-w-[360px]">
         <canvas
@@ -187,21 +347,26 @@ export function Pong({ dificultad = 'medio' }: PropsDificultad) {
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-black/60 ui-noche">
             {fase === 'fin' && (
               <p className="px-4 text-center font-black">
-                {(modo === 'ia' && marcador.abajo >= META) ? t('entre.j.ganaste', '¡Ganaste! 🎉') : t('entre.j.pong.gana', 'Gana {j}', { j: marcador.abajo >= META ? nombreAbajo : nombreArriba })}
+                {gane ? t('entre.j.ganaste', '¡Ganaste! 🎉') : t('entre.j.pong.gana', 'Gana {j}', { j: ganaAbajo ? nombreAbajo : nombreArriba })}
               </p>
             )}
-            <button
-              type="button"
-              onClick={() => {
-                mundo.current = mundoInicial()
-                setMarcador({ abajo: 0, arriba: 0 })
-                setFase('jugando')
-              }}
-              className="rounded-xl px-4 py-2 font-bold text-black"
-              style={{ background: COLOR }}
-            >
-              {fase === 'fin' ? t('entre.j.nueva', 'Nueva partida') : t('entre.j.jugar', 'Jugar')}
-            </button>
+            {online && sinRival ? (
+              <p className="px-4 text-center text-sm text-white/70">
+                {t('entre.j.mesa.esperandoRival', 'Esperando a que alguien se siente enfrente…')}
+              </p>
+            ) : puedeEmpezar ? (
+              <button
+                type="button"
+                onClick={() => {
+                  if (manda) empezar()
+                  else go.current += 1
+                }}
+                className="rounded-xl px-4 py-2 font-bold text-black"
+                style={{ background: COLOR }}
+              >
+                {fase === 'fin' ? t('entre.j.nueva', 'Nueva partida') : t('entre.j.jugar', 'Jugar')}
+              </button>
+            ) : null}
           </div>
         )}
       </div>
@@ -214,8 +379,13 @@ export function Pong({ dificultad = 'medio' }: PropsDificultad) {
   )
 }
 
-function dibujar(ctx: CanvasRenderingContext2D, m: Mundo) {
+function dibujar(ctx: CanvasRenderingContext2D, m: Mundo, girada = false) {
   ctx.clearRect(0, 0, ANCHO, ALTO)
+  ctx.save()
+  if (girada) {
+    ctx.translate(ANCHO, ALTO)
+    ctx.rotate(Math.PI)
+  }
 
   // Línea central
   ctx.strokeStyle = 'rgba(255,255,255,0.15)'
@@ -237,4 +407,5 @@ function dibujar(ctx: CanvasRenderingContext2D, m: Mundo) {
   ctx.arc(m.bola.x, m.bola.y, 6, 0, Math.PI * 2)
   ctx.fillStyle = COLOR
   ctx.fill()
+  ctx.restore()
 }

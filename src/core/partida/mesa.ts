@@ -51,6 +51,11 @@ export interface Mesa<E, M> {
   cerrar(): void
   /** Manda la jugada; NO la aplica en local hasta que vuelve por la bajada. */
   jugar(m: M): void
+  /**
+   * Mesa EN VIVO: el asiento `a` manda el cuadro de su física y el `b` su
+   * mando. Sin asiento no sale nada.
+   */
+  enVivo(d: object): void
 }
 
 interface MesaViva {
@@ -93,7 +98,7 @@ let asientoTimer: ReturnType<typeof setTimeout> | null = null
 let cerradaFuera = false
 const oyentes = new Set<() => void>()
 
-/** Cada juego se registra al importarse (lo hace `JuegosMesaTab` con los cuatro). */
+/** Cada juego se registra al importarse (lo hace `JuegosMesaTab` al importarlos). */
 export function registrarJuegoMesa<E, M>(g: JuegoMesa, def: JuegoMesaDef<E, M>): void {
   JUEGOS.set(g, def as unknown as JuegoMesaDef<unknown, unknown>)
 }
@@ -276,6 +281,31 @@ alRecibir('salir', (p, de) => {
 
 registrarResync(reemitirEstado, 'mesa')
 
+// ─── mesa en vivo (juegos de acción) ─────────────────────────────────────────
+
+const oyentesVivo = new Map<JuegoMesa, Set<(k: 'cuadro' | 'mando', d: unknown) => void>>()
+
+alRecibir('vivo', (p, de) => {
+  const m = mesa
+  if (!m || m.g !== p.g) return
+  // El cuadro lo dicta solo quien abrió la mesa; el mando, solo quien se sentó enfrente.
+  if ((p.k === 'cuadro' ? m.a : m.b) !== de) return
+  for (const cb of oyentesVivo.get(p.g) ?? []) cb(p.k, p.d)
+})
+
+/** Escucha los cuadros y los mandos de la mesa en vivo de `g` (ya filtrados por asiento). */
+export function escucharVivo(g: JuegoMesa, cb: (k: 'cuadro' | 'mando', d: unknown) => void): () => void {
+  let cbs = oyentesVivo.get(g)
+  if (!cbs) {
+    cbs = new Set()
+    oyentesVivo.set(g, cbs)
+  }
+  cbs.add(cb)
+  return () => {
+    cbs.delete(cb)
+  }
+}
+
 usePartida.subscribe((s, previo) => {
   // La mesa vive dentro de la sala: al cerrarse no puede quedar un tablero
   // fantasma en la pantalla de nadie.
@@ -385,6 +415,11 @@ export function useMesa<E, M>(g: JuegoMesa): Mesa<E, M> {
       if (!yo || !mesa || mesa.g !== g || asientoDe(mesa, yo) === null) return
       if (soyArbitro()) arbitrarJugada(yo, g, mesa.n, m)
       else proponerJugada(yo, g, mesa.n, m)
+    },
+    enVivo: (d) => {
+      const yo = salaViva()?.miRanura
+      const asiento = yo && mesa?.g === g ? asientoDe(mesa, yo) : null
+      if (yo && asiento) emitir('vivo', { j: yo, g, k: asiento === 'a' ? 'cuadro' : 'mando', d })
     },
   }
 }

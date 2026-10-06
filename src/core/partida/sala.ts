@@ -68,6 +68,7 @@ const EVENTOS: Evento[] = [
   'charla',
   'voz',
   'senal',
+  'vivo',
 ]
 
 /** El anfitrión es siempre `j0` (`partida_crear` le da esa ranura). */

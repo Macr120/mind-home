@@ -1,14 +1,16 @@
 import { useEffect, useRef, useState } from 'react'
 import { Icono } from '../../../core/ui/iconos/Icono'
 import { useT } from '../../../core/i18n/useT'
+import { registrarJuegoMesa, useMesa, type Asiento } from '../../../core/partida/mesa'
 import { COLOR } from '../constantes'
 import { guardarRecord, leerNumero } from './almacen'
 import { prepararLienzo, puntoLienzo, useBucle } from './arcade'
 import type { Dificultad, PropsDificultad } from './dificultad'
 import { ElegirModo } from './ElegirModo'
+import { BarraMesa, nombreAsiento, opcionEnLinea } from './mesaJuego'
 import { vivo } from '../../../core/ui/estilos'
 
-type Modo = '1j' | '2j'
+type Modo = '1j' | '2j' | 'online'
 
 // Ayuda al apuntar: largo de la guía y si se proyecta hasta el primer choque
 const GUIA: Record<Dificultad, { largo: number; prediccion: boolean }> = {
@@ -79,19 +81,154 @@ function reponerBlanca(bolas: Bola[]): Bola {
   return blanca
 }
 
-export function Billar({ dificultad = 'medio' }: PropsDificultad) {
+// ─── en línea ────────────────────────────────────────────────────────────────
+
+/** Bola tal como viaja en la mesa: sin velocidad (en reposo) y sin campos `undefined`. */
+interface BolaMesa {
+  x: number
+  y: number
+  color: string
+  esBlanca?: true
+}
+
+/**
+ * Partida en línea. `antes` y `tiro` son la mesa previa y el último tiro:
+ * con ellos cada pantalla anima la jugada, y al parar se queda con `bolas`,
+ * que es lo que calculó el reductor (si su animación se desvió un pelo, manda
+ * el reductor).
+ */
+interface EstadoBillar {
+  bolas: BolaMesa[]
+  antes: BolaMesa[] | null
+  tiro: { vx: number; vy: number } | null
+  turno: Asiento
+  pts: Record<Asiento, number>
+  aviso: 'falta' | 'sigue' | null
+  fin: boolean
+}
+
+/** Un tiro (la velocidad de salida de la blanca) o, con la mesa limpia, otra partida. */
+type MovBillar = { vx: number; vy: number } | { nueva: true }
+
+const VEL_TIRO = 1150
+/** Paso fijo de la simulación del tiro: igual en el árbitro y en cada pantalla. */
+const PASO_TIRO = 1 / 180
+
+const r2 = (n: number) => Math.round(n * 100) / 100
+
+function aMesa(bolas: Bola[]): BolaMesa[] {
+  return bolas.map((b) => ({ x: r2(b.x), y: r2(b.y), color: b.color, ...(b.esBlanca ? { esBlanca: true as const } : {}) }))
+}
+
+function deMesa(bolas: BolaMesa[]): Bola[] {
+  return bolas.map((b) => ({ ...b, vx: 0, vy: 0 }))
+}
+
+function inicialBillar(): EstadoBillar {
+  return { bolas: aMesa(rack()), antes: null, tiro: null, turno: 'a', pts: { a: 0, b: 0 }, aviso: null, fin: false }
+}
+
+/** Reductor: simula el tiro entero hasta que todo para. Mismo código en todas las pantallas. */
+function aplicarBillar(e: EstadoBillar, m: MovBillar, asiento: Asiento): EstadoBillar | null {
+  if (typeof m !== 'object' || m === null) return null
+  if ('nueva' in m) return e.fin ? inicialBillar() : null
+  if (e.fin || e.turno !== asiento) return null
+  const { vx, vy } = m
+  if (typeof vx !== 'number' || typeof vy !== 'number' || !Number.isFinite(vx) || !Number.isFinite(vy)) return null
+  const v = Math.sqrt(vx * vx + vy * vy)
+  if (v === 0 || v > VEL_TIRO + 1) return null
+  const mundo: Mundo = { bolas: deMesa(e.bolas), moviendo: true, metidas: 0, blancaDentro: false, apunte: null }
+  const blanca = mundo.bolas.find((b) => b.esBlanca)
+  if (!blanca) return null
+  blanca.vx = vx
+  blanca.vy = vy
+  // Tope de pasos: a 180 Hz son ~55 s de mesa, mucho más de lo que rueda un tiro.
+  for (let i = 0; i < 10000 && mundo.bolas.some((b) => b.vx !== 0 || b.vy !== 0); i++) paso(mundo, PASO_TIRO)
+  const otro: Asiento = asiento === 'a' ? 'b' : 'a'
+  let { turno, pts } = e
+  let aviso: EstadoBillar['aviso'] = null
+  if (mundo.blancaDentro) {
+    mundo.bolas.push(reponerBlanca(mundo.bolas))
+    aviso = 'falta'
+    turno = otro
+  } else if (mundo.metidas > 0) {
+    pts = { ...pts, [asiento]: pts[asiento] + mundo.metidas }
+    aviso = 'sigue'
+  } else turno = otro
+  return {
+    bolas: aMesa(mundo.bolas),
+    antes: e.bolas,
+    tiro: { vx, vy },
+    turno,
+    pts,
+    aviso,
+    fin: mundo.bolas.every((b) => b.esBlanca),
+  }
+}
+
+registrarJuegoMesa<EstadoBillar, MovBillar>('billar', {
+  inicial: inicialBillar,
+  aplicar: aplicarBillar,
+  terminado: (e) => e.fin,
+})
+
+export function Billar({ dificultad = 'medio', mesaOnline = false }: PropsDificultad) {
   const t = useT()
   const guia = GUIA[dificultad]
   const lienzo = useRef<HTMLCanvasElement>(null)
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null)
   const mundo = useRef<Mundo>(mundoInicial())
-  const [modo, setModo] = useState<Modo | null>(null)
+  const mesa = useMesa<EstadoBillar, MovBillar>('billar')
+  /** Jugadas ya pintadas y la mesa en la que acaba la animación en curso. */
+  const nVisto = useRef(-1)
+  const final = useRef<BolaMesa[] | null>(null)
+  const [modo, setModo] = useState<Modo | null>(mesaOnline ? 'online' : null)
   const [turno, setTurno] = useState<1 | 2>(1)
   const [puntos, setPuntos] = useState({ j1: 0, j2: 0 })
   const [tiros, setTiros] = useState(0)
   const [aviso, setAviso] = useState<'falta' | 'sigue' | null>(null)
   const [fin, setFin] = useState(false)
   const [record, setRecord] = useState(() => leerNumero('billar-record', 0))
+
+  const online = modo === 'online'
+  const em = online ? mesa.estado : null
+  const miTurno = !online || (em !== null && !em.fin && em.turno === mesa.miAsiento && mesa.asientos.b !== null)
+  const sinRival = online && mesa.asientos.b === null
+
+  useEffect(() => {
+    if (online && mesa.enLinea && !mesa.abierta) mesa.abrir()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [online, mesa.enLinea])
+
+  useEffect(() => {
+    if (online && mesa.abierta && mesa.miAsiento === null && sinRival) mesa.sentar()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [online, mesa.abierta, mesa.miAsiento, sinRival])
+
+  // Cada jugada nueva de la mesa se anima desde la mesa previa; un salto (al
+  // entrar, o tras un estado completo) se pinta tal cual.
+  useEffect(() => {
+    if (!online || !em) return
+    const m = mundo.current
+    if (mesa.n === nVisto.current + 1 && em.antes && em.tiro) {
+      m.bolas = deMesa(em.antes)
+      const blanca = m.bolas.find((b) => b.esBlanca)
+      if (blanca) {
+        blanca.vx = em.tiro.vx
+        blanca.vy = em.tiro.vy
+      }
+      m.moviendo = true
+      m.metidas = 0
+      m.blancaDentro = false
+      final.current = em.bolas
+    } else if (mesa.n !== nVisto.current || !m.moviendo) {
+      // El estado completo del árbitro también corrige un tiro que se animó con decimales distintos.
+      m.bolas = deMesa(em.bolas)
+      m.moviendo = false
+      final.current = null
+    }
+    nVisto.current = mesa.n
+  }, [online, em, mesa.n])
 
   useEffect(() => {
     if (modo === null) return
@@ -100,6 +237,8 @@ export function Billar({ dificultad = 'medio' }: PropsDificultad) {
   }, [modo, guia])
 
   const reiniciar = (m: Modo | null) => {
+    if (online && m !== 'online') mesa.levantar()
+    nVisto.current = -1
     setModo(m)
     mundo.current = mundoInicial()
     setTurno(1)
@@ -111,6 +250,20 @@ export function Billar({ dificultad = 'medio' }: PropsDificultad) {
 
   useBucle((dt) => {
     const m = mundo.current
+    if (online) {
+      // En línea el reductor ya decidió el tiro: aquí solo se anima.
+      if (m.moviendo) {
+        const h = dt / 3
+        for (let s = 0; s < 3; s++) paso(m, h)
+        if (m.bolas.every((b) => b.vx === 0 && b.vy === 0)) {
+          m.moviendo = false
+          if (final.current) m.bolas = deMesa(final.current)
+          final.current = null
+        }
+      }
+      dibujar(ctxRef.current!, m, guia)
+      return
+    }
     if (m.moviendo) {
       // 3 subpasos por frame: colisiones estables sin túneles
       const h = dt / 3
@@ -140,11 +293,11 @@ export function Billar({ dificultad = 'medio' }: PropsDificultad) {
       }
     }
     dibujar(ctxRef.current!, m, guia)
-  }, modo !== null && !fin)
+  }, modo !== null && (!fin || online))
 
   const bajar = (e: React.PointerEvent<HTMLCanvasElement>) => {
     const m = mundo.current
-    if (m.moviendo || fin) return
+    if (m.moviendo || fin || !miTurno) return
     lienzo.current!.setPointerCapture(e.pointerId)
     m.apunte = puntoLienzo(lienzo.current!, e, ANCHO, ALTO)
   }
@@ -164,7 +317,13 @@ export function Billar({ dificultad = 'medio' }: PropsDificultad) {
       const dy = blanca.y - m.apunte.y
       const dist = Math.hypot(dx, dy)
       if (dist > 14) {
-        const v = Math.min(1150, dist * 4)
+        const v = Math.min(VEL_TIRO, dist * 4)
+        if (online) {
+          // La jugada vuelve por la mesa y entonces se anima en todas las pantallas.
+          mesa.jugar({ vx: r2((dx / dist) * v), vy: r2((dy / dist) * v) })
+          m.apunte = null
+          return
+        }
         blanca.vx = (dx / dist) * v
         blanca.vy = (dy / dist) * v
         m.moviendo = true
@@ -194,16 +353,31 @@ export function Billar({ dificultad = 'medio' }: PropsDificultad) {
             desc: t('entre.j.modo.2jDesc', 'En el mismo dispositivo'),
             alElegir: () => reiniciar('2j'),
           },
+          ...(mesa.enLinea ? [opcionEnLinea(t, mesa.asientos, () => setModo('online'))] : []),
         ]}
       />
     )
   }
 
+  const nombre = (a: Asiento) => nombreAsiento(t, mesa.asientos, a, mesa.miAsiento)
+  const marca = (a: Asiento) => (
+    <span className={em?.turno === a ? 'texto-vivo' : undefined} style={em?.turno === a ? vivo(COLOR) : undefined}>
+      {nombre(a)} {em?.pts[a] ?? 0}
+    </span>
+  )
+  const ganadorEnLinea: Asiento | null = em ? (em.pts.a === em.pts.b ? null : em.pts.a > em.pts.b ? 'a' : 'b') : null
+
   return (
     <div className="space-y-3">
       <div className="mx-auto flex max-w-[360px] flex-wrap items-center justify-between gap-2 text-sm">
         <span className="font-semibold">
-          {modo === '1j' ? (
+          {online ? (
+            <>
+              {marca('a')}
+              {' · '}
+              {marca('b')}
+            </>
+          ) : modo === '1j' ? (
             <>
               {t('entre.j.billar.tiros', 'Tiros')}: {tiros}
               {record > 0 && (
@@ -219,18 +393,29 @@ export function Billar({ dificultad = 'medio' }: PropsDificultad) {
               <span className={turno === 2 ? 'texto-vivo' : undefined} style={turno === 2 ? vivo(COLOR) : undefined}>{t('entre.j.billar.j2', 'J2')} {puntos.j2}</span>
             </>
           )}
-          {aviso === 'falta' && <span className="ms-2 text-red-400">{t('entre.j.billar.falta', 'Falta: la blanca se metió')}</span>}
-          {aviso === 'sigue' && <span className="texto-vivo ms-2" style={vivo(COLOR)}>{t('entre.j.billar.sigue', '¡Bola dentro, sigues tú!')}</span>}
+          {(online ? em?.aviso : aviso) === 'falta' && <span className="ms-2 text-red-400">{t('entre.j.billar.falta', 'Falta: la blanca se metió')}</span>}
+          {(online ? em?.aviso : aviso) === 'sigue' && <span className="texto-vivo ms-2" style={vivo(COLOR)}>{t('entre.j.billar.sigue', '¡Bola dentro, sigues tú!')}</span>}
         </span>
         <div className="flex gap-2">
-          <button type="button" onClick={() => reiniciar(modo)} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold">
-            <Icono nombre="sincronizar" /> {t('entre.j.nueva', 'Nueva partida')}
-          </button>
+          {!online && (
+            <button type="button" onClick={() => reiniciar(modo)} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold">
+              <Icono nombre="sincronizar" /> {t('entre.j.nueva', 'Nueva partida')}
+            </button>
+          )}
           <button type="button" onClick={() => reiniciar(null)} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold">
-            {t('entre.j.modo.cambiar', 'Cambiar modo')}
+            {online ? t('entre.j.mesa.salir', 'Salir de la mesa') : t('entre.j.modo.cambiar', 'Cambiar modo')}
           </button>
         </div>
       </div>
+
+      {online && (
+        <div className="mx-auto max-w-[360px]">
+          <BarraMesa abierta={mesa.abierta} cerrada={mesa.cerrada} asientos={mesa.asientos} miAsiento={mesa.miAsiento} />
+          {sinRival && (
+            <p className="text-xs text-white/45">{t('entre.j.mesa.esperandoRival', 'Esperando a que alguien se siente enfrente…')}</p>
+          )}
+        </div>
+      )}
 
       <div className="relative mx-auto max-w-[300px]">
         <canvas
@@ -242,7 +427,23 @@ export function Billar({ dificultad = 'medio' }: PropsDificultad) {
           className="w-full rounded-xl"
           style={{ touchAction: 'none', aspectRatio: `${ANCHO} / ${ALTO}`, background: '#14532d' }}
         />
-        {fin && (
+        {online && em?.fin && (
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-black/70 ui-noche">
+            <p className="px-4 text-center font-black">
+              {ganadorEnLinea === null
+                ? t('entre.j.cuatroenlinea.empate', 'Empate: tablero lleno')
+                : ganadorEnLinea === mesa.miAsiento
+                  ? t('entre.j.ganaste', '¡Ganaste! 🎉')
+                  : t('entre.j.mesa.gana', 'Gana {n}', { n: nombre(ganadorEnLinea) })}
+            </p>
+            {mesa.miAsiento && (
+              <button type="button" onClick={() => mesa.jugar({ nueva: true })} className="rounded-xl px-4 py-2 font-bold text-black" style={{ background: COLOR }}>
+                {t('entre.j.nueva', 'Nueva partida')}
+              </button>
+            )}
+          </div>
+        )}
+        {fin && !online && (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-black/70 ui-noche">
             <p className="px-4 text-center font-black">
               {modo === '1j'

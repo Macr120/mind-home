@@ -31,6 +31,7 @@ import type {
   MsgSentar,
   MsgVeredicto,
   MsgVuelo,
+  MsgVivo,
   MsgVoz,
   MsgW,
   Pose,
@@ -65,6 +66,7 @@ export type Evento =
   | 'charla'
   | 'voz'
   | 'senal'
+  | 'vivo'
 
 export interface PayloadPorEvento {
   s: MsgS
@@ -90,6 +92,7 @@ export interface PayloadPorEvento {
   charla: MsgCharla
   voz: MsgVoz
   senal: MsgSenal
+  vivo: MsgVivo
 }
 
 export type PayloadDe<E extends Evento> = PayloadPorEvento[E]
@@ -165,6 +168,8 @@ const MESA_JUGADA = 4 * 1024
 /** Jugadas de una mesa: con 100 000 se acaba antes la paciencia que el contador. */
 const MESA_N_MAX = 1e5
 const MESA_HONDURA = 8
+/** Tope de un cuadro o un mando de la mesa en vivo. */
+const MESA_VIVO = 2 * 1024
 
 /** Charla de la sala: un mensaje de texto y una descripción de sesión WebRTC. */
 const CHARLA_TX = 500
@@ -300,7 +305,17 @@ function leerBots(v: unknown): { j: BotId; vivo: 0 | 1; col: string; eq: number 
 }
 
 function esJuegoMesa(v: unknown): v is JuegoMesa {
-  return v === 'c4' || v === 'damas' || v === 'ajedrez' || v === 'cartas'
+  return (
+    v === 'c4' ||
+    v === 'damas' ||
+    v === 'ajedrez' ||
+    v === 'cartas' ||
+    v === 'billar' ||
+    v === 'domino' ||
+    v === 'ocholocos' ||
+    v === 'pong' ||
+    v === 'hockey'
+  )
 }
 
 /** Datos de la mesa: objeto/array de valores llanos, sin funciones ni `__proto__`. */
@@ -542,6 +557,13 @@ function armar(ev: Evento, o: Record<string, unknown>, t: number, seq: number, d
       if (!esRanura(o.a) || o.a === o.j || s === null || sd === null || sd === '') return null
       if (o.k !== 'oferta' && o.k !== 'respuesta') return null
       return { v: VERSION_PROTO, t, j: o.j, a: o.a, k: o.k, s, sd }
+    }
+    case 'vivo': {
+      // Mismo criterio de firma que la charla: por la bajada solo el anfitrión.
+      if (!esRanura(o.j) || (direccion === 'bajada') !== (o.j === 'j0')) return null
+      if (!esJuegoMesa(o.g) || (o.k !== 'cuadro' && o.k !== 'mando')) return null
+      const d = datosMesa(o.d, MESA_VIVO)
+      return d && { v: VERSION_PROTO, t, j: o.j, g: o.g, k: o.k, d }
     }
     case 'b': {
       const bx = num(o.bx, -CANCHA, CANCHA)
