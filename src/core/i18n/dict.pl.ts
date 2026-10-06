@@ -6417,6 +6417,7 @@ export const PL: Dict = {
   'editor.tema.techo': 'Dach',
   'editor.tema.tinte': 'Odcień obiektów',
   'editor.titulo': 'Edytor',
+  'hud.salirPantallaCompleta': 'Zamknij pełny ekran',
   'ejercicio.confirmarGenerarImagenes':
     'Zostanie wygenerowanych {n} obrazów przy użyciu {proveedor}. Może się to wiązać z kosztem. Kontynuować?',
   'ejercicio.f.volumen': 'Objętość',

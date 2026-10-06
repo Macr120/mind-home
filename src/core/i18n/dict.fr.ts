@@ -6508,6 +6508,7 @@ export const FR: Dict = {
   'editor.tema.techo': 'Toit',
   'editor.tema.tinte': 'Teinte des objets',
   'editor.titulo': 'Éditeur',
+  'hud.salirPantallaCompleta': 'Quitter le plein écran',
   'ejercicio.confirmarGenerarImagenes':
     '{n} images vont être générées avec {proveedor}. Cela peut avoir un coût. Continuer ?',
   'ejercicio.f.volumen': 'Volume',

@@ -94,6 +94,7 @@ interface PuenteEscritorio {
   version: string | null
   clicsEnFondo?: boolean
   ponerDeFondo?: (pantalla?: string) => Promise<boolean>
+  pantallaCompleta?: (activa?: boolean) => Promise<boolean>
   pantallas?: () => Promise<PantallaEscritorio[]>
   abrirEn?: (donde: string) => Promise<boolean>
   vistaFondo?: () => Promise<string | null>

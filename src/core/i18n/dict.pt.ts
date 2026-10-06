@@ -6430,6 +6430,7 @@ export const PT: Dict = {
   'editor.tema.techo': 'Telhado',
   'editor.tema.tinte': 'Tom dos objetos',
   'editor.titulo': 'Editor',
+  'hud.salirPantallaCompleta': 'Sair da tela cheia',
   'ejercicio.confirmarGenerarImagenes': 'Serão geradas {n} imagens com {proveedor}. Isso pode ter um custo. Continuar?',
   'ejercicio.f.volumen': 'Volume',
   'ejercicio.graf.max': 'máx',

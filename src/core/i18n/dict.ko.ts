@@ -6191,6 +6191,7 @@ export const KO: Dict = {
   'editor.tema.techo': '지붕',
   'editor.tema.tinte': '오브젝트 색조',
   'editor.titulo': '편집기',
+  'hud.salirPantallaCompleta': '전체 화면 종료',
   'ejercicio.confirmarGenerarImagenes': '{proveedor}로 이미지 {n}장을 생성해요. 비용이 발생할 수 있어요. 계속할까요?',
   'ejercicio.f.volumen': '볼륨',
   'ejercicio.graf.max': '최대',

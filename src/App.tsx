@@ -45,6 +45,7 @@ import { esDemo, esProbar, esVisita } from './core/edicion'
 import { VeloVisita } from './core/visita/VeloVisita'
 import { useVisita } from './core/visita/visitaStore'
 import { esEscritorio, esModoFondo } from './core/plataforma'
+import { SalidaPantallaCompleta } from './core/ui/SalidaPantallaCompleta'
 import { TiraNavegador } from './core/ui/TiraNavegador'
 import { acercarEncuadre, aplicarEncuadre, moverEncuadre } from './core/fondoEncuadre'
 import { ExtrasFondo } from './core/ui/ExtrasFondo'
@@ -335,6 +336,7 @@ export default function App() {
       <EnlaceObjetoDialog />
       {/* La tira de pestañas del navegador embebido, al pie (solo el shell de escritorio la usa). */}
       {esEscritorio() && <TiraNavegador />}
+      {esEscritorio() && <SalidaPantallaCompleta />}
       <AmueblarDialog />
       <DestinoObjetoDialog />
       <AccesoNivelDialog />

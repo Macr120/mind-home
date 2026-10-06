@@ -426,7 +426,14 @@ function crearVentana(query = '') {
     },
   })
   aplicarIconoTema()
-  ventana.once('ready-to-show', () => ventana.show())
+  // Abre en pantalla completa; la X que asoma al llevar el ratón arriba
+  // (`SalidaPantallaCompleta` en la app) la quita, y F11 la alterna.
+  ventana.once('ready-to-show', () => {
+    ventana.show()
+    ventana.setFullScreen(true)
+  })
+  ventana.on('enter-full-screen', () => ventana?.webContents.send('mph:pantalla-completa', true))
+  ventana.on('leave-full-screen', () => ventana?.webContents.send('mph:pantalla-completa', false))
   ventana.on('close', () => guardarMedida())
   ventana.on('closed', () => {
     ventana = null
@@ -1135,6 +1142,14 @@ ipcMain.handle('mph:nav-limpiar-sesion', async () => {
   const s = sesionNavegador()
   await s.clearStorageData()
   await s.clearCache()
+})
+
+/** Pantalla completa de la ventana: sin argumento la consulta, con él la pone o la quita. */
+ipcMain.handle('mph:pantalla-completa', (e, activa) => {
+  const win = BrowserWindow.fromWebContents(e.sender)
+  if (!win) return false
+  if (typeof activa === 'boolean') win.setFullScreen(activa)
+  return win.isFullScreen()
 })
 
 /**

@@ -6482,6 +6482,7 @@ export const NL: Dict = {
   'editor.tema.techo': 'Dak',
   'editor.tema.tinte': 'Objecttint',
   'editor.titulo': 'Editor',
+  'hud.salirPantallaCompleta': 'Volledig scherm sluiten',
   'ejercicio.confirmarGenerarImagenes':
     'Er worden {n} afbeeldingen gegenereerd met {proveedor}. Dit kan kosten met zich meebrengen. Doorgaan?',
   'ejercicio.f.volumen': 'Volume',

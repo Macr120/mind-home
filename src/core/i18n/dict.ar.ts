@@ -6312,6 +6312,7 @@ export const AR: Dict = {
   'editor.tema.techo': 'السقف',
   'editor.tema.tinte': 'صبغة العناصر',
   'editor.titulo': 'المحرر',
+  'hud.salirPantallaCompleta': 'الخروج من ملء الشاشة',
   'ejercicio.confirmarGenerarImagenes': 'سيتم إنشاء {n} صورة باستخدام {proveedor}. قد يترتب على ذلك تكلفة. المتابعة؟',
   'ejercicio.f.volumen': 'الحجم',
   'ejercicio.graf.max': 'الأقصى',

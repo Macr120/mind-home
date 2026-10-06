@@ -6393,6 +6393,7 @@ export const HI: Dict = {
   'editor.tema.techo': 'छत',
   'editor.tema.tinte': 'वस्तुओं की रंगत',
   'editor.titulo': 'एडिटर',
+  'hud.salirPantallaCompleta': 'पूर्ण स्क्रीन से बाहर निकलें',
   'ejercicio.confirmarGenerarImagenes': '{proveedor} से {n} तस्वीरें बनाई जाएंगी। इसका शुल्क लग सकता है। जारी रखें?',
   'ejercicio.f.volumen': 'वॉल्यूम',
   'ejercicio.graf.max': 'अधि.',

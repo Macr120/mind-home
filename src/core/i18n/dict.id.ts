@@ -6461,6 +6461,7 @@ export const ID: Dict = {
   'editor.tema.techo': 'Atap',
   'editor.tema.tinte': 'Rona objek',
   'editor.titulo': 'Editor',
+  'hud.salirPantallaCompleta': 'Keluar dari layar penuh',
   'ejercicio.confirmarGenerarImagenes':
     '{n} gambar akan dibuat dengan {proveedor}. Ini mungkin dikenakan biaya. Lanjutkan?',
   'ejercicio.f.volumen': 'Volume',

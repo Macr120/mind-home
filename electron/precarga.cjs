@@ -24,6 +24,11 @@ ipcRenderer.on('mph:abrir-en', (_evento, donde) => {
   window.dispatchEvent(new CustomEvent('mph:abrir-en', { detail: donde }))
 })
 
+// La ventana entró o salió de pantalla completa (la X de arriba, F11 o el menú).
+ipcRenderer.on('mph:pantalla-completa', (_evento, activa) => {
+  window.dispatchEvent(new CustomEvent('mph:pantalla-completa', { detail: activa }))
+})
+
 // Solo llega a la ventana del fondo: la vista previa le manda hacia dónde moverse.
 ipcRenderer.on('mph:fondo-mover', (_evento, d) => {
   window.dispatchEvent(new CustomEvent('mph:fondo-mover', { detail: d }))
@@ -68,6 +73,8 @@ contextBridge.exposeInMainWorld('mph', {
    * encendida. `pantalla` es el id de un monitor o 'todas'.
    */
   ponerDeFondo: (pantalla) => ipcRenderer.invoke('mph:fondo', pantalla),
+  /** Pantalla completa de la ventana: sin argumento la consulta; con true/false la cambia. */
+  pantallaCompleta: (activa) => ipcRenderer.invoke('mph:pantalla-completa', activa),
   /** Los monitores conectados, para elegir en cuál va el fondo. */
   pantallas: () => ipcRenderer.invoke('mph:pantallas'),
   /** Abre (o despierta) la ventana normal en un sitio concreto de la app. */

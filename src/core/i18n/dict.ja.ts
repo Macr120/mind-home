@@ -6182,6 +6182,7 @@ export const JA: Dict = {
   'editor.tema.techo': '屋根',
   'editor.tema.tinte': 'オブジェクトの色調',
   'editor.titulo': 'エディター',
+  'hud.salirPantallaCompleta': '全画面表示を終了',
   'ejercicio.confirmarGenerarImagenes': '{proveedor}で{n}枚の画像を生成します。料金が発生する場合があります。続けますか？',
   'ejercicio.f.volumen': 'ボリューム',
   'ejercicio.graf.max': '最大',

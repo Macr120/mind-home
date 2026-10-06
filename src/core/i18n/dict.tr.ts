@@ -6406,6 +6406,7 @@ export const TR: Dict = {
   'editor.tema.techo': 'Çatı',
   'editor.tema.tinte': 'Nesne tonu',
   'editor.titulo': 'Düzenleyici',
+  'hud.salirPantallaCompleta': 'Tam ekrandan çık',
   'ejercicio.confirmarGenerarImagenes':
     '{proveedor} ile {n} görsel oluşturulacak. Bunun bir bedeli olabilir. Devam edilsin mi?',
   'ejercicio.f.volumen': 'Hacim',

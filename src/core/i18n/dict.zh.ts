@@ -6167,6 +6167,7 @@ export const ZH: Dict = {
   'editor.tema.techo': '屋顶',
   'editor.tema.tinte': '物件色调',
   'editor.titulo': '编辑器',
+  'hud.salirPantallaCompleta': '退出全屏',
   'ejercicio.confirmarGenerarImagenes': '将使用{proveedor}生成{n}张图片，可能产生费用。是否继续？',
   'ejercicio.f.volumen': '训练量',
   'ejercicio.graf.max': '最大',

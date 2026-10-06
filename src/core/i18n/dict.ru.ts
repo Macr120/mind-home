@@ -6398,6 +6398,7 @@ export const RU: Dict = {
   'editor.tema.techo': 'Крыша',
   'editor.tema.tinte': 'Оттенок объектов',
   'editor.titulo': 'Редактор',
+  'hud.salirPantallaCompleta': 'Выйти из полноэкранного режима',
   'ejercicio.confirmarGenerarImagenes':
     '{n} изображений будет создано через {proveedor}. Это может быть платно. Продолжить?',
   'ejercicio.f.volumen': 'Объём',
