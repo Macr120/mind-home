@@ -60,7 +60,7 @@ function EnlaceObjetoInterior({ objetoId }: { objetoId: number }) {
   // El diálogo nunca monta en el fondo de pantalla, así que esto es «¿estoy en el shell de Windows?».
   const conProgramas = hayProgramasEscritorio()
   const [modo, setModo] = useState<Modo>(
-    datos?.app ? 'app' : conProgramas && datos?.programa ? 'programa' : 'web',
+    datos?.url ? 'web' : conProgramas && datos?.programa ? 'programa' : 'app',
   )
   const [entrada, setEntrada] = useState<EnlaceObjetoApp | null>(datos?.app ?? null)
   const [eligiendo, setEligiendo] = useState(!datos?.app)
@@ -176,8 +176,8 @@ function EnlaceObjetoInterior({ objetoId }: { objetoId: number }) {
 
         {/* Solo el shell de Windows sabe lanzar programas: en el resto no hay esa pestaña. */}
         <div className="mb-4 flex gap-1 rounded-xl border border-white/10 bg-black/20 p-1">
-          {pestana('web', t('enlace.paginaWeb', 'Página web'))}
           {pestana('app', t('enlace.app.titulo', 'Entrada de app'))}
+          {pestana('web', t('enlace.paginaWeb', 'Página web'))}
           {conProgramas && pestana('programa', t('enlace.programa.titulo', 'Programa'))}
         </div>
 

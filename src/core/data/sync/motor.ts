@@ -387,6 +387,33 @@ async function curarAppsDuplicadas(): Promise<void> {
   )
 }
 
+/**
+ * Restos de cuartos que ya no existen: objetos, layout y diseño cuyo cuarto
+ * (`cuartos`) se borró pero que el sync dejó vivos. No se ven en el mapa pero
+ * sí contaban como apps puestas (el selector ofrecía Audio sin un solo cuarto).
+ * Solo ids generados (`cuarto-…`; los especiales `__…__` no son cuartos) y solo
+ * filas con más de un minuto, para no pisar un cuarto que se está creando.
+ * Corre tras un ciclo completo y SIN marcar la escritura: los borrados viajan
+ * como tombstones. Devuelve las tablas que tocó.
+ */
+async function curarHuerfanos(): Promise<string[]> {
+  type FilaCuarto = { id?: number; roomId: string; updatedAt?: number }
+  const cuartos = new Set((await db.cuartos.toCollection().primaryKeys()) as string[])
+  const limite = Date.now() - 60_000
+  const huerfana = (f: FilaCuarto) =>
+    f.roomId.startsWith('cuarto-') && !cuartos.has(f.roomId) && (f.updatedAt ?? 0) < limite
+  const tocadas: string[] = []
+  await db.transaction('rw', [db.objetosCuarto, db.layout, db.disenoRooms], async () => {
+    for (const t of [db.objetosCuarto, db.layout, db.disenoRooms] as const) {
+      const ids = ((await t.toArray()) as FilaCuarto[]).filter(huerfana).map((f) => f.id!)
+      if (!ids.length) continue
+      await t.bulkDelete(ids)
+      tocadas.push(t.name)
+    }
+  })
+  return tocadas
+}
+
 /** Devuelve las tablas donde el pull pudo cambiar algo local (para repintar). */
 async function pull(vistos?: Map<string, Set<string>>): Promise<Set<string>> {
   const tocadas = new Set<string>()
@@ -625,6 +652,7 @@ export async function sincronizar(manual = false): Promise<void> {
       // siguiente ciclo): dos dispositivos que asignaron la misma app offline.
       // Es un escaneo completo de objetosCuarto: solo cuando pudo hacer falta.
       if (tablasBootstrap != null || tocadas.has('objetosCuarto')) await curarAppsDuplicadas()
+      for (const t of await curarHuerfanos()) tocadas.add(t)
       falloSeguido = 0
       proximoIntento = 0
       bootstrapListo = true

@@ -2,6 +2,7 @@ import { abrirApp, abrirAppOPlantilla } from './abrirApp'
 import type { EnlaceApp, EnlaceObjetoApp } from './data/db'
 import { tGlobal } from './i18n/useT'
 import { getPlantilla, plantillasTodas, type ComandoApp, type Plantilla } from './registry'
+import { useCuartos } from './state/cuartosStore'
 import { esObjetoLibreria, esObjetoMapa, useDiseño } from './state/disenoStore'
 import { useRutinasUI } from './state/rutinasUiStore'
 
@@ -29,9 +30,12 @@ export interface DestinoApp {
  * entrar en ellas (una deja el overlay vacío y la otra ni siquiera es un cuarto).
  */
 export function appsParaEnlace(): Plantilla[] {
+  // Solo cuartos que existen: un objeto cuyo cuarto ya no está (huérfano que dejó
+  // el sync) seguía ofreciendo su app con el mapa vacío.
+  const cuartos = new Set(useCuartos.getState().cuartos.map((c) => c.id))
   const ids = new Set<string>()
   for (const o of useDiseño.getState().objetos)
-    if (o.plantillaId && !esObjetoLibreria(o) && !esObjetoMapa(o)) ids.add(o.plantillaId)
+    if (o.plantillaId && cuartos.has(o.roomId) && !esObjetoLibreria(o) && !esObjetoMapa(o)) ids.add(o.plantillaId)
   return plantillasTodas().filter((p) => ids.has(p.id))
 }
 
