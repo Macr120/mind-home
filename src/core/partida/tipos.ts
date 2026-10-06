@@ -342,6 +342,8 @@ export interface MsgCharla extends Sobre {
   j: Ranura
   n: number
   tx: string
+  /** Solo para esta ranura (sin él, para toda la sala). Los demás lo ignoran. */
+  a?: Ranura
 }
 
 /**

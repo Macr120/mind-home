@@ -1,4 +1,5 @@
 import {
+  GripVertical,
   // Sala de cómputo
   Sigma,
   Redo2,
@@ -1026,6 +1027,7 @@ export const SVGS: Record<NombreIcono, LucideIcon> = {
   adjuntar: Paperclip,
   // Archivo (la nube tipo Drive)
   masOpciones: Ellipsis,
+  asa: GripVertical,
   subirCarpeta: FolderUp,
   // Sombreros, vello facial y tatuajes (glifos propios en glifosPersonaje.ts)
   'sombrero-vaquero': SombreroVaquero,

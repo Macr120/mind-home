@@ -615,6 +615,7 @@ export const EMOJIS = {
   adjuntar: '📎',
   // Archivo (la nube tipo Drive)
   masOpciones: '⋯',
+  asa: '⠿',
   subirCarpeta: '📂',
 
   // — Sombreros, vello facial y tatuajes del editor de personajes (apariencia.ts).

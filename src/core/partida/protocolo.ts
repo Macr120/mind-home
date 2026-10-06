@@ -545,7 +545,8 @@ function armar(ev: Evento, o: Record<string, unknown>, t: number, seq: number, d
         const n = num(o.n, 0, Number.MAX_SAFE_INTEGER)
         const tx = texto(o.tx, CHARLA_TX)
         if (n === null || tx === null || tx.trim() === '') return null
-        return { v: VERSION_PROTO, t, j: o.j, n, tx }
+        if (o.a !== undefined && (!esRanura(o.a) || o.a === o.j)) return null
+        return { v: VERSION_PROTO, t, j: o.j, n, tx, ...(o.a === undefined ? {} : { a: o.a }) }
       }
       if (ev === 'voz') {
         if ((o.ac !== 'entra' && o.ac !== 'sale') || (o.mu !== 0 && o.mu !== 1)) return null

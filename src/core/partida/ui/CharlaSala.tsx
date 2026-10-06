@@ -12,10 +12,11 @@ import type { JugadorSala, Ranura } from '../tipos'
  * la raíz de `App.tsx` (el `ChatBox` está desmontado dentro de cuartos, en la
  * carrera y en el paintball). Solo existe con sala viva y al menos dos personas.
  *
- * Calca la barra del chat de la casa: los participantes a la izquierda (abren
- * los mensajes, que salen encima), la caja de texto, el micrófono y enviar. Se
- * pliega a una pastilla (participantes + micro) y se mueve por su asa a donde el usuario
- * quiera; la posición se recuerda por el borde de ABAJO, así los mensajes crecen
+ * Calca la barra del chat de la casa: a la izquierda la cara de con quién se
+ * habla (abre los mensajes, que salen encima), la caja de texto, el micrófono y
+ * enviar. Con más de una persona, la cara abre a quién escribirle: a una sola o
+ * a «Todos». Se pliega a una pastilla (cara + micro) y se mueve por su asa a
+ * donde el usuario quiera; la posición se recuerda por el borde de ABAJO, así los mensajes crecen
  * hacia arriba como en el chat. Sin posición guardada va al borde derecho, a media altura.
  */
 export function CharlaSala() {
@@ -57,8 +58,16 @@ function Charla({ jugadores, mi }: { jugadores: JugadorSala[]; mi: Ranura }) {
   const abierta = useCharla((s) => s.abierta)
   const setAbierta = useCharla((s) => s.setAbierta)
   const noLeidos = useCharla((s) => s.noLeidos)
+  const con = useCharla((s) => s.con)
+  const setCon = useCharla((s) => s.setCon)
   const voz = useVoz()
   const [texto, setTexto] = useState('')
+  const [eligiendo, setEligiendo] = useState(false)
+  const otros = jugadores.filter((j) => j.ranura !== mi)
+  // Con una sola persona más, hablar con ella ES hablar con la sala: no hay a quién elegir.
+  const varios = otros.length > 1
+  const destino = varios && con && otros.some((j) => j.ranura === con) ? con : null
+  const cara = destino ? otros.find((j) => j.ranura === destino) : varios ? null : otros[0]
   const [pos, setPos] = useState<Pos | null>(leerPos)
   const caja = useRef<HTMLDivElement>(null)
   const campo = useRef<HTMLInputElement>(null)
@@ -84,7 +93,7 @@ function Charla({ jugadores, mi }: { jugadores: JugadorSala[]; mi: Ranura }) {
   }
 
   const enviar = () => {
-    if (enviarCharla(texto)) setTexto('')
+    if (enviarCharla(texto, destino)) setTexto('')
   }
 
   // Arrastre por el asa: la captura va SOLO en el asa (en la caja entera
@@ -122,38 +131,43 @@ function Charla({ jugadores, mi }: { jugadores: JugadorSala[]; mi: Ranura }) {
       aria-label={t('partida.charla.mover', 'Mover el chat')}
       className="grid h-9 w-5 shrink-0 cursor-grab touch-none place-items-center rounded-lg text-white/35 hover:bg-white/10 hover:text-white/70 active:cursor-grabbing"
     >
-      <Icono nombre="mover" />
+      <Icono nombre="asa" />
     </button>
   )
 
-  // Los participantes, a la izquierda como el asistente en el chat de la casa:
-  // abren y cierran los mensajes. El aro dice quién habla (verde) o quién se
-  // quedó sin conexión de voz (rojo).
+  /** Aro de voz: verde si habla, rojo si se quedó sin conexión de voz. */
+  const aro = (r: Ranura) =>
+    voz.hablando[r] ? 'ring-emerald-400' : voz.conexiones[r] === 'fallo' ? 'ring-red-400' : 'ring-transparent'
+  const todos = t('partida.charla.todos', 'Todos')
+
+  // La cara de con quién se habla, a la izquierda como el asistente en el chat
+  // de la casa. Con una sola persona abre y cierra los mensajes; con varias
+  // abre a quién escribirle.
+  const tituloCara = varios
+    ? t('partida.charla.conQuien', '¿Con quién hablas?')
+    : abierta
+      ? t('partida.charla.plegar', 'Plegar')
+      : t('partida.charla.abrir', 'Charla de la sala')
   const caras = (
     <button
       type="button"
-      onClick={() => setAbierta(!abierta)}
-      title={abierta ? t('partida.charla.plegar', 'Plegar') : t('partida.charla.abrir', 'Charla de la sala')}
-      aria-label={abierta ? t('partida.charla.plegar', 'Plegar') : t('partida.charla.abrir', 'Charla de la sala')}
+      onClick={() => (varios ? setEligiendo(!eligiendo) : setAbierta(!abierta))}
+      title={tituloCara}
+      aria-label={tituloCara}
+      aria-expanded={varios ? eligiendo : abierta}
       className={`relative flex h-10 shrink-0 items-center rounded-xl px-1.5 transition ${
-        abierta ? 'bg-accent/20' : 'bg-white/5 hover:bg-white/10'
+        abierta || eligiendo ? 'bg-accent/20' : 'bg-white/5 hover:bg-white/10'
       }`}
     >
-      {jugadores.slice(0, 4).map((j, i) => (
-        <span
-          key={j.ranura}
-          title={nombre(j.ranura)}
-          className={`rounded-full ring-2 ${
-            voz.hablando[j.ranura]
-              ? 'ring-emerald-400'
-              : voz.conexiones[j.ranura] === 'fallo'
-                ? 'ring-red-400'
-                : 'ring-transparent'
-          } ${i ? '-ms-2' : ''}`}
-        >
-          <Retrato retrato={j.retrato} emoji={j.emoji} className="h-7 w-7" textoClase="text-base" />
+      {cara ? (
+        <span title={nombre(cara.ranura)} className={`rounded-full ring-2 ${aro(cara.ranura)}`}>
+          <Retrato retrato={cara.retrato} emoji={cara.emoji} className="h-7 w-7" textoClase="text-base" />
         </span>
-      ))}
+      ) : (
+        <span title={todos} className="grid h-7 w-7 place-items-center rounded-full bg-white/10 text-base">
+          <Icono nombre="companeros" />
+        </span>
+      )}
       {noLeidos > 0 && !abierta && (
         <span className="absolute -end-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-red-500 px-1 text-[10px] font-black text-white tabular-nums">
           {noLeidos > 9 ? '9+' : noLeidos}
@@ -211,7 +225,50 @@ function Charla({ jugadores, mi }: { jugadores: JugadorSala[]; mi: Ranura }) {
       onPointerDown={parar}
       onTouchStart={parar}
     >
-      {abierta && <Panel jugadores={jugadores} mi={mi} nombre={nombre} onPlegar={() => setAbierta(false)} />}
+      {eligiendo && varios && (
+        // A quién escribirle: a todos o a una sola persona.
+        <div className="ui-panel-glass ui-pop flex flex-col gap-1 rounded-2xl border border-white/10 p-1.5 shadow-xl backdrop-blur-md">
+          {[null, ...otros].map((j) => {
+            const r = j?.ranura ?? null
+            return (
+              <button
+                key={r ?? 'todos'}
+                type="button"
+                onClick={() => {
+                  setCon(r)
+                  setEligiendo(false)
+                }}
+                className={`flex items-center gap-2 rounded-xl px-2 py-1.5 text-start text-sm transition ${
+                  r === destino ? 'bg-accent/20 font-semibold' : 'hover:bg-white/10'
+                }`}
+              >
+                {j ? (
+                  <span className={`rounded-full ring-2 ${aro(j.ranura)}`}>
+                    <Retrato retrato={j.retrato} emoji={j.emoji} className="h-7 w-7" textoClase="text-base" />
+                  </span>
+                ) : (
+                  <span className="grid h-7 w-7 place-items-center rounded-full bg-white/10 text-base">
+                    <Icono nombre="companeros" />
+                  </span>
+                )}
+                <span className="min-w-0 flex-1 truncate">{j ? nombre(j.ranura) : todos}</span>
+              </button>
+            )
+          })}
+        </div>
+      )}
+
+      {abierta && (
+        <Panel
+          jugadores={jugadores}
+          mi={mi}
+          nombre={nombre}
+          titulo={cara ? nombre(cara.ranura) : t('partida.charla.tituloTodos', 'Todos · {n}', { n: jugadores.length })}
+          destino={destino}
+          varios={varios}
+          onPlegar={() => setAbierta(false)}
+        />
+      )}
 
       {voz.audioBloqueado && (
         <button
@@ -243,8 +300,16 @@ function Charla({ jugadores, mi }: { jugadores: JugadorSala[]; mi: Ranura }) {
               // Escape suelta el foco y devuelve las teclas al juego.
               if (e.key === 'Escape') campo.current?.blur()
             }}
-            placeholder={t('partida.charla.escribe', 'Escribe a la sala…')}
-            aria-label={t('partida.charla.escribe', 'Escribe a la sala…')}
+            placeholder={
+              destino
+                ? t('partida.charla.escribeA', 'Escribe a {n}…', { n: nombre(destino) })
+                : t('partida.charla.escribe', 'Escribe a la sala…')
+            }
+            aria-label={
+              destino
+                ? t('partida.charla.escribeA', 'Escribe a {n}…', { n: nombre(destino) })
+                : t('partida.charla.escribe', 'Escribe a la sala…')
+            }
             className="min-w-0 flex-1 bg-transparent px-1 py-1.5 text-sm text-white/90 outline-none"
           />
           {micro}
@@ -273,20 +338,35 @@ function Charla({ jugadores, mi }: { jugadores: JugadorSala[]; mi: Ranura }) {
   )
 }
 
-/** Encima de la barra: solo los mensajes (los participantes van en la barra). */
+/**
+ * Encima de la barra: solo los mensajes de la conversación elegida. Con
+ * `destino`, los de esa persona conmigo a solas; con «Todos», los de la sala
+ * (con una sola persona más no hay diferencia: se ven todos).
+ */
 function Panel({
   jugadores,
   mi,
   nombre,
+  titulo,
+  destino,
+  varios,
   onPlegar,
 }: {
   jugadores: JugadorSala[]
   mi: Ranura
   nombre: (r: Ranura) => string
+  titulo: string
+  destino: Ranura | null
+  varios: boolean
   onPlegar: () => void
 }) {
   const t = useT()
-  const mensajes = useCharla((s) => s.mensajes)
+  const todosLosMensajes = useCharla((s) => s.mensajes)
+  const mensajes = !varios
+    ? todosLosMensajes
+    : destino
+      ? todosLosMensajes.filter((m) => (m.j === destino && m.a === mi) || (m.j === mi && m.a === destino))
+      : todosLosMensajes.filter((m) => !m.a)
   const voz = useVoz()
   const lista = useRef<HTMLDivElement>(null)
 
@@ -300,7 +380,7 @@ function Panel({
   return (
     <div className="ui-panel-glass ui-pop flex flex-col gap-2 rounded-2xl border border-white/10 p-2.5 shadow-xl backdrop-blur-md">
       <div className="flex items-center justify-between gap-2">
-        <p className="truncate text-xs font-bold">{t('partida.charla.titulo', 'Sala · {n}', { n: jugadores.length })}</p>
+        <p className="truncate text-xs font-bold">{titulo}</p>
         <button
           type="button"
           onClick={onPlegar}
