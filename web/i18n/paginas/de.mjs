@@ -12,10 +12,8 @@ export const TEXTOS = {
   'tema.boton': 'Heller oder dunkler Modus',
 
   'meta.titulo': 'MindHaOS — Dein Geist, in einem 3D-Haus',
-  'meta.desc':
-    'Ordne deine Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr in einem isometrischen 3D-Haus, in dem jeder Raum eine App ist. Eine einmalige Zahlung von 8,99 USD, erster Monat mit KI und Sync inklusive; teste sie kostenlos.',
-  'og.desc':
-    'Dein Leben, in einem 3D-Haus: Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr. Eine Zahlung von 8,99 USD, erster Monat mit KI inklusive; teste sie kostenlos.',
+  'meta.desc': 'Organisiere Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr in einem isometrischen 3D-Haus, in dem jeder Raum eine App ist. Gratis mit deinem Konto; KI, Sync und Cloud ab 7 USD im Monat.',
+  'og.desc': 'Dein Leben in einem 3D-Haus: Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr. Gratis mit deinem Konto; KI und Sync ab 7 USD im Monat.',
 
   'hero.h1': 'Dein Geist,<br />in einem 3D-Haus',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -41,8 +39,7 @@ export const TEXTOS = {
     'zu archivieren, zu planen oder neu zu erschaffen — ganz von Hand oder mit Hilfe der KI. Und alle hängen an einem Kalender, an täglichen Missionen und an deinen persönlichen Zielen, synchron auf Handy und Computer.',
   'hero.cta': 'App herunterladen',
   'hero.probar': 'Bau dein MindHaOS – gratis ausprobieren',
-  'hero.nota':
-    'Die App ist gratis und läuft offline; das MindHaOS (Gedankenhaus OS) wird einmal gekauft — hier im Web oder in der App. KI und Sync sind optional — und wenn du sie sein lässt, verlierst du nichts.',
+  'hero.nota': 'Das MindHaOS (Gedankenhaus OS) ist mit deinem Konto gratis und läuft offline. KI, Sync und Cloud kommen mit dem Abo — und wenn du es sein lässt, verlierst du nichts.',
   'hero.video': 'Hier kommt dein Video oder deine Screenshots vom MindHaOS (Gedankenhaus OS) hin',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -70,9 +67,8 @@ export const TEXTOS = {
   'car.todo.t': 'Alles in einem, wirklich',
   'car.todo.p':
     'Eine App statt zwanzig: Essen, Geld, Schlaf, Lernen, Gewohnheiten und Ziele unter einem Dach — und miteinander verbunden, was genau das ist, was keine einzelne App kann.',
-  'car.nocaduca.t': 'Läuft nicht ab, wenn du aufhörst zu zahlen',
-  'car.nocaduca.p':
-    'Einmal gekauft, dann gehört sie dir. Abo-Apps gehen aus, sobald du nicht mehr zahlst; hier behältst du das ganze MindHaOS und alle Daten auf deinem Gerät, auch wenn du die KI sein lässt.',
+  'car.nocaduca.t': 'Gratis, und es läuft nicht ab',
+  'car.nocaduca.p': 'Dein MindHaOS ist mit deinem Konto gratis, und es gehört dir. Abo-Apps gehen aus, sobald du aufhörst zu zahlen; hier bringt das Abo nur KI, Sync und Cloud: Wenn du es sein lässt, behältst du dein ganzes MindHaOS und alle deine Daten auf deinem Gerät.',
   'car.nuevas.t': 'Neue Updates',
   'car.nuevas.p': 'Das MindHaOS wächst weiter: Räume, Apps und Verbesserungen, die kommen, ohne dass du erneut zahlst.',
   'car.1.t': 'Räume, die Apps sind',
@@ -82,8 +78,7 @@ export const TEXTOS = {
   'car.studio.p':
     'Vier eigene Apps: Audio, Kunst, Schreiben und Video. Du komponierst mit Piano Roll und MIDI-Keyboard, malst und bearbeitest Fotos, schreibst Bücher Kapitel für Kapitel und schneidest Videos nach Drehbuch — und exportierst, was du machst, oder veröffentlichst ein Video direkt in deinem eigenen Konto bei YouTube, TikTok, Facebook oder Instagram.',
   'car.2.t': 'Assistent mit KI',
-  'car.2.p':
-    'Sprich mit deinem Assistenten: erfasse Mahlzeiten, lege Routinen an, plane Ziele, erzeuge Bilder und 3D-Modelle. Dein erster Monat bringt 700 Credits mit; danach ist die KI optional.',
+  'car.2.p': 'Chatte mit deinem Assistenten: Mahlzeiten erfassen, Routinen anlegen, Ziele planen, Bilder und 3D-Modelle erzeugen. Jede Abo-Stufe bringt 700, 1400 oder 2100 Credits im Monat.',
   'car.3.t': 'Sync über alles hinweg',
   'car.3.p':
     'Dein MindHaOS folgt dir aufs Handy, aufs Tablet und an den Rechner. Alles verschlüsselt unterwegs und in der Cloud gesichert. Mit Pro speichert deine Cloud (der Raum Dateien) außerdem 10, 30 oder 100 GB an Dateien.',
@@ -131,69 +126,77 @@ export const TEXTOS = {
     'Hier baust du neue Fähigkeiten aus, behältst deine Ressourcen im Griff und stellst die Technik auf deine Seite. Gegen den unbewussten Konsum von Kurzformaten. Gegen den kognitiven Verfall, den die Konsumgewohnheiten hinterlassen, die uns die großen Konzerne aufdrängen.',
   'mani.cierre': 'Dasselbe Dopamin. Diesmal für dein echtes Leben.',
 
-  'precio.h2': 'Eine Zahlung im Store, dein MindHaOS für immer',
+  'precio.h2': 'Dein MindHaOS ist gratis; KI, Sync und Cloud gibt es im Abo',
   'precio.probar.nombre': 'Probier sie aus',
   'precio.probar.cifra': 'Kostenlos',
-  'precio.probar.1': 'Dein eigenes MindHaOS mit dem Willkommensmenü: probier alles aus',
-  'precio.probar.2': 'Ohne Konto, ohne Karte und ohne Verbindung',
-  'precio.probar.3': 'Nichts wird gespeichert, bis du ein Konto hast: beim Kauf bekommst du deinen Test zurück',
+  'precio.probar.1': 'Dein eigenes MindHaOS mit allen Apps, und deine Daten auf deinem Gerät',
+  'precio.probar.2': 'Postfach, Partien und geteilte Räume mit deinen Freunden',
+  'precio.probar.3': 'Probier es ohne Konto aus; leg dein kostenloses Konto an, um es zu behalten',
   'precio.probar.cta': 'App testen',
-  'precio.probar.pie': 'Die komplette App, um sie unverbindlich kennenzulernen.',
-  'precio.app.nombre': 'Die App',
-  'precio.app.cifra': '8,99 USD',
-  'precio.app.pagoUnico': 'einmalige Zahlung',
-  'precio.app.1': 'Dein eigenes MindHaOS, für immer: alle Apps, deine Daten auf deinem Gerät',
-  'precio.app.2': 'Erster Monat inklusive: 700 KI-Credits + Sync, ohne Karte und ohne Abo',
-  'precio.app.3':
-    'Nach dem Monat behältst du die ganze App und deine Daten; die KI-Credits sind optional',
-  'precio.app.cta': 'MindHaOS kaufen',
-  'precio.app.pie':
-    'Kauf es direkt hier, ganz ohne Store, oder in der App auf deinem Handy. Eine Zahlung, keine Verlängerungen, gültig auf allen deinen Geräten.',
+  'precio.probar.pie': 'Ohne Karte und ohne Ablaufdatum.',
+  'precio.app.nombre': 'Abo',
+  'precio.app.cifra': 'ab 7 USD',
+  'precio.app.pagoUnico': 'im Monat',
+  'precio.app.1': 'Stufe 1, 2 oder 3: 700, 1400 oder 2100 KI-Credits im Monat',
+  'precio.app.2': 'Sync zwischen all deinen Geräten',
+  'precio.app.3': 'Deine Cloud: 10, 30 oder 100 GB für deine Dateien',
+  'precio.app.cta': 'Abonnieren',
+  'precio.app.pie': 'Ohne Mindestlaufzeit: hoch- oder herunterstufen oder kündigen, wann du willst. Abschließen kannst du es hier oder in der App, und es gilt auf all deinen Geräten.',
 
-  'ia.t': 'KI und Sync · optional',
-  'ia.precios':
-    '6 USD im Monat<span>·</span>60 USD im Jahr<span>·</span>oder 6 USD für 700 einzelne Credits',
-  'ia.p':
-    'Nur wenn du nach dem ersten Monat mit KI und Synchronisierung weitermachen willst. Das lässt sich hier oder in der App abschließen und gilt für alle deine Geräte. Ohne Bindung: Wenn du aufhörst, behältst du die App und alle deine Daten im lokalen Modus.',
-  'ia.cta': 'Die Tarife ansehen →',
+  'ia.t': 'KI-Credits',
+  'ia.precios': 'Stufe 1: 700 Credits<span>·</span>Stufe 2: 1400<span>·</span>Stufe 3: 2100',
+  'ia.p': 'Eine Antwort des Assistenten kostet 1 Credit; ein Bild 3; ein 3D-Modell 10. Sie erneuern sich jeden Monat und werden nur verbraucht, wenn du etwas anforderst.',
+  'ia.cta': 'Was kannst du mit den Credits machen? →',
+  'creditos.h2': 'Was kannst du mit deinen Credits machen?',
+  'creditos.sub': 'Alles, worum du die KI bittest, kostet ein paar Credits, je nachdem, was die Bearbeitung kostet. Sie werden nur verbraucht, wenn du etwas anforderst, und erneuern sich jeden Monat.',
+  'creditos.col.que': 'Was du anforderst',
+  'creditos.col.cuesta': 'Credits',
+  'creditos.chat': 'Eine Antwort des Assistenten',
+  'creditos.foto': 'Ein Foto lesen: eine Mahlzeit, einen Kassenbon, ein Dokument',
+  'creditos.voz': 'Per Sprache diktieren (bis 30 Sekunden)',
+  'creditos.ruta': 'Eine Route mit öffentlichen Verkehrsmitteln',
+  'creditos.plan': 'Ein langer Plan: Ziele, Routinen, Rezepte der Woche',
+  'creditos.pdf': 'Mit einem PDF chatten',
+  'creditos.tts': 'Dein Assistent antwortet dir laut',
+  'creditos.imagen': 'Ein Bild (schnell / gute Qualität)',
+  'creditos.modelo': 'Ein 3D-Modell für dein Haus',
+  'creditos.rinde.t': 'Was jede Stufe im Monat hergibt',
+  'creditos.rinde.1': 'Stufe 1 · 700 Credits: etwa 700 Antworten oder 230 schnelle Bilder',
+  'creditos.rinde.2': 'Stufe 2 · 1400 Credits: etwa 1400 Antworten oder 140 Bilder in guter Qualität',
+  'creditos.rinde.3': 'Stufe 3 · 2100 Credits: etwa 2100 Antworten oder 210 3D-Modelle',
+  'creditos.nota': 'Mit deinen eigenen KI-Schlüsseln oder mit Ollama auf deinem Computer verbraucht die KI keine Credits.',
+  'creditos.cta': 'Stufen ansehen',
 
   'desc.h2': 'App herunterladen',
-  'desc.sub':
-    'Lade sie gratis herunter und kaufe das MindHaOS in der App — oder hier im Web. Mit deinem Konto taucht dein MindHaOS überall sonst wieder auf, auch im Browser.',
+  'desc.sub': 'Lade sie gratis herunter und melde dich mit deinem Konto an: Dein MindHaOS erscheint auf jedem Gerät, auch im Browser. Das Abo schließt du in der App oder hier im Web ab.',
   'desc.pronto': 'Demnächst',
-  'desc.android': 'Gratis bei Google Play. Das MindHaOS wird darin gekauft.',
+  'desc.android': 'Gratis bei Google Play.',
   'desc.android.cta': 'Für Android herunterladen',
   'desc.ios.t': 'iPhone, iPad und Mac',
-  'desc.ios': 'Gratis im App Store. Das MindHaOS wird darin gekauft.',
+  'desc.ios': 'Gratis im App Store.',
   'desc.web.t': 'In deinem Browser',
   'desc.web':
     'Nichts zu installieren: Melde dich mit deinem Konto an und dein MindHaOS wartet. Ohne Konto kannst du die App ausprobieren.',
   'desc.web.cta': 'App öffnen',
-  'desc.windows': 'Gratis im Microsoft Store. Das MindHaOS wird darin gekauft.',
+  'desc.windows': 'Gratis im Microsoft Store.',
   'desc.windows.cta': 'Für Windows herunterladen',
 
   'faq.h2': 'Häufige Fragen',
-  'faq.1.q': 'Wo kauft man die App?',
-  'faq.1.a':
-    'Wo du willst: hier im Web, in <a href="/cuenta">deinem Konto</a>, oder in der App für Android und iPhone. Es ist eine einmalige Zahlung, die in deinem Konto gespeichert wird — egal wo du kaufst, dein MindHaOS erscheint auf allen deinen Geräten.',
-  'faq.2.q': 'Was ist in der einmaligen Zahlung enthalten?',
-  'faq.2.a':
-    'Das ganze MindHaOS: alle Räume, alle Apps und deine Daten auf deinem Gerät, für immer und ohne Verlängerungen. Dazu bringt der erste Monat 700 KI-Credits und die Sync mit, ohne Karte. Vor dem Kauf kannst du die komplette App testen, die kein Konto verlangt.',
-  'faq.3.q': 'Was kostet die KI nach dem ersten Monat?',
-  'faq.3.a':
-    'Was du willst, oder nichts. Das Abo kostet 6 USD im Monat (700 Credits und Sync) oder 60 USD im Jahr — zwei Monate geschenkt. Wenn das zu knapp ist, geben die Stufen ×2 und ×3 1400 oder 2100 Credits für 12 oder 18 USD im Monat. Und wenn du lieber kein Abo willst, gibt es einzelne Aufladungen: 6 USD für 700 Credits, die nicht verfallen und nur dann verbraucht werden, wenn du etwas anforderst. Das wird hier bezahlt, in <a href="/cuenta">deinem Konto</a>, und gilt für alle deine Geräte. Jede Stufe enthält außerdem Platz in deiner Cloud: 10, 30 oder 100 GB.',
+  'faq.1.q': 'Ist die App gratis?',
+  'faq.1.a': 'Ja. Du legst dein Konto an, und dein MindHaOS gehört dir, mit allen Apps, ohne etwas zu zahlen. Bezahlt wird nur das Abo, wenn du KI, Sync zwischen Geräten und die Cloud willst; du schließt es hier ab, in <a href="/cuenta">deinem Konto</a>, oder in der App für Android und iPhone, und es gilt auf all deinen Geräten.',
+  'faq.2.q': 'Was ist im Abo enthalten?',
+  'faq.2.a': 'Drei Stufen: Stufe 1 für 7 USD im Monat bringt 700 KI-Credits und 10 GB Cloud; Stufe 2 für 14 USD 1400 Credits und 30 GB; und Stufe 3 für 20 USD 2100 Credits und 100 GB. Alle drei enthalten Sync zwischen all deinen Geräten. Ohne Mindestlaufzeit: hoch- oder herunterstufen oder kündigen, wann du willst.',
+  'faq.3.q': 'Was kann ich ohne Abo machen?',
+  'faq.3.a': 'Alles, was keine KI-Server kostet: alle Räume und ihre Apps, den Kalender, die Ziele, deine Daten auf deinem Gerät, und dazu Postfach, Partien und geteilte Räume mit deinen Freunden. Wenn du etwas antippst, das KI, Sync oder Cloud braucht, bietet dir die App das Abo an.',
   'faq.4.q': 'Was sind KI-Credits?',
-  'faq.4.a':
-    'Die Einheit, in der jede Anfrage an den Assistenten abgerechnet wird, je nachdem, was sie kostet: eine normale Antwort ist 1 Credit wert, ein langer Plan 4, ein Bild 3 (10 in hoher Qualität) und ein 3D-Modell 10. Es wird nie automatisch abgerechnet: verbraucht wird nur, wenn du etwas anforderst.',
+  'faq.4.a': 'Die Einheit, in der jede Anfrage an den Assistenten abgerechnet wird, je nachdem, was ihre Bearbeitung kostet: Eine normale Antwort kostet 1 Credit, ein langer Plan 4, ein Bild 3 (10 in hoher Qualität) und ein 3D-Modell 10. Nichts wird automatisch abgebucht: Sie werden nur verbraucht, wenn du etwas anforderst. Sieh dir <a href="#creditos">alles an, was du damit machen kannst</a>.',
   'faq.5.q': 'Was passiert, wenn ich kündige?',
-  'faq.5.a':
-    'Du behältst die ganze App und all deine Daten auf deinen Geräten, im lokalen Modus. Du verlierst nur die monatlichen Credits und die Sync. Wenn du erneuerst, kommt alles genau so zurück, wie du es verlassen hast. Deine Cloud-Dateien bleiben 90 Tage schreibgeschützt, damit du sie herunterladen kannst; danach werden sie gelöscht.',
+  'faq.5.a': 'Du behältst die ganze App und alle deine Daten auf deinen Geräten, im lokalen Modus. Du verlierst nur die monatlichen Credits, Sync und Cloud. Wenn du erneuerst, wird alles wieder so aktiviert, wie du es verlassen hast. Deine Cloud-Dateien bleiben 90 Tage schreibgeschützt, damit du sie herunterladen kannst; danach werden sie gelöscht.',
   'faq.6.q': 'Wo werden meine Daten gespeichert?',
   'faq.6.a':
     'Zuerst auf deinem Gerät (die App ist local-first) und, mit aktiver Synchronisierung, auch in der Cloud, um von einem Gerät zum anderen zu wechseln. Im lokalen Modus verlässt nichts dein Gerät. Die Zahlungen wickeln RevenueCat und Stripe ab — oder der Store, wenn du vom Handy aus kaufst: Deine Karte sehen wir nie. Mehr dazu in der <a href="/privacidad">Datenschutzerklärung</a>. Große Dateien (deine Cloud und Studio-Medien) werden bei Cloudflare R2 gespeichert.',
   'faq.7.q': 'Auf welchen Geräten läuft sie?',
-  'faq.7.a':
-    'Heute: in jedem modernen Browser. Sehr bald: Android (Google Play), iPhone/iPad (App Store), Windows und macOS. Dein Konto gilt für alle: Du kaufst einmal, wo es dir passt, und sowohl das MindHaOS als auch das KI-Abo funktionieren auf jedem Gerät, auf dem du dich mit deiner E-Mail anmeldest.',
+  'faq.7.a': 'Heute: in jedem modernen Browser. Sehr bald: Android (Google Play), iPhone/iPad (App Store), Windows und macOS. Dein Konto gilt für alle: Dein MindHaOS und dein Abo funktionieren auf jedem Gerät, auf dem du dich mit deiner E-Mail anmeldest.',
   'faq.8.q': 'Wie kündige oder lösche ich mein Konto?',
   'faq.8.a':
     'Zum Kündigen der Abbuchung «Abo verwalten» in <a href="/cuenta">deinem Konto</a>. Zum Löschen deines Kontos und all deiner Daten von unseren Servern aus der App: Editor → Einstellungen → Konto.',
@@ -255,8 +258,7 @@ export const TEXTOS = {
   'priv.cancelas.p':
     'Deine lokalen Daten bleiben auf deinen Geräten. Die synchronisierten Daten bleiben gespeichert (unzugänglich, bis du erneuerst) und du kannst sie endgültig löschen, indem du dein Konto löschst.',
   'priv.borrar.h': 'Wie du dein Konto und deine Daten löschst',
-  'priv.borrar.p':
-    'Aus der App: Editor → Einstellungen → Konto. Das Löschen entfernt deinen Nutzer, deine synchronisierten Daten und deine Dateien von unseren Servern; erhalten bleiben nur die Abrechnungsbelege, die das Gesetz aufzubewahren verlangt. Konten, die keinen Kauf abschließen, werden 3 Tage nach ihrer Erstellung automatisch gelöscht, ohne dass Daten davon aufbewahrt werden.',
+  'priv.borrar.p': 'In der App: Editor → Einstellungen → Konto. Die Löschung entfernt deinen Nutzer, deine synchronisierten Daten und deine Dateien von unseren Servern; aufbewahrt werden nur die Abrechnungsunterlagen, die das Gesetz vorschreibt.',
   'priv.proveedores.h': 'Dienstleister',
   'priv.proveedores.1': 'Supabase (Datenbank, Authentifizierung und Dateien).',
   'priv.proveedores.2': 'RevenueCat und Stripe (Käufe, Abos und Zahlungen).',
@@ -272,33 +274,20 @@ export const TEXTOS = {
 
   'term.titulo': 'Nutzungsbedingungen',
   'term.servicio.h': 'Der Dienst',
-  'term.servicio.p':
-    'MindHaOS ist eine App zur persönlichen Organisation. Die Testversion ist kostenlos und braucht kein Konto. Die App wird mit einer einmaligen Zahlung gekauft; die wiederkehrenden Funktionen (KI-Credits und Sync) werden ausschließlich auf dieser Website abgeschlossen; die Desktop- und Store-Apps sind Clients desselben Kontos.',
-  'term.app.h': 'Die App (einmalige Zahlung)',
-  'term.app.1':
-    'Freischaltung der App: 8,99 USD, einmalige Zahlung. Sie schaltet dein Haus für immer in deinem Konto frei, ohne Verlängerungen.',
-  'term.app.2':
-    'Enthält den ersten Monat: 30 Tage mit den 700 monatlichen KI-Credits und der Sync, ohne Karte und ohne Abo. Danach behältst du die App und deine Daten; die monatlichen Credits und die Sync erfordern das Abo.',
-  'term.app.3':
-    'Die kostenlose Testversion speichert nichts, bis du dein Konto erstellst: sie ist dazu da, die App vor dem Kauf kennenzulernen.',
+  'term.servicio.p': 'MindHaOS ist eine App zur persönlichen Organisation. Der Test ohne Konto und die App mit Konto sind kostenlos. Die wiederkehrenden Funktionen (KI-Credits, Sync und Cloud) werden als Abo abgeschlossen, hier im Web oder in der App; alle Versionen sind Clients desselben Kontos.',
   'term.local.h': 'Lokaler Modus',
-  'term.local.p':
-    'Mit freigeschalteter App werden alle Offline-Funktionen ohne laufende Kosten genutzt. Die Daten liegen auf deinem Gerät, und ihre Sicherung liegt in deiner Verantwortung (Einstellungen → Datensicherung).',
+  'term.local.p': 'Mit deinem Konto sind alle Offline-Funktionen der App kostenlos nutzbar. Die Daten werden auf deinem Gerät gespeichert, und ihre Sicherung liegt in deiner Verantwortung (Einstellungen → Datensicherung).',
   'term.precio.h': 'Abo und Preis',
-  'term.precio.1':
-    'Abo: 6 USD im Monat in Stufe ×1 (oder der Gegenwert in deiner Währung), mit automatischer Verlängerung. Die Stufen ×2 und ×3 vervielfachen Credits und Preis: 12 und 18 USD im Monat. Du kannst Stufe ×1 auch jährlich zahlen: 60 USD, mit automatischer Jahresverlängerung und denselben Credits jeden Monat.',
-  'term.precio.2':
-    'Enthält 700 KI-Credits pro Monat und Stufe (700 / 1400 / 2100) und die Sync zwischen Geräten. Nicht genutzte Monats-Credits werden nicht in den Folgemonat übertragen. Außerdem ist Platz in deiner Cloud enthalten: 10, 30 oder 100 GB je nach Stufe (10 GB im Jahresplan und im inklusiven Monat).',
+  'term.precio.1': 'Monatliches Abo mit automatischer Verlängerung in drei Stufen: Stufe 1, 7 USD im Monat; Stufe 2, 14 USD; Stufe 3, 20 USD (oder der Gegenwert in deiner Währung).',
+  'term.precio.2': 'Enthält je nach Stufe 700, 1400 oder 2100 KI-Credits im Monat, Sync zwischen Geräten und Speicher in deiner Cloud: 10, 30 oder 100 GB. Nicht genutzte monatliche Credits werden nicht in den nächsten Monat übertragen.',
   'term.precio.3':
     'Credits pro Vorgang: 1 für eine Textantwort, 4 für einen langen Plan, 3 für ein Bild (10 in hoher Qualität) und 10 für ein 3D-Modell. Der Tarif kann angepasst werden, wenn sich die Kosten der KI-Anbieter ändern; der gültige Preis wird vor jeder Anfrage in der App angezeigt.',
-  'term.precio.4':
-    'Aufladungen: 6 USD für 700 einzelne Credits, eine einmalige Zahlung, die du mit oder ohne Abo machen kannst, wann du willst — sie werden nie von selbst gekauft. Sie verfallen nicht und werden genutzt, wenn die Credits des Monats aufgebraucht sind.',
+  'term.precio.4': 'Du kannst jederzeit hoch- oder herunterstufen; der Wechsel wird anteilig berechnet.',
   'term.precio.5':
     'Fair-Use-Grenze: die Credits decken eine normale KI-Nutzung. Übersteigen in einem Monat die realen Kosten deiner Anfragen den Wert der verbrauchten Credits deutlich, pausiert die KI, bis sich das Limit im Folgemonat zurücksetzt.',
   'term.precio.6': 'Die Zahlungen verarbeiten RevenueCat und Stripe.',
   'term.cancelacion.h': 'Kündigung',
-  'term.cancelacion.p':
-    'Du kannst jederzeit über «Abo verwalten» in <a href="/cuenta">deinem Konto</a> kündigen; du behältst den Tarif bis zum Ende des bezahlten Zeitraums. Danach läuft die App auf deinen Geräten im lokalen Modus weiter, ohne monatliche Credits und ohne Sync. Übrige Auflade-Credits bleiben nutzbar, und du kannst jederzeit erneuern. Deine Cloud-Dateien bleiben 90 Tage schreibgeschützt, damit du sie herunterladen kannst; danach werden sie von unseren Servern gelöscht.',
+  'term.cancelacion.p': 'Du kannst jederzeit über «Abo verwalten» in <a href="/cuenta">deinem Konto</a> kündigen; du behältst den Tarif bis zum Ende des bezahlten Zeitraums. Danach läuft die App auf deinen Geräten im lokalen Modus weiter, ohne monatliche Credits, Sync und Cloud, und du kannst jederzeit erneuern. Deine Dateien in der Cloud bleiben 90 Tage schreibgeschützt, damit du sie herunterladen kannst; nach Ablauf dieser Frist werden sie von unseren Servern gelöscht.',
   'term.datos.h': 'Deine Daten',
   'term.datos.p':
     'Deine Daten gehören dir. Die App ist local-first: alles lebt zuerst auf deinem Gerät. Was wir speichern und wie du es löschst, steht in der <a href="/privacidad">Datenschutzerklärung</a>.',

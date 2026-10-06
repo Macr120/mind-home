@@ -12,10 +12,8 @@ export const TEXTOS = {
   'tema.boton': 'Light or dark mode',
 
   'meta.titulo': 'MindHaOS — Your mind, in a 3D house',
-  'meta.desc':
-    'Organise your habits, goals, finances, meals and more in an isometric 3D house where every room is an app. One payment of USD 8.99 with the first month of AI and sync included; free trial.',
-  'og.desc':
-    'Your life, in a 3D house: habits, goals, finances, meals and more. One payment of USD 8.99 with the first month of AI included; free trial.',
+  'meta.desc': 'Organise your habits, goals, finances, meals and more in an isometric 3D house where every room is an app. Free with your account; AI, sync and the cloud from USD 7 a month.',
+  'og.desc': 'Your life, in a 3D house: habits, goals, finances, meals and more. Free with your account; AI and sync from USD 7 a month.',
 
   'hero.h1': 'Your mind,<br />in a 3D house',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -41,8 +39,7 @@ export const TEXTOS = {
     'either entirely by hand or with the AI helping. And they all run on one calendar, one daily mission list and your own personal goals, synced on your phone and your computer.',
   'hero.cta': 'Get the app',
   'hero.probar': 'Try building your MindHaOS for free',
-  'hero.nota':
-    'The app is free and works offline; MindHaOS is bought once — right here on the web or inside the app. AI and sync are optional — and if you drop them, you lose nothing.',
+  'hero.nota': 'MindHaOS is free with your account and works offline. AI, sync and the cloud come with the subscription — and if you drop it, you lose nothing.',
   'hero.video': 'Your video or screenshots of your MindHaOS go here',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -70,9 +67,8 @@ export const TEXTOS = {
   'car.todo.t': 'All in one, for real',
   'car.todo.p':
     'One app instead of twenty: food, money, sleep, study, habits and goals under the same roof — and talking to each other, which is exactly what no separate app can do.',
-  'car.nocaduca.t': 'It doesn’t expire when you stop paying',
-  'car.nocaduca.p':
-    'You buy it once and it’s yours. Subscription apps switch off the moment you stop paying; here, if you drop the AI, you keep your whole MindHaOS and all your data on your device.',
+  'car.nocaduca.t': 'Free, and it doesn’t expire',
+  'car.nocaduca.p': 'Your MindHaOS is free with your account, and it’s yours. Subscription apps switch off as soon as you stop paying; here the subscription only brings AI, sync and the cloud: if you drop it, you keep your whole MindHaOS and all your data on your device.',
   'car.nuevas.t': 'New updates',
   'car.nuevas.p': 'Your MindHaOS keeps growing: rooms, apps and improvements that arrive without paying again.',
   'car.1.t': 'Rooms that are apps',
@@ -82,8 +78,7 @@ export const TEXTOS = {
   'car.studio.p':
     'Four apps of their own: Audio, Art, Writing and Video. You compose with a piano roll and a MIDI keyboard, paint and retouch photos, write books chapter by chapter and cut videos from a script — and export whatever you make, or publish a video straight to your own YouTube, TikTok, Facebook or Instagram account.',
   'car.2.t': 'AI assistant',
-  'car.2.p':
-    'Chat with your assistant: log meals, create routines, plan goals, generate images and 3D models. Your first month comes with 700 credits included; after that, AI is optional.',
+  'car.2.p': 'Chat with your assistant: log meals, create routines, plan goals, generate images and 3D models. Each subscription tier brings 700, 1400 or 2100 credits a month.',
   'car.3.t': 'Sync across everything',
   'car.3.p':
     'Your MindHaOS follows you to your phone, your tablet and your computer. All encrypted in transit and backed up in the cloud. With Pro, your cloud (the Files room) also stores 10, 30 or 100 GB of files.',
@@ -129,69 +124,77 @@ export const TEXTOS = {
     'Here you grow new skills, keep control of your resources and put technology on your side. Against the mindless consumption of short-form content. Against the cognitive decay left behind by the consumption habits that big corporations impose on us.',
   'mani.cierre': 'The same dopamine. This time, for your real life.',
 
-  'precio.h2': 'One payment in the store, your MindHaOS forever',
+  'precio.h2': 'Your MindHaOS is free; AI, sync and the cloud come by subscription',
   'precio.probar.nombre': 'Try it',
   'precio.probar.cifra': 'Free',
-  'precio.probar.1': 'Your own MindHaOS with the welcome menu: try everything',
-  'precio.probar.2': 'No account, no card and no connection',
-  'precio.probar.3': 'Nothing is saved until you have an account: buy it and you get your trial back',
+  'precio.probar.1': 'Your own MindHaOS with every app, and your data on your device',
+  'precio.probar.2': 'Mailbox, games and shared spaces with your friends',
+  'precio.probar.3': 'Try it without an account; create your free account to keep it',
   'precio.probar.cta': 'Try the app',
-  'precio.probar.pie': 'The full app, to get to know it with no strings attached.',
-  'precio.app.nombre': 'The app',
-  'precio.app.cifra': 'USD 8.99',
-  'precio.app.pagoUnico': 'one-off payment',
-  'precio.app.1': 'A MindHaOS of your own, forever: every app, your data on your device',
-  'precio.app.2': 'First month included: 700 AI credits + sync, no card and no subscription',
-  'precio.app.3':
-    'When the month ends you keep the whole app and your data; the AI credits are optional',
-  'precio.app.cta': 'Buy MindHaOS',
-  'precio.app.pie':
-    'Buy it right here, with no store in between, or inside the app on your phone. One payment, no renewals, and it works on all your devices.',
+  'precio.probar.pie': 'No card and no expiry date.',
+  'precio.app.nombre': 'Subscription',
+  'precio.app.cifra': 'from USD 7',
+  'precio.app.pagoUnico': 'a month',
+  'precio.app.1': 'Tier 1, 2 or 3: 700, 1400 or 2100 AI credits a month',
+  'precio.app.2': 'Sync across all your devices',
+  'precio.app.3': 'Your cloud: 10, 30 or 100 GB for your files',
+  'precio.app.cta': 'Subscribe',
+  'precio.app.pie': 'No commitment: upgrade, downgrade or cancel whenever you like. Subscribe here or inside the app, and it works on all your devices.',
 
-  'ia.t': 'AI and sync · optional',
-  'ia.precios':
-    'USD 6 a month<span>·</span>USD 60 a year<span>·</span>or USD 6 for 700 one-off credits',
-  'ia.p':
-    'Only if you want to carry on with AI and sync once your first month ends. You can take it here or inside the app, and it works on all your devices. No lock-in: if you stop, you keep the app and all your data in local mode.',
-  'ia.cta': 'See the plans →',
+  'ia.t': 'AI credits',
+  'ia.precios': 'Tier 1: 700 credits<span>·</span>Tier 2: 1400<span>·</span>Tier 3: 2100',
+  'ia.p': 'An assistant reply costs 1 credit; an image, 3; a 3D model, 10. They renew every month and are only spent when you ask for something.',
+  'ia.cta': 'What can you do with credits? →',
+  'creditos.h2': 'What can you do with your credits?',
+  'creditos.sub': 'Everything you ask the AI for costs a few credits, according to what it costs to handle. They are only spent when you ask for something, and they renew every month.',
+  'creditos.col.que': 'What you ask for',
+  'creditos.col.cuesta': 'Credits',
+  'creditos.chat': 'An assistant reply',
+  'creditos.foto': 'Reading a photo: a meal, a receipt, a document',
+  'creditos.voz': 'Voice dictation (up to 30 seconds)',
+  'creditos.ruta': 'A public transport route',
+  'creditos.plan': 'A long plan: goals, routines, the week’s recipes',
+  'creditos.pdf': 'Chatting with a PDF',
+  'creditos.tts': 'Having your assistant answer out loud',
+  'creditos.imagen': 'An image (fast / good quality)',
+  'creditos.modelo': 'A 3D model for your house',
+  'creditos.rinde.t': 'What each tier gets you per month',
+  'creditos.rinde.1': 'Tier 1 · 700 credits: about 700 replies, or 230 fast images',
+  'creditos.rinde.2': 'Tier 2 · 1400 credits: about 1400 replies, or 140 good-quality images',
+  'creditos.rinde.3': 'Tier 3 · 2100 credits: about 2100 replies, or 210 3D models',
+  'creditos.nota': 'With your own AI keys, or with Ollama on your computer, AI doesn’t use credits.',
+  'creditos.cta': 'See the tiers',
 
   'desc.h2': 'Get the app',
-  'desc.sub':
-    'Download it free and buy MindHaOS inside the app — or here on the web. With your account, your MindHaOS shows up anywhere else, browser included.',
+  'desc.sub': 'Download it for free and sign in with your account: your MindHaOS shows up on any device, including the browser. Subscribe inside the app or here on the web.',
   'desc.pronto': 'Coming soon',
-  'desc.android': 'Free on Google Play. MindHaOS is bought inside.',
+  'desc.android': 'Free on Google Play.',
   'desc.android.cta': 'Download for Android',
   'desc.ios.t': 'iPhone, iPad and Mac',
-  'desc.ios': 'Free on the App Store. MindHaOS is bought inside.',
+  'desc.ios': 'Free on the App Store.',
   'desc.web.t': 'In your browser',
   'desc.web':
     'Nothing to install: sign in with your account and your MindHaOS is waiting. Without an account you can try the app.',
   'desc.web.cta': 'Open the app',
-  'desc.windows': 'Free on Microsoft Store. MindHaOS is bought inside.',
+  'desc.windows': 'Free on Microsoft Store.',
   'desc.windows.cta': 'Download for Windows',
 
   'faq.h2': 'Frequently asked questions',
-  'faq.1.q': 'Where do I buy the app?',
-  'faq.1.a':
-    'Wherever you prefer: here on the web, from <a href="/cuenta">your account</a>, or inside the Android and iPhone app. It is a one-off payment stored in your account, so wherever you buy it, your MindHaOS shows up on all your devices.',
-  'faq.2.q': 'What does the one-off payment include?',
-  'faq.2.a':
-    'Your whole MindHaOS: every room, every app and your data on your device, forever and with no renewals. On top of that, the first month brings 700 AI credits and sync included, with no card. Before buying it you can try the full app, which asks for no account.',
-  'faq.3.q': 'How much does AI cost after the first month?',
-  'faq.3.a':
-    'Whatever you choose, or nothing. The subscription is USD 6 a month (700 credits and sync), or USD 60 a year — two months free. If that falls short, tiers ×2 and ×3 give 1400 or 2100 credits for USD 12 or 18 a month. And if you would rather not subscribe, there are one-off top-ups: USD 6 for 700 credits that never expire and are only spent when you ask. This part is paid here, in <a href="/cuenta">your account</a>, and it works on all your devices. Every tier also includes space in your cloud: 10, 30 or 100 GB.',
+  'faq.1.q': 'Is the app free?',
+  'faq.1.a': 'Yes. You create your account and your MindHaOS is yours, with every app, without paying anything. You only pay for the subscription if you want AI, sync across devices and the cloud; subscribe here, in <a href="/cuenta">your account</a>, or inside the Android and iPhone app, and it works on all your devices.',
+  'faq.2.q': 'What does the subscription include?',
+  'faq.2.a': 'Three tiers: Tier 1, at USD 7 a month, brings 700 AI credits and 10 GB of cloud; Tier 2, at USD 14, 1400 credits and 30 GB; and Tier 3, at USD 20, 2100 credits and 100 GB. All three include sync across all your devices. No commitment: upgrade, downgrade or cancel whenever you like.',
+  'faq.3.q': 'What can I do without subscribing?',
+  'faq.3.a': 'Everything that doesn’t cost AI server time: every room and its apps, the calendar, goals, your data on your device, plus the mailbox, games and shared spaces with your friends. When you touch something that needs AI, sync or the cloud, the app offers you the subscription.',
   'faq.4.q': 'What are AI credits?',
-  'faq.4.a':
-    'The unit each request to the assistant is charged in, according to what it costs to serve: a normal reply is worth 1 credit, a long plan 4, an image 3 (10 at high quality) and a 3D model 10. Nothing is ever charged automatically: credits are only spent when you ask for something.',
+  'faq.4.a': 'The unit each request to the assistant is charged in, according to what it costs to handle: a normal reply is 1 credit, a long plan 4, an image 3 (10 in high quality) and a 3D model 10. Nothing is ever charged automatically: credits are only spent when you ask for something. See <a href="#creditos">everything you can do with them</a>.',
   'faq.5.q': 'What happens if I cancel?',
-  'faq.5.a':
-    'You keep the whole app and all your data on your devices, in local mode. All you lose are the monthly credits and sync. If you renew, everything comes back exactly as you left it. Your cloud files stay read-only for 90 days so you can download them; after that they are deleted.',
+  'faq.5.a': 'You keep the whole app and all your data on your devices, in local mode. You only lose the monthly credits, sync and the cloud. If you renew, everything comes back just as you left it. Your cloud files stay read-only for 90 days so you can download them; after that they are deleted.',
   'faq.6.q': 'Where is my data stored?',
   'faq.6.a':
     'On your device first (the app is local-first) and, with sync on, in the cloud as well so it can move from one device to another. In local mode nothing leaves your device. Payments are processed by RevenueCat and Stripe — or by the store, if you buy from your phone: we never see your card. More detail in the <a href="/privacidad">privacy policy</a>. Large files (your cloud and Studio media) are stored on Cloudflare R2.',
   'faq.7.q': 'Which devices does it work on?',
-  'faq.7.a':
-    'Today: any modern browser. Very soon: Android (Google Play), iPhone/iPad (App Store), Windows and macOS. Your account works everywhere: you buy once, wherever suits you, and both MindHaOS and the AI subscription work on any device you sign in to with your email.',
+  'faq.7.a': 'Today: in any modern browser. Very soon: Android (Google Play), iPhone/iPad (App Store), Windows and macOS. Your account works on all of them: your MindHaOS and your subscription work on any device where you sign in with your email.',
   'faq.8.q': 'How do I cancel or delete my account?',
   'faq.8.a':
     'To cancel the charge, “Manage subscription” in <a href="/cuenta">your account</a>. To delete your account and all your data from our servers, from the app: Editor → Settings → Account.',
@@ -252,8 +255,7 @@ export const TEXTOS = {
   'priv.cancelas.p':
     'Your local data stays on your devices. Synced data remains stored (inaccessible until you renew) and you can delete it for good by deleting your account.',
   'priv.borrar.h': 'How to delete your account and your data',
-  'priv.borrar.p':
-    'From the app: Editor → Settings → Account. Deletion removes your user, your synced data and your files from our servers; only the billing records the law requires us to keep are retained. Accounts that never complete a purchase are deleted automatically 3 days after they are created, keeping none of their data.',
+  'priv.borrar.p': 'From the app: Editor → Settings → Account. Deletion removes your user, your synced data and your files from our servers; only the billing records the law requires us to keep are retained.',
   'priv.proveedores.h': 'Providers',
   'priv.proveedores.1': 'Supabase (database, authentication and files).',
   'priv.proveedores.2': 'RevenueCat and Stripe (purchases, subscriptions and payments).',
@@ -269,32 +271,20 @@ export const TEXTOS = {
 
   'term.titulo': 'Terms of service',
   'term.servicio.h': 'The service',
-  'term.servicio.p':
-    'MindHaOS is a personal organisation app. The trial is free and requires no account. The app is bought with a one-off payment; the recurring features (AI credits and sync) are taken out on this website only; the desktop and store apps are clients of that same account.',
-  'term.app.h': 'The app (one-off payment)',
-  'term.app.1':
-    'App unlock: USD 8.99, one-off payment. It unlocks your house forever on your account, with no renewals.',
-  'term.app.2':
-    'It includes the first month: 30 days with the 700 monthly AI credits and sync, with no card and no subscription. When it ends you keep the app and your data; the monthly credits and sync require the subscription.',
-  'term.app.3': 'The free trial saves nothing until you create your account: it is there to get to know the app before buying it.',
+  'term.servicio.p': 'MindHaOS is a personal organisation app. The trial without an account and the app with an account are free. The recurring features (AI credits, sync and the cloud) are taken out as a subscription, here on the web or inside the app; every version is a client of that same account.',
   'term.local.h': 'Local mode',
-  'term.local.p':
-    'With the app unlocked, all of its offline features are used with no recurring costs. Data is kept on your device, and backing it up is your responsibility (Settings → Data backup).',
+  'term.local.p': 'With your account, all the app’s offline features are free to use. Data is stored on your device, and backing it up is your responsibility (Settings → Data backup).',
   'term.precio.h': 'Subscription and price',
-  'term.precio.1':
-    'Subscription: USD 6 a month at tier ×1 (or the equivalent in your currency), auto-renewing. Tiers ×2 and ×3 multiply the credits and the price: USD 12 and 18 a month. You can also pay for tier ×1 by the year: USD 60, auto-renewing annually with the same credits every month.',
-  'term.precio.2':
-    'It includes 700 AI credits a month per tier (700 / 1400 / 2100) and sync between devices. Unused monthly credits do not carry over to the next month. It also includes space in your cloud: 10, 30 or 100 GB depending on the tier (10 GB on the yearly plan and the included month).',
+  'term.precio.1': 'Monthly subscription with automatic renewal in three tiers: Tier 1, USD 7 a month; Tier 2, USD 14; Tier 3, USD 20 (or the equivalent in your currency).',
+  'term.precio.2': 'Includes 700, 1400 or 2100 AI credits a month depending on the tier, sync across devices and space in your cloud: 10, 30 or 100 GB. Unused monthly credits do not roll over to the next month.',
   'term.precio.3':
     'Credits per operation: 1 for a text reply, 4 for a long plan, 3 for an image (10 at high quality) and 10 for a 3D model. The rate may be adjusted if the AI providers’ costs change; the current price is shown in the app before every request.',
-  'term.precio.4':
-    'Top-ups: USD 6 for 700 one-off credits, a single payment you can make with or without a subscription, whenever you ask for it — they are never bought automatically. They do not expire and are used once the month’s credits run out.',
+  'term.precio.4': 'You can upgrade or downgrade whenever you like; the change is prorated.',
   'term.precio.5':
     'Fair-use limit: credits cover normal AI usage. If in one month the real cost of your requests greatly exceeds the value of the credits consumed, AI is paused until the limit resets the following month.',
   'term.precio.6': 'Payments are processed by RevenueCat and Stripe.',
   'term.cancelacion.h': 'Cancellation',
-  'term.cancelacion.p':
-    'You can cancel whenever you like from “Manage subscription” in <a href="/cuenta">your account</a>; you keep the plan until the end of the paid period. After that, the app carries on working on your devices in local mode, without monthly credits or sync. Any top-up credits you have left remain usable, and you can renew whenever you want. Your cloud files stay read-only for 90 days so you can download them; after that period they are deleted from our servers.',
+  'term.cancelacion.p': 'You can cancel whenever you like from “Manage subscription” in <a href="/cuenta">your account</a>; you keep the plan until the end of the paid period. After that, the app keeps working on your devices in local mode, without monthly credits, sync or the cloud, and you can renew whenever you like. Your cloud files stay read-only for 90 days so you can download them; after that they are deleted from our servers.',
   'term.datos.h': 'Your data',
   'term.datos.p':
     'Your data is yours. The app is local-first: everything lives on your device first. The detail of what we store and how to delete it is in the <a href="/privacidad">privacy policy</a>.',

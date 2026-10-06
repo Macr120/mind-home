@@ -11,17 +11,17 @@ MindHaOS
 
 Je geest, in een 3D-huis
 
-## Texto promocional (74/170)
+## Texto promocional (75/170)
 
-Je leven in een 3D-huis: gewoontes, doelen, financiën, maaltijden en meer.
+Je leven, in een 3D-huis: gewoontes, doelen, financiën, maaltijden en meer.
 
 ## Palabras clave (82/100)
 
 gewoontes,doelen,planner,dagboek,budget,voeding,training,slaap,studie,ai,assistent
 
-## Descripción (3673/4000)
+## Descripción (3615/4000)
 
-Breng je gewoontes, doelen, financiën, maaltijden en meer op orde in een isometrisch 3D-huis waarin elke kamer een app is.
+Organiseer je gewoontes, doelen, financiën, maaltijden en meer in een isometrisch 3D-huis waarin elke kamer een app is.
 
 HOE HET WERKT
 
@@ -36,10 +36,10 @@ De 17 apps en de vier uit de Studio delen één kalender, één lijst met dageli
 
 EÉN MINDHAOS, VEEL APPS
 • Echt alles in één: Eén app in plaats van twintig: eten, geld, slaap, studie, gewoontes en doelen onder hetzelfde dak — en met elkaar verbonden, wat losse apps nooit kunnen.
-• Vervalt niet als je stopt met betalen: Je koopt het één keer en het is van jou. Abonnementsapps gaan uit zodra je stopt met betalen; hier houd je het hele MindHaOS en al je gegevens op je apparaat, ook als je de AI laat vallen.
+• Gratis, en verloopt niet: Je MindHaOS is gratis met je account, en van jou. Abonnementsapps gaan uit zodra je stopt met betalen; hier brengt het abonnement alleen AI, synchronisatie en cloud: stop je, dan houd je je hele MindHaOS en al je gegevens op je apparaat.
 • Kamers die apps zijn: Sport, keuken, financiën, slaap, bibliotheek, talen, reizen, hobby’s, mindfulness en meer: in elke kamer zit een complete mini-app.
 • Een Studio om te maken: Vier aparte apps: Audio, Kunst, Schrijven en Video. Je componeert met een piano roll en een MIDI-keyboard, schildert en bewerkt foto’s, schrijft boeken hoofdstuk voor hoofdstuk en monteert video’s vanuit een script — en exporteert wat je maakt, of publiceert een video rechtstreeks op je eigen YouTube-, TikTok-, Facebook- of Instagram-account.
-• Assistent met AI: Chat met je assistent: leg maaltijden vast, maak routines, plan doelen, genereer beelden en 3D-modellen. Je eerste maand komt met 700 credits; daarna is AI optioneel.
+• Assistent met AI: Chat met je assistent: leg maaltijden vast, maak routines, plan doelen, genereer afbeeldingen en 3D-modellen. Elk niveau van het abonnement geeft 700, 1400 of 2100 credits per maand.
 • Alles gesynchroniseerd: Je MindHaOS gaat met je mee naar je telefoon, je tablet en je computer. Alles versleuteld onderweg en geback-upt in de cloud. Met Pro bewaart je cloud (de kamer Bestanden) bovendien 10, 30 of 100 GB aan bestanden.
 • Het voelt als een spel: Je personage leeft van je echte activiteit: reeksen, badges, de Berg van Sisyphus, voertuigen, races en minigames.
 • Agenda en doelen: Routines over 24 uur, geneste doelen, planningen van de AI en cijfers over wat je haalt die echt te begrijpen zijn.
@@ -51,10 +51,10 @@ De AI in je MindHaOS legt vast, plant en maakt samen met je. En jij bepaalt wat 
 
 • Of op je eigen machine, met Ollama: Installeer Ollama en je MindHaOS praat met het model dat op je computer draait: zonder credits, zonder verbinding en zonder dat er iets weggaat.
 
-DE APP
-• Je eigen MindHaOS, voor altijd: alle apps, je gegevens op je apparaat
-• Eerste maand inbegrepen: 700 AI-credits + synchronisatie, zonder kaart en zonder abonnement
-• Als die maand voorbij is hou je de hele app en je gegevens; de AI-credits zijn optioneel
+ABONNEMENT
+• Niveau 1, 2 of 3: 700, 1400 of 2100 AI-credits per maand
+• Synchronisatie tussen al je apparaten
+• Je cloud: 10, 30 of 100 GB voor je bestanden
 
 Dezelfde dopamine. Deze keer voor je echte leven.
 

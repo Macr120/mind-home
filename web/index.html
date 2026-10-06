@@ -256,20 +256,51 @@
               <li>{{precio.app.2}}</li>
               <li>{{precio.app.3}}</li>
             </ul>
-            <a class="boton principal grande ui-boton ui-accent-bg" href="/cuenta">
+            <a class="boton principal grande ui-boton ui-accent-bg" href="/cuenta#planes">
               {{precio.app.cta}}
             </a>
             <p class="letra-chica">{{precio.app.pie}}</p>
           </div>
         </div>
-        <!-- La IA es opcional: va aquí abajo, en voz baja, no como un tercer plan. -->
+        <!-- Los créditos de cada nivel, en voz baja; el detalle va en #creditos. -->
         <div class="franja-ia">
           <div class="texto">
             <h3>{{ia.t}}</h3>
             <p class="precios-linea">{{ia.precios}}</p>
             <p>{{ia.p}}</p>
           </div>
-          <a class="enlace" href="/cuenta#planes">{{ia.cta}}</a>
+          <a class="enlace" href="#creditos">{{ia.cta}}</a>
+        </div>
+      </section>
+
+      <section id="creditos">
+        <h2>{{creditos.h2}}</h2>
+        <p class="sub">{{creditos.sub}}</p>
+        <div class="tabla-creditos">
+          <table>
+            <thead>
+              <tr><th>{{creditos.col.que}}</th><th class="cr">{{creditos.col.cuesta}}</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>{{creditos.chat}}</td><td class="cr">1</td></tr>
+              <tr><td>{{creditos.foto}}</td><td class="cr">1</td></tr>
+              <tr><td>{{creditos.voz}}</td><td class="cr">1</td></tr>
+              <tr><td>{{creditos.ruta}}</td><td class="cr">1</td></tr>
+              <tr><td>{{creditos.plan}}</td><td class="cr">4</td></tr>
+              <tr><td>{{creditos.pdf}}</td><td class="cr">4</td></tr>
+              <tr><td>{{creditos.tts}}</td><td class="cr">3</td></tr>
+              <tr><td>{{creditos.imagen}}</td><td class="cr">3 / 10</td></tr>
+              <tr><td>{{creditos.modelo}}</td><td class="cr">10</td></tr>
+            </tbody>
+          </table>
+          <h3>{{creditos.rinde.t}}</h3>
+          <ul>
+            <li>{{creditos.rinde.1}}</li>
+            <li>{{creditos.rinde.2}}</li>
+            <li>{{creditos.rinde.3}}</li>
+          </ul>
+          <p class="letra-chica">{{creditos.nota}}</p>
+          <a class="boton principal ui-boton ui-accent-bg" href="/cuenta#planes">{{creditos.cta}}</a>
         </div>
       </section>
 
@@ -383,7 +414,7 @@
         document.documentElement.classList.add('js-anim')
         var bloques = document.querySelectorAll(
           '.recorrido > section, .recorrido h2, .piezas > *, .tarjeta, .pasos > li,' +
-            ' .faq > details, .via, .cifras li, .precio-caja, .franja-ia, .manifiesto p'
+            ' .faq > details, .via, .cifras li, .precio-caja, .franja-ia, .tabla-creditos, .manifiesto p'
         )
         var ojo = new IntersectionObserver(
           function (vistos) {

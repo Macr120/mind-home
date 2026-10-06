@@ -890,7 +890,7 @@ section h2 {
 }
 
 /* ─── Precio ──────────────────────────────────────────────────────────────── */
-/* Solo dos planes: la demo y la compra. La IA vive en la franja de abajo. */
+/* Dos cajas: gratis y la suscripción. Los créditos van en la franja de abajo. */
 .planes {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1026,6 +1026,73 @@ section h2 {
   font-size: 13px;
   font-weight: 700;
   white-space: nowrap;
+}
+
+/* ─── Qué se hace con los créditos ───────────────────────────────────────── */
+.tabla-creditos {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-panel);
+  background: var(--ui-panel);
+  text-align: center;
+}
+
+.tabla-creditos table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  text-align: left;
+}
+
+.tabla-creditos th {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-3);
+  padding: 0 4px 8px;
+}
+
+.tabla-creditos td {
+  padding: 8px 4px;
+  border-top: 1px solid var(--borde);
+  color: var(--tinta-2);
+}
+
+.tabla-creditos .cr {
+  text-align: right;
+  white-space: nowrap;
+  font-weight: 700;
+  color: var(--ui-ink);
+}
+
+.tabla-creditos h3 {
+  margin: 20px 0 4px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-3);
+}
+
+.tabla-creditos ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: var(--tinta-2);
+}
+
+.tabla-creditos li {
+  padding: 4px 0;
+}
+
+.tabla-creditos .letra-chica {
+  font-size: 12px;
+  color: var(--tinta-3);
+  margin: 8px 0 16px;
 }
 
 /* ─── FAQ ─────────────────────────────────────────────────────────────────── */

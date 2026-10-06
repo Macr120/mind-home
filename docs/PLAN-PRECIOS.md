@@ -1,4 +1,34 @@
-# Precios unificados en los cuatro canales — EJECUTADO el 26-ago-2026
+# Tres niveles y la casa gratis — 5-oct-2026 (VIGENTE)
+
+Decisión de Marco: simplificar a **solo 3 productos** y subir el margen (+1 USD
+al Nivel 1, +2 a los otros). Fuera el pago único de la casa, el anual y la
+recarga. Registrarse y usar la casa es **gratis**; lo social (buzón, partidas,
+espacios) también, con los topes diarios. IA, sync, nube, transporte, juegos con
+Jev y redes piden suscripción: al tocarlos sin plan sale el aviso «Suscríbete»
+(`useCuotaAgotada` con motivo), con el enlace «¿Qué puedes hacer con los
+créditos?» → Configuraciones › «IA: activar y precios» (en la web, `/#creditos`).
+
+| Nivel | Paquete | Web (RC Billing) | Play / Apple | Precio | Créditos | Nube |
+|---|---|---|---|---|---|---|
+| 1 | `nivel_1` | `pro_x1_v3` | `pro_x1_v2` (precio cambiado) | **7 USD/mes** | 700 | 10 GB |
+| 2 | `nivel_2` | `pro_x2_v3` | `pro_x2_v2` (precio cambiado) | **14 USD/mes** | 1400 | 30 GB |
+| 3 | `nivel_3` | `pro_x3_v3` | `pro_x3_v2` (precio cambiado) | **20 USD/mes** | 2100 | 100 GB |
+
+- En RC Billing el precio es inmutable: por eso la web estrena `_v3`. En Play y
+  Apple el precio se cambia sobre el `_v2` y se **migra** a los suscriptores
+  existentes (aumento con aceptación).
+- `unlock_casa_*`, `pro_x1_anual` y `creditos_x1` ya no se venden, pero el
+  webhook (`_shared/compras.ts`) los sigue honrando para quien los compró.
+- Servidor: migración `20261005000001_tres_niveles.sql` (`pago()` = tiene
+  perfil, `solo_unlock()` = sin plan vigente, fuera el cron de purga a 3 días).
+- **Apple**: la 1.0 está en revisión con la puerta vieja. Hasta que se apruebe
+  solo se cambian los precios; DESPUÉS: `perfiles.unlock` por defecto true (para
+  que los binarios viejos no pidan comprar la casa), retirar de venta unlock /
+  créditos / anual, quitar esos paquetes del offering y enviar el build nuevo.
+
+---
+
+# (Histórico) Precios unificados en los cuatro canales — EJECUTADO el 26-ago-2026
 
 Decisión de Marco, textual: «números cerrados en consumibles y suscripciones y
 solo en la casa unlock 8.99». Se ejecutó entero desde Windows (navegador + repo
@@ -18,8 +48,10 @@ Desde el 26-sep-2026 cada nivel incluye además **nube** (cuarto Archivo, R2):
 costo está en COSTOS.md.
 
 **Comisión reducida del 15 % (auditoría 25-sep-2026):** Apple Small Business
-Program ✅ inscrito · Google Play programa del 15 % ⏳ **pendiente** (sin él, el
-unlock y los créditos pagan 30 %; las suscripciones ya pagan 15 %). Márgenes por
+Program ✅ inscrito · Google Play programa del 15 % ✅ **inscrito el 30-sep-2026**
+(grupo de cuentas «Places to know, plan, and visit.», solo la cuenta
+6644576858101560747; el aviso para inscribirse solo aparece tras declarar las
+cuentas asociadas en «Administrar el grupo de cuentas»). Márgenes por
 canal en `COSTOS.md` § Margen por canal.
 
 ## Lo que quedó hecho

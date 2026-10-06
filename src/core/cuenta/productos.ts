@@ -1,8 +1,8 @@
 /**
  * Catálogo de lo que se vende, en un solo sitio y para las tres cajas.
  *
- * Desde ago 2026 la casa y los créditos se compran DENTRO de la app en todas
- * las plataformas, pero no por la misma caja (ver `plataforma.ts`):
+ * Desde ago 2026 la suscripción se compra DENTRO de la app en todas las
+ * plataformas, pero no por la misma caja (ver `plataforma.ts`):
  *
  * - Navegador y escritorio → RevenueCat Web Billing (directo, sin comisión).
  * - Android e iOS → compra in-app de la tienda (obligatorio por normativa:
@@ -23,7 +23,7 @@
  * que es quien de verdad concede el plan; aquí solo se pinta y se compra.
  */
 
-export type Clase = 'unlock' | 'nivel' | 'creditos'
+export type Clase = 'nivel'
 
 export interface Producto {
   /** Identificador del PAQUETE en RevenueCat: el mismo en web, Play y App Store. */
@@ -36,11 +36,11 @@ export interface Producto {
    */
   productos: string[]
   clase: Clase
-  /** Nivel de la suscripción (1, 2 o 3); 0 si no es suscripción. */
+  /** Nivel de la suscripción (1, 2 o 3). */
   nivel: number
-  /** Créditos que da: mensuales en un nivel, de una vez en una recarga. */
+  /** Créditos que da cada mes. */
   creditos: number
-  periodo: 'mes' | 'anio' | null
+  periodo: 'mes'
 }
 
 /** En Apple el id de producto es único en TODO el App Store: lleva el bundle. */
@@ -50,61 +50,22 @@ const BUNDLE = 'com.macr120.mindhome.'
 const CREDITOS_BASE = 700
 
 /**
- * El pago único de la app. Incluye el primer mes (plan `trial`: 30 días con el
- * pool de 700 créditos + sync, sin tarjeta), lo concede el webhook.
- * No consumible en Apple, compra única en Play.
+ * Lo único que se vende desde el 5-oct-2026: los tres niveles de la
+ * suscripción, el mismo plan multiplicado (7/14/20 USD al mes). `_v3` es el de
+ * la web (en RevenueCat el precio es INMUTABLE); en Play y en Apple el precio se
+ * cambió sobre el `_v2`. La casa, el anual y la recarga ya no se venden: el
+ * webhook los sigue honrando para quien los compró.
  */
-const UNLOCK: Producto = {
-  paquete: 'unlock',
-  // 8.99 USD en las tres cajas (25-ago-2026). `_v5` es el de la web: en
-  // RevenueCat el precio es INMUTABLE y el `_v4` se quedó en 8.89, así que
-  // hubo que crear otro; en Play y en Apple el id sigue siendo `_v4`, ya con
-  // el precio nuevo. Los viejos se conservan para reconocer al que ya compró.
-  productos: ['unlock_casa_v5', 'unlock_casa_v4', 'unlock_casa_v3', 'unlock_casa_v2', 'unlock_casa'],
-  clase: 'unlock',
-  nivel: 0,
-  creditos: 0,
-  periodo: null,
-}
-
-/** Los tres niveles de la suscripción: el mismo plan multiplicado. */
 const NIVELES: Producto[] = [1, 2, 3].map((n) => ({
   paquete: `nivel_${n}`,
-  productos: [`pro_x${n}_v2`, `pro_x${n}`],
+  productos: [`pro_x${n}_v3`, `pro_x${n}_v2`, `pro_x${n}`],
   clase: 'nivel' as const,
   nivel: n,
   creditos: n * CREDITOS_BASE,
   periodo: 'mes' as const,
 }))
 
-/**
- * Anualidad: el nivel ×1 pagado de una vez ($60/año). Va aparte de `NIVELES`
- * porque no es un escalón más de la escalera, es otra forma de pagar el ×1.
- */
-const ANUAL: Producto = {
-  paquete: 'anual',
-  productos: ['pro_x1_anual'],
-  clase: 'nivel',
-  nivel: 1,
-  creditos: CREDITOS_BASE,
-  periodo: 'anio',
-}
-
-/**
- * Recarga de créditos: consumible, NO es suscripción. Se abona a
- * `perfiles.creditos_extra`, no caduca y funciona sin plan. Mismo precio por
- * crédito que un nivel.
- */
-const CREDITOS: Producto = {
-  paquete: 'creditos',
-  productos: ['creditos_x1'],
-  clase: 'creditos',
-  nivel: 0,
-  creditos: CREDITOS_BASE,
-  periodo: null,
-}
-
-export const CATALOGO: Producto[] = [UNLOCK, ...NIVELES, ANUAL, CREDITOS]
+export const CATALOGO: Producto[] = NIVELES
 
 /**
  * Normaliza un id de producto tal como lo devuelve la tienda:

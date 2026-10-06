@@ -14,6 +14,7 @@ import { useArrastre } from '../../core/ui/comun/arrastre'
 import { useDiseño, esObjetoLibreria } from '../../core/state/disenoStore'
 import { tabInicial } from '../../core/state/intencionApp'
 import { confirmar, pedirTexto } from '../../core/state/confirmarStore'
+import { useCuotaAgotada } from '../../core/state/avisosPlanStore'
 import { BotonSecundario, INPUT, TARJETA, Vacio } from '../_shared/ui'
 import {
   aPapelera,
@@ -126,8 +127,13 @@ export function ArchivosApp() {
   return <Explorador puedeSubir={tieneAcceso()} />
 }
 
+/**
+ * `puedeSubir` = hay plan con nube. Sin él los botones se ven igual y al
+ * tocarlos sale el aviso «Suscríbete» (5-oct-2026; antes se escondían).
+ */
 function Explorador({ puedeSubir }: { puedeSubir: boolean }) {
   const t = useT()
+  const pedirPlan = () => useCuotaAgotada.getState().abrir('nube')
   const carpetas = carpetasArchivoRepo.useAll()
   const archivos = archivosNubeRepo.useAll()
   const cuartos = useCuartosArchivo()
@@ -380,7 +386,7 @@ function Explorador({ puedeSubir }: { puedeSubir: boolean }) {
 
   /** Compartir solo lo que tiene copia en R2, y solo con plan (el servidor lo vuelve a mirar). */
   const opcionCompartir = (clave: string | undefined, nombre: string): OpcionMenu[] =>
-    clave && puedeSubir ? [{ icono: 'compartir', texto: t('archivos.compartir', 'Compartir'), onClick: () => setCompartiendo({ clave, nombre }) }] : []
+    clave ? [{ icono: 'compartir', texto: t('archivos.compartir', 'Compartir'), onClick: () => (puedeSubir ? setCompartiendo({ clave, nombre }) : pedirPlan()) }] : []
 
   const opcionesDe = (i: Item): OpcionMenu[] => {
     const abrirO: OpcionMenu = { icono: 'carpeta', texto: t('archivos.abrir', 'Abrir'), onClick: () => abrir(i) }
@@ -478,6 +484,7 @@ function Explorador({ puedeSubir }: { puedeSubir: boolean }) {
   /** Lo que llega del sistema: archivos sueltos o carpetas enteras. */
   const subirSoltado = (d: string, entradas: FileSystemEntry[], sueltos: File[]) =>
     intentar(async () => {
+      if (!puedeSubir) return pedirPlan()
       const carpeta = d === 'aqui' ? await destinoAqui() : await resolverDestino(d)
       if (entradas.some((x) => x.isDirectory)) {
         const r = await leerEntradas(entradas)
@@ -547,6 +554,7 @@ function Explorador({ puedeSubir }: { puedeSubir: boolean }) {
   const n = sel.size
 
   const abrirNuevo = (e: MouseEvent<HTMLButtonElement>) => {
+    if (!puedeSubir) return pedirPlan()
     const r = e.currentTarget.getBoundingClientRect()
     setMenu({
       x: r.left,
@@ -599,7 +607,7 @@ function Explorador({ puedeSubir }: { puedeSubir: boolean }) {
     else
       vacio = {
         titulo: t('archivos.vacio.titulo', 'Esta carpeta está vacía'),
-        sub: puedeSubir ? t('archivos.vacio.sub', 'Sube archivos o arrástralos aquí. Se guardan en tu nube y los ves en todos tus dispositivos.') : undefined,
+        sub: t('archivos.vacio.sub', 'Sube archivos o arrástralos aquí. Se guardan en tu nube y los ves en todos tus dispositivos.'),
       }
   }
 
@@ -636,7 +644,7 @@ function Explorador({ puedeSubir }: { puedeSubir: boolean }) {
       data-tut="archivos.explorador"
       className={`ui-ancho mx-auto flex w-full max-w-6xl flex-col gap-3 rounded-2xl md:flex-row md:gap-5 ${soltarSO === 'aqui' ? 'outline-2 outline-dashed outline-sky-400/60' : ''}`}
       onDragOver={(e) => {
-        if (!puedeSubir || !e.dataTransfer.types.includes('Files')) return
+        if (!e.dataTransfer.types.includes('Files')) return
         e.preventDefault()
         const d = (e.target as Element).closest?.('[data-destino]')?.getAttribute('data-destino')
         setSoltarSO(d && d !== DESTINO_PAPELERA && d !== DESTINO_DESTACADOS ? d : 'aqui')
@@ -659,7 +667,7 @@ function Explorador({ puedeSubir }: { puedeSubir: boolean }) {
         cuartos={cuartos}
         hayOtras={otras.length > 0}
         resaltado={resaltado}
-        puedeSubir={puedeSubir}
+        puedeSubir
         onNuevo={abrirNuevo}
         medidor={<Medidor puedeSubir={puedeSubir} tut="archivos.medidor" />}
       />
@@ -695,7 +703,7 @@ function Explorador({ puedeSubir }: { puedeSubir: boolean }) {
                 <Icono nombre="basura" /> {t('archivos.vaciarPapelera', 'Vaciar papelera')}
               </BotonSecundario>
             )}
-            {puedeSubir && !soloLectura && (ubi.tipo === 'mia' || ubi.tipo === 'cuarto') && (
+            {!soloLectura && (ubi.tipo === 'mia' || ubi.tipo === 'cuarto') && (
               <BotonSecundario pequeno onClick={abrirNuevo} data-tut="archivos.nuevo.movil" className="md:hidden">
                 <Icono nombre="agregar" /> {t('archivos.nuevo', 'Nuevo')}
               </BotonSecundario>

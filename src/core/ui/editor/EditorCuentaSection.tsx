@@ -8,10 +8,7 @@ import {
   CompraCancelada,
   hayPagos,
   obtenerNiveles,
-  obtenerCreditos,
-  obtenerAnual,
   cambiarNivel,
-  comprarCreditos,
   detalleDeFallo,
   restaurarCompras,
   textoDeFallo,
@@ -24,6 +21,9 @@ import { GastoByok } from '../GastoByok'
 import { LogoApple, LogoGoogle } from '../logosMarca'
 import { FilaAlias } from '../../buzon/ui/FilaAlias'
 import { cargarTextos } from '../../../../web/i18n/paginas/index.mjs'
+import { useCuotaAgotada } from '../../state/avisosPlanStore'
+import { navegarDestino } from '../../chat/destinoChat'
+import { Icono } from '../iconos/Icono'
 import { prefijo } from '../../../../web/i18n/idiomas.mjs'
 
 const URL_WEB = import.meta.env.VITE_URL_WEB as string | undefined
@@ -271,7 +271,7 @@ function CuentaConSesion() {
     void refrescarUsoAlmacen()
   }, [])
 
-  // El mes trial del unlock se comporta como Pro (pool + sync); solo cambia el copy.
+  // El trial (cupones) se comporta como Pro (pool + sync); solo cambia el copy.
   const conAcceso = plan === 'pro' || plan === 'trial'
 
   return (
@@ -286,7 +286,7 @@ function CuentaConSesion() {
           {plan === 'pro'
             ? t('cuenta.plan.pro', 'Pro')
             : plan === 'trial'
-              ? t('cuenta.plan.trial', 'Primer mes')
+              ? t('cuenta.plan.prueba', 'Prueba')
               : t('cuenta.plan.local', 'Local')}
         </span>
       </div>
@@ -295,7 +295,7 @@ function CuentaConSesion() {
       {conAcceso && planExpira && (
         <p className="text-[11px] text-white/45">
           {plan === 'trial'
-            ? t('cuenta.plan.trialExpira', 'Tu mes incluido termina el {f}.', {
+            ? t('cuenta.plan.pruebaExpira', 'Tu prueba termina el {f}.', {
                 f: new Date(planExpira).toLocaleDateString(localeActual()),
               })
             : t('cuenta.plan.expira', 'Renueva o vence: {f}', {
@@ -367,9 +367,15 @@ function CuentaConSesion() {
       {conAcceso ? (
         <FilaSync />
       ) : (
-        <p className="rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] leading-snug text-white/45">
-          {t('cuenta.sync.soloPro', 'La sincronización entre dispositivos es parte de Pro.')}
-        </p>
+        // Sin plan, el botón está igual: al tocarlo sale el aviso «Suscríbete».
+        <button
+          type="button"
+          onClick={() => useCuotaAgotada.getState().abrir('sync')}
+          className="flex w-full items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-left text-[11px] font-semibold text-white/60 transition hover:bg-white/10"
+        >
+          <Icono nombre="sincronizar" />
+          <span className="flex-1">{t('cuenta.sync.activar', 'Activar la sincronización entre dispositivos')}</span>
+        </button>
       )}
       <BloquePaywall />
       <button
@@ -385,10 +391,8 @@ function CuentaConSesion() {
 }
 
 /**
- * Borrado de cuenta con doble confirmación (requisito de las tiendas). Vive
- * aquí y TAMBIÉN en la puerta de compra (`PuertaUnlock`): quien se registra y
- * no compra la casa nunca llega a Configuraciones, y Apple exige poder borrar
- * la cuenta desde la app (5.1.1(v)).
+ * Borrado de cuenta con doble confirmación: Apple exige poder borrar la cuenta
+ * desde la app (5.1.1(v)).
  */
 export function BotonEliminarCuenta() {
   const t = useT()
@@ -465,7 +469,7 @@ function FilaSync() {
 }
 
 /**
- * Compra/renovación (sin Pro) o gestión + recarga (con Pro), vía RevenueCat.
+ * Compra/renovación (sin Pro) o gestión (con Pro), vía RevenueCat.
  * Se vende en las tres plataformas, cada una por su caja (`canalPago()`): compra
  * in-app en Android/iOS y checkout directo en el navegador. En escritorio
  * (Electron) el pago va SIEMPRE al navegador, vía la web.
@@ -513,13 +517,13 @@ function BloquePaywall() {
 
   /*
    * La escalera de niveles se pinta SIEMPRE, esté o no suscrito quien mira.
-   * Vivía detrás de `plan === 'pro'`, y eso dejaba el ×2, el ×3 y el anual
+   * Vivía detrás de `plan === 'pro'`, y eso dejaba el ×2 y el ×3
    * INALCANZABLES para quien aún no se había suscrito: ni se veían ni había
    * forma de comprarlos, porque el único botón ofrecía el ×1 y nada más. Para
-   * App Review era peor todavía: los cuatro productos de suscripción viajan
+   * App Review era peor todavía: los productos de suscripción viajan
    * DENTRO del envío y las notas dicen que están en «Settings › Account», pero
    * el revisor, que llega sin suscripción, no habría encontrado más que un
-   * «Hazte Pro». Ahora la lista los enseña los cuatro con su precio de tienda.
+   * «Hazte Pro». Ahora la lista los enseña todos con su precio de tienda.
    *
    * Y por eso ya no hay botón suelto de «Hazte Pro — {precio}/mes»: era el
    * mismo ×1 que encabeza la lista, con otro rótulo y a dos dedos de distancia.
@@ -529,8 +533,8 @@ function BloquePaywall() {
   return (
     <div className="space-y-1.5">
       <Niveles />
-      <Creditos />
       <Restaurar />
+      {canalPago() !== 'iap' && <FilaCupon />}
       {plan === 'pro' && urlG && (
         <a
           href={urlG}
@@ -579,7 +583,7 @@ export function AvisoRenovacion() {
  * Términos y privacidad al pie de la oferta: la guía 3.1.2 de Apple los exige
  * DENTRO de la app, en la misma pantalla donde se venden las suscripciones (el
  * enlace de la ficha del App Store no basta). Los rótulos y el prefijo de idioma
- * salen del catálogo de la web, igual que el pie de `PuertaUnlock`.
+ * salen del catálogo de la web, igual que el pie de `PuertaCuenta`.
  */
 const EULA_APPLE = 'https://www.apple.com/legal/internet-services/itunes/dev/stdeula/'
 
@@ -666,68 +670,6 @@ function Restaurar() {
 }
 
 /**
- * Recarga de créditos: consumible, sin suscripción. Se ofrece con plan y sin
- * él —los créditos comprados no caducan y se gastan cuando el pool mensual ya
- * no alcanza—, así que es la salida de quien no quiere renovación automática.
- */
-function Creditos() {
-  const t = useT()
-  const [oferta, setOferta] = useState<OfertaPro | null>(null)
-  const [ocupado, setOcupado] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    let vivo = true
-    obtenerCreditos()
-      .then((o) => {
-        if (vivo) setOferta(o)
-      })
-      .catch(() => {})
-    return () => {
-      vivo = false
-    }
-  }, [])
-
-  if (!oferta) return null
-
-  const alComprar = async () => {
-    if (ocupado) return
-    setOcupado(true)
-    setError(null)
-    try {
-      const ok = await comprarCreditos(oferta)
-      // Cobrado y el saldo aún no subió: espera, no fallo (el webhook lo suma).
-      if (!ok) setError(t('cuenta.creditos.enCamino', 'El pago está en camino: vuelve a abrir esta sección en unos segundos.'))
-    } catch (e) {
-      if (e instanceof CompraCancelada) return
-      setError(`${textoDeFallo(e, t)}\n${detalleDeFallo(e)}`)
-    } finally {
-      setOcupado(false)
-    }
-  }
-
-  return (
-    <div className="space-y-1">
-      <button
-        type="button"
-        onClick={() => void alComprar()}
-        disabled={ocupado}
-        className="w-full rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] font-semibold text-white/70 transition hover:bg-white/10 disabled:opacity-50"
-      >
-        {t('cuenta.creditos.comprar', 'Recargar {c} créditos — {p}', {
-          c: oferta.creditos,
-          p: oferta.precio,
-        })}
-      </button>
-      <p className="text-[10px] leading-snug text-white/35">
-        {t('cuenta.creditos.nota', 'Pago único: no caducan y sirven aunque no tengas suscripción.')}
-      </p>
-      {error && <p className="whitespace-pre-line text-[11px] leading-snug text-red-400/90">{error}</p>}
-    </div>
-  )
-}
-
-/**
  * Los tres niveles de la suscripción, con el actual marcado. Tocar otro sube o
  * baja de nivel al instante; cancelar del todo vive en el portal de gestión.
  */
@@ -736,7 +678,6 @@ function Niveles() {
   const nivelActual = useSesion((s) => s.nivel)
   const plan = useSesion((s) => s.plan)
   const [niveles, setNiveles] = useState<OfertaPro[]>([])
-  const [anual, setAnual] = useState<OfertaPro | null>(null)
   const [ocupado, setOcupado] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -747,11 +688,6 @@ function Niveles() {
         if (vivo) setNiveles(n)
       })
       .catch(() => {})
-    obtenerAnual()
-      .then((a) => {
-        if (vivo) setAnual(a)
-      })
-      .catch(() => {})
     return () => {
       vivo = false
     }
@@ -759,9 +695,7 @@ function Niveles() {
 
   if (!niveles.length) return null
 
-  // Sin comparar con el nivel actual: el botón del nivel vigente ya va
-  // deshabilitado, y la anualidad ES el nivel 1 (comprarla estando en ×1
-  // mensual es justo el cambio que se quiere permitir).
+  // Sin comparar con el nivel actual: el botón del nivel vigente ya va deshabilitado.
   const alCambiar = async (oferta: OfertaPro) => {
     if (ocupado) return
     setOcupado(true)
@@ -791,12 +725,9 @@ function Niveles() {
           : t('cuenta.pago.comprar', 'Hazte Pro')}
       </p>
       {niveles.map((n) => {
-        // Solo hay «nivel actual» si de verdad hay SUSCRIPCIÓN. El mes que
-        // regala la compra de la casa deja `nivel = 1` en el perfil sin que
-        // nadie se haya suscrito, y comparar a secas marcaba el ×1 como
-        // «Actual» y lo DESHABILITABA: quien estaba en su primer mes no podía
-        // comprar el ×1. Al revisor de Apple le pasaría igual nada más comprar
-        // la casa, y el ×1 va dentro del envío.
+        // Solo hay «nivel actual» si de verdad hay SUSCRIPCIÓN. El trial deja
+        // `nivel = 1` en el perfil sin que nadie se haya suscrito, y comparar a
+        // secas marcaba el ×1 como «Actual» y lo DESHABILITABA.
         const actual = plan === 'pro' && n.nivel === nivelActual
         return (
           <button
@@ -828,33 +759,108 @@ function Niveles() {
           </button>
         )
       })}
-      {/* La anualidad es el ×1 pagado de una vez, no un nivel más: por eso no
-          se marca nunca como «actual» y su botón no compara niveles. */}
-      {anual && (
-        <button
-          type="button"
-          onClick={() => void alCambiar(anual)}
-          disabled={ocupado}
-          className="flex w-full items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] font-semibold text-white/60 transition hover:bg-white/10 disabled:opacity-50"
-        >
-          <span className="flex-1 text-left">
-            {t('cuenta.nivel.anualGb', 'Un año del nivel ×1 — {c} créditos y {g} GB de nube al mes', {
-              c: anual.creditos,
-              g: GB_POR_NIVEL[1],
-            })}
-          </span>
-          <span className="shrink-0 tabular-nums text-white/45">
-            {t('cuenta.precio.anio', '{p} / año', { p: anual.precio })}
-          </span>
-        </button>
-      )}
       <p className="text-[10px] leading-snug text-white/35">
         {t(
           'cuenta.nivel.nota',
           'Puedes subir o bajar de nivel cuando quieras; el cambio se cobra a prorrata.',
         )}
       </p>
+      <EnlaceCreditos />
       {error && <p className="whitespace-pre-line text-[11px] leading-snug text-red-400/90">{error}</p>}
+    </div>
+  )
+}
+
+/**
+ * Lleva a Configuraciones › «IA: activar y precios» y baja hasta la tabla de lo
+ * que cuesta cada cosa (el editor y el grupo tardan en montarse: se reintenta).
+ */
+export function irAPreciosIA() {
+  navegarDestino({ tipo: 'editor', tab: 'config', grupo: 'ia' })
+  let intentos = 0
+  const bajar = () => {
+    const tabla = document.querySelector('[data-tut="ia.tabla"]')
+    if (tabla) tabla.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    else if (++intentos < 20) window.setTimeout(bajar, 150)
+  }
+  window.setTimeout(bajar, 150)
+}
+
+/** «¿Qué puedes hacer con los créditos?» */
+function EnlaceCreditos() {
+  const t = useT()
+  return (
+    <button
+      type="button"
+      onClick={irAPreciosIA}
+      className="w-full px-2 py-0.5 text-center text-[11px] font-semibold text-accent/90 underline-offset-2 transition hover:underline"
+    >
+      {t('plan.creditosQueHacer', '¿Qué puedes hacer con los créditos?')}
+    </button>
+  )
+}
+
+/**
+ * Canje discreto de cupones (testers y accesos regalados): dan un periodo de
+ * prueba (plan `trial`). Exige sesión: la Edge Function `canjear-cupon` valida
+ * el JWT.
+ *
+ * NO puede vivir en las apps de TIENDA: conceder funciones a cambio de un
+ * código es, en palabras de Apple, «unlock or enable additional functionality
+ * with mechanisms other than In-App Purchase» (rechazo de la 1.0, 13-sep-2026,
+ * 3.1.1), y la misma regla rige en Google Play Payments.
+ */
+function FilaCupon() {
+  const t = useT()
+  const canjearCupon = useSesion((s) => s.canjearCupon)
+  const [abierto, setAbierto] = useState(false)
+  const [codigo, setCodigo] = useState('')
+  const [ocupado, setOcupado] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  if (!abierto) {
+    return (
+      <button type="button" onClick={() => setAbierto(true)} className="flex w-full items-center justify-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] font-semibold text-white/60 transition hover:bg-white/10">
+        <Icono nombre="regalo" />
+        {t('puerta.cupon.tengo', 'Tengo un cupón')}
+      </button>
+    )
+  }
+
+  const alCanjear = async () => {
+    if (!codigo.trim() || ocupado) return
+    setOcupado(true)
+    setError(null)
+    const err = await canjearCupon(codigo)
+    setOcupado(false)
+    if (err) setError(mensajeCuenta(err, t))
+  }
+
+  return (
+    <div className="space-y-1.5 rounded-md border border-white/10 bg-white/5 p-2">
+      <p className="text-[10px] font-bold uppercase tracking-wider text-white/40">
+        {t('puerta.cupon.desc', 'Link de referido')}
+      </p>
+      <div className="flex gap-1.5">
+        <input
+          value={codigo}
+          onChange={(e) => setCodigo(e.target.value.toUpperCase())}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') void alCanjear()
+          }}
+          placeholder={t('puerta.cupon.codigo', 'Código del cupón')}
+          className="min-w-0 flex-1 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-xs text-white/85 placeholder:text-white/30 focus:outline-none"
+        />
+        <button
+          type="button"
+          onClick={() => void alCanjear()}
+          disabled={ocupado || !codigo.trim()}
+          className="shrink-0 rounded-md border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-bold text-white/85 transition hover:bg-white/15 disabled:opacity-50"
+        >
+          {ocupado ? '…' : t('puerta.cupon.canjear', 'Canjear')}
+        </button>
+      </div>
+      {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
     </div>
   )
 }

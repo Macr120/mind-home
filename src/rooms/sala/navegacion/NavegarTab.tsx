@@ -12,7 +12,7 @@ import { BuscadorLugar } from './BuscadorLugar'
 import { cacheVencida, claveConfigurada } from './config'
 import { formatoDistancia, formatoDuracion, formatoHora, resumenPierna } from './formato'
 import { obtenerPosicion, permisoGps } from './geo'
-import { geocodificar, nombreDeCoords, planificar, transporteDisponible } from './here'
+import { geocodificar, nombreDeCoords, planificar, transporteDisponible, transportePagable } from './here'
 import { Creditos } from '../../../core/ui/Creditos'
 import { OP_TRANSPORTE } from '../costosIA'
 import { COLOR_SUELTO, LugaresNav, pinDeLugar, verDeCarpeta } from './LugaresNav'
@@ -430,8 +430,8 @@ export default function NavegarTab({ lugares }: Props) {
     limpiarResultados()
     try {
       if (opt) {
-        // Sin cuenta que pague su crédito, el transporte no entra en la comparación.
-        const ids = MODOS_NAV.map((x) => x.id).filter((m) => m !== 'transporte' || transporteDisponible())
+        // Sin plan que pague su crédito, el transporte no entra en la comparación.
+        const ids = MODOS_NAV.map((x) => x.id).filter((m) => m !== 'transporte' || transportePagable())
         const listas = await Promise.all(
           ids.map((m) => planificar({ origen: o, destino: d, modos: [m], cuando, hora, locale }).catch(() => [])),
         )

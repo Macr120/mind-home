@@ -40,7 +40,6 @@
 import { preflight, json, corsDe } from '../_shared/cors.ts'
 import { clienteUsuario, clienteAdmin, usuarioDe } from '../_shared/auth.ts'
 import { dentroDeLimite } from '../_shared/limite.ts'
-import { tienePago } from '../_shared/pago.ts'
 import { costoTokensUsd } from '../_shared/costoUsd.ts'
 
 /**
@@ -806,14 +805,11 @@ Deno.serve(async (req) => {
     if (!JEV_DISPONIBLE || !(JEV_TODOS || JEV_UIDS.has(usuario.id))) {
       return json({ error: 'sin-jev', mensaje: 'Jev aún no está disponible en tu cuenta.' }, 403, cors)
     }
-    if (!(await tienePago(admin, usuario.id))) {
-      return json({ error: 'sin-unlock', mensaje: 'Desbloquea la casa para jugar con la IA.' }, 403, cors)
-    }
-    // Sin crédito de por medio: quien solo tiene el unlock lleva un tope diario
-    // (20260929000012_topes_solo_unlock.sql); con plan vigente no hay tope.
-    const { data: soloUnlock } = await admin.rpc('solo_unlock', { p_uid: usuario.id })
-    if (soloUnlock === true && !(await dentroDeLimite(admin, usuario.id, 'dia-juego', 100, 86_400))) {
-      return json({ error: 'tope-diario', mensaje: 'Llegaste al límite de hoy. Con Pro no hay tope.' }, 429, cors)
+    // Jugar con la IA es de la suscripción (5-oct-2026): `solo_unlock` es
+    // «sin plan vigente» desde 20261005000001_tres_niveles.sql.
+    const { data: sinPlan } = await admin.rpc('solo_unlock', { p_uid: usuario.id })
+    if (sinPlan === true) {
+      return json({ error: 'sin-pro', mensaje: 'Suscríbete para jugar con la IA.' }, 403, cors)
     }
     const preguntas = body.juego.preguntas ?? {}
     // Sin lote, un solo estado; con lote, una llamada por estado en paralelo

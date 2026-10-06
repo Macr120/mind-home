@@ -209,7 +209,7 @@ export function construirLaminas(textos: Record<string, string>, canal: CanalPag
       pie: x('mani.cierre'),
     },
 
-    // 7 ─── Precio: la lámina con los dos botones que cierran el recorrido ───
+    // 7 ─── Precio: gratis y la suscripción, los dos botones que cierran el recorrido ───
     {
       tipo: 'precio',
       id: 'precio',

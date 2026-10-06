@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.tsx'
 import { DemoGate } from './demo/DemoGate'
 import { PuertaIdioma } from './core/ui/PuertaIdioma'
-import { PuertaUnlock } from './core/ui/PuertaUnlock'
+import { PuertaCuenta } from './core/ui/PuertaCuenta'
 import { aplicarSpawnDemo, aplicarSpawnVisita } from './demo/spawn'
 import { avisarVisitaAbortada } from './core/visita/visitaStore'
 import { bindKeyboard } from './core/house/movement'
@@ -235,9 +235,9 @@ createRoot(document.getElementById('root')!).render(
       {/* El idioma va ANTES que la puerta: lo primero que se pregunta, para que
           hasta la pantalla de cuenta se lea en el idioma del usuario. */}
       <PuertaIdioma>
-        <PuertaUnlock>
+        <PuertaCuenta>
           <App />
-        </PuertaUnlock>
+        </PuertaCuenta>
       </PuertaIdioma>
     </DemoGate>
   </StrictMode>,

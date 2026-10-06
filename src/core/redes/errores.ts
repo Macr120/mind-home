@@ -23,7 +23,7 @@ const TEXTO_ERROR: Record<CodigoErrorRedes, string> = {
   'cuota-youtube': 'Hoy ya no quedan subidas a YouTube en la app; inténtalo mañana o descarga el video.',
   orden: 'La subida se desordenó: vuelve a publicar.',
   'sesion-caducada': 'La subida caducó: vuelve a publicar.',
-  'sin-unlock': 'Desbloquea la casa para usar las redes.',
+  'sin-unlock': 'Suscríbete para publicar en redes.',
   cancelado: 'Cancelado.',
 }
 

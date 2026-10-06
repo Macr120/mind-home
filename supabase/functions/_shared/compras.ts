@@ -16,12 +16,17 @@ import type { SupabaseClient } from 'npm:@supabase/supabase-js@2'
  * nivel se guarda en `perfiles.nivel` y `pool_mensual()` lo multiplica por los
  * créditos base: 700 / 1400 / 2100.
  *
- * Los ids `_v2` son los de $6/$12/$18 (ago 2026); los viejos ($5/$10/$15) se
- * conservan para no dejar sin pool a quien siga suscrito a ellos —en RevenueCat
- * el precio es inmutable, así que cambiarlo obliga a crear productos nuevos—.
+ * Los ids `_v3` son los de la web a $7/$14/$20 (oct 2026): en RC Billing el
+ * precio es inmutable, así que cambiarlo obliga a crear productos nuevos. En
+ * Apple y Play el precio se cambió sobre los `_v2`. Los viejos ($5/$10/$15 y el
+ * anual, que ya no se venden) se conservan para no dejar sin pool a quien siga
+ * suscrito a ellos.
  * Espejo de `NIVELES` en src/core/cuenta/productos.ts.
  */
 export const NIVELES: Record<string, number> = {
+  pro_x1_v3: 1,
+  pro_x2_v3: 2,
+  pro_x3_v3: 3,
   pro_x1_v2: 1,
   pro_x2_v2: 2,
   pro_x3_v2: 3,

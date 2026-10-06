@@ -451,7 +451,17 @@ créditos). En Supabase Storage el mismo ×3 lleno costaba ~$11/mes por el egres
 por eso se movió. Quien cancela queda 90 días en solo lectura y luego
 `almacen-purga` borra su carpeta (ver BACKEND.md §4).
 
-## Precio vigente (decisión de negocio, 18-ago-2026)
+## Precio vigente: tres niveles a 7 / 14 / 20 USD (5-oct-2026)
+
+Mismos créditos (700 / 1400 / 2100) y la misma nube (10 / 30 / 100 GB) que a
+6 / 12 / 18: el aumento entero es margen. Con el ancla de $0.005 por crédito y
+`techo_factor` 1.00, el techo de COGS sigue en $3.50 / $7 / $10.50, así que el
+margen bruto en el peor caso (todo el pool gastado) sube a ~$3.50 / $7 / $9.50
+antes de comisiones (web: Stripe MX ~3.6 % + MXN 3; tiendas: 15 %). La casa ya
+no se vende: las cuentas gratis solo cuestan servidor (BD y lo social, con los
+topes de `solo_unlock()`); no hay COGS de IA sin plan.
+
+## (Histórico) Precio vigente (decisión de negocio, 18-ago-2026)
 
 La regla que ordena toda la tabla: **6 USD = 700 créditos**, venga de donde
 venga, y de esos 6 USD la ganancia mínima tiene que ser **2 USD**. Como la

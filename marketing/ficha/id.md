@@ -11,17 +11,17 @@ MindHaOS
 
 Pikiranmu, dalam rumah 3D
 
-## Texto promocional (74/170)
+## Texto promocional (72/170)
 
-Hidupmu dalam rumah 3D: kebiasaan, target, keuangan, makanan, dan lainnya.
+Hidupmu, di rumah 3D: kebiasaan, tujuan, keuangan, makanan, dan lainnya.
 
 ## Palabras clave (86/100)
 
 kebiasaan,tujuan,agenda,jurnal,anggaran,nutrisi,olahraga,tidur,belajar,ai,asisten,atur
 
-## Descripción (3775/4000)
+## Descripción (3725/4000)
 
-Atur kebiasaan, target, keuangan, makanan, dan lainnya di rumah isometrik 3D tempat setiap ruangan adalah sebuah aplikasi.
+Atur kebiasaan, tujuan, keuangan, makanan, dan lainnya di rumah isometrik 3D yang setiap ruangnya adalah aplikasi.
 
 CARA KERJANYA
 
@@ -36,10 +36,10 @@ Kamu menugaskan salah satu dari 17 aplikasi — nutrisi, olahraga, tidur, keuang
 
 SATU MINDHAOS, BANYAK APLIKASI
 • Benar-benar semua dalam satu: Satu aplikasi, bukan dua puluh: makan, uang, tidur, belajar, kebiasaan, dan target di bawah satu atap — dan saling terhubung, hal yang tak bisa dilakukan aplikasi terpisah.
-• Tidak mati saat kamu berhenti bayar: Beli sekali, jadi milikmu. Aplikasi langganan mati begitu kamu berhenti membayar; di sini, kalau kamu tinggalkan AI-nya, seluruh MindHaOS dan semua datamu tetap ada di perangkatmu.
+• Gratis, dan tidak kedaluwarsa: MindHaOS-mu gratis dengan akunmu, dan milikmu. Aplikasi berlangganan mati begitu kamu berhenti membayar; di sini langganan hanya membawa AI, sinkronisasi, dan cloud: kalau kamu berhenti, MindHaOS-mu tetap utuh beserta semua datamu di perangkatmu.
 • Ruangan yang berupa aplikasi: Olahraga, dapur, keuangan, tidur, perpustakaan, bahasa, perjalanan, hobi, mindfulness, dan lainnya: setiap ruangan menyimpan satu mini-aplikasi yang utuh.
 • Studio untuk berkarya: Empat aplikasi tersendiri: Audio, Seni, Menulis, dan Video. Kamu menggubah lagu dengan piano roll dan keyboard MIDI, melukis dan menyunting foto, menulis buku bab demi bab, dan merangkai video dari naskah — lalu mengekspor hasilnya, atau menerbitkan video langsung ke akun YouTube, TikTok, Facebook, atau Instagram milikmu sendiri.
-• Asisten dengan AI: Mengobrollah dengan asistenmu: catat makanan, buat rutinitas, rencanakan target, hasilkan gambar dan model 3D. Bulan pertamamu membawa 700 kredit; setelah itu AI opsional.
+• Asisten dengan AI: Mengobrol dengan asistenmu: catat makanan, buat rutinitas, rencanakan tujuan, buat gambar dan model 3D. Setiap tingkat langganan memberi 700, 1400, atau 2100 kredit per bulan.
 • Sinkronisasi menyeluruh: MindHaOS-mu ikut ke ponsel, tablet, dan komputer. Semuanya terenkripsi saat dikirim dan dicadangkan di cloud. Dengan Pro, cloud-mu (ruang Berkas) juga menyimpan 10, 30, atau 100 GB berkas.
 • Rasanya seperti sebuah game: Karaktermu hidup dari aktivitas nyatamu: rentetan, lencana, Gunung Sisifus, kendaraan, balapan, dan mini-game.
 • Kalender dan target: Rutinitas 24 jam, target bertingkat, lini masa buatan AI, dan metrik pencapaian yang benar-benar bisa dipahami.
@@ -51,10 +51,10 @@ AI di MindHaOS mencatat, merencanakan, dan berkarya bersamamu. Dan kamu yang men
 
 • Atau di mesinmu, dengan Ollama: Pasang Ollama dan MindHaOS berbicara dengan model yang berjalan di komputermu: tanpa kredit, tanpa koneksi, dan tanpa ada yang keluar dari sana.
 
-APLIKASINYA
-• MindHaOS-mu sendiri, selamanya: semua aplikasi, datamu di perangkatmu
-• Bulan pertama termasuk: 700 kredit AI + sinkronisasi, tanpa kartu dan tanpa langganan
-• Setelah bulan itu berakhir, seluruh aplikasi dan datamu tetap milikmu; kredit AI opsional
+LANGGANAN
+• Tingkat 1, 2, atau 3: 700, 1400, atau 2100 kredit AI per bulan
+• Sinkronisasi di semua perangkatmu
+• Cloud-mu: 10, 30, atau 100 GB untuk berkasmu
 
 Dopamin yang sama. Kali ini untuk hidupmu yang nyata.
 

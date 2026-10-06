@@ -1,42 +1,30 @@
 /**
- * Modelo de negocio (ago 2026): TODO se compra dentro de la app, en cualquier
- * plataforma. Lo que cambia es la caja (`canalPago()` en `plataforma.ts`):
- * compra in-app en Android e iOS —obligatorio por sus normativas— y cobro
- * directo, sin comisión, en el navegador y en el escritorio.
+ * Modelo de negocio (5-oct-2026): la casa es GRATIS con cuenta; se vende solo
+ * la suscripción, en tres niveles (7/14/20 USD al mes: 700/1400/2100 créditos
+ * de IA, sync y 10/30/100 GB de nube). Lo que cambia por plataforma es la caja
+ * (`canalPago()` en `plataforma.ts`): compra in-app en Android e iOS
+ * —obligatorio por sus normativas— y cobro directo, sin comisión, en el
+ * navegador y en el escritorio.
  *
- * Se paga UNA vez por cuenta, no por dispositivo: la compra vive en `perfiles`
- * (la escribe el webhook de RevenueCat, que recibe igual a las tres cajas), así
- * que comprar en el móvil abre la casa en el navegador y al revés.
+ * Se paga por cuenta, no por dispositivo: el plan vive en `perfiles` (lo
+ * escribe el webhook de RevenueCat, que recibe igual a las tres cajas).
  *
- * El flujo canónico es: instalar → registrar el correo → comprar la casa →
- * bienvenida.
+ * El flujo canónico es: instalar → registrar el correo → bienvenida.
  *
- * - **Demo** (gratis, sin cuenta): la casa de Pep@, no persistente. Es la única
- *   vía gratuita; la puerta (`PuertaUnlock`) ofrece entrar aquí.
- * - **Cuenta** (obligatoria): sin correo registrado no se abre la casa propia.
- *   Es lo que ata la compra a la persona y lo que deja seguir en otro
- *   dispositivo.
- * - **Unlock** (`tieneUnlock()`): la cuenta compró la casa. Lo concede el
- *   webhook al recibir la compra —de la tienda o de la web— o un cupón, e
- *   incluye el primer mes (plan `trial`: 30 días con el pool de 700 créditos +
- *   sync, sin tarjeta). Es lo que abre la puerta en TODAS las plataformas: NO
- *   hay atajo local que la salte —quien tiene que entrar sin pagar (testers)
- *   canjea un cupón, que concede el mismo unlock en el perfil—. Un build sin
- *   backend (.env ausente) sí queda 100% local y sin puerta, como siempre.
- * - **Trial** (`esTrial()`): el mes incluido de la compra. Al vencer, conserva
- *   la app y sus datos; pierde pool y sync hasta suscribirse.
- * - **Pro** (`esPro()`, 6 USD/mes en el nivel ×1): créditos mensuales + sync.
- *   Se compra donde se esté, por la caja de esa plataforma.
- * - **Local / vencido**: la IA se paga con recargas de créditos que no caducan;
- *   sin créditos, las superficies siguen visibles y al usarlas sale el modal
- *   de recarga. No hay sincronización entre dispositivos.
- * - **Ex-suscriptor** (`fuePro()` sin Pro): es un usuario local con historial.
- *   Sus créditos de recarga siguen sirviendo; el pool mensual queda en 0 y el
- *   servidor responde 429, que abre el aviso de renovación.
+ * - **Probar** (sin cuenta): casa propia en una BD paralela; la puerta
+ *   (`PuertaCuenta`) ofrece entrar aquí.
+ * - **Cuenta** (gratis): la casa entera y lo social (buzón, partidas,
+ *   espacios) con topes diarios. Lo que cuesta dinero (IA, sync, nube) se ve
+ *   igual y al usarlo sale el aviso «Suscríbete» (`useCuotaAgotada`).
+ * - **Pro** (`esPro()`): un nivel de la suscripción.
+ * - **Trial** (`esTrial()`): Pro temporal de los cupones de testers (y de quien
+ *   compró la casa cuando se vendía).
+ * - **Ex-suscriptor** (`fuePro()` sin Pro): cuenta gratis con historial; el
+ *   servidor responde sin cuota y sale el aviso de renovar.
  *
- * La IA de FONDO (latidos, efemérides, reparto) exige Pro a propósito
- * (`iaOperativa()` en `chat/ia.ts`): unos créditos comprados no deben gastarse
- * solos sin que el usuario haya pedido nada.
+ * La IA de FONDO (latidos, efemérides, reparto) exige plan a propósito
+ * (`iaOperativa()` en `chat/ia.ts`): no debe gastar créditos ni abrir avisos
+ * sin que el usuario haya pedido nada.
  *
  * La compuerta real: `esPro()`/`fuePro()` leen el espejo síncrono del plan
  * (`mh.planReal` / `mh.planExpira` / `mh.fuePro`), que escribe SOLO
@@ -229,19 +217,6 @@ export function tieneAcceso(): boolean {
 export function limpiarDerechosViejos(): void {
   localStorage.removeItem(LS_UNLOCK_LOCAL)
   localStorage.removeItem(LS_ERA_CUENTA)
-}
-
-/**
- * ¿La cuenta compró la casa? La compra in-app, la de la web y el cupón acaban
- * los tres en `perfiles.unlock`, cuyo espejo local escribe SOLO `sesionStore` al
- * refrescar el perfil. Lo consulta `PuertaUnlock` en TODAS las plataformas:
- * desde que la casa se vende dentro de la app, instalada ya no es pagada. La
- * demo no pasa por aquí.
- */
-export function tieneUnlock(): boolean {
-  // Sin backend no hay compras posibles: la app queda 100% local e idéntica.
-  if (!import.meta.env.VITE_SUPABASE_URL || !import.meta.env.VITE_SUPABASE_ANON_KEY) return true
-  return localStorage.getItem(LS_UNLOCK) === '1'
 }
 
 /**

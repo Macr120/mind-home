@@ -256,18 +256,6 @@ function vigencia(cruda: OfertaCruda, producto: Producto): number {
   return i < 0 ? CATALOGO.length : i
 }
 
-/** La primera oferta de una clase (la vigente), con un filtro extra opcional. */
-async function primera(clase: Clase, filtro?: (o: OfertaPro) => boolean): Promise<OfertaPro | null> {
-  const todas = await ofertas()
-  return todas.find((o) => o.clase === clase && (!filtro || filtro(o))) ?? null
-}
-
-/** Nivel base (×1), para el botón único de «hazte Pro». */
-export async function obtenerOferta(): Promise<OfertaPro | null> {
-  const niveles = await obtenerNiveles()
-  return niveles[0] ?? null
-}
-
 /**
  * Los tres niveles mensuales, de menor a mayor y sin repetir nivel: si el
  * producto viejo de un nivel sigue en el offering, se queda fuera.
@@ -277,30 +265,11 @@ export async function obtenerNiveles(): Promise<OfertaPro[]> {
   const vistos = new Set<number>()
   const niveles: OfertaPro[] = []
   for (const oferta of todas) {
-    if (oferta.clase !== 'nivel' || oferta.periodo !== 'mes' || vistos.has(oferta.nivel)) continue
+    if (vistos.has(oferta.nivel)) continue
     vistos.add(oferta.nivel)
     niveles.push(oferta)
   }
   return niveles.sort((a, b) => a.nivel - b.nivel)
-}
-
-/** Paquete anual del nivel ×1; null si no está en ningún offering. */
-export async function obtenerAnual(): Promise<OfertaPro | null> {
-  return primera('nivel', (o) => o.periodo === 'anio')
-}
-
-/** Paquete de recarga de créditos (consumible, sin suscripción). */
-export async function obtenerCreditos(): Promise<OfertaPro | null> {
-  return primera('creditos')
-}
-
-/**
- * El pago único que desbloquea la casa e incluye el primer mes. Vuelve a
- * venderse en las tres plataformas (ago 2026): en las tiendas por compra
- * in-app y en la web directo.
- */
-export async function obtenerUnlock(): Promise<OfertaPro | null> {
-  return primera('unlock')
 }
 
 /**
@@ -387,23 +356,10 @@ export async function cambiarNivel(oferta: OfertaPro): Promise<boolean> {
   return aterrizar(oferta, () => useSesion.getState().nivel === oferta.nivel && useSesion.getState().plan === 'pro')
 }
 
-/** Compra una recarga de créditos: se espera a ver subir el saldo. */
-export async function comprarCreditos(oferta: OfertaPro): Promise<boolean> {
-  const antes = useSesion.getState().creditosExtra
-  await pasarPorCaja(oferta)
-  return aterrizar(oferta, () => useSesion.getState().creditosExtra > antes)
-}
-
-/** Compra la casa: se espera a ver el unlock (y con él, el primer mes). */
-export async function comprarUnlock(oferta: OfertaPro): Promise<boolean> {
-  await pasarPorCaja(oferta)
-  return aterrizar(oferta, () => useSesion.getState().unlock)
-}
-
 /**
  * «Restaurar compras»: Apple lo EXIGE en cualquier app con pagos, y sirve para
  * quien reinstala o estrena teléfono. Devuelve true si tras restaurar la
- * cuenta tiene algo (la casa o un plan).
+ * cuenta tiene un plan.
  */
 export async function restaurarCompras(): Promise<boolean> {
   const usuario = useSesion.getState().usuario
@@ -411,7 +367,7 @@ export async function restaurarCompras(): Promise<boolean> {
   await conTecho(caja().restaurar(usuario.id))
   // Lo restaurado ya está en RevenueCat: el servidor lo aplica sin esperar al webhook.
   await confirmarCompra('restaurar')
-  return esperarPerfil(() => useSesion.getState().unlock || useSesion.getState().plan !== 'local', 5)
+  return esperarPerfil(() => useSesion.getState().plan !== 'local', 5)
 }
 
 /** URL del portal de gestión de la suscripción (cancelar, cambiar pago). */

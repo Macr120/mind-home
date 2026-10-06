@@ -6,6 +6,9 @@ import type { ItinerarioNav, PasoNav, PiernaNav, PuntoNav } from '../../../core/
 import { buscarLugares } from '../geocoder'
 import { HERE_KEY } from './config'
 import { cuentaDisponible, transporteCuenta } from '../../../core/cuenta/api'
+import { hayBackend } from '../../../core/cuenta/supabase'
+import { haySesionProbable } from '../../../core/cuenta/sesionStore'
+import { useCuotaAgotada } from '../../../core/state/avisosPlanStore'
 import { esCalle, type ModoNav } from './modos'
 
 interface LugarHere {
@@ -199,8 +202,14 @@ const MODO_CALLE: Record<Exclude<ModoNav, 'transporte'>, string> = {
   auto: 'car',
 }
 
-/** ¿Hay una cuenta que pueda pagar la búsqueda de transporte público (op `transporte`)? */
-export const transporteDisponible = (): boolean => cuentaDisponible()
+/**
+ * ¿Se ofrece el transporte público? A toda cuenta: sin plan se ve igual y al
+ * buscar sale el aviso «Suscríbete» (op `transporte`, 1 crédito).
+ */
+export const transporteDisponible = (): boolean => hayBackend() && haySesionProbable()
+
+/** ¿Hay una cuenta que pueda pagar la búsqueda (op `transporte`)? */
+export const transportePagable = (): boolean => cuentaDisponible()
 
 /**
  * Itinerarios entre dos puntos combinando los modos elegidos. Con transporte
@@ -210,8 +219,10 @@ export const transporteDisponible = (): boolean => cuentaDisponible()
  */
 export async function planificar(p: PeticionPlan): Promise<ItinerarioNav[]> {
   const calle = (['caminar', 'bici', 'moto', 'auto'] as const).filter((m) => p.modos.includes(m))
-  // Sin cuenta que pague el crédito, el transporte se omite y quedan los modos directos.
-  const transporte = p.modos.includes('transporte') && transporteDisponible()
+  // Sin plan que pague el crédito, el transporte se omite (con el aviso
+  // «Suscríbete») y quedan los modos directos.
+  const transporte = p.modos.includes('transporte') && transportePagable()
+  if (p.modos.includes('transporte') && !transporte) useCuotaAgotada.getState().abrir('transporte')
   if (p.modos.includes('transporte') && !transporte && !calle.length) return []
   const tiempo: Record<string, string> = {}
   if (p.cuando !== 'ahora' && p.hora) tiempo[p.cuando === 'llegar' ? 'arrivalTime' : 'departureTime'] = horaRfc(p.hora)

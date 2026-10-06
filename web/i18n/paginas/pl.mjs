@@ -12,10 +12,8 @@ export const TEXTOS = {
   'tema.boton': 'Tryb jasny lub ciemny',
 
   'meta.titulo': 'MindHaOS — Twój umysł w domu 3D',
-  'meta.desc':
-    'Uporządkuj nawyki, cele, finanse, posiłki i więcej w izometrycznym domu 3D, w którym każdy pokój to aplikacja. Jedna płatność 8,99 USD, pierwszy miesiąc ze sztuczną inteligencją i synchronizacją w cenie; wypróbuj ją za darmo.',
-  'og.desc':
-    'Twoje życie w domu 3D: nawyki, cele, finanse, posiłki i więcej. Jedna płatność 8,99 USD, pierwszy miesiąc z SI w cenie; wypróbuj ją za darmo.',
+  'meta.desc': 'Uporządkuj nawyki, cele, finanse, posiłki i nie tylko w izometrycznym domu 3D, w którym każdy pokój to aplikacja. Za darmo z kontem; SI, synchronizacja i chmura od 7 USD miesięcznie.',
+  'og.desc': 'Twoje życie w domu 3D: nawyki, cele, finanse, posiłki i nie tylko. Za darmo z kontem; SI i synchronizacja od 7 USD miesięcznie.',
 
   'hero.h1': 'Twój umysł<br />w domu 3D',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -41,8 +39,7 @@ export const TEXTOS = {
     'całkiem ręcznie albo z pomocą SI. Wszystkie łączy jeden kalendarz, system codziennych misji i twoje osobiste cele — zsynchronizowane w telefonie i na komputerze.',
   'hero.cta': 'Pobierz aplikację',
   'hero.probar': 'Wypróbuj za darmo: zbuduj swój MindHaOS',
-  'hero.nota':
-    'Aplikacja jest darmowa i działa bez internetu; MindHaOS (Dom Umysłu OS) kupujesz raz — tutaj w sieci albo w aplikacji. SI i synchronizacja są opcjonalne — a jeśli z nich zrezygnujesz, nic nie tracisz.',
+  'hero.nota': 'MindHaOS (Dom Umysłu OS) jest darmowy z kontem i działa bez połączenia. SI, synchronizacja i chmura są w abonamencie — a jeśli zrezygnujesz, niczego nie tracisz.',
   'hero.video': 'Tutaj trafi twój film albo zrzuty ekranu MindHaOS (Dom Umysłu OS)',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -70,9 +67,8 @@ export const TEXTOS = {
   'car.todo.t': 'Naprawdę wszystko w jednym',
   'car.todo.p':
     'Jedna aplikacja zamiast dwudziestu: jedzenie, pieniądze, sen, nauka, nawyki i cele pod jednym dachem — i połączone ze sobą, czego osobne aplikacje nie potrafią.',
-  'car.nocaduca.t': 'Nie wygasa, gdy przestaniesz płacić',
-  'car.nocaduca.p':
-    'Kupujesz raz i jest twoja. Aplikacje abonamentowe gasną, gdy tylko przestaniesz płacić; tutaj, nawet jeśli zrezygnujesz z SI, zostaje ci cały MindHaOS i wszystkie dane na urządzeniu.',
+  'car.nocaduca.t': 'Za darmo i bez daty ważności',
+  'car.nocaduca.p': 'Twój MindHaOS jest darmowy z kontem i należy do ciebie. Aplikacje z abonamentem gasną, gdy tylko przestajesz płacić; tutaj abonament daje tylko SI, synchronizację i chmurę: jeśli zrezygnujesz, zachowujesz cały MindHaOS i wszystkie dane na swoim urządzeniu.',
   'car.nuevas.t': 'Nowe aktualizacje',
   'car.nuevas.p': 'MindHaOS wciąż rośnie: pokoje, aplikacje i ulepszenia przychodzą bez kolejnej opłaty.',
   'car.1.t': 'Pokoje, które są aplikacjami',
@@ -82,8 +78,7 @@ export const TEXTOS = {
   'car.studio.p':
     'Cztery osobne aplikacje: Dźwięk, Sztuka, Pisanie i Wideo. Komponujesz na piano rollu i klawiaturze MIDI, malujesz i poprawiasz zdjęcia, piszesz książki rozdział po rozdziale i montujesz filmy ze scenariusza — a wszystko eksportujesz albo publikujesz film prosto na swoim koncie w YouTube, TikToku, Facebooku czy na Instagramie.',
   'car.2.t': 'Asystent ze sztuczną inteligencją',
-  'car.2.p':
-    'Rozmawiaj z asystentem: zapisuj posiłki, twórz rutyny, planuj cele, generuj obrazy i modele 3D. Pierwszy miesiąc ma w cenie 700 kredytów; potem SI jest opcjonalna.',
+  'car.2.p': 'Rozmawiaj ze swoim asystentem: zapisuj posiłki, twórz rutyny, planuj cele, generuj obrazy i modele 3D. Każdy poziom abonamentu daje 700, 1400 lub 2100 kredytów miesięcznie.',
   'car.3.t': 'Pełna synchronizacja',
   'car.3.p':
     'MindHaOS idzie z tobą na telefon, tablet i komputer. Wszystko szyfrowane w przesyle i backupowane w chmurze. Z Pro Twoja chmura (pokój Pliki) przechowuje też 10, 30 lub 100 GB plików.',
@@ -129,69 +124,76 @@ export const TEXTOS = {
     'Tutaj rozwijasz nowe umiejętności, panujesz nad swoimi zasobami i ustawiasz technologię po swojej stronie. Przeciwko bezrefleksyjnej konsumpcji krótkich formatów. Przeciwko poznawczemu wyniszczeniu, które zostawiają nawyki konsumpcji narzucone przez wielkie korporacje.',
   'mani.cierre': 'Ta sama dopamina. Tym razem dla twojego prawdziwego życia.',
 
-  'precio.h2': 'Jedna płatność w sklepie, MindHaOS na zawsze',
+  'precio.h2': 'Twój MindHaOS jest darmowy; SI, synchronizacja i chmura w abonamencie',
   'precio.probar.nombre': 'Wypróbuj ją',
   'precio.probar.cifra': 'Za darmo',
-  'precio.probar.1': 'Twój własny MindHaOS z menu powitalnym: wypróbuj wszystko',
-  'precio.probar.2': 'Bez konta, bez karty i bez internetu',
-  'precio.probar.3': 'Nic się nie zapisuje, dopóki nie masz konta: po zakupie odzyskujesz swoją próbę',
+  'precio.probar.1': 'Twój własny MindHaOS ze wszystkimi aplikacjami, a dane na twoim urządzeniu',
+  'precio.probar.2': 'Skrzynka, rozgrywki i wspólne przestrzenie z przyjaciółmi',
+  'precio.probar.3': 'Wypróbuj bez konta; załóż darmowe konto, aby go zachować',
   'precio.probar.cta': 'Wypróbuj aplikację',
-  'precio.probar.pie': 'Pełna aplikacja, żeby poznać ją bez zobowiązań.',
-  'precio.app.nombre': 'Aplikacja',
-  'precio.app.cifra': '8,99 USD',
-  'precio.app.pagoUnico': 'jednorazowa płatność',
-  'precio.app.1': 'Twój własny MindHaOS, na zawsze: wszystkie aplikacje, dane na twoim urządzeniu',
-  'precio.app.2':
-    'Pierwszy miesiąc w cenie: 700 kredytów SI + synchronizacja, bez karty i bez abonamentu',
-  'precio.app.3':
-    'Po tym miesiącu zostaje ci cała aplikacja i twoje dane; kredyty SI są opcjonalne',
-  'precio.app.cta': 'Kup MindHaOS',
-  'precio.app.pie':
-    'Kup go tutaj, bez pośrednictwa sklepu, albo w aplikacji na telefonie. Jedna płatność, bez odnowień, i działa na wszystkich twoich urządzeniach.',
+  'precio.probar.pie': 'Bez karty i bez daty ważności.',
+  'precio.app.nombre': 'Abonament',
+  'precio.app.cifra': 'od 7 USD',
+  'precio.app.pagoUnico': 'miesięcznie',
+  'precio.app.1': 'Poziom 1, 2 lub 3: 700, 1400 lub 2100 kredytów SI miesięcznie',
+  'precio.app.2': 'Synchronizacja między wszystkimi twoimi urządzeniami',
+  'precio.app.3': 'Twoja chmura: 10, 30 lub 100 GB na pliki',
+  'precio.app.cta': 'Subskrybuj',
+  'precio.app.pie': 'Bez zobowiązań: podnosisz, obniżasz albo anulujesz, kiedy chcesz. Wykupisz go tutaj lub w aplikacji i działa na wszystkich twoich urządzeniach.',
 
-  'ia.t': 'SI i synchronizacja · opcjonalnie',
-  'ia.precios':
-    '6 USD miesięcznie<span>·</span>60 USD rocznie<span>·</span>albo 6 USD za 700 pojedynczych kredytów',
-  'ia.p':
-    'Tylko jeśli po pierwszym miesiącu chcesz dalej korzystać z AI i synchronizacji. Wykupisz to tutaj albo w aplikacji, a działa na wszystkich twoich urządzeniach. Bez zobowiązań: jeśli zrezygnujesz, zostaje ci aplikacja i wszystkie dane w trybie lokalnym.',
-  'ia.cta': 'Zobacz plany →',
+  'ia.t': 'Kredyty SI',
+  'ia.precios': 'Poziom 1: 700 kredytów<span>·</span>Poziom 2: 1400<span>·</span>Poziom 3: 2100',
+  'ia.p': 'Odpowiedź asystenta kosztuje 1 kredyt; obraz 3; model 3D 10. Odnawiają się co miesiąc i zużywają się tylko wtedy, gdy o coś prosisz.',
+  'ia.cta': 'Co możesz zrobić z kredytami? →',
+  'creditos.h2': 'Co możesz zrobić ze swoimi kredytami?',
+  'creditos.sub': 'Każda rzecz, o którą prosisz SI, kosztuje kilka kredytów, zależnie od kosztu jej obsługi. Zużywają się tylko wtedy, gdy o coś prosisz, i odnawiają się co miesiąc.',
+  'creditos.col.que': 'O co prosisz',
+  'creditos.col.cuesta': 'Kredyty',
+  'creditos.chat': 'Odpowiedź asystenta',
+  'creditos.foto': 'Odczytanie zdjęcia: posiłku, paragonu, dokumentu',
+  'creditos.voz': 'Dyktowanie głosem (do 30 sekund)',
+  'creditos.ruta': 'Trasa komunikacją miejską',
+  'creditos.plan': 'Długi plan: cele, rutyny, przepisy na tydzień',
+  'creditos.pdf': 'Rozmowa z plikiem PDF',
+  'creditos.tts': 'Odpowiedź asystenta na głos',
+  'creditos.imagen': 'Obraz (szybki / dobrej jakości)',
+  'creditos.modelo': 'Model 3D do twojego domu',
+  'creditos.rinde.t': 'Na co wystarcza każdy poziom w miesiącu',
+  'creditos.rinde.1': 'Poziom 1 · 700 kredytów: około 700 odpowiedzi albo 230 szybkich obrazów',
+  'creditos.rinde.2': 'Poziom 2 · 1400 kredytów: około 1400 odpowiedzi albo 140 obrazów dobrej jakości',
+  'creditos.rinde.3': 'Poziom 3 · 2100 kredytów: około 2100 odpowiedzi albo 210 modeli 3D',
+  'creditos.nota': 'Z własnymi kluczami SI albo z Ollamą na twoim komputerze SI nie zużywa kredytów.',
+  'creditos.cta': 'Zobacz poziomy',
 
   'desc.h2': 'Pobierz aplikację',
-  'desc.sub':
-    'Pobierz za darmo i kup MindHaOS w aplikacji — albo tutaj, w przeglądarce. Z twoim kontem MindHaOS pojawia się wszędzie indziej, także w przeglądarce.',
+  'desc.sub': 'Pobierz za darmo i zaloguj się na swoje konto: twój MindHaOS pojawi się na każdym urządzeniu, także w przeglądarce. Abonament wykupisz w aplikacji albo tutaj, w sieci.',
   'desc.pronto': 'Wkrótce',
-  'desc.android': 'Za darmo w Google Play. MindHaOS kupujesz w środku.',
+  'desc.android': 'Za darmo w Google Play.',
   'desc.android.cta': 'Pobierz na Android',
   'desc.ios.t': 'iPhone, iPad i Mac',
-  'desc.ios': 'Za darmo w App Store. MindHaOS kupujesz w środku.',
+  'desc.ios': 'Za darmo w App Store.',
   'desc.web.t': 'W twojej przeglądarce',
   'desc.web': 'Bez instalowania: zaloguj się na swoje konto, a MindHaOS czeka. Bez konta możesz wypróbować aplikację.',
   'desc.web.cta': 'Otwórz aplikację',
-  'desc.windows': 'Za darmo w Microsoft Store. MindHaOS kupujesz w środku.',
+  'desc.windows': 'Za darmo w Microsoft Store.',
   'desc.windows.cta': 'Pobierz na Windows',
 
   'faq.h2': 'Częste pytania',
-  'faq.1.q': 'Gdzie kupuje się aplikację?',
-  'faq.1.a':
-    'Gdzie wolisz: tutaj w przeglądarce, na <a href="/cuenta">swoim koncie</a>, albo w aplikacji na Androida i iPhone’a. To jednorazowa płatność zapisana na koncie, więc gdziekolwiek kupisz, MindHaOS pojawia się na wszystkich twoich urządzeniach.',
-  'faq.2.q': 'Co obejmuje jednorazowa płatność?',
-  'faq.2.a':
-    'Cały MindHaOS: wszystkie pokoje, wszystkie aplikacje i twoje dane na twoim urządzeniu, na zawsze i bez odnowień. Do tego pierwszy miesiąc ma w cenie 700 kredytów SI i synchronizację, bez karty. Przed zakupem możesz wypróbować pełną aplikację, która nie prosi o konto.',
-  'faq.3.q': 'Ile kosztuje SI po pierwszym miesiącu?',
-  'faq.3.a':
-    'Tyle, ile wybierzesz, albo nic. Abonament to 6 USD miesięcznie (700 kredytów i synchronizacja) lub 60 USD rocznie — dwa miesiące gratis. Jeśli to za mało, poziomy ×2 i ×3 dają 1400 albo 2100 kredytów za 12 lub 18 USD miesięcznie. A jeśli wolisz nie subskrybować, są pojedyncze doładowania: 6 USD za 700 kredytów, które nie tracą ważności i schodzą tylko wtedy, gdy o coś poprosisz. To płaci się tutaj, w <a href="/cuenta">twoim koncie</a>, i działa na wszystkich urządzeniach. Każdy poziom obejmuje też miejsce w Twojej chmurze: 10, 30 lub 100 GB.',
+  'faq.1.q': 'Czy aplikacja jest darmowa?',
+  'faq.1.a': 'Tak. Zakładasz konto i twój MindHaOS należy do ciebie, ze wszystkimi aplikacjami, bez żadnych opłat. Płacisz tylko za abonament, jeśli chcesz SI, synchronizację między urządzeniami i chmurę; wykupisz go tutaj, na <a href="/cuenta">swoim koncie</a>, albo w aplikacji na Androida i iPhone\'a, i działa na wszystkich twoich urządzeniach.',
+  'faq.2.q': 'Co obejmuje abonament?',
+  'faq.2.a': 'Trzy poziomy: Poziom 1 za 7 USD miesięcznie daje 700 kredytów SI i 10 GB chmury; Poziom 2, za 14 USD, 1400 kredytów i 30 GB; a Poziom 3, za 20 USD, 2100 kredytów i 100 GB. Wszystkie trzy obejmują synchronizację między wszystkimi twoimi urządzeniami. Bez zobowiązań: podnosisz, obniżasz albo anulujesz, kiedy chcesz.',
+  'faq.3.q': 'Co mogę robić bez abonamentu?',
+  'faq.3.a': 'Wszystko, co nie zużywa serwerów SI: wszystkie pokoje i ich aplikacje, kalendarz, cele, twoje dane na urządzeniu, a do tego skrzynkę, rozgrywki i wspólne przestrzenie z przyjaciółmi. Gdy dotkniesz czegoś związanego z SI, synchronizacją lub chmurą, aplikacja zaproponuje ci abonament.',
   'faq.4.q': 'Czym są kredyty SI?',
-  'faq.4.a':
-    'Jednostką, w której rozliczane jest każde żądanie do asystenta, według kosztu jego obsługi: zwykła odpowiedź to 1 kredyt, długi plan 4, obraz 3 (10 w wysokiej jakości), a model 3D 10. Nigdy nie schodzą automatycznie: wydajesz je tylko wtedy, gdy o coś prosisz.',
+  'faq.4.a': 'Jednostka, w której rozlicza się każde zapytanie do asystenta, zależnie od kosztu jego obsługi: zwykła odpowiedź to 1 kredyt, długi plan 4, obraz 3 (10 w wysokiej jakości), a model 3D 10. Nic nie pobiera się automatycznie: kredyty zużywają się tylko wtedy, gdy o coś prosisz. Zobacz <a href="#creditos">wszystko, co możesz z nimi zrobić</a>.',
   'faq.5.q': 'Co się stanie, gdy zrezygnuję?',
-  'faq.5.a':
-    'Zostaje ci cała aplikacja i wszystkie dane na urządzeniach, w trybie lokalnym. Tracisz tylko miesięczne kredyty i synchronizację. Gdy wrócisz, wszystko odżywa dokładnie tak, jak to zostawiłeś. Pliki w chmurze przez 90 dni są tylko do odczytu, żebyś mógł je pobrać; potem zostają usunięte.',
+  'faq.5.a': 'Zachowujesz całą aplikację i wszystkie dane na swoich urządzeniach, w trybie lokalnym. Tracisz tylko miesięczne kredyty, synchronizację i chmurę. Jeśli wznowisz, wszystko wróci tak, jak zostawiłeś. Pliki w chmurze pozostają przez 90 dni tylko do odczytu, abyś mógł je pobrać; potem są usuwane.',
   'faq.6.q': 'Gdzie przechowywane są moje dane?',
   'faq.6.a':
     'Najpierw na twoim urządzeniu (aplikacja jest local-first), a przy włączonej synchronizacji także w chmurze, żeby przechodzić z urządzenia na urządzenie. W trybie lokalnym nic nie opuszcza twojego urządzenia. Płatności obsługują RevenueCat i Stripe — albo sklep, jeśli kupujesz z telefonu: nigdy nie widzimy twojej karty. Szczegóły w <a href="/privacidad">polityce prywatności</a>. Duże pliki (Twoja chmura i media ze Studia) są przechowywane w Cloudflare R2.',
   'faq.7.q': 'Na jakich urządzeniach to działa?',
-  'faq.7.a':
-    'Dziś: w każdej nowoczesnej przeglądarce. Już wkrótce: Android (Google Play), iPhone/iPad (App Store), Windows i macOS. Konto działa wszędzie: kupujesz raz, tam gdzie ci wygodnie, a MindHaOS i subskrypcja AI działają na każdym urządzeniu, na którym zalogujesz się swoim adresem e-mail.',
+  'faq.7.a': 'Dziś: w każdej nowoczesnej przeglądarce. Wkrótce: Android (Google Play), iPhone/iPad (App Store), Windows i macOS. Twoje konto działa wszędzie: twój MindHaOS i abonament działają na każdym urządzeniu, na którym zalogujesz się swoim e-mailem.',
   'faq.8.q': 'Jak zrezygnować albo usunąć konto?',
   'faq.8.a':
     'Aby zatrzymać płatności, «Zarządzaj abonamentem» w <a href="/cuenta">twoim koncie</a>. Aby usunąć konto i wszystkie dane z naszych serwerów, z poziomu aplikacji: Edytor → Ustawienia → Konto.',
@@ -252,8 +254,7 @@ export const TEXTOS = {
   'priv.cancelas.p':
     'Dane lokalne zostają na twoich urządzeniach. Dane zsynchronizowane pozostają przechowywane (niedostępne do czasu wznowienia) i możesz je trwale usunąć, kasując konto.',
   'priv.borrar.h': 'Jak usunąć konto i dane',
-  'priv.borrar.p':
-    'Z poziomu aplikacji: Edytor → Ustawienia → Konto. Usunięcie kasuje twojego użytkownika, dane zsynchronizowane i pliki z naszych serwerów; zostają wyłącznie zapisy rozliczeniowe, których przechowywania wymaga prawo. Konta, które nie dokończą żadnego zakupu, są automatycznie usuwane 3 dni po utworzeniu, bez zachowywania żadnych ich danych.',
+  'priv.borrar.p': 'Z aplikacji: Edytor → Ustawienia → Konto. Usunięcie kasuje twojego użytkownika, zsynchronizowane dane i pliki z naszych serwerów; zachowujemy tylko dokumenty rozliczeniowe, których przechowywania wymaga prawo.',
   'priv.proveedores.h': 'Dostawcy',
   'priv.proveedores.1': 'Supabase (baza danych, uwierzytelnianie i pliki).',
   'priv.proveedores.2': 'RevenueCat i Stripe (zakupy, abonamenty i płatności).',
@@ -269,33 +270,20 @@ export const TEXTOS = {
 
   'term.titulo': 'Regulamin usługi',
   'term.servicio.h': 'Usługa',
-  'term.servicio.p':
-    'MindHaOS to aplikacja do organizacji osobistej. Wersja próbna jest darmowa i nie wymaga konta. Aplikację kupuje się jedną płatnością; funkcje cykliczne (kredyty SI i synchronizacja) wykupuje się wyłącznie na tej stronie; aplikacje desktopowe i sklepowe są klientami tego samego konta.',
-  'term.app.h': 'Aplikacja (jednorazowa płatność)',
-  'term.app.1':
-    'Odblokowanie aplikacji: 8,99 USD, jednorazowo. Odblokowuje twój dom na zawsze na twoim koncie, bez odnowień.',
-  'term.app.2':
-    'Obejmuje pierwszy miesiąc: 30 dni z miesięcznymi 700 kredytami SI i synchronizacją, bez karty i bez abonamentu. Po jego zakończeniu zostaje ci aplikacja i dane; miesięczne kredyty i synchronizacja wymagają abonamentu.',
-  'term.app.3':
-    'Darmowa wersja próbna nic nie zapisuje, dopóki nie założysz konta: służy poznaniu aplikacji przed zakupem.',
+  'term.servicio.p': 'MindHaOS to aplikacja do osobistej organizacji. Próba bez konta i aplikacja z kontem są bezpłatne. Funkcje cykliczne (kredyty SI, synchronizacja i chmura) wykupuje się jako abonament, tutaj w sieci lub w aplikacji; wszystkie wersje są klientami tego samego konta.',
   'term.local.h': 'Tryb lokalny',
-  'term.local.p':
-    'Przy odblokowanej aplikacji wszystkie jej funkcje offline działają bez kosztów cyklicznych. Dane są przechowywane na twoim urządzeniu, a ich kopia zapasowa to twoja odpowiedzialność (Ustawienia → Kopia danych).',
+  'term.local.p': 'Z kontem wszystkie funkcje offline aplikacji są bezpłatne. Dane są zapisywane na twoim urządzeniu, a za ich kopię zapasową odpowiadasz ty (Ustawienia → Kopia zapasowa danych).',
   'term.precio.h': 'Abonament i cena',
-  'term.precio.1':
-    'Abonament: 6 USD miesięcznie na poziomie ×1 (albo równowartość w twojej walucie), z automatycznym odnowieniem. Poziomy ×2 i ×3 mnożą kredyty i cenę: 12 i 18 USD miesięcznie. Poziom ×1 możesz też opłacać rocznie: 60 USD, z automatycznym odnowieniem co rok i tymi samymi kredytami co miesiąc.',
-  'term.precio.2':
-    'Obejmuje 700 kredytów SI miesięcznie na poziom (700 / 1400 / 2100) i synchronizację między urządzeniami. Niewykorzystane kredyty miesięczne nie przechodzą na kolejny miesiąc. Obejmuje też miejsce w Twojej chmurze: 10, 30 lub 100 GB zależnie od poziomu (10 GB w płatności rocznej i w miesiącu w cenie).',
+  'term.precio.1': 'Miesięczny abonament z automatycznym odnawianiem w trzech poziomach: Poziom 1, 7 USD miesięcznie; Poziom 2, 14 USD; Poziom 3, 20 USD (lub równowartość w twojej walucie).',
+  'term.precio.2': 'Obejmuje 700, 1400 lub 2100 kredytów SI miesięcznie w zależności od poziomu, synchronizację między urządzeniami i miejsce w twojej chmurze: 10, 30 lub 100 GB. Niewykorzystane miesięczne kredyty nie przechodzą na kolejny miesiąc.',
   'term.precio.3':
     'Kredyty za operację: 1 za odpowiedź tekstową, 4 za długi plan, 3 za obraz (10 w wysokiej jakości) i 10 za model 3D. Stawka może zostać skorygowana, jeśli zmienią się koszty dostawców SI; obowiązująca cena jest pokazywana w aplikacji przed każdym żądaniem.',
-  'term.precio.4':
-    'Doładowania: 6 USD za 700 pojedynczych kredytów, jednorazowa płatność, którą możesz wykonać z abonamentem lub bez, kiedy o nią poprosisz — nigdy nie kupują się same. Nie tracą ważności i schodzą, gdy skończą się kredyty miesiąca.',
+  'term.precio.4': 'Możesz w każdej chwili podnieść lub obniżyć poziom; zmiana jest rozliczana proporcjonalnie.',
   'term.precio.5':
     'Granica uczciwego użytku: kredyty pokrywają normalne korzystanie z SI. Jeśli w danym miesiącu realny koszt twoich żądań znacznie przekroczy wartość zużytych kredytów, SI zostaje wstrzymana do czasu odnowienia limitu w kolejnym miesiącu.',
   'term.precio.6': 'Płatności obsługują RevenueCat i Stripe.',
   'term.cancelacion.h': 'Rezygnacja',
-  'term.cancelacion.p':
-    'Możesz zrezygnować w dowolnej chwili przez «Zarządzaj abonamentem» w <a href="/cuenta">twoim koncie</a>; plan zostaje do końca opłaconego okresu. Potem aplikacja działa dalej na twoich urządzeniach w trybie lokalnym, bez miesięcznych kredytów i synchronizacji. Pozostałe kredyty z doładowań nadal można wykorzystać, a wznowić możesz, kiedy zechcesz. Pliki w chmurze przez 90 dni są tylko do odczytu, żebyś mógł je pobrać; po tym czasie zostają usunięte z naszych serwerów.',
+  'term.cancelacion.p': 'Możesz anulować w każdej chwili w «Zarządzaj subskrypcją» na <a href="/cuenta">swoim koncie</a>; plan zachowujesz do końca opłaconego okresu. Potem aplikacja dalej działa na twoich urządzeniach w trybie lokalnym, bez miesięcznych kredytów, synchronizacji i chmury, a abonament możesz wznowić, kiedy chcesz. Pliki w chmurze pozostają przez 90 dni tylko do odczytu, abyś mógł je pobrać; po tym czasie są usuwane z naszych serwerów.',
   'term.datos.h': 'Twoje dane',
   'term.datos.p':
     'Twoje dane należą do ciebie. Aplikacja jest local-first: wszystko żyje najpierw na twoim urządzeniu. Szczegóły, co przechowujemy i jak to skasować, są w <a href="/privacidad">polityce prywatności</a>.',

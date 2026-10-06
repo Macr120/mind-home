@@ -11,17 +11,17 @@ MindHaOS
 
 Twój umysł w domu 3D
 
-## Texto promocional (63/170)
+## Texto promocional (66/170)
 
-Twoje życie w domu 3D: nawyki, cele, finanse, posiłki i więcej.
+Twoje życie w domu 3D: nawyki, cele, finanse, posiłki i nie tylko.
 
 ## Palabras clave (80/100)
 
 nawyki,cele,planer,dziennik,budżet,dieta,trening,sen,nauka,ai,asystent,organizer
 
-## Descripción (3639/4000)
+## Descripción (3627/4000)
 
-Uporządkuj nawyki, cele, finanse, posiłki i więcej w izometrycznym domu 3D, w którym każdy pokój to aplikacja.
+Uporządkuj nawyki, cele, finanse, posiłki i nie tylko w izometrycznym domu 3D, w którym każdy pokój to aplikacja.
 
 JAK TO DZIAŁA
 
@@ -36,10 +36,10 @@ Przypisujesz mu jedną z 17 aplikacji — odżywianie, ćwiczenia, sen, finanse,
 
 JEDEN MINDHAOS, WIELE APLIKACJI
 • Naprawdę wszystko w jednym: Jedna aplikacja zamiast dwudziestu: jedzenie, pieniądze, sen, nauka, nawyki i cele pod jednym dachem — i połączone ze sobą, czego osobne aplikacje nie potrafią.
-• Nie wygasa, gdy przestaniesz płacić: Kupujesz raz i jest twoja. Aplikacje abonamentowe gasną, gdy tylko przestaniesz płacić; tutaj, nawet jeśli zrezygnujesz z SI, zostaje ci cały MindHaOS i wszystkie dane na urządzeniu.
+• Za darmo i bez daty ważności: Twój MindHaOS jest darmowy z kontem i należy do ciebie. Aplikacje z abonamentem gasną, gdy tylko przestajesz płacić; tutaj abonament daje tylko SI, synchronizację i chmurę: jeśli zrezygnujesz, zachowujesz cały MindHaOS i wszystkie dane na swoim urządzeniu.
 • Pokoje, które są aplikacjami: Ćwiczenia, kuchnia, finanse, sen, biblioteka, języki, podróże, hobby, uważność i więcej: w każdym pokoju mieszka kompletna mini-aplikacja.
 • Studio do tworzenia: Cztery osobne aplikacje: Dźwięk, Sztuka, Pisanie i Wideo. Komponujesz na piano rollu i klawiaturze MIDI, malujesz i poprawiasz zdjęcia, piszesz książki rozdział po rozdziale i montujesz filmy ze scenariusza — a wszystko eksportujesz albo publikujesz film prosto na swoim koncie w YouTube, TikToku, Facebooku czy na Instagramie.
-• Asystent ze sztuczną inteligencją: Rozmawiaj z asystentem: zapisuj posiłki, twórz rutyny, planuj cele, generuj obrazy i modele 3D. Pierwszy miesiąc ma w cenie 700 kredytów; potem SI jest opcjonalna.
+• Asystent ze sztuczną inteligencją: Rozmawiaj ze swoim asystentem: zapisuj posiłki, twórz rutyny, planuj cele, generuj obrazy i modele 3D. Każdy poziom abonamentu daje 700, 1400 lub 2100 kredytów miesięcznie.
 • Pełna synchronizacja: MindHaOS idzie z tobą na telefon, tablet i komputer. Wszystko szyfrowane w przesyle i backupowane w chmurze. Z Pro Twoja chmura (pokój Pliki) przechowuje też 10, 30 lub 100 GB plików.
 • Czuć w tym grę: Twoja postać żyje twoją prawdziwą aktywnością: serie, odznaki, Góra Syzyfa, pojazdy, wyścigi i minigry.
 • Kalendarz i cele: Rutyny na 24 godziny, cele zagnieżdżone, harmonogramy tworzone przez SI i wskaźniki realizacji, które naprawdę da się zrozumieć.
@@ -51,10 +51,10 @@ SI w MindHaOS zapisuje, planuje i tworzy razem z tobą. A ty decydujesz, co ją 
 
 • Albo na swojej maszynie, z Ollamą: Zainstaluj Ollamę, a MindHaOS porozmawia z modelem działającym na twoim komputerze: bez kredytów, bez połączenia i bez tego, żeby cokolwiek stąd wyszło.
 
-APLIKACJA
-• Twój własny MindHaOS, na zawsze: wszystkie aplikacje, dane na twoim urządzeniu
-• Pierwszy miesiąc w cenie: 700 kredytów SI + synchronizacja, bez karty i bez abonamentu
-• Po tym miesiącu zostaje ci cała aplikacja i twoje dane; kredyty SI są opcjonalne
+ABONAMENT
+• Poziom 1, 2 lub 3: 700, 1400 lub 2100 kredytów SI miesięcznie
+• Synchronizacja między wszystkimi twoimi urządzeniami
+• Twoja chmura: 10, 30 lub 100 GB na pliki
 
 Ta sama dopamina. Tym razem dla twojego prawdziwego życia.
 

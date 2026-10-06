@@ -15,6 +15,7 @@
 import { hayBackend } from '../cuenta/supabase'
 import { haySesionProbable } from '../cuenta/sesionStore'
 import { ErrorIA, tokenSesion } from '../cuenta/api'
+import { useCuotaAgotada } from '../state/avisosPlanStore'
 import {
   ErrorRedes,
   type CodigoErrorRedes,
@@ -80,6 +81,8 @@ async function respuesta<T>(resp: Response): Promise<T> {
   const json: unknown = await resp.json().catch(() => null)
   if (!resp.ok) {
     const e = (json ?? {}) as { error?: CodigoErrorRedes; mensaje?: string; recibido?: number }
+    // Publicar en redes es de la suscripción: el aviso «Suscríbete» lo explica.
+    if (e.error === 'sin-unlock') useCuotaAgotada.getState().abrir('redes')
     throw new ErrorRedes(e.error ?? 'proveedor', e.mensaje ?? 'El servidor de MindHaOS no respondió.', {
       recibido: e.recibido,
     })

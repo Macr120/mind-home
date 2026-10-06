@@ -12,10 +12,8 @@ export const TEXTOS = {
   'tema.boton': 'Açık ya da koyu mod',
 
   'meta.titulo': 'MindHaOS — Zihnin, bir 3D evde',
-  'meta.desc':
-    'Alışkanlıklarını, hedeflerini, finansını, öğünlerini ve daha fazlasını her odası bir uygulama olan izometrik bir 3D evde düzenle. Tek seferlik 8,99 USD, ilk ay yapay zekâ ve eşitleme dahil; ücretsiz dene.',
-  'og.desc':
-    'Hayatın bir 3D evde: alışkanlıklar, hedefler, finans, öğünler ve dahası. 8,99 USD tek ödeme, ilk ay yapay zekâ dahil; ücretsiz dene.',
+  'meta.desc': 'Alışkanlıklarını, hedeflerini, finansını, öğünlerini ve daha fazlasını her odası bir uygulama olan izometrik bir 3D evde düzenle. Hesabınla ücretsiz; yapay zekâ, eşitleme ve bulut ayda 7 USD\'den başlayan fiyatlarla.',
+  'og.desc': 'Hayatın, bir 3D evde: alışkanlıklar, hedefler, finans, öğünler ve daha fazlası. Hesabınla ücretsiz; yapay zekâ ve eşitleme ayda 7 USD\'den başlayan fiyatlarla.',
 
   'hero.h1': 'Zihnin,<br />bir 3D evde',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -41,8 +39,7 @@ export const TEXTOS = {
     'arşivler, planlar ya da sıfırdan yaratırsın — tamamen elle ya da yapay zekânın yardımıyla. Hepsi tek bir takvime, günlük görevlere ve kişisel hedeflerine bağlı; telefonunda ve bilgisayarında eşitlenir.',
   'hero.cta': 'Uygulamayı indir',
   'hero.probar': 'MindHaOS\'unu kurmayı ücretsiz dene',
-  'hero.nota':
-    'Uygulama ücretsizdir ve çevrimdışı çalışır; MindHaOS (Zihin Evi OS) bir kez satın alınır — burada webde ya da uygulamanın içinde. Yapay zekâ ve eşitleme isteğe bağlıdır — bırakırsan da hiçbir şey kaybetmezsin.',
+  'hero.nota': 'MindHaOS (Zihin Evi OS) hesabınla ücretsizdir ve çevrimdışı çalışır. Yapay zekâ, eşitleme ve bulut abonelikle gelir — bıraksan bile hiçbir şey kaybetmezsin.',
   'hero.video': 'Buraya videon ya da MindHaOS\'un (Zihin Evi OS) ekran görüntüleri gelir',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -70,9 +67,8 @@ export const TEXTOS = {
   'car.todo.t': 'Gerçekten hepsi bir arada',
   'car.todo.p':
     'Yirmi uygulama yerine bir tane: yemek, para, uyku, çalışma, alışkanlıklar ve hedefler aynı çatı altında — üstelik birbirleriyle konuşarak, ki bunu ayrı uygulamalar yapamaz.',
-  'car.nocaduca.t': 'Ödemeyi bırakınca kapanmaz',
-  'car.nocaduca.p':
-    'Bir kez alırsın, senindir. Abonelikli uygulamalar ödemeyi kestiğin anda kapanır; burada yapay zekâyı bıraksan bile MindHaOS\'un tamamı ve cihazındaki tüm verin sende kalır.',
+  'car.nocaduca.t': 'Ücretsiz ve süresi dolmaz',
+  'car.nocaduca.p': 'MindHaOS\'un hesabınla ücretsizdir ve senindir. Abonelikli uygulamalar ödemeyi kestiğin anda kapanır; burada abonelik yalnızca yapay zekâyı, eşitlemeyi ve bulutu getirir: bıraksan bile MindHaOS\'un tamamı ve cihazındaki tüm verilerin sende kalır.',
   'car.nuevas.t': 'Yeni güncellemeler',
   'car.nuevas.p': 'MindHaOS büyümeye devam ediyor: odalar, uygulamalar ve iyileştirmeler yeniden ödeme yapmadan geliyor.',
   'car.1.t': 'Uygulama olan odalar',
@@ -82,8 +78,7 @@ export const TEXTOS = {
   'car.studio.p':
     'Ayrı dört uygulama: Ses, Sanat, Yazı ve Video. Piano roll ve MIDI klavyeyle beste yapar, resim çizip fotoğraf rötuşlar, kitapları bölüm bölüm yazar ve videoları senaryodan kurgularsın — yaptığını da dışa aktarırsın ya da bir videoyu doğrudan kendi YouTube, TikTok, Facebook veya Instagram hesabında yayımlarsın.',
   'car.2.t': 'Yapay zekâ asistanı',
-  'car.2.p':
-    'Asistanınla konuş: öğünleri kaydet, rutinler kur, hedefler planla, görseller ve 3B modeller üret. İlk ayın 700 kredi dahil gelir; sonrası isteğe bağlı.',
+  'car.2.p': 'Asistanınla sohbet et: öğünleri kaydet, rutinler oluştur, hedefler planla, görseller ve 3D modeller üret. Aboneliğin her katmanı ayda 700, 1400 veya 2100 kredi getirir.',
   'car.3.t': 'Tam eşitleme',
   'car.3.p':
     'MindHaOS\'un telefona, tablete ve bilgisayara seninle gelir. Her şey aktarımda şifreli ve bulutta yedekli. Pro ile bulutun (Dosyalar odası) ayrıca 10, 30 veya 100 GB dosya saklar.',
@@ -128,67 +123,76 @@ export const TEXTOS = {
     'Burada yeni beceriler geliştirir, kaynaklarını kontrol altında tutar ve teknolojiyi kendi lehine çevirirsin. Kısa formatın bilinçsiz tüketimine karşı. Büyük şirketlerin dayattığı tüketim alışkanlıklarının bıraktığı bilişsel çöküşe karşı.',
   'mani.cierre': 'Aynı dopamin. Bu kez gerçek hayatın için.',
 
-  'precio.h2': 'Mağazada tek ödeme, MindHaOS\'un sonsuza dek senin',
+  'precio.h2': 'MindHaOS\'un ücretsiz; yapay zekâ, eşitleme ve bulut abonelikle',
   'precio.probar.nombre': 'Bir dene',
   'precio.probar.cifra': 'Ücretsiz',
-  'precio.probar.1': 'Karşılama menüsüyle kendi MindHaOS\'un: her şeyi dene',
-  'precio.probar.2': 'Hesapsız, kartsız ve bağlantısız',
-  'precio.probar.3': 'Hesabın olana kadar hiçbir şey kaydedilmez: satın aldığında denemen geri gelir',
+  'precio.probar.1': 'Bütün uygulamalarıyla kendi MindHaOS\'un, verilerin de cihazında',
+  'precio.probar.2': 'Arkadaşlarınla posta kutusu, oyunlar ve ortak alanlar',
+  'precio.probar.3': 'Hesapsız dene; kaydetmek için ücretsiz hesabını oluştur',
   'precio.probar.cta': 'Uygulamayı dene',
-  'precio.probar.pie': 'Eksiksiz uygulama, hiçbir yükümlülük olmadan tanımak için.',
-  'precio.app.nombre': 'Uygulama',
-  'precio.app.cifra': '8,99 USD',
-  'precio.app.pagoUnico': 'tek ödeme',
-  'precio.app.1': 'Kendi MindHaOS\'un, sonsuza dek: bütün uygulamalar, verin kendi cihazında',
-  'precio.app.2': 'İlk ay dahil: 700 yapay zekâ kredisi + eşitleme, kartsız ve aboneliksiz',
-  'precio.app.3':
-    'Ay bittiğinde uygulamanın tamamı ve verilerin sende kalır; yapay zekâ kredileri isteğe bağlı',
-  'precio.app.cta': 'MindHaOS\'u satın al',
-  'precio.app.pie':
-    'Buradan, hiçbir mağazadan geçmeden satın al ya da telefonundaki uygulamanın içinden. Tek ödeme, yenileme yok, tüm cihazlarında geçerli.',
+  'precio.probar.pie': 'Kart yok, son kullanma tarihi yok.',
+  'precio.app.nombre': 'Abonelik',
+  'precio.app.cifra': '7 USD\'den başlayan',
+  'precio.app.pagoUnico': 'aylık',
+  'precio.app.1': 'Katman 1, 2 veya 3: ayda 700, 1400 veya 2100 yapay zekâ kredisi',
+  'precio.app.2': 'Tüm cihazların arasında eşitleme',
+  'precio.app.3': 'Bulutun: dosyaların için 10, 30 veya 100 GB',
+  'precio.app.cta': 'Abone ol',
+  'precio.app.pie': 'Taahhüt yok: istediğin zaman katman yükseltir, düşürür ya da iptal edersin. Buradan ya da uygulamanın içinden alınır ve tüm cihazlarında geçerlidir.',
 
-  'ia.t': 'Yapay zekâ ve eşitleme · isteğe bağlı',
-  'ia.precios': 'Ayda 6 USD<span>·</span>yılda 60 USD<span>·</span>ya da 700 tekil kredi için 6 USD',
-  'ia.p':
-    'Sadece ilk ayın bitince yapay zekâ ve eşitlemeyle devam etmek istersen. Buradan ya da uygulamanın içinden alınır ve tüm cihazlarında geçerlidir. Taahhüt yok: bırakırsan uygulama ve tüm verilerin yerel modda sende kalır.',
-  'ia.cta': 'Planları gör →',
+  'ia.t': 'Yapay zekâ kredileri',
+  'ia.precios': 'Katman 1: 700 kredi<span>·</span>Katman 2: 1400<span>·</span>Katman 3: 2100',
+  'ia.p': 'Asistanın bir yanıtı 1 kredi; bir görsel 3; bir 3D model 10. Her ay yenilenir ve yalnızca sen bir şey istediğinde harcanır.',
+  'ia.cta': 'Kredilerle neler yapabilirsin? →',
+  'creditos.h2': 'Kredilerinle neler yapabilirsin?',
+  'creditos.sub': 'Yapay zekâdan istediğin her şey, işlenme maliyetine göre birkaç kredi tutar. Yalnızca sen bir şey istediğinde harcanır ve her ay yenilenir.',
+  'creditos.col.que': 'İstediğin',
+  'creditos.col.cuesta': 'Kredi',
+  'creditos.chat': 'Asistanın bir yanıtı',
+  'creditos.foto': 'Bir fotoğrafı okumak: bir öğün, bir fiş, bir belge',
+  'creditos.voz': 'Sesle dikte (30 saniyeye kadar)',
+  'creditos.ruta': 'Toplu taşımada bir rota',
+  'creditos.plan': 'Uzun bir plan: hedefler, rutinler, haftanın tarifleri',
+  'creditos.pdf': 'Bir PDF ile sohbet etmek',
+  'creditos.tts': 'Asistanının sana sesli yanıt vermesi',
+  'creditos.imagen': 'Bir görsel (hızlı / iyi kalite)',
+  'creditos.modelo': 'Evin için bir 3D model',
+  'creditos.rinde.t': 'Her katman ayda neye yeter',
+  'creditos.rinde.1': 'Katman 1 · 700 kredi: yaklaşık 700 yanıt ya da 230 hızlı görsel',
+  'creditos.rinde.2': 'Katman 2 · 1400 kredi: yaklaşık 1400 yanıt ya da 140 iyi kalite görsel',
+  'creditos.rinde.3': 'Katman 3 · 2100 kredi: yaklaşık 2100 yanıt ya da 210 3D model',
+  'creditos.nota': 'Kendi yapay zekâ anahtarlarınla ya da bilgisayarındaki Ollama ile yapay zekâ kredi harcamaz.',
+  'creditos.cta': 'Katmanları gör',
 
   'desc.h2': 'Uygulamayı indir',
-  'desc.sub':
-    'Ücretsiz indir ve MindHaOS\'u uygulamanın içinden — ya da buradan, web’den — satın al. Hesabınla MindHaOS\'un başka her yerde, tarayıcı dahil, seni bekler.',
+  'desc.sub': 'Ücretsiz indir ve hesabınla giriş yap: MindHaOS\'un tarayıcı dahil her cihazda karşına çıkar. Abonelik uygulamanın içinden ya da burada, web\'de alınır.',
   'desc.pronto': 'Çok yakında',
-  'desc.android': 'Google Play’de ücretsiz. MindHaOS içeriden satın alınır.',
+  'desc.android': 'Google Play\'de ücretsiz.',
   'desc.android.cta': 'Android için indir',
   'desc.ios.t': 'iPhone, iPad ve Mac',
-  'desc.ios': 'App Store’da ücretsiz. MindHaOS içeriden satın alınır.',
+  'desc.ios': 'App Store\'da ücretsiz.',
   'desc.web.t': 'Tarayıcında',
   'desc.web': 'Hiçbir şey kurmadan: hesabınla gir, MindHaOS\'un seni bekliyor. Hesabın yoksa uygulamayı deneyebilirsin.',
   'desc.web.cta': 'Uygulamayı aç',
-  'desc.windows': 'Microsoft Store’da ücretsiz. MindHaOS içeriden satın alınır.',
+  'desc.windows': 'Microsoft Store\'da ücretsiz.',
   'desc.windows.cta': 'Windows için indir',
 
   'faq.h2': 'Sık sorulan sorular',
-  'faq.1.q': 'Uygulama nereden alınır?',
-  'faq.1.a':
-    'Nereden istersen: buradan web’den, <a href="/cuenta">hesabından</a> ya da Android ve iPhone uygulamasının içinden. Hesabına kaydedilen tek seferlik bir ödemedir; nereden alırsan al, MindHaOS\'un tüm cihazlarında görünür.',
-  'faq.2.q': 'Tek ödeme neleri kapsıyor?',
-  'faq.2.a':
-    'MindHaOS\'un tamamını: bütün odalar, bütün uygulamalar ve cihazındaki verilerin, sonsuza dek ve yenilemesiz. Üstelik ilk ay 700 yapay zekâ kredisi ve eşitleme dahil gelir, kartsız. Almadan önce hesap istemeyen eksiksiz uygulamayı deneyebilirsin.',
-  'faq.3.q': 'İlk aydan sonra yapay zekâ ne kadar?',
-  'faq.3.a':
-    'Ne seçersen o, ya da hiç. Abonelik ayda 6 USD (700 kredi ve eşitleme) ya da yılda 60 USD — iki ay hediye. Az gelirse ×2 ve ×3 katmanları ayda 12 veya 18 USD karşılığında 1400 ya da 2100 kredi verir. Abone olmak istemezsen tekil yüklemeler var: 6 USD’ye 700 kredi, süresi dolmaz ve yalnızca sen istediğinde harcanır. Bu kısım burada, <a href="/cuenta">hesabında</a> ödenir ve bütün cihazlarında geçerlidir. Her seviye bulutunda da yer içerir: 10, 30 veya 100 GB.',
+  'faq.1.q': 'Uygulama ücretsiz mi?',
+  'faq.1.a': 'Evet. Hesabını oluşturursun ve MindHaOS\'un bütün uygulamalarıyla senindir, hiçbir şey ödemeden. Yalnızca yapay zekâ, cihazlar arası eşitleme ve bulut istersen abonelik ödersin; buradan, <a href="/cuenta">hesabından</a> ya da Android ve iPhone uygulamasının içinden alınır ve tüm cihazlarında geçerlidir.',
+  'faq.2.q': 'Abonelik neleri kapsar?',
+  'faq.2.a': 'Üç katman: Katman 1 ayda 7 USD karşılığında 700 yapay zekâ kredisi ve 10 GB bulut getirir; Katman 2, 14 USD\'ye 1400 kredi ve 30 GB; Katman 3 ise 20 USD\'ye 2100 kredi ve 100 GB. Üçü de tüm cihazların arasında eşitlemeyi içerir. Taahhüt yok: istediğin zaman yükseltir, düşürür ya da iptal edersin.',
+  'faq.3.q': 'Abone olmadan neler yapabilirim?',
+  'faq.3.a': 'Yapay zekâ sunucularında harcama gerektirmeyen her şeyi: bütün odalar ve uygulamaları, takvim, hedefler, cihazındaki verilerin; ayrıca arkadaşlarınla posta kutusu, oyunlar ve ortak alanlar. Yapay zekâ, eşitleme ya da bulutla ilgili bir şeye dokunduğunda uygulama sana aboneliği önerir.',
   'faq.4.q': 'Yapay zekâ kredisi nedir?',
-  'faq.4.a':
-    'Asistana yapılan her isteğin, işlenme maliyetine göre düşüldüğü birim: normal bir yanıt 1 kredi, uzun bir plan 4, bir görsel 3 (yüksek kalitede 10) ve bir 3B model 10. Asla otomatik düşülmez: yalnızca sen bir şey istediğinde harcanır.',
+  'faq.4.a': 'Asistana yapılan her isteğin, işlenme maliyetine göre düşüldüğü birim: normal bir yanıt 1 kredi, uzun bir plan 4, bir görsel 3 (yüksek kalitede 10) ve bir 3D model 10. Asla otomatik düşülmez: yalnızca sen bir şey istediğinde harcanır. <a href="#creditos">Onlarla yapabileceğin her şeye</a> bak.',
   'faq.5.q': 'İptal edersem ne olur?',
-  'faq.5.a':
-    'Uygulamanın tamamı ve cihazlarındaki bütün verilerin yerel modda sende kalır. Yalnızca aylık kredileri ve eşitlemeyi kaybedersin. Yenilersen her şey bıraktığın gibi geri gelir. Buluttaki dosyaların indirebilmen için 90 gün salt okunur kalır; ardından silinir.',
+  'faq.5.a': 'Uygulamanın tamamı ve tüm verilerin cihazlarında, yerel modda kalır. Yalnızca aylık kredileri, eşitlemeyi ve bulutu kaybedersin. Yenilersen her şey bıraktığın gibi yeniden etkinleşir. Buluttaki dosyaların indirebilmen için 90 gün salt okunur kalır; sonra silinir.',
   'faq.6.q': 'Verilerim nerede saklanıyor?',
   'faq.6.a':
     'Önce cihazında (uygulama local-first) ve eşitleme açıkken bir cihazdan diğerine geçebilmek için bulutta da. Yerel modda cihazından hiçbir şey çıkmaz. Ödemeleri RevenueCat ve Stripe işler — telefondan alıyorsan mağaza: kartını asla görmeyiz. Ayrıntılar <a href="/privacidad">gizlilik politikasında</a>. Büyük dosyalar (bulutun ve Studio medyası) Cloudflare R2’de saklanır.',
   'faq.7.q': 'Hangi cihazlarda çalışıyor?',
-  'faq.7.a':
-    'Bugün: her modern tarayıcıda. Çok yakında: Android (Google Play), iPhone/iPad (App Store), Windows ve macOS. Hesabın hepsinde geçerli: bir kez, sana uyan yerden satın alırsın; hem MindHaOS hem yapay zekâ aboneliği e-postanla girdiğin her cihazda çalışır.',
+  'faq.7.a': 'Bugün: her modern tarayıcıda. Çok yakında: Android (Google Play), iPhone/iPad (App Store), Windows ve macOS. Hesabın hepsinde geçerli: MindHaOS\'un ve aboneliğin e-postanla giriş yaptığın her cihazda çalışır.',
   'faq.8.q': 'Aboneliği nasıl iptal ederim, hesabımı nasıl silerim?',
   'faq.8.a':
     'Tahsilatı durdurmak için <a href="/cuenta">hesabındaki</a> «Aboneliği yönet». Hesabını ve sunucularımızdaki bütün verilerini silmek için uygulamadan: Düzenleyici → Ayarlar → Hesap.',
@@ -249,8 +253,7 @@ export const TEXTOS = {
   'priv.cancelas.p':
     'Yerel verilerin cihazlarında kalır. Eşitlenen veriler saklanmaya devam eder (yenileyene kadar erişilemez) ve hesabını silerek onları kalıcı olarak kaldırabilirsin.',
   'priv.borrar.h': 'Hesabını ve verilerini nasıl silersin',
-  'priv.borrar.p':
-    'Uygulamadan: Düzenleyici → Ayarlar → Hesap. Silme işlemi kullanıcını, eşitlenen verilerini ve dosyalarını sunucularımızdan kaldırır; yalnızca yasanın saklamayı zorunlu kıldığı fatura kayıtları kalır. Hiç satın alma tamamlamayan hesaplar, oluşturulduktan 3 gün sonra hiçbir verisi saklanmadan otomatik olarak silinir.',
+  'priv.borrar.p': 'Uygulamadan: Düzenleyici → Ayarlar → Hesap. Silme işlemi kullanıcını, eşitlenmiş verilerini ve dosyalarını sunucularımızdan kaldırır; yalnızca yasanın saklanmasını zorunlu kıldığı fatura kayıtları tutulur.',
   'priv.proveedores.h': 'Sağlayıcılar',
   'priv.proveedores.1': 'Supabase (veritabanı, kimlik doğrulama ve dosyalar).',
   'priv.proveedores.2': 'RevenueCat ve Stripe (satın almalar, abonelikler ve ödemeler).',
@@ -266,33 +269,20 @@ export const TEXTOS = {
 
   'term.titulo': 'Hizmet koşulları',
   'term.servicio.h': 'Hizmet',
-  'term.servicio.p':
-    'MindHaOS kişisel düzen için bir uygulamadır. Deneme ücretsizdir ve hesap gerektirmez. Uygulama tek ödemeyle alınır; yinelenen özellikler (yapay zekâ kredileri ve eşitleme) yalnızca bu web sitesinde alınır; masaüstü ve mağaza uygulamaları aynı hesabın istemcileridir.',
-  'term.app.h': 'Uygulama (tek ödeme)',
-  'term.app.1':
-    'Uygulamanın kilidinin açılması: 8,99 USD, tek ödeme. Hesabında evini sonsuza dek açar, yenileme yoktur.',
-  'term.app.2':
-    'İlk ayı içerir: 30 gün boyunca aylık 700 yapay zekâ kredisi ve eşitleme, kartsız ve aboneliksiz. Bittiğinde uygulama ve verilerin sende kalır; aylık krediler ve eşitleme abonelik gerektirir.',
-  'term.app.3':
-    'Ücretsiz deneme, hesabını oluşturana kadar hiçbir şey saklamaz: uygulamayı almadan önce tanımak içindir.',
+  'term.servicio.p': 'MindHaOS kişisel bir düzenleme uygulamasıdır. Hesapsız deneme ve hesaplı uygulama ücretsizdir. Yinelenen işlevler (yapay zekâ kredileri, eşitleme ve bulut) burada web\'de ya da uygulamanın içinden abonelik olarak alınır; tüm sürümler aynı hesabın istemcileridir.',
   'term.local.h': 'Yerel mod',
-  'term.local.p':
-    'Uygulamanın kilidi açıkken bütün çevrimdışı özellikleri yinelenen maliyet olmadan kullanılır. Veriler cihazında saklanır ve yedeklenmesi senin sorumluluğundadır (Ayarlar → Veri yedekleme).',
+  'term.local.p': 'Hesabınla uygulamanın tüm çevrimdışı işlevleri ücretsiz kullanılır. Veriler cihazında saklanır ve yedeklenmesi senin sorumluluğundadır (Ayarlar → Veri yedekleme).',
   'term.precio.h': 'Abonelik ve fiyat',
-  'term.precio.1':
-    'Abonelik: ×1 katmanında ayda 6 USD (ya da kendi para biriminde karşılığı), otomatik yenilemeli. ×2 ve ×3 katmanları krediyi ve fiyatı katlar: ayda 12 ve 18 USD. ×1 katmanını yıllık da ödeyebilirsin: 60 USD, otomatik yıllık yenilemeyle ve her ay aynı kredilerle.',
-  'term.precio.2':
-    'Katman başına ayda 700 yapay zekâ kredisi (700 / 1400 / 2100) ve cihazlar arası eşitleme içerir. Kullanılmayan aylık krediler bir sonraki aya devretmez. Bulutunda da yer içerir: seviyeye göre 10, 30 veya 100 GB (yıllık ödemede ve dahil olan ayda 10 GB).',
+  'term.precio.1': 'Üç katmanlı, otomatik yenilenen aylık abonelik: Katman 1, ayda 7 USD; Katman 2, 14 USD; Katman 3, 20 USD (ya da kendi para birimindeki karşılığı).',
+  'term.precio.2': 'Katmana göre ayda 700, 1400 veya 2100 yapay zekâ kredisi, cihazlar arası eşitleme ve bulutunda alan içerir: 10, 30 veya 100 GB. Kullanılmayan aylık krediler sonraki aya devretmez.',
   'term.precio.3':
     'İşlem başına kredi: metin yanıtı için 1, uzun bir plan için 4, görsel için 3 (yüksek kalitede 10) ve 3B model için 10. Yapay zekâ sağlayıcılarının maliyetleri değişirse tarife güncellenebilir; geçerli fiyat her istekten önce uygulamada gösterilir.',
-  'term.precio.4':
-    'Yüklemeler: 700 tekil kredi için 6 USD; abonelikle ya da aboneliksiz, sen istediğinde yapılan tek ödemedir — asla kendiliğinden satın alınmaz. Süresi dolmaz ve ayın kredileri bittiğinde kullanılır.',
+  'term.precio.4': 'İstediğin zaman katman yükseltebilir veya düşürebilirsin; değişiklik kıst olarak ücretlendirilir.',
   'term.precio.5':
     'Adil kullanım sınırı: krediler normal bir yapay zekâ kullanımını karşılar. Bir ayda isteklerinin gerçek maliyeti harcanan kredilerin değerini çok aşarsa, sınır ertesi ay sıfırlanana dek yapay zekâ duraklatılır.',
   'term.precio.6': 'Ödemeleri RevenueCat ve Stripe işler.',
   'term.cancelacion.h': 'İptal',
-  'term.cancelacion.p':
-    '<a href="/cuenta">Hesabındaki</a> «Aboneliği yönet» üzerinden istediğin zaman iptal edebilirsin; ödediğin dönemin sonuna kadar planı korursun. Sonrasında uygulama cihazlarında yerel modda çalışmaya devam eder, aylık krediler ve eşitleme olmadan. Kalan yükleme kredilerin kullanılabilir kalır ve istediğin zaman yenileyebilirsin. Buluttaki dosyaların indirebilmen için 90 gün salt okunur kalır; bu sürenin sonunda sunucularımızdan silinir.',
+  'term.cancelacion.p': '<a href="/cuenta">Hesabındaki</a> «Aboneliği yönet» üzerinden istediğin zaman iptal edebilirsin; ödediğin dönemin sonuna kadar planı korursun. Sonrasında uygulama cihazlarında yerel modda, aylık krediler, eşitleme ve bulut olmadan çalışmaya devam eder ve istediğin zaman yenileyebilirsin. Buluttaki dosyaların indirebilmen için 90 gün salt okunur kalır; bu süre geçince sunucularımızdan silinir.',
   'term.datos.h': 'Verilerin',
   'term.datos.p':
     'Verilerin sana aittir. Uygulama local-first: her şey önce senin cihazında yaşar. Neyi sakladığımızın ve nasıl sileceğinin ayrıntısı <a href="/privacidad">gizlilik politikasında</a>.',

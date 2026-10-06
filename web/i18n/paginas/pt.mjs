@@ -12,10 +12,8 @@ export const TEXTOS = {
   'tema.boton': 'Modo claro ou escuro',
 
   'meta.titulo': 'MindHaOS — Sua mente, em uma casa 3D',
-  'meta.desc':
-    'Organize seus hábitos, metas, finanças, refeições e mais em uma casa isométrica 3D onde cada cômodo é um app. Um único pagamento de 8,99 USD com o primeiro mês de IA e sincronização incluído; experimente grátis.',
-  'og.desc':
-    'Sua vida, em uma casa 3D: hábitos, metas, finanças, refeições e mais. Um pagamento de 8,99 USD com o primeiro mês de IA incluído; experimente grátis.',
+  'meta.desc': 'Organize seus hábitos, metas, finanças, refeições e mais numa casa isométrica 3D onde cada cômodo é um app. Grátis com a sua conta; a IA, a sincronização e a nuvem, a partir de 7 USD por mês.',
+  'og.desc': 'Sua vida, numa casa 3D: hábitos, metas, finanças, refeições e mais. Grátis com a sua conta; a IA e a sincronização, a partir de 7 USD por mês.',
 
   'hero.h1': 'Sua mente,<br />em uma casa 3D',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -41,8 +39,7 @@ export const TEXTOS = {
     'seja totalmente à mão ou com ajuda da IA. E todos estão integrados a um calendário, a um sistema de missões diárias e às suas metas pessoais, sincronizados no seu celular e no seu computador.',
   'hero.cta': 'Baixar o app',
   'hero.probar': 'Experimente criar sua MindHaOS grátis',
-  'hero.nota':
-    'O app é grátis e funciona sem conexão; a MindHaOS (Casa Mental OS) se compra uma vez — aqui na web ou dentro do app. A IA e a sincronização são opcionais — e se você deixar, não perde nada.',
+  'hero.nota': 'A MindHaOS (Casa Mental OS) é grátis com a sua conta e funciona sem conexão. A IA, a sincronização e a nuvem vêm com a assinatura — e se você deixar, não perde nada.',
   'hero.video': 'Aqui vai seu vídeo ou capturas da MindHaOS (Casa Mental OS)',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -70,9 +67,8 @@ export const TEXTOS = {
   'car.todo.t': 'Tudo em um, de verdade',
   'car.todo.p':
     'Um app em vez de vinte: comida, dinheiro, descanso, estudo, hábitos e metas sob o mesmo teto — e conversando entre si, que é justamente o que nenhum app solto consegue fazer.',
-  'car.nocaduca.t': 'Não caduca se você parar de pagar',
-  'car.nocaduca.p':
-    'Você compra uma vez e é seu. Os apps de assinatura desligam assim que você para de pagar; aqui, se largar a IA, fica com a MindHaOS inteira e todos os seus dados no seu dispositivo.',
+  'car.nocaduca.t': 'Grátis, e não caduca',
+  'car.nocaduca.p': 'Sua MindHaOS é grátis com a sua conta, e é sua. Os apps de assinatura se apagam assim que você para de pagar; aqui a assinatura só traz a IA, a sincronização e a nuvem: se você deixar, conserva a MindHaOS inteira e todos os seus dados no seu dispositivo.',
   'car.nuevas.t': 'Atualizações novas',
   'car.nuevas.p': 'A MindHaOS continua crescendo: cômodos, apps e melhorias que chegam sem pagar de novo.',
   'car.1.t': 'Cômodos que são apps',
@@ -82,8 +78,7 @@ export const TEXTOS = {
   'car.studio.p':
     'Quatro apps à parte: Áudio, Arte, Escrita e Vídeo. Você compõe com piano roll e teclado MIDI, pinta e retoca fotos, escreve livros por capítulos e monta vídeos por roteiro — e exporta o que fizer, ou publica um vídeo direto na sua própria conta do YouTube, TikTok, Facebook ou Instagram.',
   'car.2.t': 'Assistente com IA',
-  'car.2.p':
-    'Converse com seu assistente: registre refeições, crie rotinas, planeje metas, gere imagens e modelos 3D. Seu primeiro mês traz 700 créditos incluídos; depois a IA é opcional.',
+  'car.2.p': 'Converse com seu assistente: registre refeições, crie rotinas, planeje metas, gere imagens e modelos 3D. Cada nível da assinatura traz 700, 1400 ou 2100 créditos por mês.',
   'car.3.t': 'Sincronização total',
   'car.3.p':
     'Sua MindHaOS acompanha você no celular, no tablet e no computador. Tudo criptografado em trânsito e com backup na nuvem. Com o Pro, sua nuvem (o cômodo Arquivos) também guarda 10, 30 ou 100 GB de arquivos.',
@@ -128,70 +123,77 @@ export const TEXTOS = {
     'Aqui você expande novas habilidades, mantém o controle dos seus recursos e coloca a tecnologia a seu favor. Contra o consumismo inconsciente do formato curto. Contra a deterioração cognitiva que deixam os hábitos de consumo impostos pelas grandes corporações.',
   'mani.cierre': 'A mesma dopamina. Desta vez, para a sua vida real.',
 
-  'precio.h2': 'Um único pagamento na loja, sua MindHaOS para sempre',
+  'precio.h2': 'Sua MindHaOS é grátis; a IA, a sincronização e a nuvem, por assinatura',
   'precio.probar.nombre': 'Experimente',
   'precio.probar.cifra': 'Grátis',
-  'precio.probar.1': 'A sua própria MindHaOS com o menu de boas-vindas: teste tudo',
-  'precio.probar.2': 'Sem conta, sem cartão e sem conexão',
-  'precio.probar.3': 'Nada é salvo até ter conta: ao comprar, você recupera o seu teste',
+  'precio.probar.1': 'Sua própria MindHaOS com todos os apps, e seus dados no seu dispositivo',
+  'precio.probar.2': 'Caixa de mensagens, partidas e espaços compartilhados com seus amigos',
+  'precio.probar.3': 'Experimente sem conta; crie sua conta grátis para guardá-la',
   'precio.probar.cta': 'Testar o app',
-  'precio.probar.pie': 'O app completo, para conhecer sem compromisso.',
-  'precio.app.nombre': 'O app',
-  'precio.app.cifra': '8,99 USD',
-  'precio.app.pagoUnico': 'pagamento único',
-  'precio.app.1': 'Sua própria MindHaOS, para sempre: todos os apps, seus dados no seu dispositivo',
-  'precio.app.2':
-    'Primeiro mês incluído: 700 créditos de IA + sincronização, sem cartão e sem assinatura',
-  'precio.app.3':
-    'Ao terminar o mês você fica com o app inteiro e seus dados; os créditos de IA são opcionais',
-  'precio.app.cta': 'Comprar a MindHaOS',
-  'precio.app.pie':
-    'Compre aqui mesmo, sem passar por nenhuma loja, ou dentro do app no seu celular. Um pagamento, sem renovações, e vale em todos os seus dispositivos.',
+  'precio.probar.pie': 'Sem cartão e sem data de validade.',
+  'precio.app.nombre': 'Assinatura',
+  'precio.app.cifra': 'a partir de 7 USD',
+  'precio.app.pagoUnico': 'por mês',
+  'precio.app.1': 'Nível 1, 2 ou 3: 700, 1400 ou 2100 créditos de IA por mês',
+  'precio.app.2': 'Sincronização entre todos os seus dispositivos',
+  'precio.app.3': 'Sua nuvem: 10, 30 ou 100 GB para os seus arquivos',
+  'precio.app.cta': 'Assinar',
+  'precio.app.pie': 'Sem fidelidade: você sobe, desce ou cancela quando quiser. Assine aqui ou dentro do app, e vale em todos os seus dispositivos.',
 
-  'ia.t': 'IA e sincronização · opcional',
-  'ia.precios':
-    '6 USD por mês<span>·</span>60 USD por ano<span>·</span>ou 6 USD por 700 créditos avulsos',
-  'ia.p':
-    'Só se você quiser continuar com a IA e a sincronização quando terminar o primeiro mês. Dá para assinar aqui ou dentro do app, e vale para todos os seus dispositivos. Sem fidelidade: se parar, você fica com o app e todos os seus dados em modo local.',
-  'ia.cta': 'Ver os planos →',
+  'ia.t': 'Créditos de IA',
+  'ia.precios': 'Nível 1: 700 créditos<span>·</span>Nível 2: 1400<span>·</span>Nível 3: 2100',
+  'ia.p': 'Uma resposta do assistente custa 1 crédito; uma imagem, 3; um modelo 3D, 10. Renovam-se todo mês e só são gastos quando você pede algo.',
+  'ia.cta': 'O que você pode fazer com os créditos? →',
+  'creditos.h2': 'O que você pode fazer com seus créditos?',
+  'creditos.sub': 'Cada coisa que você pede à IA custa alguns créditos, conforme o que custa atendê-la. Só são gastos quando você pede algo, e se renovam todo mês.',
+  'creditos.col.que': 'O que você pede',
+  'creditos.col.cuesta': 'Créditos',
+  'creditos.chat': 'Uma resposta do assistente',
+  'creditos.foto': 'Ler uma foto: uma refeição, um recibo, um documento',
+  'creditos.voz': 'Ditar por voz (até 30 segundos)',
+  'creditos.ruta': 'Uma rota em transporte público',
+  'creditos.plan': 'Um plano longo: metas, rotinas, receitas da semana',
+  'creditos.pdf': 'Conversar com um PDF',
+  'creditos.tts': 'Seu assistente responder em voz alta',
+  'creditos.imagen': 'Uma imagem (rápida / boa qualidade)',
+  'creditos.modelo': 'Um modelo 3D para sua casa',
+  'creditos.rinde.t': 'O que cada nível rende por mês',
+  'creditos.rinde.1': 'Nível 1 · 700 créditos: umas 700 respostas, ou 230 imagens rápidas',
+  'creditos.rinde.2': 'Nível 2 · 1400 créditos: umas 1400 respostas, ou 140 imagens de boa qualidade',
+  'creditos.rinde.3': 'Nível 3 · 2100 créditos: umas 2100 respostas, ou 210 modelos 3D',
+  'creditos.nota': 'Com suas próprias chaves de IA, ou com o Ollama no seu computador, a IA não gasta créditos.',
+  'creditos.cta': 'Ver os níveis',
 
   'desc.h2': 'Baixar o app',
-  'desc.sub':
-    'Baixe de graça e compre a MindHaOS dentro do app — ou aqui na web. Com a sua conta, a sua MindHaOS aparece em qualquer outro lugar, inclusive no navegador.',
+  'desc.sub': 'Baixe grátis e entre com a sua conta: sua MindHaOS aparece em qualquer dispositivo, incluindo o navegador. A assinatura é feita dentro do app ou aqui na web.',
   'desc.pronto': 'Em breve',
-  'desc.android': 'Grátis no Google Play. A MindHaOS se compra dentro.',
+  'desc.android': 'Grátis no Google Play.',
   'desc.android.cta': 'Baixar para Android',
   'desc.ios.t': 'iPhone, iPad e Mac',
-  'desc.ios': 'Grátis na App Store. A MindHaOS se compra dentro.',
+  'desc.ios': 'Grátis na App Store.',
   'desc.web.t': 'No seu navegador',
   'desc.web':
     'Sem instalar nada: entre com a sua conta e a sua MindHaOS está à espera. Sem conta você pode experimentar o app.',
   'desc.web.cta': 'Abrir o app',
-  'desc.windows': 'Grátis no Microsoft Store. A MindHaOS se compra dentro.',
+  'desc.windows': 'Grátis na Microsoft Store.',
   'desc.windows.cta': 'Baixar para Windows',
 
   'faq.h2': 'Perguntas frequentes',
-  'faq.1.q': 'Onde se compra o app?',
-  'faq.1.a':
-    'Onde você preferir: aqui na web, em <a href="/cuenta">sua conta</a>, ou dentro do app de Android e iPhone. É um pagamento único guardado na sua conta, então, compre onde comprar, a sua MindHaOS aparece em todos os seus dispositivos.',
-  'faq.2.q': 'O que inclui o pagamento único?',
-  'faq.2.a':
-    'A MindHaOS inteira: todos os cômodos, todos os apps e seus dados no seu dispositivo, para sempre e sem renovações. Além disso, o primeiro mês traz 700 créditos de IA e a sincronização incluídos, sem cartão. Antes de comprar você pode testar o app completo, que não pede conta.',
-  'faq.3.q': 'Quanto custa a IA depois do primeiro mês?',
-  'faq.3.a':
-    'O que você escolher, ou nada. A assinatura são 6 USD por mês (700 créditos e sincronização), ou 60 USD por ano — dois meses de brinde. Se ficar curto, os níveis ×2 e ×3 dão 1400 ou 2100 créditos por 12 ou 18 USD por mês. E se preferir não assinar, há recargas avulsas: 6 USD por 700 créditos que não vencem e são usados só quando você pede. Isso sim se paga aqui, na <a href="/cuenta">sua conta</a>, e vale para todos os seus dispositivos. Cada nível também inclui espaço na sua nuvem: 10, 30 ou 100 GB.',
+  'faq.1.q': 'O app é grátis?',
+  'faq.1.a': 'Sim. Você cria sua conta e sua MindHaOS é sua, com todos os apps, sem pagar nada. Só se paga a assinatura se você quiser a IA, a sincronização entre dispositivos e a nuvem; ela é feita aqui, na <a href="/cuenta">sua conta</a>, ou dentro do app de Android e iPhone, e vale em todos os seus dispositivos.',
+  'faq.2.q': 'O que a assinatura inclui?',
+  'faq.2.a': 'Três níveis: o Nível 1, por 7 USD por mês, traz 700 créditos de IA e 10 GB de nuvem; o Nível 2, por 14 USD, 1400 créditos e 30 GB; e o Nível 3, por 20 USD, 2100 créditos e 100 GB. Os três incluem a sincronização entre todos os seus dispositivos. Sem fidelidade: você sobe, desce ou cancela quando quiser.',
+  'faq.3.q': 'O que posso fazer sem assinar?',
+  'faq.3.a': 'Tudo o que não gasta em servidores de IA: todos os cômodos e seus apps, o calendário, as metas, seus dados no seu dispositivo, e também a caixa de mensagens, as partidas e os espaços compartilhados com seus amigos. Quando você toca em algo da IA, da sincronização ou da nuvem, o app oferece a assinatura.',
   'faq.4.q': 'O que são os créditos de IA?',
-  'faq.4.a':
-    'A unidade com que se cobra cada pedido ao assistente, conforme o que custa atendê-lo: uma resposta normal vale 1 crédito, um plano longo 4, uma imagem 3 (10 em alta qualidade) e um modelo 3D 10. Nunca se cobra automático: só se gasta quando você pede algo.',
+  'faq.4.a': 'A unidade com que se cobra cada pedido ao assistente, conforme o que custa atendê-lo: uma resposta normal vale 1 crédito, um plano longo 4, uma imagem 3 (10 em alta qualidade) e um modelo 3D 10. Nunca se cobra automaticamente: só são gastos quando você pede algo. Veja <a href="#creditos">tudo o que você pode fazer com eles</a>.',
   'faq.5.q': 'O que acontece se eu cancelar?',
-  'faq.5.a':
-    'Você fica com o app inteiro e todos os seus dados nos seus dispositivos, no modo local. Só perde os créditos mensais e a sincronização. Se renovar, tudo volta exatamente como você deixou. Seus arquivos da nuvem ficam 90 dias só para leitura para você baixá-los; depois são apagados.',
+  'faq.5.a': 'Você conserva o app inteiro e todos os seus dados nos seus dispositivos, no modo local. Só perde os créditos mensais, a sincronização e a nuvem. Se renovar, tudo se reativa como você deixou. Seus arquivos da nuvem ficam 90 dias somente leitura para você baixá-los; depois são apagados.',
   'faq.6.q': 'Onde meus dados ficam guardados?',
   'faq.6.a':
     'Primeiro no seu dispositivo (o app é local-first) e, com a sincronização ativa, também na nuvem para passar de um dispositivo a outro. No modo local nada sai do seu dispositivo. Os pagamentos são processados pela RevenueCat e pela Stripe — ou pela loja, se você comprar pelo celular: nunca vemos o seu cartão. Mais detalhes na <a href="/privacidad">política de privacidade</a>. Os arquivos grandes (sua nuvem e as mídias do Studio) ficam guardados no Cloudflare R2.',
   'faq.7.q': 'Em quais dispositivos funciona?',
-  'faq.7.a':
-    'Hoje: em qualquer navegador moderno. Em breve: Android (Google Play), iPhone/iPad (App Store), Windows e macOS. A sua conta vale para todos: você compra uma vez, onde for melhor, e tanto a MindHaOS quanto a assinatura de IA funcionam em qualquer dispositivo em que entrar com o seu e-mail.',
+  'faq.7.a': 'Hoje: em qualquer navegador moderno. Muito em breve: Android (Google Play), iPhone/iPad (App Store), Windows e macOS. Sua conta vale para todos: sua MindHaOS e sua assinatura funcionam em qualquer dispositivo onde você entrar com seu e-mail.',
   'faq.8.q': 'Como cancelo ou apago minha conta?',
   'faq.8.a':
     'Para cancelar a cobrança, «Gerenciar assinatura» na <a href="/cuenta">sua conta</a>. Para apagar sua conta e todos os seus dados dos nossos servidores, pelo app: Editor → Configurações → Conta.',
@@ -252,8 +254,7 @@ export const TEXTOS = {
   'priv.cancelas.p':
     'Seus dados locais continuam nos seus dispositivos. Os dados sincronizados ficam armazenados (inacessíveis até você renovar) e podem ser apagados definitivamente eliminando sua conta.',
   'priv.borrar.h': 'Como apagar sua conta e seus dados',
-  'priv.borrar.p':
-    'Pelo app: Editor → Configurações → Conta. A exclusão elimina seu usuário, seus dados sincronizados e seus arquivos dos nossos servidores; conservam-se apenas os registros de faturamento que a lei exige guardar. Contas que não concluem nenhuma compra são excluídas automaticamente 3 dias após serem criadas, sem guardar nenhum dado delas.',
+  'priv.borrar.p': 'Pelo app: Editor → Configurações → Conta. A exclusão remove seu usuário, seus dados sincronizados e seus arquivos dos nossos servidores; são mantidos apenas os registros de faturamento que a lei exige guardar.',
   'priv.proveedores.h': 'Provedores',
   'priv.proveedores.1': 'Supabase (banco de dados, autenticação e arquivos).',
   'priv.proveedores.2': 'RevenueCat e Stripe (compras, assinaturas e pagamentos).',
@@ -269,32 +270,20 @@ export const TEXTOS = {
 
   'term.titulo': 'Termos de serviço',
   'term.servicio.h': 'O serviço',
-  'term.servicio.p':
-    'MindHaOS é um app de organização pessoal. O teste é gratuito e não exige conta. O app se compra com um pagamento único; as funções recorrentes (créditos de IA e sincronização) contratam-se unicamente nesta página web; os apps de desktop e de loja são clientes dessa mesma conta.',
-  'term.app.h': 'O app (pagamento único)',
-  'term.app.1':
-    'Desbloqueio do app: 8,99 USD, pagamento único. Desbloqueia sua casa para sempre na sua conta, sem renovações.',
-  'term.app.2':
-    'Inclui o primeiro mês: 30 dias com os 700 créditos de IA mensais e a sincronização, sem cartão e sem assinatura. Ao terminar, você fica com o app e seus dados; os créditos mensais e a sincronização exigem a assinatura.',
-  'term.app.3': 'O teste gratuito não guarda nada até você criar a sua conta: é para conhecer o app antes de comprá-lo.',
+  'term.servicio.p': 'MindHaOS é um app de organização pessoal. O teste sem conta e o app com conta são gratuitos. As funções recorrentes (créditos de IA, sincronização e nuvem) são contratadas como assinatura, aqui na web ou dentro do app; todas as versões são clientes dessa mesma conta.',
   'term.local.h': 'Modo local',
-  'term.local.p':
-    'Com o app desbloqueado, todas as suas funções offline são usadas sem custos recorrentes. Os dados ficam guardados no seu dispositivo, e o backup é responsabilidade sua (Configurações → Backup de dados).',
+  'term.local.p': 'Com a sua conta, todas as funções offline do app são usadas sem custo. Os dados são guardados no seu dispositivo, e o backup deles é responsabilidade sua (Configurações → Backup de dados).',
   'term.precio.h': 'Assinatura e preço',
-  'term.precio.1':
-    'Assinatura: 6 USD por mês no nível ×1 (ou o equivalente na sua moeda), com renovação automática. Os níveis ×2 e ×3 multiplicam os créditos e o preço: 12 e 18 USD por mês. Você também pode pagar o nível ×1 por ano: 60 USD, com renovação anual automática e os mesmos créditos todo mês.',
-  'term.precio.2':
-    'Inclui 700 créditos de IA por mês por nível (700 / 1400 / 2100) e sincronização entre dispositivos. Os créditos mensais não usados não se acumulam para o mês seguinte. Também inclui espaço na sua nuvem: 10, 30 ou 100 GB conforme o nível (10 GB no pagamento anual e no mês incluído).',
+  'term.precio.1': 'Assinatura mensal com renovação automática em três níveis: Nível 1, 7 USD por mês; Nível 2, 14 USD; Nível 3, 20 USD (ou o equivalente na sua moeda).',
+  'term.precio.2': 'Inclui 700, 1400 ou 2100 créditos de IA por mês conforme o nível, sincronização entre dispositivos e espaço na sua nuvem: 10, 30 ou 100 GB. Os créditos mensais não usados não se acumulam para o mês seguinte.',
   'term.precio.3':
     'Créditos por operação: 1 por resposta de texto, 4 por um plano longo, 3 por uma imagem (10 em alta qualidade) e 10 por um modelo 3D. A tarifa pode ser ajustada se mudarem os custos dos provedores de IA; o preço vigente é mostrado no app antes de cada pedido.',
-  'term.precio.4':
-    'Recargas: 6 USD por 700 créditos avulsos, pagamento único que você pode fazer com ou sem assinatura, quando pedir — nunca são comprados sozinhos. Não vencem e são usados quando os créditos do mês acabam.',
+  'term.precio.4': 'Você pode subir ou descer de nível quando quiser; a mudança é cobrada proporcionalmente.',
   'term.precio.5':
     'Limite de uso justo: os créditos cobrem um uso normal da IA. Se em um mês o custo real dos seus pedidos superar muito o valor dos créditos consumidos, a IA é pausada até o limite ser restabelecido no mês seguinte.',
   'term.precio.6': 'Os pagamentos são processados por RevenueCat e Stripe.',
   'term.cancelacion.h': 'Cancelamento',
-  'term.cancelacion.p':
-    'Você pode cancelar quando quiser em «Gerenciar assinatura» na <a href="/cuenta">sua conta</a>; conserva o plano até o fim do período pago. Depois, o app continua funcionando nos seus dispositivos no modo local, sem créditos mensais nem sincronização. Os créditos de recarga que sobrarem continuam utilizáveis, e você pode renovar quando quiser. Seus arquivos na nuvem ficam 90 dias só para leitura para você baixá-los; passado esse prazo, são apagados dos nossos servidores.',
+  'term.cancelacion.p': 'Você pode cancelar quando quiser em «Gerenciar assinatura» na <a href="/cuenta">sua conta</a>; conserva o plano até o fim do período pago. Depois, o app continua funcionando nos seus dispositivos no modo local, sem créditos mensais, sincronização nem nuvem, e você pode renovar quando quiser. Seus arquivos na nuvem ficam 90 dias somente leitura para você baixá-los; passado esse prazo, são apagados dos nossos servidores.',
   'term.datos.h': 'Seus dados',
   'term.datos.p':
     'Seus dados são seus. O app é local-first: tudo vive primeiro no seu dispositivo. O detalhe do que guardamos e de como apagar está na <a href="/privacidad">política de privacidade</a>.',

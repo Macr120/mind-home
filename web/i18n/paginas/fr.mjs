@@ -12,10 +12,8 @@ export const TEXTOS = {
   'tema.boton': 'Mode clair ou sombre',
 
   'meta.titulo': 'MindHaOS — Ton esprit, dans une maison 3D',
-  'meta.desc':
-    'Organise tes habitudes, tes objectifs, tes finances, tes repas et plus dans une maison isométrique 3D où chaque pièce est une app. Un seul paiement de 8,99 USD avec le premier mois d’IA et de synchronisation inclus ; essaie-la gratuitement.',
-  'og.desc':
-    'Ta vie, dans une maison 3D : habitudes, objectifs, finances, repas et plus. Un paiement de 8,99 USD avec le premier mois d’IA inclus ; essaie-la gratuitement.',
+  'meta.desc': 'Organise tes habitudes, tes objectifs, tes finances, tes repas et plus dans une maison isométrique 3D où chaque pièce est une app. Gratuit avec ton compte ; l’IA, la synchronisation et le cloud, à partir de 7 USD par mois.',
+  'og.desc': 'Ta vie, dans une maison 3D : habitudes, objectifs, finances, repas et plus. Gratuit avec ton compte ; l’IA et la synchronisation, à partir de 7 USD par mois.',
 
   'hero.h1': 'Ton esprit,<br />dans une maison 3D',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -41,8 +39,7 @@ export const TEXTOS = {
     'entièrement à la main ou avec l’aide de l’IA. Et toutes sont reliées à un calendrier, à un système de missions quotidiennes et à tes objectifs personnels, synchronisés sur ton téléphone et ton ordinateur.',
   'hero.cta': 'Télécharger l’app',
   'hero.probar': 'Essayer de créer ta MindHaOS gratuitement',
-  'hero.nota':
-    'L’app est gratuite et fonctionne hors ligne ; la MindHaOS (Maison Mentale OS) s’achète une fois — ici sur le web ou dans l’app. L’IA et la synchronisation sont optionnelles — et si tu les laisses, tu ne perds rien.',
+  'hero.nota': 'La MindHaOS (Maison Mentale OS) est gratuite avec ton compte et fonctionne hors ligne. L’IA, la synchronisation et le cloud viennent avec l’abonnement — et si tu le laisses, tu ne perds rien.',
   'hero.video': 'Ta vidéo ou tes captures de la MindHaOS (Maison Mentale OS) viennent ici',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -70,9 +67,8 @@ export const TEXTOS = {
   'car.todo.t': 'Tout-en-un, pour de vrai',
   'car.todo.p':
     'Une seule app au lieu de vingt : repas, argent, sommeil, études, habitudes et objectifs sous le même toit — et qui se parlent entre elles, ce qu’aucune app isolée ne sait faire.',
-  'car.nocaduca.t': 'Elle n’expire pas si tu arrêtes de payer',
-  'car.nocaduca.p':
-    'Tu l’achètes une fois et elle est à toi. Les apps par abonnement s’éteignent dès que tu arrêtes de payer ; ici, si tu laisses l’IA, tu gardes la MindHaOS entière et toutes tes données sur ton appareil.',
+  'car.nocaduca.t': 'Gratuite, et elle n’expire pas',
+  'car.nocaduca.p': 'Ta MindHaOS est gratuite avec ton compte, et elle est à toi. Les apps par abonnement s’éteignent dès que tu arrêtes de payer ; ici, l’abonnement n’apporte que l’IA, la synchronisation et le cloud : si tu le laisses, tu gardes toute ta MindHaOS et toutes tes données sur ton appareil.',
   'car.nuevas.t': 'Des mises à jour',
   'car.nuevas.p':
     'La MindHaOS continue de grandir : des pièces, des apps et des améliorations qui arrivent sans repayer.',
@@ -83,8 +79,7 @@ export const TEXTOS = {
   'car.studio.p':
     'Quatre apps à part : Audio, Art, Écriture et Vidéo. Tu composes au piano roll et au clavier MIDI, tu peins et retouches des photos, tu écris des livres chapitre par chapitre et tu montes des vidéos à partir d’un script — et tu exportes ce que tu fais, ou tu publies une vidéo directement sur ton propre compte YouTube, TikTok, Facebook ou Instagram.',
   'car.2.t': 'Assistant avec IA',
-  'car.2.p':
-    'Discute avec ton assistant : enregistre tes repas, crée des routines, planifie tes objectifs, génère des images et des modèles 3D. Ton premier mois arrive avec 700 crédits inclus ; ensuite, l’IA est optionnelle.',
+  'car.2.p': 'Discute avec ton assistant : note tes repas, crée des routines, planifie tes objectifs, génère des images et des modèles 3D. Chaque niveau de l’abonnement apporte 700, 1400 ou 2100 crédits par mois.',
   'car.3.t': 'Synchronisation totale',
   'car.3.p':
     'Ta MindHaOS te suit sur le téléphone, la tablette et l’ordinateur. Tout est chiffré en transit et sauvegardé dans le cloud. Avec Pro, ton cloud (la pièce Fichiers) stocke en plus 10, 30 ou 100 Go de fichiers.',
@@ -131,70 +126,77 @@ export const TEXTOS = {
     'Ici tu développes de nouvelles compétences, tu gardes le contrôle de tes ressources et tu mets la technologie de ton côté. Contre la consommation inconsciente du format court. Contre la dégradation cognitive que laissent les habitudes de consommation imposées par les grandes entreprises.',
   'mani.cierre': 'La même dopamine. Cette fois, pour ta vraie vie.',
 
-  'precio.h2': 'Un seul paiement sur la boutique, ta MindHaOS pour toujours',
+  'precio.h2': 'Ta MindHaOS est gratuite ; l’IA, la synchronisation et le cloud, sur abonnement',
   'precio.probar.nombre': 'Essaie-la',
   'precio.probar.cifra': 'Gratuit',
-  'precio.probar.1': 'Ta propre MindHaOS avec le menu de bienvenue : essaie tout',
-  'precio.probar.2': 'Sans compte, sans carte et sans connexion',
-  'precio.probar.3': 'Rien n’est gardé tant que tu n’as pas de compte : à l’achat, tu retrouves ton essai',
+  'precio.probar.1': 'Ta propre MindHaOS avec toutes les apps, et tes données sur ton appareil',
+  'precio.probar.2': 'Messagerie, parties et espaces partagés avec tes amis',
+  'precio.probar.3': 'Essaie-la sans compte ; crée ton compte gratuit pour la garder',
   'precio.probar.cta': 'Essayer l’app',
-  'precio.probar.pie': 'L’app complète, pour la découvrir sans engagement.',
-  'precio.app.nombre': 'L’app',
-  'precio.app.cifra': '8,99 USD',
-  'precio.app.pagoUnico': 'paiement unique',
-  'precio.app.1': 'Ta propre MindHaOS, pour toujours : toutes les apps, tes données sur ton appareil',
-  'precio.app.2':
-    'Premier mois inclus : 700 crédits d’IA + synchronisation, sans carte et sans abonnement',
-  'precio.app.3':
-    'À la fin du mois tu gardes l’app entière et tes données ; les crédits d’IA sont optionnels',
-  'precio.app.cta': 'Acheter la MindHaOS',
-  'precio.app.pie':
-    'Achetez-la ici même, sans passer par une boutique, ou dans l’application sur votre téléphone. Un seul paiement, sans renouvellement, valable sur tous vos appareils.',
+  'precio.probar.pie': 'Sans carte et sans date d’expiration.',
+  'precio.app.nombre': 'Abonnement',
+  'precio.app.cifra': 'dès 7 USD',
+  'precio.app.pagoUnico': 'par mois',
+  'precio.app.1': 'Niveau 1, 2 ou 3 : 700, 1400 ou 2100 crédits d’IA par mois',
+  'precio.app.2': 'Synchronisation entre tous tes appareils',
+  'precio.app.3': 'Ton cloud : 10, 30 ou 100 Go pour tes fichiers',
+  'precio.app.cta': 'M’abonner',
+  'precio.app.pie': 'Sans engagement : tu montes, descends ou résilies quand tu veux. L’abonnement se prend ici ou dans l’app, et vaut sur tous tes appareils.',
 
-  'ia.t': 'IA et synchronisation · optionnel',
-  'ia.precios':
-    '6 USD par mois<span>·</span>60 USD par an<span>·</span>ou 6 USD pour 700 crédits à l’unité',
-  'ia.p':
-    'Seulement si vous voulez continuer avec l’IA et la synchronisation à la fin de votre premier mois. Cela se souscrit ici ou dans l’application, et vaut pour tous vos appareils. Sans engagement : si vous arrêtez, vous gardez l’application et toutes vos données en mode local.',
-  'ia.cta': 'Voir les formules →',
+  'ia.t': 'Crédits d’IA',
+  'ia.precios': 'Niveau 1 : 700 crédits<span>·</span>Niveau 2 : 1400<span>·</span>Niveau 3 : 2100',
+  'ia.p': 'Une réponse de l’assistant coûte 1 crédit ; une image, 3 ; un modèle 3D, 10. Ils se renouvellent chaque mois et ne se dépensent que quand tu demandes quelque chose.',
+  'ia.cta': 'Que peux-tu faire avec les crédits ? →',
+  'creditos.h2': 'Que peux-tu faire avec tes crédits ?',
+  'creditos.sub': 'Chaque chose que tu demandes à l’IA coûte quelques crédits, selon ce qu’elle coûte à traiter. Ils ne se dépensent que quand tu demandes quelque chose, et se renouvellent chaque mois.',
+  'creditos.col.que': 'Ce que tu demandes',
+  'creditos.col.cuesta': 'Crédits',
+  'creditos.chat': 'Une réponse de l’assistant',
+  'creditos.foto': 'Lire une photo : un repas, un ticket, un document',
+  'creditos.voz': 'Dicter à la voix (jusqu’à 30 secondes)',
+  'creditos.ruta': 'Un itinéraire en transports en commun',
+  'creditos.plan': 'Un long plan : objectifs, routines, recettes de la semaine',
+  'creditos.pdf': 'Discuter avec un PDF',
+  'creditos.tts': 'Que ton assistant te réponde à voix haute',
+  'creditos.imagen': 'Une image (rapide / bonne qualité)',
+  'creditos.modelo': 'Un modèle 3D pour ta maison',
+  'creditos.rinde.t': 'Ce que donne chaque niveau par mois',
+  'creditos.rinde.1': 'Niveau 1 · 700 crédits : environ 700 réponses, ou 230 images rapides',
+  'creditos.rinde.2': 'Niveau 2 · 1400 crédits : environ 1400 réponses, ou 140 images de bonne qualité',
+  'creditos.rinde.3': 'Niveau 3 · 2100 crédits : environ 2100 réponses, ou 210 modèles 3D',
+  'creditos.nota': 'Avec tes propres clés d’IA, ou avec Ollama sur ton ordinateur, l’IA ne consomme pas de crédits.',
+  'creditos.cta': 'Voir les niveaux',
 
   'desc.h2': 'Télécharger l’app',
-  'desc.sub':
-    'Téléchargez-la gratuitement et achetez la MindHaOS dans l’application — ou ici, sur le web. Avec votre compte, votre MindHaOS réapparaît partout ailleurs, navigateur compris.',
+  'desc.sub': 'Télécharge-la gratuitement et connecte-toi avec ton compte : ta MindHaOS apparaît sur n’importe quel appareil, navigateur compris. L’abonnement se prend dans l’app ou ici sur le web.',
   'desc.pronto': 'Bientôt',
-  'desc.android': 'Gratuit sur Google Play. La MindHaOS s’achète à l’intérieur.',
+  'desc.android': 'Gratuit sur Google Play.',
   'desc.android.cta': 'Télécharger pour Android',
   'desc.ios.t': 'iPhone, iPad et Mac',
-  'desc.ios': 'Gratuit sur l’App Store. La MindHaOS s’achète à l’intérieur.',
+  'desc.ios': 'Gratuit sur l’App Store.',
   'desc.web.t': 'Dans ton navigateur',
   'desc.web':
     'Rien à installer : connectez-vous avec votre compte et votre MindHaOS vous attend. Sans compte, vous pouvez essayer l’app.',
   'desc.web.cta': 'Ouvrir l’app',
-  'desc.windows': 'Gratuit sur Microsoft Store. La MindHaOS s’achète à l’intérieur.',
+  'desc.windows': 'Gratuit sur le Microsoft Store.',
   'desc.windows.cta': 'Télécharger pour Windows',
 
   'faq.h2': 'Questions fréquentes',
-  'faq.1.q': 'Où achète-t-on l’app ?',
-  'faq.1.a':
-    'Où vous voulez : ici sur le web, depuis <a href="/cuenta">votre compte</a>, ou dans l’application Android et iPhone. C’est un paiement unique enregistré sur votre compte : où que vous l’achetiez, votre MindHaOS apparaît sur tous vos appareils.',
-  'faq.2.q': 'Que comprend le paiement unique ?',
-  'faq.2.a':
-    'La MindHaOS entière : toutes les pièces, toutes les apps et tes données sur ton appareil, pour toujours et sans renouvellements. En plus, le premier mois apporte 700 crédits d’IA et la synchronisation inclus, sans carte. Avant de l’acheter tu peux essayer l’app complète, qui ne demande aucun compte.',
-  'faq.3.q': 'Combien coûte l’IA après le premier mois ?',
-  'faq.3.a':
-    'Ce que tu choisis, ou rien. L’abonnement est à 6 USD par mois (700 crédits et synchronisation), ou 60 USD par an — deux mois offerts. Si c’est trop juste, les niveaux ×2 et ×3 donnent 1400 ou 2100 crédits pour 12 ou 18 USD par mois. Et si tu préfères ne pas t’abonner, il y a des recharges à l’unité : 6 USD pour 700 crédits qui n’expirent pas et ne se dépensent que quand tu demandes. Ça, oui, ça se paie ici, dans <a href="/cuenta">ton compte</a>, et ça vaut pour tous tes appareils. Chaque niveau inclut aussi de l’espace dans ton cloud : 10, 30 ou 100 Go.',
+  'faq.1.q': 'L’app est-elle gratuite ?',
+  'faq.1.a': 'Oui. Tu crées ton compte et ta MindHaOS est à toi, avec toutes les apps, sans rien payer. Tu ne paies l’abonnement que si tu veux l’IA, la synchronisation entre appareils et le cloud ; il se prend ici, dans <a href="/cuenta">ton compte</a>, ou dans l’app Android et iPhone, et vaut sur tous tes appareils.',
+  'faq.2.q': 'Que comprend l’abonnement ?',
+  'faq.2.a': 'Trois niveaux : le Niveau 1, à 7 USD par mois, apporte 700 crédits d’IA et 10 Go de cloud ; le Niveau 2, à 14 USD, 1400 crédits et 30 Go ; et le Niveau 3, à 20 USD, 2100 crédits et 100 Go. Les trois incluent la synchronisation entre tous tes appareils. Sans engagement : tu montes, descends ou résilies quand tu veux.',
+  'faq.3.q': 'Que puis-je faire sans m’abonner ?',
+  'faq.3.a': 'Tout ce qui ne coûte rien en serveurs d’IA : toutes les pièces et leurs apps, le calendrier, les objectifs, tes données sur ton appareil, et en plus la messagerie, les parties et les espaces partagés avec tes amis. Quand tu touches à quelque chose qui demande l’IA, la synchronisation ou le cloud, l’app te propose l’abonnement.',
   'faq.4.q': 'Qu’est-ce que les crédits d’IA ?',
-  'faq.4.a':
-    'L’unité dans laquelle chaque demande à l’assistant est facturée, selon ce qu’elle coûte à traiter : une réponse normale vaut 1 crédit, un plan long 4, une image 3 (10 en haute qualité) et un modèle 3D 10. Rien n’est jamais facturé automatiquement : on ne dépense que quand tu demandes quelque chose.',
+  'faq.4.a': 'L’unité dans laquelle chaque demande à l’assistant est facturée, selon ce qu’elle coûte à traiter : une réponse normale vaut 1 crédit, un long plan 4, une image 3 (10 en haute qualité) et un modèle 3D 10. Rien n’est jamais débité automatiquement : ils ne se dépensent que quand tu demandes quelque chose. Regarde <a href="#creditos">tout ce que tu peux faire avec</a>.',
   'faq.5.q': 'Que se passe-t-il si je résilie ?',
-  'faq.5.a':
-    'Tu gardes l’app entière et toutes tes données sur tes appareils, en mode local. Tu ne perds que les crédits mensuels et la synchronisation. Si tu reprends, tout se réactive tel que tu l’avais laissé. Tes fichiers du cloud restent 90 jours en lecture seule pour que tu les récupères ; ensuite, ils sont supprimés.',
+  'faq.5.a': 'Tu gardes l’app entière et toutes tes données sur tes appareils, en mode local. Tu perds seulement les crédits mensuels, la synchronisation et le cloud. Si tu reprends l’abonnement, tout se réactive tel que tu l’as laissé. Tes fichiers du cloud restent 90 jours en lecture seule pour que tu les télécharges ; ensuite ils sont supprimés.',
   'faq.6.q': 'Où sont stockées mes données ?',
   'faq.6.a':
     'D’abord sur votre appareil (l’application est local-first) et, avec la synchronisation active, aussi dans le cloud pour passer d’un appareil à l’autre. En mode local, rien ne sort de votre appareil. Les paiements sont traités par RevenueCat et Stripe — ou par la boutique si vous achetez depuis votre téléphone : nous ne voyons jamais votre carte. Plus de détails dans la <a href="/privacidad">politique de confidentialité</a>. Les fichiers volumineux (ton cloud et les médias du Studio) sont stockés sur Cloudflare R2.',
   'faq.7.q': 'Sur quels appareils ça marche ?',
-  'faq.7.a':
-    'Aujourd’hui : sur tout navigateur moderne. Très bientôt : Android (Google Play), iPhone/iPad (App Store), Windows et macOS. Votre compte vaut pour tous : vous achetez une fois, où cela vous arrange, et la MindHaOS comme l’abonnement IA fonctionnent sur tout appareil où vous vous connectez avec votre e-mail.',
+  'faq.7.a': 'Aujourd’hui : dans n’importe quel navigateur moderne. Très bientôt : Android (Google Play), iPhone/iPad (App Store), Windows et macOS. Ton compte vaut pour tous : ta MindHaOS et ton abonnement fonctionnent sur n’importe quel appareil où tu te connectes avec ton e-mail.',
   'faq.8.q': 'Comment résilier ou supprimer mon compte ?',
   'faq.8.a':
     'Pour arrêter le prélèvement, « Gérer l’abonnement » dans <a href="/cuenta">ton compte</a>. Pour supprimer ton compte et toutes tes données de nos serveurs, depuis l’app : Éditeur → Réglages → Compte.',
@@ -256,8 +258,7 @@ export const TEXTOS = {
   'priv.cancelas.p':
     'Tes données locales restent sur tes appareils. Les données synchronisées restent stockées (inaccessibles jusqu’à ce que tu reprennes) et tu peux les effacer définitivement en supprimant ton compte.',
   'priv.borrar.h': 'Comment supprimer ton compte et tes données',
-  'priv.borrar.p':
-    'Depuis l’app : Éditeur → Réglages → Compte. La suppression efface ton utilisateur, tes données synchronisées et tes fichiers de nos serveurs ; seuls les enregistrements de facturation que la loi impose de conserver sont gardés. Les comptes qui ne finalisent aucun achat sont supprimés automatiquement 3 jours après leur création, sans conserver aucune de leurs données.',
+  'priv.borrar.p': 'Depuis l’app : Éditeur → Paramètres → Compte. La suppression efface ton utilisateur, tes données synchronisées et tes fichiers de nos serveurs ; seuls les registres de facturation que la loi oblige à conserver sont gardés.',
   'priv.proveedores.h': 'Prestataires',
   'priv.proveedores.1': 'Supabase (base de données, authentification et fichiers).',
   'priv.proveedores.2': 'RevenueCat et Stripe (achats, abonnements et paiements).',
@@ -273,33 +274,20 @@ export const TEXTOS = {
 
   'term.titulo': 'Conditions du service',
   'term.servicio.h': 'Le service',
-  'term.servicio.p':
-    'MindHaOS est une app d’organisation personnelle. L’essai est gratuit et ne demande aucun compte. L’app s’achète avec un paiement unique ; les fonctions récurrentes (crédits d’IA et synchronisation) se souscrivent uniquement sur ce site web ; les apps de bureau et de boutique sont des clients de ce même compte.',
-  'term.app.h': 'L’app (paiement unique)',
-  'term.app.1':
-    'Déverrouillage de l’app : 8,99 USD, paiement unique. Il déverrouille ta maison pour toujours sur ton compte, sans renouvellements.',
-  'term.app.2':
-    'Il comprend le premier mois : 30 jours avec les 700 crédits d’IA mensuels et la synchronisation, sans carte et sans abonnement. À la fin, tu gardes l’app et tes données ; les crédits mensuels et la synchronisation demandent l’abonnement.',
-  'term.app.3':
-    'L’essai gratuit ne garde rien tant que tu ne crées pas ton compte : il sert à découvrir l’app avant de l’acheter.',
+  'term.servicio.p': 'MindHaOS est une app d’organisation personnelle. L’essai sans compte et l’app avec compte sont gratuits. Les fonctions récurrentes (crédits d’IA, synchronisation et cloud) se souscrivent sous forme d’abonnement, ici sur le web ou dans l’app ; toutes les versions sont des clients de ce même compte.',
   'term.local.h': 'Mode local',
-  'term.local.p':
-    'Avec l’app déverrouillée, toutes ses fonctions hors ligne s’utilisent sans coûts récurrents. Les données sont gardées sur ton appareil, et leur sauvegarde est de ta responsabilité (Réglages → Sauvegarde des données).',
+  'term.local.p': 'Avec ton compte, toutes les fonctions hors ligne de l’app s’utilisent sans frais. Les données sont enregistrées sur ton appareil, et leur sauvegarde est sous ta responsabilité (Paramètres → Sauvegarde des données).',
   'term.precio.h': 'Abonnement et prix',
-  'term.precio.1':
-    'Abonnement : 6 USD par mois au niveau ×1 (ou l’équivalent dans ta monnaie), avec renouvellement automatique. Les niveaux ×2 et ×3 multiplient les crédits et le prix : 12 et 18 USD par mois. Tu peux aussi payer le niveau ×1 à l’année : 60 USD, avec renouvellement annuel automatique et les mêmes crédits chaque mois.',
-  'term.precio.2':
-    'Il comprend 700 crédits d’IA par mois et par niveau (700 / 1400 / 2100) et la synchronisation entre appareils. Les crédits mensuels non utilisés ne se reportent pas au mois suivant. Il inclut aussi de l’espace dans ton cloud : 10, 30 ou 100 Go selon le niveau (10 Go avec le paiement annuel et le mois inclus).',
+  'term.precio.1': 'Abonnement mensuel à renouvellement automatique en trois niveaux : Niveau 1, 7 USD par mois ; Niveau 2, 14 USD ; Niveau 3, 20 USD (ou l’équivalent dans ta monnaie).',
+  'term.precio.2': 'Comprend 700, 1400 ou 2100 crédits d’IA par mois selon le niveau, la synchronisation entre appareils et de l’espace dans ton cloud : 10, 30 ou 100 Go. Les crédits mensuels non utilisés ne se reportent pas au mois suivant.',
   'term.precio.3':
     'Crédits par opération : 1 pour une réponse texte, 4 pour un plan long, 3 pour une image (10 en haute qualité) et 10 pour un modèle 3D. Le tarif peut être ajusté si les coûts des fournisseurs d’IA changent ; le prix en vigueur s’affiche dans l’app avant chaque demande.',
-  'term.precio.4':
-    'Recharges : 6 USD pour 700 crédits à l’unité, un paiement unique que tu peux faire avec ou sans abonnement, quand tu le demandes — ils ne s’achètent jamais tout seuls. Ils n’expirent pas et servent quand les crédits du mois sont épuisés.',
+  'term.precio.4': 'Tu peux monter ou descendre de niveau quand tu veux ; le changement est facturé au prorata.',
   'term.precio.5':
     'Limite d’usage raisonnable : les crédits couvrent un usage normal de l’IA. Si en un mois le coût réel de tes demandes dépasse largement la valeur des crédits consommés, l’IA se met en pause jusqu’au rétablissement de la limite le mois suivant.',
   'term.precio.6': 'Les paiements sont traités par RevenueCat et Stripe.',
   'term.cancelacion.h': 'Résiliation',
-  'term.cancelacion.p':
-    'Tu peux résilier quand tu veux depuis « Gérer l’abonnement » dans <a href="/cuenta">ton compte</a> ; tu gardes la formule jusqu’à la fin de la période payée. Ensuite, l’app continue de fonctionner sur tes appareils en mode local, sans crédits mensuels ni synchronisation. Les crédits de recharge qu’il te reste demeurent utilisables, et tu peux reprendre quand tu veux. Tes fichiers du cloud restent 90 jours en lecture seule pour que tu les télécharges ; passé ce délai, ils sont supprimés de nos serveurs.',
+  'term.cancelacion.p': 'Tu peux résilier quand tu veux depuis « Gérer l’abonnement » dans <a href="/cuenta">ton compte</a> ; tu gardes la formule jusqu’à la fin de la période payée. Ensuite, l’app continue de fonctionner sur tes appareils en mode local, sans crédits mensuels, synchronisation ni cloud, et tu peux reprendre l’abonnement quand tu veux. Tes fichiers dans le cloud restent 90 jours en lecture seule pour que tu les télécharges ; passé ce délai, ils sont supprimés de nos serveurs.',
   'term.datos.h': 'Tes données',
   'term.datos.p':
     'Tes données sont à toi. L’app est local-first : tout vit d’abord sur ton appareil. Le détail de ce que nous stockons et de comment l’effacer est dans la <a href="/privacidad">politique de confidentialité</a>.',

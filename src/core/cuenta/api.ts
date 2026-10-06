@@ -200,18 +200,22 @@ async function llamarFuncion<T>(nombre: string, cuerpo: unknown): Promise<T> {
   if (!resp.ok) {
     const e = (json ?? {}) as { error?: CodigoErrorIA; mensaje?: string }
     const codigo = e.error ?? 'proveedor'
+    // Qué intentó usar, para que el aviso «Suscríbete» lo nombre.
+    const motivo = nombre === 'navegar' ? 'transporte' : (cuerpo as { juego?: unknown })?.juego ? 'jev' : 'ia'
     if (codigo === 'cuota-agotada' || codigo === 'techo') {
       // El modal decide qué ofrecer según el plan; 'techo' es el bucket de uso
       // real del mes (consumir_cuota_ia, migración 20260815000002).
-      useCuotaAgotada.getState().abrir(codigo === 'techo' ? 'techo' : 'cuota')
+      useCuotaAgotada.getState().abrir(codigo === 'techo' ? 'techo' : motivo)
       // Los créditos que quedan pudieron cambiar en otro dispositivo.
       void useSesion.getState().refrescarPerfil()
       // Y el medidor: sin esto seguía enseñando saldo libre justo después de
       // que el servidor denegara, que es la peor mezcla posible.
       void useSesion.getState().refrescarUso()
     } else if (codigo === 'sin-pro') {
-      // El espejo local iba desfasado (canceló en otro lado): resincronizar.
-      useAvisoRenovar.getState().abrir()
+      // Sin plan vigente: renovar si ya lo tuvo, «Suscríbete» si nunca. El
+      // espejo local pudo ir desfasado (canceló en otro lado): resincronizar.
+      if (fuePro()) useAvisoRenovar.getState().abrir()
+      else useCuotaAgotada.getState().abrir(motivo)
       void useSesion.getState().refrescarPerfil()
     }
     // El servidor escribe en español: en otro idioma vale el texto de su código, y en

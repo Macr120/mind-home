@@ -1,11 +1,11 @@
 /**
  * Portal de cuenta de la web pública (dominio.com/cuenta): registro, login,
- * suscripción (RevenueCat Web Billing), recargas, gestión y borrado de cuenta.
+ * suscripción (RevenueCat Web Billing), gestión y borrado de cuenta.
  *
- * Aquí se vende TODO —la casa, la suscripción y las recargas— por la caja
- * directa, sin comisión de tienda (ver `src/core/edicion.ts`). Es la misma
- * compra que hace la app de Android o iOS in-app: cuelga de la cuenta, así que
- * lo pagado aquí vale en todos los dispositivos.
+ * La casa es gratis con cuenta; aquí se vende la suscripción (tres niveles) por
+ * la caja directa, sin comisión de tienda (ver `src/core/edicion.ts`). Es la
+ * misma compra que hace la app de Android o iOS in-app: cuelga de la cuenta,
+ * así que lo pagado aquí vale en todos los dispositivos.
  *
  * REUTILIZA los módulos de cuenta de la app (`src/core/cuenta/*`) por import
  * relativo — misma sesión de Supabase, mismo paywall, mismo espejo del plan.
@@ -23,13 +23,8 @@ import { iniciarSesion, mensajeCuenta, useSesion } from '../../src/core/cuenta/s
 import {
   hayPagos,
   obtenerNiveles,
-  obtenerCreditos,
-  obtenerAnual,
-  obtenerUnlock,
   comprar,
   cambiarNivel,
-  comprarCreditos,
-  comprarUnlock,
   CompraCancelada,
   urlGestion,
   type OfertaPro,
@@ -307,157 +302,12 @@ function NuevaContrasena({ alTerminar }: { alTerminar: () => void }) {
   )
 }
 
-// ─── Conseguir la app (pago único, directo y sin comisión) ───────────────────
-
-/**
- * La cuenta todavía no tiene la casa. Aquí se vende por la caja DIRECTA —la web
- * no paga comisión de tienda—, y es la misma compra que haría in-app quien
- * estuviera en Android o iOS: el unlock vive en la cuenta, así que pagar aquí
- * abre la casa también en el móvil. Sin pagos configurados en el build queda el
- * enlace a las tiendas.
- */
-function ConseguirApp() {
-  const [oferta, setOferta] = useState<OfertaPro | null>(null)
-  const [error, setError] = useState<string | null>(null)
-  const [ocupado, setOcupado] = useState(false)
-
-  useEffect(() => {
-    let vivo = true
-    obtenerUnlock()
-      .then((o) => {
-        if (vivo) setOferta(o)
-      })
-      .catch(() => {})
-    return () => {
-      vivo = false
-    }
-  }, [])
-
-  const alComprar = async () => {
-    if (!oferta || ocupado) return
-    setOcupado(true)
-    setError(null)
-    try {
-      const ok = await comprarUnlock(oferta)
-      if (!ok) setError(t('app.enCamino', 'El pago está en camino: recarga la página en unos segundos.'))
-    } catch (e) {
-      if (e instanceof CompraCancelada) return
-      setError(e instanceof Error ? e.message : String(e))
-    } finally {
-      setOcupado(false)
-    }
-  }
-
-  const puedeComprar = hayPagos() && !!oferta
-
-  return (
-    <Panel>
-      <h2 className="text-sm font-bold text-white/90">{t('app.titulo', 'Consigue la app')}</h2>
-      <div className="space-y-2 rounded-xl border border-accent/50 bg-white/5 p-3">
-        <p className="text-2xl font-extrabold text-white/95">
-          {oferta?.precio || '8.99 USD'}
-          <span className="text-sm font-semibold text-white/50">{' '}
-            {t('app.pagoUnico', 'pago único')}
-          </span>
-        </p>
-        <ul className="list-none space-y-1 text-xs text-white/60">
-          <li>✓ {t('app.b1', 'Tu MindHaOS para siempre, con todas las apps')}</li>
-          <li>✓ {t('app.b2', 'Primer mes incluido: 700 créditos de IA + sincronización')}</li>
-          <li>✓ {t('app.b3', 'Una compra para todos tus dispositivos: navegador, Android e iOS')}</li>
-        </ul>
-        {puedeComprar ? (
-          <button type="button" onClick={() => void alComprar()} disabled={ocupado} className={botonPrincipal}>
-            {ocupado ? t('comun.procesando', 'Procesando…') : t('app.comprar', 'Comprar la MindHaOS')}
-          </button>
-        ) : (
-          <a href="/#descargas" className={botonPrincipal + ' block text-center'}>
-            {t('app.cta', 'Ver dónde descargarla')}
-          </a>
-        )}
-        {error && <p className="text-xs leading-snug text-red-400/90">{error}</p>}
-      </div>
-      <p className="text-[11px] leading-snug text-white/45">
-        {t('app.pie', 'Al abrirla, entra con este mismo correo y tu MindHaOS te sigue a todos tus dispositivos.')}
-      </p>
-    </Panel>
-  )
-}
-
-// ─── Créditos sueltos (recarga consumible) ───────────────────────────────────
-
-/**
- * Recarga de créditos: mismo precio por crédito que la suscripción ($6 = 700),
- * pero sin renovación. No caducan y se gastan cuando el pool mensual ya no
- * alcanza, así que sirve tanto al suscriptor que se quedó corto como a quien
- * no quiere suscribirse.
- */
-function Creditos() {
-  const [oferta, setOferta] = useState<OfertaPro | null>(null)
-  const [error, setError] = useState<string | null>(null)
-  const [ocupado, setOcupado] = useState(false)
-
-  useEffect(() => {
-    let vivo = true
-    obtenerCreditos()
-      .then((o) => {
-        if (vivo) setOferta(o)
-      })
-      .catch(() => {})
-    return () => {
-      vivo = false
-    }
-  }, [])
-
-  if (!hayPagos() || !oferta) return null
-
-  const alComprar = async () => {
-    if (ocupado) return
-    setOcupado(true)
-    setError(null)
-    try {
-      const ok = await comprarCreditos(oferta)
-      if (!ok) setError(t('cred.enCamino', 'El pago está en camino: recarga la página en unos segundos.'))
-    } catch (e) {
-      if (e instanceof CompraCancelada) return
-      setError(e instanceof Error ? e.message : String(e))
-    } finally {
-      setOcupado(false)
-    }
-  }
-
-  return (
-    <Panel>
-      <h2 className="text-sm font-bold text-white/90">{t('cred.titulo', 'Créditos sueltos')}</h2>
-      <div className="space-y-2 rounded-xl border border-white/10 bg-white/5 p-3">
-        <p className="text-2xl font-extrabold text-white/95">
-          {oferta.precio}
-          <span className="text-sm font-semibold text-white/50">{' '}
-            {t('app.pagoUnico', 'pago único')}
-          </span>
-        </p>
-        <ul className="list-none space-y-1 text-xs text-white/60">
-          <li>✓ {t('cred.b1', '{n} créditos de IA, sin suscripción', { n: oferta.creditos })}</li>
-          <li>✓ {t('cred.b2', 'No caducan: se quedan en tu cuenta hasta que los gastes')}</li>
-          <li>✓ {t('cred.b3', 'Se usan cuando tus créditos del mes se acaban')}</li>
-        </ul>
-        <button type="button" onClick={() => void alComprar()} disabled={ocupado} className={botonSecundario}>
-          {ocupado
-            ? t('comun.procesando', 'Procesando…')
-            : t('cred.cta', 'Recargar {n} créditos', { n: oferta.creditos })}
-        </button>
-      </div>
-      {error && <p className="text-xs leading-snug text-red-400/90">{error}</p>}
-    </Panel>
-  )
-}
-
 // ─── Tarifas (suscribirse / renovar) ─────────────────────────────────────────
 
 function Tarifas({ titulo }: { titulo: string }) {
   const nivelActual = useSesion((s) => s.nivel)
   const plan = useSesion((s) => s.plan)
   const [ofertas, setOfertas] = useState<OfertaPro[]>([])
-  const [anual, setAnual] = useState<OfertaPro | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [ocupado, setOcupado] = useState(false)
 
@@ -470,11 +320,6 @@ function Tarifas({ titulo }: { titulo: string }) {
       .catch(() => {
         if (vivo) setError(t('tar.errorPrecios', 'No se pudieron cargar los precios. Recarga la página.'))
       })
-    obtenerAnual()
-      .then((o) => {
-        if (vivo) setAnual(o)
-      })
-      .catch(() => {})
     return () => {
       vivo = false
     }
@@ -525,13 +370,7 @@ function Tarifas({ titulo }: { titulo: string }) {
             <div className="flex items-baseline gap-2">
               <p className="text-2xl font-extrabold text-white/95">
                 {o.precio}
-                <span className="text-sm font-semibold text-white/50">
-                  {o.periodo === 'anio'
-                    ? ` ${t('tar.porAnio', '/año')}`
-                    : o.periodo === 'mes'
-                      ? ` ${t('tar.porMes', '/mes')}`
-                      : ''}
-                </span>
+                <span className="text-sm font-semibold text-white/50">{` ${t('tar.porMes', '/mes')}`}</span>
               </p>
               {actual && (
                 <span className="rounded-full bg-accent px-2 py-0.5 text-[11px] font-bold text-accent-ink">
@@ -564,35 +403,6 @@ function Tarifas({ titulo }: { titulo: string }) {
           </div>
         )
       })}
-      {/* La anualidad no es otro nivel: es el ×1 pagado de una vez, con dos
-          meses de regalo. Por eso va aparte y nunca se marca como «tu nivel». */}
-      {anual && (
-        <div className="space-y-2 rounded-xl border border-white/10 bg-white/5 p-3">
-          <div className="flex items-baseline gap-2">
-            <p className="text-2xl font-extrabold text-white/95">
-              {anual.precio}
-              <span className="text-sm font-semibold text-white/50">{` ${t('tar.porAnio', '/año')}`}</span>
-            </p>
-            <span className="rounded-full bg-white/10 px-2 py-0.5 text-[11px] font-bold text-white/70">
-              {t('tar.regalo', '2 meses de regalo')}
-            </span>
-          </div>
-          <ul className="list-none space-y-1 text-xs text-white/60">
-            <li>✓ {t('tar.a1', 'El nivel ×1 pagado de una vez: {n} créditos de IA cada mes', { n: anual.creditos })}</li>
-            <li>✓ {t('tar.a2', 'Un solo cobro al año en lugar de doce')}</li>
-            <li>✓ {t('tar.b3', 'Sincronización y respaldo en la nube')}</li>
-            <li>✓ {t('tar.b4', '{g} GB en tu nube (el cuarto Archivo)', { g: GB_POR_NIVEL[1] })}</li>
-          </ul>
-          <button
-            type="button"
-            onClick={() => void alComprar(anual)}
-            disabled={ocupado}
-            className={botonSecundario}
-          >
-            {ocupado ? t('comun.procesando', 'Procesando…') : t('tar.anual', 'Pagar un año')}
-          </button>
-        </div>
-      )}
       {error && <p className="text-xs leading-snug text-red-400/90">{error}</p>}
       <p className="text-[11px] leading-snug text-white/35">
         {t(
@@ -600,6 +410,9 @@ function Tarifas({ titulo }: { titulo: string }) {
           'Sin permanencia: subes, bajas o cancelas cuando quieras y solo pagas la diferencia. Si cancelas, la app sigue en tus dispositivos en modo local, sin IA ni sincronización, y tu nube queda 90 días en solo lectura para que bajes tus archivos.',
         )}
       </p>
+      <a href={ruta('/acerca#creditos')} className="block text-center text-xs font-semibold text-accent hover:underline">
+        {t('tar.creditos', '¿Qué puedes hacer con los créditos?')}
+      </a>
     </Panel>
   )
 }
@@ -611,13 +424,11 @@ function MiCuenta() {
   const plan = useSesion((s) => s.plan)
   const planExpira = useSesion((s) => s.planExpira)
   const fuePro = useSesion((s) => s.fuePro)
-  const unlock = useSesion((s) => s.unlock)
-  const creadaEn = useSesion((s) => s.usuario?.created_at)
   const usoIA = useSesion((s) => s.usoIA)
   const creditosExtra = useSesion((s) => s.creditosExtra)
   const salir = useSesion((s) => s.salir)
 
-  // El mes incluido del unlock: vigente se comporta como Pro (pool + sync).
+  // El trial (cupones de testers): vigente se comporta como Pro (pool + sync).
   const trialVigente = plan === 'trial' && !!planExpira && Date.parse(planExpira) > AHORA
   const trialVencido = plan === 'trial' && !trialVigente
 
@@ -647,8 +458,8 @@ function MiCuenta() {
             {plan === 'pro'
               ? t('mi.pro', 'Pro')
               : trialVigente
-                ? t('mi.trial', 'Primer mes')
-                : t('mi.local', 'Local')}
+                ? t('mi.prueba', 'Prueba')
+                : t('mi.gratis', 'Gratis')}
           </span>
         </div>
         {plan === 'pro' && planExpira && (
@@ -660,7 +471,7 @@ function MiCuenta() {
         )}
         {trialVigente && planExpira && (
           <p className="text-xs text-white/45">
-            {t('mi.trialHasta', 'Tu mes incluido termina el {f}.', {
+            {t('mi.pruebaHasta', 'Tu prueba termina el {f}.', {
               f: new Date(planExpira).toLocaleDateString(IDIOMA),
             })}
           </p>
@@ -674,12 +485,7 @@ function MiCuenta() {
               trial, para convertir. En ninguno de los dos casos es lo que quiere
               ver quien solo entró a su cuenta, así que solo salen con `#planes`. */}
           {verPlanes && (
-            <>
-              <Tarifas
-                titulo={trialVigente ? t('tar.hazte', 'Hazte Pro') : t('tar.cambiar', 'Cambiar de nivel')}
-              />
-              <Creditos />
-            </>
+            <Tarifas titulo={trialVigente ? t('tar.hazte', 'Hazte Pro') : t('tar.cambiar', 'Cambiar de nivel')} />
           )}
         </>
       ) : (
@@ -693,18 +499,13 @@ function MiCuenta() {
                   )
                 : trialVencido
                   ? t(
-                      'mi.estado.trialVencido',
-                      'Tu mes incluido terminó: la app y tus datos son tuyos para siempre. Suscríbete para seguir con los créditos mensuales y la sincronización, o recarga créditos sueltos.',
+                      'mi.estado.pruebaVencida',
+                      'Tu prueba terminó: tu casa y tus datos siguen contigo. Suscríbete para seguir con la IA, la sincronización y la nube.',
                     )
-                  : unlock
-                    ? t(
-                        'mi.estado.local',
-                        'Tu MindHaOS es tuya y tus datos viven en tu dispositivo. La IA y la sincronización se pagan aparte: compra los créditos que necesites, o suscríbete y recíbelos cada mes.',
-                      )
-                    : t(
-                        'mi.estado.sinCasa',
-                        'Tu cuenta todavía no tiene la MindHaOS. Cómprala aquí abajo —o canjea tu cupón si eres tester— y ábrela con este mismo correo en cualquier dispositivo.',
-                      )}
+                  : t(
+                      'mi.estado.gratis',
+                      'Tu casa es gratis y tus datos viven en tu dispositivo. La IA, la sincronización y la nube vienen con la suscripción.',
+                    )}
             </p>
             {creditosExtra > 0 && (
               <p className="text-[11px] text-white/45">
@@ -712,54 +513,21 @@ function MiCuenta() {
               </p>
             )}
           </Panel>
-          {/* Sin la compra, lo primero es comprar la casa; y justo debajo, la
-              otra vía de entrar: el cupón de los testers. */}
-          {!unlock && (
-            <>
-              <ConseguirApp />
-              <Cupon />
-              {/* Las cuentas sin compra se borran solas a los 3 días
-                  (cron `cuentas-purga-diaria`). */}
-              {creadaEn && (
-                <p className="text-center text-[11px] text-white/45">
-                  {t('mi.borrado', 'Si no completas la compra, esta cuenta se borra el {fecha}.', {
-                    fecha: new Date(Date.parse(creadaEn) + 3 * 86_400_000).toLocaleDateString(document.documentElement.lang, {
-                      day: 'numeric',
-                      month: 'long',
-                    }),
-                  })}
-                </p>
-              )}
-            </>
-          )}
-          {verPlanes && (
-            <>
-              <Tarifas
-                titulo={fuePro ? t('tar.renovar', 'Renovar suscripción') : t('tar.suscribir', 'Suscribirme')}
-              />
-              {/* Solo con la app desbloqueada: sin unlock, la IA todavía no
-                  tiene dónde usarse. */}
-              {unlock && <Creditos />}
-            </>
-          )}
+          {/* Sin plan, la suscripción es lo único que se vende: las tarjetas
+              salen siempre, y debajo el cupón de los testers. */}
+          <Tarifas titulo={fuePro ? t('tar.renovar', 'Renovar suscripción') : t('tar.suscribir', 'Suscribirme')} />
+          <Cupon />
         </>
       )}
 
       {/* Dos acciones y nada más: abrir la app y salir. Las descargas viven en
-          la landing (`/#descargas`), a la que ya lleva «Consigue la app».
-          Sin la compra, la app pediría pagar nada más abrirla: lo que se ofrece
-          entonces es el modo probar, que sí se puede recorrer entero y gratis. */}
+          la landing (`/#descargas`). */}
       <Panel>
-        {URL_APP &&
-          (unlock ? (
-            <a href={URL_APP} className={botonSecundario + ' block text-center'}>
-              {t('mi.abrirApp', 'Abrir la app en el navegador')}
-            </a>
-          ) : (
-            <a href={`${URL_APP}/?probar=1`} className={botonSecundario + ' block text-center'}>
-              {t('mi.probarApp', 'Probar hacer tu MindHaOS gratis')}
-            </a>
-          ))}
+        {URL_APP && (
+          <a href={URL_APP} className={botonSecundario + ' block text-center'}>
+            {t('mi.abrirApp', 'Abrir la app en el navegador')}
+          </a>
+        )}
         <button type="button" onClick={() => void salir()} className={botonSecundario}>
           {t('mi.salir', 'Cerrar sesión')}
         </button>
@@ -769,10 +537,9 @@ function MiCuenta() {
 }
 
 /**
- * Canje de cupones (testers y accesos regalados): la otra vía de conseguir la
- * casa, y la única sin pagar. Exige sesión —la Edge Function `canjear-cupon`
- * valida el JWT— y concede el MISMO unlock que la compra, en el perfil, así que
- * al refrescar la página la cuenta ya aparece con su casa.
+ * Canje de cupones (testers y accesos regalados): dan un periodo de prueba con
+ * todo lo de la suscripción. Exige sesión —la Edge Function `canjear-cupon`
+ * valida el JWT— y queda en el perfil.
  */
 function Cupon() {
   const canjearCupon = useSesion((s) => s.canjearCupon)

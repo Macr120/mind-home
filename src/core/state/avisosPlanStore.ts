@@ -1,9 +1,12 @@
 /**
  * Avisos globales del plan (modales montados en App.tsx):
  * - AvisoRenovar: el ex-suscriptor intentó usar la IA → «renueva tu suscripción».
- * - CuotaAgotada: un Pro gastó sus créditos del mes → ofrecer la recarga.
+ * - CuotaAgotada: el aviso «Suscríbete». Sale cada vez que alguien sin plan
+ *   intenta usar algo que cuesta (IA, sync, nube, transporte, juegos con Jev,
+ *   redes), y también cuando un Pro gastó sus créditos del mes (ofrece subir).
  *
- * Los abre `cuenta/api.ts::llamarFuncion` (embudo único de la IA vía cuenta).
+ * Los abre `cuenta/api.ts::llamarFuncion` (embudo único de la IA vía cuenta) y
+ * cada superficie de pago al tocarla sin plan.
  */
 import { create } from 'zustand'
 
@@ -27,8 +30,11 @@ export const useAvisoRenovar = create<AvisoState>((set) => ({
   cerrar: () => set({ abierto: false }),
 }))
 
-/** Por qué se abrió: sin créditos ('cuota') o techo de uso real del mes ('techo'). */
-type MotivoCuota = 'cuota' | 'techo'
+/**
+ * Por qué se abrió: sin créditos ('cuota'), techo de uso real del mes ('techo')
+ * o qué función de pago intentó usar quien no tiene plan (el título lo dice).
+ */
+export type MotivoCuota = 'cuota' | 'techo' | 'ia' | 'sync' | 'nube' | 'transporte' | 'jev' | 'redes'
 
 interface CuotaState {
   abierto: boolean
@@ -37,11 +43,22 @@ interface CuotaState {
   cerrar: () => void
 }
 
-export const useCuotaAgotada = create<CuotaState>((set) => ({
+// Un juego o una ráfaga de llamadas puede pedir el aviso varias veces seguidas:
+// tras cerrarlo, la misma ráfaga no lo reabre (un toque nuevo, segundos después, sí).
+let ultimoAvisoCuota = 0
+
+export const useCuotaAgotada = create<CuotaState>((set, get) => ({
   abierto: false,
   motivo: 'cuota',
-  abrir: (motivo = 'cuota') => set({ abierto: true, motivo }),
-  cerrar: () => set({ abierto: false }),
+  abrir: (motivo = 'cuota') => {
+    if (!get().abierto && Date.now() - ultimoAvisoCuota < 3_000) return
+    ultimoAvisoCuota = Date.now()
+    set({ abierto: true, motivo })
+  },
+  cerrar: () => {
+    ultimoAvisoCuota = Date.now()
+    set({ abierto: false })
+  },
 }))
 
 // Un click del visitante puede disparar varias escrituras: el marcador

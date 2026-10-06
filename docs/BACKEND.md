@@ -194,6 +194,11 @@ Opcionales, todos con default y sin redeploy al cambiarlos:
    `TOPES` de `ia-chat` sigue en 4096 para `texto_largo`.
 
 ### 3. RevenueCat (pagos)
+
+> **5-oct-2026:** solo se venden los paquetes `nivel_1/2/3` (7/14/20 USD). En la
+> web el producto es `pro_xN_v3`; en Play y Apple, `pro_xN_v2` con el precio
+> cambiado. Los espejos de ids son `src/core/cuenta/productos.ts` y
+> `supabase/functions/_shared/compras.ts`. Ver `docs/PLAN-PRECIOS.md`.
 1. Crear cuenta en RevenueCat → proyecto → añadir plataforma **Web Billing**
    (pide conectar una cuenta de **Stripe**).
 2. Crear los **tres niveles de suscripción mensual** con precio local por región
@@ -935,6 +940,14 @@ en cuanto hay mensajería entre personas. Migración
   que se buscan antes de que el cascade tire las filas.
 
 ### 11. Cuentas sin compra, capacidad y optimizaciones — 28-sep-2026
+
+> **5-oct-2026: lo de las cuentas sin compra quedó SUPERADO.** La casa es
+> gratis con cuenta (`docs/PLAN-PRECIOS.md`). La migración
+> `20261005000001_tres_niveles.sql` redefine `pago()` (= tiene perfil, así los
+> triggers `exigir_pago*` dejan pasar a todo registrado), `solo_unlock()` (= sin
+> plan vigente: los topes diarios valen para todos los gratis) y quita el cron
+> `cuentas-purga-diaria`. Juegos con Jev y redes exigen plan (`sin-pro` /
+> `sin-unlock` → aviso «Suscríbete» en el cliente).
 
 **Cuentas sin compra** (migración `20260928000001_gratis_sin_servidor.sql`):
 - Quien no tiene unlock ni plan vigente ni es ilimitado (`public.pago(uid)`) no
