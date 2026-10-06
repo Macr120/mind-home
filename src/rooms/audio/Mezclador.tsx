@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
+import { useEffect, useRef, useState, useSyncExternalStore, type PointerEvent as ReactPointerEvent } from 'react'
 import type { ProyectoAudio } from '../../core/data/db'
 import { musicaImportadaRepo } from '../../core/data/repository'
 import { claveLS } from '../../core/edicion'
@@ -306,8 +306,6 @@ function Plato({ lado, plato, onCargar }: { lado: LadoPlato; plato: SnapshotPlat
         </div>
       </div>
 
-      <ControlesLoop lado={lado} plato={plato} />
-
       <div className="flex items-start justify-around gap-1">
         {(['grave', 'medio', 'agudo'] as const).map((banda) => (
           <Knob
@@ -329,6 +327,8 @@ function Plato({ lado, plato, onCargar }: { lado: LadoPlato; plato: SnapshotPlat
           />
         ))}
       </div>
+
+      <ControlesLoop lado={lado} plato={plato} />
     </div>
   )
 }
@@ -444,7 +444,64 @@ function ControlesLoop({ lado, plato }: { lado: LadoPlato; plato: SnapshotPlato 
           {t('audio.mezclar.clip', 'Clip')}
         </button>
       </div>
+      {l && <AjusteFino lado={lado} inicio={l.inicio} fin={l.fin} />}
       {aviso && <p className="truncate text-[10px] text-green-300">{aviso}</p>}
+    </div>
+  )
+}
+
+/** Paso del ajuste fino de los extremos del bucle, en segundos. */
+const PASO_AJUSTE = 0.01
+/** m:ss.cc redondeado a centésimas (truncar daba 2.46 para un 2.4699… de coma flotante). */
+const fmtFino = (s: number) => {
+  const cs = Math.round(s * 100)
+  return `${fmt(Math.floor(cs / 100))}.${String(cs % 100).padStart(2, '0')}`
+}
+
+/** IN y OUT a mano, de 10 en 10 ms (las asas de la onda dan el ajuste grueso). */
+function AjusteFino({ lado, inicio, fin }: { lado: LadoPlato; inicio: number; fin: number | null }) {
+  const t = useT()
+  const extremo = (cual: 'inicio' | 'fin', valor: number, rotulo: string, antes: string, despues: string) => (
+    <div className="flex items-center gap-0.5">
+      <span className="w-7 text-[10px] font-bold text-white/50">{rotulo}</span>
+      <button
+        type="button"
+        onClick={() => mezclador.ajustarLoop(lado, cual, valor - PASO_AJUSTE)}
+        aria-label={antes}
+        title={antes}
+        className={`${CHIP} ${CHIP_OFF}`}
+      >
+        <Icono nombre="volver" />
+      </button>
+      <span className="min-w-[3.4rem] text-center text-[10px] tabular-nums text-white/70">{fmtFino(valor)}</span>
+      <button
+        type="button"
+        onClick={() => mezclador.ajustarLoop(lado, cual, valor + PASO_AJUSTE)}
+        aria-label={despues}
+        title={despues}
+        className={`${CHIP} ${CHIP_OFF}`}
+      >
+        <Icono nombre="siguiente" />
+      </button>
+    </div>
+  )
+  return (
+    <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+      {extremo(
+        'inicio',
+        inicio,
+        t('audio.mezclar.in', 'IN'),
+        t('audio.mezclar.inAntes', 'Adelantar el inicio del loop'),
+        t('audio.mezclar.inDespues', 'Atrasar el inicio del loop'),
+      )}
+      {fin != null &&
+        extremo(
+          'fin',
+          fin,
+          t('audio.mezclar.out', 'OUT'),
+          t('audio.mezclar.outAntes', 'Adelantar el final del loop'),
+          t('audio.mezclar.outDespues', 'Atrasar el final del loop'),
+        )}
     </div>
   )
 }
@@ -567,6 +624,8 @@ function Onda({ lado, plato }: { lado: LadoPlato; plato: SnapshotPlato }) {
           }}
         />
       )}
+      {plato.loop && <AsaLoop lado={lado} extremo="inicio" seg={plato.loop.inicio} duracion={c.duracionSeg} />}
+      {plato.loop?.fin != null && <AsaLoop lado={lado} extremo="fin" seg={plato.loop.fin} duracion={c.duracionSeg} />}
       {plato.cueSeg > 0 && (
         <div
           className="absolute inset-y-0 w-0.5 bg-amber-300/80"
@@ -580,6 +639,39 @@ function Onda({ lado, plato }: { lado: LadoPlato; plato: SnapshotPlato }) {
         className="absolute inset-y-0 w-0.5 bg-white/90"
         style={{ left: '0%' }}
       />
+    </div>
+  )
+}
+
+/**
+ * Asa de un extremo del bucle sobre la onda: arrastrarla lo mueve. Corta el
+ * `pointerdown` para que la onda no lo tome como «mover la aguja», y la captura
+ * va solo en el asa.
+ */
+function AsaLoop({ lado, extremo, seg, duracion }: { lado: LadoPlato; extremo: 'inicio' | 'fin'; seg: number; duracion: number }) {
+  const t = useT()
+  const mover = (e: ReactPointerEvent<HTMLDivElement>) => {
+    if (!e.currentTarget.hasPointerCapture(e.pointerId)) return
+    const rect = e.currentTarget.parentElement!.getBoundingClientRect()
+    mezclador.ajustarLoop(lado, extremo, ((e.clientX - rect.left) / rect.width) * duracion)
+  }
+  const etiqueta =
+    extremo === 'inicio'
+      ? t('audio.mezclar.asaIn', 'Arrastra para mover el inicio del loop')
+      : t('audio.mezclar.asaOut', 'Arrastra para mover el final del loop')
+  return (
+    <div
+      role="presentation"
+      title={etiqueta}
+      onPointerDown={(e) => {
+        e.stopPropagation()
+        e.currentTarget.setPointerCapture(e.pointerId)
+      }}
+      onPointerMove={mover}
+      className="absolute inset-y-0 z-10 flex w-4 -translate-x-1/2 cursor-ew-resize touch-none justify-center"
+      style={{ left: `${(seg / duracion) * 100}%` }}
+    >
+      <span className="my-1 w-1.5 rounded-full bg-green-400 shadow" />
     </div>
   )
 }

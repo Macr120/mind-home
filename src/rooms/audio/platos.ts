@@ -423,6 +423,26 @@ export function escalarLoop(lado: LadoPlato, f: number): void {
   cambiarLoop(lado, { ...l, fin })
 }
 
+/**
+ * Ajuste a mano de un extremo del bucle (asas de la onda o los ◀ ▶ finos): lo
+ * lleva a `seg` respetando el largo mínimo y la duración de la canción.
+ */
+export function ajustarLoop(lado: LadoPlato, extremo: 'inicio' | 'fin', seg: number): void {
+  const p = platos[lado]
+  const c = p.cancion
+  const l = p.loop
+  if (!c || !l) return
+  if (extremo === 'inicio') {
+    const tope = l.fin == null ? c.duracionSeg : l.fin - LOOP_MIN_SEG
+    const inicio = Math.min(Math.max(0, seg), tope)
+    if (Math.abs(inicio - l.inicio) > 1e-4) cambiarLoop(lado, { ...l, inicio })
+    return
+  }
+  if (l.fin == null) return
+  const fin = Math.min(Math.max(l.inicio + LOOP_MIN_SEG, seg), c.duracionSeg)
+  if (Math.abs(fin - l.fin) > 1e-4) cambiarLoop(lado, { ...l, fin })
+}
+
 /** Sale del bucle (la canción sigue de largo); la región se queda para el reloop. */
 export function salirLoop(lado: LadoPlato): void {
   const l = platos[lado].loop
