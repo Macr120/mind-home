@@ -443,6 +443,11 @@ export function ajustarLoop(lado: LadoPlato, extremo: 'inicio' | 'fin', seg: num
   if (Math.abs(fin - l.fin) > 1e-4) cambiarLoop(lado, { ...l, fin })
 }
 
+/** Quita el bucle del todo: sin región para el reloop ni marcas en la onda. */
+export function quitarLoop(lado: LadoPlato): void {
+  if (platos[lado].loop) cambiarLoop(lado, null)
+}
+
 /** Sale del bucle (la canción sigue de largo); la región se queda para el reloop. */
 export function salirLoop(lado: LadoPlato): void {
   const l = platos[lado].loop

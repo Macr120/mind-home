@@ -9155,6 +9155,8 @@ export const NL: Dict = {
   'audio.mezclar.reloop': 'Terug naar de loop',
   'audio.mezclar.salir': 'Uit',
   'audio.mezclar.reloopCorto': 'Reloop',
+  'audio.mezclar.quitarLoop': 'Herhaling verwijderen',
+  'audio.mezclar.quitarCorto': 'Verwijderen',
   'audio.mezclar.guardarLoop': 'Loop opslaan als clip (in Opnames)',
   'audio.mezclar.clip': 'Clip',
   'audio.mezclar.nombreLoop': 'Loop {n} tellen · {cancion}',

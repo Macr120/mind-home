@@ -9184,6 +9184,8 @@ export const FR: Dict = {
   'audio.mezclar.reloop': 'Revenir à la boucle',
   'audio.mezclar.salir': 'Sortir',
   'audio.mezclar.reloopCorto': 'Reboucler',
+  'audio.mezclar.quitarLoop': 'Retirer la boucle',
+  'audio.mezclar.quitarCorto': 'Retirer',
   'audio.mezclar.guardarLoop': 'Enregistrer la boucle comme clip (dans Enregistrements)',
   'audio.mezclar.clip': 'Clip',
   'audio.mezclar.nombreLoop': 'Boucle {n} temps · {cancion}',

@@ -9079,6 +9079,8 @@ export const PL: Dict = {
   'audio.mezclar.reloop': 'Wróć do pętli',
   'audio.mezclar.salir': 'Wyjdź',
   'audio.mezclar.reloopCorto': 'Reloop',
+  'audio.mezclar.quitarLoop': 'Usuń pętlę',
+  'audio.mezclar.quitarCorto': 'Usuń',
   'audio.mezclar.guardarLoop': 'Zapisz pętlę jako klip (w Nagraniach)',
   'audio.mezclar.clip': 'Klip',
   'audio.mezclar.nombreLoop': 'Pętla {n} miar · {cancion}',

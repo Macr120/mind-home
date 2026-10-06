@@ -9054,6 +9054,8 @@ export const RU: Dict = {
   'audio.mezclar.reloop': 'Вернуться в луп',
   'audio.mezclar.salir': 'Выход',
   'audio.mezclar.reloopCorto': 'Релуп',
+  'audio.mezclar.quitarLoop': 'Убрать повтор',
+  'audio.mezclar.quitarCorto': 'Убрать',
   'audio.mezclar.guardarLoop': 'Сохранить луп как клип (в Записи)',
   'audio.mezclar.clip': 'Клип',
   'audio.mezclar.nombreLoop': 'Луп {n} доли · {cancion}',

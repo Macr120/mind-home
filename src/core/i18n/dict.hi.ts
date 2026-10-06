@@ -9041,6 +9041,8 @@ export const HI: Dict = {
   'audio.mezclar.reloop': 'लूप पर वापस',
   'audio.mezclar.salir': 'बाहर',
   'audio.mezclar.reloopCorto': 'रीलूप',
+  'audio.mezclar.quitarLoop': 'लूप हटाएँ',
+  'audio.mezclar.quitarCorto': 'हटाएँ',
   'audio.mezclar.guardarLoop': 'लूप को क्लिप की तरह सेव करें (रिकॉर्डिंग में)',
   'audio.mezclar.clip': 'क्लिप',
   'audio.mezclar.nombreLoop': 'लूप {n} बीट · {cancion}',

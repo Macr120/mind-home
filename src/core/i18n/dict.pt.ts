@@ -9085,6 +9085,8 @@ export const PT: Dict = {
   'audio.mezclar.reloop': 'Voltar ao loop',
   'audio.mezclar.salir': 'Sair',
   'audio.mezclar.reloopCorto': 'Reloop',
+  'audio.mezclar.quitarLoop': 'Remover o loop',
+  'audio.mezclar.quitarCorto': 'Remover',
   'audio.mezclar.guardarLoop': 'Salvar o loop como clipe (em Gravações)',
   'audio.mezclar.clip': 'Clipe',
   'audio.mezclar.nombreLoop': 'Loop {n} tempos · {cancion}',

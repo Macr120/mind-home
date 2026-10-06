@@ -435,6 +435,17 @@ function ControlesLoop({ lado, plato }: { lado: LadoPlato; plato: SnapshotPlato 
         </button>
         <button
           type="button"
+          onClick={() => mezclador.quitarLoop(lado)}
+          disabled={!l}
+          aria-label={t('audio.mezclar.quitarLoop', 'Quitar el loop')}
+          title={t('audio.mezclar.quitarLoop', 'Quitar el loop')}
+          className={`${CHIP} ${CHIP_OFF} flex items-center gap-1`}
+        >
+          <Icono nombre="cerrar" />
+          {t('audio.mezclar.quitarCorto', 'Quitar')}
+        </button>
+        <button
+          type="button"
           onClick={() => void guardar()}
           disabled={!cerrado || guardando || largo / plato.rate > MAX_SEG_CLIP}
           title={t('audio.mezclar.guardarLoop', 'Guardar el loop como clip (en Grabaciones)')}

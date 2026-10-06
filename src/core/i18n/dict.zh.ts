@@ -8679,6 +8679,8 @@ export const ZH: Dict = {
   'audio.mezclar.reloop': '回到循环',
   'audio.mezclar.salir': '退出',
   'audio.mezclar.reloopCorto': '重循环',
+  'audio.mezclar.quitarLoop': '取消循环',
+  'audio.mezclar.quitarCorto': '取消',
   'audio.mezclar.guardarLoop': '把循环存为片段（在录音里）',
   'audio.mezclar.clip': '片段',
   'audio.mezclar.nombreLoop': '循环 {n} 拍 · {cancion}',

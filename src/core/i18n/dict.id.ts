@@ -9124,6 +9124,8 @@ export const ID: Dict = {
   'audio.mezclar.reloop': 'Kembali ke loop',
   'audio.mezclar.salir': 'Keluar',
   'audio.mezclar.reloopCorto': 'Reloop',
+  'audio.mezclar.quitarLoop': 'Hapus loop',
+  'audio.mezclar.quitarCorto': 'Hapus',
   'audio.mezclar.guardarLoop': 'Simpan loop jadi klip (di Rekaman)',
   'audio.mezclar.clip': 'Klip',
   'audio.mezclar.nombreLoop': 'Loop {n} ketukan · {cancion}',

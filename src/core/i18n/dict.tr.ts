@@ -9059,6 +9059,8 @@ export const TR: Dict = {
   'audio.mezclar.reloop': 'Loop\'a dön',
   'audio.mezclar.salir': 'Çık',
   'audio.mezclar.reloopCorto': 'Reloop',
+  'audio.mezclar.quitarLoop': 'Döngüyü kaldır',
+  'audio.mezclar.quitarCorto': 'Kaldır',
   'audio.mezclar.guardarLoop': 'Loop\'u klip olarak kaydet (Kayıtlar\'a)',
   'audio.mezclar.clip': 'Klip',
   'audio.mezclar.nombreLoop': 'Loop {n} vuruş · {cancion}',

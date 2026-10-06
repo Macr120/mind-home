@@ -8729,6 +8729,8 @@ export const JA: Dict = {
   'audio.mezclar.reloop': 'ループに戻る',
   'audio.mezclar.salir': '退出',
   'audio.mezclar.reloopCorto': 'リループ',
+  'audio.mezclar.quitarLoop': 'ループを解除',
+  'audio.mezclar.quitarCorto': '解除',
   'audio.mezclar.guardarLoop': 'ループをクリップとして保存（録音に）',
   'audio.mezclar.clip': 'クリップ',
   'audio.mezclar.nombreLoop': 'ループ {n}拍 · {cancion}',

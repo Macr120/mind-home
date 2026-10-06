@@ -8748,6 +8748,8 @@ export const KO: Dict = {
   'audio.mezclar.reloop': '루프로 돌아가기',
   'audio.mezclar.salir': '나가기',
   'audio.mezclar.reloopCorto': '리루프',
+  'audio.mezclar.quitarLoop': '반복 해제',
+  'audio.mezclar.quitarCorto': '해제',
   'audio.mezclar.guardarLoop': '루프를 클립으로 저장 (녹음에)',
   'audio.mezclar.clip': '클립',
   'audio.mezclar.nombreLoop': '루프 {n}박 · {cancion}',

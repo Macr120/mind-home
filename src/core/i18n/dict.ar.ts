@@ -8939,6 +8939,8 @@ export const AR: Dict = {
   'audio.mezclar.reloop': 'العودة إلى اللوب',
   'audio.mezclar.salir': 'خروج',
   'audio.mezclar.reloopCorto': 'إعادة اللوب',
+  'audio.mezclar.quitarLoop': 'إزالة التكرار',
+  'audio.mezclar.quitarCorto': 'إزالة',
   'audio.mezclar.guardarLoop': 'حفظ اللوب كمقطع (في التسجيلات)',
   'audio.mezclar.clip': 'مقطع',
   'audio.mezclar.nombreLoop': 'لوب {n} نبضات · {cancion}',
