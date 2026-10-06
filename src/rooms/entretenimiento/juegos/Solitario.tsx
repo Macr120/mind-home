@@ -38,9 +38,9 @@ const SOLAPE_ABAJO = 9
 
 registrarApariencia('solitario', [
   { clave: 'dorso', labelEs: 'Dorso', papel: 'oscuro', porDefecto: COLORES_CARTA.dorso },
-  { clave: 'cara', labelEs: 'Cara', papel: 'claro', porDefecto: COLORES_CARTA.cara },
-  { clave: 'rojo', labelEs: 'Palos rojos', papel: 'uno', porDefecto: COLORES_CARTA.rojo },
-  { clave: 'negro', labelEs: 'Palos negros', papel: 'dos', porDefecto: COLORES_CARTA.negro },
+  { clave: 'cara', labelEs: 'Cara', porDefecto: COLORES_CARTA.cara },
+  { clave: 'rojo', labelEs: 'Palos rojos', porDefecto: COLORES_CARTA.rojo },
+  { clave: 'negro', labelEs: 'Palos negros', porDefecto: COLORES_CARTA.negro },
   { clave: 'marca', labelEs: 'Selección', papel: 'acento', porDefecto: COLORES_CARTA.marca },
 ])
 

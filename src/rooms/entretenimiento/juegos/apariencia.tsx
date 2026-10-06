@@ -19,7 +19,12 @@ export interface ColorJuego {
   clave: string
   /** Rótulo en español; la clave i18n es `entre.j.<juego>.ap.<clave>`. */
   labelEs: string
-  papel: PapelColor
+  /**
+   * Papel en los estilos. Sin él, el estilo no lo cambia (solo el color puesto
+   * a mano): para lo que el juego necesita que siga siendo como es, como el
+   * rojo y el negro de los palos, que distinguen las cartas.
+   */
+  papel?: PapelColor
   /** El color de siempre: es el del estilo «Clásico». */
   porDefecto: string
 }
@@ -124,7 +129,7 @@ function resolver(juego: IdJuegoReal, e: Eleccion): Record<string, string> {
   if (hecho) return hecho
   const estilo = ESTILOS.find((s) => s.id === e.estilo)?.colores
   const salida: Record<string, string> = {}
-  for (const c of COLORES.get(juego) ?? []) salida[c.clave] = e.propios[c.clave] ?? estilo?.[c.papel] ?? c.porDefecto
+  for (const c of COLORES.get(juego) ?? []) salida[c.clave] = e.propios[c.clave] ?? (c.papel && estilo?.[c.papel]) ?? c.porDefecto
   resueltos.set(e, salida)
   return salida
 }

@@ -19,9 +19,9 @@ const TAPETE = '#022c22'
 registrarApariencia('ocholocos', [
   { clave: 'tapete', labelEs: 'Tapete', papel: 'fondo', porDefecto: TAPETE },
   { clave: 'dorso', labelEs: 'Dorso', papel: 'oscuro', porDefecto: COLORES_CARTA.dorso },
-  { clave: 'cara', labelEs: 'Cara', papel: 'claro', porDefecto: COLORES_CARTA.cara },
-  { clave: 'rojo', labelEs: 'Palos rojos', papel: 'uno', porDefecto: COLORES_CARTA.rojo },
-  { clave: 'negro', labelEs: 'Palos negros', papel: 'dos', porDefecto: COLORES_CARTA.negro },
+  { clave: 'cara', labelEs: 'Cara', porDefecto: COLORES_CARTA.cara },
+  { clave: 'rojo', labelEs: 'Palos rojos', porDefecto: COLORES_CARTA.rojo },
+  { clave: 'negro', labelEs: 'Palos negros', porDefecto: COLORES_CARTA.negro },
   { clave: 'marca', labelEs: 'Jugables', papel: 'acento', porDefecto: COLORES_CARTA.marca },
 ])
 
