@@ -7698,6 +7698,7 @@ export const ID: Dict = {
   'cuenta.sync.activo': 'Menyinkronkan…',
   'cuenta.sync.ultima': 'Disinkronkan: {f}',
   'cuenta.sync.nunca': 'Belum disinkronkan',
+  'cuenta.sync.soloPro': 'Sinkronisasi antarperangkat adalah bagian dari Pro.',
   'cuenta.sync.ahora': 'Sinkronkan sekarang',
   'cuenta.sync.activar': 'Aktifkan sinkronisasi antarperangkat',
   'cuenta.sync.soloPro': 'Sinkronisasi antarperangkat adalah bagian dari Pro.',

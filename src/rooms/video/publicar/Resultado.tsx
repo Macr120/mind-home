@@ -69,7 +69,7 @@ export function Resultado({
         <p className="text-sm font-semibold">
           {cancelado ? t('video.publicar.trabajo.cancelado', 'Subida cancelada') : t('video.publicar.resultado.error', 'No se pudo publicar en {red}', { red })}
         </p>
-        {trabajo.error && <p className="text-xs leading-relaxed text-white/60">{trabajo.error}</p>}
+        {trabajo.error && <p className="whitespace-pre-line text-xs leading-relaxed text-white/60">{trabajo.error}</p>}
       </div>
       <div className="flex flex-wrap justify-end gap-2">
         <BotonSecundario pequeno onClick={onEditar}>

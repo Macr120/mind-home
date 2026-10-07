@@ -7615,6 +7615,7 @@ export const HI: Dict = {
   'cuenta.sync.activo': 'सिंक हो रहा है…',
   'cuenta.sync.ultima': 'सिंक हुआ: {f}',
   'cuenta.sync.nunca': 'अभी तक सिंक नहीं हुआ',
+  'cuenta.sync.soloPro': 'डिवाइसों के बीच सिंक Pro का हिस्सा है।',
   'cuenta.sync.ahora': 'सिंक करें',
   'cuenta.sync.activar': 'उपकरणों के बीच सिंक चालू करें',
   'cuenta.sync.soloPro': 'डिवाइसों के बीच सिंक Pro का हिस्सा है।',

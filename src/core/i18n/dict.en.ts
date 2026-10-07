@@ -7756,6 +7756,7 @@ export const EN: Dict = {
   'cuenta.sync.activo': 'Syncing…',
   'cuenta.sync.ultima': 'Synced: {f}',
   'cuenta.sync.nunca': 'Not synced yet',
+  'cuenta.sync.soloPro': 'Syncing across devices is part of Pro.',
   'cuenta.sync.ahora': 'Sync now',
   'cuenta.sync.activar': 'Turn on sync across devices',
   'cuenta.sync.soloPro': 'Syncing across devices is part of Pro.',

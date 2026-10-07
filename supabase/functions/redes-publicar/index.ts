@@ -49,7 +49,6 @@ import { cuentaVigente, type Cuenta } from '../_shared/redes/tokens.ts'
 const TROZO_BYTES = 8 * 1024 * 1024
 /** El último trozo se lleva el resto (< 2 × trozo); nada mayor se lee siquiera. */
 const TROZO_MAX = 2 * TROZO_BYTES + 65_536
-const MIN_TROZO_TIKTOK = 5 * 1024 * 1024
 const TOPE_TAMANO: Record<Plataforma, number> = {
   youtube: 2 * 1024 ** 3,
   tiktok: 2 * 1024 ** 3,
@@ -212,7 +211,8 @@ async function iniciarPublicacion(admin: SupabaseClient, uid: string, cuerpo: Re
     if (!titulo) throw new ErrorRedes('peticion-invalida', 'TikTok necesita un título.')
     const post: PostTikTok = {
       title: titulo,
-      privacy_level: privacidad,
+      // Sin la auditoría TikTok rechaza en init cualquier privacidad que no sea SELF_ONLY: se fuerza, como en YouTube.
+      privacy_level: bandera('REDES_TIKTOK_AUDITADO') ? privacidad : 'SELF_ONLY',
       // Lo que el creador tiene apagado en TikTok se respeta aunque la UI mande otra cosa.
       disable_comment: !info.comentarios || tt.disable_comment === true,
       disable_duet: !info.duet || tt.disable_duet === true,
@@ -221,7 +221,9 @@ async function iniciarPublicacion(admin: SupabaseClient, uid: string, cuerpo: Re
       brand_organic_toggle: tt.brand_organic_toggle === true,
       is_aigc: tt.is_aigc === true,
     }
-    trozo = tamano < MIN_TROZO_TIKTOK ? tamano : TROZO_BYTES
+    // Si cabe en un solo trozo (< 2 × trozo) va de una vez: con un único trozo TikTok exige chunk_size = tamaño
+    // («The chunk size is invalid» con videos de 5 a 16 MB).
+    trozo = tamano < 2 * TROZO_BYTES ? tamano : TROZO_BYTES
     const s = await iniciarPostTikTok(cuenta.access_token, post, tamano, trozo)
     remoto = { publish_id: s.publish_id, upload_url: s.upload_url }
     poll_ms = 15_000 // 6 peticiones/min por token, y creator_info + init ya gastaron dos

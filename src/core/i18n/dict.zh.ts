@@ -7277,6 +7277,7 @@ export const ZH: Dict = {
   'cuenta.sync.activo': '同步中…',
   'cuenta.sync.ultima': '已同步：{f}',
   'cuenta.sync.nunca': '尚未同步',
+  'cuenta.sync.soloPro': '跨设备同步是 Pro 的功能。',
   'cuenta.sync.ahora': '立即同步',
   'cuenta.sync.activar': '开启跨设备同步',
   'cuenta.sync.soloPro': '设备间同步是 Pro 的功能。',
