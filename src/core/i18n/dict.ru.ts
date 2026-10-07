@@ -7621,6 +7621,7 @@ export const RU: Dict = {
   'cuenta.sync.activo': 'Синхронизация…',
   'cuenta.sync.ultima': 'Синхронизировано: {f}',
   'cuenta.sync.nunca': 'Ещё не синхронизировано',
+  'cuenta.sync.soloPro': 'Синхронизация между устройствами входит в Pro.',
   'cuenta.sync.ahora': 'Синхронизировать',
   'cuenta.sync.activar': 'Включить синхронизацию между устройствами',
   'cuenta.codigo.canjear': 'Активировать промокод',

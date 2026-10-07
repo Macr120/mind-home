@@ -7716,6 +7716,7 @@ export const NL: Dict = {
   'cuenta.sync.activo': 'Synchroniseren…',
   'cuenta.sync.ultima': 'Gesynchroniseerd: {f}',
   'cuenta.sync.nunca': 'Nog niet gesynchroniseerd',
+  'cuenta.sync.soloPro': 'Synchroniseren tussen apparaten hoort bij Pro.',
   'cuenta.sync.ahora': 'Synchroniseren',
   'cuenta.sync.activar': 'Synchronisatie tussen apparaten inschakelen',
   'cuenta.codigo.canjear': 'Promotiecode inwisselen',

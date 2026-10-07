@@ -211,7 +211,8 @@ async function iniciarPublicacion(admin: SupabaseClient, uid: string, cuerpo: Re
     if (!titulo) throw new ErrorRedes('peticion-invalida', 'TikTok necesita un título.')
     const post: PostTikTok = {
       title: titulo,
-      privacy_level: privacidad,
+      // Sin la auditoría TikTok rechaza en init cualquier privacidad que no sea SELF_ONLY: se fuerza, como en YouTube.
+      privacy_level: bandera('REDES_TIKTOK_AUDITADO') ? privacidad : 'SELF_ONLY',
       // Lo que el creador tiene apagado en TikTok se respeta aunque la UI mande otra cosa.
       disable_comment: !info.comentarios || tt.disable_comment === true,
       disable_duet: !info.duet || tt.disable_duet === true,

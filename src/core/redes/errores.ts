@@ -27,13 +27,21 @@ const TEXTO_ERROR: Record<CodigoErrorRedes, string> = {
   cancelado: 'Cancelado.',
 }
 
+/** Textos de 'proveedor' que no dicen nada más que el genérico traducido. */
+const GENERICOS = new Set([TEXTO_ERROR.proveedor, 'El servidor de MindHaOS no respondió.'])
+
 /**
  * El error para mostrarlo. En español se queda el texto concreto (el del servidor
  * o el de la app); en los demás idiomas, el de su código, que sí está traducido.
  */
 export function mensajeErrorRedes(e: unknown): string {
   const es = idiomaActual() === 'es'
-  if (e instanceof ErrorRedes) return es ? e.message : tGlobal(`redes.err.${e.codigo}`, TEXTO_ERROR[e.codigo] ?? e.message)
+  if (e instanceof ErrorRedes) {
+    if (es) return e.message
+    const texto = tGlobal(`redes.err.${e.codigo}`, TEXTO_ERROR[e.codigo] ?? e.message)
+    // El motivo de la red («TikTok: The chunk size is invalid») va debajo sin traducir: sin él no hay diagnóstico.
+    return e.codigo === 'proveedor' && !GENERICOS.has(e.message) ? `${texto}\n${e.message}` : texto
+  }
   if (es && e instanceof Error && e.message) return e.message
   return tGlobal('redes.err.generico', 'No se pudo completar la publicación. Inténtalo de nuevo.')
 }

@@ -7338,6 +7338,7 @@ export const KO: Dict = {
   'cuenta.sync.activo': '동기화 중…',
   'cuenta.sync.ultima': '동기화 완료: {f}',
   'cuenta.sync.nunca': '아직 동기화하지 않음',
+  'cuenta.sync.soloPro': '기기 간 동기화는 Pro에 포함되어 있습니다.',
   'cuenta.sync.ahora': '지금 동기화',
   'cuenta.sync.activar': '기기 간 동기화 켜기',
   'cuenta.codigo.canjear': '프로모션 코드 사용하기',

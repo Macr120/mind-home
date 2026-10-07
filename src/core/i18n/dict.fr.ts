@@ -7746,6 +7746,7 @@ export const FR: Dict = {
   'cuenta.sync.activo': 'Synchronisation…',
   'cuenta.sync.ultima': 'Synchronisé : {f}',
   'cuenta.sync.nunca': 'Pas encore synchronisé',
+  'cuenta.sync.soloPro': 'La synchronisation entre appareils fait partie de Pro.',
   'cuenta.sync.ahora': 'Synchroniser',
   'cuenta.sync.activar': 'Activer la synchronisation entre appareils',
   'cuenta.codigo.canjear': 'Utiliser un code promo',
