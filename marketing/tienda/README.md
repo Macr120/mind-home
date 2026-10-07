@@ -42,6 +42,8 @@ Si App Store Connect pide además el 6.5", valen los de `appstore/` reescalados 
 
 ```
 ipad/<idioma>.png                    2048×2732 — 12.9" del App Store, obligatorio solo si se publica para iPad
+duo-exterior/<idioma>.png            1398×2034 — iPhone Duo, pantalla exterior
+duo-interior/<idioma>.png            2007×2853 — iPhone Duo, pantalla interior (plegable)
 feature-graphic-1024x500.png         1024×500 — banner de cabecera de Play
 capturas/mapa-completo.png           2048×1000 — el mapa entero, sin marco
 ```
@@ -112,6 +114,12 @@ node marketing/tienda/generador/resize.mjs   # ajustar el ancho/alto ahí dentro
 node marketing/tienda/generador/capturar-ipad.mjs
 node marketing/tienda/generador/exportar-ipad.mjs
 ```
+
+**iPhone Duo** (oct 2026): la misma lámina de iPad con el aspecto de cada pantalla
+del Duo, con `--formato=duo-exterior` o `--formato=duo-interior` en los dos
+scripts (los tamaños viven en `FORMATOS` de `plantilla-ipad.mjs`). Apple los
+exige desde abril de 2027 a las apps compiladas con el SDK de iOS 27.1; en oct
+2026 App Store Connect publica los tamaños pero aún no deja subirlos.
 
 ## Microsoft Store
 
