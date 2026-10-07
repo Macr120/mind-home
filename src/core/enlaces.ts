@@ -11,13 +11,6 @@ import { useFoco } from './state/focoStore'
  * Enlaces web de los objetos del mapa y del chat: normalizar la URL tecleada,
  * abrirla en el navegador que toque por plataforma y registrar la visita
  * (`visitasWeb`) y la página (`historialWeb`).
- *
- * iOS NO lleva navegador propio incrustado (el WebView de Capgo, con su barra
- * de dirección): el cuestionario de edad del App Store lo cuenta como «acceso
- * web sin restricciones» y obliga a 18+. Ahí todo —enlaces, URLs tecleadas y
- * búsquedas del modo web— abre en SFSafariViewController (`@capacitor/browser`):
- * el visor del sistema, sin barra editable y con los controles parentales de
- * Safari. La vista Navegador del chat se queda (sitios, historial, tiempo).
  */
 
 export { hostDe, sitioDe }
@@ -43,7 +36,7 @@ export function normalizarUrl(texto: string): string | null {
   }
 }
 
-// ——— Teléfono: WebView in-app de Capgo (solo Android; ver arriba lo de iOS) ———
+// ——— Teléfono: WebView in-app de Capgo (Android e iOS) ———
 
 /** La visita del sitio actual en el WebView del teléfono. */
 let visitaMovil: VisitaEnCurso | null = null
@@ -123,7 +116,7 @@ async function alPaginaMovil(d: { url?: string; titulo?: string; icono?: string 
 }
 
 /**
- * Android: WebView in-app de `@capgo/inappbrowser` en vez del navegador
+ * Android e iOS: WebView in-app de `@capgo/inappbrowser` en vez del navegador
  * del sistema. A cambio de las sesiones de Chrome/Safari (el WebView tiene su
  * PROPIO tarro de cookies persistente, como la sesión del navegador del
  * escritorio), el plugin avisa de cada cambio de URL → visitas por sitio,
@@ -222,10 +215,9 @@ export function faviconDe(url: string): string | null {
 
 /**
  * Abre el enlace y registra la visita. En el escritorio con shell usa el
- * navegador EMBEBIDO con pestañas (`navegadorStore`); en Android el WebView
- * in-app de Capgo, y si falla, el navegador in-app de Capacitor (Custom Tabs);
- * en iOS SIEMPRE el de Capacitor (SFSafariViewController, ver la cabecera),
- * con la duración al cerrarse; en web
+ * navegador EMBEBIDO con pestañas (`navegadorStore`); en Android e iOS el
+ * WebView in-app de Capgo, y si falla, el navegador in-app de Capacitor
+ * (Custom Tabs / SFSafariViewController) con la duración al cerrarse; en web
  * abre pestaña nueva y solo se cuenta la apertura — no hay cierre que oír.
  */
 export async function abrirEnlace(url: string, nombre?: string): Promise<void> {
@@ -239,7 +231,7 @@ export async function abrirEnlace(url: string, nombre?: string): Promise<void> {
   // (`mhNativa(true)`) la implementación web del plugin es un no-op silencioso
   // — parecería que el enlace no hace nada. Fingido, mejor el respaldo de abajo.
   const plataforma = Capacitor.getPlatform()
-  if (plataforma === 'android') {
+  if (plataforma === 'android' || plataforma === 'ios') {
     try {
       await abrirEnMovil(url, nombre)
       return
