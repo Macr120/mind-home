@@ -149,19 +149,18 @@ export const useRedes = create<RedesState>((set, get) => ({
 const SIN_META: readonly Plataforma[] = PLATAFORMAS.filter((p) => p !== 'facebook' && p !== 'instagram')
 
 /**
- * Las redes que se ofrecen en este dispositivo. En iOS, Facebook e Instagram no
- * salen mientras la app de Meta no tenga aprobados sus permisos
- * (`avisos.meta === 'modo-desarrollo'`, o sea `REDES_META_LIVE` a 0): con acceso
- * estándar solo conectan las cuentas con rol en la app de Meta, y el revisor de
- * Apple se toparía con «app no disponible» — una función a medias (2.1/2.2).
- * Sin el estado cargado también se ocultan: mejor faltar que fallar. Al poner la
- * bandera a 1 aparecen solas, sin build nuevo.
+ * Las redes que se ofrecen en este dispositivo. En iOS, Facebook e Instagram NO
+ * salen hasta que Meta apruebe sus permisos: con acceso estándar solo conectan
+ * las cuentas con rol en la app de Meta, y el revisor de Apple se toparía con
+ * «app no disponible» — una función a medias (2.1/2.2).
+ *
+ * No se cuelga de `REDES_META_LIVE`: esa bandera está a 1 desde el 6-oct-2026
+ * para el screencast de Meta (solo quita el aviso de «en revisión»), así que no
+ * dice si Meta aprobó. Cuando apruebe, se quita esto en una versión nueva y se
+ * declara en las notas a Apple (sin funciones encendidas en remoto, 2.3.1).
  */
 export function usePlataformasVisibles(): readonly Plataforma[] {
-  const ocultarMeta = useRedes(
-    (s) => esAppNativa() && Capacitor.getPlatform() === 'ios' && (!s.cargado || s.avisos.meta === 'modo-desarrollo'),
-  )
-  return ocultarMeta ? SIN_META : PLATAFORMAS
+  return esAppNativa() && Capacitor.getPlatform() === 'ios' ? SIN_META : PLATAFORMAS
 }
 
 export function arrancarRedes(traducirError?: (e: unknown) => string): void {
