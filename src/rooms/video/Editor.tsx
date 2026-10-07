@@ -88,7 +88,7 @@ import {
   TAMANOS_AVATAR,
 } from './constantes'
 import { OP_GUION, OP_TITULOS, OP_TRADUCIR } from './costosIA'
-import { capturarEscena3d, exportarVideo, firmaExport, mimeExport, type ExportListo } from './exportar'
+import { avisoSinSoporte, capturarEscena3d, exportarVideo, firmaExport, mimeExport, type ExportListo } from './exportar'
 import { crearPool, type PoolFuentes } from './fuentes'
 import { blobDeMedio, mapaUidsDe, remapearMedios } from './nube'
 import { GrabarMedioModal, type TipoGrabacion } from './GrabarMedio'
@@ -1365,10 +1365,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
     setReproduciendo(false)
     const r = await iniciarGrabacionPantalla({ proyectoId: id, cursor: tiempoRef.current })
     if (r === 'sin-soporte') {
-      await confirmar({
-        titulo: t('video.export.sinSoporte', 'Este navegador no puede grabar video'),
-        mensaje: t('video.export.sinSoporteMsg', 'Prueba en Chrome o en la app de escritorio.'),
-      })
+      await confirmar(avisoSinSoporte(t))
     }
   }
   // La toma vuelve con el proyecto: entra en la principal donde estaba el cursor (el motor ya existe: su efecto va antes).
@@ -1402,10 +1399,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
     if (!p) return null
     const formato = mimeExport({ preferirMp4: o.preferirMp4 })
     if (!formato) {
-      await confirmar({
-        titulo: t('video.export.sinSoporte', 'Este navegador no puede grabar video'),
-        mensaje: t('video.export.sinSoporteMsg', 'Prueba en Chrome o en la app de escritorio.'),
-      })
+      await confirmar(avisoSinSoporte(t))
       return null
     }
     const previo = ultimoExportRef.current

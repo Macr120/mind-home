@@ -5,7 +5,7 @@ import { BUSCADORES, useAjustesNav, type BuscadorId } from '../../navegador/ajus
 import { categoriasVisibles } from '../../navegador/categoriasWeb'
 import { borrarCategoria, crearCategoria, fijarLimiteCategoria, renombrarCategoria } from '../../navegador/sitios'
 import { activarSyncHistorial, desactivarSyncHistorial, syncHistorialActivo } from '../../navegador/syncHistorial'
-import { hayNavegadorEscritorio } from '../../plataforma'
+import { hayNavegadorEscritorio, nombrePlataforma } from '../../plataforma'
 import { confirmar, pedirTexto } from '../../state/confirmarStore'
 import { useFoco } from '../../state/focoStore'
 import { Icono } from '../iconos/Icono'
@@ -83,38 +83,45 @@ export function TabAjustes() {
     if (ok) await window.mph?.navegador?.limpiarSesion?.()
   }
 
+  // iOS no tiene buscador web ni navegador propio (ver `enlaces.ts`): el buscador
+  // no se usaría y el corte por inactividad solo lo aplica el del escritorio.
+  const ios = nombrePlataforma() === 'ios'
   const selectClase = 'mt-1 w-full rounded-lg border border-white/10 bg-black/30 px-2 py-1.5 text-xs text-white/85 outline-none'
 
   return (
     <div className="space-y-4">
-      <label className="block text-xs text-white/50">
-        {t('nav.ajustes.buscador', 'Buscador para «busca en internet…» y el modo web')}
-        <select value={buscador} onChange={(e) => useAjustesNav.getState().setBuscador(e.target.value as BuscadorId)} className={selectClase}>
-          {BUSCADORES.map((b) => (
-            <option key={b.id} value={b.id}>
-              {b.nombre}
-            </option>
-          ))}
-        </select>
-      </label>
+      {!ios && (
+        <label className="block text-xs text-white/50">
+          {t('nav.ajustes.buscador', 'Buscador para «busca en internet…» y el modo web')}
+          <select value={buscador} onChange={(e) => useAjustesNav.getState().setBuscador(e.target.value as BuscadorId)} className={selectClase}>
+            {BUSCADORES.map((b) => (
+              <option key={b.id} value={b.id}>
+                {b.nombre}
+              </option>
+            ))}
+          </select>
+        </label>
+      )}
 
-      <label className="block text-xs text-white/50">
-        {t('nav.ajustes.inactivo', 'Dejar de contar el tiempo tras estar sin tocar nada')}
-        <select
-          value={INACTIVO_OPCIONES.includes(inactivoSeg) ? inactivoSeg : 120}
-          onChange={(e) => useAjustesNav.getState().setInactivoSeg(Number(e.target.value))}
-          className={selectClase}
-        >
-          {INACTIVO_OPCIONES.map((s) => (
-            <option key={s} value={s}>
-              {t('nav.ajustes.minutos', '{n} min', { n: s / 60 })}
-            </option>
-          ))}
-        </select>
-        <span className="mt-1 block text-[10px] text-white/35">
-          {t('nav.ajustes.inactivoExplica', 'Un video sonando sigue contando aunque no toques nada. Solo en el escritorio.')}
-        </span>
-      </label>
+      {!ios && (
+        <label className="block text-xs text-white/50">
+          {t('nav.ajustes.inactivo', 'Dejar de contar el tiempo tras estar sin tocar nada')}
+          <select
+            value={INACTIVO_OPCIONES.includes(inactivoSeg) ? inactivoSeg : 120}
+            onChange={(e) => useAjustesNav.getState().setInactivoSeg(Number(e.target.value))}
+            className={selectClase}
+          >
+            {INACTIVO_OPCIONES.map((s) => (
+              <option key={s} value={s}>
+                {t('nav.ajustes.minutos', '{n} min', { n: s / 60 })}
+              </option>
+            ))}
+          </select>
+          <span className="mt-1 block text-[10px] text-white/35">
+            {t('nav.ajustes.inactivoExplica', 'Un video sonando sigue contando aunque no toques nada. Solo en el escritorio.')}
+          </span>
+        </label>
+      )}
 
       <SeccionFoco categorias={categorias} />
 

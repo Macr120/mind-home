@@ -92,6 +92,7 @@ export const KO_TUT: Dict = {
   'tut.casa.asistente.titulo': '채팅 메뉴',
   'tut.casa.asistente.texto':
     '이 버튼을 누르면 채팅 메뉴가 열려요. 위쪽에 네 가지 보기가 있어요. 어시스턴트, 친구, 장소, 브라우저. 오른쪽의 매뉴얼과 ⚙는 선택한 보기에 따라 바뀌어요. 하나씩 볼까요…',
+  'tut.casa.asistente.textoIos': '이 버튼을 누르면 채팅 메뉴가 열려요. 위쪽에 세 가지 보기가 있어요. 어시스턴트, 친구, 장소. 오른쪽의 매뉴얼과 ⚙는 선택한 보기에 따라 바뀌어요. 하나씩 볼까요…',
   'tut.casa.vAsistentes.titulo': '어시스턴트',
   'tut.casa.vAsistentes.texto': '채팅에서 대답해 주는 친구들이에요. 각자의 대화를 열고, 더 만들고, ⚙에서 모습과 목소리와 성격을 정해 보세요.',
   'tut.casa.vAmigos.titulo': '친구',
@@ -896,6 +897,7 @@ export const KO_TUT: Dict = {
   'tut.app-archivos--esencial.4.titulo': '올리기와 만들기',
   'tut.app-archivos--esencial.4.texto':
     'Pro가 있으면 \'새로 만들기\'로 폴더를 만들거나 파일을 올릴 수 있고, 웹이나 데스크톱 앱에서는 폴더째 올릴 수도 있어요. 컴퓨터에서 \'파일\'로 바로 끌어다 놓을 수도 있고, 안에 있는 것은 끌어서 다른 폴더로 옮겨요.',
+  'tut.app-archivos--esencial.4.textoIos': 'Pro가 있으면 \'새로 만들기\'로 폴더를 만들거나 파일을 올릴 수 있고, 안에 있는 것은 끌어서 다른 폴더로 옮겨요.',
   'tut.app-archivos--esencial.5.titulo': '검색과 정렬',
   'tut.app-archivos--esencial.5.texto':
     '\'내 파일\'에서는 검색창이 모든 파일을 찾고, 다른 섹션에서는 지금 보이는 것만 찾아요. 옆에서 이름, 날짜, 크기 중 정렬 순서를 고르고 격자 보기와 목록 보기를 바꿀 수 있어요.',

@@ -2,6 +2,7 @@ import { Fragment, useEffect, useMemo, useRef, useState } from 'react'
 import type { ItinerarioNav, LugarViaje, PiernaNav, PuntoNav, TrayectoViaje } from '../../../core/data/db'
 import { VACIO, categoriasLugarRepo, lugaresNavRepo, trayectosViajeRepo } from '../../../core/data/repository'
 import { localeActual, useT, type TFunc } from '../../../core/i18n/useT'
+import { nombrePlataforma } from '../../../core/plataforma'
 import { useAjustes } from '../../../core/state/ajustesStore'
 import { useMascota } from '../../../core/state/mascotaStore'
 import { confirmar, pedirTexto } from '../../../core/state/confirmarStore'
@@ -709,7 +710,10 @@ export default function NavegarTab({ lugares }: Props) {
         >
           {!conClave && (
             <p className="rounded-lg border border-amber-400/30 bg-amber-400/10 px-3 py-2 text-xs text-amber-200">
-              {t('sala.nav.sinClave', 'Falta configurar el servicio de rutas (VITE_HERE_KEY). Mientras tanto, esta pestaña solo muestra los trayectos guardados.')}
+              {/* En iOS sin nombres de variables ni jerga de desarrollo (2.3.10). */}
+              {nombrePlataforma() === 'ios'
+                ? t('sala.nav.sinClaveIos', 'El servicio de rutas no está disponible por ahora. Mientras tanto, esta pestaña solo muestra los trayectos guardados.')
+                : t('sala.nav.sinClave', 'Falta configurar el servicio de rutas (VITE_HERE_KEY). Mientras tanto, esta pestaña solo muestra los trayectos guardados.')}
             </p>
           )}
 

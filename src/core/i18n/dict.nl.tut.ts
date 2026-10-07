@@ -102,6 +102,7 @@ export const NL_TUT: Dict = {
   'tut.casa.asistente.titulo': 'Het chatmenu',
   'tut.casa.asistente.texto':
     'Deze knop opent het chatmenu, met vier weergaven bovenaan: Assistenten, Vrienden, Plekken en Browser. De Handleiding en de ⚙ rechts veranderen mee met de gekozen weergave. Ik laat ze je zien…',
+  'tut.casa.asistente.textoIos': 'Deze knop opent het chatmenu, met drie weergaven bovenaan: Assistenten, Vrienden en Plekken. De Handleiding en de ⚙ rechts veranderen mee met de gekozen weergave. Ik laat ze je zien…',
   'tut.casa.vAsistentes.titulo': 'Assistenten',
   'tut.casa.vAsistentes.texto':
     'Degenen die je antwoorden in de chat. Open ieders gesprek, maak er meer en geef ze vorm, stem en persoonlijkheid via de ⚙.',
@@ -1121,6 +1122,7 @@ export const NL_TUT: Dict = {
   'tut.app-archivos--esencial.4.titulo': 'Uploaden en maken',
   'tut.app-archivos--esencial.4.texto':
     'Met Pro maakt “Nieuw” een map of uploadt het bestanden, en op het web of in de desktop-app ook hele mappen. Vanaf je computer kun je ze ook meteen in Bestanden neerzetten, en wat er al in staat, verplaats je naar een andere map door het te slepen.',
+  'tut.app-archivos--esencial.4.textoIos': 'Met Pro maakt “Nieuw” een map of uploadt het bestanden, en wat er al in staat, verplaats je naar een andere map door het te slepen.',
   'tut.app-archivos--esencial.5.titulo': 'Zoeken en sorteren',
   'tut.app-archivos--esencial.5.texto':
     'In Mijn bestanden zoekt de zoekbalk in al je bestanden, in andere onderdelen alleen in wat je voor je hebt. Ernaast kies je de volgorde, op naam, datum of grootte, en wissel je tussen raster en lijst.',

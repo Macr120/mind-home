@@ -1,5 +1,5 @@
 import { Capacitor, CapacitorHttp } from '@capacitor/core'
-import { esAppNativa, hayNavegadorEscritorio } from './plataforma'
+import { esAppNativa, hayNavegadorEscritorio, nombrePlataforma } from './plataforma'
 import { hostDe, sitioDe } from './navegador/dominio'
 import { abrirVisita, cerrarVisita, mismoSitio, pausarVisita, reanudarVisita, sellarVisita, type VisitaEnCurso } from './navegador/visitas'
 import { guardarFavicon, ponerTituloPagina, registrarPagina } from './navegador/historial'
@@ -11,6 +11,12 @@ import { useFoco } from './state/focoStore'
  * Enlaces web de los objetos del mapa y del chat: normalizar la URL tecleada,
  * abrirla en el navegador que toque por plataforma y registrar la visita
  * (`visitasWeb`) y la página (`historialWeb`).
+ *
+ * iOS NO tiene navegador propio: el cuestionario de edad del App Store marca
+ * «acceso web sin restricciones» (y obliga a 18+) si la app trae un navegador
+ * con barra de dirección o deja teclear cualquier URL. Ahí los enlaces abren en
+ * SFSafariViewController (`@capacitor/browser`, sin barra editable y con los
+ * controles parentales de Safari) y el chat no abre URLs ni búsquedas.
  */
 
 export { hostDe, sitioDe }
@@ -36,7 +42,7 @@ export function normalizarUrl(texto: string): string | null {
   }
 }
 
-// ——— Teléfono: WebView in-app de Capgo (Android e iOS) ———
+// ——— Teléfono: WebView in-app de Capgo (solo Android; ver arriba lo de iOS) ———
 
 /** La visita del sitio actual en el WebView del teléfono. */
 let visitaMovil: VisitaEnCurso | null = null
@@ -116,7 +122,7 @@ async function alPaginaMovil(d: { url?: string; titulo?: string; icono?: string 
 }
 
 /**
- * Android e iOS: WebView in-app de `@capgo/inappbrowser` en vez del navegador
+ * Android: WebView in-app de `@capgo/inappbrowser` en vez del navegador
  * del sistema. A cambio de las sesiones de Chrome/Safari (el WebView tiene su
  * PROPIO tarro de cookies persistente, como la sesión del navegador del
  * escritorio), el plugin avisa de cada cambio de URL → visitas por sitio,
@@ -177,6 +183,8 @@ async function abrirEnMovil(url: string, nombre?: string): Promise<void> {
  * decimal suelto abriría el navegador.
  */
 export function urlDeMensaje(texto: string): string | null {
+  // En iOS el chat no es un navegador (ver la cabecera): la URL va al asistente.
+  if (nombrePlataforma() === 'ios') return null
   const limpio = texto.trim()
   const verbo = /^(?:abre|abrir|visita|visitar|navega a|entra a|ve a|open|go to)\s+(\S+)$/i.exec(limpio)
   const candidato = verbo ? verbo[1] : limpio
@@ -191,6 +199,7 @@ export function urlDeMensaje(texto: string): string | null {
  * Verbo EXPLÍCITO: sin él, el texto es del asistente (salvo en modo web).
  */
 export function busquedaDeMensaje(texto: string): string | null {
+  if (nombrePlataforma() === 'ios') return null
   const m =
     /^(?:busca(?:r)? en (?:internet|la web|google)|busca en línea|web|google|internet|search (?:the )?web|search)\s*:?\s+(.+)$/i.exec(
       texto.trim(),
@@ -201,6 +210,8 @@ export function busquedaDeMensaje(texto: string): string | null {
 
 /** Abre los resultados de `consulta` en el buscador elegido (ver `navegador/ajustes.ts`). */
 export function abrirBusqueda(consulta: string): Promise<void> {
+  // En iOS no hay buscador web (ver la cabecera): ni el modo web del chat abre nada.
+  if (nombrePlataforma() === 'ios') return Promise.resolve()
   return abrirEnlace(urlBusqueda(consulta, useAjustesNav.getState().buscador))
 }
 
@@ -215,9 +226,10 @@ export function faviconDe(url: string): string | null {
 
 /**
  * Abre el enlace y registra la visita. En el escritorio con shell usa el
- * navegador EMBEBIDO con pestañas (`navegadorStore`); en Android e iOS el
- * WebView in-app de Capgo, y si falla, el navegador in-app de Capacitor
- * (Custom Tabs / SFSafariViewController) con la duración al cerrarse; en web
+ * navegador EMBEBIDO con pestañas (`navegadorStore`); en Android el WebView
+ * in-app de Capgo, y si falla, el navegador in-app de Capacitor (Custom Tabs);
+ * en iOS SIEMPRE el de Capacitor (SFSafariViewController, ver la cabecera),
+ * con la duración al cerrarse; en web
  * abre pestaña nueva y solo se cuenta la apertura — no hay cierre que oír.
  */
 export async function abrirEnlace(url: string, nombre?: string): Promise<void> {
@@ -231,7 +243,7 @@ export async function abrirEnlace(url: string, nombre?: string): Promise<void> {
   // (`mhNativa(true)`) la implementación web del plugin es un no-op silencioso
   // — parecería que el enlace no hace nada. Fingido, mejor el respaldo de abajo.
   const plataforma = Capacitor.getPlatform()
-  if (plataforma === 'android' || plataforma === 'ios') {
+  if (plataforma === 'android') {
     try {
       await abrirEnMovil(url, nombre)
       return

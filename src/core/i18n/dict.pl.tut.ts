@@ -102,6 +102,7 @@ export const PL_TUT: Dict = {
   'tut.casa.asistente.titulo': 'Menu czatu',
   'tut.casa.asistente.texto':
     'Ten przycisk otwiera menu czatu, z czterema widokami u góry: Asystenci, Znajomi, Miejsca i Przeglądarka. Podręcznik i ⚙ po prawej zmieniają się zależnie od wybranego widoku. Pokażę ci je…',
+  'tut.casa.asistente.textoIos': 'Ten przycisk otwiera menu czatu, z trzema widokami u góry: Asystenci, Znajomi i Miejsca. Podręcznik i ⚙ po prawej zmieniają się zależnie od wybranego widoku. Pokażę ci je…',
   'tut.casa.vAsistentes.titulo': 'Asystenci',
   'tut.casa.vAsistentes.texto':
     'Ci, którzy odpowiadają ci na czacie. Otwieraj rozmowę z każdym, twórz kolejnych i nadaj im kształt, głos i osobowość w ⚙.',
@@ -1121,6 +1122,7 @@ export const PL_TUT: Dict = {
   'tut.app-archivos--esencial.4.titulo': 'Przesyłanie i tworzenie',
   'tut.app-archivos--esencial.4.texto':
     'Z Pro przycisk „Nowy” tworzy folder lub przesyła pliki, a w przeglądarce i w aplikacji na komputer także całe foldery. Możesz też upuścić je prosto z komputera do Plików, a to, co już jest w środku, przenosisz do innego folderu, przeciągając.',
+  'tut.app-archivos--esencial.4.textoIos': 'Z Pro przycisk „Nowy” tworzy folder lub przesyła pliki, a to, co już jest w środku, przenosisz do innego folderu, przeciągając.',
   'tut.app-archivos--esencial.5.titulo': 'Szukanie i sortowanie',
   'tut.app-archivos--esencial.5.texto':
     'W Moich plikach wyszukiwarka przeszukuje wszystkie twoje pliki, a w innych sekcjach tylko to, co masz przed sobą. Obok wybierasz kolejność – według nazwy, daty lub rozmiaru – i przełączasz między siatką a listą.',

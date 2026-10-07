@@ -102,6 +102,7 @@ export const ID_TUT: Dict = {
   'tut.casa.asistente.titulo': 'Menu chat',
   'tut.casa.asistente.texto':
     'Tombol ini membuka menu chat, dengan empat tampilan di atas: Asisten, Teman, Tempat, dan Browser. Manual dan ⚙ di kanan berubah sesuai tampilan yang dipilih. Aku tunjukkan…',
+  'tut.casa.asistente.textoIos': 'Tombol ini membuka menu chat, dengan tiga tampilan di atas: Asisten, Teman, dan Tempat. Manual dan ⚙ di kanan berubah sesuai tampilan yang dipilih. Aku tunjukkan…',
   'tut.casa.vAsistentes.titulo': 'Asisten',
   'tut.casa.vAsistentes.texto':
     'Mereka yang menjawab kamu di chat. Buka percakapan masing-masing, buat yang baru, dan beri bentuk, suara, serta kepribadian dari ⚙.',
@@ -1123,6 +1124,7 @@ export const ID_TUT: Dict = {
   'tut.app-archivos--esencial.4.titulo': 'Unggah dan buat',
   'tut.app-archivos--esencial.4.texto':
     'Dengan Pro, “Baru” membuat folder atau mengunggah berkas, dan di web atau aplikasi desktop juga seluruh folder. Dari komputermu kamu juga bisa langsung menjatuhkannya ke Berkas, dan yang sudah ada di dalam bisa dipindahkan ke folder lain dengan menyeretnya.',
+  'tut.app-archivos--esencial.4.textoIos': 'Dengan Pro, “Baru” membuat folder atau mengunggah berkas, dan yang sudah ada di dalam bisa dipindahkan ke folder lain dengan menyeretnya.',
   'tut.app-archivos--esencial.5.titulo': 'Cari dan urutkan',
   'tut.app-archivos--esencial.5.texto':
     'Di Berkasku, kolom pencarian mencari di semua berkasmu; di bagian lain, hanya di yang sedang kamu lihat. Di sebelahnya kamu memilih urutan, berdasarkan nama, tanggal, atau ukuran, dan beralih antara kisi dan daftar.',

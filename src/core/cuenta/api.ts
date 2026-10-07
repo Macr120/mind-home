@@ -30,6 +30,8 @@ export type CodigoErrorIA =
   | 'peticion-invalida'
   | 'sin-jev'
   | 'rechazo'
+  /** La moderación de `ia-imagen` (o el filtro local) rechazó el prompt. */
+  | 'contenido'
 
 /** Error tipado de la vía cuenta; `message` ya viene listo para mostrarse. */
 export class ErrorIA extends Error {
@@ -51,6 +53,11 @@ export function mensajeErrorIA(e: unknown, t: TFunc, fallo?: string): string {
   if (e instanceof ErrorIA) return e.message
   if (idiomaActual() === 'es' && e instanceof Error && e.message) return e.message
   return fallo ?? t('ia.err.generico', 'La IA no pudo completar la tarea. Inténtalo de nuevo.')
+}
+
+/** El aviso de un prompt de imagen rechazado por la moderación (servidor o lista local). */
+export function mensajeContenidoIA(): string {
+  return tGlobal('ia.err.contenido', 'Esa imagen no se puede crear: la petición va contra las normas de contenido.')
 }
 
 /** Transporte elegido en el panel de IA: créditos de la cuenta o claves propias. */

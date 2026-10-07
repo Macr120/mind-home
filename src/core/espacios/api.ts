@@ -16,6 +16,7 @@ import { asegurarNormas } from '../buzon/normas'
 import { obtenerSupabase } from '../cuenta/supabase'
 import { bajarCompartido, borrarCompartidos, subirCompartido } from '../cuenta/compartidos'
 import { ErrorAlmacen } from '../cuenta/almacen'
+import { textoProhibido } from '../moderacion/palabras'
 import type { TFunc } from '../i18n/useT'
 import { espacioLocal } from './transporte'
 import {
@@ -65,6 +66,8 @@ async function rpc<T>(nombre: string, args: Record<string, unknown> = {}): Promi
     if (error.code === 'PGRST301' || error.code === '401') throw new ErrorEspacio('sin-sesion', error.message)
     // El tope diario de quien solo tiene el unlock sale de un trigger (raise), no del JSON.
     if (error.message.includes('tope-diario')) throw new ErrorEspacio('tope-diario', error.message)
+    // El filtro de palabras del título también es un trigger (20261007000101_moderacion.sql).
+    if (error.message.includes('texto-prohibido')) throw new ErrorEspacio('texto-prohibido', error.message)
     throw new ErrorEspacio('servidor', error.message)
   }
   const d = data as { error?: unknown } | null
@@ -161,6 +164,7 @@ export async function crear(
   titulo: string,
   meta: Record<string, unknown> = {},
 ): Promise<Espacio> {
+  if (textoProhibido(titulo)) throw new ErrorEspacio('texto-prohibido')
   await exigirNormas()
   const r = await rpc<{ espacio: FilaEspacio }>('espacio_crear', {
     p_tipo: tipo,
@@ -182,6 +186,7 @@ export async function estado(espacioId: string): Promise<{ espacio: Espacio; mie
 }
 
 export async function editar(espacioId: string, titulo: string, meta: Record<string, unknown>): Promise<void> {
+  if (textoProhibido(titulo)) throw new ErrorEspacio('texto-prohibido')
   await rpc('espacio_editar', { p_id: espacioId, p_titulo: titulo, p_meta: meta })
 }
 
@@ -426,6 +431,8 @@ export function mensajeErrorEspacio(e: unknown, t: TFunc): string {
       return t('esp.error.version', 'Uno de los dos tiene una versión distinta de la app')
     case 'normas':
       return t('esp.error.normas', 'Para compartir con otras personas acepta antes las normas de la comunidad')
+    case 'texto-prohibido':
+      return t('moderacion.textoProhibido', 'Ese texto lleva palabras que van contra las normas de la comunidad. Cámbialo para continuar.')
     case 'red':
       return t('esp.error.red', 'Sin conexión con el servidor')
     default:

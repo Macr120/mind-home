@@ -61,6 +61,7 @@ export function EditorRedesSection({ embed, sinTitulo }: { embed?: boolean; sinT
 function FilaRed({ plataforma, cuenta, cargando }: { plataforma: Plataforma; cuenta: CuentaRed | null; cargando: boolean }) {
   const t = useT()
   const pendiente = useRedes((s) => s.pendiente?.plataforma === plataforma)
+  const tiktokPrivado = useRedes((s) => s.avisos.tiktok === 'solo-yo')
   const [ocupado, setOcupado] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const red = NOMBRE_RED[plataforma]
@@ -112,6 +113,16 @@ function FilaRed({ plataforma, cuenta, cargando }: { plataforma: Plataforma; cue
             {t(
               'video.publicar.cuenta.canalYoutube',
               'Si tu cuenta de Google tiene varios canales, elige cuál usar en la pantalla de Google. Para cambiarlo, vuelve a conectar.',
+            )}
+          </p>
+        )}
+        {/* Mientras TikTok no audite la app, lo publicado queda en «Solo yo»:
+            se avisa ANTES de conectar, no solo en el formulario de publicar. */}
+        {plataforma === 'tiktok' && tiktokPrivado && (
+          <p className="text-[11px] leading-snug text-amber-300/80">
+            {t(
+              'video.publicar.cuenta.tiktokPrivado',
+              'En TikTok, por ahora, las publicaciones se guardan como privadas hasta que TikTok apruebe la app.',
             )}
           </p>
         )}

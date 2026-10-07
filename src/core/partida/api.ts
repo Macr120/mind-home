@@ -8,12 +8,14 @@
  * Ningún uuid ajeno entra ni sale: se invita por `contacto_id` y se expulsa por
  * ranura (`j0`..`j3`).
  */
+import type { MotivoReporte } from '../buzon/api'
 import { obtenerSupabase } from '../cuenta/supabase'
 import { bajarCompartido, borrarCompartidos, subirCompartido } from '../cuenta/compartidos'
 import type { TFunc } from '../i18n/useT'
 import { useDiseño } from '../state/disenoStore'
 import { podar } from './aspecto'
 import { VERSION_PROTO } from './protocolo'
+import { partidaLocal } from './transporte'
 import {
   ErrorPartida,
   type AspectoRemoto,
@@ -190,6 +192,31 @@ export async function salir(partidaId: string): Promise<void> {
 
 export async function expulsar(partidaId: string, ranura: Ranura): Promise<void> {
   await rpc('partida_expulsar', { p_partida: partidaId, p_jugador: ranura })
+}
+
+/**
+ * Reporta a otro jugador de la sala (por ranura) y, con `bloquear`, lo bloquea
+ * también aunque no fuera tu contacto. `charla` son sus últimas líneas: la
+ * charla no se guarda en el servidor, así que la evidencia sale de aquí.
+ */
+export async function reportarJugador(
+  partidaId: string,
+  ranura: Ranura,
+  motivo: MotivoReporte,
+  detalle: string,
+  bloquear: boolean,
+  charla: { tx: string; hora: string }[],
+): Promise<void> {
+  // La sala local de pruebas no tiene servidor: no hay a quién avisar.
+  if (partidaLocal()) return
+  await rpc('partida_reportar', {
+    p_partida: partidaId,
+    p_jugador: ranura,
+    p_motivo: motivo,
+    p_detalle: detalle,
+    p_bloquear: bloquear,
+    p_charla: charla,
+  })
 }
 
 export async function latido(partidaId: string): Promise<void> {

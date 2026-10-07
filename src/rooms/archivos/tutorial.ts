@@ -7,6 +7,7 @@
 import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { abrirApp } from '../../core/abrirApp'
 import { clickTut, elTut, esperarTut } from '../../core/tutorial/dom'
+import { nombrePlataforma } from '../../core/plataforma'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
@@ -68,10 +69,18 @@ export const cuerpoEsencial: CuerpoTutorial = {
     {
       sel: visible('archivos.nuevo', 'archivos.nuevo.movil'),
       titulo: T('tut.app-archivos--esencial.4.titulo', 'Subir y crear'),
-      texto: T(
-        'tut.app-archivos--esencial.4.texto',
-        'Con Pro, «Nuevo» crea una carpeta o sube archivos, y en la web o en la app de escritorio también carpetas enteras. Desde tu equipo puedes además soltarlos en tu Archivo, y lo que ya está dentro se lleva a otra carpeta arrastrándolo.',
-      ),
+      // En iOS no se nombran otras plataformas (App Review, 2.3.10), y allí
+      // no se suben carpetas enteras ni se suelta nada desde el equipo.
+      texto:
+        nombrePlataforma() === 'ios'
+          ? T(
+              'tut.app-archivos--esencial.4.textoIos',
+              'Con Pro, «Nuevo» crea una carpeta o sube archivos, y lo que ya está dentro se lleva a otra carpeta arrastrándolo.',
+            )
+          : T(
+              'tut.app-archivos--esencial.4.texto',
+              'Con Pro, «Nuevo» crea una carpeta o sube archivos, y en la web o en la app de escritorio también carpetas enteras. Desde tu equipo puedes además soltarlos en tu Archivo, y lo que ya está dentro se lleva a otra carpeta arrastrándolo.',
+            ),
       alEntrar: aMiArchivo,
     },
     {

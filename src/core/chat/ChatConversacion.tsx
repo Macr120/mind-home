@@ -6,6 +6,7 @@ import { useVistaGrafo } from '../grafoApps'
 import { refNodo } from '../grafo/memoria'
 import { confirmar } from '../state/confirmarStore'
 import { borrarChat, enChat } from './chatsAsistentes'
+import { reportarRespuestaIa, useRespuestasOcultas } from '../moderacion/reportarIa'
 import { localeActual, useT } from '../i18n/useT'
 import { Icono } from '../ui/iconos/Icono'
 import { BotonVoz, ToggleVozAuto } from '../ui/BotonVoz'
@@ -55,6 +56,8 @@ function ChatConversacionInterno({
   const lista = useAsistentes((s) => s.lista)
   const mensajes = useMensajesAsistente(hiloId)
   const refLista = useRef<HTMLDivElement>(null)
+  const ocultas = useRespuestasOcultas((s) => s.ids)
+  const decir = useMascota((s) => s.decir)
   const escribiendo = pensando && hablanteId === hiloId
   // Mapa conceptual ofrecido por ESTE asistente tras una explicación suya.
   const sugerencia = useSugerenciaMapa((s) =>
@@ -73,6 +76,32 @@ function ChatConversacionInterno({
 
   const asistente = lista.find((a) => a.id === hiloId)
   if (!asistente) return null
+
+  // Las respuestas reportadas se ocultan en este dispositivo.
+  const visibles = (mensajes ?? []).filter((m) => m.id == null || !ocultas.includes(m.id))
+
+  const reportar = async (m: NonNullable<typeof mensajes>[number]) => {
+    if (m.id == null) return
+    // El «prompt» es lo último que escribió el usuario antes de esa respuesta.
+    const todos = mensajes ?? []
+    const previo = todos
+      .slice(0, todos.findIndex((x) => x.id === m.id))
+      .reverse()
+      .find((x) => x.rol === 'usuario')
+    try {
+      const hecho = await reportarRespuestaIa({
+        id: m.id,
+        asistenteId: hiloId,
+        prompt: previo?.texto ?? '',
+        respuesta: m.texto,
+        imagen: m.imagen,
+        creado: m.creado,
+      })
+      if (hecho) decir(t('buzon.reportar.listo', 'Gracias. Lo revisaremos en menos de 24 horas.'), { persistir: false })
+    } catch {
+      decir(t('chat.reportar.error', 'No se pudo enviar el reporte. Inténtalo de nuevo.'), { persistir: false })
+    }
+  }
 
   return (
     <div
@@ -168,9 +197,9 @@ function ChatConversacionInterno({
             <Icono nombre="abajo" />
           </p>
         )}
-        {mensajes?.map((m, i) => {
+        {visibles.map((m, i) => {
           const dia = m.creado.slice(0, 10)
-          const diaPrevio = i > 0 ? mensajes[i - 1].creado.slice(0, 10) : null
+          const diaPrevio = i > 0 ? visibles[i - 1].creado.slice(0, 10) : null
           const esUsuario = m.rol === 'usuario'
           return (
             <div key={m.id}>
@@ -219,6 +248,18 @@ function ChatConversacionInterno({
                   <div className="mt-0.5 flex items-center justify-end gap-1">
                     {/* Escuchar lo que contestó, aunque la lectura automática esté apagada. */}
                     {!esUsuario && <BotonVoz texto={m.texto} asistenteId={hiloId} />}
+                    {/* Reportar lo que generó la IA (texto o imagen); los avisos de la app no. */}
+                    {!esUsuario && !m.sistema && m.id != null && (
+                      <button
+                        type="button"
+                        onClick={() => void reportar(m)}
+                        title={t('chat.reportar', 'Reportar respuesta')}
+                        aria-label={t('chat.reportar', 'Reportar respuesta')}
+                        className="rounded px-1 text-[10px] text-white/25 transition hover:bg-white/10 hover:text-red-400"
+                      >
+                        <Icono nombre="bandera" />
+                      </button>
+                    )}
                     <p className={`text-[9px] ${esUsuario ? 'text-emerald-400/80' : 'text-white/30'}`}>
                       {new Date(m.creado).toLocaleTimeString(localeActual(), {
                         hour: '2-digit',

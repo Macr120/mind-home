@@ -13,6 +13,9 @@
  * `prov` ('openai' | 'gemini') pone delante al proveedor que el usuario eligió
  * en el panel de IA; el resto de la cadena queda detrás como respaldo.
  *
+ * Antes de cobrar, el prompt (y la referencia) pasan por `_shared/moderacion.ts`:
+ * lo rechazado sale como `{error:'contenido'}` 400 sin gastar créditos.
+ *
  * La cuota se cobra UNA vez para toda la cadena (el usuario paga la imagen, no
  * los intentos) y se devuelve solo si fallan todos.
  *
@@ -24,6 +27,7 @@ import { preflight, json, corsDe } from '../_shared/cors.ts'
 import { clienteUsuario, clienteAdmin, usuarioDe } from '../_shared/auth.ts'
 import { dentroDeLimite } from '../_shared/limite.ts'
 import { COSTO_FIJO } from '../_shared/costoUsd.ts'
+import { promptPermitido } from '../_shared/moderacion.ts'
 
 function cadena(valor: string | undefined, porDefecto: string): string[] {
   return (valor ?? porDefecto)
@@ -217,6 +221,15 @@ Deno.serve(async (req) => {
     if (!MIMES_REF.has(referencia.mime)) {
       return json({ error: 'peticion-invalida', mensaje: 'Formato de imagen no soportado.' }, 400, cors)
     }
+  }
+
+  // Moderación ANTES de cobrar: un prompt rechazado no gasta créditos.
+  if (!(await promptPermitido(prompt, referencia))) {
+    return json(
+      { error: 'contenido', mensaje: 'Esa imagen no se puede crear: la petición va contra las normas de contenido.' },
+      400,
+      cors,
+    )
   }
 
   const op = alta ? 'imagen_alta' : 'imagen'

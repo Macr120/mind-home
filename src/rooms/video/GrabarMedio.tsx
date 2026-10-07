@@ -8,6 +8,7 @@ import { Icono } from '../../core/ui/iconos/Icono'
 import { BotonPrimario, BotonSecundario, Modal } from '../_shared/ui'
 import type { MedioConId } from './clipsNuevos'
 import { COLOR } from './constantes'
+import { avisoSinSoporte } from './exportar'
 import { completarGrabacion } from './importar'
 import { SeccionFiltroVoz } from './Secciones'
 
@@ -139,10 +140,7 @@ export function GrabarMedioModal({
   }, [estado])
 
   const sinSoporte = () =>
-    confirmar({
-      titulo: t('video.export.sinSoporte', 'Este navegador no puede grabar video'),
-      mensaje: t('video.export.sinSoporteMsg', 'Prueba en Chrome o en la app de escritorio.'),
-    })
+    confirmar(avisoSinSoporte(t))
 
   const guardar = async (blob: Blob, dur: number) => {
     const duracion = Math.round(dur * 100) / 100

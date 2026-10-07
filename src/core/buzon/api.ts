@@ -3,6 +3,7 @@ import { ErrorAlmacen } from '../cuenta/almacen'
 import { bajarCompartido, borrarCompartidos, subirCompartido } from '../cuenta/compartidos'
 import { useSesion } from '../cuenta/sesionStore'
 import { esDemo } from '../edicion'
+import { textoProhibido } from '../moderacion/palabras'
 import type { TFunc } from '../i18n/useT'
 import {
   ErrorBuzon,
@@ -52,6 +53,8 @@ async function rpc<T>(nombre: string, args: Record<string, unknown> = {}): Promi
     if (error.code === 'PGRST301' || error.code === '401') throw new ErrorBuzon('sin-sesion', error.message)
     // El tope diario de quien solo tiene el unlock sale de un trigger (raise), no del JSON.
     if (error.message.includes('tope-diario')) throw new ErrorBuzon('tope-diario', error.message)
+    // El filtro de palabras también es un trigger (20261007000101_moderacion.sql).
+    if (error.message.includes('texto-prohibido')) throw new ErrorBuzon('texto-prohibido', error.message)
     throw new ErrorBuzon('servidor', error.message)
   }
   const d = data as { error?: unknown } | null
@@ -62,6 +65,7 @@ async function rpc<T>(nombre: string, args: Record<string, unknown> = {}): Promi
 // ─── alias ───────────────────────────────────────────────────────────────────
 
 export async function fijarAlias(alias: string, nombre: string, emoji: string): Promise<void> {
+  if (textoProhibido(alias) || textoProhibido(nombre)) throw new ErrorBuzon('texto-prohibido')
   const r = await rpc<{ alias: string; nombre: string; emoji: string }>('buzon_fijar_alias', {
     p_alias: alias,
     p_nombre: nombre,
@@ -319,6 +323,8 @@ export function mensajeErrorBuzon(e: unknown, t: TFunc): string {
       return t('buzon.err.contenido-grande', 'Este contenido es demasiado grande para enviarlo')
     case 'normas':
       return t('buzon.err.normas', 'Para escribir a otras personas acepta antes las normas de la comunidad')
+    case 'texto-prohibido':
+      return t('moderacion.textoProhibido', 'Ese texto lleva palabras que van contra las normas de la comunidad. Cámbialo para continuar.')
     case 'red':
       return t('buzon.err.red', 'Sin conexión con el servidor')
     default:

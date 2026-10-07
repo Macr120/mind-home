@@ -129,6 +129,7 @@ export type CodigoErrorEspacio =
   | 'snapshot-grande'
   | 'version'
   | 'normas'
+  | 'texto-prohibido'
   | 'red'
   | 'servidor'
 

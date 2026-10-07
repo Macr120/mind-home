@@ -3,6 +3,7 @@ import { MascaraApp, type TextosMascara } from '../../../marketing/mascara/src/M
 import { hayBackend } from '../cuenta/supabase'
 import { entregarTomaAlStudio } from '../grabacionPantalla'
 import { localeActual, useT } from '../i18n/useT'
+import { nombrePlataforma } from '../plataforma'
 import { useMascaraUi } from '../state/mascaraUiStore'
 import { crearSenalMascara } from './mascaraSenal'
 
@@ -67,8 +68,12 @@ export default function MascaraOverlay() {
       cargando: t('mascara.estado.cargando', 'Cargando modelo…'),
       caraDetectada: t('mascara.estado.cara', 'Cara detectada'),
       buscandoCara: t('mascara.estado.buscando', 'Buscando cara…'),
+      // El consejo del túnel HTTPS es de desarrollo (Safari en el iPhone contra
+      // el servidor local): en la app de iOS se manda a los permisos (2.3.10).
       errorCamara: (detalle) =>
-        t('mascara.errorCamara', 'Cámara no disponible ({detalle}). En iPhone abre la URL del túnel HTTPS.', { detalle }),
+        nombrePlataforma() === 'ios'
+          ? t('mascara.errorCamaraIos', 'Cámara no disponible ({detalle}). Revisa el permiso de la cámara en Ajustes.', { detalle })
+          : t('mascara.errorCamara', 'Cámara no disponible ({detalle}). En iPhone abre la URL del túnel HTTPS.', { detalle }),
       errorGrabar: (detalle) => t('mascara.errorGrabar', 'No se pudo grabar: {detalle}', { detalle }),
       expresion: (id, nombre) => t(`editor.pers.expresion.${id}`, nombre),
       peinado: (id, nombre) => t(`editor.pers.peinado.${id}`, nombre),

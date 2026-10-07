@@ -102,6 +102,7 @@ export const PT_TUT: Dict = {
   'tut.casa.asistente.titulo': 'O menu do chat',
   'tut.casa.asistente.texto':
     'Este botão abre o menu do chat, com quatro visões em cima: Assistentes, Amigos, Lugares e Navegador. O Manual e o ⚙ da direita mudam conforme a visão escolhida. Vou te mostrar…',
+  'tut.casa.asistente.textoIos': 'Este botão abre o menu do chat, com três visões em cima: Assistentes, Amigos e Lugares. O Manual e o ⚙ da direita mudam conforme a visão escolhida. Vou te mostrar…',
   'tut.casa.vAsistentes.titulo': 'Assistentes',
   'tut.casa.vAsistentes.texto':
     'Quem responde para você no chat. Abra a conversa de cada um, crie mais e dê forma, voz e personalidade a eles pelo ⚙.',
@@ -1120,6 +1121,7 @@ export const PT_TUT: Dict = {
   'tut.app-archivos--esencial.4.titulo': 'Enviar e criar',
   'tut.app-archivos--esencial.4.texto':
     'Com o Pro, «Novo» cria uma pasta ou envia arquivos, e na web ou no app para computador também pastas inteiras. Você também pode soltá-los direto em Arquivos a partir do seu computador, e o que já está dentro vai para outra pasta quando você arrasta.',
+  'tut.app-archivos--esencial.4.textoIos': 'Com o Pro, «Novo» cria uma pasta ou envia arquivos, e o que já está dentro vai para outra pasta quando você arrasta.',
   'tut.app-archivos--esencial.5.titulo': 'Buscar e ordenar',
   'tut.app-archivos--esencial.5.texto':
     'Em Meus arquivos, a busca procura em todos os seus arquivos; nas outras seções, só no que está na sua frente. Ao lado, você escolhe a ordem, por nome, data ou tamanho, e alterna entre grade e lista.',

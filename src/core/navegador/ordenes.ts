@@ -2,6 +2,7 @@
  * Órdenes del chat que abren el panel «Navegador» (deterministas, sin IA).
  * Módulo hoja: lo importan el ChatBox y el store del navegador.
  */
+import { nombrePlataforma } from '../plataforma'
 
 export type PestanaNav = 'historial' | 'sitios' | 'tiempo' | 'ajustes'
 
@@ -26,6 +27,9 @@ export function normalizarOrden(texto: string): string {
 
 /** ¿El mensaje pide ver el panel del navegador? Devuelve la pestaña que toca. */
 export function ordenNavegador(texto: string): PestanaNav | null {
+  // En iOS no hay navegador (ver `enlaces.ts`): la vista Navegador pone el chat
+  // en modo web, y ahí lo escrito sería una búsqueda libre.
+  if (nombrePlataforma() === 'ios') return null
   const n = normalizarOrden(texto)
   for (const [re, pestana] of RE) if (re.test(n)) return pestana
   return null

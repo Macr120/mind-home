@@ -13,7 +13,7 @@ import { cargarTextos } from '../../../web/i18n/paginas/index.mjs'
 import { prefijo } from '../../../web/i18n/idiomas.mjs'
 import { Piezas } from './queEs/piezas'
 import { SelectorIdioma } from './PuertaIdioma'
-import { FormularioAcceso } from './editor/EditorCuentaSection'
+import { FormularioAcceso, enlaceSoporte } from './editor/EditorCuentaSection'
 
 // El recorrido de la web contada como historias: pesa lo suyo (catálogo de
 // textos aparte) y solo lo abre quien toca el botón.
@@ -185,20 +185,22 @@ function PantallaCuenta() {
           {t('puerta.probarNota', 'Entra a tu propia MindHaOS (Casa Mental OS) y pruébala sin cuenta. Para guardar tus cambios, usar la IA y sincronizar, crearás tu cuenta.')}
         </p>
       </div>
-      {canalPago() === 'web' && urlWeb && <PieWeb />}
+      {((canalPago() === 'web' && urlWeb) || canalPago() === 'iap') && <PiePaginas />}
     </Marco>
   )
 }
 
 /**
- * Los enlaces de páginas del sitio (privacidad, términos, soporte), SOLO en el
+ * Los enlaces de páginas del sitio (privacidad, términos, soporte) en el
  * navegador: desde que la raíz del dominio redirige a la app, esta puerta hace
  * también de portada y esas páginas deben poder abrirse desde ella. En las apps
- * de tienda y el escritorio no se pintan — ahí no hay sitio que recorrer. Los
- * rótulos salen del catálogo traducido de la web (`pie.*`), el mismo puente de
- * la tarjeta de precio, y el enlace lleva el prefijo del idioma en curso.
+ * de tienda queda SOLO el soporte, por correo (ver `enlaceSoporte`): Apple pide
+ * el contacto a mano (1.5) y las páginas del sitio llevan a la compra de fuera.
+ * En el escritorio no se pinta. Los rótulos salen del catálogo traducido de la
+ * web (`pie.*`), el mismo puente de la tarjeta de precio, y el enlace lleva el
+ * prefijo del idioma en curso.
  */
-function PieWeb() {
+function PiePaginas() {
   const [textos, setTextos] = useState<Record<string, string> | null>(null)
 
   useEffect(() => {
@@ -212,20 +214,24 @@ function PieWeb() {
   }, [])
 
   const base = `${urlWeb}${prefijo(idiomaActual())}`
-  const paginas: [string, string][] = [
-    ['privacidad', textos?.['pie.privacidad'] ?? 'Privacidad'],
-    ['terminos', textos?.['pie.terminos'] ?? 'Términos'],
-    ['soporte', textos?.['pie.soporte'] ?? 'Soporte'],
-  ]
+  const soporte: [string, string] = [enlaceSoporte(base), textos?.['pie.soporte'] ?? 'Soporte']
+  const paginas: [string, string][] =
+    canalPago() === 'iap'
+      ? [soporte]
+      : [
+          [`${base}/privacidad`, textos?.['pie.privacidad'] ?? 'Privacidad'],
+          [`${base}/terminos`, textos?.['pie.terminos'] ?? 'Términos'],
+          soporte,
+        ]
   return (
     <p
       className="ui-cascada flex flex-wrap justify-center gap-x-4 gap-y-1 pt-1 text-[11px] text-white/40"
       style={{ animationDelay: '340ms' }}
     >
-      {paginas.map(([ruta, rotulo]) => (
+      {paginas.map(([url, rotulo]) => (
         <a
-          key={ruta}
-          href={`${base}/${ruta}`}
+          key={url}
+          href={url}
           target="_blank"
           rel="noreferrer"
           className="transition hover:text-white/70"
