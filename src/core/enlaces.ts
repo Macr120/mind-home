@@ -1,5 +1,5 @@
 import { Capacitor, CapacitorHttp } from '@capacitor/core'
-import { esAppNativa, hayNavegadorEscritorio, nombrePlataforma } from './plataforma'
+import { esAppNativa, hayNavegadorEscritorio } from './plataforma'
 import { hostDe, sitioDe } from './navegador/dominio'
 import { abrirVisita, cerrarVisita, mismoSitio, pausarVisita, reanudarVisita, sellarVisita, type VisitaEnCurso } from './navegador/visitas'
 import { guardarFavicon, ponerTituloPagina, registrarPagina } from './navegador/historial'
@@ -12,11 +12,12 @@ import { useFoco } from './state/focoStore'
  * abrirla en el navegador que toque por plataforma y registrar la visita
  * (`visitasWeb`) y la página (`historialWeb`).
  *
- * iOS NO tiene navegador propio: el cuestionario de edad del App Store marca
- * «acceso web sin restricciones» (y obliga a 18+) si la app trae un navegador
- * con barra de dirección o deja teclear cualquier URL. Ahí los enlaces abren en
- * SFSafariViewController (`@capacitor/browser`, sin barra editable y con los
- * controles parentales de Safari) y el chat no abre URLs ni búsquedas.
+ * iOS NO lleva navegador propio incrustado (el WebView de Capgo, con su barra
+ * de dirección): el cuestionario de edad del App Store lo cuenta como «acceso
+ * web sin restricciones» y obliga a 18+. Ahí todo —enlaces, URLs tecleadas y
+ * búsquedas del modo web— abre en SFSafariViewController (`@capacitor/browser`):
+ * el visor del sistema, sin barra editable y con los controles parentales de
+ * Safari. La vista Navegador del chat se queda (sitios, historial, tiempo).
  */
 
 export { hostDe, sitioDe }
@@ -183,8 +184,6 @@ async function abrirEnMovil(url: string, nombre?: string): Promise<void> {
  * decimal suelto abriría el navegador.
  */
 export function urlDeMensaje(texto: string): string | null {
-  // En iOS el chat no es un navegador (ver la cabecera): la URL va al asistente.
-  if (nombrePlataforma() === 'ios') return null
   const limpio = texto.trim()
   const verbo = /^(?:abre|abrir|visita|visitar|navega a|entra a|ve a|open|go to)\s+(\S+)$/i.exec(limpio)
   const candidato = verbo ? verbo[1] : limpio
@@ -199,7 +198,6 @@ export function urlDeMensaje(texto: string): string | null {
  * Verbo EXPLÍCITO: sin él, el texto es del asistente (salvo en modo web).
  */
 export function busquedaDeMensaje(texto: string): string | null {
-  if (nombrePlataforma() === 'ios') return null
   const m =
     /^(?:busca(?:r)? en (?:internet|la web|google)|busca en línea|web|google|internet|search (?:the )?web|search)\s*:?\s+(.+)$/i.exec(
       texto.trim(),
@@ -210,8 +208,6 @@ export function busquedaDeMensaje(texto: string): string | null {
 
 /** Abre los resultados de `consulta` en el buscador elegido (ver `navegador/ajustes.ts`). */
 export function abrirBusqueda(consulta: string): Promise<void> {
-  // En iOS no hay buscador web (ver la cabecera): ni el modo web del chat abre nada.
-  if (nombrePlataforma() === 'ios') return Promise.resolve()
   return abrirEnlace(urlBusqueda(consulta, useAjustesNav.getState().buscador))
 }
 

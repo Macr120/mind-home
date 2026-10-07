@@ -83,25 +83,23 @@ export function TabAjustes() {
     if (ok) await window.mph?.navegador?.limpiarSesion?.()
   }
 
-  // iOS no tiene buscador web ni navegador propio (ver `enlaces.ts`): el buscador
-  // no se usaría y el corte por inactividad solo lo aplica el del escritorio.
+  // El corte por inactividad solo lo aplica el navegador del escritorio: en iOS
+  // los sitios abren en el visor de Safari (`enlaces.ts`), que no lo permite.
   const ios = nombrePlataforma() === 'ios'
   const selectClase = 'mt-1 w-full rounded-lg border border-white/10 bg-black/30 px-2 py-1.5 text-xs text-white/85 outline-none'
 
   return (
     <div className="space-y-4">
-      {!ios && (
-        <label className="block text-xs text-white/50">
-          {t('nav.ajustes.buscador', 'Buscador para «busca en internet…» y el modo web')}
-          <select value={buscador} onChange={(e) => useAjustesNav.getState().setBuscador(e.target.value as BuscadorId)} className={selectClase}>
-            {BUSCADORES.map((b) => (
-              <option key={b.id} value={b.id}>
-                {b.nombre}
-              </option>
-            ))}
-          </select>
-        </label>
-      )}
+      <label className="block text-xs text-white/50">
+        {t('nav.ajustes.buscador', 'Buscador para «busca en internet…» y el modo web')}
+        <select value={buscador} onChange={(e) => useAjustesNav.getState().setBuscador(e.target.value as BuscadorId)} className={selectClase}>
+          {BUSCADORES.map((b) => (
+            <option key={b.id} value={b.id}>
+              {b.nombre}
+            </option>
+          ))}
+        </select>
+      </label>
 
       {!ios && (
         <label className="block text-xs text-white/50">

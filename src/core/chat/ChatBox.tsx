@@ -1,4 +1,3 @@
-import { nombrePlataforma } from '../plataforma'
 import { lazy, Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { getPlantilla } from '../registry'
 import { abrirBusqueda, abrirEnlace, busquedaDeMensaje, hostDe, urlDeMensaje } from '../enlaces'
@@ -67,18 +66,12 @@ import { ErrorPartida } from '../partida/tipos'
 import { invitarAJugar } from '../visita/anfitrion'
 
 /** Las cuatro vistas de la barra del menú del chat, de izquierda a derecha. */
-type MenuChat = { id: VistaMenu; icono: NombreIcono; clave: string; es: string }
-const MENUS_CHAT: MenuChat[] = ([
+const MENUS_CHAT: { id: VistaMenu; icono: NombreIcono; clave: string; es: string }[] = [
   { id: 'amigos', icono: 'companeros', clave: 'chat.menu.amigos', es: 'Amigos' },
   { id: 'asistentes', icono: 'chat', clave: 'chat.menu.asistentes', es: 'Asistentes' },
   { id: 'lugares', icono: 'navegar', clave: 'chat.menu.lugares', es: 'Lugares' },
   { id: 'navegador', icono: 'mundo', clave: 'chat.menu.navegador', es: 'Navegador' },
-] satisfies MenuChat[]).filter(
-  // En iOS no hay navegador web libre: con el cuestionario de edad de Apple, el
-  // «acceso web sin restricciones» obliga a 18+. Los enlaces se abren en el
-  // visor de Safari (`enlaces.ts`), pero no se navega desde el chat.
-  (m) => m.id !== 'navegador' || nombrePlataforma() !== 'ios',
-)
+]
 /** Carpeta del Manual que abre cada vista (Asistentes: la primera app, como siempre). */
 const CARPETA_MANUAL: Partial<Record<VistaMenu, string>> = { amigos: 'amigos', lugares: 'sala', navegador: 'navegador' }
 /** Última vista elegida (ajuste del dispositivo). */

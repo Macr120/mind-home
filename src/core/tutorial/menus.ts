@@ -6,7 +6,6 @@ import { useMascota } from '../state/mascotaStore'
 import { useLayout } from '../state/layoutStore'
 import { useEditorUi } from '../state/editorUiStore'
 import { abrirApp } from '../abrirApp'
-import { nombrePlataforma } from '../plataforma'
 
 /**
  * Tutoriales de los menús y el HUD de la casa (los de las apps viven en
@@ -28,9 +27,6 @@ import { nombrePlataforma } from '../plataforma'
  */
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
-
-/** iOS no tiene la vista Navegador del chat (ver `enlaces.ts`): el recorrido la salta. */
-const sinNavegador = nombrePlataforma() === 'ios'
 
 /** Abre `boton` solo si `sel` aún no está en pantalla (idempotente para Atrás). */
 const abrirSiFalta = (sel: string, boton: string) => {
@@ -264,17 +260,12 @@ export const cuerpoCasa: CuerpoTutorial = {
         useHud.getState().setPlegado('chat', false)
       },
       titulo: T('tut.casa.asistente.titulo', 'El menú del chat'),
-      texto: sinNavegador
-        ? T(
-            'tut.casa.asistente.textoIos',
-            'Este botón abre el menú del chat, con tres vistas arriba: Asistentes, Amigos y Lugares. El Manual y el ⚙ de la derecha cambian con la vista elegida. Te las enseño…',
-          )
-        : T(
-            'tut.casa.asistente.texto',
-            'Este botón abre el menú del chat, con cuatro vistas arriba: Asistentes, Amigos, Lugares y Navegador. El Manual y el ⚙ de la derecha cambian con la vista elegida. Te las enseño…',
-          ),
+      texto: T(
+        'tut.casa.asistente.texto',
+        'Este botón abre el menú del chat, con cuatro vistas arriba: Asistentes, Amigos, Lugares y Navegador. El Manual y el ⚙ de la derecha cambian con la vista elegida. Te las enseño…',
+      ),
     },
-    // Las cuatro vistas (tres en iOS), abiertas de verdad. `cerrarMenuChat` devuelve la vista
+    // Las cuatro vistas, abiertas de verdad. `cerrarMenuChat` devuelve la vista
     // Asistentes al salir de este bloque.
     {
       sel: 'chat.menu.panel',
@@ -306,20 +297,16 @@ export const cuerpoCasa: CuerpoTutorial = {
         'Tus sitios guardados por categoría y «Cómo llegar»: con esta vista elegida, lo que escribes en el chat es un destino y te traza la ruta desde donde estás.',
       ),
     },
-    ...(sinNavegador
-      ? []
-      : [
-          {
-            sel: 'chat.menu.panel',
-            sinMago: true,
-            alEntrar: (ctx: TutorialCtx) => abrirVistaChat(ctx, 'navegador'),
-            titulo: T('tut.casa.vNavegador.titulo', 'Navegador'),
-            texto: T(
-              'tut.casa.vNavegador.texto',
-              'Internet sin salir de la MindHaOS, con pestañas, historial y tus sitios. Con esta vista elegida, lo que escribes se busca en la web o abre la dirección.',
-            ),
-          },
-        ]),
+    {
+      sel: 'chat.menu.panel',
+      sinMago: true,
+      alEntrar: (ctx) => abrirVistaChat(ctx, 'navegador'),
+      titulo: T('tut.casa.vNavegador.titulo', 'Navegador'),
+      texto: T(
+        'tut.casa.vNavegador.texto',
+        'Internet sin salir de la MindHaOS, con pestañas, historial y tus sitios. Con esta vista elegida, lo que escribes se busca en la web o abre la dirección.',
+      ),
+    },
     {
       sel: 'chat.adjuntar.menu',
       sinMago: true,
