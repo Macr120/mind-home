@@ -106,6 +106,37 @@ const quitarPrecio = (texto) =>
     .replace(/\s+/g, ' ')
     .trim()
 
+/**
+ * Facebook e Instagram NO salen en iOS mientras Meta no apruebe sus permisos
+ * (`usePlataformasVisibles` en `redesStore.ts`): la ficha no puede prometer lo
+ * que la app no enseña (2.3.1). Cuando Meta apruebe y `REDES_META_LIVE` pase a 1,
+ * se quita esto y se regenera. Si la landing cambia la frase, el generador falla
+ * en vez de dejar pasar la mención.
+ */
+const SIN_META = {
+  en: ['YouTube, TikTok, Facebook or Instagram', 'YouTube or TikTok'],
+  es: ['YouTube, TikTok, Facebook o Instagram', 'YouTube o TikTok'],
+  pt: ['YouTube, TikTok, Facebook ou Instagram', 'YouTube ou TikTok'],
+  fr: ['YouTube, TikTok, Facebook ou Instagram', 'YouTube ou TikTok'],
+  de: ['YouTube, TikTok, Facebook oder Instagram', 'YouTube oder TikTok'],
+  it: ['YouTube, TikTok, Facebook o Instagram', 'YouTube o TikTok'],
+  ja: ['YouTube・TikTok・Facebook・Instagram', 'YouTube・TikTok'],
+  zh: ['YouTube、TikTok、Facebook 或 Instagram', 'YouTube 或 TikTok'],
+  ko: ['YouTube·TikTok·Facebook·Instagram', 'YouTube·TikTok'],
+  ru: ['YouTube, TikTok, Facebook или Instagram', 'YouTube или TikTok'],
+  hi: ['YouTube, TikTok, Facebook या Instagram', 'YouTube या TikTok'],
+  tr: ['YouTube, TikTok, Facebook veya Instagram', 'YouTube veya TikTok'],
+  id: ['YouTube, TikTok, Facebook, atau Instagram', 'YouTube atau TikTok'],
+  pl: ['YouTube, TikToku, Facebooku czy na Instagramie', 'YouTube czy TikToku'],
+  nl: ['YouTube-, TikTok-, Facebook- of Instagram-account', 'YouTube- of TikTok-account'],
+  ar: ['YouTube أو TikTok أو Facebook أو Instagram', 'YouTube أو TikTok'],
+}
+const sinMeta = (texto, id) => {
+  const [de, a] = SIN_META[id]
+  if (!texto.includes(de)) throw new Error(`${id}: la frase de redes cambió en la landing; actualiza SIN_META`)
+  return texto.replace(de, a)
+}
+
 function descripcion(t, id) {
   const bloques = [
     quitarPrecio(limpiar(t['meta.desc'])),
@@ -120,15 +151,11 @@ function descripcion(t, id) {
     [
       mayus(limpiar(t['car.h2']), id),
       ...['todo', 'nocaduca', '1', 'studio', '2', '3', '4', '5', '6'].map(
-        (n) => `• ${limpiar(t[`car.${n}.t`])}: ${limpiar(t[`car.${n}.p`])}`,
+        (n) => `• ${limpiar(t[`car.${n}.t`])}: ${n === 'studio' ? sinMeta(limpiar(t[`car.${n}.p`]), id) : limpiar(t[`car.${n}.p`])}`,
       ),
     ].join('\n'),
-    // La IA, incluido que puede ser local (es diferencial y Apple lo agradece).
-    [
-      mayus(limpiar(t['ia.h2']), id),
-      limpiar(t['ia.sub']),
-      `• ${limpiar(t['ia.local.t'])}: ${limpiar(t['ia.local.p'])}`,
-    ].join('\n\n'),
+    // Sin el bloque de la IA local (Ollama): habla con un modelo en el ordenador
+    // y en iOS no está probado; la app ya lo esconde en las tiendas.
     // Qué cuesta. SOLO los tres puntos de `precio.app.*`: el pie de esa
     // sección manda a comprar en la web y eso aquí es 3.1.1 (ver cabecera).
     [

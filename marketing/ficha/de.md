@@ -19,7 +19,7 @@ Dein Leben in einem 3D-Haus: Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr.
 
 gewohnheiten,ziele,planer,tagebuch,finanzen,ernährung,training,schlaf,lernen,ki,assistent
 
-## Descripción (3732/4000)
+## Descripción (3338/4000)
 
 Organisiere Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr in einem isometrischen 3D-Haus, in dem jeder Raum eine App ist.
 
@@ -38,18 +38,12 @@ EIN MINDHAOS, VIELE APPS
 • Alles in einem, wirklich: Eine App statt zwanzig: Essen, Geld, Schlaf, Lernen, Gewohnheiten und Ziele unter einem Dach — und miteinander verbunden, was genau das ist, was keine einzelne App kann.
 • Gratis, und es läuft nicht ab: Dein MindHaOS ist mit deinem Konto gratis, und es gehört dir. Abo-Apps gehen aus, sobald du aufhörst zu zahlen; hier bringt das Abo nur KI, Sync und Cloud: Wenn du es sein lässt, behältst du dein ganzes MindHaOS und alle deine Daten auf deinem Gerät.
 • Räume, die Apps sind: Sport, Küche, Finanzen, Schlaf, Bibliothek, Sprachen, Reisen, Hobbys, Achtsamkeit und mehr: jeder Raum beherbergt eine vollständige Mini-App.
-• Ein Studio zum Erschaffen: Vier eigene Apps: Audio, Kunst, Schreiben und Video. Du komponierst mit Piano Roll und MIDI-Keyboard, malst und bearbeitest Fotos, schreibst Bücher Kapitel für Kapitel und schneidest Videos nach Drehbuch — und exportierst, was du machst, oder veröffentlichst ein Video direkt in deinem eigenen Konto bei YouTube, TikTok, Facebook oder Instagram.
+• Ein Studio zum Erschaffen: Vier eigene Apps: Audio, Kunst, Schreiben und Video. Du komponierst mit Piano Roll und MIDI-Keyboard, malst und bearbeitest Fotos, schreibst Bücher Kapitel für Kapitel und schneidest Videos nach Drehbuch — und exportierst, was du machst, oder veröffentlichst ein Video direkt in deinem eigenen Konto bei YouTube oder TikTok.
 • Assistent mit KI: Chatte mit deinem Assistenten: Mahlzeiten erfassen, Routinen anlegen, Ziele planen, Bilder und 3D-Modelle erzeugen. Jede Abo-Stufe bringt 700, 1400 oder 2100 Credits im Monat.
 • Sync über alles hinweg: Dein MindHaOS folgt dir aufs Handy, aufs Tablet und an den Rechner. Alles verschlüsselt unterwegs und in der Cloud gesichert. Mit Pro speichert deine Cloud (der Raum Dateien) außerdem 10, 30 oder 100 GB an Dateien.
 • Es fühlt sich an wie ein Spiel: Deine Figur lebt von deiner echten Aktivität: Serien, Abzeichen, der Sisyphosberg, Fahrzeuge, Rennen und Minispiele.
 • Kalender und Ziele: 24-Stunden-Routinen, verschachtelte Ziele, KI-Zeitpläne und Erfüllungswerte, die man wirklich versteht.
 • Deine Daten, bei dir: Die App ist local-first: alles lebt zuerst auf deinem Gerät. Wenn du kündigst, verlierst du deine Daten nicht — du machst im lokalen Modus weiter.
-
-DEIN ASSISTENT, MIT ODER OHNE CLOUD
-
-Die KI im MindHaOS erfasst, plant und erschafft mit dir. Und du entscheidest, was sie antreibt: ein Anbieter in der Cloud oder dein eigener Rechner.
-
-• Oder auf deinem Rechner, mit Ollama: Installiere Ollama und das MindHaOS spricht mit dem Modell auf deinem Rechner: ohne Credits, ohne Verbindung und ohne dass etwas nach außen geht.
 
 ABO
 • Stufe 1, 2 oder 3: 700, 1400 oder 2100 KI-Credits im Monat

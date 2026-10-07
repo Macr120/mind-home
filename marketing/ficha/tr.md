@@ -19,7 +19,7 @@ Hayatın, bir 3D evde: alışkanlıklar, hedefler, finans, öğünler ve daha fa
 
 alışkanlık,hedef,ajanda,günlük,bütçe,beslenme,egzersiz,uyku,çalışma,yapay zeka,asistan
 
-## Descripción (3530/4000)
+## Descripción (3147/4000)
 
 Alışkanlıklarını, hedeflerini, finansını, öğünlerini ve daha fazlasını her odası bir uygulama olan izometrik bir 3D evde düzenle.
 
@@ -38,18 +38,12 @@ BİR MINDHAOS, BİR SÜRÜ UYGULAMA
 • Gerçekten hepsi bir arada: Yirmi uygulama yerine bir tane: yemek, para, uyku, çalışma, alışkanlıklar ve hedefler aynı çatı altında — üstelik birbirleriyle konuşarak, ki bunu ayrı uygulamalar yapamaz.
 • Ücretsiz ve süresi dolmaz: MindHaOS'un hesabınla ücretsizdir ve senindir. Abonelikli uygulamalar ödemeyi kestiğin anda kapanır; burada abonelik yalnızca yapay zekâyı, eşitlemeyi ve bulutu getirir: bıraksan bile MindHaOS'un tamamı ve cihazındaki tüm verilerin sende kalır.
 • Uygulama olan odalar: Egzersiz, mutfak, finans, uyku, kütüphane, diller, seyahat, hobiler, farkındalık ve dahası: her oda eksiksiz bir mini uygulama barındırır.
-• Üretmek için bir Stüdyo: Ayrı dört uygulama: Ses, Sanat, Yazı ve Video. Piano roll ve MIDI klavyeyle beste yapar, resim çizip fotoğraf rötuşlar, kitapları bölüm bölüm yazar ve videoları senaryodan kurgularsın — yaptığını da dışa aktarırsın ya da bir videoyu doğrudan kendi YouTube, TikTok, Facebook veya Instagram hesabında yayımlarsın.
+• Üretmek için bir Stüdyo: Ayrı dört uygulama: Ses, Sanat, Yazı ve Video. Piano roll ve MIDI klavyeyle beste yapar, resim çizip fotoğraf rötuşlar, kitapları bölüm bölüm yazar ve videoları senaryodan kurgularsın — yaptığını da dışa aktarırsın ya da bir videoyu doğrudan kendi YouTube veya TikTok hesabında yayımlarsın.
 • Yapay zekâ asistanı: Asistanınla sohbet et: öğünleri kaydet, rutinler oluştur, hedefler planla, görseller ve 3D modeller üret. Aboneliğin her katmanı ayda 700, 1400 veya 2100 kredi getirir.
 • Tam eşitleme: MindHaOS'un telefona, tablete ve bilgisayara seninle gelir. Her şey aktarımda şifreli ve bulutta yedekli. Pro ile bulutun (Dosyalar odası) ayrıca 10, 30 veya 100 GB dosya saklar.
 • Oyun gibi bir his: Karakterin gerçek etkinliğinle yaşar: seriler, rozetler, Sisifos Dağı, araçlar, yarışlar ve mini oyunlar.
 • Takvim ve hedefler: 24 saatlik rutinler, iç içe hedefler, yapay zekâ ile kurulan zaman çizelgeleri ve gerçekten anlaşılan tamamlanma ölçüleri.
 • Verin, yanında: Uygulama local-first: her şey önce senin cihazında yaşar. İptal edersen verini kaybetmezsin — yerel modda devam edersin.
-
-ASİSTANIN, BULUTLU YA DA BULUTSUZ
-
-MindHaOS'unun yapay zekâsı seninle birlikte kaydeder, planlar ve üretir. Onu neyin çalıştıracağına da sen karar verirsin: bulutta bir sağlayıcı ya da kendi bilgisayarın.
-
-• Ya da kendi makinende, Ollama ile: Ollama’yı kur, MindHaOS bilgisayarında çalışan modelle konuşsun: kredisiz, bağlantısız ve hiçbir şey oradan çıkmadan.
 
 ABONELİK
 • Katman 1, 2 veya 3: ayda 700, 1400 veya 2100 yapay zekâ kredisi

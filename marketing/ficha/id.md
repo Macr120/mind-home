@@ -19,7 +19,7 @@ Hidupmu, di rumah 3D: kebiasaan, tujuan, keuangan, makanan, dan lainnya.
 
 kebiasaan,tujuan,agenda,jurnal,anggaran,nutrisi,olahraga,tidur,belajar,ai,asisten,atur
 
-## Descripción (3725/4000)
+## Descripción (3341/4000)
 
 Atur kebiasaan, tujuan, keuangan, makanan, dan lainnya di rumah isometrik 3D yang setiap ruangnya adalah aplikasi.
 
@@ -38,18 +38,12 @@ SATU MINDHAOS, BANYAK APLIKASI
 • Benar-benar semua dalam satu: Satu aplikasi, bukan dua puluh: makan, uang, tidur, belajar, kebiasaan, dan target di bawah satu atap — dan saling terhubung, hal yang tak bisa dilakukan aplikasi terpisah.
 • Gratis, dan tidak kedaluwarsa: MindHaOS-mu gratis dengan akunmu, dan milikmu. Aplikasi berlangganan mati begitu kamu berhenti membayar; di sini langganan hanya membawa AI, sinkronisasi, dan cloud: kalau kamu berhenti, MindHaOS-mu tetap utuh beserta semua datamu di perangkatmu.
 • Ruangan yang berupa aplikasi: Olahraga, dapur, keuangan, tidur, perpustakaan, bahasa, perjalanan, hobi, mindfulness, dan lainnya: setiap ruangan menyimpan satu mini-aplikasi yang utuh.
-• Studio untuk berkarya: Empat aplikasi tersendiri: Audio, Seni, Menulis, dan Video. Kamu menggubah lagu dengan piano roll dan keyboard MIDI, melukis dan menyunting foto, menulis buku bab demi bab, dan merangkai video dari naskah — lalu mengekspor hasilnya, atau menerbitkan video langsung ke akun YouTube, TikTok, Facebook, atau Instagram milikmu sendiri.
+• Studio untuk berkarya: Empat aplikasi tersendiri: Audio, Seni, Menulis, dan Video. Kamu menggubah lagu dengan piano roll dan keyboard MIDI, melukis dan menyunting foto, menulis buku bab demi bab, dan merangkai video dari naskah — lalu mengekspor hasilnya, atau menerbitkan video langsung ke akun YouTube atau TikTok milikmu sendiri.
 • Asisten dengan AI: Mengobrol dengan asistenmu: catat makanan, buat rutinitas, rencanakan tujuan, buat gambar dan model 3D. Setiap tingkat langganan memberi 700, 1400, atau 2100 kredit per bulan.
 • Sinkronisasi menyeluruh: MindHaOS-mu ikut ke ponsel, tablet, dan komputer. Semuanya terenkripsi saat dikirim dan dicadangkan di cloud. Dengan Pro, cloud-mu (ruang Berkas) juga menyimpan 10, 30, atau 100 GB berkas.
 • Rasanya seperti sebuah game: Karaktermu hidup dari aktivitas nyatamu: rentetan, lencana, Gunung Sisifus, kendaraan, balapan, dan mini-game.
 • Kalender dan target: Rutinitas 24 jam, target bertingkat, lini masa buatan AI, dan metrik pencapaian yang benar-benar bisa dipahami.
 • Datamu, bersamamu: Aplikasinya local-first: semuanya hidup lebih dulu di perangkatmu. Kalau berhenti berlangganan, datamu tidak hilang — kamu lanjut di mode lokal.
-
-ASISTENMU, DENGAN ATAU TANPA CLOUD
-
-AI di MindHaOS mencatat, merencanakan, dan berkarya bersamamu. Dan kamu yang menentukan penggeraknya: penyedia di cloud atau komputermu sendiri.
-
-• Atau di mesinmu, dengan Ollama: Pasang Ollama dan MindHaOS berbicara dengan model yang berjalan di komputermu: tanpa kredit, tanpa koneksi, dan tanpa ada yang keluar dari sana.
 
 LANGGANAN
 • Tingkat 1, 2, atau 3: 700, 1400, atau 2100 kredit AI per bulan
