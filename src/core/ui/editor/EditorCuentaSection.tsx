@@ -649,7 +649,7 @@ const EULA_APPLE = 'https://www.apple.com/legal/internet-services/itunes/dev/std
  * «Mi cuenta» y a las preguntas con precios, o sea, a dos toques de una compra
  * fuera de la tienda (3.1.1). Fuera de ellas, la página de soporte.
  */
-export const CORREO_SOPORTE = 'mailto:mindplannerhome@gmail.com'
+export const CORREO_SOPORTE = 'mailto:help@mindhaos.com'
 export function enlaceSoporte(base: string | null): string {
   return canalPago() === 'iap' || !base ? CORREO_SOPORTE : `${base}/soporte`
 }
