@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { hayBackend } from '../../cuenta/supabase'
 import { useSesion } from '../../cuenta/sesionStore'
 import { useT } from '../../i18n/useT'
-import { useRedes } from '../../redes/redesStore'
-import { NOMBRE_RED, PLATAFORMAS, type CuentaRed, type Plataforma } from '../../redes/tipos'
+import { usePlataformasVisibles, useRedes } from '../../redes/redesStore'
+import { NOMBRE_RED, type CuentaRed, type Plataforma } from '../../redes/tipos'
 import { confirmar } from '../../state/confirmarStore'
 import { Icono } from '../iconos/Icono'
 import { LogoRed } from '../logosMarca'
@@ -20,6 +20,7 @@ export function EditorRedesSection({ embed, sinTitulo }: { embed?: boolean; sinT
   const usuario = useSesion((s) => s.usuario)
   const cuentas = useRedes((s) => s.cuentas)
   const cargado = useRedes((s) => s.cargado)
+  const plataformas = usePlataformasVisibles()
   const cargando = useRedes((s) => s.cargando)
   const error = useRedes((s) => s.error)
   const vuelta = useRedes((s) => s.ultimaVuelta)
@@ -35,7 +36,7 @@ export function EditorRedesSection({ embed, sinTitulo }: { embed?: boolean; sinT
     <p className="text-xs text-white/50">{t('video.publicar.cuentas.sinSesion', 'Inicia sesión en Cuenta para conectar tus redes.')}</p>
   ) : (
     <div className="space-y-1.5">
-      {PLATAFORMAS.map((p) => (
+      {plataformas.map((p) => (
         <FilaRed key={p} plataforma={p} cuenta={cuentas.find((c) => c.plataforma === p) ?? null} cargando={cargando && !cargado} />
       ))}
       {vuelta && !vuelta.ok && vuelta.plataforma && (
