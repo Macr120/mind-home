@@ -7,9 +7,9 @@
 
 MindHaOS
 
-## Subtítulo (15/30)
+## Subtítulo (7/30)
 
-你的心智，装进一座 3D 房子
+心灵之家 OS
 
 ## Texto promocional (56/170)
 

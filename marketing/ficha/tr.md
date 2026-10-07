@@ -7,9 +7,9 @@
 
 MindHaOS
 
-## Subtítulo (19/30)
+## Subtítulo (12/30)
 
-Zihnin, bir 3D evde
+Zihin Evi OS
 
 ## Texto promocional (79/170)
 

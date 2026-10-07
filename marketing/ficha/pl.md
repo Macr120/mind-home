@@ -7,9 +7,9 @@
 
 MindHaOS
 
-## Subtítulo (20/30)
+## Subtítulo (13/30)
 
-Twój umysł w domu 3D
+Dom Umysłu OS
 
 ## Texto promocional (66/170)
 

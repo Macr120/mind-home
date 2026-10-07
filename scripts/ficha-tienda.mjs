@@ -147,7 +147,9 @@ function descripcion(t, id) {
 function campos(id, t) {
   return {
     nombre: NOMBRE,
-    subtitulo: SUBTITULO_PROPIO[id] ?? limpiar(t['hero.h1']),
+    // El subtítulo es la marca traducida («Casa Mental OS»), igual que debajo del
+    // logo en la app; el inglés no la tiene y va sin subtítulo.
+    subtitulo: t['marca.sub'] ?? SUBTITULO_PROPIO[id] ?? limpiar(t['hero.h1']),
     promocional: quitarPrecio(limpiar(t['og.desc'])),
     palabras: PALABRAS[id],
     descripcion: descripcion(t, id),

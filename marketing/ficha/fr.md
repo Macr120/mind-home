@@ -7,9 +7,9 @@
 
 MindHaOS
 
-## Subtítulo (30/30)
+## Subtítulo (17/30)
 
-Ton esprit, dans une maison 3D
+Maison Mentale OS
 
 ## Texto promocional (75/170)
 

@@ -7,9 +7,9 @@
 
 MindHaOS
 
-## Subtítulo (20/30)
+## Subtítulo (13/30)
 
-Твой разум в 3D-доме
+Дом разума OS
 
 ## Texto promocional (71/170)
 

@@ -7,9 +7,9 @@
 
 MindHaOS
 
-## Subtítulo (12/30)
+## Subtítulo (6/30)
 
-あなたの心を、3Dの家に
+心の家 OS
 
 ## Texto promocional (40/170)
 

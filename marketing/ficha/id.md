@@ -7,9 +7,9 @@
 
 MindHaOS
 
-## Subtítulo (25/30)
+## Subtítulo (16/30)
 
-Pikiranmu, dalam rumah 3D
+Rumah Pikiran OS
 
 ## Texto promocional (72/170)
 

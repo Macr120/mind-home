@@ -7,9 +7,9 @@
 
 MindHaOS
 
-## Subtítulo (24/30)
+## Subtítulo (0/30)
 
-Your mind, in a 3D house
+
 
 ## Texto promocional (66/170)
 

@@ -7,9 +7,9 @@
 
 MindHaOS
 
-## Subtítulo (18/30)
+## Subtítulo (8/30)
 
-당신의 마음을, 3D 집 한 채에
+마음의 집 OS
 
 ## Texto promocional (31/170)
 
