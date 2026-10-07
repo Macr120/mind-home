@@ -904,8 +904,33 @@ Motivo del diálogo de envío (116/120):
       caracteres). El primer intento no llegó a enviarse (seguía en Draft); al segundo sí.
       Para comprobarlo: la barra lateral dice «In review» y sale *«This version of … is in
       review»*; el Changelog no añade línea al enviar.
-- [ ] Solo cuando salga Live: regrabar el tramo del formulario (desplegable y casillas
-      del 27-sep) y hacer el Reapply del audit.
+- [x] ✅ **APROBADA (confirmado el 7-oct-2026)**: la versión Live (`version_type=1`) ya se
+      llama **MindHaOS** y ya no hay revisión pendiente (`version_type=2` sale vacío). La
+      página de la consola daba 502 ese día; se comprobó con el JSON de `app/detail`. El
+      audit de Direct Post sigue en `status: 3` (el rechazo de UX del 28-sep).
+- [x] **Demo nuevo grabado el 7-oct-2026**: `mindhaos-tiktok-direct-post-demo.mp4` (87 s, con
+      rótulos y voz; en `Videos\Grabaciones de pantalla`, con la toma y los scripts). Conectar →
+      Studio → formulario a 0,4× (privacidad sin valor, «Only me», casillas, contenido
+      comercial, consentimiento) → subida ×6 → «Published» → perfil.
+      - ⚠️ **Bug encontrado al grabar** (arreglado y desplegado ese día): con videos de 5 a
+        16 MB, `redes-publicar` pedía trozos de 8 MB y TikTok respondía *«The chunk size is
+        invalid»* en `video/init` (la app en inglés solo enseña «The social network didn't
+        respond»). Con un único trozo TikTok exige `chunk_size` = tamaño del video; ahora va de
+        una vez si pesa < 2 × trozo.
+      - Sin auditar, TikTok también rechaza en `init` cualquier privacidad que no sea
+        `SELF_ONLY` (mismo mensaje genérico) aunque `creator_info` ofrezca más opciones.
+      - Cada intento cuenta en el límite de 10/día por usuario (`rate_limits`,
+        bucket `redes-pub-tiktok`), falle o no.
+- [x] ✅ **REAPPLY ENVIADO el 7-oct-2026** (lo envió Marco; `status` pasó de `3` a `1`, motivo
+      vacío; respuesta en 2-4 semanas): Organization MindHaOS, website
+      `https://mindhaos.com/en/acerca`, «Less than 100», un solo video
+      (`mindhaos-tiktok-direct-post-demo.mp4`, 2,1 MB; el widget admite 5 MB por archivo) y la
+      lista de campos guardados. Se añadió al final del demo (1:53, 2,8 MB) un segundo caso SIN
+      publicar con «Branded content»: aviso «cannot be set to private», etiqueta «Paid
+      partnership», consentimiento con la Branded Content Policy y «Only me» en gris en el
+      desplegable. Sigue sin verse el aviso al pasar el ratón por Publish (un rótulo explica
+      por qué está deshabilitado). Versión final enviada: 2:00, 3 MB, con la entrada al cuarto
+      de video (casa → menú de apps → Video → proyecto) antes del Studio.
 
 **Formulario del audit, empezado el 14-sep-2026 (pasos 1 y 2 completos, parado en el 3).**
 Se abre desde Production → Products → Content Posting API → Direct Post → **Apply**, y sale
