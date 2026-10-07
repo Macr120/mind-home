@@ -1656,6 +1656,20 @@ una Página: hacen falta para probar (la app se lo explica al usuario que no las
         `drop` con ese `File` sobre la zona.
 - [x] **27-sep y 2-oct-2026: sigue «Review in progress»**, sin preguntas del revisor. Las 4 alertas
       del Alert Inbox son avisos viejos (envío, Tech Provider verificado, paso a Live).
+- [x] ❌ **RESUELTA el 3-oct-2026: solo `public_profile` aprobado.** Rechazados
+      `pages_manage_posts`, `pages_show_list`, `pages_read_engagement`, `instagram_basic` e
+      `instagram_content_publish`, los cinco con el MISMO motivo: *«Screencast Not Aligned
+      with Use Case Details»* (Developer Policy 1.6). Meta dice expresamente que **el caso
+      de uso SÍ está permitido**; lo que falla es el video, que no enseña de punta a punta:
+      1. el **login completo de Meta**;
+      2. al usuario **concediendo** cada permiso;
+      3. el uso real de cada permiso (elegir la Página, publicar en Facebook e Instagram,
+         y el resultado ya publicado);
+      4. con la **UI en inglés**, **subtítulos/rótulos** que expliquen cada botón.
+      El feedback se lee en App Review → Submissions → «Go to submission feedback» (abre
+      pestaña nueva). Ese día llegó también «Data access renewal is complete».
+      **Siguiente**: regrabar el screencast con la marca MindHaOS siguiendo esos cuatro
+      puntos y pulsar «Request again».
 - [ ] Contestar si preguntan. Rechazo típico: el revisor no pudo entrar o el screencast no
       enseña el permiso en uso. Al aprobarse: `REDES_META_LIVE=1`.
 - [x] **Facebook e Instagram no «desaparecieron» por un fallo**: la última toma del
@@ -1980,6 +1994,124 @@ pasa a cualquiera con la Página en un portafolio de negocio—, la app pide peg
 de la Página. No hay que esconderlo: es parte del producto y explica por qué NO se pide
 `business_management`. Si sale, narrarlo: «If Facebook doesn't list the Page, I just paste
 its link, so the app never needs access to my whole business portfolio.»
+
+### Guion del screencast de Meta v2 (6-oct-2026, tras el rechazo del 3-oct)
+
+**Por qué se rechazó el de arriba aunque enseñaba los cinco permisos:**
+- Empezaba en el diálogo de permisos con Facebook YA logueado: **no había login de Meta**.
+- Todo decía **«Mind Planner Home»**, con el icono oliva, y la app que revisan se llama
+  **MindHaOS**: el video no «se alinea» con la ficha.
+- Las publicaciones salían como privadas y se enseñaban desde Business Suite, sin rótulos
+  que explicaran qué se ve.
+
+**Reglas del video nuevo** (son literalmente las cuatro del feedback):
+1. Login de Meta **completo**: el navegador empieza con Facebook **cerrado**, y se ve
+   escribir el correo (la contraseña la teclea Marco y queda tapada por los puntos).
+2. Cada pantalla de **concesión** de permisos, sin saltarse ninguna.
+3. Cada permiso **en uso**, hasta el resultado publicado y visible.
+4. **UI en inglés** y un **rótulo en pantalla** en cada paso que diga qué botón se pulsa y
+   para qué (más la voz `edge-tts` como en la v1).
+
+**La Página y su Instagram, a la marca nueva (6-oct-2026)** — salen en el consentimiento:
+- Foto de perfil = `marketing/icono/AppIcon.icon/Assets/icon.png`; bio «MindHaOS: your
+  mind, in a 3D house…» con `mindhaos.com`; enlace `https://mindhaos.com/`.
+- Nombre **«Mindhaos»**, aplicado al momento. ⚠️ Facebook NO acepta «MindHaOS»: *«Creating
+  content with this name is not allowed. Try: Mindhaos»* (mayúsculas irregulares). El
+  primer intento con «MindHaOS» pasó el diálogo de contraseña pero no se aplicó ni quedó
+  pendiente en ningún sitio. Ya no se puede cambiar en 60 días. Se cambia en Ajustes →
+  Page setup → Name (`facebook.com/settings/?tab=pages`).
+- Usuario de la Página: **`facebook.com/mindhaos`** (estaba sin usuario; se aplicó al
+  momento, en la misma pantalla que el nombre).
+- Instagram vinculado: **`@mindhaos`** (cuenta nueva de Marco, profesional tipo
+  **Empresa**, categoría App/Software) en lugar de `@mindplannerhome`. Se cambia en Ajustes
+  → Linked accounts → Instagram (`facebook.com/settings/?tab=linked_instagram`).
+
+**Preparación (antes de la primera toma):**
+- [ ] Desplegado lo último y la app en **inglés** (`app.mindhaos.com`, cuenta del revisor
+      `mindplannerhome+meta@gmail.com` con sus dos proyectos demo).
+- [ ] En Ajustes → Connected accounts, **Facebook desconectado**.
+- [ ] En Chrome, **cerrar sesión de Facebook** (lo hace Marco) para que el login salga
+      entero. Probar antes que, tras el login, el diálogo llega a la elección de Páginas.
+- [ ] Zoom de Chrome al **75 %** en el diálogo de Facebook (si no, «Continue» cae fuera).
+- [x] **Publicación de prueba (6-oct-2026): sale PÚBLICA.** Reel «Prueba» en
+      `facebook.com/reel/1121782103861998`, de la Página Mindhaos, visible SIN sesión
+      («Público»). Por eso **`REDES_META_LIVE=1`** desde ese día (solo cambia el aviso de la
+      app, que decía «privado mientras está en revisión»), y en el video el resultado se
+      enseña en la Página pública. Para conectar hizo falta otra vez el caso `sin-pagina`
+      (la Página va en un portafolio): pegar `https://www.facebook.com/mindhaos` en el
+      diálogo de publicar y «Use this Page».
+- [x] **Instagram (6-oct-2026): publicado.** Reel «Prueba IA» en
+      `instagram.com/mindhaos/reel/DeLDyjlAKT_/` desde `@mindhaos`. Instagram sale en gris
+      en «Exportar o publicar» si el proyecto está en 16:9: hay que pasarlo a 9:16.
+- [ ] Borrar los dos videos de prueba (el Reel de Facebook y el de Instagram) antes de
+      grabar, o dejarlos como «resultado» si se graba con ellos.
+- [ ] Topes: 10 publicaciones por red y 24 h, **los fallos cuentan** (ver v1).
+- [ ] Grabación con `ffmpeg` `gdigrab` en **MP4 fragmentado** (la receta de TikTok, fase 2)
+      a pantalla entera; Marco maneja y yo dicto toma por toma.
+
+| Toma | Qué se hace y se ve | Rótulo en pantalla (inglés) | Permiso |
+|---|---|---|---|
+| 1 | `app.mindhaos.com` con la barra de direcciones; la casa de MindHaOS; abrir el Studio de video y el proyecto «Demo video (Facebook)» y reproducirlo | «MindHaOS: each room of a 3D house is an app. This is the video Studio, where the user edits their own videos.» | — |
+| 2 | Export → **Facebook** → **Connect** | «The user chooses to publish this video to their own Facebook Page and presses Connect.» | — |
+| 3 | La pantalla de **login de Facebook**: correo y contraseña, «Log in» | «Meta login: the user signs in to Facebook.» | login |
+| 4 | «Continue as …», elegir la **Página** (y no las demás) | «The user picks the only Page the app may publish to.» | `pages_show_list` |
+| 5 | Elegir la **cuenta de Instagram** vinculada | «…and the Instagram professional account linked to that Page.» | `instagram_basic` |
+| 6 | La pantalla con la **lista de permisos** concedidos, «Save»/«Got it» | «The user reviews and grants exactly these permissions.» | todos |
+| 7 | Vuelta a MindHaOS: la Página con nombre y foto y su Instagram; si sale `sin-pagina`, pegar el enlace y «Use this Page» | «MindHaOS shows the Page name and picture, and its linked Instagram account.» / «If Facebook doesn't list the Page, the user pastes its link, so we never need business_management.» | `pages_read_engagement` |
+| 8 | Formulario 16:9: título, descripción, **Publish**; Exporting → Uploading → Publishing → «Published on Facebook» | «Publish: the video is rendered, uploaded and posted on the Page.» | `pages_manage_posts` |
+| 9 | El video **en la Página** (facebook.com o Business Suite, según la prueba) | «Here is the video on the user's Page.» | `pages_manage_posts` |
+| 10 | Proyecto «Demo Reel (Instagram)» 9:16 → Export → **Instagram**: el usuario de la cuenta, **Publish**, progreso, «Published on Instagram» | «The same Studio publishes a vertical video as an Instagram Reel.» | `instagram_basic`, `instagram_content_publish` |
+| 11 | El **Reel en el perfil** de Instagram | «Here is the Reel on the linked Instagram account.» | `instagram_content_publish` |
+| 12 | Settings → Connected accounts → **Disconnect** (Instagram cae con Facebook) | «The user can disconnect at any time; the stored tokens are deleted.» | — |
+
+**RODADO Y MONTADO el 6-oct-2026:** `Vídeos\Grabaciones de pantalla\screencast-meta-app-review-v2.mp4`
+(2:17, rótulos en inglés quemados con `drawtext` y **voz** `edge-tts` `en-US-AndrewNeural`
++8 %, una frase por rótulo colocada con `adelay`; `screencast-meta-v2-voz.py` avisa si una
+frase no cabe antes de la siguiente). El script que lo arma
+queda al lado (`screencast-meta-v2-montar.py`): los rótulos van en tiempo de ORIGEN de cada
+tramo y se recolocan solos al cambiar cortes o velocidades. Fuentes:
+- `login2.mp4` (72 s): casa → Studio → Export → Connect → «Log into your Meta Account» con
+  contraseña → «Continue as…» → Edit settings → Choose the Pages → Review → connected →
+  pegar el enlace → formulario. Se salta 30,5-32,6 s (el autocompletar de Chrome enseña los
+  correos guardados) y la elección de Página/permisos va a 0,35× para que se lea.
+- `toma.mp4` (5:34): publicar en Facebook (espera ×4), el Reel en la Página, el 9:16 a
+  Instagram (espera ×4), el Reel en `@mindhaos` y Disconnect. Se dejan fuera 3:10-3:24
+  (el inicio PERSONAL de Facebook) y los Reels ajenos al hacer scroll.
+- ⚠️ Dos tomas de login que NO sirven y por qué: con la sesión de Facebook viva sale
+  «Switching accounts — Continue» (no hay login); y entrar por facebook.com en vez de por
+  Connect no es el flujo de la app y además enseña el inicio personal.
+
+**Reenvío preparado el 6-oct-2026 (submission `1189727760172297`), SIN enviar todavía:**
+- «Request again» del feedback NO mete nada en el borrador. Los permisos se añaden desde Use
+  cases → Customize → fila → Actions → Add to App Review. `pages_read_engagement` y
+  `pages_show_list` abren un aviso («also requested in the use cases listed below»: el de
+  Instagram) que hay que aceptar con **Request**, o no se añaden.
+- Allowed usage: descripción nueva por permiso (app pública + segundos del video donde se
+  ve) y `mindhaos-meta-app-review.mp4` en los cinco; casillas de compromiso marcadas (las
+  dos últimas por Claude con permiso expreso de Marco). Renewal → certificar `public_profile`.
+  ⚠️ Al subir el video sale «Processing Video» con su **Close**: buscar «Close» por JS
+  cierra el DIÁLOGO DEL PERMISO y se pierde lo escrito; cerrar ese aviso por coordenadas.
+- Data handling: lo de septiembre, confirmado sin cambios.
+- Reviewer instructions: quitado el «IMPORTANT – APP RENAMED» y el nombre/URL viejos (por
+  JS, sin tocar el campo de credenciales). «Needs your review» solo se fue tras teclear en
+  el textarea y volver a pulsar «Yes» en Facebook Login.
+- Basic settings: privacidad/términos/borrado → `mindhaos.com/en/privacidad`,
+  `/en/terminos`, `/en/soporte#eliminar-cuenta`. ⚠️ Site URL y App domains se QUEDAN en
+  `mindplannerhome.com`: Meta exige que cada App domain coincida con la Site URL, y quitar
+  `mindplannerhome.com` arriesga la redirect URI `mindplannerhome.com/oauth/redes`.
+- ❌ «Submit for review» (con la casilla de Platform Terms) devuelve *«Something went
+  wrong. Click submit again. Your responses are saved.»* tres veces seguidas, y la lista de
+  envíos da «Something went wrong. Please try again later.».
+- ✅ **SÍ ENTRÓ:** al rato llegó al Alert Inbox *«Your app has been submitted and pending
+  review»* (6-oct-2026), aunque la página del submission seguía enseñando el botón
+  «Submit for review». **Comprobar el Alert Inbox antes de volver a pulsar Submit.**
+
+**Montaje (la receta):** recortar pausas con `freezedetect` (receta de TikTok), rótulos quemados con
+`drawtext` o subtítulos `.srt` quemados, voz `edge-tts` `en-US-AndrewNeural` una frase por
+rótulo, y portada de 3 s con «MindHaOS — Facebook Page & Instagram publishing». Un solo
+archivo, menos de 5 minutos, que se sube a **cada uno de los cinco permisos** en Allowed
+usage antes de «Request again». La descripción de cada permiso y las instrucciones del
+revisor se actualizan al nombre MindHaOS y a `app.mindhaos.com`, sin la nota del renombre.
 
 ### Instrucciones para el revisor de Meta (inglés, se pegan en App Review)
 
