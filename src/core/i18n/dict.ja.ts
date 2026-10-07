@@ -7328,7 +7328,6 @@ export const JA: Dict = {
   'cuenta.sync.soloPro': 'デバイス間の同期は Pro の機能です。',
   'cuenta.sync.ahora': '同期する',
   'cuenta.sync.activar': '端末間の同期をオンにする',
-  'cuenta.sync.soloPro': 'デバイス間の同期はProの機能です。',
   'cuenta.codigo.canjear': 'プロモーションコードを使う',
   'cuenta.codigo.listo': 'コードを使いました。サブスクリプションが有効になりました。',
   'cuenta.codigo.pendiente': 'コードを使った場合、数分でここにサブスクリプションが表示されます。',

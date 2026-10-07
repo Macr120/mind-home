@@ -7701,7 +7701,6 @@ export const ID: Dict = {
   'cuenta.sync.soloPro': 'Sinkronisasi antarperangkat adalah bagian dari Pro.',
   'cuenta.sync.ahora': 'Sinkronkan sekarang',
   'cuenta.sync.activar': 'Aktifkan sinkronisasi antarperangkat',
-  'cuenta.sync.soloPro': 'Sinkronisasi antarperangkat adalah bagian dari Pro.',
   'cuenta.codigo.canjear': 'Tukarkan kode promo',
   'cuenta.codigo.listo': 'Kode berhasil ditukar: langgananmu sudah aktif.',
   'cuenta.codigo.pendiente': 'Jika kamu sudah menukar kode, langgananmu akan muncul di sini dalam beberapa menit.',

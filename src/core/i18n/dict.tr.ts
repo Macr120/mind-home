@@ -7637,7 +7637,6 @@ export const TR: Dict = {
   'cuenta.sync.soloPro': 'Cihazlar arası senkronizasyon Pro’ya dahildir.',
   'cuenta.sync.ahora': 'Şimdi senkronize et',
   'cuenta.sync.activar': 'Cihazlar arası eşitlemeyi etkinleştir',
-  'cuenta.sync.soloPro': 'Cihazlar arası senkronizasyon Pro’ya dahildir.',
   'cuenta.codigo.canjear': 'Promosyon kodu kullan',
   'cuenta.codigo.listo': 'Kod kullanıldı: aboneliğin artık etkin.',
   'cuenta.codigo.pendiente': 'Bir kod kullandıysan aboneliğin birkaç dakika içinde burada görünecek.',

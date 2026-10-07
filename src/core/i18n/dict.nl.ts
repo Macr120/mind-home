@@ -7724,7 +7724,6 @@ export const NL: Dict = {
   'cuenta.sync.soloPro': 'Synchroniseren tussen apparaten hoort bij Pro.',
   'cuenta.sync.ahora': 'Synchroniseren',
   'cuenta.sync.activar': 'Synchronisatie tussen apparaten inschakelen',
-  'cuenta.sync.soloPro': 'Synchroniseren tussen apparaten hoort bij Pro.',
   'cuenta.codigo.canjear': 'Promotiecode inwisselen',
   'cuenta.codigo.listo': 'Code ingewisseld: je abonnement is nu actief.',
   'cuenta.codigo.pendiente': 'Als je een code hebt ingewisseld, verschijnt je abonnement hier binnen een paar minuten.',

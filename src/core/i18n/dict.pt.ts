@@ -7659,7 +7659,6 @@ export const PT: Dict = {
   'cuenta.sync.soloPro': 'A sincronização entre dispositivos faz parte do Pro.',
   'cuenta.sync.ahora': 'Sincronizar',
   'cuenta.sync.activar': 'Ativar a sincronização entre dispositivos',
-  'cuenta.sync.soloPro': 'A sincronização entre dispositivos faz parte do Pro.',
   'cuenta.codigo.canjear': 'Resgatar um código promocional',
   'cuenta.codigo.listo': 'Código resgatado: sua assinatura já está ativa.',
   'cuenta.codigo.pendiente': 'Se você resgatou um código, sua assinatura aparecerá aqui em alguns minutos.',

@@ -7653,7 +7653,6 @@ export const PL: Dict = {
   'cuenta.sync.soloPro': 'Synchronizacja między urządzeniami jest częścią Pro.',
   'cuenta.sync.ahora': 'Synchronizuj',
   'cuenta.sync.activar': 'Włącz synchronizację między urządzeniami',
-  'cuenta.sync.soloPro': 'Synchronizacja między urządzeniami jest częścią Pro.',
   'cuenta.codigo.canjear': 'Zrealizuj kod promocyjny',
   'cuenta.codigo.listo': 'Kod zrealizowany: subskrypcja jest już aktywna.',
   'cuenta.codigo.pendiente': 'Jeśli zrealizowałeś kod, subskrypcja pojawi się tu za kilka minut.',

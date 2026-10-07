@@ -7759,7 +7759,6 @@ export const EN: Dict = {
   'cuenta.sync.soloPro': 'Syncing across devices is part of Pro.',
   'cuenta.sync.ahora': 'Sync now',
   'cuenta.sync.activar': 'Turn on sync across devices',
-  'cuenta.sync.soloPro': 'Syncing across devices is part of Pro.',
   'cuenta.codigo.canjear': 'Redeem a promo code',
   'cuenta.codigo.listo': 'Code redeemed: your subscription is now active.',
   'cuenta.codigo.pendiente': 'If you redeemed a code, your subscription will show up here in a few minutes.',

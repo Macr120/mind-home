@@ -7522,7 +7522,6 @@ export const AR: Dict = {
   'cuenta.sync.soloPro': 'المزامنة بين الأجهزة جزء من Pro.',
   'cuenta.sync.ahora': 'مزامنة',
   'cuenta.sync.activar': 'تفعيل المزامنة بين الأجهزة',
-  'cuenta.sync.soloPro': 'المزامنة بين الأجهزة جزء من Pro.',
   'cuenta.codigo.canjear': 'استرداد رمز ترويجي',
   'cuenta.codigo.listo': 'تم استرداد الرمز: اشتراكك مفعّل الآن.',
   'cuenta.codigo.pendiente': 'إذا استرددت رمزًا، فسيظهر اشتراكك هنا خلال بضع دقائق.',

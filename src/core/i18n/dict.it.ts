@@ -7718,7 +7718,6 @@ export const IT: Dict = {
   'cuenta.sync.soloPro': 'La sincronizzazione tra dispositivi fa parte di Pro.',
   'cuenta.sync.ahora': 'Sincronizza ora',
   'cuenta.sync.activar': 'Attiva la sincronizzazione tra dispositivi',
-  'cuenta.sync.soloPro': 'La sincronizzazione tra dispositivi fa parte di Pro.',
   'cuenta.codigo.canjear': 'Riscatta un codice promozionale',
   'cuenta.codigo.listo': 'Codice riscattato: il tuo abbonamento è attivo.',
   'cuenta.codigo.pendiente': 'Se hai riscattato un codice, il tuo abbonamento apparirà qui tra pochi minuti.',

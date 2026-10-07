@@ -7776,7 +7776,6 @@ export const DE: Dict = {
   'cuenta.sync.soloPro': 'Die Synchronisierung zwischen Geräten ist Teil von Pro.',
   'cuenta.sync.ahora': 'Synchronisieren',
   'cuenta.sync.activar': 'Sync zwischen Geräten aktivieren',
-  'cuenta.sync.soloPro': 'Die Synchronisierung zwischen Geräten gehört zu Pro.',
   'cuenta.codigo.canjear': 'Aktionscode einlösen',
   'cuenta.codigo.listo': 'Code eingelöst: Dein Abo ist jetzt aktiv.',
   'cuenta.codigo.pendiente': 'Wenn du einen Code eingelöst hast, erscheint dein Abo in ein paar Minuten hier.',

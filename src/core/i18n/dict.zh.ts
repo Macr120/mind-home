@@ -7280,7 +7280,6 @@ export const ZH: Dict = {
   'cuenta.sync.soloPro': '跨设备同步是 Pro 的功能。',
   'cuenta.sync.ahora': '立即同步',
   'cuenta.sync.activar': '开启跨设备同步',
-  'cuenta.sync.soloPro': '设备间同步是 Pro 的功能。',
   'cuenta.codigo.canjear': '兑换促销码',
   'cuenta.codigo.listo': '兑换成功：你的订阅已生效。',
   'cuenta.codigo.pendiente': '如果你已兑换代码，订阅会在几分钟内显示在这里。',

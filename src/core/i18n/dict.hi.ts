@@ -7618,7 +7618,6 @@ export const HI: Dict = {
   'cuenta.sync.soloPro': 'डिवाइसों के बीच सिंक Pro का हिस्सा है।',
   'cuenta.sync.ahora': 'सिंक करें',
   'cuenta.sync.activar': 'उपकरणों के बीच सिंक चालू करें',
-  'cuenta.sync.soloPro': 'डिवाइसों के बीच सिंक Pro का हिस्सा है।',
   'cuenta.codigo.canjear': 'प्रोमो कोड भुनाएँ',
   'cuenta.codigo.listo': 'कोड भुना लिया गया: आपकी सदस्यता अब सक्रिय है।',
   'cuenta.codigo.pendiente': 'अगर आपने कोड भुनाया है, तो आपकी सदस्यता कुछ मिनटों में यहाँ दिखेगी।',
