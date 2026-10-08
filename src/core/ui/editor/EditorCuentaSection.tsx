@@ -760,7 +760,13 @@ function Restaurar() {
     setAviso(null)
     try {
       const ok = await restaurarCompras()
-      if (!ok) setAviso(t('cuenta.pago.sinRestaurar', 'No encontramos compras de esta cuenta.'))
+      // Con o sin compras, siempre se contesta: un «Restaurar» que no dice nada
+      // parece un botón roto, y App Review lo prueba (2.1).
+      setAviso(
+        ok
+          ? t('cuenta.pago.restaurado', 'Compras restauradas: tu suscripción está al día.')
+          : t('cuenta.pago.sinRestaurar', 'No encontramos compras de esta cuenta.'),
+      )
     } catch (e) {
       setAviso(textoDeFallo(e, t))
     } finally {

@@ -7364,6 +7364,7 @@ export const RU: Dict = {
   'cuenta.pago.gestionar': 'Управлять подпиской',
   'cuenta.pago.restaurar': 'Восстановить покупки',
   'cuenta.pago.sinRestaurar': 'Мы не нашли покупок для этого аккаунта.',
+  'cuenta.pago.restaurado': 'Покупки восстановлены: подписка в актуальном состоянии.',
   'cuenta.olvide': 'Не помнишь пароль?',
   'cuenta.olvide.sinCorreo': 'Сначала введи почту выше.',
   'cuenta.olvide.enviado': 'Мы отправили тебе письмо, чтобы его сбросить.',

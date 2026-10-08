@@ -7508,6 +7508,7 @@ export const DE: Dict = {
   'cuenta.pago.gestionar': 'Mein Abo verwalten',
   'cuenta.pago.restaurar': 'Käufe wiederherstellen',
   'cuenta.pago.sinRestaurar': 'Wir haben keine Käufe für dieses Konto gefunden.',
+  'cuenta.pago.restaurado': 'Käufe wiederhergestellt: Dein Abo ist auf dem neuesten Stand.',
   'cuenta.olvide': 'Passwort vergessen?',
   'cuenta.olvide.sinCorreo': 'Gib zuerst oben deine E-Mail-Adresse ein.',
   'cuenta.olvide.enviado': 'Wir haben dir eine E-Mail zum Zurücksetzen geschickt.',

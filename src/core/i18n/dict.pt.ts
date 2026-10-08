@@ -7393,6 +7393,7 @@ export const PT: Dict = {
   'cuenta.pago.gestionar': 'Gerenciar minha assinatura',
   'cuenta.pago.restaurar': 'Restaurar compras',
   'cuenta.pago.sinRestaurar': 'Não encontramos compras nesta conta.',
+  'cuenta.pago.restaurado': 'Compras restauradas: sua assinatura está em dia.',
   'cuenta.olvide': 'Esqueceu sua senha?',
   'cuenta.olvide.sinCorreo': 'Digite seu e-mail acima primeiro.',
   'cuenta.olvide.enviado': 'Enviamos um e-mail para você redefini-la.',

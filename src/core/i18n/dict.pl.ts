@@ -7386,6 +7386,7 @@ export const PL: Dict = {
   'cuenta.pago.gestionar': 'Zarządzaj subskrypcją',
   'cuenta.pago.restaurar': 'Przywróć zakupy',
   'cuenta.pago.sinRestaurar': 'Nie znaleźliśmy zakupów na tym koncie.',
+  'cuenta.pago.restaurado': 'Zakupy przywrócone: Twoja subskrypcja jest aktualna.',
   'cuenta.olvide': 'Nie pamiętasz hasła?',
   'cuenta.olvide.sinCorreo': 'Najpierw wpisz swój e-mail powyżej.',
   'cuenta.olvide.enviado': 'Wysłaliśmy e-mail, aby ją zresetować.',

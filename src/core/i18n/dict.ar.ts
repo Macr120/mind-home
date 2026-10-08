@@ -7259,6 +7259,7 @@ export const AR: Dict = {
   'cuenta.pago.gestionar': 'إدارة اشتراكي',
   'cuenta.pago.restaurar': 'استعادة المشتريات',
   'cuenta.pago.sinRestaurar': 'لم نعثر على مشتريات لهذا الحساب.',
+  'cuenta.pago.restaurado': 'تمت استعادة المشتريات: اشتراكك محدَّث.',
   'cuenta.olvide': 'هل نسيت كلمة المرور؟',
   'cuenta.olvide.sinCorreo': 'اكتب بريدك الإلكتروني أعلاه أولًا.',
   'cuenta.olvide.enviado': 'أرسلنا إليك رسالة لإعادة تعيينها.',

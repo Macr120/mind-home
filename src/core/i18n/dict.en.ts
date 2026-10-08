@@ -7485,6 +7485,7 @@ export const EN: Dict = {
   'cuenta.pago.gestionar': 'Manage my subscription',
   'cuenta.pago.restaurar': 'Restore purchases',
   'cuenta.pago.sinRestaurar': 'We didn’t find any purchases for this account.',
+  'cuenta.pago.restaurado': 'Purchases restored: your subscription is up to date.',
   'cuenta.olvide': 'Forgot your password?',
   'cuenta.olvide.sinCorreo': 'Type your email above first.',
   'cuenta.olvide.enviado': 'We sent you an email to reset it.',

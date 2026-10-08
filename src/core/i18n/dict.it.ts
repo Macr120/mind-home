@@ -7450,6 +7450,7 @@ export const IT: Dict = {
   'cuenta.pago.gestionar': 'Gestisci il mio abbonamento',
   'cuenta.pago.restaurar': 'Ripristina acquisti',
   'cuenta.pago.sinRestaurar': 'Non abbiamo trovato acquisti per questo account.',
+  'cuenta.pago.restaurado': 'Acquisti ripristinati: il tuo abbonamento è aggiornato.',
   'cuenta.olvide': 'Hai dimenticato la password?',
   'cuenta.olvide.sinCorreo': 'Scrivi prima la tua email qui sopra.',
   'cuenta.olvide.enviado': 'Ti abbiamo inviato un\'email per reimpostarla.',

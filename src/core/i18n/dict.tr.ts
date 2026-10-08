@@ -7368,6 +7368,7 @@ export const TR: Dict = {
   'cuenta.pago.gestionar': 'Aboneliğimi yönet',
   'cuenta.pago.restaurar': 'Satın alımları geri yükle',
   'cuenta.pago.sinRestaurar': 'Bu hesapta satın alma bulamadık.',
+  'cuenta.pago.restaurado': 'Satın almalar geri yüklendi: aboneliğin güncel.',
   'cuenta.olvide': 'Şifreni mi unuttun?',
   'cuenta.olvide.sinCorreo': 'Önce yukarıya e-postanı yaz.',
   'cuenta.olvide.enviado': 'Sıfırlaman için sana bir e-posta gönderdik.',

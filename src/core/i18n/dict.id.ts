@@ -7433,6 +7433,7 @@ export const ID: Dict = {
   'cuenta.pago.gestionar': 'Kelola langgananku',
   'cuenta.pago.restaurar': 'Pulihkan pembelian',
   'cuenta.pago.sinRestaurar': 'Kami tidak menemukan pembelian di akun ini.',
+  'cuenta.pago.restaurado': 'Pembelian dipulihkan: langgananmu sudah terbaru.',
   'cuenta.olvide': 'Lupa kata sandi?',
   'cuenta.olvide.sinCorreo': 'Tulis emailmu di atas dulu.',
   'cuenta.olvide.enviado': 'Kami mengirimkan email untuk mengaturnya ulang.',

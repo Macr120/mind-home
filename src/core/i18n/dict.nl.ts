@@ -7457,6 +7457,7 @@ export const NL: Dict = {
   'cuenta.pago.gestionar': 'Mijn abonnement beheren',
   'cuenta.pago.restaurar': 'Aankopen herstellen',
   'cuenta.pago.sinRestaurar': 'We vonden geen aankopen voor dit account.',
+  'cuenta.pago.restaurado': 'Aankopen hersteld: je abonnement is bijgewerkt.',
   'cuenta.olvide': 'Wachtwoord vergeten?',
   'cuenta.olvide.sinCorreo': 'Vul eerst je e-mailadres hierboven in.',
   'cuenta.olvide.enviado': 'We hebben je een e-mail gestuurd om het opnieuw in te stellen.',

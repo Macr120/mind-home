@@ -7076,6 +7076,7 @@ export const ZH: Dict = {
   'cuenta.pago.gestionar': '管理我的订阅',
   'cuenta.pago.restaurar': '恢复购买',
   'cuenta.pago.sinRestaurar': '没有找到这个账号的购买记录。',
+  'cuenta.pago.restaurado': '已恢复购买：你的订阅已是最新状态。',
   'cuenta.olvide': '忘记密码了？',
   'cuenta.olvide.sinCorreo': '请先在上方输入邮箱。',
   'cuenta.olvide.enviado': '我们已发送重置邮件给你。',

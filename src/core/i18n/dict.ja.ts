@@ -7106,6 +7106,7 @@ export const JA: Dict = {
   'cuenta.pago.gestionar': 'サブスクリプションを管理',
   'cuenta.pago.restaurar': '購入を復元',
   'cuenta.pago.sinRestaurar': 'このアカウントの購入が見つかりませんでした。',
+  'cuenta.pago.restaurado': '購入を復元しました。サブスクリプションは最新の状態です。',
   'cuenta.olvide': 'パスワードをお忘れですか?',
   'cuenta.olvide.sinCorreo': 'まず上でメールアドレスを入力してください。',
   'cuenta.olvide.enviado': 'リセット用のメールを送信しました。',

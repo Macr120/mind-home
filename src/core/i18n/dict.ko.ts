@@ -7115,6 +7115,7 @@ export const KO: Dict = {
   'cuenta.pago.gestionar': '내 구독 관리',
   'cuenta.pago.restaurar': '구매 복원',
   'cuenta.pago.sinRestaurar': '이 계정의 구매 내역을 찾지 못했습니다.',
+  'cuenta.pago.restaurado': '구매를 복원했습니다. 구독이 최신 상태입니다.',
   'cuenta.olvide': '비밀번호를 잊으셨어요?',
   'cuenta.olvide.sinCorreo': '먼저 위에 이메일을 입력해 주세요.',
   'cuenta.olvide.enviado': '재설정 이메일을 보내드렸어요.',

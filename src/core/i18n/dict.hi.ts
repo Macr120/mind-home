@@ -7353,6 +7353,7 @@ export const HI: Dict = {
   'cuenta.pago.gestionar': 'अपना सब्सक्रिप्शन मैनेज करें',
   'cuenta.pago.restaurar': 'खरीदारी बहाल करें',
   'cuenta.pago.sinRestaurar': 'इस खाते की कोई खरीदारी नहीं मिली।',
+  'cuenta.pago.restaurado': 'खरीदारी बहाल हो गई: आपकी सदस्यता अप-टू-डेट है।',
   'cuenta.olvide': 'पासवर्ड भूल गए?',
   'cuenta.olvide.sinCorreo': 'पहले ऊपर अपना ईमेल लिखें।',
   'cuenta.olvide.enviado': 'हमने इसे रीसेट करने के लिए आपको एक ईमेल भेजा है।',
