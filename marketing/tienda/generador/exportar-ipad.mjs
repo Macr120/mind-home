@@ -1,25 +1,26 @@
-// Renderiza la lámina de iPad (2048×2732) en los idiomas pedidos, a partir de
-// shots/<idioma>/ipad-casa.png (la captura nativa 1024×1366). Necesita el
+// Renderiza la lámina de iPad (2048×2732) o de iPhone Duo en los idiomas
+// pedidos, a partir de la captura nativa de capturar-ipad.mjs (FORMATOS). Necesita el
 // Chrome del piloto arrancado (node cdp.mjs arranca) — solo para pintar el
 // HTML plano (sin WebGL, así que no hay riesgo del crash de la app).
-// Uso: node exportar-ipad.mjs [es en ...]   (sin argumentos: los 16)
+// Uso: node exportar-ipad.mjs [--formato=duo-exterior] [es en ...]   (sin idiomas: los 16)
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { pathToFileURL } from 'node:url'
-import { laminaIpad } from './plantilla-ipad.mjs'
+import { laminaIpad, formatoPedido } from './plantilla-ipad.mjs'
 import { IDIOMAS, RTL } from './componer.mjs'
 
 const PORT = 9333
 const RAIZ = dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1'))
 const SHOTS = resolve(RAIZ, '..', 'capturas')
-const SALIDA = resolve(RAIZ, '..', 'ipad')
+const FORMATO = formatoPedido(process.argv)
+const SALIDA = resolve(RAIZ, '..', FORMATO.carpeta)
 mkdirSync(SALIDA, { recursive: true })
 const TEMP = resolve(RAIZ, 'html')
 mkdirSync(TEMP, { recursive: true })
 
 const COPIA = JSON.parse(readFileSync(resolve(RAIZ, 'copia.json'), 'utf8'))
-const W = 2048
-const H = 2732
+const [W, H] = FORMATO.lamina
+const ASPECTO = FORMATO.captura[0] / FORMATO.captura[1]
 
 function conWs(url, fn) {
   return new Promise((res, rej) => {
@@ -70,11 +71,11 @@ await conWs(t.webSocketDebuggerUrl, async (c) => {
   })
 
   for (const id of objetivo) {
-    const captura = resolve(SHOTS, id, 'ipad-casa.png')
+    const captura = resolve(SHOTS, id, FORMATO.archivo)
     if (!existsSync(captura)) { console.log('sin captura para ' + id); continue }
     const L = COPIA[id]
     const img = readFileSync(captura).toString('base64')
-    const html = laminaIpad({ titulo: L.t1, sub: L.s1, img, rtl: RTL.has(id) }, { w: W, h: H })
+    const html = laminaIpad({ titulo: L.t1, sub: L.s1, img, rtl: RTL.has(id) }, { w: W, h: H, aspecto: ASPECTO })
     const ruta = resolve(TEMP, 'ipad-actual.html')
     writeFileSync(ruta, html, 'utf8')
     await c.enviar('Page.navigate', { url: pathToFileURL(ruta).href + '?v=' + id })

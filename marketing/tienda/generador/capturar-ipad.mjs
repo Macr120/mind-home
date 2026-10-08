@@ -1,10 +1,12 @@
-// Captura la casa (misma escena que la lámina 1) en formato iPad nativo
-// (1024×1366, seguro contra el crash de >~3MP) para los 16 idiomas.
+// Captura la casa (misma escena que la lámina 1) en formato iPad o iPhone Duo
+// nativo (ver FORMATOS en plantilla-ipad.mjs, seguro contra el crash de >~3MP)
+// para los 16 idiomas.
 // Necesita el Chrome del piloto arrancado y la ventana agrandada (node cdp.mjs
-// arranca + resize.mjs). Uso: node capturar-ipad.mjs [es en ...]
+// arranca + resize.mjs). Uso: node capturar-ipad.mjs [--formato=duo-interior] [es en ...]
 import { writeFileSync, mkdirSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { IDIOMAS } from './componer.mjs'
+import { formatoPedido } from './plantilla-ipad.mjs'
 
 const PORT = 9333
 const RAIZ = dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1'))
@@ -46,8 +48,8 @@ function conWs(url, fn) {
   })
 }
 
-const W = 1024
-const H = 1366
+const FORMATO = formatoPedido(process.argv)
+const [W, H] = FORMATO.captura
 
 const pedidos = process.argv.slice(2).filter((a) => IDIOMAS.includes(a))
 const objetivo = pedidos.length ? pedidos : IDIOMAS
@@ -116,6 +118,10 @@ await conWs(t.webSocketDebuggerUrl, async (c) => {
           e.style.display = 'none'
         }
       })
+      // La píldora «Salir de la demo» (BarraDemo) tampoco va en la lámina.
+      document.querySelectorAll('div.ui-panel-glass.rounded-full').forEach((e) => {
+        (e.closest('[class*="fixed"]') || e).style.display = 'none'
+      })
       const hud = [...document.querySelectorAll('div')].find((e) => (e.className || '') === 'relative h-full w-full')
       if (hud) [...hud.children].slice(1).forEach((e) => { e.style.display = 'none' })
       const st = window.__r3f()
@@ -133,8 +139,8 @@ await conWs(t.webSocketDebuggerUrl, async (c) => {
       format: 'png', fromSurface: true, captureBeyondViewport: false,
       clip: { x: 0, y: 0, width: W, height: H, scale: 1 },
     })
-    writeFileSync(resolve(dir, 'ipad-casa.png'), Buffer.from(shot.data, 'base64'))
-    console.log('  ipad-casa.png ok')
+    writeFileSync(resolve(dir, FORMATO.archivo), Buffer.from(shot.data, 'base64'))
+    console.log('  ' + FORMATO.archivo + ' ok')
   }
   await c.enviar('Emulation.clearDeviceMetricsOverride')
 })

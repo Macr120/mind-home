@@ -7,9 +7,9 @@
 
 MindHaOS
 
-## Subtítulo (25/30)
+## Subtítulo (12/30)
 
-عقلك في بيت ثلاثي الأبعاد
+بيت العقل OS
 
 ## Texto promocional (132/170)
 

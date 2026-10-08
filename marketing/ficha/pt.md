@@ -7,9 +7,9 @@
 
 MindHaOS
 
-## Subtítulo (25/30)
+## Subtítulo (14/30)
 
-Sua mente, em uma casa 3D
+Casa Mental OS
 
 ## Texto promocional (67/170)
 

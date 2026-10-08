@@ -7,9 +7,9 @@
 
 MindHaOS
 
-## Subtítulo (24/30)
+## Subtítulo (15/30)
 
-Je geest, in een 3D-huis
+Mentaal Huis OS
 
 ## Texto promocional (75/170)
 

@@ -7,9 +7,9 @@
 
 MindHaOS
 
-## Subtítulo (21/30)
+## Subtítulo (11/30)
 
-आपका मन, एक 3D घर में
+मन का घर OS
 
 ## Texto promocional (67/170)
 

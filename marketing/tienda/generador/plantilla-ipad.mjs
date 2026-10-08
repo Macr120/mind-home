@@ -10,17 +10,36 @@ const GLOW = '#895ac6'
 const ACENTO = '#6d34b8'
 
 /**
+ * Formatos casi cuadrados que comparten esta lámina. `captura` es el tamaño
+ * nativo seguro de la app (≤ ~1.5 MP, ver el crash de WebGL en el README) y
+ * `lamina` el que pide App Store Connect; el reescalado lo hace el `<img>`.
+ * El iPhone Duo pide dos: pantalla exterior e interior (la plegable).
+ */
+export const FORMATOS = {
+  ipad: { captura: [1024, 1366], lamina: [2048, 2732], carpeta: 'ipad', archivo: 'ipad-casa.png' },
+  'duo-exterior': { captura: [699, 1017], lamina: [1398, 2034], carpeta: 'duo-exterior', archivo: 'duo-exterior-casa.png' },
+  'duo-interior': { captura: [1004, 1427], lamina: [2007, 2853], carpeta: 'duo-interior', archivo: 'duo-interior-casa.png' },
+}
+
+/** `--formato=duo-exterior` de la línea de órdenes; sin él, iPad. */
+export function formatoPedido(argv) {
+  const nombre = argv.find((a) => a.startsWith('--formato='))?.slice(10) || 'ipad'
+  if (!FORMATOS[nombre]) throw new Error(`formato desconocido: ${nombre} (${Object.keys(FORMATOS).join(', ')})`)
+  return FORMATOS[nombre]
+}
+
+/**
  * @param {{titulo:string, sub:string, img:string, rtl?:boolean}} s
- * @param {{w:number,h:number}} tam
+ * @param {{w:number,h:number,aspecto?:number}} tam  aspecto = ancho/alto de la captura
  */
 export function laminaIpad(s, tam) {
-  const { w, h } = tam
+  const { w, h, aspecto = 1024 / 1366 } = tam
   const u = w / 1000
-  // La captura de la app es 1024×1366 (aspecto 0.7496, ya el de un iPad real):
-  // se pinta 1:1 en CSS, sin escalar por Chrome — el navegador la reescala como
-  // imagen normal, no como canvas WebGL, así que no hay riesgo de crash.
+  // La captura de la app ya tiene el aspecto del dispositivo: se pinta 1:1 en
+  // CSS, sin escalar por Chrome — el navegador la reescala como imagen normal,
+  // no como canvas WebGL, así que no hay riesgo de crash.
   const anchoTel = w * 0.64
-  const altoTel = anchoTel / 0.7496
+  const altoTel = anchoTel / aspecto
   const cabecera = h * 0.29
 
   return `<meta charset="utf-8">

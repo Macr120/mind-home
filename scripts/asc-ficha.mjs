@@ -19,7 +19,7 @@
 import { createHash, createSign } from 'node:crypto'
 import { readFileSync, existsSync, statSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
-import { dirname, join } from 'node:path'
+import { basename, dirname, join } from 'node:path'
 import { homedir } from 'node:os'
 
 const raiz = join(dirname(fileURLToPath(import.meta.url)), '..')
@@ -50,8 +50,9 @@ const IDIOMAS = {
   ar: 'ar-SA',
 }
 
-const URL_SOPORTE = 'https://mindhaos.com/soporte'
-const URL_MARKETING = 'https://mindhaos.com'
+/** Las URLs de cada idioma: el español va en la raíz y los demás con prefijo (`/es/…` no existe). */
+const WEB = 'https://mindhaos.com'
+const urlWeb = (id, ruta = '') => `${WEB}${id === 'es' ? '' : `/${id}`}${ruta ? `/${ruta}` : id === 'es' ? '' : '/'}`
 
 // ---------------------------------------------------------------- credenciales
 
@@ -143,9 +144,17 @@ function ficha(id) {
     promotionalText: campo('Texto promocional'),
     description: campo('Descripción'),
     keywords: campo('Palabras clave'),
-    supportUrl: URL_SOPORTE,
-    marketingUrl: URL_MARKETING,
+    supportUrl: urlWeb(id, 'soporte'),
+    marketingUrl: urlWeb(id),
   }
+}
+
+/** Nombre y subtítulo viven en la ficha de la APP (appInfo), no en la de la versión. */
+function fichaApp(id) {
+  const md = readFileSync(join(raiz, `marketing/ficha/${id}.md`), 'utf8')
+  const campo = (titulo) => new RegExp(`## ${titulo}[^\\n]*\\n\\n(.*?)\\n`).exec(md)?.[1].trim() || ''
+  // Sin subtítulo (el inglés) se manda null: Apple lo borra.
+  return { name: campo('Nombre'), subtitle: campo('Subtítulo') || null, privacyPolicyUrl: urlWeb(id, 'privacidad') }
 }
 
 // ------------------------------------------------------------------- capturas
@@ -158,7 +167,7 @@ function ficha(id) {
  */
 async function subirCaptura(setId, ruta) {
   const bytes = readFileSync(ruta)
-  const nombre = ruta.split('/').pop()
+  const nombre = basename(ruta)
   const reserva = await api('/appScreenshots', {
     method: 'POST',
     body: JSON.stringify({
@@ -226,11 +235,16 @@ const app = apps.data[0]
 if (!app) throw new Error(`No hay ninguna app con el bundle ${BUNDLE} en esta cuenta`)
 
 const versiones = await api(
-  `/apps/${app.id}/appStoreVersions?filter[platform]=IOS&filter[appStoreState]=PREPARE_FOR_SUBMISSION`,
+  `/apps/${app.id}/appStoreVersions?filter[platform]=IOS&filter[appStoreState]=PREPARE_FOR_SUBMISSION,DEVELOPER_REJECTED,REJECTED,METADATA_REJECTED`,
 )
 const version = versiones.data[0]
-if (!version) throw new Error('No hay una versión de iOS editable (PREPARE_FOR_SUBMISSION)')
+if (!version) throw new Error('No hay una versión de iOS editable (preparando o rechazada)')
 console.log(`App ${app.attributes.name} · versión ${version.attributes.versionString}\n`)
+
+// La ficha de la app que se puede editar es la que NO está ya publicada.
+const infos = await api(`/apps/${app.id}/appInfos`)
+const info = infos.data.find((i) => !['READY_FOR_SALE', 'READY_FOR_DISTRIBUTION'].includes(i.attributes.state ?? i.attributes.appStoreState))
+const infoLocs = info ? (await api(`/appInfos/${info.id}/appInfoLocalizations`)).data : []
 
 /**
  * Los identificadores de tamaño de pantalla los DICE Apple, no los inventamos:
@@ -279,6 +293,29 @@ for (const id of lista) {
     })
     locId = nueva.data.id
     process.stdout.write('texto creado')
+  }
+
+  if (info) {
+    const datosApp = fichaApp(id)
+    const previa = infoLocs.find((l) => l.attributes.locale === locale)
+    if (previa) {
+      await api(`/appInfoLocalizations/${previa.id}`, {
+        method: 'PATCH',
+        body: JSON.stringify({ data: { type: 'appInfoLocalizations', id: previa.id, attributes: datosApp } }),
+      })
+    } else {
+      await api('/appInfoLocalizations', {
+        method: 'POST',
+        body: JSON.stringify({
+          data: {
+            type: 'appInfoLocalizations',
+            attributes: { locale, ...datosApp },
+            relationships: { appInfo: { data: { type: 'appInfos', id: info.id } } },
+          },
+        }),
+      })
+    }
+    process.stdout.write(' · nombre')
   }
 
   if (!soloTexto) {
