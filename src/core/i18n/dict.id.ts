@@ -815,6 +815,13 @@ export const ID: Dict = {
   'celebra.nivel.titulo': 'Naik level!',
   'celebra.nivel.cuerpo': '{app} mencapai level {n} 🎉',
   'celebra.seguir': 'Lanjut!',
+  'celebra.pro.titulo': 'Selamat!',
+  'celebra.pro.tituloRestaurada': 'Langgananmu sudah kembali!',
+  'celebra.pro.nivel': 'Sekarang kamu punya Pro · Tingkat ×{n}',
+  'celebra.pro.creditos': '{n} kredit AI setiap bulan',
+  'celebra.pro.sync': 'Sinkronisasi di semua perangkatmu',
+  'celebra.pro.nube': '{gb} GB penyimpanan di cloud-mu',
+  'celebra.pro.seguir': 'Selamat menikmati!',
   'plantillas.ayuda':
     'Seret templat ke folder lain; ketuk ikonnya untuk mencoba aplikasi dan nama foldernya untuk mengganti namanya.',
   'plantillas.entrar': 'Buka aplikasi',

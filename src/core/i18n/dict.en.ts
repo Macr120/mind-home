@@ -826,6 +826,13 @@ export const EN: Dict = {
   'celebra.nivel.titulo': 'Level up!',
   'celebra.nivel.cuerpo': '{app} reached level {n} 🎉',
   'celebra.seguir': 'Keep going!',
+  'celebra.pro.titulo': 'Congratulations!',
+  'celebra.pro.tituloRestaurada': 'Your subscription is back!',
+  'celebra.pro.nivel': 'You now have Pro · Tier ×{n}',
+  'celebra.pro.creditos': '{n} AI credits every month',
+  'celebra.pro.sync': 'Sync across all your devices',
+  'celebra.pro.nube': '{gb} GB of storage in your cloud',
+  'celebra.pro.seguir': 'Enjoy it!',
 
   // Catálogo de plantillas (apps)
   'plantillas.ayuda': 'Tap the icon to open the app, pick its assistant and assign it to a room.',

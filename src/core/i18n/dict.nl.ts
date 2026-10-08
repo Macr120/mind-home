@@ -815,6 +815,13 @@ export const NL: Dict = {
   'celebra.nivel.titulo': 'Niveau omhoog!',
   'celebra.nivel.cuerpo': '{app} bereikte niveau {n} 🎉',
   'celebra.seguir': 'Ga door!',
+  'celebra.pro.titulo': 'Gefeliciteerd!',
+  'celebra.pro.tituloRestaurada': 'Je abonnement is terug!',
+  'celebra.pro.nivel': 'Je hebt nu Pro · Niveau ×{n}',
+  'celebra.pro.creditos': '{n} AI-credits per maand',
+  'celebra.pro.sync': 'Synchronisatie op al je apparaten',
+  'celebra.pro.nube': '{gb} GB opslag in je cloud',
+  'celebra.pro.seguir': 'Veel plezier!',
   'plantillas.ayuda':
     'Sleep een sjabloon naar een andere map; tik op het icoon om de app te proberen en op de mapnaam om die te hernoemen.',
   'plantillas.entrar': 'App openen',

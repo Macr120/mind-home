@@ -813,6 +813,13 @@ export const TR: Dict = {
   'celebra.nivel.titulo': 'Seviye atladın!',
   'celebra.nivel.cuerpo': '{app} {n}. seviyeye ulaştı 🎉',
   'celebra.seguir': 'Devam!',
+  'celebra.pro.titulo': 'Tebrikler!',
+  'celebra.pro.tituloRestaurada': 'Aboneliğin geri döndü!',
+  'celebra.pro.nivel': 'Artık Pro’sun · Seviye ×{n}',
+  'celebra.pro.creditos': 'Her ay {n} yapay zekâ kredisi',
+  'celebra.pro.sync': 'Tüm cihazlarında senkronizasyon',
+  'celebra.pro.nube': 'Bulutunda {gb} GB depolama',
+  'celebra.pro.seguir': 'Keyfini çıkar!',
   'plantillas.ayuda':
     'Bir şablonu başka bir klasöre sürükle; simgeye dokunarak uygulamayı dene, klasörün adına dokunarak yeniden adlandır.',
   'plantillas.entrar': 'Uygulamayı aç',

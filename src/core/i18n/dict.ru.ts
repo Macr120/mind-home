@@ -813,6 +813,13 @@ export const RU: Dict = {
   'celebra.nivel.titulo': 'Новый уровень!',
   'celebra.nivel.cuerpo': '{app}: уровень {n} 🎉',
   'celebra.seguir': 'Дальше!',
+  'celebra.pro.titulo': 'Поздравляем!',
+  'celebra.pro.tituloRestaurada': 'Ваша подписка снова с вами!',
+  'celebra.pro.nivel': 'Теперь у вас Pro · Уровень ×{n}',
+  'celebra.pro.creditos': '{n} ИИ-кредитов каждый месяц',
+  'celebra.pro.sync': 'Синхронизация на всех ваших устройствах',
+  'celebra.pro.nube': '{gb} ГБ хранилища в вашем облаке',
+  'celebra.pro.seguir': 'Наслаждайтесь!',
   'plantillas.ayuda':
     'Перетащи шаблон в другую папку; коснись значка, чтобы попробовать приложение, и названия папки, чтобы переименовать её.',
   'plantillas.entrar': 'Открыть приложение',

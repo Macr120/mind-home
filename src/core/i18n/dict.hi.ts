@@ -814,6 +814,13 @@ export const HI: Dict = {
   'celebra.nivel.titulo': 'स्तर बढ़ गया!',
   'celebra.nivel.cuerpo': '{app} अब स्तर {n} पर है 🎉',
   'celebra.seguir': 'आगे बढ़ें!',
+  'celebra.pro.titulo': 'बधाई हो!',
+  'celebra.pro.tituloRestaurada': 'आपकी सदस्यता वापस आ गई!',
+  'celebra.pro.nivel': 'अब आपके पास Pro है · स्तर ×{n}',
+  'celebra.pro.creditos': 'हर महीने {n} AI क्रेडिट',
+  'celebra.pro.sync': 'आपके सभी डिवाइस में सिंक',
+  'celebra.pro.nube': 'आपके क्लाउड में {gb} GB स्टोरेज',
+  'celebra.pro.seguir': 'आनंद लीजिए!',
   'plantillas.ayuda':
     'किसी टेम्पलेट को दूसरे फ़ोल्डर में खींचें; ऐप आज़माने के लिए आइकन पर टैप करें और फ़ोल्डर का नाम बदलने के लिए उसके नाम पर टैप करें।',
   'plantillas.entrar': 'ऐप खोलें',

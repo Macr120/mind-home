@@ -2,7 +2,7 @@ import { create } from 'zustand'
 
 /**
  * Cola de celebraciones de la gamificación (estilo Duolingo): racha de una app,
- * lista de objetivos cumplida (+XP) y subida de nivel. Store global porque quien
+ * lista de objetivos cumplida (+XP) y subida de nivel; y la bienvenida a Pro. Store global porque quien
  * celebra no es un componente: `gamificacion/listas.ts` encola al otorgar y el
  * único `<CelebracionesOverlay>` de App las va sacando UNA a una — completar la
  * lista con el primer registro del día encadena racha → lista → nivel.
@@ -11,6 +11,8 @@ export type Celebracion =
   | { tipo: 'racha'; plantillaId: string; racha: number }
   | { tipo: 'lista'; plantillaId: string; xpAntes: number; xpDespues: number }
   | { tipo: 'nivel'; plantillaId: string; nivel: number }
+  /** Suscripción comprada, subida de nivel de Pro o restaurada (`cuenta/paywall.ts`). */
+  | { tipo: 'suscripcion'; nivel: number; restaurada: boolean }
 
 interface CelebracionState {
   actual: Celebracion | null

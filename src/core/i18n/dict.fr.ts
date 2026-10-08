@@ -817,6 +817,13 @@ export const FR: Dict = {
   'celebra.nivel.titulo': 'Tu as gagné un niveau !',
   'celebra.nivel.cuerpo': '{app} a atteint le niveau {n} 🎉',
   'celebra.seguir': 'Continue !',
+  'celebra.pro.titulo': 'Félicitations !',
+  'celebra.pro.tituloRestaurada': 'Ton abonnement est de retour !',
+  'celebra.pro.nivel': 'Tu as maintenant Pro · Niveau ×{n}',
+  'celebra.pro.creditos': '{n} crédits d’IA chaque mois',
+  'celebra.pro.sync': 'Synchronisation sur tous tes appareils',
+  'celebra.pro.nube': '{gb} Go de stockage dans ton cloud',
+  'celebra.pro.seguir': 'Profites-en !',
   'plantillas.ayuda':
     'Fais glisser un modèle vers un autre dossier ; touche l\'icône pour essayer l\'app et le nom du dossier pour le renommer.',
   'plantillas.entrar': 'Ouvrir l’app',
