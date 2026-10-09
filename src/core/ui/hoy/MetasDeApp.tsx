@@ -173,7 +173,7 @@ export function MetasDeApp({ plantillaId, color }: { plantillaId: string; color:
       {planificando && (
         <div className="fixed inset-0 z-[60] flex bg-black/70" onClick={() => setPlanificando(null)}>
           <div
-            className="ui-panel-glass ui-pop flex h-full w-full flex-col overflow-hidden backdrop-blur-md"
+            className="ui-panel-glass ui-pop flex h-full w-full flex-col overflow-hidden pt-[var(--safe-top)] ps-[var(--safe-left)] pe-[var(--safe-right)] backdrop-blur-md"
             onClick={(e) => e.stopPropagation()}
           >
             {/* El título va a la derecha por lo mismo que en las Misiones: el

@@ -4,6 +4,7 @@ import { uidConPago, useSesion } from '../cuenta/sesionStore'
 import { esDemo } from '../edicion'
 import { tGlobal } from '../i18n/useT'
 import { comprimirImagen } from '../imagenIA'
+import { textoProhibido } from '../moderacion/palabras'
 import { notificar } from '../notificaciones'
 import { invitacionDesdeMensaje, recibirInvitacion } from '../partida/partidaStore'
 import { JUEGOS_INVITABLES, leerDatosJuego } from '../partida/juegosInvitables'
@@ -411,6 +412,8 @@ export async function enviar(hiloId: string, o: EnvioPendiente): Promise<void> {
   const tipo: TipoMensaje = o.paquete ? 'contenido' : o.adjunto ? o.adjunto.tipo : 'texto'
   const texto = o.texto.trim().slice(0, TOPE_TEXTO)
   if (tipo === 'texto' && !texto) return
+  // Aviso instantáneo: el trigger `filtrar_texto` lo rechazaría igual en el servidor.
+  if (textoProhibido(texto)) throw new ErrorBuzon('texto-prohibido')
   if (o.paquete) validarPaquete(o.paquete)
   if (o.adjunto && o.adjunto.blob.size > topeDe(o.adjunto.tipo)) throw new ErrorBuzon('adjunto-grande')
   const uid = crypto.randomUUID()

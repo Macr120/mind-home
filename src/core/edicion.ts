@@ -222,9 +222,11 @@ export function limpiarDerechosViejos(): void {
 /**
  * Override de pruebas internas: la IA encendida (BYOK) sin Pro. En `npm run dev`
  * viene así por defecto, para poder probar con claves propias sin comprar el plan.
+ * SOLO en dev: en producción un `mh.devIA = '1'` en localStorage regalaría la IA
+ * sin suscripción, un desbloqueo fuera de la tienda (3.1.1).
  */
 export function devIA(): boolean {
-  return localStorage.getItem(LS_DEV_IA) === '1' || import.meta.env.DEV
+  return import.meta.env.DEV
 }
 
 /** Override de pruebas internas: fuerza APAGAR la IA aunque haya Pro. */

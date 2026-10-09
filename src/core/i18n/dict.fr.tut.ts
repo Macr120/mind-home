@@ -102,6 +102,7 @@ export const FR_TUT: Dict = {
   'tut.casa.asistente.titulo': 'Le menu du chat',
   'tut.casa.asistente.texto':
     'Ce bouton ouvre le menu du chat, avec quatre vues en haut : Assistants, Amis, Lieux et Navigateur. Le Manuel et le ⚙ de droite changent selon la vue choisie. Je te les montre…',
+  'tut.casa.asistente.textoIos': 'Ce bouton ouvre le menu du chat, avec trois vues en haut : Assistants, Amis et Lieux. Le Manuel et le ⚙ de droite changent selon la vue choisie. Je te les montre…',
   'tut.casa.vAsistentes.titulo': 'Assistants',
   'tut.casa.vAsistentes.texto':
     'Ceux qui te répondent dans le chat. Ouvre la conversation de chacun, crée-en d\'autres et donne-leur une forme, une voix et une personnalité depuis le ⚙.',
@@ -1122,6 +1123,7 @@ export const FR_TUT: Dict = {
   'tut.app-archivos--esencial.4.titulo': 'Envoyer et créer',
   'tut.app-archivos--esencial.4.texto':
     'Avec Pro, « Nouveau » crée un dossier ou envoie des fichiers, et sur le web ou dans l’app de bureau, des dossiers entiers aussi. Depuis ton ordinateur, tu peux aussi les déposer directement dans Fichiers, et ce qui s’y trouve déjà change de dossier quand tu le fais glisser.',
+  'tut.app-archivos--esencial.4.textoIos': 'Avec Pro, « Nouveau » crée un dossier ou envoie des fichiers, et ce qui s’y trouve déjà change de dossier quand tu le fais glisser.',
   'tut.app-archivos--esencial.5.titulo': 'Chercher et trier',
   'tut.app-archivos--esencial.5.texto':
     'Dans Mes fichiers, la recherche parcourt tous tes fichiers ; dans les autres sections, seulement ce que tu as sous les yeux. Juste à côté, tu choisis l’ordre, par nom, date ou taille, et tu passes de la grille à la liste.',

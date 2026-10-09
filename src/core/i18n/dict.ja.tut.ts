@@ -84,6 +84,7 @@ export const JA_TUT: Dict = {
   'tut.casa.asistente.titulo': 'チャットメニュー',
   'tut.casa.asistente.texto':
     'このボタンでチャットメニューが開きます。上に4つのビュー、アシスタント、フレンド、プレイス、ブラウザ。右のマニュアルと⚙は、選んだビューに合わせて変わります。順に見ていきましょう…',
+  'tut.casa.asistente.textoIos': 'このボタンでチャットメニューが開きます。上に3つのビュー、アシスタント、フレンド、プレイス。右のマニュアルと⚙は、選んだビューに合わせて変わります。順に見ていきましょう…',
   'tut.casa.vAsistentes.titulo': 'アシスタント',
   'tut.casa.vAsistentes.texto': 'チャットで返事をしてくれる相手です。それぞれの会話を開いたり、新しく作ったり、⚙から姿も声も性格も決められます。',
   'tut.casa.vAmigos.titulo': 'フレンド',
@@ -826,6 +827,7 @@ export const JA_TUT: Dict = {
   'tut.app-archivos--esencial.4.titulo': 'アップロードと作成',
   'tut.app-archivos--esencial.4.texto':
     'Proなら「新規」でフォルダを作ったりファイルをアップロードしたりでき、Web版やデスクトップアプリではフォルダごとアップロードすることもできます。パソコンから「ファイル」に直接ドロップすることもでき、中にあるものはドラッグで別のフォルダに移せます。',
+  'tut.app-archivos--esencial.4.textoIos': 'Proなら「新規」でフォルダを作ったりファイルをアップロードしたりでき、中にあるものはドラッグして別のフォルダに移せます。',
   'tut.app-archivos--esencial.5.titulo': '検索と並べ替え',
   'tut.app-archivos--esencial.5.texto':
     '「マイファイル」では検索欄がすべてのファイルを探し、ほかのセクションでは表示中のものだけを探します。その横で名前・日付・サイズの並び順を選び、グリッドとリストを切り替えられます。',

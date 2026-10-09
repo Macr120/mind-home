@@ -9,9 +9,15 @@
  * No hace falta relevo del anfitrión: la policy «partida: escuchar» deja a todo
  * miembro oír la subida (`partida:<id>:u`) y `sala.ts` la escucha en todos los
  * clientes, así que lo que publica un invitado les llega también a los demás.
+ *
+ * Moderación: como nada de esto pasa por la BD, el filtro de palabras
+ * (`moderacion/palabras.ts`) se aplica aquí al mandar y al recibir, y el
+ * reporte de un jugador (`PanelSala`) adjunta sus últimas líneas con
+ * `lineasDe`.
  */
 import { create } from 'zustand'
 import { sonar } from '../audio/sfx'
+import { textoProhibido } from '../moderacion/palabras'
 import { usePartida } from './partidaStore'
 import { alRecibir, emitir, salaViva } from './sala'
 import type { Ranura } from './tipos'
@@ -65,7 +71,7 @@ function apuntar(m: MensajeCharla, propio: boolean): void {
 export function enviarCharla(texto: string, a?: Ranura | null): boolean {
   const sala = salaViva()
   const tx = texto.trim().slice(0, MAX_TEXTO)
-  if (!sala || !tx) return false
+  if (!sala || !tx || textoProhibido(tx)) return false
   const n = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER)
   const para = a && a !== sala.miRanura ? { a } : {}
   emitir('charla', { j: sala.miRanura, n, tx, ...para })
@@ -73,11 +79,23 @@ export function enviarCharla(texto: string, a?: Ranura | null): boolean {
   return true
 }
 
+/** Las últimas líneas que escribió esa ranura (la evidencia de un reporte; el servidor poda a 20). */
+export function lineasDe(j: Ranura): { tx: string; hora: string }[] {
+  return useCharla
+    .getState()
+    .mensajes.filter((m) => m.j === j)
+    .slice(-20)
+    .map((m) => ({ tx: m.tx, hora: new Date(m.hora).toISOString() }))
+}
+
 // Suscripción ÚNICA a nivel de módulo: los oyentes de `sala.ts` viven más que
 // cualquier sala (no se limpian en `cerrarTodo`).
 alRecibir('charla', (m, de) => {
   // Un privado para otra persona no es asunto de esta pantalla.
   if (m.a && m.a !== salaViva()?.miRanura) return
+  // La charla no se guarda en la BD, así que no hay trigger que la filtre: un
+  // cliente alterado podría mandar lo que quisiera. Aquí se tira sin pintarla.
+  if (textoProhibido(m.tx)) return
   apuntar({ id: `${de}:${m.n}`, j: de, tx: m.tx, ...(m.a ? { a: m.a } : {}), hora: Date.now() }, false)
   if (!useCharla.getState().abierta) sonar('tick', 0.5)
 })

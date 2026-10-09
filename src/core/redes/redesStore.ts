@@ -9,9 +9,10 @@
  * bajo demanda: este store lo monta `App` y no debe arrastrar Supabase al
  * chunk de arranque (ni ciclar con `cuenta/*`, que importa `retorno.ts`).
  */
+import { Capacitor } from '@capacitor/core'
 import { create } from 'zustand'
 import { esAppNativa, esEscritorio } from '../plataforma'
-import type { AvisosRedes, CuentaRed, MotivoVuelta, Plataforma, TrabajoPublicacion } from './tipos'
+import { PLATAFORMAS, type AvisosRedes, type CuentaRed, type MotivoVuelta, type Plataforma, type TrabajoPublicacion } from './tipos'
 
 interface RedesState {
   cuentas: CuentaRed[]
@@ -145,6 +146,23 @@ export const useRedes = create<RedesState>((set, get) => ({
  * `?redes=` en la web, y el refresco al volver a primer plano mientras hay una
  * conexión pendiente (el deep link lo reparte `escucharDeepLinkAuth`).
  */
+const SIN_META: readonly Plataforma[] = PLATAFORMAS.filter((p) => p !== 'facebook' && p !== 'instagram')
+
+/**
+ * Las redes que se ofrecen en este dispositivo. En iOS, Facebook e Instagram NO
+ * salen hasta que Meta apruebe sus permisos: con acceso estándar solo conectan
+ * las cuentas con rol en la app de Meta, y el revisor de Apple se toparía con
+ * «app no disponible» — una función a medias (2.1/2.2).
+ *
+ * No se cuelga de `REDES_META_LIVE`: esa bandera está a 1 desde el 6-oct-2026
+ * para el screencast de Meta (solo quita el aviso de «en revisión»), así que no
+ * dice si Meta aprobó. Cuando apruebe, se quita esto en una versión nueva y se
+ * declara en las notas a Apple (sin funciones encendidas en remoto, 2.3.1).
+ */
+export function usePlataformasVisibles(): readonly Plataforma[] {
+  return esAppNativa() && Capacitor.getPlatform() === 'ios' ? SIN_META : PLATAFORMAS
+}
+
 export function arrancarRedes(traducirError?: (e: unknown) => string): void {
   if (traducirError) mensajeDe = traducirError
   if (typeof window === 'undefined') return

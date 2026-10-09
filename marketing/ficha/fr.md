@@ -19,7 +19,7 @@ Ta vie, dans une maison 3D : habitudes, objectifs, finances, repas et plus.
 
 habitudes,objectifs,agenda,journal,budget,nutrition,sport,sommeil,étude,ia,assistant
 
-## Descripción (3858/4000)
+## Descripción (3465/4000)
 
 Organise tes habitudes, tes objectifs, tes finances, tes repas et plus dans une maison isométrique 3D où chaque pièce est une app.
 
@@ -38,18 +38,12 @@ UNE MINDHAOS, PLEIN D’APPS
 • Tout-en-un, pour de vrai: Une seule app au lieu de vingt : repas, argent, sommeil, études, habitudes et objectifs sous le même toit — et qui se parlent entre elles, ce qu’aucune app isolée ne sait faire.
 • Gratuite, et elle n’expire pas: Ta MindHaOS est gratuite avec ton compte, et elle est à toi. Les apps par abonnement s’éteignent dès que tu arrêtes de payer ; ici, l’abonnement n’apporte que l’IA, la synchronisation et le cloud : si tu le laisses, tu gardes toute ta MindHaOS et toutes tes données sur ton appareil.
 • Des pièces qui sont des apps: Sport, cuisine, finances, sommeil, bibliothèque, langues, voyages, loisirs, méditation et plus : chaque pièce abrite une mini-app complète.
-• Un Studio pour créer: Quatre apps à part : Audio, Art, Écriture et Vidéo. Tu composes au piano roll et au clavier MIDI, tu peins et retouches des photos, tu écris des livres chapitre par chapitre et tu montes des vidéos à partir d’un script — et tu exportes ce que tu fais, ou tu publies une vidéo directement sur ton propre compte YouTube, TikTok, Facebook ou Instagram.
+• Un Studio pour créer: Quatre apps à part : Audio, Art, Écriture et Vidéo. Tu composes au piano roll et au clavier MIDI, tu peins et retouches des photos, tu écris des livres chapitre par chapitre et tu montes des vidéos à partir d’un script — et tu exportes ce que tu fais, ou tu publies une vidéo directement sur ton propre compte YouTube ou TikTok.
 • Assistant avec IA: Discute avec ton assistant : note tes repas, crée des routines, planifie tes objectifs, génère des images et des modèles 3D. Chaque niveau de l’abonnement apporte 700, 1400 ou 2100 crédits par mois.
 • Synchronisation totale: Ta MindHaOS te suit sur le téléphone, la tablette et l’ordinateur. Tout est chiffré en transit et sauvegardé dans le cloud. Avec Pro, ton cloud (la pièce Fichiers) stocke en plus 10, 30 ou 100 Go de fichiers.
 • Ça se joue comme un jeu: Ton personnage vit de ton activité réelle : séries, badges, la Montagne de Sisyphe, véhicules, courses et mini-jeux.
 • Calendrier et objectifs: Routines sur 24 heures, objectifs imbriqués, plannings générés par l’IA et des indicateurs de suivi qui se comprennent vraiment.
 • Tes données, avec toi: L’app est local-first : tout vit d’abord sur ton appareil. Si tu résilies, tu ne perds pas tes données — tu continues en mode local.
-
-TON ASSISTANT, AVEC OU SANS CLOUD
-
-L’IA de la MindHaOS enregistre, planifie et crée avec toi. Et c’est toi qui décides ce qui la fait tourner : un fournisseur dans le cloud ou ton propre ordinateur.
-
-• Ou sur ta machine, avec Ollama: Installe Ollama et la MindHaOS parle au modèle qui tourne sur ton ordinateur : sans crédits, sans connexion et sans que rien n’en sorte.
 
 ABONNEMENT
 • Niveau 1, 2 ou 3 : 700, 1400 ou 2100 crédits d’IA par mois

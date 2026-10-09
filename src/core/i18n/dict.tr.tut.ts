@@ -102,6 +102,7 @@ export const TR_TUT: Dict = {
   'tut.casa.asistente.titulo': 'Sohbet menüsü',
   'tut.casa.asistente.texto':
     'Bu düğme sohbet menüsünü açar; üstte dört görünüm var: Asistanlar, Arkadaşlar, Yerler ve Tarayıcı. Sağdaki Kılavuz ve ⚙ seçtiğin görünüme göre değişir. Göstereyim…',
+  'tut.casa.asistente.textoIos': 'Bu düğme sohbet menüsünü açar; üstte üç görünüm var: Asistanlar, Arkadaşlar ve Yerler. Sağdaki Kılavuz ve ⚙ seçtiğin görünüme göre değişir. Göstereyim…',
   'tut.casa.vAsistentes.titulo': 'Asistanlar',
   'tut.casa.vAsistentes.texto':
     'Sohbette sana cevap verenler. Her birinin konuşmasını aç, yenilerini oluştur ve ⚙ üzerinden onlara biçim, ses ve kişilik ver.',
@@ -1116,6 +1117,7 @@ export const TR_TUT: Dict = {
   'tut.app-archivos--esencial.4.titulo': 'Yükle ve oluştur',
   'tut.app-archivos--esencial.4.texto':
     'Pro ile «Yeni» bir klasör oluşturur ya da dosya yükler; web’de ya da masaüstü uygulamasında bütün klasörleri de yükler. Ayrıca bilgisayarından dosyaları doğrudan Dosyalar’a bırakabilirsin; içeride olanları da sürükleyerek başka bir klasöre taşırsın.',
+  'tut.app-archivos--esencial.4.textoIos': 'Pro ile «Yeni» bir klasör oluşturur ya da dosya yükler; içeride olanları da sürükleyerek başka bir klasöre taşırsın.',
   'tut.app-archivos--esencial.5.titulo': 'Ara ve sırala',
   'tut.app-archivos--esencial.5.texto':
     'Dosyalarım’da arama kutusu tüm dosyalarına bakar, diğer bölümlerde ise yalnızca önündekilere. Yanında sıralamayı ada, tarihe ya da boyuta göre seçer, ızgara ile liste arasında geçiş yaparsın.',

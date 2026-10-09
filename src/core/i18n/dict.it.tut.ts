@@ -102,6 +102,7 @@ export const IT_TUT: Dict = {
   'tut.casa.asistente.titulo': 'Il menu della chat',
   'tut.casa.asistente.texto':
     'Questo pulsante apre il menu della chat, con quattro viste in alto: Assistenti, Amici, Luoghi e Browser. Il Manuale e il ⚙ a destra cambiano con la vista scelta. Te le mostro…',
+  'tut.casa.asistente.textoIos': 'Questo pulsante apre il menu della chat, con tre viste in alto: Assistenti, Amici e Luoghi. Il Manuale e il ⚙ a destra cambiano con la vista scelta. Te le mostro…',
   'tut.casa.vAsistentes.titulo': 'Assistenti',
   'tut.casa.vAsistentes.texto':
     'Quelli che ti rispondono in chat. Apri la conversazione di ognuno, creane altri e dai loro forma, voce e personalità dal ⚙.',
@@ -1122,6 +1123,7 @@ export const IT_TUT: Dict = {
   'tut.app-archivos--esencial.4.titulo': 'Caricare e creare',
   'tut.app-archivos--esencial.4.texto':
     'Con Pro, «Nuovo» crea una cartella o carica file, e sul web o nell’app desktop anche cartelle intere. Dal tuo computer puoi anche trascinarli direttamente in File, e ciò che è già dentro si sposta in un’altra cartella trascinandolo.',
+  'tut.app-archivos--esencial.4.textoIos': 'Con Pro, «Nuovo» crea una cartella o carica file, e ciò che è già dentro si sposta in un’altra cartella trascinandolo.',
   'tut.app-archivos--esencial.5.titulo': 'Cercare e ordinare',
   'tut.app-archivos--esencial.5.texto':
     'In I miei file la ricerca guarda in tutti i tuoi file; nelle altre sezioni, solo in ciò che hai davanti. Accanto scegli l’ordine, per nome, data o dimensione, e passi dalla griglia all’elenco.',

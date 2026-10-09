@@ -67,11 +67,15 @@ export function FollowCamera() {
   const orthoRef = useRef<THREE.OrthographicCamera | null>(null)
 
   // Guarda la ortográfica del Canvas para restaurarla al volver a iso (StrictMode / cambios de vista).
+  // Se guarda en CUALQUIER vista: el Canvas se recrea (`key={tamCelda}` en House) y, si eso
+  // pasaba estando en 3ª/1ª —p. ej. el recorrido del tutorial al abrir la app—, no quedaba
+  // ortográfica que restaurar y «Iso» se quedaba con la cámara en perspectiva.
+  // Este efecto va ANTES del que activa la perspectiva: al montar, `camActual` aún es la del Canvas.
   useEffect(() => {
-    if (vista === 'iso' && camActual instanceof THREE.OrthographicCamera) {
+    if (camActual instanceof THREE.OrthographicCamera) {
       orthoRef.current = camActual
     }
-  }, [vista, camActual])
+  }, [camActual])
 
   // Activa/desactiva la cámara perspectiva como cámara por defecto de la escena.
   useEffect(() => {

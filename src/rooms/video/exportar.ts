@@ -1,6 +1,8 @@
 import { contextoAudio, desbloquearAudio } from '../../core/audio/motor'
 import type { FiltroVoz, MedioVideo } from '../../core/data/db'
 import { formatoGrabacion } from '../../core/grabacionPantalla'
+import type { TFunc } from '../../core/i18n/useT'
+import { nombrePlataforma } from '../../core/plataforma'
 import { peliculaFrame } from '../../core/state/peliculaStore'
 import { BITRATE_AUDIO, CALIDAD_DEFECTO, CALIDADES, FPS_EXPORT, resolucionDe } from './constantes'
 import { crearPool } from './fuentes'
@@ -8,6 +10,24 @@ import { duracionTotal, esClipAudio, type ProyectoAbierto } from './modelo'
 import { crearFiltroVoz, type CadenaVoz } from './filtrosVoz'
 import { MotorVideo } from './motor'
 import type { Fuente3D, RenderizadorAvatar } from './render'
+
+/**
+ * El aviso de «no se puede grabar video» (exportar, grabar pantalla o cámara).
+ * Fuera de iOS sugiere Chrome o el escritorio; en iOS no se nombran otros
+ * navegadores ni plataformas (App Review, 2.3.10) y no hay navegador que culpar.
+ */
+export function avisoSinSoporte(t: TFunc): { titulo: string; mensaje: string } {
+  if (nombrePlataforma() === 'ios') {
+    return {
+      titulo: t('video.export.sinSoporteIos', 'Este dispositivo no puede grabar video'),
+      mensaje: t('video.export.sinSoporteMsgIos', 'Actualiza el sistema e inténtalo de nuevo.'),
+    }
+  }
+  return {
+    titulo: t('video.export.sinSoporte', 'Este navegador no puede grabar video'),
+    mensaje: t('video.export.sinSoporteMsg', 'Prueba en Chrome o en la app de escritorio.'),
+  }
+}
 
 /**
  * Export del proyecto: render EN TIEMPO REAL a `canvas.captureStream` mezclado

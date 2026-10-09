@@ -102,6 +102,7 @@ export const DE_TUT: Dict = {
   'tut.casa.asistente.titulo': 'Das Chat-Menü',
   'tut.casa.asistente.texto':
     'Dieser Knopf öffnet das Chat-Menü mit vier Ansichten oben: Assistenten, Freunde, Orte und Browser. Das Handbuch und das ⚙ rechts ändern sich je nach gewählter Ansicht. Ich zeige sie dir…',
+  'tut.casa.asistente.textoIos': 'Dieser Knopf öffnet das Chat-Menü mit drei Ansichten oben: Assistenten, Freunde und Orte. Das Handbuch und das ⚙ rechts ändern sich je nach gewählter Ansicht. Ich zeige sie dir…',
   'tut.casa.vAsistentes.titulo': 'Assistenten',
   'tut.casa.vAsistentes.texto':
     'Die, die dir im Chat antworten. Öffne das Gespräch mit jedem, erstelle weitere und gib ihnen über das ⚙ Form, Stimme und Persönlichkeit.',
@@ -1123,6 +1124,7 @@ export const DE_TUT: Dict = {
   'tut.app-archivos--esencial.4.titulo': 'Hochladen und anlegen',
   'tut.app-archivos--esencial.4.texto':
     'Mit Pro legt „Neu“ einen Ordner an oder lädt Dateien hoch, im Web oder in der Desktop-App auch ganze Ordner. Von deinem Rechner aus kannst du sie außerdem direkt in Dateien ablegen, und was schon drin ist, ziehst du einfach in einen anderen Ordner.',
+  'tut.app-archivos--esencial.4.textoIos': 'Mit Pro legt „Neu“ einen Ordner an oder lädt Dateien hoch, und was schon drin ist, ziehst du einfach in einen anderen Ordner.',
   'tut.app-archivos--esencial.5.titulo': 'Suchen und sortieren',
   'tut.app-archivos--esencial.5.texto':
     'In Meine Dateien durchsucht die Suche alle deine Dateien, in anderen Bereichen nur das, was du gerade vor dir hast. Daneben wählst du die Reihenfolge nach Name, Datum oder Größe und wechselst zwischen Raster und Liste.',

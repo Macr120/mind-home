@@ -141,10 +141,17 @@ export function FormularioAcceso({ inicial = 'entrar' }: { inicial?: 'entrar' | 
   return (
     <div className="space-y-1.5">
       <p className="text-[11px] leading-snug text-white/45">
-        {t(
-          'cuenta.intro',
-          'Tu cuenta guarda tu MindHaOS (Casa Mental OS) y tu compra: es lo que te las devuelve en cualquier dispositivo.',
-        )}
+        {/* «Tu compra» venía del pago único de la casa, que ya no existe: en las
+            tiendas solo hay las tres suscripciones y no se nombra otra cosa. */}
+        {canalPago() === 'iap'
+          ? t(
+              'cuenta.introTienda',
+              'Tu cuenta guarda tu MindHaOS (Casa Mental OS) y tu suscripción: es lo que te las devuelve en cualquier dispositivo.',
+            )
+          : t(
+              'cuenta.intro',
+              'Tu cuenta guarda tu MindHaOS (Casa Mental OS) y tu compra: es lo que te las devuelve en cualquier dispositivo.',
+            )}
       </p>
       {/* En TODAS las plataformas. Google rechaza OAuth dentro de una ventana
           empotrada (`disallowed_useragent`), así que fuera de la web el flujo
@@ -366,7 +373,10 @@ function CuentaConSesion() {
           )}
           {creditosExtra > 0 && (
             <p className="text-[10px] text-white/45">
-              {t('cuenta.uso.extra', 'Créditos extra (recargas): {n}', { n: creditosExtra })}
+              {/* Las recargas sueltas ya no se venden: en las tiendas, ni nombrarlas. */}
+              {canalPago() === 'iap'
+                ? t('cuenta.uso.extraTienda', 'Créditos extra: {n}', { n: creditosExtra })
+                : t('cuenta.uso.extra', 'Créditos extra (recargas): {n}', { n: creditosExtra })}
             </p>
           )}
           <p className="text-[10px] text-white/35">
@@ -626,12 +636,23 @@ export function AvisoRenovacion() {
 }
 
 /**
- * Términos y privacidad al pie de la oferta: la guía 3.1.2 de Apple los exige
- * DENTRO de la app, en la misma pantalla donde se venden las suscripciones (el
- * enlace de la ficha del App Store no basta). Los rótulos y el prefijo de idioma
- * salen del catálogo de la web, igual que el pie de `PuertaCuenta`.
+ * Términos, privacidad y soporte al pie de la oferta: la guía 3.1.2 de Apple
+ * exige los dos primeros DENTRO de la app, en la misma pantalla donde se venden
+ * las suscripciones (el enlace de la ficha del App Store no basta), y la 1.5
+ * un contacto de soporte a mano. Los rótulos y el prefijo de idioma salen del
+ * catálogo de la web, igual que el pie de `PuertaCuenta`.
  */
 const EULA_APPLE = 'https://www.apple.com/legal/internet-services/itunes/dev/stdeula/'
+
+/**
+ * Soporte. En las tiendas es el CORREO, no la página: la de la web enlaza a
+ * «Mi cuenta» y a las preguntas con precios, o sea, a dos toques de una compra
+ * fuera de la tienda (3.1.1). Fuera de ellas, la página de soporte.
+ */
+export const CORREO_SOPORTE = 'mailto:help@mindhaos.com'
+export function enlaceSoporte(base: string | null): string {
+  return canalPago() === 'iap' || !base ? CORREO_SOPORTE : `${base}/soporte`
+}
 
 export function EnlacesLegales() {
   const [textos, setTextos] = useState<Record<string, string> | null>(null)
@@ -646,17 +667,17 @@ export function EnlacesLegales() {
     }
   }, [])
 
-  if (!URL_WEB) return null
-  const base = `${URL_WEB}${prefijo(idiomaActual())}`
+  const base = URL_WEB ? `${URL_WEB}${prefijo(idiomaActual())}` : null
   // En las tiendas, los Términos son el EULA estándar de Apple (el que declara
   // la ficha): los de la web hablan de pagos «solo en este sitio», nombran
   // Stripe y llevan precios en dólares, y App Review rechaza enlazar desde la
   // app a una compra de fuera (3.1.1).
   const terminos = canalPago() === 'iap' && nombrePlataforma() === 'ios' ? EULA_APPLE : `${base}/terminos`
-  const paginas: [string, string][] = [
-    [terminos, textos?.['pie.terminos'] ?? 'Términos'],
-    [`${base}/privacidad`, textos?.['pie.privacidad'] ?? 'Privacidad'],
-  ]
+  const soporte: [string, string] = [enlaceSoporte(base), textos?.['pie.soporte'] ?? 'Soporte']
+  // Sin web (build sin URL) queda al menos el soporte, que va por correo.
+  const paginas: [string, string][] = base
+    ? [[terminos, textos?.['pie.terminos'] ?? 'Términos'], [`${base}/privacidad`, textos?.['pie.privacidad'] ?? 'Privacidad'], soporte]
+    : [soporte]
   return (
     <p className="flex flex-wrap justify-center gap-x-3 gap-y-1 pt-0.5 text-[10px] text-white/35">
       {paginas.map(([url, rotulo]) => (
@@ -739,7 +760,13 @@ function Restaurar() {
     setAviso(null)
     try {
       const ok = await restaurarCompras()
-      if (!ok) setAviso(t('cuenta.pago.sinRestaurar', 'No encontramos compras de esta cuenta.'))
+      // Con o sin compras, siempre se contesta: un «Restaurar» que no dice nada
+      // parece un botón roto, y App Review lo prueba (2.1).
+      setAviso(
+        ok
+          ? t('cuenta.pago.restaurado', 'Compras restauradas: tu suscripción está al día.')
+          : t('cuenta.pago.sinRestaurar', 'No encontramos compras de esta cuenta.'),
+      )
     } catch (e) {
       setAviso(textoDeFallo(e, t))
     } finally {
@@ -770,23 +797,14 @@ function Niveles() {
   const t = useT()
   const nivelActual = useSesion((s) => s.nivel)
   const plan = useSesion((s) => s.plan)
-  const [niveles, setNiveles] = useState<OfertaPro[]>([])
+  const { niveles, estado, reintentar } = useNiveles()
   const [ocupado, setOcupado] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    let vivo = true
-    obtenerNiveles()
-      .then((n) => {
-        if (vivo) setNiveles(n)
-      })
-      .catch(() => {})
-    return () => {
-      vivo = false
-    }
-  }, [])
-
-  if (!niveles.length) return null
+  // Nunca en blanco: sin la lista no hay por dónde comprar, y una oferta que
+  // desaparece sin decir nada es motivo de rechazo (2.1).
+  if (estado === 'cargando') return <p className="text-[11px] text-white/45">{t('cuenta.cargando', 'Cargando…')}</p>
+  if (estado === 'fallo') return <NivelesSinTienda onReintentar={reintentar} />
 
   // Sin comparar con el nivel actual: el botón del nivel vigente ya va deshabilitado.
   const alCambiar = async (oferta: OfertaPro) => {
@@ -853,13 +871,83 @@ function Niveles() {
         )
       })}
       <p className="text-[10px] leading-snug text-white/35">
-        {t(
-          'cuenta.nivel.nota',
-          'Puedes subir o bajar de nivel cuando quieras; el cambio se cobra a prorrata.',
-        )}
+        {/* En iOS manda Apple: la subida es inmediata (y ELLA prorratea) y la
+            bajada espera a la siguiente renovación; decir «a prorrata» a secas
+            describiría mal su caja. */}
+        {nombrePlataforma() === 'ios'
+          ? t(
+              'cuenta.nivel.notaApple',
+              'Puedes subir o bajar de nivel cuando quieras. Al subir, el cambio es inmediato y Apple descuenta lo que no usaste del nivel anterior; al bajar, el nuevo nivel empieza en la siguiente renovación.',
+            )
+          : t(
+              'cuenta.nivel.nota',
+              'Puedes subir o bajar de nivel cuando quieras; el cambio se cobra a prorrata.',
+            )}
       </p>
       <EnlaceCreditos />
       {error && <p className="whitespace-pre-line text-[11px] leading-snug text-red-400/90">{error}</p>}
+    </div>
+  )
+}
+
+type EstadoNiveles = 'cargando' | 'listo' | 'fallo'
+
+/**
+ * Los niveles de la tienda con su estado. Una tienda que falla o devuelve la
+ * lista vacía (StoreKit lo hace a ratos, sobre todo en el sandbox de App
+ * Review) cuenta como «fallo»: quien lo pinta lo dice y ofrece reintentar, en
+ * vez de dejar la oferta en blanco. Con `activo` en falso no pide nada, y al
+ * volver a verdadero (el aviso que se reabre) empieza de cero.
+ */
+export function useNiveles(activo = true): { niveles: OfertaPro[]; estado: EstadoNiveles; reintentar: () => void } {
+  const [resultado, setResultado] = useState<OfertaPro[] | 'fallo' | null>(null)
+  const [intento, setIntento] = useState(0)
+  // Ajuste durante el render (no en un efecto): al reactivarse se olvida lo de la vez anterior.
+  const [activoAntes, setActivoAntes] = useState(activo)
+  if (activo !== activoAntes) {
+    setActivoAntes(activo)
+    if (activo) setResultado(null)
+  }
+
+  useEffect(() => {
+    if (!activo) return
+    let vivo = true
+    obtenerNiveles()
+      .then((n) => {
+        if (vivo) setResultado(n.length ? n : 'fallo')
+      })
+      .catch(() => {
+        if (vivo) setResultado('fallo')
+      })
+    return () => {
+      vivo = false
+    }
+  }, [activo, intento])
+
+  const reintentar = () => {
+    setResultado(null)
+    setIntento((i) => i + 1)
+  }
+  if (resultado === null) return { niveles: [], estado: 'cargando', reintentar }
+  if (resultado === 'fallo') return { niveles: [], estado: 'fallo', reintentar }
+  return { niveles: resultado, estado: 'listo', reintentar }
+}
+
+/** La tienda no dio los planes: mensaje neutro y «Reintentar», nunca un hueco. */
+export function NivelesSinTienda({ onReintentar }: { onReintentar: () => void }) {
+  const t = useT()
+  return (
+    <div className="space-y-1.5">
+      <p className="text-[11px] leading-snug text-white/50">
+        {t('cuenta.niveles.sinTienda', 'No pudimos cargar los planes de la tienda.')}
+      </p>
+      <button
+        type="button"
+        onClick={onReintentar}
+        className="block w-full rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-center text-[11px] font-semibold text-white/70 transition hover:bg-white/10"
+      >
+        {t('ui.reintentar', 'Reintentar')}
+      </button>
     </div>
   )
 }

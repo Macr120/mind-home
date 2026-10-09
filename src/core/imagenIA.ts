@@ -8,13 +8,14 @@ import {
   type ProveedorMediaId,
 } from './chat/ia'
 import { iaHabilitada } from './edicion'
-import { usarViaCuenta, cuentaDisponible, iaImagenCuenta, ErrorIA } from './cuenta/api'
+import { usarViaCuenta, cuentaDisponible, iaImagenCuenta, ErrorIA, mensajeContenidoIA } from './cuenta/api'
 import { esperarSesion } from './cuenta/sesionStore'
 import { hayBackend } from './cuenta/supabase'
 import { leerCalidadImagen, type CalidadImagen } from './cuenta/calidadImagen'
 import { useGastoByok } from './cuenta/gastoByok'
 import { costoImagenByok } from './cuenta/tarifasByok'
 import { tGlobal } from './i18n/useT'
+import { textoProhibido } from './moderacion/palabras'
 
 /**
  * Motor de generación de imágenes con IA, compartido por las apps.
@@ -256,6 +257,9 @@ export async function generarImagen(
   aspecto: AspectoImagen = '1:1',
   calidad: CalidadImagen = leerCalidadImagen(),
 ): Promise<Blob> {
+  // Aviso instantáneo con la lista de palabras; la moderación de verdad la hace
+  // `ia-imagen` en el servidor (y en BYOK, la del propio proveedor).
+  if (textoProhibido(prompt)) throw new ErrorIA('contenido', mensajeContenidoIA())
   // Antes de elegir transporte, que la sesión termine de hidratar: si no, una
   // imagen pedida al abrir la app caía a BYOK y acusaba de «sin créditos».
   await esperarSesion()

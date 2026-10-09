@@ -5,7 +5,6 @@ import { canalPago } from '../plataforma'
 import {
   CompraCancelada,
   hayPagos,
-  obtenerNiveles,
   cambiarNivel,
   detalleDeFallo,
   textoDeFallo,
@@ -18,7 +17,14 @@ import { esDemo, esPro, esProbar, esTrial, fuePro } from '../edicion'
 import { elegir } from '../state/confirmarStore'
 import { salirDemo } from '../../demo/modo'
 import { salirProbar } from '../../probar/modo'
-import { AvisoRenovacion, EnlacesLegales, FormularioAcceso, irAPreciosIA } from './editor/EditorCuentaSection'
+import {
+  AvisoRenovacion,
+  EnlacesLegales,
+  FormularioAcceso,
+  NivelesSinTienda,
+  irAPreciosIA,
+  useNiveles,
+} from './editor/EditorCuentaSection'
 
 /**
  * Modales globales del plan:
@@ -224,7 +230,6 @@ function CuotaAgotada() {
   const usuario = useSesion((s) => s.usuario)
   const planCrudo = useSesion((s) => s.plan)
   const nivelActual = useSesion((s) => s.nivel)
-  const [niveles, setNiveles] = useState<OfertaPro[]>([])
   const [ocupado, setOcupado] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -237,18 +242,9 @@ function CuotaAgotada() {
   // en la tienda no se pinta jamás.
   const enlaceWeb = canal !== 'iap' && !compraEmbebida && !!urlWeb
 
-  useEffect(() => {
-    if (!abierto || !compraEmbebida) return
-    let vivo = true
-    obtenerNiveles()
-      .then((n) => {
-        if (vivo) setNiveles(n)
-      })
-      .catch(() => {})
-    return () => {
-      vivo = false
-    }
-  }, [abierto, compraEmbebida])
+  // Si la tienda falla o no devuelve nada, el aviso lo dice y ofrece
+  // reintentar: un «Suscríbete» sin botones de compra no se enseña nunca.
+  const { niveles, estado: estadoNiveles, reintentar } = useNiveles(abierto && compraEmbebida)
 
   if (!abierto) return null
 
@@ -396,6 +392,10 @@ function CuotaAgotada() {
       <h2 className="text-sm font-bold text-white/90">{titulo}</h2>
       <p className="text-xs leading-snug text-white/60">{cuerpo}</p>
       <div className="space-y-1.5 pt-1">
+        {compraEmbebida && estadoNiveles === 'cargando' && (
+          <p className="text-[11px] text-white/45">{t('cuenta.cargando', 'Cargando…')}</p>
+        )}
+        {compraEmbebida && estadoNiveles === 'fallo' && <NivelesSinTienda onReintentar={reintentar} />}
         {compraEmbebida &&
           superiores.map((n) => (
             <button
@@ -461,7 +461,11 @@ function CuotaAgotada() {
             build): no hay nada que ofrecer y tampoco se enlaza fuera. */}
         {canal === 'iap' && !compraEmbebida && (
           <p className="text-[11px] leading-snug text-white/45">
-            {t('cuenta.cuota.nativo', 'Los créditos se gestionan desde tu cuenta.')}
+            {/* Sin usuario aquí es la sesión que aún se hidrata: al llegar,
+                la compra embebida se enciende y carga los niveles. */}
+            {usuario
+              ? t('cuenta.cuota.nativo', 'Los créditos se gestionan desde tu cuenta.')
+              : t('cuenta.cargando', 'Cargando…')}
           </p>
         )}
         {error && <p className="whitespace-pre-line text-[11px] leading-snug text-red-400/90">{error}</p>}

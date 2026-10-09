@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { hayBackend } from '../../cuenta/supabase'
 import { useSesion } from '../../cuenta/sesionStore'
 import { useT } from '../../i18n/useT'
-import { useRedes } from '../../redes/redesStore'
-import { NOMBRE_RED, PLATAFORMAS, type CuentaRed, type Plataforma } from '../../redes/tipos'
+import { usePlataformasVisibles, useRedes } from '../../redes/redesStore'
+import { NOMBRE_RED, type CuentaRed, type Plataforma } from '../../redes/tipos'
 import { confirmar } from '../../state/confirmarStore'
 import { Icono } from '../iconos/Icono'
 import { LogoRed } from '../logosMarca'
@@ -20,6 +20,7 @@ export function EditorRedesSection({ embed, sinTitulo }: { embed?: boolean; sinT
   const usuario = useSesion((s) => s.usuario)
   const cuentas = useRedes((s) => s.cuentas)
   const cargado = useRedes((s) => s.cargado)
+  const plataformas = usePlataformasVisibles()
   const cargando = useRedes((s) => s.cargando)
   const error = useRedes((s) => s.error)
   const vuelta = useRedes((s) => s.ultimaVuelta)
@@ -35,7 +36,7 @@ export function EditorRedesSection({ embed, sinTitulo }: { embed?: boolean; sinT
     <p className="text-xs text-white/50">{t('video.publicar.cuentas.sinSesion', 'Inicia sesión en Cuenta para conectar tus redes.')}</p>
   ) : (
     <div className="space-y-1.5">
-      {PLATAFORMAS.map((p) => (
+      {plataformas.map((p) => (
         <FilaRed key={p} plataforma={p} cuenta={cuentas.find((c) => c.plataforma === p) ?? null} cargando={cargando && !cargado} />
       ))}
       {vuelta && !vuelta.ok && vuelta.plataforma && (
@@ -61,6 +62,7 @@ export function EditorRedesSection({ embed, sinTitulo }: { embed?: boolean; sinT
 function FilaRed({ plataforma, cuenta, cargando }: { plataforma: Plataforma; cuenta: CuentaRed | null; cargando: boolean }) {
   const t = useT()
   const pendiente = useRedes((s) => s.pendiente?.plataforma === plataforma)
+  const tiktokPrivado = useRedes((s) => s.avisos.tiktok === 'solo-yo')
   const [ocupado, setOcupado] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const red = NOMBRE_RED[plataforma]
@@ -112,6 +114,16 @@ function FilaRed({ plataforma, cuenta, cargando }: { plataforma: Plataforma; cue
             {t(
               'video.publicar.cuenta.canalYoutube',
               'Si tu cuenta de Google tiene varios canales, elige cuál usar en la pantalla de Google. Para cambiarlo, vuelve a conectar.',
+            )}
+          </p>
+        )}
+        {/* Mientras TikTok no audite la app, lo publicado queda en «Solo yo»:
+            se avisa ANTES de conectar, no solo en el formulario de publicar. */}
+        {plataforma === 'tiktok' && tiktokPrivado && (
+          <p className="text-[11px] leading-snug text-amber-300/80">
+            {t(
+              'video.publicar.cuenta.tiktokPrivado',
+              'En TikTok, por ahora, las publicaciones se guardan como privadas hasta que TikTok apruebe la app.',
             )}
           </p>
         )}

@@ -211,7 +211,7 @@ export function ListaHoy({
       {abierto && (
         <div className="fixed inset-0 z-50 flex bg-black/60" onClick={() => setAbierto(false)}>
           <div
-            className="ui-panel-glass ui-pop flex h-full w-full flex-col overflow-hidden backdrop-blur-md"
+            className="ui-panel-glass ui-pop flex h-full w-full flex-col overflow-hidden pt-[var(--safe-top)] pb-[var(--safe-bottom)] ps-[var(--safe-left)] pe-[var(--safe-right)] backdrop-blur-md"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center gap-3 border-b border-white/10 px-4 py-2.5">

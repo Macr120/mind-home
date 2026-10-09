@@ -18,6 +18,7 @@ import { cajaNativa } from './paywallNativo'
 import { cajaWeb } from './paywallWeb'
 import { CATALOGO, idBase, productoDe, type Clase, type Producto } from './productos'
 import { esAppNativa, nombrePlataforma } from '../plataforma'
+import { useCelebracion } from '../state/celebracionStore'
 import { useSesion } from './sesionStore'
 import { obtenerSupabase } from './supabase'
 
@@ -353,7 +354,19 @@ export async function cambiarNivel(oferta: OfertaPro): Promise<boolean> {
     }
   }
   await pasarPorCaja(oferta)
-  return aterrizar(oferta, () => useSesion.getState().nivel === oferta.nivel && useSesion.getState().plan === 'pro')
+  const ok = await aterrizar(oferta, () => useSesion.getState().nivel === oferta.nivel && useSesion.getState().plan === 'pro')
+  if (ok) celebrarPro(false)
+  return ok
+}
+
+/**
+ * La bienvenida a Pro: una compra que se queda en «listo» bajo un botón no se
+ * nota, y lo que se compró (créditos, sync, nube) merece decirse en grande.
+ */
+function celebrarPro(restaurada: boolean): void {
+  const { plan, nivel } = useSesion.getState()
+  if (plan !== 'pro' && plan !== 'trial') return
+  useCelebracion.getState().encolar({ tipo: 'suscripcion', nivel: Math.max(1, nivel || 1), restaurada })
 }
 
 /**
@@ -367,7 +380,9 @@ export async function restaurarCompras(): Promise<boolean> {
   await conTecho(caja().restaurar(usuario.id))
   // Lo restaurado ya está en RevenueCat: el servidor lo aplica sin esperar al webhook.
   await confirmarCompra('restaurar')
-  return esperarPerfil(() => useSesion.getState().plan !== 'local', 5)
+  const ok = await esperarPerfil(() => useSesion.getState().plan !== 'local', 5)
+  if (ok) celebrarPro(true)
+  return ok
 }
 
 /** ¿Esta plataforma canjea códigos de tienda? (iOS y Android con pagos) */
@@ -393,7 +408,9 @@ export async function canjearCodigo(): Promise<boolean> {
     await new Promise((r) => setTimeout(r, 3000))
   }
   void useSesion.getState().refrescarUso()
-  return useSesion.getState().plan === 'pro'
+  const ok = useSesion.getState().plan === 'pro'
+  if (ok) celebrarPro(false)
+  return ok
 }
 
 /** URL del portal de gestión de la suscripción (cancelar, cambiar pago). */

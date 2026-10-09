@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent, ty
 import { Retrato } from '../../buzon/ui/Retrato'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../../ui/iconos/Icono'
+import { textoProhibido } from '../../moderacion/palabras'
 import { enviarCharla, MAX_TEXTO, useCharla } from '../charla'
 import { usePartida } from '../partidaStore'
 import { alternarMicro, entrarVoz, reanudarAudio, salirVoz, useVoz } from '../voz'
@@ -62,6 +63,7 @@ function Charla({ jugadores, mi }: { jugadores: JugadorSala[]; mi: Ranura }) {
   const setCon = useCharla((s) => s.setCon)
   const voz = useVoz()
   const [texto, setTexto] = useState('')
+  const [vetado, setVetado] = useState(false)
   const [eligiendo, setEligiendo] = useState(false)
   const otros = jugadores.filter((j) => j.ranura !== mi)
   // Con una sola persona más, hablar con ella ES hablar con la sala: no hay a quién elegir.
@@ -93,6 +95,11 @@ function Charla({ jugadores, mi }: { jugadores: JugadorSala[]; mi: Ranura }) {
   }
 
   const enviar = () => {
+    // La charla no pasa por la BD: el filtro de palabras vive aquí (y en `charla.ts` al recibir).
+    if (textoProhibido(texto)) {
+      setVetado(true)
+      return
+    }
     if (enviarCharla(texto, destino)) setTexto('')
   }
 
@@ -280,6 +287,12 @@ function Charla({ jugadores, mi }: { jugadores: JugadorSala[]; mi: Ranura }) {
         </button>
       )}
 
+      {abierta && vetado && (
+        <p className="ui-panel-glass rounded-xl border border-red-400/30 px-3 py-1.5 text-[11px] leading-snug text-red-300 shadow-lg">
+          {t('moderacion.textoProhibido', 'Ese texto lleva palabras que van contra las normas de la comunidad. Cámbialo para continuar.')}
+        </p>
+      )}
+
       {abierta ? (
         // La barra, como la del chat de la casa: escribir, micrófono y enviar.
         <form
@@ -295,7 +308,10 @@ function Charla({ jugadores, mi }: { jugadores: JugadorSala[]; mi: Ranura }) {
             ref={campo}
             value={texto}
             maxLength={MAX_TEXTO}
-            onChange={(e) => setTexto(e.target.value)}
+            onChange={(e) => {
+              setTexto(e.target.value)
+              setVetado(false)
+            }}
             onKeyDown={(e) => {
               // Escape suelta el foco y devuelve las teclas al juego.
               if (e.key === 'Escape') campo.current?.blur()

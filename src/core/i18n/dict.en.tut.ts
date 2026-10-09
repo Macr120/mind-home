@@ -90,6 +90,7 @@ export const EN_TUT: Dict = {
   'tut.casa.9.texto': 'The architect\'s chat: tell it what you did and it logs it in the right app, ask it for changes to your MindHaOS, images and even 3D models for your rooms — or just chat for a while.',
   'tut.casa.asistente.titulo': 'The chat menu',
   'tut.casa.asistente.texto': 'This button opens the chat menu, with four views up top: Assistants, Friends, Places and Browser. The Manual and the ⚙ on the right change with the chosen view. Let me show you…',
+  'tut.casa.asistente.textoIos': 'This button opens the chat menu, with three views up top: Assistants, Friends and Places. The Manual and the ⚙ on the right change with the chosen view. Let me show you…',
   'tut.casa.vAsistentes.titulo': 'Assistants',
   'tut.casa.vAsistentes.texto': 'The ones who answer you in the chat. Open each one\'s conversation, create more and give them a shape, a voice and a personality from the ⚙.',
   'tut.casa.vAmigos.titulo': 'Friends',
@@ -977,6 +978,7 @@ export const EN_TUT: Dict = {
   'tut.app-archivos--esencial.4.titulo': 'Upload and create',
   'tut.app-archivos--esencial.4.texto':
     'With Pro, “New” creates a folder or uploads files, and on the web or in the desktop app whole folders too. You can also drop them into Files straight from your computer, and anything already inside moves to another folder when you drag it.',
+  'tut.app-archivos--esencial.4.textoIos': 'With Pro, “New” creates a folder or uploads files, and anything already inside moves to another folder when you drag it.',
   'tut.app-archivos--esencial.5.titulo': 'Search and sort',
   'tut.app-archivos--esencial.5.texto':
     'In My Files, the search box looks through all your files; in other sections, only through what’s in front of you. Next to it you pick the order, by name, date or size, and switch between grid and list.',

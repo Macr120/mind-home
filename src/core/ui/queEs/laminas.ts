@@ -260,8 +260,9 @@ export function construirLaminas(textos: Record<string, string>, canal: CanalPag
 
 /**
  * Las ocho preguntas de la web, menos las que mandan a comprar fuera de la
- * tienda: dónde se compra la app (1), cuánto cuesta la IA —con sus cifras en
- * dólares y el «se paga aquí»— (3), dónde se guardan los datos —nombra Stripe
+ * tienda: dónde se compra la app (1), cuánto cuesta la suscripción —con sus
+ * cifras en dólares, que la tienda cobra en moneda local— (2), cuánto cuesta
+ * la IA —con sus cifras en dólares y el «se paga aquí»— (3), dónde se guardan los datos —nombra Stripe
  * y la compra «desde el teléfono»— (6), en qué aparatos funciona —Android,
  * Windows, «compras donde te convenga»— (7) y cómo se cancela (8). App Review
  * rechaza mencionar otras plataformas o pagos fuera de la tienda (2.3.10,
@@ -270,6 +271,6 @@ export function construirLaminas(textos: Record<string, string>, canal: CanalPag
  */
 function preguntas(enTienda: boolean): number[] {
   const todas = [1, 2, 3, 4, 5, 6, 7, 8]
-  const fuera = new Set([1, 3, 6, 7, 8])
+  const fuera = new Set([1, 2, 3, 6, 7, 8])
   return enTienda ? todas.filter((n) => !fuera.has(n)) : todas
 }

@@ -451,8 +451,10 @@ export function Calendario() {
       {/* A pantalla completa: el calendario es una app entera (rejilla de 24 h, metas,
           planes y el eje del cronograma), no un diálogo — recortarlo a 62 rem obligaba
           a hacer scroll lateral en la semana y dejaba el eje en una rendija. */}
+      {/* Zona segura como padding (patrón de EditPanel): el vidrio sangra bajo la
+          barra de estado y la de gestos, pero la cabecera y la rejilla no. */}
       <div
-        className="ui-panel-glass ui-pop flex h-full w-full flex-col overflow-hidden backdrop-blur-md"
+        className="ui-panel-glass ui-pop flex h-full w-full flex-col overflow-hidden pt-[var(--safe-top)] pb-[var(--safe-bottom)] ps-[var(--safe-left)] pe-[var(--safe-right)] backdrop-blur-md"
         onClick={(e) => e.stopPropagation()}
       >
         <CalendarioVista onCerrar={cerrar} vistaInicial={vista} />

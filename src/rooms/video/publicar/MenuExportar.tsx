@@ -5,8 +5,8 @@ import type { PublicacionVideo } from '../../../core/data/db'
 import { useT } from '../../../core/i18n/useT'
 import { esAppNativa } from '../../../core/plataforma'
 import { redesDisponibles } from '../../../core/redes/api'
-import { useRedes } from '../../../core/redes/redesStore'
-import { NOMBRE_RED, PLATAFORMAS, type Plataforma } from '../../../core/redes/tipos'
+import { usePlataformasVisibles, useRedes } from '../../../core/redes/redesStore'
+import { NOMBRE_RED, type Plataforma } from '../../../core/redes/tipos'
 import { Icono } from '../../../core/ui/iconos/Icono'
 import { LogoRed } from '../../../core/ui/logosMarca'
 import { Modal } from '../../_shared/ui'
@@ -38,6 +38,7 @@ export function MenuExportar({
   const usuario = useSesion((s) => s.usuario)
   const cuentas = useRedes((s) => s.cuentas)
   const cargado = useRedes((s) => s.cargado)
+  const plataformas = usePlataformasVisibles()
   const enCurso = useRedes((s) => s.trabajo?.estado === 'activo')
   const nativa = esAppNativa()
   const conBackend = hayBackend()
@@ -90,7 +91,7 @@ export function MenuExportar({
             { onClick: () => onElegir('medios') },
           )}
         {conBackend &&
-          PLATAFORMAS.map((p) => {
+          plataformas.map((p) => {
             const conectada = cuentas.some((c) => c.plataforma === p)
             const publicada = publicaciones.some((x) => x.plataforma === p && x.estado !== 'error')
             let bloqueo: string | null = null

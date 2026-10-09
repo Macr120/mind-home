@@ -71,6 +71,7 @@ export const ZH_TUT: Dict = {
   'tut.casa.9.texto': '建筑师的聊天：告诉它你做了什么，它会记到对应的应用里；也可以让它改动MindHaOS、生成图片，甚至给你的房间做3D模型——或者干脆闲聊一会儿。',
   'tut.casa.asistente.titulo': '聊天菜单',
   'tut.casa.asistente.texto': '这个按钮打开聊天菜单，顶部有四个视图：助手、好友、地点和浏览器。右边的手册和⚙会随选中的视图变化。我带你看看……',
+  'tut.casa.asistente.textoIos': '这个按钮打开聊天菜单，顶部有三个视图：助手、好友和地点。右边的手册和⚙会随选中的视图变化。我带你看看……',
   'tut.casa.vAsistentes.titulo': '助手',
   'tut.casa.vAsistentes.texto': '在聊天里回应你的人。打开每一位的对话，创建更多，并在⚙里给他们外形、声音和性格。',
   'tut.casa.vAmigos.titulo': '好友',
@@ -739,6 +740,7 @@ export const ZH_TUT: Dict = {
   'tut.app-archivos--esencial.4.titulo': '上传与新建',
   'tut.app-archivos--esencial.4.texto':
     '开通 Pro 后，“新建”可以新建文件夹或上传文件，在网页版或桌面应用里还能上传整个文件夹。也可以从电脑直接拖进“文件”，里面已有的内容拖到另一个文件夹就能移动。',
+  'tut.app-archivos--esencial.4.textoIos': '开通 Pro 后，“新建”可以新建文件夹或上传文件，里面已有的内容拖到另一个文件夹就能移动。',
   'tut.app-archivos--esencial.5.titulo': '搜索与排序',
   'tut.app-archivos--esencial.5.texto': '在“我的文件”里，搜索框会查找你所有的文件；在其他分区里，只查找眼前的内容。旁边可以按名称、日期或大小排序，并在网格和列表之间切换。',
   'tut.app-archivos--esencial.6.titulo': '每个文件的选项',

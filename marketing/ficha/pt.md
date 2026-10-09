@@ -19,7 +19,7 @@ Sua vida, numa casa 3D: hábitos, metas, finanças, refeições e mais.
 
 hábitos,metas,agenda,diário,finanças,nutrição,treino,sono,estudo,ia,assistente,organizar
 
-## Descripción (3507/4000)
+## Descripción (3154/4000)
 
 Organize seus hábitos, metas, finanças, refeições e mais numa casa isométrica 3D onde cada cômodo é um app.
 
@@ -38,18 +38,12 @@ UMA MINDHAOS, MUITOS APPS
 • Tudo em um, de verdade: Um app em vez de vinte: comida, dinheiro, descanso, estudo, hábitos e metas sob o mesmo teto — e conversando entre si, que é justamente o que nenhum app solto consegue fazer.
 • Grátis, e não caduca: Sua MindHaOS é grátis com a sua conta, e é sua. Os apps de assinatura se apagam assim que você para de pagar; aqui a assinatura só traz a IA, a sincronização e a nuvem: se você deixar, conserva a MindHaOS inteira e todos os seus dados no seu dispositivo.
 • Cômodos que são apps: Exercício, cozinha, finanças, descanso, biblioteca, idiomas, viagens, hobbies, mindfulness e mais: cada cômodo guarda um mini-app completo.
-• Um Estúdio para criar: Quatro apps à parte: Áudio, Arte, Escrita e Vídeo. Você compõe com piano roll e teclado MIDI, pinta e retoca fotos, escreve livros por capítulos e monta vídeos por roteiro — e exporta o que fizer, ou publica um vídeo direto na sua própria conta do YouTube, TikTok, Facebook ou Instagram.
+• Um Estúdio para criar: Quatro apps à parte: Áudio, Arte, Escrita e Vídeo. Você compõe com piano roll e teclado MIDI, pinta e retoca fotos, escreve livros por capítulos e monta vídeos por roteiro — e exporta o que fizer, ou publica um vídeo direto na sua própria conta do YouTube ou TikTok.
 • Assistente com IA: Converse com seu assistente: registre refeições, crie rotinas, planeje metas, gere imagens e modelos 3D. Cada nível da assinatura traz 700, 1400 ou 2100 créditos por mês.
 • Sincronização total: Sua MindHaOS acompanha você no celular, no tablet e no computador. Tudo criptografado em trânsito e com backup na nuvem. Com o Pro, sua nuvem (o cômodo Arquivos) também guarda 10, 30 ou 100 GB de arquivos.
 • Parece um jogo: Seu personagem vive da sua atividade real: sequências, emblemas, a Montanha de Sísifo, veículos, corridas e minijogos.
 • Calendário e metas: Rotinas de 24 horas, metas aninhadas, cronogramas com IA e métricas de cumprimento que dá para entender.
 • Seus dados, com você: O app é local-first: tudo vive primeiro no seu dispositivo. Se você cancelar, não perde seus dados — continua no modo local.
-
-SEU ASSISTENTE, COM OU SEM NUVEM
-
-A IA da MindHaOS registra, planeja e cria com você. E você decide quem a move: um provedor na nuvem ou o seu próprio computador.
-
-• Ou na sua máquina, com o Ollama: Instale o Ollama e a MindHaOS conversa com o modelo que roda no seu computador: sem créditos, sem conexão e sem que nada saia dali.
 
 ASSINATURA
 • Nível 1, 2 ou 3: 700, 1400 ou 2100 créditos de IA por mês

@@ -103,6 +103,7 @@ export type CodigoErrorBuzon =
   | 'adjunto-grande'
   | 'contenido-grande'
   | 'normas'
+  | 'texto-prohibido'
   | 'red'
   | 'servidor'
 
