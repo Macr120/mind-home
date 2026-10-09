@@ -62,6 +62,70 @@ function leerAcorde(cifrado: unknown): Acorde | null {
   return { raiz, intervalos: calidad ? calidad[1] : [0, 4, 7] }
 }
 
+/** Tipos de sección como los nombre el modelo (en inglés, con número…) → los nuestros. */
+const ALIAS_TIPO: Record<string, TipoSeccion> = {
+  verse: 'verso',
+  chorus: 'coro',
+  hook: 'coro',
+  estribillo: 'coro',
+  prechorus: 'precoro',
+  bridge: 'puente',
+  outro: 'final',
+  ending: 'final',
+  solo: 'instrumental',
+  break: 'instrumental',
+}
+
+function tipoDe(v: unknown): TipoSeccion | null {
+  if (typeof v !== 'string') return null
+  const limpio = v.toLowerCase().replace(/[^a-záéíóú]/g, '')
+  return (TIPOS as readonly string[]).includes(limpio) ? (limpio as TipoSeccion) : (ALIAS_TIPO[limpio] ?? null)
+}
+
+/**
+ * Si la salida llegó cortada por el tope de tokens, la recorta al último valor
+ * cerrado y cierra lo que quedó abierto: se pierde la cola (unas notas de la
+ * última melodía) en vez de la canción entera.
+ */
+function repararTruncado(texto: string): Record<string, unknown> {
+  const ini = texto.indexOf('{')
+  if (ini < 0) throw new Error('Respuesta sin JSON')
+  const pila: string[] = []
+  let enCadena = false
+  let escape = false
+  let corte = -1
+  let pilaCorte: string[] = []
+  for (let i = ini; i < texto.length; i++) {
+    const c = texto[i]
+    if (enCadena) {
+      if (escape) escape = false
+      else if (c === '\\') escape = true
+      else if (c === '"') enCadena = false
+      continue
+    }
+    if (c === '"') enCadena = true
+    else if (c === '{' || c === '[') pila.push(c === '{' ? '}' : ']')
+    else if (c === '}' || c === ']') {
+      pila.pop()
+      corte = i + 1
+      pilaCorte = [...pila]
+      if (!pila.length) break
+    }
+  }
+  if (corte < 0) throw new Error('Respuesta sin JSON')
+  const obj: unknown = JSON.parse(texto.slice(ini, corte) + pilaCorte.reverse().join(''))
+  if (!obj || typeof obj !== 'object' || Array.isArray(obj)) throw new Error('JSON inesperado')
+  return obj as Record<string, unknown>
+}
+
+function leerRespuesta(texto: string): Record<string, unknown> {
+  try {
+    return extraerJSON(texto)
+  } catch {
+    return repararTruncado(texto)
+  }
+}
+
 const ent = (v: unknown, min: number, max: number, def: number) => {
   const n = Math.round(Number(v))
   return Number.isFinite(n) ? Math.max(min, Math.min(max, n)) : def
@@ -96,7 +160,7 @@ interface Plan {
 function system(compasesObjetivo: number, conVoz: boolean, letraPropia: boolean): string {
   return [
     'Eres productor y compositor. Compón una canción completa para un secuenciador MIDI (4/4, 16 semicorcheas por compás).',
-    'Responde ÚNICAMENTE con un objeto JSON, sin texto ni markdown alrededor, con esta forma:',
+    'Responde ÚNICAMENTE con un objeto JSON COMPACTO en una sola línea (sin saltos de línea ni sangrías), sin texto ni markdown alrededor, con esta forma:',
     '{"titulo":"…","bpm":96,"tonica":"A","modo":"menor","ritmo":"rock","swing":0,',
     `"instrumentos":{"acordes":"piano","melodia":"lead","bateria":"bateria"},`,
     '"secciones":[{"tipo":"verso","nombre":"Verso 1","compases":8,"acordes":["Am","F","C","G"],"energia":1,"letra":"línea\\nlínea"}],',
@@ -104,23 +168,26 @@ function system(compasesObjetivo: number, conVoz: boolean, letraPropia: boolean)
     'Reglas:',
     `- bpm 60..180; tonica una de C C# D Eb E F F# G Ab A Bb B; modo "mayor" o "menor"; ritmo uno de: ${RITMOS.join(', ')}; swing 0..40.`,
     `- instrumentos.acordes uno de: ${INSTR_ACORDES.join(', ')}. instrumentos.melodia uno de: ${INSTR_MELODIA.join(', ')}. instrumentos.bateria: bateria o bateria808.`,
-    `- secciones en orden, tipo uno de: ${TIPOS.join(', ')}; compases 2..16 (normalmente 4 u 8); en total unos ${compasesObjetivo} compases (máximo ${MAX_COMPASES}).`,
+    `- secciones en orden, tipo uno de (literal, en español): ${TIPOS.join(', ')}; compases 2..16 (normalmente 4 u 8); en total unos ${compasesObjetivo} compases (máximo ${MAX_COMPASES}).`,
     '- Estructura de canción real: intro, verso, (precoro), coro, verso, coro, puente, coro final, final. El coro es el gancho y se repite.',
     '- acordes: un cifrado por compás en notación inglesa (C, Am, F#m7, Bbmaj7, Gsus4, E7…); si hay menos que compases se repiten en ciclo.',
     '- energia 0..3: 0 casi vacío, 1 suave, 2 lleno, 3 máximo (coros finales). Construye una curva de tensión.',
     conVoz
       ? letraPropia
         ? '- letra: reparte LA LETRA DEL USUARIO entre las secciones, sin cambiarla; intro, instrumental y final van sin letra.'
-        : '- letra: escribe una letra original con rima y métrica regular, en el MISMO idioma de la descripción del usuario; 4 a 8 líneas por verso/coro; intro, instrumental y final sin letra.'
+        : '- letra: escribe una letra original con rima y métrica regular, en el MISMO idioma de la descripción del usuario; 4 a 6 líneas por verso/coro; intro, instrumental y final sin letra.'
       : '- Es instrumental: letra siempre "".',
+    conVoz ? '- Un coro que repite la letra del coro anterior lleva "letra":"=" (no la copies).' : '',
     '- nombre: la etiqueta de la sección en el idioma de la descripción (p. ej. "Coro", "Chorus").',
-    '- melodias: UNA melodía por cada tipo de sección que la lleve (mínimo verso y coro). inicio es relativo al arranque de la sección: 0..(compases×16−1); duracion 1..16; tono MIDI 55..79.',
+    '- melodias: UNA melodía por cada tipo de sección que la lleve (mínimo verso y coro); sus claves son los mismos valores de tipo (verso, coro…). inicio es relativo al arranque de la sección: 0..(compases×16−1); duracion 1..16; tono MIDI 55..79.',
     conVoz
       ? '- La melodía se canta: aproximadamente una nota por sílaba de la letra, con respiraciones (silencios) al final de cada línea. Rango cómodo de voz.'
       : '- La melodía la toca un instrumento solista: frases claras con pregunta y respuesta.',
     '- Usa notas de la escala, apoya las notas del acorde en los tiempos fuertes y haz el coro más agudo y pegadizo que el verso.',
-    '- Máximo 48 notas por melodía.',
-  ].join('\n')
+    '- Máximo 32 notas por melodía.',
+  ]
+    .filter(Boolean)
+    .join('\n')
 }
 
 /** Coerciones y topes del plan que devuelve el modelo. */
@@ -131,6 +198,8 @@ function validarPlan(obj: Record<string, unknown>, conVoz: boolean): Plan {
   const porDefecto: Acorde = { raiz: tonica, intervalos: menor ? [0, 3, 7] : [0, 4, 7] }
 
   const secciones: Seccion[] = []
+  /** Última letra por tipo, para resolver los coros con "=". */
+  const letraPrevia = new Map<TipoSeccion, string>()
   let total = 0
   for (const cruda of Array.isArray(obj.secciones) ? obj.secciones.slice(0, 16) : []) {
     if (!cruda || typeof cruda !== 'object') continue
@@ -140,14 +209,17 @@ function validarPlan(obj: Record<string, unknown>, conVoz: boolean): Plan {
     const acordes = (Array.isArray(s.acordes) ? s.acordes.slice(0, 16) : [])
       .map(leerAcorde)
       .filter((a): a is Acorde => a != null)
-    const tipo = elegir(s.tipo, TIPOS, 'verso')
+    const tipo = tipoDe(s.tipo) ?? 'verso'
+    let letra = conVoz && typeof s.letra === 'string' ? s.letra.trim().slice(0, 1200) : ''
+    if (letra === '=') letra = letraPrevia.get(tipo) ?? ''
+    else if (letra) letraPrevia.set(tipo, letra)
     secciones.push({
       tipo,
       nombre: typeof s.nombre === 'string' && s.nombre.trim() ? s.nombre.trim().slice(0, 40) : tipo,
       compases,
       acordes: acordes.length ? acordes : [porDefecto],
       energia: ent(s.energia, 0, 3, 2),
-      letra: conVoz && typeof s.letra === 'string' ? s.letra.trim().slice(0, 1200) : '',
+      letra,
     })
     total += compases
   }
@@ -155,9 +227,9 @@ function validarPlan(obj: Record<string, unknown>, conVoz: boolean): Plan {
 
   const melodias: Plan['melodias'] = {}
   const crudas = (obj.melodias ?? {}) as Record<string, unknown>
-  for (const tipo of TIPOS) {
-    const lista = crudas[tipo]
-    if (!Array.isArray(lista)) continue
+  for (const [clave, lista] of Object.entries(crudas)) {
+    const tipo = tipoDe(clave)
+    if (!tipo || melodias[tipo] || !Array.isArray(lista)) continue
     const notas: [number, number, number][] = []
     for (const n of lista.slice(0, 96)) {
       if (!Array.isArray(n) || n.length < 3) continue
@@ -167,7 +239,7 @@ function validarPlan(obj: Record<string, unknown>, conVoz: boolean): Plan {
     }
     if (notas.length) melodias[tipo] = notas
   }
-  if (!melodias.verso && !melodias.coro) throw new Error('La IA no devolvió melodías usables')
+  if (!Object.keys(melodias).length) throw new Error('La IA no devolvió melodías usables')
 
   return {
     titulo: typeof obj.titulo === 'string' && obj.titulo.trim() ? obj.titulo.trim().slice(0, 60) : '',
@@ -300,7 +372,10 @@ function desplegar(plan: Plan, conVoz: boolean) {
 
     // Melodía/voz: la del tipo de sección, recortada a su largo.
     // Con voz solo se canta donde hay letra; sin voz, el solo toma el coro en los instrumentales.
-    const frase = melodias[s.tipo] ?? (!conVoz && s.tipo === 'instrumental' ? melodias.coro : undefined)
+    // Una sección con letra pero sin melodía propia canta la del verso (o la del coro).
+    const frase =
+      melodias[s.tipo] ??
+      (s.letra ? (melodias.verso ?? melodias.coro) : !conVoz && s.tipo === 'instrumental' ? melodias.coro : undefined)
     if (frase && (!conVoz || s.letra)) {
       for (const [i, d, t] of frase) {
         if (i >= pasosSec) continue
@@ -368,7 +443,7 @@ export async function componerCancion(opts: {
   for (let intento = 0; intento < 2; intento++) {
     const respuesta = await conversarIA(sys, [{ rol: 'usuario', texto }], 4096)
     try {
-      const plan = validarPlan(extraerJSON(respuesta), opts.conVoz)
+      const plan = validarPlan(leerRespuesta(respuesta), opts.conVoz)
       const { compases, pistas, letra } = desplegar(plan, opts.conVoz)
       return {
         nombre: plan.titulo || tGlobal('audio.cancionIA.sinTitulo', 'Canción con IA'),
@@ -381,7 +456,12 @@ export async function componerCancion(opts: {
       }
     } catch (e) {
       ultimo = e
-      console.warn('[audio] canción de IA no usable, reintentando:', respuesta.slice(0, 300))
+      console.warn(
+        '[audio] canción de IA no usable, reintentando:',
+        e instanceof Error ? e.message : e,
+        respuesta.length,
+        respuesta.slice(-300),
+      )
     }
   }
   throw ultimo instanceof Error ? ultimo : new Error('La IA no devolvió una canción usable')
