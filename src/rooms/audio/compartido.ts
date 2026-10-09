@@ -56,7 +56,7 @@ export interface SnapshotAudio {
   v: typeof SNAPSHOT_AUDIO_V
   proyecto: Pick<
     ProyectoAudio,
-    'nombre' | 'bpm' | 'compases' | 'pulsos' | 'swing' | 'volumenMaestro' | 'vivo' | 'pistas' | 'cancion'
+    'nombre' | 'bpm' | 'compases' | 'pulsos' | 'swing' | 'volumenMaestro' | 'vivo' | 'pistas' | 'cancion' | 'letra' | 'estilo'
   >
 }
 
@@ -73,6 +73,8 @@ export function proyectarSnapshot(p: ProyectoAudio): SnapshotAudio {
       vivo: p.vivo,
       pistas: p.pistas,
       cancion: p.cancion,
+      letra: p.letra,
+      estilo: p.estilo,
     },
   }
 }
@@ -214,6 +216,8 @@ export function leerSnapshot(bruto: unknown): Partial<ProyectoAudio> | null {
     vivo: leerVivo(p.vivo),
     pistas: leerPistas(p.pistas),
     ...(typeof p.cancion === 'string' ? { cancion: p.cancion.slice(0, 40) } : {}),
+    ...(typeof p.letra === 'string' ? { letra: p.letra.slice(0, 6000) } : {}),
+    ...(typeof p.estilo === 'string' ? { estilo: p.estilo.slice(0, 600) } : {}),
   }
 }
 

@@ -326,6 +326,13 @@ export async function iaTtsCuenta(texto: string, voz?: string): Promise<{ base64
   return { base64: r.base64, mime: r.mime }
 }
 
+/** Canción con voz vía `ia-musica` (Lyria 3.5): MP3 en base64 + la letra/estructura que devuelve. */
+export async function iaMusicaCuenta(prompt: string): Promise<{ base64: string; mime: string; texto: string }> {
+  const r = await llamarFuncion<{ base64: string; mime: string; texto: string; uso: UsoCuenta }>('ia-musica', { prompt })
+  refrescarMedidor(r.uso)
+  return { base64: r.base64, mime: r.mime, texto: r.texto }
+}
+
 /**
  * Búsqueda de transporte público vía `navegar` (HERE Intermodal, op
  * `transporte`). Devuelve la respuesta de HERE tal cual; sin créditos abre el

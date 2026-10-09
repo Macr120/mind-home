@@ -78,6 +78,7 @@ export const COSTO_FIJO = {
   // HERE Intermodal Routing pasado el cupo gratis (2 500 al mes para toda la
   // app): ~$2.50 por mil. Precio de terceros sin confirmar en la consola de HERE.
   transporte: 0.0025,
+  musica: 0.08, // Lyria 3.5: precio fijo por canción (pricing de la API de Gemini, oct 2026)
 } as const
 
 /**

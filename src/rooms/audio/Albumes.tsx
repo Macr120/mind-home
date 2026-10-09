@@ -14,6 +14,9 @@ import {
   nuevaPistaId,
   segPorPaso,
 } from './constantes'
+import type { CancionCompuesta } from './cancionIA'
+import { CancionIAModal } from './CancionIAModal'
+import { conVersionProducida } from './lyria'
 import { GrabacionesPanel } from './GrabacionesPanel'
 import { analizarMidi } from './midiArchivo'
 import * as motor from './motor'
@@ -90,6 +93,7 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
   const [albumActivo, setAlbumActivo] = useState<string | null>(null)
   /** Canción esperando destino en el modal «Guardar en álbum». */
   const [guardandoEn, setGuardandoEn] = useState<{ p?: ProyectoAudio; s?: SemillaCancion } | null>(null)
+  const [cancionIA, setCancionIA] = useState(false)
   const archivoRef = useRef<HTMLInputElement>(null)
   const estado = useSyncExternalStore(motor.transporteStore.subscribe, motor.transporteStore.getSnapshot)
   /** Clave del álbum que suena ('p-<id>' o el id de la semilla). */
@@ -189,6 +193,34 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
       creadoEn: ahora,
       actualizadoEn: ahora,
     })
+    abrir(id)
+  }
+
+  /** La canción que compuso la IA nace como proyecto (en el álbum abierto) y se abre. */
+  const crearDeIA = async (c: CancionCompuesta, extra: { cantada?: PistaAudio; errorVoz?: string }) => {
+    const ahora = new Date().toISOString()
+    const base: ProyectoAudio = {
+      nombre: c.nombre,
+      bpm: c.bpm,
+      compases: c.compases,
+      ...(c.swing ? { swing: c.swing } : {}),
+      ...(c.letra ? { letra: c.letra } : {}),
+      ...(c.estilo ? { estilo: c.estilo } : {}),
+      album: albumActivo ?? undefined,
+      pistas: c.pistas,
+      creadoEn: ahora,
+      actualizadoEn: ahora,
+    }
+    const id = await proyectosAudioRepo.add(extra.cantada ? conVersionProducida(base, extra.cantada) : base)
+    setCancionIA(false)
+    if (extra.errorVoz) {
+      await confirmar({
+        titulo: t('audio.lyria.falloTitulo', 'La versión cantada no salió'),
+        mensaje: t('audio.lyria.falloMsg', 'La canción editable sí se creó. Puedes reintentar la voz desde el botón IA del editor. ({motivo})', {
+          motivo: extra.errorVoz,
+        }),
+      })
+    }
     abrir(id)
   }
 
@@ -451,10 +483,13 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
       <section className="space-y-2">
         {albumActivo == null ? (
           <TituloSeccion icono="piano" titulo={t('audio.tab.canciones', 'Canciones')}>
-            <div className="flex items-center gap-1.5" data-tut="audio.canciones.crear">
+            <div className="flex flex-wrap items-center justify-end gap-1.5" data-tut="audio.canciones.crear">
               <BotonSecundario pequeno disabled={importando} onClick={() => archivoRef.current?.click()}>
                 <Icono nombre="descargar" /> {t('audio.aprender.importar', 'Importar .mid')}
               </BotonSecundario>
+              <BotonPrimario pequeno app={COLOR} onClick={() => setCancionIA(true)}>
+                <Icono nombre="brillo" /> {t('audio.cancionIA.boton', 'Canción con IA')}
+              </BotonPrimario>
               <BotonPrimario pequeno app={COLOR} onClick={() => void crear()}>
                 <Icono nombre="agregar" /> {t('audio.lista.nuevo', 'Nuevo proyecto')}
               </BotonPrimario>
@@ -471,7 +506,7 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
               <Icono nombre="volver" /> <Icono nombre="carpeta" />{' '}
               <span className="min-w-0 truncate">{albumActivo}</span>
             </button>
-            <div className="flex shrink-0 items-center gap-1.5">
+            <div className="flex flex-wrap items-center justify-end gap-1.5">
               <button
                 type="button"
                 onClick={() => void renombrarAlbum()}
@@ -490,6 +525,9 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
               >
                 <Icono nombre="basura" />
               </button>
+              <BotonPrimario pequeno app={COLOR} onClick={() => setCancionIA(true)}>
+                <Icono nombre="brillo" /> {t('audio.cancionIA.boton', 'Canción con IA')}
+              </BotonPrimario>
               <BotonPrimario pequeno app={COLOR} onClick={() => void crear()}>
                 <Icono nombre="agregar" /> {t('audio.lista.nuevo', 'Nuevo proyecto')}
               </BotonPrimario>
@@ -559,6 +597,8 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
           e.target.value = ''
         }}
       />
+
+      {cancionIA && <CancionIAModal onCreada={crearDeIA} onCerrar={() => setCancionIA(false)} />}
 
       {guardandoEn != null && (
         <Modal titulo={t('audio.lista.guardarAlbum', 'Guardar en álbum')} onCerrar={() => setGuardandoEn(null)}>

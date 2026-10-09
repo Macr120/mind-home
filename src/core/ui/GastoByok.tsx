@@ -9,6 +9,7 @@ const ICONO_CATEGORIA: Record<CategoriaGastoByok, NombreIcono> = {
   modelo3d: 'cuarto-bodega',
   voz: 'microfono',
   tts: 'bocina',
+  musica: 'musica',
 }
 
 /** 4 decimales si es menor a un centavo (si no, se ve como $0.00); si no, 2. */
@@ -36,6 +37,7 @@ export function GastoByok({ compacto = false }: { compacto?: boolean }) {
     modelo3d: t('gastoByok.modelo3d', 'Modelos 3D'),
     voz: t('gastoByok.voz', 'Dictado'),
     tts: t('gastoByok.tts', 'Voz con IA'),
+    musica: t('gastoByok.musica', 'Música'),
   }
 
   if (compacto) {

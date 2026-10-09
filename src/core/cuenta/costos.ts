@@ -14,6 +14,7 @@ export type OpIA =
   | 'tts'
   | 'pdf'
   | 'transporte'
+  | 'musica'
 
 /**
  * Lo que cuesta cada operación en créditos. ESPEJO de `costo_op()` (migraciones
@@ -39,6 +40,7 @@ export const CREDITOS: Record<OpIA, number> = {
   tts: 3, // OpenAI tts-1 (~$15/1M car., tope 1000 car.) — voz con IA del asistente
   pdf: 4, // chat con PDF adjunto: cada página cuenta como texto+imagen (~1.5–3k tok); con el tope de ~2 MB, orden de texto_largo
   transporte: 1, // HERE Intermodal vía `navegar` (~$0.0025 pasado el cupo gratis de la app)
+  musica: 16, // Lyria 3.5 vía `ia-musica` ($0.08 fijos por canción con voz)
 }
 
 /** Salida máxima de una op `texto`; pedir más la convierte en `texto_largo`. */

@@ -23,6 +23,8 @@ interface CancionDatos {
   volumenMaestro?: number
   vivo?: AjustesVivo
   album?: string
+  letra?: string
+  estilo?: string
   pistas: PistaAudio[]
 }
 
@@ -48,6 +50,8 @@ export async function empaquetarCancion(p: ProyectoAudio): Promise<Paquete | nul
     ...(p.volumenMaestro != null ? { volumenMaestro: p.volumenMaestro } : {}),
     ...(p.vivo ? { vivo: p.vivo } : {}),
     ...(p.album ? { album: p.album } : {}),
+    ...(p.letra ? { letra: p.letra } : {}),
+    ...(p.estilo ? { estilo: p.estilo } : {}),
     pistas,
   }
   return { app: 'audio', tipo: 'cancion', version: 1, nombre: p.nombre, resumen: detalleCancion(datos), emoji: '🎵', datos }
@@ -76,6 +80,8 @@ function proyectoDe(d: CancionDatos, ahora: string): Omit<ProyectoAudio, 'id'> {
     ...(d.volumenMaestro != null ? { volumenMaestro: d.volumenMaestro } : {}),
     ...(d.vivo ? { vivo: d.vivo } : {}),
     ...(typeof d.album === 'string' ? { album: d.album } : {}),
+    ...(typeof d.letra === 'string' ? { letra: d.letra.slice(0, 6000) } : {}),
+    ...(typeof d.estilo === 'string' ? { estilo: d.estilo.slice(0, 600) } : {}),
     pistas: d.pistas,
     creadoEn: ahora,
     actualizadoEn: ahora,

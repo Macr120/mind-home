@@ -19,6 +19,7 @@ import {
   COLOR,
   FX_DEFAULT,
   PASOS_POR_COMPAS,
+  PATRONES_BATERIA,
   RANGO_SINTE,
   TONOS_BATERIA,
   esInstrumentoBateria,
@@ -33,40 +34,6 @@ import { vivo as tintaViva } from '../../core/ui/estilos'
 
 /** Símbolo corto de cada patrón de arpegio (glifos, no emojis). */
 const GLIFO_ARP: Record<PatronArp, string> = { sube: '↑', baja: '↓', subeBaja: '↑↓', azar: '?' }
-
-/** Ritmos de fábrica de UN compás: [paso, tono, velocidad] (se repiten al aplicar). */
-const PATRONES_BATERIA: { clave: string; golpes: [number, number, number][] }[] = [
-  {
-    clave: 'rock',
-    golpes: [
-      [0, 36, 110], [8, 36, 110], [4, 38, 105], [12, 38, 105],
-      [0, 42, 70], [2, 42, 70], [4, 42, 70], [6, 42, 70],
-      [8, 42, 70], [10, 42, 70], [12, 42, 70], [14, 42, 70],
-    ],
-  },
-  {
-    clave: 'house',
-    golpes: [
-      [0, 36, 110], [4, 36, 110], [8, 36, 110], [12, 36, 110],
-      [2, 46, 80], [6, 46, 80], [10, 46, 80], [14, 46, 80],
-      [4, 39, 95], [12, 39, 95],
-    ],
-  },
-  {
-    clave: 'trap',
-    golpes: [
-      [0, 36, 110], [7, 36, 105], [10, 36, 110], [8, 38, 105],
-      ...Array.from({ length: 16 }, (_, p) => [p, 42, 65] as [number, number, number]),
-    ],
-  },
-  {
-    clave: 'dembow',
-    golpes: [
-      [0, 36, 110], [4, 36, 110], [8, 36, 110], [12, 36, 110],
-      [3, 38, 100], [6, 38, 100], [11, 38, 100], [14, 38, 100],
-    ],
-  },
-]
 
 /**
  * Panel del sintetizador: modos en vivo (arpegio, acordes, escala, octava) y

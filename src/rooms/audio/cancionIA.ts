@@ -1,0 +1,388 @@
+import { conversarIA, extraerJSON } from '../../core/chat/ia'
+import type { EfectosPista, InstrumentoAudio, NotaAudio, PistaAudio } from '../../core/data/db'
+import { tGlobal } from '../../core/i18n/useT'
+import { MAX_COMPASES, MAX_NOTAS_PISTA, PASOS_POR_COMPAS, PATRONES_BATERIA, nuevaPistaId } from './constantes'
+import { clasesDeEscala } from './musica'
+
+/**
+ * Canción COMPLETA con IA (estilo Suno, pero en notas editables). La IA no
+ * escribe nota por nota toda la canción —no cabría en la salida—: devuelve un
+ * PLAN compacto (estructura, acordes por compás, energía, letra y una melodía
+ * por TIPO de sección) y aquí se despliega en batería, bajo, acordes, melodía y
+ * coros. Las secciones repetidas reusan su melodía, como un estribillo real.
+ * Todo lo que llega del modelo se valida y recorta en código.
+ */
+
+export type DuracionCancion = 'corta' | 'media' | 'larga'
+
+/** Compases que se le piden al modelo por duración (≈ 1, 1.5 y 2+ minutos a 100 BPM). */
+const COMPASES_OBJETIVO: Record<DuracionCancion, number> = { corta: 24, media: 40, larga: 56 }
+
+const RITMOS = PATRONES_BATERIA.map((p) => p.clave)
+const TIPOS = ['intro', 'verso', 'precoro', 'coro', 'puente', 'instrumental', 'final'] as const
+type TipoSeccion = (typeof TIPOS)[number]
+
+const INSTR_ACORDES: InstrumentoAudio[] = ['piano', 'organo', 'pad', 'guitarra', 'arpa', 'violines', 'pluck', 'campanas']
+const INSTR_MELODIA: InstrumentoAudio[] = ['lead', 'flauta', 'sax', 'trompeta', 'violines', 'piano', 'campanas', 'guitarra']
+/** Los que sostienen: con ellos los acordes van siempre en redondas. */
+const SOSTENIDOS: InstrumentoAudio[] = ['pad', 'organo', 'violines']
+
+const NOTAS_LETRA: Record<string, number> = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 }
+
+/** Sufijo del cifrado → intervalos sobre la fundamental. */
+const CALIDADES: [RegExp, number[]][] = [
+  [/^(maj7|M7|Δ7?)$/, [0, 4, 7, 11]],
+  [/^(m7|min7|-7)$/, [0, 3, 7, 10]],
+  [/^(m7b5|ø7?)$/, [0, 3, 6, 10]],
+  [/^(dim7?|°7?)$/, [0, 3, 6]],
+  [/^(m|min|-)$/, [0, 3, 7]],
+  [/^(m9|madd9)$/, [0, 3, 7, 14]],
+  [/^(7|9|13)$/, [0, 4, 7, 10]],
+  [/^sus2$/, [0, 2, 7]],
+  [/^(sus4?|7sus4)$/, [0, 5, 7]],
+  [/^(add9|9add|2)$/, [0, 4, 7, 14]],
+  [/^5$/, [0, 7]],
+  [/^(aug|\+)$/, [0, 4, 8]],
+  [/^(6|maj|M)?$/, [0, 4, 7]],
+  [/^m6$/, [0, 3, 7, 9]],
+]
+
+interface Acorde {
+  raiz: number
+  intervalos: number[]
+}
+
+/** 'F#m7' → { raiz: 6, intervalos: [0,3,7,10] }; null si no se entiende. Ignora el bajo de '/G'. */
+function leerAcorde(cifrado: unknown): Acorde | null {
+  if (typeof cifrado !== 'string') return null
+  const m = /^\s*([A-Ga-g])([#b♯♭]?)([^/\s]*)/.exec(cifrado)
+  if (!m) return null
+  const raiz = (NOTAS_LETRA[m[1].toUpperCase()] + (m[2] === '#' || m[2] === '♯' ? 1 : m[2] ? -1 : 0) + 12) % 12
+  const calidad = CALIDADES.find(([re]) => re.test(m[3]))
+  return { raiz, intervalos: calidad ? calidad[1] : [0, 4, 7] }
+}
+
+const ent = (v: unknown, min: number, max: number, def: number) => {
+  const n = Math.round(Number(v))
+  return Number.isFinite(n) ? Math.max(min, Math.min(max, n)) : def
+}
+
+const elegir = <T extends string>(v: unknown, opciones: readonly T[], def: T): T =>
+  opciones.includes(v as T) ? (v as T) : def
+
+interface Seccion {
+  tipo: TipoSeccion
+  nombre: string
+  compases: number
+  acordes: Acorde[]
+  energia: number
+  letra: string
+}
+
+interface Plan {
+  titulo: string
+  bpm: number
+  tonica: number
+  menor: boolean
+  ritmo: string
+  swing: number
+  acordesInstr: InstrumentoAudio
+  melodiaInstr: InstrumentoAudio
+  bateriaInstr: 'bateria' | 'bateria808'
+  secciones: Seccion[]
+  melodias: Partial<Record<TipoSeccion, [number, number, number][]>>
+}
+
+function system(compasesObjetivo: number, conVoz: boolean, letraPropia: boolean): string {
+  return [
+    'Eres productor y compositor. Compón una canción completa para un secuenciador MIDI (4/4, 16 semicorcheas por compás).',
+    'Responde ÚNICAMENTE con un objeto JSON, sin texto ni markdown alrededor, con esta forma:',
+    '{"titulo":"…","bpm":96,"tonica":"A","modo":"menor","ritmo":"rock","swing":0,',
+    `"instrumentos":{"acordes":"piano","melodia":"lead","bateria":"bateria"},`,
+    '"secciones":[{"tipo":"verso","nombre":"Verso 1","compases":8,"acordes":["Am","F","C","G"],"energia":1,"letra":"línea\\nlínea"}],',
+    '"melodias":{"verso":[[inicio,duracion,tono],…],"coro":[…]}}',
+    'Reglas:',
+    `- bpm 60..180; tonica una de C C# D Eb E F F# G Ab A Bb B; modo "mayor" o "menor"; ritmo uno de: ${RITMOS.join(', ')}; swing 0..40.`,
+    `- instrumentos.acordes uno de: ${INSTR_ACORDES.join(', ')}. instrumentos.melodia uno de: ${INSTR_MELODIA.join(', ')}. instrumentos.bateria: bateria o bateria808.`,
+    `- secciones en orden, tipo uno de: ${TIPOS.join(', ')}; compases 2..16 (normalmente 4 u 8); en total unos ${compasesObjetivo} compases (máximo ${MAX_COMPASES}).`,
+    '- Estructura de canción real: intro, verso, (precoro), coro, verso, coro, puente, coro final, final. El coro es el gancho y se repite.',
+    '- acordes: un cifrado por compás en notación inglesa (C, Am, F#m7, Bbmaj7, Gsus4, E7…); si hay menos que compases se repiten en ciclo.',
+    '- energia 0..3: 0 casi vacío, 1 suave, 2 lleno, 3 máximo (coros finales). Construye una curva de tensión.',
+    conVoz
+      ? letraPropia
+        ? '- letra: reparte LA LETRA DEL USUARIO entre las secciones, sin cambiarla; intro, instrumental y final van sin letra.'
+        : '- letra: escribe una letra original con rima y métrica regular, en el MISMO idioma de la descripción del usuario; 4 a 8 líneas por verso/coro; intro, instrumental y final sin letra.'
+      : '- Es instrumental: letra siempre "".',
+    '- nombre: la etiqueta de la sección en el idioma de la descripción (p. ej. "Coro", "Chorus").',
+    '- melodias: UNA melodía por cada tipo de sección que la lleve (mínimo verso y coro). inicio es relativo al arranque de la sección: 0..(compases×16−1); duracion 1..16; tono MIDI 55..79.',
+    conVoz
+      ? '- La melodía se canta: aproximadamente una nota por sílaba de la letra, con respiraciones (silencios) al final de cada línea. Rango cómodo de voz.'
+      : '- La melodía la toca un instrumento solista: frases claras con pregunta y respuesta.',
+    '- Usa notas de la escala, apoya las notas del acorde en los tiempos fuertes y haz el coro más agudo y pegadizo que el verso.',
+    '- Máximo 48 notas por melodía.',
+  ].join('\n')
+}
+
+/** Coerciones y topes del plan que devuelve el modelo. */
+function validarPlan(obj: Record<string, unknown>, conVoz: boolean): Plan {
+  const instr = (obj.instrumentos ?? {}) as Record<string, unknown>
+  const tonica = leerAcorde(obj.tonica)?.raiz ?? 0
+  const menor = obj.modo === 'menor' || obj.modo === 'minor'
+  const porDefecto: Acorde = { raiz: tonica, intervalos: menor ? [0, 3, 7] : [0, 4, 7] }
+
+  const secciones: Seccion[] = []
+  let total = 0
+  for (const cruda of Array.isArray(obj.secciones) ? obj.secciones.slice(0, 16) : []) {
+    if (!cruda || typeof cruda !== 'object') continue
+    const s = cruda as Record<string, unknown>
+    const compases = Math.min(ent(s.compases, 1, 16, 4), MAX_COMPASES - total)
+    if (compases <= 0) break
+    const acordes = (Array.isArray(s.acordes) ? s.acordes.slice(0, 16) : [])
+      .map(leerAcorde)
+      .filter((a): a is Acorde => a != null)
+    const tipo = elegir(s.tipo, TIPOS, 'verso')
+    secciones.push({
+      tipo,
+      nombre: typeof s.nombre === 'string' && s.nombre.trim() ? s.nombre.trim().slice(0, 40) : tipo,
+      compases,
+      acordes: acordes.length ? acordes : [porDefecto],
+      energia: ent(s.energia, 0, 3, 2),
+      letra: conVoz && typeof s.letra === 'string' ? s.letra.trim().slice(0, 1200) : '',
+    })
+    total += compases
+  }
+  if (secciones.length < 2) throw new Error('La IA no devolvió una estructura usable')
+
+  const melodias: Plan['melodias'] = {}
+  const crudas = (obj.melodias ?? {}) as Record<string, unknown>
+  for (const tipo of TIPOS) {
+    const lista = crudas[tipo]
+    if (!Array.isArray(lista)) continue
+    const notas: [number, number, number][] = []
+    for (const n of lista.slice(0, 96)) {
+      if (!Array.isArray(n) || n.length < 3) continue
+      const [i, d, t] = [Number(n[0]), Number(n[1]), Number(n[2])].map(Math.round)
+      if (![i, d, t].every(Number.isFinite) || i < 0 || i >= 16 * PASOS_POR_COMPAS) continue
+      notas.push([i, Math.max(1, Math.min(16, d)), Math.max(48, Math.min(84, t))])
+    }
+    if (notas.length) melodias[tipo] = notas
+  }
+  if (!melodias.verso && !melodias.coro) throw new Error('La IA no devolvió melodías usables')
+
+  return {
+    titulo: typeof obj.titulo === 'string' && obj.titulo.trim() ? obj.titulo.trim().slice(0, 60) : '',
+    bpm: ent(obj.bpm, 60, 180, 100),
+    tonica,
+    menor,
+    ritmo: elegir(obj.ritmo, RITMOS, RITMOS[0]),
+    swing: ent(obj.swing, 0, 40, 0),
+    acordesInstr: elegir(instr.acordes, INSTR_ACORDES, 'piano'),
+    melodiaInstr: elegir(instr.melodia, INSTR_MELODIA, 'lead'),
+    bateriaInstr: instr.bateria === 'bateria808' ? 'bateria808' : 'bateria',
+    secciones,
+    melodias,
+  }
+}
+
+// ─── Despliegue del plan en pistas ─────────────────────────────────────────
+
+/** Voicing cerrado del acorde con el centro más cercano a `centro` (enlace suave). */
+function voicing(a: Acorde, centro: number): number[] {
+  const base = a.intervalos.map((s) => a.raiz + s)
+  let mejor: number[] = []
+  let dist = Infinity
+  for (let inv = 0; inv < base.length; inv++) {
+    const notas = base.map((n, i) => n + (i < inv ? 12 : 0))
+    const media = notas.reduce((x, y) => x + y, 0) / notas.length
+    const oct = Math.round((centro - media) / 12) * 12
+    const d = Math.abs(media + oct - centro)
+    if (d < dist) {
+      dist = d
+      mejor = notas.map((n) => n + oct)
+    }
+  }
+  return mejor
+}
+
+/** Golpes de un compás de acordes según la energía (y el ritmo, para el house). */
+function golpesAcordes(energia: number, ritmo: string, sostenido: boolean): [number, number][] {
+  if (sostenido || energia <= 1) return [[0, 16]]
+  if (ritmo === 'house') return [[2, 2], [6, 2], [10, 2], [14, 2]]
+  if (energia === 2) return [[0, 6], [6, 2], [8, 8]]
+  return [0, 2, 4, 6, 8, 10, 12, 14].map((p) => [p, 2])
+}
+
+/** Lleva la melodía a la escala y a un registro cómodo (sin saltos de octava). */
+function ajustarMelodia(notas: [number, number, number][], tonica: number, menor: boolean): [number, number, number][] {
+  const escala = clasesDeEscala({ tonica, tipo: menor ? 'menor' : 'mayor' })
+  const media = notas.reduce((m, n) => m + n[2], 0) / notas.length
+  const corrimiento = media > 74 ? -12 : media < 57 ? 12 : 0
+  return notas.map(([i, d, t]) => {
+    let tono = t + corrimiento
+    if (!escala.has(((tono % 12) + 12) % 12)) tono += escala.has((((tono + 1) % 12) + 12) % 12) ? 1 : -1
+    return [i, d, tono]
+  })
+}
+
+const fx = (reverb: number, delay = 0, chorus = 0): EfectosPista => ({ reverb, delay, chorus, dist: 0 })
+
+const pista = (nombre: string, instrumento: InstrumentoAudio, volumen: number, efectos: EfectosPista, notas: NotaAudio[]): PistaAudio => ({
+  pistaId: nuevaPistaId(),
+  nombre,
+  instrumento,
+  volumen,
+  efectos,
+  notas: notas.sort((a, b) => a[0] - b[0] || a[2] - b[2]).slice(0, MAX_NOTAS_PISTA),
+})
+
+const mmss = (seg: number) => `${Math.floor(seg / 60)}:${String(Math.floor(seg % 60)).padStart(2, '0')}`
+
+function desplegar(plan: Plan, conVoz: boolean) {
+  const bateria: NotaAudio[] = []
+  const bajo: NotaAudio[] = []
+  const acordes: NotaAudio[] = []
+  const melodia: NotaAudio[] = []
+  const coros: NotaAudio[] = []
+  const patron = PATRONES_BATERIA.find((p) => p.clave === plan.ritmo)!.golpes
+  const bombos = [...new Set(patron.filter((g) => g[1] === 36).map((g) => g[0]))].sort((a, b) => a - b)
+  const sostenido = SOSTENIDOS.includes(plan.acordesInstr)
+  const melodias = Object.fromEntries(
+    Object.entries(plan.melodias).map(([k, v]) => [k, ajustarMelodia(v, plan.tonica, plan.menor)]),
+  ) as Plan['melodias']
+  const segPorCompas = (60 / plan.bpm) * 4
+  const letra: string[] = []
+
+  let compas = 0
+  for (const s of plan.secciones) {
+    const inicioSec = compas * PASOS_POR_COMPAS
+    const pasosSec = s.compases * PASOS_POR_COMPAS
+    if (s.letra) letra.push(`[${s.nombre} · ${mmss(compas * segPorCompas)}]\n${s.letra}`)
+
+    for (let c = 0; c < s.compases; c++) {
+      const p0 = (compas + c) * PASOS_POR_COMPAS
+      const acorde = s.acordes[c % s.acordes.length]
+      const ultimo = c === s.compases - 1
+
+      // Batería: 0 = sin batería, 1 = solo bombo y platos, 2 = patrón, 3 = patrón + crash y redoble.
+      if (s.energia >= 1) {
+        for (const [paso, tono, vel] of patron) {
+          if (s.energia === 1 && tono !== 36 && tono !== 42 && tono !== 46) continue
+          if (s.energia >= 3 && ultimo && paso >= 12) continue
+          bateria.push([p0 + paso, 1, tono, s.energia === 1 ? Math.round(vel * 0.75) : vel])
+        }
+        if (s.energia >= 3 && c === 0) bateria.push([p0, 1, 49, 115])
+        if (s.energia >= 3 && ultimo) {
+          ;[48, 48, 41, 41].forEach((tono, k) => bateria.push([p0 + 12 + k, 1, tono, 90 + k * 8]))
+        }
+      }
+
+      // Bajo: redonda en lo suave; con energía sigue al bombo (rítmica del 808).
+      if (s.energia >= 1) {
+        const tonoBajo = 36 + acorde.raiz > 45 ? 24 + acorde.raiz : 36 + acorde.raiz // Bb1..A2
+        if (s.energia === 1) bajo.push([p0, 16, tonoBajo, 95])
+        else {
+          bombos.forEach((paso, k) => {
+            const fin = bombos[k + 1] ?? 16
+            const octava = s.energia >= 3 && k % 2 === 1 ? 12 : 0
+            bajo.push([p0 + paso, Math.max(1, fin - paso - 1), tonoBajo + octava, 105])
+          })
+        }
+      }
+
+      // Acordes y colchón de coros (pad en los instrumentales).
+      for (const [paso, dur] of golpesAcordes(s.energia, plan.ritmo, sostenido)) {
+        for (const tono of voicing(acorde, 62)) acordes.push([p0 + paso, dur, tono, paso % 4 === 0 ? 80 : 68])
+      }
+      if (s.tipo === 'coro' || (s.energia >= 3 && s.tipo !== 'final')) {
+        for (const tono of voicing(acorde, 70)) coros.push([p0, 16, tono, 70])
+      }
+    }
+
+    // Melodía/voz: la del tipo de sección, recortada a su largo.
+    // Con voz solo se canta donde hay letra; sin voz, el solo toma el coro en los instrumentales.
+    const frase = melodias[s.tipo] ?? (!conVoz && s.tipo === 'instrumental' ? melodias.coro : undefined)
+    if (frase && (!conVoz || s.letra)) {
+      for (const [i, d, t] of frase) {
+        if (i >= pasosSec) continue
+        melodia.push([inicioSec + i, Math.min(d, pasosSec - i), t, s.tipo === 'coro' ? 110 : 96])
+      }
+    }
+    compas += s.compases
+  }
+
+  const n = (clave: string, es: string) => tGlobal(clave, es)
+  const pistas = [
+    pista(n('audio.cancionIA.pBateria', 'Batería'), plan.bateriaInstr, 0.8, fx(0.08), bateria),
+    pista(n('audio.cancionIA.pBajo', 'Bajo'), 'bajo', 0.75, fx(0), bajo),
+    pista(n('audio.cancionIA.pAcordes', 'Acordes'), plan.acordesInstr, 0.5, fx(0.25, 0, 0.2), acordes),
+    pista(
+      conVoz ? n('audio.cancionIA.pVoz', 'Voz') : n('audio.cancionIA.pMelodia', 'Melodía'),
+      conVoz ? 'voz' : plan.melodiaInstr,
+      0.85,
+      fx(0.3, 0.15),
+      melodia,
+    ),
+    pista(
+      conVoz ? n('audio.cancionIA.pCoros', 'Coros') : n('audio.cancionIA.pColchon', 'Colchón'),
+      conVoz ? 'coro' : 'pad',
+      0.4,
+      fx(0.45, 0, 0.3),
+      coros,
+    ),
+  ].filter((p) => p.notas.length > 0)
+
+  return { compases: compas, pistas, letra: letra.join('\n\n') }
+}
+
+export interface CancionCompuesta {
+  nombre: string
+  /** La descripción del usuario: queda en el proyecto para la versión cantada. */
+  estilo: string
+  bpm: number
+  compases: number
+  swing: number
+  letra: string
+  pistas: PistaAudio[]
+}
+
+/**
+ * Compone una canción entera desde una descripción (y, opcional, la letra del
+ * usuario). Reintenta UNA vez solo si el formato no se puede usar, como `ia.ts`.
+ */
+export async function componerCancion(opts: {
+  descripcion: string
+  letra?: string
+  conVoz: boolean
+  duracion: DuracionCancion
+}): Promise<CancionCompuesta> {
+  const letraPropia = opts.conVoz && !!opts.letra?.trim()
+  const sys = system(COMPASES_OBJETIVO[opts.duracion], opts.conVoz, letraPropia)
+  const texto = [
+    `Descripción: ${opts.descripcion.trim() || 'una canción pop pegadiza'}`,
+    letraPropia ? `Letra del usuario:\n${opts.letra!.trim().slice(0, 3000)}` : '',
+  ]
+    .filter(Boolean)
+    .join('\n\n')
+
+  let ultimo: unknown = null
+  for (let intento = 0; intento < 2; intento++) {
+    const respuesta = await conversarIA(sys, [{ rol: 'usuario', texto }], 4096)
+    try {
+      const plan = validarPlan(extraerJSON(respuesta), opts.conVoz)
+      const { compases, pistas, letra } = desplegar(plan, opts.conVoz)
+      return {
+        nombre: plan.titulo || tGlobal('audio.cancionIA.sinTitulo', 'Canción con IA'),
+        estilo: opts.descripcion.trim(),
+        bpm: plan.bpm,
+        compases: Math.max(1, compases),
+        swing: plan.swing,
+        letra,
+        pistas,
+      }
+    } catch (e) {
+      ultimo = e
+      console.warn('[audio] canción de IA no usable, reintentando:', respuesta.slice(0, 300))
+    }
+  }
+  throw ultimo instanceof Error ? ultimo : new Error('La IA no devolvió una canción usable')
+}

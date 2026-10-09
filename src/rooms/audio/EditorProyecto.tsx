@@ -32,12 +32,13 @@ import {
   nuevoClipId,
   segPorPaso,
 } from './constantes'
-import { OP_CONTINUAR, OP_GENERAR } from './costosIA'
+import { OP_CONTINUAR, OP_GENERAR, OP_VOZ_REAL } from './costosIA'
 import { renderizarWav } from './exportarWav'
 import { crearGrabacion, fusionarNotas, type Grabacion } from './grabacion'
 import { iniciarTomaAudio, type TomaAudio } from './grabadorClip'
 import { ElegirGrabacion } from './ElegirGrabacion'
 import { generarNotas, continuarNotas } from './ia'
+import { conVersionProducida, producirVersionCantada } from './lyria'
 import { conectarMidi, haySoporteMidi, listarEntradas, suscribirNotas } from './midi'
 import * as motor from './motor'
 import { expandirAcorde } from './musica'
@@ -113,7 +114,13 @@ export function EditorProyecto({
   const [iaCompases, setIaCompases] = useState(2)
   const [iaOcupado, setIaOcupado] = useState(false)
   const [iaError, setIaError] = useState('')
+  /** Versión producida con Lyria: null = aún sin tocar (cae al estilo guardado del proyecto). */
+  const [vozEstilo, setVozEstilo] = useState<string | null>(null)
+  const [vozCantada, setVozCantada] = useState<boolean | null>(null)
+  const [vozOcupado, setVozOcupado] = useState(false)
+  const [vozError, setVozError] = useState('')
   const [iaAplicada, setIaAplicada] = useState<NotaAudio[] | null>(null)
+  const [verLetra, setVerLetra] = useState(false)
   const [elegirGrab, setElegirGrab] = useState(false)
 
   const grabacionRef = useRef<Grabacion | null>(null)
@@ -193,6 +200,8 @@ export function EditorProyecto({
       vivo: p.vivo,
       pistas: p.pistas,
       cancion: p.cancion,
+      letra: p.letra,
+      estilo: p.estilo,
       actualizadoEn: new Date().toISOString(),
     })
     await empujarRef.current()
@@ -772,6 +781,30 @@ export function EditorProyecto({
     }
   }
 
+  const producirVoz = async () => {
+    const p = proyectoRef.current
+    if (!p || sinTurno || vozOcupado) return
+    if (p.pistas.length >= MAX_PISTAS) {
+      setVozError(t('audio.lyria.sinHueco', 'El proyecto ya tiene {n} pistas: borra una para añadir la versión producida.', { n: MAX_PISTAS }))
+      return
+    }
+    const estilo = (vozEstilo ?? p.estilo ?? '').trim()
+    const cantada = vozCantada ?? !!p.letra?.trim()
+    setVozError('')
+    setVozOcupado(true)
+    try {
+      await guardarRef.current()
+      const pistaNueva = await producirVersionCantada(p, estilo, cantada)
+      mutar((prev) => ({ ...conVersionProducida(prev, pistaNueva), estilo: estilo || prev.estilo }))
+      setPistaActivaId(pistaNueva.pistaId)
+      setPanelIA(false)
+    } catch (e) {
+      setVozError(mensajeErrorIA(e, t))
+    } finally {
+      setVozOcupado(false)
+    }
+  }
+
   const deshacerIA = () => {
     const previas = iaAplicada
     if (!previas) return
@@ -882,6 +915,15 @@ export function EditorProyecto({
             {espacioId && <BarraTurno espacioId={espacioId} antesDeSoltar={antesDeSoltar} />}
             {espacioId && (
               <ChipMiembros espacioId={espacioId} onClick={() => useEspaciosStore.getState().abrirCompartir(espacioId)} />
+            )}
+            {proyecto.letra != null && (
+              <button
+                type="button"
+                onClick={() => setVerLetra(true)}
+                className="flex items-center gap-1 rounded-lg border border-white/10 bg-white/10 px-2.5 py-1.5 text-xs font-semibold transition hover:bg-white/20"
+              >
+                <Icono nombre="microfono" /> {t('audio.cancionIA.verLetra', 'Letra')}
+              </button>
             )}
             <BotonCompartir espacioId={espacioId} onCompartir={compartir} pequeno />
             <BotonEnviarAContacto
@@ -1095,6 +1137,19 @@ export function EditorProyecto({
         </>
       )}
 
+      {verLetra && (
+        <Modal titulo={t('audio.cancionIA.verLetra', 'Letra')} onCerrar={() => setVerLetra(false)}>
+          <textarea
+            value={proyecto.letra ?? ''}
+            onChange={(e) => mutar((p) => ({ ...p, letra: e.target.value }))}
+            readOnly={sinTurno}
+            rows={16}
+            maxLength={6000}
+            className={`${INPUT} leading-relaxed`}
+          />
+        </Modal>
+      )}
+
       {panelIA && (
         <Modal titulo={t('audio.ia.titulo', 'Componer con IA')} onCerrar={() => setPanelIA(false)}>
           <Campo etiqueta={t('audio.ia.desc', 'Qué quieres oír (en la pista activa)')}>
@@ -1141,6 +1196,47 @@ export function EditorProyecto({
           <p className="text-xs text-white/40">
             {t('audio.ia.nota', 'La IA compone para el instrumento de la pista activa; dale play para escucharla.')}
           </p>
+
+          <div className="space-y-2 border-t border-white/10 pt-3">
+            <p className="flex items-center gap-1.5 text-sm font-semibold">
+              <Icono nombre="microfono" /> {t('audio.lyria.titulo', 'Versión con voz real')}
+            </p>
+            <Campo etiqueta={t('audio.lyria.estilo', 'Estilo y voz (género, ánimo, tipo de voz…)')}>
+              <textarea
+                value={vozEstilo ?? proyecto.estilo ?? ''}
+                onChange={(e) => setVozEstilo(e.target.value)}
+                rows={2}
+                maxLength={600}
+                placeholder={t('audio.lyria.estiloPh', 'Pop latino alegre, voz femenina cálida…')}
+                className={INPUT}
+              />
+            </Campo>
+            <label className="flex items-center gap-2 text-xs text-white/70">
+              <input
+                type="checkbox"
+                checked={vozCantada ?? !!proyecto.letra?.trim()}
+                disabled={!proyecto.letra?.trim()}
+                onChange={(e) => setVozCantada(e.target.checked)}
+              />
+              {proyecto.letra?.trim()
+                ? t('audio.lyria.cantarLetra', 'Cantar la letra del proyecto')
+                : t('audio.lyria.sinLetra', 'Sin letra: saldrá instrumental')}
+            </label>
+            {vozError && <p className="text-xs text-red-400">{vozError}</p>}
+            <BotonSecundario className="w-full" disabled={vozOcupado || sinTurno} onClick={() => void producirVoz()}>
+              {vozOcupado ? <Spinner pequeno /> : <Icono nombre="microfono" />}{' '}
+              {vozOcupado
+                ? t('audio.lyria.produciendo', 'Produciendo la versión con voz… (alrededor de un minuto)')
+                : t('audio.lyria.producir', 'Producir versión')}{' '}
+              {!vozOcupado && <Creditos op={OP_VOZ_REAL} />}
+            </BotonSecundario>
+            <p className="text-xs text-white/40">
+              {t(
+                'audio.lyria.nota',
+                'Google Lyria crea un audio con voz e instrumentos reales siguiendo el tempo, la estructura y la letra. Entra como pista de audio y las pistas MIDI se silencian (puedes reactivarlas).',
+              )}
+            </p>
+          </div>
         </Modal>
       )}
     </div>

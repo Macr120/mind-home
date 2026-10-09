@@ -12,9 +12,9 @@ import { create } from 'zustand'
  * necesidad de ser componentes React.
  */
 
-export type CategoriaGastoByok = 'chat' | 'imagen' | 'modelo3d' | 'voz' | 'tts'
+export type CategoriaGastoByok = 'chat' | 'imagen' | 'modelo3d' | 'voz' | 'tts' | 'musica'
 
-const CATEGORIAS: CategoriaGastoByok[] = ['chat', 'imagen', 'modelo3d', 'voz', 'tts']
+const CATEGORIAS: CategoriaGastoByok[] = ['chat', 'imagen', 'modelo3d', 'voz', 'tts', 'musica']
 const LS_PREFIX = 'mh.gastoByok.'
 
 function leer(cat: CategoriaGastoByok): number {

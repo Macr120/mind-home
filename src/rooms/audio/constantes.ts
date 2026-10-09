@@ -31,6 +31,40 @@ export const TONO_ALTO = 96
  */
 export const TONOS_BATERIA = [36, 38, 42, 46, 39, 41, 48, 49] as const
 
+/** Ritmos de fábrica de UN compás: [paso, tono, velocidad] (se repiten al aplicar). */
+export const PATRONES_BATERIA: { clave: string; golpes: [number, number, number][] }[] = [
+  {
+    clave: 'rock',
+    golpes: [
+      [0, 36, 110], [8, 36, 110], [4, 38, 105], [12, 38, 105],
+      [0, 42, 70], [2, 42, 70], [4, 42, 70], [6, 42, 70],
+      [8, 42, 70], [10, 42, 70], [12, 42, 70], [14, 42, 70],
+    ],
+  },
+  {
+    clave: 'house',
+    golpes: [
+      [0, 36, 110], [4, 36, 110], [8, 36, 110], [12, 36, 110],
+      [2, 46, 80], [6, 46, 80], [10, 46, 80], [14, 46, 80],
+      [4, 39, 95], [12, 39, 95],
+    ],
+  },
+  {
+    clave: 'trap',
+    golpes: [
+      [0, 36, 110], [7, 36, 105], [10, 36, 110], [8, 38, 105],
+      ...Array.from({ length: 16 }, (_, p) => [p, 42, 65] as [number, number, number]),
+    ],
+  },
+  {
+    clave: 'dembow',
+    golpes: [
+      [0, 36, 110], [4, 36, 110], [8, 36, 110], [12, 36, 110],
+      [3, 38, 100], [6, 38, 100], [11, 38, 100], [14, 38, 100],
+    ],
+  },
+]
+
 /** Afinación de las cuerdas (grave→aguda) de los instrumentos con TABLATURA. */
 export const CUERDAS_TAB: Partial<Record<InstrumentoAudio, number[]>> = {
   guitarra: [40, 45, 50, 55, 59, 64], // E2 A2 D3 G3 B3 E4

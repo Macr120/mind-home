@@ -4250,6 +4250,10 @@ export interface ProyectoAudio {
    * a tocarla en el banco. Ausente en proyectos normales.
    */
   cancion?: string
+  /** Letra de la canción (la escribe la IA al componerla entera; el usuario la edita). */
+  letra?: string
+  /** Descripción de estilo con la que se compuso (la reusa la versión cantada de Lyria). */
+  estilo?: string
   /**
    * Carpeta «álbum» a la que el usuario guardó la canción. El NOMBRE es la
    * identidad: viaja embebido con el proyecto (sin tabla aparte) y el álbum
