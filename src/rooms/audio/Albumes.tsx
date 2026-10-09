@@ -4,6 +4,7 @@ import type { NotaAudio, PistaAudio, ProyectoAudio } from '../../core/data/db'
 import type { MoodMusica } from '../../core/state/ajustesStore'
 import { cancionesRepo, proyectosAudioRepo, VACIO } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
+import { useArrastre, type PropsArrastre } from '../../core/ui/comun/arrastre'
 import { confirmar, pedirTexto } from '../../core/state/confirmarStore'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { BotonPrimario, BotonSecundario, Modal, TituloSeccion } from '../_shared/ui'
@@ -438,6 +439,21 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
     setAlbumActivo(null)
   }
 
+  // ─── Arrastrar canciones a un álbum ──────────────────────────────────────
+  // Una canción propia se suelta sobre la carpeta de un álbum, o sobre «volver»
+  // (dentro de un álbum) para sacarla a la raíz. `data-album` marca el destino.
+  const { props: arrastrar, enMano, destino } = useArrastre<string>(
+    (e) => {
+      const d = document.elementFromPoint(e.clientX, e.clientY)?.closest('[data-album]')?.getAttribute('data-album')
+      return d != null && d !== (albumActivo ?? '') ? d : null
+    },
+    (clave, d) => {
+      const id = Number(clave.slice(2))
+      void proyectosAudioRepo.update(id, { album: d || undefined, actualizadoEn: new Date().toISOString() })
+    },
+  )
+  const marcaDestino = (d: string) => (destino === d ? 'rounded-lg ring-2 ring-accent' : '')
+
   // ─── La tarjeta de canción ───────────────────────────────────────────────
   const album = (
     clave: string,
@@ -450,10 +466,11 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
     onBorrar?: () => void,
     compartido?: boolean,
     onRestaurar?: () => void,
+    arrastre?: PropsArrastre,
   ) => {
     const sonando = sonandoClave === clave
     return (
-      <li key={clave} className="min-w-0">
+      <li key={clave} className={`min-w-0 ${enMano === clave ? 'opacity-40' : ''}`} {...arrastre}>
         <button type="button" onClick={onAbrirAlbum} className="ui-presion block w-full text-left">
           <Portada proyecto={portadaDe} sonando={sonando} />
           <span className="mt-1.5 flex items-center gap-1 text-sm font-semibold">
@@ -526,14 +543,22 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
   }
 
   const metaProyecto = (p: ProyectoAudio) =>
-    t('audio.lista.meta', '{bpm} BPM · {pistas} pistas', { bpm: p.bpm, pistas: p.pistas.length })
+    `${t('audio.lista.meta', '{bpm} BPM · {pistas} pistas', { bpm: p.bpm, pistas: p.pistas.length })} · ${duracionCorta(p.bpm, p.compases)}`
 
   /** Tarjeta-carpeta de un álbum: collage con las portadas de sus canciones. */
   const tarjetaAlbum = (nombre: string, canciones: ProyectoAudio[]) =>
-    tarjetaCarpeta(`alb-${nombre}`, nombre, canciones, () => setAlbumActivo(nombre))
+    tarjetaCarpeta(`alb-${nombre}`, nombre, canciones, () => setAlbumActivo(nombre), canciones.length, nombre)
 
-  const tarjetaCarpeta = (clave: string, nombre: string, canciones: ProyectoAudio[], onAbrir: () => void, total = canciones.length) => (
-    <li key={clave} className="min-w-0">
+  const tarjetaCarpeta = (
+    clave: string,
+    nombre: string,
+    canciones: ProyectoAudio[],
+    onAbrir: () => void,
+    total = canciones.length,
+    /** Álbum que recibe canciones arrastradas (las carpetas fijas no reciben). */
+    albumDestino?: string,
+  ) => (
+    <li key={clave} className={`min-w-0 ${albumDestino != null ? marcaDestino(albumDestino) : ''}`} data-album={albumDestino}>
       <button type="button" onClick={onAbrir} className="ui-presion block w-full text-left">
         <div className="grid aspect-square grid-cols-2 grid-rows-2 gap-0.5 overflow-hidden rounded-lg border border-white/10 bg-black/30 p-0.5">
           {Array.from({ length: 4 }, (_, i) => {
@@ -591,7 +616,8 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
               type="button"
               onClick={() => setAlbumActivo(null)}
               data-tut="audio.album.volver"
-              className="ui-presion flex min-w-0 items-center gap-1 rounded-lg px-2 py-1.5 text-sm font-semibold transition hover:bg-white/10"
+              data-album=""
+              className={`ui-presion flex min-w-0 items-center gap-1 rounded-lg px-2 py-1.5 text-sm font-semibold transition hover:bg-white/10 ${marcaDestino('')}`}
             >
               <Icono nombre="volver" /> <Icono nombre="carpeta" />{' '}
               <span className="min-w-0 truncate">{albumActivo}</span>
@@ -709,6 +735,8 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
                 () => setGuardandoEn({ p }),
                 () => void borrar(p),
                 !!p.espacioId,
+                undefined,
+                p.id != null ? arrastrar(`p-${p.id}`) : undefined,
               ),
             )}
           </ul>
