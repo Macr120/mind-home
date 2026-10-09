@@ -5,7 +5,7 @@ import type { MoodMusica } from '../../core/state/ajustesStore'
 import { cancionesRepo, proyectosAudioRepo, VACIO } from '../../core/data/repository'
 import { descargarArchivo } from '../../core/descargarArchivo'
 import { useT } from '../../core/i18n/useT'
-import { useArrastre, type PropsArrastre } from '../../core/ui/comun/arrastre'
+import { guardarOrden, porOrden, useArrastre, type PropsArrastre } from '../../core/ui/comun/arrastre'
 import { confirmar, pedirTexto } from '../../core/state/confirmarStore'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { BotonPrimario, BotonSecundario, Modal, Spinner, TituloSeccion } from '../_shared/ui'
@@ -163,8 +163,9 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
   )
   const porAlbum = new Map(albumes.map((a) => [a, visibles.filter((p) => p.album === a)]))
   /** Raíz: solo las sueltas (las guardadas en un álbum viven en su carpeta). */
-  const enLista =
-    albumActivo == null ? visibles.filter((p) => !p.album && !esDeFabrica(p)) : (porAlbum.get(albumActivo) ?? [])
+  const sinOrden = albumActivo == null ? visibles.filter((p) => !p.album && !esDeFabrica(p)) : (porAlbum.get(albumActivo) ?? [])
+  // Las que nunca se acomodaron (las recién creadas) van primero, como antes de arrastrar nada.
+  const enLista = [...sinOrden.filter((p) => p.orden == null), ...porOrden(sinOrden.filter((p) => p.orden != null))]
   /**
    * «Canciones por aprender»: cada semilla con TODAS sus copias guardadas (una
    * compartida puede tener dos) fuera de álbumes; sin ninguna fila, la prístina.
@@ -462,24 +463,48 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
     setAlbumActivo(null)
   }
 
-  // ─── Arrastrar canciones a un álbum ──────────────────────────────────────
-  // Una canción propia se suelta sobre la carpeta de un álbum, o sobre «volver»
-  // (dentro de un álbum) para sacarla a la raíz. `data-album` marca el destino.
-  const { props: arrastrar, enMano, destino } = useArrastre<string>(
-    (e) => {
-      const d = document.elementFromPoint(e.clientX, e.clientY)?.closest('[data-album]')?.getAttribute('data-album')
-      return d != null && d !== (albumActivo ?? '') ? d : null
+  // ─── Arrastrar canciones ─────────────────────────────────────────────────
+  // Una canción propia se suelta sobre otra para cambiarla de puesto, sobre la
+  // carpeta de un álbum (o la de «crear álbum») para guardarla ahí, o sobre
+  // «volver» (dentro de un álbum) para sacarla a la raíz. `data-album` marca
+  // las carpetas y `data-fila` las canciones.
+  const { props: arrastrar, enMano, destino } = useArrastre<{ album: string } | { fila: string; despues: boolean }>(
+    (e, mano) => {
+      const bajo = document.elementFromPoint(e.clientX, e.clientY)
+      const album = bajo?.closest('[data-album]')?.getAttribute('data-album')
+      if (album != null) return album !== (albumActivo ?? '') ? { album } : null
+      const fila = bajo?.closest<HTMLElement>('[data-fila]')
+      const k = fila?.dataset.fila
+      if (!fila || !k || k === mano) return null
+      // En rejilla el puesto lo decide de qué lado del centro entra el dedo (al revés en árabe).
+      const caja = fila.getBoundingClientRect()
+      const derecha = e.clientX > caja.left + caja.width / 2
+      return { fila: k, despues: getComputedStyle(fila).direction === 'rtl' ? !derecha : derecha }
     },
-    (clave, d) => {
-      const id = Number(clave.slice(2))
+    (mano, d) => {
+      if ('fila' in d) {
+        const orden = [...enLista]
+        const desde = orden.findIndex((p) => `p-${p.id}` === mano)
+        if (desde < 0) return
+        const [p] = orden.splice(desde, 1)
+        const hasta = orden.findIndex((x) => `p-${x.id}` === d.fila)
+        if (hasta < 0) return
+        orden.splice(d.despues ? hasta + 1 : hasta, 0, p)
+        void guardarOrden(orden, (id, o) => proyectosAudioRepo.update(id, { orden: o }))
+        return
+      }
+      const id = Number(mano.slice(2))
       void (async () => {
-        const album = d === NUEVO_ALBUM ? await crearAlbum() : d || undefined
+        const album = d.album === NUEVO_ALBUM ? await crearAlbum() : d.album || undefined
         if (album === null) return
         await proyectosAudioRepo.update(id, { album, actualizadoEn: new Date().toISOString() })
       })()
     },
   )
-  const marcaDestino = (d: string) => (destino === d ? 'rounded-lg ring-2 ring-accent' : '')
+  const marcaDestino = (d: string) => (destino && 'album' in destino && destino.album === d ? 'rounded-lg ring-2 ring-accent' : '')
+  /** La raya de acento al costado de la canción donde caería la que va en la mano. */
+  const marcaFila = (clave: string) =>
+    destino && 'fila' in destino && destino.fila === clave ? (destino.despues ? 'border-e-2 border-accent' : 'border-s-2 border-accent') : ''
 
   // ─── La tarjeta de canción ───────────────────────────────────────────────
   const album = (
@@ -497,7 +522,12 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
   ) => {
     const sonando = sonandoClave === clave
     return (
-      <li key={clave} className={`min-w-0 ${enMano === clave ? 'opacity-40' : ''}`} {...arrastre}>
+      <li
+        key={clave}
+        className={`min-w-0 ${arrastre ? 'cursor-grab rounded-lg ps-1 pe-1' : ''} ${enMano === clave ? 'opacity-40' : ''} ${marcaFila(clave)}`}
+        data-fila={arrastre ? clave : undefined}
+        {...arrastre}
+      >
         <button type="button" onClick={onAbrirAlbum} className="ui-presion block w-full text-left">
           <Portada proyecto={portadaDe} sonando={sonando} />
           <span className="mt-1.5 flex items-center gap-1 text-sm font-semibold">
@@ -761,19 +791,6 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
                 aprender.length,
               )}
             {albumActivo == null && albumes.map((a) => tarjetaAlbum(a, porAlbum.get(a) ?? []))}
-            {albumActivo == null && enMano && (
-              <li key="nuevo-album" data-album={NUEVO_ALBUM} className="min-w-0">
-                <div
-                  className={`grid aspect-square place-items-center rounded-lg border-2 border-dashed p-3 text-center text-xs font-semibold transition ${
-                    destino === NUEVO_ALBUM ? 'border-accent bg-white/10' : 'border-white/25 text-white/60'
-                  }`}
-                >
-                  <span className="flex flex-col items-center gap-1.5">
-                    <Icono nombre="carpeta" /> {t('audio.lista.soltarNuevoAlbum', 'Suelta aquí para crear un álbum')}
-                  </span>
-                </div>
-              </li>
-            )}
             {enLista.map((p) =>
               album(
                 `p-${p.id}`,
@@ -788,6 +805,20 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
                 undefined,
                 p.id != null ? arrastrar(`p-${p.id}`) : undefined,
               ),
+            )}
+            {/* Al final: aparecer delante correría las canciones un puesto en pleno arrastre. */}
+            {albumActivo == null && enMano && (
+              <li key="nuevo-album" data-album={NUEVO_ALBUM} className="min-w-0">
+                <div
+                  className={`grid aspect-square place-items-center rounded-lg border-2 border-dashed p-3 text-center text-xs font-semibold transition ${
+                    destino && 'album' in destino && destino.album === NUEVO_ALBUM ? 'border-accent bg-white/10' : 'border-white/25 text-white/60'
+                  }`}
+                >
+                  <span className="flex flex-col items-center gap-1.5">
+                    <Icono nombre="carpeta" /> {t('audio.lista.soltarNuevoAlbum', 'Suelta aquí para crear un álbum')}
+                  </span>
+                </div>
+              </li>
             )}
           </ul>
         )}

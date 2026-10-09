@@ -4260,6 +4260,8 @@ export interface ProyectoAudio {
    * existe mientras alguna canción lo lleve.
    */
   album?: string
+  /** Puesto manual en su lista (la raíz o su álbum), al arrastrar. NO se indexa. */
+  orden?: number
   /**
    * Canción de fábrica ('sem-…') borrada por el usuario: la fila queda como
    * LÁPIDA (con `pistas: []`) para que la semilla no reaparezca prístina, ni
