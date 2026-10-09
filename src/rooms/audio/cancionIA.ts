@@ -13,10 +13,25 @@ import { clasesDeEscala } from './musica'
  * Todo lo que llega del modelo se valida y recorta en código.
  */
 
-export type DuracionCancion = 'corta' | 'media' | 'larga'
+/** Quién canta: decide el registro de la melodía y cómo se le pide la voz a Lyria. */
+export type VozCancion = 'mujer' | 'hombre' | 'dueto'
 
-/** Compases que se le piden al modelo por duración (≈ 1, 1.5 y 2+ minutos a 100 BPM). */
-const COMPASES_OBJETIVO: Record<DuracionCancion, number> = { corta: 24, media: 40, larga: 56 }
+/** Rango MIDI de la melodía y el centro al que se lleva si el modelo se va de registro. */
+const REGISTRO: Record<VozCancion, { bajo: number; alto: number; centro: number }> = {
+  mujer: { bajo: 57, alto: 79, centro: 68 },
+  hombre: { bajo: 45, alto: 67, centro: 57 },
+  dueto: { bajo: 50, alto: 74, centro: 62 },
+}
+
+/** Cómo se le pide la voz a Lyria (en inglés: así la entiende mejor). */
+export const VOZ_LYRIA: Record<VozCancion, string> = {
+  mujer: 'Female lead vocal',
+  hombre: 'Male lead vocal',
+  dueto: 'Male and female duet: they alternate verses and harmonize in the choruses',
+}
+
+/** El editor admite 64 compases: la duración máxima a un tempo dado. */
+export const segundosMaximos = (bpm: number) => Math.floor((MAX_COMPASES * 240) / bpm)
 
 const RITMOS = PATRONES_BATERIA.map((p) => p.clave)
 const TIPOS = ['intro', 'verso', 'precoro', 'coro', 'puente', 'instrumental', 'final'] as const
@@ -157,7 +172,22 @@ interface Plan {
   melodias: Partial<Record<TipoSeccion, [number, number, number][]>>
 }
 
-function system(compasesObjetivo: number, conVoz: boolean, letraPropia: boolean): string {
+interface Encargo {
+  conVoz: boolean
+  letraPropia: boolean
+  segundos: number
+  /** Tempo fijado por el usuario; ausente = lo elige el modelo. */
+  bpm?: number
+  /** Idioma de la letra, como lo nombra `nombreIA` del catálogo de idiomas. */
+  idioma: string
+  voz: VozCancion
+}
+
+function system(e: Encargo): string {
+  const r = REGISTRO[e.voz]
+  const duracion = e.bpm
+    ? `en total ${Math.min(MAX_COMPASES, Math.round((e.segundos * e.bpm) / 240))} compases`
+    : `que dure unos ${e.segundos} segundos: compases totales ≈ segundos × bpm ÷ 240 (máximo ${MAX_COMPASES})`
   return [
     'Eres productor y compositor. Compón una canción completa para un secuenciador MIDI (4/4, 16 semicorcheas por compás).',
     'Responde ÚNICAMENTE con un objeto JSON COMPACTO en una sola línea (sin saltos de línea ni sangrías), sin texto ni markdown alrededor, con esta forma:',
@@ -166,22 +196,23 @@ function system(compasesObjetivo: number, conVoz: boolean, letraPropia: boolean)
     '"secciones":[{"tipo":"verso","nombre":"Verso 1","compases":8,"acordes":["Am","F","C","G"],"energia":1,"letra":"línea\\nlínea"}],',
     '"melodias":{"verso":[[inicio,duracion,tono],…],"coro":[…]}}',
     'Reglas:',
-    `- bpm 60..180; tonica una de C C# D Eb E F F# G Ab A Bb B; modo "mayor" o "menor"; ritmo uno de: ${RITMOS.join(', ')}; swing 0..40.`,
+    e.bpm ? `- bpm: EXACTAMENTE ${e.bpm}.` : '- bpm 60..180, el que pida el estilo.',
+    `- tonica una de C C# D Eb E F F# G Ab A Bb B; modo "mayor" o "menor"; ritmo uno de: ${RITMOS.join(', ')}; swing 0..40.`,
     `- instrumentos.acordes uno de: ${INSTR_ACORDES.join(', ')}. instrumentos.melodia uno de: ${INSTR_MELODIA.join(', ')}. instrumentos.bateria: bateria o bateria808.`,
-    `- secciones en orden, tipo uno de (literal, en español): ${TIPOS.join(', ')}; compases 2..16 (normalmente 4 u 8); en total unos ${compasesObjetivo} compases (máximo ${MAX_COMPASES}).`,
+    `- secciones en orden, tipo uno de (literal, en español): ${TIPOS.join(', ')}; compases 2..16 (normalmente 4 u 8); ${duracion}.`,
     '- Estructura de canción real: intro, verso, (precoro), coro, verso, coro, puente, coro final, final. El coro es el gancho y se repite.',
     '- acordes: un cifrado por compás en notación inglesa (C, Am, F#m7, Bbmaj7, Gsus4, E7…); si hay menos que compases se repiten en ciclo.',
     '- energia 0..3: 0 casi vacío, 1 suave, 2 lleno, 3 máximo (coros finales). Construye una curva de tensión.',
-    conVoz
-      ? letraPropia
+    e.conVoz
+      ? e.letraPropia
         ? '- letra: reparte LA LETRA DEL USUARIO entre las secciones, sin cambiarla; intro, instrumental y final van sin letra.'
-        : '- letra: escribe una letra original con rima y métrica regular, en el MISMO idioma de la descripción del usuario; 4 a 6 líneas por verso/coro; intro, instrumental y final sin letra.'
+        : `- letra: escribe una letra original con rima y métrica regular, OBLIGATORIAMENTE en ${e.idioma} (aunque la descripción venga en otro idioma); 4 a 6 líneas por verso/coro; intro, instrumental y final sin letra.`
       : '- Es instrumental: letra siempre "".',
-    conVoz ? '- Un coro que repite la letra del coro anterior lleva "letra":"=" (no la copies).' : '',
-    '- nombre: la etiqueta de la sección en el idioma de la descripción (p. ej. "Coro", "Chorus").',
-    '- melodias: UNA melodía por cada tipo de sección que la lleve (mínimo verso y coro); sus claves son los mismos valores de tipo (verso, coro…). inicio es relativo al arranque de la sección: 0..(compases×16−1); duracion 1..16; tono MIDI 55..79.',
-    conVoz
-      ? '- La melodía se canta: aproximadamente una nota por sílaba de la letra, con respiraciones (silencios) al final de cada línea. Rango cómodo de voz.'
+    e.conVoz ? '- Un coro que repite la letra del coro anterior lleva "letra":"=" (no la copies).' : '',
+    `- nombre: la etiqueta de la sección en ${e.idioma} (p. ej. "Coro", "Chorus").`,
+    `- melodias: UNA melodía por cada tipo de sección que la lleve (mínimo verso y coro); sus claves son los mismos valores de tipo (verso, coro…). inicio es relativo al arranque de la sección: 0..(compases×16−1); duracion 1..16; tono MIDI ${r.bajo}..${r.alto}.`,
+    e.conVoz
+      ? `- La melodía se canta (${e.voz === 'mujer' ? 'voz de mujer' : e.voz === 'hombre' ? 'voz de hombre' : 'dueto de hombre y mujer'}): aproximadamente una nota por sílaba de la letra, con respiraciones (silencios) al final de cada línea.`
       : '- La melodía la toca un instrumento solista: frases claras con pregunta y respuesta.',
     '- Usa notas de la escala, apoya las notas del acorde en los tiempos fuertes y haz el coro más agudo y pegadizo que el verso.',
     '- Máximo 32 notas por melodía.',
@@ -285,10 +316,15 @@ function golpesAcordes(energia: number, ritmo: string, sostenido: boolean): [num
 }
 
 /** Lleva la melodía a la escala y a un registro cómodo (sin saltos de octava). */
-function ajustarMelodia(notas: [number, number, number][], tonica: number, menor: boolean): [number, number, number][] {
+function ajustarMelodia(
+  notas: [number, number, number][],
+  tonica: number,
+  menor: boolean,
+  centro: number,
+): [number, number, number][] {
   const escala = clasesDeEscala({ tonica, tipo: menor ? 'menor' : 'mayor' })
   const media = notas.reduce((m, n) => m + n[2], 0) / notas.length
-  const corrimiento = media > 74 ? -12 : media < 57 ? 12 : 0
+  const corrimiento = Math.round((centro - media) / 12) * 12
   return notas.map(([i, d, t]) => {
     let tono = t + corrimiento
     if (!escala.has(((tono % 12) + 12) % 12)) tono += escala.has((((tono + 1) % 12) + 12) % 12) ? 1 : -1
@@ -309,7 +345,7 @@ const pista = (nombre: string, instrumento: InstrumentoAudio, volumen: number, e
 
 const mmss = (seg: number) => `${Math.floor(seg / 60)}:${String(Math.floor(seg % 60)).padStart(2, '0')}`
 
-function desplegar(plan: Plan, conVoz: boolean) {
+function desplegar(plan: Plan, conVoz: boolean, voz: VozCancion) {
   const bateria: NotaAudio[] = []
   const bajo: NotaAudio[] = []
   const acordes: NotaAudio[] = []
@@ -319,7 +355,7 @@ function desplegar(plan: Plan, conVoz: boolean) {
   const bombos = [...new Set(patron.filter((g) => g[1] === 36).map((g) => g[0]))].sort((a, b) => a - b)
   const sostenido = SOSTENIDOS.includes(plan.acordesInstr)
   const melodias = Object.fromEntries(
-    Object.entries(plan.melodias).map(([k, v]) => [k, ajustarMelodia(v, plan.tonica, plan.menor)]),
+    Object.entries(plan.melodias).map(([k, v]) => [k, ajustarMelodia(v, plan.tonica, plan.menor, REGISTRO[voz].centro)]),
   ) as Plan['melodias']
   const segPorCompas = (60 / plan.bpm) * 4
   const letra: string[] = []
@@ -428,10 +464,13 @@ export async function componerCancion(opts: {
   descripcion: string
   letra?: string
   conVoz: boolean
-  duracion: DuracionCancion
+  segundos: number
+  bpm?: number
+  idioma: string
+  voz: VozCancion
 }): Promise<CancionCompuesta> {
   const letraPropia = opts.conVoz && !!opts.letra?.trim()
-  const sys = system(COMPASES_OBJETIVO[opts.duracion], opts.conVoz, letraPropia)
+  const sys = system({ ...opts, letraPropia })
   const texto = [
     `Descripción: ${opts.descripcion.trim() || 'una canción pop pegadiza'}`,
     letraPropia ? `Letra del usuario:\n${opts.letra!.trim().slice(0, 3000)}` : '',
@@ -444,10 +483,12 @@ export async function componerCancion(opts: {
     const respuesta = await conversarIA(sys, [{ rol: 'usuario', texto }], 4096)
     try {
       const plan = validarPlan(leerRespuesta(respuesta), opts.conVoz)
-      const { compases, pistas, letra } = desplegar(plan, opts.conVoz)
+      if (opts.bpm) plan.bpm = opts.bpm // el tempo del usuario manda aunque el modelo lo ignore
+      const { compases, pistas, letra } = desplegar(plan, opts.conVoz, opts.voz)
       return {
         nombre: plan.titulo || tGlobal('audio.cancionIA.sinTitulo', 'Canción con IA'),
-        estilo: opts.descripcion.trim(),
+        // La voz viaja dentro del estilo: así la versión de Lyria (y la que se rehaga desde el editor) la respeta.
+        estilo: [opts.descripcion.trim(), opts.conVoz ? VOZ_LYRIA[opts.voz] : ''].filter(Boolean).join('. '),
         bpm: plan.bpm,
         compases: Math.max(1, compases),
         swing: plan.swing,

@@ -1,15 +1,19 @@
 import { useState, type ReactNode } from 'react'
 import { costoOperacion } from '../../core/cuenta/catalogoIA'
 import { mensajeErrorIA } from '../../core/cuenta/api'
-import { useT } from '../../core/i18n/useT'
+import { IDIOMAS, datosIdioma } from '../../core/i18n/idiomas'
+import { idiomaActual, useT } from '../../core/i18n/useT'
 import { Creditos } from '../../core/ui/Creditos'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { BotonPrimario, Campo, INPUT, Modal, Spinner } from '../_shared/ui'
 import type { PistaAudio } from '../../core/data/db'
-import { componerCancion, type CancionCompuesta, type DuracionCancion } from './cancionIA'
-import { COLOR } from './constantes'
+import { componerCancion, segundosMaximos, type CancionCompuesta, type VozCancion } from './cancionIA'
+import { BPM_MIN, COLOR } from './constantes'
 import { OP_CANCION, OP_VOZ_REAL } from './costosIA'
 import { producirVersionCantada } from './lyria'
+
+/** Tope del tempo al componer (el editor llega a 240, pero una canción a más de 180 casi no cabe en 64 compases). */
+const BPM_TOPE = 180
 
 /** Instrumental y voz sintetizada son solo MIDI; la voz real añade la versión de Lyria. */
 type Voz = 'instrumental' | 'sinte' | 'real'
@@ -45,7 +49,15 @@ export function CancionIAModal({
   const [voz, setVoz] = useState<Voz>('sinte')
   const conVoz = voz !== 'instrumental'
   const [letra, setLetra] = useState('')
-  const [duracion, setDuracion] = useState<DuracionCancion>('media')
+  const [segundos, setSegundos] = useState(120)
+  /** Lo que se teclea; vacío o fuera de rango = el tempo lo elige la IA según el estilo. */
+  const [bpmTexto, setBpmTexto] = useState('')
+  const bpmTecleado = Math.round(Number(bpmTexto))
+  const bpm = bpmTexto && bpmTecleado >= BPM_MIN && bpmTecleado <= BPM_TOPE ? bpmTecleado : null
+  const [idioma, setIdioma] = useState(idiomaActual())
+  const [quien, setQuien] = useState<VozCancion>('mujer')
+  /** Con el tempo fijado, la duración pedida puede no caber en los 64 compases del editor. */
+  const tope = bpm ? segundosMaximos(bpm) : null
   const [ocupado, setOcupado] = useState<'' | 'midi' | 'voz'>('')
   const [error, setError] = useState('')
 
@@ -54,7 +66,15 @@ export function CancionIAModal({
     setOcupado('midi')
     let c: CancionCompuesta
     try {
-      c = await componerCancion({ descripcion, letra: conVoz ? letra : '', conVoz, duracion })
+      c = await componerCancion({
+        descripcion,
+        letra: conVoz ? letra : '',
+        conVoz,
+        segundos: tope ? Math.min(segundos, tope) : segundos,
+        bpm: bpm ?? undefined,
+        idioma: datosIdioma(idioma).nombreIA,
+        voz: quien,
+      })
     } catch (e) {
       setError(mensajeErrorIA(e, t))
       setOcupado('')
@@ -106,6 +126,33 @@ export function CancionIAModal({
       </div>
 
       {conVoz && (
+        <div className="flex flex-wrap items-center gap-1.5">
+          <Chip activo={quien === 'mujer'} onClick={() => setQuien('mujer')}>
+            {t('audio.cancionIA.mujer', 'Mujer')}
+          </Chip>
+          <Chip activo={quien === 'hombre'} onClick={() => setQuien('hombre')}>
+            {t('audio.cancionIA.hombre', 'Hombre')}
+          </Chip>
+          <Chip activo={quien === 'dueto'} onClick={() => setQuien('dueto')}>
+            {t('audio.cancionIA.dueto', 'Dueto')}
+          </Chip>
+          <select
+            value={idioma}
+            onChange={(e) => setIdioma(e.target.value as typeof idioma)}
+            aria-label={t('audio.cancionIA.idioma', 'Idioma de la letra')}
+            title={t('audio.cancionIA.idioma', 'Idioma de la letra')}
+            className="ms-auto rounded-md border border-white/10 bg-black/30 px-2 py-1 text-xs outline-none"
+          >
+            {IDIOMAS.map((i) => (
+              <option key={i.id} value={i.id}>
+                {i.endonimo}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+
+      {conVoz && (
         <Campo etiqueta={t('audio.cancionIA.letra', 'Tu letra (opcional: si la dejas vacía, la escribe la IA)')}>
           <textarea
             value={letra}
@@ -119,15 +166,41 @@ export function CancionIAModal({
 
       <div className="flex flex-wrap items-center gap-1.5">
         <span className="text-xs text-white/50">{t('audio.cancionIA.duracion', 'Duración')}</span>
-        <Chip activo={duracion === 'corta'} onClick={() => setDuracion('corta')}>
-          {t('audio.cancionIA.corta', 'Corta')}
+        {[60, 120, 180].map((seg) => (
+          <Chip key={seg} activo={segundos === seg} onClick={() => setSegundos(seg)}>
+            {t('audio.cancionIA.minutos', '{n} min', { n: seg / 60 })}
+          </Chip>
+        ))}
+      </div>
+      <div className="flex flex-wrap items-center gap-1.5">
+        <span className="text-xs text-white/50">{t('audio.cancionIA.tempo', 'Tempo')}</span>
+        <Chip activo={bpm == null} onClick={() => setBpmTexto('')}>
+          {t('audio.cancionIA.tempoAuto', 'Auto')}
         </Chip>
-        <Chip activo={duracion === 'media'} onClick={() => setDuracion('media')}>
-          {t('audio.cancionIA.media', 'Media')}
-        </Chip>
-        <Chip activo={duracion === 'larga'} onClick={() => setDuracion('larga')}>
-          {t('audio.cancionIA.larga', 'Larga')}
-        </Chip>
+        <input
+          type="number"
+          min={BPM_MIN}
+          max={BPM_TOPE}
+          step={1}
+          value={bpmTexto}
+          placeholder={t('audio.cancionIA.bpm', 'BPM')}
+          aria-label={t('audio.cancionIA.bpm', 'BPM')}
+          onChange={(e) => setBpmTexto(e.target.value)}
+          // Al salir se ajusta al rango (mientras se teclea «8» camino de «84» no se toca).
+          onBlur={() =>
+            setBpmTexto((v) => (v && Number.isFinite(Number(v)) ? String(Math.max(BPM_MIN, Math.min(BPM_TOPE, Math.round(Number(v))))) : ''))
+          }
+          className="w-20 rounded-md border border-white/10 bg-black/30 px-2 py-1 text-xs tabular-nums outline-none"
+        />
+        {tope != null && segundos > tope && (
+          <span className="text-[11px] text-amber-300">
+            {t('audio.cancionIA.tope', 'A {bpm} BPM caben {m}:{s} como máximo.', {
+              bpm: bpm!,
+              m: Math.floor(tope / 60),
+              s: String(tope % 60).padStart(2, '0'),
+            })}
+          </span>
+        )}
       </div>
       {error && <p className="text-xs text-red-400">{error}</p>}
       <BotonPrimario
