@@ -18,7 +18,7 @@ import {
   segPorPaso,
 } from './constantes'
 import type { CancionCompuesta } from './cancionIA'
-import { CancionIAModal } from './CancionIAModal'
+import { CancionIAModal, type ResultadoCancion, type Salida } from './CancionIAModal'
 import { conVersionProducida } from './lyria'
 import { GrabacionesPanel } from './GrabacionesPanel'
 import { analizarMidi } from './midiArchivo'
@@ -222,32 +222,54 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
     abrir(id)
   }
 
-  /** La canción que compuso la IA nace como proyecto (en el álbum abierto) y se abre. */
-  const crearDeIA = async (c: CancionCompuesta, extra: { cantada?: PistaAudio; errorVoz?: string }) => {
+  /**
+   * Cada salida que pidió el usuario nace como proyecto aparte (en el álbum
+   * abierto) y se abre la primera. Si una versión de Lyria falla, su canción
+   * MIDI se guarda igual para no perder la composición.
+   */
+  const crearDeIA = async (c: CancionCompuesta, r: ResultadoCancion) => {
     const ahora = new Date().toISOString()
-    const base: ProyectoAudio = {
-      nombre: c.nombre,
+    const proyecto = (conVoz: boolean, nombre: string): ProyectoAudio => ({
+      nombre,
       bpm: c.bpm,
       compases: c.compases,
       ...(c.swing ? { swing: c.swing } : {}),
-      ...(c.letra ? { letra: c.letra } : {}),
-      ...(c.estilo ? { estilo: c.estilo } : {}),
+      ...(conVoz && c.letra ? { letra: c.letra } : {}),
+      ...(c.estilo ? { estilo: conVoz ? c.estilo : c.estiloInstrumental } : {}),
       album: albumActivo ?? undefined,
-      pistas: c.pistas,
+      pistas: conVoz ? c.pistas : c.pistasInstrumental,
       creadoEn: ahora,
       actualizadoEn: ahora,
+    })
+    const quiere = (x: Salida) => r.salidas.includes(x)
+    const midi = quiere('midi') || (quiere('lyriaInstr') && !r.lyriaInstr)
+    const sinte = quiere('sinte') || (quiere('lyriaVoz') && !r.lyriaVoz)
+    const varias = [midi, sinte, !!r.lyriaInstr, !!r.lyriaVoz].filter(Boolean).length > 1
+    const nombre = (sufijo: string) => (varias ? `${c.nombre} · ${sufijo}` : c.nombre)
+    const nuevos: ProyectoAudio[] = []
+    if (midi) nuevos.push(proyecto(false, nombre(t('audio.cancionIA.vozInstrumental', 'Instrumental'))))
+    if (sinte) nuevos.push(proyecto(true, nombre(t('audio.cancionIA.vozSinte', 'Voz sintetizada'))))
+    if (r.lyriaInstr) {
+      nuevos.push(conVersionProducida(proyecto(false, nombre(t('audio.cancionIA.nombreLyriaInstr', 'Lyria instrumental'))), r.lyriaInstr))
     }
-    const id = await proyectosAudioRepo.add(extra.cantada ? conVersionProducida(base, extra.cantada) : base)
+    if (r.lyriaVoz) {
+      nuevos.push(conVersionProducida(proyecto(true, nombre(t('audio.cancionIA.nombreLyriaVoz', 'Lyria con voz'))), r.lyriaVoz))
+    }
+    let primero: number | undefined
+    for (const p of nuevos) {
+      const id = await proyectosAudioRepo.add(p)
+      primero ??= id
+    }
     setCancionIA(false)
-    if (extra.errorVoz) {
+    if (r.errores.length) {
       await confirmar({
         titulo: t('audio.lyria.falloTitulo', 'La versión cantada no salió'),
         mensaje: t('audio.lyria.falloMsg', 'La canción editable sí se creó. Puedes reintentar la voz desde el botón IA del editor. ({motivo})', {
-          motivo: extra.errorVoz,
+          motivo: r.errores.join(' · '),
         }),
       })
     }
-    abrir(id)
+    if (primero != null) abrir(primero)
   }
 
   const materializarSemilla = async (s: SemillaCancion, album?: string) => {
@@ -528,7 +550,7 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
   const tarjetaAlbum = (nombre: string, canciones: ProyectoAudio[]) =>
     tarjetaCarpeta(`alb-${nombre}`, nombre, canciones, () => setAlbumActivo(nombre))
 
-  const tarjetaCarpeta = (clave: string, nombre: string, canciones: ProyectoAudio[], onAbrir: () => void) => (
+  const tarjetaCarpeta = (clave: string, nombre: string, canciones: ProyectoAudio[], onAbrir: () => void, total = canciones.length) => (
     <li key={clave} className="min-w-0">
       <button type="button" onClick={onAbrir} className="ui-presion block w-full text-left">
         <div className="grid aspect-square grid-cols-2 grid-rows-2 gap-0.5 overflow-hidden rounded-lg border border-white/10 bg-black/30 p-0.5">
@@ -545,7 +567,7 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
           <Icono nombre="carpeta" /> <span className="min-w-0 truncate">{nombre}</span>
         </span>
         <span className="block truncate text-xs text-white/45">
-          {t('audio.lista.nCanciones', '{n} canciones', { n: canciones.length })}
+          {t('audio.lista.nCanciones', '{n} canciones', { n: total })}
         </span>
       </button>
     </li>
@@ -683,6 +705,7 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
                 t('audio.lista.carpetaAmbiente', 'Música ambiental'),
                 MOODS_LISTA.slice(0, 4).map((m) => porCancion.get(`vib-${m.id}`) ?? proyectoAmbiente(m.id)),
                 () => setEspecial('ambiente'),
+                MOODS_LISTA.length,
               )}
             {albumActivo == null &&
               tarjetaCarpeta(
@@ -690,6 +713,7 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
                 t('audio.lista.carpetaAprender', 'Canciones por aprender'),
                 aprender.slice(0, 4).map(({ s, fila }) => fila ?? proyectoEfimero(s)),
                 () => setEspecial('aprender'),
+                aprender.length,
               )}
             {albumActivo == null && albumes.map((a) => tarjetaAlbum(a, porAlbum.get(a) ?? []))}
             {enLista.map((p) =>

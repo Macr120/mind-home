@@ -559,6 +559,10 @@ export interface CancionCompuesta {
   swing: number
   letra: string
   pistas: PistaAudio[]
+  /** El estilo sin la voz, para las versiones instrumentales. */
+  estiloInstrumental: string
+  /** El mismo plan sin voz (la melodía la toca un instrumento): la versión instrumental sale gratis. */
+  pistasInstrumental: PistaAudio[]
 }
 
 /**
@@ -599,6 +603,8 @@ export async function componerCancion(opts: {
         swing: plan.swing,
         letra,
         pistas,
+        estiloInstrumental: opts.descripcion.trim(),
+        pistasInstrumental: opts.conVoz ? desplegar(plan, false, opts.voz).pistas : pistas,
       }
     } catch (e) {
       ultimo = e

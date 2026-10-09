@@ -15,8 +15,16 @@ import { producirVersionCantada } from './lyria'
 /** Tope del tempo al componer (el editor llega a 240, pero una canción a más de 180 casi no cabe en 64 compases). */
 const BPM_TOPE = 180
 
-/** Instrumental y voz sintetizada son solo MIDI; la voz real añade la versión de Lyria. */
-type Voz = 'instrumental' | 'sinte' | 'real'
+/** Lo que puede salir de una composición: MIDI editable (instrumental o con voz sintetizada) y audio de Lyria (instrumental o con voz real). */
+export type Salida = 'midi' | 'sinte' | 'lyriaInstr' | 'lyriaVoz'
+
+/** Lo que recibe quien guarda: las salidas MIDI pedidas, las pistas de Lyria que salieron y los errores de las que no. */
+export interface ResultadoCancion {
+  salidas: Salida[]
+  lyriaInstr?: PistaAudio
+  lyriaVoz?: PistaAudio
+  errores: string[]
+}
 
 /** Chip de opción única (mismo estilo que los de `ElegirGrabacion`). */
 function Chip({ activo, onClick, children }: { activo: boolean; onClick: () => void; children: ReactNode }) {
@@ -40,14 +48,15 @@ export function CancionIAModal({
   onCreada,
   onCerrar,
 }: {
-  /** `cantada` = la pista de Lyria; `errorVoz` si se pidió y falló (la canción MIDI se crea igual). */
-  onCreada: (c: CancionCompuesta, extra: { cantada?: PistaAudio; errorVoz?: string }) => Promise<void>
+  onCreada: (c: CancionCompuesta, r: ResultadoCancion) => Promise<void>
   onCerrar: () => void
 }) {
   const t = useT()
   const [descripcion, setDescripcion] = useState('')
-  const [voz, setVoz] = useState<Voz>('sinte')
-  const conVoz = voz !== 'instrumental'
+  const [salidas, setSalidas] = useState<Salida[]>(['sinte'])
+  const marcar = (x: Salida) => setSalidas((v) => (v.includes(x) ? v.filter((y) => y !== x) : [...v, x]))
+  const conVoz = salidas.includes('sinte') || salidas.includes('lyriaVoz')
+  const nLyria = salidas.filter((x) => x === 'lyriaInstr' || x === 'lyriaVoz').length
   const [letra, setLetra] = useState('')
   const [segundos, setSegundos] = useState(120)
   /** Lo que se teclea; vacío o fuera de rango = el tempo lo elige la IA según el estilo. */
@@ -80,15 +89,28 @@ export function CancionIAModal({
       setOcupado('')
       return
     }
-    if (voz !== 'real') return onCreada(c, {})
+    if (!nLyria) return onCreada(c, { salidas, errores: [] })
     setOcupado('voz')
-    try {
-      const ahora = new Date().toISOString()
-      const cantada = await producirVersionCantada({ ...c, creadoEn: ahora, actualizadoEn: ahora }, c.estilo, true)
-      await onCreada(c, { cantada })
-    } catch (e) {
-      await onCreada(c, { errorVoz: mensajeErrorIA(e, t) })
-    }
+    const ahora = new Date().toISOString()
+    // Las dos versiones de Lyria van a la vez; si una falla, lo demás se guarda igual.
+    const [instr, cantada] = await Promise.allSettled([
+      salidas.includes('lyriaInstr')
+        ? producirVersionCantada(
+            { ...c, pistas: c.pistasInstrumental, creadoEn: ahora, actualizadoEn: ahora },
+            c.estiloInstrumental,
+            false,
+          )
+        : null,
+      salidas.includes('lyriaVoz')
+        ? producirVersionCantada({ ...c, creadoEn: ahora, actualizadoEn: ahora }, c.estilo, true)
+        : null,
+    ])
+    await onCreada(c, {
+      salidas,
+      lyriaInstr: instr.status === 'fulfilled' ? (instr.value ?? undefined) : undefined,
+      lyriaVoz: cantada.status === 'fulfilled' ? (cantada.value ?? undefined) : undefined,
+      errores: [instr, cantada].flatMap((r) => (r.status === 'rejected' ? [mensajeErrorIA(r.reason, t)] : [])),
+    })
   }
 
   return (
@@ -104,24 +126,27 @@ export function CancionIAModal({
         />
       </Campo>
 
-      <div className="space-y-1">
+      <div className="space-y-1.5">
         <div className="flex flex-wrap items-center gap-1.5">
-          <Chip activo={voz === 'instrumental'} onClick={() => setVoz('instrumental')}>
+          <span className="w-full text-xs text-white/50 sm:w-40">{t('audio.cancionIA.grupoMidi', 'MIDI editable (compone la IA)')}</span>
+          <Chip activo={salidas.includes('midi')} onClick={() => marcar('midi')}>
             <Icono nombre="piano" /> {t('audio.cancionIA.vozInstrumental', 'Instrumental')}
           </Chip>
-          <Chip activo={voz === 'sinte'} onClick={() => setVoz('sinte')}>
+          <Chip activo={salidas.includes('sinte')} onClick={() => marcar('sinte')}>
             <Icono nombre="sintetizador" /> {t('audio.cancionIA.vozSinte', 'Voz sintetizada')}
           </Chip>
-          <Chip activo={voz === 'real'} onClick={() => setVoz('real')}>
+        </div>
+        <div className="flex flex-wrap items-center gap-1.5">
+          <span className="w-full text-xs text-white/50 sm:w-40">{t('audio.cancionIA.grupoLyria', 'Audio producido (Google Lyria)')}</span>
+          <Chip activo={salidas.includes('lyriaInstr')} onClick={() => marcar('lyriaInstr')}>
+            <Icono nombre="musica" /> {t('audio.cancionIA.vozInstrumental', 'Instrumental')}
+          </Chip>
+          <Chip activo={salidas.includes('lyriaVoz')} onClick={() => marcar('lyriaVoz')}>
             <Icono nombre="microfono" /> {t('audio.cancionIA.vozReal', 'Voz real')}
           </Chip>
         </div>
         <p className="text-[11px] text-white/45">
-          {voz === 'instrumental'
-            ? t('audio.cancionIA.vozInstrumentalNota', 'Sin letra: solo la música en pistas MIDI editables.')
-            : voz === 'sinte'
-              ? t('audio.cancionIA.vozSinteNota', 'Con letra en pistas MIDI editables; un sintetizador tararea la melodía.')
-              : t('audio.cancionIA.vozRealNota', 'Lo mismo, más una versión con voz real cantando la letra (Google Lyria, ~1 min más).')}
+          {t('audio.cancionIA.salidasNota', 'Marca una o varias: cada una se guarda como canción aparte. Las de Lyria tardan alrededor de un minuto más.')}
         </p>
       </div>
 
@@ -206,17 +231,17 @@ export function CancionIAModal({
       <BotonPrimario
         className="w-full"
         app={COLOR}
-        disabled={!!ocupado || !descripcion.trim()}
+        disabled={!!ocupado || !descripcion.trim() || !salidas.length}
         onClick={() => void componer()}
       >
         {ocupado ? <Spinner pequeno /> : <Icono nombre="brillo" />}{' '}
         {ocupado === 'voz'
-          ? t('audio.lyria.produciendo', 'Produciendo la versión con voz… (alrededor de un minuto)')
+          ? t('audio.cancionIA.produciendoLyria', 'Produciendo con Lyria… (alrededor de un minuto)')
           : ocupado
             ? t('audio.cancionIA.componiendo', 'Componiendo…')
             : t('audio.cancionIA.componer', 'Componer canción')}{' '}
         {!ocupado && (
-          <Creditos n={costoOperacion(OP_CANCION) + (voz === 'real' ? costoOperacion(OP_VOZ_REAL) : 0)} />
+          <Creditos n={costoOperacion(OP_CANCION) + nLyria * costoOperacion(OP_VOZ_REAL)} />
         )}
       </BotonPrimario>
       <p className="text-xs text-white/40">
