@@ -35,7 +35,7 @@ import {
 } from './constantes'
 import { VOZ_LYRIA, componerCancion, segundosMaximos, type VozCancion } from './cancionIA'
 import { OP_CANCION, OP_CONTINUAR, OP_GENERAR, OP_VOZ_REAL } from './costosIA'
-import { renderizarWav } from './exportarWav'
+import { elegirVersionDescarga, renderizarWav } from './exportarWav'
 import { crearGrabacion, fusionarNotas, type Grabacion } from './grabacion'
 import { iniciarTomaAudio, type TomaAudio } from './grabadorClip'
 import { ElegirGrabacion } from './ElegirGrabacion'
@@ -707,11 +707,13 @@ export function EditorProyecto({
   const exportar = async () => {
     const p = proyectoRef.current
     if (!p || exportando) return
+    const version = await elegirVersionDescarga(p)
+    if (!version) return
     setExportando(true)
     try {
       await guardarRef.current()
       await motor.prepararClips()
-      const blob = await renderizarWav(p, motor.buffersDeClips())
+      const blob = await renderizarWav(version, motor.buffersDeClips())
       await descargarArchivo(blob, `${p.nombre || t('archivo.nombre.proyecto', 'proyecto')}.wav`)
     } finally {
       setExportando(false)

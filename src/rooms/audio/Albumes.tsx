@@ -3,11 +3,12 @@ import { MOODS_LISTA } from '../../core/audio/temas'
 import type { NotaAudio, PistaAudio, ProyectoAudio } from '../../core/data/db'
 import type { MoodMusica } from '../../core/state/ajustesStore'
 import { cancionesRepo, proyectosAudioRepo, VACIO } from '../../core/data/repository'
+import { descargarArchivo } from '../../core/descargarArchivo'
 import { useT } from '../../core/i18n/useT'
 import { useArrastre, type PropsArrastre } from '../../core/ui/comun/arrastre'
 import { confirmar, pedirTexto } from '../../core/state/confirmarStore'
 import { Icono } from '../../core/ui/iconos/Icono'
-import { BotonPrimario, BotonSecundario, Modal, TituloSeccion } from '../_shared/ui'
+import { BotonPrimario, BotonSecundario, Modal, Spinner, TituloSeccion } from '../_shared/ui'
 import { proyectoAmbiente } from './ambiente'
 import { SEMILLAS_CANCIONES, type SemillaCancion } from './canciones'
 import {
@@ -20,6 +21,7 @@ import {
 } from './constantes'
 import type { CancionCompuesta } from './cancionIA'
 import { CancionIAModal, type ResultadoCancion } from './CancionIAModal'
+import { elegirVersionDescarga, renderizarMp3 } from './exportarWav'
 import { conVersionProducida } from './lyria'
 import { GrabacionesPanel } from './GrabacionesPanel'
 import { analizarMidi } from './midiArchivo'
@@ -38,6 +40,9 @@ import * as motor from './motor'
  * tarjeta tiene cuatro botones: escuchar (suena AQUÍ, sin abrir el editor),
  * abrir, guardar en álbum y borrar.
  */
+
+/** `data-album` de la tarjeta que aparece al arrastrar: soltar ahí crea un álbum. */
+const NUEVO_ALBUM = '__nuevo__'
 
 /** Canciones de fábrica: viven en sus carpetas fijas, no sueltas en la raíz. */
 const esDeFabrica = (p: ProyectoAudio) => !!p.cancion && (p.cancion.startsWith('sem-') || p.cancion.startsWith('vib-'))
@@ -192,6 +197,24 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
     await motor.prepararClips() // los álbumes con tomas de mic también suenan completos
     motor.reproducir({})
     setSonandoClave(clave)
+  }
+
+  /** Descarga la canción como MP3 (la misma mezcla que el botón WAV del editor, con las tomas de audio). */
+  const [descargando, setDescargando] = useState<string | null>(null)
+  const descargar = async (clave: string, p: ProyectoAudio) => {
+    if (descargando) return
+    const version = await elegirVersionDescarga(p)
+    if (!version) return
+    setDescargando(clave)
+    try {
+      motor.detener()
+      motor.fijarProyecto(p)
+      await motor.prepararClips()
+      const blob = await renderizarMp3(version, motor.buffersDeClips())
+      await descargarArchivo(blob, `${p.nombre || t('archivo.nombre.proyecto', 'proyecto')}.mp3`)
+    } finally {
+      setDescargando(null)
+    }
   }
 
   const proyectoEfimero = (s: SemillaCancion): ProyectoAudio => proyectoDeSemilla(s, nombresPistas())
@@ -449,7 +472,11 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
     },
     (clave, d) => {
       const id = Number(clave.slice(2))
-      void proyectosAudioRepo.update(id, { album: d || undefined, actualizadoEn: new Date().toISOString() })
+      void (async () => {
+        const album = d === NUEVO_ALBUM ? await crearAlbum() : d || undefined
+        if (album === null) return
+        await proyectosAudioRepo.update(id, { album, actualizadoEn: new Date().toISOString() })
+      })()
     },
   )
   const marcaDestino = (d: string) => (destino === d ? 'rounded-lg ring-2 ring-accent' : '')
@@ -503,6 +530,16 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
             className="grid h-8 w-8 place-items-center rounded-full bg-white/10 text-white/70 transition hover:bg-white/20"
           >
             <Icono nombre="editar" />
+          </button>
+          <button
+            type="button"
+            onClick={() => void descargar(clave, portadaDe)}
+            disabled={descargando != null}
+            aria-label={t('audio.grab.descargar', 'Descargar')}
+            title={t('audio.grab.descargar', 'Descargar')}
+            className="grid h-8 w-8 place-items-center rounded-full bg-white/10 text-white/70 transition hover:bg-white/20 disabled:opacity-40"
+          >
+            {descargando === clave ? <Spinner pequeno /> : <Icono nombre="descargar" />}
           </button>
           {onGuardar && (
             <button
@@ -724,6 +761,19 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
                 aprender.length,
               )}
             {albumActivo == null && albumes.map((a) => tarjetaAlbum(a, porAlbum.get(a) ?? []))}
+            {albumActivo == null && enMano && (
+              <li key="nuevo-album" data-album={NUEVO_ALBUM} className="min-w-0">
+                <div
+                  className={`grid aspect-square place-items-center rounded-lg border-2 border-dashed p-3 text-center text-xs font-semibold transition ${
+                    destino === NUEVO_ALBUM ? 'border-accent bg-white/10' : 'border-white/25 text-white/60'
+                  }`}
+                >
+                  <span className="flex flex-col items-center gap-1.5">
+                    <Icono nombre="carpeta" /> {t('audio.lista.soltarNuevoAlbum', 'Suelta aquí para crear un álbum')}
+                  </span>
+                </div>
+              </li>
+            )}
             {enLista.map((p) =>
               album(
                 `p-${p.id}`,

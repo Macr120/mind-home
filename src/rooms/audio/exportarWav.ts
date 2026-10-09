@@ -1,4 +1,6 @@
 import type { ProyectoAudio } from '../../core/data/db'
+import { tGlobal } from '../../core/i18n/useT'
+import { elegir } from '../../core/state/confirmarStore'
 import { FX_DEFAULT, MAESTRO_DEFAULT, PASOS_POR_COMPAS, segPorPaso } from './constantes'
 import { crearBusMaestro, crearCadenaPista, crearRetornos } from './efectos'
 import { tocarNota } from './instrumentos'
@@ -70,9 +72,55 @@ export async function renderizarBuffer(
   return ctx.startRendering()
 }
 
+/**
+ * Qué se descarga de una canción que tiene audio (la versión de Lyria, tomas)
+ * y MIDI a la vez: lo pregunta y devuelve el proyecto con solo esa parte, todo
+ * sonando (el editor deja el MIDI silenciado o el audio en solo, y eso aquí no
+ * debe mandar). Con una sola parte, el proyecto tal cual. null = canceló.
+ */
+export async function elegirVersionDescarga(p: ProyectoAudio): Promise<ProyectoAudio | null> {
+  const hayAudio = p.pistas.some((x) => x.tipo === 'audio' && x.clips?.length)
+  const hayMidi = p.pistas.some((x) => x.tipo !== 'audio' && x.notas.length)
+  if (!hayAudio || !hayMidi) return p
+  const v = await elegir({
+    titulo: tGlobal('audio.descarga.titulo', '¿Qué versión descargas?'),
+    opciones: [
+      { valor: 'producida', texto: tGlobal('audio.descarga.producida', 'Producida (audio)') },
+      { valor: 'midi', texto: tGlobal('audio.descarga.midi', 'MIDI') },
+      { valor: 'combinada', texto: tGlobal('audio.descarga.combinada', 'Combinada') },
+    ],
+  })
+  if (!v) return null
+  return {
+    ...p,
+    pistas: p.pistas
+      .filter((x) => v === 'combinada' || (v === 'producida') === (x.tipo === 'audio'))
+      .map((x) => ({ ...x, silenciada: false, solo: false })),
+  }
+}
+
 /** Renderiza el proyecto completo como `audio/wav` estéreo 44.1 kHz. */
 export async function renderizarWav(p: ProyectoAudio, buffersClips?: ReadonlyMap<number, AudioBuffer>): Promise<Blob> {
   return wavDesdeBuffer(await renderizarBuffer(p, buffersClips))
+}
+
+/**
+ * Renderiza el proyecto como `audio/mpeg` (192 kbps). Ningún navegador trae
+ * encoder MP3: lo pone `@mediabunny/mp3-encoder` (LAME en WASM), que entra por
+ * `import()` junto con mediabunny para no pesar en el arranque.
+ */
+export async function renderizarMp3(p: ProyectoAudio, buffersClips?: ReadonlyMap<number, AudioBuffer>): Promise<Blob> {
+  const buf = await renderizarBuffer(p, buffersClips)
+  const [{ Output, Mp3OutputFormat, BufferTarget, AudioBufferSource, canEncodeAudio }, { registerMp3Encoder }] =
+    await Promise.all([import('mediabunny'), import('@mediabunny/mp3-encoder')])
+  if (!(await canEncodeAudio('mp3'))) registerMp3Encoder()
+  const salida = new Output({ format: new Mp3OutputFormat(), target: new BufferTarget() })
+  const fuente = new AudioBufferSource({ codec: 'mp3', bitrate: 192_000 })
+  salida.addAudioTrack(fuente)
+  await salida.start()
+  await fuente.add(buf)
+  await salida.finalize()
+  return new Blob([salida.target.buffer!], { type: 'audio/mpeg' })
 }
 
 /** AudioBuffer → WAV (cabecera RIFF de 44 bytes + muestras L/R intercaladas). */
