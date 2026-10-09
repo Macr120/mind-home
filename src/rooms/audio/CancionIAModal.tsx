@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from 'react'
+import { costoOperacion } from '../../core/cuenta/catalogoIA'
 import { mensajeErrorIA } from '../../core/cuenta/api'
 import { useT } from '../../core/i18n/useT'
 import { Creditos } from '../../core/ui/Creditos'
@@ -9,6 +10,9 @@ import { componerCancion, type CancionCompuesta, type DuracionCancion } from './
 import { COLOR } from './constantes'
 import { OP_CANCION, OP_VOZ_REAL } from './costosIA'
 import { producirVersionCantada } from './lyria'
+
+/** Instrumental y voz sintetizada son solo MIDI; la voz real añade la versión de Lyria. */
+type Voz = 'instrumental' | 'sinte' | 'real'
 
 /** Chip de opción única (mismo estilo que los de `ElegirGrabacion`). */
 function Chip({ activo, onClick, children }: { activo: boolean; onClick: () => void; children: ReactNode }) {
@@ -38,10 +42,10 @@ export function CancionIAModal({
 }) {
   const t = useT()
   const [descripcion, setDescripcion] = useState('')
-  const [conVoz, setConVoz] = useState(true)
+  const [voz, setVoz] = useState<Voz>('sinte')
+  const conVoz = voz !== 'instrumental'
   const [letra, setLetra] = useState('')
   const [duracion, setDuracion] = useState<DuracionCancion>('media')
-  const [producir, setProducir] = useState(false)
   const [ocupado, setOcupado] = useState<'' | 'midi' | 'voz'>('')
   const [error, setError] = useState('')
 
@@ -56,11 +60,11 @@ export function CancionIAModal({
       setOcupado('')
       return
     }
-    if (!producir) return onCreada(c, {})
+    if (voz !== 'real') return onCreada(c, {})
     setOcupado('voz')
     try {
       const ahora = new Date().toISOString()
-      const cantada = await producirVersionCantada({ ...c, creadoEn: ahora, actualizadoEn: ahora }, c.estilo, conVoz)
+      const cantada = await producirVersionCantada({ ...c, creadoEn: ahora, actualizadoEn: ahora }, c.estilo, true)
       await onCreada(c, { cantada })
     } catch (e) {
       await onCreada(c, { errorVoz: mensajeErrorIA(e, t) })
@@ -80,13 +84,25 @@ export function CancionIAModal({
         />
       </Campo>
 
-      <div className="flex flex-wrap items-center gap-1.5">
-        <Chip activo={conVoz} onClick={() => setConVoz(true)}>
-          <Icono nombre="microfono" /> {t('audio.cancionIA.conVoz', 'Con voz y letra')}
-        </Chip>
-        <Chip activo={!conVoz} onClick={() => setConVoz(false)}>
-          <Icono nombre="piano" /> {t('audio.cancionIA.instrumental', 'Instrumental')}
-        </Chip>
+      <div className="space-y-1">
+        <div className="flex flex-wrap items-center gap-1.5">
+          <Chip activo={voz === 'instrumental'} onClick={() => setVoz('instrumental')}>
+            <Icono nombre="piano" /> {t('audio.cancionIA.vozInstrumental', 'Instrumental')}
+          </Chip>
+          <Chip activo={voz === 'sinte'} onClick={() => setVoz('sinte')}>
+            <Icono nombre="sintetizador" /> {t('audio.cancionIA.vozSinte', 'Voz sintetizada')}
+          </Chip>
+          <Chip activo={voz === 'real'} onClick={() => setVoz('real')}>
+            <Icono nombre="microfono" /> {t('audio.cancionIA.vozReal', 'Voz real')}
+          </Chip>
+        </div>
+        <p className="text-[11px] text-white/45">
+          {voz === 'instrumental'
+            ? t('audio.cancionIA.vozInstrumentalNota', 'Sin letra: solo la música en pistas MIDI editables.')
+            : voz === 'sinte'
+              ? t('audio.cancionIA.vozSinteNota', 'Con letra en pistas MIDI editables; un sintetizador tararea la melodía.')
+              : t('audio.cancionIA.vozRealNota', 'Lo mismo, más una versión con voz real cantando la letra (Google Lyria, ~1 min más).')}
+        </p>
       </div>
 
       {conVoz && (
@@ -113,17 +129,6 @@ export function CancionIAModal({
           {t('audio.cancionIA.larga', 'Larga')}
         </Chip>
       </div>
-
-      <label className="flex items-start gap-2 text-xs text-white/70">
-        <input type="checkbox" checked={producir} onChange={(e) => setProducir(e.target.checked)} className="mt-0.5" />
-        <span>
-          {conVoz
-            ? t('audio.lyria.tambienVoz', 'Producir también la versión cantada con voz real')
-            : t('audio.lyria.tambienInstr', 'Producir también la versión con instrumentos reales')}{' '}
-          <Creditos op={OP_VOZ_REAL} />
-        </span>
-      </label>
-
       {error && <p className="text-xs text-red-400">{error}</p>}
       <BotonPrimario
         className="w-full"
@@ -137,12 +142,14 @@ export function CancionIAModal({
           : ocupado
             ? t('audio.cancionIA.componiendo', 'Componiendo…')
             : t('audio.cancionIA.componer', 'Componer canción')}{' '}
-        {!ocupado && <Creditos op={OP_CANCION} />}
+        {!ocupado && (
+          <Creditos n={costoOperacion(OP_CANCION) + (voz === 'real' ? costoOperacion(OP_VOZ_REAL) : 0)} />
+        )}
       </BotonPrimario>
       <p className="text-xs text-white/40">
         {t(
           'audio.cancionIA.nota',
-          'Crea intro, versos, coros y puente con batería, bajo, acordes, melodía y coros, todo editable. La voz es un sintetizador que entona la melodía; la letra queda en el botón Letra del editor.',
+          'Crea intro, versos, coros y puente con batería, bajo, acordes, melodía y coros, todo editable. La letra queda en el botón Letra del editor.',
         )}
       </p>
     </Modal>

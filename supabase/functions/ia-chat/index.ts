@@ -480,7 +480,17 @@ async function porAnthropic(
     // esfuerzo va en `low`: medido en scripts/bench3d.mjs da ~10s por objeto
     // contra ~19s de `high` (hasta 40s) con la misma silueta y sin piezas
     // hundidas. El detalle extra se pide con el estilo 'detallado'.
-    ...(calidad ? { thinking: { type: 'adaptive' }, output_config: { effort: 'low' } } : {}),
+    //
+    // Sin herramientas (recetas, planes, JSON de las apps) el razonamiento se APAGA:
+    // Haiku 5.5 razona por defecto y esos tokens salen del mismo `max_tokens`, así
+    // que un JSON de 4096 tokens llegaba cortado a los ~400 (8-oct-2026, canción
+    // con IA del Studio de audio). Con herramientas se deja: apagado, el modelo
+    // puede escribir la llamada como texto en vez de usarla.
+    ...(calidad
+      ? { thinking: { type: 'adaptive' }, output_config: { effort: 'low' } }
+      : body.tools?.length
+        ? {}
+        : { thinking: { type: 'disabled' } }),
     // System como bloques para poder anclarlo: el primero cachea tools+cabecera
     // (estable entre turnos y días); el segundo, la cola que cambia por usuario.
     system: body.system ? bloquesSystem(body.system, body.systemCorte) : undefined,
