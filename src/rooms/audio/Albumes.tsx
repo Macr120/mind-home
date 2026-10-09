@@ -18,7 +18,7 @@ import {
   segPorPaso,
 } from './constantes'
 import type { CancionCompuesta } from './cancionIA'
-import { CancionIAModal, type ResultadoCancion, type Salida } from './CancionIAModal'
+import { CancionIAModal, type ResultadoCancion } from './CancionIAModal'
 import { conVersionProducida } from './lyria'
 import { GrabacionesPanel } from './GrabacionesPanel'
 import { analizarMidi } from './midiArchivo'
@@ -223,53 +223,35 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
   }
 
   /**
-   * Cada salida que pidió el usuario nace como proyecto aparte (en el álbum
-   * abierto) y se abre la primera. Si una versión de Lyria falla, su canción
-   * MIDI se guarda igual para no perder la composición.
+   * La canción de la IA nace como UN proyecto (en el álbum abierto) y se abre:
+   * el MIDI editable, el audio de Lyria, o los dos (el MIDI silenciado debajo).
    */
   const crearDeIA = async (c: CancionCompuesta, r: ResultadoCancion) => {
     const ahora = new Date().toISOString()
-    const proyecto = (conVoz: boolean, nombre: string): ProyectoAudio => ({
-      nombre,
+    const conVoz = r.midi === 'sinte' || r.lyria === 'voz'
+    const base: ProyectoAudio = {
+      nombre: c.nombre,
       bpm: c.bpm,
       compases: c.compases,
       ...(c.swing ? { swing: c.swing } : {}),
       ...(conVoz && c.letra ? { letra: c.letra } : {}),
       ...(c.estilo ? { estilo: conVoz ? c.estilo : c.estiloInstrumental } : {}),
       album: albumActivo ?? undefined,
-      pistas: conVoz ? c.pistas : c.pistasInstrumental,
+      pistas: r.midi === 'instr' ? c.pistasInstrumental : r.midi === 'sinte' ? c.pistas : [],
       creadoEn: ahora,
       actualizadoEn: ahora,
-    })
-    const quiere = (x: Salida) => r.salidas.includes(x)
-    const midi = quiere('midi') || (quiere('lyriaInstr') && !r.lyriaInstr)
-    const sinte = quiere('sinte') || (quiere('lyriaVoz') && !r.lyriaVoz)
-    const varias = [midi, sinte, !!r.lyriaInstr, !!r.lyriaVoz].filter(Boolean).length > 1
-    const nombre = (sufijo: string) => (varias ? `${c.nombre} · ${sufijo}` : c.nombre)
-    const nuevos: ProyectoAudio[] = []
-    if (midi) nuevos.push(proyecto(false, nombre(t('audio.cancionIA.vozInstrumental', 'Instrumental'))))
-    if (sinte) nuevos.push(proyecto(true, nombre(t('audio.cancionIA.vozSinte', 'Voz sintetizada'))))
-    if (r.lyriaInstr) {
-      nuevos.push(conVersionProducida(proyecto(false, nombre(t('audio.cancionIA.nombreLyriaInstr', 'Lyria instrumental'))), r.lyriaInstr))
     }
-    if (r.lyriaVoz) {
-      nuevos.push(conVersionProducida(proyecto(true, nombre(t('audio.cancionIA.nombreLyriaVoz', 'Lyria con voz'))), r.lyriaVoz))
-    }
-    let primero: number | undefined
-    for (const p of nuevos) {
-      const id = await proyectosAudioRepo.add(p)
-      primero ??= id
-    }
+    const id = await proyectosAudioRepo.add(r.pistaLyria ? conVersionProducida(base, r.pistaLyria) : base)
     setCancionIA(false)
-    if (r.errores.length) {
+    if (r.errorLyria) {
       await confirmar({
         titulo: t('audio.lyria.falloTitulo', 'La versión cantada no salió'),
         mensaje: t('audio.lyria.falloMsg', 'La canción editable sí se creó. Puedes reintentar la voz desde el botón IA del editor. ({motivo})', {
-          motivo: r.errores.join(' · '),
+          motivo: r.errorLyria,
         }),
       })
     }
-    if (primero != null) abrir(primero)
+    abrir(id)
   }
 
   const materializarSemilla = async (s: SemillaCancion, album?: string) => {

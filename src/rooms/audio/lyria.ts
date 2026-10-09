@@ -93,6 +93,30 @@ export function promptLyria(p: ProyectoAudio, estilo: string, conVoz: boolean): 
   return lineas.join('\n').slice(0, 6000)
 }
 
+/**
+ * El prompt de Lyria SIN composición previa (cuando no se pidió el MIDI
+ * editable): solo la descripción, la duración y, si hay voz, la letra del
+ * usuario o el idioma en que Lyria debe escribirla.
+ */
+export function promptLyriaDirecto(o: {
+  estilo: string
+  letra: string
+  conVoz: boolean
+  segundos: number
+  bpm?: number
+  /** Endónimo del idioma («English», «日本語»…). */
+  idioma: string
+}): string {
+  const lineas = [o.estilo.trim() || 'A catchy pop song.', `${o.bpm ? `Tempo: ${o.bpm} BPM, 4/4. ` : ''}Length: about ${mmss(o.segundos)}.`]
+  if (!o.conVoz) lineas.push('Instrumental only, no vocals.')
+  else if (o.letra.trim()) {
+    lineas.push('Lead vocalist sings these exact lyrics, in their original language, with backing vocals in the choruses:', '', o.letra.trim())
+  } else {
+    lineas.push(`Lead vocalist sings original lyrics written in ${o.idioma}, with verses, a catchy chorus and backing vocals in the choruses.`)
+  }
+  return lineas.join('\n').slice(0, 6000)
+}
+
 /** Lyria directo con la clave propia de Gemini (BYOK). */
 async function porClavePropia(prompt: string): Promise<{ base64: string; mime: string }> {
   const key = getIaKey('gemini')
@@ -124,7 +148,11 @@ async function porClavePropia(prompt: string): Promise<{ base64: string; mime: s
  * proyecto.
  */
 export async function producirVersionCantada(p: ProyectoAudio, estilo: string, conVoz: boolean): Promise<PistaAudio> {
-  const prompt = promptLyria(p, estilo, conVoz)
+  return producirConLyria(promptLyria(p, estilo, conVoz), p.nombre, conVoz)
+}
+
+/** Lo mismo desde un prompt ya armado; `nombreCancion` nombra la toma guardada. */
+export async function producirConLyria(prompt: string, nombreCancion: string, conVoz: boolean): Promise<PistaAudio> {
   const r = usarViaCuenta() ? await iaMusicaCuenta(prompt) : await porClavePropia(prompt)
   const bin = atob(r.base64)
   const bytes = new Uint8Array(bin.length)
@@ -139,7 +167,7 @@ export async function producirVersionCantada(p: ProyectoAudio, estilo: string, c
     : tGlobal('audio.lyria.pistaInstr', 'Versión producida')
   const creadoEn = new Date().toISOString()
   const grabacionId = await grabacionesAudioRepo.add({
-    nombre: `${p.nombre} · ${nombre}`,
+    nombre: `${nombreCancion} · ${nombre}`,
     blob,
     duracionSeg: buffer.duration,
     picos: calcularPicos(buffer, 0),
