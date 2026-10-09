@@ -377,6 +377,14 @@ export const TEXTOS = {
     'Puedes borrar tu cuenta y todos tus datos en la nube desde la app (Editor → Configuraciones → Cuenta) o desde tu cuenta en la web. Al eliminarla se borran también las conexiones con tus redes sociales (YouTube, TikTok, Facebook e Instagram): los tokens guardados se destruyen y dejan de ser válidos.',
   'sop.cuenta.enlace': 'Ir a tu cuenta',
 
+  // ─── Portada de las guías (/guias) ──────────────────────────────────────
+  'guias.titulo': "Guías MindHaOS — Respuestas claras a preguntas básicas",
+  'guias.desc': "Guías interactivas narradas por Pep@: preguntas básicas como cómo hacer ejercicio, respondidas a fondo, con fuentes y herramientas, en 16 idiomas.",
+  'guias.h1': "Guías MindHaOS",
+  'guias.p': "Preguntas básicas respondidas a fondo, paso a paso y con fuentes. Cada guía la narra Pep@ y trae herramientas para ponerla en práctica.",
+  'guias.partes': "partes",
+  'guias.min': "min",
+
   // ─── Archivo compartido por enlace (descarga.html) ───────────────────
   'desc.titulo': "Archivo compartido",
   'desc.cargando': "Buscando el archivo…",

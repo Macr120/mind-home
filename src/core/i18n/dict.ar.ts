@@ -7301,6 +7301,7 @@ export const AR: Dict = {
   'demo.error': 'تعذّر بناء النسخة التجريبية.',
   'demo.reintentar': 'إعادة المحاولة',
   'tut.flujos.titulo': 'الجولات التعليمية لهذا التطبيق',
+  'guia.ejercicio.titulo': "ما هي الرياضة؟",
   'tut.esencial.titulo': 'الأساسيات',
   'tut.tipo.ejemplos': 'أمثلة · MindHaOS التجريبي',
   'tut.app-agenda--esencial.resumen':

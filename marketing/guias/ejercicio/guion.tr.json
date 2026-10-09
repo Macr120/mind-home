@@ -1,0 +1,528 @@
+{
+  "idioma": "tr",
+  "tema": "ejercicio",
+  "plantillaId": "ejercicio",
+  "pregunta": "Egzersiz nedir?",
+  "subtitulo": "Antrenman nasıl işler, nereden gelir, ne kadar hareket etmelisin, yoğunluğunu nasıl ölçersin ve nasıl gelişirsin.",
+  "aviso": "Bu rehber bilgilendirme amaçlıdır ve doktor tavsiyesinin yerini tutmaz. Bir hastalığın ya da sakatlığın varsa, hamileysen veya uzun süredir hareketsizsen başlamadan önce bir uzmana danış.",
+  "_notas": {
+    "escena": "Animación que hace Pep@ (nombre del catálogo de ejercicios de la app) o una acción: 'habla', 'saluda', 'senala'.",
+    "visual": "Bloque que acompaña la línea: foto (Pexels/Unsplash, ver medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "fondo": "El cuarto de Ejercicio de la app siempre está detrás, difuminado.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "memes": "\"meme\" (en visual o como campo extra de la línea) apunta a web/i18n/guias/<id>.json → ejercicio.memes.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre la toma de la casa (Pep@ en la caminadora); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «temporizador» y «rachas»; app2d.mjs cambia de pantalla de la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "adaptacion",
+      "titulo": "Antrenman yaptığında vücudunda neler olur",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Egzersiz nedir? Neredeyse herkes egzersiz yapması gerektiğini bilir. Çok az kişi egzersiz yaparken vücudunda neler olduğunu bilir. Gerçekten nasıl işliyor? Önümüzdeki birkaç dakikada antrenörlerin plan yaparken dayandığı bilgileri öğrenecek, yoğunluğunu onlar gibi ölçecek ve devam etmek için bir planla ayrılacaksın.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Bu arada, burası MindHaOS'taki evim; rutinlerimi de bu spor salonunda takip ediyorum. Hadi başlayalım.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Birinci bölüm. Antrenman yaptığında vücudunda neler olur."
+        },
+        {
+          "id": "estres",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "supercompensacion"
+          },
+          "texto": "Antrenman, kelimenin tam anlamıyla kontrollü bir strestir. Seans sırasında performansın düşer: yorulursun, enerji harcarsın, kaslarında küçük mikro hasarlar oluşur. Seni güçlendiren şey o sırada değil, sonrasında, sen dinlenirken olur: vücut kendini onarır ve bir sonraki sefere, eskisinden biraz daha yukarıda hazırlanır.",
+          "lamina": "estres"
+        },
+        {
+          "id": "sobrecarga",
+          "escena": "Sentadilla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+",
+            "clave": "sobrecarga"
+          },
+          "texto": "Buna adaptasyon denir ve onu dört ilke yönetir. Birincisi kademeli aşırı yüklenme: hep aynı şeyi yaparsan vücudun değişmek için bir sebebi kalmaz, bu yüzden ondan her seferinde bir öncekinden biraz daha fazlasını istemen gerekir.",
+          "lamina": "sobrecarga"
+        },
+        {
+          "id": "especificidad",
+          "escena": "Carrera",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sobrecarga",
+              "especificidad",
+              "recuperacion",
+              "constancia"
+            ]
+          },
+          "texto": "İkinci ilke özgüllük: neyi çalışırsan ona uyum sağlarsın. Koşu dayanıklılığını, ağırlık kaldırmak kuvvetini geliştirir. Üçüncüsü toparlanma: dinlenme olmadan adaptasyon olmaz, sadece birikmiş yorgunluk olur.",
+          "lamina": "especificidad"
+        },
+        {
+          "id": "constancia",
+          "escena": "Caminata rápida",
+          "visual": {
+            "tipo": "meme",
+            "meme": "constancia"
+          },
+          "texto": "Ve dördüncüsü, süreklilik. Adaptasyonlar geri dönüşlüdür: birkaç hafta antrenmanı bırakırsan vücudun kazandıklarını kaybetmeye başlar. Bu yüzden az ama sık, çok ama ara sıradan daha iyi işler: haftada dört gün yirmi dakika, tek bir günde iki saati geçer.",
+          "lamina": "constancia"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Egzersizin kısa tarihi",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "İkinci bölüm. Egzersizin kısa tarihi."
+        },
+        {
+          "id": "griegos",
+          "escena": "Carrera",
+          "visual": {
+            "tipo": "meme",
+            "meme": "griegos"
+          },
+          "texto": "Geleneğe göre ilk Olimpiyat Oyunları milattan önce yedi yüz yetmiş altı yılında yapıldı. Yunanlılar gymnasionda antrenman yapardı; bu kelime çıplak anlamına gelen gymnós sözcüğünden gelir. Ve evet: gerçekten öyle antrenman yaparlardı.",
+          "lamina": "griegos"
+        },
+        {
+          "id": "hipocrates",
+          "escena": "habla",
+          "visual": {
+            "tipo": "cita"
+          },
+          "texto": "O zamanlar bile sağlığa faydası seziliyordu. Tıbbın babası Hipokrat'a, sağlıklı kalmak için iyi beslenmenin yetmediği, hareket etmenin de gerektiği fikri atfedilir.",
+          "lamina": "hipocrates"
+        },
+        {
+          "id": "gimnasia",
+          "escena": "Flexiones",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1811",
+            "clave": "jahn"
+          },
+          "texto": "On dokuzuncu yüzyılda ilk jimnastik yöntemleri doğdu. Bin sekiz yüz on bir yılında Friedrich Ludwig Jahn Berlin'de açık havada bir jimnastik alanı açtı, İsveç'te ise Pehr Henrik Ling sağlık için tasarlanmış bir jimnastik geliştirdi.",
+          "lamina": [
+            "gimnasia",
+            "ling"
+          ]
+        },
+        {
+          "id": "morris",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1953",
+            "clave": "morris"
+          },
+          "texto": "Büyük dönüm noktası bin dokuz yüz elli üç yılında geldi. İngiliz doktor Jeremy Morris, Londra'nın iki katlı otobüslerinde bütün gün oturan şoförleri, bütün gün merdiven inip çıkan biletçilerle karşılaştırdı. Biletçilerde kalp krizi belirgin şekilde daha azdı. Hareketin kalbi koruduğunu gösteren ilk çalışmalardan biri buydu.",
+          "lamina": [
+            "morris",
+            "morris-bus"
+          ]
+        },
+        {
+          "id": "cooper",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "cooper"
+          },
+          "texto": "Bin dokuz yüz altmış sekiz yılında doktor Kenneth Cooper Aerobics adlı kitabını yayımladı ve aerobik kelimesini yaygınlaştırdı. Yetmişli yıllarda da koşu çılgınlığı başladı.",
+          "lamina": "cooper"
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historia"
+          },
+          "texto": "Bugün ise Dünya Sağlık Örgütü binlerce çalışmaya dayanan öneriler yayımlıyor. Eskiden sezgi olan şey artık bilim; şimdi bakacağımız da tam olarak bu.",
+          "lamina": "hoy"
+        }
+      ]
+    },
+    {
+      "id": "capacidades",
+      "titulo": "Çalıştırman gereken dört yeti",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Üçüncü bölüm. Çalıştırman gereken dört yeti."
+        },
+        {
+          "id": "cuatro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resistencia",
+              "fuerza",
+              "movilidad",
+              "equilibrio"
+            ]
+          },
+          "texto": "Eksiksiz bir plan dört yetiyi çalıştırır: dayanıklılık, kuvvet, mobilite ve denge. Her birinin kendi dozu vardır.",
+          "lamina": "cuatro"
+        },
+        {
+          "id": "resistencia",
+          "escena": "Caminata rápida",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "150–300",
+            "clave": "minutosModerados"
+          },
+          "texto": "Dayanıklılık: Dünya Sağlık Örgütü yetişkinlere haftada yüz elli ile üç yüz dakika orta yoğunlukta aktivite ya da yetmiş beş ile yüz elli dakika yüksek yoğunlukta aktivite öneriyor. Bu aralığın üstüne çıkmak ek faydalar sağlıyor.",
+          "lamina": "resistencia"
+        },
+        {
+          "id": "fuerza",
+          "escena": "Peso muerto rumano",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2+",
+            "clave": "diasFuerza"
+          },
+          "texto": "Kuvvet: haftada en az iki gün, büyük kas gruplarını çalıştırarak. Mesele sadece görünüş değil: kas kütlesi eklemlerini, metabolizmanı ve yıllar geçtikçe bağımsızlığını korur.",
+          "lamina": "fuerza"
+        },
+        {
+          "id": "movilidad",
+          "escena": "Yoga flow",
+          "visual": {
+            "tipo": "foto",
+            "foto": "movilidad"
+          },
+          "texto": "Mobilite: bir eklemi tüm hareket açıklığında, kontrollü şekilde hareket ettirebilme becerisi. Günde birkaç dakika, özellikle kalçalar, omuzlar ve omurga için, geri kalan her şeyin daha iyi gitmesini sağlar.",
+          "lamina": "movilidad"
+        },
+        {
+          "id": "equilibrio",
+          "escena": "Zancadas",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "65+",
+            "clave": "equilibrio"
+          },
+          "texto": "Ve denge: Dünya Sağlık Örgütü altmış beş yaşından itibaren dengeyi haftada üç gün çalışmayı öneriyor, çünkü düşme riskini azaltıyor. Ama o yaşa formda varmanın en iyi yolu, onu daha önceden çalışmaya başlamak.",
+          "lamina": "equilibrio"
+        }
+      ]
+    },
+    {
+      "id": "intensidad",
+      "titulo": "Yoğunluğunu bir profesyonel gibi ölç",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Dördüncü bölüm. Yoğunluğunu bir profesyonel gibi ölç."
+        },
+        {
+          "id": "porque",
+          "escena": "habla",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "En önemli soru ne kadar süre antrenman yaptığın değil, ne kadar sert yaptığın. Bunu ölçmenin üç basit yolu var ve hiçbiri pahalı cihazlar gerektirmiyor."
+        },
+        {
+          "id": "rpe",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escalaRpe"
+          },
+          "texto": "Birincisi, birden ona algılanan zorluk ölçeği. Bir, oturmak demek; on, verebileceğin en yüksek efor. Orta yoğunluk aşağı yukarı beş ile altı arasında, yüksek yoğunluk ise yedi ile sekiz arasında. Konuşabiliyor ama şarkı söyleyemiyorsan orta yoğunluktasın.",
+          "lamina": "rpe"
+        },
+        {
+          "id": "rir",
+          "escena": "Flexiones",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "RIR 2–3",
+            "clave": "rir"
+          },
+          "texto": "İkincisi kuvvet için: yedekte kalan tekrar. Bir seti bitirdiğinde, iyi teknikle kaç tekrar daha yapabileceğini kendine sor. Cevap iki ya da üçse, tükenişe fazla yaklaşmadan gelişmek için çok etkili bir bölgedesin.",
+          "lamina": "rir"
+        },
+        {
+          "id": "zonas",
+          "escena": "Bicicleta estática",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "zonasCardiacas"
+          },
+          "texto": "Üçüncüsü kalp atış hızı. Maksimumun için yaygın bir tahmin şöyle: iki yüz sekiz eksi sıfır virgül yedi çarpı yaşın. Yaklaşık bir değer, ama yön bulmana yeter. Yaşını aşağıya yaz, bölgelerini gör.",
+          "lamina": "zonas"
+        },
+        {
+          "id": "zona2",
+          "escena": "Ciclismo",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "zonas"
+          },
+          "texto": "Pek çok kişi hep aynı ara noktada antrenman yapar: toparlanmak için fazla sert, gelişmek için fazla hafif. Dayanıklılık sporcularının sık kullandığı bir strateji, kardiyonun büyük kısmını hafif tutmak, burnundan nefes alabildiğin ikinci bölgede, ve yalnızca küçük bir kısmını gerçekten yoğun yapmaktır.",
+          "lamina": "zona2"
+        }
+      ]
+    },
+    {
+      "id": "progresion",
+      "titulo": "Hafta hafta nasıl gelişirsin",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Beşinci bölüm. Hafta hafta nasıl gelişirsin."
+        },
+        {
+          "id": "doble",
+          "escena": "Curl con mancuernas",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rango",
+              "repeticiones",
+              "carga"
+            ]
+          },
+          "texto": "Kuvvette gelişmek için basit ve çok etkili bir yöntem var: çift ilerleme. Bir aralık seçersin, örneğin sekiz ile on iki tekrar. Tüm setlerde iyi teknikle on iki tekrara ulaştığında ağırlığı ya da zorluğu artırır, yeniden sekizden başlarsın.",
+          "lamina": "doble"
+        },
+        {
+          "id": "variables",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "masRepeticiones",
+              "masSeries",
+              "masLento",
+              "menosApoyo"
+            ]
+          },
+          "texto": "Ağırlık olmadan da yükü artırabilirsin: daha fazla tekrar, bir set daha, daha yavaş inmek ya da desteği azaltmak, mesela dizler üstünde şınavdan tam şınava geçmek gibi.",
+          "lamina": "variables"
+        },
+        {
+          "id": "diez",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈10 %",
+            "clave": "progresion"
+          },
+          "texto": "Kardiyoda pratik bir ölçü, haftalık hacmi bir seferde yüzde ondan fazla artırmamak. Kasların ve kalbin hızlı uyum sağlar; tendonlar ve eklemler daha yavaş.",
+          "lamina": "diez"
+        },
+        {
+          "id": "plan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "armaTuPlan"
+          },
+          "texto": "Bütün bunlarla, benim spor salonumda takip ettiklerim gibi dört haftalık bir plan kurabilirsin. Kaç günün olduğunu ve seviyeni seç; aşağıda kuvvet, kardiyo ve mobiliteyi nasıl dağıtacağını, ilerlemesi de içinde olacak şekilde önereyim.",
+          "mencion": true,
+          "lamina": "plan"
+        },
+        {
+          "id": "descarga",
+          "escena": "Yoga flow",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "bloques"
+          },
+          "texto": "Ve belli aralıklarla pek çok antrenör bir yük azaltma haftası planlar: aynı egzersizler, daha az hacim. Bu geri adım atmak değil; adaptasyonun oturmasına izin vermektir.",
+          "meme": "descarga",
+          "lamina": "descarga"
+        }
+      ]
+    },
+    {
+      "id": "recuperacion",
+      "titulo": "Toparlanma: asıl geliştiğin yer",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Altıncı bölüm. Toparlanma: asıl geliştiğin yer."
+        },
+        {
+          "id": "sueno",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "7 h+",
+            "clave": "sueno"
+          },
+          "texto": "Unutma: dinlenirken gelişirsin. Uyku, var olan en güçlü toparlanma aracıdır; bir yetişkin için öneri yedi saat ya da daha fazla uyumak.",
+          "lamina": "sueno"
+        },
+        {
+          "id": "proteina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1.2–2 g/kg",
+            "clave": "proteina"
+          },
+          "texto": "Beslenme de önemli. Amerikan Spor Hekimliği Koleji, antrenman yapan kişiler için günlük proteini vücut ağırlığının kilogramı başına bir virgül iki ile iki gram arasında, birkaç öğüne bölünmüş olarak öneriyor.",
+          "lamina": "proteina"
+        },
+        {
+          "id": "neat",
+          "escena": "Caminata",
+          "visual": {
+            "tipo": "foto",
+            "foto": "escaleras"
+          },
+          "texto": "Ve antrenman dışında olanları da unutma. Yürümek, merdiven çıkmak, her saat sandalyeden kalkmak: bu gündelik hareket günün sonunda epey birikir ve oturarak geçirdiğin zamanı dengeler.",
+          "meme": "silla",
+          "lamina": "neat"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "Ve vücudunu dinle. Antrenmandan sonra yorgun hissetmek normaldir. Bir eklemde batan bir ağrı, baş dönmesi, orantısız nefes darlığı ya da göğüs ağrısı normal değildir: ortaya çıkarlarsa dur ve bir doktora danış."
+        },
+        {
+          "id": "resumen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Özetle: dört ilkeye uy, dört yetiyi çalıştır, yoğunluğunu ölç, bir planla adım adım geliş ve toparlanmanı koru. Bununla antrenman hakkında çoğu insandan daha fazlasını biliyorsun.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Planını benim gibi takip etmek istersen, MindHaOS'taki spor salonunda zamanlayıcı, serilerin ve yüz altmıştan fazla animasyonlu egzersiz var. Bağlantı açıklamada; bu rehberin etkileşimli sürümü de orada, rahatça tekrar etmen için. Bir sonraki rehberde başka bir soruyla devam ediyoruz. Görüşmek üzere.",
+    "boton": "Spor salonunu aç",
+    "lamina": "app-plan",
+    "anclas": {
+      "temporizador": "zamanlayıcı",
+      "rachas": "serilerin"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "oms-2020",
+      "texto": "DSÖ. Fiziksel aktivite ve hareketsiz davranış üzerine DSÖ kılavuzu (2020).",
+      "url": "https://www.who.int/publications/i/item/9789240015128"
+    },
+    {
+      "id": "oms-nota",
+      "texto": "DSÖ. Fiziksel aktivite — Bilgi notu.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/physical-activity"
+    },
+    {
+      "id": "acsm",
+      "texto": "American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription.",
+      "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+    },
+    {
+      "id": "acsm-nutricion",
+      "texto": "ACSM, Academy of Nutrition and Dietetics ve Dietitians of Canada. Nutrition and Athletic Performance (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26891166/"
+    },
+    {
+      "id": "tanaka",
+      "texto": "Tanaka H. ve ark. Age-predicted maximal heart rate revisited. J Am Coll Cardiol (2001).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11153730/"
+    },
+    {
+      "id": "cdc-intensidad",
+      "texto": "CDC. Measuring Physical Activity Intensity.",
+      "url": "https://www.cdc.gov/physical-activity-basics/measuring/index.html"
+    },
+    {
+      "id": "aasm-sueno",
+      "texto": "AASM/SRS. Recommended Amount of Sleep for a Healthy Adult (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/"
+    },
+    {
+      "id": "morris-1953",
+      "texto": "Morris J. N. ve ark. Coronary heart-disease and physical activity of work. The Lancet (1953).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13110049/"
+    },
+    {
+      "id": "cooper-1968",
+      "texto": "Cooper K. H. Aerobics. M. Evans and Company (1968).",
+      "url": "https://www.cooperinstitute.org/about/history"
+    }
+  ]
+}

@@ -33,6 +33,31 @@ export function abrirAppOPlantilla(plantillaId: string, seccion?: string, dato?:
   usePreviaPlantilla.getState().abrir(plantillaId)
 }
 
+const CLAVE_APP_PEDIDA = 'mh.appPedida'
+
+/**
+ * Apunta la app que pide un enlace (`?app=`). Va a sessionStorage y no a un
+ * setTimeout: quien llega por primera vez pasa antes por idioma y cuenta, y
+ * App la cumple cuando la casa ya existe (`consumirAppPedida`).
+ */
+export function apuntarAppPedida(app: string, seccion?: string): void {
+  try {
+    sessionStorage.setItem(CLAVE_APP_PEDIDA, JSON.stringify({ app, seccion }))
+  } catch {
+    // Sin almacenamiento no hay espera posible: el enlace solo abre la casa.
+  }
+}
+
+export function consumirAppPedida(): { app: string; seccion?: string } | null {
+  try {
+    const v = sessionStorage.getItem(CLAVE_APP_PEDIDA)
+    sessionStorage.removeItem(CLAVE_APP_PEDIDA)
+    return v ? JSON.parse(v) : null
+  } catch {
+    return null
+  }
+}
+
 /**
  * Abre la app de UN objeto concreto (botón "Interactuar" del hueco del cubo).
  * A diferencia de `abrirApp`, que busca la primera instancia con esa plantilla

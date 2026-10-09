@@ -1,0 +1,528 @@
+{
+  "idioma": "hi",
+  "tema": "ejercicio",
+  "plantillaId": "ejercicio",
+  "pregunta": "व्यायाम क्या है?",
+  "subtitulo": "ट्रेनिंग कैसे काम करती है, यह कहाँ से आई, कितना हिलना-डुलना चाहिए, अपनी तीव्रता कैसे मापें और आगे कैसे बढ़ें।",
+  "aviso": "यह गाइड केवल जानकारी के लिए है और डॉक्टर की सलाह का विकल्प नहीं है। अगर आपको कोई बीमारी या चोट है, आप गर्भवती हैं या लंबे समय से सक्रिय नहीं रहे हैं, तो शुरू करने से पहले किसी विशेषज्ञ से सलाह लें।",
+  "_notas": {
+    "escena": "Animación que hace Pep@ (nombre del catálogo de ejercicios de la app) o una acción: 'habla', 'saluda', 'senala'.",
+    "visual": "Bloque que acompaña la línea: foto (Pexels/Unsplash, ver medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "fondo": "El cuarto de Ejercicio de la app siempre está detrás, difuminado.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "memes": "\"meme\" (en visual o como campo extra de la línea) apunta a web/i18n/guias/<id>.json → ejercicio.memes.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre la toma de la casa (Pep@ en la caminadora); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «temporizador» y «rachas»; app2d.mjs cambia de pantalla de la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "adaptacion",
+      "titulo": "ट्रेनिंग के दौरान आपके शरीर में क्या होता है",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "व्यायाम क्या है? लगभग हर कोई जानता है कि उसे व्यायाम करना चाहिए। बहुत कम लोग जानते हैं कि ऐसा करते समय उनके शरीर में क्या होता है। असल में यह काम कैसे करता है? अगले कुछ मिनटों में आप वह सीखेंगे जिससे ट्रेनर योजना बनाते हैं, उन्हीं की तरह अपनी तीव्रता मापेंगे और आगे जारी रखने के लिए एक पक्की योजना लेकर जाएँगे।",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "वैसे, यह MindHaOS में मेरा घर है, और इसी एक्सरसाइज़ रूम में मेरे सारे रूटीन रहते हैं। चलिए शुरू करते हैं।",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग एक। ट्रेनिंग के दौरान आपके शरीर में क्या होता है।"
+        },
+        {
+          "id": "estres",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "supercompensacion"
+          },
+          "texto": "ट्रेनिंग का मतलब है, सचमुच, शरीर पर नियंत्रित तनाव डालना। सेशन के दौरान आपका प्रदर्शन गिरता है: आप थकते हैं, ऊर्जा ख़र्च होती है और मांसपेशियों में छोटी-छोटी माइक्रो-चोटें आती हैं। जो चीज़ आपको मज़बूत बनाती है, वह उस वक़्त नहीं होती, बल्कि बाद में, जब आप आराम करते हैं: शरीर ख़ुद की मरम्मत करता है और अगली बार के लिए तैयार होता है, पहले से थोड़ा ऊपर।",
+          "lamina": "estres"
+        },
+        {
+          "id": "sobrecarga",
+          "escena": "Sentadilla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+",
+            "clave": "sobrecarga"
+          },
+          "texto": "इसे अनुकूलन कहते हैं, और यह चार सिद्धांतों पर चलता है। पहला है प्रोग्रेसिव ओवरलोड: अगर आप हमेशा एक जैसा ही करते रहेंगे, तो शरीर के पास बदलने की कोई वजह नहीं बचेगी, इसलिए उससे हर बार पिछली बार से थोड़ा ज़्यादा माँगना होता है।",
+          "lamina": "sobrecarga"
+        },
+        {
+          "id": "especificidad",
+          "escena": "Carrera",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sobrecarga",
+              "especificidad",
+              "recuperacion",
+              "constancia"
+            ]
+          },
+          "texto": "दूसरा सिद्धांत है विशिष्टता: आप उसी के हिसाब से ढलते हैं जिसका अभ्यास करते हैं। दौड़ने से आपका स्टैमिना बढ़ता है; वज़न उठाने से आपकी ताक़त। तीसरा है रिकवरी: आराम के बिना अनुकूलन नहीं होता, सिर्फ़ थकान जमा होती है।",
+          "lamina": "especificidad"
+        },
+        {
+          "id": "constancia",
+          "escena": "Caminata rápida",
+          "visual": {
+            "tipo": "meme",
+            "meme": "constancia"
+          },
+          "texto": "और चौथा, निरंतरता। अनुकूलन स्थायी नहीं होते: अगर आप कई हफ़्तों तक ट्रेनिंग छोड़ देते हैं, तो शरीर जो कमाया था उसे खोने लगता है। इसीलिए कभी-कभार बहुत ज़्यादा करने से बेहतर है थोड़ा-थोड़ा और नियमित करना: हफ़्ते में चार दिन बीस मिनट, किसी एक दिन के दो घंटों पर भारी पड़ते हैं।",
+          "lamina": "constancia"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "व्यायाम का संक्षिप्त इतिहास",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग दो। व्यायाम का संक्षिप्त इतिहास।"
+        },
+        {
+          "id": "griegos",
+          "escena": "Carrera",
+          "visual": {
+            "tipo": "meme",
+            "meme": "griegos"
+          },
+          "texto": "परंपरा के अनुसार, पहले ओलंपिक खेल ईसा पूर्व सात सौ छिहत्तर में हुए थे। यूनानी जिम्नेज़ियम में ट्रेनिंग करते थे, और यह शब्द ग्रीक के जिम्नोस से आया है, जिसका अर्थ है नग्न। और हाँ: वे सचमुच ऐसे ही ट्रेनिंग करते थे।",
+          "lamina": "griegos"
+        },
+        {
+          "id": "hipocrates",
+          "escena": "habla",
+          "visual": {
+            "tipo": "cita"
+          },
+          "texto": "तब भी लोग सेहत के लिए इसकी अहमियत समझने लगे थे। चिकित्सा के जनक हिप्पोक्रेटिस से यह विचार जोड़ा जाता है कि स्वस्थ रहने के लिए सिर्फ़ अच्छा खाना काफ़ी नहीं है: हिलना-डुलना भी ज़रूरी है।",
+          "lamina": "hipocrates"
+        },
+        {
+          "id": "gimnasia",
+          "escena": "Flexiones",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1811",
+            "clave": "jahn"
+          },
+          "texto": "उन्नीसवीं सदी में जिमनास्टिक की पहली पद्धतियाँ बनीं। अठारह सौ ग्यारह में फ़्रीडरिख़ लुडविग यान ने बर्लिन में खुले आसमान के नीचे एक जिमनास्टिक मैदान खोला, और स्वीडन में पेर हेनरिक लिंग ने सेहत को ध्यान में रखकर एक जिमनास्टिक तैयार की।",
+          "lamina": [
+            "gimnasia",
+            "ling"
+          ]
+        },
+        {
+          "id": "morris",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1953",
+            "clave": "morris"
+          },
+          "texto": "बड़ा मोड़ उन्नीस सौ तिरेपन में आया। ब्रिटिश डॉक्टर जेरेमी मॉरिस ने लंदन की डबल-डेकर बसों के ड्राइवरों की, जो पूरा दिन बैठे रहते थे, तुलना कंडक्टरों से की, जो दिन भर सीढ़ियाँ चढ़ते-उतरते थे। कंडक्टरों को दिल के दौरे काफ़ी कम पड़ते थे। यह उन पहले अध्ययनों में से था जिन्होंने दिखाया कि चलना-फिरना दिल की रक्षा करता है।",
+          "lamina": [
+            "morris",
+            "morris-bus"
+          ]
+        },
+        {
+          "id": "cooper",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "cooper"
+          },
+          "texto": "उन्नीस सौ अड़सठ में डॉक्टर केनेथ कूपर ने एरोबिक्स नाम की किताब प्रकाशित की और एरोबिक शब्द को मशहूर बना दिया। सत्तर के दशक में दौड़ने का जुनून छा गया।",
+          "lamina": "cooper"
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historia"
+          },
+          "texto": "और आज विश्व स्वास्थ्य संगठन हज़ारों अध्ययनों पर आधारित सिफ़ारिशें प्रकाशित करता है। जो पहले अंदाज़ा था, वह अब विज्ञान है, और यही हम आगे देखेंगे।",
+          "lamina": "hoy"
+        }
+      ]
+    },
+    {
+      "id": "capacidades",
+      "titulo": "चार क्षमताएँ जिन्हें आपको ट्रेन करना चाहिए",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग तीन। चार क्षमताएँ जिन्हें आपको ट्रेन करना चाहिए।"
+        },
+        {
+          "id": "cuatro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resistencia",
+              "fuerza",
+              "movilidad",
+              "equilibrio"
+            ]
+          },
+          "texto": "एक पूरी योजना चार क्षमताओं पर काम करती है: सहनशक्ति, ताक़त, गतिशीलता और संतुलन। हर एक की अपनी ख़ुराक होती है।",
+          "lamina": "cuatro"
+        },
+        {
+          "id": "resistencia",
+          "escena": "Caminata rápida",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "150–300",
+            "clave": "minutosModerados"
+          },
+          "texto": "सहनशक्ति: विश्व स्वास्थ्य संगठन वयस्कों को हर हफ़्ते एक सौ पचास से तीन सौ मिनट की मध्यम गतिविधि, या पचहत्तर से एक सौ पचास मिनट की तेज़ गतिविधि की सलाह देता है। इस दायरे से ज़्यादा करने पर अतिरिक्त फ़ायदे मिलते हैं।",
+          "lamina": "resistencia"
+        },
+        {
+          "id": "fuerza",
+          "escena": "Peso muerto rumano",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2+",
+            "clave": "diasFuerza"
+          },
+          "texto": "ताक़त: हफ़्ते में कम से कम दो दिन, बड़े मांसपेशी समूहों पर काम करते हुए। यह सिर्फ़ दिखने की बात नहीं है: मांसपेशियाँ आपके जोड़ों, आपके मेटाबॉलिज़्म और बढ़ती उम्र में आपकी आत्मनिर्भरता की रक्षा करती हैं।",
+          "lamina": "fuerza"
+        },
+        {
+          "id": "movilidad",
+          "escena": "Yoga flow",
+          "visual": {
+            "tipo": "foto",
+            "foto": "movilidad"
+          },
+          "texto": "गतिशीलता: किसी जोड़ को उसकी पूरी रेंज में नियंत्रण के साथ हिलाने की क्षमता। रोज़ कुछ मिनट, ख़ासकर कूल्हों, कंधों और रीढ़ के लिए, बाक़ी सब कुछ बेहतर बना देते हैं।",
+          "lamina": "movilidad"
+        },
+        {
+          "id": "equilibrio",
+          "escena": "Zancadas",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "65+",
+            "clave": "equilibrio"
+          },
+          "texto": "और संतुलन: पैंसठ साल की उम्र के बाद विश्व स्वास्थ्य संगठन हफ़्ते में तीन दिन इस पर काम करने की सलाह देता है, क्योंकि इससे गिरने का ख़तरा कम होता है। लेकिन इसे पहले से ट्रेन करना ही उस उम्र तक फ़िट पहुँचने का सबसे अच्छा तरीक़ा है।",
+          "lamina": "equilibrio"
+        }
+      ]
+    },
+    {
+      "id": "intensidad",
+      "titulo": "अपनी तीव्रता किसी प्रोफ़ेशनल की तरह मापें",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग चार। अपनी तीव्रता किसी प्रोफ़ेशनल की तरह मापें।"
+        },
+        {
+          "id": "porque",
+          "escena": "habla",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "सबसे अहम सवाल यह नहीं है कि आप कितनी देर ट्रेनिंग करते हैं, बल्कि कितनी ज़ोर से। इसे मापने के तीन आसान तरीक़े हैं, और किसी के लिए भी महँगे उपकरणों की ज़रूरत नहीं।"
+        },
+        {
+          "id": "rpe",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escalaRpe"
+          },
+          "texto": "पहला है महसूस की गई मेहनत का पैमाना, एक से दस तक। एक का मतलब है आराम से बैठे रहना; दस, वह पूरा ज़ोर जो आप लगा सकते हैं। मध्यम गतिविधि लगभग पाँच और छह के बीच होती है, और तेज़ गतिविधि सात और आठ के बीच। अगर आप बात कर पा रहे हैं लेकिन गाना नहीं गा पा रहे, तो आप मध्यम स्तर पर हैं।",
+          "lamina": "rpe"
+        },
+        {
+          "id": "rir",
+          "escena": "Flexiones",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "RIR 2–3",
+            "clave": "rir"
+          },
+          "texto": "दूसरा ताक़त के लिए है: रिज़र्व में बचे रेप्स। एक सेट ख़त्म करने पर ख़ुद से पूछिए कि सही तकनीक के साथ आप और कितने कर सकते थे। अगर जवाब दो या तीन है, तो यह फ़ेल्योर के बहुत क़रीब गए बिना आगे बढ़ने का बेहद असरदार ज़ोन है।",
+          "lamina": "rir"
+        },
+        {
+          "id": "zonas",
+          "escena": "Bicicleta estática",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "zonasCardiacas"
+          },
+          "texto": "तीसरा है हृदय गति। आपकी अधिकतम हृदय गति का एक आम अनुमान है: दो सौ आठ में से आपकी उम्र का शून्य दशमलव सात गुना घटाइए। यह अनुमानित है, लेकिन दिशा दिखाने के लिए काफ़ी है। नीचे अपनी उम्र लिखिए और अपने ज़ोन देखिए।",
+          "lamina": "zonas"
+        },
+        {
+          "id": "zona2",
+          "escena": "Ciclismo",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "zonas"
+          },
+          "texto": "बहुत से लोग हमेशा एक ही बीच वाले स्तर पर ट्रेनिंग करते हैं: रिकवरी के लिए बहुत कठिन, सुधार के लिए बहुत हल्का। सहनशक्ति वाले एथलीटों में एक लोकप्रिय रणनीति यह है कि आपका ज़्यादातर कार्डियो हल्का हो, ज़ोन दो में, जहाँ आप नाक से साँस ले सकें, और सिर्फ़ एक छोटा हिस्सा सचमुच तेज़ हो।",
+          "lamina": "zona2"
+        }
+      ]
+    },
+    {
+      "id": "progresion",
+      "titulo": "हफ़्ते-दर-हफ़्ते आगे कैसे बढ़ें",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग पाँच। हफ़्ते-दर-हफ़्ते आगे कैसे बढ़ें।"
+        },
+        {
+          "id": "doble",
+          "escena": "Curl con mancuernas",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rango",
+              "repeticiones",
+              "carga"
+            ]
+          },
+          "texto": "ताक़त में आगे बढ़ने का एक आसान और बेहद असरदार तरीक़ा है: डबल प्रोग्रेशन। आप एक रेंज चुनते हैं, जैसे आठ से बारह रेप्स। जब आप सही तकनीक के साथ सभी सेट में बारह तक पहुँच जाएँ, तो वज़न या कठिनाई बढ़ाइए और फिर से आठ से शुरू कीजिए।",
+          "lamina": "doble"
+        },
+        {
+          "id": "variables",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "masRepeticiones",
+              "masSeries",
+              "masLento",
+              "menosApoyo"
+            ]
+          },
+          "texto": "वज़न के बिना भी आप ओवरलोड कर सकते हैं: ज़्यादा रेप्स, एक और सेट, धीरे-धीरे नीचे आना या सहारा कम करना, जैसे घुटनों वाले पुश-अप से पूरे पुश-अप पर जाना।",
+          "lamina": "variables"
+        },
+        {
+          "id": "diez",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈10 %",
+            "clave": "progresion"
+          },
+          "texto": "कार्डियो में एक व्यावहारिक नियम है कि हफ़्ते की कुल मात्रा एक बार में दस प्रतिशत से ज़्यादा न बढ़ाएँ। आपकी मांसपेशियाँ और दिल जल्दी ढल जाते हैं; टेंडन और जोड़ धीरे-धीरे।",
+          "lamina": "diez"
+        },
+        {
+          "id": "plan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "armaTuPlan"
+          },
+          "texto": "इन सबके साथ आप चार हफ़्ते की एक योजना बना सकते हैं, वैसी ही जैसी मेरे एक्सरसाइज़ रूम में हैं। चुनिए कि आपके पास कितने दिन हैं और आपका स्तर क्या है, और नीचे आपको सुझाव मिलेगा कि ताक़त, कार्डियो और गतिशीलता को कैसे बाँटें, प्रोग्रेशन पहले से शामिल करके।",
+          "mencion": true,
+          "lamina": "plan"
+        },
+        {
+          "id": "descarga",
+          "escena": "Yoga flow",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "bloques"
+          },
+          "texto": "और समय-समय पर कई ट्रेनर एक डीलोड हफ़्ता रखते हैं: वही व्यायाम, कम मात्रा। यह पीछे हटना नहीं है; यह अनुकूलन को पक्का होने का मौक़ा देना है।",
+          "meme": "descarga",
+          "lamina": "descarga"
+        }
+      ]
+    },
+    {
+      "id": "recuperacion",
+      "titulo": "रिकवरी: जहाँ असल में सुधार होता है",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग छह। रिकवरी: जहाँ असल में सुधार होता है।"
+        },
+        {
+          "id": "sueno",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "7 h+",
+            "clave": "sueno"
+          },
+          "texto": "याद रखिए: आप आराम करते समय बेहतर होते हैं। नींद रिकवरी का सबसे ताक़तवर साधन है; एक वयस्क के लिए सलाह है सात घंटे या उससे ज़्यादा सोना।",
+          "lamina": "sueno"
+        },
+        {
+          "id": "proteina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1.2–2 g/kg",
+            "clave": "proteina"
+          },
+          "texto": "खान-पान भी मायने रखता है। ट्रेनिंग करने वालों के लिए अमेरिकन कॉलेज ऑफ़ स्पोर्ट्स मेडिसिन रोज़ाना शरीर के हर किलो वज़न पर एक दशमलव दो से दो ग्राम प्रोटीन की सलाह देता है, कई भोजनों में बाँटकर।",
+          "lamina": "proteina"
+        },
+        {
+          "id": "neat",
+          "escena": "Caminata",
+          "visual": {
+            "tipo": "foto",
+            "foto": "escaleras"
+          },
+          "texto": "और ट्रेनिंग के बाहर जो होता है, उसे मत भूलिए। पैदल चलना, सीढ़ियाँ चढ़ना, हर घंटे कुर्सी से उठना: यह रोज़मर्रा की हलचल दिन के अंत तक बहुत जुड़ जाती है, और बैठे रहने के समय की भरपाई करती है।",
+          "meme": "silla",
+          "lamina": "neat"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "और अपने शरीर की सुनिए। ट्रेनिंग के बाद थकान महसूस होना सामान्य है। किसी जोड़ में चुभने वाला दर्द, चक्कर आना, ज़रूरत से कहीं ज़्यादा साँस फूलना या सीने में दर्द सामान्य नहीं हैं: अगर ऐसा हो, तो रुकिए और डॉक्टर से सलाह लीजिए।"
+        },
+        {
+          "id": "resumen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "संक्षेप में: चार सिद्धांतों का पालन कीजिए, चार क्षमताओं को ट्रेन कीजिए, अपनी तीव्रता मापिए, योजना के साथ धीरे-धीरे आगे बढ़िए और अपनी रिकवरी का ख़याल रखिए। इतने से ही आप ट्रेनिंग के बारे में ज़्यादातर लोगों से ज़्यादा जानते हैं।",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "अगर आप भी अपनी योजना मेरी तरह संभालना चाहते हैं, तो MindHaOS के एक्सरसाइज़ रूम में टाइमर, आपके सिलसिले और एक सौ साठ से ज़्यादा एनिमेटेड व्यायाम हैं। लिंक डिस्क्रिप्शन में है, और वहीं यह गाइड इंटरैक्टिव रूप में भी है, ताकि आप इसे आराम से दोहरा सकें। अगली गाइड में एक नए सवाल के साथ लौटेंगे। फिर मिलते हैं।",
+    "boton": "एक्सरसाइज़ रूम खोलें",
+    "lamina": "app-plan",
+    "anclas": {
+      "temporizador": "टाइमर",
+      "rachas": "सिलसिले"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "oms-2020",
+      "texto": "WHO। शारीरिक गतिविधि और गतिहीन व्यवहार पर WHO के दिशानिर्देश (2020)।",
+      "url": "https://www.who.int/publications/i/item/9789240015128"
+    },
+    {
+      "id": "oms-nota",
+      "texto": "WHO। शारीरिक गतिविधि — तथ्य पत्रक।",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/physical-activity"
+    },
+    {
+      "id": "acsm",
+      "texto": "American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription.",
+      "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+    },
+    {
+      "id": "acsm-nutricion",
+      "texto": "ACSM, Academy of Nutrition and Dietetics और Dietitians of Canada। Nutrition and Athletic Performance (2016)।",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26891166/"
+    },
+    {
+      "id": "tanaka",
+      "texto": "Tanaka H. et al. Age-predicted maximal heart rate revisited. J Am Coll Cardiol (2001).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11153730/"
+    },
+    {
+      "id": "cdc-intensidad",
+      "texto": "CDC. Measuring Physical Activity Intensity.",
+      "url": "https://www.cdc.gov/physical-activity-basics/measuring/index.html"
+    },
+    {
+      "id": "aasm-sueno",
+      "texto": "AASM/SRS. Recommended Amount of Sleep for a Healthy Adult (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/"
+    },
+    {
+      "id": "morris-1953",
+      "texto": "Morris J. N. et al. Coronary heart-disease and physical activity of work. The Lancet (1953).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13110049/"
+    },
+    {
+      "id": "cooper-1968",
+      "texto": "Cooper K. H. Aerobics. M. Evans and Company (1968).",
+      "url": "https://www.cooperinstitute.org/about/history"
+    }
+  ]
+}

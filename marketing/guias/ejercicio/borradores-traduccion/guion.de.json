@@ -1,0 +1,134 @@
+{
+  "idioma": "de",
+  "tema": "ejercicio",
+  "plantillaId": "ejercicio",
+  "pregunta": "Wie trainiert man richtig?",
+  "subtitulo": "Wie Training funktioniert, wie du deine Intensität misst, und eine geführte Einheit zum Mitmachen.",
+  "aviso": "Dieser Leitfaden dient nur zur Information und ersetzt keinen ärztlichen Rat. Wenn du eine Erkrankung oder Verletzung hast, schwanger bist oder dich lange nicht bewegt hast, sprich vor dem Start mit einer Fachperson.",
+  "_notas": {
+    "escena": "Animación que hace Pep@ (nombre del catálogo de ejercicios de la app) o una acción: 'habla', 'saluda', 'senala'.",
+    "visual": "Bloque que acompaña la línea: foto (Pexels/Unsplash, ver medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos.",
+    "mencion": "Las tres líneas con \"mencion\": true nombran la app de pasada (inicio, medio y final). Nunca tono de anuncio.",
+    "fondo": "El cuarto de Ejercicio de la app siempre está detrás, difuminado."
+  },
+  "partes": [
+    {
+      "id": "adaptacion",
+      "titulo": "Was in deinem Körper passiert, wenn du trainierst",
+      "lineas": [
+        { "id": "gancho", "escena": "saluda", "visual": { "tipo": "titulo" },
+          "texto": "Fast jeder weiß, dass er Sport machen sollte. Kaum jemand weiß, wie Training eigentlich funktioniert. Und sobald du das verstehst, hörst du auf zu improvisieren. In den nächsten Minuten lernst du, womit Trainer ihre Pläne machen, du misst deine Intensität genau wie sie, und zur Halbzeit trainieren wir zusammen." },
+        { "id": "mencion-inicio", "mencion": true, "escena": "senala", "visual": { "tipo": "fondo" },
+          "texto": "Übrigens, wir sind gerade in meinem Fitnessraum in MindHaOS. Hier verwalte ich meine Routinen, deshalb siehst du ihn im Hintergrund. Los geht's." },
+        { "id": "estres", "escena": "habla", "visual": { "tipo": "grafica", "grafica": "supercompensacion" },
+          "texto": "Trainieren heißt ganz wörtlich: kontrollierten Stress setzen. Während der Einheit sinkt deine Leistung. Du wirst müde, verbrauchst Energie, und im Muskel entstehen kleine Mikroverletzungen. Stärker wirst du nicht dabei, sondern danach, in der Erholung: Der Körper repariert sich und bereitet sich auf das nächste Mal vor, ein Stück über dem Niveau von vorher." },
+        { "id": "sobrecarga", "escena": "Sentadilla", "visual": { "tipo": "dato", "cifra": "+", "clave": "sobrecarga" },
+          "texto": "Das nennt man Anpassung. Und die hat eine Bedingung: Wenn du immer dasselbe machst, hat dein Körper keinen Grund mehr, sich zu verändern. Deshalb ist das wichtigste Trainingsprinzip die progressive Überlastung: von deinem Körper ein kleines bisschen mehr verlangen als beim letzten Mal." },
+        { "id": "especificidad", "escena": "Carrera", "visual": { "tipo": "pasos", "claves": ["especificidad", "recuperacion", "constancia"] },
+          "texto": "Das zweite Prinzip ist die Spezifität: Du passt dich an das an, was du übst. Laufen verbessert deine Ausdauer, Gewichte heben deine Kraft. Und das dritte ist die Erholung: Ohne Pause keine Anpassung, nur angesammelte Müdigkeit." }
+      ]
+    },
+    {
+      "id": "capacidades",
+      "titulo": "Die vier Fähigkeiten, die du trainieren solltest",
+      "lineas": [
+        { "id": "cuatro", "escena": "habla", "visual": { "tipo": "lista", "claves": ["resistencia", "fuerza", "movilidad", "equilibrio"] },
+          "texto": "Ein vollständiger Plan trainiert vier Fähigkeiten: Ausdauer, Kraft, Beweglichkeit und Gleichgewicht. Jede braucht ihre eigene Dosis." },
+        { "id": "resistencia", "escena": "Caminata rápida", "visual": { "tipo": "dato", "cifra": "150–300", "clave": "minutosModerados" },
+          "texto": "Ausdauer: Die Weltgesundheitsorganisation empfiehlt Erwachsenen pro Woche hundertfünfzig bis dreihundert Minuten moderate Aktivität, oder fünfundsiebzig bis hundertfünfzig Minuten intensive Aktivität. Wer darüber hinausgeht, profitiert noch zusätzlich." },
+        { "id": "fuerza", "escena": "Peso muerto rumano", "visual": { "tipo": "dato", "cifra": "2+", "clave": "diasFuerza" },
+          "texto": "Kraft: mindestens zwei Tage pro Woche, mit Übungen für die großen Muskelgruppen. Das ist nicht nur eine Frage der Optik: Muskelmasse schützt deine Gelenke, deinen Stoffwechsel und, mit den Jahren, deine Selbstständigkeit." },
+        { "id": "movilidad", "escena": "Yoga flow", "visual": { "tipo": "foto", "foto": "movilidad" },
+          "texto": "Beweglichkeit: die Fähigkeit, ein Gelenk kontrolliert durch seinen vollen Bewegungsumfang zu führen. Ein paar Minuten täglich, vor allem für Hüfte, Schultern und Wirbelsäule, und alles andere läuft besser." },
+        { "id": "equilibrio", "escena": "Zancadas", "visual": { "tipo": "dato", "cifra": "65+", "clave": "equilibrio" },
+          "texto": "Und Gleichgewicht: Ab fünfundsechzig empfiehlt die WHO, es an drei Tagen pro Woche zu trainieren, weil das das Sturzrisiko senkt. Aber wer früher damit anfängt, kommt am besten fit in dieses Alter." }
+      ]
+    },
+    {
+      "id": "intensidad",
+      "titulo": "Miss deine Intensität wie ein Profi",
+      "lineas": [
+        { "id": "porque", "escena": "habla", "visual": { "tipo": "titulo" },
+          "texto": "Die wichtigste Frage ist nicht, wie lange du trainierst, sondern wie hart. Es gibt drei einfache Werkzeuge, um das zu messen, und keins davon braucht teure Geräte." },
+        { "id": "rpe", "escena": "Trote suave", "visual": { "tipo": "herramienta", "herramienta": "escalaRpe" },
+          "texto": "Das erste ist die Skala der wahrgenommenen Anstrengung, von eins bis zehn. Eins ist Sitzen, zehn ist die maximale Anstrengung, die du bringen kannst. Moderate Aktivität liegt ungefähr bei fünf bis sechs, intensive bei sieben bis acht. Wenn du dich noch unterhalten, aber nicht mehr singen kannst, bist du im moderaten Bereich." },
+        { "id": "rir", "escena": "Flexiones", "visual": { "tipo": "dato", "cifra": "RIR 2–3", "clave": "rir" },
+          "texto": "Das zweite ist fürs Krafttraining: die Wiederholungen in Reserve. Frag dich nach einem Satz, wie viele du mit sauberer Technik noch geschafft hättest. Lautet die Antwort zwei oder drei, bist du in einem sehr effektiven Bereich, um Fortschritte zu machen, ohne zu nah ans Muskelversagen zu gehen." },
+        { "id": "zonas", "escena": "Bicicleta estática", "visual": { "tipo": "herramienta", "herramienta": "zonasCardiacas" },
+          "texto": "Das dritte ist die Herzfrequenz. Eine gängige Schätzung deines Maximalpulses ist zweihundertacht minus null Komma sieben mal dein Alter. Das ist nur ein Näherungswert, aber er gibt dir Orientierung. Gib unten dein Alter ein, dann siehst du deine Zonen." },
+        { "id": "zona2", "escena": "Ciclismo", "visual": { "tipo": "grafica", "grafica": "zonas" },
+          "texto": "Viele trainieren immer im selben Mittelbereich: zu hart, um sich gut zu erholen, zu locker, um besser zu werden. Eine Strategie, die viele Ausdauersportler nutzen: den Großteil des Cardiotrainings locker halten, in Zone zwei, wo du noch durch die Nase atmen kannst, und nur einen kleinen Teil wirklich intensiv." }
+      ]
+    },
+    {
+      "id": "sesion",
+      "titulo": "Geführte Einheit: Trainier mit mir",
+      "lineas": [
+        { "id": "explica", "escena": "habla", "visual": { "tipo": "sesion", "estado": "previa" },
+          "texto": "Jetzt geht's an die Praxis. Das ist ein Ganzkörperzirkel: vier Übungen, vierzig Sekunden Belastung und zwanzig Sekunden Pause. Mach eine Runde mit mir; auf der Seite kannst du bis zu vier auswählen. Ziel ist eine Anstrengung von sechs bis sieben." },
+        { "id": "mencion-medio", "mencion": true, "escena": "senala", "visual": { "tipo": "sesion", "estado": "temporizador" },
+          "texto": "Der Timer, den du hier siehst, ist derselbe, den ich im Fitnessraum benutze. Zuerst eine Minute Aufwärmen." },
+        { "id": "calentamiento", "escena": "Movilidad matutina", "visual": { "tipo": "sesion", "bloque": "calentamiento", "segundos": 60 },
+          "texto": "Schulterkreisen, Hüftkreisen und Fußgelenke kreisen. Atme tief durch und lockere den Körper. Steigere das Tempo nach und nach." },
+        { "id": "s1", "escena": "Sentadilla", "visual": { "tipo": "sesion", "bloque": "Sentadilla", "segundos": 40, "descanso": 20 },
+          "texto": "Eins: Kniebeugen. Füße schulterbreit, Brust raus. Geh kontrolliert in zwei Sekunden runter und drück dich kraftvoll wieder hoch. Die Knie zeigen in dieselbe Richtung wie die Fußspitzen." },
+        { "id": "s2", "escena": "Flexiones", "visual": { "tipo": "sesion", "bloque": "Flexiones", "segundos": 40, "descanso": 20 },
+          "texto": "Zwei: Liegestütze. Spann Po und Bauch an, damit dein Körper eine Einheit bildet. Die Ellbogen etwa fünfundvierzig Grad vom Körper weg. Wenn nötig, setz die Knie ab: Qualität geht vor." },
+        { "id": "s3", "escena": "Puente de glúteo", "visual": { "tipo": "sesion", "bloque": "Puente de glúteo", "segundos": 40, "descanso": 20 },
+          "texto": "Drei: Glute Bridge. Drück dich über die Fersen hoch, heb die Hüfte und halte oben eine Sekunde mit angespanntem Po. Kein Hohlkreuz: Die Arbeit kommt aus der Hüfte." },
+        { "id": "s4", "escena": "Plancha", "visual": { "tipo": "sesion", "bloque": "Plancha", "segundos": 40, "descanso": 0 },
+          "texto": "Vier: Unterarmstütz. Ellbogen unter den Schultern, zieh den Bauchnabel Richtung Wirbelsäule und atme gleichmäßig weiter. Letzte Anstrengung, halt durch." },
+        { "id": "termina", "escena": "habla", "visual": { "tipo": "sesion", "estado": "fin" },
+          "texto": "Geschafft! Von eins bis zehn, wie hart war das? Wenn es unter fünf war, mach beim nächsten Mal zwei Runden. Wenn es über acht war, gönn dir etwas mehr Pause zwischen den Übungen. Genau das, was du gerade gemacht hast, heißt Intensität steuern." }
+      ]
+    },
+    {
+      "id": "progresion",
+      "titulo": "So machst du Woche für Woche Fortschritte",
+      "lineas": [
+        { "id": "doble", "escena": "Curl con mancuernas", "visual": { "tipo": "pasos", "claves": ["rango", "repeticiones", "carga"] },
+          "texto": "Für mehr Kraft gibt es eine einfache und sehr effektive Methode: die doppelte Progression. Du wählst einen Bereich, zum Beispiel acht bis zwölf Wiederholungen. Schaffst du in allen Sätzen zwölf mit sauberer Technik, erhöhst du das Gewicht oder die Schwierigkeit und fängst wieder bei acht an." },
+        { "id": "variables", "escena": "habla", "visual": { "tipo": "lista", "claves": ["masRepeticiones", "masSeries", "masLento", "menosApoyo"] },
+          "texto": "Auch ohne Gewichte kannst du die Belastung steigern: mehr Wiederholungen, ein Satz mehr, langsamer absenken oder weniger Unterstützung, zum Beispiel von Liegestützen auf den Knien zu vollen Liegestützen." },
+        { "id": "diez", "escena": "Trote suave", "visual": { "tipo": "dato", "cifra": "≈10 %", "clave": "progresion" },
+          "texto": "Beim Cardio gilt als praktische Faustregel: Steigere dein Wochenvolumen nicht um mehr als zehn Prozent auf einmal. Muskeln und Herz passen sich schnell an, Sehnen und Gelenke deutlich langsamer." },
+        { "id": "plan", "escena": "habla", "visual": { "tipo": "herramienta", "herramienta": "armaTuPlan" },
+          "texto": "Mit all dem kannst du dir einen Vierwochenplan bauen. Wähl aus, wie viele Tage du hast und auf welchem Level du bist, und unten schlage ich dir vor, wie du Kraft, Cardio und Beweglichkeit verteilst, mit der Progression schon eingeplant." },
+        { "id": "descarga", "escena": "Yoga flow", "visual": { "tipo": "grafica", "grafica": "bloques" },
+          "texto": "Und in regelmäßigen Abständen planen viele Trainer eine Deload-Woche ein: dieselben Übungen, weniger Volumen. Das ist kein Rückschritt, sondern gibt der Anpassung Zeit, sich zu festigen." }
+      ]
+    },
+    {
+      "id": "recuperacion",
+      "titulo": "Erholung: Hier wirst du wirklich besser",
+      "lineas": [
+        { "id": "sueno", "escena": "habla", "visual": { "tipo": "dato", "cifra": "7 h+", "clave": "sueno" },
+          "texto": "Denk dran: Besser wirst du in der Erholung. Schlaf ist das stärkste Regenerationswerkzeug, das es gibt. Für Erwachsene lautet die Empfehlung: sieben Stunden oder mehr." },
+        { "id": "proteina", "escena": "habla", "visual": { "tipo": "dato", "cifra": "1.2–2 g/kg", "clave": "proteina" },
+          "texto": "Auch die Ernährung zählt. Für Menschen, die trainieren, empfiehlt das American College of Sports Medicine eins Komma zwei bis zwei Gramm Eiweiß pro Kilogramm Körpergewicht am Tag, verteilt auf mehrere Mahlzeiten." },
+        { "id": "neat", "escena": "Caminata", "visual": { "tipo": "foto", "foto": "escaleras" },
+          "texto": "Und vergiss nicht, was außerhalb des Trainings passiert. Spazieren gehen, Treppen steigen, jede Stunde mal vom Stuhl aufstehen: Diese Alltagsbewegung summiert sich am Ende des Tages ganz schön und gleicht die Zeit aus, die du sitzt." },
+        { "id": "senales", "escena": "habla", "visual": { "tipo": "aviso" },
+          "texto": "Achte auf die Signale: Muskelermüdung und Muskelkater sind normal. Stechende Schmerzen in einem Gelenk, Schwindel, unverhältnismäßige Atemnot oder Brustschmerzen sind es nicht. Wenn so etwas auftritt, hör auf und geh zum Arzt." },
+        { "id": "resumen", "escena": "habla", "visual": { "tipo": "lista", "claves": ["resumen1", "resumen2", "resumen3", "resumen4"] },
+          "texto": "Kurz zusammengefasst: Trainier alle vier Fähigkeiten, miss deine Intensität, steigere dich Schritt für Schritt mit einem Plan und schütze deine Erholung. Damit weißt du schon mehr über Training als die meisten." }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Wenn du deinen Plan so festhalten willst wie ich: Der Fitnessraum in MindHaOS hat den Timer, deine Serien und über hundertsechzig animierte Übungen; der Link steht in der Beschreibung. Im nächsten Leitfaden geht's mit einer neuen Frage weiter. Bis dann.",
+    "boton": "Fitnessraum öffnen"
+  },
+  "fuentes": [
+    { "id": "oms-2020", "texto": "WHO. WHO guidelines on physical activity and sedentary behaviour (2020).", "url": "https://www.who.int/publications/i/item/9789240015128" },
+    { "id": "oms-nota", "texto": "WHO. Körperliche Aktivität — Faktenblatt.", "url": "https://www.who.int/es/news-room/fact-sheets/detail/physical-activity" },
+    { "id": "acsm", "texto": "American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription.", "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription" },
+    { "id": "acsm-nutricion", "texto": "ACSM, Academy of Nutrition and Dietetics und Dietitians of Canada. Nutrition and Athletic Performance (2016).", "url": "https://pubmed.ncbi.nlm.nih.gov/26891166/" },
+    { "id": "tanaka", "texto": "Tanaka H. et al. Age-predicted maximal heart rate revisited. J Am Coll Cardiol (2001).", "url": "https://pubmed.ncbi.nlm.nih.gov/11153730/" },
+    { "id": "cdc-intensidad", "texto": "CDC. Measuring Physical Activity Intensity.", "url": "https://www.cdc.gov/physical-activity-basics/measuring/index.html" },
+    { "id": "aasm-sueno", "texto": "AASM/SRS. Recommended Amount of Sleep for a Healthy Adult (2015).", "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/" }
+  ]
+}

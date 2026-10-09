@@ -337,6 +337,14 @@ export const TEXTOS = {
     'Puoi cancellare il tuo account e tutti i tuoi dati nel cloud dall’app (Editor → Impostazioni → Account) o dal tuo account sul web. Cancellandolo spariscono anche i collegamenti ai tuoi social (YouTube, TikTok, Facebook e Instagram): i token salvati vengono distrutti e smettono di valere.',
   'sop.cuenta.enlace': 'Vai al tuo account',
 
+  // ─── Portada de las guías (/guias) ──────────────────────────────────────
+  'guias.titulo': "Guide MindHaOS — Risposte chiare alle domande di base",
+  'guias.desc': "Guide interattive narrate da Pep@: domande di base come allenarsi, spiegate a fondo, con fonti e strumenti, in 16 lingue.",
+  'guias.h1': "Guide MindHaOS",
+  'guias.p': "Domande di base spiegate a fondo, passo dopo passo e con le fonti. Ogni guida è narrata da Pep@ e include strumenti per metterla in pratica.",
+  'guias.partes': "parti",
+  'guias.min': "min",
+
   // ─── Archivo compartido por enlace (descarga.html) ───────────────────
   'desc.titulo': "File condiviso",
   'desc.cargando': "Cerco il file…",

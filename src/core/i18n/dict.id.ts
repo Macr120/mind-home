@@ -7476,6 +7476,7 @@ export const ID: Dict = {
   'demo.error': 'Demo tidak dapat dibuat.',
   'demo.reintentar': 'Coba lagi',
   'tut.flujos.titulo': 'Tutorial aplikasi ini',
+  'guia.ejercicio.titulo': "Apa itu olahraga?",
   'tut.esencial.titulo': 'Yang Penting',
   'tut.tipo.ejemplos': 'Contoh · MindHaOS demo',
   'tut.app-agenda--esencial.resumen':

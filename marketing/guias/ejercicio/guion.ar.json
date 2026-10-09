@@ -1,0 +1,528 @@
+{
+  "idioma": "ar",
+  "tema": "ejercicio",
+  "plantillaId": "ejercicio",
+  "pregunta": "ما هي الرياضة؟",
+  "subtitulo": "كيف يعمل التدريب، ومن أين جاء، وكم تحتاج أن تتحرك، وكيف تقيس شدة تمرينك، وكيف تتقدم.",
+  "aviso": "هذا الدليل للمعلومات فقط ولا يغني عن استشارة الطبيب. إذا كنت تعاني من مرض أو إصابة، أو في حالة حمل، أو انقطعت عن الحركة مدة طويلة، فاستشر مختصًا قبل أن تبدأ.",
+  "_notas": {
+    "escena": "Animación que hace Pep@ (nombre del catálogo de ejercicios de la app) o una acción: 'habla', 'saluda', 'senala'.",
+    "visual": "Bloque que acompaña la línea: foto (Pexels/Unsplash, ver medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "fondo": "El cuarto de Ejercicio de la app siempre está detrás, difuminado.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "memes": "\"meme\" (en visual o como campo extra de la línea) apunta a web/i18n/guias/<id>.json → ejercicio.memes.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre la toma de la casa (Pep@ en la caminadora); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «temporizador» y «rachas»; app2d.mjs cambia de pantalla de la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "adaptacion",
+      "titulo": "ماذا يحدث في جسمك عندما تتمرن",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "ما هي الرياضة؟ يعرف الجميع تقريبًا أن عليهم ممارسة الرياضة. لكن قلة قليلة تعرف ما يحدث في أجسامهم عندما يمارسونها. كيف تعمل حقًا؟ في الدقائق القادمة ستتعلم ما يعتمد عليه المدربون في التخطيط، وستقيس شدة تمرينك كما يفعلون، وستخرج بخطة واضحة لتواصل بها.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "بالمناسبة، هذا بيتي في MindHaOS، وفي غرفة التمرين هذه أتابع روتيني. لنبدأ.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الأول. ماذا يحدث في جسمك عندما تتمرن."
+        },
+        {
+          "id": "estres",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "supercompensacion"
+          },
+          "texto": "التدريب هو، بكل معنى الكلمة، إجهاد مدروس تفرضه على جسمك. أثناء الحصة ينخفض أداؤك: تتعب، وتستهلك طاقتك، وتتعرض العضلات لتمزقات دقيقة. أما ما يجعلك أقوى فلا يحدث هناك، بل بعد ذلك، وأنت ترتاح: يرمم الجسم نفسه ويستعد للمرة القادمة، أعلى قليلًا مما كان عليه.",
+          "lamina": "estres"
+        },
+        {
+          "id": "sobrecarga",
+          "escena": "Sentadilla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+",
+            "clave": "sobrecarga"
+          },
+          "texto": "هذا ما يسمى التكيف، وتحكمه أربعة مبادئ. الأول هو الحمل التدريجي: إذا كررت الشيء نفسه دائمًا، فلن يجد الجسم سببًا ليتغير، لذلك عليك أن تطلب منه أكثر قليلًا من المرة السابقة.",
+          "lamina": "sobrecarga"
+        },
+        {
+          "id": "especificidad",
+          "escena": "Carrera",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sobrecarga",
+              "especificidad",
+              "recuperacion",
+              "constancia"
+            ]
+          },
+          "texto": "المبدأ الثاني هو الخصوصية: جسمك يتكيف مع ما تمارسه. الجري يحسن قدرتك على التحمل، ورفع الأثقال يحسن قوتك. والثالث هو الاستشفاء: بلا راحة لا يوجد تكيف، بل تعب متراكم فقط.",
+          "lamina": "especificidad"
+        },
+        {
+          "id": "constancia",
+          "escena": "Caminata rápida",
+          "visual": {
+            "tipo": "meme",
+            "meme": "constancia"
+          },
+          "texto": "والرابع هو الاستمرارية. فالتكيفات قابلة للزوال: إذا توقفت عن التدريب عدة أسابيع، يبدأ جسمك بفقدان ما اكتسبه. لهذا فإن القليل المنتظم أنفع من الكثير المتقطع: عشرون دقيقة أربعة أيام في الأسبوع تتفوق على ساعتين في يوم واحد.",
+          "lamina": "constancia"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "تاريخ موجز للرياضة",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثاني. تاريخ موجز للرياضة."
+        },
+        {
+          "id": "griegos",
+          "escena": "Carrera",
+          "visual": {
+            "tipo": "meme",
+            "meme": "griegos"
+          },
+          "texto": "تقول الروايات إن أول ألعاب أولمبية أقيمت عام سبعمئة وستة وسبعين قبل الميلاد. وكان الإغريق يتدربون في الجمنازيوم، وهي كلمة مشتقة من جيمنوس، وتعني العاري. وبالفعل، كانت تلك عادتهم في التدريب.",
+          "lamina": "griegos"
+        },
+        {
+          "id": "hipocrates",
+          "escena": "habla",
+          "visual": {
+            "tipo": "cita"
+          },
+          "texto": "ومنذ ذلك الحين أدرك الناس قيمة الحركة للصحة. فإلى أبقراط، أبي الطب، تنسب فكرة أن الأكل الجيد وحده لا يكفي للحفاظ على الصحة: لا بد من الحركة أيضًا.",
+          "lamina": "hipocrates"
+        },
+        {
+          "id": "gimnasia",
+          "escena": "Flexiones",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1811",
+            "clave": "jahn"
+          },
+          "texto": "وفي القرن التاسع عشر ظهرت أولى مناهج الجمباز. ففي عام ألف وثمانمئة وأحد عشر افتتح فريدريش لودفيغ يان في برلين ساحة للجمباز في الهواء الطلق، وفي السويد وضع بير هنريك لينغ جمبازًا مصممًا من أجل الصحة.",
+          "lamina": [
+            "gimnasia",
+            "ling"
+          ]
+        },
+        {
+          "id": "morris",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1953",
+            "clave": "morris"
+          },
+          "texto": "وجاء التحول الكبير عام ألف وتسعمئة وثلاثة وخمسين. قارن الطبيب البريطاني جيريمي موريس بين سائقي الحافلات ذات الطابقين في لندن، الذين يقضون يومهم جالسين، وبين محصلي التذاكر، الذين يصعدون السلالم وينزلونها طوال اليوم. وتبين أن المحصلين أقل إصابة بالنوبات القلبية بكثير. كانت من أولى الدراسات التي أثبتت أن الحركة تحمي القلب.",
+          "lamina": [
+            "morris",
+            "morris-bus"
+          ]
+        },
+        {
+          "id": "cooper",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "cooper"
+          },
+          "texto": "وفي عام ألف وتسعمئة وثمانية وستين نشر الدكتور كينيث كوبر كتاب إيروبكس، فانتشرت كلمة الهوائي على كل لسان. وفي السبعينيات اجتاحت العالم موجة الجري.",
+          "lamina": "cooper"
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historia"
+          },
+          "texto": "واليوم تنشر منظمة الصحة العالمية توصيات مبنية على آلاف الدراسات. ما كان حدسًا صار علمًا، وهذا ما سنراه الآن.",
+          "lamina": "hoy"
+        }
+      ]
+    },
+    {
+      "id": "capacidades",
+      "titulo": "القدرات الأربع التي عليك تدريبها",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثالث. القدرات الأربع التي عليك تدريبها."
+        },
+        {
+          "id": "cuatro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resistencia",
+              "fuerza",
+              "movilidad",
+              "equilibrio"
+            ]
+          },
+          "texto": "الخطة المتكاملة تعمل على أربع قدرات: التحمل، والقوة، والمرونة الحركية، والتوازن. ولكل منها جرعتها.",
+          "lamina": "cuatro"
+        },
+        {
+          "id": "resistencia",
+          "escena": "Caminata rápida",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "150–300",
+            "clave": "minutosModerados"
+          },
+          "texto": "التحمل: توصي منظمة الصحة العالمية البالغين بما بين مئة وخمسين وثلاثمئة دقيقة أسبوعيًا من النشاط المعتدل، أو من خمس وسبعين إلى مئة وخمسين دقيقة من النشاط الشديد. وتجاوز هذا النطاق يجلب فوائد إضافية.",
+          "lamina": "resistencia"
+        },
+        {
+          "id": "fuerza",
+          "escena": "Peso muerto rumano",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2+",
+            "clave": "diasFuerza"
+          },
+          "texto": "القوة: يومان في الأسبوع على الأقل، مع تمرين المجموعات العضلية الكبرى. والأمر لا يتعلق بالمظهر فقط: فالكتلة العضلية تحمي مفاصلك، وعملية الأيض لديك، ومع مرور السنين، استقلاليتك.",
+          "lamina": "fuerza"
+        },
+        {
+          "id": "movilidad",
+          "escena": "Yoga flow",
+          "visual": {
+            "tipo": "foto",
+            "foto": "movilidad"
+          },
+          "texto": "المرونة الحركية: القدرة على تحريك المفصل في كامل مداه مع التحكم به. بضع دقائق يوميًا، خاصة للوركين والكتفين والعمود الفقري، تجعل كل ما عداها أسهل وأفضل.",
+          "lamina": "movilidad"
+        },
+        {
+          "id": "equilibrio",
+          "escena": "Zancadas",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "65+",
+            "clave": "equilibrio"
+          },
+          "texto": "وأخيرًا التوازن: ابتداءً من سن الخامسة والستين توصي منظمة الصحة العالمية بتدريبه ثلاثة أيام في الأسبوع، لأنه يقلل خطر السقوط. لكن تدريبه مبكرًا هو أفضل طريقة لتصل إلى تلك السن بلياقة جيدة.",
+          "lamina": "equilibrio"
+        }
+      ]
+    },
+    {
+      "id": "intensidad",
+      "titulo": "قِس شدة تمرينك كالمحترفين",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الرابع. قِس شدة تمرينك كالمحترفين."
+        },
+        {
+          "id": "porque",
+          "escena": "habla",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "السؤال الأهم ليس كم من الوقت تتدرب، بل بأي شدة. هناك ثلاث أدوات بسيطة لقياس ذلك، ولا تحتاج أي منها إلى أجهزة باهظة."
+        },
+        {
+          "id": "rpe",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escalaRpe"
+          },
+          "texto": "الأولى هي مقياس الجهد المدرك، من واحد إلى عشرة. الواحد يعني أنك جالس، والعشرة أقصى جهد يمكنك بذله. النشاط المعتدل يقع تقريبًا بين خمسة وستة، والشديد بين سبعة وثمانية. فإذا كنت تستطيع الكلام ولا تستطيع الغناء، فأنت في المستوى المعتدل.",
+          "lamina": "rpe"
+        },
+        {
+          "id": "rir",
+          "escena": "Flexiones",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "RIR 2–3",
+            "clave": "rir"
+          },
+          "texto": "الثانية خاصة بالقوة: التكرارات المتبقية في الاحتياط. عند انتهاء المجموعة، اسأل نفسك كم تكرارًا آخر كان بإمكانك أداؤه بأسلوب صحيح. إذا كان الجواب اثنين أو ثلاثة، فهذه منطقة فعالة جدًا للتقدم دون الاقتراب كثيرًا من حد العجز.",
+          "lamina": "rir"
+        },
+        {
+          "id": "zonas",
+          "escena": "Bicicleta estática",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "zonasCardiacas"
+          },
+          "texto": "والثالثة هي معدل ضربات القلب. من التقديرات الشائعة لحدك الأقصى: مئتان وثمانية ناقص صفر فاصلة سبعة مضروبًا في عمرك. هو تقدير تقريبي، لكنه يكفي ليرشدك. اكتب عمرك في الأسفل وسترى مناطقك.",
+          "lamina": "zonas"
+        },
+        {
+          "id": "zona2",
+          "escena": "Ciclismo",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "zonas"
+          },
+          "texto": "كثير من الناس يتدربون دائمًا في النقطة الوسطى نفسها: أصعب من أن يتعافوا، وأسهل من أن يتحسنوا. ومن الاستراتيجيات الشائعة بين رياضيي التحمل أن يكون معظم تمارين القلب لديك خفيفًا، في المنطقة الثانية، حيث تستطيع التنفس من أنفك، وأن يكون جزء صغير فقط شديدًا حقًا.",
+          "lamina": "zona2"
+        }
+      ]
+    },
+    {
+      "id": "progresion",
+      "titulo": "كيف تتقدم أسبوعًا بعد أسبوع",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الخامس. كيف تتقدم أسبوعًا بعد أسبوع."
+        },
+        {
+          "id": "doble",
+          "escena": "Curl con mancuernas",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rango",
+              "repeticiones",
+              "carga"
+            ]
+          },
+          "texto": "للتقدم في القوة طريقة بسيطة وفعالة جدًا: التدرج المزدوج. تختار نطاقًا، مثلًا من ثمانية إلى اثني عشر تكرارًا. وعندما تصل إلى اثني عشر في كل المجموعات بأسلوب صحيح، تزيد الوزن أو الصعوبة وتعود لتبدأ من ثمانية.",
+          "lamina": "doble"
+        },
+        {
+          "id": "variables",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "masRepeticiones",
+              "masSeries",
+              "masLento",
+              "menosApoyo"
+            ]
+          },
+          "texto": "ويمكنك زيادة الحمل حتى من دون أثقال: تكرارات أكثر، أو مجموعة إضافية، أو النزول ببطء أكبر، أو تقليل الارتكاز، كالانتقال من الضغط على الركبتين إلى الضغط الكامل.",
+          "lamina": "variables"
+        },
+        {
+          "id": "diez",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈10 %",
+            "clave": "progresion"
+          },
+          "texto": "وفي تمارين القلب، القاعدة العملية ألا تزيد الحجم الأسبوعي بأكثر من عشرة في المئة في كل مرة. فعضلاتك وقلبك يتكيفون بسرعة، أما الأوتار والمفاصل فأبطأ بكثير.",
+          "lamina": "diez"
+        },
+        {
+          "id": "plan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "armaTuPlan"
+          },
+          "texto": "بكل هذا يمكنك أن تبني خطة من أربعة أسابيع، مثل الخطط التي أتابعها في غرفة التمرين الخاصة بي. اختر عدد الأيام المتاحة لك ومستواك، وفي الأسفل أقترح عليك كيف توزع القوة وتمارين القلب والمرونة، مع التدرج محسوبًا مسبقًا.",
+          "mencion": true,
+          "lamina": "plan"
+        },
+        {
+          "id": "descarga",
+          "escena": "Yoga flow",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "bloques"
+          },
+          "texto": "ومن حين لآخر، يخصص كثير من المدربين أسبوعًا للتخفيف: التمارين نفسها، بحجم أقل. هذا ليس تراجعًا، بل فرصة ليترسخ التكيف.",
+          "meme": "descarga",
+          "lamina": "descarga"
+        }
+      ]
+    },
+    {
+      "id": "recuperacion",
+      "titulo": "الاستشفاء: حيث تتحسن فعلًا",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السادس. الاستشفاء: حيث تتحسن فعلًا."
+        },
+        {
+          "id": "sueno",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "7 h+",
+            "clave": "sueno"
+          },
+          "texto": "تذكر: أنت تتحسن وأنت ترتاح. النوم أقوى أداة للاستشفاء على الإطلاق، والتوصية للبالغ هي النوم سبع ساعات أو أكثر.",
+          "lamina": "sueno"
+        },
+        {
+          "id": "proteina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1.2–2 g/kg",
+            "clave": "proteina"
+          },
+          "texto": "والتغذية لها دورها أيضًا. فللأشخاص الذين يتدربون، تحدد الكلية الأمريكية للطب الرياضي البروتين بين واحد فاصلة اثنين واثنين غرام لكل كيلوغرام من وزن الجسم يوميًا، موزعة على عدة وجبات.",
+          "lamina": "proteina"
+        },
+        {
+          "id": "neat",
+          "escena": "Caminata",
+          "visual": {
+            "tipo": "foto",
+            "foto": "escaleras"
+          },
+          "texto": "ولا تنس ما يحدث خارج التدريب. المشي، وصعود السلالم، والنهوض عن الكرسي كل ساعة: هذه الحركة اليومية تضيف الكثير في نهاية اليوم، وتعوض الوقت الذي تقضيه جالسًا.",
+          "meme": "silla",
+          "lamina": "neat"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "واستمع إلى جسمك. الشعور بالتعب بعد التمرين أمر طبيعي. أما الألم الحاد في أحد المفاصل، أو الدوار، أو ضيق النفس غير المتناسب مع الجهد، أو ألم الصدر، فليست طبيعية: إذا ظهرت، فتوقف واستشر طبيبًا."
+        },
+        {
+          "id": "resumen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "باختصار: احترم المبادئ الأربعة، ودرب القدرات الأربع، وقس شدة تمرينك، وتقدم شيئًا فشيئًا وفق خطة، واحمِ استشفاءك. وبهذا تعرف عن التدريب أكثر مما يعرفه معظم الناس.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "إذا أردت أن تتابع خطتك كما أفعل، ففي غرفة التمرين في MindHaOS ستجد المؤقت، وسلاسل أيامك، وأكثر من مئة وستين تمرينًا متحركًا. الرابط في الوصف، وهناك أيضًا هذا الدليل بنسخة تفاعلية، لتراجعه على مهل. في الدليل القادم نكمل مع سؤال آخر. إلى اللقاء.",
+    "boton": "افتح غرفة التمرين",
+    "lamina": "app-plan",
+    "anclas": {
+      "temporizador": "المؤقت",
+      "rachas": "سلاسل أيامك"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "oms-2020",
+      "texto": "منظمة الصحة العالمية. المبادئ التوجيهية لمنظمة الصحة العالمية بشأن النشاط البدني والسلوك الخامل (2020).",
+      "url": "https://www.who.int/publications/i/item/9789240015128"
+    },
+    {
+      "id": "oms-nota",
+      "texto": "منظمة الصحة العالمية. النشاط البدني — صحيفة وقائع.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/physical-activity"
+    },
+    {
+      "id": "acsm",
+      "texto": "American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription.",
+      "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+    },
+    {
+      "id": "acsm-nutricion",
+      "texto": "ACSM وAcademy of Nutrition and Dietetics وDietitians of Canada. Nutrition and Athletic Performance (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26891166/"
+    },
+    {
+      "id": "tanaka",
+      "texto": "Tanaka H. et al. Age-predicted maximal heart rate revisited. J Am Coll Cardiol (2001).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11153730/"
+    },
+    {
+      "id": "cdc-intensidad",
+      "texto": "CDC. Measuring Physical Activity Intensity.",
+      "url": "https://www.cdc.gov/physical-activity-basics/measuring/index.html"
+    },
+    {
+      "id": "aasm-sueno",
+      "texto": "AASM/SRS. Recommended Amount of Sleep for a Healthy Adult (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/"
+    },
+    {
+      "id": "morris-1953",
+      "texto": "Morris J. N. et al. Coronary heart-disease and physical activity of work. The Lancet (1953).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13110049/"
+    },
+    {
+      "id": "cooper-1968",
+      "texto": "Cooper K. H. Aerobics. M. Evans and Company (1968).",
+      "url": "https://www.cooperinstitute.org/about/history"
+    }
+  ]
+}

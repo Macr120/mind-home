@@ -1,0 +1,528 @@
+{
+  "idioma": "zh",
+  "tema": "ejercicio",
+  "plantillaId": "ejercicio",
+  "pregunta": "运动到底是什么？",
+  "subtitulo": "训练如何起作用、它从哪里来、该动多少、怎样衡量强度，以及怎样进步。",
+  "aviso": "本指南仅供参考，不能代替医生的建议。如果你患有疾病、受了伤、正在怀孕，或者很久没有运动，开始之前请先咨询专业人士。",
+  "_notas": {
+    "escena": "Animación que hace Pep@ (nombre del catálogo de ejercicios de la app) o una acción: 'habla', 'saluda', 'senala'.",
+    "visual": "Bloque que acompaña la línea: foto (Pexels/Unsplash, ver medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "fondo": "El cuarto de Ejercicio de la app siempre está detrás, difuminado.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "memes": "\"meme\" (en visual o como campo extra de la línea) apunta a web/i18n/guias/<id>.json → ejercicio.memes.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre la toma de la casa (Pep@ en la caminadora); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «temporizador» y «rachas»; app2d.mjs cambia de pantalla de la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "adaptacion",
+      "titulo": "训练时，你的身体里发生了什么",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "运动到底是什么？几乎每个人都知道自己应该多运动。可是很少有人知道，运动的时候身体里到底发生了什么。它究竟是怎么起作用的？接下来几分钟，你会学到教练做计划时用的知识，像他们一样衡量自己的强度，最后带着一份能坚持下去的计划离开。",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "顺便说一下，这是我在MindHaOS里的家，我的训练日常就记在这间健身房里。我们开始吧。",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第一部分。训练时，你的身体里发生了什么。"
+        },
+        {
+          "id": "estres",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "supercompensacion"
+          },
+          "texto": "训练，说白了，就是给身体施加一种可控的压力。训练过程中，你的状态是下降的：你会累，会消耗能量，肌肉还会出现细小的微损伤。真正让你变强的不是训练本身，而是之后的休息：身体会修复自己，为下一次做好准备，而且会比原来的水平高出一点点。",
+          "lamina": "estres"
+        },
+        {
+          "id": "sobrecarga",
+          "escena": "Sentadilla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+",
+            "clave": "sobrecarga"
+          },
+          "texto": "这就叫适应，它遵循四条原则。第一条是渐进超负荷：如果你总是做一样的事，身体就没有理由改变，所以每次都要比上一次多要求它一点点。",
+          "lamina": "sobrecarga"
+        },
+        {
+          "id": "especificidad",
+          "escena": "Carrera",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sobrecarga",
+              "especificidad",
+              "recuperacion",
+              "constancia"
+            ]
+          },
+          "texto": "第二条是专项性：你练什么，身体就适应什么。跑步提升耐力，举重提升力量。第三条是恢复：没有休息就没有适应，只有越积越多的疲劳。",
+          "lamina": "especificidad"
+        },
+        {
+          "id": "constancia",
+          "escena": "Caminata rápida",
+          "visual": {
+            "tipo": "meme",
+            "meme": "constancia"
+          },
+          "texto": "第四条是坚持。适应是可逆的：如果你停练好几周，身体就会开始失去之前的收获。所以少量多次，比偶尔练一大场更有效：每周四天、每次二十分钟，胜过一周只练一天、一练两小时。",
+          "lamina": "constancia"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "运动简史",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第二部分。运动简史。"
+        },
+        {
+          "id": "griegos",
+          "escena": "Carrera",
+          "visual": {
+            "tipo": "meme",
+            "meme": "griegos"
+          },
+          "texto": "相传，第一届古代奥运会在公元前776年举行。古希腊人在体育场里训练，体育场这个词来自希腊语的gymnós，意思是赤裸。没错，他们就是光着身子训练的。",
+          "lamina": "griegos"
+        },
+        {
+          "id": "hipocrates",
+          "escena": "habla",
+          "visual": {
+            "tipo": "cita"
+          },
+          "texto": "那时候，人们就已经隐约感觉到运动对健康的价值。人们认为，医学之父希波克拉底说过：光吃得好还不足以保持健康，还得动起来。",
+          "lamina": "hipocrates"
+        },
+        {
+          "id": "gimnasia",
+          "escena": "Flexiones",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1811",
+            "clave": "jahn"
+          },
+          "texto": "到了19世纪，最早的体操训练方法诞生了。1811年，弗里德里希·路德维希·扬在柏林开设了一个露天体操场；在瑞典，佩尔·亨里克·林创立了一套以健康为目的的体操。",
+          "lamina": [
+            "gimnasia",
+            "ling"
+          ]
+        },
+        {
+          "id": "morris",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1953",
+            "clave": "morris"
+          },
+          "texto": "真正的转折出现在1953年。英国医生杰里米·莫里斯比较了伦敦双层巴士的司机和售票员：司机整天坐着，售票员则整天上下楼梯。结果售票员患心脏病发作的人明显更少。这是最早证明运动能保护心脏的研究之一。",
+          "lamina": [
+            "morris",
+            "morris-bus"
+          ]
+        },
+        {
+          "id": "cooper",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "cooper"
+          },
+          "texto": "1968年，肯尼斯·库珀医生出版了《有氧运动》一书，让有氧这个词流行起来。到了七十年代，跑步热潮席卷而来。",
+          "lamina": "cooper"
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historia"
+          },
+          "texto": "而今天，世界卫生组织发布的建议，背后是成千上万项研究。过去凭直觉的东西，现在变成了科学，这正是我们接下来要讲的。",
+          "lamina": "hoy"
+        }
+      ]
+    },
+    {
+      "id": "capacidades",
+      "titulo": "你需要训练的四种能力",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第三部分。你需要训练的四种能力。"
+        },
+        {
+          "id": "cuatro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resistencia",
+              "fuerza",
+              "movilidad",
+              "equilibrio"
+            ]
+          },
+          "texto": "一个完整的计划要练四种能力：耐力、力量、灵活性和平衡。每一种都有它合适的剂量。",
+          "lamina": "cuatro"
+        },
+        {
+          "id": "resistencia",
+          "escena": "Caminata rápida",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "150–300",
+            "clave": "minutosModerados"
+          },
+          "texto": "耐力：世界卫生组织建议，成年人每周进行150到300分钟的中等强度活动，或者75到150分钟的高强度活动。超过这个范围，还能带来更多好处。",
+          "lamina": "resistencia"
+        },
+        {
+          "id": "fuerza",
+          "escena": "Peso muerto rumano",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2+",
+            "clave": "diasFuerza"
+          },
+          "texto": "力量：每周至少两天，练到主要的大肌群。这不只是为了好看：肌肉能保护你的关节和代谢，等年纪大了，还能保住你的独立生活能力。",
+          "lamina": "fuerza"
+        },
+        {
+          "id": "movilidad",
+          "escena": "Yoga flow",
+          "visual": {
+            "tipo": "foto",
+            "foto": "movilidad"
+          },
+          "texto": "灵活性：在控制之下，让关节在完整的活动范围内移动的能力。每天花几分钟，重点活动髋部、肩膀和脊柱，其他训练都会做得更好。",
+          "lamina": "movilidad"
+        },
+        {
+          "id": "equilibrio",
+          "escena": "Zancadas",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "65+",
+            "clave": "equilibrio"
+          },
+          "texto": "还有平衡：世卫组织建议65岁以上的人每周练三天平衡，因为它能降低跌倒的风险。不过，提前开始练，才是健健康康走到那个年纪的最好方式。",
+          "lamina": "equilibrio"
+        }
+      ]
+    },
+    {
+      "id": "intensidad",
+      "titulo": "像专业人士一样衡量强度",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第四部分。像专业人士一样衡量强度。"
+        },
+        {
+          "id": "porque",
+          "escena": "habla",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "最重要的问题不是你练了多久，而是你练得有多用力。有三个简单的工具可以衡量它，而且都不需要昂贵的设备。"
+        },
+        {
+          "id": "rpe",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escalaRpe"
+          },
+          "texto": "第一个是自觉用力程度量表，从1到10。1是坐着不动，10是你能拼出的最大力气。中等强度大约在5到6之间，高强度在7到8之间。如果你还能说话、但唱不了歌，那就是中等强度。",
+          "lamina": "rpe"
+        },
+        {
+          "id": "rir",
+          "escena": "Flexiones",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "RIR 2–3",
+            "clave": "rir"
+          },
+          "texto": "第二个用于力量训练，叫保留次数。做完一组后，问问自己：在动作标准的前提下，还能再做几次？如果答案是两三次，这就是一个非常有效的区间，既能进步，又不会太接近力竭。",
+          "lamina": "rir"
+        },
+        {
+          "id": "zonas",
+          "escena": "Bicicleta estática",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "zonasCardiacas"
+          },
+          "texto": "第三个是心率。估算最大心率常用的方法是：用208减去年龄乘以0.7。这只是个大概，但足够给你方向。在下面输入你的年龄，就能看到你的心率区间。",
+          "lamina": "zonas"
+        },
+        {
+          "id": "zona2",
+          "escena": "Ciclismo",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "zonas"
+          },
+          "texto": "很多人总是在同一个不上不下的强度训练：想恢复，太累；想进步，又太轻松。耐力运动员常用的策略是，大部分有氧都练得轻松一些，放在二区，也就是能用鼻子呼吸的强度，只有一小部分是真正高强度的。",
+          "lamina": "zona2"
+        }
+      ]
+    },
+    {
+      "id": "progresion",
+      "titulo": "如何一周一周地进步",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第五部分。如何一周一周地进步。"
+        },
+        {
+          "id": "doble",
+          "escena": "Curl con mancuernas",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rango",
+              "repeticiones",
+              "carga"
+            ]
+          },
+          "texto": "想在力量上进步，有一个简单又非常有效的方法：双重递进。先选一个次数范围，比如8到12次。等你每一组都能用标准动作做满12次，就加重量或加难度，再从8次重新开始。",
+          "lamina": "doble"
+        },
+        {
+          "id": "variables",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "masRepeticiones",
+              "masSeries",
+              "masLento",
+              "menosApoyo"
+            ]
+          },
+          "texto": "没有器械也一样能加负荷：多做几次、多加一组、下放得更慢，或者减少支撑，比如从跪姿俯卧撑过渡到标准俯卧撑。",
+          "lamina": "variables"
+        },
+        {
+          "id": "diez",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈10 %",
+            "clave": "progresion"
+          },
+          "texto": "有氧训练有一个实用的参考：每周的训练量，一次增加不要超过百分之十。肌肉和心脏适应得很快，肌腱和关节就慢多了。",
+          "lamina": "diez"
+        },
+        {
+          "id": "plan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "armaTuPlan"
+          },
+          "texto": "有了这些，你就可以制定一个四周计划，就像我在健身房里用的那种。选好你每周有几天、你的水平，我会在下面帮你安排力量、有氧和灵活性，渐进方案也已经包含在里面。",
+          "mencion": true,
+          "lamina": "plan"
+        },
+        {
+          "id": "descarga",
+          "escena": "Yoga flow",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "bloques"
+          },
+          "texto": "另外，很多教练会隔一段时间安排一个减量周：动作不变，训练量减少。这不是退步，而是让适应稳固下来。",
+          "meme": "descarga",
+          "lamina": "descarga"
+        }
+      ]
+    },
+    {
+      "id": "recuperacion",
+      "titulo": "恢复：你真正进步的时候",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第六部分。恢复：你真正进步的时候。"
+        },
+        {
+          "id": "sueno",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "7 h+",
+            "clave": "sueno"
+          },
+          "texto": "记住：你是在休息的时候进步的。睡眠是现有最强大的恢复手段；对成年人来说，建议每晚睡七个小时以上。",
+          "lamina": "sueno"
+        },
+        {
+          "id": "proteina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1.2–2 g/kg",
+            "clave": "proteina"
+          },
+          "texto": "饮食同样重要。对于有训练习惯的人，美国运动医学会建议每天每公斤体重摄入1.2到2克蛋白质，分配到几餐里。",
+          "lamina": "proteina"
+        },
+        {
+          "id": "neat",
+          "escena": "Caminata",
+          "visual": {
+            "tipo": "foto",
+            "foto": "escaleras"
+          },
+          "texto": "也别忘了训练之外的时间。走路、爬楼梯、每小时从椅子上站起来一次：这些日常活动一天下来加起来非常可观，还能抵消你久坐的时间。",
+          "meme": "silla",
+          "lamina": "neat"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "还要倾听身体的声音。练完觉得累是正常的。但关节刺痛、头晕、和运动量不相称的气喘，或者胸口疼痛，都不正常：一旦出现，请立刻停下来并去看医生。"
+        },
+        {
+          "id": "resumen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "总结一下：遵循四条原则，练好四种能力，衡量你的强度，按计划一点点进步，保护好你的恢复。做到这些，你对训练的了解就已经超过大多数人了。",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "如果你也想像我这样执行计划，MindHaOS的健身房里有计时器、你的连续天数记录，还有160多个动画演示的动作。链接在简介里，那里还有这份指南的互动版，方便你慢慢复习。下一期指南，我们再聊另一个问题。下次见。",
+    "boton": "打开健身房",
+    "lamina": "app-plan",
+    "anclas": {
+      "temporizador": "计时器",
+      "rachas": "连续天数"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "oms-2020",
+      "texto": "世界卫生组织。世卫组织关于身体活动和久坐行为的指南（2020）。",
+      "url": "https://www.who.int/publications/i/item/9789240015128"
+    },
+    {
+      "id": "oms-nota",
+      "texto": "世界卫生组织。身体活动——实况报道。",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/physical-activity"
+    },
+    {
+      "id": "acsm",
+      "texto": "American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription.",
+      "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+    },
+    {
+      "id": "acsm-nutricion",
+      "texto": "ACSM、Academy of Nutrition and Dietetics 和 Dietitians of Canada. Nutrition and Athletic Performance (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26891166/"
+    },
+    {
+      "id": "tanaka",
+      "texto": "Tanaka H. et al. Age-predicted maximal heart rate revisited. J Am Coll Cardiol (2001).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11153730/"
+    },
+    {
+      "id": "cdc-intensidad",
+      "texto": "CDC. Measuring Physical Activity Intensity.",
+      "url": "https://www.cdc.gov/physical-activity-basics/measuring/index.html"
+    },
+    {
+      "id": "aasm-sueno",
+      "texto": "AASM/SRS. Recommended Amount of Sleep for a Healthy Adult (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/"
+    },
+    {
+      "id": "morris-1953",
+      "texto": "Morris J. N. et al. Coronary heart-disease and physical activity of work. The Lancet (1953).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13110049/"
+    },
+    {
+      "id": "cooper-1968",
+      "texto": "Cooper K. H. Aerobics. M. Evans and Company (1968).",
+      "url": "https://www.cooperinstitute.org/about/history"
+    }
+  ]
+}

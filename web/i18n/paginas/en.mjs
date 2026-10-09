@@ -335,6 +335,14 @@ export const TEXTOS = {
     'You can delete your account and all your cloud data from the app (Editor → Settings → Account) or from your account on the web. Deleting it also removes the connections to your social media accounts (YouTube, TikTok, Facebook and Instagram): the stored tokens are destroyed and stop working.',
   'sop.cuenta.enlace': 'Go to your account',
 
+  // ─── Portada de las guías (/guias) ──────────────────────────────────────
+  'guias.titulo': "MindHaOS Guides — Clear answers to basic questions",
+  'guias.desc': "Interactive guides narrated by Pep@: basic questions like how to exercise, answered in depth with sources and tools, in 16 languages.",
+  'guias.h1': "MindHaOS Guides",
+  'guias.p': "Basic questions answered in depth, step by step and with sources. Every guide is narrated by Pep@ and comes with tools to put it into practice.",
+  'guias.partes': "parts",
+  'guias.min': "min",
+
   // ─── Archivo compartido por enlace (descarga.html) ───────────────────
   'desc.titulo': "Shared file",
   'desc.cargando': "Looking for the file…",

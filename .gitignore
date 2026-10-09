@@ -84,3 +84,11 @@ marketing/promo/public/sonidos/
 marketing/promo/public/musica.mp3
 marketing/promo/src/generado/
 marketing/promo/perfil-chrome*/
+
+# Guías narradas (marketing/guias): perfil del Chrome grabador, tomas crudas y videos
+marketing/guias/perfil-chrome*/
+marketing/guias/*/grabaciones/
+marketing/guias/*/salida/
+# Pistas por parte de las guías: las rearma scripts/guias/voz.mjs desde las de
+# línea (sin volver a sintetizar) y se sirven desde R2 (subir-audio.mjs).
+web/public/guias/*/audio/*/partes/

@@ -334,6 +334,14 @@ export const TEXTOS = {
     'Você pode apagar sua conta e todos os seus dados na nuvem pelo app (Editor → Configurações → Conta) ou pela sua conta na web. Ao apagá-la, também são removidas as conexões com suas redes sociais (YouTube, TikTok, Facebook e Instagram): os tokens guardados são destruídos e deixam de valer.',
   'sop.cuenta.enlace': 'Ir para sua conta',
 
+  // ─── Portada de las guías (/guias) ──────────────────────────────────────
+  'guias.titulo': "Guias MindHaOS — Respostas claras para perguntas básicas",
+  'guias.desc': "Guias interativos narrados por Pep@: perguntas básicas como fazer exercício, respondidas a fundo, com fontes e ferramentas, em 16 idiomas.",
+  'guias.h1': "Guias MindHaOS",
+  'guias.p': "Perguntas básicas respondidas a fundo, passo a passo e com fontes. Cada guia é narrado por Pep@ e traz ferramentas para colocar em prática.",
+  'guias.partes': "partes",
+  'guias.min': "min",
+
   // ─── Archivo compartido por enlace (descarga.html) ───────────────────
   'desc.titulo': "Arquivo compartilhado",
   'desc.cargando': "Procurando o arquivo…",

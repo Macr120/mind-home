@@ -7394,6 +7394,7 @@ export const HI: Dict = {
   'demo.error': 'डेमो नहीं बन सका।',
   'demo.reintentar': 'फिर से कोशिश करें',
   'tut.flujos.titulo': 'इस ऐप के ट्यूटोरियल',
+  'guia.ejercicio.titulo': "व्यायाम क्या है?",
   'tut.esencial.titulo': 'ज़रूरी बातें',
   'tut.tipo.ejemplos': 'उदाहरण · डेमो MindHaOS',
   'tut.app-agenda--esencial.resumen':

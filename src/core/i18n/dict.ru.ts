@@ -7406,6 +7406,7 @@ export const RU: Dict = {
   'demo.error': 'Демо не удалось построить.',
   'demo.reintentar': 'Повторить',
   'tut.flujos.titulo': 'Туры этого приложения',
+  'guia.ejercicio.titulo': "Что такое тренировка?",
   'tut.esencial.titulo': 'Главное',
   'tut.tipo.ejemplos': 'Примеры · демо-MindHaOS',
   'tut.app-agenda--esencial.resumen':

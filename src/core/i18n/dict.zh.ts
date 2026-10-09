@@ -7113,6 +7113,7 @@ export const ZH: Dict = {
   'demo.error': '体验版搭建失败。',
   'demo.reintentar': '重试',
   'tut.flujos.titulo': '本应用的教程',
+  'guia.ejercicio.titulo': "运动到底是什么？",
   'tut.esencial.titulo': '基础导览',
   'tut.tipo.ejemplos': '示例·演示用的MindHaOS',
   'tut.app-agenda--esencial.resumen':

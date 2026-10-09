@@ -1,0 +1,528 @@
+{
+  "idioma": "ru",
+  "tema": "ejercicio",
+  "plantillaId": "ejercicio",
+  "pregunta": "Что такое тренировка?",
+  "subtitulo": "Как работают тренировки, откуда они пришли, сколько двигаться, как измерять интенсивность и как прогрессировать.",
+  "aviso": "Это руководство носит информационный характер и не заменяет консультацию врача. Если у тебя есть заболевание или травма, ты беременна или давно не занимался, перед началом обратись к специалисту.",
+  "_notas": {
+    "escena": "Animación que hace Pep@ (nombre del catálogo de ejercicios de la app) o una acción: 'habla', 'saluda', 'senala'.",
+    "visual": "Bloque que acompaña la línea: foto (Pexels/Unsplash, ver medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "fondo": "El cuarto de Ejercicio de la app siempre está detrás, difuminado.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "memes": "\"meme\" (en visual o como campo extra de la línea) apunta a web/i18n/guias/<id>.json → ejercicio.memes.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre la toma de la casa (Pep@ en la caminadora); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «temporizador» y «rachas»; app2d.mjs cambia de pantalla de la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "adaptacion",
+      "titulo": "Что происходит в теле, когда ты тренируешься",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Что такое тренировка? Почти все знают, что им стоит больше двигаться. Очень немногие знают, что происходит в теле во время занятий. Как это на самом деле работает? За следующие несколько минут ты узнаешь, на что опираются тренеры, когда составляют программы, научишься измерять интенсивность, как они, и уйдёшь с готовым планом, чтобы продолжать.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Кстати, это мой дом в MindHaOS, и в этом спортзале я веду свои тренировки. Начнём.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть первая. Что происходит в теле, когда ты тренируешься."
+        },
+        {
+          "id": "estres",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "supercompensacion"
+          },
+          "texto": "Тренировка — это, в буквальном смысле, контролируемый стресс. Во время занятия твоя работоспособность падает: ты устаёшь, тратишь энергию, в мышцах появляются микроповреждения. То, что делает тебя сильнее, происходит не там, а потом, пока ты отдыхаешь: организм восстанавливается и готовится к следующему разу, поднимаясь чуть выше прежнего уровня.",
+          "lamina": "estres"
+        },
+        {
+          "id": "sobrecarga",
+          "escena": "Sentadilla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+",
+            "clave": "sobrecarga"
+          },
+          "texto": "Это называется адаптацией, и ею управляют четыре принципа. Первый — прогрессивная перегрузка: если всё время делать одно и то же, у тела больше нет причин меняться, поэтому каждый раз нужно просить у него чуть больше, чем в прошлый.",
+          "lamina": "sobrecarga"
+        },
+        {
+          "id": "especificidad",
+          "escena": "Carrera",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sobrecarga",
+              "especificidad",
+              "recuperacion",
+              "constancia"
+            ]
+          },
+          "texto": "Второй принцип — специфичность: ты адаптируешься к тому, что тренируешь. Бег развивает выносливость, работа с весом развивает силу. Третий — восстановление: без отдыха нет адаптации, есть только накопленная усталость.",
+          "lamina": "especificidad"
+        },
+        {
+          "id": "constancia",
+          "escena": "Caminata rápida",
+          "visual": {
+            "tipo": "meme",
+            "meme": "constancia"
+          },
+          "texto": "И четвёртый — регулярность. Адаптации обратимы: если бросить тренировки на несколько недель, тело начинает терять то, что набрало. Поэтому понемногу и часто работает лучше, чем много и изредка: двадцать минут четыре раза в неделю выигрывают у двух часов один раз.",
+          "lamina": "constancia"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Краткая история физических упражнений",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть вторая. Краткая история физических упражнений."
+        },
+        {
+          "id": "griegos",
+          "escena": "Carrera",
+          "visual": {
+            "tipo": "meme",
+            "meme": "griegos"
+          },
+          "texto": "По преданию, первые Олимпийские игры прошли в семьсот семьдесят шестом году до нашей эры. Греки тренировались в гимнасии — это слово происходит от греческого «гимнос», что значит «обнажённый». И да: так они и тренировались.",
+          "lamina": "griegos"
+        },
+        {
+          "id": "hipocrates",
+          "escena": "habla",
+          "visual": {
+            "tipo": "cita"
+          },
+          "texto": "Уже тогда догадывались, что это полезно для здоровья. Гиппократу, отцу медицины, приписывают мысль, что одного хорошего питания мало, чтобы оставаться здоровым: нужно ещё и двигаться.",
+          "lamina": "hipocrates"
+        },
+        {
+          "id": "gimnasia",
+          "escena": "Flexiones",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1811",
+            "clave": "jahn"
+          },
+          "texto": "В девятнадцатом веке появились первые системы гимнастики. В тысяча восемьсот одиннадцатом году Фридрих Людвиг Ян открыл в Берлине гимнастическую площадку под открытым небом, а в Швеции Пер Хенрик Линг создал гимнастику, задуманную ради здоровья.",
+          "lamina": [
+            "gimnasia",
+            "ling"
+          ]
+        },
+        {
+          "id": "morris",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1953",
+            "clave": "morris"
+          },
+          "texto": "Большой поворот случился в тысяча девятьсот пятьдесят третьем году. Британский врач Джереми Моррис сравнил водителей лондонских двухэтажных автобусов, которые весь день сидели, с кондукторами, которые весь день ходили вверх и вниз по лестнице. Инфарктов у кондукторов было заметно меньше. Это было одно из первых исследований, показавших, что движение защищает сердце.",
+          "lamina": [
+            "morris",
+            "morris-bus"
+          ]
+        },
+        {
+          "id": "cooper",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "cooper"
+          },
+          "texto": "В тысяча девятьсот шестьдесят восьмом году доктор Кеннет Купер выпустил книгу «Аэробика» и сделал популярным слово «аэробный». А в семидесятые началось повальное увлечение бегом.",
+          "lamina": "cooper"
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historia"
+          },
+          "texto": "А сегодня Всемирная организация здравоохранения публикует рекомендации, основанные на тысячах исследований. То, что раньше было догадкой, теперь стало наукой, и именно о ней мы поговорим.",
+          "lamina": "hoy"
+        }
+      ]
+    },
+    {
+      "id": "capacidades",
+      "titulo": "Четыре качества, которые нужно тренировать",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть третья. Четыре качества, которые нужно тренировать."
+        },
+        {
+          "id": "cuatro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resistencia",
+              "fuerza",
+              "movilidad",
+              "equilibrio"
+            ]
+          },
+          "texto": "Полноценный план развивает четыре качества: выносливость, силу, подвижность и равновесие. У каждого своя дозировка.",
+          "lamina": "cuatro"
+        },
+        {
+          "id": "resistencia",
+          "escena": "Caminata rápida",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "150–300",
+            "clave": "minutosModerados"
+          },
+          "texto": "Выносливость: Всемирная организация здравоохранения рекомендует взрослым от ста пятидесяти до трёхсот минут умеренной активности в неделю или от семидесяти пяти до ста пятидесяти минут интенсивной. Если делать больше, пользы будет ещё больше.",
+          "lamina": "resistencia"
+        },
+        {
+          "id": "fuerza",
+          "escena": "Peso muerto rumano",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2+",
+            "clave": "diasFuerza"
+          },
+          "texto": "Сила: не меньше двух дней в неделю, с нагрузкой на крупные группы мышц. Дело не только во внешности: мышечная масса защищает суставы, обмен веществ, а с годами и твою самостоятельность.",
+          "lamina": "fuerza"
+        },
+        {
+          "id": "movilidad",
+          "escena": "Yoga flow",
+          "visual": {
+            "tipo": "foto",
+            "foto": "movilidad"
+          },
+          "texto": "Подвижность: способность двигать сустав во всей его амплитуде и при этом контролировать движение. Несколько минут в день, особенно на бёдра, плечи и позвоночник, — и всё остальное начинает получаться лучше.",
+          "lamina": "movilidad"
+        },
+        {
+          "id": "equilibrio",
+          "escena": "Zancadas",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "65+",
+            "clave": "equilibrio"
+          },
+          "texto": "И равновесие: после шестидесяти пяти лет ВОЗ советует тренировать его три дня в неделю, потому что это снижает риск падений. Но лучший способ подойти к этому возрасту в форме — начать раньше.",
+          "lamina": "equilibrio"
+        }
+      ]
+    },
+    {
+      "id": "intensidad",
+      "titulo": "Измеряй интенсивность, как профессионал",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть четвёртая. Измеряй интенсивность, как профессионал."
+        },
+        {
+          "id": "porque",
+          "escena": "habla",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Самый важный вопрос не в том, сколько ты тренируешься, а в том, насколько тяжело. Есть три простых способа это измерить, и ни один не требует дорогих гаджетов."
+        },
+        {
+          "id": "rpe",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escalaRpe"
+          },
+          "texto": "Первый — шкала воспринимаемой нагрузки, от одного до десяти. Один — это сидеть на диване; десять — максимальное усилие, на которое ты способен. Умеренная активность находится примерно на пяти-шести, интенсивная — на семи-восьми. Если можешь разговаривать, но петь уже не получается, ты в умеренной зоне.",
+          "lamina": "rpe"
+        },
+        {
+          "id": "rir",
+          "escena": "Flexiones",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "RIR 2–3",
+            "clave": "rir"
+          },
+          "texto": "Второй — для силовых: повторения в запасе. Закончив подход, спроси себя, сколько ещё повторений ты мог бы сделать с хорошей техникой. Если ответ — два или три, это очень эффективная зона, чтобы прогрессировать и не подходить слишком близко к отказу.",
+          "lamina": "rir"
+        },
+        {
+          "id": "zonas",
+          "escena": "Bicicleta estática",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "zonasCardiacas"
+          },
+          "texto": "Третий — частота сердечных сокращений. Распространённая оценка твоего максимума: двести восемь минус ноль целых семь десятых, умноженное на возраст. Это приблизительно, но для ориентира хватает. Впиши свой возраст ниже, и увидишь свои зоны.",
+          "lamina": "zonas"
+        },
+        {
+          "id": "zona2",
+          "escena": "Ciclismo",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "zonas"
+          },
+          "texto": "Многие всегда тренируются в одной и той же средней точке: слишком тяжело, чтобы восстановиться, и слишком легко, чтобы стать лучше. Стратегия, которую часто используют спортсмены на выносливость, такая: большая часть кардио — лёгкая, во второй зоне, где можно дышать носом, и лишь небольшая часть — по-настоящему интенсивная.",
+          "lamina": "zona2"
+        }
+      ]
+    },
+    {
+      "id": "progresion",
+      "titulo": "Как прогрессировать неделя за неделей",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть пятая. Как прогрессировать неделя за неделей."
+        },
+        {
+          "id": "doble",
+          "escena": "Curl con mancuernas",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rango",
+              "repeticiones",
+              "carga"
+            ]
+          },
+          "texto": "Для роста силы есть простой и очень эффективный метод — двойная прогрессия. Ты выбираешь диапазон, например от восьми до двенадцати повторений. Когда сделаешь двенадцать во всех подходах с хорошей техникой, повышаешь вес или сложность и снова начинаешь с восьми.",
+          "lamina": "doble"
+        },
+        {
+          "id": "variables",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "masRepeticiones",
+              "masSeries",
+              "masLento",
+              "menosApoyo"
+            ]
+          },
+          "texto": "Без гантелей тоже можно добавлять нагрузку: больше повторений, ещё один подход, медленнее опускаться или убрать опору — например, перейти от отжиманий с колен к полным отжиманиям.",
+          "lamina": "variables"
+        },
+        {
+          "id": "diez",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈10 %",
+            "clave": "progresion"
+          },
+          "texto": "В кардио есть практичный ориентир: не увеличивать недельный объём больше чем на десять процентов за раз. Мышцы и сердце адаптируются быстро, а сухожилия и суставы — медленнее.",
+          "lamina": "diez"
+        },
+        {
+          "id": "plan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "armaTuPlan"
+          },
+          "texto": "Со всем этим можно составить план на четыре недели — такой же, как те, что я веду в своём спортзале. Выбери, сколько у тебя дней и какой у тебя уровень, а ниже я предложу, как распределить силовые, кардио и подвижность, уже с прогрессией.",
+          "mencion": true,
+          "lamina": "plan"
+        },
+        {
+          "id": "descarga",
+          "escena": "Yoga flow",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "bloques"
+          },
+          "texto": "И время от времени многие тренеры ставят разгрузочную неделю: те же упражнения, меньше объёма. Это не шаг назад, а время, чтобы адаптация закрепилась.",
+          "meme": "descarga",
+          "lamina": "descarga"
+        }
+      ]
+    },
+    {
+      "id": "recuperacion",
+      "titulo": "Восстановление: где ты на самом деле становишься лучше",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть шестая. Восстановление: где ты на самом деле становишься лучше."
+        },
+        {
+          "id": "sueno",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "7 h+",
+            "clave": "sueno"
+          },
+          "texto": "Помни: ты становишься лучше, пока отдыхаешь. Сон — самый мощный инструмент восстановления из всех; взрослому рекомендуют спать семь часов или больше.",
+          "lamina": "sueno"
+        },
+        {
+          "id": "proteina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1.2–2 g/kg",
+            "clave": "proteina"
+          },
+          "texto": "Питание тоже важно. Для тех, кто тренируется, Американский колледж спортивной медицины рекомендует от одной целой двух десятых до двух граммов белка на килограмм веса в день, распределённых на несколько приёмов пищи.",
+          "lamina": "proteina"
+        },
+        {
+          "id": "neat",
+          "escena": "Caminata",
+          "visual": {
+            "tipo": "foto",
+            "foto": "escaleras"
+          },
+          "texto": "И не забывай о том, что происходит вне тренировок. Ходить пешком, подниматься по лестнице, вставать со стула каждый час: такое повседневное движение к концу дня складывается в немало и уравновешивает время, которое ты проводишь сидя.",
+          "meme": "silla",
+          "lamina": "neat"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "И прислушивайся к своему телу. Усталость после тренировки — это нормально. Острая боль в суставе, головокружение, непропорциональная одышка или боль в груди — нет: если они появились, остановись и обратись к врачу."
+        },
+        {
+          "id": "resumen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Итак: соблюдай четыре принципа, тренируй четыре качества, измеряй интенсивность, прогрессируй понемногу по плану и береги восстановление. С этим ты уже знаешь о тренировках больше, чем большинство.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Если хочешь вести свой план так же, как я, в спортзале MindHaOS есть таймер, твои серии и больше ста шестидесяти анимированных упражнений. Ссылка в описании, и там же есть интерактивная версия этого руководства, чтобы спокойно всё повторить. В следующем выпуске разберём новый вопрос. До встречи.",
+    "boton": "Открыть спортзал",
+    "lamina": "app-plan",
+    "anclas": {
+      "temporizador": "таймер",
+      "rachas": "серии"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "oms-2020",
+      "texto": "ВОЗ. Рекомендации ВОЗ по физической активности и малоподвижному образу жизни (2020).",
+      "url": "https://www.who.int/publications/i/item/9789240015128"
+    },
+    {
+      "id": "oms-nota",
+      "texto": "ВОЗ. Физическая активность — информационный бюллетень.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/physical-activity"
+    },
+    {
+      "id": "acsm",
+      "texto": "American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription.",
+      "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+    },
+    {
+      "id": "acsm-nutricion",
+      "texto": "ACSM, Academy of Nutrition and Dietetics и Dietitians of Canada. Nutrition and Athletic Performance (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26891166/"
+    },
+    {
+      "id": "tanaka",
+      "texto": "Tanaka H. и др. Age-predicted maximal heart rate revisited. J Am Coll Cardiol (2001).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11153730/"
+    },
+    {
+      "id": "cdc-intensidad",
+      "texto": "CDC. Measuring Physical Activity Intensity.",
+      "url": "https://www.cdc.gov/physical-activity-basics/measuring/index.html"
+    },
+    {
+      "id": "aasm-sueno",
+      "texto": "AASM/SRS. Recommended Amount of Sleep for a Healthy Adult (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/"
+    },
+    {
+      "id": "morris-1953",
+      "texto": "Morris J. N. и др. Coronary heart-disease and physical activity of work. The Lancet (1953).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13110049/"
+    },
+    {
+      "id": "cooper-1968",
+      "texto": "Cooper K. H. Aerobics. M. Evans and Company (1968).",
+      "url": "https://www.cooperinstitute.org/about/history"
+    }
+  ]
+}

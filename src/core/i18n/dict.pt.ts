@@ -7435,6 +7435,7 @@ export const PT: Dict = {
   'demo.error': 'Não foi possível construir a demo.',
   'demo.reintentar': 'Tentar de novo',
   'tut.flujos.titulo': 'Tutoriais deste app',
+  'guia.ejercicio.titulo': "O que é exercício?",
   'tut.esencial.titulo': 'O essencial',
   'tut.tipo.ejemplos': 'Exemplos · MindHaOS demo',
   'tut.app-agenda--esencial.resumen':

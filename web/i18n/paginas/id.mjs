@@ -334,6 +334,14 @@ export const TEXTOS = {
     'Kamu bisa menghapus akun dan semua datamu di cloud dari aplikasi (Editor → Pengaturan → Akun) atau dari akunmu di web. Saat dihapus, koneksi ke media sosialmu (YouTube, TikTok, Facebook, dan Instagram) ikut hilang: token yang tersimpan dimusnahkan dan tidak berlaku lagi.',
   'sop.cuenta.enlace': 'Ke akunmu',
 
+  // ─── Portada de las guías (/guias) ──────────────────────────────────────
+  'guias.titulo': "Panduan MindHaOS — Jawaban jelas untuk pertanyaan dasar",
+  'guias.desc': "Panduan interaktif yang dinarasikan Pep@: pertanyaan dasar seperti cara berolahraga, dijawab tuntas dengan sumber dan alat, dalam 16 bahasa.",
+  'guias.h1': "Panduan MindHaOS",
+  'guias.p': "Pertanyaan dasar dijawab tuntas, langkah demi langkah dan dengan sumber. Setiap panduan dinarasikan Pep@ dan dilengkapi alat untuk langsung mempraktikkannya.",
+  'guias.partes': "bagian",
+  'guias.min': "mnt",
+
   // ─── Archivo compartido por enlace (descarga.html) ───────────────────
   'desc.titulo': "Berkas yang dibagikan",
   'desc.cargando': "Mencari berkas…",

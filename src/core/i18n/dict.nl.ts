@@ -7499,6 +7499,7 @@ export const NL: Dict = {
   'demo.error': 'De demo kon niet worden opgebouwd.',
   'demo.reintentar': 'Opnieuw proberen',
   'tut.flujos.titulo': 'Tutorials voor deze app',
+  'guia.ejercicio.titulo': "Wat is sporten eigenlijk?",
   'tut.esencial.titulo': 'De basis',
   'tut.tipo.ejemplos': 'Voorbeelden · demo-MindHaOS',
   'tut.app-agenda--esencial.resumen':

@@ -7412,6 +7412,7 @@ export const TR: Dict = {
   'demo.error': 'Demo oluşturulamadı.',
   'demo.reintentar': 'Tekrar dene',
   'tut.flujos.titulo': 'Bu uygulamanın öğreticileri',
+  'guia.ejercicio.titulo': "Egzersiz nedir?",
   'tut.esencial.titulo': 'Temel Bilgiler',
   'tut.tipo.ejemplos': 'Örnekler · demo MindHaOS',
   'tut.app-agenda--esencial.resumen':

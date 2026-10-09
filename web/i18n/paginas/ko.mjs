@@ -323,6 +323,14 @@ export const TEXTOS = {
     '앱 안에서 (에디터 → 설정 → 계정) 또는 웹의 계정 페이지에서 계정과 클라우드의 모든 데이터를 삭제할 수 있어요. 계정을 지우면 소셜 미디어(YouTube, TikTok, Facebook, Instagram) 연결도 함께 끊기고, 저장된 토큰은 파기되어 더는 쓸 수 없게 돼요.',
   'sop.cuenta.enlace': '내 계정으로 가기',
 
+  // ─── Portada de las guías (/guias) ──────────────────────────────────────
+  'guias.titulo': "MindHaOS 가이드 — 기본 질문에 대한 명쾌한 답",
+  'guias.desc': "Pep@가 들려주는 인터랙티브 가이드: 운동하는 법 같은 기본 질문을 출처와 도구와 함께 깊이 있게 설명합니다. 16개 언어 지원.",
+  'guias.h1': "MindHaOS 가이드",
+  'guias.p': "기본 질문을 출처와 함께 단계별로 깊이 있게 설명합니다. 모든 가이드는 Pep@가 들려주며, 바로 실천할 수 있는 도구가 함께 있습니다.",
+  'guias.partes': "부",
+  'guias.min': "분",
+
   // ─── Archivo compartido por enlace (descarga.html) ───────────────────
   'desc.titulo': "공유된 파일",
   'desc.cargando': "파일을 찾는 중…",

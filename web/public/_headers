@@ -8,9 +8,10 @@
 # `script-src` admite 'unsafe-inline' aquí—. Son páginas estáticas sin entrada de
 # datos, así que su superficie de XSS es mínima; /cuenta es React (bundle propio)
 # y escapa por defecto. `connect-src`/`frame-src` quedan en https: para no romper
-# el login de Supabase ni el checkout de RevenueCat/Stripe.
+# el login de Supabase ni el checkout de RevenueCat/Stripe. `media-src` admite
+# media.mindhaos.com: la voz de las guías se sirve desde R2, fuera de Pages.
 /*
-  Content-Security-Policy: default-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https: wss:; frame-src 'self' https:; form-action 'self'
+  Content-Security-Policy: default-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https: wss:; media-src 'self' https://media.mindhaos.com; frame-src 'self' https:; form-action 'self'
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff

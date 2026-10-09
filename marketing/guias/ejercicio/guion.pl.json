@@ -1,0 +1,528 @@
+{
+  "idioma": "pl",
+  "tema": "ejercicio",
+  "plantillaId": "ejercicio",
+  "pregunta": "Czym są ćwiczenia?",
+  "subtitulo": "Jak działa trening, skąd się wziął, ile się ruszać, jak mierzyć intensywność i jak robić postępy.",
+  "aviso": "Ten poradnik ma charakter informacyjny i nie zastępuje porady lekarza. Jeśli chorujesz, masz kontuzję, jesteś w ciąży albo od dawna się nie ruszałeś, przed rozpoczęciem skonsultuj się ze specjalistą.",
+  "_notas": {
+    "escena": "Animación que hace Pep@ (nombre del catálogo de ejercicios de la app) o una acción: 'habla', 'saluda', 'senala'.",
+    "visual": "Bloque que acompaña la línea: foto (Pexels/Unsplash, ver medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "fondo": "El cuarto de Ejercicio de la app siempre está detrás, difuminado.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "memes": "\"meme\" (en visual o como campo extra de la línea) apunta a web/i18n/guias/<id>.json → ejercicio.memes.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre la toma de la casa (Pep@ en la caminadora); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «temporizador» y «rachas»; app2d.mjs cambia de pantalla de la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "adaptacion",
+      "titulo": "Co dzieje się w twoim ciele, kiedy trenujesz",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Czym są ćwiczenia? Prawie każdy wie, że powinien się więcej ruszać. Bardzo mało kto wie, co dzieje się w jego ciele, kiedy ćwiczy. Jak to naprawdę działa? W ciągu kilku najbliższych minut poznasz to, na czym trenerzy opierają swoje plany, nauczysz się mierzyć intensywność tak jak oni i wyjdziesz stąd z planem na dalszą drogę.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "A tak przy okazji, to mój dom w MindHaOS, a w tej siłowni prowadzę swoje treningi. Zaczynamy.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część pierwsza. Co dzieje się w twoim ciele, kiedy trenujesz."
+        },
+        {
+          "id": "estres",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "supercompensacion"
+          },
+          "texto": "Trening to dosłownie kontrolowany stres. W trakcie sesji twoja wydolność spada: męczysz się, zużywasz energię, w mięśniach powstają drobne mikrouszkodzenia. To, co czyni cię silniejszym, nie dzieje się wtedy, tylko później, kiedy odpoczywasz: organizm się naprawia i przygotowuje na następny raz, trochę powyżej poziomu, na którym był.",
+          "lamina": "estres"
+        },
+        {
+          "id": "sobrecarga",
+          "escena": "Sentadilla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+",
+            "clave": "sobrecarga"
+          },
+          "texto": "Nazywa się to adaptacją i rządzą nią cztery zasady. Pierwsza to progresywne przeciążenie: jeśli zawsze robisz to samo, ciało nie ma powodu, żeby się zmieniać, więc trzeba od niego wymagać odrobinę więcej niż ostatnio.",
+          "lamina": "sobrecarga"
+        },
+        {
+          "id": "especificidad",
+          "escena": "Carrera",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sobrecarga",
+              "especificidad",
+              "recuperacion",
+              "constancia"
+            ]
+          },
+          "texto": "Druga zasada to specyficzność: przystosowujesz się do tego, co ćwiczysz. Bieganie poprawia wytrzymałość, dźwiganie ciężarów poprawia siłę. Trzecia to regeneracja: bez odpoczynku nie ma adaptacji, jest tylko nagromadzone zmęczenie.",
+          "lamina": "especificidad"
+        },
+        {
+          "id": "constancia",
+          "escena": "Caminata rápida",
+          "visual": {
+            "tipo": "meme",
+            "meme": "constancia"
+          },
+          "texto": "I czwarta: regularność. Adaptacje są odwracalne: jeśli przestaniesz trenować na kilka tygodni, ciało zaczyna tracić to, co zyskało. Dlatego lepiej działa mało, a często, niż dużo od święta: dwadzieścia minut cztery dni w tygodniu wygrywa z dwiema godzinami raz na tydzień.",
+          "lamina": "constancia"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Krótka historia ćwiczeń",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część druga. Krótka historia ćwiczeń."
+        },
+        {
+          "id": "griegos",
+          "escena": "Carrera",
+          "visual": {
+            "tipo": "meme",
+            "meme": "griegos"
+          },
+          "texto": "Według tradycji pierwsze igrzyska olimpijskie odbyły się w roku siedemset siedemdziesiątym szóstym przed naszą erą. Grecy trenowali w gimnazjonie, a to słowo pochodzi od greckiego gymnós, czyli nagi. I tak: właśnie tak trenowali.",
+          "lamina": "griegos"
+        },
+        {
+          "id": "hipocrates",
+          "escena": "habla",
+          "visual": {
+            "tipo": "cita"
+          },
+          "texto": "Już wtedy przeczuwano, że to dobre dla zdrowia. Hipokratesowi, ojcu medycyny, przypisuje się myśl, że samo dobre jedzenie nie wystarczy, żeby pozostać zdrowym: trzeba się też ruszać.",
+          "lamina": "hipocrates"
+        },
+        {
+          "id": "gimnasia",
+          "escena": "Flexiones",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1811",
+            "clave": "jahn"
+          },
+          "texto": "W dziewiętnastym wieku powstały pierwsze systemy gimnastyki. W tysiąc osiemset jedenastym roku Friedrich Ludwig Jahn otworzył w Berlinie plac do gimnastyki pod gołym niebem, a w Szwecji Pehr Henrik Ling stworzył gimnastykę nastawioną na zdrowie.",
+          "lamina": [
+            "gimnasia",
+            "ling"
+          ]
+        },
+        {
+          "id": "morris",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1953",
+            "clave": "morris"
+          },
+          "texto": "Wielki przełom nastąpił w tysiąc dziewięćset pięćdziesiątym trzecim roku. Brytyjski lekarz Jeremy Morris porównał kierowców londyńskich piętrowych autobusów, którzy cały dzień siedzieli, z konduktorami, którzy cały dzień chodzili po schodach w górę i w dół. Konduktorzy mieli wyraźnie mniej zawałów. Było to jedno z pierwszych badań, które pokazały, że ruch chroni serce.",
+          "lamina": [
+            "morris",
+            "morris-bus"
+          ]
+        },
+        {
+          "id": "cooper",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "cooper"
+          },
+          "texto": "W tysiąc dziewięćset sześćdziesiątym ósmym roku doktor Kenneth Cooper wydał książkę Aerobics i spopularyzował słowo aerobowy. W latach siedemdziesiątych przyszła moda na bieganie.",
+          "lamina": "cooper"
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historia"
+          },
+          "texto": "A dziś Światowa Organizacja Zdrowia publikuje zalecenia oparte na tysiącach badań. To, co kiedyś było intuicją, teraz jest nauką, i właśnie nią się zajmiemy.",
+          "lamina": "hoy"
+        }
+      ]
+    },
+    {
+      "id": "capacidades",
+      "titulo": "Cztery zdolności, które warto trenować",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część trzecia. Cztery zdolności, które warto trenować."
+        },
+        {
+          "id": "cuatro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resistencia",
+              "fuerza",
+              "movilidad",
+              "equilibrio"
+            ]
+          },
+          "texto": "Pełny plan rozwija cztery zdolności: wytrzymałość, siłę, mobilność i równowagę. Każda ma swoją dawkę.",
+          "lamina": "cuatro"
+        },
+        {
+          "id": "resistencia",
+          "escena": "Caminata rápida",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "150–300",
+            "clave": "minutosModerados"
+          },
+          "texto": "Wytrzymałość: Światowa Organizacja Zdrowia zaleca dorosłym od stu pięćdziesięciu do trzystu minut umiarkowanej aktywności tygodniowo albo od siedemdziesięciu pięciu do stu pięćdziesięciu minut aktywności intensywnej. Wyjście ponad ten zakres daje dodatkowe korzyści.",
+          "lamina": "resistencia"
+        },
+        {
+          "id": "fuerza",
+          "escena": "Peso muerto rumano",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2+",
+            "clave": "diasFuerza"
+          },
+          "texto": "Siła: co najmniej dwa dni w tygodniu, z pracą dużych grup mięśniowych. To nie tylko kwestia wyglądu: masa mięśniowa chroni twoje stawy, metabolizm, a z wiekiem także twoją samodzielność.",
+          "lamina": "fuerza"
+        },
+        {
+          "id": "movilidad",
+          "escena": "Yoga flow",
+          "visual": {
+            "tipo": "foto",
+            "foto": "movilidad"
+          },
+          "texto": "Mobilność: zdolność poruszania stawem w pełnym zakresie i pod kontrolą. Kilka minut dziennie, zwłaszcza na biodra, barki i kręgosłup, sprawia, że cała reszta wychodzi lepiej.",
+          "lamina": "movilidad"
+        },
+        {
+          "id": "equilibrio",
+          "escena": "Zancadas",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "65+",
+            "clave": "equilibrio"
+          },
+          "texto": "I równowaga: od sześćdziesięciu pięciu lat WHO zaleca ćwiczyć ją trzy dni w tygodniu, bo zmniejsza ryzyko upadków. Ale trenowanie jej wcześniej to najlepszy sposób, żeby dotrzeć do tego wieku w formie.",
+          "lamina": "equilibrio"
+        }
+      ]
+    },
+    {
+      "id": "intensidad",
+      "titulo": "Mierz intensywność jak profesjonalista",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część czwarta. Mierz intensywność jak profesjonalista."
+        },
+        {
+          "id": "porque",
+          "escena": "habla",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Najważniejsze pytanie nie brzmi, jak długo trenujesz, tylko jak mocno. Są trzy proste narzędzia, żeby to zmierzyć, i żadne nie wymaga drogiego sprzętu."
+        },
+        {
+          "id": "rpe",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escalaRpe"
+          },
+          "texto": "Pierwsze to skala odczuwanego wysiłku, od jednego do dziesięciu. Jeden to siedzenie na kanapie; dziesięć to maksymalny wysiłek, na jaki cię stać. Aktywność umiarkowana to mniej więcej pięć, sześć, a intensywna siedem, osiem. Jeśli możesz rozmawiać, ale nie dałbyś rady śpiewać, jesteś w strefie umiarkowanej.",
+          "lamina": "rpe"
+        },
+        {
+          "id": "rir",
+          "escena": "Flexiones",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "RIR 2–3",
+            "clave": "rir"
+          },
+          "texto": "Drugie jest do treningu siłowego: powtórzenia w zapasie. Po skończonej serii zapytaj się, ile jeszcze powtórzeń zrobiłbyś z dobrą techniką. Jeśli odpowiedź brzmi dwa albo trzy, to bardzo skuteczna strefa, żeby robić postępy, nie zbliżając się za bardzo do upadku mięśniowego.",
+          "lamina": "rir"
+        },
+        {
+          "id": "zonas",
+          "escena": "Bicicleta estática",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "zonasCardiacas"
+          },
+          "texto": "Trzecie to tętno. Popularne oszacowanie twojego maksimum to dwieście osiem minus zero przecinek siedem razy twój wiek. To przybliżenie, ale wystarczy, żeby się zorientować. Wpisz poniżej swój wiek, a zobaczysz swoje strefy.",
+          "lamina": "zonas"
+        },
+        {
+          "id": "zona2",
+          "escena": "Ciclismo",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "zonas"
+          },
+          "texto": "Wiele osób trenuje zawsze w tym samym środkowym punkcie: za ciężko, żeby się zregenerować, i za lekko, żeby się poprawić. Strategia, którą często stosują sportowcy wytrzymałościowi, polega na tym, żeby większość cardio była lekka, w drugiej strefie, gdzie możesz oddychać nosem, a tylko niewielka część naprawdę intensywna.",
+          "lamina": "zona2"
+        }
+      ]
+    },
+    {
+      "id": "progresion",
+      "titulo": "Jak robić postępy tydzień po tygodniu",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część piąta. Jak robić postępy tydzień po tygodniu."
+        },
+        {
+          "id": "doble",
+          "escena": "Curl con mancuernas",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rango",
+              "repeticiones",
+              "carga"
+            ]
+          },
+          "texto": "Żeby rosnąć w siłę, jest prosta i bardzo skuteczna metoda: podwójna progresja. Wybierasz zakres, na przykład od ośmiu do dwunastu powtórzeń. Kiedy zrobisz dwanaście we wszystkich seriach z dobrą techniką, zwiększasz ciężar albo trudność i znowu zaczynasz od ośmiu.",
+          "lamina": "doble"
+        },
+        {
+          "id": "variables",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "masRepeticiones",
+              "masSeries",
+              "masLento",
+              "menosApoyo"
+            ]
+          },
+          "texto": "Bez ciężarów też da się zwiększać obciążenie: więcej powtórzeń, jedna seria więcej, wolniejsze opuszczanie albo mniej podparcia, na przykład przejście z pompek na kolanach do pełnych pompek.",
+          "lamina": "variables"
+        },
+        {
+          "id": "diez",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈10 %",
+            "clave": "progresion"
+          },
+          "texto": "W cardio praktyczna wskazówka to nie zwiększać tygodniowej objętości o więcej niż dziesięć procent naraz. Mięśnie i serce przystosowują się szybko; ścięgna i stawy wolniej.",
+          "lamina": "diez"
+        },
+        {
+          "id": "plan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "armaTuPlan"
+          },
+          "texto": "Z tym wszystkim możesz ułożyć plan na cztery tygodnie, taki jak te, które prowadzę w mojej siłowni. Wybierz, ile masz dni i jaki masz poziom, a poniżej podpowiem ci, jak rozłożyć siłę, cardio i mobilność, z progresją już w środku.",
+          "mencion": true,
+          "lamina": "plan"
+        },
+        {
+          "id": "descarga",
+          "escena": "Yoga flow",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "bloques"
+          },
+          "texto": "I co jakiś czas wielu trenerów planuje tydzień odciążenia: te same ćwiczenia, mniejsza objętość. To nie krok wstecz; to czas, żeby adaptacja się utrwaliła.",
+          "meme": "descarga",
+          "lamina": "descarga"
+        }
+      ]
+    },
+    {
+      "id": "recuperacion",
+      "titulo": "Regeneracja: tu naprawdę robisz postępy",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część szósta. Regeneracja: tu naprawdę robisz postępy."
+        },
+        {
+          "id": "sueno",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "7 h+",
+            "clave": "sueno"
+          },
+          "texto": "Pamiętaj: stajesz się lepszy, kiedy odpoczywasz. Sen to najpotężniejsze narzędzie regeneracji, jakie istnieje; dorosłym zaleca się spać siedem godzin lub więcej.",
+          "lamina": "sueno"
+        },
+        {
+          "id": "proteina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1.2–2 g/kg",
+            "clave": "proteina"
+          },
+          "texto": "Jedzenie też się liczy. Dla osób trenujących Amerykańskie Kolegium Medycyny Sportowej podaje od jednego przecinek dwa do dwóch gramów białka na kilogram masy ciała dziennie, rozłożone na kilka posiłków.",
+          "lamina": "proteina"
+        },
+        {
+          "id": "neat",
+          "escena": "Caminata",
+          "visual": {
+            "tipo": "foto",
+            "foto": "escaleras"
+          },
+          "texto": "I nie zapominaj o tym, co dzieje się poza treningiem. Chodzenie, wchodzenie po schodach, wstawanie z krzesła co godzinę: ten codzienny ruch pod koniec dnia daje naprawdę dużo i równoważy czas, który spędzasz na siedząco.",
+          "meme": "silla",
+          "lamina": "neat"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "I słuchaj swojego ciała. Zmęczenie po treningu jest normalne. Kłujący ból w stawie, zawroty głowy, nieproporcjonalna duszność czy ból w klatce piersiowej już nie: jeśli się pojawią, przerwij i skonsultuj się z lekarzem."
+        },
+        {
+          "id": "resumen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Podsumowując: szanuj cztery zasady, trenuj cztery zdolności, mierz intensywność, rób postępy krok po kroku z planem i dbaj o regenerację. Z tym wiesz już o treningu więcej niż większość ludzi.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Jeśli chcesz prowadzić swój plan tak jak ja, siłownia w MindHaOS ma timer, twoje serie dni i ponad sto sześćdziesiąt animowanych ćwiczeń. Link jest w opisie, a tam też ten poradnik w wersji interaktywnej, żebyś mógł go spokojnie powtórzyć. W następnym poradniku weźmiemy na warsztat kolejne pytanie. Do zobaczenia.",
+    "boton": "Otwórz siłownię",
+    "lamina": "app-plan",
+    "anclas": {
+      "temporizador": "timer",
+      "rachas": "serie dni"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "oms-2020",
+      "texto": "WHO. Wytyczne WHO dotyczące aktywności fizycznej i siedzącego trybu życia (2020).",
+      "url": "https://www.who.int/publications/i/item/9789240015128"
+    },
+    {
+      "id": "oms-nota",
+      "texto": "WHO. Aktywność fizyczna — informacja podstawowa.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/physical-activity"
+    },
+    {
+      "id": "acsm",
+      "texto": "American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription.",
+      "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+    },
+    {
+      "id": "acsm-nutricion",
+      "texto": "ACSM, Academy of Nutrition and Dietetics i Dietitians of Canada. Nutrition and Athletic Performance (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26891166/"
+    },
+    {
+      "id": "tanaka",
+      "texto": "Tanaka H. i in. Age-predicted maximal heart rate revisited. J Am Coll Cardiol (2001).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11153730/"
+    },
+    {
+      "id": "cdc-intensidad",
+      "texto": "CDC. Measuring Physical Activity Intensity.",
+      "url": "https://www.cdc.gov/physical-activity-basics/measuring/index.html"
+    },
+    {
+      "id": "aasm-sueno",
+      "texto": "AASM/SRS. Recommended Amount of Sleep for a Healthy Adult (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/"
+    },
+    {
+      "id": "morris-1953",
+      "texto": "Morris J. N. i in. Coronary heart-disease and physical activity of work. The Lancet (1953).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13110049/"
+    },
+    {
+      "id": "cooper-1968",
+      "texto": "Cooper K. H. Aerobics. M. Evans and Company (1968).",
+      "url": "https://www.cooperinstitute.org/about/history"
+    }
+  ]
+}

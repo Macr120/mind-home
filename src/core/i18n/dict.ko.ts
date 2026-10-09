@@ -7153,6 +7153,7 @@ export const KO: Dict = {
   'demo.error': '체험판을 만들지 못했어요.',
   'demo.reintentar': '다시 시도',
   'tut.flujos.titulo': '이 앱의 튜토리얼',
+  'guia.ejercicio.titulo': "운동이란 무엇일까요?",
   'tut.esencial.titulo': '기본 둘러보기',
   'tut.tipo.ejemplos': '예시 · 데모 MindHaOS',
   'tut.app-agenda--esencial.resumen':

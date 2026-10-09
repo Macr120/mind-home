@@ -1,0 +1,134 @@
+{
+  "idioma": "en",
+  "tema": "ejercicio",
+  "plantillaId": "ejercicio",
+  "pregunta": "How should you exercise?",
+  "subtitulo": "How training works, how to measure your intensity, and a guided session to do with me.",
+  "aviso": "This guide is for information only and doesn't replace a doctor's advice. If you have a medical condition or an injury, are pregnant, or haven't been active in a long time, check with a professional before you start.",
+  "_notas": {
+    "escena": "Animación que hace Pep@ (nombre del catálogo de ejercicios de la app) o una acción: 'habla', 'saluda', 'senala'.",
+    "visual": "Bloque que acompaña la línea: foto (Pexels/Unsplash, ver medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos.",
+    "mencion": "Las tres líneas con \"mencion\": true nombran la app de pasada (inicio, medio y final). Nunca tono de anuncio.",
+    "fondo": "El cuarto de Ejercicio de la app siempre está detrás, difuminado."
+  },
+  "partes": [
+    {
+      "id": "adaptacion",
+      "titulo": "What happens in your body when you train",
+      "lineas": [
+        { "id": "gancho", "escena": "saluda", "visual": { "tipo": "titulo" },
+          "texto": "Almost everyone knows they should exercise. Very few people know how it actually works. And once you understand how it works, you stop guessing. Over the next few minutes you'll learn what coaches use to plan training, you'll measure your intensity the way they do, and halfway through, we're going to train together." },
+        { "id": "mencion-inicio", "mencion": true, "escena": "senala", "visual": { "tipo": "fondo" },
+          "texto": "By the way, we're in my Exercise room in MindHaOS. It's where I keep my routines, so you'll see it in the background. Let's get started." },
+        { "id": "estres", "escena": "habla", "visual": { "tipo": "grafica", "grafica": "supercompensacion" },
+          "texto": "Training is, quite literally, applying controlled stress. During the session your performance drops: you get tired, you burn energy, and your muscles pick up tiny micro-tears. What makes you stronger doesn't happen there. It happens afterwards, while you rest: your body repairs itself and gets ready for next time, a little above where it was before." },
+        { "id": "sobrecarga", "escena": "Sentadilla", "visual": { "tipo": "dato", "cifra": "+", "clave": "sobrecarga" },
+          "texto": "That's called adaptation. And it comes with one condition: if you always do the same thing, your body has no reason to change. That's why the number one principle of training is progressive overload: asking your body for just a little more than last time." },
+        { "id": "especificidad", "escena": "Carrera", "visual": { "tipo": "pasos", "claves": ["especificidad", "recuperacion", "constancia"] },
+          "texto": "The second principle is specificity: you adapt to what you practice. Running improves your endurance, lifting improves your strength. And the third is recovery: without rest there's no adaptation, just accumulated fatigue." }
+      ]
+    },
+    {
+      "id": "capacidades",
+      "titulo": "The four qualities you need to train",
+      "lineas": [
+        { "id": "cuatro", "escena": "habla", "visual": { "tipo": "lista", "claves": ["resistencia", "fuerza", "movilidad", "equilibrio"] },
+          "texto": "A complete plan works on four qualities: endurance, strength, mobility, and balance. Each one has its own dose." },
+        { "id": "resistencia", "escena": "Caminata rápida", "visual": { "tipo": "dato", "cifra": "150–300", "clave": "minutosModerados" },
+          "texto": "Endurance: the World Health Organization recommends that adults get between one hundred fifty and three hundred minutes of moderate activity a week, or seventy-five to one hundred fifty minutes of vigorous activity. Going beyond that range brings additional benefits." },
+        { "id": "fuerza", "escena": "Peso muerto rumano", "visual": { "tipo": "dato", "cifra": "2+", "clave": "diasFuerza" },
+          "texto": "Strength: at least two days a week, working all the major muscle groups. It's not just about looks: muscle mass protects your joints, your metabolism, and, as the years go by, your independence." },
+        { "id": "movilidad", "escena": "Yoga flow", "visual": { "tipo": "foto", "foto": "movilidad" },
+          "texto": "Mobility: the ability to move a joint through its full range with control. A few minutes a day, especially for your hips, shoulders, and spine, makes everything else go better." },
+        { "id": "equilibrio", "escena": "Zancadas", "visual": { "tipo": "dato", "cifra": "65+", "clave": "equilibrio" },
+          "texto": "And balance: from age sixty-five, the WHO recommends training it three days a week, because it lowers the risk of falls. But training it earlier is the best way to get there in good shape." }
+      ]
+    },
+    {
+      "id": "intensidad",
+      "titulo": "Measure your intensity like a pro",
+      "lineas": [
+        { "id": "porque", "escena": "habla", "visual": { "tipo": "titulo" },
+          "texto": "The most important question isn't how long you train, it's how hard. There are three simple tools to measure it, and none of them need expensive gear." },
+        { "id": "rpe", "escena": "Trote suave", "visual": { "tipo": "herramienta", "herramienta": "escalaRpe" },
+          "texto": "The first is the rating of perceived exertion, from one to ten. One is sitting on the couch; ten is the hardest effort you can give. Moderate activity sits roughly between five and six, and vigorous between seven and eight. If you can talk but not sing, you're in the moderate zone." },
+        { "id": "rir", "escena": "Flexiones", "visual": { "tipo": "dato", "cifra": "RIR 2–3", "clave": "rir" },
+          "texto": "The second one is for strength: reps in reserve. When you finish a set, ask yourself how many more you could have done with good form. If the answer is two or three, that's a very effective zone for making progress without getting too close to failure." },
+        { "id": "zonas", "escena": "Bicicleta estática", "visual": { "tipo": "herramienta", "herramienta": "zonasCardiacas" },
+          "texto": "The third is heart rate. A common estimate of your maximum is two hundred eight minus zero point seven times your age. It's approximate, but it gives you a good reference. Enter your age down below and you'll see your zones." },
+        { "id": "zona2", "escena": "Ciclismo", "visual": { "tipo": "grafica", "grafica": "zonas" },
+          "texto": "A lot of people always train at the same in-between level: too hard to recover from, too easy to improve. A strategy widely used by endurance athletes is to keep most of your cardio easy, in zone two, where you can breathe through your nose, and only a small part truly hard." }
+      ]
+    },
+    {
+      "id": "sesion",
+      "titulo": "Guided session: train with me",
+      "lineas": [
+        { "id": "explica", "escena": "habla", "visual": { "tipo": "sesion", "estado": "previa" },
+          "texto": "Now let's put it into practice. This is a full-body circuit: four exercises, forty seconds of work and twenty seconds of rest. Do one round with me; on the page you can choose up to four. Aim for an effort of six or seven." },
+        { "id": "mencion-medio", "mencion": true, "escena": "senala", "visual": { "tipo": "sesion", "estado": "temporizador" },
+          "texto": "The timer you see is the same one I use in the Exercise room. First, one minute of warm-up." },
+        { "id": "calentamiento", "escena": "Movilidad matutina", "visual": { "tipo": "sesion", "bloque": "calentamiento", "segundos": 60 },
+          "texto": "Shoulder circles, hip circles, and ankle circles. Take a deep breath and loosen up. Gradually pick up the pace." },
+        { "id": "s1", "escena": "Sentadilla", "visual": { "tipo": "sesion", "bloque": "Sentadilla", "segundos": 40, "descanso": 20 },
+          "texto": "One: squats. Feet shoulder-width apart, chest up. Lower yourself under control for two seconds and drive back up. Your knees track in the same direction as your toes." },
+        { "id": "s2", "escena": "Flexiones", "visual": { "tipo": "sesion", "bloque": "Flexiones", "segundos": 40, "descanso": 20 },
+          "texto": "Two: push-ups. Squeeze your glutes and abs so your body moves as one piece. Elbows at about forty-five degrees from your body. If you need to, drop to your knees: quality comes first." },
+        { "id": "s3", "escena": "Puente de glúteo", "visual": { "tipo": "sesion", "bloque": "Puente de glúteo", "segundos": 40, "descanso": 20 },
+          "texto": "Three: glute bridge. Push through your heels, lift your hips, and hold for a second at the top, squeezing. Don't arch your lower back: the work comes from your hips." },
+        { "id": "s4", "escena": "Plancha", "visual": { "tipo": "sesion", "bloque": "Plancha", "segundos": 40, "descanso": 0 },
+          "texto": "Four: plank. Elbows under your shoulders, draw your belly button toward your spine, and keep your breathing steady. Last effort, hold it." },
+        { "id": "termina", "escena": "habla", "visual": { "tipo": "sesion", "estado": "fin" },
+          "texto": "Done! On a scale of one to ten, how hard was that? If it was under five, do two rounds next time. If it was over eight, rest a bit longer between exercises. What you just did is exactly how you adjust intensity." }
+      ]
+    },
+    {
+      "id": "progresion",
+      "titulo": "How to progress week by week",
+      "lineas": [
+        { "id": "doble", "escena": "Curl con mancuernas", "visual": { "tipo": "pasos", "claves": ["rango", "repeticiones", "carga"] },
+          "texto": "To get stronger, there's a simple and very effective method: double progression. You pick a range, say eight to twelve reps. Once you hit twelve on every set with good form, you increase the load or the difficulty and start again at eight." },
+        { "id": "variables", "escena": "habla", "visual": { "tipo": "lista", "claves": ["masRepeticiones", "masSeries", "masLento", "menosApoyo"] },
+          "texto": "Without weights you can still overload: more reps, one more set, lowering more slowly, or taking away support, like going from knee push-ups to full push-ups." },
+        { "id": "diez", "escena": "Trote suave", "visual": { "tipo": "dato", "cifra": "≈10 %", "clave": "progresion" },
+          "texto": "For cardio, a practical rule of thumb is not to increase your weekly volume by more than ten percent at a time. Your muscles and your heart adapt quickly; your tendons and joints, more slowly." },
+        { "id": "plan", "escena": "habla", "visual": { "tipo": "herramienta", "herramienta": "armaTuPlan" },
+          "texto": "With all of this, you can put together a four-week plan. Choose how many days you have and your level, and down below I'll suggest how to split up strength, cardio, and mobility, with the progression already built in." },
+        { "id": "descarga", "escena": "Yoga flow", "visual": { "tipo": "grafica", "grafica": "bloques" },
+          "texto": "And every so often, many coaches schedule a deload week: same exercises, less volume. It's not a step back; it's giving the adaptation time to settle in." }
+      ]
+    },
+    {
+      "id": "recuperacion",
+      "titulo": "Recovery: where you actually get better",
+      "lineas": [
+        { "id": "sueno", "escena": "habla", "visual": { "tipo": "dato", "cifra": "7 h+", "clave": "sueno" },
+          "texto": "Remember: you improve while you rest. Sleep is the most powerful recovery tool there is; for adults, the recommendation is seven hours or more." },
+        { "id": "proteina", "escena": "habla", "visual": { "tipo": "dato", "cifra": "1.2–2 g/kg", "clave": "proteina" },
+          "texto": "Nutrition matters too. For people who train, the American College of Sports Medicine puts protein at between one point two and two grams per kilogram of body weight per day, spread across several meals." },
+        { "id": "neat", "escena": "Caminata", "visual": { "tipo": "foto", "foto": "escaleras" },
+          "texto": "And don't forget what happens outside your workouts. Walking, taking the stairs, getting up from your chair every hour: all that everyday movement adds up by the end of the day, and it offsets the time you spend sitting." },
+        { "id": "senales", "escena": "habla", "visual": { "tipo": "aviso" },
+          "texto": "Listen to the signals: muscle fatigue and soreness are normal. Sharp pain in a joint, dizziness, shortness of breath that's out of proportion, or chest pain are not. If they show up, stop and see a doctor." },
+        { "id": "resumen", "escena": "habla", "visual": { "tipo": "lista", "claves": ["resumen1", "resumen2", "resumen3", "resumen4"] },
+          "texto": "To sum up: train all four qualities, measure your intensity, progress gradually with a plan, and protect your recovery. With that, you already know more about training than most people." }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "If you want to track your plan the way I do, the Exercise room in MindHaOS has the timer, your streaks, and more than one hundred sixty animated exercises; the link is in the description. In the next guide, we'll tackle another question. See you then.",
+    "boton": "Open the Exercise room"
+  },
+  "fuentes": [
+    { "id": "oms-2020", "texto": "WHO. WHO guidelines on physical activity and sedentary behaviour (2020).", "url": "https://www.who.int/publications/i/item/9789240015128" },
+    { "id": "oms-nota", "texto": "WHO. Physical activity — Fact sheet.", "url": "https://www.who.int/es/news-room/fact-sheets/detail/physical-activity" },
+    { "id": "acsm", "texto": "American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription.", "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription" },
+    { "id": "acsm-nutricion", "texto": "ACSM, Academy of Nutrition and Dietetics and Dietitians of Canada. Nutrition and Athletic Performance (2016).", "url": "https://pubmed.ncbi.nlm.nih.gov/26891166/" },
+    { "id": "tanaka", "texto": "Tanaka H. et al. Age-predicted maximal heart rate revisited. J Am Coll Cardiol (2001).", "url": "https://pubmed.ncbi.nlm.nih.gov/11153730/" },
+    { "id": "cdc-intensidad", "texto": "CDC. Measuring Physical Activity Intensity.", "url": "https://www.cdc.gov/physical-activity-basics/measuring/index.html" },
+    { "id": "aasm-sueno", "texto": "AASM/SRS. Recommended Amount of Sleep for a Healthy Adult (2015).", "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/" }
+  ]
+}

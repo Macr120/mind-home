@@ -1,0 +1,528 @@
+{
+  "idioma": "id",
+  "tema": "ejercicio",
+  "plantillaId": "ejercicio",
+  "pregunta": "Apa itu olahraga?",
+  "subtitulo": "Cara kerja latihan, asal-usulnya, seberapa banyak kamu perlu bergerak, cara mengukur intensitasmu, dan cara terus berkembang.",
+  "aviso": "Panduan ini bersifat informatif dan tidak menggantikan nasihat dokter. Jika kamu punya penyakit, cedera, sedang hamil, atau sudah lama tidak aktif bergerak, konsultasikan dengan tenaga profesional sebelum mulai.",
+  "_notas": {
+    "escena": "Animación que hace Pep@ (nombre del catálogo de ejercicios de la app) o una acción: 'habla', 'saluda', 'senala'.",
+    "visual": "Bloque que acompaña la línea: foto (Pexels/Unsplash, ver medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "fondo": "El cuarto de Ejercicio de la app siempre está detrás, difuminado.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "memes": "\"meme\" (en visual o como campo extra de la línea) apunta a web/i18n/guias/<id>.json → ejercicio.memes.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre la toma de la casa (Pep@ en la caminadora); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «temporizador» y «rachas»; app2d.mjs cambia de pantalla de la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "adaptacion",
+      "titulo": "Apa yang terjadi di tubuhmu saat berlatih",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Apa itu olahraga? Hampir semua orang tahu bahwa mereka seharusnya berolahraga. Sangat sedikit orang yang tahu apa yang terjadi di tubuh mereka saat melakukannya. Sebenarnya, bagaimana cara kerjanya? Dalam beberapa menit ke depan, kamu akan belajar apa yang dipakai para pelatih untuk menyusun program, mengukur intensitasmu seperti mereka, dan pulang dengan rencana untuk terus berlanjut.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Omong-omong, ini rumahku di MindHaOS, dan di ruang Latihan ini aku mencatat rutinitasku. Ayo kita mulai.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian satu. Apa yang terjadi di tubuhmu saat berlatih."
+        },
+        {
+          "id": "estres",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "supercompensacion"
+          },
+          "texto": "Berlatih pada dasarnya adalah memberi tubuh stres yang terkendali. Selama sesi, performamu menurun: kamu lelah, energimu terkuras, dan otot mengalami luka-luka kecil. Yang membuatmu lebih kuat tidak terjadi saat itu, melainkan sesudahnya, ketika kamu beristirahat: tubuh memperbaiki diri dan bersiap untuk sesi berikutnya, sedikit di atas level sebelumnya.",
+          "lamina": "estres"
+        },
+        {
+          "id": "sobrecarga",
+          "escena": "Sentadilla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+",
+            "clave": "sobrecarga"
+          },
+          "texto": "Itulah yang disebut adaptasi, dan ada empat prinsip yang mengaturnya. Yang pertama adalah beban progresif: kalau kamu selalu melakukan hal yang sama, tubuh tidak punya alasan untuk berubah, jadi kamu perlu menuntut sedikit lebih banyak daripada terakhir kali.",
+          "lamina": "sobrecarga"
+        },
+        {
+          "id": "especificidad",
+          "escena": "Carrera",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sobrecarga",
+              "especificidad",
+              "recuperacion",
+              "constancia"
+            ]
+          },
+          "texto": "Prinsip kedua adalah spesifisitas: tubuhmu beradaptasi dengan apa yang kamu latih. Berlari meningkatkan daya tahanmu; mengangkat beban meningkatkan kekuatanmu. Yang ketiga adalah pemulihan: tanpa istirahat tidak ada adaptasi, yang ada hanya kelelahan yang menumpuk.",
+          "lamina": "especificidad"
+        },
+        {
+          "id": "constancia",
+          "escena": "Caminata rápida",
+          "visual": {
+            "tipo": "meme",
+            "meme": "constancia"
+          },
+          "texto": "Dan yang keempat, konsistensi. Adaptasi bisa hilang lagi: kalau kamu berhenti berlatih beberapa minggu, tubuhmu mulai kehilangan apa yang sudah didapat. Karena itu, sedikit tapi rutin lebih ampuh daripada banyak tapi jarang: dua puluh menit empat hari seminggu mengalahkan dua jam dalam satu hari saja.",
+          "lamina": "constancia"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Sejarah singkat olahraga",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian dua. Sejarah singkat olahraga."
+        },
+        {
+          "id": "griegos",
+          "escena": "Carrera",
+          "visual": {
+            "tipo": "meme",
+            "meme": "griegos"
+          },
+          "texto": "Menurut tradisi, Olimpiade pertama digelar pada tahun tujuh ratus tujuh puluh enam Sebelum Masehi. Orang Yunani berlatih di gimnasium, kata yang berasal dari gymnós, yang artinya telanjang. Dan ya: mereka memang berlatih seperti itu.",
+          "lamina": "griegos"
+        },
+        {
+          "id": "hipocrates",
+          "escena": "habla",
+          "visual": {
+            "tipo": "cita"
+          },
+          "texto": "Sejak dulu orang sudah merasakan manfaatnya bagi kesehatan. Hippokrates, bapak kedokteran, dikaitkan dengan gagasan bahwa makan dengan baik saja tidak cukup untuk tetap sehat: kita juga harus bergerak.",
+          "lamina": "hipocrates"
+        },
+        {
+          "id": "gimnasia",
+          "escena": "Flexiones",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1811",
+            "clave": "jahn"
+          },
+          "texto": "Pada abad kesembilan belas lahirlah metode senam yang pertama. Pada tahun seribu delapan ratus sebelas, Friedrich Ludwig Jahn membuka lapangan senam terbuka di Berlin, dan di Swedia, Pehr Henrik Ling menciptakan senam yang dirancang untuk kesehatan.",
+          "lamina": [
+            "gimnasia",
+            "ling"
+          ]
+        },
+        {
+          "id": "morris",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1953",
+            "clave": "morris"
+          },
+          "texto": "Titik baliknya datang pada tahun seribu sembilan ratus lima puluh tiga. Dokter Inggris Jeremy Morris membandingkan sopir bus tingkat di London, yang seharian duduk, dengan kondekturnya, yang naik turun tangga sepanjang hari. Para kondektur jauh lebih jarang terkena serangan jantung. Itu salah satu studi pertama yang menunjukkan bahwa bergerak melindungi jantung.",
+          "lamina": [
+            "morris",
+            "morris-bus"
+          ]
+        },
+        {
+          "id": "cooper",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "cooper"
+          },
+          "texto": "Pada tahun seribu sembilan ratus enam puluh delapan, dokter Kenneth Cooper menerbitkan buku Aerobics dan mempopulerkan kata aerobik. Di tahun tujuh puluhan, demam lari pun melanda.",
+          "lamina": "cooper"
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historia"
+          },
+          "texto": "Dan kini Organisasi Kesehatan Dunia menerbitkan rekomendasi yang didasarkan pada ribuan penelitian. Yang dulu hanya firasat, sekarang sudah jadi ilmu, dan itulah yang akan kita bahas.",
+          "lamina": "hoy"
+        }
+      ]
+    },
+    {
+      "id": "capacidades",
+      "titulo": "Empat kemampuan yang perlu kamu latih",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tiga. Empat kemampuan yang perlu kamu latih."
+        },
+        {
+          "id": "cuatro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resistencia",
+              "fuerza",
+              "movilidad",
+              "equilibrio"
+            ]
+          },
+          "texto": "Program yang lengkap melatih empat kemampuan: daya tahan, kekuatan, mobilitas, dan keseimbangan. Masing-masing punya takarannya sendiri.",
+          "lamina": "cuatro"
+        },
+        {
+          "id": "resistencia",
+          "escena": "Caminata rápida",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "150–300",
+            "clave": "minutosModerados"
+          },
+          "texto": "Daya tahan: Organisasi Kesehatan Dunia menyarankan orang dewasa melakukan seratus lima puluh sampai tiga ratus menit aktivitas sedang per minggu, atau tujuh puluh lima sampai seratus lima puluh menit aktivitas berat. Melebihi rentang itu memberi manfaat tambahan.",
+          "lamina": "resistencia"
+        },
+        {
+          "id": "fuerza",
+          "escena": "Peso muerto rumano",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2+",
+            "clave": "diasFuerza"
+          },
+          "texto": "Kekuatan: setidaknya dua hari per minggu, dengan melatih kelompok otot besar. Ini bukan cuma soal penampilan: massa otot melindungi sendimu, metabolismemu, dan seiring bertambahnya usia, kemandirianmu.",
+          "lamina": "fuerza"
+        },
+        {
+          "id": "movilidad",
+          "escena": "Yoga flow",
+          "visual": {
+            "tipo": "foto",
+            "foto": "movilidad"
+          },
+          "texto": "Mobilitas: kemampuan menggerakkan sendi di seluruh rentang geraknya dengan terkendali. Beberapa menit sehari, terutama untuk pinggul, bahu, dan tulang belakang, membuat semua latihan lain terasa lebih baik.",
+          "lamina": "movilidad"
+        },
+        {
+          "id": "equilibrio",
+          "escena": "Zancadas",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "65+",
+            "clave": "equilibrio"
+          },
+          "texto": "Dan keseimbangan: mulai usia enam puluh lima tahun, WHO menyarankan melatihnya tiga hari per minggu, karena bisa mengurangi risiko jatuh. Tapi melatihnya lebih awal adalah cara terbaik untuk sampai di usia itu dalam kondisi bugar.",
+          "lamina": "equilibrio"
+        }
+      ]
+    },
+    {
+      "id": "intensidad",
+      "titulo": "Ukur intensitasmu seperti seorang profesional",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian empat. Ukur intensitasmu seperti seorang profesional."
+        },
+        {
+          "id": "porque",
+          "escena": "habla",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Pertanyaan terpenting bukanlah berapa lama kamu berlatih, melainkan seberapa keras. Ada tiga alat sederhana untuk mengukurnya, dan tidak ada satu pun yang butuh peralatan mahal."
+        },
+        {
+          "id": "rpe",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escalaRpe"
+          },
+          "texto": "Yang pertama adalah skala usaha yang dirasakan, dari satu sampai sepuluh. Satu berarti duduk santai; sepuluh, usaha maksimal yang bisa kamu berikan. Aktivitas sedang kira-kira di antara lima dan enam, dan aktivitas berat di antara tujuh dan delapan. Kalau kamu masih bisa mengobrol tapi tidak bisa bernyanyi, kamu ada di zona sedang.",
+          "lamina": "rpe"
+        },
+        {
+          "id": "rir",
+          "escena": "Flexiones",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "RIR 2–3",
+            "clave": "rir"
+          },
+          "texto": "Yang kedua untuk latihan kekuatan: repetisi cadangan. Setelah menyelesaikan satu set, tanyakan pada dirimu berapa repetisi lagi yang masih bisa kamu lakukan dengan teknik yang baik. Kalau jawabannya dua atau tiga, itu zona yang sangat efektif untuk berkembang tanpa terlalu dekat dengan titik gagal.",
+          "lamina": "rir"
+        },
+        {
+          "id": "zonas",
+          "escena": "Bicicleta estática",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "zonasCardiacas"
+          },
+          "texto": "Yang ketiga adalah detak jantung. Perkiraan umum detak jantung maksimalmu adalah dua ratus delapan dikurangi nol koma tujuh dikali usiamu. Ini hanya perkiraan, tapi cukup untuk jadi pegangan. Tulis usiamu di bawah ini dan lihat zona-zonamu.",
+          "lamina": "zonas"
+        },
+        {
+          "id": "zona2",
+          "escena": "Ciclismo",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "zonas"
+          },
+          "texto": "Banyak orang selalu berlatih di titik tengah yang sama: terlalu berat untuk pulih, terlalu ringan untuk berkembang. Strategi yang banyak dipakai atlet ketahanan adalah membuat sebagian besar kardiomu ringan, di zona dua, saat kamu bisa bernapas lewat hidung, dan hanya sebagian kecil yang benar-benar intens.",
+          "lamina": "zona2"
+        }
+      ]
+    },
+    {
+      "id": "progresion",
+      "titulo": "Cara berkembang dari minggu ke minggu",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian lima. Cara berkembang dari minggu ke minggu."
+        },
+        {
+          "id": "doble",
+          "escena": "Curl con mancuernas",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rango",
+              "repeticiones",
+              "carga"
+            ]
+          },
+          "texto": "Untuk meningkatkan kekuatan ada metode yang sederhana dan sangat efektif: progresi ganda. Kamu memilih rentang, misalnya delapan sampai dua belas repetisi. Begitu kamu mencapai dua belas di semua set dengan teknik yang baik, naikkan beban atau tingkat kesulitannya, lalu mulai lagi dari delapan.",
+          "lamina": "doble"
+        },
+        {
+          "id": "variables",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "masRepeticiones",
+              "masSeries",
+              "masLento",
+              "menosApoyo"
+            ]
+          },
+          "texto": "Tanpa beban pun kamu tetap bisa menambah tantangan: lebih banyak repetisi, satu set tambahan, turun lebih pelan, atau mengurangi tumpuan, seperti beralih dari push-up bertumpu lutut ke push-up penuh.",
+          "lamina": "variables"
+        },
+        {
+          "id": "diez",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈10 %",
+            "clave": "progresion"
+          },
+          "texto": "Untuk kardio, patokan praktisnya adalah jangan menaikkan volume mingguan lebih dari sepuluh persen sekaligus. Otot dan jantungmu beradaptasi dengan cepat; tendon dan sendi jauh lebih lambat.",
+          "lamina": "diez"
+        },
+        {
+          "id": "plan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "armaTuPlan"
+          },
+          "texto": "Dengan semua ini kamu bisa menyusun rencana empat minggu, seperti yang kujalani di ruang Latihan milikku. Pilih berapa hari yang kamu punya dan levelmu, lalu di bawah ini aku usulkan cara membagi latihan kekuatan, kardio, dan mobilitas, lengkap dengan progresinya.",
+          "mencion": true,
+          "lamina": "plan"
+        },
+        {
+          "id": "descarga",
+          "escena": "Yoga flow",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "bloques"
+          },
+          "texto": "Dan sesekali, banyak pelatih menjadwalkan minggu deload: latihan yang sama, volume lebih sedikit. Itu bukan mundur; itu memberi kesempatan agar adaptasinya mengendap.",
+          "meme": "descarga",
+          "lamina": "descarga"
+        }
+      ]
+    },
+    {
+      "id": "recuperacion",
+      "titulo": "Pemulihan: di sinilah kamu benar-benar berkembang",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian enam. Pemulihan: di sinilah kamu benar-benar berkembang."
+        },
+        {
+          "id": "sueno",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "7 h+",
+            "clave": "sueno"
+          },
+          "texto": "Ingat: kamu berkembang saat beristirahat. Tidur adalah alat pemulihan paling ampuh yang ada; untuk orang dewasa, anjurannya tidur tujuh jam atau lebih.",
+          "lamina": "sueno"
+        },
+        {
+          "id": "proteina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1.2–2 g/kg",
+            "clave": "proteina"
+          },
+          "texto": "Pola makan juga berpengaruh. Untuk orang yang rutin berlatih, American College of Sports Medicine menyarankan protein antara satu koma dua sampai dua gram per kilogram berat badan per hari, dibagi ke beberapa kali makan.",
+          "lamina": "proteina"
+        },
+        {
+          "id": "neat",
+          "escena": "Caminata",
+          "visual": {
+            "tipo": "foto",
+            "foto": "escaleras"
+          },
+          "texto": "Dan jangan lupakan apa yang terjadi di luar latihan. Berjalan kaki, naik tangga, bangkit dari kursi setiap jam: gerakan sehari-hari itu menumpuk banyak di akhir hari, dan mengimbangi waktu yang kamu habiskan dengan duduk.",
+          "meme": "silla",
+          "lamina": "neat"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "Dan dengarkan tubuhmu. Merasa lelah setelah berlatih itu normal. Nyeri tajam di sendi, pusing, sesak napas yang tidak wajar, atau nyeri dada bukanlah hal yang normal: kalau muncul, berhentilah dan periksakan diri ke dokter."
+        },
+        {
+          "id": "resumen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Singkatnya: patuhi empat prinsipnya, latih empat kemampuannya, ukur intensitasmu, berkembanglah sedikit demi sedikit dengan rencana, dan jaga pemulihanmu. Dengan itu, kamu sudah lebih paham soal latihan daripada kebanyakan orang.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Kalau kamu ingin menjalankan rencanamu seperti aku, ruang Latihan di MindHaOS punya timer, runtunanmu, dan lebih dari seratus enam puluh latihan beranimasi. Tautannya ada di deskripsi, dan di sana juga ada versi interaktif panduan ini, supaya kamu bisa mengulanginya dengan santai. Di panduan berikutnya kita lanjut dengan pertanyaan lain. Sampai jumpa.",
+    "boton": "Buka ruang Latihan",
+    "lamina": "app-plan",
+    "anclas": {
+      "temporizador": "timer",
+      "rachas": "runtunanmu"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "oms-2020",
+      "texto": "WHO. Pedoman WHO tentang aktivitas fisik dan perilaku sedenter (2020).",
+      "url": "https://www.who.int/publications/i/item/9789240015128"
+    },
+    {
+      "id": "oms-nota",
+      "texto": "WHO. Aktivitas fisik — Lembar fakta.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/physical-activity"
+    },
+    {
+      "id": "acsm",
+      "texto": "American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription.",
+      "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+    },
+    {
+      "id": "acsm-nutricion",
+      "texto": "ACSM, Academy of Nutrition and Dietetics, dan Dietitians of Canada. Nutrition and Athletic Performance (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26891166/"
+    },
+    {
+      "id": "tanaka",
+      "texto": "Tanaka H. et al. Age-predicted maximal heart rate revisited. J Am Coll Cardiol (2001).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11153730/"
+    },
+    {
+      "id": "cdc-intensidad",
+      "texto": "CDC. Measuring Physical Activity Intensity.",
+      "url": "https://www.cdc.gov/physical-activity-basics/measuring/index.html"
+    },
+    {
+      "id": "aasm-sueno",
+      "texto": "AASM/SRS. Recommended Amount of Sleep for a Healthy Adult (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/"
+    },
+    {
+      "id": "morris-1953",
+      "texto": "Morris J. N. et al. Coronary heart-disease and physical activity of work. The Lancet (1953).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13110049/"
+    },
+    {
+      "id": "cooper-1968",
+      "texto": "Cooper K. H. Aerobics. M. Evans and Company (1968).",
+      "url": "https://www.cooperinstitute.org/about/history"
+    }
+  ]
+}

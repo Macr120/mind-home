@@ -1,0 +1,528 @@
+{
+  "idioma": "nl",
+  "tema": "ejercicio",
+  "plantillaId": "ejercicio",
+  "pregunta": "Wat is sporten eigenlijk?",
+  "subtitulo": "Hoe trainen werkt, waar het vandaan komt, hoeveel je moet bewegen, hoe je je intensiteit meet en hoe je vooruitgang boekt.",
+  "aviso": "Deze gids is informatief en vervangt geen advies van een arts. Heb je een ziekte of blessure, ben je zwanger of heb je lang niet bewogen, overleg dan eerst met een professional voordat je begint.",
+  "_notas": {
+    "escena": "Animación que hace Pep@ (nombre del catálogo de ejercicios de la app) o una acción: 'habla', 'saluda', 'senala'.",
+    "visual": "Bloque que acompaña la línea: foto (Pexels/Unsplash, ver medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "fondo": "El cuarto de Ejercicio de la app siempre está detrás, difuminado.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "memes": "\"meme\" (en visual o como campo extra de la línea) apunta a web/i18n/guias/<id>.json → ejercicio.memes.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre la toma de la casa (Pep@ en la caminadora); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «temporizador» y «rachas»; app2d.mjs cambia de pantalla de la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "adaptacion",
+      "titulo": "Wat er in je lichaam gebeurt als je traint",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Wat is sporten eigenlijk? Bijna iedereen weet dat hij meer zou moeten bewegen. Heel weinig mensen weten wat er dan in hun lichaam gebeurt. Hoe werkt het nu echt? In de komende minuten leer je waar trainers hun schema's op baseren, meet je je intensiteit zoals zij dat doen en ga je naar huis met een plan om door te gaan.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Trouwens, dit is mijn huis in MindHaOS, en in deze kamer, de Gym, houd ik mijn routines bij. Laten we beginnen.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel één. Wat er in je lichaam gebeurt als je traint."
+        },
+        {
+          "id": "estres",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "supercompensacion"
+          },
+          "texto": "Trainen is letterlijk gecontroleerde stress toedienen. Tijdens de training gaan je prestaties omlaag: je wordt moe, je verbruikt energie, je spieren lopen kleine microscheurtjes op. Sterker word je niet op dat moment, maar daarna, terwijl je rust: je lichaam herstelt en bereidt zich voor op de volgende keer, een stukje boven waar het was.",
+          "lamina": "estres"
+        },
+        {
+          "id": "sobrecarga",
+          "escena": "Sentadilla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+",
+            "clave": "sobrecarga"
+          },
+          "texto": "Dat heet aanpassing, en die volgt vier principes. Het eerste is progressieve overbelasting: als je altijd hetzelfde doet, heeft je lichaam geen reden meer om te veranderen, dus vraag je er steeds een klein beetje meer van dan de vorige keer.",
+          "lamina": "sobrecarga"
+        },
+        {
+          "id": "especificidad",
+          "escena": "Carrera",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sobrecarga",
+              "especificidad",
+              "recuperacion",
+              "constancia"
+            ]
+          },
+          "texto": "Het tweede principe is specificiteit: je past je aan aan wat je oefent. Hardlopen verbetert je uithoudingsvermogen; gewichtheffen verbetert je kracht. Het derde is herstel: zonder rust geen aanpassing, alleen opgestapelde vermoeidheid.",
+          "lamina": "especificidad"
+        },
+        {
+          "id": "constancia",
+          "escena": "Caminata rápida",
+          "visual": {
+            "tipo": "meme",
+            "meme": "constancia"
+          },
+          "texto": "En het vierde: regelmaat. Aanpassingen zijn omkeerbaar: als je een paar weken stopt met trainen, begint je lichaam kwijt te raken wat het had opgebouwd. Daarom werkt weinig en vaak beter dan veel en af en toe: twintig minuten op vier dagen per week winnen van twee uur op één dag.",
+          "lamina": "constancia"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Een korte geschiedenis van het sporten",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel twee. Een korte geschiedenis van het sporten."
+        },
+        {
+          "id": "griegos",
+          "escena": "Carrera",
+          "visual": {
+            "tipo": "meme",
+            "meme": "griegos"
+          },
+          "texto": "Volgens de overlevering werden de eerste Olympische Spelen gehouden in het jaar zevenhonderdzesenzeventig voor Christus. De Grieken trainden in het gymnasion, een woord dat komt van gymnós, en dat betekent naakt. En ja: zo trainden ze ook.",
+          "lamina": "griegos"
+        },
+        {
+          "id": "hipocrates",
+          "escena": "habla",
+          "visual": {
+            "tipo": "cita"
+          },
+          "texto": "Toen al voelde men aan hoe goed het was voor de gezondheid. Aan Hippocrates, de vader van de geneeskunde, wordt het idee toegeschreven dat goed eten niet genoeg is om gezond te blijven: je moet ook bewegen.",
+          "lamina": "hipocrates"
+        },
+        {
+          "id": "gimnasia",
+          "escena": "Flexiones",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1811",
+            "clave": "jahn"
+          },
+          "texto": "In de negentiende eeuw ontstonden de eerste gymnastiekmethodes. In achttienhonderdelf opende Friedrich Ludwig Jahn in Berlijn een gymnastiekveld in de openlucht, en in Zweden ontwikkelde Pehr Henrik Ling een gymnastiek die draaide om gezondheid.",
+          "lamina": [
+            "gimnasia",
+            "ling"
+          ]
+        },
+        {
+          "id": "morris",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1953",
+            "clave": "morris"
+          },
+          "texto": "De grote ommekeer kwam in negentienhonderddrieënvijftig. De Britse arts Jeremy Morris vergeleek de chauffeurs van de Londense dubbeldekkers, die de hele dag zaten, met de conducteurs, die de hele dag de trap op en af liepen. De conducteurs kregen een stuk minder hartaanvallen. Het was een van de eerste studies die aantoonden dat bewegen je hart beschermt.",
+          "lamina": [
+            "morris",
+            "morris-bus"
+          ]
+        },
+        {
+          "id": "cooper",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "cooper"
+          },
+          "texto": "In negentienhonderdachtenzestig publiceerde arts Kenneth Cooper het boek Aerobics en maakte hij het woord aeroob populair. In de jaren zeventig brak de hardloopkoorts uit.",
+          "lamina": "cooper"
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historia"
+          },
+          "texto": "En vandaag publiceert de Wereldgezondheidsorganisatie aanbevelingen op basis van duizenden studies. Wat vroeger gevoel was, is nu wetenschap, en dat gaan we bekijken.",
+          "lamina": "hoy"
+        }
+      ]
+    },
+    {
+      "id": "capacidades",
+      "titulo": "De vier vaardigheden die je moet trainen",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel drie. De vier vaardigheden die je moet trainen."
+        },
+        {
+          "id": "cuatro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resistencia",
+              "fuerza",
+              "movilidad",
+              "equilibrio"
+            ]
+          },
+          "texto": "Een compleet schema werkt aan vier vaardigheden: uithoudingsvermogen, kracht, mobiliteit en balans. Elk heeft zijn eigen dosis.",
+          "lamina": "cuatro"
+        },
+        {
+          "id": "resistencia",
+          "escena": "Caminata rápida",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "150–300",
+            "clave": "minutosModerados"
+          },
+          "texto": "Uithoudingsvermogen: de Wereldgezondheidsorganisatie raadt volwassenen tussen de honderdvijftig en driehonderd minuten matig intensieve beweging per week aan, of vijfenzeventig tot honderdvijftig minuten zware inspanning. Wie daarboven zit, haalt er extra voordeel uit.",
+          "lamina": "resistencia"
+        },
+        {
+          "id": "fuerza",
+          "escena": "Peso muerto rumano",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2+",
+            "clave": "diasFuerza"
+          },
+          "texto": "Kracht: minstens twee dagen per week, waarbij je de grote spiergroepen traint. Het gaat niet alleen om het uiterlijk: spiermassa beschermt je gewrichten, je stofwisseling en, naarmate je ouder wordt, je zelfstandigheid.",
+          "lamina": "fuerza"
+        },
+        {
+          "id": "movilidad",
+          "escena": "Yoga flow",
+          "visual": {
+            "tipo": "foto",
+            "foto": "movilidad"
+          },
+          "texto": "Mobiliteit: het vermogen om een gewricht gecontroleerd door zijn volledige bewegingsbereik te bewegen. Een paar minuten per dag, vooral voor heupen, schouders en wervelkolom, en al het andere gaat beter.",
+          "lamina": "movilidad"
+        },
+        {
+          "id": "equilibrio",
+          "escena": "Zancadas",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "65+",
+            "clave": "equilibrio"
+          },
+          "texto": "En balans: vanaf vijfenzestig jaar raadt de WHO aan om die drie dagen per week te trainen, omdat het de kans op vallen verkleint. Maar er eerder mee beginnen is de beste manier om daar fit aan te komen.",
+          "lamina": "equilibrio"
+        }
+      ]
+    },
+    {
+      "id": "intensidad",
+      "titulo": "Meet je intensiteit als een prof",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vier. Meet je intensiteit als een prof."
+        },
+        {
+          "id": "porque",
+          "escena": "habla",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "De belangrijkste vraag is niet hoe lang je traint, maar hoe zwaar. Er zijn drie eenvoudige hulpmiddelen om dat te meten, en voor geen ervan heb je dure apparatuur nodig."
+        },
+        {
+          "id": "rpe",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escalaRpe"
+          },
+          "texto": "De eerste is de schaal van ervaren inspanning, van één tot tien. Eén is stilzitten; tien is de grootste inspanning die je kunt leveren. Matige inspanning ligt ongeveer tussen vijf en zes, zware tussen zeven en acht. Kun je nog praten maar niet meer zingen, dan zit je op matig.",
+          "lamina": "rpe"
+        },
+        {
+          "id": "rir",
+          "escena": "Flexiones",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "RIR 2–3",
+            "clave": "rir"
+          },
+          "texto": "De tweede is voor kracht: herhalingen in reserve. Vraag je aan het eind van een set af hoeveel je er nog had kunnen doen met goede techniek. Is het antwoord twee of drie, dan zit je in een heel effectieve zone om vooruit te gaan zonder te dicht bij spierfalen te komen.",
+          "lamina": "rir"
+        },
+        {
+          "id": "zonas",
+          "escena": "Bicicleta estática",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "zonasCardiacas"
+          },
+          "texto": "De derde is je hartslag. Een veelgebruikte schatting van je maximum is tweehonderdacht min nul komma zeven keer je leeftijd. Het is een benadering, maar het helpt je op weg. Vul hieronder je leeftijd in en je ziet je zones.",
+          "lamina": "zonas"
+        },
+        {
+          "id": "zona2",
+          "escena": "Ciclismo",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "zonas"
+          },
+          "texto": "Veel mensen trainen altijd op hetzelfde middenniveau: te zwaar om te herstellen, te licht om beter te worden. Een strategie die veel duursporters gebruiken: het grootste deel van je cardio is rustig, in zone twee, waar je door je neus kunt ademen, en maar een klein deel is echt intensief.",
+          "lamina": "zona2"
+        }
+      ]
+    },
+    {
+      "id": "progresion",
+      "titulo": "Zo word je week na week beter",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vijf. Zo word je week na week beter."
+        },
+        {
+          "id": "doble",
+          "escena": "Curl con mancuernas",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rango",
+              "repeticiones",
+              "carga"
+            ]
+          },
+          "texto": "Om sterker te worden is er een eenvoudige en heel effectieve methode: dubbele progressie. Je kiest een bereik, bijvoorbeeld acht tot twaalf herhalingen. Haal je twaalf in alle sets met goede techniek, dan verhoog je het gewicht of de moeilijkheid en begin je weer bij acht.",
+          "lamina": "doble"
+        },
+        {
+          "id": "variables",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "masRepeticiones",
+              "masSeries",
+              "masLento",
+              "menosApoyo"
+            ]
+          },
+          "texto": "Ook zonder gewichten kun je zwaarder trainen: meer herhalingen, een set extra, langzamer zakken of minder steun, zoals van opdrukken op je knieën naar volledig opdrukken.",
+          "lamina": "variables"
+        },
+        {
+          "id": "diez",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈10 %",
+            "clave": "progresion"
+          },
+          "texto": "Bij cardio is een handige vuistregel om je weekvolume nooit met meer dan tien procent tegelijk te verhogen. Je spieren en je hart passen zich snel aan; pezen en gewrichten doen er langer over.",
+          "lamina": "diez"
+        },
+        {
+          "id": "plan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "armaTuPlan"
+          },
+          "texto": "Met dit alles kun je een schema van vier weken maken, zoals de schema's in mijn Gym. Kies hoeveel dagen je hebt en wat je niveau is, en hieronder stel ik voor hoe je kracht, cardio en mobiliteit verdeelt, met de opbouw er al in.",
+          "mencion": true,
+          "lamina": "plan"
+        },
+        {
+          "id": "descarga",
+          "escena": "Yoga flow",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "bloques"
+          },
+          "texto": "En om de zoveel tijd plannen veel trainers een deloadweek in: dezelfde oefeningen, minder volume. Dat is geen stap terug; zo geef je de aanpassing de tijd om vast te zetten.",
+          "meme": "descarga",
+          "lamina": "descarga"
+        }
+      ]
+    },
+    {
+      "id": "recuperacion",
+      "titulo": "Herstel: daar word je echt beter",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zes. Herstel: daar word je echt beter."
+        },
+        {
+          "id": "sueno",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "7 h+",
+            "clave": "sueno"
+          },
+          "texto": "Onthoud: je wordt beter terwijl je rust. Slaap is het krachtigste hersteltool dat er bestaat; voor volwassenen is het advies zeven uur of meer te slapen.",
+          "lamina": "sueno"
+        },
+        {
+          "id": "proteina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1.2–2 g/kg",
+            "clave": "proteina"
+          },
+          "texto": "Ook voeding telt. Voor mensen die trainen adviseert het American College of Sports Medicine tussen één komma twee en twee gram eiwit per kilo lichaamsgewicht per dag, verdeeld over meerdere maaltijden.",
+          "lamina": "proteina"
+        },
+        {
+          "id": "neat",
+          "escena": "Caminata",
+          "visual": {
+            "tipo": "foto",
+            "foto": "escaleras"
+          },
+          "texto": "En vergeet niet wat er buiten je training gebeurt. Wandelen, de trap nemen, elk uur even opstaan uit je stoel: die dagelijkse beweging telt aan het eind van de dag flink op, en compenseert de tijd die je zit.",
+          "meme": "silla",
+          "lamina": "neat"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "En luister naar je lichaam. Moe zijn na het trainen is normaal. Een stekende pijn in een gewricht, duizeligheid, buitensporige kortademigheid of pijn op de borst zijn dat niet: als die optreden, stop dan en ga naar een arts."
+        },
+        {
+          "id": "resumen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Samengevat: respecteer de vier principes, train de vier vaardigheden, meet je intensiteit, bouw rustig op met een schema en bescherm je herstel. Daarmee weet je al meer over trainen dan de meeste mensen.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Wil je je schema bijhouden zoals ik dat doe? De Gym in MindHaOS heeft de timer, je reeksen en meer dan honderdzestig geanimeerde oefeningen. De link staat in de beschrijving, en daar vind je ook deze gids in een interactieve versie, zodat je hem rustig kunt nalezen. In de volgende gids gaan we verder met een nieuwe vraag. Tot dan.",
+    "boton": "Open de Gym",
+    "lamina": "app-plan",
+    "anclas": {
+      "temporizador": "timer",
+      "rachas": "reeksen"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "oms-2020",
+      "texto": "WHO. Richtlijnen van de WHO over lichamelijke activiteit en sedentair gedrag (2020).",
+      "url": "https://www.who.int/publications/i/item/9789240015128"
+    },
+    {
+      "id": "oms-nota",
+      "texto": "WHO. Lichamelijke activiteit — Factsheet.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/physical-activity"
+    },
+    {
+      "id": "acsm",
+      "texto": "American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription.",
+      "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+    },
+    {
+      "id": "acsm-nutricion",
+      "texto": "ACSM, Academy of Nutrition and Dietetics en Dietitians of Canada. Nutrition and Athletic Performance (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26891166/"
+    },
+    {
+      "id": "tanaka",
+      "texto": "Tanaka H. et al. Age-predicted maximal heart rate revisited. J Am Coll Cardiol (2001).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11153730/"
+    },
+    {
+      "id": "cdc-intensidad",
+      "texto": "CDC. Measuring Physical Activity Intensity.",
+      "url": "https://www.cdc.gov/physical-activity-basics/measuring/index.html"
+    },
+    {
+      "id": "aasm-sueno",
+      "texto": "AASM/SRS. Recommended Amount of Sleep for a Healthy Adult (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/"
+    },
+    {
+      "id": "morris-1953",
+      "texto": "Morris J. N. et al. Coronary heart-disease and physical activity of work. The Lancet (1953).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13110049/"
+    },
+    {
+      "id": "cooper-1968",
+      "texto": "Cooper K. H. Aerobics. M. Evans and Company (1968).",
+      "url": "https://www.cooperinstitute.org/about/history"
+    }
+  ]
+}

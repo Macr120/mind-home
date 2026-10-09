@@ -338,6 +338,14 @@ export const TEXTOS = {
     'Tu peux supprimer ton compte et toutes tes données dans le cloud depuis l’app (Éditeur → Réglages → Compte) ou depuis ton compte sur le web. Sa suppression efface aussi les connexions à tes réseaux sociaux (YouTube, TikTok, Facebook et Instagram) : les jetons enregistrés sont détruits et cessent d’être valables.',
   'sop.cuenta.enlace': 'Aller à ton compte',
 
+  // ─── Portada de las guías (/guias) ──────────────────────────────────────
+  'guias.titulo': "Guides MindHaOS — Des réponses claires aux questions de base",
+  'guias.desc': "Des guides interactifs racontés par Pep@ : des questions de base comme faire de l’exercice, traitées en profondeur, avec sources et outils, en 16 langues.",
+  'guias.h1': "Guides MindHaOS",
+  'guias.p': "Des questions de base traitées en profondeur, étape par étape et sources à l’appui. Chaque guide est raconté par Pep@ et vient avec des outils pour passer à la pratique.",
+  'guias.partes': "parties",
+  'guias.min': "min",
+
   // ─── Archivo compartido por enlace (descarga.html) ───────────────────
   'desc.titulo': "Fichier partagé",
   'desc.cargando': "Recherche du fichier…",

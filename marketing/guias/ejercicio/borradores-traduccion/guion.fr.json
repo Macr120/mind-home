@@ -1,0 +1,134 @@
+{
+  "idioma": "fr",
+  "tema": "ejercicio",
+  "plantillaId": "ejercicio",
+  "pregunta": "Comment faire du sport ?",
+  "subtitulo": "Comment fonctionne l'entraînement, comment mesurer ton intensité, et une séance guidée à faire avec moi.",
+  "aviso": "Ce guide est purement informatif et ne remplace pas l'avis d'un médecin. Si tu as une maladie ou une blessure, si tu es enceinte ou si tu n'as pas bougé depuis longtemps, consulte un professionnel avant de commencer.",
+  "_notas": {
+    "escena": "Animación que hace Pep@ (nombre del catálogo de ejercicios de la app) o una acción: 'habla', 'saluda', 'senala'.",
+    "visual": "Bloque que acompaña la línea: foto (Pexels/Unsplash, ver medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos.",
+    "mencion": "Las tres líneas con \"mencion\": true nombran la app de pasada (inicio, medio y final). Nunca tono de anuncio.",
+    "fondo": "El cuarto de Ejercicio de la app siempre está detrás, difuminado."
+  },
+  "partes": [
+    {
+      "id": "adaptacion",
+      "titulo": "Ce qui se passe dans ton corps quand tu t'entraînes",
+      "lineas": [
+        { "id": "gancho", "escena": "saluda", "visual": { "tipo": "titulo" },
+          "texto": "Presque tout le monde sait qu'il faudrait faire du sport. Très peu de gens savent comment ça marche. Et quand tu comprends comment ça marche, tu arrêtes d'improviser. Dans les prochaines minutes, tu vas découvrir ce que les coachs utilisent pour planifier, tu vas mesurer ton intensité comme eux et, à mi-parcours, on va s'entraîner ensemble." },
+        { "id": "mencion-inicio", "mencion": true, "escena": "senala", "visual": { "tipo": "fondo" },
+          "texto": "Au fait, on est dans ma pièce Exercice de MindHaOS : c'est là que je gère mes séances, donc tu la verras en arrière-plan. C'est parti." },
+        { "id": "estres", "escena": "habla", "visual": { "tipo": "grafica", "grafica": "supercompensacion" },
+          "texto": "S'entraîner, c'est littéralement appliquer un stress contrôlé. Pendant la séance, ta performance baisse : tu te fatigues, tu dépenses de l'énergie, le muscle subit de petites microlésions. Ce qui te rend plus fort ne se passe pas à ce moment-là, mais après, pendant que tu récupères : le corps se répare et se prépare pour la fois suivante, un peu au-dessus de son niveau d'avant." },
+        { "id": "sobrecarga", "escena": "Sentadilla", "visual": { "tipo": "dato", "cifra": "+", "clave": "sobrecarga" },
+          "texto": "C'est ce qu'on appelle l'adaptation. Et elle a une condition : si tu fais toujours la même chose, ton corps n'a plus de raison de changer. C'est pour ça que le principe numéro un de l'entraînement, c'est la surcharge progressive : demander à ton corps un tout petit peu plus que la dernière fois." },
+        { "id": "especificidad", "escena": "Carrera", "visual": { "tipo": "pasos", "claves": ["especificidad", "recuperacion", "constancia"] },
+          "texto": "Le deuxième principe, c'est la spécificité : tu t'adaptes à ce que tu pratiques. Courir améliore ton endurance, soulever des charges améliore ta force. Et le troisième, c'est la récupération : sans repos, pas d'adaptation, juste de la fatigue accumulée." }
+      ]
+    },
+    {
+      "id": "capacidades",
+      "titulo": "Les quatre qualités à entraîner",
+      "lineas": [
+        { "id": "cuatro", "escena": "habla", "visual": { "tipo": "lista", "claves": ["resistencia", "fuerza", "movilidad", "equilibrio"] },
+          "texto": "Un programme complet travaille quatre qualités : l'endurance, la force, la mobilité et l'équilibre. Chacune a sa dose." },
+        { "id": "resistencia", "escena": "Caminata rápida", "visual": { "tipo": "dato", "cifra": "150–300", "clave": "minutosModerados" },
+          "texto": "L'endurance : l'Organisation mondiale de la santé recommande aux adultes entre cent cinquante et trois cents minutes d'activité modérée par semaine, ou de soixante-quinze à cent cinquante minutes d'activité intense. Aller au-delà apporte des bénéfices supplémentaires." },
+        { "id": "fuerza", "escena": "Peso muerto rumano", "visual": { "tipo": "dato", "cifra": "2+", "clave": "diasFuerza" },
+          "texto": "La force : au moins deux jours par semaine, en travaillant les grands groupes musculaires. Ce n'est pas qu'une question d'esthétique : la masse musculaire protège tes articulations, ton métabolisme et, avec les années, ton autonomie." },
+        { "id": "movilidad", "escena": "Yoga flow", "visual": { "tipo": "foto", "foto": "movilidad" },
+          "texto": "La mobilité : la capacité à bouger une articulation sur toute son amplitude, avec contrôle. Quelques minutes par jour, surtout pour les hanches, les épaules et la colonne, et tout le reste se passe mieux." },
+        { "id": "equilibrio", "escena": "Zancadas", "visual": { "tipo": "dato", "cifra": "65+", "clave": "equilibrio" },
+          "texto": "Et l'équilibre : à partir de soixante-cinq ans, l'OMS recommande de le travailler trois jours par semaine, parce que ça réduit le risque de chute. Mais l'entraîner plus tôt, c'est le meilleur moyen d'arriver à cet âge en forme." }
+      ]
+    },
+    {
+      "id": "intensidad",
+      "titulo": "Mesure ton intensité comme un pro",
+      "lineas": [
+        { "id": "porque", "escena": "habla", "visual": { "tipo": "titulo" },
+          "texto": "La question la plus importante, ce n'est pas combien de temps tu t'entraînes, mais à quelle intensité. Il existe trois outils simples pour la mesurer, et aucun ne demande de matériel coûteux." },
+        { "id": "rpe", "escena": "Trote suave", "visual": { "tipo": "herramienta", "herramienta": "escalaRpe" },
+          "texto": "Le premier, c'est l'échelle d'effort perçu, de un à dix. Un, c'est être assis ; dix, l'effort maximal que tu peux fournir. L'activité modérée se situe à peu près entre cinq et six, et l'activité intense entre sept et huit. Si tu peux discuter mais pas chanter, tu es en modéré." },
+        { "id": "rir", "escena": "Flexiones", "visual": { "tipo": "dato", "cifra": "RIR 2–3", "clave": "rir" },
+          "texto": "Le deuxième sert pour la force : les répétitions en réserve. À la fin d'une série, demande-toi combien tu aurais pu en faire de plus avec une bonne technique. Si la réponse est deux ou trois, c'est une zone très efficace pour progresser sans trop t'approcher de l'échec." },
+        { "id": "zonas", "escena": "Bicicleta estática", "visual": { "tipo": "herramienta", "herramienta": "zonasCardiacas" },
+          "texto": "Le troisième, c'est la fréquence cardiaque. Une estimation courante de ta fréquence maximale, c'est deux cent huit moins zéro virgule sept fois ton âge. C'est approximatif, mais ça donne un bon repère. Entre ton âge juste en dessous et tu verras tes zones." },
+        { "id": "zona2", "escena": "Ciclismo", "visual": { "tipo": "grafica", "grafica": "zonas" },
+          "texto": "Beaucoup de gens s'entraînent toujours dans la même zone intermédiaire : trop dure pour bien récupérer, trop facile pour progresser. Une stratégie très utilisée par les athlètes d'endurance consiste à faire la majeure partie de son cardio à faible intensité, en zone deux, là où tu peux respirer par le nez, et seulement une petite partie vraiment intense." }
+      ]
+    },
+    {
+      "id": "sesion",
+      "titulo": "Séance guidée : entraîne-toi avec moi",
+      "lineas": [
+        { "id": "explica", "escena": "habla", "visual": { "tipo": "sesion", "estado": "previa" },
+          "texto": "Maintenant, place à la pratique. C'est un circuit full body : quatre exercices, quarante secondes d'effort et vingt de récupération. Fais un tour avec moi ; sur la page, tu peux en choisir jusqu'à quatre. Vise un effort de six ou sept." },
+        { "id": "mencion-medio", "mencion": true, "escena": "senala", "visual": { "tipo": "sesion", "estado": "temporizador" },
+          "texto": "Le minuteur que tu vois, c'est le même que j'utilise dans la pièce Exercice. D'abord, une minute d'échauffement." },
+        { "id": "calentamiento", "escena": "Movilidad matutina", "visual": { "tipo": "sesion", "bloque": "calentamiento", "segundos": 60 },
+          "texto": "Des cercles avec les épaules, les hanches et les chevilles. Respire profondément et relâche le corps. Augmente le rythme petit à petit." },
+        { "id": "s1", "escena": "Sentadilla", "visual": { "tipo": "sesion", "bloque": "Sentadilla", "segundos": 40, "descanso": 20 },
+          "texto": "Un : squat. Pieds écartés à la largeur des épaules, poitrine haute. Descends en contrôlant sur deux secondes et remonte avec puissance. Les genoux suivent la direction de la pointe des pieds." },
+        { "id": "s2", "escena": "Flexiones", "visual": { "tipo": "sesion", "bloque": "Flexiones", "segundos": 40, "descanso": 20 },
+          "texto": "Deux : pompes. Serre les fessiers et les abdos pour que ton corps reste d'un seul bloc. Les coudes à environ quarante-cinq degrés du corps. Si besoin, pose les genoux : la qualité avant tout." },
+        { "id": "s3", "escena": "Puente de glúteo", "visual": { "tipo": "sesion", "bloque": "Puente de glúteo", "segundos": 40, "descanso": 20 },
+          "texto": "Trois : pont fessier. Pousse dans les talons, monte le bassin et tiens une seconde en haut en serrant. Le bas du dos ne se cambre pas : le travail vient des hanches." },
+        { "id": "s4", "escena": "Plancha", "visual": { "tipo": "sesion", "bloque": "Plancha", "segundos": 40, "descanso": 0 },
+          "texto": "Quatre : gainage. Coudes sous les épaules, rentre le nombril vers la colonne et respire de façon régulière. Dernier effort, tiens bon." },
+        { "id": "termina", "escena": "habla", "visual": { "tipo": "sesion", "estado": "fin" },
+          "texto": "C'est fini ! De un à dix, c'était combien ? Si c'était moins de cinq, fais deux tours la prochaine fois. Si c'était plus de huit, prends un peu plus de repos entre les exercices. Ce que tu viens de faire, c'est exactement ajuster l'intensité." }
+      ]
+    },
+    {
+      "id": "progresion",
+      "titulo": "Comment progresser semaine après semaine",
+      "lineas": [
+        { "id": "doble", "escena": "Curl con mancuernas", "visual": { "tipo": "pasos", "claves": ["rango", "repeticiones", "carga"] },
+          "texto": "Pour progresser en force, il existe une méthode simple et très efficace : la double progression. Tu choisis une fourchette, par exemple de huit à douze répétitions. Quand tu arrives à douze sur toutes les séries avec une bonne technique, tu augmentes la charge ou la difficulté, et tu repars à huit." },
+        { "id": "variables", "escena": "habla", "visual": { "tipo": "lista", "claves": ["masRepeticiones", "masSeries", "masLento", "menosApoyo"] },
+          "texto": "Sans poids, tu peux aussi créer une surcharge : plus de répétitions, une série de plus, descendre plus lentement ou retirer des appuis, comme passer des pompes sur les genoux aux pompes complètes." },
+        { "id": "diez", "escena": "Trote suave", "visual": { "tipo": "dato", "cifra": "≈10 %", "clave": "progresion" },
+          "texto": "En cardio, un repère pratique, c'est de ne pas augmenter ton volume hebdomadaire de plus de dix pour cent à la fois. Tes muscles et ton cœur s'adaptent vite ; les tendons et les articulations, plus lentement." },
+        { "id": "plan", "escena": "habla", "visual": { "tipo": "herramienta", "herramienta": "armaTuPlan" },
+          "texto": "Avec tout ça, tu peux construire un programme de quatre semaines. Choisis combien de jours tu as et ton niveau, et juste en dessous je te propose comment répartir force, cardio et mobilité, avec la progression déjà intégrée." },
+        { "id": "descarga", "escena": "Yoga flow", "visual": { "tipo": "grafica", "grafica": "bloques" },
+          "texto": "Et régulièrement, beaucoup de coachs programment une semaine de décharge : mêmes exercices, moins de volume. Ce n'est pas reculer ; c'est laisser l'adaptation se consolider." }
+      ]
+    },
+    {
+      "id": "recuperacion",
+      "titulo": "La récupération : là où tu progresses vraiment",
+      "lineas": [
+        { "id": "sueno", "escena": "habla", "visual": { "tipo": "dato", "cifra": "7 h+", "clave": "sueno" },
+          "texto": "Souviens-toi : tu progresses pendant que tu récupères. Le sommeil est l'outil de récupération le plus puissant qui existe ; pour un adulte, la recommandation est de dormir sept heures ou plus." },
+        { "id": "proteina", "escena": "habla", "visual": { "tipo": "dato", "cifra": "1.2–2 g/kg", "clave": "proteina" },
+          "texto": "L'alimentation compte aussi. Pour les personnes qui s'entraînent, l'American College of Sports Medicine situe les besoins en protéines entre un virgule deux et deux grammes par kilo de poids de corps et par jour, répartis sur plusieurs repas." },
+        { "id": "neat", "escena": "Caminata", "visual": { "tipo": "foto", "foto": "escaleras" },
+          "texto": "Et n'oublie pas ce qui se passe en dehors de l'entraînement. Marcher, prendre les escaliers, te lever de ta chaise toutes les heures : ce mouvement du quotidien pèse lourd à la fin de la journée, et compense le temps que tu passes assis." },
+        { "id": "senales", "escena": "habla", "visual": { "tipo": "aviso" },
+          "texto": "Écoute les signaux : la fatigue musculaire et les courbatures sont normales. Une douleur vive dans une articulation, des vertiges, un essoufflement disproportionné ou une douleur dans la poitrine, non. S'ils apparaissent, arrête-toi et consulte un médecin." },
+        { "id": "resumen", "escena": "habla", "visual": { "tipo": "lista", "claves": ["resumen1", "resumen2", "resumen3", "resumen4"] },
+          "texto": "En résumé : entraîne les quatre qualités, mesure ton intensité, progresse petit à petit avec un programme et protège ta récupération. Avec ça, tu en sais déjà plus sur l'entraînement que la plupart des gens." }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Si tu veux suivre ton programme comme je le fais, la pièce Exercice de MindHaOS a le minuteur, tes séries de jours et plus de cent soixante exercices animés ; le lien est dans la description. Dans le prochain guide, on passe à une autre question. À bientôt.",
+    "boton": "Ouvrir la pièce Exercice"
+  },
+  "fuentes": [
+    { "id": "oms-2020", "texto": "OMS. Lignes directrices de l'OMS sur l'activité physique et la sédentarité (2020).", "url": "https://www.who.int/publications/i/item/9789240015128" },
+    { "id": "oms-nota", "texto": "OMS. Activité physique — Principaux repères.", "url": "https://www.who.int/es/news-room/fact-sheets/detail/physical-activity" },
+    { "id": "acsm", "texto": "American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription.", "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription" },
+    { "id": "acsm-nutricion", "texto": "ACSM, Academy of Nutrition and Dietetics et Dietitians of Canada. Nutrition and Athletic Performance (2016).", "url": "https://pubmed.ncbi.nlm.nih.gov/26891166/" },
+    { "id": "tanaka", "texto": "Tanaka H. et al. Age-predicted maximal heart rate revisited. J Am Coll Cardiol (2001).", "url": "https://pubmed.ncbi.nlm.nih.gov/11153730/" },
+    { "id": "cdc-intensidad", "texto": "CDC. Measuring Physical Activity Intensity.", "url": "https://www.cdc.gov/physical-activity-basics/measuring/index.html" },
+    { "id": "aasm-sueno", "texto": "AASM/SRS. Recommended Amount of Sleep for a Healthy Adult (2015).", "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/" }
+  ]
+}

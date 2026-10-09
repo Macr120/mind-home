@@ -1,0 +1,528 @@
+{
+  "idioma": "es",
+  "tema": "ejercicio",
+  "plantillaId": "ejercicio",
+  "pregunta": "¿Qué es el ejercicio?",
+  "subtitulo": "Cómo funciona el entrenamiento, de dónde viene, cuánto moverte, cómo medir tu intensidad y cómo progresar.",
+  "aviso": "Esta guía es informativa y no sustituye el consejo de un médico. Si tienes una enfermedad, una lesión, estás embarazada o llevas mucho tiempo sin moverte, consulta a un profesional antes de empezar.",
+  "_notas": {
+    "escena": "Animación que hace Pep@ (nombre del catálogo de ejercicios de la app) o una acción: 'habla', 'saluda', 'senala'.",
+    "visual": "Bloque que acompaña la línea: foto (Pexels/Unsplash, ver medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "fondo": "El cuarto de Ejercicio de la app siempre está detrás, difuminado.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "memes": "\"meme\" (en visual o como campo extra de la línea) apunta a web/i18n/guias/<id>.json → ejercicio.memes.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre la toma de la casa (Pep@ en la caminadora); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «temporizador» y «rachas»; app2d.mjs cambia de pantalla de la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "adaptacion",
+      "titulo": "Qué pasa en tu cuerpo cuando entrenas",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "¿Qué es el ejercicio? Casi todo el mundo sabe que debería hacer ejercicio. Muy poca gente sabe qué pasa en su cuerpo cuando lo hace. ¿Realmente cómo funciona? En los próximos minutos vas a aprender lo que usan los entrenadores para planear, vas a medir tu intensidad como ellos y vas a salir con un plan para continuar.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Por cierto, esta es mi casa en MindHaOS, y en este cuarto de Ejercicio llevo mis rutinas. Empecemos.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte uno. Qué pasa en tu cuerpo cuando entrenas."
+        },
+        {
+          "id": "estres",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "supercompensacion"
+          },
+          "texto": "Entrenar es, literalmente, aplicar un estrés controlado. Durante la sesión tu rendimiento baja: te cansas, gastas energía, el músculo sufre pequeñas microlesiones. Lo que te hace más fuerte no pasa ahí, sino después, mientras descansas: el cuerpo repara y se prepara para la próxima vez, un poco por encima de donde estaba.",
+          "lamina": "estres"
+        },
+        {
+          "id": "sobrecarga",
+          "escena": "Sentadilla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+",
+            "clave": "sobrecarga"
+          },
+          "texto": "A eso se le llama adaptación, y la rigen cuatro principios. El primero es la sobrecarga progresiva: si siempre haces lo mismo, el cuerpo deja de tener motivos para cambiar, así que hay que pedirle un poquito más que la última vez.",
+          "lamina": "sobrecarga"
+        },
+        {
+          "id": "especificidad",
+          "escena": "Carrera",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sobrecarga",
+              "especificidad",
+              "recuperacion",
+              "constancia"
+            ]
+          },
+          "texto": "El segundo principio es la especificidad: te adaptas a lo que practicas. Correr mejora tu resistencia; levantar peso mejora tu fuerza. El tercero es la recuperación: sin descanso no hay adaptación, solo cansancio acumulado.",
+          "lamina": "especificidad"
+        },
+        {
+          "id": "constancia",
+          "escena": "Caminata rápida",
+          "visual": {
+            "tipo": "meme",
+            "meme": "constancia"
+          },
+          "texto": "Y el cuarto, la constancia. Las adaptaciones son reversibles: si dejas de entrenar varias semanas, tu cuerpo empieza a perder lo que ganó. Por eso funciona mejor poco y seguido que mucho de vez en cuando: veinte minutos cuatro días a la semana le ganan a dos horas un solo día.",
+          "lamina": "constancia"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Una breve historia del ejercicio",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte dos. Una breve historia del ejercicio."
+        },
+        {
+          "id": "griegos",
+          "escena": "Carrera",
+          "visual": {
+            "tipo": "meme",
+            "meme": "griegos"
+          },
+          "texto": "Según la tradición, los primeros Juegos Olímpicos se celebraron en el año setecientos setenta y seis antes de Cristo. Los griegos entrenaban en el gimnasio, una palabra que viene de gymnós, que significa desnudo. Y sí: entrenaban así.",
+          "lamina": "griegos"
+        },
+        {
+          "id": "hipocrates",
+          "escena": "habla",
+          "visual": {
+            "tipo": "cita"
+          },
+          "texto": "Ya entonces se intuía su valor para la salud. A Hipócrates, el padre de la medicina, se le atribuye la idea de que comer bien no basta para mantenerse sano: también hay que moverse.",
+          "lamina": "hipocrates"
+        },
+        {
+          "id": "gimnasia",
+          "escena": "Flexiones",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1811",
+            "clave": "jahn"
+          },
+          "texto": "En el siglo diecinueve nacieron los primeros métodos de gimnasia. En mil ochocientos once, Friedrich Ludwig Jahn abrió en Berlín un campo de gimnasia al aire libre, y en Suecia Pehr Henrik Ling creó una gimnasia pensada para la salud.",
+          "lamina": [
+            "gimnasia",
+            "ling"
+          ]
+        },
+        {
+          "id": "morris",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1953",
+            "clave": "morris"
+          },
+          "texto": "El gran giro llegó en mil novecientos cincuenta y tres. El médico británico Jeremy Morris comparó a los conductores de los autobuses de dos pisos de Londres, que pasaban el día sentados, con los cobradores, que subían y bajaban escaleras todo el día. Los cobradores tenían bastantes menos infartos. Fue de los primeros estudios en demostrar que moverse protege el corazón.",
+          "lamina": [
+            "morris",
+            "morris-bus"
+          ]
+        },
+        {
+          "id": "cooper",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "cooper"
+          },
+          "texto": "En mil novecientos sesenta y ocho, el doctor Kenneth Cooper publicó el libro Aerobics y popularizó la palabra aeróbico. En los años setenta llegó la fiebre de salir a correr.",
+          "lamina": "cooper"
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historia"
+          },
+          "texto": "Y hoy la Organización Mundial de la Salud publica recomendaciones basadas en miles de estudios. Lo que antes era intuición ahora es ciencia, y eso es lo que vamos a ver.",
+          "lamina": "hoy"
+        }
+      ]
+    },
+    {
+      "id": "capacidades",
+      "titulo": "Las cuatro capacidades que debes entrenar",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte tres. Las cuatro capacidades que debes entrenar."
+        },
+        {
+          "id": "cuatro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resistencia",
+              "fuerza",
+              "movilidad",
+              "equilibrio"
+            ]
+          },
+          "texto": "Un plan completo trabaja cuatro capacidades: resistencia, fuerza, movilidad y equilibrio. Cada una tiene su dosis.",
+          "lamina": "cuatro"
+        },
+        {
+          "id": "resistencia",
+          "escena": "Caminata rápida",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "150–300",
+            "clave": "minutosModerados"
+          },
+          "texto": "Resistencia: la Organización Mundial de la Salud recomienda a los adultos entre ciento cincuenta y trescientos minutos semanales de actividad moderada, o de setenta y cinco a ciento cincuenta de actividad vigorosa. Ir por encima de ese rango trae beneficios adicionales.",
+          "lamina": "resistencia"
+        },
+        {
+          "id": "fuerza",
+          "escena": "Peso muerto rumano",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2+",
+            "clave": "diasFuerza"
+          },
+          "texto": "Fuerza: al menos dos días por semana, trabajando los grandes grupos musculares. No es solo estética: la masa muscular protege tus articulaciones, tu metabolismo y, con los años, tu independencia.",
+          "lamina": "fuerza"
+        },
+        {
+          "id": "movilidad",
+          "escena": "Yoga flow",
+          "visual": {
+            "tipo": "foto",
+            "foto": "movilidad"
+          },
+          "texto": "Movilidad: la capacidad de mover una articulación en todo su rango con control. Unos minutos al día, sobre todo de caderas, hombros y columna, hacen que todo lo demás salga mejor.",
+          "lamina": "movilidad"
+        },
+        {
+          "id": "equilibrio",
+          "escena": "Zancadas",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "65+",
+            "clave": "equilibrio"
+          },
+          "texto": "Y equilibrio: a partir de los sesenta y cinco años la OMS recomienda trabajarlo tres días por semana, porque reduce el riesgo de caídas. Pero entrenarlo antes es la mejor forma de llegar ahí en forma.",
+          "lamina": "equilibrio"
+        }
+      ]
+    },
+    {
+      "id": "intensidad",
+      "titulo": "Mide tu intensidad como un profesional",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte cuatro. Mide tu intensidad como un profesional."
+        },
+        {
+          "id": "porque",
+          "escena": "habla",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "La pregunta más importante no es cuánto tiempo entrenas, sino qué tan fuerte. Hay tres herramientas sencillas para medirlo, y ninguna necesita aparatos caros."
+        },
+        {
+          "id": "rpe",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escalaRpe"
+          },
+          "texto": "La primera es la escala de esfuerzo percibido, del uno al diez. Uno es estar sentado; diez, el máximo esfuerzo que puedes dar. La actividad moderada está más o menos entre cinco y seis, y la vigorosa entre siete y ocho. Si puedes platicar pero no cantar, estás en moderado.",
+          "lamina": "rpe"
+        },
+        {
+          "id": "rir",
+          "escena": "Flexiones",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "RIR 2–3",
+            "clave": "rir"
+          },
+          "texto": "La segunda es para la fuerza: las repeticiones en reserva. Al terminar una serie, pregúntate cuántas más podrías haber hecho con buena técnica. Si la respuesta es dos o tres, es una zona muy eficaz para progresar sin acercarte demasiado al fallo.",
+          "lamina": "rir"
+        },
+        {
+          "id": "zonas",
+          "escena": "Bicicleta estática",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "zonasCardiacas"
+          },
+          "texto": "La tercera es la frecuencia cardiaca. Una estimación común de tu máximo es doscientos ocho menos cero punto siete por tu edad. Es aproximada, pero sirve para orientarte. Escribe tu edad aquí abajo y verás tus zonas.",
+          "lamina": "zonas"
+        },
+        {
+          "id": "zona2",
+          "escena": "Ciclismo",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "zonas"
+          },
+          "texto": "Mucha gente entrena siempre en el mismo punto intermedio: demasiado duro para recuperarse, demasiado suave para mejorar. Una estrategia muy usada por atletas de resistencia es que la mayor parte de tu cardio sea suave, en zona dos, donde puedes respirar por la nariz, y que solo una parte pequeña sea realmente intensa.",
+          "lamina": "zona2"
+        }
+      ]
+    },
+    {
+      "id": "progresion",
+      "titulo": "Cómo progresar semana a semana",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte cinco. Cómo progresar semana a semana."
+        },
+        {
+          "id": "doble",
+          "escena": "Curl con mancuernas",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rango",
+              "repeticiones",
+              "carga"
+            ]
+          },
+          "texto": "Para progresar en fuerza hay un método sencillo y muy eficaz: la progresión doble. Eliges un rango, por ejemplo de ocho a doce repeticiones. Cuando logres doce en todas las series con buena técnica, subes la carga o la dificultad y vuelves a empezar en ocho.",
+          "lamina": "doble"
+        },
+        {
+          "id": "variables",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "masRepeticiones",
+              "masSeries",
+              "masLento",
+              "menosApoyo"
+            ]
+          },
+          "texto": "Sin pesas también puedes sobrecargar: más repeticiones, una serie más, bajar más lento o quitar apoyos, como pasar de flexiones en rodillas a flexiones completas.",
+          "lamina": "variables"
+        },
+        {
+          "id": "diez",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈10 %",
+            "clave": "progresion"
+          },
+          "texto": "En cardio, una referencia práctica es no subir el volumen semanal más de un diez por ciento a la vez. Tus músculos y tu corazón se adaptan rápido; tendones y articulaciones, más despacio.",
+          "lamina": "diez"
+        },
+        {
+          "id": "plan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "armaTuPlan"
+          },
+          "texto": "Con todo esto puedes armar un plan de cuatro semanas, como los que llevo en mi cuarto de Ejercicio. Elige cuántos días tienes y tu nivel, y aquí abajo te propongo cómo repartir fuerza, cardio y movilidad, con la progresión ya incluida.",
+          "mencion": true,
+          "lamina": "plan"
+        },
+        {
+          "id": "descarga",
+          "escena": "Yoga flow",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "bloques"
+          },
+          "texto": "Y cada cierto tiempo, muchos entrenadores programan una semana de descarga: mismo ejercicio, menos volumen. No es retroceder; es dejar que la adaptación se consolide.",
+          "meme": "descarga",
+          "lamina": "descarga"
+        }
+      ]
+    },
+    {
+      "id": "recuperacion",
+      "titulo": "Recuperación: donde realmente mejoras",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte seis. Recuperación: donde realmente mejoras."
+        },
+        {
+          "id": "sueno",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "7 h+",
+            "clave": "sueno"
+          },
+          "texto": "Recuerda: mejoras mientras descansas. El sueño es la herramienta de recuperación más potente que existe; para un adulto, la recomendación es dormir siete horas o más.",
+          "lamina": "sueno"
+        },
+        {
+          "id": "proteina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1.2–2 g/kg",
+            "clave": "proteina"
+          },
+          "texto": "La alimentación también cuenta. Para personas que entrenan, el Colegio Americano de Medicina del Deporte sitúa la proteína entre uno punto dos y dos gramos por kilo de peso al día, repartida en varias comidas.",
+          "lamina": "proteina"
+        },
+        {
+          "id": "neat",
+          "escena": "Caminata",
+          "visual": {
+            "tipo": "foto",
+            "foto": "escaleras"
+          },
+          "texto": "Y no olvides lo que pasa fuera del entrenamiento. Caminar, subir escaleras, levantarte de la silla cada hora: ese movimiento cotidiano suma mucho al final del día, y contrarresta el tiempo que pasas sentado.",
+          "meme": "silla",
+          "lamina": "neat"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "Y escucha a tu cuerpo. Sentirte cansado después de entrenar es normal. Un dolor punzante en una articulación, mareo, una falta de aire desproporcionada o dolor en el pecho no lo son: si aparecen, detente y consulta a un médico."
+        },
+        {
+          "id": "resumen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Resumiendo: respeta los cuatro principios, entrena las cuatro capacidades, mide tu intensidad, progresa poco a poco con un plan y protege tu recuperación. Con eso ya sabes más de entrenamiento que la mayoría.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Si quieres llevar tu plan como lo llevo yo, el cuarto de Ejercicio de MindHaOS tiene el temporizador, tus rachas y más de ciento sesenta ejercicios animados. El enlace está en la descripción, y ahí también está esta guía en versión interactiva, para que la repases con calma. En la próxima guía seguimos con otra pregunta. Nos vemos.",
+    "boton": "Abrir el cuarto de Ejercicio",
+    "lamina": "app-plan",
+    "anclas": {
+      "temporizador": "temporizador",
+      "rachas": "rachas"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "oms-2020",
+      "texto": "OMS. Directrices de la OMS sobre actividad física y hábitos sedentarios (2020).",
+      "url": "https://www.who.int/publications/i/item/9789240015128"
+    },
+    {
+      "id": "oms-nota",
+      "texto": "OMS. Actividad física — Nota descriptiva.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/physical-activity"
+    },
+    {
+      "id": "acsm",
+      "texto": "American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription.",
+      "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+    },
+    {
+      "id": "acsm-nutricion",
+      "texto": "ACSM, Academy of Nutrition and Dietetics y Dietitians of Canada. Nutrition and Athletic Performance (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26891166/"
+    },
+    {
+      "id": "tanaka",
+      "texto": "Tanaka H. et al. Age-predicted maximal heart rate revisited. J Am Coll Cardiol (2001).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11153730/"
+    },
+    {
+      "id": "cdc-intensidad",
+      "texto": "CDC. Measuring Physical Activity Intensity.",
+      "url": "https://www.cdc.gov/physical-activity-basics/measuring/index.html"
+    },
+    {
+      "id": "aasm-sueno",
+      "texto": "AASM/SRS. Recommended Amount of Sleep for a Healthy Adult (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/"
+    },
+    {
+      "id": "morris-1953",
+      "texto": "Morris J. N. et al. Coronary heart-disease and physical activity of work. The Lancet (1953).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13110049/"
+    },
+    {
+      "id": "cooper-1968",
+      "texto": "Cooper K. H. Aerobics. M. Evans and Company (1968).",
+      "url": "https://www.cooperinstitute.org/about/history"
+    }
+  ]
+}

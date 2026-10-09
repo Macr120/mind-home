@@ -320,6 +320,14 @@ export const TEXTOS = {
     '你可以在应用里（编辑器 → 设置 → 账号）或在网页的账号页面删除账号和云端的全部数据。删除时也会一并解除与社交媒体（YouTube、TikTok、Facebook、Instagram）的连接：保存的令牌会被销毁并失效。',
   'sop.cuenta.enlace': '前往你的账号',
 
+  // ─── Portada de las guías (/guias) ──────────────────────────────────────
+  'guias.titulo': "MindHaOS 指南 — 清楚解答基础问题",
+  'guias.desc': "由 Pep@ 讲解的互动指南：如何锻炼等基础问题，深入解答，附来源与工具，支持 16 种语言。",
+  'guias.h1': "MindHaOS 指南",
+  'guias.p': "深入、循序渐进地解答基础问题，并注明来源。每份指南都由 Pep@ 讲解，并附有帮助你付诸实践的工具。",
+  'guias.partes': "部分",
+  'guias.min': "分钟",
+
   // ─── Archivo compartido por enlace (descarga.html) ───────────────────
   'desc.titulo': "共享的文件",
   'desc.cargando': "正在查找文件…",

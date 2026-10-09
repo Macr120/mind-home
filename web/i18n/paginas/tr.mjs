@@ -333,6 +333,14 @@ export const TEXTOS = {
     'Hesabını ve buluttaki tüm verilerini uygulamadan (Editör → Ayarlar → Hesap) ya da webdeki hesabından silebilirsin. Silindiğinde sosyal medya bağlantıların (YouTube, TikTok, Facebook ve Instagram) da kaldırılır: saklanan jetonlar yok edilir ve geçersiz hale gelir.',
   'sop.cuenta.enlace': 'Hesabına git',
 
+  // ─── Portada de las guías (/guias) ──────────────────────────────────────
+  'guias.titulo': "MindHaOS Rehberleri — Temel sorulara net cevaplar",
+  'guias.desc': "Pep@ tarafından anlatılan etkileşimli rehberler: nasıl egzersiz yapılır gibi temel sorular, kaynaklar ve araçlarla derinlemesine, 16 dilde.",
+  'guias.h1': "MindHaOS Rehberleri",
+  'guias.p': "Temel sorular derinlemesine, adım adım ve kaynaklarıyla cevaplanıyor. Her rehberi Pep@ anlatıyor ve uygulamaya geçirmen için araçlar sunuyor.",
+  'guias.partes': "bölüm",
+  'guias.min': "dk",
+
   // ─── Archivo compartido por enlace (descarga.html) ───────────────────
   'desc.titulo': "Paylaşılan dosya",
   'desc.cargando': "Dosya aranıyor…",

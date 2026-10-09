@@ -335,6 +335,14 @@ export const TEXTOS = {
     'Je kunt je account en al je gegevens in de cloud verwijderen vanuit de app (Editor → Instellingen → Account) of via je account op het web. Bij het verwijderen verdwijnen ook de koppelingen met je sociale netwerken (YouTube, TikTok, Facebook en Instagram): de bewaarde tokens worden vernietigd en werken niet meer.',
   'sop.cuenta.enlace': 'Naar je account',
 
+  // ─── Portada de las guías (/guias) ──────────────────────────────────────
+  'guias.titulo': "MindHaOS-gidsen — Heldere antwoorden op basisvragen",
+  'guias.desc': "Interactieve gidsen, verteld door Pep@: basisvragen zoals hoe je goed traint, grondig beantwoord met bronnen en hulpmiddelen, in 16 talen.",
+  'guias.h1': "MindHaOS-gidsen",
+  'guias.p': "Basisvragen grondig beantwoord, stap voor stap en met bronnen. Elke gids wordt verteld door Pep@ en heeft hulpmiddelen om er meteen mee aan de slag te gaan.",
+  'guias.partes': "delen",
+  'guias.min': "min",
+
   // ─── Archivo compartido por enlace (descarga.html) ───────────────────
   'desc.titulo': "Gedeeld bestand",
   'desc.cargando': "Bestand zoeken…",

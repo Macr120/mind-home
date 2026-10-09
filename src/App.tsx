@@ -50,6 +50,7 @@ import { TiraNavegador } from './core/ui/TiraNavegador'
 import { acercarEncuadre, aplicarEncuadre, moverEncuadre } from './core/fondoEncuadre'
 import { ExtrasFondo } from './core/ui/ExtrasFondo'
 import { useBienvenida } from './core/bienvenida/bienvenidaStore'
+import { abrirAppOPlantilla, consumirAppPedida } from './core/abrirApp'
 import { PrimeraVezGate } from './core/bienvenida/PrimeraVezGate'
 import { useHouse } from './core/state/houseStore'
 import { useLayout } from './core/state/layoutStore'
@@ -181,6 +182,24 @@ export default function App() {
   const setSidebarOpen = useHud((s) => s.setMenuAbierto)
   // Visita a la casa de otro: mientras el plano no esté volcado, va el velo.
   const faseVisita = useVisita((s) => s.fase)
+
+  /**
+   * Enlace `?app=<plantilla>` (guías de la web, widgets): main.tsx lo apunta y se
+   * cumple aquí, con la casa ya montada y sin la bienvenida delante. Quien llega
+   * de primeras pasa antes por idioma y cuenta; si no tiene la app en un cuarto,
+   * entra igual a su previa.
+   */
+  useEffect(() => {
+    if (bienvenidaAbierta) return
+    const id = setTimeout(() => {
+      // La bienvenida decide abrirse después de montar la casa: si se abrió en
+      // este margen, el efecto vuelve a correr cuando se cierre.
+      if (useBienvenida.getState().abierto) return
+      const pedida = consumirAppPedida()
+      if (pedida) abrirAppOPlantilla(pedida.app, pedida.seccion)
+    }, 1500)
+    return () => clearTimeout(id)
+  }, [bienvenidaAbierta])
 
   /**
    * Editar un cuarto (⚙️ + zoom) o abrir "Editar mapa" necesita espacio para el

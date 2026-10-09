@@ -323,6 +323,14 @@ export const TEXTOS = {
     'アカウントとクラウド上の全データは、アプリ内（エディター → 設定 → アカウント）またはウェブのアカウントページから削除できます。削除すると、ソーシャルメディア（YouTube、TikTok、Facebook、Instagram）との連携も解除され、保存されていたトークンは破棄されて使えなくなります。',
   'sop.cuenta.enlace': 'アカウントページへ',
 
+  // ─── Portada de las guías (/guias) ──────────────────────────────────────
+  'guias.titulo': "MindHaOSガイド — 基本の疑問にわかりやすく答える",
+  'guias.desc': "Pep@がナレーションするインタラクティブガイド。運動のしかたなど基本の疑問を、出典とツール付きで深く解説。16言語対応。",
+  'guias.h1': "MindHaOSガイド",
+  'guias.p': "基本の疑問を、出典付きで一歩ずつ深く解説します。どのガイドもPep@がナレーションし、実践に役立つツールが付いています。",
+  'guias.partes': "パート",
+  'guias.min': "分",
+
   // ─── Archivo compartido por enlace (descarga.html) ───────────────────
   'desc.titulo': "共有されたファイル",
   'desc.cargando': "ファイルを探しています…",

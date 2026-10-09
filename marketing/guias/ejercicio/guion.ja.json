@@ -1,0 +1,528 @@
+{
+  "idioma": "ja",
+  "tema": "ejercicio",
+  "plantillaId": "ejercicio",
+  "pregunta": "運動とは何でしょうか？",
+  "subtitulo": "トレーニングの仕組み、その歴史、どれくらい体を動かせばいいか、強度の測り方、そして上達の仕方。",
+  "aviso": "このガイドは情報提供を目的としたもので、医師の助言に代わるものではありません。病気やけががある方、妊娠中の方、長いあいだ体を動かしていない方は、始める前に専門家に相談してください。",
+  "_notas": {
+    "escena": "Animación que hace Pep@ (nombre del catálogo de ejercicios de la app) o una acción: 'habla', 'saluda', 'senala'.",
+    "visual": "Bloque que acompaña la línea: foto (Pexels/Unsplash, ver medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "fondo": "El cuarto de Ejercicio de la app siempre está detrás, difuminado.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "memes": "\"meme\" (en visual o como campo extra de la línea) apunta a web/i18n/guias/<id>.json → ejercicio.memes.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre la toma de la casa (Pep@ en la caminadora); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «temporizador» y «rachas»; app2d.mjs cambia de pantalla de la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "adaptacion",
+      "titulo": "トレーニングすると体の中で何が起きるのか",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "運動とは何でしょうか？ 運動したほうがいいことは、ほとんどの人が知っています。でも、運動しているときに体の中で何が起きているのかを知っている人は、ほとんどいません。実際には、どんな仕組みなのでしょうか？ これからの数分で、トレーナーがプランを立てるときに使う知識を学び、プロと同じやり方で強度を測り、続けるためのプランを手にして終われます。",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "ちなみに、ここはMindHaOSにある私の家です。このジムの部屋で、自分のルーティンを記録しています。では、始めましょう。",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート1。トレーニングすると体の中で何が起きるのか。"
+        },
+        {
+          "id": "estres",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "supercompensacion"
+          },
+          "texto": "トレーニングとは、文字どおり、コントロールされたストレスを体にかけることです。セッション中はパフォーマンスが下がります。疲れて、エネルギーを使い、筋肉には小さな損傷が起きます。でも、強くなるのはそのときではなく、そのあと、休んでいるあいだです。体は自分を修復し、次に備えて、前より少しだけ高いところまで準備を整えます。",
+          "lamina": "estres"
+        },
+        {
+          "id": "sobrecarga",
+          "escena": "Sentadilla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+",
+            "clave": "sobrecarga"
+          },
+          "texto": "これを適応と呼び、4つの原則がそれを左右しています。1つ目は漸進的過負荷です。いつも同じことをしていると、体には変わる理由がなくなります。だから、前回よりほんの少しだけ多くを求める必要があります。",
+          "lamina": "sobrecarga"
+        },
+        {
+          "id": "especificidad",
+          "escena": "Carrera",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sobrecarga",
+              "especificidad",
+              "recuperacion",
+              "constancia"
+            ]
+          },
+          "texto": "2つ目の原則は特異性です。体は、練習したことに適応します。走れば持久力が上がり、重りを持ち上げれば筋力が上がります。3つ目は回復です。休まなければ適応は起きず、疲れがたまるだけです。",
+          "lamina": "especificidad"
+        },
+        {
+          "id": "constancia",
+          "escena": "Caminata rápida",
+          "visual": {
+            "tipo": "meme",
+            "meme": "constancia"
+          },
+          "texto": "そして4つ目は継続です。適応は元に戻ってしまいます。何週間もトレーニングを休むと、体は手に入れたものを失い始めます。だから、たまにたくさんやるより、少しずつこまめにやるほうが効果的です。週4日の20分は、週1日の2時間に勝ちます。",
+          "lamina": "constancia"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "運動の短い歴史",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート2。運動の短い歴史。"
+        },
+        {
+          "id": "griegos",
+          "escena": "Carrera",
+          "visual": {
+            "tipo": "meme",
+            "meme": "griegos"
+          },
+          "texto": "伝承によれば、最初のオリンピックは紀元前776年に開かれました。ギリシャ人はギュムナシオンで鍛えていました。この言葉は、「裸」を意味するギュムノスから来ています。そう、本当に裸でトレーニングしていたんです。",
+          "lamina": "griegos"
+        },
+        {
+          "id": "hipocrates",
+          "escena": "habla",
+          "visual": {
+            "tipo": "cita"
+          },
+          "texto": "当時から、運動が健康にいいことは感じ取られていました。医学の父ヒポクラテスには、よく食べるだけでは健康は保てず、体を動かすことも必要だという考えが伝えられています。",
+          "lamina": "hipocrates"
+        },
+        {
+          "id": "gimnasia",
+          "escena": "Flexiones",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1811",
+            "clave": "jahn"
+          },
+          "texto": "19世紀になると、最初の体操の方法が生まれます。1811年、フリードリヒ・ルートヴィヒ・ヤーンがベルリンに屋外の体操場を開き、スウェーデンではペール・ヘンリック・リングが、健康のための体操を考え出しました。",
+          "lamina": [
+            "gimnasia",
+            "ling"
+          ]
+        },
+        {
+          "id": "morris",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1953",
+            "clave": "morris"
+          },
+          "texto": "大きな転機は1953年に訪れました。イギリスの医師ジェレミー・モリスは、ロンドンの2階建てバスで、一日中座っている運転手と、一日中階段を上り下りしている車掌を比べました。車掌のほうが、心臓発作がかなり少なかったのです。体を動かすことが心臓を守ると示した、最も初期の研究のひとつです。",
+          "lamina": [
+            "morris",
+            "morris-bus"
+          ]
+        },
+        {
+          "id": "cooper",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "cooper"
+          },
+          "texto": "1968年、ケネス・クーパー医師が『エアロビクス』という本を出版し、「エアロビック」という言葉を広めました。そして1970年代、ランニングブームがやってきます。",
+          "lamina": "cooper"
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historia"
+          },
+          "texto": "そして今、世界保健機関は、何千もの研究にもとづいた推奨を発表しています。かつては勘だったものが、今では科学です。それを、これから見ていきましょう。",
+          "lamina": "hoy"
+        }
+      ]
+    },
+    {
+      "id": "capacidades",
+      "titulo": "鍛えるべき4つの能力",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート3。鍛えるべき4つの能力。"
+        },
+        {
+          "id": "cuatro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resistencia",
+              "fuerza",
+              "movilidad",
+              "equilibrio"
+            ]
+          },
+          "texto": "バランスのとれたプランは、4つの能力を鍛えます。持久力、筋力、可動性、そしてバランスです。それぞれに、ちょうどいい量があります。",
+          "lamina": "cuatro"
+        },
+        {
+          "id": "resistencia",
+          "escena": "Caminata rápida",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "150–300",
+            "clave": "minutosModerados"
+          },
+          "texto": "持久力。世界保健機関は成人に、週150分から300分の中強度の運動、または75分から150分の高強度の運動をすすめています。この範囲を超えると、さらに効果が上乗せされます。",
+          "lamina": "resistencia"
+        },
+        {
+          "id": "fuerza",
+          "escena": "Peso muerto rumano",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2+",
+            "clave": "diasFuerza"
+          },
+          "texto": "筋力。少なくとも週2日、大きな筋肉群を鍛えましょう。見た目のためだけではありません。筋肉は関節と代謝を守り、年を重ねてからは、あなたの自立を守ってくれます。",
+          "lamina": "fuerza"
+        },
+        {
+          "id": "movilidad",
+          "escena": "Yoga flow",
+          "visual": {
+            "tipo": "foto",
+            "foto": "movilidad"
+          },
+          "texto": "可動性。関節を、動かせる範囲いっぱいに、コントロールしながら動かす力です。1日数分、とくに股関節、肩、背骨を動かすだけで、ほかのすべてがうまくいくようになります。",
+          "lamina": "movilidad"
+        },
+        {
+          "id": "equilibrio",
+          "escena": "Zancadas",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "65+",
+            "clave": "equilibrio"
+          },
+          "texto": "そしてバランス。WHOは、転倒のリスクを減らすため、65歳以上の人に週3日のバランス練習をすすめています。でも、もっと前から鍛えておくことが、元気にその年齢を迎えるいちばんの方法です。",
+          "lamina": "equilibrio"
+        }
+      ]
+    },
+    {
+      "id": "intensidad",
+      "titulo": "プロのように強度を測る",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート4。プロのように強度を測る。"
+        },
+        {
+          "id": "porque",
+          "escena": "habla",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "いちばん大事なのは、どれだけ長くトレーニングするかではなく、どれだけきつくやるかです。それを測るシンプルな方法が3つあり、どれも高い機器はいりません。"
+        },
+        {
+          "id": "rpe",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escalaRpe"
+          },
+          "texto": "1つ目は、1から10までの主観的運動強度のスケールです。1は座っている状態、10は出せる限りの全力です。中強度はだいたい5から6、高強度は7から8です。会話はできるけれど歌うのは無理、それが中強度の目安です。",
+          "lamina": "rpe"
+        },
+        {
+          "id": "rir",
+          "escena": "Flexiones",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "RIR 2–3",
+            "clave": "rir"
+          },
+          "texto": "2つ目は筋力トレーニング用で、余力回数と呼ばれるものです。セットが終わったら、正しいフォームであと何回できたかを自分に聞いてみてください。答えが2回か3回なら、限界に近づきすぎずに伸びていける、とても効果的なゾーンです。",
+          "lamina": "rir"
+        },
+        {
+          "id": "zonas",
+          "escena": "Bicicleta estática",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "zonasCardiacas"
+          },
+          "texto": "3つ目は心拍数です。最大心拍数のよく使われる推定方法は、208から、年齢の0.7倍を引くというものです。おおよその値ですが、目安になります。下に年齢を入力すると、あなたのゾーンがわかります。",
+          "lamina": "zonas"
+        },
+        {
+          "id": "zona2",
+          "escena": "Ciclismo",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "zonas"
+          },
+          "texto": "多くの人は、いつも同じ中途半端な強度でトレーニングしています。回復するにはきつすぎて、伸びるには楽すぎるのです。持久系のアスリートがよく使う戦略は、有酸素運動の大部分を鼻で呼吸できるゾーン2で楽に行い、本当にきついのはほんの一部だけにすることです。",
+          "lamina": "zona2"
+        }
+      ]
+    },
+    {
+      "id": "progresion",
+      "titulo": "週ごとに上達する方法",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート5。週ごとに上達する方法。"
+        },
+        {
+          "id": "doble",
+          "escena": "Curl con mancuernas",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rango",
+              "repeticiones",
+              "carga"
+            ]
+          },
+          "texto": "筋力を伸ばすには、シンプルでとても効果的な方法があります。ダブルプログレッションです。まず、たとえば8回から12回という範囲を決めます。すべてのセットで正しいフォームのまま12回できたら、重さか難しさを上げて、また8回から始めます。",
+          "lamina": "doble"
+        },
+        {
+          "id": "variables",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "masRepeticiones",
+              "masSeries",
+              "masLento",
+              "menosApoyo"
+            ]
+          },
+          "texto": "重りがなくても負荷は上げられます。回数を増やす、セットを1つ増やす、ゆっくり下ろす、支えを減らす。たとえば、膝つき腕立て伏せから普通の腕立て伏せに進む、といった具合です。",
+          "lamina": "variables"
+        },
+        {
+          "id": "diez",
+          "escena": "Trote suave",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈10 %",
+            "clave": "progresion"
+          },
+          "texto": "有酸素運動では、1週間の量を一度に10パーセント以上増やさない、というのが実用的な目安です。筋肉や心臓はすぐに適応しますが、腱や関節はもっとゆっくりです。",
+          "lamina": "diez"
+        },
+        {
+          "id": "plan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "armaTuPlan"
+          },
+          "texto": "ここまでわかれば、私がジムの部屋で使っているような、4週間のプランが組めます。使える日数とレベルを選ぶと、下で筋力、有酸素運動、可動性の配分を、ステップアップも込みで提案します。",
+          "mencion": true,
+          "lamina": "plan"
+        },
+        {
+          "id": "descarga",
+          "escena": "Yoga flow",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "bloques"
+          },
+          "texto": "そして多くのトレーナーは、定期的にディロード週を入れます。同じメニューを、量を減らして行うのです。後退ではありません。適応を定着させるための時間です。",
+          "meme": "descarga",
+          "lamina": "descarga"
+        }
+      ]
+    },
+    {
+      "id": "recuperacion",
+      "titulo": "回復：本当に強くなるのはここ",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート6。回復：本当に強くなるのはここ。"
+        },
+        {
+          "id": "sueno",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "7 h+",
+            "clave": "sueno"
+          },
+          "texto": "思い出してください。強くなるのは休んでいるあいだです。睡眠は、最も強力な回復の手段です。成人には、7時間以上眠ることがすすめられています。",
+          "lamina": "sueno"
+        },
+        {
+          "id": "proteina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1.2–2 g/kg",
+            "clave": "proteina"
+          },
+          "texto": "食事も大切です。アメリカスポーツ医学会は、トレーニングをする人のたんぱく質の量を、1日に体重1キロあたり1.2から2グラムとし、何回かの食事に分けてとるよう示しています。",
+          "lamina": "proteina"
+        },
+        {
+          "id": "neat",
+          "escena": "Caminata",
+          "visual": {
+            "tipo": "foto",
+            "foto": "escaleras"
+          },
+          "texto": "そして、トレーニング以外の時間も忘れないでください。歩く、階段を上る、1時間ごとに椅子から立ち上がる。こうした日常の動きは、1日の終わりには大きな量になり、座っている時間を打ち消してくれます。",
+          "meme": "silla",
+          "lamina": "neat"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "そして、体の声を聞いてください。トレーニングのあとに疲れを感じるのは普通です。でも、関節の刺すような痛み、めまい、運動量に見合わないほどの息切れ、胸の痛みは普通ではありません。こうした症状が出たら、すぐにやめて医師に相談してください。"
+        },
+        {
+          "id": "resumen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "まとめると、4つの原則を守り、4つの能力を鍛え、強度を測り、プランに沿って少しずつ上達し、回復を大切にすること。これだけで、あなたはもう、たいていの人よりトレーニングに詳しくなっています。",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "私と同じようにプランを続けたいなら、MindHaOSのジムの部屋には、タイマーと連続記録、そして160種類以上のアニメーション付きエクササイズがあります。リンクは概要欄にあります。そこには、このガイドのインタラクティブ版もあるので、ゆっくり見直してみてください。次のガイドでは、また別の質問を取り上げます。それでは、また。",
+    "boton": "ジムの部屋を開く",
+    "lamina": "app-plan",
+    "anclas": {
+      "temporizador": "タイマー",
+      "rachas": "連続記録"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "oms-2020",
+      "texto": "WHO. 身体活動および座位行動に関するWHOガイドライン（2020年）。",
+      "url": "https://www.who.int/publications/i/item/9789240015128"
+    },
+    {
+      "id": "oms-nota",
+      "texto": "WHO. 身体活動 — ファクトシート。",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/physical-activity"
+    },
+    {
+      "id": "acsm",
+      "texto": "American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription.",
+      "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"
+    },
+    {
+      "id": "acsm-nutricion",
+      "texto": "ACSM、Academy of Nutrition and Dietetics、Dietitians of Canada. Nutrition and Athletic Performance (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26891166/"
+    },
+    {
+      "id": "tanaka",
+      "texto": "Tanaka H. et al. Age-predicted maximal heart rate revisited. J Am Coll Cardiol (2001).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11153730/"
+    },
+    {
+      "id": "cdc-intensidad",
+      "texto": "CDC. Measuring Physical Activity Intensity.",
+      "url": "https://www.cdc.gov/physical-activity-basics/measuring/index.html"
+    },
+    {
+      "id": "aasm-sueno",
+      "texto": "AASM/SRS. Recommended Amount of Sleep for a Healthy Adult (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/"
+    },
+    {
+      "id": "morris-1953",
+      "texto": "Morris J. N. et al. Coronary heart-disease and physical activity of work. The Lancet (1953).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13110049/"
+    },
+    {
+      "id": "cooper-1968",
+      "texto": "Cooper K. H. Aerobics. M. Evans and Company (1968).",
+      "url": "https://www.cooperinstitute.org/about/history"
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "_nota": "Fotos y clips de la guía con su licencia. Pexels: uso libre, también comercial, sin atribución obligatoria (se acredita igual). Wikimedia Commons: dominio público o CC BY/BY-SA, con autor y licencia en «credito» (se muestra sobre la lámina y va en la descripción). Se sirven desde web/public/guias/ejercicio/.",
+  "fotos": {
+    "movilidad": {
+      "archivo": "movilidad.webp",
+      "autor": "Ivan S",
+      "fuente": "https://www.pexels.com/photo/strong-man-sitting-on-the-floor-stretching-4164755/",
+      "licencia": "Licencia Pexels"
+    },
+    "escaleras": {
+      "archivo": "escaleras.webp",
+      "autor": "Lara Jameson",
+      "fuente": "https://www.pexels.com/photo/person-going-up-using-staircase-9623574/",
+      "licencia": "Licencia Pexels"
+    }
+  },
+  "laminas": {
+    "estres": {
+      "archivo": "laminas/estres.webp",
+      "tipo": "foto",
+      "autor": "Andrea Piacquadio",
+      "fuente": "https://www.pexels.com/photo/photo-of-a-tired-man-3763776/",
+      "licencia": "Licencia Pexels"
+    },
+    "sobrecarga": {
+      "archivo": "laminas/sobrecarga.mp4",
+      "tipo": "video",
+      "autor": "khezez | خزاز",
+      "fuente": "https://www.pexels.com/video/man-performing-squats-in-gym-with-equipment-35585574/",
+      "licencia": "Licencia Pexels"
+    },
+    "especificidad": {
+      "archivo": "laminas/especificidad.mp4",
+      "tipo": "video",
+      "autor": "Official Amit",
+      "fuente": "https://www.pexels.com/video/tired-runner-on-outdoor-track-37264419/",
+      "licencia": "Licencia Pexels"
+    },
+    "constancia": {
+      "archivo": "laminas/constancia.webp",
+      "tipo": "foto",
+      "autor": "Quang Nguyen Vinh",
+      "fuente": "https://www.pexels.com/photo/woman-running-between-trees-10615641/",
+      "licencia": "Licencia Pexels"
+    },
+    "griegos": {
+      "archivo": "laminas/griegos.webp",
+      "tipo": "foto",
+      "autor": "Euphiletos Painter",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Panathenaic_amphora_BM_B137.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "hipocrates": {
+      "archivo": "laminas/hipocrates.webp",
+      "tipo": "foto",
+      "autor": "Paulus Pontius, after Rubens",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Hippocrates_rubens.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "gimnasia": {
+      "archivo": "laminas/gimnasia.webp",
+      "tipo": "foto",
+      "autor": "Popular Graphic Arts (Library of Congress)",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Friedrich_Ludwig_Jahn,_1778-1852_LCCN2003679747.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "morris": {
+      "archivo": "laminas/morris.webp",
+      "tipo": "foto",
+      "autor": "Mecurls",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Jerry_Morris_.jpg",
+      "licencia": "CC BY-SA 4.0",
+      "credito": "Mecurls · CC BY-SA 4.0 · Wikimedia"
+    },
+    "cooper": {
+      "archivo": "laminas/cooper.webp",
+      "tipo": "foto",
+      "autor": "Nancy Wong",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Jogger_wearing_a_1978_Boston_Marathon_t-shirt_(2).jpg",
+      "licencia": "CC BY-SA 3.0",
+      "credito": "Nancy Wong · CC BY-SA 3.0 · Wikimedia"
+    },
+    "hoy": {
+      "archivo": "laminas/hoy.webp",
+      "tipo": "foto",
+      "autor": "Yann Forget",
+      "fuente": "https://commons.wikimedia.org/wiki/File:World_Health_Organisation_headquarters,_Geneva,_north_and_west_sides_2007.jpg",
+      "licencia": "CC BY-SA 3.0",
+      "credito": "Yann Forget · CC BY-SA 3.0 · Wikimedia"
+    },
+    "cuatro": {
+      "archivo": "laminas/cuatro.mp4",
+      "tipo": "video",
+      "autor": "Kampus Production",
+      "fuente": "https://www.pexels.com/video/woman-doing-work-out-8343993/",
+      "licencia": "Licencia Pexels"
+    },
+    "resistencia": {
+      "archivo": "laminas/resistencia.mp4",
+      "tipo": "video",
+      "autor": "Alex sandro LOPES",
+      "fuente": "https://www.pexels.com/video/morning-jogger-running-on-a-scenic-pathway-32239971/",
+      "licencia": "Licencia Pexels"
+    },
+    "fuerza": {
+      "archivo": "laminas/fuerza.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-woman-lifting-a-barbell-7674502/",
+      "licencia": "Licencia Pexels"
+    },
+    "movilidad": {
+      "archivo": "laminas/movilidad.mp4",
+      "tipo": "video",
+      "autor": "olia danilevich",
+      "fuente": "https://www.pexels.com/video/body-yoga-meditation-asana-4352385/",
+      "licencia": "Licencia Pexels"
+    },
+    "equilibrio": {
+      "archivo": "laminas/equilibrio.mp4",
+      "tipo": "video",
+      "autor": "Marta Wave",
+      "fuente": "https://www.pexels.com/video/woman-standing-in-one-leg-pose-with-arms-up-6452935/",
+      "licencia": "Licencia Pexels"
+    },
+    "rpe": {
+      "archivo": "laminas/rpe.webp",
+      "tipo": "foto",
+      "autor": "RUN 4 FFWPU",
+      "fuente": "https://www.pexels.com/photo/man-pouring-water-on-himself-10226373/",
+      "licencia": "Licencia Pexels"
+    },
+    "rir": {
+      "archivo": "laminas/rir.mp4",
+      "tipo": "video",
+      "autor": "JULLIAN PRODUCTION",
+      "fuente": "https://www.pexels.com/video/vintage-style-weight-training-in-gym-30234651/",
+      "licencia": "Licencia Pexels"
+    },
+    "zonas": {
+      "archivo": "laminas/zonas.webp",
+      "tipo": "foto",
+      "autor": "Jens Mahnke",
+      "fuente": "https://www.pexels.com/photo/person-wearing-a-heart-rate-monitor-smartwatch-4679246/",
+      "licencia": "Licencia Pexels"
+    },
+    "zona2": {
+      "archivo": "laminas/zona2.mp4",
+      "tipo": "video",
+      "autor": "Pavel Danilyuk",
+      "fuente": "https://www.pexels.com/video/three-cyclists-on-road-5790076/",
+      "licencia": "Licencia Pexels"
+    },
+    "doble": {
+      "archivo": "laminas/doble.mp4",
+      "tipo": "video",
+      "autor": "Andres Ayrton",
+      "fuente": "https://www.pexels.com/video/a-man-doing-dumbbell-curls-6547801/",
+      "licencia": "Licencia Pexels"
+    },
+    "variables": {
+      "archivo": "laminas/variables.mp4",
+      "tipo": "video",
+      "autor": "Yan Krukau",
+      "fuente": "https://www.pexels.com/video/men-doing-push-ups-8480310/",
+      "licencia": "Licencia Pexels"
+    },
+    "diez": {
+      "archivo": "laminas/diez.mp4",
+      "tipo": "video",
+      "autor": "Martina Tomšič",
+      "fuente": "https://www.pexels.com/video/a-woman-running-with-her-dog-8557574/",
+      "licencia": "Licencia Pexels"
+    },
+    "plan": {
+      "archivo": "laminas/plan.webp",
+      "tipo": "foto",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/photo/white-printer-paper-on-white-table-3944419/",
+      "licencia": "Licencia Pexels"
+    },
+    "descarga": {
+      "archivo": "laminas/descarga.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/a-man-exercising-5837621/",
+      "licencia": "Licencia Pexels"
+    },
+    "sueno": {
+      "archivo": "laminas/sueno.webp",
+      "tipo": "foto",
+      "autor": "Godwin Torres",
+      "fuente": "https://www.pexels.com/photo/man-sleeping-in-bed-under-the-window-18243488/",
+      "licencia": "Licencia Pexels"
+    },
+    "proteina": {
+      "archivo": "laminas/proteina.webp",
+      "tipo": "foto",
+      "autor": "Valeria Boltneva",
+      "fuente": "https://www.pexels.com/photo/grilled-meat-with-green-ladies-finger-vegetable-on-white-ceramic-plate-1247677/",
+      "licencia": "Licencia Pexels"
+    },
+    "neat": {
+      "archivo": "laminas/neat.mp4",
+      "tipo": "video",
+      "autor": "Erik Mclean",
+      "fuente": "https://www.pexels.com/video/a-skateboarder-is-walking-down-some-stairs-16539000/",
+      "licencia": "Licencia Pexels"
+    },
+    "resumen": {
+      "archivo": "laminas/resumen.mp4",
+      "tipo": "video",
+      "autor": "Anastasia Shuraeva",
+      "fuente": "https://www.pexels.com/video/woman-showing-muscles-to-a-man-4945563/",
+      "licencia": "Licencia Pexels"
+    },
+    "app-plan": {
+      "archivo": "laminas/app-plan.{idioma}.mp4",
+      "tipo": "video",
+      "autor": "MindHaOS",
+      "fuente": "https://app.mindhaos.com",
+      "credito": ""
+    },
+    "ling": {
+      "archivo": "laminas/ling.webp",
+      "tipo": "foto",
+      "autor": "Johan Cardon",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Pehr_Henrik_Ling.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "morris-bus": {
+      "archivo": "laminas/morris-bus.webp",
+      "tipo": "foto",
+      "autor": "Robin Webster (original), cropped by User:Ultra7",
+      "fuente": "https://commons.wikimedia.org/wiki/File:London_Transport_buses,_RT_class_(preserved)_%26_T_class_(route_6),_St_Pauls,_6_August_1989.jpg",
+      "licencia": "CC BY-SA 2.0",
+      "credito": "Robin Webster (original), cropped by User:Ultra7 · CC BY-SA 2.0 · Wikimedia"
+    }
+  }
+}

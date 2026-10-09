@@ -7144,6 +7144,7 @@ export const JA: Dict = {
   'demo.error': '体験版を作成できませんでした。',
   'demo.reintentar': '再試行',
   'tut.flujos.titulo': 'このアプリのチュートリアル',
+  'guia.ejercicio.titulo': "運動とは何でしょうか？",
   'tut.esencial.titulo': '基本の使い方',
   'tut.tipo.ejemplos': '例・デモのMindHaOS',
   'tut.app-agenda--esencial.resumen':

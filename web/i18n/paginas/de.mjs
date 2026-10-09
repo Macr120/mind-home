@@ -338,6 +338,14 @@ export const TEXTOS = {
     'Du kannst dein Konto und alle deine Daten in der Cloud in der App löschen (Editor → Einstellungen → Konto) oder über dein Konto im Web. Beim Löschen werden auch die Verbindungen zu deinen sozialen Netzwerken (YouTube, TikTok, Facebook und Instagram) entfernt: Die gespeicherten Tokens werden vernichtet und verlieren ihre Gültigkeit.',
   'sop.cuenta.enlace': 'Zu deinem Konto',
 
+  // ─── Portada de las guías (/guias) ──────────────────────────────────────
+  'guias.titulo': "MindHaOS-Leitfäden — Klare Antworten auf Grundfragen",
+  'guias.desc': "Interaktive Leitfäden, erzählt von Pep@: Grundfragen wie richtiges Training, gründlich beantwortet, mit Quellen und Werkzeugen, in 16 Sprachen.",
+  'guias.h1': "MindHaOS-Leitfäden",
+  'guias.p': "Grundfragen gründlich beantwortet, Schritt für Schritt und mit Quellen. Jeder Leitfaden wird von Pep@ erzählt und bringt Werkzeuge mit, um ihn umzusetzen.",
+  'guias.partes': "Teile",
+  'guias.min': "Min.",
+
   // ─── Archivo compartido por enlace (descarga.html) ───────────────────
   'desc.titulo': "Geteilte Datei",
   'desc.cargando': "Datei wird gesucht…",

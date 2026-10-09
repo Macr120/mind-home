@@ -8,6 +8,17 @@ import { Icono } from '../ui/iconos/Icono'
 import { esDemo, esProbar } from '../edicion'
 import { entrarDemo } from '../../demo/modo'
 import { BUILDERS_DEMO } from '../../demo/builders'
+import { abrirEnlace } from '../enlaces'
+import { idiomaActual } from '../i18n/useT'
+import { prefijo } from '../../../web/i18n/idiomas.mjs'
+
+/**
+ * Las guías web (mindhaos.com/guias/<tema>) de cada app: el menú del «?» las
+ * enlaza en el idioma activo. Una entrada por guía publicada.
+ */
+const GUIAS: Record<string, { tema: string; clave: string; es: string }> = {
+  ejercicio: { tema: 'ejercicio', clave: 'guia.ejercicio.titulo', es: '¿Qué es el ejercicio?' },
+}
 
 /**
  * "?" del encabezado de una app. Abre el menú con los dos tipos de tutorial:
@@ -39,13 +50,14 @@ export function BotonTutorialApp({
   // (sin flujos ni «año de Pep@», el «?» lanza «Lo esencial» directo).
   const flujos = esProbar() ? [] : flujosDeApp(plantilla.id)
   const conPep = !esDemo() && !esProbar() && !!BUILDERS_DEMO[plantilla.id]
+  const guia = GUIAS[plantilla.id]
 
   return (
     <div className="relative shrink-0">
       <button
         type="button"
         onClick={() =>
-          flujos.length > 0 || conPep
+          flujos.length > 0 || conPep || guia
             ? setAbierto((v) => !v)
             : void lanzarEsencial(plantilla.id, { montada })
         }
@@ -84,6 +96,26 @@ export function BotonTutorialApp({
                     app: t(`room.${plantilla.id}.nombre`, plantilla.nombre).split(' · ')[0],
                   })}
                 </span>
+              </button>
+            </>
+          )}
+          {guia && (
+            <>
+              <div className="mx-1 border-t border-white/10" />
+              {/* La guía narrada de la web, en el idioma de la app (abre fuera de la casa). */}
+              <button
+                type="button"
+                onClick={() => {
+                  setAbierto(false)
+                  void abrirEnlace(
+                    `https://mindhaos.com${prefijo(idiomaActual())}/guias/${guia.tema}?utm_source=app&utm_medium=tutorial`,
+                    t(guia.clave, guia.es),
+                  )
+                }}
+                className="flex w-full items-center gap-1.5 rounded-md px-2 py-1.5 text-start text-xs font-semibold text-white/75 transition hover:bg-white/10"
+              >
+                <Icono nombre="libro" />
+                <span className="min-w-0 truncate">{t(guia.clave, guia.es)}</span>
               </button>
             </>
           )}

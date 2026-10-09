@@ -1,9 +1,10 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, type RefObject } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import type { Avatar } from '../../../core/state/disenoStore'
 import { ANCLAS_AVATAR, soportaPeinado } from '../../../core/house/apariencia'
 import { Rostro } from '../../../core/house/Rostro'
+import type { BocaHabla } from '../../../core/house/bocaHabla'
 import { Peinado } from '../../../core/house/Peinado'
 import { Prendas } from '../../../core/house/Prendas'
 import { coloresRig, ropaCabeza, type ColoresRig } from './coloresRig'
@@ -123,6 +124,7 @@ export function RigEjercicio({
   jugando = true,
   velocidad = 1,
   fase,
+  boca,
 }: {
   av: Avatar
   patron: PatronResuelto
@@ -130,6 +132,8 @@ export function RigEjercicio({
   velocidad?: number
   /** Fase fija 0..1 (hoja de contacto): ignora el reloj. */
   fase?: number
+  /** Boca hablante (guías narradas de la web): sin ella, el rostro estático. */
+  boca?: RefObject<BocaHabla>
 }) {
   const c = coloresRig(av)
   const escala = av.escala || 1
@@ -210,7 +214,7 @@ export function RigEjercicio({
                   {/* Des-offset: aquí dentro valen las coordenadas de `ANCLAS_AVATAR`. */}
                   <group position={[0, -CUELLO_Y, 0]}>
                     <Caja y={CABEZA_Y} tam={[0.44, 0.44, 0.44]} color={c.piel} />
-                    <Rostro anclas={ANCLAS_AVATAR} expresion={av.expresion} rostro={av.rostro} />
+                    <Rostro anclas={ANCLAS_AVATAR} expresion={av.expresion} rostro={av.rostro} boca={boca} />
                     {soportaPeinado(av) && (
                       <Peinado anclas={ANCLAS_AVATAR} peinado={av.peinado} color={av.peloColor} />
                     )}

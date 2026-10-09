@@ -1,0 +1,134 @@
+{
+  "idioma": "tr",
+  "tema": "ejercicio",
+  "plantillaId": "ejercicio",
+  "pregunta": "Nasıl egzersiz yapılır?",
+  "subtitulo": "Antrenman nasıl işler, yoğunluğunu nasıl ölçersin ve benimle birlikte yapacağın rehberli bir seans.",
+  "aviso": "Bu rehber bilgilendirme amaçlıdır ve hekim tavsiyesinin yerini tutmaz. Bir hastalığın ya da sakatlığın varsa, hamileysen veya uzun süredir hareketsizsen başlamadan önce bir uzmana danış.",
+  "_notas": {
+    "escena": "Animación que hace Pep@ (nombre del catálogo de ejercicios de la app) o una acción: 'habla', 'saluda', 'senala'.",
+    "visual": "Bloque que acompaña la línea: foto (Pexels/Unsplash, ver medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos.",
+    "mencion": "Las tres líneas con \"mencion\": true nombran la app de pasada (inicio, medio y final). Nunca tono de anuncio.",
+    "fondo": "El cuarto de Ejercicio de la app siempre está detrás, difuminado."
+  },
+  "partes": [
+    {
+      "id": "adaptacion",
+      "titulo": "Antrenman yaptığında vücudunda neler olur",
+      "lineas": [
+        { "id": "gancho", "escena": "saluda", "visual": { "tipo": "titulo" },
+          "texto": "Neredeyse herkes egzersiz yapması gerektiğini bilir. Ama çok az kişi bunun nasıl işlediğini bilir. Nasıl işlediğini anladığında ise rastgele çalışmayı bırakırsın. Önümüzdeki birkaç dakikada antrenörlerin plan yaparken kullandıklarını öğreneceksin, yoğunluğunu onlar gibi ölçeceksin ve videonun ortasında birlikte antrenman yapacağız." },
+        { "id": "mencion-inicio", "mencion": true, "escena": "senala", "visual": { "tipo": "fondo" },
+          "texto": "Bu arada, MindHaOS'taki Egzersiz odamdayız: rutinlerimi burada tutuyorum, o yüzden arkada göreceksin. Hadi başlayalım." },
+        { "id": "estres", "escena": "habla", "visual": { "tipo": "grafica", "grafica": "supercompensacion" },
+          "texto": "Antrenman, kelimenin tam anlamıyla kontrollü bir strestir. Seans sırasında performansın düşer: yorulursun, enerji harcarsın, kaslarında küçük mikro hasarlar oluşur. Seni güçlendiren şey o an değil, sonrasında, dinlenirken olur: vücut kendini onarır ve bir sonraki sefere, eskisinden biraz daha yukarıda hazırlanır." },
+        { "id": "sobrecarga", "escena": "Sentadilla", "visual": { "tipo": "dato", "cifra": "+", "clave": "sobrecarga" },
+          "texto": "Buna adaptasyon denir. Ve bir şartı vardır: hep aynı şeyi yaparsan vücudunun değişmek için bir nedeni kalmaz. Bu yüzden antrenmanın bir numaralı ilkesi progresif yüklenmedir: vücudundan her seferinde bir öncekinden biraz daha fazlasını istemek." },
+        { "id": "especificidad", "escena": "Carrera", "visual": { "tipo": "pasos", "claves": ["especificidad", "recuperacion", "constancia"] },
+          "texto": "İkinci ilke özgüllüktür: neyi çalışırsan ona uyum sağlarsın. Koşmak dayanıklılığını, ağırlık kaldırmak kuvvetini geliştirir. Üçüncüsü de toparlanmadır: dinlenme olmadan adaptasyon olmaz, sadece birikmiş yorgunluk olur." }
+      ]
+    },
+    {
+      "id": "capacidades",
+      "titulo": "Çalışman gereken dört yeti",
+      "lineas": [
+        { "id": "cuatro", "escena": "habla", "visual": { "tipo": "lista", "claves": ["resistencia", "fuerza", "movilidad", "equilibrio"] },
+          "texto": "Eksiksiz bir plan dört yetiyi çalıştırır: dayanıklılık, kuvvet, mobilite ve denge. Her birinin kendi dozu vardır." },
+        { "id": "resistencia", "escena": "Caminata rápida", "visual": { "tipo": "dato", "cifra": "150–300", "clave": "minutosModerados" },
+          "texto": "Dayanıklılık: Dünya Sağlık Örgütü yetişkinlere haftada yüz elli ile üç yüz dakika orta şiddette ya da yetmiş beş ile yüz elli dakika yüksek şiddette aktivite öneriyor. Bu aralığın üstüne çıkmak ek faydalar sağlıyor." },
+        { "id": "fuerza", "escena": "Peso muerto rumano", "visual": { "tipo": "dato", "cifra": "2+", "clave": "diasFuerza" },
+          "texto": "Kuvvet: haftada en az iki gün, büyük kas gruplarını çalıştırarak. Mesele sadece görünüş değil: kas kütlesi eklemlerini, metabolizmanı ve yaş ilerledikçe bağımsızlığını korur." },
+        { "id": "movilidad", "escena": "Yoga flow", "visual": { "tipo": "foto", "foto": "movilidad" },
+          "texto": "Mobilite: bir eklemi tüm hareket açıklığında, kontrollü şekilde hareket ettirebilme becerisi. Günde birkaç dakika, özellikle kalçalar, omuzlar ve omurga için ayırırsan geri kalan her şey daha iyi gider." },
+        { "id": "equilibrio", "escena": "Zancadas", "visual": { "tipo": "dato", "cifra": "65+", "clave": "equilibrio" },
+          "texto": "Ve denge: altmış beş yaşından itibaren DSÖ, düşme riskini azalttığı için dengenin haftada üç gün çalışılmasını öneriyor. Ama daha erken çalışmaya başlamak, o yaşa formda ulaşmanın en iyi yolu." }
+      ]
+    },
+    {
+      "id": "intensidad",
+      "titulo": "Yoğunluğunu bir profesyonel gibi ölç",
+      "lineas": [
+        { "id": "porque", "escena": "habla", "visual": { "tipo": "titulo" },
+          "texto": "En önemli soru ne kadar süre çalıştığın değil, ne kadar sert çalıştığın. Bunu ölçmenin üç basit yolu var ve hiçbiri pahalı cihaz gerektirmiyor." },
+        { "id": "rpe", "escena": "Trote suave", "visual": { "tipo": "herramienta", "herramienta": "escalaRpe" },
+          "texto": "Birincisi, birden ona algılanan zorluk ölçeği. Bir, oturmak demek; on, verebileceğin en yüksek efor. Orta şiddetli aktivite aşağı yukarı beş ile altı arasında, yüksek şiddetli ise yedi ile sekiz arasında. Konuşabiliyor ama şarkı söyleyemiyorsan, orta şiddettesin." },
+        { "id": "rir", "escena": "Flexiones", "visual": { "tipo": "dato", "cifra": "RIR 2–3", "clave": "rir" },
+          "texto": "İkincisi kuvvet için: yedekteki tekrarlar. Bir seti bitirince kendine sor: düzgün teknikle kaç tekrar daha yapabilirdim? Cevap iki ya da üçse, tükenişe fazla yaklaşmadan ilerlemek için çok etkili bir bölgedesin." },
+        { "id": "zonas", "escena": "Bicicleta estática", "visual": { "tipo": "herramienta", "herramienta": "zonasCardiacas" },
+          "texto": "Üçüncüsü kalp atış hızı. Maksimumunu tahmin etmenin yaygın bir yolu, iki yüz sekizden yaşının sıfır virgül yedi katını çıkarmak. Yaklaşık bir değer ama yön bulmana yardımcı olur. Aşağıya yaşını yaz, bölgelerini gör." },
+        { "id": "zona2", "escena": "Ciclismo", "visual": { "tipo": "grafica", "grafica": "zonas" },
+          "texto": "Birçok kişi hep aynı ara noktada antrenman yapar: toparlanmak için fazla ağır, gelişmek için fazla hafif. Dayanıklılık sporcularının sık kullandığı bir strateji şu: kardiyonun büyük kısmı hafif olsun, burnundan nefes alabildiğin ikinci bölgede, ve sadece küçük bir kısmı gerçekten yoğun olsun." }
+      ]
+    },
+    {
+      "id": "sesion",
+      "titulo": "Rehberli seans: benimle çalış",
+      "lineas": [
+        { "id": "explica", "escena": "habla", "visual": { "tipo": "sesion", "estado": "previa" },
+          "texto": "Şimdi pratik zamanı. Bu bir tüm vücut devresi: dört egzersiz, kırk saniye çalışma ve yirmi saniye dinlenme. Benimle bir tur yap; sayfada dört tura kadar seçebilirsin. Altı ya da yedi seviyesinde bir efor hedefle." },
+        { "id": "mencion-medio", "mencion": true, "escena": "senala", "visual": { "tipo": "sesion", "estado": "temporizador" },
+          "texto": "Gördüğün zamanlayıcı, Egzersiz odasında kullandığımın aynısı. Önce bir dakika ısınma." },
+        { "id": "calentamiento", "escena": "Movilidad matutina", "visual": { "tipo": "sesion", "bloque": "calentamiento", "segundos": 60 },
+          "texto": "Omuz, kalça ve ayak bileği çevirmeleri. Derin nefes al ve vücudunu gevşet. Temposunu yavaş yavaş artır." },
+        { "id": "s1", "escena": "Sentadilla", "visual": { "tipo": "sesion", "bloque": "Sentadilla", "segundos": 40, "descanso": 20 },
+          "texto": "Bir: squat. Ayaklar omuz genişliğinde, göğüs yukarıda. İki saniyede kontrollü in ve güçlü şekilde kalk. Dizlerin ayak uçlarının yönünü takip etsin." },
+        { "id": "s2", "escena": "Flexiones", "visual": { "tipo": "sesion", "bloque": "Flexiones", "segundos": 40, "descanso": 20 },
+          "texto": "İki: şınav. Kalça ve karın kaslarını sık, vücudun tek parça olsun. Dirsekler gövdeye yaklaşık kırk beş derece açıda. Gerekirse dizlerini yere koy: önemli olan kalite." },
+        { "id": "s3", "escena": "Puente de glúteo", "visual": { "tipo": "sesion", "bloque": "Puente de glúteo", "segundos": 40, "descanso": 20 },
+          "texto": "Üç: kalça köprüsü. Topuklarınla it, kalçanı kaldır ve yukarıda sıkarak bir saniye bekle. Bel boşluğun kavislenmesin: işi kalça yapıyor." },
+        { "id": "s4", "escena": "Plancha", "visual": { "tipo": "sesion", "bloque": "Plancha", "segundos": 40, "descanso": 0 },
+          "texto": "Dört: plank. Dirsekler omuzların altında, göbeğini omurgana doğru çek ve düzenli nefes al. Son efor, dayan." },
+        { "id": "termina", "escena": "habla", "visual": { "tipo": "sesion", "estado": "fin" },
+          "texto": "Bitti! Birden ona, ne kadar zordu? Beşin altındaysa bir dahaki sefere iki tur yap. Sekizin üstündeyse egzersizler arasında biraz daha fazla dinlen. Az önce yaptığın şey tam olarak yoğunluğu ayarlamak." }
+      ]
+    },
+    {
+      "id": "progresion",
+      "titulo": "Haftadan haftaya nasıl ilerlersin",
+      "lineas": [
+        { "id": "doble", "escena": "Curl con mancuernas", "visual": { "tipo": "pasos", "claves": ["rango", "repeticiones", "carga"] },
+          "texto": "Kuvvette ilerlemek için basit ve çok etkili bir yöntem var: çift progresyon. Bir aralık seçersin, mesela sekiz ile on iki tekrar. Tüm setlerde düzgün teknikle on ikiye ulaştığında ağırlığı ya da zorluğu artırır, yeniden sekizden başlarsın." },
+        { "id": "variables", "escena": "habla", "visual": { "tipo": "lista", "claves": ["masRepeticiones", "masSeries", "masLento", "menosApoyo"] },
+          "texto": "Ağırlık olmadan da yüklenmeyi artırabilirsin: daha fazla tekrar, bir set daha, daha yavaş inmek ya da desteği azaltmak; örneğin dizden şınavdan tam şınava geçmek gibi." },
+        { "id": "diez", "escena": "Trote suave", "visual": { "tipo": "dato", "cifra": "≈10 %", "clave": "progresion" },
+          "texto": "Kardiyoda pratik bir ölçü, haftalık hacmi bir seferde yüzde ondan fazla artırmamak. Kasların ve kalbin hızlı uyum sağlar; tendonlar ve eklemler ise daha yavaş." },
+        { "id": "plan", "escena": "habla", "visual": { "tipo": "herramienta", "herramienta": "armaTuPlan" },
+          "texto": "Bütün bunlarla dört haftalık bir plan kurabilirsin. Kaç günün olduğunu ve seviyeni seç, aşağıda sana kuvvet, kardiyo ve mobiliteyi nasıl dağıtacağını, progresyonu da içine katarak önereyim." },
+        { "id": "descarga", "escena": "Yoga flow", "visual": { "tipo": "grafica", "grafica": "bloques" },
+          "texto": "Ve belli aralıklarla birçok antrenör bir deload haftası planlar: aynı egzersizler, daha az hacim. Bu geri adım değil; adaptasyonun pekişmesine izin vermek." }
+      ]
+    },
+    {
+      "id": "recuperacion",
+      "titulo": "Toparlanma: asıl geliştiğin yer",
+      "lineas": [
+        { "id": "sueno", "escena": "habla", "visual": { "tipo": "dato", "cifra": "7 h+", "clave": "sueno" },
+          "texto": "Unutma: dinlenirken gelişirsin. Uyku, var olan en güçlü toparlanma aracıdır; bir yetişkin için öneri, yedi saat ya da daha fazla uyumak." },
+        { "id": "proteina", "escena": "habla", "visual": { "tipo": "dato", "cifra": "1.2–2 g/kg", "clave": "proteina" },
+          "texto": "Beslenme de önemli. Antrenman yapanlar için Amerikan Spor Hekimliği Koleji, günde vücut ağırlığının kilosu başına bir virgül iki ile iki gram arasında protein öneriyor; birkaç öğüne bölerek." },
+        { "id": "neat", "escena": "Caminata", "visual": { "tipo": "foto", "foto": "escaleras" },
+          "texto": "Ve antrenman dışında olanları da unutma. Yürümek, merdiven çıkmak, her saat sandalyeden kalkmak: bu günlük hareket gün sonunda epey birikir ve oturarak geçirdiğin zamanı dengeler." },
+        { "id": "senales", "escena": "habla", "visual": { "tipo": "aviso" },
+          "texto": "Sinyalleri dinle: kas yorgunluğu ve kas ağrısı normaldir. Bir eklemde batan bir ağrı, baş dönmesi, orantısız nefes darlığı ya da göğüs ağrısı normal değildir. Bunlar ortaya çıkarsa dur ve bir doktora danış." },
+        { "id": "resumen", "escena": "habla", "visual": { "tipo": "lista", "claves": ["resumen1", "resumen2", "resumen3", "resumen4"] },
+          "texto": "Özetle: dört yetiyi de çalış, yoğunluğunu ölç, bir planla adım adım ilerle ve toparlanmanı koru. Bununla antrenman hakkında çoğu insandan fazlasını biliyorsun." }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Planını benim gibi takip etmek istersen, MindHaOS'taki Egzersiz odasında zamanlayıcı, serilerin ve yüz altmıştan fazla animasyonlu egzersiz var; bağlantı açıklamada. Bir sonraki rehberde yeni bir soruyla devam ediyoruz. Görüşmek üzere.",
+    "boton": "Egzersiz odasını aç"
+  },
+  "fuentes": [
+    { "id": "oms-2020", "texto": "DSÖ. WHO guidelines on physical activity and sedentary behaviour (2020).", "url": "https://www.who.int/publications/i/item/9789240015128" },
+    { "id": "oms-nota", "texto": "DSÖ. Fiziksel aktivite — bilgi notu.", "url": "https://www.who.int/es/news-room/fact-sheets/detail/physical-activity" },
+    { "id": "acsm", "texto": "American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription.", "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription" },
+    { "id": "acsm-nutricion", "texto": "ACSM, Academy of Nutrition and Dietetics ve Dietitians of Canada. Nutrition and Athletic Performance (2016).", "url": "https://pubmed.ncbi.nlm.nih.gov/26891166/" },
+    { "id": "tanaka", "texto": "Tanaka H. et al. Age-predicted maximal heart rate revisited. J Am Coll Cardiol (2001).", "url": "https://pubmed.ncbi.nlm.nih.gov/11153730/" },
+    { "id": "cdc-intensidad", "texto": "CDC. Measuring Physical Activity Intensity.", "url": "https://www.cdc.gov/physical-activity-basics/measuring/index.html" },
+    { "id": "aasm-sueno", "texto": "AASM/SRS. Recommended Amount of Sleep for a Healthy Adult (2015).", "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/" }
+  ]
+}

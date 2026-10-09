@@ -22,7 +22,7 @@ import { useBuzon } from './core/buzon/buzonStore'
 import { esModoFondo } from './core/plataforma'
 import { sincronizarTextosEscritorio } from './core/i18n/textosEscritorio'
 import { esAccionGlobal, lanzarAccionGlobal } from './core/state/accionGlobal'
-import { abrirApp } from './core/abrirApp'
+import { abrirApp, apuntarAppPedida } from './core/abrirApp'
 import { abrirObjetoAlLlegar } from './core/abrirObjeto'
 import { registrarActividad } from './core/rutinas'
 import { iniciarAvisosNativos, type DestinoAviso } from './core/notificaciones'
@@ -198,8 +198,9 @@ if (params.get('accion') === 'registrar' && rutinaPedida) {
   abrirHiloBuzon(params.get('buzon') as string)
   history.replaceState(null, '', location.pathname)
 } else if (appPedida) {
-  // La casa tarda en montarse; sin esperar, `openRoom` se pierde en el vacío.
-  setTimeout(() => abrirApp(appPedida, params.get('seccion') ?? undefined), 500)
+  // La casa tarda en montarse (y quien llega nuevo pasa antes por idioma y cuenta):
+  // se apunta y la cumple App al montar.
+  apuntarAppPedida(appPedida, params.get('seccion') ?? undefined)
   history.replaceState(null, '', location.pathname)
 } else if (params.get('espacio')) {
   // Enlace de un calendario o un documento compartido: entra (o espera al login)

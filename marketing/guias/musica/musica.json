@@ -1,0 +1,24 @@
+{
+  "_nota": "Música de fondo de los videos de las guías (montar.mjs las alterna bajo la voz). Cada una pide su crédito en la descripción del video: va tal cual en el paquete (paquetes.mjs). NCS pide licencia comercial para usos comerciales: ver ncs.io/UsagePolicy.",
+  "canciones": [
+    {
+      "archivo": "i-did-that.mp3",
+      "titulo": "I Did That - Diamond Ortiz",
+      "credito": [
+        "Title: I Did That - Diamond Ortiz / Gym Song, Workout, Training, Sport (No Copyright Music)",
+        "Video Link: https://youtu.be/PRnVmUzeH8M",
+        "Genre Music: Gym - Workout - Training - Sport - Total Body - Crossfit"
+      ]
+    },
+    {
+      "archivo": "fearless.mp3",
+      "titulo": "Lost Sky - Fearless [NCS Release]",
+      "credito": [
+        "Track: Lost Sky - Fearless [NCS Release]",
+        "Music provided by NoCopyrightSounds.",
+        "Watch: https://youtu.be/9rujCfYXhQc",
+        "Free Download / Stream: http://ncs.io/Fearless"
+      ]
+    }
+  ]
+}

@@ -334,6 +334,14 @@ export const TEXTOS = {
     'Konto i wszystkie dane w chmurze możesz usunąć z aplikacji (Edytor → Ustawienia → Konto) albo ze swojego konta w sieci. Usunięcie kasuje też połączenia z mediami społecznościowymi (YouTube, TikTok, Facebook i Instagram): zapisane tokeny są niszczone i przestają działać.',
   'sop.cuenta.enlace': 'Przejdź do konta',
 
+  // ─── Portada de las guías (/guias) ──────────────────────────────────────
+  'guias.titulo': "Poradniki MindHaOS — Jasne odpowiedzi na podstawowe pytania",
+  'guias.desc': "Interaktywne poradniki z narracją Pep@: podstawowe pytania, takie jak to, jak ćwiczyć, omówione dogłębnie, ze źródłami i narzędziami, w 16 językach.",
+  'guias.h1': "Poradniki MindHaOS",
+  'guias.p': "Podstawowe pytania omówione dogłębnie, krok po kroku i ze źródłami. Każdy poradnik prowadzi Pep@, a narzędzia pomagają od razu wprowadzić go w życie.",
+  'guias.partes': "części",
+  'guias.min': "min",
+
   // ─── Archivo compartido por enlace (descarga.html) ───────────────────
   'desc.titulo': "Udostępniony plik",
   'desc.cargando': "Szukam pliku…",

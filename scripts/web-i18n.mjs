@@ -29,7 +29,7 @@ const CATALOGOS = path.join(RAIZ, 'web', 'i18n', 'paginas')
 const LANDING_PUBLICA = 'acerca.html'
 
 /** Las páginas sin JS que se multiplican. `cuenta.html` NO: es la app React. */
-const PAGINAS = ['index.html', 'privacidad.html', 'terminos.html', 'soporte.html', 'descarga.html', LANDING_PUBLICA]
+const PAGINAS = ['index.html', 'privacidad.html', 'terminos.html', 'soporte.html', 'descarga.html', LANDING_PUBLICA, 'guias.html']
 
 if (!existsSync(DIST)) {
   console.error('dist-web no existe: corre primero `vite build --config web/vite.config.ts`')
@@ -78,7 +78,7 @@ function traducir(html, textos, faltan) {
 function localizarEnlaces(html, id) {
   if (id === IDIOMA_ORIGEN) return html
   return html.replace(
-    /href="\/(cuenta|privacidad|terminos|soporte)?((?:#[^"]*)?)"/g,
+    /href="\/(cuenta|privacidad|terminos|soporte|acerca|guias)?((?:#[^"]*)?)"/g,
     (_, ruta, ancla) => `href="/${id}/${ruta ?? ''}${ancla}"`,
   )
 }
@@ -183,7 +183,7 @@ const PLANTILLAS = new Map(
  * buscador enseñe la de quien busca. Solo las páginas que se quedan en su URL:
  * la raíz de cada idioma lleva a la app (`_redirects`) y /descarga va por token.
  */
-const INDEXABLES = { [LANDING_PUBLICA]: '/acerca', 'privacidad.html': '/privacidad', 'terminos.html': '/terminos', 'soporte.html': '/soporte' }
+const INDEXABLES = { [LANDING_PUBLICA]: '/acerca', 'privacidad.html': '/privacidad', 'terminos.html': '/terminos', 'soporte.html': '/soporte', 'guias.html': '/guias' }
 const BASE = /<meta property="og:url" content="(https?:\/\/[^"/]+)/.exec(PLANTILLAS.get('index.html') ?? '')?.[1] ?? 'https://mindhaos.com'
 const alternativas = (pagina) => {
   const ruta = INDEXABLES[pagina]
@@ -262,7 +262,7 @@ if (faltan.size) {
 
 // Aviso si algún catálogo trae claves que ya no usa ninguna página. Las que
 // consume ESTE script (y no una marca de la plantilla) se apuntan a mano.
-const usadas = new Set(['tema.boton'])
+const usadas = new Set(['tema.boton', 'guias.partes', 'guias.min']) // las dos de guías las usa scripts/guias-web.mjs
 for (const plantilla of PLANTILLAS.values()) {
   for (const m of plantilla.matchAll(/\{\{([\w.-]+)(\|attr)?\}\}/g)) usadas.add(m[1])
 }
