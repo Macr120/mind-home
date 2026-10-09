@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
+import { MOODS_LISTA } from '../../core/audio/temas'
 import type { NotaAudio, PistaAudio, ProyectoAudio } from '../../core/data/db'
+import type { MoodMusica } from '../../core/state/ajustesStore'
 import { cancionesRepo, proyectosAudioRepo, VACIO } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { confirmar, pedirTexto } from '../../core/state/confirmarStore'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { BotonPrimario, BotonSecundario, Modal, TituloSeccion } from '../_shared/ui'
+import { proyectoAmbiente } from './ambiente'
 import { SEMILLAS_CANCIONES, type SemillaCancion } from './canciones'
 import {
   COLOR,
@@ -22,15 +25,21 @@ import { analizarMidi } from './midiArchivo'
 import * as motor from './motor'
 
 /**
- * La pestaña Canciones, como un explorador plano: en la raíz están los ÁLBUMES
- * (carpetas del usuario, tarjeta-collage con sus portadas) y las canciones
- * SUELTAS (tus proyectos, los .mid y el banco de semillas, todas iguales);
- * entrar a un álbum muestra sus canciones con volver/renombrar/disolver.
+ * La pestaña Canciones, como un explorador plano: en la raíz están dos CARPETAS
+ * FIJAS («Música ambiental»: los 21 vibes de la casa; «Canciones por aprender»:
+ * el banco de semillas), los ÁLBUMES del usuario (tarjeta-collage con sus
+ * portadas) y sus canciones SUELTAS (proyectos y .mid); entrar a un álbum
+ * muestra sus canciones con volver/renombrar/disolver. Un vibe editado se
+ * guarda como proyecto `vib-<mood>` y es el que suena en la casa (ambiente.ts);
+ * «Restaurar original» lo borra.
  * Guardar una semilla prístina en un álbum la materializa; borrar una canción
  * de fábrica deja una fila-lápida (`oculto`) para que no reaparezca. Cada
  * tarjeta tiene cuatro botones: escuchar (suena AQUÍ, sin abrir el editor),
  * abrir, guardar en álbum y borrar.
  */
+
+/** Canciones de fábrica: viven en sus carpetas fijas, no sueltas en la raíz. */
+const esDeFabrica = (p: ProyectoAudio) => !!p.cancion && (p.cancion.startsWith('sem-') || p.cancion.startsWith('vib-'))
 
 const duracionCorta = (bpm: number, compases: number) => {
   const s = compases * PASOS_POR_COMPAS * segPorPaso(bpm)
@@ -94,6 +103,8 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
   /** Canción esperando destino en el modal «Guardar en álbum». */
   const [guardandoEn, setGuardandoEn] = useState<{ p?: ProyectoAudio; s?: SemillaCancion } | null>(null)
   const [cancionIA, setCancionIA] = useState(false)
+  /** Carpeta fija abierta (los álbumes del usuario van por `albumActivo`). */
+  const [especial, setEspecial] = useState<'ambiente' | 'aprender' | null>(null)
   const archivoRef = useRef<HTMLInputElement>(null)
   const estado = useSyncExternalStore(motor.transporteStore.subscribe, motor.transporteStore.getSnapshot)
   /** Clave del álbum que suena ('p-<id>' o el id de la semilla). */
@@ -146,13 +157,28 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
   )
   const porAlbum = new Map(albumes.map((a) => [a, visibles.filter((p) => p.album === a)]))
   /** Raíz: solo las sueltas (las guardadas en un álbum viven en su carpeta). */
-  const enLista = albumActivo == null ? visibles.filter((p) => !p.album) : (porAlbum.get(albumActivo) ?? [])
-  /** Semillas sin fila (ni proyecto ni lápida): solo en la raíz. */
-  const pristinas = albumActivo == null ? SEMILLAS_CANCIONES.filter((s) => !porCancion.has(s.id)) : []
+  const enLista =
+    albumActivo == null ? visibles.filter((p) => !p.album && !esDeFabrica(p)) : (porAlbum.get(albumActivo) ?? [])
+  /**
+   * «Canciones por aprender»: cada semilla con TODAS sus copias guardadas (una
+   * compartida puede tener dos) fuera de álbumes; sin ninguna fila, la prístina.
+   */
+  const aprender = SEMILLAS_CANCIONES.flatMap((s): { s: SemillaCancion; fila?: ProyectoAudio }[] => {
+    const filas = proyectos.filter((p) => p.cancion === s.id)
+    if (!filas.length) return [{ s, fila: undefined }]
+    return filas.filter((p) => !p.oculto && !p.album).map((fila) => ({ s, fila }))
+  })
+  /** «Música ambiental»: los 21 vibes; con fila = la versión editada que suena en la casa. */
+  const ambiente = MOODS_LISTA.map((m) => ({ m, fila: porCancion.get(`vib-${m.id}`) }))
+  const etiquetaVibe = (id: MoodMusica) => t(`ajustes.musica.mood.${id}`, MOODS_LISTA.find((m) => m.id === id)?.defecto ?? id)
 
   /** Las semillas materializadas se siguen mostrando con su título retraducible. */
   const tituloDe = (p: ProyectoAudio) =>
-    p.cancion?.startsWith('sem-') ? t(`audio.cancion.${p.cancion.slice(4)}`, p.nombre) : p.nombre
+    p.cancion?.startsWith('sem-')
+      ? t(`audio.cancion.${p.cancion.slice(4)}`, p.nombre)
+      : p.cancion?.startsWith('vib-')
+        ? etiquetaVibe(p.cancion.slice(4) as MoodMusica)
+        : p.nombre
 
   // ─── Escuchar sin abrir el editor ────────────────────────────────────────
   const alternarPlay = async (clave: string, p: ProyectoAudio) => {
@@ -241,6 +267,36 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
   const abrirSemilla = async (s: SemillaCancion) => {
     const existente = porCancion.get(s.id)
     abrir(existente?.id ?? (await materializarSemilla(s)))
+  }
+
+  /** Abrir un vibe: la primera vez se guarda como proyecto `vib-<mood>` (desde ahí suena el tuyo en la casa). */
+  const abrirVibe = async (mood: MoodMusica) => {
+    const existente = porCancion.get(`vib-${mood}`)
+    if (existente?.id != null) return abrir(existente.id)
+    const base = proyectoAmbiente(mood)
+    const ahora = new Date().toISOString()
+    const id = await proyectosAudioRepo.add({
+      nombre: etiquetaVibe(mood),
+      bpm: base.bpm,
+      compases: base.compases,
+      ...(base.swing ? { swing: base.swing } : {}),
+      cancion: `vib-${mood}`,
+      pistas: base.pistas,
+      creadoEn: ahora,
+      actualizadoEn: ahora,
+    })
+    abrir(id)
+  }
+
+  const restaurarVibe = async (p: ProyectoAudio) => {
+    const si = await confirmar({
+      titulo: t('audio.lista.restaurar', 'Restaurar original'),
+      mensaje: t('audio.lista.restaurarMsg', 'Se borran tus cambios y en la casa vuelve a sonar la versión original.'),
+      peligro: true,
+    })
+    if (!si || p.id == null) return
+    if (sonandoClave === `p-${p.id}`) motor.detener()
+    await proyectosAudioRepo.remove(p.id)
   }
 
   const borrar = async (p: ProyectoAudio) => {
@@ -386,9 +442,10 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
     portadaDe: ProyectoAudio,
     onPlay: () => void,
     onAbrirAlbum: () => void,
-    onGuardar: () => void,
+    onGuardar?: () => void,
     onBorrar?: () => void,
     compartido?: boolean,
+    onRestaurar?: () => void,
   ) => {
     const sonando = sonandoClave === clave
     return (
@@ -426,15 +483,28 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
           >
             <Icono nombre="editar" />
           </button>
-          <button
-            type="button"
-            onClick={onGuardar}
-            aria-label={t('audio.lista.guardarAlbum', 'Guardar en álbum')}
-            title={t('audio.lista.guardarAlbum', 'Guardar en álbum')}
-            className="grid h-8 w-8 place-items-center rounded-full bg-white/10 text-white/70 transition hover:bg-white/20"
-          >
-            <Icono nombre="carpeta" />
-          </button>
+          {onGuardar && (
+            <button
+              type="button"
+              onClick={onGuardar}
+              aria-label={t('audio.lista.guardarAlbum', 'Guardar en álbum')}
+              title={t('audio.lista.guardarAlbum', 'Guardar en álbum')}
+              className="grid h-8 w-8 place-items-center rounded-full bg-white/10 text-white/70 transition hover:bg-white/20"
+            >
+              <Icono nombre="carpeta" />
+            </button>
+          )}
+          {onRestaurar && (
+            <button
+              type="button"
+              onClick={onRestaurar}
+              aria-label={t('audio.lista.restaurar', 'Restaurar original')}
+              title={t('audio.lista.restaurar', 'Restaurar original')}
+              className="grid h-8 w-8 place-items-center rounded-full bg-white/10 text-white/70 transition hover:bg-white/20"
+            >
+              <Icono nombre="deshacer" />
+            </button>
+          )}
           {onBorrar && (
             <button
               type="button"
@@ -455,9 +525,12 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
     t('audio.lista.meta', '{bpm} BPM · {pistas} pistas', { bpm: p.bpm, pistas: p.pistas.length })
 
   /** Tarjeta-carpeta de un álbum: collage con las portadas de sus canciones. */
-  const tarjetaAlbum = (nombre: string, canciones: ProyectoAudio[]) => (
-    <li key={`alb-${nombre}`} className="min-w-0">
-      <button type="button" onClick={() => setAlbumActivo(nombre)} className="ui-presion block w-full text-left">
+  const tarjetaAlbum = (nombre: string, canciones: ProyectoAudio[]) =>
+    tarjetaCarpeta(`alb-${nombre}`, nombre, canciones, () => setAlbumActivo(nombre))
+
+  const tarjetaCarpeta = (clave: string, nombre: string, canciones: ProyectoAudio[], onAbrir: () => void) => (
+    <li key={clave} className="min-w-0">
+      <button type="button" onClick={onAbrir} className="ui-presion block w-full text-left">
         <div className="grid aspect-square grid-cols-2 grid-rows-2 gap-0.5 overflow-hidden rounded-lg border border-white/10 bg-black/30 p-0.5">
           {Array.from({ length: 4 }, (_, i) => {
             const p = canciones[i]
@@ -481,7 +554,20 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
   return (
     <div className="ui-ancho mx-auto w-full max-w-2xl space-y-4 pb-4">
       <section className="space-y-2">
-        {albumActivo == null ? (
+        {especial != null ? (
+          <button
+            type="button"
+            onClick={() => setEspecial(null)}
+            className="ui-presion flex min-w-0 items-center gap-1 rounded-lg px-2 py-1.5 text-sm font-semibold transition hover:bg-white/10"
+          >
+            <Icono nombre="volver" /> <Icono nombre="carpeta" />{' '}
+            <span className="min-w-0 truncate">
+              {especial === 'ambiente'
+                ? t('audio.lista.carpetaAmbiente', 'Música ambiental')
+                : t('audio.lista.carpetaAprender', 'Canciones por aprender')}
+            </span>
+          </button>
+        ) : albumActivo == null ? (
           <TituloSeccion icono="piano" titulo={t('audio.tab.canciones', 'Canciones')}>
             <div className="flex flex-wrap items-center justify-end gap-1.5" data-tut="audio.canciones.crear">
               <BotonSecundario pequeno disabled={importando} onClick={() => archivoRef.current?.click()}>
@@ -534,12 +620,77 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
             </div>
           </div>
         )}
-        {enLista.length + pristinas.length === 0 && albumActivo != null ? (
+        {especial === 'ambiente' ? (
+          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 ultra:grid-cols-[repeat(auto-fill,minmax(14rem,1fr))]">
+            {ambiente.map(({ m, fila }) => {
+              const p = fila ?? proyectoAmbiente(m.id)
+              const clave = fila ? `p-${fila.id}` : `vib-${m.id}`
+              return album(
+                clave,
+                etiquetaVibe(m.id),
+                fila
+                  ? `${t('audio.lista.tuVersion', 'Tu versión')} · ${duracionCorta(p.bpm, p.compases)}`
+                  : `${p.bpm} BPM · ${duracionCorta(p.bpm, p.compases)}`,
+                p,
+                () => void alternarPlay(clave, p),
+                () => void abrirVibe(m.id),
+                undefined,
+                undefined,
+                false,
+                fila ? () => void restaurarVibe(fila) : undefined,
+              )
+            })}
+          </ul>
+        ) : especial === 'aprender' ? (
+          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 ultra:grid-cols-[repeat(auto-fill,minmax(14rem,1fr))]">
+            {aprender.map(({ s, fila }) => {
+              if (fila) {
+                return album(
+                  `p-${fila.id}`,
+                  tituloDe(fila),
+                  metaProyecto(fila),
+                  fila,
+                  () => void alternarPlay(`p-${fila.id}`, fila),
+                  () => fila.id != null && abrir(fila.id),
+                  () => setGuardandoEn({ p: fila }),
+                  () => void borrar(fila),
+                  !!fila.espacioId,
+                )
+              }
+              const compositor =
+                s.compositor === 'Tradicional' ? t('audio.aprender.tradicional', 'Tradicional') : s.compositor
+              return album(
+                s.id,
+                t(`audio.cancion.${s.id.slice(4)}`, s.tituloEs),
+                `${compositor} · ${duracionCorta(s.bpm, s.compases)}`,
+                proyectoEfimero(s),
+                () => void alternarPlay(s.id, proyectoEfimero(s)),
+                () => void abrirSemilla(s),
+                () => setGuardandoEn({ s }),
+                () => void borrarSemilla(s),
+              )
+            })}
+          </ul>
+        ) : enLista.length === 0 && albumActivo != null ? (
           <p className="text-xs text-white/45">
             {t('audio.lista.albumVacio', 'Este álbum está vacío: guarda canciones con el botón de la carpeta.')}
           </p>
         ) : (
           <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 ultra:grid-cols-[repeat(auto-fill,minmax(14rem,1fr))]">
+            {albumActivo == null &&
+              tarjetaCarpeta(
+                'fija-ambiente',
+                t('audio.lista.carpetaAmbiente', 'Música ambiental'),
+                MOODS_LISTA.slice(0, 4).map((m) => porCancion.get(`vib-${m.id}`) ?? proyectoAmbiente(m.id)),
+                () => setEspecial('ambiente'),
+              )}
+            {albumActivo == null &&
+              tarjetaCarpeta(
+                'fija-aprender',
+                t('audio.lista.carpetaAprender', 'Canciones por aprender'),
+                aprender.slice(0, 4).map(({ s, fila }) => fila ?? proyectoEfimero(s)),
+                () => setEspecial('aprender'),
+              )}
             {albumActivo == null && albumes.map((a) => tarjetaAlbum(a, porAlbum.get(a) ?? []))}
             {enLista.map((p) =>
               album(
@@ -554,20 +705,6 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
                 !!p.espacioId,
               ),
             )}
-            {pristinas.map((s) => {
-              const compositor =
-                s.compositor === 'Tradicional' ? t('audio.aprender.tradicional', 'Tradicional') : s.compositor
-              return album(
-                s.id,
-                t(`audio.cancion.${s.id.slice(4)}`, s.tituloEs),
-                `${compositor} · ${duracionCorta(s.bpm, s.compases)}`,
-                proyectoEfimero(s),
-                () => void alternarPlay(s.id, proyectoEfimero(s)),
-                () => void abrirSemilla(s),
-                () => setGuardandoEn({ s }),
-                () => void borrarSemilla(s),
-              )
-            })}
           </ul>
         )}
       </section>

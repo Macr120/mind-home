@@ -1,5 +1,6 @@
 import { contextoAudio, gainMaestro } from '../../core/audio/motor'
 import type { NotaAudio, ProyectoAudio } from '../../core/data/db'
+import { proyectosAudioRepo } from '../../core/data/repository'
 import type { MoodMusica } from '../../core/state/ajustesStore'
 import { desplegar, validarPlan } from './cancionIA'
 import { FX_DEFAULT, MAESTRO_DEFAULT, PASOS_POR_COMPAS, segPorPaso } from './constantes'
@@ -13,7 +14,9 @@ import { tocarNota } from './instrumentos'
  * compositor de «Canción con IA» y pasa por el mismo `desplegar`; están
  * compuestas a mano para que ningún par de vibes comparta ritmo, acompañamiento,
  * bajo e instrumentos. La forma piensa en el bucle: sin final que se apague, la
- * última sección resuelve hacia el acorde del arranque.
+ * última sección resuelve hacia el acorde del arranque. Si el usuario editó un
+ * vibe en el Studio (proyecto `vib-<mood>`, carpeta «Música ambiental»), suena
+ * su versión.
  */
 
 type Melodia = [number, number, number][]
@@ -351,6 +354,18 @@ export function proyectoAmbiente(mood: MoodMusica): ProyectoAudio {
   return p
 }
 
+/** Lo que suena para un vibe: la versión editada del usuario o la receta. */
+async function cancionDe(mood: MoodMusica): Promise<ProyectoAudio> {
+  const propia = (await proyectosAudioRepo.list()).find((p) => p.cancion === `vib-${mood}` && !p.oculto)
+  if (!propia) return proyectoAmbiente(mood)
+  // Respeta el mute/solo del editor; las pistas de micrófono no viajan aquí.
+  const haySolo = propia.pistas.some((x) => x.solo)
+  return {
+    ...propia,
+    pistas: propia.pistas.filter((x) => x.tipo !== 'audio' && (haySolo ? x.solo : !x.silenciada)),
+  }
+}
+
 // ─── Reproductor en vivo ────────────────────────────────────────────────────
 
 const TICK_MS = 100
@@ -378,6 +393,8 @@ interface Sesion {
 }
 
 let actual: Sesion | null = null
+/** Turno del último pedido: si llega otro mientras se lee la versión del usuario, el viejo no arranca. */
+let turno = 0
 
 function agendar(s: Sesion) {
   while (s.proximaT < s.ctx.currentTime + LOOKAHEAD_S) {
@@ -447,8 +464,15 @@ export function iniciar(mood: MoodMusica): void {
     apagar(actual, 600)
     actual = null
   }
+  const mio = ++turno
+  void cancionDe(mood)
+    .catch(() => proyectoAmbiente(mood))
+    .then((p) => {
+      if (mio === turno) arrancar(mood, p, ctx, maestroCasa)
+    })
+}
 
-  const p = proyectoAmbiente(mood)
+function arrancar(mood: MoodMusica, p: ProyectoAudio, ctx: AudioContext, maestroCasa: GainNode) {
   const salida = ctx.createGain()
   salida.gain.value = 0
   salida.connect(maestroCasa)
@@ -500,5 +524,6 @@ export function iniciar(mood: MoodMusica): void {
 }
 
 export function detener(fadeMs = 400): void {
+  turno++
   if (actual) apagar(actual, fadeMs)
 }
