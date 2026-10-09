@@ -3,7 +3,7 @@ import { useWrappedUi } from '../state/wrappedUiStore'
 import { localeActual, useT } from '../i18n/useT'
 import { fechaLocalISO } from '../fechaLocal'
 import { desbloquearAudio } from '../audio/motor'
-import { detenerMusica, iniciarMusica } from '../audio/musicaGenerada'
+import { detenerAmbiente, iniciarAmbiente } from '../audio/ambienteStudio'
 import { detenerPista, iniciarPista, reproducirLista } from '../audio/pistas'
 import { db } from '../data/db'
 import { useAjustes } from '../state/ajustesStore'
@@ -63,24 +63,24 @@ export default function WrappedOverlay() {
   useEffect(() => {
     if (musicaFuente === 'sistema') {
       // Suena tu propio audio del sistema: el wrapped no lo pisa ni añade nada.
-      detenerMusica()
+      detenerAmbiente()
       detenerPista()
       return
     }
     if (silencio) {
-      detenerMusica()
+      detenerAmbiente()
       detenerPista()
       return
     }
     desbloquearAudio()
     let vivo = true
     if (musicaFuente === 'pistas') {
-      detenerMusica()
+      detenerAmbiente()
       void db.pistasMusica.toArray().then((pistas) => {
         if (!vivo) return
         if (pistas.length === 0) {
           // Sin pistas subidas: cae a la música generada festiva.
-          iniciarMusica('festivo')
+          iniciarAmbiente('festivo')
           return
         }
         const elegida =
@@ -90,11 +90,11 @@ export default function WrappedOverlay() {
       })
     } else {
       detenerPista()
-      iniciarMusica('festivo')
+      iniciarAmbiente('festivo')
     }
     return () => {
       vivo = false
-      detenerMusica()
+      detenerAmbiente()
       detenerPista()
     }
   }, [silencio, musicaFuente, musicaPistaId])

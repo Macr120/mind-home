@@ -11,7 +11,7 @@ import { useJuegoCancha } from '../state/juegoCanchaStore'
 import { useTren } from '../state/trenStore'
 import { useCuartoPisado } from '../state/useCuartoPisado'
 import { desbloquearAudio } from './motor'
-import { detenerMusica, iniciarMusica } from './musicaGenerada'
+import { detenerAmbiente, iniciarAmbiente } from './ambienteStudio'
 import { useMusicaRutina } from './musicaRutina'
 import { usePaisaje } from './paisaje'
 import { detenerPista, iniciarPista, reproducirLista } from './pistas'
@@ -93,24 +93,24 @@ export function useMusicaAmbiental(): void {
     if (fuente === 'sistema') {
       // El audio del sistema suena solo (es externo); aquí solo se callan las
       // fuentes propias. Conectarlo/desconectarlo vive en Configuraciones.
-      detenerMusica()
+      detenerAmbiente()
       detenerPista()
       return
     }
     // La rutina en curso manda: apagada desde el reproductor = silencio; encendida =
     // suena aunque la ambiental esté apagada.
     if ((!ambiental && rutina !== 'on') || rutina === 'off' || !desbloqueado || paisajeSonando) {
-      detenerMusica()
+      detenerAmbiente()
       detenerPista()
       return
     }
     let vivo = true
     if (fuente === 'generada') {
       detenerPista()
-      if (efectivo == null || efectivo === 'silencio') detenerMusica()
-      else iniciarMusica(efectivo)
+      if (efectivo == null || efectivo === 'silencio') detenerAmbiente()
+      else iniciarAmbiente(efectivo)
     } else {
-      detenerMusica()
+      detenerAmbiente()
       void db.pistasMusica.toArray().then((todas) => {
         if (!vivo) return
         // Una pista fija manda; si no, suena la carpeta elegida (o todas).
@@ -127,7 +127,7 @@ export function useMusicaAmbiental(): void {
     // Cleanup idempotente: en StrictMode el efecto corre doble sin duplicar audio.
     return () => {
       vivo = false
-      detenerMusica()
+      detenerAmbiente()
       detenerPista()
     }
   }, [ambiental, desbloqueado, wrappedAbierto, paisajeSonando, rutina, fuente, efectivo, pistaId, carpetaId])

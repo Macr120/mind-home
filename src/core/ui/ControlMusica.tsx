@@ -3,8 +3,11 @@ import { desbloquearAudio } from '../audio/motor'
 import { MOODS_LISTA, temaAutoDeCuarto } from '../audio/temas'
 import { useAjustes, type FuenteMusica, type MoodMusica } from '../state/ajustesStore'
 
-/** Pestañas del popover: las fuentes del reproductor más «Studio» (que suena como pista). */
-type Pestana = FuenteMusica | 'studio'
+/**
+ * Pestañas del popover. «Studio» reúne los vibes de la casa (fuente `generada`:
+ * los toca el motor del Studio) y tus canciones del Studio (que suenan como pista).
+ */
+type Pestana = Exclude<FuenteMusica, 'generada'> | 'studio'
 import { useCuartos } from '../state/cuartosStore'
 import { useCuartoPisado } from '../state/useCuartoPisado'
 import { useDiseño } from '../state/disenoStore'
@@ -228,9 +231,9 @@ export function ControlMusica({
 }
 
 /**
- * Pestañas de la fuente y lo que suena en cada una. «Studio» no es una fuente
- * aparte del reproductor: sus canciones se renderizan y suenan como pistas, así
- * que la pestaña se enciende sola cuando la pista elegida salió del Studio.
+ * Pestañas de la fuente y lo que suena en cada una. «Studio» junta los vibes de
+ * la casa (fuente `generada`) y tus canciones del Studio, que se renderizan y
+ * suenan como pistas: la pestaña se enciende con cualquiera de las dos.
  */
 function FuenteYPista({ etiquetaMood }: { etiquetaMood: (id: MoodMusica) => string }) {
   const t = useT()
@@ -260,21 +263,21 @@ function FuenteYPista({ etiquetaMood }: { etiquetaMood: (id: MoodMusica) => stri
   const delStudio = (studioClave?: string) => !!studioClave && (canciones == null || claves.has(studioClave))
   const actual = musicaFuente === 'pistas' ? pistas?.find((p) => p.id === pistaId) : undefined
   const claveSonando = delStudio(actual?.studioClave) ? actual?.studioClave : undefined
-  const pestana: Pestana = elegida ?? (claveSonando ? 'studio' : musicaFuente)
+  const pestana: Pestana = elegida ?? (claveSonando || musicaFuente === 'generada' ? 'studio' : musicaFuente)
   // En «Mis pistas» no se repiten las que salieron del Studio: esas viven en su pestaña.
   const sueltas = (pistas ?? []).filter((p) => !delStudio(p.studioClave))
 
   const pestanas: { id: Pestana; label: string }[] = [
-    { id: 'generada', label: t('ajustes.musica.fuente.generada', 'Generada') },
-    { id: 'pistas', label: t('ajustes.musica.fuente.pistas', 'Mis pistas') },
     { id: 'studio', label: t('musica.fuente.studio', 'Studio') },
+    { id: 'pistas', label: t('ajustes.musica.fuente.pistas', 'Mis pistas') },
     { id: 'sistema', label: t('ajustes.musica.fuente.sistema', 'Sistema') },
   ]
 
   const elegirPestana = (id: Pestana) => {
     setElegida(id)
-    // La de Studio no cambia nada hasta tocar una canción.
+    // Studio suena con los vibes salvo que ya esté sonando una canción tuya del Studio.
     if (id !== 'studio') setMusicaFuente(id)
+    else if (!claveSonando) setMusicaFuente('generada')
   }
 
   const sonarCancion = async (c: RecursoStudio) => {
@@ -292,7 +295,7 @@ function FuenteYPista({ etiquetaMood }: { etiquetaMood: (id: MoodMusica) => stri
 
   return (
     <>
-      <div data-tut="musica.fuente" className="grid grid-cols-4 gap-1">
+      <div data-tut="musica.fuente" className="grid grid-cols-3 gap-1">
         {pestanas.map((f) => (
           <button
             key={f.id}
@@ -309,8 +312,8 @@ function FuenteYPista({ etiquetaMood }: { etiquetaMood: (id: MoodMusica) => stri
         ))}
       </div>
 
-      {/* Ambiente global (solo con la música generada) */}
-      {pestana === 'generada' && (
+      {/* Vibe de la casa: una canción del motor del Studio por ambiente */}
+      {pestana === 'studio' && (
         <div className="space-y-1">
           <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
             {t('musica.ambienteGlobal', 'Ambiente de la MindHaOS')}
@@ -319,9 +322,12 @@ function FuenteYPista({ etiquetaMood }: { etiquetaMood: (id: MoodMusica) => stri
             value={musicaMood}
             onChange={(e) => {
               desbloquearAudio()
+              setMusicaFuente('generada')
               setMusicaMood(e.target.value as MoodMusica)
             }}
-            className="w-full rounded-md border border-white/10 bg-black/40 px-2 py-1.5 text-xs text-white/85 focus:outline-none"
+            className={`w-full rounded-md border bg-black/40 px-2 py-1.5 text-xs text-white/85 focus:outline-none ${
+              musicaFuente === 'generada' ? 'border-accent/60' : 'border-white/10'
+            }`}
           >
             {MOODS_LISTA.map((m) => (
               <option key={m.id} value={m.id}>

@@ -2,6 +2,7 @@ import { lazy } from 'react'
 import type { Plantilla } from '../../core/appContrato'
 import { registrarAterrizaje } from '../../core/espacios/enlaces'
 import { registrarProveedorRecursos } from '../../core/recursosStudio'
+import { registrarMotorAmbiente } from '../../core/audio/ambienteStudio'
 import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
 import { COLOR_FABRICA } from './constantes'
 import { OPERACIONES_IA } from './costosIA'
@@ -14,6 +15,9 @@ registrarProveedorRecursos({
   listar: async () => (await import('./recursos')).listarRecursos(),
   obtener: async (clave) => (await import('./recursos')).obtenerRecurso(clave),
 })
+
+// La música ambiental de la casa sale de este motor (una canción por vibe, en vivo).
+registrarMotorAmbiente(() => import('./ambiente'))
 
 // La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
 // montaje ya envuelven en Suspense).

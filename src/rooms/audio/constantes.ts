@@ -63,6 +63,56 @@ export const PATRONES_BATERIA: { clave: string; golpes: [number, number, number]
       [3, 38, 100], [6, 38, 100], [11, 38, 100], [14, 38, 100],
     ],
   },
+  {
+    // Boom bap con poco ataque (pide swing).
+    clave: 'lofi',
+    golpes: [
+      [0, 36, 100], [7, 36, 85], [10, 36, 95], [4, 38, 90], [12, 38, 90],
+      ...[0, 2, 4, 6, 8, 10, 12, 14].map((p) => [p, 42, 50] as [number, number, number]),
+    ],
+  },
+  {
+    // One drop: bombo y caja juntos en el 3, platos a contratiempo.
+    clave: 'reggae',
+    golpes: [
+      [8, 36, 105], [8, 38, 85],
+      ...[2, 6, 10, 14].map((p) => [p, 42, 70] as [number, number, number]),
+      ...[0, 4, 12].map((p) => [p, 42, 40] as [number, number, number]),
+    ],
+  },
+  {
+    // Bombo de bossa y clave suave en la caja.
+    clave: 'bossa',
+    golpes: [
+      [0, 36, 90], [6, 36, 70], [8, 36, 90], [14, 36, 70],
+      [0, 38, 50], [3, 38, 50], [6, 38, 50], [10, 38, 50], [12, 38, 50],
+      ...[0, 2, 4, 6, 8, 10, 12, 14].map((p) => [p, 42, 40] as [number, number, number]),
+    ],
+  },
+  {
+    clave: 'funk',
+    golpes: [
+      [0, 36, 110], [6, 36, 95], [10, 36, 100], [4, 38, 105], [12, 38, 105],
+      [7, 38, 40], [9, 38, 40], [15, 38, 45],
+      ...Array.from({ length: 16 }, (_, p) => [p, 42, p % 2 ? 45 : 70] as [number, number, number]),
+    ],
+  },
+  {
+    clave: 'disco',
+    golpes: [
+      [0, 36, 110], [4, 36, 110], [8, 36, 110], [12, 36, 110], [4, 39, 95], [12, 39, 95],
+      ...[2, 6, 10, 14].map((p) => [p, 46, 80] as [number, number, number]),
+      ...[0, 4, 8, 12].map((p) => [p, 42, 55] as [number, number, number]),
+    ],
+  },
+  {
+    // Medio tiempo: la caja cae en el 3.
+    clave: 'balada',
+    golpes: [
+      [0, 36, 100], [10, 36, 85], [8, 38, 95],
+      ...[0, 2, 4, 6, 8, 10, 12, 14].map((p) => [p, 42, 50] as [number, number, number]),
+    ],
+  },
 ]
 
 /** Afinación de las cuerdas (grave→aguda) de los instrumentos con TABLATURA. */

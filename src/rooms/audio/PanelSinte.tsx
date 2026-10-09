@@ -146,6 +146,12 @@ export function PanelSinte({
     house: t('audio.bateria.house', 'House'),
     trap: t('audio.bateria.trap', 'Trap'),
     dembow: t('audio.bateria.dembow', 'Reggaetón'),
+    lofi: t('audio.bateria.lofi', 'Lo-fi'),
+    reggae: t('audio.bateria.reggae', 'Reggae'),
+    bossa: t('audio.bateria.bossa', 'Bossa nova'),
+    funk: t('audio.bateria.funk', 'Funk'),
+    disco: t('audio.bateria.disco', 'Disco'),
+    balada: t('audio.bateria.balada', 'Balada'),
   }
   const etiquetaFuerza =
     fuerza <= 60

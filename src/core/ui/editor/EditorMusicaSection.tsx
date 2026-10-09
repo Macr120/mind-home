@@ -94,7 +94,7 @@ export function EditorMusicaSection({
     label: t(`ajustes.musica.mood.${m.id}`, m.defecto),
   }))
   const fuentes: { id: FuenteMusica; label: string }[] = [
-    { id: 'generada', label: t('ajustes.musica.fuente.generada', 'Generada') },
+    { id: 'generada', label: t('musica.fuente.studio', 'Studio') },
     { id: 'pistas', label: t('ajustes.musica.fuente.pistas', 'Mis pistas') },
     { id: 'sistema', label: t('ajustes.musica.fuente.sistema', 'Sistema') },
   ]

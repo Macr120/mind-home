@@ -5,7 +5,7 @@ import { esInstrumentoBateria } from './constantes'
  * Síntesis de los presets del Studio de audio. Funciones puras sobre
  * `BaseAudioContext`: las MISMAS recetas sirven tocando en vivo (AudioContext)
  * y en el render del export (OfflineAudioContext). Las envolventes siguen el
- * estilo de `core/audio/musicaGenerada.ts` (de donde vienen kick/caja/hat).
+ * estilo del antiguo generador de música ambiental (de donde vienen kick/caja/hat).
  */
 
 const midiAHz = (n: number) => 440 * 2 ** ((n - 69) / 12)
@@ -200,7 +200,7 @@ function caja(ctx: BaseAudioContext, destino: AudioNode, t: number, vol: number,
   osc.stop(t + 0.08)
 }
 
-/** Hi-hat: ruido por pasa-altas (el de musicaGenerada lo soltaba pelado). */
+/** Hi-hat: ruido por pasa-altas (el del antiguo generador lo soltaba pelado). */
 function hat(ctx: BaseAudioContext, destino: AudioNode, t: number, vol: number, abierto: boolean, electro: boolean) {
   const src = ctx.createBufferSource()
   const filtro = ctx.createBiquadFilter()

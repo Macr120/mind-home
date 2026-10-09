@@ -7,8 +7,8 @@ import { iniciarVoz, tocarNota, type VozViva } from './instrumentos'
 
 /**
  * Transporte y scheduler del Studio de audio (singleton de módulo, sin React:
- * solo hay un editor abierto a la vez). Patrón «tale of two clocks» calcado de
- * `core/audio/musicaGenerada.ts`: un setInterval grueso agenda con la precisión
+ * solo hay un editor abierto a la vez). Patrón «tale of two clocks» calcado del
+ * antiguo generador de música ambiental: un setInterval grueso agenda con la precisión
  * de `ctx.currentTime`.
  *
  * OJO: el bus del proyecto va DIRECTO a `ctx.destination`, no al `gainMaestro()`

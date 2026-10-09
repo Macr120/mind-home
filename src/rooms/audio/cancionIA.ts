@@ -33,9 +33,17 @@ export const VOZ_LYRIA: Record<VozCancion, string> = {
 /** El editor admite 64 compases: la duración máxima a un tempo dado. */
 export const segundosMaximos = (bpm: number) => Math.floor((MAX_COMPASES * 240) / bpm)
 
-const RITMOS = PATRONES_BATERIA.map((p) => p.clave)
+/** Los patrones del Studio más 'ninguno' (sin batería: piezas tranquilas). */
+const RITMOS = [...PATRONES_BATERIA.map((p) => p.clave), 'ninguno']
 const TIPOS = ['intro', 'verso', 'precoro', 'coro', 'puente', 'instrumental', 'final'] as const
-type TipoSeccion = (typeof TIPOS)[number]
+export type TipoSeccion = (typeof TIPOS)[number]
+
+/** Cómo tocan los acordes: bloques (golpes según la energía), arpegio, rasgueo, pulso de corcheas o pad (redondas). */
+const ACOMPS = ['bloques', 'arpegio', 'rasgueo', 'pulso', 'pad'] as const
+/** Cómo va el bajo: siguiendo al bombo, en redondas, en octavas o caminante (negras hacia el acorde siguiente). */
+const BAJOS = ['bombo', 'raiz', 'octavas', 'caminante'] as const
+/** Cuánto aire: reverb y delay de todas las pistas. */
+const ESPACIOS = ['seco', 'sala', 'catedral'] as const
 
 const INSTR_ACORDES: InstrumentoAudio[] = ['piano', 'organo', 'pad', 'guitarra', 'arpa', 'violines', 'pluck', 'campanas']
 const INSTR_MELODIA: InstrumentoAudio[] = ['lead', 'flauta', 'sax', 'trompeta', 'violines', 'piano', 'campanas', 'guitarra']
@@ -149,7 +157,7 @@ const ent = (v: unknown, min: number, max: number, def: number) => {
 const elegir = <T extends string>(v: unknown, opciones: readonly T[], def: T): T =>
   opciones.includes(v as T) ? (v as T) : def
 
-interface Seccion {
+export interface Seccion {
   tipo: TipoSeccion
   nombre: string
   compases: number
@@ -158,13 +166,16 @@ interface Seccion {
   letra: string
 }
 
-interface Plan {
+export interface Plan {
   titulo: string
   bpm: number
   tonica: number
   menor: boolean
   ritmo: string
   swing: number
+  acomp: (typeof ACOMPS)[number]
+  bajo: (typeof BAJOS)[number]
+  espacio: (typeof ESPACIOS)[number]
   acordesInstr: InstrumentoAudio
   melodiaInstr: InstrumentoAudio
   bateriaInstr: 'bateria' | 'bateria808'
@@ -191,13 +202,14 @@ function system(e: Encargo): string {
   return [
     'Eres productor y compositor. Compón una canción completa para un secuenciador MIDI (4/4, 16 semicorcheas por compás).',
     'Responde ÚNICAMENTE con un objeto JSON COMPACTO en una sola línea (sin saltos de línea ni sangrías), sin texto ni markdown alrededor, con esta forma:',
-    '{"titulo":"…","bpm":96,"tonica":"A","modo":"menor","ritmo":"rock","swing":0,',
+    '{"titulo":"…","bpm":96,"tonica":"A","modo":"menor","ritmo":"rock","swing":0,"acomp":"bloques","bajo":"bombo","espacio":"sala",',
     `"instrumentos":{"acordes":"piano","melodia":"lead","bateria":"bateria"},`,
     '"secciones":[{"tipo":"verso","nombre":"Verso 1","compases":8,"acordes":["Am","F","C","G"],"energia":1,"letra":"línea\\nlínea"}],',
     '"melodias":{"verso":[[inicio,duracion,tono],…],"coro":[…]}}',
     'Reglas:',
     e.bpm ? `- bpm: EXACTAMENTE ${e.bpm}.` : '- bpm 60..180, el que pida el estilo.',
-    `- tonica una de C C# D Eb E F F# G Ab A Bb B; modo "mayor" o "menor"; ritmo uno de: ${RITMOS.join(', ')}; swing 0..40.`,
+    `- tonica una de C C# D Eb E F F# G Ab A Bb B; modo "mayor" o "menor"; ritmo uno de: ${RITMOS.join(', ')} ('ninguno' = sin batería); swing 0..40.`,
+    `- acomp (cómo tocan los acordes) uno de: ${ACOMPS.join(', ')}. bajo uno de: ${BAJOS.join(', ')} (caminante = jazz/bossa). espacio uno de: ${ESPACIOS.join(', ')}. Elígelos según el estilo.`,
     `- instrumentos.acordes uno de: ${INSTR_ACORDES.join(', ')}. instrumentos.melodia uno de: ${INSTR_MELODIA.join(', ')}. instrumentos.bateria: bateria o bateria808.`,
     `- secciones en orden, tipo uno de (literal, en español): ${TIPOS.join(', ')}; compases 2..16 (normalmente 4 u 8); ${duracion}.`,
     '- Estructura de canción real: intro, verso, (precoro), coro, verso, coro, puente, coro final, final. El coro es el gancho y se repite.',
@@ -221,8 +233,13 @@ function system(e: Encargo): string {
     .join('\n')
 }
 
-/** Coerciones y topes del plan que devuelve el modelo. */
-function validarPlan(obj: Record<string, unknown>, conVoz: boolean): Plan {
+/** Coerciones y topes del plan que devuelve el modelo (o de una receta fija). */
+export function validarPlan(
+  obj: Record<string, unknown>,
+  conVoz: boolean,
+  opts: { maxCompases?: number } = {},
+): Plan {
+  const maxCompases = opts.maxCompases ?? MAX_COMPASES
   const instr = (obj.instrumentos ?? {}) as Record<string, unknown>
   const tonica = leerAcorde(obj.tonica)?.raiz ?? 0
   const menor = obj.modo === 'menor' || obj.modo === 'minor'
@@ -235,7 +252,7 @@ function validarPlan(obj: Record<string, unknown>, conVoz: boolean): Plan {
   for (const cruda of Array.isArray(obj.secciones) ? obj.secciones.slice(0, 16) : []) {
     if (!cruda || typeof cruda !== 'object') continue
     const s = cruda as Record<string, unknown>
-    const compases = Math.min(ent(s.compases, 1, 16, 4), MAX_COMPASES - total)
+    const compases = Math.min(ent(s.compases, 1, 16, 4), maxCompases - total)
     if (compases <= 0) break
     const acordes = (Array.isArray(s.acordes) ? s.acordes.slice(0, 16) : [])
       .map(leerAcorde)
@@ -279,6 +296,9 @@ function validarPlan(obj: Record<string, unknown>, conVoz: boolean): Plan {
     menor,
     ritmo: elegir(obj.ritmo, RITMOS, RITMOS[0]),
     swing: ent(obj.swing, 0, 40, 0),
+    acomp: elegir(obj.acomp, ACOMPS, 'bloques'),
+    bajo: elegir(obj.bajo, BAJOS, 'bombo'),
+    espacio: elegir(obj.espacio, ESPACIOS, 'sala'),
     acordesInstr: elegir(instr.acordes, INSTR_ACORDES, 'piano'),
     melodiaInstr: elegir(instr.melodia, INSTR_MELODIA, 'lead'),
     bateriaInstr: instr.bateria === 'bateria808' ? 'bateria808' : 'bateria',
@@ -307,12 +327,66 @@ function voicing(a: Acorde, centro: number): number[] {
   return mejor
 }
 
-/** Golpes de un compás de acordes según la energía (y el ritmo, para el house). */
-function golpesAcordes(energia: number, ritmo: string, sostenido: boolean): [number, number][] {
-  if (sostenido || energia <= 1) return [[0, 16]]
+/** Golpes de un compás en bloques según la energía (y el ritmo, para el house). */
+function golpesAcordes(energia: number, ritmo: string): [number, number][] {
+  if (energia <= 1) return [[0, 16]]
   if (ritmo === 'house') return [[2, 2], [6, 2], [10, 2], [14, 2]]
   if (energia === 2) return [[0, 6], [6, 2], [8, 8]]
   return [0, 2, 4, 6, 8, 10, 12, 14].map((p) => [p, 2])
+}
+
+/** Un compás de acompañamiento: notas [paso, dur, tono, vel] relativas al compás. */
+function acompanar(acomp: Plan['acomp'], v: number[], energia: number, ritmo: string, sostenido: boolean): NotaAudio[] {
+  const acorde = (paso: number, dur: number, vel: number): NotaAudio[] => v.map((t) => [paso, dur, t, vel])
+  if (acomp === 'pad' || sostenido || energia === 0) return acorde(0, 16, 72)
+  if (acomp === 'arpegio') {
+    // Sube y baja por el acorde (más la octava de la fundamental), en corcheas que se dejan sonar.
+    const subida = [...v, v[0] + 12]
+    const figura = [...subida, ...subida.slice(1, -1).reverse()]
+    const paso = energia >= 3 ? 1 : 2
+    return Array.from({ length: 16 / paso }, (_, k) => [k * paso, paso * 1.5, figura[k % figura.length], k % 4 === 0 ? 82 : 66])
+  }
+  if (acomp === 'rasgueo') {
+    // Abajo-abajo-arriba-arriba-abajo-arriba; cada golpe desgrana las cuerdas.
+    const golpes: [number, boolean][] =
+      energia <= 1 ? [[0, true], [8, true]] : [[0, true], [4, true], [6, false], [10, false], [12, true], [14, false]]
+    return golpes.flatMap(([paso, abajo]) =>
+      (abajo ? v : [...v].reverse()).map((t, k): NotaAudio => [paso + k * 0.12, energia <= 1 ? 8 : 3, t, abajo ? 84 : 62]),
+    )
+  }
+  if (acomp === 'pulso') {
+    const paso = energia <= 1 ? 4 : 2
+    return Array.from({ length: 16 / paso }, (_, k) => acorde(k * paso, paso * 0.75, k % 2 === 0 ? 80 : 64)).flat()
+  }
+  return golpesAcordes(energia, ritmo).flatMap(([paso, dur]) => acorde(paso, dur, paso % 4 === 0 ? 80 : 68))
+}
+
+/** Un compás de bajo. `sig` = el acorde del compás siguiente (el caminante va hacia él). */
+function bajear(estilo: Plan['bajo'], a: Acorde, sig: Acorde, energia: number, bombos: number[]): NotaAudio[] {
+  const raiz = 36 + a.raiz > 45 ? 24 + a.raiz : 36 + a.raiz // Bb1..A2
+  const quinta = raiz + (a.intervalos.includes(6) && !a.intervalos.includes(7) ? 6 : 7)
+  const tercera = raiz + (a.intervalos.includes(3) ? 3 : a.intervalos.includes(4) ? 4 : a.intervalos[1])
+  if (energia <= 1 && estilo !== 'caminante') return [[0, 16, raiz, 95]]
+  if (estilo === 'raiz') return [[0, 8, raiz, 100], [8, 8, quinta, 92]]
+  if (estilo === 'octavas') return Array.from({ length: 8 }, (_, k) => [k * 2, 1.5, raiz + (k % 2) * 12, k % 2 ? 88 : 104])
+  if (estilo === 'caminante') {
+    // Negras: fundamental, tercera, quinta y una nota de paso a medio tono del acorde siguiente.
+    const destino = 36 + sig.raiz > 45 ? 24 + sig.raiz : 36 + sig.raiz
+    const paso = destino > quinta ? destino - 1 : destino + 1
+    return [[0, 3.5, raiz, 100], [4, 3.5, tercera, 86], [8, 3.5, quinta, 92], [12, 3.5, paso, 84]]
+  }
+  if (!bombos.length) return [[0, 8, raiz, 100], [8, 8, quinta, 92]]
+  return bombos.map((paso, k): NotaAudio => {
+    const fin = bombos[k + 1] ?? 16
+    return [paso, Math.max(1, fin - paso - 1), raiz + (energia >= 3 && k % 2 === 1 ? 12 : 0), 105]
+  })
+}
+
+/** Reverb/delay por pista según el espacio de la canción. */
+const ESPACIO_FX: Record<Plan['espacio'], { acordes: number; melodia: number; colchon: number; delay: number }> = {
+  seco: { acordes: 0.1, melodia: 0.12, colchon: 0.25, delay: 0.05 },
+  sala: { acordes: 0.25, melodia: 0.3, colchon: 0.45, delay: 0.15 },
+  catedral: { acordes: 0.45, melodia: 0.5, colchon: 0.65, delay: 0.25 },
 }
 
 /** Lleva la melodía a la escala y a un registro cómodo (sin saltos de octava). */
@@ -334,24 +408,41 @@ function ajustarMelodia(
 
 const fx = (reverb: number, delay = 0, chorus = 0): EfectosPista => ({ reverb, delay, chorus, dist: 0 })
 
-const pista = (nombre: string, instrumento: InstrumentoAudio, volumen: number, efectos: EfectosPista, notas: NotaAudio[]): PistaAudio => ({
+const pista = (
+  nombre: string,
+  instrumento: InstrumentoAudio,
+  volumen: number,
+  efectos: EfectosPista,
+  notas: NotaAudio[],
+  maxNotas: number,
+): PistaAudio => ({
   pistaId: nuevaPistaId(),
   nombre,
   instrumento,
   volumen,
   efectos,
-  notas: notas.sort((a, b) => a[0] - b[0] || a[2] - b[2]).slice(0, MAX_NOTAS_PISTA),
+  notas: notas.sort((a, b) => a[0] - b[0] || a[2] - b[2]).slice(0, maxNotas),
 })
 
 const mmss = (seg: number) => `${Math.floor(seg / 60)}:${String(Math.floor(seg % 60)).padStart(2, '0')}`
 
-function desplegar(plan: Plan, conVoz: boolean, voz: VozCancion) {
+/**
+ * El plan hecho pistas. `maxNotas` sube el tope del editor (la música ambiental no
+ * se edita) y `repetirMelodias` repite una melodía más corta que su sección.
+ */
+export function desplegar(
+  plan: Plan,
+  conVoz: boolean,
+  voz: VozCancion,
+  opts: { maxNotas?: number; repetirMelodias?: boolean } = {},
+) {
+  const maxNotas = opts.maxNotas ?? MAX_NOTAS_PISTA
   const bateria: NotaAudio[] = []
   const bajo: NotaAudio[] = []
   const acordes: NotaAudio[] = []
   const melodia: NotaAudio[] = []
   const coros: NotaAudio[] = []
-  const patron = PATRONES_BATERIA.find((p) => p.clave === plan.ritmo)!.golpes
+  const patron = PATRONES_BATERIA.find((p) => p.clave === plan.ritmo)?.golpes ?? []
   const bombos = [...new Set(patron.filter((g) => g[1] === 36).map((g) => g[0]))].sort((a, b) => a - b)
   const sostenido = SOSTENIDOS.includes(plan.acordesInstr)
   const melodias = Object.fromEntries(
@@ -360,8 +451,14 @@ function desplegar(plan: Plan, conVoz: boolean, voz: VozCancion) {
   const segPorCompas = (60 / plan.bpm) * 4
   const letra: string[] = []
 
+  /** Todos los acordes en orden, para que el bajo caminante sepa a dónde va. */
+  const sucesion = plan.secciones.flatMap((s) => Array.from({ length: s.compases }, (_, c) => s.acordes[c % s.acordes.length]))
   let compas = 0
-  for (const s of plan.secciones) {
+  for (const [iSec, s] of plan.secciones.entries()) {
+    const previa = plan.secciones[iSec - 1]
+    const siguiente = plan.secciones[iSec + 1] ?? plan.secciones[0]
+    /** Redoble en el último compás antes de un coro (la batería «respira» y entra). */
+    const antesDelCoro = siguiente.tipo === 'coro' && s.tipo !== 'coro' && siguiente.energia >= 2
     const inicioSec = compas * PASOS_POR_COMPAS
     const pasosSec = s.compases * PASOS_POR_COMPAS
     if (s.letra) letra.push(`[${s.nombre} · ${mmss(compas * segPorCompas)}]\n${s.letra}`)
@@ -371,35 +468,34 @@ function desplegar(plan: Plan, conVoz: boolean, voz: VozCancion) {
       const acorde = s.acordes[c % s.acordes.length]
       const ultimo = c === s.compases - 1
 
-      // Batería: 0 = sin batería, 1 = solo bombo y platos, 2 = patrón, 3 = patrón + crash y redoble.
-      if (s.energia >= 1) {
+      // Batería: 0 = sin batería, 1 = solo bombo y platos, 2 = patrón, 3 = patrón + redoble de toms.
+      // El platillo marca la entrada a una sección con más energía que la anterior.
+      if (s.energia >= 1 && patron.length) {
+        const redoble = ultimo && antesDelCoro
         for (const [paso, tono, vel] of patron) {
           if (s.energia === 1 && tono !== 36 && tono !== 42 && tono !== 46) continue
-          if (s.energia >= 3 && ultimo && paso >= 12) continue
+          if ((s.energia >= 3 && ultimo && paso >= 12) || (redoble && paso >= 8)) continue
           bateria.push([p0 + paso, 1, tono, s.energia === 1 ? Math.round(vel * 0.75) : vel])
         }
-        if (s.energia >= 3 && c === 0) bateria.push([p0, 1, 49, 115])
-        if (s.energia >= 3 && ultimo) {
+        if (c === 0 && s.energia >= 2 && (previa?.energia ?? 0) < s.energia) bateria.push([p0, 1, 49, 112])
+        if (redoble) {
+          ;[8, 10, 12, 13, 14, 15].forEach((paso, k) => bateria.push([p0 + paso, 1, 38, 60 + k * 10]))
+        } else if (s.energia >= 3 && ultimo) {
           ;[48, 48, 41, 41].forEach((tono, k) => bateria.push([p0 + 12 + k, 1, tono, 90 + k * 8]))
         }
       }
 
-      // Bajo: redonda en lo suave; con energía sigue al bombo (rítmica del 808).
+      // Bajo según su estilo (en lo suave, redondas).
       if (s.energia >= 1) {
-        const tonoBajo = 36 + acorde.raiz > 45 ? 24 + acorde.raiz : 36 + acorde.raiz // Bb1..A2
-        if (s.energia === 1) bajo.push([p0, 16, tonoBajo, 95])
-        else {
-          bombos.forEach((paso, k) => {
-            const fin = bombos[k + 1] ?? 16
-            const octava = s.energia >= 3 && k % 2 === 1 ? 12 : 0
-            bajo.push([p0 + paso, Math.max(1, fin - paso - 1), tonoBajo + octava, 105])
-          })
+        const sig = sucesion[compas + c + 1] ?? sucesion[0]
+        for (const [paso, dur, tono, vel] of bajear(plan.bajo, acorde, sig, s.energia, bombos)) {
+          bajo.push([p0 + paso, dur, tono, vel])
         }
       }
 
-      // Acordes y colchón de coros (pad en los instrumentales).
-      for (const [paso, dur] of golpesAcordes(s.energia, plan.ritmo, sostenido)) {
-        for (const tono of voicing(acorde, 62)) acordes.push([p0 + paso, dur, tono, paso % 4 === 0 ? 80 : 68])
+      // Acordes según el acompañamiento, y colchón de coros (pad en los instrumentales).
+      for (const [paso, dur, tono, vel] of acompanar(plan.acomp, voicing(acorde, 62), s.energia, plan.ritmo, sostenido)) {
+        acordes.push([p0 + paso, dur, tono, vel])
       }
       if (s.tipo === 'coro' || (s.energia >= 3 && s.tipo !== 'final')) {
         for (const tono of voicing(acorde, 70)) coros.push([p0, 16, tono, 70])
@@ -413,32 +509,41 @@ function desplegar(plan: Plan, conVoz: boolean, voz: VozCancion) {
       melodias[s.tipo] ??
       (s.letra ? (melodias.verso ?? melodias.coro) : !conVoz && s.tipo === 'instrumental' ? melodias.coro : undefined)
     if (frase && (!conVoz || s.letra)) {
-      for (const [i, d, t] of frase) {
-        if (i >= pasosSec) continue
-        melodia.push([inicioSec + i, Math.min(d, pasosSec - i), t, s.tipo === 'coro' ? 110 : 96])
+      // Repetida (si se pide) cada tantos compases como ocupa, hasta llenar la sección.
+      const largo = Math.ceil(frase.reduce((m, n) => Math.max(m, n[0] + n[1]), 1) / PASOS_POR_COMPAS) * PASOS_POR_COMPAS
+      // Cada repetición impar sube una octava la última frase (si cabe): el motivo vuelve, pero no idéntico.
+      for (let desde = 0, vuelta = 0; desde < pasosSec; desde += opts.repetirMelodias ? largo : pasosSec, vuelta++) {
+        for (const [i, d, t] of frase) {
+          if (desde + i >= pasosSec) continue
+          const alza = vuelta % 2 === 1 && i >= largo - PASOS_POR_COMPAS && t + 12 <= 84 ? 12 : 0
+          melodia.push([inicioSec + desde + i, Math.min(d, pasosSec - desde - i), t + alza, s.tipo === 'coro' ? 110 : 96])
+        }
       }
     }
     compas += s.compases
   }
 
   const n = (clave: string, es: string) => tGlobal(clave, es)
+  const e = ESPACIO_FX[plan.espacio]
   const pistas = [
-    pista(n('audio.cancionIA.pBateria', 'Batería'), plan.bateriaInstr, 0.8, fx(0.08), bateria),
-    pista(n('audio.cancionIA.pBajo', 'Bajo'), 'bajo', 0.75, fx(0), bajo),
-    pista(n('audio.cancionIA.pAcordes', 'Acordes'), plan.acordesInstr, 0.5, fx(0.25, 0, 0.2), acordes),
+    pista(n('audio.cancionIA.pBateria', 'Batería'), plan.bateriaInstr, 0.8, fx(0.08), bateria, maxNotas),
+    pista(n('audio.cancionIA.pBajo', 'Bajo'), 'bajo', 0.75, fx(0), bajo, maxNotas),
+    pista(n('audio.cancionIA.pAcordes', 'Acordes'), plan.acordesInstr, 0.5, fx(e.acordes, 0, 0.2), acordes, maxNotas),
     pista(
       conVoz ? n('audio.cancionIA.pVoz', 'Voz') : n('audio.cancionIA.pMelodia', 'Melodía'),
       conVoz ? 'voz' : plan.melodiaInstr,
       0.85,
-      fx(0.3, 0.15),
+      fx(e.melodia, e.delay),
       melodia,
+      maxNotas,
     ),
     pista(
       conVoz ? n('audio.cancionIA.pCoros', 'Coros') : n('audio.cancionIA.pColchon', 'Colchón'),
       conVoz ? 'coro' : 'pad',
       0.4,
-      fx(0.45, 0, 0.3),
+      fx(e.colchon, 0, 0.3),
       coros,
+      maxNotas,
     ),
   ].filter((p) => p.notas.length > 0)
 

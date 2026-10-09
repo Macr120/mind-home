@@ -84,7 +84,7 @@ export interface AjusteChecklist {
 
 /** De dónde sale la música: generada con Web Audio, pistas subidas o el audio del sistema capturado. */
 export type FuenteMusica = 'generada' | 'pistas' | 'sistema'
-/** Ambiente de la música generada (los presets viven en core/audio/musicaGenerada.ts). */
+/** Vibe de la música ambiental (las canciones viven en rooms/audio/ambiente.ts). */
 export type MoodMusica =
   | 'calma'
   | 'festivo'
