@@ -10,7 +10,8 @@ import { useTurno } from '../../core/espacios/turnos'
 import { BarraTurno } from '../../core/espacios/ui/BarraTurno'
 import { BotonCompartir } from '../../core/espacios/ui/BotonCompartir'
 import { ChipMiembros } from '../../core/espacios/ui/ChipMiembros'
-import { useT } from '../../core/i18n/useT'
+import { datosIdioma } from '../../core/i18n/idiomas'
+import { idiomaActual, useT } from '../../core/i18n/useT'
 import { mensajeErrorIA } from '../../core/cuenta/api'
 import { confirmar } from '../../core/state/confirmarStore'
 import { Creditos } from '../../core/ui/Creditos'
@@ -32,7 +33,8 @@ import {
   nuevoClipId,
   segPorPaso,
 } from './constantes'
-import { OP_CONTINUAR, OP_GENERAR, OP_VOZ_REAL } from './costosIA'
+import { VOZ_LYRIA, componerCancion, segundosMaximos, type VozCancion } from './cancionIA'
+import { OP_CANCION, OP_CONTINUAR, OP_GENERAR, OP_VOZ_REAL } from './costosIA'
 import { renderizarWav } from './exportarWav'
 import { crearGrabacion, fusionarNotas, type Grabacion } from './grabacion'
 import { iniciarTomaAudio, type TomaAudio } from './grabadorClip'
@@ -119,6 +121,8 @@ export function EditorProyecto({
   const [vozCantada, setVozCantada] = useState<boolean | null>(null)
   const [vozOcupado, setVozOcupado] = useState(false)
   const [vozError, setVozError] = useState('')
+  const [midiOcupado, setMidiOcupado] = useState(false)
+  const [midiError, setMidiError] = useState('')
   const [iaAplicada, setIaAplicada] = useState<NotaAudio[] | null>(null)
   const [verLetra, setVerLetra] = useState(false)
   const [elegirGrab, setElegirGrab] = useState(false)
@@ -805,6 +809,50 @@ export function EditorProyecto({
     }
   }
 
+  /**
+   * La versión MIDI editable de una canción que nació solo con Lyria: se compone
+   * desde el estilo guardado (la voz pedida va dentro, como en «Canción con IA»)
+   * y, si ya hay audio, las pistas entran silenciadas debajo.
+   */
+  const componerMidi = async () => {
+    const p = proyectoRef.current
+    if (!p || sinTurno || midiOcupado) return
+    const estilo = (p.estilo ?? '').trim()
+    const voz = (Object.keys(VOZ_LYRIA) as VozCancion[]).find((k) => estilo.includes(VOZ_LYRIA[k]))
+    const descripcion = voz ? estilo.replace(VOZ_LYRIA[voz], '').replace(/[.\s]+$/, '') : estilo
+    const segAudio = Math.max(0, ...p.pistas.flatMap((x) => (x.clips ?? []).map((c) => c.duracionSeg)))
+    setMidiError('')
+    setMidiOcupado(true)
+    try {
+      await guardarRef.current()
+      const c = await componerCancion({
+        descripcion: descripcion || p.nombre,
+        letra: p.letra ?? '',
+        conVoz: !!voz,
+        segundos: Math.min(segundosMaximos(p.bpm), Math.round(segAudio) || 120),
+        bpm: p.bpm,
+        idioma: datosIdioma(idiomaActual()).nombreIA,
+        voz: voz ?? 'mujer',
+      })
+      mutar((prev) => {
+        const quedan = prev.pistas.filter((x) => x.tipo === 'audio' || x.notas.length)
+        const hayAudio = quedan.some((x) => x.tipo === 'audio')
+        const nuevas = c.pistas.slice(0, MAX_PISTAS - quedan.length).map((x) => (hayAudio ? { ...x, silenciada: true } : x))
+        return {
+          ...prev,
+          compases: Math.max(prev.compases, c.compases),
+          ...(c.letra ? { letra: c.letra } : {}),
+          pistas: [...quedan, ...nuevas],
+        }
+      })
+      setPanelIA(false)
+    } catch (e) {
+      setMidiError(mensajeErrorIA(e, t))
+    } finally {
+      setMidiOcupado(false)
+    }
+  }
+
   const deshacerIA = () => {
     const previas = iaAplicada
     if (!previas) return
@@ -1197,6 +1245,26 @@ export function EditorProyecto({
             {t('audio.ia.nota', 'La IA compone para el instrumento de la pista activa; dale play para escucharla.')}
           </p>
 
+          {!proyecto.pistas.some((x) => x.tipo !== 'audio' && x.notas.length) && (
+            <div className="space-y-2 border-t border-white/10 pt-3">
+              <p className="flex items-center gap-1.5 text-sm font-semibold">
+                <Icono nombre="piano" /> {t('audio.cancionIA.midiTitulo', 'Versión MIDI editable')}
+              </p>
+              {midiError && <p className="text-xs text-red-400">{midiError}</p>}
+              <BotonSecundario className="w-full" disabled={midiOcupado || sinTurno} onClick={() => void componerMidi()}>
+                {midiOcupado ? <Spinner pequeno /> : <Icono nombre="brillo" />}{' '}
+                {midiOcupado ? t('audio.cancionIA.componiendo', 'Componiendo…') : t('audio.cancionIA.midiComponer', 'Componer el MIDI')}{' '}
+                {!midiOcupado && <Creditos op={OP_CANCION} />}
+              </BotonSecundario>
+              <p className="text-xs text-white/40">
+                {t(
+                  'audio.cancionIA.midiNota',
+                  'La IA compone batería, bajo, acordes y melodía con el estilo de la canción. Si ya hay audio de Lyria, las pistas entran silenciadas debajo para que las retoques.',
+                )}
+              </p>
+            </div>
+          )}
+
           <div className="space-y-2 border-t border-white/10 pt-3">
             <p className="flex items-center gap-1.5 text-sm font-semibold">
               <Icono nombre="microfono" /> {t('audio.lyria.titulo', 'Versión con voz real')}
@@ -1215,12 +1283,11 @@ export function EditorProyecto({
               <input
                 type="checkbox"
                 checked={vozCantada ?? !!proyecto.letra?.trim()}
-                disabled={!proyecto.letra?.trim()}
                 onChange={(e) => setVozCantada(e.target.checked)}
               />
               {proyecto.letra?.trim()
                 ? t('audio.lyria.cantarLetra', 'Cantar la letra del proyecto')
-                : t('audio.lyria.sinLetra', 'Sin letra: saldrá instrumental')}
+                : t('audio.lyria.vozSinLetra', 'Con voz (Lyria escribe la letra)')}
             </label>
             {vozError && <p className="text-xs text-red-400">{vozError}</p>}
             <BotonSecundario className="w-full" disabled={vozOcupado || sinTurno} onClick={() => void producirVoz()}>

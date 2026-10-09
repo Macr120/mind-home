@@ -4,7 +4,8 @@ import { iaMusicaCuenta, usarViaCuenta } from '../../core/cuenta/api'
 import { useGastoByok } from '../../core/cuenta/gastoByok'
 import type { InstrumentoAudio, PistaAudio, ProyectoAudio } from '../../core/data/db'
 import { grabacionesAudioRepo } from '../../core/data/repository'
-import { tGlobal } from '../../core/i18n/useT'
+import { datosIdioma } from '../../core/i18n/idiomas'
+import { idiomaActual, tGlobal } from '../../core/i18n/useT'
 import { MAX_COMPASES, PASOS_POR_COMPAS, nuevaPistaId, nuevoClipId, segPorPaso } from './constantes'
 import { calcularPicos } from './grabadorClip'
 import * as motor from './motor'
@@ -87,6 +88,9 @@ export function promptLyria(p: ProyectoAudio, estilo: string, conVoz: boolean): 
       '',
       estructura(p.letra, totalSeg, 8 * PASOS_POR_COMPAS * segPorPaso(p.bpm)),
     )
+  } else if (conVoz) {
+    // Sin letra en el proyecto: Lyria la escribe en el idioma de la interfaz.
+    lineas.push(`Lead vocalist sings original lyrics written in ${datosIdioma(idiomaActual()).endonimo}, with verses, a catchy chorus and backing vocals in the choruses.`)
   } else {
     lineas.push('Instrumental only, no vocals.')
   }
