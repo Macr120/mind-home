@@ -3,6 +3,7 @@ import { useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import { useCam, panFocusByPixels } from '../state/cameraStore'
 import { useDiseño } from '../state/disenoStore'
+import { useDespierto } from '../state/despiertoStore'
 import { useLayout, mapFocusPos } from '../state/layoutStore'
 
 const dist2 = (a: Touch, b: Touch) =>
@@ -51,7 +52,8 @@ export function CameraControls() {
 
     const arrastrandoAlgo = () =>
       useLayout.getState().draggingId != null ||
-      useDiseño.getState().draggingObjeto != null
+      useDiseño.getState().draggingObjeto != null ||
+      useDespierto.getState().arrastrandoMuro
 
     const frustum = () => ({
       w: camera.right - camera.left,

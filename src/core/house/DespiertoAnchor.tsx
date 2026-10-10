@@ -42,6 +42,9 @@ export function DespiertoAnchor() {
         const y0 = nivelBaseY(layout.niveles[o.roomId] ?? 0, !useHouse.getState().explotado)
         _world.set(rx + ox, y0 + alto, rz + oz)
       }
+    } else if (sujeto.tipo === 'muro') {
+      // El muro independiente trae su punto ya en mundo (lo escribe MurosLibres3D).
+      _world.set(sujeto.x, sujeto.y, sujeto.z)
     } else {
       if (!getCuarto(sujeto.id)) return
       const [rx, , rz] = roomWorldPos(sujeto.id)

@@ -12,6 +12,8 @@ import { useCanchas, esCancha } from '../state/canchasStore'
 import { useDespierto } from '../state/despiertoStore'
 import { useEnlaceObjeto } from '../state/enlaceObjetoStore'
 import { confirmar } from '../state/confirmarStore'
+import { usePlanos } from '../state/planosStore'
+import { eliminarMuroLibre } from '../data/repository'
 import { superficiesDeObjeto } from '../house/apoyos'
 import { nivelesDe } from '../muebles/superficies'
 
@@ -80,7 +82,7 @@ export function MenuDespierto() {
   }, [editMode, terminar])
 
   if (!sujeto || editMode || activeRoom) return null
-  if (sujeto.tipo === 'objeto' ? objeto == null : !existeCuarto) return null
+  if (sujeto.tipo === 'objeto' ? objeto == null : sujeto.tipo === 'cuarto' && !existeCuarto) return null
 
   const cancha = sujeto.tipo === 'objeto' && objeto != null && esCancha(objeto.tipo)
 
@@ -93,6 +95,14 @@ export function MenuDespierto() {
       })
       if (!ok) return
       await useDiseño.getState().removeObjeto(sujeto.id)
+    } else if (sujeto.tipo === 'muro') {
+      const ok = await confirmar({
+        titulo: t('constructor.muro.eliminar', 'Eliminar muro'),
+        textoOk: t('ui.borrar', 'Borrar'),
+        peligro: true,
+      })
+      if (!ok) return
+      await eliminarMuroLibre(sujeto.id)
     } else {
       const ok = await confirmar({
         titulo: t('casa.eliminarCuartoTitulo', 'Eliminar cuarto'),
@@ -111,6 +121,16 @@ export function MenuDespierto() {
     if (sujeto.tipo === 'cuarto') {
       // Editar un cuarto = el editor de mapa enfocado en él.
       useLayout.getState().editRoom(sujeto.id)
+      return
+    }
+    if (sujeto.tipo === 'muro') {
+      // Editor de mapa en la capa Muros con este muro ya elegido (su panel de estilo).
+      const id = sujeto.id
+      useLayout.getState().setEditMode(true)
+      useEditorUi.getState().setTab('mapa')
+      const planos = usePlanos.getState()
+      planos.setModo('muros')
+      planos.setMuroLibreSel(id)
       return
     }
     if (cancha) {
@@ -134,11 +154,13 @@ export function MenuDespierto() {
   }
 
   const iconoEditar: NombreIcono =
-    sujeto.tipo === 'cuarto' || cancha ? 'editar' : 'herramienta'
+    sujeto.tipo !== 'objeto' || cancha ? 'editar' : 'herramienta'
   const tituloEditar =
     sujeto.tipo === 'cuarto'
       ? t('nav.editar.titulo', 'Editar cuarto')
-      : cancha
+      : sujeto.tipo === 'muro'
+        ? t('ui.editar', 'Editar')
+        : cancha
         ? t('canchas.editar', 'Editar cancha')
         : t('mapa.objeto.forma', 'Editar forma')
 

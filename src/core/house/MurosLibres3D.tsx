@@ -1,9 +1,18 @@
+import { useEffect, useRef, useState } from 'react'
+import { useThree } from '@react-three/fiber'
+import type * as THREE from 'three'
 import { useLayout } from '../state/layoutStore'
+import { useEditorUi } from '../state/editorUiStore'
+import { useDespierto } from '../state/despiertoStore'
 import { useHouse } from '../state/houseStore'
 import { usePlanos } from '../state/planosStore'
 import { useDiseño } from '../state/disenoStore'
-import { VACIO, murosLibresRepo } from '../data/repository'
-import { nivelBaseY, WALL_H, WALL_T } from './walls'
+import { VACIO, murosLibresRepo, moverMuroLibre } from '../data/repository'
+import { nivelBaseY, WALL_H, WALL_T, SPACING } from './walls'
+import { Temblor } from './Animado'
+import { pulsacionLargaDespertar } from './pulsacionLarga'
+import { puntoSueloBajoCursor } from './arrastreCelda'
+import { esModoFondo } from '../plataforma'
 import {
   segmentosMundoMuroLibre,
   arcoCircularMuroLocal,
@@ -92,10 +101,40 @@ function FantasmaMuro({
   )
 }
 
+const EN_FONDO = esModoFondo()
+
+/** Centro (x/z de mundo) de un muro libre: promedio de los extremos de sus tramos. */
+function centroMuroLibre(m: MuroLibre, gridCols: number, gridRows: number): { x: number; z: number } {
+  const segs = segmentosMundoMuroLibre(m, gridCols, gridRows)
+  if (!segs.length) return { x: 0, z: 0 }
+  let x = 0
+  let z = 0
+  for (const s of segs) {
+    x += s.x1 + s.x2
+    z += s.z1 + s.z2
+  }
+  return { x: x / (segs.length * 2), z: z / (segs.length * 2) }
+}
+
+/** Posición (col/row) del muro desplazado dc/dr celdas, sin salirse de la rejilla. */
+function posicionDesplazada(m: MuroLibre, dc: number, dr: number, gridCols: number, gridRows: number) {
+  // Arista: col/row son esquinas de rejilla (llegan hasta gridCols/gridRows en su eje);
+  // forma: celda.
+  const maxCol = m.clase === 'arista' && m.orient === 'v' ? gridCols : gridCols - 1
+  const maxRow = m.clase === 'arista' && m.orient === 'h' ? gridRows : gridRows - 1
+  return {
+    col: Math.min(maxCol, Math.max(0, m.col + dc)),
+    row: Math.min(maxRow, Math.max(0, m.row + dr)),
+  }
+}
+
 /**
  * Muros independientes (capa "Muros"). Aristas rectas y la diagonal del triángulo se
  * dibujan con `MuroSegment` (textura, color, altura y silueta). El muro circular es una
  * pared curva real (`MuroCurvo3D`), con remate de arco o pico, no una aproximación por tramos.
+ *
+ * Fuera de los editores, mantener pulsado un muro lo despierta (como objetos y cuartos):
+ * tiembla, se arrastra por la rejilla y saca su menú (ver `MenuDespierto`).
  */
 export function MurosLibres3D() {
   const apilado = !useHouse((s) => s.explotado)
@@ -105,7 +144,81 @@ export function MurosLibres3D() {
   const nivelPlano = usePlanos((s) => s.nivel)
   const muroSelHover = usePlanos((s) => s.muroSelHover)
   const muroLibreSel = usePlanos((s) => s.muroLibreSel)
+  const planosActivo = usePlanos((s) => s.activo)
+  const editMode = useLayout((s) => s.editMode)
+  const editor3d = useEditorUi((s) => s.editor3d)
+  const despiertoId = useDespierto((s) => (s.sujeto?.tipo === 'muro' ? s.sujeto.id : null))
+  const camera = useThree((s) => s.camera)
+  const gl = useThree((s) => s.gl)
   const muros = murosLibresRepo.useAll() ?? VACIO
+  // Posición provisional del muro que se arrastra (o recién soltado, hasta que la BD responda).
+  const [arrastre, setArrastre] = useState<{ id: number; col: number; row: number } | null>(null)
+  const arrastrando = useRef(false)
+
+  // La BD ya trae la posición guardada (o la cambió otro, p. ej. deshacer): fuera la provisional.
+  useEffect(() => {
+    if (!arrastrando.current) setArrastre(null)
+  }, [muros])
+
+  const puedeDespertar = !editMode && !planosActivo && !editor3d && !EN_FONDO
+  // Con un editor abierto el muro vuelve a ser del editor.
+  useEffect(() => {
+    if (!puedeDespertar && useDespierto.getState().sujeto?.tipo === 'muro') useDespierto.getState().terminar()
+  }, [puedeDespertar])
+
+  const conArrastre = (m: MuroLibre): MuroLibre =>
+    arrastre && m.id === arrastre.id ? { ...m, col: arrastre.col, row: arrastre.row } : m
+
+  /** Punto del que cuelga el menú del muro despierto: sobre su centro, encima del remate. */
+  const anclaMenu = (m: MuroLibre) => {
+    const c = centroMuroLibre(m, gridCols, gridRows)
+    return { x: c.x, y: nivelBaseY(m.nivel, apilado) + WALL_H * (m.alto ?? 1) + 0.8, z: c.z }
+  }
+
+  // Al moverse el muro despierto, su menú lo sigue.
+  const despierto = despiertoId != null ? muros.find((m) => m.id === despiertoId) : undefined
+  const despiertoVisto = despierto ? conArrastre(despierto) : undefined
+  useEffect(() => {
+    if (!despiertoVisto || despiertoVisto.id == null) return
+    useDespierto.getState().despertar({ tipo: 'muro', id: despiertoVisto.id, ...anclaMenu(despiertoVisto) })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [despiertoVisto?.id, despiertoVisto?.col, despiertoVisto?.row, despiertoVisto?.alto, despiertoVisto?.nivel, gridCols, gridRows, apilado])
+
+  // Arrastre del muro despierto: salta de celda en celda siguiendo al dedo.
+  const arrastrar = (m: MuroLibre, x0: number, y0: number) => {
+    if (m.id == null) return
+    const id = m.id
+    const opts = { canvas: gl.domElement, camera, nivel: m.nivel, apilado, gridCols, gridRows }
+    const p0 = puntoSueloBajoCursor(x0, y0, opts)
+    if (!p0) return
+    const base = conArrastre(m)
+    let pos = { col: base.col, row: base.row }
+    arrastrando.current = true
+    useDespierto.getState().setArrastrandoMuro(true)
+    const mover = (e: PointerEvent) => {
+      const p = puntoSueloBajoCursor(e.clientX, e.clientY, opts)
+      if (!p) return
+      const dc = Math.round((p.x - p0.x) / SPACING)
+      const dr = Math.round((p.z - p0.z) / SPACING)
+      const sig = posicionDesplazada(base, dc, dr, gridCols, gridRows)
+      if (sig.col === pos.col && sig.row === pos.row) return
+      pos = sig
+      setArrastre({ id, ...sig })
+    }
+    const soltar = () => {
+      window.removeEventListener('pointermove', mover)
+      window.removeEventListener('pointerup', soltar)
+      window.removeEventListener('pointercancel', soltar)
+      arrastrando.current = false
+      useDespierto.getState().setArrastrandoMuro(false)
+      if (pos.col !== m.col || pos.row !== m.row) void moverMuroLibre(id, pos.col, pos.row)
+      else setArrastre(null)
+    }
+    window.addEventListener('pointermove', mover)
+    window.addEventListener('pointerup', soltar)
+    window.addEventListener('pointercancel', soltar)
+  }
+
   if (muros.length === 0 && !muroHover) return null
   const hoverLibreId =
     muroSelHover && 'muroLibreId' in muroSelHover ? muroSelHover.muroLibreId : null
@@ -120,19 +233,82 @@ export function MurosLibres3D() {
           yBase={nivelBaseY(nivelPlano, apilado)}
         />
       )}
-      {muros.map((m) => (
-        // userData: PlanoMuroSelector3D selecciona el muro libre por su malla (cualquier forma).
-        <group key={`ml-${m.id}`} userData={m.id != null ? { muroLibreSel: m.id } : undefined}>
-          <MuroLibre3DItem
-            m={m}
-            gridCols={gridCols}
-            gridRows={gridRows}
-            yBase={nivelBaseY(m.nivel, apilado)}
-            resaltado={m.id != null && (m.id === hoverLibreId || m.id === muroLibreSel)}
-          />
-        </group>
-      ))}
+      {muros.map((m0) => {
+        const m = conArrastre(m0)
+        const estaDespierto = m.id != null && m.id === despiertoId
+        return (
+          // userData: PlanoMuroSelector3D selecciona el muro libre por su malla (cualquier forma).
+          <group
+            key={`ml-${m.id}`}
+            userData={m.id != null ? { muroLibreSel: m.id } : undefined}
+            onPointerDown={
+              estaDespierto
+                ? (e) => {
+                    e.stopPropagation()
+                    arrastrar(m0, e.nativeEvent.clientX, e.nativeEvent.clientY)
+                  }
+                : puedeDespertar
+                  ? (e) => {
+                      // Sin cortar la propagación, el cuarto de debajo arrancaría su propia
+                      // pulsación larga y despertaría él en vez del muro.
+                      e.stopPropagation()
+                      const id = m.id
+                      if (id == null) return
+                      const { clientX, clientY } = e.nativeEvent
+                      pulsacionLargaDespertar(e.nativeEvent, () => {
+                        useDespierto.getState().despertar({ tipo: 'muro', id, ...anclaMenu(m) })
+                        // El dedo sigue abajo: el mismo gesto ya lo arrastra.
+                        arrastrar(m0, clientX, clientY)
+                      })
+                    }
+                  : undefined
+            }
+            // Despierto, el toque que lo arrastra no debe colarse al suelo (el personaje caminaría).
+            onClick={estaDespierto ? (e) => e.stopPropagation() : undefined}
+          >
+            <MuroTembloroso m={m} gridCols={gridCols} gridRows={gridRows} despierto={estaDespierto}>
+              <MuroLibre3DItem
+                m={m}
+                gridCols={gridCols}
+                gridRows={gridRows}
+                yBase={nivelBaseY(m.nivel, apilado)}
+                resaltado={m.id != null && (m.id === hoverLibreId || m.id === muroLibreSel)}
+              />
+            </MuroTembloroso>
+          </group>
+        )
+      })}
     </>
+  )
+}
+
+/**
+ * Envoltura que deja temblar al muro despierto sobre su propio centro (sus tramos van
+ * en coordenadas de mundo: girar el grupo tal cual lo haría orbitar el origen). Se monta
+ * siempre, despierto o no, para que encender el temblor no remonte el muro.
+ */
+function MuroTembloroso({
+  m,
+  gridCols,
+  gridRows,
+  despierto,
+  children,
+}: {
+  m: MuroLibre
+  gridCols: number
+  gridRows: number
+  despierto: boolean
+  children: React.ReactNode
+}) {
+  const gTemblor = useRef<THREE.Group>(null)
+  const c = centroMuroLibre(m, gridCols, gridRows)
+  return (
+    <group position={[c.x, 0, c.z]}>
+      <group ref={gTemblor}>
+        <group position={[-c.x, 0, -c.z]}>{children}</group>
+      </group>
+      {despierto && <Temblor grupo={gTemblor} factor={0.5} />}
+    </group>
   )
 }
 

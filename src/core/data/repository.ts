@@ -857,6 +857,11 @@ export async function setEstiloMuroLibre(
   await db.murosLibres.update(id, patch)
 }
 
+/** Mueve un muro libre a otra posición de la rejilla (arrastre del muro despierto). */
+export async function moverMuroLibre(id: number, col: number, row: number): Promise<void> {
+  await db.murosLibres.update(id, { col, row })
+}
+
 export async function eliminarMuroLibre(id: number): Promise<void> {
   await db.murosLibres.delete(id)
 }
