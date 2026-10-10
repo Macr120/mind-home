@@ -304,6 +304,8 @@ function ClicDirecto() {
       _ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1)
       _ray.setFromCamera(_ndc, camera)
       for (const h of _ray.intersectObjects(scene.children, true)) {
+        // Zona de toque invisible de los muros de forma (MurosLibres3D): no es el muro.
+        if (h.object.userData.zonaToque) continue
         const res = buscarMuro(h.object)
         if (!res || !h.face) continue
         if (Math.hypot(h.point.x - playerPos.x, h.point.z - playerPos.z) > ALCANCE_CLIC) {

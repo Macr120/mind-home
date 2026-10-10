@@ -275,7 +275,42 @@ export function MurosLibres3D() {
                 resaltado={m.id != null && (m.id === hoverLibreId || m.id === muroLibreSel)}
               />
             </MuroTembloroso>
+            {puedeDespertar && m.clase === 'forma' && (
+              <ZonaToqueMuro m={m} gridCols={gridCols} gridRows={gridRows} yBase={nivelBaseY(m.nivel, apilado)} />
+            )}
           </group>
+        )
+      })}
+    </>
+  )
+}
+
+/** Grosor (u) de la zona de toque de los muros de forma. */
+const GROSOR_TOQUE = 1.6
+
+/**
+ * Zona de toque invisible y gruesa de un muro de triángulo o círculo. En la vista
+ * isométrica la diagonal del triángulo (y los extremos del arco) quedan de canto: una
+ * línea de un píxel imposible de atinar con el dedo para la pulsación larga.
+ */
+function ZonaToqueMuro({ m, gridCols, gridRows, yBase }: { m: MuroLibre; gridCols: number; gridRows: number; yBase: number }) {
+  const alto = WALL_H * (m.alto ?? 1)
+  return (
+    <>
+      {segmentosMundoMuroLibre(m, gridCols, gridRows).map((s, i) => {
+        const dx = s.x2 - s.x1
+        const dz = s.z2 - s.z1
+        return (
+          // zonaToque: el clic del grafiti la salta y busca el muro de verdad.
+          <mesh
+            key={i}
+            position={[(s.x1 + s.x2) / 2, yBase + alto / 2, (s.z1 + s.z2) / 2]}
+            rotation={[0, Math.atan2(-dz, dx), 0]}
+            userData={{ zonaToque: true }}
+          >
+            <boxGeometry args={[Math.hypot(dx, dz), alto, GROSOR_TOQUE]} />
+            <meshBasicMaterial transparent opacity={0} depthWrite={false} colorWrite={false} />
+          </mesh>
         )
       })}
     </>
