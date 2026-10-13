@@ -1,0 +1,364 @@
+{
+  "fotos": {},
+  "laminas": {
+    "conversacion": {
+      "archivo": "laminas/conversacion.mp4",
+      "tipo": "video",
+      "autor": "Mizuno K",
+      "fuente": "https://www.pexels.com/video/two-women-talking-while-drinking-coffee-13929624/",
+      "licencia": "Licencia Pexels"
+    },
+    "leer": {
+      "archivo": "laminas/leer.mp4",
+      "tipo": "video",
+      "autor": "George Milton",
+      "fuente": "https://www.pexels.com/video/a-woman-reading-books-while-lying-down-7026561/",
+      "licencia": "Licencia Pexels"
+    },
+    "cafeteria": {
+      "archivo": "laminas/cafeteria.mp4",
+      "tipo": "video",
+      "autor": "Mizuno K",
+      "fuente": "https://www.pexels.com/video/a-man-taking-order-in-the-coffee-shop-13736569/",
+      "licencia": "Licencia Pexels"
+    },
+    "examen": {
+      "archivo": "laminas/examen.webp",
+      "tipo": "foto",
+      "autor": "Andy Barbour",
+      "fuente": "https://www.pexels.com/photo/a-person-cheating-in-an-exam-6684210/",
+      "licencia": "Licencia Pexels"
+    },
+    "clase": {
+      "archivo": "laminas/clase.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/students-cheating-during-an-exam-7092274/",
+      "licencia": "Licencia Pexels"
+    },
+    "reloj": {
+      "archivo": "laminas/reloj.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/clock-is-ticking-7034348/",
+      "licencia": "Licencia Pexels"
+    },
+    "globo": {
+      "archivo": "laminas/globo.mp4",
+      "tipo": "video",
+      "autor": "Marina Leonova",
+      "fuente": "https://www.pexels.com/video/close-up-footage-of-a-globe-7602132/",
+      "licencia": "Licencia Pexels"
+    },
+    "audifonos": {
+      "archivo": "laminas/audifonos.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-female-wearing-black-headphones-6686334/",
+      "licencia": "Licencia Pexels"
+    },
+    "podcast": {
+      "archivo": "laminas/podcast.mp4",
+      "tipo": "video",
+      "autor": "Mizuno K",
+      "fuente": "https://www.pexels.com/video/a-young-woman-recording-a-podcast-13929852/",
+      "licencia": "Licencia Pexels"
+    },
+    "notas": {
+      "archivo": "laminas/notas.webp",
+      "tipo": "foto",
+      "autor": "Polina Tankilevitch",
+      "fuente": "https://www.pexels.com/photo/blue-pink-and-orange-sticky-notes-6929348/",
+      "licencia": "Licencia Pexels"
+    },
+    "calendario": {
+      "archivo": "laminas/calendario.webp",
+      "tipo": "foto",
+      "autor": "Matheus Bertelli",
+      "fuente": "https://www.pexels.com/photo/minimalist-january-desk-calendar-29509480/",
+      "licencia": "Licencia Pexels"
+    },
+    "tarjetas": {
+      "archivo": "laminas/tarjetas.webp",
+      "tipo": "foto",
+      "autor": "Gustavo Fring",
+      "fuente": "https://www.pexels.com/photo/woman-holding-card-illustrations-7156130/",
+      "licencia": "Licencia Pexels"
+    },
+    "libro": {
+      "archivo": "laminas/libro.mp4",
+      "tipo": "video",
+      "autor": "azra melek",
+      "fuente": "https://www.pexels.com/video/close-up-of-book-pages-flipping-indoors-40128882/",
+      "licencia": "Licencia Pexels"
+    },
+    "periodico": {
+      "archivo": "laminas/periodico.webp",
+      "tipo": "foto",
+      "autor": "Feyza Yıldırım",
+      "fuente": "https://www.pexels.com/photo/close-up-of-stand-with-newspapers-on-street-15686356/",
+      "licencia": "Licencia Pexels"
+    },
+    "mesa": {
+      "archivo": "laminas/mesa.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/a-family-praying-before-meal-5814425/",
+      "licencia": "Licencia Pexels"
+    },
+    "sal": {
+      "archivo": "laminas/sal.webp",
+      "tipo": "foto",
+      "autor": "Олександр К",
+      "fuente": "https://www.pexels.com/photo/a-salt-shaker-on-a-white-surface-27545910/",
+      "licencia": "Licencia Pexels"
+    },
+    "fichas": {
+      "archivo": "laminas/fichas.webp",
+      "tipo": "foto",
+      "autor": "Ksenia Chernaya",
+      "fuente": "https://www.pexels.com/photo/sticky-notes-on-wooden-table-6999650/",
+      "licencia": "Licencia Pexels"
+    },
+    "cajas": {
+      "archivo": "laminas/cajas.webp",
+      "tipo": "foto",
+      "autor": "aju.bee",
+      "fuente": "https://www.pexels.com/photo/drawing-of-couple-kissing-in-box-14127172/",
+      "licencia": "Licencia Pexels"
+    },
+    "aeropuerto": {
+      "archivo": "laminas/aeropuerto.mp4",
+      "tipo": "video",
+      "autor": "Emrul Kausar Emon",
+      "fuente": "https://www.pexels.com/video/bangkok-suvarnabhumi-airport-terminal-overview-34758156/",
+      "licencia": "Licencia Pexels"
+    },
+    "reunion": {
+      "archivo": "laminas/reunion.mp4",
+      "tipo": "video",
+      "autor": "MART  PRODUCTION",
+      "fuente": "https://www.pexels.com/video/professional-people-brainstorming-during-meeting-7643614/",
+      "licencia": "Licencia Pexels"
+    },
+    "aula": {
+      "archivo": "laminas/aula.mp4",
+      "tipo": "video",
+      "autor": "Katerina Holmes",
+      "fuente": "https://www.pexels.com/video/students-and-teacher-in-classroom-5897650/",
+      "licencia": "Licencia Pexels"
+    },
+    "hablar": {
+      "archivo": "laminas/hablar.mp4",
+      "tipo": "video",
+      "autor": "MART  PRODUCTION",
+      "fuente": "https://www.pexels.com/video/talking-woman-wearing-corporate-attire-7644020/",
+      "licencia": "Licencia Pexels"
+    },
+    "audifonos2": {
+      "archivo": "laminas/audifonos2.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/person-wearing-a-headset-5703690/",
+      "licencia": "Licencia Pexels"
+    },
+    "grabar": {
+      "archivo": "laminas/grabar.mp4",
+      "tipo": "video",
+      "autor": "ANTONI SHKRABA production",
+      "fuente": "https://www.pexels.com/video/woman-is-recording-a-song-8135216/",
+      "licencia": "Licencia Pexels"
+    },
+    "risa": {
+      "archivo": "laminas/risa.mp4",
+      "tipo": "video",
+      "autor": "Ivan S",
+      "fuente": "https://www.pexels.com/video/women-posing-for-the-camera-4821001/",
+      "licencia": "Licencia Pexels"
+    },
+    "adulto": {
+      "archivo": "laminas/adulto.mp4",
+      "tipo": "video",
+      "autor": "Barbara Olsen",
+      "fuente": "https://www.pexels.com/video/close-up-video-of-a-bald-man-taking-notes-7866248/",
+      "licencia": "Licencia Pexels"
+    },
+    "abuela": {
+      "archivo": "laminas/abuela.mp4",
+      "tipo": "video",
+      "autor": "T Leish",
+      "fuente": "https://www.pexels.com/video/elderly-couple-using-a-laptop-6975689/",
+      "licencia": "Licencia Pexels"
+    },
+    "llamada": {
+      "archivo": "laminas/llamada.mp4",
+      "tipo": "video",
+      "autor": "KATRIN  BOLOVTSOVA",
+      "fuente": "https://www.pexels.com/video/two-people-on-video-call-during-meal-5974779/",
+      "licencia": "Licencia Pexels"
+    },
+    "viaje": {
+      "archivo": "laminas/viaje.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/globe-stand-on-a-black-luggage-7009541/",
+      "licencia": "Licencia Pexels"
+    },
+    "agenda": {
+      "archivo": "laminas/agenda.webp",
+      "tipo": "foto",
+      "autor": "https://kaboompics.com/",
+      "fuente": "https://www.pexels.com/photo/hands-writing-in-notebook-5386483/",
+      "licencia": "Licencia Pexels"
+    },
+    "cronometro": {
+      "archivo": "laminas/cronometro.mp4",
+      "tipo": "video",
+      "autor": "Asiye Betül Dokuyucu",
+      "fuente": "https://www.pexels.com/video/hourglass-on-arabic-script-document-36804382/",
+      "licencia": "Licencia Pexels"
+    },
+    "cafe": {
+      "archivo": "laminas/cafe.mp4",
+      "tipo": "video",
+      "autor": "Elif  Gökçe",
+      "fuente": "https://www.pexels.com/video/man-enjoying-coffee-in-sunlit-garden-28772518/",
+      "licencia": "Licencia Pexels"
+    },
+    "escuchar": {
+      "archivo": "laminas/escuchar.mp4",
+      "tipo": "video",
+      "autor": "Darina Belonogova",
+      "fuente": "https://www.pexels.com/video/woman-listening-to-music-using-her-headphones-7198925/",
+      "licencia": "Licencia Pexels"
+    },
+    "escribir": {
+      "archivo": "laminas/escribir.mp4",
+      "tipo": "video",
+      "autor": "Polina Tankilevitch",
+      "fuente": "https://www.pexels.com/video/person-writing-on-her-notebook-6929080/",
+      "licencia": "Licencia Pexels"
+    },
+    "regar": {
+      "archivo": "laminas/regar.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/a-woman-watering-a-plant-7491322/",
+      "licencia": "Licencia Pexels"
+    },
+    "resumen": {
+      "archivo": "laminas/resumen.mp4",
+      "tipo": "video",
+      "autor": "George Pak",
+      "fuente": "https://www.pexels.com/video/a-man-riding-a-boat-7823396/",
+      "licencia": "Licencia Pexels"
+    },
+    "rosetta": {
+      "archivo": "laminas/rosetta.webp",
+      "tipo": "foto",
+      "autor": "Hans Hillewaert",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Rosetta_Stone.JPG",
+      "licencia": "CC BY-SA 4.0",
+      "credito": "Hans Hillewaert · CC BY-SA 4.0 · Wikimedia"
+    },
+    "champollion": {
+      "archivo": "laminas/champollion.webp",
+      "tipo": "foto",
+      "autor": "Léon Cogniet",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Leon_Cogniet_-_Jean-Francois_Champollion.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "comenio": {
+      "archivo": "laminas/comenio.webp",
+      "tipo": "foto",
+      "autor": "Rijksmuseum",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Portret_van_Jan_Amos_Comenius,_SK-A-2161.jpg",
+      "licencia": "CC0",
+      "credito": "Wikimedia Commons"
+    },
+    "orbis": {
+      "archivo": "laminas/orbis.webp",
+      "tipo": "foto",
+      "autor": "Johann Amos Comenius",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Orbis-pictus-021.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "berlitz": {
+      "archivo": "laminas/berlitz.webp",
+      "tipo": "foto",
+      "autor": "Bikes&Law",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Portrait_of_Maximilian_Berlitz.jpg",
+      "licencia": "CC BY-SA 4.0",
+      "credito": "Bikes&Law · CC BY-SA 4.0 · Wikimedia"
+    },
+    "zamenhof": {
+      "archivo": "laminas/zamenhof.webp",
+      "tipo": "foto",
+      "autor": "Eugène Pirou",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Ludwik_Zamenhof_Pirou.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "esperanto": {
+      "archivo": "laminas/esperanto.webp",
+      "tipo": "foto",
+      "autor": "Ludoviko Lazaro ZAMENHOF",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Unua_libro_pl.png",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "ebbinghaus": {
+      "archivo": "laminas/ebbinghaus.webp",
+      "tipo": "foto",
+      "autor": "Unknown authorUnknown author",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Ebbinghaus2.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "canales": {
+      "archivo": "laminas/canales.webp",
+      "tipo": "foto",
+      "autor": "MindHaOS",
+      "fuente": "https://mindhaos.com/guias",
+      "licencia": "Propia",
+      "credito": ""
+    },
+    "app-plan": {
+      "archivo": "laminas/app-plan.{idioma}.mp4",
+      "tipo": "video",
+      "autor": "MindHaOS",
+      "fuente": "https://app.mindhaos.com",
+      "credito": ""
+    },
+    "cerebro": {
+      "archivo": "laminas/cerebro.mp4",
+      "tipo": "video",
+      "autor": "Nicola Narracci",
+      "fuente": "https://www.pexels.com/video/abstract-golden-neural-network-animation-35003022/",
+      "licencia": "Licencia Pexels"
+    },
+    "traductor": {
+      "archivo": "laminas/traductor.mp4",
+      "tipo": "video",
+      "autor": "Nathan J Hilton",
+      "fuente": "https://www.pexels.com/video/iphone-on-a-desk-stand-hello-19162466/",
+      "licencia": "Licencia Pexels"
+    },
+    "amigos": {
+      "archivo": "laminas/amigos.mp4",
+      "tipo": "video",
+      "autor": "Darina Belonogova",
+      "fuente": "https://www.pexels.com/video/women-laughing-together-9187875/",
+      "licencia": "Licencia Pexels"
+    },
+    "viajeros": {
+      "archivo": "laminas/viajeros.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-man-looking-at-a-map-with-a-woman-5966352/",
+      "licencia": "Licencia Pexels"
+    }
+  }
+}

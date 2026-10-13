@@ -17,6 +17,7 @@ import {
 } from '../state/cameraStore'
 import { useLayout } from '../state/layoutStore'
 import { SPACING } from './walls'
+import { mapaVisible } from './cuadrantesMapa'
 
 /**
  * Publica las medidas del encuadre: el frustum útil del lienzo (`lienzoCam`) y el zoom
@@ -25,14 +26,16 @@ import { SPACING } from './walls'
  * encuadrarse solos.
  */
 function publicarEncuadre(cam: THREE.OrthographicCamera, anchoCss: number, a: number, e: number) {
-  const { gridCols, gridRows, editMode } = useLayout.getState()
+  const { gridCols, gridRows, editMode, cuadrantesOcultos } = useLayout.getState()
+  // Con cuadrantes ocultos, el mapa que hay que encuadrar es solo el visible.
+  const r = mapaVisible(gridCols, gridRows, cuadrantesOcultos)?.rect
   let fw = cam.right - cam.left
   const fh = cam.top - cam.bottom
   // Con el panel de edición abierto solo se ve el mapa a su izquierda.
   if (editMode) fw = Math.max(1, fw - EDIT_PANEL_PX * (fw / Math.max(1, anchoCss)))
   lienzoCam.fw = fw
   lienzoCam.fh = fh
-  setZoomAjuste(zoomParaRect(gridCols * SPACING, gridRows * SPACING, fw, fh, a, e))
+  setZoomAjuste(zoomParaRect((r?.cols ?? gridCols) * SPACING, (r?.rows ?? gridRows) * SPACING, fw, fh, a, e))
 }
 
 /**

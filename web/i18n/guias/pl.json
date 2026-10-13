@@ -204,6 +204,852 @@
     "bio": "Poradnik interaktywny i aplikacja: link w bio",
     "parte": "Część",
     "guiaCompleta": "Cały poradnik",
-    "hashtags": "#ćwiczenia #trening #fitness #zdrowie #siłownia #MindHaOS"
+    "hashtags": "#ćwiczenia #trening #fitness #zdrowie #siłownia #MindHaOS",
+    "guiaN": "Poradnik {n}"
+  },
+  "cocina": {
+    "meta": {
+      "titulo": "Co to znaczy dobrze się odżywiać? Pełny poradnik: składniki odżywcze, energia, jakość i twój talerz | MindHaOS",
+      "desc": "Co jedzenie robi w twoim ciele, historia żywienia, ile energii potrzebujesz (kalkulator), jak rozpoznać żywność ultraprzetworzoną i jak ułożyć swój talerz i swój tydzień."
+    },
+    "lista": {
+      "combustible": "Paliwo",
+      "combustibleDet": "Energia do oddychania, myślenia i ruchu. Mierzy się ją w kaloriach.",
+      "construccion": "Materiał budowlany",
+      "construccionDet": "Z tego, co jesz, naprawiasz mięśnie, kości, skórę i krew.",
+      "proteinas": "Białka",
+      "proteinasDet": "Budują i naprawiają. Mięso, ryby, jajka, nabiał, rośliny strączkowe.",
+      "carbohidratos": "Węglowodany",
+      "carbohidratosDet": "Najszybsza energia. Zboża, bulwy, owoce.",
+      "grasas": "Tłuszcze",
+      "grasasDet": "Zapas energii i ściany twoich komórek. Oliwa z oliwek, awokado, orzechy.",
+      "vitaminas": "Witaminy",
+      "vitaminasDet": "W maleńkich ilościach, ale niezbędne.",
+      "minerales": "Minerały",
+      "mineralesDet": "Wapń, żelazo, potas… kości, krew i mięśnie.",
+      "fibra": "Błonnik",
+      "fibraDet": "Karmi twoją mikrobiotę i daje dłuższą sytość.",
+      "resumen1": "Przez większość czasu jedz prawdziwe jedzenie",
+      "resumen2": "Wypełniaj połowę talerza warzywami i owocami",
+      "resumen3": "Dopasuj ilość do tego, ile zużywasz",
+      "resumen4": "Planuj tydzień: jadłospis, lista i coś już ugotowanego"
+    },
+    "dato": {
+      "agricultura": "lat temu pojawiło się rolnictwo: pszenica, ryż i kukurydza",
+      "lind": "James Lind leczy szkorbut pomarańczami i cytrynami",
+      "atwater": "kalorie na gram białka, węglowodanów i tłuszczu (Atwater)",
+      "funk": "Kazimierz Funk proponuje słowo „witamina”",
+      "plato": "Od piramidy żywieniowej (1992) do talerza: MyPlate i meksykański Plato del Bien Comer",
+      "proteina": "białka dziennie: minimum i zalecenie przy treningu siłowym",
+      "deficit": "tego, co zużywasz: mały deficyt, który da się utrzymać",
+      "experimento": "dziennie na diecie ultraprzetworzonej (Hall i współpracownicy, 2019)",
+      "sal": "soli dziennie: jedna łyżeczka",
+      "frutas": "owoców i warzyw dziennie (i 25 g błonnika)",
+      "ochenta": "Przez większość czasu dobrze; reszta bez wyrzutów sumienia",
+      "agua": "wody dziennie, licząc także tę z jedzenia"
+    },
+    "pasos": {
+      "porcion": "Porcja",
+      "porcionDet": "Wszystko inne jest podane dla tej ilości.",
+      "azucares": "Cukry i sól",
+      "azucaresDet": "Porównuj na 100 g, nie na opakowanie.",
+      "ingredientes": "Składniki",
+      "ingredientesDet": "Od największej ilości do najmniejszej: pierwszego jest najwięcej.",
+      "menu": "Wybierz jadłospis",
+      "menuDet": "Posiłki na tydzień, z przepisów, które już znasz.",
+      "lista": "Zrób listę",
+      "listaDet": "Wszystko, czego wymagają te przepisy, pogrupowane według działów sklepu.",
+      "prepara": "Gotuj więcej",
+      "preparaDet": "Gotowe jedzenie na dwa dni, na wypadek braku czasu."
+    },
+    "grafica": {
+      "historia": "Od ognia do talerza",
+      "fuego": "Prehistoria",
+      "fuegoDet": "Gotowanie na ogniu",
+      "agricultura": "Neolit",
+      "agriculturaDet": "Rolnictwo",
+      "lindDet": "Próba z cytrynami",
+      "atwaterDet": "Kaloryczność produktów",
+      "funkDet": "Witaminy",
+      "platoDet": "Talerz",
+      "balance": "Bilans energetyczny",
+      "entra": "To, co jesz",
+      "sale": "To, co zużywasz",
+      "gasto": "Na co zużywasz energię",
+      "basal": "Podstawowa przemiana materii",
+      "actividad": "Aktywność w ciągu dnia",
+      "digestion": "Trawienie",
+      "nova": "Jak bardzo przetworzono twoje jedzenie (klasyfikacja NOVA)",
+      "g1": "Świeże lub minimalnie przetworzone",
+      "g1Det": "Warzywa, owoce, jajka, mięso, mleko, ryż",
+      "g2": "Składniki kuchenne",
+      "g2Det": "Olej, sól, cukier, masło",
+      "g3": "Przetworzone",
+      "g3Det": "Ser, chleb z piekarni, konserwy",
+      "g4": "Ultraprzetworzone",
+      "g4Det": "Słodkie napoje gazowane, ciastka, przekąski, słodzone płatki"
+    },
+    "energia": {
+      "titulo": "Policz swoją energię na dzień",
+      "sexo": "Płeć",
+      "mujer": "Kobieta",
+      "hombre": "Mężczyzna",
+      "edad": "Wiek",
+      "anios": "lat",
+      "peso": "Waga",
+      "estatura": "Wzrost",
+      "actividad": "Aktywność",
+      "a1": "Prawie cały dzień na siedząco",
+      "a2": "Trochę ruchu",
+      "a3": "Ćwiczenia 3–5 dni",
+      "a4": "Bardzo aktywnie",
+      "basal": "Podstawowa przemiana materii",
+      "total": "Wydatek dzienny",
+      "bajar": "Żeby schudnąć (−15 %)",
+      "proteina": "Białko",
+      "kcal": "kcal",
+      "gDia": "g dziennie",
+      "nota": "Równanie Mifflina-St Jeor. To szacunek (±10 %): skoryguj go według tego, co zobaczysz po dwóch, trzech tygodniach."
+    },
+    "plato": {
+      "titulo": "Ułóż swój talerz",
+      "instruccion": "Dotknij produktów, żeby je nałożyć",
+      "verduras": "Warzywa i owoce",
+      "cereales": "Produkty pełnoziarniste",
+      "proteina": "Białko",
+      "ideal": "Zdrowy talerz: ½ warzywa i owoce · ¼ zboża · ¼ białko",
+      "vacio": "Twój talerz jest pusty",
+      "bien": "Twój talerz przypomina zdrowy talerz!",
+      "masVerdura": "Brakuje warzyw i owoców",
+      "masCereal": "Brakuje produktu pełnoziarnistego",
+      "masProteina": "Brakuje białka",
+      "vaciar": "Opróżnij",
+      "brocoli": "Brokuł",
+      "ensalada": "Sałatka",
+      "jitomate": "Pomidor",
+      "manzana": "Jabłko",
+      "arroz": "Ryż brązowy",
+      "tortilla": "Tortilla kukurydziana",
+      "avena": "Owsianka",
+      "pollo": "Kurczak",
+      "frijoles": "Fasola",
+      "huevo": "Jajko",
+      "pescado": "Ryba"
+    },
+    "azucar": {
+      "titulo": "Ile cukru jest w tym, co pijesz?",
+      "refresco": "Napój typu cola (355 ml)",
+      "jugo": "Sok pomarańczowy (250 ml)",
+      "isotonica": "Napój izotoniczny (600 ml)",
+      "frappe": "Kawa frappé (473 ml)",
+      "chocolate": "Mleko czekoladowe (250 ml)",
+      "agua": "Woda",
+      "gramos": "g cukru",
+      "cucharaditas": "łyżeczek",
+      "ideal": "dziennego limitu idealnego (25 g)",
+      "nota": "Przybliżone wartości z popularnych etykiet. WHO wlicza też cukry z soków."
+    },
+    "cierre": {
+      "titulo": "Prowadź swój plan we własnym domu",
+      "texto": "Kuchnia w MindHaOS przechowuje twoje przepisy, układa plan posiłków na tydzień i robi za ciebie listę zakupów."
+    },
+    "memes": {
+      "limones": {
+        "arriba": "Marynarze w 1747 roku: odkrywają, że cytryna ratuje im życie",
+        "abajo": "Ja: dodaję cytrynę do wszystkiego"
+      },
+      "ultraprocesados": {
+        "arriba": "„Pełnoziarniste” ciastka z 14 składników",
+        "abajo": "Jabłko: 1 składnik"
+      },
+      "perfecta": {
+        "arriba": "Idealna dieta… przez trzy dni",
+        "abajo": "Dobre jedzenie prawie zawsze, przez cały rok"
+      },
+      "tarde": {
+        "arriba": "Ja o 19:00, bez porządnego posiłku",
+        "abajo": "Ja po prawdziwym posiłku"
+      }
+    },
+    "paquete": {
+      "guia": "Interaktywny poradnik (z kalkulatorem energii, zdrowym talerzem i cukrem w twoich napojach)",
+      "app": "Otwórz kuchnię w MindHaOS",
+      "hashtags": "#odżywianie #zdrowejedzenie #dieta #zdrowie #przepisy #MindHaOS"
+    }
+  },
+  "descanso": {
+    "meta": {
+      "titulo": "Co to znaczy dobrze spać? Pełny poradnik: cykle, wewnętrzny zegar, ile spać i jak przygotować się do nocy | MindHaOS",
+      "desc": "Co dzieje się w twoim ciele, kiedy śpisz, historia badań nad snem, ile godzin potrzebujesz (kalkulator cykli), jak działa twój wewnętrzny zegar, ile kofeiny zostaje ci przed snem i co robić, gdy nie możesz zasnąć."
+    },
+    "lista": {
+      "reparacion": "Regeneracja",
+      "reparacionDet": "Hormon wzrostu: ciało naprawia mięśnie i tkanki.",
+      "limpieza": "Oczyszczanie mózgu",
+      "limpiezaDet": "U myszy mózg usuwa więcej odpadów podczas snu.",
+      "memoria": "Pamięć",
+      "memoriaDet": "Porządkuje i utrwala to, czego uczysz się w ciągu dnia.",
+      "emociones": "Emocje",
+      "emocionesDet": "Przetwarza emocje z całego dnia: rano patrzysz na wszystko inaczej.",
+      "alondra": "Skowronki",
+      "alondraDet": "Same wstają wcześnie i najlepiej działają rano.",
+      "buho": "Sowy",
+      "buhoDet": "Rozkręcają się późno i najlepiej działają wieczorem.",
+      "resumen1": "Co najmniej siedem godzin, o stałych porach",
+      "resumen2": "Światło rano, ciemność wieczorem",
+      "resumen3": "Uważaj na kofeinę i alkohol",
+      "resumen4": "Przygotuj ostatnią godzinę dnia"
+    },
+    "dato": {
+      "edison": "Edison z powodzeniem testuje swoją żarówkę",
+      "cueva": "Kleitman spędza 32 dni w jaskini, żeby sprawdzić 28-godzinną dobę",
+      "rem": "Aserinsky i Kleitman odkrywają sen REM",
+      "nobel": "Nobel z medycyny za geny wewnętrznego zegara",
+      "deuda": "sześć godzin snu przez dwa tygodnie: uwaga jak po dwóch nieprzespanych nocach",
+      "luz": "naturalnego światła krótko po przebudzeniu",
+      "pantallas": "Czytanie na tablecie przed snem opóźnia melatoninę",
+      "regular": "osób: sen o stałych porach wiąże się z niższą śmiertelnością",
+      "alcohol": "Alkohol sprawia, że druga połowa nocy jest przerywana",
+      "ejercicio": "Regularny ruch pomaga szybciej zasnąć i spać głębiej",
+      "veinte": "bez snu: wstań i wróć, kiedy poczujesz senność",
+      "siesta": "sprawności po drzemce trwającej około 26 minut (NASA)",
+      "terapia": "Terapia poznawczo-behawioralna: pierwsze leczenie bezsenności"
+    },
+    "pasos": {
+      "sinAlarma": "Budzisz się bez budzika",
+      "sinAlarmaDet": "Na urlopie mniej więcej o tej samej porze co w tygodniu.",
+      "sinCafe": "Nie potrzebujesz kawy, żeby się rozkręcić",
+      "sinCafeDet": "Już od pierwszej godziny dnia masz jasny umysł.",
+      "despierto": "Wytrzymujesz całe popołudnie",
+      "despiertoDet": "Bez przysypiania po obiedzie ani na zebraniach.",
+      "fresco": "Chłodno",
+      "frescoDet": "Około 18 °C: żeby zasnąć, ciało obniża temperaturę.",
+      "oscuro": "Ciemno",
+      "oscuroDet": "Grube zasłony albo opaska na oczy; żadnych zapalonych świateł.",
+      "silencio": "Cicho",
+      "silencioDet": "Zatyczki do uszu albo biały szum, jeśli mieszkasz przy hałaśliwej ulicy.",
+      "apaga": "Odłóż ekrany",
+      "apagaDet": "Godzinę przed snem: telefon niech się ładuje z dala od łóżka.",
+      "luces": "Przygaś światła",
+      "lucesDet": "Ciepłe, przyćmione światło daje ciału znać, że już noc.",
+      "ritual": "Rytuał, zawsze taki sam",
+      "ritualDet": "Czytanie, ciepła kąpiel albo rozciąganie: sygnał, że nadchodzi sen."
+    },
+    "grafica": {
+      "hipnograma": "Typowa noc: cykle po około 90 minut; sen głęboki na początku, a REM nad ranem",
+      "despierto": "Czuwanie",
+      "rem": "REM",
+      "ligero": "Płytki",
+      "profundo": "Głęboki",
+      "historia": "Co odkrywaliśmy o śnie",
+      "siglos": "XVI–XVIII w.",
+      "siglosDet": "Pierwszy i drugi sen",
+      "edisonDet": "Żarówka Edisona",
+      "cuevaDet": "Kleitman w jaskini",
+      "remDet": "Odkrycie snu REM",
+      "nobelDet": "Nobel za wewnętrzny zegar",
+      "edades": "Zalecana liczba godzin snu każdej nocy (Amerykańska Akademia Medycyny Snu)",
+      "ninos": "Dzieci 6–12",
+      "adolescentes": "Nastolatki",
+      "adultos": "Dorośli",
+      "circadiano": "Twój zegar 24-godzinny: światło dnia go nastawia, a melatonina rośnie, gdy robi się ciemno",
+      "luz": "Światło dnia",
+      "melatonina": "Melatonina"
+    },
+    "calc": {
+      "titulo": "O której się położyć?",
+      "despierto": "Wstaję o",
+      "acuestate": "Połóż się o jednej z tych godzin (licząc 15 minut na zaśnięcie):",
+      "ciclos": "cykli",
+      "nota": "Cykle trwają od 80 do 110 minut, zależnie od osoby: to wskazówka, a nie reguła. Najważniejsze, żeby spać co najmniej siedem godzin."
+    },
+    "cafeina": {
+      "titulo": "Ile kofeiny zostaje ci przed snem?",
+      "cafe": "Filiżanka kawy",
+      "espresso": "Espresso",
+      "te": "Czarna herbata",
+      "cola": "Napój typu cola",
+      "energetica": "Napój energetyczny",
+      "aLas": "Piję o",
+      "duermes": "Zasypiam o",
+      "quedan": "wciąż w twoim organizmie",
+      "deLaDosis": "dawki",
+      "nota": "Okres półtrwania to około 5 godzin (od 2 do 10, zależnie od osoby). Jeśli kofeina mocno na ciebie działa, nie pij jej po południu."
+    },
+    "cierre": {
+      "titulo": "Dbaj o swój sen we własnym domu",
+      "texto": "Pokój „Odpoczynek” w MindHaOS prowadzi twój harmonogram snu z przypomnieniami i budzikiem, ocenia każdą noc i przechowuje dziennik twoich nocy, żeby pokazać ci twoje schematy."
+    },
+    "memes": {
+      "cinco": {
+        "arriba": "Ja o 23:00: jutro wstaję wcześnie i wszystko ogarniam",
+        "abajo": "Ja o 7:00: jeszcze pięć minutek"
+      },
+      "capitulo": {
+        "arriba": "Zasnąć o swojej porze",
+        "abajo": "„Jeszcze jeden odcinek” o 2 w nocy"
+      },
+      "cafe": {
+        "arriba": "Ja o 18:00: jedna kawka nic mi nie zrobi",
+        "abajo": "Ja o 2 w nocy, gapiąc się w sufit"
+      },
+      "siesta": {
+        "arriba": "20-minutowa drzemka: zatwierdzona przez naukę (i przez NASA)"
+      }
+    },
+    "paquete": {
+      "guia": "Interaktywny poradnik (z kalkulatorem cykli snu, twoim zegarem 24-godzinnym i kofeiną, która zostaje ci przed snem)",
+      "app": "Otwórz pokój „Odpoczynek” w MindHaOS",
+      "hashtags": "#sen #zdrowysen #odpoczynek #zdrowie #bezsenność #MindHaOS"
+    }
+  },
+  "finanzas": {
+    "moneda": "zł",
+    "formato": "despues",
+    "base": "7000",
+    "meta": {
+      "titulo": "Czym są pieniądze? Pełny poradnik: skąd się wzięły, budżet, fundusz awaryjny, długi i procent składany | MindHaOS",
+      "desc": "Czym są pieniądze i skąd się wzięły, gdzie uciekają twoje (kalkulator drobnych wydatków i zasada 50/30/20), jak zbudować fundusz awaryjny, ile kosztuje spłacanie minimum i jak rosną oszczędności dzięki procentowi składanemu."
+    },
+    "lista": {
+      "resumen1": "Zapisuj, gdzie uciekają twoje pieniądze",
+      "resumen2": "Płać najpierw sobie, w dniu wypłaty",
+      "resumen3": "Zbuduj poduszkę i wyjdź z drogich długów",
+      "resumen4": "Pozwól, by czas i odsetki pracowały"
+    },
+    "dato": {
+      "loteria": "po wygranej: zwycięzcy dużych nagród bankrutowali niemal tak samo często jak zwycięzcy małych",
+      "lidia": "Lidia bije pierwsze monety z elektrum",
+      "jiaozi": "Chiny emitują jiaozi, pierwszy oficjalny pieniądz papierowy",
+      "ponzi": "Charles Ponzi obiecuje 50 % w 45 dni… z pieniędzy nowych inwestorów",
+      "nixon": "Dolara nie da się już wymienić na złoto",
+      "registra": "zapisując wszystko, co wydajesz, nawet kawę",
+      "emergencia": "dorosłych w USA pokryłoby nieprzewidziany wydatek 400 dolarów z oszczędności",
+      "tarjeta": "średniego rocznego oprocentowania kart kredytowych w USA (2024)",
+      "regla72": "Podziel 72 przez stopę: wyjdzie, po ilu latach pieniądze się podwoją",
+      "fraude": "Wysokie i pewne zyski: nie istnieją",
+      "revisa": "żeby sprawdzić, ile wpłynęło, ile wypłynęło i jak daleko zaszedłeś"
+    },
+    "pasos": {
+      "plazo": "Na długi termin",
+      "plazoDet": "Tylko pieniądze, których szybko nie będziesz potrzebować.",
+      "canasta": "Nie wszystko w jednym koszyku",
+      "canastaDet": "Rozłóż ryzyko, żeby jedno potknięcie nie przewróciło wszystkiego.",
+      "entiende": "Tylko w to, co rozumiesz",
+      "entiendeDet": "Jeśli nie umiesz wyjaśnić, jak to zarabia, nie wkładaj tam swoich pieniędzy.",
+      "nombre": "Nazwij cel",
+      "nombreDet": "„Wkład własny na samochód”, a nie „oszczędzać więcej”.",
+      "monto": "Ustal kwotę",
+      "montoDet": "Ile potrzebujesz w sumie.",
+      "fecha": "Ustal termin",
+      "fechaDet": "Kwota ÷ miesiące = ile odkładasz co miesiąc."
+    },
+    "grafica": {
+      "funciones": "Trzy funkcje pieniądza",
+      "intercambio": "Wymiana",
+      "intercambioDet": "Każdy przyjmuje je w zamian za cokolwiek.",
+      "medida": "Miara",
+      "medidaDet": "Wycenia wszystko w tej samej jednostce.",
+      "reserva": "Przechowywanie wartości",
+      "reservaDet": "To, co masz dziś, na wydatki jutro.",
+      "inflacion": "Ile kupi dzisiejsze 100 rok po roku przy inflacji 3 % rocznie",
+      "mitad": "Połowa",
+      "flujo": "Rachunek, który decyduje o wszystkim",
+      "entra": "To, co wpływa",
+      "entraDet": "Pensja, sprzedaż, każdy dochód.",
+      "sale": "Minus to, co wypływa",
+      "saleDet": "Stałe wydatki, przyjemności, długi.",
+      "queda": "To, co ci zostaje",
+      "quedaDet": "Na oszczędności, spłatę długów i budowanie przyszłości.",
+      "historia": "Jak zmieniał się pieniądz",
+      "aC": "p.n.e.",
+      "hammurabiDet": "Hammurabi ogranicza odsetki",
+      "lidiaDet": "Pierwsze monety",
+      "jiaoziDet": "Pierwszy oficjalny pieniądz papierowy",
+      "ponziDet": "Oszustwo Ponziego",
+      "nixonDet": "Żegnaj, złoto",
+      "ahorraMas": "„Oszczędzaj więcej jutro”: oszczędności pracowników z 3,5 % do 13,6 % pensji w czterech podwyżkach",
+      "antes": "Przedtem",
+      "aumento": "Podwyżka",
+      "metodos": "Dwie kolejności spłaty tych samych długów",
+      "avalancha": "Lawina",
+      "avalanchaDet": "Najpierw najwyżej oprocentowany: płacisz mniej odsetek.",
+      "bolaNieve": "Kula śnieżna",
+      "bolaNieveDet": "Najpierw najmniejszy: szybciej widzisz postępy.",
+      "tarjeta": "Karta",
+      "prestamo": "Pożyczka",
+      "tienda": "Sklep",
+      "empezarAntes": "Tyle samo co miesiąc przy 6 % rocznie do 65. roku życia: od 25 albo od 35 lat",
+      "empezarAntesA": "Od 25 lat",
+      "empezarAntesB": "Od 35 lat",
+      "comisiones": "Dzisiejsze 100 przez 30 lat: przy 7 % i przy 7 % minus punkt procentowy opłaty",
+      "comisionesA": "Bez opłaty",
+      "comisionesB": "Z opłatą 1 %",
+      "automatiza": "Kolejność w dniu wypłaty, automatycznie",
+      "cobras": "Wypłata",
+      "cobrasDet": "Wpływa twoja pensja.",
+      "ahorroAuto": "Oszczędności",
+      "ahorroAutoDet": "Schodzą same, jako pierwsze.",
+      "fijos": "Stałe opłaty",
+      "fijosDet": "Polecenia zapłaty: czynsz, rachunki, długi.",
+      "libre": "Reszta",
+      "libreDet": "Do wydania bez wyrzutów sumienia."
+    },
+    "hormiga": {
+      "titulo": "Ile zabiera drobny wydatek?",
+      "gasto": "Za każdym razem wydaję",
+      "dias": "Dni w tygodniu",
+      "alAnio": "W rok",
+      "diezAnios": "W dziesięć lat",
+      "invertido": "Jeśli odłożysz to na 6 % rocznie, w dziesięć lat",
+      "nota": "Nie chodzi o to, żeby odmawiać sobie przyjemności, tylko żeby wybierać je, wiedząc, ile kosztują."
+    },
+    "reparto": {
+      "titulo": "Zasada 50/30/20",
+      "ingreso": "Mój miesięczny dochód netto",
+      "necesario": "Rzeczy niezbędne",
+      "gustos": "Twoje przyjemności",
+      "ahorro": "Oszczędności i długi",
+      "nota": "To punkt wyjścia: jeśli czynsz zabiera ponad połowę, tnij przyjemności, a nie oszczędności."
+    },
+    "fondo": {
+      "titulo": "Twój fundusz awaryjny",
+      "gasto": "Moje podstawowe wydatki miesięczne",
+      "aparta": "Mogę odkładać miesięcznie",
+      "meses": "Miesiące zapasu",
+      "meta": "Twój cel",
+      "tardas": "Uzbierasz w",
+      "mesesCorto": "mies.",
+      "nota": "Podstawowe wydatki: mieszkanie, jedzenie, rachunki, transport i raty długów. Trzymaj te pieniądze osobno, tam, gdzie nie będzie cię kusiło, żeby je wydać."
+    },
+    "deuda": {
+      "titulo": "Ile kosztuje spłacanie po trochu?",
+      "saldo": "Ile jestem winien",
+      "tasa": "Oprocentowanie roczne",
+      "pago": "Rata miesięczna",
+      "tardas": "Spłacisz w",
+      "meses": "mies.",
+      "intereses": "Zapłacisz odsetek",
+      "total": "Zapłacisz w sumie",
+      "nunca": "Taka rata nie pokrywa nawet odsetek: dług nigdy nie maleje.",
+      "loQueDebias": "Ile byłeś winien",
+      "nota": "Bez nowych zakupów i opłat. Wiele kart dolicza też podatki lub inne opłaty od odsetek."
+    },
+    "compuesto": {
+      "titulo": "Procent składany na twoich liczbach",
+      "aporte": "Odkładam miesięcznie",
+      "tasa": "Roczna stopa zwrotu",
+      "anios": "Przez",
+      "aniosCorto": "lat",
+      "tuyo": "Ile włożyłeś",
+      "interes": "Ile dołożyły odsetki",
+      "total": "Na koniec",
+      "nota": "To obliczenie poglądowe ze stałą stopą zwrotu: w prawdziwym życiu zwroty się zmieniają, mogą być ujemne i trzeba od nich odjąć inflację oraz opłaty."
+    },
+    "cierre": {
+      "titulo": "Prowadź swoje pieniądze we własnym domu",
+      "texto": "Pokój „Finanse” w MindHaOS prowadzi twój przepływ pieniędzy z wydatkami, przychodami i bilansem, twoje cele oszczędnościowe i spłaty długów z kalkulatorami oraz twój majątek, żebyś widział, jak rośnie."
+    },
+    "memes": {
+      "garantizado": {
+        "arriba": "„50 % zysku w 45 dni, gwarantowane”"
+      },
+      "hormiga": {
+        "arriba": "Ja: nie stać mnie na oszczędzanie",
+        "abajo": "Też ja: kawka, przekąska i trzy subskrypcje, z których nie korzystam"
+      },
+      "quincena": {
+        "arriba": "Ja w dzień wypłaty",
+        "abajo": "Ja trzy dni później"
+      },
+      "minimo": {
+        "arriba": "Spłacić całą kartę",
+        "abajo": "Spłacić minimum i martwić się w 2035"
+      }
+    },
+    "paquete": {
+      "guia": "Poradnik interaktywny (z kalkulatorami drobnych wydatków, zasady 50/30/20, funduszu awaryjnego, długu na karcie i procentu składanego)",
+      "app": "Otwórz pokój „Finanse” w MindHaOS",
+      "hashtags": "#finanseosobiste #oszczędzanie #pieniądze #budżet #edukacjafinansowa #MindHaOS"
+    }
+  },
+  "idiomas": {
+    "narra": "Opowiada czarodziej",
+    "cargando3d": "Wczytujemy czarodzieja…",
+    "meta": {
+      "titulo": "Po co uczyć się języka? Pełny poradnik: twój mózg, poziomy, godziny, pamięć, powtórki rozłożone w czasie i plan na 20 minut | MindHaOS",
+      "desc": "Dlaczego warto uczyć się języka, choć maszyny już tłumaczą, co znaczy go znać i ile to trwa, jak mózg się uczy i zapomina (krzywa zapominania i powtórki rozłożone w czasie), które słowa dają najwięcej, jak mówić od pierwszego dnia i plan na dwadzieścia minut dziennie."
+    },
+    "lista": {
+      "resumen1": "Słuchaj tego, co prawie rozumiesz",
+      "resumen2": "Powtarzaj z odstępami i sprawdzaj się",
+      "resumen3": "Najpierw najczęstsze słowa, w zdaniach",
+      "resumen4": "Mów od pierwszego dnia, po trochu codziennie"
+    },
+    "dato": {
+      "cerebro": "później pojawiały się objawy demencji u osób mówiących w dwóch językach (Toronto, 2007)",
+      "distancia": "więcej godzin zajęć dla japońskiego niż dla hiszpańskiego, jeśli mówisz po angielsku",
+      "comenio": "Komeński wydaje Orbis Pictus: każde łacińskie słowo obok rysunku",
+      "berlitz": "Berlitz otwiera szkołę: na lekcji się nie tłumaczy",
+      "zamenhof": "Zamenhof ogłasza esperanto, gramatykę bez wyjątków",
+      "canales": "języków na kanałach MindHaOS: obejrzyj znany poradnik w tym, którego się uczysz",
+      "swain": "Merrill Swain: rozumieć to za mało, trzeba też mówić",
+      "errores": "Każdy poprawiony błąd to lekcja szyta na twoją miarę",
+      "diario": "Otwieraj usta codziennie, choćby po to, żeby mówić do siebie",
+      "riega": "po trochu codziennie, lepiej niż maraton w niedzielę"
+    },
+    "pasos": {
+      "chistes": "Żarty i dwuznaczności",
+      "chistesDet": "To, co gubi tłumaczenie słowo w słowo.",
+      "gente": "Ludzie, bez ekranu",
+      "genteDet": "Prawdziwa rozmowa, oko w oko.",
+      "pensar": "Inne spojrzenie",
+      "pensarDet": "Każdy język porządkuje świat po swojemu.",
+      "frase": "Całe zdanie",
+      "fraseDet": "„Podasz mi sól?”, a nie samo „sól”.",
+      "contexto": "Z sytuacją",
+      "contextoDet": "Gdzie i do kogo byś to powiedział.",
+      "usala": "Użyj szybko",
+      "usalaDet": "Dziś albo jutro, na głos.",
+      "escucha": "Słuchaj",
+      "escuchaDet": "Krótkie nagranie, które prawie rozumiesz.",
+      "repite": "Powtarzaj jednocześnie",
+      "repiteDet": "Jak echo: rytm i intonacja.",
+      "grabate": "Nagraj się",
+      "grabateDet": "Porównaj z oryginałem i powtórz.",
+      "para": "Cel",
+      "paraDet": "Podróże, praca, rozmowy z rodziną…",
+      "nivel": "Poziom",
+      "nivelDet": "Według CEFR: A2, B1, B2…",
+      "fecha": "Data",
+      "fechaDet": "Brakujące godziny ÷ dni = twoja rutyna."
+    },
+    "grafica": {
+      "habilidades": "Cztery umiejętności językowe",
+      "entender": "Rozumienie",
+      "producir": "Tworzenie",
+      "escuchar": "Słuchanie",
+      "leer": "Czytanie",
+      "hablar": "Mówienie",
+      "escribir": "Pisanie",
+      "fsi": "Godziny zajęć, żeby pracować w danym języku, dla osoby mówiącej po angielsku (FSI)",
+      "g1": "Bliskie",
+      "g1Det": "Hiszpański, francuski, włoski, portugalski, niderlandzki",
+      "g2": "Średnie",
+      "g2Det": "Niemiecki, indonezyjski, suahili",
+      "g3": "Trudne",
+      "g3Det": "Rosyjski, hindi, turecki, polski, grecki",
+      "g4": "Bardzo trudne",
+      "g4Det": "Japoński, chiński, koreański, arabski",
+      "historia": "Jak uczono się języków",
+      "aC": "p.n.e.",
+      "rosettaDet": "Kamień z Rosetty",
+      "orbisDet": "Orbis Pictus Komeńskiego",
+      "berlitzDet": "Berlitz: bez tłumaczenia",
+      "esperantoDet": "Narodziny esperanto",
+      "leitnerDet": "Pudełka Leitnera",
+      "inputComprensible": "Co cię uczy: ani za łatwo, ani za trudno",
+      "facil": "Za łatwo",
+      "facilDet": "Rozumiesz wszystko: nie ma nic nowego.",
+      "justo": "Odrobinę powyżej",
+      "justoDet": "Rozumiesz prawie wszystko i coś jest nowe: uczysz się.",
+      "dificil": "Za trudno",
+      "dificilDet": "Nic nie rozumiesz: to tylko szum.",
+      "olvido": "Krzywa zapominania: ile Ebbinghaus jeszcze pamiętał ze swoich list (oszczędność przy ponownej nauce, %)",
+      "olvidoDia": "Dzień później: ≈ 34 %",
+      "unDia": "1 dzień",
+      "unMes": "1 miesiąc",
+      "recuperar": "Ponowne czytanie czy sprawdzanie się (schemat według Roedigera i Karpicke’a, 2006)",
+      "releer": "Ponowne czytanie",
+      "prueba": "Sprawdzanie się",
+      "dosDias": "2 dni",
+      "unaSemana": "1 tydzień",
+      "temas": "Zacznij od tego, czego będziesz używać",
+      "viajar": "Do podróży",
+      "trabajar": "Do pracy",
+      "saludos": "Powitania",
+      "comida": "Jedzenie",
+      "transporte": "Transport",
+      "direcciones": "Wskazówki dojazdu",
+      "presentarte": "Przedstawianie się",
+      "reuniones": "Spotkania",
+      "correos": "Maile",
+      "edad": "Łatwość uczenia się gramatyki a wiek (schemat według Hartshorne’a, Tenenbauma i Pinkera, 2018)",
+      "nativo": "Brzmieć jak rodzimy",
+      "adulto": "Dobrze mówić: w każdym wieku",
+      "rutina": "Dwadzieścia minut dziennie",
+      "escucha5": "5 min · Słuchaj",
+      "escucha5Det": "Czegoś, co prawie rozumiesz.",
+      "repasa5": "5 min · Powtarzaj",
+      "repasa5Det": "Fiszki na dziś.",
+      "habla5": "5 min · Mów",
+      "habla5Det": "Na głos albo jak cień.",
+      "lee5": "5 min · Czytaj lub pisz",
+      "lee5Det": "Akapit, wiadomość."
+    },
+    "nivel": {
+      "titulo": "Na jakim jesteś poziomie?",
+      "a1": "Przedstawiam się i zamawiam coś w kawiarni",
+      "a2": "Mówię o swoim dniu, rodzinie i zakupach",
+      "b1": "Radzę sobie w podróży i opowiadam, co mi się przydarzyło",
+      "b2": "Prowadzę zwykłą rozmowę i wyrażam swoje zdanie",
+      "c1": "Bez wysiłku rozumiem seriale i długie teksty",
+      "c2": "Rozumiem praktycznie wszystko, z niuansami",
+      "vas": "Jesteś na poziomie",
+      "ninguno": "Nic jeszcze nie zaznaczyłeś: zaczynasz od A1.",
+      "nota": "Liczy się najwyższy poziom, który zaznaczasz, nie pomijając żadnego. To wskazówka oparta na opisach CEFR, a nie egzamin."
+    },
+    "olvido": {
+      "titulo": "Krzywa zapominania i twoje powtórki",
+      "repasos": "Powtórki",
+      "dias": "dni",
+      "recuerdas": "Po 30 dniach pamiętasz",
+      "cuando": "Powtarzasz w dniach",
+      "nota": "To model poglądowy: każda powtórka sprawia, że wspomnienie zaciera się wolniej. W rzeczywistości zależy to od słowa i od ciebie."
+    },
+    "cobertura": {
+      "titulo": "Ile z tekstu rozpoznajesz?",
+      "sabes": "Najczęstsze słowa, które znasz",
+      "reconoces": "Rozpoznajesz ze zwykłego tekstu",
+      "desconocida": "Słowa, których nie znasz",
+      "nota": "W przybliżeniu, dla angielskiego (Nation, 2006). Żeby czytać bez słownika, trzeba rozpoznawać prawie wszystkie: mniej więcej 98 na 100."
+    },
+    "leitner": {
+      "titulo": "Pudełka Leitnera",
+      "frente": "the apple",
+      "reverso": "jabłko",
+      "voltea": "dotknij, żeby odwrócić",
+      "acerte": "Wiedziałem",
+      "falle": "Pomyliłem się",
+      "proximo": "Zobaczysz ją znowu za",
+      "dominada": "prawie opanowana",
+      "nota": "Jeśli odpowiesz dobrze, idzie o jedno pudełko w górę; jeśli się pomylisz, spada o dwa. Odstępy są takie jak w aplikacji Języki w MindHaOS.",
+      "dia": "dzień",
+      "dias": "dni"
+    },
+    "minutos": {
+      "titulo": "Ile uzbiera twoja rutyna?",
+      "minutos": "Minuty dziennie",
+      "dias": "Dni w tygodniu",
+      "idioma": "Język, którego się uczysz",
+      "alAnio": "Godziny w roku",
+      "llegas": "Do godzin FSI dojdziesz w",
+      "meses": "mies.",
+      "anios": "lat",
+      "nota": "Punktem odniesienia jest około {h} godzin intensywnych zajęć FSI dla osoby mówiącej po angielsku: to rząd wielkości, nie obietnica."
+    },
+    "cierre": {
+      "titulo": "Ucz się swojego języka we własnym domu",
+      "texto": "Pokój „Języki” w MindHaOS ma rozmowy z lektorem, który cię poprawia, program podzielony na poziomy z twoimi fiszkami i powtórki rozłożone w czasie, które mówią ci, co dziś powtórzyć."
+    },
+    "memes": {
+      "olvido": {
+        "arriba": "Ja w niedzielę, po nauczeniu się 50 słówek",
+        "abajo": "Ja w poniedziałek"
+      },
+      "lista": {
+        "arriba": "Wkuwać 500 pojedynczych słówek",
+        "abajo": "Nauczyć się 10 zdań, których używam codziennie"
+      },
+      "perfecto": {
+        "arriba": "Czekać, aż będę mówić idealnie",
+        "abajo": "Mówić dziś, z błędami"
+      }
+    },
+    "paquete": {
+      "guia": "Poradnik interaktywny (z twoim poziomem CEFR, krzywą zapominania, słowami, które dają najwięcej, pudełkami Leitnera i kalkulatorem twojej rutyny)",
+      "app": "Otwórz pokój „Języki” w MindHaOS",
+      "hashtags": "#naukajęzyków #językobcy #angielski #poliglota #fiszki #MindHaOS"
+    }
+  },
+  "arte": {
+    "meta": {
+      "titulo": "Czym jest sztuka? Pełny przewodnik po sztukach wizualnych: po co tworzyć, skoro jest AI, historia, elementy, jak patrzeć na dzieło i plan na 15 minut | MindHaOS",
+      "desc": "Czym jest sztuka i czym są sztuki wizualne, dlaczego warto tworzyć, choć sztuczna inteligencja już maluje, krótka historia od jaskiń po ekrany, elementy dzieła (linia, kształt, walor, kolor, kompozycja), jak patrzeć na nie powoli i jak zacząć tworzyć z planem na piętnaście minut dziennie."
+    },
+    "lista": {
+      "dibujo": "Rysunek",
+      "dibujoDet": "Ołówek, węgiel, tusz.",
+      "pintura": "Malarstwo",
+      "pinturaDet": "Olej, akwarela, akryl.",
+      "escultura": "Rzeźba",
+      "esculturaDet": "Glina, kamień, drewno, metal.",
+      "fotografia": "Fotografia",
+      "fotografiaDet": "Światło złapane w jednej chwili.",
+      "digital": "Ilustracja cyfrowa",
+      "digitalDet": "Tablety, warstwy i ekrany.",
+      "resumen1": "Sztuka to zrobić coś, żeby ktoś inny spojrzał i poczuł",
+      "resumen2": "Warto dla tego, co dzieje się z tobą, gdy tworzysz",
+      "resumen3": "Patrz powoli: światło, kształt, kolor i kompozycja",
+      "resumen4": "Twórz trochę każdego dnia"
+    },
+    "dato": {
+      "cortisol": "osób obniżyło poziom hormonu stresu po 45 minutach tworzenia, niezależnie od tego, czy umiały rysować (Kaimal, 2016)",
+      "perspectiva": "Brunelleschi pokazuje we Florencji za pomocą lustra, jak wygląda głębia",
+      "durero": "Dürer wydaje podręcznik z siatką do rysowania tego, co widać",
+      "fotografia": "W Paryżu zostaje zaprezentowany dagerotyp, pierwsza praktyczna fotografia",
+      "duchamp": "Duchamp wysyła „Fontannę” na wystawę: co sprawia, że coś jest sztuką?",
+      "sketchpad": "Sketchpad: pierwszy program do rysowania na ekranie",
+      "museo": "przed każdym dziełem, średnio, w Metropolitan Museum of Art (Smith i Smith, 2001)",
+      "unaObra": "patrzenia na jedno dzieło: opisz, przeanalizuj, zinterpretuj i oceń",
+      "louvre": "rok otwarcia Luwru, który od tamtej pory pozwala kopiować swoje obrazy",
+      "cuaderno": "rysunków do nauki, zanim ocenisz, jak ci wychodzą",
+      "meta": "sto rysunków w sto dni: cel, który da się policzyć"
+    },
+    "pasos": {
+      "hacer": "Ktoś to robi",
+      "hacerDet": "Celowo: wybiera, co pokazać i jak.",
+      "mirar": "Ktoś inny patrzy",
+      "mirarDet": "Obraz, zdjęcie, rzeźba, ekran.",
+      "sentir": "I coś czuje albo myśli",
+      "sentirDet": "To, co Tołstoj nazwał zarażaniem uczuciem.",
+      "creer": "Rysujemy to, co myślimy",
+      "creerDet": "Oko „w kształcie migdała”, choć z boku takie nie jest.",
+      "ver": "Zamiast tego, co widzimy",
+      "verDet": "Prawdziwe kąty, rozmiary i przerwy.",
+      "entrenar": "I tego można się nauczyć",
+      "entrenarDet": "Ćwiczeniami patrzenia, jak mięsień.",
+      "lapiz": "Ołówek",
+      "lapizDet": "Miękki (2B) wystarczy na początek.",
+      "papel": "Papier",
+      "papelDet": "Tani szkicownik: bez strachu, że się zmarnuje.",
+      "tableta": "Albo tablet",
+      "tabletaDet": "Z warstwami i cofaniem, jeśli tak ci wygodniej.",
+      "brazo": "Wyprostowana ręka",
+      "brazoDet": "Zawsze w tej samej odległości i z jednym okiem zamkniętym.",
+      "unidad": "Jedna miara",
+      "unidadDet": "Zmierz coś ołówkiem: głowę, szerokość okna.",
+      "compara": "Porównaj",
+      "comparaDet": "Ile razy mieści się w reszcie?",
+      "describe": "Opisz",
+      "describeDet": "Co tu jest? Ludzie, przedmioty, kolory, na razie bez ocen.",
+      "analiza": "Przeanalizuj",
+      "analizaDet": "Jak to zrobiono? Linie, światło, kompozycja.",
+      "interpreta": "Zinterpretuj",
+      "interpretaDet": "Co to znaczy? Co czujesz, kiedy na to patrzysz?",
+      "juzga": "Oceń",
+      "juzgaDet": "Dopiero na końcu: czy ci się podoba i dlaczego?",
+      "amigo": "Znajomemu",
+      "amigoDet": "Zapytaj, co widzi najpierw.",
+      "clase": "Na zajęciach",
+      "claseDet": "Nauczyciel poprawi cię dokładnie tam, gdzie się mylisz.",
+      "internet": "W internecie",
+      "internetDet": "Są społeczności, które komentują rysunki początkujących."
+    },
+    "grafica": {
+      "efectoDibujo": "Słowa zapamiętane później (według schematu Wammesa, Meade i Fernandes, 2016)",
+      "escribir": "Zapisać je",
+      "escribirDet": "Przepisać słowo kilka razy.",
+      "dibujar": "Narysować je",
+      "dibujarDet": "Narysować to, co oznacza.",
+      "historia": "Krótka historia sztuk wizualnych",
+      "hace": "{n} lat temu",
+      "celebesDet": "Ludzie i dzika świnia na Celebesie",
+      "lascauxDet": "Konie i byki z Lascaux",
+      "perspectivaDet": "Brunelleschi i perspektywa",
+      "fotografiaDet": "Nadchodzi fotografia",
+      "duchampDet": "Duchamp i jego „Fontanna”",
+      "sketchpadDet": "Sketchpad, pierwszy rysunek na ekranie",
+      "formas": "Cztery bryły, z których buduje się prawie wszystko",
+      "cubo": "Sześcian",
+      "esfera": "Kula",
+      "cilindro": "Walec",
+      "cono": "Stożek",
+      "tercios": "Zasada trójpodziału: to, co ważne, na jednym z przecięć",
+      "circulo": "Koło barw i walor każdego koloru w szarości",
+      "tono": "Kolor",
+      "valor": "Walor",
+      "rutina": "Piętnaście minut dziennie, jeden tydzień",
+      "lunes": "Poniedziałek · Kontury",
+      "lunesDet": "Twoja dłoń, liść, bez patrzenia na kartkę.",
+      "martes": "Wtorek · Bryły",
+      "martesDet": "Sześciany, kule i walce we wszystkim, co widzisz.",
+      "miercoles": "Środa · Gesty",
+      "miercolesDet": "Pozy od 30 sekund do 2 minut.",
+      "jueves": "Czwartek · Światło i cień",
+      "juevesDet": "Kula, kubek, z pięcioma walorami.",
+      "viernes": "Piątek · Mistrz",
+      "viernesDet": "Patrz na dzieło dziesięć minut i skopiuj fragment.",
+      "finde": "Weekend · Dowolnie",
+      "findeDet": "Co tylko chcesz, dla przyjemności."
+    },
+    "mesas": {
+      "titulo": "Który z dwóch stołów jest dłuższy?",
+      "pregunta": "Lewy wydaje się dużo dłuższy, prawda?",
+      "comprobar": "Sprawdź",
+      "otraVez": "Jeszcze raz",
+      "identicas": "Są identyczne: to ten sam kształt, obrócony",
+      "nota": "To iluzja stołów Rogera Sheparda (1990). Twój mózg „poprawia” perspektywę tym, co wie o stołach; przy rysowaniu mierz, zamiast ufać tej poprawce."
+    },
+    "alReves": {
+      "titulo": "Rysowanie do góry nogami",
+      "voltear": "Obróć normalnie",
+      "deCabeza": "Obróć do góry nogami",
+      "lineas": "Do góry nogami nie widzisz twarzy: widzisz linie i kąty",
+      "cara": "Normalnie twój mózg widzi „twarz” i rysuje symbole",
+      "nota": "Spróbuj przerysować go tak, do góry nogami, bez obracania aż do końca. To ćwiczenie z książki Betty Edwards (1979)."
+    },
+    "ojos": {
+      "titulo": "Gdzie są oczy?",
+      "linea": "Przesuń linię oczu",
+      "coronilla": "Czubek głowy",
+      "barbilla": "Broda",
+      "desdeArriba": "Oczy są na wysokości",
+      "justo": "Dokładnie w połowie głowy!",
+      "nota": "U dorosłej głowy widzianej z przodu oczy są mniej więcej w połowie, między czubkiem głowy a brodą. Włosy oszukują: czoło jest wyższe, niż się wydaje."
+    },
+    "valores": {
+      "titulo": "Pięć walorów światła",
+      "valor": "Walor",
+      "luz": "Światło",
+      "medio": "Półton",
+      "sombra": "Cień własny",
+      "reflejada": "Światło odbite",
+      "proyectada": "Cień rzucony",
+      "entrecierra": "Zmruż oczy",
+      "nota": "Kiedy mrużysz oczy, szczegóły znikają i zostają duże plamy światła i cienia: tak widać walory wszystkiego, co rysujesz."
+    },
+    "cronometro": {
+      "titulo": "Szkice gestu",
+      "pose": "Każda poza trwa",
+      "poseN": "Poza",
+      "empezar": "Start",
+      "pausa": "Pauza",
+      "nota": "Poszukaj zdjęć ludzi w ruchu i rysuj tylko gest: linię kręgosłupa, barki i biodra. Gdy czas minie, przejdź do następnej pozy, nawet jeśli nie skończyłeś."
+    },
+    "dibujos": {
+      "titulo": "Ile daje twoja praktyka?",
+      "minutos": "Minuty dziennie",
+      "tipo": "Rodzaj rysunku",
+      "rapidos": "Gesty (2 min)",
+      "bocetos": "Szkice (10 min)",
+      "estudios": "Studia (30 min)",
+      "horas": "Godziny w roku",
+      "alAnio": "Prace w ciągu roku",
+      "nota": "Licząc wszystkie dni w roku. Nie muszą wychodzić dobrze: każda czegoś cię uczy."
+    },
+    "cierre": {
+      "titulo": "Twórz we własnym domu",
+      "texto": "Studio Sztuki w MindHaOS ma galerię na twoje prace, płótno z warstwami, które samo się zapisuje, i pomoce do rysowania, takie jak siatka i lustro."
+    },
+    "memes": {
+      "simbolos": {
+        "arriba": "Ja rysujący dom w wieku 6 lat",
+        "abajo": "Ja rysujący dom w wieku 30 lat"
+      },
+      "ojos": {
+        "arriba": "Gdzie ja rysuję oczy",
+        "abajo": "Gdzie naprawdę są: w połowie"
+      },
+      "cien": {
+        "arriba": "Czekać, aż pierwszy rysunek wyjdzie idealnie",
+        "abajo": "Narysować sto słabych rysunków"
+      }
+    },
+    "paquete": {
+      "guia": "Interaktywny poradnik (z pięcioma walorami światła, iluzją stołów, rysowaniem do góry nogami, tym, gdzie są oczy, minutnikiem gestów i kalkulatorem twojej praktyki)",
+      "app": "Otwórz Studio Sztuki w MindHaOS",
+      "hashtags": "#sztuka #rysunek #malarstwo #historiasztuki #sztucznainteligencja #MindHaOS"
+    }
   }
 }

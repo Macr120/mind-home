@@ -1,0 +1,548 @@
+{
+  "idioma": "tr",
+  "tema": "cocina",
+  "plantillaId": "cocina",
+  "pregunta": "İyi beslenmek nedir?",
+  "subtitulo": "Yemeğin vücudunda ne yaptığı, bunu nereden bildiğimiz, ne kadar enerjiye ihtiyacın olduğu, kaliteyi nasıl tanıyacağın, tabağını ve haftanı nasıl düzenleyeceğin.",
+  "aviso": "Bu rehber bilgilendirme amaçlıdır ve bir doktorun ya da beslenme uzmanının tavsiyesinin yerini tutmaz. Bir hastalığın ya da yeme bozukluğun varsa, hamileysen veya ilaç kullanıyorsan, beslenmeni değiştirmeden önce bir uzmana danış.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'remueve', 'pica', 'bebe', 'pensando') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ cocinando y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «recetario», «plan de comidas» y «lista de compras»; app2d.mjs cambia de pantalla de la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "Yemek vücudunda ne yapar",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "İyi beslenmek nedir? Herkesin ne yemen gerektiği konusunda bir fikri var. Neredeyse hiç kimse yemeğin vücudunun içinde ne yaptığını anlatmıyor. Gerçekte nasıl işliyor? Önümüzdeki birkaç dakikada vücudunun neye ihtiyaç duyduğunu anlayacak, ne kadar enerji harcadığını hesaplayacak ve haftan için bir planla ayrılacaksın.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Bu arada, burası MindHaOS'taki evim; tariflerimi ve yemek planımı da bu mutfakta tutuyorum. Hadi başlayalım.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Birinci bölüm. Yemek vücudunda ne yapar."
+        },
+        {
+          "id": "dos-trabajos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "combustible",
+              "construccion"
+            ]
+          },
+          "texto": "Yemek aynı anda iki iş görür. Yakıttır: kaloriyle ölçülen ve nefes alırken, düşünürken ve hareket ederken harcadığın enerjidir. Bir de yapı malzemesidir: onunla, sürekli yenilenen kaslarını, kemiklerini, cildini ve kanını onarırsın.",
+          "lamina": "mercado"
+        },
+        {
+          "id": "macros",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "proteinas",
+              "carbohidratos",
+              "grasas"
+            ]
+          },
+          "texto": "Bu malzemeler üç büyük grupta gelir: makro besinler. Proteinler yapar ve onarır. Karbonhidratlar en hızlı enerjidir, özellikle beyin ve yoğun egzersiz için. Yağlar ise enerji depolar, hücrelerinin duvarlarını oluşturur ve bazı vitaminleri emmene yardım eder.",
+          "lamina": [
+            "macros-proteina",
+            "macros-carbos",
+            "macros-grasas"
+          ]
+        },
+        {
+          "id": "micros",
+          "escena": "pica",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "vitaminas",
+              "minerales",
+              "fibra"
+            ]
+          },
+          "texto": "Bir de mikro besinler var: çok küçük miktarlarda ihtiyaç duyduğun, ama onlar olmadan bunların hiçbirinin işlemediği vitaminler ve mineraller. Ve lif: neredeyse hiç enerji vermez ama bağırsağındaki bakterileri besler ve seni daha uzun süre tok tutar.",
+          "lamina": "verduras"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Ne yediğimizin kısa tarihi",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "İkinci bölüm. Ne yediğimizin kısa tarihi."
+        },
+        {
+          "id": "fuego",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaCocina"
+          },
+          "texto": "Yüz binlerce yıl önce atalarımız ateşte pişirmeyi öğrendi. Pişirmek yiyecekleri yumuşatır ve onlardan daha fazla enerji almamızı sağlar; bazı antropologlar bunun beynimizin büyümesine yardım ettiğini düşünüyor.",
+          "lamina": "fuego"
+        },
+        {
+          "id": "agricultura",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 000",
+            "clave": "agricultura"
+          },
+          "texto": "Yaklaşık on bin yıl önce tarım geldi: buğday, pirinç ve mısır. Çok daha fazla insana yetecek yiyecek oldu, ama beslenme avcı-toplayıcılarınkinden daha az çeşitli hale geldi.",
+          "lamina": "agricultura"
+        },
+        {
+          "id": "lind",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1747",
+            "clave": "lind"
+          },
+          "texto": "1747'de İskoç hekim James Lind tarihin ilk klinik deneylerinden birini yaptı: iskorbüte yakalanmış denizcilere farklı ilaçlar verdi ve iyileşenler portakal ve limon yiyenler oldu.",
+          "meme": "limones",
+          "lamina": [
+            "lind",
+            "limones"
+          ]
+        },
+        {
+          "id": "atwater",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "4 · 4 · 9",
+            "clave": "atwater"
+          },
+          "texto": "On dokuzuncu yüzyılın sonunda kimyager Wilbur Atwater her besinin ne kadar enerji verdiğini ölçtü: gram protein ya da karbonhidrat başına yaklaşık dört kalori, gram yağ başına yaklaşık dokuz. Bugünkü etiketler hâlâ bu rakamları kullanıyor.",
+          "lamina": "atwater"
+        },
+        {
+          "id": "funk",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1912",
+            "clave": "funk"
+          },
+          "texto": "1912'de biyokimyacı Casimir Funk vitamin kelimesini önerdi ve sonraki on yıllarda vitaminlerin neredeyse hepsi keşfedildi. İlk kez, çok yiyip yine de yetersiz beslenmenin mümkün olduğu anlaşıldı.",
+          "lamina": "funk"
+        },
+        {
+          "id": "plato",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2011",
+            "clave": "plato"
+          },
+          "texto": "1992'de Amerika Birleşik Devletleri, tabanında ekmek ve makarna olan ünlü besin piramidini çizdi. 2011'de onu bir tabakla, MyPlate ile değiştirdi; her öğünde gözünde canlandırması çok daha kolay. Meksika'da da resmi standart kendi tabağını çizdi: Plato del Bien Comer, yani Doğru Beslenme Tabağı. Oraya da geleceğiz.",
+          "lamina": [
+            "piramide",
+            "myplate",
+            "plato-bien-comer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "energia",
+      "titulo": "Ne kadar enerjiye ihtiyacın var",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Üçüncü bölüm. Ne kadar enerjiye ihtiyacın var."
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "balance"
+          },
+          "texto": "Uzun vadede kilon enerji dengesine bağlıdır: yediğin ile harcadığın arasındaki denge. Harcadığından fazla yersen vücudun depolar; az yersen depolarını kullanır. Basit görünüyor, ama harcamanın birkaç parçası var.",
+          "lamina": "balance"
+        },
+        {
+          "id": "gasto",
+          "escena": "Caminata",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "gasto"
+          },
+          "texto": "En büyük kısım, yaklaşık üçte ikisi, sadece seni hayatta tutmaya gider: bu senin bazal metabolizman. Bir kısmı gün içinde ne kadar hareket ettiğine bağlıdır, küçük bir kısmı da, yüzde on civarı, yediklerini sindirmeye harcanır.",
+          "lamina": "gasto"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "calculadoraEnergia"
+          },
+          "texto": "Bunu diyetisyenlerin en çok kullandığı formüllerden biri olan Mifflin-St Jeor denklemiyle tahmin edebilirsin: yaşın, kilon, boyun ve hareket düzeyinle. Hesaplayıcıyı burada dene. Bu kesin bir ölçüm değil, bir tahmin; ama çok iyi bir başlangıç noktası.",
+          "lamina": "calculadora"
+        },
+        {
+          "id": "proteina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "0,8–2 g/kg",
+            "clave": "proteina"
+          },
+          "texto": "Protein için bir yetişkinin referansı, günde vücut ağırlığının her kilosu başına en az sıfır virgül sekiz gram. Kuvvet antrenmanı yapıyorsan, birçok uzman bir virgül dört ile iki gram arasını öneriyor.",
+          "lamina": "proteina"
+        },
+        {
+          "id": "deficit",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "−15 %",
+            "clave": "deficit"
+          },
+          "texto": "Kilo vermek istiyorsan aç kalmana gerek yok: harcadığından biraz daha az, yaklaşık yüzde on beş daha az yemen ve iki haftada bir nasıl gittiğine bakman yeterli. Kalıcı olanlar küçük değişikliklerdir.",
+          "lamina": "deficit"
+        }
+      ]
+    },
+    {
+      "id": "calidad",
+      "titulo": "Yediklerinin kalitesi",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Dördüncü bölüm. Yediklerinin kalitesi."
+        },
+        {
+          "id": "nova",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "nova"
+          },
+          "texto": "Ne kadar yediğin kadar ne yediğin de önemli. Araştırmacılar yiyecekleri ne kadar işlendiklerine göre sınıflandırır: taze gıdalar, sıvı yağ ya da tuz gibi mutfak malzemeleri, peynir ya da fırın ekmeği gibi işlenmiş gıdalar ve gazlı içecekler, bisküviler ve paketli atıştırmalıklar gibi ultra işlenmiş gıdalar.",
+          "meme": "ultraprocesados",
+          "lamina": "supermercado"
+        },
+        {
+          "id": "experimento",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+500 kcal",
+            "clave": "experimento"
+          },
+          "texto": "2019'da ABD Ulusal Sağlık Enstitüleri'nin bir deneyinde yirmi kişiye iki hafta ultra işlenmiş, iki hafta da işlenmemiş yiyecekler verildi; önlerindeki kalori miktarı aynıydı. Ultra işlenmiş yiyeceklerle, farkına bile varmadan günde yaklaşık beş yüz kalori fazla yediler.",
+          "lamina": "ultraprocesados"
+        },
+        {
+          "id": "azucar",
+          "escena": "bebe",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "azucarOculta"
+          },
+          "texto": "Dünya Sağlık Örgütü, eklenmiş şekerin enerjinin yüzde onundan azını, ideal olarak yüzde beşinden azını oluşturmasını öneriyor: bu da günde yaklaşık altı çay kaşığı demek. İçtiklerinde ne kadar şeker olduğuna buradan bak.",
+          "lamina": "refresco"
+        },
+        {
+          "id": "sal",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "< 5 g",
+            "clave": "sal"
+          },
+          "texto": "Tuzda da durum benzer: öneri günde beş gramdan az, yaklaşık bir çay kaşığı, ve çoğunu sofrada sen eklemiyorsun: zaten ürünlerin içinde geliyor.",
+          "lamina": "sal"
+        },
+        {
+          "id": "etiqueta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porcion",
+              "azucares",
+              "ingredientes"
+            ]
+          },
+          "texto": "İşin sırrı etiketi okumak. Porsiyona, şekere ve tuza, bir de en çoktan en aza doğru sıralanan içindekiler listesine bak: ilk sırada şeker varsa, ürünün en çok neden oluştuğunu artık biliyorsun.",
+          "lamina": "etiqueta"
+        }
+      ]
+    },
+    {
+      "id": "plato",
+      "titulo": "Tabağını ve haftanı nasıl düzenlersin",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Beşinci bölüm. Tabağını ve haftanı nasıl düzenlersin."
+        },
+        {
+          "id": "plato",
+          "escena": "pica",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "armaTuPlato"
+          },
+          "texto": "Her öğün için çok basit bir yöntem var, Harvard'ın sağlıklı beslenme tabağı: tabağın yarısı sebze ve meyve; dörtte biri tam tahıl; diğer dörtte biri de balık, tavuk, yumurta ya da baklagiller gibi bir protein. İçecek olarak su, yemek pişirmek için de biraz kaliteli yağ.",
+          "lamina": "plato"
+        },
+        {
+          "id": "frutas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "400 g",
+            "clave": "frutas"
+          },
+          "texto": "Dünya Sağlık Örgütü günde en az dört yüz gram meyve ve sebze, yani yaklaşık beş porsiyon, ve en az yirmi beş gram lif öneriyor; lif de çoğunlukla bunlardan, tam tahıllardan ve baklagillerden gelir.",
+          "lamina": "frutas"
+        },
+        {
+          "id": "planear",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "menu",
+              "lista",
+              "prepara"
+            ]
+          },
+          "texto": "Sır irade gücünde değil, plan yapmakta. Haftanın menüsünü seç, ondan alışveriş listesini çıkar ve birkaç gün fazladan pişir; böylece vaktin olmadığında hazır yemeğin olur.",
+          "lamina": "planear"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Ben bunu MindHaOS'taki mutfağımda yapıyorum: tariflerimle haftanın planını kuruyorum, alışveriş listesi de kendiliğinden çıkıyor.",
+          "lamina": "lista",
+          "enCasa": true
+        },
+        {
+          "id": "ochenta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "80 / 20",
+            "clave": "ochenta"
+          },
+          "texto": "Mükemmel olması da gerekmiyor. Yediklerinin çoğu bu çizgideyse, arkadaşlarla bir pizza suçluluk duymadan sığar: sürdürebildiğin bir beslenme, iki hafta sonra bırakacağın mükemmel bir beslenmeden daha değerlidir.",
+          "meme": "perfecta",
+          "lamina": "pizza"
+        }
+      ]
+    },
+    {
+      "id": "habitos",
+      "titulo": "Su, açlık ve süreklilik",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Altıncı bölüm. Su, açlık ve süreklilik."
+        },
+        {
+          "id": "agua",
+          "escena": "bebe",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2–2,5 L",
+            "clave": "agua"
+          },
+          "texto": "Su da hesaba girer. Avrupa Gıda Güvenliği Otoritesi kadınlar için günde yaklaşık iki litre, erkekler için iki buçuk litre öneriyor; buna yiyeceklerden gelen su da dahil ve o da aşağı yukarı beşte bir ediyor.",
+          "lamina": "agua"
+        },
+        {
+          "id": "hambre",
+          "escena": "habla",
+          "visual": {
+            "tipo": "meme",
+            "meme": "tarde"
+          },
+          "texto": "Açlığını dinle. Yavaş ve ekransız yemek, vücuduna doyduğunu sana haber vermesi için zaman tanır. Bir de sofraya kurt gibi aç oturma: proteinli bir kahvaltı ve öğleden sonra bir meyve akşamı çok değiştirir.",
+          "lamina": "despacio"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "foto",
+            "foto": "registro"
+          },
+          "texto": "Nasıl gittiğini görmek istiyorsan, birkaç gün ne yediğini not et. Takıntı yapmak için değil, alışkanlıklarını görmek için: birçok insan sorunun öğünler değil, içecekler ya da öğleden sonraki atıştırmalıklar olduğunu keşfeder.",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "Unutma, bu rehber bilgilendirme amaçlıdır. Bir hastalığın varsa, yemekle ilişkin zorsa ya da hamileysen, en iyisi bir beslenme uzmanının sana eşlik etmesi.",
+          "lamina": "nutriologo"
+        },
+        {
+          "id": "resumen",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Özetle: çoğu zaman gerçek yiyecekler ye, tabağının yarısını sebze ve meyveyle doldur, miktarı harcadığına göre ayarla ve haftanı planla.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Bunu benim gibi hayata geçirmek istersen, MindHaOS'taki mutfakta tarif defterin, haftalık yemek planın ve kendiliğinden hazırlanan alışveriş listen var. Bağlantı açıklamada; bu rehberin etkileşimli sürümü de orada, rahatça tekrar etmen için. Bir sonraki rehberde başka bir soruyla devam ediyoruz. Görüşmek üzere.",
+    "boton": "Mutfağı aç",
+    "lamina": "app-plan",
+    "anclas": {
+      "recetario": "tarif defterin",
+      "plan": "yemek planın",
+      "compras": "alışveriş listen"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "usda-myplate",
+      "texto": "USDA. Besin Rehberi Piramidi'nin (1992) yerini alan MyPlate (2011).",
+      "url": "https://www.myplate.gov/"
+    },
+    {
+      "id": "nom-043",
+      "texto": "Meksika Sağlık Bakanlığı. NOM-043-SSA2-2012 (önceki adıyla NOM-043-SSA2-2005): Plato del Bien Comer (Doğru Beslenme Tabağı).",
+      "url": "https://www.dof.gob.mx/nota_detalle.php?codigo=5285372&fecha=22/01/2013"
+    },
+    {
+      "id": "oms-alimentacion",
+      "texto": "DSÖ. Sağlıklı beslenme — Bilgi notu.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/healthy-diet"
+    },
+    {
+      "id": "oms-azucar",
+      "texto": "DSÖ. Guideline: Sugars intake for adults and children (2015).",
+      "url": "https://www.who.int/publications/i/item/9789241549028"
+    },
+    {
+      "id": "oms-sal",
+      "texto": "DSÖ. Tuz tüketiminin azaltılması — Bilgi notu.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/salt-reduction"
+    },
+    {
+      "id": "oms-carbohidratos",
+      "texto": "DSÖ. Carbohydrate intake for adults and children: WHO guideline (2023).",
+      "url": "https://www.who.int/publications/i/item/9789240073593"
+    },
+    {
+      "id": "harvard-plato",
+      "texto": "Harvard T.H. Chan School of Public Health. The Healthy Eating Plate.",
+      "url": "https://nutritionsource.hsph.harvard.edu/healthy-eating-plate/"
+    },
+    {
+      "id": "mifflin",
+      "texto": "Mifflin M. D., St Jeor S. T. et al. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr (1990).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+    },
+    {
+      "id": "issn-proteina",
+      "texto": "Jäger R. et al. International Society of Sports Nutrition Position Stand: protein and exercise (2017).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28642676/"
+    },
+    {
+      "id": "hall-2019",
+      "texto": "Hall K. D. et al. Ultra-processed diets cause excess calorie intake and weight gain. Cell Metabolism (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31105044/"
+    },
+    {
+      "id": "nova",
+      "texto": "Monteiro C. A. et al. Ultra-processed foods: what they are and how to identify them. Public Health Nutrition (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30744710/"
+    },
+    {
+      "id": "efsa-agua",
+      "texto": "EFSA. Scientific Opinion on Dietary Reference Values for water (2010).",
+      "url": "https://www.efsa.europa.eu/en/efsajournal/pub/1459"
+    },
+    {
+      "id": "lind-1753",
+      "texto": "Lind J. A Treatise of the Scurvy (1753). The James Lind Library.",
+      "url": "https://www.jameslindlibrary.org/lind-j-1753/"
+    }
+  ]
+}

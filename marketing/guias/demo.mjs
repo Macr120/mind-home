@@ -1,7 +1,14 @@
 // La demo de Pep@ en la app (BD aparte, nunca la casa real), para las tomas
 // de casa.mjs y de app2d.mjs. Corre contra el servidor de pruebas:
 //   APP_URL=http://localhost:53379
-import { dormir, evaluar } from './cdp.mjs'
+import { readFileSync } from 'node:fs'
+import { SIN_RESPUESTA, dormir, evaluar } from './cdp.mjs'
+
+/**
+ * La versión de la demo que trae el código (src/demo/modo.ts): una demo construida con
+ * otra (p. ej. antes de mover un cuarto) no está lista aunque esté en el idioma pedido.
+ */
+const DEMO_VERSION = readFileSync(new URL('../../src/demo/modo.ts', import.meta.url), 'utf8').match(/const DEMO_VERSION = (\d+)/)[1]
 
 export const APP = (process.env.APP_URL || 'http://localhost:53378').replace(/\/$/, '') + '/'
 
@@ -23,7 +30,7 @@ export const SIN_HUD = `
 export const enDemo = (c, idioma) =>
   evaluar(
     c,
-    `location.href.startsWith(${JSON.stringify(APP)}) && (localStorage.getItem('mh.demo.version') || '').endsWith(':${idioma}') && !!window.useCuartos && useCuartos.getState().cuartos.length >= 17`,
+    `location.href.startsWith(${JSON.stringify(APP)}) && localStorage.getItem('mh.demo.version') === '${DEMO_VERSION}:${idioma}' && !!window.useCuartos && useCuartos.getState().cuartos.length >= 17`,
   ).catch(() => false)
 
 /**
@@ -34,12 +41,15 @@ export const enDemo = (c, idioma) =>
 export async function abrirDemo(c, idioma, { rehacer = false } = {}) {
   await c.enviar('Page.navigate', { url: APP })
   await dormir(3000)
+  // Viniendo de una página local (la lámina del título, las miniaturas) la navegación puede no haber
+  // terminado: sin la página de la app no hay localStorage.
+  for (let i = 0; i < 40 && !(await evaluar(c, `location.href.startsWith(${JSON.stringify(APP)})`)); i++) await dormir(250)
   await evaluar(c, `localStorage.setItem('mh.demo', '1'); localStorage.removeItem('mh.probar'); localStorage.setItem('mh.idioma', '${idioma}'); ${rehacer ? "localStorage.removeItem('mh.demo.version');" : ''} window.__viejo = 1`)
   await c.enviar('Page.navigate', { url: APP })
   const LISTA = `(() => {
     if (window.__viejo) return false
     const v = localStorage.getItem('mh.demo.version') || ''
-    if (!v.endsWith(':${idioma}')) return false
+    if (v !== '${DEMO_VERSION}:${idioma}') return false
     if (!['useHouse', 'useCam', 'useCiclo', 'useDiseño', 'useLayout', 'useCuartos'].every((k) => !!window[k])) return false
     return useCuartos.getState().cuartos.length >= 17 && !!window.__r3f && !!document.querySelector('canvas')
   })()`
@@ -50,8 +60,9 @@ export async function abrirDemo(c, idioma, { rehacer = false } = {}) {
       await dormir(2000)
       try {
         if (await evaluar(c, LISTA)) break
-      } catch {
-        // La demo recarga la página mientras se construye.
+      } catch (e) {
+        // La demo recarga la página mientras se construye; con la sesión perdida no hay nada que esperar.
+        if (e.message === SIN_RESPUESTA) throw e
       }
       if (i === 179) throw new Error('la demo no terminó de construirse')
     }
@@ -60,8 +71,9 @@ export async function abrirDemo(c, idioma, { rehacer = false } = {}) {
       await evaluar(c, 'window.__captura = 1')
       await dormir(4000)
       if (await evaluar(c, 'window.__captura === 1')) return
-    } catch {
+    } catch (e) {
       // Se recargó en medio de la comprobación.
+      if (e.message === SIN_RESPUESTA) throw e
     }
     if (intento === 5) throw new Error('la demo se sigue recargando; vuelve a correr')
   }

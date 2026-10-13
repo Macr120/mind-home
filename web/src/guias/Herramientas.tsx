@@ -1,12 +1,22 @@
 import { useEffect, useState } from 'react'
+import { HERRAMIENTAS_ARTE, HerramientaArte } from './Arte'
+import { HERRAMIENTAS_COCINA, HerramientaCocina } from './Cocina'
+import { HERRAMIENTAS_DESCANSO, HerramientaDescanso } from './Descanso'
+import { HERRAMIENTAS_FINANZAS, HerramientaFinanzas } from './Finanzas'
+import { HERRAMIENTAS_IDIOMAS, HerramientaIdiomas } from './Idiomas'
 import type { T } from './datos'
 
 /**
- * Mini-herramientas de la guía de ejercicio. `demo`: su línea está sonando en
+ * Mini-herramientas de las guías (las de Cocina viven en Cocina.tsx). `demo`: su línea está sonando en
  * modo grabación, y la herramienta se usa sola (como si alguien la tocara)
  * para que el video la enseñe funcionando.
  */
 export function Herramienta({ id, t, demo }: { id: string; t: T; demo: boolean }) {
+  if (HERRAMIENTAS_COCINA.has(id)) return <HerramientaCocina id={id} t={t} demo={demo} />
+  if (HERRAMIENTAS_DESCANSO.has(id)) return <HerramientaDescanso id={id} t={t} demo={demo} />
+  if (HERRAMIENTAS_FINANZAS.has(id)) return <HerramientaFinanzas id={id} t={t} demo={demo} />
+  if (HERRAMIENTAS_IDIOMAS.has(id)) return <HerramientaIdiomas id={id} t={t} demo={demo} />
+  if (HERRAMIENTAS_ARTE.has(id)) return <HerramientaArte id={id} t={t} demo={demo} />
   if (id === 'escalaRpe') return <EscalaRpe t={t} demo={demo} />
   if (id === 'zonasCardiacas') return <ZonasCardiacas t={t} demo={demo} />
   if (id === 'armaTuPlan') return <ArmaTuPlan t={t} demo={demo} />

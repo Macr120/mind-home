@@ -1,0 +1,548 @@
+{
+  "idioma": "pl",
+  "tema": "cocina",
+  "plantillaId": "cocina",
+  "pregunta": "Co to znaczy dobrze się odżywiać?",
+  "subtitulo": "Co jedzenie robi w twoim ciele, skąd to wiemy, ile energii potrzebujesz, jak rozpoznać jakość i jak ułożyć swój talerz i swój tydzień.",
+  "aviso": "Ten poradnik ma charakter informacyjny i nie zastępuje porady lekarza ani dietetyka. Jeśli chorujesz, masz zaburzenia odżywiania, jesteś w ciąży lub przyjmujesz leki, skonsultuj się ze specjalistą, zanim zmienisz sposób odżywiania.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'remueve', 'pica', 'bebe', 'pensando') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ cocinando y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «recetario», «plan de comidas» y «lista de compras»; app2d.mjs cambia de pantalla de la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "Co jedzenie robi w twoim ciele",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Co to znaczy dobrze się odżywiać? Każdy ma zdanie na temat tego, co powinieneś jeść. Prawie nikt nie tłumaczy, co jedzenie robi w twoim ciele. Jak to naprawdę działa? W ciągu kilku najbliższych minut zrozumiesz, czego potrzebuje twoje ciało, policzysz, ile energii zużywasz, i wyjdziesz stąd z planem na cały tydzień.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "A tak przy okazji, to mój dom w MindHaOS, a w tej kuchni trzymam swoje przepisy i plan posiłków. Zaczynamy.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część pierwsza. Co jedzenie robi w twoim ciele."
+        },
+        {
+          "id": "dos-trabajos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "combustible",
+              "construccion"
+            ]
+          },
+          "texto": "Jedzenie wykonuje dwie prace naraz. Jest paliwem: energią, którą mierzy się w kaloriach i którą zużywasz, kiedy oddychasz, myślisz i się ruszasz. I jest materiałem budowlanym: dzięki niemu naprawiasz mięśnie, kości, skórę i krew, które cały czas się odnawiają.",
+          "lamina": "mercado"
+        },
+        {
+          "id": "macros",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "proteinas",
+              "carbohidratos",
+              "grasas"
+            ]
+          },
+          "texto": "Te materiały docierają w trzech dużych grupach, czyli jako makroskładniki. Białka budują i naprawiają. Węglowodany to najszybsza energia, zwłaszcza dla mózgu i przy intensywnym wysiłku. A tłuszcze magazynują energię, tworzą ściany twoich komórek i pomagają wchłaniać niektóre witaminy.",
+          "lamina": [
+            "macros-proteina",
+            "macros-carbos",
+            "macros-grasas"
+          ]
+        },
+        {
+          "id": "micros",
+          "escena": "pica",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "vitaminas",
+              "minerales",
+              "fibra"
+            ]
+          },
+          "texto": "Do tego dochodzą mikroskładniki: witaminy i minerały, których potrzebujesz w maleńkich ilościach, ale bez których nic z tego nie działa. I błonnik, który prawie nie daje energii, ale karmi bakterie w twoich jelitach i dłużej utrzymuje uczucie sytości.",
+          "lamina": "verduras"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Krótka historia tego, co jemy",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część druga. Krótka historia tego, co jemy."
+        },
+        {
+          "id": "fuego",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaCocina"
+          },
+          "texto": "Setki tysięcy lat temu nasi przodkowie nauczyli się gotować na ogniu. Gotowanie zmiękcza jedzenie i pozwala wydobyć z niego więcej energii; niektórzy antropolodzy uważają, że to pomogło urosnąć naszemu mózgowi.",
+          "lamina": "fuego"
+        },
+        {
+          "id": "agricultura",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 000",
+            "clave": "agricultura"
+          },
+          "texto": "Około dziesięciu tysięcy lat temu pojawiło się rolnictwo: pszenica, ryż i kukurydza. Jedzenia starczało dla znacznie większej liczby ludzi, choć dieta stała się mniej urozmaicona niż u łowców-zbieraczy.",
+          "lamina": "agricultura"
+        },
+        {
+          "id": "lind",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1747",
+            "clave": "lind"
+          },
+          "texto": "W 1747 roku szkocki lekarz James Lind przeprowadził jedno z pierwszych badań klinicznych w historii: marynarzom chorym na szkorbut podawał różne środki, a wyzdrowieli ci, którzy jedli pomarańcze i cytryny.",
+          "meme": "limones",
+          "lamina": [
+            "lind",
+            "limones"
+          ]
+        },
+        {
+          "id": "atwater",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "4 · 4 · 9",
+            "clave": "atwater"
+          },
+          "texto": "Pod koniec dziewiętnastego wieku chemik Wilbur Atwater zmierzył, ile energii daje każdy produkt: około czterech kalorii na gram białka lub węglowodanów i około dziewięciu na gram tłuszczu. Tych liczb do dziś używa się na etykietach.",
+          "lamina": "atwater"
+        },
+        {
+          "id": "funk",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1912",
+            "clave": "funk"
+          },
+          "texto": "W 1912 roku polski biochemik Kazimierz Funk zaproponował słowo „witamina”, a w kolejnych dekadach odkryto prawie wszystkie witaminy. Po raz pierwszy zrozumiano, że można jeść dużo, a mimo to być niedożywionym.",
+          "lamina": "funk"
+        },
+        {
+          "id": "plato",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2011",
+            "clave": "plato"
+          },
+          "texto": "W 1992 roku Stany Zjednoczone narysowały słynną piramidę żywieniową, z pieczywem i makaronem u podstawy. W 2011 roku zamieniły ją na talerz, MyPlate, który dużo łatwiej wyobrazić sobie przy każdym posiłku. A w Meksyku oficjalna norma narysowała własny: Plato del Bien Comer, czyli „talerz zdrowego jedzenia”. Do niego jeszcze dojdziemy.",
+          "lamina": [
+            "piramide",
+            "myplate",
+            "plato-bien-comer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "energia",
+      "titulo": "Ile energii potrzebujesz",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część trzecia. Ile energii potrzebujesz."
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "balance"
+          },
+          "texto": "Na dłuższą metę twoja waga zależy od bilansu energetycznego: ile zjadasz w porównaniu z tym, ile zużywasz. Jeśli jesz więcej, niż zużywasz, ciało magazynuje; jeśli mniej, sięga po zapasy. Brzmi prosto, ale wydatek energii ma kilka części.",
+          "lamina": "balance"
+        },
+        {
+          "id": "gasto",
+          "escena": "Caminata",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "gasto"
+          },
+          "texto": "Największa część, około dwóch trzecich, idzie po prostu na utrzymanie cię przy życiu: to twoja podstawowa przemiana materii. Kolejna część zależy od tego, ile się ruszasz w ciągu dnia, a niewielka, około dziesięciu procent, idzie na trawienie tego, co jesz.",
+          "lamina": "gasto"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "calculadoraEnergia"
+          },
+          "texto": "Możesz to oszacować równaniem Mifflina-St Jeor, jednym z najczęściej używanych przez dietetyków: na podstawie wieku, wagi, wzrostu i aktywności. Wypróbuj tutaj kalkulator. To szacunek, a nie dokładny pomiar, ale bardzo dobry punkt wyjścia.",
+          "lamina": "calculadora"
+        },
+        {
+          "id": "proteina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "0,8–2 g/kg",
+            "clave": "proteina"
+          },
+          "texto": "Jeśli chodzi o białko, punkt odniesienia dla dorosłego to co najmniej zero przecinek osiem grama na każdy kilogram masy ciała dziennie. Jeśli trenujesz siłowo, wielu ekspertów zaleca od jednego przecinek cztery do dwóch gramów.",
+          "lamina": "proteina"
+        },
+        {
+          "id": "deficit",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "−15 %",
+            "clave": "deficit"
+          },
+          "texto": "A jeśli chcesz schudnąć, nie musisz głodować: wystarczy jeść trochę mniej, niż zużywasz, mniej więcej o piętnaście procent, i co dwa tygodnie sprawdzać, jak ci idzie. Na dłużej zostają właśnie małe zmiany.",
+          "lamina": "deficit"
+        }
+      ]
+    },
+    {
+      "id": "calidad",
+      "titulo": "Jakość tego, co jesz",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część czwarta. Jakość tego, co jesz."
+        },
+        {
+          "id": "nova",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "nova"
+          },
+          "texto": "Liczy się nie tylko ile, ale też co. Badacze dzielą jedzenie według tego, jak bardzo je przetworzono: produkty świeże, składniki kuchenne, takie jak olej czy sól, produkty przetworzone, jak ser czy chleb z piekarni, i ultraprzetworzone, jak słodkie napoje gazowane, ciastka i przekąski z paczki.",
+          "meme": "ultraprocesados",
+          "lamina": "supermercado"
+        },
+        {
+          "id": "experimento",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+500 kcal",
+            "clave": "experimento"
+          },
+          "texto": "W 2019 roku w eksperymencie amerykańskich Narodowych Instytutów Zdrowia dwadzieścia osób przez dwa tygodnie jadło żywność ultraprzetworzoną, a przez kolejne dwa nieprzetworzoną, mając do dyspozycji tyle samo kalorii. Przy ultraprzetworzonej zjadali około pięciuset kalorii dziennie więcej, nawet tego nie zauważając.",
+          "lamina": "ultraprocesados"
+        },
+        {
+          "id": "azucar",
+          "escena": "bebe",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "azucarOculta"
+          },
+          "texto": "Światowa Organizacja Zdrowia zaleca, żeby cukier dodany dawał mniej niż dziesięć procent twojej energii, a najlepiej mniej niż pięć: to około sześciu łyżeczek dziennie. Zobacz tutaj, ile cukru jest w tym, co pijesz.",
+          "lamina": "refresco"
+        },
+        {
+          "id": "sal",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "< 5 g",
+            "clave": "sal"
+          },
+          "texto": "Z solą jest podobnie: zalecenie to mniej niż pięć gramów dziennie, mniej więcej łyżeczka, a większości nie dosypujesz sam przy stole, bo jest już w produktach.",
+          "lamina": "sal"
+        },
+        {
+          "id": "etiqueta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porcion",
+              "azucares",
+              "ingredientes"
+            ]
+          },
+          "texto": "Cała sztuka to czytać etykietę. Zwróć uwagę na porcję, na cukry i sól oraz na listę składników, która idzie od największej ilości do najmniejszej: jeśli pierwszy jest cukier, już wiesz, czego jest tam najwięcej.",
+          "lamina": "etiqueta"
+        }
+      ]
+    },
+    {
+      "id": "plato",
+      "titulo": "Jak ułożyć swój talerz i swój tydzień",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część piąta. Jak ułożyć swój talerz i swój tydzień."
+        },
+        {
+          "id": "plato",
+          "escena": "pica",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "armaTuPlato"
+          },
+          "texto": "Na każdy posiłek jest bardzo prosta metoda, talerz zdrowego żywienia z Harvardu: połowa talerza to warzywa i owoce; ćwierć to produkty pełnoziarniste; a druga ćwierć to białko, na przykład ryba, kurczak, jajka albo rośliny strączkowe. Do picia woda, a do gotowania trochę dobrego oleju.",
+          "lamina": "plato"
+        },
+        {
+          "id": "frutas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "400 g",
+            "clave": "frutas"
+          },
+          "texto": "Światowa Organizacja Zdrowia zaleca co najmniej czterysta gramów owoców i warzyw dziennie, czyli około pięciu porcji, i co najmniej dwadzieścia pięć gramów błonnika, który pochodzi głównie właśnie z nich, z produktów pełnoziarnistych i z roślin strączkowych.",
+          "lamina": "frutas"
+        },
+        {
+          "id": "planear",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "menu",
+              "lista",
+              "prepara"
+            ]
+          },
+          "texto": "Sekret to nie siła woli, tylko planowanie. Wybierz jadłospis na tydzień, zrób z niego listę zakupów i przez kilka dni gotuj więcej, żeby mieć gotowe jedzenie, kiedy brakuje czasu.",
+          "lamina": "planear"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Ja robię to w swojej kuchni w MindHaOS: układam plan na tydzień z moich przepisów, a lista zakupów robi się sama.",
+          "lamina": "lista",
+          "enCasa": true
+        },
+        {
+          "id": "ochenta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "80 / 20",
+            "clave": "ochenta"
+          },
+          "texto": "I nie musi być idealnie. Jeśli większość tego, co jesz, idzie w tym kierunku, pizza ze znajomymi mieści się bez wyrzutów sumienia: sposób jedzenia, który da się utrzymać, jest wart więcej niż idealny, który porzucisz po dwóch tygodniach.",
+          "meme": "perfecta",
+          "lamina": "pizza"
+        }
+      ]
+    },
+    {
+      "id": "habitos",
+      "titulo": "Woda, głód i wytrwałość",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część szósta. Woda, głód i wytrwałość."
+        },
+        {
+          "id": "agua",
+          "escena": "bebe",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2–2,5 L",
+            "clave": "agua"
+          },
+          "texto": "Woda też się liczy. Europejski Urząd do spraw Bezpieczeństwa Żywności zaleca około dwóch litrów dziennie dla kobiet i dwóch i pół litra dla mężczyzn, licząc także wodę z jedzenia, która stanowi mniej więcej jedną piątą.",
+          "lamina": "agua"
+        },
+        {
+          "id": "hambre",
+          "escena": "habla",
+          "visual": {
+            "tipo": "meme",
+            "meme": "tarde"
+          },
+          "texto": "Słuchaj swojego głodu. Jedzenie powoli i bez ekranów daje ciału czas, żeby dało ci znać, że jest już syte. I nie siadaj do obiadu wilczo głodny: śniadanie z białkiem i owoc po południu bardzo zmieniają wieczór.",
+          "lamina": "despacio"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "foto",
+            "foto": "registro"
+          },
+          "texto": "A jeśli chcesz wiedzieć, jak ci idzie, przez kilka dni zapisuj, co jesz. Nie po to, żeby popadać w obsesję, tylko żeby zobaczyć schematy: wiele osób odkrywa, że problemem nie były posiłki, tylko napoje albo popołudniowe przekąski.",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "Pamiętaj, że ten poradnik ma charakter informacyjny. Jeśli chorujesz, masz trudną relację z jedzeniem albo jesteś w ciąży, najlepiej, żeby wspierał cię dietetyk.",
+          "lamina": "nutriologo"
+        },
+        {
+          "id": "resumen",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Podsumowując: przez większość czasu jedz prawdziwe jedzenie, wypełniaj połowę talerza warzywami i owocami, dopasuj ilość do tego, ile zużywasz, i planuj swój tydzień.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Jeśli chcesz wprowadzić to w życie tak jak ja, kuchnia w MindHaOS ma twoją książkę kucharską, twój plan posiłków na tydzień i listę zakupów, która robi się sama. Link jest w opisie, a tam też ten poradnik w wersji interaktywnej, żebyś mógł go spokojnie powtórzyć. W następnym poradniku weźmiemy na warsztat kolejne pytanie. Do zobaczenia.",
+    "boton": "Otwórz kuchnię",
+    "lamina": "app-plan",
+    "anclas": {
+      "recetario": "książkę kucharską",
+      "plan": "plan posiłków",
+      "compras": "listę zakupów"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "usda-myplate",
+      "texto": "USDA. MyPlate (2011), który zastąpił Piramidę Żywieniową (1992).",
+      "url": "https://www.myplate.gov/"
+    },
+    {
+      "id": "nom-043",
+      "texto": "Ministerstwo Zdrowia Meksyku. NOM-043-SSA2-2012 (wcześniej NOM-043-SSA2-2005): Plato del Bien Comer („talerz zdrowego jedzenia”).",
+      "url": "https://www.dof.gob.mx/nota_detalle.php?codigo=5285372&fecha=22/01/2013"
+    },
+    {
+      "id": "oms-alimentacion",
+      "texto": "WHO. Zdrowe odżywianie — informacja.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/healthy-diet"
+    },
+    {
+      "id": "oms-azucar",
+      "texto": "WHO. Guideline: Sugars intake for adults and children (2015).",
+      "url": "https://www.who.int/publications/i/item/9789241549028"
+    },
+    {
+      "id": "oms-sal",
+      "texto": "WHO. Ograniczenie spożycia sodu — informacja.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/salt-reduction"
+    },
+    {
+      "id": "oms-carbohidratos",
+      "texto": "WHO. Carbohydrate intake for adults and children: WHO guideline (2023).",
+      "url": "https://www.who.int/publications/i/item/9789240073593"
+    },
+    {
+      "id": "harvard-plato",
+      "texto": "Harvard T.H. Chan School of Public Health. The Healthy Eating Plate.",
+      "url": "https://nutritionsource.hsph.harvard.edu/healthy-eating-plate/"
+    },
+    {
+      "id": "mifflin",
+      "texto": "Mifflin M. D., St Jeor S. T. et al. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr (1990).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+    },
+    {
+      "id": "issn-proteina",
+      "texto": "Jäger R. et al. International Society of Sports Nutrition Position Stand: protein and exercise (2017).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28642676/"
+    },
+    {
+      "id": "hall-2019",
+      "texto": "Hall K. D. et al. Ultra-processed diets cause excess calorie intake and weight gain. Cell Metabolism (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31105044/"
+    },
+    {
+      "id": "nova",
+      "texto": "Monteiro C. A. et al. Ultra-processed foods: what they are and how to identify them. Public Health Nutrition (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30744710/"
+    },
+    {
+      "id": "efsa-agua",
+      "texto": "EFSA. Scientific Opinion on Dietary Reference Values for water (2010).",
+      "url": "https://www.efsa.europa.eu/en/efsajournal/pub/1459"
+    },
+    {
+      "id": "lind-1753",
+      "texto": "Lind J. A Treatise of the Scurvy (1753). The James Lind Library.",
+      "url": "https://www.jameslindlibrary.org/lind-j-1753/"
+    }
+  ]
+}

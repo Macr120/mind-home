@@ -24,6 +24,7 @@ import { ModeloMascota } from './Asistente3D'
 import { Prendas } from './Prendas'
 import { anclasDe } from './apariencia'
 import { cellToWorld } from './walls'
+import { puntoOculto } from './mapaVisible'
 
 /** Distancia máxima al centro de una celda de riel para ofrecer montar. */
 const RADIO_MONTAR = 4.4
@@ -188,6 +189,8 @@ function TrenAutonomo3D({ tren }: { tren: TrenAutonomo }) {
     if (!gr) return
     gr.position.copy(tren.pos)
     gr.rotation.set(0, tren.pose.heading, 0)
+    // Por un cuadrante oculto del mapa pasa sin verse.
+    gr.visible = !puntoOculto(tren.pos.x, tren.pos.z)
   })
   return (
     <group ref={g}>

@@ -204,6 +204,852 @@
     "bio": "Etkileşimli rehber ve uygulama: bağlantı profilde",
     "parte": "Bölüm",
     "guiaCompleta": "Rehberin tamamı",
-    "hashtags": "#egzersiz #antrenman #fitness #sağlık #spor #MindHaOS"
+    "hashtags": "#egzersiz #antrenman #fitness #sağlık #spor #MindHaOS",
+    "guiaN": "Rehber {n}"
+  },
+  "cocina": {
+    "meta": {
+      "titulo": "İyi beslenmek nedir? Kapsamlı rehber: besin öğeleri, enerji, kalite ve tabağın | MindHaOS",
+      "desc": "Yemeğin vücudunda ne yaptığı, beslenmenin tarihi, ne kadar enerjiye ihtiyacın olduğu (hesaplayıcı), ultra işlenmiş gıdaları nasıl tanıyacağın, tabağını ve haftanı nasıl düzenleyeceğin."
+    },
+    "lista": {
+      "combustible": "Yakıt",
+      "combustibleDet": "Nefes almak, düşünmek ve hareket etmek için enerji. Kaloriyle ölçülür.",
+      "construccion": "Yapı malzemesi",
+      "construccionDet": "Yediklerinle kaslarını, kemiklerini, cildini ve kanını onarırsın.",
+      "proteinas": "Proteinler",
+      "proteinasDet": "Yapar ve onarır. Et, balık, yumurta, süt ürünleri, baklagiller.",
+      "carbohidratos": "Karbonhidratlar",
+      "carbohidratosDet": "En hızlı enerji. Tahıllar, yumrular, meyveler.",
+      "grasas": "Yağlar",
+      "grasasDet": "Enerji deposu ve hücrelerinin duvarları. Zeytinyağı, avokado, kuruyemiş.",
+      "vitaminas": "Vitaminler",
+      "vitaminasDet": "Çok küçük miktarlarda ama vazgeçilmez.",
+      "minerales": "Mineraller",
+      "mineralesDet": "Kalsiyum, demir, potasyum… kemikler, kan ve kaslar.",
+      "fibra": "Lif",
+      "fibraDet": "Mikrobiyotanı besler ve seni tok tutar.",
+      "resumen1": "Çoğu zaman gerçek yiyecekler ye",
+      "resumen2": "Tabağının yarısını sebze ve meyveyle doldur",
+      "resumen3": "Miktarı harcadığına göre ayarla",
+      "resumen4": "Haftanı planla: menü, liste ve önceden pişmiş bir şeyler"
+    },
+    "dato": {
+      "agricultura": "yıl önce tarım geldi: buğday, pirinç ve mısır",
+      "lind": "James Lind iskorbütü portakal ve limonla iyileştiriyor",
+      "atwater": "gram protein, karbonhidrat ve yağ başına kalori (Atwater)",
+      "funk": "Casimir Funk «vitamin» kelimesini öneriyor",
+      "plato": "Besin piramidinden (1992) tabağa: MyPlate ve Meksika'nın Plato del Bien Comer'ı",
+      "proteina": "günlük protein: en az miktar ve kuvvet antrenmanı yapıyorsan önerilen",
+      "deficit": "harcadığından: sürdürülebilir küçük bir açık",
+      "experimento": "ultra işlenmiş diyetle günde fazladan (Hall ve ekibi, 2019)",
+      "sal": "günde tuz: bir çay kaşığı",
+      "frutas": "günde meyve ve sebze (ve 25 g lif)",
+      "ochenta": "Çoğu zaman iyi; geri kalanı suçluluk duymadan",
+      "agua": "günde su, yiyeceklerden gelen de dahil"
+    },
+    "pasos": {
+      "porcion": "Porsiyon",
+      "porcionDet": "Geri kalan her şey bu miktara göre hesaplanmıştır.",
+      "azucares": "Şeker ve tuz",
+      "azucaresDet": "Paket başına değil, 100 g başına karşılaştır.",
+      "ingredientes": "İçindekiler",
+      "ingredientesDet": "Çoktan aza sıralanır: ilki en çok bulunandır.",
+      "menu": "Menüyü seç",
+      "menuDet": "Bildiğin tariflerle haftanın öğünleri.",
+      "lista": "Listeyi çıkar",
+      "listaDet": "Bu tariflerin gerektirdikleri, reyonlara göre gruplanmış.",
+      "prepara": "Fazladan pişir",
+      "preparaDet": "Vaktin olmadığı zamanlar için iki günlük hazır yemek."
+    },
+    "grafica": {
+      "historia": "Ateşten tabağa",
+      "fuego": "Tarih öncesi",
+      "fuegoDet": "Ateşte pişirmek",
+      "agricultura": "Neolitik",
+      "agriculturaDet": "Tarım",
+      "lindDet": "Limon deneyi",
+      "atwaterDet": "Her besinin kalorisi",
+      "funkDet": "Vitaminler",
+      "platoDet": "Tabak",
+      "balance": "Enerji dengesi",
+      "entra": "Yediğin",
+      "sale": "Harcadığın",
+      "gasto": "Enerjini neye harcıyorsun",
+      "basal": "Bazal metabolizma",
+      "actividad": "Günlük hareket",
+      "digestion": "Sindirim",
+      "nova": "Yemeğin ne kadar işlenmiş (NOVA sınıflandırması)",
+      "g1": "Taze ya da az işlenmiş",
+      "g1Det": "Sebze, meyve, yumurta, et, süt, pirinç",
+      "g2": "Mutfak malzemeleri",
+      "g2Det": "Sıvı yağ, tuz, şeker, tereyağı",
+      "g3": "İşlenmiş",
+      "g3Det": "Peynir, fırın ekmeği, konserveler",
+      "g4": "Ultra işlenmiş",
+      "g4Det": "Gazlı içecekler, bisküviler, atıştırmalıklar, şekerli gevrekler"
+    },
+    "energia": {
+      "titulo": "Günlük enerjini hesapla",
+      "sexo": "Cinsiyet",
+      "mujer": "Kadın",
+      "hombre": "Erkek",
+      "edad": "Yaş",
+      "anios": "yaş",
+      "peso": "Kilo",
+      "estatura": "Boy",
+      "actividad": "Hareket düzeyi",
+      "a1": "Günün çoğu oturarak",
+      "a2": "Biraz hareket",
+      "a3": "Haftada 3–5 gün egzersiz",
+      "a4": "Çok hareketli",
+      "basal": "Bazal metabolizma",
+      "total": "Günlük harcama",
+      "bajar": "Kilo vermek için (−%15)",
+      "proteina": "Protein",
+      "kcal": "kcal",
+      "gDia": "g/gün",
+      "nota": "Mifflin-St Jeor denklemi. Bu bir tahmindir (±%10): iki üç hafta içinde gördüklerine göre ayarla."
+    },
+    "plato": {
+      "titulo": "Tabağını oluştur",
+      "instruccion": "Tabağa koymak için yiyeceklere dokun",
+      "verduras": "Sebze ve meyve",
+      "cereales": "Tam tahıllar",
+      "proteina": "Protein",
+      "ideal": "Sağlıklı tabak: ½ sebze ve meyve · ¼ tahıl · ¼ protein",
+      "vacio": "Tabağın boş",
+      "bien": "Tabağın sağlıklı tabağa benziyor!",
+      "masVerdura": "Sebze ve meyve eksik",
+      "masCereal": "Tam tahıl eksik",
+      "masProteina": "Protein eksik",
+      "vaciar": "Boşalt",
+      "brocoli": "Brokoli",
+      "ensalada": "Salata",
+      "jitomate": "Domates",
+      "manzana": "Elma",
+      "arroz": "Esmer pirinç",
+      "tortilla": "Mısır tortillası",
+      "avena": "Yulaf",
+      "pollo": "Tavuk",
+      "frijoles": "Fasulye",
+      "huevo": "Yumurta",
+      "pescado": "Balık"
+    },
+    "azucar": {
+      "titulo": "İçtiklerinde ne kadar şeker var?",
+      "refresco": "Kola (355 ml)",
+      "jugo": "Portakal suyu (250 ml)",
+      "isotonica": "Sporcu içeceği (600 ml)",
+      "frappe": "Frappe kahve (473 ml)",
+      "chocolate": "Çikolatalı süt (250 ml)",
+      "agua": "Su",
+      "gramos": "g şeker",
+      "cucharaditas": "çay kaşığı",
+      "ideal": "günlük ideal miktardan (25 g)",
+      "nota": "Yaygın etiketlerden yaklaşık değerler. DSÖ meyve sularındaki şekeri de sayar."
+    },
+    "cierre": {
+      "titulo": "Planını kendi evinde tut",
+      "texto": "MindHaOS'taki mutfak tariflerini saklar, haftalık yemek planını kurar ve alışveriş listeni senin yerine hazırlar."
+    },
+    "memes": {
+      "limones": {
+        "arriba": "1747'nin denizcileri: limonun hayatlarını kurtardığını keşfediyor",
+        "abajo": "Ben: her şeye limon sıkıyorum"
+      },
+      "ultraprocesados": {
+        "arriba": "14 malzemeli «tam tahıllı» bisküvi",
+        "abajo": "Bir elma: 1 malzeme"
+      },
+      "perfecta": {
+        "arriba": "Mükemmel diyet… üç gün boyunca",
+        "abajo": "Neredeyse her zaman iyi beslenmek, bütün yıl"
+      },
+      "tarde": {
+        "arriba": "Akşam 7'de düzgün bir şey yememiş ben",
+        "abajo": "Gerçek bir yemekten sonra ben"
+      }
+    },
+    "paquete": {
+      "guia": "Etkileşimli rehber (enerji hesaplayıcı, sağlıklı tabak ve içeceklerindeki şekerle)",
+      "app": "MindHaOS'ta mutfağı aç",
+      "hashtags": "#beslenme #sağlıklıbeslenme #yemek #sağlık #tarifler #MindHaOS"
+    }
+  },
+  "descanso": {
+    "meta": {
+      "titulo": "İyi uyumak nedir? Kapsamlı rehber: döngüler, iç saat, ne kadar uyumalı ve geceye nasıl hazırlanmalı | MindHaOS",
+      "desc": "Uyurken vücudunda neler olduğu, uykunun tarihi, kaç saate ihtiyacın olduğu (döngü hesaplayıcı), iç saatinin nasıl çalıştığı, yatarken vücudunda ne kadar kafein kaldığı ve uyuyamadığında ne yapacağın."
+    },
+    "lista": {
+      "reparacion": "Onarım",
+      "reparacionDet": "Büyüme hormonu: vücut kasları ve dokuları onarır.",
+      "limpieza": "Beyin temizliği",
+      "limpiezaDet": "Farelerde beyin, uyurken daha fazla atık temizler.",
+      "memoria": "Hafıza",
+      "memoriaDet": "Gün içinde öğrendiklerini düzenler ve saklar.",
+      "emociones": "Duygular",
+      "emocionesDet": "Hissettiklerini işler: sabaha başka bir bakış açısıyla uyanırsın.",
+      "alondra": "Tarla kuşları",
+      "alondraDet": "Kendiliğinden erken kalkarlar ve sabahları daha verimlidirler.",
+      "buho": "Baykuşlar",
+      "buhoDet": "Geç açılırlar ve geceleri daha verimlidirler.",
+      "resumen1": "Sabit saatlerde, yedi saat ya da daha fazla",
+      "resumen2": "Sabah ışık, akşam karanlık",
+      "resumen3": "Kafeine ve alkole dikkat et",
+      "resumen4": "Günün son saatini hazırla"
+    },
+    "dato": {
+      "edison": "Edison akkor ampulünü başarıyla deniyor",
+      "cueva": "Kleitman, 28 saatlik günleri denemek için bir mağarada 32 gün yaşıyor",
+      "rem": "Aserinsky ve Kleitman REM uykusunu keşfediyor",
+      "nobel": "İç saatin genleri için Nobel Tıp Ödülü",
+      "deuda": "iki hafta boyunca altı saat uyku: dikkat, iki gece uykusuz kalmış gibi",
+      "luz": "uyandıktan kısa süre sonra doğal ışık",
+      "pantallas": "Yatmadan önce tablette okumak melatonini geciktirir",
+      "regular": "kişi: sabit saatlerde uyumak daha düşük ölüm riskiyle ilişkili",
+      "alcohol": "Alkol gecenin ikinci yarısını böler",
+      "ejercicio": "Düzenli egzersiz daha çabuk ve daha derin uyumaya yardım eder",
+      "veinte": "uykusuz kaldıysan: kalk ve uykun gelince geri dön",
+      "siesta": "performans artışı, yaklaşık 26 dakikalık bir şekerlemeyle (NASA)",
+      "terapia": "Bilişsel davranışçı terapi: uykusuzlukta ilk tedavi"
+    },
+    "pasos": {
+      "sinAlarma": "Alarmsız uyanıyorsun",
+      "sinAlarmaDet": "Tatilde de aşağı yukarı hafta içiyle aynı saatte.",
+      "sinCafe": "Güne başlamak için kahveye ihtiyacın yok",
+      "sinCafeDet": "Günün ilk saatinde zaten uyanıksın.",
+      "despierto": "Öğleden sonrayı rahat çıkarıyorsun",
+      "despiertoDet": "Yemekten sonra ya da toplantılarda uyuklamadan.",
+      "fresco": "Serin",
+      "frescoDet": "Yaklaşık 18 °C: vücut uyumak için sıcaklığını düşürür.",
+      "oscuro": "Karanlık",
+      "oscuroDet": "Kalın perdeler ya da uyku maskesi; açık ışık yok.",
+      "silencio": "Sessiz",
+      "silencioDet": "Gürültülü bir sokakta oturuyorsan kulak tıkacı ya da beyaz gürültü.",
+      "apaga": "Ekranları bırak",
+      "apagaDet": "Bir saat önce: telefon yatağın dışında şarj olsun.",
+      "luces": "Işıkları kıs",
+      "lucesDet": "Sıcak ve loş ışık vücuduna artık gece olduğunu haber verir.",
+      "ritual": "Bir ritüel, hep aynı",
+      "ritualDet": "Kitap okumak, ılık bir banyo ya da esneme: uykunun geldiğinin işareti."
+    },
+    "grafica": {
+      "hipnograma": "Tipik bir gece: yaklaşık 90 dakikalık döngüler; derin uyku başta, REM sabaha doğru",
+      "despierto": "Uyanık",
+      "rem": "REM",
+      "ligero": "Hafif",
+      "profundo": "Derin",
+      "historia": "Uyku hakkında keşfettiklerimiz",
+      "siglos": "16.–18. yüzyıllar",
+      "siglosDet": "Birinci ve ikinci uyku",
+      "edisonDet": "Edison'un ampulü",
+      "cuevaDet": "Kleitman mağarada",
+      "remDet": "REM keşfediliyor",
+      "nobelDet": "İç saate Nobel",
+      "edades": "Her gece önerilen uyku süresi (Amerikan Uyku Tıbbı Akademisi)",
+      "ninos": "Çocuklar 6–12",
+      "adolescentes": "Ergenler",
+      "adultos": "Yetişkinler",
+      "circadiano": "24 saatlik saatin: gün ışığı onu ayarlar, melatonin hava kararınca yükselir",
+      "luz": "Gün ışığı",
+      "melatonina": "Melatonin"
+    },
+    "calc": {
+      "titulo": "Kaçta yatmalısın?",
+      "despierto": "Kalktığım saat",
+      "acuestate": "Şu saatlerden birinde yat (uykuya dalmak için 15 dakika hesaba katıldı):",
+      "ciclos": "döngü",
+      "nota": "Döngüler kişiye göre 80 ile 110 dakika sürer: bu bir kural değil, bir rehber. Önemli olan yedi saat ya da daha fazla uyumak."
+    },
+    "cafeina": {
+      "titulo": "Yatarken vücudunda ne kadar kafein kalıyor?",
+      "cafe": "Bir fincan kahve",
+      "espresso": "Espresso",
+      "te": "Siyah çay",
+      "cola": "Kola",
+      "energetica": "Enerji içeceği",
+      "aLas": "İçtiğim saat",
+      "duermes": "Uyuduğum saat",
+      "quedan": "hâlâ vücudunda",
+      "deLaDosis": "ilk dozdan",
+      "nota": "Yarılanma ömrü yaklaşık 5 saattir (kişiye göre 2 ile 10 saat arası). Kafeine hassassan öğleden sonra içme."
+    },
+    "cierre": {
+      "titulo": "Uykunu kendi evinde takip et",
+      "texto": "MindHaOS'taki Dinlenme odası, hatırlatıcılı ve alarmlı uyku programını tutar, her geceyi puanlar ve örüntülerini görmen için gecelerinin kaydını saklar."
+    },
+    "memes": {
+      "cinco": {
+        "arriba": "Gece 11'de ben: yarın erkenden kalkıp her şeyi yapacağım",
+        "abajo": "Sabah 7'de ben: beş dakika daha"
+      },
+      "capitulo": {
+        "arriba": "Vaktinde uyumak",
+        "abajo": "Gece 2'de «bir bölüm daha»"
+      },
+      "cafe": {
+        "arriba": "Akşam 6'da ben: bir kahveden bir şey olmaz",
+        "abajo": "Gece 2'de tavanı izleyen ben"
+      },
+      "siesta": {
+        "arriba": "20 dakikalık şekerleme: bilim (ve NASA) onaylı"
+      }
+    },
+    "paquete": {
+      "guia": "Etkileşimli rehber (uyku döngüsü hesaplayıcı, 24 saatlik saatin ve yatarken vücudunda kalan kafeinle)",
+      "app": "MindHaOS'ta Dinlenme odasını aç",
+      "hashtags": "#uyku #iyiuyku #dinlenme #sağlık #uykusuzluk #MindHaOS"
+    }
+  },
+  "finanzas": {
+    "moneda": "₺",
+    "formato": "antes",
+    "base": "40000",
+    "meta": {
+      "titulo": "Para nedir? Kapsamlı rehber: nasıl doğdu, bütçe, acil durum fonu, borçlar ve bileşik faiz | MindHaOS",
+      "desc": "Paranın ne olduğu ve nasıl doğduğu, seninkinin nereye gittiği (küçük harcama hesaplayıcı ve 50/30/20 kuralı), acil durum fonunu nasıl oluşturacağın, asgari ödemenin sana neye mal olduğu ve birikiminin bileşik faizle nasıl büyüdüğü."
+    },
+    "lista": {
+      "resumen1": "Paranın nereye gittiğini not et",
+      "resumen2": "Önce kendine öde, maaşı aldığın gün",
+      "resumen3": "Yastığını oluştur, pahalı borçlardan kurtul",
+      "resumen4": "Zaman ve faiz senin için çalışsın"
+    },
+    "dato": {
+      "loteria": "kazandıktan sonra: büyük ikramiye kazananlar, küçük kazananlarla neredeyse aynı oranda iflas ediyordu",
+      "lidia": "Lidya ilk madeni paraları elektrumdan basıyor",
+      "jiaozi": "Çin, ilk resmi kâğıt para olan jiaozi'yi basıyor",
+      "ponzi": "Charles Ponzi 45 günde %50 vaat ediyor… yeni gelenlerin parasıyla",
+      "nixon": "Dolar artık altına çevrilemiyor",
+      "registra": "harcadığın her şeyi, kahveye kadar not ederek",
+      "emergencia": "ABD'deki yetişkinlerden 400 dolarlık beklenmedik bir masrafı birikimiyle karşılayabilecek olanların oranı",
+      "tarjeta": "ABD'de kredi kartlarının ortalama yıllık faizi (2024)",
+      "regla72": "72'yi orana böl: paranın kaç yılda ikiye katlandığını bulursun",
+      "fraude": "Yüksek ve garantili kazanç: yoktur",
+      "revisa": "ne kadar girdiğini, ne kadar çıktığını ve ne kadar ilerlediğini gözden geçirmek için"
+    },
+    "pasos": {
+      "plazo": "Uzun vadeli",
+      "plazoDet": "Yalnızca yakında ihtiyaç duymayacağın para.",
+      "canasta": "Hepsi aynı sepette değil",
+      "canastaDet": "Riski dağıt: tek bir tökezleme her şeyi yıkmasın.",
+      "entiende": "Yalnızca anladığına",
+      "entiendeDet": "Nasıl para kazandırdığını anlatamıyorsan, kendi paranı koyma.",
+      "nombre": "Ad ver",
+      "nombreDet": "“Daha çok biriktirmek” değil, “arabanın peşinatı”.",
+      "monto": "Tutar belirle",
+      "montoDet": "Toplamda ne kadar gerekiyor.",
+      "fecha": "Tarih belirle",
+      "fechaDet": "Tutar ÷ ay = her ay ayıracağın miktar."
+    },
+    "grafica": {
+      "funciones": "Paranın üç işlevi",
+      "intercambio": "Takas",
+      "intercambioDet": "Herkes onu her şey karşılığında kabul eder.",
+      "medida": "Ölçü",
+      "medidaDet": "Her şeye aynı birimle fiyat biçer.",
+      "reserva": "Değer saklama",
+      "reservaDet": "Bugünkünü yarın harcamak için.",
+      "inflacion": "Bugünkü 100'ün yıllık %3 enflasyonla yıldan yıla alabildikleri",
+      "mitad": "Yarısı",
+      "flujo": "Her şeyi belirleyen hesap",
+      "entra": "Giren",
+      "entraDet": "Maaş, satışlar, her türlü gelir.",
+      "sale": "Eksi çıkan",
+      "saleDet": "Sabit giderler, keyifler, borçlar.",
+      "queda": "Sana kalan",
+      "quedaDet": "Biriktirmek, borçtan çıkmak ve geleceği kurmak için.",
+      "historia": "Para nasıl değişti",
+      "aC": "MÖ",
+      "hammurabiDet": "Hammurabi faizi sınırlıyor",
+      "lidiaDet": "İlk madeni paralar",
+      "jiaoziDet": "İlk resmi kâğıt para",
+      "ponziDet": "Ponzi dolandırıcılığı",
+      "nixonDet": "Elveda altın",
+      "ahorraMas": "Yarın Daha Fazla Biriktir: çalışanların birikimi, dört zamda maaşın %3,5'inden %13,6'sına",
+      "antes": "Önce",
+      "aumento": "Zam",
+      "metodos": "Aynı borçları ödemenin iki sırası",
+      "avalancha": "Çığ",
+      "avalanchaDet": "Önce faizi en yüksek olan: daha az faiz ödersin.",
+      "bolaNieve": "Kartopu",
+      "bolaNieveDet": "Önce en küçüğü: ilerlemeyi daha erken görürsün.",
+      "tarjeta": "Kart",
+      "prestamo": "Kredi",
+      "tienda": "Mağaza",
+      "empezarAntes": "65 yaşına kadar her ay yıllık %6'yla aynı tutar: 25'inde ya da 35'inde başlayarak",
+      "empezarAntesA": "25'inden itibaren",
+      "empezarAntesB": "35'inden itibaren",
+      "comisiones": "Bugünkü 100, 30 yıl boyunca: %7'yle ve %7 eksi bir puan komisyonla",
+      "comisionesA": "Komisyonsuz",
+      "comisionesB": "%1 komisyonla",
+      "automatiza": "Maaş gününün sırası, otomatik",
+      "cobras": "Maaş",
+      "cobrasDet": "Maaşın yatar.",
+      "ahorroAuto": "Birikim",
+      "ahorroAutoDet": "Kendiliğinden, ilk önce ayrılır.",
+      "fijos": "Sabit ödemeler",
+      "fijosDet": "Otomatik ödeme talimatıyla: kira, faturalar, borçlar.",
+      "libre": "Geri kalanı",
+      "libreDet": "Suçluluk duymadan harcamak için."
+    },
+    "hormiga": {
+      "titulo": "Küçük bir harcama ne kadar götürür?",
+      "gasto": "Her seferinde harcadığım",
+      "dias": "Haftada kaç gün",
+      "alAnio": "Bir yılda",
+      "diezAnios": "On yılda",
+      "invertido": "Yıllık %6'yla ayırırsan, on yılda",
+      "nota": "Mesele kendine keyif yasaklamak değil; ne kadara mal olduklarını bilerek seçmek."
+    },
+    "reparto": {
+      "titulo": "50/30/20 kuralı",
+      "ingreso": "Vergiler düşülmüş aylık gelirim",
+      "necesario": "Zorunlu ihtiyaçlar",
+      "gustos": "Keyiflerin",
+      "ahorro": "Birikim ve borçlar",
+      "nota": "Bu bir başlangıç noktası: kira yarıdan fazlasını götürüyorsa, birikimden önce keyiflerden kıs."
+    },
+    "fondo": {
+      "titulo": "Acil durum fonun",
+      "gasto": "Aylık temel giderlerim",
+      "aparta": "Ayda ayırabileceğim",
+      "meses": "Kaç aylık yastık",
+      "meta": "Hedefin",
+      "tardas": "Biriktirme süresi",
+      "mesesCorto": "ay",
+      "nota": "Temel giderler: konut, yiyecek, faturalar, ulaşım ve borç ödemeleri. Bu parayı ayrı bir yerde tut, harcamak içinden gelmesin."
+    },
+    "deuda": {
+      "titulo": "Az ödemek sana neye mal oluyor?",
+      "saldo": "Borcum",
+      "tasa": "Yıllık faiz",
+      "pago": "Aylık ödeme",
+      "tardas": "Kurtulma süresi",
+      "meses": "ay",
+      "intereses": "Ödediğin faiz",
+      "total": "Toplam ödediğin",
+      "nunca": "Bu ödemeyle faizi bile karşılayamıyorsun: borç hiç azalmaz.",
+      "loQueDebias": "Borcun",
+      "nota": "Yeni alışveriş ve ücretler hariç. Pek çok kart, faizin üzerine ayrıca vergi veya başka masraflar da ekler."
+    },
+    "compuesto": {
+      "titulo": "Bileşik faiz, senin rakamlarınla",
+      "aporte": "Ayda ayırdığım",
+      "tasa": "Yıllık getiri",
+      "anios": "Süre",
+      "aniosCorto": "yıl",
+      "tuyo": "Senin koyduğun",
+      "interes": "Faizin koyduğu",
+      "total": "Sonunda",
+      "nota": "Sabit getiriyle yapılmış açıklayıcı bir hesaptır: gerçek hayatta getiriler değişir, negatif olabilir ve enflasyonla komisyonları da düşmek gerekir."
+    },
+    "cierre": {
+      "titulo": "Paranı kendi evinde yönet",
+      "texto": "MindHaOS'taki Finans odası; giderler, gelirler ve bakiyeyle para akışını, hesaplayıcılarla birikim ve borç hedeflerini ve büyüdüğünü görmen için servetini takip eder."
+    },
+    "memes": {
+      "garantizado": {
+        "arriba": "“45 günde %50 kazanç, garantili”"
+      },
+      "hormiga": {
+        "arriba": "Ben: birikim yapmaya param yetmiyor",
+        "abajo": "Yine ben: bir kahve, bir atıştırmalık ve kullanmadığım üç abonelik"
+      },
+      "quincena": {
+        "arriba": "Maaş günü ben",
+        "abajo": "Üç gün sonra ben"
+      },
+      "minimo": {
+        "arriba": "Kartın tamamını ödemek",
+        "abajo": "Asgariyi ödeyip 2035'te dertlenmek"
+      }
+    },
+    "paquete": {
+      "guia": "Etkileşimli rehber (küçük harcamalar, 50/30/20 kuralı, acil durum fonu, kart borcu ve bileşik faiz hesaplayıcılarıyla)",
+      "app": "MindHaOS'ta Finans odasını aç",
+      "hashtags": "#kişiselfinans #birikim #para #bütçe #finansalokuryazarlık #MindHaOS"
+    }
+  },
+  "idiomas": {
+    "narra": "Büyücü anlatıyor",
+    "cargando3d": "Büyücü yükleniyor…",
+    "meta": {
+      "titulo": "Neden bir dil öğrenmeli? Eksiksiz rehber: beynin, seviyeler, saatler, hafıza, aralıklı tekrar ve 20 dakikalık bir plan | MindHaOS",
+      "desc": "Makineler artık çeviri yapsa da neden dil öğrenmeye değer, bir dili bilmek ne demek ve ne kadar sürer, beyin nasıl öğrenir ve unutur (unutma eğrisi ve aralıklı tekrar), hangi kelimeler en çok işe yarar, ilk günden nasıl konuşulur ve günde yirmi dakikalık bir plan."
+    },
+    "lista": {
+      "resumen1": "Neredeyse anladığın şeyleri dinle",
+      "resumen2": "Aralıklarla ve kendini sınayarak tekrar et",
+      "resumen3": "Önce en sık kelimeler, cümle içinde",
+      "resumen4": "İlk günden, her gün biraz konuş"
+    },
+    "dato": {
+      "cerebro": "iki dil konuşanlarda demans belirtileri bu kadar geç başladı (Toronto, 2007)",
+      "distancia": "İngilizce konuşuyorsan Japonca, İspanyolcadan bu kadar fazla ders saati ister",
+      "comenio": "Comenius Orbis Pictus'u yayımlar: her Latince kelime bir çizimin yanında",
+      "berlitz": "Berlitz okulunu açar: derste çeviri yapılmaz",
+      "zamenhof": "Zamenhof Esperanto'yu yayımlar: istisnasız bir dilbilgisi",
+      "canales": "dil MindHaOS kanallarında: bildiğin bir rehberi öğrendiğin dilde izle",
+      "swain": "Merrill Swain: anlamak yetmez, üretmek de gerekir",
+      "errores": "Düzeltilen her hata sana göre biçilmiş bir derstir",
+      "diario": "Kendi kendine bile olsa her gün ağzını aç",
+      "riega": "her gün biraz, pazar günkü bir maratondan iyidir"
+    },
+    "pasos": {
+      "chistes": "Espriler ve çift anlamlar",
+      "chistesDet": "Kelimesi kelimesine çevirinin kaybettikleri.",
+      "gente": "İnsanlar, ekransız",
+      "genteDet": "Göz göze, gerçek bir sohbet.",
+      "pensar": "Başka bir bakış",
+      "pensarDet": "Her dil dünyayı kendi yoluyla düzenler.",
+      "frase": "Bütün bir cümle",
+      "fraseDet": "Tek başına «tuz» değil, «Tuzu uzatır mısın?».",
+      "contexto": "Durumuyla birlikte",
+      "contextoDet": "Nerede ve kime söylerdin.",
+      "usala": "Hemen kullan",
+      "usalaDet": "Bugün ya da yarın, yüksek sesle.",
+      "escucha": "Dinle",
+      "escuchaDet": "Neredeyse anladığın kısa bir kayıt.",
+      "repite": "Aynı anda tekrarla",
+      "repiteDet": "Bir yankı gibi: ritim ve tonlama.",
+      "grabate": "Kendini kaydet",
+      "grabateDet": "Orijinalle karşılaştır ve tekrarla.",
+      "para": "Bir amaç",
+      "paraDet": "Seyahat, iş, ailenle konuşmak…",
+      "nivel": "Bir seviye",
+      "nivelDet": "CEFR'e göre: A2, B1, B2…",
+      "fecha": "Bir tarih",
+      "fechaDet": "Eksik saatler ÷ günler = rutinin."
+    },
+    "grafica": {
+      "habilidades": "Bir dilin dört becerisi",
+      "entender": "Anlamak",
+      "producir": "Üretmek",
+      "escuchar": "Dinlemek",
+      "leer": "Okumak",
+      "hablar": "Konuşmak",
+      "escribir": "Yazmak",
+      "fsi": "İngilizce konuşan biri için o dilde çalışabilmek için gereken ders saatleri (FSI)",
+      "g1": "Yakın",
+      "g1Det": "İspanyolca, Fransızca, İtalyanca, Portekizce, Felemenkçe",
+      "g2": "Orta",
+      "g2Det": "Almanca, Endonezce, Svahili",
+      "g3": "Zor",
+      "g3Det": "Rusça, Hintçe, Türkçe, Lehçe, Yunanca",
+      "g4": "Çok zor",
+      "g4Det": "Japonca, Çince, Korece, Arapça",
+      "historia": "Diller nasıl öğrenildi",
+      "aC": "MÖ",
+      "rosettaDet": "Rosetta Taşı",
+      "orbisDet": "Comenius'un Orbis Pictus'u",
+      "berlitzDet": "Berlitz: çevirisiz",
+      "esperantoDet": "Esperanto doğuyor",
+      "leitnerDet": "Leitner kutuları",
+      "inputComprensible": "Sana öğreten: ne çok kolay ne çok zor",
+      "facil": "Çok kolay",
+      "facilDet": "Her şeyi anlıyorsun: yeni bir şey yok.",
+      "justo": "Biraz üstünde",
+      "justoDet": "Neredeyse hepsini anlıyorsun ve bir kısmı yeni: öğreniyorsun.",
+      "dificil": "Çok zor",
+      "dificilDet": "Hiçbir şey anlamıyorsun: sadece gürültü.",
+      "olvido": "Unutma eğrisi: Ebbinghaus'un listelerinden hâlâ aklında kalanlar (yeniden öğrenirken kazanılan, %)",
+      "olvidoDia": "Bir gün sonra: ≈ %34",
+      "unDia": "1 gün",
+      "unMes": "1 ay",
+      "recuperar": "Yeniden okumak mı, kendini sınamak mı (Roediger ve Karpicke şeması, 2006)",
+      "releer": "Yeniden okumak",
+      "prueba": "Kendini sınamak",
+      "dosDias": "2 gün",
+      "unaSemana": "1 hafta",
+      "temas": "Kullanacağın şeylerle başla",
+      "viajar": "Seyahat için",
+      "trabajar": "İş için",
+      "saludos": "Selamlaşma",
+      "comida": "Yemek",
+      "transporte": "Ulaşım",
+      "direcciones": "Yol tarifi",
+      "presentarte": "Kendini tanıtmak",
+      "reuniones": "Toplantılar",
+      "correos": "E-postalar",
+      "edad": "Yaşa göre dilbilgisi öğrenme kolaylığı (Hartshorne, Tenenbaum ve Pinker şeması, 2018)",
+      "nativo": "Anadili gibi konuşmak",
+      "adulto": "İyi konuşmak: her yaşta",
+      "rutina": "Günde yirmi dakika",
+      "escucha5": "5 dk · Dinle",
+      "escucha5Det": "Neredeyse anladığın bir şey.",
+      "repasa5": "5 dk · Tekrar et",
+      "repasa5Det": "Bugün sırası gelen kartlar.",
+      "habla5": "5 dk · Konuş",
+      "habla5Det": "Yüksek sesle ya da gölge yaparak.",
+      "lee5": "5 dk · Oku ya da yaz",
+      "lee5Det": "Bir paragraf, bir mesaj."
+    },
+    "nivel": {
+      "titulo": "Hangi seviyedesin?",
+      "a1": "Kendimi tanıtır, bir kafede bir şey isterim",
+      "a2": "Günlük rutinimden, ailemden ve alışverişimden bahsederim",
+      "b1": "Seyahatte idare eder, başımdan geçenleri anlatırım",
+      "b2": "Normal bir sohbeti takip eder, fikrimi söylerim",
+      "c1": "Dizileri ve uzun metinleri zahmetsizce anlarım",
+      "c2": "İnceliklerine kadar neredeyse her şeyi anlarım",
+      "vas": "Seviyen:",
+      "ninguno": "Henüz bir şey işaretlemedin: A1'den başlıyorsun.",
+      "nota": "Hiçbirini atlamadan işaretlediğin en yüksek seviye sayılır. CEFR tanımlarına dayalı bir yönlendirmedir, sınav değildir."
+    },
+    "olvido": {
+      "titulo": "Unutma eğrisi ve tekrarların",
+      "repasos": "Tekrarlar",
+      "dias": "gün",
+      "recuerdas": "30 gün sonra hatırladığın",
+      "cuando": "Tekrar ettiğin günler",
+      "nota": "Bu açıklayıcı bir modeldir: her tekrar hatıranın daha yavaş silinmesini sağlar. Gerçekte kelimeye ve sana bağlıdır."
+    },
+    "cobertura": {
+      "titulo": "Bir metnin ne kadarını tanıyorsun?",
+      "sabes": "Bildiğin en sık kelimeler",
+      "reconoces": "Sıradan bir metinde tanıdığın",
+      "desconocida": "Bilmediğin kelimeler",
+      "nota": "Yaklaşık, İngilizce için (Nation, 2006). Sözlüksüz okumak için neredeyse hepsini tanımak gerekir: aşağı yukarı 100 kelimede 98."
+    },
+    "leitner": {
+      "titulo": "Leitner kutuları",
+      "frente": "the apple",
+      "reverso": "elma",
+      "voltea": "çevirmek için dokun",
+      "acerte": "Bildim",
+      "falle": "Bilemedim",
+      "proximo": "Yeniden göreceğin süre:",
+      "dominada": "neredeyse öğrenildi",
+      "nota": "Bilirsen bir kutu yukarı çıkar; bilemezsen iki kutu aşağı iner. Aralıklar MindHaOS'taki Diller uygulamasındakilerle aynıdır.",
+      "dia": "gün",
+      "dias": "gün"
+    },
+    "minutos": {
+      "titulo": "Rutinin ne kadar eder?",
+      "minutos": "Günde dakika",
+      "dias": "Haftada gün",
+      "idioma": "Öğrendiğin dil",
+      "alAnio": "Yılda saat",
+      "llegas": "FSI saatlerine ulaşma süren:",
+      "meses": "ay",
+      "anios": "yıl",
+      "nota": "Referans olarak yaklaşık {h} saat alınır; İngilizce konuşan biri için FSI'nin yoğun ders saatleri: bir büyüklük sırasıdır, söz değildir."
+    },
+    "cierre": {
+      "titulo": "Dilini kendi evinde öğren",
+      "texto": "MindHaOS'taki Diller odasında seni düzelten bir öğretmenle sohbetler, kartlarınla birlikte seviyelere göre müfredat ve bugün neyi tekrar edeceğini söyleyen aralıklı tekrar var."
+    },
+    "memes": {
+      "olvido": {
+        "arriba": "Pazar günü 50 kelime ezberlemiş ben",
+        "abajo": "Pazartesi günkü ben"
+      },
+      "lista": {
+        "arriba": "Tek tek 500 kelime ezberlemek",
+        "abajo": "Her gün kullandığım 10 cümleyi öğrenmek"
+      },
+      "perfecto": {
+        "arriba": "Başlamak için kusursuz konuşmayı beklemek",
+        "abajo": "Bugün, hatalarla konuşmak"
+      }
+    },
+    "paquete": {
+      "guia": "Etkileşimli rehber (CEFR seviyen, unutma eğrisi, en çok işe yarayan kelimeler, Leitner kutuları ve rutin hesaplayıcın ile)",
+      "app": "MindHaOS'ta Diller odasını aç",
+      "hashtags": "#dilöğrenmek #yabancıdil #ingilizce #ingilizceöğreniyorum #poliglot #MindHaOS"
+    }
+  },
+  "arte": {
+    "meta": {
+      "titulo": "Sanat nedir? Görsel sanatlar için eksiksiz rehber: yapay zekâ varken neden üretmeli, tarih, öğeler, bir esere nasıl bakılır ve 15 dakikalık plan | MindHaOS",
+      "desc": "Sanat ve görsel sanatlar nedir, yapay zekâ resim yapsa bile sanat yapmaya neden değer, mağaralardan ekranlara kısa bir tarih, bir eserin öğeleri (çizgi, biçim, değer, renk, kompozisyon), ona yavaşça nasıl bakılır ve günde on beş dakikalık bir planla üretmeye nasıl başlanır."
+    },
+    "lista": {
+      "dibujo": "Desen",
+      "dibujoDet": "Kurşun kalem, kömür, mürekkep.",
+      "pintura": "Resim",
+      "pinturaDet": "Yağlı boya, suluboya, akrilik.",
+      "escultura": "Heykel",
+      "esculturaDet": "Kil, taş, ahşap, metal.",
+      "fotografia": "Fotoğraf",
+      "fotografiaDet": "Bir anda yakalanan ışık.",
+      "digital": "Dijital illüstrasyon",
+      "digitalDet": "Tabletler, katmanlar ve ekranlar.",
+      "resumen1": "Sanat, bir başkası baksın ve hissetsin diye bir şey yapmaktır",
+      "resumen2": "Üretirken sana olanlar için buna değer",
+      "resumen3": "Yavaş bak: ışık, biçim, renk ve kompozisyon",
+      "resumen4": "Her gün biraz üret"
+    },
+    "dato": {
+      "cortisol": "kişinin stres hormonu 45 dakikalık sanat çalışmasından sonra düştü, çizim bilsinler ya da bilmesinler (Kaimal, 2016)",
+      "perspectiva": "Brunelleschi, Floransa'da bir aynayla derinliğin nasıl göründüğünü gösteriyor",
+      "durero": "Dürer, görüleni çizmek için ızgaralı el kitabını yayımlıyor",
+      "fotografia": "Paris'te ilk kullanışlı fotoğraf olan dagerreyotip tanıtılıyor",
+      "duchamp": "Duchamp «Çeşme»yi bir sergiye gönderiyor: bir şeyi sanat yapan nedir?",
+      "sketchpad": "Sketchpad: ekranda çizim yapılan ilk program",
+      "museo": "Metropolitan Sanat Müzesi'nde her eserin önünde ortalama süre (Smith ve Smith, 2001)",
+      "unaObra": "tek bir esere bakarak: betimle, çözümle, yorumla ve değerlendir",
+      "louvre": "Louvre'un açıldığı yıl; o günden beri tablolarının kopyalanmasına izin veriyor",
+      "cuaderno": "çizim, nasıl çıktıklarını yargılamadan önce öğrenmek için",
+      "meta": "yüz günde yüz çizim: sayılabilen bir hedef"
+    },
+    "pasos": {
+      "hacer": "Biri onu yapar",
+      "hacerDet": "Bilinçli olarak: neyi ve nasıl göstereceğini seçer.",
+      "mirar": "Başkası ona bakar",
+      "mirarDet": "Bir tablo, bir fotoğraf, bir heykel, bir ekran.",
+      "sentir": "Ve bir şey hisseder ya da düşünür",
+      "sentirDet": "Tolstoy'un bir duyguyu bulaştırmak dediği şey.",
+      "creer": "Zihnimizdekini çizeriz",
+      "creerDet": "Yandan öyle olmasa da «badem» biçiminde bir göz.",
+      "ver": "Gördüğümüzü değil",
+      "verDet": "Gerçek açılar, boyutlar ve boşluklar.",
+      "entrenar": "Ve bu çalışarak gelişir",
+      "entrenarDet": "Bakış alıştırmalarıyla, bir kas gibi.",
+      "lapiz": "Bir kalem",
+      "lapizDet": "Başlamak için yumuşak bir kalem (2B) yeter.",
+      "papel": "Kâğıt",
+      "papelDet": "Ucuz bir defter: harcamaktan korkma.",
+      "tableta": "Ya da bir tablet",
+      "tabletaDet": "Rahat hissediyorsan, katmanlar ve geri alma ile.",
+      "brazo": "Uzatılmış kol",
+      "brazoDet": "Hep aynı mesafede ve bir gözün kapalı.",
+      "unidad": "Bir birim",
+      "unidadDet": "Kalemle bir şey ölç: başı, bir pencerenin genişliğini.",
+      "compara": "Karşılaştır",
+      "comparaDet": "Geri kalanına kaç kez sığıyor?",
+      "describe": "Betimle",
+      "describeDet": "Neler var? İnsanlar, nesneler, renkler; henüz yorum yok.",
+      "analiza": "Çözümle",
+      "analizaDet": "Nasıl yapılmış? Çizgiler, ışık, kompozisyon.",
+      "interpreta": "Yorumla",
+      "interpretaDet": "Ne anlatmak istiyor? Bakınca ne hissediyorsun?",
+      "juzga": "Değerlendir",
+      "juzgaDet": "Ancak en sonda: beğeniyor musun, neden?",
+      "amigo": "Bir arkadaşına",
+      "amigoDet": "Önce ne gördüğünü sor.",
+      "clase": "Bir derste",
+      "claseDet": "Bir öğretmen seni tam yanıldığın yerde düzeltir.",
+      "internet": "İnternette",
+      "internetDet": "Yeni başlayanların çizimlerine yorum yapan topluluklar var."
+    },
+    "grafica": {
+      "efectoDibujo": "Sonradan hatırlanan kelimeler (Wammes, Meade ve Fernandes şeması, 2016)",
+      "escribir": "Yazmak",
+      "escribirDet": "Kelimeyi birkaç kez yazmak.",
+      "dibujar": "Çizmek",
+      "dibujarDet": "Anlamını çizmek.",
+      "historia": "Görsel sanatların kısa tarihi",
+      "hace": "{n} yıl önce",
+      "celebesDet": "Sulawesi'de insanlar ve bir yaban domuzu",
+      "lascauxDet": "Lascaux'nun atları ve boğaları",
+      "perspectivaDet": "Brunelleschi ve perspektif",
+      "fotografiaDet": "Fotoğraf geliyor",
+      "duchampDet": "Duchamp ve «Çeşme»si",
+      "sketchpadDet": "Sketchpad, ekrandaki ilk çizim",
+      "formas": "Neredeyse her şeyin kurulduğu dört biçim",
+      "cubo": "Küp",
+      "esfera": "Küre",
+      "cilindro": "Silindir",
+      "cono": "Koni",
+      "tercios": "Üçler kuralı: önemli olan, kesişimlerden birinde",
+      "circulo": "Renk çemberi ve her rengin grideki değeri",
+      "tono": "Renk",
+      "valor": "Değer",
+      "rutina": "Günde on beş dakika, bir hafta",
+      "lunes": "Pazartesi · Konturlar",
+      "lunesDet": "Elin, bir yaprak, kâğıda bakmadan.",
+      "martes": "Salı · Biçimler",
+      "martesDet": "Gördüğün her şeyde küpler, küreler ve silindirler.",
+      "miercoles": "Çarşamba · Jestler",
+      "miercolesDet": "30 saniyeden 2 dakikaya pozlar.",
+      "jueves": "Perşembe · Işık ve gölge",
+      "juevesDet": "Bir küre, bir fincan, beş değeriyle.",
+      "viernes": "Cuma · Bir usta",
+      "viernesDet": "Bir esere on dakika bak ve bir parçasını kopyala.",
+      "finde": "Hafta sonu · Serbest",
+      "findeDet": "Canın ne isterse, keyfine göre."
+    },
+    "mesas": {
+      "titulo": "İki masadan hangisi daha uzun?",
+      "pregunta": "Soldaki çok daha uzun görünüyor, değil mi?",
+      "comprobar": "Kontrol et",
+      "otraVez": "Tekrar",
+      "identicas": "Aynılar: döndürülmüş aynı biçim",
+      "nota": "Bu, Roger Shepard'ın masa illüzyonu (1990). Beynin perspektifi masalar hakkında bildikleriyle «düzeltiyor»; çizerken bu düzeltmeye güvenmek yerine ölç."
+    },
+    "alReves": {
+      "titulo": "Baş aşağı çizmek",
+      "voltear": "Düz çevir",
+      "deCabeza": "Baş aşağı çevir",
+      "lineas": "Baş aşağıyken bir yüz görmezsin: çizgiler ve açılar görürsün",
+      "cara": "Düzken beynin «bir yüz» görür ve semboller çizer",
+      "nota": "Bitirene kadar çevirmeden, böyle baş aşağı kopyalamayı dene. Betty Edwards'ın kitabındaki alıştırma (1979)."
+    },
+    "ojos": {
+      "titulo": "Gözler nereye gelir?",
+      "linea": "Göz çizgisini kaydır",
+      "coronilla": "Tepe",
+      "barbilla": "Çene",
+      "desdeArriba": "Gözlerin yeri:",
+      "justo": "Başın tam ortası!",
+      "nota": "Önden bakılan bir yetişkin başında gözler aşağı yukarı tepeyle çenenin ortasına gelir. Saç yanıltır: alın göründüğünden daha yüksektir."
+    },
+    "valores": {
+      "titulo": "Işığın beş değeri",
+      "valor": "Değer",
+      "luz": "Işık",
+      "medio": "Ara ton",
+      "sombra": "Öz gölge",
+      "reflejada": "Yansıyan ışık",
+      "proyectada": "Düşen gölge",
+      "entrecierra": "Gözlerini kıs",
+      "nota": "Gözlerini kısınca ayrıntılar kaybolur, geriye büyük ışık ve gölge lekeleri kalır: çizdiğin her şeyin değerleri böyle görünür."
+    },
+    "cronometro": {
+      "titulo": "Jest çizimleri",
+      "pose": "Her poz süresi",
+      "poseN": "Poz",
+      "empezar": "Başla",
+      "pausa": "Duraklat",
+      "nota": "Hareket hâlindeki insanların fotoğraflarını bul ve yalnızca jesti çiz: omurga çizgisi, omuzlar ve kalçalar. Süre dolunca, bitirmemiş olsan da bir sonraki poza geç."
+    },
+    "dibujos": {
+      "titulo": "Pratiğin ne kadar eder?",
+      "minutos": "Günde dakika",
+      "tipo": "Çizim türü",
+      "rapidos": "Jestler (2 dk)",
+      "bocetos": "Eskizler (10 dk)",
+      "estudios": "Etütler (30 dk)",
+      "horas": "Yılda saat",
+      "alAnio": "Bir yılda eser",
+      "nota": "Yılın bütün günleri sayılarak. İyi çıkmaları gerekmiyor: her biri sana bir şey öğretir."
+    },
+    "cierre": {
+      "titulo": "Kendi evinde üret",
+      "texto": "MindHaOS'taki Sanat Stüdyosu'nda eserlerin için bir galeri, kendi kendine kaydedilen katmanlı tuval ve ızgara, ayna gibi çizim yardımcıları var."
+    },
+    "memes": {
+      "simbolos": {
+        "arriba": "6 yaşında ev çizen ben",
+        "abajo": "30 yaşında ev çizen ben"
+      },
+      "ojos": {
+        "arriba": "Gözleri koyduğum yer",
+        "abajo": "Gerçekte oldukları yer: tam ortada"
+      },
+      "cien": {
+        "arriba": "İlk çizimin kusursuz çıkmasını beklemek",
+        "abajo": "Yüz tane kötü çizim yapmak"
+      }
+    },
+    "paquete": {
+      "guia": "Etkileşimli rehber (ışığın beş değeri, masa illüzyonu, baş aşağı çizim, gözlerin yeri, jest kronometresi ve pratik hesaplayıcın ile)",
+      "app": "MindHaOS'ta Sanat Stüdyosu'nu aç",
+      "hashtags": "#sanat #resim #çizim #sanattarihi #yapayzeka #MindHaOS"
+    }
   }
 }

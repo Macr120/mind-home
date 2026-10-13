@@ -31,12 +31,15 @@ export function EditorCuadrantesSection() {
   const propios = useLayout((s) => s.cuadrantes)
   const renombrarCuadrante = useLayout((s) => s.renombrarCuadrante)
   const eliminarCuadrante = useLayout((s) => s.eliminarCuadrante)
+  const ocultos = useLayout((s) => s.cuadrantesOcultos)
+  const alternarOculto = useLayout((s) => s.alternarCuadranteOculto)
   const activo = usePlanos((s) => s.cuadranteActivo)
   const setActivo = usePlanos((s) => s.setCuadranteActivo)
   const setVista = usePlanos((s) => s.setCuadranteVista)
   const dibujando = usePlanos((s) => s.dibujandoCuadrante)
   const setDibujando = usePlanos((s) => s.setDibujandoCuadrante)
   const [editandoId, setEditandoId] = useState<string | null>(null)
+  const [ocultando, setOcultando] = useState(false)
 
   if (!hayCuadrantes(gridCols, gridRows)) return null
 
@@ -48,6 +51,15 @@ export function EditorCuadrantesSection() {
     setActivo(q.id)
     // El recorte de render sigue al cuadrante enfocado (ver `RoomEnMapa`).
     setVista(q.id)
+  }
+  // Ocultar/mostrar un bloque: el mapa (y el fondo del tema) se queda con los demás,
+  // así que se reencuadra cuando la cámara ya publicó el tamaño nuevo.
+  const alternar = (q: CuadranteMapa) => {
+    const visibles = autos.filter((b) => !ocultos.includes(b.id)).length
+    if (!ocultos.includes(q.id) && visibles <= 1) return
+    void alternarOculto(q.id).then(() =>
+      setTimeout(() => useCam.getState().centrarIso(mapFocusPos()), 60),
+    )
   }
   const verTodo = () => {
     useCam.getState().centrarIso(mapFocusPos())
@@ -82,18 +94,51 @@ export function EditorCuadrantesSection() {
         className="grid gap-1"
         style={{ gridTemplateColumns: `repeat(${bloquesPorFila(gridCols)}, minmax(0, 1fr))` }}
       >
-        {autos.map((q) => (
-          <button
-            key={q.id}
-            type="button"
-            onClick={() => enfocar(q)}
-            title={t('constructor.cuadrantes.enfocar', 'Enfocar este cuadrante')}
-            className={`${BOTON} ${activo === q.id ? ACTIVO : NEUTRO}`}
-          >
-            {q.nombre}
-          </button>
-        ))}
+        {autos.map((q) => {
+          const oculto = ocultos.includes(q.id)
+          return (
+            <button
+              key={q.id}
+              type="button"
+              onClick={() => (ocultando ? alternar(q) : !oculto && enfocar(q))}
+              title={
+                ocultando
+                  ? t('constructor.cuadrantes.ocultar', 'Ocultar cuadrantes')
+                  : t('constructor.cuadrantes.enfocar', 'Enfocar este cuadrante')
+              }
+              className={`${BOTON} ${
+                oculto
+                  ? 'bg-white/[0.02] text-white/30 line-through'
+                  : activo === q.id && !ocultando
+                    ? ACTIVO
+                    : NEUTRO
+              }`}
+            >
+              {q.nombre}
+            </button>
+          )
+        })}
       </div>
+      <button
+        type="button"
+        onClick={() => setOcultando(!ocultando)}
+        className={`${BOTON} flex w-full items-center justify-center gap-1.5 ${
+          ocultando ? ACTIVO : NEUTRO
+        }`}
+      >
+        <Icono nombre={ocultando ? 'hecho' : 'ocultar'} />
+        {ocultando
+          ? t('constructor.cuadrantes.ocultarListo', 'Listo')
+          : t('constructor.cuadrantes.ocultar', 'Ocultar cuadrantes')}
+      </button>
+      {ocultando && (
+        <p className="text-[10px] leading-snug text-white/45">
+          {t(
+            'constructor.cuadrantes.ocultarHint',
+            'Toca los cuadrantes que no quieres ver: el mapa y los fondos de los temas se quedan solo con los demás.',
+          )}
+        </p>
+      )}
 
       <p className="pt-1 text-[10px] font-bold uppercase tracking-wider text-white/40">
         {t('constructor.cuadrantes.tuyas', 'Tus zonas')}

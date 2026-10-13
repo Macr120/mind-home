@@ -7,6 +7,7 @@ import { getFondo } from '../fondos'
 import { useTemaActivo } from '../useTema'
 import type { EscenarioId } from '../temas'
 import { SPACING, WALL_H, nivelBaseY } from '../walls'
+import { mapaVisible, rectMundo } from '../cuadrantesMapa'
 
 /** Rectángulo (en mundo) del plano del mapa: la cubierta del vehículo. */
 export interface LimitesCasa {
@@ -69,24 +70,30 @@ export function useLimitesCasa(): LimitesCasa {
   const ocupadoPorNivel = useLayout((s) => s.ocupadoPorNivel)
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
+  const ocultos = useLayout((s) => s.cuadrantesOcultos)
   const apilado = !useHouse((s) => s.explotado)
 
   return useMemo(() => {
-    // El vehículo ocupa el plano ENTERO (toda la rejilla), no solo lo construido.
-    const ancho = gridCols * SPACING
-    const largo = gridRows * SPACING
+    // El vehículo ocupa el plano ENTERO (toda la rejilla), no solo lo construido; con
+    // cuadrantes ocultos, solo el rectángulo de los visibles (y el fondo lo rodea a él).
+    const mv = mapaVisible(gridCols, gridRows, ocultos)
+    const r = mv ? rectMundo(mv.rect) : null
+    const ancho = r ? r.ancho : gridCols * SPACING
+    const largo = r ? r.largo : gridRows * SPACING
+    const cx = r ? r.centro[0] : 0
+    const cz = r ? r.centro[2] : 0
     let nivelMax = 0
     for (const [nivel, occ] of ocupadoPorNivel) if (occ.size && nivel > nivelMax) nivelMax = nivel
     return {
-      x0: -ancho / 2,
-      x1: ancho / 2,
-      z0: -largo / 2,
-      z1: largo / 2,
-      cx: 0,
-      cz: 0,
+      x0: cx - ancho / 2,
+      x1: cx + ancho / 2,
+      z0: cz - largo / 2,
+      z1: cz + largo / 2,
+      cx,
+      cz,
       ancho,
       largo,
       alto: nivelBaseY(nivelMax, apilado) + WALL_H,
     }
-  }, [ocupadoPorNivel, gridCols, gridRows, apilado])
+  }, [ocupadoPorNivel, gridCols, gridRows, ocultos, apilado])
 }

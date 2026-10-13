@@ -204,6 +204,852 @@
     "bio": "Panduan interaktif dan aplikasi: tautan di bio",
     "parte": "Bagian",
     "guiaCompleta": "Panduan lengkap",
-    "hashtags": "#olahraga #latihan #fitness #kesehatan #rutinitas #MindHaOS"
+    "hashtags": "#olahraga #latihan #fitness #kesehatan #rutinitas #MindHaOS",
+    "guiaN": "Panduan {n}"
+  },
+  "cocina": {
+    "meta": {
+      "titulo": "Apa itu makan dengan baik? Panduan lengkap: nutrisi, energi, kualitas, dan piringmu | MindHaOS",
+      "desc": "Apa yang dilakukan makanan di tubuhmu, sejarah ilmu gizi, berapa banyak energi yang kamu butuhkan (kalkulator), cara mengenali makanan ultra-olahan, dan cara menyusun piring serta minggumu."
+    },
+    "lista": {
+      "combustible": "Bahan bakar",
+      "combustibleDet": "Energi untuk bernapas, berpikir, dan bergerak. Diukur dalam kalori.",
+      "construccion": "Bahan bangunan",
+      "construccionDet": "Dengan apa yang kamu makan, kamu memperbaiki otot, tulang, kulit, dan darah.",
+      "proteinas": "Protein",
+      "proteinasDet": "Membangun dan memperbaiki. Daging, ikan, telur, produk susu, kacang-kacangan.",
+      "carbohidratos": "Karbohidrat",
+      "carbohidratosDet": "Energi paling cepat. Serealia, umbi-umbian, buah.",
+      "grasas": "Lemak",
+      "grasasDet": "Cadangan energi dan dinding sel-selmu. Minyak zaitun, alpukat, kacang.",
+      "vitaminas": "Vitamin",
+      "vitaminasDet": "Dalam jumlah sangat kecil, tapi tak tergantikan.",
+      "minerales": "Mineral",
+      "mineralesDet": "Kalsium, zat besi, kalium… tulang, darah, dan otot.",
+      "fibra": "Serat",
+      "fibraDet": "Memberi makan mikrobiota ususmu dan membuatmu kenyang.",
+      "resumen1": "Makan makanan asli hampir sepanjang waktu",
+      "resumen2": "Isi setengah piring dengan sayur dan buah",
+      "resumen3": "Sesuaikan porsi dengan energi yang kamu pakai",
+      "resumen4": "Rencanakan minggumu: menu, daftar belanja, dan sesuatu yang sudah dimasak"
+    },
+    "dato": {
+      "agricultura": "tahun sejak pertanian dimulai: gandum, padi, dan jagung",
+      "lind": "James Lind menyembuhkan skorbut dengan jeruk dan lemon",
+      "atwater": "kalori per gram protein, karbohidrat, dan lemak (Atwater)",
+      "funk": "Casimir Funk mengusulkan kata «vitamin»",
+      "plato": "Dari piramida makanan (1992) ke piring: MyPlate dan Plato del Bien Comer",
+      "proteina": "protein per hari: batas minimum dan yang disarankan jika kamu latihan kekuatan",
+      "deficit": "dari energi yang kamu pakai: defisit kecil yang bisa dijalani",
+      "experimento": "per hari dengan pola makan ultra-olahan (Hall dan rekan, 2019)",
+      "sal": "garam per hari: satu sendok teh",
+      "frutas": "buah dan sayur per hari (dan 25 g serat)",
+      "ochenta": "Sebagian besar waktu, makan dengan baik; sisanya, tanpa rasa bersalah",
+      "agua": "air per hari, termasuk yang berasal dari makanan"
+    },
+    "pasos": {
+      "porcion": "Takaran saji",
+      "porcionDet": "Semua angka lainnya dihitung untuk jumlah itu.",
+      "azucares": "Gula dan garam",
+      "azucaresDet": "Bandingkan per 100 g, bukan per kemasan.",
+      "ingredientes": "Daftar bahan",
+      "ingredientesDet": "Diurutkan dari terbanyak ke tersedikit: yang pertama adalah isi terbanyaknya.",
+      "menu": "Pilih menu",
+      "menuDet": "Makanan untuk seminggu, dengan resep yang sudah kamu kenal.",
+      "lista": "Buat daftar belanja",
+      "listaDet": "Apa yang dibutuhkan resep-resep itu, dikelompokkan per lorong.",
+      "prepara": "Masak lebih banyak",
+      "preparaDet": "Makanan siap untuk dua hari, saat kamu tidak sempat."
+    },
+    "grafica": {
+      "historia": "Dari api ke piring",
+      "fuego": "Prasejarah",
+      "fuegoDet": "Memasak dengan api",
+      "agricultura": "Neolitikum",
+      "agriculturaDet": "Pertanian",
+      "lindDet": "Uji coba lemon",
+      "atwaterDet": "Kalori setiap makanan",
+      "funkDet": "Vitamin",
+      "platoDet": "Piring",
+      "balance": "Keseimbangan energi",
+      "entra": "Yang kamu makan",
+      "sale": "Yang kamu pakai",
+      "gasto": "Ke mana energimu terpakai",
+      "basal": "Metabolisme basal",
+      "actividad": "Aktivitas harian",
+      "digestion": "Pencernaan",
+      "nova": "Seberapa banyak makananmu diolah (klasifikasi NOVA)",
+      "g1": "Segar atau diolah minimal",
+      "g1Det": "Sayur, buah, telur, daging, susu, nasi",
+      "g2": "Bahan dapur",
+      "g2Det": "Minyak, garam, gula, mentega",
+      "g3": "Olahan",
+      "g3Det": "Keju, roti dari toko roti, makanan kalengan",
+      "g4": "Ultra-olahan",
+      "g4Det": "Minuman bersoda, biskuit, camilan, sereal manis"
+    },
+    "energia": {
+      "titulo": "Hitung energi harianmu",
+      "sexo": "Jenis kelamin",
+      "mujer": "Perempuan",
+      "hombre": "Laki-laki",
+      "edad": "Usia",
+      "anios": "tahun",
+      "peso": "Berat badan",
+      "estatura": "Tinggi badan",
+      "actividad": "Aktivitas",
+      "a1": "Hampir seharian duduk",
+      "a2": "Sedikit bergerak",
+      "a3": "Olahraga 3–5 hari",
+      "a4": "Sangat aktif",
+      "basal": "Metabolisme basal",
+      "total": "Pengeluaran harian",
+      "bajar": "Untuk menurunkan berat badan (−15 %)",
+      "proteina": "Protein",
+      "kcal": "kkal",
+      "gDia": "g per hari",
+      "nota": "Persamaan Mifflin-St Jeor. Ini perkiraan (±10 %): sesuaikan dengan apa yang kamu lihat dalam dua atau tiga minggu."
+    },
+    "plato": {
+      "titulo": "Susun piringmu",
+      "instruccion": "Ketuk makanan untuk menyajikannya",
+      "verduras": "Sayur dan buah",
+      "cereales": "Biji-bijian utuh",
+      "proteina": "Protein",
+      "ideal": "Piring sehat: ½ sayur dan buah · ¼ biji-bijian · ¼ protein",
+      "vacio": "Piringmu masih kosong",
+      "bien": "Piringmu sudah mirip piring sehat!",
+      "masVerdura": "Kurang sayur dan buah",
+      "masCereal": "Kurang biji-bijian utuh",
+      "masProteina": "Kurang protein",
+      "vaciar": "Kosongkan",
+      "brocoli": "Brokoli",
+      "ensalada": "Salad",
+      "jitomate": "Tomat",
+      "manzana": "Apel",
+      "arroz": "Nasi merah",
+      "tortilla": "Tortila jagung",
+      "avena": "Oat",
+      "pollo": "Ayam",
+      "frijoles": "Kacang merah",
+      "huevo": "Telur",
+      "pescado": "Ikan"
+    },
+    "azucar": {
+      "titulo": "Berapa banyak gula dalam minumanmu?",
+      "refresco": "Minuman kola (355 ml)",
+      "jugo": "Jus jeruk (250 ml)",
+      "isotonica": "Minuman isotonik (600 ml)",
+      "frappe": "Kopi frappe (473 ml)",
+      "chocolate": "Susu cokelat (250 ml)",
+      "agua": "Air",
+      "gramos": "g gula",
+      "cucharaditas": "sendok teh",
+      "ideal": "dari batas ideal untuk seharian (25 g)",
+      "nota": "Nilai perkiraan dari label umum. WHO juga menghitung gula dalam jus."
+    },
+    "cierre": {
+      "titulo": "Bawa rencanamu ke rumahmu sendiri",
+      "texto": "Ruang Dapur di MindHaOS menyimpan resep-resepmu, menyusun rencana makan mingguanmu, dan membuatkan daftar belanjamu."
+    },
+    "memes": {
+      "limones": {
+        "arriba": "Para pelaut tahun 1747: menemukan bahwa lemon menyelamatkan nyawa mereka",
+        "abajo": "Aku: menaruh lemon di semua makanan"
+      },
+      "ultraprocesados": {
+        "arriba": "Biskuit «gandum utuh» dengan 14 bahan",
+        "abajo": "Sebuah apel: 1 bahan"
+      },
+      "perfecta": {
+        "arriba": "Diet sempurna… selama tiga hari",
+        "abajo": "Makan dengan baik hampir selalu, sepanjang tahun"
+      },
+      "tarde": {
+        "arriba": "Aku jam 7 malam tanpa makan dengan benar",
+        "abajo": "Aku setelah makan makanan yang sungguhan"
+      }
+    },
+    "paquete": {
+      "guia": "Panduan interaktif (dengan kalkulator energi, piring sehat, dan gula dalam minumanmu)",
+      "app": "Buka ruang Dapur di MindHaOS",
+      "hashtags": "#nutrisi #makansehat #gizi #kesehatan #resep #MindHaOS"
+    }
+  },
+  "descanso": {
+    "meta": {
+      "titulo": "Apa itu tidur dengan baik? Panduan lengkap: siklus tidur, jam biologis, berapa lama tidur, dan cara menyiapkan malam | MindHaOS",
+      "desc": "Apa yang terjadi di tubuhmu saat kamu tidur, sejarah tidur, berapa jam tidur yang kamu butuhkan (kalkulator siklus tidur), cara kerja jam biologismu, kafein yang masih tersisa saat kamu tidur, dan apa yang harus dilakukan kalau kamu tidak bisa tidur."
+    },
+    "lista": {
+      "reparacion": "Perbaikan",
+      "reparacionDet": "Hormon pertumbuhan: tubuh memperbaiki otot dan jaringan.",
+      "limpieza": "Pembersihan otak",
+      "limpiezaDet": "Pada tikus, otak membuang lebih banyak sisa metabolisme saat tidur.",
+      "memoria": "Memori",
+      "memoriaDet": "Merapikan dan menyimpan apa yang kamu pelajari sepanjang hari.",
+      "emociones": "Emosi",
+      "emocionesDet": "Mengolah apa yang kamu rasakan: kamu bangun dengan sudut pandang baru.",
+      "alondra": "Burung lark",
+      "alondraDet": "Bangun pagi dengan sendirinya dan paling bertenaga di pagi hari.",
+      "buho": "Burung hantu",
+      "buhoDet": "Baru aktif belakangan dan paling bertenaga di malam hari.",
+      "resumen1": "Tujuh jam atau lebih, di jam yang konsisten",
+      "resumen2": "Cahaya di pagi hari, gelap di malam hari",
+      "resumen3": "Jaga asupan kafein dan alkohol",
+      "resumen4": "Siapkan satu jam terakhir dalam harimu"
+    },
+    "dato": {
+      "edison": "Edison berhasil menguji bola lampu pijarnya",
+      "cueva": "Kleitman tinggal 32 hari di dalam gua untuk mencoba hari 28 jam",
+      "rem": "Aserinsky dan Kleitman menemukan tidur REM",
+      "nobel": "Nobel Kedokteran untuk gen jam biologis",
+      "deuda": "enam jam selama dua minggu: daya fokus seperti setelah dua malam tanpa tidur",
+      "luz": "cahaya alami tak lama setelah bangun",
+      "pantallas": "Membaca di tablet sebelum tidur menunda melatonin",
+      "regular": "orang: tidur di jam yang konsisten berkaitan dengan risiko kematian yang lebih rendah",
+      "alcohol": "Alkohol memecah-mecah paruh kedua malam",
+      "ejercicio": "Olahraga teratur membantu tertidur lebih cepat dan lebih nyenyak",
+      "veinte": "tanpa bisa tidur: bangun, lalu kembali saat sudah mengantuk",
+      "siesta": "kinerja dengan tidur siang sekitar 26 menit (NASA)",
+      "terapia": "Terapi perilaku kognitif: pengobatan pertama untuk insomnia"
+    },
+    "pasos": {
+      "sinAlarma": "Bangun tanpa alarm",
+      "sinAlarmaDet": "Saat liburan, kurang lebih di jam yang sama seperti hari kerja.",
+      "sinCafe": "Tidak butuh kopi untuk memulai hari",
+      "sinCafeDet": "Di jam pertama hari itu kamu sudah segar.",
+      "despierto": "Tetap segar sepanjang sore",
+      "despiertoDet": "Tanpa terkantuk-kantuk setelah makan atau saat rapat.",
+      "fresco": "Sejuk",
+      "frescoDet": "Sekitar 18 °C: tubuh menurunkan suhunya untuk tidur.",
+      "oscuro": "Gelap",
+      "oscuroDet": "Gorden tebal atau penutup mata; tidak ada lampu yang menyala.",
+      "silencio": "Sunyi",
+      "silencioDet": "Penyumbat telinga atau white noise kalau kamu tinggal di jalan yang bising.",
+      "apaga": "Tinggalkan layar",
+      "apagaDet": "Satu jam sebelumnya: isi daya ponsel jauh dari tempat tidur.",
+      "luces": "Redupkan lampu",
+      "lucesDet": "Cahaya hangat dan redup: memberi tahu tubuhmu bahwa malam sudah tiba.",
+      "ritual": "Ritual yang selalu sama",
+      "ritualDet": "Membaca, mandi air hangat, atau peregangan: tanda bahwa waktu tidur sudah dekat."
+    },
+    "grafica": {
+      "hipnograma": "Malam yang biasa: siklus sekitar 90 menit; tidur dalam di awal, dan REM menjelang pagi",
+      "despierto": "Terjaga",
+      "rem": "REM",
+      "ligero": "Ringan",
+      "profundo": "Dalam",
+      "historia": "Apa saja yang kita temukan tentang tidur",
+      "siglos": "Abad ke-16–18",
+      "siglosDet": "Tidur pertama dan kedua",
+      "edisonDet": "Bola lampu Edison",
+      "cuevaDet": "Kleitman di dalam gua",
+      "remDet": "REM ditemukan",
+      "nobelDet": "Nobel untuk jam biologis",
+      "edades": "Jam tidur yang disarankan setiap malam (American Academy of Sleep Medicine)",
+      "ninos": "Anak 6–12",
+      "adolescentes": "Remaja",
+      "adultos": "Dewasa",
+      "circadiano": "Jam 24 jammu: cahaya siang menyetelnya, dan melatonin naik saat hari gelap",
+      "luz": "Cahaya siang",
+      "melatonina": "Melatonin"
+    },
+    "calc": {
+      "titulo": "Jam berapa sebaiknya tidur?",
+      "despierto": "Aku bangun jam",
+      "acuestate": "Tidurlah di salah satu jam ini (sudah termasuk 15 menit untuk terlelap):",
+      "ciclos": "siklus",
+      "nota": "Panjang siklus 80 sampai 110 menit, tergantung orangnya: ini panduan, bukan aturan. Yang penting tidur tujuh jam atau lebih."
+    },
+    "cafeina": {
+      "titulo": "Berapa banyak kafein yang tersisa saat kamu tidur?",
+      "cafe": "Secangkir kopi",
+      "espresso": "Espresso",
+      "te": "Teh hitam",
+      "cola": "Minuman kola",
+      "energetica": "Minuman energi",
+      "aLas": "Aku meminumnya jam",
+      "duermes": "Aku tidur jam",
+      "quedan": "masih ada di tubuhmu",
+      "deLaDosis": "dari dosisnya",
+      "nota": "Dengan waktu paruh sekitar 5 jam (2 sampai 10 jam, tergantung orangnya). Kalau kamu sensitif terhadap kafein, hindari setelah tengah hari."
+    },
+    "cierre": {
+      "titulo": "Bawa istirahatmu ke rumahmu sendiri",
+      "texto": "Ruang Istirahat di MindHaOS mengatur jadwal tidurmu lengkap dengan pengingat dan alarm, memberi skor untuk setiap malam, dan menyimpan catatan tidurmu supaya kamu bisa melihat polamu."
+    },
+    "memes": {
+      "cinco": {
+        "arriba": "Aku jam 11 malam: besok aku bangun pagi dan menyelesaikan semuanya",
+        "abajo": "Aku jam 7 pagi: lima menit lagi"
+      },
+      "capitulo": {
+        "arriba": "Tidur tepat waktu",
+        "abajo": "«Satu episode lagi» jam 2 pagi"
+      },
+      "cafe": {
+        "arriba": "Aku jam 6 sore: secangkir kopi nggak bakal ngaruh",
+        "abajo": "Aku jam 2 pagi menatap langit-langit"
+      },
+      "siesta": {
+        "arriba": "Tidur siang 20 menit: disetujui sains (dan NASA)"
+      }
+    },
+    "paquete": {
+      "guia": "Panduan interaktif (dengan kalkulator siklus tidur, jam 24 jammu, dan kafein yang tersisa saat kamu tidur)",
+      "app": "Buka ruang Istirahat di MindHaOS",
+      "hashtags": "#tidur #tidurnyenyak #istirahat #kesehatan #insomnia #MindHaOS"
+    }
+  },
+  "finanzas": {
+    "moneda": "Rp",
+    "formato": "antes",
+    "base": "8000000",
+    "meta": {
+      "titulo": "Apa itu uang? Panduan lengkap: asal-usulnya, anggaran, dana darurat, utang, dan bunga majemuk | MindHaOS",
+      "desc": "Apa itu uang dan bagaimana ia lahir, ke mana uangmu pergi (kalkulator pengeluaran semut dan aturan 50/30/20), cara membangun dana darurat, berapa biaya kalau hanya membayar minimum, dan bagaimana tabunganmu tumbuh dengan bunga majemuk."
+    },
+    "lista": {
+      "resumen1": "Catat ke mana uangmu pergi",
+      "resumen2": "Bayar dirimu sendiri lebih dulu, di hari gajian",
+      "resumen3": "Siapkan bantalan dan keluar dari utang yang mahal",
+      "resumen4": "Biarkan waktu dan bunga bekerja"
+    },
+    "dato": {
+      "loteria": "setelah menang: pemenang hadiah besar bangkrut hampir sesering pemenang hadiah kecil",
+      "lidia": "Lidia mencetak koin pertama, dari elektrum",
+      "jiaozi": "Tiongkok menerbitkan jiaozi, uang kertas resmi pertama",
+      "ponzi": "Charles Ponzi menjanjikan 50 % dalam 45 hari… dengan uang dari orang-orang baru",
+      "nixon": "Dolar tidak lagi bisa ditukar dengan emas",
+      "registra": "mencatat semua pengeluaranmu, sampai kopi",
+      "emergencia": "orang dewasa di AS bisa menutup pengeluaran tak terduga 400 dolar dengan tabungan mereka",
+      "tarjeta": "rata-rata bunga tahunan kartu kredit di AS (2024)",
+      "regla72": "Bagi 72 dengan imbal hasil: jumlah tahun sampai uangmu jadi dua kali lipat",
+      "fraude": "Keuntungan tinggi dan pasti: itu tidak ada",
+      "revisa": "untuk mengecek berapa yang masuk, berapa yang keluar, dan sejauh mana kemajuanmu"
+    },
+    "pasos": {
+      "plazo": "Jangka panjang",
+      "plazoDet": "Hanya uang yang tidak akan kamu butuhkan dalam waktu dekat.",
+      "canasta": "Jangan semua dalam satu keranjang",
+      "canastaDet": "Sebar risikonya: supaya satu kegagalan tidak merobohkan semuanya.",
+      "entiende": "Hanya pada yang kamu pahami",
+      "entiendeDet": "Kalau kamu tidak bisa menjelaskan bagaimana ia menghasilkan uang, jangan taruh uangmu di sana.",
+      "nombre": "Beri nama",
+      "nombreDet": "«Uang muka mobil», bukan «menabung lebih banyak».",
+      "monto": "Tentukan jumlahnya",
+      "montoDet": "Berapa yang kamu butuhkan, totalnya.",
+      "fecha": "Tentukan tanggalnya",
+      "fechaDet": "Jumlah ÷ bulan = yang kamu sisihkan setiap bulan."
+    },
+    "grafica": {
+      "funciones": "Tiga fungsi uang",
+      "intercambio": "Bertukar",
+      "intercambioDet": "Semua orang menerimanya sebagai ganti apa pun.",
+      "medida": "Mengukur",
+      "medidaDet": "Memberi harga pada segalanya dalam satuan yang sama.",
+      "reserva": "Menyimpan nilai",
+      "reservaDet": "Uang hari ini, untuk dibelanjakan besok.",
+      "inflacion": "Apa yang bisa dibeli dengan 100 hari ini, tahun demi tahun, dengan inflasi 3 % per tahun",
+      "mitad": "Separuhnya",
+      "flujo": "Hitungan yang menentukan segalanya",
+      "entra": "Yang masuk",
+      "entraDet": "Gaji, penjualan, pemasukan apa pun.",
+      "sale": "Dikurangi yang keluar",
+      "saleDet": "Pengeluaran tetap, keinginan, utang.",
+      "queda": "Yang tersisa untukmu",
+      "quedaDet": "Untuk menabung, keluar dari utang, dan membangun.",
+      "historia": "Bagaimana uang terus berubah",
+      "aC": "SM",
+      "hammurabiDet": "Hammurabi membatasi bunga",
+      "lidiaDet": "Koin-koin pertama",
+      "jiaoziDet": "Uang kertas resmi pertama",
+      "ponziDet": "Penipuan Ponzi",
+      "nixonDet": "Selamat tinggal, emas",
+      "ahorraMas": "Save More Tomorrow: tabungan para pekerja, dari 3,5 % menjadi 13,6 % dari gaji dalam empat kenaikan",
+      "antes": "Sebelum",
+      "aumento": "Kenaikan",
+      "metodos": "Dua urutan untuk melunasi utang yang sama",
+      "avalancha": "Longsoran",
+      "avalanchaDet": "Bunga tertinggi dulu: bunga yang kamu bayar lebih sedikit.",
+      "bolaNieve": "Bola salju",
+      "bolaNieveDet": "Yang terkecil dulu: kemajuan lebih cepat terlihat.",
+      "tarjeta": "Kartu",
+      "prestamo": "Pinjaman",
+      "tienda": "Toko",
+      "empezarAntes": "Jumlah yang sama setiap bulan dengan 6 % per tahun sampai umur 65: mulai di umur 25 atau 35",
+      "empezarAntesA": "Mulai umur 25",
+      "empezarAntesB": "Mulai umur 35",
+      "comisiones": "100 hari ini selama 30 tahun: dengan 7 % dan dengan 7 % dikurangi biaya satu poin",
+      "comisionesA": "Tanpa biaya",
+      "comisionesB": "Dengan biaya 1 %",
+      "automatiza": "Urutan di hari gajian, serba otomatis",
+      "cobras": "Gajian",
+      "cobrasDet": "Gajimu masuk.",
+      "ahorroAuto": "Tabungan",
+      "ahorroAutoDet": "Terpotong sendiri, paling awal.",
+      "fijos": "Tagihan tetap",
+      "fijosDet": "Didebet otomatis: sewa, tagihan, utang.",
+      "libre": "Sisanya",
+      "libreDet": "Bebas dibelanjakan tanpa rasa bersalah."
+    },
+    "hormiga": {
+      "titulo": "Berapa yang terbawa oleh pengeluaran semut?",
+      "gasto": "Sekali beli",
+      "dias": "Hari per minggu",
+      "alAnio": "Dalam setahun",
+      "diezAnios": "Dalam sepuluh tahun",
+      "invertido": "Kalau kamu sisihkan dengan 6 % per tahun, dalam sepuluh tahun",
+      "nota": "Ini bukan soal berhenti menyenangkan diri: ini soal memilihnya dengan tahu berapa harganya."
+    },
+    "reparto": {
+      "titulo": "Aturan 50/30/20",
+      "ingreso": "Penghasilan bulananku, setelah pajak",
+      "necesario": "Kebutuhan",
+      "gustos": "Keinginanmu",
+      "ahorro": "Tabungan dan utang",
+      "nota": "Ini titik awal: kalau sewa menghabiskan lebih dari separuh, kurangi keinginan sebelum mengurangi tabungan."
+    },
+    "fondo": {
+      "titulo": "Dana daruratmu",
+      "gasto": "Pengeluaran pokokku per bulan",
+      "aparta": "Yang bisa kusisihkan per bulan",
+      "meses": "Bulan bantalan",
+      "meta": "Targetmu",
+      "tardas": "Terkumpul dalam",
+      "mesesCorto": "bulan",
+      "nota": "Pengeluaran pokok: tempat tinggal, makanan, tagihan, transportasi, dan cicilan utang. Simpan terpisah, di tempat yang tidak menggodamu untuk membelanjakannya."
+    },
+    "deuda": {
+      "titulo": "Berapa mahalnya kalau membayar sedikit-sedikit?",
+      "saldo": "Utangku",
+      "tasa": "Bunga tahunan",
+      "pago": "Cicilan per bulan",
+      "tardas": "Lunas dalam",
+      "meses": "bulan",
+      "intereses": "Kamu bayar bunga",
+      "total": "Total yang kamu bayar",
+      "nunca": "Dengan cicilan segitu, bunganya pun tidak tertutup: utangnya tidak akan pernah turun.",
+      "loQueDebias": "Utang awalmu",
+      "nota": "Tanpa belanja baru maupun biaya tambahan. Banyak kartu juga mengenakan pajak atau biaya lain atas bunganya."
+    },
+    "compuesto": {
+      "titulo": "Bunga majemuk, dengan angkamu sendiri",
+      "aporte": "Kusisihkan per bulan",
+      "tasa": "Imbal hasil tahunan",
+      "anios": "Selama",
+      "aniosCorto": "tahun",
+      "tuyo": "Yang kamu setor",
+      "interes": "Yang ditambahkan bunga",
+      "total": "Hasil akhir",
+      "nota": "Ini perhitungan ilustratif dengan imbal hasil tetap: di dunia nyata imbal hasil berubah-ubah, bisa negatif, dan masih harus dikurangi inflasi dan biaya."
+    },
+    "cierre": {
+      "titulo": "Kelola uangmu di rumahmu sendiri",
+      "texto": "Ruang Keuangan di MindHaOS mencatat arus uangmu dengan pengeluaran, pemasukan, dan saldo, target tabungan dan pelunasan utangmu dengan kalkulator, dan kekayaan bersihmu, supaya kamu bisa melihatnya tumbuh."
+    },
+    "memes": {
+      "garantizado": {
+        "arriba": "«Untung 50 % dalam 45 hari, dijamin»"
+      },
+      "hormiga": {
+        "arriba": "Aku: nggak ada sisa buat nabung",
+        "abajo": "Aku juga: kopi kekinian, camilan, dan tiga langganan yang nggak pernah kupakai"
+      },
+      "quincena": {
+        "arriba": "Aku di hari gajian",
+        "abajo": "Aku tiga hari kemudian"
+      },
+      "minimo": {
+        "arriba": "Melunasi tagihan kartu sepenuhnya",
+        "abajo": "Bayar minimum dan pusingnya nanti di 2035"
+      }
+    },
+    "paquete": {
+      "guia": "Panduan interaktif (dengan kalkulator pengeluaran semut, aturan 50/30/20, dana darurat, utang kartu kredit, dan bunga majemuk)",
+      "app": "Buka ruang Keuangan di MindHaOS",
+      "hashtags": "#keuanganpribadi #menabung #uang #anggaran #literasikeuangan #MindHaOS"
+    }
+  },
+  "idiomas": {
+    "narra": "Dinarasikan oleh sang penyihir",
+    "cargando3d": "Memuat sang penyihir…",
+    "meta": {
+      "titulo": "Mengapa belajar bahasa? Panduan lengkap: otakmu, tingkat, jam belajar, ingatan, pengulangan berjarak, dan rencana 20 menit | MindHaOS",
+      "desc": "Mengapa belajar bahasa tetap layak meski mesin sudah bisa menerjemahkan, apa artinya menguasai bahasa dan berapa lama waktunya, bagaimana otakmu belajar dan lupa (kurva lupa dan pengulangan berjarak), kata-kata mana yang paling berguna, cara berbicara sejak hari pertama, dan rencana dua puluh menit sehari."
+    },
+    "lista": {
+      "resumen1": "Dengarkan hal yang hampir kamu pahami",
+      "resumen2": "Ulangi secara berjarak sambil menguji diri",
+      "resumen3": "Dulukan kata yang paling sering dipakai, dalam kalimat",
+      "resumen4": "Berbicaralah sejak hari pertama, sedikit setiap hari"
+    },
+    "dato": {
+      "cerebro": "lebih lambat munculnya gejala demensia pada orang yang berbicara dua bahasa (Toronto, 2007)",
+      "distancia": "lebih banyak jam pelajaran untuk bahasa Jepang daripada Spanyol, kalau kamu berbahasa Inggris",
+      "comenio": "Comenius menerbitkan Orbis Pictus: setiap kata Latin disertai gambar",
+      "berlitz": "Berlitz membuka sekolahnya: di kelas tidak ada terjemahan",
+      "zamenhof": "Zamenhof menerbitkan Esperanto, tata bahasa tanpa pengecualian",
+      "canales": "bahasa di kanal MindHaOS: tonton panduan yang sudah kamu kenal dalam bahasa yang kamu pelajari",
+      "swain": "Merrill Swain: memahami saja tidak cukup, kamu juga harus menghasilkan",
+      "errores": "Setiap kesalahan yang dikoreksi adalah pelajaran yang dibuat khusus untukmu",
+      "diario": "Buka mulutmu setiap hari, walau hanya untuk bicara dengan dirimu sendiri",
+      "riega": "sedikit setiap hari, lebih baik daripada maraton di hari Minggu"
+    },
+    "pasos": {
+      "chistes": "Lelucon dan makna ganda",
+      "chistesDet": "Yang hilang dalam terjemahan kata per kata.",
+      "gente": "Orang-orang, tanpa layar",
+      "genteDet": "Obrolan sungguhan, saling menatap mata.",
+      "pensar": "Cara pandang lain",
+      "pensarDet": "Setiap bahasa menata dunia dengan caranya sendiri.",
+      "frase": "Satu kalimat utuh",
+      "fraseDet": "«Boleh minta garamnya?», bukan «garam» saja.",
+      "contexto": "Dengan situasinya",
+      "contextoDet": "Di mana dan kepada siapa kamu akan mengucapkannya.",
+      "usala": "Segera pakai",
+      "usalaDet": "Hari ini atau besok, dengan suara keras.",
+      "escucha": "Dengarkan",
+      "escuchaDet": "Audio pendek yang hampir kamu pahami.",
+      "repite": "Ulangi bersamaan",
+      "repiteDet": "Seperti gema: ritme dan intonasinya.",
+      "grabate": "Rekam dirimu",
+      "grabateDet": "Bandingkan dengan aslinya dan ulangi.",
+      "para": "Sebuah tujuan",
+      "paraDet": "Bepergian, bekerja, berbicara dengan keluargamu…",
+      "nivel": "Sebuah tingkat",
+      "nivelDet": "Menurut CEFR: A2, B1, B2…",
+      "fecha": "Sebuah tanggal",
+      "fechaDet": "Jam yang kurang ÷ hari = rutinitasmu."
+    },
+    "grafica": {
+      "habilidades": "Empat keterampilan berbahasa",
+      "entender": "Memahami",
+      "producir": "Menghasilkan",
+      "escuchar": "Mendengar",
+      "leer": "Membaca",
+      "hablar": "Berbicara",
+      "escribir": "Menulis",
+      "fsi": "Jam pelajaran untuk bisa bekerja dalam bahasa itu, bagi orang yang berbahasa Inggris (FSI)",
+      "g1": "Dekat",
+      "g1Det": "Spanyol, Prancis, Italia, Portugis, Belanda",
+      "g2": "Sedang",
+      "g2Det": "Jerman, Indonesia, Swahili",
+      "g3": "Sulit",
+      "g3Det": "Rusia, Hindi, Turki, Polandia, Yunani",
+      "g4": "Sangat sulit",
+      "g4Det": "Jepang, Mandarin, Korea, Arab",
+      "historia": "Bagaimana orang belajar bahasa sepanjang sejarah",
+      "aC": "SM",
+      "rosettaDet": "Batu Rosetta",
+      "orbisDet": "Orbis Pictus karya Comenius",
+      "berlitzDet": "Berlitz: tanpa terjemahan",
+      "esperantoDet": "Lahirnya Esperanto",
+      "leitnerDet": "Kotak Leitner",
+      "inputComprensible": "Yang mengajarimu: tidak terlalu mudah, tidak terlalu sulit",
+      "facil": "Terlalu mudah",
+      "facilDet": "Kamu paham semuanya: tidak ada yang baru.",
+      "justo": "Sedikit di atas",
+      "justoDet": "Hampir semuanya paham dan ada yang baru: kamu belajar.",
+      "dificil": "Terlalu sulit",
+      "dificilDet": "Tidak paham apa-apa: hanya kebisingan.",
+      "olvido": "Kurva lupa: yang masih diingat Ebbinghaus dari daftarnya (penghematan saat mempelajarinya ulang, %)",
+      "olvidoDia": "Sehari kemudian: ≈ 34 %",
+      "unDia": "1 hari",
+      "unMes": "1 bulan",
+      "recuperar": "Membaca ulang atau menguji diri (skema Roediger dan Karpicke, 2006)",
+      "releer": "Membaca ulang",
+      "prueba": "Menguji diri",
+      "dosDias": "2 hari",
+      "unaSemana": "1 minggu",
+      "temas": "Mulailah dari yang akan kamu pakai",
+      "viajar": "Untuk bepergian",
+      "trabajar": "Untuk bekerja",
+      "saludos": "Salam",
+      "comida": "Makanan",
+      "transporte": "Transportasi",
+      "direcciones": "Arah",
+      "presentarte": "Perkenalan",
+      "reuniones": "Rapat",
+      "correos": "Email",
+      "edad": "Kemudahan belajar tata bahasa menurut usia (skema Hartshorne, Tenenbaum, dan Pinker, 2018)",
+      "nativo": "Terdengar seperti penutur asli",
+      "adulto": "Berbicara dengan baik: di usia berapa pun",
+      "rutina": "Dua puluh menit sehari",
+      "escucha5": "5 mnt · Dengarkan",
+      "escucha5Det": "Sesuatu yang hampir kamu pahami.",
+      "repasa5": "5 mnt · Ulangi",
+      "repasa5Det": "Kartu-kartu untuk hari ini.",
+      "habla5": "5 mnt · Berbicara",
+      "habla5Det": "Dengan suara keras atau shadowing.",
+      "lee5": "5 mnt · Baca atau tulis",
+      "lee5Det": "Satu paragraf, satu pesan."
+    },
+    "nivel": {
+      "titulo": "Kamu di tingkat mana?",
+      "a1": "Aku bisa memperkenalkan diri dan memesan sesuatu di kafe",
+      "a2": "Aku bisa bercerita tentang rutinitas, keluarga, dan belanjaanku",
+      "b1": "Aku bisa bertahan saat bepergian dan menceritakan apa yang terjadi padaku",
+      "b2": "Aku bisa mengikuti percakapan biasa dan menyampaikan pendapatku",
+      "c1": "Aku memahami serial dan teks panjang tanpa susah payah",
+      "c2": "Aku memahami hampir semuanya, termasuk nuansanya",
+      "vas": "Kamu di",
+      "ninguno": "Belum ada yang kamu tandai: kamu mulai dari A1.",
+      "nota": "Yang dihitung adalah tingkat tertinggi yang kamu tandai tanpa melewatkan satu pun. Ini panduan berdasarkan deskriptor CEFR, bukan ujian."
+    },
+    "olvido": {
+      "titulo": "Kurva lupa dan pengulanganmu",
+      "repasos": "Pengulangan",
+      "dias": "hari",
+      "recuerdas": "Setelah 30 hari kamu masih ingat",
+      "cuando": "Kamu mengulang pada hari ke",
+      "nota": "Ini model ilustrasi: setiap pengulangan membuat ingatan memudar lebih lambat. Kenyataannya bergantung pada katanya dan pada dirimu."
+    },
+    "cobertura": {
+      "titulo": "Seberapa banyak teks yang kamu kenali?",
+      "sabes": "Kata paling sering yang kamu tahu",
+      "reconoces": "Yang kamu kenali dari teks biasa",
+      "desconocida": "Kata yang tidak kamu tahu",
+      "nota": "Perkiraan, untuk bahasa Inggris (Nation, 2006). Untuk membaca tanpa kamus, kamu perlu mengenali hampir semuanya: kira-kira 98 dari 100."
+    },
+    "leitner": {
+      "titulo": "Kotak Leitner",
+      "frente": "the apple",
+      "reverso": "apel",
+      "voltea": "ketuk untuk membalik",
+      "acerte": "Benar",
+      "falle": "Salah",
+      "proximo": "Kamu melihatnya lagi dalam",
+      "dominada": "hampir dikuasai",
+      "nota": "Kalau benar, naik satu kotak; kalau salah, turun dua. Jaraknya sama dengan di aplikasi Bahasa MindHaOS.",
+      "dia": "hari",
+      "dias": "hari"
+    },
+    "minutos": {
+      "titulo": "Berapa banyak hasil rutinitasmu?",
+      "minutos": "Menit per hari",
+      "dias": "Hari per minggu",
+      "idioma": "Bahasa yang kamu pelajari",
+      "alAnio": "Jam per tahun",
+      "llegas": "Kamu mencapai jam FSI dalam",
+      "meses": "bulan",
+      "anios": "tahun",
+      "nota": "Acuannya sekitar {h} jam, yaitu jam kelas intensif FSI bagi orang yang berbahasa Inggris: ini gambaran kasar, bukan janji."
+    },
+    "cierre": {
+      "titulo": "Belajar bahasamu di rumahmu sendiri",
+      "texto": "Ruang Bahasa di MindHaOS punya obrolan dengan tutor yang mengoreksimu, silabus per tingkat dengan kartu-kartumu, dan pengulangan berjarak yang memberitahumu apa yang perlu diulang hari ini."
+    },
+    "memes": {
+      "olvido": {
+        "arriba": "Aku hari Minggu, setelah menghafal 50 kata",
+        "abajo": "Aku hari Senin"
+      },
+      "lista": {
+        "arriba": "Menghafal 500 kata lepas",
+        "abajo": "Belajar 10 kalimat yang kupakai setiap hari"
+      },
+      "perfecto": {
+        "arriba": "Menunggu bisa bicara sempurna dulu baru mulai",
+        "abajo": "Bicara hari ini, salah-salah juga tidak apa-apa"
+      }
+    },
+    "paquete": {
+      "guia": "Panduan interaktif (dengan tingkat CEFR-mu, kurva lupa, kata-kata paling berguna, kotak Leitner, dan kalkulator rutinitasmu)",
+      "app": "Buka ruang Bahasa di MindHaOS",
+      "hashtags": "#belajarbahasa #belajarbahasainggris #bahasainggris #polyglot #tipsbelajar #MindHaOS"
+    }
+  },
+  "arte": {
+    "meta": {
+      "titulo": "Apa itu seni? Panduan lengkap seni rupa: mengapa berkarya meski ada AI, sejarah, unsur, cara melihat karya, dan rencana 15 menit | MindHaOS",
+      "desc": "Apa itu seni dan apa itu seni rupa, mengapa membuat seni tetap layak meski kecerdasan buatan sudah bisa melukis, sejarah singkat dari gua ke layar, unsur-unsur sebuah karya (garis, bentuk, nilai, warna, komposisi), cara melihatnya dengan pelan, dan cara mulai berkarya dengan rencana lima belas menit sehari."
+    },
+    "lista": {
+      "dibujo": "Menggambar",
+      "dibujoDet": "Pensil, arang, tinta.",
+      "pintura": "Melukis",
+      "pinturaDet": "Cat minyak, cat air, akrilik.",
+      "escultura": "Patung",
+      "esculturaDet": "Tanah liat, batu, kayu, logam.",
+      "fotografia": "Fotografi",
+      "fotografiaDet": "Cahaya yang ditangkap dalam sekejap.",
+      "digital": "Ilustrasi digital",
+      "digitalDet": "Tablet, lapisan, dan layar.",
+      "resumen1": "Seni adalah membuat sesuatu agar orang lain melihat dan merasakannya",
+      "resumen2": "Layak dibuat karena apa yang terjadi padamu saat berkarya",
+      "resumen3": "Lihat dengan pelan: cahaya, bentuk, warna, dan komposisi",
+      "resumen4": "Berkarya sedikit setiap hari"
+    },
+    "dato": {
+      "cortisol": "orang mengalami penurunan hormon stres setelah 45 menit membuat seni, entah bisa menggambar atau tidak (Kaimal, 2016)",
+      "perspectiva": "Brunelleschi menunjukkan dengan cermin bagaimana kedalaman terlihat, di Firenze",
+      "durero": "Dürer menerbitkan panduannya dengan kisi untuk menggambar apa yang terlihat",
+      "fotografia": "Daguerreotype, fotografi praktis pertama, diperkenalkan di Paris",
+      "duchamp": "Duchamp mengirim “Fountain” ke sebuah pameran: apa yang membuat sesuatu menjadi seni?",
+      "sketchpad": "Sketchpad: program pertama untuk menggambar di layar",
+      "museo": "di depan setiap karya, rata-rata, di Museum Metropolitan (Smith dan Smith, 2001)",
+      "unaObra": "melihat satu karya saja: deskripsikan, analisis, tafsirkan, dan nilai",
+      "louvre": "tahun dibukanya Louvre, yang sejak itu mengizinkan lukisannya disalin",
+      "cuaderno": "gambar untuk belajar sebelum menilai hasilnya",
+      "meta": "seratus gambar dalam seratus hari: target yang bisa dihitung"
+    },
+    "pasos": {
+      "hacer": "Seseorang membuatnya",
+      "hacerDet": "Dengan niat: memilih apa yang ditunjukkan dan bagaimana.",
+      "mirar": "Orang lain melihatnya",
+      "mirarDet": "Sebuah lukisan, foto, patung, atau layar.",
+      "sentir": "Lalu merasakan atau memikirkan sesuatu",
+      "sentirDet": "Yang oleh Tolstoy disebut menularkan perasaan.",
+      "creer": "Kita menggambar apa yang kita yakini",
+      "creerDet": "Mata “berbentuk almond”, padahal dari samping tidak begitu.",
+      "ver": "Bukan apa yang kita lihat",
+      "verDet": "Sudut, ukuran, dan ruang kosong yang nyata.",
+      "entrenar": "Dan itu bisa dilatih",
+      "entrenarDet": "Dengan latihan melihat, seperti otot.",
+      "lapiz": "Sebuah pensil",
+      "lapizDet": "Satu pensil lunak (2B) cukup untuk mulai.",
+      "papel": "Kertas",
+      "papelDet": "Buku sketsa murah: tak perlu takut menghabiskannya.",
+      "tableta": "Atau tablet",
+      "tabletaDet": "Dengan lapisan dan undo, kalau kamu nyaman.",
+      "brazo": "Lengan lurus",
+      "brazoDet": "Selalu di jarak yang sama dan dengan satu mata tertutup.",
+      "unidad": "Satu satuan",
+      "unidadDet": "Ukur sesuatu dengan pensil: kepala, lebar jendela.",
+      "compara": "Bandingkan",
+      "comparaDet": "Berapa kali ukuran itu muat di bagian lain?",
+      "describe": "Deskripsikan",
+      "describeDet": "Ada apa? Orang, benda, warna, tanpa beropini dulu.",
+      "analiza": "Analisis",
+      "analizaDet": "Bagaimana dibuatnya? Garis, cahaya, komposisi.",
+      "interpreta": "Tafsirkan",
+      "interpretaDet": "Apa maknanya? Apa yang kamu rasakan saat melihatnya?",
+      "juzga": "Nilai",
+      "juzgaDet": "Baru di akhir: kamu suka atau tidak, dan kenapa?",
+      "amigo": "Kepada teman",
+      "amigoDet": "Tanyakan apa yang pertama kali ia lihat.",
+      "clase": "Di kelas",
+      "claseDet": "Guru mengoreksimu tepat di bagian yang masih lemah.",
+      "internet": "Di internet",
+      "internetDet": "Ada komunitas yang mengomentari gambar para pemula."
+    },
+    "grafica": {
+      "efectoDibujo": "Kata-kata yang diingat kemudian (skema dari Wammes, Meade, dan Fernandes, 2016)",
+      "escribir": "Menulisnya",
+      "escribirDet": "Menyalin katanya beberapa kali.",
+      "dibujar": "Menggambarnya",
+      "dibujarDet": "Membuat gambar dari artinya.",
+      "historia": "Sejarah singkat seni rupa",
+      "hace": "{n} tahun lalu",
+      "celebesDet": "Orang-orang dan seekor babi hutan di Sulawesi",
+      "lascauxDet": "Kuda dan banteng di Lascaux",
+      "perspectivaDet": "Brunelleschi dan perspektif",
+      "fotografiaDet": "Datangnya fotografi",
+      "duchampDet": "Duchamp dan “Fountain”-nya",
+      "sketchpadDet": "Sketchpad, gambar pertama di layar",
+      "formas": "Empat bentuk pembangun hampir segalanya",
+      "cubo": "Kubus",
+      "esfera": "Bola",
+      "cilindro": "Silinder",
+      "cono": "Kerucut",
+      "tercios": "Aturan sepertiga: yang penting, di salah satu titik silang",
+      "circulo": "Lingkaran warna dan nilai abu-abu tiap warna",
+      "tono": "Warna",
+      "valor": "Nilai",
+      "rutina": "Lima belas menit sehari, selama seminggu",
+      "lunes": "Senin · Kontur",
+      "lunesDet": "Tanganmu, sehelai daun, tanpa melihat kertas.",
+      "martes": "Selasa · Bentuk",
+      "martesDet": "Kubus, bola, dan silinder di apa pun yang kamu lihat.",
+      "miercoles": "Rabu · Gestur",
+      "miercolesDet": "Pose 30 detik sampai 2 menit.",
+      "jueves": "Kamis · Cahaya dan bayangan",
+      "juevesDet": "Sebuah bola, sebuah cangkir, dengan lima nilainya.",
+      "viernes": "Jumat · Seorang maestro",
+      "viernesDet": "Lihat satu karya sepuluh menit dan salin satu bagiannya.",
+      "finde": "Akhir pekan · Bebas",
+      "findeDet": "Apa pun yang kamu mau, untuk kesenangan."
+    },
+    "mesas": {
+      "titulo": "Mana dari dua meja ini yang lebih panjang?",
+      "pregunta": "Yang kiri kelihatan jauh lebih panjang, kan?",
+      "comprobar": "Buktikan",
+      "otraVez": "Lagi",
+      "identicas": "Keduanya identik: bentuk yang sama, hanya diputar",
+      "nota": "Ini ilusi meja dari Roger Shepard (1990). Otakmu “mengoreksi” perspektif dengan apa yang ia ketahui tentang meja; saat menggambar, ukurlah alih-alih memercayai koreksi itu."
+    },
+    "alReves": {
+      "titulo": "Menggambar terbalik",
+      "voltear": "Kembalikan ke posisi normal",
+      "deCabeza": "Balikkan",
+      "lineas": "Saat terbalik kamu tidak melihat wajah: kamu melihat garis dan sudut",
+      "cara": "Saat normal, otakmu melihat “sebuah wajah” dan menggambar simbol",
+      "nota": "Coba salin seperti ini, terbalik, tanpa membaliknya sampai selesai. Ini latihan dari buku Betty Edwards (1979)."
+    },
+    "ojos": {
+      "titulo": "Di mana letak mata?",
+      "linea": "Geser garis mata",
+      "coronilla": "Ubun-ubun",
+      "barbilla": "Dagu",
+      "desdeArriba": "Matanya berada di",
+      "justo": "Tepat di tengah kepala!",
+      "nota": "Pada kepala orang dewasa yang dilihat dari depan, mata kira-kira ada di tengah, di antara ubun-ubun dan dagu. Rambut menipu: dahi lebih tinggi dari kelihatannya."
+    },
+    "valores": {
+      "titulo": "Lima nilai cahaya",
+      "valor": "Nilai",
+      "luz": "Cahaya",
+      "medio": "Nada tengah",
+      "sombra": "Bayangan diri",
+      "reflejada": "Cahaya pantul",
+      "proyectada": "Bayangan jatuh",
+      "entrecierra": "Sipitkan matamu",
+      "nota": "Saat menyipitkan mata, detail menghilang dan yang tersisa adalah bidang besar cahaya dan bayangan: begitulah nilai dari apa pun yang kamu gambar terlihat."
+    },
+    "cronometro": {
+      "titulo": "Gambar gestur",
+      "pose": "Setiap pose berlangsung",
+      "poseN": "Pose",
+      "empezar": "Mulai",
+      "pausa": "Jeda",
+      "nota": "Cari foto orang yang sedang bergerak dan gambar gesturnya saja: garis tulang punggung, bahu, dan pinggul. Saat waktunya habis, lanjut ke pose berikutnya meski belum selesai."
+    },
+    "dibujos": {
+      "titulo": "Berapa hasil latihanmu?",
+      "minutos": "Menit per hari",
+      "tipo": "Jenis gambar",
+      "rapidos": "Gestur (2 mnt)",
+      "bocetos": "Sketsa (10 mnt)",
+      "estudios": "Studi (30 mnt)",
+      "horas": "Jam per tahun",
+      "alAnio": "Karya dalam setahun",
+      "nota": "Menghitung semua hari dalam setahun. Tidak harus bagus: setiap gambar mengajarimu sesuatu."
+    },
+    "cierre": {
+      "titulo": "Berkarya di rumahmu sendiri",
+      "texto": "Studio Seni di MindHaOS punya galeri untuk karya-karyamu, kanvas berlapis yang tersimpan otomatis, dan alat bantu menggambar seperti kisi dan cermin."
+    },
+    "memes": {
+      "simbolos": {
+        "arriba": "Aku menggambar rumah umur 6 tahun",
+        "abajo": "Aku menggambar rumah umur 30 tahun"
+      },
+      "ojos": {
+        "arriba": "Tempat aku menaruh mata",
+        "abajo": "Tempat mata sebenarnya: di tengah"
+      },
+      "cien": {
+        "arriba": "Nungguin gambar pertama langsung sempurna",
+        "abajo": "Bikin seratus gambar jelek"
+      }
+    },
+    "paquete": {
+      "guia": "Panduan interaktif (dengan lima nilai cahaya, ilusi meja, menggambar terbalik, letak mata, timer gestur, dan kalkulator latihanmu)",
+      "app": "Buka Studio Seni di MindHaOS",
+      "hashtags": "#seni #senirupa #menggambar #belajarmenggambar #sejarahseni #MindHaOS"
+    }
   }
 }

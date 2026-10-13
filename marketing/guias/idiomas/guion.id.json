@@ -1,0 +1,640 @@
+{
+  "idioma": "id",
+  "tema": "idiomas",
+  "plantillaId": "idiomas",
+  "numero": 5,
+  "nombre": "Bahasa",
+  "pregunta": "Mengapa belajar bahasa?",
+  "corta": "Mengapa belajar bahasa?",
+  "subtitulo": "Mengapa tetap layak meski mesin sudah bisa menerjemahkan, apa artinya menguasai bahasa dan berapa lama waktunya, bagaimana bahasa diajarkan sepanjang sejarah, bagaimana otakmu belajar dan lupa, kata-kata mana yang paling berguna, cara berbicara sejak hari pertama, dan rencana dua puluh menit untuk mulai hari ini.",
+  "aviso": "Panduan ini bersifat informatif: jam dan persentase adalah rata-rata dari penelitian dan program tertentu, dan berapa lama waktumu sendiri bergantung pada bahasamu, bahasa yang kamu pelajari, dan seberapa sering kamu berlatih.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando').",
+    "visual": "Bloque que acompaña la línea: dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título). No puede ser enCasa.",
+    "corta": "La pregunta en pocas palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su cuarto de Idiomas y las de en medio sobre las tomas de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «charlas con un tutor», «temario por niveles» y «repaso espaciado»; app2d.mjs mueve la app justo al decirlas.",
+    "angloparlante": "Las horas del FSI son para quien habla inglés: en cada traducción se dice así («para alguien que habla inglés»), no se adaptan a la lengua del video.",
+    "canales": "La línea «canales» invita a ver estas guías en el idioma que se aprende: en cada traducción se nombra «nuestros canales de MindHaOS» (hay uno por idioma)."
+  },
+  "partes": [
+    {
+      "id": "saber",
+      "titulo": "Mengapa mempelajarinya dan apa artinya menguasainya",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Mengapa belajar bahasa? Sekarang ponsel apa pun bisa menerjemahkan dalam hitungan detik. Tapi tetap saja, di Uni Eropa, hampir separuh orang dewasa tidak bisa bercakap-cakap dalam bahasa apa pun selain bahasanya sendiri. Apakah benar-benar sepadan, dan bagaimana cara mempelajarinya? Dalam beberapa menit ke depan, kamu akan melihat apa pengaruhnya pada otakmu, bagaimana otak belajar dan lupa, dan kamu akan pulang dengan rencana untuk mulai berbicara hari ini.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Ngomong-ngomong, ini rumahku di MindHaOS, dan di ruang Bahasa ini aku berlatih dengan tutor, mengulang kartu-kartuku, dan mengikuti silabusku. Ayo kita mulai.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian satu. Mengapa mempelajarinya dan apa artinya menguasainya."
+        },
+        {
+          "id": "cerebro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 4 años",
+            "clave": "cerebro"
+          },
+          "texto": "Untuk apa, kalau mesin sudah bisa menerjemahkan? Karena belajar bahasa mengubah otakmu, bukan hanya kosakatamu. Di Swedia, sekelompok calon tentara yang belajar bahasa secara intensif selama tiga bulan mengalami pertumbuhan hipokampus, bagian otak untuk ingatan. Dan dalam sebuah penelitian di Toronto, orang yang berbicara dua bahasa mulai menunjukkan gejala demensia sekitar empat tahun lebih lambat.",
+          "lamina": [
+            "cerebro",
+            "traductor"
+          ]
+        },
+        {
+          "id": "maquinas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "chistes",
+              "gente",
+              "pensar"
+            ]
+          },
+          "texto": "Lagi pula, mesin menerjemahkan kata, tapi tidak bercakap-cakap untukmu: dengan berbicara sendiri, kamu bisa memahami lelucon, terhubung dengan orang tanpa layar di antara kalian, dan melihat dunia dari bahasa lain.",
+          "lamina": [
+            "amigos",
+            "viajeros"
+          ]
+        },
+        {
+          "id": "habilidades",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "habilidades"
+          },
+          "texto": "Menguasai bahasa bukan berarti hafal daftar kata: ada empat keterampilan. Memahami saat mendengar, memahami saat membaca, berbicara, dan menulis. Dan hampir selalu, kita memahami jauh lebih banyak daripada yang bisa kita ucapkan.",
+          "lamina": [
+            "conversacion",
+            "leer"
+          ]
+        },
+        {
+          "id": "niveles",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nivelMcer"
+          },
+          "texto": "Untuk mengukurnya, Dewan Eropa menerbitkan Kerangka Acuan Umum Eropa pada tahun 2001, yang kini dipakai di seluruh dunia: enam tingkat, dari A1, yang bisa memperkenalkan diri dan memesan kopi, sampai C2, yang memahami hampir semuanya. Tandai di sini apa yang sudah bisa kamu lakukan, dan lihat kamu ada di tingkat mana.",
+          "lamina": [
+            "cafeteria",
+            "examen"
+          ]
+        },
+        {
+          "id": "horas",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "fsi"
+          },
+          "texto": "Lalu, berapa lama waktunya? Foreign Service Institute Amerika Serikat, yang melatih para diplomatnya, memperkirakan bahwa orang yang berbahasa Inggris butuh sekitar enam ratus jam pelajaran untuk bisa bekerja dalam bahasa Spanyol atau Prancis, dan sekitar dua ribu dua ratus jam untuk bahasa Jepang, Mandarin, Korea, atau Arab.",
+          "lamina": [
+            "clase",
+            "reloj"
+          ]
+        },
+        {
+          "id": "distancia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ ×4",
+            "clave": "distancia"
+          },
+          "texto": "Yang paling berpengaruh adalah seberapa jauh bahasa itu dari bahasamu: kalau keduanya berbagi kata, bunyi, atau tulisan, kemajuanmu jauh lebih cepat. Itulah sebabnya bahasa tetangga terasa mudah, sedangkan bahasa dengan aksara lain, di awal, jauh lebih sulit.",
+          "lamina": "globo",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Sejarah singkat belajar bahasa",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian dua. Sejarah singkat belajar bahasa."
+        },
+        {
+          "id": "rosetta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaIdiomas"
+          },
+          "texto": "Pada tahun 196 sebelum Masehi, di Mesir, sebuah dekret yang sama dipahat dalam tiga tulisan: hieroglif, demotik, dan Yunani kuno. Batu itu, Batu Rosetta, ditemukan pada tahun 1799, dan berkat bahasa Yunaninya, Jean-François Champollion berhasil memecahkan hieroglif pada tahun 1822.",
+          "lamina": [
+            "rosetta",
+            "champollion"
+          ]
+        },
+        {
+          "id": "comenio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1658",
+            "clave": "comenio"
+          },
+          "texto": "Pada tahun 1658, pendidik Ceko Jan Amos Comenius menerbitkan Orbis Pictus, salah satu buku bergambar pertama untuk mengajar anak-anak: setiap kata dalam bahasa Latin disertai sebuah gambar. Ia sudah tahu bahwa gambar lebih mudah diingat daripada terjemahan.",
+          "lamina": [
+            "comenio",
+            "orbis"
+          ]
+        },
+        {
+          "id": "berlitz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1878",
+            "clave": "berlitz"
+          },
+          "texto": "Pada tahun 1878, di Providence, Amerika Serikat, Maximilian Berlitz membuka sekolah dengan aturan baru: di kelas tidak ada terjemahan. Semuanya diucapkan dalam bahasa yang sedang kamu pelajari, sejak hari pertama.",
+          "lamina": "berlitz"
+        },
+        {
+          "id": "zamenhof",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1887",
+            "clave": "zamenhof"
+          },
+          "texto": "Dan pada tahun 1887, dokter mata Ludwik Zamenhof menerbitkan Esperanto, bahasa ciptaan agar semua orang di dunia bisa saling memahami, dengan tata bahasa tanpa pengecualian. Bahasa ini tidak menggantikan bahasa mana pun, tapi sampai hari ini masih punya penutur di seluruh dunia.",
+          "lamina": [
+            "zamenhof",
+            "esperanto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cerebro",
+      "titulo": "Cara otakmu belajar dan cara ia lupa",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tiga. Cara otakmu belajar dan cara ia lupa."
+        },
+        {
+          "id": "entender",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "inputComprensible"
+          },
+          "texto": "Salah satu gagasan paling berpengaruh dikemukakan oleh ahli bahasa Stephen Krashen pada tahun delapan puluhan: kita memperoleh bahasa saat memahami pesan yang sedikit di atas tingkat kita. Kalau kamu paham hampir semuanya dan ada sedikit yang baru, kamu belajar; kalau tidak paham apa-apa, yang kamu dengar hanya kebisingan.",
+          "lamina": [
+            "audifonos",
+            "podcast"
+          ]
+        },
+        {
+          "id": "canales",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "16",
+            "clave": "canales"
+          },
+          "texto": "Jadi, ini triknya: panduan-panduan ini ada dalam enam belas bahasa, di kanal-kanal MindHaOS kami. Tonton satu yang sudah kamu lihat dalam bahasamu, sekarang dalam bahasa yang sedang kamu pelajari: karena kamu sudah tahu isinya, kamu akan memahami hampir semuanya, pas sedikit di atas tingkatmu.",
+          "lamina": "canales"
+        },
+        {
+          "id": "olvido",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "olvido"
+          },
+          "texto": "Tapi apa yang kamu pelajari bisa lepas. Pada tahun 1885, Hermann Ebbinghaus menghafal daftar suku kata tanpa arti dan mengukur seberapa banyak yang ia lupakan: sebagian besar hilang dalam beberapa jam pertama, lalu lupanya melambat. Inilah kurva lupa.",
+          "meme": "olvido",
+          "lamina": [
+            "ebbinghaus",
+            "notas"
+          ]
+        },
+        {
+          "id": "repasos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "curvaOlvido"
+          },
+          "texto": "Kabar baiknya, setiap pengulangan membuat kurva itu lebih landai: setelah tiap pengulangan, ingatan bertahan lebih lama. Coba di sini: tambahkan pengulangan dan lihat bagaimana, dengan jarak yang makin panjang, pengulangan itu menjaga sebuah kata tetap di ingatanmu.",
+          "lamina": "calendario"
+        },
+        {
+          "id": "recuperar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "recuperar"
+          },
+          "texto": "Dan mengulang bukan berarti membaca ulang. Pada tahun 2006, Henry Roediger dan Jeffrey Karpicke membandingkan siswa yang membaca ulang sebuah teks dengan siswa yang menguji diri sendiri: seminggu kemudian, yang menguji diri ingat lebih banyak. Berusaha mengingat itulah yang membuatnya melekat.",
+          "lamina": "tarjetas",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "palabras",
+      "titulo": "Kata-kata yang paling berguna",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian empat. Kata-kata yang paling berguna."
+        },
+        {
+          "id": "frecuencia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cobertura"
+          },
+          "texto": "Tidak semua kata sama nilainya. Dalam bahasa Inggris, misalnya, seribu kata yang paling sering dipakai mencakup sekitar delapan dari sepuluh kata dalam teks biasa. Geser di sini berapa kata yang kamu tahu, dan lihat seberapa banyak isi teks yang bisa kamu kenali.",
+          "lamina": [
+            "libro",
+            "periodico"
+          ]
+        },
+        {
+          "id": "frases",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "frase",
+              "contexto",
+              "usala"
+            ]
+          },
+          "texto": "Dan pelajari dalam kalimat, bukan satu per satu. «Boleh minta garamnya?» memberimu kosakata, tata bahasa, dan pelafalan sekaligus, dan besok sudah bisa kamu pakai di meja makan.",
+          "meme": "lista",
+          "lamina": [
+            "mesa",
+            "sal"
+          ]
+        },
+        {
+          "id": "leitner",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cajasLeitner"
+          },
+          "texto": "Supaya mengulang tanpa membuang waktu, ada pengulangan berjarak. Pada tahun 1972, jurnalis Jerman Sebastian Leitner mengusulkan beberapa kotak untuk kartu: kalau jawabanmu benar, kartu pindah ke kotak berikutnya dan kamu mengulangnya nanti; kalau salah, kartu kembali ke belakang. Coba di sini dengan satu kartu.",
+          "lamina": [
+            "fichas",
+            "cajas"
+          ]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Aku melakukannya di ruang Bahasa-ku di MindHaOS: kartu-kartu di meja memberitahuku mana yang harus diulang hari ini, dan aplikasinya menata kartu-kartu itu ke kotaknya sendiri.",
+          "lamina": "tarjetas",
+          "enCasa": true
+        },
+        {
+          "id": "temas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "temas"
+          },
+          "texto": "Dan mulailah dari yang akan kamu pakai. Kalau untuk bepergian: salam, makanan, transportasi, dan arah; kalau untuk bekerja: memperkenalkan diri, rapat, dan email. Silabus per tingkat memberitahumu apa selanjutnya.",
+          "lamina": [
+            "aeropuerto",
+            "reunion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hablar",
+      "titulo": "Berbicaralah sejak hari pertama",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian lima. Berbicaralah sejak hari pertama."
+        },
+        {
+          "id": "producir",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1985",
+            "clave": "swain"
+          },
+          "texto": "Mendengar saja tidak cukup untuk bisa berbicara. Ahli bahasa Merrill Swain meneliti murid-murid sekolah imersi bahasa Prancis di Kanada: mereka sangat paham bahasanya, tapi saat berbicara terus membuat kesalahan, karena hampir tidak pernah memakainya. Saat berbicara, kamu menemukan apa yang belum bisa kamu ucapkan.",
+          "lamina": [
+            "aula",
+            "hablar"
+          ]
+        },
+        {
+          "id": "sombra",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escucha",
+              "repite",
+              "grabate"
+            ]
+          },
+          "texto": "Satu latihan yang ampuh adalah shadowing: putar audio pendek dan ulangi bersamaan, meniru ritme dan intonasinya, seperti gema. Lalu rekam dirimu dan bandingkan. Mulutmu belajar bunyi yang sudah dikenal telingamu.",
+          "lamina": [
+            "audifonos2",
+            "grabar"
+          ]
+        },
+        {
+          "id": "errores",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "✔",
+            "clave": "errores"
+          },
+          "texto": "Dan buatlah banyak kesalahan. Setiap kesalahan yang dikoreksi orang lain adalah pelajaran yang dibuat khusus untukmu. Orang yang menunggu bisa bicara sempurna tidak akan pernah bicara.",
+          "meme": "perfecto",
+          "lamina": "risa"
+        },
+        {
+          "id": "edad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edad"
+          },
+          "texto": "Bagaimana kalau kamu sudah bukan anak-anak? Pada tahun 2018, sebuah penelitian dengan hampir tujuh ratus ribu orang menemukan bahwa kemudahan belajar tata bahasa tetap tinggi sampai sekitar usia tujuh belas tahun, lalu menurun sedikit demi sedikit. Yang paling sulit bagi orang dewasa adalah terdengar seperti penutur asli, bukan berbicara dengan baik: itu bisa dicapai di usia berapa pun.",
+          "lamina": [
+            "adulto",
+            "abuela"
+          ]
+        },
+        {
+          "id": "diario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "🗣️",
+            "clave": "diario"
+          },
+          "texto": "Kalau tidak ada teman bicara, tetap berlatih: ucapkan dengan suara keras apa yang sedang kamu lakukan, bicaralah dengan tutor atau dengan orang yang sedang belajar bahasamu. Yang penting, buka mulutmu setiap hari.",
+          "lamina": "llamada",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Rencanamu untuk mulai",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian enam. Rencanamu untuk mulai."
+        },
+        {
+          "id": "meta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "para",
+              "nivel",
+              "fecha"
+            ]
+          },
+          "texto": "Beri tujuan, tingkat, dan tanggal: «belajar bahasa Inggris» tidak sama dengan «mencapai B1 untuk liburan bulan Desember». Dengan itu kamu tahu topik apa yang perlu dan berapa jam yang kamu butuhkan.",
+          "lamina": [
+            "viaje",
+            "agenda"
+          ]
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "minutosDia"
+          },
+          "texto": "Dan konsistensi mengalahkan maraton: dua puluh menit sehari berarti lebih dari seratus dua puluh jam setahun. Hitung di sini berapa jam yang kamu kumpulkan dengan rutinitasmu dan berapa lama sampai kamu tiba.",
+          "lamina": [
+            "cronometro",
+            "cafe"
+          ]
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "Rutinitas dua puluh menit bisa seperti ini: lima menit mendengarkan sesuatu yang hampir kamu pahami, lima menit mengulang kartu, lima menit berbicara atau shadowing, dan lima menit membaca atau menulis sedikit.",
+          "lamina": [
+            "escuchar",
+            "escribir"
+          ]
+        },
+        {
+          "id": "riega",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "20 min / día",
+            "clave": "riega"
+          },
+          "texto": "Bayangkan seperti tanaman ini: sedikit air setiap hari membuatnya tumbuh, dan satu ember penuh di hari Minggu tidak akan menyelamatkannya. Bahasa juga begitu.",
+          "lamina": "regar",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Singkatnya: dengarkan hal-hal yang hampir kamu pahami, ulangi secara berjarak sambil menguji diri, pelajari dulu kata-kata yang paling sering dipakai, dalam kalimat, dan berbicaralah sejak hari pertama, sedikit setiap hari.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Kalau kamu ingin mempraktikkannya seperti aku, ruang Bahasa di MindHaOS punya obrolan dengan tutor yang mengoreksimu, silabus per tingkat dengan kartu-kartumu, dan pengulangan berjarak yang memberitahumu apa yang perlu diulang hari ini. Tautannya ada di deskripsi, bersama panduan interaktif ini. Sampai jumpa di panduan berikutnya.",
+    "boton": "Buka ruang Bahasa",
+    "lamina": "app-plan",
+    "anclas": {
+      "charlas": "obrolan dengan tutor",
+      "temario": "silabus per tingkat",
+      "repaso": "pengulangan berjarak"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "eurobarometro-386",
+      "texto": "Komisi Eropa. Special Eurobarometer 386: Europeans and their Languages (2012).",
+      "url": "https://europa.eu/eurobarometer/surveys/detail/1049"
+    },
+    {
+      "id": "martensson-2012",
+      "texto": "Mårtensson J., Eriksson J., Bodammer N. C. et al. Growth of language-related brain areas after foreign language learning. NeuroImage (2012).",
+      "url": "https://doi.org/10.1016/j.neuroimage.2012.06.043"
+    },
+    {
+      "id": "bialystok-2007",
+      "texto": "Bialystok E., Craik F. I. M., Freedman M. Bilingualism as a protection against the onset of symptoms of dementia. Neuropsychologia (2007).",
+      "url": "https://doi.org/10.1016/j.neuropsychologia.2006.10.009"
+    },
+    {
+      "id": "mcer",
+      "texto": "Dewan Eropa. Common European Framework of Reference for Languages (CEFR, 2001).",
+      "url": "https://www.coe.int/en/web/common-european-framework-reference-languages"
+    },
+    {
+      "id": "fsi",
+      "texto": "U.S. Department of State, Foreign Service Institute. Foreign Language Training: perkiraan waktu belajar bagi penutur bahasa Inggris.",
+      "url": "https://www.state.gov/foreign-language-training/"
+    },
+    {
+      "id": "rosetta",
+      "texto": "The British Museum. The Rosetta Stone (EA24): dekret Memphis, 196 SM.",
+      "url": "https://www.britishmuseum.org/collection/object/Y_EA24"
+    },
+    {
+      "id": "orbis-pictus",
+      "texto": "Comenius J. A. Orbis Sensualium Pictus. Nürnberg (1658).",
+      "url": "https://en.wikipedia.org/wiki/Orbis_Pictus"
+    },
+    {
+      "id": "berlitz",
+      "texto": "Berlitz: sekolah yang didirikan Maximilian Berlitz di Providence, Rhode Island (1878).",
+      "url": "https://en.wikipedia.org/wiki/Berlitz_Corporation"
+    },
+    {
+      "id": "unua-libro",
+      "texto": "Zamenhof L. L. Unua Libro: buku pertama bahasa Esperanto (1887).",
+      "url": "https://en.wikipedia.org/wiki/Unua_Libro"
+    },
+    {
+      "id": "krashen-1982",
+      "texto": "Krashen S. D. Principles and Practice in Second Language Acquisition. Pergamon (1982).",
+      "url": "https://www.sdkrashen.com/content/books/principles_and_practice.pdf"
+    },
+    {
+      "id": "ebbinghaus-1885",
+      "texto": "Ebbinghaus H. Über das Gedächtnis (1885). Terjemahan bahasa Inggris: Memory: A Contribution to Experimental Psychology (1913).",
+      "url": "https://psychclassics.yorku.ca/Ebbinghaus/index.htm"
+    },
+    {
+      "id": "cepeda-2006",
+      "texto": "Cepeda N. J., Pashler H., Vul E., Wixted J. T., Rohrer D. Distributed practice in verbal recall tasks: A review and quantitative synthesis. Psychological Bulletin (2006).",
+      "url": "https://doi.org/10.1037/0033-2909.132.3.354"
+    },
+    {
+      "id": "roediger-2006",
+      "texto": "Roediger H. L., Karpicke J. D. Test-Enhanced Learning: Taking Memory Tests Improves Long-Term Retention. Psychological Science (2006).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x"
+    },
+    {
+      "id": "nation-2006",
+      "texto": "Nation I. S. P. How Large a Vocabulary Is Needed for Reading and Listening? The Canadian Modern Language Review (2006).",
+      "url": "https://doi.org/10.3138/cmlr.63.1.59"
+    },
+    {
+      "id": "leitner-1972",
+      "texto": "Leitner S. So lernt man lernen. Herder (1972).",
+      "url": "https://en.wikipedia.org/wiki/Leitner_system"
+    },
+    {
+      "id": "swain-1985",
+      "texto": "Swain M. Communicative competence: Some roles of comprehensible input and comprehensible output in its development. Dalam Gass S., Madden C. (eds.), Input in Second Language Acquisition. Newbury House (1985).",
+      "url": "https://en.wikipedia.org/wiki/Comprehensible_output"
+    },
+    {
+      "id": "hartshorne-2018",
+      "texto": "Hartshorne J. K., Tenenbaum J. B., Pinker S. A critical period for second language acquisition: Evidence from 2/3 million English speakers. Cognition (2018).",
+      "url": "https://doi.org/10.1016/j.cognition.2018.04.007"
+    }
+  ]
+}

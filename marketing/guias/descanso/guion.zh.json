@@ -1,0 +1,568 @@
+{
+  "idioma": "zh",
+  "tema": "descanso",
+  "plantillaId": "descanso",
+  "pregunta": "怎样才算睡得好？",
+  "subtitulo": "你睡着时身体里发生了什么，科学对睡眠有哪些发现，你需要睡多久，你的生物钟怎样运转，以及怎样为一夜好眠做好准备。",
+  "aviso": "本指南仅供参考，不能替代医生的建议。如果你鼾声很大、睡觉时会呼吸暂停、白天会不由自主地睡着，或者失眠持续了好几周，请咨询医疗专业人士。",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando', 'bosteza', 'estira') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su recámara y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «horario de sueño», «puntuación» y «registro de tus noches»; app2d.mjs mueve la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "你睡着时发生了什么",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "怎样才算睡得好？我们一生中差不多有三分之一的时间在睡觉。可是时间一不够用，我们最先砍掉的就是睡眠。你睡着的时候，究竟发生了什么？接下来几分钟，你会明白大脑在夜里做了什么，算出自己几点该上床，最后带着一份从今天起睡得更好的计划离开。",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "顺便说一下，这是我在MindHaOS里的家，我的作息时间和睡眠记录都放在这间休息室里。我们开始吧。",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第一部分。你睡着时发生了什么。"
+        },
+        {
+          "id": "ciclos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "hipnograma"
+          },
+          "texto": "睡觉不是关机。一整夜里，你会经历一个个大约九十分钟的周期，每晚四到六个；在每个周期里，你都会走过几个阶段：浅睡、深睡和快速眼动睡眠，也就是梦境最生动的阶段。",
+          "lamina": "dormida"
+        },
+        {
+          "id": "profundo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "reparacion",
+              "limpieza"
+            ]
+          },
+          "texto": "深睡多出现在前半夜。这时身体会分泌生长激素、进行修复；而且根据在小鼠身上的研究，大脑也是在这时最卖力地清除白天积累下来的废物。",
+          "lamina": [
+            "profundo",
+            "cerebro"
+          ]
+        },
+        {
+          "id": "rem",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "memoria",
+              "emociones"
+            ]
+          },
+          "texto": "快速眼动睡眠集中在后半夜，越接近早晨越多。这时大脑几乎和醒着时一样活跃：它在整理你学到的东西，消化一天的情绪。所以，如果你比需要的时间早起太多，失去的恰恰就是这一部分。",
+          "lamina": "suena"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "科学对睡眠的发现",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第二部分。科学对睡眠的发现。"
+        },
+        {
+          "id": "segmentado",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaSueno"
+          },
+          "texto": "在电灯出现之前，欧洲很多人的睡眠分成两段：先睡第一觉，半夜醒来一阵子，再睡第二觉。历史学家罗杰·埃克奇在过去几个世纪的数百本日记、书信和书籍里，记录下了这种睡法。",
+          "lamina": "vela"
+        },
+        {
+          "id": "edison",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1879",
+            "clave": "edison"
+          },
+          "texto": "1879年，托马斯·爱迪生成功测试了他的白炽灯泡。黑夜被照亮了，随着时间推移，我们睡得越来越晚。",
+          "lamina": [
+            "edison",
+            "bombilla"
+          ]
+        },
+        {
+          "id": "cueva",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1938",
+            "clave": "cueva"
+          },
+          "texto": "1938年，生理学家纳撒尼尔·克莱特曼在肯塔基州的猛犸洞里待了三十二天，想过一天二十八小时的日子。可他的身体没有上当：依然保持着大约二十四小时的节律。",
+          "lamina": "cueva"
+        },
+        {
+          "id": "rem",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1953",
+            "clave": "rem"
+          },
+          "texto": "1953年，克莱特曼和他的学生尤金·阿瑟林斯基发现了快速眼动睡眠：他们注意到，在夜里的某些时刻，眼球会在眼皮底下快速转动；而这时醒来的人，几乎总是正在做梦。",
+          "lamina": "ojos"
+        },
+        {
+          "id": "nobel",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2017",
+            "clave": "nobel"
+          },
+          "texto": "而在2017年，诺贝尔生理学或医学奖颁给了杰弗里·霍尔、迈克尔·罗斯巴什和迈克尔·杨，因为他们在果蝇身上揭示了生物钟基因是怎样运作的。我们后面会讲到这里。",
+          "lamina": "nobel"
+        }
+      ]
+    },
+    {
+      "id": "cuanto",
+      "titulo": "你需要睡多久",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第三部分。你需要睡多久。"
+        },
+        {
+          "id": "edades",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edades"
+          },
+          "texto": "根据美国睡眠医学会的建议，成年人每晚需要睡七个小时或更多。青少年需要八到十个小时，小学生需要九到十二个小时。可即便如此，每三个成年人中就有一个睡不到七个小时。",
+          "lamina": "familia"
+        },
+        {
+          "id": "deuda",
+          "escena": "bosteza",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "6 h × 14",
+            "clave": "deuda"
+          },
+          "texto": "睡眠不足是会累积的。在2003年的一项实验里，连续两周每晚只睡六个小时的人，注意力受损的程度，和最多连续两晚不睡觉的人差不多。最糟的是：他们自己只觉得有一点累。",
+          "meme": "cinco",
+          "lamina": "cansancio"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "calculadoraSueno"
+          },
+          "texto": "因为睡眠是按周期进行的，在一个周期结束时醒来，会比在深睡中途醒来感觉好得多。在这里试试吧：选好你几点起床，计算器就会告诉你几点上床，还会把大约十五分钟的入睡时间算进去。",
+          "lamina": "despertador"
+        },
+        {
+          "id": "senal",
+          "escena": "estira",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinAlarma",
+              "sinCafe",
+              "despierto"
+            ]
+          },
+          "texto": "而最好的衡量标准，就是你自己。如果放假时不用闹钟，你也会在和平时差不多的时间醒来；如果早上不靠咖啡也能进入状态，整个下午都不犯困，那你的睡眠多半是够的。",
+          "lamina": "manana"
+        }
+      ]
+    },
+    {
+      "id": "reloj",
+      "titulo": "你的生物钟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第四部分。你的生物钟。"
+        },
+        {
+          "id": "circadiano",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "circadiano"
+          },
+          "texto": "你的大脑里有一个主时钟，叫视交叉上核，它主要靠光线来校准时间。天黑以后，你会分泌褪黑素，这种激素会告诉身体：已经是晚上了。",
+          "lamina": "atardecer"
+        },
+        {
+          "id": "luz",
+          "escena": "estira",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "☀ 10 min",
+            "clave": "luz"
+          },
+          "texto": "所以早晨的阳光威力很大：醒来后不久出去晒几分钟太阳，就能校准你的生物钟，让你晚上在合适的时间犯困。",
+          "lamina": "sol"
+        },
+        {
+          "id": "pantallas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2015",
+            "clave": "pantallas"
+          },
+          "texto": "夜里的光则正好相反。在2015年的一项研究中，睡前用平板电脑看书，和读纸质书相比，褪黑素分泌推迟了，人们更难入睡，第二天早上醒来也没那么清醒。",
+          "meme": "capitulo",
+          "lamina": "pantalla"
+        },
+        {
+          "id": "cronotipo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "alondra",
+              "buho"
+            ]
+          },
+          "texto": "而且，每个人的生物钟并不指向同一个时间：有的人是百灵鸟型，天生早起；有的人是猫头鹰型，晚上状态更好。你的时间型在很大程度上取决于基因和年龄，这不是懒。",
+          "lamina": [
+            "alondra",
+            "buho"
+          ]
+        },
+        {
+          "id": "regular",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "60 000",
+            "clave": "regular"
+          },
+          "texto": "你真正能掌控的，是规律。一项针对英国约六万人的研究发现，每天在固定的时间睡觉，与更低的死亡率有关，这种关联甚至比睡多少个小时还要强。周末熬夜、周一早起，等于足不出户就倒了一次时差。",
+          "lamina": "calendario"
+        }
+      ]
+    },
+    {
+      "id": "noche",
+      "titulo": "怎样为一夜好眠做准备",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第五部分。怎样为一夜好眠做准备。"
+        },
+        {
+          "id": "cafeina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cafeinaRestante"
+          },
+          "texto": "咖啡因大约需要五个小时，才会在体内减少一半。一项研究发现，睡前六个小时摄入的一大剂咖啡因，让人少睡了一个多小时。来这里看看，到睡觉的时候，你体内还剩多少咖啡因。",
+          "meme": "cafe",
+          "lamina": "cafe"
+        },
+        {
+          "id": "alcohol",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "REM ↓",
+            "clave": "alcohol"
+          },
+          "texto": "酒精会骗人：一开始让你犯困，却会把后半夜的睡眠搅得支离破碎，还会减少快速眼动睡眠。你睡着了，却休息得更差。",
+          "lamina": "copa"
+        },
+        {
+          "id": "cuarto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fresco",
+              "oscuro",
+              "silencio"
+            ]
+          },
+          "texto": "卧室也很关键：要凉爽，大约十八度，还要黑暗、安静。还有，床只用来睡觉：如果你在床上工作或者追剧，大脑就不再把它和睡眠联系在一起了。",
+          "lamina": "recamara"
+        },
+        {
+          "id": "rutina",
+          "escena": "estira",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apaga",
+              "luces",
+              "ritual"
+            ]
+          },
+          "texto": "安排好一天的最后一个小时：放下屏幕，把灯光调暗，做点能让你放松的事，而且每天都一样，比如看书、泡个温水澡或者做做拉伸。这就是在告诉身体：夜晚要来了。",
+          "lamina": [
+            "leer",
+            "estirar"
+          ]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "我就是在MindHaOS的休息室里这么做的：作息时间会提前一小时提醒我放下屏幕，我再从床头柜上的台灯打开一段引导式呼吸练习，让自己放松下来。",
+          "lamina": "lampara",
+          "enCasa": true
+        },
+        {
+          "id": "ejercicio",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+ 🏃",
+            "clave": "ejercicio"
+          },
+          "texto": "白天也要多动一动：规律运动能帮你更快入睡，也睡得更深。只是强度最大的训练，最好在睡前两个小时以前完成。",
+          "lamina": "correr"
+        }
+      ]
+    },
+    {
+      "id": "insomnio",
+      "titulo": "睡不着的时候",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第六部分。睡不着的时候。"
+        },
+        {
+          "id": "veinte",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "20 min",
+            "clave": "veinte"
+          },
+          "texto": "如果你躺了好一阵子还睡不着，大约二十分钟，就起来，去另一个灯光昏暗的地方，等有了睡意再回到床上。在床上翻来覆去，等于在教大脑：床是用来发愁的地方。",
+          "lamina": "insomnio"
+        },
+        {
+          "id": "siesta",
+          "escena": "bosteza",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+34 %",
+            "clave": "siesta"
+          },
+          "texto": "午睡要短、要早才有帮助：二十分钟左右，最好在下午早些时候。美国宇航局一项针对飞行员的研究发现，大约二十六分钟的小睡，让他们的表现提升了百分之三十四。",
+          "meme": "siesta",
+          "lamina": "siesta"
+        },
+        {
+          "id": "terapia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "TCC-I",
+            "clave": "terapia"
+          },
+          "texto": "如果失眠持续好几周，首选的治疗不是吃药，而是失眠认知行为疗法。美国医师协会和美国睡眠医学会都推荐把它作为第一选择。",
+          "lamina": "terapia"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "foto",
+            "foto": "registro"
+          },
+          "texto": "如果你想知道自己睡得怎么样，就花两周左右，把每一晚记下来：几点上床，几点醒来，感觉如何。规律自己就会浮现出来。",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "记住，本指南仅供参考。如果你鼾声很大，还有人说你睡觉时会停止呼吸；如果你白天会不由自主地睡着；或者失眠一直不见好，请去看医生：睡眠呼吸暂停和其他睡眠障碍都是可以治疗的。",
+          "lamina": "medico"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "总结一下：在固定的时间睡够七个小时或更多；早上多见光，晚上保持黑暗；留意咖啡因和酒精；安排好一天的最后一个小时。",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "如果你也想像我这样付诸实践，MindHaOS的休息室里有带提醒和闹钟的作息时间、每一晚的评分，还有你的睡眠记录，帮你看清自己的规律。链接在简介里，那里还有这份指南的互动版，方便你慢慢复习。下一期指南，我们再聊另一个问题。下次见。",
+    "boton": "打开休息室",
+    "lamina": "app-plan",
+    "anclas": {
+      "horario": "作息时间",
+      "puntuacion": "评分",
+      "registro": "睡眠记录"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "aasm-adultos",
+      "texto": "Watson N. F. et al. Recommended amount of sleep for a healthy adult: a joint consensus statement of the AASM and SRS. Sleep (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/"
+    },
+    {
+      "id": "aasm-ninos",
+      "texto": "Paruthi S. et al. Recommended amount of sleep for pediatric populations: a consensus statement of the AASM. J Clin Sleep Med (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27250809/"
+    },
+    {
+      "id": "cdc-un-tercio",
+      "texto": "Liu Y. et al. Prevalence of healthy sleep duration among adults — United States, 2014. MMWR (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26890214/"
+    },
+    {
+      "id": "ninds",
+      "texto": "NINDS (NIH). Brain Basics: Understanding Sleep.",
+      "url": "https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-understanding-sleep"
+    },
+    {
+      "id": "xie-2013",
+      "texto": "Xie L. et al. Sleep drives metabolite clearance from the adult brain. Science (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24136970/"
+    },
+    {
+      "id": "ekirch-2001",
+      "texto": "Ekirch A. R. Sleep We Have Lost: Pre-industrial Slumber in the British Isles. The American Historical Review (2001).",
+      "url": "https://doi.org/10.1086/ahr/106.2.343"
+    },
+    {
+      "id": "aserinsky-1953",
+      "texto": "Aserinsky E., Kleitman N. Regularly occurring periods of eye motility, and concomitant phenomena, during sleep. Science (1953).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13089671/"
+    },
+    {
+      "id": "nobel-2017",
+      "texto": "2017年诺贝尔生理学或医学奖：杰弗里·C·霍尔、迈克尔·罗斯巴什和迈克尔·W·杨。",
+      "url": "https://www.nobelprize.org/prizes/medicine/2017/summary/"
+    },
+    {
+      "id": "van-dongen-2003",
+      "texto": "Van Dongen H. P. et al. The cumulative cost of additional wakefulness. Sleep (2003).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12683469/"
+    },
+    {
+      "id": "chang-2015",
+      "texto": "Chang A.-M. et al. Evening use of light-emitting eReaders negatively affects sleep, circadian timing, and next-morning alertness. PNAS (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25535358/"
+    },
+    {
+      "id": "windred-2024",
+      "texto": "Windred D. P. et al. Sleep regularity is a stronger predictor of mortality risk than sleep duration. Sleep (2024).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37738616/"
+    },
+    {
+      "id": "drake-2013",
+      "texto": "Drake C. et al. Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed. J Clin Sleep Med (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24235903/"
+    },
+    {
+      "id": "ebrahim-2013",
+      "texto": "Ebrahim I. O. et al. Alcohol and sleep I: effects on normal sleep. Alcohol Clin Exp Res (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23347102/"
+    },
+    {
+      "id": "nasa-1995",
+      "texto": "Rosekind M. R. et al. Crew factors in flight operations IX: Effects of planned cockpit rest on crew performance and alertness in long-haul operations. NASA (1994).",
+      "url": "https://ntrs.nasa.gov/citations/19950006379"
+    },
+    {
+      "id": "acp-2016",
+      "texto": "Qaseem A. et al. Management of chronic insomnia disorder in adults: a clinical practice guideline from the American College of Physicians. Ann Intern Med (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27136449/"
+    },
+    {
+      "id": "aasm-2021",
+      "texto": "Edinger J. D. et al. Behavioral and psychological treatments for chronic insomnia disorder in adults: an AASM clinical practice guideline. J Clin Sleep Med (2021).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33164742/"
+    }
+  ]
+}

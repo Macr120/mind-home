@@ -1,0 +1,346 @@
+{
+  "fotos": {},
+  "laminas": {
+    "billetes": {
+      "archivo": "laminas/billetes.mp4",
+      "tipo": "video",
+      "autor": "https://kaboompics.com/",
+      "fuente": "https://www.pexels.com/video/a-person-counting-money-7710775/",
+      "licencia": "Licencia Pexels"
+    },
+    "pago": {
+      "archivo": "laminas/pago.mp4",
+      "tipo": "video",
+      "autor": "Ivan S",
+      "fuente": "https://www.pexels.com/video/a-person-paying-bill-using-his-card-7669652/",
+      "licencia": "Licencia Pexels"
+    },
+    "supermercado": {
+      "archivo": "laminas/supermercado.mp4",
+      "tipo": "video",
+      "autor": "Mike Jones",
+      "fuente": "https://www.pexels.com/video/a-woman-shopping-vegetables-in-the-market-8803792/",
+      "licencia": "Licencia Pexels"
+    },
+    "precios": {
+      "archivo": "laminas/precios.webp",
+      "tipo": "foto",
+      "autor": "Tamanna Rumee",
+      "fuente": "https://www.pexels.com/photo/sale-tags-with-red-background-7986977/",
+      "licencia": "Licencia Pexels"
+    },
+    "loteria": {
+      "archivo": "laminas/loteria.webp",
+      "tipo": "foto",
+      "autor": "Erik Mclean",
+      "fuente": "https://www.pexels.com/photo/brochures-placed-on-window-sill-4249023/",
+      "licencia": "Licencia Pexels"
+    },
+    "cuentas": {
+      "archivo": "laminas/cuentas.mp4",
+      "tipo": "video",
+      "autor": "Leeloo The First",
+      "fuente": "https://www.pexels.com/video/a-person-using-calculator-while-writing-on-sticky-notes-8970369/",
+      "licencia": "Licencia Pexels"
+    },
+    "ahorro": {
+      "archivo": "laminas/ahorro.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/man-putting-gold-and-silver-coins-in-a-plastic-bowl-8369982/",
+      "licencia": "Licencia Pexels"
+    },
+    "monedas": {
+      "archivo": "laminas/monedas.webp",
+      "tipo": "foto",
+      "autor": "Alexey Chunihin",
+      "fuente": "https://www.pexels.com/photo/collection-of-old-coins-and-artifacts-8671545/",
+      "licencia": "Licencia Pexels"
+    },
+    "oro": {
+      "archivo": "laminas/oro.mp4",
+      "tipo": "video",
+      "autor": "Angela Roma",
+      "fuente": "https://www.pexels.com/video/close-up-of-gold-sycees-7361127/",
+      "licencia": "Licencia Pexels"
+    },
+    "recibos": {
+      "archivo": "laminas/recibos.webp",
+      "tipo": "foto",
+      "autor": "https://kaboompics.com/",
+      "fuente": "https://www.pexels.com/photo/close-up-of-woman-hands-holding-bill-4959926/",
+      "licencia": "Licencia Pexels"
+    },
+    "cafe": {
+      "archivo": "laminas/cafe.mp4",
+      "tipo": "video",
+      "autor": "Mizuno K",
+      "fuente": "https://www.pexels.com/video/a-barista-putting-coffee-beans-into-an-electric-grinder-13736673/",
+      "licencia": "Licencia Pexels"
+    },
+    "antojo": {
+      "archivo": "laminas/antojo.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/a-popcorn-in-a-plastic-cup-8903498/",
+      "licencia": "Licencia Pexels"
+    },
+    "renta": {
+      "archivo": "laminas/renta.webp",
+      "tipo": "foto",
+      "autor": "Atlantic Ambience",
+      "fuente": "https://www.pexels.com/photo/person-with-keys-for-real-estate-7599735/",
+      "licencia": "Licencia Pexels"
+    },
+    "gustos": {
+      "archivo": "laminas/gustos.mp4",
+      "tipo": "video",
+      "autor": "Clément Proust",
+      "fuente": "https://www.pexels.com/video/casual-breakfast-with-orange-juice-and-pastries-29532467/",
+      "licencia": "Licencia Pexels"
+    },
+    "alcancia": {
+      "archivo": "laminas/alcancia.webp",
+      "tipo": "foto",
+      "autor": "Ann H",
+      "fuente": "https://www.pexels.com/photo/a-pink-piggy-bank-11427659/",
+      "licencia": "Licencia Pexels"
+    },
+    "ahorrar": {
+      "archivo": "laminas/ahorrar.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/putting-gold-coins-inside-a-rat-figurine-8369976/",
+      "licencia": "Licencia Pexels"
+    },
+    "averia": {
+      "archivo": "laminas/averia.mp4",
+      "tipo": "video",
+      "autor": "paashuu",
+      "fuente": "https://www.pexels.com/video/the-engine-compartment-of-a-blue-beetle-15821906/",
+      "licencia": "Licencia Pexels"
+    },
+    "imprevisto": {
+      "archivo": "laminas/imprevisto.webp",
+      "tipo": "foto",
+      "autor": "https://kaboompics.com/",
+      "fuente": "https://www.pexels.com/photo/woman-in-blue-long-sleeve-shirt-holding-her-head-7680365/",
+      "licencia": "Licencia Pexels"
+    },
+    "frasco": {
+      "archivo": "laminas/frasco.webp",
+      "tipo": "foto",
+      "autor": "BOOM 💥 Photography",
+      "fuente": "https://www.pexels.com/photo/hand-putting-coins-into-jar-12644987/",
+      "licencia": "Licencia Pexels"
+    },
+    "tarjeta": {
+      "archivo": "laminas/tarjeta.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/paying-with-credit-card-for-online-purchase-4872944/",
+      "licencia": "Licencia Pexels"
+    },
+    "compras": {
+      "archivo": "laminas/compras.mp4",
+      "tipo": "video",
+      "autor": "Polina Tankilevitch",
+      "fuente": "https://www.pexels.com/video/person-browsing-on-laptop-5586006/",
+      "licencia": "Licencia Pexels"
+    },
+    "calculadora": {
+      "archivo": "laminas/calculadora.mp4",
+      "tipo": "video",
+      "autor": "Kindel Media",
+      "fuente": "https://www.pexels.com/video/a-person-using-a-calculator-7688135/",
+      "licencia": "Licencia Pexels"
+    },
+    "avalancha": {
+      "archivo": "laminas/avalancha.mp4",
+      "tipo": "video",
+      "autor": "Nur Rochmah",
+      "fuente": "https://www.pexels.com/video/hikers-watch-majestic-mountain-avalanche-39581392/",
+      "licencia": "Licencia Pexels"
+    },
+    "nieve": {
+      "archivo": "laminas/nieve.mp4",
+      "tipo": "video",
+      "autor": "Liza Summer",
+      "fuente": "https://www.pexels.com/video/pearson-holding-a-snowball-6381282/",
+      "licencia": "Licencia Pexels"
+    },
+    "joven": {
+      "archivo": "laminas/joven.mp4",
+      "tipo": "video",
+      "autor": "George Milton",
+      "fuente": "https://www.pexels.com/video/pensive-woman-typing-on-laptop-computer-6948585/",
+      "licencia": "Licencia Pexels"
+    },
+    "reloj": {
+      "archivo": "laminas/reloj.mp4",
+      "tipo": "video",
+      "autor": "Anton Kudryashov",
+      "fuente": "https://www.pexels.com/video/close-up-on-clock-hands-moving-11267667/",
+      "licencia": "Licencia Pexels"
+    },
+    "huevos": {
+      "archivo": "laminas/huevos.webp",
+      "tipo": "foto",
+      "autor": "Maria Ovchinnikova",
+      "fuente": "https://www.pexels.com/photo/brown-eggs-on-stainless-steel-basket-7558431/",
+      "licencia": "Licencia Pexels"
+    },
+    "grafica": {
+      "archivo": "laminas/grafica.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/stock-market-exchanges-on-display-7579561/",
+      "licencia": "Licencia Pexels"
+    },
+    "comision": {
+      "archivo": "laminas/comision.webp",
+      "tipo": "foto",
+      "autor": "https://kaboompics.com/",
+      "fuente": "https://www.pexels.com/photo/close-up-shot-of-a-person-holding-a-calculator-7680692/",
+      "licencia": "Licencia Pexels"
+    },
+    "coche": {
+      "archivo": "laminas/coche.mp4",
+      "tipo": "video",
+      "autor": "Antoni Shkraba",
+      "fuente": "https://www.pexels.com/video/a-woman-holding-a-car-key-7154239/",
+      "licencia": "Licencia Pexels"
+    },
+    "celular": {
+      "archivo": "laminas/celular.mp4",
+      "tipo": "video",
+      "autor": "Jakub Zerdzicki",
+      "fuente": "https://www.pexels.com/video/calculating-finances-with-smartphone-and-cash-34829282/",
+      "licencia": "Licencia Pexels"
+    },
+    "automatico": {
+      "archivo": "laminas/automatico.mp4",
+      "tipo": "video",
+      "autor": "Mikhail Nilov",
+      "fuente": "https://www.pexels.com/video/person-shopping-online-6898096/",
+      "licencia": "Licencia Pexels"
+    },
+    "revisar": {
+      "archivo": "laminas/revisar.mp4",
+      "tipo": "video",
+      "autor": "Leeloo The First",
+      "fuente": "https://www.pexels.com/video/calculating-and-taking-notes-7247861/",
+      "licencia": "Licencia Pexels"
+    },
+    "sueldo": {
+      "archivo": "laminas/sueldo.mp4",
+      "tipo": "video",
+      "autor": "https://kaboompics.com/",
+      "fuente": "https://www.pexels.com/video/woman-holding-dollar-bills-7710768/",
+      "licencia": "Licencia Pexels"
+    },
+    "planta": {
+      "archivo": "laminas/planta.mp4",
+      "tipo": "video",
+      "autor": "TimePRO TV",
+      "fuente": "https://www.pexels.com/video/vibrant-pea-seedling-sprouting-on-white-background-30252372/",
+      "licencia": "Licencia Pexels"
+    },
+    "crecer": {
+      "archivo": "laminas/crecer.webp",
+      "tipo": "foto",
+      "autor": "Kindel Media",
+      "fuente": "https://www.pexels.com/photo/person-holding-clear-glass-jar-with-green-plant-6775160/",
+      "licencia": "Licencia Pexels"
+    },
+    "pizarron": {
+      "archivo": "laminas/pizarron.webp",
+      "tipo": "foto",
+      "autor": "George Becker",
+      "fuente": "https://www.pexels.com/photo/1-1-3-text-on-black-chalkboard-374918/",
+      "licencia": "Licencia Pexels"
+    },
+    "alerta": {
+      "archivo": "laminas/alerta.mp4",
+      "tipo": "video",
+      "autor": "MART  PRODUCTION",
+      "fuente": "https://www.pexels.com/video/a-person-calling-for-help-7698463/",
+      "licencia": "Licencia Pexels"
+    },
+    "meta": {
+      "archivo": "laminas/meta.webp",
+      "tipo": "foto",
+      "autor": "Ahmed ؜",
+      "fuente": "https://www.pexels.com/photo/woman-writing-notes-for-2024-19915783/",
+      "licencia": "Licencia Pexels"
+    },
+    "contrato": {
+      "archivo": "laminas/contrato.mp4",
+      "tipo": "video",
+      "autor": "ArtHouse Studio",
+      "fuente": "https://www.pexels.com/video/person-writing-on-paper-8478946/",
+      "licencia": "Licencia Pexels"
+    },
+    "resumen": {
+      "archivo": "laminas/resumen.mp4",
+      "tipo": "video",
+      "autor": "olia danilevich",
+      "fuente": "https://www.pexels.com/video/woman-holding-a-certificate-8523715/",
+      "licencia": "Licencia Pexels"
+    },
+    "tablilla": {
+      "archivo": "laminas/tablilla.webp",
+      "tipo": "foto",
+      "autor": "Bilge Şeyma Kütükoğlu",
+      "fuente": "https://www.pexels.com/photo/close-up-of-cuneiform-carvings-8349847/",
+      "licencia": "Licencia Pexels"
+    },
+    "hammurabi": {
+      "archivo": "laminas/hammurabi.webp",
+      "tipo": "foto",
+      "autor": "Gil Dbd",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Code_of_Hammurabi_Louvre_Museum.jpg",
+      "licencia": "CC BY-SA 4.0",
+      "credito": "Gil Dbd · CC BY-SA 4.0 · Wikimedia"
+    },
+    "lidia": {
+      "archivo": "laminas/lidia.webp",
+      "tipo": "foto",
+      "autor": "Unknown / Photography by CNG coins",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Electrum_trite,_Alyattes,_Lydia,_620-563_BC.jpg",
+      "licencia": "CC BY-SA 3.0",
+      "credito": "Unknown / Photography by CNG coins · CC BY-SA 3.0 · Wikimedia"
+    },
+    "jiaozi": {
+      "archivo": "laminas/jiaozi.webp",
+      "tipo": "foto",
+      "autor": "Unknown authorUnknown author",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Jiao_zi.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "ponzi": {
+      "archivo": "laminas/ponzi.webp",
+      "tipo": "foto",
+      "autor": "Boston Library (NYT); en.wikipedia.org",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Charles_Ponzi.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "nixon": {
+      "archivo": "laminas/nixon.webp",
+      "tipo": "foto",
+      "autor": "Department of Defense. Department of the Army. Office of the Deputy Chief of Sta",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Richard_Nixon_presidential_portrait_(1).jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "app-plan": {
+      "archivo": "laminas/app-plan.{idioma}.mp4",
+      "tipo": "video",
+      "autor": "MindHaOS",
+      "fuente": "https://app.mindhaos.com",
+      "credito": ""
+    }
+  }
+}

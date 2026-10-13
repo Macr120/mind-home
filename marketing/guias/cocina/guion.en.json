@@ -1,0 +1,548 @@
+{
+  "idioma": "en",
+  "tema": "cocina",
+  "plantillaId": "cocina",
+  "pregunta": "What is eating well?",
+  "subtitulo": "What food does in your body, where our knowledge comes from, how much energy you need, how to recognize quality, and how to build your plate and your week.",
+  "aviso": "This guide is for information only and does not replace advice from a doctor or a nutrition professional. If you have a medical condition or an eating disorder, are pregnant, or take medication, talk to a professional before changing how you eat.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'remueve', 'pica', 'bebe', 'pensando') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ cocinando y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «recetario», «plan de comidas» y «lista de compras»; app2d.mjs cambia de pantalla de la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "What food does in your body",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "What is eating well? Everyone has an opinion about what you should eat. Almost nobody explains what food actually does inside your body. How does it really work? In the next few minutes, you'll understand what your body needs, you'll work out how much energy you burn, and you'll walk away with a plan for your week.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "By the way, this is my house in MindHaOS, and this Kitchen room is where I keep my recipes and my meal plan. Let's get started.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part one. What food does in your body."
+        },
+        {
+          "id": "dos-trabajos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "combustible",
+              "construccion"
+            ]
+          },
+          "texto": "Food does two jobs at once. It's fuel: energy, measured in calories, that you burn when you breathe, think and move. And it's building material: you use it to repair muscle, bone, skin and blood, which are renewed all the time.",
+          "lamina": "mercado"
+        },
+        {
+          "id": "macros",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "proteinas",
+              "carbohidratos",
+              "grasas"
+            ]
+          },
+          "texto": "That material comes in three big groups, the macronutrients. Proteins build and repair. Carbohydrates are the fastest energy, especially for your brain and for hard exercise. And fats store energy, form the walls of your cells and help you absorb some vitamins.",
+          "lamina": [
+            "macros-proteina",
+            "macros-carbos",
+            "macros-grasas"
+          ]
+        },
+        {
+          "id": "micros",
+          "escena": "pica",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "vitaminas",
+              "minerales",
+              "fibra"
+            ]
+          },
+          "texto": "Then there are the micronutrients: vitamins and minerals you need in tiny amounts, but without them none of the rest works. And there's fiber, which gives you almost no energy, but feeds the bacteria in your gut and keeps you full for longer.",
+          "lamina": "verduras"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "A short history of what we eat",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part two. A short history of what we eat."
+        },
+        {
+          "id": "fuego",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaCocina"
+          },
+          "texto": "Hundreds of thousands of years ago, our ancestors learned to cook with fire. Cooking softens food and lets us get more energy out of it; some anthropologists think that helped our brains grow.",
+          "lamina": "fuego"
+        },
+        {
+          "id": "agricultura",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 000",
+            "clave": "agricultura"
+          },
+          "texto": "About ten thousand years ago came farming: wheat, rice and corn. There was food for far more people, although diets became less varied than those of hunter-gatherers.",
+          "lamina": "agricultura"
+        },
+        {
+          "id": "lind",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1747",
+            "clave": "lind"
+          },
+          "texto": "In 1747, the Scottish doctor James Lind ran one of the first clinical trials in history: he gave sailors with scurvy different remedies, and the ones who ate oranges and lemons were the ones who recovered.",
+          "meme": "limones",
+          "lamina": [
+            "lind",
+            "limones"
+          ]
+        },
+        {
+          "id": "atwater",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "4 · 4 · 9",
+            "clave": "atwater"
+          },
+          "texto": "In the late nineteenth century, the chemist Wilbur Atwater measured how much energy each food provides: about four calories per gram of protein or carbohydrate, and about nine per gram of fat. Food labels still use those numbers today.",
+          "lamina": "atwater"
+        },
+        {
+          "id": "funk",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1912",
+            "clave": "funk"
+          },
+          "texto": "In 1912, the biochemist Casimir Funk proposed the word vitamin, and over the following decades almost all of them were discovered. For the first time, people understood that you can eat a lot and still be poorly nourished.",
+          "lamina": "funk"
+        },
+        {
+          "id": "plato",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2011",
+            "clave": "plato"
+          },
+          "texto": "In 1992, the United States drew the famous food pyramid, with bread and pasta at the base. In 2011 it swapped it for a plate, MyPlate, which is much easier to picture at every meal. And in Mexico, the official standard drew its own: the Plato del Bien Comer, the Eat Well Plate. That's where we're headed.",
+          "lamina": [
+            "piramide",
+            "myplate",
+            "plato-bien-comer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "energia",
+      "titulo": "How much energy you need",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part three. How much energy you need."
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "balance"
+          },
+          "texto": "In the long run, your weight depends on energy balance: what you eat versus what you burn. Eat more than you burn and your body stores it; eat less and it draws on its reserves. Sounds simple, but what you burn has several parts.",
+          "lamina": "balance"
+        },
+        {
+          "id": "gasto",
+          "escena": "Caminata",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "gasto"
+          },
+          "texto": "Most of it, around two thirds, goes just to keeping you alive: that's your basal metabolism. Another part depends on how much you move during the day, and a small part, about ten percent, goes into digesting what you eat.",
+          "lamina": "gasto"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "calculadoraEnergia"
+          },
+          "texto": "You can estimate it with the Mifflin-St Jeor equation, one of the most widely used by dietitians: with your age, weight, height and activity level. Try the calculator here. It's an estimate, not an exact measurement, but it's a very good starting point.",
+          "lamina": "calculadora"
+        },
+        {
+          "id": "proteina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "0,8–2 g/kg",
+            "clave": "proteina"
+          },
+          "texto": "For protein, the reference for an adult is at least zero point eight grams per kilo of body weight per day. If you do strength training, many experts recommend between one point four and two grams.",
+          "lamina": "proteina"
+        },
+        {
+          "id": "deficit",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "−15 %",
+            "clave": "deficit"
+          },
+          "texto": "And if you want to lose weight, you don't have to go hungry: just eat a little less than you burn, around fifteen percent, and check how you're doing every two weeks. Small changes are the ones that last.",
+          "lamina": "deficit"
+        }
+      ]
+    },
+    {
+      "id": "calidad",
+      "titulo": "The quality of what you eat",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part four. The quality of what you eat."
+        },
+        {
+          "id": "nova",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "nova"
+          },
+          "texto": "Beyond how much, what matters is what. Researchers classify food by how much it has been processed: fresh foods, cooking ingredients like oil or salt, processed foods like cheese or bakery bread, and ultra-processed foods, like soft drinks, cookies and packaged snacks.",
+          "meme": "ultraprocesados",
+          "lamina": "supermercado"
+        },
+        {
+          "id": "experimento",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+500 kcal",
+            "clave": "experimento"
+          },
+          "texto": "In 2019, an experiment at the US National Institutes of Health gave twenty people two weeks of ultra-processed food and two weeks of unprocessed food, with the same calories available. On the ultra-processed diet, they ate about five hundred more calories a day, without even noticing.",
+          "lamina": "ultraprocesados"
+        },
+        {
+          "id": "azucar",
+          "escena": "bebe",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "azucarOculta"
+          },
+          "texto": "The World Health Organization recommends keeping added sugar below ten percent of your energy, and ideally below five: about six teaspoons a day. See here how much sugar is in what you drink.",
+          "lamina": "refresco"
+        },
+        {
+          "id": "sal",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "< 5 g",
+            "clave": "sal"
+          },
+          "texto": "Salt is a similar story: the recommendation is less than five grams a day, roughly one teaspoon, and most of it isn't what you add at the table: it's already inside the products.",
+          "lamina": "sal"
+        },
+        {
+          "id": "etiqueta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porcion",
+              "azucares",
+              "ingredientes"
+            ]
+          },
+          "texto": "The trick is to read the label. Look at the serving size, the sugars and the salt, and the ingredient list, which goes from most to least: if the first one is sugar, you know what you're mostly getting.",
+          "lamina": "etiqueta"
+        }
+      ]
+    },
+    {
+      "id": "plato",
+      "titulo": "How to build your plate and your week",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part five. How to build your plate and your week."
+        },
+        {
+          "id": "plato",
+          "escena": "pica",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "armaTuPlato"
+          },
+          "texto": "For every meal there's a very simple method, Harvard's Healthy Eating Plate: half the plate, vegetables and fruit; a quarter, whole grains; and the other quarter, a protein like fish, chicken, eggs or legumes. To drink, water, and a little healthy oil for cooking.",
+          "lamina": "plato"
+        },
+        {
+          "id": "frutas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "400 g",
+            "clave": "frutas"
+          },
+          "texto": "The World Health Organization recommends at least four hundred grams of fruit and vegetables a day, about five servings, and at least twenty-five grams of fiber, which comes mostly from there, from whole grains and from legumes.",
+          "lamina": "frutas"
+        },
+        {
+          "id": "planear",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "menu",
+              "lista",
+              "prepara"
+            ]
+          },
+          "texto": "The secret isn't willpower, it's planning. Pick the week's menu, build your shopping list from it, and cook extra on a couple of days, so you have food ready when you're short on time.",
+          "lamina": "planear"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "I do it in my Kitchen room in MindHaOS: I build the week's plan with my recipes, and the shopping list makes itself.",
+          "lamina": "lista",
+          "enCasa": true
+        },
+        {
+          "id": "ochenta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "80 / 20",
+            "clave": "ochenta"
+          },
+          "texto": "And it doesn't have to be perfect. If most of what you eat follows this line, pizza with friends fits in guilt-free: a way of eating you can keep up is worth more than a perfect one you drop after two weeks.",
+          "meme": "perfecta",
+          "lamina": "pizza"
+        }
+      ]
+    },
+    {
+      "id": "habitos",
+      "titulo": "Water, hunger and consistency",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part six. Water, hunger and consistency."
+        },
+        {
+          "id": "agua",
+          "escena": "bebe",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2–2,5 L",
+            "clave": "agua"
+          },
+          "texto": "Water counts too. The European Food Safety Authority recommends about two liters a day for women and two and a half liters for men, including the water in your food, which is roughly a fifth of it.",
+          "lamina": "agua"
+        },
+        {
+          "id": "hambre",
+          "escena": "habla",
+          "visual": {
+            "tipo": "meme",
+            "meme": "tarde"
+          },
+          "texto": "Listen to your hunger. Eating slowly and away from screens gives your body time to tell you it's full. And don't show up to a meal ravenous: a breakfast with protein and a piece of fruit in the afternoon make a big difference to your evening.",
+          "lamina": "despacio"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "foto",
+            "foto": "registro"
+          },
+          "texto": "And if you want to know how you're doing, write down what you eat for a few days. Not to obsess over it, but to spot patterns: lots of people discover the problem wasn't their meals, but their drinks or their afternoon snack.",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "Remember that this guide is for information only. If you have a medical condition, a difficult relationship with food, or you're pregnant, it's best to have a nutrition professional by your side.",
+          "lamina": "nutriologo"
+        },
+        {
+          "id": "resumen",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "In short: eat real food most of the time, fill half your plate with vegetables and fruit, match the amount to what you burn, and plan your week.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "If you want to put it into practice the way I do, the Kitchen room in MindHaOS has your recipe book, your weekly meal plan and a shopping list that builds itself. The link is in the description, and you'll also find an interactive version of this guide there, so you can go over it at your own pace. In the next guide, we'll take on another question. See you then.",
+    "boton": "Open the Kitchen room",
+    "lamina": "app-plan",
+    "anclas": {
+      "recetario": "recipe book",
+      "plan": "meal plan",
+      "compras": "shopping list"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "usda-myplate",
+      "texto": "USDA. MyPlate (2011), which replaced the Food Guide Pyramid (1992).",
+      "url": "https://www.myplate.gov/"
+    },
+    {
+      "id": "nom-043",
+      "texto": "Mexico's Ministry of Health. NOM-043-SSA2-2012 (formerly NOM-043-SSA2-2005): the Plato del Bien Comer.",
+      "url": "https://www.dof.gob.mx/nota_detalle.php?codigo=5285372&fecha=22/01/2013"
+    },
+    {
+      "id": "oms-alimentacion",
+      "texto": "WHO. Healthy diet — Fact sheet.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/healthy-diet"
+    },
+    {
+      "id": "oms-azucar",
+      "texto": "WHO. Guideline: Sugars intake for adults and children (2015).",
+      "url": "https://www.who.int/publications/i/item/9789241549028"
+    },
+    {
+      "id": "oms-sal",
+      "texto": "WHO. Sodium reduction — Fact sheet.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/salt-reduction"
+    },
+    {
+      "id": "oms-carbohidratos",
+      "texto": "WHO. Carbohydrate intake for adults and children: WHO guideline (2023).",
+      "url": "https://www.who.int/publications/i/item/9789240073593"
+    },
+    {
+      "id": "harvard-plato",
+      "texto": "Harvard T.H. Chan School of Public Health. The Healthy Eating Plate.",
+      "url": "https://nutritionsource.hsph.harvard.edu/healthy-eating-plate/"
+    },
+    {
+      "id": "mifflin",
+      "texto": "Mifflin M. D., St Jeor S. T. et al. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr (1990).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+    },
+    {
+      "id": "issn-proteina",
+      "texto": "Jäger R. et al. International Society of Sports Nutrition Position Stand: protein and exercise (2017).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28642676/"
+    },
+    {
+      "id": "hall-2019",
+      "texto": "Hall K. D. et al. Ultra-processed diets cause excess calorie intake and weight gain. Cell Metabolism (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31105044/"
+    },
+    {
+      "id": "nova",
+      "texto": "Monteiro C. A. et al. Ultra-processed foods: what they are and how to identify them. Public Health Nutrition (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30744710/"
+    },
+    {
+      "id": "efsa-agua",
+      "texto": "EFSA. Scientific Opinion on Dietary Reference Values for water (2010).",
+      "url": "https://www.efsa.europa.eu/en/efsajournal/pub/1459"
+    },
+    {
+      "id": "lind-1753",
+      "texto": "Lind J. A Treatise of the Scurvy (1753). The James Lind Library.",
+      "url": "https://www.jameslindlibrary.org/lind-j-1753/"
+    }
+  ]
+}

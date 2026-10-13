@@ -4,6 +4,7 @@ import { useLayout } from '../state/layoutStore'
 import { useHouse } from '../state/houseStore'
 import { VACIO, cultivosRepo, animalesRepo, corralesRepo } from '../data/repository'
 import { ESPECIES, estadoCultivo, celdasRegadas } from '../house/cultivos'
+import { useMapaVisible } from '../house/mapaVisible'
 import {
   estaHambriento,
   estaEnfermo,
@@ -41,6 +42,7 @@ function EtiquetasActivas() {
   const corrales = corralesRepo.useAll() ?? VACIO
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
+  const mv = useMapaVisible()
   const regadas = useMemo(() => celdasRegadas(filas), [filas])
 
   // Tick de 1 s para la cuenta regresiva, solo mientras algo crece.
@@ -60,7 +62,7 @@ function EtiquetasActivas() {
     // joystick y la hotbar van en z-10, el chat en z-20, el HUD en z-30).
     <div className="pointer-events-none absolute inset-0 z-[5] overflow-hidden">
       {filas
-        .filter((f) => f.especie && f.col < gridCols && f.row < gridRows)
+        .filter((f) => f.especie && f.col < gridCols && f.row < gridRows && !mv?.oculta(f.col, f.row))
         .map((f) => (
           <EtiquetaParcela
             key={`${f.col},${f.row}`}

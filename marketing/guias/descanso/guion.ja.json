@@ -1,0 +1,568 @@
+{
+  "idioma": "ja",
+  "tema": "descanso",
+  "plantillaId": "descanso",
+  "pregunta": "よい睡眠とは何でしょうか？",
+  "subtitulo": "眠っているあいだに体の中で何が起きているのか、科学が睡眠について発見してきたこと、どれだけ眠ればいいのか、体内時計の仕組み、そしてよい夜の準備のしかた。",
+  "aviso": "このガイドは情報提供を目的としたもので、医師の助言に代わるものではありません。いびきがひどい、眠っているあいだに呼吸が止まる、日中に思わず眠り込んでしまう、不眠が何週間も続く、といった場合は、医療の専門家に相談してください。",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando', 'bosteza', 'estira') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su recámara y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «horario de sueño», «puntuación» y «registro de tus noches»; app2d.mjs mueve la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "眠っているあいだに起きていること",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "よい睡眠とは何でしょうか？ 私たちは人生のほぼ3分の1を眠って過ごします。それなのに、時間が足りなくなると、まっ先に削ってしまうのが睡眠です。眠っているあいだ、実際には何が起きているのでしょうか？ これからの数分で、夜のあいだに脳が何をしているのかを理解し、何時に寝ればいいかを計算して、今日からもっとよく眠るためのプランを手にして終われます。",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "ちなみに、ここはMindHaOSにある私の家です。この休息の部屋で、睡眠スケジュールを管理して、夜の記録をつけています。では、始めましょう。",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート1。眠っているあいだに起きていること。"
+        },
+        {
+          "id": "ciclos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "hipnograma"
+          },
+          "texto": "眠るというのは、電源を切ることではありません。夜のあいだ、私たちはおよそ90分の周期を、一晩に4回から6回くり返します。そのたびに、いくつかの段階を通ります。浅い睡眠、深い睡眠、そしてレム睡眠。いちばん鮮やかな夢を見る段階です。",
+          "lamina": "dormida"
+        },
+        {
+          "id": "profundo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "reparacion",
+              "limpieza"
+            ]
+          },
+          "texto": "深い睡眠は、夜の前半に多く現れます。このとき体は成長ホルモンを出して、自分を修復します。そしてマウスの研究によれば、脳が日中にたまった老廃物を、いちばん活発に掃除するのもこの時間です。",
+          "lamina": [
+            "profundo",
+            "cerebro"
+          ]
+        },
+        {
+          "id": "rem",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "memoria",
+              "emociones"
+            ]
+          },
+          "texto": "レム睡眠は、明け方に向かって増えていきます。このときの脳は、起きているときとほとんど同じくらい活発です。学んだことを整理し、その日の感情を処理しているのです。だから、必要な時間よりずっと早く起きてしまうと、ちょうどこの部分を失うことになります。",
+          "lamina": "suena"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "科学が睡眠について発見したこと",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート2。科学が睡眠について発見したこと。"
+        },
+        {
+          "id": "segmentado",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaSueno"
+          },
+          "texto": "電灯が登場する前、ヨーロッパでは多くの人が、睡眠を二回に分けてとっていました。最初の眠り、真夜中にしばらく目を覚ましている時間、そして二度目の眠りです。歴史学者のロジャー・イーカーチは、何世紀も前の何百もの日記や手紙、本をたどって、そのことを明らかにしました。",
+          "lamina": "vela"
+        },
+        {
+          "id": "edison",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1879",
+            "clave": "edison"
+          },
+          "texto": "1879年、トーマス・エジソンは白熱電球の実験に成功しました。夜は光で満たされ、年を追うごとに、私たちが眠りにつく時刻はどんどん遅くなっていきました。",
+          "lamina": [
+            "edison",
+            "bombilla"
+          ]
+        },
+        {
+          "id": "cueva",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1938",
+            "clave": "cueva"
+          },
+          "texto": "1938年、生理学者のナサニエル・クライトマンは、ケンタッキー州のマンモス・ケーブという洞窟に32日間こもり、1日28時間の生活を試みました。でも、体はだまされませんでした。およそ24時間のリズムを刻みつづけたのです。",
+          "lamina": "cueva"
+        },
+        {
+          "id": "rem",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1953",
+            "clave": "rem"
+          },
+          "texto": "1953年、クライトマンと教え子のユージン・アセリンスキーが、レム睡眠を発見しました。夜のある時間帯になると、まぶたの下で目がすばやく動くこと。そして、そのときに目を覚ました人は、ほとんどいつも夢を見ていたことに気づいたのです。",
+          "lamina": "ojos"
+        },
+        {
+          "id": "nobel",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2017",
+            "clave": "nobel"
+          },
+          "texto": "そして2017年、ノーベル生理学・医学賞は、ジェフリー・ホール、マイケル・ロスバッシュ、マイケル・ヤングの3人に贈られました。ショウジョウバエを使って、体内時計の遺伝子がどう働くのかを解き明かしたからです。このあと、そこにたどり着きます。",
+          "lamina": "nobel"
+        }
+      ]
+    },
+    {
+      "id": "cuanto",
+      "titulo": "どれだけ眠ればいいのか",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート3。どれだけ眠ればいいのか。"
+        },
+        {
+          "id": "edades",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edades"
+          },
+          "texto": "米国睡眠医学会によると、大人に必要なのは、毎晩7時間以上の睡眠です。10代は8時間から10時間、小学生は9時間から12時間。それなのに、大人の3人に1人は、7時間未満しか眠っていません。",
+          "lamina": "familia"
+        },
+        {
+          "id": "deuda",
+          "escena": "bosteza",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "6 h × 14",
+            "clave": "deuda"
+          },
+          "texto": "睡眠不足は、たまっていきます。2003年の実験では、6時間睡眠を2週間続けた人たちの注意力が、最大で2晩徹夜した人と同じくらいまで落ちていました。いちばん怖いのは、本人たちは少し疲れているとしか感じていなかったことです。",
+          "meme": "cinco",
+          "lamina": "cansancio"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "calculadoraSueno"
+          },
+          "texto": "睡眠は周期でめぐっているので、深い睡眠の途中よりも、周期の終わりに目覚めたほうがすっきりします。ここで試してみてください。起きる時刻を選ぶと、寝つくまでのおよそ15分も含めて、何時に寝ればいいかを計算機が教えてくれます。",
+          "lamina": "despertador"
+        },
+        {
+          "id": "senal",
+          "escena": "estira",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinAlarma",
+              "sinCafe",
+              "despierto"
+            ]
+          },
+          "texto": "そして、いちばんの目安はあなた自身です。休みの日でも、目覚ましなしで平日と同じ時刻に目が覚める。動き出すのにコーヒーがいらない。午後のあいだずっと眠くならずにいられる。そうであれば、たぶん睡眠は足りています。",
+          "lamina": "manana"
+        }
+      ]
+    },
+    {
+      "id": "reloj",
+      "titulo": "あなたの体内時計",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート4。あなたの体内時計。"
+        },
+        {
+          "id": "circadiano",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "circadiano"
+          },
+          "texto": "脳の中には、親時計があります。視交叉上核と呼ばれる部分で、おもに光によって時刻が合わせられます。暗くなると、メラトニンが分泌されます。もう夜だよ、と体に知らせるホルモンです。",
+          "lamina": "atardecer"
+        },
+        {
+          "id": "luz",
+          "escena": "estira",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "☀ 10 min",
+            "clave": "luz"
+          },
+          "texto": "だからこそ、朝の光にはとても大きな力があります。起きてすぐに数分でも日の光を浴びると、体内時計の時刻が合い、夜、ちょうどいい時間に眠くなりやすくなります。",
+          "lamina": "sol"
+        },
+        {
+          "id": "pantallas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2015",
+            "clave": "pantallas"
+          },
+          "texto": "夜の光は、その逆の働きをします。2015年の研究では、寝る前にタブレットで読書をすると、紙の本を読んだときに比べて、メラトニンが出るのが遅れ、寝つくまでに時間がかかり、翌朝の目覚めもすっきりしませんでした。",
+          "meme": "capitulo",
+          "lamina": "pantalla"
+        },
+        {
+          "id": "cronotipo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "alondra",
+              "buho"
+            ]
+          },
+          "texto": "それに、みんなの時計が同じ時刻を指しているわけではありません。自然と早起きになるヒバリ型の人もいれば、夜のほうが調子が出るフクロウ型の人もいます。このクロノタイプは、遺伝子と年齢でかなりの部分が決まります。怠けているわけではないのです。",
+          "lamina": [
+            "alondra",
+            "buho"
+          ]
+        },
+        {
+          "id": "regular",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "60 000",
+            "clave": "regular"
+          },
+          "texto": "それでも、自分で変えられることがあります。規則正しさです。イギリスのおよそ6万人を対象にした研究では、毎日同じ時刻に眠ることが、死亡リスクの低さと結びついていて、その結びつきは、睡眠時間の長さよりも強かったのです。週末に夜ふかしして、月曜に早起きするのは、家にいながらの時差ぼけです。",
+          "lamina": "calendario"
+        }
+      ]
+    },
+    {
+      "id": "noche",
+      "titulo": "よい夜の準備のしかた",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート5。よい夜の準備のしかた。"
+        },
+        {
+          "id": "cafeina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cafeinaRestante"
+          },
+          "texto": "カフェインは、体内の量が半分になるまでに、およそ5時間かかります。ある研究では、寝る6時間前にとった多めのカフェインで、睡眠が1時間以上も削られました。寝る時刻に、体にどれだけ残っているか、ここで見てみましょう。",
+          "meme": "cafe",
+          "lamina": "cafe"
+        },
+        {
+          "id": "alcohol",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "REM ↓",
+            "clave": "alcohol"
+          },
+          "texto": "お酒は、あなたをだまします。最初は眠くなりますが、夜の後半の眠りを細切れにし、レム睡眠を減らしてしまいます。眠ってはいても、休まってはいないのです。",
+          "lamina": "copa"
+        },
+        {
+          "id": "cuarto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fresco",
+              "oscuro",
+              "silencio"
+            ]
+          },
+          "texto": "寝室も大切です。涼しく、だいたい18度くらいで、暗くて静かなこと。そして、ベッドは眠るための場所にしましょう。ベッドで仕事をしたりドラマを見たりしていると、脳はベッドと眠りを結びつけなくなってしまいます。",
+          "lamina": "recamara"
+        },
+        {
+          "id": "rutina",
+          "escena": "estira",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apaga",
+              "luces",
+              "ritual"
+            ]
+          },
+          "texto": "一日の最後の1時間を整えましょう。画面から離れ、明かりを落として、リラックスできることを、毎日同じようにします。読書でも、ぬるめのお風呂でも、ストレッチでもかまいません。それが、もうすぐ夜だよ、という体への合図になります。",
+          "lamina": [
+            "leer",
+            "estirar"
+          ]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "私は、MindHaOSの休息の部屋でやっています。寝る1時間前になると、スケジュールが、そろそろ画面から離れようと知らせてくれます。そして、ベッドサイドのランプからガイド付きの呼吸法を開いて、リラックスしています。",
+          "lamina": "lampara",
+          "enCasa": true
+        },
+        {
+          "id": "ejercicio",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+ 🏃",
+            "clave": "ejercicio"
+          },
+          "texto": "そして、昼間は体を動かしましょう。定期的な運動は、寝つきを早くし、眠りを深くしてくれます。ただし、いちばんきついトレーニングは、寝る2時間前までに済ませておきましょう。",
+          "lamina": "correr"
+        }
+      ]
+    },
+    {
+      "id": "insomnio",
+      "titulo": "眠れないときは",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート6。眠れないときは。"
+        },
+        {
+          "id": "veinte",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "20 min",
+            "clave": "veinte"
+          },
+          "texto": "しばらく、だいたい20分たっても眠れないときは、いったん起きて、薄暗い別の場所に移り、眠くなってからベッドに戻りましょう。ベッドの中で寝返りばかり打っていると、脳は、ベッドを悩みごとをする場所だと覚えてしまいます。",
+          "lamina": "insomnio"
+        },
+        {
+          "id": "siesta",
+          "escena": "bosteza",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+34 %",
+            "clave": "siesta"
+          },
+          "texto": "昼寝は、短めに、早めにとれば役に立ちます。だいたい20分、午後の半ばまでに。NASAがパイロットを対象に行った研究では、およそ26分の仮眠で、パフォーマンスが34パーセント向上しました。",
+          "meme": "siesta",
+          "lamina": "siesta"
+        },
+        {
+          "id": "terapia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "TCC-I",
+            "clave": "terapia"
+          },
+          "texto": "不眠が何週間も続くなら、最初の治療法は薬ではありません。不眠症のための認知行動療法です。米国内科学会と米国睡眠医学会が、第一の選択肢として勧めている方法です。",
+          "lamina": "terapia"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "foto",
+            "foto": "registro"
+          },
+          "texto": "そして、自分の状態を知りたければ、2週間ほど、毎晩のことを書き留めてみてください。何時に寝たか、何時に起きたか、そしてどんな気分だったか。パターンは、自然と見えてきます。",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "このガイドは情報提供のためのものです。いびきがひどく、寝ているあいだに呼吸が止まっていると言われる。日中に思わず眠り込んでしまう。不眠がなかなか治らない。そんなときは、医師に相談してください。睡眠時無呼吸症候群も、ほかの睡眠障害も、治療できます。",
+          "lamina": "medico"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "まとめです。毎日同じ時刻に、7時間以上眠る。朝は光を、夜は暗さを。カフェインとお酒に気をつける。そして、一日の最後の1時間を整える。",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "私と同じように実践してみたいなら、MindHaOSの休息の部屋には、通知と目覚ましつきの睡眠スケジュール、毎晩のスコア、そしてパターンが見えてくる夜の記録があります。リンクは概要欄にあります。そこには、このガイドのインタラクティブ版もあるので、ゆっくり見直してみてください。次のガイドでは、また別の質問を取り上げます。それでは、また。",
+    "boton": "休息の部屋を開く",
+    "lamina": "app-plan",
+    "anclas": {
+      "horario": "睡眠スケジュール",
+      "puntuacion": "スコア",
+      "registro": "夜の記録"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "aasm-adultos",
+      "texto": "Watson N. F. et al. Recommended amount of sleep for a healthy adult: a joint consensus statement of the AASM and SRS. Sleep (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/"
+    },
+    {
+      "id": "aasm-ninos",
+      "texto": "Paruthi S. et al. Recommended amount of sleep for pediatric populations: a consensus statement of the AASM. J Clin Sleep Med (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27250809/"
+    },
+    {
+      "id": "cdc-un-tercio",
+      "texto": "Liu Y. et al. Prevalence of healthy sleep duration among adults — United States, 2014. MMWR (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26890214/"
+    },
+    {
+      "id": "ninds",
+      "texto": "NINDS (NIH). Brain Basics: Understanding Sleep.",
+      "url": "https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-understanding-sleep"
+    },
+    {
+      "id": "xie-2013",
+      "texto": "Xie L. et al. Sleep drives metabolite clearance from the adult brain. Science (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24136970/"
+    },
+    {
+      "id": "ekirch-2001",
+      "texto": "Ekirch A. R. Sleep We Have Lost: Pre-industrial Slumber in the British Isles. The American Historical Review (2001).",
+      "url": "https://doi.org/10.1086/ahr/106.2.343"
+    },
+    {
+      "id": "aserinsky-1953",
+      "texto": "Aserinsky E., Kleitman N. Regularly occurring periods of eye motility, and concomitant phenomena, during sleep. Science (1953).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13089671/"
+    },
+    {
+      "id": "nobel-2017",
+      "texto": "ノーベル生理学・医学賞（2017年）：ジェフリー・C・ホール、マイケル・ロスバッシュ、マイケル・W・ヤング。",
+      "url": "https://www.nobelprize.org/prizes/medicine/2017/summary/"
+    },
+    {
+      "id": "van-dongen-2003",
+      "texto": "Van Dongen H. P. et al. The cumulative cost of additional wakefulness. Sleep (2003).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12683469/"
+    },
+    {
+      "id": "chang-2015",
+      "texto": "Chang A.-M. et al. Evening use of light-emitting eReaders negatively affects sleep, circadian timing, and next-morning alertness. PNAS (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25535358/"
+    },
+    {
+      "id": "windred-2024",
+      "texto": "Windred D. P. et al. Sleep regularity is a stronger predictor of mortality risk than sleep duration. Sleep (2024).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37738616/"
+    },
+    {
+      "id": "drake-2013",
+      "texto": "Drake C. et al. Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed. J Clin Sleep Med (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24235903/"
+    },
+    {
+      "id": "ebrahim-2013",
+      "texto": "Ebrahim I. O. et al. Alcohol and sleep I: effects on normal sleep. Alcohol Clin Exp Res (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23347102/"
+    },
+    {
+      "id": "nasa-1995",
+      "texto": "Rosekind M. R. et al. Crew factors in flight operations IX: Effects of planned cockpit rest on crew performance and alertness in long-haul operations. NASA (1994).",
+      "url": "https://ntrs.nasa.gov/citations/19950006379"
+    },
+    {
+      "id": "acp-2016",
+      "texto": "Qaseem A. et al. Management of chronic insomnia disorder in adults: a clinical practice guideline from the American College of Physicians. Ann Intern Med (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27136449/"
+    },
+    {
+      "id": "aasm-2021",
+      "texto": "Edinger J. D. et al. Behavioral and psychological treatments for chronic insomnia disorder in adults: an AASM clinical practice guideline. J Clin Sleep Med (2021).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33164742/"
+    }
+  ]
+}

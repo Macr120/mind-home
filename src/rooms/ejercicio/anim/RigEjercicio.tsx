@@ -207,6 +207,13 @@ export function RigEjercicio({
             <group position={[0, -PIVOTE_Y, 0]}>
               <group ref={hueso('tronco')} position={[0, CADERA_Y, 0]}>
                 <Caja y={0.92 - CADERA_Y} tam={[0.6, 0.62, 0.3]} color={c.torso} />
+                {/* Corbata (como en `Prendas`): nudo en el cuello + tira por el frente del torso. */}
+                {av.ropa?.corbata && (
+                  <>
+                    <Caja y={HOMBRO_Y - 0.02 - CADERA_Y} z={0.17} tam={[0.1, 0.1, 0.04]} color={av.ropa.corbata.color ?? '#1e3a8a'} />
+                    <Caja y={0.9 - CADERA_Y} z={0.165} tam={[0.12, 0.62 * 0.6, 0.03]} color={av.ropa.corbata.color ?? '#1e3a8a'} />
+                  </>
+                )}
                 <group ref={marca('espalda')} position={[0, 0.92 - CADERA_Y, -0.15]} />
                 <group ref={marca('pecho')} position={[0, 0.92 - CADERA_Y, 0.15]} />
                 <group ref={marca('hombros')} position={[0, HOMBRO_Y - CADERA_Y - 0.02, -0.15]} />

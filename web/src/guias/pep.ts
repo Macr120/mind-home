@@ -1,6 +1,8 @@
 import type { Avatar } from '../../../src/core/state/disenoStore'
 import type { ExpresionId } from '../../../src/core/house/apariencia'
-import { ATUENDOS_PRESET } from '../../../src/core/house/atuendos'
+import { ATUENDOS_PRESET, ATUENDO_POR_TEMA } from '../../../src/core/house/atuendos'
+import type { Ropa } from '../../../src/core/house/apariencia'
+import type { TemaId } from '../../../src/core/house/temas'
 import { ciclo, resolverPatron, type PatronResuelto } from '../../../src/rooms/ejercicio/anim/pose'
 import { patronDe } from '../../../src/rooms/ejercicio/anim/resolver'
 
@@ -9,7 +11,7 @@ import { patronDe } from '../../../src/rooms/ejercicio/anim/resolver'
  * amarilla, rojo y morado del logo) vestido con el atuendo del cuarto que
  * explica la guía.
  */
-export function pepCon(atuendo: string, cara?: ExpresionId): Avatar {
+export function pepCon(atuendo: string, cara?: ExpresionId, ropa?: Ropa): Avatar {
   return {
     expresion: cara,
     nombre: 'Pep@',
@@ -17,12 +19,27 @@ export function pepCon(atuendo: string, cara?: ExpresionId): Avatar {
     torso: '#f53b4b',
     piernas: '#b36bfb',
     escala: 1,
-    ropa: ATUENDOS_PRESET.find((a) => a.id === atuendo)?.ropa ?? {},
+    ropa: ropa ?? ATUENDOS_PRESET.find((a) => a.id === atuendo)?.ropa ?? {},
   }
 }
 
 /** Atuendo del narrador según el tema de la guía. */
-export const ATUENDO_GUIA: Record<string, string> = { ejercicio: 'deportista' }
+export const ATUENDO_GUIA: Record<string, string> = { ejercicio: 'deportista', cocina: 'chef', descanso: 'pijama', finanzas: 'oficinista' }
+
+/**
+ * Guías en las que el tiempo avanza con las partes (Arte): la casa del video cambia de
+ * tema parte a parte (escena.mjs) y Pep@ lleva en la página el atuendo de ese tema.
+ */
+export const EPOCAS_GUIA: Record<string, TemaId[]> = { arte: ['medieval', 'pirata', 'vaquero', 'tren', 'cyberpunk', 'nave'] }
+
+/** La ropa de la época de la parte `parte` (antes de empezar, la primera; en el cierre, la última). */
+export function ropaDeEpoca(tema: string, parte: number): Ropa | undefined {
+  const epocas = EPOCAS_GUIA[tema]
+  return epocas && ATUENDO_POR_TEMA[epocas[Math.min(Math.max(parte, 0), epocas.length - 1)]]
+}
+
+/** Las guías que no narra Pep@: Idiomas la cuenta el mago (el asistente de fábrica de la app). */
+export const NARRADOR_GUIA: Record<string, 'mago'> = { idiomas: 'mago' }
 
 /**
  * Gestos del narrador cuando no hace un ejercicio. Mismo DSL que los
@@ -66,6 +83,49 @@ const GESTOS: Record<string, PatronResuelto> = {
   // Pensando (miniaturas): mano derecha a la barbilla, el otro brazo cruzado debajo, mirada arriba.
   pensando: resolverPatron(
     ciclo(4, [{ t: 0, pose: { hombroI: [62, -66, 0], codoI: 100, hombroD: [15, -35, 0], codoD: 100, cuello: [-16, 18, 6], tronco: [0, 8, 0] } }], { camara: 'frente' }),
+  ),
+  // Cocina: remueve una olla (la izquierda la sujeta, la derecha da vueltas a la cuchara).
+  remueve: resolverPatron(
+    ciclo(1.3, [
+      { t: 0, pose: { hombroD: [40, 15, 0], codoD: 75, hombroI: [32, -8, 0], codoI: 85, tronco: [8, 0, 0], cuello: [14, 0, 0] } },
+      { t: 0.25, pose: { hombroD: [50, 26, 0], codoD: 64, hombroI: [32, -8, 0], codoI: 85, tronco: [8, 0, 0], cuello: [14, 0, 0] } },
+      { t: 0.5, pose: { hombroD: [42, 36, 0], codoD: 74, hombroI: [32, -8, 0], codoI: 85, tronco: [8, 0, 0], cuello: [14, 0, 0] } },
+      { t: 0.75, pose: { hombroD: [32, 26, 0], codoD: 86, hombroI: [32, -8, 0], codoI: 85, tronco: [8, 0, 0], cuello: [14, 0, 0] } },
+    ], { camara: 'frente' }),
+  ),
+  // Cocina: pica sobre la tabla (el antebrazo derecho sube y baja; la izquierda sujeta).
+  pica: resolverPatron(
+    ciclo(0.55, [
+      { t: 0, pose: { hombroD: [38, 12, 0], codoD: 55, hombroI: [30, -18, 0], codoI: 92, tronco: [12, 0, 0], cuello: [20, 0, 0] } },
+      { t: 0.5, pose: { hombroD: [30, 12, 0], codoD: 96, hombroI: [30, -18, 0], codoI: 92, tronco: [12, 0, 0], cuello: [20, 0, 0] } },
+    ], { camara: 'frente' }),
+  ),
+  // Cocina: un trago de agua y baja el vaso.
+  bebe: resolverPatron(
+    ciclo(3.6, [
+      { t: 0, pose: { hombroD: [22, 10, 0], codoD: 95 } },
+      { t: 0.25, pose: { hombroD: [62, 12, 0], codoD: 140, cuello: [-16, 0, 0] } },
+      { t: 0.6, pose: { hombroD: [62, 12, 0], codoD: 140, cuello: [-16, 0, 0] } },
+      { t: 0.85, pose: { hombroD: [22, 10, 0], codoD: 95 } },
+    ], { camara: 'frente', utiles: ['agua'] }),
+  ),
+  // Descanso: un bostezo (la mano a la boca, el otro brazo se estira hacia arriba).
+  bosteza: resolverPatron(
+    ciclo(3.6, [
+      { t: 0, pose: { hombroD: [18, 12, 0], codoD: 55, hombroI: [12, 8, 0], codoI: 35 } },
+      { t: 0.3, pose: { hombroD: [62, 12, 0], codoD: 140, hombroI: [160, 12, 0], codoI: 25, cuello: [-14, 0, 0], tronco: [-4, 0, 0] } },
+      { t: 0.6, pose: { hombroD: [62, 12, 0], codoD: 140, hombroI: [165, 8, 0], codoI: 15, cuello: [-16, 0, 0], tronco: [-5, 0, 0] } },
+      { t: 0.85, pose: { hombroD: [18, 12, 0], codoD: 55, hombroI: [12, 8, 0], codoI: 35 } },
+    ], { camara: 'frente' }),
+  ),
+  // Descanso: se estira con los dos brazos arriba (al despertar, antes de dormir).
+  estira: resolverPatron(
+    ciclo(3.4, [
+      { t: 0, pose: { hombro: [15, 10, 0], codo: 30 } },
+      { t: 0.35, pose: { hombro: [168, 14, 0], codo: 10, tronco: [-7, 0, 0], cuello: [-10, 0, 0] } },
+      { t: 0.65, pose: { hombro: [172, 18, 0], codo: 6, tronco: [-8, 0, 0], cuello: [-12, 0, 0] } },
+      { t: 0.9, pose: { hombro: [15, 10, 0], codo: 30 } },
+    ], { camara: 'frente' }),
   ),
   // Señala hacia el contenido: a la derecha de la pantalla = su mano izquierda.
   senala: resolverPatron(

@@ -1,7 +1,11 @@
 // Monta los videos de una guía a partir de las tomas de grabar.mjs y casa.mjs:
 //   salida/<id>/final/completo.mp4    la casa → las partes → el cierre → de vuelta a la casa, con capítulos
-//   salida/<id>/final/parte-N.mp4     la casa → la parte → el cierre → de vuelta a la casa
+//   salida/<id>/final/parte-N.mp4     su línea destacada (el gancho) → la parte → el cierre → de vuelta a la casa
 //   salida/<id>/final/capitulos.txt   marcas de tiempo para la descripción de YouTube
+//
+// Las tomas intermedias de la escena (casa-<extra>, Pep@ abriendo las otras
+// entradas del cuarto) van así: sin voz, de puente entre la casa y la página;
+// con voz, dentro de la toma de la página que se saltó esa línea (parte-N.json).
 //
 //   node marketing/guias/montar.mjs ejercicio [--lang=es]
 //
@@ -14,6 +18,7 @@
 // tramo por parte, que destella al terminar cada una.
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
+import { pathToFileURL } from 'node:url'
 import { FFMPEG, FFPROBE, LADO, RAIZ, ejecutar } from './cdp.mjs'
 
 const args = process.argv.slice(2)
@@ -28,6 +33,8 @@ const SONIDOS = path.resolve(RAIZ, '..', '..', 'web', 'public', 'guias', 'sonido
 const EFECTOS = path.join(RAIZ, 'efectos')
 const VOCES = path.resolve(RAIZ, '..', '..', 'web', 'public', 'guias', tema, 'audio', idioma)
 mkdirSync(FINAL, { recursive: true })
+/** Lo propio del cuarto: los efectos de ambiente de la toma de entrada. */
+const ESCENA = await import(pathToFileURL(path.join(RAIZ, tema, 'escena.mjs')).href)
 
 const tomas = Array.from({ length: N + 1 }, (_, i) => path.join(TOMAS, `parte-${i + 1}.mp4`))
 for (const t of [...tomas, path.join(TOMAS, 'casa-entrada.mp4'), path.join(TOMAS, 'casa-salida.mp4'), path.join(TOMAS, 'casa-entrada.json')]) {
@@ -99,10 +106,14 @@ function barra(durs) {
   return f.join(';')
 }
 
-/** Música de fondo (marketing/guias/musica/, créditos en musica.json): suenan por turnos, bajo la voz. */
+/**
+ * Música de fondo (marketing/guias/musica/, créditos en musica.json): suenan por turnos, bajo la voz.
+ * Un tema puede llevar su propia lista, en su orden: musica/<tema>.json.
+ */
 const MUSICA = path.join(RAIZ, 'musica')
+const LISTA = existsSync(path.join(MUSICA, `${tema}.json`)) ? `${tema}.json` : 'musica.json'
 const CANCIONES = await Promise.all(
-  JSON.parse(readFileSync(path.join(MUSICA, 'musica.json'), 'utf8')).canciones.map(async (c) => ({ ...c, ruta: path.join(MUSICA, c.archivo), dur: await duracion(path.join(MUSICA, c.archivo)) })),
+  JSON.parse(readFileSync(path.join(MUSICA, LISTA), 'utf8')).canciones.map(async (c) => ({ ...c, ruta: path.join(MUSICA, c.archivo), dur: await duracion(path.join(MUSICA, c.archivo)) })),
 )
 /** Volumen de la música sin voz encima; con voz, el compresor la baja (ducking). */
 const VOLUMEN_MUSICA = 0.15
@@ -163,24 +174,6 @@ async function unir(clips, salida, metadatos, tramos, primeraCancion = 0) {
   )
 }
 
-/**
- * Efectos sutiles de la entrada, colgados de los cortes de plano que midió
- * casa.mjs (uno por frase y el último al alejarse): pasos y motor de la
- * caminadora mientras se ve a Pep@ de cerca, un «blip» tras cada pregunta del
- * gancho (frases 1 y 4) y una subida que lleva al alejarse hasta la casa.
- */
-function ambienteCaminadora(cortes) {
-  if (cortes.length < 5) return []
-  const alejarse = cortes[cortes.length - 1]
-  return [
-    { archivo: path.join(EFECTOS, 'pasos-caminadora.mp3'), en: 0, volumen: 0.2, hasta: alejarse + 1.5, fuera: 1.5 },
-    { archivo: path.join(EFECTOS, 'motor.mp3'), en: 0, volumen: 0.22, hasta: alejarse + 1.5, fuera: 1.5 },
-    { archivo: path.join(EFECTOS, 'pregunta.mp3'), en: cortes[0] - 0.25, volumen: 0.3 },
-    { archivo: path.join(EFECTOS, 'pregunta.mp3'), en: cortes[3] - 0.25, volumen: 0.3 },
-    { archivo: path.join(EFECTOS, 'subida.mp3'), en: alejarse - 0.5, volumen: 0.28 },
-  ]
-}
-
 // La entrada: la voz del gancho y de la mención donde casa.mjs las midió, y el «wow» con la casa entera.
 // La salida pasa a tercera persona a ~5,5 s.
 const marcas = JSON.parse(readFileSync(path.join(TOMAS, 'casa-entrada.json'), 'utf8'))
@@ -190,14 +183,97 @@ const entrada = await conAudio('casa-entrada', [
   // Un soplo suave en cada cambio de plano.
   ...(marcas.cortes ?? []).map((en) => ({ archivo: path.join(SONIDOS, 'whoosh.mp3'), en: Math.max(0, en - 0.15), volumen: 0.18 })),
   { archivo: path.join(SONIDOS, 'wow.mp3'), en: marcas.wow, volumen: 0.5 },
-  ...ambienteCaminadora(marcas.cortes ?? []),
+  ...ESCENA.ambiente(marcas.cortes ?? [], EFECTOS),
 ])
 const salida = await conAudio('casa-salida', [{ archivo: path.join(SONIDOS, 'nice.mp3'), en: 5.4, volumen: 0.5 }])
-const dEntrada = await duracion(entrada)
+
+// Las tomas intermedias con su voz (si la llevan) y un «tic» al tocar la entrada.
+const extras = []
+for (const x of ESCENA.TOMAS_EXTRA ?? []) {
+  const nombre = `casa-${x.nombre}`
+  const m = JSON.parse(readFileSync(path.join(TOMAS, `${nombre}.json`), 'utf8'))
+  const clip = await conAudio(nombre, [
+    ...(m.voz ? [{ archivo: path.join(VOCES, `${m.voz.clave}.mp3`), en: m.voz.en, volumen: 1 }] : []),
+    ...(m.toque != null ? [{ archivo: path.join(SONIDOS, 'tic.mp3'), en: m.toque + 0.2, volumen: 0.35 }] : []),
+  ])
+  extras.push({ voz: x.voz, clip })
+}
+/** Sin voz: puentes entre la entrada en la casa y la página. */
+const puentes = extras.filter((x) => !x.voz).map((x) => x.clip)
+
+/**
+ * Una toma de la página con sus tomas de la casa metidas donde se saltó su
+ * línea (parte-N.json de grabar.mjs) → la lista de clips que la forman.
+ */
+async function conInsertos(i) {
+  const ruta = path.join(TOMAS, `parte-${i + 1}.json`)
+  if (!existsSync(ruta) || !JSON.parse(readFileSync(ruta, 'utf8')).cortes?.length) return [tomas[i]]
+  const clips = []
+  let desde = 0
+  const trozo = async (k, de, dur) => {
+    const salidaTrozo = path.join(FINAL, `parte-${i + 1}-${k}.mp4`)
+    await ejecutar(FFMPEG, ['-y', '-ss', String(de), ...(dur != null ? ['-t', String(dur)] : []), '-i', tomas[i], '-c:v', 'libx264', '-preset', 'medium', '-crf', '19', '-c:a', 'aac', '-b:a', '160k', salidaTrozo])
+    return salidaTrozo
+  }
+  for (const [k, c] of JSON.parse(readFileSync(ruta, 'utf8')).cortes.entries()) {
+    const x = extras.find((e) => e.voz === c.clave)
+    if (!x) throw new Error(`la toma de la página ${i + 1} se saltó ${c.clave}, pero la escena no tiene su toma de la casa`)
+    clips.push(await trozo(k, desde, c.en - desde), x.clip)
+    desde = c.en
+  }
+  clips.push(await trozo('fin', desde))
+  return clips
+}
+/**
+ * El gancho de la parte suelta: su línea `destacada`, recortada de la toma de la
+ * página (grabar.mjs apunta dónde empieza cada línea), con un fundido corto al
+ * final. Sin línea destacada (o sin marcas), la parte suelta abre con la casa.
+ */
+async function anzuelo(i) {
+  const linea = guion.partes[i].lineas.find((l) => l.destacada && !l.enCasa)
+  const ruta = path.join(TOMAS, `parte-${i + 1}.json`)
+  if (!linea || !existsSync(ruta)) return null
+  const marcas = JSON.parse(readFileSync(ruta, 'utf8')).lineas ?? []
+  const k = marcas.findIndex((m) => m.clave === `${guion.partes[i].id}.${linea.id}`)
+  if (k < 0) return null
+  const de = marcas[k].en
+  const hasta = marcas[k + 1]?.en ?? de + (tiemposVoz[marcas[k].clave] ?? 10) + 0.4
+  const dur = hasta - de
+  const salida = path.join(FINAL, `anzuelo-${i + 1}.mp4`)
+  await ejecutar(FFMPEG, [
+    '-y', '-ss', String(de), '-t', String(dur), '-i', tomas[i],
+    '-vf', `fade=t=out:st=${(dur - 0.35).toFixed(3)}:d=0.35`, '-af', `afade=t=out:st=${(dur - 0.35).toFixed(3)}:d=0.35`,
+    '-c:v', 'libx264', '-preset', 'medium', '-crf', '19', '-c:a', 'aac', '-b:a', '160k', salida,
+  ])
+  return salida
+}
+const tiemposVoz = JSON.parse(readFileSync(path.join(VOCES, 'tiempos.json'), 'utf8'))
+
+/**
+ * La entrada del video completo con la pregunta en grande encima (titulo.png de
+ * casa.mjs) los primeros segundos: así quien pasa el dedo sabe de qué va antes de decidir.
+ */
+async function conTitulo(clip) {
+  const png = path.join(TOMAS, 'titulo.png')
+  if (!existsSync(png)) return clip
+  const salida = path.join(FINAL, 'casa-entrada-titulo.mp4')
+  await ejecutar(FFMPEG, [
+    '-y', '-i', clip, '-loop', '1', '-t', '3.6', '-i', png,
+    '-filter_complex', '[1:v]format=rgba,fade=t=out:st=2.9:d=0.7:alpha=1[t];[0:v][t]overlay=0:0:eof_action=pass[v]',
+    '-map', '[v]', '-map', '0:a', '-c:v', 'libx264', '-preset', 'medium', '-crf', '19', '-c:a', 'copy', salida,
+  ])
+  return salida
+}
+
+/** Cada parte (y el cierre) como lista de clips, con su duración. */
+const segmentos = []
+for (let i = 0; i <= N; i++) segmentos.push(await conInsertos(i))
+const dur = async (clips) => (await Promise.all(clips.map(duracion))).reduce((a, b) => a + b, 0)
+const durs = await Promise.all(segmentos.map(dur))
+const dEntrada = await dur([entrada, ...puentes])
 const dSalida = await duracion(salida)
 
 // ─── Completo con capítulos ───
-const durs = await Promise.all(tomas.map(duracion))
 const capitulos = [{ inicio: 0, fin: dEntrada, titulo: guion.pregunta }]
 let t = dEntrada
 for (let i = 0; i < N; i++) {
@@ -212,14 +288,18 @@ const ffmeta =
   capitulos.map((m) => `[CHAPTER]\nTIMEBASE=1/1000\nSTART=${Math.round(m.inicio * 1000)}\nEND=${Math.round(m.fin * 1000)}\ntitle=${m.titulo}\n`).join('')
 const rutaMeta = path.join(FINAL, 'capitulos.ffmeta')
 writeFileSync(rutaMeta, ffmeta)
-// Un tramo por capítulo: el cierre y la vuelta a la casa van juntos.
-await unir([entrada, ...tomas, salida], path.join(FINAL, 'completo.mp4'), rutaMeta, [1, ...Array(N).fill(1), 2])
+// Un tramo por capítulo (con sus tomas metidas); el cierre y la vuelta a la casa van juntos.
+const inicio = [await conTitulo(entrada), ...puentes]
+await unir([...inicio, ...segmentos.flat(), salida], path.join(FINAL, 'completo.mp4'), rutaMeta, [inicio.length, ...segmentos.slice(0, N).map((x) => x.length), segmentos[N].length + 1])
 writeFileSync(path.join(FINAL, 'capitulos.txt'), capitulos.map((m) => `${mmss(m.inicio)} ${m.titulo}`).join('\n') + '\n')
 console.log(`✓ completo.mp4 · ${mmss(total)}`)
 
-// ─── Partes sueltas: la casa + la parte (que lee su título) + el cierre + la casa ───
+// ─── Partes sueltas: su línea destacada + la parte (que lee su título) + el cierre + la casa ───
 for (let n = 1; n <= N; n++) {
+  // En redes los primeros segundos deciden: abre con lo más fuerte de la parte (sin ella, con la casa).
+  const gancho = await anzuelo(n - 1)
+  const abre = gancho ? [gancho] : inicio
   // Cada parte suelta empieza con otra canción, para que no suenen todas igual.
-  await unir([entrada, tomas[n - 1], tomas[N], salida], path.join(FINAL, `parte-${n}.mp4`), null, [1, 1, 2], n)
-  console.log(`✓ parte-${n}.mp4 · ${mmss(dEntrada + durs[n - 1] + durs[N] + dSalida)}`)
+  await unir([...abre, ...segmentos[n - 1], ...segmentos[N], salida], path.join(FINAL, `parte-${n}.mp4`), null, [abre.length, segmentos[n - 1].length, segmentos[N].length + 1], n)
+  console.log(`✓ parte-${n}.mp4 · ${mmss((gancho ? await duracion(gancho) : dEntrada) + durs[n - 1] + durs[N] + dSalida)}`)
 }

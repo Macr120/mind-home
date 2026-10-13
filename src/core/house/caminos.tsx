@@ -12,6 +12,7 @@ import { cellToWorld, HALF, SIZE } from './walls'
 import { esquinaDe, puntoArco, alturaArco, H, type ArcoEsquina } from './caminosCurvas'
 import type { CaminoCelda } from '../data/db'
 import { pulsacionLargaAbrirEditor } from './pulsacionLarga'
+import { useMapaVisible } from './mapaVisible'
 
 /** Base de los caminos: apenas sobre el tope del piso exterior (~0.19; los objetos de mapa van a 0.2). */
 const Y = 0.2
@@ -528,6 +529,7 @@ export function Caminos3D() {
   const filas = caminosRepo.useAll() ?? VACIO
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
+  const mv = useMapaVisible()
   const mapa = useMemo(() => {
     const m = new Map<string, CaminoCelda>()
     for (const f of filas) m.set(`${f.col},${f.row}`, f)
@@ -543,7 +545,7 @@ export function Caminos3D() {
       }
     >
       {filas
-        .filter((f) => f.col < gridCols && f.row < gridRows)
+        .filter((f) => f.col < gridCols && f.row < gridRows && !mv?.oculta(f.col, f.row))
         .map((f) => {
           const [wx, , wz] = cellToWorld(f.col, f.row)
           return (

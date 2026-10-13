@@ -1,0 +1,685 @@
+{
+  "idioma": "zh",
+  "tema": "arte",
+  "plantillaId": "arte",
+  "numero": 6,
+  "nombre": "艺术工作室",
+  "pregunta": "什么是艺术？",
+  "corta": "什么是艺术？",
+  "subtitulo": "什么是视觉艺术；为什么即使今天人工智能几秒钟就能画画，自己动手做艺术仍然值得；艺术如何从洞穴走到屏幕；一件作品由哪些元素构成；怎样观看它；怎样开始创作；以及每天十五分钟的计划。",
+  "aviso": "本指南仅供参考：文中引用的日期、数字和研究均为其来源的近似值，每个人都会按自己的节奏进步。",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando').",
+    "visual": "Bloque que acompaña la línea: dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título). No puede ser enCasa.",
+    "corta": "La pregunta en pocas palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su Studio Arte y las de en medio sobre las tomas de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "epocas": "La casa y la ropa de Pep@ avanzan en el tiempo con las partes: medieval, pirata, vaquero, tren, cyberpunk y nave espacial (escena.mjs y pep.ts). Pep@ lo explica en la mención del inicio y lo recuerda en cada toma de la casa.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «galería», «lienzo por capas» y «ayudas de dibujo»; app2d.mjs mueve la app justo al decirlas.",
+    "ia": "La línea «ia» responde por qué hacer arte aunque una IA ya pinte: lo que te pasa al hacerlo (estrés, memoria, mirada)."
+  },
+  "partes": [
+    {
+      "id": "arte",
+      "titulo": "什么是艺术",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "什么是艺术？如今，人工智能几秒钟就能画出一幅画。可即便如此，几乎所有成年人都说自己连一条直线都画不直。那为什么还要自己动手做艺术？接下来几分钟，你会看到什么是视觉艺术、它如何从洞穴走到屏幕、怎么看、怎么开始画，最后带着一份从今天就能动手创作的计划离开。",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "顺便说一下，这是我在MindHaOS里的家。在我的艺术工作室里，我在画架上画画，把画作收进画廊。再看看这座房子：今天它是一座中世纪的城堡，每到新的一部分，它都会往前穿越一个时代，一直到未来。我们开始吧。",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第一部分。什么是艺术。"
+        },
+        {
+          "id": "definicion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hacer",
+              "mirar",
+              "sentir"
+            ]
+          },
+          "texto": "艺术的定义有很多，但几乎都认同一点：艺术是一个人创作出来，让另一个人去看、去感受或去思考的东西。1897年，俄国作家列夫·托尔斯泰这样说：艺术，就是把你亲身体验过的情感传染给别人。",
+          "lamina": [
+            "tolstoi",
+            "galeria"
+          ]
+        },
+        {
+          "id": "visuales",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "dibujo",
+              "pintura",
+              "escultura",
+              "fotografia",
+              "digital"
+            ]
+          },
+          "texto": "这份指南讲的是视觉艺术，也就是用眼睛看的艺术：素描、绘画、雕塑、摄影，还有今天的数字插画。它们用的都是同样的东西：线条、形状、光和色彩。",
+          "lamina": [
+            "pinturas",
+            "escultura"
+          ]
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "3 de 4",
+            "clave": "cortisol"
+          },
+          "texto": "既然人工智能几秒钟就能画画，为什么还要自己画？因为艺术的价值不只在于结果，还在于你创作时自己身上发生的变化。2016年，在美国德雷塞尔大学，吉里贾·凯马尔在人们做四十五分钟艺术的前后，测量了压力激素皮质醇：四个人里有三个人的皮质醇下降了，不管会不会画画。",
+          "lamina": [
+            "acuarela",
+            "notas"
+          ]
+        },
+        {
+          "id": "memoria",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "efectoDibujo"
+          },
+          "texto": "它还能帮你思考：2016年，在加拿大滑铁卢大学，学生们对自己画过的词，比只写过的词记得牢得多。机器可以替你做出图像，但不能替你去看、去想、去感受。",
+          "lamina": [
+            "estudiante",
+            "ojo"
+          ]
+        },
+        {
+          "id": "talento",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "creer",
+              "ver",
+              "entrenar"
+            ]
+          },
+          "texto": "那天赋呢？小时候，我们都毫无顾虑地画画，到了十岁左右，很多人就放弃了，因为画出来不像真的。但研究者丽贝卡·张伯伦和约翰·瓦格曼斯发现，大多数错误来自我们怎么看，而不是来自手。而看，是可以练的。",
+          "meme": "simbolos",
+          "lamina": [
+            "nino",
+            "crayones"
+          ]
+        },
+        {
+          "id": "castillo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lapiz",
+              "papel",
+              "tableta"
+            ]
+          },
+          "texto": "看看这座房子：它是一座中世纪的城堡。那个年代，几乎所有艺术都是为教堂和宫殿而画，能画画的人寥寥无几。今天，要开始，只需要一支铅笔和一张纸，或者一台平板。",
+          "lamina": "lapices",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "视觉艺术简史",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第二部分。视觉艺术简史。"
+        },
+        {
+          "id": "cuevas",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaArte"
+          },
+          "texto": "早在文字出现之前，我们就在创作艺术了。在印度尼西亚苏拉威西岛的一个洞穴里，有一幅人和一头野猪在一起的画面，至少画于五万一千年前。而在法国的拉斯科，洞壁上的马和牛大约有一万七千年的历史。",
+          "lamina": [
+            "sulawesi",
+            "lascaux"
+          ]
+        },
+        {
+          "id": "perspectiva",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1415",
+            "clave": "perspectiva"
+          },
+          "texto": "几个世纪以来，人物都画得很扁平。大约1415年，在佛罗伦萨，建筑师菲利波·布鲁内莱斯基用一面镜子展示了深度是怎样被看到的；1435年，莱昂·巴蒂斯塔·阿尔贝蒂在一本写给画家的书里把它讲清楚了：文艺复兴的透视法就这样诞生了。",
+          "lamina": [
+            "brunelleschi",
+            "alberti"
+          ]
+        },
+        {
+          "id": "durero",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1525",
+            "clave": "durero"
+          },
+          "texto": "看：房子往前穿越了时代，现在变成了一艘船，就像欧洲人远渡重洋的那个年代。1525年，德国人阿尔布雷希特·丢勒出版了一本手册，里面有一种网格，用来把眼前所见一格一格地临摹下来。",
+          "lamina": [
+            "durero",
+            "rejilla"
+          ],
+          "enCasa": true
+        },
+        {
+          "id": "fotografia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1839",
+            "clave": "fotografia"
+          },
+          "texto": "1839年，摄影术在巴黎公布。很多人以为绘画要消失了，结果恰恰相反：画家们不再细致地复制现实，而是走出去追寻光和色彩。1874年，印象派举办了他们的第一次展览。",
+          "lamina": [
+            "daguerre",
+            "monet"
+          ]
+        },
+        {
+          "id": "duchamp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1917",
+            "clave": "duchamp"
+          },
+          "texto": "1917年，马塞尔·杜尚把一个签了假名的瓷质小便池送到纽约的一个展览，并把它叫作《泉》。它被拒绝了，却留下了现代艺术的大问题：它是艺术，是因为做得好，还是因为有人选中它，请你去看？",
+          "lamina": "fuente"
+        },
+        {
+          "id": "sketchpad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1963",
+            "clave": "sketchpad"
+          },
+          "texto": "1963年，伊凡·苏泽兰开发了Sketchpad，第一个在屏幕上画画的程序。平板由此而来，今天的人工智能也是。工具在变，而我们想表达什么，这个问题始终属于我们自己。",
+          "lamina": [
+            "sketchpad",
+            "tableta"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "elementos",
+      "titulo": "一件作品的元素",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第三部分。一件作品的元素。"
+        },
+        {
+          "id": "elementos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "formas"
+          },
+          "texto": "每一件视觉作品，从洞穴到屏幕，都是用同样的元素构成的：线条、形状、明度，也就是明和暗，还有色彩、质感和空间。你看到的几乎一切，都可以用四种形体搭出来：立方体、球体、圆柱体和圆锥体。",
+          "lamina": [
+            "formas",
+            "taza"
+          ]
+        },
+        {
+          "id": "valores",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "valores"
+          },
+          "texto": "让物体有体积的是光。一个物体之所以看起来是立体的，靠的是它的明度：亮面、中间调、暗面、反光和投影。眯起眼睛：细节消失了，只剩下大块的光和影。",
+          "lamina": [
+            "esfera",
+            "claroscuro"
+          ]
+        },
+        {
+          "id": "color",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "circulo"
+          },
+          "texto": "色彩也有自己的历史：1704年，艾萨克·牛顿把颜色排成了一个圆环。但一种颜色起作用，主要靠的是它的明度：一幅作品如果黑白看着好，上了色也会好看。",
+          "lamina": [
+            "newton",
+            "pinturas"
+          ]
+        },
+        {
+          "id": "composicion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "tercios"
+          },
+          "texto": "还有构图：画面里所有东西怎么安排。画家和摄影师的一个经典技巧是三分法：把画面横竖各分成三份，把重要的东西放在其中一个交叉点上，而不是正中间。",
+          "lamina": [
+            "fotografo",
+            "galeria2"
+          ]
+        },
+        {
+          "id": "oeste",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "brazo",
+              "unidad",
+              "compara"
+            ]
+          },
+          "texto": "现在，房子来到了十九世纪的美国西部，那是摄影的年代，所以一切都是棕褐色的。为了把握比例，画家会测量：手臂伸直，用铅笔量出一个长度，然后比较。",
+          "lamina": "medir",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "mirar",
+      "titulo": "怎样看一件作品",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第四部分。怎样看一件作品。"
+        },
+        {
+          "id": "museo",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 27 s",
+            "clave": "museo"
+          },
+          "texto": "你会看一幅画多久？2001年，杰弗里·史密斯和丽莎·史密斯观察了纽约大都会艺术博物馆的参观者：他们在每件作品前平均只停留大约二十七秒，比读完旁边的说明牌还短。",
+          "lamina": [
+            "museo",
+            "louvre"
+          ]
+        },
+        {
+          "id": "mesas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mesas"
+          },
+          "texto": "而且，看清楚并不容易。这两张桌子看起来大小差很多，对吧？其实一模一样：这个错觉是心理学家罗杰·谢泼德在1990年画的。你的大脑会根据它知道的东西去修正它看到的东西。点这里，自己验证一下。",
+          "lamina": "ilusion"
+        },
+        {
+          "id": "feldman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "describe",
+              "analiza",
+              "interpreta",
+              "juzga"
+            ]
+          },
+          "texto": "为了慢慢看，艺术教育家埃德蒙·费尔德曼在1970年提出了四个步骤：描述你看到了什么，分析它是怎么做的，解读它想表达什么，最后才判断你喜不喜欢。",
+          "lamina": [
+            "copista",
+            "retrato"
+          ]
+        },
+        {
+          "id": "tren",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 min",
+            "clave": "unaObra"
+          },
+          "texto": "房子现在变成了一列火车：我们来到了工业时代，艺术走出宫殿，走上街头、海报和报纸。今天就试试：选一件作品，在博物馆里或者在手机上，看它十分钟。",
+          "lamina": "galeria",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "hacer",
+      "titulo": "怎样开始创作",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第五部分。怎样开始创作。"
+        },
+        {
+          "id": "alreves",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "alReves"
+          },
+          "texto": "为了画你看到的，而不是你以为知道的，有一个很有名的练习，出自贝蒂·爱德华兹1979年的书：把一幅画倒过来临摹。因为认不出画的是什么，你就不再画符号，而是临摹线条和角度。",
+          "lamina": [
+            "mano",
+            "copiar"
+          ]
+        },
+        {
+          "id": "ojos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "ojos"
+          },
+          "texto": "眼睛在脸上的什么位置？几乎所有人都画得太高了。其实它们在头部的正中间，在下巴和头顶之间。在这里移动眼睛的那条线，验证一下。",
+          "meme": "ojos",
+          "lamina": "retrato2"
+        },
+        {
+          "id": "gesto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cronometro"
+          },
+          "texto": "画快速的动态速写：从三十秒到两分钟，只画动作，不画细节。它们逼你看到最本质的东西，也让你不再害怕出错。",
+          "lamina": [
+            "gesto",
+            "modelo"
+          ]
+        },
+        {
+          "id": "copiar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1793",
+            "clave": "louvre"
+          },
+          "texto": "临摹大师。卢浮宫从1793年开馆起就允许人们临摹它的画作。临摹会让你看到，别人是怎么解决你正头疼的同一个问题的。",
+          "lamina": [
+            "copista2",
+            "figura"
+          ]
+        },
+        {
+          "id": "cuaderno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "100",
+            "clave": "cuaderno"
+          },
+          "texto": "再随身带一个速写本：画你面前的东西，你的杯子、你的鞋子、候诊室里的人。数量比完美更重要：你的头一百张画，是用来学习的。",
+          "meme": "cien",
+          "lamina": [
+            "cuaderno",
+            "cafe"
+          ]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "看：房子已经来到了数字时代，到处都是霓虹灯和屏幕。我就在MindHaOS的艺术工作室里画：分图层画，用网格和镜像，每一幅作品都留在我的画廊里。",
+          "lamina": "caballete",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "你的起步计划",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第六部分。你的起步计划。"
+        },
+        {
+          "id": "meta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "100 × 100",
+            "clave": "meta"
+          },
+          "texto": "给自己定一个小而具体的目标：比如，一百天画一百张。一个能数得清的目标，会让你每天都回来。",
+          "lamina": "calendario"
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dibujosAno"
+          },
+          "texto": "你不需要很多时间：每天十五分钟，一年就超过九十个小时。在这里调一下你的分钟数，看看一年能画出多少幅作品。",
+          "lamina": "reloj"
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "一种可能的一周安排：周一画轮廓；周二画形体；周三画快速动态；周四画光影；周五看一件作品十分钟，然后临摹它；周末，画你想画的。",
+          "lamina": [
+            "semana",
+            "acuarela2"
+          ]
+        },
+        {
+          "id": "futuro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "amigo",
+              "clase",
+              "internet"
+            ]
+          },
+          "texto": "房子终于来到了未来：它是一艘宇宙飞船。工具还会继续变，但艺术永远需要一个会去看、会去感受的人。所以，把你的作品拿给别人看：给朋友，在课堂上，或者在网上。",
+          "lamina": "antesDespues",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "总结一下：艺术就是做出一样东西，让别人去看、去感受；它值得，是因为创作时你身上发生的变化；慢慢看，看光、形和色；每天创作一点点。",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "如果你想像我这样开始创作，MindHaOS的艺术工作室里有存放作品的画廊、自动保存的分层画布，还有网格和镜像这样的绘画辅助工具。链接在简介里，那里还有这份互动版指南。下次见。",
+    "boton": "打开艺术工作室",
+    "lamina": "app-plan",
+    "anclas": {
+      "galeria": "画廊",
+      "capas": "分层画布",
+      "ayudas": "绘画辅助工具"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "tolstoi-1897",
+      "texto": "托尔斯泰 L.《什么是艺术？》(1897).",
+      "url": "https://en.wikipedia.org/wiki/What_Is_Art%3F"
+    },
+    {
+      "id": "kaimal-2016",
+      "texto": "Kaimal G., Ray K., Muniz J. Reduction of Cortisol Levels and Participants' Responses Following Art Making. Art Therapy (2016).",
+      "url": "https://doi.org/10.1080/07421656.2016.1166832"
+    },
+    {
+      "id": "wammes-2016",
+      "texto": "Wammes J. D., Meade M. E., Fernandes M. A. The drawing effect: Evidence for reliable and robust memory benefits in free recall. Quarterly Journal of Experimental Psychology (2016).",
+      "url": "https://doi.org/10.1080/17470218.2015.1094494"
+    },
+    {
+      "id": "chamberlain-2016",
+      "texto": "Chamberlain R., Wagemans J. The genesis of errors in drawing. Neuroscience & Biobehavioral Reviews (2016).",
+      "url": "https://doi.org/10.1016/j.neubiorev.2016.04.002"
+    },
+    {
+      "id": "oktaviana-2024",
+      "texto": "Oktaviana A. A. et al. Narrative cave art in Indonesia by 51,200 years ago. Nature (2024).",
+      "url": "https://doi.org/10.1038/s41586-024-07541-7"
+    },
+    {
+      "id": "lascaux",
+      "texto": "UNESCO. Prehistoric Sites and Decorated Caves of the Vézère Valley (Lascaux).",
+      "url": "https://whc.unesco.org/en/list/85/"
+    },
+    {
+      "id": "alberti-1435",
+      "texto": "Alberti L. B. De pictura (1435). 关于布鲁内莱斯基的演示: Kemp M. The Science of Art. Yale University Press (1990).",
+      "url": "https://en.wikipedia.org/wiki/De_pictura"
+    },
+    {
+      "id": "durero-1525",
+      "texto": "Dürer A. Underweysung der Messung. 纽伦堡 (1525).",
+      "url": "https://en.wikipedia.org/wiki/Underweysung_der_Messung"
+    },
+    {
+      "id": "daguerre-1839",
+      "texto": "Académie des Sciences: 达盖尔银版法的发布，巴黎 (1839).",
+      "url": "https://en.wikipedia.org/wiki/Daguerreotype"
+    },
+    {
+      "id": "impresionistas-1874",
+      "texto": "Musée d'Orsay. Paris 1874: Inventing Impressionism (2024).",
+      "url": "https://www.musee-orsay.fr/en/whats-on/exhibitions/paris-1874-inventing-impressionism"
+    },
+    {
+      "id": "duchamp-1917",
+      "texto": "Duchamp M.《泉》(1917). Tate: Fountain，1964年复制品.",
+      "url": "https://www.tate.org.uk/art/artworks/duchamp-fountain-t07573"
+    },
+    {
+      "id": "sutherland-1963",
+      "texto": "Sutherland I. E. Sketchpad: A man-machine graphical communication system. MIT (1963).",
+      "url": "https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-574.pdf"
+    },
+    {
+      "id": "newton-1704",
+      "texto": "Newton I. Opticks. 伦敦 (1704): 色环.",
+      "url": "https://en.wikipedia.org/wiki/Opticks"
+    },
+    {
+      "id": "smith-2001",
+      "texto": "Smith J. K., Smith L. F. Spending Time on Art. Empirical Studies of the Arts (2001).",
+      "url": "https://doi.org/10.2190/5MQM-59JH-X21R-JN5J"
+    },
+    {
+      "id": "shepard-1990",
+      "texto": "Shepard R. N. Mind Sights: Original Visual Illusions, Ambiguities, and Other Anomalies. W. H. Freeman (1990).",
+      "url": "https://en.wikipedia.org/wiki/Shepard_tables"
+    },
+    {
+      "id": "feldman-1970",
+      "texto": "Feldman E. B. Becoming Human Through Art: Aesthetic Experience in the School. Prentice-Hall (1970).",
+      "url": "https://en.wikipedia.org/wiki/Edmund_Burke_Feldman"
+    },
+    {
+      "id": "edwards-1979",
+      "texto": "Edwards B. Drawing on the Right Side of the Brain. Tarcher (1979).",
+      "url": "https://en.wikipedia.org/wiki/Drawing_on_the_Right_Side_of_the_Brain"
+    },
+    {
+      "id": "louvre-copistas",
+      "texto": "Musée du Louvre. Copier au Louvre: 临摹者计划，自1793年起开放.",
+      "url": "https://www.louvre.fr/en/explore/the-palace/copying-at-the-louvre"
+    }
+  ]
+}

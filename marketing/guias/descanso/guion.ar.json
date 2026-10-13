@@ -1,0 +1,416 @@
+{
+  "idioma": "ar",
+  "tema": "descanso",
+  "plantillaId": "descanso",
+  "pregunta": "ما هو النوم الجيد؟",
+  "subtitulo": "ماذا يحدث في جسمك وأنت نائم، وما الذي اكتشفه العلم عن النوم، وكم تحتاج منه، وكيف تعمل ساعتك الداخلية، وكيف تستعد لليلة جيدة.",
+  "aviso": "هذا الدليل للمعلومات فقط ولا يغني عن استشارة الطبيب. إذا كنت تشخر بصوت عالٍ، أو يتوقف تنفسك أثناء النوم، أو تغفو في النهار رغمًا عنك، أو استمر الأرق أسابيع، فاستشر مختصًا في الرعاية الصحية.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando', 'bosteza', 'estira') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su recámara y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «horario de sueño», «puntuación» y «registro de tus noches»; app2d.mjs mueve la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "ماذا يحدث وأنت نائم",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": { "tipo": "titulo" },
+          "texto": "ما هو النوم الجيد؟ نقضي نحو ثلث حياتنا نائمين. ومع ذلك، فهو أول ما نضحّي به حين يضيق الوقت. ماذا يحدث فعلًا وأنت نائم؟ في الدقائق القادمة ستفهم ما يفعله دماغك في الليل، وستحسب متى تذهب إلى الفراش، وستخرج بخطة لتنام أفضل بدءًا من اليوم.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "texto": "بالمناسبة، هذا بيتي في MindHaOS، وفي غرفة الراحة هذه أتابع جدول نومي وسجل لياليّ. لنبدأ.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "الجزء الأول. ماذا يحدث وأنت نائم."
+        },
+        {
+          "id": "ciclos",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "hipnograma" },
+          "texto": "النوم ليس انطفاءً. خلال الليل تمرّ بدورات تدوم كل منها نحو تسعين دقيقة، من أربع إلى ست في الليلة، وفي كل دورة تعبر عدة مراحل: النوم الخفيف، والنوم العميق، ونوم حركة العين السريعة، وهي مرحلة أكثر الأحلام حيوية.",
+          "lamina": "dormida"
+        },
+        {
+          "id": "profundo",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["reparacion", "limpieza"] },
+          "texto": "يكثر النوم العميق في بداية الليل. ففيه يفرز الجسم هرمون النمو ويُصلح نفسه، وفيه أيضًا، بحسب دراسات على الفئران، ينظّف الدماغ بقوة أكبر الفضلات التي تراكمت خلال النهار.",
+          "lamina": ["profundo", "cerebro"]
+        },
+        {
+          "id": "rem",
+          "escena": "pensando",
+          "visual": { "tipo": "lista", "claves": ["memoria", "emociones"] },
+          "texto": "أما نوم حركة العين السريعة فيتركّز قرب الصباح. وفيه يكون الدماغ نشيطًا تقريبًا كما في اليقظة: يرتّب ما تعلّمته ويعالج مشاعر اليوم. لذلك، إذا استيقظت قبل حاجتك بكثير، فإنك تخسر هذا الجزء تحديدًا.",
+          "lamina": "suena"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "ما اكتشفه العلم عن النوم",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "الجزء الثاني. ما اكتشفه العلم عن النوم."
+        },
+        {
+          "id": "segmentado",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "historiaSueno" },
+          "texto": "قبل الإضاءة الكهربائية، كان كثير من الناس في أوروبا ينامون على مرحلتين: نوم أول، ثم فترة يقظة قصيرة في منتصف الليل، ثم نوم ثانٍ. وقد وثّق ذلك المؤرخ روجر إيكيرك في مئات اليوميات والرسائل والكتب من قرون مضت.",
+          "lamina": "vela"
+        },
+        {
+          "id": "edison",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "1879", "clave": "edison" },
+          "texto": "في عام 1879، نجح توماس إديسون في اختبار مصباحه المتوهّج. فامتلأ الليل بالضوء، ومع السنين صرنا ننام في وقت متأخر أكثر فأكثر.",
+          "lamina": ["edison", "bombilla"]
+        },
+        {
+          "id": "cueva",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "1938", "clave": "cueva" },
+          "texto": "في عام 1938، دخل عالم وظائف الأعضاء ناثانيال كلايتمان كهف الماموث في كنتاكي، وبقي فيه اثنين وثلاثين يومًا ليعيش أيامًا مدتها ثماني وعشرون ساعة. لكن جسمه لم ينخدع: ظلّ يحافظ على إيقاع من نحو أربع وعشرين ساعة.",
+          "lamina": "cueva"
+        },
+        {
+          "id": "rem",
+          "escena": "senala",
+          "visual": { "tipo": "dato", "cifra": "1953", "clave": "rem" },
+          "texto": "في عام 1953، اكتشف كلايتمان وتلميذه يوجين أسيرينسكي نوم حركة العين السريعة: لاحظا أن العينين، في لحظات معيّنة من الليل، تتحركان بسرعة تحت الجفنين، وأن من يستيقظ حينها كان يحلم في كل مرة تقريبًا.",
+          "lamina": "ojos"
+        },
+        {
+          "id": "nobel",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "2017", "clave": "nobel" },
+          "texto": "وفي عام 2017، ذهبت جائزة نوبل في الطب إلى جيفري هول ومايكل روسباش ومايكل يونغ، لأنهم اكتشفوا في ذباب الفاكهة كيف تعمل جينات الساعة الداخلية. وإلى هناك سنصل.",
+          "lamina": "nobel"
+        }
+      ]
+    },
+    {
+      "id": "cuanto",
+      "titulo": "كم تحتاج من النوم",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "الجزء الثالث. كم تحتاج من النوم."
+        },
+        {
+          "id": "edades",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "edades" },
+          "texto": "يحتاج البالغون إلى سبع ساعات أو أكثر كل ليلة، بحسب الأكاديمية الأمريكية لطب النوم. والمراهقون من ثماني إلى عشر ساعات، وأطفال المرحلة الابتدائية من تسع إلى اثنتي عشرة ساعة. ومع ذلك، ينام واحد من كل ثلاثة بالغين أقل من سبع ساعات.",
+          "lamina": "familia"
+        },
+        {
+          "id": "deuda",
+          "escena": "bosteza",
+          "visual": { "tipo": "dato", "cifra": "6 h × 14", "clave": "deuda" },
+          "texto": "قلة النوم تتراكم. في تجربة أُجريت عام 2003، انتهى الأمر بمن ناموا ست ساعات طوال أسبوعين إلى انتباه متضرر بقدر من قضى ما يصل إلى ليلتين بلا نوم. والأسوأ أنهم لم يشعروا إلا بقليل من التعب.",
+          "meme": "cinco",
+          "lamina": "cansancio"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "calculadoraSueno" },
+          "texto": "لأن النوم يسير في دورات، فالاستيقاظ في نهاية دورة يكون أريح من الاستيقاظ في منتصف النوم العميق. جرّب هنا: اختر الساعة التي تستيقظ فيها، وستخبرك الحاسبة بالأوقات المناسبة لتذهب إلى الفراش، مع احتساب نحو خمس عشرة دقيقة حتى تغفو.",
+          "lamina": "despertador"
+        },
+        {
+          "id": "senal",
+          "escena": "estira",
+          "visual": { "tipo": "pasos", "claves": ["sinAlarma", "sinCafe", "despierto"] },
+          "texto": "وأفضل مقياس هو أنت. إذا كنت تستيقظ في الإجازات من دون منبّه في الساعة نفسها تقريبًا كأيام العمل، وإذا لم تكن تحتاج إلى القهوة لتبدأ يومك، وبقيت متيقظًا طوال فترة ما بعد الظهر، فالأرجح أنك تنام بما يكفي.",
+          "lamina": "manana"
+        }
+      ]
+    },
+    {
+      "id": "reloj",
+      "titulo": "ساعتك الداخلية",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "الجزء الرابع. ساعتك الداخلية."
+        },
+        {
+          "id": "circadiano",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "circadiano" },
+          "texto": "في دماغك ساعة رئيسية، هي النواة فوق التصالبية، تضبط وقتها بالضوء قبل كل شيء. وحين يحلّ الظلام، يفرز جسمك الميلاتونين، الهرمون الذي يخبر جسمك بأن الليل قد جاء.",
+          "lamina": "atardecer"
+        },
+        {
+          "id": "luz",
+          "escena": "estira",
+          "visual": { "tipo": "dato", "cifra": "☀ 10 min", "clave": "luz" },
+          "texto": "لهذا فضوء الصباح قوي جدًا: الخروج بضع دقائق إلى الشمس بعد الاستيقاظ بقليل يضبط ساعتك، ويساعدك على أن تشعر بالنعاس في وقت مناسب ليلًا.",
+          "lamina": "sol"
+        },
+        {
+          "id": "pantallas",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "2015", "clave": "pantallas" },
+          "texto": "أما الضوء في الليل فيفعل العكس. في دراسة أُجريت عام 2015، أدّت القراءة على جهاز لوحي قبل النوم إلى تأخير الميلاتونين، وجعلت الناس يتأخرون في النوم ويستيقظون أقل يقظة، مقارنةً بقراءة كتاب ورقي.",
+          "meme": "capitulo",
+          "lamina": "pantalla"
+        },
+        {
+          "id": "cronotipo",
+          "escena": "pensando",
+          "visual": { "tipo": "lista", "claves": ["alondra", "buho"] },
+          "texto": "ولا تعمل ساعاتنا كلها على التوقيت نفسه: هناك القُبّرات، الذين يستيقظون باكرًا من تلقاء أنفسهم، وهناك البوم، الذين ينشطون أكثر في الليل. ونمطك الزمني يعتمد إلى حد كبير على جيناتك وعمرك؛ إنه ليس كسلًا.",
+          "lamina": ["alondra", "buho"]
+        },
+        {
+          "id": "regular",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "60 000", "clave": "regular" },
+          "texto": "ما تستطيع التحكم فيه حقًا هو الانتظام. فقد وجدت دراسة شملت نحو ستين ألف شخص في المملكة المتحدة أن النوم في مواعيد ثابتة يرتبط بانخفاض خطر الوفاة، بل أكثر من عدد ساعات النوم نفسه. والسهر في عطلة نهاية الأسبوع ثم الاستيقاظ باكرًا يوم الاثنين أشبه بإرهاق السفر بين المناطق الزمنية، من دون أن تغادر بيتك.",
+          "lamina": "calendario"
+        }
+      ]
+    },
+    {
+      "id": "noche",
+      "titulo": "كيف تستعد لليلة جيدة",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "الجزء الخامس. كيف تستعد لليلة جيدة."
+        },
+        {
+          "id": "cafeina",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "cafeinaRestante" },
+          "texto": "يحتاج الكافيين إلى نحو خمس ساعات لينخفض إلى النصف. وفي إحدى الدراسات، سلبت جرعة قوية تؤخذ قبل النوم بست ساعات أكثر من ساعة من النوم. انظر هنا كم يبقى منه في جسمك وقت النوم.",
+          "meme": "cafe",
+          "lamina": "cafe"
+        },
+        {
+          "id": "alcohol",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "REM ↓", "clave": "alcohol" },
+          "texto": "الكحول خادع: يجلب لك النعاس في البداية، لكنه يقطّع النصف الثاني من الليل ويقلّل نوم حركة العين السريعة. تنام، لكنك ترتاح أقل.",
+          "lamina": "copa"
+        },
+        {
+          "id": "cuarto",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["fresco", "oscuro", "silencio"] },
+          "texto": "وغرفتك مهمة أيضًا: باردة قليلًا، نحو ثماني عشرة درجة، ومظلمة وهادئة. والسرير للنوم: فإذا كنت تعمل أو تشاهد المسلسلات فيه، يتوقف دماغك عن ربطه بالنوم.",
+          "lamina": "recamara"
+        },
+        {
+          "id": "rutina",
+          "escena": "estira",
+          "visual": { "tipo": "pasos", "claves": ["apaga", "luces", "ritual"] },
+          "texto": "جهّز الساعة الأخيرة من يومك: اترك الشاشات، وخفّف الأضواء، وافعل شيئًا يريحك، وبالطريقة نفسها كل ليلة، مثل القراءة أو حمّام دافئ أو بعض تمارين التمدد. هذه إشارة لجسمك بأن الليل قادم.",
+          "lamina": ["leer", "estirar"]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "texto": "أنا أفعل ذلك في غرفة الراحة في MindHaOS: جدولي ينبّهني قبل ساعة لأترك الشاشات، ومن مصباح الطاولة بجانب السرير أفتح تمرين تنفّس موجّه لأسترخي.",
+          "lamina": "lampara",
+          "enCasa": true
+        },
+        {
+          "id": "ejercicio",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "+ 🏃", "clave": "ejercicio" },
+          "texto": "وتحرّك في النهار: التمارين المنتظمة تساعدك على أن تغفو أسرع وتنام نومًا أعمق. فقط اجعل أشدّ تمارينك قبل موعد نومك بساعتين على الأقل.",
+          "lamina": "correr"
+        }
+      ]
+    },
+    {
+      "id": "insomnio",
+      "titulo": "حين لا تستطيع النوم",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "الجزء السادس. حين لا تستطيع النوم."
+        },
+        {
+          "id": "veinte",
+          "escena": "pensando",
+          "visual": { "tipo": "dato", "cifra": "20 min", "clave": "veinte" },
+          "texto": "إذا مضى عليك وقت طويل من دون أن تنام، نحو عشرين دقيقة، فانهض، واذهب إلى مكان آخر بإضاءة خافتة، وعُد إلى السرير حين تشعر بالنعاس. فالتقلّب في السرير يعلّم دماغك أن السرير مكان للقلق.",
+          "lamina": "insomnio"
+        },
+        {
+          "id": "siesta",
+          "escena": "bosteza",
+          "visual": { "tipo": "dato", "cifra": "+34 %", "clave": "siesta" },
+          "texto": "القيلولة مفيدة إذا كانت قصيرة ومبكرة: نحو عشرين دقيقة، وقبل منتصف العصر. وفي دراسة لوكالة ناسا على الطيارين، حسّنت قيلولة من نحو ست وعشرين دقيقة أداءهم بنسبة أربعة وثلاثين في المئة.",
+          "meme": "siesta",
+          "lamina": "siesta"
+        },
+        {
+          "id": "terapia",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "TCC-I", "clave": "terapia" },
+          "texto": "إذا استمر الأرق أسابيع، فالعلاج الأول ليس الحبوب، بل العلاج المعرفي السلوكي للأرق، الذي توصي به كخيار أول الكليةُ الأمريكية للأطباء والأكاديميةُ الأمريكية لطب النوم.",
+          "lamina": "terapia"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": { "tipo": "foto", "foto": "registro" },
+          "texto": "وإذا أردت أن تعرف كيف تسير أمورك، فدوّن لياليك لأسبوعين: متى ذهبت إلى الفراش، ومتى استيقظت، وكيف شعرت. وستظهر الأنماط وحدها.",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": { "tipo": "aviso" },
+          "texto": "تذكّر أن هذا الدليل للمعلومات فقط. إذا كنت تشخر بصوت عالٍ ويقال لك إن تنفسك يتوقف أثناء النوم، أو كنت تغفو في النهار رغمًا عنك، أو لم يزُل الأرق، فاستشر طبيبًا: انقطاع النفس أثناء النوم وسائر اضطرابات النوم لها علاج.",
+          "lamina": "medico"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": { "tipo": "lista", "claves": ["resumen1", "resumen2", "resumen3", "resumen4"] },
+          "texto": "باختصار: نم سبع ساعات أو أكثر، في مواعيد ثابتة؛ واطلب الضوء صباحًا والظلام ليلًا؛ وانتبه إلى الكافيين والكحول؛ وجهّز الساعة الأخيرة من يومك.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "إذا أردت أن تطبّق ذلك كما أفعل، ففي غرفة الراحة في MindHaOS تجد جدول نومك مع التذكيرات والمنبّه، وتقييم كل ليلة، وسجل لياليك لترى أنماطك. الرابط في الوصف، وهناك أيضًا هذا الدليل بنسخة تفاعلية، لتراجعه على مهل. في الدليل القادم نتابع مع سؤال آخر. إلى اللقاء.",
+    "boton": "افتح غرفة الراحة",
+    "lamina": "app-plan",
+    "anclas": {
+      "horario": "جدول نومك",
+      "puntuacion": "تقييم",
+      "registro": "سجل لياليك"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "aasm-adultos",
+      "texto": "Watson N. F. et al. Recommended amount of sleep for a healthy adult: a joint consensus statement of the AASM and SRS. Sleep (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/"
+    },
+    {
+      "id": "aasm-ninos",
+      "texto": "Paruthi S. et al. Recommended amount of sleep for pediatric populations: a consensus statement of the AASM. J Clin Sleep Med (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27250809/"
+    },
+    {
+      "id": "cdc-un-tercio",
+      "texto": "Liu Y. et al. Prevalence of healthy sleep duration among adults — United States, 2014. MMWR (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26890214/"
+    },
+    {
+      "id": "ninds",
+      "texto": "NINDS (NIH). Brain Basics: Understanding Sleep.",
+      "url": "https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-understanding-sleep"
+    },
+    {
+      "id": "xie-2013",
+      "texto": "Xie L. et al. Sleep drives metabolite clearance from the adult brain. Science (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24136970/"
+    },
+    {
+      "id": "ekirch-2001",
+      "texto": "Ekirch A. R. Sleep We Have Lost: Pre-industrial Slumber in the British Isles. The American Historical Review (2001).",
+      "url": "https://doi.org/10.1086/ahr/106.2.343"
+    },
+    {
+      "id": "aserinsky-1953",
+      "texto": "Aserinsky E., Kleitman N. Regularly occurring periods of eye motility, and concomitant phenomena, during sleep. Science (1953).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13089671/"
+    },
+    {
+      "id": "nobel-2017",
+      "texto": "جائزة نوبل في الفسيولوجيا أو الطب 2017: Jeffrey C. Hall وMichael Rosbash وMichael W. Young.",
+      "url": "https://www.nobelprize.org/prizes/medicine/2017/summary/"
+    },
+    {
+      "id": "van-dongen-2003",
+      "texto": "Van Dongen H. P. et al. The cumulative cost of additional wakefulness. Sleep (2003).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12683469/"
+    },
+    {
+      "id": "chang-2015",
+      "texto": "Chang A.-M. et al. Evening use of light-emitting eReaders negatively affects sleep, circadian timing, and next-morning alertness. PNAS (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25535358/"
+    },
+    {
+      "id": "windred-2024",
+      "texto": "Windred D. P. et al. Sleep regularity is a stronger predictor of mortality risk than sleep duration. Sleep (2024).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37738616/"
+    },
+    {
+      "id": "drake-2013",
+      "texto": "Drake C. et al. Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed. J Clin Sleep Med (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24235903/"
+    },
+    {
+      "id": "ebrahim-2013",
+      "texto": "Ebrahim I. O. et al. Alcohol and sleep I: effects on normal sleep. Alcohol Clin Exp Res (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23347102/"
+    },
+    {
+      "id": "nasa-1995",
+      "texto": "Rosekind M. R. et al. Crew factors in flight operations IX: Effects of planned cockpit rest on crew performance and alertness in long-haul operations. NASA (1994).",
+      "url": "https://ntrs.nasa.gov/citations/19950006379"
+    },
+    {
+      "id": "acp-2016",
+      "texto": "Qaseem A. et al. Management of chronic insomnia disorder in adults: a clinical practice guideline from the American College of Physicians. Ann Intern Med (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27136449/"
+    },
+    {
+      "id": "aasm-2021",
+      "texto": "Edinger J. D. et al. Behavioral and psychological treatments for chronic insomnia disorder in adults: an AASM clinical practice guideline. J Clin Sleep Med (2021).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33164742/"
+    }
+  ]
+}

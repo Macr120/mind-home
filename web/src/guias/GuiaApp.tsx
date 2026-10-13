@@ -11,6 +11,8 @@ const Escenario3D = lazy(() => import('./Escenario3D'))
 const URL_APP = 'https://app.mindhaos.com'
 const PLAY = 'https://play.google.com/store/apps/details?id=com.macr120.mindhome'
 const MS_STORE = 'https://apps.microsoft.com/detail/9N893LFZHR0T'
+/** La ficha de la App Store (app 6804840611): el enlace funciona en cuanto Apple apruebe la app. */
+const APP_STORE = 'https://apps.apple.com/app/id6804840611'
 
 /** Idiomas que no separan las palabras con espacios. */
 const SIN_ESPACIOS = ['ja', 'zh']
@@ -163,6 +165,8 @@ const GRABAR = new URLSearchParams(location.search).has('grabar')
 
 export function GuiaApp({ tema, guion, textos, idioma }: { tema: string; guion: Guion; textos: Textos; idioma: string }) {
   const t = useMemo(() => crearT(textos), [textos])
+  // Quién narra: «Narra Pep@» salvo que la guía traiga el suyo (Idiomas: el mago).
+  const delNarrador = (c: string) => (t(`${tema}.${c}`) === `${tema}.${c}` ? t(`comun.${c}`) : t(`${tema}.${c}`))
   const pasos = useMemo<Paso[]>(() => {
     const r: Paso[] = guion.partes.flatMap((p, i) => p.lineas.map((l) => ({ parte: i, linea: l, clave: `${p.id}.${l.id}` })))
     const c = guion.cierre
@@ -232,11 +236,20 @@ export function GuiaApp({ tema, guion, textos, idioma }: { tema: string; guion: 
     if (!sonando || !paso) return
     const a = audio.current!
     setInicioLinea(performance.now())
+    // Grabación: cuándo empieza cada línea (el montaje recorta de aquí la destacada de la parte).
+    if (GRABAR) ((window as unknown as { __lineas?: { clave: string; t: number }[] }).__lineas ??= []).push({ clave: paso.clave, t: performance.now() })
     let vivo = true
     const terminar = () => {
       nivel.current = 0
       if (!vivo) return
-      const n = actual + 1
+      let n = actual + 1
+      // Grabación: una línea `enCasa` en medio de la parte se narra en el video sobre
+      // una toma de la casa. Aquí se salta y se apunta el instante (el montaje corta ahí).
+      while (GRABAR && n < pasos.length && pasos[n].parte === paso.parte && pasos[n].linea.enCasa) {
+        const cortes = ((window as unknown as { __cortes?: { clave: string; t: number }[] }).__cortes ??= [])
+        if (!cortes.some((c) => c.clave === pasos[n].clave)) cortes.push({ clave: pasos[n].clave, t: performance.now() })
+        n++
+      }
       const mismaParte = n < pasos.length && pasos[n].parte === paso.parte
       if (n < pasos.length && (hastaFin || mismaParte)) setActual(n)
       else setSonando(false)
@@ -415,7 +428,7 @@ export function GuiaApp({ tema, guion, textos, idioma }: { tema: string; guion: 
   }
 
   return (
-    <div className={`g-pagina g-plano-${plano}`}>
+    <div className={`g-pagina g-plano-${plano}`} style={{ ['--g-fondo' as string]: `url('/guias/${tema}/fondo.webp')` }}>
       {/* El grabador la busca en la captura para saber dónde acaba el viewport (escala real variable). */}
       {marca && <i className="g-marca-grabador" aria-hidden="true" />}
       {GRABAR && <Lamina id={lamina} tema={tema} idioma={idioma} />}
@@ -428,12 +441,12 @@ export function GuiaApp({ tema, guion, textos, idioma }: { tema: string; guion: 
       <aside className="g-escenario">
         <div className="g-fondo" aria-hidden="true" />
         <div className="g-lienzo">
-          <Suspense fallback={<p className="g-cargando">{t('comun.cargando3d')}</p>}>
-            <Escenario3D tema={tema} escena={escena} nivel={nivel} busto={plano === 'esquina' && GESTOS_HABLA.includes(escena)} cerca={plano === 'cuerpo'} />
+          <Suspense fallback={<p className="g-cargando">{delNarrador('cargando3d')}</p>}>
+            <Escenario3D tema={tema} escena={escena} nivel={nivel} busto={plano === 'esquina' && GESTOS_HABLA.includes(escena)} cerca={plano === 'cuerpo'} parte={parteDe} />
           </Suspense>
         </div>
         <div className="g-escenario-pie">
-          <span className="g-narra">{t('comun.narra')}</span>
+          <span className="g-narra">{delNarrador('narra')}</span>
           {parteDe >= 0 && parteDe < guion.partes.length && (
             <span className="g-progreso">
               {t('comun.parte')} {parteDe + 1} {t('comun.de')} {guion.partes.length} · {guion.partes[parteDe].titulo}
@@ -525,6 +538,9 @@ export function GuiaApp({ tema, guion, textos, idioma }: { tema: string; guion: 
               </a>
               <a className="g-boton" href={MS_STORE}>
                 Microsoft Store
+              </a>
+              <a className="g-boton" href={APP_STORE}>
+                App Store
               </a>
             </div>
             <p className="g-sub">{t('comun.tiendas')}</p>

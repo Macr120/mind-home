@@ -15,8 +15,9 @@ export const POSES: Record<string, { escena: string; cara: ExpresionId }> = {
   relajado: { escena: 'relajado', cara: 'feliz' },
   cansado: { escena: 'cansado', cara: 'triste' },
   contento: { escena: 'saluda', cara: 'feliz' },
-  // No es de un meme: el primer plano de las miniaturas de los videos.
+  // No son de un meme: el primer plano de las miniaturas de los videos (señalando la pregunta, con cara de sorpresa).
   pensando: { escena: 'pensando', cara: 'neutral' },
+  miniatura: { escena: 'senala', cara: 'sorpresa' },
 }
 
 type Formato = 'drake' | 'arribaAbajo' | 'unico'
@@ -35,6 +36,29 @@ export const MEMES: Record<string, DefMeme> = {
   silla: { formato: 'arribaAbajo', poses: ['cansado', 'contento'], sonido: 'bruh' },
   // Texto arriba, una imagen.
   descarga: { formato: 'unico', poses: ['relajado'], sonido: 'wow' },
+  // Cocina.
+  limones: { formato: 'arribaAbajo', poses: ['orgulloso', 'confundido'], sonido: 'jeje-boy' },
+  ultraprocesados: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
+  perfecta: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
+  tarde: { formato: 'arribaAbajo', poses: ['cansado', 'contento'], sonido: 'bruh' },
+  // Descanso.
+  cinco: { formato: 'arribaAbajo', poses: ['orgulloso', 'cansado'], sonido: 'bruh' },
+  capitulo: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'jeje-boy' },
+  cafe: { formato: 'arribaAbajo', poses: ['orgulloso', 'confundido'], sonido: 'bruh' },
+  siesta: { formato: 'unico', poses: ['relajado'], sonido: 'wow' },
+  // Finanzas.
+  garantizado: { formato: 'unico', poses: ['confundido'], sonido: 'bruh' },
+  hormiga: { formato: 'arribaAbajo', poses: ['orgulloso', 'confundido'], sonido: 'jeje-boy' },
+  quincena: { formato: 'arribaAbajo', poses: ['orgulloso', 'cansado'], sonido: 'bruh' },
+  minimo: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'jeje-boy' },
+  // Idiomas.
+  olvido: { formato: 'arribaAbajo', poses: ['orgulloso', 'confundido'], sonido: 'bruh' },
+  lista: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
+  perfecto: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'jeje-boy' },
+  // Arte.
+  simbolos: { formato: 'arribaAbajo', poses: ['orgulloso', 'confundido'], sonido: 'bruh' },
+  ojos: { formato: 'arribaAbajo', poses: ['confundido', 'orgulloso'], sonido: 'jeje-boy' },
+  cien: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
 }
 
 export function Meme({ id, tema, t }: { id: string; tema: string; t: T }) {

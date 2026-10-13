@@ -9,7 +9,7 @@ import { useEditorUi } from './editorUiStore'
 import { usePlanos } from './planosStore'
 import { useHouse } from './houseStore'
 import { playerPos } from './playerPosition'
-import { cuadranteDePosicion, rectMundo } from '../house/cuadrantesMapa'
+import { cuadranteDePosicion, mapaVisible, rectMundo } from '../house/cuadrantesMapa'
 import {
   cellId,
   cabeEnRejilla,
@@ -417,6 +417,8 @@ interface LayoutState {
   tamCelda: number
   /** Cuadrantes del mapa dibujados por el usuario (los automáticos se calculan). */
   cuadrantes: CuadranteMapa[]
+  /** Bloques A1…D4 ocultos (ids `auto-c-r`): el mapa se ve solo con los demás. */
+  cuadrantesOcultos: string[]
   editMode: boolean
   editingRoomId: string | null
   /** Cuarto cuyos objetos se mueven sueltos en el mapa 3D (editor cerrado, botón flotante "Listo"). */
@@ -586,6 +588,8 @@ interface LayoutState {
   agregarCuadrante: (q: CuadranteMapa) => Promise<void>
   renombrarCuadrante: (id: string, nombre: string) => Promise<void>
   eliminarCuadrante: (id: string) => Promise<void>
+  /** Oculta o vuelve a mostrar un bloque automático del mapa. */
+  alternarCuadranteOculto: (id: string) => Promise<void>
 }
 
 /** Rebanada de la construcción de rejilla que el historial de la pestaña Mapa guarda y repone. */
@@ -613,6 +617,7 @@ export const useLayout = create<LayoutState>((set, get) => ({
   gridRows: ROWS,
   tamCelda: TAM_CELDA_BASE,
   cuadrantes: [],
+  cuadrantesOcultos: [],
   editMode: false,
   editingRoomId: null,
   moverObjetosRoomId: null,
@@ -679,6 +684,7 @@ export const useLayout = create<LayoutState>((set, get) => ({
     const gridRows = configArr[0]?.rows ?? ROWS
     const tamCelda = configArr[0]?.celda ?? TAM_CELDA_BASE
     const cuadrantes = configArr[0]?.cuadrantes ?? []
+    const cuadrantesOcultos = configArr[0]?.cuadrantesOcultos ?? []
     setGridDims(gridCols, gridRows)
     // Antes de cualquier recompute: los colliders y la geometría salen del SIZE activo.
     setTamCelda(tamCelda)
@@ -853,6 +859,7 @@ export const useLayout = create<LayoutState>((set, get) => ({
       gridRows,
       tamCelda,
       cuadrantes,
+      cuadrantesOcultos,
       wallOverrides,
       edgeStyles,
       pinceles,
@@ -2045,6 +2052,14 @@ export const useLayout = create<LayoutState>((set, get) => ({
     set({ cuadrantes })
     await guardarCuadrantes(cuadrantes, get)
   },
+  alternarCuadranteOculto: async (id) => {
+    const antes = get().cuadrantesOcultos
+    const cuadrantesOcultos = antes.includes(id) ? antes.filter((x) => x !== id) : [...antes, id]
+    set({ cuadrantesOcultos })
+    const arr = await db.mapaConfig.toArray()
+    if (arr[0]?.id) await db.mapaConfig.update(arr[0].id, { cuadrantesOcultos })
+    else await db.mapaConfig.add({ cols: get().gridCols, rows: get().gridRows, cuadrantesOcultos })
+  },
 }))
 
 /**
@@ -2238,8 +2253,13 @@ export function roomFocusPos(id: string): [number, number, number] {
 export function mapFocusPos(): [number, number, number] {
   const { placed, cells, sizes, niveles } = useLayout.getState()
   const apilado = !useHouse.getState().explotado
-  const ids = losCuartos().filter((r) => placed[r.id] && cells[r.id]).map((r) => r.id)
-  if (ids.length === 0) return [0, 0, 0]
+  // Con cuadrantes ocultos solo cuentan los cuartos de los visibles.
+  const { gridCols, gridRows, cuadrantesOcultos } = useLayout.getState()
+  const mv = mapaVisible(gridCols, gridRows, cuadrantesOcultos)
+  const ids = losCuartos()
+    .filter((r) => placed[r.id] && cells[r.id] && !mv?.oculta(cells[r.id].col, cells[r.id].row))
+    .map((r) => r.id)
+  if (ids.length === 0) return mv ? rectMundo(mv.rect).centro : [0, 0, 0]
   let minX = Infinity, maxX = -Infinity
   let minY = Infinity, maxY = -Infinity
   let minZ = Infinity, maxZ = -Infinity

@@ -5935,6 +5935,9 @@ export const FR: Dict = {
   'constructor.cuadrantes.eliminar': 'Supprimer le quadrant',
   'constructor.cuadrantes.referencias': 'Repères',
   'constructor.cuadrantes.referenciasHint': 'Ils déplacent seulement la vue ; tu peux modifier où tu veux.',
+  'constructor.cuadrantes.ocultar': 'Masquer des quadrants',
+  'constructor.cuadrantes.ocultarListo': 'Terminé',
+  'constructor.cuadrantes.ocultarHint': 'Touche les quadrants que tu ne veux pas voir : la carte et les décors des thèmes ne gardent que les autres.',
   'constructor.cuadrantes.tuyas': 'Tes zones',
   'constructor.cuadrantes.tuyasHint':
     'Choisis-en une : dans les autres menus, tu ne pourras modifier que ses cellules.',
@@ -7544,6 +7547,11 @@ export const FR: Dict = {
   'demo.reintentar': 'Réessayer',
   'tut.flujos.titulo': 'Tutoriels de cette app',
   'guia.ejercicio.titulo': "Qu'est-ce que l'exercice ?",
+  'guia.cocina.titulo': "Qu'est-ce que bien manger ?",
+  'guia.descanso.titulo': "Qu'est-ce que bien dormir ?",
+  'guia.finanzas.titulo': "Qu'est-ce que l'argent ?",
+  'guia.idiomas.titulo': "Pourquoi apprendre une langue ?",
+  'guia.arte.titulo': "Qu'est-ce que l'art ?",
   'tut.esencial.titulo': 'L’essentiel',
   'tut.tipo.ejemplos': 'Exemples · MindHaOS de démo',
   'tut.app-agenda--esencial.resumen':

@@ -13,6 +13,8 @@ import { FOOTPRINT_DEFAULT, SIZE, SPACING, WALL_H, centroCuarto3D, nivelBaseY, r
 import { ocupadoConZonas } from './planoGeometria'
 import { filtrarSegmentosPorForma } from './murosPerimetroLoseta'
 import { PINCELES_DEFAULT } from './murosPuertas'
+import { cuartoOculto } from './cuadrantesMapa'
+import { useMapaVisible } from './mapaVisible'
 
 /** Una pieza instanciada: centro, medidas (caja) o radio/alto (cilindro, cono, esfera) y giro sobre Y. */
 interface Pieza {
@@ -50,7 +52,18 @@ interface Esquina {
   tope: number
   /** Esquina de una celda redondeada (curva); si no, el muro dobla en ángulo recto. */
   redonda: boolean
+  /**
+   * Hacia dónde queda el exterior (componentes −1…1) y el grosor del muro: la torre se
+   * corre hacia allá para no meterse en el cuarto. NaN = esquina de dos cuartos que solo
+   * se tocan en la punta (cualquier torre invadiría uno de los dos).
+   */
+  fx: number
+  fz: number
+  grosor: number
 }
+
+/** Une la dirección exterior de dos muros que llegan al mismo punto (NaN si se contradicen). */
+const unirFuera = (a: number, b: number) => (a === 0 ? b : b === 0 || a === b ? a : NaN)
 
 type Forma = 'caja' | 'cilindro' | 'cono' | 'esfera' | 'carambano' | 'piramide'
 
@@ -176,12 +189,13 @@ function usePerimetro() {
   const cuartos = useCuartos((s) => s.cuartos)
   const zonas = useMapaTablas((s) => s.zonas)
   const apilado = !useHouse((s) => s.explotado)
+  const mv = useMapaVisible()
 
   return useMemo(() => {
     const bordes: Borde[] = []
     const esquinas: Esquina[] = []
     // Extremos de los muros exteriores: donde se cruza uno horizontal con uno vertical hay esquina.
-    const extremos = new Map<string, { x: number; z: number; y0: number; tope: number; nivel: number; grosor: number; h: boolean; v: boolean }>()
+    const extremos = new Map<string, { x: number; z: number; y0: number; tope: number; nivel: number; grosor: number; h: boolean; v: boolean; fx: number; fz: number }>()
 
     for (const c of cuartos) {
       const id = c.id
@@ -189,6 +203,7 @@ function usePerimetro() {
       if (!L.placed[id] || !anchor || L.sinMuros[id]) continue
       const nivel = L.niveles[id] ?? 0
       const fp = L.footprints[id] ?? FOOTPRINT_DEFAULT
+      if (cuartoOculto(anchor, fp, mv)) continue
       const formas = L.formasCelda[id] ?? {}
       const ocupado = ocupadoConZonas(nivel, L.ocupadoPorNivel, zonas)
       const segs = filtrarSegmentosPorForma(
@@ -233,9 +248,14 @@ function usePerimetro() {
           const clave = `${nivel}:${Math.round(ex * 10)}:${Math.round(ez * 10)}`
           // Un extremo que no cae en la rejilla es el borde de una puerta, no una esquina.
           if (!enLinea(horizontal ? ex : ez)) continue
-          const e = extremos.get(clave) ?? { x: ex, z: ez, y0, tope, nivel, grosor, h: false, v: false }
-          if (horizontal) e.h = true
-          else e.v = true
+          const e = extremos.get(clave) ?? { x: ex, z: ez, y0, tope, nivel, grosor, h: false, v: false, fx: 0, fz: 0 }
+          if (horizontal) {
+            e.h = true
+            e.fz = unirFuera(e.fz, Math.sign(z - rz) || 1)
+          } else {
+            e.v = true
+            e.fx = unirFuera(e.fx, Math.sign(x - rx) || 1)
+          }
           e.tope = Math.max(e.tope, tope)
           extremos.set(clave, e)
         }
@@ -245,7 +265,7 @@ function usePerimetro() {
     const sueltosH: typeof sueltosV = []
     const sueltosV: { x: number; z: number; y0: number; tope: number; nivel: number; grosor: number }[] = []
     for (const e of extremos.values()) {
-      if (e.h && e.v) esquinas.push({ x: e.x, z: e.z, y0: e.y0, tope: e.tope, redonda: false })
+      if (e.h && e.v) esquinas.push({ x: e.x, z: e.z, y0: e.y0, tope: e.tope, redonda: false, fx: e.fx, fz: e.fz, grosor: e.grosor })
       else if (e.h) sueltosH.push(e)
       else sueltosV.push(e)
     }
@@ -300,7 +320,7 @@ function usePerimetro() {
         })
       }
       const am = (a0 + a1) / 2
-      esquinas.push({ x: ox + Math.cos(am) * R, z: oz + Math.sin(am) * R, y0: h.y0, tope, redonda: true })
+      esquinas.push({ x: ox + Math.cos(am) * R, z: oz + Math.sin(am) * R, y0: h.y0, tope, redonda: true, fx: Math.cos(am), fz: Math.sin(am), grosor: h.grosor })
     }
     // Dos cuartos que comparten la esquina la dan dos veces (con el extremo corrido medio
     // grosor): se funden en una sola torre, con el tope más alto.
@@ -310,10 +330,12 @@ function usePerimetro() {
       if (igual) {
         igual.tope = Math.max(igual.tope, e.tope)
         igual.redonda ||= e.redonda
+        igual.fx = unirFuera(igual.fx, e.fx)
+        igual.fz = unirFuera(igual.fz, e.fz)
       } else unicas.push({ ...e })
     }
     return { bordes, esquinas: unicas }
-  }, [L, cuartos, zonas, apilado])
+  }, [L, cuartos, zonas, apilado, mv])
 }
 
 /** Radio de las torres según el tamaño de celda. */
@@ -365,7 +387,12 @@ function capasDe(base: TemaId, bordes: Borde[], esquinas: Esquina[], color: stri
         const paso = b.largo / Math.max(1, Math.floor(b.largo / 0.9))
         for (const a of aLoLargo(b, 0.9)) almenas.piezas.push(enBorde(b, a, b.yTope + 0.47, paso * 0.55, 0.52, b.grosor + 0.12))
       }
-      for (const e of esquinas) {
+      for (const esq of esquinas) {
+        // La torre va por FUERA de la esquina (centrada en ella, un cuarto de torre se metía
+        // en el cuarto); donde dos cuartos solo se tocan en la punta no cabe ninguna.
+        if (Number.isNaN(esq.fx) || Number.isNaN(esq.fz)) continue
+        const d = Math.max(0, r - esq.grosor / 2)
+        const e = { ...esq, x: esq.x + esq.fx * d, z: esq.z + esq.fz * d }
         const alto = e.tope + 1.3
         pon(fustes, e, { x: e.x, y: e.y0 + alto / 2, z: e.z, sx: r, sy: alto, sz: r })
         pon(coronas, e, { x: e.x, y: e.y0 + alto + 0.2, z: e.z, sx: r * 1.2, sy: 0.4, sz: r * 1.2 })

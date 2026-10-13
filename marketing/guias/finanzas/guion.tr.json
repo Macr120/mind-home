@@ -1,0 +1,608 @@
+{
+  "idioma": "tr",
+  "tema": "finanzas",
+  "plantillaId": "despacho",
+  "numero": 4,
+  "nombre": "Finans",
+  "pregunta": "Para nedir?",
+  "corta": "Para nedir?",
+  "subtitulo": "Paranın ne olduğu ve nasıl doğduğu, seninkinin nereye gittiği, nasıl bir birikim yastığı oluşturup borçlardan kurtulacağın, bileşik faizin nasıl işlediği ve bugün başlamak için bir plan.",
+  "aviso": "Bu rehber bilgilendirme amaçlıdır; finansal, vergisel ya da yatırım danışmanlığı değildir ve hiçbir ürün ya da araç önermez. Kredi çekmeden veya yatırım yapmadan önce koşulları karşılaştır ve gerekirse lisanslı bir uzmana danış.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título) para enganchar en los primeros segundos. No puede ser enCasa.",
+    "corta": "La pregunta en 3-4 palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su despacho y las de en medio sobre las tomas de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «flujo de dinero», «metas de ahorro» y «patrimonio»; app2d.mjs mueve la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "dinero",
+      "titulo": "Para ne işe yarar",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Para nedir? Hepimiz onu her gün kullanıyoruz. Yine de dünyada her üç yetişkinden yalnızca biri enflasyon ya da bileşik faiz gibi temel kavramları anlıyor. Para gerçekte nasıl işliyor? Önümüzdeki birkaç dakikada paranın nereye gittiğini görecek, onu çalıştırırsan ne kadar büyüyeceğini hesaplayacak ve bugünden itibaren onu daha iyi yönetmek için bir planla ayrılacaksın.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Bu arada, burası MindHaOS'taki evim, bu da Finans odam: giderlerimi, gelirlerimi ve birikim hedeflerimi burada tutuyorum. Hadi başlayalım.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Birinci bölüm. Para ne işe yarar."
+        },
+        {
+          "id": "funciones",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "funciones"
+          },
+          "texto": "Para bir anlaşmadır: bir banknot ya da ekrandaki bir sayı, hepimiz değerli olduğunu kabul ettiğimiz için değerlidir. Takas etmeye, şeylerin ne kadar ettiğini ölçmeye ve değeri geleceğe saklamaya yarar.",
+          "lamina": [
+            "billetes",
+            "pago"
+          ]
+        },
+        {
+          "id": "inflacion",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "inflacion"
+          },
+          "texto": "Ama bu son işlevin bir düşmanı var: enflasyon. Fiyatlar yılda yüzde üç artarsa, yaklaşık yirmi dört yılda iki katına çıkar ve yastık altında sakladığın para yarısı kadar şey alır.",
+          "lamina": [
+            "supermercado",
+            "precios"
+          ]
+        },
+        {
+          "id": "ganar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "3–5 años",
+            "clave": "loteria"
+          },
+          "texto": "Daha çok kazanmak da yetmez. Florida'da araştırmacılar piyango kazananlarını takip etti: beş yıl sonra büyük ikramiye kazananlar, küçük ikramiye kazananlarla neredeyse aynı oranda iflas ediyordu. İkramiye sorunu yalnızca erteledi.",
+          "lamina": "loteria",
+          "enCasa": true
+        },
+        {
+          "id": "manejar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "flujo"
+          },
+          "texto": "Paranı iyi yönetmek ne kadar kazandığına değil, basit bir çıkarmaya bağlıdır: giren eksi çıkan, geleceğini kurmak için sana kalandır. Bu rehber, o çıkarmanın senin lehine sonuçlanması için.",
+          "lamina": [
+            "cuentas",
+            "ahorro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Paranın kısa tarihi",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "İkinci bölüm. Paranın kısa tarihi."
+        },
+        {
+          "id": "hammurabi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaDinero"
+          },
+          "texto": "Yaklaşık dört bin yıl önce Babil'deki Hammurabi Kanunları faizi zaten sınırlıyordu: gümüş borçlarında yılda en fazla yüzde yirmi, arpa borçlarında ise üçte bir. Borçlar neredeyse yazı kadar eski.",
+          "lamina": [
+            "hammurabi",
+            "tablilla"
+          ]
+        },
+        {
+          "id": "lidia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 600 a. C.",
+            "clave": "lidia"
+          },
+          "texto": "Milattan önce altı yüz yılları civarında, bugünkü Türkiye topraklarındaki Lidya Krallığı'nda ilk madeni paralar ortaya çıktı: altın ve gümüşün doğal bir karışımı olan elektrumdan yapılmış, ağırlığını garanti eden bir mühür taşıyan parçalar.",
+          "lamina": [
+            "lidia",
+            "monedas"
+          ]
+        },
+        {
+          "id": "jiaozi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1024",
+            "clave": "jiaozi"
+          },
+          "texto": "1024'te, Song hanedanı döneminde Çin'de hükümet, dünyanın ilk resmi kâğıt parası olan jiaozi'yi basmaya başladı: orada demir paralar kullanılıyordu ve ticaret için onları taşımak imkânsızdı.",
+          "lamina": "jiaozi"
+        },
+        {
+          "id": "ponzi",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1920",
+            "clave": "ponzi"
+          },
+          "texto": "1920'de Boston'da Charles Ponzi, kırk beş günde yüzde elli kazanç vaat ediyordu. İlk gelenlere yeni gelenlerin parasıyla ödeme yaptı, ta ki her şey çökene kadar. Adı bu tür dolandırıcılığa sonsuza dek yapıştı.",
+          "meme": "garantizado",
+          "lamina": "ponzi"
+        },
+        {
+          "id": "nixon",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1971",
+            "clave": "nixon"
+          },
+          "texto": "1971'de ise Başkan Richard Nixon, dolar ile altın arasındaki son bağı kopardı. O günden beri dünyanın neredeyse her yerinde para, bir kasada saklanan metale değil, onu basana duyulan güvene dayanıyor.",
+          "lamina": [
+            "nixon",
+            "oro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "presupuesto",
+      "titulo": "Paran nereye gidiyor",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Üçüncü bölüm. Paran nereye gidiyor."
+        },
+        {
+          "id": "registra",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "30 días",
+            "clave": "registra"
+          },
+          "texto": "İlk adım, paranın nereye gittiğini bilmek. Bir ay boyunca harcadığın her şeyi, köşedeki kahveye kadar not et. Neredeyse herkes, varlığından haberi olmadığı harcamalar keşfeder.",
+          "lamina": "recibos",
+          "enCasa": true
+        },
+        {
+          "id": "hormiga",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gastoHormiga"
+          },
+          "texto": "Fark etmeden yaptığımız bu küçük harcamalar, sandığından çok daha hızlı birikir. Burada dene: her gün yaptığın bir harcamayı seç ve bir yılda ve on yılda ne kadar götürdüğüne bak.",
+          "meme": "hormiga",
+          "lamina": [
+            "cafe",
+            "antojo"
+          ]
+        },
+        {
+          "id": "reparto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "regla503020"
+          },
+          "texto": "Kazandığını bölüştürmenin basit bir yolu, Elizabeth Warren'ın yaygınlaştırdığı elli, otuz, yirmi kuralıdır: yarısı zorunlu ihtiyaçlara, yüzde otuzu keyiflerine, yüzde yirmisi de birikime ya da borç ödemeye. Gelirini buraya yaz ve nasıl dağıldığına bak.",
+          "lamina": [
+            "renta",
+            "gustos",
+            "alcancia"
+          ]
+        },
+        {
+          "id": "primero",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ahorraMas"
+          },
+          "texto": "En çok işe yarayan yöntem de önce kendine ödemek: birikimini ay sonunda ne kalırsa değil, maaşını aldığın gün ayırmak. Richard Thaler ile Shlomo Benartzi'nin “Yarın Daha Fazla Biriktir” programında çalışanlar, maaşlarının yüzde üç buçuğunu biriktirmekten neredeyse yüzde on dördüne çıktı.",
+          "meme": "quincena",
+          "lamina": [
+            "sueldo",
+            "ahorrar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deudas",
+      "titulo": "Birikim yastığın ve borçların",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Dördüncü bölüm. Birikim yastığın ve borçların."
+        },
+        {
+          "id": "emergencia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "63 %",
+            "clave": "emergencia"
+          },
+          "texto": "Yatırım yapmadan önce bir birikim yastığı oluştur. ABD'de yetişkinlerin yalnızca yüzde altmış üçü, dört yüz dolarlık beklenmedik bir masrafı nakitle ya da birikimiyle karşılayabiliyor. Acil durum fonu, bir şey bozulduğunda ya da işsiz kaldığında seni borçlanmaktan kurtarır.",
+          "lamina": [
+            "averia",
+            "imprevisto"
+          ]
+        },
+        {
+          "id": "meses",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fondoEmergencia"
+          },
+          "texto": "En yaygın öneri, temel giderlerinin üç ila altı aylık tutarını azar azar, hızla çekebileceğin güvenli bir yerde biriktirmek. Seninkinin ne kadar olacağını ve kaç ayda biriktireceğini burada hesapla.",
+          "lamina": "frasco"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Ben kendiminkini MindHaOS'taki Finans odamda biriktiriyorum: maaşımı aldığım gün birikimimi ayırıyorum, masadaki kumbaradan da her hedefte ne kadar yol aldığımı görüyorum.",
+          "lamina": "alcancia",
+          "enCasa": true
+        },
+        {
+          "id": "tarjeta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "> 20 %",
+            "clave": "tarjeta"
+          },
+          "texto": "Kredi kartı borçları en pahalı borçlar arasındadır: ABD'de ortalama faizleri 2024'te yıllık yüzde yirmiyi aştı. Faizli taksitle aldığın şeyler sana çok daha pahalıya patlayabilir.",
+          "lamina": [
+            "tarjeta",
+            "compras"
+          ]
+        },
+        {
+          "id": "minimo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "deudaTarjeta"
+          },
+          "texto": "Yalnızca asgari ödemeyi yapmak da en pahalı tuzaktır. Burada dene: bir borç, faizini ve aylık ödemeni gir; borçtan kaç ayda kurtulacağına ve ne kadar faiz ödeyeceğine bak.",
+          "meme": "minimo",
+          "lamina": "calculadora"
+        },
+        {
+          "id": "metodos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "avalanchaBola"
+          },
+          "texto": "Birden fazla borçtan kurtulmanın iki yöntemi var: önce faizi en yüksek olanı ödeyen ve daha çok tasarruf ettiren çığ yöntemi, bir de önce en küçüğünü ödeyen kartopu yöntemi. 2012'de yapılan bir araştırma, borçları tek tek tamamen kapatmanın pes etmemeye yardımcı olduğunu buldu.",
+          "lamina": [
+            "avalancha",
+            "nieve"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "invertir",
+      "titulo": "Paranı çalıştır",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Beşinci bölüm. Paranı çalıştır."
+        },
+        {
+          "id": "compuesto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "interesCompuesto"
+          },
+          "texto": "Bileşik faiz, faizin faizini kazanmaktır: başta neredeyse fark edilmez, sonra eğri birden fırlar. Burada dene: ayda ne kadar ayırdığını, hangi oranla ve kaç yıl boyunca seç; ne kadarını senin, ne kadarını faizin koyduğuna bak.",
+          "lamina": [
+            "planta",
+            "crecer"
+          ]
+        },
+        {
+          "id": "regla72",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "72 ÷ 6 = 12",
+            "clave": "regla72"
+          },
+          "texto": "Hesabı kafadan yapmanın bir kısayolu, yetmiş iki kuralıdır: yetmiş ikiyi yıllık orana böl, paranın kaç yılda ikiye katlanacağını bulursun. Yüzde altıda, yaklaşık on iki yılda.",
+          "lamina": "pizarron",
+          "enCasa": true
+        },
+        {
+          "id": "empezar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "empezarAntes"
+          },
+          "texto": "Bu yüzden zaman, miktardan daha değerlidir. İki kişi her ay yıllık yüzde altıyla aynı tutarı ayırsa, biri yirmi beşinde, diğeri otuz beşinde başlasa, altmış beşine geldiklerinde ilkinin neredeyse iki katı parası olur; oysa sadece üçte bir fazla yatırmıştır.",
+          "lamina": [
+            "joven",
+            "reloj"
+          ]
+        },
+        {
+          "id": "riesgo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plazo",
+              "canasta",
+              "entiende"
+            ]
+          },
+          "texto": "Yatırımın her zaman riski vardır: daha çok kazandırabilecek olan daha çok da düşebilir. Üç ilke yardımcı olur: uzun vadede yalnızca yakında ihtiyaç duymayacağın parayı kullan; bütün yumurtaları aynı sepete koyma; ve anlamadığın bir şeye paranı yatırma.",
+          "lamina": [
+            "huevos",
+            "grafica"
+          ]
+        },
+        {
+          "id": "comisiones",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "comisiones"
+          },
+          "texto": "Komisyonlara da dikkat et, çünkü onlar da bileşik olarak büyür: paran yılda yüzde yedi getiriyorsa ve yüzde bir komisyon ödüyorsan, otuz yılın sonunda yaklaşık dörtte bir daha az paran olur.",
+          "lamina": "comision"
+        },
+        {
+          "id": "fraude",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "🚩",
+            "clave": "fraude"
+          },
+          "texto": "Yüksek ve garantili kazanç vaat edenlere de güvenme: öyle bir şey yok. Bir şey gerçek olamayacak kadar iyi görünüyorsa, neredeyse her zaman Ponzi'ninki gibi bir dolandırıcılıktır.",
+          "lamina": "alerta"
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Başlamak için planın",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Altıncı bölüm. Başlamak için planın."
+        },
+        {
+          "id": "metas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombre",
+              "monto",
+              "fecha"
+            ]
+          },
+          "texto": "İstediğin şeye bir ad ve bir tarih ver: “daha çok biriktirmek” ile “on sekiz ayda araba peşinatını biriktirmek” aynı şey değil. Tutarı ve tarihi bilince her ay ne kadar ayıracağını bilirsin.",
+          "lamina": [
+            "meta",
+            "coche"
+          ]
+        },
+        {
+          "id": "automatiza",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "automatiza"
+          },
+          "texto": "Yapabildiğin her şeyi otomatikleştir: maaş günü kendiliğinden ayrılan birikimi ve otomatik ödeme talimatı verdiğin sabit ödemeleri. Her ay yeniden vermen gerekmeyen kararlar, gerçekten uygulanan kararlardır.",
+          "lamina": [
+            "celular",
+            "automatico"
+          ]
+        },
+        {
+          "id": "revisa",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 min / mes",
+            "clave": "revisa"
+          },
+          "texto": "Ayda bir kez de ne kadar girdiğine, ne kadar çıktığına ve ne kadar ilerlediğine bak. Kötü bir ay kötü bir yıla dönüşmeden rotayı düzeltmek için on dakika yeter.",
+          "lamina": "revisar",
+          "enCasa": true
+        },
+        {
+          "id": "aviso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "Unutma, bu rehber bilgilendirme amaçlıdır; finansal ya da yatırım danışmanlığı değildir ve sana neye yatırım yapacağını söylemez. Kredi çekmeden veya yatırım yapmadan önce karşılaştır, koşulları oku ve gerekirse lisanslı bir danışmana başvur.",
+          "lamina": "contrato"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Özetle: paranın nereye gittiğini not et, önce kendine öde, birikim yastığını oluştur, pahalı borçlardan kurtul ve zamanın ve bileşik faizin senin için çalışmasına izin ver.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Bunu benim gibi hayata geçirmek istersen, MindHaOS'taki Finans odasında giderler, gelirler ve bakiyeyle para akışın, hesaplayıcılarla birikim hedeflerin ve borç planın, bir de büyüdüğünü görmen için servetin var. Bağlantı açıklamada; bu rehberin etkileşimli sürümü de orada. Bir sonraki rehberde görüşmek üzere.",
+    "boton": "Finans odasını aç",
+    "lamina": "app-plan",
+    "anclas": {
+      "flujo": "para akışın",
+      "metas": "birikim hedeflerin",
+      "patrimonio": "servetin"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "finlit-2015",
+      "texto": "Klapper L., Lusardi A., van Oudheusden P. Financial Literacy Around the World: Insights from the Standard & Poor's Ratings Services Global Financial Literacy Survey (2015).",
+      "url": "https://gflec.org/initiatives/sp-global-finlit-survey/"
+    },
+    {
+      "id": "hankins-2011",
+      "texto": "Hankins S., Hoekstra M., Skiba P. M. The Ticket to Easy Street? The Financial Consequences of Winning the Lottery. The Review of Economics and Statistics (2011).",
+      "url": "https://doi.org/10.1162/REST_a_00114"
+    },
+    {
+      "id": "homer-sylla",
+      "texto": "Homer S., Sylla R. A History of Interest Rates (4.ª ed.). Wiley (2005).",
+      "url": "https://doi.org/10.1002/9781118267028"
+    },
+    {
+      "id": "lidia",
+      "texto": "Lidia y las primeras monedas de electro (siglo VII a. C.).",
+      "url": "https://en.wikipedia.org/wiki/Lydia"
+    },
+    {
+      "id": "jiaozi",
+      "texto": "Jiaozi: el primer papel moneda oficial, emitido por la oficina de jiaozi de la dinastía Song en Sichuan (1024).",
+      "url": "https://en.wikipedia.org/wiki/Jiaozi_(currency)"
+    },
+    {
+      "id": "nixon-1971",
+      "texto": "Federal Reserve History. Nixon Ends Convertibility of U.S. Dollars to Gold and Announces Wage/Price Controls (1971).",
+      "url": "https://www.federalreservehistory.org/essays/gold-convertibility-ends"
+    },
+    {
+      "id": "warren-2005",
+      "texto": "Warren E., Warren Tyagi A. All Your Worth: The Ultimate Lifetime Money Plan. Free Press (2005).",
+      "url": "https://openlibrary.org/isbn/9780743269872"
+    },
+    {
+      "id": "thaler-2004",
+      "texto": "Thaler R. H., Benartzi S. Save More Tomorrow: Using Behavioral Economics to Increase Employee Saving. Journal of Political Economy (2004).",
+      "url": "https://doi.org/10.1086/380085"
+    },
+    {
+      "id": "shed-2023",
+      "texto": "Board of Governors of the Federal Reserve System. Economic Well-Being of U.S. Households in 2023 (2024).",
+      "url": "https://www.federalreserve.gov/publications/2024-economic-well-being-of-us-households-in-2023-executive-summary.htm"
+    },
+    {
+      "id": "g19",
+      "texto": "Board of Governors of the Federal Reserve System. Consumer Credit — G.19: interest rate on credit card plans.",
+      "url": "https://www.federalreserve.gov/releases/g19/current/"
+    },
+    {
+      "id": "gal-2012",
+      "texto": "Gal D., McShane B. B. Can Small Victories Help Win the War? Evidence from Consumer Debt Management. Journal of Marketing Research (2012).",
+      "url": "https://doi.org/10.1509/jmr.11.0272"
+    },
+    {
+      "id": "cfpb-emergencia",
+      "texto": "Consumer Financial Protection Bureau. An essential guide to building an emergency fund.",
+      "url": "https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/"
+    },
+    {
+      "id": "sec-comisiones",
+      "texto": "U.S. Securities and Exchange Commission. Investor Bulletin: How Fees and Expenses Affect Your Investment Portfolio (2014).",
+      "url": "https://www.sec.gov/investor/alerts/ib_investmentfees.pdf"
+    },
+    {
+      "id": "sec-ponzi",
+      "texto": "Investor.gov (SEC). Ponzi Scheme.",
+      "url": "https://www.investor.gov/protect-your-investments/fraud/types-fraud/ponzi-scheme"
+    }
+  ]
+}

@@ -5912,6 +5912,9 @@ export const NL: Dict = {
   'constructor.cuadrantes.eliminar': 'Kwadrant verwijderen',
   'constructor.cuadrantes.referencias': 'Referenties',
   'constructor.cuadrantes.referenciasHint': 'Ze verplaatsen alleen de weergave; je kunt overal bewerken.',
+  'constructor.cuadrantes.ocultar': 'Kwadranten verbergen',
+  'constructor.cuadrantes.ocultarListo': 'Klaar',
+  'constructor.cuadrantes.ocultarHint': 'Tik op de kwadranten die je niet wilt zien: de kaart en de themaachtergronden tonen alleen de rest.',
   'constructor.cuadrantes.tuyas': 'Jouw zones',
   'constructor.cuadrantes.tuyasHint':
     'Als je er een kiest, kun je in de andere menu\'s alleen de cellen ervan bewerken.',
@@ -7513,6 +7516,11 @@ export const NL: Dict = {
   'demo.reintentar': 'Opnieuw proberen',
   'tut.flujos.titulo': 'Tutorials voor deze app',
   'guia.ejercicio.titulo': "Wat is sporten eigenlijk?",
+  'guia.cocina.titulo': "Wat is eigenlijk goed eten?",
+  'guia.descanso.titulo': "Wat is eigenlijk goed slapen?",
+  'guia.finanzas.titulo': "Wat is eigenlijk geld?",
+  'guia.idiomas.titulo': "Waarom een taal leren?",
+  'guia.arte.titulo': "Wat is kunst?",
   'tut.esencial.titulo': 'De basis',
   'tut.tipo.ejemplos': 'Voorbeelden · demo-MindHaOS',
   'tut.app-agenda--esencial.resumen':

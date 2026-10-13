@@ -1,0 +1,255 @@
+{
+  "_nota": "Fotos y clips de la guía con su licencia. Pexels: uso libre, también comercial, sin atribución obligatoria (se acredita igual). Wikimedia Commons: dominio público o CC0, con «credito» sobre la lámina y en la descripción. Se sirven desde web/public/guias/descanso/.",
+  "fotos": {
+    "registro": {
+      "archivo": "registro.webp",
+      "autor": "Kaboompics",
+      "fuente": "https://www.pexels.com/photo/woman-sitting-in-bed-and-writing-in-a-journal-6633736/",
+      "licencia": "Licencia Pexels"
+    }
+  },
+  "laminas": {
+    "dormida": {
+      "archivo": "laminas/dormida.mp4",
+      "tipo": "video",
+      "autor": "Miriam Alonso",
+      "fuente": "https://www.pexels.com/video/woman-turning-off-her-alarm-clock-7593903/",
+      "licencia": "Licencia Pexels"
+    },
+    "profundo": {
+      "archivo": "laminas/profundo.mp4",
+      "tipo": "video",
+      "autor": "Artem Podrez",
+      "fuente": "https://www.pexels.com/video/a-little-girl-sleeping-on-bed-7505656/",
+      "licencia": "Licencia Pexels"
+    },
+    "cerebro": {
+      "archivo": "laminas/cerebro.mp4",
+      "tipo": "video",
+      "autor": "Nicola Narracci",
+      "fuente": "https://www.pexels.com/video/futuristic-neural-network-visualization-35010179/",
+      "licencia": "Licencia Pexels"
+    },
+    "suena": {
+      "archivo": "laminas/suena.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/girl-sleeping-5895193/",
+      "licencia": "Licencia Pexels"
+    },
+    "vela": {
+      "archivo": "laminas/vela.webp",
+      "tipo": "foto",
+      "autor": "Jahra Tasfia Reza",
+      "fuente": "https://www.pexels.com/photo/warm-candlelight-with-soft-glow-in-darkness-39850041/",
+      "licencia": "Licencia Pexels"
+    },
+    "ojos": {
+      "archivo": "laminas/ojos.webp",
+      "tipo": "foto",
+      "autor": "Artem Podrez",
+      "fuente": "https://www.pexels.com/photo/close-up-shot-of-a-woman-sleeping-on-the-bed-7505059/",
+      "licencia": "Licencia Pexels"
+    },
+    "familia": {
+      "archivo": "laminas/familia.webp",
+      "tipo": "foto",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/photo/a-woman-looking-her-daughter-sleeping-6670078/",
+      "licencia": "Licencia Pexels"
+    },
+    "cansancio": {
+      "archivo": "laminas/cansancio.mp4",
+      "tipo": "video",
+      "autor": "Kaboompics",
+      "fuente": "https://www.pexels.com/video/woman-yawning-and-holding-a-piece-of-paper-6032135/",
+      "licencia": "Licencia Pexels"
+    },
+    "despertador": {
+      "archivo": "laminas/despertador.mp4",
+      "tipo": "video",
+      "autor": "Miriam Alonso",
+      "fuente": "https://www.pexels.com/video/full-shot-of-gold-alarm-clock-7594018/",
+      "licencia": "Licencia Pexels"
+    },
+    "manana": {
+      "archivo": "laminas/manana.mp4",
+      "tipo": "video",
+      "autor": "Kevin  Malik",
+      "fuente": "https://www.pexels.com/video/a-woman-sitting-on-the-bed-9032902/",
+      "licencia": "Licencia Pexels"
+    },
+    "atardecer": {
+      "archivo": "laminas/atardecer.mp4",
+      "tipo": "video",
+      "autor": "Trev W. Adams",
+      "fuente": "https://www.pexels.com/video/time-lapse-of-a-city-at-dusk-philadelphia-pennsylvania-usa-12814495/",
+      "licencia": "Licencia Pexels"
+    },
+    "sol": {
+      "archivo": "laminas/sol.mp4",
+      "tipo": "video",
+      "autor": "Lesia  Burlachenko",
+      "fuente": "https://www.pexels.com/video/serene-autumn-pathway-at-golden-sunset-39546546/",
+      "licencia": "Licencia Pexels"
+    },
+    "pantalla": {
+      "archivo": "laminas/pantalla.webp",
+      "tipo": "foto",
+      "autor": "Hanna Pad",
+      "fuente": "https://www.pexels.com/photo/a-woman-using-her-smartphone-while-lying-in-bed-6598229/",
+      "licencia": "Licencia Pexels"
+    },
+    "alondra": {
+      "archivo": "laminas/alondra.mp4",
+      "tipo": "video",
+      "autor": "Zakhar Vozhdaienko",
+      "fuente": "https://www.pexels.com/video/running-boy-19523592/",
+      "licencia": "Licencia Pexels"
+    },
+    "buho": {
+      "archivo": "laminas/buho.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-man-working-while-drinking-coffee-8369274/",
+      "licencia": "Licencia Pexels"
+    },
+    "calendario": {
+      "archivo": "laminas/calendario.mp4",
+      "tipo": "video",
+      "autor": "ANTONI SHKRABA production",
+      "fuente": "https://www.pexels.com/video/people-having-a-party-8688889/",
+      "licencia": "Licencia Pexels"
+    },
+    "cafe": {
+      "archivo": "laminas/cafe.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/video-of-hot-fresh-coffee-5095328/",
+      "licencia": "Licencia Pexels"
+    },
+    "copa": {
+      "archivo": "laminas/copa.webp",
+      "tipo": "foto",
+      "autor": "Stefanie Jockschat",
+      "fuente": "https://www.pexels.com/photo/clear-wine-glass-eeside-yellow-candle-13673583/",
+      "licencia": "Licencia Pexels"
+    },
+    "recamara": {
+      "archivo": "laminas/recamara.mp4",
+      "tipo": "video",
+      "autor": "Fernanda Neitzel",
+      "fuente": "https://www.pexels.com/video/modern-bedroom-interior-with-cozy-lighting-34237005/",
+      "licencia": "Licencia Pexels"
+    },
+    "leer": {
+      "archivo": "laminas/leer.mp4",
+      "tipo": "video",
+      "autor": "Hanna Pad",
+      "fuente": "https://www.pexels.com/video/woman-reading-a-book-while-lying-down-on-his-bed-6598887/",
+      "licencia": "Licencia Pexels"
+    },
+    "estirar": {
+      "archivo": "laminas/estirar.mp4",
+      "tipo": "video",
+      "autor": "SHVETS production",
+      "fuente": "https://www.pexels.com/video/a-woman-doing-stretching-6967416/",
+      "licencia": "Licencia Pexels"
+    },
+    "lampara": {
+      "archivo": "laminas/lampara.webp",
+      "tipo": "foto",
+      "autor": "Osmany Mederos",
+      "fuente": "https://www.pexels.com/photo/lamp-on-a-nightstand-17994856/",
+      "licencia": "Licencia Pexels"
+    },
+    "correr": {
+      "archivo": "laminas/correr.webp",
+      "tipo": "foto",
+      "autor": "pedro furtado",
+      "fuente": "https://www.pexels.com/photo/male-runner-jogging-outdoors-in-summer-38132662/",
+      "licencia": "Licencia Pexels"
+    },
+    "insomnio": {
+      "archivo": "laminas/insomnio.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-woman-sitting-while-watching-tv-6951584/",
+      "licencia": "Licencia Pexels"
+    },
+    "siesta": {
+      "archivo": "laminas/siesta.webp",
+      "tipo": "foto",
+      "autor": "Polina Zimmerman",
+      "fuente": "https://www.pexels.com/photo/woman-lying-on-couch-3958566/",
+      "licencia": "Licencia Pexels"
+    },
+    "terapia": {
+      "archivo": "laminas/terapia.mp4",
+      "tipo": "video",
+      "autor": "SHVETS production",
+      "fuente": "https://www.pexels.com/video/couple-on-a-counseling-session-7199178/",
+      "licencia": "Licencia Pexels"
+    },
+    "registro": {
+      "archivo": "laminas/registro.mp4",
+      "tipo": "video",
+      "autor": "Miriam Alonso",
+      "fuente": "https://www.pexels.com/video/a-woman-writing-in-a-notebook-on-a-bed-7598998/",
+      "licencia": "Licencia Pexels"
+    },
+    "medico": {
+      "archivo": "laminas/medico.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/patient-having-consultation-to-the-doctor-7579840/",
+      "licencia": "Licencia Pexels"
+    },
+    "resumen": {
+      "archivo": "laminas/resumen.webp",
+      "tipo": "foto",
+      "autor": "Polina Tankilevitch",
+      "fuente": "https://www.pexels.com/photo/woman-with-curly-hair-sitting-on-bed-5849311/",
+      "licencia": "Licencia Pexels"
+    },
+    "edison": {
+      "archivo": "laminas/edison.webp",
+      "tipo": "foto",
+      "autor": "Louis Bachrach, Bachrach Studios, restored by Michel Vuijlsteke",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Thomas_Edison2.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "bombilla": {
+      "archivo": "laminas/bombilla.webp",
+      "tipo": "foto",
+      "autor": "HumanisticRationale at English Wikipedia",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Thomas_Edison_Lightbulbs_1879-1880.jpg",
+      "licencia": "CC BY 3.0",
+      "credito": "HumanisticRationale at English Wikipedia · CC BY 3.0 · Wikimedia"
+    },
+    "cueva": {
+      "archivo": "laminas/cueva.webp",
+      "tipo": "foto",
+      "autor": "Régis François Gignoux",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Mammoth_Cave,_Kentucky_X_21.jpeg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "nobel": {
+      "archivo": "laminas/nobel.webp",
+      "tipo": "foto",
+      "autor": "Alexis",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Drosophila_melanogaster_53362116.jpg",
+      "licencia": "CC BY 4.0",
+      "credito": "Alexis · CC BY 4.0 · Wikimedia"
+    },
+    "app-plan": {
+      "archivo": "laminas/app-plan.{idioma}.mp4",
+      "tipo": "video",
+      "autor": "MindHaOS",
+      "fuente": "https://app.mindhaos.com",
+      "credito": ""
+    }
+  }
+}

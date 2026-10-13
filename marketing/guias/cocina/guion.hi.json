@@ -1,0 +1,396 @@
+{
+  "idioma": "hi",
+  "tema": "cocina",
+  "plantillaId": "cocina",
+  "pregunta": "अच्छा खाना खाने का मतलब क्या है?",
+  "subtitulo": "खाना आपके शरीर में क्या करता है, यह सब हम कैसे जानते हैं, आपको कितनी ऊर्जा चाहिए, गुणवत्ता कैसे पहचानें, और अपनी थाली और अपना हफ़्ता कैसे तैयार करें।",
+  "aviso": "यह गाइड सिर्फ़ जानकारी के लिए है और डॉक्टर या पोषण विशेषज्ञ की सलाह की जगह नहीं लेती। अगर आपको कोई बीमारी या खान-पान से जुड़ा कोई विकार है, आप गर्भवती हैं या कोई दवा लेते हैं, तो अपना खान-पान बदलने से पहले किसी विशेषज्ञ से सलाह लें।",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'remueve', 'pica', 'bebe', 'pensando') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ cocinando y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «recetario», «plan de comidas» y «lista de compras»; app2d.mjs cambia de pantalla de la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "खाना आपके शरीर में क्या करता है",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": { "tipo": "titulo" },
+          "texto": "अच्छा खाना खाने का मतलब क्या है? आपको क्या खाना चाहिए, इस पर हर किसी की अपनी राय है। लेकिन यह लगभग कोई नहीं समझाता कि खाना आपके शरीर के अंदर असल में करता क्या है। आख़िर यह काम कैसे करता है? अगले कुछ मिनटों में आप समझेंगे कि आपके शरीर को क्या चाहिए, हिसाब लगाएँगे कि आप कितनी ऊर्जा खर्च करते हैं, और अपने हफ़्ते के लिए एक योजना लेकर जाएँगे।",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "texto": "वैसे, यह MindHaOS में मेरा घर है, और इसी किचन रूम में मेरी रेसिपी और मेरा मील प्लान रहते हैं। चलिए शुरू करते हैं।",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "भाग एक। खाना आपके शरीर में क्या करता है।"
+        },
+        {
+          "id": "dos-trabajos",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["combustible", "construccion"] },
+          "texto": "खाना एक साथ दो काम करता है। वह ईंधन है: ऊर्जा, जिसे कैलोरी में मापा जाता है और जिसे आप साँस लेने, सोचने और चलने-फिरने में खर्च करते हैं। और वह निर्माण-सामग्री भी है: इसी से आप मांसपेशियों, हड्डियों, त्वचा और खून की मरम्मत करते हैं, जो लगातार नए बनते रहते हैं।",
+          "lamina": "mercado"
+        },
+        {
+          "id": "macros",
+          "escena": "remueve",
+          "visual": { "tipo": "lista", "claves": ["proteinas", "carbohidratos", "grasas"] },
+          "texto": "ये सामग्रियाँ तीन बड़े समूहों में आती हैं, जिन्हें मैक्रोन्यूट्रिएंट कहते हैं। प्रोटीन शरीर को बनाते हैं और उसकी मरम्मत करते हैं। कार्बोहाइड्रेट सबसे तेज़ ऊर्जा हैं, ख़ासकर दिमाग़ और ज़ोरदार कसरत के लिए। और वसा ऊर्जा जमा रखती है, आपकी कोशिकाओं की दीवारें बनाती है और कुछ विटामिनों को सोखने में मदद करती है।",
+          "lamina": ["macros-proteina", "macros-carbos", "macros-grasas"]
+        },
+        {
+          "id": "micros",
+          "escena": "pica",
+          "visual": { "tipo": "lista", "claves": ["vitaminas", "minerales", "fibra"] },
+          "texto": "इनके अलावा माइक्रोन्यूट्रिएंट भी हैं: विटामिन और खनिज, जिनकी ज़रूरत बहुत थोड़ी मात्रा में होती है, लेकिन जिनके बिना ऊपर का कुछ भी काम नहीं करता। और फ़ाइबर, जो लगभग कोई ऊर्जा नहीं देता, लेकिन आपकी आँतों के बैक्टीरिया का भोजन है और आपका पेट देर तक भरा रखता है।",
+          "lamina": "verduras"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "हम जो खाते हैं, उसका एक छोटा-सा इतिहास",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "भाग दो। हम जो खाते हैं, उसका एक छोटा-सा इतिहास।"
+        },
+        {
+          "id": "fuego",
+          "escena": "remueve",
+          "visual": { "tipo": "grafica", "grafica": "historiaCocina" },
+          "texto": "लाखों साल पहले हमारे पूर्वजों ने आग पर खाना पकाना सीखा। पकाने से खाना नरम हो जाता है और हम उससे ज़्यादा ऊर्जा निकाल पाते हैं; कुछ मानवविज्ञानी मानते हैं कि इसी ने हमारे दिमाग़ को बड़ा होने में मदद की।",
+          "lamina": "fuego"
+        },
+        {
+          "id": "agricultura",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "10 000", "clave": "agricultura" },
+          "texto": "क़रीब दस हज़ार साल पहले खेती आई: गेहूँ, चावल और मक्का। अब कहीं ज़्यादा लोगों के लिए खाना था, हालाँकि खान-पान शिकारी-संग्राहकों के मुक़ाबले कम विविध हो गया।",
+          "lamina": "agricultura"
+        },
+        {
+          "id": "lind",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "1747", "clave": "lind" },
+          "texto": "1747 में स्कॉटिश डॉक्टर जेम्स लिंड ने इतिहास के पहले क्लिनिकल ट्रायल में से एक किया: स्कर्वी से बीमार नाविकों को उन्होंने अलग-अलग इलाज दिए, और जिन्होंने संतरे और नींबू खाए, वही ठीक हुए।",
+          "meme": "limones",
+          "lamina": ["lind", "limones"]
+        },
+        {
+          "id": "atwater",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "4 · 4 · 9", "clave": "atwater" },
+          "texto": "उन्नीसवीं सदी के आख़िर में रसायनशास्त्री विल्बर एटवॉटर ने मापा कि हर खाद्य पदार्थ कितनी ऊर्जा देता है: प्रोटीन या कार्बोहाइड्रेट के हर ग्राम में क़रीब चार कैलोरी, और वसा के हर ग्राम में क़रीब नौ। आज के फ़ूड लेबल भी इन्हीं आँकड़ों का इस्तेमाल करते हैं।",
+          "lamina": "atwater"
+        },
+        {
+          "id": "funk",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "1912", "clave": "funk" },
+          "texto": "1912 में जैव-रसायनशास्त्री कासिमिर फ़ंक ने 'विटामिन' शब्द सुझाया, और अगले कुछ दशकों में लगभग सारे विटामिन खोज लिए गए। पहली बार समझ आया कि कोई बहुत ज़्यादा खाकर भी कुपोषित रह सकता है।",
+          "lamina": "funk"
+        },
+        {
+          "id": "plato",
+          "escena": "senala",
+          "visual": { "tipo": "dato", "cifra": "2011", "clave": "plato" },
+          "texto": "1992 में अमेरिका ने मशहूर फ़ूड पिरामिड बनाया, जिसके आधार में ब्रेड और पास्ता थे। 2011 में उसकी जगह एक थाली आई, MyPlate, जिसे हर भोजन में सोचना कहीं आसान है। और मेक्सिको में आधिकारिक मानक ने अपनी थाली बनाई: Plato del Bien Comer, यानी 'अच्छे खाने की थाली'। वहीं तक हम पहुँचेंगे।",
+          "lamina": ["piramide", "myplate", "plato-bien-comer"]
+        }
+      ]
+    },
+    {
+      "id": "energia",
+      "titulo": "आपको कितनी ऊर्जा चाहिए",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "भाग तीन। आपको कितनी ऊर्जा चाहिए।"
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "balance" },
+          "texto": "लंबे समय में आपका वज़न ऊर्जा के संतुलन पर निर्भर करता है: आप जितना खाते हैं, बनाम जितना खर्च करते हैं। अगर खर्च से ज़्यादा खाते हैं, तो शरीर उसे जमा कर लेता है; कम खाते हैं, तो अपने भंडार से लेता है। सुनने में आसान लगता है, लेकिन खर्च के कई हिस्से होते हैं।",
+          "lamina": "balance"
+        },
+        {
+          "id": "gasto",
+          "escena": "Caminata",
+          "visual": { "tipo": "grafica", "grafica": "gasto" },
+          "texto": "सबसे बड़ा हिस्सा, लगभग दो-तिहाई, सिर्फ़ आपको ज़िंदा रखने में जाता है: यह आपका बेसल मेटाबॉलिज़्म है। एक हिस्सा इस पर निर्भर करता है कि आप दिन भर कितना चलते-फिरते हैं, और एक छोटा हिस्सा, क़रीब दस प्रतिशत, खाना पचाने में खर्च होता है।",
+          "lamina": "gasto"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "calculadoraEnergia" },
+          "texto": "आप इसका अंदाज़ा मिफ़्लिन–सेंट जेओर समीकरण से लगा सकते हैं, जिसका पोषण विशेषज्ञ सबसे ज़्यादा इस्तेमाल करते हैं: आपकी उम्र, वज़न, लंबाई और गतिविधि के आधार पर। यहाँ कैलकुलेटर आज़माइए। यह एक अनुमान है, सटीक माप नहीं, लेकिन शुरुआत के लिए बहुत अच्छा है।",
+          "lamina": "calculadora"
+        },
+        {
+          "id": "proteina",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "0,8–2 g/kg", "clave": "proteina" },
+          "texto": "प्रोटीन के लिए, एक वयस्क का मानक है रोज़ शरीर के हर किलो वज़न पर कम से कम शून्य दशमलव आठ ग्राम। अगर आप स्ट्रेंथ ट्रेनिंग करते हैं, तो कई विशेषज्ञ एक दशमलव चार से दो ग्राम तक की सलाह देते हैं।",
+          "lamina": "proteina"
+        },
+        {
+          "id": "deficit",
+          "escena": "pensando",
+          "visual": { "tipo": "dato", "cifra": "−15 %", "clave": "deficit" },
+          "texto": "और अगर आप वज़न घटाना चाहते हैं, तो भूखे रहने की ज़रूरत नहीं: बस जितना खर्च करते हैं उससे थोड़ा कम खाइए, क़रीब पंद्रह प्रतिशत, और हर दो हफ़्ते में देखिए कि कैसा चल रहा है। छोटे बदलाव ही टिकते हैं।",
+          "lamina": "deficit"
+        }
+      ]
+    },
+    {
+      "id": "calidad",
+      "titulo": "आप जो खाते हैं, उसकी गुणवत्ता",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "भाग चार। आप जो खाते हैं, उसकी गुणवत्ता।"
+        },
+        {
+          "id": "nova",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "nova" },
+          "texto": "कितना खाते हैं, उसके साथ यह भी मायने रखता है कि क्या खाते हैं। शोधकर्ता खाने को इस आधार पर बाँटते हैं कि उसे कितना प्रोसेस किया गया है: ताज़ा खाना; रसोई की चीज़ें, जैसे तेल या नमक; प्रोसेस्ड खाना, जैसे चीज़ या बेकरी की ब्रेड; और अल्ट्रा-प्रोसेस्ड, जैसे कोल्ड ड्रिंक, बिस्किट और पैकेट वाले स्नैक्स।",
+          "meme": "ultraprocesados",
+          "lamina": "supermercado"
+        },
+        {
+          "id": "experimento",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "+500 kcal", "clave": "experimento" },
+          "texto": "2019 में अमेरिका के राष्ट्रीय स्वास्थ्य संस्थानों के एक प्रयोग में बीस लोगों को दो हफ़्ते अल्ट्रा-प्रोसेस्ड खाना और दो हफ़्ते बिना प्रोसेस किया खाना दिया गया, और दोनों बार उतनी ही कैलोरी उपलब्ध थीं। अल्ट्रा-प्रोसेस्ड खाने वाले हफ़्तों में उन्होंने बिना जाने रोज़ क़रीब पाँच सौ कैलोरी ज़्यादा खाईं।",
+          "lamina": "ultraprocesados"
+        },
+        {
+          "id": "azucar",
+          "escena": "bebe",
+          "visual": { "tipo": "herramienta", "herramienta": "azucarOculta" },
+          "texto": "विश्व स्वास्थ्य संगठन की सलाह है कि ऊपर से मिलाई गई चीनी आपकी ऊर्जा के दस प्रतिशत से कम हो, और बेहतर हो कि पाँच प्रतिशत से भी कम: यानी दिन में क़रीब छह छोटे चम्मच। यहाँ देखिए कि आप जो पीते हैं, उसमें कितनी चीनी है।",
+          "lamina": "refresco"
+        },
+        {
+          "id": "sal",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "< 5 g", "clave": "sal" },
+          "texto": "नमक के साथ भी यही बात है: सलाह है कि दिन में पाँच ग्राम से कम, यानी लगभग एक छोटा चम्मच, और इसका ज़्यादातर हिस्सा आप ऊपर से नहीं डालते: वह पहले से ही पैकेट वाले उत्पादों में होता है।",
+          "lamina": "sal"
+        },
+        {
+          "id": "etiqueta",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["porcion", "azucares", "ingredientes"] },
+          "texto": "तरकीब है लेबल पढ़ना। सर्विंग साइज़ देखिए, चीनी और नमक देखिए, और सामग्री की सूची देखिए, जो ज़्यादा से कम के क्रम में होती है: अगर पहली चीज़ चीनी है, तो आप समझ गए कि उसमें सबसे ज़्यादा क्या है।",
+          "lamina": "etiqueta"
+        }
+      ]
+    },
+    {
+      "id": "plato",
+      "titulo": "अपनी थाली और अपना हफ़्ता कैसे तैयार करें",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "भाग पाँच। अपनी थाली और अपना हफ़्ता कैसे तैयार करें।"
+        },
+        {
+          "id": "plato",
+          "escena": "pica",
+          "visual": { "tipo": "herramienta", "herramienta": "armaTuPlato" },
+          "texto": "हर भोजन के लिए एक बहुत आसान तरीका है, हार्वर्ड की हेल्दी ईटिंग प्लेट: आधी थाली सब्ज़ियाँ और फल; एक चौथाई साबुत अनाज; और बाक़ी एक चौथाई प्रोटीन, जैसे मछली, चिकन, अंडा या दालें। पीने के लिए पानी, और पकाने के लिए थोड़ा अच्छा तेल।",
+          "lamina": "plato"
+        },
+        {
+          "id": "frutas",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "400 g", "clave": "frutas" },
+          "texto": "विश्व स्वास्थ्य संगठन रोज़ कम से कम चार सौ ग्राम फल और सब्ज़ियाँ खाने की सलाह देता है, यानी क़रीब पाँच सर्विंग, और कम से कम पच्चीस ग्राम फ़ाइबर, जो ज़्यादातर इन्हीं से, साबुत अनाज से और दालों से आता है।",
+          "lamina": "frutas"
+        },
+        {
+          "id": "planear",
+          "escena": "habla",
+          "visual": { "tipo": "pasos", "claves": ["menu", "lista", "prepara"] },
+          "texto": "राज़ इच्छाशक्ति नहीं, योजना है। हफ़्ते का मेन्यू चुनिए, उसी से राशन की लिस्ट बनाइए, और एक-दो दिन ज़्यादा खाना पका लीजिए, ताकि जब समय न हो तो खाना तैयार मिले।",
+          "lamina": "planear"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "texto": "MindHaOS के मेरे किचन रूम में यही होता है: मेरी रेसिपी से हफ़्ते का प्लान बनता है, और शॉपिंग लिस्ट अपने-आप तैयार हो जाती है।",
+          "lamina": "lista",
+          "enCasa": true
+        },
+        {
+          "id": "ochenta",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "80 / 20", "clave": "ochenta" },
+          "texto": "और इसे परफ़ेक्ट होने की ज़रूरत नहीं। अगर आपका ज़्यादातर खाना इसी राह पर है, तो दोस्तों के साथ एक पिज़्ज़ा बिना किसी अपराध-बोध के चल जाता है: जिस खान-पान को आप निभा सकें, वह उस परफ़ेक्ट डाइट से कहीं बेहतर है जिसे आप दो हफ़्ते में छोड़ दें।",
+          "meme": "perfecta",
+          "lamina": "pizza"
+        }
+      ]
+    },
+    {
+      "id": "habitos",
+      "titulo": "पानी, भूख और निरंतरता",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "भाग छह। पानी, भूख और निरंतरता।"
+        },
+        {
+          "id": "agua",
+          "escena": "bebe",
+          "visual": { "tipo": "dato", "cifra": "2–2,5 L", "clave": "agua" },
+          "texto": "पानी भी मायने रखता है। यूरोपीय खाद्य सुरक्षा प्राधिकरण की सलाह है कि महिलाएँ रोज़ क़रीब दो लीटर और पुरुष ढाई लीटर पानी लें, जिसमें खाने से मिलने वाला पानी भी शामिल है, जो लगभग पाँचवाँ हिस्सा होता है।",
+          "lamina": "agua"
+        },
+        {
+          "id": "hambre",
+          "escena": "habla",
+          "visual": { "tipo": "meme", "meme": "tarde" },
+          "texto": "अपनी भूख को सुनिए। धीरे-धीरे और बिना स्क्रीन के खाने से आपके शरीर को यह बताने का समय मिलता है कि पेट भर गया है। और भोजन तक ज़ोरों की भूख लेकर मत पहुँचिए: प्रोटीन वाला नाश्ता और दोपहर बाद एक फल, आपकी रात को काफ़ी बदल देते हैं।",
+          "lamina": "despacio"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": { "tipo": "foto", "foto": "registro" },
+          "texto": "और अगर आप जानना चाहते हैं कि आप कैसा कर रहे हैं, तो कुछ दिन लिखिए कि आप क्या खाते हैं। इसके पीछे पड़ जाने के लिए नहीं, बल्कि पैटर्न देखने के लिए: बहुत से लोगों को पता चलता है कि दिक़्क़त भोजन में नहीं थी, बल्कि ड्रिंक्स में या शाम के स्नैक में थी।",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": { "tipo": "aviso" },
+          "texto": "याद रखिए, यह गाइड सिर्फ़ जानकारी के लिए है। अगर आपको कोई बीमारी है, खाने के साथ आपका रिश्ता मुश्किल है, या आप गर्भवती हैं, तो सबसे अच्छा है कि कोई पोषण विशेषज्ञ आपका साथ दे।",
+          "lamina": "nutriologo"
+        },
+        {
+          "id": "resumen",
+          "escena": "remueve",
+          "visual": { "tipo": "lista", "claves": ["resumen1", "resumen2", "resumen3", "resumen4"] },
+          "texto": "संक्षेप में: ज़्यादातर समय असली खाना खाइए, आधी थाली सब्ज़ियों और फलों से भरिए, मात्रा अपने खर्च के हिसाब से रखिए, और अपने हफ़्ते की योजना बनाइए।",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "अगर आप इसे मेरी तरह अमल में लाना चाहते हैं, तो MindHaOS के किचन रूम में आपकी रेसिपी बुक है, हफ़्ते का मील प्लान है, और शॉपिंग लिस्ट है, जो अपने-आप बन जाती है। लिंक डिस्क्रिप्शन में है, और वहीं यह गाइड इंटरैक्टिव रूप में भी है, ताकि आप इसे आराम से दोहरा सकें। अगली गाइड में हम एक नए सवाल के साथ मिलेंगे। फिर मिलते हैं।",
+    "boton": "किचन रूम खोलें",
+    "lamina": "app-plan",
+    "anclas": { "recetario": "रेसिपी बुक", "plan": "मील प्लान", "compras": "शॉपिंग लिस्ट" }
+  },
+  "fuentes": [
+    {
+      "id": "usda-myplate",
+      "texto": "USDA. MyPlate (2011), जिसने फ़ूड गाइड पिरामिड (1992) की जगह ली।",
+      "url": "https://www.myplate.gov/"
+    },
+    {
+      "id": "nom-043",
+      "texto": "मेक्सिको का स्वास्थ्य मंत्रालय (Secretaría de Salud). NOM-043-SSA2-2012 (पहले NOM-043-SSA2-2005): Plato del Bien Comer.",
+      "url": "https://www.dof.gob.mx/nota_detalle.php?codigo=5285372&fecha=22/01/2013"
+    },
+    {
+      "id": "oms-alimentacion",
+      "texto": "WHO. स्वस्थ आहार — फ़ैक्ट शीट।",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/healthy-diet"
+    },
+    {
+      "id": "oms-azucar",
+      "texto": "WHO. Guideline: Sugars intake for adults and children (2015).",
+      "url": "https://www.who.int/publications/i/item/9789241549028"
+    },
+    {
+      "id": "oms-sal",
+      "texto": "WHO. सोडियम का सेवन घटाना — फ़ैक्ट शीट।",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/salt-reduction"
+    },
+    {
+      "id": "oms-carbohidratos",
+      "texto": "WHO. Carbohydrate intake for adults and children: WHO guideline (2023).",
+      "url": "https://www.who.int/publications/i/item/9789240073593"
+    },
+    {
+      "id": "harvard-plato",
+      "texto": "Harvard T.H. Chan School of Public Health. The Healthy Eating Plate.",
+      "url": "https://nutritionsource.hsph.harvard.edu/healthy-eating-plate/"
+    },
+    {
+      "id": "mifflin",
+      "texto": "Mifflin M. D., St Jeor S. T. et al. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr (1990).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+    },
+    {
+      "id": "issn-proteina",
+      "texto": "Jäger R. et al. International Society of Sports Nutrition Position Stand: protein and exercise (2017).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28642676/"
+    },
+    {
+      "id": "hall-2019",
+      "texto": "Hall K. D. et al. Ultra-processed diets cause excess calorie intake and weight gain. Cell Metabolism (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31105044/"
+    },
+    {
+      "id": "nova",
+      "texto": "Monteiro C. A. et al. Ultra-processed foods: what they are and how to identify them. Public Health Nutrition (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30744710/"
+    },
+    {
+      "id": "efsa-agua",
+      "texto": "EFSA. Scientific Opinion on Dietary Reference Values for water (2010).",
+      "url": "https://www.efsa.europa.eu/en/efsajournal/pub/1459"
+    },
+    {
+      "id": "lind-1753",
+      "texto": "Lind J. A Treatise of the Scurvy (1753). The James Lind Library.",
+      "url": "https://www.jameslindlibrary.org/lind-j-1753/"
+    }
+  ]
+}

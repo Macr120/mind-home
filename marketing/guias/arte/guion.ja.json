@@ -1,0 +1,685 @@
+{
+  "idioma": "ja",
+  "tema": "arte",
+  "plantillaId": "arte",
+  "numero": 6,
+  "nombre": "アートスタジオ",
+  "pregunta": "芸術とは何でしょうか？",
+  "corta": "芸術とは何でしょうか？",
+  "subtitulo": "視覚芸術とは何か、AIが数秒で絵を描く今でもなぜ自分でアートをつくる価値があるのか、洞窟から画面まで芸術はどう変わってきたのか、作品はどんな要素でできているのか、どう見ればいいのか、どうつくり始めればいいのか、そして一日十五分のプラン。",
+  "aviso": "このガイドは情報提供を目的としています。紹介する年代、数字、研究は出典にもとづくおおよその値で、進み方は人それぞれです。",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando').",
+    "visual": "Bloque que acompaña la línea: dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título). No puede ser enCasa.",
+    "corta": "La pregunta en pocas palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su Studio Arte y las de en medio sobre las tomas de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "epocas": "La casa y la ropa de Pep@ avanzan en el tiempo con las partes: medieval, pirata, vaquero, tren, cyberpunk y nave espacial (escena.mjs y pep.ts). Pep@ lo explica en la mención del inicio y lo recuerda en cada toma de la casa.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «galería», «lienzo por capas» y «ayudas de dibujo»; app2d.mjs mueve la app justo al decirlas.",
+    "ia": "La línea «ia» responde por qué hacer arte aunque una IA ya pinte: lo que te pasa al hacerlo (estrés, memoria, mirada)."
+  },
+  "partes": [
+    {
+      "id": "arte",
+      "titulo": "芸術とは何か",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "芸術とは何でしょうか？ 今では、AIが数秒で一枚の絵を描いてしまいます。それでも、ほとんどの大人が、まっすぐな線一本もうまく引けないと言います。では、なぜ自分でアートをつくるのでしょうか？ これからの数分で、視覚芸術とは何か、洞窟から画面までどう変わってきたのか、どう見て、どう始めればいいのかを見ていき、今日からつくり始めるためのプランを手にして終われます。",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "ちなみに、ここはMindHaOSにある私の家です。このアートスタジオで、イーゼルに向かって絵を描き、描いた絵はギャラリーにしまっています。それから、家をよく見てください。今日は中世のお城ですが、パートごとに時代をひとつずつ進んで、未来まで行きます。では、始めましょう。",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート1。芸術とは何か。"
+        },
+        {
+          "id": "definicion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hacer",
+              "mirar",
+              "sentir"
+            ]
+          },
+          "texto": "定義はたくさんありますが、ほとんどが一つの点で一致します。芸術とは、人がつくり、ほかの誰かがそれを見て、感じたり考えたりするためのものです。1897年、ロシアの作家レフ・トルストイはこう言いました。芸術とは、自分が味わった感情をほかの人に伝染させることだ、と。",
+          "lamina": [
+            "tolstoi",
+            "galeria"
+          ]
+        },
+        {
+          "id": "visuales",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "dibujo",
+              "pintura",
+              "escultura",
+              "fotografia",
+              "digital"
+            ]
+          },
+          "texto": "このガイドで扱うのは視覚芸術、つまり目で見る芸術です。素描、絵画、彫刻、写真、そして今ではデジタルイラストも。どれも同じもので成り立っています。線、形、光、そして色です。",
+          "lamina": [
+            "pinturas",
+            "escultura"
+          ]
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "3 de 4",
+            "clave": "cortisol"
+          },
+          "texto": "では、AIがもう数秒で絵を描けるのに、なぜ自分でやるのでしょうか？ 芸術の価値は、できあがった結果だけでなく、つくっているあいだに自分の中で起きることにもあるからです。2016年、アメリカのドレクセル大学で、ギリジャ・カイマルは、四十五分間アートをつくる前と後で、ストレスホルモンのコルチゾールを測りました。絵が得意かどうかに関係なく、四人に三人で下がったのです。",
+          "lamina": [
+            "acuarela",
+            "notas"
+          ]
+        },
+        {
+          "id": "memoria",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "efectoDibujo"
+          },
+          "texto": "しかも、考える助けにもなります。2016年、カナダのウォータールー大学で、学生たちは、書いただけの単語よりも、絵に描いた単語のほうをずっとよく覚えていました。機械はあなたの代わりに絵をつくれても、あなたの代わりに見たり、考えたり、感じたりはできません。",
+          "lamina": [
+            "estudiante",
+            "ojo"
+          ]
+        },
+        {
+          "id": "talento",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "creer",
+              "ver",
+              "entrenar"
+            ]
+          },
+          "texto": "では、才能は？ 子どものころは誰でも怖がらずに描きますが、十歳ごろになると、絵が本物に似ないからと、多くの人がやめてしまいます。でも研究者のレベッカ・チェンバレンとヨハン・ヴァーヘマンスは、描き間違いのほとんどは手ではなく、見方から来ることを見つけました。そして、見る力は鍛えられます。",
+          "meme": "simbolos",
+          "lamina": [
+            "nino",
+            "crayones"
+          ]
+        },
+        {
+          "id": "castillo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lapiz",
+              "papel",
+              "tableta"
+            ]
+          },
+          "texto": "家を見てください。中世のお城です。ほとんどの芸術が教会や宮殿のために描かれ、描ける人はごくわずかだった時代です。今なら、始めるのに必要なのは鉛筆と紙、あるいはタブレットだけです。",
+          "lamina": "lapices",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "視覚芸術の短い歴史",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート2。視覚芸術の短い歴史。"
+        },
+        {
+          "id": "cuevas",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaArte"
+          },
+          "texto": "人は文字を書くずっと前から芸術をつくってきました。インドネシアのスラウェシ島の洞窟には、野生のイノシシのそばに人々がいる場面が描かれていて、少なくとも五万一千年前のものです。そしてフランスのラスコーでは、壁に描かれた馬や牛がおよそ一万七千年前のものです。",
+          "lamina": [
+            "sulawesi",
+            "lascaux"
+          ]
+        },
+        {
+          "id": "perspectiva",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1415",
+            "clave": "perspectiva"
+          },
+          "texto": "何世紀ものあいだ、人物は平面的に描かれていました。1415年ごろ、フィレンツェで建築家フィリッポ・ブルネレスキが鏡を使って奥行きがどう見えるかを示し、1435年にはレオン・バッティスタ・アルベルティが画家のための本でそれを説明しました。こうしてルネサンスの遠近法が生まれたのです。",
+          "lamina": [
+            "brunelleschi",
+            "alberti"
+          ]
+        },
+        {
+          "id": "durero",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1525",
+            "clave": "durero"
+          },
+          "texto": "見てください。家は時代を進んで、今度は船になりました。ヨーロッパが海を渡っていた時代のようにです。1525年、ドイツのアルブレヒト・デューラーは、見えるものをひとマスずつ写しとるための格子を載せた手引き書を出版しました。",
+          "lamina": [
+            "durero",
+            "rejilla"
+          ],
+          "enCasa": true
+        },
+        {
+          "id": "fotografia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1839",
+            "clave": "fotografia"
+          },
+          "texto": "1839年、パリで写真が発表されました。多くの人が絵画は消えると思いましたが、起きたのは逆のことでした。画家たちは現実を細かく写すのをやめ、光と色を求めて外へ出ていきました。1874年、印象派が最初の展覧会を開きます。",
+          "lamina": [
+            "daguerre",
+            "monet"
+          ]
+        },
+        {
+          "id": "duchamp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1917",
+            "clave": "duchamp"
+          },
+          "texto": "1917年、マルセル・デュシャンは、偽名でサインした磁器の小便器をニューヨークの展覧会に送り、それを「泉」と名づけました。出品は断られましたが、現代美術の大きな問いが残りました。うまくつくられているから芸術なのか、それとも誰かが選んで、見てほしいと差し出すから芸術なのか？",
+          "lamina": "fuente"
+        },
+        {
+          "id": "sketchpad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1963",
+            "clave": "sketchpad"
+          },
+          "texto": "そして1963年、アイヴァン・サザランドが、画面に絵を描く最初のプログラム、Sketchpadをつくりました。そこからタブレットが生まれ、今のAIにつながっています。道具は変わっても、何を伝えたいのかという問いは、私たちのものです。",
+          "lamina": [
+            "sketchpad",
+            "tableta"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "elementos",
+      "titulo": "作品をつくる要素",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート3。作品をつくる要素。"
+        },
+        {
+          "id": "elementos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "formas"
+          },
+          "texto": "洞窟の壁でも画面でも、視覚作品はみな同じ要素でできています。線、形、明るさと暗さを表す明度、色、質感、そして空間です。そして目に見えるもののほとんどは、立方体、球、円柱、円すいの四つの形で組み立てられます。",
+          "lamina": [
+            "formas",
+            "taza"
+          ]
+        },
+        {
+          "id": "valores",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "valores"
+          },
+          "texto": "立体感を生むのは光です。ものが立体に見えるのは明度のおかげです。光、中間調、陰、反射光、そして落ち影。目を細めてみてください。細かいところが消えて、光と影のかたまりだけが残ります。",
+          "lamina": [
+            "esfera",
+            "claroscuro"
+          ]
+        },
+        {
+          "id": "color",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "circulo"
+          },
+          "texto": "色にも独自の歴史があります。1704年、アイザック・ニュートンは色を円に並べました。でも色が働くのは、なによりその明度によってです。白黒でよく見える作品は、色をつけてもよく見えます。",
+          "lamina": [
+            "newton",
+            "pinturas"
+          ]
+        },
+        {
+          "id": "composicion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "tercios"
+          },
+          "texto": "そして構図、つまり画面の中にすべてをどう配置するかです。画家や写真家の昔からのコツが三分割法です。画面を縦横三つずつに分けて、大事なものを真ん中ではなく、線が交わる点のどれかに置きます。",
+          "lamina": [
+            "fotografo",
+            "galeria2"
+          ]
+        },
+        {
+          "id": "oeste",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "brazo",
+              "unidad",
+              "compara"
+            ]
+          },
+          "texto": "そして今、家は十九世紀の西部開拓時代にいます。写真の時代です。だから全体がセピア色なんです。比率をつかむために、画家は測ります。腕をまっすぐ伸ばし、鉛筆でひとつの長さを測って、比べるのです。",
+          "lamina": "medir",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "mirar",
+      "titulo": "作品の見方",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート4。作品の見方。"
+        },
+        {
+          "id": "museo",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 27 s",
+            "clave": "museo"
+          },
+          "texto": "あなたは一枚の絵をどれくらい見ていますか？ 2001年、ジェフリー・スミスとリサ・スミスは、ニューヨークのメトロポリタン美術館で来館者を観察しました。一つの作品の前にいたのは平均で約二十七秒。解説パネルを読むよりも短い時間です。",
+          "lamina": [
+            "museo",
+            "louvre"
+          ]
+        },
+        {
+          "id": "mesas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mesas"
+          },
+          "texto": "それに、ちゃんと見るのは難しいものです。この二つのテーブル、大きさがまるで違って見えますよね？ 実は同じです。この錯視は心理学者のロジャー・シェパードが1990年に描きました。脳は、知っていることをもとに、見えたものを補正してしまうんです。ここをタップして確かめてみてください。",
+          "lamina": "ilusion"
+        },
+        {
+          "id": "feldman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "describe",
+              "analiza",
+              "interpreta",
+              "juzga"
+            ]
+          },
+          "texto": "ゆっくり見るために、美術教育者のエドマンド・フェルドマンは1970年に四つのステップを提案しました。見えるものを記述する、どうつくられているかを分析する、何を伝えたいのかを解釈する、そして最後にだけ、好きかどうかを判断する。",
+          "lamina": [
+            "copista",
+            "retrato"
+          ]
+        },
+        {
+          "id": "tren",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 min",
+            "clave": "unaObra"
+          },
+          "texto": "そして家は列車になりました。産業の時代に入り、芸術が宮殿を出て、街や、ポスターや、新聞へと広がった時代です。今日、試してみてください。美術館でもスマートフォンでもいいので、作品を一つだけ選んで、十分間見つめてみましょう。",
+          "lamina": "galeria",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "hacer",
+      "titulo": "アートを始める方法",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート5。アートを始める方法。"
+        },
+        {
+          "id": "alreves",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "alReves"
+          },
+          "texto": "知っているものではなく、見えるものを描くための有名な練習があります。1979年のベティ・エドワーズの本にあるもので、逆さまにした絵を写すんです。何が描かれているかわからないので、記号を描くのをやめて、線と角度を写すようになります。",
+          "lamina": [
+            "mano",
+            "copiar"
+          ]
+        },
+        {
+          "id": "ojos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "ojos"
+          },
+          "texto": "顔のどこに目があるでしょうか？ ほとんどの人が高すぎる位置に描いてしまいます。実際は、あごから頭のてっぺんまでの、ちょうど真ん中にあります。ここで目の線を動かして、確かめてみてください。",
+          "meme": "ojos",
+          "lamina": "retrato2"
+        },
+        {
+          "id": "gesto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cronometro"
+          },
+          "texto": "素早いジェスチャードローイングをしましょう。三十秒から二分で、細部は描かず、動きだけを描きます。本質を見るしかなくなり、間違えることへの怖さも消えていきます。",
+          "lamina": [
+            "gesto",
+            "modelo"
+          ]
+        },
+        {
+          "id": "copiar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1793",
+            "clave": "louvre"
+          },
+          "texto": "巨匠の作品を模写しましょう。ルーブル美術館は、1793年の開館以来、絵の模写を認めています。模写をすると、自分が苦労しているところを、ほかの人がどう解決したのかがわかります。",
+          "lamina": [
+            "copista2",
+            "figura"
+          ]
+        },
+        {
+          "id": "cuaderno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "100",
+            "clave": "cuaderno"
+          },
+          "texto": "そしてスケッチブックを持ち歩きましょう。目の前にあるもの、マグカップ、靴、待合室の人たちを描いてください。完璧さより量が大事です。最初の百枚は、学ぶための絵です。",
+          "meme": "cien",
+          "lamina": [
+            "cuaderno",
+            "cafe"
+          ]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "見てください。家はもうデジタルの時代に着きました。ネオンと画面があちこちにあります。私はMindHaOSのアートスタジオでやっています。レイヤーで描いて、グリッドとミラーを使い、作品はどれもギャラリーに残ります。",
+          "lamina": "caballete",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "始めるためのプラン",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート6。始めるためのプラン。"
+        },
+        {
+          "id": "meta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "100 × 100",
+            "clave": "meta"
+          },
+          "texto": "小さくて具体的な目標を立てましょう。たとえば、百日で百枚。数えられる目標があると、毎日戻ってきたくなります。",
+          "lamina": "calendario"
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dibujosAno"
+          },
+          "texto": "たくさんの時間はいりません。一日十五分で、一年に九十時間を超えます。ここで自分の分数を動かして、一年で何枚の作品になるか見てみてください。",
+          "lamina": "reloj"
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "一週間の例です。月曜は輪郭、火曜は形、水曜は素早いジェスチャー、木曜は光と影、金曜は作品を一つ十分間見て模写、そして週末は好きなことを。",
+          "lamina": [
+            "semana",
+            "acuarela2"
+          ]
+        },
+        {
+          "id": "futuro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "amigo",
+              "clase",
+              "internet"
+            ]
+          },
+          "texto": "そして家はついに未来に着きました。宇宙船です。道具はこれからも変わり続けますが、芸術にはいつも、見て、感じる誰かが必要です。だから、見せましょう。友だちに、教室で、あるいはインターネットで。",
+          "lamina": "antesDespues",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "まとめです。芸術とは、誰かが見て感じるように何かをつくること。つくっているあいだに自分に起きることのために、やる価値があります。光と形と色で、ゆっくり見ること。そして毎日少しずつつくること。",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "私のようにつくり始めたいなら、MindHaOSのアートスタジオには、作品を飾るギャラリー、自動で保存されるレイヤーキャンバス、そしてグリッドやミラーのような描画アシストがあります。リンクは概要欄にあります。そこには、このインタラクティブ版のガイドもあります。それでは、また次のガイドで。",
+    "boton": "アートスタジオを開く",
+    "lamina": "app-plan",
+    "anclas": {
+      "galeria": "ギャラリー",
+      "capas": "レイヤーキャンバス",
+      "ayudas": "描画アシスト"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "tolstoi-1897",
+      "texto": "トルストイ L.『芸術とは何か』(1897).",
+      "url": "https://en.wikipedia.org/wiki/What_Is_Art%3F"
+    },
+    {
+      "id": "kaimal-2016",
+      "texto": "Kaimal G., Ray K., Muniz J. Reduction of Cortisol Levels and Participants' Responses Following Art Making. Art Therapy (2016).",
+      "url": "https://doi.org/10.1080/07421656.2016.1166832"
+    },
+    {
+      "id": "wammes-2016",
+      "texto": "Wammes J. D., Meade M. E., Fernandes M. A. The drawing effect: Evidence for reliable and robust memory benefits in free recall. Quarterly Journal of Experimental Psychology (2016).",
+      "url": "https://doi.org/10.1080/17470218.2015.1094494"
+    },
+    {
+      "id": "chamberlain-2016",
+      "texto": "Chamberlain R., Wagemans J. The genesis of errors in drawing. Neuroscience & Biobehavioral Reviews (2016).",
+      "url": "https://doi.org/10.1016/j.neubiorev.2016.04.002"
+    },
+    {
+      "id": "oktaviana-2024",
+      "texto": "Oktaviana A. A. et al. Narrative cave art in Indonesia by 51,200 years ago. Nature (2024).",
+      "url": "https://doi.org/10.1038/s41586-024-07541-7"
+    },
+    {
+      "id": "lascaux",
+      "texto": "UNESCO. Prehistoric Sites and Decorated Caves of the Vézère Valley (Lascaux).",
+      "url": "https://whc.unesco.org/en/list/85/"
+    },
+    {
+      "id": "alberti-1435",
+      "texto": "Alberti L. B. De pictura (1435). ブルネレスキの実演について: Kemp M. The Science of Art. Yale University Press (1990).",
+      "url": "https://en.wikipedia.org/wiki/De_pictura"
+    },
+    {
+      "id": "durero-1525",
+      "texto": "Dürer A. Underweysung der Messung. ニュルンベルク (1525).",
+      "url": "https://en.wikipedia.org/wiki/Underweysung_der_Messung"
+    },
+    {
+      "id": "daguerre-1839",
+      "texto": "Académie des Sciences: ダゲレオタイプの発表、パリ (1839).",
+      "url": "https://en.wikipedia.org/wiki/Daguerreotype"
+    },
+    {
+      "id": "impresionistas-1874",
+      "texto": "Musée d'Orsay. Paris 1874: Inventing Impressionism (2024).",
+      "url": "https://www.musee-orsay.fr/en/whats-on/exhibitions/paris-1874-inventing-impressionism"
+    },
+    {
+      "id": "duchamp-1917",
+      "texto": "Duchamp M.「泉」(1917). Tate: Fountain, 1964年のレプリカ.",
+      "url": "https://www.tate.org.uk/art/artworks/duchamp-fountain-t07573"
+    },
+    {
+      "id": "sutherland-1963",
+      "texto": "Sutherland I. E. Sketchpad: A man-machine graphical communication system. MIT (1963).",
+      "url": "https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-574.pdf"
+    },
+    {
+      "id": "newton-1704",
+      "texto": "Newton I. Opticks. ロンドン (1704): 色相環.",
+      "url": "https://en.wikipedia.org/wiki/Opticks"
+    },
+    {
+      "id": "smith-2001",
+      "texto": "Smith J. K., Smith L. F. Spending Time on Art. Empirical Studies of the Arts (2001).",
+      "url": "https://doi.org/10.2190/5MQM-59JH-X21R-JN5J"
+    },
+    {
+      "id": "shepard-1990",
+      "texto": "Shepard R. N. Mind Sights: Original Visual Illusions, Ambiguities, and Other Anomalies. W. H. Freeman (1990).",
+      "url": "https://en.wikipedia.org/wiki/Shepard_tables"
+    },
+    {
+      "id": "feldman-1970",
+      "texto": "Feldman E. B. Becoming Human Through Art: Aesthetic Experience in the School. Prentice-Hall (1970).",
+      "url": "https://en.wikipedia.org/wiki/Edmund_Burke_Feldman"
+    },
+    {
+      "id": "edwards-1979",
+      "texto": "Edwards B. Drawing on the Right Side of the Brain. Tarcher (1979).",
+      "url": "https://en.wikipedia.org/wiki/Drawing_on_the_Right_Side_of_the_Brain"
+    },
+    {
+      "id": "louvre-copistas",
+      "texto": "Musée du Louvre. Copier au Louvre: 1793年から続く模写家のプログラム.",
+      "url": "https://www.louvre.fr/en/explore/the-palace/copying-at-the-louvre"
+    }
+  ]
+}

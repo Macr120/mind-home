@@ -60,60 +60,125 @@ const ALTO_BARRA = 1.0
 
 /** Olla sobre la barra (sin hornilla propia: se coloca en la misma posición que la
  *  barra/isla de la cocina): la tapa tabletea y sale vapor cuando el jugador se acerca. */
+/**
+ * Perfiles torneados de la olla (radio, altura), de dentro hacia fuera:
+ * cuerpo con el fondo redondeado y paredes con grosor (por dentro se ve el
+ * caldo), y la tapa apenas abombada con su ceja que asienta en el borde.
+ */
+const PERFIL_OLLA = [
+  [0, 0.012], [0.25, 0.012], [0.285, 0.03], [0.3, 0.07], [0.305, 0.3], [0.31, 0.318],
+  [0.296, 0.318], [0.29, 0.3], [0.286, 0.06], [0.262, 0.03], [0, 0.03],
+].map(([x, y]) => new THREE.Vector2(x, y))
+const PERFIL_TAPA = [
+  [0, 0.05], [0.12, 0.046], [0.24, 0.032], [0.31, 0.012], [0.322, 0], [0.322, -0.008], [0.3, -0.008], [0.29, 0.004], [0, 0.004],
+].map(([x, y]) => new THREE.Vector2(x, y))
+const ACERO = '#cbd5e1'
+const BAQUELITA = '#1f1f23'
+/** Bocanadas de vapor: cada una sube con su desfase y se desvanece arriba. */
+const VAPOR = [
+  { x: -0.06, z: 0.02, d: 0 },
+  { x: 0.07, z: -0.03, d: 0.2 },
+  { x: 0.0, z: 0.06, d: 0.4 },
+  { x: -0.03, z: -0.06, d: 0.6 },
+  { x: 0.05, z: 0.04, d: 0.8 },
+]
+
 function Olla({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const tapa = useRef<THREE.Group>(null!)
   const vapor = useRef<THREE.Group>(null!)
   const energia = useRef(0)
+  const cuerpo = useMemo(() => new THREE.LatheGeometry(PERFIL_OLLA, 40), [])
+  const domo = useMemo(() => new THREE.LatheGeometry(PERFIL_TAPA, 40), [])
+  useEffect(
+    () => () => {
+      cuerpo.dispose()
+      domo.dispose()
+    },
+    [cuerpo, domo],
+  )
   useFrame(({ clock }) => {
     if (simple || !raiz.current) return
     const e = actualizarEnergia(raiz.current, PROX, nivel, energia, objetoId)
     if (e === 0) return // en reposo no hay nada que animar
     const t = clock.elapsedTime
     if (tapa.current) {
-      tapa.current.position.y = 0.1 + Math.abs(Math.sin(t * 9)) * 0.03 * e
-      tapa.current.rotation.z = Math.sin(t * 13) * 0.05 * e
+      // La tapa tabletea sobre el borde (salta un poco y se ladea).
+      tapa.current.position.y = 0.318 + Math.abs(Math.sin(t * 9)) * 0.025 * e
+      tapa.current.rotation.z = Math.sin(t * 13) * 0.04 * e
     }
     if (vapor.current) {
       vapor.current.visible = e > 0.05
       vapor.current.children.forEach((c, i) => {
-        const q = (t * 0.5 + i / vapor.current.children.length) % 1
-        c.position.y = 0.2 + q * 0.6
-        c.scale.setScalar((0.6 + q * 0.8) * e)
+        const q = (t * 0.45 + VAPOR[i].d) % 1
+        c.position.y = 0.36 + q * 0.62
+        c.position.x = VAPOR[i].x + Math.sin(t * 1.3 + i) * 0.04 * q
+        c.scale.setScalar((0.5 + q * 1.1) * e)
+        const m = (c as THREE.Mesh).material as THREE.MeshStandardMaterial
+        m.opacity = 0.7 * (1 - q) * Math.min(1, q * 5)
       })
     }
   })
   return (
     <group ref={raiz} position={[0, ALTO_BARRA, 0]}>
-      {/* Cuerpo de la olla */}
-      <mesh position={[0, 0.17, 0]} castShadow>
-        <cylinderGeometry args={[0.33, 0.29, 0.34, 22]} />
-        <MatStd acabado="mueble.metal" color={color} metalness={0.3} roughness={0.5} />
+      {/* Cuerpo esmaltado (con grosor: por dentro, más oscuro) */}
+      <mesh geometry={cuerpo} castShadow receiveShadow>
+        <MatStd acabado="mueble.metal" color={color} metalness={0.15} roughness={0.32} side={THREE.DoubleSide} />
       </mesh>
-      {/* Asas */}
+      {/* Fondo de acero */}
+      <mesh position={[0, 0.008, 0]}>
+        <cylinderGeometry args={[0.262, 0.255, 0.016, 40]} />
+        <meshStandardMaterial color={ACERO} metalness={0.85} roughness={0.28} />
+      </mesh>
+      {/* Borde enrollado de acero */}
+      <mesh position={[0, 0.318, 0]} rotation={[Math.PI / 2, 0, 0]}>
+        <torusGeometry args={[0.304, 0.008, 8, 48]} />
+        <meshStandardMaterial color={ACERO} metalness={0.85} roughness={0.25} />
+      </mesh>
+      {/* El caldo, a dos tercios */}
+      <mesh position={[0, 0.22, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <circleGeometry args={[0.284, 40]} />
+        <meshStandardMaterial color="#c2410c" roughness={0.25} />
+      </mesh>
+      {/* Asas: placa remachada y agarradera de baquelita */}
       {[-1, 1].map((s) => (
-        <mesh key={s} position={[s * 0.37, 0.19, 0]} rotation={[Math.PI / 2, 0, 0]} castShadow>
-          <torusGeometry args={[0.07, 0.02, 8, 12, Math.PI]} />
-          <meshStandardMaterial color="#27272a" />
-        </mesh>
+        <group key={s} position={[s * 0.305, 0.25, 0]}>
+          <mesh position={[s * 0.004, 0, 0]}>
+            <boxGeometry args={[0.012, 0.05, 0.1]} />
+            <meshStandardMaterial color={ACERO} metalness={0.85} roughness={0.3} />
+          </mesh>
+          {[-0.032, 0.032].map((z) => (
+            <mesh key={z} position={[s * 0.011, 0, z]} rotation={[0, 0, Math.PI / 2]}>
+              <cylinderGeometry args={[0.008, 0.008, 0.006, 8]} />
+              <meshStandardMaterial color={ACERO} metalness={0.9} roughness={0.2} />
+            </mesh>
+          ))}
+          <mesh position={[s * 0.06, 0, 0]} rotation={[0, s > 0 ? 0 : Math.PI, 0]} castShadow>
+            <torusGeometry args={[0.045, 0.014, 10, 16, Math.PI]} />
+            <meshStandardMaterial color={BAQUELITA} roughness={0.55} />
+          </mesh>
+        </group>
       ))}
-      {/* Tapa (se mueve) */}
-      <group ref={tapa} position={[0, 0.27, 0]}>
-        <mesh castShadow>
-          <cylinderGeometry args={[0.34, 0.34, 0.05, 22]} />
-          <MatStd acabado="mueble.metal" color={color} metalness={0.3} roughness={0.5} />
+      {/* Tapa (tabletea): domo de acero con perilla de baquelita */}
+      <group ref={tapa} position={[0, 0.318, 0]}>
+        <mesh geometry={domo} castShadow>
+          <meshStandardMaterial color={ACERO} metalness={0.8} roughness={0.22} side={THREE.DoubleSide} />
         </mesh>
-        <mesh position={[0, 0.06, 0]}>
-          <sphereGeometry args={[0.045, 10, 10]} />
-          <meshStandardMaterial color="#27272a" />
+        <mesh position={[0, 0.062, 0]}>
+          <cylinderGeometry args={[0.014, 0.018, 0.024, 12]} />
+          <meshStandardMaterial color={ACERO} metalness={0.85} roughness={0.25} />
+        </mesh>
+        <mesh position={[0, 0.088, 0]} scale={[1, 0.62, 1]} castShadow>
+          <sphereGeometry args={[0.036, 16, 12]} />
+          <meshStandardMaterial color={BAQUELITA} roughness={0.5} />
         </mesh>
       </group>
       {/* Vapor */}
       <group ref={vapor} visible={false}>
-        {[0, 1, 2].map((i) => (
-          <mesh key={i} position={[(i - 1) * 0.08, 0.4, 0]}>
-            <sphereGeometry args={[0.07, 8, 8]} />
-            <meshStandardMaterial color="#e5e7eb" transparent opacity={0.5} />
+        {VAPOR.map((v, i) => (
+          <mesh key={i} position={[v.x, 0.4, v.z]}>
+            <sphereGeometry args={[0.07, 10, 10]} />
+            <meshStandardMaterial color="#ffffff" transparent opacity={0.6} depthWrite={false} />
           </mesh>
         ))}
       </group>
@@ -1262,8 +1327,9 @@ export function AccesorioAccion({ escala }: { escala: number }) {
 }
 
 /**
- * Caja fuerte del despacho: al acercarse, el dial gira y la puerta se entreabre
- * dejando ver lo que guarda. Es AMBIENTAL y no usable a propósito: el despacho
+ * Caja fuerte del despacho: al acercarse, el dial gira mientras la puerta se
+ * entreabre y deja ver lo que guarda (el cuerpo es hueco: cinco paredes, la
+ * puerta es la sexta). Es AMBIENTAL y no usable a propósito: el despacho
  * conserva la laptop, que ya es usable, y dos «Usar» dentro del mismo radio se
  * pisan; además no hay pose de avatar que le pegue a abrir una caja fuerte.
  */
@@ -1273,12 +1339,14 @@ function CajaFuerte({ color, simple = false, nivel = null, objetoId }: EspProps)
   const dial = useRef<THREE.Group>(null!)
   const tesoro = useRef<THREE.Group>(null!)
   const energia = useRef(0)
-  useFrame(({ clock }) => {
+  useFrame(() => {
     if (simple || !raiz.current) return
     const e = actualizarEnergia(raiz.current, PROX, nivel, energia, objetoId)
-    if (dial.current) dial.current.rotation.y = clock.elapsedTime * 2.2 * e
     // Suavizado: la puerta arranca y frena despacio en vez de dar un tirón.
-    if (puerta.current) puerta.current.rotation.y = -1.05 * (e * e * (3 - 2 * e))
+    const abre = e * e * (3 - 2 * e)
+    // El dial gira sobre su eje (el que sale de la puerta) mientras se abre, y se detiene abierta.
+    if (dial.current) dial.current.rotation.z = abre * Math.PI * 3
+    if (puerta.current) puerta.current.rotation.y = -1.05 * abre
     if (tesoro.current) tesoro.current.visible = e > 0.12
   })
   return (
@@ -1288,10 +1356,21 @@ function CajaFuerte({ color, simple = false, nivel = null, objetoId }: EspProps)
         <boxGeometry args={[1.18, 0.1, 0.98]} />
         <MatStd acabado="mueble.metal" color="#1f2937" roughness={0.8} />
       </mesh>
-      <mesh position={[0, 0.62, -0.02]} castShadow receiveShadow>
-        <boxGeometry args={[1.1, 1.05, 0.9]} />
-        <MatStd acabado="mueble.metal" color={color} metalness={0.55} roughness={0.35} />
-      </mesh>
+      {/* Cuerpo hueco (1.1 × 1.05 × 0.9): fondo, costados, techo y piso; el frente es la puerta. */}
+      {(
+        [
+          [[0, 0.62, -0.44], [1.1, 1.05, 0.06]],
+          [[-0.52, 0.62, -0.02], [0.06, 1.05, 0.9]],
+          [[0.52, 0.62, -0.02], [0.06, 1.05, 0.9]],
+          [[0, 1.115, -0.02], [1.1, 0.06, 0.9]],
+          [[0, 0.125, -0.02], [1.1, 0.06, 0.9]],
+        ] as [[number, number, number], [number, number, number]][]
+      ).map(([pos, tam], i) => (
+        <mesh key={i} position={pos} castShadow receiveShadow>
+          <boxGeometry args={tam} />
+          <MatStd acabado="mueble.metal" color={color} metalness={0.55} roughness={0.35} />
+        </mesh>
+      ))}
       {/* Remaches del frente */}
       {[
         [-0.46, 0.28],
@@ -1304,9 +1383,9 @@ function CajaFuerte({ color, simple = false, nivel = null, objetoId }: EspProps)
           <meshStandardMaterial color="#9ca3af" metalness={0.85} roughness={0.25} />
         </mesh>
       ))}
-      {/* Hueco interior: se ve al abrirse */}
-      <mesh position={[0, 0.62, -0.06]}>
-        <boxGeometry args={[0.94, 0.9, 0.78]} />
+      {/* Fondo interior oscuro: se ve al abrirse */}
+      <mesh position={[0, 0.62, -0.405]}>
+        <boxGeometry args={[0.98, 0.93, 0.01]} />
         <meshStandardMaterial color="#0b1020" roughness={1} />
       </mesh>
       <group ref={tesoro} visible={false}>

@@ -1,0 +1,685 @@
+{
+  "idioma": "tr",
+  "tema": "arte",
+  "plantillaId": "arte",
+  "numero": 6,
+  "nombre": "Sanat Stüdyosu",
+  "pregunta": "Sanat nedir?",
+  "corta": "Sanat nedir?",
+  "subtitulo": "Görsel sanatlar nedir, bugün yapay zekâ saniyeler içinde resim yapsa bile sanat yapmaya neden değer, sanat mağaralardan ekranlara nasıl değişti, bir eser hangi öğelerle kurulur, ona nasıl bakılır, üretmeye nasıl başlanır ve günde on beş dakikalık bir plan.",
+  "aviso": "Bu rehber bilgilendirme amaçlıdır: verilen tarihler, rakamlar ve çalışmalar kaynaklarına dayanan yaklaşık değerlerdir ve herkes kendi hızında ilerler.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando').",
+    "visual": "Bloque que acompaña la línea: dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título). No puede ser enCasa.",
+    "corta": "La pregunta en pocas palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su Studio Arte y las de en medio sobre las tomas de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "epocas": "La casa y la ropa de Pep@ avanzan en el tiempo con las partes: medieval, pirata, vaquero, tren, cyberpunk y nave espacial (escena.mjs y pep.ts). Pep@ lo explica en la mención del inicio y lo recuerda en cada toma de la casa.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «galería», «lienzo por capas» y «ayudas de dibujo»; app2d.mjs mueve la app justo al decirlas.",
+    "ia": "La línea «ia» responde por qué hacer arte aunque una IA ya pinte: lo que te pasa al hacerlo (estrés, memoria, mirada)."
+  },
+  "partes": [
+    {
+      "id": "arte",
+      "titulo": "Sanat nedir",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Sanat nedir? Bugün yapay zekâ bir tabloyu saniyeler içinde yapıyor. Yine de yetişkinlerin neredeyse hepsi düz bir çizgi bile çizemediklerini söylüyor. O zaman sanatı neden kendin yapasın? Önümüzdeki birkaç dakikada görsel sanatın ne olduğunu, mağaralardan ekranlara nasıl değiştiğini, ona nasıl bakılacağını ve nasıl başlanacağını görecek, bugünden üretmeye başlamak için bir planla ayrılacaksın.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Bu arada, burası MindHaOS'taki evim; Sanat Stüdyomda şövalemde resim yapıyor, çizimlerimi bir galeride saklıyorum. Eve de bir bak: bugün bir Orta Çağ şatosu ve her bölümde zamanda ilerleyecek, çağ çağ, ta geleceğe kadar. Hadi başlayalım.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Birinci bölüm. Sanat nedir."
+        },
+        {
+          "id": "definicion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hacer",
+              "mirar",
+              "sentir"
+            ]
+          },
+          "texto": "Pek çok tanım var ama neredeyse hepsi bir noktada birleşiyor: sanat, bir kişinin bir başkası baksın, hissetsin ya da düşünsün diye yaptığı şeydir. 1897'de Rus yazar Lev Tolstoy bunu şöyle söyledi: sanat, yaşadığın bir duyguyu başkalarına bulaştırmaktır.",
+          "lamina": [
+            "tolstoi",
+            "galeria"
+          ]
+        },
+        {
+          "id": "visuales",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "dibujo",
+              "pintura",
+              "escultura",
+              "fotografia",
+              "digital"
+            ]
+          },
+          "texto": "Bu rehber görsel sanatları, yani bakılan sanatları anlatıyor: desen, resim, heykel, fotoğraf ve bugün dijital illüstrasyon. Hepsi aynı şeylerle çalışır: çizgiler, biçimler, ışık ve renk.",
+          "lamina": [
+            "pinturas",
+            "escultura"
+          ]
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "3 de 4",
+            "clave": "cortisol"
+          },
+          "texto": "Peki yapay zekâ saniyeler içinde resim yapıyorsa, bunu neden yapasın? Çünkü sanatın değeri yalnızca sonuçta değil, yaparken sana olanlarda. 2016'da ABD'deki Drexel Üniversitesi'nde Girija Kaimal, stres hormonu kortizolü kırk beş dakikalık sanat çalışmasından önce ve sonra ölçtü: çizim bilsinler ya da bilmesinler, her dört kişiden üçünde düştü.",
+          "lamina": [
+            "acuarela",
+            "notas"
+          ]
+        },
+        {
+          "id": "memoria",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "efectoDibujo"
+          },
+          "texto": "Düşünmene de yardım ediyor: 2016'da Kanada'daki Waterloo Üniversitesi'nde öğrenciler, çizdikleri kelimeleri yalnızca yazdıklarından çok daha iyi hatırladı. Bir makine resmi senin yerine yapabilir ama senin yerine bakamaz, düşünemez, hissedemez.",
+          "lamina": [
+            "estudiante",
+            "ojo"
+          ]
+        },
+        {
+          "id": "talento",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "creer",
+              "ver",
+              "entrenar"
+            ]
+          },
+          "texto": "Peki ya yetenek? Çocukken hepimiz korkmadan çizeriz, on yaş civarında da çoğumuz bırakırız, çünkü çizim gerçeğe benzemez. Ama araştırmacılar Rebecca Chamberlain ve Johan Wagemans, hataların çoğunun elden değil, nasıl baktığımızdan kaynaklandığını buldu. Ve bakmak çalışarak gelişir.",
+          "meme": "simbolos",
+          "lamina": [
+            "nino",
+            "crayones"
+          ]
+        },
+        {
+          "id": "castillo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lapiz",
+              "papel",
+              "tableta"
+            ]
+          },
+          "texto": "Eve bak: bir Orta Çağ şatosu; sanatın neredeyse tamamının kiliseler ve saraylar için yapıldığı, çok az kişinin bununla uğraşabildiği bir çağ. Bugün başlamak için bir kalem ve kâğıt ya da bir tablet yeter.",
+          "lamina": "lapices",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Görsel sanatların kısa tarihi",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "İkinci bölüm. Görsel sanatların kısa tarihi."
+        },
+        {
+          "id": "cuevas",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaArte"
+          },
+          "texto": "Yazıdan çok önce de sanat yapıyorduk. Endonezya'daki Sulawesi adasında bir mağarada, yaban domuzunun yanında insanları gösteren ve en az elli bir bin yıl önce yapılmış bir sahne var. Fransa'daki Lascaux'nun duvarlarındaki atlar ve boğalar ise yaklaşık on yedi bin yaşında.",
+          "lamina": [
+            "sulawesi",
+            "lascaux"
+          ]
+        },
+        {
+          "id": "perspectiva",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1415",
+            "clave": "perspectiva"
+          },
+          "texto": "Yüzyıllar boyunca figürler düz çizildi. 1415 civarında Floransa'da mimar Filippo Brunelleschi bir aynayla derinliğin nasıl göründüğünü gösterdi, 1435'te de Leon Battista Alberti bunu ressamlar için yazdığı bir kitapta açıkladı: Rönesans perspektifi böyle doğdu.",
+          "lamina": [
+            "brunelleschi",
+            "alberti"
+          ]
+        },
+        {
+          "id": "durero",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1525",
+            "clave": "durero"
+          },
+          "texto": "Bak: ev zamanda ilerledi ve artık bir gemi, tıpkı Avrupa'nın okyanusları aştığı çağdaki gibi. 1525'te Alman Albrecht Dürer, görüleni kare kare kopyalamak için ızgaralı bir el kitabı yayımladı.",
+          "lamina": [
+            "durero",
+            "rejilla"
+          ],
+          "enCasa": true
+        },
+        {
+          "id": "fotografia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1839",
+            "clave": "fotografia"
+          },
+          "texto": "1839'da Paris'te fotoğraf tanıtıldı. Birçok kişi resmin yok olacağını sandı ama tam tersi oldu: ressamlar gerçeği en ince ayrıntısına kadar kopyalamayı bıraktı ve ışığın, rengin peşine düştü. 1874'te izlenimciler ilk sergilerini açtı.",
+          "lamina": [
+            "daguerre",
+            "monet"
+          ]
+        },
+        {
+          "id": "duchamp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1917",
+            "clave": "duchamp"
+          },
+          "texto": "1917'de Marcel Duchamp, New York'taki bir sergiye sahte bir adla imzaladığı porselen bir pisuar gönderdi ve adını «Çeşme» koydu. Reddedildi ama modern sanatın büyük sorusunu bıraktı: iyi yapıldığı için mi sanattır, yoksa biri onu seçip sana bakmanı istediği için mi?",
+          "lamina": "fuente"
+        },
+        {
+          "id": "sketchpad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1963",
+            "clave": "sketchpad"
+          },
+          "texto": "Ve 1963'te Ivan Sutherland, ekranda çizim yapılan ilk program olan Sketchpad'i yarattı. Tabletler ve bugün yapay zekâ oradan geliyor. Araç değişiyor; ne söylemek istediğimiz sorusu ise hâlâ bizim.",
+          "lamina": [
+            "sketchpad",
+            "tableta"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "elementos",
+      "titulo": "Bir eserin öğeleri",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Üçüncü bölüm. Bir eserin öğeleri."
+        },
+        {
+          "id": "elementos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "formas"
+          },
+          "texto": "Mağaradan ekrana her görsel eser aynı öğelerle kurulur: çizgi, biçim, açık ve koyu demek olan değer, renk, doku ve mekân. Gördüğün hemen her şey de dört biçimle kurulabilir: küp, küre, silindir ve koni.",
+          "lamina": [
+            "formas",
+            "taza"
+          ]
+        },
+        {
+          "id": "valores",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "valores"
+          },
+          "texto": "Hacmi veren ışıktır. Bir nesne değerleri sayesinde üç boyutlu görünür: ışık, ara ton, öz gölge, yansıyan ışık ve düşen gölge. Gözlerini kıs: ayrıntılar kaybolur, geriye yalnızca ışık ve gölge lekeleri kalır.",
+          "lamina": [
+            "esfera",
+            "claroscuro"
+          ]
+        },
+        {
+          "id": "color",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "circulo"
+          },
+          "texto": "Rengin de kendi tarihi var: Isaac Newton 1704'te renkleri bir çember üzerinde sıraladı. Ama bir renk her şeyden önce değeriyle işe yarar: bir eser siyah beyazda iyi görünüyorsa, renkli de iyi görünür.",
+          "lamina": [
+            "newton",
+            "pinturas"
+          ]
+        },
+        {
+          "id": "composicion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "tercios"
+          },
+          "texto": "Bir de kompozisyon var: her şeyin kadrede nasıl dağıldığı. Ressamların ve fotoğrafçıların klasik bir hilesi üçler kuralıdır: görüntüyü üçe üç böl ve önemli olanı tam ortaya değil, kesişimlerden birine koy.",
+          "lamina": [
+            "fotografo",
+            "galeria2"
+          ]
+        },
+        {
+          "id": "oeste",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "brazo",
+              "unidad",
+              "compara"
+            ]
+          },
+          "texto": "Ve şimdi ev Vahşi Batı'da, on dokuzuncu yüzyılda, fotoğraf çağında: bu yüzden her şey sepya. Oranlar için ressamlar ölçer: kol uzatılır, kalemle bir birim alınır ve karşılaştırılır.",
+          "lamina": "medir",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "mirar",
+      "titulo": "Bir esere nasıl bakılır",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Dördüncü bölüm. Bir esere nasıl bakılır."
+        },
+        {
+          "id": "museo",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 27 s",
+            "clave": "museo"
+          },
+          "texto": "Bir tabloya ne kadar bakıyorsun? 2001'de Jeffrey Smith ve Lisa Smith, New York'taki Metropolitan Sanat Müzesi'nin ziyaretçilerini gözlemledi: ortalama olarak her eserin önünde yaklaşık yirmi yedi saniye geçiriyorlardı, künyesini okumaya yetecek süreden bile az.",
+          "lamina": [
+            "museo",
+            "louvre"
+          ]
+        },
+        {
+          "id": "mesas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mesas"
+          },
+          "texto": "Ve iyi bakmak zordur. Bu iki masa boyut olarak çok farklı görünüyor, değil mi? Aynılar: bu illüzyonu 1990'da psikolog Roger Shepard çizdi. Beynin gördüğünü bildiklerine göre düzeltiyor. Buraya dokun ve kendin gör.",
+          "lamina": "ilusion"
+        },
+        {
+          "id": "feldman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "describe",
+              "analiza",
+              "interpreta",
+              "juzga"
+            ]
+          },
+          "texto": "Yavaş bakmak için eğitimci Edmund Feldman 1970'te dört adım önerdi: ne gördüğünü betimle, nasıl yapıldığını çözümle, ne anlatmak istediğini yorumla ve ancak en sonda beğenip beğenmediğine karar ver.",
+          "lamina": [
+            "copista",
+            "retrato"
+          ]
+        },
+        {
+          "id": "tren",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 min",
+            "clave": "unaObra"
+          },
+          "texto": "Ve ev artık bir tren: sanayi çağına geldik, sanatın saraylardan sokaklara, afişlere ve gazetelere çıktığı zamana. Bugün dene: müzede ya da telefonunda tek bir eser seç ve ona on dakika bak.",
+          "lamina": "galeria",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "hacer",
+      "titulo": "Sanat yapmaya nasıl başlanır",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Beşinci bölüm. Sanat yapmaya nasıl başlanır."
+        },
+        {
+          "id": "alreves",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "alReves"
+          },
+          "texto": "Bildiğini değil gördüğünü çizmek için Betty Edwards'ın 1979 tarihli kitabından ünlü bir alıştırma var: baş aşağı çevrilmiş bir çizimi kopyala. Ne olduğunu tanımadığın için sembol çizmeyi bırakır, çizgileri ve açıları kopyalarsın.",
+          "lamina": [
+            "mano",
+            "copiar"
+          ]
+        },
+        {
+          "id": "ojos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "ojos"
+          },
+          "texto": "Bir yüzde gözler nereye gelir? Neredeyse herkes onları fazla yukarı çizer. Aslında başın tam ortasındadırlar, çeneyle tepe arasında. Göz çizgisini buradan kaydır ve kendin gör.",
+          "meme": "ojos",
+          "lamina": "retrato2"
+        },
+        {
+          "id": "gesto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cronometro"
+          },
+          "texto": "Hızlı jest çizimleri yap: otuz saniyeden iki dakikaya kadar, yalnızca hareket, ayrıntı yok. Seni özü görmeye zorlar ve hata yapma korkunu alır.",
+          "lamina": [
+            "gesto",
+            "modelo"
+          ]
+        },
+        {
+          "id": "copiar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1793",
+            "clave": "louvre"
+          },
+          "texto": "Ustaları kopyala. Louvre Müzesi, açıldığı 1793'ten beri tablolarının kopyalanmasına izin veriyor. Kopyalamak, seni zorlayan şeyi başkalarının nasıl çözdüğünü öğretir.",
+          "lamina": [
+            "copista2",
+            "figura"
+          ]
+        },
+        {
+          "id": "cuaderno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "100",
+            "clave": "cuaderno"
+          },
+          "texto": "Ve bir eskiz defteri taşı: önünde ne varsa çiz, fincanını, ayakkabılarını, bekleme salonundaki insanları. Miktar mükemmellikten daha önemli: ilk yüz çizimin öğrenmek için.",
+          "meme": "cien",
+          "lamina": [
+            "cuaderno",
+            "cafe"
+          ]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Bak: ev artık dijital çağa ulaştı, her yerde neon ve ekranlar var. Ben bunu MindHaOS'taki Sanat Stüdyomda yapıyorum: katmanlarla resim yapıyor, ızgarayı ve aynayı kullanıyorum, her eser de galerimde kalıyor.",
+          "lamina": "caballete",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Başlamak için planın",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Altıncı bölüm. Başlamak için planın."
+        },
+        {
+          "id": "meta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "100 × 100",
+            "clave": "meta"
+          },
+          "texto": "Kendine küçük ve somut bir hedef koy: örneğin yüz günde yüz çizim. Sayılabilen bir hedef seni her gün geri getirir.",
+          "lamina": "calendario"
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dibujosAno"
+          },
+          "texto": "Çok zamana ihtiyacın yok: günde on beş dakika, yılda doksan saatten fazla eder. Dakikalarını buradan kaydır ve bir yılda kaç eserin olacağını gör.",
+          "lamina": "reloj"
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "Olası bir hafta: pazartesi konturlar; salı biçimler; çarşamba hızlı jestler; perşembe ışık ve gölge; cuma bir esere on dakika bak ve onu kopyala; hafta sonu da canın ne isterse.",
+          "lamina": [
+            "semana",
+            "acuarela2"
+          ]
+        },
+        {
+          "id": "futuro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "amigo",
+              "clase",
+              "internet"
+            ]
+          },
+          "texto": "Ve ev artık geleceğe ulaştı: bir uzay gemisi. Araçlar değişmeye devam edecek ama sanatın her zaman bakan ve hisseden birine ihtiyacı olacak. O yüzden yaptığını göster: bir arkadaşına, bir derste ya da internette.",
+          "lamina": "antesDespues",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Özetle: sanat, bir başkası baksın ve hissetsin diye bir şey yapmaktır; üretirken sana olanlar için buna değer; yavaş bak, ışığa, biçime ve renge; ve her gün biraz üret.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Benim gibi üretmeye başlamak istersen, MindHaOS'taki Sanat Stüdyosu'nda eserlerin için bir galeri, kendi kendine kaydedilen katmanlı tuval ve ızgara, ayna gibi çizim yardımcıları var. Bağlantı açıklamada; bu rehberin etkileşimli sürümü de orada. Bir sonraki rehberde görüşmek üzere.",
+    "boton": "Sanat Stüdyosu'nu aç",
+    "lamina": "app-plan",
+    "anclas": {
+      "galeria": "galeri",
+      "capas": "katmanlı tuval",
+      "ayudas": "çizim yardımcıları"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "tolstoi-1897",
+      "texto": "Tolstoy L. Sanat Nedir? (1897).",
+      "url": "https://en.wikipedia.org/wiki/What_Is_Art%3F"
+    },
+    {
+      "id": "kaimal-2016",
+      "texto": "Kaimal G., Ray K., Muniz J. Reduction of Cortisol Levels and Participants' Responses Following Art Making. Art Therapy (2016).",
+      "url": "https://doi.org/10.1080/07421656.2016.1166832"
+    },
+    {
+      "id": "wammes-2016",
+      "texto": "Wammes J. D., Meade M. E., Fernandes M. A. The drawing effect: Evidence for reliable and robust memory benefits in free recall. Quarterly Journal of Experimental Psychology (2016).",
+      "url": "https://doi.org/10.1080/17470218.2015.1094494"
+    },
+    {
+      "id": "chamberlain-2016",
+      "texto": "Chamberlain R., Wagemans J. The genesis of errors in drawing. Neuroscience & Biobehavioral Reviews (2016).",
+      "url": "https://doi.org/10.1016/j.neubiorev.2016.04.002"
+    },
+    {
+      "id": "oktaviana-2024",
+      "texto": "Oktaviana A. A. et al. Narrative cave art in Indonesia by 51,200 years ago. Nature (2024).",
+      "url": "https://doi.org/10.1038/s41586-024-07541-7"
+    },
+    {
+      "id": "lascaux",
+      "texto": "UNESCO. Prehistoric Sites and Decorated Caves of the Vézère Valley (Lascaux).",
+      "url": "https://whc.unesco.org/en/list/85/"
+    },
+    {
+      "id": "alberti-1435",
+      "texto": "Alberti L. B. De pictura (1435). Brunelleschi'nin gösterisi üzerine: Kemp M. The Science of Art. Yale University Press (1990).",
+      "url": "https://en.wikipedia.org/wiki/De_pictura"
+    },
+    {
+      "id": "durero-1525",
+      "texto": "Dürer A. Underweysung der Messung. Nürnberg (1525).",
+      "url": "https://en.wikipedia.org/wiki/Underweysung_der_Messung"
+    },
+    {
+      "id": "daguerre-1839",
+      "texto": "Académie des Sciences: dagerreyotipin tanıtımı, Paris (1839).",
+      "url": "https://en.wikipedia.org/wiki/Daguerreotype"
+    },
+    {
+      "id": "impresionistas-1874",
+      "texto": "Musée d'Orsay. Paris 1874: Inventing Impressionism (2024).",
+      "url": "https://www.musee-orsay.fr/en/whats-on/exhibitions/paris-1874-inventing-impressionism"
+    },
+    {
+      "id": "duchamp-1917",
+      "texto": "Duchamp M. Çeşme (1917). Tate: Fountain, 1964 kopyası.",
+      "url": "https://www.tate.org.uk/art/artworks/duchamp-fountain-t07573"
+    },
+    {
+      "id": "sutherland-1963",
+      "texto": "Sutherland I. E. Sketchpad: A man-machine graphical communication system. MIT (1963).",
+      "url": "https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-574.pdf"
+    },
+    {
+      "id": "newton-1704",
+      "texto": "Newton I. Opticks. Londra (1704): renk çemberi.",
+      "url": "https://en.wikipedia.org/wiki/Opticks"
+    },
+    {
+      "id": "smith-2001",
+      "texto": "Smith J. K., Smith L. F. Spending Time on Art. Empirical Studies of the Arts (2001).",
+      "url": "https://doi.org/10.2190/5MQM-59JH-X21R-JN5J"
+    },
+    {
+      "id": "shepard-1990",
+      "texto": "Shepard R. N. Mind Sights: Original Visual Illusions, Ambiguities, and Other Anomalies. W. H. Freeman (1990).",
+      "url": "https://en.wikipedia.org/wiki/Shepard_tables"
+    },
+    {
+      "id": "feldman-1970",
+      "texto": "Feldman E. B. Becoming Human Through Art: Aesthetic Experience in the School. Prentice-Hall (1970).",
+      "url": "https://en.wikipedia.org/wiki/Edmund_Burke_Feldman"
+    },
+    {
+      "id": "edwards-1979",
+      "texto": "Edwards B. Drawing on the Right Side of the Brain. Tarcher (1979).",
+      "url": "https://en.wikipedia.org/wiki/Drawing_on_the_Right_Side_of_the_Brain"
+    },
+    {
+      "id": "louvre-copistas",
+      "texto": "Musée du Louvre. Copier au Louvre: 1793'ten beri açık olan kopyacılar programı.",
+      "url": "https://www.louvre.fr/en/explore/the-palace/copying-at-the-louvre"
+    }
+  ]
+}

@@ -173,3 +173,37 @@ export function normalizarRect(
     color,
   }
 }
+
+/** Lo que queda a la vista cuando el usuario oculta bloques A1…D4 del mapa. */
+export interface MapaVisible {
+  /** Rectángulo que envuelve los bloques visibles: lo encuadran la cámara y los fondos. */
+  rect: CuadranteMapa
+  /** ¿La celda (admite ½ y ¼ de celda) cae en un bloque oculto? */
+  oculta: (col: number, row: number) => boolean
+}
+
+/**
+ * Recorte del mapa a los bloques NO ocultos. `null` si no hay nada oculto (o si se
+ * ocultó todo, que no tiene sentido: entonces se ve el mapa entero).
+ */
+export function mapaVisible(cols: number, rows: number, ocultos: string[]): MapaVisible | null {
+  if (ocultos.length === 0 || !hayCuadrantes(cols, rows)) return null
+  const set = new Set(ocultos)
+  const autos = cuadrantesAuto(cols, rows)
+  const visibles = autos.filter((q) => !set.has(q.id))
+  if (visibles.length === 0 || visibles.length === autos.length) return null
+  const c0 = Math.min(...visibles.map((q) => q.col))
+  const r0 = Math.min(...visibles.map((q) => q.row))
+  const c1 = Math.max(...visibles.map((q) => q.col + q.cols))
+  const r1 = Math.max(...visibles.map((q) => q.row + q.rows))
+  const bloque = (v: number) => Math.max(0, Math.floor(v / TAM_BLOQUE))
+  return {
+    rect: { id: 'visible', nombre: '', col: c0, row: r0, cols: c1 - c0, rows: r1 - r0 },
+    oculta: (col, row) => set.has(`auto-${bloque(col)}-${bloque(row)}`),
+  }
+}
+
+/** ¿El cuarto entero (ancla + huella) cae en bloques ocultos? */
+export function cuartoOculto(cell: Cell, fp: Footprint, mv: MapaVisible | null): boolean {
+  return !!mv && fp.every((c) => mv.oculta(cell.col + c.col, cell.row + c.row))
+}

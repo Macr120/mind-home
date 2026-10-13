@@ -1,4 +1,5 @@
 import path from 'node:path'
+import { readdirSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { defineConfig, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
@@ -63,6 +64,9 @@ function sustitutosApp(): Plugin {
 
 export default defineConfig({
   root: carpeta,
+  // Caché propia: con la de la app (node_modules/.vite) los dos servidores de desarrollo se
+  // pisan al reoptimizar dependencias y no pueden correr a la vez (grabar páginas y casa en paralelo).
+  cacheDir: path.resolve(raiz, 'node_modules/.vite-web'),
   envDir: raiz, // comparte .env.local con la app (VITE_SUPABASE_*, VITE_REVENUECAT_WEB_KEY…)
   plugins: [sustitutosApp(), react(), tailwindcss(), urlsLimpias()],
   server: { port: 5174 },
@@ -80,7 +84,7 @@ export default defineConfig({
         descarga: path.resolve(carpeta, 'descarga.html'),
         // La portada de las guías (/guias) y cada guía (/guias/<tema>).
         guias: path.resolve(carpeta, 'guias.html'),
-        'guias/ejercicio': path.resolve(carpeta, 'guias/ejercicio.html'),
+        ...Object.fromEntries(readdirSync(path.join(carpeta, 'guias')).filter((f) => f.endsWith('.html')).map((f) => [`guias/${f.slice(0, -5)}`, path.resolve(carpeta, 'guias', f)])),
       },
     },
   },

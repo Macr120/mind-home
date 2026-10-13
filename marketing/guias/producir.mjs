@@ -8,7 +8,7 @@
 // Cada paso es el script de siempre con `--lang=<id>`; un idioma que falla se
 // anota y se sigue con el siguiente. No editar web/src/guias mientras corre
 // (el HMR rompe las tomas).
-import { spawn } from 'node:child_process'
+import { spawn, spawnSync } from 'node:child_process'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -42,13 +42,34 @@ const PASOS = [
   ['paquete', (id) => [path.join(RAIZ, 'paquetes.mjs'), [tema, `--lang=${id}`]]],
 ]
 
+/** Fallos pasajeros del Chrome grabador (la pestaña se recargó o la sesión de CDP murió): se reintentan con un Chrome nuevo. */
+const PASAJERO = /navigated or closed|sesión de CDP perdida|se recarg|ws error|ws cerrado|módulo de los emotes|no terminó de construirse|descarga no llegó|reading 'mencion'|reading 'getDisplayMedia'|useCam is not defined/
+/** Cierra el Chrome grabador de este puerto (`arrancarChrome` abre uno limpio en el siguiente paso). */
+function cerrarChrome() {
+  const puerto = process.env.GRABAR_PUERTO || 9337
+  if (process.platform === 'win32') {
+    spawnSync('powershell', ['-NoProfile', '-Command', `Get-CimInstance Win32_Process -Filter "Name='chrome.exe'" | Where-Object { $_.CommandLine -match 'remote-debugging-port=${puerto}' } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }`])
+  } else spawnSync('pkill', ['-f', `remote-debugging-port=${puerto}`])
+}
+
 const fallos = []
 for (const id of ids) {
   const t0 = Date.now()
   try {
     for (const [nombre, args] of PASOS.filter(([n]) => !soloPasos || soloPasos.includes(n))) {
-      const r = await correr(...args(id))
-      console.log(`  ${id} · ${nombre}: ${r}`)
+      for (let intento = 1; ; intento++) {
+        try {
+          const r = await correr(...args(id))
+          console.log(`  ${id} · ${nombre}: ${r}`)
+          break
+        } catch (e) {
+          if (intento === 3 || !PASAJERO.test(e.message)) throw e
+          const motivo = e.message.split(/\r?\n/).find((l) => PASAJERO.test(l))?.trim().slice(0, 80)
+          console.log(`  ${id} · ${nombre}: falló (${motivo}); Chrome nuevo y otra vez`)
+          cerrarChrome()
+          await new Promise((r) => setTimeout(r, 3000))
+        }
+      }
     }
     console.log(`✓ ${id} en ${Math.round((Date.now() - t0) / 60000)} min`)
   } catch (e) {

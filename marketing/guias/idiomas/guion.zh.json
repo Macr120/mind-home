@@ -1,0 +1,640 @@
+{
+  "idioma": "zh",
+  "tema": "idiomas",
+  "plantillaId": "idiomas",
+  "numero": 5,
+  "nombre": "语言",
+  "pregunta": "为什么要学一门语言？",
+  "corta": "为什么要学一门语言？",
+  "subtitulo": "为什么在机器已经能翻译的今天依然值得学，什么叫会一门语言、要花多久，历史上人们怎样教语言，你的大脑如何学习又如何遗忘，哪些词最划算，怎样从第一天就开口，以及一份今天就能开始的每天二十分钟计划。",
+  "aviso": "本指南仅供参考：文中的小时数和百分比是研究和具体项目的平均值，你实际要花多久，取决于你的母语、你学的语言以及你练习的多少。",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando').",
+    "visual": "Bloque que acompaña la línea: dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título). No puede ser enCasa.",
+    "corta": "La pregunta en pocas palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su cuarto de Idiomas y las de en medio sobre las tomas de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «charlas con un tutor», «temario por niveles» y «repaso espaciado»; app2d.mjs mueve la app justo al decirlas.",
+    "angloparlante": "Las horas del FSI son para quien habla inglés: en cada traducción se dice así («para alguien que habla inglés»), no se adaptan a la lengua del video.",
+    "canales": "La línea «canales» invita a ver estas guías en el idioma que se aprende: en cada traducción se nombra «nuestros canales de MindHaOS» (hay uno por idioma)."
+  },
+  "partes": [
+    {
+      "id": "saber",
+      "titulo": "为什么要学，什么才叫会",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "为什么要学一门语言？如今随便一部手机几秒钟就能翻译。可即便如此，在欧盟，将近一半的成年人除了母语以外，用任何语言都无法进行一段对话。学语言真的值得吗，又该怎么学？接下来几分钟，你会看到学语言对大脑有什么影响、大脑如何学习又如何遗忘，最后带着一份从今天就能开口的计划离开。",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "顺便说一下，这是我在MindHaOS里的家。在这间语言学习室里，我跟导师练口语、复习我的卡片，还按课程大纲一步步往前学。我们开始吧。",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第一部分。为什么要学，什么才叫会。"
+        },
+        {
+          "id": "cerebro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 4 años",
+            "clave": "cerebro"
+          },
+          "texto": "机器都能翻译了，还学它干什么？因为学一门语言改变的不只是你的词汇量，还有你的大脑。在瑞典，一批新兵集中学了三个月的语言，他们负责记忆的海马体变大了。而在多伦多的一项研究中，会说两种语言的人，出现痴呆症状的时间大约晚了四年。",
+          "lamina": [
+            "cerebro",
+            "traductor"
+          ]
+        },
+        {
+          "id": "maquinas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "chistes",
+              "gente",
+              "pensar"
+            ]
+          },
+          "texto": "而且，机器能翻译词句，却不能替你聊天。自己会说，你才能听懂笑话，不隔着屏幕和人交流，还能从另一种语言去看世界。",
+          "lamina": [
+            "amigos",
+            "viajeros"
+          ]
+        },
+        {
+          "id": "habilidades",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "habilidades"
+          },
+          "texto": "会一门语言，不是背下一张单词表，而是四种能力：听得懂、看得懂、会说、会写。而且我们几乎总是听得懂的，比说得出的多得多。",
+          "lamina": [
+            "conversacion",
+            "leer"
+          ]
+        },
+        {
+          "id": "niveles",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nivelMcer"
+          },
+          "texto": "为了衡量这一点，欧洲委员会在2001年发布了《欧洲语言共同参考框架》，如今全世界都在用：一共六个等级，从能自我介绍、点一杯咖啡的A1，到几乎什么都能听懂的C2。在这里勾出你已经能做到的事，看看你到了哪一级。",
+          "lamina": [
+            "cafeteria",
+            "examen"
+          ]
+        },
+        {
+          "id": "horas",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "fsi"
+          },
+          "texto": "那要花多久呢？负责培训外交官的美国国务院外交学院估计，一个说英语的人，大约需要六百小时的课程，才能用西班牙语或法语工作；而日语、汉语、韩语或阿拉伯语，则需要大约两千两百小时。",
+          "lamina": [
+            "clase",
+            "reloj"
+          ]
+        },
+        {
+          "id": "distancia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ ×4",
+            "clave": "distancia"
+          },
+          "texto": "影响最大的，是它离你的母语有多远：如果有相同的词汇、发音或文字，你会进步得快得多。所以邻近的语言学起来感觉容易，而用另一套文字的语言，一开始要难得多。",
+          "lamina": "globo",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "学语言的简史",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第二部分。学语言的简史。"
+        },
+        {
+          "id": "rosetta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaIdiomas"
+          },
+          "texto": "公元前196年，在埃及，同一份法令被刻成了三种文字：圣书体、世俗体和古希腊文。这块石头，也就是罗塞塔石碑，在1799年被发现；借助上面的希腊文，让-弗朗索瓦·商博良在1822年破译了圣书体。",
+          "lamina": [
+            "rosetta",
+            "champollion"
+          ]
+        },
+        {
+          "id": "comenio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1658",
+            "clave": "comenio"
+          },
+          "texto": "1658年，捷克教育家扬·阿姆斯·夸美纽斯出版了《世界图解》，这是最早用来教孩子的插图书之一：每个拉丁文单词旁边都配着一幅画。他早就知道，一幅图比一个译词更容易记住。",
+          "lamina": [
+            "comenio",
+            "orbis"
+          ]
+        },
+        {
+          "id": "berlitz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1878",
+            "clave": "berlitz"
+          },
+          "texto": "1878年，在美国的普罗维登斯，马克西米利安·贝立兹开了一所学校，立下一条新规矩：课堂上不翻译。从第一天起，一切都用你正在学的语言来说。",
+          "lamina": "berlitz"
+        },
+        {
+          "id": "zamenhof",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1887",
+            "clave": "zamenhof"
+          },
+          "texto": "1887年，眼科医生柴门霍夫发表了世界语，这是一种为了让全世界的人都能互相理解而发明的语言，语法没有例外。它没有取代任何一种语言，但直到今天，全球各地仍然有人在说。",
+          "lamina": [
+            "zamenhof",
+            "esperanto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cerebro",
+      "titulo": "你的大脑如何学习、如何遗忘",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第三部分。你的大脑如何学习、如何遗忘。"
+        },
+        {
+          "id": "entender",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "inputComprensible"
+          },
+          "texto": "最有影响力的观点之一，是语言学家斯蒂芬·克拉申在八十年代提出的：当我们理解了略高于自己水平的信息时，就会习得语言。如果几乎都听得懂、又有一点是新的，你就在学；如果什么都听不懂，你听到的只是噪音。",
+          "lamina": [
+            "audifonos",
+            "podcast"
+          ]
+        },
+        {
+          "id": "canales",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "16",
+            "clave": "canales"
+          },
+          "texto": "所以这里有个小窍门：这些指南在我们MindHaOS的频道上有十六种语言的版本。挑一集你已经用母语看过的，换成你正在学的语言再看一遍：因为你已经知道讲的是什么，所以几乎都能听懂，正好略高于你的水平。",
+          "lamina": "canales"
+        },
+        {
+          "id": "olvido",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "olvido"
+          },
+          "texto": "可是学过的东西会溜走。1885年，赫尔曼·艾宾浩斯背下一串串没有意义的音节，再测量自己忘了多少：大部分在最初几个小时就忘掉了，之后遗忘的速度才慢下来。这就是遗忘曲线。",
+          "meme": "olvido",
+          "lamina": [
+            "ebbinghaus",
+            "notas"
+          ]
+        },
+        {
+          "id": "repasos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "curvaOlvido"
+          },
+          "texto": "好消息是，每复习一次，曲线就平缓一些：每复习一次，记忆就保持得更久。在这里试试：加上几次复习，看看间隔越来越长的复习，怎样让一个词一直留在你的记忆里。",
+          "lamina": "calendario"
+        },
+        {
+          "id": "recuperar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "recuperar"
+          },
+          "texto": "而复习不等于重读。2006年，亨利·罗迪格和杰弗里·卡皮克比较了重读一篇文章的学生和给自己做测试的学生：一周后，做过测试的学生记得更多。努力回想，才能记得牢。",
+          "lamina": "tarjetas",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "palabras",
+      "titulo": "最划算的词",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第四部分。最划算的词。"
+        },
+        {
+          "id": "frecuencia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cobertura"
+          },
+          "texto": "不是所有的词都一样有用。比如在英语里，最常用的一千个词，大约占一篇普通文章里十个词中的八个。在这里拖动你认识的词数，看看你能认出一篇文章的多少。",
+          "lamina": [
+            "libro",
+            "periodico"
+          ]
+        },
+        {
+          "id": "frases",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "frase",
+              "contexto",
+              "usala"
+            ]
+          },
+          "texto": "而且要放在句子里学，不要孤零零地背。“能把盐递给我吗？”一句话就同时给了你词汇、语法和发音，明天在饭桌上就能用。",
+          "meme": "lista",
+          "lamina": [
+            "mesa",
+            "sal"
+          ]
+        },
+        {
+          "id": "leitner",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cajasLeitner"
+          },
+          "texto": "想复习得不浪费时间，可以用间隔重复。1972年，德国记者塞巴斯蒂安·莱特纳提出用几个盒子装卡片：答对了，卡片就移到下一个盒子，晚些再复习；答错了，就退回去。在这里用一张卡片试试。",
+          "lamina": [
+            "fichas",
+            "cajas"
+          ]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "我就是在MindHaOS的语言学习室里这么做的：桌上的卡片会告诉我今天该复习哪些，应用还会自动把它们放进各自的盒子里。",
+          "lamina": "tarjetas",
+          "enCasa": true
+        },
+        {
+          "id": "temas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "temas"
+          },
+          "texto": "还有，从你要用的开始。如果是为了旅行：问候、吃饭、交通和问路；如果是为了工作：自我介绍、开会和写邮件。一份分级课程大纲会告诉你下一步学什么。",
+          "lamina": [
+            "aeropuerto",
+            "reunion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hablar",
+      "titulo": "从第一天就开口",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第五部分。从第一天就开口。"
+        },
+        {
+          "id": "producir",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1985",
+            "clave": "swain"
+          },
+          "texto": "光听还不够让你开口。语言学家梅里尔·斯温在加拿大研究了法语沉浸式学校的学生：他们理解得很好，可一开口还是不断出错，因为他们几乎不怎么说。只有开口说，你才会发现自己还有什么说不出来。",
+          "lamina": [
+            "aula",
+            "hablar"
+          ]
+        },
+        {
+          "id": "sombra",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escucha",
+              "repite",
+              "grabate"
+            ]
+          },
+          "texto": "有个很管用的练习叫影子跟读：放一段短音频，同时跟着复述，模仿它的节奏和语调，就像回声一样。然后给自己录音，对比一下。你的嘴会学会你的耳朵已经熟悉的声音。",
+          "lamina": [
+            "audifonos2",
+            "grabar"
+          ]
+        },
+        {
+          "id": "errores",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "✔",
+            "clave": "errores"
+          },
+          "texto": "还有，大胆多犯错。别人帮你纠正的每一个错误，都是一堂为你量身定做的课。等到能说得完美才开口的人，永远都不会开口。",
+          "meme": "perfecto",
+          "lamina": "risa"
+        },
+        {
+          "id": "edad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edad"
+          },
+          "texto": "如果你已经不是小孩了呢？2018年，一项涉及近七十万人的研究发现，学习语法的能力在十七岁左右之前都保持在高水平，之后才慢慢下降。成年人最难的是听起来像母语者，而不是说得好：说得好，在任何年龄都做得到。",
+          "lamina": [
+            "adulto",
+            "abuela"
+          ]
+        },
+        {
+          "id": "diario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "🗣️",
+            "clave": "diario"
+          },
+          "texto": "如果没人跟你说话，也照样练：把你正在做的事大声描述出来，跟导师聊，或者跟正在学你母语的人聊。重要的是每天都开口。",
+          "lamina": "llamada",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "你的起步计划",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第六部分。你的起步计划。"
+        },
+        {
+          "id": "meta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "para",
+              "nivel",
+              "fecha"
+            ]
+          },
+          "texto": "给它定一个目的、一个等级和一个日期：“学英语”和“十二月旅行前达到B1”完全是两回事。有了这些，你就知道该学哪些主题、需要多少小时。",
+          "lamina": [
+            "viaje",
+            "agenda"
+          ]
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "minutosDia"
+          },
+          "texto": "而且，坚持胜过突击：每天二十分钟，一年就是一百二十多个小时。在这里算算，按你的习惯能攒下多少小时，多久能达到目标。",
+          "lamina": [
+            "cronometro",
+            "cafe"
+          ]
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "二十分钟的日常练习可以这样安排：五分钟听你几乎能听懂的内容，五分钟复习卡片，五分钟开口说或做影子跟读，再用五分钟读一点或写一点。",
+          "lamina": [
+            "escuchar",
+            "escribir"
+          ]
+        },
+        {
+          "id": "riega",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "20 min / día",
+            "clave": "riega"
+          },
+          "texto": "把它想成这株植物：每天浇一点水，它就会长大；星期天一下浇一整桶，也救不了它。学语言也是一样。",
+          "lamina": "regar",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "总结一下：听你几乎能听懂的内容，间隔着复习、给自己做测试，先学最常用的词，而且放在句子里学，还有从第一天就开口，每天说一点。",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "如果你也想像我这样付诸实践，MindHaOS的语言学习室里有会纠正你的导师对话，配有你的卡片的分级课程大纲，还有告诉你今天该复习什么的间隔重复。链接在简介里，那里还有这份互动版指南。下次见。",
+    "boton": "打开语言学习室",
+    "lamina": "app-plan",
+    "anclas": {
+      "charlas": "导师对话",
+      "temario": "分级课程大纲",
+      "repaso": "间隔重复"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "eurobarometro-386",
+      "texto": "欧盟委员会. Special Eurobarometer 386: Europeans and their Languages (2012).",
+      "url": "https://europa.eu/eurobarometer/surveys/detail/1049"
+    },
+    {
+      "id": "martensson-2012",
+      "texto": "Mårtensson J., Eriksson J., Bodammer N. C. et al. Growth of language-related brain areas after foreign language learning. NeuroImage (2012).",
+      "url": "https://doi.org/10.1016/j.neuroimage.2012.06.043"
+    },
+    {
+      "id": "bialystok-2007",
+      "texto": "Bialystok E., Craik F. I. M., Freedman M. Bilingualism as a protection against the onset of symptoms of dementia. Neuropsychologia (2007).",
+      "url": "https://doi.org/10.1016/j.neuropsychologia.2006.10.009"
+    },
+    {
+      "id": "mcer",
+      "texto": "欧洲委员会. Common European Framework of Reference for Languages（CEFR, 2001）.",
+      "url": "https://www.coe.int/en/web/common-european-framework-reference-languages"
+    },
+    {
+      "id": "fsi",
+      "texto": "U.S. Department of State, Foreign Service Institute. Foreign Language Training：英语母语者的大致学习时间.",
+      "url": "https://www.state.gov/foreign-language-training/"
+    },
+    {
+      "id": "rosetta",
+      "texto": "The British Museum. The Rosetta Stone (EA24)：孟菲斯法令，公元前196年.",
+      "url": "https://www.britishmuseum.org/collection/object/Y_EA24"
+    },
+    {
+      "id": "orbis-pictus",
+      "texto": "Comenius J. A. Orbis Sensualium Pictus. 纽伦堡 (1658).",
+      "url": "https://en.wikipedia.org/wiki/Orbis_Pictus"
+    },
+    {
+      "id": "berlitz",
+      "texto": "Berlitz：马克西米利安·贝立兹在罗得岛州普罗维登斯创办的学校 (1878).",
+      "url": "https://en.wikipedia.org/wiki/Berlitz_Corporation"
+    },
+    {
+      "id": "unua-libro",
+      "texto": "Zamenhof L. L. Unua Libro：第一本世界语书 (1887).",
+      "url": "https://en.wikipedia.org/wiki/Unua_Libro"
+    },
+    {
+      "id": "krashen-1982",
+      "texto": "Krashen S. D. Principles and Practice in Second Language Acquisition. Pergamon (1982).",
+      "url": "https://www.sdkrashen.com/content/books/principles_and_practice.pdf"
+    },
+    {
+      "id": "ebbinghaus-1885",
+      "texto": "Ebbinghaus H. Über das Gedächtnis (1885). 英译本：Memory: A Contribution to Experimental Psychology (1913).",
+      "url": "https://psychclassics.yorku.ca/Ebbinghaus/index.htm"
+    },
+    {
+      "id": "cepeda-2006",
+      "texto": "Cepeda N. J., Pashler H., Vul E., Wixted J. T., Rohrer D. Distributed practice in verbal recall tasks: A review and quantitative synthesis. Psychological Bulletin (2006).",
+      "url": "https://doi.org/10.1037/0033-2909.132.3.354"
+    },
+    {
+      "id": "roediger-2006",
+      "texto": "Roediger H. L., Karpicke J. D. Test-Enhanced Learning: Taking Memory Tests Improves Long-Term Retention. Psychological Science (2006).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x"
+    },
+    {
+      "id": "nation-2006",
+      "texto": "Nation I. S. P. How Large a Vocabulary Is Needed for Reading and Listening? The Canadian Modern Language Review (2006).",
+      "url": "https://doi.org/10.3138/cmlr.63.1.59"
+    },
+    {
+      "id": "leitner-1972",
+      "texto": "Leitner S. So lernt man lernen. Herder (1972).",
+      "url": "https://en.wikipedia.org/wiki/Leitner_system"
+    },
+    {
+      "id": "swain-1985",
+      "texto": "Swain M. Communicative competence: Some roles of comprehensible input and comprehensible output in its development. 收录于 Gass S., Madden C. (eds.), Input in Second Language Acquisition. Newbury House (1985).",
+      "url": "https://en.wikipedia.org/wiki/Comprehensible_output"
+    },
+    {
+      "id": "hartshorne-2018",
+      "texto": "Hartshorne J. K., Tenenbaum J. B., Pinker S. A critical period for second language acquisition: Evidence from 2/3 million English speakers. Cognition (2018).",
+      "url": "https://doi.org/10.1016/j.cognition.2018.04.007"
+    }
+  ]
+}

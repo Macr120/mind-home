@@ -1,0 +1,685 @@
+{
+  "idioma": "id",
+  "tema": "arte",
+  "plantillaId": "arte",
+  "numero": 6,
+  "nombre": "Studio Seni",
+  "pregunta": "Apa itu seni?",
+  "corta": "Apa itu seni?",
+  "subtitulo": "Apa itu seni rupa, mengapa membuat seni tetap layak meski kini kecerdasan buatan bisa melukis dalam hitungan detik, bagaimana seni berubah dari gua ke layar, dari unsur apa sebuah karya dibangun, cara melihatnya, cara mulai berkarya, dan rencana lima belas menit sehari.",
+  "aviso": "Panduan ini bersifat informatif: tanggal, angka, dan studi yang dikutip adalah perkiraan dari sumbernya, dan setiap orang maju dengan kecepatannya sendiri.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando').",
+    "visual": "Bloque que acompaña la línea: dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título). No puede ser enCasa.",
+    "corta": "La pregunta en pocas palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su Studio Arte y las de en medio sobre las tomas de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "epocas": "La casa y la ropa de Pep@ avanzan en el tiempo con las partes: medieval, pirata, vaquero, tren, cyberpunk y nave espacial (escena.mjs y pep.ts). Pep@ lo explica en la mención del inicio y lo recuerda en cada toma de la casa.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «galería», «lienzo por capas» y «ayudas de dibujo»; app2d.mjs mueve la app justo al decirlas.",
+    "ia": "La línea «ia» responde por qué hacer arte aunque una IA ya pinte: lo que te pasa al hacerlo (estrés, memoria, mirada)."
+  },
+  "partes": [
+    {
+      "id": "arte",
+      "titulo": "Apa itu seni",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Apa itu seni? Sekarang kecerdasan buatan bisa melukis sebuah lukisan dalam hitungan detik. Tapi tetap saja, hampir semua orang dewasa bilang mereka bahkan tidak bisa menggambar satu garis lurus. Lalu untuk apa membuat seni sendiri? Dalam beberapa menit ke depan, kamu akan melihat apa itu seni rupa, bagaimana ia berubah dari gua ke layar, cara melihatnya dan cara mulai membuatnya, dan kamu akan pulang dengan rencana untuk berkarya mulai hari ini.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Ngomong-ngomong, ini rumahku di MindHaOS, dan di Studio Seni-ku aku melukis di kuda-kuda dan menyimpan gambar-gambarku di sebuah galeri. Dan lihat rumahnya: hari ini rumah ini adalah kastel Abad Pertengahan, dan di setiap bagian ia akan maju dalam waktu, zaman demi zaman, sampai ke masa depan. Ayo kita mulai.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian satu. Apa itu seni."
+        },
+        {
+          "id": "definicion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hacer",
+              "mirar",
+              "sentir"
+            ]
+          },
+          "texto": "Ada banyak definisi, tapi hampir semuanya sepakat pada satu hal: seni adalah sesuatu yang dibuat seseorang agar orang lain melihatnya, merasakannya, atau memikirkannya. Pada tahun 1897, penulis Rusia Leo Tolstoy mengatakannya begini: seni adalah menularkan kepada orang lain perasaan yang pernah kamu alami sendiri.",
+          "lamina": [
+            "tolstoi",
+            "galeria"
+          ]
+        },
+        {
+          "id": "visuales",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "dibujo",
+              "pintura",
+              "escultura",
+              "fotografia",
+              "digital"
+            ]
+          },
+          "texto": "Panduan ini membahas seni rupa, yaitu seni yang dilihat: menggambar, melukis, patung, fotografi, dan, kini, ilustrasi digital. Semuanya bekerja dengan bahan yang sama: garis, bentuk, cahaya, dan warna.",
+          "lamina": [
+            "pinturas",
+            "escultura"
+          ]
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "3 de 4",
+            "clave": "cortisol"
+          },
+          "texto": "Lalu untuk apa membuatnya, kalau kecerdasan buatan sudah bisa melukis dalam hitungan detik? Karena nilai seni bukan hanya pada hasilnya, tapi pada apa yang terjadi padamu saat membuatnya. Pada tahun 2016, di Universitas Drexel, Amerika Serikat, Girija Kaimal mengukur kortisol, hormon stres, sebelum dan sesudah empat puluh lima menit membuat seni: kadarnya turun pada tiga dari empat orang, entah mereka bisa menggambar atau tidak.",
+          "lamina": [
+            "acuarela",
+            "notas"
+          ]
+        },
+        {
+          "id": "memoria",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "efectoDibujo"
+          },
+          "texto": "Dan seni membantumu berpikir: pada tahun 2016, di Universitas Waterloo, Kanada, sekelompok mahasiswa jauh lebih ingat kata-kata yang mereka gambar daripada yang hanya mereka tulis. Mesin bisa membuatkan gambar untukmu, tapi tidak bisa melihat, berpikir, atau merasa untukmu.",
+          "lamina": [
+            "estudiante",
+            "ojo"
+          ]
+        },
+        {
+          "id": "talento",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "creer",
+              "ver",
+              "entrenar"
+            ]
+          },
+          "texto": "Lalu bakat? Waktu kecil kita semua menggambar tanpa takut, dan sekitar usia sepuluh tahun banyak yang berhenti karena gambarnya tidak mirip aslinya. Tapi peneliti Rebecca Chamberlain dan Johan Wagemans menemukan bahwa sebagian besar kesalahan berasal dari cara kita melihat, bukan dari tangan. Dan cara melihat bisa dilatih.",
+          "meme": "simbolos",
+          "lamina": [
+            "nino",
+            "crayones"
+          ]
+        },
+        {
+          "id": "castillo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lapiz",
+              "papel",
+              "tableta"
+            ]
+          },
+          "texto": "Lihat rumahnya: ini kastel Abad Pertengahan, zaman ketika hampir semua seni dilukis untuk gereja dan istana, dan sangat sedikit orang yang bisa membuatnya. Sekarang, untuk mulai, cukup pensil dan kertas, atau sebuah tablet.",
+          "lamina": "lapices",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Sejarah singkat seni rupa",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian dua. Sejarah singkat seni rupa."
+        },
+        {
+          "id": "cuevas",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaArte"
+          },
+          "texto": "Kita sudah membuat seni jauh sebelum mengenal tulisan. Di sebuah gua di Pulau Sulawesi, Indonesia, ada adegan orang-orang di dekat seekor babi hutan yang dilukis setidaknya lima puluh satu ribu tahun lalu. Dan di Lascaux, Prancis, kuda dan banteng di dindingnya berumur sekitar tujuh belas ribu tahun.",
+          "lamina": [
+            "sulawesi",
+            "lascaux"
+          ]
+        },
+        {
+          "id": "perspectiva",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1415",
+            "clave": "perspectiva"
+          },
+          "texto": "Selama berabad-abad, sosok-sosok dilukis datar. Sekitar tahun 1415, di Firenze, arsitek Filippo Brunelleschi menunjukkan dengan sebuah cermin bagaimana kedalaman terlihat, dan pada tahun 1435 Leon Battista Alberti menjelaskannya dalam sebuah buku untuk para pelukis: begitulah lahir perspektif Renaisans.",
+          "lamina": [
+            "brunelleschi",
+            "alberti"
+          ]
+        },
+        {
+          "id": "durero",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1525",
+            "clave": "durero"
+          },
+          "texto": "Lihat: rumahnya maju dalam waktu dan sekarang menjadi kapal, seperti di zaman ketika Eropa mengarungi samudra. Pada tahun 1525, seniman Jerman Albrecht Dürer menerbitkan sebuah buku panduan dengan kisi untuk menyalin apa yang terlihat, kotak demi kotak.",
+          "lamina": [
+            "durero",
+            "rejilla"
+          ],
+          "enCasa": true
+        },
+        {
+          "id": "fotografia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1839",
+            "clave": "fotografia"
+          },
+          "texto": "Pada tahun 1839, fotografi diperkenalkan di Paris. Banyak yang mengira lukisan akan lenyap, tapi yang terjadi justru sebaliknya: para pelukis berhenti menyalin kenyataan secara detail dan keluar mencari cahaya dan warna. Pada tahun 1874, kaum impresionis mengadakan pameran pertama mereka.",
+          "lamina": [
+            "daguerre",
+            "monet"
+          ]
+        },
+        {
+          "id": "duchamp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1917",
+            "clave": "duchamp"
+          },
+          "texto": "Pada tahun 1917, Marcel Duchamp mengirim sebuah urinoir porselen ke sebuah pameran di New York, ditandatangani dengan nama palsu, dan menamainya “Fountain”. Karya itu ditolak, tapi meninggalkan pertanyaan besar seni modern: apakah sesuatu itu seni karena dibuat dengan baik, atau karena seseorang memilihnya dan memintamu melihatnya?",
+          "lamina": "fuente"
+        },
+        {
+          "id": "sketchpad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1963",
+            "clave": "sketchpad"
+          },
+          "texto": "Dan pada tahun 1963, Ivan Sutherland menciptakan Sketchpad, program pertama untuk menggambar di layar. Dari situlah lahir tablet, dan kini kecerdasan buatan. Alatnya berubah; pertanyaan tentang apa yang ingin kita sampaikan tetap milik kita.",
+          "lamina": [
+            "sketchpad",
+            "tableta"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "elementos",
+      "titulo": "Unsur-unsur sebuah karya",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tiga. Unsur-unsur sebuah karya."
+        },
+        {
+          "id": "elementos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "formas"
+          },
+          "texto": "Setiap karya visual, dari gua sampai layar, dibangun dari unsur yang sama: garis, bentuk, nilai, yaitu terang dan gelap, warna, tekstur, dan ruang. Dan hampir semua yang kamu lihat bisa dibangun dari empat bentuk: kubus, bola, silinder, dan kerucut.",
+          "lamina": [
+            "formas",
+            "taza"
+          ]
+        },
+        {
+          "id": "valores",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "valores"
+          },
+          "texto": "Cahayalah yang memberi volume. Sebuah benda terlihat tiga dimensi berkat nilai-nilainya: cahaya, nada tengah, bayangan diri, cahaya pantul, dan bayangan jatuh. Sipitkan matamu: detailnya hilang dan yang tersisa hanya bidang-bidang cahaya dan bayangan.",
+          "lamina": [
+            "esfera",
+            "claroscuro"
+          ]
+        },
+        {
+          "id": "color",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "circulo"
+          },
+          "texto": "Warna punya sejarahnya sendiri: Isaac Newton menyusun warna-warna dalam sebuah lingkaran pada tahun 1704. Tapi sebuah warna bekerja terutama lewat nilainya: kalau sebuah karya terlihat bagus dalam hitam putih, ia juga akan terlihat bagus dalam warna.",
+          "lamina": [
+            "newton",
+            "pinturas"
+          ]
+        },
+        {
+          "id": "composicion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "tercios"
+          },
+          "texto": "Lalu ada komposisi: bagaimana semuanya dibagi di dalam bingkai. Trik klasik para pelukis dan fotografer adalah aturan sepertiga: bagi gambar menjadi tiga kali tiga dan letakkan hal yang penting di salah satu titik silangnya, bukan tepat di tengah.",
+          "lamina": [
+            "fotografo",
+            "galeria2"
+          ]
+        },
+        {
+          "id": "oeste",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "brazo",
+              "unidad",
+              "compara"
+            ]
+          },
+          "texto": "Dan sekarang rumahnya ada di Wild West, di abad kesembilan belas, zaman fotografi: karena itu semuanya terlihat sepia. Untuk proporsi, para pelukis mengukur: lengan lurus, satu ukuran dengan pensil, lalu membandingkan.",
+          "lamina": "medir",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "mirar",
+      "titulo": "Cara melihat sebuah karya",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian empat. Cara melihat sebuah karya."
+        },
+        {
+          "id": "museo",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 27 s",
+            "clave": "museo"
+          },
+          "texto": "Berapa lama kamu melihat sebuah lukisan? Pada tahun 2001, Jeffrey Smith dan Lisa Smith mengamati pengunjung Museum Metropolitan di New York: rata-rata, mereka menghabiskan sekitar dua puluh tujuh detik di depan setiap karya, lebih singkat dari waktu untuk membaca keterangannya.",
+          "lamina": [
+            "museo",
+            "louvre"
+          ]
+        },
+        {
+          "id": "mesas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mesas"
+          },
+          "texto": "Dan melihat dengan benar itu tidak mudah. Dua meja ini kelihatannya ukurannya sangat berbeda, kan? Keduanya identik: ilusi ini digambar oleh psikolog Roger Shepard pada tahun 1990. Otakmu mengoreksi apa yang dilihatnya berdasarkan apa yang ia ketahui. Sentuh di sini dan buktikan sendiri.",
+          "lamina": "ilusion"
+        },
+        {
+          "id": "feldman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "describe",
+              "analiza",
+              "interpreta",
+              "juzga"
+            ]
+          },
+          "texto": "Untuk melihat dengan pelan, pendidik Edmund Feldman pada tahun 1970 mengusulkan empat langkah: deskripsikan apa yang kamu lihat, analisis bagaimana karya itu dibuat, tafsirkan apa maknanya, dan baru di akhir, putuskan apakah kamu menyukainya.",
+          "lamina": [
+            "copista",
+            "retrato"
+          ]
+        },
+        {
+          "id": "tren",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 min",
+            "clave": "unaObra"
+          },
+          "texto": "Dan rumahnya sekarang menjadi kereta: kita sampai di era industri, ketika seni keluar dari istana ke jalanan, poster, dan surat kabar. Coba hari ini: pilih satu karya saja, di museum atau di ponselmu, dan lihat selama sepuluh menit.",
+          "lamina": "galeria",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "hacer",
+      "titulo": "Cara mulai membuat seni",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian lima. Cara mulai membuat seni."
+        },
+        {
+          "id": "alreves",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "alReves"
+          },
+          "texto": "Untuk menggambar apa yang kamu lihat dan bukan apa yang kamu tahu, ada latihan terkenal dari buku Betty Edwards tahun 1979: salin sebuah gambar yang diletakkan terbalik. Karena kamu tidak mengenali apa itu, kamu berhenti menggambar simbol dan mulai menyalin garis dan sudut.",
+          "lamina": [
+            "mano",
+            "copiar"
+          ]
+        },
+        {
+          "id": "ojos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "ojos"
+          },
+          "texto": "Di mana letak mata pada wajah? Hampir semua orang menggambarnya terlalu tinggi. Sebenarnya mata ada di tengah kepala, di antara dagu dan ubun-ubun. Geser garis mata di sini dan buktikan sendiri.",
+          "meme": "ojos",
+          "lamina": "retrato2"
+        },
+        {
+          "id": "gesto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cronometro"
+          },
+          "texto": "Buat gambar gestur yang cepat: dari tiga puluh detik sampai dua menit, hanya gerakannya, tanpa detail. Latihan ini memaksamu melihat yang penting dan menghilangkan rasa takut salah.",
+          "lamina": [
+            "gesto",
+            "modelo"
+          ]
+        },
+        {
+          "id": "copiar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1793",
+            "clave": "louvre"
+          },
+          "texto": "Salin karya para maestro. Museum Louvre mengizinkan orang menyalin lukisannya sejak dibuka, pada tahun 1793. Menyalin mengajarimu bagaimana orang lain memecahkan hal yang sama yang sulit bagimu.",
+          "lamina": [
+            "copista2",
+            "figura"
+          ]
+        },
+        {
+          "id": "cuaderno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "100",
+            "clave": "cuaderno"
+          },
+          "texto": "Dan bawalah buku sketsa: gambar apa saja yang ada di depanmu, cangkirmu, sepatumu, orang-orang di ruang tunggu. Jumlah lebih penting daripada kesempurnaan: seratus gambar pertamamu adalah untuk belajar.",
+          "meme": "cien",
+          "lamina": [
+            "cuaderno",
+            "cafe"
+          ]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Lihat: rumahnya sudah sampai di era digital, dengan neon dan layar di mana-mana. Aku melakukannya di Studio Seni-ku di MindHaOS: aku melukis berlapis, memakai kisi dan cermin, dan setiap karya tersimpan di galeriku.",
+          "lamina": "caballete",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Rencanamu untuk mulai",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian enam. Rencanamu untuk mulai."
+        },
+        {
+          "id": "meta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "100 × 100",
+            "clave": "meta"
+          },
+          "texto": "Tetapkan target yang kecil dan konkret: misalnya, seratus gambar dalam seratus hari. Target yang bisa dihitung membuatmu kembali setiap hari.",
+          "lamina": "calendario"
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dibujosAno"
+          },
+          "texto": "Kamu tidak butuh banyak waktu: lima belas menit sehari berarti lebih dari sembilan puluh jam setahun. Geser menitmu di sini dan lihat berapa banyak karya yang akan kamu punya dalam setahun.",
+          "lamina": "reloj"
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "Contoh satu minggu: Senin, kontur; Selasa, bentuk; Rabu, gestur cepat; Kamis, cahaya dan bayangan; Jumat, lihat satu karya selama sepuluh menit lalu salin; dan akhir pekan, apa pun yang kamu mau.",
+          "lamina": [
+            "semana",
+            "acuarela2"
+          ]
+        },
+        {
+          "id": "futuro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "amigo",
+              "clase",
+              "internet"
+            ]
+          },
+          "texto": "Dan rumahnya sudah sampai di masa depan: sekarang menjadi pesawat luar angkasa. Alat-alatnya akan terus berubah, tapi seni akan selalu membutuhkan seseorang yang melihat dan merasakan. Jadi tunjukkan karyamu: kepada teman, di kelas, atau di internet.",
+          "lamina": "antesDespues",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Ringkasnya: seni adalah membuat sesuatu agar orang lain melihat dan merasakannya; seni layak dibuat karena apa yang terjadi padamu saat berkarya; lihatlah dengan pelan, dengan cahaya, bentuk, dan warna; dan berkaryalah sedikit setiap hari.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Kalau kamu ingin mulai berkarya seperti aku, Studio Seni di MindHaOS punya galeri untuk karya-karyamu, kanvas berlapis yang tersimpan otomatis, dan alat bantu menggambar seperti kisi dan cermin. Tautannya ada di deskripsi, bersama panduan interaktif ini. Sampai jumpa di panduan berikutnya.",
+    "boton": "Buka Studio Seni",
+    "lamina": "app-plan",
+    "anclas": {
+      "galeria": "galeri",
+      "capas": "kanvas berlapis",
+      "ayudas": "alat bantu menggambar"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "tolstoi-1897",
+      "texto": "Tolstoy L. Что такое искусство? (1897).",
+      "url": "https://en.wikipedia.org/wiki/What_Is_Art%3F"
+    },
+    {
+      "id": "kaimal-2016",
+      "texto": "Kaimal G., Ray K., Muniz J. Reduction of Cortisol Levels and Participants' Responses Following Art Making. Art Therapy (2016).",
+      "url": "https://doi.org/10.1080/07421656.2016.1166832"
+    },
+    {
+      "id": "wammes-2016",
+      "texto": "Wammes J. D., Meade M. E., Fernandes M. A. The drawing effect: Evidence for reliable and robust memory benefits in free recall. Quarterly Journal of Experimental Psychology (2016).",
+      "url": "https://doi.org/10.1080/17470218.2015.1094494"
+    },
+    {
+      "id": "chamberlain-2016",
+      "texto": "Chamberlain R., Wagemans J. The genesis of errors in drawing. Neuroscience & Biobehavioral Reviews (2016).",
+      "url": "https://doi.org/10.1016/j.neubiorev.2016.04.002"
+    },
+    {
+      "id": "oktaviana-2024",
+      "texto": "Oktaviana A. A. et al. Narrative cave art in Indonesia by 51,200 years ago. Nature (2024).",
+      "url": "https://doi.org/10.1038/s41586-024-07541-7"
+    },
+    {
+      "id": "lascaux",
+      "texto": "UNESCO. Prehistoric Sites and Decorated Caves of the Vézère Valley (Lascaux).",
+      "url": "https://whc.unesco.org/en/list/85/"
+    },
+    {
+      "id": "alberti-1435",
+      "texto": "Alberti L. B. De pictura (1435). Tentang demonstrasi Brunelleschi: Kemp M. The Science of Art. Yale University Press (1990).",
+      "url": "https://en.wikipedia.org/wiki/De_pictura"
+    },
+    {
+      "id": "durero-1525",
+      "texto": "Dürer A. Underweysung der Messung. Nürnberg (1525).",
+      "url": "https://en.wikipedia.org/wiki/Underweysung_der_Messung"
+    },
+    {
+      "id": "daguerre-1839",
+      "texto": "Académie des Sciences: presentasi daguerreotype, Paris (1839).",
+      "url": "https://en.wikipedia.org/wiki/Daguerreotype"
+    },
+    {
+      "id": "impresionistas-1874",
+      "texto": "Musée d'Orsay. Paris 1874: Inventing Impressionism (2024).",
+      "url": "https://www.musee-orsay.fr/en/whats-on/exhibitions/paris-1874-inventing-impressionism"
+    },
+    {
+      "id": "duchamp-1917",
+      "texto": "Duchamp M. Fountain (1917). Tate: Fountain, replika tahun 1964.",
+      "url": "https://www.tate.org.uk/art/artworks/duchamp-fountain-t07573"
+    },
+    {
+      "id": "sutherland-1963",
+      "texto": "Sutherland I. E. Sketchpad: A man-machine graphical communication system. MIT (1963).",
+      "url": "https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-574.pdf"
+    },
+    {
+      "id": "newton-1704",
+      "texto": "Newton I. Opticks. London (1704): lingkaran warna.",
+      "url": "https://en.wikipedia.org/wiki/Opticks"
+    },
+    {
+      "id": "smith-2001",
+      "texto": "Smith J. K., Smith L. F. Spending Time on Art. Empirical Studies of the Arts (2001).",
+      "url": "https://doi.org/10.2190/5MQM-59JH-X21R-JN5J"
+    },
+    {
+      "id": "shepard-1990",
+      "texto": "Shepard R. N. Mind Sights: Original Visual Illusions, Ambiguities, and Other Anomalies. W. H. Freeman (1990).",
+      "url": "https://en.wikipedia.org/wiki/Shepard_tables"
+    },
+    {
+      "id": "feldman-1970",
+      "texto": "Feldman E. B. Becoming Human Through Art: Aesthetic Experience in the School. Prentice-Hall (1970).",
+      "url": "https://en.wikipedia.org/wiki/Edmund_Burke_Feldman"
+    },
+    {
+      "id": "edwards-1979",
+      "texto": "Edwards B. Drawing on the Right Side of the Brain. Tarcher (1979).",
+      "url": "https://en.wikipedia.org/wiki/Drawing_on_the_Right_Side_of_the_Brain"
+    },
+    {
+      "id": "louvre-copistas",
+      "texto": "Musée du Louvre. Copier au Louvre: program penyalin, berjalan sejak 1793.",
+      "url": "https://www.louvre.fr/en/explore/the-palace/copying-at-the-louvre"
+    }
+  ]
+}

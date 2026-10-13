@@ -1,0 +1,685 @@
+{
+  "idioma": "nl",
+  "tema": "arte",
+  "plantillaId": "arte",
+  "numero": 6,
+  "nombre": "Kunststudio",
+  "pregunta": "Wat is kunst?",
+  "corta": "Wat is kunst?",
+  "subtitulo": "Wat beeldende kunst is, waarom het de moeite waard is om zelf kunst te maken, ook al schildert een kunstmatige intelligentie tegenwoordig in een paar seconden, hoe kunst veranderde van de grotten tot de schermen, uit welke elementen een werk bestaat, hoe je ernaar kijkt, hoe je begint met maken en een plan van vijftien minuten per dag.",
+  "aviso": "Deze gids is informatief: de genoemde data, cijfers en onderzoeken zijn benaderingen uit hun bronnen, en iedereen gaat in zijn eigen tempo vooruit.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando').",
+    "visual": "Bloque que acompaña la línea: dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título). No puede ser enCasa.",
+    "corta": "La pregunta en pocas palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su Studio Arte y las de en medio sobre las tomas de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "epocas": "La casa y la ropa de Pep@ avanzan en el tiempo con las partes: medieval, pirata, vaquero, tren, cyberpunk y nave espacial (escena.mjs y pep.ts). Pep@ lo explica en la mención del inicio y lo recuerda en cada toma de la casa.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «galería», «lienzo por capas» y «ayudas de dibujo»; app2d.mjs mueve la app justo al decirlas.",
+    "ia": "La línea «ia» responde por qué hacer arte aunque una IA ya pinte: lo que te pasa al hacerlo (estrés, memoria, mirada)."
+  },
+  "partes": [
+    {
+      "id": "arte",
+      "titulo": "Wat kunst is",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Wat is kunst? Tegenwoordig schildert een kunstmatige intelligentie een schilderij in een paar seconden. En toch zeggen bijna alle volwassenen dat ze nog geen rechte lijn kunnen tekenen. Waarom zou je dan zelf kunst maken? In de komende minuten zie je wat beeldende kunst is, hoe die veranderde van de grotten tot de schermen, hoe je ernaar kijkt en hoe je zelf begint, en je gaat weg met een plan om vandaag nog te beginnen met maken.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Trouwens, dit is mijn huis in MindHaOS, en in mijn Kunststudio schilder ik op mijn ezel en bewaar ik mijn tekeningen in een galerie. En kijk eens naar het huis: vandaag is het een middeleeuws kasteel, en bij elk deel gaat het verder door de tijd, tijdperk na tijdperk, tot in de toekomst. We beginnen.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel een. Wat kunst is."
+        },
+        {
+          "id": "definicion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hacer",
+              "mirar",
+              "sentir"
+            ]
+          },
+          "texto": "Er zijn veel definities, maar bijna allemaal zijn ze het over één ding eens: kunst is iets wat iemand maakt zodat een ander ernaar kijkt, het voelt of erover nadenkt. In 1897 zei de Russische schrijver Lev Tolstoj het zo: kunst is anderen aansteken met een gevoel dat je zelf hebt beleefd.",
+          "lamina": [
+            "tolstoi",
+            "galeria"
+          ]
+        },
+        {
+          "id": "visuales",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "dibujo",
+              "pintura",
+              "escultura",
+              "fotografia",
+              "digital"
+            ]
+          },
+          "texto": "Deze gids gaat over de beeldende kunst, de kunst waar je naar kijkt: tekenen, schilderen, beeldhouwen, fotografie en tegenwoordig ook digitale illustratie. Ze werken allemaal met hetzelfde: lijnen, vormen, licht en kleur.",
+          "lamina": [
+            "pinturas",
+            "escultura"
+          ]
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "3 de 4",
+            "clave": "cortisol"
+          },
+          "texto": "En waarom zou je het doen, als een kunstmatige intelligentie al in een paar seconden schildert? Omdat de waarde van kunst niet alleen in het resultaat zit, maar in wat er met jou gebeurt terwijl je het maakt. In 2016 mat Girija Kaimal aan de Drexel University in de Verenigde Staten het cortisol, het stresshormoon, voor en na vijfenveertig minuten kunst maken: het daalde bij drie op de vier mensen, of ze nu konden tekenen of niet.",
+          "lamina": [
+            "acuarela",
+            "notas"
+          ]
+        },
+        {
+          "id": "memoria",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "efectoDibujo"
+          },
+          "texto": "En het helpt je denken: in 2016 onthielden studenten aan de Universiteit van Waterloo in Canada woorden die ze hadden getekend veel beter dan woorden die ze alleen hadden opgeschreven. Een machine kan het beeld voor je maken, maar niet voor je kijken, denken of voelen.",
+          "lamina": [
+            "estudiante",
+            "ojo"
+          ]
+        },
+        {
+          "id": "talento",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "creer",
+              "ver",
+              "entrenar"
+            ]
+          },
+          "texto": "En talent dan? Als kind tekenen we allemaal zonder angst, en rond ons tiende stoppen velen omdat de tekening niet op het echte lijkt. Maar de onderzoekers Rebecca Chamberlain en Johan Wagemans ontdekten dat de meeste fouten komen door hoe we kijken, niet door de hand. En kijken kun je trainen.",
+          "meme": "simbolos",
+          "lamina": [
+            "nino",
+            "crayones"
+          ]
+        },
+        {
+          "id": "castillo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lapiz",
+              "papel",
+              "tableta"
+            ]
+          },
+          "texto": "Kijk naar het huis: het is een kasteel uit de middeleeuwen, de tijd waarin bijna alle kunst voor kerken en paleizen werd geschilderd en maar heel weinig mensen het konden. Om te beginnen heb je nu genoeg aan een potlood en papier, of een tablet.",
+          "lamina": "lapices",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Een korte geschiedenis van de beeldende kunst",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel twee. Een korte geschiedenis van de beeldende kunst."
+        },
+        {
+          "id": "cuevas",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaArte"
+          },
+          "texto": "We maken al kunst van lang voordat we konden schrijven. In een grot op het eiland Sulawesi, in Indonesië, staat een tafereel met mensen naast een wild zwijn, geschilderd minstens eenenvijftigduizend jaar geleden. En in Lascaux, in Frankrijk, zijn de paarden en stieren op de wanden zo'n zeventienduizend jaar oud.",
+          "lamina": [
+            "sulawesi",
+            "lascaux"
+          ]
+        },
+        {
+          "id": "perspectiva",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1415",
+            "clave": "perspectiva"
+          },
+          "texto": "Eeuwenlang werden figuren plat geschilderd. Rond 1415 liet de architect Filippo Brunelleschi in Florence met een spiegel zien hoe diepte eruitziet, en in 1435 legde Leon Battista Alberti het uit in een boek voor schilders: zo ontstond het perspectief van de renaissance.",
+          "lamina": [
+            "brunelleschi",
+            "alberti"
+          ]
+        },
+        {
+          "id": "durero",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1525",
+            "clave": "durero"
+          },
+          "texto": "Kijk: het huis is verder gereisd in de tijd en is nu een schip, zoals in de tijd dat Europa de oceanen overstak. In 1525 gaf de Duitser Albrecht Dürer een handboek uit met een raster om na te tekenen wat je ziet, vakje voor vakje.",
+          "lamina": [
+            "durero",
+            "rejilla"
+          ],
+          "enCasa": true
+        },
+        {
+          "id": "fotografia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1839",
+            "clave": "fotografia"
+          },
+          "texto": "In 1839 werd in Parijs de fotografie gepresenteerd. Veel mensen dachten dat de schilderkunst zou verdwijnen, en het tegendeel gebeurde: schilders stopten met het tot in detail naschilderen van de werkelijkheid en gingen naar buiten om licht en kleur te zoeken. In 1874 hielden de impressionisten hun eerste tentoonstelling.",
+          "lamina": [
+            "daguerre",
+            "monet"
+          ]
+        },
+        {
+          "id": "duchamp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1917",
+            "clave": "duchamp"
+          },
+          "texto": "In 1917 stuurde Marcel Duchamp een porseleinen urinoir naar een tentoonstelling in New York, gesigneerd met een valse naam, en noemde het ‘Fontein’. Het werd geweigerd, maar het liet de grote vraag van de moderne kunst achter: is het kunst omdat het goed gemaakt is, of omdat iemand het kiest en je vraagt ernaar te kijken?",
+          "lamina": "fuente"
+        },
+        {
+          "id": "sketchpad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1963",
+            "clave": "sketchpad"
+          },
+          "texto": "En in 1963 maakte Ivan Sutherland Sketchpad, het eerste programma om op een scherm te tekenen. Daar komen de tablets vandaan, en nu de kunstmatige intelligentie. Het gereedschap verandert; de vraag wat we willen zeggen blijft van ons.",
+          "lamina": [
+            "sketchpad",
+            "tableta"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "elementos",
+      "titulo": "De elementen van een werk",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel drie. De elementen van een werk."
+        },
+        {
+          "id": "elementos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "formas"
+          },
+          "texto": "Elk beeldend werk, van een grot tot een scherm, is opgebouwd uit dezelfde elementen: lijn, vorm, toonwaarde, dus licht en donker, kleur, textuur en ruimte. En bijna alles wat je ziet kun je opbouwen uit vier vormen: de kubus, de bol, de cilinder en de kegel.",
+          "lamina": [
+            "formas",
+            "taza"
+          ]
+        },
+        {
+          "id": "valores",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "valores"
+          },
+          "texto": "Licht is wat volume geeft. Een voorwerp lijkt driedimensionaal dankzij zijn toonwaarden: het licht, de halftonen, de eigen schaduw, het weerkaatste licht en de slagschaduw. Knijp je ogen half dicht: de details verdwijnen en alleen de vlekken van licht en schaduw blijven over.",
+          "lamina": [
+            "esfera",
+            "claroscuro"
+          ]
+        },
+        {
+          "id": "color",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "circulo"
+          },
+          "texto": "Kleur heeft een eigen geschiedenis: Isaac Newton zette de kleuren in 1704 in een cirkel. Maar een kleur werkt vooral door zijn toonwaarde: als een werk er in zwart-wit goed uitziet, ziet het er in kleur ook goed uit.",
+          "lamina": [
+            "newton",
+            "pinturas"
+          ]
+        },
+        {
+          "id": "composicion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "tercios"
+          },
+          "texto": "En dan is er de compositie: hoe alles over het beeld verdeeld is. Een klassieke truc van schilders en fotografen is de regel van derden: verdeel het beeld in drie bij drie en zet het belangrijkste op een van de kruispunten, niet precies in het midden.",
+          "lamina": [
+            "fotografo",
+            "galeria2"
+          ]
+        },
+        {
+          "id": "oeste",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "brazo",
+              "unidad",
+              "compara"
+            ]
+          },
+          "texto": "En nu staat het huis in het Wilde Westen, in de negentiende eeuw, de tijd van de fotografie: daarom is alles in sepia. Voor de verhoudingen meten schilders: arm gestrekt, een maat nemen met het potlood, en vergelijken.",
+          "lamina": "medir",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "mirar",
+      "titulo": "Hoe je naar een werk kijkt",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vier. Hoe je naar een werk kijkt."
+        },
+        {
+          "id": "museo",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 27 s",
+            "clave": "museo"
+          },
+          "texto": "Hoe lang kijk jij naar een schilderij? In 2001 observeerden Jeffrey Smith en Lisa Smith de bezoekers van het Metropolitan Museum in New York: gemiddeld stonden ze zo'n zevenentwintig seconden voor elk werk, korter dan het duurt om het bordje ernaast te lezen.",
+          "lamina": [
+            "museo",
+            "louvre"
+          ]
+        },
+        {
+          "id": "mesas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mesas"
+          },
+          "texto": "En goed kijken is lastig. Deze twee tafels lijken heel verschillend van formaat, toch? Ze zijn identiek: de illusie werd in 1990 getekend door de psycholoog Roger Shepard. Je hersenen corrigeren wat ze zien op basis van wat ze weten. Tik hier en controleer het.",
+          "lamina": "ilusion"
+        },
+        {
+          "id": "feldman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "describe",
+              "analiza",
+              "interpreta",
+              "juzga"
+            ]
+          },
+          "texto": "Om langzaam te kijken stelde de kunstpedagoog Edmund Feldman in 1970 vier stappen voor: beschrijf wat je ziet, analyseer hoe het gemaakt is, interpreteer wat het wil zeggen en beslis pas helemaal aan het eind of je het mooi vindt.",
+          "lamina": [
+            "copista",
+            "retrato"
+          ]
+        },
+        {
+          "id": "tren",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 min",
+            "clave": "unaObra"
+          },
+          "texto": "En het huis is al een trein: we zijn in het industriële tijdperk, toen de kunst uit de paleizen naar de straat, de affiches en de kranten ging. Probeer het vandaag: kies één enkel werk, in een museum of op je telefoon, en kijk er tien minuten naar.",
+          "lamina": "galeria",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "hacer",
+      "titulo": "Hoe je begint met kunst maken",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vijf. Hoe je begint met kunst maken."
+        },
+        {
+          "id": "alreves",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "alReves"
+          },
+          "texto": "Om te tekenen wat je ziet en niet wat je weet, is er een beroemde oefening uit het boek van Betty Edwards uit 1979: teken een tekening na die op zijn kop staat. Omdat je niet herkent wat het is, stop je met symbolen tekenen en neem je lijnen en hoeken over.",
+          "lamina": [
+            "mano",
+            "copiar"
+          ]
+        },
+        {
+          "id": "ojos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "ojos"
+          },
+          "texto": "Waar zitten de ogen in een gezicht? Bijna iedereen tekent ze te hoog. In werkelijkheid zitten ze halverwege het hoofd, tussen de kin en de kruin. Verschuif hier de ooglijn en controleer het.",
+          "meme": "ojos",
+          "lamina": "retrato2"
+        },
+        {
+          "id": "gesto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cronometro"
+          },
+          "texto": "Maak snelle gebarenschetsen: van dertig seconden tot twee minuten, alleen de beweging, zonder details. Ze dwingen je het wezenlijke te zien en nemen je angst om fouten te maken weg.",
+          "lamina": [
+            "gesto",
+            "modelo"
+          ]
+        },
+        {
+          "id": "copiar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1793",
+            "clave": "louvre"
+          },
+          "texto": "Kopieer de meesters. Het Louvre laat zijn schilderijen al kopiëren sinds het openging, in 1793. Door te kopiëren leer je hoe anderen precies oplosten waar jij moeite mee hebt.",
+          "lamina": [
+            "copista2",
+            "figura"
+          ]
+        },
+        {
+          "id": "cuaderno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "100",
+            "clave": "cuaderno"
+          },
+          "texto": "En houd een schetsboek bij: teken wat er voor je staat, je kopje, je schoenen, de mensen in een wachtkamer. Hoeveelheid telt meer dan perfectie: je eerste honderd tekeningen zijn om van te leren.",
+          "meme": "cien",
+          "lamina": [
+            "cuaderno",
+            "cafe"
+          ]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Kijk: het huis is nu in het digitale tijdperk, met neon en schermen overal. Ik doe het in mijn Kunststudio in MindHaOS: ik schilder in lagen, gebruik het raster en de spiegel, en elk werk komt in mijn galerie.",
+          "lamina": "caballete",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Jouw plan om te beginnen",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zes. Jouw plan om te beginnen."
+        },
+        {
+          "id": "meta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "100 × 100",
+            "clave": "meta"
+          },
+          "texto": "Stel jezelf een klein, concreet doel: bijvoorbeeld honderd tekeningen in honderd dagen. Een doel dat je kunt tellen, laat je elke dag terugkomen.",
+          "lamina": "calendario"
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dibujosAno"
+          },
+          "texto": "Je hebt niet veel tijd nodig: vijftien minuten per dag is meer dan negentig uur per jaar. Stel hier je minuten in en kijk hoeveel werken je in een jaar zou hebben.",
+          "lamina": "reloj"
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "Een mogelijke week: maandag contouren; dinsdag vormen; woensdag snelle gebaren; donderdag licht en schaduw; vrijdag tien minuten naar een werk kijken en het naschilderen; en in het weekend wat je maar wilt.",
+          "lamina": [
+            "semana",
+            "acuarela2"
+          ]
+        },
+        {
+          "id": "futuro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "amigo",
+              "clase",
+              "internet"
+            ]
+          },
+          "texto": "En het huis is in de toekomst aangekomen: het is een ruimteschip. Het gereedschap blijft veranderen, maar kunst zal altijd iemand nodig hebben die kijkt en voelt. Dus laat het zien: aan een vriend, in een les of op internet.",
+          "lamina": "antesDespues",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Kortom: kunst is iets maken zodat een ander het ziet en voelt; het is de moeite waard om wat er met je gebeurt als je maakt; kijk langzaam, naar licht, vorm en kleur; en maak elke dag een beetje.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Wil je net als ik beginnen met maken? De Kunststudio van MindHaOS heeft een galerie voor je werken, een doek met lagen dat zichzelf opslaat en tekenhulpmiddelen zoals het raster en de spiegel. De link staat in de beschrijving, samen met deze interactieve gids. Tot de volgende keer.",
+    "boton": "Open de Kunststudio",
+    "lamina": "app-plan",
+    "anclas": {
+      "galeria": "galerie",
+      "capas": "doek met lagen",
+      "ayudas": "tekenhulpmiddelen"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "tolstoi-1897",
+      "texto": "Tolstoj L. Wat is kunst? (1897).",
+      "url": "https://en.wikipedia.org/wiki/What_Is_Art%3F"
+    },
+    {
+      "id": "kaimal-2016",
+      "texto": "Kaimal G., Ray K., Muniz J. Reduction of Cortisol Levels and Participants' Responses Following Art Making. Art Therapy (2016).",
+      "url": "https://doi.org/10.1080/07421656.2016.1166832"
+    },
+    {
+      "id": "wammes-2016",
+      "texto": "Wammes J. D., Meade M. E., Fernandes M. A. The drawing effect: Evidence for reliable and robust memory benefits in free recall. Quarterly Journal of Experimental Psychology (2016).",
+      "url": "https://doi.org/10.1080/17470218.2015.1094494"
+    },
+    {
+      "id": "chamberlain-2016",
+      "texto": "Chamberlain R., Wagemans J. The genesis of errors in drawing. Neuroscience & Biobehavioral Reviews (2016).",
+      "url": "https://doi.org/10.1016/j.neubiorev.2016.04.002"
+    },
+    {
+      "id": "oktaviana-2024",
+      "texto": "Oktaviana A. A. et al. Narrative cave art in Indonesia by 51,200 years ago. Nature (2024).",
+      "url": "https://doi.org/10.1038/s41586-024-07541-7"
+    },
+    {
+      "id": "lascaux",
+      "texto": "UNESCO. Prehistoric Sites and Decorated Caves of the Vézère Valley (Lascaux).",
+      "url": "https://whc.unesco.org/en/list/85/"
+    },
+    {
+      "id": "alberti-1435",
+      "texto": "Alberti L. B. De pictura (1435). Over de demonstratie van Brunelleschi: Kemp M. The Science of Art. Yale University Press (1990).",
+      "url": "https://en.wikipedia.org/wiki/De_pictura"
+    },
+    {
+      "id": "durero-1525",
+      "texto": "Dürer A. Underweysung der Messung. Neurenberg (1525).",
+      "url": "https://en.wikipedia.org/wiki/Underweysung_der_Messung"
+    },
+    {
+      "id": "daguerre-1839",
+      "texto": "Académie des Sciences: presentatie van de daguerreotypie, Parijs (1839).",
+      "url": "https://en.wikipedia.org/wiki/Daguerreotype"
+    },
+    {
+      "id": "impresionistas-1874",
+      "texto": "Musée d'Orsay. Paris 1874: Inventing Impressionism (2024).",
+      "url": "https://www.musee-orsay.fr/en/whats-on/exhibitions/paris-1874-inventing-impressionism"
+    },
+    {
+      "id": "duchamp-1917",
+      "texto": "Duchamp M. Fontein (1917). Tate: Fountain, replica uit 1964.",
+      "url": "https://www.tate.org.uk/art/artworks/duchamp-fountain-t07573"
+    },
+    {
+      "id": "sutherland-1963",
+      "texto": "Sutherland I. E. Sketchpad: A man-machine graphical communication system. MIT (1963).",
+      "url": "https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-574.pdf"
+    },
+    {
+      "id": "newton-1704",
+      "texto": "Newton I. Opticks. Londen (1704): de kleurencirkel.",
+      "url": "https://en.wikipedia.org/wiki/Opticks"
+    },
+    {
+      "id": "smith-2001",
+      "texto": "Smith J. K., Smith L. F. Spending Time on Art. Empirical Studies of the Arts (2001).",
+      "url": "https://doi.org/10.2190/5MQM-59JH-X21R-JN5J"
+    },
+    {
+      "id": "shepard-1990",
+      "texto": "Shepard R. N. Mind Sights: Original Visual Illusions, Ambiguities, and Other Anomalies. W. H. Freeman (1990).",
+      "url": "https://en.wikipedia.org/wiki/Shepard_tables"
+    },
+    {
+      "id": "feldman-1970",
+      "texto": "Feldman E. B. Becoming Human Through Art: Aesthetic Experience in the School. Prentice-Hall (1970).",
+      "url": "https://en.wikipedia.org/wiki/Edmund_Burke_Feldman"
+    },
+    {
+      "id": "edwards-1979",
+      "texto": "Edwards B. Drawing on the Right Side of the Brain. Tarcher (1979).",
+      "url": "https://en.wikipedia.org/wiki/Drawing_on_the_Right_Side_of_the_Brain"
+    },
+    {
+      "id": "louvre-copistas",
+      "texto": "Musée du Louvre. Copier au Louvre: het kopiistenprogramma, open sinds 1793.",
+      "url": "https://www.louvre.fr/en/explore/the-palace/copying-at-the-louvre"
+    }
+  ]
+}

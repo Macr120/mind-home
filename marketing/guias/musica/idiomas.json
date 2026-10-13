@@ -1,0 +1,26 @@
+{
+  "_nota": "Música de fondo de la guía de Idiomas, en este orden (elegida por el usuario, 11 oct 2026): canciones suyas hechas con el Studio de audio de MindHaOS.",
+  "canciones": [
+    {
+      "archivo": "hard-techno-house-retro-piano.mp3",
+      "titulo": "Hard techno, house, retro piano 80s",
+      "credito": [
+        "«Hard techno, house, retro piano 80s» · Música original de MindHaOS, hecha en su Studio de audio"
+      ]
+    },
+    {
+      "archivo": "emotional-melodic-trap.mp3",
+      "titulo": "Emotional melodic trap, future bass",
+      "credito": [
+        "«Emotional melodic trap, future bass» · Música original de MindHaOS, hecha en su Studio de audio"
+      ]
+    },
+    {
+      "archivo": "celtic-lofi-hiphop.mp3",
+      "titulo": "Celtic, lofi, hiphop",
+      "credito": [
+        "«Celtic, lofi, hiphop» · Música original de MindHaOS, hecha en su Studio de audio"
+      ]
+    }
+  ]
+}

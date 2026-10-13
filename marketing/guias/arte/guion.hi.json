@@ -1,0 +1,685 @@
+{
+  "idioma": "hi",
+  "tema": "arte",
+  "plantillaId": "arte",
+  "numero": 6,
+  "nombre": "आर्ट स्टूडियो",
+  "pregunta": "कला क्या है?",
+  "corta": "कला क्या है?",
+  "subtitulo": "दृश्य कलाएँ क्या हैं, आज जब आर्टिफ़िशियल इंटेलिजेंस कुछ ही सेकंड में चित्र बना देती है तब भी कला बनाना क्यों सार्थक है, गुफाओं से स्क्रीन तक कला कैसे बदली, कोई कृति किन तत्वों से बनती है, उसे कैसे देखें, रचना कैसे शुरू करें और रोज़ पंद्रह मिनट की एक योजना।",
+  "aviso": "यह गाइड केवल जानकारी के लिए है: दी गई तारीख़ें, आँकड़े और अध्ययन अपने स्रोतों के अनुमान हैं, और हर व्यक्ति अपनी गति से आगे बढ़ता है।",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando').",
+    "visual": "Bloque que acompaña la línea: dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título). No puede ser enCasa.",
+    "corta": "La pregunta en pocas palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su Studio Arte y las de en medio sobre las tomas de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "epocas": "La casa y la ropa de Pep@ avanzan en el tiempo con las partes: medieval, pirata, vaquero, tren, cyberpunk y nave espacial (escena.mjs y pep.ts). Pep@ lo explica en la mención del inicio y lo recuerda en cada toma de la casa.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «galería», «lienzo por capas» y «ayudas de dibujo»; app2d.mjs mueve la app justo al decirlas.",
+    "ia": "La línea «ia» responde por qué hacer arte aunque una IA ya pinte: lo que te pasa al hacerlo (estrés, memoria, mirada)."
+  },
+  "partes": [
+    {
+      "id": "arte",
+      "titulo": "कला क्या है",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "कला क्या है? आज एक आर्टिफ़िशियल इंटेलिजेंस कुछ ही सेकंड में एक पेंटिंग बना देती है। फिर भी, लगभग सभी वयस्क कहते हैं कि वे एक सीधी रेखा तक नहीं खींच सकते। तो फिर ख़ुद कला क्यों बनाएँ? अगले कुछ मिनटों में आप देखेंगे कि दृश्य कला क्या है, गुफाओं से स्क्रीन तक यह कैसे बदली, इसे कैसे देखें और इसे बनाना कैसे शुरू करें, और आप आज से ही रचना करने की एक योजना लेकर जाएँगे।",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "वैसे, यह MindHaOS में मेरा घर है, और अपने आर्ट स्टूडियो में मैं अपने ईज़ल पर पेंटिंग करता हूँ और अपने चित्र एक गैलरी में रखता हूँ। और घर पर ध्यान दीजिए: आज यह मध्य युग का एक क़िला है, और हर भाग में यह समय में आगे बढ़ेगा, एक युग से दूसरे युग तक, भविष्य तक। चलिए शुरू करते हैं।",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग एक। कला क्या है।"
+        },
+        {
+          "id": "definicion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hacer",
+              "mirar",
+              "sentir"
+            ]
+          },
+          "texto": "इसकी कई परिभाषाएँ हैं, लेकिन लगभग सभी एक बात पर सहमत हैं: कला वह चीज़ है जो एक व्यक्ति बनाता है ताकि कोई दूसरा उसे देखे, महसूस करे या उस पर सोचे। 1897 में रूसी लेखक लियो टॉल्स्टॉय ने इसे यूँ कहा: कला दूसरों तक वह भावना पहुँचाना है, जिसे आपने ख़ुद जिया हो।",
+          "lamina": [
+            "tolstoi",
+            "galeria"
+          ]
+        },
+        {
+          "id": "visuales",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "dibujo",
+              "pintura",
+              "escultura",
+              "fotografia",
+              "digital"
+            ]
+          },
+          "texto": "यह गाइड दृश्य कलाओं की बात करती है, यानी वे कलाएँ जिन्हें देखा जाता है: ड्रॉइंग, पेंटिंग, मूर्तिकला, फ़ोटोग्राफ़ी और आज की डिजिटल इलस्ट्रेशन। ये सभी एक ही चीज़ों से काम करती हैं: रेखाएँ, आकार, प्रकाश और रंग।",
+          "lamina": [
+            "pinturas",
+            "escultura"
+          ]
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "3 de 4",
+            "clave": "cortisol"
+          },
+          "texto": "और अगर एक आर्टिफ़िशियल इंटेलिजेंस सेकंडों में पेंटिंग बना देती है, तो ख़ुद क्यों बनाएँ? क्योंकि कला का मूल्य सिर्फ़ नतीजे में नहीं, बल्कि उसमें है जो उसे बनाते समय आपके भीतर होता है। 2016 में, अमेरिका की ड्रेक्सेल यूनिवर्सिटी में गिरिजा कैमल ने पैंतालीस मिनट कला बनाने से पहले और बाद में कॉर्टिसोल, यानी तनाव का हार्मोन, मापा: चार में से तीन लोगों में यह घट गया, चाहे उन्हें ड्रॉइंग आती हो या नहीं।",
+          "lamina": [
+            "acuarela",
+            "notas"
+          ]
+        },
+        {
+          "id": "memoria",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "efectoDibujo"
+          },
+          "texto": "और यह सोचने में भी मदद करती है: 2016 में कनाडा की वॉटरलू यूनिवर्सिटी में, छात्रों को वे शब्द कहीं बेहतर याद रहे जिनका उन्होंने चित्र बनाया था, बजाय उनके जिन्हें उन्होंने सिर्फ़ लिखा था। मशीन आपके लिए तस्वीर बना सकती है, लेकिन आपकी जगह देख, सोच या महसूस नहीं कर सकती।",
+          "lamina": [
+            "estudiante",
+            "ojo"
+          ]
+        },
+        {
+          "id": "talento",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "creer",
+              "ver",
+              "entrenar"
+            ]
+          },
+          "texto": "और प्रतिभा? बचपन में हम सब बिना डर के चित्र बनाते हैं, और लगभग दस साल की उम्र तक बहुत से बच्चे यह छोड़ देते हैं, क्योंकि उनका चित्र असली चीज़ जैसा नहीं दिखता। लेकिन शोधकर्ता रेबेका चेम्बरलेन और योहान वागेमान्स ने पाया कि ज़्यादातर ग़लतियाँ हाथ से नहीं, बल्कि हमारे देखने के तरीक़े से आती हैं। और देखना सीखा जा सकता है।",
+          "meme": "simbolos",
+          "lamina": [
+            "nino",
+            "crayones"
+          ]
+        },
+        {
+          "id": "castillo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lapiz",
+              "papel",
+              "tableta"
+            ]
+          },
+          "texto": "घर पर ध्यान दीजिए: यह मध्य युग का एक क़िला है, वह दौर जब लगभग सारी कला चर्चों और महलों के लिए बनाई जाती थी, और बहुत कम लोग इसे बना पाते थे। आज शुरू करने के लिए एक पेंसिल और काग़ज़, या एक टैबलेट काफ़ी है।",
+          "lamina": "lapices",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "दृश्य कला का एक छोटा इतिहास",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग दो। दृश्य कला का एक छोटा इतिहास।"
+        },
+        {
+          "id": "cuevas",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaArte"
+          },
+          "texto": "हम लिखना सीखने से बहुत पहले से कला बना रहे हैं। इंडोनेशिया के सुलावेसी द्वीप की एक गुफा में, एक जंगली सूअर के पास खड़े लोगों का एक दृश्य है, जो कम से कम इक्यावन हज़ार साल पहले बनाया गया था। और फ़्रांस के लास्को में, दीवारों पर बने घोड़े और बैल लगभग सत्रह हज़ार साल पुराने हैं।",
+          "lamina": [
+            "sulawesi",
+            "lascaux"
+          ]
+        },
+        {
+          "id": "perspectiva",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1415",
+            "clave": "perspectiva"
+          },
+          "texto": "सदियों तक आकृतियाँ सपाट बनाई जाती रहीं। लगभग 1415 में, फ़्लोरेंस में वास्तुकार फ़िलिप्पो ब्रुनेलेस्की ने एक दर्पण से दिखाया कि गहराई कैसी दिखती है, और 1435 में लेओन बत्तिस्ता आल्बेर्ती ने चित्रकारों के लिए एक किताब में इसे समझाया: इसी तरह पुनर्जागरण का परिप्रेक्ष्य जन्मा।",
+          "lamina": [
+            "brunelleschi",
+            "alberti"
+          ]
+        },
+        {
+          "id": "durero",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1525",
+            "clave": "durero"
+          },
+          "texto": "देखिए: घर समय में आगे बढ़ गया है और अब एक जहाज़ है, उस दौर की तरह जब यूरोप महासागर पार कर रहा था। 1525 में, जर्मन कलाकार अल्ब्रेख़्त ड्यूरर ने एक पुस्तिका छापी, जिसमें जो दिखता है उसे ख़ाना-दर-ख़ाना उतारने के लिए एक ग्रिड था।",
+          "lamina": [
+            "durero",
+            "rejilla"
+          ],
+          "enCasa": true
+        },
+        {
+          "id": "fotografia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1839",
+            "clave": "fotografia"
+          },
+          "texto": "1839 में पेरिस में फ़ोटोग्राफ़ी पेश की गई। बहुतों ने सोचा कि अब पेंटिंग ख़त्म हो जाएगी, पर हुआ उल्टा: चित्रकारों ने हक़ीक़त की हूबहू नक़ल करना छोड़ा और प्रकाश और रंग की खोज में बाहर निकल पड़े। 1874 में इम्प्रेशनिस्टों ने अपनी पहली प्रदर्शनी लगाई।",
+          "lamina": [
+            "daguerre",
+            "monet"
+          ]
+        },
+        {
+          "id": "duchamp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1917",
+            "clave": "duchamp"
+          },
+          "texto": "1917 में, मार्सेल दुशाँ ने न्यूयॉर्क की एक प्रदर्शनी में चीनी मिट्टी का एक मूत्रपात्र भेजा, जिस पर नक़ली नाम से दस्तख़त थे, और उसे “फ़ाउंटेन” नाम दिया। उसे ठुकरा दिया गया, लेकिन वह आधुनिक कला का बड़ा सवाल छोड़ गया: क्या यह कला इसलिए है कि यह अच्छी बनी है, या इसलिए कि किसी ने इसे चुना और आपसे इसे देखने को कहा?",
+          "lamina": "fuente"
+        },
+        {
+          "id": "sketchpad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1963",
+            "clave": "sketchpad"
+          },
+          "texto": "और 1963 में, इवान सदरलैंड ने Sketchpad बनाया, स्क्रीन पर चित्र बनाने का पहला प्रोग्राम। यहीं से टैबलेट आए और आज आर्टिफ़िशियल इंटेलिजेंस। औज़ार बदलते रहते हैं; पर हम क्या कहना चाहते हैं, यह सवाल हमारा ही रहता है।",
+          "lamina": [
+            "sketchpad",
+            "tableta"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "elementos",
+      "titulo": "किसी कृति के तत्व",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग तीन। किसी कृति के तत्व।"
+        },
+        {
+          "id": "elementos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "formas"
+          },
+          "texto": "हर दृश्य कृति, गुफा से लेकर स्क्रीन तक, एक जैसे तत्वों से बनती है: रेखा, आकार, वैल्यू, यानी हल्का और गहरा, रंग, बनावट और स्पेस। और जो कुछ आप देखते हैं, उसमें से लगभग सब कुछ चार आकारों से बनाया जा सकता है: घन, गोला, बेलन और शंकु।",
+          "lamina": [
+            "formas",
+            "taza"
+          ]
+        },
+        {
+          "id": "valores",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "valores"
+          },
+          "texto": "प्रकाश ही आयतन देता है। कोई चीज़ अपनी वैल्यूज़ की वजह से तीन आयामों में दिखती है: प्रकाश, मध्य टोन, अपनी छाया, परावर्तित प्रकाश और पड़ने वाली छाया। आँखें सिकोड़िए: बारीकियाँ ग़ायब हो जाती हैं और सिर्फ़ प्रकाश और छाया के धब्बे बचते हैं।",
+          "lamina": [
+            "esfera",
+            "claroscuro"
+          ]
+        },
+        {
+          "id": "color",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "circulo"
+          },
+          "texto": "रंग का अपना इतिहास है: आइज़ैक न्यूटन ने 1704 में रंगों को एक चक्र में सजाया। लेकिन कोई रंग सबसे ज़्यादा अपनी वैल्यू से काम करता है: अगर कोई कृति ब्लैक एंड व्हाइट में अच्छी दिखती है, तो रंग में भी अच्छी दिखेगी।",
+          "lamina": [
+            "newton",
+            "pinturas"
+          ]
+        },
+        {
+          "id": "composicion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "tercios"
+          },
+          "texto": "और फिर है संयोजन: चित्र में सब कुछ कैसे बँटा है। चित्रकारों और फ़ोटोग्राफ़रों की एक पुरानी तरकीब है रूल ऑफ़ थर्ड्स: तस्वीर को तीन-गुणा-तीन हिस्सों में बाँटिए और ज़रूरी चीज़ को किसी एक क्रॉस पर रखिए, ठीक बीच में नहीं।",
+          "lamina": [
+            "fotografo",
+            "galeria2"
+          ]
+        },
+        {
+          "id": "oeste",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "brazo",
+              "unidad",
+              "compara"
+            ]
+          },
+          "texto": "और अब घर वाइल्ड वेस्ट में है, उन्नीसवीं सदी में, फ़ोटोग्राफ़ी के दौर में: इसीलिए सब कुछ सीपिया रंग में दिखता है। अनुपात के लिए चित्रकार नापते हैं: हाथ सीधा फैलाकर, पेंसिल से एक माप लेते हैं, और तुलना करते हैं।",
+          "lamina": "medir",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "mirar",
+      "titulo": "किसी कृति को कैसे देखें",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग चार। किसी कृति को कैसे देखें।"
+        },
+        {
+          "id": "museo",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 27 s",
+            "clave": "museo"
+          },
+          "texto": "आप किसी पेंटिंग को कितनी देर देखते हैं? 2001 में, जेफ़्री स्मिथ और लिसा स्मिथ ने न्यूयॉर्क के मेट्रोपॉलिटन म्यूज़ियम में दर्शकों को देखा: औसतन, वे हर कृति के सामने लगभग सत्ताईस सेकंड रुकते थे, यानी उसकी परिचय-पट्टी पढ़ने में लगने वाले समय से भी कम।",
+          "lamina": [
+            "museo",
+            "louvre"
+          ]
+        },
+        {
+          "id": "mesas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mesas"
+          },
+          "texto": "और ठीक से देखना आसान नहीं। ये दो मेज़ें बिल्कुल अलग आकार की लगती हैं, है न? ये एक जैसी हैं: यह भ्रम 1990 में मनोवैज्ञानिक रॉजर शेपर्ड ने बनाया था। आपका दिमाग़ जो देखता है, उसे अपनी जानकारी के हिसाब से सुधार देता है। यहाँ छूकर ख़ुद जाँचिए।",
+          "lamina": "ilusion"
+        },
+        {
+          "id": "feldman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "describe",
+              "analiza",
+              "interpreta",
+              "juzga"
+            ]
+          },
+          "texto": "धीरे-धीरे देखने के लिए, शिक्षाविद एडमंड फ़ेल्डमैन ने 1970 में चार क़दम सुझाए: जो दिखता है उसका वर्णन करें, यह कैसे बना है इसका विश्लेषण करें, इसका क्या अर्थ है इसकी व्याख्या करें, और सिर्फ़ आख़िर में तय करें कि यह आपको पसंद है या नहीं।",
+          "lamina": [
+            "copista",
+            "retrato"
+          ]
+        },
+        {
+          "id": "tren",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 min",
+            "clave": "unaObra"
+          },
+          "texto": "और घर अब एक रेलगाड़ी बन गया है: हम औद्योगिक युग में पहुँच गए, जब कला महलों से निकलकर सड़कों, पोस्टरों और अख़बारों तक आई। आज ही आज़माइए: कोई एक कृति चुनिए, किसी म्यूज़ियम में या अपने फ़ोन पर, और उसे दस मिनट तक देखिए।",
+          "lamina": "galeria",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "hacer",
+      "titulo": "कला बनाना कैसे शुरू करें",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग पाँच। कला बनाना कैसे शुरू करें।"
+        },
+        {
+          "id": "alreves",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "alReves"
+          },
+          "texto": "जो आप जानते हैं उसकी जगह जो देखते हैं वह बनाने के लिए, बेट्टी एडवर्ड्स की 1979 की किताब का एक मशहूर अभ्यास है: किसी चित्र को उल्टा रखकर उसकी नक़ल कीजिए। क्योंकि आप पहचान नहीं पाते कि वह क्या है, आप प्रतीक बनाना छोड़ देते हैं और रेखाओं और कोणों की नक़ल करते हैं।",
+          "lamina": [
+            "mano",
+            "copiar"
+          ]
+        },
+        {
+          "id": "ojos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "ojos"
+          },
+          "texto": "चेहरे में आँखें कहाँ होती हैं? लगभग सभी उन्हें बहुत ऊपर बना देते हैं। असल में वे सिर के बीचोंबीच होती हैं, ठुड्डी और सिर के ऊपरी सिरे के बीच। यहाँ आँखों की रेखा खिसकाइए और ख़ुद देखिए।",
+          "meme": "ojos",
+          "lamina": "retrato2"
+        },
+        {
+          "id": "gesto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cronometro"
+          },
+          "texto": "जेस्चर के तेज़ चित्र बनाइए: तीस सेकंड से दो मिनट तक, सिर्फ़ हरकत, बिना बारीकियों के। ये आपको ज़रूरी चीज़ देखने पर मजबूर करते हैं और ग़लती का डर निकाल देते हैं।",
+          "lamina": [
+            "gesto",
+            "modelo"
+          ]
+        },
+        {
+          "id": "copiar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1793",
+            "clave": "louvre"
+          },
+          "texto": "उस्तादों की नक़ल कीजिए। लूव्र म्यूज़ियम 1793 में खुलने के समय से ही अपनी पेंटिंग्स की नक़ल करने देता है। नक़ल करने से आप सीखते हैं कि दूसरों ने वही मुश्किल कैसे सुलझाई, जो आपको भारी पड़ती है।",
+          "lamina": [
+            "copista2",
+            "figura"
+          ]
+        },
+        {
+          "id": "cuaderno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "100",
+            "clave": "cuaderno"
+          },
+          "texto": "और एक स्केचबुक रखिए: जो सामने हो उसे बनाइए, अपना कप, अपने जूते, किसी वेटिंग रूम में बैठे लोग। परफ़ेक्शन से ज़्यादा मात्रा मायने रखती है: आपके पहले सौ चित्र सीखने के लिए हैं।",
+          "meme": "cien",
+          "lamina": [
+            "cuaderno",
+            "cafe"
+          ]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "देखिए: घर अब डिजिटल युग में पहुँच गया है, हर तरफ़ नियॉन और स्क्रीन। मैं यह MindHaOS के अपने आर्ट स्टूडियो में करता हूँ: परतों में पेंट करता हूँ, ग्रिड और दर्पण का इस्तेमाल करता हूँ, और हर कृति मेरी गैलरी में रह जाती है।",
+          "lamina": "caballete",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "शुरू करने की आपकी योजना",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग छह। शुरू करने की आपकी योजना।"
+        },
+        {
+          "id": "meta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "100 × 100",
+            "clave": "meta"
+          },
+          "texto": "एक छोटा और ठोस लक्ष्य रखिए: जैसे, सौ दिनों में सौ चित्र। जिस लक्ष्य को गिना जा सके, वह आपको हर दिन वापस ले आता है।",
+          "lamina": "calendario"
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dibujosAno"
+          },
+          "texto": "आपको ज़्यादा समय नहीं चाहिए: रोज़ पंद्रह मिनट, साल में नब्बे घंटे से ज़्यादा होते हैं। यहाँ अपने मिनट बदलिए और देखिए कि एक साल में आपकी कितनी कृतियाँ हो जाएँगी।",
+          "lamina": "reloj"
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "एक संभावित हफ़्ता: सोमवार को कंटूर; मंगलवार को आकार; बुधवार को तेज़ जेस्चर; गुरुवार को प्रकाश और छाया; शुक्रवार को एक कृति दस मिनट देखिए और उसकी नक़ल कीजिए; और सप्ताहांत पर, जो आपका मन करे।",
+          "lamina": [
+            "semana",
+            "acuarela2"
+          ]
+        },
+        {
+          "id": "futuro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "amigo",
+              "clase",
+              "internet"
+            ]
+          },
+          "texto": "और घर भविष्य में पहुँच गया है: यह एक अंतरिक्ष यान है। औज़ार बदलते रहेंगे, लेकिन कला को हमेशा किसी ऐसे की ज़रूरत होगी जो देखे और महसूस करे। इसलिए इसे दिखाइए: किसी दोस्त को, किसी क्लास में या इंटरनेट पर।",
+          "lamina": "antesDespues",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "संक्षेप में: कला कुछ ऐसा बनाना है जिसे कोई दूसरा देखे और महसूस करे; यह उस अनुभव के लिए सार्थक है जो इसे बनाते समय आपको होता है; धीरे-धीरे देखिए, प्रकाश, आकार और रंग के साथ; और हर दिन थोड़ा-थोड़ा रचिए।",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "अगर आप मेरी तरह रचना शुरू करना चाहते हैं, तो MindHaOS के आर्ट स्टूडियो में आपकी कृतियों के लिए एक गैलरी है, परतों वाला कैनवास है जो अपने-आप सेव होता है, और ग्रिड और दर्पण जैसी ड्रॉइंग सहायताएँ हैं। लिंक डिस्क्रिप्शन में है, और साथ में यह इंटरैक्टिव गाइड भी। अगली गाइड में फिर मिलते हैं।",
+    "boton": "आर्ट स्टूडियो खोलें",
+    "lamina": "app-plan",
+    "anclas": {
+      "galeria": "गैलरी",
+      "capas": "परतों वाला कैनवास",
+      "ayudas": "ड्रॉइंग सहायताएँ"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "tolstoi-1897",
+      "texto": "Tolstoy L. Что такое искусство? (1897).",
+      "url": "https://en.wikipedia.org/wiki/What_Is_Art%3F"
+    },
+    {
+      "id": "kaimal-2016",
+      "texto": "Kaimal G., Ray K., Muniz J. Reduction of Cortisol Levels and Participants' Responses Following Art Making. Art Therapy (2016).",
+      "url": "https://doi.org/10.1080/07421656.2016.1166832"
+    },
+    {
+      "id": "wammes-2016",
+      "texto": "Wammes J. D., Meade M. E., Fernandes M. A. The drawing effect: Evidence for reliable and robust memory benefits in free recall. Quarterly Journal of Experimental Psychology (2016).",
+      "url": "https://doi.org/10.1080/17470218.2015.1094494"
+    },
+    {
+      "id": "chamberlain-2016",
+      "texto": "Chamberlain R., Wagemans J. The genesis of errors in drawing. Neuroscience & Biobehavioral Reviews (2016).",
+      "url": "https://doi.org/10.1016/j.neubiorev.2016.04.002"
+    },
+    {
+      "id": "oktaviana-2024",
+      "texto": "Oktaviana A. A. et al. Narrative cave art in Indonesia by 51,200 years ago. Nature (2024).",
+      "url": "https://doi.org/10.1038/s41586-024-07541-7"
+    },
+    {
+      "id": "lascaux",
+      "texto": "UNESCO. Prehistoric Sites and Decorated Caves of the Vézère Valley (Lascaux).",
+      "url": "https://whc.unesco.org/en/list/85/"
+    },
+    {
+      "id": "alberti-1435",
+      "texto": "Alberti L. B. De pictura (1435). ब्रुनेलेस्की के प्रदर्शन पर: Kemp M. The Science of Art. Yale University Press (1990).",
+      "url": "https://en.wikipedia.org/wiki/De_pictura"
+    },
+    {
+      "id": "durero-1525",
+      "texto": "Dürer A. Underweysung der Messung. न्यूरेमबर्ग (1525).",
+      "url": "https://en.wikipedia.org/wiki/Underweysung_der_Messung"
+    },
+    {
+      "id": "daguerre-1839",
+      "texto": "Académie des Sciences: डागेरोटाइप की प्रस्तुति, पेरिस (1839).",
+      "url": "https://en.wikipedia.org/wiki/Daguerreotype"
+    },
+    {
+      "id": "impresionistas-1874",
+      "texto": "Musée d'Orsay. Paris 1874: Inventing Impressionism (2024).",
+      "url": "https://www.musee-orsay.fr/en/whats-on/exhibitions/paris-1874-inventing-impressionism"
+    },
+    {
+      "id": "duchamp-1917",
+      "texto": "Duchamp M. Fountain (1917). Tate: Fountain, 1964 की प्रतिकृति।",
+      "url": "https://www.tate.org.uk/art/artworks/duchamp-fountain-t07573"
+    },
+    {
+      "id": "sutherland-1963",
+      "texto": "Sutherland I. E. Sketchpad: A man-machine graphical communication system. MIT (1963).",
+      "url": "https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-574.pdf"
+    },
+    {
+      "id": "newton-1704",
+      "texto": "Newton I. Opticks. लंदन (1704): रंगों का चक्र।",
+      "url": "https://en.wikipedia.org/wiki/Opticks"
+    },
+    {
+      "id": "smith-2001",
+      "texto": "Smith J. K., Smith L. F. Spending Time on Art. Empirical Studies of the Arts (2001).",
+      "url": "https://doi.org/10.2190/5MQM-59JH-X21R-JN5J"
+    },
+    {
+      "id": "shepard-1990",
+      "texto": "Shepard R. N. Mind Sights: Original Visual Illusions, Ambiguities, and Other Anomalies. W. H. Freeman (1990).",
+      "url": "https://en.wikipedia.org/wiki/Shepard_tables"
+    },
+    {
+      "id": "feldman-1970",
+      "texto": "Feldman E. B. Becoming Human Through Art: Aesthetic Experience in the School. Prentice-Hall (1970).",
+      "url": "https://en.wikipedia.org/wiki/Edmund_Burke_Feldman"
+    },
+    {
+      "id": "edwards-1979",
+      "texto": "Edwards B. Drawing on the Right Side of the Brain. Tarcher (1979).",
+      "url": "https://en.wikipedia.org/wiki/Drawing_on_the_Right_Side_of_the_Brain"
+    },
+    {
+      "id": "louvre-copistas",
+      "texto": "Musée du Louvre. Copier au Louvre: नक़ल करने वाले कलाकारों का कार्यक्रम, 1793 से चालू।",
+      "url": "https://www.louvre.fr/en/explore/the-palace/copying-at-the-louvre"
+    }
+  ]
+}

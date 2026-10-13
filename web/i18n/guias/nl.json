@@ -204,6 +204,852 @@
     "bio": "Interactieve gids en app: link in bio",
     "parte": "Deel",
     "guiaCompleta": "Volledige gids",
-    "hashtags": "#sporten #trainen #fitness #gezondheid #workout #MindHaOS"
+    "hashtags": "#sporten #trainen #fitness #gezondheid #workout #MindHaOS",
+    "guiaN": "Gids {n}"
+  },
+  "cocina": {
+    "meta": {
+      "titulo": "Wat is eigenlijk goed eten? Complete gids: voedingsstoffen, energie, kwaliteit en je bord | MindHaOS",
+      "desc": "Wat eten in je lichaam doet, de geschiedenis van de voedingsleer, hoeveel energie je nodig hebt (met calculator), hoe je ultrabewerkt voedsel herkent en hoe je je bord en je week samenstelt."
+    },
+    "lista": {
+      "combustible": "Brandstof",
+      "combustibleDet": "Energie om te ademen, te denken en te bewegen. Gemeten in calorieën.",
+      "construccion": "Bouwmateriaal",
+      "construccionDet": "Met wat je eet herstel je spieren, botten, huid en bloed.",
+      "proteinas": "Eiwitten",
+      "proteinasDet": "Bouwen op en herstellen. Vlees, vis, eieren, zuivel, peulvruchten.",
+      "carbohidratos": "Koolhydraten",
+      "carbohidratosDet": "De snelste energie. Granen, knollen, fruit.",
+      "grasas": "Vetten",
+      "grasasDet": "Energievoorraad en wanden van je cellen. Olijfolie, avocado, noten.",
+      "vitaminas": "Vitamines",
+      "vitaminasDet": "In piepkleine hoeveelheden, maar onmisbaar.",
+      "minerales": "Mineralen",
+      "mineralesDet": "Calcium, ijzer, kalium… botten, bloed en spieren.",
+      "fibra": "Vezels",
+      "fibraDet": "Voeden je darmflora en houden je verzadigd.",
+      "resumen1": "Eet het grootste deel van de tijd echt eten",
+      "resumen2": "Vul de helft van je bord met groente en fruit",
+      "resumen3": "Stem de hoeveelheid af op wat je verbruikt",
+      "resumen4": "Plan je week: menu, lijst en iets wat al gekookt is"
+    },
+    "dato": {
+      "agricultura": "jaar sinds de komst van de landbouw: tarwe, rijst en maïs",
+      "lind": "James Lind geneest scheurbuik met sinaasappels en citroenen",
+      "atwater": "calorieën per gram eiwit, koolhydraat en vet (Atwater)",
+      "funk": "Casimir Funk stelt het woord ‘vitamine’ voor",
+      "plato": "Van de voedselpiramide (1992) naar het bord: MyPlate en het Plato del Bien Comer",
+      "proteina": "eiwit per dag: het minimum en wat wordt aangeraden bij krachttraining",
+      "deficit": "van wat je verbruikt: een klein tekort dat je volhoudt",
+      "experimento": "per dag met het ultrabewerkte dieet (Hall en collega's, 2019)",
+      "sal": "zout per dag: een theelepel",
+      "frutas": "groente en fruit per dag (en 25 g vezels)",
+      "ochenta": "Meestal goed; de rest zonder schuldgevoel",
+      "agua": "water per dag, inclusief wat er in je eten zit"
+    },
+    "pasos": {
+      "porcion": "De portie",
+      "porcionDet": "Alle andere waarden zijn berekend op die hoeveelheid.",
+      "azucares": "Suikers en zout",
+      "azucaresDet": "Vergelijk per 100 g, niet per verpakking.",
+      "ingredientes": "De ingrediënten",
+      "ingredientesDet": "Van veel naar weinig: het eerste ingrediënt zit er het meest in.",
+      "menu": "Kies het menu",
+      "menuDet": "De maaltijden van de week, met recepten die je al kent.",
+      "lista": "Maak de lijst",
+      "listaDet": "Wat die recepten nodig hebben, gegroepeerd per gangpad.",
+      "prepara": "Kook extra",
+      "preparaDet": "Twee dagen kant-en-klaar eten voor als er geen tijd is."
+    },
+    "grafica": {
+      "historia": "Van het vuur naar het bord",
+      "fuego": "Prehistorie",
+      "fuegoDet": "Koken met vuur",
+      "agricultura": "Neolithicum",
+      "agriculturaDet": "De landbouw",
+      "lindDet": "De citroenproef",
+      "atwaterDet": "De calorieën van elk voedingsmiddel",
+      "funkDet": "De vitamines",
+      "platoDet": "Het bord",
+      "balance": "Energiebalans",
+      "entra": "Wat je eet",
+      "sale": "Wat je verbruikt",
+      "gasto": "Waar je je energie aan verbruikt",
+      "basal": "Ruststofwisseling",
+      "actividad": "Activiteit overdag",
+      "digestion": "Spijsvertering",
+      "nova": "Hoe sterk je eten bewerkt is (NOVA-indeling)",
+      "g1": "Vers of minimaal bewerkt",
+      "g1Det": "Groente, fruit, eieren, vlees, melk, rijst",
+      "g2": "Keukeningrediënten",
+      "g2Det": "Olie, zout, suiker, boter",
+      "g3": "Bewerkt",
+      "g3Det": "Kaas, brood van de bakker, conserven",
+      "g4": "Ultrabewerkt",
+      "g4Det": "Frisdrank, koekjes, snacks, gesuikerde ontbijtgranen"
+    },
+    "energia": {
+      "titulo": "Bereken je energie per dag",
+      "sexo": "Geslacht",
+      "mujer": "Vrouw",
+      "hombre": "Man",
+      "edad": "Leeftijd",
+      "anios": "jaar",
+      "peso": "Gewicht",
+      "estatura": "Lengte",
+      "actividad": "Activiteit",
+      "a1": "Bijna de hele dag zittend",
+      "a2": "Een beetje beweging",
+      "a3": "3–5 dagen sporten",
+      "a4": "Zeer actief",
+      "basal": "Ruststofwisseling",
+      "total": "Verbruik per dag",
+      "bajar": "Om af te vallen (−15%)",
+      "proteina": "Eiwit",
+      "kcal": "kcal",
+      "gDia": "g per dag",
+      "nota": "Formule van Mifflin-St Jeor. Het is een schatting (±10%): stel hem bij op basis van wat je na twee à drie weken ziet."
+    },
+    "plato": {
+      "titulo": "Stel je bord samen",
+      "instruccion": "Tik op de voedingsmiddelen om ze op te scheppen",
+      "verduras": "Groente en fruit",
+      "cereales": "Volkoren granen",
+      "proteina": "Eiwit",
+      "ideal": "Gezond bord: ½ groente en fruit · ¼ granen · ¼ eiwit",
+      "vacio": "Je bord is leeg",
+      "bien": "Je bord lijkt op het gezonde bord!",
+      "masVerdura": "Er ontbreken groente en fruit",
+      "masCereal": "Er ontbreekt een volkoren graan",
+      "masProteina": "Er ontbreekt eiwit",
+      "vaciar": "Leegmaken",
+      "brocoli": "Broccoli",
+      "ensalada": "Salade",
+      "jitomate": "Tomaat",
+      "manzana": "Appel",
+      "arroz": "Zilvervliesrijst",
+      "tortilla": "Maïstortilla",
+      "avena": "Havermout",
+      "pollo": "Kip",
+      "frijoles": "Bonen",
+      "huevo": "Ei",
+      "pescado": "Vis"
+    },
+    "azucar": {
+      "titulo": "Hoeveel suiker zit er in wat je drinkt?",
+      "refresco": "Cola (355 ml)",
+      "jugo": "Sinaasappelsap (250 ml)",
+      "isotonica": "Sportdrank (600 ml)",
+      "frappe": "Frappé-koffie (473 ml)",
+      "chocolate": "Chocolademelk (250 ml)",
+      "agua": "Water",
+      "gramos": "g suiker",
+      "cucharaditas": "theelepels",
+      "ideal": "van de ideale hoeveelheid voor de hele dag (25 g)",
+      "nota": "Geschatte waarden van gangbare etiketten. De WHO telt ook de suikers in sappen mee."
+    },
+    "cierre": {
+      "titulo": "Neem je plan mee naar je eigen huis",
+      "texto": "De Keuken van MindHaOS bewaart je recepten, stelt je maaltijdplan voor de week samen en maakt je boodschappenlijst."
+    },
+    "memes": {
+      "limones": {
+        "arriba": "Zeelieden in 1747: ontdekken dat citroen hun leven redt",
+        "abajo": "Ik: doe overal citroen op"
+      },
+      "ultraprocesados": {
+        "arriba": "‘Volkoren’ koekjes met 14 ingrediënten",
+        "abajo": "Een appel: 1 ingrediënt"
+      },
+      "perfecta": {
+        "arriba": "Perfect dieet… drie dagen lang",
+        "abajo": "Bijna altijd goed eten, het hele jaar"
+      },
+      "tarde": {
+        "arriba": "Ik om 7 uur 's avonds zonder goed gegeten te hebben",
+        "abajo": "Ik na een echte maaltijd"
+      }
+    },
+    "paquete": {
+      "guia": "Interactieve gids (met de energiecalculator, het gezonde bord en de suiker in je drankjes)",
+      "app": "Open de Keuken in MindHaOS",
+      "hashtags": "#voeding #gezondeten #eetpatroon #gezondheid #recepten #MindHaOS"
+    }
+  },
+  "descanso": {
+    "meta": {
+      "titulo": "Wat is eigenlijk goed slapen? Complete gids: slaapcycli, biologische klok, hoeveel slaap en hoe je de nacht voorbereidt | MindHaOS",
+      "desc": "Wat er in je lichaam gebeurt terwijl je slaapt, de geschiedenis van de slaap, hoeveel uur je nodig hebt (met slaapcycluscalculator), hoe je biologische klok werkt, hoeveel cafeïne je bij bedtijd nog in je lichaam hebt en wat je doet als je niet kunt slapen."
+    },
+    "lista": {
+      "reparacion": "Herstel",
+      "reparacionDet": "Groeihormoon: je lichaam herstelt spieren en weefsels.",
+      "limpieza": "Schoonmaak van de hersenen",
+      "limpiezaDet": "Bij muizen ruimen de hersenen tijdens de slaap meer afval op.",
+      "memoria": "Geheugen",
+      "memoriaDet": "Ordent en bewaart wat je overdag hebt geleerd.",
+      "emociones": "Emoties",
+      "emocionesDet": "Verwerkt wat je voelde: je wordt wakker met een frisse blik.",
+      "alondra": "Leeuweriken",
+      "alondraDet": "Staan vanzelf vroeg op en presteren 's ochtends het best.",
+      "buho": "Uilen",
+      "buhoDet": "Komen laat op gang en presteren 's avonds het best.",
+      "resumen1": "Zeven uur of meer, op vaste tijden",
+      "resumen2": "Licht in de ochtend, donker in de avond",
+      "resumen3": "Let op met cafeïne en alcohol",
+      "resumen4": "Bereid het laatste uur van de dag voor"
+    },
+    "dato": {
+      "edison": "Edison test met succes zijn gloeilamp",
+      "cueva": "Kleitman woont 32 dagen in een grot om dagen van 28 uur te testen",
+      "rem": "Aserinsky en Kleitman ontdekken de REM-slaap",
+      "nobel": "Nobelprijs voor Geneeskunde voor de genen van de biologische klok",
+      "deuda": "zes uur per nacht, twee weken lang: je aandacht als na twee nachten zonder slaap",
+      "luz": "daglicht kort na het wakker worden",
+      "pantallas": "Lezen op een tablet voor het slapengaan vertraagt de melatonine",
+      "regular": "mensen: slapen op vaste tijden hangt samen met een lagere sterfte",
+      "alcohol": "Alcohol versnippert de tweede helft van de nacht",
+      "ejercicio": "Regelmatig sporten helpt je sneller in slaap te vallen en dieper te slapen",
+      "veinte": "wakker: sta op en ga terug als je slaap hebt",
+      "siesta": "betere prestaties met een dutje van zo'n 26 minuten (NASA)",
+      "terapia": "Cognitieve gedragstherapie: de eerste behandeling bij slapeloosheid"
+    },
+    "pasos": {
+      "sinAlarma": "Je wordt wakker zonder wekker",
+      "sinAlarmaDet": "Op vakantie ongeveer op dezelfde tijd als doordeweeks.",
+      "sinCafe": "Je hebt geen koffie nodig om op gang te komen",
+      "sinCafeDet": "Het eerste uur van de dag ben je al wakker.",
+      "despierto": "Je houdt de hele middag vol",
+      "despiertoDet": "Zonder weg te knikkebollen na de lunch of in vergaderingen.",
+      "fresco": "Koel",
+      "frescoDet": "Rond de 18 °C: je lichaam verlaagt zijn temperatuur om te slapen.",
+      "oscuro": "Donker",
+      "oscuroDet": "Dikke gordijnen of een slaapmasker; geen lampjes aan.",
+      "silencio": "Stil",
+      "silencioDet": "Oordopjes of witte ruis als je aan een drukke straat woont.",
+      "apaga": "Leg de schermen weg",
+      "apagaDet": "Een uur van tevoren: je telefoon aan de lader, buiten je bed.",
+      "luces": "Dim de lichten",
+      "lucesDet": "Warm, gedempt licht laat je lichaam weten dat het nacht is.",
+      "ritual": "Een ritueel, steeds hetzelfde",
+      "ritualDet": "Lezen, een warm bad of rekken: het signaal dat de slaap eraan komt."
+    },
+    "grafica": {
+      "hipnograma": "Een gewone nacht: cycli van ongeveer 90 minuten; diepe slaap aan het begin en REM tegen de ochtend",
+      "despierto": "Wakker",
+      "rem": "REM",
+      "ligero": "Licht",
+      "profundo": "Diep",
+      "historia": "Wat we gaandeweg over slaap ontdekten",
+      "siglos": "16e–18e eeuw",
+      "siglosDet": "Eerste en tweede slaap",
+      "edisonDet": "De gloeilamp van Edison",
+      "cuevaDet": "Kleitman in de grot",
+      "remDet": "De REM-slaap wordt ontdekt",
+      "nobelDet": "Nobelprijs voor de biologische klok",
+      "edades": "Aanbevolen uren slaap per nacht (American Academy of Sleep Medicine)",
+      "ninos": "Kinderen 6–12",
+      "adolescentes": "Tieners",
+      "adultos": "Volwassenen",
+      "circadiano": "Je 24-uursklok: daglicht zet hem gelijk en melatonine stijgt als het donker wordt",
+      "luz": "Daglicht",
+      "melatonina": "Melatonine"
+    },
+    "calc": {
+      "titulo": "Hoe laat moet je naar bed?",
+      "despierto": "Ik sta op om",
+      "acuestate": "Ga op een van deze tijden naar bed (reken 15 minuten om in slaap te vallen):",
+      "ciclos": "cycli",
+      "nota": "Een cyclus duurt 80 tot 110 minuten, afhankelijk van de persoon: het is een richtlijn, geen regel. Het belangrijkste is zeven uur of meer slapen."
+    },
+    "cafeina": {
+      "titulo": "Hoeveel cafeïne heb je nog als je naar bed gaat?",
+      "cafe": "Kop koffie",
+      "espresso": "Espresso",
+      "te": "Zwarte thee",
+      "cola": "Cola",
+      "energetica": "Energiedrank",
+      "aLas": "Ik drink het om",
+      "duermes": "Ik val in slaap om",
+      "quedan": "nog in je lichaam",
+      "deLaDosis": "van de dosis",
+      "nota": "Met een halfwaardetijd van ongeveer 5 uur (2 tot 10, afhankelijk van de persoon). Ben je gevoelig voor cafeïne, laat het dan na het middaguur staan."
+    },
+    "cierre": {
+      "titulo": "Neem je nachtrust mee naar je eigen huis",
+      "texto": "De kamer Rust van MindHaOS houdt je slaapschema bij met meldingen en wekker, geeft elke nacht een score en bewaart het logboek van je nachten, zodat je je patronen ziet."
+    },
+    "memes": {
+      "cinco": {
+        "arriba": "Ik om 11 uur 's avonds: morgen sta ik vroeg op en doe ik alles",
+        "abajo": "Ik om 7 uur 's ochtends: nog vijf minuutjes"
+      },
+      "capitulo": {
+        "arriba": "Op tijd in slaap vallen",
+        "abajo": "‘Nog één aflevering’ om 2 uur 's nachts"
+      },
+      "cafe": {
+        "arriba": "Ik om 6 uur 's avonds: één bakkie doet me niks",
+        "abajo": "Ik om 2 uur 's nachts, starend naar het plafond"
+      },
+      "siesta": {
+        "arriba": "Een dutje van 20 minuten: goedgekeurd door de wetenschap (en door NASA)"
+      }
+    },
+    "paquete": {
+      "guia": "Interactieve gids (met de slaapcycluscalculator, je 24-uursklok en de cafeïne die je bij bedtijd nog in je lichaam hebt)",
+      "app": "Open de kamer Rust in MindHaOS",
+      "hashtags": "#slaap #goedslapen #nachtrust #gezondheid #slapeloosheid #MindHaOS"
+    }
+  },
+  "finanzas": {
+    "moneda": "€",
+    "formato": "antes",
+    "base": "2800",
+    "meta": {
+      "titulo": "Wat is eigenlijk geld? Complete gids: hoe het ontstond, budget, noodfonds, schulden en samengestelde rente | MindHaOS",
+      "desc": "Wat geld is en hoe het is ontstaan, waar jouw geld naartoe gaat (rekenhulp voor sluipuitgaven en de 50/30/20-regel), hoe je je noodfonds opbouwt, wat het je kost om alleen het minimum te betalen en hoe je spaargeld groeit met samengestelde rente."
+    },
+    "lista": {
+      "resumen1": "Schrijf op waar je geld naartoe gaat",
+      "resumen2": "Betaal jezelf eerst, op betaaldag",
+      "resumen3": "Bouw een buffer op en los dure schulden af",
+      "resumen4": "Laat tijd en rente voor je werken"
+    },
+    "dato": {
+      "loteria": "na het winnen: winnaars van grote prijzen gingen bijna even vaak failliet als winnaars van kleine prijzen",
+      "lidia": "Lydië slaat de eerste munten, van elektrum",
+      "jiaozi": "China geeft de jiaozi uit, het eerste officiële papiergeld",
+      "ponzi": "Charles Ponzi belooft 50 % in 45 dagen… met het geld van de nieuwkomers",
+      "nixon": "De dollar is niet meer inwisselbaar voor goud",
+      "registra": "alles opschrijven wat je uitgeeft, tot de koffie aan toe",
+      "emergencia": "van de volwassenen in de VS zou een onverwachte uitgave van 400 dollar met spaargeld kunnen betalen",
+      "tarjeta": "gemiddelde jaarrente op creditcards in de VS (2024)",
+      "regla72": "Deel 72 door het rendement: het aantal jaren waarin je geld verdubbelt",
+      "fraude": "Hoge en zekere winsten: die bestaan niet",
+      "revisa": "om te kijken hoeveel er binnenkwam, hoeveel er uitging en hoe ver je bent"
+    },
+    "pasos": {
+      "plazo": "Voor de lange termijn",
+      "plazoDet": "Alleen geld dat je niet snel nodig hebt.",
+      "canasta": "Niet alles in één mand",
+      "canastaDet": "Spreid het risico: één misstap mag niet alles omvergooien.",
+      "entiende": "Alleen in wat je begrijpt",
+      "entiendeDet": "Kun je niet uitleggen hoe het geld verdient, steek er dan je geld niet in.",
+      "nombre": "Geef het een naam",
+      "nombreDet": "„De aanbetaling voor de auto”, niet „meer sparen”.",
+      "monto": "Geef het een bedrag",
+      "montoDet": "Hoeveel je in totaal nodig hebt.",
+      "fecha": "Geef het een datum",
+      "fechaDet": "Bedrag ÷ maanden = wat je elke maand opzijzet."
+    },
+    "grafica": {
+      "funciones": "De drie functies van geld",
+      "intercambio": "Ruilen",
+      "intercambioDet": "Iedereen accepteert het in ruil voor wat dan ook.",
+      "medida": "Meten",
+      "medidaDet": "Geeft alles een prijs in dezelfde eenheid.",
+      "reserva": "Waarde bewaren",
+      "reservaDet": "Wat je vandaag hebt, om morgen uit te geven.",
+      "inflacion": "Wat 100 van vandaag jaar na jaar koopt, bij een inflatie van 3 % per jaar",
+      "mitad": "De helft",
+      "flujo": "De som die alles bepaalt",
+      "entra": "Wat er binnenkomt",
+      "entraDet": "Salaris, verkopen, elk inkomen.",
+      "sale": "Min wat er uitgaat",
+      "saleDet": "Vaste lasten, leuke dingen, schulden.",
+      "queda": "Wat je overhoudt",
+      "quedaDet": "Om te sparen, schulden af te lossen en op te bouwen.",
+      "historia": "Hoe het geld veranderde",
+      "aC": "v.Chr.",
+      "hammurabiDet": "Hammurabi beperkt de rente",
+      "lidiaDet": "De eerste munten",
+      "jiaoziDet": "Het eerste officiële papiergeld",
+      "ponziDet": "De fraude van Ponzi",
+      "nixonDet": "Vaarwel goud",
+      "ahorraMas": "Save More Tomorrow: het spaargeld van werknemers, van 3,5 % naar 13,6 % van het salaris in vier loonsverhogingen",
+      "antes": "Ervoor",
+      "aumento": "Verhoging",
+      "metodos": "Twee volgordes om dezelfde schulden af te lossen",
+      "avalancha": "Lawine",
+      "avalanchaDet": "Eerst de schuld met de hoogste rente: je betaalt minder rente.",
+      "bolaNieve": "Sneeuwbal",
+      "bolaNieveDet": "Eerst de kleinste: je ziet eerder vooruitgang.",
+      "tarjeta": "Creditcard",
+      "prestamo": "Lening",
+      "tienda": "Winkel",
+      "empezarAntes": "Elke maand hetzelfde tegen 6 % per jaar tot je 65e: beginnen op je 25e of op je 35e",
+      "empezarAntesA": "Vanaf je 25e",
+      "empezarAntesB": "Vanaf je 35e",
+      "comisiones": "100 van vandaag gedurende 30 jaar: tegen 7 % en tegen 7 % min één procentpunt kosten",
+      "comisionesA": "Zonder kosten",
+      "comisionesB": "Met 1 % kosten",
+      "automatiza": "De volgorde op betaaldag, automatisch",
+      "cobras": "Je krijgt betaald",
+      "cobrasDet": "Je salaris komt binnen.",
+      "ahorroAuto": "Sparen",
+      "ahorroAutoDet": "Gaat er vanzelf af, als eerste.",
+      "fijos": "Vaste lasten",
+      "fijosDet": "Via automatische incasso: huur, energie, schulden.",
+      "libre": "De rest",
+      "libreDet": "Vrij om uit te geven zonder schuldgevoel."
+    },
+    "hormiga": {
+      "titulo": "Hoeveel slokt een sluipuitgave op?",
+      "gasto": "Elke keer geef ik uit",
+      "dias": "Dagen per week",
+      "alAnio": "In een jaar",
+      "diezAnios": "In tien jaar",
+      "invertido": "Als je het opzijzet tegen 6 % per jaar, in tien jaar",
+      "nota": "Het gaat er niet om dat je jezelf niets gunt, maar dat je bewust kiest en weet wat het kost."
+    },
+    "reparto": {
+      "titulo": "De 50/30/20-regel",
+      "ingreso": "Mijn netto-inkomen per maand",
+      "necesario": "Wat nodig is",
+      "gustos": "Leuke dingen",
+      "ahorro": "Sparen en schulden",
+      "nota": "Het is een vertrekpunt: slokt de huur meer dan de helft op, bezuinig dan eerst op de leuke dingen en niet op het sparen."
+    },
+    "fondo": {
+      "titulo": "Je noodfonds",
+      "gasto": "Mijn basisuitgaven per maand",
+      "aparta": "Ik kan per maand opzijzetten",
+      "meses": "Maanden buffer",
+      "meta": "Je doel",
+      "tardas": "Je hebt het bij elkaar in",
+      "mesesCorto": "maanden",
+      "nota": "Basisuitgaven: wonen, eten, energie en water, vervoer en aflossingen. Bewaar het apart, waar je niet in de verleiding komt om het uit te geven."
+    },
+    "deuda": {
+      "titulo": "Wat kost het je om weinig af te lossen?",
+      "saldo": "Wat ik schuldig ben",
+      "tasa": "Jaarrente",
+      "pago": "Betaling per maand",
+      "tardas": "Je bent schuldenvrij na",
+      "meses": "maanden",
+      "intereses": "Je betaalt aan rente",
+      "total": "Je betaalt in totaal",
+      "nunca": "Met deze betaling dek je niet eens de rente: de schuld wordt nooit kleiner.",
+      "loQueDebias": "Wat je schuldig was",
+      "nota": "Zonder nieuwe aankopen of kosten. Veel creditcards rekenen daarnaast belastingen of andere kosten over de rente."
+    },
+    "compuesto": {
+      "titulo": "Samengestelde rente, met jouw getallen",
+      "aporte": "Ik zet per maand opzij",
+      "tasa": "Jaarlijks rendement",
+      "anios": "Gedurende",
+      "aniosCorto": "jaar",
+      "tuyo": "Wat jij hebt ingelegd",
+      "interes": "Wat de rente heeft opgeleverd",
+      "total": "Aan het eind",
+      "nota": "Dit is een voorbeeldberekening met een vast rendement: in het echte leven schommelen rendementen, kunnen ze negatief zijn en moet je er inflatie en kosten nog van aftrekken."
+    },
+    "cierre": {
+      "titulo": "Houd je geld bij in je eigen huis",
+      "texto": "De kamer Financiën van MindHaOS houdt je geldstroom bij met uitgaven, inkomsten en saldo, je spaar- en schulddoelen met rekenhulpen, en je vermogen, zodat je het ziet groeien."
+    },
+    "memes": {
+      "garantizado": {
+        "arriba": "„50 % winst in 45 dagen, gegarandeerd”"
+      },
+      "hormiga": {
+        "arriba": "Ik: ik kan niet sparen",
+        "abajo": "Ook ik: een koffietje, een snackje en drie abonnementen die ik niet gebruik"
+      },
+      "quincena": {
+        "arriba": "Ik op betaaldag",
+        "abajo": "Ik drie dagen later"
+      },
+      "minimo": {
+        "arriba": "De creditcard volledig afbetalen",
+        "abajo": "Het minimum betalen en me in 2035 zorgen maken"
+      }
+    },
+    "paquete": {
+      "guia": "Interactieve gids (met de rekenhulpen voor sluipuitgaven, de 50/30/20-regel, het noodfonds, creditcardschuld en samengestelde rente)",
+      "app": "Open de kamer Financiën in MindHaOS",
+      "hashtags": "#persoonlijkefinancien #sparen #geld #budget #financielegeletterdheid #MindHaOS"
+    }
+  },
+  "idiomas": {
+    "narra": "De tovenaar vertelt",
+    "cargando3d": "De tovenaar wordt geladen…",
+    "meta": {
+      "titulo": "Waarom een taal leren? Complete gids: je brein, niveaus, uren, geheugen, gespreide herhaling en een plan van 20 minuten | MindHaOS",
+      "desc": "Waarom het de moeite waard is om een taal te leren, ook nu machines al vertalen, wat het is om een taal te kennen en hoelang het duurt, hoe je brein leert en vergeet (vergeetcurve en gespreide herhaling), welke woorden het meest opleveren, hoe je vanaf de eerste dag spreekt en een plan van twintig minuten per dag."
+    },
+    "lista": {
+      "resumen1": "Luister naar dingen die je bijna begrijpt",
+      "resumen2": "Herhaal gespreid en overhoor jezelf",
+      "resumen3": "Eerst de meest gebruikte woorden, in zinnen",
+      "resumen4": "Spreek vanaf de eerste dag, elke dag een beetje"
+    },
+    "dato": {
+      "cerebro": "later kregen tweetaligen de eerste symptomen van dementie (Toronto, 2007)",
+      "distancia": "meer lesuren voor Japans dan voor Spaans, als je Engels spreekt",
+      "comenio": "Comenius publiceert de Orbis Pictus: elk Latijns woord naast een tekening",
+      "berlitz": "Berlitz opent zijn school: in de les wordt niet vertaald",
+      "zamenhof": "Zamenhof publiceert het Esperanto, een grammatica zonder uitzonderingen",
+      "canales": "talen op de MindHaOS-kanalen: kijk een gids die je kent in de taal die je leert",
+      "swain": "Merrill Swain: begrijpen is niet genoeg, je moet ook produceren",
+      "errores": "Elke fout die iemand verbetert, is een les op maat",
+      "diario": "Doe elke dag je mond open, al is het maar om tegen jezelf te praten",
+      "riega": "elke dag een beetje, beter dan een marathon op zondag"
+    },
+    "pasos": {
+      "chistes": "Grappen en dubbelzinnigheden",
+      "chistesDet": "Wat een woord-voor-woordvertaling kwijtraakt.",
+      "gente": "Mensen, zonder scherm",
+      "genteDet": "Een echt gesprek, oog in oog.",
+      "pensar": "Een andere blik",
+      "pensarDet": "Elke taal ordent de wereld op haar eigen manier.",
+      "frase": "Een hele zin",
+      "fraseDet": "„Kun je me het zout even aangeven?”, niet los „zout”.",
+      "contexto": "Met de situatie erbij",
+      "contextoDet": "Waar en tegen wie je hem zou zeggen.",
+      "usala": "Gebruik hem snel",
+      "usalaDet": "Vandaag of morgen, hardop.",
+      "escucha": "Luister",
+      "escuchaDet": "Een kort fragment dat je bijna begrijpt.",
+      "repite": "Zeg het tegelijk na",
+      "repiteDet": "Als een echo: ritme en intonatie.",
+      "grabate": "Neem jezelf op",
+      "grabateDet": "Vergelijk met het origineel en herhaal.",
+      "para": "Een waarom",
+      "paraDet": "Reizen, werken, met je familie praten…",
+      "nivel": "Een niveau",
+      "nivelDet": "Dat van het ERK: A2, B1, B2…",
+      "fecha": "Een datum",
+      "fechaDet": "Uren die je nog nodig hebt ÷ dagen = je routine."
+    },
+    "grafica": {
+      "habilidades": "De vier vaardigheden van een taal",
+      "entender": "Begrijpen",
+      "producir": "Produceren",
+      "escuchar": "Luisteren",
+      "leer": "Lezen",
+      "hablar": "Spreken",
+      "escribir": "Schrijven",
+      "fsi": "Lesuren om in de taal te kunnen werken, voor iemand die Engels spreekt (FSI)",
+      "g1": "Dichtbij",
+      "g1Det": "Spaans, Frans, Italiaans, Portugees, Nederlands",
+      "g2": "Gemiddeld",
+      "g2Det": "Duits, Indonesisch, Swahili",
+      "g3": "Moeilijk",
+      "g3Det": "Russisch, Hindi, Turks, Pools, Grieks",
+      "g4": "Heel moeilijk",
+      "g4Det": "Japans, Chinees, Koreaans, Arabisch",
+      "historia": "Hoe talen zijn geleerd",
+      "aC": "v.Chr.",
+      "rosettaDet": "De Steen van Rosetta",
+      "orbisDet": "De Orbis Pictus van Comenius",
+      "berlitzDet": "Berlitz: zonder vertalen",
+      "esperantoDet": "Het Esperanto ontstaat",
+      "leitnerDet": "De bakjes van Leitner",
+      "inputComprensible": "Waar je van leert: niet te makkelijk, niet te moeilijk",
+      "facil": "Te makkelijk",
+      "facilDet": "Je begrijpt alles: er is niets nieuws.",
+      "justo": "Net iets erboven",
+      "justoDet": "Je begrijpt bijna alles en iets is nieuw: je leert.",
+      "dificil": "Te moeilijk",
+      "dificilDet": "Je begrijpt niets: het is alleen ruis.",
+      "olvido": "De vergeetcurve: wat Ebbinghaus nog van zijn lijsten wist (besparing bij het opnieuw leren, %)",
+      "olvidoDia": "Een dag later: ≈ 34 %",
+      "unDia": "1 dag",
+      "unMes": "1 maand",
+      "recuperar": "Herlezen of jezelf overhoren (schema naar Roediger en Karpicke, 2006)",
+      "releer": "Herlezen",
+      "prueba": "Jezelf overhoren",
+      "dosDias": "2 dagen",
+      "unaSemana": "1 week",
+      "temas": "Begin met wat je gaat gebruiken",
+      "viajar": "Om te reizen",
+      "trabajar": "Voor je werk",
+      "saludos": "Begroetingen",
+      "comida": "Eten",
+      "transporte": "Vervoer",
+      "direcciones": "De weg vragen",
+      "presentarte": "Jezelf voorstellen",
+      "reuniones": "Vergaderingen",
+      "correos": "E-mails",
+      "edad": "Gemak om grammatica te leren naar leeftijd (schema naar Hartshorne, Tenenbaum en Pinker, 2018)",
+      "nativo": "Klinken als een moedertaalspreker",
+      "adulto": "Goed spreken: op elke leeftijd",
+      "rutina": "Twintig minuten per dag",
+      "escucha5": "5 min · Luister",
+      "escucha5Det": "Iets wat je bijna begrijpt.",
+      "repasa5": "5 min · Herhaal",
+      "repasa5Det": "De kaartjes die vandaag aan de beurt zijn.",
+      "habla5": "5 min · Spreek",
+      "habla5Det": "Hardop of met shadowing.",
+      "lee5": "5 min · Lees of schrijf",
+      "lee5Det": "Een alinea, een bericht."
+    },
+    "nivel": {
+      "titulo": "Op welk niveau zit je?",
+      "a1": "Ik stel me voor en bestel iets in een café",
+      "a2": "Ik praat over mijn dagelijks leven, mijn familie en mijn boodschappen",
+      "b1": "Ik red me op reis en vertel wat me is overkomen",
+      "b2": "Ik volg een normaal gesprek en geef mijn mening",
+      "c1": "Ik begrijp series en lange teksten zonder moeite",
+      "c2": "Ik begrijp praktisch alles, met alle nuances",
+      "vas": "Je zit op",
+      "ninguno": "Je hebt nog niets aangevinkt: je begint bij A1.",
+      "nota": "Het hoogste niveau dat je aanvinkt zonder er een over te slaan, telt. Het is een richtlijn op basis van de descriptoren van het ERK, geen examen."
+    },
+    "olvido": {
+      "titulo": "De vergeetcurve en je herhalingen",
+      "repasos": "Herhalingen",
+      "dias": "dagen",
+      "recuerdas": "Na 30 dagen weet je nog",
+      "cuando": "Je herhaalt op dag",
+      "nota": "Het is een illustratief model: elke herhaling laat de herinnering langzamer vervagen. Hoe het echt gaat, hangt af van het woord en van jou."
+    },
+    "cobertura": {
+      "titulo": "Hoeveel van een tekst herken je?",
+      "sabes": "Meest gebruikte woorden die je kent",
+      "reconoces": "Je herkent van een gewone tekst",
+      "desconocida": "Woorden die je niet kent",
+      "nota": "Bij benadering, voor het Engels (Nation, 2006). Om zonder woordenboek te lezen moet je er bijna alle herkennen: ongeveer 98 op de 100."
+    },
+    "leitner": {
+      "titulo": "De bakjes van Leitner",
+      "frente": "the apple",
+      "reverso": "de appel",
+      "voltea": "tik om om te draaien",
+      "acerte": "Goed",
+      "falle": "Fout",
+      "proximo": "Je ziet hem weer over",
+      "dominada": "bijna onder de knie",
+      "nota": "Goed, dan gaat hij een bakje omhoog; fout, dan twee omlaag. De intervallen zijn die van de app Talen van MindHaOS.",
+      "dia": "dag",
+      "dias": "dagen"
+    },
+    "minutos": {
+      "titulo": "Hoeveel levert je routine op?",
+      "minutos": "Minuten per dag",
+      "dias": "Dagen per week",
+      "idioma": "De taal die je leert",
+      "alAnio": "Uren per jaar",
+      "llegas": "Je haalt de FSI-uren in",
+      "meses": "maanden",
+      "anios": "jaar",
+      "nota": "Als referentie dienen zo'n {h} uur, de intensieve lesuren van het FSI voor iemand die Engels spreekt: een ordegrootte, geen belofte."
+    },
+    "cierre": {
+      "titulo": "Leer je taal in je eigen huis",
+      "texto": "De kamer Talen van MindHaOS heeft gesprekken met een tutor die je verbetert, een leerplan per niveau met je kaartjes en gespreide herhaling die je vertelt wat vandaag aan de beurt is."
+    },
+    "memes": {
+      "olvido": {
+        "arriba": "Ik op zondag, nadat ik 50 woordjes heb geleerd",
+        "abajo": "Ik op maandag"
+      },
+      "lista": {
+        "arriba": "500 losse woordjes stampen",
+        "abajo": "10 zinnen leren die ik elke dag gebruik"
+      },
+      "perfecto": {
+        "arriba": "Wachten tot ik perfect spreek voordat ik begin",
+        "abajo": "Vandaag praten, met fouten en al"
+      }
+    },
+    "paquete": {
+      "guia": "Interactieve gids (met je ERK-niveau, de vergeetcurve, de woorden die het meest opleveren, de bakjes van Leitner en de rekenhulp voor je routine)",
+      "app": "Open de kamer Talen in MindHaOS",
+      "hashtags": "#talenleren #taal #engelsleren #polyglot #leren #MindHaOS"
+    }
+  },
+  "arte": {
+    "meta": {
+      "titulo": "Wat is kunst? Complete gids over beeldende kunst: waarom zelf maken ondanks AI, geschiedenis, elementen, hoe je naar een werk kijkt en een plan van 15 minuten | MindHaOS",
+      "desc": "Wat kunst is en wat beeldende kunst inhoudt, waarom het de moeite waard is om zelf kunst te maken, ook al schildert een kunstmatige intelligentie al, een korte geschiedenis van de grotten tot de schermen, de elementen van een werk (lijn, vorm, toonwaarde, kleur, compositie), hoe je er langzaam naar kijkt en hoe je begint met een plan van vijftien minuten per dag."
+    },
+    "lista": {
+      "dibujo": "Tekenen",
+      "dibujoDet": "Potlood, houtskool, inkt.",
+      "pintura": "Schilderen",
+      "pinturaDet": "Olieverf, aquarel, acryl.",
+      "escultura": "Beeldhouwen",
+      "esculturaDet": "Klei, steen, hout, metaal.",
+      "fotografia": "Fotografie",
+      "fotografiaDet": "Licht, gevangen in een moment.",
+      "digital": "Digitale illustratie",
+      "digitalDet": "Tablets, lagen en schermen.",
+      "resumen1": "Kunst is iets maken zodat een ander het ziet en voelt",
+      "resumen2": "Het is de moeite waard om wat er met je gebeurt als je maakt",
+      "resumen3": "Kijk langzaam: licht, vorm, kleur en compositie",
+      "resumen4": "Maak elke dag een beetje"
+    },
+    "dato": {
+      "cortisol": "mensen hadden minder stresshormoon na 45 minuten kunst maken, of ze nu konden tekenen of niet (Kaimal, 2016)",
+      "perspectiva": "Brunelleschi laat in Florence met een spiegel zien hoe diepte eruitziet",
+      "durero": "Dürer geeft zijn handboek uit met het raster om te tekenen wat je ziet",
+      "fotografia": "In Parijs wordt de daguerreotypie gepresenteerd, de eerste praktische fotografie",
+      "duchamp": "Duchamp stuurt ‘Fontein’ naar een tentoonstelling: wat maakt iets tot kunst?",
+      "sketchpad": "Sketchpad: het eerste programma om op een scherm te tekenen",
+      "museo": "voor elk werk, gemiddeld, in het Metropolitan Museum (Smith en Smith, 2001)",
+      "unaObra": "kijkend naar één werk: beschrijf, analyseer, interpreteer en beoordeel",
+      "louvre": "het jaar waarin het Louvre openging, dat sindsdien laat kopiëren",
+      "cuaderno": "tekeningen om van te leren voordat je oordeelt hoe ze lukken",
+      "meta": "honderd tekeningen in honderd dagen: een doel dat je kunt tellen"
+    },
+    "pasos": {
+      "hacer": "Iemand maakt het",
+      "hacerDet": "Met een bedoeling: kiest wat hij laat zien en hoe.",
+      "mirar": "Een ander kijkt ernaar",
+      "mirarDet": "Een schilderij, een foto, een beeld, een scherm.",
+      "sentir": "En voelt of denkt iets",
+      "sentirDet": "Wat Tolstoj anderen aansteken met een gevoel noemde.",
+      "creer": "We tekenen wat we denken",
+      "creerDet": "Een ‘amandelvormig’ oog, ook al is het van opzij anders.",
+      "ver": "In plaats van wat we zien",
+      "verDet": "Echte hoeken, maten en tussenruimtes.",
+      "entrenar": "En dat kun je trainen",
+      "entrenarDet": "Met kijkoefeningen, net als een spier.",
+      "lapiz": "Een potlood",
+      "lapizDet": "Een zacht potlood (2B) is genoeg om te beginnen.",
+      "papel": "Papier",
+      "papelDet": "Een goedkoop schetsboek: zonder angst om het vol te maken.",
+      "tableta": "Of een tablet",
+      "tabletaDet": "Met lagen en ongedaan maken, als je je daar prettig bij voelt.",
+      "brazo": "Arm gestrekt",
+      "brazoDet": "Altijd op dezelfde afstand en met één oog dicht.",
+      "unidad": "Een eenheid",
+      "unidadDet": "Meet iets met het potlood: het hoofd, de breedte van een raam.",
+      "compara": "Vergelijk",
+      "comparaDet": "Hoe vaak past het in de rest?",
+      "describe": "Beschrijf",
+      "describeDet": "Wat zie je? Mensen, voorwerpen, kleuren, nog zonder oordeel.",
+      "analiza": "Analyseer",
+      "analizaDet": "Hoe is het gemaakt? Lijnen, licht, compositie.",
+      "interpreta": "Interpreteer",
+      "interpretaDet": "Wat wil het zeggen? Wat voel je als je ernaar kijkt?",
+      "juzga": "Beoordeel",
+      "juzgaDet": "Pas aan het eind: vind je het mooi, en waarom?",
+      "amigo": "Aan een vriend",
+      "amigoDet": "Vraag wat hij het eerst ziet.",
+      "clase": "In een les",
+      "claseDet": "Een docent verbetert je precies waar het misgaat.",
+      "internet": "Op internet",
+      "internetDet": "Er zijn community's die tekeningen van beginners bespreken."
+    },
+    "grafica": {
+      "efectoDibujo": "Woorden die je later nog weet (naar Wammes, Meade en Fernandes, 2016)",
+      "escribir": "Opschrijven",
+      "escribirDet": "Het woord een paar keer overschrijven.",
+      "dibujar": "Tekenen",
+      "dibujarDet": "Een tekening maken van wat het betekent.",
+      "historia": "Een korte geschiedenis van de beeldende kunst",
+      "hace": "{n} jaar geleden",
+      "celebesDet": "Mensen en een wild zwijn op Sulawesi",
+      "lascauxDet": "De paarden en stieren van Lascaux",
+      "perspectivaDet": "Brunelleschi en het perspectief",
+      "fotografiaDet": "De fotografie komt",
+      "duchampDet": "Duchamp en zijn ‘Fontein’",
+      "sketchpadDet": "Sketchpad, de eerste tekening op een scherm",
+      "formas": "De vier vormen waaruit bijna alles is opgebouwd",
+      "cubo": "Kubus",
+      "esfera": "Bol",
+      "cilindro": "Cilinder",
+      "cono": "Kegel",
+      "tercios": "De regel van derden: het belangrijkste op een van de kruispunten",
+      "circulo": "De kleurencirkel en de grijswaarde van elke kleur",
+      "tono": "Kleur",
+      "valor": "Toonwaarde",
+      "rutina": "Vijftien minuten per dag, een week lang",
+      "lunes": "Maandag · Contouren",
+      "lunesDet": "Je hand, een blad, zonder naar het papier te kijken.",
+      "martes": "Dinsdag · Vormen",
+      "martesDet": "Kubussen, bollen en cilinders in alles wat je ziet.",
+      "miercoles": "Woensdag · Gebaren",
+      "miercolesDet": "Poses van 30 seconden tot 2 minuten.",
+      "jueves": "Donderdag · Licht en schaduw",
+      "juevesDet": "Een bol, een kopje, met hun vijf toonwaarden.",
+      "viernes": "Vrijdag · Een meester",
+      "viernesDet": "Kijk tien minuten naar een werk en kopieer een fragment.",
+      "finde": "Weekend · Vrij",
+      "findeDet": "Wat je maar wilt, voor je plezier."
+    },
+    "mesas": {
+      "titulo": "Welke van de twee tafels is langer?",
+      "pregunta": "De linker lijkt veel langer, toch?",
+      "comprobar": "Controleren",
+      "otraVez": "Nog een keer",
+      "identicas": "Ze zijn identiek: dezelfde vorm, gedraaid",
+      "nota": "Dit is de tafelillusie van Roger Shepard (1990). Je hersenen ‘corrigeren’ het perspectief met wat ze over tafels weten; meet daarom bij het tekenen in plaats van op die correctie te vertrouwen."
+    },
+    "alReves": {
+      "titulo": "Ondersteboven tekenen",
+      "voltear": "Rechtop zetten",
+      "deCabeza": "Ondersteboven zetten",
+      "lineas": "Ondersteboven zie je geen gezicht: je ziet lijnen en hoeken",
+      "cara": "Rechtop ziet je brein ‘een gezicht’ en tekent het symbolen",
+      "nota": "Probeer het zo na te tekenen, ondersteboven, zonder het om te draaien tot je klaar bent. Het is de oefening uit het boek van Betty Edwards (1979)."
+    },
+    "ojos": {
+      "titulo": "Waar zitten de ogen?",
+      "linea": "Verschuif de ooglijn",
+      "coronilla": "Kruin",
+      "barbilla": "Kin",
+      "desdeArriba": "De ogen zitten op",
+      "justo": "Precies halverwege het hoofd!",
+      "nota": "Bij een volwassen hoofd van voren gezien zitten de ogen ongeveer halverwege tussen de kruin en de kin. Het haar bedriegt: het voorhoofd is hoger dan het lijkt."
+    },
+    "valores": {
+      "titulo": "De vijf toonwaarden van licht",
+      "valor": "Toonwaarde",
+      "luz": "Licht",
+      "medio": "Halftoon",
+      "sombra": "Eigen schaduw",
+      "reflejada": "Weerkaatst licht",
+      "proyectada": "Slagschaduw",
+      "entrecierra": "Knijp je ogen half dicht",
+      "nota": "Als je je ogen half dichtknijpt, verdwijnen de details en blijven de grote vlekken licht en schaduw over: zo zie je de toonwaarden van alles wat je tekent."
+    },
+    "cronometro": {
+      "titulo": "Gebarenschetsen",
+      "pose": "Elke pose duurt",
+      "poseN": "Pose",
+      "empezar": "Start",
+      "pausa": "Pauze",
+      "nota": "Zoek foto's van mensen in beweging en teken alleen het gebaar: de lijn van de ruggengraat, de schouders en de heupen. Als de tijd om is, ga je door naar de volgende pose, ook al ben je niet klaar."
+    },
+    "dibujos": {
+      "titulo": "Wat levert je oefening op?",
+      "minutos": "Minuten per dag",
+      "tipo": "Soort tekening",
+      "rapidos": "Gebaren (2 min)",
+      "bocetos": "Schetsen (10 min)",
+      "estudios": "Studies (30 min)",
+      "horas": "Uren per jaar",
+      "alAnio": "Werken in een jaar",
+      "nota": "Elke dag van het jaar meegeteld. Ze hoeven niet goed te worden: van elke tekening leer je iets."
+    },
+    "cierre": {
+      "titulo": "Maak het in je eigen huis",
+      "texto": "De Kunststudio van MindHaOS heeft een galerie voor je werken, een doek met lagen dat zichzelf opslaat en tekenhulpmiddelen zoals het raster en de spiegel."
+    },
+    "memes": {
+      "simbolos": {
+        "arriba": "Ik op mijn 6e die een huis tekent",
+        "abajo": "Ik op mijn 30e die een huis tekent"
+      },
+      "ojos": {
+        "arriba": "Waar ik de ogen neerzet",
+        "abajo": "Waar ze echt horen: halverwege"
+      },
+      "cien": {
+        "arriba": "Wachten tot je eerste tekening perfect is",
+        "abajo": "Honderd slechte tekeningen maken"
+      }
+    },
+    "paquete": {
+      "guia": "Interactieve gids (met de vijf toonwaarden van licht, de tafelillusie, ondersteboven tekenen, waar de ogen zitten, een stopwatch voor gebarenschetsen en de rekenmachine voor je oefening)",
+      "app": "Open de Kunststudio in MindHaOS",
+      "hashtags": "#kunst #tekenen #schilderen #kunstgeschiedenis #kunstmatigeintelligentie #MindHaOS"
+    }
   }
 }

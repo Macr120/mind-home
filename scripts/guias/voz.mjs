@@ -22,7 +22,15 @@ const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const FFMPEG = process.env.FFMPEG || 'ffmpeg'
 const FFPROBE = process.env.FFPROBE || 'ffprobe'
 const PYTHON = process.env.PYTHON || 'python'
-const TTS = path.join(path.dirname(fileURLToPath(import.meta.url)), 'tts_palabras.py')
+/**
+ * Con AZURE_SPEECH_KEY/AZURE_SPEECH_REGION en .env.local se sintetiza con Azure Speech (las
+ * mismas voces neuronales, servicio oficial); si no, con edge-tts, que desde oct 2026 da 403.
+ */
+for (const linea of existsSync(path.join(RAIZ, '.env.local')) ? readFileSync(path.join(RAIZ, '.env.local'), 'utf8').split('\n') : []) {
+  const m = /^(AZURE_SPEECH_KEY|AZURE_SPEECH_REGION)=(.*)$/.exec(linea.trim())
+  if (m && !process.env[m[1]]) process.env[m[1]] = m[2].trim()
+}
+const TTS = path.join(path.dirname(fileURLToPath(import.meta.url)), process.env.AZURE_SPEECH_KEY ? 'tts_azure.py' : 'tts_palabras.py')
 /** Ritmo de la narración: didáctico, un poco más vivo que el +0 % por defecto. */
 const RATE = '+6%'
 
@@ -35,8 +43,20 @@ if (!tema) {
   process.exit(1)
 }
 
+/**
+ * La voz propia de una guía (`marketing/guias/<tema>/voz.json`, opcional): el
+ * narrador de Idiomas es un mago viejo, así que va más grave, más lenta y con un
+ * temblor leve. `voces` cambia la voz de algún idioma; `filtro` va antes del loudnorm.
+ */
+const rutaVozTema = path.join(RAIZ, 'marketing', 'guias', tema, 'voz.json')
+const VOZ_TEMA = existsSync(rutaVozTema) ? JSON.parse(readFileSync(rutaVozTema, 'utf8')) : {}
+const RITMO = VOZ_TEMA.rate ?? RATE
+const TONO = VOZ_TEMA.pitch ?? '+0Hz'
+const FILTRO = VOZ_TEMA.filtro ? `${VOZ_TEMA.filtro},` : ''
+
 const dormir = (ms) => new Promise((r) => setTimeout(r, ms))
-const huella = (s) => createHash('sha1').update(RATE + s).digest('hex').slice(0, 12)
+// La huella lleva el ritmo, el tono y el filtro: cambiar la voz de la guía rehace sus pistas.
+const huella = (s) => createHash('sha1').update(RITMO + (VOZ_TEMA.rate || VOZ_TEMA.pitch || VOZ_TEMA.filtro ? TONO + FILTRO : '') + s).digest('hex').slice(0, 12)
 
 async function duracion(ruta) {
   const { stdout } = await ejecutar(FFPROBE, ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', ruta])
@@ -50,15 +70,20 @@ async function sintetizar(voz, texto, ruta) {
   // El servicio de edge-tts devuelve 503 a ráfagas: reintentar con espera.
   for (let intento = 1; ; intento++) {
     try {
-      const { stdout } = await ejecutar(PYTHON, [TTS, voz, RATE, crudo, texto])
+      const { stdout } = await ejecutar(PYTHON, [TTS, voz, RITMO, crudo, texto, TONO])
       palabras = JSON.parse(stdout.trim())
+      // A veces el servicio devuelve un audio vacío (sin palabras): también se reintenta.
+      if (!palabras.length) throw new Error('audio vacío')
+      // O un audio cortado que ffmpeg no puede leer: se sintetiza otra vez.
+      await ejecutar(FFMPEG, ['-y', '-i', crudo, '-af', `${FILTRO}loudnorm=I=-16:TP=-1.5:LRA=11`, '-ac', '1', '-c:a', 'libmp3lame', '-b:a', '64k', ruta])
+      // Y uno truncado que sí trae palabras: la última empieza después de que acaba el audio.
+      if (palabras[palabras.length - 1] > (await duracion(ruta)) - 0.1) throw new Error('audio truncado')
       break
     } catch (e) {
       if (intento >= 10) throw e
       await dormir(3000 * intento)
     }
   }
-  await ejecutar(FFMPEG, ['-y', '-i', crudo, '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11', '-ac', '1', '-c:a', 'libmp3lame', '-b:a', '64k', ruta])
   unlinkSync(crudo)
   return { dur: await duracion(ruta), palabras }
 }
@@ -83,7 +108,8 @@ async function armarPartes(guion, dir, tiempos, previas) {
   const partes = {}
   for (const [parte, claves] of grupos) {
     const archivo = `partes/${parte}.mp3`
-    const firma = huella(claves.map((c) => tiempos._huellas[c]).join('|') + ENTRE_LINEAS)
+    // Con la duración: una línea resintetizada con el mismo texto (p. ej., la que salió vacía) también rehace la pista.
+    const firma = huella(claves.map((c) => `${tiempos._huellas[c]}:${tiempos[c]}`).join('|') + ENTRE_LINEAS)
     const inicios = {}
     let t = 0
     for (const c of claves) {
@@ -131,7 +157,7 @@ for (const id of ids.length ? ids : ['es']) {
       tiempos[clave] = previo[clave]
       tiempos._palabras[clave] = previo._palabras[clave]
     } else {
-      const r = await sintetizar(VOCES[id].voz, texto, ruta)
+      const r = await sintetizar(VOZ_TEMA.voces?.[id] ?? VOCES[id].voz, texto, ruta)
       tiempos[clave] = r.dur
       tiempos._palabras[clave] = r.palabras
       hechas++

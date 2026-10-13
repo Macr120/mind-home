@@ -1,0 +1,568 @@
+{
+  "idioma": "nl",
+  "tema": "descanso",
+  "plantillaId": "descanso",
+  "pregunta": "Wat is eigenlijk goed slapen?",
+  "subtitulo": "Wat er in je lichaam gebeurt terwijl je slaapt, wat de wetenschap over slaap heeft ontdekt, hoeveel slaap je nodig hebt, hoe je biologische klok werkt en hoe je je voorbereidt op een goede nacht.",
+  "aviso": "Deze gids is informatief en vervangt niet het advies van een arts. Snurk je hard, stop je met ademen tijdens je slaap, val je overdag ongewild in slaap of houdt de slapeloosheid al weken aan, raadpleeg dan een zorgprofessional.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando', 'bosteza', 'estira') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su recámara y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «horario de sueño», «puntuación» y «registro de tus noches»; app2d.mjs mueve la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "Wat er gebeurt terwijl je slaapt",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Wat is eigenlijk goed slapen? We brengen bijna een derde van ons leven slapend door. En toch is slaap het eerste waarop we bezuinigen als de tijd krap wordt. Wat gebeurt er echt terwijl je slaapt? In de komende minuten begrijp je wat je hersenen 's nachts doen, bereken je hoe laat je naar bed moet en ga je weg met een plan om vanaf vandaag beter te slapen.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Trouwens, dit is mijn huis in MindHaOS, en hier, in de kamer Rust, houd ik mijn slaapschema en het logboek van mijn nachten bij. Laten we beginnen.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel één. Wat er gebeurt terwijl je slaapt."
+        },
+        {
+          "id": "ciclos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "hipnograma"
+          },
+          "texto": "Slapen is niet hetzelfde als uitschakelen. 's Nachts doorloop je cycli van ongeveer negentig minuten, vier tot zes per nacht, en in elke cyclus ga je door verschillende fasen: lichte slaap, diepe slaap en REM-slaap, de fase van de levendigste dromen.",
+          "lamina": "dormida"
+        },
+        {
+          "id": "profundo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "reparacion",
+              "limpieza"
+            ]
+          },
+          "texto": "Diepe slaap komt vooral aan het begin van de nacht voor. Dan maakt je lichaam groeihormoon aan en herstelt het zich, en volgens onderzoek bij muizen ruimen je hersenen dan het grondigst het afval op dat zich overdag heeft opgestapeld.",
+          "lamina": [
+            "profundo",
+            "cerebro"
+          ]
+        },
+        {
+          "id": "rem",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "memoria",
+              "emociones"
+            ]
+          },
+          "texto": "De REM-slaap zit vooral tegen de ochtend. Dan zijn je hersenen bijna net zo actief als wanneer je wakker bent: ze ordenen wat je hebt geleerd en verwerken de emoties van de dag. Sta je dus veel eerder op dan je nodig hebt, dan mis je precies dat deel.",
+          "lamina": "suena"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Wat de wetenschap over slaap heeft ontdekt",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel twee. Wat de wetenschap over slaap heeft ontdekt."
+        },
+        {
+          "id": "segmentado",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaSueno"
+          },
+          "texto": "Vóór het elektrische licht sliepen veel mensen in Europa in twee delen: een eerste slaap, een tijdje wakker midden in de nacht en een tweede slaap. Historicus Roger Ekirch vond het terug in honderden dagboeken, brieven en boeken uit vroegere eeuwen.",
+          "lamina": "vela"
+        },
+        {
+          "id": "edison",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1879",
+            "clave": "edison"
+          },
+          "texto": "In 1879 testte Thomas Edison met succes zijn gloeilamp. De nacht vulde zich met licht, en met de jaren gingen we steeds later slapen.",
+          "lamina": [
+            "edison",
+            "bombilla"
+          ]
+        },
+        {
+          "id": "cueva",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1938",
+            "clave": "cueva"
+          },
+          "texto": "In 1938 trok fysioloog Nathaniel Kleitman zich tweeëndertig dagen terug in Mammoth Cave, in Kentucky, om dagen van achtentwintig uur te leven. Zijn lichaam liet zich niet foppen: het bleef een ritme van ongeveer vierentwintig uur aanhouden.",
+          "lamina": "cueva"
+        },
+        {
+          "id": "rem",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1953",
+            "clave": "rem"
+          },
+          "texto": "In 1953 ontdekten Kleitman en zijn student Eugene Aserinsky de REM-slaap: ze zagen dat de ogen op bepaalde momenten van de nacht snel onder de oogleden bewegen, en dat wie dan wakker wordt bijna altijd aan het dromen was.",
+          "lamina": "ojos"
+        },
+        {
+          "id": "nobel",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2017",
+            "clave": "nobel"
+          },
+          "texto": "En in 2017 ging de Nobelprijs voor Geneeskunde naar Jeffrey Hall, Michael Rosbash en Michael Young, omdat ze bij fruitvliegjes ontdekten hoe de genen van de biologische klok werken. Daar komen we nog op.",
+          "lamina": "nobel"
+        }
+      ]
+    },
+    {
+      "id": "cuanto",
+      "titulo": "Hoeveel slaap je nodig hebt",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel drie. Hoeveel slaap je nodig hebt."
+        },
+        {
+          "id": "edades",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edades"
+          },
+          "texto": "Volwassenen hebben elke nacht zeven uur of meer nodig, volgens de American Academy of Sleep Medicine. Tieners acht tot tien, en schoolkinderen negen tot twaalf. En toch slaapt een op de drie volwassenen minder dan zeven uur.",
+          "lamina": "familia"
+        },
+        {
+          "id": "deuda",
+          "escena": "bosteza",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "6 h × 14",
+            "clave": "deuda"
+          },
+          "texto": "Slaaptekort stapelt zich op. In een experiment uit 2003 was bij mensen die twee weken lang zes uur sliepen de aandacht uiteindelijk even slecht als bij iemand die tot twee nachten niet had geslapen. Het ergste: zelf voelden ze zich maar een beetje moe.",
+          "meme": "cinco",
+          "lamina": "cansancio"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "calculadoraSueno"
+          },
+          "texto": "Omdat slaap in cycli verloopt, voelt wakker worden aan het eind van een cyclus beter dan midden in je diepe slaap. Probeer het hier: kies hoe laat je opstaat en de calculator vertelt je hoe laat je naar bed moet, met ongeveer vijftien minuten om in slaap te vallen.",
+          "lamina": "despertador"
+        },
+        {
+          "id": "senal",
+          "escena": "estira",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinAlarma",
+              "sinCafe",
+              "despierto"
+            ]
+          },
+          "texto": "En de beste maatstaf ben jij. Word je op vakantie zonder wekker op hetzelfde tijdstip wakker als doordeweeks, heb je geen koffie nodig om op gang te komen en blijf je de hele middag wakker, dan slaap je waarschijnlijk genoeg.",
+          "lamina": "manana"
+        }
+      ]
+    },
+    {
+      "id": "reloj",
+      "titulo": "Je biologische klok",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vier. Je biologische klok."
+        },
+        {
+          "id": "circadiano",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "circadiano"
+          },
+          "texto": "Je hebt een hoofdklok in je hersenen, de nucleus suprachiasmaticus, die vooral door licht wordt gelijkgezet. Als het donker wordt, maak je melatonine aan, het hormoon dat je lichaam laat weten dat het nacht is.",
+          "lamina": "atardecer"
+        },
+        {
+          "id": "luz",
+          "escena": "estira",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "☀ 10 min",
+            "clave": "luz"
+          },
+          "texto": "Daarom is ochtendlicht zo krachtig: een paar minuten in de zon kort na het wakker worden zet je klok gelijk en helpt je om 's avonds op een goed moment slaap te krijgen.",
+          "lamina": "sol"
+        },
+        {
+          "id": "pantallas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2015",
+            "clave": "pantallas"
+          },
+          "texto": "Licht in de avond doet het omgekeerde. In een onderzoek uit 2015 vertraagde lezen op een tablet voor het slapengaan de melatonine: mensen deden er langer over om in slaap te vallen en waren de volgende ochtend minder alert dan met een papieren boek.",
+          "meme": "capitulo",
+          "lamina": "pantalla"
+        },
+        {
+          "id": "cronotipo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "alondra",
+              "buho"
+            ]
+          },
+          "texto": "En niet ieders klok loopt gelijk: er zijn leeuweriken, die vanzelf vroeg opstaan, en uilen, die 's avonds beter presteren. Je chronotype hangt voor een groot deel af van je genen en je leeftijd; het is geen luiheid.",
+          "lamina": [
+            "alondra",
+            "buho"
+          ]
+        },
+        {
+          "id": "regular",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "60 000",
+            "clave": "regular"
+          },
+          "texto": "Wat je wel in de hand hebt, is regelmaat. Een onderzoek onder zo'n zestigduizend mensen in het Verenigd Koninkrijk vond dat slapen op vaste tijden samenhangt met een lagere sterfte, zelfs sterker dan het aantal uren. In het weekend laat opblijven en maandag vroeg op is een jetlag zonder van huis te gaan.",
+          "lamina": "calendario"
+        }
+      ]
+    },
+    {
+      "id": "noche",
+      "titulo": "Hoe je je voorbereidt op een goede nacht",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vijf. Hoe je je voorbereidt op een goede nacht."
+        },
+        {
+          "id": "cafeina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cafeinaRestante"
+          },
+          "texto": "Het duurt ongeveer vijf uur voordat de helft van de cafeïne is afgebroken. In een onderzoek kostte een stevige dosis zes uur voor het slapengaan meer dan een uur slaap. Kijk hier hoeveel er bij bedtijd nog in je lichaam zit.",
+          "meme": "cafe",
+          "lamina": "cafe"
+        },
+        {
+          "id": "alcohol",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "REM ↓",
+            "clave": "alcohol"
+          },
+          "texto": "Alcohol bedriegt: eerst word je er slaperig van, maar het versnippert de tweede helft van de nacht en vermindert de REM-slaap. Je slaapt wel, maar je rust slechter uit.",
+          "lamina": "copa"
+        },
+        {
+          "id": "cuarto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fresco",
+              "oscuro",
+              "silencio"
+            ]
+          },
+          "texto": "Ook je slaapkamer telt mee: koel, rond de achttien graden, donker en stil. En je bed is om te slapen: als je erin werkt of series kijkt, verbinden je hersenen het niet meer met slaap.",
+          "lamina": "recamara"
+        },
+        {
+          "id": "rutina",
+          "escena": "estira",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apaga",
+              "luces",
+              "ritual"
+            ]
+          },
+          "texto": "Bereid het laatste uur van de dag voor: leg de schermen weg, dim de lichten en doe iets wat je ontspant, steeds hetzelfde, zoals lezen, een warm bad nemen of rekoefeningen doen. Dat is voor je lichaam het signaal dat de nacht eraan komt.",
+          "lamina": [
+            "leer",
+            "estirar"
+          ]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Ik doe het in mijn kamer Rust in MindHaOS: mijn schema waarschuwt me een uur van tevoren om de schermen weg te leggen, en via de lamp op mijn nachtkastje open ik een begeleide ademhaling om te ontspannen.",
+          "lamina": "lampara",
+          "enCasa": true
+        },
+        {
+          "id": "ejercicio",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+ 🏃",
+            "clave": "ejercicio"
+          },
+          "texto": "En beweeg overdag: regelmatig sporten helpt je sneller in slaap te vallen en dieper te slapen. Zorg alleen dat je zwaarste training minstens een paar uur voor het slapengaan achter de rug is.",
+          "lamina": "correr"
+        }
+      ]
+    },
+    {
+      "id": "insomnio",
+      "titulo": "Als je niet kunt slapen",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zes. Als je niet kunt slapen."
+        },
+        {
+          "id": "veinte",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "20 min",
+            "clave": "veinte"
+          },
+          "texto": "Lig je al een flinke tijd wakker, zo'n twintig minuten, sta dan op, ga naar een andere plek met gedempt licht en ga pas weer naar bed als je slaap hebt. Woelen in bed leert je hersenen dat je bed een plek is om te piekeren.",
+          "lamina": "insomnio"
+        },
+        {
+          "id": "siesta",
+          "escena": "bosteza",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+34 %",
+            "clave": "siesta"
+          },
+          "texto": "Dutjes helpen als ze kort zijn en vroeg op de dag: zo'n twintig minuten, uiterlijk halverwege de middag. In een onderzoek van NASA met piloten verbeterde een dutje van ongeveer zesentwintig minuten hun prestaties met vierendertig procent.",
+          "meme": "siesta",
+          "lamina": "siesta"
+        },
+        {
+          "id": "terapia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "TCC-I",
+            "clave": "terapia"
+          },
+          "texto": "Houdt de slapeloosheid weken aan, dan zijn pillen niet de eerste behandeling: dat is cognitieve gedragstherapie voor insomnie, die het American College of Physicians en de American Academy of Sleep Medicine als eerste keus aanraden.",
+          "lamina": "terapia"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "foto",
+            "foto": "registro"
+          },
+          "texto": "En wil je weten hoe je ervoor staat, schrijf dan een paar weken je nachten op: hoe laat je naar bed ging, hoe laat je wakker werd en hoe je je voelde. De patronen verschijnen vanzelf.",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "Onthoud dat deze gids informatief is. Snurk je hard en zeggen anderen dat je stopt met ademen, val je overdag ongewild in slaap of gaat de slapeloosheid niet over, ga dan naar een arts: slaapapneu en de andere slaapstoornissen zijn te behandelen.",
+          "lamina": "medico"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Kortom: slaap zeven uur of meer, op vaste tijden; zoek 's ochtends licht en 's avonds donker op; let op met cafeïne en alcohol, en bereid het laatste uur van de dag voor.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Wil je het in de praktijk brengen zoals ik, dan heeft de kamer Rust van MindHaOS je slaapschema met meldingen en wekker, de score van elke nacht en het logboek van je nachten, zodat je je patronen ziet. De link staat in de beschrijving, en daar vind je ook deze gids in een interactieve versie, zodat je alles rustig kunt nalezen. In de volgende gids gaan we verder met een nieuwe vraag. Tot dan.",
+    "boton": "Open de kamer Rust",
+    "lamina": "app-plan",
+    "anclas": {
+      "horario": "slaapschema",
+      "puntuacion": "score",
+      "registro": "logboek van je nachten"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "aasm-adultos",
+      "texto": "Watson N. F. et al. Recommended amount of sleep for a healthy adult: a joint consensus statement of the AASM and SRS. Sleep (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/"
+    },
+    {
+      "id": "aasm-ninos",
+      "texto": "Paruthi S. et al. Recommended amount of sleep for pediatric populations: a consensus statement of the AASM. J Clin Sleep Med (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27250809/"
+    },
+    {
+      "id": "cdc-un-tercio",
+      "texto": "Liu Y. et al. Prevalence of healthy sleep duration among adults — United States, 2014. MMWR (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26890214/"
+    },
+    {
+      "id": "ninds",
+      "texto": "NINDS (NIH). Brain Basics: Understanding Sleep.",
+      "url": "https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-understanding-sleep"
+    },
+    {
+      "id": "xie-2013",
+      "texto": "Xie L. et al. Sleep drives metabolite clearance from the adult brain. Science (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24136970/"
+    },
+    {
+      "id": "ekirch-2001",
+      "texto": "Ekirch A. R. Sleep We Have Lost: Pre-industrial Slumber in the British Isles. The American Historical Review (2001).",
+      "url": "https://doi.org/10.1086/ahr/106.2.343"
+    },
+    {
+      "id": "aserinsky-1953",
+      "texto": "Aserinsky E., Kleitman N. Regularly occurring periods of eye motility, and concomitant phenomena, during sleep. Science (1953).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13089671/"
+    },
+    {
+      "id": "nobel-2017",
+      "texto": "The Nobel Prize in Physiology or Medicine 2017: Jeffrey C. Hall, Michael Rosbash en Michael W. Young.",
+      "url": "https://www.nobelprize.org/prizes/medicine/2017/summary/"
+    },
+    {
+      "id": "van-dongen-2003",
+      "texto": "Van Dongen H. P. et al. The cumulative cost of additional wakefulness. Sleep (2003).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12683469/"
+    },
+    {
+      "id": "chang-2015",
+      "texto": "Chang A.-M. et al. Evening use of light-emitting eReaders negatively affects sleep, circadian timing, and next-morning alertness. PNAS (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25535358/"
+    },
+    {
+      "id": "windred-2024",
+      "texto": "Windred D. P. et al. Sleep regularity is a stronger predictor of mortality risk than sleep duration. Sleep (2024).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37738616/"
+    },
+    {
+      "id": "drake-2013",
+      "texto": "Drake C. et al. Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed. J Clin Sleep Med (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24235903/"
+    },
+    {
+      "id": "ebrahim-2013",
+      "texto": "Ebrahim I. O. et al. Alcohol and sleep I: effects on normal sleep. Alcohol Clin Exp Res (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23347102/"
+    },
+    {
+      "id": "nasa-1995",
+      "texto": "Rosekind M. R. et al. Crew factors in flight operations IX: Effects of planned cockpit rest on crew performance and alertness in long-haul operations. NASA (1994).",
+      "url": "https://ntrs.nasa.gov/citations/19950006379"
+    },
+    {
+      "id": "acp-2016",
+      "texto": "Qaseem A. et al. Management of chronic insomnia disorder in adults: a clinical practice guideline from the American College of Physicians. Ann Intern Med (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27136449/"
+    },
+    {
+      "id": "aasm-2021",
+      "texto": "Edinger J. D. et al. Behavioral and psychological treatments for chronic insomnia disorder in adults: an AASM clinical practice guideline. J Clin Sleep Med (2021).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33164742/"
+    }
+  ]
+}

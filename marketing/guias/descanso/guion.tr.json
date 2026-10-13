@@ -1,0 +1,568 @@
+{
+  "idioma": "tr",
+  "tema": "descanso",
+  "plantillaId": "descanso",
+  "pregunta": "İyi uyumak nedir?",
+  "subtitulo": "Uyurken vücudunda neler olduğu, bilimin uyku hakkında neler keşfettiği, ne kadar uykuya ihtiyacın olduğu, iç saatinin nasıl çalıştığı ve iyi bir geceye nasıl hazırlanacağın.",
+  "aviso": "Bu rehber bilgilendirme amaçlıdır ve bir doktorun tavsiyesinin yerini tutmaz. Yüksek sesle horluyorsan, uykuda nefesin duruyorsa, gündüz istemeden uyuyakalıyorsan ya da uykusuzluk haftalardır sürüyorsa, bir sağlık uzmanına danış.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando', 'bosteza', 'estira') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su recámara y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «horario de sueño», «puntuación» y «registro de tus noches»; app2d.mjs mueve la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "Uyurken neler olur",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "İyi uyumak nedir? Hayatımızın neredeyse üçte birini uyuyarak geçiriyoruz. Yine de vakit daraldığında ilk kıstığımız şey uyku oluyor. Uyurken gerçekte neler oluyor? Önümüzdeki birkaç dakikada beyninin gece ne yaptığını anlayacak, kaçta yatman gerektiğini hesaplayacak ve bugünden itibaren daha iyi uyumak için bir planla ayrılacaksın.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Bu arada, burası MindHaOS'taki evim, bu da Dinlenme odam: uyku programımı ve gecelerimin kaydını burada tutuyorum. Hadi başlayalım.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Birinci bölüm. Uyurken neler olur."
+        },
+        {
+          "id": "ciclos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "hipnograma"
+          },
+          "texto": "Uyumak, fişi çekmek demek değil. Gece boyunca her biri yaklaşık doksan dakika süren dört ila altı döngüden geçersin; her döngüde de birkaç evreyi dolaşırsın: hafif uyku, derin uyku ve rüyaların en canlı olduğu evre olan REM uykusu.",
+          "lamina": "dormida"
+        },
+        {
+          "id": "profundo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "reparacion",
+              "limpieza"
+            ]
+          },
+          "texto": "Derin uyku en çok gecenin başında görülür. Vücudun büyüme hormonu salgılayıp kendini onardığı zaman budur; farelerde yapılan çalışmalara göre beynin gün boyu biriktirdiği atıkları en yoğun şekilde temizlediği zaman da budur.",
+          "lamina": [
+            "profundo",
+            "cerebro"
+          ]
+        },
+        {
+          "id": "rem",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "memoria",
+              "emociones"
+            ]
+          },
+          "texto": "REM uykusu sabaha doğru yoğunlaşır. O sırada beyin neredeyse uyanıkken olduğu kadar aktiftir: öğrendiklerini düzenler ve günün duygularını işler. Bu yüzden ihtiyacından çok daha erken kalkarsan, tam da bu kısmı kaybedersin.",
+          "lamina": "suena"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Bilimin uyku hakkında keşfettikleri",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "İkinci bölüm. Bilimin uyku hakkında keşfettikleri."
+        },
+        {
+          "id": "segmentado",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaSueno"
+          },
+          "texto": "Elektrik ışığından önce Avrupa'da pek çok insan iki parça halinde uyurdu: ilk uyku, gece yarısı bir süre uyanık kalma ve ikinci uyku. Bunu tarihçi Roger Ekirch, geçmiş yüzyıllardan kalma yüzlerce günlükte, mektupta ve kitapta belgeledi.",
+          "lamina": "vela"
+        },
+        {
+          "id": "edison",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1879",
+            "clave": "edison"
+          },
+          "texto": "1879'da Thomas Edison akkor ampulünü başarıyla denedi. Gece ışıkla doldu ve yıllar geçtikçe yatağa giderek daha geç girmeye başladık.",
+          "lamina": [
+            "edison",
+            "bombilla"
+          ]
+        },
+        {
+          "id": "cueva",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1938",
+            "clave": "cueva"
+          },
+          "texto": "1938'de fizyolog Nathaniel Kleitman, yirmi sekiz saatlik günler yaşamak için Kentucky'deki Mamut Mağarası'nda otuz iki gün kaldı. Vücudu kanmadı: yaklaşık yirmi dört saatlik bir ritim tutmaya devam etti.",
+          "lamina": "cueva"
+        },
+        {
+          "id": "rem",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1953",
+            "clave": "rem"
+          },
+          "texto": "1953'te Kleitman ve öğrencisi Eugene Aserinsky REM uykusunu keşfetti: gecenin belirli anlarında gözlerin göz kapaklarının altında hızla hareket ettiğini ve o anda uyanan kişinin neredeyse her zaman rüya gördüğünü fark ettiler.",
+          "lamina": "ojos"
+        },
+        {
+          "id": "nobel",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2017",
+            "clave": "nobel"
+          },
+          "texto": "Ve 2017'de Nobel Tıp Ödülü, iç saatin genlerinin nasıl çalıştığını meyve sineklerinde keşfeden Jeffrey Hall, Michael Rosbash ve Michael Young'a verildi. Oraya da geleceğiz.",
+          "lamina": "nobel"
+        }
+      ]
+    },
+    {
+      "id": "cuanto",
+      "titulo": "Ne kadar uyuman gerekir",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Üçüncü bölüm. Ne kadar uyuman gerekir."
+        },
+        {
+          "id": "edades",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edades"
+          },
+          "texto": "Amerikan Uyku Tıbbı Akademisi'ne göre yetişkinlerin her gece yedi saat ya da daha fazla uyuması gerekir. Ergenlerin sekiz ila on, ilkokul çağındaki çocukların ise dokuz ila on iki saat uyuması gerekir. Yine de her üç yetişkinden biri yedi saatten az uyuyor.",
+          "lamina": "familia"
+        },
+        {
+          "id": "deuda",
+          "escena": "bosteza",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "6 h × 14",
+            "clave": "deuda"
+          },
+          "texto": "Uyku eksikliği birikir. 2003'teki bir deneyde iki hafta boyunca altı saat uyuyanların dikkati, sonunda iki gece boyunca hiç uyumamış biri kadar bozuldu. İşin kötüsü, kendilerini sadece biraz yorgun hissediyorlardı.",
+          "meme": "cinco",
+          "lamina": "cansancio"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "calculadoraSueno"
+          },
+          "texto": "Uyku döngüler halinde ilerlediği için bir döngünün sonunda uyanmak, derin uykunun ortasında uyanmaktan daha iyi hissettirir. Burada dene: kaçta kalktığını seç, hesaplayıcı da uykuya dalmak için yaklaşık on beş dakikayı hesaba katarak kaçta yatman gerektiğini söylesin.",
+          "lamina": "despertador"
+        },
+        {
+          "id": "senal",
+          "escena": "estira",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinAlarma",
+              "sinCafe",
+              "despierto"
+            ]
+          },
+          "texto": "En iyi ölçü de sensin. Tatilde hafta içiyle aynı saatte alarmsız uyanıyorsan, güne başlamak için kahveye ihtiyaç duymuyorsan ve bütün öğleden sonra uyanık kalabiliyorsan, muhtemelen yeterince uyuyorsun.",
+          "lamina": "manana"
+        }
+      ]
+    },
+    {
+      "id": "reloj",
+      "titulo": "İç saatin",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Dördüncü bölüm. İç saatin."
+        },
+        {
+          "id": "circadiano",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "circadiano"
+          },
+          "texto": "Beyninde bir ana saat var, suprakiazmatik çekirdek; bu saat en çok ışıkla ayarlanır. Hava karardığında melatonin salgılarsın: vücuduna artık gece olduğunu haber veren hormon.",
+          "lamina": "atardecer"
+        },
+        {
+          "id": "luz",
+          "escena": "estira",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "☀ 10 min",
+            "clave": "luz"
+          },
+          "texto": "Sabah ışığının bu kadar güçlü olması bu yüzden: uyandıktan kısa süre sonra birkaç dakika güneşe çıkmak saatini ayarlar ve akşam uykunun doğru saatte gelmesine yardım eder.",
+          "lamina": "sol"
+        },
+        {
+          "id": "pantallas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2015",
+            "clave": "pantallas"
+          },
+          "texto": "Akşam ışığı ise tam tersini yapar. 2015'teki bir çalışmada yatmadan önce tablette okumak melatonini geciktirdi; insanlar kâğıt kitap okuduklarına göre daha geç uykuya daldı ve sabah daha az dinç uyandı.",
+          "meme": "capitulo",
+          "lamina": "pantalla"
+        },
+        {
+          "id": "cronotipo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "alondra",
+              "buho"
+            ]
+          },
+          "texto": "Herkesin saati de aynı ayarda değil: kendiliğinden erken kalkan tarla kuşları ve gece daha verimli olan baykuşlar var. Kronotipin büyük ölçüde genlerine ve yaşına bağlı; bu tembellik değil.",
+          "lamina": [
+            "alondra",
+            "buho"
+          ]
+        },
+        {
+          "id": "regular",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "60 000",
+            "clave": "regular"
+          },
+          "texto": "Senin kontrol edebileceğin şey ise düzenlilik. Birleşik Krallık'ta yaklaşık altmış bin kişiyle yapılan bir çalışma, sabit saatlerde uyumanın daha düşük ölüm riskiyle ilişkili olduğunu buldu; hem de uyku süresinden bile daha güçlü biçimde. Hafta sonu geç yatıp pazartesi erken kalkmak, evden çıkmadan yaşanan bir jet lag'dir.",
+          "lamina": "calendario"
+        }
+      ]
+    },
+    {
+      "id": "noche",
+      "titulo": "İyi bir geceye nasıl hazırlanırsın",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Beşinci bölüm. İyi bir geceye nasıl hazırlanırsın."
+        },
+        {
+          "id": "cafeina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cafeinaRestante"
+          },
+          "texto": "Kafeinin vücutta yarıya inmesi yaklaşık beş saat sürer. Bir çalışmada, yatmadan altı saat önce alınan yüksek bir doz bir saatten fazla uykuyu götürdü. Yatma saatinde vücudunda ne kadar kaldığına buradan bak.",
+          "meme": "cafe",
+          "lamina": "cafe"
+        },
+        {
+          "id": "alcohol",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "REM ↓",
+            "clave": "alcohol"
+          },
+          "texto": "Alkol yanıltır: başta uykunu getirir ama gecenin ikinci yarısını böler ve REM uykusunu azaltır. Uyursun ama daha kötü dinlenirsin.",
+          "lamina": "copa"
+        },
+        {
+          "id": "cuarto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fresco",
+              "oscuro",
+              "silencio"
+            ]
+          },
+          "texto": "Yatak odan da önemli: serin, yaklaşık on sekiz derece, karanlık ve sessiz olmalı. Yatak da uyumak için olsun: yatakta çalışır ya da dizi izlersen, beynin onu uykuyla ilişkilendirmeyi bırakır.",
+          "lamina": "recamara"
+        },
+        {
+          "id": "rutina",
+          "escena": "estira",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apaga",
+              "luces",
+              "ritual"
+            ]
+          },
+          "texto": "Günün son saatini hazırla: ekranları bırak, ışıkları kıs ve seni rahatlatan bir şey yap, hep aynısını: kitap okumak, ılık bir banyo ya da esneme hareketleri gibi. Bu, vücuduna gecenin geldiğini söyleyen işarettir.",
+          "lamina": [
+            "leer",
+            "estirar"
+          ]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Ben bunu MindHaOS'taki Dinlenme odamda yapıyorum: programım ekranları bırakmam için bir saat önce bana haber veriyor, komodinin üstündeki lambadan da rahatlamak için rehberli bir nefes egzersizi açıyorum.",
+          "lamina": "lampara",
+          "enCasa": true
+        },
+        {
+          "id": "ejercicio",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+ 🏃",
+            "clave": "ejercicio"
+          },
+          "texto": "Gündüz de hareket et: düzenli egzersiz daha çabuk uykuya dalmana ve daha derin uyumana yardım eder. Sadece en yoğun antrenmanı yatmadan en az iki saat önce bitir.",
+          "lamina": "correr"
+        }
+      ]
+    },
+    {
+      "id": "insomnio",
+      "titulo": "Uyuyamadığında",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Altıncı bölüm. Uyuyamadığında."
+        },
+        {
+          "id": "veinte",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "20 min",
+            "clave": "veinte"
+          },
+          "texto": "Uzun bir süredir, yaklaşık yirmi dakikadır uyuyamıyorsan kalk, loş ışıklı başka bir yere geç ve uykun gelince yatağa dön. Yatakta dönüp durmak, beynine yatağın endişelenme yeri olduğunu öğretir.",
+          "lamina": "insomnio"
+        },
+        {
+          "id": "siesta",
+          "escena": "bosteza",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+34 %",
+            "clave": "siesta"
+          },
+          "texto": "Kısa ve erken olursa şekerlemeler işe yarar: yaklaşık yirmi dakika, ikindiden önce. NASA'nın pilotlarla yaptığı bir çalışmada, yaklaşık yirmi altı dakikalık bir şekerleme performanslarını yüzde otuz dört artırdı.",
+          "meme": "siesta",
+          "lamina": "siesta"
+        },
+        {
+          "id": "terapia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "TCC-I",
+            "clave": "terapia"
+          },
+          "texto": "Uykusuzluk haftalarca sürüyorsa ilk tedavi ilaç değil, uykusuzluk için bilişsel davranışçı terapidir. Amerikan Hekimler Koleji ve Amerikan Uyku Tıbbı Akademisi de ilk seçenek olarak bunu öneriyor.",
+          "lamina": "terapia"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "foto",
+            "foto": "registro"
+          },
+          "texto": "Nasıl gittiğini görmek istersen, birkaç hafta gecelerini not et: kaçta yattığını, kaçta uyandığını ve nasıl hissettiğini. Örüntüler kendiliğinden belirir.",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "Unutma, bu rehber bilgilendirme amaçlıdır. Yüksek sesle horluyorsan ve sana uykuda nefesinin durduğunu söylüyorlarsa, gündüz istemeden uyuyakalıyorsan ya da uykusuzluk geçmiyorsa bir doktora danış: uyku apnesi ve diğer uyku bozukluklarının tedavisi var.",
+          "lamina": "medico"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Özetle: sabit saatlerde, yedi saat ya da daha fazla uyu; sabahları ışık, akşamları karanlık ara; kafeine ve alkole dikkat et ve günün son saatini hazırla.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Bunu benim gibi hayata geçirmek istersen, MindHaOS'taki Dinlenme odasında hatırlatıcılı ve alarmlı uyku programın, her gecenin puanı ve örüntülerini görmen için gecelerinin kaydı var. Bağlantı açıklamada; bu rehberin etkileşimli sürümü de orada, rahatça tekrar etmen için. Bir sonraki rehberde başka bir soruyla devam ediyoruz. Görüşmek üzere.",
+    "boton": "Dinlenme odasını aç",
+    "lamina": "app-plan",
+    "anclas": {
+      "horario": "uyku programın",
+      "puntuacion": "puanı",
+      "registro": "gecelerinin kaydı"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "aasm-adultos",
+      "texto": "Watson N. F. et al. Recommended amount of sleep for a healthy adult: a joint consensus statement of the AASM and SRS. Sleep (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/"
+    },
+    {
+      "id": "aasm-ninos",
+      "texto": "Paruthi S. et al. Recommended amount of sleep for pediatric populations: a consensus statement of the AASM. J Clin Sleep Med (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27250809/"
+    },
+    {
+      "id": "cdc-un-tercio",
+      "texto": "Liu Y. et al. Prevalence of healthy sleep duration among adults — United States, 2014. MMWR (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26890214/"
+    },
+    {
+      "id": "ninds",
+      "texto": "NINDS (NIH). Brain Basics: Understanding Sleep.",
+      "url": "https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-understanding-sleep"
+    },
+    {
+      "id": "xie-2013",
+      "texto": "Xie L. et al. Sleep drives metabolite clearance from the adult brain. Science (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24136970/"
+    },
+    {
+      "id": "ekirch-2001",
+      "texto": "Ekirch A. R. Sleep We Have Lost: Pre-industrial Slumber in the British Isles. The American Historical Review (2001).",
+      "url": "https://doi.org/10.1086/ahr/106.2.343"
+    },
+    {
+      "id": "aserinsky-1953",
+      "texto": "Aserinsky E., Kleitman N. Regularly occurring periods of eye motility, and concomitant phenomena, during sleep. Science (1953).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13089671/"
+    },
+    {
+      "id": "nobel-2017",
+      "texto": "The Nobel Prize in Physiology or Medicine 2017: Jeffrey C. Hall, Michael Rosbash ve Michael W. Young.",
+      "url": "https://www.nobelprize.org/prizes/medicine/2017/summary/"
+    },
+    {
+      "id": "van-dongen-2003",
+      "texto": "Van Dongen H. P. et al. The cumulative cost of additional wakefulness. Sleep (2003).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12683469/"
+    },
+    {
+      "id": "chang-2015",
+      "texto": "Chang A.-M. et al. Evening use of light-emitting eReaders negatively affects sleep, circadian timing, and next-morning alertness. PNAS (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25535358/"
+    },
+    {
+      "id": "windred-2024",
+      "texto": "Windred D. P. et al. Sleep regularity is a stronger predictor of mortality risk than sleep duration. Sleep (2024).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37738616/"
+    },
+    {
+      "id": "drake-2013",
+      "texto": "Drake C. et al. Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed. J Clin Sleep Med (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24235903/"
+    },
+    {
+      "id": "ebrahim-2013",
+      "texto": "Ebrahim I. O. et al. Alcohol and sleep I: effects on normal sleep. Alcohol Clin Exp Res (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23347102/"
+    },
+    {
+      "id": "nasa-1995",
+      "texto": "Rosekind M. R. et al. Crew factors in flight operations IX: Effects of planned cockpit rest on crew performance and alertness in long-haul operations. NASA (1994).",
+      "url": "https://ntrs.nasa.gov/citations/19950006379"
+    },
+    {
+      "id": "acp-2016",
+      "texto": "Qaseem A. et al. Management of chronic insomnia disorder in adults: a clinical practice guideline from the American College of Physicians. Ann Intern Med (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27136449/"
+    },
+    {
+      "id": "aasm-2021",
+      "texto": "Edinger J. D. et al. Behavioral and psychological treatments for chronic insomnia disorder in adults: an AASM clinical practice guideline. J Clin Sleep Med (2021).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33164742/"
+    }
+  ]
+}

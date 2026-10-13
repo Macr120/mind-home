@@ -1,0 +1,608 @@
+{
+  "idioma": "hi",
+  "tema": "finanzas",
+  "plantillaId": "despacho",
+  "numero": 4,
+  "nombre": "वित्त",
+  "pregunta": "पैसा क्या है?",
+  "corta": "पैसा क्या है?",
+  "subtitulo": "पैसा क्या है और कैसे शुरू हुआ, आपका पैसा कहाँ जाता है, इमरजेंसी फ़ंड कैसे बनाएँ और कर्ज़ से कैसे निकलें, चक्रवृद्धि ब्याज कैसे काम करता है, और आज से शुरू करने की एक योजना।",
+  "aviso": "यह गाइड केवल जानकारी के लिए है और वित्तीय, टैक्स या निवेश सलाह नहीं है: यह किसी उत्पाद या साधन की सिफ़ारिश नहीं करती। कोई लोन या निवेश लेने से पहले शर्तों की तुलना करें और ज़रूरत हो तो किसी पंजीकृत विशेषज्ञ से सलाह लें।",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título) para enganchar en los primeros segundos. No puede ser enCasa.",
+    "corta": "La pregunta en 3-4 palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su despacho y las de en medio sobre las tomas de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «flujo de dinero», «metas de ahorro» y «patrimonio»; app2d.mjs mueve la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "dinero",
+      "titulo": "पैसा किस काम आता है",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "पैसा क्या है? हम सब इसे रोज़ इस्तेमाल करते हैं। फिर भी, दुनिया में हर तीन में से सिर्फ़ एक वयस्क महँगाई या चक्रवृद्धि ब्याज जैसी बुनियादी बातें समझता है। आख़िर पैसा असल में काम कैसे करता है? अगले कुछ मिनटों में आप देखेंगे कि आपका पैसा कहाँ जाता है, हिसाब लगाएँगे कि उसे काम पर लगाने से वह कितना बढ़ता है, और आज से उसे बेहतर ढंग से सँभालने की एक योजना लेकर जाएँगे।",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "वैसे, यह MindHaOS में मेरा घर है, और इसी वित्त रूम में मेरे ख़र्च, मेरी आमदनी और मेरे बचत के लक्ष्य रहते हैं। चलिए शुरू करते हैं।",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग एक। पैसा किस काम आता है।"
+        },
+        {
+          "id": "funciones",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "funciones"
+          },
+          "texto": "पैसा एक समझौता है: एक नोट या स्क्रीन पर लिखा एक नंबर इसलिए क़ीमती है क्योंकि हम सब मानते हैं कि वह क़ीमती है। यह लेन-देन के काम आता है, चीज़ों की क़ीमत नापने के काम आता है, और भविष्य के लिए मूल्य बचाकर रखने के काम आता है।",
+          "lamina": [
+            "billetes",
+            "pago"
+          ]
+        },
+        {
+          "id": "inflacion",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "inflacion"
+          },
+          "texto": "लेकिन इस आख़िरी काम का एक दुश्मन है: महँगाई। अगर क़ीमतें हर साल तीन प्रतिशत बढ़ें, तो लगभग चौबीस साल में वे दोगुनी हो जाती हैं, और गद्दे के नीचे रखा आपका पैसा आधा ही ख़रीद पाता है।",
+          "lamina": [
+            "supermercado",
+            "precios"
+          ]
+        },
+        {
+          "id": "ganar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "3–5 años",
+            "clave": "loteria"
+          },
+          "texto": "और ज़्यादा कमाना काफ़ी नहीं है। फ़्लोरिडा में कुछ शोधकर्ताओं ने लॉटरी जीतने वालों पर नज़र रखी: पाँच साल बाद, बड़े इनाम वाले लगभग उतने ही दिवालिया हुए जितने छोटे इनाम वाले। इनाम ने बस मुसीबत को कुछ समय के लिए टाल दिया।",
+          "lamina": "loteria",
+          "enCasa": true
+        },
+        {
+          "id": "manejar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "flujo"
+          },
+          "texto": "अपने पैसे को अच्छे से सँभालना इस पर निर्भर नहीं करता कि आप कितना कमाते हैं, बल्कि एक घटाव पर: जो आता है, उसमें से जो जाता है वह घटाइए, और जो बचता है, उसी से आप कुछ बना पाते हैं। यह गाइड इसलिए है कि यह घटाव आपके हक़ में आए।",
+          "lamina": [
+            "cuentas",
+            "ahorro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "पैसे का छोटा-सा इतिहास",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग दो। पैसे का छोटा-सा इतिहास।"
+        },
+        {
+          "id": "hammurabi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaDinero"
+          },
+          "texto": "लगभग चार हज़ार साल पहले, बेबीलोन में हम्मुराबी की संहिता ब्याज की सीमा तय कर चुकी थी: चाँदी के कर्ज़ पर साल में ज़्यादा से ज़्यादा बीस प्रतिशत, और जौ के कर्ज़ पर एक-तिहाई। कर्ज़ लगभग उतने ही पुराने हैं जितनी लिखावट।",
+          "lamina": [
+            "hammurabi",
+            "tablilla"
+          ]
+        },
+        {
+          "id": "lidia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 600 a. C.",
+            "clave": "lidia"
+          },
+          "texto": "ईसा पूर्व छह सौ के आसपास, लिडिया राज्य में, जो आज के तुर्की में है, पहले सिक्के सामने आए: इलेक्ट्रम के टुकड़े, यानी सोने और चाँदी का प्राकृतिक मिश्रण, जिन पर लगी मुहर उनके वज़न की गारंटी देती थी।",
+          "lamina": [
+            "lidia",
+            "monedas"
+          ]
+        },
+        {
+          "id": "jiaozi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1024",
+            "clave": "jiaozi"
+          },
+          "texto": "साल 1024 में, सोंग राजवंश के चीन में, सरकार ने जियाओज़ी जारी करना शुरू किया, दुनिया की पहली आधिकारिक काग़ज़ी मुद्रा: वहाँ लोहे के सिक्के चलते थे, और व्यापार के लिए उन्हें ढोना नामुमकिन था।",
+          "lamina": "jiaozi"
+        },
+        {
+          "id": "ponzi",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1920",
+            "clave": "ponzi"
+          },
+          "texto": "1920 में, बोस्टन में, चार्ल्स पोंज़ी पैंतालीस दिनों में पचास प्रतिशत मुनाफ़े का वादा करता था। वह पहले आए लोगों को नए लोगों के पैसे से भुगतान करता था, जब तक कि सब कुछ ढह नहीं गया। इस तरह की धोखाधड़ी के साथ उसका नाम हमेशा के लिए जुड़ गया।",
+          "meme": "garantizado",
+          "lamina": "ponzi"
+        },
+        {
+          "id": "nixon",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1971",
+            "clave": "nixon"
+          },
+          "texto": "और 1971 में, राष्ट्रपति रिचर्ड निक्सन ने डॉलर और सोने के बीच की आख़िरी कड़ी तोड़ दी। तब से, लगभग पूरी दुनिया का पैसा इसलिए क़ीमती है क्योंकि उसे जारी करने वाले पर भरोसा है, न कि तिजोरी में रखी किसी धातु की वजह से।",
+          "lamina": [
+            "nixon",
+            "oro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "presupuesto",
+      "titulo": "आपका पैसा कहाँ जाता है",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग तीन। आपका पैसा कहाँ जाता है।"
+        },
+        {
+          "id": "registra",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "30 días",
+            "clave": "registra"
+          },
+          "texto": "पहला क़दम है यह जानना कि पैसा जाता कहाँ है। एक महीने तक अपना हर ख़र्च लिखिए, नुक्कड़ की चाय-कॉफ़ी तक। लगभग सभी को ऐसे ख़र्च मिलते हैं जिनके बारे में उन्हें पता ही नहीं था।",
+          "lamina": "recibos",
+          "enCasa": true
+        },
+        {
+          "id": "hormiga",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gastoHormiga"
+          },
+          "texto": "ये छोटे-छोटे ख़र्च, जिन्हें चींटी वाले ख़र्च भी कहते हैं, आपकी सोच से कहीं जल्दी जुड़ जाते हैं। यहाँ आज़माइए: रोज़ का कोई एक ख़र्च चुनिए और देखिए कि वह एक साल में और दस साल में कितना ले जाता है।",
+          "meme": "hormiga",
+          "lamina": [
+            "cafe",
+            "antojo"
+          ]
+        },
+        {
+          "id": "reparto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "regla503020"
+          },
+          "texto": "जो कमाते हैं उसे बाँटने का एक आसान तरीक़ा है पचास, तीस, बीस का नियम, जिसे एलिज़ाबेथ वॉरेन ने लोकप्रिय बनाया: आधा ज़रूरतों के लिए, तीस प्रतिशत आपके शौक़ के लिए, और बीस बचत या कर्ज़ चुकाने के लिए। यहाँ अपनी आमदनी लिखिए और देखिए कि वह कैसे बँटती है।",
+          "lamina": [
+            "renta",
+            "gustos",
+            "alcancia"
+          ]
+        },
+        {
+          "id": "primero",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ahorraMas"
+          },
+          "texto": "और सबसे कारगर तरकीब है पहले ख़ुद को भुगतान करना: बचत उसी दिन अलग कर दीजिए जिस दिन तनख़्वाह आए, न कि महीने के आख़िर में जो बचे वह। रिचर्ड थेलर और श्लोमो बेनार्त्ज़ी के «सेव मोर टुमॉरो» कार्यक्रम में, कर्मचारियों की बचत उनकी तनख़्वाह के साढ़े तीन प्रतिशत से बढ़कर लगभग चौदह प्रतिशत हो गई।",
+          "meme": "quincena",
+          "lamina": [
+            "sueldo",
+            "ahorrar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deudas",
+      "titulo": "आपका इमरजेंसी फ़ंड और आपके कर्ज़",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग चार। आपका इमरजेंसी फ़ंड और आपके कर्ज़।"
+        },
+        {
+          "id": "emergencia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "63 %",
+            "clave": "emergencia"
+          },
+          "texto": "निवेश करने से पहले, एक इमरजेंसी फ़ंड बनाइए। अमेरिका में सिर्फ़ तिरसठ प्रतिशत वयस्क चार सौ डॉलर का अचानक आया ख़र्च अपने नक़द या अपनी बचत से उठा सकते थे। इमरजेंसी फ़ंड आपको तब कर्ज़ लेने से बचाता है जब कुछ ख़राब हो जाए या नौकरी छूट जाए।",
+          "lamina": [
+            "averia",
+            "imprevisto"
+          ]
+        },
+        {
+          "id": "meses",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fondoEmergencia"
+          },
+          "texto": "आम तौर पर अपने बुनियादी ख़र्चों के तीन से छह महीने जितना पैसा धीरे-धीरे जोड़ा जाता है, किसी सुरक्षित जगह पर, जहाँ से आप उसे जल्दी निकाल सकें। यहाँ हिसाब लगाइए कि आपका फ़ंड कितना होगा और उसे जोड़ने में कितना समय लगेगा।",
+          "lamina": "frasco"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "मेरा फ़ंड MindHaOS के मेरे वित्त रूम में जुड़ता है: जिस दिन तनख़्वाह आती है, उसी दिन बचत अलग हो जाती है, और डेस्क पर रखे गुल्लक से दिखता है कि हर लक्ष्य में कितना जमा हो चुका है।",
+          "lamina": "alcancia",
+          "enCasa": true
+        },
+        {
+          "id": "tarjeta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "> 20 %",
+            "clave": "tarjeta"
+          },
+          "texto": "क्रेडिट कार्ड के कर्ज़ सबसे महँगे कर्ज़ों में गिने जाते हैं: अमेरिका में 2024 में उनका औसत ब्याज सालाना बीस प्रतिशत से ऊपर चला गया। जो चीज़ आप ब्याज वाली किस्तों पर ख़रीदते हैं, वह आपको कहीं ज़्यादा महँगी पड़ सकती है।",
+          "lamina": [
+            "tarjeta",
+            "compras"
+          ]
+        },
+        {
+          "id": "minimo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "deudaTarjeta"
+          },
+          "texto": "और सिर्फ़ मिनिमम पेमेंट भरना सबसे महँगा जाल है। यहाँ आज़माइए: एक कर्ज़, उसका ब्याज और हर महीने आप जितना भरते हैं वह डालिए, और देखिए कि उससे निकलने में कितने महीने लगते हैं और ब्याज में कितना चला जाता है।",
+          "meme": "minimo",
+          "lamina": "calculadora"
+        },
+        {
+          "id": "metodos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "avalanchaBola"
+          },
+          "texto": "कई कर्ज़ों से निकलने के दो तरीक़े हैं: एवलांच, जो पहले सबसे ऊँचे ब्याज वाला कर्ज़ चुकाता है और ज़्यादा पैसा बचाता है, और स्नोबॉल, जो पहले सबसे छोटा कर्ज़ चुकाता है। 2012 की एक स्टडी में पाया गया कि एक-एक करके पूरे खाते बंद करना हार न मानने में मदद करता है।",
+          "lamina": [
+            "avalancha",
+            "nieve"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "invertir",
+      "titulo": "अपने पैसे को काम पर लगाइए",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग पाँच। अपने पैसे को काम पर लगाइए।"
+        },
+        {
+          "id": "compuesto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "interesCompuesto"
+          },
+          "texto": "चक्रवृद्धि ब्याज का मतलब है अपने ब्याज पर भी ब्याज कमाना: शुरुआत में यह मुश्किल से दिखता है, और फिर कर्व तेज़ी से ऊपर उठता है। यहाँ आज़माइए: चुनिए कि हर महीने कितना अलग रखते हैं, किस दर पर और कितने साल के लिए, और देखिए कि कितना हिस्सा आपने डाला और कितना ब्याज ने।",
+          "lamina": [
+            "planta",
+            "crecer"
+          ]
+        },
+        {
+          "id": "regla72",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "72 ÷ 6 = 12",
+            "clave": "regla72"
+          },
+          "texto": "मन में हिसाब लगाने का एक शॉर्टकट है बहत्तर का नियम: बहत्तर को सालाना दर से भाग दीजिए, और आपको पता चल जाएगा कि कितने साल में आपका पैसा दोगुना होगा। छह प्रतिशत पर, लगभग बारह साल में।",
+          "lamina": "pizarron",
+          "enCasa": true
+        },
+        {
+          "id": "empezar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "empezarAntes"
+          },
+          "texto": "इसीलिए समय, रक़म से ज़्यादा क़ीमती है। अगर दो लोग हर महीने छह प्रतिशत सालाना पर बराबर रक़म अलग रखें, एक पच्चीस की उम्र से और दूसरा पैंतीस से, तो पैंसठ की उम्र में पहले के पास लगभग दोगुना होगा, जबकि उसने सिर्फ़ एक-तिहाई ज़्यादा डाला।",
+          "lamina": [
+            "joven",
+            "reloj"
+          ]
+        },
+        {
+          "id": "riesgo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plazo",
+              "canasta",
+              "entiende"
+            ]
+          },
+          "texto": "निवेश में हमेशा जोखिम होता है: जो ज़्यादा दे सकता है, वह ज़्यादा गिर भी सकता है। तीन सिद्धांत मदद करते हैं: लंबे समय के लिए सिर्फ़ वही पैसा, जिसकी आपको जल्दी ज़रूरत नहीं पड़ेगी; सारे अंडे एक ही टोकरी में मत रखिए; और अपना पैसा ऐसी चीज़ में मत लगाइए जिसे आप समझते नहीं।",
+          "lamina": [
+            "huevos",
+            "grafica"
+          ]
+        },
+        {
+          "id": "comisiones",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "comisiones"
+          },
+          "texto": "और फ़ीस पर नज़र रखिए, क्योंकि उसका असर भी चक्रवृद्धि होता है: अगर आपका पैसा साल में सात प्रतिशत कमाता है और आप एक प्रतिशत फ़ीस देते हैं, तो तीस साल में आपके पास लगभग एक-चौथाई कम रह जाता है।",
+          "lamina": "comision"
+        },
+        {
+          "id": "fraude",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "🚩",
+            "clave": "fraude"
+          },
+          "texto": "और ऊँचे और पक्के मुनाफ़े का वादा करने वाले पर भरोसा मत कीजिए: ऐसा मुनाफ़ा होता ही नहीं। अगर कोई बात सच होने के लिए कुछ ज़्यादा ही अच्छी लगे, तो लगभग हमेशा वह धोखा होती है, पोंज़ी वाले की तरह।",
+          "lamina": "alerta"
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "शुरू करने की आपकी योजना",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग छह। शुरू करने की आपकी योजना।"
+        },
+        {
+          "id": "metas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombre",
+              "monto",
+              "fecha"
+            ]
+          },
+          "texto": "आप जो चाहते हैं, उसे एक नाम और एक तारीख़ दीजिए: «ज़्यादा बचत करना» और «अठारह महीनों में कार का डाउन पेमेंट जोड़ना» एक बात नहीं है। रक़म और तारीख़ से आपको पता चलता है कि हर महीने कितना अलग रखना है।",
+          "lamina": [
+            "meta",
+            "coche"
+          ]
+        },
+        {
+          "id": "automatiza",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "automatiza"
+          },
+          "texto": "जितना हो सके, सब कुछ ऑटोमैटिक कर दीजिए: बचत, जो तनख़्वाह वाले दिन अपने-आप कट जाए, और तय भुगतान, जो ऑटो-डेबिट पर हों। जो फ़ैसले आपको हर महीने नहीं लेने पड़ते, वही सच में पूरे होते हैं।",
+          "lamina": [
+            "celular",
+            "automatico"
+          ]
+        },
+        {
+          "id": "revisa",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 min / mes",
+            "clave": "revisa"
+          },
+          "texto": "और महीने में एक बार देखिए कि कितना आया, कितना गया और आप कितना आगे बढ़े। रास्ता सुधारने के लिए दस मिनट काफ़ी हैं, इससे पहले कि एक बुरा महीना एक बुरा साल बन जाए।",
+          "lamina": "revisar",
+          "enCasa": true
+        },
+        {
+          "id": "aviso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "याद रखिए कि यह गाइड केवल जानकारी के लिए है और वित्तीय या निवेश सलाह नहीं है: यह नहीं बताती कि कहाँ निवेश करें। कोई लोन या निवेश लेने से पहले तुलना कीजिए, शर्तें पढ़िए, और ज़रूरत हो तो किसी पंजीकृत सलाहकार से बात कीजिए।",
+          "lamina": "contrato"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "संक्षेप में: लिखिए कि आपका पैसा कहाँ जाता है, पहले ख़ुद को भुगतान कीजिए, अपना इमरजेंसी फ़ंड बनाइए, महँगे कर्ज़ों से निकलिए, और समय और चक्रवृद्धि ब्याज को अपने लिए काम करने दीजिए।",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "अगर आप इसे मेरी तरह अमल में लाना चाहते हैं, तो MindHaOS का वित्त रूम ख़र्च, आमदनी और बैलेंस के साथ आपके पैसे का प्रवाह सँभालता है; कैलकुलेटर के साथ आपके बचत के लक्ष्य और कर्ज़ के लक्ष्य; और आपकी कुल संपत्ति, ताकि आप उसे बढ़ते देख सकें। लिंक डिस्क्रिप्शन में है, और साथ में यह इंटरैक्टिव गाइड भी। अगली गाइड में फिर मिलते हैं।",
+    "boton": "वित्त रूम खोलें",
+    "lamina": "app-plan",
+    "anclas": {
+      "flujo": "पैसे का प्रवाह",
+      "metas": "बचत के लक्ष्य",
+      "patrimonio": "कुल संपत्ति"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "finlit-2015",
+      "texto": "Klapper L., Lusardi A., van Oudheusden P. Financial Literacy Around the World: Insights from the Standard & Poor's Ratings Services Global Financial Literacy Survey (2015).",
+      "url": "https://gflec.org/initiatives/sp-global-finlit-survey/"
+    },
+    {
+      "id": "hankins-2011",
+      "texto": "Hankins S., Hoekstra M., Skiba P. M. The Ticket to Easy Street? The Financial Consequences of Winning the Lottery. The Review of Economics and Statistics (2011).",
+      "url": "https://doi.org/10.1162/REST_a_00114"
+    },
+    {
+      "id": "homer-sylla",
+      "texto": "Homer S., Sylla R. A History of Interest Rates (4.ª ed.). Wiley (2005).",
+      "url": "https://doi.org/10.1002/9781118267028"
+    },
+    {
+      "id": "lidia",
+      "texto": "Lidia y las primeras monedas de electro (siglo VII a. C.).",
+      "url": "https://en.wikipedia.org/wiki/Lydia"
+    },
+    {
+      "id": "jiaozi",
+      "texto": "Jiaozi: el primer papel moneda oficial, emitido por la oficina de jiaozi de la dinastía Song en Sichuan (1024).",
+      "url": "https://en.wikipedia.org/wiki/Jiaozi_(currency)"
+    },
+    {
+      "id": "nixon-1971",
+      "texto": "Federal Reserve History. Nixon Ends Convertibility of U.S. Dollars to Gold and Announces Wage/Price Controls (1971).",
+      "url": "https://www.federalreservehistory.org/essays/gold-convertibility-ends"
+    },
+    {
+      "id": "warren-2005",
+      "texto": "Warren E., Warren Tyagi A. All Your Worth: The Ultimate Lifetime Money Plan. Free Press (2005).",
+      "url": "https://openlibrary.org/isbn/9780743269872"
+    },
+    {
+      "id": "thaler-2004",
+      "texto": "Thaler R. H., Benartzi S. Save More Tomorrow: Using Behavioral Economics to Increase Employee Saving. Journal of Political Economy (2004).",
+      "url": "https://doi.org/10.1086/380085"
+    },
+    {
+      "id": "shed-2023",
+      "texto": "Board of Governors of the Federal Reserve System. Economic Well-Being of U.S. Households in 2023 (2024).",
+      "url": "https://www.federalreserve.gov/publications/2024-economic-well-being-of-us-households-in-2023-executive-summary.htm"
+    },
+    {
+      "id": "g19",
+      "texto": "Board of Governors of the Federal Reserve System. Consumer Credit — G.19: interest rate on credit card plans.",
+      "url": "https://www.federalreserve.gov/releases/g19/current/"
+    },
+    {
+      "id": "gal-2012",
+      "texto": "Gal D., McShane B. B. Can Small Victories Help Win the War? Evidence from Consumer Debt Management. Journal of Marketing Research (2012).",
+      "url": "https://doi.org/10.1509/jmr.11.0272"
+    },
+    {
+      "id": "cfpb-emergencia",
+      "texto": "Consumer Financial Protection Bureau. An essential guide to building an emergency fund.",
+      "url": "https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/"
+    },
+    {
+      "id": "sec-comisiones",
+      "texto": "U.S. Securities and Exchange Commission. Investor Bulletin: How Fees and Expenses Affect Your Investment Portfolio (2014).",
+      "url": "https://www.sec.gov/investor/alerts/ib_investmentfees.pdf"
+    },
+    {
+      "id": "sec-ponzi",
+      "texto": "Investor.gov (SEC). Ponzi Scheme.",
+      "url": "https://www.investor.gov/protect-your-investments/fraud/types-fraud/ponzi-scheme"
+    }
+  ]
+}

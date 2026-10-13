@@ -1,0 +1,382 @@
+{
+  "fotos": {},
+  "laminas": {
+    "nino": {
+      "archivo": "laminas/nino.mp4",
+      "tipo": "video",
+      "autor": "Mikhail Nilov",
+      "fuente": "https://www.pexels.com/video/girl-drawing-on-paper-8655659/",
+      "licencia": "Licencia Pexels"
+    },
+    "crayones": {
+      "archivo": "laminas/crayones.mp4",
+      "tipo": "video",
+      "autor": "Eren Li",
+      "fuente": "https://www.pexels.com/video/a-person-coloring-with-crayons-7159516/",
+      "licencia": "Licencia Pexels"
+    },
+    "ojo": {
+      "archivo": "laminas/ojo.mp4",
+      "tipo": "video",
+      "autor": "Kindel Media",
+      "fuente": "https://www.pexels.com/video/extreme-close-up-shot-of-a-person-s-eye-7299471/",
+      "licencia": "Licencia Pexels"
+    },
+    "estudiante": {
+      "archivo": "laminas/estudiante.mp4",
+      "tipo": "video",
+      "autor": "Yan Krukau",
+      "fuente": "https://www.pexels.com/video/a-young-girl-drawing-a-line-8616778/",
+      "licencia": "Licencia Pexels"
+    },
+    "notas": {
+      "archivo": "laminas/notas.mp4",
+      "tipo": "video",
+      "autor": "Eva Bronzini",
+      "fuente": "https://www.pexels.com/video/time-lapse-video-of-a-person-drawing-on-a-notebook-8085556/",
+      "licencia": "Licencia Pexels"
+    },
+    "lapices": {
+      "archivo": "laminas/lapices.mp4",
+      "tipo": "video",
+      "autor": "Tuğba Kobal Yılmaz",
+      "fuente": "https://www.pexels.com/video/colored-pencils-on-the-table-15047273/",
+      "licencia": "Licencia Pexels"
+    },
+    "tableta": {
+      "archivo": "laminas/tableta.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/art-creative-hand-ipad-4125735/",
+      "licencia": "Licencia Pexels"
+    },
+    "mano": {
+      "archivo": "laminas/mano.mp4",
+      "tipo": "video",
+      "autor": "Ksenia Chernaya",
+      "fuente": "https://www.pexels.com/video/high-angle-shot-of-a-person-drawing-on-the-paper-7695765/",
+      "licencia": "Licencia Pexels"
+    },
+    "copiar": {
+      "archivo": "laminas/copiar.webp",
+      "tipo": "foto",
+      "autor": "Gu Ko",
+      "fuente": "https://www.pexels.com/photo/art-student-sketching-still-life-in-studio-35376328/",
+      "licencia": "Licencia Pexels"
+    },
+    "medir": {
+      "archivo": "laminas/medir.webp",
+      "tipo": "foto",
+      "autor": "Sedanur Kunuk",
+      "fuente": "https://www.pexels.com/photo/creative-workspace-with-drawing-tools-and-paper-29866905/",
+      "licencia": "Licencia Pexels"
+    },
+    "formas": {
+      "archivo": "laminas/formas.webp",
+      "tipo": "foto",
+      "autor": "KATRIN BOLOVTSOVA",
+      "fuente": "https://www.pexels.com/photo/photograph-of-white-shapes-7307215/",
+      "licencia": "Licencia Pexels"
+    },
+    "taza": {
+      "archivo": "laminas/taza.mp4",
+      "tipo": "video",
+      "autor": "KATRIN BOLOVTSOVA",
+      "fuente": "https://www.pexels.com/video/a-cup-of-coffee-on-a-wooden-table-6343931/",
+      "licencia": "Licencia Pexels"
+    },
+    "retrato": {
+      "archivo": "laminas/retrato.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/an-artist-sketching-a-person-using-charcoal-pencil-3804810/",
+      "licencia": "Licencia Pexels"
+    },
+    "figura": {
+      "archivo": "laminas/figura.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-person-painting-the-model-in-front-of-her-3805871/",
+      "licencia": "Licencia Pexels"
+    },
+    "esfera": {
+      "archivo": "laminas/esfera.webp",
+      "tipo": "foto",
+      "autor": "Ann H",
+      "fuente": "https://www.pexels.com/photo/elegant-crystal-sphere-with-shadow-play-34220910/",
+      "licencia": "Licencia Pexels"
+    },
+    "claroscuro": {
+      "archivo": "laminas/claroscuro.mp4",
+      "tipo": "video",
+      "autor": "khezez | خزاز",
+      "fuente": "https://www.pexels.com/video/dramatic-close-up-with-shadow-lighting-35088454/",
+      "licencia": "Licencia Pexels"
+    },
+    "pinturas": {
+      "archivo": "laminas/pinturas.mp4",
+      "tipo": "video",
+      "autor": "Mikhail Nilov",
+      "fuente": "https://www.pexels.com/video/person-mixing-colors-on-a-color-palette-6932737/",
+      "licencia": "Licencia Pexels"
+    },
+    "gesto": {
+      "archivo": "laminas/gesto.mp4",
+      "tipo": "video",
+      "autor": "Ksenia Chernaya",
+      "fuente": "https://www.pexels.com/video/drawing-an-illustration-of-a-girl-7695763/",
+      "licencia": "Licencia Pexels"
+    },
+    "modelo": {
+      "archivo": "laminas/modelo.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/an-artist-painting-a-woman-on-a-canvass-3796065/",
+      "licencia": "Licencia Pexels"
+    },
+    "louvre": {
+      "archivo": "laminas/louvre.mp4",
+      "tipo": "video",
+      "autor": "BAE JUN",
+      "fuente": "https://www.pexels.com/video/louvre-pyramid-on-a-sunny-day-in-paris-31497988/",
+      "licencia": "Licencia Pexels"
+    },
+    "copista": {
+      "archivo": "laminas/copista.webp",
+      "tipo": "foto",
+      "autor": "Rajan Abdulla",
+      "fuente": "https://www.pexels.com/photo/art-student-painting-in-a-new-york-museum-36512644/",
+      "licencia": "Licencia Pexels"
+    },
+    "cuaderno": {
+      "archivo": "laminas/cuaderno.mp4",
+      "tipo": "video",
+      "autor": "Lena Myatnaya",
+      "fuente": "https://www.pexels.com/video/sketching-historic-building-on-a-sunny-day-39513188/",
+      "licencia": "Licencia Pexels"
+    },
+    "cafe": {
+      "archivo": "laminas/cafe.mp4",
+      "tipo": "video",
+      "autor": "KATRIN BOLOVTSOVA",
+      "fuente": "https://www.pexels.com/video/a-woman-drawing-sketches-on-a-piece-of-paper-5385951/",
+      "licencia": "Licencia Pexels"
+    },
+    "caballete": {
+      "archivo": "laminas/caballete.mp4",
+      "tipo": "video",
+      "autor": "ROMAN ODINTSOV",
+      "fuente": "https://www.pexels.com/video/an-artist-canvas-on-the-wooden-easel-8348366/",
+      "licencia": "Licencia Pexels"
+    },
+    "antesDespues": {
+      "archivo": "laminas/antesDespues.webp",
+      "tipo": "foto",
+      "autor": "Michael Burrows",
+      "fuente": "https://www.pexels.com/photo/sketchbook-with-drafts-on-wooden-surface-7147723/",
+      "licencia": "Licencia Pexels"
+    },
+    "semana": {
+      "archivo": "laminas/semana.webp",
+      "tipo": "foto",
+      "autor": "Florencia Ceruti",
+      "fuente": "https://www.pexels.com/photo/colorful-weekly-planner-with-accessories-30101197/",
+      "licencia": "Licencia Pexels"
+    },
+    "acuarela": {
+      "archivo": "laminas/acuarela.mp4",
+      "tipo": "video",
+      "autor": "Pavel Danilyuk",
+      "fuente": "https://www.pexels.com/video/a-person-doing-water-color-painting-6912053/",
+      "licencia": "Licencia Pexels"
+    },
+    "galeria": {
+      "archivo": "laminas/galeria.mp4",
+      "tipo": "video",
+      "autor": "Ludovic Delot",
+      "fuente": "https://www.pexels.com/video/classic-art-gallery-with-red-walls-37273783/",
+      "licencia": "Licencia Pexels"
+    },
+    "resumen": {
+      "archivo": "laminas/resumen.mp4",
+      "tipo": "video",
+      "autor": "olia danilevich",
+      "fuente": "https://www.pexels.com/video/woman-painting-while-standing-6607394/",
+      "licencia": "Licencia Pexels"
+    },
+    "reloj": {
+      "archivo": "laminas/reloj.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/clock-is-ticking-7034348/",
+      "licencia": "Licencia Pexels"
+    },
+    "calendario": {
+      "archivo": "laminas/calendario.webp",
+      "tipo": "foto",
+      "autor": "Matheus Bertelli",
+      "fuente": "https://www.pexels.com/photo/minimalist-january-desk-calendar-29509480/",
+      "licencia": "Licencia Pexels"
+    },
+    "sulawesi": {
+      "archivo": "laminas/sulawesi.webp",
+      "tipo": "foto",
+      "autor": "Oktaviana et al",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Oldest_painting_in_the_world_in_Leang_Karampuang.jpg",
+      "licencia": "CC BY 4.0",
+      "credito": "Oktaviana et al · CC BY 4.0 · Wikimedia"
+    },
+    "lascaux": {
+      "archivo": "laminas/lascaux.webp",
+      "tipo": "foto",
+      "autor": "EU",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Lascaux_painting.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "brunelleschi": {
+      "archivo": "laminas/brunelleschi.webp",
+      "tipo": "foto",
+      "autor": "Nicolas de Larmessin and Esme de Boulonais",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Filippo_Brunelleschi.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "alberti": {
+      "archivo": "laminas/alberti.webp",
+      "tipo": "foto",
+      "autor": "Leon Battista Alberti",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Leon_Battista_Alberti,_Self-Portrait,_c._1435,_NGA_43845.jpg",
+      "licencia": "CC0",
+      "credito": "Wikimedia Commons"
+    },
+    "durero": {
+      "archivo": "laminas/durero.webp",
+      "tipo": "foto",
+      "autor": "Albrecht Dürer",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Albrecht_D%C3%BCrer_-_1500_self-portrait_(High_resolution_and_detail).jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "rejilla": {
+      "archivo": "laminas/rejilla.webp",
+      "tipo": "foto",
+      "autor": "Albrecht Dürer",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Draughtsman_Making_a_Perspective_Drawing_of_a_Reclining_Woman_MET_DP816489.jpg",
+      "licencia": "CC0",
+      "credito": "Wikimedia Commons"
+    },
+    "daguerre": {
+      "archivo": "laminas/daguerre.webp",
+      "tipo": "foto",
+      "autor": "Jean-Baptiste Sabatier-Blot",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Louis_Daguerre_2.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "monet": {
+      "archivo": "laminas/monet.webp",
+      "tipo": "foto",
+      "autor": "Claude Monet",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Claude_Monet,_Impression,_soleil_levant.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "sketchpad": {
+      "archivo": "laminas/sketchpad.webp",
+      "tipo": "foto",
+      "autor": "Scanned by Kerry Rodden from original photograph by Ivan Sutherland",
+      "fuente": "https://commons.wikimedia.org/wiki/File:SketchpadDissertation-Fig1-2.tif",
+      "licencia": "CC BY-SA 3.0",
+      "credito": "Scanned by Kerry Rodden from original photograph by Ivan Sutherland · CC BY-SA 3.0 · Wikimedia"
+    },
+    "newton": {
+      "archivo": "laminas/newton.webp",
+      "tipo": "foto",
+      "autor": "Isaac Newton",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Newton%27s_colour_circle.png",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "ilusion": {
+      "archivo": "laminas/ilusion.webp",
+      "tipo": "foto",
+      "autor": "R.Shepard",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Shepard_tables.jpg",
+      "licencia": "CC BY-SA 4.0",
+      "credito": "R.Shepard · CC BY-SA 4.0 · Wikimedia"
+    },
+    "app-plan": {
+      "archivo": "laminas/app-plan.{idioma}.mp4",
+      "tipo": "video",
+      "autor": "MindHaOS",
+      "fuente": "https://app.mindhaos.com",
+      "credito": ""
+    },
+    "escultura": {
+      "archivo": "laminas/escultura.mp4",
+      "tipo": "video",
+      "autor": "Souhityo Das",
+      "fuente": "https://www.pexels.com/video/sculptor-shaping-clay-bust-in-studio-37270959/",
+      "licencia": "Licencia Pexels"
+    },
+    "fotografo": {
+      "archivo": "laminas/fotografo.mp4",
+      "tipo": "video",
+      "autor": "utopia 36",
+      "fuente": "https://www.pexels.com/video/photographer-taking-pictures-with-a-camera-12331347/",
+      "licencia": "Licencia Pexels"
+    },
+    "museo": {
+      "archivo": "laminas/museo.mp4",
+      "tipo": "video",
+      "autor": "Greta Hoffman",
+      "fuente": "https://www.pexels.com/video/people-looking-at-a-painting-7857475/",
+      "licencia": "Licencia Pexels"
+    },
+    "galeria2": {
+      "archivo": "laminas/galeria2.mp4",
+      "tipo": "video",
+      "autor": "Ludovic Delot",
+      "fuente": "https://www.pexels.com/video/elegant-art-gallery-with-classic-paintings-display-37273778/",
+      "licencia": "Licencia Pexels"
+    },
+    "acuarela2": {
+      "archivo": "laminas/acuarela2.mp4",
+      "tipo": "video",
+      "autor": "Greta Hoffman",
+      "fuente": "https://www.pexels.com/video/a-person-mixing-colors-using-watercolor-7857384/",
+      "licencia": "Licencia Pexels"
+    },
+    "copista2": {
+      "archivo": "laminas/copista2.mp4",
+      "tipo": "video",
+      "autor": "Pavel Danilyuk",
+      "fuente": "https://www.pexels.com/video/young-people-painting-on-a-canvas-8157141/",
+      "licencia": "Licencia Pexels"
+    },
+    "retrato2": {
+      "archivo": "laminas/retrato2.mp4",
+      "tipo": "video",
+      "autor": "Pavel Danilyuk",
+      "fuente": "https://www.pexels.com/video/a-man-sketching-face-on-the-paper-6594004/",
+      "licencia": "Licencia Pexels"
+    },
+    "tolstoi": {
+      "archivo": "laminas/tolstoi.webp",
+      "tipo": "foto",
+      "autor": "Ilya Repin",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Ilya_Efimovich_Repin_(1844-1930)_-_Portrait_of_Leo_Tolstoy_(1887).jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "fuente": {
+      "archivo": "laminas/fuente.webp",
+      "tipo": "foto",
+      "autor": "Marcel Duchamp / Alfred Stieglitz",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Marcel_Duchamp,_1917,_Fountain,_photograph_by_Alfred_Stieglitz.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    }
+  }
+}

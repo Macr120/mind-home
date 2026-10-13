@@ -1,0 +1,396 @@
+{
+  "idioma": "ar",
+  "tema": "cocina",
+  "plantillaId": "cocina",
+  "pregunta": "ما هو الأكل الجيد؟",
+  "subtitulo": "ماذا يفعل الطعام في جسمك، ومن أين جاء ما نعرفه عنه، وكم من الطاقة تحتاج، وكيف تميّز الجودة، وكيف ترتّب طبقك وأسبوعك.",
+  "aviso": "هذا الدليل للمعلومات فقط ولا يغني عن استشارة الطبيب أو أخصائي التغذية. إذا كنت تعاني من مرض أو من اضطراب في الأكل، أو كنتِ حاملًا، أو تتناول أدوية، فاستشر مختصًا قبل أن تغيّر نظامك الغذائي.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'remueve', 'pica', 'bebe', 'pensando') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ cocinando y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «recetario», «plan de comidas» y «lista de compras»; app2d.mjs cambia de pantalla de la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "ماذا يفعل الطعام في جسمك",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": { "tipo": "titulo" },
+          "texto": "ما هو الأكل الجيد؟ لكل شخص رأي فيما يجب أن تأكله. لكن قلّما يشرح لك أحد ما يفعله الطعام داخل جسمك. كيف يعمل ذلك حقًا؟ في الدقائق القادمة ستفهم ما يحتاجه جسمك، وستحسب كم من الطاقة تستهلك، وستخرج بخطة لأسبوعك.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "texto": "بالمناسبة، هذا بيتي في MindHaOS، وفي غرفة المطبخ هذه أحفظ وصفاتي وخطة وجباتي. لنبدأ.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "الجزء الأول. ماذا يفعل الطعام في جسمك."
+        },
+        {
+          "id": "dos-trabajos",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["combustible", "construccion"] },
+          "texto": "يقوم الطعام بعملين في الوقت نفسه. فهو وقود: طاقة تُقاس بالسعرات الحرارية، تستهلكها وأنت تتنفس وتفكر وتتحرك. وهو أيضًا مادة بناء: به تُصلح العضلات والعظام والجلد والدم، وكلها تتجدد باستمرار.",
+          "lamina": "mercado"
+        },
+        {
+          "id": "macros",
+          "escena": "remueve",
+          "visual": { "tipo": "lista", "claves": ["proteinas", "carbohidratos", "grasas"] },
+          "texto": "تصل هذه المواد في ثلاث مجموعات كبيرة، هي المغذيات الكبرى. البروتينات تبني وتُصلح. والكربوهيدرات هي أسرع مصدر للطاقة، خصوصًا للدماغ وللتمارين الشديدة. أما الدهون فتخزّن الطاقة، وتبني جدران خلاياك، وتساعدك على امتصاص بعض الفيتامينات.",
+          "lamina": ["macros-proteina", "macros-carbos", "macros-grasas"]
+        },
+        {
+          "id": "micros",
+          "escena": "pica",
+          "visual": { "tipo": "lista", "claves": ["vitaminas", "minerales", "fibra"] },
+          "texto": "وهناك أيضًا المغذيات الدقيقة: فيتامينات ومعادن تحتاجها بكميات صغيرة جدًا، لكن من دونها لا يعمل شيء مما سبق. ثم الألياف، التي لا تكاد تمنحك طاقة، لكنها تغذّي البكتيريا في أمعائك وتُبقيك شبعان مدة أطول.",
+          "lamina": "verduras"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "تاريخ قصير لما نأكله",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "الجزء الثاني. تاريخ قصير لما نأكله."
+        },
+        {
+          "id": "fuego",
+          "escena": "remueve",
+          "visual": { "tipo": "grafica", "grafica": "historiaCocina" },
+          "texto": "قبل مئات آلاف السنين، تعلّم أسلافنا الطهو على النار. الطهو يليّن الطعام ويتيح لنا أن نستخرج منه طاقة أكبر، ويعتقد بعض علماء الأنثروبولوجيا أن ذلك ساعد أدمغتنا على النمو.",
+          "lamina": "fuego"
+        },
+        {
+          "id": "agricultura",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "10 000", "clave": "agricultura" },
+          "texto": "قبل نحو عشرة آلاف عام جاءت الزراعة: القمح والأرز والذرة. صار هناك طعام لعدد أكبر بكثير من الناس، وإن أصبح الغذاء أقل تنوعًا من غذاء الصيادين وجامعي الثمار.",
+          "lamina": "agricultura"
+        },
+        {
+          "id": "lind",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "1747", "clave": "lind" },
+          "texto": "في عام 1747، أجرى الطبيب الاسكتلندي جيمس ليند واحدة من أولى التجارب السريرية في التاريخ: أعطى بحّارة مصابين بالإسقربوط علاجات مختلفة، فكان الذين أكلوا البرتقال والليمون هم من تعافوا.",
+          "meme": "limones",
+          "lamina": ["lind", "limones"]
+        },
+        {
+          "id": "atwater",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "4 · 4 · 9", "clave": "atwater" },
+          "texto": "في أواخر القرن التاسع عشر، قاس الكيميائي ويلبر أتواتر كمية الطاقة التي يمنحها كل طعام: نحو أربع سعرات حرارية لكل غرام من البروتين أو الكربوهيدرات، ونحو تسع لكل غرام من الدهون. وهي الأرقام نفسها التي لا تزال الملصقات تستخدمها اليوم.",
+          "lamina": "atwater"
+        },
+        {
+          "id": "funk",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "1912", "clave": "funk" },
+          "texto": "في عام 1912، اقترح عالم الكيمياء الحيوية كازيمير فونك كلمة «فيتامين»، وفي العقود التالية اكتُشفت الفيتامينات كلها تقريبًا. ولأول مرة فُهم أن المرء قد يأكل كثيرًا ومع ذلك يعاني من سوء التغذية.",
+          "lamina": "funk"
+        },
+        {
+          "id": "plato",
+          "escena": "senala",
+          "visual": { "tipo": "dato", "cifra": "2011", "clave": "plato" },
+          "texto": "في عام 1992، رسمت الولايات المتحدة هرم الغذاء الشهير، وفي قاعدته الخبز والمعكرونة. وفي عام 2011 استبدلت به طبقًا، MyPlate، وهو أسهل بكثير في تخيّله عند كل وجبة. وفي المكسيك رسم المعيار الرسمي طبقه الخاص: Plato del Bien Comer، أي «طبق الأكل الجيد». وإلى هناك سنصل.",
+          "lamina": ["piramide", "myplate", "plato-bien-comer"]
+        }
+      ]
+    },
+    {
+      "id": "energia",
+      "titulo": "كم من الطاقة تحتاج",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "الجزء الثالث. كم من الطاقة تحتاج."
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "balance" },
+          "texto": "على المدى الطويل، يعتمد وزنك على توازن الطاقة: ما تأكله مقابل ما تستهلكه. إذا أكلت أكثر مما تستهلك، يخزّن جسمك الفائض؛ وإذا أكلت أقل، يسحب من مخزونه. يبدو الأمر بسيطًا، لكن الاستهلاك له عدة أجزاء.",
+          "lamina": "balance"
+        },
+        {
+          "id": "gasto",
+          "escena": "Caminata",
+          "visual": { "tipo": "grafica", "grafica": "gasto" },
+          "texto": "الجزء الأكبر، نحو الثلثين، يذهب فقط لإبقائك على قيد الحياة: هذا هو معدل الأيض الأساسي. وجزء آخر يعتمد على مقدار حركتك خلال اليوم، وجزء صغير، نحو عشرة في المئة، يُستهلك في هضم ما تأكله.",
+          "lamina": "gasto"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "calculadoraEnergia" },
+          "texto": "يمكنك تقدير ذلك بمعادلة ميفلين وسانت جيور، وهي من أكثر المعادلات استخدامًا لدى أخصائيي التغذية: بعمرك ووزنك وطولك ونشاطك. جرّب الحاسبة هنا. إنها تقدير وليست قياسًا دقيقًا، لكنها نقطة انطلاق ممتازة.",
+          "lamina": "calculadora"
+        },
+        {
+          "id": "proteina",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "0,8–2 g/kg", "clave": "proteina" },
+          "texto": "أما البروتين، فالمرجع للشخص البالغ هو صفر فاصلة ثمانية غرام على الأقل لكل كيلوغرام من وزنه يوميًا. وإذا كنت تمارس تمارين القوة، يوصي كثير من الخبراء بما بين واحد فاصلة أربعة وغرامين.",
+          "lamina": "proteina"
+        },
+        {
+          "id": "deficit",
+          "escena": "pensando",
+          "visual": { "tipo": "dato", "cifra": "−15 %", "clave": "deficit" },
+          "texto": "وإذا أردت أن تُنقص وزنك، فلا داعي للجوع: يكفي أن تأكل أقل قليلًا مما تستهلك، بنحو خمسة عشر في المئة، وأن تراجع تقدّمك كل أسبوعين. التغييرات الصغيرة هي التي تدوم.",
+          "lamina": "deficit"
+        }
+      ]
+    },
+    {
+      "id": "calidad",
+      "titulo": "جودة ما تأكله",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "الجزء الرابع. جودة ما تأكله."
+        },
+        {
+          "id": "nova",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "nova" },
+          "texto": "إلى جانب الكمية، يهمّ النوع أيضًا. يصنّف الباحثون الطعام بحسب درجة معالجته: أطعمة طازجة، ومكوّنات طبخ مثل الزيت أو الملح، وأطعمة مُصنّعة مثل الجبن أو خبز المخبز، وأطعمة فائقة التصنيع، مثل المشروبات الغازية والبسكويت والوجبات الخفيفة المعبّأة.",
+          "meme": "ultraprocesados",
+          "lamina": "supermercado"
+        },
+        {
+          "id": "experimento",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "+500 kcal", "clave": "experimento" },
+          "texto": "في عام 2019، أعطت تجربة أجرتها المعاهد الوطنية للصحة في الولايات المتحدة عشرين شخصًا أسبوعين من الطعام فائق التصنيع وأسبوعين من الطعام غير المُصنّع، مع السعرات نفسها في متناولهم. ومع الطعام فائق التصنيع أكلوا نحو خمسمئة سعرة إضافية يوميًا، من دون أن ينتبهوا.",
+          "lamina": "ultraprocesados"
+        },
+        {
+          "id": "azucar",
+          "escena": "bebe",
+          "visual": { "tipo": "herramienta", "herramienta": "azucarOculta" },
+          "texto": "توصي منظمة الصحة العالمية بأن يكون السكر المضاف أقل من عشرة في المئة من طاقتك، والأفضل أقل من خمسة: أي نحو ست ملاعق صغيرة في اليوم. انظر هنا كم من السكر فيما تشربه.",
+          "lamina": "refresco"
+        },
+        {
+          "id": "sal",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "< 5 g", "clave": "sal" },
+          "texto": "ومع الملح يحدث شيء مشابه: التوصية أقل من خمسة غرامات في اليوم، أي ملعقة صغيرة تقريبًا، ومعظمه لا تضيفه أنت على المائدة: إنه موجود أصلًا داخل المنتجات.",
+          "lamina": "sal"
+        },
+        {
+          "id": "etiqueta",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["porcion", "azucares", "ingredientes"] },
+          "texto": "السر هو قراءة الملصق. انتبه إلى حجم الحصة، وإلى السكريات والملح، وإلى قائمة المكونات، التي تُرتَّب من الأكثر إلى الأقل: فإذا كان السكر أولها، عرفت ما الذي يحتويه المنتج أكثر من غيره.",
+          "lamina": "etiqueta"
+        }
+      ]
+    },
+    {
+      "id": "plato",
+      "titulo": "كيف ترتّب طبقك وأسبوعك",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "الجزء الخامس. كيف ترتّب طبقك وأسبوعك."
+        },
+        {
+          "id": "plato",
+          "escena": "pica",
+          "visual": { "tipo": "herramienta", "herramienta": "armaTuPlato" },
+          "texto": "لكل وجبة طريقة بسيطة جدًا، هي طبق الأكل الصحي من هارفارد: نصف الطبق خضار وفواكه، وربعه حبوب كاملة، والربع الآخر بروتين مثل السمك أو الدجاج أو البيض أو البقوليات. وللشرب الماء، مع قليل من الزيت الجيد للطهو.",
+          "lamina": "plato"
+        },
+        {
+          "id": "frutas",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "400 g", "clave": "frutas" },
+          "texto": "توصي منظمة الصحة العالمية بأربعمئة غرام على الأقل من الفواكه والخضار يوميًا، أي نحو خمس حصص، وبخمسة وعشرين غرامًا على الأقل من الألياف، التي تأتي في الغالب منها ومن الحبوب الكاملة والبقوليات.",
+          "lamina": "frutas"
+        },
+        {
+          "id": "planear",
+          "escena": "habla",
+          "visual": { "tipo": "pasos", "claves": ["menu", "lista", "prepara"] },
+          "texto": "السر ليس في قوة الإرادة، بل في التخطيط. اختر قائمة طعام الأسبوع، واستخرج منها قائمة المشتريات، واطبخ كمية إضافية في يومين، ليكون لديك طعام جاهز حين يضيق الوقت.",
+          "lamina": "planear"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "texto": "أنا أفعل ذلك في غرفة المطبخ في MindHaOS: أرتّب خطة الأسبوع من وصفاتي، فتتكوّن قائمة التسوق وحدها.",
+          "lamina": "lista",
+          "enCasa": true
+        },
+        {
+          "id": "ochenta",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "80 / 20", "clave": "ochenta" },
+          "texto": "ولا يلزم أن يكون الأمر مثاليًا. إذا كان معظم ما تأكله على هذا النهج، فلا بأس ببيتزا مع الأصدقاء من دون شعور بالذنب: النظام الغذائي الذي تستطيع الاستمرار عليه أفضل من نظام مثالي تتركه بعد أسبوعين.",
+          "meme": "perfecta",
+          "lamina": "pizza"
+        }
+      ]
+    },
+    {
+      "id": "habitos",
+      "titulo": "الماء والجوع والاستمرار",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "الجزء السادس. الماء والجوع والاستمرار."
+        },
+        {
+          "id": "agua",
+          "escena": "bebe",
+          "visual": { "tipo": "dato", "cifra": "2–2,5 L", "clave": "agua" },
+          "texto": "الماء مهم أيضًا. توصي الهيئة الأوروبية لسلامة الأغذية بنحو لترين يوميًا للنساء ولترين ونصف للرجال، مع احتساب الماء الموجود في الطعام، وهو نحو الخُمس.",
+          "lamina": "agua"
+        },
+        {
+          "id": "hambre",
+          "escena": "habla",
+          "visual": { "tipo": "meme", "meme": "tarde" },
+          "texto": "أصغِ إلى جوعك. الأكل ببطء ومن دون شاشات يمنح جسمك الوقت ليخبرك بأنه شبع. ولا تصل إلى الوجبة وأنت جائع جدًا: فطور فيه بروتين وثمرة فاكهة في العصر يغيّران مساءك كثيرًا.",
+          "lamina": "despacio"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": { "tipo": "foto", "foto": "registro" },
+          "texto": "وإذا أردت أن تعرف كيف تسير الأمور، فدوّن ما تأكله لبضعة أيام. ليس لتُصاب بالهوس، بل لترى الأنماط: كثيرون يكتشفون أن المشكلة لم تكن في الوجبات، بل في المشروبات أو في الوجبة الخفيفة بعد الظهر.",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": { "tipo": "aviso" },
+          "texto": "تذكّر أن هذا الدليل للمعلومات فقط. إذا كنت تعاني من مرض، أو علاقتك بالطعام صعبة، أو كنتِ حاملًا، فالأفضل أن يرافقك أخصائي تغذية.",
+          "lamina": "nutriologo"
+        },
+        {
+          "id": "resumen",
+          "escena": "remueve",
+          "visual": { "tipo": "lista", "claves": ["resumen1", "resumen2", "resumen3", "resumen4"] },
+          "texto": "باختصار: كُل طعامًا حقيقيًا معظم الوقت، واملأ نصف طبقك بالخضار والفواكه، واضبط الكمية على ما تستهلكه، وخطّط لأسبوعك.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "إذا أردت أن تطبّق ذلك كما أفعل، ففي غرفة المطبخ في MindHaOS تجد كتاب الوصفات، وخطة الوجبات لأسبوعك، وقائمة التسوق التي تتكوّن وحدها. الرابط في الوصف، وهناك أيضًا هذا الدليل بنسخة تفاعلية، لتراجعه على مهل. في الدليل القادم نتابع مع سؤال آخر. إلى اللقاء.",
+    "boton": "افتح غرفة المطبخ",
+    "lamina": "app-plan",
+    "anclas": { "recetario": "كتاب الوصفات", "plan": "خطة الوجبات", "compras": "قائمة التسوق" }
+  },
+  "fuentes": [
+    {
+      "id": "usda-myplate",
+      "texto": "وزارة الزراعة الأمريكية (USDA). MyPlate (2011)، الذي حلّ محل هرم الدليل الغذائي (1992).",
+      "url": "https://www.myplate.gov/"
+    },
+    {
+      "id": "nom-043",
+      "texto": "وزارة الصحة المكسيكية (Secretaría de Salud). NOM-043-SSA2-2012 (سابقًا NOM-043-SSA2-2005): Plato del Bien Comer.",
+      "url": "https://www.dof.gob.mx/nota_detalle.php?codigo=5285372&fecha=22/01/2013"
+    },
+    {
+      "id": "oms-alimentacion",
+      "texto": "منظمة الصحة العالمية. النظام الغذائي الصحي — صحيفة وقائع.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/healthy-diet"
+    },
+    {
+      "id": "oms-azucar",
+      "texto": "منظمة الصحة العالمية. Guideline: Sugars intake for adults and children (2015).",
+      "url": "https://www.who.int/publications/i/item/9789241549028"
+    },
+    {
+      "id": "oms-sal",
+      "texto": "منظمة الصحة العالمية. الحد من تناول الصوديوم — صحيفة وقائع.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/salt-reduction"
+    },
+    {
+      "id": "oms-carbohidratos",
+      "texto": "منظمة الصحة العالمية. Carbohydrate intake for adults and children: WHO guideline (2023).",
+      "url": "https://www.who.int/publications/i/item/9789240073593"
+    },
+    {
+      "id": "harvard-plato",
+      "texto": "Harvard T.H. Chan School of Public Health. The Healthy Eating Plate.",
+      "url": "https://nutritionsource.hsph.harvard.edu/healthy-eating-plate/"
+    },
+    {
+      "id": "mifflin",
+      "texto": "Mifflin M. D., St Jeor S. T. et al. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr (1990).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+    },
+    {
+      "id": "issn-proteina",
+      "texto": "Jäger R. et al. International Society of Sports Nutrition Position Stand: protein and exercise (2017).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28642676/"
+    },
+    {
+      "id": "hall-2019",
+      "texto": "Hall K. D. et al. Ultra-processed diets cause excess calorie intake and weight gain. Cell Metabolism (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31105044/"
+    },
+    {
+      "id": "nova",
+      "texto": "Monteiro C. A. et al. Ultra-processed foods: what they are and how to identify them. Public Health Nutrition (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30744710/"
+    },
+    {
+      "id": "efsa-agua",
+      "texto": "EFSA. Scientific Opinion on Dietary Reference Values for water (2010).",
+      "url": "https://www.efsa.europa.eu/en/efsajournal/pub/1459"
+    },
+    {
+      "id": "lind-1753",
+      "texto": "Lind J. A Treatise of the Scurvy (1753). The James Lind Library.",
+      "url": "https://www.jameslindlibrary.org/lind-j-1753/"
+    }
+  ]
+}

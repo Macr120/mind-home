@@ -278,7 +278,8 @@ function MarchaBobActivo({
       return
     }
     const v = Math.min(1, marchaEstado.velocidad)
-    g.current.position.y = alturaFlote(marchaEstado, 0, state.clock.elapsedTime)
+    // Base = la amplitud del vaivén (0,12): flota sin hundirse nunca en el piso (con base 0 bajaba hasta −0,12).
+    g.current.position.y = alturaFlote(marchaEstado, 0.12, state.clock.elapsedTime)
     g.current.rotation.x = 0.06 * v
   })
   return <group ref={g}>{children}</group>

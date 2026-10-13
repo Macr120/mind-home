@@ -1,0 +1,640 @@
+{
+  "idioma": "hi",
+  "tema": "idiomas",
+  "plantillaId": "idiomas",
+  "numero": 5,
+  "nombre": "भाषाएँ",
+  "pregunta": "भाषा क्यों सीखें?",
+  "corta": "भाषा क्यों सीखें?",
+  "subtitulo": "मशीनें अनुवाद कर देती हैं, फिर भी यह क्यों फ़ायदेमंद है, भाषा जानने का मतलब क्या है और इसमें कितना समय लगता है, इतिहास में भाषाएँ कैसे सिखाई गईं, आपका दिमाग़ कैसे सीखता और भूलता है, कौन-से शब्द सबसे ज़्यादा काम आते हैं, पहले दिन से कैसे बोलें, और आज ही शुरू करने के लिए बीस मिनट की एक योजना।",
+  "aviso": "यह गाइड सिर्फ़ जानकारी के लिए है: घंटे और प्रतिशत अध्ययनों और ख़ास कार्यक्रमों के औसत हैं, और आपको कितना समय लगेगा, यह आपकी भाषा, जो भाषा आप सीख रहे हैं और आपके अभ्यास पर निर्भर करता है।",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando').",
+    "visual": "Bloque que acompaña la línea: dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título). No puede ser enCasa.",
+    "corta": "La pregunta en pocas palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su cuarto de Idiomas y las de en medio sobre las tomas de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «charlas con un tutor», «temario por niveles» y «repaso espaciado»; app2d.mjs mueve la app justo al decirlas.",
+    "angloparlante": "Las horas del FSI son para quien habla inglés: en cada traducción se dice así («para alguien que habla inglés»), no se adaptan a la lengua del video.",
+    "canales": "La línea «canales» invita a ver estas guías en el idioma que se aprende: en cada traducción se nombra «nuestros canales de MindHaOS» (hay uno por idioma)."
+  },
+  "partes": [
+    {
+      "id": "saber",
+      "titulo": "क्यों सीखें, और भाषा जानने का मतलब क्या है",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "भाषा क्यों सीखें? आज कोई भी फ़ोन कुछ ही सेकंड में अनुवाद कर देता है। फिर भी, यूरोपीय संघ में लगभग आधे वयस्क अपनी भाषा के अलावा किसी और भाषा में बातचीत नहीं कर पाते। क्या यह सच में फ़ायदेमंद है, और इसे सीखा कैसे जाता है? अगले कुछ मिनटों में आप देखेंगे कि यह आपके दिमाग़ पर क्या असर डालता है, दिमाग़ कैसे सीखता और कैसे भूलता है, और आप आज से ही बोलने की एक योजना लेकर जाएँगे।",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "वैसे, यह MindHaOS में मेरा घर है, और इस भाषाएँ रूम में मैं ट्यूटर के साथ अभ्यास करता हूँ, अपने कार्ड दोहराता हूँ और अपना पाठ्यक्रम आगे बढ़ाता हूँ। चलिए शुरू करते हैं।",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग एक। क्यों सीखें, और भाषा जानने का मतलब क्या है।"
+        },
+        {
+          "id": "cerebro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 4 años",
+            "clave": "cerebro"
+          },
+          "texto": "जब मशीनें अनुवाद कर ही देती हैं, तो सीखें क्यों? क्योंकि भाषा सीखना सिर्फ़ आपकी शब्दावली नहीं, आपका दिमाग़ बदलता है। स्वीडन में, जिन सैन्य रंगरूटों ने तीन महीने तक गहन रूप से एक भाषा पढ़ी, उनका हिप्पोकैम्पस, यानी याददाश्त वाला हिस्सा, बड़ा हुआ। और टोरंटो के एक अध्ययन में, दो भाषाएँ बोलने वालों में डिमेंशिया के लक्षण लगभग चार साल बाद दिखने लगे।",
+          "lamina": [
+            "cerebro",
+            "traductor"
+          ]
+        },
+        {
+          "id": "maquinas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "chistes",
+              "gente",
+              "pensar"
+            ]
+          },
+          "texto": "और मशीन शब्दों का अनुवाद करती है, आपकी जगह बातचीत नहीं करती: ख़ुद बोलकर ही आप चुटकुले समझते हैं, बीच में स्क्रीन के बिना लोगों से जुड़ते हैं, और दुनिया को एक दूसरी भाषा की नज़र से देखते हैं।",
+          "lamina": [
+            "amigos",
+            "viajeros"
+          ]
+        },
+        {
+          "id": "habilidades",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "habilidades"
+          },
+          "texto": "भाषा जानना शब्दों की एक सूची रट लेना नहीं है: यह चार कौशल हैं। सुनकर समझना, पढ़कर समझना, बोलना और लिखना। और लगभग हमेशा हम जितना बोल पाते हैं, उससे कहीं ज़्यादा समझते हैं।",
+          "lamina": [
+            "conversacion",
+            "leer"
+          ]
+        },
+        {
+          "id": "niveles",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nivelMcer"
+          },
+          "texto": "इसे मापने के लिए, काउंसिल ऑफ़ यूरोप ने 2001 में कॉमन यूरोपियन फ़्रेमवर्क ऑफ़ रेफ़रेंस प्रकाशित किया, जो आज पूरी दुनिया में इस्तेमाल होता है: छह स्तर, A1 से, जहाँ आप अपना परिचय देते हैं और कॉफ़ी मँगाते हैं, C2 तक, जहाँ आप लगभग सब कुछ समझते हैं। यहाँ निशान लगाइए कि आप क्या-क्या कर सकते हैं, और देखिए कि आप किस स्तर पर हैं।",
+          "lamina": [
+            "cafeteria",
+            "examen"
+          ]
+        },
+        {
+          "id": "horas",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "fsi"
+          },
+          "texto": "और इसमें कितना समय लगता है? अमेरिका का फ़ॉरेन सर्विस इंस्टिट्यूट, जो वहाँ के राजनयिकों को प्रशिक्षण देता है, अनुमान लगाता है कि अंग्रेज़ी बोलने वाले किसी व्यक्ति को स्पेनिश या फ़्रेंच में काम करने लायक होने के लिए लगभग छह सौ घंटे की कक्षा चाहिए, और जापानी, चीनी, कोरियाई या अरबी के लिए लगभग दो हज़ार दो सौ घंटे।",
+          "lamina": [
+            "clase",
+            "reloj"
+          ]
+        },
+        {
+          "id": "distancia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ ×4",
+            "clave": "distancia"
+          },
+          "texto": "सबसे ज़्यादा फ़र्क़ इससे पड़ता है कि वह भाषा आपकी अपनी भाषा से कितनी दूर है: अगर उनमें शब्द, ध्वनियाँ या लिपि मिलती-जुलती हैं, तो आप बहुत तेज़ी से आगे बढ़ते हैं। इसीलिए पड़ोसी भाषा आसान लगती है, और दूसरी लिपि वाली भाषा शुरू में कहीं ज़्यादा मुश्किल।",
+          "lamina": "globo",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "भाषाएँ सीखने का एक छोटा-सा इतिहास",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग दो। भाषाएँ सीखने का एक छोटा-सा इतिहास।"
+        },
+        {
+          "id": "rosetta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaIdiomas"
+          },
+          "texto": "ईसा पूर्व 196 में, मिस्र में, एक ही आदेश तीन लिपियों में खोदा गया: चित्रलिपि, डेमोटिक और प्राचीन यूनानी। वह पत्थर, रोसेटा स्टोन, 1799 में मिला, और यूनानी की बदौलत, ज़्यां-फ़्रांस्वा शांपोलियों ने 1822 में चित्रलिपि को पढ़ लिया।",
+          "lamina": [
+            "rosetta",
+            "champollion"
+          ]
+        },
+        {
+          "id": "comenio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1658",
+            "clave": "comenio"
+          },
+          "texto": "1658 में, चेक शिक्षाशास्त्री यान आमोस कोमेनियस ने ऑर्बिस पिक्टस प्रकाशित की, बच्चों को पढ़ाने के लिए बनी पहली चित्रों वाली किताबों में से एक: लैटिन का हर शब्द एक चित्र के साथ था। वे जानते थे कि चित्र अनुवाद से बेहतर याद रहता है।",
+          "lamina": [
+            "comenio",
+            "orbis"
+          ]
+        },
+        {
+          "id": "berlitz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1878",
+            "clave": "berlitz"
+          },
+          "texto": "1878 में, अमेरिका के प्रॉविडेंस में, मैक्सिमिलियन बर्लिट्ज़ ने एक नए नियम के साथ स्कूल खोला: कक्षा में अनुवाद नहीं होगा। पहले दिन से, सब कुछ उसी भाषा में कहा जाता है जो आप सीख रहे हैं।",
+          "lamina": "berlitz"
+        },
+        {
+          "id": "zamenhof",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1887",
+            "clave": "zamenhof"
+          },
+          "texto": "और 1887 में, नेत्र चिकित्सक लुडविक ज़ामेनहोफ़ ने एस्पेरांतो प्रकाशित की, एक गढ़ी हुई भाषा ताकि पूरी दुनिया एक-दूसरे को समझ सके, ऐसे व्याकरण के साथ जिसमें कोई अपवाद नहीं। इसने किसी भाषा की जगह नहीं ली, पर आज भी पूरी धरती पर इसके बोलने वाले हैं।",
+          "lamina": [
+            "zamenhof",
+            "esperanto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cerebro",
+      "titulo": "आपका दिमाग़ कैसे सीखता है और कैसे भूलता है",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग तीन। आपका दिमाग़ कैसे सीखता है और कैसे भूलता है।"
+        },
+        {
+          "id": "entender",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "inputComprensible"
+          },
+          "texto": "सबसे प्रभावशाली विचारों में से एक भाषाविद् स्टीफ़न क्रैशेन ने अस्सी के दशक में रखा: हम भाषा तब हासिल करते हैं जब हम अपने स्तर से थोड़ा ऊपर के संदेश समझते हैं। अगर आप लगभग सब समझते हैं और कुछ नया है, तो आप सीखते हैं; अगर कुछ भी नहीं समझते, तो बस शोर सुनते हैं।",
+          "lamina": [
+            "audifonos",
+            "podcast"
+          ]
+        },
+        {
+          "id": "canales",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "16",
+            "clave": "canales"
+          },
+          "texto": "इसलिए यहाँ एक तरकीब है: यही गाइड सोलह भाषाओं में हैं, हमारे MindHaOS चैनलों पर। जो गाइड आपने अपनी भाषा में देखी है, उसे अब उस भाषा में देखिए जो आप सीख रहे हैं: क्योंकि आप पहले से जानते हैं कि बात किस बारे में है, आप उसे लगभग पूरा समझ लेंगे, ठीक अपने स्तर से थोड़ा ऊपर।",
+          "lamina": "canales"
+        },
+        {
+          "id": "olvido",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "olvido"
+          },
+          "texto": "पर जो आप सीखते हैं, वह फिसल जाता है। 1885 में, हरमन एबिंगहॉस ने बेमतलब शब्दांशों की सूचियाँ याद कीं और मापा कि वे कितना भूलते हैं: ज़्यादातर हिस्सा पहले कुछ घंटों में चला जाता था, और फिर भूलना धीमा पड़ जाता था। यही है भूलने की वक्र रेखा।",
+          "meme": "olvido",
+          "lamina": [
+            "ebbinghaus",
+            "notas"
+          ]
+        },
+        {
+          "id": "repasos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "curvaOlvido"
+          },
+          "texto": "अच्छी ख़बर यह है कि हर दोहराव इसे सपाट करता है: हर बार के बाद याद ज़्यादा देर टिकती है। यहाँ आज़माइए: दोहराव जोड़िए और देखिए कि कैसे, बढ़ते अंतराल पर किए गए दोहराव एक शब्द को आपकी याद में बनाए रखते हैं।",
+          "lamina": "calendario"
+        },
+        {
+          "id": "recuperar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "recuperar"
+          },
+          "texto": "और दोहराने का मतलब दोबारा पढ़ना नहीं है। 2006 में, हेनरी रोडिगर और जेफ़्री कारपिक ने उन छात्रों की तुलना की जो एक पाठ दोबारा पढ़ते थे और जो ख़ुद की परीक्षा लेते थे: एक हफ़्ते बाद, परीक्षा लेने वालों को ज़्यादा याद था। याद करने की कोशिश ही चीज़ों को पक्का करती है।",
+          "lamina": "tarjetas",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "palabras",
+      "titulo": "सबसे ज़्यादा काम आने वाले शब्द",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग चार। सबसे ज़्यादा काम आने वाले शब्द।"
+        },
+        {
+          "id": "frecuencia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cobertura"
+          },
+          "texto": "सारे शब्द बराबर नहीं होते। उदाहरण के लिए, अंग्रेज़ी में सबसे आम एक हज़ार शब्द किसी साधारण पाठ के हर दस में से लगभग आठ शब्द होते हैं। यहाँ खिसकाकर बताइए कि आप कितने शब्द जानते हैं, और देखिए कि आप किसी पाठ का कितना हिस्सा पहचान लेंगे।",
+          "lamina": [
+            "libro",
+            "periodico"
+          ]
+        },
+        {
+          "id": "frases",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "frase",
+              "contexto",
+              "usala"
+            ]
+          },
+          "texto": "और उन्हें वाक्यों में सीखिए, अलग-अलग नहीं। «ज़रा नमक देना?» आपको एक ही बार में शब्द, व्याकरण और उच्चारण देता है, और आप इसे कल ही खाने की मेज़ पर इस्तेमाल कर सकते हैं।",
+          "meme": "lista",
+          "lamina": [
+            "mesa",
+            "sal"
+          ]
+        },
+        {
+          "id": "leitner",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cajasLeitner"
+          },
+          "texto": "समय गँवाए बिना दोहराने के लिए अंतराल पर दोहराव का तरीक़ा है। 1972 में, जर्मन पत्रकार सेबास्टियन लाइटनर ने कार्डों के लिए कुछ डिब्बे सुझाए: सही जवाब दिया तो कार्ड अगले डिब्बे में चला जाता है और आप उसे बाद में दोहराते हैं; ग़लत हुआ तो वह पीछे लौट आता है। यहाँ एक कार्ड के साथ आज़माइए।",
+          "lamina": [
+            "fichas",
+            "cajas"
+          ]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "मैं यह MindHaOS के अपने भाषाएँ रूम में करता हूँ: मेज़ पर रखे कार्ड बताते हैं कि आज कौन-से दोहराने हैं, और ऐप उन्हें अपने आप उनके डिब्बों में लगाता जाता है।",
+          "lamina": "tarjetas",
+          "enCasa": true
+        },
+        {
+          "id": "temas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "temas"
+          },
+          "texto": "और उससे शुरू कीजिए जो आप इस्तेमाल करेंगे। अगर घूमने के लिए है: अभिवादन, खाना, यातायात और रास्ते; अगर काम के लिए है: अपना परिचय, मीटिंग और ईमेल। स्तर-वार पाठ्यक्रम बताता है कि आगे क्या है।",
+          "lamina": [
+            "aeropuerto",
+            "reunion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hablar",
+      "titulo": "पहले दिन से बोलिए",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग पाँच। पहले दिन से बोलिए।"
+        },
+        {
+          "id": "producir",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1985",
+            "clave": "swain"
+          },
+          "texto": "बोलने के लिए सुनना काफ़ी नहीं है। भाषाविद् मेरिल स्वेन ने कनाडा में फ़्रेंच इमर्शन स्कूलों के छात्रों का अध्ययन किया: वे भाषा बहुत अच्छी तरह समझते थे, पर बोलते समय ग़लतियाँ करते रहते थे, क्योंकि वे उसे लगभग बोलते ही नहीं थे। बोलते हुए ही आपको पता चलता है कि आप अभी क्या नहीं कह पाते।",
+          "lamina": [
+            "aula",
+            "hablar"
+          ]
+        },
+        {
+          "id": "sombra",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escucha",
+              "repite",
+              "grabate"
+            ]
+          },
+          "texto": "एक अभ्यास जो काम करता है, वह है शैडोइंग: कोई छोटा ऑडियो चलाइए और उसके साथ-साथ दोहराइए, लय और सुर की नकल करते हुए, जैसे कोई गूँज। फिर ख़ुद को रिकॉर्ड कीजिए और तुलना कीजिए। आपका मुँह वे ध्वनियाँ सीखता है जो आपके कान पहले से जानते हैं।",
+          "lamina": [
+            "audifonos2",
+            "grabar"
+          ]
+        },
+        {
+          "id": "errores",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "✔",
+            "clave": "errores"
+          },
+          "texto": "और खूब ग़लतियाँ कीजिए। हर ग़लती जिसे कोई सुधारता है, आपके नाप का बना एक सबक़ है। जो एकदम सही बोलने का इंतज़ार करता है, वह कभी नहीं बोलता।",
+          "meme": "perfecto",
+          "lamina": "risa"
+        },
+        {
+          "id": "edad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edad"
+          },
+          "texto": "और अगर आप अब बच्चे नहीं हैं? 2018 में, लगभग सात लाख लोगों पर हुए एक अध्ययन में पाया गया कि व्याकरण सीखने की आसानी लगभग सत्रह साल की उम्र तक ऊँची रहती है और फिर धीरे-धीरे घटती है। बड़ों के लिए सबसे मुश्किल है मूल वक्ता जैसा सुनाई देना, अच्छा बोलना नहीं: वह किसी भी उम्र में हो सकता है।",
+          "lamina": [
+            "adulto",
+            "abuela"
+          ]
+        },
+        {
+          "id": "diario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "🗣️",
+            "clave": "diario"
+          },
+          "texto": "अगर बात करने के लिए कोई नहीं है, तब भी अभ्यास कीजिए: जो कर रहे हैं उसे ज़ोर से बोलिए, किसी ट्यूटर से या आपकी भाषा सीख रहे किसी व्यक्ति से बात कीजिए। ज़रूरी यह है कि आप हर दिन मुँह खोलें।",
+          "lamina": "llamada",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "शुरू करने की आपकी योजना",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग छह। शुरू करने की आपकी योजना।"
+        },
+        {
+          "id": "meta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "para",
+              "nivel",
+              "fecha"
+            ]
+          },
+          "texto": "उसे एक मक़सद, एक स्तर और एक तारीख़ दीजिए: «अंग्रेज़ी सीखना» और «दिसंबर में घूमने के लिए B1 तक पहुँचना» एक बात नहीं है। इससे आप जानते हैं कि कौन-से विषय पढ़ने हैं और कितने घंटे चाहिए।",
+          "lamina": [
+            "viaje",
+            "agenda"
+          ]
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "minutosDia"
+          },
+          "texto": "और लगातार अभ्यास मैराथन से जीतता है: रोज़ बीस मिनट साल में एक सौ बीस घंटे से ज़्यादा बनते हैं। यहाँ हिसाब लगाइए कि आपकी दिनचर्या से कितने घंटे जुड़ते हैं और आप कितने समय में पहुँचेंगे।",
+          "lamina": [
+            "cronometro",
+            "cafe"
+          ]
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "बीस मिनट की दिनचर्या कुछ ऐसी हो सकती है: पाँच मिनट कुछ ऐसा सुनने के लिए जो आप लगभग समझते हैं, पाँच अपने कार्ड दोहराने के लिए, पाँच बोलने या शैडोइंग के लिए, और पाँच थोड़ा पढ़ने या लिखने के लिए।",
+          "lamina": [
+            "escuchar",
+            "escribir"
+          ]
+        },
+        {
+          "id": "riega",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "20 min / día",
+            "clave": "riega"
+          },
+          "texto": "इसे इस पौधे की तरह सोचिए: रोज़ थोड़ा पानी उसे बढ़ाता है, और रविवार को पूरी बाल्टी उसे नहीं बचाती। भाषा के साथ भी यही होता है।",
+          "lamina": "regar",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "संक्षेप में: ऐसी चीज़ें सुनिए जो आप लगभग समझते हैं, अंतराल पर और ख़ुद की परीक्षा लेकर दोहराइए, पहले सबसे ज़्यादा इस्तेमाल होने वाले शब्द वाक्यों में सीखिए, और पहले दिन से बोलिए, हर दिन थोड़ा-थोड़ा।",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "अगर आप इसे मेरी तरह अमल में लाना चाहते हैं, तो MindHaOS के भाषाएँ रूम में ट्यूटर के साथ बातचीत है जो आपकी ग़लतियाँ सुधारता है, आपके कार्डों के साथ स्तर-वार पाठ्यक्रम है, और अंतराल पर दोहराव है जो बताता है कि आज क्या दोहराना है। लिंक डिस्क्रिप्शन में है, और साथ में यह इंटरैक्टिव गाइड भी। अगली गाइड में फिर मिलते हैं।",
+    "boton": "भाषाएँ रूम खोलें",
+    "lamina": "app-plan",
+    "anclas": {
+      "charlas": "ट्यूटर के साथ बातचीत",
+      "temario": "स्तर-वार पाठ्यक्रम",
+      "repaso": "अंतराल पर दोहराव"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "eurobarometro-386",
+      "texto": "यूरोपीय आयोग। Special Eurobarometer 386: Europeans and their Languages (2012).",
+      "url": "https://europa.eu/eurobarometer/surveys/detail/1049"
+    },
+    {
+      "id": "martensson-2012",
+      "texto": "Mårtensson J., Eriksson J., Bodammer N. C. et al. Growth of language-related brain areas after foreign language learning. NeuroImage (2012).",
+      "url": "https://doi.org/10.1016/j.neuroimage.2012.06.043"
+    },
+    {
+      "id": "bialystok-2007",
+      "texto": "Bialystok E., Craik F. I. M., Freedman M. Bilingualism as a protection against the onset of symptoms of dementia. Neuropsychologia (2007).",
+      "url": "https://doi.org/10.1016/j.neuropsychologia.2006.10.009"
+    },
+    {
+      "id": "mcer",
+      "texto": "काउंसिल ऑफ़ यूरोप। Common European Framework of Reference for Languages (CEFR, 2001).",
+      "url": "https://www.coe.int/en/web/common-european-framework-reference-languages"
+    },
+    {
+      "id": "fsi",
+      "texto": "U.S. Department of State, Foreign Service Institute. Foreign Language Training: अंग्रेज़ी बोलने वालों के लिए सीखने का अनुमानित समय।",
+      "url": "https://www.state.gov/foreign-language-training/"
+    },
+    {
+      "id": "rosetta",
+      "texto": "The British Museum. The Rosetta Stone (EA24): मेम्फ़िस का आदेश, ईसा पूर्व 196।",
+      "url": "https://www.britishmuseum.org/collection/object/Y_EA24"
+    },
+    {
+      "id": "orbis-pictus",
+      "texto": "Comenius J. A. Orbis Sensualium Pictus. न्यूरेमबर्ग (1658).",
+      "url": "https://en.wikipedia.org/wiki/Orbis_Pictus"
+    },
+    {
+      "id": "berlitz",
+      "texto": "Berlitz: मैक्सिमिलियन बर्लिट्ज़ द्वारा प्रॉविडेंस, रोड आइलैंड में स्थापित स्कूल (1878).",
+      "url": "https://en.wikipedia.org/wiki/Berlitz_Corporation"
+    },
+    {
+      "id": "unua-libro",
+      "texto": "Zamenhof L. L. Unua Libro: एस्पेरांतो की पहली किताब (1887).",
+      "url": "https://en.wikipedia.org/wiki/Unua_Libro"
+    },
+    {
+      "id": "krashen-1982",
+      "texto": "Krashen S. D. Principles and Practice in Second Language Acquisition. Pergamon (1982).",
+      "url": "https://www.sdkrashen.com/content/books/principles_and_practice.pdf"
+    },
+    {
+      "id": "ebbinghaus-1885",
+      "texto": "Ebbinghaus H. Über das Gedächtnis (1885). अंग्रेज़ी अनुवाद: Memory: A Contribution to Experimental Psychology (1913).",
+      "url": "https://psychclassics.yorku.ca/Ebbinghaus/index.htm"
+    },
+    {
+      "id": "cepeda-2006",
+      "texto": "Cepeda N. J., Pashler H., Vul E., Wixted J. T., Rohrer D. Distributed practice in verbal recall tasks: A review and quantitative synthesis. Psychological Bulletin (2006).",
+      "url": "https://doi.org/10.1037/0033-2909.132.3.354"
+    },
+    {
+      "id": "roediger-2006",
+      "texto": "Roediger H. L., Karpicke J. D. Test-Enhanced Learning: Taking Memory Tests Improves Long-Term Retention. Psychological Science (2006).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x"
+    },
+    {
+      "id": "nation-2006",
+      "texto": "Nation I. S. P. How Large a Vocabulary Is Needed for Reading and Listening? The Canadian Modern Language Review (2006).",
+      "url": "https://doi.org/10.3138/cmlr.63.1.59"
+    },
+    {
+      "id": "leitner-1972",
+      "texto": "Leitner S. So lernt man lernen. Herder (1972).",
+      "url": "https://en.wikipedia.org/wiki/Leitner_system"
+    },
+    {
+      "id": "swain-1985",
+      "texto": "Swain M. Communicative competence: Some roles of comprehensible input and comprehensible output in its development. In Gass S., Madden C. (eds.), Input in Second Language Acquisition. Newbury House (1985).",
+      "url": "https://en.wikipedia.org/wiki/Comprehensible_output"
+    },
+    {
+      "id": "hartshorne-2018",
+      "texto": "Hartshorne J. K., Tenenbaum J. B., Pinker S. A critical period for second language acquisition: Evidence from 2/3 million English speakers. Cognition (2018).",
+      "url": "https://doi.org/10.1016/j.cognition.2018.04.007"
+    }
+  ]
+}

@@ -1,0 +1,396 @@
+{
+  "idioma": "id",
+  "tema": "cocina",
+  "plantillaId": "cocina",
+  "pregunta": "Apa itu makan dengan baik?",
+  "subtitulo": "Apa yang dilakukan makanan di tubuhmu, dari mana asal pengetahuan kita, berapa banyak energi yang kamu butuhkan, cara mengenali kualitas, dan cara menyusun piring serta minggumu.",
+  "aviso": "Panduan ini bersifat informatif dan tidak menggantikan saran dokter atau ahli gizi. Jika kamu punya penyakit, gangguan makan, sedang hamil, atau minum obat, konsultasikan dengan tenaga profesional sebelum mengubah pola makanmu.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'remueve', 'pica', 'bebe', 'pensando') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ cocinando y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «recetario», «plan de comidas» y «lista de compras»; app2d.mjs cambia de pantalla de la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "Apa yang dilakukan makanan di tubuhmu",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": { "tipo": "titulo" },
+          "texto": "Apa itu makan dengan baik? Semua orang punya pendapat soal apa yang sebaiknya kamu makan. Hampir tidak ada yang menjelaskan apa yang dilakukan makanan di dalam tubuhmu. Sebenarnya, bagaimana cara kerjanya? Dalam beberapa menit ke depan, kamu akan paham apa yang dibutuhkan tubuhmu, menghitung berapa banyak energi yang kamu pakai, dan pulang dengan rencana untuk minggumu.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "texto": "Omong-omong, ini rumahku di MindHaOS, dan di ruang Dapur ini aku menyimpan resep-resepku dan rencana makanku. Ayo kita mulai.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Bagian satu. Apa yang dilakukan makanan di tubuhmu."
+        },
+        {
+          "id": "dos-trabajos",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["combustible", "construccion"] },
+          "texto": "Makanan melakukan dua tugas sekaligus. Makanan adalah bahan bakar: energi, yang diukur dalam kalori dan kamu pakai untuk bernapas, berpikir, dan bergerak. Dan makanan juga bahan bangunan: dengannya kamu memperbaiki otot, tulang, kulit, dan darah, yang terus-menerus diperbarui.",
+          "lamina": "mercado"
+        },
+        {
+          "id": "macros",
+          "escena": "remueve",
+          "visual": { "tipo": "lista", "claves": ["proteinas", "carbohidratos", "grasas"] },
+          "texto": "Bahan-bahan itu datang dalam tiga kelompok besar, yaitu makronutrien. Protein membangun dan memperbaiki. Karbohidrat adalah energi yang paling cepat, terutama untuk otak dan olahraga berat. Dan lemak menyimpan energi, membentuk dinding sel-selmu, serta membantumu menyerap beberapa vitamin.",
+          "lamina": ["macros-proteina", "macros-carbos", "macros-grasas"]
+        },
+        {
+          "id": "micros",
+          "escena": "pica",
+          "visual": { "tipo": "lista", "claves": ["vitaminas", "minerales", "fibra"] },
+          "texto": "Lalu ada mikronutrien: vitamin dan mineral yang kamu butuhkan dalam jumlah sangat kecil, tapi tanpanya semua yang tadi tidak akan berfungsi. Dan serat, yang hampir tidak memberimu energi, tapi menjadi makanan bagi bakteri di ususmu dan membuatmu kenyang lebih lama.",
+          "lamina": "verduras"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Sejarah singkat tentang apa yang kita makan",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Bagian dua. Sejarah singkat tentang apa yang kita makan."
+        },
+        {
+          "id": "fuego",
+          "escena": "remueve",
+          "visual": { "tipo": "grafica", "grafica": "historiaCocina" },
+          "texto": "Ratusan ribu tahun lalu, nenek moyang kita belajar memasak dengan api. Memasak melunakkan makanan dan membuat kita bisa mendapat lebih banyak energi darinya; beberapa antropolog percaya hal itu membantu otak kita bertambah besar.",
+          "lamina": "fuego"
+        },
+        {
+          "id": "agricultura",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "10 000", "clave": "agricultura" },
+          "texto": "Sekitar sepuluh ribu tahun lalu, datanglah pertanian: gandum, padi, dan jagung. Ada makanan untuk jauh lebih banyak orang, meskipun pola makan jadi kurang beragam dibandingkan para pemburu dan peramu.",
+          "lamina": "agricultura"
+        },
+        {
+          "id": "lind",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "1747", "clave": "lind" },
+          "texto": "Pada tahun 1747, dokter Skotlandia James Lind melakukan salah satu uji klinis pertama dalam sejarah: ia memberi para pelaut yang sakit skorbut berbagai macam obat, dan yang makan jeruk dan lemon-lah yang sembuh.",
+          "meme": "limones",
+          "lamina": ["lind", "limones"]
+        },
+        {
+          "id": "atwater",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "4 · 4 · 9", "clave": "atwater" },
+          "texto": "Di akhir abad kesembilan belas, ahli kimia Wilbur Atwater mengukur berapa banyak energi yang diberikan setiap makanan: sekitar empat kalori per gram protein atau karbohidrat, dan sekitar sembilan per gram lemak. Angka-angka itulah yang masih dipakai label makanan sampai hari ini.",
+          "lamina": "atwater"
+        },
+        {
+          "id": "funk",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "1912", "clave": "funk" },
+          "texto": "Pada tahun 1912, ahli biokimia Casimir Funk mengusulkan kata vitamin, dan dalam beberapa dekade berikutnya hampir semua vitamin ditemukan. Untuk pertama kalinya orang paham bahwa kita bisa makan banyak tapi tetap kurang gizi.",
+          "lamina": "funk"
+        },
+        {
+          "id": "plato",
+          "escena": "senala",
+          "visual": { "tipo": "dato", "cifra": "2011", "clave": "plato" },
+          "texto": "Pada tahun 1992, Amerika Serikat menggambar piramida makanan yang terkenal, dengan roti dan pasta di dasarnya. Pada tahun 2011, piramida itu diganti dengan piring, MyPlate, yang jauh lebih mudah dibayangkan di setiap makan. Dan di Meksiko, standar resminya menggambar piringnya sendiri: Plato del Bien Comer, atau Piring Makan Baik. Ke sanalah kita akan sampai.",
+          "lamina": ["piramide", "myplate", "plato-bien-comer"]
+        }
+      ]
+    },
+    {
+      "id": "energia",
+      "titulo": "Berapa banyak energi yang kamu butuhkan",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Bagian tiga. Berapa banyak energi yang kamu butuhkan."
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "balance" },
+          "texto": "Dalam jangka panjang, berat badanmu bergantung pada keseimbangan energi: apa yang kamu makan dibandingkan apa yang kamu pakai. Kalau kamu makan lebih banyak dari yang kamu pakai, tubuhmu menyimpannya; kalau lebih sedikit, tubuh mengambil dari cadangannya. Kedengarannya sederhana, tapi pengeluaran energi punya beberapa bagian.",
+          "lamina": "balance"
+        },
+        {
+          "id": "gasto",
+          "escena": "Caminata",
+          "visual": { "tipo": "grafica", "grafica": "gasto" },
+          "texto": "Bagian terbesar, sekitar dua pertiga, habis hanya untuk membuatmu tetap hidup: itulah metabolisme basalmu. Bagian lain bergantung pada seberapa banyak kamu bergerak sepanjang hari, dan bagian kecil, sekitar sepuluh persen, dipakai untuk mencerna makananmu.",
+          "lamina": "gasto"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "calculadoraEnergia" },
+          "texto": "Kamu bisa memperkirakannya dengan persamaan Mifflin dan St Jeor, salah satu yang paling sering dipakai ahli gizi: dengan usia, berat badan, tinggi badan, dan aktivitasmu. Coba kalkulatornya di sini. Ini perkiraan, bukan ukuran yang pasti, tapi titik awal yang sangat bagus.",
+          "lamina": "calculadora"
+        },
+        {
+          "id": "proteina",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "0,8–2 g/kg", "clave": "proteina" },
+          "texto": "Untuk protein, acuan bagi orang dewasa adalah paling sedikit nol koma delapan gram per kilo berat badan per hari. Kalau kamu latihan kekuatan, banyak ahli menyarankan antara satu koma empat sampai dua gram.",
+          "lamina": "proteina"
+        },
+        {
+          "id": "deficit",
+          "escena": "pensando",
+          "visual": { "tipo": "dato", "cifra": "−15 %", "clave": "deficit" },
+          "texto": "Dan kalau kamu ingin menurunkan berat badan, tidak perlu kelaparan: cukup makan sedikit lebih sedikit dari yang kamu pakai, sekitar lima belas persen, lalu cek perkembanganmu setiap dua minggu. Perubahan kecil adalah yang bertahan.",
+          "lamina": "deficit"
+        }
+      ]
+    },
+    {
+      "id": "calidad",
+      "titulo": "Kualitas dari apa yang kamu makan",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Bagian empat. Kualitas dari apa yang kamu makan."
+        },
+        {
+          "id": "nova",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "nova" },
+          "texto": "Selain berapa banyak, apa yang kamu makan juga penting. Para peneliti mengelompokkan makanan menurut seberapa banyak ia diolah: makanan segar, bahan dapur seperti minyak atau garam, makanan olahan seperti keju atau roti dari toko roti, dan makanan ultra-olahan, seperti minuman bersoda, biskuit, dan camilan kemasan.",
+          "meme": "ultraprocesados",
+          "lamina": "supermercado"
+        },
+        {
+          "id": "experimento",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "+500 kcal", "clave": "experimento" },
+          "texto": "Pada tahun 2019, sebuah eksperimen dari Institut Kesehatan Nasional Amerika Serikat memberi dua puluh orang dua minggu makanan ultra-olahan dan dua minggu makanan tanpa olahan, dengan jumlah kalori tersedia yang sama. Dengan makanan ultra-olahan, mereka makan sekitar lima ratus kalori lebih banyak per hari, tanpa menyadarinya.",
+          "lamina": "ultraprocesados"
+        },
+        {
+          "id": "azucar",
+          "escena": "bebe",
+          "visual": { "tipo": "herramienta", "herramienta": "azucarOculta" },
+          "texto": "Organisasi Kesehatan Dunia menyarankan agar gula tambahan kurang dari sepuluh persen energimu, dan idealnya kurang dari lima: sekitar enam sendok teh sehari. Lihat di sini berapa banyak gula dalam minumanmu.",
+          "lamina": "refresco"
+        },
+        {
+          "id": "sal",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "< 5 g", "clave": "sal" },
+          "texto": "Dengan garam juga begitu: sarannya kurang dari lima gram sehari, kira-kira satu sendok teh, dan sebagian besar bukan kamu yang menaburkannya di meja: garam itu sudah ada di dalam produk.",
+          "lamina": "sal"
+        },
+        {
+          "id": "etiqueta",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["porcion", "azucares", "ingredientes"] },
+          "texto": "Triknya adalah membaca label. Perhatikan takaran saji, gula dan garam, serta daftar bahannya, yang diurutkan dari yang paling banyak ke yang paling sedikit: kalau yang pertama gula, kamu sudah tahu apa isi terbanyaknya.",
+          "lamina": "etiqueta"
+        }
+      ]
+    },
+    {
+      "id": "plato",
+      "titulo": "Cara menyusun piring dan minggumu",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Bagian lima. Cara menyusun piring dan minggumu."
+        },
+        {
+          "id": "plato",
+          "escena": "pica",
+          "visual": { "tipo": "herramienta", "herramienta": "armaTuPlato" },
+          "texto": "Untuk setiap kali makan ada cara yang sangat sederhana, piring makan sehat dari Harvard: setengah piring sayur dan buah; seperempat biji-bijian utuh; dan seperempat lainnya protein, seperti ikan, ayam, telur, atau kacang-kacangan. Untuk minum, air, dan sedikit minyak yang baik untuk memasak.",
+          "lamina": "plato"
+        },
+        {
+          "id": "frutas",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "400 g", "clave": "frutas" },
+          "texto": "Organisasi Kesehatan Dunia menyarankan paling sedikit empat ratus gram buah dan sayur sehari, sekitar lima porsi, dan paling sedikit dua puluh lima gram serat, yang terutama berasal dari situ, dari biji-bijian utuh, dan dari kacang-kacangan.",
+          "lamina": "frutas"
+        },
+        {
+          "id": "planear",
+          "escena": "habla",
+          "visual": { "tipo": "pasos", "claves": ["menu", "lista", "prepara"] },
+          "texto": "Rahasianya bukan tekad, tapi perencanaan. Pilih menu minggu ini, buat daftar belanja dari situ, dan masak lebih banyak di beberapa hari, supaya ada makanan siap saat kamu tidak sempat.",
+          "lamina": "planear"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "texto": "Aku melakukannya di ruang Dapur-ku di MindHaOS: aku menyusun rencana minggu ini dari resep-resepku, dan daftar belanjanya jadi dengan sendirinya.",
+          "lamina": "lista",
+          "enCasa": true
+        },
+        {
+          "id": "ochenta",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "80 / 20", "clave": "ochenta" },
+          "texto": "Dan tidak harus sempurna. Kalau sebagian besar makananmu sudah di jalur ini, pizza bersama teman tetap bisa masuk tanpa rasa bersalah: pola makan yang bisa kamu jalani lebih berharga daripada pola makan sempurna yang kamu tinggalkan setelah dua minggu.",
+          "meme": "perfecta",
+          "lamina": "pizza"
+        }
+      ]
+    },
+    {
+      "id": "habitos",
+      "titulo": "Air, rasa lapar, dan konsistensi",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Bagian enam. Air, rasa lapar, dan konsistensi."
+        },
+        {
+          "id": "agua",
+          "escena": "bebe",
+          "visual": { "tipo": "dato", "cifra": "2–2,5 L", "clave": "agua" },
+          "texto": "Air juga penting. Otoritas Keamanan Pangan Eropa menyarankan sekitar dua liter sehari untuk perempuan dan dua setengah liter untuk laki-laki, termasuk air dari makanan, yang kira-kira seperlimanya.",
+          "lamina": "agua"
+        },
+        {
+          "id": "hambre",
+          "escena": "habla",
+          "visual": { "tipo": "meme", "meme": "tarde" },
+          "texto": "Dengarkan rasa laparmu. Makan pelan-pelan dan tanpa layar memberi tubuhmu waktu untuk memberi tahu bahwa ia sudah kenyang. Dan jangan datang ke waktu makan dalam keadaan sangat lapar: sarapan dengan protein dan buah di sore hari bisa banyak mengubah malammu.",
+          "lamina": "despacio"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": { "tipo": "foto", "foto": "registro" },
+          "texto": "Dan kalau kamu ingin tahu perkembanganmu, catat apa yang kamu makan selama beberapa hari. Bukan untuk jadi terobsesi, tapi untuk melihat polanya: banyak orang menemukan bahwa masalahnya bukan di makanan utama, tapi di minuman atau camilan sore.",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": { "tipo": "aviso" },
+          "texto": "Ingat, panduan ini bersifat informatif. Kalau kamu punya penyakit, hubungan yang sulit dengan makanan, atau sedang hamil, sebaiknya kamu didampingi ahli gizi.",
+          "lamina": "nutriologo"
+        },
+        {
+          "id": "resumen",
+          "escena": "remueve",
+          "visual": { "tipo": "lista", "claves": ["resumen1", "resumen2", "resumen3", "resumen4"] },
+          "texto": "Singkatnya: makan makanan asli hampir sepanjang waktu, isi setengah piringmu dengan sayur dan buah, sesuaikan porsinya dengan energi yang kamu pakai, dan rencanakan minggumu.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Kalau kamu ingin mempraktikkannya seperti aku, ruang Dapur di MindHaOS punya buku resep, rencana makan untuk minggumu, dan daftar belanja yang tersusun dengan sendirinya. Tautannya ada di deskripsi, dan di sana juga ada panduan ini dalam versi interaktif, supaya kamu bisa mengulangnya dengan santai. Di panduan berikutnya kita lanjut dengan pertanyaan lain. Sampai jumpa.",
+    "boton": "Buka ruang Dapur",
+    "lamina": "app-plan",
+    "anclas": { "recetario": "buku resep", "plan": "rencana makan", "compras": "daftar belanja" }
+  },
+  "fuentes": [
+    {
+      "id": "usda-myplate",
+      "texto": "USDA. MyPlate (2011), yang menggantikan Piramida Panduan Makanan (1992).",
+      "url": "https://www.myplate.gov/"
+    },
+    {
+      "id": "nom-043",
+      "texto": "Kementerian Kesehatan Meksiko (Secretaría de Salud). NOM-043-SSA2-2012 (sebelumnya NOM-043-SSA2-2005): Plato del Bien Comer.",
+      "url": "https://www.dof.gob.mx/nota_detalle.php?codigo=5285372&fecha=22/01/2013"
+    },
+    {
+      "id": "oms-alimentacion",
+      "texto": "WHO. Pola makan sehat — Lembar fakta.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/healthy-diet"
+    },
+    {
+      "id": "oms-azucar",
+      "texto": "WHO. Guideline: Sugars intake for adults and children (2015).",
+      "url": "https://www.who.int/publications/i/item/9789241549028"
+    },
+    {
+      "id": "oms-sal",
+      "texto": "WHO. Pengurangan asupan natrium — Lembar fakta.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/salt-reduction"
+    },
+    {
+      "id": "oms-carbohidratos",
+      "texto": "WHO. Carbohydrate intake for adults and children: WHO guideline (2023).",
+      "url": "https://www.who.int/publications/i/item/9789240073593"
+    },
+    {
+      "id": "harvard-plato",
+      "texto": "Harvard T.H. Chan School of Public Health. The Healthy Eating Plate.",
+      "url": "https://nutritionsource.hsph.harvard.edu/healthy-eating-plate/"
+    },
+    {
+      "id": "mifflin",
+      "texto": "Mifflin M. D., St Jeor S. T. et al. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr (1990).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+    },
+    {
+      "id": "issn-proteina",
+      "texto": "Jäger R. et al. International Society of Sports Nutrition Position Stand: protein and exercise (2017).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28642676/"
+    },
+    {
+      "id": "hall-2019",
+      "texto": "Hall K. D. et al. Ultra-processed diets cause excess calorie intake and weight gain. Cell Metabolism (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31105044/"
+    },
+    {
+      "id": "nova",
+      "texto": "Monteiro C. A. et al. Ultra-processed foods: what they are and how to identify them. Public Health Nutrition (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30744710/"
+    },
+    {
+      "id": "efsa-agua",
+      "texto": "EFSA. Scientific Opinion on Dietary Reference Values for water (2010).",
+      "url": "https://www.efsa.europa.eu/en/efsajournal/pub/1459"
+    },
+    {
+      "id": "lind-1753",
+      "texto": "Lind J. A Treatise of the Scurvy (1753). The James Lind Library.",
+      "url": "https://www.jameslindlibrary.org/lind-j-1753/"
+    }
+  ]
+}

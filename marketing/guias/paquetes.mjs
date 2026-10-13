@@ -26,7 +26,10 @@ const app = (red) => `https://app.mindhaos.com/?app=${guion.plantillaId}&utm_sou
 /** Textos fijos del paquete (el resto sale del guion): `paquete` de web/i18n/guias/<id>.json, con el español de respaldo. */
 const textos = (id) => {
   const ruta = path.resolve(RAIZ, '..', '..', 'web', 'i18n', 'guias', `${id}.json`)
-  return existsSync(ruta) ? JSON.parse(readFileSync(ruta, 'utf8')).paquete ?? {} : {}
+  if (!existsSync(ruta)) return {}
+  const ui = JSON.parse(readFileSync(ruta, 'utf8'))
+  // Lo común y, encima, lo propio de la guía (qué cuarto abre, hashtags…).
+  return { ...ui.paquete, ...ui[tema]?.paquete }
 }
 const t = { ...textos('es'), ...textos(idioma) }
 t.hashtags = t.hashtags.split(/\s+/)
@@ -37,8 +40,9 @@ const fuentes = guion.fuentes.map((f) => `• ${f.texto} ${f.url}`).join('\n')
 const laminas = Object.values(medios.laminas ?? {})
 const esWiki = (f) => f.fuente.includes('wikimedia.org')
 const fotos = [...new Set([...Object.values(medios.fotos), ...laminas.filter((f) => f.fuente.includes('pexels.com'))].map((f) => f.autor))].join(', ')
-// La música pide su crédito tal cual.
-const musica = JSON.parse(readFileSync(path.join(RAIZ, 'musica', 'musica.json'), 'utf8')).canciones.map((c) => c.credito.join('\n')).join('\n\n')
+// La música pide su crédito tal cual (la lista del tema, si tiene una propia).
+const listaMusica = path.join(RAIZ, 'musica', `${tema}.json`)
+const musica = JSON.parse(readFileSync(existsSync(listaMusica) ? listaMusica : path.join(RAIZ, 'musica', 'musica.json'), 'utf8')).canciones.map((c) => c.credito.join('\n')).join('\n\n')
 // Las CC BY/BY-SA piden autor, licencia y enlace.
 const wiki = laminas.filter(esWiki).map((f) => `• ${f.autor} · ${f.licencia} · ${f.fuente}`).join('\n')
 

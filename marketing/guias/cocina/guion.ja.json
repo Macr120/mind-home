@@ -1,0 +1,548 @@
+{
+  "idioma": "ja",
+  "tema": "cocina",
+  "plantillaId": "cocina",
+  "pregunta": "よい食事とは何でしょうか？",
+  "subtitulo": "食べ物が体の中で何をしているのか、私たちの知識はどこから来たのか、どれだけのエネルギーが必要か、質をどう見分けるか、そしてお皿と一週間をどう組み立てるか。",
+  "aviso": "このガイドは情報提供を目的としたもので、医師や栄養の専門家の助言に代わるものではありません。病気がある方、摂食障害のある方、妊娠中の方、薬を服用している方は、食生活を変える前に専門家に相談してください。",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'remueve', 'pica', 'bebe', 'pensando') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ cocinando y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «recetario», «plan de comidas» y «lista de compras»; app2d.mjs cambia de pantalla de la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "食べ物が体の中でしていること",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "よい食事とは何でしょうか？ 何を食べるべきかについては、誰もが一家言を持っています。でも、食べ物が体の中で何をしているのかを説明してくれる人は、ほとんどいません。実際には、どんな仕組みなのでしょうか？ これからの数分で、体が何を必要としているのかを理解し、自分が使うエネルギーを計算して、一週間のプランを手にして終われます。",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "ちなみに、ここはMindHaOSにある私の家です。このキッチンの部屋に、レシピと食事プランをしまっています。では、始めましょう。",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート1。食べ物が体の中でしていること。"
+        },
+        {
+          "id": "dos-trabajos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "combustible",
+              "construccion"
+            ]
+          },
+          "texto": "食べ物は、二つの仕事を同時にこなしています。ひとつは燃料。つまりエネルギーで、カロリーで測られ、呼吸するとき、考えるとき、動くときに使われます。もうひとつは建築材料。食べたものを使って、筋肉や骨、皮膚、血液を修復しています。これらは絶えず入れ替わっているのです。",
+          "lamina": "mercado"
+        },
+        {
+          "id": "macros",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "proteinas",
+              "carbohidratos",
+              "grasas"
+            ]
+          },
+          "texto": "その材料は、大きく三つのグループに分かれて届きます。三大栄養素です。たんぱく質は体をつくり、修復します。炭水化物はいちばん速いエネルギー源で、とくに脳と激しい運動のために使われます。そして脂質はエネルギーを蓄え、細胞の膜をつくり、一部のビタミンの吸収を助けます。",
+          "lamina": [
+            "macros-proteina",
+            "macros-carbos",
+            "macros-grasas"
+          ]
+        },
+        {
+          "id": "micros",
+          "escena": "pica",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "vitaminas",
+              "minerales",
+              "fibra"
+            ]
+          },
+          "texto": "さらに、微量栄養素があります。ビタミンとミネラルです。必要な量はほんのわずかですが、これがなければ、今までの話は何ひとつ機能しません。そして食物繊維。エネルギーはほとんどくれませんが、腸内細菌のエサになり、満腹感を長く保ってくれます。",
+          "lamina": "verduras"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "私たちが食べてきたものの短い歴史",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート2。私たちが食べてきたものの、短い歴史。"
+        },
+        {
+          "id": "fuego",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaCocina"
+          },
+          "texto": "何十万年も前、私たちの祖先は火を使って料理することを覚えました。加熱すると食べ物はやわらかくなり、より多くのエネルギーを取り出せます。それが脳の発達を助けたと考える人類学者もいます。",
+          "lamina": "fuego"
+        },
+        {
+          "id": "agricultura",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 000",
+            "clave": "agricultura"
+          },
+          "texto": "およそ一万年前、農業が始まりました。小麦、米、そしてトウモロコシです。はるかに多くの人が食べられるようになりましたが、食事の中身は、狩猟採集民の頃より単調になりました。",
+          "lamina": "agricultura"
+        },
+        {
+          "id": "lind",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1747",
+            "clave": "lind"
+          },
+          "texto": "1747年、スコットランドの医師ジェームズ・リンドは、歴史上もっとも初期の臨床試験のひとつを行いました。壊血病にかかった船乗りたちにさまざまな治療法を試したところ、回復したのは、オレンジとレモンを食べた人たちでした。",
+          "meme": "limones",
+          "lamina": [
+            "lind",
+            "limones"
+          ]
+        },
+        {
+          "id": "atwater",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "4 · 4 · 9",
+            "clave": "atwater"
+          },
+          "texto": "19世紀の終わり、化学者のウィルバー・アトウォーターは、食べ物ごとのエネルギーを測りました。たんぱく質と炭水化物は1グラムあたりおよそ4キロカロリー、脂質はおよそ9キロカロリー。今の食品表示でも使われている数字です。",
+          "lamina": "atwater"
+        },
+        {
+          "id": "funk",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1912",
+            "clave": "funk"
+          },
+          "texto": "1912年、生化学者のカジミール・フンクが「ビタミン」という言葉を提案し、その後の数十年で、ほとんどのビタミンが発見されました。たくさん食べていても、栄養が足りないことがある。そのことが初めて理解されたのです。",
+          "lamina": "funk"
+        },
+        {
+          "id": "plato",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2011",
+            "clave": "plato"
+          },
+          "texto": "1992年、アメリカは有名な食品ピラミッドを描きました。土台にあるのはパンやパスタです。2011年には、それを一枚のお皿、MyPlateに置き換えました。毎回の食事で、ずっとイメージしやすい形です。そしてメキシコでは、国の公式基準が独自のお皿を描きました。「Plato del Bien Comer」、つまり「よい食事のお皿」です。このあと、そこにたどり着きます。",
+          "lamina": [
+            "piramide",
+            "myplate",
+            "plato-bien-comer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "energia",
+      "titulo": "必要なエネルギーはどれくらいか",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート3。必要なエネルギーはどれくらいか。"
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "balance"
+          },
+          "texto": "長い目で見ると、体重はエネルギーのバランスで決まります。食べる量と、使う量です。使うより多く食べれば体はため込み、少なければ蓄えを取り崩します。単純に聞こえますが、使うエネルギーにはいくつかの内訳があります。",
+          "lamina": "balance"
+        },
+        {
+          "id": "gasto",
+          "escena": "Caminata",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "gasto"
+          },
+          "texto": "いちばん大きいのは、およそ3分の2。ただ生きているだけで使われる分で、これが基礎代謝です。別の一部は、一日にどれだけ体を動かすかで変わります。そして小さな一部、約10パーセントは、食べたものを消化するのに使われます。",
+          "lamina": "gasto"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "calculadoraEnergia"
+          },
+          "texto": "これは、栄養士がよく使う式のひとつ、ミフリン・セントジョー式で見積もれます。年齢、体重、身長、活動量を入れるだけです。ここで計算機を試してみてください。正確な測定ではなく推定ですが、出発点としてはとても優秀です。",
+          "lamina": "calculadora"
+        },
+        {
+          "id": "proteina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "0,8–2 g/kg",
+            "clave": "proteina"
+          },
+          "texto": "たんぱく質の目安は、大人なら1日に、体重1キロあたり少なくとも0.8グラム。筋トレをしているなら、1.4から2グラムをすすめる専門家が多くいます。",
+          "lamina": "proteina"
+        },
+        {
+          "id": "deficit",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "−15 %",
+            "clave": "deficit"
+          },
+          "texto": "そして体重を落としたいなら、空腹に耐える必要はありません。使う量より少しだけ、15パーセントほど少なく食べて、2週間ごとに様子を確かめれば十分です。続くのは、小さな変化のほうです。",
+          "lamina": "deficit"
+        }
+      ]
+    },
+    {
+      "id": "calidad",
+      "titulo": "食べるものの質",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート4。食べるものの質。"
+        },
+        {
+          "id": "nova",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "nova"
+          },
+          "texto": "量だけでなく、何を食べるかも大切です。研究者たちは、食べ物をどれだけ加工されているかで分類しています。新鮮な食品。油や塩のような調理用の素材。チーズやパン屋のパンのような加工食品。そして、清涼飲料、クッキー、袋入りのスナックのような超加工食品です。",
+          "meme": "ultraprocesados",
+          "lamina": "supermercado"
+        },
+        {
+          "id": "experimento",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+500 kcal",
+            "clave": "experimento"
+          },
+          "texto": "2019年、アメリカ国立衛生研究所の実験で、20人に2週間は超加工食品、2週間は未加工の食事を出しました。どちらも、同じカロリーを自由に食べられる条件です。超加工食品のときは、本人も気づかないうちに、1日およそ500キロカロリー多く食べていました。",
+          "lamina": "ultraprocesados"
+        },
+        {
+          "id": "azucar",
+          "escena": "bebe",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "azucarOculta"
+          },
+          "texto": "世界保健機関は、添加された糖を摂取エネルギーの10パーセント未満に、できれば5パーセント未満にするよう勧めています。小さじでいうと、1日6杯ほどです。あなたの飲み物にどれだけ砂糖が入っているか、ここで見てみましょう。",
+          "lamina": "refresco"
+        },
+        {
+          "id": "sal",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "< 5 g",
+            "clave": "sal"
+          },
+          "texto": "塩も似ています。推奨は1日5グラム未満、だいたい小さじ1杯です。しかもその大部分は、食卓で自分がかける塩ではなく、はじめから製品の中に入っています。",
+          "lamina": "sal"
+        },
+        {
+          "id": "etiqueta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porcion",
+              "azucares",
+              "ingredientes"
+            ]
+          },
+          "texto": "コツは、ラベルを読むことです。1回分の量、糖と塩の量、そして原材料の一覧を見てください。原材料は多い順に並んでいます。最初が砂糖なら、何がいちばん多く入っているか、もうわかりますね。",
+          "lamina": "etiqueta"
+        }
+      ]
+    },
+    {
+      "id": "plato",
+      "titulo": "お皿と一週間の組み立て方",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート5。お皿と一週間の組み立て方。"
+        },
+        {
+          "id": "plato",
+          "escena": "pica",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "armaTuPlato"
+          },
+          "texto": "毎回の食事には、とても簡単な方法があります。ハーバードの「ヘルシー・イーティング・プレート」です。お皿の半分は野菜と果物、4分の1は全粒穀物、残りの4分の1は、魚、鶏肉、卵、豆類などのたんぱく質。飲み物は水にして、料理にはよい油を少し使います。",
+          "lamina": "plato"
+        },
+        {
+          "id": "frutas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "400 g",
+            "clave": "frutas"
+          },
+          "texto": "世界保健機関は、果物と野菜を1日に少なくとも400グラム、およそ5皿分とることを勧めています。食物繊維は少なくとも25グラム。そのほとんどは、野菜と果物、全粒穀物、そして豆類からとれます。",
+          "lamina": "frutas"
+        },
+        {
+          "id": "planear",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "menu",
+              "lista",
+              "prepara"
+            ]
+          },
+          "texto": "秘訣は、意志の強さではなく計画です。一週間の献立を決め、そこから買い物リストをつくり、何日か分は多めに作っておきましょう。時間がないときにも、すぐ食べられるものがあるように。",
+          "lamina": "planear"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "私は、MindHaOSのキッチンの部屋でやっています。自分のレシピで一週間のプランを組むと、買い物リストが自動でできあがります。",
+          "lamina": "lista",
+          "enCasa": true
+        },
+        {
+          "id": "ochenta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "80 / 20",
+            "clave": "ochenta"
+          },
+          "texto": "それに、完璧である必要はありません。食べるもののほとんどがこの方向に沿っていれば、友だちと食べるピザだって、罪悪感なしで楽しめます。2週間でやめてしまう完璧な食事より、続けられる食事のほうが、ずっと価値があります。",
+          "meme": "perfecta",
+          "lamina": "pizza"
+        }
+      ]
+    },
+    {
+      "id": "habitos",
+      "titulo": "水、空腹、そして続けること",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート6。水、空腹、そして続けること。"
+        },
+        {
+          "id": "agua",
+          "escena": "bebe",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2–2,5 L",
+            "clave": "agua"
+          },
+          "texto": "水も大切です。欧州食品安全機関は、女性は1日約2リットル、男性は2.5リットルを勧めています。これは食べ物に含まれる水分も合わせた量で、その分がだいたい5分の1です。",
+          "lamina": "agua"
+        },
+        {
+          "id": "hambre",
+          "escena": "habla",
+          "visual": {
+            "tipo": "meme",
+            "meme": "tarde"
+          },
+          "texto": "自分の空腹に耳を傾けましょう。ゆっくり、画面を見ずに食べると、体が「もう満足だよ」と知らせる時間ができます。それから、ひどくおなかを空かせたまま食事に向かわないこと。たんぱく質の入った朝食と、午後の果物ひとつで、夜がずいぶん変わります。",
+          "lamina": "despacio"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "foto",
+            "foto": "registro"
+          },
+          "texto": "自分の状況を知りたければ、何日か、食べたものを書き留めてみてください。神経質になるためではなく、パターンを見つけるためです。問題は食事ではなく、飲み物や午後のスナックだった、と気づく人はたくさんいます。",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "このガイドは情報提供のためのものです。病気がある方、食べ物との付き合い方に悩んでいる方、妊娠中の方は、栄養の専門家にサポートしてもらうのがいちばんです。",
+          "lamina": "nutriologo"
+        },
+        {
+          "id": "resumen",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "まとめです。ほとんどの時間は、本物の食べ物を食べる。お皿の半分を野菜と果物で埋める。量は、使うエネルギーに合わせる。そして、一週間を計画する。",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "私と同じように実践してみたいなら、MindHaOSのキッチンの部屋には、あなたのレシピ帳、一週間の食事プラン、そして自動でできあがる買い物リストがあります。リンクは概要欄にあります。そこには、このガイドのインタラクティブ版もあるので、ゆっくり見直してみてください。次のガイドでは、また別の質問を取り上げます。それでは、また。",
+    "boton": "キッチンの部屋を開く",
+    "lamina": "app-plan",
+    "anclas": {
+      "recetario": "レシピ帳",
+      "plan": "食事プラン",
+      "compras": "買い物リスト"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "usda-myplate",
+      "texto": "USDA. MyPlate（2011年）。食品ガイドピラミッド（1992年）に代わるもの。",
+      "url": "https://www.myplate.gov/"
+    },
+    {
+      "id": "nom-043",
+      "texto": "メキシコ保健省. NOM-043-SSA2-2012（旧NOM-043-SSA2-2005）：Plato del Bien Comer（よい食事のお皿）。",
+      "url": "https://www.dof.gob.mx/nota_detalle.php?codigo=5285372&fecha=22/01/2013"
+    },
+    {
+      "id": "oms-alimentacion",
+      "texto": "WHO. 健康的な食事 — ファクトシート。",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/healthy-diet"
+    },
+    {
+      "id": "oms-azucar",
+      "texto": "WHO. Guideline: Sugars intake for adults and children (2015).",
+      "url": "https://www.who.int/publications/i/item/9789241549028"
+    },
+    {
+      "id": "oms-sal",
+      "texto": "WHO. ナトリウム摂取量の削減 — ファクトシート。",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/salt-reduction"
+    },
+    {
+      "id": "oms-carbohidratos",
+      "texto": "WHO. Carbohydrate intake for adults and children: WHO guideline (2023).",
+      "url": "https://www.who.int/publications/i/item/9789240073593"
+    },
+    {
+      "id": "harvard-plato",
+      "texto": "Harvard T.H. Chan School of Public Health. The Healthy Eating Plate.",
+      "url": "https://nutritionsource.hsph.harvard.edu/healthy-eating-plate/"
+    },
+    {
+      "id": "mifflin",
+      "texto": "Mifflin M. D., St Jeor S. T. et al. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr (1990).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+    },
+    {
+      "id": "issn-proteina",
+      "texto": "Jäger R. et al. International Society of Sports Nutrition Position Stand: protein and exercise (2017).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28642676/"
+    },
+    {
+      "id": "hall-2019",
+      "texto": "Hall K. D. et al. Ultra-processed diets cause excess calorie intake and weight gain. Cell Metabolism (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31105044/"
+    },
+    {
+      "id": "nova",
+      "texto": "Monteiro C. A. et al. Ultra-processed foods: what they are and how to identify them. Public Health Nutrition (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30744710/"
+    },
+    {
+      "id": "efsa-agua",
+      "texto": "EFSA. Scientific Opinion on Dietary Reference Values for water (2010).",
+      "url": "https://www.efsa.europa.eu/en/efsajournal/pub/1459"
+    },
+    {
+      "id": "lind-1753",
+      "texto": "Lind J. A Treatise of the Scurvy (1753). The James Lind Library.",
+      "url": "https://www.jameslindlibrary.org/lind-j-1753/"
+    }
+  ]
+}

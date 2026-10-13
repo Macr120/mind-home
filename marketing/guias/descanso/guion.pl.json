@@ -1,0 +1,568 @@
+{
+  "idioma": "pl",
+  "tema": "descanso",
+  "plantillaId": "descanso",
+  "pregunta": "Co to znaczy dobrze spać?",
+  "subtitulo": "Co dzieje się w twoim ciele, kiedy śpisz, co nauka odkryła o śnie, ile snu potrzebujesz, jak działa twój wewnętrzny zegar i jak przygotować się do dobrej nocy.",
+  "aviso": "Ten poradnik ma charakter informacyjny i nie zastępuje porady lekarza. Jeśli głośno chrapiesz, przestajesz oddychać we śnie, zasypiasz w ciągu dnia wbrew sobie albo bezsenność trwa tygodniami, skonsultuj się ze specjalistą.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando', 'bosteza', 'estira') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su recámara y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «horario de sueño», «puntuación» y «registro de tus noches»; app2d.mjs mueve la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "Co się dzieje, kiedy śpisz",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Co to znaczy dobrze spać? Spędzamy we śnie prawie jedną trzecią życia. A mimo to sen jest pierwszą rzeczą, którą ograniczamy, kiedy brakuje czasu. Co tak naprawdę dzieje się, kiedy śpisz? W ciągu kilku najbliższych minut zrozumiesz, co robi twój mózg w nocy, policzysz, o której się kłaść, i wyjdziesz stąd z planem, jak spać lepiej już od dziś.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "A tak przy okazji, to mój dom w MindHaOS, a to pokój „Odpoczynek”: tutaj prowadzę harmonogram snu i dziennik moich nocy. Zaczynamy.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część pierwsza. Co się dzieje, kiedy śpisz."
+        },
+        {
+          "id": "ciclos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "hipnograma"
+          },
+          "texto": "Sen to nie wyłączenie się. W ciągu nocy przechodzisz od czterech do sześciu cykli, z których każdy trwa około dziewięćdziesięciu minut, a w każdym przechodzisz przez kilka faz: sen płytki, sen głęboki i sen REM, czyli fazę najbardziej wyrazistych snów.",
+          "lamina": "dormida"
+        },
+        {
+          "id": "profundo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "reparacion",
+              "limpieza"
+            ]
+          },
+          "texto": "Najwięcej snu głębokiego jest na początku nocy. To wtedy ciało wydziela hormon wzrostu i się regeneruje, a mózg, jak pokazują badania na myszach, najintensywniej oczyszcza się z odpadów nagromadzonych w ciągu dnia.",
+          "lamina": [
+            "profundo",
+            "cerebro"
+          ]
+        },
+        {
+          "id": "rem",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "memoria",
+              "emociones"
+            ]
+          },
+          "texto": "Sen REM przypada głównie na godziny poranne. Mózg jest wtedy prawie tak aktywny jak na jawie: porządkuje wiedzę z całego dnia i przetwarza emocje. Dlatego jeśli wstajesz dużo wcześniej, niż potrzebujesz, tracisz właśnie tę część.",
+          "lamina": "suena"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Co nauka odkryła o śnie",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część druga. Co nauka odkryła o śnie."
+        },
+        {
+          "id": "segmentado",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaSueno"
+          },
+          "texto": "Zanim pojawiło się światło elektryczne, wielu ludzi w Europie spało w dwóch turach: pierwszy sen, chwila czuwania w środku nocy i drugi sen. Opisał to historyk Roger Ekirch na podstawie setek dzienników, listów i książek z dawnych wieków.",
+          "lamina": "vela"
+        },
+        {
+          "id": "edison",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1879",
+            "clave": "edison"
+          },
+          "texto": "W 1879 roku Thomas Edison z powodzeniem przetestował swoją żarówkę. Noc wypełniła się światłem, a z biegiem lat zaczęliśmy chodzić spać coraz później.",
+          "lamina": [
+            "edison",
+            "bombilla"
+          ]
+        },
+        {
+          "id": "cueva",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1938",
+            "clave": "cueva"
+          },
+          "texto": "W 1938 roku fizjolog Nathaniel Kleitman spędził trzydzieści dwa dni w Jaskini Mamuciej w Kentucky, żeby żyć w rytmie dwudziestoośmiogodzinnej doby. Jego ciało nie dało się oszukać: wciąż trzymało rytm około dwudziestu czterech godzin.",
+          "lamina": "cueva"
+        },
+        {
+          "id": "rem",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1953",
+            "clave": "rem"
+          },
+          "texto": "W 1953 roku Kleitman i jego student Eugene Aserinsky odkryli sen REM: zauważyli, że w pewnych momentach nocy oczy szybko poruszają się pod powiekami, a ktoś, kto się wtedy budzi, niemal zawsze akurat śnił.",
+          "lamina": "ojos"
+        },
+        {
+          "id": "nobel",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2017",
+            "clave": "nobel"
+          },
+          "texto": "A w 2017 roku Nagrodę Nobla z medycyny otrzymali Jeffrey Hall, Michael Rosbash i Michael Young za odkrycie na muszkach owocowych, jak działają geny wewnętrznego zegara. Do tego jeszcze dojdziemy.",
+          "lamina": "nobel"
+        }
+      ]
+    },
+    {
+      "id": "cuanto",
+      "titulo": "Ile snu potrzebujesz",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część trzecia. Ile snu potrzebujesz."
+        },
+        {
+          "id": "edades",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edades"
+          },
+          "texto": "Według Amerykańskiej Akademii Medycyny Snu dorośli potrzebują co najmniej siedmiu godzin snu każdej nocy. Nastolatki od ośmiu do dziesięciu, a dzieci w wieku szkolnym od dziewięciu do dwunastu. A mimo to co trzeci dorosły śpi krócej niż siedem godzin.",
+          "lamina": "familia"
+        },
+        {
+          "id": "deuda",
+          "escena": "bosteza",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "6 h × 14",
+            "clave": "deuda"
+          },
+          "texto": "Brak snu się kumuluje. W eksperymencie z 2003 roku osoby, które przez dwa tygodnie spały po sześć godzin, miały w końcu tak samo osłabioną uwagę jak ktoś, kto nie spał aż dwie noce z rzędu. A najgorsze, że same czuły się tylko trochę zmęczone.",
+          "meme": "cinco",
+          "lamina": "cansancio"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "calculadoraSueno"
+          },
+          "texto": "Skoro sen przebiega w cyklach, obudzenie się na końcu cyklu jest przyjemniejsze niż w środku snu głębokiego. Wypróbuj tutaj: wybierz, o której wstajesz, a kalkulator podpowie ci, o której się położyć, licząc około piętnastu minut na zaśnięcie.",
+          "lamina": "despertador"
+        },
+        {
+          "id": "senal",
+          "escena": "estira",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinAlarma",
+              "sinCafe",
+              "despierto"
+            ]
+          },
+          "texto": "A najlepszą miarą jesteś ty. Jeśli na urlopie budzisz się bez budzika o tej samej porze co w tygodniu, jeśli nie potrzebujesz kawy, żeby się rozkręcić, a całe popołudnie mija ci bez senności, prawdopodobnie śpisz wystarczająco.",
+          "lamina": "manana"
+        }
+      ]
+    },
+    {
+      "id": "reloj",
+      "titulo": "Twój wewnętrzny zegar",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część czwarta. Twój wewnętrzny zegar."
+        },
+        {
+          "id": "circadiano",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "circadiano"
+          },
+          "texto": "W mózgu masz główny zegar, jądro nadskrzyżowaniowe, które nastawia się przede wszystkim według światła. Kiedy robi się ciemno, wydzielasz melatoninę, hormon, który daje ciału znać, że jest już noc.",
+          "lamina": "atardecer"
+        },
+        {
+          "id": "luz",
+          "escena": "estira",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "☀ 10 min",
+            "clave": "luz"
+          },
+          "texto": "Dlatego poranne światło ma taką moc: kilka minut na słońcu krótko po przebudzeniu nastawia twój zegar i sprawia, że wieczorem senność przychodzi o dobrej porze.",
+          "lamina": "sol"
+        },
+        {
+          "id": "pantallas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2015",
+            "clave": "pantallas"
+          },
+          "texto": "Światło wieczorem działa odwrotnie. W badaniu z 2015 roku czytanie na tablecie przed snem opóźniło wydzielanie melatoniny, ludzie dłużej zasypiali i budzili się mniej rześcy niż po czytaniu papierowej książki.",
+          "meme": "capitulo",
+          "lamina": "pantalla"
+        },
+        {
+          "id": "cronotipo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "alondra",
+              "buho"
+            ]
+          },
+          "texto": "I nie wszyscy mamy zegar nastawiony tak samo: są skowronki, które same wstają wcześnie, i sowy, które najlepiej funkcjonują wieczorem. Twój chronotyp w dużej mierze zależy od genów i wieku; to nie lenistwo.",
+          "lamina": [
+            "alondra",
+            "buho"
+          ]
+        },
+        {
+          "id": "regular",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "60 000",
+            "clave": "regular"
+          },
+          "texto": "Za to masz wpływ na regularność. Badanie z udziałem około sześćdziesięciu tysięcy osób z Wielkiej Brytanii wykazało, że sen o stałych porach wiąże się z niższą śmiertelnością, i to nawet silniej niż liczba przespanych godzin. Zarywanie nocy w weekend i wczesne wstawanie w poniedziałek to jet lag bez wychodzenia z domu.",
+          "lamina": "calendario"
+        }
+      ]
+    },
+    {
+      "id": "noche",
+      "titulo": "Jak przygotować się do dobrej nocy",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część piąta. Jak przygotować się do dobrej nocy."
+        },
+        {
+          "id": "cafeina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cafeinaRestante"
+          },
+          "texto": "Kofeina potrzebuje około pięciu godzin, żeby jej ilość w organizmie spadła o połowę. W jednym badaniu mocna dawka wypita sześć godzin przed snem zabrała ponad godzinę snu. Sprawdź tutaj, ile jej zostanie w twoim organizmie w porze snu.",
+          "meme": "cafe",
+          "lamina": "cafe"
+        },
+        {
+          "id": "alcohol",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "REM ↓",
+            "clave": "alcohol"
+          },
+          "texto": "Alkohol oszukuje: na początku usypia, ale w drugiej połowie nocy sen robi się przerywany, a snu REM jest mniej. Śpisz, ale gorzej odpoczywasz.",
+          "lamina": "copa"
+        },
+        {
+          "id": "cuarto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fresco",
+              "oscuro",
+              "silencio"
+            ]
+          },
+          "texto": "Twoja sypialnia też ma znaczenie: chłodna, około osiemnastu stopni, ciemna i cicha. A łóżko niech służy do spania: jeśli pracujesz w nim albo oglądasz seriale, twój mózg przestaje kojarzyć je ze snem.",
+          "lamina": "recamara"
+        },
+        {
+          "id": "rutina",
+          "escena": "estira",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apaga",
+              "luces",
+              "ritual"
+            ]
+          },
+          "texto": "Przygotuj ostatnią godzinę dnia: odłóż ekrany, przygaś światła i zrób coś, co cię odpręża, zawsze tak samo: poczytaj, weź ciepłą kąpiel albo się porozciągaj. To dla twojego ciała sygnał, że nadchodzi noc.",
+          "lamina": [
+            "leer",
+            "estirar"
+          ]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Ja robię to w swoim pokoju „Odpoczynek” w MindHaOS: harmonogram przypomina mi godzinę wcześniej, żeby odłożyć ekrany, a lampka na szafce nocnej otwiera mi ćwiczenie oddechowe z przewodnikiem, żeby się wyciszyć.",
+          "lamina": "lampara",
+          "enCasa": true
+        },
+        {
+          "id": "ejercicio",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+ 🏃",
+            "clave": "ejercicio"
+          },
+          "texto": "I ruszaj się w ciągu dnia: regularny ruch pomaga szybciej zasnąć i spać głębiej. Tylko najcięższy trening kończ co najmniej dwie godziny przed snem.",
+          "lamina": "correr"
+        }
+      ]
+    },
+    {
+      "id": "insomnio",
+      "titulo": "Kiedy nie możesz zasnąć",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część szósta. Kiedy nie możesz zasnąć."
+        },
+        {
+          "id": "veinte",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "20 min",
+            "clave": "veinte"
+          },
+          "texto": "Jeśli od dłuższego czasu, jakichś dwudziestu minut, nie możesz zasnąć, wstań, przejdź w inne miejsce z przygaszonym światłem i wróć do łóżka, kiedy poczujesz senność. Przewracanie się z boku na bok uczy mózg, że łóżko służy do zamartwiania się.",
+          "lamina": "insomnio"
+        },
+        {
+          "id": "siesta",
+          "escena": "bosteza",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+34 %",
+            "clave": "siesta"
+          },
+          "texto": "Drzemki pomagają, jeśli są krótkie i wczesne: około dwudziestu minut, najpóźniej wczesnym popołudniem. W badaniu NASA z udziałem pilotów drzemka trwająca około dwudziestu sześciu minut poprawiła ich sprawność o trzydzieści cztery procent.",
+          "meme": "siesta",
+          "lamina": "siesta"
+        },
+        {
+          "id": "terapia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "TCC-I",
+            "clave": "terapia"
+          },
+          "texto": "Jeśli bezsenność trwa tygodniami, pierwszym leczeniem nie są tabletki, tylko terapia poznawczo-behawioralna bezsenności, którą jako pierwszy wybór zalecają Amerykańskie Kolegium Lekarzy i Amerykańska Akademia Medycyny Snu.",
+          "lamina": "terapia"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "foto",
+            "foto": "registro"
+          },
+          "texto": "A jeśli chcesz wiedzieć, jak ci idzie, przez parę tygodni zapisuj swoje noce: o której się kładziesz, o której się budzisz i jak się czujesz. Schematy pojawią się same.",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "Pamiętaj, że ten poradnik ma charakter informacyjny. Jeśli głośno chrapiesz i ktoś ci mówi, że przestajesz oddychać, jeśli zasypiasz w ciągu dnia wbrew sobie albo bezsenność nie mija, idź do lekarza: bezdech senny i inne zaburzenia snu da się leczyć.",
+          "lamina": "medico"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Podsumowując: śpij co najmniej siedem godzin, o stałych porach; szukaj światła rano i ciemności wieczorem; uważaj na kofeinę i alkohol i przygotuj ostatnią godzinę dnia.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Jeśli chcesz wprowadzić to w życie tak jak ja, pokój „Odpoczynek” w MindHaOS ma twój harmonogram snu z przypomnieniami i budzikiem, ocenę każdej nocy i dziennik twoich nocy, żeby widzieć swoje schematy. Link jest w opisie, a tam też ten poradnik w wersji interaktywnej, żebyś mógł go spokojnie powtórzyć. W następnym poradniku weźmiemy na warsztat kolejne pytanie. Do zobaczenia.",
+    "boton": "Otwórz pokój „Odpoczynek”",
+    "lamina": "app-plan",
+    "anclas": {
+      "horario": "harmonogram snu",
+      "puntuacion": "ocenę",
+      "registro": "dziennik twoich nocy"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "aasm-adultos",
+      "texto": "Watson N. F. et al. Recommended amount of sleep for a healthy adult: a joint consensus statement of the AASM and SRS. Sleep (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/"
+    },
+    {
+      "id": "aasm-ninos",
+      "texto": "Paruthi S. et al. Recommended amount of sleep for pediatric populations: a consensus statement of the AASM. J Clin Sleep Med (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27250809/"
+    },
+    {
+      "id": "cdc-un-tercio",
+      "texto": "Liu Y. et al. Prevalence of healthy sleep duration among adults — United States, 2014. MMWR (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26890214/"
+    },
+    {
+      "id": "ninds",
+      "texto": "NINDS (NIH). Brain Basics: Understanding Sleep.",
+      "url": "https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-understanding-sleep"
+    },
+    {
+      "id": "xie-2013",
+      "texto": "Xie L. et al. Sleep drives metabolite clearance from the adult brain. Science (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24136970/"
+    },
+    {
+      "id": "ekirch-2001",
+      "texto": "Ekirch A. R. Sleep We Have Lost: Pre-industrial Slumber in the British Isles. The American Historical Review (2001).",
+      "url": "https://doi.org/10.1086/ahr/106.2.343"
+    },
+    {
+      "id": "aserinsky-1953",
+      "texto": "Aserinsky E., Kleitman N. Regularly occurring periods of eye motility, and concomitant phenomena, during sleep. Science (1953).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13089671/"
+    },
+    {
+      "id": "nobel-2017",
+      "texto": "The Nobel Prize in Physiology or Medicine 2017: Jeffrey C. Hall, Michael Rosbash i Michael W. Young.",
+      "url": "https://www.nobelprize.org/prizes/medicine/2017/summary/"
+    },
+    {
+      "id": "van-dongen-2003",
+      "texto": "Van Dongen H. P. et al. The cumulative cost of additional wakefulness. Sleep (2003).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12683469/"
+    },
+    {
+      "id": "chang-2015",
+      "texto": "Chang A.-M. et al. Evening use of light-emitting eReaders negatively affects sleep, circadian timing, and next-morning alertness. PNAS (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25535358/"
+    },
+    {
+      "id": "windred-2024",
+      "texto": "Windred D. P. et al. Sleep regularity is a stronger predictor of mortality risk than sleep duration. Sleep (2024).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37738616/"
+    },
+    {
+      "id": "drake-2013",
+      "texto": "Drake C. et al. Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed. J Clin Sleep Med (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24235903/"
+    },
+    {
+      "id": "ebrahim-2013",
+      "texto": "Ebrahim I. O. et al. Alcohol and sleep I: effects on normal sleep. Alcohol Clin Exp Res (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23347102/"
+    },
+    {
+      "id": "nasa-1995",
+      "texto": "Rosekind M. R. et al. Crew factors in flight operations IX: Effects of planned cockpit rest on crew performance and alertness in long-haul operations. NASA (1994).",
+      "url": "https://ntrs.nasa.gov/citations/19950006379"
+    },
+    {
+      "id": "acp-2016",
+      "texto": "Qaseem A. et al. Management of chronic insomnia disorder in adults: a clinical practice guideline from the American College of Physicians. Ann Intern Med (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27136449/"
+    },
+    {
+      "id": "aasm-2021",
+      "texto": "Edinger J. D. et al. Behavioral and psychological treatments for chronic insomnia disorder in adults: an AASM clinical practice guideline. J Clin Sleep Med (2021).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33164742/"
+    }
+  ]
+}

@@ -14,6 +14,7 @@ import { esObjetoLibreria } from '../core/state/disenoStore'
 import { nombreAnimalEn } from '../core/house/nombresAnimales'
 import { idiomaActual, localeActual, tGlobal } from '../core/i18n/useT'
 import { textoDemo, type ClaveDemo } from './textosDemo'
+import { prefijo } from '../../web/i18n/idiomas.mjs'
 
 /** Tablas que definen la casa (hidratan los stores de casa + infra viva). */
 const TABLAS_CASA = [
@@ -157,6 +158,25 @@ export function localizarSnapshot(snap: SnapshotCasa): void {
     if (o.nombre === 'Coche viejo') o.nombre = tx('casa.coche')
     if (o.texto === 'CASA DE PEP@') o.texto = tx('casa.letrero').toLocaleUpperCase(localeActual())
     if (o.texto === 'FERIA') o.texto = tx('casa.feria')
+    // La entrada a una guía web (el pizarrón del despacho): su página en el idioma
+    // activo y la pregunta escrita en él (en español en el JSON: es su `nombre`).
+    const ob = o as Partial<ObjetoCuarto>
+    const guia = ob.enlaceUrl ? /\/guias\/([\w-]+)/.exec(ob.enlaceUrl)?.[1] : undefined
+    if (guia && ob.nombre) {
+      const titulo = tGlobal(`guia.${guia}.titulo`, ob.nombre)
+      for (const p of ob.piezas ?? []) if (p.texto === ob.nombre) p.texto = titulo
+      ob.nombre = titulo
+      ob.enlaceUrl = `https://mindhaos.com${prefijo(idioma)}/guias/${guia}?utm_source=app&utm_medium=demo`
+    }
+    if (ob.enlaceApp?.plantillaId === 'despacho' && ob.enlaceApp.seccion === 'ahorroInversion') {
+      ob.enlaceApp.titulo = tGlobal('despacho.tab.ahorroInversion', ob.enlaceApp.titulo)
+    }
+    if (ob.enlaceApp?.plantillaId === 'idiomas' && ob.enlaceApp.seccion === 'repaso') {
+      ob.enlaceApp.titulo = tGlobal('idiomas.tab.repaso', ob.enlaceApp.titulo)
+    }
+    if (ob.enlaceApp?.plantillaId === 'arte' && ob.enlaceApp.seccion === 'galeria') {
+      ob.enlaceApp.titulo = tGlobal('room.arte.cmd.galeria', ob.enlaceApp.titulo)
+    }
   }
   for (const a of filas('asistentes')) {
     if (a.asistenteId !== 'custom-laika') continue

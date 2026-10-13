@@ -19,6 +19,7 @@ import { PisoCuadrantes3D } from './PisoCuadrantes3D'
 import { baseDe as baseDeTema, getTema, mezclar } from './temas'
 import { useBlobUrlMap } from './useBlobUrlMap'
 import { useEscenarioVisible, useLimitesCasa } from './escenarios/limitesCasa'
+import { useMapaVisible } from './mapaVisible'
 
 /** Color de celda exterior sin personalizar (visible, no negro). */
 export function colorExteriorDefecto(temaGlobal: ReturnType<typeof useDiseño.getState>['temaGlobal']) {
@@ -79,6 +80,7 @@ export function PisosExterior3D() {
 
   // Sub-celdas excavadas por sótanos: en planta baja no se dibuja loseta ahí (hueco).
   const ocupadoPorNivel = useLayout((s) => s.ocupadoPorNivel)
+  const mv = useMapaVisible()
   const subsSotano = useMemo(() => {
     const s = new Set<string>()
     for (const [lvl, occ] of ocupadoPorNivel) {
@@ -115,6 +117,7 @@ export function PisosExterior3D() {
       const lookup = (c: number, r: number) => pisosMap.get(`${nivel},${c},${r}`)
       for (let col = 0; col < gridCols; col++) {
         for (let row = 0; row < gridRows; row++) {
+          if (mv?.oculta(col, row)) continue
           const baseRec = lookup(col, row)
           const { hayAlguno, recs } = cuadrantesDeCelda(col, row, lookup)
           const baseSinPiso = esSinPiso((baseRec?.pisoTipo as string | null | undefined) ?? null)
@@ -144,7 +147,7 @@ export function PisosExterior3D() {
       }
     }
     return out
-  }, [nivelesActivos, gridCols, gridRows, pisosMap, subsSotano])
+  }, [nivelesActivos, gridCols, gridRows, pisosMap, subsSotano, mv])
 
   const defecto = colorExteriorDefecto(temaGlobal)
   const escenario = useEscenarioVisible()

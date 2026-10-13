@@ -1,0 +1,416 @@
+{
+  "idioma": "es",
+  "tema": "descanso",
+  "plantillaId": "descanso",
+  "pregunta": "¿Qué es dormir bien?",
+  "subtitulo": "Qué pasa en tu cuerpo mientras duermes, lo que la ciencia descubrió del sueño, cuánto necesitas, cómo funciona tu reloj interno y cómo preparar una buena noche.",
+  "aviso": "Esta guía es informativa y no sustituye el consejo de un médico. Si roncas fuerte, dejas de respirar mientras duermes, te duermes de día sin querer o el insomnio dura semanas, consulta a un profesional de la salud.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando', 'bosteza', 'estira') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su recámara y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «horario de sueño», «puntuación» y «registro de tus noches»; app2d.mjs mueve la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "Qué pasa mientras duermes",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": { "tipo": "titulo" },
+          "texto": "¿Qué es dormir bien? Pasamos casi un tercio de la vida durmiendo. Y aun así, es lo primero que recortamos cuando falta tiempo. ¿Realmente qué pasa mientras duermes? En los próximos minutos vas a entender qué hace tu cerebro de noche, vas a calcular a qué hora acostarte y vas a salir con un plan para dormir mejor desde hoy.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "texto": "Por cierto, esta es mi casa en MindHaOS, y en este cuarto de Descanso llevo mi horario de sueño y el registro de mis noches. Empecemos.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte uno. Qué pasa mientras duermes."
+        },
+        {
+          "id": "ciclos",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "hipnograma" },
+          "texto": "Dormir no es apagarse. Durante la noche pasas por ciclos de unos noventa minutos, de cuatro a seis por noche, y en cada uno recorres varias fases: sueño ligero, sueño profundo y sueño REM, la fase de los sueños más vívidos.",
+          "lamina": "dormida"
+        },
+        {
+          "id": "profundo",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["reparacion", "limpieza"] },
+          "texto": "El sueño profundo abunda al principio de la noche. Es cuando el cuerpo libera hormona del crecimiento y se repara, y, según estudios en ratones, cuando el cerebro limpia con más fuerza los desechos que acumuló durante el día.",
+          "lamina": ["profundo", "cerebro"]
+        },
+        {
+          "id": "rem",
+          "escena": "pensando",
+          "visual": { "tipo": "lista", "claves": ["memoria", "emociones"] },
+          "texto": "El sueño REM se concentra hacia la mañana. Ahí el cerebro está casi tan activo como despierto: ordena lo que aprendiste y procesa las emociones del día. Por eso, si te levantas mucho antes de lo que necesitas, pierdes justo esa parte.",
+          "lamina": "suena"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Lo que la ciencia descubrió del sueño",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte dos. Lo que la ciencia descubrió del sueño."
+        },
+        {
+          "id": "segmentado",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "historiaSueno" },
+          "texto": "Antes de la luz eléctrica, mucha gente en Europa dormía en dos tramos: un primer sueño, un rato despierta a media noche y un segundo sueño. Lo documentó el historiador Roger Ekirch en cientos de diarios, cartas y libros de siglos pasados.",
+          "lamina": "vela"
+        },
+        {
+          "id": "edison",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "1879", "clave": "edison" },
+          "texto": "En 1879, Thomas Edison probó con éxito su bombilla incandescente. La noche se llenó de luz, y con los años nos fuimos a dormir cada vez más tarde.",
+          "lamina": ["edison", "bombilla"]
+        },
+        {
+          "id": "cueva",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "1938", "clave": "cueva" },
+          "texto": "En 1938, el fisiólogo Nathaniel Kleitman se metió treinta y dos días en la Cueva del Mamut, en Kentucky, para vivir días de veintiocho horas. Su cuerpo no se dejó engañar: seguía marcando un ritmo de unas veinticuatro.",
+          "lamina": "cueva"
+        },
+        {
+          "id": "rem",
+          "escena": "senala",
+          "visual": { "tipo": "dato", "cifra": "1953", "clave": "rem" },
+          "texto": "En 1953, Kleitman y su alumno Eugene Aserinsky descubrieron el sueño REM: vieron que, en ciertos momentos de la noche, los ojos se mueven rápido bajo los párpados, y que quien despierta entonces casi siempre estaba soñando.",
+          "lamina": "ojos"
+        },
+        {
+          "id": "nobel",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "2017", "clave": "nobel" },
+          "texto": "Y en 2017, el Premio Nobel de Medicina fue para Jeffrey Hall, Michael Rosbash y Michael Young, por descubrir en moscas de la fruta cómo funcionan los genes del reloj interno. Ahí vamos a llegar.",
+          "lamina": "nobel"
+        }
+      ]
+    },
+    {
+      "id": "cuanto",
+      "titulo": "Cuánto necesitas dormir",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte tres. Cuánto necesitas dormir."
+        },
+        {
+          "id": "edades",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "edades" },
+          "texto": "Los adultos necesitan siete horas o más cada noche, según la Academia Estadounidense de Medicina del Sueño. Los adolescentes, de ocho a diez, y los niños de primaria, de nueve a doce. Y aun así, uno de cada tres adultos duerme menos de siete.",
+          "lamina": "familia"
+        },
+        {
+          "id": "deuda",
+          "escena": "bosteza",
+          "visual": { "tipo": "dato", "cifra": "6 h × 14", "clave": "deuda" },
+          "texto": "La falta de sueño se acumula. En un experimento de 2003, quienes durmieron seis horas durante dos semanas acabaron con la atención tan dañada como alguien que pasó hasta dos noches sin dormir. Lo peor: ellos se sentían solo un poco cansados.",
+          "meme": "cinco",
+          "lamina": "cansancio"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "calculadoraSueno" },
+          "texto": "Como el sueño va en ciclos, despertar al final de uno se siente mejor que a la mitad del sueño profundo. Prueba aquí: elige a qué hora te levantas y la calculadora te dice a qué horas acostarte, contando unos quince minutos para quedarte dormido.",
+          "lamina": "despertador"
+        },
+        {
+          "id": "senal",
+          "escena": "estira",
+          "visual": { "tipo": "pasos", "claves": ["sinAlarma", "sinCafe", "despierto"] },
+          "texto": "Y la mejor medida eres tú. Si en vacaciones despiertas sin alarma a la misma hora que entre semana, si no necesitas café para arrancar y aguantas despierto toda la tarde, probablemente duermes lo suficiente.",
+          "lamina": "manana"
+        }
+      ]
+    },
+    {
+      "id": "reloj",
+      "titulo": "Tu reloj interno",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte cuatro. Tu reloj interno."
+        },
+        {
+          "id": "circadiano",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "circadiano" },
+          "texto": "Tienes un reloj maestro en el cerebro, el núcleo supraquiasmático, que se pone en hora sobre todo con la luz. Cuando oscurece, liberas melatonina, la hormona que le avisa a tu cuerpo que ya es de noche.",
+          "lamina": "atardecer"
+        },
+        {
+          "id": "luz",
+          "escena": "estira",
+          "visual": { "tipo": "dato", "cifra": "☀ 10 min", "clave": "luz" },
+          "texto": "Por eso la luz de la mañana es tan poderosa: salir unos minutos al sol poco después de despertar pone en hora tu reloj y te ayuda a tener sueño a buena hora por la noche.",
+          "lamina": "sol"
+        },
+        {
+          "id": "pantallas",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "2015", "clave": "pantallas" },
+          "texto": "La luz de noche hace lo contrario. En un estudio de 2015, leer en una tableta antes de dormir retrasó la melatonina, hizo que la gente tardara más en dormirse y que despertara menos alerta que leyendo un libro de papel.",
+          "meme": "capitulo",
+          "lamina": "pantalla"
+        },
+        {
+          "id": "cronotipo",
+          "escena": "pensando",
+          "visual": { "tipo": "lista", "claves": ["alondra", "buho"] },
+          "texto": "Y no todos tenemos el reloj a la misma hora: hay alondras, que madrugan solas, y búhos, que rinden más de noche. Tu cronotipo depende en buena parte de tus genes y de tu edad; no es flojera.",
+          "lamina": ["alondra", "buho"]
+        },
+        {
+          "id": "regular",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "60 000", "clave": "regular" },
+          "texto": "Lo que sí puedes controlar es la regularidad. Un estudio con unas sesenta mil personas del Reino Unido encontró que dormir a horas constantes se asocia con menor mortalidad, incluso más que el número de horas. Desvelarte el fin de semana y madrugar el lunes es un jet lag sin salir de casa.",
+          "lamina": "calendario"
+        }
+      ]
+    },
+    {
+      "id": "noche",
+      "titulo": "Cómo preparar una buena noche",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte cinco. Cómo preparar una buena noche."
+        },
+        {
+          "id": "cafeina",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "cafeinaRestante" },
+          "texto": "La cafeína tarda unas cinco horas en reducirse a la mitad. En un estudio, una dosis fuerte tomada seis horas antes de acostarse quitó más de una hora de sueño. Mira aquí cuánta te queda en el cuerpo a la hora de dormir.",
+          "meme": "cafe",
+          "lamina": "cafe"
+        },
+        {
+          "id": "alcohol",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "REM ↓", "clave": "alcohol" },
+          "texto": "El alcohol engaña: al principio te da sueño, pero fragmenta la segunda mitad de la noche y reduce el sueño REM. Duermes, pero descansas peor.",
+          "lamina": "copa"
+        },
+        {
+          "id": "cuarto",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["fresco", "oscuro", "silencio"] },
+          "texto": "Tu cuarto también cuenta: fresco, alrededor de dieciocho grados, oscuro y en silencio. Y la cama, para dormir: si trabajas o ves series en ella, tu cerebro deja de asociarla con el sueño.",
+          "lamina": "recamara"
+        },
+        {
+          "id": "rutina",
+          "escena": "estira",
+          "visual": { "tipo": "pasos", "claves": ["apaga", "luces", "ritual"] },
+          "texto": "Prepara la última hora del día: deja las pantallas, baja las luces y haz algo que te relaje, siempre igual, como leer, darte un baño tibio o estirarte. Es la señal para tu cuerpo de que ya viene la noche.",
+          "lamina": ["leer", "estirar"]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "texto": "Yo lo hago en mi cuarto de Descanso de MindHaOS: mi horario me avisa una hora antes para dejar las pantallas, y desde la lámpara del buró abro una respiración guiada para relajarme.",
+          "lamina": "lampara",
+          "enCasa": true
+        },
+        {
+          "id": "ejercicio",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "+ 🏃", "clave": "ejercicio" },
+          "texto": "Y muévete de día: el ejercicio regular te ayuda a dormirte antes y más profundo. Solo deja el entrenamiento más intenso para un par de horas antes de acostarte, o antes.",
+          "lamina": "correr"
+        }
+      ]
+    },
+    {
+      "id": "insomnio",
+      "titulo": "Cuando no puedes dormir",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte seis. Cuando no puedes dormir."
+        },
+        {
+          "id": "veinte",
+          "escena": "pensando",
+          "visual": { "tipo": "dato", "cifra": "20 min", "clave": "veinte" },
+          "texto": "Si llevas un buen rato sin poder dormir, unos veinte minutos, levántate, ve a otro lugar con luz tenue y vuelve a la cama cuando tengas sueño. Dar vueltas en la cama le enseña a tu cerebro que la cama es para preocuparse.",
+          "lamina": "insomnio"
+        },
+        {
+          "id": "siesta",
+          "escena": "bosteza",
+          "visual": { "tipo": "dato", "cifra": "+34 %", "clave": "siesta" },
+          "texto": "Las siestas ayudan si son cortas y temprano: unos veinte minutos, antes de media tarde. En un estudio de la NASA con pilotos, una siesta de unos veintiséis minutos mejoró su desempeño un treinta y cuatro por ciento.",
+          "meme": "siesta",
+          "lamina": "siesta"
+        },
+        {
+          "id": "terapia",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "TCC-I", "clave": "terapia" },
+          "texto": "Si el insomnio dura semanas, el primer tratamiento no son las pastillas: es la terapia cognitivo-conductual para el insomnio, la que recomiendan como primera opción el Colegio Estadounidense de Médicos y la Academia de Medicina del Sueño.",
+          "lamina": "terapia"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": { "tipo": "foto", "foto": "registro" },
+          "texto": "Y si quieres saber cómo vas, apunta tus noches un par de semanas: a qué hora te acostaste, a qué hora despertaste y cómo te sentiste. Los patrones aparecen solos.",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": { "tipo": "aviso" },
+          "texto": "Recuerda que esta guía es informativa. Si roncas fuerte y te dicen que dejas de respirar, si te duermes de día sin querer o si el insomnio no se va, consulta a un médico: la apnea del sueño y los demás trastornos tienen tratamiento.",
+          "lamina": "medico"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": { "tipo": "lista", "claves": ["resumen1", "resumen2", "resumen3", "resumen4"] },
+          "texto": "En resumen: duerme siete horas o más, a horas constantes; busca luz por la mañana y oscuridad por la noche; cuida la cafeína y el alcohol, y prepara la última hora del día.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Si quieres llevarlo a la práctica como lo hago yo, el cuarto de Descanso de MindHaOS tiene tu horario de sueño con avisos y despertador, la puntuación de cada noche y el registro de tus noches, para ver tus patrones. El enlace está en la descripción, y ahí también está esta guía en versión interactiva, para que la repases con calma. En la próxima guía seguimos con otra pregunta. Nos vemos.",
+    "boton": "Abrir el cuarto de Descanso",
+    "lamina": "app-plan",
+    "anclas": {
+      "horario": "horario de sueño",
+      "puntuacion": "puntuación",
+      "registro": "registro de tus noches"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "aasm-adultos",
+      "texto": "Watson N. F. et al. Recommended amount of sleep for a healthy adult: a joint consensus statement of the AASM and SRS. Sleep (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/"
+    },
+    {
+      "id": "aasm-ninos",
+      "texto": "Paruthi S. et al. Recommended amount of sleep for pediatric populations: a consensus statement of the AASM. J Clin Sleep Med (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27250809/"
+    },
+    {
+      "id": "cdc-un-tercio",
+      "texto": "Liu Y. et al. Prevalence of healthy sleep duration among adults — United States, 2014. MMWR (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26890214/"
+    },
+    {
+      "id": "ninds",
+      "texto": "NINDS (NIH). Brain Basics: Understanding Sleep.",
+      "url": "https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-understanding-sleep"
+    },
+    {
+      "id": "xie-2013",
+      "texto": "Xie L. et al. Sleep drives metabolite clearance from the adult brain. Science (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24136970/"
+    },
+    {
+      "id": "ekirch-2001",
+      "texto": "Ekirch A. R. Sleep We Have Lost: Pre-industrial Slumber in the British Isles. The American Historical Review (2001).",
+      "url": "https://doi.org/10.1086/ahr/106.2.343"
+    },
+    {
+      "id": "aserinsky-1953",
+      "texto": "Aserinsky E., Kleitman N. Regularly occurring periods of eye motility, and concomitant phenomena, during sleep. Science (1953).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13089671/"
+    },
+    {
+      "id": "nobel-2017",
+      "texto": "The Nobel Prize in Physiology or Medicine 2017: Jeffrey C. Hall, Michael Rosbash y Michael W. Young.",
+      "url": "https://www.nobelprize.org/prizes/medicine/2017/summary/"
+    },
+    {
+      "id": "van-dongen-2003",
+      "texto": "Van Dongen H. P. et al. The cumulative cost of additional wakefulness. Sleep (2003).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12683469/"
+    },
+    {
+      "id": "chang-2015",
+      "texto": "Chang A.-M. et al. Evening use of light-emitting eReaders negatively affects sleep, circadian timing, and next-morning alertness. PNAS (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25535358/"
+    },
+    {
+      "id": "windred-2024",
+      "texto": "Windred D. P. et al. Sleep regularity is a stronger predictor of mortality risk than sleep duration. Sleep (2024).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37738616/"
+    },
+    {
+      "id": "drake-2013",
+      "texto": "Drake C. et al. Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed. J Clin Sleep Med (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24235903/"
+    },
+    {
+      "id": "ebrahim-2013",
+      "texto": "Ebrahim I. O. et al. Alcohol and sleep I: effects on normal sleep. Alcohol Clin Exp Res (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23347102/"
+    },
+    {
+      "id": "nasa-1995",
+      "texto": "Rosekind M. R. et al. Crew factors in flight operations IX: Effects of planned cockpit rest on crew performance and alertness in long-haul operations. NASA (1994).",
+      "url": "https://ntrs.nasa.gov/citations/19950006379"
+    },
+    {
+      "id": "acp-2016",
+      "texto": "Qaseem A. et al. Management of chronic insomnia disorder in adults: a clinical practice guideline from the American College of Physicians. Ann Intern Med (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27136449/"
+    },
+    {
+      "id": "aasm-2021",
+      "texto": "Edinger J. D. et al. Behavioral and psychological treatments for chronic insomnia disorder in adults: an AASM clinical practice guideline. J Clin Sleep Med (2021).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33164742/"
+    }
+  ]
+}

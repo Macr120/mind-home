@@ -2,6 +2,7 @@
 // audio (la voz de Pep@ y los efectos salen de la propia pestaña). Una toma por
 // parte, más el cierre:
 //   marketing/guias/<tema>/salida/<id>/parte-N.mp4 (N = 1…partes+1; la última es el cierre)
+//   marketing/guias/<tema>/salida/<id>/parte-N.json  si la parte salta una línea `enCasa`: dónde (montar.mjs inserta ahí su toma de la casa)
 //
 //   npm run dev:web                                    (en otra terminal)
 //   node marketing/guias/grabar.mjs ejercicio          todas las partes, español
@@ -9,9 +10,9 @@
 //   GUIAS_URL=http://localhost:53390 node marketing/guias/grabar.mjs ejercicio
 //
 // El piloto (Chrome headless, captura, recorte) vive en cdp.mjs.
-import { mkdirSync, readdirSync, readFileSync, unlinkSync } from 'node:fs'
+import { existsSync, mkdirSync, readdirSync, readFileSync, unlinkSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
-import { RAIZ, codigoCaptura, conPagina, dormir, esperarDescarga, evaluar, fijarViewport, recortar } from './cdp.mjs'
+import { DESDE, RAIZ, codigoCaptura, conPagina, dormir, esperarDescarga, evaluar, fijarViewport, recortar } from './cdp.mjs'
 
 const BASE = (process.env.GUIAS_URL || 'http://localhost:5174').replace(/\/$/, '')
 const args = process.argv.slice(2)
@@ -26,6 +27,9 @@ mkdirSync(SALIDA, { recursive: true })
 
 /** La página arranca la narración de la parte y se espera a que calle su última línea. */
 const NARRAR = `
+  window.__cortes = []
+  window.__lineas = []
+  window.__t0 = performance.now()
   window.__guiaEmpezar()
   for (let i = 0; i < 40 && !window.__guia?.sonando; i++) await dormir(250)
   while (window.__guia?.sonando) await dormir(250)
@@ -45,6 +49,12 @@ await conPagina(CRUDO, async (c) => {
     const destino = path.join(SALIDA, `parte-${n}.mp4`)
     const vp = await recortar(crudo, destino)
     unlinkSync(crudo)
+    // La acción arranca 1,5 s después de empezar a grabar y el recorte quita los primeros DESDE s.
+    const m = await evaluar(c, '({ t0: window.__t0, cortes: window.__cortes, lineas: window.__lineas ?? [] })')
+    const en = (t) => Math.round(((t - m.t0) / 1000 + 1.5 - DESDE) * 1000) / 1000
+    // Dónde se saltó cada línea `enCasa` (montar.mjs mete ahí su toma de la casa) y dónde
+    // empieza cada línea (la destacada de la parte abre su video suelto).
+    writeFileSync(path.join(SALIDA, `parte-${n}.json`), JSON.stringify({ cortes: m.cortes.map((x) => ({ clave: x.clave, en: en(x.t) })), lineas: m.lineas.map((x) => ({ clave: x.clave, en: en(x.t) })) }, null, 1) + '\n')
     console.log(`✓ parte ${n}/${TOTAL}: ${Math.round((Date.now() - t0) / 1000)} s · viewport ${vp.w}×${vp.h} · audio ${r?.audio ? 'sí' : 'NO'} → ${path.relative(process.cwd(), destino)}`)
   }
 })

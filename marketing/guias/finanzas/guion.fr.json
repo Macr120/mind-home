@@ -1,0 +1,608 @@
+{
+  "idioma": "fr",
+  "tema": "finanzas",
+  "plantillaId": "despacho",
+  "numero": 4,
+  "nombre": "Finances",
+  "pregunta": "Qu'est-ce que l'argent ?",
+  "corta": "C'est quoi l'argent ?",
+  "subtitulo": "Ce qu'est l'argent et comment il est né, où part le tien, comment te constituer un matelas et sortir des dettes, comment fonctionnent les intérêts composés et un plan pour commencer dès aujourd'hui.",
+  "aviso": "Ce guide est informatif et ne constitue pas un conseil financier, fiscal ni en investissement : il ne recommande aucun produit ni instrument. Avant de souscrire un crédit ou un placement, compare les conditions et, si besoin, consulte un professionnel agréé.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título) para enganchar en los primeros segundos. No puede ser enCasa.",
+    "corta": "La pregunta en 3-4 palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su despacho y las de en medio sobre las tomas de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «flujo de dinero», «metas de ahorro» y «patrimonio»; app2d.mjs mueve la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "dinero",
+      "titulo": "À quoi sert l'argent",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Qu'est-ce que l'argent ? On s'en sert tous, tous les jours. Et pourtant, seul un adulte sur trois dans le monde comprend des notions de base comme l'inflation ou les intérêts composés. Comment l'argent fonctionne-t-il vraiment ? Dans les prochaines minutes, tu vas voir où part le tien, tu vas calculer combien il grossit quand tu le fais travailler et tu repartiras avec un plan pour mieux le gérer dès aujourd'hui.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Au fait, voici ma maison dans MindHaOS, et c'est dans cette pièce Finances que je suis mes dépenses, mes revenus et mes objectifs d'épargne. C'est parti.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Première partie. À quoi sert l'argent."
+        },
+        {
+          "id": "funciones",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "funciones"
+          },
+          "texto": "L'argent est un accord : un billet ou un chiffre sur un écran a de la valeur parce que nous acceptons tous qu'il en a. Il sert à échanger, à mesurer ce que valent les choses et à mettre de la valeur de côté pour l'avenir.",
+          "lamina": [
+            "billetes",
+            "pago"
+          ]
+        },
+        {
+          "id": "inflacion",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "inflacion"
+          },
+          "texto": "Mais cette dernière fonction a un ennemi : l'inflation. Si les prix augmentent de trois pour cent par an, ils doublent en vingt-quatre ans environ, et l'argent que tu as gardé sous ton matelas n'achète plus que la moitié.",
+          "lamina": [
+            "supermercado",
+            "precios"
+          ]
+        },
+        {
+          "id": "ganar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "3–5 años",
+            "clave": "loteria"
+          },
+          "texto": "Et gagner plus ne suffit pas. En Floride, des chercheurs ont suivi des gagnants de la loterie : cinq ans plus tard, ceux qui avaient gagné de gros lots faisaient faillite presque autant que ceux qui en avaient gagné de petits. Le gain n'a fait que retarder le problème.",
+          "lamina": "loteria",
+          "enCasa": true
+        },
+        {
+          "id": "manejar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "flujo"
+          },
+          "texto": "Bien gérer ton argent ne dépend pas de combien tu gagnes, mais d'une soustraction : ce qui rentre, moins ce qui sort, c'est ce qui te reste pour construire. Ce guide est là pour que cette soustraction tourne en ta faveur.",
+          "lamina": [
+            "cuentas",
+            "ahorro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Une brève histoire de l'argent",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deuxième partie. Une brève histoire de l'argent."
+        },
+        {
+          "id": "hammurabi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaDinero"
+          },
+          "texto": "Il y a près de quatre mille ans, le Code de Hammurabi, à Babylone, limitait déjà les intérêts : au maximum vingt pour cent par an sur les prêts d'argent et un tiers sur ceux d'orge. Les dettes sont presque aussi anciennes que l'écriture.",
+          "lamina": [
+            "hammurabi",
+            "tablilla"
+          ]
+        },
+        {
+          "id": "lidia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 600 a. C.",
+            "clave": "lidia"
+          },
+          "texto": "Vers l'an six cents avant notre ère, dans le royaume de Lydie, dans l'actuelle Turquie, sont apparues les premières pièces de monnaie : des pièces d'électrum, un mélange naturel d'or et d'argent, avec un sceau qui garantissait leur poids.",
+          "lamina": [
+            "lidia",
+            "monedas"
+          ]
+        },
+        {
+          "id": "jiaozi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1024",
+            "clave": "jiaozi"
+          },
+          "texto": "En 1024, dans la Chine de la dynastie Song, le gouvernement a commencé à émettre le jiaozi, le premier papier-monnaie officiel au monde : on y utilisait des pièces en fer, et les transporter pour faire du commerce était impossible.",
+          "lamina": "jiaozi"
+        },
+        {
+          "id": "ponzi",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1920",
+            "clave": "ponzi"
+          },
+          "texto": "En 1920, à Boston, Charles Ponzi promettait cinquante pour cent de gain en quarante-cinq jours. Il payait les premiers avec l'argent des nouveaux, jusqu'à ce que tout s'effondre. Son nom est resté pour toujours attaché à ce type de fraude.",
+          "meme": "garantizado",
+          "lamina": "ponzi"
+        },
+        {
+          "id": "nixon",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1971",
+            "clave": "nixon"
+          },
+          "texto": "Et en 1971, le président Richard Nixon a coupé le dernier lien entre le dollar et l'or. Depuis, la monnaie de presque tous les pays vaut par la confiance qu'on accorde à celui qui l'émet, pas par un métal gardé dans un coffre.",
+          "lamina": [
+            "nixon",
+            "oro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "presupuesto",
+      "titulo": "Où part ton argent",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Troisième partie. Où part ton argent."
+        },
+        {
+          "id": "registra",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "30 días",
+            "clave": "registra"
+          },
+          "texto": "La première étape, c'est de savoir où il part. Pendant un mois, note tout ce que tu dépenses, jusqu'au café du coin. Presque tout le monde découvre des dépenses qu'il ne savait même pas avoir.",
+          "lamina": "recibos",
+          "enCasa": true
+        },
+        {
+          "id": "hormiga",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gastoHormiga"
+          },
+          "texto": "Ces petites dépenses, les dépenses fantômes, s'additionnent plus vite que tu ne le crois. Essaie ici : choisis une dépense de tous les jours et regarde combien elle t'emporte en un an, et en dix.",
+          "meme": "hormiga",
+          "lamina": [
+            "cafe",
+            "antojo"
+          ]
+        },
+        {
+          "id": "reparto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "regla503020"
+          },
+          "texto": "Une façon simple de répartir ce que tu gagnes, c'est la règle cinquante, trente, vingt, popularisée par Elizabeth Warren : la moitié pour l'essentiel, trente pour cent pour tes envies et vingt pour épargner ou rembourser tes dettes. Écris ici ton revenu et regarde ce que ça donne.",
+          "lamina": [
+            "renta",
+            "gustos",
+            "alcancia"
+          ]
+        },
+        {
+          "id": "primero",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ahorraMas"
+          },
+          "texto": "Et l'astuce qui marche le mieux, c'est de te payer en premier : mettre ton épargne de côté le jour de la paie, pas ce qui reste à la fin du mois. Avec le programme Save More Tomorrow, « Épargnez plus demain », de Richard Thaler et Shlomo Benartzi, les salariés sont passés d'une épargne de trois et demi pour cent de leur salaire à presque quatorze pour cent.",
+          "meme": "quincena",
+          "lamina": [
+            "sueldo",
+            "ahorrar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deudas",
+      "titulo": "Ton matelas et tes dettes",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Quatrième partie. Ton matelas et tes dettes."
+        },
+        {
+          "id": "emergencia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "63 %",
+            "clave": "emergencia"
+          },
+          "texto": "Avant d'investir, constitue-toi un matelas. Aux États-Unis, seuls soixante-trois pour cent des adultes pourraient couvrir une dépense imprévue de quatre cents dollars avec leur argent liquide ou leur épargne. Une épargne de précaution t'évite de t'endetter quand quelque chose tombe en panne ou que tu perds ton travail.",
+          "lamina": [
+            "averia",
+            "imprevisto"
+          ]
+        },
+        {
+          "id": "meses",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fondoEmergencia"
+          },
+          "texto": "Le plus courant, c'est de mettre de côté trois à six mois de tes dépenses essentielles, petit à petit, dans un endroit sûr d'où tu peux le retirer vite. Calcule ici combien serait le tien et en combien de temps tu le réunis.",
+          "lamina": "frasco"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Moi, je constitue le mien dans ma pièce Finances de MindHaOS : le jour de la paie, je mets mon épargne de côté, et depuis la tirelire du bureau je vois où j'en suis pour chaque objectif.",
+          "lamina": "alcancia",
+          "enCasa": true
+        },
+        {
+          "id": "tarjeta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "> 20 %",
+            "clave": "tarjeta"
+          },
+          "texto": "Les dettes de carte de crédit font partie des plus chères : aux États-Unis, leur taux d'intérêt moyen a dépassé vingt pour cent par an en 2024. Ce que tu achètes à crédit avec des intérêts peut te coûter bien plus cher.",
+          "lamina": [
+            "tarjeta",
+            "compras"
+          ]
+        },
+        {
+          "id": "minimo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "deudaTarjeta"
+          },
+          "texto": "Et ne rembourser que le minimum, c'est le piège le plus cher. Essaie ici : entre une dette, son taux d'intérêt et ce que tu paies par mois, et regarde combien de mois il te faut pour en sortir et combien tu paies d'intérêts.",
+          "meme": "minimo",
+          "lamina": "calculadora"
+        },
+        {
+          "id": "metodos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "avalanchaBola"
+          },
+          "texto": "Pour sortir de plusieurs dettes, il y a deux méthodes : l'avalanche, qui rembourse d'abord celle au taux le plus élevé et fait économiser davantage, et la boule de neige, qui rembourse d'abord la plus petite. Une étude de 2012 a montré que solder des comptes entiers, un par un, aide à ne pas abandonner.",
+          "lamina": [
+            "avalancha",
+            "nieve"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "invertir",
+      "titulo": "Fais travailler ton argent",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Cinquième partie. Fais travailler ton argent."
+        },
+        {
+          "id": "compuesto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "interesCompuesto"
+          },
+          "texto": "Les intérêts composés, c'est gagner des intérêts sur tes intérêts : au début, ça se voit à peine, puis la courbe s'envole. Essaie ici : choisis combien tu mets de côté par mois, à quel taux et pendant combien d'années, et regarde quelle part vient de toi et quelle part vient des intérêts.",
+          "lamina": [
+            "planta",
+            "crecer"
+          ]
+        },
+        {
+          "id": "regla72",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "72 ÷ 6 = 12",
+            "clave": "regla72"
+          },
+          "texto": "Un raccourci pour faire le calcul de tête, c'est la règle de soixante-douze : divise soixante-douze par le taux annuel et tu sauras en combien d'années ton argent double. À six pour cent, en douze ans environ.",
+          "lamina": "pizarron",
+          "enCasa": true
+        },
+        {
+          "id": "empezar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "empezarAntes"
+          },
+          "texto": "C'est pour ça que le temps compte plus que le montant. Si deux personnes mettent de côté la même somme chaque mois à six pour cent par an, l'une dès vingt-cinq ans et l'autre dès trente-cinq, à soixante-cinq ans la première aura presque le double, alors qu'elle n'a versé qu'un tiers de plus.",
+          "lamina": [
+            "joven",
+            "reloj"
+          ]
+        },
+        {
+          "id": "riesgo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plazo",
+              "canasta",
+              "entiende"
+            ]
+          },
+          "texto": "Investir comporte toujours un risque : ce qui peut rapporter plus peut aussi chuter plus. Trois principes aident : sur le long terme, uniquement l'argent dont tu n'auras pas besoin bientôt ; ne mets pas tous tes œufs dans le même panier ; et ne place pas ton argent dans quelque chose que tu ne comprends pas.",
+          "lamina": [
+            "huevos",
+            "grafica"
+          ]
+        },
+        {
+          "id": "comisiones",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "comisiones"
+          },
+          "texto": "Et surveille les frais, parce qu'eux aussi se composent : si ton argent rapporte sept pour cent par an et que tu paies un pour cent de frais, au bout de trente ans tu finis avec environ un quart de moins.",
+          "lamina": "comision"
+        },
+        {
+          "id": "fraude",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "🚩",
+            "clave": "fraude"
+          },
+          "texto": "Et méfie-toi de quiconque te promet des gains élevés et garantis : ça n'existe pas. Si c'est trop beau pour être vrai, c'est presque toujours une arnaque, comme celle de Ponzi.",
+          "lamina": "alerta"
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Ton plan pour commencer",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Sixième partie. Ton plan pour commencer."
+        },
+        {
+          "id": "metas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombre",
+              "monto",
+              "fecha"
+            ]
+          },
+          "texto": "Donne un nom et une date à ce que tu veux : « épargner plus », ce n'est pas la même chose que « réunir l'apport pour une voiture en dix-huit mois ». Avec le montant et la date, tu sais combien mettre de côté chaque mois.",
+          "lamina": [
+            "meta",
+            "coche"
+          ]
+        },
+        {
+          "id": "automatiza",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "automatiza"
+          },
+          "texto": "Automatise tout ce que tu peux : l'épargne qui part toute seule le jour de la paie et les factures fixes en prélèvement automatique. Les décisions que tu n'as pas à prendre chaque mois sont celles qui se tiennent vraiment.",
+          "lamina": [
+            "celular",
+            "automatico"
+          ]
+        },
+        {
+          "id": "revisa",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 min / mes",
+            "clave": "revisa"
+          },
+          "texto": "Et une fois par mois, regarde combien est rentré, combien est sorti et combien tu as avancé. Dix minutes suffisent pour corriger le cap avant qu'un mauvais mois ne devienne une mauvaise année.",
+          "lamina": "revisar",
+          "enCasa": true
+        },
+        {
+          "id": "aviso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "N'oublie pas que ce guide est informatif et ne constitue pas un conseil financier ni en investissement : il ne te dit pas où investir. Avant de souscrire un crédit ou un placement, compare, lis les conditions et, si besoin, consulte un conseiller agréé.",
+          "lamina": "contrato"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "En résumé : note où part ton argent, paie-toi en premier, constitue ton matelas, sors des dettes chères et laisse le temps et les intérêts composés travailler pour toi.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Si tu veux passer à la pratique comme je le fais, la pièce Finances de MindHaOS suit ton flux d'argent, avec dépenses, revenus et solde ; tes objectifs d'épargne et de dettes, avec des calculatrices ; et ton patrimoine, pour le voir grandir. Le lien est dans la description, avec ce guide interactif. À la prochaine.",
+    "boton": "Ouvrir la pièce Finances",
+    "lamina": "app-plan",
+    "anclas": {
+      "flujo": "flux d'argent",
+      "metas": "objectifs d'épargne",
+      "patrimonio": "patrimoine"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "finlit-2015",
+      "texto": "Klapper L., Lusardi A., van Oudheusden P. Financial Literacy Around the World: Insights from the Standard & Poor's Ratings Services Global Financial Literacy Survey (2015).",
+      "url": "https://gflec.org/initiatives/sp-global-finlit-survey/"
+    },
+    {
+      "id": "hankins-2011",
+      "texto": "Hankins S., Hoekstra M., Skiba P. M. The Ticket to Easy Street? The Financial Consequences of Winning the Lottery. The Review of Economics and Statistics (2011).",
+      "url": "https://doi.org/10.1162/REST_a_00114"
+    },
+    {
+      "id": "homer-sylla",
+      "texto": "Homer S., Sylla R. A History of Interest Rates (4.ª ed.). Wiley (2005).",
+      "url": "https://doi.org/10.1002/9781118267028"
+    },
+    {
+      "id": "lidia",
+      "texto": "Lidia y las primeras monedas de electro (siglo VII a. C.).",
+      "url": "https://en.wikipedia.org/wiki/Lydia"
+    },
+    {
+      "id": "jiaozi",
+      "texto": "Jiaozi: el primer papel moneda oficial, emitido por la oficina de jiaozi de la dinastía Song en Sichuan (1024).",
+      "url": "https://en.wikipedia.org/wiki/Jiaozi_(currency)"
+    },
+    {
+      "id": "nixon-1971",
+      "texto": "Federal Reserve History. Nixon Ends Convertibility of U.S. Dollars to Gold and Announces Wage/Price Controls (1971).",
+      "url": "https://www.federalreservehistory.org/essays/gold-convertibility-ends"
+    },
+    {
+      "id": "warren-2005",
+      "texto": "Warren E., Warren Tyagi A. All Your Worth: The Ultimate Lifetime Money Plan. Free Press (2005).",
+      "url": "https://openlibrary.org/isbn/9780743269872"
+    },
+    {
+      "id": "thaler-2004",
+      "texto": "Thaler R. H., Benartzi S. Save More Tomorrow: Using Behavioral Economics to Increase Employee Saving. Journal of Political Economy (2004).",
+      "url": "https://doi.org/10.1086/380085"
+    },
+    {
+      "id": "shed-2023",
+      "texto": "Board of Governors of the Federal Reserve System. Economic Well-Being of U.S. Households in 2023 (2024).",
+      "url": "https://www.federalreserve.gov/publications/2024-economic-well-being-of-us-households-in-2023-executive-summary.htm"
+    },
+    {
+      "id": "g19",
+      "texto": "Board of Governors of the Federal Reserve System. Consumer Credit — G.19: interest rate on credit card plans.",
+      "url": "https://www.federalreserve.gov/releases/g19/current/"
+    },
+    {
+      "id": "gal-2012",
+      "texto": "Gal D., McShane B. B. Can Small Victories Help Win the War? Evidence from Consumer Debt Management. Journal of Marketing Research (2012).",
+      "url": "https://doi.org/10.1509/jmr.11.0272"
+    },
+    {
+      "id": "cfpb-emergencia",
+      "texto": "Consumer Financial Protection Bureau. An essential guide to building an emergency fund.",
+      "url": "https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/"
+    },
+    {
+      "id": "sec-comisiones",
+      "texto": "U.S. Securities and Exchange Commission. Investor Bulletin: How Fees and Expenses Affect Your Investment Portfolio (2014).",
+      "url": "https://www.sec.gov/investor/alerts/ib_investmentfees.pdf"
+    },
+    {
+      "id": "sec-ponzi",
+      "texto": "Investor.gov (SEC). Ponzi Scheme.",
+      "url": "https://www.investor.gov/protect-your-investments/fraud/types-fraud/ponzi-scheme"
+    }
+  ]
+}

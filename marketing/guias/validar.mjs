@@ -1,5 +1,6 @@
 // Comprueba que la traducción de una guía tiene la misma forma que el español:
 //   node marketing/guias/validar.mjs ejercicio en [fr …]
+//   node marketing/guias/validar.mjs cocina es      (el español solo: su forma y que tenga escena.mjs)
 //
 // guion.<id>.json: mismas partes y líneas, mismos ids y campos que no se
 // traducen (escena, visual, plano, lámina, meme, mención, enCasa), el gancho con
@@ -15,7 +16,7 @@ const [tema = 'ejercicio', ...ids] = process.argv.slice(2)
 const leer = (r) => JSON.parse(readFileSync(r, 'utf8'))
 const es = leer(path.join(RAIZ, tema, 'guion.es.json'))
 const uiEs = leer(path.resolve(RAIZ, '..', '..', 'web', 'i18n', 'guias', 'es.json'))
-const FIJOS = ['id', 'escena', 'visual', 'plano', 'lamina', 'meme', 'mencion', 'enCasa']
+const FIJOS = ['id', 'escena', 'visual', 'plano', 'lamina', 'meme', 'mencion', 'enCasa', 'destacada']
 
 /** Frases del texto por su puntuación final, con el signo con que acaban. */
 function frases(texto) {
@@ -49,8 +50,9 @@ for (const id of ids) {
   }
   const g = leer(ruta)
   if (g.idioma !== id) errores.push(`idioma = ${g.idioma}`)
-  for (const k of ['tema', 'plantillaId']) if (g[k] !== es[k]) errores.push(`${k} cambió`)
-  for (const k of ['pregunta', 'subtitulo', 'aviso']) if (!g[k]?.trim()) errores.push(`${k} vacío`)
+  if (!existsSync(path.join(RAIZ, tema, 'escena.mjs'))) errores.push(`falta ${tema}/escena.mjs (dónde está Pep@ en la casa y el recorrido de la app)`)
+  for (const k of ['tema', 'plantillaId', 'numero']) if (g[k] !== es[k]) errores.push(`${k} cambió`)
+  for (const k of ['pregunta', 'subtitulo', 'aviso', ...(es.corta ? ['corta'] : []), ...(es.nombre ? ['nombre'] : [])]) if (!g[k]?.trim()) errores.push(`${k} vacío`)
   if (g.partes?.length !== es.partes.length) errores.push(`partes: ${g.partes?.length} (es: ${es.partes.length})`)
   es.partes.forEach((pe, i) => {
     const p = g.partes?.[i]
@@ -63,7 +65,7 @@ for (const id of ids) {
       if (!l) return
       for (const f of FIJOS) if (JSON.stringify(l[f]) !== JSON.stringify(le[f])) errores.push(`${pe.id}.${le.id}: «${f}» cambió`)
       if (!l.texto?.trim()) errores.push(`${pe.id}.${le.id}: texto vacío`)
-      if (l.texto === le.texto) errores.push(`${pe.id}.${le.id}: sin traducir`)
+      if (id !== 'es' && l.texto === le.texto) errores.push(`${pe.id}.${le.id}: sin traducir`)
     })
   })
   const gancho = g.partes?.[0]?.lineas?.find((l) => l.id === 'gancho')
@@ -88,8 +90,10 @@ for (const id of ids) {
   else {
     const ui = leer(rutaUi)
     // Vacía solo donde el español también lo está (p. ej. el texto de abajo de un meme de un panel).
-    const faltan = clavesUi(uiEs).filter((k) => typeof valorUi(ui, k) !== 'string' || (!valorUi(ui, k).trim() && valorUi(uiEs, k).trim()))
-    const sobran = clavesUi(ui).filter((k) => valorUi(uiEs, k) === undefined)
+    // Solo lo de esta guía y lo común: las demás guías se validan con su tema.
+    const deEste = (k) => /^(comun|paquete)\./.test(k) || k.startsWith(`${tema}.`)
+    const faltan = clavesUi(uiEs).filter(deEste).filter((k) => typeof valorUi(ui, k) !== 'string' || (!valorUi(ui, k).trim() && valorUi(uiEs, k).trim()))
+    const sobran = clavesUi(ui).filter(deEste).filter((k) => valorUi(uiEs, k) === undefined)
     if (faltan.length) errores.push(`UI sin: ${faltan.join(', ')}`)
     if (sobran.length) errores.push(`UI de más: ${sobran.join(', ')}`)
   }

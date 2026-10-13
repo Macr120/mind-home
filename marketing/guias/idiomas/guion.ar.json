@@ -1,0 +1,640 @@
+{
+  "idioma": "ar",
+  "tema": "idiomas",
+  "plantillaId": "idiomas",
+  "numero": 5,
+  "nombre": "اللغات",
+  "pregunta": "لماذا نتعلّم لغة؟",
+  "corta": "لماذا نتعلّم لغة؟",
+  "subtitulo": "لماذا يستحق الأمر رغم أن الآلات صارت تترجم، وما معنى أن تتقن لغة وكم يستغرق ذلك، وكيف عُلّمت اللغات عبر التاريخ، وكيف يتعلّم دماغك وكيف ينسى، وأي الكلمات أنفع، وكيف تتكلّم من اليوم الأول، وخطة من عشرين دقيقة لتبدأ اليوم.",
+  "aviso": "هذا الدليل للمعلومات فقط: الساعات والنسب متوسطات من دراسات وبرامج بعينها، والوقت الذي ستحتاجه أنت يعتمد على لغتك، وعلى اللغة التي تتعلّمها، وعلى مقدار ممارستك.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando').",
+    "visual": "Bloque que acompaña la línea: dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título). No puede ser enCasa.",
+    "corta": "La pregunta en pocas palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su cuarto de Idiomas y las de en medio sobre las tomas de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «charlas con un tutor», «temario por niveles» y «repaso espaciado»; app2d.mjs mueve la app justo al decirlas.",
+    "angloparlante": "Las horas del FSI son para quien habla inglés: en cada traducción se dice así («para alguien que habla inglés»), no se adaptan a la lengua del video.",
+    "canales": "La línea «canales» invita a ver estas guías en el idioma que se aprende: en cada traducción se nombra «nuestros canales de MindHaOS» (hay uno por idioma)."
+  },
+  "partes": [
+    {
+      "id": "saber",
+      "titulo": "لماذا نتعلّمها وما معنى أن نتقنها",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "لماذا نتعلّم لغة؟ اليوم يترجم أي هاتف في ثوانٍ. ومع ذلك، في الاتحاد الأوروبي، لا يستطيع نحو نصف البالغين إجراء محادثة بأي لغة غير لغتهم. هل يستحق الأمر فعلًا، وكيف نتعلّمها؟ في الدقائق القادمة سترى ما يفعله تعلّم لغة بدماغك، وكيف يتعلّم وكيف ينسى، وستخرج بخطة لتتكلّمها بدءًا من اليوم.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "بالمناسبة، هذا بيتي في MindHaOS، وفي غرفة اللغات هذه أتدرّب مع معلّم، وأراجع بطاقاتي، وأتابع منهجي. لنبدأ.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الأول. لماذا نتعلّمها وما معنى أن نتقنها."
+        },
+        {
+          "id": "cerebro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 4 años",
+            "clave": "cerebro"
+          },
+          "texto": "ولماذا نتعلّمها والآلات صارت تترجم؟ لأن تعلّم لغة يغيّر دماغك، لا مفرداتك فقط. في السويد، مجنّدون درسوا لغة دراسة مكثّفة ثلاثة أشهر نما عندهم الحُصين، وهو منطقة الذاكرة. وفي دراسة في تورونتو، بدأت أعراض الخرف تظهر لدى من يتكلّمون لغتين متأخرة نحو أربع سنوات.",
+          "lamina": [
+            "cerebro",
+            "traductor"
+          ]
+        },
+        {
+          "id": "maquinas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "chistes",
+              "gente",
+              "pensar"
+            ]
+          },
+          "texto": "ثم إن الآلة تترجم الكلمات، لكنها لا تحادث الناس بدلًا منك: حين تتكلّمها بنفسك تفهم النكات، وتتواصل مع الناس بلا شاشة بينكم، وترى العالم من خلال لغة أخرى.",
+          "lamina": [
+            "amigos",
+            "viajeros"
+          ]
+        },
+        {
+          "id": "habilidades",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "habilidades"
+          },
+          "texto": "إتقان لغة ليس حفظ قائمة كلمات: إنه أربع مهارات. أن تفهم حين تسمع، وأن تفهم حين تقرأ، وأن تتكلّم، وأن تكتب. وفي الغالب نفهم أكثر بكثير مما نستطيع قوله.",
+          "lamina": [
+            "conversacion",
+            "leer"
+          ]
+        },
+        {
+          "id": "niveles",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nivelMcer"
+          },
+          "texto": "ولقياس ذلك، نشر مجلس أوروبا عام 2001 الإطار الأوروبي المرجعي المشترك للغات، وهو مستخدم اليوم في العالم كله: ستة مستويات، من A1، الذي يعرّف بنفسه ويطلب قهوة، إلى C2، الذي يفهم كل شيء تقريبًا. حدّد هنا ما تستطيع فعله الآن، وانظر في أي مستوى أنت.",
+          "lamina": [
+            "cafeteria",
+            "examen"
+          ]
+        },
+        {
+          "id": "horas",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "fsi"
+          },
+          "texto": "وكم يستغرق ذلك؟ معهد الخدمة الخارجية الأمريكي، الذي يدرّب دبلوماسيي الولايات المتحدة، يقدّر أن من يتكلّم الإنجليزية يحتاج إلى نحو ستمئة ساعة دراسية ليعمل بالإسبانية أو الفرنسية، ونحو ألفين ومئتي ساعة لليابانية أو الصينية أو الكورية أو العربية.",
+          "lamina": [
+            "clase",
+            "reloj"
+          ]
+        },
+        {
+          "id": "distancia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ ×4",
+            "clave": "distancia"
+          },
+          "texto": "أكثر ما يؤثّر هو بُعد اللغة عن لغتك: إن اشتركتا في الكلمات أو الأصوات أو الكتابة، تتقدّم أسرع بكثير. لذلك تبدو اللغة المجاورة سهلة، أما اللغة ذات الأبجدية المختلفة فتكون في البداية أصعب بكثير.",
+          "lamina": "globo",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "تاريخ قصير لتعلّم اللغات",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثاني. تاريخ قصير لتعلّم اللغات."
+        },
+        {
+          "id": "rosetta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaIdiomas"
+          },
+          "texto": "في عام 196 قبل الميلاد، في مصر، نُقش المرسوم نفسه بثلاث كتابات: الهيروغليفية والديموطيقية واليونانية القديمة. ذلك الحجر، حجر رشيد، اكتُشف عام 1799، وبفضل نصّه اليوناني فكّ جان فرانسوا شامبليون رموز الهيروغليفية عام 1822.",
+          "lamina": [
+            "rosetta",
+            "champollion"
+          ]
+        },
+        {
+          "id": "comenio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1658",
+            "clave": "comenio"
+          },
+          "texto": "في عام 1658، نشر المربّي التشيكي يان آموس كومينيوس كتاب «أوربيس بيكتوس»، أحد أوائل الكتب المصوّرة لتعليم الأطفال: كل كلمة لاتينية بجانبها رسم. كان يعرف أن الصورة تُتذكّر أفضل من الترجمة.",
+          "lamina": [
+            "comenio",
+            "orbis"
+          ]
+        },
+        {
+          "id": "berlitz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1878",
+            "clave": "berlitz"
+          },
+          "texto": "في عام 1878، في بروفيدنس بالولايات المتحدة، افتتح ماكسيميليان برليتز مدرسة بقاعدة جديدة: لا ترجمة في الصف. كل شيء يُقال باللغة التي تتعلّمها، من اليوم الأول.",
+          "lamina": "berlitz"
+        },
+        {
+          "id": "zamenhof",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1887",
+            "clave": "zamenhof"
+          },
+          "texto": "وفي عام 1887، نشر طبيب العيون لودفيك زامنهوف الإسبرانتو، وهي لغة مخترعة ليتفاهم بها الناس جميعًا، بقواعد بلا استثناءات. لم تحلّ محل أي لغة، لكن لها حتى اليوم متكلّمون في أنحاء العالم.",
+          "lamina": [
+            "zamenhof",
+            "esperanto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cerebro",
+      "titulo": "كيف يتعلّم دماغك وكيف ينسى",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثالث. كيف يتعلّم دماغك وكيف ينسى."
+        },
+        {
+          "id": "entender",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "inputComprensible"
+          },
+          "texto": "من أكثر الأفكار تأثيرًا فكرة طرحها اللغوي ستيفن كراشن في الثمانينيات: نكتسب اللغة حين نفهم رسائل أعلى قليلًا من مستوانا. إن فهمت كل شيء تقريبًا وكان فيه شيء جديد، تتعلّم؛ وإن لم تفهم شيئًا، فأنت تسمع ضجيجًا فقط.",
+          "lamina": [
+            "audifonos",
+            "podcast"
+          ]
+        },
+        {
+          "id": "canales",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "16",
+            "clave": "canales"
+          },
+          "texto": "لذلك إليك حيلة: هذه الأدلّة نفسها موجودة بست عشرة لغة، على قنواتنا في MindHaOS. شاهد دليلًا رأيته بلغتك، ولكن الآن باللغة التي تتعلّمها: لأنك تعرف موضوعه مسبقًا، ستفهمه كله تقريبًا، أعلى قليلًا من مستواك بالضبط.",
+          "lamina": "canales"
+        },
+        {
+          "id": "olvido",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "olvido"
+          },
+          "texto": "لكن ما تتعلّمه يفلت منك. في عام 1885، حفظ هيرمان إبنغهاوس قوائم من مقاطع بلا معنى وقاس كم ينسى: معظمها ضاع في الساعات الأولى، ثم تباطأ النسيان. هذا هو منحنى النسيان.",
+          "meme": "olvido",
+          "lamina": [
+            "ebbinghaus",
+            "notas"
+          ]
+        },
+        {
+          "id": "repasos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "curvaOlvido"
+          },
+          "texto": "والخبر الجيد أن كل مراجعة تجعله أكثر استواءً: بعد كل مراجعة يدوم التذكّر أطول. جرّب هنا: أضف مراجعات وانظر كيف تُبقي كلمةً في ذاكرتك حين تتباعد أكثر فأكثر.",
+          "lamina": "calendario"
+        },
+        {
+          "id": "recuperar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "recuperar"
+          },
+          "texto": "والمراجعة ليست إعادة قراءة. في عام 2006، قارن هنري رويديغر وجيفري كاربيك بين طلاب يعيدون قراءة نص وآخرين يختبرون أنفسهم: بعد أسبوع، تذكّر من اختبروا أنفسهم أكثر. محاولة التذكّر هي ما يثبّت المعلومة.",
+          "lamina": "tarjetas",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "palabras",
+      "titulo": "الكلمات الأكثر نفعًا",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الرابع. الكلمات الأكثر نفعًا."
+        },
+        {
+          "id": "frecuencia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cobertura"
+          },
+          "texto": "ليست كل الكلمات بالقيمة نفسها. في الإنجليزية مثلًا، الألف كلمة الأكثر شيوعًا تشكّل نحو ثماني كلمات من كل عشر في نص عادي. حرّك هنا عدد الكلمات التي تعرفها وانظر أي جزء من النص ستتعرّف عليه.",
+          "lamina": [
+            "libro",
+            "periodico"
+          ]
+        },
+        {
+          "id": "frases",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "frase",
+              "contexto",
+              "usala"
+            ]
+          },
+          "texto": "وتعلّمها في جمل، لا منفردة. «ممكن تناولني الملح؟» تعطيك المفردات والقواعد والنطق دفعة واحدة، ويمكنك أن تستعملها غدًا على المائدة.",
+          "meme": "lista",
+          "lamina": [
+            "mesa",
+            "sal"
+          ]
+        },
+        {
+          "id": "leitner",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cajasLeitner"
+          },
+          "texto": "ولتراجع دون أن تضيّع وقتك، هناك التكرار المتباعد. في عام 1972، اقترح الصحفي الألماني سيباستيان لايتنر صناديق للبطاقات: إن أصبت، تنتقل البطاقة إلى الصندوق التالي وتراجعها لاحقًا؛ وإن أخطأت، تعود إلى الوراء. جرّب هنا ببطاقة.",
+          "lamina": [
+            "fichas",
+            "cajas"
+          ]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "أنا أفعل ذلك في غرفة اللغات في MindHaOS: البطاقات على الطاولة تخبرني أيّها عليّ اليوم، والتطبيق يرتّبها في صناديقها وحده.",
+          "lamina": "tarjetas",
+          "enCasa": true
+        },
+        {
+          "id": "temas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "temas"
+          },
+          "texto": "وابدأ بما ستستعمله. إن كان للسفر: التحيّات والطعام والمواصلات والاتجاهات؛ وإن كان للعمل: التعريف بنفسك والاجتماعات والرسائل الإلكترونية. والمنهج حسب المستويات يخبرك بما يلي.",
+          "lamina": [
+            "aeropuerto",
+            "reunion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hablar",
+      "titulo": "تكلّم من اليوم الأول",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الخامس. تكلّم من اليوم الأول."
+        },
+        {
+          "id": "producir",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1985",
+            "clave": "swain"
+          },
+          "texto": "الاستماع لا يكفي لتتكلّم. درست اللغوية ميريل سوين في كندا تلاميذ مدارس الانغماس في الفرنسية: كانوا يفهمونها جيدًا جدًا، لكنهم ظلّوا يخطئون حين يتكلّمون، لأنهم نادرًا ما كانوا ينتجونها. حين تتكلّم تكتشف ما لا تعرف قوله بعد.",
+          "lamina": [
+            "aula",
+            "hablar"
+          ]
+        },
+        {
+          "id": "sombra",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escucha",
+              "repite",
+              "grabate"
+            ]
+          },
+          "texto": "من التمارين الناجحة تمرين الظلّ: شغّل مقطعًا صوتيًا قصيرًا وردّده معه في اللحظة نفسها، مقلّدًا الإيقاع والنبرة، كالصدى. ثم سجّل صوتك وقارن. فمك يتعلّم الأصوات التي تعرفها أذنك من قبل.",
+          "lamina": [
+            "audifonos2",
+            "grabar"
+          ]
+        },
+        {
+          "id": "errores",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "✔",
+            "clave": "errores"
+          },
+          "texto": "وأخطئ كثيرًا. كل خطأ يصحّحه لك أحد درسٌ مفصّل على مقاسك. من ينتظر أن يتكلّم بإتقان لا يتكلّم أبدًا.",
+          "meme": "perfecto",
+          "lamina": "risa"
+        },
+        {
+          "id": "edad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edad"
+          },
+          "texto": "وماذا لو لم تعد طفلًا؟ في عام 2018، وجدت دراسة شملت نحو سبعمئة ألف شخص أن سهولة تعلّم القواعد تبقى مرتفعة حتى سن السابعة عشرة تقريبًا ثم تنخفض شيئًا فشيئًا. أصعب ما على الكبار أن يبدوا كأهل اللغة، لا أن يتكلّموا جيدًا: وهذا ممكن في أي عمر.",
+          "lamina": [
+            "adulto",
+            "abuela"
+          ]
+        },
+        {
+          "id": "diario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "🗣️",
+            "clave": "diario"
+          },
+          "texto": "إن لم يكن لديك من تتكلّم معه، فتدرّب على أي حال: صِف بصوت عالٍ ما تفعله، وتحدّث مع معلّم أو مع شخص يتعلّم لغتك. المهم أن تفتح فمك كل يوم.",
+          "lamina": "llamada",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "خطتك للبدء",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السادس. خطتك للبدء."
+        },
+        {
+          "id": "meta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "para",
+              "nivel",
+              "fecha"
+            ]
+          },
+          "texto": "حدّد غاية ومستوى وتاريخًا: «تعلّم الإنجليزية» ليس كـ«الوصول إلى B1 لأسافر في ديسمبر». بهذا تعرف أي المواضيع تلزمك وكم ساعة تحتاج.",
+          "lamina": [
+            "viaje",
+            "agenda"
+          ]
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "minutosDia"
+          },
+          "texto": "والمواظبة تغلب الماراثونات: عشرون دقيقة يوميًا تعني أكثر من مئة وعشرين ساعة في السنة. احسب هنا كم ساعة تجمع بروتينك وفي كم من الوقت ستصل.",
+          "lamina": [
+            "cronometro",
+            "cafe"
+          ]
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "روتين العشرين دقيقة يمكن أن يكون هكذا: خمس دقائق لتسمع شيئًا تفهمه تقريبًا، وخمس لتراجع بطاقاتك، وخمس لتتكلّم أو تتمرّن على الظلّ، وخمس لتقرأ أو تكتب قليلًا.",
+          "lamina": [
+            "escuchar",
+            "escribir"
+          ]
+        },
+        {
+          "id": "riega",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "20 min / día",
+            "clave": "riega"
+          },
+          "texto": "فكّر فيها مثل هذه النبتة: قليل من الماء كل يوم يجعلها تنمو، ودلو كامل يوم الأحد لا ينقذها. وكذلك اللغة.",
+          "lamina": "regar",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "باختصار: استمع إلى ما تفهمه تقريبًا، وراجع على فترات متباعدة مع اختبار نفسك، وتعلّم أولًا الكلمات الأكثر استعمالًا، في جمل، وتكلّم من اليوم الأول، قليلًا كل يوم.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "إذا أردت أن تطبّق ذلك كما أفعل، ففي غرفة اللغات في MindHaOS محادثات مع معلّم يصحّح لك، ومنهج حسب المستويات مع بطاقاتك، وتكرار متباعد يخبرك بما عليك مراجعته اليوم. الرابط في الوصف، ومعه هذا الدليل التفاعلي. نلتقي في الدليل القادم.",
+    "boton": "افتح غرفة اللغات",
+    "lamina": "app-plan",
+    "anclas": {
+      "charlas": "محادثات مع معلّم",
+      "temario": "منهج حسب المستويات",
+      "repaso": "تكرار متباعد"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "eurobarometro-386",
+      "texto": "المفوضية الأوروبية. Special Eurobarometer 386: Europeans and their Languages (2012).",
+      "url": "https://europa.eu/eurobarometer/surveys/detail/1049"
+    },
+    {
+      "id": "martensson-2012",
+      "texto": "Mårtensson J., Eriksson J., Bodammer N. C. et al. Growth of language-related brain areas after foreign language learning. NeuroImage (2012).",
+      "url": "https://doi.org/10.1016/j.neuroimage.2012.06.043"
+    },
+    {
+      "id": "bialystok-2007",
+      "texto": "Bialystok E., Craik F. I. M., Freedman M. Bilingualism as a protection against the onset of symptoms of dementia. Neuropsychologia (2007).",
+      "url": "https://doi.org/10.1016/j.neuropsychologia.2006.10.009"
+    },
+    {
+      "id": "mcer",
+      "texto": "مجلس أوروبا. Common European Framework of Reference for Languages (CEFR, 2001).",
+      "url": "https://www.coe.int/en/web/common-european-framework-reference-languages"
+    },
+    {
+      "id": "fsi",
+      "texto": "U.S. Department of State, Foreign Service Institute. Foreign Language Training: الأوقات التقريبية للتعلّم لمتحدّثي الإنجليزية.",
+      "url": "https://www.state.gov/foreign-language-training/"
+    },
+    {
+      "id": "rosetta",
+      "texto": "The British Museum. The Rosetta Stone (EA24): مرسوم ممفيس، 196 ق.م.",
+      "url": "https://www.britishmuseum.org/collection/object/Y_EA24"
+    },
+    {
+      "id": "orbis-pictus",
+      "texto": "Comenius J. A. Orbis Sensualium Pictus. نورنبيرغ (1658).",
+      "url": "https://en.wikipedia.org/wiki/Orbis_Pictus"
+    },
+    {
+      "id": "berlitz",
+      "texto": "Berlitz: مدرسة أسّسها ماكسيميليان برليتز في بروفيدنس، رود آيلاند (1878).",
+      "url": "https://en.wikipedia.org/wiki/Berlitz_Corporation"
+    },
+    {
+      "id": "unua-libro",
+      "texto": "Zamenhof L. L. Unua Libro: أول كتاب بالإسبرانتو (1887).",
+      "url": "https://en.wikipedia.org/wiki/Unua_Libro"
+    },
+    {
+      "id": "krashen-1982",
+      "texto": "Krashen S. D. Principles and Practice in Second Language Acquisition. Pergamon (1982).",
+      "url": "https://www.sdkrashen.com/content/books/principles_and_practice.pdf"
+    },
+    {
+      "id": "ebbinghaus-1885",
+      "texto": "Ebbinghaus H. Über das Gedächtnis (1885). الترجمة الإنجليزية: Memory: A Contribution to Experimental Psychology (1913).",
+      "url": "https://psychclassics.yorku.ca/Ebbinghaus/index.htm"
+    },
+    {
+      "id": "cepeda-2006",
+      "texto": "Cepeda N. J., Pashler H., Vul E., Wixted J. T., Rohrer D. Distributed practice in verbal recall tasks: A review and quantitative synthesis. Psychological Bulletin (2006).",
+      "url": "https://doi.org/10.1037/0033-2909.132.3.354"
+    },
+    {
+      "id": "roediger-2006",
+      "texto": "Roediger H. L., Karpicke J. D. Test-Enhanced Learning: Taking Memory Tests Improves Long-Term Retention. Psychological Science (2006).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x"
+    },
+    {
+      "id": "nation-2006",
+      "texto": "Nation I. S. P. How Large a Vocabulary Is Needed for Reading and Listening? The Canadian Modern Language Review (2006).",
+      "url": "https://doi.org/10.3138/cmlr.63.1.59"
+    },
+    {
+      "id": "leitner-1972",
+      "texto": "Leitner S. So lernt man lernen. Herder (1972).",
+      "url": "https://en.wikipedia.org/wiki/Leitner_system"
+    },
+    {
+      "id": "swain-1985",
+      "texto": "Swain M. Communicative competence: Some roles of comprehensible input and comprehensible output in its development. In Gass S., Madden C. (eds.), Input in Second Language Acquisition. Newbury House (1985).",
+      "url": "https://en.wikipedia.org/wiki/Comprehensible_output"
+    },
+    {
+      "id": "hartshorne-2018",
+      "texto": "Hartshorne J. K., Tenenbaum J. B., Pinker S. A critical period for second language acquisition: Evidence from 2/3 million English speakers. Cognition (2018).",
+      "url": "https://doi.org/10.1016/j.cognition.2018.04.007"
+    }
+  ]
+}

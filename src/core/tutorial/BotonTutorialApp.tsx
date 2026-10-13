@@ -18,6 +18,11 @@ import { prefijo } from '../../../web/i18n/idiomas.mjs'
  */
 const GUIAS: Record<string, { tema: string; clave: string; es: string }> = {
   ejercicio: { tema: 'ejercicio', clave: 'guia.ejercicio.titulo', es: '¿Qué es el ejercicio?' },
+  cocina: { tema: 'cocina', clave: 'guia.cocina.titulo', es: '¿Qué es comer bien?' },
+  descanso: { tema: 'descanso', clave: 'guia.descanso.titulo', es: '¿Qué es dormir bien?' },
+  despacho: { tema: 'finanzas', clave: 'guia.finanzas.titulo', es: '¿Qué es el dinero?' },
+  idiomas: { tema: 'idiomas', clave: 'guia.idiomas.titulo', es: '¿Por qué aprender un idioma?' },
+  arte: { tema: 'arte', clave: 'guia.arte.titulo', es: '¿Qué es el arte?' },
 }
 
 /**

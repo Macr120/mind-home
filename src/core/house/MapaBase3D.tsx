@@ -8,6 +8,7 @@ import { usePlanos } from '../state/planosStore'
 import { SPACING, subId, worldToCeldaEntera } from './walls'
 import { getPisoTipo } from './pisos'
 import { MAPA_SUPERFICIE_ID, rellenoPapelPlano } from './mapaSuperficie'
+import { useMapaVisible } from './mapaVisible'
 
 /**
  * Base del mapa como malla de sub-celdas (½×½) en el plano XZ, SALTANDO las sub-celdas
@@ -144,6 +145,7 @@ export function MapaBase3D() {
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
   const ocupadoPorNivel = useLayout((s) => s.ocupadoPorNivel)
+  const mv = useMapaVisible()
   const mapaSuperficie = useDiseño((s) => s.mapaSuperficie)
   const imagenUrl = useDiseño((s) => s.roomPisoImagenes[MAPA_SUPERFICIE_ID])
   const imagenActiva = useDiseño((s) => s.roomPisoImagenActiva[MAPA_SUPERFICIE_ID] ?? false)
@@ -154,8 +156,13 @@ export function MapaBase3D() {
     for (const [lvl, occ] of ocupadoPorNivel) {
       if (lvl < 0) for (const k of occ) s.add(k)
     }
+    // Y en los cuadrantes ocultos por el usuario no hay base (la sub-celda sc es de la celda ⌈sc/2⌉).
+    if (mv)
+      for (let sc = -1; sc <= 2 * gridCols - 2; sc++)
+        for (let sr = -1; sr <= 2 * gridRows - 2; sr++)
+          if (mv.oculta(Math.ceil(sc / 2), Math.ceil(sr / 2))) s.add(subId(sc, sr))
     return s
-  }, [ocupadoPorNivel])
+  }, [ocupadoPorNivel, mv, gridCols, gridRows])
 
   const geometry = useMemo(
     () => geometriaBaseConHuecos(gridCols, gridRows, huecos),

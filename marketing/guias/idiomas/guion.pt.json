@@ -1,0 +1,640 @@
+{
+  "idioma": "pt",
+  "tema": "idiomas",
+  "plantillaId": "idiomas",
+  "numero": 5,
+  "nombre": "Os idiomas",
+  "pregunta": "Por que aprender um idioma?",
+  "corta": "Por que aprender um idioma?",
+  "subtitulo": "Por que vale a pena mesmo com as máquinas já traduzindo, o que é saber um idioma e quanto tempo leva, como os idiomas foram ensinados ao longo da história, como o seu cérebro aprende e esquece, quais palavras rendem mais, como falar desde o primeiro dia e um plano de vinte minutos para começar hoje.",
+  "aviso": "Este guia é informativo: as horas e as porcentagens são médias de estudos e de programas específicos, e o tempo que você vai levar depende do seu idioma, do idioma que você aprende e de quanto você pratica.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando').",
+    "visual": "Bloque que acompaña la línea: dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título). No puede ser enCasa.",
+    "corta": "La pregunta en pocas palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su cuarto de Idiomas y las de en medio sobre las tomas de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «charlas con un tutor», «temario por niveles» y «repaso espaciado»; app2d.mjs mueve la app justo al decirlas.",
+    "angloparlante": "Las horas del FSI son para quien habla inglés: en cada traducción se dice así («para alguien que habla inglés»), no se adaptan a la lengua del video.",
+    "canales": "La línea «canales» invita a ver estas guías en el idioma que se aprende: en cada traducción se nombra «nuestros canales de MindHaOS» (hay uno por idioma)."
+  },
+  "partes": [
+    {
+      "id": "saber",
+      "titulo": "Por que aprender e o que é saber um idioma",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Por que aprender um idioma? Hoje qualquer celular traduz em segundos. E mesmo assim, na União Europeia, quase metade dos adultos não consegue manter uma conversa em nenhum idioma além do seu. Vale mesmo a pena, e como se aprende? Nos próximos minutos, você vai ver o que isso faz com o seu cérebro, como ele aprende e como esquece, e vai sair daqui com um plano para falar a partir de hoje.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Aliás, esta é a minha casa no MindHaOS, e neste cômodo de Idiomas eu pratico com um tutor, revejo os meus cartões e sigo o meu programa. Vamos começar.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte um. Por que aprender e o que é saber um idioma."
+        },
+        {
+          "id": "cerebro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 4 años",
+            "clave": "cerebro"
+          },
+          "texto": "E para quê, se as máquinas já traduzem? Porque aprender um idioma muda o seu cérebro, não só o seu vocabulário. Na Suécia, recrutas que estudaram um idioma de forma intensiva durante três meses viram crescer o hipocampo, a região da memória. E num estudo em Toronto, quem falava dois idiomas começou a apresentar sintomas de demência uns quatro anos mais tarde.",
+          "lamina": [
+            "cerebro",
+            "traductor"
+          ]
+        },
+        {
+          "id": "maquinas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "chistes",
+              "gente",
+              "pensar"
+            ]
+          },
+          "texto": "Além disso, uma máquina traduz palavras, mas não conversa por você: falar o idioma por conta própria deixa você entender as piadas, se conectar com as pessoas sem uma tela no meio e ver o mundo a partir de outra língua.",
+          "lamina": [
+            "amigos",
+            "viajeros"
+          ]
+        },
+        {
+          "id": "habilidades",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "habilidades"
+          },
+          "texto": "Saber um idioma não é saber uma lista de palavras: são quatro habilidades. Entender quando você ouve, entender quando você lê, falar e escrever. E quase sempre entendemos muito mais do que conseguimos dizer.",
+          "lamina": [
+            "conversacion",
+            "leer"
+          ]
+        },
+        {
+          "id": "niveles",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nivelMcer"
+          },
+          "texto": "Para medir isso, o Conselho da Europa publicou em 2001 o Quadro Europeu Comum de Referência, que hoje é usado no mundo todo: seis níveis, do A1, que se apresenta e pede um café, ao C2, que entende praticamente tudo. Marque aqui o que você já consegue fazer e veja em que nível você está.",
+          "lamina": [
+            "cafeteria",
+            "examen"
+          ]
+        },
+        {
+          "id": "horas",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "fsi"
+          },
+          "texto": "E quanto tempo leva? O Instituto do Serviço Exterior dos Estados Unidos, que forma os diplomatas do país, calcula que alguém que fala inglês precisa de umas seiscentas horas de aula para trabalhar em espanhol ou em francês, e umas duas mil e duzentas para o japonês, o chinês, o coreano ou o árabe.",
+          "lamina": [
+            "clase",
+            "reloj"
+          ]
+        },
+        {
+          "id": "distancia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ ×4",
+            "clave": "distancia"
+          },
+          "texto": "O que mais pesa é a distância em relação ao seu: se eles compartilham palavras, sons ou escrita, você avança muito mais rápido. Por isso um idioma vizinho parece fácil, e um com outro alfabeto, no começo, custa muito mais.",
+          "lamina": "globo",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Uma breve história de aprender idiomas",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte dois. Uma breve história de aprender idiomas."
+        },
+        {
+          "id": "rosetta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaIdiomas"
+          },
+          "texto": "No ano 196 antes da nossa era, no Egito, um mesmo decreto foi gravado em três escritas: hieróglifos, demótico e grego antigo. Essa pedra, a pedra de Roseta, apareceu em 1799, e graças ao grego, Jean-François Champollion decifrou os hieróglifos em 1822.",
+          "lamina": [
+            "rosetta",
+            "champollion"
+          ]
+        },
+        {
+          "id": "comenio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1658",
+            "clave": "comenio"
+          },
+          "texto": "Em 1658, o pedagogo tcheco Jan Amos Comenius publicou o Orbis Pictus, um dos primeiros livros ilustrados para ensinar crianças: cada palavra em latim vinha junto de um desenho. Ele já sabia que a gente lembra melhor de uma imagem do que de uma tradução.",
+          "lamina": [
+            "comenio",
+            "orbis"
+          ]
+        },
+        {
+          "id": "berlitz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1878",
+            "clave": "berlitz"
+          },
+          "texto": "Em 1878, em Providence, nos Estados Unidos, Maximilian Berlitz abriu uma escola com uma regra nova: na aula não se traduz. Tudo é dito no idioma que você está aprendendo, desde o primeiro dia.",
+          "lamina": "berlitz"
+        },
+        {
+          "id": "zamenhof",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1887",
+            "clave": "zamenhof"
+          },
+          "texto": "E em 1887, o oftalmologista Ludwik Zamenhof publicou o esperanto, um idioma inventado para que todo mundo pudesse se entender, com uma gramática sem exceções. Não substituiu nenhum, mas ainda hoje tem falantes no planeta inteiro.",
+          "lamina": [
+            "zamenhof",
+            "esperanto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cerebro",
+      "titulo": "Como o seu cérebro aprende e como esquece",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte três. Como o seu cérebro aprende e como esquece."
+        },
+        {
+          "id": "entender",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "inputComprensible"
+          },
+          "texto": "Uma das ideias mais influentes foi proposta pelo linguista Stephen Krashen nos anos oitenta: adquirimos um idioma quando entendemos mensagens um pouco acima do nosso nível. Se você entende quase tudo e algo é novo, aprende; se não entende nada, só ouve ruído.",
+          "lamina": [
+            "audifonos",
+            "podcast"
+          ]
+        },
+        {
+          "id": "canales",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "16",
+            "clave": "canales"
+          },
+          "texto": "Por isso, aqui vai um truque: estes mesmos guias estão em dezesseis idiomas, nos nossos canais do MindHaOS. Assista a um que você já viu no seu idioma, agora no que você está aprendendo: como você já sabe do que se trata, entende quase tudo, só um pouco acima do seu nível.",
+          "lamina": "canales"
+        },
+        {
+          "id": "olvido",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "olvido"
+          },
+          "texto": "Mas o que você aprende escapa. Em 1885, Hermann Ebbinghaus decorou listas de sílabas sem sentido e mediu quanto esquecia: a maior parte ia embora nas primeiras horas, e depois o esquecimento desacelerava. É a curva do esquecimento.",
+          "meme": "olvido",
+          "lamina": [
+            "ebbinghaus",
+            "notas"
+          ]
+        },
+        {
+          "id": "repasos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "curvaOlvido"
+          },
+          "texto": "A boa notícia é que cada revisão achata a curva: depois de cada uma, a lembrança dura mais. Experimente aqui: adicione revisões e veja como, cada vez mais espaçadas, elas mantêm uma palavra na sua memória.",
+          "lamina": "calendario"
+        },
+        {
+          "id": "recuperar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "recuperar"
+          },
+          "texto": "E revisar não é reler. Em 2006, Henry Roediger e Jeffrey Karpicke compararam estudantes que reliam um texto com outros que se testavam: uma semana depois, os que tinham se testado lembravam mais. Tentar lembrar é o que fixa.",
+          "lamina": "tarjetas",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "palabras",
+      "titulo": "As palavras que mais rendem",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte quatro. As palavras que mais rendem."
+        },
+        {
+          "id": "frecuencia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cobertura"
+          },
+          "texto": "Nem todas as palavras valem o mesmo. Em inglês, por exemplo, as mil palavras mais frequentes são cerca de oito em cada dez palavras de um texto comum. Ajuste aqui quantas palavras você sabe e veja que parte de um texto você reconheceria.",
+          "lamina": [
+            "libro",
+            "periodico"
+          ]
+        },
+        {
+          "id": "frases",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "frase",
+              "contexto",
+              "usala"
+            ]
+          },
+          "texto": "E aprenda as palavras em frases, não soltas. «Você me passa o sal?» te dá vocabulário, gramática e pronúncia de uma vez só, e você já pode usar amanhã na mesa.",
+          "meme": "lista",
+          "lamina": [
+            "mesa",
+            "sal"
+          ]
+        },
+        {
+          "id": "leitner",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cajasLeitner"
+          },
+          "texto": "Para revisar sem perder tempo, existe a repetição espaçada. Em 1972, o jornalista alemão Sebastian Leitner propôs umas caixas para cartões: se você acerta, o cartão passa para a caixa seguinte e você revisa mais tarde; se erra, ele volta. Experimente aqui com um cartão.",
+          "lamina": [
+            "fichas",
+            "cajas"
+          ]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Eu faço isso no meu cômodo de Idiomas do MindHaOS: os cartões da mesa me dizem quais eu tenho que revisar hoje, e o app vai organizando tudo nas caixas sozinho.",
+          "lamina": "tarjetas",
+          "enCasa": true
+        },
+        {
+          "id": "temas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "temas"
+          },
+          "texto": "E comece pelo que você vai usar. Se é para viajar: cumprimentos, comida, transporte e direções; se é para trabalhar: se apresentar, reuniões e e-mails. Um programa por níveis te diz o que vem depois.",
+          "lamina": [
+            "aeropuerto",
+            "reunion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hablar",
+      "titulo": "Fale desde o primeiro dia",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte cinco. Fale desde o primeiro dia."
+        },
+        {
+          "id": "producir",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1985",
+            "clave": "swain"
+          },
+          "texto": "Ouvir não basta para falar. A linguista Merrill Swain estudou no Canadá alunos de escolas de imersão em francês: eles entendiam muito bem, mas ao falar continuavam cometendo erros, porque quase não produziam a língua. Ao falar, você descobre o que ainda não sabe dizer.",
+          "lamina": [
+            "aula",
+            "hablar"
+          ]
+        },
+        {
+          "id": "sombra",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escucha",
+              "repite",
+              "grabate"
+            ]
+          },
+          "texto": "Um exercício que funciona é a sombra, o famoso shadowing: coloque um áudio curto e repita ao mesmo tempo, imitando o ritmo e a entonação, como um eco. Depois se grave e se compare. A sua boca aprende os sons que o seu ouvido já conhece.",
+          "lamina": [
+            "audifonos2",
+            "grabar"
+          ]
+        },
+        {
+          "id": "errores",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "✔",
+            "clave": "errores"
+          },
+          "texto": "E erre muito. Cada erro que alguém corrige é uma lição feita sob medida para você. Quem espera falar perfeito nunca fala.",
+          "meme": "perfecto",
+          "lamina": "risa"
+        },
+        {
+          "id": "edad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edad"
+          },
+          "texto": "E se você já não é criança? Em 2018, um estudo com quase setecentas mil pessoas descobriu que a facilidade para aprender gramática se mantém alta até perto dos dezessete anos e depois cai pouco a pouco. O que mais custa na idade adulta é soar como nativo, não falar bem: isso se consegue em qualquer idade.",
+          "lamina": [
+            "adulto",
+            "abuela"
+          ]
+        },
+        {
+          "id": "diario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "🗣️",
+            "clave": "diario"
+          },
+          "texto": "Se você não tem com quem falar, pratique mesmo assim: descreva em voz alta o que está fazendo, fale com um tutor ou com alguém que esteja aprendendo o seu idioma. O importante é abrir a boca todos os dias.",
+          "lamina": "llamada",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "O seu plano para começar",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte seis. O seu plano para começar."
+        },
+        {
+          "id": "meta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "para",
+              "nivel",
+              "fecha"
+            ]
+          },
+          "texto": "Dê a ele um para quê, um nível e uma data: «aprender inglês» não é a mesma coisa que «chegar ao B1 para viajar em dezembro». Com isso você sabe quais temas estudar e de quantas horas precisa.",
+          "lamina": [
+            "viaje",
+            "agenda"
+          ]
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "minutosDia"
+          },
+          "texto": "E a constância ganha das maratonas: vinte minutos por dia são mais de cento e vinte horas por ano. Calcule aqui quantas horas você soma com a sua rotina e em quanto tempo chegaria lá.",
+          "lamina": [
+            "cronometro",
+            "cafe"
+          ]
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "Uma rotina de vinte minutos pode ser assim: cinco para ouvir algo que você quase entende, cinco para revisar os seus cartões, cinco para falar ou fazer sombra, e cinco para ler ou escrever um pouco.",
+          "lamina": [
+            "escuchar",
+            "escribir"
+          ]
+        },
+        {
+          "id": "riega",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "20 min / día",
+            "clave": "riega"
+          },
+          "texto": "Pense nisso como esta planta: um pouco de água todo dia faz ela crescer, e um balde inteiro no domingo não salva. Com um idioma acontece a mesma coisa.",
+          "lamina": "regar",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Resumindo: ouça coisas que você quase entende, revise de forma espaçada e se testando, aprenda primeiro as palavras mais usadas, em frases, e fale desde o primeiro dia, um pouco a cada dia.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Se você quiser colocar isso em prática como eu faço, o cômodo de Idiomas do MindHaOS tem conversas com um tutor que te corrige, um programa por níveis com os seus cartões, e uma revisão espaçada que te diz o que revisar hoje. O link está na descrição, junto com este guia interativo. Até o próximo.",
+    "boton": "Abrir o cômodo de Idiomas",
+    "lamina": "app-plan",
+    "anclas": {
+      "charlas": "conversas com um tutor",
+      "temario": "programa por níveis",
+      "repaso": "revisão espaçada"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "eurobarometro-386",
+      "texto": "Comissão Europeia. Special Eurobarometer 386: Europeans and their Languages (2012).",
+      "url": "https://europa.eu/eurobarometer/surveys/detail/1049"
+    },
+    {
+      "id": "martensson-2012",
+      "texto": "Mårtensson J., Eriksson J., Bodammer N. C. et al. Growth of language-related brain areas after foreign language learning. NeuroImage (2012).",
+      "url": "https://doi.org/10.1016/j.neuroimage.2012.06.043"
+    },
+    {
+      "id": "bialystok-2007",
+      "texto": "Bialystok E., Craik F. I. M., Freedman M. Bilingualism as a protection against the onset of symptoms of dementia. Neuropsychologia (2007).",
+      "url": "https://doi.org/10.1016/j.neuropsychologia.2006.10.009"
+    },
+    {
+      "id": "mcer",
+      "texto": "Conselho da Europa. Quadro Europeu Comum de Referência para Línguas (QECR, 2001).",
+      "url": "https://www.coe.int/en/web/common-european-framework-reference-languages"
+    },
+    {
+      "id": "fsi",
+      "texto": "U.S. Department of State, Foreign Service Institute. Foreign Language Training: tempos aproximados de aprendizagem para falantes de inglês.",
+      "url": "https://www.state.gov/foreign-language-training/"
+    },
+    {
+      "id": "rosetta",
+      "texto": "The British Museum. The Rosetta Stone (EA24): decreto de Mênfis, 196 a.C.",
+      "url": "https://www.britishmuseum.org/collection/object/Y_EA24"
+    },
+    {
+      "id": "orbis-pictus",
+      "texto": "Comenius J. A. Orbis Sensualium Pictus. Nuremberg (1658).",
+      "url": "https://en.wikipedia.org/wiki/Orbis_Pictus"
+    },
+    {
+      "id": "berlitz",
+      "texto": "Berlitz: escola fundada por Maximilian Berlitz em Providence, Rhode Island (1878).",
+      "url": "https://en.wikipedia.org/wiki/Berlitz_Corporation"
+    },
+    {
+      "id": "unua-libro",
+      "texto": "Zamenhof L. L. Unua Libro: o primeiro livro de esperanto (1887).",
+      "url": "https://en.wikipedia.org/wiki/Unua_Libro"
+    },
+    {
+      "id": "krashen-1982",
+      "texto": "Krashen S. D. Principles and Practice in Second Language Acquisition. Pergamon (1982).",
+      "url": "https://www.sdkrashen.com/content/books/principles_and_practice.pdf"
+    },
+    {
+      "id": "ebbinghaus-1885",
+      "texto": "Ebbinghaus H. Über das Gedächtnis (1885). Tradução inglesa: Memory: A Contribution to Experimental Psychology (1913).",
+      "url": "https://psychclassics.yorku.ca/Ebbinghaus/index.htm"
+    },
+    {
+      "id": "cepeda-2006",
+      "texto": "Cepeda N. J., Pashler H., Vul E., Wixted J. T., Rohrer D. Distributed practice in verbal recall tasks: A review and quantitative synthesis. Psychological Bulletin (2006).",
+      "url": "https://doi.org/10.1037/0033-2909.132.3.354"
+    },
+    {
+      "id": "roediger-2006",
+      "texto": "Roediger H. L., Karpicke J. D. Test-Enhanced Learning: Taking Memory Tests Improves Long-Term Retention. Psychological Science (2006).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x"
+    },
+    {
+      "id": "nation-2006",
+      "texto": "Nation I. S. P. How Large a Vocabulary Is Needed for Reading and Listening? The Canadian Modern Language Review (2006).",
+      "url": "https://doi.org/10.3138/cmlr.63.1.59"
+    },
+    {
+      "id": "leitner-1972",
+      "texto": "Leitner S. So lernt man lernen. Herder (1972).",
+      "url": "https://en.wikipedia.org/wiki/Leitner_system"
+    },
+    {
+      "id": "swain-1985",
+      "texto": "Swain M. Communicative competence: Some roles of comprehensible input and comprehensible output in its development. Em Gass S., Madden C. (eds.), Input in Second Language Acquisition. Newbury House (1985).",
+      "url": "https://en.wikipedia.org/wiki/Comprehensible_output"
+    },
+    {
+      "id": "hartshorne-2018",
+      "texto": "Hartshorne J. K., Tenenbaum J. B., Pinker S. A critical period for second language acquisition: Evidence from 2/3 million English speakers. Cognition (2018).",
+      "url": "https://doi.org/10.1016/j.cognition.2018.04.007"
+    }
+  ]
+}

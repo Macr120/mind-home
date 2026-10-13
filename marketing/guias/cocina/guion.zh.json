@@ -1,0 +1,548 @@
+{
+  "idioma": "zh",
+  "tema": "cocina",
+  "plantillaId": "cocina",
+  "pregunta": "怎样才算吃得好？",
+  "subtitulo": "食物在你身体里做了什么，我们对营养的认识从何而来，你需要多少能量，怎样辨别食物的品质，以及怎样搭配你的餐盘、安排你的一周。",
+  "aviso": "本指南仅供参考，不能替代医生或营养专业人士的建议。如果你患有疾病、有进食障碍、正在怀孕或正在服药，请在改变饮食之前先咨询专业人士。",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'remueve', 'pica', 'bebe', 'pensando') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ cocinando y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «recetario», «plan de comidas» y «lista de compras»; app2d.mjs cambia de pantalla de la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "食物在你身体里做了什么",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "怎样才算吃得好？关于你该吃什么，每个人都有自己的看法。可是几乎没有人告诉你，食物在你身体里到底做了什么。它究竟是怎么运作的？接下来几分钟，你会明白身体需要什么，算出自己消耗多少能量，最后带着一份一周的计划离开。",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "顺便说一下，这是我在MindHaOS里的家，我的食谱和饮食计划都放在这间厨房里。我们开始吧。",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第一部分。食物在你身体里做了什么。"
+        },
+        {
+          "id": "dos-trabajos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "combustible",
+              "construccion"
+            ]
+          },
+          "texto": "食物同时在做两份工作。一是燃料，也就是能量：它用卡路里来衡量，你呼吸、思考、活动的时候都在消耗它。二是建筑材料：你用它来修复肌肉、骨骼、皮肤和血液，这些组织一直在不断更新。",
+          "lamina": "mercado"
+        },
+        {
+          "id": "macros",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "proteinas",
+              "carbohidratos",
+              "grasas"
+            ]
+          },
+          "texto": "这些材料分成三大类，也就是宏量营养素。蛋白质负责构建和修复。碳水化合物是最快的能量来源，尤其供给大脑和高强度运动。脂肪则储存能量，构成细胞膜，还能帮助你吸收某些维生素。",
+          "lamina": [
+            "macros-proteina",
+            "macros-carbos",
+            "macros-grasas"
+          ]
+        },
+        {
+          "id": "micros",
+          "escena": "pica",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "vitaminas",
+              "minerales",
+              "fibra"
+            ]
+          },
+          "texto": "此外还有微量营养素，也就是维生素和矿物质。你需要的量极少，可是没有它们，前面说的一切都运转不起来。还有膳食纤维：它几乎不提供能量，却能喂养你肠道里的细菌，让你饱得更久。",
+          "lamina": "verduras"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "我们饮食的简史",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第二部分。我们饮食的简史。"
+        },
+        {
+          "id": "fuego",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaCocina"
+          },
+          "texto": "几十万年前，我们的祖先学会了用火做饭。烹饪让食物变软，让我们能从中获得更多能量；有些人类学家认为，这帮助我们的大脑变得更大。",
+          "lamina": "fuego"
+        },
+        {
+          "id": "agricultura",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 000",
+            "clave": "agricultura"
+          },
+          "texto": "大约一万年前，农业出现了：小麦、水稻和玉米。能养活的人多了很多，不过饮食反而比狩猎采集的时代更单一。",
+          "lamina": "agricultura"
+        },
+        {
+          "id": "lind",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1747",
+            "clave": "lind"
+          },
+          "texto": "1747年，苏格兰医生詹姆斯·林德做了历史上最早的临床试验之一：他给患坏血病的水手们试用不同的疗法，结果康复的，正是吃了橙子和柠檬的那些人。",
+          "meme": "limones",
+          "lamina": [
+            "lind",
+            "limones"
+          ]
+        },
+        {
+          "id": "atwater",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "4 · 4 · 9",
+            "clave": "atwater"
+          },
+          "texto": "19世纪末，化学家威尔伯·阿特沃特测量了每种食物能提供多少能量：每克蛋白质或碳水化合物大约4千卡，每克脂肪大约9千卡。今天的食品标签用的还是这些数字。",
+          "lamina": "atwater"
+        },
+        {
+          "id": "funk",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1912",
+            "clave": "funk"
+          },
+          "texto": "1912年，生物化学家卡西米尔·冯克提出了“维生素”这个词，在随后的几十年里，几乎所有维生素都被发现了。人们第一次明白：吃得很多，也可能营养不良。",
+          "lamina": "funk"
+        },
+        {
+          "id": "plato",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2011",
+            "clave": "plato"
+          },
+          "texto": "1992年，美国画出了著名的食物金字塔，面包和意大利面放在最底层。2011年，它被换成了一个餐盘，也就是MyPlate，每顿饭都更容易想象。而在墨西哥，官方标准也画出了自己的餐盘：Plato del Bien Comer，意思是“健康饮食餐盘”。我们最后会讲到这里。",
+          "lamina": [
+            "piramide",
+            "myplate",
+            "plato-bien-comer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "energia",
+      "titulo": "你需要多少能量",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第三部分。你需要多少能量。"
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "balance"
+          },
+          "texto": "从长远看，你的体重取决于能量平衡：吃进去的和消耗掉的。吃得比消耗的多，身体就会储存；吃得少，就会动用储备。听起来很简单，但消耗其实分成好几部分。",
+          "lamina": "balance"
+        },
+        {
+          "id": "gasto",
+          "escena": "Caminata",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "gasto"
+          },
+          "texto": "最大的一部分，大约三分之二，仅仅用来维持生命，这就是基础代谢。另一部分取决于你一天里活动了多少，还有一小部分，约百分之十，用来消化你吃下的食物。",
+          "lamina": "gasto"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "calculadoraEnergia"
+          },
+          "texto": "你可以用米夫林-圣乔尔公式来估算，这是营养师最常用的公式之一：只需要年龄、体重、身高和活动量。在这里试试计算器吧。这只是估算，不是精确测量，但作为起点已经非常好了。",
+          "lamina": "calculadora"
+        },
+        {
+          "id": "proteina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "0,8–2 g/kg",
+            "clave": "proteina"
+          },
+          "texto": "蛋白质方面，成年人的参考值是每天每公斤体重至少0.8克。如果你在练力量，很多专家建议每公斤1.4到2克。",
+          "lamina": "proteina"
+        },
+        {
+          "id": "deficit",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "−15 %",
+            "clave": "deficit"
+          },
+          "texto": "如果你想减重，并不需要挨饿：只要比消耗的少吃一点，大约百分之十五，再每两周看看进展就够了。能坚持下去的，往往是那些小改变。",
+          "lamina": "deficit"
+        }
+      ]
+    },
+    {
+      "id": "calidad",
+      "titulo": "你所吃食物的品质",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第四部分。你所吃食物的品质。"
+        },
+        {
+          "id": "nova",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "nova"
+          },
+          "texto": "除了吃多少，吃什么也很重要。研究人员会根据加工程度给食物分类：新鲜食物；烹饪用料，比如油和盐；加工食品，比如奶酪和面包店的面包；还有超加工食品，比如汽水、饼干和袋装零食。",
+          "meme": "ultraprocesados",
+          "lamina": "supermercado"
+        },
+        {
+          "id": "experimento",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+500 kcal",
+            "clave": "experimento"
+          },
+          "texto": "2019年，美国国立卫生研究院做了一项实验：让20个人吃两周超加工食品，再吃两周未加工的食物，两种饮食能吃到的热量相同。吃超加工食品的时候，他们每天不知不觉多吃了大约500千卡。",
+          "lamina": "ultraprocesados"
+        },
+        {
+          "id": "azucar",
+          "escena": "bebe",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "azucarOculta"
+          },
+          "texto": "世界卫生组织建议，添加糖应低于你总能量的百分之十，最好低于百分之五，也就是每天大约六茶匙。来这里看看你喝的饮料里有多少糖。",
+          "lamina": "refresco"
+        },
+        {
+          "id": "sal",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "< 5 g",
+            "clave": "sal"
+          },
+          "texto": "盐也差不多：建议每天少于5克，大约一茶匙，而且大部分并不是你在餐桌上自己加的，而是早就藏在食品里了。",
+          "lamina": "sal"
+        },
+        {
+          "id": "etiqueta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porcion",
+              "azucares",
+              "ingredientes"
+            ]
+          },
+          "texto": "诀窍是读标签。看份量，看糖和盐，再看配料表。配料是按含量从多到少排列的：如果第一个是糖，你就知道里面最多的是什么了。",
+          "lamina": "etiqueta"
+        }
+      ]
+    },
+    {
+      "id": "plato",
+      "titulo": "怎样搭配你的餐盘和一周",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第五部分。怎样搭配你的餐盘和一周。"
+        },
+        {
+          "id": "plato",
+          "escena": "pica",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "armaTuPlato"
+          },
+          "texto": "每一餐都有一个很简单的方法，就是哈佛的健康饮食餐盘：盘子的一半放蔬菜和水果；四分之一放全谷物；另外四分之一放蛋白质，比如鱼、鸡肉、鸡蛋或豆类。喝的是水，做饭时用一点好油。",
+          "lamina": "plato"
+        },
+        {
+          "id": "frutas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "400 g",
+            "clave": "frutas"
+          },
+          "texto": "世界卫生组织建议每天至少吃400克蔬菜和水果，大约五份，还有至少25克膳食纤维，它主要就来自蔬果、全谷物和豆类。",
+          "lamina": "frutas"
+        },
+        {
+          "id": "planear",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "menu",
+              "lista",
+              "prepara"
+            ]
+          },
+          "texto": "秘诀不是意志力，而是计划。定好一周的菜单，据此列出购物清单，再有几天多做一些，这样没时间的时候，也有现成的饭菜。",
+          "lamina": "planear"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "我就是在MindHaOS的厨房里这么做的：用我的食谱排好一周的计划，购物清单就自动生成了。",
+          "lamina": "lista",
+          "enCasa": true
+        },
+        {
+          "id": "ochenta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "80 / 20",
+            "clave": "ochenta"
+          },
+          "texto": "而且不必完美。只要你吃的大部分东西都在这条线上，和朋友吃一次披萨也不用内疚：一份能坚持下去的饮食，远比两周就放弃的完美饮食更有价值。",
+          "meme": "perfecta",
+          "lamina": "pizza"
+        }
+      ]
+    },
+    {
+      "id": "habitos",
+      "titulo": "水、饥饿感与坚持",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第六部分。水、饥饿感与坚持。"
+        },
+        {
+          "id": "agua",
+          "escena": "bebe",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2–2,5 L",
+            "clave": "agua"
+          },
+          "texto": "水也很重要。欧洲食品安全局建议，女性每天大约两升水，男性两升半，这包括食物中所含的水分，大约占五分之一。",
+          "lamina": "agua"
+        },
+        {
+          "id": "hambre",
+          "escena": "habla",
+          "visual": {
+            "tipo": "meme",
+            "meme": "tarde"
+          },
+          "texto": "倾听你的饥饿感。慢慢吃、不看屏幕，能让身体有时间告诉你：已经吃饱了。也别饿得发慌才去吃饭：一份含蛋白质的早餐，加上下午一个水果，晚上的情况会大不一样。",
+          "lamina": "despacio"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "foto",
+            "foto": "registro"
+          },
+          "texto": "如果你想了解自己的情况，就把几天里吃的东西记下来。不是为了较真，而是为了发现规律：很多人发现，问题不在正餐，而在饮料或下午的零食。",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "记住，本指南仅供参考。如果你患有疾病、和食物的关系比较紧张，或者正在怀孕，最好有营养专业人士陪你一起调整。",
+          "lamina": "nutriologo"
+        },
+        {
+          "id": "resumen",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "总结一下：大部分时间吃真正的食物，用蔬菜和水果装满半个盘子，根据消耗调整食量，并且规划好你的一周。",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "如果你也想像我这样付诸实践，MindHaOS的厨房里有你的食谱、你一周的饮食计划，还有会自动生成的购物清单。链接在简介里，那里还有这份指南的互动版，方便你慢慢复习。下一期指南，我们再聊另一个问题。下次见。",
+    "boton": "打开厨房",
+    "lamina": "app-plan",
+    "anclas": {
+      "recetario": "食谱",
+      "plan": "饮食计划",
+      "compras": "购物清单"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "usda-myplate",
+      "texto": "USDA. MyPlate（2011年），取代了食物指南金字塔（1992年）。",
+      "url": "https://www.myplate.gov/"
+    },
+    {
+      "id": "nom-043",
+      "texto": "墨西哥卫生部. NOM-043-SSA2-2012（原NOM-043-SSA2-2005）：Plato del Bien Comer（健康饮食餐盘）。",
+      "url": "https://www.dof.gob.mx/nota_detalle.php?codigo=5285372&fecha=22/01/2013"
+    },
+    {
+      "id": "oms-alimentacion",
+      "texto": "世卫组织. 健康饮食 — 情况介绍。",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/healthy-diet"
+    },
+    {
+      "id": "oms-azucar",
+      "texto": "世卫组织. Guideline: Sugars intake for adults and children (2015).",
+      "url": "https://www.who.int/publications/i/item/9789241549028"
+    },
+    {
+      "id": "oms-sal",
+      "texto": "世卫组织. 减少钠摄入 — 情况介绍。",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/salt-reduction"
+    },
+    {
+      "id": "oms-carbohidratos",
+      "texto": "世卫组织. Carbohydrate intake for adults and children: WHO guideline (2023).",
+      "url": "https://www.who.int/publications/i/item/9789240073593"
+    },
+    {
+      "id": "harvard-plato",
+      "texto": "Harvard T.H. Chan School of Public Health. The Healthy Eating Plate.",
+      "url": "https://nutritionsource.hsph.harvard.edu/healthy-eating-plate/"
+    },
+    {
+      "id": "mifflin",
+      "texto": "Mifflin M. D., St Jeor S. T. et al. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr (1990).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+    },
+    {
+      "id": "issn-proteina",
+      "texto": "Jäger R. et al. International Society of Sports Nutrition Position Stand: protein and exercise (2017).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28642676/"
+    },
+    {
+      "id": "hall-2019",
+      "texto": "Hall K. D. et al. Ultra-processed diets cause excess calorie intake and weight gain. Cell Metabolism (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31105044/"
+    },
+    {
+      "id": "nova",
+      "texto": "Monteiro C. A. et al. Ultra-processed foods: what they are and how to identify them. Public Health Nutrition (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30744710/"
+    },
+    {
+      "id": "efsa-agua",
+      "texto": "EFSA. Scientific Opinion on Dietary Reference Values for water (2010).",
+      "url": "https://www.efsa.europa.eu/en/efsajournal/pub/1459"
+    },
+    {
+      "id": "lind-1753",
+      "texto": "Lind J. A Treatise of the Scurvy (1753). The James Lind Library.",
+      "url": "https://www.jameslindlibrary.org/lind-j-1753/"
+    }
+  ]
+}

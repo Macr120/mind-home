@@ -1,0 +1,608 @@
+{
+  "idioma": "ru",
+  "tema": "finanzas",
+  "plantillaId": "despacho",
+  "numero": 4,
+  "nombre": "Финансы",
+  "pregunta": "Что такое деньги?",
+  "corta": "Что такое деньги?",
+  "subtitulo": "Что такое деньги и как они появились, куда уходят твои, как создать финансовую подушку и выбраться из долгов, как работают сложные проценты и план, чтобы начать уже сегодня.",
+  "aviso": "Это руководство носит информационный характер и не является финансовой, налоговой или инвестиционной консультацией: оно не рекомендует никаких продуктов или инструментов. Прежде чем брать кредит или инвестировать, сравни условия и, если нужно, обратись к зарегистрированному специалисту.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título) para enganchar en los primeros segundos. No puede ser enCasa.",
+    "corta": "La pregunta en 3-4 palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su despacho y las de en medio sobre las tomas de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «flujo de dinero», «metas de ahorro» y «patrimonio»; app2d.mjs mueve la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "dinero",
+      "titulo": "Зачем нужны деньги",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Что такое деньги? Мы все пользуемся ими каждый день. И всё же лишь один из трёх взрослых в мире понимает такие базовые вещи, как инфляция или сложные проценты. Как на самом деле работают деньги? За следующие несколько минут ты увидишь, куда уходят твои деньги, посчитаешь, насколько они вырастут, если заставить их работать, и уйдёшь с планом, как лучше управлять ими уже с сегодняшнего дня.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Кстати, это мой дом в MindHaOS, а это комната «Финансы»: здесь я веду свои расходы, доходы и цели накоплений. Начнём.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть первая. Зачем нужны деньги."
+        },
+        {
+          "id": "funciones",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "funciones"
+          },
+          "texto": "Деньги — это договорённость: купюра или число на экране чего-то стоят, потому что мы все согласны, что они чего-то стоят. Они нужны, чтобы обмениваться, чтобы измерять, сколько стоят вещи, и чтобы сохранять ценность на будущее.",
+          "lamina": [
+            "billetes",
+            "pago"
+          ]
+        },
+        {
+          "id": "inflacion",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "inflacion"
+          },
+          "texto": "Но у этой последней функции есть враг — инфляция. Если цены растут на три процента в год, примерно за двадцать четыре года они удваиваются, и деньги, которые ты спрятал под матрас, покупают вдвое меньше.",
+          "lamina": [
+            "supermercado",
+            "precios"
+          ]
+        },
+        {
+          "id": "ganar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "3–5 años",
+            "clave": "loteria"
+          },
+          "texto": "И больше зарабатывать — недостаточно. Во Флориде исследователи наблюдали за победителями лотереи: через пять лет те, кто выиграл крупные суммы, разорялись почти так же часто, как те, кто выиграл немного. Выигрыш лишь отсрочил проблему.",
+          "lamina": "loteria",
+          "enCasa": true
+        },
+        {
+          "id": "manejar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "flujo"
+          },
+          "texto": "Умение распоряжаться деньгами зависит не от того, сколько ты зарабатываешь, а от простого вычитания: то, что приходит, минус то, что уходит, — это то, что остаётся тебе, чтобы строить будущее. Это руководство нужно, чтобы это вычитание было в твою пользу.",
+          "lamina": [
+            "cuentas",
+            "ahorro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Краткая история денег",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть вторая. Краткая история денег."
+        },
+        {
+          "id": "hammurabi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaDinero"
+          },
+          "texto": "Почти четыре тысячи лет назад Кодекс Хаммурапи в Вавилоне уже ограничивал проценты: не больше двадцати процентов в год по займам серебром и не больше трети — по займам ячменём. Долги почти так же стары, как письменность.",
+          "lamina": [
+            "hammurabi",
+            "tablilla"
+          ]
+        },
+        {
+          "id": "lidia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 600 a. C.",
+            "clave": "lidia"
+          },
+          "texto": "Около шестисотого года до нашей эры в Лидийском царстве, на территории нынешней Турции, появились первые монеты: кусочки электрума, природного сплава золота и серебра, с клеймом, которое гарантировало их вес.",
+          "lamina": [
+            "lidia",
+            "monedas"
+          ]
+        },
+        {
+          "id": "jiaozi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1024",
+            "clave": "jiaozi"
+          },
+          "texto": "В 1024 году в Китае при династии Сун правительство начало выпускать цзяоцзы — первые в мире официальные бумажные деньги: там пользовались железными монетами, и возить их для торговли было невозможно.",
+          "lamina": "jiaozi"
+        },
+        {
+          "id": "ponzi",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1920",
+            "clave": "ponzi"
+          },
+          "texto": "В 1920 году в Бостоне Чарльз Понци обещал пятьдесят процентов прибыли за сорок пять дней. Первым вкладчикам он платил деньгами новых, пока всё не рухнуло. Его имя навсегда закрепилось за таким видом мошенничества.",
+          "meme": "garantizado",
+          "lamina": "ponzi"
+        },
+        {
+          "id": "nixon",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1971",
+            "clave": "nixon"
+          },
+          "texto": "А в 1971 году президент Ричард Никсон разорвал последнюю связь между долларом и золотом. С тех пор деньги почти во всём мире держатся на доверии к тому, кто их выпускает, а не на металле, спрятанном в хранилище.",
+          "lamina": [
+            "nixon",
+            "oro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "presupuesto",
+      "titulo": "Куда уходят твои деньги",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть третья. Куда уходят твои деньги."
+        },
+        {
+          "id": "registra",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "30 días",
+            "clave": "registra"
+          },
+          "texto": "Первый шаг — понять, куда они уходят. В течение месяца записывай всё, что тратишь, вплоть до кофе в кафе на углу. Почти все находят расходы, о которых даже не подозревали.",
+          "lamina": "recibos",
+          "enCasa": true
+        },
+        {
+          "id": "hormiga",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gastoHormiga"
+          },
+          "texto": "Эти мелкие траты, которые незаметно утекают каждый день, складываются быстрее, чем кажется. Попробуй здесь: выбери повседневную трату и посмотри, сколько она забирает за год и за десять лет.",
+          "meme": "hormiga",
+          "lamina": [
+            "cafe",
+            "antojo"
+          ]
+        },
+        {
+          "id": "reparto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "regla503020"
+          },
+          "texto": "Простой способ распределять доход — правило пятьдесят, тридцать, двадцать, которое популяризировала Элизабет Уоррен: половина на необходимое, тридцать процентов на удовольствия и двадцать на сбережения или погашение долгов. Впиши сюда свой доход и посмотри, что получится.",
+          "lamina": [
+            "renta",
+            "gustos",
+            "alcancia"
+          ]
+        },
+        {
+          "id": "primero",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ahorraMas"
+          },
+          "texto": "А самый действенный приём — сначала заплатить себе: откладывать сбережения в день зарплаты, а не то, что останется в конце месяца. В программе «Копи больше завтра» Ричарда Талера и Шломо Бенарци работники стали откладывать уже не три с половиной процента зарплаты, а почти четырнадцать.",
+          "meme": "quincena",
+          "lamina": [
+            "sueldo",
+            "ahorrar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deudas",
+      "titulo": "Твоя подушка и твои долги",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть четвёртая. Твоя подушка и твои долги."
+        },
+        {
+          "id": "emergencia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "63 %",
+            "clave": "emergencia"
+          },
+          "texto": "Прежде чем инвестировать, создай финансовую подушку. В США лишь шестьдесят три процента взрослых смогли бы покрыть непредвиденный расход в четыреста долларов наличными или из сбережений. Резервный фонд спасает от долгов, когда что-то ломается или ты остаёшься без работы.",
+          "lamina": [
+            "averia",
+            "imprevisto"
+          ]
+        },
+        {
+          "id": "meses",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fondoEmergencia"
+          },
+          "texto": "Чаще всего советуют накопить от трёх до шести месяцев базовых расходов, понемногу, в надёжном месте, откуда их можно быстро забрать. Посчитай здесь, сколько нужно тебе и за какое время ты это соберёшь.",
+          "lamina": "frasco"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Я коплю свою в комнате «Финансы» в MindHaOS: в день зарплаты откладываю сбережения, а по копилке на столе вижу, сколько уже собрано на каждую цель.",
+          "lamina": "alcancia",
+          "enCasa": true
+        },
+        {
+          "id": "tarjeta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "> 20 %",
+            "clave": "tarjeta"
+          },
+          "texto": "Долги по кредитным картам — одни из самых дорогих: в США средняя ставка по ним в 2024 году превысила двадцать процентов годовых. То, что покупаешь в рассрочку с процентами, может обойтись гораздо дороже.",
+          "lamina": [
+            "tarjeta",
+            "compras"
+          ]
+        },
+        {
+          "id": "minimo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "deudaTarjeta"
+          },
+          "texto": "А вносить только минимальный платёж — самая дорогая ловушка. Попробуй здесь: укажи долг, ставку и ежемесячный платёж и посмотри, сколько месяцев уйдёт на погашение и сколько ты переплатишь в процентах.",
+          "meme": "minimo",
+          "lamina": "calculadora"
+        },
+        {
+          "id": "metodos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "avalanchaBola"
+          },
+          "texto": "Чтобы выбраться из нескольких долгов, есть два метода: лавина, когда сначала гасишь долг с самой высокой ставкой и экономишь больше, и снежный ком, когда сначала гасишь самый маленький. Исследование 2012 года показало, что полностью закрывать долги один за другим помогает не сдаться.",
+          "lamina": [
+            "avalancha",
+            "nieve"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "invertir",
+      "titulo": "Заставь деньги работать",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть пятая. Заставь деньги работать."
+        },
+        {
+          "id": "compuesto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "interesCompuesto"
+          },
+          "texto": "Сложные проценты — это проценты на проценты: сначала их почти не видно, а потом кривая резко взлетает. Попробуй здесь: выбери, сколько откладываешь в месяц, под какой процент и на сколько лет, и посмотри, какую часть вложил ты, а какую добавили проценты.",
+          "lamina": [
+            "planta",
+            "crecer"
+          ]
+        },
+        {
+          "id": "regla72",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "72 ÷ 6 = 12",
+            "clave": "regla72"
+          },
+          "texto": "Чтобы прикинуть в уме, есть правило семидесяти двух: раздели семьдесят два на годовую ставку и узнаешь, за сколько лет удвоятся твои деньги. При шести процентах — примерно за двенадцать лет.",
+          "lamina": "pizarron",
+          "enCasa": true
+        },
+        {
+          "id": "empezar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "empezarAntes"
+          },
+          "texto": "Поэтому время важнее суммы. Если два человека откладывают одинаковую сумму каждый месяц под шесть процентов годовых, один с двадцати пяти лет, а другой с тридцати пяти, то к шестидесяти пяти у первого будет почти вдвое больше, хотя вложил он всего на треть больше.",
+          "lamina": [
+            "joven",
+            "reloj"
+          ]
+        },
+        {
+          "id": "riesgo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plazo",
+              "canasta",
+              "entiende"
+            ]
+          },
+          "texto": "Инвестиции всегда связаны с риском: то, что может принести больше, может и сильнее упасть. Помогают три принципа: в долгую вкладывай только те деньги, которые скоро не понадобятся; не клади все яйца в одну корзину; и не вкладывай деньги в то, чего не понимаешь.",
+          "lamina": [
+            "huevos",
+            "grafica"
+          ]
+        },
+        {
+          "id": "comisiones",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "comisiones"
+          },
+          "texto": "И следи за комиссиями, потому что они тоже работают как сложные проценты: если твои деньги приносят семь процентов в год, а ты платишь один процент комиссии, через тридцать лет у тебя окажется примерно на четверть меньше.",
+          "lamina": "comision"
+        },
+        {
+          "id": "fraude",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "🚩",
+            "clave": "fraude"
+          },
+          "texto": "И не верь тем, кто обещает высокую и гарантированную прибыль: такого не бывает. Если звучит слишком хорошо, чтобы быть правдой, это почти всегда мошенничество, как у Понци.",
+          "lamina": "alerta"
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Твой план, чтобы начать",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть шестая. Твой план, чтобы начать."
+        },
+        {
+          "id": "metas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombre",
+              "monto",
+              "fecha"
+            ]
+          },
+          "texto": "Дай своей цели название и срок: «больше копить» и «накопить на первый взнос за машину за восемнадцать месяцев» — совсем не одно и то же. Зная сумму и срок, ты понимаешь, сколько откладывать каждый месяц.",
+          "lamina": [
+            "meta",
+            "coche"
+          ]
+        },
+        {
+          "id": "automatiza",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "automatiza"
+          },
+          "texto": "Автоматизируй всё, что можешь: сбережения, которые списываются сами в день зарплаты, и регулярные платежи с автосписанием. Решения, которые не нужно принимать каждый месяц, — это те, что действительно выполняются.",
+          "lamina": [
+            "celular",
+            "automatico"
+          ]
+        },
+        {
+          "id": "revisa",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 min / mes",
+            "clave": "revisa"
+          },
+          "texto": "И раз в месяц проверяй, сколько пришло, сколько ушло и насколько ты продвинулся. Десяти минут хватит, чтобы скорректировать курс, пока плохой месяц не превратился в плохой год.",
+          "lamina": "revisar",
+          "enCasa": true
+        },
+        {
+          "id": "aviso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "Помни, что это руководство носит информационный характер и не является финансовой или инвестиционной консультацией: оно не говорит, во что вкладывать. Прежде чем брать кредит или инвестировать, сравни варианты, прочитай условия и, если нужно, обратись к зарегистрированному консультанту.",
+          "lamina": "contrato"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Итак: следи, куда уходят твои деньги, плати сначала себе, создай подушку, выберись из дорогих долгов и позволь времени и сложным процентам работать на тебя.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Если хочешь применить это на практике, как я, в комнате «Финансы» в MindHaOS есть твой денежный поток с расходами, доходами и балансом, твои цели накоплений и погашения долгов с калькуляторами и твой капитал, чтобы видеть, как он растёт. Ссылка в описании, и там же есть интерактивная версия этого руководства. До встречи в следующем выпуске.",
+    "boton": "Открыть комнату «Финансы»",
+    "lamina": "app-plan",
+    "anclas": {
+      "flujo": "денежный поток",
+      "metas": "цели накоплений",
+      "patrimonio": "капитал"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "finlit-2015",
+      "texto": "Klapper L., Lusardi A., van Oudheusden P. Financial Literacy Around the World: Insights from the Standard & Poor's Ratings Services Global Financial Literacy Survey (2015).",
+      "url": "https://gflec.org/initiatives/sp-global-finlit-survey/"
+    },
+    {
+      "id": "hankins-2011",
+      "texto": "Hankins S., Hoekstra M., Skiba P. M. The Ticket to Easy Street? The Financial Consequences of Winning the Lottery. The Review of Economics and Statistics (2011).",
+      "url": "https://doi.org/10.1162/REST_a_00114"
+    },
+    {
+      "id": "homer-sylla",
+      "texto": "Homer S., Sylla R. A History of Interest Rates (4.ª ed.). Wiley (2005).",
+      "url": "https://doi.org/10.1002/9781118267028"
+    },
+    {
+      "id": "lidia",
+      "texto": "Lidia y las primeras monedas de electro (siglo VII a. C.).",
+      "url": "https://en.wikipedia.org/wiki/Lydia"
+    },
+    {
+      "id": "jiaozi",
+      "texto": "Jiaozi: el primer papel moneda oficial, emitido por la oficina de jiaozi de la dinastía Song en Sichuan (1024).",
+      "url": "https://en.wikipedia.org/wiki/Jiaozi_(currency)"
+    },
+    {
+      "id": "nixon-1971",
+      "texto": "Federal Reserve History. Nixon Ends Convertibility of U.S. Dollars to Gold and Announces Wage/Price Controls (1971).",
+      "url": "https://www.federalreservehistory.org/essays/gold-convertibility-ends"
+    },
+    {
+      "id": "warren-2005",
+      "texto": "Warren E., Warren Tyagi A. All Your Worth: The Ultimate Lifetime Money Plan. Free Press (2005).",
+      "url": "https://openlibrary.org/isbn/9780743269872"
+    },
+    {
+      "id": "thaler-2004",
+      "texto": "Thaler R. H., Benartzi S. Save More Tomorrow: Using Behavioral Economics to Increase Employee Saving. Journal of Political Economy (2004).",
+      "url": "https://doi.org/10.1086/380085"
+    },
+    {
+      "id": "shed-2023",
+      "texto": "Board of Governors of the Federal Reserve System. Economic Well-Being of U.S. Households in 2023 (2024).",
+      "url": "https://www.federalreserve.gov/publications/2024-economic-well-being-of-us-households-in-2023-executive-summary.htm"
+    },
+    {
+      "id": "g19",
+      "texto": "Board of Governors of the Federal Reserve System. Consumer Credit — G.19: interest rate on credit card plans.",
+      "url": "https://www.federalreserve.gov/releases/g19/current/"
+    },
+    {
+      "id": "gal-2012",
+      "texto": "Gal D., McShane B. B. Can Small Victories Help Win the War? Evidence from Consumer Debt Management. Journal of Marketing Research (2012).",
+      "url": "https://doi.org/10.1509/jmr.11.0272"
+    },
+    {
+      "id": "cfpb-emergencia",
+      "texto": "Consumer Financial Protection Bureau. An essential guide to building an emergency fund.",
+      "url": "https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/"
+    },
+    {
+      "id": "sec-comisiones",
+      "texto": "U.S. Securities and Exchange Commission. Investor Bulletin: How Fees and Expenses Affect Your Investment Portfolio (2014).",
+      "url": "https://www.sec.gov/investor/alerts/ib_investmentfees.pdf"
+    },
+    {
+      "id": "sec-ponzi",
+      "texto": "Investor.gov (SEC). Ponzi Scheme.",
+      "url": "https://www.investor.gov/protect-your-investments/fraud/types-fraud/ponzi-scheme"
+    }
+  ]
+}

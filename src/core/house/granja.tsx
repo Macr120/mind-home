@@ -33,6 +33,7 @@ import { registrarAncla, quitarAncla } from './etiquetasMapa'
 import { Corazones, SenalAburrido, SenalHambre } from './senalesVida'
 import type { AnimalGranja, TipoAccesorio, TipoAnimal } from '../data/db'
 import { pulsacionLargaAbrirEditor } from './pulsacionLarga'
+import { useMapaVisible } from './mapaVisible'
 
 /** Tope de la loseta exterior (~0.19; los objetos de mapa van a 0.2). */
 const Y = 0.2
@@ -599,6 +600,7 @@ export function Granja3D() {
   const filas = animalesRepo.useAll() ?? VACIO
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
+  const mv = useMapaVisible()
   const activo = useGranja((s) => s.activo)
   // Arrastre en curso: el corral se pinta donde lo lleva el dedo, no donde está guardado.
   const moverPreview = useGranja((s) => s.moverPreview)
@@ -630,7 +632,7 @@ export function Granja3D() {
       }}
     >
       {corrales
-        .filter((c) => c.col + c.ancho <= gridCols && c.row + c.alto <= gridRows)
+        .filter((c) => c.col + c.ancho <= gridCols && c.row + c.alto <= gridRows && !mv?.oculta(c.col, c.row))
         .map((c) => {
           // Mientras se arrastra manda la celda de preview (y el corral flota un poco,
           // como un cuarto en el mapa); los accesorios se desplazan con él.

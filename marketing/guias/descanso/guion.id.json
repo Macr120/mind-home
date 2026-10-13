@@ -1,0 +1,416 @@
+{
+  "idioma": "id",
+  "tema": "descanso",
+  "plantillaId": "descanso",
+  "pregunta": "Apa itu tidur dengan baik?",
+  "subtitulo": "Apa yang terjadi di tubuhmu saat kamu tidur, apa yang ditemukan sains tentang tidur, berapa lama tidur yang kamu butuhkan, cara kerja jam biologismu, dan cara menyiapkan malam yang baik.",
+  "aviso": "Panduan ini bersifat informatif dan tidak menggantikan saran dokter. Jika kamu mendengkur keras, berhenti bernapas saat tidur, tertidur di siang hari tanpa sengaja, atau insomnia berlangsung berminggu-minggu, konsultasikan dengan tenaga kesehatan profesional.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando', 'bosteza', 'estira') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su recámara y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «horario de sueño», «puntuación» y «registro de tus noches»; app2d.mjs mueve la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "Apa yang terjadi saat kamu tidur",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": { "tipo": "titulo" },
+          "texto": "Apa itu tidur dengan baik? Kita menghabiskan hampir sepertiga hidup untuk tidur. Tapi tetap saja, tidurlah yang pertama kita korbankan saat waktu terasa kurang. Sebenarnya, apa yang terjadi saat kamu tidur? Dalam beberapa menit ke depan, kamu akan paham apa yang dilakukan otakmu di malam hari, menghitung jam berapa sebaiknya kamu tidur, dan pulang dengan rencana untuk tidur lebih baik mulai hari ini.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "texto": "Omong-omong, ini rumahku di MindHaOS, dan di ruang Istirahat ini aku mengatur jadwal tidurku dan mencatat setiap malamku. Ayo kita mulai.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Bagian satu. Apa yang terjadi saat kamu tidur."
+        },
+        {
+          "id": "ciclos",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "hipnograma" },
+          "texto": "Tidur bukan berarti tubuhmu berhenti bekerja. Sepanjang malam kamu melewati siklus sekitar sembilan puluh menit, empat sampai enam kali semalam, dan di setiap siklus kamu melalui beberapa tahap: tidur ringan, tidur dalam, dan tidur REM, tahap mimpi-mimpi yang paling hidup.",
+          "lamina": "dormida"
+        },
+        {
+          "id": "profundo",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["reparacion", "limpieza"] },
+          "texto": "Tidur dalam paling banyak terjadi di awal malam. Saat itulah tubuh melepaskan hormon pertumbuhan dan memperbaiki diri, dan, menurut penelitian pada tikus, saat itu pula otak paling giat membersihkan sisa-sisa yang menumpuk sepanjang hari.",
+          "lamina": ["profundo", "cerebro"]
+        },
+        {
+          "id": "rem",
+          "escena": "pensando",
+          "visual": { "tipo": "lista", "claves": ["memoria", "emociones"] },
+          "texto": "Tidur REM terkumpul menjelang pagi. Saat itu otak hampir sama aktifnya dengan saat kamu terjaga: ia merapikan apa yang kamu pelajari dan mengolah emosi hari itu. Karena itu, kalau kamu bangun jauh lebih awal dari yang kamu butuhkan, justru bagian inilah yang hilang.",
+          "lamina": "suena"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Apa yang ditemukan sains tentang tidur",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Bagian dua. Apa yang ditemukan sains tentang tidur."
+        },
+        {
+          "id": "segmentado",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "historiaSueno" },
+          "texto": "Sebelum ada lampu listrik, banyak orang di Eropa tidur dalam dua babak: tidur pertama, terjaga sebentar di tengah malam, lalu tidur kedua. Sejarawan Roger Ekirch mendokumentasikannya dari ratusan buku harian, surat, dan buku dari abad-abad yang lalu.",
+          "lamina": "vela"
+        },
+        {
+          "id": "edison",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "1879", "clave": "edison" },
+          "texto": "Pada tahun 1879, Thomas Edison berhasil menguji bola lampu pijarnya. Malam pun dipenuhi cahaya, dan dari tahun ke tahun kita tidur makin larut.",
+          "lamina": ["edison", "bombilla"]
+        },
+        {
+          "id": "cueva",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "1938", "clave": "cueva" },
+          "texto": "Pada tahun 1938, ahli fisiologi Nathaniel Kleitman tinggal tiga puluh dua hari di Gua Mammoth, di Kentucky, untuk menjalani hari yang panjangnya dua puluh delapan jam. Tubuhnya tidak bisa dikelabui: ia tetap mengikuti ritme sekitar dua puluh empat jam.",
+          "lamina": "cueva"
+        },
+        {
+          "id": "rem",
+          "escena": "senala",
+          "visual": { "tipo": "dato", "cifra": "1953", "clave": "rem" },
+          "texto": "Pada tahun 1953, Kleitman dan muridnya, Eugene Aserinsky, menemukan tidur REM: mereka melihat bahwa pada saat-saat tertentu di malam hari, mata bergerak cepat di balik kelopak, dan orang yang terbangun saat itu hampir selalu sedang bermimpi.",
+          "lamina": "ojos"
+        },
+        {
+          "id": "nobel",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "2017", "clave": "nobel" },
+          "texto": "Dan pada tahun 2017, Hadiah Nobel Kedokteran diberikan kepada Jeffrey Hall, Michael Rosbash, dan Michael Young, karena menemukan, lewat lalat buah, cara kerja gen-gen jam biologis. Ke sanalah kita akan sampai.",
+          "lamina": "nobel"
+        }
+      ]
+    },
+    {
+      "id": "cuanto",
+      "titulo": "Berapa lama kamu perlu tidur",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Bagian tiga. Berapa lama kamu perlu tidur."
+        },
+        {
+          "id": "edades",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "edades" },
+          "texto": "Orang dewasa butuh tujuh jam atau lebih setiap malam, menurut American Academy of Sleep Medicine. Remaja, delapan sampai sepuluh jam, dan anak usia sekolah dasar, sembilan sampai dua belas jam. Tapi tetap saja, satu dari tiga orang dewasa tidur kurang dari tujuh jam.",
+          "lamina": "familia"
+        },
+        {
+          "id": "deuda",
+          "escena": "bosteza",
+          "visual": { "tipo": "dato", "cifra": "6 h × 14", "clave": "deuda" },
+          "texto": "Kurang tidur itu menumpuk. Dalam sebuah eksperimen tahun 2003, orang yang tidur enam jam per malam selama dua minggu akhirnya punya daya fokus yang sama buruknya dengan orang yang tidak tidur sampai dua malam berturut-turut. Yang paling parah: mereka merasa hanya sedikit lelah.",
+          "meme": "cinco",
+          "lamina": "cansancio"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "calculadoraSueno" },
+          "texto": "Karena tidur berjalan dalam siklus, bangun di akhir satu siklus terasa lebih enak daripada bangun di tengah tidur dalam. Coba di sini: pilih jam berapa kamu bangun, dan kalkulatornya akan memberi tahu jam berapa saja sebaiknya kamu tidur, dengan menghitung sekitar lima belas menit untuk terlelap.",
+          "lamina": "despertador"
+        },
+        {
+          "id": "senal",
+          "escena": "estira",
+          "visual": { "tipo": "pasos", "claves": ["sinAlarma", "sinCafe", "despierto"] },
+          "texto": "Dan ukuran terbaiknya adalah dirimu sendiri. Kalau saat liburan kamu bangun tanpa alarm di jam yang sama seperti hari kerja, kalau kamu tidak butuh kopi untuk memulai hari, dan kamu tetap segar sepanjang sore, kemungkinan besar tidurmu sudah cukup.",
+          "lamina": "manana"
+        }
+      ]
+    },
+    {
+      "id": "reloj",
+      "titulo": "Jam biologismu",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Bagian empat. Jam biologismu."
+        },
+        {
+          "id": "circadiano",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "circadiano" },
+          "texto": "Di otakmu ada jam utama, yaitu nukleus suprakiasmatik, yang disetel terutama oleh cahaya. Saat hari mulai gelap, tubuhmu melepaskan melatonin, hormon yang memberi tahu tubuhmu bahwa malam sudah tiba.",
+          "lamina": "atardecer"
+        },
+        {
+          "id": "luz",
+          "escena": "estira",
+          "visual": { "tipo": "dato", "cifra": "☀ 10 min", "clave": "luz" },
+          "texto": "Karena itu cahaya pagi sangat ampuh: keluar beberapa menit di bawah sinar matahari tak lama setelah bangun akan menyetel jammu dan membantumu mengantuk di jam yang tepat malam nanti.",
+          "lamina": "sol"
+        },
+        {
+          "id": "pantallas",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "2015", "clave": "pantallas" },
+          "texto": "Cahaya di malam hari justru sebaliknya. Dalam sebuah penelitian tahun 2015, membaca di tablet sebelum tidur menunda melatonin, membuat orang lebih lama terlelap, dan bangun dengan kurang segar dibandingkan membaca buku kertas.",
+          "meme": "capitulo",
+          "lamina": "pantalla"
+        },
+        {
+          "id": "cronotipo",
+          "escena": "pensando",
+          "visual": { "tipo": "lista", "claves": ["alondra", "buho"] },
+          "texto": "Dan jam kita tidak semuanya sama: ada tipe burung lark, yang bangun pagi dengan sendirinya, dan tipe burung hantu, yang lebih bertenaga di malam hari. Kronotipemu sebagian besar ditentukan oleh gen dan usiamu; itu bukan karena malas.",
+          "lamina": ["alondra", "buho"]
+        },
+        {
+          "id": "regular",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "60 000", "clave": "regular" },
+          "texto": "Yang benar-benar bisa kamu kendalikan adalah keteraturan. Sebuah penelitian terhadap sekitar enam puluh ribu orang di Inggris menemukan bahwa tidur di jam yang konsisten berkaitan dengan risiko kematian yang lebih rendah, bahkan lebih kuat daripada jumlah jam tidurnya. Begadang di akhir pekan lalu bangun pagi di hari Senin itu seperti jet lag tanpa keluar rumah.",
+          "lamina": "calendario"
+        }
+      ]
+    },
+    {
+      "id": "noche",
+      "titulo": "Cara menyiapkan malam yang baik",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Bagian lima. Cara menyiapkan malam yang baik."
+        },
+        {
+          "id": "cafeina",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "cafeinaRestante" },
+          "texto": "Kafein butuh sekitar lima jam untuk berkurang setengahnya. Dalam sebuah penelitian, dosis tinggi yang diminum enam jam sebelum tidur memangkas lebih dari satu jam waktu tidur. Lihat di sini berapa banyak yang masih tersisa di tubuhmu saat waktunya tidur.",
+          "meme": "cafe",
+          "lamina": "cafe"
+        },
+        {
+          "id": "alcohol",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "REM ↓", "clave": "alcohol" },
+          "texto": "Alkohol itu menipu: awalnya membuatmu mengantuk, tapi memecah-mecah paruh kedua malam dan mengurangi tidur REM. Kamu memang tidur, tapi istirahatmu lebih buruk.",
+          "lamina": "copa"
+        },
+        {
+          "id": "cuarto",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["fresco", "oscuro", "silencio"] },
+          "texto": "Kamarmu juga berpengaruh: sejuk, sekitar delapan belas derajat, gelap, dan sunyi. Dan tempat tidur, khusus untuk tidur: kalau kamu bekerja atau menonton serial di sana, otakmu berhenti mengaitkannya dengan tidur.",
+          "lamina": "recamara"
+        },
+        {
+          "id": "rutina",
+          "escena": "estira",
+          "visual": { "tipo": "pasos", "claves": ["apaga", "luces", "ritual"] },
+          "texto": "Siapkan satu jam terakhir dalam harimu: tinggalkan layar, redupkan lampu, dan lakukan sesuatu yang menenangkan, selalu sama, seperti membaca, mandi air hangat, atau peregangan. Itulah sinyal bagi tubuhmu bahwa malam sudah datang.",
+          "lamina": ["leer", "estirar"]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "texto": "Aku melakukannya di ruang Istirahat-ku di MindHaOS: jadwalku mengingatkanku satu jam sebelumnya untuk meninggalkan layar, dan dari lampu meja di samping tempat tidur, aku membuka latihan pernapasan terpandu untuk bersantai.",
+          "lamina": "lampara",
+          "enCasa": true
+        },
+        {
+          "id": "ejercicio",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "+ 🏃", "clave": "ejercicio" },
+          "texto": "Dan bergeraklah di siang hari: olahraga teratur membantumu tertidur lebih cepat dan lebih nyenyak. Hanya saja, selesaikan latihan yang paling berat paling lambat dua jam sebelum tidur.",
+          "lamina": "correr"
+        }
+      ]
+    },
+    {
+      "id": "insomnio",
+      "titulo": "Saat kamu tidak bisa tidur",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Bagian enam. Saat kamu tidak bisa tidur."
+        },
+        {
+          "id": "veinte",
+          "escena": "pensando",
+          "visual": { "tipo": "dato", "cifra": "20 min", "clave": "veinte" },
+          "texto": "Kalau sudah cukup lama kamu tidak bisa tidur, sekitar dua puluh menit, bangunlah, pindah ke tempat lain yang cahayanya redup, dan kembali ke tempat tidur saat sudah mengantuk. Berguling-guling di kasur mengajari otakmu bahwa tempat tidur adalah tempat untuk khawatir.",
+          "lamina": "insomnio"
+        },
+        {
+          "id": "siesta",
+          "escena": "bosteza",
+          "visual": { "tipo": "dato", "cifra": "+34 %", "clave": "siesta" },
+          "texto": "Tidur siang membantu kalau singkat dan tidak terlalu sore: sekitar dua puluh menit, sebelum pertengahan sore. Dalam sebuah penelitian NASA terhadap pilot, tidur siang sekitar dua puluh enam menit meningkatkan kinerja mereka sebesar tiga puluh empat persen.",
+          "meme": "siesta",
+          "lamina": "siesta"
+        },
+        {
+          "id": "terapia",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "TCC-I", "clave": "terapia" },
+          "texto": "Kalau insomnia berlangsung berminggu-minggu, pengobatan pertamanya bukan obat tidur, melainkan terapi perilaku kognitif untuk insomnia, yang direkomendasikan sebagai pilihan pertama oleh American College of Physicians dan American Academy of Sleep Medicine.",
+          "lamina": "terapia"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": { "tipo": "foto", "foto": "registro" },
+          "texto": "Dan kalau kamu ingin tahu perkembanganmu, catat malam-malammu selama dua minggu: jam berapa kamu tidur, jam berapa kamu bangun, dan bagaimana perasaanmu. Polanya akan muncul dengan sendirinya.",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": { "tipo": "aviso" },
+          "texto": "Ingat, panduan ini bersifat informatif. Kalau kamu mendengkur keras dan orang bilang napasmu berhenti saat tidur, kalau kamu tertidur di siang hari tanpa sengaja, atau kalau insomniamu tidak kunjung hilang, periksakan diri ke dokter: apnea tidur dan gangguan tidur lainnya bisa diobati.",
+          "lamina": "medico"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": { "tipo": "lista", "claves": ["resumen1", "resumen2", "resumen3", "resumen4"] },
+          "texto": "Singkatnya: tidurlah tujuh jam atau lebih, di jam yang konsisten; cari cahaya di pagi hari dan gelap di malam hari; jaga asupan kafein dan alkohol; dan siapkan satu jam terakhir dalam harimu.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Kalau kamu ingin mempraktikkannya seperti aku, ruang Istirahat di MindHaOS punya jadwal tidur dengan pengingat dan alarm, skor untuk setiap malam, dan catatan tidurmu, untuk melihat polamu. Tautannya ada di deskripsi, dan di sana juga ada panduan ini dalam versi interaktif, supaya kamu bisa mengulangnya dengan santai. Di panduan berikutnya kita lanjut dengan pertanyaan lain. Sampai jumpa.",
+    "boton": "Buka ruang Istirahat",
+    "lamina": "app-plan",
+    "anclas": {
+      "horario": "jadwal tidur",
+      "puntuacion": "skor",
+      "registro": "catatan tidurmu"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "aasm-adultos",
+      "texto": "Watson N. F. et al. Recommended amount of sleep for a healthy adult: a joint consensus statement of the AASM and SRS. Sleep (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/"
+    },
+    {
+      "id": "aasm-ninos",
+      "texto": "Paruthi S. et al. Recommended amount of sleep for pediatric populations: a consensus statement of the AASM. J Clin Sleep Med (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27250809/"
+    },
+    {
+      "id": "cdc-un-tercio",
+      "texto": "Liu Y. et al. Prevalence of healthy sleep duration among adults — United States, 2014. MMWR (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26890214/"
+    },
+    {
+      "id": "ninds",
+      "texto": "NINDS (NIH). Brain Basics: Understanding Sleep.",
+      "url": "https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-understanding-sleep"
+    },
+    {
+      "id": "xie-2013",
+      "texto": "Xie L. et al. Sleep drives metabolite clearance from the adult brain. Science (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24136970/"
+    },
+    {
+      "id": "ekirch-2001",
+      "texto": "Ekirch A. R. Sleep We Have Lost: Pre-industrial Slumber in the British Isles. The American Historical Review (2001).",
+      "url": "https://doi.org/10.1086/ahr/106.2.343"
+    },
+    {
+      "id": "aserinsky-1953",
+      "texto": "Aserinsky E., Kleitman N. Regularly occurring periods of eye motility, and concomitant phenomena, during sleep. Science (1953).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13089671/"
+    },
+    {
+      "id": "nobel-2017",
+      "texto": "Hadiah Nobel Fisiologi atau Kedokteran 2017: Jeffrey C. Hall, Michael Rosbash, dan Michael W. Young.",
+      "url": "https://www.nobelprize.org/prizes/medicine/2017/summary/"
+    },
+    {
+      "id": "van-dongen-2003",
+      "texto": "Van Dongen H. P. et al. The cumulative cost of additional wakefulness. Sleep (2003).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12683469/"
+    },
+    {
+      "id": "chang-2015",
+      "texto": "Chang A.-M. et al. Evening use of light-emitting eReaders negatively affects sleep, circadian timing, and next-morning alertness. PNAS (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25535358/"
+    },
+    {
+      "id": "windred-2024",
+      "texto": "Windred D. P. et al. Sleep regularity is a stronger predictor of mortality risk than sleep duration. Sleep (2024).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37738616/"
+    },
+    {
+      "id": "drake-2013",
+      "texto": "Drake C. et al. Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed. J Clin Sleep Med (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24235903/"
+    },
+    {
+      "id": "ebrahim-2013",
+      "texto": "Ebrahim I. O. et al. Alcohol and sleep I: effects on normal sleep. Alcohol Clin Exp Res (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23347102/"
+    },
+    {
+      "id": "nasa-1995",
+      "texto": "Rosekind M. R. et al. Crew factors in flight operations IX: Effects of planned cockpit rest on crew performance and alertness in long-haul operations. NASA (1994).",
+      "url": "https://ntrs.nasa.gov/citations/19950006379"
+    },
+    {
+      "id": "acp-2016",
+      "texto": "Qaseem A. et al. Management of chronic insomnia disorder in adults: a clinical practice guideline from the American College of Physicians. Ann Intern Med (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27136449/"
+    },
+    {
+      "id": "aasm-2021",
+      "texto": "Edinger J. D. et al. Behavioral and psychological treatments for chronic insomnia disorder in adults: an AASM clinical practice guideline. J Clin Sleep Med (2021).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33164742/"
+    }
+  ]
+}

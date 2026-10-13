@@ -1,0 +1,685 @@
+{
+  "idioma": "ru",
+  "tema": "arte",
+  "plantillaId": "arte",
+  "numero": 6,
+  "nombre": "Арт-студия",
+  "pregunta": "Что такое искусство?",
+  "corta": "Что такое искусство?",
+  "subtitulo": "Что такое изобразительное искусство, зачем заниматься им, даже если сегодня искусственный интеллект рисует за секунды, как искусство изменилось от пещер до экранов, из каких элементов строится произведение, как на него смотреть, как начать творить и план на пятнадцать минут в день.",
+  "aviso": "Это руководство носит информационный характер: даты, цифры и исследования приведены приблизительно по их источникам, и каждый продвигается в своём темпе.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando').",
+    "visual": "Bloque que acompaña la línea: dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título). No puede ser enCasa.",
+    "corta": "La pregunta en pocas palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su Studio Arte y las de en medio sobre las tomas de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "epocas": "La casa y la ropa de Pep@ avanzan en el tiempo con las partes: medieval, pirata, vaquero, tren, cyberpunk y nave espacial (escena.mjs y pep.ts). Pep@ lo explica en la mención del inicio y lo recuerda en cada toma de la casa.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «galería», «lienzo por capas» y «ayudas de dibujo»; app2d.mjs mueve la app justo al decirlas.",
+    "ia": "La línea «ia» responde por qué hacer arte aunque una IA ya pinte: lo que te pasa al hacerlo (estrés, memoria, mirada)."
+  },
+  "partes": [
+    {
+      "id": "arte",
+      "titulo": "Что такое искусство",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Что такое искусство? Сегодня искусственный интеллект пишет картину за секунды. И всё же почти все взрослые говорят, что не умеют нарисовать даже прямую линию. Тогда зачем заниматься искусством самому? В ближайшие минуты ты увидишь, что такое изобразительное искусство, как оно изменилось от пещер до экранов, как на него смотреть и как начать творить, и уйдёшь с планом, чтобы создавать уже сегодня.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Кстати, это мой дом в MindHaOS: в моей Арт-студии я пишу за мольбертом и храню рисунки в галерее. И посмотри на дом: сегодня это средневековый замок, а с каждой частью он будет двигаться во времени, эпоха за эпохой, до самого будущего. Начнём.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть первая. Что такое искусство."
+        },
+        {
+          "id": "definicion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hacer",
+              "mirar",
+              "sentir"
+            ]
+          },
+          "texto": "Определений много, но почти все сходятся в одном: искусство — это то, что один человек делает, чтобы другой на это посмотрел, это почувствовал или над этим задумался. В 1897 году русский писатель Лев Толстой сказал так: искусство — это заражать других чувством, которое ты сам пережил.",
+          "lamina": [
+            "tolstoi",
+            "galeria"
+          ]
+        },
+        {
+          "id": "visuales",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "dibujo",
+              "pintura",
+              "escultura",
+              "fotografia",
+              "digital"
+            ]
+          },
+          "texto": "Это руководство об изобразительном искусстве, о том, на что смотрят: рисунок, живопись, скульптура, фотография и сегодня цифровая иллюстрация. Все они работают с одним и тем же: линиями, формами, светом и цветом.",
+          "lamina": [
+            "pinturas",
+            "escultura"
+          ]
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "3 de 4",
+            "clave": "cortisol"
+          },
+          "texto": "И зачем это делать, если искусственный интеллект уже рисует за секунды? Потому что ценность искусства не только в результате, но и в том, что происходит с тобой, пока ты творишь. В 2016 году в Университете Дрекселя, в США, Гириджа Каймал измерила кортизол, гормон стресса, до и после сорока пяти минут занятий искусством: он снизился у трёх человек из четырёх, независимо от того, умели они рисовать или нет.",
+          "lamina": [
+            "acuarela",
+            "notas"
+          ]
+        },
+        {
+          "id": "memoria",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "efectoDibujo"
+          },
+          "texto": "И оно помогает думать: в 2016 году в Университете Ватерлоо, в Канаде, студенты гораздо лучше запомнили слова, которые рисовали, чем те, которые только записывали. Машина может сделать картинку за тебя, но не может смотреть, думать и чувствовать за тебя.",
+          "lamina": [
+            "estudiante",
+            "ojo"
+          ]
+        },
+        {
+          "id": "talento",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "creer",
+              "ver",
+              "entrenar"
+            ]
+          },
+          "texto": "А талант? В детстве мы все рисуем без страха, а лет к десяти многие бросают, потому что рисунок не похож на настоящее. Но исследователи Ребекка Чемберлен и Йохан Вагеманс выяснили, что большинство ошибок происходит из того, как мы смотрим, а не из руки. А смотреть можно научиться.",
+          "meme": "simbolos",
+          "lamina": [
+            "nino",
+            "crayones"
+          ]
+        },
+        {
+          "id": "castillo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lapiz",
+              "papel",
+              "tableta"
+            ]
+          },
+          "texto": "Посмотри на дом: это средневековый замок, эпоха, когда почти всё искусство писали для церквей и дворцов и мало кто мог им заниматься. Сегодня для начала хватит карандаша и бумаги или планшета.",
+          "lamina": "lapices",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Краткая история изобразительного искусства",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть вторая. Краткая история изобразительного искусства."
+        },
+        {
+          "id": "cuevas",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaArte"
+          },
+          "texto": "Мы занимаемся искусством задолго до появления письменности. В пещере на острове Сулавеси, в Индонезии, есть сцена с людьми рядом с диким кабаном, написанная не меньше пятидесяти одной тысячи лет назад. А лошадям и быкам на стенах Ласко, во Франции, около семнадцати тысяч лет.",
+          "lamina": [
+            "sulawesi",
+            "lascaux"
+          ]
+        },
+        {
+          "id": "perspectiva",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1415",
+            "clave": "perspectiva"
+          },
+          "texto": "Веками фигуры писали плоскими. Около 1415 года во Флоренции архитектор Филиппо Брунеллески показал с помощью зеркала, как выглядит глубина, а в 1435 году Леон Баттиста Альберти объяснил это в книге для художников: так родилась ренессансная перспектива.",
+          "lamina": [
+            "brunelleschi",
+            "alberti"
+          ]
+        },
+        {
+          "id": "durero",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1525",
+            "clave": "durero"
+          },
+          "texto": "Смотри: дом шагнул во времени и стал кораблём, как в эпоху, когда Европа пересекала океаны. В 1525 году немец Альбрехт Дюрер издал руководство с сеткой, чтобы перерисовывать увиденное клетка за клеткой.",
+          "lamina": [
+            "durero",
+            "rejilla"
+          ],
+          "enCasa": true
+        },
+        {
+          "id": "fotografia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1839",
+            "clave": "fotografia"
+          },
+          "texto": "В 1839 году в Париже представили фотографию. Многие решили, что живопись исчезнет, а случилось наоборот: художники перестали копировать реальность до мелочей и отправились искать свет и цвет. В 1874 году импрессионисты провели свою первую выставку.",
+          "lamina": [
+            "daguerre",
+            "monet"
+          ]
+        },
+        {
+          "id": "duchamp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1917",
+            "clave": "duchamp"
+          },
+          "texto": "В 1917 году Марсель Дюшан отправил на выставку в Нью-Йорке фарфоровый писсуар, подписанный вымышленным именем, и назвал его «Фонтан». Работу отклонили, но она оставила главный вопрос современного искусства: это искусство, потому что хорошо сделано, или потому что кто-то это выбрал и просит тебя посмотреть?",
+          "lamina": "fuente"
+        },
+        {
+          "id": "sketchpad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1963",
+            "clave": "sketchpad"
+          },
+          "texto": "А в 1963 году Айвен Сазерленд создал Sketchpad, первую программу для рисования на экране. Отсюда пошли планшеты, а сегодня и искусственный интеллект. Инструмент меняется; вопрос о том, что мы хотим сказать, остаётся нашим.",
+          "lamina": [
+            "sketchpad",
+            "tableta"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "elementos",
+      "titulo": "Элементы произведения",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть третья. Элементы произведения."
+        },
+        {
+          "id": "elementos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "formas"
+          },
+          "texto": "Любое изобразительное произведение, от пещеры до экрана, строится из одних и тех же элементов: линия, форма, тон, то есть светлое и тёмное, цвет, фактура и пространство. И почти всё, что ты видишь, можно построить из четырёх форм: куба, шара, цилиндра и конуса.",
+          "lamina": [
+            "formas",
+            "taza"
+          ]
+        },
+        {
+          "id": "valores",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "valores"
+          },
+          "texto": "Объём создаёт свет. Предмет выглядит трёхмерным благодаря своим тонам: свет, полутон, собственная тень, рефлекс и падающая тень. Прищурься: детали исчезают, и остаются только пятна света и тени.",
+          "lamina": [
+            "esfera",
+            "claroscuro"
+          ]
+        },
+        {
+          "id": "color",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "circulo"
+          },
+          "texto": "У цвета своя история: Исаак Ньютон расположил цвета по кругу в 1704 году. Но цвет работает прежде всего благодаря тону: если работа хорошо смотрится в чёрно-белом, она будет хорошо смотреться и в цвете.",
+          "lamina": [
+            "newton",
+            "pinturas"
+          ]
+        },
+        {
+          "id": "composicion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "tercios"
+          },
+          "texto": "И есть композиция: как всё распределено в кадре. Классический приём художников и фотографов — правило третей: раздели изображение на три на три и помести главное на одно из пересечений, а не точно в центр.",
+          "lamina": [
+            "fotografo",
+            "galeria2"
+          ]
+        },
+        {
+          "id": "oeste",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "brazo",
+              "unidad",
+              "compara"
+            ]
+          },
+          "texto": "А теперь дом на Диком Западе, в девятнадцатом веке, в эпоху фотографии: поэтому всё в сепии. Чтобы передать пропорции, художники измеряют: вытянутая рука, одна мерка карандашом, и сравнивают.",
+          "lamina": "medir",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "mirar",
+      "titulo": "Как смотреть на произведение",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть четвёртая. Как смотреть на произведение."
+        },
+        {
+          "id": "museo",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 27 s",
+            "clave": "museo"
+          },
+          "texto": "Сколько времени ты смотришь на картину? В 2001 году Джеффри Смит и Лиза Смит наблюдали за посетителями Метрополитен-музея в Нью-Йорке: в среднем они проводили около двадцати семи секунд перед каждой работой, меньше, чем нужно, чтобы прочитать табличку.",
+          "lamina": [
+            "museo",
+            "louvre"
+          ]
+        },
+        {
+          "id": "mesas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mesas"
+          },
+          "texto": "А смотреть как следует непросто. Эти два стола кажутся очень разными по размеру, правда? Они одинаковые: эту иллюзию нарисовал психолог Роджер Шепард в 1990 году. Твой мозг исправляет увиденное по тому, что он знает. Нажми здесь и проверь.",
+          "lamina": "ilusion"
+        },
+        {
+          "id": "feldman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "describe",
+              "analiza",
+              "interpreta",
+              "juzga"
+            ]
+          },
+          "texto": "Чтобы смотреть не спеша, педагог Эдмунд Фельдман в 1970 году предложил четыре шага: опиши, что видишь, разбери, как это сделано, истолкуй, что это значит, и только в конце реши, нравится ли тебе.",
+          "lamina": [
+            "copista",
+            "retrato"
+          ]
+        },
+        {
+          "id": "tren",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 min",
+            "clave": "unaObra"
+          },
+          "texto": "А дом уже стал поездом: мы в индустриальной эпохе, когда искусство вышло из дворцов на улицы, в плакаты и газеты. Попробуй сегодня: выбери одну работу, в музее или в телефоне, и смотри на неё десять минут.",
+          "lamina": "galeria",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "hacer",
+      "titulo": "Как начать заниматься искусством",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть пятая. Как начать заниматься искусством."
+        },
+        {
+          "id": "alreves",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "alReves"
+          },
+          "texto": "Чтобы рисовать то, что видишь, а не то, что знаешь, есть знаменитое упражнение из книги Бетти Эдвардс 1979 года: перерисуй рисунок, перевёрнутый вверх ногами. Раз ты не узнаёшь, что это, ты перестаёшь рисовать символы и копируешь линии и углы.",
+          "lamina": [
+            "mano",
+            "copiar"
+          ]
+        },
+        {
+          "id": "ojos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "ojos"
+          },
+          "texto": "Где на лице глаза? Почти все рисуют их слишком высоко. На самом деле они посередине головы, между подбородком и макушкой. Подвигай здесь линию глаз и проверь.",
+          "meme": "ojos",
+          "lamina": "retrato2"
+        },
+        {
+          "id": "gesto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cronometro"
+          },
+          "texto": "Делай быстрые наброски жеста: от тридцати секунд до двух минут, только движение, без деталей. Они заставляют видеть главное и снимают страх ошибиться.",
+          "lamina": [
+            "gesto",
+            "modelo"
+          ]
+        },
+        {
+          "id": "copiar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1793",
+            "clave": "louvre"
+          },
+          "texto": "Копируй мастеров. Лувр разрешает копировать свои картины с самого открытия, с 1793 года. Копирование учит, как другие решили то же, что даётся тебе с трудом.",
+          "lamina": [
+            "copista2",
+            "figura"
+          ]
+        },
+        {
+          "id": "cuaderno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "100",
+            "clave": "cuaderno"
+          },
+          "texto": "И заведи скетчбук: рисуй то, что перед тобой, свою чашку, свои ботинки, людей в зале ожидания. Количество важнее совершенства: твои первые сто рисунков — для учёбы.",
+          "meme": "cien",
+          "lamina": [
+            "cuaderno",
+            "cafe"
+          ]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Смотри: дом уже добрался до цифровой эпохи, с неоном и экранами повсюду. Я рисую в своей Арт-студии в MindHaOS: пишу по слоям, пользуюсь сеткой и зеркалом, и каждая работа остаётся в моей галерее.",
+          "lamina": "caballete",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Твой план для начала",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть шестая. Твой план для начала."
+        },
+        {
+          "id": "meta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "100 × 100",
+            "clave": "meta"
+          },
+          "texto": "Поставь маленькую и конкретную цель: например, сто рисунков за сто дней. Цель, которую можно посчитать, заставляет возвращаться каждый день.",
+          "lamina": "calendario"
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dibujosAno"
+          },
+          "texto": "Много времени не нужно: пятнадцать минут в день — это больше девяноста часов в год. Подвигай здесь свои минуты и посмотри, сколько работ у тебя будет за год.",
+          "lamina": "reloj"
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "Возможная неделя: в понедельник контуры; во вторник формы; в среду быстрые жесты; в четверг свет и тень; в пятницу смотришь на одну работу десять минут и копируешь её; а в выходные что хочешь.",
+          "lamina": [
+            "semana",
+            "acuarela2"
+          ]
+        },
+        {
+          "id": "futuro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "amigo",
+              "clase",
+              "internet"
+            ]
+          },
+          "texto": "А дом уже прибыл в будущее: это космический корабль. Инструменты будут меняться дальше, но искусству всегда будет нужен кто-то, кто смотрит и чувствует. Так что показывай свои работы: другу, на занятии или в интернете.",
+          "lamina": "antesDespues",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Итак: искусство — это сделать что-то, чтобы другой посмотрел и почувствовал; оно того стоит ради того, что происходит с тобой, пока ты творишь; смотри не спеша, на свет, форму и цвет; и твори понемногу каждый день.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Если хочешь начать творить, как я, в Арт-студии MindHaOS есть галерея для твоих работ, многослойный холст, который сохраняется сам, и помощники для рисования, например сетка и зеркало. Ссылка в описании, и там же интерактивная версия этого руководства. До встречи в следующем выпуске.",
+    "boton": "Открыть Арт-студию",
+    "lamina": "app-plan",
+    "anclas": {
+      "galeria": "галерея",
+      "capas": "многослойный холст",
+      "ayudas": "помощники для рисования"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "tolstoi-1897",
+      "texto": "Толстой Л. Что такое искусство? (1897).",
+      "url": "https://en.wikipedia.org/wiki/What_Is_Art%3F"
+    },
+    {
+      "id": "kaimal-2016",
+      "texto": "Kaimal G., Ray K., Muniz J. Reduction of Cortisol Levels and Participants' Responses Following Art Making. Art Therapy (2016).",
+      "url": "https://doi.org/10.1080/07421656.2016.1166832"
+    },
+    {
+      "id": "wammes-2016",
+      "texto": "Wammes J. D., Meade M. E., Fernandes M. A. The drawing effect: Evidence for reliable and robust memory benefits in free recall. Quarterly Journal of Experimental Psychology (2016).",
+      "url": "https://doi.org/10.1080/17470218.2015.1094494"
+    },
+    {
+      "id": "chamberlain-2016",
+      "texto": "Chamberlain R., Wagemans J. The genesis of errors in drawing. Neuroscience & Biobehavioral Reviews (2016).",
+      "url": "https://doi.org/10.1016/j.neubiorev.2016.04.002"
+    },
+    {
+      "id": "oktaviana-2024",
+      "texto": "Oktaviana A. A. et al. Narrative cave art in Indonesia by 51,200 years ago. Nature (2024).",
+      "url": "https://doi.org/10.1038/s41586-024-07541-7"
+    },
+    {
+      "id": "lascaux",
+      "texto": "UNESCO. Prehistoric Sites and Decorated Caves of the Vézère Valley (Lascaux).",
+      "url": "https://whc.unesco.org/en/list/85/"
+    },
+    {
+      "id": "alberti-1435",
+      "texto": "Alberti L. B. De pictura (1435). О демонстрации Брунеллески: Kemp M. The Science of Art. Yale University Press (1990).",
+      "url": "https://en.wikipedia.org/wiki/De_pictura"
+    },
+    {
+      "id": "durero-1525",
+      "texto": "Dürer A. Underweysung der Messung. Нюрнберг (1525).",
+      "url": "https://en.wikipedia.org/wiki/Underweysung_der_Messung"
+    },
+    {
+      "id": "daguerre-1839",
+      "texto": "Académie des Sciences: представление дагеротипа, Париж (1839).",
+      "url": "https://en.wikipedia.org/wiki/Daguerreotype"
+    },
+    {
+      "id": "impresionistas-1874",
+      "texto": "Musée d'Orsay. Paris 1874: Inventing Impressionism (2024).",
+      "url": "https://www.musee-orsay.fr/en/whats-on/exhibitions/paris-1874-inventing-impressionism"
+    },
+    {
+      "id": "duchamp-1917",
+      "texto": "Duchamp M. «Фонтан» (1917). Tate: Fountain, реплика 1964 года.",
+      "url": "https://www.tate.org.uk/art/artworks/duchamp-fountain-t07573"
+    },
+    {
+      "id": "sutherland-1963",
+      "texto": "Sutherland I. E. Sketchpad: A man-machine graphical communication system. MIT (1963).",
+      "url": "https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-574.pdf"
+    },
+    {
+      "id": "newton-1704",
+      "texto": "Newton I. Opticks. Лондон (1704): цветовой круг.",
+      "url": "https://en.wikipedia.org/wiki/Opticks"
+    },
+    {
+      "id": "smith-2001",
+      "texto": "Smith J. K., Smith L. F. Spending Time on Art. Empirical Studies of the Arts (2001).",
+      "url": "https://doi.org/10.2190/5MQM-59JH-X21R-JN5J"
+    },
+    {
+      "id": "shepard-1990",
+      "texto": "Shepard R. N. Mind Sights: Original Visual Illusions, Ambiguities, and Other Anomalies. W. H. Freeman (1990).",
+      "url": "https://en.wikipedia.org/wiki/Shepard_tables"
+    },
+    {
+      "id": "feldman-1970",
+      "texto": "Feldman E. B. Becoming Human Through Art: Aesthetic Experience in the School. Prentice-Hall (1970).",
+      "url": "https://en.wikipedia.org/wiki/Edmund_Burke_Feldman"
+    },
+    {
+      "id": "edwards-1979",
+      "texto": "Edwards B. Drawing on the Right Side of the Brain. Tarcher (1979).",
+      "url": "https://en.wikipedia.org/wiki/Drawing_on_the_Right_Side_of_the_Brain"
+    },
+    {
+      "id": "louvre-copistas",
+      "texto": "Musée du Louvre. Copier au Louvre: программа для копиистов, открытая с 1793 года.",
+      "url": "https://www.louvre.fr/en/explore/the-palace/copying-at-the-louvre"
+    }
+  ]
+}

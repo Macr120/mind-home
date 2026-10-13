@@ -30,6 +30,7 @@ import { NubeAsistente } from './NubeAsistente'
 import { useExpresionViva } from '../state/emocionesStore'
 import { anclasDe, muestraRostro, soportaPeinado, type ExpresionId } from './apariencia'
 import { dragChar } from './characterDrag'
+import { puntoOculto } from './mapaVisible'
 import { useActuacion } from '../state/actuacionStore'
 import type { BocaHabla } from './bocaHabla'
 
@@ -398,6 +399,9 @@ function AsistenteActivo({ asistente }: { asistente: Asistente }) {
 
     g.position.y = presetOn || actuando ? ALTURA_FLOTE : categoria === 'flotan' ? alturaFlote(marcha.current, ALTURA_FLOTE, t) : ALTURA_FLOTE
 
+    // En un cuadrante oculto del mapa no se ve (sigue paseando).
+    g.visible = !puntoOculto(g.position.x, g.position.z)
+
     // Mirada: la que pide el Director; si no, al jugador si conversa contigo, está cerca, habla o va hacia ti.
     const cerca = Math.hypot(playerPos.x - g.position.x, playerPos.z - g.position.z) < 3
     if (actor) {
@@ -546,6 +550,8 @@ function Companero({ asistente }: { asistente: Asistente }) {
       : categoria === 'flotan'
         ? alturaFlote(marcha.current, ALTURA_FLOTE, t, g.position.x)
         : ALTURA_FLOTE
+
+    g.visible = !puntoOculto(g.position.x, g.position.z)
 
     // Mirada: la que pide el Director; si no, al jugador si conversa contigo, está cerca o hablando; si no, adonde camina.
     const cerca = Math.hypot(playerPos.x - g.position.x, playerPos.z - g.position.z) < 3

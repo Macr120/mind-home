@@ -1,0 +1,548 @@
+{
+  "idioma": "ru",
+  "tema": "cocina",
+  "plantillaId": "cocina",
+  "pregunta": "Что значит правильно питаться?",
+  "subtitulo": "Что еда делает в твоём теле, откуда мы это знаем, сколько энергии тебе нужно, как распознать качество и как собрать свою тарелку и свою неделю.",
+  "aviso": "Это руководство носит информационный характер и не заменяет консультацию врача или специалиста по питанию. Если у тебя есть заболевание или расстройство пищевого поведения, ты беременна или принимаешь лекарства, обратись к специалисту, прежде чем менять питание.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'remueve', 'pica', 'bebe', 'pensando') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ cocinando y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «recetario», «plan de comidas» y «lista de compras»; app2d.mjs cambia de pantalla de la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "Что еда делает в твоём теле",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Что значит правильно питаться? У каждого есть мнение о том, что тебе стоит есть. Почти никто не объясняет, что еда делает внутри твоего тела. Как это на самом деле работает? За следующие несколько минут ты поймёшь, что нужно твоему телу, рассчитаешь, сколько энергии тратишь, и уйдёшь с готовым планом на неделю.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Кстати, это мой дом в MindHaOS, и на этой кухне я храню свои рецепты и план питания. Начнём.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть первая. Что еда делает в твоём теле."
+        },
+        {
+          "id": "dos-trabajos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "combustible",
+              "construccion"
+            ]
+          },
+          "texto": "Еда выполняет две работы одновременно. Это топливо: энергия, которую измеряют в калориях и которую ты тратишь, когда дышишь, думаешь и двигаешься. И это строительный материал: из неё ты восстанавливаешь мышцы, кости, кожу и кровь, которые постоянно обновляются.",
+          "lamina": "mercado"
+        },
+        {
+          "id": "macros",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "proteinas",
+              "carbohidratos",
+              "grasas"
+            ]
+          },
+          "texto": "Эти материалы поступают тремя большими группами, это макронутриенты. Белки строят и восстанавливают. Углеводы — самая быстрая энергия, прежде всего для мозга и для интенсивных нагрузок. А жиры запасают энергию, образуют стенки твоих клеток и помогают усваивать некоторые витамины.",
+          "lamina": [
+            "macros-proteina",
+            "macros-carbos",
+            "macros-grasas"
+          ]
+        },
+        {
+          "id": "micros",
+          "escena": "pica",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "vitaminas",
+              "minerales",
+              "fibra"
+            ]
+          },
+          "texto": "Кроме того, есть микронутриенты: витамины и минералы, которые нужны в крошечных количествах, но без которых ничего из этого не работает. И клетчатка: энергии она почти не даёт, зато кормит бактерии в твоём кишечнике и дольше сохраняет чувство сытости.",
+          "lamina": "verduras"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Краткая история того, что мы едим",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть вторая. Краткая история того, что мы едим."
+        },
+        {
+          "id": "fuego",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaCocina"
+          },
+          "texto": "Сотни тысяч лет назад наши предки научились готовить на огне. Приготовление делает пищу мягче и позволяет извлечь из неё больше энергии; некоторые антропологи считают, что это помогло нашему мозгу вырасти.",
+          "lamina": "fuego"
+        },
+        {
+          "id": "agricultura",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 000",
+            "clave": "agricultura"
+          },
+          "texto": "Около десяти тысяч лет назад появилось земледелие: пшеница, рис и кукуруза. Еды стало хватать гораздо большему числу людей, хотя рацион стал менее разнообразным, чем у охотников и собирателей.",
+          "lamina": "agricultura"
+        },
+        {
+          "id": "lind",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1747",
+            "clave": "lind"
+          },
+          "texto": "В 1747 году шотландский врач Джеймс Линд провёл одно из первых клинических испытаний в истории: он давал морякам, больным цингой, разные средства, и выздоровели те, кто ел апельсины и лимоны.",
+          "meme": "limones",
+          "lamina": [
+            "lind",
+            "limones"
+          ]
+        },
+        {
+          "id": "atwater",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "4 · 4 · 9",
+            "clave": "atwater"
+          },
+          "texto": "В конце девятнадцатого века химик Уилбур Этуотер измерил, сколько энергии даёт каждый продукт: около четырёх калорий на грамм белка или углеводов и около девяти на грамм жира. Этими цифрами до сих пор пользуются на этикетках.",
+          "lamina": "atwater"
+        },
+        {
+          "id": "funk",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1912",
+            "clave": "funk"
+          },
+          "texto": "В 1912 году биохимик Казимир Функ предложил слово «витамин», и в следующие десятилетия открыли почти все витамины. Впервые стало понятно, что можно есть много и при этом питаться плохо.",
+          "lamina": "funk"
+        },
+        {
+          "id": "plato",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2011",
+            "clave": "plato"
+          },
+          "texto": "В 1992 году в США нарисовали знаменитую пищевую пирамиду, с хлебом и макаронами в основании. В 2011 году её заменили тарелкой, MyPlate, которую гораздо проще представить за каждым приёмом пищи. А в Мексике официальный стандарт нарисовал свою: Plato del Bien Comer, то есть «Тарелка правильного питания». К ней мы ещё придём.",
+          "lamina": [
+            "piramide",
+            "myplate",
+            "plato-bien-comer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "energia",
+      "titulo": "Сколько энергии тебе нужно",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть третья. Сколько энергии тебе нужно."
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "balance"
+          },
+          "texto": "В долгосрочной перспективе твой вес зависит от энергетического баланса: сколько ты съедаешь и сколько тратишь. Если ешь больше, чем тратишь, тело запасает; если меньше, оно берёт из запасов. Звучит просто, но у расхода есть несколько частей.",
+          "lamina": "balance"
+        },
+        {
+          "id": "gasto",
+          "escena": "Caminata",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "gasto"
+          },
+          "texto": "Большая часть, около двух третей, уходит просто на поддержание жизни: это твой базальный обмен веществ. Ещё часть зависит от того, сколько ты двигаешься за день, а небольшая, около десяти процентов, тратится на переваривание еды.",
+          "lamina": "gasto"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "calculadoraEnergia"
+          },
+          "texto": "Это можно оценить по уравнению Миффлина — Сан Жеора, одному из самых популярных у диетологов: по возрасту, весу, росту и активности. Попробуй калькулятор здесь. Это оценка, а не точное измерение, но очень хорошая отправная точка.",
+          "lamina": "calculadora"
+        },
+        {
+          "id": "proteina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "0,8–2 g/kg",
+            "clave": "proteina"
+          },
+          "texto": "Для белка ориентир для взрослого — не меньше ноля целых восьми десятых грамма на каждый килограмм веса в день. Если ты занимаешься силовыми тренировками, многие эксперты советуют от одной целой четырёх десятых до двух граммов.",
+          "lamina": "proteina"
+        },
+        {
+          "id": "deficit",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "−15 %",
+            "clave": "deficit"
+          },
+          "texto": "А если хочешь похудеть, голодать не нужно: достаточно есть немного меньше, чем тратишь, примерно на пятнадцать процентов, и раз в две недели проверять, как идут дела. Надолго остаются именно маленькие изменения.",
+          "lamina": "deficit"
+        }
+      ]
+    },
+    {
+      "id": "calidad",
+      "titulo": "Качество того, что ты ешь",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть четвёртая. Качество того, что ты ешь."
+        },
+        {
+          "id": "nova",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "nova"
+          },
+          "texto": "Важно не только сколько, но и что. Исследователи делят еду по степени переработки: свежие продукты, кулинарные ингредиенты вроде масла или соли, переработанные продукты вроде сыра или хлеба из пекарни и ультрапереработанные, такие как газировка, печенье и снеки из пачки.",
+          "meme": "ultraprocesados",
+          "lamina": "supermercado"
+        },
+        {
+          "id": "experimento",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+500 kcal",
+            "clave": "experimento"
+          },
+          "texto": "В 2019 году в эксперименте Национальных институтов здравоохранения США двадцать человек две недели ели ультрапереработанную еду и две недели — необработанную, и калорий им было доступно одинаково. На ультрапереработанной еде они съедали примерно на пятьсот калорий в день больше, сами того не замечая.",
+          "lamina": "ultraprocesados"
+        },
+        {
+          "id": "azucar",
+          "escena": "bebe",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "azucarOculta"
+          },
+          "texto": "Всемирная организация здравоохранения советует, чтобы добавленный сахар давал меньше десяти процентов твоей энергии, а в идеале меньше пяти: это около шести чайных ложек в день. Посмотри здесь, сколько сахара в том, что ты пьёшь.",
+          "lamina": "refresco"
+        },
+        {
+          "id": "sal",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "< 5 g",
+            "clave": "sal"
+          },
+          "texto": "С солью похожая история: рекомендуют меньше пяти граммов в день, примерно чайную ложку, и большую часть ты не досаливаешь сам за столом — она уже есть в продуктах.",
+          "lamina": "sal"
+        },
+        {
+          "id": "etiqueta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porcion",
+              "azucares",
+              "ingredientes"
+            ]
+          },
+          "texto": "Секрет в том, чтобы читать этикетку. Смотри на порцию, на сахар и соль и на список ингредиентов, который идёт от большего к меньшему: если первым стоит сахар, ты уже знаешь, чего там больше всего.",
+          "lamina": "etiqueta"
+        }
+      ]
+    },
+    {
+      "id": "plato",
+      "titulo": "Как собрать свою тарелку и свою неделю",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть пятая. Как собрать свою тарелку и свою неделю."
+        },
+        {
+          "id": "plato",
+          "escena": "pica",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "armaTuPlato"
+          },
+          "texto": "Для каждого приёма пищи есть очень простой метод — гарвардская тарелка здорового питания: половина тарелки — овощи и фрукты; четверть — цельнозерновые; и ещё четверть — белок, например рыба, курица, яйца или бобовые. Пить — воду, а для готовки — немного хорошего масла.",
+          "lamina": "plato"
+        },
+        {
+          "id": "frutas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "400 g",
+            "clave": "frutas"
+          },
+          "texto": "Всемирная организация здравоохранения советует есть не меньше четырёхсот граммов фруктов и овощей в день, это около пяти порций, и не меньше двадцати пяти граммов клетчатки, которая в основном поступает как раз оттуда, а ещё из цельнозерновых и бобовых.",
+          "lamina": "frutas"
+        },
+        {
+          "id": "planear",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "menu",
+              "lista",
+              "prepara"
+            ]
+          },
+          "texto": "Секрет не в силе воли, а в планировании. Выбери меню на неделю, составь по нему список покупок и пару дней готовь с запасом, чтобы у тебя была готовая еда, когда нет времени.",
+          "lamina": "planear"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Я делаю это на своей кухне в MindHaOS: составляю план на неделю из своих рецептов, а список покупок получается сам.",
+          "lamina": "lista",
+          "enCasa": true
+        },
+        {
+          "id": "ochenta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "80 / 20",
+            "clave": "ochenta"
+          },
+          "texto": "И не обязательно всё должно быть идеально. Если большая часть того, что ты ешь, идёт в этом направлении, пицца с друзьями вписывается без чувства вины: питание, которое ты можешь поддерживать, ценнее идеального, которое ты бросишь через две недели.",
+          "meme": "perfecta",
+          "lamina": "pizza"
+        }
+      ]
+    },
+    {
+      "id": "habitos",
+      "titulo": "Вода, голод и постоянство",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть шестая. Вода, голод и постоянство."
+        },
+        {
+          "id": "agua",
+          "escena": "bebe",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2–2,5 L",
+            "clave": "agua"
+          },
+          "texto": "Вода тоже считается. Европейское агентство по безопасности продуктов питания советует около двух литров в день для женщин и двух с половиной литров для мужчин, включая воду из еды, а это примерно пятая часть.",
+          "lamina": "agua"
+        },
+        {
+          "id": "hambre",
+          "escena": "habla",
+          "visual": {
+            "tipo": "meme",
+            "meme": "tarde"
+          },
+          "texto": "Прислушивайся к голоду. Если есть медленно и без экранов, тело успевает сообщить, что уже насытилось. И не садись за стол зверски голодным: завтрак с белком и фрукт во второй половине дня сильно меняют вечер.",
+          "lamina": "despacio"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "foto",
+            "foto": "registro"
+          },
+          "texto": "А если хочешь понять, как у тебя дела, несколько дней записывай, что ты ешь. Не чтобы зацикливаться, а чтобы увидеть закономерности: многие обнаруживают, что проблема была не в основных приёмах пищи, а в напитках или в перекусах после обеда.",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "Помни, что это руководство носит информационный характер. Если у тебя есть заболевание, сложные отношения с едой или ты беременна, лучше, чтобы тебя сопровождал специалист по питанию.",
+          "lamina": "nutriologo"
+        },
+        {
+          "id": "resumen",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Итак: большую часть времени ешь настоящую еду, заполняй половину тарелки овощами и фруктами, подстраивай количество под свой расход и планируй неделю.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Если хочешь применить это на практике, как я, на кухне в MindHaOS есть твоя книга рецептов, твой план питания на неделю и список покупок, который составляется сам. Ссылка в описании, и там же есть интерактивная версия этого руководства, чтобы спокойно всё повторить. В следующем выпуске разберём новый вопрос. До встречи.",
+    "boton": "Открыть кухню",
+    "lamina": "app-plan",
+    "anclas": {
+      "recetario": "книга рецептов",
+      "plan": "план питания",
+      "compras": "список покупок"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "usda-myplate",
+      "texto": "USDA. MyPlate (2011), которая заменила Пищевую пирамиду (1992).",
+      "url": "https://www.myplate.gov/"
+    },
+    {
+      "id": "nom-043",
+      "texto": "Министерство здравоохранения Мексики. NOM-043-SSA2-2012 (ранее NOM-043-SSA2-2005): Plato del Bien Comer («Тарелка правильного питания»).",
+      "url": "https://www.dof.gob.mx/nota_detalle.php?codigo=5285372&fecha=22/01/2013"
+    },
+    {
+      "id": "oms-alimentacion",
+      "texto": "ВОЗ. Здоровое питание — информационный бюллетень.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/healthy-diet"
+    },
+    {
+      "id": "oms-azucar",
+      "texto": "ВОЗ. Guideline: Sugars intake for adults and children (2015).",
+      "url": "https://www.who.int/publications/i/item/9789241549028"
+    },
+    {
+      "id": "oms-sal",
+      "texto": "ВОЗ. Сокращение потребления соли — информационный бюллетень.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/salt-reduction"
+    },
+    {
+      "id": "oms-carbohidratos",
+      "texto": "ВОЗ. Carbohydrate intake for adults and children: WHO guideline (2023).",
+      "url": "https://www.who.int/publications/i/item/9789240073593"
+    },
+    {
+      "id": "harvard-plato",
+      "texto": "Harvard T.H. Chan School of Public Health. The Healthy Eating Plate.",
+      "url": "https://nutritionsource.hsph.harvard.edu/healthy-eating-plate/"
+    },
+    {
+      "id": "mifflin",
+      "texto": "Mifflin M. D., St Jeor S. T. et al. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr (1990).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+    },
+    {
+      "id": "issn-proteina",
+      "texto": "Jäger R. et al. International Society of Sports Nutrition Position Stand: protein and exercise (2017).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28642676/"
+    },
+    {
+      "id": "hall-2019",
+      "texto": "Hall K. D. et al. Ultra-processed diets cause excess calorie intake and weight gain. Cell Metabolism (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31105044/"
+    },
+    {
+      "id": "nova",
+      "texto": "Monteiro C. A. et al. Ultra-processed foods: what they are and how to identify them. Public Health Nutrition (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30744710/"
+    },
+    {
+      "id": "efsa-agua",
+      "texto": "EFSA. Scientific Opinion on Dietary Reference Values for water (2010).",
+      "url": "https://www.efsa.europa.eu/en/efsajournal/pub/1459"
+    },
+    {
+      "id": "lind-1753",
+      "texto": "Lind J. A Treatise of the Scurvy (1753). The James Lind Library.",
+      "url": "https://www.jameslindlibrary.org/lind-j-1753/"
+    }
+  ]
+}

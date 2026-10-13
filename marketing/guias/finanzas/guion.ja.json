@@ -1,0 +1,608 @@
+{
+  "idioma": "ja",
+  "tema": "finanzas",
+  "plantillaId": "despacho",
+  "numero": 4,
+  "nombre": "家計",
+  "pregunta": "お金とは何でしょうか？",
+  "corta": "お金とは何でしょうか？",
+  "subtitulo": "お金とは何か、どのように生まれたのか、あなたのお金はどこへ消えているのか、いざというときの備えのつくり方と借金から抜け出す方法、複利の仕組み、そして今日から始めるためのプラン。",
+  "aviso": "このガイドは情報提供を目的としたもので、金融・税務・投資の助言ではありません。特定の商品や金融商品をすすめるものでもありません。ローンを組んだり投資を始めたりする前に、条件を比べ、必要であれば登録された専門家に相談してください。",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título) para enganchar en los primeros segundos. No puede ser enCasa.",
+    "corta": "La pregunta en 3-4 palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su despacho y las de en medio sobre las tomas de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «flujo de dinero», «metas de ahorro» y «patrimonio»; app2d.mjs mueve la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "dinero",
+      "titulo": "お金は何のためにあるのか",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "お金とは何でしょうか？ 私たちは毎日お金を使っています。それなのに、インフレや複利のような基本的な考え方を理解している大人は、世界で3人に1人しかいません。お金は実際には、どんな仕組みで動いているのでしょうか？ これからの数分で、あなたのお金がどこへ消えているのかを確かめ、働かせたらどれだけ増えるのかを計算して、今日からもっと上手にお金と付き合うためのプランを手にして終われます。",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "ちなみに、ここはMindHaOSにある私の家です。この家計の部屋で、支出と収入、それに貯蓄の目標を管理しています。では、始めましょう。",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート1。お金は何のためにあるのか。"
+        },
+        {
+          "id": "funciones",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "funciones"
+          },
+          "texto": "お金とは、ひとつの約束ごとです。紙幣も、画面に表示された数字も、みんなが価値があると認めているから価値を持ちます。お金には、物と交換する、物の価値を測る、そして価値を未来へとっておく、という役割があります。",
+          "lamina": [
+            "billetes",
+            "pago"
+          ]
+        },
+        {
+          "id": "inflacion",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "inflacion"
+          },
+          "texto": "でも、この最後の役割には敵がいます。インフレです。物価が毎年3%ずつ上がると、およそ24年で2倍になり、タンス預金にしていたお金で買えるものは半分になってしまいます。",
+          "lamina": [
+            "supermercado",
+            "precios"
+          ]
+        },
+        {
+          "id": "ganar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "3–5 años",
+            "clave": "loteria"
+          },
+          "texto": "それに、稼ぎを増やすだけでは足りません。アメリカのフロリダ州で、研究者たちが宝くじの当せん者を追跡しました。すると5年後、高額の当せん者は、少額の当せん者とほとんど同じくらいの割合で破産していたのです。賞金は、問題を先送りにしただけでした。",
+          "lamina": "loteria",
+          "enCasa": true
+        },
+        {
+          "id": "manejar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "flujo"
+          },
+          "texto": "お金を上手に管理できるかどうかは、いくら稼ぐかではなく、ひとつの引き算で決まります。入ってくるお金から出ていくお金を引いた残りが、これから築いていくための元手です。このガイドは、その引き算をあなたの味方にするためのものです。",
+          "lamina": [
+            "cuentas",
+            "ahorro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "お金の短い歴史",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート2。お金の短い歴史。"
+        },
+        {
+          "id": "hammurabi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaDinero"
+          },
+          "texto": "今からおよそ4000年前、バビロニアのハンムラビ法典は、すでに利息に上限を設けていました。銀の貸し借りでは年20%まで、大麦では3分の1までです。借金の歴史は、文字の歴史とほとんど同じくらい古いのです。",
+          "lamina": [
+            "hammurabi",
+            "tablilla"
+          ]
+        },
+        {
+          "id": "lidia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 600 a. C.",
+            "clave": "lidia"
+          },
+          "texto": "紀元前600年ごろ、現在のトルコにあったリディア王国で、最初の硬貨が生まれました。金と銀が自然に混ざり合ったエレクトラムでできていて、重さを保証する刻印が押されていました。",
+          "lamina": [
+            "lidia",
+            "monedas"
+          ]
+        },
+        {
+          "id": "jiaozi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1024",
+            "clave": "jiaozi"
+          },
+          "texto": "1024年、宋の時代の中国で、政府が交子の発行を始めました。世界で初めての公式な紙幣です。その地域では鉄の銭が使われていて、商売のために持ち運ぶのはとても無理だったのです。",
+          "lamina": "jiaozi"
+        },
+        {
+          "id": "ponzi",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1920",
+            "clave": "ponzi"
+          },
+          "texto": "1920年、ボストンで、チャールズ・ポンジは45日で50%の利益を約束しました。新しい出資者のお金で最初の出資者に支払い、やがてすべてが崩れ落ちました。彼の名前は、この種の詐欺を指す言葉として、永遠に残ることになりました。",
+          "meme": "garantizado",
+          "lamina": "ponzi"
+        },
+        {
+          "id": "nixon",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1971",
+            "clave": "nixon"
+          },
+          "texto": "そして1971年、リチャード・ニクソン大統領が、ドルと金を結ぶ最後のつながりを断ち切りました。それ以来、世界のほとんどのお金は、金庫に眠る金属ではなく、発行する側への信頼によって価値を持っています。",
+          "lamina": [
+            "nixon",
+            "oro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "presupuesto",
+      "titulo": "あなたのお金はどこへ消えるのか",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート3。あなたのお金はどこへ消えるのか。"
+        },
+        {
+          "id": "registra",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "30 días",
+            "clave": "registra"
+          },
+          "texto": "最初の一歩は、お金がどこへ消えているのかを知ることです。1か月のあいだ、使ったお金をすべて書き出してみましょう。街角のコーヒー1杯までです。ほとんどの人が、自分でも気づいていなかった出費を見つけます。",
+          "lamina": "recibos",
+          "enCasa": true
+        },
+        {
+          "id": "hormiga",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gastoHormiga"
+          },
+          "texto": "こうした小さな出費、いわゆる「ちりつも出費」は、思っているよりずっと早く積み重なります。ここで試してみてください。毎日の出費をひとつ選んで、1年でいくら、10年でいくらになるのかを見てみましょう。",
+          "meme": "hormiga",
+          "lamina": [
+            "cafe",
+            "antojo"
+          ]
+        },
+        {
+          "id": "reparto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "regla503020"
+          },
+          "texto": "稼いだお金を振り分けるシンプルな方法に、エリザベス・ウォーレンが広めた「50・30・20ルール」があります。半分は必要なものに、30%は楽しみに、20%は貯金か借金の返済にあてます。ここに収入を入力して、どう分かれるか見てみてください。",
+          "lamina": [
+            "renta",
+            "gustos",
+            "alcancia"
+          ]
+        },
+        {
+          "id": "primero",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ahorraMas"
+          },
+          "texto": "そして、いちばん効果があるコツは、先に自分に払うことです。月末に余ったお金ではなく、給料日にまず貯蓄の分を取り分けます。リチャード・セイラーとシュロモ・ベナルツィの「明日はもっと貯蓄しよう」というプログラムでは、従業員の貯蓄率が、給料の3.5%から14%近くまで上がりました。",
+          "meme": "quincena",
+          "lamina": [
+            "sueldo",
+            "ahorrar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deudas",
+      "titulo": "あなたの備えと借金",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート4。あなたの備えと借金。"
+        },
+        {
+          "id": "emergencia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "63 %",
+            "clave": "emergencia"
+          },
+          "texto": "投資の前に、まずは備えをつくりましょう。アメリカでは、400ドルの急な出費を現金や貯金でまかなえる大人は、63%しかいません。緊急用の資金があれば、何かが壊れたときや仕事を失ったときにも、借金をせずにすみます。",
+          "lamina": [
+            "averia",
+            "imprevisto"
+          ]
+        },
+        {
+          "id": "meses",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fondoEmergencia"
+          },
+          "texto": "よくある目安は、生活に欠かせない支出の3か月分から6か月分を、少しずつ、すぐに引き出せる安全な場所に貯めておくことです。ここで、あなたの場合はいくらになるのか、どれくらいで貯まるのかを計算してみてください。",
+          "lamina": "frasco"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "私は、MindHaOSの家計の部屋で貯めています。給料日には貯蓄の分を取り分けて、机の上の貯金箱で、それぞれの目標にどこまで近づいたかを確認しています。",
+          "lamina": "alcancia",
+          "enCasa": true
+        },
+        {
+          "id": "tarjeta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "> 20 %",
+            "clave": "tarjeta"
+          },
+          "texto": "クレジットカードの借金は、もっとも高くつく借金のひとつです。アメリカでは、2024年にその平均金利が年20%を超えました。利息つきの分割払いで買ったものは、ずっと高くつくことがあります。",
+          "lamina": [
+            "tarjeta",
+            "compras"
+          ]
+        },
+        {
+          "id": "minimo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "deudaTarjeta"
+          },
+          "texto": "そして、最低額だけを払い続けるのが、いちばん高くつく落とし穴です。ここで試してみてください。借金の額と金利、毎月の返済額を入れて、返し終わるまで何か月かかり、利息をいくら払うことになるのかを見てみましょう。",
+          "meme": "minimo",
+          "lamina": "calculadora"
+        },
+        {
+          "id": "metodos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "avalanchaBola"
+          },
+          "texto": "いくつもの借金から抜け出すには、ふたつの方法があります。金利がいちばん高いものから返して、支払う利息をいちばん減らせる「雪崩方式」と、残高がいちばん小さいものから返す「雪だるま方式」です。2012年のある研究では、借金をひとつずつ完済していくことが、途中で投げ出さない助けになるとわかりました。",
+          "lamina": [
+            "avalancha",
+            "nieve"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "invertir",
+      "titulo": "お金に働いてもらう",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート5。お金に働いてもらう。"
+        },
+        {
+          "id": "compuesto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "interesCompuesto"
+          },
+          "texto": "複利とは、利息にさらに利息がつくことです。最初はほとんど気づきませんが、やがて曲線が一気に跳ね上がります。ここで試してみてください。毎月いくら積み立てるか、利回りと年数を選んで、あなたが出した分と、利息が生んだ分を見比べてみましょう。",
+          "lamina": [
+            "planta",
+            "crecer"
+          ]
+        },
+        {
+          "id": "regla72",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "72 ÷ 6 = 12",
+            "clave": "regla72"
+          },
+          "texto": "暗算で見当をつける近道が「72の法則」です。72を年利で割ると、お金が2倍になるまでの年数がわかります。年6%なら、およそ12年です。",
+          "lamina": "pizarron",
+          "enCasa": true
+        },
+        {
+          "id": "empezar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "empezarAntes"
+          },
+          "texto": "だからこそ、金額よりも時間のほうが大切なのです。ふたりが毎月同じ額を、年6%で積み立てるとします。ひとりは25歳から、もうひとりは35歳から。65歳になったとき、最初の人は、出したお金が3分の1多いだけなのに、ほぼ2倍の額を手にしています。",
+          "lamina": [
+            "joven",
+            "reloj"
+          ]
+        },
+        {
+          "id": "riesgo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plazo",
+              "canasta",
+              "entiende"
+            ]
+          },
+          "texto": "投資には必ずリスクがあります。大きく増える可能性があるものは、大きく下がる可能性もあります。助けになる原則が3つあります。長い目で見て、すぐには必要にならないお金だけを使うこと。卵をひとつのかごに盛らないこと。そして、自分が理解していないものには、お金を入れないことです。",
+          "lamina": [
+            "huevos",
+            "grafica"
+          ]
+        },
+        {
+          "id": "comisiones",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "comisiones"
+          },
+          "texto": "それから、手数料にも気をつけましょう。手数料も複利で効いてくるからです。年7%で増えるお金に1%の手数料がかかると、30年後には、手元に残る額がおよそ4分の1少なくなります。",
+          "lamina": "comision"
+        },
+        {
+          "id": "fraude",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "🚩",
+            "clave": "fraude"
+          },
+          "texto": "そして、高くて確実なもうけを約束する人には気をつけてください。そんなものは存在しません。話がうますぎると感じたら、ポンジのように、ほとんどの場合は詐欺です。",
+          "lamina": "alerta"
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "始めるためのプラン",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート6。始めるためのプラン。"
+        },
+        {
+          "id": "metas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombre",
+              "monto",
+              "fecha"
+            ]
+          },
+          "texto": "目指すものに名前と期限をつけましょう。「もっと貯金する」と「18か月で車の頭金を貯める」とでは、まったく違います。金額と期限がわかれば、毎月いくら取り分ければいいかがわかります。",
+          "lamina": [
+            "meta",
+            "coche"
+          ]
+        },
+        {
+          "id": "automatiza",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "automatiza"
+          },
+          "texto": "自動にできることは、すべて自動にしましょう。給料日に自動で移される貯蓄と、口座引き落としにした毎月の固定費です。毎月いちいち決めなくていいことほど、ちゃんと続くのです。",
+          "lamina": [
+            "celular",
+            "automatico"
+          ]
+        },
+        {
+          "id": "revisa",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 min / mes",
+            "clave": "revisa"
+          },
+          "texto": "そして月に一度、いくら入って、いくら出て、どこまで進んだかを振り返りましょう。10分あれば、悪い1か月が悪い1年になる前に、進む方向を立て直せます。",
+          "lamina": "revisar",
+          "enCasa": true
+        },
+        {
+          "id": "aviso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "覚えておいてほしいのですが、このガイドは情報提供を目的としたもので、金融や投資の助言ではありません。何に投資すべきかを伝えるものではないのです。ローンを組んだり投資を始めたりする前には、比べて、条件をよく読み、必要であれば登録された専門家に相談してください。",
+          "lamina": "contrato"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "まとめると、お金がどこへ消えているかを書き出し、まず自分に払い、備えをつくり、高い借金から抜け出して、時間と複利にあなたのために働いてもらいましょう。",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "私と同じように実践してみたいなら、MindHaOSの家計の部屋には、支出と収入と収支がわかるお金の流れ、計算機つきの貯蓄の目標と返済の目標、そして増えていく様子が見える純資産があります。リンクは概要欄にあります。そこには、このガイドのインタラクティブ版もあります。それでは、また次のガイドで。",
+    "boton": "家計の部屋を開く",
+    "lamina": "app-plan",
+    "anclas": {
+      "flujo": "お金の流れ",
+      "metas": "貯蓄の目標",
+      "patrimonio": "純資産"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "finlit-2015",
+      "texto": "Klapper L., Lusardi A., van Oudheusden P. Financial Literacy Around the World: Insights from the Standard & Poor's Ratings Services Global Financial Literacy Survey (2015).",
+      "url": "https://gflec.org/initiatives/sp-global-finlit-survey/"
+    },
+    {
+      "id": "hankins-2011",
+      "texto": "Hankins S., Hoekstra M., Skiba P. M. The Ticket to Easy Street? The Financial Consequences of Winning the Lottery. The Review of Economics and Statistics (2011).",
+      "url": "https://doi.org/10.1162/REST_a_00114"
+    },
+    {
+      "id": "homer-sylla",
+      "texto": "Homer S., Sylla R. A History of Interest Rates (4.ª ed.). Wiley (2005).",
+      "url": "https://doi.org/10.1002/9781118267028"
+    },
+    {
+      "id": "lidia",
+      "texto": "Lidia y las primeras monedas de electro (siglo VII a. C.).",
+      "url": "https://en.wikipedia.org/wiki/Lydia"
+    },
+    {
+      "id": "jiaozi",
+      "texto": "Jiaozi: el primer papel moneda oficial, emitido por la oficina de jiaozi de la dinastía Song en Sichuan (1024).",
+      "url": "https://en.wikipedia.org/wiki/Jiaozi_(currency)"
+    },
+    {
+      "id": "nixon-1971",
+      "texto": "Federal Reserve History. Nixon Ends Convertibility of U.S. Dollars to Gold and Announces Wage/Price Controls (1971).",
+      "url": "https://www.federalreservehistory.org/essays/gold-convertibility-ends"
+    },
+    {
+      "id": "warren-2005",
+      "texto": "Warren E., Warren Tyagi A. All Your Worth: The Ultimate Lifetime Money Plan. Free Press (2005).",
+      "url": "https://openlibrary.org/isbn/9780743269872"
+    },
+    {
+      "id": "thaler-2004",
+      "texto": "Thaler R. H., Benartzi S. Save More Tomorrow: Using Behavioral Economics to Increase Employee Saving. Journal of Political Economy (2004).",
+      "url": "https://doi.org/10.1086/380085"
+    },
+    {
+      "id": "shed-2023",
+      "texto": "Board of Governors of the Federal Reserve System. Economic Well-Being of U.S. Households in 2023 (2024).",
+      "url": "https://www.federalreserve.gov/publications/2024-economic-well-being-of-us-households-in-2023-executive-summary.htm"
+    },
+    {
+      "id": "g19",
+      "texto": "Board of Governors of the Federal Reserve System. Consumer Credit — G.19: interest rate on credit card plans.",
+      "url": "https://www.federalreserve.gov/releases/g19/current/"
+    },
+    {
+      "id": "gal-2012",
+      "texto": "Gal D., McShane B. B. Can Small Victories Help Win the War? Evidence from Consumer Debt Management. Journal of Marketing Research (2012).",
+      "url": "https://doi.org/10.1509/jmr.11.0272"
+    },
+    {
+      "id": "cfpb-emergencia",
+      "texto": "Consumer Financial Protection Bureau. An essential guide to building an emergency fund.",
+      "url": "https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/"
+    },
+    {
+      "id": "sec-comisiones",
+      "texto": "U.S. Securities and Exchange Commission. Investor Bulletin: How Fees and Expenses Affect Your Investment Portfolio (2014).",
+      "url": "https://www.sec.gov/investor/alerts/ib_investmentfees.pdf"
+    },
+    {
+      "id": "sec-ponzi",
+      "texto": "Investor.gov (SEC). Ponzi Scheme.",
+      "url": "https://www.investor.gov/protect-your-investments/fraud/types-fraud/ponzi-scheme"
+    }
+  ]
+}

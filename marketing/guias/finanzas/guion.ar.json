@@ -1,0 +1,608 @@
+{
+  "idioma": "ar",
+  "tema": "finanzas",
+  "plantillaId": "despacho",
+  "numero": 4,
+  "nombre": "المالية",
+  "pregunta": "ما هو المال؟",
+  "corta": "ما هو المال؟",
+  "subtitulo": "ما هو المال وكيف نشأ، وأين يذهب مالك، وكيف تبني احتياطيًا وتخرج من الديون، وكيف تعمل الفائدة المركّبة، وخطة لتبدأ اليوم.",
+  "aviso": "هذا الدليل للتثقيف فقط، وليس استشارة مالية أو ضريبية أو استثمارية: لا يوصي بأي منتج أو أداة. قبل أن تأخذ قرضًا أو تدخل في استثمار، قارن الشروط، واستشر مختصًا مرخّصًا إن احتجت إلى ذلك.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título) para enganchar en los primeros segundos. No puede ser enCasa.",
+    "corta": "La pregunta en 3-4 palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su despacho y las de en medio sobre las tomas de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «flujo de dinero», «metas de ahorro» y «patrimonio»; app2d.mjs mueve la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "dinero",
+      "titulo": "ما فائدة المال",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "ما هو المال؟ نستخدمه جميعًا كل يوم. ومع ذلك، لا يفهم سوى بالغ واحد من كل ثلاثة في العالم أفكارًا أساسية مثل التضخم أو الفائدة المركّبة. كيف يعمل المال فعلًا؟ في الدقائق القادمة سترى أين يذهب مالك، وستحسب كم ينمو إذا جعلته يعمل، وستخرج بخطة لتديره بشكل أفضل بدءًا من اليوم.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "بالمناسبة، هذا بيتي في MindHaOS، وفي غرفة المالية هذه أتابع مصاريفي ودخلي وأهداف ادّخاري. لنبدأ.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الأول. ما فائدة المال."
+        },
+        {
+          "id": "funciones",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "funciones"
+          },
+          "texto": "المال اتفاق: ورقة نقدية أو رقم على شاشة له قيمة لأننا جميعًا نتفق على أن له قيمة. نستخدمه للتبادل، ولقياس قيمة الأشياء، ولحفظ القيمة للمستقبل.",
+          "lamina": [
+            "billetes",
+            "pago"
+          ]
+        },
+        {
+          "id": "inflacion",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "inflacion"
+          },
+          "texto": "لكن لهذه الوظيفة الأخيرة عدوًا: التضخم. إذا ارتفعت الأسعار ثلاثة في المئة كل عام، فإنها تتضاعف في نحو أربعة وعشرين عامًا، والمال الذي خبّأته تحت الفراش لن يشتري إلا النصف.",
+          "lamina": [
+            "supermercado",
+            "precios"
+          ]
+        },
+        {
+          "id": "ganar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "3–5 años",
+            "clave": "loteria"
+          },
+          "texto": "وزيادة الدخل وحدها لا تكفي. في فلوريدا، تتبّع باحثون الفائزين باليانصيب: بعد خمس سنوات، كان أصحاب الجوائز الكبيرة يُفلسون تقريبًا بقدر أصحاب الجوائز الصغيرة. الجائزة أجّلت المشكلة فقط.",
+          "lamina": "loteria",
+          "enCasa": true
+        },
+        {
+          "id": "manejar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "flujo"
+          },
+          "texto": "إدارة مالك جيدًا لا تتوقف على مقدار ما تكسبه، بل على عملية طرح: ما يدخل، ناقص ما يخرج، هو ما يبقى لك لتبني به. هذا الدليل موجود لتكون نتيجة هذا الطرح في صالحك.",
+          "lamina": [
+            "cuentas",
+            "ahorro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "تاريخ موجز للمال",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثاني. تاريخ موجز للمال."
+        },
+        {
+          "id": "hammurabi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaDinero"
+          },
+          "texto": "قبل نحو أربعة آلاف عام، كانت شريعة حمورابي في بابل تضع حدًا للفوائد: عشرون في المئة سنويًا على الأكثر في قروض الفضة، وثلث في قروض الشعير. الديون قديمة قِدَم الكتابة تقريبًا.",
+          "lamina": [
+            "hammurabi",
+            "tablilla"
+          ]
+        },
+        {
+          "id": "lidia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 600 a. C.",
+            "clave": "lidia"
+          },
+          "texto": "نحو عام ستمئة قبل الميلاد، في مملكة ليديا، في تركيا الحالية، ظهرت أولى العملات المعدنية: قطع من الإلكتروم، وهو مزيج طبيعي من الذهب والفضة، عليها ختم يضمن وزنها.",
+          "lamina": [
+            "lidia",
+            "monedas"
+          ]
+        },
+        {
+          "id": "jiaozi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1024",
+            "clave": "jiaozi"
+          },
+          "texto": "في عام 1024، في الصين في عهد سلالة سونغ، بدأت الحكومة تُصدر الجياوزي، أول عملة ورقية رسمية في العالم: كانوا يستخدمون هناك عملات من الحديد، وكان حملها للتجارة أمرًا مستحيلًا.",
+          "lamina": "jiaozi"
+        },
+        {
+          "id": "ponzi",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1920",
+            "clave": "ponzi"
+          },
+          "texto": "في عام 1920، في بوسطن، كان تشارلز بونزي يَعِد بربح خمسين في المئة في خمسة وأربعين يومًا. كان يدفع للأوائل من أموال الجدد، حتى انهار كل شيء. وبقي اسمه إلى الأبد مرتبطًا بهذا النوع من الاحتيال.",
+          "meme": "garantizado",
+          "lamina": "ponzi"
+        },
+        {
+          "id": "nixon",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1971",
+            "clave": "nixon"
+          },
+          "texto": "وفي عام 1971، قطع الرئيس ريتشارد نيكسون آخر رابط بين الدولار والذهب. ومنذ ذلك الحين، صار المال في معظم أنحاء العالم يستمد قيمته من الثقة بمن يُصدره، لا من معدن محفوظ في خزنة.",
+          "lamina": [
+            "nixon",
+            "oro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "presupuesto",
+      "titulo": "أين يذهب مالك",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثالث. أين يذهب مالك."
+        },
+        {
+          "id": "registra",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "30 días",
+            "clave": "registra"
+          },
+          "texto": "الخطوة الأولى أن تعرف أين يذهب. لمدة شهر، سجّل كل ما تنفقه، حتى قهوة المقهى عند الزاوية. يكتشف الجميع تقريبًا مصاريف لم يكونوا يعرفون أنها موجودة.",
+          "lamina": "recibos",
+          "enCasa": true
+        },
+        {
+          "id": "hormiga",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gastoHormiga"
+          },
+          "texto": "تلك المصاريف الصغيرة، التي تُسمّى أحيانًا مصاريف النملة، تتراكم أسرع مما تظن. جرّب هنا: اختر مصروفًا يوميًا وانظر كم يأخذ منك في سنة وفي عشر سنوات.",
+          "meme": "hormiga",
+          "lamina": [
+            "cafe",
+            "antojo"
+          ]
+        },
+        {
+          "id": "reparto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "regla503020"
+          },
+          "texto": "من الطرق البسيطة لتوزيع دخلك قاعدة خمسين، ثلاثين، عشرين، التي نشرتها إليزابيث وارن: النصف للضروريات، وثلاثون في المئة لرغباتك، وعشرون للادّخار أو لسداد الديون. اكتب دخلك هنا وانظر كيف يتوزّع.",
+          "lamina": [
+            "renta",
+            "gustos",
+            "alcancia"
+          ]
+        },
+        {
+          "id": "primero",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ahorraMas"
+          },
+          "texto": "وأنجح حيلة هي أن تدفع لنفسك أولًا: اقتطع الادّخار يوم تقبض راتبك، لا ما يتبقّى في آخر الشهر. في برنامج «ادّخر أكثر غدًا» لريتشارد ثالر وشلومو بنارتزي، ارتفع ادّخار العاملين من ثلاثة ونصف في المئة من رواتبهم إلى نحو أربعة عشر في المئة.",
+          "meme": "quincena",
+          "lamina": [
+            "sueldo",
+            "ahorrar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deudas",
+      "titulo": "احتياطيك وديونك",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الرابع. احتياطيك وديونك."
+        },
+        {
+          "id": "emergencia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "63 %",
+            "clave": "emergencia"
+          },
+          "texto": "قبل أن تستثمر، ابنِ احتياطيًا. في الولايات المتحدة، لا يستطيع سوى ثلاثة وستين في المئة من البالغين تغطية مصروف طارئ قدره أربعمئة دولار من نقودهم أو مدّخراتهم. صندوق الطوارئ ينقذك من الاستدانة حين يتعطّل شيء أو تفقد عملك.",
+          "lamina": [
+            "averia",
+            "imprevisto"
+          ]
+        },
+        {
+          "id": "meses",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fondoEmergencia"
+          },
+          "texto": "الأكثر شيوعًا أن تجمع ما يعادل ثلاثة إلى ستة أشهر من مصاريفك الأساسية، شيئًا فشيئًا، في مكان آمن تستطيع السحب منه بسرعة. احسب هنا كم سيكون صندوقك وفي كم من الوقت تجمعه.",
+          "lamina": "frasco"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "أنا أجمع صندوقي في غرفة المالية في MindHaOS: يوم أقبض راتبي أقتطع ادّخاري أولًا، ومن الحصّالة على المكتب أرى كم جمعت لكل هدف.",
+          "lamina": "alcancia",
+          "enCasa": true
+        },
+        {
+          "id": "tarjeta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "> 20 %",
+            "clave": "tarjeta"
+          },
+          "texto": "ديون بطاقات الائتمان من أغلى الديون: في الولايات المتحدة، تجاوز متوسط فائدتها عشرين في المئة سنويًا في عام 2024. ما تشتريه بالتقسيط مع الفوائد قد يكلّفك أكثر بكثير.",
+          "lamina": [
+            "tarjeta",
+            "compras"
+          ]
+        },
+        {
+          "id": "minimo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "deudaTarjeta"
+          },
+          "texto": "ودفع الحد الأدنى فقط هو أغلى فخ. جرّب هنا: أدخل دينًا وفائدته وما تدفعه كل شهر، وانظر كم شهرًا تحتاج لتتخلّص منه وكم تدفع من الفوائد.",
+          "meme": "minimo",
+          "lamina": "calculadora"
+        },
+        {
+          "id": "metodos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "avalanchaBola"
+          },
+          "texto": "للخروج من عدة ديون هناك طريقتان: طريقة الانهيار الجليدي، التي تسدّد أولًا الدين الأعلى فائدة فتوفّر أكثر، وطريقة كرة الثلج، التي تسدّد أولًا الدين الأصغر. ووجدت دراسة من عام 2012 أن إغلاق الحسابات كاملة، واحدًا تلو الآخر، يساعد على عدم الاستسلام.",
+          "lamina": [
+            "avalancha",
+            "nieve"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "invertir",
+      "titulo": "اجعل مالك يعمل",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الخامس. اجعل مالك يعمل."
+        },
+        {
+          "id": "compuesto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "interesCompuesto"
+          },
+          "texto": "الفائدة المركّبة هي أن تكسب فوائد على فوائدك: في البداية لا تكاد تُلاحظ، ثم ينطلق المنحنى صعودًا. جرّب هنا: اختر كم تقتطع كل شهر، وبأي معدّل، ولكم سنة، وانظر أي جزء وضعته أنت وأي جزء أضافته الفائدة.",
+          "lamina": [
+            "planta",
+            "crecer"
+          ]
+        },
+        {
+          "id": "regla72",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "72 ÷ 6 = 12",
+            "clave": "regla72"
+          },
+          "texto": "اختصار لتحسبها في رأسك هو قاعدة الاثنين والسبعين: اقسم اثنين وسبعين على المعدّل السنوي، فتعرف في كم سنة يتضاعف مالك. عند ستة في المئة، في نحو اثنتي عشرة سنة.",
+          "lamina": "pizarron",
+          "enCasa": true
+        },
+        {
+          "id": "empezar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "empezarAntes"
+          },
+          "texto": "لهذا فالوقت أثمن من المبلغ. إذا اقتطع شخصان المبلغ نفسه كل شهر بمعدّل ستة في المئة سنويًا، أحدهما منذ سن الخامسة والعشرين والآخر منذ الخامسة والثلاثين، فعند سن الخامسة والستين سيملك الأول نحو الضعف، مع أنه لم يضع إلا ثلثًا أكثر.",
+          "lamina": [
+            "joven",
+            "reloj"
+          ]
+        },
+        {
+          "id": "riesgo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plazo",
+              "canasta",
+              "entiende"
+            ]
+          },
+          "texto": "الاستثمار فيه دائمًا مخاطرة: ما يمكن أن يربح أكثر يمكن أن يهبط أكثر أيضًا. ثلاثة مبادئ تساعد: على المدى الطويل، استثمر فقط المال الذي لن تحتاجه قريبًا؛ لا تضع كل البيض في سلّة واحدة؛ ولا تضع مالك في شيء لا تفهمه.",
+          "lamina": [
+            "huevos",
+            "grafica"
+          ]
+        },
+        {
+          "id": "comisiones",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "comisiones"
+          },
+          "texto": "وانتبه للرسوم، لأنها تتراكم هي أيضًا: إذا كان مالك يربح سبعة في المئة سنويًا وتدفع واحدًا في المئة رسومًا، فبعد ثلاثين عامًا ستنتهي بنحو ربع أقل.",
+          "lamina": "comision"
+        },
+        {
+          "id": "fraude",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "🚩",
+            "clave": "fraude"
+          },
+          "texto": "ولا تثق بمن يعدك بأرباح عالية ومضمونة: فهي غير موجودة. إذا بدا الأمر أجمل من أن يكون حقيقيًا، فهو في أغلب الأحيان احتيال، مثل احتيال بونزي.",
+          "lamina": "alerta"
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "خطتك لتبدأ",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السادس. خطتك لتبدأ."
+        },
+        {
+          "id": "metas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombre",
+              "monto",
+              "fecha"
+            ]
+          },
+          "texto": "أعطِ ما تريده اسمًا وتاريخًا: «أن أدّخر أكثر» ليس مثل «أن أجمع الدفعة الأولى لسيارة في ثمانية عشر شهرًا». بالمبلغ والتاريخ تعرف كم تقتطع كل شهر.",
+          "lamina": [
+            "meta",
+            "coche"
+          ]
+        },
+        {
+          "id": "automatiza",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "automatiza"
+          },
+          "texto": "اجعل كل ما تستطيعه تلقائيًا: الادّخار الذي يُقتطع وحده يوم الراتب، والمدفوعات الثابتة بالخصم المباشر. القرارات التي لا تضطر إلى اتخاذها كل شهر هي التي تُنفَّذ فعلًا.",
+          "lamina": [
+            "celular",
+            "automatico"
+          ]
+        },
+        {
+          "id": "revisa",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 min / mes",
+            "clave": "revisa"
+          },
+          "texto": "وراجع مرة في الشهر كم دخل، وكم خرج، وكم تقدّمت. عشر دقائق تكفي لتصحيح المسار قبل أن يتحوّل شهر سيئ إلى سنة سيئة.",
+          "lamina": "revisar",
+          "enCasa": true
+        },
+        {
+          "id": "aviso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "تذكّر أن هذا الدليل للتثقيف فقط، وليس استشارة مالية أو استثمارية: لا يقول لك أين تستثمر. قبل أن تأخذ قرضًا أو تدخل في استثمار، قارن، واقرأ الشروط، واستشر مستشارًا مرخّصًا إن احتجت إلى ذلك.",
+          "lamina": "contrato"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "باختصار: سجّل أين يذهب مالك، وادفع لنفسك أولًا، وابنِ احتياطيك، واخرج من الديون الغالية، ودع الوقت والفائدة المركّبة يعملان لصالحك.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "إذا أردت أن تطبّق ذلك كما أفعل، ففي غرفة المالية في MindHaOS تجد تدفّق أموالك، بالمصاريف والدخل والرصيد؛ وأهداف الادّخار وسداد الديون، مع الحاسبات؛ وصافي ثروتك، لتراه ينمو. الرابط في الوصف، ومعه هذا الدليل التفاعلي. نلتقي في الدليل القادم.",
+    "boton": "افتح غرفة المالية",
+    "lamina": "app-plan",
+    "anclas": {
+      "flujo": "تدفّق أموالك",
+      "metas": "أهداف الادّخار",
+      "patrimonio": "صافي ثروتك"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "finlit-2015",
+      "texto": "Klapper L., Lusardi A., van Oudheusden P. Financial Literacy Around the World: Insights from the Standard & Poor's Ratings Services Global Financial Literacy Survey (2015).",
+      "url": "https://gflec.org/initiatives/sp-global-finlit-survey/"
+    },
+    {
+      "id": "hankins-2011",
+      "texto": "Hankins S., Hoekstra M., Skiba P. M. The Ticket to Easy Street? The Financial Consequences of Winning the Lottery. The Review of Economics and Statistics (2011).",
+      "url": "https://doi.org/10.1162/REST_a_00114"
+    },
+    {
+      "id": "homer-sylla",
+      "texto": "Homer S., Sylla R. A History of Interest Rates (4.ª ed.). Wiley (2005).",
+      "url": "https://doi.org/10.1002/9781118267028"
+    },
+    {
+      "id": "lidia",
+      "texto": "Lidia y las primeras monedas de electro (siglo VII a. C.).",
+      "url": "https://en.wikipedia.org/wiki/Lydia"
+    },
+    {
+      "id": "jiaozi",
+      "texto": "Jiaozi: el primer papel moneda oficial, emitido por la oficina de jiaozi de la dinastía Song en Sichuan (1024).",
+      "url": "https://en.wikipedia.org/wiki/Jiaozi_(currency)"
+    },
+    {
+      "id": "nixon-1971",
+      "texto": "Federal Reserve History. Nixon Ends Convertibility of U.S. Dollars to Gold and Announces Wage/Price Controls (1971).",
+      "url": "https://www.federalreservehistory.org/essays/gold-convertibility-ends"
+    },
+    {
+      "id": "warren-2005",
+      "texto": "Warren E., Warren Tyagi A. All Your Worth: The Ultimate Lifetime Money Plan. Free Press (2005).",
+      "url": "https://openlibrary.org/isbn/9780743269872"
+    },
+    {
+      "id": "thaler-2004",
+      "texto": "Thaler R. H., Benartzi S. Save More Tomorrow: Using Behavioral Economics to Increase Employee Saving. Journal of Political Economy (2004).",
+      "url": "https://doi.org/10.1086/380085"
+    },
+    {
+      "id": "shed-2023",
+      "texto": "Board of Governors of the Federal Reserve System. Economic Well-Being of U.S. Households in 2023 (2024).",
+      "url": "https://www.federalreserve.gov/publications/2024-economic-well-being-of-us-households-in-2023-executive-summary.htm"
+    },
+    {
+      "id": "g19",
+      "texto": "Board of Governors of the Federal Reserve System. Consumer Credit — G.19: interest rate on credit card plans.",
+      "url": "https://www.federalreserve.gov/releases/g19/current/"
+    },
+    {
+      "id": "gal-2012",
+      "texto": "Gal D., McShane B. B. Can Small Victories Help Win the War? Evidence from Consumer Debt Management. Journal of Marketing Research (2012).",
+      "url": "https://doi.org/10.1509/jmr.11.0272"
+    },
+    {
+      "id": "cfpb-emergencia",
+      "texto": "Consumer Financial Protection Bureau. An essential guide to building an emergency fund.",
+      "url": "https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/"
+    },
+    {
+      "id": "sec-comisiones",
+      "texto": "U.S. Securities and Exchange Commission. Investor Bulletin: How Fees and Expenses Affect Your Investment Portfolio (2014).",
+      "url": "https://www.sec.gov/investor/alerts/ib_investmentfees.pdf"
+    },
+    {
+      "id": "sec-ponzi",
+      "texto": "Investor.gov (SEC). Ponzi Scheme.",
+      "url": "https://www.investor.gov/protect-your-investments/fraud/types-fraud/ponzi-scheme"
+    }
+  ]
+}

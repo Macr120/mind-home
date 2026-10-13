@@ -2,7 +2,7 @@
 # empieza cada palabra (límites de palabra del servicio). La CLI de edge-tts
 # solo da límites por frase; la guía ilumina el texto palabra a palabra.
 #
-#   python scripts/guias/tts_palabras.py <voz> <rate> <salida.mp3> <texto>
+#   python scripts/guias/tts_palabras.py <voz> <rate> <salida.mp3> <texto> [pitch]
 import asyncio
 import json
 import sys
@@ -12,7 +12,8 @@ import edge_tts
 
 async def main() -> None:
     voz, rate, salida, texto = sys.argv[1:5]
-    com = edge_tts.Communicate(texto, voz, rate=rate, boundary="WordBoundary")
+    pitch = sys.argv[5] if len(sys.argv) > 5 else "+0Hz"
+    com = edge_tts.Communicate(texto, voz, rate=rate, pitch=pitch, boundary="WordBoundary")
     inicios = []
     with open(salida, "wb") as f:
         async for trozo in com.stream():

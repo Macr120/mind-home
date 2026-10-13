@@ -1,4 +1,9 @@
 import { useEffect, useState } from 'react'
+import { GRAFICAS_ARTE, GraficaArte } from './Arte'
+import { GRAFICAS_COCINA, GraficaCocina } from './Cocina'
+import { GRAFICAS_DESCANSO, GraficaDescanso } from './Descanso'
+import { GRAFICAS_FINANZAS, GraficaFinanzas } from './Finanzas'
+import { GRAFICAS_IDIOMAS, GraficaIdiomas } from './Idiomas'
 import type { T, Visual } from './datos'
 
 interface Foto { archivo: string; autor: string; fuente: string }
@@ -50,7 +55,11 @@ export function Bloque({ v, tema, t }: { v: Visual; tema: string; t: T }) {
         </ol>
       )
     case 'grafica':
-      return <Grafica id={v.grafica!} k={k} />
+      if (GRAFICAS_COCINA.has(v.grafica!)) return <GraficaCocina id={v.grafica!} k={k} />
+      if (GRAFICAS_FINANZAS.has(v.grafica!)) return <GraficaFinanzas id={v.grafica!} k={k} />
+      if (GRAFICAS_IDIOMAS.has(v.grafica!)) return <GraficaIdiomas id={v.grafica!} k={k} />
+      if (GRAFICAS_ARTE.has(v.grafica!)) return <GraficaArte id={v.grafica!} k={k} />
+      return GRAFICAS_DESCANSO.has(v.grafica!) ? <GraficaDescanso id={v.grafica!} k={k} /> : <Grafica id={v.grafica!} k={k} />
     case 'foto': {
       const f = MEDIOS[`../../../marketing/guias/${tema}/medios.json`]?.fotos[v.foto!]
       if (!f) return null

@@ -1,0 +1,640 @@
+{
+  "idioma": "ja",
+  "tema": "idiomas",
+  "plantillaId": "idiomas",
+  "numero": 5,
+  "nombre": "言語",
+  "pregunta": "なぜ言語を学ぶのでしょうか？",
+  "corta": "なぜ言語を学ぶのでしょうか？",
+  "subtitulo": "機械が翻訳してくれる時代でも学ぶ価値がある理由、言語ができるとはどういうことで、どれくらい時間がかかるのか、歴史の中でどう教えられてきたのか、脳はどう覚えてどう忘れるのか、どの単語がいちばん役に立つのか、初日から話す方法、そして今日から始められる一日二十分のプラン。",
+  "aviso": "このガイドは情報提供を目的としています。時間や割合は研究や特定のプログラムによる平均値で、実際にかかる時間は、あなたの母語、学ぶ言語、そして練習の量によって変わります。",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando').",
+    "visual": "Bloque que acompaña la línea: dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título). No puede ser enCasa.",
+    "corta": "La pregunta en pocas palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su cuarto de Idiomas y las de en medio sobre las tomas de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «charlas con un tutor», «temario por niveles» y «repaso espaciado»; app2d.mjs mueve la app justo al decirlas.",
+    "angloparlante": "Las horas del FSI son para quien habla inglés: en cada traducción se dice así («para alguien que habla inglés»), no se adaptan a la lengua del video.",
+    "canales": "La línea «canales» invita a ver estas guías en el idioma que se aprende: en cada traducción se nombra «nuestros canales de MindHaOS» (hay uno por idioma)."
+  },
+  "partes": [
+    {
+      "id": "saber",
+      "titulo": "なぜ学ぶのか、言語ができるとはどういうことか",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "なぜ言語を学ぶのでしょうか？ 今では、どんなスマートフォンでも数秒で翻訳してくれます。それでも欧州連合では、大人のほぼ半数が、母語以外のどの言語でも会話を続けることができません。本当に学ぶ価値はあるのでしょうか、そしてどうやって身につけるのでしょうか？ これからの数分で、言語が脳に何をもたらすのか、脳がどう覚えてどう忘れるのかを見ていき、今日から話し始めるためのプランを手にして終われます。",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "ちなみに、ここはMindHaOSにある私の家です。この語学の部屋で、チューターと練習し、カードを復習し、カリキュラムを進めています。では、始めましょう。",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート1。なぜ学ぶのか、言語ができるとはどういうことか。"
+        },
+        {
+          "id": "cerebro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 4 años",
+            "clave": "cerebro"
+          },
+          "texto": "機械がもう翻訳してくれるのに、何のために？ それは、言語を学ぶと、語彙だけでなく脳そのものが変わるからです。スウェーデンでは、三か月間ひとつの言語を集中的に学んだ新兵たちの、記憶をつかさどる海馬が大きくなりました。そしてトロントの研究では、二つの言語を話す人は、認知症の症状が出始めるのがおよそ四年遅かったのです。",
+          "lamina": [
+            "cerebro",
+            "traductor"
+          ]
+        },
+        {
+          "id": "maquinas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "chistes",
+              "gente",
+              "pensar"
+            ]
+          },
+          "texto": "それに、機械は言葉を訳してくれても、あなたの代わりに会話はしてくれません。自分で話せれば、冗談がわかり、画面を挟まずに人とつながり、別の言語から世界を見ることができます。",
+          "lamina": [
+            "amigos",
+            "viajeros"
+          ]
+        },
+        {
+          "id": "habilidades",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "habilidades"
+          },
+          "texto": "言語ができるというのは、単語のリストを覚えていることではありません。四つの技能があります。聞いて理解すること、読んで理解すること、話すこと、そして書くこと。そして私たちはたいてい、言えることよりもずっと多くを理解しています。",
+          "lamina": [
+            "conversacion",
+            "leer"
+          ]
+        },
+        {
+          "id": "niveles",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nivelMcer"
+          },
+          "texto": "それを測るために、欧州評議会は2001年に「ヨーロッパ言語共通参照枠」を発表し、今では世界中で使われています。六つのレベルがあり、自己紹介をしてコーヒーを注文できるA1から、ほぼすべてを理解できるC2まであります。ここで、もうできることにチェックを入れて、自分がどのレベルにいるか見てみましょう。",
+          "lamina": [
+            "cafeteria",
+            "examen"
+          ]
+        },
+        {
+          "id": "horas",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "fsi"
+          },
+          "texto": "では、どれくらいかかるのでしょうか？ 外交官を養成しているアメリカ国務省の外務職員局は、英語を話す人が仕事でスペイン語やフランス語を使えるようになるには約六百時間の授業が必要で、日本語、中国語、韓国語、アラビア語なら約二千二百時間かかると見積もっています。",
+          "lamina": [
+            "clase",
+            "reloj"
+          ]
+        },
+        {
+          "id": "distancia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ ×4",
+            "clave": "distancia"
+          },
+          "texto": "いちばん大きいのは、自分の言語からどれだけ離れているかです。単語や音、文字が共通していれば、ずっと速く進みます。だから近い言語は簡単に感じられ、別の文字を使う言語は、最初はずっと難しく感じるのです。",
+          "lamina": "globo",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "言語学習の短い歴史",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート2。言語学習の短い歴史。"
+        },
+        {
+          "id": "rosetta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaIdiomas"
+          },
+          "texto": "紀元前196年、エジプトで、ひとつの布告が三種類の文字で刻まれました。ヒエログリフ、デモティック、そして古代ギリシャ語です。その石、ロゼッタ・ストーンは1799年に見つかり、ギリシャ語のおかげで、ジャン＝フランソワ・シャンポリオンが1822年にヒエログリフを解読しました。",
+          "lamina": [
+            "rosetta",
+            "champollion"
+          ]
+        },
+        {
+          "id": "comenio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1658",
+            "clave": "comenio"
+          },
+          "texto": "1658年、チェコの教育者ヤン・アモス・コメニウスは『世界図絵』を出版しました。子どもに教えるための、最初期の絵入りの本のひとつで、ラテン語の単語ひとつひとつに絵が添えられていました。彼はすでに、絵のほうが訳語より記憶に残ることを知っていたのです。",
+          "lamina": [
+            "comenio",
+            "orbis"
+          ]
+        },
+        {
+          "id": "berlitz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1878",
+            "clave": "berlitz"
+          },
+          "texto": "1878年、アメリカのプロビデンスで、マクシミリアン・ベルリッツが新しいルールを掲げた学校を開きました。授業では訳さない。初日から、すべてを学んでいる言語で話すのです。",
+          "lamina": "berlitz"
+        },
+        {
+          "id": "zamenhof",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1887",
+            "clave": "zamenhof"
+          },
+          "texto": "そして1887年、眼科医のルドヴィコ・ザメンホフがエスペラントを発表しました。世界中の人が理解し合えるように作られた、例外のない文法を持つ言語です。どの言語にも取って代わりはしませんでしたが、今でも世界中に話し手がいます。",
+          "lamina": [
+            "zamenhof",
+            "esperanto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cerebro",
+      "titulo": "脳はどう覚え、どう忘れるのか",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート3。脳はどう覚え、どう忘れるのか。"
+        },
+        {
+          "id": "entender",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "inputComprensible"
+          },
+          "texto": "最も影響力のある考え方のひとつは、1980年代に言語学者のスティーブン・クラッシェンが提唱したものです。私たちは、自分のレベルより少しだけ上のメッセージを理解したときに、言語を身につける。ほとんど理解できて、少しだけ新しいことがあれば学べます。何もわからなければ、ただの雑音にしか聞こえません。",
+          "lamina": [
+            "audifonos",
+            "podcast"
+          ]
+        },
+        {
+          "id": "canales",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "16",
+            "clave": "canales"
+          },
+          "texto": "そこで、ちょっとしたコツです。このガイドは、私たちのMindHaOSのチャンネルで十六の言語で見られます。自分の言語で見たガイドを、今度は学んでいる言語で見てみてください。内容をもう知っているので、ほとんど理解できます。まさに、自分のレベルより少しだけ上です。",
+          "lamina": "canales"
+        },
+        {
+          "id": "olvido",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "olvido"
+          },
+          "texto": "ところが、学んだことは逃げていきます。1885年、ヘルマン・エビングハウスは意味のない音節のリストを覚え、どれだけ忘れるかを測りました。大部分は最初の数時間で消え、そのあと忘れ方はゆるやかになりました。これが忘却曲線です。",
+          "meme": "olvido",
+          "lamina": [
+            "ebbinghaus",
+            "notas"
+          ]
+        },
+        {
+          "id": "repasos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "curvaOlvido"
+          },
+          "texto": "いい知らせは、復習するたびに曲線がなだらかになることです。一回ごとに、記憶は長持ちするようになります。ここで試してみましょう。復習を加えて、間隔を少しずつ空けた復習が、ひとつの単語をどう記憶にとどめるか見てください。",
+          "lamina": "calendario"
+        },
+        {
+          "id": "recuperar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "recuperar"
+          },
+          "texto": "そして、復習とは読み返すことではありません。2006年、ヘンリー・ローディガーとジェフリー・カーピキは、文章を読み返した学生と、自分をテストした学生を比べました。一週間後、より多く覚えていたのはテストした学生でした。思い出そうとすることこそが、記憶を定着させるのです。",
+          "lamina": "tarjetas",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "palabras",
+      "titulo": "いちばん役に立つ単語",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート4。いちばん役に立つ単語。"
+        },
+        {
+          "id": "frecuencia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cobertura"
+          },
+          "texto": "すべての単語が同じ価値を持つわけではありません。たとえば英語では、最もよく使われる千語が、ふつうの文章に出てくる単語の、およそ十のうち八を占めます。ここで知っている単語の数を動かして、文章のどれくらいがわかるか見てみましょう。",
+          "lamina": [
+            "libro",
+            "periodico"
+          ]
+        },
+        {
+          "id": "frases",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "frase",
+              "contexto",
+              "usala"
+            ]
+          },
+          "texto": "そして単語は、ばらばらではなく文で覚えましょう。「塩、取ってくれる？」のひと言で、語彙も文法も発音も一度に身につき、明日の食卓ですぐに使えます。",
+          "meme": "lista",
+          "lamina": [
+            "mesa",
+            "sal"
+          ]
+        },
+        {
+          "id": "leitner",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cajasLeitner"
+          },
+          "texto": "時間をむだにせず復習するために、間隔反復という方法があります。1972年、ドイツのジャーナリスト、セバスティアン・ライトナーは、カードを入れる箱を考えました。正解ならカードは次の箱に進み、あとで復習します。間違えたら前の箱に戻ります。ここで一枚のカードで試してみましょう。",
+          "lamina": [
+            "fichas",
+            "cajas"
+          ]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "私はMindHaOSの語学の部屋でこれをやっています。机の上のカードが今日どれを復習すればいいか教えてくれて、アプリが自動で箱に振り分けてくれます。",
+          "lamina": "tarjetas",
+          "enCasa": true
+        },
+        {
+          "id": "temas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "temas"
+          },
+          "texto": "そして、使うことから始めましょう。旅行のためなら、あいさつ、食べもの、交通、道案内。仕事のためなら、自己紹介、会議、メール。レベル別のカリキュラムが、次に何をすればいいか教えてくれます。",
+          "lamina": [
+            "aeropuerto",
+            "reunion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hablar",
+      "titulo": "初日から話そう",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート5。初日から話そう。"
+        },
+        {
+          "id": "producir",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1985",
+            "clave": "swain"
+          },
+          "texto": "聞くだけでは話せるようになりません。言語学者のメリル・スウェインは、カナダでフランス語のイマージョン校の生徒たちを調べました。彼らはとてもよく理解していましたが、話すと間違いを続けていました。ほとんど口に出していなかったからです。話してみて初めて、まだ言えないことに気づけます。",
+          "lamina": [
+            "aula",
+            "hablar"
+          ]
+        },
+        {
+          "id": "sombra",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escucha",
+              "repite",
+              "grabate"
+            ]
+          },
+          "texto": "効果的な練習のひとつがシャドーイングです。短い音声を流して、リズムとイントネーションをまねしながら、こだまのように同時に繰り返します。それから自分の声を録音して、聞き比べましょう。耳がすでに知っている音を、口が覚えていきます。",
+          "lamina": [
+            "audifonos2",
+            "grabar"
+          ]
+        },
+        {
+          "id": "errores",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "✔",
+            "clave": "errores"
+          },
+          "texto": "そして、たくさん間違えましょう。誰かに直してもらう間違いのひとつひとつが、あなたにぴったりのレッスンです。完璧に話せるまで待つ人は、いつまでも話せません。",
+          "meme": "perfecto",
+          "lamina": "risa"
+        },
+        {
+          "id": "edad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edad"
+          },
+          "texto": "もう子どもじゃなかったら？ 2018年、約七十万人を対象にした研究で、文法を身につけやすい力は十七歳ごろまで高いままで、そのあと少しずつ下がることがわかりました。大人にとって難しいのは、ネイティブのように聞こえることで、上手に話すことではありません。上手に話すことは、何歳からでもできます。",
+          "lamina": [
+            "adulto",
+            "abuela"
+          ]
+        },
+        {
+          "id": "diario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "🗣️",
+            "clave": "diario"
+          },
+          "texto": "話す相手がいなくても、とにかく練習しましょう。自分のしていることを声に出して説明したり、チューターや、あなたの言語を学んでいる人と話したり。大切なのは、毎日口を開くことです。",
+          "lamina": "llamada",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "始めるためのプラン",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート6。始めるためのプラン。"
+        },
+        {
+          "id": "meta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "para",
+              "nivel",
+              "fecha"
+            ]
+          },
+          "texto": "目的と、レベルと、期限を決めましょう。「英語を勉強する」と「十二月の旅行のためにB1に届く」は、まったく違います。それがあれば、どのテーマが必要で、何時間かかるかがわかります。",
+          "lamina": [
+            "viaje",
+            "agenda"
+          ]
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "minutosDia"
+          },
+          "texto": "そして、続けることは一気にやることに勝ります。一日二十分で、一年に百二十時間以上になります。ここで、あなたのルーティンで何時間たまり、どれくらいで届くか計算してみましょう。",
+          "lamina": [
+            "cronometro",
+            "cafe"
+          ]
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "二十分のルーティンは、たとえばこんな感じです。五分はほとんどわかるものを聞き、五分はカードを復習し、五分は話すかシャドーイングをして、五分は少し読むか書きます。",
+          "lamina": [
+            "escuchar",
+            "escribir"
+          ]
+        },
+        {
+          "id": "riega",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "20 min / día",
+            "clave": "riega"
+          },
+          "texto": "この植物のように考えてみてください。毎日少しの水で育ちますが、日曜日にバケツ一杯かけても助かりません。言語も同じです。",
+          "lamina": "regar",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "まとめると、ほとんどわかるものを聞き、間隔を空けて自分をテストしながら復習し、いちばんよく使う単語から文で覚え、そして初日から、毎日少しずつ話すことです。",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "私のように実践してみたいなら、MindHaOSの語学の部屋には、間違いを直してくれるチューターとの会話、カードつきのレベル別カリキュラム、そして今日やることを教えてくれる間隔反復の復習があります。リンクは概要欄にあります。そこには、このインタラクティブ版のガイドもあります。それでは、また次のガイドで。",
+    "boton": "語学の部屋を開く",
+    "lamina": "app-plan",
+    "anclas": {
+      "charlas": "チューターとの会話",
+      "temario": "レベル別カリキュラム",
+      "repaso": "間隔反復の復習"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "eurobarometro-386",
+      "texto": "欧州委員会. Special Eurobarometer 386: Europeans and their Languages (2012).",
+      "url": "https://europa.eu/eurobarometer/surveys/detail/1049"
+    },
+    {
+      "id": "martensson-2012",
+      "texto": "Mårtensson J., Eriksson J., Bodammer N. C. et al. Growth of language-related brain areas after foreign language learning. NeuroImage (2012).",
+      "url": "https://doi.org/10.1016/j.neuroimage.2012.06.043"
+    },
+    {
+      "id": "bialystok-2007",
+      "texto": "Bialystok E., Craik F. I. M., Freedman M. Bilingualism as a protection against the onset of symptoms of dementia. Neuropsychologia (2007).",
+      "url": "https://doi.org/10.1016/j.neuropsychologia.2006.10.009"
+    },
+    {
+      "id": "mcer",
+      "texto": "欧州評議会. Common European Framework of Reference for Languages（CEFR, 2001）.",
+      "url": "https://www.coe.int/en/web/common-european-framework-reference-languages"
+    },
+    {
+      "id": "fsi",
+      "texto": "U.S. Department of State, Foreign Service Institute. Foreign Language Training: 英語話者のためのおおよその学習時間.",
+      "url": "https://www.state.gov/foreign-language-training/"
+    },
+    {
+      "id": "rosetta",
+      "texto": "The British Museum. The Rosetta Stone (EA24): メンフィス布告, 紀元前196年.",
+      "url": "https://www.britishmuseum.org/collection/object/Y_EA24"
+    },
+    {
+      "id": "orbis-pictus",
+      "texto": "Comenius J. A. Orbis Sensualium Pictus. ニュルンベルク (1658).",
+      "url": "https://en.wikipedia.org/wiki/Orbis_Pictus"
+    },
+    {
+      "id": "berlitz",
+      "texto": "Berlitz: マクシミリアン・ベルリッツがロードアイランド州プロビデンスに創立した学校 (1878).",
+      "url": "https://en.wikipedia.org/wiki/Berlitz_Corporation"
+    },
+    {
+      "id": "unua-libro",
+      "texto": "Zamenhof L. L. Unua Libro: 最初のエスペラントの本 (1887).",
+      "url": "https://en.wikipedia.org/wiki/Unua_Libro"
+    },
+    {
+      "id": "krashen-1982",
+      "texto": "Krashen S. D. Principles and Practice in Second Language Acquisition. Pergamon (1982).",
+      "url": "https://www.sdkrashen.com/content/books/principles_and_practice.pdf"
+    },
+    {
+      "id": "ebbinghaus-1885",
+      "texto": "Ebbinghaus H. Über das Gedächtnis (1885). 英訳: Memory: A Contribution to Experimental Psychology (1913).",
+      "url": "https://psychclassics.yorku.ca/Ebbinghaus/index.htm"
+    },
+    {
+      "id": "cepeda-2006",
+      "texto": "Cepeda N. J., Pashler H., Vul E., Wixted J. T., Rohrer D. Distributed practice in verbal recall tasks: A review and quantitative synthesis. Psychological Bulletin (2006).",
+      "url": "https://doi.org/10.1037/0033-2909.132.3.354"
+    },
+    {
+      "id": "roediger-2006",
+      "texto": "Roediger H. L., Karpicke J. D. Test-Enhanced Learning: Taking Memory Tests Improves Long-Term Retention. Psychological Science (2006).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x"
+    },
+    {
+      "id": "nation-2006",
+      "texto": "Nation I. S. P. How Large a Vocabulary Is Needed for Reading and Listening? The Canadian Modern Language Review (2006).",
+      "url": "https://doi.org/10.3138/cmlr.63.1.59"
+    },
+    {
+      "id": "leitner-1972",
+      "texto": "Leitner S. So lernt man lernen. Herder (1972).",
+      "url": "https://en.wikipedia.org/wiki/Leitner_system"
+    },
+    {
+      "id": "swain-1985",
+      "texto": "Swain M. Communicative competence: Some roles of comprehensible input and comprehensible output in its development. 所収: Gass S., Madden C. (eds.), Input in Second Language Acquisition. Newbury House (1985).",
+      "url": "https://en.wikipedia.org/wiki/Comprehensible_output"
+    },
+    {
+      "id": "hartshorne-2018",
+      "texto": "Hartshorne J. K., Tenenbaum J. B., Pinker S. A critical period for second language acquisition: Evidence from 2/3 million English speakers. Cognition (2018).",
+      "url": "https://doi.org/10.1016/j.cognition.2018.04.007"
+    }
+  ]
+}

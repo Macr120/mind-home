@@ -1650,6 +1650,8 @@ interface MapaConfig {
   celda?: number
   /** Cuadrantes dibujados por el usuario (los automáticos se calculan, no se guardan). */
   cuadrantes?: CuadranteMapa[]
+  /** Bloques automáticos (ids `auto-c-r`) ocultos: el mapa se ve solo con los demás. */
+  cuadrantesOcultos?: string[]
 }
 
 /**

@@ -53,6 +53,9 @@ export async function arrancarChrome() {
       // Sin ventana: la pantalla del equipo no deja una ventana con un cuadro de 1080 px.
       '--headless=new',
       '--autoplay-policy=no-user-gesture-required',
+      // El español de la demo, con los importes en pesos (con la región del sistema, es-ES, salían en euros);
+      // los demás idiomas no tienen región aquí y usan la moneda de su idioma.
+      '--accept-lang=es-MX',
       // getDisplayMedia elige esta pestaña sin selector (el <title> de las guías y de la app lleva la marca).
       '--auto-select-tab-capture-source-by-title=MindHaOS',
       '--disable-background-timer-throttling',
@@ -65,8 +68,19 @@ export async function arrancarChrome() {
   for (let i = 0; i < 60 && !(await vivo()); i++) await dormir(500)
 }
 
+/** Error de `evaluar` cuando Chrome no contesta (sesión de CDP perdida). */
+export const SIN_RESPUESTA = 'Chrome no responde (sesión de CDP perdida)'
+
 export async function evaluar(c, expression, extra = {}) {
-  const r = await c.enviar('Runtime.evaluate', { expression, returnByValue: true, awaitPromise: true, ...extra })
+  // El `timeout` de CDP no corta una promesa en espera, y si la pestaña se recarga a
+  // media evaluación la sesión a veces queda muerta y Chrome no responde nunca: se corta
+  // aquí. Con la sesión muerta no sirve reintentar: el idioma falla y se repite aparte.
+  const tope = Math.max(extra.timeout ?? 0, 300000) + 60000
+  let reloj
+  const r = await Promise.race([
+    c.enviar('Runtime.evaluate', { expression, returnByValue: true, awaitPromise: true, ...extra }),
+    new Promise((_, mal) => (reloj = setTimeout(() => mal(new Error(SIN_RESPUESTA)), tope))),
+  ]).finally(() => clearTimeout(reloj))
   if (r.exceptionDetails) throw new Error(r.exceptionDetails.exception?.description ?? r.exceptionDetails.text)
   return r.result?.value
 }
@@ -85,10 +99,27 @@ export async function conPagina(dir, fn) {
     await b.enviar('Browser.setDownloadBehavior', { behavior: 'allow', downloadPath: dir })
     const { windowId } = await b.enviar('Browser.getWindowForTarget', { targetId: pagina.id })
     await b.enviar('Browser.setWindowBounds', { windowId, bounds: { left: 0, top: 0, width: VENTANA.ancho, height: VENTANA.alto, windowState: 'normal' } })
-    return conWs(pagina.webSocketDebuggerUrl, async (c) => {
+    return conWs(pagina.webSocketDebuggerUrl, async (sesion) => {
+      // Ningún comando espera para siempre: con la sesión perdida, el idioma falla y se repite aparte
+      // (`Runtime.evaluate` lleva su propio tope en `evaluar`).
+      const c = {
+        ...sesion,
+        enviar: (metodo, params) => {
+          if (metodo === 'Runtime.evaluate') return sesion.enviar(metodo, params)
+          let reloj
+          return Promise.race([
+            sesion.enviar(metodo, params),
+            new Promise((_, mal) => (reloj = setTimeout(() => mal(new Error(SIN_RESPUESTA)), 300000))),
+          ]).finally(() => clearTimeout(reloj))
+        },
+      }
       await c.enviar('Page.enable')
       await c.enviar('Runtime.enable')
       await c.enviar('Emulation.setFocusEmulationEnabled', { enabled: true })
+      // El registro de recursos guarda 250 y la app carga más: sin ampliarlo antes de que
+      // cargue, `modulo()` de las ayudas no encuentra la URL real de un módulo (con su
+      // ?t= de HMR), importa la ruta a secas y obtiene OTRA instancia (sus cambios no llegan a la app).
+      await c.enviar('Page.addScriptToEvaluateOnNewDocument', { source: 'performance.setResourceTimingBufferSize(100000)' })
       return fn(c)
     })
   })
@@ -115,7 +146,8 @@ export const QUITAR_MARCA = `document.getElementById('marca-grabador')?.remove()
  */
 export const codigoCaptura = (nombre, accion, cola = 1400) => `(async () => {
   const pedir = navigator.mediaDevices.getDisplayMedia({
-    video: { frameRate: 30 }, audio: { suppressLocalAudioPlayback: false },
+    // El audio de la pestaña entra a la toma pero no sale por las bocinas del equipo.
+    video: { frameRate: 30 }, audio: { suppressLocalAudioPlayback: true },
     preferCurrentTab: true, selfBrowserSurface: 'include', surfaceSwitching: 'exclude',
   })
   const dormir = (ms) => new Promise((r) => setTimeout(r, ms))

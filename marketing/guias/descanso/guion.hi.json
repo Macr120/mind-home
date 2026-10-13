@@ -1,0 +1,416 @@
+{
+  "idioma": "hi",
+  "tema": "descanso",
+  "plantillaId": "descanso",
+  "pregunta": "अच्छी नींद लेने का मतलब क्या है?",
+  "subtitulo": "सोते समय आपके शरीर में क्या होता है, विज्ञान ने नींद के बारे में क्या खोजा, आपको कितनी नींद चाहिए, आपकी अंदरूनी घड़ी कैसे काम करती है, और एक अच्छी रात की तैयारी कैसे करें।",
+  "aviso": "यह गाइड सिर्फ़ जानकारी के लिए है और डॉक्टर की सलाह की जगह नहीं लेती। अगर आप ज़ोर से खर्राटे लेते हैं, सोते समय आपकी साँस रुक जाती है, दिन में बिना चाहे आपको नींद आ जाती है, या अनिद्रा हफ़्तों से बनी हुई है, तो किसी डॉक्टर या स्वास्थ्य विशेषज्ञ से सलाह लें।",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando', 'bosteza', 'estira') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su recámara y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «horario de sueño», «puntuación» y «registro de tus noches»; app2d.mjs mueve la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "सोते समय क्या होता है",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": { "tipo": "titulo" },
+          "texto": "अच्छी नींद लेने का मतलब क्या है? हम अपनी ज़िंदगी का लगभग एक-तिहाई हिस्सा सोते हुए बिताते हैं। फिर भी, जब समय कम पड़ता है, तो सबसे पहले नींद में ही कटौती करते हैं। आख़िर सोते समय असल में होता क्या है? अगले कुछ मिनटों में आप समझेंगे कि रात में आपका दिमाग़ क्या करता है, हिसाब लगाएँगे कि आपको कितने बजे सोने जाना चाहिए, और आज से ही बेहतर नींद की एक योजना लेकर जाएँगे।",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "texto": "वैसे, यह MindHaOS में मेरा घर है, और इसी आराम रूम में मेरी नींद का शेड्यूल और मेरी रातों का रिकॉर्ड रहते हैं। चलिए शुरू करते हैं।",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "भाग एक। सोते समय क्या होता है।"
+        },
+        {
+          "id": "ciclos",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "hipnograma" },
+          "texto": "सोने का मतलब स्विच ऑफ़ हो जाना नहीं है। रात भर आप क़रीब नब्बे मिनट के चक्रों से गुज़रते हैं, एक रात में चार से छह, और हर चक्र में कई चरण आते हैं: हल्की नींद, गहरी नींद और REM नींद, वह चरण जिसमें सबसे जीवंत सपने आते हैं।",
+          "lamina": "dormida"
+        },
+        {
+          "id": "profundo",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["reparacion", "limpieza"] },
+          "texto": "गहरी नींद रात की शुरुआत में ज़्यादा होती है। इसी समय शरीर ग्रोथ हार्मोन छोड़ता है और अपनी मरम्मत करता है, और चूहों पर हुए अध्ययनों के मुताबिक़, इसी समय दिमाग़ दिन भर में जमा हुए कचरे को सबसे ज़ोर से साफ़ करता है।",
+          "lamina": ["profundo", "cerebro"]
+        },
+        {
+          "id": "rem",
+          "escena": "pensando",
+          "visual": { "tipo": "lista", "claves": ["memoria", "emociones"] },
+          "texto": "REM नींद सुबह की ओर ज़्यादा होती है। उस समय दिमाग़ लगभग उतना ही सक्रिय होता है जितना जागते हुए: आपने जो सीखा, उसे व्यवस्थित करता है और दिन की भावनाओं को सँभालता है। इसीलिए, अगर आप ज़रूरत से बहुत पहले उठ जाते हैं, तो ठीक यही हिस्सा खो देते हैं।",
+          "lamina": "suena"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "विज्ञान ने नींद के बारे में क्या खोजा",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "भाग दो। विज्ञान ने नींद के बारे में क्या खोजा।"
+        },
+        {
+          "id": "segmentado",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "historiaSueno" },
+          "texto": "बिजली की रोशनी से पहले, यूरोप में बहुत से लोग दो हिस्सों में सोते थे: पहली नींद, फिर आधी रात को कुछ देर जागना, और फिर दूसरी नींद। इतिहासकार रॉजर ईकर्क ने पिछली सदियों की सैकड़ों डायरियों, चिट्ठियों और किताबों में इसके सबूत जुटाए।",
+          "lamina": "vela"
+        },
+        {
+          "id": "edison",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "1879", "clave": "edison" },
+          "texto": "1879 में थॉमस एडिसन ने अपने बिजली के बल्ब का सफल परीक्षण किया। रातें रोशनी से भर गईं, और साल-दर-साल हम और देर से सोने लगे।",
+          "lamina": ["edison", "bombilla"]
+        },
+        {
+          "id": "cueva",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "1938", "clave": "cueva" },
+          "texto": "1938 में फ़िज़ियोलॉजिस्ट नथानिएल क्लाइटमैन बत्तीस दिनों तक केंटकी की मैमथ गुफा में रहे, ताकि अट्ठाईस घंटे वाले दिन जी सकें। लेकिन उनका शरीर धोखे में नहीं आया: वह क़रीब चौबीस घंटे की लय पर ही चलता रहा।",
+          "lamina": "cueva"
+        },
+        {
+          "id": "rem",
+          "escena": "senala",
+          "visual": { "tipo": "dato", "cifra": "1953", "clave": "rem" },
+          "texto": "1953 में क्लाइटमैन और उनके छात्र यूजीन असेरिंस्की ने REM नींद की खोज की: उन्होंने देखा कि रात के कुछ ख़ास पलों में पलकों के नीचे आँखें तेज़ी से घूमती हैं, और जो व्यक्ति उस समय जागता, वह लगभग हमेशा सपना देख रहा होता था।",
+          "lamina": "ojos"
+        },
+        {
+          "id": "nobel",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "2017", "clave": "nobel" },
+          "texto": "और 2017 में चिकित्सा का नोबेल पुरस्कार जेफ़्री हॉल, माइकल रॉसबैश और माइकल यंग को मिला, क्योंकि उन्होंने फल-मक्खियों में खोजा कि अंदरूनी घड़ी के जीन कैसे काम करते हैं। वहीं तक हम पहुँचेंगे।",
+          "lamina": "nobel"
+        }
+      ]
+    },
+    {
+      "id": "cuanto",
+      "titulo": "आपको कितनी नींद चाहिए",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "भाग तीन। आपको कितनी नींद चाहिए।"
+        },
+        {
+          "id": "edades",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "edades" },
+          "texto": "अमेरिकन एकेडमी ऑफ़ स्लीप मेडिसिन के अनुसार, वयस्कों को हर रात सात घंटे या उससे ज़्यादा नींद चाहिए। किशोरों को आठ से दस घंटे, और प्राइमरी स्कूल के बच्चों को नौ से बारह घंटे। फिर भी, हर तीन में से एक वयस्क सात घंटे से कम सोता है।",
+          "lamina": "familia"
+        },
+        {
+          "id": "deuda",
+          "escena": "bosteza",
+          "visual": { "tipo": "dato", "cifra": "6 h × 14", "clave": "deuda" },
+          "texto": "नींद की कमी जमा होती जाती है। 2003 के एक प्रयोग में, जो लोग दो हफ़्ते तक रोज़ छह घंटे सोए, उनका ध्यान उतना ही बिगड़ गया जितना उस व्यक्ति का, जो लगातार दो रातें न सोया हो। सबसे बुरी बात: उन्हें लगता था कि वे बस थोड़े-से थके हुए हैं।",
+          "meme": "cinco",
+          "lamina": "cansancio"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "calculadoraSueno" },
+          "texto": "नींद चक्रों में चलती है, इसलिए किसी चक्र के आख़िर में जागना गहरी नींद के बीच में जागने से कहीं बेहतर लगता है। यहाँ आज़माइए: चुनिए कि आप कितने बजे उठते हैं, और कैलकुलेटर बताएगा कि आपको कितने बजे सोने जाना चाहिए, नींद आने के लिए क़रीब पंद्रह मिनट जोड़कर।",
+          "lamina": "despertador"
+        },
+        {
+          "id": "senal",
+          "escena": "estira",
+          "visual": { "tipo": "pasos", "claves": ["sinAlarma", "sinCafe", "despierto"] },
+          "texto": "और सबसे अच्छा पैमाना आप ख़ुद हैं। अगर छुट्टियों में आप बिना अलार्म के लगभग उसी समय जाग जाते हैं जैसे काम के दिनों में, अगर दिन शुरू करने के लिए आपको कॉफ़ी की ज़रूरत नहीं पड़ती, और पूरी दोपहर आप बिना ऊँघे निकाल लेते हैं, तो शायद आप पर्याप्त सो रहे हैं।",
+          "lamina": "manana"
+        }
+      ]
+    },
+    {
+      "id": "reloj",
+      "titulo": "आपकी अंदरूनी घड़ी",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "भाग चार। आपकी अंदरूनी घड़ी।"
+        },
+        {
+          "id": "circadiano",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "circadiano" },
+          "texto": "आपके दिमाग़ में एक मास्टर घड़ी है, सुप्राकियाज़्मैटिक न्यूक्लियस, जो ख़ासकर रोशनी से अपना समय मिलाती है। जब अँधेरा होता है, तो आपका शरीर मेलाटोनिन छोड़ता है, वह हार्मोन जो आपके शरीर को बताता है कि अब रात हो गई है।",
+          "lamina": "atardecer"
+        },
+        {
+          "id": "luz",
+          "escena": "estira",
+          "visual": { "tipo": "dato", "cifra": "☀ 10 min", "clave": "luz" },
+          "texto": "इसीलिए सुबह की रोशनी इतनी असरदार है: जागने के थोड़ी देर बाद कुछ मिनट धूप में निकलने से आपकी घड़ी सही समय पर आ जाती है, और रात को सही समय पर नींद आने में मदद मिलती है।",
+          "lamina": "sol"
+        },
+        {
+          "id": "pantallas",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "2015", "clave": "pantallas" },
+          "texto": "रात की रोशनी इसका उल्टा करती है। 2015 की एक स्टडी में, काग़ज़ की किताब के मुक़ाबले, सोने से पहले टैबलेट पर पढ़ने से मेलाटोनिन देर से बढ़ा, लोगों को नींद आने में ज़्यादा समय लगा, और अगली सुबह वे कम चुस्त थे।",
+          "meme": "capitulo",
+          "lamina": "pantalla"
+        },
+        {
+          "id": "cronotipo",
+          "escena": "pensando",
+          "visual": { "tipo": "lista", "claves": ["alondra", "buho"] },
+          "texto": "और सबकी घड़ी एक ही समय पर नहीं चलती: कुछ लोग सुबह की चिड़िया होते हैं, जो अपने-आप जल्दी उठ जाते हैं, और कुछ रात के उल्लू, जो रात में बेहतर काम करते हैं। आपका क्रोनोटाइप काफ़ी हद तक आपके जीन और आपकी उम्र पर निर्भर करता है; यह आलस नहीं है।",
+          "lamina": ["alondra", "buho"]
+        },
+        {
+          "id": "regular",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "60 000", "clave": "regular" },
+          "texto": "जो चीज़ सच में आपके हाथ में है, वह है नियमितता। ब्रिटेन के क़रीब साठ हज़ार लोगों पर हुई एक स्टडी में पाया गया कि रोज़ एक ही समय पर सोना कम मृत्यु-दर से जुड़ा है, और यह संबंध नींद के घंटों से भी ज़्यादा मज़बूत है। वीकेंड पर देर रात तक जागना और सोमवार को सुबह जल्दी उठना, घर से निकले बिना जेट लैग झेलने जैसा है।",
+          "lamina": "calendario"
+        }
+      ]
+    },
+    {
+      "id": "noche",
+      "titulo": "एक अच्छी रात की तैयारी कैसे करें",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "भाग पाँच। एक अच्छी रात की तैयारी कैसे करें।"
+        },
+        {
+          "id": "cafeina",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "cafeinaRestante" },
+          "texto": "शरीर में कैफ़ीन को आधा होने में क़रीब पाँच घंटे लगते हैं। एक स्टडी में, सोने से छह घंटे पहले ली गई कैफ़ीन की एक तेज़ ख़ुराक ने एक घंटे से ज़्यादा नींद छीन ली। यहाँ देखिए कि सोने के समय आपके शरीर में कितनी कैफ़ीन बची रहती है।",
+          "meme": "cafe",
+          "lamina": "cafe"
+        },
+        {
+          "id": "alcohol",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "REM ↓", "clave": "alcohol" },
+          "texto": "शराब धोखा देती है: शुरू में नींद लाती है, लेकिन रात के दूसरे हिस्से को टुकड़ों में बाँट देती है और REM नींद घटा देती है। आप सोते तो हैं, लेकिन आराम कम मिलता है।",
+          "lamina": "copa"
+        },
+        {
+          "id": "cuarto",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["fresco", "oscuro", "silencio"] },
+          "texto": "आपका कमरा भी मायने रखता है: ठंडा, क़रीब अठारह डिग्री, अँधेरा और शांत। और बिस्तर सिर्फ़ सोने के लिए: अगर आप उस पर काम करते हैं या सीरीज़ देखते हैं, तो आपका दिमाग़ उसे नींद से जोड़ना छोड़ देता है।",
+          "lamina": "recamara"
+        },
+        {
+          "id": "rutina",
+          "escena": "estira",
+          "visual": { "tipo": "pasos", "claves": ["apaga", "luces", "ritual"] },
+          "texto": "दिन के आख़िरी घंटे की तैयारी कीजिए: स्क्रीन छोड़िए, रोशनी धीमी कीजिए, और कुछ ऐसा कीजिए जिससे आपको सुकून मिले, हर रोज़ एक जैसा, जैसे पढ़ना, गुनगुने पानी से नहाना या स्ट्रेचिंग। यह आपके शरीर के लिए इशारा है कि अब रात आ रही है।",
+          "lamina": ["leer", "estirar"]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "texto": "MindHaOS के मेरे आराम रूम में यही होता है: मेरा शेड्यूल मुझे एक घंटा पहले याद दिला देता है कि अब स्क्रीन छोड़ने का समय है, और बेडसाइड टेबल के लैंप से एक गाइडेड ब्रीदिंग खुल जाती है, जिससे मुझे रिलैक्स होने में मदद मिलती है।",
+          "lamina": "lampara",
+          "enCasa": true
+        },
+        {
+          "id": "ejercicio",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "+ 🏃", "clave": "ejercicio" },
+          "texto": "और दिन में चलते-फिरते रहिए: नियमित कसरत से नींद जल्दी आती है और गहरी होती है। बस सबसे ज़ोरदार वर्कआउट सोने से कम से कम दो घंटे पहले निपटा लीजिए।",
+          "lamina": "correr"
+        }
+      ]
+    },
+    {
+      "id": "insomnio",
+      "titulo": "जब नींद न आए",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "भाग छह। जब नींद न आए।"
+        },
+        {
+          "id": "veinte",
+          "escena": "pensando",
+          "visual": { "tipo": "dato", "cifra": "20 min", "clave": "veinte" },
+          "texto": "अगर काफ़ी देर से, क़रीब बीस मिनट से, नींद नहीं आ रही, तो उठ जाइए, धीमी रोशनी वाली किसी दूसरी जगह जाइए, और नींद आने पर ही बिस्तर पर लौटिए। बिस्तर पर करवटें बदलते रहना आपके दिमाग़ को सिखाता है कि बिस्तर चिंता करने की जगह है।",
+          "lamina": "insomnio"
+        },
+        {
+          "id": "siesta",
+          "escena": "bosteza",
+          "visual": { "tipo": "dato", "cifra": "+34 %", "clave": "siesta" },
+          "texto": "झपकी फ़ायदा करती है, अगर वह छोटी हो और जल्दी ली जाए: क़रीब बीस मिनट, दोपहर ढलने से पहले। पायलटों पर हुई नासा की एक स्टडी में, क़रीब छब्बीस मिनट की झपकी से उनका प्रदर्शन चौंतीस प्रतिशत बेहतर हुआ।",
+          "meme": "siesta",
+          "lamina": "siesta"
+        },
+        {
+          "id": "terapia",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "TCC-I", "clave": "terapia" },
+          "texto": "अगर अनिद्रा हफ़्तों तक बनी रहे, तो पहला इलाज गोलियाँ नहीं है: वह है अनिद्रा के लिए कॉग्निटिव बिहेवियरल थेरेपी, जिसे अमेरिकन कॉलेज ऑफ़ फ़िज़िशियंस और अमेरिकन एकेडमी ऑफ़ स्लीप मेडिसिन, दोनों पहले विकल्प के तौर पर सुझाते हैं।",
+          "lamina": "terapia"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": { "tipo": "foto", "foto": "registro" },
+          "texto": "और अगर आप जानना चाहते हैं कि आप कैसा कर रहे हैं, तो दो हफ़्ते तक अपनी रातें लिखिए: कितने बजे सोने गए, कितने बजे जागे, और कैसा महसूस हुआ। पैटर्न अपने-आप दिखने लगते हैं।",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": { "tipo": "aviso" },
+          "texto": "याद रखिए, यह गाइड सिर्फ़ जानकारी के लिए है। अगर आप ज़ोर से खर्राटे लेते हैं और लोग बताते हैं कि सोते समय आपकी साँस रुक जाती है, अगर दिन में बिना चाहे आपको नींद आ जाती है, या अनिद्रा जाती ही नहीं, तो डॉक्टर से मिलिए: स्लीप एपनिया और नींद की बाक़ी समस्याओं का इलाज होता है।",
+          "lamina": "medico"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": { "tipo": "lista", "claves": ["resumen1", "resumen2", "resumen3", "resumen4"] },
+          "texto": "संक्षेप में: सात घंटे या उससे ज़्यादा सोइए, और रोज़ एक ही समय पर; सुबह रोशनी और रात को अँधेरा ढूँढिए; कैफ़ीन और शराब का ध्यान रखिए; और दिन के आख़िरी घंटे की तैयारी कीजिए।",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "अगर आप इसे मेरी तरह अमल में लाना चाहते हैं, तो MindHaOS के आराम रूम में रिमाइंडर और अलार्म के साथ आपकी नींद का शेड्यूल है, हर रात का स्कोर है, और आपकी रातों का रिकॉर्ड है, ताकि आप अपने पैटर्न देख सकें। लिंक डिस्क्रिप्शन में है, और वहीं यह गाइड इंटरैक्टिव रूप में भी है, ताकि आप इसे इत्मीनान से दोहरा सकें। अगली गाइड में हम एक नए सवाल के साथ मिलेंगे। फिर मिलते हैं।",
+    "boton": "आराम रूम खोलें",
+    "lamina": "app-plan",
+    "anclas": {
+      "horario": "नींद का शेड्यूल",
+      "puntuacion": "स्कोर",
+      "registro": "आपकी रातों का रिकॉर्ड"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "aasm-adultos",
+      "texto": "Watson N. F. et al. Recommended amount of sleep for a healthy adult: a joint consensus statement of the AASM and SRS. Sleep (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/"
+    },
+    {
+      "id": "aasm-ninos",
+      "texto": "Paruthi S. et al. Recommended amount of sleep for pediatric populations: a consensus statement of the AASM. J Clin Sleep Med (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27250809/"
+    },
+    {
+      "id": "cdc-un-tercio",
+      "texto": "Liu Y. et al. Prevalence of healthy sleep duration among adults — United States, 2014. MMWR (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26890214/"
+    },
+    {
+      "id": "ninds",
+      "texto": "NINDS (NIH). Brain Basics: Understanding Sleep.",
+      "url": "https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-understanding-sleep"
+    },
+    {
+      "id": "xie-2013",
+      "texto": "Xie L. et al. Sleep drives metabolite clearance from the adult brain. Science (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24136970/"
+    },
+    {
+      "id": "ekirch-2001",
+      "texto": "Ekirch A. R. Sleep We Have Lost: Pre-industrial Slumber in the British Isles. The American Historical Review (2001).",
+      "url": "https://doi.org/10.1086/ahr/106.2.343"
+    },
+    {
+      "id": "aserinsky-1953",
+      "texto": "Aserinsky E., Kleitman N. Regularly occurring periods of eye motility, and concomitant phenomena, during sleep. Science (1953).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13089671/"
+    },
+    {
+      "id": "nobel-2017",
+      "texto": "फ़िज़ियोलॉजी या मेडिसिन का नोबेल पुरस्कार 2017: Jeffrey C. Hall, Michael Rosbash और Michael W. Young।",
+      "url": "https://www.nobelprize.org/prizes/medicine/2017/summary/"
+    },
+    {
+      "id": "van-dongen-2003",
+      "texto": "Van Dongen H. P. et al. The cumulative cost of additional wakefulness. Sleep (2003).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12683469/"
+    },
+    {
+      "id": "chang-2015",
+      "texto": "Chang A.-M. et al. Evening use of light-emitting eReaders negatively affects sleep, circadian timing, and next-morning alertness. PNAS (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25535358/"
+    },
+    {
+      "id": "windred-2024",
+      "texto": "Windred D. P. et al. Sleep regularity is a stronger predictor of mortality risk than sleep duration. Sleep (2024).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37738616/"
+    },
+    {
+      "id": "drake-2013",
+      "texto": "Drake C. et al. Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed. J Clin Sleep Med (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24235903/"
+    },
+    {
+      "id": "ebrahim-2013",
+      "texto": "Ebrahim I. O. et al. Alcohol and sleep I: effects on normal sleep. Alcohol Clin Exp Res (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23347102/"
+    },
+    {
+      "id": "nasa-1995",
+      "texto": "Rosekind M. R. et al. Crew factors in flight operations IX: Effects of planned cockpit rest on crew performance and alertness in long-haul operations. NASA (1994).",
+      "url": "https://ntrs.nasa.gov/citations/19950006379"
+    },
+    {
+      "id": "acp-2016",
+      "texto": "Qaseem A. et al. Management of chronic insomnia disorder in adults: a clinical practice guideline from the American College of Physicians. Ann Intern Med (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27136449/"
+    },
+    {
+      "id": "aasm-2021",
+      "texto": "Edinger J. D. et al. Behavioral and psychological treatments for chronic insomnia disorder in adults: an AASM clinical practice guideline. J Clin Sleep Med (2021).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33164742/"
+    }
+  ]
+}

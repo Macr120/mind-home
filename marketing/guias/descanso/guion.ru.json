@@ -1,0 +1,568 @@
+{
+  "idioma": "ru",
+  "tema": "descanso",
+  "plantillaId": "descanso",
+  "pregunta": "Что значит хорошо спать?",
+  "subtitulo": "Что происходит в твоём теле, пока ты спишь, что наука узнала о сне, сколько сна тебе нужно, как работают твои внутренние часы и как подготовиться к хорошей ночи.",
+  "aviso": "Это руководство носит информационный характер и не заменяет консультацию врача. Если ты громко храпишь, перестаёшь дышать во сне, засыпаешь днём против своей воли или бессонница длится неделями, обратись к специалисту.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando', 'bosteza', 'estira') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su recámara y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «horario de sueño», «puntuación» y «registro de tus noches»; app2d.mjs mueve la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "Что происходит, пока ты спишь",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Что значит хорошо спать? Почти треть жизни мы проводим во сне. И всё же сон — первое, чем мы жертвуем, когда не хватает времени. Что на самом деле происходит, пока ты спишь? За следующие несколько минут ты поймёшь, что делает твой мозг ночью, рассчитаешь, во сколько ложиться, и уйдёшь с планом, как спать лучше уже сегодня.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Кстати, это мой дом в MindHaOS, а это комната «Отдых»: здесь я веду расписание сна и журнал своих ночей. Начнём.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть первая. Что происходит, пока ты спишь."
+        },
+        {
+          "id": "ciclos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "hipnograma"
+          },
+          "texto": "Сон — это не отключение. За ночь ты проходишь от четырёх до шести циклов примерно по девяносто минут, и в каждом сменяется несколько фаз: лёгкий сон, глубокий сон и быстрый сон, или REM, — фаза самых ярких сновидений.",
+          "lamina": "dormida"
+        },
+        {
+          "id": "profundo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "reparacion",
+              "limpieza"
+            ]
+          },
+          "texto": "Больше всего глубокого сна в начале ночи. Именно тогда тело выделяет гормон роста и восстанавливается, а мозг, судя по исследованиям на мышах, активнее всего очищается от отходов, накопленных за день.",
+          "lamina": [
+            "profundo",
+            "cerebro"
+          ]
+        },
+        {
+          "id": "rem",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "memoria",
+              "emociones"
+            ]
+          },
+          "texto": "Быстрый сон приходится в основном на утренние часы. В это время мозг почти так же активен, как наяву: он раскладывает по полочкам новые знания и перерабатывает эмоции дня. Поэтому, если ты встаёшь намного раньше, чем нужно, ты теряешь именно эту часть.",
+          "lamina": "suena"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Что наука узнала о сне",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть вторая. Что наука узнала о сне."
+        },
+        {
+          "id": "segmentado",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaSueno"
+          },
+          "texto": "До появления электрического света многие люди в Европе спали в два приёма: первый сон, потом какое-то время без сна посреди ночи и второй сон. Это описал историк Роджер Экерч, изучив сотни дневников, писем и книг прошлых веков.",
+          "lamina": "vela"
+        },
+        {
+          "id": "edison",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1879",
+            "clave": "edison"
+          },
+          "texto": "В 1879 году Томас Эдисон успешно испытал свою лампу накаливания. Ночь наполнилась светом, и с годами мы стали ложиться всё позже.",
+          "lamina": [
+            "edison",
+            "bombilla"
+          ]
+        },
+        {
+          "id": "cueva",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1938",
+            "clave": "cueva"
+          },
+          "texto": "В 1938 году физиолог Натаниэль Клейтман на тридцать два дня спустился в Мамонтову пещеру в Кентукки, чтобы жить по двадцативосьмичасовым суткам. Его тело не поддалось обману: оно по-прежнему держало ритм примерно в двадцать четыре часа.",
+          "lamina": "cueva"
+        },
+        {
+          "id": "rem",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1953",
+            "clave": "rem"
+          },
+          "texto": "В 1953 году Клейтман и его ученик Юджин Азеринский открыли быстрый сон: они заметили, что в определённые моменты ночи глаза быстро двигаются под веками и что человек, проснувшийся в этот момент, почти всегда видел сон.",
+          "lamina": "ojos"
+        },
+        {
+          "id": "nobel",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2017",
+            "clave": "nobel"
+          },
+          "texto": "А в 2017 году Нобелевскую премию по медицине получили Джеффри Холл, Майкл Росбаш и Майкл Янг — за то, что на плодовых мушках выяснили, как работают гены внутренних часов. К этому мы ещё придём.",
+          "lamina": "nobel"
+        }
+      ]
+    },
+    {
+      "id": "cuanto",
+      "titulo": "Сколько тебе нужно спать",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть третья. Сколько тебе нужно спать."
+        },
+        {
+          "id": "edades",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edades"
+          },
+          "texto": "По рекомендации Американской академии медицины сна взрослым нужно семь часов сна или больше каждую ночь. Подросткам — от восьми до десяти, а детям младшего школьного возраста — от девяти до двенадцати. И всё же каждый третий взрослый спит меньше семи часов.",
+          "lamina": "familia"
+        },
+        {
+          "id": "deuda",
+          "escena": "bosteza",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "6 h × 14",
+            "clave": "deuda"
+          },
+          "texto": "Недосып накапливается. В эксперименте 2003 года у людей, которые две недели спали по шесть часов, внимание в итоге страдало так же, как у того, кто не спал целых две ночи подряд. Хуже всего то, что сами они чувствовали себя лишь слегка уставшими.",
+          "meme": "cinco",
+          "lamina": "cansancio"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "calculadoraSueno"
+          },
+          "texto": "Поскольку сон идёт циклами, проснуться в конце цикла легче, чем посреди глубокого сна. Попробуй здесь: выбери, во сколько ты встаёшь, и калькулятор подскажет, во сколько ложиться, с учётом примерно пятнадцати минут на засыпание.",
+          "lamina": "despertador"
+        },
+        {
+          "id": "senal",
+          "escena": "estira",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinAlarma",
+              "sinCafe",
+              "despierto"
+            ]
+          },
+          "texto": "И лучшая мерка — это ты. Если в отпуске ты просыпаешься без будильника в то же время, что и в будни, если тебе не нужен кофе, чтобы раскачаться, и тебя не клонит в сон до самого вечера, скорее всего, ты высыпаешься.",
+          "lamina": "manana"
+        }
+      ]
+    },
+    {
+      "id": "reloj",
+      "titulo": "Твои внутренние часы",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть четвёртая. Твои внутренние часы."
+        },
+        {
+          "id": "circadiano",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "circadiano"
+          },
+          "texto": "В твоём мозге есть главные часы — супрахиазматическое ядро, — и выставляет их прежде всего свет. Когда темнеет, организм выделяет мелатонин — гормон, который сообщает телу, что уже ночь.",
+          "lamina": "atardecer"
+        },
+        {
+          "id": "luz",
+          "escena": "estira",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "☀ 10 min",
+            "clave": "luz"
+          },
+          "texto": "Поэтому утренний свет так силён: если вскоре после пробуждения выйти на солнце на несколько минут, твои часы встанут на место, и вечером сон придёт вовремя.",
+          "lamina": "sol"
+        },
+        {
+          "id": "pantallas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2015",
+            "clave": "pantallas"
+          },
+          "texto": "Вечерний свет действует наоборот. В исследовании 2015 года чтение с планшета перед сном задерживало выработку мелатонина: люди дольше засыпали и утром были менее бодрыми, чем после чтения бумажной книги.",
+          "meme": "capitulo",
+          "lamina": "pantalla"
+        },
+        {
+          "id": "cronotipo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "alondra",
+              "buho"
+            ]
+          },
+          "texto": "И часы идут не у всех одинаково: есть жаворонки, которые сами просыпаются рано, и совы, которым лучше работается вечером. Твой хронотип во многом зависит от генов и возраста; это не лень.",
+          "lamina": [
+            "alondra",
+            "buho"
+          ]
+        },
+        {
+          "id": "regular",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "60 000",
+            "clave": "regular"
+          },
+          "texto": "А вот регулярность ты можешь контролировать. Исследование примерно шестидесяти тысяч человек в Великобритании показало, что сон в одно и то же время связан с более низкой смертностью — даже сильнее, чем количество часов сна. Засиживаться допоздна в выходные и рано вставать в понедельник — это джетлаг без всякого перелёта.",
+          "lamina": "calendario"
+        }
+      ]
+    },
+    {
+      "id": "noche",
+      "titulo": "Как подготовиться к хорошей ночи",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть пятая. Как подготовиться к хорошей ночи."
+        },
+        {
+          "id": "cafeina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cafeinaRestante"
+          },
+          "texto": "Содержание кофеина в организме снижается вдвое примерно за пять часов. В одном исследовании большая доза, выпитая за шесть часов до сна, отняла больше часа сна. Посмотри здесь, сколько его останется в твоём организме ко времени сна.",
+          "meme": "cafe",
+          "lamina": "cafe"
+        },
+        {
+          "id": "alcohol",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "REM ↓",
+            "clave": "alcohol"
+          },
+          "texto": "Алкоголь обманывает: сначала от него клонит в сон, но вторая половина ночи становится прерывистой, а быстрого сна — меньше. Ты спишь, но отдыхаешь хуже.",
+          "lamina": "copa"
+        },
+        {
+          "id": "cuarto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fresco",
+              "oscuro",
+              "silencio"
+            ]
+          },
+          "texto": "Твоя спальня тоже имеет значение: прохладная, около восемнадцати градусов, тёмная и тихая. А кровать — только для сна: если ты работаешь или смотришь в ней сериалы, мозг перестаёт связывать её со сном.",
+          "lamina": "recamara"
+        },
+        {
+          "id": "rutina",
+          "escena": "estira",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apaga",
+              "luces",
+              "ritual"
+            ]
+          },
+          "texto": "Подготовь последний час дня: отложи экраны, приглуши свет и займись чем-то расслабляющим, всегда одним и тем же: почитай, прими тёплую ванну или сделай растяжку. Для тела это сигнал, что скоро ночь.",
+          "lamina": [
+            "leer",
+            "estirar"
+          ]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Я делаю это в своей комнате «Отдых» в MindHaOS: за час до сна расписание напоминает мне отложить экраны, а нажав на лампу на прикроватной тумбочке, я открываю дыхательную практику, чтобы расслабиться.",
+          "lamina": "lampara",
+          "enCasa": true
+        },
+        {
+          "id": "ejercicio",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+ 🏃",
+            "clave": "ejercicio"
+          },
+          "texto": "И двигайся днём: регулярные тренировки помогают быстрее засыпать и крепче спать. Только самые интенсивные тренировки заканчивай хотя бы за пару часов до сна.",
+          "lamina": "correr"
+        }
+      ]
+    },
+    {
+      "id": "insomnio",
+      "titulo": "Когда не получается уснуть",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть шестая. Когда не получается уснуть."
+        },
+        {
+          "id": "veinte",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "20 min",
+            "clave": "veinte"
+          },
+          "texto": "Если ты уже довольно долго не можешь уснуть, минут двадцать, встань, перейди в другое место с приглушённым светом и возвращайся в постель, когда захочется спать. Ворочаясь в кровати, ты приучаешь мозг к мысли, что кровать — место для тревог.",
+          "lamina": "insomnio"
+        },
+        {
+          "id": "siesta",
+          "escena": "bosteza",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+34 %",
+            "clave": "siesta"
+          },
+          "texto": "Дневной сон помогает, если он короткий и ранний: минут двадцать, лучше не позже трёх часов дня. В исследовании НАСА с участием пилотов сон примерно на двадцать шесть минут повысил их работоспособность на тридцать четыре процента.",
+          "meme": "siesta",
+          "lamina": "siesta"
+        },
+        {
+          "id": "terapia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "TCC-I",
+            "clave": "terapia"
+          },
+          "texto": "Если бессонница длится неделями, лечение начинают не с таблеток, а с когнитивно-поведенческой терапии бессонницы — именно её как первый выбор рекомендуют Американская коллегия врачей и Американская академия медицины сна.",
+          "lamina": "terapia"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "foto",
+            "foto": "registro"
+          },
+          "texto": "А если хочешь понять, как у тебя дела, пару недель записывай свои ночи: когда ложишься, когда просыпаешься и как себя чувствуешь. Закономерности проявятся сами.",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "Помни, что это руководство носит информационный характер. Если ты громко храпишь и тебе говорят, что во сне ты перестаёшь дышать, если ты засыпаешь днём против своей воли или бессонница не проходит, обратись к врачу: апноэ сна и другие нарушения сна поддаются лечению.",
+          "lamina": "medico"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Итак: спи семь часов или больше и в одно и то же время; утром ищи свет, а вечером — темноту; следи за кофеином и алкоголем и подготовь последний час дня.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Если хочешь применить это на практике, как я, в комнате «Отдых» в MindHaOS есть твоё расписание сна с напоминаниями и будильником, оценка каждой ночи и журнал твоих ночей, чтобы видеть свои закономерности. Ссылка в описании, и там же есть интерактивная версия этого руководства, чтобы спокойно всё повторить. В следующем выпуске разберём новый вопрос. До встречи.",
+    "boton": "Открыть комнату «Отдых»",
+    "lamina": "app-plan",
+    "anclas": {
+      "horario": "расписание сна",
+      "puntuacion": "оценка",
+      "registro": "журнал твоих ночей"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "aasm-adultos",
+      "texto": "Watson N. F. et al. Recommended amount of sleep for a healthy adult: a joint consensus statement of the AASM and SRS. Sleep (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/"
+    },
+    {
+      "id": "aasm-ninos",
+      "texto": "Paruthi S. et al. Recommended amount of sleep for pediatric populations: a consensus statement of the AASM. J Clin Sleep Med (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27250809/"
+    },
+    {
+      "id": "cdc-un-tercio",
+      "texto": "Liu Y. et al. Prevalence of healthy sleep duration among adults — United States, 2014. MMWR (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26890214/"
+    },
+    {
+      "id": "ninds",
+      "texto": "NINDS (NIH). Brain Basics: Understanding Sleep.",
+      "url": "https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-understanding-sleep"
+    },
+    {
+      "id": "xie-2013",
+      "texto": "Xie L. et al. Sleep drives metabolite clearance from the adult brain. Science (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24136970/"
+    },
+    {
+      "id": "ekirch-2001",
+      "texto": "Ekirch A. R. Sleep We Have Lost: Pre-industrial Slumber in the British Isles. The American Historical Review (2001).",
+      "url": "https://doi.org/10.1086/ahr/106.2.343"
+    },
+    {
+      "id": "aserinsky-1953",
+      "texto": "Aserinsky E., Kleitman N. Regularly occurring periods of eye motility, and concomitant phenomena, during sleep. Science (1953).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13089671/"
+    },
+    {
+      "id": "nobel-2017",
+      "texto": "The Nobel Prize in Physiology or Medicine 2017: Jeffrey C. Hall, Michael Rosbash и Michael W. Young.",
+      "url": "https://www.nobelprize.org/prizes/medicine/2017/summary/"
+    },
+    {
+      "id": "van-dongen-2003",
+      "texto": "Van Dongen H. P. et al. The cumulative cost of additional wakefulness. Sleep (2003).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12683469/"
+    },
+    {
+      "id": "chang-2015",
+      "texto": "Chang A.-M. et al. Evening use of light-emitting eReaders negatively affects sleep, circadian timing, and next-morning alertness. PNAS (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25535358/"
+    },
+    {
+      "id": "windred-2024",
+      "texto": "Windred D. P. et al. Sleep regularity is a stronger predictor of mortality risk than sleep duration. Sleep (2024).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37738616/"
+    },
+    {
+      "id": "drake-2013",
+      "texto": "Drake C. et al. Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed. J Clin Sleep Med (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24235903/"
+    },
+    {
+      "id": "ebrahim-2013",
+      "texto": "Ebrahim I. O. et al. Alcohol and sleep I: effects on normal sleep. Alcohol Clin Exp Res (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23347102/"
+    },
+    {
+      "id": "nasa-1995",
+      "texto": "Rosekind M. R. et al. Crew factors in flight operations IX: Effects of planned cockpit rest on crew performance and alertness in long-haul operations. NASA (1994).",
+      "url": "https://ntrs.nasa.gov/citations/19950006379"
+    },
+    {
+      "id": "acp-2016",
+      "texto": "Qaseem A. et al. Management of chronic insomnia disorder in adults: a clinical practice guideline from the American College of Physicians. Ann Intern Med (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27136449/"
+    },
+    {
+      "id": "aasm-2021",
+      "texto": "Edinger J. D. et al. Behavioral and psychological treatments for chronic insomnia disorder in adults: an AASM clinical practice guideline. J Clin Sleep Med (2021).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33164742/"
+    }
+  ]
+}

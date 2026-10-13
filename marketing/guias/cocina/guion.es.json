@@ -1,0 +1,400 @@
+{
+  "idioma": "es",
+  "tema": "cocina",
+  "plantillaId": "cocina",
+  "pregunta": "¿Qué es comer bien?",
+  "subtitulo": "Qué hace la comida en tu cuerpo, de dónde viene lo que sabemos, cuánta energía necesitas, cómo reconocer la calidad y cómo armar tu plato y tu semana.",
+  "aviso": "Esta guía es informativa y no sustituye el consejo de un médico o de un profesional de la nutrición. Si tienes una enfermedad, un trastorno de la conducta alimentaria, estás embarazada o tomas medicamentos, consulta a un profesional antes de cambiar tu alimentación.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'remueve', 'pica', 'bebe', 'pensando') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ cocinando y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «recetario», «plan de comidas» y «lista de compras»; app2d.mjs cambia de pantalla de la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "Qué hace la comida en tu cuerpo",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": { "tipo": "titulo" },
+          "texto": "¿Qué es comer bien? Todo el mundo tiene una opinión sobre lo que deberías comer. Casi nadie te explica qué hace la comida dentro de tu cuerpo. ¿Realmente cómo funciona? En los próximos minutos vas a entender qué necesita tu cuerpo, vas a calcular cuánta energía gastas y vas a salir con un plan para tu semana.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "texto": "Por cierto, esta es mi casa en MindHaOS, y en este cuarto de Cocina guardo mis recetas y mi plan de comidas. Empecemos.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte uno. Qué hace la comida en tu cuerpo."
+        },
+        {
+          "id": "dos-trabajos",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["combustible", "construccion"] },
+          "texto": "La comida hace dos trabajos a la vez. Es combustible: energía, que se mide en calorías y que gastas al respirar, al pensar y al moverte. Y es material de construcción: con ella reparas músculo, hueso, piel y sangre, que se renuevan todo el tiempo.",
+          "lamina": "mercado"
+        },
+        {
+          "id": "macros",
+          "escena": "remueve",
+          "visual": { "tipo": "lista", "claves": ["proteinas", "carbohidratos", "grasas"] },
+          "texto": "Esos materiales llegan en tres grandes grupos, los macronutrientes. Las proteínas construyen y reparan. Los carbohidratos son la energía más rápida, sobre todo para el cerebro y para el ejercicio intenso. Y las grasas guardan energía, forman las paredes de tus células y te ayudan a absorber algunas vitaminas.",
+          "lamina": ["macros-proteina", "macros-carbos", "macros-grasas"]
+        },
+        {
+          "id": "micros",
+          "escena": "pica",
+          "visual": { "tipo": "lista", "claves": ["vitaminas", "minerales", "fibra"] },
+          "texto": "Además están los micronutrientes: vitaminas y minerales que necesitas en cantidades pequeñísimas, pero sin los cuales nada de lo anterior funciona. Y la fibra, que casi no te da energía, pero alimenta a las bacterias de tu intestino y te mantiene satisfecho más tiempo.",
+          "lamina": "verduras"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Una breve historia de lo que comemos",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte dos. Una breve historia de lo que comemos."
+        },
+        {
+          "id": "fuego",
+          "escena": "remueve",
+          "visual": { "tipo": "grafica", "grafica": "historiaCocina" },
+          "texto": "Hace cientos de miles de años, nuestros antepasados aprendieron a cocinar con fuego. Cocinar ablanda los alimentos y nos deja sacarles más energía; algunos antropólogos creen que eso ayudó a que nuestro cerebro creciera.",
+          "lamina": "fuego"
+        },
+        {
+          "id": "agricultura",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "10 000", "clave": "agricultura" },
+          "texto": "Hace unos diez mil años llegó la agricultura: trigo, arroz y maíz. Hubo comida para mucha más gente, aunque la dieta se volvió menos variada que la de los cazadores y recolectores.",
+          "lamina": "agricultura"
+        },
+        {
+          "id": "lind",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "1747", "clave": "lind" },
+          "texto": "En 1747, el médico escocés James Lind hizo uno de los primeros ensayos clínicos de la historia: a marineros con escorbuto les dio distintos remedios, y los que comieron naranjas y limones fueron los que se recuperaron.",
+          "meme": "limones",
+          "lamina": ["lind", "limones"]
+        },
+        {
+          "id": "atwater",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "4 · 4 · 9", "clave": "atwater" },
+          "texto": "A finales del siglo diecinueve, el químico Wilbur Atwater midió cuánta energía da cada alimento: unas cuatro calorías por gramo de proteína o de carbohidrato, y unas nueve por gramo de grasa. Son las cifras que siguen usando las etiquetas de hoy.",
+          "lamina": "atwater"
+        },
+        {
+          "id": "funk",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "1912", "clave": "funk" },
+          "texto": "En 1912, el bioquímico Casimir Funk propuso la palabra vitamina, y en las décadas siguientes se descubrieron casi todas. Por primera vez se entendió que se puede comer mucho y aun así estar mal nutrido.",
+          "lamina": "funk"
+        },
+        {
+          "id": "plato",
+          "escena": "senala",
+          "visual": { "tipo": "dato", "cifra": "2011", "clave": "plato" },
+          "texto": "En 1992, Estados Unidos dibujó la famosa pirámide de alimentos, con el pan y las pastas en la base. En 2011 la cambió por un plato, MyPlate, mucho más fácil de imaginar en cada comida. Y en México, la norma oficial dibujó el suyo: el Plato del Bien Comer. Ahí vamos a llegar.",
+          "lamina": ["piramide", "myplate", "plato-bien-comer"]
+        }
+      ]
+    },
+    {
+      "id": "energia",
+      "titulo": "Cuánta energía necesitas",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte tres. Cuánta energía necesitas."
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "balance" },
+          "texto": "A la larga, tu peso depende del balance de energía: lo que comes contra lo que gastas. Si comes más de lo que gastas, tu cuerpo guarda; si comes menos, tira de sus reservas. Suena simple, pero el gasto tiene varias partes.",
+          "lamina": "balance"
+        },
+        {
+          "id": "gasto",
+          "escena": "Caminata",
+          "visual": { "tipo": "grafica", "grafica": "gasto" },
+          "texto": "La mayor parte, alrededor de dos tercios, se va solo en mantenerte vivo: es tu metabolismo basal. Otra parte depende de cuánto te mueves durante el día, y una pequeña, cerca del diez por ciento, se gasta en digerir lo que comes.",
+          "lamina": "gasto"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "calculadoraEnergia" },
+          "texto": "Puedes estimarlo con la ecuación de Mifflin y St Jeor, de las que más usan los nutriólogos: con tu edad, tu peso, tu estatura y tu actividad. Prueba aquí la calculadora. Es una estimación, no una medida exacta, pero es un muy buen punto de partida.",
+          "lamina": "calculadora"
+        },
+        {
+          "id": "proteina",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "0,8–2 g/kg", "clave": "proteina" },
+          "texto": "Para la proteína, la referencia para un adulto es de al menos cero coma ocho gramos por cada kilo de peso al día. Si entrenas fuerza, muchos expertos recomiendan entre uno coma cuatro y dos gramos.",
+          "lamina": "proteina"
+        },
+        {
+          "id": "deficit",
+          "escena": "pensando",
+          "visual": { "tipo": "dato", "cifra": "−15 %", "clave": "deficit" },
+          "texto": "Y si quieres bajar de peso, no hace falta pasar hambre: basta con comer un poco menos de lo que gastas, alrededor de un quince por ciento, y revisar cada dos semanas cómo vas. Los cambios pequeños son los que se sostienen.",
+          "lamina": "deficit"
+        }
+      ]
+    },
+    {
+      "id": "calidad",
+      "titulo": "La calidad de lo que comes",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte cuatro. La calidad de lo que comes."
+        },
+        {
+          "id": "nova",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "nova" },
+          "texto": "Además de cuánto, importa qué. Los investigadores clasifican la comida según cuánto la procesaron: alimentos frescos, ingredientes de cocina como el aceite o la sal, alimentos procesados como el queso o el pan de panadería, y ultraprocesados, como refrescos, galletas y botanas de paquete.",
+          "meme": "ultraprocesados",
+          "lamina": "supermercado"
+        },
+        {
+          "id": "experimento",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "+500 kcal", "clave": "experimento" },
+          "texto": "En 2019, un experimento de los Institutos Nacionales de Salud de Estados Unidos dio a veinte personas dos semanas de comida ultraprocesada y dos de comida sin procesar, con las mismas calorías a su alcance. Con la ultraprocesada comieron unas quinientas calorías más al día, sin darse cuenta.",
+          "lamina": "ultraprocesados"
+        },
+        {
+          "id": "azucar",
+          "escena": "bebe",
+          "visual": { "tipo": "herramienta", "herramienta": "azucarOculta" },
+          "texto": "La Organización Mundial de la Salud recomienda que el azúcar añadido sea menos del diez por ciento de tu energía, e idealmente menos del cinco: unas seis cucharaditas al día. Mira aquí cuánto azúcar trae lo que bebes.",
+          "lamina": "refresco"
+        },
+        {
+          "id": "sal",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "< 5 g", "clave": "sal" },
+          "texto": "Con la sal pasa algo parecido: la recomendación es menos de cinco gramos al día, más o menos una cucharadita, y la mayor parte no la pones tú en la mesa: ya viene dentro de los productos.",
+          "lamina": "sal"
+        },
+        {
+          "id": "etiqueta",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["porcion", "azucares", "ingredientes"] },
+          "texto": "El truco es leer la etiqueta. Fíjate en la porción, en los azúcares y en la sal, y en la lista de ingredientes, que va de más a menos: si el primero es azúcar, ya sabes qué es lo que más llevas.",
+          "lamina": "etiqueta"
+        }
+      ]
+    },
+    {
+      "id": "plato",
+      "titulo": "Cómo armar tu plato y tu semana",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte cinco. Cómo armar tu plato y tu semana."
+        },
+        {
+          "id": "plato",
+          "escena": "pica",
+          "visual": { "tipo": "herramienta", "herramienta": "armaTuPlato" },
+          "texto": "Para cada comida hay un método muy sencillo, el plato saludable de Harvard: la mitad del plato, verduras y frutas; un cuarto, cereales integrales; y el otro cuarto, una proteína como pescado, pollo, huevo o leguminosas. Para beber, agua, y un poco de aceite bueno para cocinar.",
+          "lamina": "plato"
+        },
+        {
+          "id": "frutas",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "400 g", "clave": "frutas" },
+          "texto": "La Organización Mundial de la Salud recomienda al menos cuatrocientos gramos de frutas y verduras al día, unas cinco porciones, y al menos veinticinco gramos de fibra, que vienen sobre todo de ahí, de los cereales integrales y de las leguminosas.",
+          "lamina": "frutas"
+        },
+        {
+          "id": "planear",
+          "escena": "habla",
+          "visual": { "tipo": "pasos", "claves": ["menu", "lista", "prepara"] },
+          "texto": "El secreto no es la fuerza de voluntad, es planear. Elige el menú de la semana, saca de ahí la lista del súper y cocina de más un par de días, para tener comida lista cuando no hay tiempo.",
+          "lamina": "planear"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "texto": "Yo lo hago en mi cuarto de Cocina de MindHaOS: armo el plan de la semana con mis recetas, y la lista de compras sale sola.",
+          "lamina": "lista",
+          "enCasa": true
+        },
+        {
+          "id": "ochenta",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "80 / 20", "clave": "ochenta" },
+          "texto": "Y no tiene que ser perfecto. Si la mayor parte de lo que comes va en esta línea, una pizza con amigos cabe sin culpa: una alimentación que puedes sostener vale más que una perfecta que dejas a las dos semanas.",
+          "meme": "perfecta",
+          "lamina": "pizza"
+        }
+      ]
+    },
+    {
+      "id": "habitos",
+      "titulo": "Agua, hambre y constancia",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte seis. Agua, hambre y constancia."
+        },
+        {
+          "id": "agua",
+          "escena": "bebe",
+          "visual": { "tipo": "dato", "cifra": "2–2,5 L", "clave": "agua" },
+          "texto": "El agua también cuenta. La Autoridad Europea de Seguridad Alimentaria recomienda unos dos litros al día para las mujeres y dos litros y medio para los hombres, sumando la que viene en la comida, que es más o menos una quinta parte.",
+          "lamina": "agua"
+        },
+        {
+          "id": "hambre",
+          "escena": "habla",
+          "visual": { "tipo": "meme", "meme": "tarde" },
+          "texto": "Escucha tu hambre. Comer despacio y sin pantallas le da tiempo a tu cuerpo de avisarte que ya está satisfecho. Y no llegues con hambre feroz a la comida: un desayuno con proteína y una fruta a media tarde cambian mucho la noche.",
+          "lamina": "despacio"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": { "tipo": "foto", "foto": "registro" },
+          "texto": "Y si quieres saber cómo vas, apunta lo que comes unos días. No para obsesionarte, sino para ver patrones: mucha gente descubre que el problema no eran las comidas, sino las bebidas o la botana de la tarde.",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": { "tipo": "aviso" },
+          "texto": "Recuerda que esta guía es informativa. Si tienes una enfermedad, una relación difícil con la comida o estás embarazada, lo mejor es que te acompañe un profesional de la nutrición.",
+          "lamina": "nutriologo"
+        },
+        {
+          "id": "resumen",
+          "escena": "remueve",
+          "visual": { "tipo": "lista", "claves": ["resumen1", "resumen2", "resumen3", "resumen4"] },
+          "texto": "En resumen: come comida de verdad la mayor parte del tiempo, llena la mitad de tu plato con verduras y frutas, ajusta la cantidad a lo que gastas y planea tu semana.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Si quieres llevarlo a la práctica como lo hago yo, el cuarto de Cocina de MindHaOS tiene tu recetario, tu plan de comidas de la semana y la lista de compras, que se arma sola. El enlace está en la descripción, y ahí también está esta guía en versión interactiva, para que la repases con calma. En la próxima guía seguimos con otra pregunta. Nos vemos.",
+    "boton": "Abrir el cuarto de Cocina",
+    "lamina": "app-plan",
+    "anclas": {
+      "recetario": "recetario",
+      "plan": "plan de comidas",
+      "compras": "lista de compras"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "usda-myplate",
+      "texto": "USDA. MyPlate (2011), que reemplazó a la Pirámide de la Guía Alimentaria (1992).",
+      "url": "https://www.myplate.gov/"
+    },
+    {
+      "id": "nom-043",
+      "texto": "Secretaría de Salud de México. NOM-043-SSA2-2012 (antes NOM-043-SSA2-2005): el Plato del Bien Comer.",
+      "url": "https://www.dof.gob.mx/nota_detalle.php?codigo=5285372&fecha=22/01/2013"
+    },
+    {
+      "id": "oms-alimentacion",
+      "texto": "OMS. Alimentación sana — Nota descriptiva.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/healthy-diet"
+    },
+    {
+      "id": "oms-azucar",
+      "texto": "OMS. Guideline: Sugars intake for adults and children (2015).",
+      "url": "https://www.who.int/publications/i/item/9789241549028"
+    },
+    {
+      "id": "oms-sal",
+      "texto": "OMS. Reducción de la ingesta de sodio — Nota descriptiva.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/salt-reduction"
+    },
+    {
+      "id": "oms-carbohidratos",
+      "texto": "OMS. Carbohydrate intake for adults and children: WHO guideline (2023).",
+      "url": "https://www.who.int/publications/i/item/9789240073593"
+    },
+    {
+      "id": "harvard-plato",
+      "texto": "Harvard T.H. Chan School of Public Health. The Healthy Eating Plate.",
+      "url": "https://nutritionsource.hsph.harvard.edu/healthy-eating-plate/"
+    },
+    {
+      "id": "mifflin",
+      "texto": "Mifflin M. D., St Jeor S. T. et al. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr (1990).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+    },
+    {
+      "id": "issn-proteina",
+      "texto": "Jäger R. et al. International Society of Sports Nutrition Position Stand: protein and exercise (2017).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28642676/"
+    },
+    {
+      "id": "hall-2019",
+      "texto": "Hall K. D. et al. Ultra-processed diets cause excess calorie intake and weight gain. Cell Metabolism (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31105044/"
+    },
+    {
+      "id": "nova",
+      "texto": "Monteiro C. A. et al. Ultra-processed foods: what they are and how to identify them. Public Health Nutrition (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30744710/"
+    },
+    {
+      "id": "efsa-agua",
+      "texto": "EFSA. Scientific Opinion on Dietary Reference Values for water (2010).",
+      "url": "https://www.efsa.europa.eu/en/efsajournal/pub/1459"
+    },
+    {
+      "id": "lind-1753",
+      "texto": "Lind J. A Treatise of the Scurvy (1753). The James Lind Library.",
+      "url": "https://www.jameslindlibrary.org/lind-j-1753/"
+    }
+  ]
+}

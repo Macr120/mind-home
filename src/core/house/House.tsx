@@ -33,7 +33,8 @@ import {
   tileOcupado,
   FOOTPRINT_DEFAULT,
 } from './walls'
-import { celdaEnCuadrante, cuadrantePorId, cuartoEnCuadrante } from './cuadrantesMapa'
+import { celdaEnCuadrante, cuadrantePorId, cuartoEnCuadrante, cuartoOculto } from './cuadrantesMapa'
+import { useMapaVisible } from './mapaVisible'
 import { useTemaActivo } from './useTema'
 import { CieloDiaNoche } from './CieloDiaNoche'
 import { ArcoSol3D } from './ArcoSol3D'
@@ -161,6 +162,7 @@ function RejillaMapa({
   colorFuerte: string
 }) {
   const ocupadoPorNivel = useLayout((s) => s.ocupadoPorNivel)
+  const mv = useMapaVisible()
   const geometry = useMemo(() => {
     const occ0 = ocupadoPorNivel.get(0)
     const occNeg = ocupadoPorNivel.get(-1)
@@ -170,6 +172,7 @@ function RejillaMapa({
       for (let row = 0; row < gridRows; row++) {
         // Celda cubierta por un cuarto (nivel 0) o excavada por un sótano: sin rejilla.
         if ((occ0 && tileOcupado(occ0, col, row)) || (occNeg && tileOcupado(occNeg, col, row))) continue
+        if (mv?.oculta(col, row)) continue
         const [x, , z] = cellToWorld(col, row)
         const x0 = x - h
         const x1 = x + h
@@ -181,7 +184,7 @@ function RejillaMapa({
     const g = new THREE.BufferGeometry()
     g.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3))
     return g
-  }, [gridCols, gridRows, ocupadoPorNivel])
+  }, [gridCols, gridRows, ocupadoPorNivel, mv])
   useEffect(() => () => geometry.dispose(), [geometry])
   return (
     <lineSegments position={[0, 0.02, 0]} geometry={geometry}>
@@ -349,10 +352,13 @@ const ObjetosMapa = memo(function ObjetosMapa({
   // espectacular… de la otra punta del mapa. Editando sí, que ahí se colocan —
   // salvo con un cuadrante en vista, cuyo recorte manda también en el editor
   // (con excepción del objeto seleccionado, el despierto o el que se arrastra).
+  const mv = useMapaVisible()
   const enVista = (x: number, z: number) => {
-    if (!cuadranteVista) return true
+    if (!cuadranteVista && !mv) return true
     const { col, row } = worldToCeldaEntera(x, z)
-    return celdaEnCuadrante(col, row, cuadranteVista)
+    // Los cuadrantes ocultos por el usuario no muestran nada, ni editando.
+    if (mv?.oculta(col, row)) return false
+    return !cuadranteVista || celdaEnCuadrante(col, row, cuadranteVista)
   }
   const items = objetos.filter(
     (o) =>
@@ -425,9 +431,13 @@ const RoomEnMapa = memo(function RoomEnMapa({
     cuadranteVista != null && !editandoEste && !cuartoEnCuadrante(cell, fp, cuadranteVista)
   const lejos =
     !arrastrando && !cargado && (editMode ? fueraDeVista : !cercaDelFoco(cell, centro))
+  // En un cuadrante oculto el cuarto no se pinta (salvo que se esté moviendo).
+  const mv = useMapaVisible()
+  const oculto = cuartoOculto(cell, fp, mv) && !arrastrando && !cargado
   const [x, , z] = centroCuarto3D(cell, fp)
   const y = nivelBaseY(nivel, apilado)
   const otroNivel = planosActivo && nivel !== planosNivel
+  if (oculto) return null
   return (
     <Room3D
       id={room.id}

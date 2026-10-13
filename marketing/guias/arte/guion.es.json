@@ -1,0 +1,685 @@
+{
+  "idioma": "es",
+  "tema": "arte",
+  "plantillaId": "arte",
+  "numero": 6,
+  "nombre": "Studio Arte",
+  "pregunta": "¿Qué es el arte?",
+  "corta": "¿Qué es el arte?",
+  "subtitulo": "Qué son las artes visuales, por qué vale la pena hacer arte aunque hoy una inteligencia artificial pinte en segundos, cómo cambió el arte de las cuevas a las pantallas, con qué elementos se construye una obra, cómo mirarla, cómo empezar a crear y un plan de quince minutos al día.",
+  "aviso": "Esta guía es informativa: las fechas, cifras y estudios citados son aproximaciones de sus fuentes, y cada persona avanza a su ritmo.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando').",
+    "visual": "Bloque que acompaña la línea: dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título). No puede ser enCasa.",
+    "corta": "La pregunta en pocas palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su Studio Arte y las de en medio sobre las tomas de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "epocas": "La casa y la ropa de Pep@ avanzan en el tiempo con las partes: medieval, pirata, vaquero, tren, cyberpunk y nave espacial (escena.mjs y pep.ts). Pep@ lo explica en la mención del inicio y lo recuerda en cada toma de la casa.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «galería», «lienzo por capas» y «ayudas de dibujo»; app2d.mjs mueve la app justo al decirlas.",
+    "ia": "La línea «ia» responde por qué hacer arte aunque una IA ya pinte: lo que te pasa al hacerlo (estrés, memoria, mirada)."
+  },
+  "partes": [
+    {
+      "id": "arte",
+      "titulo": "Qué es el arte",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "¿Qué es el arte? Hoy una inteligencia artificial pinta un cuadro en segundos. Y aun así, casi todos los adultos dicen que no saben dibujar ni una línea recta. ¿Entonces para qué hacer arte tú mismo? En los próximos minutos vas a ver qué es el arte visual, cómo ha cambiado de las cuevas a las pantallas, cómo mirarlo y cómo empezar a hacerlo, y vas a salir con un plan para crear desde hoy.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Por cierto, esta es mi casa en MindHaOS, y en mi Studio Arte pinto en mi caballete y guardo mis dibujos en una galería. Y fíjate en la casa: hoy es un castillo de la Edad Media, y en cada parte va a avanzar en el tiempo, época por época, hasta el futuro. Empecemos.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte uno. Qué es el arte."
+        },
+        {
+          "id": "definicion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hacer",
+              "mirar",
+              "sentir"
+            ]
+          },
+          "texto": "Hay muchas definiciones, pero casi todas coinciden en algo: el arte es algo que una persona hace para que otra lo mire, lo sienta o lo piense. En 1897, el escritor ruso León Tolstói lo dijo así: el arte es contagiar a otros un sentimiento que tú viviste.",
+          "lamina": [
+            "tolstoi",
+            "galeria"
+          ]
+        },
+        {
+          "id": "visuales",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "dibujo",
+              "pintura",
+              "escultura",
+              "fotografia",
+              "digital"
+            ]
+          },
+          "texto": "Esta guía habla de las artes visuales, las que se miran: el dibujo, la pintura, la escultura, la fotografía y, hoy, la ilustración digital. Todas trabajan con lo mismo: líneas, formas, luz y color.",
+          "lamina": [
+            "pinturas",
+            "escultura"
+          ]
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "3 de 4",
+            "clave": "cortisol"
+          },
+          "texto": "¿Y para qué hacerlo, si una inteligencia artificial ya pinta en segundos? Porque el valor del arte no está solo en el resultado, sino en lo que te pasa al hacerlo. En 2016, en la Universidad Drexel, en Estados Unidos, Girija Kaimal midió el cortisol, la hormona del estrés, antes y después de cuarenta y cinco minutos de hacer arte: bajó en tres de cada cuatro personas, supieran dibujar o no.",
+          "lamina": [
+            "acuarela",
+            "notas"
+          ]
+        },
+        {
+          "id": "memoria",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "efectoDibujo"
+          },
+          "texto": "Y te ayuda a pensar: en 2016, en la Universidad de Waterloo, en Canadá, unos estudiantes recordaron mucho mejor las palabras que habían dibujado que las que solo habían escrito. Una máquina puede hacer la imagen por ti, pero no puede mirar, pensar ni sentir por ti.",
+          "lamina": [
+            "estudiante",
+            "ojo"
+          ]
+        },
+        {
+          "id": "talento",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "creer",
+              "ver",
+              "entrenar"
+            ]
+          },
+          "texto": "¿Y el talento? De niños todos dibujamos sin miedo, y hacia los diez años muchos lo dejan porque el dibujo no se parece a lo real. Pero los investigadores Rebecca Chamberlain y Johan Wagemans encontraron que la mayoría de los errores vienen de cómo miramos, no de la mano. Y mirar se entrena.",
+          "meme": "simbolos",
+          "lamina": [
+            "nino",
+            "crayones"
+          ]
+        },
+        {
+          "id": "castillo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lapiz",
+              "papel",
+              "tableta"
+            ]
+          },
+          "texto": "Fíjate en la casa: es un castillo de la Edad Media, la época en que casi todo el arte se pintaba para iglesias y palacios, y muy poca gente podía hacerlo. Hoy, para empezar, basta un lápiz y papel, o una tableta.",
+          "lamina": "lapices",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Una breve historia del arte visual",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte dos. Una breve historia del arte visual."
+        },
+        {
+          "id": "cuevas",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaArte"
+          },
+          "texto": "Hacemos arte desde mucho antes de escribir. En una cueva de la isla de Célebes, en Indonesia, hay una escena de personas junto a un cerdo salvaje pintada hace al menos cincuenta y un mil años. Y en Lascaux, en Francia, los caballos y los toros de las paredes tienen unos diecisiete mil.",
+          "lamina": [
+            "sulawesi",
+            "lascaux"
+          ]
+        },
+        {
+          "id": "perspectiva",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1415",
+            "clave": "perspectiva"
+          },
+          "texto": "Durante siglos, las figuras se pintaron planas. Hacia 1415, en Florencia, el arquitecto Filippo Brunelleschi demostró con un espejo cómo se ve la profundidad, y en 1435 Leon Battista Alberti lo explicó en un libro para pintores: así nació la perspectiva del Renacimiento.",
+          "lamina": [
+            "brunelleschi",
+            "alberti"
+          ]
+        },
+        {
+          "id": "durero",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1525",
+            "clave": "durero"
+          },
+          "texto": "Mira: la casa avanzó en el tiempo y ahora es un barco, como en la época en que Europa cruzaba los océanos. En 1525, el alemán Alberto Durero publicó un manual con una rejilla para copiar lo que se ve, cuadro por cuadro.",
+          "lamina": [
+            "durero",
+            "rejilla"
+          ],
+          "enCasa": true
+        },
+        {
+          "id": "fotografia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1839",
+            "clave": "fotografia"
+          },
+          "texto": "En 1839 se presentó en París la fotografía. Muchos creyeron que la pintura iba a desaparecer, y pasó lo contrario: los pintores dejaron de copiar la realidad al detalle y salieron a buscar la luz y el color. En 1874, los impresionistas hicieron su primera exposición.",
+          "lamina": [
+            "daguerre",
+            "monet"
+          ]
+        },
+        {
+          "id": "duchamp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1917",
+            "clave": "duchamp"
+          },
+          "texto": "En 1917, Marcel Duchamp mandó a una exposición en Nueva York un urinario de porcelana firmado con un nombre falso, y lo llamó «Fuente». Lo rechazaron, pero dejó la gran pregunta del arte moderno: ¿es arte porque está bien hecho, o porque alguien lo elige y te pide que lo mires?",
+          "lamina": "fuente"
+        },
+        {
+          "id": "sketchpad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1963",
+            "clave": "sketchpad"
+          },
+          "texto": "Y en 1963, Ivan Sutherland creó Sketchpad, el primer programa para dibujar en una pantalla. De ahí vienen las tabletas y hoy la inteligencia artificial. La herramienta cambia; la pregunta de qué queremos decir sigue siendo nuestra.",
+          "lamina": [
+            "sketchpad",
+            "tableta"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "elementos",
+      "titulo": "Los elementos de una obra",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte tres. Los elementos de una obra."
+        },
+        {
+          "id": "elementos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "formas"
+          },
+          "texto": "Toda obra visual, de una cueva a una pantalla, se construye con los mismos elementos: la línea, la forma, el valor, que es lo claro y lo oscuro, el color, la textura y el espacio. Y casi todo lo que ves se puede construir con cuatro formas: el cubo, la esfera, el cilindro y el cono.",
+          "lamina": [
+            "formas",
+            "taza"
+          ]
+        },
+        {
+          "id": "valores",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "valores"
+          },
+          "texto": "La luz es lo que da volumen. Un objeto se ve en tres dimensiones gracias a sus valores: la luz, los medios tonos, la sombra propia, la luz reflejada y la sombra proyectada. Entrecierra los ojos: los detalles desaparecen y quedan solo las manchas de luz y sombra.",
+          "lamina": [
+            "esfera",
+            "claroscuro"
+          ]
+        },
+        {
+          "id": "color",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "circulo"
+          },
+          "texto": "El color tiene su propia historia: Isaac Newton ordenó los colores en un círculo en 1704. Pero un color funciona sobre todo por su valor: si una obra se ve bien en blanco y negro, se verá bien en color.",
+          "lamina": [
+            "newton",
+            "pinturas"
+          ]
+        },
+        {
+          "id": "composicion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "tercios"
+          },
+          "texto": "Y está la composición: cómo se reparte todo en el cuadro. Un truco clásico de pintores y fotógrafos es la regla de los tercios: divide la imagen en tres por tres y pon lo importante en una de las cruces, no justo en el centro.",
+          "lamina": [
+            "fotografo",
+            "galeria2"
+          ]
+        },
+        {
+          "id": "oeste",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "brazo",
+              "unidad",
+              "compara"
+            ]
+          },
+          "texto": "Y ahora la casa está en el Lejano Oeste, en el siglo diecinueve, la época de la fotografía: por eso todo se ve en sepia. Para las proporciones, los pintores miden: brazo estirado, una medida con el lápiz, y comparan.",
+          "lamina": "medir",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "mirar",
+      "titulo": "Cómo mirar una obra",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte cuatro. Cómo mirar una obra."
+        },
+        {
+          "id": "museo",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 27 s",
+            "clave": "museo"
+          },
+          "texto": "¿Cuánto tiempo miras un cuadro? En 2001, Jeffrey Smith y Lisa Smith observaron a los visitantes del Museo Metropolitano de Nueva York: en promedio, pasaban unos veintisiete segundos frente a cada obra, menos de lo que tardas en leer su ficha.",
+          "lamina": [
+            "museo",
+            "louvre"
+          ]
+        },
+        {
+          "id": "mesas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mesas"
+          },
+          "texto": "Y mirar bien cuesta. Estas dos mesas parecen de tamaños muy distintos, ¿verdad? Son idénticas: la ilusión la dibujó el psicólogo Roger Shepard en 1990. Tu cerebro corrige lo que ve según lo que sabe. Toca aquí y compruébalo.",
+          "lamina": "ilusion"
+        },
+        {
+          "id": "feldman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "describe",
+              "analiza",
+              "interpreta",
+              "juzga"
+            ]
+          },
+          "texto": "Para mirar despacio, el educador Edmund Feldman propuso en 1970 cuatro pasos: describe lo que ves, analiza cómo está hecho, interpreta qué quiere decir y, solo al final, decide si te gusta.",
+          "lamina": [
+            "copista",
+            "retrato"
+          ]
+        },
+        {
+          "id": "tren",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 min",
+            "clave": "unaObra"
+          },
+          "texto": "Y la casa ya es un tren: llegamos a la era industrial, cuando el arte salió de los palacios a las calles, los carteles y los periódicos. Pruébalo hoy: elige una sola obra, en un museo o en tu teléfono, y mírala diez minutos.",
+          "lamina": "galeria",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "hacer",
+      "titulo": "Cómo empezar a hacer arte",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte cinco. Cómo empezar a hacer arte."
+        },
+        {
+          "id": "alreves",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "alReves"
+          },
+          "texto": "Para dibujar lo que ves y no lo que sabes, hay un ejercicio famoso del libro de Betty Edwards, de 1979: copia un dibujo puesto de cabeza. Como no reconoces lo que es, dejas de dibujar símbolos y copias líneas y ángulos.",
+          "lamina": [
+            "mano",
+            "copiar"
+          ]
+        },
+        {
+          "id": "ojos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "ojos"
+          },
+          "texto": "¿Dónde van los ojos en una cara? Casi todo el mundo los dibuja demasiado arriba. En realidad están a la mitad de la cabeza, entre la barbilla y la coronilla. Mueve aquí la línea de los ojos y compruébalo.",
+          "meme": "ojos",
+          "lamina": "retrato2"
+        },
+        {
+          "id": "gesto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cronometro"
+          },
+          "texto": "Haz dibujos rápidos de gesto: de treinta segundos a dos minutos, solo el movimiento, sin detalles. Te obligan a ver lo esencial y te quitan el miedo a equivocarte.",
+          "lamina": [
+            "gesto",
+            "modelo"
+          ]
+        },
+        {
+          "id": "copiar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1793",
+            "clave": "louvre"
+          },
+          "texto": "Copia a los maestros. El Museo del Louvre deja copiar sus cuadros desde que abrió, en 1793. Copiar te enseña cómo resolvieron otros lo mismo que a ti te cuesta.",
+          "lamina": [
+            "copista2",
+            "figura"
+          ]
+        },
+        {
+          "id": "cuaderno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "100",
+            "clave": "cuaderno"
+          },
+          "texto": "Y lleva un cuaderno: dibuja lo que tengas enfrente, tu taza, tus zapatos, la gente en una sala de espera. Importa más la cantidad que la perfección: tus primeros cien dibujos son para aprender.",
+          "meme": "cien",
+          "lamina": [
+            "cuaderno",
+            "cafe"
+          ]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Mira: la casa ya llegó a la era digital, con neón y pantallas por todas partes. Yo lo hago en mi Studio Arte de MindHaOS: pinto por capas, uso la rejilla y el espejo, y cada obra se queda en mi galería.",
+          "lamina": "caballete",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Tu plan para empezar",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte seis. Tu plan para empezar."
+        },
+        {
+          "id": "meta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "100 × 100",
+            "clave": "meta"
+          },
+          "texto": "Ponte una meta pequeña y concreta: por ejemplo, cien dibujos en cien días. Una meta que se puede contar te hace volver cada día.",
+          "lamina": "calendario"
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dibujosAno"
+          },
+          "texto": "No necesitas mucho tiempo: quince minutos al día son más de noventa horas al año. Mueve aquí tus minutos y mira cuántas obras llevarías en un año.",
+          "lamina": "reloj"
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "Una semana posible: el lunes, contornos; el martes, formas; el miércoles, gestos rápidos; el jueves, luz y sombra; el viernes, mira una obra diez minutos y cópiala; y el fin de semana, lo que tú quieras.",
+          "lamina": [
+            "semana",
+            "acuarela2"
+          ]
+        },
+        {
+          "id": "futuro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "amigo",
+              "clase",
+              "internet"
+            ]
+          },
+          "texto": "Y la casa ya llegó al futuro: es una nave espacial. Las herramientas van a seguir cambiando, pero el arte siempre va a necesitar a alguien que mire y que sienta. Así que enséñalo: a un amigo, en una clase o en internet.",
+          "lamina": "antesDespues",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "En resumen: el arte es hacer algo para que otro lo mire y lo sienta; vale la pena por lo que te pasa al crearlo; mira despacio, con luz, forma y color; y crea un poco cada día.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Si quieres empezar a crear como lo hago yo, el Studio Arte de MindHaOS tiene una galería para tus obras, un lienzo por capas que se guarda solo y ayudas de dibujo como la rejilla y el espejo. El enlace está en la descripción, junto con esta guía interactiva. Nos vemos en la próxima.",
+    "boton": "Abrir el Studio Arte",
+    "lamina": "app-plan",
+    "anclas": {
+      "galeria": "galería",
+      "capas": "lienzo por capas",
+      "ayudas": "ayudas de dibujo"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "tolstoi-1897",
+      "texto": "Tolstói L. ¿Qué es el arte? (1897).",
+      "url": "https://en.wikipedia.org/wiki/What_Is_Art%3F"
+    },
+    {
+      "id": "kaimal-2016",
+      "texto": "Kaimal G., Ray K., Muniz J. Reduction of Cortisol Levels and Participants' Responses Following Art Making. Art Therapy (2016).",
+      "url": "https://doi.org/10.1080/07421656.2016.1166832"
+    },
+    {
+      "id": "wammes-2016",
+      "texto": "Wammes J. D., Meade M. E., Fernandes M. A. The drawing effect: Evidence for reliable and robust memory benefits in free recall. Quarterly Journal of Experimental Psychology (2016).",
+      "url": "https://doi.org/10.1080/17470218.2015.1094494"
+    },
+    {
+      "id": "chamberlain-2016",
+      "texto": "Chamberlain R., Wagemans J. The genesis of errors in drawing. Neuroscience & Biobehavioral Reviews (2016).",
+      "url": "https://doi.org/10.1016/j.neubiorev.2016.04.002"
+    },
+    {
+      "id": "oktaviana-2024",
+      "texto": "Oktaviana A. A. et al. Narrative cave art in Indonesia by 51,200 years ago. Nature (2024).",
+      "url": "https://doi.org/10.1038/s41586-024-07541-7"
+    },
+    {
+      "id": "lascaux",
+      "texto": "UNESCO. Prehistoric Sites and Decorated Caves of the Vézère Valley (Lascaux).",
+      "url": "https://whc.unesco.org/en/list/85/"
+    },
+    {
+      "id": "alberti-1435",
+      "texto": "Alberti L. B. De pictura (1435). Sobre la demostración de Brunelleschi: Kemp M. The Science of Art. Yale University Press (1990).",
+      "url": "https://en.wikipedia.org/wiki/De_pictura"
+    },
+    {
+      "id": "durero-1525",
+      "texto": "Dürer A. Underweysung der Messung. Núremberg (1525).",
+      "url": "https://en.wikipedia.org/wiki/Underweysung_der_Messung"
+    },
+    {
+      "id": "daguerre-1839",
+      "texto": "Académie des Sciences: presentación del daguerrotipo, París (1839).",
+      "url": "https://en.wikipedia.org/wiki/Daguerreotype"
+    },
+    {
+      "id": "impresionistas-1874",
+      "texto": "Musée d'Orsay. Paris 1874: Inventing Impressionism (2024).",
+      "url": "https://www.musee-orsay.fr/en/whats-on/exhibitions/paris-1874-inventing-impressionism"
+    },
+    {
+      "id": "duchamp-1917",
+      "texto": "Duchamp M. Fuente (1917). Tate: Fountain, réplica de 1964.",
+      "url": "https://www.tate.org.uk/art/artworks/duchamp-fountain-t07573"
+    },
+    {
+      "id": "sutherland-1963",
+      "texto": "Sutherland I. E. Sketchpad: A man-machine graphical communication system. MIT (1963).",
+      "url": "https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-574.pdf"
+    },
+    {
+      "id": "newton-1704",
+      "texto": "Newton I. Opticks. Londres (1704): el círculo de los colores.",
+      "url": "https://en.wikipedia.org/wiki/Opticks"
+    },
+    {
+      "id": "smith-2001",
+      "texto": "Smith J. K., Smith L. F. Spending Time on Art. Empirical Studies of the Arts (2001).",
+      "url": "https://doi.org/10.2190/5MQM-59JH-X21R-JN5J"
+    },
+    {
+      "id": "shepard-1990",
+      "texto": "Shepard R. N. Mind Sights: Original Visual Illusions, Ambiguities, and Other Anomalies. W. H. Freeman (1990).",
+      "url": "https://en.wikipedia.org/wiki/Shepard_tables"
+    },
+    {
+      "id": "feldman-1970",
+      "texto": "Feldman E. B. Becoming Human Through Art: Aesthetic Experience in the School. Prentice-Hall (1970).",
+      "url": "https://en.wikipedia.org/wiki/Edmund_Burke_Feldman"
+    },
+    {
+      "id": "edwards-1979",
+      "texto": "Edwards B. Drawing on the Right Side of the Brain. Tarcher (1979).",
+      "url": "https://en.wikipedia.org/wiki/Drawing_on_the_Right_Side_of_the_Brain"
+    },
+    {
+      "id": "louvre-copistas",
+      "texto": "Musée du Louvre. Copier au Louvre: el programa de copistas, abierto desde 1793.",
+      "url": "https://www.louvre.fr/en/explore/the-palace/copying-at-the-louvre"
+    }
+  ]
+}

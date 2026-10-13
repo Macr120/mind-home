@@ -1,0 +1,548 @@
+{
+  "idioma": "ko",
+  "tema": "cocina",
+  "plantillaId": "cocina",
+  "pregunta": "잘 먹는다는 건 무엇일까요?",
+  "subtitulo": "음식이 몸 안에서 하는 일, 우리가 아는 지식은 어디서 왔는지, 에너지가 얼마나 필요한지, 음식의 질을 어떻게 알아보는지, 그리고 접시와 한 주를 어떻게 꾸리는지.",
+  "aviso": "이 가이드는 정보 제공용이며, 의사나 영양 전문가의 조언을 대신하지 않습니다. 질환이 있거나, 섭식 장애가 있거나, 임신 중이거나, 약을 복용하고 있다면 식습관을 바꾸기 전에 전문가와 상담하세요.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'remueve', 'pica', 'bebe', 'pensando') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ cocinando y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «recetario», «plan de comidas» y «lista de compras»; app2d.mjs cambia de pantalla de la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "음식이 몸 안에서 하는 일",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "잘 먹는다는 건 무엇일까요? 무엇을 먹어야 하는지에 대해서는 누구나 한마디씩 합니다. 하지만 음식이 몸 안에서 무슨 일을 하는지 설명해 주는 사람은 거의 없습니다. 실제로는 어떻게 작동하는 걸까요? 앞으로 몇 분 동안 몸에 무엇이 필요한지 이해하고, 내가 쓰는 에너지를 계산해 보고, 한 주를 위한 계획까지 손에 쥐게 될 겁니다.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "참고로 여기는 MindHaOS에 있는 제 집이고, 이 주방에 제 레시피와 식단 계획을 모아 두고 있어요. 그럼 시작해 볼까요.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "1부. 음식이 몸 안에서 하는 일."
+        },
+        {
+          "id": "dos-trabajos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "combustible",
+              "construccion"
+            ]
+          },
+          "texto": "음식은 두 가지 일을 동시에 합니다. 하나는 연료입니다. 칼로리로 재는 에너지로, 숨 쉬고, 생각하고, 움직일 때 씁니다. 다른 하나는 건축 재료입니다. 음식으로 근육과 뼈, 피부와 혈액을 고치는데, 이 조직들은 끊임없이 새로 바뀝니다.",
+          "lamina": "mercado"
+        },
+        {
+          "id": "macros",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "proteinas",
+              "carbohidratos",
+              "grasas"
+            ]
+          },
+          "texto": "이 재료는 크게 세 묶음으로 들어옵니다. 바로 3대 영양소입니다. 단백질은 몸을 만들고 고칩니다. 탄수화물은 가장 빠른 에너지로, 특히 뇌와 고강도 운동에 쓰입니다. 그리고 지방은 에너지를 저장하고, 세포막을 만들고, 일부 비타민의 흡수를 돕습니다.",
+          "lamina": [
+            "macros-proteina",
+            "macros-carbos",
+            "macros-grasas"
+          ]
+        },
+        {
+          "id": "micros",
+          "escena": "pica",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "vitaminas",
+              "minerales",
+              "fibra"
+            ]
+          },
+          "texto": "여기에 미량 영양소가 더해집니다. 바로 비타민과 무기질입니다. 아주 적은 양만 필요하지만, 이게 없으면 지금까지 말한 어떤 것도 제대로 돌아가지 않습니다. 그리고 식이섬유는 에너지는 거의 주지 않지만, 장내 세균의 먹이가 되고 포만감을 더 오래 유지해 줍니다.",
+          "lamina": "verduras"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "우리가 먹어 온 것의 짧은 역사",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "2부. 우리가 먹어 온 것의 짧은 역사."
+        },
+        {
+          "id": "fuego",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaCocina"
+          },
+          "texto": "수십만 년 전, 우리 조상들은 불로 요리하는 법을 익혔습니다. 익히면 음식이 부드러워지고, 더 많은 에너지를 얻을 수 있습니다. 일부 인류학자들은 이것이 뇌가 커지는 데 도움이 됐다고 봅니다.",
+          "lamina": "fuego"
+        },
+        {
+          "id": "agricultura",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 000",
+            "clave": "agricultura"
+          },
+          "texto": "약 만 년 전에는 농업이 시작됐습니다. 밀, 쌀, 그리고 옥수수였죠. 훨씬 더 많은 사람이 먹고살 수 있게 됐지만, 식단은 수렵채집인 시절보다 단조로워졌습니다.",
+          "lamina": "agricultura"
+        },
+        {
+          "id": "lind",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1747",
+            "clave": "lind"
+          },
+          "texto": "1747년, 스코틀랜드 의사 제임스 린드는 역사상 최초의 임상시험 가운데 하나를 했습니다. 괴혈병에 걸린 선원들에게 여러 치료법을 써 봤더니, 회복한 사람은 오렌지와 레몬을 먹은 선원들이었습니다.",
+          "meme": "limones",
+          "lamina": [
+            "lind",
+            "limones"
+          ]
+        },
+        {
+          "id": "atwater",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "4 · 4 · 9",
+            "clave": "atwater"
+          },
+          "texto": "19세기 말, 화학자 윌버 애트워터는 음식마다 에너지가 얼마나 되는지 측정했습니다. 단백질과 탄수화물은 1그램에 약 4킬로칼로리, 지방은 1그램에 약 9킬로칼로리. 오늘날 식품 라벨에서도 그대로 쓰는 숫자입니다.",
+          "lamina": "atwater"
+        },
+        {
+          "id": "funk",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1912",
+            "clave": "funk"
+          },
+          "texto": "1912년, 생화학자 카지미르 풍크가 비타민이라는 말을 제안했고, 그 뒤 수십 년 동안 거의 모든 비타민이 발견됐습니다. 많이 먹어도 영양이 부족할 수 있다는 걸, 처음으로 알게 된 거죠.",
+          "lamina": "funk"
+        },
+        {
+          "id": "plato",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2011",
+            "clave": "plato"
+          },
+          "texto": "1992년, 미국은 유명한 식품 피라미드를 그렸습니다. 맨 아래에는 빵과 파스타가 있었죠. 2011년에는 이것을 접시 하나, MyPlate로 바꿨습니다. 끼니마다 떠올리기가 훨씬 쉬운 모양입니다. 그리고 멕시코에서는 공식 기준이 자기만의 접시를 그렸습니다. Plato del Bien Comer, 우리말로 하면 '잘 먹는 접시'입니다. 이따가 거기까지 가 보겠습니다.",
+          "lamina": [
+            "piramide",
+            "myplate",
+            "plato-bien-comer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "energia",
+      "titulo": "에너지는 얼마나 필요할까",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "3부. 에너지는 얼마나 필요할까."
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "balance"
+          },
+          "texto": "길게 보면 체중은 에너지 균형에 달려 있습니다. 먹는 양과 쓰는 양이죠. 쓰는 것보다 많이 먹으면 몸은 저장하고, 적게 먹으면 비축분을 꺼내 씁니다. 간단해 보이지만, 쓰는 에너지는 여러 부분으로 나뉩니다.",
+          "lamina": "balance"
+        },
+        {
+          "id": "gasto",
+          "escena": "Caminata",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "gasto"
+          },
+          "texto": "가장 큰 몫, 약 3분의 2는 그저 살아 있는 데 쓰입니다. 이것이 기초대사량입니다. 또 한 부분은 하루 동안 얼마나 움직이느냐에 달려 있고, 작은 부분, 10퍼센트 정도는 먹은 것을 소화하는 데 쓰입니다.",
+          "lamina": "gasto"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "calculadoraEnergia"
+          },
+          "texto": "영양사들이 가장 많이 쓰는 공식 가운데 하나인 미플린-세인트 지어 공식으로 추정해 볼 수 있습니다. 나이, 체중, 키, 활동량만 있으면 됩니다. 여기서 계산기를 직접 써 보세요. 정확한 측정값이 아니라 추정치지만, 출발점으로는 아주 좋습니다.",
+          "lamina": "calculadora"
+        },
+        {
+          "id": "proteina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "0,8–2 g/kg",
+            "clave": "proteina"
+          },
+          "texto": "단백질은 성인 기준으로 하루에 체중 1킬로그램당 최소 0.8그램이 기준입니다. 근력 운동을 한다면, 많은 전문가가 1.4에서 2그램을 권합니다.",
+          "lamina": "proteina"
+        },
+        {
+          "id": "deficit",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "−15 %",
+            "clave": "deficit"
+          },
+          "texto": "그리고 살을 빼고 싶다면 굶을 필요는 없습니다. 쓰는 것보다 조금, 15퍼센트 정도만 덜 먹고, 2주마다 어떻게 되고 있는지 확인하면 충분합니다. 오래가는 건 작은 변화입니다.",
+          "lamina": "deficit"
+        }
+      ]
+    },
+    {
+      "id": "calidad",
+      "titulo": "먹는 음식의 질",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "4부. 먹는 음식의 질."
+        },
+        {
+          "id": "nova",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "nova"
+          },
+          "texto": "얼마나 먹느냐만큼, 무엇을 먹느냐도 중요합니다. 연구자들은 음식을 가공한 정도에 따라 나눕니다. 신선한 식품, 기름이나 소금 같은 조리용 재료, 치즈나 빵집 빵 같은 가공식품, 그리고 탄산음료, 과자, 봉지 스낵 같은 초가공식품입니다.",
+          "meme": "ultraprocesados",
+          "lamina": "supermercado"
+        },
+        {
+          "id": "experimento",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+500 kcal",
+            "clave": "experimento"
+          },
+          "texto": "2019년, 미국 국립보건원의 한 실험에서 20명에게 2주는 초가공식품을, 2주는 가공하지 않은 음식을 줬습니다. 먹을 수 있는 칼로리는 똑같았습니다. 초가공식품을 먹을 때 사람들은 자기도 모르게 하루에 약 500킬로칼로리를 더 먹었습니다.",
+          "lamina": "ultraprocesados"
+        },
+        {
+          "id": "azucar",
+          "escena": "bebe",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "azucarOculta"
+          },
+          "texto": "세계보건기구는 첨가당을 전체 에너지의 10퍼센트 미만으로, 가능하면 5퍼센트 미만으로 줄이라고 권합니다. 하루에 티스푼 여섯 개쯤이죠. 내가 마시는 음료에 설탕이 얼마나 들었는지 여기서 확인해 보세요.",
+          "lamina": "refresco"
+        },
+        {
+          "id": "sal",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "< 5 g",
+            "clave": "sal"
+          },
+          "texto": "소금도 비슷합니다. 권장량은 하루 5그램 미만, 대략 티스푼 하나인데, 그 대부분은 식탁에서 내가 뿌리는 게 아니라 이미 제품 안에 들어 있습니다.",
+          "lamina": "sal"
+        },
+        {
+          "id": "etiqueta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porcion",
+              "azucares",
+              "ingredientes"
+            ]
+          },
+          "texto": "요령은 라벨을 읽는 겁니다. 1회 제공량, 당류와 나트륨, 그리고 원재료 목록을 보세요. 원재료는 많이 든 순서대로 적혀 있습니다. 첫 번째가 설탕이라면, 무엇이 가장 많이 들었는지 이미 아는 거죠.",
+          "lamina": "etiqueta"
+        }
+      ]
+    },
+    {
+      "id": "plato",
+      "titulo": "접시와 한 주를 꾸리는 법",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "5부. 접시와 한 주를 꾸리는 법."
+        },
+        {
+          "id": "plato",
+          "escena": "pica",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "armaTuPlato"
+          },
+          "texto": "끼니마다 쓸 수 있는 아주 간단한 방법이 있습니다. 하버드의 건강한 식사 접시입니다. 접시의 절반은 채소와 과일, 4분의 1은 통곡물, 나머지 4분의 1은 생선, 닭고기, 달걀, 콩류 같은 단백질. 마실 것은 물, 요리에는 좋은 기름을 조금 쓰세요.",
+          "lamina": "plato"
+        },
+        {
+          "id": "frutas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "400 g",
+            "clave": "frutas"
+          },
+          "texto": "세계보건기구는 과일과 채소를 하루 최소 400그램, 대략 다섯 접시 분량 먹으라고 권합니다. 식이섬유도 최소 25그램인데, 대부분 채소와 과일, 통곡물, 그리고 콩류에서 얻습니다.",
+          "lamina": "frutas"
+        },
+        {
+          "id": "planear",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "menu",
+              "lista",
+              "prepara"
+            ]
+          },
+          "texto": "비결은 의지력이 아니라 계획입니다. 한 주의 메뉴를 정하고, 거기서 장보기 목록을 뽑고, 며칠은 넉넉히 요리해 두세요. 시간이 없을 때 바로 먹을 음식이 있도록요.",
+          "lamina": "planear"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "저는 MindHaOS의 주방에서 이렇게 해요. 제 레시피로 한 주 식단을 짜면, 장보기 목록이 저절로 만들어집니다.",
+          "lamina": "lista",
+          "enCasa": true
+        },
+        {
+          "id": "ochenta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "80 / 20",
+            "clave": "ochenta"
+          },
+          "texto": "그리고 완벽할 필요는 없습니다. 먹는 것의 대부분이 이 방향이라면, 친구들과 먹는 피자 한 판쯤은 죄책감 없이 즐겨도 됩니다. 2주 만에 그만두는 완벽한 식단보다, 꾸준히 이어 갈 수 있는 식단이 훨씬 값집니다.",
+          "meme": "perfecta",
+          "lamina": "pizza"
+        }
+      ]
+    },
+    {
+      "id": "habitos",
+      "titulo": "물, 배고픔, 그리고 꾸준함",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "6부. 물, 배고픔, 그리고 꾸준함."
+        },
+        {
+          "id": "agua",
+          "escena": "bebe",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2–2,5 L",
+            "clave": "agua"
+          },
+          "texto": "물도 중요합니다. 유럽식품안전청은 여성은 하루 약 2리터, 남성은 2.5리터를 권장합니다. 음식에 들어 있는 수분까지 합친 양인데, 그 몫이 대략 5분의 1입니다.",
+          "lamina": "agua"
+        },
+        {
+          "id": "hambre",
+          "escena": "habla",
+          "visual": {
+            "tipo": "meme",
+            "meme": "tarde"
+          },
+          "texto": "배고픔에 귀를 기울이세요. 천천히, 화면 없이 먹으면 몸이 이제 배부르다고 알려 줄 시간이 생깁니다. 그리고 너무 배고픈 상태로 식사 자리에 가지 마세요. 단백질이 든 아침과 오후의 과일 하나가 저녁을 크게 바꿉니다.",
+          "lamina": "despacio"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "foto",
+            "foto": "registro"
+          },
+          "texto": "내가 어떻게 하고 있는지 알고 싶다면, 며칠 동안 먹은 것을 적어 보세요. 집착하려는 게 아니라, 패턴을 보기 위해서입니다. 문제가 식사가 아니라 음료나 오후의 간식이었다는 걸 알게 되는 사람이 많습니다.",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "이 가이드는 정보 제공용이라는 걸 기억하세요. 질환이 있거나, 음식과의 관계가 힘들거나, 임신 중이라면 영양 전문가의 도움을 받는 것이 가장 좋습니다.",
+          "lamina": "nutriologo"
+        },
+        {
+          "id": "resumen",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "정리하면, 대부분은 진짜 음식을 먹고, 접시의 절반을 채소와 과일로 채우고, 양은 쓰는 에너지에 맞추고, 한 주를 계획하세요.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "저처럼 실천해 보고 싶다면, MindHaOS의 주방에는 나만의 레시피북, 한 주의 식단 계획, 그리고 저절로 만들어지는 장보기 목록이 있습니다. 링크는 설명란에 있고, 거기에 이 가이드의 인터랙티브 버전도 있으니 천천히 다시 보세요. 다음 가이드에서는 또 다른 질문으로 찾아오겠습니다. 다음에 만나요.",
+    "boton": "주방 열기",
+    "lamina": "app-plan",
+    "anclas": {
+      "recetario": "레시피북",
+      "plan": "식단 계획",
+      "compras": "장보기 목록"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "usda-myplate",
+      "texto": "USDA. MyPlate(2011), 식품 가이드 피라미드(1992)를 대체.",
+      "url": "https://www.myplate.gov/"
+    },
+    {
+      "id": "nom-043",
+      "texto": "멕시코 보건부. NOM-043-SSA2-2012(구 NOM-043-SSA2-2005): Plato del Bien Comer(잘 먹는 접시).",
+      "url": "https://www.dof.gob.mx/nota_detalle.php?codigo=5285372&fecha=22/01/2013"
+    },
+    {
+      "id": "oms-alimentacion",
+      "texto": "WHO(세계보건기구). 건강한 식사 — 팩트시트.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/healthy-diet"
+    },
+    {
+      "id": "oms-azucar",
+      "texto": "WHO(세계보건기구). Guideline: Sugars intake for adults and children (2015).",
+      "url": "https://www.who.int/publications/i/item/9789241549028"
+    },
+    {
+      "id": "oms-sal",
+      "texto": "WHO(세계보건기구). 나트륨 섭취 줄이기 — 팩트시트.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/salt-reduction"
+    },
+    {
+      "id": "oms-carbohidratos",
+      "texto": "WHO(세계보건기구). Carbohydrate intake for adults and children: WHO guideline (2023).",
+      "url": "https://www.who.int/publications/i/item/9789240073593"
+    },
+    {
+      "id": "harvard-plato",
+      "texto": "Harvard T.H. Chan School of Public Health. The Healthy Eating Plate.",
+      "url": "https://nutritionsource.hsph.harvard.edu/healthy-eating-plate/"
+    },
+    {
+      "id": "mifflin",
+      "texto": "Mifflin M. D., St Jeor S. T. et al. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr (1990).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+    },
+    {
+      "id": "issn-proteina",
+      "texto": "Jäger R. et al. International Society of Sports Nutrition Position Stand: protein and exercise (2017).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28642676/"
+    },
+    {
+      "id": "hall-2019",
+      "texto": "Hall K. D. et al. Ultra-processed diets cause excess calorie intake and weight gain. Cell Metabolism (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31105044/"
+    },
+    {
+      "id": "nova",
+      "texto": "Monteiro C. A. et al. Ultra-processed foods: what they are and how to identify them. Public Health Nutrition (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30744710/"
+    },
+    {
+      "id": "efsa-agua",
+      "texto": "EFSA. Scientific Opinion on Dietary Reference Values for water (2010).",
+      "url": "https://www.efsa.europa.eu/en/efsajournal/pub/1459"
+    },
+    {
+      "id": "lind-1753",
+      "texto": "Lind J. A Treatise of the Scurvy (1753). The James Lind Library.",
+      "url": "https://www.jameslindlibrary.org/lind-j-1753/"
+    }
+  ]
+}

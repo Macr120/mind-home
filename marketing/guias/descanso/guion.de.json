@@ -1,0 +1,568 @@
+{
+  "idioma": "de",
+  "tema": "descanso",
+  "plantillaId": "descanso",
+  "pregunta": "Was heißt eigentlich gut schlafen?",
+  "subtitulo": "Was in deinem Körper passiert, während du schläfst, was die Wissenschaft über den Schlaf herausgefunden hat, wie viel du brauchst, wie deine innere Uhr funktioniert und wie du dich auf eine gute Nacht vorbereitest.",
+  "aviso": "Dieser Leitfaden dient der Information und ersetzt nicht den Rat einer Ärztin oder eines Arztes. Wenn du laut schnarchst, im Schlaf Atemaussetzer hast, tagsüber ungewollt einschläfst oder die Schlaflosigkeit schon wochenlang anhält, wende dich an eine medizinische Fachperson.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando', 'bosteza', 'estira') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su recámara y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «horario de sueño», «puntuación» y «registro de tus noches»; app2d.mjs mueve la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "Was passiert, während du schläfst",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Was heißt eigentlich gut schlafen? Wir verbringen fast ein Drittel unseres Lebens mit Schlafen. Und trotzdem ist der Schlaf das Erste, woran wir sparen, wenn die Zeit knapp wird. Was passiert wirklich, während du schläfst? In den nächsten Minuten verstehst du, was dein Gehirn nachts macht, du berechnest, wann du ins Bett gehen solltest, und gehst am Ende mit einem Plan raus, um ab heute besser zu schlafen.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Übrigens, das hier ist mein Zuhause in MindHaOS, und in diesem Ruheraum führe ich meinen Schlafplan und das Protokoll meiner Nächte. Legen wir los.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil eins. Was passiert, während du schläfst."
+        },
+        {
+          "id": "ciclos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "hipnograma"
+          },
+          "texto": "Schlafen heißt nicht abschalten. In der Nacht durchläufst du Zyklen von etwa neunzig Minuten, vier bis sechs pro Nacht, und in jedem gehst du durch mehrere Phasen: leichten Schlaf, Tiefschlaf und REM-Schlaf, die Phase der lebhaftesten Träume.",
+          "lamina": "dormida"
+        },
+        {
+          "id": "profundo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "reparacion",
+              "limpieza"
+            ]
+          },
+          "texto": "Tiefschlaf gibt es vor allem am Anfang der Nacht. Dann schüttet der Körper Wachstumshormon aus und repariert sich, und laut Studien an Mäusen räumt das Gehirn in dieser Zeit am gründlichsten die Abfallstoffe weg, die sich über den Tag angesammelt haben.",
+          "lamina": [
+            "profundo",
+            "cerebro"
+          ]
+        },
+        {
+          "id": "rem",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "memoria",
+              "emociones"
+            ]
+          },
+          "texto": "Der REM-Schlaf ballt sich gegen Morgen. Dann ist das Gehirn fast so aktiv wie im Wachzustand: Es sortiert, was du gelernt hast, und verarbeitet die Gefühle des Tages. Wenn du also viel zu früh aufstehst, verlierst du genau diesen Teil.",
+          "lamina": "suena"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Was die Wissenschaft über den Schlaf herausgefunden hat",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil zwei. Was die Wissenschaft über den Schlaf herausgefunden hat."
+        },
+        {
+          "id": "segmentado",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaSueno"
+          },
+          "texto": "Vor dem elektrischen Licht schliefen in Europa viele Menschen in zwei Abschnitten: ein erster Schlaf, eine Weile wach mitten in der Nacht und ein zweiter Schlaf. Der Historiker Roger Ekirch hat das in Hunderten von Tagebüchern, Briefen und Büchern aus vergangenen Jahrhunderten nachgewiesen.",
+          "lamina": "vela"
+        },
+        {
+          "id": "edison",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1879",
+            "clave": "edison"
+          },
+          "texto": "Im Jahr 1879 testete Thomas Edison erfolgreich seine Glühbirne. Die Nacht füllte sich mit Licht, und mit den Jahren gingen wir immer später schlafen.",
+          "lamina": [
+            "edison",
+            "bombilla"
+          ]
+        },
+        {
+          "id": "cueva",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1938",
+            "clave": "cueva"
+          },
+          "texto": "Im Jahr 1938 verbrachte der Physiologe Nathaniel Kleitman zweiunddreißig Tage in der Mammoth Cave in Kentucky, um Tage mit achtundzwanzig Stunden zu leben. Sein Körper ließ sich nicht täuschen: Er blieb bei einem Rhythmus von etwa vierundzwanzig.",
+          "lamina": "cueva"
+        },
+        {
+          "id": "rem",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1953",
+            "clave": "rem"
+          },
+          "texto": "Im Jahr 1953 entdeckten Kleitman und sein Student Eugene Aserinsky den REM-Schlaf: Sie sahen, dass sich die Augen in bestimmten Momenten der Nacht schnell unter den Lidern bewegen, und dass jemand, der dann aufwacht, fast immer gerade geträumt hat.",
+          "lamina": "ojos"
+        },
+        {
+          "id": "nobel",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2017",
+            "clave": "nobel"
+          },
+          "texto": "Und im Jahr 2017 ging der Nobelpreis für Medizin an Jeffrey Hall, Michael Rosbash und Michael Young, weil sie an Fruchtfliegen entdeckt hatten, wie die Gene der inneren Uhr funktionieren. Darauf kommen wir noch.",
+          "lamina": "nobel"
+        }
+      ]
+    },
+    {
+      "id": "cuanto",
+      "titulo": "Wie viel Schlaf du brauchst",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil drei. Wie viel Schlaf du brauchst."
+        },
+        {
+          "id": "edades",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edades"
+          },
+          "texto": "Erwachsene brauchen laut der American Academy of Sleep Medicine jede Nacht sieben Stunden oder mehr. Jugendliche acht bis zehn und Schulkinder neun bis zwölf. Und trotzdem schläft jeder dritte Erwachsene weniger als sieben.",
+          "lamina": "familia"
+        },
+        {
+          "id": "deuda",
+          "escena": "bosteza",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "6 h × 14",
+            "clave": "deuda"
+          },
+          "texto": "Schlafmangel summiert sich. In einem Experiment von 2003 war bei Menschen, die zwei Wochen lang sechs Stunden schliefen, die Aufmerksamkeit am Ende so stark beeinträchtigt wie bei jemandem, der bis zu zwei Nächte lang gar nicht geschlafen hat. Das Schlimmste: Sie selbst fühlten sich nur ein bisschen müde.",
+          "meme": "cinco",
+          "lamina": "cansancio"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "calculadoraSueno"
+          },
+          "texto": "Weil Schlaf in Zyklen verläuft, fühlt es sich besser an, am Ende eines Zyklus aufzuwachen als mitten im Tiefschlaf. Probier es hier aus: Wähl, wann du aufstehst, und der Rechner sagt dir, wann du ins Bett gehen solltest, mit etwa fünfzehn Minuten zum Einschlafen.",
+          "lamina": "despertador"
+        },
+        {
+          "id": "senal",
+          "escena": "estira",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinAlarma",
+              "sinCafe",
+              "despierto"
+            ]
+          },
+          "texto": "Und das beste Maß bist du selbst. Wenn du im Urlaub ohne Wecker zur selben Zeit aufwachst wie unter der Woche, wenn du keinen Kaffee brauchst, um in die Gänge zu kommen, und den ganzen Nachmittag wach bleibst, schläfst du wahrscheinlich genug.",
+          "lamina": "manana"
+        }
+      ]
+    },
+    {
+      "id": "reloj",
+      "titulo": "Deine innere Uhr",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil vier. Deine innere Uhr."
+        },
+        {
+          "id": "circadiano",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "circadiano"
+          },
+          "texto": "Du hast eine Hauptuhr im Gehirn, den Nucleus suprachiasmaticus, die vor allem über das Licht gestellt wird. Wenn es dunkel wird, schüttest du Melatonin aus, das Hormon, das deinem Körper sagt, dass es Nacht ist.",
+          "lamina": "atardecer"
+        },
+        {
+          "id": "luz",
+          "escena": "estira",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "☀ 10 min",
+            "clave": "luz"
+          },
+          "texto": "Deshalb ist Morgenlicht so wirkungsvoll: Ein paar Minuten in der Sonne kurz nach dem Aufwachen stellen deine Uhr und helfen dir, abends zur richtigen Zeit müde zu werden.",
+          "lamina": "sol"
+        },
+        {
+          "id": "pantallas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2015",
+            "clave": "pantallas"
+          },
+          "texto": "Licht am Abend bewirkt das Gegenteil. In einer Studie von 2015 verzögerte das Lesen auf einem Tablet vor dem Schlafengehen das Melatonin: Die Leute brauchten länger zum Einschlafen und waren am nächsten Morgen weniger wach als mit einem gedruckten Buch.",
+          "meme": "capitulo",
+          "lamina": "pantalla"
+        },
+        {
+          "id": "cronotipo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "alondra",
+              "buho"
+            ]
+          },
+          "texto": "Und nicht bei allen geht die Uhr gleich: Es gibt Lerchen, die von allein früh aufwachen, und Eulen, die abends mehr leisten. Dein Chronotyp hängt zu einem guten Teil von deinen Genen und deinem Alter ab; mit Faulheit hat das nichts zu tun.",
+          "lamina": [
+            "alondra",
+            "buho"
+          ]
+        },
+        {
+          "id": "regular",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "60 000",
+            "clave": "regular"
+          },
+          "texto": "Was du aber steuern kannst, ist die Regelmäßigkeit. Eine Studie mit rund sechzigtausend Menschen aus Großbritannien ergab, dass Schlaf zu gleichbleibenden Zeiten mit einer geringeren Sterblichkeit verbunden ist, sogar stärker als die Zahl der Stunden. Am Wochenende lange aufbleiben und am Montag früh raus ist wie ein Jetlag, ohne das Haus zu verlassen.",
+          "lamina": "calendario"
+        }
+      ]
+    },
+    {
+      "id": "noche",
+      "titulo": "Wie du dich auf eine gute Nacht vorbereitest",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil fünf. Wie du dich auf eine gute Nacht vorbereitest."
+        },
+        {
+          "id": "cafeina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cafeinaRestante"
+          },
+          "texto": "Koffein braucht etwa fünf Stunden, bis es zur Hälfte abgebaut ist. In einer Studie kostete eine hohe Dosis sechs Stunden vor dem Schlafengehen mehr als eine Stunde Schlaf. Schau hier, wie viel davon beim Schlafengehen noch in deinem Körper ist.",
+          "meme": "cafe",
+          "lamina": "cafe"
+        },
+        {
+          "id": "alcohol",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "REM ↓",
+            "clave": "alcohol"
+          },
+          "texto": "Alkohol täuscht: Erst macht er müde, aber dann zerstückelt er die zweite Hälfte der Nacht und verringert den REM-Schlaf. Du schläfst, aber du erholst dich schlechter.",
+          "lamina": "copa"
+        },
+        {
+          "id": "cuarto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fresco",
+              "oscuro",
+              "silencio"
+            ]
+          },
+          "texto": "Auch dein Schlafzimmer zählt: kühl, um die achtzehn Grad, dunkel und still. Und das Bett ist zum Schlafen da: Wenn du darin arbeitest oder Serien schaust, verbindet dein Gehirn es nicht mehr mit Schlaf.",
+          "lamina": "recamara"
+        },
+        {
+          "id": "rutina",
+          "escena": "estira",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apaga",
+              "luces",
+              "ritual"
+            ]
+          },
+          "texto": "Gestalte die letzte Stunde des Tages: Leg die Bildschirme weg, dimm das Licht und mach etwas, das dich entspannt, immer gleich, zum Beispiel lesen, ein warmes Bad nehmen oder dich dehnen. Das ist für deinen Körper das Signal, dass die Nacht kommt.",
+          "lamina": [
+            "leer",
+            "estirar"
+          ]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Ich mache das in meinem Ruheraum in MindHaOS: Mein Schlafplan erinnert mich eine Stunde vorher daran, die Bildschirme wegzulegen, und über die Nachttischlampe starte ich eine geführte Atemübung, um zu entspannen.",
+          "lamina": "lampara",
+          "enCasa": true
+        },
+        {
+          "id": "ejercicio",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+ 🏃",
+            "clave": "ejercicio"
+          },
+          "texto": "Und beweg dich tagsüber: Regelmäßiger Sport hilft dir, schneller einzuschlafen und tiefer zu schlafen. Nur das härteste Training sollte mindestens ein paar Stunden vor dem Schlafengehen vorbei sein.",
+          "lamina": "correr"
+        }
+      ]
+    },
+    {
+      "id": "insomnio",
+      "titulo": "Wenn du nicht schlafen kannst",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil sechs. Wenn du nicht schlafen kannst."
+        },
+        {
+          "id": "veinte",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "20 min",
+            "clave": "veinte"
+          },
+          "texto": "Wenn du schon eine ganze Weile wach liegst, etwa zwanzig Minuten, steh auf, geh an einen anderen Ort mit gedämpftem Licht und geh erst wieder ins Bett, wenn du müde bist. Wenn du dich im Bett hin und her wälzt, lernt dein Gehirn, dass das Bett zum Grübeln da ist.",
+          "lamina": "insomnio"
+        },
+        {
+          "id": "siesta",
+          "escena": "bosteza",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+34 %",
+            "clave": "siesta"
+          },
+          "texto": "Nickerchen helfen, wenn sie kurz sind und früh am Tag: etwa zwanzig Minuten, spätestens am frühen Nachmittag. In einer Studie der NASA mit Piloten verbesserte ein Nickerchen von etwa sechsundzwanzig Minuten ihre Leistung um vierunddreißig Prozent.",
+          "meme": "siesta",
+          "lamina": "siesta"
+        },
+        {
+          "id": "terapia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "TCC-I",
+            "clave": "terapia"
+          },
+          "texto": "Wenn die Schlaflosigkeit wochenlang anhält, sind Tabletten nicht die erste Behandlung, sondern die kognitive Verhaltenstherapie bei Insomnie, die das American College of Physicians und die American Academy of Sleep Medicine als erste Wahl empfehlen.",
+          "lamina": "terapia"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "foto",
+            "foto": "registro"
+          },
+          "texto": "Und wenn du wissen willst, wo du stehst, schreib ein paar Wochen lang deine Nächte auf: wann du ins Bett gegangen bist, wann du aufgewacht bist und wie du dich gefühlt hast. Die Muster zeigen sich von selbst.",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "Denk daran: Dieser Leitfaden dient der Information. Wenn du laut schnarchst und man dir sagt, dass du zwischendurch aufhörst zu atmen, wenn du tagsüber ungewollt einschläfst oder die Schlaflosigkeit nicht weggeht, geh zu einer Ärztin oder einem Arzt: Schlafapnoe und die anderen Schlafstörungen lassen sich behandeln.",
+          "lamina": "medico"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Kurz gesagt: Schlaf sieben Stunden oder mehr, zu gleichbleibenden Zeiten; such morgens Licht und abends Dunkelheit; pass bei Koffein und Alkohol auf, und gestalte die letzte Stunde des Tages.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Wenn du das so umsetzen willst wie ich: Der Ruheraum in MindHaOS hat deinen Schlafplan mit Erinnerungen und Wecker, die Bewertung jeder Nacht und das Protokoll deiner Nächte, damit du deine Muster erkennst. Der Link steht in der Beschreibung, und dort findest du auch diesen Leitfaden als interaktive Version, damit du alles in Ruhe nachlesen kannst. Im nächsten Leitfaden geht es mit einer neuen Frage weiter. Bis dann.",
+    "boton": "Ruheraum öffnen",
+    "lamina": "app-plan",
+    "anclas": {
+      "horario": "Schlafplan",
+      "puntuacion": "Bewertung",
+      "registro": "Protokoll deiner Nächte"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "aasm-adultos",
+      "texto": "Watson N. F. et al. Recommended amount of sleep for a healthy adult: a joint consensus statement of the AASM and SRS. Sleep (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26039963/"
+    },
+    {
+      "id": "aasm-ninos",
+      "texto": "Paruthi S. et al. Recommended amount of sleep for pediatric populations: a consensus statement of the AASM. J Clin Sleep Med (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27250809/"
+    },
+    {
+      "id": "cdc-un-tercio",
+      "texto": "Liu Y. et al. Prevalence of healthy sleep duration among adults — United States, 2014. MMWR (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26890214/"
+    },
+    {
+      "id": "ninds",
+      "texto": "NINDS (NIH). Brain Basics: Understanding Sleep.",
+      "url": "https://www.ninds.nih.gov/health-information/public-education/brain-basics/brain-basics-understanding-sleep"
+    },
+    {
+      "id": "xie-2013",
+      "texto": "Xie L. et al. Sleep drives metabolite clearance from the adult brain. Science (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24136970/"
+    },
+    {
+      "id": "ekirch-2001",
+      "texto": "Ekirch A. R. Sleep We Have Lost: Pre-industrial Slumber in the British Isles. The American Historical Review (2001).",
+      "url": "https://doi.org/10.1086/ahr/106.2.343"
+    },
+    {
+      "id": "aserinsky-1953",
+      "texto": "Aserinsky E., Kleitman N. Regularly occurring periods of eye motility, and concomitant phenomena, during sleep. Science (1953).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13089671/"
+    },
+    {
+      "id": "nobel-2017",
+      "texto": "The Nobel Prize in Physiology or Medicine 2017: Jeffrey C. Hall, Michael Rosbash und Michael W. Young.",
+      "url": "https://www.nobelprize.org/prizes/medicine/2017/summary/"
+    },
+    {
+      "id": "van-dongen-2003",
+      "texto": "Van Dongen H. P. et al. The cumulative cost of additional wakefulness. Sleep (2003).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12683469/"
+    },
+    {
+      "id": "chang-2015",
+      "texto": "Chang A.-M. et al. Evening use of light-emitting eReaders negatively affects sleep, circadian timing, and next-morning alertness. PNAS (2015).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25535358/"
+    },
+    {
+      "id": "windred-2024",
+      "texto": "Windred D. P. et al. Sleep regularity is a stronger predictor of mortality risk than sleep duration. Sleep (2024).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37738616/"
+    },
+    {
+      "id": "drake-2013",
+      "texto": "Drake C. et al. Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed. J Clin Sleep Med (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24235903/"
+    },
+    {
+      "id": "ebrahim-2013",
+      "texto": "Ebrahim I. O. et al. Alcohol and sleep I: effects on normal sleep. Alcohol Clin Exp Res (2013).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23347102/"
+    },
+    {
+      "id": "nasa-1995",
+      "texto": "Rosekind M. R. et al. Crew factors in flight operations IX: Effects of planned cockpit rest on crew performance and alertness in long-haul operations. NASA (1994).",
+      "url": "https://ntrs.nasa.gov/citations/19950006379"
+    },
+    {
+      "id": "acp-2016",
+      "texto": "Qaseem A. et al. Management of chronic insomnia disorder in adults: a clinical practice guideline from the American College of Physicians. Ann Intern Med (2016).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27136449/"
+    },
+    {
+      "id": "aasm-2021",
+      "texto": "Edinger J. D. et al. Behavioral and psychological treatments for chronic insomnia disorder in adults: an AASM clinical practice guideline. J Clin Sleep Med (2021).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33164742/"
+    }
+  ]
+}

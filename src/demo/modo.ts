@@ -60,7 +60,20 @@ import { idiomaActual } from '../core/i18n/useT'
 // (`montoDemo`): la del idioma y la región del dispositivo.
 // v44: las cifras del diario y de las gratitudes van como `{monto:N}` y salen en
 // esa misma moneda (`conMontos`); antes decían «euros» en todos los idiomas.
-const DEMO_VERSION = 44
+// v52: el Studio Arte cambia de sitio con el Archivo: arriba en el ala del Studio (col 4, fila 2)
+// y el Archivo abajo. En la col 3, fila 3 del piso 1 compartía muro con la esquina triangular
+// de Ideas, que se veía traslapado tras su puerta. (La 51 quedó construida a medias en los
+// Chrome de grabación, de ahí el salto.)
+// v50: la demo trae el cuarto de Arte (piso 1, encima del Garage) con las entradas de su guía:
+// el caballete (la app), el cuadro con la pregunta (la guía) y el cuaderno de la mesa (la galería).
+// v49: la pregunta de la pizarra de Idiomas pasa a «¿Por qué aprender un idioma?».
+// v48: la pizarra de Idiomas pasa a la parte norte del muro oeste (al centro quedaba frente a la puerta).
+// v47: el cuarto de Idiomas trae fijas las entradas de su guía (la pizarra blanca con la
+// pregunta y los saludos, que abre la guía, y la caja de tarjetas de la mesa, que abre el Repaso).
+// v46: el pizarrón pasa al muro oeste (en el norte quedaba en el vano de la cocina).
+// v45: el despacho trae fijas las entradas de su guía (el pizarrón con la pregunta, que
+// abre la guía web en el idioma activo, y la alcancía del escritorio, que abre el ahorro).
+const DEMO_VERSION = 52
 const LS_VERSION = 'mh.demo.version'
 const LS_INTENT = 'mh.demo.intent'
 

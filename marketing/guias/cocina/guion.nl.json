@@ -1,0 +1,548 @@
+{
+  "idioma": "nl",
+  "tema": "cocina",
+  "plantillaId": "cocina",
+  "pregunta": "Wat is eigenlijk goed eten?",
+  "subtitulo": "Wat eten in je lichaam doet, waar onze kennis vandaan komt, hoeveel energie je nodig hebt, hoe je kwaliteit herkent en hoe je je bord en je week samenstelt.",
+  "aviso": "Deze gids is informatief en vervangt niet het advies van een arts of een voedingsdeskundige. Heb je een ziekte of een eetstoornis, ben je zwanger of gebruik je medicijnen, overleg dan met een professional voordat je je eetpatroon verandert.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'remueve', 'pica', 'bebe', 'pensando') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ cocinando y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «recetario», «plan de comidas» y «lista de compras»; app2d.mjs cambia de pantalla de la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "Wat eten in je lichaam doet",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Wat is eigenlijk goed eten? Iedereen heeft een mening over wat jij zou moeten eten. Bijna niemand legt je uit wat eten in je lichaam doet. Hoe werkt het echt? In de komende minuten begrijp je wat je lichaam nodig heeft, bereken je hoeveel energie je verbruikt en ga je weg met een plan voor je week.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Trouwens, dit is mijn huis in MindHaOS, en in deze Keuken bewaar ik mijn recepten en mijn maaltijdplan. Laten we beginnen.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel één. Wat eten in je lichaam doet."
+        },
+        {
+          "id": "dos-trabajos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "combustible",
+              "construccion"
+            ]
+          },
+          "texto": "Eten doet twee dingen tegelijk. Het is brandstof: energie, gemeten in calorieën, die je verbruikt als je ademt, denkt en beweegt. En het is bouwmateriaal: daarmee herstel je spieren, botten, huid en bloed, die zich voortdurend vernieuwen.",
+          "lamina": "mercado"
+        },
+        {
+          "id": "macros",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "proteinas",
+              "carbohidratos",
+              "grasas"
+            ]
+          },
+          "texto": "Die bouwstoffen komen in drie grote groepen, de macronutriënten. Eiwitten bouwen op en herstellen. Koolhydraten zijn de snelste energie, vooral voor je hersenen en voor intensieve inspanning. En vetten slaan energie op, vormen de wanden van je cellen en helpen je bepaalde vitamines op te nemen.",
+          "lamina": [
+            "macros-proteina",
+            "macros-carbos",
+            "macros-grasas"
+          ]
+        },
+        {
+          "id": "micros",
+          "escena": "pica",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "vitaminas",
+              "minerales",
+              "fibra"
+            ]
+          },
+          "texto": "Daarnaast zijn er de micronutriënten: vitamines en mineralen die je maar in piepkleine hoeveelheden nodig hebt, maar zonder welke niets van het voorgaande werkt. En vezels, die je bijna geen energie geven, maar de bacteriën in je darmen voeden en je langer verzadigd houden.",
+          "lamina": "verduras"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Een korte geschiedenis van wat we eten",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel twee. Een korte geschiedenis van wat we eten."
+        },
+        {
+          "id": "fuego",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaCocina"
+          },
+          "texto": "Honderdduizenden jaren geleden leerden onze voorouders koken met vuur. Koken maakt voedsel zachter en laat ons er meer energie uit halen; sommige antropologen denken dat dat onze hersenen heeft helpen groeien.",
+          "lamina": "fuego"
+        },
+        {
+          "id": "agricultura",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 000",
+            "clave": "agricultura"
+          },
+          "texto": "Zo'n tienduizend jaar geleden kwam de landbouw: tarwe, rijst en maïs. Er was eten voor veel meer mensen, al werd het menu minder gevarieerd dan dat van de jagers-verzamelaars.",
+          "lamina": "agricultura"
+        },
+        {
+          "id": "lind",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1747",
+            "clave": "lind"
+          },
+          "texto": "In 1747 deed de Schotse arts James Lind een van de eerste klinische proeven uit de geschiedenis: hij gaf zeelieden met scheurbuik verschillende middeltjes, en wie sinaasappels en citroenen at, knapte op.",
+          "meme": "limones",
+          "lamina": [
+            "lind",
+            "limones"
+          ]
+        },
+        {
+          "id": "atwater",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "4 · 4 · 9",
+            "clave": "atwater"
+          },
+          "texto": "Aan het eind van de negentiende eeuw mat de scheikundige Wilbur Atwater hoeveel energie elk voedingsmiddel levert: ongeveer vier calorieën per gram eiwit of koolhydraat, en ongeveer negen per gram vet. Het zijn de getallen die etiketten vandaag nog steeds gebruiken.",
+          "lamina": "atwater"
+        },
+        {
+          "id": "funk",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1912",
+            "clave": "funk"
+          },
+          "texto": "In 1912 stelde de biochemicus Casimir Funk het woord vitamine voor, en in de decennia daarna werden ze bijna allemaal ontdekt. Voor het eerst begreep men dat je veel kunt eten en toch ondervoed kunt zijn.",
+          "lamina": "funk"
+        },
+        {
+          "id": "plato",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2011",
+            "clave": "plato"
+          },
+          "texto": "In 1992 tekenden de Verenigde Staten de beroemde voedselpiramide, met brood en pasta onderaan. In 2011 vervingen ze die door een bord, MyPlate, dat je je bij elke maaltijd veel makkelijker voorstelt. En in Mexico tekende de officiële norm een eigen bord: het Plato del Bien Comer, het bord van goed eten. Daar komen we nog op.",
+          "lamina": [
+            "piramide",
+            "myplate",
+            "plato-bien-comer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "energia",
+      "titulo": "Hoeveel energie je nodig hebt",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel drie. Hoeveel energie je nodig hebt."
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "balance"
+          },
+          "texto": "Op de lange termijn hangt je gewicht af van je energiebalans: wat je eet tegenover wat je verbruikt. Eet je meer dan je verbruikt, dan slaat je lichaam het op; eet je minder, dan spreekt het zijn reserves aan. Klinkt simpel, maar het verbruik bestaat uit meerdere delen.",
+          "lamina": "balance"
+        },
+        {
+          "id": "gasto",
+          "escena": "Caminata",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "gasto"
+          },
+          "texto": "Het grootste deel, ongeveer twee derde, gaat alleen al op aan je in leven houden: dat is je ruststofwisseling. Een ander deel hangt af van hoeveel je overdag beweegt, en een klein deel, zo'n tien procent, gaat op aan het verteren van wat je eet.",
+          "lamina": "gasto"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "calculadoraEnergia"
+          },
+          "texto": "Je kunt het schatten met de formule van Mifflin en St Jeor, een van de meest gebruikte door diëtisten: met je leeftijd, je gewicht, je lengte en je activiteit. Probeer hier de calculator. Het is een schatting, geen exacte meting, maar wel een heel goed vertrekpunt.",
+          "lamina": "calculadora"
+        },
+        {
+          "id": "proteina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "0,8–2 g/kg",
+            "clave": "proteina"
+          },
+          "texto": "Voor eiwit is de richtlijn voor een volwassene minstens nul komma acht gram per kilo lichaamsgewicht per dag. Doe je aan krachttraining, dan raden veel experts tussen één komma vier en twee gram aan.",
+          "lamina": "proteina"
+        },
+        {
+          "id": "deficit",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "−15 %",
+            "clave": "deficit"
+          },
+          "texto": "En wil je afvallen, dan hoef je geen honger te lijden: het is genoeg om iets minder te eten dan je verbruikt, ongeveer vijftien procent, en elke twee weken te kijken hoe het gaat. Juist kleine veranderingen houd je vol.",
+          "lamina": "deficit"
+        }
+      ]
+    },
+    {
+      "id": "calidad",
+      "titulo": "De kwaliteit van wat je eet",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vier. De kwaliteit van wat je eet."
+        },
+        {
+          "id": "nova",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "nova"
+          },
+          "texto": "Naast hoeveel telt ook wat. Onderzoekers delen voedsel in naar hoe sterk het bewerkt is: verse producten, keukeningrediënten zoals olie of zout, bewerkte producten zoals kaas of brood van de bakker, en ultrabewerkte producten, zoals frisdrank, koekjes en verpakte snacks.",
+          "meme": "ultraprocesados",
+          "lamina": "supermercado"
+        },
+        {
+          "id": "experimento",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+500 kcal",
+            "clave": "experimento"
+          },
+          "texto": "In 2019 gaf een experiment van de Amerikaanse National Institutes of Health twintig mensen twee weken ultrabewerkt eten en twee weken onbewerkt eten, met evenveel calorieën binnen handbereik. Met het ultrabewerkte eten aten ze ongeveer vijfhonderd calorieën meer per dag, zonder het door te hebben.",
+          "lamina": "ultraprocesados"
+        },
+        {
+          "id": "azucar",
+          "escena": "bebe",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "azucarOculta"
+          },
+          "texto": "De Wereldgezondheidsorganisatie raadt aan om toegevoegde suiker onder de tien procent van je energie te houden, en liefst onder de vijf: zo'n zes theelepels per dag. Kijk hier hoeveel suiker er in je drankjes zit.",
+          "lamina": "refresco"
+        },
+        {
+          "id": "sal",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "< 5 g",
+            "clave": "sal"
+          },
+          "texto": "Met zout is het net zo: het advies is minder dan vijf gram per dag, ongeveer een theelepel, en het meeste strooi je er niet zelf aan tafel over: het zit al in de producten.",
+          "lamina": "sal"
+        },
+        {
+          "id": "etiqueta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porcion",
+              "azucares",
+              "ingredientes"
+            ]
+          },
+          "texto": "De truc is het etiket lezen. Let op de portie, op suikers en zout, en op de ingrediëntenlijst, die van veel naar weinig gaat: staat suiker bovenaan, dan weet je waar het meeste van in zit.",
+          "lamina": "etiqueta"
+        }
+      ]
+    },
+    {
+      "id": "plato",
+      "titulo": "Hoe je je bord en je week samenstelt",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vijf. Hoe je je bord en je week samenstelt."
+        },
+        {
+          "id": "plato",
+          "escena": "pica",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "armaTuPlato"
+          },
+          "texto": "Voor elke maaltijd is er een heel eenvoudige methode, het gezonde bord van Harvard: de helft van je bord groente en fruit; een kwart volkoren granen; en het andere kwart een eiwitbron zoals vis, kip, ei of peulvruchten. Water om te drinken, en een beetje goede olie om mee te koken.",
+          "lamina": "plato"
+        },
+        {
+          "id": "frutas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "400 g",
+            "clave": "frutas"
+          },
+          "texto": "De Wereldgezondheidsorganisatie raadt minstens vierhonderd gram groente en fruit per dag aan, ongeveer vijf porties, en minstens vijfentwintig gram vezels, die vooral daaruit komen, uit volkoren granen en uit peulvruchten.",
+          "lamina": "frutas"
+        },
+        {
+          "id": "planear",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "menu",
+              "lista",
+              "prepara"
+            ]
+          },
+          "texto": "Het geheim is geen wilskracht, het is plannen. Kies het menu voor de week, haal daar je boodschappenlijst uit en kook een paar dagen wat extra, zodat je eten klaar hebt als er geen tijd is.",
+          "lamina": "planear"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Ik doe het in mijn Keuken in MindHaOS: ik stel het weekplan samen met mijn recepten, en de boodschappenlijst maakt zichzelf.",
+          "lamina": "lista",
+          "enCasa": true
+        },
+        {
+          "id": "ochenta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "80 / 20",
+            "clave": "ochenta"
+          },
+          "texto": "En het hoeft niet perfect. Als het meeste van wat je eet deze kant op gaat, past een pizza met vrienden er zonder schuldgevoel in: een eetpatroon dat je volhoudt is meer waard dan een perfect eetpatroon waar je na twee weken mee stopt.",
+          "meme": "perfecta",
+          "lamina": "pizza"
+        }
+      ]
+    },
+    {
+      "id": "habitos",
+      "titulo": "Water, honger en volhouden",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zes. Water, honger en volhouden."
+        },
+        {
+          "id": "agua",
+          "escena": "bebe",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2–2,5 L",
+            "clave": "agua"
+          },
+          "texto": "Water telt ook mee. De Europese Autoriteit voor voedselveiligheid raadt ongeveer twee liter per dag aan voor vrouwen en tweeënhalve liter voor mannen, inclusief het water uit je eten, dat ongeveer een vijfde is.",
+          "lamina": "agua"
+        },
+        {
+          "id": "hambre",
+          "escena": "habla",
+          "visual": {
+            "tipo": "meme",
+            "meme": "tarde"
+          },
+          "texto": "Luister naar je honger. Langzaam eten en zonder schermen geeft je lichaam de tijd om je te laten weten dat het verzadigd is. En kom niet met een razende honger aan tafel: een ontbijt met eiwit en een stuk fruit halverwege de middag maken 's avonds een groot verschil.",
+          "lamina": "despacio"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "foto",
+            "foto": "registro"
+          },
+          "texto": "En wil je weten hoe je ervoor staat, schrijf dan een paar dagen op wat je eet. Niet om je er druk om te maken, maar om patronen te zien: veel mensen ontdekken dat het probleem niet de maaltijden waren, maar de drankjes of de snack van de middag.",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "Onthoud dat deze gids informatief is. Heb je een ziekte, een moeizame relatie met eten of ben je zwanger, laat je dan het liefst begeleiden door een voedingsdeskundige.",
+          "lamina": "nutriologo"
+        },
+        {
+          "id": "resumen",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Kortom: eet het grootste deel van de tijd echt eten, vul de helft van je bord met groente en fruit, stem de hoeveelheid af op wat je verbruikt en plan je week.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Wil je het in de praktijk brengen zoals ik, dan heeft de Keuken van MindHaOS je receptenboek, je maaltijdplan voor de week en de boodschappenlijst, die zichzelf samenstelt. De link staat in de beschrijving, en daar vind je ook deze gids in een interactieve versie, zodat je alles rustig kunt nalezen. In de volgende gids gaan we verder met een nieuwe vraag. Tot dan.",
+    "boton": "Open de Keuken",
+    "lamina": "app-plan",
+    "anclas": {
+      "recetario": "receptenboek",
+      "plan": "maaltijdplan",
+      "compras": "boodschappenlijst"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "usda-myplate",
+      "texto": "USDA. MyPlate (2011), dat de Food Guide Pyramid (1992) verving.",
+      "url": "https://www.myplate.gov/"
+    },
+    {
+      "id": "nom-043",
+      "texto": "Ministerie van Volksgezondheid van Mexico. NOM-043-SSA2-2012 (voorheen NOM-043-SSA2-2005): het Plato del Bien Comer.",
+      "url": "https://www.dof.gob.mx/nota_detalle.php?codigo=5285372&fecha=22/01/2013"
+    },
+    {
+      "id": "oms-alimentacion",
+      "texto": "WHO. Gezonde voeding — Factsheet.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/healthy-diet"
+    },
+    {
+      "id": "oms-azucar",
+      "texto": "OMS. Guideline: Sugars intake for adults and children (2015).",
+      "url": "https://www.who.int/publications/i/item/9789241549028"
+    },
+    {
+      "id": "oms-sal",
+      "texto": "WHO. Zoutreductie — Factsheet.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/salt-reduction"
+    },
+    {
+      "id": "oms-carbohidratos",
+      "texto": "OMS. Carbohydrate intake for adults and children: WHO guideline (2023).",
+      "url": "https://www.who.int/publications/i/item/9789240073593"
+    },
+    {
+      "id": "harvard-plato",
+      "texto": "Harvard T.H. Chan School of Public Health. The Healthy Eating Plate.",
+      "url": "https://nutritionsource.hsph.harvard.edu/healthy-eating-plate/"
+    },
+    {
+      "id": "mifflin",
+      "texto": "Mifflin M. D., St Jeor S. T. et al. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr (1990).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+    },
+    {
+      "id": "issn-proteina",
+      "texto": "Jäger R. et al. International Society of Sports Nutrition Position Stand: protein and exercise (2017).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28642676/"
+    },
+    {
+      "id": "hall-2019",
+      "texto": "Hall K. D. et al. Ultra-processed diets cause excess calorie intake and weight gain. Cell Metabolism (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31105044/"
+    },
+    {
+      "id": "nova",
+      "texto": "Monteiro C. A. et al. Ultra-processed foods: what they are and how to identify them. Public Health Nutrition (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30744710/"
+    },
+    {
+      "id": "efsa-agua",
+      "texto": "EFSA. Scientific Opinion on Dietary Reference Values for water (2010).",
+      "url": "https://www.efsa.europa.eu/en/efsajournal/pub/1459"
+    },
+    {
+      "id": "lind-1753",
+      "texto": "Lind J. A Treatise of the Scurvy (1753). The James Lind Library.",
+      "url": "https://www.jameslindlibrary.org/lind-j-1753/"
+    }
+  ]
+}

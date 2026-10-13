@@ -1,0 +1,548 @@
+{
+  "idioma": "de",
+  "tema": "cocina",
+  "plantillaId": "cocina",
+  "pregunta": "Was heißt eigentlich gut essen?",
+  "subtitulo": "Was Essen in deinem Körper bewirkt, woher unser Wissen darüber stammt, wie viel Energie du brauchst, wie du Qualität erkennst und wie du deinen Teller und deine Woche zusammenstellst.",
+  "aviso": "Dieser Leitfaden dient der Information und ersetzt nicht den Rat einer Ärztin, eines Arztes oder einer Ernährungsfachkraft. Wenn du eine Erkrankung oder eine Essstörung hast, schwanger bist oder Medikamente nimmst, sprich mit einer Fachperson, bevor du deine Ernährung umstellst.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'remueve', 'pica', 'bebe', 'pensando') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ cocinando y la de en medio sobre la toma de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «recetario», «plan de comidas» y «lista de compras»; app2d.mjs cambia de pantalla de la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "cuerpo",
+      "titulo": "Was Essen in deinem Körper bewirkt",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Was heißt eigentlich gut essen? Jeder hat eine Meinung dazu, was du essen solltest. Kaum jemand erklärt dir, was das Essen in deinem Körper tatsächlich macht. Wie funktioniert das wirklich? In den nächsten Minuten verstehst du, was dein Körper braucht, du berechnest, wie viel Energie du verbrauchst, und gehst am Ende mit einem Plan für deine Woche raus.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Übrigens, das hier ist mein Zuhause in MindHaOS, und in dieser Küche bewahre ich meine Rezepte und meinen Essensplan auf. Legen wir los.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil eins. Was Essen in deinem Körper bewirkt."
+        },
+        {
+          "id": "dos-trabajos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "combustible",
+              "construccion"
+            ]
+          },
+          "texto": "Essen erledigt zwei Aufgaben gleichzeitig. Es ist Brennstoff: Energie, gemessen in Kalorien, die du beim Atmen, Denken und Bewegen verbrauchst. Und es ist Baumaterial: Damit reparierst du Muskeln, Knochen, Haut und Blut, die sich ständig erneuern.",
+          "lamina": "mercado"
+        },
+        {
+          "id": "macros",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "proteinas",
+              "carbohidratos",
+              "grasas"
+            ]
+          },
+          "texto": "Diese Baustoffe kommen in drei großen Gruppen, den Makronährstoffen. Proteine bauen auf und reparieren. Kohlenhydrate sind die schnellste Energie, vor allem fürs Gehirn und für intensives Training. Und Fette speichern Energie, bilden die Wände deiner Zellen und helfen dir, bestimmte Vitamine aufzunehmen.",
+          "lamina": [
+            "macros-proteina",
+            "macros-carbos",
+            "macros-grasas"
+          ]
+        },
+        {
+          "id": "micros",
+          "escena": "pica",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "vitaminas",
+              "minerales",
+              "fibra"
+            ]
+          },
+          "texto": "Dazu kommen die Mikronährstoffe: Vitamine und Mineralstoffe, die du nur in winzigen Mengen brauchst, ohne die aber nichts von alldem funktioniert. Und die Ballaststoffe, die dir kaum Energie liefern, aber die Bakterien in deinem Darm füttern und dich länger satt halten.",
+          "lamina": "verduras"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Eine kurze Geschichte unseres Essens",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil zwei. Eine kurze Geschichte unseres Essens."
+        },
+        {
+          "id": "fuego",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaCocina"
+          },
+          "texto": "Vor Hunderttausenden von Jahren lernten unsere Vorfahren, mit Feuer zu kochen. Kochen macht Lebensmittel weicher und lässt uns mehr Energie aus ihnen ziehen; manche Anthropologen glauben, dass das unserem Gehirn beim Wachsen geholfen hat.",
+          "lamina": "fuego"
+        },
+        {
+          "id": "agricultura",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 000",
+            "clave": "agricultura"
+          },
+          "texto": "Vor etwa zehntausend Jahren kam die Landwirtschaft: Weizen, Reis und Mais. Es gab Nahrung für viel mehr Menschen, auch wenn die Ernährung weniger abwechslungsreich wurde als die der Jäger und Sammler.",
+          "lamina": "agricultura"
+        },
+        {
+          "id": "lind",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1747",
+            "clave": "lind"
+          },
+          "texto": "Im Jahr 1747 führte der schottische Arzt James Lind eine der ersten klinischen Studien der Geschichte durch: Er gab Seeleuten mit Skorbut verschiedene Heilmittel, und es waren die, die Orangen und Zitronen aßen, die wieder gesund wurden.",
+          "meme": "limones",
+          "lamina": [
+            "lind",
+            "limones"
+          ]
+        },
+        {
+          "id": "atwater",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "4 · 4 · 9",
+            "clave": "atwater"
+          },
+          "texto": "Ende des neunzehnten Jahrhunderts maß der Chemiker Wilbur Atwater, wie viel Energie jedes Lebensmittel liefert: etwa vier Kalorien pro Gramm Protein oder Kohlenhydrate und etwa neun pro Gramm Fett. Mit genau diesen Zahlen arbeiten die Etiketten bis heute.",
+          "lamina": "atwater"
+        },
+        {
+          "id": "funk",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1912",
+            "clave": "funk"
+          },
+          "texto": "Im Jahr 1912 schlug der Biochemiker Casimir Funk das Wort Vitamin vor, und in den folgenden Jahrzehnten wurden fast alle entdeckt. Zum ersten Mal verstand man, dass man viel essen und trotzdem mangelernährt sein kann.",
+          "lamina": "funk"
+        },
+        {
+          "id": "plato",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2011",
+            "clave": "plato"
+          },
+          "texto": "Im Jahr 1992 zeichneten die USA die berühmte Ernährungspyramide, mit Brot und Nudeln ganz unten. 2011 ersetzten sie sie durch einen Teller, MyPlate, den man sich bei jeder Mahlzeit viel leichter vorstellen kann. Und in Mexiko zeichnete die offizielle Norm ihren eigenen: den Plato del Bien Comer, den Teller des guten Essens. Dorthin kommen wir noch.",
+          "lamina": [
+            "piramide",
+            "myplate",
+            "plato-bien-comer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "energia",
+      "titulo": "Wie viel Energie du brauchst",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil drei. Wie viel Energie du brauchst."
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "balance"
+          },
+          "texto": "Auf lange Sicht hängt dein Gewicht von der Energiebilanz ab: was du isst gegen das, was du verbrauchst. Isst du mehr, als du verbrauchst, legt dein Körper Reserven an; isst du weniger, greift er auf sie zurück. Klingt einfach, aber der Verbrauch hat mehrere Teile.",
+          "lamina": "balance"
+        },
+        {
+          "id": "gasto",
+          "escena": "Caminata",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "gasto"
+          },
+          "texto": "Der größte Teil, etwa zwei Drittel, geht allein dafür drauf, dich am Leben zu halten: Das ist dein Grundumsatz. Ein weiterer Teil hängt davon ab, wie viel du dich im Laufe des Tages bewegst, und ein kleiner, etwa zehn Prozent, wird fürs Verdauen verbraucht.",
+          "lamina": "gasto"
+        },
+        {
+          "id": "calculadora",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "calculadoraEnergia"
+          },
+          "texto": "Du kannst das mit der Formel von Mifflin und St Jeor schätzen, einer der meistgenutzten in der Ernährungsberatung: mit deinem Alter, deinem Gewicht, deiner Größe und deiner Aktivität. Probier hier den Rechner aus. Es ist eine Schätzung, keine exakte Messung, aber ein sehr guter Ausgangspunkt.",
+          "lamina": "calculadora"
+        },
+        {
+          "id": "proteina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "0,8–2 g/kg",
+            "clave": "proteina"
+          },
+          "texto": "Beim Protein liegt der Richtwert für Erwachsene bei mindestens null Komma acht Gramm pro Kilo Körpergewicht am Tag. Wenn du Krafttraining machst, empfehlen viele Fachleute zwischen eins Komma vier und zwei Gramm.",
+          "lamina": "proteina"
+        },
+        {
+          "id": "deficit",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "−15 %",
+            "clave": "deficit"
+          },
+          "texto": "Und wenn du abnehmen willst, musst du nicht hungern: Es reicht, etwas weniger zu essen, als du verbrauchst, etwa fünfzehn Prozent, und alle zwei Wochen zu schauen, wie es läuft. Kleine Veränderungen sind die, die bleiben.",
+          "lamina": "deficit"
+        }
+      ]
+    },
+    {
+      "id": "calidad",
+      "titulo": "Die Qualität deines Essens",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil vier. Die Qualität deines Essens."
+        },
+        {
+          "id": "nova",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "nova"
+          },
+          "texto": "Es zählt nicht nur, wie viel, sondern auch was. Forschende teilen Lebensmittel danach ein, wie stark sie verarbeitet wurden: frische Lebensmittel, Küchenzutaten wie Öl oder Salz, verarbeitete Lebensmittel wie Käse oder Brot vom Bäcker und hochverarbeitete, wie Limonaden, Kekse und abgepackte Snacks.",
+          "meme": "ultraprocesados",
+          "lamina": "supermercado"
+        },
+        {
+          "id": "experimento",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+500 kcal",
+            "clave": "experimento"
+          },
+          "texto": "Im Jahr 2019 gab ein Experiment der Nationalen Gesundheitsinstitute der USA zwanzig Menschen zwei Wochen lang hochverarbeitetes und zwei Wochen lang unverarbeitetes Essen, mit gleich vielen Kalorien zur Auswahl. Mit dem hochverarbeiteten Essen aßen sie rund fünfhundert Kalorien mehr am Tag, ohne es zu merken.",
+          "lamina": "ultraprocesados"
+        },
+        {
+          "id": "azucar",
+          "escena": "bebe",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "azucarOculta"
+          },
+          "texto": "Die Weltgesundheitsorganisation empfiehlt, dass zugesetzter Zucker weniger als zehn Prozent deiner Energie ausmacht, idealerweise weniger als fünf: etwa sechs Teelöffel am Tag. Schau hier, wie viel Zucker in deinen Getränken steckt.",
+          "lamina": "refresco"
+        },
+        {
+          "id": "sal",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "< 5 g",
+            "clave": "sal"
+          },
+          "texto": "Beim Salz ist es ähnlich: Empfohlen sind weniger als fünf Gramm am Tag, ungefähr ein Teelöffel, und das meiste davon streust du nicht selbst bei Tisch drauf: Es steckt schon in den Produkten.",
+          "lamina": "sal"
+        },
+        {
+          "id": "etiqueta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porcion",
+              "azucares",
+              "ingredientes"
+            ]
+          },
+          "texto": "Der Trick ist, das Etikett zu lesen. Achte auf die Portionsgröße, auf Zucker und Salz und auf die Zutatenliste, die nach Menge sortiert ist: Steht Zucker an erster Stelle, weißt du, wovon am meisten drin ist.",
+          "lamina": "etiqueta"
+        }
+      ]
+    },
+    {
+      "id": "plato",
+      "titulo": "Wie du deinen Teller und deine Woche planst",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil fünf. Wie du deinen Teller und deine Woche planst."
+        },
+        {
+          "id": "plato",
+          "escena": "pica",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "armaTuPlato"
+          },
+          "texto": "Für jede Mahlzeit gibt es eine ganz einfache Methode, den gesunden Teller von Harvard: die Hälfte Gemüse und Obst, ein Viertel Vollkornprodukte und das andere Viertel eine Proteinquelle wie Fisch, Hähnchen, Ei oder Hülsenfrüchte. Dazu Wasser zum Trinken und ein wenig gutes Öl zum Kochen.",
+          "lamina": "plato"
+        },
+        {
+          "id": "frutas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "400 g",
+            "clave": "frutas"
+          },
+          "texto": "Die Weltgesundheitsorganisation empfiehlt mindestens vierhundert Gramm Obst und Gemüse am Tag, etwa fünf Portionen, und mindestens fünfundzwanzig Gramm Ballaststoffe, die vor allem daher kommen, aus Vollkornprodukten und aus Hülsenfrüchten.",
+          "lamina": "frutas"
+        },
+        {
+          "id": "planear",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "menu",
+              "lista",
+              "prepara"
+            ]
+          },
+          "texto": "Das Geheimnis ist nicht Willenskraft, sondern Planung. Leg den Speiseplan der Woche fest, mach daraus deine Einkaufsliste und koch an ein, zwei Tagen etwas mehr, damit du fertiges Essen hast, wenn die Zeit knapp ist.",
+          "lamina": "planear"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Ich mache das in meiner Küche in MindHaOS: Ich stelle den Wochenplan mit meinen Rezepten zusammen, und die Einkaufsliste entsteht ganz von selbst.",
+          "lamina": "lista",
+          "enCasa": true
+        },
+        {
+          "id": "ochenta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "80 / 20",
+            "clave": "ochenta"
+          },
+          "texto": "Und es muss nicht perfekt sein. Wenn das meiste, was du isst, in diese Richtung geht, passt eine Pizza mit Freunden ohne schlechtes Gewissen: Eine Ernährung, die du durchhältst, ist mehr wert als eine perfekte, die du nach zwei Wochen aufgibst.",
+          "meme": "perfecta",
+          "lamina": "pizza"
+        }
+      ]
+    },
+    {
+      "id": "habitos",
+      "titulo": "Wasser, Hunger und Beständigkeit",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil sechs. Wasser, Hunger und Beständigkeit."
+        },
+        {
+          "id": "agua",
+          "escena": "bebe",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2–2,5 L",
+            "clave": "agua"
+          },
+          "texto": "Auch Wasser zählt. Die Europäische Behörde für Lebensmittelsicherheit empfiehlt etwa zwei Liter am Tag für Frauen und zweieinhalb Liter für Männer, einschließlich des Wassers aus dem Essen, das ungefähr ein Fünftel ausmacht.",
+          "lamina": "agua"
+        },
+        {
+          "id": "hambre",
+          "escena": "habla",
+          "visual": {
+            "tipo": "meme",
+            "meme": "tarde"
+          },
+          "texto": "Hör auf deinen Hunger. Langsam und ohne Bildschirm zu essen gibt deinem Körper Zeit, dir zu sagen, dass er satt ist. Und komm nicht mit Bärenhunger zum Essen: Ein Frühstück mit Protein und ein Stück Obst am Nachmittag machen am Abend einen großen Unterschied.",
+          "lamina": "despacio"
+        },
+        {
+          "id": "registro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "foto",
+            "foto": "registro"
+          },
+          "texto": "Und wenn du wissen willst, wo du stehst, schreib ein paar Tage lang auf, was du isst. Nicht, um dich verrückt zu machen, sondern um Muster zu erkennen: Viele merken, dass das Problem gar nicht die Mahlzeiten waren, sondern die Getränke oder der Snack am Nachmittag.",
+          "lamina": "registro"
+        },
+        {
+          "id": "senales",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "Denk daran: Dieser Leitfaden dient der Information. Wenn du eine Erkrankung oder ein schwieriges Verhältnis zum Essen hast oder schwanger bist, lass dich am besten von einer Ernährungsfachkraft begleiten.",
+          "lamina": "nutriologo"
+        },
+        {
+          "id": "resumen",
+          "escena": "remueve",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Kurz gesagt: Iss die meiste Zeit echtes Essen, füll die Hälfte deines Tellers mit Gemüse und Obst, pass die Menge an deinen Verbrauch an und plane deine Woche.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Wenn du das so umsetzen willst wie ich: Die Küche in MindHaOS hat deine Rezeptsammlung, deinen Essensplan für die Woche und die Einkaufsliste, die sich von selbst zusammenstellt. Der Link steht in der Beschreibung, und dort findest du auch diesen Leitfaden als interaktive Version, damit du alles in Ruhe nachlesen kannst. Im nächsten Leitfaden geht es mit einer neuen Frage weiter. Bis dann.",
+    "boton": "Die Küche öffnen",
+    "lamina": "app-plan",
+    "anclas": {
+      "recetario": "Rezeptsammlung",
+      "plan": "Essensplan",
+      "compras": "Einkaufsliste"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "usda-myplate",
+      "texto": "USDA. MyPlate (2011), das die Food Guide Pyramid (1992) ablöste.",
+      "url": "https://www.myplate.gov/"
+    },
+    {
+      "id": "nom-043",
+      "texto": "Gesundheitsministerium von Mexiko. NOM-043-SSA2-2012 (früher NOM-043-SSA2-2005): der Plato del Bien Comer.",
+      "url": "https://www.dof.gob.mx/nota_detalle.php?codigo=5285372&fecha=22/01/2013"
+    },
+    {
+      "id": "oms-alimentacion",
+      "texto": "WHO. Gesunde Ernährung – Faktenblatt.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/healthy-diet"
+    },
+    {
+      "id": "oms-azucar",
+      "texto": "OMS. Guideline: Sugars intake for adults and children (2015).",
+      "url": "https://www.who.int/publications/i/item/9789241549028"
+    },
+    {
+      "id": "oms-sal",
+      "texto": "WHO. Salzreduktion – Faktenblatt.",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/salt-reduction"
+    },
+    {
+      "id": "oms-carbohidratos",
+      "texto": "OMS. Carbohydrate intake for adults and children: WHO guideline (2023).",
+      "url": "https://www.who.int/publications/i/item/9789240073593"
+    },
+    {
+      "id": "harvard-plato",
+      "texto": "Harvard T.H. Chan School of Public Health. The Healthy Eating Plate.",
+      "url": "https://nutritionsource.hsph.harvard.edu/healthy-eating-plate/"
+    },
+    {
+      "id": "mifflin",
+      "texto": "Mifflin M. D., St Jeor S. T. et al. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr (1990).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+    },
+    {
+      "id": "issn-proteina",
+      "texto": "Jäger R. et al. International Society of Sports Nutrition Position Stand: protein and exercise (2017).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28642676/"
+    },
+    {
+      "id": "hall-2019",
+      "texto": "Hall K. D. et al. Ultra-processed diets cause excess calorie intake and weight gain. Cell Metabolism (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31105044/"
+    },
+    {
+      "id": "nova",
+      "texto": "Monteiro C. A. et al. Ultra-processed foods: what they are and how to identify them. Public Health Nutrition (2019).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30744710/"
+    },
+    {
+      "id": "efsa-agua",
+      "texto": "EFSA. Scientific Opinion on Dietary Reference Values for water (2010).",
+      "url": "https://www.efsa.europa.eu/en/efsajournal/pub/1459"
+    },
+    {
+      "id": "lind-1753",
+      "texto": "Lind J. A Treatise of the Scurvy (1753). The James Lind Library.",
+      "url": "https://www.jameslindlibrary.org/lind-j-1753/"
+    }
+  ]
+}

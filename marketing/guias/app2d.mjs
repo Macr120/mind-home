@@ -1,6 +1,7 @@
 // La app 2D del cuarto navegándose sola, para el recuadro del cierre de la
-// guía: mientras Pep@ dice «el temporizador, tus rachas y más de ciento
-// sesenta ejercicios animados», la toma pasa por cada cosa justo al nombrarla.
+// guía: mientras Pep@ nombra lo que hace la app (las anclas del cierre), la
+// toma pasa por cada cosa justo al nombrarla. El recorrido de cada cuarto vive
+// en <tema>/escena.mjs (APP2D); aquí, lo común.
 //   web/public/guias/<tema>/laminas/app-plan.<id>.mp4   (vertical, muda; la reproduce la página)
 //
 //   APP_URL=http://localhost:53379 node marketing/guias/app2d.mjs ejercicio [--lang=en]
@@ -12,6 +13,7 @@
 // los tiempos por palabra de la voz del cierre (tiempos.json).
 import { mkdirSync, readFileSync, readdirSync, unlinkSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
+import { pathToFileURL } from 'node:url'
 import { PONER_MARCA, QUITAR_MARCA, RAIZ, codigoCaptura, conPagina, esperarDescarga, evaluar, fijarViewport, recortar } from './cdp.mjs'
 import { abrirDemo } from './demo.mjs'
 
@@ -24,6 +26,7 @@ const DESTINO = path.join(PUBLICO, 'laminas', `app-plan.${idioma}.mp4`)
 /** Viewport de teléfono con el aspecto del recuadro de la guía (34 × 49 vw). */
 const VP = { ancho: 390, alto: 562 }
 
+const { APP2D } = await import(pathToFileURL(path.join(RAIZ, tema, 'escena.mjs')).href)
 const guion = JSON.parse(readFileSync(path.join(RAIZ, tema, `guion.${idioma}.json`), 'utf8'))
 const tiempos = JSON.parse(readFileSync(path.join(PUBLICO, 'audio', idioma, 'tiempos.json'), 'utf8'))
 const clave = `cierre.${guion.cierre.id}`
@@ -31,7 +34,7 @@ const palabras = tiempos._palabras[clave]
 const texto = guion.cierre.texto
 /**
  * Segundo en que Pep@ dice la palabra ancla del cierre (`cierre.anclas` del
- * guion: cómo se dice «temporizador» y «rachas» en ese idioma). La posición del
+ * guion: cómo se dice cada cosa de la app en ese idioma). La posición del
  * carácter se reparte sobre los tiempos del TTS, como el texto iluminado.
  */
 const cuando = (ancla) => {
@@ -40,22 +43,16 @@ const cuando = (ancla) => {
   if (i < 0) throw new Error(`el cierre en ${idioma} no dice el ancla «${ancla}» (${palabra})`)
   return palabras[Math.min(palabras.length - 1, Math.round((i / texto.length) * palabras.length))]
 }
-const T = { temporizador: cuando('temporizador'), rachas: cuando('rachas'), fin: tiempos[clave] }
+const T = { ...Object.fromEntries(APP2D.anclas.map((a) => [a, cuando(a)])), fin: tiempos[clave] }
 
 /** Ayudas dentro de la página: buscar botones por su texto y «tocarlos» con un círculo visible. */
 const AYUDAS = `
   const dormir = (ms) => new Promise((r) => setTimeout(r, ms))
   const { tGlobal } = await import('/src/core/i18n/useT.ts')
   // Textos de la app en el idioma activo (las mismas claves que usan sus botones).
-  const L = {
-    iniciar: tGlobal('ejercicio.rutina.iniciar', 'Iniciar'),
-    animacion: tGlobal('ejercicio.anim.pestana', 'Animación'),
-    fullbody: tGlobal('ejercicio.split.fullbody', 'Full body'),
-    salir: tGlobal('demo.salir', 'Salir de la demo'),
-    disponibles: tGlobal('ejercicio.sugeridos', 'Ejercicios disponibles · toca para añadir').split(' · ')[0],
-  }
+  const L = { salir: tGlobal('demo.salir', 'Salir de la demo'), ...${APP2D.textos} }
   const boton = (texto) => [...document.querySelectorAll('button')].find((b) => b.innerText.trim() === texto)
-  /** Pestañas por su ancla de tutorial (PestanasCarpeta): ejercicio.tab.* y ejercicio.sub.*. */
+  /** Pestañas por su ancla de tutorial (PestanasCarpeta), p. ej. ejercicio.tab.*. */
   const tut = (id) => document.querySelector('[data-tut="' + id + '"]')
   const tocar = async (el) => {
     if (!el) throw new Error('no encontré el botón')
@@ -70,33 +67,35 @@ const AYUDAS = `
     setTimeout(() => o.remove(), 400)
   }
   const main = () => document.querySelector('main')
-  const disponibles = () => [...main().querySelectorAll('p,h3,h4,div')].find((e) => e.childElementCount === 0 && e.textContent.includes(L.disponibles))
   const hasta = async (t0, s) => { const falta = t0 + s * 1000 - performance.now(); if (falta > 0) await dormir(falta) }
+  /** Baja despacio por \`m\` desde \`desde\` hasta el instante \`fin\` (performance.now). */
+  const bajarHasta = (m, desde, fin) => new Promise((r) => {
+    const a = performance.now()
+    const paso = () => {
+      m.scrollTop = desde + (performance.now() - a) * 0.09
+      if (performance.now() < fin) requestAnimationFrame(paso)
+      else r()
+    }
+    paso()
+  })
+  ${APP2D.ayudas ?? ''}
 `
 
-/** Fuerza → Rutinas, arriba del todo, con el catálogo ya en modo animación y sin avisos encima. */
+/** El cuarto abierto en su punto de partida (escena.mjs) y sin avisos encima. */
 const PREPARAR = `
   ${AYUDAS}
-  // Sin celebraciones encima («¡Misiones del día!»): abrir y cerrar el reproductor cuenta como sesión.
+  // Sin celebraciones encima («¡Misiones del día!»): abrir y cerrar pantallas cuenta como actividad.
   const { useCelebracion } = await import('/src/core/state/celebracionStore.ts')
   useCelebracion.setState({ actual: null, cola: [], encolar: () => {} })
   const { abrirAppOPlantilla } = await import('/src/core/abrirApp.ts')
-  abrirAppOPlantilla('ejercicio')
+  abrirAppOPlantilla(${JSON.stringify(guion.plantillaId)})
   await dormir(3000)
   document.querySelector('.fixed.inset-0.z-50')?.click()
   await dormir(600)
-  tut('ejercicio.tab.fuerza')?.click()
-  await dormir(800)
-  tut('ejercicio.sub.catalogo')?.click()
-  await dormir(800)
-  boton(L.animacion)?.click()
-  await dormir(800)
-  if (!disponibles()) boton(L.fullbody)?.click()
-  await dormir(1500)
-  if (!disponibles()) return 'el catálogo no muestra la lista de ejercicios'
-  tut('ejercicio.sub.rutinas')?.click()
-  await dormir(1200)
-  main().scrollTop = 0
+  {
+    const fallo = await (async () => { ${APP2D.preparar} })()
+    if (fallo) return fallo
+  }
   // Sin el botón de salir de la demo: en el video la app es la de Pep@.
   const salir = boton(L.salir)
   if (salir) salir.style.visibility = 'hidden'
@@ -108,39 +107,7 @@ const ACCION = `
   ${AYUDAS}
   ${QUITAR_MARCA}
   const t0 = performance.now()
-  // Pep@ nombra las tres cosas en ~3 s: el temporizador entra un poco antes y la racha se queda casi 2 s.
-  await hasta(t0, ${T.temporizador} - 1.2)
-  await tocar(boton(L.iniciar))
-  await hasta(t0, ${T.rachas} - 0.4)
-  document.querySelector('.fixed.inset-0.z-50')?.click()
-  await dormir(150)
-  await tocar(tut('ejercicio.tab.metas'))
-  await dormir(500)
-  main().scrollTop = 0
-  await hasta(t0, ${T.rachas} + 1.5)
-  await tocar(tut('ejercicio.tab.fuerza'))
-  await dormir(450)
-  await tocar(tut('ejercicio.sub.catalogo'))
-  await dormir(450)
-  // La lista aparece al elegir un enfoque (se pierde al cambiar de pestaña).
-  if (!disponibles()) await tocar(boton(L.fullbody))
-  for (let i = 0; i < 30 && !disponibles(); i++) await dormir(100)
-  const m = main()
-  const lista = disponibles()
-  const desde = lista.getBoundingClientRect().top - m.getBoundingClientRect().top + m.scrollTop - 20
-  m.scrollTo({ top: desde, behavior: 'smooth' })
-  await dormir(900)
-  // Bajando despacio por los ejercicios animados hasta que calla.
-  await new Promise((r) => {
-    const a = performance.now()
-    const fin = t0 + ${T.fin + 0.6} * 1000
-    const paso = () => {
-      m.scrollTop = desde + (performance.now() - a) * 0.09
-      if (performance.now() < fin) requestAnimationFrame(paso)
-      else r()
-    }
-    paso()
-  })
+  ${APP2D.accion(T)}
 `
 
 mkdirSync(CRUDO, { recursive: true })

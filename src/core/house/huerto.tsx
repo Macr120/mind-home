@@ -15,6 +15,7 @@ import { notificar } from '../notificaciones'
 import { tGlobal } from '../i18n/useT'
 import type { CultivoCelda, EspecieCultivo } from '../data/db'
 import { pulsacionLargaAbrirEditor } from './pulsacionLarga'
+import { useMapaVisible } from './mapaVisible'
 
 /** Tope de la loseta exterior (~0.19; los objetos de mapa van a 0.2) + margen. */
 const Y = 0.2
@@ -211,6 +212,7 @@ export function Huerto3D() {
   const filas = useMemo(() => filasRaw ?? [], [filasRaw])
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
+  const mv = useMapaVisible()
   const activo = useHuerto((s) => s.activo)
   // Arrastre en curso: la parcela se pinta donde la lleva el dedo, no donde está guardada.
   const moverPreview = useHuerto((s) => s.moverPreview)
@@ -272,7 +274,7 @@ export function Huerto3D() {
       }}
     >
       {filas
-        .filter((f) => f.col < gridCols && f.row < gridRows)
+        .filter((f) => f.col < gridCols && f.row < gridRows && !mv?.oculta(f.col, f.row))
         .map((f) => {
           // Llevándola en la mano manda la celda de preview (y flota un poco, como
           // un cuarto arrastrado en el mapa).

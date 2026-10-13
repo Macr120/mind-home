@@ -1,0 +1,640 @@
+{
+  "idioma": "nl",
+  "tema": "idiomas",
+  "plantillaId": "idiomas",
+  "numero": 5,
+  "nombre": "Talen",
+  "pregunta": "Waarom een taal leren?",
+  "corta": "Waarom een taal leren?",
+  "subtitulo": "Waarom het de moeite waard is, ook nu machines al vertalen, wat het betekent om een taal te kennen en hoelang het duurt, hoe talen door de geschiedenis heen zijn onderwezen, hoe je brein leert en vergeet, welke woorden het meest opleveren, hoe je vanaf de eerste dag spreekt en een plan van twintig minuten om vandaag te beginnen.",
+  "aviso": "Deze gids is informatief: de uren en percentages zijn gemiddelden uit onderzoeken en concrete programma's, en hoelang jij erover doet, hangt af van je eigen taal, van de taal die je leert en van hoeveel je oefent.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando').",
+    "visual": "Bloque que acompaña la línea: dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título). No puede ser enCasa.",
+    "corta": "La pregunta en pocas palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su cuarto de Idiomas y las de en medio sobre las tomas de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «charlas con un tutor», «temario por niveles» y «repaso espaciado»; app2d.mjs mueve la app justo al decirlas.",
+    "angloparlante": "Las horas del FSI son para quien habla inglés: en cada traducción se dice así («para alguien que habla inglés»), no se adaptan a la lengua del video.",
+    "canales": "La línea «canales» invita a ver estas guías en el idioma que se aprende: en cada traducción se nombra «nuestros canales de MindHaOS» (hay uno por idioma)."
+  },
+  "partes": [
+    {
+      "id": "saber",
+      "titulo": "Waarom het loont en wat een taal kennen inhoudt",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Waarom een taal leren? Vandaag vertaalt elke telefoon in een paar seconden. En toch kan in de Europese Unie bijna de helft van de volwassenen geen gesprek voeren in een andere taal dan de eigen taal. Is het echt de moeite waard, en hoe leer je het? In de komende minuten zie je wat het met je brein doet, hoe dat leert en hoe het vergeet, en je gaat weg met een plan om de taal vanaf vandaag te spreken.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Trouwens, dit is mijn huis in MindHaOS, en hier, in de kamer Talen, oefen ik met een tutor, herhaal ik mijn kaartjes en volg ik mijn leerplan. Laten we beginnen.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel één. Waarom het loont en wat een taal kennen inhoudt."
+        },
+        {
+          "id": "cerebro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 4 años",
+            "clave": "cerebro"
+          },
+          "texto": "En waarom, als machines al vertalen? Omdat een taal leren je brein verandert, niet alleen je woordenschat. In Zweden zagen rekruten die drie maanden lang intensief een taal studeerden hun hippocampus groeien, het gebied van het geheugen. En in een onderzoek in Toronto kregen mensen die twee talen spraken de eerste symptomen van dementie zo'n vier jaar later.",
+          "lamina": [
+            "cerebro",
+            "traductor"
+          ]
+        },
+        {
+          "id": "maquinas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "chistes",
+              "gente",
+              "pensar"
+            ]
+          },
+          "texto": "Bovendien vertaalt een machine woorden, maar voert ze geen gesprek voor jou: als je de taal zelf spreekt, snap je de grappen, maak je contact met mensen zonder scherm ertussen en zie je de wereld vanuit een andere taal.",
+          "lamina": [
+            "amigos",
+            "viajeros"
+          ]
+        },
+        {
+          "id": "habilidades",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "habilidades"
+          },
+          "texto": "Een taal kennen is niet een woordenlijst uit je hoofd kennen: het zijn vier vaardigheden. Begrijpen als je luistert, begrijpen als je leest, spreken en schrijven. En bijna altijd begrijpen we veel meer dan we kunnen zeggen.",
+          "lamina": [
+            "conversacion",
+            "leer"
+          ]
+        },
+        {
+          "id": "niveles",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nivelMcer"
+          },
+          "texto": "Om dat te meten publiceerde de Raad van Europa in 2001 het Europees Referentiekader, dat nu over de hele wereld wordt gebruikt: zes niveaus, van A1, waar je jezelf voorstelt en een koffie bestelt, tot C2, waar je praktisch alles begrijpt. Vink hier aan wat je al kunt en kijk op welk niveau je zit.",
+          "lamina": [
+            "cafeteria",
+            "examen"
+          ]
+        },
+        {
+          "id": "horas",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "fsi"
+          },
+          "texto": "En hoelang duurt het? Het Foreign Service Institute van de Verenigde Staten, dat de Amerikaanse diplomaten opleidt, schat dat iemand die Engels spreekt zo'n zeshonderd lesuren nodig heeft om in het Spaans of het Frans te werken, en zo'n tweeduizendtweehonderd voor het Japans, het Chinees, het Koreaans of het Arabisch.",
+          "lamina": [
+            "clase",
+            "reloj"
+          ]
+        },
+        {
+          "id": "distancia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ ×4",
+            "clave": "distancia"
+          },
+          "texto": "Wat het zwaarst weegt, is hoe ver de taal van de jouwe af staat: als ze woorden, klanken of schrift delen, ga je veel sneller vooruit. Daarom voelt een buurtaal makkelijk, en kost een taal met een ander alfabet in het begin veel meer moeite.",
+          "lamina": "globo",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Een korte geschiedenis van het talenleren",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel twee. Een korte geschiedenis van het talenleren."
+        },
+        {
+          "id": "rosetta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaIdiomas"
+          },
+          "texto": "In het jaar 196 voor onze jaartelling werd in Egypte eenzelfde decreet in drie schriften gebeiteld: hiërogliefen, demotisch en Oudgrieks. Die steen, de Steen van Rosetta, dook op in 1799, en dankzij het Grieks ontcijferde Jean-François Champollion in 1822 de hiërogliefen.",
+          "lamina": [
+            "rosetta",
+            "champollion"
+          ]
+        },
+        {
+          "id": "comenio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1658",
+            "clave": "comenio"
+          },
+          "texto": "In 1658 publiceerde de Tsjechische pedagoog Jan Amos Comenius de Orbis Pictus, een van de eerste geïllustreerde boeken om kinderen les te geven: elk Latijns woord stond naast een tekening. Hij wist al dat je een beeld beter onthoudt dan een vertaling.",
+          "lamina": [
+            "comenio",
+            "orbis"
+          ]
+        },
+        {
+          "id": "berlitz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1878",
+            "clave": "berlitz"
+          },
+          "texto": "In 1878 opende Maximilian Berlitz in Providence, in de Verenigde Staten, een school met een nieuwe regel: in de les wordt niet vertaald. Alles wordt gezegd in de taal die je leert, vanaf de eerste dag.",
+          "lamina": "berlitz"
+        },
+        {
+          "id": "zamenhof",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1887",
+            "clave": "zamenhof"
+          },
+          "texto": "En in 1887 publiceerde de oogarts Ludwik Zamenhof het Esperanto, een verzonnen taal waarmee iedereen elkaar zou kunnen verstaan, met een grammatica zonder uitzonderingen. Het heeft geen enkele taal vervangen, maar heeft nog altijd sprekers over de hele wereld.",
+          "lamina": [
+            "zamenhof",
+            "esperanto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cerebro",
+      "titulo": "Hoe je brein leert en vergeet",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel drie. Hoe je brein leert en vergeet."
+        },
+        {
+          "id": "entender",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "inputComprensible"
+          },
+          "texto": "Een van de invloedrijkste ideeën kwam in de jaren tachtig van de taalkundige Stephen Krashen: we verwerven een taal als we boodschappen begrijpen die net iets boven ons niveau liggen. Als je bijna alles begrijpt en iets nieuw is, leer je; als je niets begrijpt, hoor je alleen ruis.",
+          "lamina": [
+            "audifonos",
+            "podcast"
+          ]
+        },
+        {
+          "id": "canales",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "16",
+            "clave": "canales"
+          },
+          "texto": "Daarom een trucje: deze gidsen bestaan in zestien talen, op onze MindHaOS-kanalen. Kijk er een die je al in je eigen taal zag, nu in de taal die je leert: omdat je al weet waar hij over gaat, begrijp je bijna alles, net iets boven je niveau.",
+          "lamina": "canales"
+        },
+        {
+          "id": "olvido",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "olvido"
+          },
+          "texto": "Maar wat je leert, glipt weg. In 1885 leerde Hermann Ebbinghaus lijsten met betekenisloze lettergrepen uit zijn hoofd en mat hij hoeveel hij vergat: het meeste verdween in de eerste uren, en daarna remde het vergeten af. Dat is de vergeetcurve.",
+          "meme": "olvido",
+          "lamina": [
+            "ebbinghaus",
+            "notas"
+          ]
+        },
+        {
+          "id": "repasos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "curvaOlvido"
+          },
+          "texto": "Het goede nieuws is dat elke herhaling hem vlakker maakt: na elke keer blijft de herinnering langer hangen. Probeer het hier: voeg herhalingen toe en kijk hoe ze, steeds verder uit elkaar, een woord in je geheugen houden.",
+          "lamina": "calendario"
+        },
+        {
+          "id": "recuperar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "recuperar"
+          },
+          "texto": "En herhalen is niet herlezen. In 2006 vergeleken Henry Roediger en Jeffrey Karpicke studenten die een tekst herlazen met anderen die zichzelf overhoorden: een week later wisten degenen die zichzelf hadden overhoord meer. Proberen het je te herinneren, dat is wat het vastzet.",
+          "lamina": "tarjetas",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "palabras",
+      "titulo": "De woorden die het meest opleveren",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vier. De woorden die het meest opleveren."
+        },
+        {
+          "id": "frecuencia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cobertura"
+          },
+          "texto": "Niet alle woorden zijn evenveel waard. In het Engels zijn de duizend meest gebruikte woorden bijvoorbeeld zo'n acht op de tien woorden van een gewone tekst. Schuif hier hoeveel woorden je kent en kijk welk deel van een tekst je zou herkennen.",
+          "lamina": [
+            "libro",
+            "periodico"
+          ]
+        },
+        {
+          "id": "frases",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "frase",
+              "contexto",
+              "usala"
+            ]
+          },
+          "texto": "En leer ze in zinnen, niet los. „Kun je me het zout even aangeven?” geeft je woordenschat, grammatica en uitspraak in één keer, en je kunt de zin morgen al aan tafel gebruiken.",
+          "meme": "lista",
+          "lamina": [
+            "mesa",
+            "sal"
+          ]
+        },
+        {
+          "id": "leitner",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cajasLeitner"
+          },
+          "texto": "Om te herhalen zonder tijd te verliezen bestaat gespreide herhaling. In 1972 bedacht de Duitse journalist Sebastian Leitner bakjes voor kaartjes: weet je het, dan gaat het kaartje naar het volgende bakje en herhaal je het later; weet je het niet, dan gaat het terug. Probeer het hier met een kaartje.",
+          "lamina": [
+            "fichas",
+            "cajas"
+          ]
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Ik doe het in mijn kamer Talen in MindHaOS: de kaartjes op tafel vertellen me welke vandaag aan de beurt zijn, en de app zet ze vanzelf in de juiste bakjes.",
+          "lamina": "tarjetas",
+          "enCasa": true
+        },
+        {
+          "id": "temas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "temas"
+          },
+          "texto": "En begin met wat je gaat gebruiken. Is het om te reizen: begroetingen, eten, vervoer en de weg vragen; is het voor je werk: jezelf voorstellen, vergaderingen en e-mails. Een leerplan per niveau vertelt je wat er daarna komt.",
+          "lamina": [
+            "aeropuerto",
+            "reunion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hablar",
+      "titulo": "Spreek vanaf de eerste dag",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vijf. Spreek vanaf de eerste dag."
+        },
+        {
+          "id": "producir",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1985",
+            "clave": "swain"
+          },
+          "texto": "Luisteren is niet genoeg om te spreken. De taalkundige Merrill Swain onderzocht in Canada leerlingen van Franstalige onderdompelingsscholen: ze begrepen het heel goed, maar bleven fouten maken als ze spraken, omdat ze de taal bijna nooit zelf produceerden. Door te spreken ontdek je wat je nog niet kunt zeggen.",
+          "lamina": [
+            "aula",
+            "hablar"
+          ]
+        },
+        {
+          "id": "sombra",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escucha",
+              "repite",
+              "grabate"
+            ]
+          },
+          "texto": "Een oefening die werkt is shadowing: zet een kort audiofragment op en zeg het tegelijk na, met hetzelfde ritme en dezelfde intonatie, als een echo. Neem jezelf daarna op en vergelijk. Je mond leert de klanken die je oor al kent.",
+          "lamina": [
+            "audifonos2",
+            "grabar"
+          ]
+        },
+        {
+          "id": "errores",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "✔",
+            "clave": "errores"
+          },
+          "texto": "En maak veel fouten. Elke fout die iemand verbetert, is een les op maat. Wie wacht tot hij perfect spreekt, spreekt nooit.",
+          "meme": "perfecto",
+          "lamina": "risa"
+        },
+        {
+          "id": "edad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edad"
+          },
+          "texto": "En als je geen kind meer bent? In 2018 ontdekte een onderzoek met bijna zevenhonderdduizend mensen dat het gemak om grammatica te leren hoog blijft tot ongeveer je zeventiende en daarna langzaam daalt. Wat als volwassene het moeilijkst is, is klinken als een moedertaalspreker, niet goed spreken: dat lukt op elke leeftijd.",
+          "lamina": [
+            "adulto",
+            "abuela"
+          ]
+        },
+        {
+          "id": "diario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "🗣️",
+            "clave": "diario"
+          },
+          "texto": "Heb je niemand om mee te praten, oefen dan toch: beschrijf hardop wat je doet, praat met een tutor of met iemand die jouw taal leert. Het belangrijkste is elke dag je mond open te doen.",
+          "lamina": "llamada",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Jouw plan om te beginnen",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zes. Jouw plan om te beginnen."
+        },
+        {
+          "id": "meta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "para",
+              "nivel",
+              "fecha"
+            ]
+          },
+          "texto": "Geef het een waarom, een niveau en een datum: „Engels leren” is niet hetzelfde als „in december B1 halen om te reizen”. Dan weet je welke onderwerpen aan de beurt zijn en hoeveel uur je nodig hebt.",
+          "lamina": [
+            "viaje",
+            "agenda"
+          ]
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "minutosDia"
+          },
+          "texto": "En volhouden wint het van marathons: twintig minuten per dag is meer dan honderdtwintig uur per jaar. Reken hier uit hoeveel uur je met je routine bij elkaar sprokkelt en hoelang je erover zou doen.",
+          "lamina": [
+            "cronometro",
+            "cafe"
+          ]
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "Een routine van twintig minuten kan er zo uitzien: vijf om te luisteren naar iets wat je bijna begrijpt, vijf om je kaartjes te herhalen, vijf om te spreken of te shadowen, en vijf om een beetje te lezen of te schrijven.",
+          "lamina": [
+            "escuchar",
+            "escribir"
+          ]
+        },
+        {
+          "id": "riega",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "20 min / día",
+            "clave": "riega"
+          },
+          "texto": "Zie het als deze plant: elke dag een beetje water laat hem groeien, en een hele emmer op zondag redt hem niet. Met een taal gaat het precies zo.",
+          "lamina": "regar",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Kortom: luister naar dingen die je bijna begrijpt, herhaal gespreid en overhoor jezelf, leer eerst de meest gebruikte woorden, in zinnen, en spreek vanaf de eerste dag, elke dag een beetje.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Wil je het in de praktijk brengen zoals ik, dan heeft de kamer Talen van MindHaOS gesprekken met een tutor die je verbetert, een leerplan per niveau met je kaartjes en gespreide herhaling die je vertelt wat vandaag aan de beurt is. De link staat in de beschrijving, samen met deze interactieve gids. Tot de volgende keer.",
+    "boton": "Open de kamer Talen",
+    "lamina": "app-plan",
+    "anclas": {
+      "charlas": "gesprekken met een tutor",
+      "temario": "leerplan per niveau",
+      "repaso": "gespreide herhaling"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "eurobarometro-386",
+      "texto": "Europese Commissie. Special Eurobarometer 386: Europeans and their Languages (2012).",
+      "url": "https://europa.eu/eurobarometer/surveys/detail/1049"
+    },
+    {
+      "id": "martensson-2012",
+      "texto": "Mårtensson J., Eriksson J., Bodammer N. C. et al. Growth of language-related brain areas after foreign language learning. NeuroImage (2012).",
+      "url": "https://doi.org/10.1016/j.neuroimage.2012.06.043"
+    },
+    {
+      "id": "bialystok-2007",
+      "texto": "Bialystok E., Craik F. I. M., Freedman M. Bilingualism as a protection against the onset of symptoms of dementia. Neuropsychologia (2007).",
+      "url": "https://doi.org/10.1016/j.neuropsychologia.2006.10.009"
+    },
+    {
+      "id": "mcer",
+      "texto": "Raad van Europa. Europees Referentiekader voor Talen (ERK, 2001).",
+      "url": "https://www.coe.int/en/web/common-european-framework-reference-languages"
+    },
+    {
+      "id": "fsi",
+      "texto": "U.S. Department of State, Foreign Service Institute. Foreign Language Training: geschatte leertijden voor Engelstaligen.",
+      "url": "https://www.state.gov/foreign-language-training/"
+    },
+    {
+      "id": "rosetta",
+      "texto": "The British Museum. The Rosetta Stone (EA24): decreet van Memphis, 196 v.Chr.",
+      "url": "https://www.britishmuseum.org/collection/object/Y_EA24"
+    },
+    {
+      "id": "orbis-pictus",
+      "texto": "Comenius J. A. Orbis Sensualium Pictus. Neurenberg (1658).",
+      "url": "https://en.wikipedia.org/wiki/Orbis_Pictus"
+    },
+    {
+      "id": "berlitz",
+      "texto": "Berlitz: school opgericht door Maximilian Berlitz in Providence, Rhode Island (1878).",
+      "url": "https://en.wikipedia.org/wiki/Berlitz_Corporation"
+    },
+    {
+      "id": "unua-libro",
+      "texto": "Zamenhof L. L. Unua Libro: het eerste boek in het Esperanto (1887).",
+      "url": "https://en.wikipedia.org/wiki/Unua_Libro"
+    },
+    {
+      "id": "krashen-1982",
+      "texto": "Krashen S. D. Principles and Practice in Second Language Acquisition. Pergamon (1982).",
+      "url": "https://www.sdkrashen.com/content/books/principles_and_practice.pdf"
+    },
+    {
+      "id": "ebbinghaus-1885",
+      "texto": "Ebbinghaus H. Über das Gedächtnis (1885). Engelse vertaling: Memory: A Contribution to Experimental Psychology (1913).",
+      "url": "https://psychclassics.yorku.ca/Ebbinghaus/index.htm"
+    },
+    {
+      "id": "cepeda-2006",
+      "texto": "Cepeda N. J., Pashler H., Vul E., Wixted J. T., Rohrer D. Distributed practice in verbal recall tasks: A review and quantitative synthesis. Psychological Bulletin (2006).",
+      "url": "https://doi.org/10.1037/0033-2909.132.3.354"
+    },
+    {
+      "id": "roediger-2006",
+      "texto": "Roediger H. L., Karpicke J. D. Test-Enhanced Learning: Taking Memory Tests Improves Long-Term Retention. Psychological Science (2006).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x"
+    },
+    {
+      "id": "nation-2006",
+      "texto": "Nation I. S. P. How Large a Vocabulary Is Needed for Reading and Listening? The Canadian Modern Language Review (2006).",
+      "url": "https://doi.org/10.3138/cmlr.63.1.59"
+    },
+    {
+      "id": "leitner-1972",
+      "texto": "Leitner S. So lernt man lernen. Herder (1972).",
+      "url": "https://en.wikipedia.org/wiki/Leitner_system"
+    },
+    {
+      "id": "swain-1985",
+      "texto": "Swain M. Communicative competence: Some roles of comprehensible input and comprehensible output in its development. In Gass S., Madden C. (red.), Input in Second Language Acquisition. Newbury House (1985).",
+      "url": "https://en.wikipedia.org/wiki/Comprehensible_output"
+    },
+    {
+      "id": "hartshorne-2018",
+      "texto": "Hartshorne J. K., Tenenbaum J. B., Pinker S. A critical period for second language acquisition: Evidence from 2/3 million English speakers. Cognition (2018).",
+      "url": "https://doi.org/10.1016/j.cognition.2018.04.007"
+    }
+  ]
+}

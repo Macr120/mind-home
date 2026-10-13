@@ -1,0 +1,608 @@
+{
+  "idioma": "id",
+  "tema": "finanzas",
+  "plantillaId": "despacho",
+  "numero": 4,
+  "nombre": "Keuangan",
+  "pregunta": "Apa itu uang?",
+  "corta": "Apa itu uang?",
+  "subtitulo": "Apa itu uang dan bagaimana ia lahir, ke mana uangmu pergi, cara membangun dana darurat dan keluar dari utang, cara kerja bunga majemuk, dan rencana untuk mulai hari ini.",
+  "aviso": "Panduan ini bersifat informatif dan bukan nasihat keuangan, pajak, maupun investasi: panduan ini tidak merekomendasikan produk atau instrumen apa pun. Sebelum mengambil kredit atau investasi, bandingkan syaratnya dan, jika perlu, konsultasikan dengan profesional yang terdaftar.",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título) para enganchar en los primeros segundos. No puede ser enCasa.",
+    "corta": "La pregunta en 3-4 palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su despacho y las de en medio sobre las tomas de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «flujo de dinero», «metas de ahorro» y «patrimonio»; app2d.mjs mueve la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "dinero",
+      "titulo": "Untuk apa uang itu",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Apa itu uang? Kita semua memakainya setiap hari. Tapi tetap saja, hanya satu dari tiga orang dewasa di dunia yang paham konsep dasar seperti inflasi atau bunga majemuk. Sebenarnya, bagaimana uang bekerja? Dalam beberapa menit ke depan, kamu akan melihat ke mana uangmu pergi, menghitung seberapa besar ia tumbuh kalau kamu membuatnya bekerja, dan pulang dengan rencana untuk mengelolanya lebih baik mulai hari ini.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Omong-omong, ini rumahku di MindHaOS, dan di ruang Keuangan ini aku mencatat pengeluaranku, pemasukanku, dan target tabunganku. Ayo kita mulai.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian satu. Untuk apa uang itu."
+        },
+        {
+          "id": "funciones",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "funciones"
+          },
+          "texto": "Uang adalah sebuah kesepakatan: selembar uang kertas atau angka di layar bernilai karena kita semua sepakat bahwa itu bernilai. Uang dipakai untuk bertukar, untuk mengukur nilai barang, dan untuk menyimpan nilai ke masa depan.",
+          "lamina": [
+            "billetes",
+            "pago"
+          ]
+        },
+        {
+          "id": "inflacion",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "inflacion"
+          },
+          "texto": "Tapi fungsi terakhir itu punya musuh: inflasi. Kalau harga naik tiga persen setahun, dalam sekitar dua puluh empat tahun harga jadi dua kali lipat, dan uang yang kamu simpan di bawah kasur hanya bisa membeli separuhnya.",
+          "lamina": [
+            "supermercado",
+            "precios"
+          ]
+        },
+        {
+          "id": "ganar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "3–5 años",
+            "clave": "loteria"
+          },
+          "texto": "Dan penghasilan yang lebih besar saja tidak cukup. Di Florida, sejumlah peneliti mengikuti para pemenang lotre: lima tahun kemudian, pemenang hadiah besar bangkrut hampir sesering pemenang hadiah kecil. Hadiahnya hanya menunda masalah.",
+          "lamina": "loteria",
+          "enCasa": true
+        },
+        {
+          "id": "manejar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "flujo"
+          },
+          "texto": "Mengelola uang dengan baik tidak bergantung pada seberapa besar penghasilanmu, tapi pada sebuah pengurangan: uang yang masuk, dikurangi uang yang keluar, itulah yang tersisa untuk membangun sesuatu. Panduan ini ada supaya hasil pengurangan itu berpihak padamu.",
+          "lamina": [
+            "cuentas",
+            "ahorro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Sejarah singkat uang",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian dua. Sejarah singkat uang."
+        },
+        {
+          "id": "hammurabi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaDinero"
+          },
+          "texto": "Hampir empat ribu tahun lalu, Kode Hammurabi di Babilonia sudah membatasi bunga: paling tinggi dua puluh persen setahun untuk pinjaman perak dan sepertiga untuk pinjaman jelai. Utang hampir setua tulisan.",
+          "lamina": [
+            "hammurabi",
+            "tablilla"
+          ]
+        },
+        {
+          "id": "lidia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 600 a. C.",
+            "clave": "lidia"
+          },
+          "texto": "Sekitar tahun enam ratus sebelum Masehi, di kerajaan Lidia, di wilayah Turki sekarang, muncul koin-koin pertama: kepingan elektrum, campuran alami emas dan perak, dengan cap yang menjamin beratnya.",
+          "lamina": [
+            "lidia",
+            "monedas"
+          ]
+        },
+        {
+          "id": "jiaozi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1024",
+            "clave": "jiaozi"
+          },
+          "texto": "Pada tahun 1024, di Tiongkok masa Dinasti Song, pemerintah mulai menerbitkan jiaozi, uang kertas resmi pertama di dunia: di sana orang memakai koin besi, dan membawanya ke mana-mana untuk berdagang benar-benar mustahil.",
+          "lamina": "jiaozi"
+        },
+        {
+          "id": "ponzi",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1920",
+            "clave": "ponzi"
+          },
+          "texto": "Pada tahun 1920, di Boston, Charles Ponzi menjanjikan keuntungan lima puluh persen dalam empat puluh lima hari. Ia membayar orang-orang pertama dengan uang dari orang-orang baru, sampai semuanya runtuh. Namanya melekat selamanya pada jenis penipuan itu.",
+          "meme": "garantizado",
+          "lamina": "ponzi"
+        },
+        {
+          "id": "nixon",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1971",
+            "clave": "nixon"
+          },
+          "texto": "Lalu pada tahun 1971, Presiden Richard Nixon memutus ikatan terakhir antara dolar dan emas. Sejak itu, uang di hampir seluruh dunia bernilai karena kepercayaan pada pihak yang menerbitkannya, bukan karena logam yang disimpan di brankas.",
+          "lamina": [
+            "nixon",
+            "oro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "presupuesto",
+      "titulo": "Ke mana uangmu pergi",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tiga. Ke mana uangmu pergi."
+        },
+        {
+          "id": "registra",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "30 días",
+            "clave": "registra"
+          },
+          "texto": "Langkah pertama adalah tahu ke mana uangmu pergi. Selama sebulan, catat semua pengeluaranmu, sampai kopi di warung sebelah. Hampir semua orang menemukan pengeluaran yang tidak mereka sadari.",
+          "lamina": "recibos",
+          "enCasa": true
+        },
+        {
+          "id": "hormiga",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gastoHormiga"
+          },
+          "texto": "Pengeluaran kecil itu, yang sering disebut pengeluaran semut, menumpuk lebih cepat dari yang kamu kira. Coba di sini: pilih satu pengeluaran harianmu dan lihat berapa yang terbawa dalam setahun dan dalam sepuluh tahun.",
+          "meme": "hormiga",
+          "lamina": [
+            "cafe",
+            "antojo"
+          ]
+        },
+        {
+          "id": "reparto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "regla503020"
+          },
+          "texto": "Cara sederhana untuk membagi penghasilanmu adalah aturan lima puluh, tiga puluh, dua puluh, yang dipopulerkan Elizabeth Warren: separuh untuk kebutuhan, tiga puluh persen untuk keinginanmu, dan dua puluh untuk menabung atau membayar utang. Tulis penghasilanmu di sini dan lihat hasilnya.",
+          "lamina": [
+            "renta",
+            "gustos",
+            "alcancia"
+          ]
+        },
+        {
+          "id": "primero",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ahorraMas"
+          },
+          "texto": "Dan trik yang paling ampuh adalah membayar dirimu sendiri lebih dulu: sisihkan tabungan di hari gajian, bukan dari sisa di akhir bulan. Dalam program Save More Tomorrow, atau Menabung Lebih Banyak Besok, dari Richard Thaler dan Shlomo Benartzi, para pekerja yang tadinya menabung tiga setengah persen dari gaji mereka naik menjadi hampir empat belas persen.",
+          "meme": "quincena",
+          "lamina": [
+            "sueldo",
+            "ahorrar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deudas",
+      "titulo": "Bantalan dan utangmu",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian empat. Bantalan dan utangmu."
+        },
+        {
+          "id": "emergencia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "63 %",
+            "clave": "emergencia"
+          },
+          "texto": "Sebelum berinvestasi, siapkan bantalan. Di Amerika Serikat, hanya enam puluh tiga persen orang dewasa yang bisa menutup pengeluaran tak terduga sebesar empat ratus dolar dengan uang tunai atau tabungan mereka. Dana darurat menyelamatkanmu dari berutang saat ada yang rusak atau kamu kehilangan pekerjaan.",
+          "lamina": [
+            "averia",
+            "imprevisto"
+          ]
+        },
+        {
+          "id": "meses",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fondoEmergencia"
+          },
+          "texto": "Yang paling umum adalah mengumpulkan tiga sampai enam bulan pengeluaran pokokmu, sedikit demi sedikit, di tempat aman yang bisa kamu cairkan dengan cepat. Hitung di sini berapa dana daruratmu dan berapa lama kamu bisa mengumpulkannya.",
+          "lamina": "frasco"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Aku mengumpulkan punyaku di ruang Keuangan-ku di MindHaOS: di hari gajian aku langsung menyisihkan tabungan, dan dari celengan di meja kerja aku bisa melihat sudah sejauh mana setiap target.",
+          "lamina": "alcancia",
+          "enCasa": true
+        },
+        {
+          "id": "tarjeta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "> 20 %",
+            "clave": "tarjeta"
+          },
+          "texto": "Utang kartu kredit termasuk yang paling mahal: di Amerika Serikat, rata-rata bunganya melewati dua puluh persen per tahun pada 2024. Barang yang kamu beli dengan cicilan berbunga bisa jauh lebih mahal dari harganya.",
+          "lamina": [
+            "tarjeta",
+            "compras"
+          ]
+        },
+        {
+          "id": "minimo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "deudaTarjeta"
+          },
+          "texto": "Dan hanya membayar tagihan minimum adalah jebakan yang paling mahal. Coba di sini: masukkan utang, bunganya, dan berapa yang kamu bayar setiap bulan, lalu lihat berapa bulan sampai kamu lunas dan berapa yang kamu bayar untuk bunga.",
+          "meme": "minimo",
+          "lamina": "calculadora"
+        },
+        {
+          "id": "metodos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "avalanchaBola"
+          },
+          "texto": "Untuk keluar dari beberapa utang sekaligus, ada dua metode: longsoran, yang melunasi dulu utang berbunga paling tinggi dan paling hemat, dan bola salju, yang melunasi dulu utang paling kecil. Sebuah studi tahun 2012 menemukan bahwa melunasi utang sampai tuntas, satu per satu, membantu orang untuk tidak menyerah.",
+          "lamina": [
+            "avalancha",
+            "nieve"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "invertir",
+      "titulo": "Buat uangmu bekerja",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian lima. Buat uangmu bekerja."
+        },
+        {
+          "id": "compuesto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "interesCompuesto"
+          },
+          "texto": "Bunga majemuk berarti mendapat bunga dari bungamu: di awal hampir tidak terasa, lalu kurvanya melesat. Coba di sini: pilih berapa yang kamu sisihkan setiap bulan, dengan imbal hasil berapa, dan selama berapa tahun, lalu lihat bagian mana yang kamu setor sendiri dan bagian mana yang berasal dari bunga.",
+          "lamina": [
+            "planta",
+            "crecer"
+          ]
+        },
+        {
+          "id": "regla72",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "72 ÷ 6 = 12",
+            "clave": "regla72"
+          },
+          "texto": "Jalan pintas untuk menghitungnya di kepala adalah aturan tujuh puluh dua: bagi tujuh puluh dua dengan imbal hasil tahunan, dan kamu tahu dalam berapa tahun uangmu jadi dua kali lipat. Dengan enam persen, sekitar dua belas tahun.",
+          "lamina": "pizarron",
+          "enCasa": true
+        },
+        {
+          "id": "empezar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "empezarAntes"
+          },
+          "texto": "Karena itu, waktu lebih berharga daripada jumlah. Kalau dua orang menyisihkan jumlah yang sama setiap bulan dengan enam persen setahun, yang satu mulai umur dua puluh lima dan yang lain mulai umur tiga puluh lima, di umur enam puluh lima orang pertama akan punya hampir dua kali lipat, padahal setorannya hanya sepertiga lebih banyak.",
+          "lamina": [
+            "joven",
+            "reloj"
+          ]
+        },
+        {
+          "id": "riesgo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plazo",
+              "canasta",
+              "entiende"
+            ]
+          },
+          "texto": "Investasi selalu punya risiko: yang bisa memberi hasil lebih besar juga bisa turun lebih dalam. Ada tiga prinsip yang membantu: untuk jangka panjang, hanya pakai uang yang tidak akan kamu butuhkan dalam waktu dekat; jangan taruh semua telur dalam satu keranjang; dan jangan menaruh uangmu di sesuatu yang tidak kamu pahami.",
+          "lamina": [
+            "huevos",
+            "grafica"
+          ]
+        },
+        {
+          "id": "comisiones",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "comisiones"
+          },
+          "texto": "Dan perhatikan biayanya, karena biaya juga ikut berlipat: kalau uangmu tumbuh tujuh persen setahun dan kamu membayar biaya satu persen, dalam tiga puluh tahun hasil akhirmu berkurang sekitar seperempat.",
+          "lamina": "comision"
+        },
+        {
+          "id": "fraude",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "🚩",
+            "clave": "fraude"
+          },
+          "texto": "Dan jangan percaya pada siapa pun yang menjanjikan keuntungan tinggi dan pasti: itu tidak ada. Kalau terdengar terlalu indah untuk jadi kenyataan, hampir selalu itu penipuan, seperti yang dilakukan Ponzi.",
+          "lamina": "alerta"
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Rencanamu untuk memulai",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian enam. Rencanamu untuk memulai."
+        },
+        {
+          "id": "metas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombre",
+              "monto",
+              "fecha"
+            ]
+          },
+          "texto": "Beri nama dan tanggal pada apa yang kamu inginkan: «menabung lebih banyak» tidak sama dengan «mengumpulkan uang muka mobil dalam delapan belas bulan». Dengan jumlah dan tanggal, kamu tahu berapa yang perlu disisihkan setiap bulan.",
+          "lamina": [
+            "meta",
+            "coche"
+          ]
+        },
+        {
+          "id": "automatiza",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "automatiza"
+          },
+          "texto": "Otomatiskan semua yang bisa: tabungan yang terpotong sendiri di hari gajian dan tagihan tetap yang didebet otomatis. Keputusan yang tidak perlu kamu ambil setiap bulan adalah keputusan yang benar-benar terlaksana.",
+          "lamina": [
+            "celular",
+            "automatico"
+          ]
+        },
+        {
+          "id": "revisa",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 min / mes",
+            "clave": "revisa"
+          },
+          "texto": "Dan sebulan sekali, cek berapa yang masuk, berapa yang keluar, dan sejauh mana kemajuanmu. Sepuluh menit sudah cukup untuk meluruskan arah sebelum satu bulan yang buruk berubah jadi satu tahun yang buruk.",
+          "lamina": "revisar",
+          "enCasa": true
+        },
+        {
+          "id": "aviso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "Ingat, panduan ini bersifat informatif dan bukan nasihat keuangan maupun investasi: panduan ini tidak memberi tahu kamu harus berinvestasi di mana. Sebelum mengambil kredit atau investasi, bandingkan, baca syaratnya, dan, jika perlu, konsultasikan dengan penasihat yang terdaftar.",
+          "lamina": "contrato"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Singkatnya: catat ke mana uangmu pergi, bayar dirimu sendiri lebih dulu, siapkan bantalanmu, keluar dari utang yang mahal, dan biarkan waktu dan bunga majemuk bekerja untukmu.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Kalau kamu ingin mempraktikkannya seperti aku, ruang Keuangan di MindHaOS mencatat arus uangmu, dengan pengeluaran, pemasukan, dan saldo; target tabungan dan pelunasan utangmu, lengkap dengan kalkulator; dan kekayaan bersihmu, supaya kamu bisa melihatnya tumbuh. Tautannya ada di deskripsi, bersama panduan interaktif ini. Sampai jumpa di panduan berikutnya.",
+    "boton": "Buka ruang Keuangan",
+    "lamina": "app-plan",
+    "anclas": {
+      "flujo": "arus uangmu",
+      "metas": "target tabungan",
+      "patrimonio": "kekayaan bersihmu"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "finlit-2015",
+      "texto": "Klapper L., Lusardi A., van Oudheusden P. Financial Literacy Around the World: Insights from the Standard & Poor's Ratings Services Global Financial Literacy Survey (2015).",
+      "url": "https://gflec.org/initiatives/sp-global-finlit-survey/"
+    },
+    {
+      "id": "hankins-2011",
+      "texto": "Hankins S., Hoekstra M., Skiba P. M. The Ticket to Easy Street? The Financial Consequences of Winning the Lottery. The Review of Economics and Statistics (2011).",
+      "url": "https://doi.org/10.1162/REST_a_00114"
+    },
+    {
+      "id": "homer-sylla",
+      "texto": "Homer S., Sylla R. A History of Interest Rates (4.ª ed.). Wiley (2005).",
+      "url": "https://doi.org/10.1002/9781118267028"
+    },
+    {
+      "id": "lidia",
+      "texto": "Lidia y las primeras monedas de electro (siglo VII a. C.).",
+      "url": "https://en.wikipedia.org/wiki/Lydia"
+    },
+    {
+      "id": "jiaozi",
+      "texto": "Jiaozi: el primer papel moneda oficial, emitido por la oficina de jiaozi de la dinastía Song en Sichuan (1024).",
+      "url": "https://en.wikipedia.org/wiki/Jiaozi_(currency)"
+    },
+    {
+      "id": "nixon-1971",
+      "texto": "Federal Reserve History. Nixon Ends Convertibility of U.S. Dollars to Gold and Announces Wage/Price Controls (1971).",
+      "url": "https://www.federalreservehistory.org/essays/gold-convertibility-ends"
+    },
+    {
+      "id": "warren-2005",
+      "texto": "Warren E., Warren Tyagi A. All Your Worth: The Ultimate Lifetime Money Plan. Free Press (2005).",
+      "url": "https://openlibrary.org/isbn/9780743269872"
+    },
+    {
+      "id": "thaler-2004",
+      "texto": "Thaler R. H., Benartzi S. Save More Tomorrow: Using Behavioral Economics to Increase Employee Saving. Journal of Political Economy (2004).",
+      "url": "https://doi.org/10.1086/380085"
+    },
+    {
+      "id": "shed-2023",
+      "texto": "Board of Governors of the Federal Reserve System. Economic Well-Being of U.S. Households in 2023 (2024).",
+      "url": "https://www.federalreserve.gov/publications/2024-economic-well-being-of-us-households-in-2023-executive-summary.htm"
+    },
+    {
+      "id": "g19",
+      "texto": "Board of Governors of the Federal Reserve System. Consumer Credit — G.19: interest rate on credit card plans.",
+      "url": "https://www.federalreserve.gov/releases/g19/current/"
+    },
+    {
+      "id": "gal-2012",
+      "texto": "Gal D., McShane B. B. Can Small Victories Help Win the War? Evidence from Consumer Debt Management. Journal of Marketing Research (2012).",
+      "url": "https://doi.org/10.1509/jmr.11.0272"
+    },
+    {
+      "id": "cfpb-emergencia",
+      "texto": "Consumer Financial Protection Bureau. An essential guide to building an emergency fund.",
+      "url": "https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/"
+    },
+    {
+      "id": "sec-comisiones",
+      "texto": "U.S. Securities and Exchange Commission. Investor Bulletin: How Fees and Expenses Affect Your Investment Portfolio (2014).",
+      "url": "https://www.sec.gov/investor/alerts/ib_investmentfees.pdf"
+    },
+    {
+      "id": "sec-ponzi",
+      "texto": "Investor.gov (SEC). Ponzi Scheme.",
+      "url": "https://www.investor.gov/protect-your-investments/fraud/types-fraud/ponzi-scheme"
+    }
+  ]
+}

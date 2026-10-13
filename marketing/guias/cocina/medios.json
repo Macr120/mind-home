@@ -1,0 +1,265 @@
+{
+  "_nota": "Fotos y clips de la guía con su licencia. Pexels: uso libre, también comercial, sin atribución obligatoria (se acredita igual). Wikimedia Commons: dominio público o CC0, con «credito» sobre la lámina y en la descripción. Se sirven desde web/public/guias/cocina/.",
+  "fotos": {
+    "registro": {
+      "archivo": "registro.webp",
+      "autor": "Mike Jones",
+      "fuente": "https://www.pexels.com/photo/a-person-writing-in-a-diary-9051450/",
+      "licencia": "Licencia Pexels"
+    }
+  },
+  "laminas": {
+    "mercado": {
+      "archivo": "laminas/mercado.mp4",
+      "tipo": "video",
+      "autor": "Lara Jameson",
+      "fuente": "https://www.pexels.com/video/man-shopping-for-fruits-and-vegetable-on-a-market-stall-9613899/",
+      "licencia": "Licencia Pexels"
+    },
+    "macros-proteina": {
+      "archivo": "laminas/macros-proteina.webp",
+      "tipo": "foto",
+      "autor": "Pexels User",
+      "fuente": "https://www.pexels.com/photo/a-plate-with-a-salad-eggs-and-meat-27909227/",
+      "licencia": "Licencia Pexels"
+    },
+    "macros-carbos": {
+      "archivo": "laminas/macros-carbos.mp4",
+      "tipo": "video",
+      "autor": "Klaus Nielsen",
+      "fuente": "https://www.pexels.com/video/close-up-video-of-noodles-in-a-container-6286090/",
+      "licencia": "Licencia Pexels"
+    },
+    "macros-grasas": {
+      "archivo": "laminas/macros-grasas.webp",
+      "tipo": "foto",
+      "autor": "ready made",
+      "fuente": "https://www.pexels.com/photo/avocado-slice-on-table-3850668/",
+      "licencia": "Licencia Pexels"
+    },
+    "verduras": {
+      "archivo": "laminas/verduras.mp4",
+      "tipo": "video",
+      "autor": "Kampus Production",
+      "fuente": "https://www.pexels.com/video/people-in-kitchen-chopping-bell-pepper-7963179/",
+      "licencia": "Licencia Pexels"
+    },
+    "fuego": {
+      "archivo": "laminas/fuego.webp",
+      "tipo": "foto",
+      "autor": "Hert Niks",
+      "fuente": "https://www.pexels.com/photo/kettle-heating-on-fireplace-24375979/",
+      "licencia": "Licencia Pexels"
+    },
+    "limones": {
+      "archivo": "laminas/limones.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/hands-art-hand-texture-3943330/",
+      "licencia": "Licencia Pexels"
+    },
+    "balance": {
+      "archivo": "laminas/balance.webp",
+      "tipo": "foto",
+      "autor": "Robert Schrader",
+      "fuente": "https://www.pexels.com/photo/a-banana-on-scales-15130871/",
+      "licencia": "Licencia Pexels"
+    },
+    "gasto": {
+      "archivo": "laminas/gasto.mp4",
+      "tipo": "video",
+      "autor": "Buatenior",
+      "fuente": "https://www.pexels.com/video/a-man-is-running-across-the-street-in-front-of-a-crowd-18156284/",
+      "licencia": "Licencia Pexels"
+    },
+    "calculadora": {
+      "archivo": "laminas/calculadora.webp",
+      "tipo": "foto",
+      "autor": "beyzahzah",
+      "fuente": "https://www.pexels.com/photo/dietitian-preparing-weekly-meals-plan-15319019/",
+      "licencia": "Licencia Pexels"
+    },
+    "proteina": {
+      "archivo": "laminas/proteina.mp4",
+      "tipo": "video",
+      "autor": "Nicola Barts",
+      "fuente": "https://www.pexels.com/video/a-plate-of-avocado-toast-7929002/",
+      "licencia": "Licencia Pexels"
+    },
+    "deficit": {
+      "archivo": "laminas/deficit.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/person-holding-a-plate-6645820/",
+      "licencia": "Licencia Pexels"
+    },
+    "supermercado": {
+      "archivo": "laminas/supermercado.mp4",
+      "tipo": "video",
+      "autor": "Kevin  Malik",
+      "fuente": "https://www.pexels.com/video/woman-shopping-for-condiments-9015595/",
+      "licencia": "Licencia Pexels"
+    },
+    "ultraprocesados": {
+      "archivo": "laminas/ultraprocesados.mp4",
+      "tipo": "video",
+      "autor": "Dyon Siregar",
+      "fuente": "https://www.pexels.com/video/bags-of-potato-chips-stocked-in-a-grocery-store-11643256/",
+      "licencia": "Licencia Pexels"
+    },
+    "refresco": {
+      "archivo": "laminas/refresco.webp",
+      "tipo": "foto",
+      "autor": "Anna Danilina",
+      "fuente": "https://www.pexels.com/photo/refreshing-glass-of-iced-cola-close-up-view-33469209/",
+      "licencia": "Licencia Pexels"
+    },
+    "sal": {
+      "archivo": "laminas/sal.webp",
+      "tipo": "foto",
+      "autor": "Олександр К",
+      "fuente": "https://www.pexels.com/photo/a-salt-shaker-on-a-white-surface-27545910/",
+      "licencia": "Licencia Pexels"
+    },
+    "etiqueta": {
+      "archivo": "laminas/etiqueta.webp",
+      "tipo": "foto",
+      "autor": "Kampus Production",
+      "fuente": "https://www.pexels.com/photo/elderly-man-looking-at-a-product-8422692/",
+      "licencia": "Licencia Pexels"
+    },
+    "plato": {
+      "archivo": "laminas/plato.webp",
+      "tipo": "foto",
+      "autor": "Nadin Sh",
+      "fuente": "https://www.pexels.com/photo/woman-eating-salad-with-chicken-13312317/",
+      "licencia": "Licencia Pexels"
+    },
+    "frutas": {
+      "archivo": "laminas/frutas.mp4",
+      "tipo": "video",
+      "autor": "bizarreaudio",
+      "fuente": "https://www.pexels.com/video/vibrant-tropical-fruit-market-in-daylight-36401566/",
+      "licencia": "Licencia Pexels"
+    },
+    "planear": {
+      "archivo": "laminas/planear.webp",
+      "tipo": "foto",
+      "autor": "IARA MELO",
+      "fuente": "https://www.pexels.com/photo/healthy-meal-prep-with-rice-and-vegetables-30635714/",
+      "licencia": "Licencia Pexels"
+    },
+    "lista": {
+      "archivo": "laminas/lista.webp",
+      "tipo": "foto",
+      "autor": "Kampus Production",
+      "fuente": "https://www.pexels.com/photo/woman-doing-shopping-at-a-grocery-8422697/",
+      "licencia": "Licencia Pexels"
+    },
+    "pizza": {
+      "archivo": "laminas/pizza.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/food-pizza-couple-hand-4008535/",
+      "licencia": "Licencia Pexels"
+    },
+    "agua": {
+      "archivo": "laminas/agua.webp",
+      "tipo": "foto",
+      "autor": "Wallace Chuck",
+      "fuente": "https://www.pexels.com/photo/clear-glass-pitcher-pouring-water-on-clear-drinking-glass-3500006/",
+      "licencia": "Licencia Pexels"
+    },
+    "despacio": {
+      "archivo": "laminas/despacio.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/people-celebrating-hanukkah-6054018/",
+      "licencia": "Licencia Pexels"
+    },
+    "registro": {
+      "archivo": "laminas/registro.mp4",
+      "tipo": "video",
+      "autor": "Mizuno K",
+      "fuente": "https://www.pexels.com/video/woman-making-notes-on-table-12908920/",
+      "licencia": "Licencia Pexels"
+    },
+    "nutriologo": {
+      "archivo": "laminas/nutriologo.webp",
+      "tipo": "foto",
+      "autor": "beyzahzah",
+      "fuente": "https://www.pexels.com/photo/photo-of-a-young-woman-working-in-a-doctors-office-15391542/",
+      "licencia": "Licencia Pexels"
+    },
+    "resumen": {
+      "archivo": "laminas/resumen.mp4",
+      "tipo": "video",
+      "autor": "Maksim Goncharenok",
+      "fuente": "https://www.pexels.com/video/mom-and-daughter-cooking-6161982/",
+      "licencia": "Licencia Pexels"
+    },
+    "lind": {
+      "archivo": "laminas/lind.webp",
+      "tipo": "foto",
+      "autor": "Unknown authorUnknown author",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Portrait_of_James_Lind,_1716-1794,_Physician_at_Haslar_Wellcome_M0003113a.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "atwater": {
+      "archivo": "laminas/atwater.webp",
+      "tipo": "foto",
+      "autor": "",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Wilbur_Atwater.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "funk": {
+      "archivo": "laminas/funk.webp",
+      "tipo": "foto",
+      "autor": "The Associated Press",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Dr._Casimir_Funk_at_work_in_his_new_research_laboratory_on_W._64th_Street_in_New_York_City.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "piramide": {
+      "archivo": "laminas/piramide.webp",
+      "tipo": "foto",
+      "autor": "USDA",
+      "fuente": "https://commons.wikimedia.org/wiki/File:USDA_Food_Pyramid.gif",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "myplate": {
+      "archivo": "laminas/myplate.webp",
+      "tipo": "foto",
+      "autor": "USDA",
+      "fuente": "https://commons.wikimedia.org/wiki/File:USDA_MyPlate_green.svg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "plato-bien-comer": {
+      "archivo": "laminas/plato-bien-comer.webp",
+      "tipo": "foto",
+      "autor": "Secretaría de Salud (NOM-043-SSA2-2005, DOF)",
+      "fuente": "https://commons.wikimedia.org/wiki/File:El_Plato_del_Bien_Comer_Tomado_de_NOM-043-SSA2-2005.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "agricultura": {
+      "archivo": "laminas/agricultura.webp",
+      "tipo": "foto",
+      "autor": "Tumba de Menna (The Metropolitan Museum of Art)",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Harvest_Scenes,_Tomb_of_Menna_MET_DT207673.jpg",
+      "licencia": "CC0",
+      "credito": "Tumba de Menna (The Metropolitan Museum of Art) · CC0 · Wikimedia"
+    },
+    "app-plan": {
+      "archivo": "laminas/app-plan.{idioma}.mp4",
+      "tipo": "video",
+      "autor": "MindHaOS",
+      "fuente": "https://app.mindhaos.com",
+      "credito": ""
+    }
+  }
+}

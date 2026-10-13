@@ -178,6 +178,14 @@ export const useAccionCuarto = create<AccionState>((set, get) => ({
   cercaGrupo: null,
   usar: (id, wx, wz, rotYRad, tipo, superficieY) => {
     if (get().instanciaId != null) return
+    // La laptop y la estación de cómputo suponen una silla imaginaria (CFG_ACCION.asiento):
+    // si hay una silla DE VERDAD justo donde se sienta (la tiene cerca y medida), su
+    // altura manda; si no, el avatar se hunde en ella.
+    if (superficieY == null && (tipo === 'laptop' || tipo === 'estacion-computo') && get().cercaGrupo === 'asiento' && accionCuartoFrame.cercaSuperficieY != null) {
+      const f = CFG_ACCION[tipo].frente
+      const [sx, sz] = [wx + f * Math.sin(rotYRad), wz + f * Math.cos(rotYRad)]
+      if (Math.hypot(accionCuartoFrame.cercaWx - sx, accionCuartoFrame.cercaWz - sz) < 0.45) superficieY = accionCuartoFrame.cercaSuperficieY
+    }
     accionCuartoFrame.usando = true
     accionCuartoFrame.tipo = tipo
     accionCuartoFrame.pose = POSE_DE[tipo]

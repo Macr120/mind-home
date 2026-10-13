@@ -1,0 +1,608 @@
+{
+  "idioma": "zh",
+  "tema": "finanzas",
+  "plantillaId": "despacho",
+  "numero": 4,
+  "nombre": "财务",
+  "pregunta": "钱到底是什么？",
+  "corta": "钱到底是什么？",
+  "subtitulo": "钱是什么、它是怎么诞生的，你的钱都花到了哪里，怎样攒一笔应急金、怎样摆脱债务，复利是怎样运作的，以及一份今天就能开始的计划。",
+  "aviso": "本指南仅供参考，不构成任何财务、税务或投资建议，也不推荐任何产品或金融工具。在申请贷款或进行投资之前，请比较各项条件，如有需要，请咨询持有资质的专业人士。",
+  "_notas": {
+    "escena": "Animación que hace Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando') o un ejercicio del catálogo de la app.",
+    "visual": "Bloque que acompaña la línea: foto (medios.json), meme, dato (cifra grande), grafica, herramienta (mini-app de la página), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada (inicio, medio —el plan— y final). Nunca tono de anuncio.",
+    "titulos": "Cada parte arranca leyendo su título (línea \"titulo\", visual \"encabezado\").",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título) para enganchar en los primeros segundos. No puede ser enCasa.",
+    "corta": "La pregunta en 3-4 palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) que acompaña la línea en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: las del principio sobre Pep@ en su despacho y las de en medio sobre las tomas de su escena.mjs (TOMAS_EXTRA con esa `voz`); la página las sigue mostrando.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «flujo de dinero», «metas de ahorro» y «patrimonio»; app2d.mjs mueve la app justo al decirlas."
+  },
+  "partes": [
+    {
+      "id": "dinero",
+      "titulo": "钱是用来做什么的",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "钱到底是什么？我们每天都在用钱。可即便如此，全世界只有三分之一的成年人懂得通货膨胀、复利这样的基本概念。钱究竟是怎样运作的？接下来几分钟，你会看清自己的钱都花到了哪里，算出让它为你工作能增长多少，最后带着一份从今天起更好地管钱的计划离开。",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "顺便说一下，这是我在MindHaOS里的家，我的支出、收入和储蓄目标都记在这间财务室里。我们开始吧。",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第一部分。钱是用来做什么的。"
+        },
+        {
+          "id": "funciones",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "funciones"
+          },
+          "texto": "钱是一种约定：一张钞票，或者屏幕上的一个数字，之所以有价值，是因为大家都认可它有价值。它可以用来交换，用来衡量东西值多少，还可以把价值保存到未来。",
+          "lamina": [
+            "billetes",
+            "pago"
+          ]
+        },
+        {
+          "id": "inflacion",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "inflacion"
+          },
+          "texto": "可是最后这个功能有个敌人，那就是通货膨胀。如果物价每年上涨3%，大约24年就会翻一倍，你压在床垫底下的钱，就只能买到原来的一半了。",
+          "lamina": [
+            "supermercado",
+            "precios"
+          ]
+        },
+        {
+          "id": "ganar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "3–5 años",
+            "clave": "loteria"
+          },
+          "texto": "而且，光是多赚钱还不够。在美国佛罗里达州，研究人员追踪了一批彩票中奖者：五年后，中大奖的人破产的比例，和中小奖的人几乎一样高。奖金只是把问题往后推迟了而已。",
+          "lamina": "loteria",
+          "enCasa": true
+        },
+        {
+          "id": "manejar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "flujo"
+          },
+          "texto": "管好你的钱，不取决于你赚多少，而取决于一道减法：进来的钱，减去出去的钱，剩下的才是你用来打基础的。这份指南，就是要让这道减法的结果站在你这一边。",
+          "lamina": [
+            "cuentas",
+            "ahorro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "钱的简史",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第二部分。钱的简史。"
+        },
+        {
+          "id": "hammurabi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaDinero"
+          },
+          "texto": "差不多四千年前，巴比伦的《汉谟拉比法典》就已经给利息定了上限：借银子，一年最多20%；借大麦，最多三分之一。债务的历史，几乎和文字一样古老。",
+          "lamina": [
+            "hammurabi",
+            "tablilla"
+          ]
+        },
+        {
+          "id": "lidia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 600 a. C.",
+            "clave": "lidia"
+          },
+          "texto": "大约公元前600年，在今天土耳其境内的吕底亚王国，出现了最早的硬币：它们用琥珀金制成，也就是金和银的天然合金，上面还盖着保证重量的印记。",
+          "lamina": [
+            "lidia",
+            "monedas"
+          ]
+        },
+        {
+          "id": "jiaozi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1024",
+            "clave": "jiaozi"
+          },
+          "texto": "1024年，在宋朝的中国，官府开始发行交子，这是世界上第一种官方纸币：当地用的是铁钱，带着它们去做买卖根本不现实。",
+          "lamina": "jiaozi"
+        },
+        {
+          "id": "ponzi",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1920",
+            "clave": "ponzi"
+          },
+          "texto": "1920年，在波士顿，查尔斯·庞兹承诺45天就能赚50%。他用新投资人的钱支付给早期投资人，直到一切轰然倒塌。从此，他的名字就永远成了这类骗局的代名词。",
+          "meme": "garantizado",
+          "lamina": "ponzi"
+        },
+        {
+          "id": "nixon",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1971",
+            "clave": "nixon"
+          },
+          "texto": "到了1971年，理查德·尼克松总统切断了美元和黄金之间的最后联系。从那以后，世界上几乎所有的钱，靠的都是人们对发行者的信任，而不是锁在金库里的金属。",
+          "lamina": [
+            "nixon",
+            "oro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "presupuesto",
+      "titulo": "你的钱都去哪儿了",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第三部分。你的钱都去哪儿了。"
+        },
+        {
+          "id": "registra",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "30 días",
+            "clave": "registra"
+          },
+          "texto": "第一步，是弄清楚钱都去了哪里。用一个月时间，把每一笔花销都记下来，连街角的一杯咖啡也不放过。几乎每个人都会发现一些自己都不知道的开销。",
+          "lamina": "recibos",
+          "enCasa": true
+        },
+        {
+          "id": "hormiga",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gastoHormiga"
+          },
+          "texto": "这些小开销，也就是所谓的“拿铁因子”，积少成多的速度比你想的快得多。来这里试一试：选一项每天都有的开销，看看它一年、十年会带走多少钱。",
+          "meme": "hormiga",
+          "lamina": [
+            "cafe",
+            "antojo"
+          ]
+        },
+        {
+          "id": "reparto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "regla503020"
+          },
+          "texto": "分配收入有个简单的方法，就是伊丽莎白·沃伦推广的“五十、三十、二十”法则：一半用于必需开支，30%用于享受，20%用来储蓄或还债。在这里输入你的收入，看看怎么分配。",
+          "lamina": [
+            "renta",
+            "gustos",
+            "alcancia"
+          ]
+        },
+        {
+          "id": "primero",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ahorraMas"
+          },
+          "texto": "而最管用的诀窍，是先付钱给自己：发工资那天就把储蓄存起来，而不是等到月底看还剩多少。在理查德·塞勒和什洛莫·贝纳茨的“明天存更多”计划中，员工的储蓄率从工资的3.5%提高到了将近14%。",
+          "meme": "quincena",
+          "lamina": [
+            "sueldo",
+            "ahorrar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deudas",
+      "titulo": "你的应急金和你的债务",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第四部分。你的应急金和你的债务。"
+        },
+        {
+          "id": "emergencia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "63 %",
+            "clave": "emergencia"
+          },
+          "texto": "在投资之前，先准备一笔应急金。在美国，只有63%的成年人能用现金或存款应付一笔400美元的意外开支。有了应急基金，东西坏了或者丢了工作的时候，你就不用去借钱。",
+          "lamina": [
+            "averia",
+            "imprevisto"
+          ]
+        },
+        {
+          "id": "meses",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fondoEmergencia"
+          },
+          "texto": "最常见的做法，是一点一点攒下三到六个月的基本开销，放在一个安全、又能随时取出来的地方。在这里算一算，你的应急金应该是多少，需要多久能攒够。",
+          "lamina": "frasco"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "我就是在MindHaOS的财务室里攒的：发工资那天先把储蓄存起来，再从书桌上的存钱罐看看每个目标已经攒了多少。",
+          "lamina": "alcancia",
+          "enCasa": true
+        },
+        {
+          "id": "tarjeta",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "> 20 %",
+            "clave": "tarjeta"
+          },
+          "texto": "信用卡欠款是最贵的债务之一：在美国，2024年信用卡的平均年利率超过了20%。带利息分期买的东西，最后可能会让你多花很多钱。",
+          "lamina": [
+            "tarjeta",
+            "compras"
+          ]
+        },
+        {
+          "id": "minimo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "deudaTarjeta"
+          },
+          "texto": "而只还最低还款额，是代价最高的陷阱。来这里试一试：输入一笔欠款、它的利率和你每月还多少，看看要多少个月才能还清，又要付多少利息。",
+          "meme": "minimo",
+          "lamina": "calculadora"
+        },
+        {
+          "id": "metodos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "avalanchaBola"
+          },
+          "texto": "要摆脱好几笔债务，有两种方法：雪崩法，先还利率最高的，能省下最多的利息；雪球法，先还金额最小的。2012年的一项研究发现，一笔一笔地彻底还清，能帮人坚持下去、不轻易放弃。",
+          "lamina": [
+            "avalancha",
+            "nieve"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "invertir",
+      "titulo": "让你的钱为你工作",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第五部分。让你的钱为你工作。"
+        },
+        {
+          "id": "compuesto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "interesCompuesto"
+          },
+          "texto": "复利，就是利息再生利息：一开始几乎感觉不到，后来曲线就会一飞冲天。来这里试一试：选好每月存多少、收益率多少、存多少年，看看哪部分是你自己投入的，哪部分是利息带来的。",
+          "lamina": [
+            "planta",
+            "crecer"
+          ]
+        },
+        {
+          "id": "regla72",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "72 ÷ 6 = 12",
+            "clave": "regla72"
+          },
+          "texto": "有个心算的捷径，叫“72法则”：用72除以年利率，就知道你的钱多少年能翻一倍。年利率6%的话，大约12年。",
+          "lamina": "pizarron",
+          "enCasa": true
+        },
+        {
+          "id": "empezar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "empezarAntes"
+          },
+          "texto": "所以，时间比金额更重要。假设两个人每月存同样的钱，年收益率都是6%，一个从25岁开始，另一个从35岁开始。到65岁时，第一个人的钱几乎是第二个人的两倍，可他投入的钱只多了三分之一。",
+          "lamina": [
+            "joven",
+            "reloj"
+          ]
+        },
+        {
+          "id": "riesgo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plazo",
+              "canasta",
+              "entiende"
+            ]
+          },
+          "texto": "投资总是有风险的：可能涨得多的东西，也可能跌得多。有三条原则能帮上忙：着眼长期，只投短期内用不到的钱；不要把所有鸡蛋放在同一个篮子里；看不懂的东西，不要把钱投进去。",
+          "lamina": [
+            "huevos",
+            "grafica"
+          ]
+        },
+        {
+          "id": "comisiones",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "comisiones"
+          },
+          "texto": "还要留意手续费，因为它也会利滚利：如果你的钱每年收益7%，而你要付1%的手续费，30年后，你最后拿到的钱会少将近四分之一。",
+          "lamina": "comision"
+        },
+        {
+          "id": "fraude",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "🚩",
+            "clave": "fraude"
+          },
+          "texto": "另外，要提防那些承诺高收益、又保证稳赚的人：这种东西根本不存在。如果听起来好得不像真的，那几乎一定是骗局，就像庞兹那样。",
+          "lamina": "alerta"
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "你的起步计划",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第六部分。你的起步计划。"
+        },
+        {
+          "id": "metas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombre",
+              "monto",
+              "fecha"
+            ]
+          },
+          "texto": "给你想要的东西起个名字、定个日期：“多存点钱”和“十八个月内攒够买车的首付”可不是一回事。有了金额和日期，你就知道每个月该存多少。",
+          "lamina": [
+            "meta",
+            "coche"
+          ]
+        },
+        {
+          "id": "automatiza",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "automatiza"
+          },
+          "texto": "能自动化的，都自动化：发薪日自动转走的储蓄，还有设成自动扣款的固定支出。那些不用每个月都重新决定的事，才是真正能坚持下来的事。",
+          "lamina": [
+            "celular",
+            "automatico"
+          ]
+        },
+        {
+          "id": "revisa",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10 min / mes",
+            "clave": "revisa"
+          },
+          "texto": "然后每个月回顾一次：进来多少、出去多少、前进了多少。十分钟就够了，可以在一个糟糕的月份变成一个糟糕的年份之前，及时调整方向。",
+          "lamina": "revisar",
+          "enCasa": true
+        },
+        {
+          "id": "aviso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "aviso"
+          },
+          "texto": "请记住，本指南仅供参考，不构成财务或投资建议：它不会告诉你该投资什么。在申请贷款或进行投资之前，请多做比较，仔细阅读条款，如有需要，请咨询持有资质的顾问。",
+          "lamina": "contrato"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "总结一下：记下你的钱去了哪里，先付钱给自己，准备好应急金，摆脱高息债务，再让时间和复利为你工作。",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "如果你也想像我这样付诸实践，MindHaOS的财务室能帮你管理资金流，包括支出、收入和结余；管理你的储蓄目标和还债目标，还配有计算器；还有你的净资产，让你看着它一点点增长。链接在简介里，那里还有这份指南的互动版。下次见。",
+    "boton": "打开财务室",
+    "lamina": "app-plan",
+    "anclas": {
+      "flujo": "资金流",
+      "metas": "储蓄目标",
+      "patrimonio": "净资产"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "finlit-2015",
+      "texto": "Klapper L., Lusardi A., van Oudheusden P. Financial Literacy Around the World: Insights from the Standard & Poor's Ratings Services Global Financial Literacy Survey (2015).",
+      "url": "https://gflec.org/initiatives/sp-global-finlit-survey/"
+    },
+    {
+      "id": "hankins-2011",
+      "texto": "Hankins S., Hoekstra M., Skiba P. M. The Ticket to Easy Street? The Financial Consequences of Winning the Lottery. The Review of Economics and Statistics (2011).",
+      "url": "https://doi.org/10.1162/REST_a_00114"
+    },
+    {
+      "id": "homer-sylla",
+      "texto": "Homer S., Sylla R. A History of Interest Rates (4.ª ed.). Wiley (2005).",
+      "url": "https://doi.org/10.1002/9781118267028"
+    },
+    {
+      "id": "lidia",
+      "texto": "Lidia y las primeras monedas de electro (siglo VII a. C.).",
+      "url": "https://en.wikipedia.org/wiki/Lydia"
+    },
+    {
+      "id": "jiaozi",
+      "texto": "Jiaozi: el primer papel moneda oficial, emitido por la oficina de jiaozi de la dinastía Song en Sichuan (1024).",
+      "url": "https://en.wikipedia.org/wiki/Jiaozi_(currency)"
+    },
+    {
+      "id": "nixon-1971",
+      "texto": "Federal Reserve History. Nixon Ends Convertibility of U.S. Dollars to Gold and Announces Wage/Price Controls (1971).",
+      "url": "https://www.federalreservehistory.org/essays/gold-convertibility-ends"
+    },
+    {
+      "id": "warren-2005",
+      "texto": "Warren E., Warren Tyagi A. All Your Worth: The Ultimate Lifetime Money Plan. Free Press (2005).",
+      "url": "https://openlibrary.org/isbn/9780743269872"
+    },
+    {
+      "id": "thaler-2004",
+      "texto": "Thaler R. H., Benartzi S. Save More Tomorrow: Using Behavioral Economics to Increase Employee Saving. Journal of Political Economy (2004).",
+      "url": "https://doi.org/10.1086/380085"
+    },
+    {
+      "id": "shed-2023",
+      "texto": "Board of Governors of the Federal Reserve System. Economic Well-Being of U.S. Households in 2023 (2024).",
+      "url": "https://www.federalreserve.gov/publications/2024-economic-well-being-of-us-households-in-2023-executive-summary.htm"
+    },
+    {
+      "id": "g19",
+      "texto": "Board of Governors of the Federal Reserve System. Consumer Credit — G.19: interest rate on credit card plans.",
+      "url": "https://www.federalreserve.gov/releases/g19/current/"
+    },
+    {
+      "id": "gal-2012",
+      "texto": "Gal D., McShane B. B. Can Small Victories Help Win the War? Evidence from Consumer Debt Management. Journal of Marketing Research (2012).",
+      "url": "https://doi.org/10.1509/jmr.11.0272"
+    },
+    {
+      "id": "cfpb-emergencia",
+      "texto": "Consumer Financial Protection Bureau. An essential guide to building an emergency fund.",
+      "url": "https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/"
+    },
+    {
+      "id": "sec-comisiones",
+      "texto": "U.S. Securities and Exchange Commission. Investor Bulletin: How Fees and Expenses Affect Your Investment Portfolio (2014).",
+      "url": "https://www.sec.gov/investor/alerts/ib_investmentfees.pdf"
+    },
+    {
+      "id": "sec-ponzi",
+      "texto": "Investor.gov (SEC). Ponzi Scheme.",
+      "url": "https://www.investor.gov/protect-your-investments/fraud/types-fraud/ponzi-scheme"
+    }
+  ]
+}

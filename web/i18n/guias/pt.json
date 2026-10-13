@@ -204,6 +204,852 @@
     "bio": "Guia interativo e app: link na bio",
     "parte": "Parte",
     "guiaCompleta": "Guia completo",
-    "hashtags": "#exercicio #treino #fitness #saude #rotina #MindHaOS"
+    "hashtags": "#exercicio #treino #fitness #saude #rotina #MindHaOS",
+    "guiaN": "Guia {n}"
+  },
+  "cocina": {
+    "meta": {
+      "titulo": "O que é comer bem? Guia completo: nutrientes, energia, qualidade e o seu prato | MindHaOS",
+      "desc": "O que a comida faz no seu corpo, a história da nutrição, quanta energia você precisa (calculadora), como reconhecer os ultraprocessados e como montar o seu prato e a sua semana."
+    },
+    "lista": {
+      "combustible": "Combustível",
+      "combustibleDet": "Energia para respirar, pensar e se mexer. Medida em calorias.",
+      "construccion": "Material de construção",
+      "construccionDet": "Com o que você come, repara músculos, ossos, pele e sangue.",
+      "proteinas": "Proteínas",
+      "proteinasDet": "Constroem e reparam. Carne, peixe, ovo, laticínios, leguminosas.",
+      "carbohidratos": "Carboidratos",
+      "carbohidratosDet": "A energia mais rápida. Cereais, tubérculos, frutas.",
+      "grasas": "Gorduras",
+      "grasasDet": "Reserva de energia e paredes das suas células. Azeite, abacate, castanhas.",
+      "vitaminas": "Vitaminas",
+      "vitaminasDet": "Em quantidades minúsculas, mas indispensáveis.",
+      "minerales": "Minerais",
+      "mineralesDet": "Cálcio, ferro, potássio… ossos, sangue e músculos.",
+      "fibra": "Fibra",
+      "fibraDet": "Alimenta a sua microbiota e mantém você saciado.",
+      "resumen1": "Coma comida de verdade na maior parte do tempo",
+      "resumen2": "Encha metade do prato com verduras, legumes e frutas",
+      "resumen3": "Ajuste a quantidade ao que você gasta",
+      "resumen4": "Planeje a semana: cardápio, lista e algo já pronto"
+    },
+    "dato": {
+      "agricultura": "anos desde que chegou a agricultura: trigo, arroz e milho",
+      "lind": "James Lind cura o escorbuto com laranjas e limões",
+      "atwater": "calorias por grama de proteína, carboidrato e gordura (Atwater)",
+      "funk": "Casimir Funk propõe a palavra «vitamina»",
+      "plato": "Da pirâmide alimentar (1992) ao prato: o MyPlate e o Plato del Bien Comer mexicano",
+      "proteina": "de proteína por dia: o mínimo e o recomendado se você treina força",
+      "deficit": "do que você gasta: um déficit pequeno que dá para manter",
+      "experimento": "por dia com a dieta ultraprocessada (Hall e colegas, 2019)",
+      "sal": "de sal por dia: uma colher de chá",
+      "frutas": "de frutas, verduras e legumes por dia (e 25 g de fibra)",
+      "ochenta": "Na maior parte do tempo, bem; no resto, sem culpa",
+      "agua": "de água por dia, contando a que vem na comida"
+    },
+    "pasos": {
+      "porcion": "A porção",
+      "porcionDet": "Todo o resto é calculado para essa quantidade.",
+      "azucares": "Açúcares e sal",
+      "azucaresDet": "Compare por 100 g, não por pacote.",
+      "ingredientes": "Os ingredientes",
+      "ingredientesDet": "Vão do que tem mais para o que tem menos: o primeiro é o que mais leva.",
+      "menu": "Escolha o cardápio",
+      "menuDet": "As refeições da semana, com receitas que você já conhece.",
+      "lista": "Faça a lista",
+      "listaDet": "O que essas receitas pedem, agrupado por corredor.",
+      "prepara": "Cozinhe a mais",
+      "preparaDet": "Dois dias de comida pronta para quando faltar tempo."
+    },
+    "grafica": {
+      "historia": "Do fogo ao prato",
+      "fuego": "Pré-história",
+      "fuegoDet": "Cozinhar com fogo",
+      "agricultura": "Neolítico",
+      "agriculturaDet": "A agricultura",
+      "lindDet": "O ensaio dos limões",
+      "atwaterDet": "As calorias de cada alimento",
+      "funkDet": "As vitaminas",
+      "platoDet": "O prato",
+      "balance": "Balanço de energia",
+      "entra": "O que você come",
+      "sale": "O que você gasta",
+      "gasto": "Em que você gasta a sua energia",
+      "basal": "Metabolismo basal",
+      "actividad": "Atividade do dia",
+      "digestion": "Digestão",
+      "nova": "Quanto a sua comida foi processada (classificação NOVA)",
+      "g1": "Frescos ou minimamente processados",
+      "g1Det": "Verduras, frutas, ovo, carne, leite, arroz",
+      "g2": "Ingredientes culinários",
+      "g2Det": "Óleo, sal, açúcar, manteiga",
+      "g3": "Processados",
+      "g3Det": "Queijo, pão de padaria, conservas",
+      "g4": "Ultraprocessados",
+      "g4Det": "Refrigerantes, biscoitos, salgadinhos, cereais açucarados"
+    },
+    "energia": {
+      "titulo": "Calcule a sua energia do dia",
+      "sexo": "Sexo",
+      "mujer": "Mulher",
+      "hombre": "Homem",
+      "edad": "Idade",
+      "anios": "anos",
+      "peso": "Peso",
+      "estatura": "Altura",
+      "actividad": "Atividade",
+      "a1": "Sentado quase o dia todo",
+      "a2": "Algum movimento",
+      "a3": "Exercício 3–5 dias",
+      "a4": "Muito ativo",
+      "basal": "Metabolismo basal",
+      "total": "Gasto do dia",
+      "bajar": "Para perder peso (−15%)",
+      "proteina": "Proteína",
+      "kcal": "kcal",
+      "gDia": "g por dia",
+      "nota": "Equação de Mifflin-St Jeor. É uma estimativa (±10%): ajuste com o que você observar em duas ou três semanas."
+    },
+    "plato": {
+      "titulo": "Monte o seu prato",
+      "instruccion": "Toque nos alimentos para servi-los",
+      "verduras": "Verduras, legumes e frutas",
+      "cereales": "Cereais integrais",
+      "proteina": "Proteína",
+      "ideal": "Prato saudável: ½ verduras, legumes e frutas · ¼ cereais · ¼ proteína",
+      "vacio": "O seu prato está vazio",
+      "bien": "O seu prato parece o prato saudável!",
+      "masVerdura": "Faltam verduras, legumes e frutas",
+      "masCereal": "Falta um cereal integral",
+      "masProteina": "Falta proteína",
+      "vaciar": "Esvaziar",
+      "brocoli": "Brócolis",
+      "ensalada": "Salada",
+      "jitomate": "Tomate",
+      "manzana": "Maçã",
+      "arroz": "Arroz integral",
+      "tortilla": "Tortilha de milho",
+      "avena": "Aveia",
+      "pollo": "Frango",
+      "frijoles": "Feijão",
+      "huevo": "Ovo",
+      "pescado": "Peixe"
+    },
+    "azucar": {
+      "titulo": "Quanto açúcar tem o que você bebe?",
+      "refresco": "Refrigerante de cola (355 ml)",
+      "jugo": "Suco de laranja (250 ml)",
+      "isotonica": "Bebida esportiva (600 ml)",
+      "frappe": "Café frappé (473 ml)",
+      "chocolate": "Leite com chocolate (250 ml)",
+      "agua": "Água",
+      "gramos": "g de açúcar",
+      "cucharaditas": "colherinhas de chá",
+      "ideal": "do ideal para o dia todo (25 g)",
+      "nota": "Valores aproximados de rótulos comuns. A OMS também conta os açúcares dos sucos."
+    },
+    "cierre": {
+      "titulo": "Leve o seu plano na sua própria casa",
+      "texto": "O cômodo de Cozinha do MindHaOS guarda as suas receitas, monta o seu plano de refeições da semana e faz a lista de compras para você."
+    },
+    "memes": {
+      "limones": {
+        "arriba": "Os marinheiros de 1747: descobrem que o limão salva a vida deles",
+        "abajo": "Eu: coloco limão em tudo"
+      },
+      "ultraprocesados": {
+        "arriba": "Uns biscoitos «integrais» com 14 ingredientes",
+        "abajo": "Uma maçã: 1 ingrediente"
+      },
+      "perfecta": {
+        "arriba": "Dieta perfeita… durante três dias",
+        "abajo": "Comer bem quase sempre, o ano todo"
+      },
+      "tarde": {
+        "arriba": "Eu às 7 da noite sem ter comido direito",
+        "abajo": "Eu depois de uma refeição de verdade"
+      }
+    },
+    "paquete": {
+      "guia": "Guia interativo (com a calculadora de energia, o prato saudável e o açúcar das suas bebidas)",
+      "app": "Abra o cômodo de Cozinha no MindHaOS",
+      "hashtags": "#nutricao #alimentacaosaudavel #alimentacao #saude #receitas #MindHaOS"
+    }
+  },
+  "descanso": {
+    "meta": {
+      "titulo": "O que é dormir bem? Guia completo: ciclos, relógio interno, quanto dormir e como preparar a noite | MindHaOS",
+      "desc": "O que acontece no seu corpo enquanto você dorme, a história do sono, quantas horas você precisa dormir (calculadora de ciclos), como funciona o seu relógio interno, a cafeína que ainda resta na hora de deitar e o que fazer se você não consegue dormir."
+    },
+    "lista": {
+      "reparacion": "Reparação",
+      "reparacionDet": "Hormônio do crescimento: o corpo repara músculos e tecidos.",
+      "limpieza": "Limpeza do cérebro",
+      "limpiezaDet": "Em camundongos, o cérebro elimina mais resíduos enquanto dorme.",
+      "memoria": "Memória",
+      "memoriaDet": "Organiza e guarda o que você aprendeu durante o dia.",
+      "emociones": "Emoções",
+      "emocionesDet": "Processa o que você sentiu: você acorda com outra perspectiva.",
+      "alondra": "Cotovias",
+      "alondraDet": "Acordam cedo sem esforço e rendem mais de manhã.",
+      "buho": "Corujas",
+      "buhoDet": "Ficam ativas tarde e rendem mais à noite.",
+      "resumen1": "Sete horas ou mais, em horários constantes",
+      "resumen2": "Luz de manhã, escuridão à noite",
+      "resumen3": "Cuidado com a cafeína e o álcool",
+      "resumen4": "Prepare a última hora do dia"
+    },
+    "dato": {
+      "edison": "Edison testa com sucesso a sua lâmpada incandescente",
+      "cueva": "Kleitman vive 32 dias numa caverna para testar dias de 28 horas",
+      "rem": "Aserinsky e Kleitman descobrem o sono REM",
+      "nobel": "Nobel de Medicina pelos genes do relógio interno",
+      "deuda": "seis horas por noite durante duas semanas: a atenção, como depois de duas noites sem dormir",
+      "luz": "de luz natural logo depois de acordar",
+      "pantallas": "Ler num tablet antes de dormir atrasa a melatonina",
+      "regular": "pessoas: dormir em horários constantes está associado a menor mortalidade",
+      "alcohol": "O álcool fragmenta a segunda metade da noite",
+      "ejercicio": "O exercício regular ajuda a pegar no sono mais cedo e a dormir mais profundamente",
+      "veinte": "sem dormir: levante-se e volte quando sentir sono",
+      "siesta": "de desempenho com um cochilo de uns 26 minutos (NASA)",
+      "terapia": "Terapia cognitivo-comportamental: o primeiro tratamento da insônia"
+    },
+    "pasos": {
+      "sinAlarma": "Você acorda sem despertador",
+      "sinAlarmaDet": "Nas férias, mais ou menos na mesma hora que nos dias de semana.",
+      "sinCafe": "Não precisa de café para começar o dia",
+      "sinCafeDet": "Na primeira hora do dia, você já está desperto.",
+      "despierto": "Aguenta a tarde toda",
+      "despiertoDet": "Sem cochilar depois do almoço nem em reuniões.",
+      "fresco": "Fresco",
+      "frescoDet": "Por volta de 18 °C: o corpo baixa a temperatura para dormir.",
+      "oscuro": "Escuro",
+      "oscuroDet": "Cortinas grossas ou máscara de dormir; nada de luzes acesas.",
+      "silencio": "Silencioso",
+      "silencioDet": "Protetores de ouvido ou ruído branco se você mora numa rua barulhenta.",
+      "apaga": "Deixe as telas",
+      "apagaDet": "Uma hora antes: o celular carregando longe da cama.",
+      "luces": "Diminua as luzes",
+      "lucesDet": "Luz quente e fraca: avisa o seu corpo de que já é noite.",
+      "ritual": "Um ritual, sempre igual",
+      "ritualDet": "Ler, um banho morno ou se alongar: o sinal de que o sono está chegando."
+    },
+    "grafica": {
+      "hipnograma": "Uma noite típica: ciclos de uns 90 minutos; o sono profundo, no começo, e o REM, perto da manhã",
+      "despierto": "Acordado",
+      "rem": "REM",
+      "ligero": "Leve",
+      "profundo": "Profundo",
+      "historia": "O que fomos descobrindo sobre o sono",
+      "siglos": "Séculos XVI–XVIII",
+      "siglosDet": "Primeiro e segundo sono",
+      "edisonDet": "A lâmpada de Edison",
+      "cuevaDet": "Kleitman na caverna",
+      "remDet": "Descobre-se o REM",
+      "nobelDet": "Nobel pelo relógio interno",
+      "edades": "Horas de sono recomendadas por noite (Academia Americana de Medicina do Sono)",
+      "ninos": "Crianças 6–12",
+      "adolescentes": "Adolescentes",
+      "adultos": "Adultos",
+      "circadiano": "O seu relógio de 24 horas: a luz do dia o acerta e a melatonina sobe quando escurece",
+      "luz": "Luz do dia",
+      "melatonina": "Melatonina"
+    },
+    "calc": {
+      "titulo": "A que horas ir para a cama?",
+      "despierto": "Eu me levanto às",
+      "acuestate": "Vá para a cama num destes horários (conte 15 minutos para pegar no sono):",
+      "ciclos": "ciclos",
+      "nota": "Os ciclos duram de 80 a 110 minutos, dependendo da pessoa: é um guia, não uma regra. O importante é dormir sete horas ou mais."
+    },
+    "cafeina": {
+      "titulo": "Quanta cafeína ainda resta na hora de deitar?",
+      "cafe": "Xícara de café",
+      "espresso": "Expresso",
+      "te": "Chá preto",
+      "cola": "Refrigerante de cola",
+      "energetica": "Energético",
+      "aLas": "Eu tomo às",
+      "duermes": "Eu durmo às",
+      "quedan": "ainda no seu corpo",
+      "deLaDosis": "da dose",
+      "nota": "Com uma meia-vida de umas 5 horas (de 2 a 10, dependendo da pessoa). Se você é sensível à cafeína, evite depois do meio-dia."
+    },
+    "cierre": {
+      "titulo": "Cuide do seu descanso na sua própria casa",
+      "texto": "O cômodo de Descanso do MindHaOS acompanha o seu horário de sono com avisos e despertador, dá uma pontuação a cada noite e guarda o registro das suas noites para você ver os seus padrões."
+    },
+    "memes": {
+      "cinco": {
+        "arriba": "Eu às 11 da noite: amanhã eu acordo cedo e faço tudo",
+        "abajo": "Eu às 7 da manhã: só mais cinco minutinhos"
+      },
+      "capitulo": {
+        "arriba": "Dormir na hora certa",
+        "abajo": "«Só mais um episódio» às 2 da manhã"
+      },
+      "cafe": {
+        "arriba": "Eu às 6 da tarde: um cafezinho não me faz nada",
+        "abajo": "Eu às 2 da manhã olhando para o teto"
+      },
+      "siesta": {
+        "arriba": "Um cochilo de 20 minutos: aprovado pela ciência (e pela NASA)"
+      }
+    },
+    "paquete": {
+      "guia": "Guia interativo (com a calculadora de ciclos de sono, o seu relógio de 24 horas e a cafeína que ainda resta na hora de deitar)",
+      "app": "Abra o cômodo de Descanso no MindHaOS",
+      "hashtags": "#sono #dormirbem #descanso #saude #insonia #MindHaOS"
+    }
+  },
+  "finanzas": {
+    "moneda": "R$",
+    "formato": "antes",
+    "base": "5000",
+    "meta": {
+      "titulo": "O que é o dinheiro? Guia completo: como surgiu, orçamento, reserva de emergência, dívidas e juros compostos | MindHaOS",
+      "desc": "O que é o dinheiro e como ele surgiu, para onde vai o seu (calculadora de gastos formiga e regra 50/30/20), como montar a sua reserva de emergência, quanto custa pagar o mínimo e como a sua poupança cresce com os juros compostos."
+    },
+    "lista": {
+      "resumen1": "Anote para onde vai o seu dinheiro",
+      "resumen2": "Pague a si mesmo primeiro, no dia do pagamento",
+      "resumen3": "Monte a sua reserva e saia das dívidas caras",
+      "resumen4": "Deixe o tempo e os juros trabalharem"
+    },
+    "dato": {
+      "loteria": "depois de ganhar: os de prêmios grandes faliam quase tanto quanto os de prêmios pequenos",
+      "lidia": "A Lídia cunha as primeiras moedas, de eletro",
+      "jiaozi": "A China emite o jiaozi, o primeiro papel-moeda oficial",
+      "ponzi": "Charles Ponzi promete 50 % em 45 dias… com o dinheiro dos novos",
+      "nixon": "O dólar deixa de ser trocado por ouro",
+      "registra": "anotando tudo o que você gasta, até o cafezinho",
+      "emergencia": "dos adultos nos EUA cobririam um imprevisto de 400 dólares com as suas economias",
+      "tarjeta": "de juros anuais médios nos cartões de crédito dos EUA (2024)",
+      "regla72": "Divida 72 pela taxa: os anos em que o seu dinheiro dobra",
+      "fraude": "Ganhos altos e garantidos: não existem",
+      "revisa": "para revisar quanto entrou, quanto saiu e quanto você avançou"
+    },
+    "pasos": {
+      "plazo": "A longo prazo",
+      "plazoDet": "Só o dinheiro de que você não vai precisar tão cedo.",
+      "canasta": "Nem tudo na mesma cesta",
+      "canastaDet": "Dividir o risco: que um único tropeço não derrube tudo.",
+      "entiende": "Só no que você entende",
+      "entiendeDet": "Se você não sabe explicar como aquilo ganha dinheiro, não coloque o seu.",
+      "nombre": "Dê um nome",
+      "nombreDet": "«A entrada do carro», e não «poupar mais».",
+      "monto": "Dê um valor",
+      "montoDet": "Quanto você precisa, no total.",
+      "fecha": "Dê uma data",
+      "fechaDet": "Valor ÷ meses = o que você separa por mês."
+    },
+    "grafica": {
+      "funciones": "As três funções do dinheiro",
+      "intercambio": "Trocar",
+      "intercambioDet": "Todo mundo aceita em troca de qualquer coisa.",
+      "medida": "Medir",
+      "medidaDet": "Põe preço em tudo na mesma unidade.",
+      "reserva": "Guardar valor",
+      "reservaDet": "O de hoje, para gastar amanhã.",
+      "inflacion": "O que 100 de hoje compram, ano após ano, com uma inflação de 3 % ao ano",
+      "mitad": "A metade",
+      "flujo": "A conta que decide tudo",
+      "entra": "O que entra",
+      "entraDet": "Salário, vendas, qualquer renda.",
+      "sale": "Menos o que sai",
+      "saleDet": "Gastos fixos, gostos, dívidas.",
+      "queda": "O que sobra",
+      "quedaDet": "Para poupar, sair das dívidas e construir.",
+      "historia": "Como o dinheiro foi mudando",
+      "aC": "a.C.",
+      "hammurabiDet": "Hamurabi limita os juros",
+      "lidiaDet": "As primeiras moedas",
+      "jiaoziDet": "O primeiro papel-moeda oficial",
+      "ponziDet": "A fraude de Ponzi",
+      "nixonDet": "Adeus ao ouro",
+      "ahorraMas": "Save More Tomorrow (Poupe Mais Amanhã): a poupança dos trabalhadores, de 3,5 % a 13,6 % do salário em quatro aumentos",
+      "antes": "Antes",
+      "aumento": "Aumento",
+      "metodos": "Duas ordens para pagar as mesmas dívidas",
+      "avalancha": "Avalanche",
+      "avalanchaDet": "Primeiro a de juros mais altos: você paga menos juros.",
+      "bolaNieve": "Bola de neve",
+      "bolaNieveDet": "Primeiro a menor: você vê avanços antes.",
+      "tarjeta": "Cartão",
+      "prestamo": "Empréstimo",
+      "tienda": "Loja",
+      "empezarAntes": "O mesmo valor todo mês a 6 % ao ano até os 65 anos: começando aos 25 ou aos 35",
+      "empezarAntesA": "A partir dos 25",
+      "empezarAntesB": "A partir dos 35",
+      "comisiones": "100 de hoje durante 30 anos: a 7 % e a 7 % menos um ponto de taxa",
+      "comisionesA": "Sem taxa",
+      "comisionesB": "Com 1 % de taxa",
+      "automatiza": "A ordem do dia do pagamento, no automático",
+      "cobras": "Você recebe",
+      "cobrasDet": "Entra o seu salário.",
+      "ahorroAuto": "Poupança",
+      "ahorroAutoDet": "Sai sozinha, primeiro.",
+      "fijos": "Contas fixas",
+      "fijosDet": "Em débito automático: aluguel, serviços, dívidas.",
+      "libre": "O resto",
+      "libreDet": "Livre para gastar sem culpa."
+    },
+    "hormiga": {
+      "titulo": "Quanto leva um gasto formiga?",
+      "gasto": "Cada vez eu gasto",
+      "dias": "Dias por semana",
+      "alAnio": "Em um ano",
+      "diezAnios": "Em dez anos",
+      "invertido": "Se você separar isso a 6 % ao ano, em dez anos",
+      "nota": "Não se trata de não se dar um gosto: se trata de escolher sabendo quanto custa."
+    },
+    "reparto": {
+      "titulo": "A regra 50/30/20",
+      "ingreso": "A minha renda mensal, já sem impostos",
+      "necesario": "O necessário",
+      "gustos": "Os seus gostos",
+      "ahorro": "Poupança e dívidas",
+      "nota": "É um ponto de partida: se o aluguel leva mais da metade, ajuste os gostos antes da poupança."
+    },
+    "fondo": {
+      "titulo": "A sua reserva de emergência",
+      "gasto": "Os meus gastos básicos por mês",
+      "aparta": "Consigo separar por mês",
+      "meses": "Meses de reserva",
+      "meta": "A sua meta",
+      "tardas": "Você junta em",
+      "mesesCorto": "meses",
+      "nota": "Gastos básicos: moradia, comida, contas da casa, transporte e parcelas de dívidas. Guarde à parte, onde não dê vontade de gastar."
+    },
+    "deuda": {
+      "titulo": "Quanto custa pagar pouco?",
+      "saldo": "O que eu devo",
+      "tasa": "Juros anuais",
+      "pago": "Pagamento por mês",
+      "tardas": "Você leva para sair",
+      "meses": "meses",
+      "intereses": "Você paga de juros",
+      "total": "Você paga no total",
+      "nunca": "Com esse pagamento você não cobre nem os juros: a dívida nunca diminui.",
+      "loQueDebias": "O que você devia",
+      "nota": "Sem compras novas nem tarifas. Muitos cartões também cobram impostos ou outros encargos sobre os juros."
+    },
+    "compuesto": {
+      "titulo": "Os juros compostos, nos seus números",
+      "aporte": "Separo por mês",
+      "tasa": "Rendimento anual",
+      "anios": "Durante",
+      "aniosCorto": "anos",
+      "tuyo": "O que você colocou",
+      "interes": "O que os juros colocaram",
+      "total": "No final",
+      "nota": "É um cálculo ilustrativo com um rendimento fixo: na vida real os rendimentos variam, podem ser negativos e é preciso descontar a inflação e as taxas."
+    },
+    "cierre": {
+      "titulo": "Cuide do seu dinheiro na sua própria casa",
+      "texto": "O cômodo de Finanças do MindHaOS acompanha o seu fluxo de dinheiro com gastos, renda e saldo, as suas metas de poupança e de dívidas com calculadoras, e o seu patrimônio, para você ver ele crescer."
+    },
+    "memes": {
+      "garantizado": {
+        "arriba": "«50 % de lucro em 45 dias, garantido»"
+      },
+      "hormiga": {
+        "arriba": "Eu: não sobra nada para poupar",
+        "abajo": "Também eu: um cafezinho, um lanchinho e três assinaturas que eu não uso"
+      },
+      "quincena": {
+        "arriba": "Eu no dia do pagamento",
+        "abajo": "Eu três dias depois"
+      },
+      "minimo": {
+        "arriba": "Pagar a fatura inteira do cartão",
+        "abajo": "Pagar o mínimo e me preocupar em 2035"
+      }
+    },
+    "paquete": {
+      "guia": "Guia interativo (com as calculadoras de gastos formiga, regra 50/30/20, reserva de emergência, dívida de cartão e juros compostos)",
+      "app": "Abra o cômodo de Finanças no MindHaOS",
+      "hashtags": "#financaspessoais #poupanca #dinheiro #orcamento #educacaofinanceira #MindHaOS"
+    }
+  },
+  "idiomas": {
+    "narra": "Narração do mago",
+    "cargando3d": "Chamando o mago…",
+    "meta": {
+      "titulo": "Por que aprender um idioma? Guia completo: o seu cérebro, níveis, horas, memória, repetição espaçada e um plano de 20 minutos | MindHaOS",
+      "desc": "Por que vale a pena aprender um idioma mesmo com as máquinas já traduzindo, o que é saber um idioma e quanto tempo leva, como o seu cérebro aprende e esquece (curva do esquecimento e repetição espaçada), quais palavras rendem mais, como falar desde o primeiro dia e um plano de vinte minutos por dia."
+    },
+    "lista": {
+      "resumen1": "Ouça coisas que você quase entende",
+      "resumen2": "Revise de forma espaçada, se testando",
+      "resumen3": "Primeiro as palavras mais usadas, em frases",
+      "resumen4": "Fale desde o primeiro dia, um pouco a cada dia"
+    },
+    "dato": {
+      "cerebro": "mais tarde apareceram os sintomas de demência em quem falava dois idiomas (Toronto, 2007)",
+      "distancia": "mais horas de aula para o japonês do que para o espanhol, se você fala inglês",
+      "comenio": "Comenius publica o Orbis Pictus: cada palavra em latim junto de um desenho",
+      "berlitz": "Berlitz abre a sua escola: na aula não se traduz",
+      "zamenhof": "Zamenhof publica o esperanto, uma gramática sem exceções",
+      "canales": "idiomas nos canais do MindHaOS: assista a um guia que você já conhece no idioma que está aprendendo",
+      "swain": "Merrill Swain: entender não basta, também é preciso produzir",
+      "errores": "Cada erro que corrigem é uma lição feita sob medida para você",
+      "diario": "Abra a boca todos os dias, nem que seja para falar sozinho",
+      "riega": "um pouco a cada dia, melhor que uma maratona no domingo"
+    },
+    "pasos": {
+      "chistes": "As piadas e os duplos sentidos",
+      "chistesDet": "O que uma tradução palavra por palavra perde.",
+      "gente": "As pessoas, sem tela",
+      "genteDet": "Uma conversa de verdade, olho no olho.",
+      "pensar": "Outro jeito de ver",
+      "pensarDet": "Cada língua organiza o mundo do seu jeito.",
+      "frase": "Uma frase inteira",
+      "fraseDet": "«Você me passa o sal?», não «sal» solto.",
+      "contexto": "Com a sua situação",
+      "contextoDet": "Onde e com quem você diria isso.",
+      "usala": "Use logo",
+      "usalaDet": "Hoje ou amanhã, em voz alta.",
+      "escucha": "Ouça",
+      "escuchaDet": "Um áudio curto que você quase entende.",
+      "repite": "Repita junto",
+      "repiteDet": "Como um eco: o ritmo e a entonação.",
+      "grabate": "Grave-se",
+      "grabateDet": "Compare com o original e repita.",
+      "para": "Um para quê",
+      "paraDet": "Viajar, trabalhar, falar com a sua família…",
+      "nivel": "Um nível",
+      "nivelDet": "O do QECR: A2, B1, B2…",
+      "fecha": "Uma data",
+      "fechaDet": "Horas que faltam ÷ dias = a sua rotina."
+    },
+    "grafica": {
+      "habilidades": "As quatro habilidades de um idioma",
+      "entender": "Entender",
+      "producir": "Produzir",
+      "escuchar": "Ouvir",
+      "leer": "Ler",
+      "hablar": "Falar",
+      "escribir": "Escrever",
+      "fsi": "Horas de aula para trabalhar no idioma, para alguém que fala inglês (FSI)",
+      "g1": "Próximo",
+      "g1Det": "Espanhol, francês, italiano, português, holandês",
+      "g2": "Médio",
+      "g2Det": "Alemão, indonésio, suaíli",
+      "g3": "Difícil",
+      "g3Det": "Russo, hindi, turco, polonês, grego",
+      "g4": "Muito difícil",
+      "g4Det": "Japonês, chinês, coreano, árabe",
+      "historia": "Como os idiomas foram aprendidos",
+      "aC": "a.C.",
+      "rosettaDet": "A pedra de Roseta",
+      "orbisDet": "O Orbis Pictus de Comenius",
+      "berlitzDet": "Berlitz: sem traduzir",
+      "esperantoDet": "Nasce o esperanto",
+      "leitnerDet": "As caixas de Leitner",
+      "inputComprensible": "O que te ensina: nem muito fácil, nem muito difícil",
+      "facil": "Muito fácil",
+      "facilDet": "Você entende tudo: não há nada novo.",
+      "justo": "Um pouco acima",
+      "justoDet": "Você entende quase tudo e algo é novo: aprende.",
+      "dificil": "Muito difícil",
+      "dificilDet": "Você não entende nada: é só ruído.",
+      "olvido": "A curva do esquecimento: o que Ebbinghaus ainda retinha das suas listas (economia ao reaprendê-las, %)",
+      "olvidoDia": "Um dia depois: ≈ 34 %",
+      "unDia": "1 dia",
+      "unMes": "1 mês",
+      "recuperar": "Reler ou se testar (esquema de Roediger e Karpicke, 2006)",
+      "releer": "Reler",
+      "prueba": "Se testar",
+      "dosDias": "2 dias",
+      "unaSemana": "1 semana",
+      "temas": "Comece pelo que você vai usar",
+      "viajar": "Para viajar",
+      "trabajar": "Para trabalhar",
+      "saludos": "Cumprimentos",
+      "comida": "Comida",
+      "transporte": "Transporte",
+      "direcciones": "Direções",
+      "presentarte": "Se apresentar",
+      "reuniones": "Reuniões",
+      "correos": "E-mails",
+      "edad": "Facilidade para aprender gramática segundo a idade (esquema de Hartshorne, Tenenbaum e Pinker, 2018)",
+      "nativo": "Soar nativo",
+      "adulto": "Falar bem: em qualquer idade",
+      "rutina": "Vinte minutos por dia",
+      "escucha5": "5 min · Ouça",
+      "escucha5Det": "Algo que você quase entende.",
+      "repasa5": "5 min · Revise",
+      "repasa5Det": "Os cartões de hoje.",
+      "habla5": "5 min · Fale",
+      "habla5Det": "Em voz alta ou fazendo sombra.",
+      "lee5": "5 min · Leia ou escreva",
+      "lee5Det": "Um parágrafo, uma mensagem."
+    },
+    "nivel": {
+      "titulo": "Em que nível você está?",
+      "a1": "Eu me apresento e peço algo numa lanchonete",
+      "a2": "Falo da minha rotina, da minha família e das minhas compras",
+      "b1": "Me viro em viagem e conto o que me aconteceu",
+      "b2": "Acompanho uma conversa normal e dou a minha opinião",
+      "c1": "Entendo séries e textos longos sem esforço",
+      "c2": "Entendo praticamente tudo, com nuances",
+      "vas": "Você está no",
+      "ninguno": "Você ainda não marcou nada: começa no A1.",
+      "nota": "Conta o nível mais alto que você marca sem pular nenhum. É uma orientação com os descritores do QECR, não uma prova."
+    },
+    "olvido": {
+      "titulo": "A curva do esquecimento e as suas revisões",
+      "repasos": "Revisões",
+      "dias": "dias",
+      "recuerdas": "Aos 30 dias você lembra",
+      "cuando": "Você revisa nos dias",
+      "nota": "É um modelo ilustrativo: cada revisão faz a lembrança se apagar mais devagar. O real depende da palavra e de você."
+    },
+    "cobertura": {
+      "titulo": "Quanto de um texto você reconhece?",
+      "sabes": "Palavras mais frequentes que você sabe",
+      "reconoces": "Você reconhece de um texto comum",
+      "desconocida": "Palavras que você não conhece",
+      "nota": "Aproximado, para o inglês (Nation, 2006). Para ler sem dicionário é preciso reconhecer quase todas: mais ou menos 98 em cada 100."
+    },
+    "leitner": {
+      "titulo": "As caixas de Leitner",
+      "frente": "the apple",
+      "reverso": "a maçã",
+      "voltea": "toque para virar",
+      "acerte": "Acertei",
+      "falle": "Errei",
+      "proximo": "Você vê de novo em",
+      "dominada": "quase dominada",
+      "nota": "Se você acerta, sobe uma caixa; se erra, desce duas. Os intervalos são os do app de Idiomas do MindHaOS.",
+      "dia": "dia",
+      "dias": "dias"
+    },
+    "minutos": {
+      "titulo": "Quanto soma a sua rotina?",
+      "minutos": "Minutos por dia",
+      "dias": "Dias por semana",
+      "idioma": "O idioma que você aprende",
+      "alAnio": "Horas por ano",
+      "llegas": "Você chega às horas do FSI em",
+      "meses": "meses",
+      "anios": "anos",
+      "nota": "Toma como referência umas {h} horas, as de aula intensiva do FSI para alguém que fala inglês: é uma ordem de grandeza, não uma promessa."
+    },
+    "cierre": {
+      "titulo": "Aprenda o seu idioma na sua própria casa",
+      "texto": "O cômodo de Idiomas do MindHaOS tem conversas com um tutor que te corrige, um programa por níveis com os seus cartões e uma revisão espaçada que te diz o que revisar hoje."
+    },
+    "memes": {
+      "olvido": {
+        "arriba": "Eu no domingo, depois de decorar 50 palavras",
+        "abajo": "Eu na segunda"
+      },
+      "lista": {
+        "arriba": "Decorar 500 palavras soltas",
+        "abajo": "Aprender 10 frases que eu uso todo dia"
+      },
+      "perfecto": {
+        "arriba": "Esperar falar perfeito para começar",
+        "abajo": "Falar hoje, com erros e tudo"
+      }
+    },
+    "paquete": {
+      "guia": "Guia interativo (com o seu nível no QECR, a curva do esquecimento, as palavras que mais rendem, as caixas de Leitner e a calculadora da sua rotina)",
+      "app": "Abra o cômodo de Idiomas no MindHaOS",
+      "hashtags": "#idiomas #aprenderidiomas #inglês #poliglota #dicasdeestudo #MindHaOS"
+    }
+  },
+  "arte": {
+    "meta": {
+      "titulo": "O que é a arte? Guia completo das artes visuais: por que criar mesmo com a IA, história, elementos, como olhar uma obra e um plano de 15 minutos | MindHaOS",
+      "desc": "O que é a arte e o que são as artes visuais, por que vale a pena fazer arte mesmo que uma inteligência artificial já pinte, uma breve história das cavernas às telas, os elementos de uma obra (linha, forma, valor, cor, composição), como olhar com calma e como começar a criar com um plano de quinze minutos por dia."
+    },
+    "lista": {
+      "dibujo": "Desenho",
+      "dibujoDet": "Lápis, carvão, nanquim.",
+      "pintura": "Pintura",
+      "pinturaDet": "Óleo, aquarela, acrílica.",
+      "escultura": "Escultura",
+      "esculturaDet": "Barro, pedra, madeira, metal.",
+      "fotografia": "Fotografia",
+      "fotografiaDet": "Luz capturada num instante.",
+      "digital": "Ilustração digital",
+      "digitalDet": "Tablets, camadas e telas.",
+      "resumen1": "A arte é fazer algo para que outra pessoa olhe e sinta",
+      "resumen2": "Vale a pena pelo que acontece com você ao criar",
+      "resumen3": "Olhe com calma: luz, forma, cor e composição",
+      "resumen4": "Crie um pouco todo dia"
+    },
+    "dato": {
+      "cortisol": "pessoas baixaram o hormônio do estresse depois de 45 minutos fazendo arte, soubessem desenhar ou não (Kaimal, 2016)",
+      "perspectiva": "Brunelleschi mostra com um espelho como se vê a profundidade, em Florença",
+      "durero": "Dürer publica seu manual com a grade para desenhar o que se vê",
+      "fotografia": "O daguerreótipo, a primeira fotografia prática, é apresentado em Paris",
+      "duchamp": "Duchamp manda «A Fonte» para uma exposição: o que faz algo ser arte?",
+      "sketchpad": "Sketchpad: o primeiro programa para desenhar numa tela",
+      "museo": "diante de cada obra, em média, no Museu Metropolitano (Smith e Smith, 2001)",
+      "unaObra": "olhando uma única obra: descreva, analise, interprete e julgue",
+      "louvre": "o ano em que o Louvre abriu, e desde então ele deixa copiar seus quadros",
+      "cuaderno": "desenhos para aprender antes de julgar como estão saindo",
+      "meta": "cem desenhos em cem dias: uma meta que dá para contar"
+    },
+    "pasos": {
+      "hacer": "Alguém faz",
+      "hacerDet": "Com intenção: escolhe o que mostrar e como.",
+      "mirar": "Outra pessoa olha",
+      "mirarDet": "Um quadro, uma foto, uma escultura, uma tela.",
+      "sentir": "E sente ou pensa algo",
+      "sentirDet": "O que Tolstói chamou de contagiar um sentimento.",
+      "creer": "Desenhamos o que achamos",
+      "creerDet": "Um olho «de amêndoa», mesmo que de lado não seja.",
+      "ver": "Em vez do que vemos",
+      "verDet": "Ângulos, tamanhos e espaços reais.",
+      "entrenar": "E isso se treina",
+      "entrenarDet": "Com exercícios de olhar, como um músculo.",
+      "lapiz": "Um lápis",
+      "lapizDet": "Um macio (2B) basta para começar.",
+      "papel": "Papel",
+      "papelDet": "Um caderno barato: sem medo de gastar.",
+      "tableta": "Ou um tablet",
+      "tabletaDet": "Com camadas e desfazer, se você se sentir à vontade.",
+      "brazo": "Braço esticado",
+      "brazoDet": "Sempre à mesma distância e com um olho fechado.",
+      "unidad": "Uma unidade",
+      "unidadDet": "Meça algo com o lápis: a cabeça, a largura de uma janela.",
+      "compara": "Compare",
+      "comparaDet": "Quantas vezes ela cabe no resto?",
+      "describe": "Descreva",
+      "describeDet": "O que tem ali? Pessoas, objetos, cores, sem opinar ainda.",
+      "analiza": "Analise",
+      "analizaDet": "Como foi feito? Linhas, luz, composição.",
+      "interpreta": "Interprete",
+      "interpretaDet": "O que quer dizer? O que você sente ao ver?",
+      "juzga": "Julgue",
+      "juzgaDet": "Só no final: você gosta, e por quê?",
+      "amigo": "Para um amigo",
+      "amigoDet": "Pergunte o que ele vê primeiro.",
+      "clase": "Numa aula",
+      "claseDet": "Um professor corrige você bem onde você erra.",
+      "internet": "Na internet",
+      "internetDet": "Há comunidades que comentam desenhos de iniciantes."
+    },
+    "grafica": {
+      "efectoDibujo": "Palavras lembradas depois (esquema de Wammes, Meade e Fernandes, 2016)",
+      "escribir": "Escrever",
+      "escribirDet": "Copiar a palavra várias vezes.",
+      "dibujar": "Desenhar",
+      "dibujarDet": "Fazer um desenho do que ela significa.",
+      "historia": "Uma breve história da arte visual",
+      "hace": "há {n} anos",
+      "celebesDet": "Pessoas e um porco selvagem em Celebes",
+      "lascauxDet": "Os cavalos e touros de Lascaux",
+      "perspectivaDet": "Brunelleschi e a perspectiva",
+      "fotografiaDet": "Chega a fotografia",
+      "duchampDet": "Duchamp e sua «A Fonte»",
+      "sketchpadDet": "Sketchpad, o primeiro desenho numa tela",
+      "formas": "As quatro formas com que se constrói quase tudo",
+      "cubo": "Cubo",
+      "esfera": "Esfera",
+      "cilindro": "Cilindro",
+      "cono": "Cone",
+      "tercios": "A regra dos terços: o importante, num dos cruzamentos",
+      "circulo": "O círculo das cores e o valor de cada uma em cinza",
+      "tono": "Cor",
+      "valor": "Valor",
+      "rutina": "Quinze minutos por dia, uma semana",
+      "lunes": "Segunda · Contornos",
+      "lunesDet": "Sua mão, uma folha, sem olhar o papel.",
+      "martes": "Terça · Formas",
+      "martesDet": "Cubos, esferas e cilindros no que você vir.",
+      "miercoles": "Quarta · Gestos",
+      "miercolesDet": "Poses de 30 segundos a 2 minutos.",
+      "jueves": "Quinta · Luz e sombra",
+      "juevesDet": "Uma esfera, uma caneca, com seus cinco valores.",
+      "viernes": "Sexta · Um mestre",
+      "viernesDet": "Olhe uma obra por dez minutos e copie um trecho.",
+      "finde": "Fim de semana · Livre",
+      "findeDet": "O que você quiser, por prazer."
+    },
+    "mesas": {
+      "titulo": "Qual das duas mesas é mais comprida?",
+      "pregunta": "A da esquerda parece bem mais comprida, né?",
+      "comprobar": "Conferir",
+      "otraVez": "De novo",
+      "identicas": "São idênticas: é a mesma forma, girada",
+      "nota": "É a ilusão das mesas de Roger Shepard (1990). Seu cérebro «corrige» a perspectiva com o que sabe sobre mesas; ao desenhar, meça em vez de confiar nessa correção."
+    },
+    "alReves": {
+      "titulo": "Desenhar de cabeça para baixo",
+      "voltear": "Desvirar",
+      "deCabeza": "Virar de cabeça para baixo",
+      "lineas": "De cabeça para baixo você não vê um rosto: vê linhas e ângulos",
+      "cara": "Do jeito certo, seu cérebro vê «um rosto» e desenha símbolos",
+      "nota": "Tente copiar assim, de cabeça para baixo, sem desvirar até terminar. É o exercício do livro de Betty Edwards (1979)."
+    },
+    "ojos": {
+      "titulo": "Onde ficam os olhos?",
+      "linea": "Mova a linha dos olhos",
+      "coronilla": "Topo da cabeça",
+      "barbilla": "Queixo",
+      "desdeArriba": "Os olhos estão a",
+      "justo": "Bem na metade da cabeça!",
+      "nota": "Numa cabeça adulta vista de frente, os olhos ficam mais ou menos na metade, entre o topo da cabeça e o queixo. O cabelo engana: a testa é mais alta do que parece."
+    },
+    "valores": {
+      "titulo": "Os cinco valores da luz",
+      "valor": "Valor",
+      "luz": "Luz",
+      "medio": "Meio-tom",
+      "sombra": "Sombra própria",
+      "reflejada": "Luz refletida",
+      "proyectada": "Sombra projetada",
+      "entrecierra": "Aperte os olhos",
+      "nota": "Ao apertar os olhos, os detalhes desaparecem e ficam as grandes manchas de luz e sombra: é assim que se veem os valores de qualquer coisa que você desenhe."
+    },
+    "cronometro": {
+      "titulo": "Desenhos de gesto",
+      "pose": "Cada pose dura",
+      "poseN": "Pose",
+      "empezar": "Começar",
+      "pausa": "Pausar",
+      "nota": "Procure fotos de pessoas em movimento e desenhe só o gesto: a linha da coluna, os ombros e os quadris. Quando o tempo acabar, passe para a próxima pose mesmo que não tenha terminado."
+    },
+    "dibujos": {
+      "titulo": "Quanto soma a sua prática?",
+      "minutos": "Minutos por dia",
+      "tipo": "Tipo de desenho",
+      "rapidos": "Gestos (2 min)",
+      "bocetos": "Esboços (10 min)",
+      "estudios": "Estudos (30 min)",
+      "horas": "Horas por ano",
+      "alAnio": "Obras em um ano",
+      "nota": "Contando todos os dias do ano. Não precisam ficar bons: cada um ensina alguma coisa."
+    },
+    "cierre": {
+      "titulo": "Crie na sua própria casa",
+      "texto": "O Studio de Arte do MindHaOS tem uma galeria para as suas obras, uma tela em camadas que se salva sozinha e ajudas de desenho como a grade e o espelho."
+    },
+    "memes": {
+      "simbolos": {
+        "arriba": "Eu desenhando uma casa aos 6 anos",
+        "abajo": "Eu desenhando uma casa aos 30"
+      },
+      "ojos": {
+        "arriba": "Onde eu coloco os olhos",
+        "abajo": "Onde eles ficam de verdade: na metade"
+      },
+      "cien": {
+        "arriba": "Esperar o primeiro desenho sair perfeito",
+        "abajo": "Fazer cem desenhos ruins"
+      }
+    },
+    "paquete": {
+      "guia": "Guia interativo (com os cinco valores da luz, a ilusão das mesas, o desenho de cabeça para baixo, onde ficam os olhos, um cronômetro de gestos e a calculadora da sua prática)",
+      "app": "Abra o Studio de Arte no MindHaOS",
+      "hashtags": "#arte #artesvisuais #desenho #historiadaarte #inteligenciaartificial #MindHaOS"
+    }
   }
 }
