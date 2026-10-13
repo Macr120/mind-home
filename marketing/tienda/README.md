@@ -44,6 +44,7 @@ Si App Store Connect pide además el 6.5", valen los de `appstore/` reescalados 
 ipad/<idioma>.png                    2048×2732 — 12.9" del App Store, obligatorio solo si se publica para iPad
 duo-exterior/<idioma>.png            1398×2034 — iPhone Duo, pantalla exterior
 duo-interior/<idioma>.png            2007×2853 — iPhone Duo, pantalla interior (plegable)
+cabecera/<idioma>.png                5244×2950 — cabecera + resultados de búsqueda del App Store (16:9)
 feature-graphic-1024x500.png         1024×500 — banner de cabecera de Play
 capturas/mapa-completo.png           2048×1000 — el mapa entero, sin marco
 ```
@@ -120,6 +121,27 @@ del Duo, con `--formato=duo-exterior` o `--formato=duo-interior` en los dos
 scripts (los tamaños viven en `FORMATOS` de `plantilla-ipad.mjs`). Apple los
 exige desde abril de 2027 a las apps compiladas con el SDK de iOS 27.1; en oct
 2026 App Store Connect publica los tamaños pero aún no deja subirlos.
+
+**Cabecera y resultados de búsqueda** (oct 2026, «Header and Search Results» de
+Product Page Information): una imagen 16:9 de 5244×2950 por idioma, el único
+formato que Apple acepta en las dos posiciones (se marca «Use header asset in
+search results»). Sin transparencia, opcional, solo se ve en iOS 27+ y Apple la
+revisa aparte de la versión. Es la casa en isométrica con el lockup y el titular
+de la lámina 1 sobre el cielo:
+
+```bash
+MH_PUERTO=53378 node marketing/tienda/generador/capturar-cabecera.mjs --prueba   # encuadre
+MH_PUERTO=53378 node marketing/tienda/generador/capturar-cabecera.mjs            # mosaico 3×3
+node marketing/tienda/generador/exportar-cabecera.mjs                            # 16 idiomas
+```
+
+15 MP no caben en WebGL ni en una captura de CDP, así que todo va por trozos de
+1748×984: la escena se renderiza con `camera.setViewOffset` (anulando el
+`clearViewOffset` que `CameraRig` hace en cada fotograma), la lámina se pinta en
+un viewport de un trozo desplazada con `transform`, y sharp une las piezas y le
+quita el alfa. La escena sale de UNA captura (el cartel de la casa queda en el
+idioma del Chrome del piloto). Ojo: con zoom < ~21 la app pasa a suelos sin
+textura; el encuadre actual (zoom 22.5) los conserva.
 
 ## Microsoft Store
 
