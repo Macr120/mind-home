@@ -1,0 +1,724 @@
+{
+  "idioma": "fr",
+  "tema": "video",
+  "plantillaId": "video",
+  "numero": 8,
+  "nombre": "Studio vidéo",
+  "pregunta": "Comment faire des vidéos ?",
+  "corta": "Comment faire des vidéos ?",
+  "subtitulo": "Pourquoi apprendre à faire des vidéos même si une intelligence artificielle en génère déjà, une brève histoire du cinéma au téléphone, comment cadrer un plan, comment l'éclairer et enregistrer le son, comment monter, comment raconter une histoire et un plan pour publier ta première vidéo.",
+  "aviso": "Ce guide est informatif : les dates, les chiffres et les études cités sont des approximations de leurs sources, et chacun avance à son rythme. Les films et chaînes mentionnés sont seulement cités ; les images d'exemple sont les nôtres, de Pexels ou du domaine public.",
+  "partes": [
+    {
+      "id": "video",
+      "titulo": "Ce qu'est une vidéo",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Comment faire des vidéos ? Aujourd'hui, une intelligence artificielle génère une vidéo entière à partir d'une seule phrase. Et pourtant, chaque minute, on met en ligne des centaines d'heures de vidéo que quelqu'un a filmées, montées et racontées. Alors pourquoi ça vaut la peine que tu apprennes à les faire toi-même ? Dans les prochaines minutes, tu vas voir ce qu'est une vidéo, d'où elle vient, comment on la cadre, l'éclaire, enregistre son son et la monte, et tu repartiras avec un plan pour publier la première."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "Au fait, voici ma maison dans MindHaOS, et voici mon Studio vidéo : c'est ici que je filme, monte et publie. Aujourd'hui, je vais m'en servir pour te montrer comment on construit une vidéo, plan par plan. C'est parti."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie un. Ce qu'est une vidéo."
+        },
+        {
+          "id": "fotogramas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fotogramas"
+          },
+          "lamina": [
+            "tira",
+            "proyector"
+          ],
+          "texto": "Une vidéo ne bouge pas : ce sont des photos fixes, l'une après l'autre, si vite que ton cerveau les relie en mouvement. À deux images par seconde, tu vois des sauts ; à douze, presque du mouvement ; et à vingt-quatre, la vitesse du cinéma, tu vois un mouvement fluide."
+        },
+        {
+          "id": "lenguaje",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "imagen",
+              "sonido",
+              "corte"
+            ]
+          },
+          "lamina": [
+            "rodaje",
+            "claqueta"
+          ],
+          "texto": "Et une vidéo est un langage à trois mots : ce qu'on voit, ce qu'on entend et le moment où l'on passe d'un plan à l'autre. Celui qui maîtrise ces trois choses raconte ce qu'il veut, avec un téléphone ou avec une caméra de cinéma."
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2016",
+            "clave": "explicar"
+          },
+          "lamina": [
+            "explicar",
+            "camaraCelular"
+          ],
+          "texto": "Et pourquoi apprendre, si une machine génère déjà des vidéos ? Parce qu'en faisant une vidéo, il n'en sort pas seulement une vidéo : toi aussi, tu apprends. En 2016, Vincent Hoogerheide et son équipe, aux Pays-Bas, ont demandé à des étudiants d'expliquer un sujet : ceux qui l'ont expliqué face à une caméra ont mieux appris que ceux qui l'ont seulement révisé, et que ceux qui l'ont expliqué par écrit. Une machine peut générer des images, mais ce que tu veux raconter, et comment, c'est toi qui le décides."
+        },
+        {
+          "id": "mirada",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "idea",
+              "orden",
+              "voz"
+            ]
+          },
+          "lamina": [
+            "creadora",
+            "audiencia"
+          ],
+          "texto": "C'est pour ça que les vidéos dont on se souvient le plus ne sont pas les plus chères, mais celles qui ont quelque chose à dire : une idée claire, un bon ordre et une voix à soi."
+        },
+        {
+          "id": "camara",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "encuadre",
+              "luz",
+              "sonido"
+            ]
+          },
+          "lamina": "tripie",
+          "enCasa": true,
+          "texto": "Ici, face à ma caméra, chaque prise commence de la même façon : d'abord le cadrage, ensuite la lumière et enfin le son."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Une brève histoire de la vidéo",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie deux. Une brève histoire de la vidéo."
+        },
+        {
+          "id": "muybridge",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaVideo"
+          },
+          "lamina": [
+            "muybridge",
+            "caballo"
+          ],
+          "texto": "En 1878, en Californie, Eadweard Muybridge a aligné douze appareils photo le long d'une piste et les a déclenchés au passage d'un cheval au galop. Les photos ont prouvé une chose que personne n'avait pu voir : pendant un instant, le cheval a les quatre pattes en l'air."
+        },
+        {
+          "id": "lumiere",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1895",
+            "clave": "lumiere"
+          },
+          "lamina": [
+            "lumiere",
+            "tren"
+          ],
+          "texto": "Le 28 décembre 1895, dans un café de Paris, les frères Lumière ont fait payer l'entrée pour la première fois pour voir des films sur un écran. La légende raconte qu'en voyant un train arriver droit sur eux, certains se sont baissés sur leur chaise."
+        },
+        {
+          "id": "melies",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1902",
+            "clave": "melies"
+          },
+          "lamina": [
+            "melies",
+            "luna"
+          ],
+          "texto": "Georges Méliès, qui était magicien, a découvert que s'il arrêtait la caméra et changeait quelque chose, l'objet apparaissait ou disparaissait à l'écran. En 1902, il a envoyé une fusée sur la Lune dans Le Voyage dans la Lune : c'est ainsi que sont nés les effets spéciaux."
+        },
+        {
+          "id": "sonido",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1927",
+            "clave": "jazz"
+          },
+          "lamina": [
+            "jazz",
+            "microfonoAntiguo"
+          ],
+          "texto": "Pendant trente ans, le cinéma a été muet, avec de la musique jouée en direct dans la salle. En 1927, Le Chanteur de jazz a permis au public d'entendre un acteur parler et chanter en synchronisation avec l'image, et en quelques années presque tout le cinéma est devenu parlant."
+        },
+        {
+          "id": "youtube",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2005",
+            "clave": "youtube"
+          },
+          "lamina": [
+            "computadora",
+            "zoologico"
+          ],
+          "texto": "Le 23 avril 2005, la première vidéo de YouTube a été mise en ligne : dix-neuf secondes d'un jeune homme devant les éléphants d'un zoo. Aujourd'hui, plus de cinq cents heures de vidéo sont mises en ligne chaque minute."
+        },
+        {
+          "id": "celular",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cine",
+              "casa",
+              "bolsillo"
+            ]
+          },
+          "lamina": "celular",
+          "enCasa": true,
+          "texto": "Et aujourd'hui, le studio tient dans la poche : ce qui demandait il y a un siècle une équipe de cinéma, un téléphone le fait aujourd'hui, comme celui que j'utilise ici dans mon Studio."
+        }
+      ]
+    },
+    {
+      "id": "encuadre",
+      "titulo": "Le cadrage",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie trois. Le cadrage."
+        },
+        {
+          "id": "planos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "planos"
+          },
+          "lamina": [
+            "paisaje",
+            "retrato"
+          ],
+          "texto": "Cadrer, c'est décider ce qui entre dans l'image et ce qui reste dehors. Le plan d'ensemble montre où l'on est, le plan moyen montre ce que quelqu'un fait et le gros plan montre ce qu'il ressent. Regarde avec la même scène."
+        },
+        {
+          "id": "tercios",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tercios"
+          },
+          "lamina": [
+            "rejilla",
+            "fotografa"
+          ],
+          "texto": "Une règle simple : divise l'image en trois parties dans la largeur et trois dans la hauteur, et place l'essentiel sur l'une de ces lignes, pas pile au centre. On l'appelle la règle des tiers, et c'est le graveur John Thomas Smith qui l'a écrite en 1797, en pensant à la peinture de paysage. Regarde comme l'image change quand on déplace la personne."
+        },
+        {
+          "id": "angulos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "angulos"
+          },
+          "lamina": [
+            "picado",
+            "contrapicado"
+          ],
+          "texto": "La hauteur de la caméra parle aussi. D'en haut, en plongée, quelqu'un paraît petit ; d'en bas, en contre-plongée, il paraît puissant ; et à hauteur des yeux, la caméra le traite d'égal à égal."
+        },
+        {
+          "id": "atencion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2013",
+            "clave": "sincronia"
+          },
+          "lamina": [
+            "ojo",
+            "sala"
+          ],
+          "texto": "Et le cadrage guide le regard. Avec des caméras qui suivent les yeux, le chercheur Tim Smith a vu qu'en regardant un film, presque tout le monde regarde le même point au même moment : le visage qui parle, ce qui bouge, ce qui est le plus éclairé. Ton cadrage décide où regarde le public."
+        },
+        {
+          "id": "tripie",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estable",
+              "horizonte",
+              "ojos"
+            ]
+          },
+          "lamina": "tripieCelular",
+          "enCasa": true,
+          "texto": "C'est pour ça que ma caméra est sur un trépied : une image stable, un horizon droit et l'objectif à hauteur des yeux."
+        }
+      ]
+    },
+    {
+      "id": "luzSonido",
+      "titulo": "La lumière et le son",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie quatre. La lumière et le son."
+        },
+        {
+          "id": "tresPuntos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "luz"
+          },
+          "lamina": [
+            "softbox",
+            "estudioLuz"
+          ],
+          "texto": "Dans les studios, on utilise l'éclairage en trois points. La lumière principale éclaire le visage d'un côté ; la lumière de remplissage, plus douce, adoucit les ombres de l'autre côté ; et le contre-jour, par derrière, détache la personne du fond. Allume-les une par une."
+        },
+        {
+          "id": "ventana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ventana",
+              "frente",
+              "nubes"
+            ]
+          },
+          "lamina": "lampara",
+          "enCasa": true,
+          "texto": "Sans matériel, une fenêtre est ta meilleure lampe : mets-toi face à elle ou de côté, jamais dos à elle. Moi, ici, j'utilise cette lampe de studio comme lumière principale."
+        },
+        {
+          "id": "audio",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "audio"
+          },
+          "lamina": [
+            "microfonoPro",
+            "audifonos"
+          ],
+          "texto": "Et maintenant le plus important, que presque personne ne soigne : le son. En 2018, Eryn Newman et Norbert Schwarz ont fait écouter à des gens les mêmes conférences de scientifiques, les unes avec un bon son, les autres avec un mauvais son. Avec le mauvais son, ils ont jugé la recherche moins importante et le scientifique moins intelligent. Le public pardonne une image moyenne, mais pas un mauvais son."
+        },
+        {
+          "id": "microfono",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "microfono"
+          },
+          "lamina": [
+            "lavalier",
+            "cuarto"
+          ],
+          "texto": "L'astuce, c'est de rapprocher le micro : à une main de ta bouche, ta voix sonne bien plus fort que le bruit de la pièce. Éloigne-le et regarde le bruit l'avaler. Et enregistre dans une pièce avec des choses molles, comme des rideaux ou un canapé, qui évitent l'écho."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyo"
+          },
+          "lamina": "corazon",
+          "texto": "Au fait, on est à la moitié. Si ce guide t'aide, mets un J'aime, abonne-toi pour ne pas rater le prochain et partage-le avec quelqu'un qui veut se lancer dans la vidéo. Ça m'aide énormément, et à toi, ça ne coûte rien."
+        }
+      ]
+    },
+    {
+      "id": "edicion",
+      "titulo": "Le montage",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie cinq. Le montage."
+        },
+        {
+          "id": "corte",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elegir",
+              "ordenar",
+              "cortar"
+            ]
+          },
+          "lamina": [
+            "editora",
+            "linea"
+          ],
+          "texto": "Monter, c'est choisir les meilleurs plans, les mettre dans l'ordre et décider combien de temps dure chacun. La coupe la plus invisible se fait en pleine action : quelqu'un ouvre une porte dans un plan et finit de l'ouvrir dans le suivant, et ton œil ne remarque rien."
+        },
+        {
+          "id": "kuleshov",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "kuleshov"
+          },
+          "lamina": [
+            "lev",
+            "kuleshov"
+          ],
+          "texto": "Il y a un siècle, le cinéaste russe Lev Kuleshov a monté le même visage d'un acteur avec trois plans différents : une assiette de soupe, un enfant dans un cercueil et une femme. D'après lui, le public jurait voir la faim, la tristesse et le désir sur un visage qui ne changeait pas. Le sens n'est pas dans chaque plan, mais dans ce que tu mets côte à côte."
+        },
+        {
+          "id": "ritmo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "duracionPlanos"
+          },
+          "lamina": [
+            "claqueta2",
+            "accion"
+          ],
+          "texto": "Et le rythme dépend de la durée de chaque plan. James Cutting, de l'université Cornell, a mesuré cent cinquante films d'Hollywood, de 1935 à 2005 : les plans sont devenus de plus en plus courts, jusqu'à ne durer que quelques secondes. Des plans longs pour calmer, des plans courts pour accélérer."
+        },
+        {
+          "id": "jl",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cortesJL"
+          },
+          "lamina": [
+            "dialogo",
+            "audifonos2"
+          ],
+          "texto": "Une astuce de monteur : ne coupe pas l'image et le son en même temps. Si le son du plan suivant arrive avant, comme une voix qui appelle, la coupe paraît naturelle. C'est ce qu'on appelle un J-cut, et à l'inverse, quand le son reste un peu plus longtemps, un L-cut."
+        },
+        {
+          "id": "mencion-edicion",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "linea",
+          "enCasa": true,
+          "texto": "C'est comme ça que je fais dans mon Studio vidéo de MindHaOS : chaque plan est un clip sur la timeline, avec sa musique, sa voix, ses textes et ses transitions."
+        }
+      ]
+    },
+    {
+      "id": "historiaContar",
+      "titulo": "Comment raconter une histoire",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie six. Comment raconter une histoire."
+        },
+        {
+          "id": "gancho",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunta",
+              "promesa",
+              "intriga"
+            ]
+          },
+          "lamina": [
+            "scroll",
+            "sorpresa"
+          ],
+          "texto": "Sur internet, les premières secondes décident si quelqu'un reste. Commence par une question, une promesse ou une image intrigante, et jamais par « salut, aujourd'hui je vais vous parler de… ». Comme cette vidéo, qui a commencé par une question."
+        },
+        {
+          "id": "estructura",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "estructura"
+          },
+          "lamina": [
+            "libro",
+            "teatro"
+          ],
+          "texto": "Presque toutes les histoires ont trois parties, depuis le théâtre grec : un début qui présente quelqu'un qui veut quelque chose, un nœud avec ce qui l'en empêche et une fin qui le résout. Même une vidéo d'une minute tient dans cette forme."
+        },
+        {
+          "id": "guion",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escribe",
+              "dibuja",
+              "lista"
+            ]
+          },
+          "lamina": [
+            "storyboard",
+            "cuaderno"
+          ],
+          "texto": "Avant de filmer, écris ce que tu vas dire et dessine chaque plan dans des petites cases, même avec des bonshommes bâtons. On appelle ça un storyboard, et Disney l'utilisait dès les années trente : ça t'évite des heures à filmer pour rien."
+        },
+        {
+          "id": "mostrar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "decir",
+              "mostrar",
+              "sentir"
+            ]
+          },
+          "lamina": [
+            "lluvia",
+            "sonrisa"
+          ],
+          "texto": "Et la règle d'or : montre, ne le dis pas. Au lieu de dire « il était nerveux », montre au public une main qui tremble. Ce que le public découvre tout seul, il s'en souvient."
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "inicio",
+              "nudo",
+              "final"
+            ]
+          },
+          "lamina": "escribir",
+          "enCasa": true,
+          "texto": "J'écris le script avant, et ici je le transforme en plans : depuis ce menu, j'ajoute des clips, des textes, de la voix et de la musique, un par un."
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Ton plan pour commencer",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie sept. Ton plan pour commencer."
+        },
+        {
+          "id": "mira",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "planos",
+              "cortes",
+              "sonido"
+            ]
+          },
+          "lamina": [
+            "sillon",
+            "pantalla"
+          ],
+          "texto": "Commence par regarder les vidéos autrement : choisis-en une que tu aimes et compte ses plans, remarque où elle coupe et écoute comment elle sonne. Tu vas découvrir les décisions derrière chaque seconde."
+        },
+        {
+          "id": "uno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "videosAno"
+          },
+          "lamina": "reloj",
+          "texto": "Tu n'as pas besoin de faire un long métrage : une vidéo d'une minute par semaine, ça fait cinquante-deux vidéos par an. Change ici combien tu en fais et regarde combien tu pratiquerais en un an."
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutinaVideo"
+          },
+          "lamina": [
+            "semana",
+            "celular2"
+          ],
+          "texto": "Une semaine possible : le lundi, choisis une idée et écris le script ; le mardi, dessine les plans ; le mercredi, filme ; le jeudi, monte ; le vendredi, vérifie le son et les textes ; et le week-end, publie-la."
+        },
+        {
+          "id": "publica",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "publica",
+              "escucha",
+              "mejora"
+            ]
+          },
+          "lamina": "subir",
+          "enCasa": true,
+          "texto": "Et publie même si ce n'est pas parfait : chaque vidéo t'apprend quelque chose pour la suivante. Regarde : je filme ici même, dans ma maison, je reviens au Studio avec la prise en clip et je la publie de là."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "resumen",
+          "texto": "En résumé : une vidéo, ce sont des photos fixes que ton cerveau met en mouvement ; le cadrage décide où regarde le public ; la lumière lui donne sa forme et le son, sa crédibilité ; le montage lui donne son sens et son rythme ; et faire des vidéos t'apprend à toi, même si une machine en génère déjà."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Si tu veux faire des vidéos comme moi, le Studio vidéo de MindHaOS a tout dans une seule pièce : tu peux monter tes prises sur une timeline, leur ajouter une voix, de la musique et des sous-titres, animer des scènes en 3D avec tes personnages et les publier directement sur tes réseaux. Le lien est dans la description, avec ce guide interactif. À la prochaine.",
+    "boton": "Ouvrir le Studio vidéo",
+    "lamina": "app-plan",
+    "anclas": {
+      "editar": "monter tes prises",
+      "voz": "leur ajouter une voix",
+      "animar": "animer des scènes en 3D",
+      "publicar": "les publier directement"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "hoogerheide-2016",
+      "texto": "Hoogerheide V., Deijkers L., Loyens S. M. M., Heijltjes A., van Gog T. Gaining from explaining: Learning improves from explaining to fictitious others on video, not from writing to them. Contemporary Educational Psychology (2016).",
+      "url": "https://doi.org/10.1016/j.cedpsych.2016.02.005"
+    },
+    {
+      "id": "muybridge-1878",
+      "texto": "Muybridge E. The Horse in Motion (Palo Alto, 1878).",
+      "url": "https://en.wikipedia.org/wiki/The_Horse_in_Motion"
+    },
+    {
+      "id": "lumiere-1895",
+      "texto": "Première projection publique payante du cinématographe Lumière, Salon indien du Grand Café, Paris (28 décembre 1895).",
+      "url": "https://en.wikipedia.org/wiki/Auguste_and_Louis_Lumi%C3%A8re"
+    },
+    {
+      "id": "melies-1902",
+      "texto": "Méliès G. Le Voyage dans la Lune (1902).",
+      "url": "https://en.wikipedia.org/wiki/A_Trip_to_the_Moon"
+    },
+    {
+      "id": "jazz-1927",
+      "texto": "Crosland A. The Jazz Singer (Warner Bros., 1927).",
+      "url": "https://en.wikipedia.org/wiki/The_Jazz_Singer"
+    },
+    {
+      "id": "youtube-2005",
+      "texto": "« Me at the zoo », la première vidéo de YouTube (23 avril 2005).",
+      "url": "https://en.wikipedia.org/wiki/Me_at_the_zoo"
+    },
+    {
+      "id": "smith-1797",
+      "texto": "Smith J. T. Remarks on Rural Scenery (1797), où apparaît pour la première fois la « règle des tiers ».",
+      "url": "https://en.wikipedia.org/wiki/Rule_of_thirds"
+    },
+    {
+      "id": "smith-2013",
+      "texto": "Smith T. J., Mital P. K. Attentional synchrony and the influence of viewing task on gaze behavior in static and dynamic scenes. Journal of Vision (2013).",
+      "url": "https://doi.org/10.1167/13.8.16"
+    },
+    {
+      "id": "newman-2018",
+      "texto": "Newman E. J., Schwarz N. Good sound, good research: How audio quality influences perceptions of the research and researcher. Science Communication (2018).",
+      "url": "https://doi.org/10.1177/1075547018759345"
+    },
+    {
+      "id": "kuleshov",
+      "texto": "L'effet Kuleshov (Lev Kuleshov, vers 1918-1921).",
+      "url": "https://en.wikipedia.org/wiki/Kuleshov_effect"
+    },
+    {
+      "id": "cutting-2010",
+      "texto": "Cutting J. E., DeLong J. E., Nothelfer C. E. Attention and the evolution of Hollywood film. Psychological Science (2010).",
+      "url": "https://doi.org/10.1177/0956797610361679"
+    }
+  ]
+}

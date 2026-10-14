@@ -1,0 +1,724 @@
+{
+  "idioma": "tr",
+  "tema": "video",
+  "plantillaId": "video",
+  "numero": 8,
+  "nombre": "Video Stüdyosu",
+  "pregunta": "Video nasıl yapılır?",
+  "corta": "Video nasıl yapılır?",
+  "subtitulo": "Bir yapay zekâ artık video üretse bile video yapmayı neden öğrenmeli, sinemadan cep telefonuna kısa bir tarih, bir çekim nasıl kadrajlanır, ışık nasıl kurulur ve ses nasıl kaydedilir, kurgu nasıl yapılır, bir hikâye nasıl anlatılır ve ilk videonu yayımlamak için bir plan.",
+  "aviso": "Bu rehber bilgilendirme amaçlıdır: tarihler, rakamlar ve anılan çalışmalar kaynaklarına göre yaklaşık değerlerdir ve herkes kendi hızında ilerler. Bahsedilen filmlerin ve kanalların yalnızca adı geçer; örnek görseller bize ait, Pexels'ten ya da kamu malıdır.",
+  "partes": [
+    {
+      "id": "video",
+      "titulo": "Video nedir",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Video nasıl yapılır? Bugün bir yapay zekâ tek bir cümleden koca bir video üretiyor. Yine de her dakika, birinin çektiği, kurguladığı ve anlattığı yüzlerce saatlik video yükleniyor. Peki video yapmayı kendin öğrenmen neden hâlâ değer? Önümüzdeki dakikalarda videonun ne olduğunu, nereden geldiğini, nasıl kadraj kurulduğunu, ışığın nasıl verildiğini, sesin nasıl kaydedildiğini ve kurgunun nasıl yapıldığını göreceksin, ilkini yayımlamak için bir planla da ayrılacaksın."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "Bu arada, burası MindHaOS'taki evim, bu da Video Stüdyom: burada çekiyor, kurguluyor ve yayımlıyorum. Bugün onunla bir videonun çekim çekim nasıl kurulduğunu sana göstereceğim. Hadi başlayalım."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Birinci bölüm. Video nedir."
+        },
+        {
+          "id": "fotogramas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fotogramas"
+          },
+          "lamina": [
+            "tira",
+            "proyector"
+          ],
+          "texto": "Video aslında hareket etmez: art arda gelen durağan fotoğraflardır, öyle hızlı geçerler ki beynin onları harekete dönüştürür. Saniyede iki fotoğrafla sıçramalar görürsün; on ikiyle neredeyse hareket; sinemanın hızı olan yirmi dörtle de akıcı bir hareket."
+        },
+        {
+          "id": "lenguaje",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "imagen",
+              "sonido",
+              "corte"
+            ]
+          },
+          "lamina": [
+            "rodaje",
+            "claqueta"
+          ],
+          "texto": "Video üç kelimelik bir dildir: görülen, duyulan ve bir çekimden diğerine geçtiğin an. Bu üçüne hâkim olan, ister bir telefonla ister bir sinema kamerasıyla, ne isterse anlatır."
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2016",
+            "clave": "explicar"
+          },
+          "lamina": [
+            "explicar",
+            "camaraCelular"
+          ],
+          "texto": "Peki bir makine zaten video üretiyorsa neden öğrenmeli? Çünkü video yaptığında ortaya yalnızca bir video çıkmaz, sen de öğrenirsin. 2016'da Hollanda'da Vincent Hoogerheide ve ekibi öğrencilerden bir konuyu anlatmalarını istedi: konuyu bir kameranın karşısında anlatanlar, sadece tekrar edenlerden de yazıyla anlatanlardan da daha çok öğrendi. Bir makine görüntü üretebilir, ama neyi ve nasıl anlatmak istediğine sen karar verirsin."
+        },
+        {
+          "id": "mirada",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "idea",
+              "orden",
+              "voz"
+            ]
+          },
+          "lamina": [
+            "creadora",
+            "audiencia"
+          ],
+          "texto": "Bu yüzden en çok akılda kalan videolar en pahalı olanlar değil, söyleyecek bir şeyi olanlardır: net bir fikir, iyi bir sıra ve kendine has bir ses."
+        },
+        {
+          "id": "camara",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "encuadre",
+              "luz",
+              "sonido"
+            ]
+          },
+          "lamina": "tripie",
+          "enCasa": true,
+          "texto": "Burada, kameramın karşısında, her çekim aynı şekilde başlar: önce kadraj, sonra ışık, en son da ses."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Videonun kısa tarihi",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "İkinci bölüm. Videonun kısa tarihi."
+        },
+        {
+          "id": "muybridge",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaVideo"
+          },
+          "lamina": [
+            "muybridge",
+            "caballo"
+          ],
+          "texto": "1878'de Kaliforniya'da Eadweard Muybridge bir pistin kenarına on iki fotoğraf makinesini yan yana dizdi ve dörtnala koşan bir at geçerken hepsini deklanşöre bastırdı. Fotoğraflar kimsenin göremediği bir şeyi kanıtladı: bir an için atın dört ayağı da havadadır."
+        },
+        {
+          "id": "lumiere",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1895",
+            "clave": "lumiere"
+          },
+          "lamina": [
+            "lumiere",
+            "tren"
+          ],
+          "texto": "28 Aralık 1895'te, Paris'teki bir kafede Lumière kardeşler, perdede film izlemek için ilk kez bilet sattı. Efsaneye göre, bir tren doğrudan üzerlerine gelirken bazı izleyiciler sandalyelerinde eğildi."
+        },
+        {
+          "id": "melies",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1902",
+            "clave": "melies"
+          },
+          "lamina": [
+            "melies",
+            "luna"
+          ],
+          "texto": "Sihirbaz olan Georges Méliès, kamerayı durdurup bir şeyi değiştirirse o şeyin perdede belirdiğini ya da kaybolduğunu keşfetti. 1902'de Ay'a Seyahat filminde bir roketi Ay'a gönderdi: özel efektler böyle doğdu."
+        },
+        {
+          "id": "sonido",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1927",
+            "clave": "jazz"
+          },
+          "lamina": [
+            "jazz",
+            "microfonoAntiguo"
+          ],
+          "texto": "Otuz yıl boyunca sinema sessizdi, müzik salonda canlı çalınırdı. 1927'de Caz Şarkıcısı, seyirciye bir oyuncuyu görüntüyle eş zamanlı konuşurken ve şarkı söylerken dinletti ve birkaç yıl içinde sinemanın neredeyse tamamı sesli oldu."
+        },
+        {
+          "id": "youtube",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2005",
+            "clave": "youtube"
+          },
+          "lamina": [
+            "computadora",
+            "zoologico"
+          ],
+          "texto": "23 Nisan 2005'te YouTube'a ilk video yüklendi: bir hayvanat bahçesinde fillerin önündeki bir gencin on dokuz saniyesi. Bugün her dakika beş yüz saatten fazla video yükleniyor."
+        },
+        {
+          "id": "celular",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cine",
+              "casa",
+              "bolsillo"
+            ]
+          },
+          "lamina": "celular",
+          "enCasa": true,
+          "texto": "Bugün stüdyo cebe sığıyor: bir asır önce bir sinema ekibi gerektiren işi artık bir cep telefonu yapıyor, tıpkı burada, Stüdyomda kullandığım gibi."
+        }
+      ]
+    },
+    {
+      "id": "encuadre",
+      "titulo": "Kadraj",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Üçüncü bölüm. Kadraj."
+        },
+        {
+          "id": "planos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "planos"
+          },
+          "lamina": [
+            "paisaje",
+            "retrato"
+          ],
+          "texto": "Kadraj kurmak, görüntüye neyin girip neyin dışarıda kalacağına karar vermektir. Geniş plan nerede olduğumuzu, orta plan birinin ne yaptığını, yakın plan da ne hissettiğini gösterir. Aynı sahnede bak."
+        },
+        {
+          "id": "tercios",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tercios"
+          },
+          "lamina": [
+            "rejilla",
+            "fotografa"
+          ],
+          "texto": "Basit bir kural: görüntüyü enine üç, boyuna üç parçaya böl ve önemli olanı tam ortaya değil, bu çizgilerden birinin üzerine koy. Buna üçler kuralı denir ve onu 1797'de gravürcü John Thomas Smith, manzara resmini düşünerek yazdı. Kişiyi kaydırınca görüntünün nasıl değiştiğine bak."
+        },
+        {
+          "id": "angulos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "angulos"
+          },
+          "lamina": [
+            "picado",
+            "contrapicado"
+          ],
+          "texto": "Kameranın yüksekliği de konuşur. Yukarıdan, üst açıyla, biri küçük görünür; aşağıdan, alt açıyla, güçlü görünür; göz hizasında ise kamera ona eşit biri gibi davranır."
+        },
+        {
+          "id": "atencion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2013",
+            "clave": "sincronia"
+          },
+          "lamina": [
+            "ojo",
+            "sala"
+          ],
+          "texto": "Kadraj bakışı da yönlendirir. Araştırmacı Tim Smith, gözleri izleyen kameralarla, bir film izlerken neredeyse herkesin aynı anda aynı noktaya baktığını gördü: konuşan yüze, hareket edene, en aydınlık olana. Seyircinin nereye bakacağına senin kadrajın karar verir."
+        },
+        {
+          "id": "tripie",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estable",
+              "horizonte",
+              "ojos"
+            ]
+          },
+          "lamina": "tripieCelular",
+          "enCasa": true,
+          "texto": "Bu yüzden kameram tripodda durur: görüntü sabit, ufuk düz ve lens göz hizasında."
+        }
+      ]
+    },
+    {
+      "id": "luzSonido",
+      "titulo": "Işık ve ses",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Dördüncü bölüm. Işık ve ses."
+        },
+        {
+          "id": "tresPuntos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "luz"
+          },
+          "lamina": [
+            "softbox",
+            "estudioLuz"
+          ],
+          "texto": "Stüdyolarda üç nokta aydınlatma kullanılır. Ana ışık yüzü yandan aydınlatır; daha yumuşak olan dolgu ışığı diğer taraftaki gölgeleri açar; arkadan gelen kontr ışık da kişiyi arka plandan ayırır. Onları tek tek yak."
+        },
+        {
+          "id": "ventana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ventana",
+              "frente",
+              "nubes"
+            ]
+          },
+          "lamina": "lampara",
+          "enCasa": true,
+          "texto": "Ekipman yoksa pencere en iyi lambandır: ona yüzünü ya da yanını dön, asla sırtını dönme. Ben burada bu stüdyo lambasını ana ışık olarak kullanıyorum."
+        },
+        {
+          "id": "audio",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "audio"
+          },
+          "lamina": [
+            "microfonoPro",
+            "audifonos"
+          ],
+          "texto": "Ve şimdi en önemlisi, neredeyse kimsenin önemsemediği şey: ses. 2018'de Eryn Newman ve Norbert Schwarz, insanlara bilim insanlarının aynı konuşmalarını dinletti, bazılarını iyi sesle, bazılarını kötü sesle. Ses kötüyken araştırmayı daha az önemli, bilim insanını da daha az zeki buldular. Seyirci vasat bir görüntüyü affeder, ama kötü bir sesi affetmez."
+        },
+        {
+          "id": "microfono",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "microfono"
+          },
+          "lamina": [
+            "lavalier",
+            "cuarto"
+          ],
+          "texto": "İşin sırrı mikrofonu yaklaştırmak: ağzından bir karış uzakta sesin, odadaki gürültüden çok daha yüksek çıkar. Uzaklaştır ve gürültünün sesini nasıl yuttuğuna bak. Bir de perde ya da kanepe gibi yumuşak eşyaları olan, yankı yapmayan bir odada kaydet."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyo"
+          },
+          "lamina": "corazon",
+          "texto": "Bu arada, yarıya geldik. Bu rehber işine yarıyorsa Beğen'e bas, bir sonrakini kaçırmamak için Abone ol ve video yapmaya başlamak isteyen biriyle Paylaş. Bana çok yardımı oluyor, sana da hiçbir maliyeti yok."
+        }
+      ]
+    },
+    {
+      "id": "edicion",
+      "titulo": "Kurgu",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Beşinci bölüm. Kurgu."
+        },
+        {
+          "id": "corte",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elegir",
+              "ordenar",
+              "cortar"
+            ]
+          },
+          "lamina": [
+            "editora",
+            "linea"
+          ],
+          "texto": "Kurgu yapmak, en iyi çekimleri seçmek, onları sıraya koymak ve her birinin ne kadar süreceğine karar vermektir. En görünmez kesme hareketin ortasında yapılır: biri bir çekimde kapıyı açar, sonrakinde açmayı bitirir ve gözün bunu fark etmez bile."
+        },
+        {
+          "id": "kuleshov",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "kuleshov"
+          },
+          "lamina": [
+            "lev",
+            "kuleshov"
+          ],
+          "texto": "Bir asır önce Rus sinemacı Lev Kuleshov, bir oyuncunun aynı yüzünü üç farklı çekimle yan yana getirdi: bir tabak çorba, tabuttaki bir çocuk ve bir kadın. Anlattığına göre seyirci, hiç değişmeyen bir yüzde açlık, hüzün ve arzu gördüğüne yemin ediyordu. Anlam tek bir çekimde değil, yan yana koyduğun şeydedir."
+        },
+        {
+          "id": "ritmo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "duracionPlanos"
+          },
+          "lamina": [
+            "claqueta2",
+            "accion"
+          ],
+          "texto": "Ritmi de her çekimin süresi belirler. Cornell Üniversitesi'nden James Cutting, 1935'ten 2005'e yüz elli Hollywood filmini ölçtü: çekimler giderek kısaldı ve sadece birkaç saniye sürer hâle geldi. Uzun çekimler sakinleştirir, kısalar hızlandırır."
+        },
+        {
+          "id": "jl",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cortesJL"
+          },
+          "lamina": [
+            "dialogo",
+            "audifonos2"
+          ],
+          "texto": "Bir kurgucu numarası: görüntüyü ve sesi aynı anda kesme. Sonraki çekimin sesi, örneğin seslenen biri, daha önce girerse kesme doğal hissettirir. Buna J-kesme denir; tersine, ses biraz daha uzun kalırsa L-kesme."
+        },
+        {
+          "id": "mencion-edicion",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "linea",
+          "enCasa": true,
+          "texto": "MindHaOS'taki Video Stüdyomda ben de böyle yapıyorum: her çekim, zaman çizelgesinde kendi müziği, sesi, yazıları ve geçişleriyle bir klip."
+        }
+      ]
+    },
+    {
+      "id": "historiaContar",
+      "titulo": "Bir hikâye nasıl anlatılır",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Altıncı bölüm. Bir hikâye nasıl anlatılır."
+        },
+        {
+          "id": "gancho",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunta",
+              "promesa",
+              "intriga"
+            ]
+          },
+          "lamina": [
+            "scroll",
+            "sorpresa"
+          ],
+          "texto": "İnternette ilk saniyeler birinin kalıp kalmayacağına karar verir. Bir soruyla, bir vaatle ya da merak uyandıran bir görüntüyle aç, asla «merhaba, bugün size şundan bahsedeceğim…» diye değil. Tıpkı bir soruyla açılan bu video gibi."
+        },
+        {
+          "id": "estructura",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "estructura"
+          },
+          "lamina": [
+            "libro",
+            "teatro"
+          ],
+          "texto": "Antik Yunan tiyatrosundan beri neredeyse her hikâyenin üç bölümü vardır: bir şey isteyen birini tanıtan bir giriş, onu engelleyen şeyle bir gelişme ve bunu çözen bir sonuç. Bir dakikalık bir video bile bu kalıba sığar."
+        },
+        {
+          "id": "guion",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escribe",
+              "dibuja",
+              "lista"
+            ]
+          },
+          "lamina": [
+            "storyboard",
+            "cuaderno"
+          ],
+          "texto": "Çekmeden önce ne söyleyeceğini yaz ve her çekimi kutucuklara çiz, çöp adamlar olsa bile. Buna storyboard denir ve Disney bunu otuzlu yıllardan beri kullanıyordu: seni saatlerce gereksiz çekimden kurtarır."
+        },
+        {
+          "id": "mostrar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "decir",
+              "mostrar",
+              "sentir"
+            ]
+          },
+          "lamina": [
+            "lluvia",
+            "sonrisa"
+          ],
+          "texto": "Ve altın kural: söyleme, göster. «Gergindi» demek yerine seyirciye titreyen bir el göster. Seyirci kendi keşfettiğini hatırlar."
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "inicio",
+              "nudo",
+              "final"
+            ]
+          },
+          "lamina": "escribir",
+          "enCasa": true,
+          "texto": "Ben senaryoyu önceden yazarım, burada da onu çekimlere dönüştürürüm: bu menüden klipleri, yazıları, sesi ve müziği tek tek eklerim."
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Başlamak için planın",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Yedinci bölüm. Başlamak için planın."
+        },
+        {
+          "id": "mira",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "planos",
+              "cortes",
+              "sonido"
+            ]
+          },
+          "lamina": [
+            "sillon",
+            "pantalla"
+          ],
+          "texto": "İşe videoları başka türlü izleyerek başla: sevdiğin birini seç, çekimlerini say, nerede kestiğine dikkat et ve nasıl sesi olduğunu dinle. Her saniyenin arkasındaki kararları keşfedeceksin."
+        },
+        {
+          "id": "uno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "videosAno"
+          },
+          "lamina": "reloj",
+          "texto": "Bir film yapmana gerek yok: haftada bir dakikalık bir video, yılda elli iki video eder. Burada kaç tane yaptığını ayarla ve bir yılda ne kadar pratik yapacağına bak."
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutinaVideo"
+          },
+          "lamina": [
+            "semana",
+            "celular2"
+          ],
+          "texto": "Olası bir hafta: pazartesi bir fikir seç ve senaryoyu yaz; salı çekimleri çiz; çarşamba çek; perşembe kurgula; cuma sesi ve yazıları gözden geçir; hafta sonu da yayımla."
+        },
+        {
+          "id": "publica",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "publica",
+              "escucha",
+              "mejora"
+            ]
+          },
+          "lamina": "subir",
+          "enCasa": true,
+          "texto": "Ve mükemmel olmasa da yayımla: her video sana bir sonraki için bir şey öğretir. Bak: tam burada, evimin içinde çekiyorum, çekimi klip olarak Stüdyoya geri getiriyorum ve oradan yayımlıyorum."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "resumen",
+          "texto": "Özetle: video, beyninin harekete dönüştürdüğü durağan fotoğraflardır; seyircinin nereye bakacağına kadraj karar verir; ışık biçim, ses de inandırıcılık katar; kurgu anlam ve ritim verir; ve bir makine zaten üretse bile video yapmak sana öğretir."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Benim gibi video yapmak istersen, MindHaOS'un Video Stüdyosu'nda her şey tek bir odada: bir zaman çizelgesinde çekimlerini kurgulayabilir, onları seslendirip müzik ve altyazı ekleyebilir, karakterlerinle 3D sahneler canlandırabilir ve doğrudan sosyal medyada yayımlayabilirsin. Bağlantı açıklamada, bu etkileşimli rehberle birlikte. Bir sonrakinde görüşmek üzere.",
+    "boton": "Video Stüdyosu'nu aç",
+    "lamina": "app-plan",
+    "anclas": {
+      "editar": "çekimlerini kurgulayabilir",
+      "voz": "onları seslendirip",
+      "animar": "3D sahneler canlandırabilir",
+      "publicar": "doğrudan sosyal medyada yayımlayabilirsin"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "hoogerheide-2016",
+      "texto": "Hoogerheide V., Deijkers L., Loyens S. M. M., Heijltjes A., van Gog T. Gaining from explaining: Learning improves from explaining to fictitious others on video, not from writing to them. Contemporary Educational Psychology (2016).",
+      "url": "https://doi.org/10.1016/j.cedpsych.2016.02.005"
+    },
+    {
+      "id": "muybridge-1878",
+      "texto": "Muybridge E. The Horse in Motion (Palo Alto, 1878).",
+      "url": "https://en.wikipedia.org/wiki/The_Horse_in_Motion"
+    },
+    {
+      "id": "lumiere-1895",
+      "texto": "Lumière sinematografının ilk ücretli halka açık gösterimi, Grand Café'nin Salon Indien'i, Paris (28 Aralık 1895).",
+      "url": "https://en.wikipedia.org/wiki/Auguste_and_Louis_Lumi%C3%A8re"
+    },
+    {
+      "id": "melies-1902",
+      "texto": "Méliès G. Le Voyage dans la Lune (Ay'a Seyahat, 1902).",
+      "url": "https://en.wikipedia.org/wiki/A_Trip_to_the_Moon"
+    },
+    {
+      "id": "jazz-1927",
+      "texto": "Crosland A. The Jazz Singer (Caz Şarkıcısı, Warner Bros., 1927).",
+      "url": "https://en.wikipedia.org/wiki/The_Jazz_Singer"
+    },
+    {
+      "id": "youtube-2005",
+      "texto": "«Me at the zoo», YouTube'daki ilk video (23 Nisan 2005).",
+      "url": "https://en.wikipedia.org/wiki/Me_at_the_zoo"
+    },
+    {
+      "id": "smith-1797",
+      "texto": "Smith J. T. Remarks on Rural Scenery (1797); «üçler kuralı» ilk kez burada geçer.",
+      "url": "https://en.wikipedia.org/wiki/Rule_of_thirds"
+    },
+    {
+      "id": "smith-2013",
+      "texto": "Smith T. J., Mital P. K. Attentional synchrony and the influence of viewing task on gaze behavior in static and dynamic scenes. Journal of Vision (2013).",
+      "url": "https://doi.org/10.1167/13.8.16"
+    },
+    {
+      "id": "newman-2018",
+      "texto": "Newman E. J., Schwarz N. Good sound, good research: How audio quality influences perceptions of the research and researcher. Science Communication (2018).",
+      "url": "https://doi.org/10.1177/1075547018759345"
+    },
+    {
+      "id": "kuleshov",
+      "texto": "Kuleshov etkisi (Lev Kuleshov, 1918-1921 civarı).",
+      "url": "https://en.wikipedia.org/wiki/Kuleshov_effect"
+    },
+    {
+      "id": "cutting-2010",
+      "texto": "Cutting J. E., DeLong J. E., Nothelfer C. E. Attention and the evolution of Hollywood film. Psychological Science (2010).",
+      "url": "https://doi.org/10.1177/0956797610361679"
+    }
+  ]
+}

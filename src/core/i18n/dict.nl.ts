@@ -7522,6 +7522,7 @@ export const NL: Dict = {
   'guia.idiomas.titulo': "Waarom een taal leren?",
   'guia.arte.titulo': "Wat is kunst?",
   'guia.musica.titulo': "Wat is muziek?",
+  'guia.musica.titulo': "Wat is muziek?",
   'tut.esencial.titulo': 'De basis',
   'tut.tipo.ejemplos': 'Voorbeelden · demo-MindHaOS',
   'tut.app-agenda--esencial.resumen':

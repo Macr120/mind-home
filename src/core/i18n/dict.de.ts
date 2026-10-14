@@ -7574,6 +7574,7 @@ export const DE: Dict = {
   'guia.idiomas.titulo': "Warum eine Sprache lernen?",
   'guia.arte.titulo': "Was ist Kunst?",
   'guia.musica.titulo': "Was ist Musik?",
+  'guia.musica.titulo': "Was ist Musik?",
   'tut.esencial.titulo': 'Das Wichtigste',
   'tut.tipo.ejemplos': 'Beispiele · Demo-MindHaOS',
   'tut.app-agenda--esencial.resumen':

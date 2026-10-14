@@ -1,0 +1,724 @@
+{
+  "idioma": "pl",
+  "tema": "video",
+  "plantillaId": "video",
+  "numero": 8,
+  "nombre": "Studio Wideo",
+  "pregunta": "Jak robić filmy?",
+  "corta": "Jak robić filmy?",
+  "subtitulo": "Dlaczego warto nauczyć się robić filmy, nawet jeśli sztuczna inteligencja już je generuje, krótka historia od kina do telefonu, jak kadrować ujęcie, jak je oświetlić i nagrać dźwięk, jak montować, jak opowiedzieć historię i plan na opublikowanie pierwszego filmu.",
+  "aviso": "Ten przewodnik ma charakter informacyjny: daty, liczby i cytowane badania są przybliżeniami podanymi przez ich źródła, a każdy uczy się we własnym tempie. Wymienione filmy i kanały są tylko przywołane z nazwy; przykładowe obrazy są własne, z Pexels lub z domeny publicznej.",
+  "partes": [
+    {
+      "id": "video",
+      "titulo": "Czym jest wideo",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Jak robić filmy? Dziś sztuczna inteligencja generuje cały film z jednego zdania. A mimo to co minutę trafiają do sieci setki godzin wideo, które ktoś nagrał, zmontował i opowiedział. To dlaczego warto, żebyś sam nauczył się je robić? W ciągu najbliższych minut zobaczysz, czym jest wideo, skąd się wzięło, jak się je kadruje, oświetla, nagrywa dźwięk i montuje, i wyjdziesz stąd z planem na opublikowanie pierwszego."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "A tak przy okazji, to mój dom w MindHaOS, a to moje Studio Wideo: tu nagrywam, montuję i publikuję. Dziś pokażę ci na nim, jak powstaje film, ujęcie po ujęciu. Zaczynajmy."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część pierwsza. Czym jest wideo."
+        },
+        {
+          "id": "fotogramas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fotogramas"
+          },
+          "lamina": [
+            "tira",
+            "proyector"
+          ],
+          "texto": "Wideo wcale się nie rusza: to nieruchome zdjęcia, jedno po drugim, tak szybko, że twój mózg łączy je w ruch. Przy dwóch zdjęciach na sekundę widzisz skoki; przy dwunastu prawie ruch; a przy dwudziestu czterech, prędkości kina, widzisz płynny ruch."
+        },
+        {
+          "id": "lenguaje",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "imagen",
+              "sonido",
+              "corte"
+            ]
+          },
+          "lamina": [
+            "rodaje",
+            "claqueta"
+          ],
+          "texto": "Wideo to język z trzech słów: to, co widać, to, co słychać, i moment, w którym przechodzisz z jednego ujęcia do drugiego. Kto opanuje te trzy rzeczy, opowie, co zechce, telefonem albo kamerą filmową."
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2016",
+            "clave": "explicar"
+          },
+          "lamina": [
+            "explicar",
+            "camaraCelular"
+          ],
+          "texto": "I po co się uczyć, skoro maszyna już generuje filmy? Bo kiedy robisz film, powstaje nie tylko film, uczysz się też ty. W 2016 roku Vincent Hoogerheide i jego zespół w Holandii poprosili studentów, by wyjaśnili pewien temat: ci, którzy tłumaczyli go przed kamerą, nauczyli się więcej niż ci, którzy tylko go powtórzyli, i niż ci, którzy wyjaśniali go na piśmie. Maszyna może wygenerować obrazy, ale o tym, co chcesz opowiedzieć i jak, decydujesz ty."
+        },
+        {
+          "id": "mirada",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "idea",
+              "orden",
+              "voz"
+            ]
+          },
+          "lamina": [
+            "creadora",
+            "audiencia"
+          ],
+          "texto": "Dlatego najlepiej zapamiętujemy nie najdroższe filmy, tylko te, które mają coś do powiedzenia: jasny pomysł, dobry porządek i własny głos."
+        },
+        {
+          "id": "camara",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "encuadre",
+              "luz",
+              "sonido"
+            ]
+          },
+          "lamina": "tripie",
+          "enCasa": true,
+          "texto": "Tutaj, przed moją kamerą, każde ujęcie zaczyna się tak samo: najpierw kadr, potem światło, a na końcu dźwięk."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Krótka historia wideo",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część druga. Krótka historia wideo."
+        },
+        {
+          "id": "muybridge",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaVideo"
+          },
+          "lamina": [
+            "muybridge",
+            "caballo"
+          ],
+          "texto": "W 1878 roku w Kalifornii Eadweard Muybridge ustawił dwanaście aparatów w rzędzie wzdłuż toru i wyzwolił je, gdy przebiegał obok galopujący koń. Zdjęcia pokazały coś, czego nikt wcześniej nie mógł zobaczyć: przez ułamek sekundy koń ma wszystkie cztery nogi w powietrzu."
+        },
+        {
+          "id": "lumiere",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1895",
+            "clave": "lumiere"
+          },
+          "lamina": [
+            "lumiere",
+            "tren"
+          ],
+          "texto": "Dwudziestego ósmego grudnia 1895 roku, w paryskiej kawiarni, bracia Lumière po raz pierwszy sprzedali bilety na oglądanie filmów na ekranie. Legenda głosi, że gdy pociąg wjechał prosto na widzów, niektórzy kulili się na krzesłach."
+        },
+        {
+          "id": "melies",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1902",
+            "clave": "melies"
+          },
+          "lamina": [
+            "melies",
+            "luna"
+          ],
+          "texto": "Georges Méliès, który był iluzjonistą, odkrył, że jeśli zatrzyma kamerę i coś zmieni, przedmiot pojawi się albo zniknie na ekranie. W 1902 roku w filmie Podróż na Księżyc wysłał rakietę na Księżyc: tak narodziły się efekty specjalne."
+        },
+        {
+          "id": "sonido",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1927",
+            "clave": "jazz"
+          },
+          "lamina": [
+            "jazz",
+            "microfonoAntiguo"
+          ],
+          "texto": "Przez trzydzieści lat kino było nieme, a muzykę grano na żywo w sali. W 1927 roku Śpiewak jazzbandu sprawił, że widzowie usłyszeli aktora, który mówił i śpiewał zgodnie z obrazem, a w ciągu kilku lat prawie całe kino stało się dźwiękowe."
+        },
+        {
+          "id": "youtube",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2005",
+            "clave": "youtube"
+          },
+          "lamina": [
+            "computadora",
+            "zoologico"
+          ],
+          "texto": "Dwudziestego trzeciego kwietnia 2005 roku na YouTube trafił pierwszy film: dziewiętnaście sekund z młodym chłopakiem przed słoniami w zoo. Dziś co minutę przesyła się tam ponad pięćset godzin wideo."
+        },
+        {
+          "id": "celular",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cine",
+              "casa",
+              "bolsillo"
+            ]
+          },
+          "lamina": "celular",
+          "enCasa": true,
+          "texto": "A dziś studio mieści się w kieszeni: to, co sto lat temu wymagało ekipy filmowej, dziś robi telefon, taki jak ten, którego używam tutaj, w moim Studio."
+        }
+      ]
+    },
+    {
+      "id": "encuadre",
+      "titulo": "Kadr",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część trzecia. Kadr."
+        },
+        {
+          "id": "planos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "planos"
+          },
+          "lamina": [
+            "paisaje",
+            "retrato"
+          ],
+          "texto": "Kadrować to decydować, co wchodzi w obraz, a co zostaje poza nim. Plan ogólny pokazuje, gdzie jesteśmy, plan średni pokazuje, co ktoś robi, a zbliżenie pokazuje, co czuje. Zobacz to na tej samej scenie."
+        },
+        {
+          "id": "tercios",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tercios"
+          },
+          "lamina": [
+            "rejilla",
+            "fotografa"
+          ],
+          "texto": "Prosta zasada: podziel obraz na trzy części w poziomie i trzy w pionie, a to, co ważne, umieść na jednej z tych linii, a nie dokładnie pośrodku. To reguła trójpodziału, a opisał ją rytownik John Thomas Smith w 1797 roku, myśląc o malarstwie pejzażowym. Zobacz, jak zmienia się obraz, gdy przesuwasz osobę."
+        },
+        {
+          "id": "angulos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "angulos"
+          },
+          "lamina": [
+            "picado",
+            "contrapicado"
+          ],
+          "texto": "Wysokość kamery też mówi. Z góry, z ptasiej perspektywy, ktoś wydaje się mały; z dołu, z żabiej perspektywy, wygląda potężnie; a na wysokości oczu kamera traktuje go jak równego sobie."
+        },
+        {
+          "id": "atencion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2013",
+            "clave": "sincronia"
+          },
+          "lamina": [
+            "ojo",
+            "sala"
+          ],
+          "texto": "A kadr prowadzi wzrok. Dzięki kamerom śledzącym ruch oczu badacz Tim Smith zauważył, że podczas oglądania filmu prawie wszyscy patrzą w ten sam punkt w tym samym momencie: na twarz, która mówi, na to, co się rusza, na to, co najjaśniejsze. Twój kadr decyduje, gdzie patrzy widz."
+        },
+        {
+          "id": "tripie",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estable",
+              "horizonte",
+              "ojos"
+            ]
+          },
+          "lamina": "tripieCelular",
+          "enCasa": true,
+          "texto": "Dlatego moja kamera stoi na statywie: obraz jest nieruchomy, horyzont prosty, a obiektyw na wysokości oczu."
+        }
+      ]
+    },
+    {
+      "id": "luzSonido",
+      "titulo": "Światło i dźwięk",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część czwarta. Światło i dźwięk."
+        },
+        {
+          "id": "tresPuntos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "luz"
+          },
+          "lamina": [
+            "softbox",
+            "estudioLuz"
+          ],
+          "texto": "W studiach używa się oświetlenia trzypunktowego. Światło główne oświetla twarz z boku; wypełniające, łagodniejsze, rozjaśnia cienie po drugiej stronie; a kontrowe, z tyłu, oddziela osobę od tła. Włącz je po kolei."
+        },
+        {
+          "id": "ventana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ventana",
+              "frente",
+              "nubes"
+            ]
+          },
+          "lamina": "lampara",
+          "enCasa": true,
+          "texto": "Bez sprzętu okno to twoja najlepsza lampa: stań przodem albo bokiem do niego, nigdy tyłem. Ja używam tutaj tej lampy studyjnej jako światła głównego."
+        },
+        {
+          "id": "audio",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "audio"
+          },
+          "lamina": [
+            "microfonoPro",
+            "audifonos"
+          ],
+          "texto": "A teraz najważniejsze, o co prawie nikt nie dba: dźwięk. W 2018 roku Eryn Newman i Norbert Schwarz dali ludziom do posłuchania te same wystąpienia naukowców, jedne z dobrym dźwiękiem, inne ze złym. Przy złym dźwięku uznawali badania za mniej ważne, a naukowca za mniej inteligentnego. Widz wybaczy przeciętny obraz, ale nie zły dźwięk."
+        },
+        {
+          "id": "microfono",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "microfono"
+          },
+          "lamina": [
+            "lavalier",
+            "cuarto"
+          ],
+          "texto": "Cała sztuka to przysunąć mikrofon: z odległości dłoni od ust twój głos brzmi dużo głośniej niż hałas w pokoju. Odsuń go i zobacz, jak hałas go zagłusza. I nagrywaj w pokoju z miękkimi rzeczami, jak zasłony czy kanapa, które nie dają echa."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyo"
+          },
+          "lamina": "corazon",
+          "texto": "A tak przy okazji, jesteśmy w połowie. Jeśli ten przewodnik ci się przydaje, kliknij „Podoba mi się”, „Subskrybuj”, żeby nie przegapić następnego, i „Udostępnij” go komuś, kto chce zacząć robić filmy. Mnie to bardzo pomaga, a ciebie nic nie kosztuje."
+        }
+      ]
+    },
+    {
+      "id": "edicion",
+      "titulo": "Montaż",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część piąta. Montaż."
+        },
+        {
+          "id": "corte",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elegir",
+              "ordenar",
+              "cortar"
+            ]
+          },
+          "lamina": [
+            "editora",
+            "linea"
+          ],
+          "texto": "Montować to wybrać najlepsze ujęcia, ułożyć je w kolejności i zdecydować, ile trwa każde z nich. Najmniej widoczne cięcie robi się w trakcie akcji: ktoś otwiera drzwi w jednym ujęciu i kończy je otwierać w następnym, a twoje oko nawet tego nie zauważa."
+        },
+        {
+          "id": "kuleshov",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "kuleshov"
+          },
+          "lamina": [
+            "lev",
+            "kuleshov"
+          ],
+          "texto": "Sto lat temu rosyjski filmowiec Lev Kuleshov zestawił tę samą twarz aktora z trzema różnymi ujęciami: talerzem zupy, dzieckiem w trumnie i kobietą. Jak opowiadał, widzowie przysięgali, że widzą głód, smutek i pożądanie na twarzy, która się nie zmieniała. Znaczenie nie tkwi w pojedynczym ujęciu, tylko w tym, co zestawiasz obok siebie."
+        },
+        {
+          "id": "ritmo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "duracionPlanos"
+          },
+          "lamina": [
+            "claqueta2",
+            "accion"
+          ],
+          "texto": "A rytm wyznacza to, ile trwa każde ujęcie. James Cutting z Uniwersytetu Cornella zmierzył sto pięćdziesiąt hollywoodzkich filmów z lat od 1935 do 2005: ujęcia stawały się coraz krótsze, aż trwały zaledwie kilka sekund. Długie ujęcia uspokajają, krótkie przyspieszają."
+        },
+        {
+          "id": "jl",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cortesJL"
+          },
+          "lamina": [
+            "dialogo",
+            "audifonos2"
+          ],
+          "texto": "Sztuczka montażysty: nie tnij obrazu i dźwięku w tym samym momencie. Jeśli dźwięk następnego ujęcia wchodzi wcześniej, na przykład wołający głos, cięcie wydaje się naturalne. To tak zwane cięcie J, a odwrotnie, gdy dźwięk zostaje chwilę dłużej, cięcie L."
+        },
+        {
+          "id": "mencion-edicion",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "linea",
+          "enCasa": true,
+          "texto": "Tak robię to w moim Studio Wideo w MindHaOS: każde ujęcie to klip na osi czasu, ze swoją muzyką, głosem, napisami i przejściami."
+        }
+      ]
+    },
+    {
+      "id": "historiaContar",
+      "titulo": "Jak opowiedzieć historię",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część szósta. Jak opowiedzieć historię."
+        },
+        {
+          "id": "gancho",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunta",
+              "promesa",
+              "intriga"
+            ]
+          },
+          "lamina": [
+            "scroll",
+            "sorpresa"
+          ],
+          "texto": "W internecie pierwsze sekundy decydują, czy ktoś zostanie. Zacznij od pytania, obietnicy albo intrygującego obrazu, a nigdy od „cześć, dziś opowiem wam o…”. Tak jak ten film, który zaczął się od pytania."
+        },
+        {
+          "id": "estructura",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "estructura"
+          },
+          "lamina": [
+            "libro",
+            "teatro"
+          ],
+          "texto": "Prawie każda historia ma trzy części, od czasów greckiego teatru: początek, który przedstawia kogoś, kto czegoś chce, rozwinięcie z tym, co mu w tym przeszkadza, i zakończenie, które wszystko rozwiązuje. Nawet minutowy film mieści się w tej formie."
+        },
+        {
+          "id": "guion",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escribe",
+              "dibuja",
+              "lista"
+            ]
+          },
+          "lamina": [
+            "storyboard",
+            "cuaderno"
+          ],
+          "texto": "Zanim zaczniesz nagrywać, zapisz, co powiesz, i narysuj każde ujęcie w kratkach, nawet jeśli wyjdą z tego patyczaki. To się nazywa storyboard, a Disney używał go już w latach trzydziestych: oszczędza ci godzin niepotrzebnego nagrywania."
+        },
+        {
+          "id": "mostrar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "decir",
+              "mostrar",
+              "sentir"
+            ]
+          },
+          "lamina": [
+            "lluvia",
+            "sonrisa"
+          ],
+          "texto": "I złota zasada: pokaż, nie mów. Zamiast mówić „był zdenerwowany”, pokaż widzom drżącą dłoń. To, co widz odkryje sam, zapamięta."
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "inicio",
+              "nudo",
+              "final"
+            ]
+          },
+          "lamina": "escribir",
+          "enCasa": true,
+          "texto": "Ja piszę scenariusz wcześniej, a tutaj zamieniam go w ujęcia: z tego menu dodaję klipy, napisy, głos i muzykę, jedno po drugim."
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Twój plan na start",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część siódma. Twój plan na start."
+        },
+        {
+          "id": "mira",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "planos",
+              "cortes",
+              "sonido"
+            ]
+          },
+          "lamina": [
+            "sillon",
+            "pantalla"
+          ],
+          "texto": "Zacznij od tego, by oglądać filmy inaczej: wybierz jeden, który lubisz, policz jego ujęcia, zwróć uwagę, gdzie są cięcia, i posłuchaj, jak brzmi. Odkryjesz decyzje stojące za każdą sekundą."
+        },
+        {
+          "id": "uno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "videosAno"
+          },
+          "lamina": "reloj",
+          "texto": "Nie musisz kręcić pełnometrażowego filmu: jeden minutowy film tygodniowo to pięćdziesiąt dwa filmy w roku. Ustaw tutaj, ile ich robisz, i zobacz, ile przećwiczysz w ciągu roku."
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutinaVideo"
+          },
+          "lamina": [
+            "semana",
+            "celular2"
+          ],
+          "texto": "Przykładowy tydzień: w poniedziałek wybierz pomysł i napisz scenariusz; we wtorek narysuj ujęcia; w środę nagrywaj; w czwartek montuj; w piątek sprawdź dźwięk i napisy; a w weekend opublikuj film."
+        },
+        {
+          "id": "publica",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "publica",
+              "escucha",
+              "mejora"
+            ]
+          },
+          "lamina": "subir",
+          "enCasa": true,
+          "texto": "I publikuj, nawet jeśli nie wyjdzie idealnie: każdy film uczy cię czegoś na następny. Zobacz: nagrywam tutaj, w moim domu, wracam do Studio z ujęciem jako klipem i stamtąd je publikuję."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "resumen",
+          "texto": "Podsumowując: wideo to nieruchome zdjęcia, które twój mózg wprawia w ruch; kadr decyduje, gdzie patrzy widz; światło nadaje kształt, a dźwięk wiarygodność; montaż nadaje sens i rytm; a robienie filmów uczy ciebie, nawet jeśli maszyna już je generuje."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Jeśli chcesz robić filmy tak jak ja, Studio Wideo w MindHaOS ma wszystko w jednym pokoju: możesz montować swoje ujęcia na osi czasu, nagrać do nich głos, dodać muzykę i napisy, animować sceny w 3D ze swoimi postaciami i publikować je od razu w swoich mediach społecznościowych. Link jest w opisie, razem z tym interaktywnym przewodnikiem. Do zobaczenia w następnym odcinku.",
+    "boton": "Otwórz Studio Wideo",
+    "lamina": "app-plan",
+    "anclas": {
+      "editar": "montować swoje ujęcia",
+      "voz": "nagrać do nich głos",
+      "animar": "animować sceny w 3D",
+      "publicar": "publikować je od razu"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "hoogerheide-2016",
+      "texto": "Hoogerheide V., Deijkers L., Loyens S. M. M., Heijltjes A., van Gog T. Gaining from explaining: Learning improves from explaining to fictitious others on video, not from writing to them. Contemporary Educational Psychology (2016).",
+      "url": "https://doi.org/10.1016/j.cedpsych.2016.02.005"
+    },
+    {
+      "id": "muybridge-1878",
+      "texto": "Muybridge E. The Horse in Motion (Palo Alto, 1878).",
+      "url": "https://en.wikipedia.org/wiki/The_Horse_in_Motion"
+    },
+    {
+      "id": "lumiere-1895",
+      "texto": "Pierwszy płatny pokaz publiczny kinematografu Lumière, Salon Indien w Grand Café, Paryż (28 grudnia 1895).",
+      "url": "https://en.wikipedia.org/wiki/Auguste_and_Louis_Lumi%C3%A8re"
+    },
+    {
+      "id": "melies-1902",
+      "texto": "Méliès G. Le Voyage dans la Lune (Podróż na Księżyc, 1902).",
+      "url": "https://en.wikipedia.org/wiki/A_Trip_to_the_Moon"
+    },
+    {
+      "id": "jazz-1927",
+      "texto": "Crosland A. The Jazz Singer (Śpiewak jazzbandu, Warner Bros., 1927).",
+      "url": "https://en.wikipedia.org/wiki/The_Jazz_Singer"
+    },
+    {
+      "id": "youtube-2005",
+      "texto": "„Me at the zoo”, pierwszy film na YouTube (23 kwietnia 2005).",
+      "url": "https://en.wikipedia.org/wiki/Me_at_the_zoo"
+    },
+    {
+      "id": "smith-1797",
+      "texto": "Smith J. T. Remarks on Rural Scenery (1797), gdzie po raz pierwszy pojawia się „reguła trójpodziału”.",
+      "url": "https://en.wikipedia.org/wiki/Rule_of_thirds"
+    },
+    {
+      "id": "smith-2013",
+      "texto": "Smith T. J., Mital P. K. Attentional synchrony and the influence of viewing task on gaze behavior in static and dynamic scenes. Journal of Vision (2013).",
+      "url": "https://doi.org/10.1167/13.8.16"
+    },
+    {
+      "id": "newman-2018",
+      "texto": "Newman E. J., Schwarz N. Good sound, good research: How audio quality influences perceptions of the research and researcher. Science Communication (2018).",
+      "url": "https://doi.org/10.1177/1075547018759345"
+    },
+    {
+      "id": "kuleshov",
+      "texto": "Efekt Kuleshova (Lev Kuleshov, ok. 1918–1921).",
+      "url": "https://en.wikipedia.org/wiki/Kuleshov_effect"
+    },
+    {
+      "id": "cutting-2010",
+      "texto": "Cutting J. E., DeLong J. E., Nothelfer C. E. Attention and the evolution of Hollywood film. Psychological Science (2010).",
+      "url": "https://doi.org/10.1177/0956797610361679"
+    }
+  ]
+}

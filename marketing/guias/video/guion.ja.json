@@ -1,0 +1,724 @@
+{
+  "idioma": "ja",
+  "tema": "video",
+  "plantillaId": "video",
+  "numero": 8,
+  "nombre": "動画スタジオ",
+  "pregunta": "動画はどうやって作るのでしょうか？",
+  "corta": "動画はどう作る？",
+  "subtitulo": "AIがもう動画を作れるのに動画作りを学ぶ理由、映画からスマホまでの短い歴史、ショットの構図、照明と録音、編集、物語の語り方、そして最初の動画を公開するためのプラン。",
+  "aviso": "このガイドは情報提供を目的としています。引用した年代、数値、研究は出典に基づくおおよその値で、進み方は人それぞれです。言及した映画やチャンネルは名前を挙げているだけで、例の画像はオリジナル、Pexels、またはパブリックドメインのものです。",
+  "partes": [
+    {
+      "id": "video",
+      "titulo": "動画とは何か",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "動画はどうやって作るのでしょうか？ 今では人工知能が、たった一文から動画をまるごと作ってしまいます。それでも毎分何百時間もの動画が、誰かの手で撮られ、編集され、語られてアップロードされています。では、なぜあなた自身が作り方を学ぶ価値があるのでしょうか？ これからの数分で、動画とは何か、どこから来たのか、どう構図を決め、光を当て、音を録り、編集するのかを見ていき、最初の1本を公開するためのプランを手に入れられます。"
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "ところで、ここがMindHaOSの私の家、そしてこれが私の動画スタジオです。ここで撮影し、編集し、公開しています。今日はこのスタジオを使って、動画がワンショットずつどう組み立てられるのかをお見せします。さあ、始めましょう。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート1。動画とは何か。"
+        },
+        {
+          "id": "fotogramas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fotogramas"
+          },
+          "lamina": [
+            "tira",
+            "proyector"
+          ],
+          "texto": "動画は本当は動いていません。止まった写真が次々と、脳が動きとしてつなげてしまうほど速く流れているのです。1秒に2枚ならカクカクと飛び、12枚ならほぼ動きに見え、映画の速さの24枚なら、なめらかな動きになります。"
+        },
+        {
+          "id": "lenguaje",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "imagen",
+              "sonido",
+              "corte"
+            ]
+          },
+          "lamina": [
+            "rodaje",
+            "claqueta"
+          ],
+          "texto": "そして動画は、3つの言葉でできた言語です。見えるもの、聞こえるもの、そしてあるショットから次のショットへ移る瞬間です。この3つを使いこなせば、スマホでも映画用のカメラでも、伝えたいことを伝えられます。"
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2016",
+            "clave": "explicar"
+          },
+          "lamina": [
+            "explicar",
+            "camaraCelular"
+          ],
+          "texto": "でも、機械がもう動画を作れるのに、なぜ学ぶのでしょう？ 動画を作ると、動画ができるだけでなく、あなた自身も学ぶからです。2016年、オランダのVincent Hoogerheideたちは、学生にあるテーマを説明してもらいました。カメラの前で説明した学生は、復習しただけの学生や、文章で説明した学生よりも多くを学びました。機械は映像を作れても、何をどう伝えるかを決めるのはあなたです。"
+        },
+        {
+          "id": "mirada",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "idea",
+              "orden",
+              "voz"
+            ]
+          },
+          "lamina": [
+            "creadora",
+            "audiencia"
+          ],
+          "texto": "だから記憶に残る動画は、いちばんお金をかけたものではなく、伝えたいことがあるものです。はっきりしたアイデア、よい順番、そして自分だけの声です。"
+        },
+        {
+          "id": "camara",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "encuadre",
+              "luz",
+              "sonido"
+            ]
+          },
+          "lamina": "tripie",
+          "enCasa": true,
+          "texto": "ここ、私のカメラの前では、どのショットも同じように始まります。まず構図、次に光、最後に音です。"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "動画の短い歴史",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート2。動画の短い歴史。"
+        },
+        {
+          "id": "muybridge",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaVideo"
+          },
+          "lamina": [
+            "muybridge",
+            "caballo"
+          ],
+          "texto": "1878年、カリフォルニアで、Eadweard Muybridgeは走路沿いに12台のカメラを並べ、駆け抜ける馬に合わせてシャッターを切りました。写真は、誰も見たことのなかった事実を証明しました。ある一瞬、馬は4本の脚をすべて宙に浮かせているのです。"
+        },
+        {
+          "id": "lumiere",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1895",
+            "clave": "lumiere"
+          },
+          "lamina": [
+            "lumiere",
+            "tren"
+          ],
+          "texto": "1895年12月28日、パリのカフェで、Lumière兄弟が初めて入場料を取り、スクリーンで映画を見せました。言い伝えでは、正面から迫ってくる列車を見て、椅子の上で身をかがめた人もいたそうです。"
+        },
+        {
+          "id": "melies",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1902",
+            "clave": "melies"
+          },
+          "lamina": [
+            "melies",
+            "luna"
+          ],
+          "texto": "マジシャンだったGeorges Mélièsは、カメラを止めて何かを変えると、それが画面の中で現れたり消えたりすることに気づきました。1902年、彼は『月世界旅行』でロケットを月まで飛ばしました。こうして特殊効果が生まれたのです。"
+        },
+        {
+          "id": "sonido",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1927",
+            "clave": "jazz"
+          },
+          "lamina": [
+            "jazz",
+            "microfonoAntiguo"
+          ],
+          "texto": "30年ものあいだ映画は無声で、音楽は劇場での生演奏でした。1927年、『ジャズ・シンガー』で観客は、映像に合わせて俳優が話し、歌う声を聞きました。そして数年のうちに、ほとんどの映画がトーキーになりました。"
+        },
+        {
+          "id": "youtube",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2005",
+            "clave": "youtube"
+          },
+          "lamina": [
+            "computadora",
+            "zoologico"
+          ],
+          "texto": "2005年4月23日、YouTubeに最初の動画が投稿されました。動物園のゾウの前に立つ若者を映した、19秒の映像です。今では毎分500時間以上の動画がアップロードされています。"
+        },
+        {
+          "id": "celular",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cine",
+              "casa",
+              "bolsillo"
+            ]
+          },
+          "lamina": "celular",
+          "enCasa": true,
+          "texto": "そして今、スタジオはポケットに収まります。100年前には映画の撮影隊が必要だったことを、今はスマホ1台でこなせます。ここ、私のスタジオで使っているスマホのようにね。"
+        }
+      ]
+    },
+    {
+      "id": "encuadre",
+      "titulo": "構図",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート3。構図。"
+        },
+        {
+          "id": "planos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "planos"
+          },
+          "lamina": [
+            "paisaje",
+            "retrato"
+          ],
+          "texto": "構図を決めるとは、何を画面に入れ、何を外に残すかを決めることです。ロングショットは場所を、ミディアムショットは人がしていることを、クローズアップは人が感じていることを見せます。同じ場面で見てみましょう。"
+        },
+        {
+          "id": "tercios",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tercios"
+          },
+          "lamina": [
+            "rejilla",
+            "fotografa"
+          ],
+          "texto": "簡単なルールがあります。画面を横に3つ、縦に3つに分けて、大事なものを真ん中ではなく、その線の上に置くのです。これを三分割法といい、版画家のJohn Thomas Smithが1797年に、風景画を念頭に書き記しました。人物を動かすと画面がどう変わるか、見てください。"
+        },
+        {
+          "id": "angulos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "angulos"
+          },
+          "lamina": [
+            "picado",
+            "contrapicado"
+          ],
+          "texto": "カメラの高さも語ります。上から見下ろす俯瞰では人は小さく見え、下から見上げるあおりでは力強く見えます。そして目の高さなら、カメラはその人を対等に扱います。"
+        },
+        {
+          "id": "atencion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2013",
+            "clave": "sincronia"
+          },
+          "lamina": [
+            "ojo",
+            "sala"
+          ],
+          "texto": "そして構図は視線を導きます。研究者のTim Smithは、目の動きを追うカメラを使い、映画を見るとき、ほとんどの人が同じ瞬間に同じところを見ていることを確かめました。話している顔、動くもの、いちばん明るいところです。あなたの構図が、観客の見る場所を決めるのです。"
+        },
+        {
+          "id": "tripie",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estable",
+              "horizonte",
+              "ojos"
+            ]
+          },
+          "lamina": "tripieCelular",
+          "enCasa": true,
+          "texto": "だから私のカメラは三脚に載せています。画面は揺れず、水平はまっすぐ、レンズは目の高さです。"
+        }
+      ]
+    },
+    {
+      "id": "luzSonido",
+      "titulo": "光と音",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート4。光と音。"
+        },
+        {
+          "id": "tresPuntos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "luz"
+          },
+          "lamina": [
+            "softbox",
+            "estudioLuz"
+          ],
+          "texto": "スタジオでは三点照明を使います。キーライトが片側から顔を照らし、より柔らかいフィルライトが反対側の影を明るくし、後ろからのバックライトが人物を背景から切り離します。ひとつずつ点けてみてください。"
+        },
+        {
+          "id": "ventana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ventana",
+              "frente",
+              "nubes"
+            ]
+          },
+          "lamina": "lampara",
+          "enCasa": true,
+          "texto": "機材がなくても、窓は最高のライトです。窓に向かうか横に立ち、決して背を向けないこと。私はここで、このスタジオライトをキーライトにしています。"
+        },
+        {
+          "id": "audio",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "audio"
+          },
+          "lamina": [
+            "microfonoPro",
+            "audifonos"
+          ],
+          "texto": "そして、いちばん大事なのに、ほとんど誰も気にしないもの。それが音です。2018年、Eryn NewmanとNorbert Schwarzは、同じ科学者の講演を、音のよいものと悪いものに分けて人々に聞かせました。音が悪いと、研究はそれほど重要でなく、科学者もそれほど賢くないと判断されたのです。観客はそこそこの映像なら許しても、悪い音は許しません。"
+        },
+        {
+          "id": "microfono",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "microfono"
+          },
+          "lamina": [
+            "lavalier",
+            "cuarto"
+          ],
+          "texto": "コツは、マイクを近づけることです。口から手のひら1つ分の距離なら、声は部屋の雑音よりずっと大きく聞こえます。遠ざけると、雑音に声がのみ込まれていくのがわかります。そして、カーテンやソファのような柔らかいものがある、響かない部屋で録りましょう。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyo"
+          },
+          "lamina": "corazon",
+          "texto": "ところで、ちょうど半分まで来ました。このガイドが役に立っているなら、高評価を押して、次回を見逃さないようにチャンネル登録して、動画を作り始めたい人に共有してください。私にはとても助けになりますし、あなたには何の負担もかかりません。"
+        }
+      ]
+    },
+    {
+      "id": "edicion",
+      "titulo": "編集",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート5。編集。"
+        },
+        {
+          "id": "corte",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elegir",
+              "ordenar",
+              "cortar"
+            ]
+          },
+          "lamina": [
+            "editora",
+            "linea"
+          ],
+          "texto": "編集とは、いちばんいいショットを選び、順番に並べ、それぞれの長さを決めることです。いちばん目立たないカットは、動きの途中で切ります。あるショットで誰かがドアを開け始め、次のショットで開け終われば、目はまったく気づきません。"
+        },
+        {
+          "id": "kuleshov",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "kuleshov"
+          },
+          "lamina": [
+            "lev",
+            "kuleshov"
+          ],
+          "texto": "100年ほど前、ロシアの映画監督Lev Kuleshovは、俳優の同じ顔を3つの別々のショットとつなぎました。スープの皿、棺の中の子ども、そして一人の女性です。彼によれば、観客は変わらない顔に、空腹、悲しみ、欲望を見たと言い張ったそうです。意味はひとつひとつのショットではなく、何を隣に置くかにあるのです。"
+        },
+        {
+          "id": "ritmo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "duracionPlanos"
+          },
+          "lamina": [
+            "claqueta2",
+            "accion"
+          ],
+          "texto": "そしてリズムは、ショットの長さで決まります。コーネル大学のJames Cuttingは、1935年から2005年までのハリウッド映画150本を測りました。ショットはどんどん短くなり、数秒しか続かなくなっていました。長いショットは落ち着かせ、短いショットは加速させます。"
+        },
+        {
+          "id": "jl",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cortesJL"
+          },
+          "lamina": [
+            "dialogo",
+            "audifonos2"
+          ],
+          "texto": "編集者のコツをひとつ。映像と音を同時に切らないこと。呼びかける声のように、次のショットの音が先に入ってくると、カットが自然に感じられます。これをJカットといい、逆に音が少し残るのをLカットといいます。"
+        },
+        {
+          "id": "mencion-edicion",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "linea",
+          "enCasa": true,
+          "texto": "MindHaOSの私の動画スタジオでも、こうしています。ショットはそれぞれタイムライン上のクリップで、音楽、声、テキスト、トランジションがついています。"
+        }
+      ]
+    },
+    {
+      "id": "historiaContar",
+      "titulo": "物語の語り方",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート6。物語の語り方。"
+        },
+        {
+          "id": "gancho",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunta",
+              "promesa",
+              "intriga"
+            ]
+          },
+          "lamina": [
+            "scroll",
+            "sorpresa"
+          ],
+          "texto": "ネットでは、最初の数秒で見続けるかどうかが決まります。問いかけ、約束、または気になる映像で始めましょう。「こんにちは、今日は…について話します」で始めてはいけません。この動画も、問いかけから始まりましたよね。"
+        },
+        {
+          "id": "estructura",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "estructura"
+          },
+          "lamina": [
+            "libro",
+            "teatro"
+          ],
+          "texto": "ほとんどの物語は、ギリシャ演劇の時代から3つの部分でできています。何かを求める人を紹介する始まり、それを阻むものが現れる中盤、そしてそれを解決する結末です。1分の動画でも、この形に収まります。"
+        },
+        {
+          "id": "guion",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escribe",
+              "dibuja",
+              "lista"
+            ]
+          },
+          "lamina": [
+            "storyboard",
+            "cuaderno"
+          ],
+          "texto": "撮る前に、話すことを書き、ショットをひとつずつ小さな枠に描きましょう。棒人間でかまいません。これを絵コンテ、ストーリーボードといい、Disneyは1930年代から使っていました。余計な撮影の時間を何時間も減らしてくれます。"
+        },
+        {
+          "id": "mostrar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "decir",
+              "mostrar",
+              "sentir"
+            ]
+          },
+          "lamina": [
+            "lluvia",
+            "sonrisa"
+          ],
+          "texto": "そして黄金のルール。言わずに、見せること。「緊張していた」と言う代わりに、震える手を観客に見せましょう。人は自分で気づいたことを覚えているものです。"
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "inicio",
+              "nudo",
+              "final"
+            ]
+          },
+          "lamina": "escribir",
+          "enCasa": true,
+          "texto": "私は先に台本を書き、ここでそれをショットに変えます。このメニューから、クリップ、テキスト、声、音楽をひとつずつ加えていきます。"
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "始めるためのプラン",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート7。始めるためのプラン。"
+        },
+        {
+          "id": "mira",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "planos",
+              "cortes",
+              "sonido"
+            ]
+          },
+          "lamina": [
+            "sillon",
+            "pantalla"
+          ],
+          "texto": "まずは、動画の見方を変えることから。好きな動画を1本選んでショットを数え、どこで切っているかに注目し、音の聞こえ方に耳を澄ませましょう。1秒1秒の裏にある決断が見えてきます。"
+        },
+        {
+          "id": "uno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "videosAno"
+          },
+          "lamina": "reloj",
+          "texto": "映画を作る必要はありません。週に1本、1分の動画を作れば、1年で52本です。ここで本数を動かして、1年でどれだけ練習できるか見てみましょう。"
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutinaVideo"
+          },
+          "lamina": [
+            "semana",
+            "celular2"
+          ],
+          "texto": "たとえば、こんな1週間。月曜はアイデアを選んで台本を書き、火曜はショットを描き、水曜は撮影、木曜は編集、金曜は音とテキストを確認して、週末に公開します。"
+        },
+        {
+          "id": "publica",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "publica",
+              "escucha",
+              "mejora"
+            ]
+          },
+          "lamina": "subir",
+          "enCasa": true,
+          "texto": "そして、完璧でなくても公開しましょう。1本ごとに、次に生かせることを学べます。見てください。私はこの家の中で撮影し、そのショットをクリップとしてスタジオに戻し、そこから公開します。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "resumen",
+          "texto": "まとめると、動画は脳が動かす止まった写真です。構図は観客の見る場所を決め、光は形を、音は信頼を与えます。編集は意味とリズムを与えます。そして機械がもう動画を作れても、動画作りはあなた自身に多くを教えてくれるのです。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "私のように動画を作りたいなら、MindHaOSの動画スタジオには、ひとつの部屋にすべてがそろっています。タイムラインでショットを編集し、声をつけて音楽や字幕を加え、自分のキャラクターで3Dのシーンをアニメーションにして、SNSに直接公開できます。リンクは概要欄に、このインタラクティブ版のガイドと一緒にあります。それでは、また次回。",
+    "boton": "動画スタジオを開く",
+    "lamina": "app-plan",
+    "anclas": {
+      "editar": "ショットを編集",
+      "voz": "声をつけ",
+      "animar": "3Dのシーンをアニメーション",
+      "publicar": "SNSに直接公開"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "hoogerheide-2016",
+      "texto": "Hoogerheide V., Deijkers L., Loyens S. M. M., Heijltjes A., van Gog T. Gaining from explaining: Learning improves from explaining to fictitious others on video, not from writing to them. Contemporary Educational Psychology (2016).",
+      "url": "https://doi.org/10.1016/j.cedpsych.2016.02.005"
+    },
+    {
+      "id": "muybridge-1878",
+      "texto": "Muybridge E. The Horse in Motion (Palo Alto, 1878).",
+      "url": "https://en.wikipedia.org/wiki/The_Horse_in_Motion"
+    },
+    {
+      "id": "lumiere-1895",
+      "texto": "リュミエール兄弟のシネマトグラフによる初の有料公開上映。パリ、グラン・カフェの「サロン・ナンディアン」（1895年12月28日）。",
+      "url": "https://en.wikipedia.org/wiki/Auguste_and_Louis_Lumi%C3%A8re"
+    },
+    {
+      "id": "melies-1902",
+      "texto": "Méliès G. Le Voyage dans la Lune（『月世界旅行』、1902年）。",
+      "url": "https://en.wikipedia.org/wiki/A_Trip_to_the_Moon"
+    },
+    {
+      "id": "jazz-1927",
+      "texto": "Crosland A. The Jazz Singer（『ジャズ・シンガー』、Warner Bros.、1927年）。",
+      "url": "https://en.wikipedia.org/wiki/The_Jazz_Singer"
+    },
+    {
+      "id": "youtube-2005",
+      "texto": "「Me at the zoo」、YouTubeで最初の動画（2005年4月23日）。",
+      "url": "https://en.wikipedia.org/wiki/Me_at_the_zoo"
+    },
+    {
+      "id": "smith-1797",
+      "texto": "Smith J. T. Remarks on Rural Scenery (1797)。「三分割法」が初めて登場した本。",
+      "url": "https://en.wikipedia.org/wiki/Rule_of_thirds"
+    },
+    {
+      "id": "smith-2013",
+      "texto": "Smith T. J., Mital P. K. Attentional synchrony and the influence of viewing task on gaze behavior in static and dynamic scenes. Journal of Vision (2013).",
+      "url": "https://doi.org/10.1167/13.8.16"
+    },
+    {
+      "id": "newman-2018",
+      "texto": "Newman E. J., Schwarz N. Good sound, good research: How audio quality influences perceptions of the research and researcher. Science Communication (2018).",
+      "url": "https://doi.org/10.1177/1075547018759345"
+    },
+    {
+      "id": "kuleshov",
+      "texto": "クレショフ効果（レフ・クレショフ、1918〜1921年ごろ）。",
+      "url": "https://en.wikipedia.org/wiki/Kuleshov_effect"
+    },
+    {
+      "id": "cutting-2010",
+      "texto": "Cutting J. E., DeLong J. E., Nothelfer C. E. Attention and the evolution of Hollywood film. Psychological Science (2010).",
+      "url": "https://doi.org/10.1177/0956797610361679"
+    }
+  ]
+}

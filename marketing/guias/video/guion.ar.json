@@ -1,0 +1,724 @@
+{
+  "idioma": "ar",
+  "tema": "video",
+  "plantillaId": "video",
+  "numero": 8,
+  "nombre": "استوديو الفيديو",
+  "pregunta": "كيف تصنع الفيديوهات؟",
+  "corta": "كيف تصنع الفيديوهات؟",
+  "subtitulo": "لماذا تتعلّم صناعة الفيديو رغم أن الذكاء الاصطناعي صار يولّده، وتاريخ موجز من السينما إلى الهاتف المحمول، وكيف تُؤطَّر اللقطة، وكيف تُضاء ويُسجَّل صوتها، وكيف يُحرَّر الفيديو، وكيف تُروى قصة، وخطة لنشر أول فيديو لك.",
+  "aviso": "هذا الدليل للمعلومات فقط: التواريخ والأرقام والدراسات المذكورة تقريبية بحسب مصادرها، وكل شخص يتقدّم بإيقاعه. الأفلام والقنوات المذكورة تُذكر بأسمائها فقط؛ وصور الأمثلة من إنتاجنا أو من Pexels أو من الملك العام.",
+  "partes": [
+    {
+      "id": "video",
+      "titulo": "ما هو الفيديو",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "كيف تصنع الفيديوهات؟ اليوم يولّد الذكاء الاصطناعي فيديو كاملًا من جملة واحدة فقط. ومع ذلك، تُرفع كل دقيقة مئات الساعات من الفيديو صوّرها أحدٌ وحرّرها وروى فيها حكاية. فلماذا يستحق الأمر أن تتعلّم صناعتها بنفسك؟ في الدقائق القادمة سترى ما هو الفيديو، ومن أين جاء، وكيف يُؤطَّر ويُضاء ويُسجَّل صوته ويُحرَّر، وستخرج بخطة لنشر أول فيديو لك."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "بالمناسبة، هذا بيتي في MindHaOS، وهذا استوديو الفيديو الخاص بي: هنا أصوّر وأحرّر وأنشر. واليوم سأعلّمك به كيف يُبنى الفيديو، لقطةً لقطة. لنبدأ."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الأول. ما هو الفيديو."
+        },
+        {
+          "id": "fotogramas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fotogramas"
+          },
+          "lamina": [
+            "tira",
+            "proyector"
+          ],
+          "texto": "الفيديو لا يتحرّك: إنه صور ثابتة، واحدة تلو الأخرى، بسرعة تجعل دماغك يصلها ببعضها فيراها حركة. بصورتين في الثانية ترى قفزات؛ وباثنتي عشرة، ما يشبه الحركة؛ وبأربع وعشرين، وهي سرعة السينما، ترى حركة سلسة."
+        },
+        {
+          "id": "lenguaje",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "imagen",
+              "sonido",
+              "corte"
+            ]
+          },
+          "lamina": [
+            "rodaje",
+            "claqueta"
+          ],
+          "texto": "والفيديو لغة من ثلاث كلمات: ما يُرى، وما يُسمع، واللحظة التي تنتقل فيها من لقطة إلى أخرى. ومن يتقن هذه الثلاثة يروي ما يشاء، بهاتف محمول أو بكاميرا سينمائية."
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2016",
+            "clave": "explicar"
+          },
+          "lamina": [
+            "explicar",
+            "camaraCelular"
+          ],
+          "texto": "ولماذا نتعلّم، إن كانت الآلة تولّد الفيديوهات أصلًا؟ لأنك حين تصنع فيديو لا يخرج فيديو فحسب، بل تتعلّم أنت أيضًا. في عام 2016، طلب فنسنت هوخرهايده وفريقه في هولندا من طلاب أن يشرحوا موضوعًا: من شرحوه أمام كاميرا تعلّموا أكثر ممن اكتفوا بمراجعته، وأكثر ممن شرحوه كتابةً. قد تولّد الآلة الصور، لكن ما تريد أن ترويه، وكيف ترويه، قرارك أنت."
+        },
+        {
+          "id": "mirada",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "idea",
+              "orden",
+              "voz"
+            ]
+          },
+          "lamina": [
+            "creadora",
+            "audiencia"
+          ],
+          "texto": "لهذا فإن أكثر الفيديوهات بقاءً في الذاكرة ليست الأغلى، بل تلك التي لديها ما تقوله: فكرة واضحة، وترتيب جيد، وصوت خاص بها."
+        },
+        {
+          "id": "camara",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "encuadre",
+              "luz",
+              "sonido"
+            ]
+          },
+          "lamina": "tripie",
+          "enCasa": true,
+          "texto": "هنا، أمام كاميرتي، تبدأ كل لقطة بالطريقة نفسها: أولًا التأطير، ثم الإضاءة، وأخيرًا الصوت."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "تاريخ موجز للفيديو",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثاني. تاريخ موجز للفيديو."
+        },
+        {
+          "id": "muybridge",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaVideo"
+          },
+          "lamina": [
+            "muybridge",
+            "caballo"
+          ],
+          "texto": "في عام 1878، في كاليفورنيا، صفّ إدوارد مايبريدج اثنتي عشرة كاميرا بجانب مضمار، وأطلقها مع مرور حصان يعدو. فأثبتت الصور شيئًا لم يستطع أحد أن يراه: في لحظة ما، تكون قوائم الحصان الأربع كلها في الهواء."
+        },
+        {
+          "id": "lumiere",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1895",
+            "clave": "lumiere"
+          },
+          "lamina": [
+            "lumiere",
+            "tren"
+          ],
+          "texto": "في الثامن والعشرين من ديسمبر عام 1895، في مقهى بباريس، تقاضى الأخوان لوميير ثمن الدخول لأول مرة لمشاهدة أفلام على شاشة. وتقول الأسطورة إن بعض الحاضرين انحنوا في مقاعدهم حين رأوا قطارًا يتقدّم نحوهم."
+        },
+        {
+          "id": "melies",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1902",
+            "clave": "melies"
+          },
+          "lamina": [
+            "melies",
+            "luna"
+          ],
+          "texto": "جورج ميلييس، وكان ساحرًا، اكتشف أنه إذا أوقف الكاميرا وغيّر شيئًا، ظهر الشيء أو اختفى على الشاشة. وفي عام 1902 أرسل صاروخًا إلى القمر في فيلم «رحلة إلى القمر»: وهكذا وُلدت المؤثرات الخاصة."
+        },
+        {
+          "id": "sonido",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1927",
+            "clave": "jazz"
+          },
+          "lamina": [
+            "jazz",
+            "microfonoAntiguo"
+          ],
+          "texto": "طوال ثلاثين عامًا كانت السينما صامتة، مع موسيقى حيّة في القاعة. وفي عام 1927، جعل فيلم «مغني الجاز» الجمهور يسمع ممثلًا يتكلّم ويغنّي متزامنًا مع الصورة، وخلال سنوات قليلة صارت السينما كلها تقريبًا ناطقة."
+        },
+        {
+          "id": "youtube",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2005",
+            "clave": "youtube"
+          },
+          "lamina": [
+            "computadora",
+            "zoologico"
+          ],
+          "texto": "في الثالث والعشرين من أبريل عام 2005 رُفع أول فيديو على YouTube: تسع عشرة ثانية لشاب أمام الفيلة في حديقة حيوانات. واليوم يُرفع أكثر من خمسمئة ساعة من الفيديو كل دقيقة."
+        },
+        {
+          "id": "celular",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cine",
+              "casa",
+              "bolsillo"
+            ]
+          },
+          "lamina": "celular",
+          "enCasa": true,
+          "texto": "واليوم صار الاستوديو يتّسع له الجيب: ما كان يحتاج قبل قرن إلى فريق سينمائي، يفعله اليوم هاتف محمول، مثل الذي أستخدمه هنا في الاستوديو الخاص بي."
+        }
+      ]
+    },
+    {
+      "id": "encuadre",
+      "titulo": "التأطير",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثالث. التأطير."
+        },
+        {
+          "id": "planos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "planos"
+          },
+          "lamina": [
+            "paisaje",
+            "retrato"
+          ],
+          "texto": "التأطير هو أن تقرّر ما يدخل في الصورة وما يبقى خارجها. اللقطة العامة تُظهر أين نحن، واللقطة المتوسطة تُظهر ما يفعله أحدهم، واللقطة القريبة تُظهر ما يشعر به. انظر إليها في المشهد نفسه."
+        },
+        {
+          "id": "tercios",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tercios"
+          },
+          "lamina": [
+            "rejilla",
+            "fotografa"
+          ],
+          "texto": "قاعدة بسيطة: قسّم الصورة إلى ثلاثة أجزاء بالعرض وثلاثة بالطول، وضع الأهم على أحد هذه الخطوط، لا في المنتصف تمامًا. اسمها قاعدة الأثلاث، وكتبها الحفّار جون توماس سميث عام 1797، وهو يفكّر في رسم المناظر الطبيعية. انظر كيف تتغيّر الصورة حين تحرّك الشخص."
+        },
+        {
+          "id": "angulos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "angulos"
+          },
+          "lamina": [
+            "picado",
+            "contrapicado"
+          ],
+          "texto": "ارتفاع الكاميرا يتكلّم أيضًا. من الأعلى، في اللقطة العلوية، يبدو الشخص صغيرًا؛ ومن الأسفل، في اللقطة السفلية، يبدو قويًا؛ وعلى مستوى العينين، تعامله الكاميرا كندٍّ لها."
+        },
+        {
+          "id": "atencion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2013",
+            "clave": "sincronia"
+          },
+          "lamina": [
+            "ojo",
+            "sala"
+          ],
+          "texto": "والتأطير يوجّه النظر. بكاميرات تتبع حركة العين، لاحظ الباحث تيم سميث أن الجميع تقريبًا، أثناء مشاهدة فيلم، ينظرون إلى النقطة نفسها في الوقت نفسه: الوجه الذي يتكلّم، وما يتحرّك، وما هو أكثر إضاءة. تأطيرك يقرّر أين ينظر الجمهور."
+        },
+        {
+          "id": "tripie",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estable",
+              "horizonte",
+              "ojos"
+            ]
+          },
+          "lamina": "tripieCelular",
+          "enCasa": true,
+          "texto": "لهذا تقف كاميرتي على حامل ثلاثي: الصورة ثابتة، والأفق مستقيم، والعدسة على مستوى العينين."
+        }
+      ]
+    },
+    {
+      "id": "luzSonido",
+      "titulo": "الإضاءة والصوت",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الرابع. الإضاءة والصوت."
+        },
+        {
+          "id": "tresPuntos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "luz"
+          },
+          "lamina": [
+            "softbox",
+            "estudioLuz"
+          ],
+          "texto": "في الاستوديوهات تُستخدم الإضاءة ثلاثية النقاط. الضوء الرئيسي يضيء الوجه من جانب؛ وضوء الملء، وهو أنعم، يخفّف الظلال في الجانب الآخر؛ والضوء الخلفي، من الوراء، يفصل الشخص عن الخلفية. أشعلها واحدًا تلو الآخر."
+        },
+        {
+          "id": "ventana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ventana",
+              "frente",
+              "nubes"
+            ]
+          },
+          "lamina": "lampara",
+          "enCasa": true,
+          "texto": "من دون معدّات، النافذة هي أفضل مصباح لديك: قف مقابلها أو إلى جانبها، ولا تعطها ظهرك أبدًا. وأنا هنا أستخدم مصباح الاستوديو هذا ضوءًا رئيسيًا."
+        },
+        {
+          "id": "audio",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "audio"
+          },
+          "lamina": [
+            "microfonoPro",
+            "audifonos"
+          ],
+          "texto": "والآن الأهم، وهو ما لا يكاد يعتني به أحد: الصوت. في عام 2018، جعلت إيرين نيومان ونوربرت شفارتز الناس يستمعون إلى محاضرات العلماء نفسها، بعضها بصوت جيد وبعضها بصوت رديء. ومع الصوت الرديء، حكموا على البحث بأنه أقل أهمية، وعلى العالِم بأنه أقل ذكاءً. الجمهور يسامح صورة عادية، لكنه لا يسامح صوتًا رديئًا."
+        },
+        {
+          "id": "microfono",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "microfono"
+          },
+          "lamina": [
+            "lavalier",
+            "cuarto"
+          ],
+          "texto": "الحيلة أن تقرّب الميكروفون: على بُعد شبر من فمك، يعلو صوتك كثيرًا فوق ضجيج الغرفة. أبعِده وانظر كيف يبتلعه الضجيج. وسجّل في غرفة فيها أشياء ليّنة، كالستائر أو الأريكة، حتى لا يكون هناك صدى."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyo"
+          },
+          "lamina": "corazon",
+          "texto": "بالمناسبة، وصلنا إلى المنتصف. إذا كان هذا الدليل يفيدك، فاضغط «أعجبني»، و«اشتراك» حتى لا يفوتك الدليل القادم، و«مشاركة» لترسله إلى من يريد أن يبدأ صناعة الفيديو. هذا يساعدني كثيرًا، ولا يكلّفك شيئًا."
+        }
+      ]
+    },
+    {
+      "id": "edicion",
+      "titulo": "المونتاج",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الخامس. المونتاج."
+        },
+        {
+          "id": "corte",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elegir",
+              "ordenar",
+              "cortar"
+            ]
+          },
+          "lamina": [
+            "editora",
+            "linea"
+          ],
+          "texto": "المونتاج هو أن تختار أفضل اللقطات، وترتّبها، وتقرّر كم تدوم كل واحدة. وأخفى قطع هو الذي يحدث في منتصف الحركة: شخص يفتح بابًا في لقطة ويُكمل فتحه في اللقطة التالية، فلا تلاحظ عينك شيئًا."
+        },
+        {
+          "id": "kuleshov",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "kuleshov"
+          },
+          "lamina": [
+            "lev",
+            "kuleshov"
+          ],
+          "texto": "قبل قرن، جمع السينمائي الروسي ليف كوليشوف الوجه نفسه لممثل مع ثلاث لقطات مختلفة: طبق حساء، وطفل في تابوت، وامرأة. وبحسب روايته، أقسم الجمهور أنه رأى الجوع والحزن والرغبة في وجه لم يتغيّر. المعنى ليس في كل لقطة، بل فيما تضعه بجانبها."
+        },
+        {
+          "id": "ritmo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "duracionPlanos"
+          },
+          "lamina": [
+            "claqueta2",
+            "accion"
+          ],
+          "texto": "والإيقاع تحدّده مدة كل لقطة. قاس جيمس كاتينغ، من جامعة كورنيل، مئة وخمسين فيلمًا من هوليوود، من 1935 إلى 2005: صارت اللقطات أقصر فأقصر، حتى لم تعد تدوم إلا ثوانيَ قليلة. لقطات طويلة للتهدئة، وقصيرة للتسريع."
+        },
+        {
+          "id": "jl",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cortesJL"
+          },
+          "lamina": [
+            "dialogo",
+            "audifonos2"
+          ],
+          "texto": "حيلة من حيل المونتير: لا تقطع الصورة والصوت في اللحظة نفسها. إذا دخل صوت اللقطة التالية قبل صورتها، كصوت ينادي، بدا القطع طبيعيًا. هذا يسمّى قطع J، والعكس، حين يبقى الصوت قليلًا بعد الصورة، يسمّى قطع L."
+        },
+        {
+          "id": "mencion-edicion",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "linea",
+          "enCasa": true,
+          "texto": "هكذا أفعل في استوديو الفيديو الخاص بي في MindHaOS: كل لقطة مقطع على الخط الزمني، بموسيقاها وصوتها ونصوصها وانتقالاتها."
+        }
+      ]
+    },
+    {
+      "id": "historiaContar",
+      "titulo": "كيف تروي قصة",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السادس. كيف تروي قصة."
+        },
+        {
+          "id": "gancho",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunta",
+              "promesa",
+              "intriga"
+            ]
+          },
+          "lamina": [
+            "scroll",
+            "sorpresa"
+          ],
+          "texto": "على الإنترنت، الثواني الأولى تقرّر إن كان أحد سيبقى. ابدأ بسؤال، أو بوعد، أو بصورة تثير الفضول، ولا تبدأ أبدًا بـ«مرحبًا، اليوم سأحدّثكم عن…». مثل هذا الفيديو، الذي بدأ بسؤال."
+        },
+        {
+          "id": "estructura",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "estructura"
+          },
+          "lamina": [
+            "libro",
+            "teatro"
+          ],
+          "texto": "لمعظم القصص ثلاثة أجزاء، منذ المسرح الإغريقي: بداية تقدّم شخصًا يريد شيئًا، وعقدة فيها ما يمنعه، ونهاية تحلّها. حتى فيديو من دقيقة واحدة يتّسع لهذا الشكل."
+        },
+        {
+          "id": "guion",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escribe",
+              "dibuja",
+              "lista"
+            ]
+          },
+          "lamina": [
+            "storyboard",
+            "cuaderno"
+          ],
+          "texto": "قبل التصوير، اكتب ما ستقوله وارسم كل لقطة في مربعات صغيرة، ولو برسوم من خطوط بسيطة. هذا يسمّى لوحة القصة، أو الستوري بورد، وكانت ديزني تستخدمها منذ الثلاثينيات: إنها توفّر عليك ساعات من التصوير الزائد."
+        },
+        {
+          "id": "mostrar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "decir",
+              "mostrar",
+              "sentir"
+            ]
+          },
+          "lamina": [
+            "lluvia",
+            "sonrisa"
+          ],
+          "texto": "والقاعدة الذهبية: أرِه ولا تقله. بدل أن تقول «كان متوترًا»، أرِ الجمهور يدًا ترتجف. ما يكتشفه الجمهور بنفسه، يتذكّره."
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "inicio",
+              "nudo",
+              "final"
+            ]
+          },
+          "lamina": "escribir",
+          "enCasa": true,
+          "texto": "أنا أكتب النص أولًا، ثم أحوّله هنا إلى لقطات: من هذه القائمة أضيف المقاطع والنصوص والصوت والموسيقى، واحدًا تلو الآخر."
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "خطتك للبدء",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السابع. خطتك للبدء."
+        },
+        {
+          "id": "mira",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "planos",
+              "cortes",
+              "sonido"
+            ]
+          },
+          "lamina": [
+            "sillon",
+            "pantalla"
+          ],
+          "texto": "ابدأ بمشاهدة الفيديوهات بطريقة مختلفة: اختر فيديو يعجبك وعُدّ لقطاته، ولاحظ أين يقطع، واستمع إلى صوته. ستكتشف القرارات التي تقف وراء كل ثانية."
+        },
+        {
+          "id": "uno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "videosAno"
+          },
+          "lamina": "reloj",
+          "texto": "لا تحتاج إلى صنع فيلم: فيديو من دقيقة واحدة كل أسبوع يعني اثنين وخمسين فيديو في السنة. حرّك هنا عدد ما تصنعه، وانظر كم ستتمرّن في سنة."
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutinaVideo"
+          },
+          "lamina": [
+            "semana",
+            "celular2"
+          ],
+          "texto": "أسبوع ممكن: يوم الاثنين، اختر فكرة واكتب النص؛ والثلاثاء، ارسم اللقطات؛ والأربعاء، صوّر؛ والخميس، حرّر؛ والجمعة، راجع الصوت والنصوص؛ وفي عطلة نهاية الأسبوع، انشره."
+        },
+        {
+          "id": "publica",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "publica",
+              "escucha",
+              "mejora"
+            ]
+          },
+          "lamina": "subir",
+          "enCasa": true,
+          "texto": "وانشر حتى لو لم يكن مثاليًا: كل فيديو يعلّمك شيئًا للفيديو التالي. انظر: أصوّر هنا، داخل بيتي، ثم أعود إلى الاستوديو واللقطة صارت مقطعًا، ومن هناك أنشرها."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "resumen",
+          "texto": "باختصار: الفيديو صور ثابتة يحرّكها دماغك؛ والتأطير يقرّر أين ينظر الجمهور؛ والإضاءة تمنحه الشكل، والصوت المصداقية؛ والمونتاج يمنحه المعنى والإيقاع؛ وصناعة الفيديو تعلّمك أنت، حتى لو كانت الآلة تولّده."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "إذا أردت أن تصنع الفيديوهات مثلي، ففي استوديو الفيديو في MindHaOS كل شيء في غرفة واحدة: يمكنك تحرير لقطاتك على خط زمني، وإضافة الصوت إليها مع الموسيقى والترجمة، وتحريك مشاهد ثلاثية الأبعاد مع شخصياتك، ونشرها مباشرة على حساباتك. الرابط في الوصف، ومعه هذا الدليل التفاعلي. نلتقي في الدليل القادم.",
+    "boton": "افتح استوديو الفيديو",
+    "lamina": "app-plan",
+    "anclas": {
+      "editar": "تحرير لقطاتك",
+      "voz": "إضافة الصوت إليها",
+      "animar": "تحريك مشاهد ثلاثية الأبعاد",
+      "publicar": "نشرها مباشرة"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "hoogerheide-2016",
+      "texto": "Hoogerheide V., Deijkers L., Loyens S. M. M., Heijltjes A., van Gog T. Gaining from explaining: Learning improves from explaining to fictitious others on video, not from writing to them. Contemporary Educational Psychology (2016).",
+      "url": "https://doi.org/10.1016/j.cedpsych.2016.02.005"
+    },
+    {
+      "id": "muybridge-1878",
+      "texto": "Muybridge E. The Horse in Motion (Palo Alto, 1878).",
+      "url": "https://en.wikipedia.org/wiki/The_Horse_in_Motion"
+    },
+    {
+      "id": "lumiere-1895",
+      "texto": "أول عرض عام مدفوع لسينماتوغراف لوميير، Salon Indien في Grand Café، باريس (28 ديسمبر 1895).",
+      "url": "https://en.wikipedia.org/wiki/Auguste_and_Louis_Lumi%C3%A8re"
+    },
+    {
+      "id": "melies-1902",
+      "texto": "Méliès G. Le Voyage dans la Lune (1902).",
+      "url": "https://en.wikipedia.org/wiki/A_Trip_to_the_Moon"
+    },
+    {
+      "id": "jazz-1927",
+      "texto": "Crosland A. The Jazz Singer (Warner Bros., 1927).",
+      "url": "https://en.wikipedia.org/wiki/The_Jazz_Singer"
+    },
+    {
+      "id": "youtube-2005",
+      "texto": "«Me at the zoo»، أول فيديو على YouTube (23 أبريل 2005).",
+      "url": "https://en.wikipedia.org/wiki/Me_at_the_zoo"
+    },
+    {
+      "id": "smith-1797",
+      "texto": "Smith J. T. Remarks on Rural Scenery (1797)، حيث تظهر «قاعدة الأثلاث» لأول مرة.",
+      "url": "https://en.wikipedia.org/wiki/Rule_of_thirds"
+    },
+    {
+      "id": "smith-2013",
+      "texto": "Smith T. J., Mital P. K. Attentional synchrony and the influence of viewing task on gaze behavior in static and dynamic scenes. Journal of Vision (2013).",
+      "url": "https://doi.org/10.1167/13.8.16"
+    },
+    {
+      "id": "newman-2018",
+      "texto": "Newman E. J., Schwarz N. Good sound, good research: How audio quality influences perceptions of the research and researcher. Science Communication (2018).",
+      "url": "https://doi.org/10.1177/1075547018759345"
+    },
+    {
+      "id": "kuleshov",
+      "texto": "تأثير كوليشوف (Lev Kuleshov، نحو 1918-1921).",
+      "url": "https://en.wikipedia.org/wiki/Kuleshov_effect"
+    },
+    {
+      "id": "cutting-2010",
+      "texto": "Cutting J. E., DeLong J. E., Nothelfer C. E. Attention and the evolution of Hollywood film. Psychological Science (2010).",
+      "url": "https://doi.org/10.1177/0956797610361679"
+    }
+  ]
+}

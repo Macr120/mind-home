@@ -1,0 +1,446 @@
+{
+  "fotos": {},
+  "laminas": {
+    "tira": {
+      "archivo": "laminas/tira.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/images-on-the-negative-film-7206554/",
+      "licencia": "Licencia Pexels"
+    },
+    "proyector": {
+      "archivo": "laminas/proyector.mp4",
+      "tipo": "video",
+      "autor": "Annushka Ahuja",
+      "fuente": "https://www.pexels.com/video/films-with-black-and-white-images-8085500/",
+      "licencia": "Licencia Pexels"
+    },
+    "rodaje": {
+      "archivo": "laminas/rodaje.mp4",
+      "tipo": "video",
+      "autor": "khezez | خزاز",
+      "fuente": "https://www.pexels.com/video/behind-the-scenes-film-set-camera-operation-34536743/",
+      "licencia": "Licencia Pexels"
+    },
+    "claqueta": {
+      "archivo": "laminas/claqueta.mp4",
+      "tipo": "video",
+      "autor": "Cemrecan Yurtman",
+      "fuente": "https://www.pexels.com/video/close-up-of-film-slate-in-orange-background-30730780/",
+      "licencia": "Licencia Pexels"
+    },
+    "claqueta2": {
+      "archivo": "laminas/claqueta2.mp4",
+      "tipo": "video",
+      "autor": "Ron Lach",
+      "fuente": "https://www.pexels.com/video/filmmaker-writing-on-clapperboard-9810156/",
+      "licencia": "Licencia Pexels"
+    },
+    "explicar": {
+      "archivo": "laminas/explicar.mp4",
+      "tipo": "video",
+      "autor": "Alena Darmel",
+      "fuente": "https://www.pexels.com/video/a-woman-talking-in-front-of-the-camera-9032180/",
+      "licencia": "Licencia Pexels"
+    },
+    "camaraCelular": {
+      "archivo": "laminas/camaraCelular.mp4",
+      "tipo": "video",
+      "autor": "Sasha Kim",
+      "fuente": "https://www.pexels.com/video/a-woman-vlogging-using-a-smartphone-9384672/",
+      "licencia": "Licencia Pexels"
+    },
+    "creadora": {
+      "archivo": "laminas/creadora.mp4",
+      "tipo": "video",
+      "autor": "Sasha Kim",
+      "fuente": "https://www.pexels.com/video/woman-setting-up-her-smartphone-and-ring-light-9384669/",
+      "licencia": "Licencia Pexels"
+    },
+    "audiencia": {
+      "archivo": "laminas/audiencia.mp4",
+      "tipo": "video",
+      "autor": "iam hogir",
+      "fuente": "https://www.pexels.com/video/a-man-sitting-on-a-couch-holding-a-cell-phone-17781721/",
+      "licencia": "Licencia Pexels"
+    },
+    "tripie": {
+      "archivo": "laminas/tripie.mp4",
+      "tipo": "video",
+      "autor": "Amar Preciado",
+      "fuente": "https://www.pexels.com/video/professional-dslr-camera-on-tripod-setup-36540777/",
+      "licencia": "Licencia Pexels"
+    },
+    "caballo": {
+      "archivo": "laminas/caballo.mp4",
+      "tipo": "video",
+      "autor": "Joshua Woroniecki",
+      "fuente": "https://www.pexels.com/video/video-of-a-running-horse-7030396/",
+      "licencia": "Licencia Pexels"
+    },
+    "tren": {
+      "archivo": "laminas/tren.mp4",
+      "tipo": "video",
+      "autor": "David Pickup",
+      "fuente": "https://www.pexels.com/video/classic-steam-train-at-heritage-railway-station-34458714/",
+      "licencia": "Licencia Pexels"
+    },
+    "luna": {
+      "archivo": "laminas/luna.webp",
+      "tipo": "foto",
+      "autor": "Breve Storia del Cinema",
+      "fuente": "https://commons.wikimedia.org/wiki/File:A_Trip_to_the_Moon_(Le_Voyage_dans_la_Lune).jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "microfonoAntiguo": {
+      "archivo": "laminas/microfonoAntiguo.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/a-vintage-microphone-8197868/",
+      "licencia": "Licencia Pexels"
+    },
+    "computadora": {
+      "archivo": "laminas/computadora.mp4",
+      "tipo": "video",
+      "autor": "Polina Tankilevitch",
+      "fuente": "https://www.pexels.com/video/friends-watching-on-laptop-6646637/",
+      "licencia": "Licencia Pexels"
+    },
+    "zoologico": {
+      "archivo": "laminas/zoologico.mp4",
+      "tipo": "video",
+      "autor": "Joolsmagools",
+      "fuente": "https://www.pexels.com/video/asian-elephants-roaming-zoo-habitat-36124266/",
+      "licencia": "Licencia Pexels"
+    },
+    "celular": {
+      "archivo": "laminas/celular.mp4",
+      "tipo": "video",
+      "autor": "Ron Lach",
+      "fuente": "https://www.pexels.com/video/man-recording-himself-doing-a-challenge-8360174/",
+      "licencia": "Licencia Pexels"
+    },
+    "paisaje": {
+      "archivo": "laminas/paisaje.mp4",
+      "tipo": "video",
+      "autor": "TheLadOfAlps",
+      "fuente": "https://www.pexels.com/video/stunning-alpine-mountain-panorama-with-snow-37591340/",
+      "licencia": "Licencia Pexels"
+    },
+    "retrato": {
+      "archivo": "laminas/retrato.mp4",
+      "tipo": "video",
+      "autor": "Angela Roma",
+      "fuente": "https://www.pexels.com/video/close-up-video-of-a-woman-s-face-7477917/",
+      "licencia": "Licencia Pexels"
+    },
+    "rejilla": {
+      "archivo": "laminas/rejilla.mp4",
+      "tipo": "video",
+      "autor": "Alexey Chudin",
+      "fuente": "https://www.pexels.com/video/classic-vintage-camera-film-shooting-outdoors-32145580/",
+      "licencia": "Licencia Pexels"
+    },
+    "fotografa": {
+      "archivo": "laminas/fotografa.mp4",
+      "tipo": "video",
+      "autor": "Steven Duque",
+      "fuente": "https://www.pexels.com/video/female-photographer-capturing-urban-street-scenes-36435096/",
+      "licencia": "Licencia Pexels"
+    },
+    "picado": {
+      "archivo": "laminas/picado.mp4",
+      "tipo": "video",
+      "autor": "Mikhail Nilov",
+      "fuente": "https://www.pexels.com/video/top-view-of-a-woman-writing-on-notebook-9198585/",
+      "licencia": "Licencia Pexels"
+    },
+    "contrapicado": {
+      "archivo": "laminas/contrapicado.mp4",
+      "tipo": "video",
+      "autor": "Laura Tancredi",
+      "fuente": "https://www.pexels.com/video/low-angle-shot-of-skyscrapers-7065806/",
+      "licencia": "Licencia Pexels"
+    },
+    "ojo": {
+      "archivo": "laminas/ojo.mp4",
+      "tipo": "video",
+      "autor": "Kindel Media",
+      "fuente": "https://www.pexels.com/video/extreme-close-up-shot-of-a-person-s-eye-7299471/",
+      "licencia": "Licencia Pexels"
+    },
+    "sala": {
+      "archivo": "laminas/sala.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/people-watching-a-3d-movie-in-a-cinema-7984170/",
+      "licencia": "Licencia Pexels"
+    },
+    "tripieCelular": {
+      "archivo": "laminas/tripieCelular.mp4",
+      "tipo": "video",
+      "autor": "Mizuno K",
+      "fuente": "https://www.pexels.com/video/a-person-using-a-smartphone-on-a-tripod-13929839/",
+      "licencia": "Licencia Pexels"
+    },
+    "softbox": {
+      "archivo": "laminas/softbox.mp4",
+      "tipo": "video",
+      "autor": "CARLA REGIO ROSA",
+      "fuente": "https://www.pexels.com/video/indoor-interview-filming-setup-with-lighting-equipment-32423801/",
+      "licencia": "Licencia Pexels"
+    },
+    "estudioLuz": {
+      "archivo": "laminas/estudioLuz.mp4",
+      "tipo": "video",
+      "autor": "Jose Cruz",
+      "fuente": "https://www.pexels.com/video/professional-photography-studio-setup-and-shoot-36893324/",
+      "licencia": "Licencia Pexels"
+    },
+    "lampara": {
+      "archivo": "laminas/lampara.mp4",
+      "tipo": "video",
+      "autor": "Meow Meow",
+      "fuente": "https://www.pexels.com/video/window-sunlight-on-wall-5712539/",
+      "licencia": "Licencia Pexels"
+    },
+    "microfonoPro": {
+      "archivo": "laminas/microfonoPro.mp4",
+      "tipo": "video",
+      "autor": "Sample Glad",
+      "fuente": "https://www.pexels.com/video/podcast-host-recording-session-in-studio-37330785/",
+      "licencia": "Licencia Pexels"
+    },
+    "audifonos": {
+      "archivo": "laminas/audifonos.mp4",
+      "tipo": "video",
+      "autor": "ANTONI SHKRABA production",
+      "fuente": "https://www.pexels.com/video/a-woman-wearing-headphones-while-adjusting-an-audio-mixer-8134921/",
+      "licencia": "Licencia Pexels"
+    },
+    "lavalier": {
+      "archivo": "laminas/lavalier.mp4",
+      "tipo": "video",
+      "autor": "George Milton",
+      "fuente": "https://www.pexels.com/video/a-woman-in-an-interview-6944304/",
+      "licencia": "Licencia Pexels"
+    },
+    "cuarto": {
+      "archivo": "laminas/cuarto.mp4",
+      "tipo": "video",
+      "autor": "Melike",
+      "fuente": "https://www.pexels.com/video/elegant-sheer-curtains-gently-fluttering-39209651/",
+      "licencia": "Licencia Pexels"
+    },
+    "corazon": {
+      "archivo": "laminas/corazon.mp4",
+      "tipo": "video",
+      "autor": "Kevin Malik",
+      "fuente": "https://www.pexels.com/video/a-hand-giving-a-thumbs-up-9017832/",
+      "licencia": "Licencia Pexels"
+    },
+    "editora": {
+      "archivo": "laminas/editora.mp4",
+      "tipo": "video",
+      "autor": "Sulaiman Khan",
+      "fuente": "https://www.pexels.com/video/focused-video-editor-in-dark-home-studio-29267591/",
+      "licencia": "Licencia Pexels"
+    },
+    "linea": {
+      "archivo": "laminas/linea.mp4",
+      "tipo": "video",
+      "autor": "Wolf Art",
+      "fuente": "https://www.pexels.com/video/dynamic-video-editing-timeline-in-action-37446281/",
+      "licencia": "Licencia Pexels"
+    },
+    "audifonos2": {
+      "archivo": "laminas/audifonos2.mp4",
+      "tipo": "video",
+      "autor": "Amar Preciado",
+      "fuente": "https://www.pexels.com/video/professional-video-editing-in-a-studio-workspace-29380114/",
+      "licencia": "Licencia Pexels"
+    },
+    "accion": {
+      "archivo": "laminas/accion.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/a-woman-running-on-the-street-8402080/",
+      "licencia": "Licencia Pexels"
+    },
+    "dialogo": {
+      "archivo": "laminas/dialogo.mp4",
+      "tipo": "video",
+      "autor": "Mizuno K",
+      "fuente": "https://www.pexels.com/video/two-men-chatting-and-having-coffee-by-the-river-in-new-york-city-13326129/",
+      "licencia": "Licencia Pexels"
+    },
+    "scroll": {
+      "archivo": "laminas/scroll.mp4",
+      "tipo": "video",
+      "autor": "Josh Tavernier",
+      "fuente": "https://www.pexels.com/video/woman-scrolling-social-media-10238038/",
+      "licencia": "Licencia Pexels"
+    },
+    "sorpresa": {
+      "archivo": "laminas/sorpresa.mp4",
+      "tipo": "video",
+      "autor": "KoolShooters",
+      "fuente": "https://www.pexels.com/video/a-surprised-woman-7688636/",
+      "licencia": "Licencia Pexels"
+    },
+    "libro": {
+      "archivo": "laminas/libro.mp4",
+      "tipo": "video",
+      "autor": "Sahil Sharma",
+      "fuente": "https://www.pexels.com/video/flipping-pages-in-old-book-11384843/",
+      "licencia": "Licencia Pexels"
+    },
+    "teatro": {
+      "archivo": "laminas/teatro.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/a-tracking-shot-of-an-empty-theater-7984191/",
+      "licencia": "Licencia Pexels"
+    },
+    "storyboard": {
+      "archivo": "laminas/storyboard.mp4",
+      "tipo": "video",
+      "autor": "Pavel Danilyuk",
+      "fuente": "https://www.pexels.com/video/high-angle-shot-of-drawings-on-the-table-6594071/",
+      "licencia": "Licencia Pexels"
+    },
+    "cuaderno": {
+      "archivo": "laminas/cuaderno.mp4",
+      "tipo": "video",
+      "autor": "Ron Lach",
+      "fuente": "https://www.pexels.com/video/a-person-writing-on-a-paper-7872723/",
+      "licencia": "Licencia Pexels"
+    },
+    "lluvia": {
+      "archivo": "laminas/lluvia.mp4",
+      "tipo": "video",
+      "autor": "Binil Babu",
+      "fuente": "https://www.pexels.com/video/close-up-of-raindrops-on-glass-12742709/",
+      "licencia": "Licencia Pexels"
+    },
+    "sonrisa": {
+      "archivo": "laminas/sonrisa.mp4",
+      "tipo": "video",
+      "autor": "Artem Podrez",
+      "fuente": "https://www.pexels.com/video/close-up-view-of-a-woman-smiling-6781549/",
+      "licencia": "Licencia Pexels"
+    },
+    "escribir": {
+      "archivo": "laminas/escribir.mp4",
+      "tipo": "video",
+      "autor": "Ron Lach",
+      "fuente": "https://www.pexels.com/video/overhead-shot-of-a-person-editing-a-script-7969839/",
+      "licencia": "Licencia Pexels"
+    },
+    "sillon": {
+      "archivo": "laminas/sillon.mp4",
+      "tipo": "video",
+      "autor": "Mizuno K",
+      "fuente": "https://www.pexels.com/video/family-watching-tv-together-on-a-sofa-12751587/",
+      "licencia": "Licencia Pexels"
+    },
+    "pantalla": {
+      "archivo": "laminas/pantalla.mp4",
+      "tipo": "video",
+      "autor": "Ivan S",
+      "fuente": "https://www.pexels.com/video/static-display-on-televisions-6955103/",
+      "licencia": "Licencia Pexels"
+    },
+    "celular2": {
+      "archivo": "laminas/celular2.mp4",
+      "tipo": "video",
+      "autor": "Hamim Rony",
+      "fuente": "https://www.pexels.com/video/scrolling-through-social-media-reels-on-smartphone-38410499/",
+      "licencia": "Licencia Pexels"
+    },
+    "subir": {
+      "archivo": "laminas/subir.mp4",
+      "tipo": "video",
+      "autor": "Artem Podrez",
+      "fuente": "https://www.pexels.com/video/a-woman-recording-a-dance-video-6003996/",
+      "licencia": "Licencia Pexels"
+    },
+    "resumen": {
+      "archivo": "laminas/resumen.mp4",
+      "tipo": "video",
+      "autor": "khezez | خزاز",
+      "fuente": "https://www.pexels.com/video/behind-the-scenes-filmmaking-crew-setup-34550102/",
+      "licencia": "Licencia Pexels"
+    },
+    "reloj": {
+      "archivo": "laminas/reloj.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/clock-is-ticking-7034348/",
+      "licencia": "Licencia Pexels"
+    },
+    "semana": {
+      "archivo": "laminas/semana.webp",
+      "tipo": "foto",
+      "autor": "Florencia Ceruti",
+      "fuente": "https://www.pexels.com/photo/colorful-weekly-planner-with-accessories-30101197/",
+      "licencia": "Licencia Pexels"
+    },
+    "muybridge": {
+      "archivo": "laminas/muybridge.webp",
+      "tipo": "foto",
+      "autor": "Eadweard Muybridge",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Eadweard_Muybridge-Sallie_Gardner_1878.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "lumiere": {
+      "archivo": "laminas/lumiere.webp",
+      "tipo": "foto",
+      "autor": "Unknown authorUnknown author",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Lumi%C3%A8re_brothers.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "melies": {
+      "archivo": "laminas/melies.webp",
+      "tipo": "foto",
+      "autor": "Magazine Regards",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Georges_M%C3%A9li%C3%A8s.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "jazz": {
+      "archivo": "laminas/jazz.webp",
+      "tipo": "foto",
+      "autor": "Unknown authorUnknown author",
+      "fuente": "https://commons.wikimedia.org/wiki/File:The_Jazz_Singer_1927_Poster.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "lev": {
+      "archivo": "laminas/lev.webp",
+      "tipo": "foto",
+      "autor": "Yevgeni Bauer, Boris Zavelev",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Lev_Kuleshov_1917.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "kuleshov": {
+      "archivo": "laminas/kuleshov.webp",
+      "tipo": "foto",
+      "autor": "Адольф Исаевич (Абрам Исаакович) Горнштейн (1872—1926)",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Ivan_Mosjoukine_by_Adolf_Isaevich_Gornstein_-_07.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "app-plan": {
+      "archivo": "laminas/app-plan.{idioma}.mp4",
+      "tipo": "video",
+      "autor": "MindHaOS",
+      "fuente": "https://app.mindhaos.com",
+      "credito": ""
+    }
+  }
+}

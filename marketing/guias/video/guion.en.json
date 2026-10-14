@@ -1,0 +1,724 @@
+{
+  "idioma": "en",
+  "tema": "video",
+  "plantillaId": "video",
+  "numero": 8,
+  "nombre": "Video Studio",
+  "pregunta": "How do you make videos?",
+  "corta": "How do you make videos?",
+  "subtitulo": "Why learn to make videos even though an artificial intelligence can already generate them, a brief history from cinema to the phone, how to frame a shot, how to light it and record the sound, how to edit, how to tell a story and a plan to publish your first video.",
+  "aviso": "This guide is for information only: the dates, figures and studies cited are approximations from their sources, and everyone moves at their own pace. The films and channels mentioned are only named; the example images are our own, from Pexels or in the public domain.",
+  "partes": [
+    {
+      "id": "video",
+      "titulo": "What a video is",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "How do you make videos? Today an artificial intelligence can generate an entire video from a single sentence. And yet, every minute, hundreds of hours of video are uploaded that someone shot, edited and told. So why is it worth learning to make them yourself? In the next few minutes you'll see what a video is, where it comes from, how it's framed, lit, recorded and edited, and you'll leave with a plan to publish your first one."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "By the way, this is my house in MindHaOS, and this is my Video Studio: this is where I shoot, edit and publish. Today I'll use it to show you how a video is put together, shot by shot. Let's get started."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part one. What a video is."
+        },
+        {
+          "id": "fotogramas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fotogramas"
+          },
+          "lamina": [
+            "tira",
+            "proyector"
+          ],
+          "texto": "A video doesn't actually move: it's still photos, one after another, so fast that your brain joins them into motion. At two photos per second you see jumps; at twelve, almost motion; and at twenty-four, the speed of cinema, you see smooth motion."
+        },
+        {
+          "id": "lenguaje",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "imagen",
+              "sonido",
+              "corte"
+            ]
+          },
+          "lamina": [
+            "rodaje",
+            "claqueta"
+          ],
+          "texto": "And video is a language with three words: what you see, what you hear and the moment you go from one shot to the next. Whoever masters those three things can tell whatever they want, with a phone or with a cinema camera."
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2016",
+            "clave": "explicar"
+          },
+          "lamina": [
+            "explicar",
+            "camaraCelular"
+          ],
+          "texto": "So why learn, if a machine can already generate videos? Because when you make a video, you don't just get a video, you also learn. In 2016, Vincent Hoogerheide and his team in the Netherlands asked students to explain a topic: the ones who explained it in front of a camera learned more than those who only reviewed it, and more than those who explained it in writing. A machine can generate images, but what you want to tell, and how, is up to you."
+        },
+        {
+          "id": "mirada",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "idea",
+              "orden",
+              "voz"
+            ]
+          },
+          "lamina": [
+            "creadora",
+            "audiencia"
+          ],
+          "texto": "That's why the most memorable videos aren't the most expensive ones, but the ones with something to say: a clear idea, a good order and a voice of their own."
+        },
+        {
+          "id": "camara",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "encuadre",
+              "luz",
+              "sonido"
+            ]
+          },
+          "lamina": "tripie",
+          "enCasa": true,
+          "texto": "Here, in front of my camera, every shot starts the same way: first the framing, then the light and finally the sound."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "A brief history of video",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part two. A brief history of video."
+        },
+        {
+          "id": "muybridge",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaVideo"
+          },
+          "lamina": [
+            "muybridge",
+            "caballo"
+          ],
+          "texto": "In 1878, in California, Eadweard Muybridge set up twelve cameras in a row beside a track and fired them as a horse galloped past. The photos proved something no one had been able to see: for an instant, the horse has all four legs in the air."
+        },
+        {
+          "id": "lumiere",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1895",
+            "clave": "lumiere"
+          },
+          "lamina": [
+            "lumiere",
+            "tren"
+          ],
+          "texto": "On December 28, 1895, in a café in Paris, the Lumière brothers charged admission for the first time to watch films on a screen. Legend has it that when a train came straight at them, some people ducked in their seats."
+        },
+        {
+          "id": "melies",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1902",
+            "clave": "melies"
+          },
+          "lamina": [
+            "melies",
+            "luna"
+          ],
+          "texto": "Georges Méliès, who was a magician, discovered that if he stopped the camera and changed something, it appeared or disappeared on screen. In 1902 he sent a rocket to the Moon in A Trip to the Moon: that's how special effects were born."
+        },
+        {
+          "id": "sonido",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1927",
+            "clave": "jazz"
+          },
+          "lamina": [
+            "jazz",
+            "microfonoAntiguo"
+          ],
+          "texto": "For thirty years cinema was silent, with live music in the theater. In 1927, The Jazz Singer let audiences hear an actor speak and sing in sync with the picture, and within a few years almost all films had sound."
+        },
+        {
+          "id": "youtube",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2005",
+            "clave": "youtube"
+          },
+          "lamina": [
+            "computadora",
+            "zoologico"
+          ],
+          "texto": "On April 23, 2005, the first video was uploaded to YouTube: nineteen seconds of a young man in front of the elephants at a zoo. Today more than five hundred hours of video are uploaded every minute."
+        },
+        {
+          "id": "celular",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cine",
+              "casa",
+              "bolsillo"
+            ]
+          },
+          "lamina": "celular",
+          "enCasa": true,
+          "texto": "And today the studio fits in your pocket: what a century ago took a film crew, today a phone can do, like the one I use here in my Studio."
+        }
+      ]
+    },
+    {
+      "id": "encuadre",
+      "titulo": "Framing",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part three. Framing."
+        },
+        {
+          "id": "planos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "planos"
+          },
+          "lamina": [
+            "paisaje",
+            "retrato"
+          ],
+          "texto": "Framing is deciding what goes into the picture and what stays out. A wide shot shows where we are, a medium shot shows what someone is doing and a close-up shows what they feel. Look at it with the same scene."
+        },
+        {
+          "id": "tercios",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tercios"
+          },
+          "lamina": [
+            "rejilla",
+            "fotografa"
+          ],
+          "texto": "A simple rule: divide the picture into three parts across and three parts down, and put what matters on one of those lines, not right in the center. It's called the rule of thirds, and the engraver John Thomas Smith wrote it down in 1797, thinking of landscape painting. Watch how the picture changes as the person moves."
+        },
+        {
+          "id": "angulos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "angulos"
+          },
+          "lamina": [
+            "picado",
+            "contrapicado"
+          ],
+          "texto": "The height of the camera speaks too. From above, in a high angle, someone looks small; from below, in a low angle, they look powerful; and at eye level, the camera treats them as an equal."
+        },
+        {
+          "id": "atencion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2013",
+            "clave": "sincronia"
+          },
+          "lamina": [
+            "ojo",
+            "sala"
+          ],
+          "texto": "And framing guides the eye. Using cameras that track people's eyes, the researcher Tim Smith found that while watching a film, almost everyone looks at the same spot at the same time: the face that's talking, whatever moves, whatever is brightest. Your framing decides where the audience looks."
+        },
+        {
+          "id": "tripie",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estable",
+              "horizonte",
+              "ojos"
+            ]
+          },
+          "lamina": "tripieCelular",
+          "enCasa": true,
+          "texto": "That's why my camera sits on a tripod: a steady picture, a straight horizon and the lens at eye level."
+        }
+      ]
+    },
+    {
+      "id": "luzSonido",
+      "titulo": "Light and sound",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part four. Light and sound."
+        },
+        {
+          "id": "tresPuntos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "luz"
+          },
+          "lamina": [
+            "softbox",
+            "estudioLuz"
+          ],
+          "texto": "In studios they use three-point lighting. The key light lights the face from one side; the fill light, softer, lifts the shadows on the other side; and the backlight, from behind, separates the person from the background. Turn them on one by one."
+        },
+        {
+          "id": "ventana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ventana",
+              "frente",
+              "nubes"
+            ]
+          },
+          "lamina": "lampara",
+          "enCasa": true,
+          "texto": "Without gear, a window is your best lamp: face it or stand side-on to it, never with your back to it. Here I use this studio lamp as my key light."
+        },
+        {
+          "id": "audio",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "audio"
+          },
+          "lamina": [
+            "microfonoPro",
+            "audifonos"
+          ],
+          "texto": "And now the most important part, which almost nobody takes care of: the sound. In 2018, Eryn Newman and Norbert Schwarz had people listen to the same talks by scientists, some with good audio and some with bad audio. With bad audio, they judged the research as less important and the scientist as less intelligent. Audiences forgive so-so images, but not bad sound."
+        },
+        {
+          "id": "microfono",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "microfono"
+          },
+          "lamina": [
+            "lavalier",
+            "cuarto"
+          ],
+          "texto": "The trick is to bring the microphone close: about a hand's width from your mouth, your voice sounds much louder than the noise in the room. Move it away and watch the noise swallow it. And record in a room with soft things, like curtains or a sofa, so there's no echo."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyo"
+          },
+          "lamina": "corazon",
+          "texto": "By the way, we're halfway there. If this guide is helping you, hit like, subscribe so you don't miss the next one and share it with someone who wants to start making videos. It helps me a lot, and it costs you nothing."
+        }
+      ]
+    },
+    {
+      "id": "edicion",
+      "titulo": "Editing",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part five. Editing."
+        },
+        {
+          "id": "corte",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elegir",
+              "ordenar",
+              "cortar"
+            ]
+          },
+          "lamina": [
+            "editora",
+            "linea"
+          ],
+          "texto": "Editing is choosing the best shots, putting them in order and deciding how long each one lasts. The most invisible cut happens in the middle of an action: someone opens a door in one shot and finishes opening it in the next, and your eye doesn't even notice."
+        },
+        {
+          "id": "kuleshov",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "kuleshov"
+          },
+          "lamina": [
+            "lev",
+            "kuleshov"
+          ],
+          "texto": "A century ago, the Russian filmmaker Lev Kuleshov put the same face of an actor next to three different shots: a bowl of soup, a child in a coffin and a woman. According to him, audiences swore they saw hunger, sadness and desire in a face that never changed. The meaning isn't in each shot, but in what you put side by side."
+        },
+        {
+          "id": "ritmo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "duracionPlanos"
+          },
+          "lamina": [
+            "claqueta2",
+            "accion"
+          ],
+          "texto": "And the rhythm comes from how long each shot lasts. James Cutting, of Cornell University, measured a hundred and fifty Hollywood films, from 1935 to 2005: shots got shorter and shorter, until they lasted just a few seconds. Long shots to calm things down, short ones to speed them up."
+        },
+        {
+          "id": "jl",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cortesJL"
+          },
+          "lamina": [
+            "dialogo",
+            "audifonos2"
+          ],
+          "texto": "An editor's trick: don't cut the picture and the sound at the same time. If the sound of the next shot comes in early, like a voice calling out, the cut feels natural. That's called a J-cut, and the other way around, when the sound lingers a little longer, an L-cut."
+        },
+        {
+          "id": "mencion-edicion",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "linea",
+          "enCasa": true,
+          "texto": "That's how I do it in my MindHaOS Video Studio: every shot is a clip on the timeline, with its music, its voice, its text and its transitions."
+        }
+      ]
+    },
+    {
+      "id": "historiaContar",
+      "titulo": "How to tell a story",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part six. How to tell a story."
+        },
+        {
+          "id": "gancho",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunta",
+              "promesa",
+              "intriga"
+            ]
+          },
+          "lamina": [
+            "scroll",
+            "sorpresa"
+          ],
+          "texto": "Online, the first few seconds decide whether someone stays. Open with a question, a promise or an intriguing image, and never with “hi, today I'm going to talk about…”. Just like this video, which opened with a question."
+        },
+        {
+          "id": "estructura",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "estructura"
+          },
+          "lamina": [
+            "libro",
+            "teatro"
+          ],
+          "texto": "Almost every story has three parts, going back to Greek theater: a beginning that introduces someone who wants something, a middle with what stands in their way and an ending that resolves it. Even a one-minute video fits that shape."
+        },
+        {
+          "id": "guion",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escribe",
+              "dibuja",
+              "lista"
+            ]
+          },
+          "lamina": [
+            "storyboard",
+            "cuaderno"
+          ],
+          "texto": "Before you shoot, write down what you're going to say and draw each shot in little boxes, even if they're stick figures. That's called a storyboard, and Disney was using them back in the thirties: it saves you hours of shooting too much."
+        },
+        {
+          "id": "mostrar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "decir",
+              "mostrar",
+              "sentir"
+            ]
+          },
+          "lamina": [
+            "lluvia",
+            "sonrisa"
+          ],
+          "texto": "And the golden rule: show, don't tell. Instead of saying “he was nervous”, show the audience a trembling hand. What the audience discovers on its own, it remembers."
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "inicio",
+              "nudo",
+              "final"
+            ]
+          },
+          "lamina": "escribir",
+          "enCasa": true,
+          "texto": "I write the script first, and here I turn it into shots: from this menu I add clips, text, voice and music, one by one."
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Your plan to get started",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part seven. Your plan to get started."
+        },
+        {
+          "id": "mira",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "planos",
+              "cortes",
+              "sonido"
+            ]
+          },
+          "lamina": [
+            "sillon",
+            "pantalla"
+          ],
+          "texto": "Start by watching videos differently: pick one you like and count its shots, notice where it cuts and listen to how it sounds. You'll discover the decisions behind every second."
+        },
+        {
+          "id": "uno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "videosAno"
+          },
+          "lamina": "reloj",
+          "texto": "You don't need to make a feature film: one one-minute video a week is fifty-two videos a year. Move this to set how many you make and see how much you'd practice in a year."
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutinaVideo"
+          },
+          "lamina": [
+            "semana",
+            "celular2"
+          ],
+          "texto": "A possible week: on Monday, pick an idea and write the script; on Tuesday, draw the shots; on Wednesday, shoot; on Thursday, edit; on Friday, check the sound and the text; and on the weekend, publish it."
+        },
+        {
+          "id": "publica",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "publica",
+              "escucha",
+              "mejora"
+            ]
+          },
+          "lamina": "subir",
+          "enCasa": true,
+          "texto": "And publish even if it's not perfect: every video teaches you something for the next one. Look: I shoot right here, inside my house, I go back to the Studio with the take as a clip and publish it from there."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "resumen",
+          "texto": "To sum up: a video is still photos that your brain sets in motion; framing decides where the audience looks; light gives it shape and sound, credibility; editing gives it meaning and rhythm; and making videos teaches you, even though a machine can already generate them."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "If you want to make videos like me, the MindHaOS Video Studio has it all in a single room: you can edit your takes on a timeline, give them a voice, music and subtitles, animate 3D scenes with your characters and publish them straight to your social networks. The link is in the description, along with this interactive guide. See you in the next one.",
+    "boton": "Open the Video Studio",
+    "lamina": "app-plan",
+    "anclas": {
+      "editar": "edit your takes",
+      "voz": "give them a voice",
+      "animar": "animate 3D scenes",
+      "publicar": "publish them straight"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "hoogerheide-2016",
+      "texto": "Hoogerheide V., Deijkers L., Loyens S. M. M., Heijltjes A., van Gog T. Gaining from explaining: Learning improves from explaining to fictitious others on video, not from writing to them. Contemporary Educational Psychology (2016).",
+      "url": "https://doi.org/10.1016/j.cedpsych.2016.02.005"
+    },
+    {
+      "id": "muybridge-1878",
+      "texto": "Muybridge E. The Horse in Motion (Palo Alto, 1878).",
+      "url": "https://en.wikipedia.org/wiki/The_Horse_in_Motion"
+    },
+    {
+      "id": "lumiere-1895",
+      "texto": "First paid public screening of the Lumière cinématographe, Salon Indien of the Grand Café, Paris (December 28, 1895).",
+      "url": "https://en.wikipedia.org/wiki/Auguste_and_Louis_Lumi%C3%A8re"
+    },
+    {
+      "id": "melies-1902",
+      "texto": "Méliès G. Le Voyage dans la Lune (1902).",
+      "url": "https://en.wikipedia.org/wiki/A_Trip_to_the_Moon"
+    },
+    {
+      "id": "jazz-1927",
+      "texto": "Crosland A. The Jazz Singer (Warner Bros., 1927).",
+      "url": "https://en.wikipedia.org/wiki/The_Jazz_Singer"
+    },
+    {
+      "id": "youtube-2005",
+      "texto": "“Me at the zoo”, the first YouTube video (April 23, 2005).",
+      "url": "https://en.wikipedia.org/wiki/Me_at_the_zoo"
+    },
+    {
+      "id": "smith-1797",
+      "texto": "Smith J. T. Remarks on Rural Scenery (1797), where the “rule of thirds” first appears.",
+      "url": "https://en.wikipedia.org/wiki/Rule_of_thirds"
+    },
+    {
+      "id": "smith-2013",
+      "texto": "Smith T. J., Mital P. K. Attentional synchrony and the influence of viewing task on gaze behavior in static and dynamic scenes. Journal of Vision (2013).",
+      "url": "https://doi.org/10.1167/13.8.16"
+    },
+    {
+      "id": "newman-2018",
+      "texto": "Newman E. J., Schwarz N. Good sound, good research: How audio quality influences perceptions of the research and researcher. Science Communication (2018).",
+      "url": "https://doi.org/10.1177/1075547018759345"
+    },
+    {
+      "id": "kuleshov",
+      "texto": "The Kuleshov effect (Lev Kuleshov, around 1918-1921).",
+      "url": "https://en.wikipedia.org/wiki/Kuleshov_effect"
+    },
+    {
+      "id": "cutting-2010",
+      "texto": "Cutting J. E., DeLong J. E., Nothelfer C. E. Attention and the evolution of Hollywood film. Psychological Science (2010).",
+      "url": "https://doi.org/10.1177/0956797610361679"
+    }
+  ]
+}

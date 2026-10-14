@@ -1,0 +1,724 @@
+{
+  "idioma": "hi",
+  "tema": "video",
+  "plantillaId": "video",
+  "numero": 8,
+  "nombre": "वीडियो स्टूडियो",
+  "pregunta": "वीडियो कैसे बनाएँ?",
+  "corta": "वीडियो कैसे बनाएँ?",
+  "subtitulo": "AI के वीडियो बना लेने पर भी वीडियो बनाना क्यों सीखें, सिनेमा से मोबाइल तक एक छोटा इतिहास, शॉट को फ़्रेम कैसे करें, रोशनी कैसे करें और आवाज़ कैसे रिकॉर्ड करें, एडिटिंग कैसे करें, कहानी कैसे सुनाएँ, और अपना पहला वीडियो पब्लिश करने की एक योजना।",
+  "aviso": "यह गाइड सिर्फ़ जानकारी के लिए है: बताई गई तारीख़ें, आँकड़े और अध्ययन अपने स्रोतों के अनुमान हैं, और हर व्यक्ति अपनी रफ़्तार से आगे बढ़ता है। जिन फ़िल्मों और चैनलों का ज़िक्र है, उनका सिर्फ़ नाम लिया गया है; उदाहरण की तस्वीरें हमारी अपनी हैं, Pexels से हैं या पब्लिक डोमेन की हैं।",
+  "partes": [
+    {
+      "id": "video",
+      "titulo": "वीडियो क्या है",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "वीडियो कैसे बनाएँ? आज एक आर्टिफ़िशियल इंटेलिजेंस सिर्फ़ एक वाक्य से पूरा वीडियो बना देती है। फिर भी, हर मिनट सैकड़ों घंटों के ऐसे वीडियो अपलोड होते हैं जिन्हें किसी ने शूट किया, एडिट किया और सुनाया। तो फिर वीडियो बनाना ख़ुद सीखना क्यों सार्थक है? अगले कुछ मिनटों में आप देखेंगे कि वीडियो क्या है, यह कहाँ से आया, इसे कैसे फ़्रेम करते हैं, कैसे रोशनी करते हैं, कैसे आवाज़ रिकॉर्ड करते हैं और कैसे एडिट करते हैं, और आप पहला वीडियो पब्लिश करने की योजना लेकर जाएँगे।"
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "वैसे, यह MindHaOS में मेरा घर है, और यह मेरा वीडियो स्टूडियो: यहीं मैं शूट करता हूँ, एडिट करता हूँ और पब्लिश करता हूँ। आज इसी के साथ मैं आपको सिखाऊँगा कि वीडियो कैसे बनता है, शॉट-दर-शॉट। चलिए शुरू करते हैं।"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग एक। वीडियो क्या है।"
+        },
+        {
+          "id": "fotogramas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fotogramas"
+          },
+          "lamina": [
+            "tira",
+            "proyector"
+          ],
+          "texto": "वीडियो हिलता नहीं है: यह स्थिर तस्वीरें हैं, एक के बाद एक, इतनी तेज़ी से कि आपका दिमाग़ उन्हें जोड़कर हरकत बना देता है। एक सेकंड में दो तस्वीरों से आपको झटके दिखते हैं; बारह से, लगभग हरकत; और चौबीस से, जो सिनेमा की रफ़्तार है, बिल्कुल सहज हरकत।"
+        },
+        {
+          "id": "lenguaje",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "imagen",
+              "sonido",
+              "corte"
+            ]
+          },
+          "lamina": [
+            "rodaje",
+            "claqueta"
+          ],
+          "texto": "और वीडियो तीन शब्दों की एक भाषा है: जो दिखता है, जो सुनाई देता है, और वह पल जब आप एक शॉट से दूसरे पर जाते हैं। जो इन तीनों पर पकड़ बना ले, वह जो चाहे सुना सकता है, मोबाइल से या सिनेमा कैमरे से।"
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2016",
+            "clave": "explicar"
+          },
+          "lamina": [
+            "explicar",
+            "camaraCelular"
+          ],
+          "texto": "और सीखें ही क्यों, अगर मशीन पहले से वीडियो बना देती है? क्योंकि वीडियो बनाते हुए सिर्फ़ वीडियो नहीं बनता, आप भी सीखते हैं। 2016 में, नीदरलैंड्स में विंसेंट हूगरहाइडे और उनकी टीम ने छात्रों से एक विषय समझाने को कहा: जिन्होंने कैमरे के सामने समझाया, उन्होंने सिर्फ़ दोहराने वालों से ज़्यादा सीखा, और लिखकर समझाने वालों से भी ज़्यादा। मशीन तस्वीरें बना सकती है, पर आप क्या सुनाना चाहते हैं, और कैसे, यह आप तय करते हैं।"
+        },
+        {
+          "id": "mirada",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "idea",
+              "orden",
+              "voz"
+            ]
+          },
+          "lamina": [
+            "creadora",
+            "audiencia"
+          ],
+          "texto": "इसीलिए सबसे ज़्यादा याद रहने वाले वीडियो सबसे महँगे नहीं होते, बल्कि वे होते हैं जिनके पास कहने को कुछ हो: एक साफ़ विचार, एक अच्छा क्रम और अपनी एक आवाज़।"
+        },
+        {
+          "id": "camara",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "encuadre",
+              "luz",
+              "sonido"
+            ]
+          },
+          "lamina": "tripie",
+          "enCasa": true,
+          "texto": "यहाँ, मेरे कैमरे के सामने, हर शॉट एक ही तरह शुरू होता है: पहले फ़्रेमिंग, फिर रोशनी, और आख़िर में आवाज़।"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "वीडियो का एक छोटा इतिहास",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग दो। वीडियो का एक छोटा इतिहास।"
+        },
+        {
+          "id": "muybridge",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaVideo"
+          },
+          "lamina": [
+            "muybridge",
+            "caballo"
+          ],
+          "texto": "1878 में, कैलिफ़ोर्निया में, एडवर्ड मायब्रिज ने एक ट्रैक के किनारे बारह कैमरे एक कतार में लगाए और सरपट दौड़ते घोड़े के गुज़रते ही उन्हें चलाया। तस्वीरों ने वह दिखा दिया जो कोई देख नहीं पाया था: एक पल ऐसा आता है जब घोड़े के चारों पैर हवा में होते हैं।"
+        },
+        {
+          "id": "lumiere",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1895",
+            "clave": "lumiere"
+          },
+          "lamina": [
+            "lumiere",
+            "tren"
+          ],
+          "texto": "28 दिसंबर 1895 को, पेरिस के एक कैफ़े में, लुमिएर भाइयों ने पहली बार परदे पर फ़िल्में दिखाने के लिए टिकट लिया। किंवदंती कहती है कि सामने से आती ट्रेन देखकर कुछ लोग अपनी कुर्सी में झुक गए।"
+        },
+        {
+          "id": "melies",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1902",
+            "clave": "melies"
+          },
+          "lamina": [
+            "melies",
+            "luna"
+          ],
+          "texto": "जॉर्ज मेलिएस, जो एक जादूगर थे, ने पाया कि अगर वे कैमरा रोककर कुछ बदल दें, तो परदे पर वह चीज़ अचानक आ जाती है या ग़ायब हो जाती है। 1902 में उन्होंने «ए ट्रिप टू द मून» में एक रॉकेट चाँद पर भेजा: ऐसे जन्मे स्पेशल इफ़ेक्ट्स।"
+        },
+        {
+          "id": "sonido",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1927",
+            "clave": "jazz"
+          },
+          "lamina": [
+            "jazz",
+            "microfonoAntiguo"
+          ],
+          "texto": "तीस साल तक सिनेमा मूक रहा, हॉल में लाइव संगीत के साथ। 1927 में, «द जैज़ सिंगर» ने दर्शकों को एक अभिनेता को तस्वीर के साथ तालमेल में बोलते और गाते सुनाया, और कुछ ही सालों में लगभग सारा सिनेमा बोलने लगा।"
+        },
+        {
+          "id": "youtube",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2005",
+            "clave": "youtube"
+          },
+          "lamina": [
+            "computadora",
+            "zoologico"
+          ],
+          "texto": "23 अप्रैल 2005 को YouTube का पहला वीडियो अपलोड हुआ: एक चिड़ियाघर में हाथियों के सामने खड़े एक युवक के उन्नीस सेकंड। आज हर मिनट पाँच सौ घंटे से ज़्यादा वीडियो अपलोड होते हैं।"
+        },
+        {
+          "id": "celular",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cine",
+              "casa",
+              "bolsillo"
+            ]
+          },
+          "lamina": "celular",
+          "enCasa": true,
+          "texto": "और आज पूरा स्टूडियो जेब में समा जाता है: जिसके लिए एक सदी पहले फ़िल्म की पूरी टीम चाहिए थी, वह आज एक मोबाइल कर देता है, जैसा मैं यहाँ अपने स्टूडियो में इस्तेमाल करता हूँ।"
+        }
+      ]
+    },
+    {
+      "id": "encuadre",
+      "titulo": "फ़्रेमिंग",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग तीन। फ़्रेमिंग।"
+        },
+        {
+          "id": "planos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "planos"
+          },
+          "lamina": [
+            "paisaje",
+            "retrato"
+          ],
+          "texto": "फ़्रेम करना यानी तय करना कि तस्वीर में क्या आएगा और क्या बाहर रहेगा। लॉन्ग शॉट दिखाता है कि हम कहाँ हैं, मिड शॉट दिखाता है कि कोई क्या कर रहा है, और क्लोज़-अप दिखाता है कि वह क्या महसूस कर रहा है। इसे एक ही सीन में देखिए।"
+        },
+        {
+          "id": "tercios",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tercios"
+          },
+          "lamina": [
+            "rejilla",
+            "fotografa"
+          ],
+          "texto": "एक आसान नियम: तस्वीर को चौड़ाई में तीन और ऊँचाई में तीन हिस्सों में बाँटिए, और ज़रूरी चीज़ को इन रेखाओं में से किसी एक पर रखिए, ठीक बीच में नहीं। इसे रूल ऑफ़ थर्ड्स कहते हैं, और इसे उत्कीर्णक जॉन थॉमस स्मिथ ने 1797 में लिखा था, लैंडस्केप पेंटिंग को ध्यान में रखकर। देखिए, व्यक्ति को खिसकाने पर तस्वीर कैसे बदलती है।"
+        },
+        {
+          "id": "angulos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "angulos"
+          },
+          "lamina": [
+            "picado",
+            "contrapicado"
+          ],
+          "texto": "कैमरे की ऊँचाई भी बोलती है। ऊपर से, हाई एंगल में, कोई छोटा दिखता है; नीचे से, लो एंगल में, ताक़तवर दिखता है; और आँखों की ऊँचाई पर, कैमरा उसे बराबरी से देखता है।"
+        },
+        {
+          "id": "atencion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2013",
+            "clave": "sincronia"
+          },
+          "lamina": [
+            "ojo",
+            "sala"
+          ],
+          "texto": "और फ़्रेमिंग नज़र को राह दिखाती है। आँखों की हरकत पकड़ने वाले कैमरों से शोधकर्ता टिम स्मिथ ने देखा कि फ़िल्म देखते हुए लगभग सभी लोग एक ही समय पर एक ही जगह देखते हैं: बोलता हुआ चेहरा, जो चीज़ हिल रही है, जो सबसे ज़्यादा रोशन है। आपकी फ़्रेमिंग तय करती है कि दर्शक कहाँ देखेंगे।"
+        },
+        {
+          "id": "tripie",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estable",
+              "horizonte",
+              "ojos"
+            ]
+          },
+          "lamina": "tripieCelular",
+          "enCasa": true,
+          "texto": "इसीलिए मेरा कैमरा ट्राइपॉड पर रहता है: तस्वीर स्थिर, क्षितिज सीधा, और लेंस आँखों की ऊँचाई पर।"
+        }
+      ]
+    },
+    {
+      "id": "luzSonido",
+      "titulo": "रोशनी और आवाज़",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग चार। रोशनी और आवाज़।"
+        },
+        {
+          "id": "tresPuntos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "luz"
+          },
+          "lamina": [
+            "softbox",
+            "estudioLuz"
+          ],
+          "texto": "स्टूडियो में थ्री-पॉइंट लाइटिंग इस्तेमाल होती है। की लाइट चेहरे को एक तरफ़ से रोशन करती है; फ़िल लाइट, जो हल्की होती है, दूसरी तरफ़ की परछाइयों को नरम करती है; और बैक लाइट, पीछे से, व्यक्ति को बैकग्राउंड से अलग करती है। इन्हें एक-एक करके जलाइए।"
+        },
+        {
+          "id": "ventana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ventana",
+              "frente",
+              "nubes"
+            ]
+          },
+          "lamina": "lampara",
+          "enCasa": true,
+          "texto": "बिना किसी उपकरण के, खिड़की आपका सबसे अच्छा लैंप है: उसकी ओर मुँह करके या बगल में खड़े होइए, कभी पीठ करके नहीं। मैं यहाँ स्टूडियो के इस लैंप को की लाइट की तरह इस्तेमाल करता हूँ।"
+        },
+        {
+          "id": "audio",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "audio"
+          },
+          "lamina": [
+            "microfonoPro",
+            "audifonos"
+          ],
+          "texto": "और अब सबसे ज़रूरी बात, जिसका ध्यान लगभग कोई नहीं रखता: आवाज़। 2018 में, एरिन न्यूमैन और नॉर्बर्ट श्वार्ज़ ने लोगों को वैज्ञानिकों के वही भाषण सुनाए, कुछ अच्छे ऑडियो के साथ और कुछ ख़राब ऑडियो के साथ। ख़राब ऑडियो के साथ, लोगों ने शोध को कम अहम और वैज्ञानिक को कम बुद्धिमान माना। दर्शक औसत तस्वीर माफ़ कर देते हैं, पर ख़राब आवाज़ नहीं।"
+        },
+        {
+          "id": "microfono",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "microfono"
+          },
+          "lamina": [
+            "lavalier",
+            "cuarto"
+          ],
+          "texto": "तरकीब है माइक्रोफ़ोन को पास लाना: मुँह से एक बित्ते की दूरी पर, आपकी आवाज़ कमरे के शोर से कहीं ज़्यादा तेज़ सुनाई देती है। इसे दूर ले जाइए और देखिए कि शोर उसे कैसे निगल जाता है। और ऐसे कमरे में रिकॉर्ड कीजिए जहाँ पर्दे या सोफ़े जैसी नरम चीज़ें हों, ताकि गूँज न हो।"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyo"
+          },
+          "lamina": "corazon",
+          "texto": "वैसे, हम आधे रास्ते पर पहुँच गए हैं। अगर यह गाइड आपके काम आ रही है, तो पसंद करें, अगली गाइड न छूटे इसलिए सदस्यता लें, और इसे किसी ऐसे व्यक्ति के साथ शेयर करें जो वीडियो बनाना शुरू करना चाहता है। इससे मुझे बहुत मदद मिलती है, और आपका कुछ नहीं जाता।"
+        }
+      ]
+    },
+    {
+      "id": "edicion",
+      "titulo": "एडिटिंग",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग पाँच। एडिटिंग।"
+        },
+        {
+          "id": "corte",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elegir",
+              "ordenar",
+              "cortar"
+            ]
+          },
+          "lamina": [
+            "editora",
+            "linea"
+          ],
+          "texto": "एडिट करना यानी सबसे अच्छे शॉट चुनना, उन्हें क्रम में लगाना और तय करना कि हर एक कितनी देर चलेगा। सबसे अदृश्य कट हरकत के बीच में होता है: कोई एक शॉट में दरवाज़ा खोलता है और अगले शॉट में उसे पूरा खोलता है, और आपकी आँख को पता भी नहीं चलता।"
+        },
+        {
+          "id": "kuleshov",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "kuleshov"
+          },
+          "lamina": [
+            "lev",
+            "kuleshov"
+          ],
+          "texto": "एक सदी पहले, रूसी फ़िल्मकार लेव कुलेशोव ने एक अभिनेता के एक ही चेहरे को तीन अलग शॉट्स के साथ जोड़ा: सूप की एक प्लेट, ताबूत में एक बच्चा और एक महिला। उनके मुताबिक़, दर्शकों ने क़सम खाकर कहा कि उन्हें उस चेहरे में भूख, उदासी और चाहत दिखी, जबकि चेहरा बदला ही नहीं था। मतलब हर शॉट में नहीं होता, बल्कि उसमें होता है जो आप साथ रखते हैं।"
+        },
+        {
+          "id": "ritmo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "duracionPlanos"
+          },
+          "lamina": [
+            "claqueta2",
+            "accion"
+          ],
+          "texto": "और लय इससे तय होती है कि हर शॉट कितनी देर चलता है। कॉर्नेल यूनिवर्सिटी के जेम्स कटिंग ने 1935 से 2005 तक की हॉलीवुड की डेढ़ सौ फ़िल्में मापीं: शॉट लगातार छोटे होते गए, यहाँ तक कि कुछ ही सेकंड के रह गए। शांत करने के लिए लंबे शॉट, रफ़्तार बढ़ाने के लिए छोटे।"
+        },
+        {
+          "id": "jl",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cortesJL"
+          },
+          "lamina": [
+            "dialogo",
+            "audifonos2"
+          ],
+          "texto": "एडिटर की एक तरकीब: तस्वीर और आवाज़ को एक साथ मत काटिए। अगर अगले शॉट की आवाज़ पहले आ जाए, जैसे कोई पुकारती हुई आवाज़, तो कट सहज लगता है। इसे J-कट कहते हैं, और उल्टा, जब आवाज़ थोड़ी देर और रहती है, उसे L-कट।"
+        },
+        {
+          "id": "mencion-edicion",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "linea",
+          "enCasa": true,
+          "texto": "MindHaOS के अपने वीडियो स्टूडियो में मैं यही करता हूँ: हर शॉट टाइमलाइन पर एक क्लिप है, अपने संगीत, अपनी आवाज़, अपने टेक्स्ट और अपने ट्रांज़िशन के साथ।"
+        }
+      ]
+    },
+    {
+      "id": "historiaContar",
+      "titulo": "कहानी कैसे सुनाएँ",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग छह। कहानी कैसे सुनाएँ।"
+        },
+        {
+          "id": "gancho",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunta",
+              "promesa",
+              "intriga"
+            ]
+          },
+          "lamina": [
+            "scroll",
+            "sorpresa"
+          ],
+          "texto": "इंटरनेट पर, पहले कुछ सेकंड तय करते हैं कि कोई रुकेगा या नहीं। शुरुआत एक सवाल, एक वादे या किसी उत्सुकता जगाने वाली तस्वीर से कीजिए, और कभी भी «नमस्ते, आज मैं आपको बताने वाला हूँ…» से नहीं। जैसे यह वीडियो, जो एक सवाल से शुरू हुआ।"
+        },
+        {
+          "id": "estructura",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "estructura"
+          },
+          "lamina": [
+            "libro",
+            "teatro"
+          ],
+          "texto": "यूनानी रंगमंच के ज़माने से, लगभग हर कहानी के तीन हिस्से होते हैं: एक शुरुआत, जो किसी ऐसे व्यक्ति को सामने लाती है जो कुछ चाहता है; एक उलझन, जिसमें वह चीज़ आती है जो उसे रोकती है; और एक अंत, जो उसे सुलझाता है। एक मिनट का वीडियो भी इस ढाँचे में समा जाता है।"
+        },
+        {
+          "id": "guion",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escribe",
+              "dibuja",
+              "lista"
+            ]
+          },
+          "lamina": [
+            "storyboard",
+            "cuaderno"
+          ],
+          "texto": "शूट करने से पहले, जो कहना है उसे लिखिए और हर शॉट को छोटे-छोटे खानों में बनाइए, भले ही वे डंडी वाले पुतले हों। इसे स्टोरीबोर्ड कहते हैं, और डिज़्नी इसे तीस के दशक से इस्तेमाल करता था: यह आपको फ़ालतू शूटिंग के घंटों से बचाता है।"
+        },
+        {
+          "id": "mostrar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "decir",
+              "mostrar",
+              "sentir"
+            ]
+          },
+          "lamina": [
+            "lluvia",
+            "sonrisa"
+          ],
+          "texto": "और सुनहरा नियम: बताइए मत, दिखाइए। «वह घबराया हुआ था» कहने के बजाय, दर्शकों को काँपता हुआ हाथ दिखाइए। जो दर्शक ख़ुद खोजते हैं, वही याद रखते हैं।"
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "inicio",
+              "nudo",
+              "final"
+            ]
+          },
+          "lamina": "escribir",
+          "enCasa": true,
+          "texto": "मैं पहले स्क्रिप्ट लिखता हूँ, और फिर यहाँ उसे शॉट्स में बदलता हूँ: इस मेन्यू से मैं क्लिप, टेक्स्ट, आवाज़ और संगीत जोड़ता हूँ, एक-एक करके।"
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "शुरुआत की आपकी योजना",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग सात। शुरुआत की आपकी योजना।"
+        },
+        {
+          "id": "mira",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "planos",
+              "cortes",
+              "sonido"
+            ]
+          },
+          "lamina": [
+            "sillon",
+            "pantalla"
+          ],
+          "texto": "वीडियो को अलग नज़र से देखना शुरू कीजिए: कोई पसंदीदा वीडियो चुनिए और उसके शॉट गिनिए, देखिए कि कट कहाँ होता है, और सुनिए कि वह कैसा सुनाई देता है। आपको हर सेकंड के पीछे के फ़ैसले दिखने लगेंगे।"
+        },
+        {
+          "id": "uno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "videosAno"
+          },
+          "lamina": "reloj",
+          "texto": "आपको फ़िल्म बनाने की ज़रूरत नहीं है: हफ़्ते में एक मिनट का एक वीडियो, यानी साल में बावन वीडियो। यहाँ खिसकाइए कि आप कितने बनाते हैं, और देखिए कि एक साल में आप कितना अभ्यास करेंगे।"
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutinaVideo"
+          },
+          "lamina": [
+            "semana",
+            "celular2"
+          ],
+          "texto": "एक संभावित हफ़्ता: सोमवार को, एक विचार चुनिए और स्क्रिप्ट लिखिए; मंगलवार को, शॉट्स बनाइए; बुधवार को, शूट कीजिए; गुरुवार को, एडिट कीजिए; शुक्रवार को, आवाज़ और टेक्स्ट जाँचिए; और वीकेंड पर, उसे पब्लिश कीजिए।"
+        },
+        {
+          "id": "publica",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "publica",
+              "escucha",
+              "mejora"
+            ]
+          },
+          "lamina": "subir",
+          "enCasa": true,
+          "texto": "और पब्लिश कीजिए, भले ही वह परफ़ेक्ट न हो: हर वीडियो आपको अगले के लिए कुछ सिखाता है। देखिए: मैं यहीं, अपने घर के अंदर शूट करता हूँ, शॉट को क्लिप बनाकर स्टूडियो में लौटता हूँ, और वहीं से उसे पब्लिश करता हूँ।"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "resumen",
+          "texto": "संक्षेप में: वीडियो स्थिर तस्वीरें हैं जिन्हें आपका दिमाग़ चलाता है; फ़्रेमिंग तय करती है कि दर्शक कहाँ देखें; रोशनी उसे आकार देती है और आवाज़ विश्वसनीयता; एडिटिंग उसे अर्थ और लय देती है; और वीडियो बनाना आपको सिखाता है, भले ही कोई मशीन उन्हें बना लेती हो।"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "अगर आप भी मेरी तरह वीडियो बनाना चाहते हैं, तो MindHaOS के वीडियो स्टूडियो में सब कुछ एक ही कमरे में है: आप टाइमलाइन पर अपने शॉट एडिट कर सकते हैं, उनमें आवाज़ जोड़ सकते हैं, साथ में संगीत और सबटाइटल भी, अपने किरदारों के साथ 3D में सीन एनिमेट कर सकते हैं और उन्हें अपने सोशल मीडिया पर सीधे पब्लिश कर सकते हैं। लिंक डिस्क्रिप्शन में है, इस इंटरैक्टिव गाइड के साथ। अगली गाइड में मिलते हैं।",
+    "boton": "वीडियो स्टूडियो खोलें",
+    "lamina": "app-plan",
+    "anclas": {
+      "editar": "अपने शॉट एडिट",
+      "voz": "आवाज़ जोड़",
+      "animar": "3D में सीन एनिमेट",
+      "publicar": "सीधे पब्लिश"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "hoogerheide-2016",
+      "texto": "Hoogerheide V., Deijkers L., Loyens S. M. M., Heijltjes A., van Gog T. Gaining from explaining: Learning improves from explaining to fictitious others on video, not from writing to them. Contemporary Educational Psychology (2016).",
+      "url": "https://doi.org/10.1016/j.cedpsych.2016.02.005"
+    },
+    {
+      "id": "muybridge-1878",
+      "texto": "Muybridge E. The Horse in Motion (Palo Alto, 1878).",
+      "url": "https://en.wikipedia.org/wiki/The_Horse_in_Motion"
+    },
+    {
+      "id": "lumiere-1895",
+      "texto": "लुमिएर सिनेमैटोग्राफ़ का पहला सार्वजनिक टिकट वाला शो, Salon Indien, Grand Café, पेरिस (28 दिसंबर 1895)।",
+      "url": "https://en.wikipedia.org/wiki/Auguste_and_Louis_Lumi%C3%A8re"
+    },
+    {
+      "id": "melies-1902",
+      "texto": "Méliès G. Le Voyage dans la Lune (1902).",
+      "url": "https://en.wikipedia.org/wiki/A_Trip_to_the_Moon"
+    },
+    {
+      "id": "jazz-1927",
+      "texto": "Crosland A. The Jazz Singer (Warner Bros., 1927).",
+      "url": "https://en.wikipedia.org/wiki/The_Jazz_Singer"
+    },
+    {
+      "id": "youtube-2005",
+      "texto": "«Me at the zoo», YouTube का पहला वीडियो (23 अप्रैल 2005)।",
+      "url": "https://en.wikipedia.org/wiki/Me_at_the_zoo"
+    },
+    {
+      "id": "smith-1797",
+      "texto": "Smith J. T. Remarks on Rural Scenery (1797), जहाँ पहली बार «रूल ऑफ़ थर्ड्स» आता है।",
+      "url": "https://en.wikipedia.org/wiki/Rule_of_thirds"
+    },
+    {
+      "id": "smith-2013",
+      "texto": "Smith T. J., Mital P. K. Attentional synchrony and the influence of viewing task on gaze behavior in static and dynamic scenes. Journal of Vision (2013).",
+      "url": "https://doi.org/10.1167/13.8.16"
+    },
+    {
+      "id": "newman-2018",
+      "texto": "Newman E. J., Schwarz N. Good sound, good research: How audio quality influences perceptions of the research and researcher. Science Communication (2018).",
+      "url": "https://doi.org/10.1177/1075547018759345"
+    },
+    {
+      "id": "kuleshov",
+      "texto": "कुलेशोव इफ़ेक्ट (Lev Kuleshov, लगभग 1918-1921)।",
+      "url": "https://en.wikipedia.org/wiki/Kuleshov_effect"
+    },
+    {
+      "id": "cutting-2010",
+      "texto": "Cutting J. E., DeLong J. E., Nothelfer C. E. Attention and the evolution of Hollywood film. Psychological Science (2010).",
+      "url": "https://doi.org/10.1177/0956797610361679"
+    }
+  ]
+}

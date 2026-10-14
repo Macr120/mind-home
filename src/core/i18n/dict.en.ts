@@ -7550,6 +7550,7 @@ export const EN: Dict = {
   'guia.idiomas.titulo': "Why learn a language?",
   'guia.arte.titulo': "What is art?",
   'guia.musica.titulo': "What is music?",
+  'guia.musica.titulo': "What is music?",
   // Esenciales (corren en la casa real y recorren los menús de cada app)
   'tut.esencial.titulo': 'The essentials',
   'tut.tipo.ejemplos': 'Examples · demo MindHaOS',

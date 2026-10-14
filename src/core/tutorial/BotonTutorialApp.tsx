@@ -24,6 +24,7 @@ const GUIAS: Record<string, { tema: string; clave: string; es: string }> = {
   idiomas: { tema: 'idiomas', clave: 'guia.idiomas.titulo', es: '¿Por qué aprender un idioma?' },
   arte: { tema: 'arte', clave: 'guia.arte.titulo', es: '¿Qué es el arte?' },
   audio: { tema: 'musica', clave: 'guia.musica.titulo', es: '¿Qué es la música?' },
+  video: { tema: 'video', clave: 'guia.video.titulo', es: '¿Cómo hacer videos?' },
 }
 
 /**

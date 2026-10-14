@@ -1,0 +1,724 @@
+{
+  "idioma": "zh",
+  "tema": "video",
+  "plantillaId": "video",
+  "numero": 8,
+  "nombre": "视频工作室",
+  "pregunta": "怎样做视频？",
+  "corta": "怎样做视频？",
+  "subtitulo": "为什么即使人工智能已经能生成视频，还值得学做视频；从电影到手机的视频简史；怎样给镜头构图、布光和录音；怎样剪辑；怎样讲故事；以及发布你第一个视频的计划。",
+  "aviso": "本指南仅供参考：引用的日期、数据和研究都是根据出处的近似值，每个人的进度也各不相同。提到的电影和频道只是点名介绍；示例图片为原创，或来自Pexels或公有领域。",
+  "partes": [
+    {
+      "id": "video",
+      "titulo": "什么是视频",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "怎样做视频？如今，人工智能只凭一句话就能生成一整段视频。可即便如此，每分钟仍有数百小时由人亲手拍摄、剪辑和讲述的视频被上传。那你为什么还值得亲自学做视频？接下来几分钟，你会看到什么是视频、它从哪里来、怎样构图、布光、录音和剪辑，最后带着一份发布第一个视频的计划离开。"
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "对了，这是我在MindHaOS里的家，这是我的视频工作室：我在这里拍摄、剪辑和发布。今天我就用它来教你，一个视频是怎样一个镜头一个镜头搭起来的。我们开始吧。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第一部分。什么是视频。"
+        },
+        {
+          "id": "fotogramas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fotogramas"
+          },
+          "lamina": [
+            "tira",
+            "proyector"
+          ],
+          "texto": "视频其实并不会动：它是一张接一张的静止照片，快到你的大脑把它们连成了动作。每秒两张，你看到的是跳动；每秒十二张，差不多在动了；到了每秒二十四张，也就是电影的速度，动作就流畅了。"
+        },
+        {
+          "id": "lenguaje",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "imagen",
+              "sonido",
+              "corte"
+            ]
+          },
+          "lamina": [
+            "rodaje",
+            "claqueta"
+          ],
+          "texto": "视频也是一种语言，它只有三个词：看到的、听到的，以及从一个镜头切到另一个镜头的那一刻。掌握了这三样，不管用手机还是电影摄影机，你都能讲出你想讲的东西。"
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2016",
+            "clave": "explicar"
+          },
+          "lamina": [
+            "explicar",
+            "camaraCelular"
+          ],
+          "texto": "既然机器已经能生成视频，为什么还要学？因为做视频的时候，得到的不只是一个视频，你自己也在学习。2016年，荷兰的Vincent Hoogerheide和团队让学生讲解一个主题：对着摄像机讲解的学生，比只复习的学生、也比用文字讲解的学生学到的更多。机器能生成画面，但你想讲什么、怎么讲，由你来决定。"
+        },
+        {
+          "id": "mirada",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "idea",
+              "orden",
+              "voz"
+            ]
+          },
+          "lamina": [
+            "creadora",
+            "audiencia"
+          ],
+          "texto": "所以，最让人记住的视频不是最贵的，而是有话要说的：一个清晰的想法、一个好的顺序，和你自己的声音。"
+        },
+        {
+          "id": "camara",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "encuadre",
+              "luz",
+              "sonido"
+            ]
+          },
+          "lamina": "tripie",
+          "enCasa": true,
+          "texto": "在这里，在我的摄像机前，每个镜头都以同样的方式开始：先构图，再打光，最后是声音。"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "视频简史",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第二部分。视频简史。"
+        },
+        {
+          "id": "muybridge",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaVideo"
+          },
+          "lamina": [
+            "muybridge",
+            "caballo"
+          ],
+          "texto": "1878年，在加利福尼亚，Eadweard Muybridge在跑道旁把十二台相机排成一排，在一匹马飞奔而过时依次按下快门。这些照片证明了一件从没有人看清过的事：在某一瞬间，马的四条腿全都离开了地面。"
+        },
+        {
+          "id": "lumiere",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1895",
+            "clave": "lumiere"
+          },
+          "lamina": [
+            "lumiere",
+            "tren"
+          ],
+          "texto": "1895年12月28日，在巴黎的一家咖啡馆里，Lumière兄弟第一次收取门票，在银幕上放映电影。传说看到一列火车迎面驶来时，有人在椅子上吓得低下了身子。"
+        },
+        {
+          "id": "melies",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1902",
+            "clave": "melies"
+          },
+          "lamina": [
+            "melies",
+            "luna"
+          ],
+          "texto": "Georges Méliès本来是一位魔术师，他发现只要停下摄影机、改变点什么，东西就会在银幕上出现或消失。1902年，他在《月球旅行记》里把一枚火箭送上了月球：特效就这样诞生了。"
+        },
+        {
+          "id": "sonido",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1927",
+            "clave": "jazz"
+          },
+          "lamina": [
+            "jazz",
+            "microfonoAntiguo"
+          ],
+          "texto": "整整三十年，电影都是无声的，音乐由影院现场演奏。1927年，《爵士歌手》让观众听到演员说话和唱歌，声音与画面同步，短短几年里，几乎所有电影都有了声音。"
+        },
+        {
+          "id": "youtube",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2005",
+            "clave": "youtube"
+          },
+          "lamina": [
+            "computadora",
+            "zoologico"
+          ],
+          "texto": "2005年4月23日，YouTube上传了第一个视频：十九秒，一个年轻人站在动物园的大象前面。如今，每分钟上传的视频超过五百小时。"
+        },
+        {
+          "id": "celular",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cine",
+              "casa",
+              "bolsillo"
+            ]
+          },
+          "lamina": "celular",
+          "enCasa": true,
+          "texto": "而今天，整个工作室都能装进口袋：一百年前需要一整个电影摄制组才能做的事，现在一部手机就能完成，就像我在这间工作室里用的这部。"
+        }
+      ]
+    },
+    {
+      "id": "encuadre",
+      "titulo": "构图",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第三部分。构图。"
+        },
+        {
+          "id": "planos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "planos"
+          },
+          "lamina": [
+            "paisaje",
+            "retrato"
+          ],
+          "texto": "构图，就是决定什么进入画面、什么留在画面外。全景交代我们在哪里，中景展示一个人在做什么，特写展示他的感受。用同一个场景来看看吧。"
+        },
+        {
+          "id": "tercios",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tercios"
+          },
+          "lamina": [
+            "rejilla",
+            "fotografa"
+          ],
+          "texto": "有一条简单的规则：把画面横竖各分成三份，把重要的东西放在其中一条线上，而不是正中间。这叫三分法，是版画家John Thomas Smith在1797年为风景画写下的。看看移动人物时画面怎么变化。"
+        },
+        {
+          "id": "angulos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "angulos"
+          },
+          "lamina": [
+            "picado",
+            "contrapicado"
+          ],
+          "texto": "摄像机的高度也会说话。从上往下拍，也就是俯拍，人显得渺小；从下往上拍，也就是仰拍，人显得强大；而在眼睛的高度，摄像机就像在平等地对待他。"
+        },
+        {
+          "id": "atencion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2013",
+            "clave": "sincronia"
+          },
+          "lamina": [
+            "ojo",
+            "sala"
+          ],
+          "texto": "构图还会引导视线。研究者Tim Smith用追踪眼球的摄像机发现，看电影时，几乎所有人都在同一时刻看着同一个地方：说话的脸、移动的东西、最亮的地方。你的构图决定观众看向哪里。"
+        },
+        {
+          "id": "tripie",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estable",
+              "horizonte",
+              "ojos"
+            ]
+          },
+          "lamina": "tripieCelular",
+          "enCasa": true,
+          "texto": "所以我的摄像机架在三脚架上：画面稳定，地平线水平，镜头和眼睛一样高。"
+        }
+      ]
+    },
+    {
+      "id": "luzSonido",
+      "titulo": "光与声音",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第四部分。光与声音。"
+        },
+        {
+          "id": "tresPuntos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "luz"
+          },
+          "lamina": [
+            "softbox",
+            "estudioLuz"
+          ],
+          "texto": "摄影棚里用的是三点布光。主光从一侧照亮脸；辅助光更柔和，照亮另一侧的阴影；轮廓光从后面打过来，把人和背景分开。一盏一盏地打开看看。"
+        },
+        {
+          "id": "ventana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ventana",
+              "frente",
+              "nubes"
+            ]
+          },
+          "lamina": "lampara",
+          "enCasa": true,
+          "texto": "没有设备的话，窗户就是你最好的灯：面朝窗户或侧对窗户，千万别背对着它。我在这里用这盏摄影灯当主光。"
+        },
+        {
+          "id": "audio",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "audio"
+          },
+          "lamina": [
+            "microfonoPro",
+            "audifonos"
+          ],
+          "texto": "现在说最重要、却几乎没人在意的东西：声音。2018年，Eryn Newman和Norbert Schwarz让人们听同样的科学家演讲，有的音质好，有的音质差。音质差的时候，人们觉得研究没那么重要，科学家也没那么聪明。观众能原谅一般的画面，却不会原谅糟糕的声音。"
+        },
+        {
+          "id": "microfono",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "microfono"
+          },
+          "lamina": [
+            "lavalier",
+            "cuarto"
+          ],
+          "texto": "诀窍是把麦克风拿近：离嘴一拃远，你的声音就会比房间里的噪音响得多。把它拿远，你会看到噪音把声音吞掉。还要在有窗帘、沙发这类软东西的房间里录，这样才不会有回声。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyo"
+          },
+          "lamina": "corazon",
+          "texto": "对了，我们已经走到一半了。如果这份指南对你有帮助，请点赞，订阅，别错过下一期，再分享给想开始做视频的朋友。这对我帮助很大，而你一分钱都不用花。"
+        }
+      ]
+    },
+    {
+      "id": "edicion",
+      "titulo": "剪辑",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第五部分。剪辑。"
+        },
+        {
+          "id": "corte",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elegir",
+              "ordenar",
+              "cortar"
+            ]
+          },
+          "lamina": [
+            "editora",
+            "linea"
+          ],
+          "texto": "剪辑就是挑出最好的镜头，排好顺序，再决定每个镜头有多长。最不露痕迹的剪切是在动作进行中切：一个人在这个镜头里开始开门，在下一个镜头里把门打开，你的眼睛根本察觉不到。"
+        },
+        {
+          "id": "kuleshov",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "kuleshov"
+          },
+          "lamina": [
+            "lev",
+            "kuleshov"
+          ],
+          "texto": "大约一百年前，俄罗斯电影人Lev Kuleshov把同一个演员的同一张脸，分别接上三个不同的镜头：一盘汤、一个躺在棺材里的孩子，和一个女人。据他说，观众坚称在那张从未改变的脸上看到了饥饿、悲伤和欲望。意义不在每个镜头里，而在于你把什么放在一起。"
+        },
+        {
+          "id": "ritmo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "duracionPlanos"
+          },
+          "lamina": [
+            "claqueta2",
+            "accion"
+          ],
+          "texto": "节奏由每个镜头的长度决定。康奈尔大学的James Cutting测量了1935年到2005年间的一百五十部好莱坞电影：镜头越来越短，最后只有短短几秒。长镜头让人平静，短镜头让人加速。"
+        },
+        {
+          "id": "jl",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cortesJL"
+          },
+          "lamina": [
+            "dialogo",
+            "audifonos2"
+          ],
+          "texto": "一个剪辑师的小窍门：不要让画面和声音同时切。如果下一个镜头的声音先进来，比如一声呼唤，这个剪切就会显得很自然。这叫J-cut；反过来，声音多停留一会儿，就叫L-cut。"
+        },
+        {
+          "id": "mencion-edicion",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "linea",
+          "enCasa": true,
+          "texto": "我在MindHaOS的视频工作室里就是这样做的：每个镜头都是时间线上的一个片段，带着自己的音乐、配音、文字和转场。"
+        }
+      ]
+    },
+    {
+      "id": "historiaContar",
+      "titulo": "怎样讲故事",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第六部分。怎样讲故事。"
+        },
+        {
+          "id": "gancho",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunta",
+              "promesa",
+              "intriga"
+            ]
+          },
+          "lamina": [
+            "scroll",
+            "sorpresa"
+          ],
+          "texto": "在网上，前几秒决定一个人会不会留下来。用一个问题、一个承诺或一个引人好奇的画面开场，千万别用“大家好，今天我来讲讲……”开头。就像这个视频，是用一个问题开场的。"
+        },
+        {
+          "id": "estructura",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "estructura"
+          },
+          "lamina": [
+            "libro",
+            "teatro"
+          ],
+          "texto": "从古希腊戏剧开始，几乎所有故事都有三个部分：开端介绍一个想要某样东西的人，发展是阻碍他的东西，结局则解决这一切。哪怕一分钟的视频，也装得进这个形式。"
+        },
+        {
+          "id": "guion",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escribe",
+              "dibuja",
+              "lista"
+            ]
+          },
+          "lamina": [
+            "storyboard",
+            "cuaderno"
+          ],
+          "texto": "开拍之前，先写下你要说的话，再把每个镜头画在小格子里，哪怕只是火柴人也行。这叫故事板，迪士尼从三十年代就开始用了：它能帮你省下好几个小时的多余拍摄。"
+        },
+        {
+          "id": "mostrar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "decir",
+              "mostrar",
+              "sentir"
+            ]
+          },
+          "lamina": [
+            "lluvia",
+            "sonrisa"
+          ],
+          "texto": "还有一条黄金法则：要展示，不要直说。与其说“他很紧张”，不如让观众看到一只发抖的手。观众自己发现的东西，才会记住。"
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "inicio",
+              "nudo",
+              "final"
+            ]
+          },
+          "lamina": "escribir",
+          "enCasa": true,
+          "texto": "我会先写好脚本，然后在这里把它变成一个个镜头：从这个菜单里，一个一个地加入片段、文字、配音和音乐。"
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "你的起步计划",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第七部分。你的起步计划。"
+        },
+        {
+          "id": "mira",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "planos",
+              "cortes",
+              "sonido"
+            ]
+          },
+          "lamina": [
+            "sillon",
+            "pantalla"
+          ],
+          "texto": "先从换一种方式看视频开始：挑一个你喜欢的视频，数一数它的镜头，留意它在哪里剪切，听听它的声音。你会发现每一秒背后的决定。"
+        },
+        {
+          "id": "uno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "videosAno"
+          },
+          "lamina": "reloj",
+          "texto": "你不需要拍一部电影：每周一个一分钟的视频，一年就是五十二个。在这里调一调你做的数量，看看一年能练习多少。"
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutinaVideo"
+          },
+          "lamina": [
+            "semana",
+            "celular2"
+          ],
+          "texto": "一种可能的一周：周一，选一个想法并写脚本；周二，画出镜头；周三，拍摄；周四，剪辑；周五，检查声音和文字；周末，把它发布出去。"
+        },
+        {
+          "id": "publica",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "publica",
+              "escucha",
+              "mejora"
+            ]
+          },
+          "lamina": "subir",
+          "enCasa": true,
+          "texto": "就算不完美，也要发布：每个视频都会教你一些用在下一个视频里的东西。你看：我就在家里拍摄，把这段镜头作为片段带回工作室，再从那里发布出去。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "resumen",
+          "texto": "总结一下：视频是被你的大脑变成动作的静止照片；构图决定观众看向哪里；光赋予形状，声音带来可信度；剪辑赋予意义和节奏；而做视频会教会你自己，哪怕机器已经能生成视频。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "如果你也想像我一样做视频，MindHaOS的视频工作室把一切都放在一个房间里：你可以在时间线上剪辑你的镜头，为它们配上声音、音乐和字幕，用你的角色制作3D场景动画，再直接发布到你的社交平台。链接在视频简介里，还有这份互动指南。我们下次见。",
+    "boton": "打开视频工作室",
+    "lamina": "app-plan",
+    "anclas": {
+      "editar": "剪辑你的镜头",
+      "voz": "配上声音",
+      "animar": "制作3D场景动画",
+      "publicar": "直接发布"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "hoogerheide-2016",
+      "texto": "Hoogerheide V., Deijkers L., Loyens S. M. M., Heijltjes A., van Gog T. Gaining from explaining: Learning improves from explaining to fictitious others on video, not from writing to them. Contemporary Educational Psychology (2016).",
+      "url": "https://doi.org/10.1016/j.cedpsych.2016.02.005"
+    },
+    {
+      "id": "muybridge-1878",
+      "texto": "Muybridge E. The Horse in Motion (Palo Alto, 1878).",
+      "url": "https://en.wikipedia.org/wiki/The_Horse_in_Motion"
+    },
+    {
+      "id": "lumiere-1895",
+      "texto": "卢米埃尔电影放映机首次公开收费放映，巴黎大咖啡馆的印度沙龙（1895年12月28日）。",
+      "url": "https://en.wikipedia.org/wiki/Auguste_and_Louis_Lumi%C3%A8re"
+    },
+    {
+      "id": "melies-1902",
+      "texto": "Méliès G. Le Voyage dans la Lune（《月球旅行记》，1902年）。",
+      "url": "https://en.wikipedia.org/wiki/A_Trip_to_the_Moon"
+    },
+    {
+      "id": "jazz-1927",
+      "texto": "Crosland A. The Jazz Singer（《爵士歌手》，Warner Bros.，1927年）。",
+      "url": "https://en.wikipedia.org/wiki/The_Jazz_Singer"
+    },
+    {
+      "id": "youtube-2005",
+      "texto": "《Me at the zoo》，YouTube上的第一个视频（2005年4月23日）。",
+      "url": "https://en.wikipedia.org/wiki/Me_at_the_zoo"
+    },
+    {
+      "id": "smith-1797",
+      "texto": "Smith J. T. Remarks on Rural Scenery (1797)，“三分法”首次出现在这本书里。",
+      "url": "https://en.wikipedia.org/wiki/Rule_of_thirds"
+    },
+    {
+      "id": "smith-2013",
+      "texto": "Smith T. J., Mital P. K. Attentional synchrony and the influence of viewing task on gaze behavior in static and dynamic scenes. Journal of Vision (2013).",
+      "url": "https://doi.org/10.1167/13.8.16"
+    },
+    {
+      "id": "newman-2018",
+      "texto": "Newman E. J., Schwarz N. Good sound, good research: How audio quality influences perceptions of the research and researcher. Science Communication (2018).",
+      "url": "https://doi.org/10.1177/1075547018759345"
+    },
+    {
+      "id": "kuleshov",
+      "texto": "库里肖夫效应（列夫·库里肖夫，约1918—1921年）。",
+      "url": "https://en.wikipedia.org/wiki/Kuleshov_effect"
+    },
+    {
+      "id": "cutting-2010",
+      "texto": "Cutting J. E., DeLong J. E., Nothelfer C. E. Attention and the evolution of Hollywood film. Psychological Science (2010).",
+      "url": "https://doi.org/10.1177/0956797610361679"
+    }
+  ]
+}

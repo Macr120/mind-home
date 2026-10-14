@@ -1,0 +1,724 @@
+{
+  "idioma": "id",
+  "tema": "video",
+  "plantillaId": "video",
+  "numero": 8,
+  "nombre": "Studio Video",
+  "pregunta": "Bagaimana cara membuat video?",
+  "corta": "Bagaimana cara membuat video?",
+  "subtitulo": "Mengapa belajar membuat video meski kecerdasan buatan sudah bisa membuatnya, sejarah singkat dari bioskop sampai ponsel, cara membingkai sebuah shot, cara mengatur cahaya dan merekam suara, cara mengedit, cara bercerita, dan rencana untuk memublikasikan video pertamamu.",
+  "aviso": "Panduan ini bersifat informatif: tanggal, angka, dan studi yang dikutip adalah perkiraan dari sumbernya, dan setiap orang maju dengan kecepatannya sendiri. Film dan kanal yang disebut hanya disebut namanya; gambar contoh adalah milik kami, dari Pexels, atau domain publik.",
+  "partes": [
+    {
+      "id": "video",
+      "titulo": "Apa itu video",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Bagaimana cara membuat video? Sekarang kecerdasan buatan bisa membuat video utuh hanya dari satu kalimat. Tapi tetap saja, setiap menit ratusan jam video diunggah, yang direkam, diedit, dan diceritakan oleh seseorang. Lalu mengapa kamu tetap perlu belajar membuatnya sendiri? Dalam beberapa menit ke depan, kamu akan melihat apa itu video, dari mana asalnya, bagaimana membingkainya, memberi cahaya, merekam suaranya, dan mengeditnya, lalu kamu akan pulang dengan rencana untuk memublikasikan video pertamamu."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "Omong-omong, ini rumahku di MindHaOS, dan ini Studio Video-ku: di sini aku merekam, mengedit, dan memublikasikan. Hari ini, dengan studio ini, aku akan mengajarimu cara menyusun sebuah video, shot demi shot. Ayo mulai."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian satu. Apa itu video."
+        },
+        {
+          "id": "fotogramas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fotogramas"
+          },
+          "lamina": [
+            "tira",
+            "proyector"
+          ],
+          "texto": "Video sebenarnya tidak bergerak: video adalah foto-foto diam, satu demi satu, begitu cepat sampai otakmu menyatukannya menjadi gerakan. Dengan dua foto per detik, kamu melihat lompatan; dengan dua belas, hampir bergerak; dan dengan dua puluh empat, kecepatan film bioskop, kamu melihat gerakan yang mulus."
+        },
+        {
+          "id": "lenguaje",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "imagen",
+              "sonido",
+              "corte"
+            ]
+          },
+          "lamina": [
+            "rodaje",
+            "claqueta"
+          ],
+          "texto": "Dan video adalah bahasa dengan tiga kata: apa yang terlihat, apa yang terdengar, dan saat kamu berpindah dari satu shot ke shot lain. Siapa pun yang menguasai ketiganya bisa menceritakan apa saja, dengan ponsel atau dengan kamera film."
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2016",
+            "clave": "explicar"
+          },
+          "lamina": [
+            "explicar",
+            "camaraCelular"
+          ],
+          "texto": "Lalu buat apa belajar, kalau mesin sudah bisa membuat video? Karena saat membuat video, yang jadi bukan cuma videonya, kamu juga ikut belajar. Pada 2016, Vincent Hoogerheide dan timnya di Belanda meminta mahasiswa menjelaskan sebuah topik: mereka yang menjelaskannya di depan kamera belajar lebih banyak daripada yang hanya mengulang materi, dan daripada yang menjelaskannya lewat tulisan. Mesin bisa membuat gambar, tapi apa yang ingin kamu ceritakan, dan bagaimana caranya, kamulah yang menentukan."
+        },
+        {
+          "id": "mirada",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "idea",
+              "orden",
+              "voz"
+            ]
+          },
+          "lamina": [
+            "creadora",
+            "audiencia"
+          ],
+          "texto": "Karena itu, video yang paling diingat bukan yang paling mahal, melainkan yang punya sesuatu untuk dikatakan: ide yang jelas, urutan yang baik, dan suara yang khas."
+        },
+        {
+          "id": "camara",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "encuadre",
+              "luz",
+              "sonido"
+            ]
+          },
+          "lamina": "tripie",
+          "enCasa": true,
+          "texto": "Di sini, di depan kameraku, setiap shot dimulai dengan cara yang sama: pertama framing, lalu cahaya, dan terakhir suara."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Sejarah singkat video",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian dua. Sejarah singkat video."
+        },
+        {
+          "id": "muybridge",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaVideo"
+          },
+          "lamina": [
+            "muybridge",
+            "caballo"
+          ],
+          "texto": "Pada 1878, di California, Eadweard Muybridge memasang dua belas kamera berjajar di samping lintasan dan memotretnya saat seekor kuda berlari kencang lewat. Foto-foto itu membuktikan sesuatu yang belum pernah bisa dilihat siapa pun: pada satu saat, keempat kaki kuda itu melayang di udara."
+        },
+        {
+          "id": "lumiere",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1895",
+            "clave": "lumiere"
+          },
+          "lamina": [
+            "lumiere",
+            "tren"
+          ],
+          "texto": "Pada 28 Desember 1895, di sebuah kafe di Paris, Lumière bersaudara untuk pertama kalinya memungut bayaran untuk menonton film di layar. Konon, saat melihat kereta datang dari depan, ada penonton yang merunduk di kursinya."
+        },
+        {
+          "id": "melies",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1902",
+            "clave": "melies"
+          },
+          "lamina": [
+            "melies",
+            "luna"
+          ],
+          "texto": "Georges Méliès, yang dulunya pesulap, menemukan bahwa jika ia menghentikan kamera dan mengubah sesuatu, benda itu muncul atau menghilang di layar. Pada 1902 ia mengirim roket ke Bulan dalam Perjalanan ke Bulan: begitulah efek khusus lahir."
+        },
+        {
+          "id": "sonido",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1927",
+            "clave": "jazz"
+          },
+          "lamina": [
+            "jazz",
+            "microfonoAntiguo"
+          ],
+          "texto": "Selama tiga puluh tahun film itu bisu, dengan musik yang dimainkan langsung di gedung bioskop. Pada 1927, The Jazz Singer membuat penonton mendengar seorang aktor berbicara dan bernyanyi selaras dengan gambarnya, dan dalam beberapa tahun hampir semua film menjadi film bersuara."
+        },
+        {
+          "id": "youtube",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2005",
+            "clave": "youtube"
+          },
+          "lamina": [
+            "computadora",
+            "zoologico"
+          ],
+          "texto": "Pada 23 April 2005, video pertama YouTube diunggah: sembilan belas detik seorang pemuda di depan gajah-gajah di kebun binatang. Kini, lebih dari lima ratus jam video diunggah setiap menit."
+        },
+        {
+          "id": "celular",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cine",
+              "casa",
+              "bolsillo"
+            ]
+          },
+          "lamina": "celular",
+          "enCasa": true,
+          "texto": "Dan sekarang studionya muat di saku: yang seabad lalu butuh satu kru film, kini bisa dikerjakan sebuah ponsel, seperti yang kupakai di sini, di Studio-ku."
+        }
+      ]
+    },
+    {
+      "id": "encuadre",
+      "titulo": "Framing",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tiga. Framing."
+        },
+        {
+          "id": "planos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "planos"
+          },
+          "lamina": [
+            "paisaje",
+            "retrato"
+          ],
+          "texto": "Membingkai berarti memutuskan apa yang masuk ke gambar dan apa yang tetap di luar. Long shot menunjukkan di mana kita berada, medium shot menunjukkan apa yang dilakukan seseorang, dan close-up menunjukkan apa yang ia rasakan. Lihat dengan adegan yang sama."
+        },
+        {
+          "id": "tercios",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tercios"
+          },
+          "lamina": [
+            "rejilla",
+            "fotografa"
+          ],
+          "texto": "Satu aturan sederhana: bagi gambar menjadi tiga bagian ke samping dan tiga ke atas, lalu letakkan yang penting di salah satu garis itu, jangan tepat di tengah. Namanya aturan sepertiga, dan pertama kali ditulis oleh pengukir John Thomas Smith pada 1797, dengan lukisan pemandangan dalam pikirannya. Lihat bagaimana gambarnya berubah saat kamu menggeser orangnya."
+        },
+        {
+          "id": "angulos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "angulos"
+          },
+          "lamina": [
+            "picado",
+            "contrapicado"
+          ],
+          "texto": "Tinggi kamera juga berbicara. Dari atas, dengan high angle, seseorang tampak kecil; dari bawah, dengan low angle, ia tampak berkuasa; dan sejajar mata, kamera memperlakukannya sebagai orang yang setara."
+        },
+        {
+          "id": "atencion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2013",
+            "clave": "sincronia"
+          },
+          "lamina": [
+            "ojo",
+            "sala"
+          ],
+          "texto": "Dan framing menuntun pandangan. Dengan kamera pelacak mata, peneliti Tim Smith melihat bahwa saat menonton film, hampir semua orang melihat titik yang sama pada waktu yang sama: wajah yang sedang bicara, yang bergerak, yang paling terang. Framing-mu menentukan ke mana penonton melihat."
+        },
+        {
+          "id": "tripie",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estable",
+              "horizonte",
+              "ojos"
+            ]
+          },
+          "lamina": "tripieCelular",
+          "enCasa": true,
+          "texto": "Karena itu kameraku dipasang di tripod: gambar diam, cakrawala lurus, dan lensa sejajar mata."
+        }
+      ]
+    },
+    {
+      "id": "luzSonido",
+      "titulo": "Cahaya dan suara",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian empat. Cahaya dan suara."
+        },
+        {
+          "id": "tresPuntos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "luz"
+          },
+          "lamina": [
+            "softbox",
+            "estudioLuz"
+          ],
+          "texto": "Di studio dipakai pencahayaan tiga titik. Key light menerangi wajah dari satu sisi; fill light, yang lebih lembut, mencerahkan bayangan di sisi lain; dan backlight, dari belakang, memisahkan orang dari latar. Nyalakan satu per satu."
+        },
+        {
+          "id": "ventana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ventana",
+              "frente",
+              "nubes"
+            ]
+          },
+          "lamina": "lampara",
+          "enCasa": true,
+          "texto": "Tanpa peralatan, jendela adalah lampu terbaikmu: hadapkan wajahmu ke jendela atau berdirilah di sampingnya, jangan pernah membelakanginya. Aku di sini memakai lampu studio ini sebagai key light."
+        },
+        {
+          "id": "audio",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "audio"
+          },
+          "lamina": [
+            "microfonoPro",
+            "audifonos"
+          ],
+          "texto": "Dan sekarang yang paling penting, yang hampir tidak pernah diperhatikan: suara. Pada 2018, Eryn Newman dan Norbert Schwarz meminta orang mendengarkan ceramah ilmuwan yang sama, sebagian dengan audio bagus dan sebagian dengan audio buruk. Dengan audio yang buruk, mereka menilai penelitiannya kurang penting dan ilmuwannya kurang cerdas. Penonton memaafkan gambar yang biasa saja, tapi tidak suara yang buruk."
+        },
+        {
+          "id": "microfono",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "microfono"
+          },
+          "lamina": [
+            "lavalier",
+            "cuarto"
+          ],
+          "texto": "Triknya adalah mendekatkan mikrofon: sejengkal dari mulutmu, suaramu terdengar jauh lebih keras daripada bising ruangan. Jauhkan, dan lihat bagaimana bising itu menelannya. Dan rekamlah di ruangan dengan benda-benda lembut, seperti gorden atau sofa, supaya tidak bergema."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyo"
+          },
+          "lamina": "corazon",
+          "texto": "Omong-omong, kita sudah di tengah jalan. Kalau panduan ini bermanfaat, tekan Suka, Subscribe supaya tidak ketinggalan panduan berikutnya, dan Bagikan ke seseorang yang ingin mulai membuat video. Itu sangat membantuku, dan kamu tidak perlu mengeluarkan apa pun."
+        }
+      ]
+    },
+    {
+      "id": "edicion",
+      "titulo": "Penyuntingan",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian lima. Penyuntingan."
+        },
+        {
+          "id": "corte",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elegir",
+              "ordenar",
+              "cortar"
+            ]
+          },
+          "lamina": [
+            "editora",
+            "linea"
+          ],
+          "texto": "Mengedit berarti memilih shot terbaik, menyusunnya, dan menentukan berapa lama masing-masing. Potongan yang paling tak terlihat dibuat di tengah aksi: seseorang membuka pintu di satu shot dan menyelesaikannya di shot berikutnya, dan matamu tidak menyadarinya."
+        },
+        {
+          "id": "kuleshov",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "kuleshov"
+          },
+          "lamina": [
+            "lev",
+            "kuleshov"
+          ],
+          "texto": "Seabad lalu, sineas Rusia Lev Kuleshov menyandingkan wajah yang sama dari seorang aktor dengan tiga shot berbeda: semangkuk sup, seorang anak di dalam peti mati, dan seorang wanita. Menurut ceritanya, penonton bersumpah melihat lapar, sedih, dan hasrat di wajah yang tidak berubah. Maknanya bukan ada di tiap shot, melainkan pada apa yang kamu sandingkan."
+        },
+        {
+          "id": "ritmo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "duracionPlanos"
+          },
+          "lamina": [
+            "claqueta2",
+            "accion"
+          ],
+          "texto": "Dan ritme ditentukan oleh berapa lama setiap shot. James Cutting, dari Universitas Cornell, mengukur seratus lima puluh film Hollywood, dari 1935 sampai 2005: shot-nya makin lama makin pendek, sampai hanya bertahan beberapa detik. Shot panjang untuk menenangkan, pendek untuk mempercepat."
+        },
+        {
+          "id": "jl",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cortesJL"
+          },
+          "lamina": [
+            "dialogo",
+            "audifonos2"
+          ],
+          "texto": "Trik editor: jangan potong gambar dan suara pada saat yang sama. Kalau suara dari shot berikutnya masuk lebih dulu, seperti suara yang memanggil, potongannya terasa alami. Itu disebut J-cut, dan kebalikannya, saat suara tetap terdengar sedikit lebih lama, disebut L-cut."
+        },
+        {
+          "id": "mencion-edicion",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "linea",
+          "enCasa": true,
+          "texto": "Begitulah caraku di Studio Video MindHaOS: setiap shot adalah klip di timeline, dengan musiknya, suaranya, teksnya, dan transisinya."
+        }
+      ]
+    },
+    {
+      "id": "historiaContar",
+      "titulo": "Cara bercerita",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian enam. Cara bercerita."
+        },
+        {
+          "id": "gancho",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunta",
+              "promesa",
+              "intriga"
+            ]
+          },
+          "lamina": [
+            "scroll",
+            "sorpresa"
+          ],
+          "texto": "Di internet, beberapa detik pertama menentukan apakah seseorang bertahan. Buka dengan pertanyaan, janji, atau gambar yang bikin penasaran, dan jangan pernah dengan «halo, hari ini aku akan membahas…». Seperti video ini, yang dibuka dengan pertanyaan."
+        },
+        {
+          "id": "estructura",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "estructura"
+          },
+          "lamina": [
+            "libro",
+            "teatro"
+          ],
+          "texto": "Hampir semua cerita punya tiga bagian, sejak teater Yunani: awal yang memperkenalkan seseorang yang menginginkan sesuatu, konflik berisi apa yang menghalanginya, dan akhir yang menyelesaikannya. Bahkan video satu menit pun muat dalam bentuk itu."
+        },
+        {
+          "id": "guion",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escribe",
+              "dibuja",
+              "lista"
+            ]
+          },
+          "lamina": [
+            "storyboard",
+            "cuaderno"
+          ],
+          "texto": "Sebelum merekam, tulis apa yang akan kamu katakan dan gambar setiap shot di kotak-kotak kecil, walau hanya orang-orangan lidi. Itu disebut storyboard, dan Disney sudah memakainya sejak tahun tiga puluhan: storyboard menghemat berjam-jam merekam yang tidak perlu."
+        },
+        {
+          "id": "mostrar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "decir",
+              "mostrar",
+              "sentir"
+            ]
+          },
+          "lamina": [
+            "lluvia",
+            "sonrisa"
+          ],
+          "texto": "Dan aturan emasnya: tunjukkan, jangan katakan. Daripada bilang «dia gugup», tunjukkan kepada penonton tangan yang gemetar. Apa yang penonton temukan sendiri, itulah yang mereka ingat."
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "inicio",
+              "nudo",
+              "final"
+            ]
+          },
+          "lamina": "escribir",
+          "enCasa": true,
+          "texto": "Aku menulis naskahnya dulu, lalu di sini aku mengubahnya menjadi shot: dari menu ini aku menambahkan klip, teks, suara, dan musik, satu per satu."
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Rencanamu untuk memulai",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tujuh. Rencanamu untuk memulai."
+        },
+        {
+          "id": "mira",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "planos",
+              "cortes",
+              "sonido"
+            ]
+          },
+          "lamina": [
+            "sillon",
+            "pantalla"
+          ],
+          "texto": "Mulailah dengan menonton video secara berbeda: pilih satu yang kamu suka dan hitung shot-nya, perhatikan di mana ia memotong, dan dengarkan suaranya. Kamu akan menemukan keputusan di balik setiap detiknya."
+        },
+        {
+          "id": "uno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "videosAno"
+          },
+          "lamina": "reloj",
+          "texto": "Kamu tidak perlu membuat film: satu video satu menit setiap minggu berarti lima puluh dua video setahun. Geser di sini berapa yang kamu buat, dan lihat seberapa banyak kamu berlatih dalam setahun."
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutinaVideo"
+          },
+          "lamina": [
+            "semana",
+            "celular2"
+          ],
+          "texto": "Satu minggu yang mungkin: Senin, pilih ide dan tulis naskahnya; Selasa, gambar shot-nya; Rabu, rekam; Kamis, edit; Jumat, periksa suara dan teksnya; dan di akhir pekan, publikasikan."
+        },
+        {
+          "id": "publica",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "publica",
+              "escucha",
+              "mejora"
+            ]
+          },
+          "lamina": "subir",
+          "enCasa": true,
+          "texto": "Dan publikasikan walau belum sempurna: setiap video mengajarimu sesuatu untuk video berikutnya. Lihat: aku merekam di sini, di dalam rumahku, kembali ke Studio dengan rekamannya sebagai klip, dan dari sana aku memublikasikannya."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "resumen",
+          "texto": "Ringkasnya: video adalah foto-foto diam yang digerakkan otakmu; framing menentukan ke mana penonton melihat; cahaya memberinya bentuk dan suara memberinya kredibilitas; penyuntingan memberinya makna dan ritme; dan membuat video mengajarimu, meski mesin sudah bisa membuatnya."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Kalau kamu ingin membuat video sepertiku, Studio Video di MindHaOS punya semuanya dalam satu ruangan: kamu bisa mengedit shot-shot-mu di timeline, menambahkan suara, musik, dan subtitel, menganimasikan adegan 3D dengan tokoh-tokohmu, dan memublikasikannya langsung ke media sosialmu. Tautannya ada di deskripsi, bersama panduan interaktif ini. Sampai jumpa di panduan berikutnya.",
+    "boton": "Buka Studio Video",
+    "lamina": "app-plan",
+    "anclas": {
+      "editar": "mengedit shot-shot-mu",
+      "voz": "menambahkan suara",
+      "animar": "menganimasikan adegan 3D",
+      "publicar": "memublikasikannya langsung"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "hoogerheide-2016",
+      "texto": "Hoogerheide V., Deijkers L., Loyens S. M. M., Heijltjes A., van Gog T. Gaining from explaining: Learning improves from explaining to fictitious others on video, not from writing to them. Contemporary Educational Psychology (2016).",
+      "url": "https://doi.org/10.1016/j.cedpsych.2016.02.005"
+    },
+    {
+      "id": "muybridge-1878",
+      "texto": "Muybridge E. The Horse in Motion (Palo Alto, 1878).",
+      "url": "https://en.wikipedia.org/wiki/The_Horse_in_Motion"
+    },
+    {
+      "id": "lumiere-1895",
+      "texto": "Pemutaran publik berbayar pertama sinematograf Lumière, Salon Indien di Grand Café, Paris (28 Desember 1895).",
+      "url": "https://en.wikipedia.org/wiki/Auguste_and_Louis_Lumi%C3%A8re"
+    },
+    {
+      "id": "melies-1902",
+      "texto": "Méliès G. Le Voyage dans la Lune (1902).",
+      "url": "https://en.wikipedia.org/wiki/A_Trip_to_the_Moon"
+    },
+    {
+      "id": "jazz-1927",
+      "texto": "Crosland A. The Jazz Singer (Warner Bros., 1927).",
+      "url": "https://en.wikipedia.org/wiki/The_Jazz_Singer"
+    },
+    {
+      "id": "youtube-2005",
+      "texto": "«Me at the zoo», video pertama YouTube (23 April 2005).",
+      "url": "https://en.wikipedia.org/wiki/Me_at_the_zoo"
+    },
+    {
+      "id": "smith-1797",
+      "texto": "Smith J. T. Remarks on Rural Scenery (1797), tempat «aturan sepertiga» pertama kali muncul.",
+      "url": "https://en.wikipedia.org/wiki/Rule_of_thirds"
+    },
+    {
+      "id": "smith-2013",
+      "texto": "Smith T. J., Mital P. K. Attentional synchrony and the influence of viewing task on gaze behavior in static and dynamic scenes. Journal of Vision (2013).",
+      "url": "https://doi.org/10.1167/13.8.16"
+    },
+    {
+      "id": "newman-2018",
+      "texto": "Newman E. J., Schwarz N. Good sound, good research: How audio quality influences perceptions of the research and researcher. Science Communication (2018).",
+      "url": "https://doi.org/10.1177/1075547018759345"
+    },
+    {
+      "id": "kuleshov",
+      "texto": "Efek Kuleshov (Lev Kuleshov, sekitar 1918-1921).",
+      "url": "https://en.wikipedia.org/wiki/Kuleshov_effect"
+    },
+    {
+      "id": "cutting-2010",
+      "texto": "Cutting J. E., DeLong J. E., Nothelfer C. E. Attention and the evolution of Hollywood film. Psychological Science (2010).",
+      "url": "https://doi.org/10.1177/0956797610361679"
+    }
+  ]
+}

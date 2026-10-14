@@ -1,0 +1,724 @@
+{
+  "idioma": "nl",
+  "tema": "video",
+  "plantillaId": "video",
+  "numero": 8,
+  "nombre": "Videostudio",
+  "pregunta": "Hoe maak je video's?",
+  "corta": "Hoe maak je video's?",
+  "subtitulo": "Waarom je video's leert maken ook al maakt een kunstmatige intelligentie ze al, een korte geschiedenis van de bioscoop tot de smartphone, hoe je een shot kadreert, hoe je belicht en geluid opneemt, hoe je monteert, hoe je een verhaal vertelt en een plan om je eerste video te publiceren.",
+  "aviso": "Deze gids is informatief: de genoemde datums, cijfers en studies zijn benaderingen uit hun bronnen, en iedereen gaat in zijn eigen tempo vooruit. De genoemde films en kanalen worden alleen bij naam genoemd; de voorbeeldbeelden zijn eigen werk, van Pexels of uit het publieke domein.",
+  "partes": [
+    {
+      "id": "video",
+      "titulo": "Wat een video is",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Hoe maak je video's? Vandaag maakt een kunstmatige intelligentie een hele video uit één enkele zin. En toch worden er elke minuut honderden uren video geüpload die iemand heeft gefilmd, gemonteerd en verteld. Waarom is het dan de moeite waard dat jij ze zelf leert maken? In de komende minuten zie je wat een video is, waar hij vandaan komt, hoe je kadreert, belicht, geluid opneemt en monteert, en je gaat weg met een plan om je eerste te publiceren."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "Trouwens, dit is mijn huis in MindHaOS, en dit is mijn Videostudio: hier film, monteer en publiceer ik. Vandaag laat ik je daarmee zien hoe je een video in elkaar zet, shot voor shot. Laten we beginnen."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel één. Wat een video is."
+        },
+        {
+          "id": "fotogramas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fotogramas"
+          },
+          "lamina": [
+            "tira",
+            "proyector"
+          ],
+          "texto": "Een video beweegt niet: het zijn stilstaande foto's, de een na de ander, zo snel dat je hersenen ze tot beweging samenvoegen. Met twee foto's per seconde zie je sprongen; met twaalf bijna beweging; en met vierentwintig, de snelheid van de bioscoop, zie je vloeiende beweging."
+        },
+        {
+          "id": "lenguaje",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "imagen",
+              "sonido",
+              "corte"
+            ]
+          },
+          "lamina": [
+            "rodaje",
+            "claqueta"
+          ],
+          "texto": "En een video is een taal met drie woorden: wat je ziet, wat je hoort en het moment waarop je van het ene shot naar het andere gaat. Wie die drie dingen beheerst, vertelt wat hij wil, met een smartphone of met een filmcamera."
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2016",
+            "clave": "explicar"
+          },
+          "lamina": [
+            "explicar",
+            "camaraCelular"
+          ],
+          "texto": "En waarom zou je het leren, als een machine al video's maakt? Omdat er bij het maken van een video niet alleen een video uitkomt: jij leert ook iets. In 2016 vroegen Vincent Hoogerheide en zijn team in Nederland studenten om een onderwerp uit te leggen: wie het voor een camera uitlegde, leerde meer dan wie het alleen herhaalde, en meer dan wie het op papier uitlegde. Een machine kan beelden maken, maar wat je wilt vertellen, en hoe, beslis jij."
+        },
+        {
+          "id": "mirada",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "idea",
+              "orden",
+              "voz"
+            ]
+          },
+          "lamina": [
+            "creadora",
+            "audiencia"
+          ],
+          "texto": "Daarom zijn de video's die je het best onthoudt niet de duurste, maar die met iets te zeggen: een helder idee, een goede volgorde en een eigen stem."
+        },
+        {
+          "id": "camara",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "encuadre",
+              "luz",
+              "sonido"
+            ]
+          },
+          "lamina": "tripie",
+          "enCasa": true,
+          "texto": "Hier, voor mijn camera, begint elk shot hetzelfde: eerst de kadrering, dan het licht en als laatste het geluid."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Een korte geschiedenis van video",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel twee. Een korte geschiedenis van video."
+        },
+        {
+          "id": "muybridge",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaVideo"
+          },
+          "lamina": [
+            "muybridge",
+            "caballo"
+          ],
+          "texto": "In 1878 zette Eadweard Muybridge in Californië twaalf camera's op een rij langs een renbaan en liet ze afgaan toen er een galopperend paard langskwam. De foto's bewezen iets wat niemand had kunnen zien: heel even heeft het paard alle vier zijn benen in de lucht."
+        },
+        {
+          "id": "lumiere",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1895",
+            "clave": "lumiere"
+          },
+          "lamina": [
+            "lumiere",
+            "tren"
+          ],
+          "texto": "Op 28 december 1895 vroegen de gebroeders Lumière in een café in Parijs voor het eerst entree om films op een scherm te bekijken. Volgens de legende doken sommigen weg in hun stoel toen ze een trein recht op zich af zagen komen."
+        },
+        {
+          "id": "melies",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1902",
+            "clave": "melies"
+          },
+          "lamina": [
+            "melies",
+            "luna"
+          ],
+          "texto": "Georges Méliès, die goochelaar was, ontdekte dat als hij de camera stilzette en iets veranderde, het op het scherm verscheen of verdween. In 1902 stuurde hij in De reis naar de maan een raket naar de maan: zo werden de speciale effecten geboren."
+        },
+        {
+          "id": "sonido",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1927",
+            "clave": "jazz"
+          },
+          "lamina": [
+            "jazz",
+            "microfonoAntiguo"
+          ],
+          "texto": "Dertig jaar lang was film stom, met livemuziek in de zaal. In 1927 liet The Jazz Singer het publiek een acteur horen praten en zingen, synchroon met het beeld, en binnen een paar jaar was bijna alle film geluidsfilm."
+        },
+        {
+          "id": "youtube",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2005",
+            "clave": "youtube"
+          },
+          "lamina": [
+            "computadora",
+            "zoologico"
+          ],
+          "texto": "Op 23 april 2005 werd de eerste YouTube-video geüpload: negentien seconden van een jongen voor de olifanten in een dierentuin. Vandaag wordt er elke minuut meer dan vijfhonderd uur video geüpload."
+        },
+        {
+          "id": "celular",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cine",
+              "casa",
+              "bolsillo"
+            ]
+          },
+          "lamina": "celular",
+          "enCasa": true,
+          "texto": "En vandaag past de studio in je broekzak: waar je een eeuw geleden een hele filmploeg voor nodig had, doet nu een smartphone, zoals die ik hier in mijn Studio gebruik."
+        }
+      ]
+    },
+    {
+      "id": "encuadre",
+      "titulo": "De kadrering",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel drie. De kadrering."
+        },
+        {
+          "id": "planos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "planos"
+          },
+          "lamina": [
+            "paisaje",
+            "retrato"
+          ],
+          "texto": "Kadreren is beslissen wat er in beeld komt en wat erbuiten blijft. Het totaalshot laat zien waar we zijn, het medium shot laat zien wat iemand doet en de close-up laat zien wat iemand voelt. Bekijk het met dezelfde scène."
+        },
+        {
+          "id": "tercios",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tercios"
+          },
+          "lamina": [
+            "rejilla",
+            "fotografa"
+          ],
+          "texto": "Een eenvoudige regel: verdeel het beeld in drie delen in de breedte en drie in de hoogte, en zet het belangrijkste op een van die lijnen, niet precies in het midden. Dat heet de regel van derden, en de graveur John Thomas Smith schreef hem op in 1797, met het oog op landschapsschilderkunst. Kijk hoe het beeld verandert als ik de persoon verschuif."
+        },
+        {
+          "id": "angulos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "angulos"
+          },
+          "lamina": [
+            "picado",
+            "contrapicado"
+          ],
+          "texto": "Ook de hoogte van de camera spreekt. Van bovenaf, in vogelperspectief, lijkt iemand klein; van onderaf, in kikvorsperspectief, lijkt hij machtig; en op ooghoogte behandelt de camera hem als een gelijke."
+        },
+        {
+          "id": "atencion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2013",
+            "clave": "sincronia"
+          },
+          "lamina": [
+            "ojo",
+            "sala"
+          ],
+          "texto": "En de kadrering stuurt de blik. Met camera's die de ogen volgen zag onderzoeker Tim Smith dat bijna iedereen bij het kijken naar een film op hetzelfde moment naar hetzelfde punt kijkt: het gezicht dat praat, wat beweegt, wat het felst verlicht is. Jouw kadrering beslist waar het publiek kijkt."
+        },
+        {
+          "id": "tripie",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estable",
+              "horizonte",
+              "ojos"
+            ]
+          },
+          "lamina": "tripieCelular",
+          "enCasa": true,
+          "texto": "Daarom staat mijn camera op een statief: het beeld stil, de horizon recht en de lens op ooghoogte."
+        }
+      ]
+    },
+    {
+      "id": "luzSonido",
+      "titulo": "Licht en geluid",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vier. Licht en geluid."
+        },
+        {
+          "id": "tresPuntos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "luz"
+          },
+          "lamina": [
+            "softbox",
+            "estudioLuz"
+          ],
+          "texto": "In studio's gebruikt men driepuntsbelichting. Het hoofdlicht verlicht het gezicht van opzij; het vullicht, zachter, verheldert de schaduwen aan de andere kant; en het tegenlicht, van achteren, maakt de persoon los van de achtergrond. Zet ze een voor een aan."
+        },
+        {
+          "id": "ventana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ventana",
+              "frente",
+              "nubes"
+            ]
+          },
+          "lamina": "lampara",
+          "enCasa": true,
+          "texto": "Zonder apparatuur is een raam je beste lamp: ga ervoor of ernaast staan, nooit met je rug ernaartoe. Ik gebruik hier deze studiolamp als hoofdlicht."
+        },
+        {
+          "id": "audio",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "audio"
+          },
+          "lamina": [
+            "microfonoPro",
+            "audifonos"
+          ],
+          "texto": "En nu het belangrijkste, waar bijna niemand op let: het geluid. In 2018 lieten Eryn Newman en Norbert Schwarz mensen naar dezelfde lezingen van wetenschappers luisteren, sommige met goed geluid en andere met slecht geluid. Met slecht geluid vonden ze het onderzoek minder belangrijk en de wetenschapper minder intelligent. Het publiek vergeeft een matig beeld, maar geen slecht geluid."
+        },
+        {
+          "id": "microfono",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "microfono"
+          },
+          "lamina": [
+            "lavalier",
+            "cuarto"
+          ],
+          "texto": "De truc is de microfoon dichterbij te halen: op een handbreedte van je mond klinkt je stem veel harder dan het lawaai in de kamer. Zet hem verder weg en kijk hoe het lawaai je stem opslokt. En neem op in een kamer met zachte dingen, zoals gordijnen of een bank, die geen echo geven."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyo"
+          },
+          "lamina": "corazon",
+          "texto": "Trouwens, we zijn halverwege. Als deze gids je helpt, klik dan op Vind ik leuk, op Abonneren om de volgende niet te missen, en op Delen om hem te sturen naar iemand die video's wil gaan maken. Mij helpt het enorm, en jou kost het niets."
+        }
+      ]
+    },
+    {
+      "id": "edicion",
+      "titulo": "De montage",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vijf. De montage."
+        },
+        {
+          "id": "corte",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elegir",
+              "ordenar",
+              "cortar"
+            ]
+          },
+          "lamina": [
+            "editora",
+            "linea"
+          ],
+          "texto": "Monteren is de beste shots kiezen, ze in volgorde zetten en beslissen hoe lang elk shot duurt. De meest onzichtbare overgang maak je midden in de actie: iemand opent een deur in het ene shot en opent hem verder in het volgende, en je oog merkt het niet eens."
+        },
+        {
+          "id": "kuleshov",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "kuleshov"
+          },
+          "lamina": [
+            "lev",
+            "kuleshov"
+          ],
+          "texto": "Een eeuw geleden zette de Russische filmmaker Lev Kuleshov hetzelfde gezicht van een acteur naast drie verschillende shots: een bord soep, een kind in een doodskist en een vrouw. Volgens zijn verhaal zwoer het publiek honger, verdriet en verlangen te zien in een gezicht dat niet veranderde. De betekenis zit niet in elk shot, maar in wat je ernaast zet."
+        },
+        {
+          "id": "ritmo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "duracionPlanos"
+          },
+          "lamina": [
+            "claqueta2",
+            "accion"
+          ],
+          "texto": "En het ritme bepaal je met hoe lang elk shot duurt. James Cutting, van Cornell University, mat honderdvijftig Hollywoodfilms van 1935 tot 2005: de shots werden steeds korter, tot ze nog maar een paar seconden duurden. Lange shots om te kalmeren, korte om te versnellen."
+        },
+        {
+          "id": "jl",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cortesJL"
+          },
+          "lamina": [
+            "dialogo",
+            "audifonos2"
+          ],
+          "texto": "Een trucje van editors: knip beeld en geluid niet tegelijk. Als het geluid van het volgende shot eerder begint, zoals een stem die roept, voelt de overgang natuurlijk. Dat heet een J-cut, en andersom, als het geluid nog even doorloopt, een L-cut."
+        },
+        {
+          "id": "mencion-edicion",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "linea",
+          "enCasa": true,
+          "texto": "Zo doe ik het in mijn Videostudio van MindHaOS: elk shot is een clip op de tijdlijn, met zijn muziek, zijn stem, zijn teksten en zijn overgangen."
+        }
+      ]
+    },
+    {
+      "id": "historiaContar",
+      "titulo": "Hoe je een verhaal vertelt",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zes. Hoe je een verhaal vertelt."
+        },
+        {
+          "id": "gancho",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunta",
+              "promesa",
+              "intriga"
+            ]
+          },
+          "lamina": [
+            "scroll",
+            "sorpresa"
+          ],
+          "texto": "Op internet bepalen de eerste seconden of iemand blijft. Open met een vraag, een belofte of een beeld dat nieuwsgierig maakt, en nooit met ‘hoi, vandaag ga ik het hebben over…’. Zoals deze video, die opende met een vraag."
+        },
+        {
+          "id": "estructura",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "estructura"
+          },
+          "lamina": [
+            "libro",
+            "teatro"
+          ],
+          "texto": "Bijna alle verhalen hebben drie delen, al sinds het Griekse theater: een begin dat iemand voorstelt die iets wil, een middenstuk met wat hem tegenhoudt en een einde dat het oplost. Zelfs een video van één minuut past in die vorm."
+        },
+        {
+          "id": "guion",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escribe",
+              "dibuja",
+              "lista"
+            ]
+          },
+          "lamina": [
+            "storyboard",
+            "cuaderno"
+          ],
+          "texto": "Schrijf voor het filmen op wat je gaat zeggen en teken elk shot in hokjes, ook al zijn het maar poppetjes. Dat heet een storyboard, en Disney gebruikte het al in de jaren dertig: het scheelt je uren onnodig filmen."
+        },
+        {
+          "id": "mostrar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "decir",
+              "mostrar",
+              "sentir"
+            ]
+          },
+          "lamina": [
+            "lluvia",
+            "sonrisa"
+          ],
+          "texto": "En de gouden regel: laat het zien, zeg het niet. In plaats van ‘hij was zenuwachtig’ te zeggen, laat je het publiek een trillende hand zien. Wat het publiek zelf ontdekt, onthoudt het."
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "inicio",
+              "nudo",
+              "final"
+            ]
+          },
+          "lamina": "escribir",
+          "enCasa": true,
+          "texto": "Ik schrijf het script vooraf, en hier zet ik het om in shots: via dit menu voeg ik clips, teksten, stem en muziek toe, een voor een."
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Jouw plan om te beginnen",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zeven. Jouw plan om te beginnen."
+        },
+        {
+          "id": "mira",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "planos",
+              "cortes",
+              "sonido"
+            ]
+          },
+          "lamina": [
+            "sillon",
+            "pantalla"
+          ],
+          "texto": "Begin met op een andere manier naar video's te kijken: kies er een die je mooi vindt en tel de shots, let op waar er geknipt wordt en luister hoe het klinkt. Je ontdekt de keuzes achter elke seconde."
+        },
+        {
+          "id": "uno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "videosAno"
+          },
+          "lamina": "reloj",
+          "texto": "Je hoeft geen film te maken: één video van een minuut per week is tweeënvijftig video's per jaar. Stel hier in hoeveel je er maakt en kijk hoeveel je in een jaar zou oefenen."
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutinaVideo"
+          },
+          "lamina": [
+            "semana",
+            "celular2"
+          ],
+          "texto": "Een mogelijke week: op maandag kies je een idee en schrijf je het script; op dinsdag teken je de shots; op woensdag film je; op donderdag monteer je; op vrijdag controleer je het geluid en de teksten; en in het weekend publiceer je hem."
+        },
+        {
+          "id": "publica",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "publica",
+              "escucha",
+              "mejora"
+            ]
+          },
+          "lamina": "subir",
+          "enCasa": true,
+          "texto": "En publiceer ook als het niet perfect is: elke video leert je iets voor de volgende. Kijk: ik film hier, in mijn eigen huis, ga terug naar de Studio met de opname als clip en publiceer hem van daaruit."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "resumen",
+          "texto": "Kort samengevat: een video bestaat uit stilstaande foto's die je hersenen laten bewegen; de kadrering beslist waar het publiek kijkt; het licht geeft vorm en het geluid geloofwaardigheid; de montage geeft betekenis en ritme; en video's maken leert jou iets, ook al maakt een machine ze al."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Als je video's wilt maken zoals ik, heeft de Videostudio van MindHaOS alles in één kamer: je kunt je opnames monteren op een tijdlijn, ze inspreken en voorzien van muziek en ondertitels, scènes in 3D animeren met je personages en ze direct publiceren op je sociale media. De link staat in de beschrijving, samen met deze interactieve gids. Tot de volgende keer.",
+    "boton": "Videostudio openen",
+    "lamina": "app-plan",
+    "anclas": {
+      "editar": "je opnames monteren",
+      "voz": "ze inspreken",
+      "animar": "scènes in 3D animeren",
+      "publicar": "direct publiceren"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "hoogerheide-2016",
+      "texto": "Hoogerheide V., Deijkers L., Loyens S. M. M., Heijltjes A., van Gog T. Gaining from explaining: Learning improves from explaining to fictitious others on video, not from writing to them. Contemporary Educational Psychology (2016).",
+      "url": "https://doi.org/10.1016/j.cedpsych.2016.02.005"
+    },
+    {
+      "id": "muybridge-1878",
+      "texto": "Muybridge E. The Horse in Motion (Palo Alto, 1878).",
+      "url": "https://en.wikipedia.org/wiki/The_Horse_in_Motion"
+    },
+    {
+      "id": "lumiere-1895",
+      "texto": "Eerste openbare, betaalde voorstelling van de cinématographe Lumière, Salon Indien van het Grand Café, Parijs (28 december 1895).",
+      "url": "https://en.wikipedia.org/wiki/Auguste_and_Louis_Lumi%C3%A8re"
+    },
+    {
+      "id": "melies-1902",
+      "texto": "Méliès G. Le Voyage dans la Lune (1902).",
+      "url": "https://en.wikipedia.org/wiki/A_Trip_to_the_Moon"
+    },
+    {
+      "id": "jazz-1927",
+      "texto": "Crosland A. The Jazz Singer (Warner Bros., 1927).",
+      "url": "https://en.wikipedia.org/wiki/The_Jazz_Singer"
+    },
+    {
+      "id": "youtube-2005",
+      "texto": "‘Me at the zoo’, de eerste YouTube-video (23 april 2005).",
+      "url": "https://en.wikipedia.org/wiki/Me_at_the_zoo"
+    },
+    {
+      "id": "smith-1797",
+      "texto": "Smith J. T. Remarks on Rural Scenery (1797), waar de ‘regel van derden’ voor het eerst verschijnt.",
+      "url": "https://en.wikipedia.org/wiki/Rule_of_thirds"
+    },
+    {
+      "id": "smith-2013",
+      "texto": "Smith T. J., Mital P. K. Attentional synchrony and the influence of viewing task on gaze behavior in static and dynamic scenes. Journal of Vision (2013).",
+      "url": "https://doi.org/10.1167/13.8.16"
+    },
+    {
+      "id": "newman-2018",
+      "texto": "Newman E. J., Schwarz N. Good sound, good research: How audio quality influences perceptions of the research and researcher. Science Communication (2018).",
+      "url": "https://doi.org/10.1177/1075547018759345"
+    },
+    {
+      "id": "kuleshov",
+      "texto": "Het Kuleshov-effect (Lev Kuleshov, rond 1918-1921).",
+      "url": "https://en.wikipedia.org/wiki/Kuleshov_effect"
+    },
+    {
+      "id": "cutting-2010",
+      "texto": "Cutting J. E., DeLong J. E., Nothelfer C. E. Attention and the evolution of Hollywood film. Psychological Science (2010).",
+      "url": "https://doi.org/10.1177/0956797610361679"
+    }
+  ]
+}

@@ -2359,3 +2359,217 @@ html:has(.g-pose) body {
     box-shadow: 0 0 0 6px color-mix(in srgb, var(--ui-accent) 30%, transparent);
   }
 }
+
+/* ───────── Guía de Video: cuadros dibujados, luz, micrófono, montaje y like ───────── */
+
+.g-vid {
+  --vid-persona: #b91c1c;
+  --vid-a: #3b82f6;
+  --vid-b: #f59e0b;
+}
+.g-vid-cuadro {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0b0f19;
+  box-shadow: inset 0 0 0 1px var(--borde);
+}
+.g-vid-cielo { fill: #bfdbfe; }
+.g-vid-sol { fill: #fcd34d; }
+.g-vid-monte { fill: #86a6c9; }
+.g-vid-suelo { fill: #86c48a; }
+.g-vid-tronco { fill: #8b5e3c; }
+.g-vid-copa { fill: #3f8f4a; }
+.g-vid-pelota { fill: #ef4444; }
+.g-vid-persona rect { fill: var(--c); }
+.g-vid-cara { fill: #f6d3b3; }
+.g-vid-ojo { fill: #1f2937; }
+.g-vid-zoom,
+.g-vid-mueve {
+  transition: transform 900ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.g-vid-tira {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 4px;
+  margin: 8px 0 2px;
+}
+.g-vid-tira i {
+  height: 18px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--ui-ink) 12%, transparent);
+}
+.g-vid-tira i.on { background: var(--rojo); }
+.g-vid-rejilla {
+  stroke: #fff;
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+  opacity: 0.85;
+}
+.g-vid-punto { fill: none; stroke: #fff; stroke-width: 3; }
+.g-vid-dos {
+  display: grid;
+  grid-template-columns: 1fr 34%;
+  gap: 10px;
+  align-items: center;
+}
+.g-vid-lado { width: 100%; }
+.g-vid-camara { fill: var(--ui-ink); }
+.g-vid-rayo {
+  stroke: color-mix(in srgb, var(--ui-ink) 35%, transparent);
+  stroke-width: 2;
+  stroke-dasharray: 5 5;
+}
+.g-vid-rayo.on { stroke: var(--amarillo); stroke-dasharray: none; }
+.g-vid-foco { fill: color-mix(in srgb, var(--ui-ink) 25%, transparent); transition: fill 300ms; }
+.g-vid-foco.on { fill: var(--amarillo); }
+.g-vid-fondo-oscuro { fill: #0b0f19; transition: fill 500ms; }
+.g-vid-fondo-luz { fill: #1e293b; transition: fill 500ms; }
+.g-vid-sombra { fill: #3a2a22; }
+.g-vid-borde { fill: none; stroke: #fde68a; stroke-width: 3; opacity: 0.9; }
+.g-vid-aparece { animation: g-vid-aparece 500ms ease both; }
+@keyframes g-vid-aparece {
+  from { opacity: 0; }
+}
+.g-vid-botones { display: flex; flex-wrap: wrap; gap: 8px; }
+.g-vid-oscuro { background: #0b0f19; }
+.g-vid-voz { fill: none; stroke: #22c55e; stroke-width: 3; }
+.g-vid-ruido { fill: none; stroke: #94a3b8; stroke-width: 1.5; opacity: 0.8; }
+
+/* A la mitad: like, suscríbete y comparte. */
+.g-vid-progreso {
+  position: relative;
+  height: 6px;
+  margin: 10px 0 16px;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--ui-ink) 14%, transparent);
+}
+.g-vid-progreso i {
+  position: absolute;
+  inset: 0 50% 0 0;
+  border-radius: 3px;
+  background: var(--rojo);
+}
+.g-vid-progreso i::after {
+  content: '';
+  position: absolute;
+  inset-inline-end: -7px;
+  top: -4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--rojo);
+}
+.g-vid-progreso span {
+  position: absolute;
+  inset-inline-start: 50%;
+  top: 12px;
+  transform: translateX(-50%);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--tinta-3);
+}
+.g-vid-apoyos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 26px;
+}
+.g-vid-apoyo-boton {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 14px 8px;
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+  background: var(--tarjeta);
+  color: var(--ui-ink);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 250ms, background 250ms, color 250ms;
+}
+.g-vid-apoyo-boton svg { width: 30px; height: 30px; fill: currentColor; }
+.g-vid-apoyo-boton.on { transform: scale(1.08); color: #fff; }
+.g-vid-apoyo-boton.on.like { background: #2563eb; }
+.g-vid-apoyo-boton.on.suscribete { background: #dc2626; }
+.g-vid-apoyo-boton.on.comparte { background: #16a34a; }
+.g-vid-apoyo-boton.on svg { animation: g-vid-salto 500ms ease; }
+@keyframes g-vid-salto {
+  40% { transform: scale(1.35) rotate(-8deg); }
+}
+
+/* Kuleshov: cara + toma = lo que el público ve. */
+.g-vid-montaje {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 8px;
+  align-items: center;
+}
+.g-vid-montaje figure { margin: 0; }
+.g-vid-montaje figcaption { font-size: 12px; text-align: center; color: var(--tinta-3); margin-top: 4px; }
+.g-vid-mas { font-size: 22px; color: var(--tinta-3); }
+.g-vid-siente { grid-column: 1 / -1; margin: 4px 0 0; text-align: center; font-size: 22px; font-weight: 800; color: var(--rojo); }
+.g-vid-montaje > .g-vid-mas:nth-of-type(2) { display: none; }
+.g-vid-bn { filter: grayscale(1) contrast(1.05); }
+.g-vid-gris { fill: #6b7280; }
+.g-vid-piel { fill: #d6d3d1; }
+.g-vid-boca { stroke: #1f2937; stroke-width: 3; stroke-linecap: round; }
+.g-vid-claro { fill: #f3f4f6; }
+.g-vid-oscuro2 { fill: #1f2937; }
+.g-vid-vapor { fill: none; stroke: #f3f4f6; stroke-width: 3; stroke-linecap: round; }
+
+/* Cortes en J y en L: dos pistas, imagen y sonido. */
+.g-vid-linea {
+  --vid-rotulo: 74px;
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--vid-rotulo) 1fr;
+  gap: 6px 0;
+  align-items: center;
+  font-size: 13px;
+}
+.g-vid-linea > span { color: var(--tinta-3); font-weight: 600; }
+.g-vid-linea > div { display: flex; height: 34px; border-radius: 8px; overflow: hidden; }
+.g-vid-linea i {
+  display: grid;
+  place-items: center;
+  font-style: normal;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: width 700ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.g-vid-linea i.a { background: var(--vid-a); }
+.g-vid-linea i.b { background: var(--vid-b); }
+.g-vid-cabeza {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  width: 2px;
+  background: var(--ui-ink);
+}
+.g-vid-ahora { margin: 10px 0 0; font-size: 14px; }
+.g-vid-ahora b.a { color: var(--vid-a); }
+.g-vid-ahora b.b { color: var(--vid-b); }
+
+/* Gráficas. */
+.g-vid-barra {
+  fill: var(--rojo);
+  transform-box: fill-box;
+  transform-origin: bottom;
+  animation: g-vid-crece 700ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+@keyframes g-vid-crece {
+  from { transform: scaleY(0); }
+}
+.g-vid-acto.a { fill: color-mix(in srgb, var(--vid-a, #3b82f6) 70%, transparent); }
+.g-vid-acto.b { fill: color-mix(in srgb, var(--rojo) 70%, transparent); }
+.g-vid-acto.c { fill: color-mix(in srgb, var(--verde) 70%, transparent); }
+
+@media (max-width: 560px) {
+  .g-vid-dos { grid-template-columns: 1fr; }
+  .g-vid-lado { max-height: 140px; }
+}

@@ -7417,6 +7417,7 @@ export const HI: Dict = {
   'guia.idiomas.titulo': "भाषा क्यों सीखें?",
   'guia.arte.titulo': "कला क्या है?",
   'guia.musica.titulo': "संगीत क्या है?",
+  'guia.musica.titulo': "संगीत क्या है?",
   'tut.esencial.titulo': 'ज़रूरी बातें',
   'tut.tipo.ejemplos': 'उदाहरण · डेमो MindHaOS',
   'tut.app-agenda--esencial.resumen':
