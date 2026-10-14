@@ -15,6 +15,8 @@ export const NOMBRE_RED: Record<Plataforma, string> = {
 /** Una cuenta conectada tal como la enseña el servidor (nunca trae tokens). */
 export interface CuentaRed {
   plataforma: Plataforma
+  /** Qué conexión de esa red es (0 salvo en las cuentas con varias por red). */
+  ranura: number
   cuenta_id: string
   nombre: string
   avatar: string | null
@@ -34,12 +36,16 @@ export interface AvisosRedes {
   meta?: 'modo-desarrollo'
   /** Se conectó Facebook pero su listado de Páginas vino vacío: hay que indicarla a mano. */
   falta_pagina?: 'facebook'
+  /** La ranura de esa conexión sin Página. */
+  falta_pagina_ranura?: number
 }
 
 export interface EstadoRedes {
   cuentas: CuentaRed[]
   avisos: AvisosRedes
   youtube_restantes_hoy: number
+  /** Cuántas cuentas por red puede conectar este usuario (1 casi siempre). */
+  max_ranuras?: number
 }
 
 /** `creator_info` de TikTok: lo que la UI DEBE enseñar antes de publicar. */

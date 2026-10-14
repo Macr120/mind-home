@@ -20,6 +20,7 @@ export interface OpcionesTrabajo {
   proyectoId: number
   proyectoNombre: string
   plataforma: Plataforma
+  ranura?: number
   blob: Blob
   mime: string
   meta: MetaPublicacion
@@ -66,6 +67,7 @@ async function correr(id: string, o: OpcionesTrabajo, abort: AbortController): P
   try {
     const r = await publicar({
       plataforma: o.plataforma,
+      ranura: o.ranura,
       blob: o.blob,
       mime: o.mime,
       meta: o.meta,

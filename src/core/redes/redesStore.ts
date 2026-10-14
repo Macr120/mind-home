@@ -18,20 +18,22 @@ interface RedesState {
   cuentas: CuentaRed[]
   avisos: AvisosRedes
   youtubeRestantes: number
+  /** Cuentas por red que admite este usuario (16 en la lista blanca del servidor, 1 el resto). */
+  maxRanuras: number
   cargando: boolean
   /** Ya se pidió el estado al menos una vez con éxito. */
   cargado: boolean
   error: string | null
   /** Conexión en vuelo: la app espera a que el usuario vuelva del proveedor. */
-  pendiente: { plataforma: Plataforma; desde: number } | null
+  pendiente: { plataforma: Plataforma; ranura: number; desde: number } | null
   /** Cómo acabó la última vuelta (el diálogo la enseña y la limpia). */
   ultimaVuelta: { ok: boolean; plataforma: Plataforma | null; error: MotivoVuelta | null } | null
   trabajo: TrabajoPublicacion | null
   refrescar: () => Promise<void>
   /** Abre el OAuth; devuelve un mensaje de error o null si el navegador salió hacia el proveedor. */
-  conectar: (plataforma: Plataforma) => Promise<string | null>
-  desconectar: (plataforma: Plataforma) => Promise<string | null>
-  elegirPagina: (plataforma: 'facebook' | 'instagram', pageId: string) => Promise<string | null>
+  conectar: (plataforma: Plataforma, ranura?: number) => Promise<string | null>
+  desconectar: (plataforma: Plataforma, ranura?: number) => Promise<string | null>
+  elegirPagina: (plataforma: 'facebook' | 'instagram', pageId: string, ranura?: number) => Promise<string | null>
   alVolver: (ok: boolean, plataforma: Plataforma | null, error: MotivoVuelta | null) => void
   limpiarVuelta: () => void
 }
@@ -47,6 +49,7 @@ export const useRedes = create<RedesState>((set, get) => ({
   cuentas: [],
   avisos: {},
   youtubeRestantes: 0,
+  maxRanuras: 1,
   cargando: false,
   cargado: false,
   error: null,
@@ -60,7 +63,7 @@ export const useRedes = create<RedesState>((set, get) => ({
     try {
       const { estadoRedes } = await import('./api')
       const e = await estadoRedes()
-      set({ cuentas: e.cuentas, avisos: e.avisos, youtubeRestantes: e.youtube_restantes_hoy, cargado: true })
+      set({ cuentas: e.cuentas, avisos: e.avisos, youtubeRestantes: e.youtube_restantes_hoy, maxRanuras: e.max_ranuras ?? 1, cargado: true })
     } catch (e) {
       set({ error: mensajeDe(e) })
     } finally {
@@ -69,21 +72,21 @@ export const useRedes = create<RedesState>((set, get) => ({
     }
   },
 
-  conectar: async (plataforma) => {
+  conectar: async (plataforma, ranura = 0) => {
     // En la web la ventana se abre ANTES de cualquier await: si no, el bloqueador de emergentes la para.
     // (El simulacro de DEV «conecta» solo y no abre nada.)
     const simulado = import.meta.env.DEV && localStorage.getItem('mh.redesStub') === '1'
     const web = !esAppNativa() && !esEscritorio()
     const popup = web && !simulado ? window.open('', 'mph-redes', 'popup,width=520,height=720') : null
-    set({ pendiente: { plataforma, desde: Date.now() }, ultimaVuelta: null })
+    set({ pendiente: { plataforma, ranura, desde: Date.now() }, ultimaVuelta: null })
     try {
       const { iniciarConexion } = await import('./api')
       if (simulado) {
-        await iniciarConexion(plataforma, { tipo: 'app' })
+        await iniciarConexion(plataforma, { tipo: 'app' }, ranura)
         return null
       }
       if (!web) {
-        const { url } = await iniciarConexion(plataforma, { tipo: 'app' })
+        const { url } = await iniciarConexion(plataforma, { tipo: 'app' }, ranura)
         if (esAppNativa()) {
           const { Browser } = await import('@capacitor/browser')
           // Si cierra la pestaña sin terminar, al menos se refresca el estado.
@@ -96,12 +99,12 @@ export const useRedes = create<RedesState>((set, get) => ({
         return null
       }
       if (popup) {
-        const { url } = await iniciarConexion(plataforma, { tipo: 'popup', origen: window.location.origin })
+        const { url } = await iniciarConexion(plataforma, { tipo: 'popup', origen: window.location.origin }, ranura)
         popup.location.href = url
         return null
       }
       // Emergente bloqueada: la pestaña entera va al proveedor y vuelve a la raíz con `?redes=`.
-      const { url } = await iniciarConexion(plataforma, { tipo: 'pestana', origen: window.location.origin })
+      const { url } = await iniciarConexion(plataforma, { tipo: 'pestana', origen: window.location.origin }, ranura)
       window.location.assign(url)
       return null
     } catch (e) {
@@ -111,10 +114,10 @@ export const useRedes = create<RedesState>((set, get) => ({
     }
   },
 
-  desconectar: async (plataforma) => {
+  desconectar: async (plataforma, ranura = 0) => {
     try {
       const { desconectarRed } = await import('./api')
-      await desconectarRed(plataforma)
+      await desconectarRed(plataforma, ranura)
       await get().refrescar()
       return null
     } catch (e) {
@@ -122,10 +125,10 @@ export const useRedes = create<RedesState>((set, get) => ({
     }
   },
 
-  elegirPagina: async (plataforma, pageId) => {
+  elegirPagina: async (plataforma, pageId, ranura = 0) => {
     try {
       const { elegirPagina } = await import('./api')
-      await elegirPagina(plataforma, pageId)
+      await elegirPagina(plataforma, pageId, ranura)
       await get().refrescar()
       return null
     } catch (e) {

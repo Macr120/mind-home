@@ -17,6 +17,39 @@ desplegar, probar con las cuentas propias y enviar las tres solicitudes el mismo
 Mientras se aprueban, la función ya sirve a cualquier usuario con los avisos de
 «sale privado».
 
+## Varias cuentas por red: una por idioma (13-oct-2026, DESPLEGADO)
+
+Para subir los videos doblados a los canales/Páginas/cuentas por idioma (MindHaOS-xx en
+YouTube, Mindhaos-xx en Facebook, mindhaos.xx en Instagram), la cuenta de MindHaOS
+**macr120cme@gmail.com** puede conectar **hasta 16 cuentas en CADA red**. El resto de
+usuarios sigue con una (nada cambia para ellos ni para las revisiones).
+
+- **Cómo funciona**: cada conexión ocupa una «ranura» 0-15 (columna `ranura` en
+  `redes_cuentas`, `redes_oauth_pendientes` y `redes_publicaciones`; migración
+  `20261013000001_redes_multicuenta.sql`). Las conexiones de antes quedaron en la 0.
+  Quién tiene 16 lo decide `ranurasDe()` en `supabase/functions/_shared/redes/plataformas.ts`
+  con el secreto opcional `REDES_MULTICUENTA_EMAILS` (lista separada por comas; si no
+  existe, vale `macr120cme@gmail.com`) y exige el correo confirmado.
+- **En la app**: Configuraciones → Cuentas conectadas enseña, por red, las cuentas
+  conectadas y una fila «Añadir otra cuenta» (primera ranura libre). Al publicar, el
+  diálogo trae «Publicar en» para elegir la cuenta.
+  - **YouTube**: «Conectar» y, en la pantalla de Google, elegir el canal de ese idioma
+    (MindHaOS-pt, …). Una conexión por canal.
+  - **TikTok**: una conexión por cuenta de TikTok (hay que tener abierta en el navegador
+    la cuenta que se quiere conectar). Sigue saliendo «Solo yo» hasta aprobar el audit.
+  - **Facebook**: con Meta conectado una vez, las demás Páginas se añaden pegando su
+    enlace en «Para añadir otra Página» (no hace falta otro login; `/me/accounts` no
+    lista las Mindhaos-xx porque viven en el portafolio). **Instagram** va en la misma
+    ranura que su Página: aparece solo si la Página tiene la cuenta IG vinculada.
+- **Topes**: el diario va POR CUENTA (YouTube 5, demás 10); el global de YouTube
+  (`REDES_YT_MAX_DIA` = 60) sigue mandando, así que 16 canales al día caben. Conexiones
+  OAuth: 60/hora para esta cuenta.
+- **Desconectar** borra solo esa ranura; no se revoca en el proveedor si la misma cuenta
+  sigue conectada en otra ranura.
+- Desplegado la noche del 13-oct-2026: `db push`, las tres funciones (`redes-oauth`
+  con `--no-verify-jwt`, `redes-publicar`, `redes-mantenimiento`) y la app (Pages
+  `eb00a604`). **Pendiente**: la primera prueba real conectando los 16 canales/Páginas.
+
 ## Valores que se pegan en las tres consolas
 
 | Campo | Valor |

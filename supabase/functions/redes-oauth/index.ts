@@ -9,10 +9,13 @@
  * demás funciones (el gateway solo comprueba la firma).
  *
  * Acciones (POST JSON con Bearer):
- *   iniciar {plataforma, retorno}  → {url}  (retorno: {tipo:'app'} | {tipo:'popup'|'pestana', origen})
- *   estado                          → {cuentas, avisos, youtube_restantes_hoy}
- *   elegir {plataforma, page_id}    → {ok}   (otra Página / cuenta de Instagram)
- *   desconectar {plataforma}        → {ok}
+ *   iniciar {plataforma, retorno, ranura?}  → {url}  (retorno: {tipo:'app'} | {tipo:'popup'|'pestana', origen})
+ *   estado                                   → {cuentas, avisos, youtube_restantes_hoy, max_ranuras}
+ *   elegir {plataforma, page_id, ranura?}    → {ok}   (otra Página / cuenta de Instagram)
+ *   desconectar {plataforma, ranura?}        → {ok}
+ *
+ * `ranura` (0 por defecto) solo pasa de 0 para los correos con varias cuentas
+ * por red (`ranurasDe`): cada ranura es una conexión independiente.
  *
  * El `state` es un id aleatorio firmado (HMAC) que ata al usuario, la
  * plataforma y a dónde volver; caduca a los 10 min y se consume una sola vez.
@@ -32,10 +35,10 @@ import { dentroDeLimite } from '../_shared/limite.ts'
 import { ErrorRedes, respuestaError } from '../_shared/redes/errores.ts'
 import { canjearGoogle, perfilGoogle, revocarGoogle, urlAutorizacionGoogle } from '../_shared/redes/google.ts'
 import { canjearMeta, paginaMetaPorId, paginasMeta, urlAutorizacionMeta, type PaginaMeta } from '../_shared/redes/meta.ts'
-import { esPlataforma, proveedorDe, type Plataforma, type Proveedor } from '../_shared/redes/plataformas.ts'
+import { esPlataforma, leerRanura, proveedorDe, ranurasDe, type Plataforma, type Proveedor } from '../_shared/redes/plataformas.ts'
 import { firmarState, idAleatorio, retoPkceTikTok, verificarState } from '../_shared/redes/state.ts'
 import { canjearTikTok, perfilTikTok, revocarTikTok, urlAutorizacionTikTok } from '../_shared/redes/tiktok.ts'
-import { borrarCuenta, guardarCuenta, leerCuenta, listarCuentasPublicas } from '../_shared/redes/tokens.ts'
+import { borrarCuenta, enOtraRanura, guardarCuenta, leerCuenta, leerCuentaMeta, listarCuentasPublicas } from '../_shared/redes/tokens.ts'
 
 /** Host fijo del deep link de vuelta (distinto del `oauth` del login de Supabase). */
 const ESQUEMA_APP = 'com.macr120.mindhome://redes'
@@ -70,15 +73,16 @@ Deno.serve(async (req) => {
     } catch {
       /* sin cuerpo: cae en 'peticion-invalida' abajo */
     }
+    const max = ranurasDe(usuario)
     switch (cuerpo.accion) {
       case 'iniciar':
-        return json(await iniciar(admin, usuario.id, cuerpo), 200, cors)
+        return json(await iniciar(admin, usuario.id, cuerpo, max), 200, cors)
       case 'estado':
-        return json(await estado(admin, usuario.id), 200, cors)
+        return json(await estado(admin, usuario.id, max), 200, cors)
       case 'elegir':
-        return json(await elegir(admin, usuario.id, cuerpo), 200, cors)
+        return json(await elegir(admin, usuario.id, cuerpo, max), 200, cors)
       case 'desconectar':
-        return json(await desconectar(admin, usuario.id, cuerpo), 200, cors)
+        return json(await desconectar(admin, usuario.id, cuerpo, max), 200, cors)
       default:
         throw new ErrorRedes('peticion-invalida', 'Acción desconocida.')
     }
@@ -89,11 +93,13 @@ Deno.serve(async (req) => {
 
 // ─── iniciar ─────────────────────────────────────────────────────────────────
 
-async function iniciar(admin: SupabaseClient, uid: string, cuerpo: Record<string, unknown>): Promise<{ url: string }> {
+async function iniciar(admin: SupabaseClient, uid: string, cuerpo: Record<string, unknown>, max: number): Promise<{ url: string }> {
   const plataforma = cuerpo.plataforma
   if (!esPlataforma(plataforma)) throw new ErrorRedes('plataforma', 'Red desconocida.')
+  const ranura = leerRanura(cuerpo.ranura, max)
   const retorno = leerRetorno(cuerpo.retorno)
-  if (!(await dentroDeLimite(admin, uid, 'redes-oauth', 10, 3600))) {
+  // Con 16 cuentas por red, 10 conexiones por hora no dan ni para una tanda.
+  if (!(await dentroDeLimite(admin, uid, 'redes-oauth', max > 1 ? 60 : 10, 3600))) {
     throw new ErrorRedes('limite', 'Demasiados intentos de conexión; espera un rato.')
   }
   // Limpieza oportunista (no hay pg_cron): estados que nadie consumió.
@@ -107,6 +113,7 @@ async function iniciar(admin: SupabaseClient, uid: string, cuerpo: Record<string
     user_id: uid,
     proveedor,
     plataforma,
+    ranura,
     code_verifier: verifier,
     retorno: retorno.tipo === 'app' ? 'app' : `${retorno.tipo}:${retorno.origen}`,
   })
@@ -146,7 +153,7 @@ async function callback(url: URL, idiomas: string): Promise<Response> {
     .maybeSingle()
   if (!pendiente) return paginaError(idiomas)
 
-  const p = pendiente as { user_id: string; proveedor: Proveedor; plataforma: Plataforma; code_verifier: string | null; retorno: string }
+  const p = pendiente as { user_id: string; proveedor: Proveedor; plataforma: Plataforma; ranura: number; code_verifier: string | null; retorno: string }
   const volver = (ok: boolean, motivo?: MotivoVuelta) => respuestaVuelta(p.retorno, p.plataforma, ok, motivo)
 
   if (url.searchParams.get('error')) return volver(false, 'denegado')
@@ -155,10 +162,11 @@ async function callback(url: URL, idiomas: string): Promise<Response> {
 
   try {
     const redirect = callbackUrl()
-    if (p.proveedor === 'google') await conectarGoogle(admin, p.user_id, code, redirect)
-    else if (p.proveedor === 'tiktok') await conectarTikTok(admin, p.user_id, code, redirect, p.code_verifier ?? '')
+    const ranura = p.ranura ?? 0
+    if (p.proveedor === 'google') await conectarGoogle(admin, p.user_id, code, redirect, ranura)
+    else if (p.proveedor === 'tiktok') await conectarTikTok(admin, p.user_id, code, redirect, p.code_verifier ?? '', ranura)
     else {
-      const motivo = await conectarMeta(admin, p.user_id, code, redirect, p.plataforma)
+      const motivo = await conectarMeta(admin, p.user_id, code, redirect, p.plataforma, ranura)
       if (motivo) return volver(false, motivo)
     }
     return volver(true)
@@ -169,13 +177,14 @@ async function callback(url: URL, idiomas: string): Promise<Response> {
   }
 }
 
-async function conectarGoogle(admin: SupabaseClient, uid: string, code: string, redirect: string): Promise<void> {
+async function conectarGoogle(admin: SupabaseClient, uid: string, code: string, redirect: string, ranura: number): Promise<void> {
   const t = await canjearGoogle(code, redirect)
   const perfil = await perfilGoogle(t.access_token)
-  const previa = await leerCuenta(admin, uid, 'youtube')
+  const previa = await leerCuenta(admin, uid, 'youtube', ranura)
   await guardarCuenta(admin, {
     user_id: uid,
     plataforma: 'youtube',
+    ranura,
     cuenta_id: perfil.sub,
     nombre: perfil.nombre,
     avatar: perfil.avatar,
@@ -196,20 +205,22 @@ async function conectarGoogle(admin: SupabaseClient, uid: string, code: string, 
   // Solo si de verdad es OTRA cuenta: el revoke de Google tumba el GRANT entero,
   // no ese token suelto, así que reconectar la MISMA cuenta —lo normal para
   // cambiar de canal— y revocar la anterior mataría el token recién guardado.
-  if (previa && previa.cuenta_id !== perfil.sub) {
+  // Tampoco si esa cuenta sigue conectada en otra ranura: se le cortaría a ella.
+  if (previa && previa.cuenta_id !== perfil.sub && !(await enOtraRanura(admin, uid, 'youtube', previa.cuenta_id, ranura))) {
     await revocarGoogle(previa.refresh_token ?? previa.access_token)
   }
 }
 
-async function conectarTikTok(admin: SupabaseClient, uid: string, code: string, redirect: string, verifier: string): Promise<void> {
+async function conectarTikTok(admin: SupabaseClient, uid: string, code: string, redirect: string, verifier: string, ranura: number): Promise<void> {
   const t = await canjearTikTok(code, redirect, verifier)
   const perfil = await perfilTikTok(t.access_token)
   const ahora = Date.now()
   const cuentaId = t.open_id || perfil.open_id
-  const previa = await leerCuenta(admin, uid, 'tiktok')
+  const previa = await leerCuenta(admin, uid, 'tiktok', ranura)
   await guardarCuenta(admin, {
     user_id: uid,
     plataforma: 'tiktok',
+    ranura,
     cuenta_id: cuentaId,
     nombre: perfil.nombre,
     avatar: perfil.avatar,
@@ -226,11 +237,13 @@ async function conectarTikTok(admin: SupabaseClient, uid: string, code: string, 
   // porque el revoke retira la autorización de la app para ese usuario y
   // reconectar la misma se quedaría sin acceso. Con el `access_token`, igual
   // que hace `desconectar`.
-  if (previa && previa.cuenta_id !== cuentaId) await revocarTikTok(previa.access_token)
+  if (previa && previa.cuenta_id !== cuentaId && !(await enOtraRanura(admin, uid, 'tiktok', previa.cuenta_id, ranura))) {
+    await revocarTikTok(previa.access_token)
+  }
 }
 
 /** Guarda `facebook` (y `instagram` si la Página elegida tiene cuenta vinculada). Devuelve el motivo si no se pudo lo pedido. */
-async function conectarMeta(admin: SupabaseClient, uid: string, code: string, redirect: string, pedida: Plataforma): Promise<MotivoVuelta | null> {
+async function conectarMeta(admin: SupabaseClient, uid: string, code: string, redirect: string, pedida: Plataforma, ranura: number): Promise<MotivoVuelta | null> {
   const { token, expira_en } = await canjearMeta(code, redirect)
   const paginas = await paginasMeta(token)
   if (paginas.length === 0) {
@@ -240,6 +253,7 @@ async function conectarMeta(admin: SupabaseClient, uid: string, code: string, re
     await guardarCuenta(admin, {
       user_id: uid,
       plataforma: 'facebook',
+      ranura,
       cuenta_id: '',
       nombre: '',
       avatar: null,
@@ -254,8 +268,13 @@ async function conectarMeta(admin: SupabaseClient, uid: string, code: string, re
     return 'sin-pagina'
   }
   // Para Instagram conviene la primera Página con cuenta vinculada; si no, la primera.
-  const elegida = (pedida === 'instagram' ? paginas.find((p) => p.instagram) : null) ?? paginas[0]
-  await guardarFilasMeta(admin, uid, token, expira_en, paginas, elegida)
+  // Con varias ranuras, mejor una Página que no esté ya en otra.
+  const { data: usadas } = await admin.from('redes_cuentas').select('cuenta_id').eq('user_id', uid).eq('plataforma', 'facebook').neq('ranura', ranura)
+  const ocupadas = new Set((usadas ?? []).map((f) => String(f.cuenta_id)))
+  const libres = paginas.filter((p) => !ocupadas.has(p.id))
+  const candidatas = libres.length > 0 ? libres : paginas
+  const elegida = (pedida === 'instagram' ? candidatas.find((p) => p.instagram) : null) ?? candidatas[0]
+  await guardarFilasMeta(admin, uid, ranura, token, expira_en, paginas, elegida)
   if (pedida === 'instagram' && !elegida.instagram) return 'sin-instagram'
   return null
 }
@@ -263,6 +282,7 @@ async function conectarMeta(admin: SupabaseClient, uid: string, code: string, re
 async function guardarFilasMeta(
   admin: SupabaseClient,
   uid: string,
+  ranura: number,
   tokenUsuario: string,
   expira_en: string | null,
   paginas: PaginaMeta[],
@@ -277,6 +297,7 @@ async function guardarFilasMeta(
   await guardarCuenta(admin, {
     user_id: uid,
     plataforma: 'facebook',
+    ranura,
     cuenta_id: elegida.id,
     nombre: elegida.nombre,
     avatar: elegida.avatar,
@@ -292,6 +313,7 @@ async function guardarFilasMeta(
     await guardarCuenta(admin, {
       user_id: uid,
       plataforma: 'instagram',
+      ranura,
       cuenta_id: elegida.instagram.id,
       nombre: elegida.instagram.username,
       avatar: elegida.instagram.avatar,
@@ -304,7 +326,7 @@ async function guardarFilasMeta(
       extra: { page_id: elegida.id, username: elegida.instagram.username, paginas: resumen },
     })
   } else {
-    await borrarCuenta(admin, uid, ['instagram'])
+    await borrarCuenta(admin, uid, ['instagram'], ranura)
   }
 }
 
@@ -369,13 +391,17 @@ function paginaError(idiomas: string): Response {
 
 // ─── estado / elegir / desconectar ───────────────────────────────────────────
 
-async function estado(admin: SupabaseClient, uid: string) {
+async function estado(admin: SupabaseClient, uid: string, max: number) {
   const todas = await listarCuentasPublicas(admin, uid)
   // La fila «a la espera de Página» solo guarda el token: no es una cuenta usable,
   // así que no se lista; el aviso es lo que hace a la app pedir la Página.
   const cuentas = todas.filter((c) => !c.extra.falta_pagina)
-  const avisos: Record<string, string> = {}
-  if (todas.some((c) => c.extra.falta_pagina)) avisos.falta_pagina = 'facebook'
+  const avisos: Record<string, string | number> = {}
+  const faltaPagina = todas.find((c) => c.extra.falta_pagina)
+  if (faltaPagina) {
+    avisos.falta_pagina = 'facebook'
+    avisos.falta_pagina_ranura = faltaPagina.ranura
+  }
   if (!bandera('REDES_YT_AUDITADO')) avisos.youtube = 'privado'
   if (!bandera('REDES_TIKTOK_AUDITADO')) avisos.tiktok = 'solo-yo'
   if (!bandera('REDES_META_LIVE')) avisos.meta = 'modo-desarrollo'
@@ -388,18 +414,19 @@ async function estado(admin: SupabaseClient, uid: string) {
     .maybeSingle()
   let usadas = 0
   if (rl && Date.now() - new Date(String(rl.ventana_inicio)).getTime() < 86_400_000) usadas = Number(rl.cuenta ?? 0)
-  return { cuentas, avisos, youtube_restantes_hoy: Math.max(0, MAX_YT_DIA - usadas) }
+  return { cuentas, avisos, youtube_restantes_hoy: Math.max(0, MAX_YT_DIA - usadas), max_ranuras: max }
 }
 
-async function elegir(admin: SupabaseClient, uid: string, cuerpo: Record<string, unknown>): Promise<{ ok: true }> {
+async function elegir(admin: SupabaseClient, uid: string, cuerpo: Record<string, unknown>, max: number): Promise<{ ok: true }> {
   const plataforma = cuerpo.plataforma
+  const ranura = leerRanura(cuerpo.ranura, max)
   const pageId = typeof cuerpo.page_id === 'string' ? cuerpo.page_id : ''
   // Del listado siempre llega un id numérico; a mano se admite el nombre de usuario
   // de la Página, que la Graph API también resuelve. Sin `/` ni `?`: es un tramo de ruta.
   if ((plataforma !== 'facebook' && plataforma !== 'instagram') || !/^[A-Za-z0-9._-]{1,80}$/.test(pageId)) {
     throw new ErrorRedes('peticion-invalida', 'Elige una Página válida.')
   }
-  const cuenta = (await leerCuenta(admin, uid, 'facebook')) ?? (await leerCuenta(admin, uid, 'instagram'))
+  const cuenta = await leerCuentaMeta(admin, uid, ranura)
   if (!cuenta?.token_padre) throw new ErrorRedes('sin-cuenta', 'Conecta Facebook antes de elegir una Página.')
   // Los tokens de Página no se guardan todos: se vuelven a pedir con el token de usuario.
   const paginas = await paginasMeta(cuenta.token_padre)
@@ -408,20 +435,22 @@ async function elegir(admin: SupabaseClient, uid: string, cuerpo: Record<string,
   const elegida = paginas.find((p) => p.id === pageId) ?? (await paginaMetaPorId(cuenta.token_padre, pageId))
   if (!elegida) throw new ErrorRedes('peticion-invalida', 'Esa Página ya no está en tu cuenta.')
   const todas = paginas.some((p) => p.id === elegida.id) ? paginas : [...paginas, elegida]
-  await guardarFilasMeta(admin, uid, cuenta.token_padre, cuenta.expira_en, todas, elegida)
+  await guardarFilasMeta(admin, uid, ranura, cuenta.token_padre, cuenta.expira_en, todas, elegida)
   return { ok: true }
 }
 
-async function desconectar(admin: SupabaseClient, uid: string, cuerpo: Record<string, unknown>): Promise<{ ok: true }> {
+async function desconectar(admin: SupabaseClient, uid: string, cuerpo: Record<string, unknown>, max: number): Promise<{ ok: true }> {
   const plataforma = cuerpo.plataforma
   if (!esPlataforma(plataforma)) throw new ErrorRedes('plataforma', 'Red desconocida.')
-  const cuenta = await leerCuenta(admin, uid, plataforma)
-  if (cuenta) {
+  const ranura = leerRanura(cuerpo.ranura, max)
+  const cuenta = await leerCuenta(admin, uid, plataforma, ranura)
+  // Si la misma cuenta sigue en otra ranura, revocar la dejaría sin acceso: solo se borra la fila.
+  if (cuenta && !(await enOtraRanura(admin, uid, plataforma, cuenta.cuenta_id, ranura))) {
     // Revocación best-effort: la fila se borra igual.
     if (plataforma === 'youtube') await revocarGoogle(cuenta.refresh_token ?? cuenta.access_token)
     else if (plataforma === 'tiktok') await revocarTikTok(cuenta.access_token)
   }
   // Facebook e Instagram comparten el OAuth: se van juntas.
-  await borrarCuenta(admin, uid, plataforma === 'facebook' || plataforma === 'instagram' ? ['facebook', 'instagram'] : [plataforma])
+  await borrarCuenta(admin, uid, plataforma === 'facebook' || plataforma === 'instagram' ? ['facebook', 'instagram'] : [plataforma], ranura)
   return { ok: true }
 }

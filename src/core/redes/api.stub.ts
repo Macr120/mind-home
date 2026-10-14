@@ -5,6 +5,7 @@
  *   mh.redesStub.privado  = '1'  → el resultado sale privado por auditoría
  *   mh.redesStub.fallo    = '1'  → la publicación falla
  *   mh.redesStub.maxSeg   = '600' → tope de duración de TikTok
+ *   mh.redesStub.ranuras  = '16' → varias cuentas por red; en `cuentas`, `youtube@3` = la de la ranura 3
  */
 import type { OpcionesPublicacion, OpcionesPublicar, Retorno } from './api'
 import { ErrorRedes, type CuentaRed, type EstadoRedes, type Plataforma, type ResultadoPublicacion } from './tipos'
@@ -18,11 +19,14 @@ function cuentasStub(): CuentaRed[] {
   const paginas = (n: number) =>
     Array.from({ length: n }, (_, i) => ({ id: `${100 + i}`, nombre: `Página ${i + 1}`, avatar: null, instagram: i === 0 ? { id: '900', username: 'mph_demo' } : null }))
   return lista.map((item) => {
-    const [plataforma, n] = item.split(':') as [Plataforma, string | undefined]
-    const base = { cuenta_id: `stub-${plataforma}`, avatar: null, expira_en: null, estado: 'ok' as const, extra: {} }
-    if (plataforma === 'facebook') return { ...base, plataforma, nombre: 'Página 1', extra: { page_id: '100', paginas: paginas(Number(n ?? 1)) } }
-    if (plataforma === 'instagram') return { ...base, plataforma, nombre: 'mph_demo', extra: { page_id: '100', username: 'mph_demo' } }
-    return { ...base, plataforma, nombre: plataforma === 'youtube' ? 'Canal demo' : '@mph_demo' }
+    const [conRanura, n] = item.split(':')
+    const [plataforma, r] = conRanura.split('@') as [Plataforma, string | undefined]
+    const ranura = Number(r ?? 0)
+    const sufijo = ranura ? ` ${ranura + 1}` : ''
+    const base = { ranura, cuenta_id: `stub-${plataforma}-${ranura}`, avatar: null, expira_en: null, estado: 'ok' as const, extra: {} }
+    if (plataforma === 'facebook') return { ...base, plataforma, nombre: `Página${sufijo || ' 1'}`, extra: { page_id: `${100 + ranura}`, paginas: paginas(Number(n ?? 1)) } }
+    if (plataforma === 'instagram') return { ...base, plataforma, nombre: `mph_demo${sufijo}`, extra: { page_id: `${100 + ranura}`, username: `mph_demo${ranura || ''}` } }
+    return { ...base, plataforma, nombre: plataforma === 'youtube' ? `Canal demo${sufijo}` : `@mph_demo${sufijo}` }
   })
 }
 
@@ -35,11 +39,14 @@ const espera = (ms: number, senal?: AbortSignal) =>
     })
   })
 
-export async function iniciarConexion(plataforma: Plataforma, _retorno: Retorno): Promise<{ url: string }> {
+const claveStub = (plataforma: Plataforma, ranura: number) => (ranura ? `${plataforma}@${ranura}` : plataforma)
+
+export async function iniciarConexion(plataforma: Plataforma, _retorno: Retorno, ranura = 0): Promise<{ url: string }> {
   // «Conecta» sola al segundo y medio, como si el usuario volviera del proveedor.
   window.setTimeout(() => {
     const actuales = leer('cuentas').split(',').filter(Boolean)
-    if (!actuales.some((c) => c.startsWith(plataforma))) localStorage.setItem(LS + 'cuentas', [...actuales, plataforma].join(','))
+    const clave = claveStub(plataforma, ranura)
+    if (!actuales.some((c) => c.split(':')[0] === clave)) localStorage.setItem(LS + 'cuentas', [...actuales, clave].join(','))
     useRedes.getState().alVolver(true, plataforma, null)
   }, 1500)
   return { url: 'about:blank' }
@@ -51,20 +58,21 @@ export async function estadoRedes(): Promise<EstadoRedes> {
     cuentas: cuentasStub(),
     avisos: leer('privado') === '1' ? { youtube: 'privado', tiktok: 'solo-yo', meta: 'modo-desarrollo' } : {},
     youtube_restantes_hoy: 4,
+    max_ranuras: Number(leer('ranuras') || 1),
   }
 }
 
-export async function elegirPagina(_plataforma: 'facebook' | 'instagram', _pageId: string): Promise<void> {
+export async function elegirPagina(_plataforma: 'facebook' | 'instagram', _pageId: string, _ranura = 0): Promise<void> {
   await espera(200)
 }
 
-export async function desconectarRed(plataforma: Plataforma): Promise<void> {
-  const quitar = plataforma === 'facebook' || plataforma === 'instagram' ? ['facebook', 'instagram'] : [plataforma]
+export async function desconectarRed(plataforma: Plataforma, ranura = 0): Promise<void> {
+  const quitar = (plataforma === 'facebook' || plataforma === 'instagram' ? ['facebook', 'instagram'] : [plataforma]) as Plataforma[]
   localStorage.setItem(
     LS + 'cuentas',
     leer('cuentas')
       .split(',')
-      .filter((c) => c && !quitar.some((q) => c.startsWith(q)))
+      .filter((c) => c && !quitar.some((q) => c.split(':')[0] === claveStub(q, ranura)))
       .join(','),
   )
   await espera(200)

@@ -9741,10 +9741,12 @@ export const NL: Dict = {
   'video.publicar.cuenta.publicaComo': 'Het wordt gepubliceerd als {nombre}',
   'video.publicar.cuenta.reconectar': '{red} opnieuw verbinden',
   'video.publicar.cuenta.reconectarCorto': 'Opnieuw verbinden',
+  'video.publicar.cuenta.publicarEn': 'Publiceren op',
   'video.publicar.cuentas.conectadaComo': '{nombre} · {destino}',
   'video.publicar.cuentas.noConectada': 'Niet verbonden',
   'video.publicar.cuentas.nota':
     'Ze worden alleen gebruikt om video\'s uit de Studio te publiceren als je daarom vraagt.',
+  'video.publicar.cuentas.otra': 'Nog een account toevoegen',
   'video.publicar.cuentas.sinBackend': 'Deze installatie heeft geen backend: netwerken verbinden kan niet.',
   'video.publicar.cuentas.sinSesion': 'Meld je aan bij Account om je netwerken te verbinden.',
   'video.publicar.cuentas.titulo': 'Verbonden accounts',
@@ -9756,6 +9758,7 @@ export const NL: Dict = {
     'De Meta-app wordt nog beoordeeld: alleen de testaccounts die erin staan kunnen plaatsen.',
   'video.publicar.fb.pagina': 'Pagina',
   'video.publicar.fb.paginaInvalida': 'Dit adres herken ik niet: kopieer de link van je pagina uit Facebook.',
+  'video.publicar.fb.otraPagina': 'Plak de Facebook-link van een andere pagina om die toe te voegen:',
   'video.publicar.fb.pegarPagina':
     'Beheer je je pagina vanuit een bedrijfsportfolio, dan laat Facebook hem niet zien in de lijst. Plak hier de link:',
   'video.publicar.fb.reel': 'Wordt geplaatst als Reel (9:16).',

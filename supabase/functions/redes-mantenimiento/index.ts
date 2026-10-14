@@ -73,13 +73,13 @@ Deno.serve(async (req) => {
 
   const { data, error } = await admin
     .from('redes_cuentas')
-    .select('user_id, plataforma')
+    .select('user_id, plataforma, ranura')
     .lt('actualizado_en', corte)
     .order('actualizado_en', { ascending: true })
     .limit(MAX_POR_TANDA)
   if (error) return json({ error: 'proveedor', mensaje: `redes_cuentas: ${error.message}` }, 500)
 
-  const filas = (data ?? []) as { user_id: string; plataforma: string }[]
+  const filas = (data ?? []) as { user_id: string; plataforma: string; ranura: number }[]
   let renovadas = 0
   let borradas = 0
   let fallos = 0
@@ -89,7 +89,7 @@ Deno.serve(async (req) => {
     const plataforma: Plataforma = fila.plataforma
     const esMeta = plataforma === 'facebook' || plataforma === 'instagram'
     try {
-      await cuentaVigente(admin, fila.user_id, plataforma, esMeta ? undefined : FORZAR_REFRESCO_SEG)
+      await cuentaVigente(admin, fila.user_id, plataforma, esMeta ? undefined : FORZAR_REFRESCO_SEG, fila.ranura)
       // Meta no refresca, así que `cuentaVigente` no ha tocado la fila: se sella
       // a mano o volvería a salir en la tanda de mañana, y de todas las demás.
       if (esMeta && !simular) {
@@ -98,6 +98,7 @@ Deno.serve(async (req) => {
           .update({ actualizado_en: new Date().toISOString() })
           .eq('user_id', fila.user_id)
           .eq('plataforma', plataforma)
+          .eq('ranura', fila.ranura)
       }
       renovadas++
     } catch (e) {
@@ -105,7 +106,7 @@ Deno.serve(async (req) => {
       // se borra la credencial. Cualquier otro fallo (red, 5xx del proveedor)
       // NO borra nada — se reintenta mañana.
       if (e instanceof ErrorRedes && (e.codigo === 'caducada' || e.codigo === 'sin-cuenta')) {
-        if (!simular) await borrarCuenta(admin, fila.user_id, [plataforma])
+        if (!simular) await borrarCuenta(admin, fila.user_id, [plataforma], fila.ranura)
         borradas++
       } else {
         fallos++

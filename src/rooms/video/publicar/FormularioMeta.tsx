@@ -31,12 +31,14 @@ function SelectorPagina({ cuenta, plataforma }: { cuenta: CuentaRed; plataforma:
   const t = useT()
   const paginas = (cuenta.extra.paginas ?? []).filter((p) => plataforma === 'facebook' || p.instagram)
   const actual = cuenta.extra.page_id ?? ''
-  if (paginas.length <= 1) return null
+  // Con una cuenta por idioma cada ranura es ya una Página: se elige arriba, en «Publicar en».
+  const variasCuentas = useRedes((s) => s.maxRanuras > 1)
+  if (paginas.length <= 1 || variasCuentas) return null
   const etiqueta = (p: (typeof paginas)[number]) => (plataforma === 'instagram' && p.instagram ? `@${p.instagram.username}` : p.nombre)
   return (
     <Campo etiqueta={plataforma === 'facebook' ? t('video.publicar.fb.pagina', 'Página') : t('video.publicar.ig.cuenta', 'Cuenta')}>
       {paginas.length > 4 ? (
-        <select value={actual} onChange={(e) => void useRedes.getState().elegirPagina(plataforma, e.target.value)} className={INPUT}>
+        <select value={actual} onChange={(e) => void useRedes.getState().elegirPagina(plataforma, e.target.value, cuenta.ranura)} className={INPUT}>
           {paginas.map((p) => (
             <option key={p.id} value={p.id}>
               {etiqueta(p)}
@@ -46,7 +48,7 @@ function SelectorPagina({ cuenta, plataforma }: { cuenta: CuentaRed; plataforma:
       ) : (
         <div className="flex flex-wrap gap-1.5" role="radiogroup">
           {paginas.map((p) => (
-            <Chip key={p.id} activo={p.id === actual} onClick={() => void useRedes.getState().elegirPagina(plataforma, p.id)}>
+            <Chip key={p.id} activo={p.id === actual} onClick={() => void useRedes.getState().elegirPagina(plataforma, p.id, cuenta.ranura)}>
               {etiqueta(p)}
             </Chip>
           ))}

@@ -19,6 +19,10 @@
  *   {accion:'finalizar', sesion}                          → {estado}
  *   {accion:'estado-publicacion', sesion}                 → {estado, id, url, motivo, privado}
  *   {accion:'token-youtube'}                              → {access_token, expira_en}
+ *
+ * `opciones`, `iniciar-publicacion` y `token-youtube` aceptan `ranura` (la
+ * cuenta de esa red, ver `ranurasDe`); las acciones de una sesión ya en
+ * marcha la leen de la propia sesión.
  */
 import type { SupabaseClient } from 'npm:@supabase/supabase-js@2'
 import { clienteAdmin, clienteUsuario, usuarioDe } from '../_shared/auth.ts'
@@ -41,7 +45,7 @@ import {
   subirTrozoFB,
   subirTrozoRupload,
 } from '../_shared/redes/meta.ts'
-import { esPlataforma, mimeNormalizado, type Plataforma } from '../_shared/redes/plataformas.ts'
+import { esPlataforma, leerRanura, mimeNormalizado, ranurasDe, type Plataforma } from '../_shared/redes/plataformas.ts'
 import { estadoPostTikTok, infoCreador, iniciarPostTikTok, subirTrozoTikTok, type PostTikTok } from '../_shared/redes/tiktok.ts'
 import { cuentaVigente, type Cuenta } from '../_shared/redes/tokens.ts'
 
@@ -75,6 +79,7 @@ interface Sesion {
   id: string
   user_id: string
   plataforma: 'tiktok' | 'facebook' | 'instagram'
+  ranura: number
   estado: 'subiendo' | 'procesando' | 'publicado' | 'fallo'
   tamano: number
   trozo: number
@@ -105,18 +110,19 @@ Deno.serve(async (req) => {
     } catch {
       /* cae en 'peticion-invalida' */
     }
+    const max = ranurasDe(usuario)
     switch (cuerpo.accion) {
       case 'opciones':
-        return json(await opciones(admin, usuario.id, cuerpo), 200, cors)
+        return json(await opciones(admin, usuario.id, cuerpo, max), 200, cors)
       case 'iniciar-publicacion':
-        return json(await iniciarPublicacion(admin, usuario.id, cuerpo, req.headers.get('Origin')), 200, cors)
+        return json(await iniciarPublicacion(admin, usuario.id, cuerpo, max, req.headers.get('Origin')), 200, cors)
       case 'finalizar':
         return json(await finalizar(admin, usuario.id, cuerpo), 200, cors)
       case 'estado-publicacion':
         return json(await estadoPublicacion(admin, usuario.id, cuerpo), 200, cors)
       case 'token-youtube': {
         // Margen casi igual a la vida del token (1 h): fuerza el refresh a mitad de una subida larga.
-        const c = await cuentaVigente(admin, usuario.id, 'youtube', 3300)
+        const c = await cuentaVigente(admin, usuario.id, 'youtube', 3300, leerRanura(cuerpo.ranura, max))
         return json({ access_token: c.access_token, expira_en: c.expira_en }, 200, cors)
       }
       default:
@@ -129,10 +135,10 @@ Deno.serve(async (req) => {
 
 // ─── opciones ────────────────────────────────────────────────────────────────
 
-async function opciones(admin: SupabaseClient, uid: string, cuerpo: Record<string, unknown>): Promise<Record<string, unknown>> {
+async function opciones(admin: SupabaseClient, uid: string, cuerpo: Record<string, unknown>, max: number): Promise<Record<string, unknown>> {
   const plataforma = cuerpo.plataforma
   if (!esPlataforma(plataforma)) throw new ErrorRedes('plataforma', 'Red desconocida.')
-  const cuenta = await cuentaVigente(admin, uid, plataforma)
+  const cuenta = await cuentaVigente(admin, uid, plataforma, undefined, leerRanura(cuerpo.ranura, max))
   switch (plataforma) {
     case 'youtube':
       return { privacidad: ['public', 'unlisted', 'private'], auditado: bandera('REDES_YT_AUDITADO') }
@@ -151,9 +157,16 @@ function texto(v: unknown, max: number): string {
   return typeof v === 'string' ? v.trim().slice(0, max) : ''
 }
 
-async function iniciarPublicacion(admin: SupabaseClient, uid: string, cuerpo: Record<string, unknown>, origen?: string | null): Promise<Record<string, unknown>> {
+async function iniciarPublicacion(
+  admin: SupabaseClient,
+  uid: string,
+  cuerpo: Record<string, unknown>,
+  max: number,
+  origen?: string | null,
+): Promise<Record<string, unknown>> {
   const plataforma = cuerpo.plataforma
   if (!esPlataforma(plataforma)) throw new ErrorRedes('plataforma', 'Red desconocida.')
+  const ranura = leerRanura(cuerpo.ranura, max)
   const tamano = Number(cuerpo.tamano)
   if (!Number.isInteger(tamano) || tamano <= 0) throw new ErrorRedes('peticion-invalida', 'Tamaño del video inválido.')
   if (tamano > TOPE_TAMANO[plataforma]) throw new ErrorRedes('demasiado-grande', 'El video pesa más de lo que admite esa red.')
@@ -165,7 +178,9 @@ async function iniciarPublicacion(admin: SupabaseClient, uid: string, cuerpo: Re
   const titulo = texto(meta.titulo, 2200)
   const descripcion = texto(meta.descripcion, 5000)
 
-  if (!(await dentroDeLimite(admin, uid, `redes-pub-${plataforma}`, plataforma === 'youtube' ? MAX_YT_DIA_USUARIO : 10, 86_400))) {
+  // El tope diario va por cuenta: con una por idioma, cada una lleva el suyo (el global de YouTube sigue mandando).
+  const bucket = ranura ? `redes-pub-${plataforma}-${ranura}` : `redes-pub-${plataforma}`
+  if (!(await dentroDeLimite(admin, uid, bucket, plataforma === 'youtube' ? MAX_YT_DIA_USUARIO : 10, 86_400))) {
     throw new ErrorRedes('limite', 'Ya publicaste varias veces hoy en esa red; inténtalo mañana.')
   }
   // Limpieza oportunista de sesiones viejas del propio usuario.
@@ -176,7 +191,7 @@ async function iniciarPublicacion(admin: SupabaseClient, uid: string, cuerpo: Re
     .lt('creado_en', new Date(Date.now() - 86_400_000).toISOString())
 
   if (plataforma === 'youtube') {
-    const cuenta = await cuentaVigente(admin, uid, 'youtube', 1800)
+    const cuenta = await cuentaVigente(admin, uid, 'youtube', 1800, ranura)
     if (!(await dentroDeLimite(admin, UID_GLOBAL, 'youtube-global', MAX_YT_DIA, 86_400, false))) {
       throw new ErrorRedes('cuota-youtube', 'Hoy ya no quedan subidas a YouTube en la app; inténtalo mañana o descarga el video.')
     }
@@ -194,7 +209,7 @@ async function iniciarPublicacion(admin: SupabaseClient, uid: string, cuerpo: Re
     return { modo: 'directo', upload_url, access_token: cuenta.access_token, expira_en: cuenta.expira_en, trozo: TROZO_BYTES }
   }
 
-  const cuenta = await cuentaVigente(admin, uid, plataforma)
+  const cuenta = await cuentaVigente(admin, uid, plataforma, undefined, ranura)
   let trozo = TROZO_BYTES
   let remoto: Record<string, unknown>
   let poll_ms = 5000
@@ -252,7 +267,7 @@ async function iniciarPublicacion(admin: SupabaseClient, uid: string, cuerpo: Re
 
   const { data, error } = await admin
     .from('redes_publicaciones')
-    .insert({ user_id: uid, plataforma, tamano, trozo, mime, meta: metaGuardada, remoto })
+    .insert({ user_id: uid, plataforma, ranura, tamano, trozo, mime, meta: metaGuardada, remoto })
     .select('id')
     .single()
   if (error || !data) throw new Error(`redes_publicaciones: ${error?.message}`)
@@ -286,7 +301,7 @@ async function trozo(admin: SupabaseClient, uid: string, url: URL, req: Request)
   const tamano = Number(sesion.tamano)
   if (offset + bytes.byteLength > tamano) throw new ErrorRedes('peticion-invalida', 'El trozo se pasa del tamaño declarado.')
 
-  const cuenta = await cuentaVigente(admin, uid, sesion.plataforma)
+  const cuenta = await cuentaVigente(admin, uid, sesion.plataforma, undefined, sesion.ranura ?? 0)
   const patchRemoto: Record<string, unknown> = {}
   try {
     if (sesion.plataforma === 'tiktok') {
@@ -336,7 +351,7 @@ async function finalizar(admin: SupabaseClient, uid: string, cuerpo: Record<stri
   const sesion = await leerSesion(admin, uid, cuerpo.sesion)
   if (sesion.estado !== 'subiendo') return { estado: sesion.estado }
   if (Number(sesion.recibido) !== Number(sesion.tamano)) throw new ErrorRedes('peticion-invalida', 'Aún faltan trozos por subir.')
-  const cuenta = await cuentaVigente(admin, uid, sesion.plataforma)
+  const cuenta = await cuentaVigente(admin, uid, sesion.plataforma, undefined, sesion.ranura ?? 0)
   const titulo = String(sesion.meta.titulo ?? '')
   const descripcion = String(sesion.meta.descripcion ?? '')
   const patch: Record<string, unknown> = {}
@@ -366,7 +381,7 @@ async function estadoPublicacion(admin: SupabaseClient, uid: string, cuerpo: Rec
   }
   if (sesion.estado !== 'procesando') return { estado: sesion.estado, privado }
 
-  const cuenta = await cuentaVigente(admin, uid, sesion.plataforma)
+  const cuenta = await cuentaVigente(admin, uid, sesion.plataforma, undefined, sesion.ranura ?? 0)
   let resultado: { estado: 'procesando' | 'publicado' | 'fallo'; id?: string; url?: string; motivo?: string }
   if (sesion.plataforma === 'tiktok') {
     const r = await estadoPostTikTok(cuenta.access_token, String(sesion.remoto.publish_id))

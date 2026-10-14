@@ -8,7 +8,7 @@ import { mensajeErrorRedes } from '../../../core/redes/errores'
 import { NOMBRE_RED, type AvisosRedes, type CuentaRed, type MetaPublicacion, type OpcionesTikTok, type Plataforma } from '../../../core/redes/tipos'
 import { cancelarTrabajo, descartarTrabajo, lanzarTrabajo, marcarVisto } from '../../../core/redes/trabajos'
 import { confirmar } from '../../../core/state/confirmarStore'
-import { BotonPrimario, Modal } from '../../_shared/ui'
+import { BotonPrimario, Campo, INPUT, Modal } from '../../_shared/ui'
 import { type AspectoVideo, COLOR } from '../constantes'
 import { soportaMp4, type ExportListo } from '../exportar'
 import { duracionTotal, type ProyectoAbierto } from '../modelo'
@@ -94,7 +94,11 @@ export function PublicarDialog({
   const avisos: AvisosRedes = useRedes((s) => s.avisos)
   const restantes = useRedes((s) => s.youtubeRestantes)
   const trabajo = useRedes((s) => s.trabajo)
-  const cuenta = cuentas.find((c) => c.plataforma === plataforma) ?? null
+  // Con varias cuentas en la red (una por idioma) se elige en cuál; si no, la primera que sirva.
+  const deRed = cuentas.filter((c) => c.plataforma === plataforma).sort((a, b) => a.ranura - b.ranura)
+  const [ranuraElegida, setRanuraElegida] = useState<number | null>(null)
+  const cuenta = deRed.find((c) => c.ranura === ranuraElegida) ?? deRed.find((c) => c.estado === 'ok') ?? deRed[0] ?? null
+  const ranura = cuenta?.ranura ?? 0
   const cuentaOk = cuenta?.estado === 'ok' ? cuenta : null
   const aspecto = proyecto.aspecto
   const duracion = duracionTotal(proyecto.clips)
@@ -135,13 +139,13 @@ export function PublicarDialog({
     if (plataforma !== 'tiktok' || !cuentaOk) return
     let vivo = true
     const clave = claveOpciones
-    opcionesPublicacion('tiktok')
+    opcionesPublicacion('tiktok', ranura)
       .then((o) => vivo && setRespuestaOpciones({ clave, info: o as OpcionesTikTok, error: null }))
       .catch((e: unknown) => vivo && setRespuestaOpciones({ clave, info: null, error: mensajeErrorRedes(e) }))
     return () => {
       vivo = false
     }
-  }, [plataforma, cuentaOk, claveOpciones])
+  }, [plataforma, cuentaOk, claveOpciones, ranura])
 
   // Con el resultado a la vista, la píldora global deja de repetirlo.
   useEffect(() => {
@@ -172,6 +176,7 @@ export function PublicarDialog({
       proyectoId: proyecto.id ?? 0,
       proyectoNombre: proyecto.nombre,
       plataforma,
+      ranura,
       blob: archivo.blob,
       mime: archivo.mime,
       meta: construirMeta(form, cuentaOk, aspecto, duracion),
@@ -255,11 +260,22 @@ export function PublicarDialog({
 
   return (
     <Modal titulo={t('video.publicar.titulo', 'Publicar en {red}', { red })} onCerrar={cerrar} ancho="max-w-lg">
-      {pasoVisible.tipo === 'cuenta' && <PasoCuenta plataforma={plataforma} cuenta={cuenta} />}
+      {pasoVisible.tipo === 'cuenta' && <PasoCuenta plataforma={plataforma} ranura={ranura} cuenta={cuenta} />}
 
       {pasoVisible.tipo === 'formulario' && (
         <div className="space-y-3">
           <VistaPrevia poster={poster} blob={listo?.blob ?? null} aspecto={aspecto} duracion={duracion} formato={formato} />
+          {deRed.length > 1 && (
+            <Campo etiqueta={t('video.publicar.cuenta.publicarEn', 'Publicar en')}>
+              <select value={ranura} onChange={(e) => setRanuraElegida(Number(e.target.value))} className={INPUT}>
+                {deRed.map((c) => (
+                  <option key={c.ranura} value={c.ranura}>
+                    {c.extra.username ? `@${c.extra.username}` : c.nombre}
+                  </option>
+                ))}
+              </select>
+            </Campo>
+          )}
           {ultima && (
             <p className="text-[11px] text-white/45">
               {t('video.publicar.historial', 'Ya publicado en {red} el {f}', {

@@ -32,7 +32,7 @@ export function mensajeVuelta(t: ReturnType<typeof useT>, motivo: MotivoVuelta |
  * queda esperando la vuelta; en cuanto la cuenta aparece en el store, el
  * diálogo avanza solo al formulario.
  */
-export function PasoCuenta({ plataforma, cuenta }: { plataforma: Plataforma; cuenta: CuentaRed | null }) {
+export function PasoCuenta({ plataforma, ranura, cuenta }: { plataforma: Plataforma; ranura: number; cuenta: CuentaRed | null }) {
   const t = useT()
   const pendiente = useRedes((s) => s.pendiente)
   const vuelta = useRedes((s) => s.ultimaVuelta)
@@ -42,11 +42,12 @@ export function PasoCuenta({ plataforma, cuenta }: { plataforma: Plataforma; cue
   const esperando = pendiente?.plataforma === plataforma
   // Facebook conectado pero sin Páginas en el listado: se pide a mano (solo ahí, no en Instagram).
   const faltaPagina = useRedes((s) => s.avisos.falta_pagina === 'facebook') && plataforma === 'facebook' && !esperando
+  const ranuraSinPagina = useRedes((s) => s.avisos.falta_pagina_ranura ?? 0)
 
   const conectar = async () => {
     setError(null)
     useRedes.getState().limpiarVuelta()
-    const err = await useRedes.getState().conectar(plataforma)
+    const err = await useRedes.getState().conectar(plataforma, ranura)
     if (err) setError(err)
   }
 
@@ -84,7 +85,7 @@ export function PasoCuenta({ plataforma, cuenta }: { plataforma: Plataforma; cue
         <p className="text-[11px] leading-snug text-red-400/90">{mensajeVuelta(t, vuelta.error, red)}</p>
       )}
       {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
-      {faltaPagina && <PaginaAMano />}
+      {faltaPagina && <PaginaAMano ranura={ranuraSinPagina} />}
     </div>
   )
 }
@@ -94,7 +95,7 @@ export function PasoCuenta({ plataforma, cuenta }: { plataforma: Plataforma; cue
  * administra desde un portafolio de negocio: `/me/accounts` no la lista aunque el
  * acceso exista. Se pide su enlace y el servidor la resuelve por id.
  */
-function PaginaAMano() {
+export function PaginaAMano({ ranura, otra = false }: { ranura: number; otra?: boolean }) {
   const t = useT()
   const [texto, setTexto] = useState('')
   const [enviando, setEnviando] = useState(false)
@@ -108,7 +109,8 @@ function PaginaAMano() {
     }
     setError(null)
     setEnviando(true)
-    const err = await useRedes.getState().elegirPagina('facebook', ref)
+    const err = await useRedes.getState().elegirPagina('facebook', ref, ranura)
+    if (!err) setTexto('')
     setEnviando(false)
     if (err) setError(err)
   }
@@ -116,10 +118,12 @@ function PaginaAMano() {
   return (
     <div className="space-y-2 border-t border-white/10 pt-3 text-left">
       <p className="text-[11px] leading-snug text-white/60">
-        {t(
-          'video.publicar.fb.pegarPagina',
-          'Si administras tu Página desde un portafolio de negocio, Facebook no nos la muestra en la lista. Pega aquí su enlace:',
-        )}
+        {otra
+          ? t('video.publicar.fb.otraPagina', 'Para añadir otra Página, pega su enlace de Facebook:')
+          : t(
+              'video.publicar.fb.pegarPagina',
+              'Si administras tu Página desde un portafolio de negocio, Facebook no nos la muestra en la lista. Pega aquí su enlace:',
+            )}
       </p>
       <input
         value={texto}

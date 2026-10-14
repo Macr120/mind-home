@@ -14,6 +14,8 @@ import { refrescarTikTok } from './tiktok.ts'
 export interface Cuenta {
   user_id: string
   plataforma: Plataforma
+  /** 0 salvo para las cuentas con varias por red (ver `ranurasDe`). */
+  ranura: number
   cuenta_id: string
   nombre: string
   avatar: string | null
@@ -29,6 +31,7 @@ export interface Cuenta {
 /** Lo que se le enseña al cliente: nunca un token. */
 export interface CuentaPublica {
   plataforma: Plataforma
+  ranura: number
   cuenta_id: string
   nombre: string
   avatar: string | null
@@ -37,7 +40,7 @@ export interface CuentaPublica {
   extra: Record<string, unknown>
 }
 
-const COLUMNAS_PUBLICAS = 'plataforma, cuenta_id, nombre, avatar, expira_en, refresh_expira_en, scopes, extra'
+const COLUMNAS_PUBLICAS = 'plataforma, ranura, cuenta_id, nombre, avatar, expira_en, refresh_expira_en, scopes, extra'
 
 const AVISO_CADUCIDAD_MS = 7 * 86_400_000
 
@@ -56,6 +59,7 @@ export async function listarCuentasPublicas(admin: SupabaseClient, uid: string):
   if (error) throw new Error(`redes_cuentas: ${error.message}`)
   return ((data ?? []) as unknown as (CuentaPublica & { refresh_expira_en: string | null })[]).map((f) => ({
     plataforma: f.plataforma,
+    ranura: f.ranura ?? 0,
     cuenta_id: f.cuenta_id,
     nombre: f.nombre,
     avatar: f.avatar,
@@ -65,14 +69,57 @@ export async function listarCuentasPublicas(admin: SupabaseClient, uid: string):
   }))
 }
 
-export async function leerCuenta(admin: SupabaseClient, uid: string, plataforma: Plataforma): Promise<Cuenta | null> {
-  const { data, error } = await admin.from('redes_cuentas').select('*').eq('user_id', uid).eq('plataforma', plataforma).maybeSingle()
+export async function leerCuenta(admin: SupabaseClient, uid: string, plataforma: Plataforma, ranura = 0): Promise<Cuenta | null> {
+  const { data, error } = await admin
+    .from('redes_cuentas')
+    .select('*')
+    .eq('user_id', uid)
+    .eq('plataforma', plataforma)
+    .eq('ranura', ranura)
+    .maybeSingle()
   if (error) throw new Error(`redes_cuentas: ${error.message}`)
-  if (!data) return null
-  const f = data as Record<string, unknown>
+  return data ? await deFila(data as Record<string, unknown>) : null
+}
+
+/**
+ * La conexión de Meta de esa ranura o, si no tiene, la más reciente de
+ * cualquier otra: con un solo login de Meta se pueden repartir sus Páginas
+ * entre ranuras sin volver a pasar por el OAuth.
+ */
+export async function leerCuentaMeta(admin: SupabaseClient, uid: string, ranura: number): Promise<Cuenta | null> {
+  const propia = (await leerCuenta(admin, uid, 'facebook', ranura)) ?? (await leerCuenta(admin, uid, 'instagram', ranura))
+  if (propia?.token_padre) return propia
+  const { data, error } = await admin
+    .from('redes_cuentas')
+    .select('*')
+    .eq('user_id', uid)
+    .in('plataforma', ['facebook', 'instagram'])
+    .not('token_padre', 'is', null)
+    .order('actualizado_en', { ascending: false })
+    .limit(1)
+    .maybeSingle()
+  if (error) throw new Error(`redes_cuentas: ${error.message}`)
+  return data ? await deFila(data as Record<string, unknown>) : null
+}
+
+/** ¿Esa misma cuenta del proveedor está conectada también en otra ranura? (Entonces no se revoca.) */
+export async function enOtraRanura(admin: SupabaseClient, uid: string, plataforma: Plataforma, cuentaId: string, ranura: number): Promise<boolean> {
+  const { count, error } = await admin
+    .from('redes_cuentas')
+    .select('ranura', { count: 'exact', head: true })
+    .eq('user_id', uid)
+    .eq('plataforma', plataforma)
+    .eq('cuenta_id', cuentaId)
+    .neq('ranura', ranura)
+  if (error) throw new Error(`redes_cuentas: ${error.message}`)
+  return (count ?? 0) > 0
+}
+
+async function deFila(f: Record<string, unknown>): Promise<Cuenta> {
   return {
     user_id: String(f.user_id),
-    plataforma,
+    plataforma: f.plataforma as Plataforma,
+    ranura: Number(f.ranura ?? 0),
     cuenta_id: String(f.cuenta_id),
     nombre: String(f.nombre ?? ''),
     avatar: typeof f.avatar === 'string' ? f.avatar : null,
@@ -92,6 +139,7 @@ export async function guardarCuenta(admin: SupabaseClient, c: Omit<Cuenta, 'user
     {
       user_id: c.user_id,
       plataforma: c.plataforma,
+      ranura: c.ranura,
       cuenta_id: c.cuenta_id,
       nombre: c.nombre,
       avatar: c.avatar,
@@ -104,13 +152,13 @@ export async function guardarCuenta(admin: SupabaseClient, c: Omit<Cuenta, 'user
       extra: c.extra,
       actualizado_en: new Date().toISOString(),
     },
-    { onConflict: 'user_id,plataforma' },
+    { onConflict: 'user_id,plataforma,ranura' },
   )
   if (error) throw new Error(`redes_cuentas: ${error.message}`)
 }
 
-export async function borrarCuenta(admin: SupabaseClient, uid: string, plataformas: Plataforma[]): Promise<void> {
-  const { error } = await admin.from('redes_cuentas').delete().eq('user_id', uid).in('plataforma', plataformas)
+export async function borrarCuenta(admin: SupabaseClient, uid: string, plataformas: Plataforma[], ranura = 0): Promise<void> {
+  const { error } = await admin.from('redes_cuentas').delete().eq('user_id', uid).in('plataforma', plataformas).eq('ranura', ranura)
   if (error) throw new Error(`redes_cuentas: ${error.message}`)
 }
 
@@ -118,8 +166,8 @@ export async function borrarCuenta(admin: SupabaseClient, uid: string, plataform
  * La cuenta con un access token que sirva al menos `margenSeg` más; refresca y
  * guarda si hace falta. Lanza 'sin-cuenta' o 'caducada'.
  */
-export async function cuentaVigente(admin: SupabaseClient, uid: string, plataforma: Plataforma, margenSeg = 300): Promise<Cuenta> {
-  const cuenta = await leerCuenta(admin, uid, plataforma)
+export async function cuentaVigente(admin: SupabaseClient, uid: string, plataforma: Plataforma, margenSeg = 300, ranura = 0): Promise<Cuenta> {
+  const cuenta = await leerCuenta(admin, uid, plataforma, ranura)
   if (!cuenta) throw new ErrorRedes('sin-cuenta', 'Conecta la cuenta antes de publicar.')
   const ahora = Date.now()
   const caduca = cuenta.expira_en ? new Date(cuenta.expira_en).getTime() : Infinity

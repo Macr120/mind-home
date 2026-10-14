@@ -36,6 +36,7 @@ export type OpcionesPublicacion =
 
 export interface OpcionesPublicar {
   plataforma: Plataforma
+  ranura?: number
   blob: Blob
   mime: string
   meta: MetaPublicacion
@@ -128,10 +129,10 @@ async function enviarTrozo(sesion: string, offset: number, bytes: Blob, senal?: 
 
 // ─── cuentas ─────────────────────────────────────────────────────────────────
 
-export async function iniciarConexion(plataforma: Plataforma, retorno: Retorno): Promise<{ url: string }> {
+export async function iniciarConexion(plataforma: Plataforma, retorno: Retorno, ranura = 0): Promise<{ url: string }> {
   const s = await stub()
-  if (s) return s.iniciarConexion(plataforma, retorno)
-  return llamarRedes('redes-oauth', { accion: 'iniciar', plataforma, retorno })
+  if (s) return s.iniciarConexion(plataforma, retorno, ranura)
+  return llamarRedes('redes-oauth', { accion: 'iniciar', plataforma, retorno, ranura })
 }
 
 export async function estadoRedes(): Promise<EstadoRedes> {
@@ -140,22 +141,22 @@ export async function estadoRedes(): Promise<EstadoRedes> {
   return llamarRedes('redes-oauth', { accion: 'estado' })
 }
 
-export async function elegirPagina(plataforma: 'facebook' | 'instagram', pageId: string): Promise<void> {
+export async function elegirPagina(plataforma: 'facebook' | 'instagram', pageId: string, ranura = 0): Promise<void> {
   const s = await stub()
-  if (s) return s.elegirPagina(plataforma, pageId)
-  await llamarRedes('redes-oauth', { accion: 'elegir', plataforma, page_id: pageId })
+  if (s) return s.elegirPagina(plataforma, pageId, ranura)
+  await llamarRedes('redes-oauth', { accion: 'elegir', plataforma, page_id: pageId, ranura })
 }
 
-export async function desconectarRed(plataforma: Plataforma): Promise<void> {
+export async function desconectarRed(plataforma: Plataforma, ranura = 0): Promise<void> {
   const s = await stub()
-  if (s) return s.desconectarRed(plataforma)
-  await llamarRedes('redes-oauth', { accion: 'desconectar', plataforma })
+  if (s) return s.desconectarRed(plataforma, ranura)
+  await llamarRedes('redes-oauth', { accion: 'desconectar', plataforma, ranura })
 }
 
-export async function opcionesPublicacion(plataforma: Plataforma): Promise<OpcionesPublicacion> {
+export async function opcionesPublicacion(plataforma: Plataforma, ranura = 0): Promise<OpcionesPublicacion> {
   const s = await stub()
   if (s) return s.opcionesPublicacion(plataforma)
-  return llamarRedes('redes-publicar', { accion: 'opciones', plataforma })
+  return llamarRedes('redes-publicar', { accion: 'opciones', plataforma, ranura })
 }
 
 // ─── publicar ────────────────────────────────────────────────────────────────
@@ -186,12 +187,13 @@ export async function publicar(o: OpcionesPublicar): Promise<ResultadoPublicacio
   const s = await stub()
   if (s) return s.publicar(o)
   const { plataforma, blob, mime, meta, onProgreso, senal } = o
+  const ranura = o.ranura ?? 0
   const inicio = await llamarRedes<Inicio>(
     'redes-publicar',
-    { accion: 'iniciar-publicacion', plataforma, tamano: blob.size, mime, meta },
+    { accion: 'iniciar-publicacion', plataforma, ranura, tamano: blob.size, mime, meta },
     senal,
   )
-  if (inicio.modo === 'directo') return subidaDirectaYouTube(blob, mime, inicio, onProgreso, senal)
+  if (inicio.modo === 'directo') return subidaDirectaYouTube(blob, mime, inicio, ranura, onProgreso, senal)
 
   // Trozos a la función. El último se lleva el resto (< 2 trozos): TikTok exige
   // `floor(tamaño / trozo)` trozos exactos, y a Meta le da igual.
@@ -234,6 +236,7 @@ async function subidaDirectaYouTube(
   blob: Blob,
   mime: string,
   inicio: Extract<Inicio, { modo: 'directo' }>,
+  ranura: number,
   onProgreso: OpcionesPublicar['onProgreso'],
   senal?: AbortSignal,
 ): Promise<ResultadoPublicacion> {
@@ -274,7 +277,7 @@ async function subidaDirectaYouTube(
       onProgreso?.(1, 'procesando')
       return await resultadoYouTube(resp)
     } else if (resp.status === 401) {
-      const r = await llamarRedes<{ access_token: string }>('redes-publicar', { accion: 'token-youtube' }, senal)
+      const r = await llamarRedes<{ access_token: string }>('redes-publicar', { accion: 'token-youtube', ranura }, senal)
       token = r.access_token
     } else if (resp.status >= 500 || resp.status === 429) {
       if (++intentos > 3) throw new ErrorRedes('proveedor', `YouTube no aceptó la subida (HTTP ${resp.status}).`)

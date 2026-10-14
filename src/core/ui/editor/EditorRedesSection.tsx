@@ -7,7 +7,7 @@ import { NOMBRE_RED, type CuentaRed, type Plataforma } from '../../redes/tipos'
 import { confirmar } from '../../state/confirmarStore'
 import { Icono } from '../iconos/Icono'
 import { LogoRed } from '../logosMarca'
-import { mensajeVuelta } from '../../../rooms/video/publicar/PasoCuenta'
+import { mensajeVuelta, PaginaAMano } from '../../../rooms/video/publicar/PasoCuenta'
 
 /**
  * «Cuentas conectadas» (Configuraciones): las redes a las que publica el
@@ -24,6 +24,7 @@ export function EditorRedesSection({ embed, sinTitulo }: { embed?: boolean; sinT
   const cargando = useRedes((s) => s.cargando)
   const error = useRedes((s) => s.error)
   const vuelta = useRedes((s) => s.ultimaVuelta)
+  const maxRanuras = useRedes((s) => s.maxRanuras)
   const conBackend = hayBackend()
 
   useEffect(() => {
@@ -36,9 +37,13 @@ export function EditorRedesSection({ embed, sinTitulo }: { embed?: boolean; sinT
     <p className="text-xs text-white/50">{t('video.publicar.cuentas.sinSesion', 'Inicia sesión en Cuenta para conectar tus redes.')}</p>
   ) : (
     <div className="space-y-1.5">
-      {plataformas.map((p) => (
-        <FilaRed key={p} plataforma={p} cuenta={cuentas.find((c) => c.plataforma === p) ?? null} cargando={cargando && !cargado} />
-      ))}
+      {plataformas.map((p) =>
+        maxRanuras > 1 ? (
+          <GrupoRed key={p} plataforma={p} cuentas={cuentas} max={maxRanuras} cargando={cargando && !cargado} />
+        ) : (
+          <FilaRed key={p} plataforma={p} ranura={0} cuenta={cuentas.find((c) => c.plataforma === p) ?? null} cargando={cargando && !cargado} />
+        ),
+      )}
       {vuelta && !vuelta.ok && vuelta.plataforma && (
         <p className="text-[11px] leading-snug text-red-400/90">{mensajeVuelta(t, vuelta.error, NOMBRE_RED[vuelta.plataforma])}</p>
       )}
@@ -59,9 +64,54 @@ export function EditorRedesSection({ embed, sinTitulo }: { embed?: boolean; sinT
   )
 }
 
-function FilaRed({ plataforma, cuenta, cargando }: { plataforma: Plataforma; cuenta: CuentaRed | null; cargando: boolean }) {
+/**
+ * Con varias cuentas por red (una por idioma): las conectadas y una fila para
+ * añadir la siguiente en la primera ranura libre. Facebook e Instagram
+ * comparten ranura —la cuenta de Instagram es la de la Página—, así que en
+ * Instagram solo se ofrece conectar mientras no haya ninguna.
+ */
+function GrupoRed({ plataforma, cuentas, max, cargando }: { plataforma: Plataforma; cuentas: CuentaRed[]; max: number; cargando: boolean }) {
+  const meta = plataforma === 'facebook' || plataforma === 'instagram'
+  const hayLoginMeta = useRedes((s) => s.cuentas.some((c) => c.plataforma === 'facebook') || s.avisos.falta_pagina === 'facebook')
+  const propias = cuentas.filter((c) => c.plataforma === plataforma).sort((a, b) => a.ranura - b.ranura)
+  const usadas = new Set(cuentas.filter((c) => (meta ? c.plataforma === 'facebook' || c.plataforma === 'instagram' : c.plataforma === plataforma)).map((c) => c.ranura))
+  const libre = Array.from({ length: max }, (_, i) => i).find((i) => !usadas.has(i))
+  const conAlta = libre != null && (plataforma !== 'instagram' || propias.length === 0)
+  return (
+    <div className="space-y-1">
+      {propias.map((c) => (
+        <FilaRed key={c.ranura} plataforma={plataforma} ranura={c.ranura} cuenta={c} cargando={cargando} compacta />
+      ))}
+      {conAlta && <FilaRed plataforma={plataforma} ranura={libre} cuenta={null} cargando={cargando} otra={propias.length > 0} />}
+      {/* Con un login de Meta ya hecho, las demás Páginas se añaden por su enlace, sin otro OAuth. */}
+      {plataforma === 'facebook' && hayLoginMeta && libre != null && (
+        <div className="rounded-lg border border-white/10 bg-white/5 px-2 pb-2">
+          <PaginaAMano ranura={libre} otra />
+        </div>
+      )}
+    </div>
+  )
+}
+
+function FilaRed({
+  plataforma,
+  ranura,
+  cuenta,
+  cargando,
+  compacta = false,
+  otra = false,
+}: {
+  plataforma: Plataforma
+  ranura: number
+  cuenta: CuentaRed | null
+  cargando: boolean
+  /** Una de varias cuentas ya conectadas: sin las notas de la red, que van en la fila de añadir. */
+  compacta?: boolean
+  /** La fila para añadir una cuenta más a una red que ya tiene alguna. */
+  otra?: boolean
+}) {
   const t = useT()
-  const pendiente = useRedes((s) => s.pendiente?.plataforma === plataforma)
+  const pendiente = useRedes((s) => s.pendiente?.plataforma === plataforma && s.pendiente.ranura === ranura)
   const tiktokPrivado = useRedes((s) => s.avisos.tiktok === 'solo-yo')
   const [ocupado, setOcupado] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -70,7 +120,7 @@ function FilaRed({ plataforma, cuenta, cargando }: { plataforma: Plataforma; cue
   const conectar = async () => {
     setError(null)
     setOcupado(true)
-    const err = await useRedes.getState().conectar(plataforma)
+    const err = await useRedes.getState().conectar(plataforma, ranura)
     setOcupado(false)
     if (err) setError(err)
   }
@@ -83,7 +133,7 @@ function FilaRed({ plataforma, cuenta, cargando }: { plataforma: Plataforma; cue
     })
     if (!si) return
     setOcupado(true)
-    const err = await useRedes.getState().desconectar(plataforma)
+    const err = await useRedes.getState().desconectar(plataforma, ranura)
     setOcupado(false)
     if (err) setError(err)
   }
@@ -94,7 +144,9 @@ function FilaRed({ plataforma, cuenta, cargando }: { plataforma: Plataforma; cue
     : pendiente
       ? t('video.publicar.cuenta.esperando', 'Esperando a que vuelvas de {red}…', { red })
       : !cuenta
-        ? t('video.publicar.cuentas.noConectada', 'No conectada')
+        ? otra
+          ? t('video.publicar.cuentas.otra', 'Añadir otra cuenta')
+          : t('video.publicar.cuentas.noConectada', 'No conectada')
         : cuenta.estado === 'caducada'
           ? t('video.publicar.cuenta.caducado', 'El acceso caducó: vuelve a conectar la cuenta.')
           : t('video.publicar.cuentas.conectadaComo', '{nombre} · {destino}', { nombre: cuenta.nombre, destino: destino ?? '' })
@@ -109,7 +161,7 @@ function FilaRed({ plataforma, cuenta, cargando }: { plataforma: Plataforma; cue
         {/* El canal lo elige Google en SU pantalla de consentimiento y la app no
             puede saber cuál salió: con el scope `youtube.upload` no se pueden
             leer los canales, y ampliarlo dispararía otra auditoría. */}
-        {plataforma === 'youtube' && (
+        {plataforma === 'youtube' && !compacta && (
           <p className="text-[11px] leading-snug text-white/40">
             {t(
               'video.publicar.cuenta.canalYoutube',
@@ -119,7 +171,7 @@ function FilaRed({ plataforma, cuenta, cargando }: { plataforma: Plataforma; cue
         )}
         {/* Mientras TikTok no audite la app, lo publicado queda en «Solo yo»:
             se avisa ANTES de conectar, no solo en el formulario de publicar. */}
-        {plataforma === 'tiktok' && tiktokPrivado && (
+        {plataforma === 'tiktok' && tiktokPrivado && !compacta && (
           <p className="text-[11px] leading-snug text-amber-300/80">
             {t(
               'video.publicar.cuenta.tiktokPrivado',
