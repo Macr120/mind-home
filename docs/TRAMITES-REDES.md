@@ -827,7 +827,14 @@ no hace nada. Hay que tenerla al frente y teclear con eventos de teclado de verd
            envuelve el botón, porque un botón deshabilitado no recibe el ratón.
       **Falta**: desplegar, regrabar el tramo del formulario del demo y, SOLO cuando la
       revisión a MindHaOS esté aprobada, hacer el Reapply con el demo nuevo.
-- [ ] Al aprobar el audit: `REDES_TIKTOK_AUDITADO=1`.
+- [x] ✅ **AUDIT APROBADO (visto el 14-oct-2026; la consola dice «Direct Post — Approved»,
+      *«Provisioned access for your users»*, `status: 2`, tope «Less than 100» usuarios/día).**
+      En el JSON de `app/detail`: `1` = en revisión, `2` = aprobado, `3` = rechazado.
+- [x] ✅ `REDES_TIKTOK_AUDITADO=1` **puesta el 14-oct-2026**; comprobado: `opciones` devuelve
+      `auditado: true` (y `max_duracion_seg` subió de 600 a 3600).
+- [x] ✅ Cuenta `mindhaos.app` **pública** (14-oct-2026): `creator_info` ya ofrece
+      `PUBLIC_TO_EVERYONE` y Duet/Stitch, y `video/init` con `PUBLIC_TO_EVERYONE` responde 200.
+      Falta que Marco borre los videos de prueba de esa cuenta.
 - [ ] Al quitar el «Solo yo», **devolver la cuenta `mindhaos.app` a pública** (la cuenta de
       TikTok nueva de la marca, creada el 18-sep; se puso privada para poder publicar sin
       auditar) y borrar los videos de prueba. La vieja `mindplannerhome` sigue en privado.
