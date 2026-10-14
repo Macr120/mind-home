@@ -1,0 +1,444 @@
+{
+  "fotos": {},
+  "laminas": {
+    "cuerda": {
+      "archivo": "laminas/cuerda.mp4",
+      "tipo": "video",
+      "autor": "Alena Darmel",
+      "fuente": "https://www.pexels.com/video/close-up-video-of-a-person-playing-a-bass-guitar-7722387/",
+      "licencia": "Licencia Pexels"
+    },
+    "bocina": {
+      "archivo": "laminas/bocina.mp4",
+      "tipo": "video",
+      "autor": "David Underland",
+      "fuente": "https://www.pexels.com/video/close-up-of-vibrant-yellow-speaker-cone-39626072/",
+      "licencia": "Licencia Pexels"
+    },
+    "partitura": {
+      "archivo": "laminas/partitura.mp4",
+      "tipo": "video",
+      "autor": "Milan Djordjević",
+      "fuente": "https://www.pexels.com/video/close-up-view-of-musical-sheets-5291162/",
+      "licencia": "Licencia Pexels"
+    },
+    "nina": {
+      "archivo": "laminas/nina.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/a-girl-playing-piano-8363278/",
+      "licencia": "Licencia Pexels"
+    },
+    "teclado": {
+      "archivo": "laminas/teclado.mp4",
+      "tipo": "video",
+      "autor": "Ivan S",
+      "fuente": "https://www.pexels.com/video/a-person-playing-piano-8128531/",
+      "licencia": "Licencia Pexels"
+    },
+    "banda": {
+      "archivo": "laminas/banda.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/man-playing-piano-and-people-singing-10252433/",
+      "licencia": "Licencia Pexels"
+    },
+    "adulto": {
+      "archivo": "laminas/adulto.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/man-playing-the-guitar-8103876/",
+      "licencia": "Licencia Pexels"
+    },
+    "teclado2": {
+      "archivo": "laminas/teclado2.mp4",
+      "tipo": "video",
+      "autor": "utopia 36",
+      "fuente": "https://www.pexels.com/video/person-using-keyboard-in-music-studio-12330933/",
+      "licencia": "Licencia Pexels"
+    },
+    "cueva": {
+      "archivo": "laminas/cueva.mp4",
+      "tipo": "video",
+      "autor": "HÜSEYİN AVCI",
+      "fuente": "https://www.pexels.com/video/mysterious-ancient-cave-with-stone-pillars-38122741/",
+      "licencia": "Licencia Pexels"
+    },
+    "cinta": {
+      "archivo": "laminas/cinta.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-vintage-reel-tape-recorder-spinning-8382683/",
+      "licencia": "Licencia Pexels"
+    },
+    "midi": {
+      "archivo": "laminas/midi.mp4",
+      "tipo": "video",
+      "autor": "Kaboompics",
+      "fuente": "https://www.pexels.com/video/man-using-piano-with-beat-pad-6331993/",
+      "licencia": "Licencia Pexels"
+    },
+    "pie": {
+      "archivo": "laminas/pie.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/a-woman-tap-dancing-in-a-room-10474615/",
+      "licencia": "Licencia Pexels"
+    },
+    "bebe": {
+      "archivo": "laminas/bebe.mp4",
+      "tipo": "video",
+      "autor": "Kaboompics",
+      "fuente": "https://www.pexels.com/video/a-toddler-holding-a-black-maracas-8909475/",
+      "licencia": "Licencia Pexels"
+    },
+    "caminar": {
+      "archivo": "laminas/caminar.mp4",
+      "tipo": "video",
+      "autor": "Çağrı KANMAZ",
+      "fuente": "https://www.pexels.com/video/pedestrians-crossing-the-street-27697943/",
+      "licencia": "Licencia Pexels"
+    },
+    "vals": {
+      "archivo": "laminas/vals.mp4",
+      "tipo": "video",
+      "autor": "David Pickup",
+      "fuente": "https://www.pexels.com/video/elegant-couple-dancing-in-grand-ballroom-setting-30755431/",
+      "licencia": "Licencia Pexels"
+    },
+    "marcha": {
+      "archivo": "laminas/marcha.mp4",
+      "tipo": "video",
+      "autor": "Virgie and Mike",
+      "fuente": "https://www.pexels.com/video/vibrant-parade-with-marching-band-on-city-street-29504888/",
+      "licencia": "Licencia Pexels"
+    },
+    "cajaRitmos": {
+      "archivo": "laminas/cajaRitmos.mp4",
+      "tipo": "video",
+      "autor": "Anna Pou",
+      "fuente": "https://www.pexels.com/video/a-musician-man-using-a-drum-machine-8115486/",
+      "licencia": "Licencia Pexels"
+    },
+    "estadio": {
+      "archivo": "laminas/estadio.mp4",
+      "tipo": "video",
+      "autor": "Hasan Yılmaz",
+      "fuente": "https://www.pexels.com/video/vibrant-soccer-stadium-crowd-cheering-31343045/",
+      "licencia": "Licencia Pexels"
+    },
+    "baile": {
+      "archivo": "laminas/baile.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/group-of-people-dancing-in-a-nightclub-7271824/",
+      "licencia": "Licencia Pexels"
+    },
+    "palmas": {
+      "archivo": "laminas/palmas.mp4",
+      "tipo": "video",
+      "autor": "Kaboompics",
+      "fuente": "https://www.pexels.com/video/a-woman-clapping-her-hands-8116829/",
+      "licencia": "Licencia Pexels"
+    },
+    "notas": {
+      "archivo": "laminas/notas.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/hands-of-pianist-playing-instrument-10254022/",
+      "licencia": "Licencia Pexels"
+    },
+    "acordes": {
+      "archivo": "laminas/acordes.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/close-up-of-person-s-hand-while-playing-guitar-chords-6670728/",
+      "licencia": "Licencia Pexels"
+    },
+    "cantar": {
+      "archivo": "laminas/cantar.mp4",
+      "tipo": "video",
+      "autor": "Pavel Danilyuk",
+      "fuente": "https://www.pexels.com/video/a-girl-and-a-woman-singing-together-7352268/",
+      "licencia": "Licencia Pexels"
+    },
+    "consola": {
+      "archivo": "laminas/consola.mp4",
+      "tipo": "video",
+      "autor": "Los Muertos Crew",
+      "fuente": "https://www.pexels.com/video/a-person-using-a-mixing-console-7586164/",
+      "licencia": "Licencia Pexels"
+    },
+    "contorno": {
+      "archivo": "laminas/contorno.mp4",
+      "tipo": "video",
+      "autor": "Los Muertos Crew",
+      "fuente": "https://www.pexels.com/video/female-vocalist-using-a-condenser-microphone-7586633/",
+      "licencia": "Licencia Pexels"
+    },
+    "ecualizador": {
+      "archivo": "laminas/ecualizador.mp4",
+      "tipo": "video",
+      "autor": "Anna Pou",
+      "fuente": "https://www.pexels.com/video/a-audio-mixer-control-panel-8114958/",
+      "licencia": "Licencia Pexels"
+    },
+    "estudio": {
+      "archivo": "laminas/estudio.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/a-producer-arranging-music-8197848/",
+      "licencia": "Licencia Pexels"
+    },
+    "fader": {
+      "archivo": "laminas/fader.mp4",
+      "tipo": "video",
+      "autor": "Anna Pou",
+      "fuente": "https://www.pexels.com/video/close-up-shot-of-an-audio-mixer-8118120/",
+      "licencia": "Licencia Pexels"
+    },
+    "guitarra": {
+      "archivo": "laminas/guitarra.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/person-playing-a-guitar-8103317/",
+      "licencia": "Licencia Pexels"
+    },
+    "luzSombra": {
+      "archivo": "laminas/luzSombra.mp4",
+      "tipo": "video",
+      "autor": "Angelo Delgado",
+      "fuente": "https://www.pexels.com/video/close-up-of-rain-drops-on-a-window-39218436/",
+      "licencia": "Licencia Pexels"
+    },
+    "ola": {
+      "archivo": "laminas/ola.mp4",
+      "tipo": "video",
+      "autor": "Çağrı KANMAZ",
+      "fuente": "https://www.pexels.com/video/mesmerizing-ocean-surface-with-shimmering-waves-30474696/",
+      "licencia": "Licencia Pexels"
+    },
+    "piano": {
+      "archivo": "laminas/piano.mp4",
+      "tipo": "video",
+      "autor": "ROMAN ODINTSOV",
+      "fuente": "https://www.pexels.com/video/close-up-video-of-a-person-playing-piano-8331699/",
+      "licencia": "Licencia Pexels"
+    },
+    "teclado3": {
+      "archivo": "laminas/teclado3.mp4",
+      "tipo": "video",
+      "autor": "ArtHouse Studio",
+      "fuente": "https://www.pexels.com/video/a-person-s-hand-pressing-piano-keys-8265443/",
+      "licencia": "Licencia Pexels"
+    },
+    "vinilo": {
+      "archivo": "laminas/vinilo.mp4",
+      "tipo": "video",
+      "autor": "Jonathan Cooper",
+      "fuente": "https://www.pexels.com/video/a-vinyl-record-spinning-on-a-turntable-16453329/",
+      "licencia": "Licencia Pexels"
+    },
+    "audifonos2": {
+      "archivo": "laminas/audifonos2.mp4",
+      "tipo": "video",
+      "autor": "ANTONI SHKRABA production",
+      "fuente": "https://www.pexels.com/video/man-wearing-headphones-8134922/",
+      "licencia": "Licencia Pexels"
+    },
+    "audifonos3": {
+      "archivo": "laminas/audifonos3.mp4",
+      "tipo": "video",
+      "autor": "Darina Belonogova",
+      "fuente": "https://www.pexels.com/video/woman-listening-to-music-using-her-headphones-7198925/",
+      "licencia": "Licencia Pexels"
+    },
+    "espectro": {
+      "archivo": "laminas/espectro.mp4",
+      "tipo": "video",
+      "autor": "Nicola Narracci",
+      "fuente": "https://www.pexels.com/video/vibrant-digital-waves-in-motion-36307603/",
+      "licencia": "Licencia Pexels"
+    },
+    "grabar": {
+      "archivo": "laminas/grabar.mp4",
+      "tipo": "video",
+      "autor": "Yan Krukau",
+      "fuente": "https://www.pexels.com/video/a-woman-recording-herself-while-playing-the-guitar-8189525/",
+      "licencia": "Licencia Pexels"
+    },
+    "mezclador": {
+      "archivo": "laminas/mezclador.mp4",
+      "tipo": "video",
+      "autor": "Pavel Danilyuk",
+      "fuente": "https://www.pexels.com/video/a-man-editing-a-music-recording-4553980/",
+      "licencia": "Licencia Pexels"
+    },
+    "microfono": {
+      "archivo": "laminas/microfono.mp4",
+      "tipo": "video",
+      "autor": "Big Bag Films",
+      "fuente": "https://www.pexels.com/video/a-close-up-shot-of-a-microphone-8513958/",
+      "licencia": "Licencia Pexels"
+    },
+    "resumen": {
+      "archivo": "laminas/resumen.mp4",
+      "tipo": "video",
+      "autor": "Roman Skrypnyk",
+      "fuente": "https://www.pexels.com/video/ovation-on-concert-13641379/",
+      "licencia": "Licencia Pexels"
+    },
+    "sala": {
+      "archivo": "laminas/sala.mp4",
+      "tipo": "video",
+      "autor": "Nemika F",
+      "fuente": "https://www.pexels.com/video/symphony-orchestra-performance-on-stage-29660629/",
+      "licencia": "Licencia Pexels"
+    },
+    "vinilo2": {
+      "archivo": "laminas/vinilo2.mp4",
+      "tipo": "video",
+      "autor": "Necip Duman",
+      "fuente": "https://www.pexels.com/video/person-browsing-vintage-vinyl-record-collection-35982896/",
+      "licencia": "Licencia Pexels"
+    },
+    "metronomo": {
+      "archivo": "laminas/metronomo.webp",
+      "tipo": "foto",
+      "autor": "Connor Scott McManus",
+      "fuente": "https://www.pexels.com/photo/close-up-shot-of-a-metronome-11961176/",
+      "licencia": "Licencia Pexels"
+    },
+    "reloj": {
+      "archivo": "laminas/reloj.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/clock-is-ticking-7034348/",
+      "licencia": "Licencia Pexels"
+    },
+    "semana": {
+      "archivo": "laminas/semana.webp",
+      "tipo": "foto",
+      "autor": "Florencia Ceruti",
+      "fuente": "https://www.pexels.com/photo/colorful-weekly-planner-with-accessories-30101197/",
+      "licencia": "Licencia Pexels"
+    },
+    "varese": {
+      "archivo": "laminas/varese.webp",
+      "tipo": "foto",
+      "autor": "John Sloan",
+      "fuente": "https://commons.wikimedia.org/wiki/File:John_Sloan_-_Portrait_of_Edgar_Var%C3%A8se_(1924).jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "beethoven": {
+      "archivo": "laminas/beethoven.webp",
+      "tipo": "foto",
+      "autor": "Joseph Karl Stieler",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Beethoven.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "mozart": {
+      "archivo": "laminas/mozart.webp",
+      "tipo": "foto",
+      "autor": "Barbara Krafft",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Wolfgang-amadeus-mozart_1.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "hohlefels": {
+      "archivo": "laminas/hohlefels.webp",
+      "tipo": "foto",
+      "autor": "Tomatenpflanze",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Fl%C3%B6te_aus_G%C3%A4nsegeierknochen_vom_Hohle_Fels_im_urmu.jpg",
+      "licencia": "CC BY-SA 4.0",
+      "credito": "Tomatenpflanze · CC BY-SA 4.0 · Wikimedia"
+    },
+    "pitagoras": {
+      "archivo": "laminas/pitagoras.webp",
+      "tipo": "foto",
+      "autor": "The original uploader was Galilea at German Wikipedia.",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Kapitolinischer_Pythagoras_adjusted.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "monocordio": {
+      "archivo": "laminas/monocordio.webp",
+      "tipo": "foto",
+      "autor": "Unknown authorUnknown author",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Gaffurio_Pythagoras.png",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "guido": {
+      "archivo": "laminas/guido.webp",
+      "tipo": "foto",
+      "autor": "Unknown scribe and illuminator of a scriptorium somewhere inbetween southern Germany and Austria",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Guido_e_Teodaldo.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "manuscrito": {
+      "archivo": "laminas/manuscrito.webp",
+      "tipo": "foto",
+      "autor": "",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Guidonian_hand.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "edison": {
+      "archivo": "laminas/edison.webp",
+      "tipo": "foto",
+      "autor": "Levin C. Handy",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Edison_and_phonograph_edit2.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "fonografo": {
+      "archivo": "laminas/fonografo.webp",
+      "tipo": "foto",
+      "autor": "DiscoA340",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Edison_Phonograph_in_the_Phono_Museum.jpg",
+      "licencia": "CC0",
+      "credito": "Wikimedia Commons"
+    },
+    "lespaul": {
+      "archivo": "laminas/lespaul.webp",
+      "tipo": "foto",
+      "autor": "William P. Gottlieb",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Les_Paul,_ca._Jan._1947_(William_P._Gottlieb_07001).jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "camerun": {
+      "archivo": "laminas/camerun.webp",
+      "tipo": "foto",
+      "autor": "BANGA E. SADRACK",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Mont_Mandara_01.jpg",
+      "licencia": "CC BY-SA 4.0",
+      "credito": "BANGA E. SADRACK · CC BY-SA 4.0 · Wikimedia"
+    },
+    "app-plan": {
+      "archivo": "laminas/app-plan.{idioma}.mp4",
+      "tipo": "video",
+      "autor": "MindHaOS",
+      "fuente": "https://app.mindhaos.com",
+      "credito": ""
+    },
+    "dj": {
+      "archivo": "laminas/dj.mp4",
+      "tipo": "video",
+      "autor": "Kuiyibo Campos",
+      "fuente": "https://www.pexels.com/video/close-up-of-dj-adjusting-mixer-controls-39408132/",
+      "licencia": "Licencia Pexels"
+    },
+    "tornamesa": {
+      "archivo": "laminas/tornamesa.mp4",
+      "tipo": "video",
+      "autor": "Tolga deniz Aran",
+      "fuente": "https://www.pexels.com/video/dynamic-dj-spinning-vinyl-record-outdoors-38432931/",
+      "licencia": "Licencia Pexels"
+    }
+  }
+}

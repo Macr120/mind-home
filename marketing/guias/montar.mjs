@@ -111,19 +111,41 @@ function barra(durs) {
  * Un tema puede llevar su propia lista, en su orden: musica/<tema>.json.
  */
 const MUSICA = path.join(RAIZ, 'musica')
-const LISTA = existsSync(path.join(MUSICA, `${tema}.json`)) ? `${tema}.json` : 'musica.json'
-const CANCIONES = await Promise.all(
+// La escena puede pedir la lista de otra guía (Música usa la del mago de Idiomas).
+const LISTA = ESCENA.MUSICA_LISTA ?? (existsSync(path.join(MUSICA, `${tema}.json`)) ? `${tema}.json` : 'musica.json')
+// Sin música de fondo si la escena lo pide (Música: los ejemplos que suenan chocarían con ella).
+const CANCIONES = ESCENA.SIN_MUSICA ? [] : await Promise.all(
   JSON.parse(readFileSync(path.join(MUSICA, LISTA), 'utf8')).canciones.map(async (c) => ({ ...c, ruta: path.join(MUSICA, c.archivo), dur: await duracion(path.join(MUSICA, c.archivo)) })),
 )
 /** Volumen de la música sin voz encima; con voz, el compresor la baja (ducking). */
 const VOLUMEN_MUSICA = 0.15
+/** Cuánto baja además la música donde suena un ejemplo (las herramientas de la página, el Himno de las tomas). */
+const AGACHE_EJEMPLOS = 0.3
+
+/** Tramos (s, relativos a cada clip) donde suena un ejemplo: ahí la música de fondo se agacha más. */
+const EJEMPLOS = new Map()
+const SUENAN = new Set(ESCENA.HERRAMIENTAS_QUE_SUENAN ?? [])
+const LINEAS = new Map(guion.partes.flatMap((p) => p.lineas.map((l) => [`${p.id}.${l.id}`, l])))
+/** Los tramos de la toma de la página `i` en que se narra una línea cuya herramienta suena (y un respiro después). */
+function tramosPagina(i) {
+  const ruta = path.join(TOMAS, `parte-${i + 1}.json`)
+  if (!SUENAN.size || !existsSync(ruta)) return []
+  const marcas = JSON.parse(readFileSync(ruta, 'utf8')).lineas ?? []
+  return marcas.flatMap((m, k) => {
+    if (!SUENAN.has(LINEAS.get(m.clave)?.visual?.herramienta)) return []
+    const fin = marcas[k + 1]?.en ?? m.en + (tiemposVoz[m.clave] ?? 10) + 0.5
+    return [[m.en, fin + 0.8]]
+  })
+}
+/** Los tramos de un recorte [de, de + dur] de la toma, relativos al recorte. */
+const recortarTramos = (tramos, de, dur) => tramos.map(([a, b]) => [Math.max(0, a - de), Math.min(dur ?? Infinity, b - de)]).filter(([a, b]) => b > a)
 
 /**
  * `[av]` (voz y efectos de las tomas) + las `n` canciones desde la entrada `desde`
  * → `[a]`: encadenadas con fundido entre una y otra, recortadas al video, con
  * entrada y salida suaves y agachadas mientras suena la voz.
  */
-function musica(desde, n, total) {
+function musica(desde, n, total, tramos = []) {
   const ids = Array.from({ length: n }, (_, i) => `[${desde + i}:a]aresample=48000,aformat=channel_layouts=stereo[m${i}]`)
   let previo = 'm0'
   const cruces = []
@@ -134,7 +156,7 @@ function musica(desde, n, total) {
   return [
     ...ids,
     ...cruces,
-    `[${previo}]atrim=end=${total.toFixed(3)},volume=${VOLUMEN_MUSICA},afade=t=in:d=2,afade=t=out:st=${(total - 4).toFixed(3)}:d=4[mus]`,
+    `[${previo}]atrim=end=${total.toFixed(3)},volume=${VOLUMEN_MUSICA},${tramos.length ? `volume='if(gt(${tramos.map(([a, b]) => `between(t,${a.toFixed(2)},${b.toFixed(2)})`).join('+')},0),${AGACHE_EJEMPLOS},1)':eval=frame,` : ''}afade=t=in:d=2,afade=t=out:st=${(total - 4).toFixed(3)}:d=4[mus]`,
     '[av]asplit=2[voz][guia]',
     // Agachada apenas: con la voz encima la música baja ~4 dB y se sigue distinguiendo.
     '[mus][guia]sidechaincompress=threshold=0.06:ratio=2.2:attack=40:release=500:makeup=1[fondo]',
@@ -147,12 +169,22 @@ function musica(desde, n, total) {
  * con la barra de progreso; `tramos` agrupa clips consecutivos en un solo tramo
  * (p. ej. el cierre y la vuelta a la casa).
  */
+/** Los tramos con ejemplo de cada clip, ya en el tiempo del video entero. */
+function tramosDe(clips, durs) {
+  let t = 0
+  return clips.flatMap((c, i) => {
+    const r = (EJEMPLOS.get(c) ?? []).map(([a, b]) => [t + a, t + Math.min(b, durs[i])])
+    t += durs[i]
+    return r
+  })
+}
+
 async function unir(clips, salida, metadatos, tramos, primeraCancion = 0) {
   const durs = await Promise.all(clips.map(duracion))
   const total = durs.reduce((a, b) => a + b, 0)
   // Las canciones en turno (empezando por `primeraCancion`) hasta cubrir el video.
   const lista = []
-  for (let i = primeraCancion, t = 0; t < total; i++) {
+  for (let i = primeraCancion, t = 0; CANCIONES.length && t < total; i++) {
     const c = CANCIONES[i % CANCIONES.length]
     lista.push(c)
     t += c.dur
@@ -165,7 +197,7 @@ async function unir(clips, salida, metadatos, tramos, primeraCancion = 0) {
   const filtro =
     clips.map((_, i) => `[${i}:v]fps=30,format=yuv420p,setsar=1[v${i}];[${i}:a]aresample=48000,aformat=channel_layouts=stereo[a${i}]`).join(';') +
     ';' + clips.map((_, i) => `[v${i}][a${i}]`).join('') + `concat=n=${clips.length}:v=1:a=1[vc][av];` + barra(segs) +
-    ';' + musica(clips.length, lista.length, total)
+    ';' + (lista.length ? musica(clips.length, lista.length, total, tramosDe(clips, durs)) : '[av]anull[a]')
   const meta = metadatos ? ['-i', metadatos, '-map_metadata', String(clips.length + lista.length), '-map_chapters', String(clips.length + lista.length)] : []
   await ejecutar(
     FFMPEG,
@@ -187,6 +219,12 @@ const entrada = await conAudio('casa-entrada', [
 ])
 const salida = await conAudio('casa-salida', [{ archivo: path.join(SONIDOS, 'nice.mp3'), en: 5.4, volumen: 0.5 }])
 
+/** La pista de música de una toma (`musica: { archivo, volumen }`, ruta desde la carpeta del tema), recortada a la toma. */
+async function musicaDeToma(nombre, mu, en) {
+  const dur = await duracion(path.join(TOMAS, `${nombre}.mp4`))
+  return { archivo: path.join(RAIZ, tema, mu.archivo), en: Math.max(0, en - 0.4), volumen: mu.volumen ?? 0.3, desde: 0, hasta: Math.max(1, dur - en + 0.4), fuera: 1.2 }
+}
+
 // Las tomas intermedias con su voz (si la llevan) y un «tic» al tocar la entrada.
 const extras = []
 for (const x of ESCENA.TOMAS_EXTRA ?? []) {
@@ -195,7 +233,10 @@ for (const x of ESCENA.TOMAS_EXTRA ?? []) {
   const clip = await conAudio(nombre, [
     ...(m.voz ? [{ archivo: path.join(VOCES, `${m.voz.clave}.mp3`), en: m.voz.en, volumen: 1 }] : []),
     ...(m.toque != null ? [{ archivo: path.join(SONIDOS, 'tic.mp3'), en: m.toque + 0.2, volumen: 0.35 }] : []),
+    // Música de ejemplo bajo la voz (Música: el Himno por capas), desde que empieza a hablar hasta el final, con fundido.
+    ...(x.musica ? [await musicaDeToma(nombre, x.musica, m.voz?.en ?? 0)] : []),
   ])
+  if (x.musica) EJEMPLOS.set(clip, [[Math.max(0, (m.voz?.en ?? 0) - 0.4), Infinity]])
   extras.push({ voz: x.voz, clip })
 }
 /** Sin voz: puentes entre la entrada en la casa y la página. */
@@ -207,12 +248,16 @@ const puentes = extras.filter((x) => !x.voz).map((x) => x.clip)
  */
 async function conInsertos(i) {
   const ruta = path.join(TOMAS, `parte-${i + 1}.json`)
-  if (!existsSync(ruta) || !JSON.parse(readFileSync(ruta, 'utf8')).cortes?.length) return [tomas[i]]
+  if (!existsSync(ruta) || !JSON.parse(readFileSync(ruta, 'utf8')).cortes?.length) {
+    EJEMPLOS.set(tomas[i], tramosPagina(i))
+    return [tomas[i]]
+  }
   const clips = []
   let desde = 0
   const trozo = async (k, de, dur) => {
     const salidaTrozo = path.join(FINAL, `parte-${i + 1}-${k}.mp4`)
     await ejecutar(FFMPEG, ['-y', '-ss', String(de), ...(dur != null ? ['-t', String(dur)] : []), '-i', tomas[i], '-c:v', 'libx264', '-preset', 'medium', '-crf', '19', '-c:a', 'aac', '-b:a', '160k', salidaTrozo])
+    EJEMPLOS.set(salidaTrozo, recortarTramos(tramosPagina(i), de, dur))
     return salidaTrozo
   }
   for (const [k, c] of JSON.parse(readFileSync(ruta, 'utf8')).cortes.entries()) {
@@ -245,6 +290,7 @@ async function anzuelo(i) {
     '-vf', `fade=t=out:st=${(dur - 0.35).toFixed(3)}:d=0.35`, '-af', `afade=t=out:st=${(dur - 0.35).toFixed(3)}:d=0.35`,
     '-c:v', 'libx264', '-preset', 'medium', '-crf', '19', '-c:a', 'aac', '-b:a', '160k', salida,
   ])
+  EJEMPLOS.set(salida, recortarTramos(tramosPagina(i), de, dur))
   return salida
 }
 const tiemposVoz = JSON.parse(readFileSync(path.join(VOCES, 'tiempos.json'), 'utf8'))

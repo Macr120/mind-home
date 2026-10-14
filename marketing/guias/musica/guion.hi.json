@@ -1,0 +1,700 @@
+{
+  "idioma": "hi",
+  "tema": "musica",
+  "plantillaId": "audio",
+  "numero": 7,
+  "nombre": "ऑडियो स्टूडियो",
+  "pregunta": "संगीत क्या है?",
+  "corta": "संगीत क्या है?",
+  "subtitulo": "AI के कंपोज़ कर लेने के बावजूद बजाना क्यों सीखें, संगीत का एक छोटा इतिहास, सबके जाने-पहचाने दो गानों के साथ लय, धुन और हार्मनी कैसे काम करती हैं, किसी गाने के ट्रैक कैसे मिक्स होते हैं और डीजे की तरह दो गाने कैसे मिलाए जाते हैं, और शुरू करने के लिए रोज़ पंद्रह मिनट की एक योजना।",
+  "aviso": "यह गाइड सिर्फ़ जानकारी के लिए है: बताई गई तारीख़ें, आँकड़े और अध्ययन उनके स्रोतों के अनुमान हैं, और हर व्यक्ति अपनी रफ़्तार से आगे बढ़ता है। उदाहरण के दोनों गाने पब्लिक डोमेन में हैं और हमारे अपने अरेंजमेंट में बजते हैं; बाक़ी गानों का सिर्फ़ ज़िक्र है।",
+  "partes": [
+    {
+      "id": "musica",
+      "titulo": "संगीत क्या है",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "संगीत क्या है? आज एक आर्टिफ़िशियल इंटेलिजेंस कुछ ही सेकंड में बोल और आवाज़ के साथ पूरा गाना बना देती है। फिर भी, लाखों लोग अब भी कोई वाद्य बजाना सीख रहे हैं। तो फिर संगीत सीखते रहना क्यों सार्थक है? अगले कुछ मिनटों में आप देखेंगे कि संगीत क्या है, यह कैसे पैदा हुआ, बचपन से जाने-पहचाने दो गानों के साथ लय, धुन और हार्मनी कैसे काम करती हैं और ट्रैक कैसे मिक्स होते हैं, और आप आज से ही बजाने की एक योजना लेकर जाएँगे।",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "वैसे, यह MindHaOS में मेरा घर है, और यह मेरा ऑडियो स्टूडियो है: यहाँ मैं रचता हूँ, रिकॉर्ड करता हूँ और मिक्स करता हूँ। आज मैं इसी से आपको दिखाऊँगा कि एक गाना टुकड़ा-टुकड़ा करके कैसे बनता है। चलिए शुरू करते हैं।",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग एक। संगीत क्या है।"
+        },
+        {
+          "id": "sonido",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "onda"
+          },
+          "texto": "सब कुछ एक कंपन से शुरू होता है। एक तार या एक स्पीकर हवा को एक सेकंड में सैकड़ों बार धकेलता है, और जितने ज़्यादा कंपन, आवाज़ उतनी ही ऊँची सुनाई देती है: जिस A स्वर से ऑर्केस्ट्रा अपने वाद्य मिलाते हैं, वह एक सेकंड में चार सौ चालीस बार कंपन करता है।",
+          "lamina": [
+            "cuerda",
+            "bocina"
+          ]
+        },
+        {
+          "id": "definicion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ruido",
+              "orden",
+              "musica"
+            ]
+          },
+          "texto": "लेकिन शोर संगीत नहीं है। संगीतकार एडगार वारेज़ ने इसे ऐसे परिभाषित किया: संगीत व्यवस्थित ध्वनि है। समय में, सुर की ऊँचाई में और साथ बजने वाली परतों में व्यवस्थित: लय, धुन और हार्मनी।",
+          "lamina": [
+            "varese",
+            "partitura"
+          ]
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "15 महीने",
+            "clave": "hyde"
+          },
+          "texto": "और जब मशीन पहले से ही रचना कर लेती है, तो बजाना क्यों सीखें? क्योंकि बजाते समय सिर्फ़ गाना नहीं बदलता, आप बदलते हैं। 2009 में, क्रिस्टा हाइड और उनकी टीम ने उन बच्चों पर नज़र रखी जिन्होंने पंद्रह महीने कीबोर्ड सीखा: उनके दिमाग़ के वे हिस्से जो हाथ चलाते हैं और सुनते हैं, न सीखने वाले बच्चों से ज़्यादा बदले। मशीन गाना बना सकती है, पर आपकी जगह उसे बजा नहीं सकती।",
+          "lamina": [
+            "nina",
+            "teclado"
+          ]
+        },
+        {
+          "id": "grupo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cerebro",
+              "oido",
+              "juntos"
+            ]
+          },
+          "texto": "और दूसरों के साथ बजाना हमें जोड़ता है: 2010 में, मैक्स प्लांक इंस्टीट्यूट में, सेबास्टियन किर्शनर और माइकल टोमासेलो ने देखा कि जिन चार साल के बच्चों ने साथ मिलकर संगीत बनाया था, वे बाद में एक-दूसरे की ज़्यादा मदद करते थे। और देर कभी नहीं होती: बड़े भी सीखते हैं।",
+          "lamina": [
+            "banda",
+            "adulto"
+          ]
+        },
+        {
+          "id": "canciones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dosCanciones"
+          },
+          "texto": "इसके हिस्से समझने के लिए हम दो ऐसे गाने लेंगे जिन्हें लगभग सभी जानते हैं: बीथोवन का ओड टू जॉय, 1824 का, और ट्विंकल ट्विंकल लिटिल स्टार, 1761 की एक फ़्रेंच धुन। दोनों पब्लिक डोमेन में हैं, इसलिए यहाँ पूरे बजते हैं।",
+          "lamina": [
+            "beethoven",
+            "mozart"
+          ]
+        },
+        {
+          "id": "teclado",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ritmo",
+              "melodia",
+              "armonia"
+            ]
+          },
+          "texto": "यहाँ, मेरे कीबोर्ड पर, ओड टू जॉय तीन परतों में बजता है: पहले लय की थाप, फिर एक उँगली से धुन, और आख़िर में दूसरे हाथ से कॉर्ड।",
+          "lamina": "teclado2",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "संगीत का एक छोटा इतिहास",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग दो। संगीत का एक छोटा इतिहास।"
+        },
+        {
+          "id": "flauta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaMusica"
+          },
+          "texto": "जर्मनी की एक गुफा, होले फ़ेल्स में, गिद्ध की हड्डी से तराशी गई एक बाँसुरी मिली, जो लगभग चालीस हज़ार साल पहले बनी थी। लिखना सीखने से पहले ही, हम संगीत बना रहे थे।",
+          "lamina": [
+            "hohlefels",
+            "cueva"
+          ]
+        },
+        {
+          "id": "pitagoras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 : 1",
+            "clave": "pitagoras"
+          },
+          "texto": "प्राचीन यूनान की एक किंवदंती कहती है कि पाइथागोरस ने पाया कि आधी लंबाई का तार वही स्वर बजाता है, पर ऊँचा: एक ऑक्टेव। तब से संगीत गणित भी है।",
+          "lamina": [
+            "pitagoras",
+            "monocordio"
+          ]
+        },
+        {
+          "id": "guido",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1025",
+            "clave": "guido"
+          },
+          "texto": "लगभग 1025 में, भिक्षु गुइडो द आरेत्ज़ो ने एक भजन के शुरुआती अक्षर लिए, ut, re, mi, fa, sol, la, ताकि उनके गायक जल्दी सीखें। ut बाद में do बन गया, और स्वरों को रेखाओं पर लिखने का उनका विचार ही आज का स्टाफ़ नोटेशन है।",
+          "lamina": [
+            "guido",
+            "manuscrito"
+          ]
+        },
+        {
+          "id": "edison",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1877",
+            "clave": "edison"
+          },
+          "texto": "हज़ारों साल तक, संगीत तभी तक मौजूद रहता था जब तक कोई उसे बजा रहा हो। 1877 में, थॉमस एडिसन ने अपने फ़ोनोग्राफ़ के सिलिंडर पर अपनी आवाज़ रिकॉर्ड की, और पहली बार कोई आवाज़ सहेजकर दोबारा सुनी जा सकी।",
+          "lamina": [
+            "edison",
+            "fonografo"
+          ]
+        },
+        {
+          "id": "lesPaul",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1 → 8",
+            "clave": "lesPaul"
+          },
+          "texto": "पचास के दशक में, गिटारिस्ट लेस पॉल ने अपनी ही रिकॉर्डिंग के ऊपर रिकॉर्ड किया, और 1957 में शुरुआती आठ-ट्रैक रिकॉर्डरों में से एक पेश किया। तब से लगभग सारा संगीत हिस्सों में रिकॉर्ड होता है, हर वाद्य अपने ट्रैक पर।",
+          "lamina": [
+            "lespaul",
+            "cinta"
+          ]
+        },
+        {
+          "id": "midi",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "teclado",
+              "computadora",
+              "ia"
+            ]
+          },
+          "texto": "और 1983 में आया MIDI, वह भाषा जिसमें इलेक्ट्रॉनिक वाद्य और कंप्यूटर आपस में बात करते हैं। इसीलिए आज एक कीबोर्ड और एक कंप्यूटर मिलकर पूरा स्टूडियो हैं, और आर्टिफ़िशियल इंटेलिजेंस बस सबसे नया अध्याय है।",
+          "lamina": "midi",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "ritmo",
+      "titulo": "लय",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग तीन। लय।"
+        },
+        {
+          "id": "pulso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "pulso"
+          },
+          "texto": "लय यह है कि संगीत समय में कैसे बँटता है, और इसका आधार है बीट: वह बराबर थाप जिसे आप पैर से पकड़ते हैं। इसकी रफ़्तार बीट्स प्रति मिनट में मापी जाती है। ओड टू जॉय को साठ, सौ और एक सौ चालीस पर सुनिए: वही गाना, अलग ऊर्जा।",
+          "lamina": [
+            "pie",
+            "metronomo"
+          ]
+        },
+        {
+          "id": "bebes",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 दिन",
+            "clave": "bebes"
+          },
+          "texto": "बीट महसूस करना हमारे अंदर जन्म से होता है। 2009 में, हंगरी में इश्तवान विंकलर की टीम ने दो दिन के शिशुओं को ड्रम की एक लय सुनाई: जब ज़ोरदार थाप ग़ायब होती, तो उनका दिमाग़ उस हैरानी पर प्रतिक्रिया देता। और जो रफ़्तार हमें सबसे ज़्यादा पसंद है, वह लगभग एक सौ बीस बीट्स प्रति मिनट है, करीब-करीब हमारे क़दमों की लय।",
+          "lamina": [
+            "bebe",
+            "caminar"
+          ]
+        },
+        {
+          "id": "compas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "compas"
+          },
+          "texto": "बीट्स मिलकर बार बनाती हैं, जिनकी शुरुआत में एक ज़्यादा ज़ोरदार बीट होती है। ट्विंकल ट्विंकल चार-चार में चलता है, और वाल्ट्ज़ तीन-तीन में। इसीलिए वाल्ट्ज़ घूमते हुए नाचा जाता है और मार्च पर क़दम मिलाकर चला जाता है।",
+          "lamina": [
+            "vals",
+            "marcha"
+          ]
+        },
+        {
+          "id": "bateria",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cajaRitmos"
+          },
+          "texto": "ड्रम मशीन में यह बिल्कुल साफ़ दिखता है: किक ड्रम ज़ोरदार बीट्स बजाता है, स्नेयर हल्की बीट्स, और हाई-हैट बीच के क़दम गिनता है। धम, धम, ताली: बस इतने से Queen ने We Will Rock You को स्टेडियम का गान बना दिया।",
+          "lamina": [
+            "cajaRitmos",
+            "estadio"
+          ]
+        },
+        {
+          "id": "sincopa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "sincopa"
+          },
+          "texto": "और नचाने वाली तरकीब है सिंकोपेशन: एक ज़ोर जो वहाँ पड़ता है जहाँ आप उम्मीद नहीं करते, दो बीट्स के बीच। सुनिए कैसे अपनी जगह से हटी एक अकेली थाप लय में झूम भर देती है।",
+          "lamina": "baile"
+        },
+        {
+          "id": "palmas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escucha",
+              "pie",
+              "cuenta"
+            ]
+          },
+          "texto": "किसी भी गाने के साथ आज़माइए: पैर से बीट पकड़िए और चार तक गिनिए। मैं भी ओड टू जॉय का आधार ऐसे ही बनाता हूँ, थाप दर थाप।",
+          "lamina": "palmas",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "melodia",
+      "titulo": "धुन",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग चार। धुन।"
+        },
+        {
+          "id": "notas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "octava"
+          },
+          "texto": "धुन स्वरों की एक कतार है जिसे आप गा सकते हैं। एक ऑक्टेव और अगले ऑक्टेव के बीच पश्चिमी संगीत बारह स्वर रखता है, और सात स्वरों से, C, D, E, F, G, A, B, आपकी जानी-पहचानी लगभग सारी धुनें बनती हैं।",
+          "lamina": [
+            "partitura",
+            "notas"
+          ]
+        },
+        {
+          "id": "contorno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "teclado"
+          },
+          "texto": "किसी धुन को पहचानने लायक बनाता है उसका आकार: वह ऊपर जाती है या नीचे, और क़दम-क़दम चलती है या छलाँग लगाती है। ओड टू जॉय लगभग पूरा क़दमों में चलता है: E, E, F, G। ट्विंकल ट्विंकल एक छलाँग से शुरू होता है: C, C, G, G। इन्हें यहाँ कीबोर्ड पर बजाइए और इनका आकार देखिए।",
+          "lamina": [
+            "teclado2",
+            "contorno"
+          ]
+        },
+        {
+          "id": "repeticion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "forma"
+          },
+          "texto": "और यह दिमाग़ में बैठ जाती है क्योंकि दोहराई जाती है। ट्विंकल ट्विंकल में तीन वाक्यांश हैं: एक, फिर एक अलग, और फिर पहला दोबारा। यह रूप, A, B, A, हज़ारों गानों में है।",
+          "lamina": "cantar"
+        },
+        {
+          "id": "tararea",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tararea",
+              "sube",
+              "toca"
+            ]
+          },
+          "texto": "कान से धुन निकालने के लिए: उसे गुनगुनाइए, देखिए कि वह ऊपर जाती है या नीचे, और कीबोर्ड पर स्वर-दर-स्वर ढूँढिए। मैं भी ओड टू जॉय एक उँगली से ऐसे ही बजाता हूँ।",
+          "lamina": "teclado3",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "armonia",
+      "titulo": "हार्मनी",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग पाँच। हार्मनी।"
+        },
+        {
+          "id": "acorde",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "acorde"
+          },
+          "texto": "अगर धुन एक के बाद एक स्वर है, तो हार्मनी एक साथ बजते स्वर हैं। तीन स्वर एक साथ, एक छोड़कर एक, एक कॉर्ड बनाते हैं: C, E, G। कोई गाता है तो गिटार यही बजाता है।",
+          "lamina": [
+            "guitarra",
+            "piano"
+          ]
+        },
+        {
+          "id": "mayorMenor",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mayorMenor"
+          },
+          "texto": "मूड बदलने के लिए बस एक स्वर को आधा क़दम खिसकाना काफ़ी है: मेजर कॉर्ड चमकीला लगता है और माइनर उदास। ट्विंकल ट्विंकल को मेजर में और फिर माइनर में सुनिए: धुन वही है, पर कहानी कुछ और लगती है। 2009 में, थॉमस फ़्रिट्ज़ पश्चिमी संगीत कैमरून के माफ़ा लोगों के पास ले गए, जिन्होंने उसे कभी नहीं सुना था, और फिर भी उन्होंने पहचान लिया कि कौन-से टुकड़े ख़ुश थे और कौन-से उदास।",
+          "lamina": [
+            "camerun",
+            "luzSombra"
+          ]
+        },
+        {
+          "id": "tension",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "tension"
+          },
+          "texto": "कुछ कॉर्ड ठहरते हैं और कुछ आगे बढ़ना चाहते हैं। संगीत तनाव बनाने और उसे सुलझाने से जीता है: इसीलिए जब कोई गाना अपने घर वाले कॉर्ड पर लौटता है, तो आपको लगता है कि वह ख़त्म हो गया।",
+          "lamina": "ola"
+        },
+        {
+          "id": "progresion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "progresion"
+          },
+          "texto": "कॉर्ड की एक कतार को प्रोग्रेशन कहते हैं। हमारे दोनों गाने सिर्फ़ तीन कॉर्ड से बजते हैं। और चार कॉर्ड से, एक, पाँच, छह, चार के क्रम में, सैकड़ों हिट लिखे गए हैं, बीटल्स के Let It Be से लेकर आज के ज़्यादातर पॉप तक: एक अच्छा प्रोग्रेशन दशकों चलता है।",
+          "lamina": [
+            "acordes",
+            "vinilo"
+          ]
+        },
+        {
+          "id": "manos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "derecha",
+              "izquierda",
+              "juntas"
+            ]
+          },
+          "texto": "कीबोर्ड पर यह ऐसा दिखता है: दायाँ हाथ धुन बजाता है और बायाँ हाथ कॉर्ड। तीन कॉर्ड से ही आप दोनों गाने पूरे बजा सकते हैं।",
+          "lamina": "piano",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "mezcla",
+      "titulo": "संगीत कैसे मिक्स होता है",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग छह। संगीत कैसे मिक्स होता है।"
+        },
+        {
+          "id": "capas",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezclador"
+          },
+          "texto": "लेस पॉल के ट्रैक याद हैं? ओड टू जॉय चार ट्रैक में ऐसे बनता है: पहले ड्रम, फिर बेस, उसके बाद कॉर्ड, और सबसे ऊपर धुन।",
+          "lamina": [
+            "consola",
+            "estudio"
+          ]
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezcladorBalance"
+          },
+          "texto": "मिक्स करना तीन बातें तय करना है: हर ट्रैक कितना ज़ोर से बजे, ताकि बेस धुन को न ढक ले; वह किन फ़्रीक्वेंसी में रहे, भारी आवाज़ें नीचे और सिंबल ऊपर; और वह कहाँ सुनाई दे, बीच में या किनारों पर।",
+          "lamina": [
+            "fader",
+            "ecualizador"
+          ]
+        },
+        {
+          "id": "dj",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dj"
+          },
+          "texto": "और एक दूसरी तरह की मिक्सिंग भी है, डीजे वाली: वह ट्रैक नहीं, पूरे गाने जोड़ता है। पहले वह दोनों की रफ़्तार बराबर करता है, ताकि उनकी बीट्स साथ पड़ें; फिर क्रॉसफ़ेडर से धीरे-धीरे एक से दूसरे पर जाता है, और जाने वाले गाने का बेस हटा देता है ताकि दोनों बेस आपस में न टकराएँ।",
+          "lamina": [
+            "dj",
+            "tornamesa"
+          ]
+        },
+        {
+          "id": "mencion-mezcla",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "MindHaOS के अपने ऑडियो स्टूडियो में मैं ऐसे ही करता हूँ: मिक्सर में हर ट्रैक का अपना चैनल है, अपने वॉल्यूम, पैनिंग और इफ़ेक्ट्स के साथ।",
+          "lamina": "mezclador",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "शुरू करने की आपकी योजना",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग सात। शुरू करने की आपकी योजना।"
+        },
+        {
+          "id": "escucha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pasada1",
+              "pasada2",
+              "pasada3"
+            ]
+          },
+          "texto": "शुरुआत अलग ढंग से सुनने से कीजिए: एक गाना तीन बार चलाइए और पहले ड्रम, फिर बेस, और आख़िर में धुन और कॉर्ड पर ध्यान दीजिए। आपको वे चीज़ें सुनाई देंगी जो सालों से वहीं थीं।",
+          "lamina": [
+            "audifonos3",
+            "vinilo2"
+          ]
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "minutosAno"
+          },
+          "texto": "आपको बहुत समय नहीं चाहिए: रोज़ पंद्रह मिनट, साल में नब्बे घंटे से ज़्यादा बनते हैं। यहाँ अपने मिनट बदलिए और देखिए कि एक साल में आप कितने गाने बजा सकते हैं।",
+          "lamina": "reloj"
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "एक संभावित हफ़्ता: सोमवार, मेट्रोनोम के साथ बीट; मंगलवार, कान से एक धुन; बुधवार, तीन कॉर्ड; गुरुवार, दोनों हाथ; शुक्रवार, तीन बार में सुनना; और वीकेंड पर, अपना कुछ रिकॉर्ड कीजिए।",
+          "lamina": [
+            "semana",
+            "grabar"
+          ]
+        },
+        {
+          "id": "graba",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "grabate",
+              "escuchate",
+              "comparte"
+            ]
+          },
+          "texto": "और पहले दिन से ख़ुद को रिकॉर्ड कीजिए: ख़ुद को सुनना बेहतर होने का सबसे तेज़ तरीक़ा है। देखिए, चारों ट्रैक मिक्स होकर ओड टू जॉय ऐसा सुनाई देता है।",
+          "lamina": "microfono",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "संक्षेप में: संगीत व्यवस्थित ध्वनि है; लय उसे समय में सजाती है, धुन ऊँचाई में और हार्मनी परतों में; मिक्स करना हर ट्रैक को उसका वॉल्यूम, उसकी फ़्रीक्वेंसी और उसकी जगह देना है; और बजाना आपको बदलता है, भले ही मशीन रचना कर ले।",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "अगर आप मेरी तरह संगीत बनाना चाहते हैं, तो MindHaOS के ऑडियो स्टूडियो में सब कुछ एक ही कमरे में है: आप स्वर-दर-स्वर गानों का अभ्यास कर सकते हैं, कई वाद्यों के साथ अपने गाने बना सकते हैं, ख़ुद बजाने के लिए या पहले से प्रोड्यूस किए हुए सुनने के लिए, और यहाँ तक कि डीजे की तरह गाने मिक्स कर सकते हैं। लिंक डिस्क्रिप्शन में है, और साथ में यह इंटरैक्टिव गाइड भी। अगली गाइड में फिर मिलते हैं।",
+    "boton": "ऑडियो स्टूडियो खोलें",
+    "lamina": "app-plan",
+    "anclas": {
+      "practicar": "गानों का अभ्यास",
+      "crear": "अपने गाने बना",
+      "producidas": "पहले से प्रोड्यूस किए हुए",
+      "dj": "डीजे की तरह गाने मिक्स"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "varese",
+      "texto": "Varèse E., Wen-chung C. The Liberation of Sound. Perspectives of New Music (1966).",
+      "url": "https://doi.org/10.2307/832385"
+    },
+    {
+      "id": "conard-2009",
+      "texto": "Conard N. J., Malina M., Münzel S. C. New flutes document the earliest musical tradition in southwestern Germany. Nature (2009).",
+      "url": "https://doi.org/10.1038/nature08169"
+    },
+    {
+      "id": "winkler-2009",
+      "texto": "Winkler I., Háden G. P., Ladinig O., Sziller I., Honing H. Newborn infants detect the beat in music. PNAS (2009).",
+      "url": "https://doi.org/10.1073/pnas.0809035106"
+    },
+    {
+      "id": "moelants-2002",
+      "texto": "Moelants D. Preferred tempo reconsidered. Proceedings of the 7th International Conference on Music Perception and Cognition (2002)."
+    },
+    {
+      "id": "fritz-2009",
+      "texto": "Fritz T. et al. Universal recognition of three basic emotions in music. Current Biology (2009).",
+      "url": "https://doi.org/10.1016/j.cub.2009.02.058"
+    },
+    {
+      "id": "hyde-2009",
+      "texto": "Hyde K. L. et al. Musical training shapes structural brain development. Journal of Neuroscience (2009).",
+      "url": "https://doi.org/10.1523/JNEUROSCI.5118-08.2009"
+    },
+    {
+      "id": "guido",
+      "texto": "गुइडो द आरेत्ज़ो। Micrologus और Epistola de ignoto cantu (लगभग 1025-1030)।",
+      "url": "https://en.wikipedia.org/wiki/Guido_of_Arezzo"
+    },
+    {
+      "id": "lespaul",
+      "texto": "लेस पॉल और Ampex का आठ-ट्रैक रिकॉर्डर «Octopus» (1957)।",
+      "url": "https://en.wikipedia.org/wiki/Les_Paul"
+    },
+    {
+      "id": "kirschner-2010",
+      "texto": "Kirschner S., Tomasello M. Joint music making promotes prosocial behavior in 4-year-old children. Evolution and Human Behavior (2010).",
+      "url": "https://doi.org/10.1016/j.evolhumbehav.2010.04.004"
+    },
+    {
+      "id": "edison-1877",
+      "texto": "Edison T. A. फ़ोनोग्राफ़ (अमेरिकी पेटेंट 200 521, 1878)।",
+      "url": "https://en.wikipedia.org/wiki/Phonograph"
+    },
+    {
+      "id": "midi-1983",
+      "texto": "MIDI Association. MIDI 1.0 मानक का इतिहास (1983)।",
+      "url": "https://midi.org/"
+    }
+  ]
+}

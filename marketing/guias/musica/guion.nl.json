@@ -1,0 +1,700 @@
+{
+  "idioma": "nl",
+  "tema": "musica",
+  "plantillaId": "audio",
+  "numero": 7,
+  "nombre": "Audiostudio",
+  "pregunta": "Wat is muziek?",
+  "corta": "Wat is muziek?",
+  "subtitulo": "Waarom je een instrument leert spelen, ook al componeert een kunstmatige intelligentie al, een korte geschiedenis van de muziek, hoe ritme, melodie en harmonie werken met twee liedjes die iedereen kent, hoe je de sporen van een nummer mixt en twee nummers zoals een dj, en een plan van vijftien minuten per dag om te beginnen.",
+  "aviso": "Deze gids is informatief: de genoemde data, cijfers en studies zijn benaderingen uit hun bronnen, en iedereen gaat in zijn eigen tempo vooruit. De twee voorbeeldliedjes zijn rechtenvrij en klinken in eigen arrangementen; de andere worden alleen genoemd.",
+  "partes": [
+    {
+      "id": "musica",
+      "titulo": "Wat muziek is",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Wat is muziek? Vandaag componeert een kunstmatige intelligentie in een paar seconden een compleet nummer, met tekst en stem. En toch blijven miljoenen mensen een instrument leren spelen. Waarom is het dan de moeite waard om muziek te blijven leren? In de komende minuten zie je wat muziek is, hoe ze ontstond, hoe ritme, melodie en harmonie werken met twee liedjes die je al van kinds af kent en hoe je de sporen mixt, en je gaat weg met een plan om vandaag nog te spelen.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Trouwens, dit is mijn huis in MindHaOS, en dit is mijn Audiostudio: hier componeer, neem ik op en mix ik. Vandaag laat ik je ermee zien hoe je een nummer opbouwt, stukje voor stukje. Laten we beginnen.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel één. Wat muziek is."
+        },
+        {
+          "id": "sonido",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "onda"
+          },
+          "texto": "Alles begint met een trilling. Een snaar of een luidspreker duwt de lucht honderden keren per seconde weg, en hoe meer trillingen, hoe hoger je de toon hoort: de A waarop orkesten stemmen, trilt vierhonderdveertig keer per seconde.",
+          "lamina": [
+            "cuerda",
+            "bocina"
+          ]
+        },
+        {
+          "id": "definicion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ruido",
+              "orden",
+              "musica"
+            ]
+          },
+          "texto": "Maar een geluid is nog geen muziek. De componist Edgard Varèse definieerde het zo: muziek is georganiseerd geluid. Georganiseerd in de tijd, in de toonhoogte en in lagen die samen klinken: ritme, melodie en harmonie.",
+          "lamina": [
+            "varese",
+            "partitura"
+          ]
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "15 maanden",
+            "clave": "hyde"
+          },
+          "texto": "En waarom zou je leren spelen, als een machine al componeert? Omdat bij het spelen niet alleen het nummer verandert, maar jij ook. In 2009 volgden Krista Hyde en haar team kinderen die vijftien maanden keyboardles kregen: de delen van hun hersenen die de handen bewegen en luisteren, veranderden meer dan bij kinderen zonder les. Een machine kan het nummer maken, maar kan het niet voor jou spelen.",
+          "lamina": [
+            "nina",
+            "teclado"
+          ]
+        },
+        {
+          "id": "grupo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cerebro",
+              "oido",
+              "juntos"
+            ]
+          },
+          "texto": "En samen spelen verbindt ons: in 2010 zagen Sebastian Kirschner en Michael Tomasello aan het Max Planck Instituut dat kinderen van vier die samen muziek hadden gemaakt, elkaar daarna meer hielpen. En het is nooit te laat: ook volwassenen leren het.",
+          "lamina": [
+            "banda",
+            "adulto"
+          ]
+        },
+        {
+          "id": "canciones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dosCanciones"
+          },
+          "texto": "Om de bouwstenen te begrijpen gebruiken we twee liedjes die bijna iedereen kent: de Ode an die Freude van Beethoven, uit 1824, en Twinkel, twinkel, kleine ster, een Franse melodie uit 1761. Allebei zijn ze rechtenvrij, dus hier klinken ze helemaal.",
+          "lamina": [
+            "beethoven",
+            "mozart"
+          ]
+        },
+        {
+          "id": "teclado",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ritmo",
+              "melodia",
+              "armonia"
+            ]
+          },
+          "texto": "Hier, op mijn keyboard, klinkt de Ode in drie lagen: eerst de tel van het ritme, dan de melodie met één vinger en tot slot de akkoorden met de andere hand.",
+          "lamina": "teclado2",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Een korte geschiedenis van de muziek",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel twee. Een korte geschiedenis van de muziek."
+        },
+        {
+          "id": "flauta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaMusica"
+          },
+          "texto": "In een grot in Duitsland, Hohle Fels, vond men een fluit die zo'n veertigduizend jaar geleden uit het bot van een gier werd gesneden. Nog voordat we schreven, maakten we al muziek.",
+          "lamina": [
+            "hohlefels",
+            "cueva"
+          ]
+        },
+        {
+          "id": "pitagoras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 : 1",
+            "clave": "pitagoras"
+          },
+          "texto": "In het oude Griekenland, zo vertelt de legende, ontdekte Pythagoras dat een snaar van de halve lengte dezelfde toon speelt, maar hoger: een octaaf. Sindsdien is muziek ook wiskunde.",
+          "lamina": [
+            "pitagoras",
+            "monocordio"
+          ]
+        },
+        {
+          "id": "guido",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1025",
+            "clave": "guido"
+          },
+          "texto": "Rond 1025 nam de monnik Guido van Arezzo de eerste lettergrepen van een hymne, ut, re, mi, fa, sol, la, zodat zijn zangers sneller leerden. De ut werd do, en zijn idee om de noten op lijnen te schrijven is de bladmuziek van vandaag.",
+          "lamina": [
+            "guido",
+            "manuscrito"
+          ]
+        },
+        {
+          "id": "edison",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1877",
+            "clave": "edison"
+          },
+          "texto": "Duizenden jaren lang bestond muziek alleen zolang iemand haar speelde. In 1877 nam Thomas Edison zijn stem op op de cilinder van zijn fonograaf, en voor het eerst kon een geluid bewaard en opnieuw beluisterd worden.",
+          "lamina": [
+            "edison",
+            "fonografo"
+          ]
+        },
+        {
+          "id": "lesPaul",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1 → 8",
+            "clave": "lesPaul"
+          },
+          "texto": "In de jaren vijftig nam gitarist Les Paul op over zijn eigen opnames heen, en in 1957 bracht hij een van de eerste achtsporenrecorders uit. Sindsdien wordt bijna alle muziek in delen opgenomen, elk instrument op zijn eigen spoor.",
+          "lamina": [
+            "lespaul",
+            "cinta"
+          ]
+        },
+        {
+          "id": "midi",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "teclado",
+              "computadora",
+              "ia"
+            ]
+          },
+          "texto": "En in 1983 kwam MIDI, de taal waarmee elektronische instrumenten en computers met elkaar praten. Daarom zijn een keyboard en een computer vandaag een complete studio, en is kunstmatige intelligentie alleen het nieuwste hoofdstuk.",
+          "lamina": "midi",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "ritmo",
+      "titulo": "Het ritme",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel drie. Het ritme."
+        },
+        {
+          "id": "pulso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "pulso"
+          },
+          "texto": "Ritme is hoe muziek over de tijd verdeeld wordt, en de basis is de puls: de gelijkmatige tel die je met je voet meetikt. De snelheid meet je in tellen per minuut. Luister naar de Ode op zestig, op honderd en op honderdveertig: hetzelfde nummer met een andere energie.",
+          "lamina": [
+            "pie",
+            "metronomo"
+          ]
+        },
+        {
+          "id": "bebes",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 dagen",
+            "clave": "bebes"
+          },
+          "texto": "De puls voelen zit ingebakken. In 2009 liet het team van István Winkler in Hongarije baby's van twee dagen oud naar een drumritme luisteren: als de sterke tel ontbrak, reageerden hun hersenen op de verrassing. En het tempo dat we het fijnst vinden ligt rond de honderdtwintig tellen per minuut, bijna het ritme van onze stappen.",
+          "lamina": [
+            "bebe",
+            "caminar"
+          ]
+        },
+        {
+          "id": "compas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "compas"
+          },
+          "texto": "De tellen worden in maten gegroepeerd, met een sterkere aan het begin. Twinkel, twinkel, kleine ster gaat per vier; een wals per drie. Daarom dans je een wals draaiend en loop je op een mars.",
+          "lamina": [
+            "vals",
+            "marcha"
+          ]
+        },
+        {
+          "id": "bateria",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cajaRitmos"
+          },
+          "texto": "Op een drumcomputer zie je het heel duidelijk: de basdrum speelt de sterke tellen, de snaredrum de zwakke en het bekken telt de stapjes ertussen. Stamp, stamp, klap: met alleen dat maakte Queen van We Will Rock You een stadionhymne.",
+          "lamina": [
+            "cajaRitmos",
+            "estadio"
+          ]
+        },
+        {
+          "id": "sincopa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "sincopa"
+          },
+          "texto": "En de truc die je laat dansen is de syncope: een accent dat valt waar je het niet verwacht, tussen twee tellen. Luister hoe één enkele slag op de verkeerde plek het ritme laat swingen.",
+          "lamina": "baile"
+        },
+        {
+          "id": "palmas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escucha",
+              "pie",
+              "cuenta"
+            ]
+          },
+          "texto": "Probeer het met een willekeurig nummer: tik de puls met je voet en tel tot vier. Zo bouw ik de basis van de Ode op, tel voor tel.",
+          "lamina": "palmas",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "melodia",
+      "titulo": "De melodie",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vier. De melodie."
+        },
+        {
+          "id": "notas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "octava"
+          },
+          "texto": "Een melodie is een rij noten die je kunt zingen. Tussen het ene octaaf en het volgende verdeelt westerse muziek twaalf noten, en met zeven ervan, C, D, E, F, G, A, B, maak je bijna alle melodieën die je kent.",
+          "lamina": [
+            "partitura",
+            "notas"
+          ]
+        },
+        {
+          "id": "contorno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "teclado"
+          },
+          "texto": "Wat een melodie herkenbaar maakt, is haar vorm: of ze stijgt of daalt, en of ze in stapjes gaat of springt. De Ode an die Freude gaat bijna helemaal in stapjes: E, E, F, G. Twinkel, twinkel, kleine ster begint met een sprong: C, C, G, G. Speel ze hier op het keyboard en bekijk hun vorm.",
+          "lamina": [
+            "teclado2",
+            "contorno"
+          ]
+        },
+        {
+          "id": "repeticion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "forma"
+          },
+          "texto": "En ze blijft hangen omdat ze zich herhaalt. Twinkel, twinkel, kleine ster heeft drie zinnen: een, een andere en weer de eerste. Die vorm, A, B, A, zit in duizenden liedjes.",
+          "lamina": "cantar"
+        },
+        {
+          "id": "tararea",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tararea",
+              "sube",
+              "toca"
+            ]
+          },
+          "texto": "Om melodieën op het gehoor na te spelen: neurie haar, let op of ze stijgt of daalt en zoek haar noot voor noot op het keyboard. Zo speel ik de Ode met één vinger.",
+          "lamina": "teclado3",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "armonia",
+      "titulo": "De harmonie",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vijf. De harmonie."
+        },
+        {
+          "id": "acorde",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "acorde"
+          },
+          "texto": "Als de melodie noten na elkaar is, dan is harmonie noten tegelijk. Drie noten samen, telkens eentje overslaand, vormen een akkoord: C, E, G. Dat is wat de gitaar speelt terwijl iemand zingt.",
+          "lamina": [
+            "guitarra",
+            "piano"
+          ]
+        },
+        {
+          "id": "mayorMenor",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mayorMenor"
+          },
+          "texto": "Je hoeft maar één noot een halve toon te verschuiven om de stemming te veranderen: het majeurakkoord klinkt helder en het mineurakkoord weemoedig. Luister naar Twinkel, twinkel, kleine ster in majeur en daarna in mineur: het is dezelfde melodie en het lijkt een ander verhaal. In 2009 bracht Thomas Fritz westerse muziek naar het Mafa-volk in Kameroen, dat die nooit had gehoord, en toch herkenden ze welke stukken vrolijk waren en welke verdrietig.",
+          "lamina": [
+            "camerun",
+            "luzSombra"
+          ]
+        },
+        {
+          "id": "tension",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "tension"
+          },
+          "texto": "Sommige akkoorden rusten en andere willen verder. Muziek leeft van spanning opbouwen en oplossen: daarom voel je dat een nummer klaar is als het terugkeert naar zijn thuisakkoord.",
+          "lamina": "ola"
+        },
+        {
+          "id": "progresion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "progresion"
+          },
+          "texto": "Een rij akkoorden heet een akkoordenschema. Onze twee liedjes begeleid je met maar drie akkoorden. En met vier, in de volgorde een, vijf, zes, vier, zijn honderden hits geschreven, van Let It Be van de Beatles tot een flink deel van de pop van nu: een goed akkoordenschema gaat decennia mee.",
+          "lamina": [
+            "acordes",
+            "vinilo"
+          ]
+        },
+        {
+          "id": "manos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "derecha",
+              "izquierda",
+              "juntas"
+            ]
+          },
+          "texto": "Op het keyboard ziet dat er zo uit: de rechterhand speelt de melodie en de linkerhand de akkoorden. Met drie akkoorden begeleid je de twee liedjes al helemaal.",
+          "lamina": "piano",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "mezcla",
+      "titulo": "Hoe muziek wordt gemixt",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zes. Hoe muziek wordt gemixt."
+        },
+        {
+          "id": "capas",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezclador"
+          },
+          "texto": "Weet je nog, de sporen van Les Paul? Zo bouw je de Ode an die Freude op in vier: eerst de drums, dan de bas, daarna de akkoorden en, boven alles uit, de melodie.",
+          "lamina": [
+            "consola",
+            "estudio"
+          ]
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezcladorBalance"
+          },
+          "texto": "Mixen is drie dingen beslissen: hoe hard elk spoor klinkt, zodat de bas de melodie niet bedekt; in welke frequenties het leeft, de lage tonen onderaan en de bekkens bovenaan; en waar het klinkt, in het midden of aan de zijkanten.",
+          "lamina": [
+            "fader",
+            "ecualizador"
+          ]
+        },
+        {
+          "id": "dj",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dj"
+          },
+          "texto": "En dan is er de andere mix, die van de dj: die voegt geen sporen samen, maar hele nummers. Eerst maakt hij de snelheid van de twee gelijk, zodat hun tellen samenvallen; dan gaat hij met de crossfader langzaam van het ene naar het andere, en haalt hij de lage tonen weg bij het nummer dat vertrekt, zodat de twee baslijnen niet botsen.",
+          "lamina": [
+            "dj",
+            "tornamesa"
+          ]
+        },
+        {
+          "id": "mencion-mezcla",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Zo doe ik het in mijn Audiostudio in MindHaOS: elk spoor heeft zijn eigen kanaal op de mengtafel, met zijn volume, zijn panning en zijn effecten.",
+          "lamina": "mezclador",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Jouw plan om te beginnen",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zeven. Jouw plan om te beginnen."
+        },
+        {
+          "id": "escucha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pasada1",
+              "pasada2",
+              "pasada3"
+            ]
+          },
+          "texto": "Begin met anders te luisteren: zet een nummer drie keer op en volg eerst de drums, dan de bas en ten slotte de melodie en de akkoorden. Je gaat dingen horen die er al jaren zaten.",
+          "lamina": [
+            "audifonos3",
+            "vinilo2"
+          ]
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "minutosAno"
+          },
+          "texto": "Je hebt niet veel tijd nodig: vijftien minuten per dag is meer dan negentig uur per jaar. Schuif hier je minuten en kijk hoeveel nummers je in een jaar zou kunnen leren.",
+          "lamina": "reloj"
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "Een mogelijke week: op maandag de puls met een metronoom; op dinsdag een melodie op het gehoor; op woensdag drie akkoorden; op donderdag de twee handen; op vrijdag luisteren in drie rondes; en in het weekend neem je iets van jezelf op.",
+          "lamina": [
+            "semana",
+            "grabar"
+          ]
+        },
+        {
+          "id": "graba",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "grabate",
+              "escuchate",
+              "comparte"
+            ]
+          },
+          "texto": "En neem jezelf op vanaf de eerste dag: jezelf terugluisteren is de snelste manier om beter te worden. Kijk, zo klinkt de Ode met zijn vier gemixte sporen.",
+          "lamina": "microfono",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Kortom: muziek is georganiseerd geluid; het ritme ordent haar in de tijd, de melodie in de toonhoogte en de harmonie in lagen; mixen is elk spoor zijn volume, zijn frequentie en zijn plek geven; en spelen verandert jou, ook al componeert een machine al.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Als je muziek wilt maken zoals ik, heeft de Audiostudio van MindHaOS alles in één kamer: je kunt liedjes oefenen noot voor noot, je eigen maken met verschillende instrumenten, om zelf te spelen of al geproduceerd om naar te luisteren, en zelfs liedjes mixen als een dj. De link staat in de beschrijving, samen met deze interactieve gids. Tot de volgende keer.",
+    "boton": "Open de Audiostudio",
+    "lamina": "app-plan",
+    "anclas": {
+      "practicar": "liedjes oefenen",
+      "crear": "je eigen maken",
+      "producidas": "al geproduceerd",
+      "dj": "liedjes mixen als een dj"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "varese",
+      "texto": "Varèse E., Wen-chung C. The Liberation of Sound. Perspectives of New Music (1966).",
+      "url": "https://doi.org/10.2307/832385"
+    },
+    {
+      "id": "conard-2009",
+      "texto": "Conard N. J., Malina M., Münzel S. C. New flutes document the earliest musical tradition in southwestern Germany. Nature (2009).",
+      "url": "https://doi.org/10.1038/nature08169"
+    },
+    {
+      "id": "winkler-2009",
+      "texto": "Winkler I., Háden G. P., Ladinig O., Sziller I., Honing H. Newborn infants detect the beat in music. PNAS (2009).",
+      "url": "https://doi.org/10.1073/pnas.0809035106"
+    },
+    {
+      "id": "moelants-2002",
+      "texto": "Moelants D. Preferred tempo reconsidered. Proceedings of the 7th International Conference on Music Perception and Cognition (2002)."
+    },
+    {
+      "id": "fritz-2009",
+      "texto": "Fritz T. et al. Universal recognition of three basic emotions in music. Current Biology (2009).",
+      "url": "https://doi.org/10.1016/j.cub.2009.02.058"
+    },
+    {
+      "id": "hyde-2009",
+      "texto": "Hyde K. L. et al. Musical training shapes structural brain development. Journal of Neuroscience (2009).",
+      "url": "https://doi.org/10.1523/JNEUROSCI.5118-08.2009"
+    },
+    {
+      "id": "guido",
+      "texto": "Guido van Arezzo. Micrologus en Epistola de ignoto cantu (rond 1025-1030).",
+      "url": "https://en.wikipedia.org/wiki/Guido_of_Arezzo"
+    },
+    {
+      "id": "lespaul",
+      "texto": "Les Paul en de achtsporenrecorder «Octopus» van Ampex (1957).",
+      "url": "https://en.wikipedia.org/wiki/Les_Paul"
+    },
+    {
+      "id": "kirschner-2010",
+      "texto": "Kirschner S., Tomasello M. Joint music making promotes prosocial behavior in 4-year-old children. Evolution and Human Behavior (2010).",
+      "url": "https://doi.org/10.1016/j.evolhumbehav.2010.04.004"
+    },
+    {
+      "id": "edison-1877",
+      "texto": "Edison T. A. De fonograaf (Amerikaans octrooi 200 521, 1878).",
+      "url": "https://en.wikipedia.org/wiki/Phonograph"
+    },
+    {
+      "id": "midi-1983",
+      "texto": "MIDI Association. Geschiedenis van de MIDI 1.0-standaard (1983).",
+      "url": "https://midi.org/"
+    }
+  ]
+}

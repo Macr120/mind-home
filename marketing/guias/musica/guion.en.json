@@ -1,0 +1,700 @@
+{
+  "idioma": "en",
+  "tema": "musica",
+  "plantillaId": "audio",
+  "numero": 7,
+  "nombre": "Audio Studio",
+  "pregunta": "What is music?",
+  "corta": "What is music?",
+  "subtitulo": "Why learn to play even though an artificial intelligence can already compose, a brief history of music, how rhythm, melody and harmony work with two songs we all know, how the tracks of a song are mixed and how a DJ mixes two songs, and a fifteen-minute-a-day plan to get started.",
+  "aviso": "This guide is for information only: the dates, figures and studies cited are approximations from their sources, and everyone progresses at their own pace. The two example songs are in the public domain and play in original arrangements; the others are only mentioned.",
+  "partes": [
+    {
+      "id": "musica",
+      "titulo": "What music is",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "What is music? Today an artificial intelligence can compose a complete song in seconds, with lyrics and vocals. And yet millions of people keep learning to play an instrument. So why is it still worth studying music? In the next few minutes you'll see what music is, how it began, how rhythm, melody and harmony work with two songs you've known since you were a kid and how tracks are mixed, and you'll leave with a plan to start playing today.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "By the way, this is my house in MindHaOS, and this is my Audio Studio: this is where I compose, record and mix. Today I'll use it to show you how a song is built, piece by piece. Let's get started.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part one. What music is."
+        },
+        {
+          "id": "sonido",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "onda"
+          },
+          "texto": "It all starts with a vibration. A string or a speaker pushes the air hundreds of times per second, and the more vibrations, the higher you hear it: the note A that orchestras tune to vibrates four hundred and forty times per second.",
+          "lamina": [
+            "cuerda",
+            "bocina"
+          ]
+        },
+        {
+          "id": "definicion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ruido",
+              "orden",
+              "musica"
+            ]
+          },
+          "texto": "But noise isn't music. The composer Edgard Varèse put it this way: music is organized sound. Organized in time, in pitch and in layers that sound together: rhythm, melody and harmony.",
+          "lamina": [
+            "varese",
+            "partitura"
+          ]
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "15 months",
+            "clave": "hyde"
+          },
+          "texto": "So why learn to play if a machine can already compose? Because when you play, it's not just the song that changes, you change. In 2009, Krista Hyde and her team followed children who took keyboard lessons for fifteen months: the areas of their brain that move the hands and listen changed more than in children who didn't. A machine can make the song, but it can't play it for you.",
+          "lamina": [
+            "nina",
+            "teclado"
+          ]
+        },
+        {
+          "id": "grupo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cerebro",
+              "oido",
+              "juntos"
+            ]
+          },
+          "texto": "And playing with others brings us together: in 2010, at the Max Planck Institute, Sebastian Kirschner and Michael Tomasello saw that four-year-olds who had made music together helped each other more afterwards. And it's never too late: adults learn too.",
+          "lamina": [
+            "banda",
+            "adulto"
+          ]
+        },
+        {
+          "id": "canciones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dosCanciones"
+          },
+          "texto": "To understand its pieces we'll use two songs almost everyone knows: Beethoven's Ode to Joy, from 1824, and Twinkle, Twinkle, Little Star, a French melody from 1761. Both are in the public domain, so here they play in full.",
+          "lamina": [
+            "beethoven",
+            "mozart"
+          ]
+        },
+        {
+          "id": "teclado",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ritmo",
+              "melodia",
+              "armonia"
+            ]
+          },
+          "texto": "Here on my keyboard, the Ode plays in three layers: first the beat of the rhythm, then the melody with one finger, and finally the chords with the other hand.",
+          "lamina": "teclado2",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "A brief history of music",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part two. A brief history of music."
+        },
+        {
+          "id": "flauta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaMusica"
+          },
+          "texto": "In a cave in Germany, Hohle Fels, archaeologists found a flute carved from a vulture bone some forty thousand years ago. Before we could write, we were already making music.",
+          "lamina": [
+            "hohlefels",
+            "cueva"
+          ]
+        },
+        {
+          "id": "pitagoras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 : 1",
+            "clave": "pitagoras"
+          },
+          "texto": "In ancient Greece, legend has it that Pythagoras discovered that a string half as long plays the same note, only higher: an octave. Ever since, music has also been mathematics.",
+          "lamina": [
+            "pitagoras",
+            "monocordio"
+          ]
+        },
+        {
+          "id": "guido",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1025",
+            "clave": "guido"
+          },
+          "texto": "Around 1025, the monk Guido of Arezzo took the first syllables of a hymn, ut, re, mi, fa, sol, la, so his singers could learn faster. Ut later became do, and his idea of writing notes on lines is today's sheet music.",
+          "lamina": [
+            "guido",
+            "manuscrito"
+          ]
+        },
+        {
+          "id": "edison",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1877",
+            "clave": "edison"
+          },
+          "texto": "For thousands of years, music only existed while someone was playing it. In 1877, Thomas Edison recorded his voice on the cylinder of his phonograph, and for the first time a sound could be saved and heard again.",
+          "lamina": [
+            "edison",
+            "fonografo"
+          ]
+        },
+        {
+          "id": "lesPaul",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1 → 8",
+            "clave": "lesPaul"
+          },
+          "texto": "In the fifties, the guitarist Les Paul recorded on top of his own recordings, and in 1957 he debuted one of the first eight-track recorders. Ever since, almost all music is recorded in parts, each instrument on its own track.",
+          "lamina": [
+            "lespaul",
+            "cinta"
+          ]
+        },
+        {
+          "id": "midi",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "teclado",
+              "computadora",
+              "ia"
+            ]
+          },
+          "texto": "And in 1983 came MIDI, the language electronic instruments and computers use to talk to each other. That's why today a keyboard and a computer are a complete studio, and artificial intelligence is just the latest chapter.",
+          "lamina": "midi",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "ritmo",
+      "titulo": "Rhythm",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part three. Rhythm."
+        },
+        {
+          "id": "pulso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "pulso"
+          },
+          "texto": "Rhythm is how music is spread out in time, and its foundation is the beat: the steady pulse you tap with your foot. Its speed is measured in beats per minute. Listen to the Ode at sixty, at a hundred and at a hundred and forty: the same song with a different energy.",
+          "lamina": [
+            "pie",
+            "metronomo"
+          ]
+        },
+        {
+          "id": "bebes",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 days",
+            "clave": "bebes"
+          },
+          "texto": "Feeling the beat comes built in. In 2009, István Winkler's team in Hungary played a drum rhythm to two-day-old babies: when the strong beat was missing, their brains reacted to the surprise. And the tempo we like most is around a hundred and twenty beats per minute, close to the pace of our footsteps.",
+          "lamina": [
+            "bebe",
+            "caminar"
+          ]
+        },
+        {
+          "id": "compas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "compas"
+          },
+          "texto": "Beats are grouped into bars, with a stronger one at the start. Twinkle goes in fours; a waltz, in threes. That's why you spin to a waltz and walk to a march.",
+          "lamina": [
+            "vals",
+            "marcha"
+          ]
+        },
+        {
+          "id": "bateria",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cajaRitmos"
+          },
+          "texto": "On a drum machine it's crystal clear: the kick marks the strong beats, the snare the weak ones, and the hi-hat counts the steps in between. Stomp, stomp, clap: with just that, Queen turned We Will Rock You into a stadium anthem.",
+          "lamina": [
+            "cajaRitmos",
+            "estadio"
+          ]
+        },
+        {
+          "id": "sincopa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "sincopa"
+          },
+          "texto": "And the trick that makes you dance is syncopation: an accent that lands where you don't expect it, between two beats. Listen to how a single hit out of place gives the rhythm its swing.",
+          "lamina": "baile"
+        },
+        {
+          "id": "palmas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escucha",
+              "pie",
+              "cuenta"
+            ]
+          },
+          "texto": "Try it with any song: tap the beat with your foot and count to four. That's how I build the groove of the Ode, hit by hit.",
+          "lamina": "palmas",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "melodia",
+      "titulo": "Melody",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part four. Melody."
+        },
+        {
+          "id": "notas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "octava"
+          },
+          "texto": "A melody is a line of notes you can sing. Between one octave and the next, Western music has twelve notes, and with seven of them, C, D, E, F, G, A, B, you can make almost every melody you know.",
+          "lamina": [
+            "partitura",
+            "notas"
+          ]
+        },
+        {
+          "id": "contorno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "teclado"
+          },
+          "texto": "What makes a melody recognizable is its shape: whether it goes up or down, and whether it moves in steps or leaps. Ode to Joy moves almost entirely in steps: E, E, F, G. Twinkle starts with a leap: C, C, G, G. Play them here on the keyboard and look at their shape.",
+          "lamina": [
+            "teclado2",
+            "contorno"
+          ]
+        },
+        {
+          "id": "repeticion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "forma"
+          },
+          "texto": "And it sticks because it repeats. Twinkle has three phrases: one, a different one, and the first one again. That form, A, B, A, is in thousands of songs.",
+          "lamina": "cantar"
+        },
+        {
+          "id": "tararea",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tararea",
+              "sube",
+              "toca"
+            ]
+          },
+          "texto": "To play melodies by ear: hum it, notice whether it goes up or down, and find it on the keyboard note by note. That's how I play the Ode with one finger.",
+          "lamina": "teclado3",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "armonia",
+      "titulo": "Harmony",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part five. Harmony."
+        },
+        {
+          "id": "acorde",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "acorde"
+          },
+          "texto": "If melody is notes one after another, harmony is notes at the same time. Three notes together, skipping every other one, make a chord: C, E, G. It's what the guitar plays while someone sings.",
+          "lamina": [
+            "guitarra",
+            "piano"
+          ]
+        },
+        {
+          "id": "mayorMenor",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mayorMenor"
+          },
+          "texto": "Moving a single note by half a step is enough to change the mood: a major chord sounds bright and a minor one, wistful. Listen to Twinkle in major and then in minor: it's the same melody and it feels like another story. In 2009, Thomas Fritz brought Western music to the Mafa people in Cameroon, who had never heard it, and they still recognized which pieces were happy and which were sad.",
+          "lamina": [
+            "camerun",
+            "luzSombra"
+          ]
+        },
+        {
+          "id": "tension",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "tension"
+          },
+          "texto": "Some chords rest and others want to move. Music lives on creating tension and resolving it: that's why, when a song returns to its home chord, you feel it's over.",
+          "lamina": "ola"
+        },
+        {
+          "id": "progresion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "progresion"
+          },
+          "texto": "A line of chords is called a progression. Our two songs can be accompanied with just three chords. And with four, in the order one, five, six, four, hundreds of hits have been written, from the Beatles' Let It Be to much of today's pop: a good progression lasts for decades.",
+          "lamina": [
+            "acordes",
+            "vinilo"
+          ]
+        },
+        {
+          "id": "manos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "derecha",
+              "izquierda",
+              "juntas"
+            ]
+          },
+          "texto": "On the keyboard it looks like this: the right hand plays the melody and the left, the chords. With three chords you can already accompany both songs from start to finish.",
+          "lamina": "piano",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "mezcla",
+      "titulo": "How music is mixed",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part six. How music is mixed."
+        },
+        {
+          "id": "capas",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezclador"
+          },
+          "texto": "Remember Les Paul's tracks? This is how Ode to Joy is built in four: first the drums, then the bass, then the chords and, on top of everything, the melody.",
+          "lamina": [
+            "consola",
+            "estudio"
+          ]
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezcladorBalance"
+          },
+          "texto": "Mixing means deciding three things: how loud each track is, so the bass doesn't cover the melody; which frequencies it lives in, the lows at the bottom and the cymbals at the top; and where it sounds, in the center or to the sides.",
+          "lamina": [
+            "fader",
+            "ecualizador"
+          ]
+        },
+        {
+          "id": "dj",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dj"
+          },
+          "texto": "And then there's the other kind of mix, the DJ's: it doesn't combine tracks, but whole songs. First the DJ matches the speed of both, so their beats land together; then, with the crossfader, slides little by little from one to the other, and cuts the bass of the outgoing song so the two basslines don't clash.",
+          "lamina": [
+            "dj",
+            "tornamesa"
+          ]
+        },
+        {
+          "id": "mencion-mezcla",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "That's how I do it in my Audio Studio in MindHaOS: each track has its own channel on the mixer, with its volume, its panning and its effects.",
+          "lamina": "mezclador",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Your plan to get started",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part seven. Your plan to get started."
+        },
+        {
+          "id": "escucha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pasada1",
+              "pasada2",
+              "pasada3"
+            ]
+          },
+          "texto": "Start by listening differently: play a song three times and follow first the drums, then the bass and finally the melody and the chords. You'll hear things that have been there for years.",
+          "lamina": [
+            "audifonos3",
+            "vinilo2"
+          ]
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "minutosAno"
+          },
+          "texto": "You don't need a lot of time: fifteen minutes a day add up to more than ninety hours a year. Move your minutes here and see how many songs you could learn in a year.",
+          "lamina": "reloj"
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "A possible week: on Monday, the beat with a metronome; on Tuesday, a melody by ear; on Wednesday, three chords; on Thursday, both hands; on Friday, listening in three passes; and on the weekend, record something of your own.",
+          "lamina": [
+            "semana",
+            "grabar"
+          ]
+        },
+        {
+          "id": "graba",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "grabate",
+              "escuchate",
+              "comparte"
+            ]
+          },
+          "texto": "And record yourself from day one: listening to yourself is the fastest way to improve. Look, this is how the Ode sounds with its four tracks mixed.",
+          "lamina": "microfono",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "In short: music is organized sound; rhythm orders it in time, melody in pitch and harmony in layers; mixing means giving each track its volume, its frequency and its place; and playing changes you, even if a machine can already compose.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "If you want to make music like me, the MindHaOS Audio Studio has it all in a single room: you can practice songs note by note, create your own with several instruments, to play them yourself or already produced to listen to, and even mix songs like a DJ. The link is in the description, along with this interactive guide. See you in the next one.",
+    "boton": "Open the Audio Studio",
+    "lamina": "app-plan",
+    "anclas": {
+      "practicar": "practice songs",
+      "crear": "create your own",
+      "producidas": "already produced",
+      "dj": "mix songs like a DJ"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "varese",
+      "texto": "Varèse E., Wen-chung C. The Liberation of Sound. Perspectives of New Music (1966).",
+      "url": "https://doi.org/10.2307/832385"
+    },
+    {
+      "id": "conard-2009",
+      "texto": "Conard N. J., Malina M., Münzel S. C. New flutes document the earliest musical tradition in southwestern Germany. Nature (2009).",
+      "url": "https://doi.org/10.1038/nature08169"
+    },
+    {
+      "id": "winkler-2009",
+      "texto": "Winkler I., Háden G. P., Ladinig O., Sziller I., Honing H. Newborn infants detect the beat in music. PNAS (2009).",
+      "url": "https://doi.org/10.1073/pnas.0809035106"
+    },
+    {
+      "id": "moelants-2002",
+      "texto": "Moelants D. Preferred tempo reconsidered. Proceedings of the 7th International Conference on Music Perception and Cognition (2002)."
+    },
+    {
+      "id": "fritz-2009",
+      "texto": "Fritz T. et al. Universal recognition of three basic emotions in music. Current Biology (2009).",
+      "url": "https://doi.org/10.1016/j.cub.2009.02.058"
+    },
+    {
+      "id": "hyde-2009",
+      "texto": "Hyde K. L. et al. Musical training shapes structural brain development. Journal of Neuroscience (2009).",
+      "url": "https://doi.org/10.1523/JNEUROSCI.5118-08.2009"
+    },
+    {
+      "id": "guido",
+      "texto": "Guido of Arezzo. Micrologus and Epistola de ignoto cantu (c. 1025-1030).",
+      "url": "https://en.wikipedia.org/wiki/Guido_of_Arezzo"
+    },
+    {
+      "id": "lespaul",
+      "texto": "Les Paul and the Ampex eight-track recorder «Octopus» (1957).",
+      "url": "https://en.wikipedia.org/wiki/Les_Paul"
+    },
+    {
+      "id": "kirschner-2010",
+      "texto": "Kirschner S., Tomasello M. Joint music making promotes prosocial behavior in 4-year-old children. Evolution and Human Behavior (2010).",
+      "url": "https://doi.org/10.1016/j.evolhumbehav.2010.04.004"
+    },
+    {
+      "id": "edison-1877",
+      "texto": "Edison T. A. The phonograph (U.S. patent 200,521, 1878).",
+      "url": "https://en.wikipedia.org/wiki/Phonograph"
+    },
+    {
+      "id": "midi-1983",
+      "texto": "MIDI Association. History of the MIDI 1.0 standard (1983).",
+      "url": "https://midi.org/"
+    }
+  ]
+}

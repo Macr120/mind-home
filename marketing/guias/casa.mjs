@@ -219,6 +219,8 @@ const pepEnSuSitio = (tema = null) => `
   ${ESCENA.FORMA ? `
   // El narrador no es Pep@: el avatar toma la forma integrada de la escena (Idiomas: el mago), sin ropa.
   await useDiseño.getState().setAvatarForma(${JSON.stringify(ESCENA.FORMA)})
+  // Su color (Música: el mago de verde); sin FORMA_COLOR, el de fábrica.
+  await useDiseño.getState().setAvatarFormaColor(${JSON.stringify(ESCENA.FORMA_COLOR ?? null)})
   await useDiseño.getState().setAvatarRopaCompleta({})
   ` : `
   // Pep@ de nuevo (una guía anterior pudo dejarle la forma del mago) y con la ropa del cuarto (o la del tema).

@@ -7175,6 +7175,7 @@ export const KO: Dict = {
   'guia.finanzas.titulo': "돈이란 무엇일까요?",
   'guia.idiomas.titulo': "왜 언어를 배워야 할까요?",
   'guia.arte.titulo': "예술이란 무엇일까요?",
+  'guia.musica.titulo': "음악이란 무엇일까요?",
   'tut.esencial.titulo': '기본 둘러보기',
   'tut.tipo.ejemplos': '예시 · 데모 MindHaOS',
   'tut.app-agenda--esencial.resumen':

@@ -7434,6 +7434,7 @@ export const TR: Dict = {
   'guia.finanzas.titulo': "Para nedir?",
   'guia.idiomas.titulo': "Neden bir dil öğrenmeli?",
   'guia.arte.titulo': "Sanat nedir?",
+  'guia.musica.titulo': "Müzik nedir?",
   'tut.esencial.titulo': 'Temel Bilgiler',
   'tut.tipo.ejemplos': 'Örnekler · demo MindHaOS',
   'tut.app-agenda--esencial.resumen':

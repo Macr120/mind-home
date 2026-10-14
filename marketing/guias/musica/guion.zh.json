@@ -1,0 +1,700 @@
+{
+  "idioma": "zh",
+  "tema": "musica",
+  "plantillaId": "audio",
+  "numero": 7,
+  "nombre": "音频工作室",
+  "pregunta": "什么是音乐？",
+  "corta": "什么是音乐？",
+  "subtitulo": "为什么即使人工智能已经会作曲，仍然值得学演奏；一段简短的音乐史；用两首人人都熟悉的歌看懂节奏、旋律与和声；一首歌的音轨怎样混音，DJ怎样把两首歌混在一起；以及每天十五分钟的起步计划。",
+  "aviso": "本指南仅供参考：文中引用的日期、数字和研究都是根据各自来源的近似值，每个人进步的速度也不一样。两首示例歌曲属于公有领域，用自制的编曲播放；其他歌曲只提及名字。",
+  "partes": [
+    {
+      "id": "musica",
+      "titulo": "什么是音乐",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "什么是音乐？如今，人工智能几秒钟就能写出一首完整的歌，连歌词和人声都有。可即便如此，仍有数百万人在学习演奏乐器。那你为什么还值得继续学音乐？接下来几分钟，你会看到什么是音乐、它如何诞生、节奏、旋律与和声如何在两首你从小就熟悉的歌里运作、音轨又是怎样混在一起的，最后带着一份从今天就能开始弹奏的计划离开。",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "顺便说一句，这是我在MindHaOS里的家，这是我的音频工作室：我在这里作曲、录音和混音。今天我就用它，一块一块地告诉你一首歌是怎么搭起来的。我们开始吧。",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第一部分。什么是音乐。"
+        },
+        {
+          "id": "sonido",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "onda"
+          },
+          "texto": "一切都从振动开始。琴弦或音箱每秒推动空气几百次，振动越多，你听到的声音就越高：管弦乐团用来调音的A音，每秒振动四百四十次。",
+          "lamina": [
+            "cuerda",
+            "bocina"
+          ]
+        },
+        {
+          "id": "definicion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ruido",
+              "orden",
+              "musica"
+            ]
+          },
+          "texto": "但噪音并不是音乐。作曲家埃德加·瓦雷兹这样定义它：音乐是有组织的声音。在时间上、在音高上、在同时发声的层次上组织起来：这就是节奏、旋律与和声。",
+          "lamina": [
+            "varese",
+            "partitura"
+          ]
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "15个月",
+            "clave": "hyde"
+          },
+          "texto": "既然机器已经会作曲，那为什么还要学演奏？因为演奏改变的不只是歌，还有你自己。2009年，克丽丝塔·海德和她的团队追踪了一群上了十五个月键盘课的孩子：他们大脑中控制双手和负责听觉的区域，比没上课的孩子变化更大。机器可以做出一首歌，却不能替你去弹。",
+          "lamina": [
+            "nina",
+            "teclado"
+          ]
+        },
+        {
+          "id": "grupo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cerebro",
+              "oido",
+              "juntos"
+            ]
+          },
+          "texto": "和别人一起演奏还能拉近彼此：2010年，在马克斯·普朗克研究所，塞巴斯蒂安·基施纳和迈克尔·托马塞洛发现，一起玩过音乐的四岁孩子，之后更愿意互相帮助。而且永远不晚：成年人也学得会。",
+          "lamina": [
+            "banda",
+            "adulto"
+          ]
+        },
+        {
+          "id": "canciones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dosCanciones"
+          },
+          "texto": "为了看懂这些组成部分，我们会用两首几乎人人都熟悉的歌：贝多芬1824年的《欢乐颂》，和1761年的一段法国旋律《小星星》。两首都属于公有领域，所以在这里可以完整播放。",
+          "lamina": [
+            "beethoven",
+            "mozart"
+          ]
+        },
+        {
+          "id": "teclado",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ritmo",
+              "melodia",
+              "armonia"
+            ]
+          },
+          "texto": "在我的键盘上，《欢乐颂》分成三层：先是节奏的拍子，然后用一根手指弹旋律，最后用另一只手弹和弦。",
+          "lamina": "teclado2",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "音乐简史",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第二部分。音乐简史。"
+        },
+        {
+          "id": "flauta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaMusica"
+          },
+          "texto": "在德国的霍勒费尔斯洞穴里，人们发现了一支大约四万年前用秃鹫骨头刻成的笛子。在会写字之前，我们就已经在做音乐了。",
+          "lamina": [
+            "hohlefels",
+            "cueva"
+          ]
+        },
+        {
+          "id": "pitagoras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 : 1",
+            "clave": "pitagoras"
+          },
+          "texto": "在古希腊，传说毕达哥拉斯发现，长度只有一半的琴弦会发出同一个音，只是更高：这就是八度。从那以后，音乐也是数学。",
+          "lamina": [
+            "pitagoras",
+            "monocordio"
+          ]
+        },
+        {
+          "id": "guido",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1025",
+            "clave": "guido"
+          },
+          "texto": "大约在1025年，修士圭多·达雷佐取了一首圣歌开头的音节，ut、re、mi、fa、sol、la，好让他的歌手学得更快。ut后来变成了do，而他把音符写在线上的想法，就是今天的乐谱。",
+          "lamina": [
+            "guido",
+            "manuscrito"
+          ]
+        },
+        {
+          "id": "edison",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1877",
+            "clave": "edison"
+          },
+          "texto": "几千年来，音乐只在有人演奏的时候才存在。1877年，托马斯·爱迪生把自己的声音录在留声机的圆筒上，声音第一次能被保存下来，再听一遍。",
+          "lamina": [
+            "edison",
+            "fonografo"
+          ]
+        },
+        {
+          "id": "lesPaul",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1 → 8",
+            "clave": "lesPaul"
+          },
+          "texto": "上世纪五十年代，吉他手莱斯·保罗在自己的录音上叠加录音，1957年又推出了最早的八轨录音机之一。从那以后，几乎所有音乐都是分开录的，每件乐器一条音轨。",
+          "lamina": [
+            "lespaul",
+            "cinta"
+          ]
+        },
+        {
+          "id": "midi",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "teclado",
+              "computadora",
+              "ia"
+            ]
+          },
+          "texto": "1983年，MIDI诞生了，它是电子乐器和电脑彼此交流的语言。所以今天，一台键盘加一台电脑就是一间完整的录音室，而人工智能只是最新的一章。",
+          "lamina": "midi",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "ritmo",
+      "titulo": "节奏",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第三部分。节奏。"
+        },
+        {
+          "id": "pulso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "pulso"
+          },
+          "texto": "节奏是音乐在时间上的分布方式，它的基础是拍子：就是你用脚跟着打的那个均匀的点。速度用每分钟多少拍来衡量。听听《欢乐颂》在每分钟六十拍、一百拍和一百四十拍下的样子：同一首歌，完全不同的能量。",
+          "lamina": [
+            "pie",
+            "metronomo"
+          ]
+        },
+        {
+          "id": "bebes",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "出生2天",
+            "clave": "bebes"
+          },
+          "texto": "感受拍子是天生的。2009年，匈牙利的伊什特万·温克勒团队让出生两天的婴儿听一段鼓的节奏：当强拍缺失时，他们的大脑会对这个意外做出反应。而我们最喜欢的速度大约是每分钟一百二十拍，差不多就是我们走路的节奏。",
+          "lamina": [
+            "bebe",
+            "caminar"
+          ]
+        },
+        {
+          "id": "compas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "compas"
+          },
+          "texto": "拍子会组成小节，每小节的第一拍最强。《小星星》是四拍一组，华尔兹是三拍一组。所以华尔兹要转着圈跳，进行曲要迈步走。",
+          "lamina": [
+            "vals",
+            "marcha"
+          ]
+        },
+        {
+          "id": "bateria",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cajaRitmos"
+          },
+          "texto": "在鼓机上看得最清楚：底鼓打强拍，军鼓打弱拍，镲片数着中间的细分。跺脚，跺脚，拍手：只靠这些，皇后乐队就把We Will Rock You变成了体育场的颂歌。",
+          "lamina": [
+            "cajaRitmos",
+            "estadio"
+          ]
+        },
+        {
+          "id": "sincopa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "sincopa"
+          },
+          "texto": "而让人想跳舞的秘诀是切分音：一个落在你意想不到的位置、落在两拍之间的重音。听听看，只要一个鼓点离开原位，节奏就摇摆起来了。",
+          "lamina": "baile"
+        },
+        {
+          "id": "palmas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escucha",
+              "pie",
+              "cuenta"
+            ]
+          },
+          "texto": "随便拿一首歌试试：用脚打拍子，数到四。我就是这样一拍一拍地搭起《欢乐颂》的节奏底子。",
+          "lamina": "palmas",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "melodia",
+      "titulo": "旋律",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第四部分。旋律。"
+        },
+        {
+          "id": "notas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "octava"
+          },
+          "texto": "旋律是一串你能唱出来的音。西方音乐把一个八度分成十二个音，而用其中七个，C、D、E、F、G、A、B，就能写出你熟悉的几乎所有旋律。",
+          "lamina": [
+            "partitura",
+            "notas"
+          ]
+        },
+        {
+          "id": "contorno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "teclado"
+          },
+          "texto": "一段旋律之所以好认，是因为它的轮廓：是往上还是往下，是一步一步走还是跳过去。《欢乐颂》几乎都是一步一步走：E、E、F、G。《小星星》一开头就跳：C、C、G、G。在这里的键盘上弹弹看，看看它们的轮廓。",
+          "lamina": [
+            "teclado2",
+            "contorno"
+          ]
+        },
+        {
+          "id": "repeticion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "forma"
+          },
+          "texto": "它之所以让人记住，是因为会重复。《小星星》有三个乐句：第一句、一个不一样的，再回到第一句。这种A、B、A的结构，出现在成千上万首歌里。",
+          "lamina": "cantar"
+        },
+        {
+          "id": "tararea",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tararea",
+              "sube",
+              "toca"
+            ]
+          },
+          "texto": "想靠耳朵扒旋律：先哼出来，留意它是往上还是往下，再在键盘上一个音一个音地找。我就是这样用一根手指弹《欢乐颂》的。",
+          "lamina": "teclado3",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "armonia",
+      "titulo": "和声",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第五部分。和声。"
+        },
+        {
+          "id": "acorde",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "acorde"
+          },
+          "texto": "如果说旋律是一个接一个的音，和声就是同时响起的音。隔一个音取一个，三个音叠在一起，就是一个和弦：C、E、G。有人唱歌时，吉他弹的就是这个。",
+          "lamina": [
+            "guitarra",
+            "piano"
+          ]
+        },
+        {
+          "id": "mayorMenor",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mayorMenor"
+          },
+          "texto": "只要把一个音移动半音，情绪就变了：大三和弦听起来明亮，小三和弦听起来忧伤。听听《小星星》先用大调、再用小调：同一段旋律，却像另一个故事。2009年，托马斯·弗里茨把西方音乐带到喀麦隆从没听过它的马法族村落，他们仍然听得出哪些曲子欢快、哪些悲伤。",
+          "lamina": [
+            "camerun",
+            "luzSombra"
+          ]
+        },
+        {
+          "id": "tension",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "tension"
+          },
+          "texto": "有些和弦让人安定，有些则催着往前走。音乐就靠制造紧张再解决它：所以当一首歌回到它的“家”和弦时，你会觉得它结束了。",
+          "lamina": "ola"
+        },
+        {
+          "id": "progresion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "progresion"
+          },
+          "texto": "一串和弦叫作和弦进行。我们这两首歌只用三个和弦就能伴奏。而用四个和弦，按一、五、六、四级的顺序，人们写出了几百首热门歌曲，从披头士的Let It Be到今天的大部分流行歌：一个好的和弦进行能流行几十年。",
+          "lamina": [
+            "acordes",
+            "vinilo"
+          ]
+        },
+        {
+          "id": "manos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "derecha",
+              "izquierda",
+              "juntas"
+            ]
+          },
+          "texto": "在键盘上是这样：右手弹旋律，左手弹和弦。只用三个和弦，你就能为两首歌完整伴奏。",
+          "lamina": "piano",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "mezcla",
+      "titulo": "音乐是怎样混音的",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第六部分。音乐是怎样混音的。"
+        },
+        {
+          "id": "capas",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezclador"
+          },
+          "texto": "还记得莱斯·保罗的音轨吗？《欢乐颂》就是这样用四条音轨搭起来的：先是鼓，接着是贝斯，然后是和弦，最上面是旋律。",
+          "lamina": [
+            "consola",
+            "estudio"
+          ]
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezcladorBalance"
+          },
+          "texto": "混音就是决定三件事：每条音轨有多大声，别让贝斯盖住旋律；它待在哪个频率，低音在下，镲片在上；还有它在哪里响，在中间还是在两边。",
+          "lamina": [
+            "fader",
+            "ecualizador"
+          ]
+        },
+        {
+          "id": "dj",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dj"
+          },
+          "texto": "还有另一种混音，就是DJ的混音：它混的不是音轨，而是整首歌。先把两首歌的速度调成一样，让它们的拍子落在一起；再用交叉推子一点一点从一首过渡到另一首，同时把要退场那首的低音去掉，免得两条贝斯撞在一起。",
+          "lamina": [
+            "dj",
+            "tornamesa"
+          ]
+        },
+        {
+          "id": "mencion-mezcla",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "我在MindHaOS的音频工作室里就是这样做的：每条音轨在混音器上都有自己的通道，有自己的音量、声像和效果。",
+          "lamina": "mezclador",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "你的起步计划",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第七部分。你的起步计划。"
+        },
+        {
+          "id": "escucha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pasada1",
+              "pasada2",
+              "pasada3"
+            ]
+          },
+          "texto": "先换一种方式听歌：把一首歌放三遍，第一遍跟着鼓，第二遍跟着贝斯，最后一遍跟着旋律与和弦。你会听到那些一直都在、却从没注意过的声音。",
+          "lamina": [
+            "audifonos3",
+            "vinilo2"
+          ]
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "minutosAno"
+          },
+          "texto": "你不需要很多时间：每天十五分钟，一年就超过九十个小时。在这里调一调你的分钟数，看看一年能学会几首歌。",
+          "lamina": "reloj"
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "一周可以这样安排：星期一，跟着节拍器打拍子；星期二，靠耳朵扒一段旋律；星期三，练三个和弦；星期四，两只手一起；星期五，分三遍听歌；周末，录一段你自己的东西。",
+          "lamina": [
+            "semana",
+            "grabar"
+          ]
+        },
+        {
+          "id": "graba",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "grabate",
+              "escuchate",
+              "comparte"
+            ]
+          },
+          "texto": "从第一天起就给自己录音：听自己的演奏，是进步最快的方法。看，这就是四条音轨混好之后的《欢乐颂》。",
+          "lamina": "microfono",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "总结一下：音乐是有组织的声音；节奏在时间上组织它，旋律在音高上，和声在层次上；混音就是给每条音轨它的音量、频率和位置；而即使机器已经会作曲，演奏依然会改变你。",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "如果你也想像我一样做音乐，MindHaOS的音频工作室把一切都放在一个房间里：你可以一个音一个音地练习歌曲，用多种乐器创作你自己的歌，既能自己弹，也能做成制作好的成品来听，甚至还能像DJ一样混音两首歌。链接在视频简介里，还有这份互动指南。我们下次见。",
+    "boton": "打开音频工作室",
+    "lamina": "app-plan",
+    "anclas": {
+      "practicar": "练习歌曲",
+      "crear": "创作你自己的歌",
+      "producidas": "制作好的成品",
+      "dj": "像DJ一样混音"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "varese",
+      "texto": "Varèse E., Wen-chung C. The Liberation of Sound. Perspectives of New Music (1966).",
+      "url": "https://doi.org/10.2307/832385"
+    },
+    {
+      "id": "conard-2009",
+      "texto": "Conard N. J., Malina M., Münzel S. C. New flutes document the earliest musical tradition in southwestern Germany. Nature (2009).",
+      "url": "https://doi.org/10.1038/nature08169"
+    },
+    {
+      "id": "winkler-2009",
+      "texto": "Winkler I., Háden G. P., Ladinig O., Sziller I., Honing H. Newborn infants detect the beat in music. PNAS (2009).",
+      "url": "https://doi.org/10.1073/pnas.0809035106"
+    },
+    {
+      "id": "moelants-2002",
+      "texto": "Moelants D. Preferred tempo reconsidered. Proceedings of the 7th International Conference on Music Perception and Cognition (2002)."
+    },
+    {
+      "id": "fritz-2009",
+      "texto": "Fritz T. et al. Universal recognition of three basic emotions in music. Current Biology (2009).",
+      "url": "https://doi.org/10.1016/j.cub.2009.02.058"
+    },
+    {
+      "id": "hyde-2009",
+      "texto": "Hyde K. L. et al. Musical training shapes structural brain development. Journal of Neuroscience (2009).",
+      "url": "https://doi.org/10.1523/JNEUROSCI.5118-08.2009"
+    },
+    {
+      "id": "guido",
+      "texto": "Guido de Arezzo. Micrologus、Epistola de ignoto cantu（约1025—1030年）。",
+      "url": "https://en.wikipedia.org/wiki/Guido_of_Arezzo"
+    },
+    {
+      "id": "lespaul",
+      "texto": "莱斯·保罗与Ampex八轨录音机“Octopus”（1957年）。",
+      "url": "https://en.wikipedia.org/wiki/Les_Paul"
+    },
+    {
+      "id": "kirschner-2010",
+      "texto": "Kirschner S., Tomasello M. Joint music making promotes prosocial behavior in 4-year-old children. Evolution and Human Behavior (2010).",
+      "url": "https://doi.org/10.1016/j.evolhumbehav.2010.04.004"
+    },
+    {
+      "id": "edison-1877",
+      "texto": "Edison T. A. 留声机（美国专利第200,521号，1878年）。",
+      "url": "https://en.wikipedia.org/wiki/Phonograph"
+    },
+    {
+      "id": "midi-1983",
+      "texto": "MIDI Association. MIDI 1.0标准的历史（1983年）。",
+      "url": "https://midi.org/"
+    }
+  ]
+}

@@ -39,7 +39,7 @@ const GESTOS: Record<string, Gesto> = {
   relajado: () => ({ orbe: [0.9, -0.3], otro: [0.9, -0.3], inclina: -0.15 }),
 }
 
-export function Mago3D({ escena, boca, cara }: { escena: string; boca: MutableRefObject<BocaHabla>; cara?: ExpresionId }) {
+export function Mago3D({ escena, boca, cara, tunica = TUNICA }: { escena: string; boca: MutableRefObject<BocaHabla>; cara?: ExpresionId; tunica?: string }) {
   const cuerpo = useRef<THREE.Group>(null)
   const cabeza = useRef<THREE.Group>(null)
   const brazoOrbe = useRef<THREE.Group>(null)
@@ -78,7 +78,7 @@ export function Mago3D({ escena, boca, cara }: { escena: string; boca: MutableRe
     <group ref={ref} position={[x, 0.92, 0]}>
       <mesh position={[0, -0.22, 0]} castShadow>
         <boxGeometry args={[0.14, 0.44, 0.14]} />
-        <meshStandardMaterial color={TUNICA} roughness={0.85} />
+        <meshStandardMaterial color={tunica} roughness={0.85} />
       </mesh>
       <group position={[0, -0.46, 0]}>{mano}</group>
     </group>
@@ -89,7 +89,7 @@ export function Mago3D({ escena, boca, cara }: { escena: string; boca: MutableRe
       {/* Túnica cónica */}
       <mesh position={[0, 0.5, 0]} castShadow>
         <coneGeometry args={[0.46, 1.0, 20]} />
-        <meshStandardMaterial color={TUNICA} roughness={0.85} />
+        <meshStandardMaterial color={tunica} roughness={0.85} />
       </mesh>
       <group ref={cabeza} position={[0, 1.12, 0]}>
         <mesh castShadow>
@@ -128,11 +128,11 @@ export function Mago3D({ escena, boca, cara }: { escena: string; boca: MutableRe
         {/* Sombrero: ala + cono */}
         <mesh position={[0, 0.18, 0]}>
           <cylinderGeometry args={[0.36, 0.36, 0.05, 24]} />
-          <meshStandardMaterial color={TUNICA} roughness={0.85} />
+          <meshStandardMaterial color={tunica} roughness={0.85} />
         </mesh>
         <mesh position={[0, 0.5, 0]} castShadow>
           <coneGeometry args={[0.26, 0.7, 24]} />
-          <meshStandardMaterial color={TUNICA} roughness={0.85} />
+          <meshStandardMaterial color={tunica} roughness={0.85} />
         </mesh>
       </group>
       {brazo(brazoOtro, -0.32, null)}

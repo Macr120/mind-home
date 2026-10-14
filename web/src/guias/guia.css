@@ -1974,3 +1974,388 @@ html:has(.g-pose) body {
 .g-art-arbol {
   fill: #166534;
 }
+
+/* Música: la onda, las canciones, el pulso, la caja de ritmos, el teclado, los acordes y el mezclador. */
+.g-mus svg {
+  max-width: 100%;
+}
+.g-mus { --bateria: #f97316; --bajo: #a855f7; --acordes: #22c55e; --melodia: #3b82f6; }
+.g-mus-bateria { --c: var(--bateria, #f97316); }
+.g-mus-bajo { --c: var(--bajo, #a855f7); }
+.g-mus-acordes { --c: var(--acordes, #22c55e); }
+.g-mus-melodia { --c: var(--melodia, #3b82f6); }
+.g-boton-suave {
+  border: 1px solid var(--borde);
+  padding: 7px 14px;
+  border-radius: var(--radio-boton);
+  background: var(--tarjeta);
+  color: var(--ui-ink);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.g-boton-suave.on {
+  outline: 2px solid var(--ui-accent);
+}
+.g-mus-onda {
+  transition: d 400ms ease;
+}
+.g-mus-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin: 10px 0 4px;
+}
+.g-mus-tarjeta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 12px;
+  align-items: center;
+  padding: 14px;
+  border: 0;
+  border-radius: var(--radio-tarjeta);
+  background: var(--tarjeta);
+  color: var(--ui-ink);
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+  transition: transform var(--dur-resorte) var(--ease-resorte), background 200ms;
+}
+.g-mus-tarjeta.activo {
+  background: color-mix(in srgb, var(--ui-accent) 22%, var(--tarjeta));
+  transform: scale(1.03);
+}
+.g-mus-play {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--ui-accent);
+  color: var(--ui-accent-ink);
+}
+.g-mus-tarjeta small {
+  color: var(--tinta-3);
+}
+.g-mus-pulsos {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin: 10px 0;
+}
+.g-mus-pulsos i {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--tarjeta-fuerte);
+  transition: transform 90ms ease, background 90ms;
+}
+.g-mus-pulsos i.fuerte {
+  width: 34px;
+  height: 34px;
+}
+.g-mus-pulsos i.activo {
+  background: var(--ui-accent);
+  transform: scale(1.25);
+}
+.g-mus-rejilla {
+  display: grid;
+  gap: 5px;
+  margin: 10px 0;
+}
+.g-mus-fila {
+  display: grid;
+  grid-template-columns: 74px repeat(16, 1fr);
+  gap: 3px;
+  align-items: center;
+}
+.g-mus-fila > span {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--tinta-2);
+}
+.g-mus-fila button {
+  aspect-ratio: 1;
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  border-radius: 4px;
+  background: var(--tarjeta);
+  cursor: pointer;
+}
+.g-mus-fila button.pulso {
+  background: var(--tarjeta-fuerte);
+}
+.g-mus-fila button.on {
+  background: var(--c);
+}
+.g-mus-fila button.ahora {
+  outline: 2px solid var(--ui-ink);
+  outline-offset: -1px;
+}
+.g-mus-platillo { --c: #eab308; }
+.g-mus-tarola { --c: #ef4444; }
+.g-mus-bombo { --c: #f97316; }
+.g-mus-teclado {
+  position: relative;
+  display: flex;
+  height: 120px;
+  margin: 8px 0 12px;
+  direction: ltr;
+}
+.g-mus-teclado .blanca {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 6px;
+  margin-inline-end: 2px;
+  border: 1px solid var(--borde);
+  border-radius: 0 0 6px 6px;
+  background: #fbfbf8;
+  color: #334155;
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+  transition: background 120ms;
+}
+.g-mus-teclado .negra {
+  position: absolute;
+  top: 0;
+  height: 62%;
+  border: 0;
+  border-radius: 0 0 5px 5px;
+  background: #1f2937;
+  cursor: pointer;
+  transition: background 120ms;
+}
+.g-mus-teclado .on {
+  background: var(--ui-accent);
+  color: var(--ui-accent-ink);
+}
+.g-mus-contorno {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.g-mus-sombra {
+  fill: none;
+  stroke: var(--tarjeta-fuerte);
+  stroke-width: 3;
+  stroke-dasharray: 4 5;
+}
+.g-mus-punto {
+  fill: var(--ui-accent);
+}
+.g-mus-octava {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  font-size: 14px;
+}
+.g-mus-octava span {
+  color: var(--acento-vivo);
+  font-weight: 800;
+  font-size: 18px;
+}
+.g-mus-acorde {
+  color: var(--acento-vivo);
+}
+.g-mus-progresion {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 0;
+  margin: 10px 0;
+}
+.g-mus-progresion li {
+  display: grid;
+  gap: 2px;
+  padding: 12px 6px;
+  border-radius: var(--radio-tarjeta);
+  background: var(--tarjeta);
+  text-align: center;
+  transition: transform var(--dur-resorte) var(--ease-resorte), background 150ms;
+}
+.g-mus-progresion li b {
+  font-size: 24px;
+  font-family: Georgia, serif;
+}
+.g-mus-progresion li small {
+  color: var(--tinta-3);
+}
+.g-mus-progresion li.activo {
+  background: color-mix(in srgb, var(--ui-accent) 30%, var(--tarjeta));
+  transform: translateY(-4px);
+}
+.g-mus-mezcla {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin: 10px 0;
+}
+.g-mus-canal {
+  display: grid;
+  gap: 6px;
+  padding: 10px;
+  border-radius: var(--radio-tarjeta);
+  background: var(--tarjeta);
+  border-top: 4px solid var(--c);
+  transition: opacity 300ms;
+}
+.g-mus-canal.mudo {
+  opacity: 0.45;
+}
+.g-mus-canal b {
+  font-size: 14px;
+}
+.g-mus-canal label {
+  display: grid;
+  gap: 2px;
+  font-size: 11px;
+  color: var(--tinta-3);
+}
+.g-mus-canal input[type='range'] {
+  width: 100%;
+  accent-color: var(--c);
+}
+.g-mus-medidor {
+  position: relative;
+  height: 60px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--c) 10%, var(--ui-panel));
+  overflow: hidden;
+}
+.g-mus-medidor i {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  background: linear-gradient(to top, var(--c), color-mix(in srgb, var(--c) 50%, #fff));
+  transition: height 60ms linear;
+}
+.g-mus-mute {
+  border: 0;
+  padding: 5px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--c) 25%, transparent);
+  color: var(--ui-ink);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.g-mus-mute.on {
+  background: var(--tarjeta-fuerte);
+  color: var(--tinta-3);
+}
+.g-mus-zona {
+  fill: color-mix(in srgb, var(--c) 70%, transparent);
+}
+.g-mus-rotulo-zona {
+  fill: #fff;
+  font-weight: 700;
+}
+.g-mus-fuerte {
+  fill: var(--ui-accent);
+}
+.g-mus-debil {
+  fill: color-mix(in srgb, var(--ui-accent) 40%, transparent);
+}
+.g-mus-forma {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+}
+.g-mus-forma li {
+  display: grid;
+  gap: 4px;
+  padding: 12px 8px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--z) 18%, transparent);
+  border-top: 4px solid var(--z);
+  text-align: center;
+  font-size: 12px;
+  color: var(--tinta-2);
+}
+.g-mus-forma li b {
+  font-size: 26px;
+  color: var(--ui-ink);
+}
+@media (max-width: 560px) {
+  .g-mus-mezcla {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .g-mus-fila {
+    grid-template-columns: 56px repeat(16, 1fr);
+  }
+}
+.g-mus-platos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 10px 0;
+}
+.g-mus-plato {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 12px;
+  border-radius: var(--radio-tarjeta);
+  background: var(--tarjeta);
+  text-align: center;
+}
+.g-mus-plato small {
+  color: var(--tinta-3);
+  font-weight: 700;
+}
+.g-mus-disco {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, var(--ui-accent) 0 16%, #111 17% 19%, transparent 20%),
+    repeating-radial-gradient(circle, #1f2937 0 3px, #111827 3px 6px);
+  box-shadow: inset 0 0 0 2px #0b0f19;
+  position: relative;
+}
+.g-mus-disco::after {
+  content: '';
+  position: absolute;
+  inset-inline-start: 50%;
+  top: 6px;
+  width: 3px;
+  height: 18px;
+  border-radius: 2px;
+  background: #e5e7eb;
+}
+.g-mus-plato.activo .g-mus-disco {
+  box-shadow: inset 0 0 0 2px var(--ui-accent);
+}
+.g-mus-distinto {
+  color: var(--rojo);
+  font-weight: 700;
+}
+.g-mus-cruce {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0 10px;
+}
+.g-mus-cruce input {
+  flex: 1;
+  accent-color: var(--ui-accent);
+}
+.g-mus-pide {
+  animation: g-mus-pide 900ms ease-in-out infinite alternate;
+}
+@keyframes g-mus-pide {
+  to {
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--ui-accent) 30%, transparent);
+  }
+}

@@ -4,6 +4,7 @@ import { HERRAMIENTAS_COCINA, HerramientaCocina } from './Cocina'
 import { HERRAMIENTAS_DESCANSO, HerramientaDescanso } from './Descanso'
 import { HERRAMIENTAS_FINANZAS, HerramientaFinanzas } from './Finanzas'
 import { HERRAMIENTAS_IDIOMAS, HerramientaIdiomas } from './Idiomas'
+import { HERRAMIENTAS_MUSICA, HerramientaMusica } from './Musica'
 import type { T } from './datos'
 
 /**
@@ -17,6 +18,7 @@ export function Herramienta({ id, t, demo }: { id: string; t: T; demo: boolean }
   if (HERRAMIENTAS_FINANZAS.has(id)) return <HerramientaFinanzas id={id} t={t} demo={demo} />
   if (HERRAMIENTAS_IDIOMAS.has(id)) return <HerramientaIdiomas id={id} t={t} demo={demo} />
   if (HERRAMIENTAS_ARTE.has(id)) return <HerramientaArte id={id} t={t} demo={demo} />
+  if (HERRAMIENTAS_MUSICA.has(id)) return <HerramientaMusica id={id} t={t} demo={demo} />
   if (id === 'escalaRpe') return <EscalaRpe t={t} demo={demo} />
   if (id === 'zonasCardiacas') return <ZonasCardiacas t={t} demo={demo} />
   if (id === 'armaTuPlan') return <ArmaTuPlan t={t} demo={demo} />

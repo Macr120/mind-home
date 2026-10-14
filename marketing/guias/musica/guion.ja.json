@@ -1,0 +1,700 @@
+{
+  "idioma": "ja",
+  "tema": "musica",
+  "plantillaId": "audio",
+  "numero": 7,
+  "nombre": "オーディオスタジオ",
+  "pregunta": "音楽とは何でしょうか？",
+  "corta": "音楽とは何でしょうか？",
+  "subtitulo": "AIがもう作曲できるのに楽器を弾けるようになる理由、音楽の短い歴史、誰もが知っている2つの曲で見るリズム・メロディー・ハーモニーのしくみ、曲のトラックのミックスのしかたとDJのように2曲をつなぐ方法、そして1日15分から始めるプラン。",
+  "aviso": "このガイドは情報提供を目的としています。日付、数字、引用した研究はそれぞれの出典による概算で、上達のペースは人それぞれです。例に使う2つの曲はパブリックドメインで、独自のアレンジで鳴らしています。そのほかの曲は名前を挙げるだけです。",
+  "partes": [
+    {
+      "id": "musica",
+      "titulo": "音楽とは何か",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "音楽とは何でしょうか？ 今では、人工知能が歌詞も歌声もそろった曲を、数秒でまるごと作ってしまいます。それでも、何百万人もの人が楽器を習い続けています。では、なぜあなたも音楽を学び続ける価値があるのでしょうか？ これからの数分で、音楽とは何か、どう生まれたのか、子どものころから知っている2つの曲でリズムとメロディーとハーモニーがどう働くのか、そしてトラックがどうミックスされるのかを見ていき、今日から弾き始めるためのプランを手に入れられます。",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "ところで、ここはMindHaOSの私の家、そしてこれが私のオーディオスタジオです。ここで作曲して、録音して、ミックスしています。今日はこのスタジオで、曲がどう組み立てられるのかを一つずつ見せましょう。さあ、始めましょう。",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第一部。音楽とは何か。"
+        },
+        {
+          "id": "sonido",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "onda"
+          },
+          "texto": "すべては振動から始まります。弦やスピーカーが空気を1秒に何百回も押し出し、振動が多いほど音は高く聞こえます。オーケストラが音合わせに使うラの音は、1秒に440回振動しています。",
+          "lamina": [
+            "cuerda",
+            "bocina"
+          ]
+        },
+        {
+          "id": "definicion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ruido",
+              "orden",
+              "musica"
+            ]
+          },
+          "texto": "でも、ただの雑音は音楽ではありません。作曲家エドガー・ヴァレーズは、音楽を「組織された音」と定義しました。時間の中で、音の高さで、そして同時に鳴る層として組織されたもの。それがリズム、メロディー、ハーモニーです。",
+          "lamina": [
+            "varese",
+            "partitura"
+          ]
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "15か月",
+            "clave": "hyde"
+          },
+          "texto": "では、機械がもう作曲できるのに、なぜ弾けるようになる必要があるのでしょうか？ 弾くことで変わるのは曲だけではなく、あなた自身だからです。2009年、クリスタ・ハイドたちは、15か月間キーボードのレッスンを受けた子どもたちを追いかけました。手を動かし音を聞く脳の領域は、レッスンを受けなかった子どもより大きく変化していました。機械は曲を作れても、あなたの代わりに弾くことはできません。",
+          "lamina": [
+            "nina",
+            "teclado"
+          ]
+        },
+        {
+          "id": "grupo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cerebro",
+              "oido",
+              "juntos"
+            ]
+          },
+          "texto": "そして、誰かと一緒に弾くことは私たちを結びつけます。2010年、マックス・プランク研究所のセバスチャン・キルシュナーとマイケル・トマセロは、一緒に音楽をした4歳の子どもたちが、そのあとよく助け合うことを確かめました。それに、遅すぎることはありません。大人もちゃんと上達します。",
+          "lamina": [
+            "banda",
+            "adulto"
+          ]
+        },
+        {
+          "id": "canciones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dosCanciones"
+          },
+          "texto": "そのしくみを理解するために、ほとんどの人が知っている2つの曲を使います。1824年のベートーヴェンの「歓喜の歌」と、1761年のフランスのメロディー「きらきら星」です。どちらもパブリックドメインなので、ここでは最後まで鳴らせます。",
+          "lamina": [
+            "beethoven",
+            "mozart"
+          ]
+        },
+        {
+          "id": "teclado",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ritmo",
+              "melodia",
+              "armonia"
+            ]
+          },
+          "texto": "ここ、私のキーボードでは、「歓喜の歌」が3つの層で鳴ります。まずリズムの拍、次に指一本でメロディー、最後にもう片方の手で和音です。",
+          "lamina": "teclado2",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "音楽の短い歴史",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第二部。音楽の短い歴史。"
+        },
+        {
+          "id": "flauta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaMusica"
+          },
+          "texto": "ドイツのホーレ・フェルス洞窟で、およそ4万年前にハゲワシの骨を削って作られた笛が見つかりました。文字を書くより前から、私たちは音楽を奏でていたのです。",
+          "lamina": [
+            "hohlefels",
+            "cueva"
+          ]
+        },
+        {
+          "id": "pitagoras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 : 1",
+            "clave": "pitagoras"
+          },
+          "texto": "古代ギリシャでは、ピタゴラスが、半分の長さの弦は同じ音をより高く鳴らすことを発見したと伝えられています。これがオクターブです。それ以来、音楽は数学でもあります。",
+          "lamina": [
+            "pitagoras",
+            "monocordio"
+          ]
+        },
+        {
+          "id": "guido",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1025",
+            "clave": "guido"
+          },
+          "texto": "1025年ごろ、修道士グイード・ダレッツォは、ある聖歌の最初の音節、ウト、レ、ミ、ファ、ソル、ラを使って、歌い手たちが早く覚えられるようにしました。ウトはやがてドになり、線の上に音を書くという彼のアイデアが、今の楽譜になりました。",
+          "lamina": [
+            "guido",
+            "manuscrito"
+          ]
+        },
+        {
+          "id": "edison",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1877",
+            "clave": "edison"
+          },
+          "texto": "何千年ものあいだ、音楽は誰かが演奏しているあいだしか存在しませんでした。1877年、トーマス・エジソンが蓄音機の円筒に自分の声を録音し、初めて音を保存して、もう一度聴けるようになりました。",
+          "lamina": [
+            "edison",
+            "fonografo"
+          ]
+        },
+        {
+          "id": "lesPaul",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1 → 8",
+            "clave": "lesPaul"
+          },
+          "texto": "1950年代、ギタリストのレス・ポールは自分の録音の上に重ねて録音し、1957年には最初期の8トラック・レコーダーの一つを世に出しました。それ以来、ほとんどの音楽はパートごとに、楽器ごとのトラックに分けて録音されています。",
+          "lamina": [
+            "lespaul",
+            "cinta"
+          ]
+        },
+        {
+          "id": "midi",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "teclado",
+              "computadora",
+              "ia"
+            ]
+          },
+          "texto": "そして1983年、電子楽器とコンピューターが会話するための言葉、MIDIが生まれました。だから今では、キーボードとコンピューターがあれば立派なスタジオになり、AIはその最新の章にすぎません。",
+          "lamina": "midi",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "ritmo",
+      "titulo": "リズム",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第三部。リズム。"
+        },
+        {
+          "id": "pulso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "pulso"
+          },
+          "texto": "リズムとは、音楽を時間の中にどう配るかです。その土台は拍、つまり足で刻む一定の打ち方です。速さは1分あたりの拍の数で測ります。「歓喜の歌」を60、100、140で聴いてみてください。同じ曲なのに、エネルギーがまるで違います。",
+          "lamina": [
+            "pie",
+            "metronomo"
+          ]
+        },
+        {
+          "id": "bebes",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "生後2日",
+            "clave": "bebes"
+          },
+          "texto": "拍を感じる力は、生まれつき備わっています。2009年、ハンガリーのイシュトヴァーン・ヴィンクレルのチームは、生後2日の赤ちゃんにドラムのリズムを聴かせました。強い拍が抜けると、赤ちゃんの脳はその驚きに反応したのです。そして私たちがいちばん好きな速さは1分に120拍ほどで、歩くリズムとほぼ同じです。",
+          "lamina": [
+            "bebe",
+            "caminar"
+          ]
+        },
+        {
+          "id": "compas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "compas"
+          },
+          "texto": "拍は小節にまとまり、最初の拍がいちばん強くなります。「きらきら星」は4拍ずつ、ワルツは3拍ずつ。だからワルツは回りながら踊り、行進曲は歩いて進むのです。",
+          "lamina": [
+            "vals",
+            "marcha"
+          ]
+        },
+        {
+          "id": "bateria",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cajaRitmos"
+          },
+          "texto": "リズムマシンなら一目でわかります。バスドラムが強い拍を、スネアが弱い拍を刻み、シンバルがその間の細かい刻みを数えます。ドン、ドン、パン。これだけで、クイーンはWe Will Rock Youをスタジアムの賛歌にしました。",
+          "lamina": [
+            "cajaRitmos",
+            "estadio"
+          ]
+        },
+        {
+          "id": "sincopa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "sincopa"
+          },
+          "texto": "そして、思わず踊りたくなる秘密がシンコペーションです。予想していない場所、拍と拍の間に来るアクセントのことです。たった一つの音を本来の場所からずらすだけで、リズムが揺れ始めるのを聴いてみてください。",
+          "lamina": "baile"
+        },
+        {
+          "id": "palmas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escucha",
+              "pie",
+              "cuenta"
+            ]
+          },
+          "texto": "どんな曲でも試せます。足で拍を刻んで、4まで数えてみましょう。私も「歓喜の歌」の土台を、こうして一打ずつ組み立てています。",
+          "lamina": "palmas",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "melodia",
+      "titulo": "メロディー",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第四部。メロディー。"
+        },
+        {
+          "id": "notas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "octava"
+          },
+          "texto": "メロディーとは、歌える音の並びです。西洋音楽では1オクターブを12の音に分け、そのうちの7つ、ド、レ、ミ、ファ、ソ、ラ、シで、あなたが知っているほとんどのメロディーができています。",
+          "lamina": [
+            "partitura",
+            "notas"
+          ]
+        },
+        {
+          "id": "contorno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "teclado"
+          },
+          "texto": "メロディーを聴き分けられるのは、その形があるからです。上がるのか下がるのか、隣の音へ進むのか跳ぶのか。「歓喜の歌」はほとんど隣の音へ進みます。ミ、ミ、ファ、ソ。「きらきら星」は跳躍で始まります。ド、ド、ソ、ソ。ここのキーボードで弾いて、その形を見てください。",
+          "lamina": [
+            "teclado2",
+            "contorno"
+          ]
+        },
+        {
+          "id": "repeticion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "forma"
+          },
+          "texto": "そして、繰り返すから耳に残ります。「きらきら星」には3つのフレーズがあります。ひとつめ、それとは違うもの、そしてまたひとつめ。このA、B、Aという形は、何千もの曲に使われています。",
+          "lamina": "cantar"
+        },
+        {
+          "id": "tararea",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tararea",
+              "sube",
+              "toca"
+            ]
+          },
+          "texto": "耳でメロディーを拾うには、まず口ずさみ、上がるか下がるかを確かめ、キーボードで一音ずつ探します。私も「歓喜の歌」を指一本でこうして弾いています。",
+          "lamina": "teclado3",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "armonia",
+      "titulo": "ハーモニー",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第五部。ハーモニー。"
+        },
+        {
+          "id": "acorde",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "acorde"
+          },
+          "texto": "メロディーが次々と鳴る音なら、ハーモニーは同時に鳴る音です。一つおきに3つの音を重ねると和音になります。ド、ミ、ソ。誰かが歌っているあいだにギターが弾いているのがこれです。",
+          "lamina": [
+            "guitarra",
+            "piano"
+          ]
+        },
+        {
+          "id": "mayorMenor",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mayorMenor"
+          },
+          "texto": "たった一つの音を半音動かすだけで、気分が変わります。メジャーの和音は明るく、マイナーの和音は切なく響きます。「きらきら星」を長調で、次に短調で聴いてみてください。同じメロディーなのに、別の物語のようです。2009年、トーマス・フリッツは、西洋音楽を一度も聴いたことのないカメルーンのマファの人々のもとへそれを持っていきました。それでも彼らは、どの曲が楽しく、どの曲が悲しいかを聞き分けました。",
+          "lamina": [
+            "camerun",
+            "luzSombra"
+          ]
+        },
+        {
+          "id": "tension",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "tension"
+          },
+          "texto": "落ち着く和音もあれば、先へ進みたがる和音もあります。音楽は緊張を生んで、それを解決することで成り立っています。だから曲が「家」の和音に戻ると、終わったと感じるのです。",
+          "lamina": "ola"
+        },
+        {
+          "id": "progresion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "progresion"
+          },
+          "texto": "和音の並びをコード進行と呼びます。私たちの2曲は、たった3つの和音で伴奏できます。そして4つの和音を1度、5度、6度、4度の順に並べるだけで、ビートルズのLet It Beから今のポップスの多くまで、何百ものヒット曲が書かれてきました。いいコード進行は何十年も生き続けます。",
+          "lamina": [
+            "acordes",
+            "vinilo"
+          ]
+        },
+        {
+          "id": "manos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "derecha",
+              "izquierda",
+              "juntas"
+            ]
+          },
+          "texto": "キーボードではこうなります。右手がメロディー、左手が和音です。3つの和音だけで、2曲とも最後まで伴奏できます。",
+          "lamina": "piano",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "mezcla",
+      "titulo": "音楽のミックスのしかた",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第六部。音楽のミックスのしかた。"
+        },
+        {
+          "id": "capas",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezclador"
+          },
+          "texto": "レス・ポールのトラックを覚えていますか？ 「歓喜の歌」は4つのトラックでこう組み立てられます。まずドラム、次にベース、それから和音、そしていちばん上にメロディーです。",
+          "lamina": [
+            "consola",
+            "estudio"
+          ]
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezcladorBalance"
+          },
+          "texto": "ミックスとは、3つのことを決めることです。各トラックをどのくらいの大きさで鳴らすか、ベースがメロディーを隠さないように。どの周波数に置くか、低音は下に、シンバルは上に。そして、真ん中か左右か、どこで鳴らすかです。",
+          "lamina": [
+            "fader",
+            "ecualizador"
+          ]
+        },
+        {
+          "id": "dj",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dj"
+          },
+          "texto": "そしてもう一つのミックスが、DJのミックスです。トラックではなく、曲をまるごとつなぎます。まず2曲の速さをそろえて、拍が一緒に落ちるようにします。次にクロスフェーダーで少しずつ片方からもう片方へ移り、去っていく曲の低音を切って、2つのベースがぶつからないようにします。",
+          "lamina": [
+            "dj",
+            "tornamesa"
+          ]
+        },
+        {
+          "id": "mencion-mezcla",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "MindHaOSの私のオーディオスタジオでも、こうしています。トラックごとにミキサーのチャンネルがあり、それぞれに音量、パン、エフェクトがあります。",
+          "lamina": "mezclador",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "始めるためのプラン",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第七部。始めるためのプラン。"
+        },
+        {
+          "id": "escucha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pasada1",
+              "pasada2",
+              "pasada3"
+            ]
+          },
+          "texto": "まずは聴き方を変えてみましょう。一つの曲を3回かけて、1回目はドラム、2回目はベース、3回目はメロディーと和音を追います。何年も前からそこにあった音が聞こえてきます。",
+          "lamina": [
+            "audifonos3",
+            "vinilo2"
+          ]
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "minutosAno"
+          },
+          "texto": "たくさんの時間はいりません。1日15分で、1年に90時間を超えます。ここで分数を動かして、1年で何曲弾けるようになるか見てみてください。",
+          "lamina": "reloj"
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "たとえばこんな1週間。月曜はメトロノームで拍、火曜は耳でメロディー、水曜は3つの和音、木曜は両手で、金曜は3回に分けて聴き、週末は自分の何かを録音します。",
+          "lamina": [
+            "semana",
+            "grabar"
+          ]
+        },
+        {
+          "id": "graba",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "grabate",
+              "escuchate",
+              "comparte"
+            ]
+          },
+          "texto": "そして最初の日から自分を録音しましょう。自分の演奏を聴くのが、上達するいちばんの近道です。ほら、4つのトラックをミックスした「歓喜の歌」はこうなります。",
+          "lamina": "microfono",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "まとめると、音楽は組織された音です。リズムは時間の中で、メロディーは音の高さで、ハーモニーは重なりで音楽を整えます。ミックスとは、各トラックに音量と周波数と居場所を与えること。そして、機械がもう作曲できても、弾くことはあなたを変えます。",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "私のように音楽を作りたいなら、MindHaOSのオーディオスタジオには、ひとつの部屋にすべてがそろっています。一音ずつ曲を練習したり、いろいろな楽器で自分の曲を作ったりできます。自分で弾くための曲にも、聴くための完成した音源にもできますし、DJのように曲をミックスすることもできます。リンクは概要欄に、このインタラクティブ版のガイドと一緒にあります。それでは、また次回。",
+    "boton": "オーディオスタジオを開く",
+    "lamina": "app-plan",
+    "anclas": {
+      "practicar": "曲を練習",
+      "crear": "自分の曲を作",
+      "producidas": "完成した音源",
+      "dj": "DJのように曲をミックス"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "varese",
+      "texto": "Varèse E., Wen-chung C. The Liberation of Sound. Perspectives of New Music (1966).",
+      "url": "https://doi.org/10.2307/832385"
+    },
+    {
+      "id": "conard-2009",
+      "texto": "Conard N. J., Malina M., Münzel S. C. New flutes document the earliest musical tradition in southwestern Germany. Nature (2009).",
+      "url": "https://doi.org/10.1038/nature08169"
+    },
+    {
+      "id": "winkler-2009",
+      "texto": "Winkler I., Háden G. P., Ladinig O., Sziller I., Honing H. Newborn infants detect the beat in music. PNAS (2009).",
+      "url": "https://doi.org/10.1073/pnas.0809035106"
+    },
+    {
+      "id": "moelants-2002",
+      "texto": "Moelants D. Preferred tempo reconsidered. Proceedings of the 7th International Conference on Music Perception and Cognition (2002)."
+    },
+    {
+      "id": "fritz-2009",
+      "texto": "Fritz T. et al. Universal recognition of three basic emotions in music. Current Biology (2009).",
+      "url": "https://doi.org/10.1016/j.cub.2009.02.058"
+    },
+    {
+      "id": "hyde-2009",
+      "texto": "Hyde K. L. et al. Musical training shapes structural brain development. Journal of Neuroscience (2009).",
+      "url": "https://doi.org/10.1523/JNEUROSCI.5118-08.2009"
+    },
+    {
+      "id": "guido",
+      "texto": "Guido de Arezzo. Micrologus、Epistola de ignoto cantu（1025〜1030年ごろ）。",
+      "url": "https://en.wikipedia.org/wiki/Guido_of_Arezzo"
+    },
+    {
+      "id": "lespaul",
+      "texto": "レス・ポールとAmpexの8トラック・レコーダー「Octopus」（1957年）。",
+      "url": "https://en.wikipedia.org/wiki/Les_Paul"
+    },
+    {
+      "id": "kirschner-2010",
+      "texto": "Kirschner S., Tomasello M. Joint music making promotes prosocial behavior in 4-year-old children. Evolution and Human Behavior (2010).",
+      "url": "https://doi.org/10.1016/j.evolhumbehav.2010.04.004"
+    },
+    {
+      "id": "edison-1877",
+      "texto": "Edison T. A. 蓄音機（米国特許第200,521号、1878年）。",
+      "url": "https://en.wikipedia.org/wiki/Phonograph"
+    },
+    {
+      "id": "midi-1983",
+      "texto": "MIDI Association. MIDI 1.0規格の歴史（1983年）。",
+      "url": "https://midi.org/"
+    }
+  ]
+}

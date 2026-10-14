@@ -1,0 +1,700 @@
+{
+  "idioma": "it",
+  "tema": "musica",
+  "plantillaId": "audio",
+  "numero": 7,
+  "nombre": "Studio audio",
+  "pregunta": "Che cos'è la musica?",
+  "corta": "Che cos'è la musica?",
+  "subtitulo": "Perché imparare a suonare anche se un'intelligenza artificiale compone già, una breve storia della musica, come funzionano ritmo, melodia e armonia con due canzoni che tutti conosciamo, come si mixano le tracce di una canzone e due canzoni come un DJ, e un piano di quindici minuti al giorno per iniziare.",
+  "aviso": "Questa guida è informativa: date, cifre e studi citati sono approssimazioni delle loro fonti, e ognuno procede al proprio ritmo. Le due canzoni di esempio sono di pubblico dominio e suonano con arrangiamenti originali; le altre vengono solo citate.",
+  "partes": [
+    {
+      "id": "musica",
+      "titulo": "Che cos'è la musica",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Che cos'è la musica? Oggi un'intelligenza artificiale compone una canzone completa in pochi secondi, con testo e voce. Eppure milioni di persone continuano a imparare a suonare uno strumento. Allora perché vale la pena che tu continui a studiare musica? Nei prossimi minuti vedrai che cos'è la musica, come è nata, come funzionano il ritmo, la melodia e l'armonia con due canzoni che conosci da quando eri bambino e come si mixano le tracce, e alla fine avrai un piano per suonare da oggi stesso.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "A proposito, questa è la mia casa in MindHaOS, e questo è il mio Studio audio: qui compongo, registro e mixo. Oggi lo userò per mostrarti come si costruisce una canzone, pezzo per pezzo. Cominciamo.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte uno. Che cos'è la musica."
+        },
+        {
+          "id": "sonido",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "onda"
+          },
+          "texto": "Tutto comincia con una vibrazione. Una corda o un altoparlante spingono l'aria centinaia di volte al secondo, e più vibrazioni ci sono, più acuta la senti: il la con cui si accordano le orchestre vibra quattrocentoquaranta volte al secondo.",
+          "lamina": [
+            "cuerda",
+            "bocina"
+          ]
+        },
+        {
+          "id": "definicion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ruido",
+              "orden",
+              "musica"
+            ]
+          },
+          "texto": "Ma un rumore non è musica. Il compositore Edgard Varèse l'ha definita così: la musica è suono organizzato. Organizzato nel tempo, nell'altezza e in strati che suonano insieme: ritmo, melodia e armonia.",
+          "lamina": [
+            "varese",
+            "partitura"
+          ]
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "15 mesi",
+            "clave": "hyde"
+          },
+          "texto": "E perché imparare a suonare, se una macchina compone già? Perché quando suoni non cambia solo la canzone, cambi tu. Nel 2009 Krista Hyde e il suo gruppo hanno seguito bambini che hanno preso lezioni di tastiera per quindici mesi: le aree del loro cervello che muovono le mani e che ascoltano sono cambiate più di quelle di chi non le aveva prese. Una macchina può fare la canzone, ma non può suonarla al posto tuo.",
+          "lamina": [
+            "nina",
+            "teclado"
+          ]
+        },
+        {
+          "id": "grupo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cerebro",
+              "oido",
+              "juntos"
+            ]
+          },
+          "texto": "E suonare con gli altri ci unisce: nel 2010, all'Istituto Max Planck, Sebastian Kirschner e Michael Tomasello hanno visto che bambini di quattro anni che avevano fatto musica insieme poi si aiutavano di più. E non è mai troppo tardi: anche gli adulti imparano.",
+          "lamina": [
+            "banda",
+            "adulto"
+          ]
+        },
+        {
+          "id": "canciones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dosCanciones"
+          },
+          "texto": "Per capirne i pezzi useremo due canzoni che quasi tutti conoscono: l'Inno alla gioia di Beethoven, del 1824, e Brilla brilla la stellina, una melodia francese del 1761. Sono entrambe di pubblico dominio, quindi qui suonano complete.",
+          "lamina": [
+            "beethoven",
+            "mozart"
+          ]
+        },
+        {
+          "id": "teclado",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ritmo",
+              "melodia",
+              "armonia"
+            ]
+          },
+          "texto": "Qui, sulla mia tastiera, l'Inno suona in tre strati: prima il colpo del ritmo, poi la melodia con un dito e infine gli accordi con l'altra mano.",
+          "lamina": "teclado2",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Una breve storia della musica",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte due. Una breve storia della musica."
+        },
+        {
+          "id": "flauta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaMusica"
+          },
+          "texto": "In una grotta della Germania, Hohle Fels, è stato trovato un flauto intagliato in un osso di avvoltoio circa quarantamila anni fa. Prima ancora di scrivere, facevamo già musica.",
+          "lamina": [
+            "hohlefels",
+            "cueva"
+          ]
+        },
+        {
+          "id": "pitagoras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 : 1",
+            "clave": "pitagoras"
+          },
+          "texto": "Nell'antica Grecia, racconta la leggenda, Pitagora scoprì che una corda lunga la metà suona la stessa nota, ma più acuta: un'ottava. Da allora la musica è anche matematica.",
+          "lamina": [
+            "pitagoras",
+            "monocordio"
+          ]
+        },
+        {
+          "id": "guido",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1025",
+            "clave": "guido"
+          },
+          "texto": "Verso il 1025 il monaco Guido d'Arezzo prese le prime sillabe di un inno, ut, re, mi, fa, sol, la, perché i suoi cantori imparassero più in fretta. L'ut diventò do, e la sua idea di scrivere le note sulle righe è lo spartito di oggi.",
+          "lamina": [
+            "guido",
+            "manuscrito"
+          ]
+        },
+        {
+          "id": "edison",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1877",
+            "clave": "edison"
+          },
+          "texto": "Per migliaia di anni la musica esisteva solo mentre qualcuno la suonava. Nel 1877 Thomas Edison registrò la sua voce sul cilindro del suo fonografo, e per la prima volta un suono si poté conservare e riascoltare.",
+          "lamina": [
+            "edison",
+            "fonografo"
+          ]
+        },
+        {
+          "id": "lesPaul",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1 → 8",
+            "clave": "lesPaul"
+          },
+          "texto": "Negli anni Cinquanta il chitarrista Les Paul registrò sopra le sue stesse registrazioni, e nel 1957 presentò uno dei primi registratori a otto tracce. Da allora quasi tutta la musica si registra a pezzi, ogni strumento sulla sua traccia.",
+          "lamina": [
+            "lespaul",
+            "cinta"
+          ]
+        },
+        {
+          "id": "midi",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "teclado",
+              "computadora",
+              "ia"
+            ]
+          },
+          "texto": "E nel 1983 arrivò il MIDI, la lingua con cui gli strumenti elettronici e i computer si parlano. Per questo oggi una tastiera e un computer sono uno studio completo, e l'intelligenza artificiale è solo il capitolo più recente.",
+          "lamina": "midi",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "ritmo",
+      "titulo": "Il ritmo",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte tre. Il ritmo."
+        },
+        {
+          "id": "pulso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "pulso"
+          },
+          "texto": "Il ritmo è il modo in cui la musica si distribuisce nel tempo, e la sua base è la pulsazione: il battito regolare che segui con il piede. La sua velocità si misura in battiti al minuto. Ascolta l'Inno a sessanta, a cento e a centoquaranta: la stessa canzone con un'altra energia.",
+          "lamina": [
+            "pie",
+            "metronomo"
+          ]
+        },
+        {
+          "id": "bebes",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 giorni",
+            "clave": "bebes"
+          },
+          "texto": "Sentire la pulsazione è di serie. Nel 2009 il gruppo di István Winkler, in Ungheria, fece ascoltare a neonati di due giorni un ritmo di batteria: quando mancava il colpo forte, il loro cervello reagiva alla sorpresa. E la velocità che ci piace di più si aggira sui centoventi battiti al minuto, quasi il ritmo dei nostri passi.",
+          "lamina": [
+            "bebe",
+            "caminar"
+          ]
+        },
+        {
+          "id": "compas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "compas"
+          },
+          "texto": "I battiti si raggruppano in battute, con il primo più forte. Brilla brilla la stellina va a quattro a quattro; un valzer, a tre a tre. Per questo un valzer si balla girando e una marcia si cammina.",
+          "lamina": [
+            "vals",
+            "marcha"
+          ]
+        },
+        {
+          "id": "bateria",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cajaRitmos"
+          },
+          "texto": "In una drum machine si vede benissimo: la grancassa segna i battiti forti, il rullante quelli deboli e il piatto conta i passi di mezzo. Pesta, pesta, batti le mani: con solo questo, i Queen hanno fatto di We Will Rock You un inno da stadio.",
+          "lamina": [
+            "cajaRitmos",
+            "estadio"
+          ]
+        },
+        {
+          "id": "sincopa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "sincopa"
+          },
+          "texto": "E il trucco che fa ballare è la sincope: un accento che cade dove non te lo aspetti, tra due battiti. Ascolta come un solo colpo fuori posto dà dondolio al ritmo.",
+          "lamina": "baile"
+        },
+        {
+          "id": "palmas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escucha",
+              "pie",
+              "cuenta"
+            ]
+          },
+          "texto": "Provalo con una canzone qualsiasi: segna la pulsazione con il piede e conta fino a quattro. Così costruisco io la base dell'Inno, colpo dopo colpo.",
+          "lamina": "palmas",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "melodia",
+      "titulo": "La melodia",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte quattro. La melodia."
+        },
+        {
+          "id": "notas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "octava"
+          },
+          "texto": "Una melodia è una fila di note che puoi cantare. Tra un'ottava e la successiva la musica occidentale distribuisce dodici note, e con sette, do, re, mi, fa, sol, la, si, si fanno quasi tutte le melodie che conosci.",
+          "lamina": [
+            "partitura",
+            "notas"
+          ]
+        },
+        {
+          "id": "contorno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "teclado"
+          },
+          "texto": "Quello che rende riconoscibile una melodia è il suo disegno: se sale o scende, e se va per gradi o fa dei salti. L'Inno alla gioia avanza quasi tutto per gradi: mi, mi, fa, sol. Brilla brilla la stellina parte con un salto: do, do, sol, sol. Suonale qui sulla tastiera e guarda il loro disegno.",
+          "lamina": [
+            "teclado2",
+            "contorno"
+          ]
+        },
+        {
+          "id": "repeticion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "forma"
+          },
+          "texto": "E ci resta in testa perché si ripete. Brilla brilla la stellina ha tre frasi: una, un'altra diversa e di nuovo la prima. Questa forma, A, B, A, si trova in migliaia di canzoni.",
+          "lamina": "cantar"
+        },
+        {
+          "id": "tararea",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tararea",
+              "sube",
+              "toca"
+            ]
+          },
+          "texto": "Per tirare fuori le melodie a orecchio: canticchiala, nota se sale o scende e cercala sulla tastiera nota per nota. Così suono io l'Inno con un dito.",
+          "lamina": "teclado3",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "armonia",
+      "titulo": "L'armonia",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte cinque. L'armonia."
+        },
+        {
+          "id": "acorde",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "acorde"
+          },
+          "texto": "Se la melodia sono note una dopo l'altra, l'armonia sono note nello stesso momento. Tre note insieme, saltandone una sì e una no, formano un accordo: do, mi, sol. È quello che suona la chitarra mentre qualcuno canta.",
+          "lamina": [
+            "guitarra",
+            "piano"
+          ]
+        },
+        {
+          "id": "mayorMenor",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mayorMenor"
+          },
+          "texto": "Basta spostare una sola nota di mezzo tono per cambiare l'umore: l'accordo maggiore suona luminoso e il minore, malinconico. Ascolta Brilla brilla la stellina in maggiore e poi in minore: è la stessa melodia e sembra un'altra storia. Nel 2009 Thomas Fritz portò la musica occidentale al popolo mafa, in Camerun, che non l'aveva mai sentita, eppure riconobbero quali brani erano allegri e quali tristi.",
+          "lamina": [
+            "camerun",
+            "luzSombra"
+          ]
+        },
+        {
+          "id": "tension",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "tension"
+          },
+          "texto": "Alcuni accordi riposano e altri chiedono di muoversi. La musica vive di creare tensione e risolverla: per questo, quando una canzone torna al suo accordo di casa, senti che è finita.",
+          "lamina": "ola"
+        },
+        {
+          "id": "progresion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "progresion"
+          },
+          "texto": "Una fila di accordi si chiama progressione. Le nostre due canzoni si accompagnano con solo tre accordi. E con quattro, nell'ordine uno, cinque, sei, quattro, sono state scritte centinaia di successi, da Let It Be dei Beatles a buona parte del pop di oggi: una buona progressione regge per decenni.",
+          "lamina": [
+            "acordes",
+            "vinilo"
+          ]
+        },
+        {
+          "id": "manos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "derecha",
+              "izquierda",
+              "juntas"
+            ]
+          },
+          "texto": "Sulla tastiera si vede così: la mano destra suona la melodia e la sinistra gli accordi. Con tre accordi accompagni già le due canzoni complete.",
+          "lamina": "piano",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "mezcla",
+      "titulo": "Come si mixa la musica",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte sei. Come si mixa la musica."
+        },
+        {
+          "id": "capas",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezclador"
+          },
+          "texto": "Ti ricordi le tracce di Les Paul? Ecco come si costruisce l'Inno alla gioia in quattro: prima la batteria, poi il basso, dopo gli accordi e, sopra tutto, la melodia.",
+          "lamina": [
+            "consola",
+            "estudio"
+          ]
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezcladorBalance"
+          },
+          "texto": "Mixare è decidere tre cose: quanto suona ogni traccia, perché il basso non copra la melodia; in quali frequenze vive, i bassi sotto e i piatti sopra; e dove suona, al centro o ai lati.",
+          "lamina": [
+            "fader",
+            "ecualizador"
+          ]
+        },
+        {
+          "id": "dj",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dj"
+          },
+          "texto": "E poi c'è l'altro mix, quello del DJ: non unisce tracce, ma canzoni intere. Prima pareggia la velocità delle due, perché i loro battiti cadano insieme; poi, con il crossfader, passa piano piano dall'una all'altra, e toglie i bassi a quella che se ne va perché i due bassi non si scontrino.",
+          "lamina": [
+            "dj",
+            "tornamesa"
+          ]
+        },
+        {
+          "id": "mencion-mezcla",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Così lo faccio nel mio Studio audio di MindHaOS: ogni traccia ha il suo canale nel mixer, con il suo volume, il suo panning e i suoi effetti.",
+          "lamina": "mezclador",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Il tuo piano per iniziare",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte sette. Il tuo piano per iniziare."
+        },
+        {
+          "id": "escucha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pasada1",
+              "pasada2",
+              "pasada3"
+            ]
+          },
+          "texto": "Comincia ad ascoltare in un altro modo: metti una canzone tre volte e segui prima la batteria, poi il basso e infine la melodia e gli accordi. Sentirai cose che erano lì da anni.",
+          "lamina": [
+            "audifonos3",
+            "vinilo2"
+          ]
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "minutosAno"
+          },
+          "texto": "Non ti serve molto tempo: quindici minuti al giorno sono più di novanta ore all'anno. Sposta qui i tuoi minuti e guarda quante canzoni potresti imparare in un anno.",
+          "lamina": "reloj"
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "Una settimana possibile: il lunedì, la pulsazione con il metronomo; il martedì, una melodia a orecchio; il mercoledì, tre accordi; il giovedì, le due mani; il venerdì, l'ascolto in tre passaggi; e nel fine settimana, registra qualcosa di tuo.",
+          "lamina": [
+            "semana",
+            "grabar"
+          ]
+        },
+        {
+          "id": "graba",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "grabate",
+              "escuchate",
+              "comparte"
+            ]
+          },
+          "texto": "E registrati fin dal primo giorno: riascoltarti è il modo più rapido per migliorare. Guarda, ecco l'Inno con le sue quattro tracce mixate.",
+          "lamina": "microfono",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "In sintesi: la musica è suono organizzato; il ritmo la ordina nel tempo, la melodia nell'altezza e l'armonia in strati; mixare è dare a ogni traccia il suo volume, la sua frequenza e il suo posto; e suonare cambia te, anche se una macchina compone già.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Se vuoi fare musica come me, lo Studio audio di MindHaOS ha tutto in una sola stanza: puoi esercitarti con le canzoni nota per nota, creare le tue con vari strumenti, da suonare tu o già prodotte da ascoltare, e perfino mixare canzoni come un DJ. Il link è nella descrizione, insieme a questa guida interattiva. Ci vediamo alla prossima.",
+    "boton": "Apri lo Studio audio",
+    "lamina": "app-plan",
+    "anclas": {
+      "practicar": "esercitarti con le canzoni",
+      "crear": "creare le tue",
+      "producidas": "già prodotte",
+      "dj": "mixare canzoni come un DJ"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "varese",
+      "texto": "Varèse E., Wen-chung C. The Liberation of Sound. Perspectives of New Music (1966).",
+      "url": "https://doi.org/10.2307/832385"
+    },
+    {
+      "id": "conard-2009",
+      "texto": "Conard N. J., Malina M., Münzel S. C. New flutes document the earliest musical tradition in southwestern Germany. Nature (2009).",
+      "url": "https://doi.org/10.1038/nature08169"
+    },
+    {
+      "id": "winkler-2009",
+      "texto": "Winkler I., Háden G. P., Ladinig O., Sziller I., Honing H. Newborn infants detect the beat in music. PNAS (2009).",
+      "url": "https://doi.org/10.1073/pnas.0809035106"
+    },
+    {
+      "id": "moelants-2002",
+      "texto": "Moelants D. Preferred tempo reconsidered. Proceedings of the 7th International Conference on Music Perception and Cognition (2002)."
+    },
+    {
+      "id": "fritz-2009",
+      "texto": "Fritz T. et al. Universal recognition of three basic emotions in music. Current Biology (2009).",
+      "url": "https://doi.org/10.1016/j.cub.2009.02.058"
+    },
+    {
+      "id": "hyde-2009",
+      "texto": "Hyde K. L. et al. Musical training shapes structural brain development. Journal of Neuroscience (2009).",
+      "url": "https://doi.org/10.1523/JNEUROSCI.5118-08.2009"
+    },
+    {
+      "id": "guido",
+      "texto": "Guido d'Arezzo. Micrologus ed Epistola de ignoto cantu (verso il 1025-1030).",
+      "url": "https://en.wikipedia.org/wiki/Guido_of_Arezzo"
+    },
+    {
+      "id": "lespaul",
+      "texto": "Les Paul e il registratore Ampex a otto tracce «Octopus» (1957).",
+      "url": "https://en.wikipedia.org/wiki/Les_Paul"
+    },
+    {
+      "id": "kirschner-2010",
+      "texto": "Kirschner S., Tomasello M. Joint music making promotes prosocial behavior in 4-year-old children. Evolution and Human Behavior (2010).",
+      "url": "https://doi.org/10.1016/j.evolhumbehav.2010.04.004"
+    },
+    {
+      "id": "edison-1877",
+      "texto": "Edison T. A. Il fonografo (brevetto statunitense 200 521, 1878).",
+      "url": "https://en.wikipedia.org/wiki/Phonograph"
+    },
+    {
+      "id": "midi-1983",
+      "texto": "MIDI Association. Storia dello standard MIDI 1.0 (1983).",
+      "url": "https://midi.org/"
+    }
+  ]
+}

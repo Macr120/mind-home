@@ -1,0 +1,700 @@
+{
+  "idioma": "de",
+  "tema": "musica",
+  "plantillaId": "audio",
+  "numero": 7,
+  "nombre": "Audio-Studio",
+  "pregunta": "Was ist Musik?",
+  "corta": "Was ist Musik?",
+  "subtitulo": "Warum es sich lohnt, ein Instrument zu lernen, obwohl eine künstliche Intelligenz schon komponiert, eine kurze Geschichte der Musik, wie Rhythmus, Melodie und Harmonie funktionieren, mit zwei Liedern, die alle kennen, wie man die Spuren eines Songs mischt und zwei Lieder wie ein DJ, und ein Plan mit fünfzehn Minuten am Tag für den Einstieg.",
+  "aviso": "Dieser Leitfaden dient der Information: Daten, Zahlen und zitierte Studien sind Näherungswerte ihrer Quellen, und jeder kommt in seinem eigenen Tempo voran. Die beiden Beispiellieder sind gemeinfrei und erklingen in eigenen Arrangements; alle anderen werden nur erwähnt.",
+  "partes": [
+    {
+      "id": "musica",
+      "titulo": "Was Musik ist",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Was ist Musik? Heute komponiert eine künstliche Intelligenz in Sekunden einen ganzen Song, mit Text und Stimme. Und trotzdem lernen Millionen Menschen weiterhin ein Instrument. Warum lohnt es sich also, dass du weiter Musik lernst? In den nächsten Minuten siehst du, was Musik ist, wie sie entstanden ist, wie Rhythmus, Melodie und Harmonie funktionieren, mit zwei Liedern, die du seit deiner Kindheit kennst, und wie man die Spuren mischt, und am Ende hast du einen Plan, um noch heute loszuspielen.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Übrigens, das ist mein Haus in MindHaOS, und das ist mein Audio-Studio: Hier komponiere ich, nehme auf und mische. Heute zeige ich dir damit, wie ein Song entsteht, Stück für Stück. Fangen wir an.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil eins. Was Musik ist."
+        },
+        {
+          "id": "sonido",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "onda"
+          },
+          "texto": "Alles beginnt mit einer Schwingung. Eine Saite oder ein Lautsprecher stößt die Luft hunderte Male pro Sekunde an, und je mehr Schwingungen, desto höher hörst du den Ton: Das A, auf das Orchester stimmen, schwingt vierhundertvierzig Mal pro Sekunde.",
+          "lamina": [
+            "cuerda",
+            "bocina"
+          ]
+        },
+        {
+          "id": "definicion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ruido",
+              "orden",
+              "musica"
+            ]
+          },
+          "texto": "Aber ein Geräusch ist noch keine Musik. Der Komponist Edgard Varèse hat sie so definiert: Musik ist organisierter Klang. Organisiert in der Zeit, in der Tonhöhe und in Schichten, die zusammen klingen: Rhythmus, Melodie und Harmonie.",
+          "lamina": [
+            "varese",
+            "partitura"
+          ]
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "15 Monate",
+            "clave": "hyde"
+          },
+          "texto": "Und wozu ein Instrument lernen, wenn eine Maschine schon komponiert? Weil sich beim Spielen nicht nur der Song verändert, sondern du dich. 2009 begleiteten Krista Hyde und ihr Team Kinder, die fünfzehn Monate lang Keyboardunterricht hatten: Die Bereiche ihres Gehirns, die die Hände steuern und hören, veränderten sich stärker als bei Kindern ohne Unterricht. Eine Maschine kann den Song machen, aber sie kann ihn nicht für dich spielen.",
+          "lamina": [
+            "nina",
+            "teclado"
+          ]
+        },
+        {
+          "id": "grupo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cerebro",
+              "oido",
+              "juntos"
+            ]
+          },
+          "texto": "Und gemeinsam zu spielen verbindet uns: 2010 stellten Sebastian Kirschner und Michael Tomasello am Max-Planck-Institut fest, dass vierjährige Kinder, die zusammen Musik gemacht hatten, einander danach mehr halfen. Und es ist nie zu spät: Auch Erwachsene lernen.",
+          "lamina": [
+            "banda",
+            "adulto"
+          ]
+        },
+        {
+          "id": "canciones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dosCanciones"
+          },
+          "texto": "Um ihre Bausteine zu verstehen, nehmen wir zwei Lieder, die fast alle kennen: die Ode an die Freude von Beethoven, aus dem Jahr 1824, und Morgen kommt der Weihnachtsmann, eine französische Melodie von 1761. Beide sind gemeinfrei, deshalb erklingen sie hier vollständig.",
+          "lamina": [
+            "beethoven",
+            "mozart"
+          ]
+        },
+        {
+          "id": "teclado",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ritmo",
+              "melodia",
+              "armonia"
+            ]
+          },
+          "texto": "Hier auf meinem Keyboard klingt die Ode in drei Schichten: zuerst der Schlag des Rhythmus, dann die Melodie mit einem Finger und zum Schluss die Akkorde mit der anderen Hand.",
+          "lamina": "teclado2",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Eine kurze Geschichte der Musik",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil zwei. Eine kurze Geschichte der Musik."
+        },
+        {
+          "id": "flauta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaMusica"
+          },
+          "texto": "In einer Höhle in Deutschland, dem Hohle Fels, fand man eine Flöte, die vor rund vierzigtausend Jahren aus dem Knochen eines Geiers geschnitzt wurde. Noch bevor wir schreiben konnten, machten wir schon Musik.",
+          "lamina": [
+            "hohlefels",
+            "cueva"
+          ]
+        },
+        {
+          "id": "pitagoras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 : 1",
+            "clave": "pitagoras"
+          },
+          "texto": "Im antiken Griechenland, so erzählt die Legende, entdeckte Pythagoras, dass eine halb so lange Saite denselben Ton spielt, nur höher: eine Oktave. Seitdem ist Musik auch Mathematik.",
+          "lamina": [
+            "pitagoras",
+            "monocordio"
+          ]
+        },
+        {
+          "id": "guido",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1025",
+            "clave": "guido"
+          },
+          "texto": "Um das Jahr 1025 nahm der Mönch Guido von Arezzo die ersten Silben eines Hymnus, ut, re, mi, fa, sol, la, damit seine Sänger schneller lernten. Aus dem ut wurde do, und seine Idee, die Töne auf Linien zu schreiben, ist die Notenschrift von heute.",
+          "lamina": [
+            "guido",
+            "manuscrito"
+          ]
+        },
+        {
+          "id": "edison",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1877",
+            "clave": "edison"
+          },
+          "texto": "Jahrtausendelang gab es Musik nur, solange jemand sie spielte. 1877 nahm Thomas Edison seine Stimme auf der Walze seines Phonographen auf, und zum ersten Mal ließ sich ein Klang speichern und wieder anhören.",
+          "lamina": [
+            "edison",
+            "fonografo"
+          ]
+        },
+        {
+          "id": "lesPaul",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1 → 8",
+            "clave": "lesPaul"
+          },
+          "texto": "In den Fünfzigerjahren nahm der Gitarrist Les Paul über seine eigenen Aufnahmen auf, und 1957 stellte er eine der ersten Achtspurmaschinen vor. Seitdem wird fast jede Musik in Teilen aufgenommen, jedes Instrument auf seiner eigenen Spur.",
+          "lamina": [
+            "lespaul",
+            "cinta"
+          ]
+        },
+        {
+          "id": "midi",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "teclado",
+              "computadora",
+              "ia"
+            ]
+          },
+          "texto": "Und 1983 kam MIDI, die Sprache, in der elektronische Instrumente und Computer miteinander sprechen. Deshalb sind ein Keyboard und ein Computer heute ein komplettes Studio, und die künstliche Intelligenz ist nur das jüngste Kapitel.",
+          "lamina": "midi",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "ritmo",
+      "titulo": "Der Rhythmus",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil drei. Der Rhythmus."
+        },
+        {
+          "id": "pulso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "pulso"
+          },
+          "texto": "Rhythmus ist, wie sich die Musik über die Zeit verteilt, und seine Grundlage ist der Puls: der gleichmäßige Schlag, den du mit dem Fuß mitklopfst. Sein Tempo misst man in Schlägen pro Minute. Hör dir die Ode bei sechzig, bei hundert und bei hundertvierzig an: dasselbe Lied mit einer anderen Energie.",
+          "lamina": [
+            "pie",
+            "metronomo"
+          ]
+        },
+        {
+          "id": "bebes",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 Tage",
+            "clave": "bebes"
+          },
+          "texto": "Den Puls zu spüren ist angeboren. 2009 ließ das Team von István Winkler in Ungarn zwei Tage alte Babys einen Schlagzeugrhythmus hören: Wenn der starke Schlag fehlte, reagierte ihr Gehirn auf die Überraschung. Und das Tempo, das wir am liebsten mögen, liegt bei etwa hundertzwanzig Schlägen pro Minute, fast im Takt unserer Schritte.",
+          "lamina": [
+            "bebe",
+            "caminar"
+          ]
+        },
+        {
+          "id": "compas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "compas"
+          },
+          "texto": "Die Schläge werden zu Takten gebündelt, mit einem stärkeren am Anfang. Morgen kommt der Weihnachtsmann geht im Vierertakt, ein Walzer im Dreiertakt. Deshalb dreht man sich beim Walzer im Kreis und marschiert zu einem Marsch.",
+          "lamina": [
+            "vals",
+            "marcha"
+          ]
+        },
+        {
+          "id": "bateria",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cajaRitmos"
+          },
+          "texto": "An einem Drumcomputer sieht man es ganz deutlich: Die Bassdrum spielt die starken Schläge, die Snare die schwachen, und das Becken zählt die Schritte dazwischen. Stampf, stampf, klatsch: Mit nur diesem Muster machte Queen aus We Will Rock You eine Stadionhymne.",
+          "lamina": [
+            "cajaRitmos",
+            "estadio"
+          ]
+        },
+        {
+          "id": "sincopa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "sincopa"
+          },
+          "texto": "Und der Trick, der zum Tanzen bringt, ist die Synkope: eine Betonung, die dort fällt, wo du sie nicht erwartest, zwischen zwei Schlägen. Hör, wie ein einziger Schlag an der falschen Stelle dem Rhythmus Schwung gibt.",
+          "lamina": "baile"
+        },
+        {
+          "id": "palmas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escucha",
+              "pie",
+              "cuenta"
+            ]
+          },
+          "texto": "Probier es mit irgendeinem Lied: Klopf den Puls mit dem Fuß und zähl bis vier. So baue ich die Grundlage der Ode, Schlag für Schlag.",
+          "lamina": "palmas",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "melodia",
+      "titulo": "Die Melodie",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil vier. Die Melodie."
+        },
+        {
+          "id": "notas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "octava"
+          },
+          "texto": "Eine Melodie ist eine Reihe von Tönen, die du singen kannst. Zwischen einer Oktave und der nächsten teilt die westliche Musik zwölf Töne auf, und mit sieben davon, C, D, E, F, G, A, H, entstehen fast alle Melodien, die du kennst.",
+          "lamina": [
+            "partitura",
+            "notas"
+          ]
+        },
+        {
+          "id": "contorno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "teclado"
+          },
+          "texto": "Was eine Melodie wiedererkennbar macht, ist ihre Form: ob sie steigt oder fällt und ob sie in Schritten geht oder springt. Die Ode an die Freude bewegt sich fast nur in Schritten: E, E, F, G. Morgen kommt der Weihnachtsmann beginnt mit einem Sprung: C, C, G, G. Spiel sie hier auf dem Keyboard und sieh dir ihre Form an.",
+          "lamina": [
+            "teclado2",
+            "contorno"
+          ]
+        },
+        {
+          "id": "repeticion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "forma"
+          },
+          "texto": "Und sie bleibt hängen, weil sie sich wiederholt. Morgen kommt der Weihnachtsmann hat drei Phrasen: eine, eine andere und wieder die erste. Diese Form, A, B, A, steckt in Tausenden von Liedern.",
+          "lamina": "cantar"
+        },
+        {
+          "id": "tararea",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tararea",
+              "sube",
+              "toca"
+            ]
+          },
+          "texto": "Um Melodien nach Gehör herauszufinden: Summ sie, achte darauf, ob sie steigt oder fällt, und such sie Ton für Ton auf dem Keyboard. So spiele ich die Ode mit einem Finger.",
+          "lamina": "teclado3",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "armonia",
+      "titulo": "Die Harmonie",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil fünf. Die Harmonie."
+        },
+        {
+          "id": "acorde",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "acorde"
+          },
+          "texto": "Wenn die Melodie aus Tönen nacheinander besteht, ist die Harmonie Töne gleichzeitig. Drei Töne zusammen, immer einen ausgelassen, bilden einen Akkord: C, E, G. Das ist es, was die Gitarre spielt, während jemand singt.",
+          "lamina": [
+            "guitarra",
+            "piano"
+          ]
+        },
+        {
+          "id": "mayorMenor",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mayorMenor"
+          },
+          "texto": "Es reicht, einen einzigen Ton um einen Halbton zu verschieben, um die Stimmung zu ändern: Der Dur-Akkord klingt hell und der Moll-Akkord wehmütig. Hör dir Morgen kommt der Weihnachtsmann in Dur und dann in Moll an: Es ist dieselbe Melodie und wirkt wie eine andere Geschichte. 2009 brachte Thomas Fritz westliche Musik zum Volk der Mafa in Kamerun, das sie nie gehört hatte, und trotzdem erkannten sie, welche Stücke fröhlich und welche traurig waren.",
+          "lamina": [
+            "camerun",
+            "luzSombra"
+          ]
+        },
+        {
+          "id": "tension",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "tension"
+          },
+          "texto": "Manche Akkorde ruhen, andere wollen weiter. Musik lebt davon, Spannung aufzubauen und aufzulösen: Darum spürst du, dass ein Lied zu Ende ist, wenn es zu seinem Heimatakkord zurückkehrt.",
+          "lamina": "ola"
+        },
+        {
+          "id": "progresion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "progresion"
+          },
+          "texto": "Eine Reihe von Akkorden nennt man Akkordfolge. Unsere beiden Lieder kommen mit nur drei Akkorden aus. Und mit vier, in der Reihenfolge eins, fünf, sechs, vier, wurden Hunderte von Hits geschrieben, von Let It Be der Beatles bis zu einem guten Teil des heutigen Pop: Eine gute Akkordfolge hält Jahrzehnte.",
+          "lamina": [
+            "acordes",
+            "vinilo"
+          ]
+        },
+        {
+          "id": "manos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "derecha",
+              "izquierda",
+              "juntas"
+            ]
+          },
+          "texto": "Auf dem Keyboard sieht das so aus: Die rechte Hand spielt die Melodie und die linke die Akkorde. Mit drei Akkorden begleitest du schon beide Lieder vollständig.",
+          "lamina": "piano",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "mezcla",
+      "titulo": "Wie Musik gemischt wird",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil sechs. Wie Musik gemischt wird."
+        },
+        {
+          "id": "capas",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezclador"
+          },
+          "texto": "Erinnerst du dich an die Spuren von Les Paul? So entsteht die Ode an die Freude auf vier Spuren: zuerst das Schlagzeug, dann der Bass, danach die Akkorde und obendrauf die Melodie.",
+          "lamina": [
+            "consola",
+            "estudio"
+          ]
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezcladorBalance"
+          },
+          "texto": "Mischen heißt, drei Dinge zu entscheiden: wie laut jede Spur klingt, damit der Bass die Melodie nicht verdeckt; in welchen Frequenzen sie lebt, die Tiefen unten und die Becken oben; und wo sie klingt, in der Mitte oder an den Seiten.",
+          "lamina": [
+            "fader",
+            "ecualizador"
+          ]
+        },
+        {
+          "id": "dj",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dj"
+          },
+          "texto": "Und dann gibt es die andere Mischung, die des DJs: Sie verbindet keine Spuren, sondern ganze Lieder. Zuerst gleicht er das Tempo der beiden an, damit ihre Schläge zusammenfallen; dann blendet er mit dem Crossfader langsam vom einen zum anderen über und nimmt dem Lied, das geht, die Bässe weg, damit die beiden Basslinien nicht zusammenstoßen.",
+          "lamina": [
+            "dj",
+            "tornamesa"
+          ]
+        },
+        {
+          "id": "mencion-mezcla",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "So mache ich es in meinem Audio-Studio in MindHaOS: Jede Spur hat ihren Kanal im Mischpult, mit eigener Lautstärke, eigenem Panorama und eigenen Effekten.",
+          "lamina": "mezclador",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Dein Plan für den Einstieg",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil sieben. Dein Plan für den Einstieg."
+        },
+        {
+          "id": "escucha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pasada1",
+              "pasada2",
+              "pasada3"
+            ]
+          },
+          "texto": "Fang damit an, anders zuzuhören: Spiel ein Lied dreimal ab und folge zuerst dem Schlagzeug, dann dem Bass und zum Schluss der Melodie und den Akkorden. Du wirst Dinge hören, die schon seit Jahren da waren.",
+          "lamina": [
+            "audifonos3",
+            "vinilo2"
+          ]
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "minutosAno"
+          },
+          "texto": "Du brauchst nicht viel Zeit: Fünfzehn Minuten am Tag sind mehr als neunzig Stunden im Jahr. Stell hier deine Minuten ein und sieh, wie viele Lieder du in einem Jahr lernen könntest.",
+          "lamina": "reloj"
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "Eine mögliche Woche: am Montag der Puls mit Metronom; am Dienstag eine Melodie nach Gehör; am Mittwoch drei Akkorde; am Donnerstag beide Hände; am Freitag Hören in drei Durchgängen; und am Wochenende nimmst du etwas Eigenes auf.",
+          "lamina": [
+            "semana",
+            "grabar"
+          ]
+        },
+        {
+          "id": "graba",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "grabate",
+              "escuchate",
+              "comparte"
+            ]
+          },
+          "texto": "Und nimm dich vom ersten Tag an auf: Dich selbst zu hören ist der schnellste Weg, besser zu werden. Schau, so klingt die Ode mit ihren vier gemischten Spuren.",
+          "lamina": "microfono",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Zusammengefasst: Musik ist organisierter Klang; der Rhythmus ordnet sie in der Zeit, die Melodie in der Tonhöhe und die Harmonie in Schichten; Mischen heißt, jeder Spur ihre Lautstärke, ihre Frequenz und ihren Platz zu geben; und Spielen verändert dich, auch wenn eine Maschine schon komponiert.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Wenn du Musik machen willst wie ich, hat das Audio-Studio von MindHaOS alles in einem einzigen Raum: Du kannst Lieder üben, Ton für Ton, deine eigenen erschaffen, mit mehreren Instrumenten, um sie selbst zu spielen oder fertig produziert anzuhören, und sogar Lieder wie ein DJ mischen. Der Link steht in der Beschreibung, zusammen mit diesem interaktiven Leitfaden. Bis zum nächsten Mal.",
+    "boton": "Das Audio-Studio öffnen",
+    "lamina": "app-plan",
+    "anclas": {
+      "practicar": "Lieder üben",
+      "crear": "deine eigenen erschaffen",
+      "producidas": "fertig produziert",
+      "dj": "Lieder wie ein DJ mischen"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "varese",
+      "texto": "Varèse E., Wen-chung C. The Liberation of Sound. Perspectives of New Music (1966).",
+      "url": "https://doi.org/10.2307/832385"
+    },
+    {
+      "id": "conard-2009",
+      "texto": "Conard N. J., Malina M., Münzel S. C. New flutes document the earliest musical tradition in southwestern Germany. Nature (2009).",
+      "url": "https://doi.org/10.1038/nature08169"
+    },
+    {
+      "id": "winkler-2009",
+      "texto": "Winkler I., Háden G. P., Ladinig O., Sziller I., Honing H. Newborn infants detect the beat in music. PNAS (2009).",
+      "url": "https://doi.org/10.1073/pnas.0809035106"
+    },
+    {
+      "id": "moelants-2002",
+      "texto": "Moelants D. Preferred tempo reconsidered. Proceedings of the 7th International Conference on Music Perception and Cognition (2002)."
+    },
+    {
+      "id": "fritz-2009",
+      "texto": "Fritz T. et al. Universal recognition of three basic emotions in music. Current Biology (2009).",
+      "url": "https://doi.org/10.1016/j.cub.2009.02.058"
+    },
+    {
+      "id": "hyde-2009",
+      "texto": "Hyde K. L. et al. Musical training shapes structural brain development. Journal of Neuroscience (2009).",
+      "url": "https://doi.org/10.1523/JNEUROSCI.5118-08.2009"
+    },
+    {
+      "id": "guido",
+      "texto": "Guido von Arezzo. Micrologus und Epistola de ignoto cantu (um 1025–1030).",
+      "url": "https://en.wikipedia.org/wiki/Guido_of_Arezzo"
+    },
+    {
+      "id": "lespaul",
+      "texto": "Les Paul und das Achtspur-Tonbandgerät „Octopus“ von Ampex (1957).",
+      "url": "https://en.wikipedia.org/wiki/Les_Paul"
+    },
+    {
+      "id": "kirschner-2010",
+      "texto": "Kirschner S., Tomasello M. Joint music making promotes prosocial behavior in 4-year-old children. Evolution and Human Behavior (2010).",
+      "url": "https://doi.org/10.1016/j.evolhumbehav.2010.04.004"
+    },
+    {
+      "id": "edison-1877",
+      "texto": "Edison T. A. Der Phonograph (US-Patent 200 521, 1878).",
+      "url": "https://en.wikipedia.org/wiki/Phonograph"
+    },
+    {
+      "id": "midi-1983",
+      "texto": "MIDI Association. Geschichte des Standards MIDI 1.0 (1983).",
+      "url": "https://midi.org/"
+    }
+  ]
+}

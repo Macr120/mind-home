@@ -1,0 +1,700 @@
+{
+  "idioma": "pl",
+  "tema": "musica",
+  "plantillaId": "audio",
+  "numero": 7,
+  "nombre": "Studio Audio",
+  "pregunta": "Czym jest muzyka?",
+  "corta": "Czym jest muzyka?",
+  "subtitulo": "Po co uczyć się grać, skoro sztuczna inteligencja już komponuje, krótka historia muzyki, jak działają rytm, melodia i harmonia na przykładzie dwóch piosenek, które wszyscy znamy, jak miksuje się ścieżki utworu i dwie piosenki jak DJ, oraz plan na piętnaście minut dziennie na start.",
+  "aviso": "Ten przewodnik ma charakter informacyjny: daty, liczby i cytowane badania są przybliżeniami ich źródeł, a każdy robi postępy we własnym tempie. Obie przykładowe piosenki należą do domeny publicznej i brzmią we własnych aranżacjach; pozostałe są tylko wspomniane.",
+  "partes": [
+    {
+      "id": "musica",
+      "titulo": "Czym jest muzyka",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Czym jest muzyka? Dziś sztuczna inteligencja komponuje całą piosenkę w kilka sekund, z tekstem i głosem. A mimo to miliony ludzi wciąż uczą się grać na instrumencie. To dlaczego nadal warto uczyć się muzyki? W ciągu najbliższych minut zobaczysz, czym jest muzyka, jak powstała, jak działają rytm, melodia i harmonia na dwóch piosenkach, które znasz od dziecka, i jak miksuje się ścieżki, a na koniec dostaniesz plan, żeby grać już od dziś.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "A tak przy okazji, to mój dom w MindHaOS, a to moje Studio Audio: tu komponuję, nagrywam i miksuję. Dziś pokażę ci na nim, jak składa się piosenkę, kawałek po kawałku. Zaczynajmy.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część pierwsza. Czym jest muzyka."
+        },
+        {
+          "id": "sonido",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "onda"
+          },
+          "texto": "Wszystko zaczyna się od drgania. Struna albo głośnik pchają powietrze setki razy na sekundę, a im więcej drgań, tym wyżej słyszysz dźwięk: dźwięk A, do którego stroją się orkiestry, drga czterysta czterdzieści razy na sekundę.",
+          "lamina": [
+            "cuerda",
+            "bocina"
+          ]
+        },
+        {
+          "id": "definicion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ruido",
+              "orden",
+              "musica"
+            ]
+          },
+          "texto": "Ale hałas to jeszcze nie muzyka. Kompozytor Edgard Varèse zdefiniował ją tak: muzyka to zorganizowany dźwięk. Zorganizowany w czasie, w wysokości i w warstwach, które brzmią razem: rytm, melodia i harmonia.",
+          "lamina": [
+            "varese",
+            "partitura"
+          ]
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "15 miesięcy",
+            "clave": "hyde"
+          },
+          "texto": "To po co uczyć się grać, skoro maszyna już komponuje? Bo kiedy grasz, zmienia się nie tylko piosenka, zmieniasz się ty. W 2009 roku Krista Hyde i jej zespół obserwowali dzieci, które przez piętnaście miesięcy chodziły na lekcje keyboardu: obszary ich mózgu odpowiedzialne za ruch rąk i słuch zmieniły się bardziej niż u tych, które na lekcje nie chodziły. Maszyna może zrobić piosenkę, ale nie zagra jej za ciebie.",
+          "lamina": [
+            "nina",
+            "teclado"
+          ]
+        },
+        {
+          "id": "grupo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cerebro",
+              "oido",
+              "juntos"
+            ]
+          },
+          "texto": "A granie z innymi nas łączy: w 2010 roku w Instytucie Maxa Plancka Sebastian Kirschner i Michael Tomasello zauważyli, że czterolatki, które razem muzykowały, potem chętniej sobie pomagały. I nigdy nie jest za późno: dorośli też się uczą.",
+          "lamina": [
+            "banda",
+            "adulto"
+          ]
+        },
+        {
+          "id": "canciones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dosCanciones"
+          },
+          "texto": "Żeby zrozumieć jej elementy, weźmiemy dwie piosenki, które zna prawie każdy: Odę do radości Beethovena z 1824 roku i Mrugaj, mrugaj, gwiazdko ma, francuską melodię z 1761 roku. Obie należą do domeny publicznej, więc tutaj brzmią w całości.",
+          "lamina": [
+            "beethoven",
+            "mozart"
+          ]
+        },
+        {
+          "id": "teclado",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ritmo",
+              "melodia",
+              "armonia"
+            ]
+          },
+          "texto": "Tutaj, na moim keyboardzie, Oda brzmi w trzech warstwach: najpierw uderzenie rytmu, potem melodia jednym palcem, a na końcu akordy drugą ręką.",
+          "lamina": "teclado2",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Krótka historia muzyki",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część druga. Krótka historia muzyki."
+        },
+        {
+          "id": "flauta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaMusica"
+          },
+          "texto": "W niemieckiej jaskini Hohle Fels znaleziono flet wyrzeźbiony z kości sępa jakieś czterdzieści tysięcy lat temu. Zanim zaczęliśmy pisać, już tworzyliśmy muzykę.",
+          "lamina": [
+            "hohlefels",
+            "cueva"
+          ]
+        },
+        {
+          "id": "pitagoras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 : 1",
+            "clave": "pitagoras"
+          },
+          "texto": "W starożytnej Grecji, jak głosi legenda, Pitagoras odkrył, że struna o połowę krótsza brzmi tym samym dźwiękiem, tylko wyżej: o oktawę. Od tamtej pory muzyka to także matematyka.",
+          "lamina": [
+            "pitagoras",
+            "monocordio"
+          ]
+        },
+        {
+          "id": "guido",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1025",
+            "clave": "guido"
+          },
+          "texto": "Około 1025 roku mnich Guido z Arezzo wziął pierwsze sylaby pewnego hymnu, ut, re, mi, fa, sol, la, żeby jego śpiewacy szybciej się uczyli. Ut zamieniło się w do, a jego pomysł zapisywania dźwięków na liniach to dzisiejsza partytura.",
+          "lamina": [
+            "guido",
+            "manuscrito"
+          ]
+        },
+        {
+          "id": "edison",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1877",
+            "clave": "edison"
+          },
+          "texto": "Przez tysiące lat muzyka istniała tylko wtedy, gdy ktoś ją grał. W 1877 roku Thomas Edison nagrał swój głos na wałku fonografu i po raz pierwszy dźwięk dało się zachować i odsłuchać ponownie.",
+          "lamina": [
+            "edison",
+            "fonografo"
+          ]
+        },
+        {
+          "id": "lesPaul",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1 → 8",
+            "clave": "lesPaul"
+          },
+          "texto": "W latach pięćdziesiątych gitarzysta Les Paul nagrywał na swoich własnych nagraniach, a w 1957 roku zaprezentował jeden z pierwszych ośmiościeżkowych magnetofonów. Od tamtej pory prawie całą muzykę nagrywa się w częściach, każdy instrument na swojej ścieżce.",
+          "lamina": [
+            "lespaul",
+            "cinta"
+          ]
+        },
+        {
+          "id": "midi",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "teclado",
+              "computadora",
+              "ia"
+            ]
+          },
+          "texto": "A w 1983 roku pojawił się MIDI, język, w którym rozmawiają ze sobą instrumenty elektroniczne i komputery. Dlatego dziś keyboard i komputer to całe studio, a sztuczna inteligencja to tylko najnowszy rozdział.",
+          "lamina": "midi",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "ritmo",
+      "titulo": "Rytm",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część trzecia. Rytm."
+        },
+        {
+          "id": "pulso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "pulso"
+          },
+          "texto": "Rytm to sposób, w jaki muzyka rozkłada się w czasie, a jego podstawą jest puls: równe uderzenie, które wystukujesz stopą. Jego szybkość mierzy się w uderzeniach na minutę. Posłuchaj Ody w tempie sześćdziesiąt, sto i sto czterdzieści: ta sama piosenka z inną energią.",
+          "lamina": [
+            "pie",
+            "metronomo"
+          ]
+        },
+        {
+          "id": "bebes",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 dni",
+            "clave": "bebes"
+          },
+          "texto": "Wyczucie pulsu mamy od urodzenia. W 2009 roku zespół Istvána Winklera na Węgrzech puścił dwudniowym niemowlętom rytm perkusji: kiedy brakowało mocnego uderzenia, ich mózg reagował na niespodziankę. A tempo, które lubimy najbardziej, to około stu dwudziestu uderzeń na minutę, prawie rytm naszych kroków.",
+          "lamina": [
+            "bebe",
+            "caminar"
+          ]
+        },
+        {
+          "id": "compas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "compas"
+          },
+          "texto": "Uderzenia grupują się w takty, z mocniejszym na początku. Gwiazdka idzie po cztery; walc po trzy. Dlatego walca tańczy się, wirując, a przy marszu się maszeruje.",
+          "lamina": [
+            "vals",
+            "marcha"
+          ]
+        },
+        {
+          "id": "bateria",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cajaRitmos"
+          },
+          "texto": "Na automacie perkusyjnym widać to doskonale: stopa wybija mocne części, werbel słabe, a talerz odlicza kroki pomiędzy. Tup, tup, klask: tylko z tym Queen zrobili z We Will Rock You stadionowy hymn.",
+          "lamina": [
+            "cajaRitmos",
+            "estadio"
+          ]
+        },
+        {
+          "id": "sincopa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "sincopa"
+          },
+          "texto": "A sztuczka, która porywa do tańca, to synkopa: akcent, który wypada tam, gdzie się go nie spodziewasz, między dwoma uderzeniami. Posłuchaj, jak jedno uderzenie nie na swoim miejscu wprawia rytm w kołysanie.",
+          "lamina": "baile"
+        },
+        {
+          "id": "palmas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escucha",
+              "pie",
+              "cuenta"
+            ]
+          },
+          "texto": "Spróbuj z dowolną piosenką: wystukuj puls stopą i licz do czterech. Tak właśnie buduję podkład Ody, uderzenie po uderzeniu.",
+          "lamina": "palmas",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "melodia",
+      "titulo": "Melodia",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część czwarta. Melodia."
+        },
+        {
+          "id": "notas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "octava"
+          },
+          "texto": "Melodia to szereg dźwięków, który możesz zaśpiewać. Między jedną oktawą a następną muzyka zachodnia mieści dwanaście dźwięków, a z siedmiu, C, D, E, F, G, A, H, powstaje prawie każda melodia, którą znasz.",
+          "lamina": [
+            "partitura",
+            "notas"
+          ]
+        },
+        {
+          "id": "contorno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "teclado"
+          },
+          "texto": "Melodię rozpoznajemy po jej rysunku: czy idzie w górę, czy w dół, krokami czy skokami. Oda do radości porusza się prawie cały czas krokami: E, E, F, G. Gwiazdka zaczyna się od skoku: C, C, G, G. Zagraj je tutaj na klawiaturze i zobacz ich rysunek.",
+          "lamina": [
+            "teclado2",
+            "contorno"
+          ]
+        },
+        {
+          "id": "repeticion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "forma"
+          },
+          "texto": "A wpada w ucho, bo się powtarza. Gwiazdka ma trzy frazy: jedną, potem inną i znowu pierwszą. Ta forma, A, B, A, jest w tysiącach piosenek.",
+          "lamina": "cantar"
+        },
+        {
+          "id": "tararea",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tararea",
+              "sube",
+              "toca"
+            ]
+          },
+          "texto": "Żeby zagrać melodię ze słuchu: zanuć ją, zauważ, czy idzie w górę, czy w dół, i znajdź ją na klawiaturze dźwięk po dźwięku. Tak gram Odę jednym palcem.",
+          "lamina": "teclado3",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "armonia",
+      "titulo": "Harmonia",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część piąta. Harmonia."
+        },
+        {
+          "id": "acorde",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "acorde"
+          },
+          "texto": "Jeśli melodia to dźwięki jeden po drugim, to harmonia to dźwięki jednocześnie. Trzy dźwięki razem, co drugi klawisz, tworzą akord: C, E, G. To właśnie gra gitara, kiedy ktoś śpiewa.",
+          "lamina": [
+            "guitarra",
+            "piano"
+          ]
+        },
+        {
+          "id": "mayorMenor",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mayorMenor"
+          },
+          "texto": "Wystarczy przesunąć jeden dźwięk o pół tonu, żeby zmienić nastrój: akord durowy brzmi jasno, a molowy melancholijnie. Posłuchaj Gwiazdki w dur, a potem w moll: ta sama melodia, a jakby inna historia. W 2009 roku Thomas Fritz zawiózł zachodnią muzykę do ludu Mafa w Kamerunie, który nigdy jej nie słyszał, a mimo to rozpoznali, które utwory są wesołe, a które smutne.",
+          "lamina": [
+            "camerun",
+            "luzSombra"
+          ]
+        },
+        {
+          "id": "tension",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "tension"
+          },
+          "texto": "Niektóre akordy odpoczywają, a inne domagają się ruchu. Muzyka żyje z budowania napięcia i jego rozwiązywania: dlatego, kiedy piosenka wraca do swojego akordu domowego, czujesz, że się skończyła.",
+          "lamina": "ola"
+        },
+        {
+          "id": "progresion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "progresion"
+          },
+          "texto": "Szereg akordów nazywa się progresją. Obie nasze piosenki da się zagrać na zaledwie trzech akordach. A na czterech, w kolejności jeden, pięć, sześć, cztery, napisano setki przebojów, od Let It Be Beatlesów po sporą część dzisiejszego popu: dobra progresja wytrzymuje dekady.",
+          "lamina": [
+            "acordes",
+            "vinilo"
+          ]
+        },
+        {
+          "id": "manos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "derecha",
+              "izquierda",
+              "juntas"
+            ]
+          },
+          "texto": "Na klawiaturze wygląda to tak: prawa ręka gra melodię, a lewa akordy. Z trzema akordami akompaniujesz już do obu piosenek w całości.",
+          "lamina": "piano",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "mezcla",
+      "titulo": "Jak miksuje się muzykę",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część szósta. Jak miksuje się muzykę."
+        },
+        {
+          "id": "capas",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezclador"
+          },
+          "texto": "Pamiętasz ścieżki Lesa Paula? Tak powstaje Oda do radości na czterech ścieżkach: najpierw perkusja, potem bas, następnie akordy, a na samej górze melodia.",
+          "lamina": [
+            "consola",
+            "estudio"
+          ]
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezcladorBalance"
+          },
+          "texto": "Miksowanie to trzy decyzje: jak głośno brzmi każda ścieżka, żeby bas nie zagłuszył melodii; w jakich częstotliwościach żyje, niskie na dole, a talerze na górze; i gdzie brzmi, na środku czy po bokach.",
+          "lamina": [
+            "fader",
+            "ecualizador"
+          ]
+        },
+        {
+          "id": "dj",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dj"
+          },
+          "texto": "Jest też drugi rodzaj miksu, ten DJ-a: nie łączy ścieżek, tylko całe piosenki. Najpierw wyrównuje tempo obu, żeby ich uderzenia padały razem; potem crossfaderem powoli przechodzi z jednej do drugiej i ścina basy w tej, która odchodzi, żeby dwa basy się nie zderzyły.",
+          "lamina": [
+            "dj",
+            "tornamesa"
+          ]
+        },
+        {
+          "id": "mencion-mezcla",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Tak to robię w moim Studiu Audio w MindHaOS: każda ścieżka ma swój kanał w mikserze, z głośnością, panoramą i efektami.",
+          "lamina": "mezclador",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Twój plan na start",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część siódma. Twój plan na start."
+        },
+        {
+          "id": "escucha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pasada1",
+              "pasada2",
+              "pasada3"
+            ]
+          },
+          "texto": "Zacznij od słuchania w inny sposób: puść piosenkę trzy razy i śledź najpierw perkusję, potem bas, a na końcu melodię i akordy. Usłyszysz rzeczy, które były tam od lat.",
+          "lamina": [
+            "audifonos3",
+            "vinilo2"
+          ]
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "minutosAno"
+          },
+          "texto": "Nie potrzebujesz dużo czasu: piętnaście minut dziennie to ponad dziewięćdziesiąt godzin rocznie. Przesuń tutaj swoje minuty i zobacz, ile piosenek możesz opanować w rok.",
+          "lamina": "reloj"
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "Przykładowy tydzień: w poniedziałek puls z metronomem; we wtorek melodia ze słuchu; w środę trzy akordy; w czwartek obie ręce; w piątek słuchanie w trzech przejściach; a w weekend nagraj coś swojego.",
+          "lamina": [
+            "semana",
+            "grabar"
+          ]
+        },
+        {
+          "id": "graba",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "grabate",
+              "escuchate",
+              "comparte"
+            ]
+          },
+          "texto": "I nagrywaj się od pierwszego dnia: słuchanie siebie to najszybszy sposób, żeby grać lepiej. Zobacz, tak brzmi Oda z czterema zmiksowanymi ścieżkami.",
+          "lamina": "microfono",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Podsumowując: muzyka to zorganizowany dźwięk; rytm porządkuje ją w czasie, melodia w wysokości, a harmonia w warstwach; miksowanie to danie każdej ścieżce jej głośności, częstotliwości i miejsca; a granie zmienia ciebie, nawet jeśli maszyna już komponuje.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Jeśli chcesz robić muzykę tak jak ja, Studio Audio w MindHaOS ma wszystko w jednym pokoju: możesz ćwiczyć piosenki dźwięk po dźwięku, tworzyć własne na kilku instrumentach, żeby grać je samemu albo słuchać ich już wyprodukowanych, a nawet miksować piosenki jak DJ. Link jest w opisie, razem z tym interaktywnym przewodnikiem. Do zobaczenia w następnym odcinku.",
+    "boton": "Otwórz Studio Audio",
+    "lamina": "app-plan",
+    "anclas": {
+      "practicar": "ćwiczyć piosenki",
+      "crear": "tworzyć własne",
+      "producidas": "już wyprodukowanych",
+      "dj": "miksować piosenki jak DJ"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "varese",
+      "texto": "Varèse E., Wen-chung C. The Liberation of Sound. Perspectives of New Music (1966).",
+      "url": "https://doi.org/10.2307/832385"
+    },
+    {
+      "id": "conard-2009",
+      "texto": "Conard N. J., Malina M., Münzel S. C. New flutes document the earliest musical tradition in southwestern Germany. Nature (2009).",
+      "url": "https://doi.org/10.1038/nature08169"
+    },
+    {
+      "id": "winkler-2009",
+      "texto": "Winkler I., Háden G. P., Ladinig O., Sziller I., Honing H. Newborn infants detect the beat in music. PNAS (2009).",
+      "url": "https://doi.org/10.1073/pnas.0809035106"
+    },
+    {
+      "id": "moelants-2002",
+      "texto": "Moelants D. Preferred tempo reconsidered. Proceedings of the 7th International Conference on Music Perception and Cognition (2002)."
+    },
+    {
+      "id": "fritz-2009",
+      "texto": "Fritz T. et al. Universal recognition of three basic emotions in music. Current Biology (2009).",
+      "url": "https://doi.org/10.1016/j.cub.2009.02.058"
+    },
+    {
+      "id": "hyde-2009",
+      "texto": "Hyde K. L. et al. Musical training shapes structural brain development. Journal of Neuroscience (2009).",
+      "url": "https://doi.org/10.1523/JNEUROSCI.5118-08.2009"
+    },
+    {
+      "id": "guido",
+      "texto": "Guido z Arezzo. Micrologus i Epistola de ignoto cantu (ok. 1025–1030).",
+      "url": "https://en.wikipedia.org/wiki/Guido_of_Arezzo"
+    },
+    {
+      "id": "lespaul",
+      "texto": "Les Paul i ośmiościeżkowy magnetofon Ampex „Octopus” (1957).",
+      "url": "https://en.wikipedia.org/wiki/Les_Paul"
+    },
+    {
+      "id": "kirschner-2010",
+      "texto": "Kirschner S., Tomasello M. Joint music making promotes prosocial behavior in 4-year-old children. Evolution and Human Behavior (2010).",
+      "url": "https://doi.org/10.1016/j.evolhumbehav.2010.04.004"
+    },
+    {
+      "id": "edison-1877",
+      "texto": "Edison T. A. Fonograf (patent USA 200 521, 1878).",
+      "url": "https://en.wikipedia.org/wiki/Phonograph"
+    },
+    {
+      "id": "midi-1983",
+      "texto": "MIDI Association. Historia standardu MIDI 1.0 (1983).",
+      "url": "https://midi.org/"
+    }
+  ]
+}

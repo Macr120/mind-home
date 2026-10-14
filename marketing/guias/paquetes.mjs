@@ -8,7 +8,7 @@
 // en la bio y el texto lo dice.
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath, pathToFileURL } from 'node:url'
 
 const RAIZ = path.dirname(fileURLToPath(import.meta.url))
 const args = process.argv.slice(2)
@@ -40,9 +40,11 @@ const fuentes = guion.fuentes.map((f) => `• ${f.texto} ${f.url}`).join('\n')
 const laminas = Object.values(medios.laminas ?? {})
 const esWiki = (f) => f.fuente.includes('wikimedia.org')
 const fotos = [...new Set([...Object.values(medios.fotos), ...laminas.filter((f) => f.fuente.includes('pexels.com'))].map((f) => f.autor))].join(', ')
-// La música pide su crédito tal cual (la lista del tema, si tiene una propia).
+// La música pide su crédito tal cual (la lista del tema, si tiene una propia; ninguna si la escena va sin música).
 const listaMusica = path.join(RAIZ, 'musica', `${tema}.json`)
-const musica = JSON.parse(readFileSync(existsSync(listaMusica) ? listaMusica : path.join(RAIZ, 'musica', 'musica.json'), 'utf8')).canciones.map((c) => c.credito.join('\n')).join('\n\n')
+const ESCENA = await import(pathToFileURL(path.join(RAIZ, tema, 'escena.mjs')).href)
+const SIN_MUSICA = ESCENA.SIN_MUSICA
+const musica = SIN_MUSICA ? '' : JSON.parse(readFileSync(ESCENA.MUSICA_LISTA ? path.join(RAIZ, 'musica', ESCENA.MUSICA_LISTA) : existsSync(listaMusica) ? listaMusica : path.join(RAIZ, 'musica', 'musica.json'), 'utf8')).canciones.map((c) => c.credito.join('\n')).join('\n\n')
 // Las CC BY/BY-SA piden autor, licencia y enlace.
 const wiki = laminas.filter(esWiki).map((f) => `• ${f.autor} · ${f.licencia} · ${f.fuente}`).join('\n')
 
@@ -63,9 +65,7 @@ function descripcionLarga(red, parte) {
     `${t.wiki}:`,
     wiki,
     '',
-    `${t.musica}:`,
-    musica,
-    '',
+    ...(musica ? [`${t.musica}:`, musica, ''] : []),
     t.hashtags.join(' '),
   ].join('\n')
 }

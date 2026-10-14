@@ -1,0 +1,700 @@
+{
+  "idioma": "ar",
+  "tema": "musica",
+  "plantillaId": "audio",
+  "numero": 7,
+  "nombre": "استوديو الصوت",
+  "pregunta": "ما هي الموسيقى؟",
+  "corta": "ما هي الموسيقى؟",
+  "subtitulo": "لماذا تتعلّم العزف رغم أن الذكاء الاصطناعي صار يؤلّف، وتاريخ موجز للموسيقى، وكيف يعمل الإيقاع واللحن والهارموني مع أغنيتين يعرفهما الجميع، وكيف تُمزج مسارات الأغنية، وكيف تُمزج أغنيتان كما يفعل الدي جي، وخطة من خمس عشرة دقيقة في اليوم لتبدأ.",
+  "aviso": "هذا الدليل للمعلومات فقط: التواريخ والأرقام والدراسات المذكورة تقريبية بحسب مصادرها، وكل شخص يتقدّم بإيقاعه الخاص. الأغنيتان المستخدمتان في الأمثلة من الملك العام وتُعزفان بتوزيعات خاصة بنا؛ أما الأغاني الأخرى فتُذكر بالاسم فقط.",
+  "partes": [
+    {
+      "id": "musica",
+      "titulo": "ما هي الموسيقى",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "ما هي الموسيقى؟ اليوم يؤلّف الذكاء الاصطناعي أغنية كاملة في ثوانٍ، بكلماتها وصوتها. ومع ذلك، ما زال ملايين الناس يتعلّمون العزف على آلة موسيقية. فلماذا يستحق الأمر أن تواصل تعلّم الموسيقى؟ في الدقائق القادمة سترى ما هي الموسيقى، وكيف وُلدت، وكيف يعمل الإيقاع واللحن والهارموني مع أغنيتين تعرفهما منذ طفولتك، وكيف تُمزج المسارات، وستخرج بخطة لتعزف بدءًا من اليوم.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "بالمناسبة، هذا بيتي في MindHaOS، وهذا استوديو الصوت الخاص بي: هنا أؤلّف وأسجّل وأمزج. اليوم سأعلّمك به كيف تُبنى الأغنية، قطعة قطعة. لنبدأ.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الأول. ما هي الموسيقى."
+        },
+        {
+          "id": "sonido",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "onda"
+          },
+          "texto": "كل شيء يبدأ باهتزاز. وتر أو مكبّر صوت يدفع الهواء مئات المرات في الثانية، وكلما زادت الاهتزازات سمعت الصوت أحدّ: نغمة لا التي تضبط عليها الأوركسترات آلاتها تهتز أربعمئة وأربعين مرة في الثانية.",
+          "lamina": [
+            "cuerda",
+            "bocina"
+          ]
+        },
+        {
+          "id": "definicion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ruido",
+              "orden",
+              "musica"
+            ]
+          },
+          "texto": "لكن الضجيج ليس موسيقى. عرّفها المؤلف الموسيقي إدغار فاريز هكذا: الموسيقى صوت منظَّم. منظَّم في الزمن، وفي درجة الصوت، وفي طبقات تُسمع معًا: الإيقاع واللحن والهارموني.",
+          "lamina": [
+            "varese",
+            "partitura"
+          ]
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "15 شهرًا",
+            "clave": "hyde"
+          },
+          "texto": "ولماذا تتعلّم العزف إذا كانت الآلة تؤلّف أصلًا؟ لأنك حين تعزف لا تتغيّر الأغنية وحدها، بل تتغيّر أنت. في عام 2009، تابعت كريستا هايد وفريقها أطفالًا أخذوا دروسًا على الكيبورد مدة خمسة عشر شهرًا: مناطق الدماغ التي تحرّك اليدين وتسمع تغيّرت لديهم أكثر ممّن لم يأخذوها. الآلة تستطيع أن تصنع الأغنية، لكنها لا تستطيع أن تعزفها بدلًا منك.",
+          "lamina": [
+            "nina",
+            "teclado"
+          ]
+        },
+        {
+          "id": "grupo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cerebro",
+              "oido",
+              "juntos"
+            ]
+          },
+          "texto": "والعزف مع الآخرين يقرّبنا: في عام 2010، في معهد ماكس بلانك، لاحظ سيباستيان كيرشنر ومايكل توماسيلو أن أطفالًا في الرابعة صنعوا الموسيقى معًا صاروا يساعدون بعضهم أكثر بعد ذلك. ولا يفوت الأوان أبدًا: الكبار يتعلّمون أيضًا.",
+          "lamina": [
+            "banda",
+            "adulto"
+          ]
+        },
+        {
+          "id": "canciones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dosCanciones"
+          },
+          "texto": "لنفهم أجزاءها سنستخدم أغنيتين يعرفهما الجميع تقريبًا: نشيد الفرح لبيتهوفن، من عام 1824، وتلألئي يا نجمة صغيرة، وهي لحن فرنسي من عام 1761. كلتاهما من الملك العام، لذلك تُسمعان هنا كاملتين.",
+          "lamina": [
+            "beethoven",
+            "mozart"
+          ]
+        },
+        {
+          "id": "teclado",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ritmo",
+              "melodia",
+              "armonia"
+            ]
+          },
+          "texto": "هنا، على الكيبورد الخاص بي، يُعزف نشيد الفرح في ثلاث طبقات: أولًا ضربة الإيقاع، ثم اللحن بإصبع واحد، وأخيرًا الأكوردات باليد الأخرى.",
+          "lamina": "teclado2",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "تاريخ موجز للموسيقى",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثاني. تاريخ موجز للموسيقى."
+        },
+        {
+          "id": "flauta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaMusica"
+          },
+          "texto": "في كهف في ألمانيا اسمه هوله فيلس، عُثر على ناي نُحت من عظم نسر قبل نحو أربعين ألف سنة. قبل أن نكتب، كنا نصنع الموسيقى.",
+          "lamina": [
+            "hohlefels",
+            "cueva"
+          ]
+        },
+        {
+          "id": "pitagoras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 : 1",
+            "clave": "pitagoras"
+          },
+          "texto": "في اليونان القديمة، تروي الأسطورة أن فيثاغورس اكتشف أن وترًا بنصف الطول يعطي النغمة نفسها، لكن أحدّ: أوكتاف. ومنذ ذلك الحين، صارت الموسيقى رياضيات أيضًا.",
+          "lamina": [
+            "pitagoras",
+            "monocordio"
+          ]
+        },
+        {
+          "id": "guido",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1025",
+            "clave": "guido"
+          },
+          "texto": "نحو عام 1025، أخذ الراهب غيدو الأريتسي المقاطع الأولى من ترنيمة، ut، re، mi، fa، sol، la، ليتعلّم مغنّوه أسرع. صار ut لاحقًا do، وفكرته في كتابة النغمات على خطوط هي النوتة الموسيقية اليوم.",
+          "lamina": [
+            "guido",
+            "manuscrito"
+          ]
+        },
+        {
+          "id": "edison",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1877",
+            "clave": "edison"
+          },
+          "texto": "طوال آلاف السنين، لم تكن الموسيقى موجودة إلا ما دام أحد يعزفها. في عام 1877، سجّل توماس إديسون صوته على أسطوانة الفونوغراف، ولأول مرة صار ممكنًا أن يُحفظ صوت ويُسمع من جديد.",
+          "lamina": [
+            "edison",
+            "fonografo"
+          ]
+        },
+        {
+          "id": "lesPaul",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1 → 8",
+            "clave": "lesPaul"
+          },
+          "texto": "في الخمسينيات، سجّل عازف الغيتار ليس بول فوق تسجيلاته نفسها، وفي عام 1957 دشّن واحدًا من أوائل المسجّلات ذات الثمانية مسارات. ومنذ ذلك الحين تُسجَّل الموسيقى كلها تقريبًا على أجزاء، كل آلة في مسارها.",
+          "lamina": [
+            "lespaul",
+            "cinta"
+          ]
+        },
+        {
+          "id": "midi",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "teclado",
+              "computadora",
+              "ia"
+            ]
+          },
+          "texto": "وفي عام 1983 جاء نظام MIDI، اللغة التي تتخاطب بها الآلات الإلكترونية والحواسيب. لهذا صار الكيبورد والحاسوب اليوم استوديو كاملًا، وليس الذكاء الاصطناعي إلا أحدث فصل.",
+          "lamina": "midi",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "ritmo",
+      "titulo": "الإيقاع",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثالث. الإيقاع."
+        },
+        {
+          "id": "pulso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "pulso"
+          },
+          "texto": "الإيقاع هو طريقة توزيع الموسيقى في الزمن، وأساسه النبض: الضربة المنتظمة التي تتبعها بقدمك. تُقاس سرعته بعدد النبضات في الدقيقة. استمع إلى نشيد الفرح على ستين، ثم مئة، ثم مئة وأربعين: الأغنية نفسها بطاقة مختلفة.",
+          "lamina": [
+            "pie",
+            "metronomo"
+          ]
+        },
+        {
+          "id": "bebes",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "يومان",
+            "clave": "bebes"
+          },
+          "texto": "الإحساس بالنبض يولد معنا. في عام 2009، أسمع فريق إشتفان فينكلر في المجر رضّعًا عمرهم يومان إيقاعًا على الطبول: حين كانت الضربة القوية تغيب، كان دماغهم يتفاعل مع المفاجأة. والسرعة التي نحبها أكثر تدور حول مئة وعشرين نبضة في الدقيقة، قريبًا جدًا من إيقاع خطواتنا.",
+          "lamina": [
+            "bebe",
+            "caminar"
+          ]
+        },
+        {
+          "id": "compas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "compas"
+          },
+          "texto": "تتجمّع النبضات في موازير، أول نبضة فيها أقوى. تلألئي يا نجمة صغيرة تسير أربعًا أربعًا، والفالس ثلاثًا ثلاثًا. لهذا يُرقص الفالس دورانًا، ويُمشى على المارش.",
+          "lamina": [
+            "vals",
+            "marcha"
+          ]
+        },
+        {
+          "id": "bateria",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cajaRitmos"
+          },
+          "texto": "في آلة الإيقاع يتّضح ذلك تمامًا: الطبل الكبير يضرب النبضات القوية، والسنير الضعيفة، والصنج يعدّ الخطوات التي بينها. دقّة قدم، دقّة قدم، تصفيقة: بهذا فقط جعلت فرقة Queen من We Will Rock You نشيدًا للملاعب.",
+          "lamina": [
+            "cajaRitmos",
+            "estadio"
+          ]
+        },
+        {
+          "id": "sincopa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "sincopa"
+          },
+          "texto": "والحيلة التي تجعلنا نرقص هي السنكوب: نبرة تقع حيث لا تتوقعها، بين نبضتين. استمع كيف تمنح ضربة واحدة خارج مكانها الإيقاعَ تمايلًا.",
+          "lamina": "baile"
+        },
+        {
+          "id": "palmas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escucha",
+              "pie",
+              "cuenta"
+            ]
+          },
+          "texto": "جرّب ذلك مع أي أغنية: اضبط النبض بقدمك وعُدّ حتى أربعة. هكذا أبني أنا أساس نشيد الفرح، ضربة بعد ضربة.",
+          "lamina": "palmas",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "melodia",
+      "titulo": "اللحن",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الرابع. اللحن."
+        },
+        {
+          "id": "notas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "octava"
+          },
+          "texto": "اللحن صفّ من النغمات تستطيع أن تغنّيه. بين أوكتاف والذي يليه، تقسّم الموسيقى الغربية اثنتي عشرة نغمة، وبسبع منها، دو، ري، مي، فا، صول، لا، سي، تُصنع تقريبًا كل الألحان التي تعرفها.",
+          "lamina": [
+            "partitura",
+            "notas"
+          ]
+        },
+        {
+          "id": "contorno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "teclado"
+          },
+          "texto": "ما يجعل اللحن مميَّزًا هو رسمه: هل يصعد أم ينزل، وهل يمشي خطوة خطوة أم يقفز. نشيد الفرح يتقدّم كله تقريبًا بخطوات: مي، مي، فا، صول. وتلألئي يا نجمة صغيرة تبدأ بقفزة: دو، دو، صول، صول. اعزفهما هنا على الكيبورد وانظر إلى رسمهما.",
+          "lamina": [
+            "teclado2",
+            "contorno"
+          ]
+        },
+        {
+          "id": "repeticion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "forma"
+          },
+          "texto": "ويعلق في أذهاننا لأنه يتكرّر. في تلألئي يا نجمة صغيرة ثلاث جمل: واحدة، ثم أخرى مختلفة، ثم الأولى من جديد. هذا الشكل، A، B، A، موجود في آلاف الأغاني.",
+          "lamina": "cantar"
+        },
+        {
+          "id": "tararea",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tararea",
+              "sube",
+              "toca"
+            ]
+          },
+          "texto": "لتلتقط الألحان بالأذن: دندنها، ولاحظ هل تصعد أم تنزل، وابحث عنها على الكيبورد نغمة نغمة. هكذا أعزف أنا نشيد الفرح بإصبع واحد.",
+          "lamina": "teclado3",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "armonia",
+      "titulo": "الهارموني",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الخامس. الهارموني."
+        },
+        {
+          "id": "acorde",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "acorde"
+          },
+          "texto": "إذا كان اللحن نغمات واحدة بعد الأخرى، فالهارموني نغمات في الوقت نفسه. ثلاث نغمات معًا، نأخذ واحدة ونترك واحدة، تكوّن أكوردًا: دو، مي، صول. هذا ما يعزفه الغيتار بينما يغنّي أحدهم.",
+          "lamina": [
+            "guitarra",
+            "piano"
+          ]
+        },
+        {
+          "id": "mayorMenor",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mayorMenor"
+          },
+          "texto": "يكفي أن تحرّك نغمة واحدة نصف درجة ليتغيّر المزاج: الأكورد الماجور يبدو مشرقًا، والمينور شجيًّا. استمع إلى تلألئي يا نجمة صغيرة بالماجور ثم بالمينور: اللحن نفسه، ويبدو كأنه قصة أخرى. في عام 2009، حمل توماس فريتز موسيقى غربية إلى شعب المافا في الكاميرون، الذي لم يسمعها قط، ومع ذلك عرفوا أي المقطوعات فرحة وأيها حزينة.",
+          "lamina": [
+            "camerun",
+            "luzSombra"
+          ]
+        },
+        {
+          "id": "tension",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "tension"
+          },
+          "texto": "بعض الأكوردات تستريح، وبعضها يطلب الحركة. تعيش الموسيقى على صنع التوتر ثم حلّه: لذلك حين تعود الأغنية إلى أكورد البيت، تشعر أنها انتهت.",
+          "lamina": "ola"
+        },
+        {
+          "id": "progresion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "progresion"
+          },
+          "texto": "يُسمّى صفّ الأكوردات تتابعًا. أغنيتانا تُرافَقان بثلاثة أكوردات فقط. وبأربعة، بالترتيب واحد، خمسة، ستة، أربعة، كُتبت مئات الأغاني الناجحة، من Let It Be لفرقة البيتلز إلى جزء كبير من البوب اليوم: التتابع الجيد يصمد عقودًا.",
+          "lamina": [
+            "acordes",
+            "vinilo"
+          ]
+        },
+        {
+          "id": "manos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "derecha",
+              "izquierda",
+              "juntas"
+            ]
+          },
+          "texto": "على الكيبورد يبدو هكذا: اليد اليمنى تعزف اللحن، واليسرى الأكوردات. بثلاثة أكوردات فقط ترافق الأغنيتين كاملتين.",
+          "lamina": "piano",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "mezcla",
+      "titulo": "كيف تُمزج الموسيقى",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السادس. كيف تُمزج الموسيقى."
+        },
+        {
+          "id": "capas",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezclador"
+          },
+          "texto": "أتذكر مسارات ليس بول؟ هكذا يُبنى نشيد الفرح في أربعة: أولًا الطبول، ثم الباص، بعدها الأكوردات، وفوق كل شيء اللحن.",
+          "lamina": [
+            "consola",
+            "estudio"
+          ]
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezcladorBalance"
+          },
+          "texto": "المزج هو أن تقرّر ثلاثة أشياء: كم يعلو صوت كل مسار، حتى لا يغطّي الباص اللحن؛ وفي أي ترددات يعيش، الأصوات الغليظة في الأسفل والصنوج في الأعلى؛ وأين يُسمع، في الوسط أو على الجانبين.",
+          "lamina": [
+            "fader",
+            "ecualizador"
+          ]
+        },
+        {
+          "id": "dj",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dj"
+          },
+          "texto": "وهناك المزج الآخر، مزج الدي جي: لا يجمع مسارات، بل أغاني كاملة. أولًا يساوي سرعة الأغنيتين، لتقع نبضاتهما معًا؛ ثم ينتقل بالكروس فيدر شيئًا فشيئًا من واحدة إلى الأخرى، وينزع الأصوات الغليظة من الأغنية الراحلة حتى لا يتصادم خطّا الباص.",
+          "lamina": [
+            "dj",
+            "tornamesa"
+          ]
+        },
+        {
+          "id": "mencion-mezcla",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "هكذا أفعل في استوديو الصوت الخاص بي في MindHaOS: لكل مسار قناته في جهاز المزج، بمستوى صوته، وموضعه بين اليمين واليسار، ومؤثراته.",
+          "lamina": "mezclador",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "خطتك لتبدأ",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السابع. خطتك لتبدأ."
+        },
+        {
+          "id": "escucha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pasada1",
+              "pasada2",
+              "pasada3"
+            ]
+          },
+          "texto": "ابدأ بأن تستمع بطريقة مختلفة: شغّل أغنية ثلاث مرات، وتتبّع أولًا الطبول، ثم الباص، وأخيرًا اللحن والأكوردات. ستسمع أشياء كانت هناك منذ سنوات.",
+          "lamina": [
+            "audifonos3",
+            "vinilo2"
+          ]
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "minutosAno"
+          },
+          "texto": "لا تحتاج إلى وقت كثير: خمس عشرة دقيقة في اليوم تعني أكثر من تسعين ساعة في السنة. حرّك دقائقك هنا وانظر كم أغنية يمكنك أن تتعلّمها في سنة.",
+          "lamina": "reloj"
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "أسبوع ممكن: الاثنين، النبض مع المترونوم؛ الثلاثاء، لحن بالأذن؛ الأربعاء، ثلاثة أكوردات؛ الخميس، اليدان معًا؛ الجمعة، استماع على ثلاث مرات؛ وفي عطلة نهاية الأسبوع، سجّل شيئًا من صنعك.",
+          "lamina": [
+            "semana",
+            "grabar"
+          ]
+        },
+        {
+          "id": "graba",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "grabate",
+              "escuchate",
+              "comparte"
+            ]
+          },
+          "texto": "وسجّل نفسك من اليوم الأول: أن تسمع نفسك هو أسرع طريق للتحسّن. انظر، هكذا يبدو نشيد الفرح بمساراته الأربعة ممزوجة.",
+          "lamina": "microfono",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "باختصار: الموسيقى صوت منظَّم؛ الإيقاع ينظّمها في الزمن، واللحن في درجة الصوت، والهارموني في طبقات؛ والمزج هو أن تعطي كل مسار مستوى صوته وتردده ومكانه؛ والعزف يغيّرك أنت، حتى لو كانت الآلة تؤلّف.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "إذا أردت أن تصنع الموسيقى مثلي، ففي استوديو الصوت في MindHaOS كل شيء في غرفة واحدة: يمكنك تمرين الأغاني نغمة نغمة، وتأليف أغانيك بعدة آلات، لتعزفها بنفسك أو جاهزة الإنتاج لتستمع إليها، بل وحتى مزج الأغاني مثل الدي جي. الرابط في الوصف، ومعه هذا الدليل التفاعلي. نلتقي في الدليل القادم.",
+    "boton": "افتح استوديو الصوت",
+    "lamina": "app-plan",
+    "anclas": {
+      "practicar": "تمرين الأغاني",
+      "crear": "تأليف أغانيك",
+      "producidas": "جاهزة الإنتاج",
+      "dj": "مزج الأغاني مثل الدي جي"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "varese",
+      "texto": "Varèse E., Wen-chung C. The Liberation of Sound. Perspectives of New Music (1966).",
+      "url": "https://doi.org/10.2307/832385"
+    },
+    {
+      "id": "conard-2009",
+      "texto": "Conard N. J., Malina M., Münzel S. C. New flutes document the earliest musical tradition in southwestern Germany. Nature (2009).",
+      "url": "https://doi.org/10.1038/nature08169"
+    },
+    {
+      "id": "winkler-2009",
+      "texto": "Winkler I., Háden G. P., Ladinig O., Sziller I., Honing H. Newborn infants detect the beat in music. PNAS (2009).",
+      "url": "https://doi.org/10.1073/pnas.0809035106"
+    },
+    {
+      "id": "moelants-2002",
+      "texto": "Moelants D. Preferred tempo reconsidered. Proceedings of the 7th International Conference on Music Perception and Cognition (2002)."
+    },
+    {
+      "id": "fritz-2009",
+      "texto": "Fritz T. et al. Universal recognition of three basic emotions in music. Current Biology (2009).",
+      "url": "https://doi.org/10.1016/j.cub.2009.02.058"
+    },
+    {
+      "id": "hyde-2009",
+      "texto": "Hyde K. L. et al. Musical training shapes structural brain development. Journal of Neuroscience (2009).",
+      "url": "https://doi.org/10.1523/JNEUROSCI.5118-08.2009"
+    },
+    {
+      "id": "guido",
+      "texto": "غيدو الأريتسي. Micrologus و Epistola de ignoto cantu (نحو 1025-1030).",
+      "url": "https://en.wikipedia.org/wiki/Guido_of_Arezzo"
+    },
+    {
+      "id": "lespaul",
+      "texto": "ليس بول ومسجّل Ampex ذو الثمانية مسارات «Octopus» (1957).",
+      "url": "https://en.wikipedia.org/wiki/Les_Paul"
+    },
+    {
+      "id": "kirschner-2010",
+      "texto": "Kirschner S., Tomasello M. Joint music making promotes prosocial behavior in 4-year-old children. Evolution and Human Behavior (2010).",
+      "url": "https://doi.org/10.1016/j.evolhumbehav.2010.04.004"
+    },
+    {
+      "id": "edison-1877",
+      "texto": "Edison T. A. الفونوغراف (براءة اختراع أمريكية رقم 200 521، 1878).",
+      "url": "https://en.wikipedia.org/wiki/Phonograph"
+    },
+    {
+      "id": "midi-1983",
+      "texto": "MIDI Association. تاريخ معيار MIDI 1.0 (1983).",
+      "url": "https://midi.org/"
+    }
+  ]
+}

@@ -5,7 +5,7 @@ import { RigEjercicio } from '../../../src/rooms/ejercicio/anim/RigEjercicio'
 import { J } from '../../../src/rooms/ejercicio/anim/pose'
 import { avanzarBoca, nuevaBocaHabla, type BocaHabla } from '../../../src/core/house/bocaHabla'
 import type { ExpresionId } from '../../../src/core/house/apariencia'
-import { patronEscena, pepCon, ropaDeEpoca, ATUENDO_GUIA, NARRADOR_GUIA } from './pep'
+import { patronEscena, pepCon, ropaDeEpoca, ATUENDO_GUIA, NARRADOR_GUIA, TUNICA_GUIA } from './pep'
 import { Mago3D } from './Mago3D'
 
 /**
@@ -50,7 +50,7 @@ export default function Escenario3D({
       <directionalLight position={[3, 7, 5]} intensity={1.15} castShadow shadow-mapSize={[1024, 1024]} />
       <directionalLight position={[-4, 3, -3]} intensity={0.4} />
       <Suspense fallback={null}>
-        {mago ? <Mago3D escena={escena} boca={boca} cara={cara} /> : <RigEjercicio av={av} patron={patron} boca={boca} />}
+        {mago ? <Mago3D escena={escena} boca={boca} cara={cara} tunica={TUNICA_GUIA[tema]} /> : <RigEjercicio av={av} patron={patron} boca={boca} />}
       </Suspense>
       <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
         <circleGeometry args={[1.6, 48]} />

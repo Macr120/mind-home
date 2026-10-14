@@ -1,0 +1,700 @@
+{
+  "idioma": "ru",
+  "tema": "musica",
+  "plantillaId": "audio",
+  "numero": 7,
+  "nombre": "Аудиостудия",
+  "pregunta": "Что такое музыка?",
+  "corta": "Что такое музыка?",
+  "subtitulo": "Зачем учиться играть, даже если искусственный интеллект уже сочиняет, краткая история музыки, как устроены ритм, мелодия и гармония на примере двух песен, которые знают все, как сводятся дорожки песни и как диджей сводит две песни, и план на пятнадцать минут в день, чтобы начать.",
+  "aviso": "Это справочное руководство: даты, цифры и исследования приведены приблизительно по их источникам, и каждый продвигается в своём темпе. Обе песни-примера находятся в общественном достоянии и звучат в собственных аранжировках; остальные только упоминаются.",
+  "partes": [
+    {
+      "id": "musica",
+      "titulo": "Что такое музыка",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Что такое музыка? Сегодня искусственный интеллект сочиняет целую песню за секунды, со словами и голосом. И всё равно миллионы людей продолжают учиться играть на инструменте. Так зачем тебе и дальше учиться музыке? В ближайшие минуты ты узнаешь, что такое музыка, как она родилась, как работают ритм, мелодия и гармония на двух песнях, знакомых тебе с детства, и как сводятся дорожки, и уйдёшь с планом, чтобы играть уже сегодня.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Кстати, это мой дом в MindHaOS, а это моя Аудиостудия: здесь я сочиняю, записываю и свожу. Сегодня я покажу на ней, как собирается песня, деталь за деталью. Начнём.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть первая. Что такое музыка."
+        },
+        {
+          "id": "sonido",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "onda"
+          },
+          "texto": "Всё начинается с колебания. Струна или динамик толкают воздух сотни раз в секунду, и чем больше колебаний, тем выше звук: нота ля, по которой настраиваются оркестры, колеблется четыреста сорок раз в секунду.",
+          "lamina": [
+            "cuerda",
+            "bocina"
+          ]
+        },
+        {
+          "id": "definicion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ruido",
+              "orden",
+              "musica"
+            ]
+          },
+          "texto": "Но шум ещё не музыка. Композитор Эдгар Варез определил её так: музыка — это организованный звук. Организованный во времени, по высоте и в слоях, которые звучат вместе: ритм, мелодия и гармония.",
+          "lamina": [
+            "varese",
+            "partitura"
+          ]
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "15 месяцев",
+            "clave": "hyde"
+          },
+          "texto": "Так зачем учиться играть, если машина уже сочиняет? Потому что, когда ты играешь, меняется не только песня, меняешься ты сам. В 2009 году Криста Хайд и её команда наблюдали за детьми, которые пятнадцать месяцев занимались на клавишных: участки мозга, управляющие руками и слухом, изменились у них сильнее, чем у тех, кто не занимался. Машина может создать песню, но не может сыграть её за тебя.",
+          "lamina": [
+            "nina",
+            "teclado"
+          ]
+        },
+        {
+          "id": "grupo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cerebro",
+              "oido",
+              "juntos"
+            ]
+          },
+          "texto": "А игра вместе с другими нас сближает: в 2010 году в Институте Макса Планка Себастьян Киршнер и Майкл Томаселло увидели, что четырёхлетние дети, которые вместе занимались музыкой, потом охотнее помогали друг другу. И никогда не поздно: взрослые тоже учатся.",
+          "lamina": [
+            "banda",
+            "adulto"
+          ]
+        },
+        {
+          "id": "canciones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dosCanciones"
+          },
+          "texto": "Чтобы разобрать музыку на части, мы возьмём две песни, которые знают почти все: «Оду к радости» Бетховена, 1824 года, и «Сияй, сияй, маленькая звёздочка», французскую мелодию 1761 года. Обе в общественном достоянии, поэтому здесь они звучат целиком.",
+          "lamina": [
+            "beethoven",
+            "mozart"
+          ]
+        },
+        {
+          "id": "teclado",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ritmo",
+              "melodia",
+              "armonia"
+            ]
+          },
+          "texto": "Вот здесь, на моих клавишах, «Ода» звучит в три слоя: сначала удар ритма, потом мелодия одним пальцем и, наконец, аккорды другой рукой.",
+          "lamina": "teclado2",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Краткая история музыки",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть вторая. Краткая история музыки."
+        },
+        {
+          "id": "flauta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaMusica"
+          },
+          "texto": "В пещере Холе-Фельс в Германии нашли флейту, вырезанную из кости грифа около сорока тысяч лет назад. Ещё до письменности мы уже делали музыку.",
+          "lamina": [
+            "hohlefels",
+            "cueva"
+          ]
+        },
+        {
+          "id": "pitagoras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 : 1",
+            "clave": "pitagoras"
+          },
+          "texto": "В Древней Греции, по легенде, Пифагор открыл, что струна вдвое короче звучит той же нотой, только выше: на октаву. С тех пор музыка — это ещё и математика.",
+          "lamina": [
+            "pitagoras",
+            "monocordio"
+          ]
+        },
+        {
+          "id": "guido",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1025",
+            "clave": "guido"
+          },
+          "texto": "Около 1025 года монах Гвидо д’Ареццо взял первые слоги одного гимна, ut, re, mi, fa, sol, la, чтобы его певчие учились быстрее. Ut превратилось в до, а его идея записывать ноты на линейках — это сегодняшние ноты.",
+          "lamina": [
+            "guido",
+            "manuscrito"
+          ]
+        },
+        {
+          "id": "edison",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1877",
+            "clave": "edison"
+          },
+          "texto": "Тысячи лет музыка существовала, только пока её кто-то играл. В 1877 году Томас Эдисон записал свой голос на валик фонографа, и впервые звук можно было сохранить и послушать снова.",
+          "lamina": [
+            "edison",
+            "fonografo"
+          ]
+        },
+        {
+          "id": "lesPaul",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1 → 8",
+            "clave": "lesPaul"
+          },
+          "texto": "В пятидесятые гитарист Лес Пол записывал поверх собственных записей, а в 1957 году представил один из первых восьмидорожечных магнитофонов. С тех пор почти всю музыку записывают по частям, каждый инструмент на своей дорожке.",
+          "lamina": [
+            "lespaul",
+            "cinta"
+          ]
+        },
+        {
+          "id": "midi",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "teclado",
+              "computadora",
+              "ia"
+            ]
+          },
+          "texto": "А в 1983 году появился MIDI, язык, на котором общаются электронные инструменты и компьютеры. Поэтому сегодня клавиатура и компьютер — это целая студия, а искусственный интеллект — лишь самая новая глава.",
+          "lamina": "midi",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "ritmo",
+      "titulo": "Ритм",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть третья. Ритм."
+        },
+        {
+          "id": "pulso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "pulso"
+          },
+          "texto": "Ритм — это то, как музыка распределяется во времени, а его основа — пульс: ровный удар, который ты отбиваешь ногой. Его скорость измеряют в ударах в минуту. Послушай «Оду» на шестидесяти, ста и ста сорока: та же песня, но с другой энергией.",
+          "lamina": [
+            "pie",
+            "metronomo"
+          ]
+        },
+        {
+          "id": "bebes",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 дня",
+            "clave": "bebes"
+          },
+          "texto": "Чувство пульса заложено с рождения. В 2009 году команда Иштвана Винклера в Венгрии дала двухдневным младенцам послушать барабанный ритм: когда сильный удар пропадал, их мозг реагировал на сюрприз. А любимая наша скорость — около ста двадцати ударов в минуту, почти как ритм наших шагов.",
+          "lamina": [
+            "bebe",
+            "caminar"
+          ]
+        },
+        {
+          "id": "compas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "compas"
+          },
+          "texto": "Удары складываются в такты, и первый в такте самый сильный. «Звёздочка» идёт по четыре; вальс — по три. Поэтому вальс танцуют, кружась, а под марш шагают.",
+          "lamina": [
+            "vals",
+            "marcha"
+          ]
+        },
+        {
+          "id": "bateria",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cajaRitmos"
+          },
+          "texto": "На драм-машине это видно отлично: бочка отмечает сильные доли, малый барабан — слабые, а тарелка считает шаги посередине. Топ, топ, хлоп: только с этим Queen превратили We Will Rock You в гимн стадионов.",
+          "lamina": [
+            "cajaRitmos",
+            "estadio"
+          ]
+        },
+        {
+          "id": "sincopa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "sincopa"
+          },
+          "texto": "А секрет, от которого хочется танцевать, — синкопа: акцент, который приходится туда, где его не ждёшь, между двумя ударами. Послушай, как один-единственный удар не на своём месте раскачивает ритм.",
+          "lamina": "baile"
+        },
+        {
+          "id": "palmas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escucha",
+              "pie",
+              "cuenta"
+            ]
+          },
+          "texto": "Попробуй с любой песней: отбивай пульс ногой и считай до четырёх. Вот так я собираю основу «Оды», удар за ударом.",
+          "lamina": "palmas",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "melodia",
+      "titulo": "Мелодия",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть четвёртая. Мелодия."
+        },
+        {
+          "id": "notas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "octava"
+          },
+          "texto": "Мелодия — это ряд нот, который можно спеть. Между одной октавой и следующей западная музыка размещает двенадцать нот, а из семи, до, ре, ми, фа, соль, ля, си, складываются почти все мелодии, которые ты знаешь.",
+          "lamina": [
+            "partitura",
+            "notas"
+          ]
+        },
+        {
+          "id": "contorno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "teclado"
+          },
+          "texto": "Мелодию узнают по её рисунку: идёт ли она вверх или вниз, ступенями или скачками. «Ода к радости» почти вся движется ступенями: ми, ми, фа, соль. «Звёздочка» начинается со скачка: до, до, соль, соль. Сыграй их здесь на клавишах и посмотри на их рисунок.",
+          "lamina": [
+            "teclado2",
+            "contorno"
+          ]
+        },
+        {
+          "id": "repeticion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "forma"
+          },
+          "texto": "А прилипает она потому, что повторяется. В «Звёздочке» три фразы: одна, другая и снова первая. Эта форма, А, Б, А, есть в тысячах песен.",
+          "lamina": "cantar"
+        },
+        {
+          "id": "tararea",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tararea",
+              "sube",
+              "toca"
+            ]
+          },
+          "texto": "Чтобы подобрать мелодию на слух: напой её, заметь, идёт ли она вверх или вниз, и найди на клавишах нота за нотой. Так я играю «Оду» одним пальцем.",
+          "lamina": "teclado3",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "armonia",
+      "titulo": "Гармония",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть пятая. Гармония."
+        },
+        {
+          "id": "acorde",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "acorde"
+          },
+          "texto": "Если мелодия — это ноты одна за другой, то гармония — это ноты одновременно. Три ноты вместе, через одну, образуют аккорд: до, ми, соль. Это то, что играет гитара, пока кто-то поёт.",
+          "lamina": [
+            "guitarra",
+            "piano"
+          ]
+        },
+        {
+          "id": "mayorMenor",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mayorMenor"
+          },
+          "texto": "Достаточно сдвинуть одну ноту на полтона, чтобы изменить настроение: мажорный аккорд звучит светло, а минорный — грустно. Послушай «Звёздочку» в мажоре, а потом в миноре: та же мелодия, а будто другая история. В 2009 году Томас Фриц привёз западную музыку народу мафа в Камеруне, который никогда её не слышал, и всё равно они узнали, какие пьесы весёлые, а какие грустные.",
+          "lamina": [
+            "camerun",
+            "luzSombra"
+          ]
+        },
+        {
+          "id": "tension",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "tension"
+          },
+          "texto": "Одни аккорды отдыхают, другие просят движения. Музыка живёт тем, что создаёт напряжение и разрешает его: поэтому, когда песня возвращается к своему домашнему аккорду, ты чувствуешь, что она закончилась.",
+          "lamina": "ola"
+        },
+        {
+          "id": "progresion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "progresion"
+          },
+          "texto": "Ряд аккордов называют последовательностью. Обе наши песни сопровождаются всего тремя аккордами. А на четырёх, в порядке первый, пятый, шестой, четвёртый, написаны сотни хитов, от Let It Be группы Beatles до доброй части сегодняшнего попа: хорошая последовательность живёт десятилетиями.",
+          "lamina": [
+            "acordes",
+            "vinilo"
+          ]
+        },
+        {
+          "id": "manos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "derecha",
+              "izquierda",
+              "juntas"
+            ]
+          },
+          "texto": "На клавишах это выглядит так: правая рука играет мелодию, а левая — аккорды. С тремя аккордами ты уже аккомпанируешь обе песни целиком.",
+          "lamina": "piano",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "mezcla",
+      "titulo": "Как сводят музыку",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть шестая. Как сводят музыку."
+        },
+        {
+          "id": "capas",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezclador"
+          },
+          "texto": "Помнишь дорожки Леса Пола? Вот так «Ода к радости» собирается из четырёх: сначала барабаны, потом бас, затем аккорды и, поверх всего, мелодия.",
+          "lamina": [
+            "consola",
+            "estudio"
+          ]
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezcladorBalance"
+          },
+          "texto": "Сводить — значит решить три вещи: насколько громко звучит каждая дорожка, чтобы бас не заглушал мелодию; в каких частотах она живёт, низы внизу, тарелки наверху; и где она звучит, в центре или по сторонам.",
+          "lamina": [
+            "fader",
+            "ecualizador"
+          ]
+        },
+        {
+          "id": "dj",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dj"
+          },
+          "texto": "А есть и другое сведение, диджейское: оно соединяет не дорожки, а целые песни. Сначала диджей выравнивает скорость обеих, чтобы их доли совпадали; потом кроссфейдером понемногу переходит от одной к другой и убирает низы у уходящей, чтобы два баса не столкнулись.",
+          "lamina": [
+            "dj",
+            "tornamesa"
+          ]
+        },
+        {
+          "id": "mencion-mezcla",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Так я делаю это в своей Аудиостудии в MindHaOS: у каждой дорожки свой канал в микшере, со своей громкостью, панорамой и эффектами.",
+          "lamina": "mezclador",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Твой план, чтобы начать",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть седьмая. Твой план, чтобы начать."
+        },
+        {
+          "id": "escucha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pasada1",
+              "pasada2",
+              "pasada3"
+            ]
+          },
+          "texto": "Начни с того, чтобы слушать по-другому: включи песню три раза и следи сначала за барабанами, потом за басом и в конце за мелодией и аккордами. Ты услышишь то, что годами там было.",
+          "lamina": [
+            "audifonos3",
+            "vinilo2"
+          ]
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "minutosAno"
+          },
+          "texto": "Много времени не нужно: пятнадцать минут в день — это больше девяноста часов в год. Подвигай здесь свои минуты и посмотри, сколько песен ты мог бы разучить за год.",
+          "lamina": "reloj"
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "Возможная неделя: в понедельник пульс с метрономом; во вторник мелодия на слух; в среду три аккорда; в четверг две руки; в пятницу слушание в три прохода; а на выходных запиши что-нибудь своё.",
+          "lamina": [
+            "semana",
+            "grabar"
+          ]
+        },
+        {
+          "id": "graba",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "grabate",
+              "escuchate",
+              "comparte"
+            ]
+          },
+          "texto": "И записывай себя с первого дня: слушать себя — самый быстрый способ стать лучше. Смотри, вот так звучит «Ода» с четырьмя сведёнными дорожками.",
+          "lamina": "microfono",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Итак: музыка — это организованный звук; ритм упорядочивает её во времени, мелодия по высоте, а гармония в слоях; сводить — значит дать каждой дорожке свою громкость, свою частоту и своё место; а игра меняет тебя самого, даже если машина уже сочиняет.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Если хочешь делать музыку, как я, в Аудиостудии MindHaOS всё есть в одной комнате: можно разучивать песни нота за нотой, создавать свои на нескольких инструментах, чтобы играть их самому или слушать уже готовыми, и даже сводить песни как диджей. Ссылка в описании, вместе с этим интерактивным руководством. До встречи в следующий раз.",
+    "boton": "Открыть Аудиостудию",
+    "lamina": "app-plan",
+    "anclas": {
+      "practicar": "разучивать песни",
+      "crear": "создавать свои",
+      "producidas": "уже готовыми",
+      "dj": "сводить песни как диджей"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "varese",
+      "texto": "Varèse E., Wen-chung C. The Liberation of Sound. Perspectives of New Music (1966).",
+      "url": "https://doi.org/10.2307/832385"
+    },
+    {
+      "id": "conard-2009",
+      "texto": "Conard N. J., Malina M., Münzel S. C. New flutes document the earliest musical tradition in southwestern Germany. Nature (2009).",
+      "url": "https://doi.org/10.1038/nature08169"
+    },
+    {
+      "id": "winkler-2009",
+      "texto": "Winkler I., Háden G. P., Ladinig O., Sziller I., Honing H. Newborn infants detect the beat in music. PNAS (2009).",
+      "url": "https://doi.org/10.1073/pnas.0809035106"
+    },
+    {
+      "id": "moelants-2002",
+      "texto": "Moelants D. Preferred tempo reconsidered. Proceedings of the 7th International Conference on Music Perception and Cognition (2002)."
+    },
+    {
+      "id": "fritz-2009",
+      "texto": "Fritz T. et al. Universal recognition of three basic emotions in music. Current Biology (2009).",
+      "url": "https://doi.org/10.1016/j.cub.2009.02.058"
+    },
+    {
+      "id": "hyde-2009",
+      "texto": "Hyde K. L. et al. Musical training shapes structural brain development. Journal of Neuroscience (2009).",
+      "url": "https://doi.org/10.1523/JNEUROSCI.5118-08.2009"
+    },
+    {
+      "id": "guido",
+      "texto": "Гвидо д’Ареццо. Micrologus и Epistola de ignoto cantu (около 1025–1030).",
+      "url": "https://en.wikipedia.org/wiki/Guido_of_Arezzo"
+    },
+    {
+      "id": "lespaul",
+      "texto": "Лес Пол и восьмидорожечный магнитофон Ampex «Octopus» (1957).",
+      "url": "https://en.wikipedia.org/wiki/Les_Paul"
+    },
+    {
+      "id": "kirschner-2010",
+      "texto": "Kirschner S., Tomasello M. Joint music making promotes prosocial behavior in 4-year-old children. Evolution and Human Behavior (2010).",
+      "url": "https://doi.org/10.1016/j.evolhumbehav.2010.04.004"
+    },
+    {
+      "id": "edison-1877",
+      "texto": "Edison T. A. Фонограф (патент США 200 521, 1878).",
+      "url": "https://en.wikipedia.org/wiki/Phonograph"
+    },
+    {
+      "id": "midi-1983",
+      "texto": "MIDI Association. История стандарта MIDI 1.0 (1983).",
+      "url": "https://midi.org/"
+    }
+  ]
+}

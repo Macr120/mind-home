@@ -1,0 +1,700 @@
+{
+  "idioma": "id",
+  "tema": "musica",
+  "plantillaId": "audio",
+  "numero": 7,
+  "nombre": "Studio Audio",
+  "pregunta": "Apa itu musik?",
+  "corta": "Apa itu musik?",
+  "subtitulo": "Mengapa belajar bermain musik meski kecerdasan buatan sudah bisa mencipta lagu, sejarah singkat musik, cara kerja ritme, melodi, dan harmoni lewat dua lagu yang semua orang tahu, cara trek-trek sebuah lagu di-mix dan cara menggabungkan dua lagu seperti DJ, serta rencana lima belas menit sehari untuk mulai.",
+  "aviso": "Panduan ini bersifat informatif: tanggal, angka, dan studi yang dikutip adalah perkiraan dari sumbernya, dan setiap orang maju dengan kecepatannya sendiri. Dua lagu contohnya berstatus domain publik dan dimainkan dengan aransemen kami sendiri; lagu-lagu lainnya hanya disebutkan.",
+  "partes": [
+    {
+      "id": "musica",
+      "titulo": "Apa itu musik",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Apa itu musik? Sekarang kecerdasan buatan bisa mencipta lagu lengkap dalam hitungan detik, dengan lirik dan suaranya. Tapi tetap saja, jutaan orang terus belajar memainkan alat musik. Lalu mengapa kamu tetap perlu belajar musik? Dalam beberapa menit ke depan, kamu akan melihat apa itu musik, bagaimana ia lahir, bagaimana ritme, melodi, dan harmoni bekerja lewat dua lagu yang kamu kenal sejak kecil, dan bagaimana trek-trek di-mix, lalu kamu akan pulang dengan rencana untuk bermain mulai hari ini.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Omong-omong, ini rumahku di MindHaOS, dan ini Studio Audio-ku: di sini aku mencipta, merekam, dan me-mix lagu. Hari ini, dengan studio ini, aku akan menunjukkan bagaimana sebuah lagu disusun, bagian demi bagian. Ayo kita mulai.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian satu. Apa itu musik."
+        },
+        {
+          "id": "sonido",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "onda"
+          },
+          "texto": "Semuanya berawal dari getaran. Senar atau speaker mendorong udara ratusan kali per detik, dan makin banyak getarannya, makin tinggi suara yang kamu dengar: nada la yang dipakai orkestra untuk menyetem bergetar empat ratus empat puluh kali per detik.",
+          "lamina": [
+            "cuerda",
+            "bocina"
+          ]
+        },
+        {
+          "id": "definicion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ruido",
+              "orden",
+              "musica"
+            ]
+          },
+          "texto": "Tapi bunyi bising bukanlah musik. Komponis Edgard Varèse mendefinisikannya begini: musik adalah bunyi yang tertata. Tertata dalam waktu, dalam tinggi nada, dan dalam lapisan yang berbunyi bersamaan: ritme, melodi, dan harmoni.",
+          "lamina": [
+            "varese",
+            "partitura"
+          ]
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "15 bulan",
+            "clave": "hyde"
+          },
+          "texto": "Lalu untuk apa belajar bermain musik, kalau mesin sudah bisa mencipta lagu? Karena saat kamu bermain, bukan hanya lagunya yang berubah, kamu juga berubah. Pada 2009, Krista Hyde dan timnya mengikuti anak-anak yang ikut les keyboard selama lima belas bulan: bagian otak mereka yang menggerakkan tangan dan mendengar berubah lebih banyak daripada anak-anak yang tidak ikut les. Mesin bisa membuat lagunya, tapi tidak bisa memainkannya untukmu.",
+          "lamina": [
+            "nina",
+            "teclado"
+          ]
+        },
+        {
+          "id": "grupo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cerebro",
+              "oido",
+              "juntos"
+            ]
+          },
+          "texto": "Dan bermain musik bersama orang lain menyatukan kita: pada 2010, di Institut Max Planck, Sebastian Kirschner dan Michael Tomasello melihat bahwa anak-anak berusia empat tahun yang bermain musik bersama kemudian lebih banyak saling membantu. Dan tidak ada kata terlambat: orang dewasa juga bisa belajar.",
+          "lamina": [
+            "banda",
+            "adulto"
+          ]
+        },
+        {
+          "id": "canciones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dosCanciones"
+          },
+          "texto": "Untuk memahami bagian-bagiannya, kita akan memakai dua lagu yang hampir semua orang tahu: Ode to Joy karya Beethoven, dari tahun 1824, dan Twinkle Twinkle Little Star, melodi Prancis dari tahun 1761. Keduanya berstatus domain publik, jadi di sini keduanya dimainkan utuh.",
+          "lamina": [
+            "beethoven",
+            "mozart"
+          ]
+        },
+        {
+          "id": "teclado",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ritmo",
+              "melodia",
+              "armonia"
+            ]
+          },
+          "texto": "Di sini, di keyboard-ku, Ode to Joy terdengar dalam tiga lapisan: pertama ketukan ritmenya, lalu melodinya dengan satu jari, dan terakhir akor-akornya dengan tangan yang lain.",
+          "lamina": "teclado2",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Sejarah singkat musik",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian dua. Sejarah singkat musik."
+        },
+        {
+          "id": "flauta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaMusica"
+          },
+          "texto": "Di sebuah gua di Jerman, Hohle Fels, ditemukan seruling yang dipahat dari tulang burung nasar sekitar empat puluh ribu tahun lalu. Sebelum mengenal tulisan, kita sudah bermusik.",
+          "lamina": [
+            "hohlefels",
+            "cueva"
+          ]
+        },
+        {
+          "id": "pitagoras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 : 1",
+            "clave": "pitagoras"
+          },
+          "texto": "Di Yunani kuno, menurut legenda, Pythagoras menemukan bahwa senar yang panjangnya setengah menghasilkan nada yang sama, tapi lebih tinggi: satu oktaf. Sejak itu, musik juga adalah matematika.",
+          "lamina": [
+            "pitagoras",
+            "monocordio"
+          ]
+        },
+        {
+          "id": "guido",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1025",
+            "clave": "guido"
+          },
+          "texto": "Sekitar tahun 1025, biarawan Guido dari Arezzo mengambil suku kata pertama sebuah himne, ut, re, mi, fa, sol, la, supaya para penyanyinya belajar lebih cepat. Ut kemudian menjadi do, dan gagasannya menulis nada di atas garis-garis adalah partitur yang kita kenal sekarang.",
+          "lamina": [
+            "guido",
+            "manuscrito"
+          ]
+        },
+        {
+          "id": "edison",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1877",
+            "clave": "edison"
+          },
+          "texto": "Selama ribuan tahun, musik hanya ada selama seseorang memainkannya. Pada 1877, Thomas Edison merekam suaranya di silinder fonografnya, dan untuk pertama kalinya sebuah bunyi bisa disimpan dan didengar lagi.",
+          "lamina": [
+            "edison",
+            "fonografo"
+          ]
+        },
+        {
+          "id": "lesPaul",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1 → 8",
+            "clave": "lesPaul"
+          },
+          "texto": "Pada tahun lima puluhan, gitaris Les Paul merekam di atas rekamannya sendiri, dan pada 1957 ia memperkenalkan salah satu perekam delapan trek yang pertama. Sejak itu, hampir semua musik direkam per bagian, setiap alat musik di treknya sendiri.",
+          "lamina": [
+            "lespaul",
+            "cinta"
+          ]
+        },
+        {
+          "id": "midi",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "teclado",
+              "computadora",
+              "ia"
+            ]
+          },
+          "texto": "Lalu pada 1983 hadir MIDI, bahasa yang dipakai alat musik elektronik dan komputer untuk saling bicara. Karena itu, sekarang satu keyboard dan satu komputer sudah menjadi studio lengkap, dan kecerdasan buatan hanyalah babak terbarunya.",
+          "lamina": "midi",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "ritmo",
+      "titulo": "Ritme",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tiga. Ritme."
+        },
+        {
+          "id": "pulso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "pulso"
+          },
+          "texto": "Ritme adalah cara musik dibagi dalam waktu, dan dasarnya adalah ketukan: hentakan teratur yang kamu ikuti dengan kaki. Kecepatannya diukur dalam ketukan per menit. Dengarkan Ode to Joy pada enam puluh, seratus, dan seratus empat puluh: lagu yang sama dengan energi yang berbeda.",
+          "lamina": [
+            "pie",
+            "metronomo"
+          ]
+        },
+        {
+          "id": "bebes",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 hari",
+            "clave": "bebes"
+          },
+          "texto": "Merasakan ketukan itu bawaan lahir. Pada 2009, tim István Winkler di Hungaria memperdengarkan irama drum kepada bayi berusia dua hari: saat ketukan kuatnya hilang, otak mereka bereaksi terhadap kejutan itu. Dan kecepatan yang paling kita sukai berkisar seratus dua puluh ketukan per menit, hampir sama dengan irama langkah kita.",
+          "lamina": [
+            "bebe",
+            "caminar"
+          ]
+        },
+        {
+          "id": "compas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "compas"
+          },
+          "texto": "Ketukan-ketukan dikelompokkan dalam birama, dengan ketukan yang lebih kuat di awal. Twinkle Twinkle Little Star berjalan empat-empat; wals, tiga-tiga. Karena itu wals ditarikan sambil berputar, dan mars dipakai untuk berbaris.",
+          "lamina": [
+            "vals",
+            "marcha"
+          ]
+        },
+        {
+          "id": "bateria",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cajaRitmos"
+          },
+          "texto": "Di drum machine, ini terlihat sangat jelas: bass drum menandai ketukan kuat, snare ketukan lemah, dan hi-hat menghitung langkah di antaranya. Hentak, hentak, tepuk: hanya dengan itu, Queen menjadikan We Will Rock You lagu wajib stadion.",
+          "lamina": [
+            "cajaRitmos",
+            "estadio"
+          ]
+        },
+        {
+          "id": "sincopa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "sincopa"
+          },
+          "texto": "Dan trik yang membuat orang berjoget adalah sinkopasi: aksen yang jatuh di tempat yang tidak kamu duga, di antara dua ketukan. Dengarkan bagaimana satu pukulan yang keluar dari tempatnya memberi ayunan pada ritme.",
+          "lamina": "baile"
+        },
+        {
+          "id": "palmas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escucha",
+              "pie",
+              "cuenta"
+            ]
+          },
+          "texto": "Coba dengan lagu apa saja: ikuti ketukannya dengan kaki dan hitung sampai empat. Begitulah aku menyusun dasar Ode to Joy, pukulan demi pukulan.",
+          "lamina": "palmas",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "melodia",
+      "titulo": "Melodi",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian empat. Melodi."
+        },
+        {
+          "id": "notas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "octava"
+          },
+          "texto": "Melodi adalah deretan nada yang bisa kamu nyanyikan. Di antara satu oktaf dan oktaf berikutnya, musik Barat membagi dua belas nada, dan dengan tujuh nada, do, re, mi, fa, sol, la, si, tercipta hampir semua melodi yang kamu kenal.",
+          "lamina": [
+            "partitura",
+            "notas"
+          ]
+        },
+        {
+          "id": "contorno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "teclado"
+          },
+          "texto": "Yang membuat sebuah melodi mudah dikenali adalah bentuknya: naik atau turun, melangkah sedikit-sedikit atau melompat. Ode to Joy hampir seluruhnya melangkah: mi, mi, fa, sol. Twinkle Twinkle Little Star dimulai dengan lompatan: do, do, sol, sol. Mainkan keduanya di keyboard ini dan lihat bentuknya.",
+          "lamina": [
+            "teclado2",
+            "contorno"
+          ]
+        },
+        {
+          "id": "repeticion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "forma"
+          },
+          "texto": "Dan melodi menempel di kepala karena diulang. Twinkle Twinkle Little Star punya tiga frasa: satu, lalu yang berbeda, lalu yang pertama lagi. Bentuk itu, A, B, A, ada di ribuan lagu.",
+          "lamina": "cantar"
+        },
+        {
+          "id": "tararea",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tararea",
+              "sube",
+              "toca"
+            ]
+          },
+          "texto": "Untuk mencari melodi dengan telinga: senandungkan, perhatikan apakah naik atau turun, lalu cari di keyboard nada demi nada. Begitulah aku memainkan Ode to Joy dengan satu jari.",
+          "lamina": "teclado3",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "armonia",
+      "titulo": "Harmoni",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian lima. Harmoni."
+        },
+        {
+          "id": "acorde",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "acorde"
+          },
+          "texto": "Kalau melodi adalah nada yang berbunyi satu demi satu, harmoni adalah nada yang berbunyi bersamaan. Tiga nada sekaligus, dengan melewati satu nada di antaranya, membentuk akor: do, mi, sol. Itulah yang dimainkan gitar saat seseorang bernyanyi.",
+          "lamina": [
+            "guitarra",
+            "piano"
+          ]
+        },
+        {
+          "id": "mayorMenor",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mayorMenor"
+          },
+          "texto": "Cukup geser satu nada setengah langkah untuk mengubah suasana: akor mayor terdengar cerah, dan minor terdengar sendu. Dengarkan Twinkle Twinkle Little Star dalam mayor lalu dalam minor: melodinya sama, tapi seperti cerita yang lain. Pada 2009, Thomas Fritz membawa musik Barat kepada suku Mafa di Kamerun, yang belum pernah mendengarnya, dan mereka tetap bisa mengenali mana lagu yang gembira dan mana yang sedih.",
+          "lamina": [
+            "camerun",
+            "luzSombra"
+          ]
+        },
+        {
+          "id": "tension",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "tension"
+          },
+          "texto": "Ada akor yang terasa tenang, ada yang ingin bergerak. Musik hidup dari membangun ketegangan lalu melepaskannya: karena itu, saat sebuah lagu kembali ke akor rumahnya, kamu merasa lagu itu sudah selesai.",
+          "lamina": "ola"
+        },
+        {
+          "id": "progresion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "progresion"
+          },
+          "texto": "Deretan akor disebut progresi. Kedua lagu kita diiringi hanya dengan tiga akor. Dan dengan empat akor, dalam urutan satu, lima, enam, empat, ratusan lagu hit telah ditulis, dari Let It Be milik The Beatles sampai sebagian besar lagu pop masa kini: progresi yang bagus bertahan puluhan tahun.",
+          "lamina": [
+            "acordes",
+            "vinilo"
+          ]
+        },
+        {
+          "id": "manos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "derecha",
+              "izquierda",
+              "juntas"
+            ]
+          },
+          "texto": "Di keyboard, kelihatannya begini: tangan kanan memainkan melodi, tangan kiri memainkan akor. Dengan tiga akor saja, kamu sudah bisa mengiringi kedua lagu itu sampai habis.",
+          "lamina": "piano",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "mezcla",
+      "titulo": "Cara musik di-mix",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian enam. Cara musik di-mix."
+        },
+        {
+          "id": "capas",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezclador"
+          },
+          "texto": "Ingat trek-trek Les Paul? Begini Ode to Joy disusun dalam empat trek: pertama drum, lalu bass, kemudian akor, dan di atas semuanya, melodi.",
+          "lamina": [
+            "consola",
+            "estudio"
+          ]
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezcladorBalance"
+          },
+          "texto": "Mixing berarti memutuskan tiga hal: seberapa keras setiap trek berbunyi, supaya bass tidak menutupi melodi; di frekuensi mana ia tinggal, nada rendah di bawah dan simbal di atas; dan di mana ia terdengar, di tengah atau di samping.",
+          "lamina": [
+            "fader",
+            "ecualizador"
+          ]
+        },
+        {
+          "id": "dj",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dj"
+          },
+          "texto": "Lalu ada mixing yang lain, gaya DJ: bukan menggabungkan trek, tapi lagu-lagu utuh. Pertama, ia menyamakan kecepatan kedua lagu, supaya ketukannya jatuh bersamaan; lalu, dengan crossfader, ia berpindah perlahan dari satu lagu ke lagu lain, dan membuang bass dari lagu yang sedang keluar supaya kedua bass tidak bertabrakan.",
+          "lamina": [
+            "dj",
+            "tornamesa"
+          ]
+        },
+        {
+          "id": "mencion-mezcla",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Begitulah aku melakukannya di Studio Audio-ku di MindHaOS: setiap trek punya salurannya sendiri di mixer, dengan volume, panning, dan efeknya sendiri.",
+          "lamina": "mezclador",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Rencanamu untuk mulai",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tujuh. Rencanamu untuk mulai."
+        },
+        {
+          "id": "escucha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pasada1",
+              "pasada2",
+              "pasada3"
+            ]
+          },
+          "texto": "Mulailah dengan mendengarkan secara berbeda: putar sebuah lagu tiga kali, dan ikuti dulu drumnya, lalu bass-nya, dan terakhir melodi dan akornya. Kamu akan mendengar hal-hal yang sudah bertahun-tahun ada di sana.",
+          "lamina": [
+            "audifonos3",
+            "vinilo2"
+          ]
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "minutosAno"
+          },
+          "texto": "Kamu tidak butuh banyak waktu: lima belas menit sehari berarti lebih dari sembilan puluh jam setahun. Geser menitmu di sini dan lihat berapa lagu yang bisa kamu kuasai dalam setahun.",
+          "lamina": "reloj"
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "Contoh seminggu: Senin, ketukan dengan metronom; Selasa, satu melodi dengan telinga; Rabu, tiga akor; Kamis, kedua tangan; Jumat, mendengarkan dalam tiga putaran; dan di akhir pekan, rekam sesuatu buatanmu sendiri.",
+          "lamina": [
+            "semana",
+            "grabar"
+          ]
+        },
+        {
+          "id": "graba",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "grabate",
+              "escuchate",
+              "comparte"
+            ]
+          },
+          "texto": "Dan rekam dirimu sejak hari pertama: mendengarkan diri sendiri adalah cara tercepat untuk berkembang. Lihat, beginilah Ode to Joy dengan empat treknya yang sudah di-mix.",
+          "lamina": "microfono",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Singkatnya: musik adalah bunyi yang tertata; ritme menatanya dalam waktu, melodi dalam tinggi nada, dan harmoni dalam lapisan; mixing berarti memberi setiap trek volumenya, frekuensinya, dan tempatnya; dan bermain musik mengubah dirimu, meskipun mesin sudah bisa mencipta lagu.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Kalau kamu ingin bermusik seperti aku, Studio Audio di MindHaOS punya semuanya dalam satu ruangan: kamu bisa berlatih lagu nada demi nada, membuat lagumu sendiri dengan berbagai alat musik, untuk kamu mainkan sendiri atau yang sudah diproduksi untuk didengarkan, bahkan me-mix lagu seperti DJ. Tautannya ada di deskripsi, bersama panduan interaktif ini. Sampai jumpa di panduan berikutnya.",
+    "boton": "Buka Studio Audio",
+    "lamina": "app-plan",
+    "anclas": {
+      "practicar": "berlatih lagu",
+      "crear": "membuat lagumu sendiri",
+      "producidas": "sudah diproduksi",
+      "dj": "me-mix lagu seperti DJ"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "varese",
+      "texto": "Varèse E., Wen-chung C. The Liberation of Sound. Perspectives of New Music (1966).",
+      "url": "https://doi.org/10.2307/832385"
+    },
+    {
+      "id": "conard-2009",
+      "texto": "Conard N. J., Malina M., Münzel S. C. New flutes document the earliest musical tradition in southwestern Germany. Nature (2009).",
+      "url": "https://doi.org/10.1038/nature08169"
+    },
+    {
+      "id": "winkler-2009",
+      "texto": "Winkler I., Háden G. P., Ladinig O., Sziller I., Honing H. Newborn infants detect the beat in music. PNAS (2009).",
+      "url": "https://doi.org/10.1073/pnas.0809035106"
+    },
+    {
+      "id": "moelants-2002",
+      "texto": "Moelants D. Preferred tempo reconsidered. Proceedings of the 7th International Conference on Music Perception and Cognition (2002)."
+    },
+    {
+      "id": "fritz-2009",
+      "texto": "Fritz T. et al. Universal recognition of three basic emotions in music. Current Biology (2009).",
+      "url": "https://doi.org/10.1016/j.cub.2009.02.058"
+    },
+    {
+      "id": "hyde-2009",
+      "texto": "Hyde K. L. et al. Musical training shapes structural brain development. Journal of Neuroscience (2009).",
+      "url": "https://doi.org/10.1523/JNEUROSCI.5118-08.2009"
+    },
+    {
+      "id": "guido",
+      "texto": "Guido dari Arezzo. Micrologus dan Epistola de ignoto cantu (sekitar 1025-1030).",
+      "url": "https://en.wikipedia.org/wiki/Guido_of_Arezzo"
+    },
+    {
+      "id": "lespaul",
+      "texto": "Les Paul dan perekam delapan trek Ampex «Octopus» (1957).",
+      "url": "https://en.wikipedia.org/wiki/Les_Paul"
+    },
+    {
+      "id": "kirschner-2010",
+      "texto": "Kirschner S., Tomasello M. Joint music making promotes prosocial behavior in 4-year-old children. Evolution and Human Behavior (2010).",
+      "url": "https://doi.org/10.1016/j.evolhumbehav.2010.04.004"
+    },
+    {
+      "id": "edison-1877",
+      "texto": "Edison T. A. Fonograf (paten AS 200 521, 1878).",
+      "url": "https://en.wikipedia.org/wiki/Phonograph"
+    },
+    {
+      "id": "midi-1983",
+      "texto": "MIDI Association. Sejarah standar MIDI 1.0 (1983).",
+      "url": "https://midi.org/"
+    }
+  ]
+}

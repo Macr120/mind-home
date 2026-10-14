@@ -1,0 +1,700 @@
+{
+  "idioma": "tr",
+  "tema": "musica",
+  "plantillaId": "audio",
+  "numero": 7,
+  "nombre": "Ses Stüdyosu",
+  "pregunta": "Müzik nedir?",
+  "corta": "Müzik nedir?",
+  "subtitulo": "Yapay zekâ artık beste yapsa da neden çalmayı öğrenmeli, müziğin kısa tarihi, herkesin bildiği iki şarkıyla ritim, melodi ve armoninin nasıl işlediği, bir şarkının kanallarının nasıl miksajlandığı, iki şarkının bir DJ gibi nasıl karıştırıldığı ve başlamak için günde on beş dakikalık bir plan.",
+  "aviso": "Bu rehber bilgilendirme amaçlıdır: tarihler, rakamlar ve anılan çalışmalar kaynaklarına göre yaklaşıktır ve herkes kendi hızında ilerler. Örnek iki şarkı kamu malıdır ve kendi düzenlemelerimizle çalar; diğerlerinin yalnızca adı geçer.",
+  "partes": [
+    {
+      "id": "musica",
+      "titulo": "Müzik nedir",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "texto": "Müzik nedir? Bugün bir yapay zekâ, sözleri ve sesiyle birlikte koca bir şarkıyı saniyeler içinde besteliyor. Yine de milyonlarca insan bir enstrüman çalmayı öğrenmeye devam ediyor. Peki müzik çalışmaya devam etmen neden hâlâ değer? Önümüzdeki dakikalarda müziğin ne olduğunu, nasıl doğduğunu, çocukluğundan beri bildiğin iki şarkıyla ritmin, melodinin ve armoninin nasıl işlediğini ve kanalların nasıl miksajlandığını göreceksin, bugünden itibaren çalmak için bir planla da ayrılacaksın.",
+          "enCasa": true
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "Bu arada, burası MindHaOS'taki evim, bu da Ses Stüdyom: burada beste yapıyor, kaydediyor ve miksajlıyorum. Bugün onunla bir şarkının parça parça nasıl kurulduğunu sana göstereceğim. Hadi başlayalım.",
+          "enCasa": true
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Birinci bölüm. Müzik nedir."
+        },
+        {
+          "id": "sonido",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "onda"
+          },
+          "texto": "Her şey bir titreşimle başlar. Bir tel ya da bir hoparlör havayı saniyede yüzlerce kez iter ve titreşim arttıkça sesi daha ince duyarsın: orkestraların akort yaptığı la notası saniyede dört yüz kırk kez titreşir.",
+          "lamina": [
+            "cuerda",
+            "bocina"
+          ]
+        },
+        {
+          "id": "definicion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ruido",
+              "orden",
+              "musica"
+            ]
+          },
+          "texto": "Ama gürültü müzik değildir. Besteci Edgard Varèse onu şöyle tanımladı: müzik, düzenlenmiş sestir. Zamanda, yükseklikte ve birlikte çalan katmanlarda düzenlenmiş: ritim, melodi ve armoni.",
+          "lamina": [
+            "varese",
+            "partitura"
+          ]
+        },
+        {
+          "id": "ia",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "15 ay",
+            "clave": "hyde"
+          },
+          "texto": "Peki bir makine zaten beste yapıyorsa neden çalmayı öğrenelim? Çünkü çaldığında yalnızca şarkı değişmez, sen değişirsin. 2009'da Krista Hyde ve ekibi, on beş ay boyunca klavye dersi alan çocukları izledi: beyinlerinin elleri hareket ettiren ve duyan bölgeleri, ders almayanlarınkinden daha çok değişti. Bir makine şarkıyı yapabilir ama senin yerine çalamaz.",
+          "lamina": [
+            "nina",
+            "teclado"
+          ]
+        },
+        {
+          "id": "grupo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cerebro",
+              "oido",
+              "juntos"
+            ]
+          },
+          "texto": "Başkalarıyla çalmak da bizi birleştirir: 2010'da Max Planck Enstitüsü'nde Sebastian Kirschner ve Michael Tomasello, birlikte müzik yapmış dört yaşındaki çocukların sonrasında birbirlerine daha çok yardım ettiğini gördü. Ve asla geç değildir: yetişkinler de öğrenir.",
+          "lamina": [
+            "banda",
+            "adulto"
+          ]
+        },
+        {
+          "id": "canciones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dosCanciones"
+          },
+          "texto": "Parçalarını anlamak için neredeyse herkesin bildiği iki şarkıyı kullanacağız: Beethoven'ın 1824 tarihli Neşeye Övgü'sü ve 1761'den bir Fransız melodisi olan Parla Parla Küçük Yıldız. İkisi de kamu malı, bu yüzden burada tam olarak çalıyorlar.",
+          "lamina": [
+            "beethoven",
+            "mozart"
+          ]
+        },
+        {
+          "id": "teclado",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ritmo",
+              "melodia",
+              "armonia"
+            ]
+          },
+          "texto": "Burada, klavyemde, Neşeye Övgü üç katmanda çalıyor: önce ritmin vuruşu, sonra tek parmakla melodi ve en sonunda öbür elle akorlar.",
+          "lamina": "teclado2",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Müziğin kısa tarihi",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "İkinci bölüm. Müziğin kısa tarihi."
+        },
+        {
+          "id": "flauta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaMusica"
+          },
+          "texto": "Almanya'daki Hohle Fels mağarasında, yaklaşık kırk bin yıl önce akbaba kemiğinden oyulmuş bir flüt bulundu. Yazıdan önce bile müzik yapıyorduk.",
+          "lamina": [
+            "hohlefels",
+            "cueva"
+          ]
+        },
+        {
+          "id": "pitagoras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 : 1",
+            "clave": "pitagoras"
+          },
+          "texto": "Antik Yunan'da, efsaneye göre Pisagor, yarı uzunluktaki bir telin aynı notayı daha ince çaldığını keşfetti: bir oktav. O günden beri müzik aynı zamanda matematiktir.",
+          "lamina": [
+            "pitagoras",
+            "monocordio"
+          ]
+        },
+        {
+          "id": "guido",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1025",
+            "clave": "guido"
+          },
+          "texto": "1025 civarında keşiş Guido d'Arezzo, şarkıcıları daha hızlı öğrensin diye bir ilahinin ilk hecelerini aldı: ut, re, mi, fa, sol, la. Ut zamanla do oldu ve notaları çizgilerin üzerine yazma fikri bugünkü notanın ta kendisi.",
+          "lamina": [
+            "guido",
+            "manuscrito"
+          ]
+        },
+        {
+          "id": "edison",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1877",
+            "clave": "edison"
+          },
+          "texto": "Binlerce yıl boyunca müzik ancak biri onu çalarken var oldu. 1877'de Thomas Edison sesini fonografının silindirine kaydetti ve ilk kez bir ses saklanıp yeniden dinlenebildi.",
+          "lamina": [
+            "edison",
+            "fonografo"
+          ]
+        },
+        {
+          "id": "lesPaul",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1 → 8",
+            "clave": "lesPaul"
+          },
+          "texto": "Ellili yıllarda gitarist Les Paul kendi kayıtlarının üzerine kayıt yaptı ve 1957'de ilk sekiz kanallı kayıt cihazlarından birini tanıttı. O günden beri müziğin neredeyse tamamı parça parça kaydediliyor, her enstrüman kendi kanalında.",
+          "lamina": [
+            "lespaul",
+            "cinta"
+          ]
+        },
+        {
+          "id": "midi",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "teclado",
+              "computadora",
+              "ia"
+            ]
+          },
+          "texto": "1983'te de MIDI geldi; elektronik enstrümanların ve bilgisayarların birbirleriyle konuştuğu dil. Bu yüzden bugün bir klavye ve bir bilgisayar başlı başına bir stüdyo, yapay zekâ ise yalnızca en yeni bölüm.",
+          "lamina": "midi",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "ritmo",
+      "titulo": "Ritim",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Üçüncü bölüm. Ritim."
+        },
+        {
+          "id": "pulso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "pulso"
+          },
+          "texto": "Ritim, müziğin zamana nasıl yayıldığıdır ve temeli vuruştur: ayağınla takip ettiğin düzenli tempo. Hızı dakikadaki vuruş sayısıyla ölçülür. Neşeye Övgü'yü altmışta, yüzde ve yüz kırkta dinle: aynı şarkı, başka bir enerjiyle.",
+          "lamina": [
+            "pie",
+            "metronomo"
+          ]
+        },
+        {
+          "id": "bebes",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 gün",
+            "clave": "bebes"
+          },
+          "texto": "Vuruşu hissetmek doğuştan gelir. 2009'da Macaristan'da István Winkler'in ekibi, iki günlük bebeklere bir davul ritmi dinletti: güçlü vuruş eksik olduğunda beyinleri sürprize tepki verdi. En sevdiğimiz hız da dakikada yüz yirmi vuruş civarında, neredeyse adımlarımızın ritmi.",
+          "lamina": [
+            "bebe",
+            "caminar"
+          ]
+        },
+        {
+          "id": "compas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "compas"
+          },
+          "texto": "Vuruşlar ölçülerde toplanır ve baştaki daha güçlüdür. Parla Parla Küçük Yıldız dörtlü gider; vals ise üçlü. Bu yüzden vals dönerek dans edilir, marşla ise yürünür.",
+          "lamina": [
+            "vals",
+            "marcha"
+          ]
+        },
+        {
+          "id": "bateria",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cajaRitmos"
+          },
+          "texto": "Bir ritim makinesinde bu çok net görülür: bas davul güçlü vuruşları, trampet zayıfları işaretler, zil de aradaki adımları sayar. Güm, güm, şak: Queen, sadece bununla We Will Rock You'yu bir stadyum marşına çevirdi.",
+          "lamina": [
+            "cajaRitmos",
+            "estadio"
+          ]
+        },
+        {
+          "id": "sincopa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "sincopa"
+          },
+          "texto": "İnsanı dans ettiren hile de senkoptur: beklemediğin yere, iki vuruşun arasına düşen bir vurgu. Yerinden kaymış tek bir vuruşun ritme nasıl salınım kattığını dinle.",
+          "lamina": "baile"
+        },
+        {
+          "id": "palmas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escucha",
+              "pie",
+              "cuenta"
+            ]
+          },
+          "texto": "Herhangi bir şarkıyla dene: vuruşu ayağınla tut ve dörde kadar say. Neşeye Övgü'nün altyapısını ben de böyle, vuruş vuruş kuruyorum.",
+          "lamina": "palmas",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "melodia",
+      "titulo": "Melodi",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Dördüncü bölüm. Melodi."
+        },
+        {
+          "id": "notas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "octava"
+          },
+          "texto": "Melodi, söyleyebileceğin bir nota dizisidir. Bir oktavla bir sonraki arasında Batı müziği on iki nota yerleştirir ve yedisiyle, do, re, mi, fa, sol, la, si, bildiğin melodilerin neredeyse hepsi yapılır.",
+          "lamina": [
+            "partitura",
+            "notas"
+          ]
+        },
+        {
+          "id": "contorno",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "teclado"
+          },
+          "texto": "Bir melodiyi tanınır kılan çizgisidir: çıkıyor mu iniyor mu, adım adım mı gidiyor yoksa sıçrıyor mu. Neşeye Övgü neredeyse hep adım adım ilerler: mi, mi, fa, sol. Parla Parla Küçük Yıldız bir sıçramayla başlar: do, do, sol, sol. Burada klavyede çal ve çizgilerine bak.",
+          "lamina": [
+            "teclado2",
+            "contorno"
+          ]
+        },
+        {
+          "id": "repeticion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "forma"
+          },
+          "texto": "Akılda kalmasının sebebi de tekrar etmesidir. Parla Parla Küçük Yıldız'ın üç cümlesi var: biri, farklı bir diğeri ve yine ilki. Bu A, B, A biçimi binlerce şarkıda var.",
+          "lamina": "cantar"
+        },
+        {
+          "id": "tararea",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tararea",
+              "sube",
+              "toca"
+            ]
+          },
+          "texto": "Melodileri kulaktan çıkarmak için: mırıldan, çıkıyor mu iniyor mu dikkat et ve klavyede nota nota bul. Neşeye Övgü'yü tek parmakla ben de böyle çalıyorum.",
+          "lamina": "teclado3",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "armonia",
+      "titulo": "Armoni",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Beşinci bölüm. Armoni."
+        },
+        {
+          "id": "acorde",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "acorde"
+          },
+          "texto": "Melodi notaların art arda gelmesiyse, armoni notaların aynı anda çalmasıdır. Birini atlayarak seçilen üç nota birlikte bir akor oluşturur: do, mi, sol. Biri şarkı söylerken gitarın çaldığı budur.",
+          "lamina": [
+            "guitarra",
+            "piano"
+          ]
+        },
+        {
+          "id": "mayorMenor",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mayorMenor"
+          },
+          "texto": "Ruh halini değiştirmek için tek bir notayı yarım ses kaydırmak yeter: majör akor aydınlık, minör akor hüzünlü çalar. Parla Parla Küçük Yıldız'ı önce majörde, sonra minörde dinle: aynı melodi, ama bambaşka bir hikâye gibi. 2009'da Thomas Fritz, Batı müziğini hiç duymamış olan Kamerun'daki Mafa halkına götürdü ve yine de hangi parçaların neşeli, hangilerinin hüzünlü olduğunu anladılar.",
+          "lamina": [
+            "camerun",
+            "luzSombra"
+          ]
+        },
+        {
+          "id": "tension",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "tension"
+          },
+          "texto": "Bazı akorlar dinlenir, bazıları ise hareket ister. Müzik gerilim yaratıp onu çözmekle yaşar: bu yüzden bir şarkı ev akoruna döndüğünde bittiğini hissedersin.",
+          "lamina": "ola"
+        },
+        {
+          "id": "progresion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "progresion"
+          },
+          "texto": "Akorların dizisine akor yürüyüşü denir. İki şarkımız da yalnızca üç akorla eşlik edilir. Dört akorla, bir, beş, altı, dört sırasıyla, Beatles'ın Let It Be'sinden bugünkü popun büyük bölümüne kadar yüzlerce hit yazıldı: iyi bir akor yürüyüşü on yıllar boyunca dayanır.",
+          "lamina": [
+            "acordes",
+            "vinilo"
+          ]
+        },
+        {
+          "id": "manos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "derecha",
+              "izquierda",
+              "juntas"
+            ]
+          },
+          "texto": "Klavyede şöyle görünür: sağ el melodiyi, sol el akorları çalar. Üç akorla iki şarkıya da baştan sona eşlik edebilirsin.",
+          "lamina": "piano",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "mezcla",
+      "titulo": "Müzik nasıl miksajlanır",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Altıncı bölüm. Müzik nasıl miksajlanır."
+        },
+        {
+          "id": "capas",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezclador"
+          },
+          "texto": "Les Paul'ün kanallarını hatırlıyor musun? Neşeye Övgü dört kanalda böyle kurulur: önce davul, sonra bas, ardından akorlar ve hepsinin üstünde melodi.",
+          "lamina": [
+            "consola",
+            "estudio"
+          ]
+        },
+        {
+          "id": "balance",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezcladorBalance"
+          },
+          "texto": "Miksaj üç karar demektir: her kanal ne kadar yüksek çalacak, bas melodiyi örtmesin diye; hangi frekanslarda yaşayacak, kalın sesler aşağıda, ziller yukarıda; ve nerede çalacak, ortada mı yanlarda mı.",
+          "lamina": [
+            "fader",
+            "ecualizador"
+          ]
+        },
+        {
+          "id": "dj",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dj"
+          },
+          "texto": "Bir de öbür miksaj var, DJ'inki: kanalları değil, şarkıların tamamını birleştirir. Önce ikisinin hızını eşitler ki vuruşları birlikte düşsün; sonra crossfader'la yavaş yavaş birinden ötekine geçer ve giden şarkının baslarını keser ki iki bas çarpışmasın.",
+          "lamina": [
+            "dj",
+            "tornamesa"
+          ]
+        },
+        {
+          "id": "mencion-mezcla",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "texto": "MindHaOS'taki Ses Stüdyomda ben de böyle yapıyorum: her kanalın mikserde kendi ses seviyesi, panı ve efektleriyle kendi kanalı var.",
+          "lamina": "mezclador",
+          "enCasa": true
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "titulo": "Başlamak için planın",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Yedinci bölüm. Başlamak için planın."
+        },
+        {
+          "id": "escucha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pasada1",
+              "pasada2",
+              "pasada3"
+            ]
+          },
+          "texto": "İşe farklı dinleyerek başla: bir şarkıyı üç kez aç ve önce davulu, sonra bası, en sonunda da melodiyle akorları takip et. Yıllardır orada olan şeyleri duyacaksın.",
+          "lamina": [
+            "audifonos3",
+            "vinilo2"
+          ]
+        },
+        {
+          "id": "minutos",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "minutosAno"
+          },
+          "texto": "Çok zamana ihtiyacın yok: günde on beş dakika, yılda doksan saatten fazla eder. Dakikalarını buradan ayarla ve bir yılda kaç şarkı çıkarabileceğine bak.",
+          "lamina": "reloj"
+        },
+        {
+          "id": "rutina",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rutina"
+          },
+          "texto": "Örnek bir hafta: pazartesi metronomla vuruş; salı kulaktan bir melodi; çarşamba üç akor; perşembe iki el birlikte; cuma üç turda dinleme; hafta sonu da kendine ait bir şey kaydet.",
+          "lamina": [
+            "semana",
+            "grabar"
+          ]
+        },
+        {
+          "id": "graba",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "grabate",
+              "escuchate",
+              "comparte"
+            ]
+          },
+          "texto": "Ve ilk günden kendini kaydet: kendini dinlemek gelişmenin en hızlı yoludur. Bak, Neşeye Övgü dört kanalı miksajlanmış hâliyle böyle çalıyor.",
+          "lamina": "microfono",
+          "enCasa": true
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "texto": "Özetle: müzik düzenlenmiş sestir; ritim onu zamanda, melodi yükseklikte, armoni de katmanlarda düzenler; miksaj her kanala kendi ses seviyesini, frekansını ve yerini vermektir; ve bir makine beste yapsa bile çalmak seni değiştirir.",
+          "lamina": "resumen"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Benim gibi müzik yapmak istersen, MindHaOS'un Ses Stüdyosu'nda her şey tek bir odada: şarkıları nota nota çalışabilir, birkaç enstrümanla kendi şarkılarını yaratıp ister kendin çalabilir ister prodüksiyonu bitmiş hâliyle dinleyebilir, hatta şarkıları DJ gibi miksleyebilirsin. Bağlantı açıklamada, bu etkileşimli rehberle birlikte. Bir sonrakinde görüşmek üzere.",
+    "boton": "Ses Stüdyosu'nu aç",
+    "lamina": "app-plan",
+    "anclas": {
+      "practicar": "şarkıları nota nota çalışabilir",
+      "crear": "kendi şarkılarını yaratıp",
+      "producidas": "prodüksiyonu bitmiş hâliyle",
+      "dj": "şarkıları DJ gibi miksleyebilirsin"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "varese",
+      "texto": "Varèse E., Wen-chung C. The Liberation of Sound. Perspectives of New Music (1966).",
+      "url": "https://doi.org/10.2307/832385"
+    },
+    {
+      "id": "conard-2009",
+      "texto": "Conard N. J., Malina M., Münzel S. C. New flutes document the earliest musical tradition in southwestern Germany. Nature (2009).",
+      "url": "https://doi.org/10.1038/nature08169"
+    },
+    {
+      "id": "winkler-2009",
+      "texto": "Winkler I., Háden G. P., Ladinig O., Sziller I., Honing H. Newborn infants detect the beat in music. PNAS (2009).",
+      "url": "https://doi.org/10.1073/pnas.0809035106"
+    },
+    {
+      "id": "moelants-2002",
+      "texto": "Moelants D. Preferred tempo reconsidered. Proceedings of the 7th International Conference on Music Perception and Cognition (2002)."
+    },
+    {
+      "id": "fritz-2009",
+      "texto": "Fritz T. et al. Universal recognition of three basic emotions in music. Current Biology (2009).",
+      "url": "https://doi.org/10.1016/j.cub.2009.02.058"
+    },
+    {
+      "id": "hyde-2009",
+      "texto": "Hyde K. L. et al. Musical training shapes structural brain development. Journal of Neuroscience (2009).",
+      "url": "https://doi.org/10.1523/JNEUROSCI.5118-08.2009"
+    },
+    {
+      "id": "guido",
+      "texto": "Guido d'Arezzo. Micrologus ve Epistola de ignoto cantu (1025-1030 civarı).",
+      "url": "https://en.wikipedia.org/wiki/Guido_of_Arezzo"
+    },
+    {
+      "id": "lespaul",
+      "texto": "Les Paul ve sekiz kanallı Ampex «Octopus» kayıt cihazı (1957).",
+      "url": "https://en.wikipedia.org/wiki/Les_Paul"
+    },
+    {
+      "id": "kirschner-2010",
+      "texto": "Kirschner S., Tomasello M. Joint music making promotes prosocial behavior in 4-year-old children. Evolution and Human Behavior (2010).",
+      "url": "https://doi.org/10.1016/j.evolhumbehav.2010.04.004"
+    },
+    {
+      "id": "edison-1877",
+      "texto": "Edison T. A. Fonograf (ABD patenti 200 521, 1878).",
+      "url": "https://en.wikipedia.org/wiki/Phonograph"
+    },
+    {
+      "id": "midi-1983",
+      "texto": "MIDI Association. MIDI 1.0 standardının tarihi (1983).",
+      "url": "https://midi.org/"
+    }
+  ]
+}
