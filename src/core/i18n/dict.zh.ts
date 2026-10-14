@@ -7136,7 +7136,7 @@ export const ZH: Dict = {
   'guia.idiomas.titulo': "为什么要学一门语言？",
   'guia.arte.titulo': "什么是艺术？",
   'guia.musica.titulo': "什么是音乐？",
-  'guia.musica.titulo': "什么是音乐？",
+  'guia.video.titulo': "怎样做视频？",
   'tut.esencial.titulo': '基础导览',
   'tut.tipo.ejemplos': '示例·演示用的MindHaOS',
   'tut.app-agenda--esencial.resumen':

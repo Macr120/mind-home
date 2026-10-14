@@ -7516,7 +7516,7 @@ export const IT: Dict = {
   'guia.idiomas.titulo': "Perché imparare una lingua?",
   'guia.arte.titulo': "Che cos'è l'arte?",
   'guia.musica.titulo': "Che cos'è la musica?",
-  'guia.musica.titulo': "Che cos'è la musica?",
+  'guia.video.titulo': "Come si fanno i video?",
   'tut.esencial.titulo': 'L’essenziale',
   'tut.tipo.ejemplos': 'Esempi · MindHaOS demo',
   'tut.app-agenda--esencial.resumen':

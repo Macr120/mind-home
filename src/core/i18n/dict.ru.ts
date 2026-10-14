@@ -7429,7 +7429,7 @@ export const RU: Dict = {
   'guia.idiomas.titulo': "Зачем учить язык?",
   'guia.arte.titulo': "Что такое искусство?",
   'guia.musica.titulo': "Что такое музыка?",
-  'guia.musica.titulo': "Что такое музыка?",
+  'guia.video.titulo': "Как снимать видео?",
   'tut.esencial.titulo': 'Главное',
   'tut.tipo.ejemplos': 'Примеры · демо-MindHaOS',
   'tut.app-agenda--esencial.resumen':
