@@ -321,7 +321,8 @@ function Wizard() {
         </button>
       </header>
 
-      <div className="min-h-0 flex-1 overflow-y-auto py-3">
+      {/* -mx-1 px-1: aire para el anillo de foco (3 px), que el scroll recortaba en los bordes. */}
+      <div className="-mx-1 min-h-0 flex-1 overflow-y-auto px-1 py-3">
         {paso === 1 && (
           <div className="space-y-3">
             <p className="text-sm text-white/60">
