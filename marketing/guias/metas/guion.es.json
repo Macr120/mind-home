@@ -1,0 +1,781 @@
+{
+  "idioma": "es",
+  "tema": "metas",
+  "plantillaId": "metas",
+  "numero": 9,
+  "nombre": "Metas",
+  "pregunta": "¿Cómo cumplir tus metas?",
+  "corta": "¿Cómo cumplir tus metas?",
+  "subtitulo": "Por qué no basta con querer, qué hace buena a una meta, cómo convertirla en pasos, por qué se acaban las ganas, por qué ayuda tener todo en una casa mental, cómo medir tu avance, qué hacer cuando fallas y un plan para no soltar tus metas.",
+  "aviso": "Esta guía es informativa: las cifras y estudios citados son aproximaciones de sus fuentes, y cada persona avanza a su ritmo. Si una meta tiene que ver con tu salud física o mental, consúltala también con un profesional.",
+  "partes": [
+    {
+      "id": "querer",
+      "titulo": "¿Por qué no basta con querer?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "¿Cómo cumplir tus metas? Cada enero, millones de personas se proponen cambiar algo. Y a los seis meses, más de la mitad ya lo dejó. ¿Qué hacen distinto las que sí lo logran? Hoy lo vas a ver con lo que dice la ciencia, incluida una sola frase que casi triplica tus probabilidades."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "Por cierto, esta es mi casa en MindHaOS, y en este cuarto planeo todas mis metas."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte uno. ¿Por qué no basta con querer?"
+        },
+        {
+          "id": "proponerse",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "proponerse"
+          },
+          "lamina": [
+            "calendario",
+            "brindis"
+          ],
+          "texto": "Primero, la buena noticia: proponérselo sí sirve. En 2002, John Norcross siguió durante seis meses a casi trescientas personas. De las que hicieron un propósito de año nuevo, el cuarenta y seis por ciento seguía cumpliéndolo. De las que querían el mismo cambio pero no se lo propusieron, solo el cuatro por ciento."
+        },
+        {
+          "id": "brecha",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "47 %",
+            "clave": "brecha"
+          },
+          "lamina": [
+            "sofa",
+            "tenis"
+          ],
+          "texto": "Pero entre querer y hacer hay un hueco. Al revisar decenas de estudios, el psicólogo Paschal Sheeran encontró que casi la mitad de las personas que tienen la intención de hacer algo, al final no lo hacen.",
+          "meme": "enero"
+        },
+        {
+          "id": "voluntad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ganas",
+              "voluntad",
+              "habito"
+            ]
+          },
+          "lamina": [
+            "despertador",
+            "rutina"
+          ],
+          "texto": "Y la fuerza de voluntad no alcanza para llenarlo. En 2015, Brian Galla y Angela Duckworth vieron que a las personas con más autocontrol no les va mejor por resistir a fuerza, sino porque tienen más hábitos buenos. Los que cumplen no tienen más voluntad; la necesitan menos."
+        },
+        {
+          "id": "adelanto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "disenar",
+              "medir",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "mapa",
+            "brujula"
+          ],
+          "texto": "Así que el secreto no es querer más, sino diseñar tu meta para que no dependa de las ganas. Y en la parte cinco vas a ver por qué los campeones de memoria guardan todo dentro de una casa."
+        },
+        {
+          "id": "diana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "porque",
+              "pasos"
+            ]
+          },
+          "lamina": "diana",
+          "enCasa": true,
+          "texto": "Aquí, en mi diana de metas, cada una tiene su lugar: lo que quiero, por qué lo quiero y los pasos para llegar."
+        }
+      ]
+    },
+    {
+      "id": "buena",
+      "titulo": "¿Qué hace buena a una meta?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte dos. ¿Qué hace buena a una meta?"
+        },
+        {
+          "id": "concreta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "metaBuena"
+          },
+          "lamina": [
+            "libreta",
+            "lapiz"
+          ],
+          "texto": "Edwin Locke y Gary Latham revisaron cientos de estudios durante treinta años, y la conclusión se repite: una meta concreta y un poco difícil gana siempre a «voy a hacer lo mejor que pueda». Mira cómo cambia «hacer ejercicio» cuando le pones qué, cuánto, cuándo y dónde."
+        },
+        {
+          "id": "acercar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "59 % · 47 %",
+            "clave": "acercar"
+          },
+          "lamina": [
+            "fruta",
+            "refresco"
+          ],
+          "texto": "Y cuenta cómo la dices. En 2020, en Suecia, siguieron a más de mil personas con propósitos de año nuevo: las metas de empezar algo, como comer más fruta, se cumplieron más que las de dejar algo, como dejar el azúcar."
+        },
+        {
+          "id": "una",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "escribe",
+              "porque"
+            ]
+          },
+          "lamina": [
+            "post",
+            "lista"
+          ],
+          "texto": "Por eso conviene empezar con una sola meta, escrita en positivo, y con una razón que te importe de verdad: el porqué es lo que te levanta los días difíciles.",
+          "meme": "vaga"
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "cuanto",
+              "cuando"
+            ]
+          },
+          "lamina": "escribir",
+          "enCasa": true,
+          "texto": "Así escribo yo cada meta en mi cuarto: qué quiero, cuánto y para cuándo, sin palabras vagas."
+        }
+      ]
+    },
+    {
+      "id": "pasos",
+      "titulo": "¿Cómo se convierte una meta en pasos?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte tres. ¿Cómo se convierte una meta en pasos?"
+        },
+        {
+          "id": "siEntonces",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "siEntonces"
+          },
+          "lamina": [
+            "correr",
+            "agenda"
+          ],
+          "texto": "Aquí está la frase que te prometí. En 2002, en el Reino Unido, pidieron a estudiantes que hicieran ejercicio. A un grupo solo le explicaron por qué; a otro le pidieron además escribir cuándo y dónde, en una frase como: «si es lunes a las siete, entonces salgo a correr al parque». En el primer grupo hizo ejercicio un treinta y cinco por ciento; con la frase, el noventa y uno."
+        },
+        {
+          "id": "gollwitzer",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "94",
+            "clave": "gollwitzer"
+          },
+          "lamina": [
+            "reloj",
+            "puerta"
+          ],
+          "texto": "A esa frase se le llama intención de implementación, y Peter Gollwitzer y Paschal Sheeran la revisaron en noventa y cuatro estudios: decidir de antemano cuándo y dónde vas a actuar ayuda mucho más que solo desear el resultado."
+        },
+        {
+          "id": "escalera",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escalera"
+          },
+          "lamina": [
+            "escalera",
+            "montana"
+          ],
+          "texto": "Y las metas grandes se parten. Correr cinco kilómetros es una cumbre; caminar veinte minutos el lunes es el primer escalón. Mira cómo una meta se vuelve fases, y cada fase, pasos que caben en un día."
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En mi cuarto de Metas de MindHaOS, la inteligencia artificial me arma ese plan: le digo cuántas horas tengo y qué días, y me propone las fases en un cronograma."
+        }
+      ]
+    },
+    {
+      "id": "ganas",
+      "titulo": "¿Por qué se acaban las ganas?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte cuatro. ¿Por qué se acaban las ganas?"
+        },
+        {
+          "id": "tarjeta",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tarjeta"
+          },
+          "lamina": [
+            "cafe",
+            "sellos"
+          ],
+          "texto": "Las ganas no son parejas: suben cuando ves la meta cerca. En 2006, en una cafetería de la Universidad de Columbia, dieron dos tarjetas de sellos para un café gratis. Una pedía diez sellos; la otra, doce, pero con dos ya puestos. Las dos pedían diez compras, y aun así, la de los dos sellos regalados se llenó casi tres días antes."
+        },
+        {
+          "id": "progreso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "12 000",
+            "clave": "progreso"
+          },
+          "lamina": [
+            "oficina",
+            "palomita"
+          ],
+          "texto": "Teresa Amabile leyó doce mil diarios de personas en su trabajo, y el mejor ánimo aparecía los días en que avanzaban en algo que les importaba, aunque fuera poco. Los pequeños avances son el combustible."
+        },
+        {
+          "id": "inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "comienzos"
+          },
+          "lamina": [
+            "lunes",
+            "amanecer"
+          ],
+          "texto": "Y hay días que dan un empujón extra: un lunes, el primer día del mes, tu cumpleaños. Katherine Milkman lo llama el efecto del nuevo comienzo: en esas fechas, más gente busca y empieza sus metas. Úsalos para arrancar o para volver."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyo"
+          },
+          "lamina": "pulgar",
+          "texto": "Por cierto, ya vamos a la mitad. Si esta guía te está sirviendo, dale like, suscríbete para no perderte la próxima y compártela con quien tenga una meta pendiente."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "poco",
+              "visible",
+              "seguido"
+            ]
+          },
+          "lamina": "calendarioPared",
+          "enCasa": true,
+          "texto": "Por eso mi calendario está a la vista: cada día que avanzo, aunque sea poco, se marca y me empuja al siguiente."
+        }
+      ]
+    },
+    {
+      "id": "casa",
+      "titulo": "¿Por qué ayuda tener todo en una casa mental?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte cinco. ¿Por qué ayuda tener todo en una casa mental?"
+        },
+        {
+          "id": "simonides",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 500 a. C.",
+            "clave": "simonides"
+          },
+          "lamina": [
+            "simonides",
+            "templo"
+          ],
+          "texto": "Cuenta la leyenda que el poeta griego Simónides recordó a todos los invitados de un banquete por el lugar donde estaba sentado cada uno. Así nació el palacio de la memoria: guardar ideas en los cuartos de una casa que conoces bien."
+        },
+        {
+          "id": "dresler",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "casaMental"
+          },
+          "lamina": [
+            "cerebro",
+            "pasillo"
+          ],
+          "texto": "Y funciona. En 2017, Martin Dresler entrenó a personas comunes con ese método durante seis semanas: antes recordaban unas treinta palabras de una lista; después, unas treinta y cinco más. Y meses después seguían recordando mucho más. Nuestro cerebro es buenísimo para los lugares."
+        },
+        {
+          "id": "pendientes",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "−",
+            "clave": "pendientes"
+          },
+          "lamina": [
+            "postits",
+            "calma"
+          ],
+          "texto": "Y tener todo en un solo lugar también calma la mente. En 2011, E. J. Masicampo y Roy Baumeister vieron que las metas pendientes se cuelan en la cabeza mientras haces otra cosa; pero en cuanto escribías un plan concreto para ellas, esos pensamientos dejaban de interrumpir."
+        },
+        {
+          "id": "beneficios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "ver",
+              "conectar",
+              "soltar",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "casaIso",
+            "plano"
+          ],
+          "texto": "Una casa mental te da cuatro cosas: ves todas tus metas de un vistazo; ves cómo se conectan, porque dormir mejor te ayuda a entrenar; sueltas lo que ya tiene su lugar; y sabes a qué cuarto volver."
+        },
+        {
+          "id": "mencion-casa",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "casaIso",
+          "enCasa": true,
+          "texto": "Por eso MindHaOS es una casa: cada cuarto es un área de tu vida, y desde aquí veo las metas de todos los cuartos juntas."
+        }
+      ]
+    },
+    {
+      "id": "medir",
+      "titulo": "¿Cómo saber si avanzas?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte seis. ¿Cómo saber si avanzas?"
+        },
+        {
+          "id": "harkin",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "138",
+            "clave": "harkin"
+          },
+          "lamina": [
+            "bascula",
+            "grafica"
+          ],
+          "texto": "Medir funciona. En 2016, Benjamin Harkin y su equipo reunieron ciento treinta y ocho experimentos: las personas que revisaban su avance con frecuencia se acercaban más a su meta. Y el efecto era mayor cuando lo anotaban, o cuando se lo contaban a alguien."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "racha"
+          },
+          "lamina": [
+            "cuaderno",
+            "marcador"
+          ],
+          "texto": "La forma más simple es una racha: marca cada día que cumples. Mira cómo la cadena crece, y cómo un solo hueco no la rompe si al día siguiente vuelves."
+        },
+        {
+          "id": "semana",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hice",
+              "aprendi",
+              "ajusto"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "cafe2"
+          ],
+          "texto": "Y una vez por semana, diez minutos de revisión: qué hice, qué aprendí y qué ajusto. Mide el proceso, no solo el resultado: el kilo baja despacio, pero las caminatas se cuentan hoy."
+        },
+        {
+          "id": "misiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fases",
+              "palomea",
+              "avance"
+            ]
+          },
+          "lamina": "palomita",
+          "enCasa": true,
+          "texto": "En mi casa, cada plan tiene sus fases y sus pasos, y al palomearlos veo cómo avanza la barra."
+        }
+      ]
+    },
+    {
+      "id": "fallar",
+      "titulo": "¿Qué hacer cuando fallas?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte siete. ¿Qué hacer cuando fallas?"
+        },
+        {
+          "id": "lally",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "habito"
+          },
+          "lamina": [
+            "agua",
+            "caminar"
+          ],
+          "texto": "Vas a fallar, y está bien. En 2010, Phillippa Lally siguió a personas formando un hábito nuevo: en promedio tardó sesenta y seis días en volverse automático, aunque a unas les tomó dieciocho y a otras mucho más. Y saltarse un día no borró lo avanzado."
+        },
+        {
+          "id": "dosVeces",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "falla",
+              "vuelve",
+              "nunca"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "levantarse"
+          ],
+          "texto": "El peligro no es fallar un día, sino pensar «ya lo arruiné» y soltarlo todo. La regla práctica: puedes fallar una vez, pero no dos seguidas.",
+          "meme": "arruine"
+        },
+        {
+          "id": "woop",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "woop"
+          },
+          "lamina": [
+            "obstaculo",
+            "plan"
+          ],
+          "texto": "Y prepárate para los tropiezos antes de que lleguen. Gabriele Oettingen propone cuatro pasos: tu deseo, el mejor resultado, el obstáculo que más te frena y tu plan si aparece. Imaginar solo el éxito relaja; imaginar también el obstáculo te prepara."
+        },
+        {
+          "id": "amable",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2012",
+            "clave": "autocompasion"
+          },
+          "lamina": [
+            "estudiar",
+            "abrazo"
+          ],
+          "texto": "Y háblate con amabilidad. En 2012, Juliana Breines y Serena Chen vieron que quienes se trataban con comprensión tras fallar un examen difícil estudiaban más para el siguiente que quienes solo se daban ánimos."
+        },
+        {
+          "id": "ajustar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plan",
+              "meta",
+              "seguir"
+            ]
+          },
+          "lamina": "ajustar",
+          "enCasa": true,
+          "texto": "Cuando fallo, aquí ajusto el plan, no la meta: muevo las fechas en el cronograma y sigo."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "¿Cómo seguir? Tu plan para continuar",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte ocho. ¿Cómo seguir? Tu plan para continuar."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "La primera semana, elige una sola meta, escríbela en positivo y con su frase «si es…, entonces…», y empieza tan pequeño que sea imposible no hacerlo: dos minutos cuentan.",
+          "meme": "grande"
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "subir"
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "texto": "El primer mes, sube un poco cada semana, solo si la anterior salió bien. Mira cómo dos minutos que crecen un poquito cada semana se vuelven media hora en cuatro meses, sin un solo salto difícil."
+        },
+        {
+          "id": "medirVolver",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "domingo",
+              "racha3",
+              "lunes"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "lunes"
+          ],
+          "texto": "Cada domingo, revisa tu racha diez minutos; y si un día fallas, el lunes, el primero de mes o mañana mismo son tu nuevo comienzo."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "En resumen: querer no basta, hay que diseñar; una meta concreta y en positivo, con su frase «si…, entonces…»; partida en pasos y a la vista, en tu casa mental; medida cada semana; y cuando falles, vuelve al día siguiente."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "En el cuarto de Metas de MindHaOS puedes escribir tus metas y armar tus planes por tu cuenta, o pedirle a la inteligencia artificial que te ayude con los pasos y los tiempos, y verlos en un cronograma. Arma tu casa gratis hoy: el enlace está en la descripción. Y en la próxima guía: ¿cómo organizar tu tiempo?",
+    "boton": "Abrir el cuarto de Metas",
+    "lamina": "app-plan",
+    "anclas": {
+      "escribir": "escribir tus metas",
+      "plan": "pedirle a la inteligencia artificial",
+      "cronograma": "en un cronograma"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "norcross-2002",
+      "texto": "Norcross J. C., Mrykalo M. S., Blagys M. D. Auld lang syne: Success predictors, change processes, and self-reported outcomes of New Year's resolvers and nonresolvers. Journal of Clinical Psychology (2002).",
+      "url": "https://doi.org/10.1002/jclp.1151"
+    },
+    {
+      "id": "sheeran-2002",
+      "texto": "Sheeran P. Intention–behavior relations: A conceptual and empirical review. European Review of Social Psychology (2002).",
+      "url": "https://doi.org/10.1080/14792772143000003"
+    },
+    {
+      "id": "galla-2015",
+      "texto": "Galla B. M., Duckworth A. L. More than resisting temptation: Beneficial habits mediate the relationship between self-control and positive life outcomes. Journal of Personality and Social Psychology (2015).",
+      "url": "https://doi.org/10.1037/pspp0000026"
+    },
+    {
+      "id": "locke-2002",
+      "texto": "Locke E. A., Latham G. P. Building a practically useful theory of goal setting and task motivation: A 35-year odyssey. American Psychologist (2002).",
+      "url": "https://doi.org/10.1037/0003-066X.57.9.705"
+    },
+    {
+      "id": "oscarsson-2020",
+      "texto": "Oscarsson M., Carlbring P., Andersson G., Rozental A. A large-scale experiment on New Year's resolutions: Approach-oriented goals are more successful than avoidance-oriented goals. PLOS ONE (2020).",
+      "url": "https://doi.org/10.1371/journal.pone.0234097"
+    },
+    {
+      "id": "milne-2002",
+      "texto": "Milne S., Orbell S., Sheeran P. Combining motivational and volitional interventions to promote exercise participation. British Journal of Health Psychology (2002).",
+      "url": "https://doi.org/10.1348/135910702169420"
+    },
+    {
+      "id": "gollwitzer-2006",
+      "texto": "Gollwitzer P. M., Sheeran P. Implementation intentions and goal achievement: A meta-analysis of effects and processes. Advances in Experimental Social Psychology (2006).",
+      "url": "https://doi.org/10.1016/S0065-2601(06)38002-1"
+    },
+    {
+      "id": "kivetz-2006",
+      "texto": "Kivetz R., Urminsky O., Zheng Y. The goal-gradient hypothesis resurrected. Journal of Marketing Research (2006).",
+      "url": "https://doi.org/10.1509/jmkr.43.1.39"
+    },
+    {
+      "id": "amabile-2011",
+      "texto": "Amabile T., Kramer S. The Progress Principle (Harvard Business Review Press, 2011).",
+      "url": "https://www.progressprinciple.com/"
+    },
+    {
+      "id": "dai-2014",
+      "texto": "Dai H., Milkman K. L., Riis J. The fresh start effect: Temporal landmarks motivate aspirational behavior. Management Science (2014).",
+      "url": "https://doi.org/10.1287/mnsc.2014.1901"
+    },
+    {
+      "id": "dresler-2017",
+      "texto": "Dresler M. et al. Mnemonic training reshapes brain networks to support superior memory. Neuron (2017).",
+      "url": "https://doi.org/10.1016/j.neuron.2017.02.003"
+    },
+    {
+      "id": "masicampo-2011",
+      "texto": "Masicampo E. J., Baumeister R. F. Consider it done! Plan making can eliminate the cognitive effects of unfulfilled goals. Journal of Personality and Social Psychology (2011).",
+      "url": "https://doi.org/10.1037/a0024192"
+    },
+    {
+      "id": "harkin-2016",
+      "texto": "Harkin B. et al. Does monitoring goal progress promote goal attainment? A meta-analysis of the experimental evidence. Psychological Bulletin (2016).",
+      "url": "https://doi.org/10.1037/bul0000025"
+    },
+    {
+      "id": "lally-2010",
+      "texto": "Lally P., van Jaarsveld C. H. M., Potts H. W. W., Wardle J. How are habits formed: Modelling habit formation in the real world. European Journal of Social Psychology (2010).",
+      "url": "https://doi.org/10.1002/ejsp.674"
+    },
+    {
+      "id": "oettingen-2014",
+      "texto": "Oettingen G. Rethinking Positive Thinking: Inside the New Science of Motivation (2014), el método WOOP.",
+      "url": "https://woopmylife.org/"
+    },
+    {
+      "id": "breines-2012",
+      "texto": "Breines J. G., Chen S. Self-compassion increases self-improvement motivation. Personality and Social Psychology Bulletin (2012).",
+      "url": "https://doi.org/10.1177/0146167212445599"
+    }
+  ],
+  "_notas": {
+    "molde": "Primera guía con el molde nuevo (oct 2026): duración según el tema (esta es LARGA, 8 partes), gancho de ≤30 s con un ciclo abierto («una sola frase que casi triplica tus probabilidades», se paga en la parte 3), mención inicial de una frase, títulos de parte como PREGUNTAS, like/suscríbete/comparte a la mitad (fin de la parte 4), la última parte es un plan PARA CONTINUAR y el cierre (≤15 s) anuncia la próxima guía.",
+    "escena": "Animación de Pep@: gestos de la guía ('habla', 'saluda', 'senala', 'pensando'). Narra Pep@ de explorador.",
+    "visual": "Bloque que acompaña la línea: dato (cifra grande), grafica, herramienta (mini-app de la página que se mueve sola al narrar), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada: inicio (una frase), el plan con IA (parte 3), la casa mental (parte 5) y el cierre. Nunca tono de anuncio.",
+    "casaMental": "Pedido del usuario: la parte 5 explica que una casa mental ayuda a visualizar y tener todo organizado en un mismo lugar, con sus beneficios (palacio de la memoria, Dresler 2017; planes que calman los pendientes, Masicampo y Baumeister 2011), y ahí se nombra MindHaOS como casa.",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título). No puede ser enCasa.",
+    "corta": "La pregunta en pocas palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) en la esquina superior derecha del video; con una lista, se reparten a partes iguales durante la línea.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: Pep@ en su cuarto de Metas, junto a la diana, el calendario o la libreta.",
+    "anclas": "cierre.anclas: cómo se escriben en el texto del cierre «escribir tus metas», «pedir un plan» y «en un cronograma»; app2d.mjs mueve la app justo al decirlas."
+  }
+}

@@ -1,0 +1,769 @@
+{
+  "idioma": "ja",
+  "tema": "metas",
+  "plantillaId": "metas",
+  "numero": 9,
+  "nombre": "目標",
+  "pregunta": "目標をかなえるには、どうすればいいのでしょうか？",
+  "corta": "目標をかなえるには？",
+  "subtitulo": "望むだけでは足りない理由、よい目標の条件、目標をステップに変える方法、やる気がなくなる理由、すべてを心の家に置くと役立つ理由、進み具合の測り方、失敗したときにすること、そして目標を手放さないためのプラン。",
+  "aviso": "このガイドは情報提供を目的としています。紹介する数字や研究は出典にもとづくおおよその値で、進むペースは人それぞれです。目標が心や体の健康に関わる場合は、専門家にも相談してください。",
+  "partes": [
+    {
+      "id": "querer",
+      "titulo": "望むだけでは、なぜ足りないのでしょうか？",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "目標をかなえるには、どうすればいいのでしょうか？ 毎年1月、何百万もの人が何かを変えようと決意します。そして半年後には、その半分以上がもうやめています。やり遂げる人は、何が違うのでしょうか？ 今日は、成功の確率をほぼ3倍にするたったひとつの文も含めて、科学が明らかにしたことを見ていきましょう。"
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "ちなみに、ここはMindHaOSにある私の家。この部屋で、私は目標をぜんぶ計画しているんです。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート1。望むだけでは、なぜ足りないのでしょうか？"
+        },
+        {
+          "id": "proponerse",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "proponerse"
+          },
+          "lamina": [
+            "calendario",
+            "brindis"
+          ],
+          "texto": "まずは、いい知らせから。決意することには、ちゃんと意味があります。2002年、John Norcrossは300人近くを半年間追いかけました。新年の抱負を立てた人のうち、46パーセントがまだ続けていました。同じ変化を望みながら抱負を立てなかった人では、わずか4パーセントでした。"
+        },
+        {
+          "id": "brecha",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "47 %",
+            "clave": "brecha"
+          },
+          "lamina": [
+            "sofa",
+            "tenis"
+          ],
+          "texto": "でも、望むことと行動することのあいだには、すき間があります。何十もの研究を見直した心理学者のPaschal Sheeranは、何かをしようと思っている人のほぼ半分が、結局それをしないことを見つけました。",
+          "meme": "enero"
+        },
+        {
+          "id": "voluntad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ganas",
+              "voluntad",
+              "habito"
+            ]
+          },
+          "lamina": [
+            "despertador",
+            "rutina"
+          ],
+          "texto": "そして、そのすき間は意志の力だけでは埋まりません。2015年、Brian GallaとAngela Duckworthは、自制心の強い人がうまくいくのは、がまんしているからではなく、よい習慣が多いからだと気づきました。やり遂げる人は意志が強いのではなく、意志をあまり必要としないのです。"
+        },
+        {
+          "id": "adelanto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "disenar",
+              "medir",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "mapa",
+            "brujula"
+          ],
+          "texto": "つまり秘訣は、もっと強く望むことではなく、やる気に頼らなくてすむように目標を設計することです。そしてパート5では、記憶のチャンピオンたちが、なぜすべてを一軒の家の中にしまうのかを見ていきます。"
+        },
+        {
+          "id": "diana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "porque",
+              "pasos"
+            ]
+          },
+          "lamina": "diana",
+          "enCasa": true,
+          "texto": "ここ、私の目標の的では、どの目標にも居場所があります。何を望むのか、なぜ望むのか、そしてたどり着くためのステップです。"
+        }
+      ]
+    },
+    {
+      "id": "buena",
+      "titulo": "よい目標とは、どんな目標でしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート2。よい目標とは、どんな目標でしょうか？"
+        },
+        {
+          "id": "concreta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "metaBuena"
+          },
+          "lamina": [
+            "libreta",
+            "lapiz"
+          ],
+          "texto": "Edwin LockeとGary Lathamは30年にわたって何百もの研究を見直し、いつも同じ結論にたどり着きました。具体的で少し難しい目標は、「できるだけがんばる」に必ず勝つのです。「運動する」に、何を、どれだけ、いつ、どこで、を足すとどう変わるか、見てください。"
+        },
+        {
+          "id": "acercar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "59 % · 47 %",
+            "clave": "acercar"
+          },
+          "lamina": [
+            "fruta",
+            "refresco"
+          ],
+          "texto": "言い方も大切です。2020年、スウェーデンで新年の抱負を立てた千人以上を追いかけたところ、果物をもっと食べるといった、何かを始める目標のほうが、砂糖をやめるといった、何かをやめる目標よりも達成されていました。"
+        },
+        {
+          "id": "una",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "escribe",
+              "porque"
+            ]
+          },
+          "lamina": [
+            "post",
+            "lista"
+          ],
+          "texto": "だから、まずは目標をひとつだけにして、前向きな言葉で書き、本当に大切な理由を添えるのがおすすめです。つらい日にあなたを立ち上がらせるのは、その「なぜ」です。",
+          "meme": "vaga"
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "cuanto",
+              "cuando"
+            ]
+          },
+          "lamina": "escribir",
+          "enCasa": true,
+          "texto": "私は自分の部屋で、目標をこう書いています。何を望むのか、どれだけ、いつまでに。あいまいな言葉は使いません。"
+        }
+      ]
+    },
+    {
+      "id": "pasos",
+      "titulo": "目標をステップに変えるには、どうすればいいのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート3。目標をステップに変えるには、どうすればいいのでしょうか？"
+        },
+        {
+          "id": "siEntonces",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "siEntonces"
+          },
+          "lamina": [
+            "correr",
+            "agenda"
+          ],
+          "texto": "ここで、約束したあの一文です。2002年、イギリスで学生たちに運動をしてもらいました。あるグループには理由を説明しただけ。別のグループには、さらに、いつどこで運動するかを書いてもらいました。「もし月曜の朝7時なら、公園へ走りに行く」という文です。最初のグループで運動したのは35パーセント。この文を書いたグループでは、91パーセントでした。"
+        },
+        {
+          "id": "gollwitzer",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "94",
+            "clave": "gollwitzer"
+          },
+          "lamina": [
+            "reloj",
+            "puerta"
+          ],
+          "texto": "この文は「実行意図」と呼ばれ、Peter GollwitzerとPaschal Sheeranが94の研究で確かめました。いつどこで行動するかを前もって決めておくほうが、結果をただ願うより、ずっと効果があるのです。"
+        },
+        {
+          "id": "escalera",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escalera"
+          },
+          "lamina": [
+            "escalera",
+            "montana"
+          ],
+          "texto": "そして、大きな目標は分けましょう。5キロ走るのは山の頂上。月曜に20分歩くのが、最初の一段です。目標が段階になり、それぞれの段階が一日でできるステップになるところを見てください。"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "MindHaOSにある私の目標の部屋では、人工知能がそのプランを組んでくれます。使える時間と曜日を伝えると、段階をスケジュールに並べて提案してくれるんです。"
+        }
+      ]
+    },
+    {
+      "id": "ganas",
+      "titulo": "やる気は、なぜなくなるのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート4。やる気は、なぜなくなるのでしょうか？"
+        },
+        {
+          "id": "tarjeta",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tarjeta"
+          },
+          "lamina": [
+            "cafe",
+            "sellos"
+          ],
+          "texto": "やる気はいつも同じではありません。ゴールが近く見えると高まるのです。2006年、コロンビア大学のカフェで、コーヒー1杯無料のスタンプカードを2種類配りました。一方はスタンプ10個。もう一方は12個ですが、最初から2個押してあります。どちらも必要な購入は10回なのに、2個おまけのカードのほうが、3日近く早くいっぱいになりました。"
+        },
+        {
+          "id": "progreso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "12 000",
+            "clave": "progreso"
+          },
+          "lamina": [
+            "oficina",
+            "palomita"
+          ],
+          "texto": "Teresa Amabileは、働く人たちの日記を1万2千件読みました。いちばん気分がよかったのは、大切なことが少しでも前に進んだ日でした。小さな前進こそが、燃料なのです。"
+        },
+        {
+          "id": "inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "comienzos"
+          },
+          "lamina": [
+            "lunes",
+            "amanecer"
+          ],
+          "texto": "そして、背中をひと押ししてくれる日があります。月曜日、月の初めの日、あなたの誕生日。Katherine Milkmanはこれを「フレッシュスタート効果」と呼んでいます。こうした日には、目標を調べて始める人が増えるのです。始めるときや、再開するときに使いましょう。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyo"
+          },
+          "lamina": "pulgar",
+          "texto": "ところで、ちょうど半分まで来ました。このガイドが役に立っているなら、高評価を押して、次回を見逃さないようにチャンネル登録して、やり残した目標がある人に共有してください。"
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "poco",
+              "visible",
+              "seguido"
+            ]
+          },
+          "lamina": "calendarioPared",
+          "enCasa": true,
+          "texto": "だから私のカレンダーは、いつも見える場所にあります。少しでも進んだ日には印がつき、それが次の日へと背中を押してくれます。"
+        }
+      ]
+    },
+    {
+      "id": "casa",
+      "titulo": "すべてを心の家に置くと、なぜ役立つのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート5。すべてを心の家に置くと、なぜ役立つのでしょうか？"
+        },
+        {
+          "id": "simonides",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 500 a. C.",
+            "clave": "simonides"
+          },
+          "lamina": [
+            "simonides",
+            "templo"
+          ],
+          "texto": "言い伝えによると、ギリシャの詩人シモニデスは、宴会の客全員を、それぞれが座っていた場所で思い出したそうです。こうして生まれたのが記憶の宮殿。よく知っている家の部屋に、アイデアをしまっておく方法です。"
+        },
+        {
+          "id": "dresler",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "casaMental"
+          },
+          "lamina": [
+            "cerebro",
+            "pasillo"
+          ],
+          "texto": "そして、これは効果があります。2017年、Martin Dreslerは、ふつうの人たちにこの方法を6週間教えました。前はリストの単語を30語ほど覚えていた人が、あとでは、さらに35語ほど多く覚えられるようになりました。何か月たっても、ずっと多くを覚えていたのです。私たちの脳は、場所が大の得意なのです。"
+        },
+        {
+          "id": "pendientes",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "−",
+            "clave": "pendientes"
+          },
+          "lamina": [
+            "postits",
+            "calma"
+          ],
+          "texto": "すべてをひとつの場所に置くと、心も落ち着きます。2011年、E. J. MasicampoとRoy Baumeisterは、やり残した目標が、別のことをしている最中に頭に割り込んでくることを確かめました。でも、その目標に具体的なプランを書いたとたん、そうした考えは邪魔をしなくなったのです。"
+        },
+        {
+          "id": "beneficios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "ver",
+              "conectar",
+              "soltar",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "casaIso",
+            "plano"
+          ],
+          "texto": "心の家は、4つのものをくれます。すべての目標がひと目で見えること。つながりが見えること。よく眠れればトレーニングもはかどるからです。居場所のあるものを手放せること。そして、どの部屋に戻ればいいか分かることです。"
+        },
+        {
+          "id": "mencion-casa",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "casaIso",
+          "enCasa": true,
+          "texto": "だからMindHaOSは家なんです。どの部屋も人生のひとつの分野で、ここからは、すべての部屋の目標をまとめて見られます。"
+        }
+      ]
+    },
+    {
+      "id": "medir",
+      "titulo": "進んでいるかどうか、どうすれば分かるのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート6。進んでいるかどうか、どうすれば分かるのでしょうか？"
+        },
+        {
+          "id": "harkin",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "138",
+            "clave": "harkin"
+          },
+          "lamina": [
+            "bascula",
+            "grafica"
+          ],
+          "texto": "測ることには効果があります。2016年、Benjamin Harkinのチームは138の実験をまとめました。進み具合をよく確認していた人ほど、目標に近づいていました。その効果は、記録したり、誰かに話したりすると、さらに大きくなったのです。"
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "racha"
+          },
+          "lamina": [
+            "cuaderno",
+            "marcador"
+          ],
+          "texto": "いちばん簡単なのは、連続記録です。やり遂げた日に、毎日印をつけましょう。鎖が伸びていくところ、そして次の日に戻れば、一日空いても鎖は切れないところを見てください。"
+        },
+        {
+          "id": "semana",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hice",
+              "aprendi",
+              "ajusto"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "cafe2"
+          ],
+          "texto": "そして週に一度、10分の振り返りを。何をしたか、何を学んだか、何を調整するか。結果だけでなく、過程を測りましょう。体重はゆっくりしか減りませんが、散歩の回数は今日数えられます。"
+        },
+        {
+          "id": "misiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fases",
+              "palomea",
+              "avance"
+            ]
+          },
+          "lamina": "palomita",
+          "enCasa": true,
+          "texto": "私の家では、どのプランにも段階とステップがあって、ひとつずつチェックを入れると、バーが進んでいくのが見えます。"
+        }
+      ]
+    },
+    {
+      "id": "fallar",
+      "titulo": "失敗したときは、どうすればいいのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート7。失敗したときは、どうすればいいのでしょうか？"
+        },
+        {
+          "id": "lally",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "habito"
+          },
+          "lamina": [
+            "agua",
+            "caminar"
+          ],
+          "texto": "あなたは失敗します。でも、それでいいのです。2010年、Phillippa Lallyは、新しい習慣を身につけようとする人たちを追いかけました。自動的にできるようになるまで平均66日。18日の人もいれば、もっとずっとかかる人もいました。そして、一日休んでも、それまでの積み重ねは消えませんでした。"
+        },
+        {
+          "id": "dosVeces",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "falla",
+              "vuelve",
+              "nunca"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "levantarse"
+          ],
+          "texto": "危ないのは一日失敗することではなく、「もう台なしだ」と思って、全部やめてしまうことです。実践的なルールはこれ。一度は失敗してもいい。でも、二度続けてはだめ。",
+          "meme": "arruine"
+        },
+        {
+          "id": "woop",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "woop"
+          },
+          "lamina": [
+            "obstaculo",
+            "plan"
+          ],
+          "texto": "そして、つまずく前に備えておきましょう。Gabriele Oettingenは4つのステップを提案しています。あなたの願い、最高の結果、いちばんの障害、そしてそれが現れたときのプラン。成功だけを思い描くと気がゆるみますが、障害も思い描くと、準備が整うのです。"
+        },
+        {
+          "id": "amable",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2012",
+            "clave": "autocompasion"
+          },
+          "lamina": [
+            "estudiar",
+            "abrazo"
+          ],
+          "texto": "そして、自分にやさしく話しかけましょう。2012年、Juliana BreinesとSerena Chenは、難しい試験に失敗したあと自分を思いやった人のほうが、ただ自分を励ました人よりも、次の試験に向けて多く勉強したことを確かめました。"
+        },
+        {
+          "id": "ajustar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plan",
+              "meta",
+              "seguir"
+            ]
+          },
+          "lamina": "ajustar",
+          "enCasa": true,
+          "texto": "失敗したら、私はここでプランを調整します。目標は変えません。スケジュールの日付を動かして、また続けます。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "どう続ける？ 続けるためのプラン",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート8。どう続ける？ 続けるためのプラン。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "最初の1週間は、目標をひとつだけ選び、前向きな言葉で書いて、「もし〜なら、〜する」の一文を添えましょう。そして、やらないほうが難しいくらい小さく始めること。2分でも、ちゃんと数に入ります。",
+          "meme": "grande"
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "subir"
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "texto": "最初の1か月は、毎週少しずつ増やしましょう。ただし、前の週がうまくいったときだけ。毎週ほんの少しずつ伸びる2分が、4か月で30分になるところを見てください。きつい跳躍は、ひとつもありません。"
+        },
+        {
+          "id": "medirVolver",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "domingo",
+              "racha3",
+              "lunes"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "lunes"
+          ],
+          "texto": "毎週日曜日には、10分かけて連続記録を見直しましょう。もし失敗した日があっても、月曜日、月の初め、あるいは明日が、あなたの新しいスタートです。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "まとめです。望むだけでは足りないので、設計すること。目標は具体的に、前向きに、「もし〜なら、〜する」の一文と一緒に。ステップに分けて、心の家の見えるところに。毎週測って、失敗したら次の日に戻ること。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOSの目標の部屋では、自分で目標を書いてプランを組むことも、人工知能に頼んでステップと時間を手伝ってもらうこともでき、それをスケジュールで見られます。今日、無料であなたの家をつくりましょう。リンクは概要欄にあります。そして次回のガイドは、時間をどうやって整理するのでしょうか？",
+    "boton": "目標の部屋を開く",
+    "lamina": "app-plan",
+    "anclas": {
+      "escribir": "目標を書いて",
+      "plan": "人工知能に頼んで",
+      "cronograma": "スケジュールで見られます"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "norcross-2002",
+      "texto": "Norcross J. C., Mrykalo M. S., Blagys M. D. Auld lang syne: Success predictors, change processes, and self-reported outcomes of New Year's resolvers and nonresolvers. Journal of Clinical Psychology (2002).",
+      "url": "https://doi.org/10.1002/jclp.1151"
+    },
+    {
+      "id": "sheeran-2002",
+      "texto": "Sheeran P. Intention–behavior relations: A conceptual and empirical review. European Review of Social Psychology (2002).",
+      "url": "https://doi.org/10.1080/14792772143000003"
+    },
+    {
+      "id": "galla-2015",
+      "texto": "Galla B. M., Duckworth A. L. More than resisting temptation: Beneficial habits mediate the relationship between self-control and positive life outcomes. Journal of Personality and Social Psychology (2015).",
+      "url": "https://doi.org/10.1037/pspp0000026"
+    },
+    {
+      "id": "locke-2002",
+      "texto": "Locke E. A., Latham G. P. Building a practically useful theory of goal setting and task motivation: A 35-year odyssey. American Psychologist (2002).",
+      "url": "https://doi.org/10.1037/0003-066X.57.9.705"
+    },
+    {
+      "id": "oscarsson-2020",
+      "texto": "Oscarsson M., Carlbring P., Andersson G., Rozental A. A large-scale experiment on New Year's resolutions: Approach-oriented goals are more successful than avoidance-oriented goals. PLOS ONE (2020).",
+      "url": "https://doi.org/10.1371/journal.pone.0234097"
+    },
+    {
+      "id": "milne-2002",
+      "texto": "Milne S., Orbell S., Sheeran P. Combining motivational and volitional interventions to promote exercise participation. British Journal of Health Psychology (2002).",
+      "url": "https://doi.org/10.1348/135910702169420"
+    },
+    {
+      "id": "gollwitzer-2006",
+      "texto": "Gollwitzer P. M., Sheeran P. Implementation intentions and goal achievement: A meta-analysis of effects and processes. Advances in Experimental Social Psychology (2006).",
+      "url": "https://doi.org/10.1016/S0065-2601(06)38002-1"
+    },
+    {
+      "id": "kivetz-2006",
+      "texto": "Kivetz R., Urminsky O., Zheng Y. The goal-gradient hypothesis resurrected. Journal of Marketing Research (2006).",
+      "url": "https://doi.org/10.1509/jmkr.43.1.39"
+    },
+    {
+      "id": "amabile-2011",
+      "texto": "Amabile T., Kramer S. The Progress Principle (Harvard Business Review Press, 2011).",
+      "url": "https://www.progressprinciple.com/"
+    },
+    {
+      "id": "dai-2014",
+      "texto": "Dai H., Milkman K. L., Riis J. The fresh start effect: Temporal landmarks motivate aspirational behavior. Management Science (2014).",
+      "url": "https://doi.org/10.1287/mnsc.2014.1901"
+    },
+    {
+      "id": "dresler-2017",
+      "texto": "Dresler M. et al. Mnemonic training reshapes brain networks to support superior memory. Neuron (2017).",
+      "url": "https://doi.org/10.1016/j.neuron.2017.02.003"
+    },
+    {
+      "id": "masicampo-2011",
+      "texto": "Masicampo E. J., Baumeister R. F. Consider it done! Plan making can eliminate the cognitive effects of unfulfilled goals. Journal of Personality and Social Psychology (2011).",
+      "url": "https://doi.org/10.1037/a0024192"
+    },
+    {
+      "id": "harkin-2016",
+      "texto": "Harkin B. et al. Does monitoring goal progress promote goal attainment? A meta-analysis of the experimental evidence. Psychological Bulletin (2016).",
+      "url": "https://doi.org/10.1037/bul0000025"
+    },
+    {
+      "id": "lally-2010",
+      "texto": "Lally P., van Jaarsveld C. H. M., Potts H. W. W., Wardle J. How are habits formed: Modelling habit formation in the real world. European Journal of Social Psychology (2010).",
+      "url": "https://doi.org/10.1002/ejsp.674"
+    },
+    {
+      "id": "oettingen-2014",
+      "texto": "Oettingen G. Rethinking Positive Thinking: Inside the New Science of Motivation (2014)、WOOPメソッド。",
+      "url": "https://woopmylife.org/"
+    },
+    {
+      "id": "breines-2012",
+      "texto": "Breines J. G., Chen S. Self-compassion increases self-improvement motivation. Personality and Social Psychology Bulletin (2012).",
+      "url": "https://doi.org/10.1177/0146167212445599"
+    }
+  ]
+}

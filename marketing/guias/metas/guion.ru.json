@@ -1,0 +1,769 @@
+{
+  "idioma": "ru",
+  "tema": "metas",
+  "plantillaId": "metas",
+  "numero": 9,
+  "nombre": "Цели",
+  "pregunta": "Как достигать своих целей?",
+  "corta": "Как достигать своих целей?",
+  "subtitulo": "Почему мало просто хотеть, что делает цель хорошей, как превратить её в шаги, почему пропадает желание, чем помогает держать всё в мысленном доме, как измерять прогресс, что делать, когда срываешься, и план, чтобы не бросить свои цели.",
+  "aviso": "Это руководство носит информационный характер: приведённые цифры и исследования — приближённые данные из их источников, и каждый движется в своём темпе. Если цель связана с твоим физическим или психическим здоровьем, обсуди её ещё и со специалистом.",
+  "partes": [
+    {
+      "id": "querer",
+      "titulo": "Почему мало просто хотеть?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Как достигать своих целей? Каждый январь миллионы людей решают что-то изменить. А через полгода больше половины уже бросили. Что делают иначе те, у кого получается? Сегодня ты увидишь это глазами науки, включая одну-единственную фразу, которая почти утраивает твои шансы."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "Кстати, это мой дом в MindHaOS, и в этой комнате я планирую все свои цели."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть первая. Почему мало просто хотеть?"
+        },
+        {
+          "id": "proponerse",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "proponerse"
+          },
+          "lamina": [
+            "calendario",
+            "brindis"
+          ],
+          "texto": "Сначала хорошая новость: ставить цель действительно помогает. В 2002 году Джон Норкросс полгода наблюдал почти за тремястами людьми. Из тех, кто дал себе новогоднее обещание, сорок шесть процентов всё ещё его выполняли. Из тех, кто хотел таких же перемен, но обещания не давал, — только четыре процента."
+        },
+        {
+          "id": "brecha",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "47 %",
+            "clave": "brecha"
+          },
+          "lamina": [
+            "sofa",
+            "tenis"
+          ],
+          "texto": "Но между «хочу» и «делаю» есть пропасть. Изучив десятки исследований, психолог Пашал Ширан обнаружил, что почти половина людей, которые собираются что-то сделать, в итоге этого не делают.",
+          "meme": "enero"
+        },
+        {
+          "id": "voluntad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ganas",
+              "voluntad",
+              "habito"
+            ]
+          },
+          "lamina": [
+            "despertador",
+            "rutina"
+          ],
+          "texto": "И силы воли не хватает, чтобы её преодолеть. В 2015 году Брайан Галла и Анджела Дакворт увидели, что людям с сильным самоконтролем живётся лучше не потому, что они упорно сопротивляются, а потому, что у них больше хороших привычек. У тех, кто добивается своего, не больше воли; она им просто меньше нужна."
+        },
+        {
+          "id": "adelanto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "disenar",
+              "medir",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "mapa",
+            "brujula"
+          ],
+          "texto": "Так что секрет не в том, чтобы хотеть сильнее, а в том, чтобы устроить цель так, чтобы она не зависела от желания. А в пятой части ты узнаешь, почему чемпионы по запоминанию хранят всё внутри дома."
+        },
+        {
+          "id": "diana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "porque",
+              "pasos"
+            ]
+          },
+          "lamina": "diana",
+          "enCasa": true,
+          "texto": "Вот здесь, на моей мишени целей, у каждой своё место: чего я хочу, зачем мне это и какие шаги к этому ведут."
+        }
+      ]
+    },
+    {
+      "id": "buena",
+      "titulo": "Что делает цель хорошей?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть вторая. Что делает цель хорошей?"
+        },
+        {
+          "id": "concreta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "metaBuena"
+          },
+          "lamina": [
+            "libreta",
+            "lapiz"
+          ],
+          "texto": "Эдвин Локк и Гэри Латэм тридцать лет изучали сотни исследований, и вывод повторяется: конкретная и немного трудная цель всегда побеждает «постараюсь как смогу». Смотри, как меняется «заниматься спортом», когда добавляешь что, сколько, когда и где."
+        },
+        {
+          "id": "acercar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "59 % · 47 %",
+            "clave": "acercar"
+          },
+          "lamina": [
+            "fruta",
+            "refresco"
+          ],
+          "texto": "И важно, как ты её формулируешь. В 2020 году в Швеции наблюдали за более чем тысячей человек с новогодними обещаниями: цели что-то начать, например есть больше фруктов, выполнялись чаще, чем цели что-то бросить, например отказаться от сахара."
+        },
+        {
+          "id": "una",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "escribe",
+              "porque"
+            ]
+          },
+          "lamina": [
+            "post",
+            "lista"
+          ],
+          "texto": "Поэтому лучше начать с одной-единственной цели, записанной в позитивном ключе, и с причиной, которая тебе действительно важна: именно «зачем» поднимает тебя в трудные дни.",
+          "meme": "vaga"
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "cuanto",
+              "cuando"
+            ]
+          },
+          "lamina": "escribir",
+          "enCasa": true,
+          "texto": "Вот так я записываю каждую цель в своей комнате: чего хочу, сколько и к какому сроку, без размытых слов."
+        }
+      ]
+    },
+    {
+      "id": "pasos",
+      "titulo": "Как превратить цель в шаги?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть третья. Как превратить цель в шаги?"
+        },
+        {
+          "id": "siEntonces",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "siEntonces"
+          },
+          "lamina": [
+            "correr",
+            "agenda"
+          ],
+          "texto": "Вот и фраза, которую я тебе обещала. В 2002 году в Великобритании студентов попросили заниматься спортом. Одной группе только объяснили, зачем это нужно; другую попросили ещё и записать, когда и где, фразой вроде: «если понедельник и семь утра, то я выхожу на пробежку в парк». В первой группе спортом занялись тридцать пять процентов; с этой фразой — девяносто один."
+        },
+        {
+          "id": "gollwitzer",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "94",
+            "clave": "gollwitzer"
+          },
+          "lamina": [
+            "reloj",
+            "puerta"
+          ],
+          "texto": "Такую фразу называют намерением реализации, и Петер Гольвитцер с Пашалом Шираном проверили её в девяноста четырёх исследованиях: заранее решить, когда и где ты будешь действовать, помогает гораздо больше, чем просто желать результата."
+        },
+        {
+          "id": "escalera",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escalera"
+          },
+          "lamina": [
+            "escalera",
+            "montana"
+          ],
+          "texto": "А большие цели нужно делить. Пробежать пять километров — это вершина; пройтись двадцать минут в понедельник — первая ступенька. Смотри, как цель превращается в этапы, а каждый этап — в шаги, которые умещаются в один день."
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "В моей комнате «Цели» в MindHaOS искусственный интеллект составляет мне такой план: я говорю, сколько у меня часов и в какие дни, и он предлагает этапы в графике."
+        }
+      ]
+    },
+    {
+      "id": "ganas",
+      "titulo": "Почему пропадает желание?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть четвёртая. Почему пропадает желание?"
+        },
+        {
+          "id": "tarjeta",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tarjeta"
+          },
+          "lamina": [
+            "cafe",
+            "sellos"
+          ],
+          "texto": "Желание не бывает ровным: оно растёт, когда цель видна совсем близко. В 2006 году в кафе Колумбийского университета раздали две карточки со штампами на бесплатный кофе. На одной нужно было собрать десять штампов; на другой — двенадцать, но два уже стояли. Обе требовали десяти покупок, и всё же карточка с двумя подаренными штампами заполнилась почти на три дня раньше."
+        },
+        {
+          "id": "progreso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "12 000",
+            "clave": "progreso"
+          },
+          "lamina": [
+            "oficina",
+            "palomita"
+          ],
+          "texto": "Тереза Амабайл прочитала двенадцать тысяч рабочих дневников, и лучшее настроение у людей было в те дни, когда они продвигались в чём-то важном для них, пусть даже немного. Маленькие успехи — это топливо."
+        },
+        {
+          "id": "inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "comienzos"
+          },
+          "lamina": [
+            "lunes",
+            "amanecer"
+          ],
+          "texto": "А есть дни, которые дают дополнительный толчок: понедельник, первое число месяца, твой день рождения. Кэтрин Милкман называет это эффектом нового начала: в такие даты больше людей ищут и начинают свои цели. Используй их, чтобы стартовать или вернуться."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyo"
+          },
+          "lamina": "pulgar",
+          "texto": "Кстати, мы уже на середине. Если это руководство тебе помогает, нажми «Нравится», «Подписаться», чтобы не пропустить следующее, и «Поделиться» с тем, у кого есть отложенная цель."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "poco",
+              "visible",
+              "seguido"
+            ]
+          },
+          "lamina": "calendarioPared",
+          "enCasa": true,
+          "texto": "Поэтому мой календарь всегда на виду: каждый день, когда я продвигаюсь, пусть даже немного, отмечается и подталкивает меня к следующему."
+        }
+      ]
+    },
+    {
+      "id": "casa",
+      "titulo": "Почему полезно держать всё в мысленном доме?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть пятая. Почему полезно держать всё в мысленном доме?"
+        },
+        {
+          "id": "simonides",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 500 a. C.",
+            "clave": "simonides"
+          },
+          "lamina": [
+            "simonides",
+            "templo"
+          ],
+          "texto": "Легенда гласит, что греческий поэт Симонид вспомнил всех гостей пира по тому, где сидел каждый из них. Так родился дворец памяти: хранить идеи в комнатах хорошо знакомого тебе дома."
+        },
+        {
+          "id": "dresler",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "casaMental"
+          },
+          "lamina": [
+            "cerebro",
+            "pasillo"
+          ],
+          "texto": "И это работает. В 2017 году Мартин Дреслер шесть недель тренировал этим методом обычных людей: раньше они запоминали около тридцати слов из списка, а после — ещё примерно тридцать пять сверху. И спустя месяцы они всё ещё помнили гораздо больше. Наш мозг отлично запоминает места."
+        },
+        {
+          "id": "pendientes",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "−",
+            "clave": "pendientes"
+          },
+          "lamina": [
+            "postits",
+            "calma"
+          ],
+          "texto": "А когда всё в одном месте, это ещё и успокаивает. В 2011 году Э. Дж. Масикампо и Рой Баумайстер увидели, что незавершённые цели лезут в голову, пока ты занят другим; но стоило записать для них конкретный план, и эти мысли переставали мешать."
+        },
+        {
+          "id": "beneficios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "ver",
+              "conectar",
+              "soltar",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "casaIso",
+            "plano"
+          ],
+          "texto": "Мысленный дом даёт четыре вещи: ты видишь все свои цели разом; видишь, как они связаны, ведь хороший сон помогает тренироваться; отпускаешь то, у чего уже есть своё место; и знаешь, в какую комнату вернуться."
+        },
+        {
+          "id": "mencion-casa",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "casaIso",
+          "enCasa": true,
+          "texto": "Поэтому MindHaOS — это дом: каждая комната — сфера твоей жизни, и отсюда я вижу цели всех комнат вместе."
+        }
+      ]
+    },
+    {
+      "id": "medir",
+      "titulo": "Как понять, что ты продвигаешься?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть шестая. Как понять, что ты продвигаешься?"
+        },
+        {
+          "id": "harkin",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "138",
+            "clave": "harkin"
+          },
+          "lamina": [
+            "bascula",
+            "grafica"
+          ],
+          "texto": "Измерять — работает. В 2016 году Бенджамин Харкин и его команда собрали сто тридцать восемь экспериментов: люди, которые часто проверяли свой прогресс, сильнее приближались к цели. И эффект был больше, когда они это записывали или кому-то рассказывали."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "racha"
+          },
+          "lamina": [
+            "cuaderno",
+            "marcador"
+          ],
+          "texto": "Самый простой способ — серия: отмечай каждый день, когда выполняешь задуманное. Смотри, как растёт цепочка и как один пропуск её не рвёт, если на следующий день ты возвращаешься."
+        },
+        {
+          "id": "semana",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hice",
+              "aprendi",
+              "ajusto"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "cafe2"
+          ],
+          "texto": "А раз в неделю — десять минут на обзор: что сделано, чему ты научился и что поправить. Измеряй процесс, а не только результат: килограммы уходят медленно, а прогулки засчитываются уже сегодня."
+        },
+        {
+          "id": "misiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fases",
+              "palomea",
+              "avance"
+            ]
+          },
+          "lamina": "palomita",
+          "enCasa": true,
+          "texto": "В моём доме у каждого плана есть свои этапы и шаги, и, отмечая их галочкой, я вижу, как растёт полоска."
+        }
+      ]
+    },
+    {
+      "id": "fallar",
+      "titulo": "Что делать, когда срываешься?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть седьмая. Что делать, когда срываешься?"
+        },
+        {
+          "id": "lally",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "habito"
+          },
+          "lamina": [
+            "agua",
+            "caminar"
+          ],
+          "texto": "Ты будешь срываться, и это нормально. В 2010 году Филиппа Лалли наблюдала за людьми, которые вырабатывали новую привычку: в среднем она становилась автоматической за шестьдесят шесть дней, хотя одним хватило восемнадцати, а другим понадобилось гораздо больше. И пропущенный день не стирал достигнутого."
+        },
+        {
+          "id": "dosVeces",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "falla",
+              "vuelve",
+              "nunca"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "levantarse"
+          ],
+          "texto": "Опасно не сорваться один день, а подумать «всё пропало» и бросить всё. Практическое правило: сорваться можно один раз, но не два подряд.",
+          "meme": "arruine"
+        },
+        {
+          "id": "woop",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "woop"
+          },
+          "lamina": [
+            "obstaculo",
+            "plan"
+          ],
+          "texto": "И готовься к срывам до того, как они случатся. Габриэле Эттинген предлагает четыре шага: твоё желание, лучший результат, препятствие, которое тормозит тебя сильнее всего, и твой план на случай, если оно появится. Представлять только успех расслабляет; представлять ещё и препятствие — готовит."
+        },
+        {
+          "id": "amable",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2012",
+            "clave": "autocompasion"
+          },
+          "lamina": [
+            "estudiar",
+            "abrazo"
+          ],
+          "texto": "И говори с собой по-доброму. В 2012 году Джулиана Брейнс и Серена Чен увидели, что те, кто относился к себе с пониманием после провала на трудном экзамене, готовились к следующему больше, чем те, кто просто себя подбадривал."
+        },
+        {
+          "id": "ajustar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plan",
+              "meta",
+              "seguir"
+            ]
+          },
+          "lamina": "ajustar",
+          "enCasa": true,
+          "texto": "Когда я срываюсь, я меняю здесь план, а не цель: передвигаю даты в графике и иду дальше."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Как продолжать? Твой план на будущее",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть восьмая. Как продолжать? Твой план на будущее."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "В первую неделю выбери одну цель, запиши её в позитивном ключе и с фразой «если…, то…», и начни так скромно, чтобы не сделать было невозможно: две минуты тоже считаются.",
+          "meme": "grande"
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "subir"
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "texto": "В первый месяц добавляй понемногу каждую неделю, только если предыдущая прошла хорошо. Смотри, как две минуты, которые чуть-чуть растут каждую неделю, за четыре месяца превращаются в полчаса, без единого трудного скачка."
+        },
+        {
+          "id": "medirVolver",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "domingo",
+              "racha3",
+              "lunes"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "lunes"
+          ],
+          "texto": "Каждое воскресенье уделяй десять минут своей серии; а если однажды сорвёшься, понедельник, первое число или даже завтрашний день станут твоим новым началом."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Итак: одного желания мало, нужно продумать цель; конкретную и позитивную, со своей фразой «если…, то…»; разбитую на шаги и на виду, в твоём мысленном доме; измеряй её каждую неделю; а если сорвёшься, вернись на следующий день."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "В комнате «Цели» в MindHaOS ты можешь записать свои цели и составить планы сам или попросить искусственный интеллект помочь с шагами и сроками, а потом увидеть их в графике. Собери свой дом бесплатно уже сегодня: ссылка в описании. А в следующем руководстве: как организовать своё время?",
+    "boton": "Открыть комнату «Цели»",
+    "lamina": "app-plan",
+    "anclas": {
+      "escribir": "записать свои цели",
+      "plan": "попросить искусственный интеллект",
+      "cronograma": "в графике"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "norcross-2002",
+      "texto": "Norcross J. C., Mrykalo M. S., Blagys M. D. Auld lang syne: Success predictors, change processes, and self-reported outcomes of New Year's resolvers and nonresolvers. Journal of Clinical Psychology (2002).",
+      "url": "https://doi.org/10.1002/jclp.1151"
+    },
+    {
+      "id": "sheeran-2002",
+      "texto": "Sheeran P. Intention–behavior relations: A conceptual and empirical review. European Review of Social Psychology (2002).",
+      "url": "https://doi.org/10.1080/14792772143000003"
+    },
+    {
+      "id": "galla-2015",
+      "texto": "Galla B. M., Duckworth A. L. More than resisting temptation: Beneficial habits mediate the relationship between self-control and positive life outcomes. Journal of Personality and Social Psychology (2015).",
+      "url": "https://doi.org/10.1037/pspp0000026"
+    },
+    {
+      "id": "locke-2002",
+      "texto": "Locke E. A., Latham G. P. Building a practically useful theory of goal setting and task motivation: A 35-year odyssey. American Psychologist (2002).",
+      "url": "https://doi.org/10.1037/0003-066X.57.9.705"
+    },
+    {
+      "id": "oscarsson-2020",
+      "texto": "Oscarsson M., Carlbring P., Andersson G., Rozental A. A large-scale experiment on New Year's resolutions: Approach-oriented goals are more successful than avoidance-oriented goals. PLOS ONE (2020).",
+      "url": "https://doi.org/10.1371/journal.pone.0234097"
+    },
+    {
+      "id": "milne-2002",
+      "texto": "Milne S., Orbell S., Sheeran P. Combining motivational and volitional interventions to promote exercise participation. British Journal of Health Psychology (2002).",
+      "url": "https://doi.org/10.1348/135910702169420"
+    },
+    {
+      "id": "gollwitzer-2006",
+      "texto": "Gollwitzer P. M., Sheeran P. Implementation intentions and goal achievement: A meta-analysis of effects and processes. Advances in Experimental Social Psychology (2006).",
+      "url": "https://doi.org/10.1016/S0065-2601(06)38002-1"
+    },
+    {
+      "id": "kivetz-2006",
+      "texto": "Kivetz R., Urminsky O., Zheng Y. The goal-gradient hypothesis resurrected. Journal of Marketing Research (2006).",
+      "url": "https://doi.org/10.1509/jmkr.43.1.39"
+    },
+    {
+      "id": "amabile-2011",
+      "texto": "Amabile T., Kramer S. The Progress Principle (Harvard Business Review Press, 2011).",
+      "url": "https://www.progressprinciple.com/"
+    },
+    {
+      "id": "dai-2014",
+      "texto": "Dai H., Milkman K. L., Riis J. The fresh start effect: Temporal landmarks motivate aspirational behavior. Management Science (2014).",
+      "url": "https://doi.org/10.1287/mnsc.2014.1901"
+    },
+    {
+      "id": "dresler-2017",
+      "texto": "Dresler M. et al. Mnemonic training reshapes brain networks to support superior memory. Neuron (2017).",
+      "url": "https://doi.org/10.1016/j.neuron.2017.02.003"
+    },
+    {
+      "id": "masicampo-2011",
+      "texto": "Masicampo E. J., Baumeister R. F. Consider it done! Plan making can eliminate the cognitive effects of unfulfilled goals. Journal of Personality and Social Psychology (2011).",
+      "url": "https://doi.org/10.1037/a0024192"
+    },
+    {
+      "id": "harkin-2016",
+      "texto": "Harkin B. et al. Does monitoring goal progress promote goal attainment? A meta-analysis of the experimental evidence. Psychological Bulletin (2016).",
+      "url": "https://doi.org/10.1037/bul0000025"
+    },
+    {
+      "id": "lally-2010",
+      "texto": "Lally P., van Jaarsveld C. H. M., Potts H. W. W., Wardle J. How are habits formed: Modelling habit formation in the real world. European Journal of Social Psychology (2010).",
+      "url": "https://doi.org/10.1002/ejsp.674"
+    },
+    {
+      "id": "oettingen-2014",
+      "texto": "Oettingen G. Rethinking Positive Thinking: Inside the New Science of Motivation (2014), метод WOOP.",
+      "url": "https://woopmylife.org/"
+    },
+    {
+      "id": "breines-2012",
+      "texto": "Breines J. G., Chen S. Self-compassion increases self-improvement motivation. Personality and Social Psychology Bulletin (2012).",
+      "url": "https://doi.org/10.1177/0146167212445599"
+    }
+  ]
+}

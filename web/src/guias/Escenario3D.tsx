@@ -7,6 +7,7 @@ import { avanzarBoca, nuevaBocaHabla, type BocaHabla } from '../../../src/core/h
 import type { ExpresionId } from '../../../src/core/house/apariencia'
 import { patronEscena, pepCon, ropaDeEpoca, ATUENDO_GUIA, NARRADOR_GUIA, TUNICA_GUIA } from './pep'
 import { Mago3D } from './Mago3D'
+import { Princesa3D } from './Princesa3D'
 
 /**
  * Pep@ en 3D: el mismo rig que el visor de ejercicios de la app, con la boca
@@ -38,19 +39,26 @@ export default function Escenario3D({
   const av = useMemo(() => pepCon(ATUENDO_GUIA[tema] ?? '', cara, ropa), [tema, cara, ropa])
   const patron = useMemo(() => patronEscena(escena), [escena])
   const mago = NARRADOR_GUIA[tema] === 'mago'
+  const princesa = NARRADOR_GUIA[tema] === 'princesa'
   // Lo que sobresale por encima de la cabeza (el copete del gorro de chef, el sombrero del mago): el encuadre lo cuenta.
-  const sobreCabeza = mago ? 0.7 : av.ropa?.gorroChef ? 0.6 : av.ropa?.sombrero ? 0.3 : 0
+  const sobreCabeza = mago ? 0.7 : princesa ? 0.3 : av.ropa?.gorroChef ? 0.6 : av.ropa?.sombrero ? 0.3 : 0
   const boca = useRef<BocaHabla>(nuevaBocaHabla())
   // Tumbado (plancha, puente…): la cámara baja y se abre, como en el visor de la app.
   const q = patron.poses[0]
-  const tumbado = !mago && (Math.abs(q[J.raizX]) > Math.PI / 4 || Math.abs(q[J.raizZ]) > Math.PI / 4)
+  const tumbado = !mago && !princesa && (Math.abs(q[J.raizX]) > Math.PI / 4 || Math.abs(q[J.raizZ]) > Math.PI / 4)
   return (
     <Canvas shadows dpr={[1, 2]} gl={{ alpha: true, antialias: true }} camera={{ position: [0, 1.35, 6.2], fov: 32 }}>
       <ambientLight intensity={0.9} />
       <directionalLight position={[3, 7, 5]} intensity={1.15} castShadow shadow-mapSize={[1024, 1024]} />
       <directionalLight position={[-4, 3, -3]} intensity={0.4} />
       <Suspense fallback={null}>
-        {mago ? <Mago3D escena={escena} boca={boca} cara={cara} tunica={TUNICA_GUIA[tema]} /> : <RigEjercicio av={av} patron={patron} boca={boca} />}
+        {mago ? (
+          <Mago3D escena={escena} boca={boca} cara={cara} tunica={TUNICA_GUIA[tema]} />
+        ) : princesa ? (
+          <Princesa3D escena={escena} boca={boca} cara={cara} />
+        ) : (
+          <RigEjercicio av={av} patron={patron} boca={boca} />
+        )}
       </Suspense>
       <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
         <circleGeometry args={[1.6, 48]} />

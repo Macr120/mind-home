@@ -1,0 +1,769 @@
+{
+  "idioma": "zh",
+  "tema": "metas",
+  "plantillaId": "metas",
+  "numero": 9,
+  "nombre": "目标",
+  "pregunta": "怎样实现你的目标？",
+  "corta": "怎样实现目标？",
+  "subtitulo": "为什么光想要还不够，好目标是什么样的，怎样把目标变成步骤，为什么干劲会消失，为什么把一切放进一座心灵之家会有帮助，怎样衡量进展，失败时该怎么办，以及一个不放下目标的计划。",
+  "aviso": "本指南仅供参考：文中引用的数字和研究是对其来源的近似概括，每个人前进的节奏也各不相同。如果某个目标与你的身体或心理健康有关，也请咨询专业人士。",
+  "partes": [
+    {
+      "id": "querer",
+      "titulo": "为什么光想要还不够？",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "怎样实现你的目标？每年一月，都有数百万人下定决心要改变一些事情。可到了六个月后，超过一半的人已经放弃了。那些真正做到的人，有什么不同？今天我们就来看看科学怎么说，其中还有一句话，能让你成功的概率提高将近三倍。"
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "对了，这是我在MindHaOS里的家，我的所有目标都在这个房间里规划。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第一部分。为什么光想要还不够？"
+        },
+        {
+          "id": "proponerse",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "proponerse"
+          },
+          "lamina": [
+            "calendario",
+            "brindis"
+          ],
+          "texto": "先说个好消息：下定决心确实有用。2002年，John Norcross对将近三百人跟踪了六个月。立下新年决心的人里，有百分之四十六还在坚持；同样想改变、却没有下决心的人里，只有百分之四。"
+        },
+        {
+          "id": "brecha",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "47 %",
+            "clave": "brecha"
+          },
+          "lamina": [
+            "sofa",
+            "tenis"
+          ],
+          "texto": "可是，想做和去做之间有一道缝。心理学家Paschal Sheeran回顾了几十项研究，发现在打算做某件事的人里，将近一半最后并没有去做。",
+          "meme": "enero"
+        },
+        {
+          "id": "voluntad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ganas",
+              "voluntad",
+              "habito"
+            ]
+          },
+          "lamina": [
+            "despertador",
+            "rutina"
+          ],
+          "texto": "而光靠意志力，填不满这道缝。2015年，Brian Galla和Angela Duckworth发现，自控力强的人之所以过得更好，不是因为他们更能硬扛，而是因为他们有更多好习惯。做到的人不是意志力更强，而是更不需要意志力。"
+        },
+        {
+          "id": "adelanto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "disenar",
+              "medir",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "mapa",
+            "brujula"
+          ],
+          "texto": "所以秘诀不是更用力地想要，而是把目标设计得不依赖干劲。在第五部分，你还会看到，为什么记忆冠军们都把一切存放在一座房子里。"
+        },
+        {
+          "id": "diana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "porque",
+              "pasos"
+            ]
+          },
+          "lamina": "diana",
+          "enCasa": true,
+          "texto": "在这里，我的目标靶上，每个目标都有自己的位置：我想要什么，为什么想要，以及到达那里的步骤。"
+        }
+      ]
+    },
+    {
+      "id": "buena",
+      "titulo": "什么样的目标才算好目标？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第二部分。什么样的目标才算好目标？"
+        },
+        {
+          "id": "concreta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "metaBuena"
+          },
+          "lamina": [
+            "libreta",
+            "lapiz"
+          ],
+          "texto": "Edwin Locke和Gary Latham用三十年回顾了数百项研究，结论一再重复：一个具体、稍有难度的目标，总是胜过“我尽力而为”。看看给“去运动”加上做什么、做多少、什么时候、在哪里之后，会变成什么样。"
+        },
+        {
+          "id": "acercar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "59 % · 47 %",
+            "clave": "acercar"
+          },
+          "lamina": [
+            "fruta",
+            "refresco"
+          ],
+          "texto": "怎么说也很重要。2020年，瑞典的研究者跟踪了一千多位立下新年决心的人：开始做某件事的目标，比如多吃水果，比停止做某件事的目标，比如戒糖，完成得更好。"
+        },
+        {
+          "id": "una",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "escribe",
+              "porque"
+            ]
+          },
+          "lamina": [
+            "post",
+            "lista"
+          ],
+          "texto": "所以最好从一个目标开始，用正面的话写下来，再加上一个对你真正重要的理由：在难熬的日子里，是这个“为什么”让你重新站起来。",
+          "meme": "vaga"
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "cuanto",
+              "cuando"
+            ]
+          },
+          "lamina": "escribir",
+          "enCasa": true,
+          "texto": "我在我的房间里就是这样写每个目标的：想要什么，多少，什么时候完成，不用含糊的词。"
+        }
+      ]
+    },
+    {
+      "id": "pasos",
+      "titulo": "怎样把目标变成步骤？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第三部分。怎样把目标变成步骤？"
+        },
+        {
+          "id": "siEntonces",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "siEntonces"
+          },
+          "lamina": [
+            "correr",
+            "agenda"
+          ],
+          "texto": "这就是我答应你的那句话。2002年，在英国，研究者请学生们去运动。对一组人只解释为什么要运动；对另一组人，还请他们写下什么时候、在哪里运动，用这样一句话：“如果是周一早上七点，我就去公园跑步。”第一组里，有百分之三十五的人去运动了；写了这句话的那组，是百分之九十一。"
+        },
+        {
+          "id": "gollwitzer",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "94",
+            "clave": "gollwitzer"
+          },
+          "lamina": [
+            "reloj",
+            "puerta"
+          ],
+          "texto": "这句话叫作执行意图。Peter Gollwitzer和Paschal Sheeran在九十四项研究中检验了它：事先决定什么时候、在哪里行动，比只盼着结果有用得多。"
+        },
+        {
+          "id": "escalera",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escalera"
+          },
+          "lamina": [
+            "escalera",
+            "montana"
+          ],
+          "texto": "大目标要拆开。跑五公里是山顶；周一走二十分钟，是第一级台阶。看看一个目标怎样变成几个阶段，每个阶段又变成一天就能完成的步骤。"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在MindHaOS我的目标房间里，人工智能会帮我做这个计划：我告诉它我有几个小时、哪几天有空，它就把各个阶段排进日程里给我。"
+        }
+      ]
+    },
+    {
+      "id": "ganas",
+      "titulo": "为什么干劲会消失？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第四部分。为什么干劲会消失？"
+        },
+        {
+          "id": "tarjeta",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tarjeta"
+          },
+          "lamina": [
+            "cafe",
+            "sellos"
+          ],
+          "texto": "干劲不是一成不变的：看到目标近在眼前时，它就会上升。2006年，在哥伦比亚大学的一家咖啡馆里，研究者发了两种集章卡，集满就送一杯免费咖啡。一种要集十个章；另一种要十二个，但已经先盖好了两个。两种都需要买十次，可是送了两个章的那张，早了将近三天集满。"
+        },
+        {
+          "id": "progreso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "12 000",
+            "clave": "progreso"
+          },
+          "lamina": [
+            "oficina",
+            "palomita"
+          ],
+          "texto": "Teresa Amabile读了一万两千篇职场人的工作日记：心情最好的日子，是在自己在乎的事情上有所进展的日子，哪怕只有一点点。小小的进展，就是燃料。"
+        },
+        {
+          "id": "inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "comienzos"
+          },
+          "lamina": [
+            "lunes",
+            "amanecer"
+          ],
+          "texto": "还有一些日子会额外推你一把：周一、每个月的第一天、你的生日。Katherine Milkman把这叫作“新起点效应”：在这些日子里，会有更多人去搜索、去开始自己的目标。用它们来起步，或者重新出发。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyo"
+          },
+          "lamina": "pulgar",
+          "texto": "对了，我们已经走到一半了。如果这份指南对你有帮助，请点赞，订阅，别错过下一期，再分享给还有目标没完成的朋友。"
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "poco",
+              "visible",
+              "seguido"
+            ]
+          },
+          "lamina": "calendarioPared",
+          "enCasa": true,
+          "texto": "所以我的日历总是放在看得见的地方：每天只要有进展，哪怕一点点，就会画上一个记号，推着我走向第二天。"
+        }
+      ]
+    },
+    {
+      "id": "casa",
+      "titulo": "为什么把一切放进一座心灵之家会有帮助？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第五部分。为什么把一切放进一座心灵之家会有帮助？"
+        },
+        {
+          "id": "simonides",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 500 a. C.",
+            "clave": "simonides"
+          },
+          "lamina": [
+            "simonides",
+            "templo"
+          ],
+          "texto": "传说，希腊诗人西摩尼得斯凭着每位宾客坐的位置，想起了宴会上的所有人。记忆宫殿就这样诞生了：把想法存放在一座你熟悉的房子的各个房间里。"
+        },
+        {
+          "id": "dresler",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "casaMental"
+          },
+          "lamina": [
+            "cerebro",
+            "pasillo"
+          ],
+          "texto": "而且它真的有效。2017年，Martin Dresler用这个方法训练普通人六个星期：以前他们能记住一张单词表里大约三十个词；训练后，又多记住了大约三十五个。几个月后，他们仍然记得多得多。我们的大脑天生就擅长记地方。"
+        },
+        {
+          "id": "pendientes",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "−",
+            "clave": "pendientes"
+          },
+          "lamina": [
+            "postits",
+            "calma"
+          ],
+          "texto": "把一切放在一个地方，心也会安定下来。2011年，E. J. Masicampo和Roy Baumeister发现，没完成的目标会在你做别的事时钻进脑子里；可一旦为它们写下具体的计划，这些念头就不再打扰了。"
+        },
+        {
+          "id": "beneficios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "ver",
+              "conectar",
+              "soltar",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "casaIso",
+            "plano"
+          ],
+          "texto": "一座心灵之家会给你四样东西：一眼看到所有目标；看到它们怎样相互关联，因为睡得好有助于训练；放下已经有了位置的事情；以及知道该回到哪个房间。"
+        },
+        {
+          "id": "mencion-casa",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "casaIso",
+          "enCasa": true,
+          "texto": "所以MindHaOS是一座房子：每个房间是你生活的一个领域，在这里，我能把所有房间的目标放在一起看。"
+        }
+      ]
+    },
+    {
+      "id": "medir",
+      "titulo": "怎样知道自己有没有进步？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第六部分。怎样知道自己有没有进步？"
+        },
+        {
+          "id": "harkin",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "138",
+            "clave": "harkin"
+          },
+          "lamina": [
+            "bascula",
+            "grafica"
+          ],
+          "texto": "衡量是有用的。2016年，Benjamin Harkin和团队汇总了一百三十八项实验：经常检查自己进展的人，离目标更近。如果把进展写下来，或者告诉别人，效果还会更大。"
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "racha"
+          },
+          "lamina": [
+            "cuaderno",
+            "marcador"
+          ],
+          "texto": "最简单的方法是连续记录：每完成一天，就做个记号。看看链条怎样变长，又怎样只要你第二天回来，一个空格也断不了它。"
+        },
+        {
+          "id": "semana",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hice",
+              "aprendi",
+              "ajusto"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "cafe2"
+          ],
+          "texto": "每周花十分钟回顾一次：我做了什么，学到了什么，要调整什么。衡量过程，而不只是结果：体重降得很慢，但散步的次数今天就能数。"
+        },
+        {
+          "id": "misiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fases",
+              "palomea",
+              "avance"
+            ]
+          },
+          "lamina": "palomita",
+          "enCasa": true,
+          "texto": "在我的家里，每个计划都有自己的阶段和步骤，每勾掉一个，我就能看到进度条往前走。"
+        }
+      ]
+    },
+    {
+      "id": "fallar",
+      "titulo": "失败了怎么办？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第七部分。失败了怎么办？"
+        },
+        {
+          "id": "lally",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "habito"
+          },
+          "lamina": [
+            "agua",
+            "caminar"
+          ],
+          "texto": "你会失败，这没关系。2010年，Phillippa Lally跟踪了一些正在养成新习惯的人：平均要六十六天才变成自动的，有人只用了十八天，也有人用了久得多。而且，跳过一天并没有抹掉之前的进步。"
+        },
+        {
+          "id": "dosVeces",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "falla",
+              "vuelve",
+              "nunca"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "levantarse"
+          ],
+          "texto": "危险的不是失败一天，而是想着“全毁了”，然后彻底放弃。一条实用的规则：可以失败一次，但不要连续两次。",
+          "meme": "arruine"
+        },
+        {
+          "id": "woop",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "woop"
+          },
+          "lamina": [
+            "obstaculo",
+            "plan"
+          ],
+          "texto": "还要在跌倒之前就做好准备。Gabriele Oettingen提出了四个步骤：你的愿望、最好的结果、最拦着你的障碍，以及障碍出现时的计划。只想象成功会让人松懈；把障碍也想到，才能让你做好准备。"
+        },
+        {
+          "id": "amable",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2012",
+            "clave": "autocompasion"
+          },
+          "lamina": [
+            "estudiar",
+            "abrazo"
+          ],
+          "texto": "还有，对自己说话温柔一点。2012年，Juliana Breines和Serena Chen发现，在一场很难的考试失利后善待自己的人，比只给自己打气的人，为下一次考试学习得更多。"
+        },
+        {
+          "id": "ajustar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plan",
+              "meta",
+              "seguir"
+            ]
+          },
+          "lamina": "ajustar",
+          "enCasa": true,
+          "texto": "失败的时候，我会在这里调整计划，而不是目标：在日程里挪一挪日期，然后继续。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "怎样坚持下去？你的继续计划",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第八部分。怎样坚持下去？你的继续计划。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "第一周，只选一个目标，用正面的话写下来，配上你的“如果……，就……”句子，然后从小到不可能做不到的程度开始：两分钟也算数。",
+          "meme": "grande"
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "subir"
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "texto": "第一个月，每周加一点点，前提是上一周进行得顺利。看看两分钟每周长一点点，四个月后就变成了半小时，中间没有一次艰难的跳跃。"
+        },
+        {
+          "id": "medirVolver",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "domingo",
+              "racha3",
+              "lunes"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "lunes"
+          ],
+          "texto": "每个周日，花十分钟回顾你的连续记录；如果哪天失败了，周一、每个月的第一天，或者明天，就是你的新起点。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "总结一下：光想要不够，要去设计；目标要具体、正面，配上“如果……，就……”的句子；拆成步骤，放在你心灵之家看得见的地方；每周衡量一次；失败了，第二天就回来。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "在MindHaOS的目标房间里，你可以自己写下目标、做好计划，也可以请人工智能帮你安排步骤和时间，再在日程里查看。今天就免费搭建你的家吧。链接在视频简介里。下一期指南：怎样安排好你的时间？",
+    "boton": "打开目标房间",
+    "lamina": "app-plan",
+    "anclas": {
+      "escribir": "自己写下目标",
+      "plan": "请人工智能",
+      "cronograma": "在日程里查看"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "norcross-2002",
+      "texto": "Norcross J. C., Mrykalo M. S., Blagys M. D. Auld lang syne: Success predictors, change processes, and self-reported outcomes of New Year's resolvers and nonresolvers. Journal of Clinical Psychology (2002).",
+      "url": "https://doi.org/10.1002/jclp.1151"
+    },
+    {
+      "id": "sheeran-2002",
+      "texto": "Sheeran P. Intention–behavior relations: A conceptual and empirical review. European Review of Social Psychology (2002).",
+      "url": "https://doi.org/10.1080/14792772143000003"
+    },
+    {
+      "id": "galla-2015",
+      "texto": "Galla B. M., Duckworth A. L. More than resisting temptation: Beneficial habits mediate the relationship between self-control and positive life outcomes. Journal of Personality and Social Psychology (2015).",
+      "url": "https://doi.org/10.1037/pspp0000026"
+    },
+    {
+      "id": "locke-2002",
+      "texto": "Locke E. A., Latham G. P. Building a practically useful theory of goal setting and task motivation: A 35-year odyssey. American Psychologist (2002).",
+      "url": "https://doi.org/10.1037/0003-066X.57.9.705"
+    },
+    {
+      "id": "oscarsson-2020",
+      "texto": "Oscarsson M., Carlbring P., Andersson G., Rozental A. A large-scale experiment on New Year's resolutions: Approach-oriented goals are more successful than avoidance-oriented goals. PLOS ONE (2020).",
+      "url": "https://doi.org/10.1371/journal.pone.0234097"
+    },
+    {
+      "id": "milne-2002",
+      "texto": "Milne S., Orbell S., Sheeran P. Combining motivational and volitional interventions to promote exercise participation. British Journal of Health Psychology (2002).",
+      "url": "https://doi.org/10.1348/135910702169420"
+    },
+    {
+      "id": "gollwitzer-2006",
+      "texto": "Gollwitzer P. M., Sheeran P. Implementation intentions and goal achievement: A meta-analysis of effects and processes. Advances in Experimental Social Psychology (2006).",
+      "url": "https://doi.org/10.1016/S0065-2601(06)38002-1"
+    },
+    {
+      "id": "kivetz-2006",
+      "texto": "Kivetz R., Urminsky O., Zheng Y. The goal-gradient hypothesis resurrected. Journal of Marketing Research (2006).",
+      "url": "https://doi.org/10.1509/jmkr.43.1.39"
+    },
+    {
+      "id": "amabile-2011",
+      "texto": "Amabile T., Kramer S. The Progress Principle (Harvard Business Review Press, 2011).",
+      "url": "https://www.progressprinciple.com/"
+    },
+    {
+      "id": "dai-2014",
+      "texto": "Dai H., Milkman K. L., Riis J. The fresh start effect: Temporal landmarks motivate aspirational behavior. Management Science (2014).",
+      "url": "https://doi.org/10.1287/mnsc.2014.1901"
+    },
+    {
+      "id": "dresler-2017",
+      "texto": "Dresler M. et al. Mnemonic training reshapes brain networks to support superior memory. Neuron (2017).",
+      "url": "https://doi.org/10.1016/j.neuron.2017.02.003"
+    },
+    {
+      "id": "masicampo-2011",
+      "texto": "Masicampo E. J., Baumeister R. F. Consider it done! Plan making can eliminate the cognitive effects of unfulfilled goals. Journal of Personality and Social Psychology (2011).",
+      "url": "https://doi.org/10.1037/a0024192"
+    },
+    {
+      "id": "harkin-2016",
+      "texto": "Harkin B. et al. Does monitoring goal progress promote goal attainment? A meta-analysis of the experimental evidence. Psychological Bulletin (2016).",
+      "url": "https://doi.org/10.1037/bul0000025"
+    },
+    {
+      "id": "lally-2010",
+      "texto": "Lally P., van Jaarsveld C. H. M., Potts H. W. W., Wardle J. How are habits formed: Modelling habit formation in the real world. European Journal of Social Psychology (2010).",
+      "url": "https://doi.org/10.1002/ejsp.674"
+    },
+    {
+      "id": "oettingen-2014",
+      "texto": "Oettingen G. Rethinking Positive Thinking: Inside the New Science of Motivation (2014)，WOOP方法。",
+      "url": "https://woopmylife.org/"
+    },
+    {
+      "id": "breines-2012",
+      "texto": "Breines J. G., Chen S. Self-compassion increases self-improvement motivation. Personality and Social Psychology Bulletin (2012).",
+      "url": "https://doi.org/10.1177/0146167212445599"
+    }
+  ]
+}

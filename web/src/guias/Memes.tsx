@@ -59,6 +59,11 @@ export const MEMES: Record<string, DefMeme> = {
   simbolos: { formato: 'arribaAbajo', poses: ['orgulloso', 'confundido'], sonido: 'bruh' },
   ojos: { formato: 'arribaAbajo', poses: ['confundido', 'orgulloso'], sonido: 'jeje-boy' },
   cien: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
+  // Metas (las poses son de la princesa, la narradora).
+  enero: { formato: 'arribaAbajo', poses: ['orgulloso', 'cansado'], sonido: 'bruh' },
+  vaga: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
+  arruine: { formato: 'arribaAbajo', poses: ['orgulloso', 'confundido'], sonido: 'jeje-boy' },
+  grande: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'jeje-boy' },
 }
 
 export function Meme({ id, tema, t }: { id: string; tema: string; t: T }) {

@@ -7500,6 +7500,7 @@ export const ID: Dict = {
   'guia.arte.titulo': "Apa itu seni?",
   'guia.musica.titulo': "Apa itu musik?",
   'guia.video.titulo': "Bagaimana cara membuat video?",
+  'guia.metas.titulo': "Bagaimana cara mencapai targetmu?",
   'tut.esencial.titulo': 'Yang Penting',
   'tut.tipo.ejemplos': 'Contoh · MindHaOS demo',
   'tut.app-agenda--esencial.resumen':

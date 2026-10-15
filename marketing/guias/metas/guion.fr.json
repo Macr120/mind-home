@@ -1,0 +1,769 @@
+{
+  "idioma": "fr",
+  "tema": "metas",
+  "plantillaId": "metas",
+  "numero": 9,
+  "nombre": "Objectifs",
+  "pregunta": "Comment atteindre tes objectifs ?",
+  "corta": "Comment atteindre tes objectifs ?",
+  "subtitulo": "Pourquoi vouloir ne suffit pas, ce qui fait un bon objectif, comment le transformer en étapes, pourquoi l’envie s’épuise, pourquoi ça aide de tout ranger dans une maison mentale, comment mesurer tes progrès, que faire quand tu échoues et un plan pour ne pas lâcher tes objectifs.",
+  "aviso": "Ce guide est informatif : les chiffres et les études cités sont des approximations de leurs sources, et chacun avance à son rythme. Si un objectif concerne ta santé physique ou mentale, parles-en aussi à un professionnel.",
+  "partes": [
+    {
+      "id": "querer",
+      "titulo": "Pourquoi vouloir ne suffit pas ?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Comment atteindre tes objectifs ? Chaque janvier, des millions de personnes décident de changer quelque chose. Et six mois plus tard, plus de la moitié a déjà abandonné. Que font de différent celles qui y arrivent ? Aujourd’hui, tu vas le voir avec ce que dit la science, y compris une seule phrase qui triple presque tes chances."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "D’ailleurs, voici ma maison dans MindHaOS, et c’est dans cette pièce que je planifie tous mes objectifs."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie un. Pourquoi vouloir ne suffit pas ?"
+        },
+        {
+          "id": "proponerse",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "proponerse"
+          },
+          "lamina": [
+            "calendario",
+            "brindis"
+          ],
+          "texto": "D’abord, la bonne nouvelle : prendre une résolution, ça marche. En 2002, John Norcross a suivi près de trois cents personnes pendant six mois. Parmi celles qui avaient pris une résolution du Nouvel An, quarante-six pour cent la tenaient encore. Parmi celles qui voulaient le même changement sans s’y engager, seulement quatre pour cent."
+        },
+        {
+          "id": "brecha",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "47 %",
+            "clave": "brecha"
+          },
+          "lamina": [
+            "sofa",
+            "tenis"
+          ],
+          "texto": "Mais entre vouloir et faire, il y a un fossé. En passant en revue des dizaines d’études, le psychologue Paschal Sheeran a découvert que presque la moitié des personnes qui ont l’intention de faire quelque chose, au final, ne le font pas.",
+          "meme": "enero"
+        },
+        {
+          "id": "voluntad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ganas",
+              "voluntad",
+              "habito"
+            ]
+          },
+          "lamina": [
+            "despertador",
+            "rutina"
+          ],
+          "texto": "Et la volonté ne suffit pas à le combler. En 2015, Brian Galla et Angela Duckworth ont vu que les personnes qui ont le plus de maîtrise de soi ne réussissent pas mieux en résistant à la force du poignet, mais parce qu’elles ont plus de bonnes habitudes. Celles qui tiennent bon n’ont pas plus de volonté ; elles en ont moins besoin."
+        },
+        {
+          "id": "adelanto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "disenar",
+              "medir",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "mapa",
+            "brujula"
+          ],
+          "texto": "Le secret n’est donc pas de vouloir plus, mais de concevoir ton objectif pour qu’il ne dépende pas de l’envie. Et dans la partie cinq, tu verras pourquoi les champions de mémoire rangent tout dans une maison."
+        },
+        {
+          "id": "diana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "porque",
+              "pasos"
+            ]
+          },
+          "lamina": "diana",
+          "enCasa": true,
+          "texto": "Ici, sur ma cible d’objectifs, chacun a sa place : ce que je veux, pourquoi je le veux et les étapes pour y arriver."
+        }
+      ]
+    },
+    {
+      "id": "buena",
+      "titulo": "Qu’est-ce qui fait un bon objectif ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie deux. Qu’est-ce qui fait un bon objectif ?"
+        },
+        {
+          "id": "concreta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "metaBuena"
+          },
+          "lamina": [
+            "libreta",
+            "lapiz"
+          ],
+          "texto": "Edwin Locke et Gary Latham ont passé en revue des centaines d’études pendant trente ans, et la conclusion revient toujours : un objectif précis et un peu difficile bat toujours « je vais faire de mon mieux ». Regarde comment « faire du sport » change quand tu ajoutes quoi, combien, quand et où."
+        },
+        {
+          "id": "acercar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "59 % · 47 %",
+            "clave": "acercar"
+          },
+          "lamina": [
+            "fruta",
+            "refresco"
+          ],
+          "texto": "Et la façon de le dire compte. En 2020, en Suède, des chercheurs ont suivi plus de mille personnes avec des résolutions du Nouvel An : les objectifs de commencer quelque chose, comme manger plus de fruits, ont été mieux tenus que ceux d’arrêter quelque chose, comme arrêter le sucre."
+        },
+        {
+          "id": "una",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "escribe",
+              "porque"
+            ]
+          },
+          "lamina": [
+            "post",
+            "lista"
+          ],
+          "texto": "C’est pour ça qu’il vaut mieux commencer par un seul objectif, écrit de façon positive, avec une raison qui compte vraiment pour toi : ton pourquoi, c’est ce qui te fait te lever les jours difficiles.",
+          "meme": "vaga"
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "cuanto",
+              "cuando"
+            ]
+          },
+          "lamina": "escribir",
+          "enCasa": true,
+          "texto": "Voilà comment j’écris chaque objectif dans ma pièce : ce que je veux, combien et pour quand, sans mots vagues."
+        }
+      ]
+    },
+    {
+      "id": "pasos",
+      "titulo": "Comment transformer un objectif en étapes ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie trois. Comment transformer un objectif en étapes ?"
+        },
+        {
+          "id": "siEntonces",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "siEntonces"
+          },
+          "lamina": [
+            "correr",
+            "agenda"
+          ],
+          "texto": "Voici la phrase que je t’ai promise. En 2002, au Royaume-Uni, on a demandé à des étudiants de faire du sport. À un groupe, on a seulement expliqué pourquoi ; à un autre, on a aussi demandé d’écrire quand et où, avec une phrase comme : « si c’est lundi à sept heures, alors je vais courir au parc ». Dans le premier groupe, trente-cinq pour cent ont fait du sport ; avec la phrase, quatre-vingt-onze."
+        },
+        {
+          "id": "gollwitzer",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "94",
+            "clave": "gollwitzer"
+          },
+          "lamina": [
+            "reloj",
+            "puerta"
+          ],
+          "texto": "Cette phrase s’appelle une intention de mise en œuvre, et Peter Gollwitzer et Paschal Sheeran l’ont étudiée dans quatre-vingt-quatorze études : décider à l’avance quand et où tu vas agir aide bien plus que de simplement souhaiter le résultat."
+        },
+        {
+          "id": "escalera",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escalera"
+          },
+          "lamina": [
+            "escalera",
+            "montana"
+          ],
+          "texto": "Et les grands objectifs se découpent. Courir cinq kilomètres, c’est un sommet ; marcher vingt minutes lundi, c’est la première marche. Regarde comment un objectif devient des phases, et chaque phase, des étapes qui tiennent dans une journée."
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dans ma pièce Objectifs de MindHaOS, l’intelligence artificielle me prépare ce plan : je lui dis combien d’heures j’ai et quels jours, et elle me propose les phases sur un planning."
+        }
+      ]
+    },
+    {
+      "id": "ganas",
+      "titulo": "Pourquoi l’envie s’épuise-t-elle ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie quatre. Pourquoi l’envie s’épuise-t-elle ?"
+        },
+        {
+          "id": "tarjeta",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tarjeta"
+          },
+          "lamina": [
+            "cafe",
+            "sellos"
+          ],
+          "texto": "L’envie n’est pas constante : elle monte quand tu vois l’objectif approcher. En 2006, dans un café de l’université Columbia, on a distribué deux cartes de fidélité pour un café gratuit. L’une demandait dix tampons ; l’autre, douze, mais avec deux déjà mis. Les deux demandaient dix achats, et pourtant, celle avec deux tampons offerts a été remplie presque trois jours plus tôt."
+        },
+        {
+          "id": "progreso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "12 000",
+            "clave": "progreso"
+          },
+          "lamina": [
+            "oficina",
+            "palomita"
+          ],
+          "texto": "Teresa Amabile a lu douze mille journaux de personnes au travail, et la meilleure humeur apparaissait les jours où elles avançaient sur quelque chose qui comptait pour elles, même un peu. Les petits progrès sont le carburant."
+        },
+        {
+          "id": "inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "comienzos"
+          },
+          "lamina": [
+            "lunes",
+            "amanecer"
+          ],
+          "texto": "Et certains jours donnent un coup de pouce : un lundi, le premier du mois, ton anniversaire. Katherine Milkman appelle ça l’effet du nouveau départ : à ces dates, plus de gens cherchent et commencent leurs objectifs. Profites-en pour te lancer ou pour revenir."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyo"
+          },
+          "lamina": "pulgar",
+          "texto": "Au fait, on est à la moitié. Si ce guide t’aide, mets un J’aime, abonne-toi pour ne pas rater le prochain et partage-le avec quelqu’un qui a un objectif en attente."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "poco",
+              "visible",
+              "seguido"
+            ]
+          },
+          "lamina": "calendarioPared",
+          "enCasa": true,
+          "texto": "C’est pour ça que mon calendrier est bien en vue : chaque jour où j’avance, même un peu, est coché et me pousse vers le suivant."
+        }
+      ]
+    },
+    {
+      "id": "casa",
+      "titulo": "Pourquoi ça aide de tout ranger dans une maison mentale ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie cinq. Pourquoi ça aide de tout ranger dans une maison mentale ?"
+        },
+        {
+          "id": "simonides",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 500 a. C.",
+            "clave": "simonides"
+          },
+          "lamina": [
+            "simonides",
+            "templo"
+          ],
+          "texto": "La légende raconte que le poète grec Simonide se souvint de tous les invités d’un banquet grâce à la place où chacun était assis. C’est ainsi qu’est né le palais de la mémoire : ranger des idées dans les pièces d’une maison que tu connais bien."
+        },
+        {
+          "id": "dresler",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "casaMental"
+          },
+          "lamina": [
+            "cerebro",
+            "pasillo"
+          ],
+          "texto": "Et ça marche. En 2017, Martin Dresler a entraîné des gens ordinaires à cette méthode pendant six semaines : avant, ils retenaient une trentaine de mots d’une liste ; après, environ trente-cinq de plus. Et des mois plus tard, ils en retenaient encore beaucoup plus. Notre cerveau est excellent avec les lieux."
+        },
+        {
+          "id": "pendientes",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "−",
+            "clave": "pendientes"
+          },
+          "lamina": [
+            "postits",
+            "calma"
+          ],
+          "texto": "Et tout avoir au même endroit calme aussi l’esprit. En 2011, E. J. Masicampo et Roy Baumeister ont vu que les objectifs en suspens s’invitent dans ta tête pendant que tu fais autre chose ; mais dès qu’on écrivait un plan concret pour eux, ces pensées cessaient d’interrompre."
+        },
+        {
+          "id": "beneficios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "ver",
+              "conectar",
+              "soltar",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "casaIso",
+            "plano"
+          ],
+          "texto": "Une maison mentale t’apporte quatre choses : tu vois tous tes objectifs d’un coup d’œil ; tu vois comment ils se relient, parce que mieux dormir t’aide à t’entraîner ; tu lâches ce qui a déjà sa place ; et tu sais dans quelle pièce revenir."
+        },
+        {
+          "id": "mencion-casa",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "casaIso",
+          "enCasa": true,
+          "texto": "C’est pour ça que MindHaOS est une maison : chaque pièce est un domaine de ta vie, et d’ici je vois les objectifs de toutes les pièces ensemble."
+        }
+      ]
+    },
+    {
+      "id": "medir",
+      "titulo": "Comment savoir si tu avances ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie six. Comment savoir si tu avances ?"
+        },
+        {
+          "id": "harkin",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "138",
+            "clave": "harkin"
+          },
+          "lamina": [
+            "bascula",
+            "grafica"
+          ],
+          "texto": "Mesurer, ça marche. En 2016, Benjamin Harkin et son équipe ont rassemblé cent trente-huit expériences : les personnes qui suivaient souvent leurs progrès se rapprochaient davantage de leur objectif. Et l’effet était plus fort quand elles les notaient, ou quand elles en parlaient à quelqu’un."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "racha"
+          },
+          "lamina": [
+            "cuaderno",
+            "marcador"
+          ],
+          "texto": "Le plus simple, c’est une série : coche chaque jour où tu tiens ton engagement. Regarde comment la chaîne grandit, et comment un seul trou ne la casse pas si tu reviens le lendemain."
+        },
+        {
+          "id": "semana",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hice",
+              "aprendi",
+              "ajusto"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "cafe2"
+          ],
+          "texto": "Et une fois par semaine, dix minutes de bilan : ce que j’ai fait, ce que j’ai appris et ce que j’ajuste. Mesure le processus, pas seulement le résultat : le kilo descend lentement, mais les marches comptent dès aujourd’hui."
+        },
+        {
+          "id": "misiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fases",
+              "palomea",
+              "avance"
+            ]
+          },
+          "lamina": "palomita",
+          "enCasa": true,
+          "texto": "Dans ma maison, chaque plan a ses phases et ses étapes, et quand je les coche, je vois la barre avancer."
+        }
+      ]
+    },
+    {
+      "id": "fallar",
+      "titulo": "Que faire quand tu échoues ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie sept. Que faire quand tu échoues ?"
+        },
+        {
+          "id": "lally",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "habito"
+          },
+          "lamina": [
+            "agua",
+            "caminar"
+          ],
+          "texto": "Tu vas échouer, et ce n’est pas grave. En 2010, Phillippa Lally a suivi des personnes qui prenaient une nouvelle habitude : en moyenne, il a fallu soixante-six jours pour qu’elle devienne automatique, même si pour certains il en a fallu dix-huit et pour d’autres bien plus. Et sauter un jour n’a pas effacé les progrès."
+        },
+        {
+          "id": "dosVeces",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "falla",
+              "vuelve",
+              "nunca"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "levantarse"
+          ],
+          "texto": "Le danger n’est pas de rater un jour, mais de penser « j’ai tout gâché » et de tout lâcher. La règle pratique : tu peux rater une fois, mais jamais deux fois de suite.",
+          "meme": "arruine"
+        },
+        {
+          "id": "woop",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "woop"
+          },
+          "lamina": [
+            "obstaculo",
+            "plan"
+          ],
+          "texto": "Et prépare-toi aux faux pas avant qu’ils arrivent. Gabriele Oettingen propose quatre étapes : ton souhait, le meilleur résultat, l’obstacle qui te freine le plus et ton plan s’il se présente. Imaginer seulement la réussite détend ; imaginer aussi l’obstacle te prépare."
+        },
+        {
+          "id": "amable",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2012",
+            "clave": "autocompasion"
+          },
+          "lamina": [
+            "estudiar",
+            "abrazo"
+          ],
+          "texto": "Et parle-toi avec bienveillance. En 2012, Juliana Breines et Serena Chen ont vu que ceux qui se traitaient avec compréhension après avoir raté un examen difficile révisaient plus pour le suivant que ceux qui se contentaient de se remonter le moral."
+        },
+        {
+          "id": "ajustar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plan",
+              "meta",
+              "seguir"
+            ]
+          },
+          "lamina": "ajustar",
+          "enCasa": true,
+          "texto": "Quand je rate, c’est ici que j’ajuste le plan, pas l’objectif : je déplace les dates sur le planning et je continue."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Comment continuer ? Ton plan pour la suite",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie huit. Comment continuer ? Ton plan pour la suite."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "La première semaine, choisis un seul objectif, écris-le de façon positive avec sa phrase « si…, alors… », et commence si petit qu’il soit impossible de ne pas le faire : deux minutes, ça compte.",
+          "meme": "grande"
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "subir"
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "texto": "Le premier mois, augmente un peu chaque semaine, seulement si la précédente s’est bien passée. Regarde comment deux minutes qui grandissent un tout petit peu chaque semaine deviennent une demi-heure en quatre mois, sans un seul saut difficile."
+        },
+        {
+          "id": "medirVolver",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "domingo",
+              "racha3",
+              "lunes"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "lunes"
+          ],
+          "texto": "Chaque dimanche, fais le point sur ta série pendant dix minutes ; et si un jour tu rates, le lundi, le premier du mois ou dès demain sont ton nouveau départ."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "En résumé : vouloir ne suffit pas, il faut concevoir ; un objectif précis et positif, avec sa phrase « si…, alors… » ; découpé en étapes et bien en vue, dans ta maison mentale ; mesuré chaque semaine ; et quand tu rates, reviens dès le lendemain."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Dans la pièce Objectifs de MindHaOS, tu peux écrire tes objectifs et construire tes plans toi-même, ou demander à l’intelligence artificielle de t’aider avec les étapes et les délais, et les voir sur un planning. Construis ta maison gratuitement aujourd’hui : le lien est dans la description. Et dans le prochain guide : comment organiser ton temps ?",
+    "boton": "Ouvrir la pièce Objectifs",
+    "lamina": "app-plan",
+    "anclas": {
+      "escribir": "écrire tes objectifs",
+      "plan": "demander à l’intelligence artificielle",
+      "cronograma": "sur un planning"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "norcross-2002",
+      "texto": "Norcross J. C., Mrykalo M. S., Blagys M. D. Auld lang syne: Success predictors, change processes, and self-reported outcomes of New Year's resolvers and nonresolvers. Journal of Clinical Psychology (2002).",
+      "url": "https://doi.org/10.1002/jclp.1151"
+    },
+    {
+      "id": "sheeran-2002",
+      "texto": "Sheeran P. Intention–behavior relations: A conceptual and empirical review. European Review of Social Psychology (2002).",
+      "url": "https://doi.org/10.1080/14792772143000003"
+    },
+    {
+      "id": "galla-2015",
+      "texto": "Galla B. M., Duckworth A. L. More than resisting temptation: Beneficial habits mediate the relationship between self-control and positive life outcomes. Journal of Personality and Social Psychology (2015).",
+      "url": "https://doi.org/10.1037/pspp0000026"
+    },
+    {
+      "id": "locke-2002",
+      "texto": "Locke E. A., Latham G. P. Building a practically useful theory of goal setting and task motivation: A 35-year odyssey. American Psychologist (2002).",
+      "url": "https://doi.org/10.1037/0003-066X.57.9.705"
+    },
+    {
+      "id": "oscarsson-2020",
+      "texto": "Oscarsson M., Carlbring P., Andersson G., Rozental A. A large-scale experiment on New Year's resolutions: Approach-oriented goals are more successful than avoidance-oriented goals. PLOS ONE (2020).",
+      "url": "https://doi.org/10.1371/journal.pone.0234097"
+    },
+    {
+      "id": "milne-2002",
+      "texto": "Milne S., Orbell S., Sheeran P. Combining motivational and volitional interventions to promote exercise participation. British Journal of Health Psychology (2002).",
+      "url": "https://doi.org/10.1348/135910702169420"
+    },
+    {
+      "id": "gollwitzer-2006",
+      "texto": "Gollwitzer P. M., Sheeran P. Implementation intentions and goal achievement: A meta-analysis of effects and processes. Advances in Experimental Social Psychology (2006).",
+      "url": "https://doi.org/10.1016/S0065-2601(06)38002-1"
+    },
+    {
+      "id": "kivetz-2006",
+      "texto": "Kivetz R., Urminsky O., Zheng Y. The goal-gradient hypothesis resurrected. Journal of Marketing Research (2006).",
+      "url": "https://doi.org/10.1509/jmkr.43.1.39"
+    },
+    {
+      "id": "amabile-2011",
+      "texto": "Amabile T., Kramer S. The Progress Principle (Harvard Business Review Press, 2011).",
+      "url": "https://www.progressprinciple.com/"
+    },
+    {
+      "id": "dai-2014",
+      "texto": "Dai H., Milkman K. L., Riis J. The fresh start effect: Temporal landmarks motivate aspirational behavior. Management Science (2014).",
+      "url": "https://doi.org/10.1287/mnsc.2014.1901"
+    },
+    {
+      "id": "dresler-2017",
+      "texto": "Dresler M. et al. Mnemonic training reshapes brain networks to support superior memory. Neuron (2017).",
+      "url": "https://doi.org/10.1016/j.neuron.2017.02.003"
+    },
+    {
+      "id": "masicampo-2011",
+      "texto": "Masicampo E. J., Baumeister R. F. Consider it done! Plan making can eliminate the cognitive effects of unfulfilled goals. Journal of Personality and Social Psychology (2011).",
+      "url": "https://doi.org/10.1037/a0024192"
+    },
+    {
+      "id": "harkin-2016",
+      "texto": "Harkin B. et al. Does monitoring goal progress promote goal attainment? A meta-analysis of the experimental evidence. Psychological Bulletin (2016).",
+      "url": "https://doi.org/10.1037/bul0000025"
+    },
+    {
+      "id": "lally-2010",
+      "texto": "Lally P., van Jaarsveld C. H. M., Potts H. W. W., Wardle J. How are habits formed: Modelling habit formation in the real world. European Journal of Social Psychology (2010).",
+      "url": "https://doi.org/10.1002/ejsp.674"
+    },
+    {
+      "id": "oettingen-2014",
+      "texto": "Oettingen G. Rethinking Positive Thinking: Inside the New Science of Motivation (2014), la méthode WOOP.",
+      "url": "https://woopmylife.org/"
+    },
+    {
+      "id": "breines-2012",
+      "texto": "Breines J. G., Chen S. Self-compassion increases self-improvement motivation. Personality and Social Psychology Bulletin (2012).",
+      "url": "https://doi.org/10.1177/0146167212445599"
+    }
+  ]
+}

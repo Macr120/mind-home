@@ -1,0 +1,419 @@
+{
+  "fotos": {},
+  "laminas": {
+    "calendario": {
+      "archivo": "laminas/calendario.mp4",
+      "tipo": "video",
+      "autor": "olia danilevich",
+      "fuente": "https://www.pexels.com/video/happy-new-year-composition-6148926/",
+      "licencia": "Licencia Pexels"
+    },
+    "brindis": {
+      "archivo": "laminas/brindis.mp4",
+      "tipo": "video",
+      "autor": "Pavel Danilyuk",
+      "fuente": "https://www.pexels.com/video/close-up-video-of-people-toasting-champagne-glasses-5871138/",
+      "licencia": "Licencia Pexels"
+    },
+    "sofa": {
+      "archivo": "laminas/sofa.mp4",
+      "tipo": "video",
+      "autor": "Fernanda Neitzel",
+      "fuente": "https://www.pexels.com/video/cozy-evening-indoors-with-tea-and-tv-37522021/",
+      "licencia": "Licencia Pexels"
+    },
+    "tenis": {
+      "archivo": "laminas/tenis.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/a-woman-tying-her-shoelace-7877153/",
+      "licencia": "Licencia Pexels"
+    },
+    "despertador": {
+      "archivo": "laminas/despertador.mp4",
+      "tipo": "video",
+      "autor": "Miriam Alonso",
+      "fuente": "https://www.pexels.com/video/woman-turning-off-her-alarm-clock-7593903/",
+      "licencia": "Licencia Pexels"
+    },
+    "rutina": {
+      "archivo": "laminas/rutina.mp4",
+      "tipo": "video",
+      "autor": "Artem Podrez",
+      "fuente": "https://www.pexels.com/video/girl-waking-up-on-bed-7505643/",
+      "licencia": "Licencia Pexels"
+    },
+    "mapa": {
+      "archivo": "laminas/mapa.mp4",
+      "tipo": "video",
+      "autor": "Vlada Karpovich",
+      "fuente": "https://www.pexels.com/video/a-person-planning-and-looking-at-world-map-7429832/",
+      "licencia": "Licencia Pexels"
+    },
+    "brujula": {
+      "archivo": "laminas/brujula.mp4",
+      "tipo": "video",
+      "autor": "Anastasia Shuraeva",
+      "fuente": "https://www.pexels.com/video/a-person-holding-a-compass-8028798/",
+      "licencia": "Licencia Pexels"
+    },
+    "diana": {
+      "archivo": "laminas/diana.mp4",
+      "tipo": "video",
+      "autor": "Şahin Doğdu",
+      "fuente": "https://www.pexels.com/video/dartboard-close-up-with-darts-hitting-target-34071374/",
+      "licencia": "Licencia Pexels"
+    },
+    "libreta": {
+      "archivo": "laminas/libreta.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/writing-to-do-list-on-a-notebook-for-reminders-3832194/",
+      "licencia": "Licencia Pexels"
+    },
+    "lapiz": {
+      "archivo": "laminas/lapiz.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/person-laying-pencil-on-a-notepad-7744411/",
+      "licencia": "Licencia Pexels"
+    },
+    "fruta": {
+      "archivo": "laminas/fruta.mp4",
+      "tipo": "video",
+      "autor": "Darina Belonogova",
+      "fuente": "https://www.pexels.com/video/a-woman-eating-a-slice-of-apple-7214687/",
+      "licencia": "Licencia Pexels"
+    },
+    "refresco": {
+      "archivo": "laminas/refresco.mp4",
+      "tipo": "video",
+      "autor": "Airam Dato-on",
+      "fuente": "https://www.pexels.com/video/refreshing-soda-pour-into-ice-filled-cup-40047619/",
+      "licencia": "Licencia Pexels"
+    },
+    "post": {
+      "archivo": "laminas/post.mp4",
+      "tipo": "video",
+      "autor": "Cup of Couple",
+      "fuente": "https://www.pexels.com/video/a-person-putting-sticky-notes-on-a-wall-6632967/",
+      "licencia": "Licencia Pexels"
+    },
+    "lista": {
+      "archivo": "laminas/lista.mp4",
+      "tipo": "video",
+      "autor": "KATRIN BOLOVTSOVA",
+      "fuente": "https://www.pexels.com/video/person-putting-check-on-the-to-do-list-pad-6186640/",
+      "licencia": "Licencia Pexels"
+    },
+    "escribir": {
+      "archivo": "laminas/escribir.mp4",
+      "tipo": "video",
+      "autor": "Los Muertos Crew",
+      "fuente": "https://www.pexels.com/video/a-woman-writing-on-her-journal-7260659/",
+      "licencia": "Licencia Pexels"
+    },
+    "correr": {
+      "archivo": "laminas/correr.mp4",
+      "tipo": "video",
+      "autor": "Yuliya Duzhaya",
+      "fuente": "https://www.pexels.com/video/woman-jogging-in-park-on-sunny-day-39443622/",
+      "licencia": "Licencia Pexels"
+    },
+    "agenda": {
+      "archivo": "laminas/agenda.mp4",
+      "tipo": "video",
+      "autor": "thiago japyassu",
+      "fuente": "https://www.pexels.com/video/close-up-view-of-daily-planner-13511897/",
+      "licencia": "Licencia Pexels"
+    },
+    "reloj": {
+      "archivo": "laminas/reloj.mp4",
+      "tipo": "video",
+      "autor": "Anton Kudryashov",
+      "fuente": "https://www.pexels.com/video/close-up-on-clock-hands-moving-11267667/",
+      "licencia": "Licencia Pexels"
+    },
+    "puerta": {
+      "archivo": "laminas/puerta.mp4",
+      "tipo": "video",
+      "autor": "WeStarMoney Rec",
+      "fuente": "https://www.pexels.com/video/open-open-door-4101574/",
+      "licencia": "Licencia Pexels"
+    },
+    "escalera": {
+      "archivo": "laminas/escalera.mp4",
+      "tipo": "video",
+      "autor": "Liliana Drew",
+      "fuente": "https://www.pexels.com/video/a-man-in-activewear-walking-up-a-flight-of-stairs-8551816/",
+      "licencia": "Licencia Pexels"
+    },
+    "montana": {
+      "archivo": "laminas/montana.mp4",
+      "tipo": "video",
+      "autor": "Ravi Kant",
+      "fuente": "https://www.pexels.com/video/a-man-walking-on-a-mountain-with-a-backpack-28185374/",
+      "licencia": "Licencia Pexels"
+    },
+    "cafe": {
+      "archivo": "laminas/cafe.mp4",
+      "tipo": "video",
+      "autor": "Burak Eroglu",
+      "fuente": "https://www.pexels.com/video/cafe-ambiance-with-coffee-beans-and-latte-30981713/",
+      "licencia": "Licencia Pexels"
+    },
+    "sellos": {
+      "archivo": "laminas/sellos.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/seals-with-wooden-handles-7345049/",
+      "licencia": "Licencia Pexels"
+    },
+    "oficina": {
+      "archivo": "laminas/oficina.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/professional-people-brainstorming-during-meeting-7643614/",
+      "licencia": "Licencia Pexels"
+    },
+    "palomita": {
+      "archivo": "laminas/palomita.mp4",
+      "tipo": "video",
+      "autor": "Jakub Zerdzicki",
+      "fuente": "https://www.pexels.com/video/completing-tasks-on-a-checklist-with-pen-36633828/",
+      "licencia": "Licencia Pexels"
+    },
+    "lunes": {
+      "archivo": "laminas/lunes.mp4",
+      "tipo": "video",
+      "autor": "josephine Devadass",
+      "fuente": "https://www.pexels.com/video/morning-inspiration-with-coffee-by-the-window-35874963/",
+      "licencia": "Licencia Pexels"
+    },
+    "amanecer": {
+      "archivo": "laminas/amanecer.mp4",
+      "tipo": "video",
+      "autor": "NADER AYMAN",
+      "fuente": "https://www.pexels.com/video/skyline-with-birds-at-sunrise-37365586/",
+      "licencia": "Licencia Pexels"
+    },
+    "calendarioPared": {
+      "archivo": "laminas/calendarioPared.mp4",
+      "tipo": "video",
+      "autor": "Nadezhda Moryak",
+      "fuente": "https://www.pexels.com/video/calendar-with-circle-marks-on-the-date-7479663/",
+      "licencia": "Licencia Pexels"
+    },
+    "templo": {
+      "archivo": "laminas/templo.mp4",
+      "tipo": "video",
+      "autor": "David Pickup",
+      "fuente": "https://www.pexels.com/video/ancient-greek-temple-ruins-with-blue-sky-34379465/",
+      "licencia": "Licencia Pexels"
+    },
+    "cerebro": {
+      "archivo": "laminas/cerebro.mp4",
+      "tipo": "video",
+      "autor": "Nicola Narracci",
+      "fuente": "https://www.pexels.com/video/abstract-golden-neural-network-animation-35003022/",
+      "licencia": "Licencia Pexels"
+    },
+    "pasillo": {
+      "archivo": "laminas/pasillo.mp4",
+      "tipo": "video",
+      "autor": "Kindel Media",
+      "fuente": "https://www.pexels.com/video/video-of-a-house-hallway-7578548/",
+      "licencia": "Licencia Pexels"
+    },
+    "postits": {
+      "archivo": "laminas/postits.mp4",
+      "tipo": "video",
+      "autor": "Anna Shvets",
+      "fuente": "https://www.pexels.com/video/sticky-notes-on-a-wall-4832136/",
+      "licencia": "Licencia Pexels"
+    },
+    "calma": {
+      "archivo": "laminas/calma.mp4",
+      "tipo": "video",
+      "autor": "Rahime Gül",
+      "fuente": "https://www.pexels.com/video/serene-moment-under-a-tree-at-sunrise-30507835/",
+      "licencia": "Licencia Pexels"
+    },
+    "plano": {
+      "archivo": "laminas/plano.mp4",
+      "tipo": "video",
+      "autor": "Alena Darmel",
+      "fuente": "https://www.pexels.com/video/person-showing-the-house-floor-plan-7646445/",
+      "licencia": "Licencia Pexels"
+    },
+    "bascula": {
+      "archivo": "laminas/bascula.mp4",
+      "tipo": "video",
+      "autor": "Pavel Danilyuk",
+      "fuente": "https://www.pexels.com/video/a-person-measuring-weight-on-scale-7802051/",
+      "licencia": "Licencia Pexels"
+    },
+    "grafica": {
+      "archivo": "laminas/grafica.mp4",
+      "tipo": "video",
+      "autor": "Mikhail Nilov",
+      "fuente": "https://www.pexels.com/video/person-looking-at-graphs-on-work-desk-6930229/",
+      "licencia": "Licencia Pexels"
+    },
+    "cuaderno": {
+      "archivo": "laminas/cuaderno.mp4",
+      "tipo": "video",
+      "autor": "K",
+      "fuente": "https://www.pexels.com/video/close-up-of-woman-writing-in-journal-33350905/",
+      "licencia": "Licencia Pexels"
+    },
+    "marcador": {
+      "archivo": "laminas/marcador.mp4",
+      "tipo": "video",
+      "autor": "Katya Wolf",
+      "fuente": "https://www.pexels.com/video/a-person-writing-using-a-colored-marker-8706214/",
+      "licencia": "Licencia Pexels"
+    },
+    "domingo": {
+      "archivo": "laminas/domingo.mp4",
+      "tipo": "video",
+      "autor": "Marie",
+      "fuente": "https://www.pexels.com/video/cozy-morning-ritual-with-tea-and-journal-39443724/",
+      "licencia": "Licencia Pexels"
+    },
+    "cafe2": {
+      "archivo": "laminas/cafe2.mp4",
+      "tipo": "video",
+      "autor": "Yuliya Duzhaya",
+      "fuente": "https://www.pexels.com/video/journaling-with-matcha-latte-on-marble-table-39654625/",
+      "licencia": "Licencia Pexels"
+    },
+    "agua": {
+      "archivo": "laminas/agua.mp4",
+      "tipo": "video",
+      "autor": "Gizem Gökce",
+      "fuente": "https://www.pexels.com/video/crystal-clear-water-pour-into-glass-36044316/",
+      "licencia": "Licencia Pexels"
+    },
+    "caminar": {
+      "archivo": "laminas/caminar.mp4",
+      "tipo": "video",
+      "autor": "Matthias Groeneveld",
+      "fuente": "https://www.pexels.com/video/a-person-walking-down-a-path-in-the-woods-27223231/",
+      "licencia": "Licencia Pexels"
+    },
+    "tropiezo": {
+      "archivo": "laminas/tropiezo.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-child-walking-uphill-6133543/",
+      "licencia": "Licencia Pexels"
+    },
+    "levantarse": {
+      "archivo": "laminas/levantarse.mp4",
+      "tipo": "video",
+      "autor": "Kampus Production",
+      "fuente": "https://www.pexels.com/video/a-man-holding-another-person-s-hand-7516765/",
+      "licencia": "Licencia Pexels"
+    },
+    "obstaculo": {
+      "archivo": "laminas/obstaculo.mp4",
+      "tipo": "video",
+      "autor": "Mharee Lynn Eulanda Guillena",
+      "fuente": "https://www.pexels.com/video/athlete-hurdling-on-outdoor-track-field-30997023/",
+      "licencia": "Licencia Pexels"
+    },
+    "plan": {
+      "archivo": "laminas/plan.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/schedules-and-goals-written-on-the-office-whiteboard-5981905/",
+      "licencia": "Licencia Pexels"
+    },
+    "estudiar": {
+      "archivo": "laminas/estudiar.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/a-student-taking-notes-and-research-7683482/",
+      "licencia": "Licencia Pexels"
+    },
+    "abrazo": {
+      "archivo": "laminas/abrazo.mp4",
+      "tipo": "video",
+      "autor": "Laura Tancredi",
+      "fuente": "https://www.pexels.com/video/woman-hugging-another-woman-7059137/",
+      "licencia": "Licencia Pexels"
+    },
+    "ajustar": {
+      "archivo": "laminas/ajustar.mp4",
+      "tipo": "video",
+      "autor": "Cis14_04 09",
+      "fuente": "https://www.pexels.com/video/flipping-calendar-pages-in-motion-35332817/",
+      "licencia": "Licencia Pexels"
+    },
+    "semilla": {
+      "archivo": "laminas/semilla.mp4",
+      "tipo": "video",
+      "autor": "Greta Hoffman",
+      "fuente": "https://www.pexels.com/video/a-man-planting-seeds-in-a-seedling-tray-7713884/",
+      "licencia": "Licencia Pexels"
+    },
+    "brote": {
+      "archivo": "laminas/brote.mp4",
+      "tipo": "video",
+      "autor": "thetopwebsites .ga",
+      "fuente": "https://www.pexels.com/video/time-lapse-of-growing-plant-6596225/",
+      "licencia": "Licencia Pexels"
+    },
+    "escalon": {
+      "archivo": "laminas/escalon.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/man-running-up-the-stairs-7876928/",
+      "licencia": "Licencia Pexels"
+    },
+    "arbol": {
+      "archivo": "laminas/arbol.mp4",
+      "tipo": "video",
+      "autor": "Furkan Elveren",
+      "fuente": "https://www.pexels.com/video/a-tree-with-the-sun-shining-through-it-27410108/",
+      "licencia": "Licencia Pexels"
+    },
+    "cumbre": {
+      "archivo": "laminas/cumbre.mp4",
+      "tipo": "video",
+      "autor": "Canan İldeniz",
+      "fuente": "https://www.pexels.com/video/group-of-hikers-celebrating-on-mountain-peak-38242686/",
+      "licencia": "Licencia Pexels"
+    },
+    "pulgar": {
+      "archivo": "laminas/pulgar.mp4",
+      "tipo": "video",
+      "autor": "Kevin Malik",
+      "fuente": "https://www.pexels.com/video/a-hand-giving-a-thumbs-up-9017832/",
+      "licencia": "Licencia Pexels"
+    },
+    "simonides": {
+      "archivo": "laminas/simonides.webp",
+      "tipo": "foto",
+      "autor": "Carole Raddato",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Detail_from_lateral_walls_of_the_Tomb_of_the_Diver_depicting_a_symposium_scene,_5th_century_BC,_Paestum_Archaeological_Museum.jpg",
+      "licencia": "CC BY-SA 2.0",
+      "credito": "Carole Raddato · CC BY-SA 2.0 · Wikimedia"
+    },
+    "casaIso": {
+      "archivo": "laminas/casaIso.webp",
+      "tipo": "foto",
+      "autor": "MindHaOS",
+      "fuente": "https://app.mindhaos.com",
+      "credito": ""
+    },
+    "app-plan": {
+      "archivo": "laminas/app-plan.{idioma}.mp4",
+      "tipo": "video",
+      "autor": "MindHaOS",
+      "fuente": "https://app.mindhaos.com",
+      "credito": ""
+    }
+  }
+}

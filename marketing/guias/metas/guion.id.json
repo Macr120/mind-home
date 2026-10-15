@@ -1,0 +1,769 @@
+{
+  "idioma": "id",
+  "tema": "metas",
+  "plantillaId": "metas",
+  "numero": 9,
+  "nombre": "Target",
+  "pregunta": "Bagaimana cara mencapai targetmu?",
+  "corta": "Bagaimana cara mencapai targetmu?",
+  "subtitulo": "Mengapa keinginan saja tidak cukup, apa yang membuat target itu baik, cara mengubahnya menjadi langkah-langkah, mengapa semangat bisa habis, mengapa menyimpan semuanya di rumah pikiran itu membantu, cara mengukur kemajuanmu, apa yang dilakukan saat gagal, dan rencana agar kamu tidak melepaskan targetmu.",
+  "aviso": "Panduan ini bersifat informatif: angka dan studi yang dikutip adalah perkiraan dari sumbernya, dan setiap orang maju dengan kecepatannya sendiri. Jika targetmu berkaitan dengan kesehatan fisik atau mentalmu, konsultasikan juga dengan tenaga profesional.",
+  "partes": [
+    {
+      "id": "querer",
+      "titulo": "Mengapa keinginan saja tidak cukup?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Bagaimana cara mencapai targetmu? Setiap Januari, jutaan orang bertekad mengubah sesuatu. Dan setelah enam bulan, lebih dari separuhnya sudah berhenti. Apa yang dilakukan berbeda oleh mereka yang berhasil? Hari ini kamu akan melihatnya lewat apa kata sains, termasuk satu kalimat yang hampir melipattigakan peluangmu."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "Omong-omong, ini rumahku di MindHaOS, dan di ruangan ini aku merencanakan semua targetku."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian satu. Mengapa keinginan saja tidak cukup?"
+        },
+        {
+          "id": "proponerse",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "proponerse"
+          },
+          "lamina": [
+            "calendario",
+            "brindis"
+          ],
+          "texto": "Pertama, kabar baiknya: bertekad itu memang ada gunanya. Pada tahun 2002, John Norcross mengikuti hampir tiga ratus orang selama enam bulan. Dari mereka yang membuat resolusi tahun baru, empat puluh enam persen masih menjalankannya. Dari mereka yang menginginkan perubahan yang sama tapi tidak membuat resolusi, hanya empat persen."
+        },
+        {
+          "id": "brecha",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "47 %",
+            "clave": "brecha"
+          },
+          "lamina": [
+            "sofa",
+            "tenis"
+          ],
+          "texto": "Tapi di antara ingin dan melakukan ada celah. Setelah meninjau puluhan studi, psikolog Paschal Sheeran menemukan bahwa hampir separuh orang yang berniat melakukan sesuatu, pada akhirnya tidak melakukannya.",
+          "meme": "enero"
+        },
+        {
+          "id": "voluntad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ganas",
+              "voluntad",
+              "habito"
+            ]
+          },
+          "lamina": [
+            "despertador",
+            "rutina"
+          ],
+          "texto": "Dan tekad saja tidak cukup untuk menutupnya. Pada tahun 2015, Brian Galla dan Angela Duckworth melihat bahwa orang dengan kontrol diri lebih tinggi berhasil bukan karena memaksa diri bertahan, melainkan karena punya lebih banyak kebiasaan baik. Orang yang berhasil tidak punya tekad lebih besar; mereka hanya lebih jarang membutuhkannya."
+        },
+        {
+          "id": "adelanto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "disenar",
+              "medir",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "mapa",
+            "brujula"
+          ],
+          "texto": "Jadi rahasianya bukan menginginkan lebih kuat, tapi merancang targetmu agar tidak bergantung pada semangat. Dan di bagian lima kamu akan melihat mengapa para juara memori menyimpan semuanya di dalam sebuah rumah."
+        },
+        {
+          "id": "diana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "porque",
+              "pasos"
+            ]
+          },
+          "lamina": "diana",
+          "enCasa": true,
+          "texto": "Di sini, di papan sasaran targetku, masing-masing punya tempatnya: apa yang kuinginkan, mengapa aku menginginkannya, dan langkah-langkah untuk sampai ke sana."
+        }
+      ]
+    },
+    {
+      "id": "buena",
+      "titulo": "Apa yang membuat target itu baik?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian dua. Apa yang membuat target itu baik?"
+        },
+        {
+          "id": "concreta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "metaBuena"
+          },
+          "lamina": [
+            "libreta",
+            "lapiz"
+          ],
+          "texto": "Edwin Locke dan Gary Latham meninjau ratusan studi selama tiga puluh tahun, dan kesimpulannya selalu sama: target yang konkret dan sedikit sulit selalu mengalahkan “aku akan berusaha sebaik mungkin”. Lihat bagaimana “berolahraga” berubah saat kamu menambahkan apa, berapa banyak, kapan, dan di mana."
+        },
+        {
+          "id": "acercar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "59 % · 47 %",
+            "clave": "acercar"
+          },
+          "lamina": [
+            "fruta",
+            "refresco"
+          ],
+          "texto": "Cara kamu mengucapkannya juga berpengaruh. Pada tahun 2020, di Swedia, lebih dari seribu orang dengan resolusi tahun baru diikuti: target untuk memulai sesuatu, seperti makan lebih banyak buah, lebih sering tercapai daripada target untuk berhenti, seperti berhenti makan gula."
+        },
+        {
+          "id": "una",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "escribe",
+              "porque"
+            ]
+          },
+          "lamina": [
+            "post",
+            "lista"
+          ],
+          "texto": "Karena itu, sebaiknya mulai dengan satu target saja, ditulis secara positif, dan dengan alasan yang benar-benar penting bagimu: alasan itulah yang membangkitkanmu di hari-hari sulit.",
+          "meme": "vaga"
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "cuanto",
+              "cuando"
+            ]
+          },
+          "lamina": "escribir",
+          "enCasa": true,
+          "texto": "Begini aku menulis setiap target di ruanganku: apa yang kuinginkan, berapa banyak, dan sampai kapan, tanpa kata-kata yang samar."
+        }
+      ]
+    },
+    {
+      "id": "pasos",
+      "titulo": "Bagaimana mengubah target menjadi langkah?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tiga. Bagaimana mengubah target menjadi langkah?"
+        },
+        {
+          "id": "siEntonces",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "siEntonces"
+          },
+          "lamina": [
+            "correr",
+            "agenda"
+          ],
+          "texto": "Ini kalimat yang kujanjikan. Pada tahun 2002, di Inggris, sejumlah mahasiswa diminta berolahraga. Satu kelompok hanya diberi penjelasan mengapa; kelompok lain juga diminta menulis kapan dan di mana, dalam kalimat seperti: “jika hari Senin jam tujuh, maka aku lari ke taman.” Di kelompok pertama, yang berolahraga tiga puluh lima persen; dengan kalimat itu, sembilan puluh satu persen."
+        },
+        {
+          "id": "gollwitzer",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "94",
+            "clave": "gollwitzer"
+          },
+          "lamina": [
+            "reloj",
+            "puerta"
+          ],
+          "texto": "Kalimat seperti itu disebut niat implementasi, dan Peter Gollwitzer serta Paschal Sheeran meninjaunya dalam sembilan puluh empat studi: memutuskan sejak awal kapan dan di mana kamu akan bertindak jauh lebih membantu daripada sekadar mengharapkan hasilnya."
+        },
+        {
+          "id": "escalera",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escalera"
+          },
+          "lamina": [
+            "escalera",
+            "montana"
+          ],
+          "texto": "Dan target besar itu dipecah. Lari lima kilometer adalah puncaknya; jalan kaki dua puluh menit pada hari Senin adalah anak tangga pertama. Lihat bagaimana sebuah target menjadi beberapa tahap, dan setiap tahap menjadi langkah-langkah yang muat dalam sehari."
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Di ruang Target-ku di MindHaOS, kecerdasan buatan menyusun rencana itu untukku: aku bilang berapa jam yang kupunya dan di hari apa saja, lalu ia mengusulkan tahap-tahapnya di linimasa."
+        }
+      ]
+    },
+    {
+      "id": "ganas",
+      "titulo": "Mengapa semangat bisa habis?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian empat. Mengapa semangat bisa habis?"
+        },
+        {
+          "id": "tarjeta",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tarjeta"
+          },
+          "lamina": [
+            "cafe",
+            "sellos"
+          ],
+          "texto": "Semangat itu tidak selalu sama: ia naik saat kamu melihat target sudah dekat. Pada tahun 2006, di sebuah kafe Universitas Columbia, dibagikan dua kartu stempel untuk kopi gratis. Satu kartu butuh sepuluh stempel; yang lain dua belas, tapi dua sudah terisi. Keduanya sama-sama butuh sepuluh pembelian, tapi kartu dengan dua stempel gratis terisi penuh hampir tiga hari lebih cepat."
+        },
+        {
+          "id": "progreso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "12 000",
+            "clave": "progreso"
+          },
+          "lamina": [
+            "oficina",
+            "palomita"
+          ],
+          "texto": "Teresa Amabile membaca dua belas ribu catatan harian orang tentang pekerjaan mereka, dan suasana hati terbaik muncul di hari-hari ketika mereka maju dalam sesuatu yang penting bagi mereka, meski hanya sedikit. Kemajuan kecil adalah bahan bakarnya."
+        },
+        {
+          "id": "inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "comienzos"
+          },
+          "lamina": [
+            "lunes",
+            "amanecer"
+          ],
+          "texto": "Dan ada hari-hari yang memberi dorongan ekstra: hari Senin, tanggal satu, hari ulang tahunmu. Katherine Milkman menyebutnya efek awal yang baru: pada tanggal-tanggal itu, lebih banyak orang mencari dan memulai target mereka. Gunakan hari-hari itu untuk memulai atau untuk kembali."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyo"
+          },
+          "lamina": "pulgar",
+          "texto": "Omong-omong, kita sudah di tengah jalan. Kalau panduan ini bermanfaat, tekan Suka, Subscribe supaya tidak ketinggalan panduan berikutnya, dan Bagikan ke seseorang yang punya target yang belum tercapai."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "poco",
+              "visible",
+              "seguido"
+            ]
+          },
+          "lamina": "calendarioPared",
+          "enCasa": true,
+          "texto": "Karena itu kalenderku selalu terlihat: setiap hari aku maju, sekecil apa pun, hari itu ditandai dan mendorongku ke hari berikutnya."
+        }
+      ]
+    },
+    {
+      "id": "casa",
+      "titulo": "Mengapa menyimpan semuanya di rumah pikiran itu membantu?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian lima. Mengapa menyimpan semuanya di rumah pikiran itu membantu?"
+        },
+        {
+          "id": "simonides",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 500 a. C.",
+            "clave": "simonides"
+          },
+          "lamina": [
+            "simonides",
+            "templo"
+          ],
+          "texto": "Konon, penyair Yunani Simonides bisa mengingat semua tamu sebuah jamuan dari tempat duduk masing-masing. Dari situlah lahir istana memori: menyimpan gagasan di ruangan-ruangan sebuah rumah yang kamu kenal baik."
+        },
+        {
+          "id": "dresler",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "casaMental"
+          },
+          "lamina": [
+            "cerebro",
+            "pasillo"
+          ],
+          "texto": "Dan cara ini berhasil. Pada tahun 2017, Martin Dresler melatih orang-orang biasa dengan metode ini selama enam minggu: sebelumnya mereka mengingat sekitar tiga puluh kata dari sebuah daftar; sesudahnya, sekitar tiga puluh lima kata lebih banyak. Dan berbulan-bulan kemudian mereka masih ingat jauh lebih banyak. Otak kita sangat jago mengingat tempat."
+        },
+        {
+          "id": "pendientes",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "−",
+            "clave": "pendientes"
+          },
+          "lamina": [
+            "postits",
+            "calma"
+          ],
+          "texto": "Menyimpan semuanya di satu tempat juga menenangkan pikiran. Pada tahun 2011, E. J. Masicampo dan Roy Baumeister melihat bahwa target yang tertunda menyusup ke pikiran saat kamu sedang mengerjakan hal lain; tapi begitu orang menulis rencana konkret untuknya, pikiran-pikiran itu berhenti mengganggu."
+        },
+        {
+          "id": "beneficios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "ver",
+              "conectar",
+              "soltar",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "casaIso",
+            "plano"
+          ],
+          "texto": "Rumah pikiran memberimu empat hal: kamu melihat semua targetmu sekilas; kamu melihat bagaimana semuanya terhubung, karena tidur lebih nyenyak membantumu berlatih; kamu melepaskan apa yang sudah punya tempat; dan kamu tahu ruangan mana yang harus didatangi lagi."
+        },
+        {
+          "id": "mencion-casa",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "casaIso",
+          "enCasa": true,
+          "texto": "Karena itulah MindHaOS berbentuk rumah: setiap ruangan adalah satu bidang hidupmu, dan dari sini aku melihat target dari semua ruangan sekaligus."
+        }
+      ]
+    },
+    {
+      "id": "medir",
+      "titulo": "Bagaimana tahu kamu sudah maju?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian enam. Bagaimana tahu kamu sudah maju?"
+        },
+        {
+          "id": "harkin",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "138",
+            "clave": "harkin"
+          },
+          "lamina": [
+            "bascula",
+            "grafica"
+          ],
+          "texto": "Mengukur itu berhasil. Pada tahun 2016, Benjamin Harkin dan timnya mengumpulkan seratus tiga puluh delapan eksperimen: orang yang sering memeriksa kemajuannya lebih dekat ke targetnya. Dan efeknya lebih besar saat mereka mencatatnya, atau menceritakannya kepada orang lain."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "racha"
+          },
+          "lamina": [
+            "cuaderno",
+            "marcador"
+          ],
+          "texto": "Cara paling sederhana adalah runtunan: tandai setiap hari kamu berhasil. Lihat bagaimana rantainya bertambah panjang, dan bagaimana satu lubang tidak memutusnya kalau besoknya kamu kembali."
+        },
+        {
+          "id": "semana",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hice",
+              "aprendi",
+              "ajusto"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "cafe2"
+          ],
+          "texto": "Dan seminggu sekali, sepuluh menit untuk meninjau: apa yang kulakukan, apa yang kupelajari, dan apa yang kuubah. Ukur prosesnya, bukan hanya hasilnya: berat badan turun perlahan, tapi jalan kaki bisa dihitung hari ini."
+        },
+        {
+          "id": "misiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fases",
+              "palomea",
+              "avance"
+            ]
+          },
+          "lamina": "palomita",
+          "enCasa": true,
+          "texto": "Di rumahku, setiap rencana punya tahap dan langkahnya, dan saat aku mencentangnya, aku melihat bilah kemajuannya bergerak."
+        }
+      ]
+    },
+    {
+      "id": "fallar",
+      "titulo": "Apa yang dilakukan saat kamu gagal?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tujuh. Apa yang dilakukan saat kamu gagal?"
+        },
+        {
+          "id": "lally",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "habito"
+          },
+          "lamina": [
+            "agua",
+            "caminar"
+          ],
+          "texto": "Kamu akan gagal, dan itu tidak apa-apa. Pada tahun 2010, Phillippa Lally mengikuti orang-orang yang membentuk kebiasaan baru: rata-rata butuh enam puluh enam hari sampai jadi otomatis, meski ada yang hanya delapan belas hari dan ada yang jauh lebih lama. Dan melewatkan satu hari tidak menghapus kemajuan yang sudah ada."
+        },
+        {
+          "id": "dosVeces",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "falla",
+              "vuelve",
+              "nunca"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "levantarse"
+          ],
+          "texto": "Bahayanya bukan gagal satu hari, tapi berpikir “aku sudah merusak semuanya” lalu melepaskan semuanya. Aturan praktisnya: kamu boleh gagal sekali, tapi jangan dua kali berturut-turut.",
+          "meme": "arruine"
+        },
+        {
+          "id": "woop",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "woop"
+          },
+          "lamina": [
+            "obstaculo",
+            "plan"
+          ],
+          "texto": "Dan bersiaplah menghadapi rintangan sebelum datang. Gabriele Oettingen mengusulkan empat langkah: keinginanmu, hasil terbaiknya, rintangan yang paling menghambatmu, dan rencanamu kalau rintangan itu muncul. Membayangkan keberhasilan saja membuat santai; membayangkan rintangannya juga membuatmu siap."
+        },
+        {
+          "id": "amable",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2012",
+            "clave": "autocompasion"
+          },
+          "lamina": [
+            "estudiar",
+            "abrazo"
+          ],
+          "texto": "Dan bicaralah dengan ramah pada dirimu sendiri. Pada tahun 2012, Juliana Breines dan Serena Chen melihat bahwa orang yang memperlakukan dirinya dengan pengertian setelah gagal dalam ujian yang sulit belajar lebih banyak untuk ujian berikutnya daripada mereka yang hanya menyemangati diri."
+        },
+        {
+          "id": "ajustar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plan",
+              "meta",
+              "seguir"
+            ]
+          },
+          "lamina": "ajustar",
+          "enCasa": true,
+          "texto": "Saat aku gagal, di sinilah aku menyesuaikan rencananya, bukan targetnya: aku menggeser tanggal di linimasa dan terus jalan."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Bagaimana melanjutkan? Rencanamu untuk terus maju",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian delapan. Bagaimana melanjutkan? Rencanamu untuk terus maju."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "Di minggu pertama, pilih satu target saja, tulis secara positif bersama kalimat “jika…, maka…”-nya, dan mulailah sekecil mungkin sampai mustahil untuk tidak melakukannya: dua menit pun dihitung.",
+          "meme": "grande"
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "subir"
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "texto": "Di bulan pertama, naikkan sedikit setiap minggu, hanya kalau minggu sebelumnya berjalan baik. Lihat bagaimana dua menit yang tumbuh sedikit demi sedikit setiap minggu menjadi setengah jam dalam empat bulan, tanpa satu lompatan sulit pun."
+        },
+        {
+          "id": "medirVolver",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "domingo",
+              "racha3",
+              "lunes"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "lunes"
+          ],
+          "texto": "Setiap hari Minggu, tinjau runtunanmu selama sepuluh menit; dan kalau suatu hari kamu gagal, hari Senin, tanggal satu, atau besok pun bisa jadi awal barumu."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Ringkasnya: keinginan saja tidak cukup, kamu harus merancang; target yang konkret dan positif, dengan kalimat “jika…, maka…”; dipecah menjadi langkah dan selalu terlihat, di rumah pikiranmu; diukur setiap minggu; dan saat kamu gagal, kembalilah keesokan harinya."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Di ruang Target MindHaOS, kamu bisa menulis target-targetmu dan menyusun rencanamu sendiri, atau meminta kecerdasan buatan membantumu dengan langkah dan waktunya, lalu melihat semuanya di linimasa. Bangun rumahmu gratis hari ini: tautannya ada di deskripsi. Dan di panduan berikutnya: bagaimana mengatur waktumu?",
+    "boton": "Buka ruang Target",
+    "lamina": "app-plan",
+    "anclas": {
+      "escribir": "menulis target-targetmu",
+      "plan": "meminta kecerdasan buatan",
+      "cronograma": "di linimasa"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "norcross-2002",
+      "texto": "Norcross J. C., Mrykalo M. S., Blagys M. D. Auld lang syne: Success predictors, change processes, and self-reported outcomes of New Year's resolvers and nonresolvers. Journal of Clinical Psychology (2002).",
+      "url": "https://doi.org/10.1002/jclp.1151"
+    },
+    {
+      "id": "sheeran-2002",
+      "texto": "Sheeran P. Intention–behavior relations: A conceptual and empirical review. European Review of Social Psychology (2002).",
+      "url": "https://doi.org/10.1080/14792772143000003"
+    },
+    {
+      "id": "galla-2015",
+      "texto": "Galla B. M., Duckworth A. L. More than resisting temptation: Beneficial habits mediate the relationship between self-control and positive life outcomes. Journal of Personality and Social Psychology (2015).",
+      "url": "https://doi.org/10.1037/pspp0000026"
+    },
+    {
+      "id": "locke-2002",
+      "texto": "Locke E. A., Latham G. P. Building a practically useful theory of goal setting and task motivation: A 35-year odyssey. American Psychologist (2002).",
+      "url": "https://doi.org/10.1037/0003-066X.57.9.705"
+    },
+    {
+      "id": "oscarsson-2020",
+      "texto": "Oscarsson M., Carlbring P., Andersson G., Rozental A. A large-scale experiment on New Year's resolutions: Approach-oriented goals are more successful than avoidance-oriented goals. PLOS ONE (2020).",
+      "url": "https://doi.org/10.1371/journal.pone.0234097"
+    },
+    {
+      "id": "milne-2002",
+      "texto": "Milne S., Orbell S., Sheeran P. Combining motivational and volitional interventions to promote exercise participation. British Journal of Health Psychology (2002).",
+      "url": "https://doi.org/10.1348/135910702169420"
+    },
+    {
+      "id": "gollwitzer-2006",
+      "texto": "Gollwitzer P. M., Sheeran P. Implementation intentions and goal achievement: A meta-analysis of effects and processes. Advances in Experimental Social Psychology (2006).",
+      "url": "https://doi.org/10.1016/S0065-2601(06)38002-1"
+    },
+    {
+      "id": "kivetz-2006",
+      "texto": "Kivetz R., Urminsky O., Zheng Y. The goal-gradient hypothesis resurrected. Journal of Marketing Research (2006).",
+      "url": "https://doi.org/10.1509/jmkr.43.1.39"
+    },
+    {
+      "id": "amabile-2011",
+      "texto": "Amabile T., Kramer S. The Progress Principle (Harvard Business Review Press, 2011).",
+      "url": "https://www.progressprinciple.com/"
+    },
+    {
+      "id": "dai-2014",
+      "texto": "Dai H., Milkman K. L., Riis J. The fresh start effect: Temporal landmarks motivate aspirational behavior. Management Science (2014).",
+      "url": "https://doi.org/10.1287/mnsc.2014.1901"
+    },
+    {
+      "id": "dresler-2017",
+      "texto": "Dresler M. et al. Mnemonic training reshapes brain networks to support superior memory. Neuron (2017).",
+      "url": "https://doi.org/10.1016/j.neuron.2017.02.003"
+    },
+    {
+      "id": "masicampo-2011",
+      "texto": "Masicampo E. J., Baumeister R. F. Consider it done! Plan making can eliminate the cognitive effects of unfulfilled goals. Journal of Personality and Social Psychology (2011).",
+      "url": "https://doi.org/10.1037/a0024192"
+    },
+    {
+      "id": "harkin-2016",
+      "texto": "Harkin B. et al. Does monitoring goal progress promote goal attainment? A meta-analysis of the experimental evidence. Psychological Bulletin (2016).",
+      "url": "https://doi.org/10.1037/bul0000025"
+    },
+    {
+      "id": "lally-2010",
+      "texto": "Lally P., van Jaarsveld C. H. M., Potts H. W. W., Wardle J. How are habits formed: Modelling habit formation in the real world. European Journal of Social Psychology (2010).",
+      "url": "https://doi.org/10.1002/ejsp.674"
+    },
+    {
+      "id": "oettingen-2014",
+      "texto": "Oettingen G. Rethinking Positive Thinking: Inside the New Science of Motivation (2014), metode WOOP.",
+      "url": "https://woopmylife.org/"
+    },
+    {
+      "id": "breines-2012",
+      "texto": "Breines J. G., Chen S. Self-compassion increases self-improvement motivation. Personality and Social Psychology Bulletin (2012).",
+      "url": "https://doi.org/10.1177/0146167212445599"
+    }
+  ]
+}

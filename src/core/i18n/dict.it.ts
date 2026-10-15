@@ -7517,6 +7517,7 @@ export const IT: Dict = {
   'guia.arte.titulo': "Che cos'è l'arte?",
   'guia.musica.titulo': "Che cos'è la musica?",
   'guia.video.titulo': "Come si fanno i video?",
+  'guia.metas.titulo': "Come raggiungere i tuoi obiettivi?",
   'tut.esencial.titulo': 'L’essenziale',
   'tut.tipo.ejemplos': 'Esempi · MindHaOS demo',
   'tut.app-agenda--esencial.resumen':

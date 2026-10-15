@@ -1,0 +1,769 @@
+{
+  "idioma": "nl",
+  "tema": "metas",
+  "plantillaId": "metas",
+  "numero": 9,
+  "nombre": "Doelen",
+  "pregunta": "Hoe bereik je je doelen?",
+  "corta": "Hoe bereik je je doelen?",
+  "subtitulo": "Waarom willen niet genoeg is, wat een goed doel maakt, hoe je het in stappen omzet, waarom de motivatie verdwijnt, waarom het helpt om alles in een mentaal huis te hebben, hoe je je voortgang meet, wat je doet als het misgaat en een plan om je doelen niet los te laten.",
+  "aviso": "Deze gids is bedoeld als informatie: de genoemde cijfers en studies zijn benaderingen uit hun bronnen, en iedereen gaat in zijn eigen tempo vooruit. Heeft een doel te maken met je lichamelijke of mentale gezondheid, bespreek het dan ook met een professional.",
+  "partes": [
+    {
+      "id": "querer",
+      "titulo": "Waarom is willen niet genoeg?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Hoe bereik je je doelen? Elke januari nemen miljoenen mensen zich voor om iets te veranderen. En na zes maanden is meer dan de helft al gestopt. Wat doen de mensen die het wel lukt anders? Vandaag zie je het met wat de wetenschap zegt, inclusief één enkele zin die je kansen bijna verdrievoudigt."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "Dit is trouwens mijn huis in MindHaOS, en in deze kamer plan ik al mijn doelen."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel één. Waarom is willen niet genoeg?"
+        },
+        {
+          "id": "proponerse",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "proponerse"
+          },
+          "lamina": [
+            "calendario",
+            "brindis"
+          ],
+          "texto": "Eerst het goede nieuws: je iets voornemen werkt wel degelijk. In 2002 volgde John Norcross bijna driehonderd mensen zes maanden lang. Van wie een goed voornemen voor het nieuwe jaar had, hield zesenveertig procent het nog vol. Van wie dezelfde verandering wilde, maar het zich niet had voorgenomen, maar vier procent."
+        },
+        {
+          "id": "brecha",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "47 %",
+            "clave": "brecha"
+          },
+          "lamina": [
+            "sofa",
+            "tenis"
+          ],
+          "texto": "Maar tussen willen en doen zit een gat. Toen psycholoog Paschal Sheeran tientallen studies bekeek, ontdekte hij dat bijna de helft van de mensen die van plan zijn iets te doen, het uiteindelijk niet doet.",
+          "meme": "enero"
+        },
+        {
+          "id": "voluntad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ganas",
+              "voluntad",
+              "habito"
+            ]
+          },
+          "lamina": [
+            "despertador",
+            "rutina"
+          ],
+          "texto": "En wilskracht is niet genoeg om dat gat te dichten. In 2015 zagen Brian Galla en Angela Duckworth dat mensen met meer zelfbeheersing het niet beter doen omdat ze zich krampachtig inhouden, maar omdat ze meer goede gewoontes hebben. Wie het volhoudt, heeft niet meer wilskracht; die heeft het minder nodig."
+        },
+        {
+          "id": "adelanto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "disenar",
+              "medir",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "mapa",
+            "brujula"
+          ],
+          "texto": "Het geheim is dus niet om meer te willen, maar om je doel zo te ontwerpen dat het niet van je motivatie afhangt. En in deel vijf zie je waarom geheugenkampioenen alles in een huis opbergen."
+        },
+        {
+          "id": "diana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "porque",
+              "pasos"
+            ]
+          },
+          "lamina": "diana",
+          "enCasa": true,
+          "texto": "Hier, op mijn doelenschijf, heeft elk doel zijn plek: wat ik wil, waarom ik het wil en de stappen om er te komen."
+        }
+      ]
+    },
+    {
+      "id": "buena",
+      "titulo": "Wat maakt een doel goed?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel twee. Wat maakt een doel goed?"
+        },
+        {
+          "id": "concreta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "metaBuena"
+          },
+          "lamina": [
+            "libreta",
+            "lapiz"
+          ],
+          "texto": "Edwin Locke en Gary Latham bekeken dertig jaar lang honderden studies, en de conclusie keert steeds terug: een concreet en een beetje moeilijk doel wint altijd van „ik doe mijn best”. Kijk hoe „sporten” verandert als je er wat, hoeveel, wanneer en waar aan toevoegt."
+        },
+        {
+          "id": "acercar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "59 % · 47 %",
+            "clave": "acercar"
+          },
+          "lamina": [
+            "fruta",
+            "refresco"
+          ],
+          "texto": "En hoe je het zegt, telt mee. In 2020 volgden ze in Zweden meer dan duizend mensen met goede voornemens: doelen om iets te beginnen, zoals meer fruit eten, werden vaker gehaald dan doelen om ergens mee te stoppen, zoals suiker laten staan."
+        },
+        {
+          "id": "una",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "escribe",
+              "porque"
+            ]
+          },
+          "lamina": [
+            "post",
+            "lista"
+          ],
+          "texto": "Begin daarom met één doel, positief opgeschreven, en met een reden die je echt belangrijk vindt: het waarom helpt je door de moeilijke dagen heen.",
+          "meme": "vaga"
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "cuanto",
+              "cuando"
+            ]
+          },
+          "lamina": "escribir",
+          "enCasa": true,
+          "texto": "Zo schrijf ik elk doel op in mijn kamer: wat ik wil, hoeveel en voor wanneer, zonder vage woorden."
+        }
+      ]
+    },
+    {
+      "id": "pasos",
+      "titulo": "Hoe maak je van een doel stappen?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel drie. Hoe maak je van een doel stappen?"
+        },
+        {
+          "id": "siEntonces",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "siEntonces"
+          },
+          "lamina": [
+            "correr",
+            "agenda"
+          ],
+          "texto": "Hier is de zin die ik je beloofde. In 2002 vroegen ze in het Verenigd Koninkrijk studenten om te sporten. De ene groep kreeg alleen uitleg waarom; een andere moest ook opschrijven wanneer en waar, met een zin als: „als het maandag zeven uur is, dan ga ik hardlopen in het park”. In de eerste groep sportte vijfendertig procent; met de zin eenennegentig procent."
+        },
+        {
+          "id": "gollwitzer",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "94",
+            "clave": "gollwitzer"
+          },
+          "lamina": [
+            "reloj",
+            "puerta"
+          ],
+          "texto": "Zo'n zin heet een implementatie-intentie, en Peter Gollwitzer en Paschal Sheeran bekeken hem in vierennegentig studies: van tevoren beslissen wanneer en waar je in actie komt, helpt veel meer dan alleen het resultaat wensen."
+        },
+        {
+          "id": "escalera",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escalera"
+          },
+          "lamina": [
+            "escalera",
+            "montana"
+          ],
+          "texto": "En grote doelen deel je op. Vijf kilometer hardlopen is een bergtop; maandag twintig minuten wandelen is de eerste trede. Kijk hoe een doel fases wordt, en elke fase stappen die in één dag passen."
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In mijn Doelen-kamer in MindHaOS maakt de kunstmatige intelligentie dat plan voor me: ik zeg hoeveel uur ik heb en op welke dagen, en ze stelt de fases voor in een planning."
+        }
+      ]
+    },
+    {
+      "id": "ganas",
+      "titulo": "Waarom verdwijnt de motivatie?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vier. Waarom verdwijnt de motivatie?"
+        },
+        {
+          "id": "tarjeta",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tarjeta"
+          },
+          "lamina": [
+            "cafe",
+            "sellos"
+          ],
+          "texto": "Motivatie is niet constant: ze stijgt als je het doel dichtbij ziet. In 2006 deelden ze in een café van Columbia University twee stempelkaarten uit voor een gratis koffie. De ene vroeg tien stempels; de andere twaalf, maar met twee al gezet. Allebei vroegen ze tien aankopen, en toch was die met de twee cadeaustempels bijna drie dagen eerder vol."
+        },
+        {
+          "id": "progreso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "12 000",
+            "clave": "progreso"
+          },
+          "lamina": [
+            "oficina",
+            "palomita"
+          ],
+          "texto": "Teresa Amabile las twaalfduizend dagboeken van mensen op hun werk, en het beste humeur verscheen op de dagen dat ze vooruitkwamen met iets wat ze belangrijk vonden, al was het maar een beetje. Kleine stappen vooruit zijn de brandstof."
+        },
+        {
+          "id": "inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "comienzos"
+          },
+          "lamina": [
+            "lunes",
+            "amanecer"
+          ],
+          "texto": "En sommige dagen geven een extra duwtje: een maandag, de eerste van de maand, je verjaardag. Katherine Milkman noemt dat het nieuwe-starteffect: op die dagen zoeken en beginnen meer mensen aan hun doelen. Gebruik ze om te starten of om terug te komen."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyo"
+          },
+          "lamina": "pulgar",
+          "texto": "Trouwens, we zijn al halverwege. Als deze gids je helpt, klik dan op Vind ik leuk, op Abonneren om de volgende niet te missen, en op Delen om hem te sturen naar iemand met een doel dat nog openstaat."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "poco",
+              "visible",
+              "seguido"
+            ]
+          },
+          "lamina": "calendarioPared",
+          "enCasa": true,
+          "texto": "Daarom hangt mijn kalender in het zicht: elke dag dat ik vooruitga, al is het maar een beetje, wordt aangevinkt en duwt me naar de volgende."
+        }
+      ]
+    },
+    {
+      "id": "casa",
+      "titulo": "Waarom helpt het om alles in een mentaal huis te hebben?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vijf. Waarom helpt het om alles in een mentaal huis te hebben?"
+        },
+        {
+          "id": "simonides",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 500 a. C.",
+            "clave": "simonides"
+          },
+          "lamina": [
+            "simonides",
+            "templo"
+          ],
+          "texto": "Volgens de legende herinnerde de Griekse dichter Simonides zich alle gasten van een banket aan de plek waar ieder zat. Zo ontstond het geheugenpaleis: ideeën opbergen in de kamers van een huis dat je goed kent."
+        },
+        {
+          "id": "dresler",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "casaMental"
+          },
+          "lamina": [
+            "cerebro",
+            "pasillo"
+          ],
+          "texto": "En het werkt. In 2017 trainde Martin Dresler gewone mensen zes weken lang met die methode: eerst onthielden ze zo'n dertig woorden van een lijst; daarna ongeveer vijfendertig meer. En maanden later onthielden ze nog steeds veel meer. Ons brein is supergoed in plekken."
+        },
+        {
+          "id": "pendientes",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "−",
+            "clave": "pendientes"
+          },
+          "lamina": [
+            "postits",
+            "calma"
+          ],
+          "texto": "En alles op één plek hebben, geeft ook rust in je hoofd. In 2011 zagen E. J. Masicampo en Roy Baumeister dat onafgemaakte doelen je gedachten binnensluipen terwijl je met iets anders bezig bent; maar zodra je er een concreet plan voor opschreef, hielden die gedachten op met storen."
+        },
+        {
+          "id": "beneficios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "ver",
+              "conectar",
+              "soltar",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "casaIso",
+            "plano"
+          ],
+          "texto": "Een mentaal huis geeft je vier dingen: je ziet al je doelen in één oogopslag; je ziet hoe ze samenhangen, want beter slapen helpt je trainen; je laat los wat al zijn plek heeft; en je weet naar welke kamer je terug moet."
+        },
+        {
+          "id": "mencion-casa",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "casaIso",
+          "enCasa": true,
+          "texto": "Daarom is MindHaOS een huis: elke kamer is een deel van je leven, en van hieruit zie ik de doelen van alle kamers samen."
+        }
+      ]
+    },
+    {
+      "id": "medir",
+      "titulo": "Hoe weet je of je vooruitgaat?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zes. Hoe weet je of je vooruitgaat?"
+        },
+        {
+          "id": "harkin",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "138",
+            "clave": "harkin"
+          },
+          "lamina": [
+            "bascula",
+            "grafica"
+          ],
+          "texto": "Meten werkt. In 2016 bundelden Benjamin Harkin en zijn team honderdachtendertig experimenten: mensen die vaak hun voortgang controleerden, kwamen dichter bij hun doel. En het effect was groter als ze het opschreven, of aan iemand vertelden."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "racha"
+          },
+          "lamina": [
+            "cuaderno",
+            "marcador"
+          ],
+          "texto": "De simpelste manier is een reeks: vink elke dag af waarop het lukt. Kijk hoe de ketting groeit, en hoe één gat hem niet breekt als je de dag erna terugkomt."
+        },
+        {
+          "id": "semana",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hice",
+              "aprendi",
+              "ajusto"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "cafe2"
+          ],
+          "texto": "En één keer per week tien minuten terugblikken: wat heb ik gedaan, wat heb ik geleerd en wat pas ik aan. Meet het proces, niet alleen het resultaat: die kilo gaat langzaam omlaag, maar de wandelingen tel je vandaag al."
+        },
+        {
+          "id": "misiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fases",
+              "palomea",
+              "avance"
+            ]
+          },
+          "lamina": "palomita",
+          "enCasa": true,
+          "texto": "In mijn huis heeft elk plan zijn fases en stappen, en als ik ze afvink, zie ik de balk vooruitgaan."
+        }
+      ]
+    },
+    {
+      "id": "fallar",
+      "titulo": "Wat doe je als het misgaat?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zeven. Wat doe je als het misgaat?"
+        },
+        {
+          "id": "lally",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "habito"
+          },
+          "lamina": [
+            "agua",
+            "caminar"
+          ],
+          "texto": "Het gaat een keer mis, en dat is oké. In 2010 volgde Phillippa Lally mensen die een nieuwe gewoonte aanleerden: gemiddeld duurde het zesenzestig dagen voordat die automatisch ging, al was het bij sommigen achttien en bij anderen veel langer. En een dag overslaan wiste de vooruitgang niet uit."
+        },
+        {
+          "id": "dosVeces",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "falla",
+              "vuelve",
+              "nunca"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "levantarse"
+          ],
+          "texto": "Het gevaar is niet één dag overslaan, maar denken „nu heb ik het verpest” en alles opgeven. De vuistregel: je mag één keer overslaan, maar nooit twee keer achter elkaar.",
+          "meme": "arruine"
+        },
+        {
+          "id": "woop",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "woop"
+          },
+          "lamina": [
+            "obstaculo",
+            "plan"
+          ],
+          "texto": "En bereid je voor op tegenslag voordat die komt. Gabriele Oettingen stelt vier stappen voor: je wens, het beste resultaat, het obstakel dat je het meest afremt en je plan als het opduikt. Je alleen het succes voorstellen ontspant; je ook het obstakel voorstellen bereidt je voor."
+        },
+        {
+          "id": "amable",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2012",
+            "clave": "autocompasion"
+          },
+          "lamina": [
+            "estudiar",
+            "abrazo"
+          ],
+          "texto": "En praat vriendelijk tegen jezelf. In 2012 zagen Juliana Breines en Serena Chen dat wie zichzelf met begrip behandelde na het zakken voor een moeilijk examen, meer studeerde voor het volgende dan wie zichzelf alleen moed insprak."
+        },
+        {
+          "id": "ajustar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plan",
+              "meta",
+              "seguir"
+            ]
+          },
+          "lamina": "ajustar",
+          "enCasa": true,
+          "texto": "Als het misgaat, pas ik hier het plan aan, niet het doel: ik verschuif de datums in de planning en ga door."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel acht. Hoe ga je verder? Jouw plan om door te gaan."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "Kies in de eerste week één doel, schrijf het positief op met zijn zin „als…, dan…”, en begin zo klein dat het onmogelijk is om het niet te doen: twee minuten tellen ook.",
+          "meme": "grande"
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "subir"
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "texto": "Ga in de eerste maand elke week een beetje omhoog, alleen als de week ervoor goed ging. Kijk hoe twee minuten die elke week een beetje groeien in vier maanden een half uur worden, zonder één moeilijke sprong."
+        },
+        {
+          "id": "medirVolver",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "domingo",
+              "racha3",
+              "lunes"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "lunes"
+          ],
+          "texto": "Bekijk elke zondag tien minuten je reeks; en als je een dag overslaat, zijn maandag, de eerste van de maand of morgen al je nieuwe begin."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Kortom: willen is niet genoeg, je moet ontwerpen; een concreet en positief doel, met zijn zin „als…, dan…”; opgedeeld in stappen en in het zicht, in je mentale huis; elke week gemeten; en als het misgaat, kom je de dag erna terug."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "In de Doelen-kamer van MindHaOS kun je je doelen opschrijven en zelf je plannen maken, of de kunstmatige intelligentie vragen om je te helpen met de stappen en de tijden, en ze bekijken in een planning. Bouw vandaag gratis je huis: de link staat in de beschrijving. En in de volgende gids: hoe organiseer je je tijd?",
+    "boton": "Open de Doelen-kamer",
+    "lamina": "app-plan",
+    "anclas": {
+      "escribir": "je doelen opschrijven",
+      "plan": "de kunstmatige intelligentie vragen",
+      "cronograma": "in een planning"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "norcross-2002",
+      "texto": "Norcross J. C., Mrykalo M. S., Blagys M. D. Auld lang syne: Success predictors, change processes, and self-reported outcomes of New Year's resolvers and nonresolvers. Journal of Clinical Psychology (2002).",
+      "url": "https://doi.org/10.1002/jclp.1151"
+    },
+    {
+      "id": "sheeran-2002",
+      "texto": "Sheeran P. Intention–behavior relations: A conceptual and empirical review. European Review of Social Psychology (2002).",
+      "url": "https://doi.org/10.1080/14792772143000003"
+    },
+    {
+      "id": "galla-2015",
+      "texto": "Galla B. M., Duckworth A. L. More than resisting temptation: Beneficial habits mediate the relationship between self-control and positive life outcomes. Journal of Personality and Social Psychology (2015).",
+      "url": "https://doi.org/10.1037/pspp0000026"
+    },
+    {
+      "id": "locke-2002",
+      "texto": "Locke E. A., Latham G. P. Building a practically useful theory of goal setting and task motivation: A 35-year odyssey. American Psychologist (2002).",
+      "url": "https://doi.org/10.1037/0003-066X.57.9.705"
+    },
+    {
+      "id": "oscarsson-2020",
+      "texto": "Oscarsson M., Carlbring P., Andersson G., Rozental A. A large-scale experiment on New Year's resolutions: Approach-oriented goals are more successful than avoidance-oriented goals. PLOS ONE (2020).",
+      "url": "https://doi.org/10.1371/journal.pone.0234097"
+    },
+    {
+      "id": "milne-2002",
+      "texto": "Milne S., Orbell S., Sheeran P. Combining motivational and volitional interventions to promote exercise participation. British Journal of Health Psychology (2002).",
+      "url": "https://doi.org/10.1348/135910702169420"
+    },
+    {
+      "id": "gollwitzer-2006",
+      "texto": "Gollwitzer P. M., Sheeran P. Implementation intentions and goal achievement: A meta-analysis of effects and processes. Advances in Experimental Social Psychology (2006).",
+      "url": "https://doi.org/10.1016/S0065-2601(06)38002-1"
+    },
+    {
+      "id": "kivetz-2006",
+      "texto": "Kivetz R., Urminsky O., Zheng Y. The goal-gradient hypothesis resurrected. Journal of Marketing Research (2006).",
+      "url": "https://doi.org/10.1509/jmkr.43.1.39"
+    },
+    {
+      "id": "amabile-2011",
+      "texto": "Amabile T., Kramer S. The Progress Principle (Harvard Business Review Press, 2011).",
+      "url": "https://www.progressprinciple.com/"
+    },
+    {
+      "id": "dai-2014",
+      "texto": "Dai H., Milkman K. L., Riis J. The fresh start effect: Temporal landmarks motivate aspirational behavior. Management Science (2014).",
+      "url": "https://doi.org/10.1287/mnsc.2014.1901"
+    },
+    {
+      "id": "dresler-2017",
+      "texto": "Dresler M. et al. Mnemonic training reshapes brain networks to support superior memory. Neuron (2017).",
+      "url": "https://doi.org/10.1016/j.neuron.2017.02.003"
+    },
+    {
+      "id": "masicampo-2011",
+      "texto": "Masicampo E. J., Baumeister R. F. Consider it done! Plan making can eliminate the cognitive effects of unfulfilled goals. Journal of Personality and Social Psychology (2011).",
+      "url": "https://doi.org/10.1037/a0024192"
+    },
+    {
+      "id": "harkin-2016",
+      "texto": "Harkin B. et al. Does monitoring goal progress promote goal attainment? A meta-analysis of the experimental evidence. Psychological Bulletin (2016).",
+      "url": "https://doi.org/10.1037/bul0000025"
+    },
+    {
+      "id": "lally-2010",
+      "texto": "Lally P., van Jaarsveld C. H. M., Potts H. W. W., Wardle J. How are habits formed: Modelling habit formation in the real world. European Journal of Social Psychology (2010).",
+      "url": "https://doi.org/10.1002/ejsp.674"
+    },
+    {
+      "id": "oettingen-2014",
+      "texto": "Oettingen G. Rethinking Positive Thinking: Inside the New Science of Motivation (2014), de WOOP-methode.",
+      "url": "https://woopmylife.org/"
+    },
+    {
+      "id": "breines-2012",
+      "texto": "Breines J. G., Chen S. Self-compassion increases self-improvement motivation. Personality and Social Psychology Bulletin (2012).",
+      "url": "https://doi.org/10.1177/0146167212445599"
+    }
+  ]
+}

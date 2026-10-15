@@ -24,7 +24,7 @@ export function pepCon(atuendo: string, cara?: ExpresionId, ropa?: Ropa): Avatar
 }
 
 /** Atuendo del narrador según el tema de la guía. */
-export const ATUENDO_GUIA: Record<string, string> = { ejercicio: 'deportista', cocina: 'chef', descanso: 'pijama', finanzas: 'oficinista' }
+export const ATUENDO_GUIA: Record<string, string> = { ejercicio: 'deportista', cocina: 'chef', descanso: 'pijama', finanzas: 'oficinista', metas: 'explorador' }
 
 /**
  * Guías en las que el tiempo avanza con las partes (Arte): la casa del video cambia de
@@ -38,8 +38,8 @@ export function ropaDeEpoca(tema: string, parte: number): Ropa | undefined {
   return epocas && ATUENDO_POR_TEMA[epocas[Math.min(Math.max(parte, 0), epocas.length - 1)]]
 }
 
-/** Las guías que no narra Pep@: Idiomas, Música y Video las cuenta el mago (el asistente de fábrica de la app). */
-export const NARRADOR_GUIA: Record<string, 'mago'> = { idiomas: 'mago', musica: 'mago', video: 'mago' }
+/** Las guías que no narra Pep@: Idiomas, Música y Video las cuenta el mago (el asistente de fábrica de la app); Metas, la princesa (un cuerpo prediseñado de la app). */
+export const NARRADOR_GUIA: Record<string, 'mago' | 'princesa'> = { idiomas: 'mago', musica: 'mago', video: 'mago', metas: 'princesa' }
 
 /** Color de la túnica del mago por guía (Música de verde y Video de rojo, como en la casa: `FORMA_COLOR` de su escena.mjs). */
 export const TUNICA_GUIA: Record<string, string> = { musica: '#2f8f4e', video: '#b91c1c' }

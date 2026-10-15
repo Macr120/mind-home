@@ -205,6 +205,15 @@ const pepEnSuSitio = (tema = null) => `
   }
   ${SOLO_CUADRANTE}
   {
+    // El tamaño de celda de la escena (Metas: 9 m, cuartos más amplios y claros); sin CELDA, el de fábrica.
+    const L = (await modulo('/src/core/state/layoutStore.ts')).useLayout
+    const celda = ${JSON.stringify(ESCENA.CELDA ?? 6)}
+    if (L.getState().tamCelda !== celda) {
+      await L.getState().setTamCeldaMapa(celda)
+      await sleep(2500)
+    }
+  }
+  {
     const principal = useDiseño.getState().objetos.find((o) => o.plantillaId === ${JSON.stringify(guion.plantillaId)})
     const niveles = (await modulo('/src/core/state/layoutStore.ts')).useLayout.getState().niveles
     const arriba = !!principal && (niveles[principal.roomId] ?? 0) > 0
@@ -216,15 +225,25 @@ const pepEnSuSitio = (tema = null) => `
     const fallo = await (async () => { ${ESCENA.ENTRADAS({ url: URL_GUIA, titulo: guion.pregunta })} })()
     if (fallo) return fallo
   }` : ''}
-  ${ESCENA.FORMA ? `
+  ${ESCENA.CUERPO ? `
+  // El narrador es un cuerpo prediseñado de la app (Metas: la princesa), sin ropa.
+  {
+    const { CUERPOS_PRESET } = await modulo('/src/core/house/cuerpos.ts')
+    const preset = CUERPOS_PRESET.find((c) => c.id === ${JSON.stringify(ESCENA.CUERPO)})
+    if (!preset) return 'no existe el cuerpo ${ESCENA.CUERPO}'
+    if (useDiseño.getState().avatar.cuerpoPresetId !== preset.id) await useDiseño.getState().setAvatarCuerpoPreset(preset)
+    await useDiseño.getState().setAvatarRopaCompleta({})
+  }
+  ` : ESCENA.FORMA ? `
   // El narrador no es Pep@: el avatar toma la forma integrada de la escena (Idiomas: el mago), sin ropa.
+  if (useDiseño.getState().avatar.modelo3d?.length) await useDiseño.getState().quitarAvatarModelo()
   await useDiseño.getState().setAvatarForma(${JSON.stringify(ESCENA.FORMA)})
   // Su color (Música: el mago de verde); sin FORMA_COLOR, el de fábrica.
   await useDiseño.getState().setAvatarFormaColor(${JSON.stringify(ESCENA.FORMA_COLOR ?? null)})
   await useDiseño.getState().setAvatarRopaCompleta({})
   ` : `
   // Pep@ de nuevo (una guía anterior pudo dejarle la forma del mago) y con la ropa del cuarto (o la del tema).
-  if (useDiseño.getState().avatar.forma) await useDiseño.getState().quitarAvatarModelo()
+  if (useDiseño.getState().avatar.forma || useDiseño.getState().avatar.modelo3d?.length) await useDiseño.getState().quitarAvatarModelo()
   ${tema ? '' : `
   const { ATUENDOS_PRESET } = await modulo('/src/core/house/atuendos.ts')
   await useDiseño.getState().setAvatarRopaCompleta(ATUENDOS_PRESET.find((a) => a.id === ${JSON.stringify(ESCENA.ATUENDO)}).ropa)
@@ -345,7 +364,7 @@ const TOMAS = [
     preparar: `
       await limpiarTodo()
       useCiclo.setState({ minutos: 11 * 60, modo: 'manual' })
-      ${pepEnSuSitio(x.tema ?? ESCENA.TEMA)}
+      ${pepEnSuSitio('tema' in x ? x.tema : ESCENA.TEMA)}
       await cortarCam(await camJugador(80, -1.2))
       await sleep(1500)
       ${x.preparar ?? ''}

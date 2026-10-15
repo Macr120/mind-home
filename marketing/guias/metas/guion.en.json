@@ -1,0 +1,769 @@
+{
+  "idioma": "en",
+  "tema": "metas",
+  "plantillaId": "metas",
+  "numero": 9,
+  "nombre": "Goals",
+  "pregunta": "How do you reach your goals?",
+  "corta": "How do you reach your goals?",
+  "subtitulo": "Why wanting isn’t enough, what makes a goal a good one, how to turn it into steps, why motivation runs out, why it helps to keep everything in a mental house, how to measure your progress, what to do when you slip, and a plan to hold on to your goals.",
+  "aviso": "This guide is for information only: the figures and studies cited are approximations from their sources, and everyone moves at their own pace. If a goal has to do with your physical or mental health, check it with a professional too.",
+  "partes": [
+    {
+      "id": "querer",
+      "titulo": "Why isn’t wanting enough?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "How do you reach your goals? Every January, millions of people resolve to change something. And six months later, more than half have already given up. What do the ones who succeed do differently? Today you’ll see it through what science says, including a single sentence that nearly triples your chances."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "By the way, this is my house in MindHaOS, and this is the room where I plan all my goals."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part one. Why isn’t wanting enough?"
+        },
+        {
+          "id": "proponerse",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "proponerse"
+          },
+          "lamina": [
+            "calendario",
+            "brindis"
+          ],
+          "texto": "First, the good news: making a resolution does work. In 2002, John Norcross followed almost three hundred people for six months. Of those who made a New Year’s resolution, forty-six percent were still keeping it. Of those who wanted the same change but never made a resolution, only four percent."
+        },
+        {
+          "id": "brecha",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "47 %",
+            "clave": "brecha"
+          },
+          "lamina": [
+            "sofa",
+            "tenis"
+          ],
+          "texto": "But between wanting and doing there’s a gap. Reviewing dozens of studies, psychologist Paschal Sheeran found that almost half of the people who intend to do something end up not doing it.",
+          "meme": "enero"
+        },
+        {
+          "id": "voluntad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ganas",
+              "voluntad",
+              "habito"
+            ]
+          },
+          "lamina": [
+            "despertador",
+            "rutina"
+          ],
+          "texto": "And willpower isn’t enough to fill it. In 2015, Brian Galla and Angela Duckworth saw that people with more self-control don’t do better by gritting their teeth, but because they have more good habits. The people who follow through don’t have more willpower; they need less of it."
+        },
+        {
+          "id": "adelanto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "disenar",
+              "medir",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "mapa",
+            "brujula"
+          ],
+          "texto": "So the secret isn’t wanting it more, it’s designing your goal so it doesn’t depend on motivation. And in part five you’ll see why memory champions keep everything inside a house."
+        },
+        {
+          "id": "diana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "porque",
+              "pasos"
+            ]
+          },
+          "lamina": "diana",
+          "enCasa": true,
+          "texto": "Here, on my goals target, each one has its place: what I want, why I want it, and the steps to get there."
+        }
+      ]
+    },
+    {
+      "id": "buena",
+      "titulo": "What makes a goal a good one?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part two. What makes a goal a good one?"
+        },
+        {
+          "id": "concreta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "metaBuena"
+          },
+          "lamina": [
+            "libreta",
+            "lapiz"
+          ],
+          "texto": "Edwin Locke and Gary Latham reviewed hundreds of studies over thirty years, and the conclusion keeps repeating: a specific, slightly hard goal always beats “I’ll do my best.” Watch how “exercise more” changes when you add what, how much, when and where."
+        },
+        {
+          "id": "acercar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "59 % · 47 %",
+            "clave": "acercar"
+          },
+          "lamina": [
+            "fruta",
+            "refresco"
+          ],
+          "texto": "And how you phrase it matters. In 2020, in Sweden, researchers followed more than a thousand people with New Year’s resolutions: goals to start something, like eating more fruit, were kept more often than goals to stop something, like quitting sugar."
+        },
+        {
+          "id": "una",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "escribe",
+              "porque"
+            ]
+          },
+          "lamina": [
+            "post",
+            "lista"
+          ],
+          "texto": "That’s why it pays to start with a single goal, written in positive terms, with a reason that truly matters to you: your why is what gets you up on the hard days.",
+          "meme": "vaga"
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "cuanto",
+              "cuando"
+            ]
+          },
+          "lamina": "escribir",
+          "enCasa": true,
+          "texto": "This is how I write every goal in my room: what I want, how much, and by when, with no vague words."
+        }
+      ]
+    },
+    {
+      "id": "pasos",
+      "titulo": "How do you turn a goal into steps?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part three. How do you turn a goal into steps?"
+        },
+        {
+          "id": "siEntonces",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "siEntonces"
+          },
+          "lamina": [
+            "correr",
+            "agenda"
+          ],
+          "texto": "Here’s the sentence I promised you. In 2002, in the United Kingdom, students were asked to exercise. One group was only told why; another was also asked to write down when and where, in a sentence like: “if it’s Monday at seven, then I go for a run in the park.” In the first group, thirty-five percent exercised; with the sentence, ninety-one."
+        },
+        {
+          "id": "gollwitzer",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "94",
+            "clave": "gollwitzer"
+          },
+          "lamina": [
+            "reloj",
+            "puerta"
+          ],
+          "texto": "That sentence is called an implementation intention, and Peter Gollwitzer and Paschal Sheeran reviewed it across ninety-four studies: deciding in advance when and where you’ll act helps far more than just wishing for the result."
+        },
+        {
+          "id": "escalera",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escalera"
+          },
+          "lamina": [
+            "escalera",
+            "montana"
+          ],
+          "texto": "And big goals get broken down. Running five kilometers is a summit; walking twenty minutes on Monday is the first step. Watch how a goal turns into phases, and each phase into steps that fit in a day."
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In my Goals room in MindHaOS, artificial intelligence builds that plan for me: I tell it how many hours I have and which days, and it suggests the phases on a timeline."
+        }
+      ]
+    },
+    {
+      "id": "ganas",
+      "titulo": "Why does motivation run out?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part four. Why does motivation run out?"
+        },
+        {
+          "id": "tarjeta",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tarjeta"
+          },
+          "lamina": [
+            "cafe",
+            "sellos"
+          ],
+          "texto": "Motivation isn’t steady: it rises when you see the goal getting close. In 2006, at a café at Columbia University, people got one of two stamp cards for a free coffee. One needed ten stamps; the other, twelve, but with two already stamped. Both needed ten purchases, and even so, the one with two free stamps filled up almost three days sooner."
+        },
+        {
+          "id": "progreso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "12 000",
+            "clave": "progreso"
+          },
+          "lamina": [
+            "oficina",
+            "palomita"
+          ],
+          "texto": "Teresa Amabile read twelve thousand diary entries from people at work, and the best mood showed up on days when they made progress on something that mattered to them, even a little. Small wins are the fuel."
+        },
+        {
+          "id": "inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "comienzos"
+          },
+          "lamina": [
+            "lunes",
+            "amanecer"
+          ],
+          "texto": "And some days give you an extra push: a Monday, the first of the month, your birthday. Katherine Milkman calls it the fresh start effect: on those dates, more people look up and start their goals. Use them to begin, or to come back."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyo"
+          },
+          "lamina": "pulgar",
+          "texto": "By the way, we’re halfway there. If this guide is helping you, hit like, subscribe so you don’t miss the next one, and share it with someone who has a goal on hold."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "poco",
+              "visible",
+              "seguido"
+            ]
+          },
+          "lamina": "calendarioPared",
+          "enCasa": true,
+          "texto": "That’s why my calendar is in plain sight: every day I make progress, even a little, gets marked and pushes me on to the next."
+        }
+      ]
+    },
+    {
+      "id": "casa",
+      "titulo": "Why does it help to keep everything in a mental house?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part five. Why does it help to keep everything in a mental house?"
+        },
+        {
+          "id": "simonides",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 500 a. C.",
+            "clave": "simonides"
+          },
+          "lamina": [
+            "simonides",
+            "templo"
+          ],
+          "texto": "Legend has it that the Greek poet Simonides remembered every guest at a banquet by the place where each one was sitting. That’s how the memory palace was born: storing ideas in the rooms of a house you know well."
+        },
+        {
+          "id": "dresler",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "casaMental"
+          },
+          "lamina": [
+            "cerebro",
+            "pasillo"
+          ],
+          "texto": "And it works. In 2017, Martin Dresler trained ordinary people in that method for six weeks: before, they remembered about thirty words from a list; afterward, about thirty-five more. And months later, they still remembered much more. Our brains are brilliant with places."
+        },
+        {
+          "id": "pendientes",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "−",
+            "clave": "pendientes"
+          },
+          "lamina": [
+            "postits",
+            "calma"
+          ],
+          "texto": "And keeping everything in one place also calms your mind. In 2011, E. J. Masicampo and Roy Baumeister saw that unfinished goals creep into your head while you’re doing something else; but as soon as people wrote a concrete plan for them, those thoughts stopped interrupting."
+        },
+        {
+          "id": "beneficios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "ver",
+              "conectar",
+              "soltar",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "casaIso",
+            "plano"
+          ],
+          "texto": "A mental house gives you four things: you see all your goals at a glance; you see how they connect, because sleeping better helps you train; you let go of whatever already has its place; and you know which room to go back to."
+        },
+        {
+          "id": "mencion-casa",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "casaIso",
+          "enCasa": true,
+          "texto": "That’s why MindHaOS is a house: each room is an area of your life, and from here I see the goals from every room together."
+        }
+      ]
+    },
+    {
+      "id": "medir",
+      "titulo": "How do you know if you’re making progress?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part six. How do you know if you’re making progress?"
+        },
+        {
+          "id": "harkin",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "138",
+            "clave": "harkin"
+          },
+          "lamina": [
+            "bascula",
+            "grafica"
+          ],
+          "texto": "Measuring works. In 2016, Benjamin Harkin and his team brought together one hundred thirty-eight experiments: people who checked their progress often got closer to their goal. And the effect was bigger when they wrote it down, or told someone."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "racha"
+          },
+          "lamina": [
+            "cuaderno",
+            "marcador"
+          ],
+          "texto": "The simplest way is a streak: mark every day you follow through. Watch the chain grow, and see how a single gap doesn’t break it if you come back the next day."
+        },
+        {
+          "id": "semana",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hice",
+              "aprendi",
+              "ajusto"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "cafe2"
+          ],
+          "texto": "And once a week, a ten-minute review: what I did, what I learned, and what I’ll adjust. Measure the process, not just the result: the pounds come off slowly, but today’s walks count right now."
+        },
+        {
+          "id": "misiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fases",
+              "palomea",
+              "avance"
+            ]
+          },
+          "lamina": "palomita",
+          "enCasa": true,
+          "texto": "In my house, every plan has its phases and its steps, and as I check them off I watch the bar move forward."
+        }
+      ]
+    },
+    {
+      "id": "fallar",
+      "titulo": "What do you do when you slip?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part seven. What do you do when you slip?"
+        },
+        {
+          "id": "lally",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "habito"
+          },
+          "lamina": [
+            "agua",
+            "caminar"
+          ],
+          "texto": "You’re going to slip, and that’s okay. In 2010, Phillippa Lally followed people forming a new habit: on average it took sixty-six days to become automatic, though for some it took eighteen and for others much longer. And skipping a day didn’t erase their progress."
+        },
+        {
+          "id": "dosVeces",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "falla",
+              "vuelve",
+              "nunca"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "levantarse"
+          ],
+          "texto": "The danger isn’t missing one day, it’s thinking “I’ve blown it” and dropping everything. The practical rule: you can miss once, but never twice in a row.",
+          "meme": "arruine"
+        },
+        {
+          "id": "woop",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "woop"
+          },
+          "lamina": [
+            "obstaculo",
+            "plan"
+          ],
+          "texto": "And get ready for the stumbles before they come. Gabriele Oettingen suggests four steps: your wish, the best outcome, the obstacle that holds you back most, and your plan if it shows up. Imagining only success relaxes you; imagining the obstacle too gets you ready."
+        },
+        {
+          "id": "amable",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2012",
+            "clave": "autocompasion"
+          },
+          "lamina": [
+            "estudiar",
+            "abrazo"
+          ],
+          "texto": "And talk to yourself kindly. In 2012, Juliana Breines and Serena Chen saw that people who treated themselves with understanding after failing a hard test studied more for the next one than those who just cheered themselves up."
+        },
+        {
+          "id": "ajustar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plan",
+              "meta",
+              "seguir"
+            ]
+          },
+          "lamina": "ajustar",
+          "enCasa": true,
+          "texto": "When I slip, this is where I adjust the plan, not the goal: I move the dates on the timeline and keep going."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "How do you keep going? Your plan to continue",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part eight. How do you keep going? Your plan to continue."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "In the first week, pick a single goal, write it in positive terms with its “if…, then…” sentence, and start so small that it’s impossible not to do it: two minutes count.",
+          "meme": "grande"
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "subir"
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "texto": "In the first month, step it up a little each week, but only if the week before went well. Watch how two minutes that grow a little each week become half an hour in four months, without a single hard jump."
+        },
+        {
+          "id": "medirVolver",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "domingo",
+              "racha3",
+              "lunes"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "lunes"
+          ],
+          "texto": "Every Sunday, spend ten minutes reviewing your streak; and if you miss a day, Monday, the first of the month, or tomorrow itself is your fresh start."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "In short: wanting isn’t enough, you have to design; a specific goal in positive terms, with its “if…, then…” sentence; broken into steps and in plain sight, in your mental house; measured every week; and when you slip, come back the next day."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "In the Goals room in MindHaOS you can write your goals and build your plans on your own, or ask artificial intelligence to help you with the steps and the timing, and see them on a timeline. Build your house for free today: the link is in the description. And in the next guide: how do you organize your time?",
+    "boton": "Open the Goals room",
+    "lamina": "app-plan",
+    "anclas": {
+      "escribir": "write your goals",
+      "plan": "ask artificial intelligence",
+      "cronograma": "on a timeline"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "norcross-2002",
+      "texto": "Norcross J. C., Mrykalo M. S., Blagys M. D. Auld lang syne: Success predictors, change processes, and self-reported outcomes of New Year's resolvers and nonresolvers. Journal of Clinical Psychology (2002).",
+      "url": "https://doi.org/10.1002/jclp.1151"
+    },
+    {
+      "id": "sheeran-2002",
+      "texto": "Sheeran P. Intention–behavior relations: A conceptual and empirical review. European Review of Social Psychology (2002).",
+      "url": "https://doi.org/10.1080/14792772143000003"
+    },
+    {
+      "id": "galla-2015",
+      "texto": "Galla B. M., Duckworth A. L. More than resisting temptation: Beneficial habits mediate the relationship between self-control and positive life outcomes. Journal of Personality and Social Psychology (2015).",
+      "url": "https://doi.org/10.1037/pspp0000026"
+    },
+    {
+      "id": "locke-2002",
+      "texto": "Locke E. A., Latham G. P. Building a practically useful theory of goal setting and task motivation: A 35-year odyssey. American Psychologist (2002).",
+      "url": "https://doi.org/10.1037/0003-066X.57.9.705"
+    },
+    {
+      "id": "oscarsson-2020",
+      "texto": "Oscarsson M., Carlbring P., Andersson G., Rozental A. A large-scale experiment on New Year's resolutions: Approach-oriented goals are more successful than avoidance-oriented goals. PLOS ONE (2020).",
+      "url": "https://doi.org/10.1371/journal.pone.0234097"
+    },
+    {
+      "id": "milne-2002",
+      "texto": "Milne S., Orbell S., Sheeran P. Combining motivational and volitional interventions to promote exercise participation. British Journal of Health Psychology (2002).",
+      "url": "https://doi.org/10.1348/135910702169420"
+    },
+    {
+      "id": "gollwitzer-2006",
+      "texto": "Gollwitzer P. M., Sheeran P. Implementation intentions and goal achievement: A meta-analysis of effects and processes. Advances in Experimental Social Psychology (2006).",
+      "url": "https://doi.org/10.1016/S0065-2601(06)38002-1"
+    },
+    {
+      "id": "kivetz-2006",
+      "texto": "Kivetz R., Urminsky O., Zheng Y. The goal-gradient hypothesis resurrected. Journal of Marketing Research (2006).",
+      "url": "https://doi.org/10.1509/jmkr.43.1.39"
+    },
+    {
+      "id": "amabile-2011",
+      "texto": "Amabile T., Kramer S. The Progress Principle (Harvard Business Review Press, 2011).",
+      "url": "https://www.progressprinciple.com/"
+    },
+    {
+      "id": "dai-2014",
+      "texto": "Dai H., Milkman K. L., Riis J. The fresh start effect: Temporal landmarks motivate aspirational behavior. Management Science (2014).",
+      "url": "https://doi.org/10.1287/mnsc.2014.1901"
+    },
+    {
+      "id": "dresler-2017",
+      "texto": "Dresler M. et al. Mnemonic training reshapes brain networks to support superior memory. Neuron (2017).",
+      "url": "https://doi.org/10.1016/j.neuron.2017.02.003"
+    },
+    {
+      "id": "masicampo-2011",
+      "texto": "Masicampo E. J., Baumeister R. F. Consider it done! Plan making can eliminate the cognitive effects of unfulfilled goals. Journal of Personality and Social Psychology (2011).",
+      "url": "https://doi.org/10.1037/a0024192"
+    },
+    {
+      "id": "harkin-2016",
+      "texto": "Harkin B. et al. Does monitoring goal progress promote goal attainment? A meta-analysis of the experimental evidence. Psychological Bulletin (2016).",
+      "url": "https://doi.org/10.1037/bul0000025"
+    },
+    {
+      "id": "lally-2010",
+      "texto": "Lally P., van Jaarsveld C. H. M., Potts H. W. W., Wardle J. How are habits formed: Modelling habit formation in the real world. European Journal of Social Psychology (2010).",
+      "url": "https://doi.org/10.1002/ejsp.674"
+    },
+    {
+      "id": "oettingen-2014",
+      "texto": "Oettingen G. Rethinking Positive Thinking: Inside the New Science of Motivation (2014), the WOOP method.",
+      "url": "https://woopmylife.org/"
+    },
+    {
+      "id": "breines-2012",
+      "texto": "Breines J. G., Chen S. Self-compassion increases self-improvement motivation. Personality and Social Psychology Bulletin (2012).",
+      "url": "https://doi.org/10.1177/0146167212445599"
+    }
+  ]
+}

@@ -7168,6 +7168,7 @@ export const JA: Dict = {
   'guia.arte.titulo': "芸術とは何でしょうか？",
   'guia.musica.titulo': "音楽とは何でしょうか？",
   'guia.video.titulo': "動画はどうやって作るのでしょうか？",
+  'guia.metas.titulo': "目標をかなえるには、どうすればいいのでしょうか？",
   'tut.esencial.titulo': '基本の使い方',
   'tut.tipo.ejemplos': '例・デモのMindHaOS',
   'tut.app-agenda--esencial.resumen':

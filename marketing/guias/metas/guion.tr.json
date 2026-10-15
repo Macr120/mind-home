@@ -1,0 +1,769 @@
+{
+  "idioma": "tr",
+  "tema": "metas",
+  "plantillaId": "metas",
+  "numero": 9,
+  "nombre": "Hedefler",
+  "pregunta": "Hedeflerine nasıl ulaşırsın?",
+  "corta": "Hedeflerine nasıl ulaşırsın?",
+  "subtitulo": "Sadece istemenin neden yetmediği, bir hedefi neyin iyi yaptığı, onu nasıl adımlara dönüştüreceğin, hevesin neden tükendiği, her şeyi zihinsel bir evde toplamanın neden işe yaradığı, ilerlemeni nasıl ölçeceğin, aksattığında ne yapacağın ve hedeflerini bırakmamak için bir plan.",
+  "aviso": "Bu rehber bilgilendirme amaçlıdır: verilen rakamlar ve çalışmalar kaynaklarındaki değerlerin yaklaşık hâlidir ve herkes kendi hızında ilerler. Bir hedefin fiziksel ya da ruh sağlığınla ilgisi varsa bir uzmana da danış.",
+  "partes": [
+    {
+      "id": "querer",
+      "titulo": "Sadece istemek neden yetmez?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Hedeflerine nasıl ulaşırsın? Her ocak ayında milyonlarca insan bir şeyi değiştirmeye karar verir. Altı ay sonra ise yarısından fazlası çoktan bırakmıştır. Başaranlar neyi farklı yapıyor? Bugün bunu bilimin söyledikleriyle göreceksin, şansını neredeyse üçe katlayan tek bir cümle de dahil."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "Bu arada, burası MindHaOS'taki evim ve tüm hedeflerimi bu odada planlıyorum."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Birinci bölüm. Sadece istemek neden yetmez?"
+        },
+        {
+          "id": "proponerse",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "proponerse"
+          },
+          "lamina": [
+            "calendario",
+            "brindis"
+          ],
+          "texto": "Önce iyi haber: karar vermek gerçekten işe yarıyor. 2002 yılında John Norcross, yaklaşık üç yüz kişiyi altı ay boyunca takip etti. Yeni yıl kararı alanların yüzde kırk altısı hâlâ kararına uyuyordu. Aynı değişikliği isteyip karar almayanlarda ise bu oran sadece yüzde dörttü."
+        },
+        {
+          "id": "brecha",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "47 %",
+            "clave": "brecha"
+          },
+          "lamina": [
+            "sofa",
+            "tenis"
+          ],
+          "texto": "Ama istemekle yapmak arasında bir boşluk var. Psikolog Paschal Sheeran onlarca çalışmayı incelediğinde, bir şeyi yapmaya niyetli insanların neredeyse yarısının sonunda onu yapmadığını buldu.",
+          "meme": "enero"
+        },
+        {
+          "id": "voluntad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ganas",
+              "voluntad",
+              "habito"
+            ]
+          },
+          "lamina": [
+            "despertador",
+            "rutina"
+          ],
+          "texto": "Ve irade bu boşluğu doldurmaya yetmiyor. 2015 yılında Brian Galla ve Angela Duckworth, öz denetimi yüksek insanların dişini sıkarak direndikleri için değil, daha çok iyi alışkanlıkları olduğu için daha başarılı olduğunu gördü. Hedefine ulaşanların iradesi daha güçlü değil; ona daha az ihtiyaç duyuyorlar."
+        },
+        {
+          "id": "adelanto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "disenar",
+              "medir",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "mapa",
+            "brujula"
+          ],
+          "texto": "Yani sır daha çok istemek değil, hedefini hevese bağlı kalmayacak şekilde tasarlamak. Beşinci bölümde de hafıza şampiyonlarının neden her şeyi bir evin içinde sakladığını göreceksin."
+        },
+        {
+          "id": "diana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "porque",
+              "pasos"
+            ]
+          },
+          "lamina": "diana",
+          "enCasa": true,
+          "texto": "Burada, hedef tahtamda her birinin bir yeri var: ne istediğim, neden istediğim ve oraya varmak için adımlar."
+        }
+      ]
+    },
+    {
+      "id": "buena",
+      "titulo": "Bir hedefi iyi yapan nedir?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "İkinci bölüm. Bir hedefi iyi yapan nedir?"
+        },
+        {
+          "id": "concreta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "metaBuena"
+          },
+          "lamina": [
+            "libreta",
+            "lapiz"
+          ],
+          "texto": "Edwin Locke ve Gary Latham otuz yıl boyunca yüzlerce çalışmayı inceledi ve sonuç hep aynı: somut ve biraz zor bir hedef, “elimden gelenin en iyisini yapacağım” demeyi her zaman yener. “Spor yapmak” hedefine ne, ne kadar, ne zaman ve nerede eklenince nasıl değiştiğine bak."
+        },
+        {
+          "id": "acercar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "59 % · 47 %",
+            "clave": "acercar"
+          },
+          "lamina": [
+            "fruta",
+            "refresco"
+          ],
+          "texto": "Nasıl söylediğin de önemli. 2020 yılında İsveç'te yeni yıl kararı olan binden fazla kişi takip edildi: daha çok meyve yemek gibi bir şeye başlama hedefleri, şekeri bırakmak gibi bir şeyi bırakma hedeflerinden daha sık tuttu."
+        },
+        {
+          "id": "una",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "escribe",
+              "porque"
+            ]
+          },
+          "lamina": [
+            "post",
+            "lista"
+          ],
+          "texto": "Bu yüzden tek bir hedefle, olumlu şekilde yazılmış ve senin için gerçekten önemli bir nedenle başlamak iyi olur: zor günlerde seni ayağa kaldıran o “neden”dir.",
+          "meme": "vaga"
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "cuanto",
+              "cuando"
+            ]
+          },
+          "lamina": "escribir",
+          "enCasa": true,
+          "texto": "Odamda her hedefi böyle yazıyorum: ne istediğimi, ne kadar ve ne zamana kadar, belirsiz sözler olmadan."
+        }
+      ]
+    },
+    {
+      "id": "pasos",
+      "titulo": "Bir hedef nasıl adımlara dönüşür?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Üçüncü bölüm. Bir hedef nasıl adımlara dönüşür?"
+        },
+        {
+          "id": "siEntonces",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "siEntonces"
+          },
+          "lamina": [
+            "correr",
+            "agenda"
+          ],
+          "texto": "İşte sana söz verdiğim cümle. 2002 yılında Birleşik Krallık'ta öğrencilerden spor yapmaları istendi. Bir gruba sadece nedenini anlattılar; diğerinden ayrıca ne zaman ve nerede yapacaklarını şöyle bir cümleyle yazmalarını istediler: “eğer pazartesi saat yediyse, o zaman parka koşmaya çıkarım.” İlk grupta spor yapanlar yüzde otuz beşti; cümleyle, yüzde doksan bir."
+        },
+        {
+          "id": "gollwitzer",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "94",
+            "clave": "gollwitzer"
+          },
+          "lamina": [
+            "reloj",
+            "puerta"
+          ],
+          "texto": "Bu cümleye uygulama niyeti denir ve Peter Gollwitzer ile Paschal Sheeran onu doksan dört çalışmada incelediler: ne zaman ve nerede harekete geçeceğine önceden karar vermek, sadece sonucu dilemekten çok daha fazla yardımcı oluyor."
+        },
+        {
+          "id": "escalera",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escalera"
+          },
+          "lamina": [
+            "escalera",
+            "montana"
+          ],
+          "texto": "Büyük hedefler de parçalara bölünür. Beş kilometre koşmak bir zirvedir; pazartesi yirmi dakika yürümek ilk basamaktır. Bir hedefin nasıl aşamalara, her aşamanın da bir güne sığan adımlara dönüştüğüne bak."
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "MindHaOS'taki Hedefler odamda bu planı yapay zekâ hazırlıyor: kaç saatim olduğunu ve hangi günler müsait olduğumu söylüyorum, o da aşamaları bir zaman çizelgesinde öneriyor."
+        }
+      ]
+    },
+    {
+      "id": "ganas",
+      "titulo": "Heves neden tükenir?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Dördüncü bölüm. Heves neden tükenir?"
+        },
+        {
+          "id": "tarjeta",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tarjeta"
+          },
+          "lamina": [
+            "cafe",
+            "sellos"
+          ],
+          "texto": "Heves hep aynı kalmaz: hedefi yakın gördüğünde artar. 2006 yılında Columbia Üniversitesi'ndeki bir kafede bedava kahve için iki damga kartı dağıtıldı. Biri on damga istiyordu; diğeri on iki, ama ikisi önceden basılmıştı. İkisi de on alışveriş gerektiriyordu, yine de iki hediye damgalı kart neredeyse üç gün önce doldu."
+        },
+        {
+          "id": "progreso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "12 000",
+            "clave": "progreso"
+          },
+          "lamina": [
+            "oficina",
+            "palomita"
+          ],
+          "texto": "Teresa Amabile, çalışanların tuttuğu on iki bin günlüğü okudu: en iyi ruh hâli, önemsedikleri bir işte az da olsa ilerledikleri günlerde ortaya çıkıyordu. Küçük ilerlemeler yakıttır."
+        },
+        {
+          "id": "inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "comienzos"
+          },
+          "lamina": [
+            "lunes",
+            "amanecer"
+          ],
+          "texto": "Bazı günler de ekstra bir itki verir: bir pazartesi, ayın ilk günü, doğum günün. Katherine Milkman buna yeni başlangıç etkisi diyor: bu tarihlerde daha çok insan hedeflerini araştırıyor ve onlara başlıyor. Başlamak ya da geri dönmek için bu günleri kullan."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyo"
+          },
+          "lamina": "pulgar",
+          "texto": "Bu arada, yarıya geldik. Bu rehber işine yarıyorsa Beğen'e bas, bir sonrakini kaçırmamak için Abone ol ve bekleyen bir hedefi olan biriyle Paylaş."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "poco",
+              "visible",
+              "seguido"
+            ]
+          },
+          "lamina": "calendarioPared",
+          "enCasa": true,
+          "texto": "Bu yüzden takvimim göz önünde: az da olsa ilerlediğim her gün işaretleniyor ve beni bir sonrakine itiyor."
+        }
+      ]
+    },
+    {
+      "id": "casa",
+      "titulo": "Her şeyi zihinsel bir evde toplamak neden işe yarar?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Beşinci bölüm. Her şeyi zihinsel bir evde toplamak neden işe yarar?"
+        },
+        {
+          "id": "simonides",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 500 a. C.",
+            "clave": "simonides"
+          },
+          "lamina": [
+            "simonides",
+            "templo"
+          ],
+          "texto": "Efsaneye göre Yunan şair Simonides, bir ziyafetteki tüm konukları, her birinin oturduğu yerden hatırlamış. Hafıza sarayı böyle doğdu: fikirleri iyi tanıdığın bir evin odalarında saklamak."
+        },
+        {
+          "id": "dresler",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "casaMental"
+          },
+          "lamina": [
+            "cerebro",
+            "pasillo"
+          ],
+          "texto": "Ve işe yarıyor. 2017 yılında Martin Dresler sıradan insanları altı hafta boyunca bu yöntemle çalıştırdı: önceden bir listeden otuz kadar kelime hatırlıyorlardı; sonra otuz beş kadar daha fazla. Aylar sonra da hâlâ çok daha fazlasını hatırlıyorlardı. Beynimiz mekânlar konusunda çok iyidir."
+        },
+        {
+          "id": "pendientes",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "−",
+            "clave": "pendientes"
+          },
+          "lamina": [
+            "postits",
+            "calma"
+          ],
+          "texto": "Her şeyi tek bir yerde toplamak zihni de sakinleştirir. 2011 yılında E. J. Masicampo ve Roy Baumeister, bekleyen hedeflerin sen başka bir şey yaparken kafana sızdığını gördü; ama onlar için somut bir plan yazıldığı anda o düşünceler araya girmeyi bıraktı."
+        },
+        {
+          "id": "beneficios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "ver",
+              "conectar",
+              "soltar",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "casaIso",
+            "plano"
+          ],
+          "texto": "Zihinsel bir ev sana dört şey verir: tüm hedeflerini tek bakışta görürsün; nasıl bağlandıklarını görürsün, çünkü iyi uyumak antrenmana yardım eder; yerini bulmuş şeyleri bırakırsın; ve hangi odaya döneceğini bilirsin."
+        },
+        {
+          "id": "mencion-casa",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "casaIso",
+          "enCasa": true,
+          "texto": "MindHaOS bu yüzden bir ev: her oda hayatının bir alanı ve buradan tüm odaların hedeflerini bir arada görüyorum."
+        }
+      ]
+    },
+    {
+      "id": "medir",
+      "titulo": "İlerlediğini nasıl anlarsın?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Altıncı bölüm. İlerlediğini nasıl anlarsın?"
+        },
+        {
+          "id": "harkin",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "138",
+            "clave": "harkin"
+          },
+          "lamina": [
+            "bascula",
+            "grafica"
+          ],
+          "texto": "Ölçmek işe yarar. 2016 yılında Benjamin Harkin ve ekibi yüz otuz sekiz deneyi bir araya getirdi: ilerlemesini sık sık kontrol edenler hedeflerine daha çok yaklaştı. Etki, ilerlemelerini not ettiklerinde ya da birine anlattıklarında daha da büyüktü."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "racha"
+          },
+          "lamina": [
+            "cuaderno",
+            "marcador"
+          ],
+          "texto": "En basit yol bir seridir: hedefini tuttuğun her günü işaretle. Zincirin nasıl büyüdüğüne ve ertesi gün geri dönersen tek bir boşluğun onu koparmadığına bak."
+        },
+        {
+          "id": "semana",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hice",
+              "aprendi",
+              "ajusto"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "cafe2"
+          ],
+          "texto": "Haftada bir de on dakikalık bir gözden geçirme: ne yaptım, ne öğrendim, neyi değiştiriyorum. Sadece sonucu değil, süreci ölç: kilolar yavaş gider, ama yürüyüşler bugünden sayılır."
+        },
+        {
+          "id": "misiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fases",
+              "palomea",
+              "avance"
+            ]
+          },
+          "lamina": "palomita",
+          "enCasa": true,
+          "texto": "Evimde her planın aşamaları ve adımları var; onları işaretledikçe çubuğun ilerlediğini görüyorum."
+        }
+      ]
+    },
+    {
+      "id": "fallar",
+      "titulo": "Aksattığında ne yapmalı?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Yedinci bölüm. Aksattığında ne yapmalı?"
+        },
+        {
+          "id": "lally",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "habito"
+          },
+          "lamina": [
+            "agua",
+            "caminar"
+          ],
+          "texto": "Bazen aksatacaksın ve bu normal. 2010 yılında Phillippa Lally yeni bir alışkanlık edinen insanları takip etti: alışkanlığın otomatikleşmesi ortalama altmış altı gün sürdü, bazıları için on sekiz, bazıları için çok daha fazla. Ve bir günü atlamak, kat edilen yolu silmedi."
+        },
+        {
+          "id": "dosVeces",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "falla",
+              "vuelve",
+              "nunca"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "levantarse"
+          ],
+          "texto": "Tehlike bir gün aksatmak değil, “her şeyi mahvettim” deyip hepsini bırakmaktır. Pratik kural: bir kez aksatabilirsin, ama üst üste iki kez asla.",
+          "meme": "arruine"
+        },
+        {
+          "id": "woop",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "woop"
+          },
+          "lamina": [
+            "obstaculo",
+            "plan"
+          ],
+          "texto": "Tökezlemelere de gelmeden önce hazırlan. Gabriele Oettingen dört adım öneriyor: dileğin, en iyi sonuç, seni en çok durduran engel ve o engel çıkarsa planın. Sadece başarıyı hayal etmek gevşetir; engeli de hayal etmek seni hazırlar."
+        },
+        {
+          "id": "amable",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2012",
+            "clave": "autocompasion"
+          },
+          "lamina": [
+            "estudiar",
+            "abrazo"
+          ],
+          "texto": "Ve kendinle nazikçe konuş. 2012 yılında Juliana Breines ve Serena Chen, zor bir sınavda başarısız olduktan sonra kendine anlayışla yaklaşanların, bir sonraki sınava sadece kendini gaza getirenlerden daha çok çalıştığını gördü."
+        },
+        {
+          "id": "ajustar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plan",
+              "meta",
+              "seguir"
+            ]
+          },
+          "lamina": "ajustar",
+          "enCasa": true,
+          "texto": "Aksattığımda burada hedefi değil, planı düzeltiyorum: zaman çizelgesindeki tarihleri kaydırıp devam ediyorum."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Nasıl devam etmeli? Devam etmek için planın",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Sekizinci bölüm. Nasıl devam etmeli? Devam etmek için planın."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "İlk hafta tek bir hedef seç, onu olumlu şekilde ve “eğer…, o zaman…” cümlesiyle yaz, ve yapmamanın imkânsız olacağı kadar küçük başla: iki dakika da sayılır.",
+          "meme": "grande"
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "subir"
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "texto": "İlk ay, her hafta biraz artır, ama sadece bir önceki hafta iyi geçtiyse. Her hafta azıcık büyüyen iki dakikanın, tek bir zor sıçrama olmadan dört ayda nasıl yarım saate dönüştüğüne bak."
+        },
+        {
+          "id": "medirVolver",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "domingo",
+              "racha3",
+              "lunes"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "lunes"
+          ],
+          "texto": "Her pazar serini on dakika gözden geçir; bir gün aksatırsan da pazartesi, ayın ilk günü ya da hemen yarın senin yeni başlangıcındır."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Özetle: istemek yetmez, tasarlamak gerekir; somut ve olumlu bir hedef, “eğer…, o zaman…” cümlesiyle; adımlara bölünmüş ve göz önünde, zihinsel evinde; her hafta ölçülen; ve aksattığında ertesi gün geri dön."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS'taki Hedefler odasında hedeflerini yazabilir ve planlarını kendin kurabilir ya da adımlar ve süreler için yapay zekâdan yardım isteyip hepsini bir zaman çizelgesinde görebilirsin. Evini bugün ücretsiz kur: bağlantı açıklamada. Bir sonraki rehberde ise: zamanını nasıl düzenlersin?",
+    "boton": "Hedefler odasını aç",
+    "lamina": "app-plan",
+    "anclas": {
+      "escribir": "hedeflerini yazabilir",
+      "plan": "yapay zekâdan yardım",
+      "cronograma": "bir zaman çizelgesinde"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "norcross-2002",
+      "texto": "Norcross J. C., Mrykalo M. S., Blagys M. D. Auld lang syne: Success predictors, change processes, and self-reported outcomes of New Year's resolvers and nonresolvers. Journal of Clinical Psychology (2002).",
+      "url": "https://doi.org/10.1002/jclp.1151"
+    },
+    {
+      "id": "sheeran-2002",
+      "texto": "Sheeran P. Intention–behavior relations: A conceptual and empirical review. European Review of Social Psychology (2002).",
+      "url": "https://doi.org/10.1080/14792772143000003"
+    },
+    {
+      "id": "galla-2015",
+      "texto": "Galla B. M., Duckworth A. L. More than resisting temptation: Beneficial habits mediate the relationship between self-control and positive life outcomes. Journal of Personality and Social Psychology (2015).",
+      "url": "https://doi.org/10.1037/pspp0000026"
+    },
+    {
+      "id": "locke-2002",
+      "texto": "Locke E. A., Latham G. P. Building a practically useful theory of goal setting and task motivation: A 35-year odyssey. American Psychologist (2002).",
+      "url": "https://doi.org/10.1037/0003-066X.57.9.705"
+    },
+    {
+      "id": "oscarsson-2020",
+      "texto": "Oscarsson M., Carlbring P., Andersson G., Rozental A. A large-scale experiment on New Year's resolutions: Approach-oriented goals are more successful than avoidance-oriented goals. PLOS ONE (2020).",
+      "url": "https://doi.org/10.1371/journal.pone.0234097"
+    },
+    {
+      "id": "milne-2002",
+      "texto": "Milne S., Orbell S., Sheeran P. Combining motivational and volitional interventions to promote exercise participation. British Journal of Health Psychology (2002).",
+      "url": "https://doi.org/10.1348/135910702169420"
+    },
+    {
+      "id": "gollwitzer-2006",
+      "texto": "Gollwitzer P. M., Sheeran P. Implementation intentions and goal achievement: A meta-analysis of effects and processes. Advances in Experimental Social Psychology (2006).",
+      "url": "https://doi.org/10.1016/S0065-2601(06)38002-1"
+    },
+    {
+      "id": "kivetz-2006",
+      "texto": "Kivetz R., Urminsky O., Zheng Y. The goal-gradient hypothesis resurrected. Journal of Marketing Research (2006).",
+      "url": "https://doi.org/10.1509/jmkr.43.1.39"
+    },
+    {
+      "id": "amabile-2011",
+      "texto": "Amabile T., Kramer S. The Progress Principle (Harvard Business Review Press, 2011).",
+      "url": "https://www.progressprinciple.com/"
+    },
+    {
+      "id": "dai-2014",
+      "texto": "Dai H., Milkman K. L., Riis J. The fresh start effect: Temporal landmarks motivate aspirational behavior. Management Science (2014).",
+      "url": "https://doi.org/10.1287/mnsc.2014.1901"
+    },
+    {
+      "id": "dresler-2017",
+      "texto": "Dresler M. et al. Mnemonic training reshapes brain networks to support superior memory. Neuron (2017).",
+      "url": "https://doi.org/10.1016/j.neuron.2017.02.003"
+    },
+    {
+      "id": "masicampo-2011",
+      "texto": "Masicampo E. J., Baumeister R. F. Consider it done! Plan making can eliminate the cognitive effects of unfulfilled goals. Journal of Personality and Social Psychology (2011).",
+      "url": "https://doi.org/10.1037/a0024192"
+    },
+    {
+      "id": "harkin-2016",
+      "texto": "Harkin B. et al. Does monitoring goal progress promote goal attainment? A meta-analysis of the experimental evidence. Psychological Bulletin (2016).",
+      "url": "https://doi.org/10.1037/bul0000025"
+    },
+    {
+      "id": "lally-2010",
+      "texto": "Lally P., van Jaarsveld C. H. M., Potts H. W. W., Wardle J. How are habits formed: Modelling habit formation in the real world. European Journal of Social Psychology (2010).",
+      "url": "https://doi.org/10.1002/ejsp.674"
+    },
+    {
+      "id": "oettingen-2014",
+      "texto": "Oettingen G. Rethinking Positive Thinking: Inside the New Science of Motivation (2014), WOOP yöntemi.",
+      "url": "https://woopmylife.org/"
+    },
+    {
+      "id": "breines-2012",
+      "texto": "Breines J. G., Chen S. Self-compassion increases self-improvement motivation. Personality and Social Psychology Bulletin (2012).",
+      "url": "https://doi.org/10.1177/0146167212445599"
+    }
+  ]
+}

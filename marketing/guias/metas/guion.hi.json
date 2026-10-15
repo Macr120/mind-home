@@ -1,0 +1,769 @@
+{
+  "idioma": "hi",
+  "tema": "metas",
+  "plantillaId": "metas",
+  "numero": 9,
+  "nombre": "लक्ष्य",
+  "pregunta": "अपने लक्ष्य कैसे पूरे करें?",
+  "corta": "अपने लक्ष्य कैसे पूरे करें?",
+  "subtitulo": "सिर्फ़ चाहना क्यों काफ़ी नहीं, एक लक्ष्य को अच्छा क्या बनाता है, उसे कदमों में कैसे बदलें, जोश क्यों ख़त्म हो जाता है, सब कुछ एक मन के घर में रखना क्यों मदद करता है, अपनी प्रगति कैसे मापें, चूक जाएँ तो क्या करें, और अपने लक्ष्य न छोड़ने की एक योजना।",
+  "aviso": "यह गाइड केवल जानकारी के लिए है: बताए गए आँकड़े और अध्ययन अपने स्रोतों के अनुमान हैं, और हर व्यक्ति अपनी रफ़्तार से आगे बढ़ता है। अगर कोई लक्ष्य आपकी शारीरिक या मानसिक सेहत से जुड़ा है, तो उसके बारे में किसी विशेषज्ञ से भी सलाह लें।",
+  "partes": [
+    {
+      "id": "querer",
+      "titulo": "सिर्फ़ चाहना काफ़ी क्यों नहीं?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "अपने लक्ष्य कैसे पूरे करें? हर जनवरी, करोड़ों लोग कुछ बदलने का संकल्प लेते हैं। और छह महीने बाद, आधे से ज़्यादा उसे छोड़ चुके होते हैं। जो कामयाब होते हैं, वे अलग क्या करते हैं? आज आप यह विज्ञान की नज़र से देखेंगे, साथ ही एक ऐसा वाक्य भी जो आपकी संभावना लगभग तीन गुना कर देता है।"
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "वैसे, यह MindHaOS में मेरा घर है, और इसी कमरे में मैं अपने सारे लक्ष्यों की योजना बनाती हूँ।"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग एक। सिर्फ़ चाहना काफ़ी क्यों नहीं?"
+        },
+        {
+          "id": "proponerse",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "proponerse"
+          },
+          "lamina": [
+            "calendario",
+            "brindis"
+          ],
+          "texto": "पहले अच्छी ख़बर: संकल्प लेना सच में काम करता है। 2002 में, जॉन नॉरक्रॉस ने छह महीने तक लगभग तीन सौ लोगों पर नज़र रखी। जिन्होंने नए साल का संकल्प लिया था, उनमें से छियालीस प्रतिशत अब भी उसे निभा रहे थे। जो वही बदलाव चाहते थे पर संकल्प नहीं लिया था, उनमें से सिर्फ़ चार प्रतिशत।"
+        },
+        {
+          "id": "brecha",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "47 %",
+            "clave": "brecha"
+          },
+          "lamina": [
+            "sofa",
+            "tenis"
+          ],
+          "texto": "लेकिन चाहने और करने के बीच एक खाई है। दर्जनों अध्ययनों की समीक्षा करके मनोवैज्ञानिक पास्कल शीरन ने पाया कि जो लोग कुछ करने का इरादा रखते हैं, उनमें से लगभग आधे आख़िर में उसे करते ही नहीं।",
+          "meme": "enero"
+        },
+        {
+          "id": "voluntad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ganas",
+              "voluntad",
+              "habito"
+            ]
+          },
+          "lamina": [
+            "despertador",
+            "rutina"
+          ],
+          "texto": "और इच्छाशक्ति उस खाई को भरने के लिए काफ़ी नहीं है। 2015 में, ब्रायन गैला और एंजेला डकवर्थ ने देखा कि ज़्यादा आत्म-नियंत्रण वाले लोग इसलिए बेहतर नहीं करते कि वे ज़ोर लगाकर ख़ुद को रोकते हैं, बल्कि इसलिए कि उनकी अच्छी आदतें ज़्यादा होती हैं। जो लक्ष्य पूरे करते हैं, उनके पास ज़्यादा इच्छाशक्ति नहीं होती; उन्हें उसकी ज़रूरत कम पड़ती है।"
+        },
+        {
+          "id": "adelanto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "disenar",
+              "medir",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "mapa",
+            "brujula"
+          ],
+          "texto": "तो राज़ ज़्यादा चाहने में नहीं, बल्कि अपने लक्ष्य को ऐसे गढ़ने में है कि वह जोश पर निर्भर न रहे। और भाग पाँच में आप देखेंगे कि याददाश्त के चैंपियन सब कुछ एक घर के अंदर क्यों सँजोते हैं।"
+        },
+        {
+          "id": "diana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "porque",
+              "pasos"
+            ]
+          },
+          "lamina": "diana",
+          "enCasa": true,
+          "texto": "यहाँ, मेरे लक्ष्यों के निशाने पर, हर लक्ष्य की अपनी जगह है: मैं क्या चाहती हूँ, क्यों चाहती हूँ, और वहाँ तक पहुँचने के कदम।"
+        }
+      ]
+    },
+    {
+      "id": "buena",
+      "titulo": "एक लक्ष्य को अच्छा क्या बनाता है?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग दो। एक लक्ष्य को अच्छा क्या बनाता है?"
+        },
+        {
+          "id": "concreta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "metaBuena"
+          },
+          "lamina": [
+            "libreta",
+            "lapiz"
+          ],
+          "texto": "एडविन लॉक और गैरी लैथम ने तीस साल तक सैकड़ों अध्ययनों की समीक्षा की, और नतीजा बार-बार एक ही निकला: एक साफ़ और थोड़ा मुश्किल लक्ष्य हमेशा “मैं अपनी पूरी कोशिश करूँगा” से जीतता है। देखिए, “कसरत करना” कैसे बदल जाता है जब आप उसमें क्या, कितना, कब और कहाँ जोड़ते हैं।"
+        },
+        {
+          "id": "acercar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "59 % · 47 %",
+            "clave": "acercar"
+          },
+          "lamina": [
+            "fruta",
+            "refresco"
+          ],
+          "texto": "और यह भी मायने रखता है कि आप उसे कैसे कहते हैं। 2020 में, स्वीडन में, नए साल के संकल्प वाले एक हज़ार से ज़्यादा लोगों पर नज़र रखी गई: कुछ शुरू करने वाले लक्ष्य, जैसे ज़्यादा फल खाना, कुछ छोड़ने वाले लक्ष्यों से, जैसे चीनी छोड़ना, ज़्यादा पूरे हुए।"
+        },
+        {
+          "id": "una",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "escribe",
+              "porque"
+            ]
+          },
+          "lamina": [
+            "post",
+            "lista"
+          ],
+          "texto": "इसलिए एक ही लक्ष्य से शुरू करना अच्छा है, सकारात्मक शब्दों में लिखा हुआ, और ऐसी वजह के साथ जो आपके लिए सच में मायने रखती हो: यही ‘क्यों’ आपको मुश्किल दिनों में उठाता है।",
+          "meme": "vaga"
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "cuanto",
+              "cuando"
+            ]
+          },
+          "lamina": "escribir",
+          "enCasa": true,
+          "texto": "अपने कमरे में मैं हर लक्ष्य ऐसे ही लिखती हूँ: मैं क्या चाहती हूँ, कितना और कब तक, बिना धुंधले शब्दों के।"
+        }
+      ]
+    },
+    {
+      "id": "pasos",
+      "titulo": "लक्ष्य को कदमों में कैसे बदलें?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग तीन। लक्ष्य को कदमों में कैसे बदलें?"
+        },
+        {
+          "id": "siEntonces",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "siEntonces"
+          },
+          "lamina": [
+            "correr",
+            "agenda"
+          ],
+          "texto": "यह रहा वह वाक्य जिसका मैंने आपसे वादा किया था। 2002 में, ब्रिटेन में, छात्रों से कसरत करने को कहा गया। एक समूह को सिर्फ़ इसकी वजह समझाई गई; दूसरे से यह भी लिखने को कहा गया कि कब और कहाँ, एक ऐसे वाक्य में: “अगर सोमवार सुबह सात बजे हैं, तो मैं पार्क में दौड़ने जाऊँगा”। पहले समूह में पैंतीस प्रतिशत ने कसरत की; वाक्य के साथ, इक्यानबे प्रतिशत ने।"
+        },
+        {
+          "id": "gollwitzer",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "94",
+            "clave": "gollwitzer"
+          },
+          "lamina": [
+            "reloj",
+            "puerta"
+          ],
+          "texto": "इस वाक्य को अमल का इरादा कहते हैं, और पीटर गोलविट्ज़र और पास्कल शीरन ने चौरानबे अध्ययनों में इसकी समीक्षा की: पहले से तय कर लेना कि आप कब और कहाँ काम करेंगे, सिर्फ़ नतीजे की इच्छा करने से कहीं ज़्यादा मदद करता है।"
+        },
+        {
+          "id": "escalera",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escalera"
+          },
+          "lamina": [
+            "escalera",
+            "montana"
+          ],
+          "texto": "और बड़े लक्ष्यों को बाँटा जाता है। पाँच किलोमीटर दौड़ना एक चोटी है; सोमवार को बीस मिनट चलना पहली सीढ़ी है। देखिए, कैसे एक लक्ष्य चरणों में बदलता है, और हर चरण ऐसे कदमों में जो एक दिन में समा जाएँ।"
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "MindHaOS के मेरे लक्ष्य कमरे में, आर्टिफ़िशियल इंटेलिजेंस मेरे लिए यह योजना बनाती है: मैं बताती हूँ कि मेरे पास कितने घंटे हैं और किन दिनों, और वह मुझे एक समय-सारणी में चरण सुझाती है।"
+        }
+      ]
+    },
+    {
+      "id": "ganas",
+      "titulo": "जोश क्यों ख़त्म हो जाता है?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग चार। जोश क्यों ख़त्म हो जाता है?"
+        },
+        {
+          "id": "tarjeta",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tarjeta"
+          },
+          "lamina": [
+            "cafe",
+            "sellos"
+          ],
+          "texto": "जोश एक जैसा नहीं रहता: जब लक्ष्य पास दिखता है, तो बढ़ जाता है। 2006 में, कोलंबिया यूनिवर्सिटी के एक कैफ़े में, मुफ़्त कॉफ़ी के लिए मुहरों वाले दो कार्ड बाँटे गए। एक में दस मुहरें चाहिए थीं; दूसरे में बारह, पर दो पहले से लगी थीं। दोनों में दस ख़रीदारियाँ ही चाहिए थीं, फिर भी दो मुफ़्त मुहरों वाला कार्ड लगभग तीन दिन पहले भर गया।"
+        },
+        {
+          "id": "progreso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "12 000",
+            "clave": "progreso"
+          },
+          "lamina": [
+            "oficina",
+            "palomita"
+          ],
+          "texto": "टेरेसा अमाबाइल ने काम पर लोगों की बारह हज़ार डायरियाँ पढ़ीं, और सबसे अच्छा मूड उन दिनों में था जब वे किसी अहम काम में आगे बढ़े, चाहे थोड़ा ही सही। छोटी-छोटी प्रगति ही ईंधन है।"
+        },
+        {
+          "id": "inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "comienzos"
+          },
+          "lamina": [
+            "lunes",
+            "amanecer"
+          ],
+          "texto": "और कुछ दिन एक अतिरिक्त धक्का देते हैं: सोमवार, महीने का पहला दिन, आपका जन्मदिन। कैथरीन मिल्कमैन इसे नई शुरुआत का असर कहती हैं: इन तारीख़ों पर ज़्यादा लोग अपने लक्ष्य खोजते और शुरू करते हैं। इनका इस्तेमाल शुरू करने या वापस आने के लिए कीजिए।"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyo"
+          },
+          "lamina": "pulgar",
+          "texto": "वैसे, हम आधे रास्ते पर पहुँच गए हैं। अगर यह गाइड आपके काम आ रही है, तो पसंद करें, अगली गाइड न छूटे इसलिए सदस्यता लें, और इसे किसी ऐसे व्यक्ति के साथ शेयर करें जिसका कोई लक्ष्य अधूरा पड़ा है।"
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "poco",
+              "visible",
+              "seguido"
+            ]
+          },
+          "lamina": "calendarioPared",
+          "enCasa": true,
+          "texto": "इसीलिए मेरा कैलेंडर सामने रहता है: हर दिन जब मैं आगे बढ़ती हूँ, चाहे थोड़ा ही, उस पर निशान लगता है और वह मुझे अगले दिन की ओर धकेलता है।"
+        }
+      ]
+    },
+    {
+      "id": "casa",
+      "titulo": "सब कुछ एक मन के घर में रखना क्यों मदद करता है?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग पाँच। सब कुछ एक मन के घर में रखना क्यों मदद करता है?"
+        },
+        {
+          "id": "simonides",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 500 a. C.",
+            "clave": "simonides"
+          },
+          "lamina": [
+            "simonides",
+            "templo"
+          ],
+          "texto": "किंवदंती है कि यूनानी कवि सिमोनिडीज़ ने एक भोज के सभी मेहमानों को इस बात से याद किया कि कौन कहाँ बैठा था। ऐसे जन्मा याददाश्त का महल: विचारों को उस घर के कमरों में रखना जिसे आप अच्छी तरह जानते हैं।"
+        },
+        {
+          "id": "dresler",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "casaMental"
+          },
+          "lamina": [
+            "cerebro",
+            "pasillo"
+          ],
+          "texto": "और यह काम करता है। 2017 में, मार्टिन ड्रेसलर ने आम लोगों को छह हफ़्ते इस तरीक़े की ट्रेनिंग दी: पहले वे एक सूची से लगभग तीस शब्द याद रख पाते थे; बाद में, लगभग पैंतीस और ज़्यादा। और महीनों बाद भी वे कहीं ज़्यादा याद रख रहे थे। हमारा दिमाग़ जगहों को याद रखने में कमाल का है।"
+        },
+        {
+          "id": "pendientes",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "−",
+            "clave": "pendientes"
+          },
+          "lamina": [
+            "postits",
+            "calma"
+          ],
+          "texto": "और सब कुछ एक ही जगह रखने से मन भी शांत होता है। 2011 में, ई. जे. मासिकैम्पो और रॉय बॉमाइस्टर ने देखा कि अधूरे लक्ष्य दूसरे काम करते समय दिमाग़ में घुस आते हैं; लेकिन जैसे ही उनके लिए एक ठोस योजना लिख दी जाती, वे विचार बीच में आना बंद कर देते।"
+        },
+        {
+          "id": "beneficios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "ver",
+              "conectar",
+              "soltar",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "casaIso",
+            "plano"
+          ],
+          "texto": "मन का घर आपको चार चीज़ें देता है: आप अपने सारे लक्ष्य एक नज़र में देखते हैं; देखते हैं कि वे कैसे जुड़े हैं, क्योंकि अच्छी नींद कसरत में मदद करती है; जिसकी अपनी जगह है, उसकी फ़िक्र छोड़ देते हैं; और जानते हैं कि किस कमरे में लौटना है।"
+        },
+        {
+          "id": "mencion-casa",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "casaIso",
+          "enCasa": true,
+          "texto": "इसीलिए MindHaOS एक घर है: हर कमरा आपकी ज़िंदगी का एक हिस्सा है, और यहाँ से मैं सारे कमरों के लक्ष्य एक साथ देखती हूँ।"
+        }
+      ]
+    },
+    {
+      "id": "medir",
+      "titulo": "कैसे जानें कि आप आगे बढ़ रहे हैं?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग छह। कैसे जानें कि आप आगे बढ़ रहे हैं?"
+        },
+        {
+          "id": "harkin",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "138",
+            "clave": "harkin"
+          },
+          "lamina": [
+            "bascula",
+            "grafica"
+          ],
+          "texto": "मापना काम करता है। 2016 में, बेंजामिन हार्किन और उनकी टीम ने एक सौ अड़तीस प्रयोग इकट्ठा किए: जो लोग अपनी प्रगति अक्सर जाँचते थे, वे अपने लक्ष्य के ज़्यादा क़रीब पहुँचे। और असर तब और बड़ा था जब वे उसे लिखते थे, या किसी को बताते थे।"
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "racha"
+          },
+          "lamina": [
+            "cuaderno",
+            "marcador"
+          ],
+          "texto": "सबसे आसान तरीक़ा है एक सिलसिला: हर उस दिन पर निशान लगाएँ जब आपने काम पूरा किया। देखिए, कैसे यह कड़ी बढ़ती है, और एक खाली दिन उसे नहीं तोड़ता अगर अगले दिन आप लौट आएँ।"
+        },
+        {
+          "id": "semana",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hice",
+              "aprendi",
+              "ajusto"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "cafe2"
+          ],
+          "texto": "और हफ़्ते में एक बार, दस मिनट की समीक्षा: मैंने क्या किया, क्या सीखा और क्या बदलूँ। सिर्फ़ नतीजा नहीं, प्रक्रिया भी मापें: वज़न धीरे घटता है, पर सैर आज ही गिनी जाती है।"
+        },
+        {
+          "id": "misiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fases",
+              "palomea",
+              "avance"
+            ]
+          },
+          "lamina": "palomita",
+          "enCasa": true,
+          "texto": "मेरे घर में, हर योजना के अपने चरण और कदम हैं, और उन पर सही का निशान लगाते हुए मैं पट्टी को आगे बढ़ते देखती हूँ।"
+        }
+      ]
+    },
+    {
+      "id": "fallar",
+      "titulo": "चूक जाएँ तो क्या करें?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग सात। चूक जाएँ तो क्या करें?"
+        },
+        {
+          "id": "lally",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "habito"
+          },
+          "lamina": [
+            "agua",
+            "caminar"
+          ],
+          "texto": "आपसे चूक होगी, और यह ठीक है। 2010 में, फ़िलिपा लैली ने नई आदत बना रहे लोगों पर नज़र रखी: औसतन आदत को अपने-आप होने में छियासठ दिन लगे, हालाँकि कुछ को अठारह दिन लगे और कुछ को कहीं ज़्यादा। और एक दिन छूटने से अब तक की प्रगति नहीं मिटी।"
+        },
+        {
+          "id": "dosVeces",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "falla",
+              "vuelve",
+              "nunca"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "levantarse"
+          ],
+          "texto": "ख़तरा एक दिन चूकने में नहीं, बल्कि यह सोचने में है कि “सब बर्बाद हो गया” और सब कुछ छोड़ देने में। व्यावहारिक नियम: आप एक बार चूक सकते हैं, पर लगातार दो बार नहीं।",
+          "meme": "arruine"
+        },
+        {
+          "id": "woop",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "woop"
+          },
+          "lamina": [
+            "obstaculo",
+            "plan"
+          ],
+          "texto": "और ठोकरों के आने से पहले ही उनकी तैयारी कर लें। गैब्रिएल ओटिंगेन चार कदम सुझाती हैं: आपकी इच्छा, सबसे अच्छा नतीजा, वह रुकावट जो आपको सबसे ज़्यादा रोकती है, और उसके आने पर आपकी योजना। सिर्फ़ सफलता की कल्पना ढीला कर देती है; रुकावट की भी कल्पना तैयार करती है।"
+        },
+        {
+          "id": "amable",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2012",
+            "clave": "autocompasion"
+          },
+          "lamina": [
+            "estudiar",
+            "abrazo"
+          ],
+          "texto": "और ख़ुद से प्यार से बात करें। 2012 में, जूलियाना ब्राइन्स और सेरेना चेन ने देखा कि जो लोग एक मुश्किल परीक्षा में फ़ेल होने के बाद ख़ुद के साथ समझदारी से पेश आए, उन्होंने अगली परीक्षा के लिए उनसे ज़्यादा पढ़ाई की जो सिर्फ़ ख़ुद का हौसला बढ़ाते रहे।"
+        },
+        {
+          "id": "ajustar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plan",
+              "meta",
+              "seguir"
+            ]
+          },
+          "lamina": "ajustar",
+          "enCasa": true,
+          "texto": "जब मैं चूकती हूँ, तो यहाँ योजना बदलती हूँ, लक्ष्य नहीं: समय-सारणी में तारीख़ें खिसकाती हूँ और आगे बढ़ती हूँ।"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "आगे कैसे बढ़ें? आगे जारी रखने की आपकी योजना",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग आठ। आगे कैसे बढ़ें? आगे जारी रखने की आपकी योजना।"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "पहले हफ़्ते, एक ही लक्ष्य चुनें, उसे सकारात्मक शब्दों में और अपने “अगर…, तो…” वाक्य के साथ लिखें, और इतना छोटा शुरू करें कि न करना नामुमकिन हो: दो मिनट भी गिने जाते हैं।",
+          "meme": "grande"
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "subir"
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "texto": "पहले महीने, हर हफ़्ते थोड़ा बढ़ाएँ, सिर्फ़ तब जब पिछला हफ़्ता अच्छा गया हो। देखिए, कैसे हर हफ़्ते ज़रा-ज़रा बढ़ते दो मिनट चार महीनों में आधा घंटा बन जाते हैं, बिना एक भी मुश्किल छलाँग के।"
+        },
+        {
+          "id": "medirVolver",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "domingo",
+              "racha3",
+              "lunes"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "lunes"
+          ],
+          "texto": "हर रविवार, दस मिनट अपना सिलसिला देखें; और अगर किसी दिन चूक जाएँ, तो सोमवार, महीने का पहला दिन या कल ही आपकी नई शुरुआत है।"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "संक्षेप में: चाहना काफ़ी नहीं, लक्ष्य को गढ़ना पड़ता है; एक साफ़ और सकारात्मक लक्ष्य, अपने “अगर…, तो…” वाक्य के साथ; कदमों में बँटा और नज़रों के सामने, आपके मन के घर में; हर हफ़्ते मापा हुआ; और जब चूकें, तो अगले दिन लौट आएँ।"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS के लक्ष्य कमरे में आप अपने लक्ष्य लिख सकते हैं और ख़ुद अपनी योजनाएँ बना सकते हैं, या आर्टिफ़िशियल इंटेलिजेंस से कह सकते हैं कि वह कदमों और समय में आपकी मदद करे, और उन्हें एक समय-सारणी में देख सकते हैं। आज ही अपना घर मुफ़्त में बनाएँ: लिंक डिस्क्रिप्शन में है। और अगली गाइड में: अपना समय कैसे व्यवस्थित करें?",
+    "boton": "लक्ष्य कमरा खोलें",
+    "lamina": "app-plan",
+    "anclas": {
+      "escribir": "अपने लक्ष्य लिख",
+      "plan": "आर्टिफ़िशियल इंटेलिजेंस से कह",
+      "cronograma": "एक समय-सारणी में"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "norcross-2002",
+      "texto": "Norcross J. C., Mrykalo M. S., Blagys M. D. Auld lang syne: Success predictors, change processes, and self-reported outcomes of New Year's resolvers and nonresolvers. Journal of Clinical Psychology (2002).",
+      "url": "https://doi.org/10.1002/jclp.1151"
+    },
+    {
+      "id": "sheeran-2002",
+      "texto": "Sheeran P. Intention–behavior relations: A conceptual and empirical review. European Review of Social Psychology (2002).",
+      "url": "https://doi.org/10.1080/14792772143000003"
+    },
+    {
+      "id": "galla-2015",
+      "texto": "Galla B. M., Duckworth A. L. More than resisting temptation: Beneficial habits mediate the relationship between self-control and positive life outcomes. Journal of Personality and Social Psychology (2015).",
+      "url": "https://doi.org/10.1037/pspp0000026"
+    },
+    {
+      "id": "locke-2002",
+      "texto": "Locke E. A., Latham G. P. Building a practically useful theory of goal setting and task motivation: A 35-year odyssey. American Psychologist (2002).",
+      "url": "https://doi.org/10.1037/0003-066X.57.9.705"
+    },
+    {
+      "id": "oscarsson-2020",
+      "texto": "Oscarsson M., Carlbring P., Andersson G., Rozental A. A large-scale experiment on New Year's resolutions: Approach-oriented goals are more successful than avoidance-oriented goals. PLOS ONE (2020).",
+      "url": "https://doi.org/10.1371/journal.pone.0234097"
+    },
+    {
+      "id": "milne-2002",
+      "texto": "Milne S., Orbell S., Sheeran P. Combining motivational and volitional interventions to promote exercise participation. British Journal of Health Psychology (2002).",
+      "url": "https://doi.org/10.1348/135910702169420"
+    },
+    {
+      "id": "gollwitzer-2006",
+      "texto": "Gollwitzer P. M., Sheeran P. Implementation intentions and goal achievement: A meta-analysis of effects and processes. Advances in Experimental Social Psychology (2006).",
+      "url": "https://doi.org/10.1016/S0065-2601(06)38002-1"
+    },
+    {
+      "id": "kivetz-2006",
+      "texto": "Kivetz R., Urminsky O., Zheng Y. The goal-gradient hypothesis resurrected. Journal of Marketing Research (2006).",
+      "url": "https://doi.org/10.1509/jmkr.43.1.39"
+    },
+    {
+      "id": "amabile-2011",
+      "texto": "Amabile T., Kramer S. The Progress Principle (Harvard Business Review Press, 2011).",
+      "url": "https://www.progressprinciple.com/"
+    },
+    {
+      "id": "dai-2014",
+      "texto": "Dai H., Milkman K. L., Riis J. The fresh start effect: Temporal landmarks motivate aspirational behavior. Management Science (2014).",
+      "url": "https://doi.org/10.1287/mnsc.2014.1901"
+    },
+    {
+      "id": "dresler-2017",
+      "texto": "Dresler M. et al. Mnemonic training reshapes brain networks to support superior memory. Neuron (2017).",
+      "url": "https://doi.org/10.1016/j.neuron.2017.02.003"
+    },
+    {
+      "id": "masicampo-2011",
+      "texto": "Masicampo E. J., Baumeister R. F. Consider it done! Plan making can eliminate the cognitive effects of unfulfilled goals. Journal of Personality and Social Psychology (2011).",
+      "url": "https://doi.org/10.1037/a0024192"
+    },
+    {
+      "id": "harkin-2016",
+      "texto": "Harkin B. et al. Does monitoring goal progress promote goal attainment? A meta-analysis of the experimental evidence. Psychological Bulletin (2016).",
+      "url": "https://doi.org/10.1037/bul0000025"
+    },
+    {
+      "id": "lally-2010",
+      "texto": "Lally P., van Jaarsveld C. H. M., Potts H. W. W., Wardle J. How are habits formed: Modelling habit formation in the real world. European Journal of Social Psychology (2010).",
+      "url": "https://doi.org/10.1002/ejsp.674"
+    },
+    {
+      "id": "oettingen-2014",
+      "texto": "Oettingen G. Rethinking Positive Thinking: Inside the New Science of Motivation (2014), WOOP तरीक़ा।",
+      "url": "https://woopmylife.org/"
+    },
+    {
+      "id": "breines-2012",
+      "texto": "Breines J. G., Chen S. Self-compassion increases self-improvement motivation. Personality and Social Psychology Bulletin (2012).",
+      "url": "https://doi.org/10.1177/0146167212445599"
+    }
+  ]
+}

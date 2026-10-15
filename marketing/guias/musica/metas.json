@@ -1,0 +1,26 @@
+{
+  "_nota": "Música de fondo de la guía de Metas, en este orden (elegida por el usuario, 14 oct 2026): canciones suyas hechas con el Studio de audio de MindHaOS.",
+  "canciones": [
+    {
+      "archivo": "trap-hiphop-energetic.mp3",
+      "titulo": "Trap, hiphop energetic, dynamic",
+      "credito": [
+        "«Trap, hiphop energetic, dynamic» · Música original de MindHaOS, hecha en su Studio de audio"
+      ]
+    },
+    {
+      "archivo": "cyberpunk-techno-violin.mp3",
+      "titulo": "Cyberpunk, techno, violin, arp",
+      "credito": [
+        "«Cyberpunk, techno, violin, arp» · Música original de MindHaOS, hecha en su Studio de audio"
+      ]
+    },
+    {
+      "archivo": "medieval-lofi-hiphop.mp3",
+      "titulo": "Medieval, lofi, hiphop",
+      "credito": [
+        "«Medieval, lofi, hiphop» · Música original de MindHaOS, hecha en su Studio de audio"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,769 @@
+{
+  "idioma": "pl",
+  "tema": "metas",
+  "plantillaId": "metas",
+  "numero": 9,
+  "nombre": "Cele",
+  "pregunta": "Jak osiągać swoje cele?",
+  "corta": "Jak osiągać swoje cele?",
+  "subtitulo": "Dlaczego samo chcenie nie wystarcza, co sprawia, że cel jest dobry, jak zamienić go w kroki, dlaczego mija zapał, dlaczego warto mieć wszystko w mentalnym domu, jak mierzyć postępy, co robić, gdy ci nie wyjdzie, i plan, żeby nie porzucić swoich celów.",
+  "aviso": "Ten przewodnik ma charakter informacyjny: podane liczby i badania to przybliżenia z ich źródeł, a każdy robi postępy we własnym tempie. Jeśli cel dotyczy twojego zdrowia fizycznego lub psychicznego, skonsultuj go też ze specjalistą.",
+  "partes": [
+    {
+      "id": "querer",
+      "titulo": "Dlaczego samo chcenie nie wystarcza?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Jak osiągać swoje cele? Każdego stycznia miliony ludzi postanawiają coś zmienić. A po sześciu miesiącach ponad połowa już się poddała. Co robią inaczej ci, którym się udaje? Dziś zobaczysz, co mówi o tym nauka, łącznie z jednym zdaniem, które prawie potraja twoje szanse."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "A tak przy okazji, to mój dom w MindHaOS, a w tym pokoju planuję wszystkie swoje cele."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część pierwsza. Dlaczego samo chcenie nie wystarcza?"
+        },
+        {
+          "id": "proponerse",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "proponerse"
+          },
+          "lamina": [
+            "calendario",
+            "brindis"
+          ],
+          "texto": "Najpierw dobra wiadomość: postanowienie naprawdę działa. W 2002 roku John Norcross przez sześć miesięcy obserwował prawie trzysta osób. Spośród tych, które złożyły noworoczne postanowienie, czterdzieści sześć procent wciąż go dotrzymywało. Spośród tych, które chciały tej samej zmiany, ale niczego sobie nie postanowiły, tylko cztery procent."
+        },
+        {
+          "id": "brecha",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "47 %",
+            "clave": "brecha"
+          },
+          "lamina": [
+            "sofa",
+            "tenis"
+          ],
+          "texto": "Ale między chceniem a działaniem jest luka. Przeglądając dziesiątki badań, psycholog Paschal Sheeran odkrył, że prawie połowa osób, które zamierzają coś zrobić, w końcu tego nie robi.",
+          "meme": "enero"
+        },
+        {
+          "id": "voluntad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ganas",
+              "voluntad",
+              "habito"
+            ]
+          },
+          "lamina": [
+            "despertador",
+            "rutina"
+          ],
+          "texto": "I sama siła woli nie wystarczy, żeby ją zapełnić. W 2015 roku Brian Galla i Angela Duckworth zauważyli, że osobom z większą samokontrolą nie idzie lepiej dlatego, że zaciskają zęby, ale dlatego, że mają więcej dobrych nawyków. Ci, którzy dotrzymują celów, nie mają więcej silnej woli; po prostu mniej jej potrzebują."
+        },
+        {
+          "id": "adelanto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "disenar",
+              "medir",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "mapa",
+            "brujula"
+          ],
+          "texto": "Więc sekret nie polega na tym, żeby chcieć bardziej, tylko żeby zaprojektować cel tak, by nie zależał od zapału. A w części piątej zobaczysz, dlaczego mistrzowie pamięci przechowują wszystko w domu."
+        },
+        {
+          "id": "diana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "porque",
+              "pasos"
+            ]
+          },
+          "lamina": "diana",
+          "enCasa": true,
+          "texto": "Tutaj, na mojej tarczy celów, każdy ma swoje miejsce: czego chcę, dlaczego tego chcę i jakie kroki mnie tam doprowadzą."
+        }
+      ]
+    },
+    {
+      "id": "buena",
+      "titulo": "Co sprawia, że cel jest dobry?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część druga. Co sprawia, że cel jest dobry?"
+        },
+        {
+          "id": "concreta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "metaBuena"
+          },
+          "lamina": [
+            "libreta",
+            "lapiz"
+          ],
+          "texto": "Edwin Locke i Gary Latham przez trzydzieści lat przeglądali setki badań i wniosek się powtarza: konkretny i trochę trudny cel zawsze wygrywa z „zrobię, co w mojej mocy”. Zobacz, jak zmienia się „ćwiczyć”, kiedy dodasz co, ile, kiedy i gdzie."
+        },
+        {
+          "id": "acercar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "59 % · 47 %",
+            "clave": "acercar"
+          },
+          "lamina": [
+            "fruta",
+            "refresco"
+          ],
+          "texto": "Liczy się też to, jak go sformułujesz. W 2020 roku w Szwecji obserwowano ponad tysiąc osób z noworocznymi postanowieniami: cele, żeby coś zacząć, na przykład jeść więcej owoców, udawały się częściej niż cele, żeby coś rzucić, na przykład cukier."
+        },
+        {
+          "id": "una",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "escribe",
+              "porque"
+            ]
+          },
+          "lamina": [
+            "post",
+            "lista"
+          ],
+          "texto": "Dlatego warto zacząć od jednego celu, zapisanego pozytywnie, i z powodem, który naprawdę jest dla ciebie ważny: to „dlaczego” podnosi cię w trudne dni.",
+          "meme": "vaga"
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "cuanto",
+              "cuando"
+            ]
+          },
+          "lamina": "escribir",
+          "enCasa": true,
+          "texto": "Tak zapisuję każdy cel w moim pokoju: czego chcę, ile i do kiedy, bez ogólników."
+        }
+      ]
+    },
+    {
+      "id": "pasos",
+      "titulo": "Jak zamienić cel w kroki?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część trzecia. Jak zamienić cel w kroki?"
+        },
+        {
+          "id": "siEntonces",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "siEntonces"
+          },
+          "lamina": [
+            "correr",
+            "agenda"
+          ],
+          "texto": "Oto zdanie, które ci obiecałam. W 2002 roku w Wielkiej Brytanii poproszono studentów, żeby ćwiczyli. Jednej grupie tylko wyjaśniono dlaczego; drugą poproszono też, żeby zapisała kiedy i gdzie, w zdaniu typu: „jeśli jest poniedziałek, siódma, to idę pobiegać do parku”. W pierwszej grupie ćwiczyło trzydzieści pięć procent; ze zdaniem, dziewięćdziesiąt jeden."
+        },
+        {
+          "id": "gollwitzer",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "94",
+            "clave": "gollwitzer"
+          },
+          "lamina": [
+            "reloj",
+            "puerta"
+          ],
+          "texto": "Takie zdanie nazywa się intencją implementacyjną, a Peter Gollwitzer i Paschal Sheeran przeanalizowali je w dziewięćdziesięciu czterech badaniach: ustalenie z góry, kiedy i gdzie zadziałasz, pomaga dużo bardziej niż samo pragnienie wyniku."
+        },
+        {
+          "id": "escalera",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escalera"
+          },
+          "lamina": [
+            "escalera",
+            "montana"
+          ],
+          "texto": "A duże cele się dzieli. Przebiegnięcie pięciu kilometrów to szczyt; dwadzieścia minut spaceru w poniedziałek to pierwszy stopień. Zobacz, jak cel zamienia się w etapy, a każdy etap w kroki, które mieszczą się w jednym dniu."
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "W moim pokoju Cele w MindHaOS sztuczna inteligencja układa mi taki plan: mówię jej, ile mam godzin i w które dni, a ona proponuje etapy na harmonogramie."
+        }
+      ]
+    },
+    {
+      "id": "ganas",
+      "titulo": "Dlaczego mija zapał?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część czwarta. Dlaczego mija zapał?"
+        },
+        {
+          "id": "tarjeta",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tarjeta"
+          },
+          "lamina": [
+            "cafe",
+            "sellos"
+          ],
+          "texto": "Zapał nie jest stały: rośnie, kiedy widzisz cel z bliska. W 2006 roku w kawiarni Uniwersytetu Columbia rozdano dwie karty z pieczątkami na darmową kawę. Jedna wymagała dziesięciu pieczątek; druga dwunastu, ale dwie już były. Obie wymagały dziesięciu zakupów, a mimo to ta z dwiema pieczątkami w prezencie zapełniła się prawie trzy dni wcześniej."
+        },
+        {
+          "id": "progreso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "12 000",
+            "clave": "progreso"
+          },
+          "lamina": [
+            "oficina",
+            "palomita"
+          ],
+          "texto": "Teresa Amabile przeczytała dwanaście tysięcy dzienników ludzi w pracy i najlepszy nastrój pojawiał się w dni, kiedy posuwali się naprzód w czymś, co było dla nich ważne, nawet jeśli tylko trochę. Małe postępy to paliwo."
+        },
+        {
+          "id": "inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "comienzos"
+          },
+          "lamina": [
+            "lunes",
+            "amanecer"
+          ],
+          "texto": "Są też dni, które dają dodatkowego kopa: poniedziałek, pierwszy dzień miesiąca, twoje urodziny. Katherine Milkman nazywa to efektem nowego początku: w te dni więcej osób szuka swoich celów i zaczyna je realizować. Wykorzystaj je, żeby ruszyć albo wrócić."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyo"
+          },
+          "lamina": "pulgar",
+          "texto": "A tak przy okazji, jesteśmy w połowie. Jeśli ten przewodnik ci się przydaje, kliknij „Podoba mi się”, „Subskrybuj”, żeby nie przegapić następnego, i „Udostępnij” go komuś, kto ma jakiś cel do zrealizowania."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "poco",
+              "visible",
+              "seguido"
+            ]
+          },
+          "lamina": "calendarioPared",
+          "enCasa": true,
+          "texto": "Dlatego mój kalendarz jest na widoku: każdy dzień, w którym robię postęp, nawet mały, zostaje zaznaczony i pcha mnie do następnego."
+        }
+      ]
+    },
+    {
+      "id": "casa",
+      "titulo": "Dlaczego warto mieć wszystko w mentalnym domu?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część piąta. Dlaczego warto mieć wszystko w mentalnym domu?"
+        },
+        {
+          "id": "simonides",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 500 a. C.",
+            "clave": "simonides"
+          },
+          "lamina": [
+            "simonides",
+            "templo"
+          ],
+          "texto": "Legenda mówi, że grecki poeta Symonides przypomniał sobie wszystkich gości uczty po miejscu, w którym każdy siedział. Tak narodził się pałac pamięci: przechowywanie pomysłów w pokojach domu, który dobrze znasz."
+        },
+        {
+          "id": "dresler",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "casaMental"
+          },
+          "lamina": [
+            "cerebro",
+            "pasillo"
+          ],
+          "texto": "I to działa. W 2017 roku Martin Dresler przez sześć tygodni trenował tą metodą zwykłych ludzi: wcześniej pamiętali około trzydziestu słów z listy; potem około trzydziestu pięciu więcej. A po kilku miesiącach wciąż pamiętali dużo więcej. Nasz mózg świetnie radzi sobie z miejscami."
+        },
+        {
+          "id": "pendientes",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "−",
+            "clave": "pendientes"
+          },
+          "lamina": [
+            "postits",
+            "calma"
+          ],
+          "texto": "Mieć wszystko w jednym miejscu to też spokój dla głowy. W 2011 roku E. J. Masicampo i Roy Baumeister zauważyli, że niezałatwione cele wkradają się do myśli, kiedy robisz coś innego; ale gdy tylko ktoś zapisał dla nich konkretny plan, te myśli przestawały przeszkadzać."
+        },
+        {
+          "id": "beneficios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "ver",
+              "conectar",
+              "soltar",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "casaIso",
+            "plano"
+          ],
+          "texto": "Mentalny dom daje ci cztery rzeczy: widzisz wszystkie cele na pierwszy rzut oka; widzisz, jak się łączą, bo lepszy sen pomaga w treningu; odpuszczasz to, co ma już swoje miejsce; i wiesz, do którego pokoju wrócić."
+        },
+        {
+          "id": "mencion-casa",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "casaIso",
+          "enCasa": true,
+          "texto": "Dlatego MindHaOS to dom: każdy pokój to obszar twojego życia, a stąd widzę cele ze wszystkich pokoi razem."
+        }
+      ]
+    },
+    {
+      "id": "medir",
+      "titulo": "Jak sprawdzić, czy robisz postępy?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część szósta. Jak sprawdzić, czy robisz postępy?"
+        },
+        {
+          "id": "harkin",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "138",
+            "clave": "harkin"
+          },
+          "lamina": [
+            "bascula",
+            "grafica"
+          ],
+          "texto": "Mierzenie działa. W 2016 roku Benjamin Harkin i jego zespół zebrali sto trzydzieści osiem eksperymentów: osoby, które często sprawdzały swoje postępy, były bliżej celu. A efekt był większy, kiedy je zapisywały albo komuś o nich mówiły."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "racha"
+          },
+          "lamina": [
+            "cuaderno",
+            "marcador"
+          ],
+          "texto": "Najprostszy sposób to seria: zaznaczaj każdy dzień, w którym ci się udało. Zobacz, jak łańcuch rośnie i jak jedna przerwa go nie zrywa, jeśli następnego dnia wrócisz."
+        },
+        {
+          "id": "semana",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hice",
+              "aprendi",
+              "ajusto"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "cafe2"
+          ],
+          "texto": "A raz w tygodniu dziesięć minut przeglądu: co się udało, czego to uczy i co poprawić. Mierz proces, nie tylko wynik: kilogramy spadają powoli, ale spacery liczysz już dziś."
+        },
+        {
+          "id": "misiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fases",
+              "palomea",
+              "avance"
+            ]
+          },
+          "lamina": "palomita",
+          "enCasa": true,
+          "texto": "W moim domu każdy plan ma swoje etapy i kroki, a kiedy je odhaczam, widzę, jak przesuwa się pasek."
+        }
+      ]
+    },
+    {
+      "id": "fallar",
+      "titulo": "Co robić, gdy ci nie wyjdzie?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część siódma. Co robić, gdy ci nie wyjdzie?"
+        },
+        {
+          "id": "lally",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "habito"
+          },
+          "lamina": [
+            "agua",
+            "caminar"
+          ],
+          "texto": "Czasem ci nie wyjdzie i to normalne. W 2010 roku Phillippa Lally obserwowała ludzi, którzy wyrabiali nowy nawyk: średnio potrzebowali sześćdziesięciu sześciu dni, żeby stał się automatyczny, choć jednym zajęło to osiemnaście, a innym dużo więcej. A opuszczenie jednego dnia nie wymazywało postępów."
+        },
+        {
+          "id": "dosVeces",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "falla",
+              "vuelve",
+              "nunca"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "levantarse"
+          ],
+          "texto": "Niebezpieczne nie jest potknięcie jednego dnia, tylko myśl „no i wszystko przepadło” i rzucenie wszystkiego. Praktyczna zasada: możesz odpuścić raz, ale nigdy dwa razy z rzędu.",
+          "meme": "arruine"
+        },
+        {
+          "id": "woop",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "woop"
+          },
+          "lamina": [
+            "obstaculo",
+            "plan"
+          ],
+          "texto": "I przygotuj się na potknięcia, zanim nadejdą. Gabriele Oettingen proponuje cztery kroki: twoje pragnienie, najlepszy rezultat, przeszkoda, która najbardziej cię hamuje, i twój plan, gdyby się pojawiła. Wyobrażanie sobie samego sukcesu rozleniwia; wyobrażanie sobie też przeszkody przygotowuje."
+        },
+        {
+          "id": "amable",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2012",
+            "clave": "autocompasion"
+          },
+          "lamina": [
+            "estudiar",
+            "abrazo"
+          ],
+          "texto": "I mów do siebie życzliwie. W 2012 roku Juliana Breines i Serena Chen zauważyły, że osoby, które po oblanym trudnym egzaminie traktowały się ze zrozumieniem, uczyły się więcej do następnego niż te, które tylko dodawały sobie otuchy."
+        },
+        {
+          "id": "ajustar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plan",
+              "meta",
+              "seguir"
+            ]
+          },
+          "lamina": "ajustar",
+          "enCasa": true,
+          "texto": "Kiedy mi nie wyjdzie, tutaj poprawiam plan, nie cel: przesuwam daty na harmonogramie i idę dalej."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Jak iść dalej? Twój plan na ciąg dalszy",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część ósma. Jak iść dalej? Twój plan na ciąg dalszy."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "W pierwszym tygodniu wybierz jeden cel, zapisz go pozytywnie, razem z jego zdaniem „jeśli…, to…”, i zacznij tak drobno, żeby nie dało się tego nie zrobić: dwie minuty się liczą.",
+          "meme": "grande"
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "subir"
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "texto": "W pierwszym miesiącu podnoś poprzeczkę trochę co tydzień, tylko jeśli poprzedni tydzień poszedł dobrze. Zobacz, jak dwie minuty, które co tydzień odrobinę rosną, po czterech miesiącach stają się pół godziną, bez ani jednego trudnego skoku."
+        },
+        {
+          "id": "medirVolver",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "domingo",
+              "racha3",
+              "lunes"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "lunes"
+          ],
+          "texto": "W każdą niedzielę przejrzyj swoją serię przez dziesięć minut; a jeśli jakiegoś dnia ci nie wyjdzie, poniedziałek, pierwszy dzień miesiąca albo choćby jutro to twój nowy początek."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Podsumowując: samo chcenie nie wystarcza, trzeba projektować; cel konkretny i pozytywny, ze zdaniem „jeśli…, to…”; podzielony na kroki i na widoku, w twoim mentalnym domu; mierzony co tydzień; a kiedy ci nie wyjdzie, wróć następnego dnia."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "W pokoju Cele w MindHaOS możesz zapisywać swoje cele i układać plany samodzielnie albo poprosić sztuczną inteligencję, żeby pomogła ci z krokami i terminami, i zobaczyć je na harmonogramie. Zbuduj swój dom za darmo już dziś: link jest w opisie. A w następnym przewodniku: jak zorganizować swój czas?",
+    "boton": "Otwórz pokój Cele",
+    "lamina": "app-plan",
+    "anclas": {
+      "escribir": "zapisywać swoje cele",
+      "plan": "poprosić sztuczną inteligencję",
+      "cronograma": "na harmonogramie"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "norcross-2002",
+      "texto": "Norcross J. C., Mrykalo M. S., Blagys M. D. Auld lang syne: Success predictors, change processes, and self-reported outcomes of New Year's resolvers and nonresolvers. Journal of Clinical Psychology (2002).",
+      "url": "https://doi.org/10.1002/jclp.1151"
+    },
+    {
+      "id": "sheeran-2002",
+      "texto": "Sheeran P. Intention–behavior relations: A conceptual and empirical review. European Review of Social Psychology (2002).",
+      "url": "https://doi.org/10.1080/14792772143000003"
+    },
+    {
+      "id": "galla-2015",
+      "texto": "Galla B. M., Duckworth A. L. More than resisting temptation: Beneficial habits mediate the relationship between self-control and positive life outcomes. Journal of Personality and Social Psychology (2015).",
+      "url": "https://doi.org/10.1037/pspp0000026"
+    },
+    {
+      "id": "locke-2002",
+      "texto": "Locke E. A., Latham G. P. Building a practically useful theory of goal setting and task motivation: A 35-year odyssey. American Psychologist (2002).",
+      "url": "https://doi.org/10.1037/0003-066X.57.9.705"
+    },
+    {
+      "id": "oscarsson-2020",
+      "texto": "Oscarsson M., Carlbring P., Andersson G., Rozental A. A large-scale experiment on New Year's resolutions: Approach-oriented goals are more successful than avoidance-oriented goals. PLOS ONE (2020).",
+      "url": "https://doi.org/10.1371/journal.pone.0234097"
+    },
+    {
+      "id": "milne-2002",
+      "texto": "Milne S., Orbell S., Sheeran P. Combining motivational and volitional interventions to promote exercise participation. British Journal of Health Psychology (2002).",
+      "url": "https://doi.org/10.1348/135910702169420"
+    },
+    {
+      "id": "gollwitzer-2006",
+      "texto": "Gollwitzer P. M., Sheeran P. Implementation intentions and goal achievement: A meta-analysis of effects and processes. Advances in Experimental Social Psychology (2006).",
+      "url": "https://doi.org/10.1016/S0065-2601(06)38002-1"
+    },
+    {
+      "id": "kivetz-2006",
+      "texto": "Kivetz R., Urminsky O., Zheng Y. The goal-gradient hypothesis resurrected. Journal of Marketing Research (2006).",
+      "url": "https://doi.org/10.1509/jmkr.43.1.39"
+    },
+    {
+      "id": "amabile-2011",
+      "texto": "Amabile T., Kramer S. The Progress Principle (Harvard Business Review Press, 2011).",
+      "url": "https://www.progressprinciple.com/"
+    },
+    {
+      "id": "dai-2014",
+      "texto": "Dai H., Milkman K. L., Riis J. The fresh start effect: Temporal landmarks motivate aspirational behavior. Management Science (2014).",
+      "url": "https://doi.org/10.1287/mnsc.2014.1901"
+    },
+    {
+      "id": "dresler-2017",
+      "texto": "Dresler M. et al. Mnemonic training reshapes brain networks to support superior memory. Neuron (2017).",
+      "url": "https://doi.org/10.1016/j.neuron.2017.02.003"
+    },
+    {
+      "id": "masicampo-2011",
+      "texto": "Masicampo E. J., Baumeister R. F. Consider it done! Plan making can eliminate the cognitive effects of unfulfilled goals. Journal of Personality and Social Psychology (2011).",
+      "url": "https://doi.org/10.1037/a0024192"
+    },
+    {
+      "id": "harkin-2016",
+      "texto": "Harkin B. et al. Does monitoring goal progress promote goal attainment? A meta-analysis of the experimental evidence. Psychological Bulletin (2016).",
+      "url": "https://doi.org/10.1037/bul0000025"
+    },
+    {
+      "id": "lally-2010",
+      "texto": "Lally P., van Jaarsveld C. H. M., Potts H. W. W., Wardle J. How are habits formed: Modelling habit formation in the real world. European Journal of Social Psychology (2010).",
+      "url": "https://doi.org/10.1002/ejsp.674"
+    },
+    {
+      "id": "oettingen-2014",
+      "texto": "Oettingen G. Rethinking Positive Thinking: Inside the New Science of Motivation (2014), metoda WOOP.",
+      "url": "https://woopmylife.org/"
+    },
+    {
+      "id": "breines-2012",
+      "texto": "Breines J. G., Chen S. Self-compassion increases self-improvement motivation. Personality and Social Psychology Bulletin (2012).",
+      "url": "https://doi.org/10.1177/0146167212445599"
+    }
+  ]
+}

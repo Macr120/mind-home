@@ -1,0 +1,769 @@
+{
+  "idioma": "ar",
+  "tema": "metas",
+  "plantillaId": "metas",
+  "numero": 9,
+  "nombre": "الأهداف",
+  "pregunta": "كيف تحقق أهدافك؟",
+  "corta": "كيف تحقق أهدافك؟",
+  "subtitulo": "لماذا لا تكفي الرغبة، وما الذي يجعل الهدف جيدًا، وكيف تحوّله إلى خطوات، ولماذا يخبو الحماس، ولماذا يساعدك أن تضع كل شيء في بيت ذهني، وكيف تقيس تقدّمك، وماذا تفعل حين تتعثر، وخطة كي لا تتخلى عن أهدافك.",
+  "aviso": "هذا الدليل للمعلومات فقط: الأرقام والدراسات المذكورة تقريبية كما وردت في مصادرها، وكل شخص يتقدّم بإيقاعه الخاص. إذا كان هدفك يتعلق بصحتك الجسدية أو النفسية، فاستشر فيه مختصًا أيضًا.",
+  "partes": [
+    {
+      "id": "querer",
+      "titulo": "لماذا لا تكفي الرغبة؟",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "كيف تحقق أهدافك؟ في كل يناير، يقرر ملايين الناس أن يغيّروا شيئًا في حياتهم. وبعد ستة أشهر، يكون أكثر من نصفهم قد تخلّى عنه. ما الذي يفعله الناجحون بشكل مختلف؟ اليوم ستعرف ذلك من خلال ما يقوله العلم، ومنه جملة واحدة تضاعف فرصك ثلاث مرات تقريبًا."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "بالمناسبة، هذا بيتي في MindHaOS، وفي هذه الغرفة أخطط لكل أهدافي."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الأول. لماذا لا تكفي الرغبة؟"
+        },
+        {
+          "id": "proponerse",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "proponerse"
+          },
+          "lamina": [
+            "calendario",
+            "brindis"
+          ],
+          "texto": "أولًا، الخبر الجيد: أن تعقد العزم ينفع فعلًا. في عام 2002، تابع جون نوركروس قرابة ثلاثمئة شخص لمدة ستة أشهر. من بين من اتخذوا قرارًا للعام الجديد، كان ستة وأربعون بالمئة لا يزالون ملتزمين به. ومن بين من أرادوا التغيير نفسه دون أن يقرروه، أربعة بالمئة فقط."
+        },
+        {
+          "id": "brecha",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "47 %",
+            "clave": "brecha"
+          },
+          "lamina": [
+            "sofa",
+            "tenis"
+          ],
+          "texto": "لكن بين الرغبة والفعل فجوة. بعد مراجعة عشرات الدراسات، وجد عالم النفس باسكال شيران أن نصف الناس تقريبًا ممن ينوون فعل شيء ما، لا يفعلونه في النهاية.",
+          "meme": "enero"
+        },
+        {
+          "id": "voluntad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ganas",
+              "voluntad",
+              "habito"
+            ]
+          },
+          "lamina": [
+            "despertador",
+            "rutina"
+          ],
+          "texto": "وقوة الإرادة لا تكفي لسدّ هذه الفجوة. في عام 2015، لاحظ براين غالا وأنجيلا داكويرث أن أصحاب ضبط النفس الأعلى لا ينجحون لأنهم يقاومون بالقوة، بل لأن لديهم عادات جيدة أكثر. من يحققون أهدافهم لا يملكون إرادة أكبر؛ بل يحتاجون إليها أقل."
+        },
+        {
+          "id": "adelanto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "disenar",
+              "medir",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "mapa",
+            "brujula"
+          ],
+          "texto": "إذن السرّ ليس أن ترغب أكثر، بل أن تصمّم هدفك بحيث لا يعتمد على الحماس. وفي الجزء الخامس سترى لماذا يحفظ أبطال الذاكرة كل شيء داخل بيت."
+        },
+        {
+          "id": "diana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "porque",
+              "pasos"
+            ]
+          },
+          "lamina": "diana",
+          "enCasa": true,
+          "texto": "هنا، على لوحة أهدافي، لكل هدف مكانه: ما أريده، ولماذا أريده، والخطوات للوصول إليه."
+        }
+      ]
+    },
+    {
+      "id": "buena",
+      "titulo": "ما الذي يجعل الهدف جيدًا؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثاني. ما الذي يجعل الهدف جيدًا؟"
+        },
+        {
+          "id": "concreta",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "metaBuena"
+          },
+          "lamina": [
+            "libreta",
+            "lapiz"
+          ],
+          "texto": "راجع إدوين لوك وغاري لاثام مئات الدراسات على مدى ثلاثين عامًا، والنتيجة تتكرر: الهدف المحدد والصعب قليلًا يتفوق دائمًا على «سأبذل قصارى جهدي». انظر كيف تتغير عبارة «ممارسة الرياضة» حين تضيف إليها ماذا، وكم، ومتى، وأين."
+        },
+        {
+          "id": "acercar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "59 % · 47 %",
+            "clave": "acercar"
+          },
+          "lamina": [
+            "fruta",
+            "refresco"
+          ],
+          "texto": "وطريقة صياغته مهمة أيضًا. في عام 2020، في السويد، تابعوا أكثر من ألف شخص لديهم قرارات للعام الجديد: الأهداف التي تبدأ شيئًا، مثل أكل مزيد من الفاكهة، تحققت أكثر من الأهداف التي تترك شيئًا، مثل ترك السكر."
+        },
+        {
+          "id": "una",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "escribe",
+              "porque"
+            ]
+          },
+          "lamina": [
+            "post",
+            "lista"
+          ],
+          "texto": "لذلك من الأفضل أن تبدأ بهدف واحد فقط، مكتوب بصيغة إيجابية، ومعه سبب يهمّك حقًا: فهذا السبب هو ما يرفعك في الأيام الصعبة.",
+          "meme": "vaga"
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "cuanto",
+              "cuando"
+            ]
+          },
+          "lamina": "escribir",
+          "enCasa": true,
+          "texto": "هكذا أكتب كل هدف في غرفتي: ماذا أريد، وكم، ومتى، بلا كلمات غامضة."
+        }
+      ]
+    },
+    {
+      "id": "pasos",
+      "titulo": "كيف يتحول الهدف إلى خطوات؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثالث. كيف يتحول الهدف إلى خطوات؟"
+        },
+        {
+          "id": "siEntonces",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "siEntonces"
+          },
+          "lamina": [
+            "correr",
+            "agenda"
+          ],
+          "texto": "وهذه هي الجملة التي وعدتك بها. في عام 2002، في المملكة المتحدة، طُلب من طلاب أن يمارسوا الرياضة. شرحوا لمجموعة السبب فقط؛ وطلبوا من مجموعة أخرى أن تكتب أيضًا متى وأين، في جملة مثل: «إذا كان يوم الاثنين في السابعة، فسأخرج للركض في الحديقة». في المجموعة الأولى مارس الرياضة خمسة وثلاثون بالمئة؛ ومع الجملة، واحد وتسعون."
+        },
+        {
+          "id": "gollwitzer",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "94",
+            "clave": "gollwitzer"
+          },
+          "lamina": [
+            "reloj",
+            "puerta"
+          ],
+          "texto": "تُسمّى هذه الجملة نية التنفيذ، وقد راجعها بيتر غولفيتسر وباسكال شيران في أربع وتسعين دراسة: أن تقرر مسبقًا متى وأين ستتصرف يساعد أكثر بكثير من مجرد تمنّي النتيجة."
+        },
+        {
+          "id": "escalera",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escalera"
+          },
+          "lamina": [
+            "escalera",
+            "montana"
+          ],
+          "texto": "والأهداف الكبيرة تُقسَّم. الركض خمسة كيلومترات قمة؛ والمشي عشرين دقيقة يوم الاثنين هو الدرجة الأولى. انظر كيف يتحول الهدف إلى مراحل، وكل مرحلة إلى خطوات تتسع ليوم واحد."
+        },
+        {
+          "id": "mencion-plan",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "في غرفة الأهداف في MindHaOS، يُعدّ لي الذكاء الاصطناعي هذه الخطة: أخبره كم ساعة لديّ وفي أي أيام، فيقترح عليّ المراحل في جدول زمني."
+        }
+      ]
+    },
+    {
+      "id": "ganas",
+      "titulo": "لماذا يخبو الحماس؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الرابع. لماذا يخبو الحماس؟"
+        },
+        {
+          "id": "tarjeta",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tarjeta"
+          },
+          "lamina": [
+            "cafe",
+            "sellos"
+          ],
+          "texto": "الحماس لا يبقى ثابتًا: يرتفع حين ترى الهدف قريبًا. في عام 2006، في مقهى بجامعة كولومبيا، وزّعوا بطاقتي أختام للحصول على قهوة مجانية. الأولى تطلب عشرة أختام؛ والثانية اثني عشر، لكن فيها ختمان جاهزان. كلتاهما تطلب عشر مشتريات، ومع ذلك امتلأت البطاقة ذات الختمين المجانيين قبل الأخرى بثلاثة أيام تقريبًا."
+        },
+        {
+          "id": "progreso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "12 000",
+            "clave": "progreso"
+          },
+          "lamina": [
+            "oficina",
+            "palomita"
+          ],
+          "texto": "قرأت تيريزا أمابايل اثني عشر ألف يومية كتبها أشخاص عن عملهم، وكانت أفضل حالاتهم المزاجية في الأيام التي تقدموا فيها في شيء يهمّهم، ولو قليلًا. التقدّم الصغير هو الوقود."
+        },
+        {
+          "id": "inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "comienzos"
+          },
+          "lamina": [
+            "lunes",
+            "amanecer"
+          ],
+          "texto": "وهناك أيام تمنحك دفعة إضافية: يوم الاثنين، وأول الشهر، وعيد ميلادك. تسمّي كاثرين ميلكمان ذلك أثر البداية الجديدة: في هذه التواريخ يبحث مزيد من الناس عن أهدافهم ويبدؤونها. استغلّها لتنطلق أو لتعود."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyo"
+          },
+          "lamina": "pulgar",
+          "texto": "بالمناسبة، وصلنا إلى المنتصف. إذا كان هذا الدليل يفيدك، فاضغط «أعجبني»، و«اشتراك» حتى لا يفوتك الدليل القادم، و«مشاركة» لترسله إلى من لديه هدف مؤجَّل."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "poco",
+              "visible",
+              "seguido"
+            ]
+          },
+          "lamina": "calendarioPared",
+          "enCasa": true,
+          "texto": "لهذا يبقى تقويمي أمام عيني: كل يوم أتقدّم فيه، ولو قليلًا، أضع عليه علامة، فيدفعني إلى اليوم التالي."
+        }
+      ]
+    },
+    {
+      "id": "casa",
+      "titulo": "لماذا يساعدك أن تضع كل شيء في بيت ذهني؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الخامس. لماذا يساعدك أن تضع كل شيء في بيت ذهني؟"
+        },
+        {
+          "id": "simonides",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 500 a. C.",
+            "clave": "simonides"
+          },
+          "lamina": [
+            "simonides",
+            "templo"
+          ],
+          "texto": "تقول الأسطورة إن الشاعر الإغريقي سيمونيدس تذكّر جميع ضيوف مأدبة من خلال المكان الذي جلس فيه كل واحد منهم. هكذا وُلد قصر الذاكرة: أن تحفظ الأفكار في غرف بيت تعرفه جيدًا."
+        },
+        {
+          "id": "dresler",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "casaMental"
+          },
+          "lamina": [
+            "cerebro",
+            "pasillo"
+          ],
+          "texto": "وهو ينجح فعلًا. في عام 2017، درّب مارتن دريسلر أشخاصًا عاديين على هذه الطريقة لستة أسابيع: كانوا يتذكرون قبلها نحو ثلاثين كلمة من قائمة؛ وبعدها، نحو خمس وثلاثين كلمة إضافية. وبعد أشهر ظلوا يتذكرون أكثر بكثير. دماغنا بارع جدًا في تذكّر الأماكن."
+        },
+        {
+          "id": "pendientes",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "−",
+            "clave": "pendientes"
+          },
+          "lamina": [
+            "postits",
+            "calma"
+          ],
+          "texto": "وأن يكون كل شيء في مكان واحد يريح الذهن أيضًا. في عام 2011، لاحظ إي. جي. ماسيكامبو وروي باومايستر أن الأهداف المعلّقة تتسلل إلى رأسك وأنت تفعل شيئًا آخر؛ لكن ما إن تكتب لها خطة محددة حتى تتوقف تلك الأفكار عن مقاطعتك."
+        },
+        {
+          "id": "beneficios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "ver",
+              "conectar",
+              "soltar",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "casaIso",
+            "plano"
+          ],
+          "texto": "البيت الذهني يمنحك أربعة أشياء: ترى كل أهدافك بنظرة واحدة؛ وترى كيف ترتبط ببعضها، لأن النوم الجيد يساعدك على التمرين؛ وتتخلّص من القلق بشأن ما له مكانه؛ وتعرف إلى أي غرفة تعود."
+        },
+        {
+          "id": "mencion-casa",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "lamina": "casaIso",
+          "enCasa": true,
+          "texto": "لهذا MindHaOS بيت: كل غرفة فيه مجال من مجالات حياتك، ومن هنا أرى أهداف كل الغرف معًا."
+        }
+      ]
+    },
+    {
+      "id": "medir",
+      "titulo": "كيف تعرف أنك تتقدّم؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السادس. كيف تعرف أنك تتقدّم؟"
+        },
+        {
+          "id": "harkin",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "138",
+            "clave": "harkin"
+          },
+          "lamina": [
+            "bascula",
+            "grafica"
+          ],
+          "texto": "القياس ينفع. في عام 2016، جمع بنجامين هاركين وفريقه مئة وثمانية وثلاثين تجربة: من كانوا يراجعون تقدّمهم كثيرًا اقتربوا أكثر من أهدافهم. وكان الأثر أكبر حين يدوّنونه، أو حين يخبرون به أحدًا."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "racha"
+          },
+          "lamina": [
+            "cuaderno",
+            "marcador"
+          ],
+          "texto": "أبسط طريقة هي السلسلة: ضع علامة على كل يوم تلتزم فيه. انظر كيف تطول السلسلة، وكيف لا تنقطع بفراغ واحد إذا عدت في اليوم التالي."
+        },
+        {
+          "id": "semana",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hice",
+              "aprendi",
+              "ajusto"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "cafe2"
+          ],
+          "texto": "ومرة في الأسبوع، عشر دقائق للمراجعة: ماذا فعلت، وماذا تعلّمت، وماذا أعدّل. قِس العملية، لا النتيجة وحدها: الوزن ينزل ببطء، أما المشي فيُحسب من اليوم."
+        },
+        {
+          "id": "misiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fases",
+              "palomea",
+              "avance"
+            ]
+          },
+          "lamina": "palomita",
+          "enCasa": true,
+          "texto": "في بيتي، لكل خطة مراحلها وخطواتها، وحين أضع عليها علامة الإنجاز أرى الشريط يتقدّم."
+        }
+      ]
+    },
+    {
+      "id": "fallar",
+      "titulo": "ماذا تفعل حين تتعثر؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السابع. ماذا تفعل حين تتعثر؟"
+        },
+        {
+          "id": "lally",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "habito"
+          },
+          "lamina": [
+            "agua",
+            "caminar"
+          ],
+          "texto": "ستتعثر، ولا بأس في ذلك. في عام 2010، تابعت فيليبا لالي أشخاصًا يكوّنون عادة جديدة: في المتوسط احتاجت العادة إلى ستة وستين يومًا لتصبح تلقائية، مع أن بعضهم احتاج إلى ثمانية عشر يومًا وآخرين إلى أكثر بكثير. وتفويت يوم واحد لم يمحُ ما تحقق."
+        },
+        {
+          "id": "dosVeces",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "falla",
+              "vuelve",
+              "nunca"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "levantarse"
+          ],
+          "texto": "الخطر ليس أن تتعثر يومًا، بل أن تقول «لقد أفسدت كل شيء» وتترك الأمر كله. القاعدة العملية: يمكنك أن تتعثر مرة، لكن لا مرتين متتاليتين.",
+          "meme": "arruine"
+        },
+        {
+          "id": "woop",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "woop"
+          },
+          "lamina": [
+            "obstaculo",
+            "plan"
+          ],
+          "texto": "واستعدّ للتعثرات قبل أن تأتي. تقترح غابرييله أوتينغن أربع خطوات: أمنيتك، وأفضل نتيجة، والعقبة التي توقفك أكثر من غيرها، وخطتك إن ظهرت. تخيّل النجاح وحده يُرخيك؛ أما تخيّل العقبة أيضًا فيجهّزك."
+        },
+        {
+          "id": "amable",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2012",
+            "clave": "autocompasion"
+          },
+          "lamina": [
+            "estudiar",
+            "abrazo"
+          ],
+          "texto": "وكلّم نفسك بلطف. في عام 2012، لاحظت جوليانا براينز وسيرينا تشين أن من عاملوا أنفسهم بتفهّم بعد الرسوب في امتحان صعب ذاكروا للامتحان التالي أكثر ممن اكتفوا بتشجيع أنفسهم."
+        },
+        {
+          "id": "ajustar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plan",
+              "meta",
+              "seguir"
+            ]
+          },
+          "lamina": "ajustar",
+          "enCasa": true,
+          "texto": "حين أتعثر، أعدّل هنا الخطة، لا الهدف: أحرّك التواريخ في الجدول الزمني وأواصل."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "كيف تستمر؟ خطتك للمواصلة",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثامن. كيف تستمر؟ خطتك للمواصلة."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "في الأسبوع الأول، اختر هدفًا واحدًا، واكتبه بصيغة إيجابية ومعه جملته «إذا…، فـ…»، وابدأ بشيء صغير جدًا يستحيل ألّا تفعله: دقيقتان تُحسبان.",
+          "meme": "grande"
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "subir"
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "texto": "في الشهر الأول، زِد قليلًا كل أسبوع، فقط إذا سار الأسبوع السابق جيدًا. انظر كيف تصبح دقيقتان تزدادان قليلًا كل أسبوع نصف ساعة خلال أربعة أشهر، بلا قفزة صعبة واحدة."
+        },
+        {
+          "id": "medirVolver",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "domingo",
+              "racha3",
+              "lunes"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "lunes"
+          ],
+          "texto": "كل يوم أحد، راجع سلسلتك عشر دقائق؛ وإذا تعثرت يومًا، فالاثنين أو أول الشهر أو الغد نفسه هو بدايتك الجديدة."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "باختصار: الرغبة لا تكفي، بل يجب التصميم؛ هدف محدد وبصيغة إيجابية، مع جملته «إذا…، فـ…»؛ مقسّم إلى خطوات وأمام عينيك، في بيتك الذهني؛ تقيسه كل أسبوع؛ وحين تتعثر، عُد في اليوم التالي."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "في غرفة الأهداف في MindHaOS يمكنك أن تكتب أهدافك وتضع خططك بنفسك، أو أن تطلب من الذكاء الاصطناعي مساعدتك في الخطوات والمواعيد، ثم تراها في جدول زمني. ابنِ بيتك مجانًا اليوم: الرابط في الوصف. وفي الدليل القادم: كيف تنظّم وقتك؟",
+    "boton": "افتح غرفة الأهداف",
+    "lamina": "app-plan",
+    "anclas": {
+      "escribir": "تكتب أهدافك",
+      "plan": "تطلب من الذكاء الاصطناعي",
+      "cronograma": "في جدول زمني"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "norcross-2002",
+      "texto": "Norcross J. C., Mrykalo M. S., Blagys M. D. Auld lang syne: Success predictors, change processes, and self-reported outcomes of New Year's resolvers and nonresolvers. Journal of Clinical Psychology (2002).",
+      "url": "https://doi.org/10.1002/jclp.1151"
+    },
+    {
+      "id": "sheeran-2002",
+      "texto": "Sheeran P. Intention–behavior relations: A conceptual and empirical review. European Review of Social Psychology (2002).",
+      "url": "https://doi.org/10.1080/14792772143000003"
+    },
+    {
+      "id": "galla-2015",
+      "texto": "Galla B. M., Duckworth A. L. More than resisting temptation: Beneficial habits mediate the relationship between self-control and positive life outcomes. Journal of Personality and Social Psychology (2015).",
+      "url": "https://doi.org/10.1037/pspp0000026"
+    },
+    {
+      "id": "locke-2002",
+      "texto": "Locke E. A., Latham G. P. Building a practically useful theory of goal setting and task motivation: A 35-year odyssey. American Psychologist (2002).",
+      "url": "https://doi.org/10.1037/0003-066X.57.9.705"
+    },
+    {
+      "id": "oscarsson-2020",
+      "texto": "Oscarsson M., Carlbring P., Andersson G., Rozental A. A large-scale experiment on New Year's resolutions: Approach-oriented goals are more successful than avoidance-oriented goals. PLOS ONE (2020).",
+      "url": "https://doi.org/10.1371/journal.pone.0234097"
+    },
+    {
+      "id": "milne-2002",
+      "texto": "Milne S., Orbell S., Sheeran P. Combining motivational and volitional interventions to promote exercise participation. British Journal of Health Psychology (2002).",
+      "url": "https://doi.org/10.1348/135910702169420"
+    },
+    {
+      "id": "gollwitzer-2006",
+      "texto": "Gollwitzer P. M., Sheeran P. Implementation intentions and goal achievement: A meta-analysis of effects and processes. Advances in Experimental Social Psychology (2006).",
+      "url": "https://doi.org/10.1016/S0065-2601(06)38002-1"
+    },
+    {
+      "id": "kivetz-2006",
+      "texto": "Kivetz R., Urminsky O., Zheng Y. The goal-gradient hypothesis resurrected. Journal of Marketing Research (2006).",
+      "url": "https://doi.org/10.1509/jmkr.43.1.39"
+    },
+    {
+      "id": "amabile-2011",
+      "texto": "Amabile T., Kramer S. The Progress Principle (Harvard Business Review Press, 2011).",
+      "url": "https://www.progressprinciple.com/"
+    },
+    {
+      "id": "dai-2014",
+      "texto": "Dai H., Milkman K. L., Riis J. The fresh start effect: Temporal landmarks motivate aspirational behavior. Management Science (2014).",
+      "url": "https://doi.org/10.1287/mnsc.2014.1901"
+    },
+    {
+      "id": "dresler-2017",
+      "texto": "Dresler M. et al. Mnemonic training reshapes brain networks to support superior memory. Neuron (2017).",
+      "url": "https://doi.org/10.1016/j.neuron.2017.02.003"
+    },
+    {
+      "id": "masicampo-2011",
+      "texto": "Masicampo E. J., Baumeister R. F. Consider it done! Plan making can eliminate the cognitive effects of unfulfilled goals. Journal of Personality and Social Psychology (2011).",
+      "url": "https://doi.org/10.1037/a0024192"
+    },
+    {
+      "id": "harkin-2016",
+      "texto": "Harkin B. et al. Does monitoring goal progress promote goal attainment? A meta-analysis of the experimental evidence. Psychological Bulletin (2016).",
+      "url": "https://doi.org/10.1037/bul0000025"
+    },
+    {
+      "id": "lally-2010",
+      "texto": "Lally P., van Jaarsveld C. H. M., Potts H. W. W., Wardle J. How are habits formed: Modelling habit formation in the real world. European Journal of Social Psychology (2010).",
+      "url": "https://doi.org/10.1002/ejsp.674"
+    },
+    {
+      "id": "oettingen-2014",
+      "texto": "Oettingen G. Rethinking Positive Thinking: Inside the New Science of Motivation (2014)، طريقة WOOP.",
+      "url": "https://woopmylife.org/"
+    },
+    {
+      "id": "breines-2012",
+      "texto": "Breines J. G., Chen S. Self-compassion increases self-improvement motivation. Personality and Social Psychology Bulletin (2012).",
+      "url": "https://doi.org/10.1177/0146167212445599"
+    }
+  ]
+}
