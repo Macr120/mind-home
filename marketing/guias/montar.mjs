@@ -1,6 +1,6 @@
 // Monta los videos de una guía a partir de las tomas de grabar.mjs y casa.mjs:
 //   salida/<id>/final/completo.mp4    la casa → las partes → el cierre → de vuelta a la casa, con capítulos
-//   salida/<id>/final/parte-N.mp4     su línea destacada (el gancho) → la parte → el cierre → de vuelta a la casa
+//   salida/<id>/final/parte-N.mp4     cortada del completo (cortar.mjs): de «Parte N» a justo antes de la siguiente + la tarjeta
 //   salida/<id>/final/capitulos.txt   marcas de tiempo para la descripción de YouTube
 //
 // Las tomas intermedias de la escena (casa-<extra>, Pep@ abriendo las otras
@@ -20,6 +20,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { FFMPEG, FFPROBE, LADO, RAIZ, ejecutar } from './cdp.mjs'
+import { cortarPartes } from './cortar.mjs'
 
 const args = process.argv.slice(2)
 const tema = args.find((a) => !a.startsWith('--')) ?? 'ejercicio'
@@ -269,30 +270,6 @@ async function conInsertos(i) {
   clips.push(await trozo('fin', desde))
   return clips
 }
-/**
- * El gancho de la parte suelta: su línea `destacada`, recortada de la toma de la
- * página (grabar.mjs apunta dónde empieza cada línea), con un fundido corto al
- * final. Sin línea destacada (o sin marcas), la parte suelta abre con la casa.
- */
-async function anzuelo(i) {
-  const linea = guion.partes[i].lineas.find((l) => l.destacada && !l.enCasa)
-  const ruta = path.join(TOMAS, `parte-${i + 1}.json`)
-  if (!linea || !existsSync(ruta)) return null
-  const marcas = JSON.parse(readFileSync(ruta, 'utf8')).lineas ?? []
-  const k = marcas.findIndex((m) => m.clave === `${guion.partes[i].id}.${linea.id}`)
-  if (k < 0) return null
-  const de = marcas[k].en
-  const hasta = marcas[k + 1]?.en ?? de + (tiemposVoz[marcas[k].clave] ?? 10) + 0.4
-  const dur = hasta - de
-  const salida = path.join(FINAL, `anzuelo-${i + 1}.mp4`)
-  await ejecutar(FFMPEG, [
-    '-y', '-ss', String(de), '-t', String(dur), '-i', tomas[i],
-    '-vf', `fade=t=out:st=${(dur - 0.35).toFixed(3)}:d=0.35`, '-af', `afade=t=out:st=${(dur - 0.35).toFixed(3)}:d=0.35`,
-    '-c:v', 'libx264', '-preset', 'medium', '-crf', '19', '-c:a', 'aac', '-b:a', '160k', salida,
-  ])
-  EJEMPLOS.set(salida, recortarTramos(tramosPagina(i), de, dur))
-  return salida
-}
 const tiemposVoz = JSON.parse(readFileSync(path.join(VOCES, 'tiempos.json'), 'utf8'))
 
 /**
@@ -340,12 +317,6 @@ await unir([...inicio, ...segmentos.flat(), salida], path.join(FINAL, 'completo.
 writeFileSync(path.join(FINAL, 'capitulos.txt'), capitulos.map((m) => `${mmss(m.inicio)} ${m.titulo}`).join('\n') + '\n')
 console.log(`✓ completo.mp4 · ${mmss(total)}`)
 
-// ─── Partes sueltas: su línea destacada + la parte (que lee su título) + el cierre + la casa ───
-for (let n = 1; n <= N; n++) {
-  // En redes los primeros segundos deciden: abre con lo más fuerte de la parte (sin ella, con la casa).
-  const gancho = await anzuelo(n - 1)
-  const abre = gancho ? [gancho] : inicio
-  // Cada parte suelta empieza con otra canción, para que no suenen todas igual.
-  await unir([...abre, ...segmentos[n - 1], ...segmentos[N], salida], path.join(FINAL, `parte-${n}.mp4`), null, [abre.length, segmentos[n - 1].length, segmentos[N].length + 1], n)
-  console.log(`✓ parte-${n}.mp4 · ${mmss((gancho ? await duracion(gancho) : dEntrada) + durs[n - 1] + durs[N] + dSalida)}`)
-}
+// ─── Partes sueltas: cortadas del completo, de «Parte X» a justo antes de «Parte X+1» (cortar.mjs) ───
+if (existsSync(path.join(TOMAS, 'tarjeta.png'))) await cortarPartes(tema, idioma, (n, d) => console.log(`✓ parte-${n}.mp4 · ${mmss(d)}`))
+else console.log(`(sin partes sueltas: falta tarjeta.png; corre tarjeta.mjs ${tema} ${idioma} y luego cortar.mjs ${tema} --lang=${idioma})`)
