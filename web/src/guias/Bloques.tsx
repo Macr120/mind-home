@@ -7,6 +7,7 @@ import { GRAFICAS_IDIOMAS, GraficaIdiomas } from './Idiomas'
 import { GRAFICAS_MUSICA, GraficaMusica } from './Musica'
 import { GRAFICAS_VIDEO, GraficaVideo } from './Video'
 import { GRAFICAS_METAS, GraficaMetas } from './Metas'
+import { GRAFICAS_MINDFULNESS, GraficaMindfulness } from './Mindfulness'
 import type { T, Visual } from './datos'
 
 interface Foto { archivo: string; autor: string; fuente: string }
@@ -63,6 +64,7 @@ export function Bloque({ v, tema, t }: { v: Visual; tema: string; t: T }) {
       if (tema === 'musica' && GRAFICAS_MUSICA.has(v.grafica!)) return <GraficaMusica id={v.grafica!} k={k} />
       if (tema === 'video' && GRAFICAS_VIDEO.has(v.grafica!)) return <GraficaVideo id={v.grafica!} k={k} />
       if (tema === 'metas' && GRAFICAS_METAS.has(v.grafica!)) return <GraficaMetas id={v.grafica!} k={k} />
+      if (tema === 'mindfulness' && GRAFICAS_MINDFULNESS.has(v.grafica!)) return <GraficaMindfulness id={v.grafica!} k={k} />
       if (GRAFICAS_COCINA.has(v.grafica!)) return <GraficaCocina id={v.grafica!} k={k} />
       if (GRAFICAS_FINANZAS.has(v.grafica!)) return <GraficaFinanzas id={v.grafica!} k={k} />
       if (GRAFICAS_IDIOMAS.has(v.grafica!)) return <GraficaIdiomas id={v.grafica!} k={k} />

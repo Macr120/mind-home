@@ -64,6 +64,11 @@ export const MEMES: Record<string, DefMeme> = {
   vaga: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
   arruine: { formato: 'arribaAbajo', poses: ['orgulloso', 'confundido'], sonido: 'jeje-boy' },
   grande: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'jeje-boy' },
+  // Mindfulness (también de la princesa).
+  solo: { formato: 'arribaAbajo', poses: ['relajado', 'confundido'], sonido: 'bruh' },
+  relajate: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
+  pestanas: { formato: 'arribaAbajo', poses: ['orgulloso', 'cansado'], sonido: 'jeje-boy' },
+  super: { formato: 'unico', poses: ['confundido'], sonido: 'bruh' },
 }
 
 export function Meme({ id, tema, t }: { id: string; tema: string; t: T }) {

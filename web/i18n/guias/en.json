@@ -1789,5 +1789,250 @@
         "abajo": "Walk 20 minutes today"
       }
     }
+  },
+  "mindfulness": {
+    "meta": {
+      "titulo": "Why will going slower get you there faster? A mindfulness guide: your wandering mind, what mindfulness is, slow breathing, getting more done, what science says, how to meditate and a plan to continue | MindHaOS",
+      "desc": "Mindfulness according to science: why your mind wanders almost half the day, what mindfulness is and where it comes from, the one-minute cyclic sigh, why slowing down helps you get more done, what studies say and what they don’t, how to meditate even if you can’t stop thinking, and a plan to make the calm stay."
+    },
+    "narra": "Narrated by the princess",
+    "cargando3d": "Loading the princess…",
+    "lista": {
+      "noVaciar": "It isn’t emptying your mind",
+      "noVaciarDet": "Thoughts will keep coming: the practice is noticing them.",
+      "noRelajar": "It isn’t forcing yourself to relax",
+      "noRelajarDet": "Sometimes calm comes, and sometimes it doesn’t: both count.",
+      "noHuir": "It isn’t escaping what you feel",
+      "noHuirDet": "It’s looking at it head-on, with curiosity and without judging yourself.",
+      "moderado": "The effect is moderate",
+      "moderadoDet": "It helps with anxiety, depression and pain, but it isn’t magic.",
+      "noMejor": "It doesn’t beat other treatments",
+      "noMejorDet": "In the 2014 review it performed about like exercise or therapy, not better.",
+      "noSustituye": "It’s no substitute for a specialist",
+      "noSustituyeDet": "If what you’re going through feels too heavy, ask for professional help.",
+      "cuerpo": "Scan your body",
+      "cuerpoDet": "Your attention moves slowly from your feet to your head, noticing each part.",
+      "caminar": "Walk slowly",
+      "caminarDet": "Feel each foot lift, move forward and land.",
+      "sonido": "Listen to a sound",
+      "sonidoDet": "Rain, the sea or a bell: when you drift off, come back to it.",
+      "resumen1": "Your mind wanders almost half the day",
+      "resumen2": "Mindfulness is noticing and coming back, without judging",
+      "resumen3": "Breathing slowly calms your body, and slowing down helps you get more done",
+      "resumen4": "A few minutes every day are worth more than an hour now and then"
+    },
+    "dato": {
+      "infeliz": "of waking hours, the mind is somewhere else, and it feels worse than when it’s paying attention (Killingsworth and Gilbert, 2010)",
+      "descargas": "of men and of women chose to give themselves a shock rather than be alone with their minds (Wilson and colleagues, 2014)",
+      "sati": "“sati”, in Pali: remembering to come back to what’s happening; “mindfulness” since 1881 (Rhys Davids)",
+      "balban": "a day for a month: cyclic sighing improved mood more than a mindfulness meditation (Balban and colleagues, Stanford, 2023)",
+      "mrazek": "percentile points on the reading section of a graduate school exam after two weeks of mindfulness (Mrazek and colleagues, 2013)",
+      "cerebro": "of meditation: the change in brain size a 2011 study suggested didn’t show up in a larger one in 2022 (Kral and colleagues)",
+      "basso": "a day: at eight weeks, better mood, attention and memory; at four, nothing showed yet (Basso and Suzuki, 2019)"
+    },
+    "pasos": {
+      "parar": "Stop",
+      "pararDet": "A few seconds of doing nothing else.",
+      "notar": "Notice",
+      "notarDet": "Where your mind is and how your body feels.",
+      "volver": "Come back",
+      "volverDet": "To the air going in and out, to what you’re doing.",
+      "respirar": "Breathe with attention",
+      "respirarDet": "Feel the air, without changing it.",
+      "cuerpo": "Scan the body",
+      "cuerpoDet": "From your feet to your head, part by part.",
+      "caminar": "Walk slowly",
+      "caminarDet": "Noticing each step.",
+      "como": "I say how I’m arriving",
+      "comoDet": "A face, from one to five; or I skip it.",
+      "medito": "I meditate for a few minutes",
+      "meditoDet": "With a bell at the start and another at the end.",
+      "como2": "I say how I’m leaving",
+      "como2Det": "And I see if anything changed.",
+      "patron": "I choose the pattern",
+      "patronDet": "Box 4-4-4-4 or 4-7-8.",
+      "circulo": "I follow the circle",
+      "circuloDet": "It grows when I breathe in and shrinks when I breathe out.",
+      "sigue": "Two, three or five minutes",
+      "sigueDet": "Whatever I have today.",
+      "campana": "One bell",
+      "campanaDet": "To mark that I’m starting.",
+      "una": "A few minutes for me",
+      "unaDet": "Breathing before what matters.",
+      "campana2": "Another bell",
+      "campana2Det": "And then, one thing at a time.",
+      "unaCosa": "One is enough",
+      "unaCosaDet": "Something small counts: a coffee, a phone call.",
+      "tres": "Three is better",
+      "tresDet": "It makes you look more calmly.",
+      "releer": "Reread them",
+      "releerDet": "On a hard day, the earlier entries help.",
+      "sientate": "Sit comfortably",
+      "sientateDet": "Back straight, but not stiff.",
+      "ancla": "Choose an anchor",
+      "anclaDet": "The air going in and out of your nose.",
+      "nota": "Notice the thought",
+      "notaDet": "Name it silently: “thinking”.",
+      "vuelve": "Go back to the anchor",
+      "vuelveDet": "Without scolding yourself. That’s one rep.",
+      "bosque": "Forest",
+      "bosqueDet": "Wind through the trees, and birds.",
+      "mar": "Sea",
+      "marDet": "Waves breaking slowly.",
+      "lluvia": "Rain",
+      "lluviaDet": "Or singing bowls, for as long as you like.",
+      "sinRacha": "No streaks to break",
+      "sinRachaDet": "A day without meditating doesn’t erase anything.",
+      "hoy": "Come back today",
+      "hoyDet": "Just like inside meditation: notice and come back.",
+      "suave": "Measure gently",
+      "suaveDet": "How you arrive, how you leave and how much calm you gather."
+    },
+    "mente": {
+      "titulo": "Where is your mind?",
+      "pregunta": "What are you thinking about right now?",
+      "aqui": "What I’m doing",
+      "otra": "Something else",
+      "preguntar": "Ask again",
+      "llevas": "Out of {n} questions, your mind was somewhere else {m} times",
+      "nota": "This is how the study’s app asked, at random times. Across more than 2,000 people, the mind was somewhere else almost half the time (illustrative)."
+    },
+    "definicion": {
+      "titulo": "Kabat-Zinn’s definition",
+      "p1": "Paying attention",
+      "p1Det": "Noticing what’s happening, inside and outside you.",
+      "p2": "On purpose",
+      "p2Det": "You choose it, not the autopilot.",
+      "p3": "In the present moment",
+      "p3Det": "Not the past, or tomorrow’s to-do list.",
+      "p4": "Without judging",
+      "p4Det": "No “that’s good” or “that’s bad”: just noticing.",
+      "nota": "Tap each part to see what it means."
+    },
+    "suspiro": {
+      "titulo": "The cyclic sigh",
+      "inhala": "Breathe in through your nose",
+      "otra": "One more, a short one",
+      "exhala": "Breathe out slowly through your mouth",
+      "listo": "Done: one minute",
+      "empezar": "Start one minute",
+      "detener": "Stop",
+      "ciclos": "Cycles: {n}",
+      "quedan": "{n} s left",
+      "nota": "Two inhales through your nose and one long exhale through your mouth, for one minute."
+    },
+    "caja": {
+      "titulo": "Two breathing patterns",
+      "caja": "Box 4-4-4-4",
+      "c478": "4-7-8",
+      "inhala": "Breathe in",
+      "sosten": "Hold",
+      "exhala": "Breathe out",
+      "seg": "{n} s",
+      "nota": "In box breathing, every side lasts the same. In 4-7-8, the exhale is the longest: it’s good before sleep."
+    },
+    "cambio": {
+      "titulo": "One at a time vs. jumping around",
+      "unaVez": "One at a time",
+      "saltando": "Jumping between tasks",
+      "tarea": "Task",
+      "cambios": "Every jump costs a few seconds to refocus",
+      "termina": "Done",
+      "nota": "Three identical tasks: jumping from one to another, every switch adds a bit of lost time (illustrative)."
+    },
+    "gratitud": {
+      "titulo": "Today I’m grateful for…",
+      "ej1": "A calm morning coffee",
+      "ej2": "My sister called me",
+      "ej3": "Walking in the sun for ten minutes",
+      "placeholder": "Something small counts",
+      "guardar": "Save",
+      "guardado": "Saved",
+      "nota": "In Emmons and McCullough’s study, writing them down once a week was enough. One is enough; three is better."
+    },
+    "volver": {
+      "titulo": "Every time you come back, it counts",
+      "ancla": "Your breath",
+      "d1": "Did I buy milk?",
+      "d2": "Tomorrow’s email",
+      "d3": "That song again",
+      "d4": "Am I doing this right?",
+      "volverBtn": "Notice and come back",
+      "reps": "Reps: {n}",
+      "nota": "Getting distracted isn’t failing: noticing you drifted off and coming back is the exercise."
+    },
+    "crecer": {
+      "titulo": "Your minutes of calm",
+      "minDia": "Minutes a day",
+      "mes": "In a month",
+      "anio": "In a year",
+      "horas": "{h} h {m} min",
+      "min": "{m} min",
+      "semilla": "Seed",
+      "brote": "Sprout",
+      "arbol": "Tree",
+      "bosque": "Forest",
+      "nota": "Three minutes a day already add up to more than an hour and a half a month. Build up little by little to ten or thirteen."
+    },
+    "grafica": {
+      "pulso": "When you breathe in, your heart speeds up a little; when you breathe out, it slows down. Slow breathing makes that swing bigger (illustrative).",
+      "rapida": "Fast breathing",
+      "lenta": "Slow breathing (about 6 a minute)",
+      "inhala": "In",
+      "exhala": "Out",
+      "latidos": "Beats per minute",
+      "practica": "Marines before a deployment: the working memory of those who practiced most held steady (Jha and colleagues, 2010; illustrative)",
+      "mucha": "Practiced more",
+      "poca": "Practiced little",
+      "inicio": "Start",
+      "fin": "8 weeks later",
+      "memoria": "Working memory",
+      "goyal": "Meditation programs: effect size at 8 weeks (Goyal and colleagues, 2014)",
+      "ansiedad": "Anxiety",
+      "depresion": "Depression",
+      "dolor": "Pain",
+      "pequeno": "Small",
+      "moderadoEje": "Moderate",
+      "grande": "Large",
+      "plan": "Your plan to continue",
+      "semana1": "Week 1",
+      "semana1Det": "After coffee: one minute of cyclic sighing and two of attention",
+      "mes1": "Month 1",
+      "mes1Det": "Go up a little each week, to ten or thirteen minutes",
+      "fallas": "If you skip a day",
+      "fallasDet": "That’s okay: the practice is coming back",
+      "medir": "To measure",
+      "medirDet": "How you arrive, how you leave and how much calm you gather"
+    },
+    "cierre": {
+      "titulo": "Your calm, in your own house",
+      "texto": "In the MindHaOS Garden you meditate with forest, sea, rain or singing bowl sounds, breathe along with a circle, write down what you’re grateful for and watch your calm grow from seed to forest, with no streaks or points chasing you."
+    },
+    "paquete": {
+      "guia": "Interactive guide (with the cyclic sigh, box and 4-7-8 breathing, your wandering mind, jumping tasks, your gratitude list and your minutes of calm, all moving in your browser)",
+      "app": "Open the Garden in MindHaOS",
+      "hashtags": "#mindfulness #meditation #breathwork #anxiety #wellbeing #mentalhealth #MindHaOS"
+    },
+    "memes": {
+      "solo": {
+        "arriba": "Me: “I need some time alone”",
+        "abajo": "Me two minutes alone with my thoughts"
+      },
+      "relajate": {
+        "arriba": "Emptying your mind",
+        "abajo": "Noticing you drifted off and coming back"
+      },
+      "pestanas": {
+        "arriba": "Me with five tabs, the group chat and the TV on: “so productive today”",
+        "abajo": "Me at 8 p.m. with nothing finished"
+      },
+      "super": {
+        "arriba": "Me meditating: “breathe in… breathe out… did I buy milk?”"
+      }
+    },
+    "gusta": {
+      "titulo": "Enjoying the guide?",
+      "nota": "A like, a subscribe or a share helps it reach more people."
+    }
   }
 }

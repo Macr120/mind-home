@@ -1,0 +1,696 @@
+{
+  "idioma": "hi",
+  "tema": "mindfulness",
+  "plantillaId": "jardin",
+  "numero": 10,
+  "nombre": "माइंडफुलनेस",
+  "pregunta": "धीमे चलना आपको जल्दी क्यों पहुँचाएगा?",
+  "corta": "धीमे चलें, जल्दी पहुँचें",
+  "subtitulo": "दिन का लगभग आधा समय आपका मन कहाँ रहता है, माइंडफुलनेस क्या है और कहाँ से आई, धीमी साँस लेने पर आपके शरीर में क्या होता है, रुकना आपको ज़्यादा काम का क्यों बनाता है, विज्ञान क्या कहता है और क्या नहीं, सोचना बंद न कर पाएँ तब भी ध्यान कैसे करें, और एक योजना ताकि शांति टिकी रहे।",
+  "aviso": "यह गाइड केवल जानकारी के लिए है: बताए गए आँकड़े और अध्ययन अपने स्रोतों के अनुमान हैं। माइंडफुलनेस किसी पेशेवर की देखभाल की जगह नहीं लेती: अगर आप चिंता, डिप्रेशन, किसी सदमे या ख़ुद को नुक़सान पहुँचाने वाले विचारों से जूझ रहे हैं, तो किसी मानसिक स्वास्थ्य विशेषज्ञ से मदद लें।",
+  "partes": [
+    {
+      "id": "mente",
+      "titulo": "आपका मन अभी इस पल कहाँ है?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "धीमे चलना आपको जल्दी क्यों पहुँचाएगा? एक प्रयोग में, कई लोगों को पंद्रह मिनट तक उनके विचारों के साथ अकेला छोड़ा गया, और उन्होंने चुपचाप बैठे रहने के बजाय ख़ुद को बिजली के झटके देना चुना। आज आप देखेंगे कि रुकने के बारे में विज्ञान क्या कहता है, और एक मिनट का एक अभ्यास भी, जिसे आप यह वीडियो ख़त्म होते ही कर सकते हैं।"
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "वैसे, यह MindHaOS में मेरा घर है, और यह बगीचा वह जगह है जहाँ मैं अपनी रफ़्तार धीमी करने आती हूँ।"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग एक। आपका मन अभी इस पल कहाँ है?"
+        },
+        {
+          "id": "divaga",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mente"
+          },
+          "lamina": [
+            "telefono",
+            "ventana"
+          ],
+          "texto": "दो हज़ार दस में, मैथ्यू किलिंग्सवर्थ और डैनियल गिल्बर्ट ने दो हज़ार से ज़्यादा लोगों से, दिन के अलग-अलग समय पर, उनके फ़ोन के ज़रिए पूछा: आप क्या कर रहे हैं, और क्या सोच रहे हैं? लगभग आधे समय, उनका मन कहीं और था।"
+        },
+        {
+          "id": "infeliz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "47 %",
+            "clave": "infeliz"
+          },
+          "lamina": [
+            "trafico",
+            "lluvia"
+          ],
+          "texto": "और यह आराम नहीं था: जब मन भटकता था, तो लोग ध्यान लगाए रहने की तुलना में बुरा महसूस करते थे, उबाऊ काम करते समय भी। उनका निष्कर्ष एक वाक्य में आ जाता है: भटकता मन, दुखी मन होता है।"
+        },
+        {
+          "id": "descargas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "67 % · 25 %",
+            "clave": "descargas"
+          },
+          "lamina": [
+            "silla",
+            "reloj"
+          ],
+          "texto": "और यह रहा शुरुआत वाला प्रयोग। दो हज़ार चौदह में, टिमोथी विल्सन ने स्वयंसेवकों को छह से पंद्रह मिनट तक एक कमरे में अकेला छोड़ा, बिना फ़ोन के, एक बटन के साथ जो हल्का झटका देता था। तीन में से दो पुरुषों और चार में से एक महिला ने उसे दबाया, सिर्फ़ इसलिए कि अपने मन के साथ अकेले न रहना पड़े।",
+          "meme": "solo"
+        },
+        {
+          "id": "jardin",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "parar",
+              "notar",
+              "volver"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "jardin",
+          "texto": "इसीलिए इस बगीचे में न दीवारें हैं, न जल्दबाज़ी: यहाँ बात है रुकने की, यह देखने की कि मैं कहाँ हूँ, और लौट आने की।"
+        }
+      ]
+    },
+    {
+      "id": "que",
+      "titulo": "माइंडफुलनेस क्या है और कहाँ से आई?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग दो। माइंडफुलनेस क्या है और कहाँ से आई?"
+        },
+        {
+          "id": "sati",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 2500 वर्ष",
+            "clave": "sati"
+          },
+          "lamina": [
+            "buda",
+            "manuscrito"
+          ],
+          "texto": "यह शब्द पालि के «सति» से आता है, जो लगभग ढाई हज़ार साल पुराने बौद्ध ग्रंथों की भाषा है। इसका मतलब कुछ ऐसा है: जो अभी हो रहा है, उस पर लौटना याद रखना। अठारह सौ इक्यासी में, अंग्रेज़ अनुवादक थॉमस रीस डेविड्स ने इसका अनुवाद अंग्रेज़ी में «माइंडफुलनेस» किया।"
+        },
+        {
+          "id": "kabatZinn",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "definicion"
+          },
+          "lamina": [
+            "kabatZinn",
+            "hospital"
+          ],
+          "texto": "उन्नीस सौ उन्यासी में, जीवविज्ञानी जॉन कबाट-ज़िन इसे मैसाचुसेट्स के एक अस्पताल में ले गए, बिना किसी धर्म के, पुराने दर्द से जूझ रहे मरीज़ों के लिए। उनकी परिभाषा आज भी इस्तेमाल होती है: जानबूझकर, वर्तमान पल पर, बिना आँके, ध्यान देना।"
+        },
+        {
+          "id": "noEs",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "noVaciar",
+              "noRelajar",
+              "noHuir"
+            ]
+          },
+          "lamina": [
+            "nubes",
+            "rio"
+          ],
+          "texto": "और वे यह भी साफ़ करते हैं कि यह क्या नहीं है। यह मन को ख़ाली कर देना नहीं है, ज़बरदस्ती शांत होना नहीं है, और जो आप महसूस करते हैं उससे भागना नहीं है। यह अपने विचारों को बादलों की तरह गुज़रते देखना है, हर एक पर सवार हुए बिना।",
+          "meme": "relajate"
+        },
+        {
+          "id": "ocho",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "respirar",
+              "cuerpo",
+              "caminar"
+            ]
+          },
+          "lamina": [
+            "grupo",
+            "caminar"
+          ],
+          "texto": "उनका कार्यक्रम आठ हफ़्ते का था: ध्यान से साँस लेना, पैरों से सिर तक शरीर पर ध्यान घुमाना, और हर कदम को महसूस करते हुए धीरे चलना। आज यह दुनिया भर के अस्पतालों, स्कूलों और कंपनियों में सिखाया जाता है।"
+        },
+        {
+          "id": "sesion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "como",
+              "medito",
+              "como2"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cojin",
+          "texto": "और इसके लिए किसी मठ की ज़रूरत नहीं: मैं यहाँ बैठती हूँ, बताती हूँ कि कैसे आई, कुछ मिनट ध्यान करती हूँ, और बताती हूँ कि कैसे जा रही हूँ।"
+        }
+      ]
+    },
+    {
+      "id": "respirar",
+      "titulo": "धीमी साँस लेने पर आपके शरीर में क्या होता है?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग तीन। धीमी साँस लेने पर आपके शरीर में क्या होता है?"
+        },
+        {
+          "id": "freno",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pulso"
+          },
+          "lamina": [
+            "corazon",
+            "pulmones"
+          ],
+          "texto": "साँस शरीर के ऑटोपायलट का अकेला ऐसा बटन है जिसे आप अपनी मर्ज़ी से छू सकते हैं। साँस अंदर लेते समय दिल थोड़ा तेज़ होता है; बाहर छोड़ते समय धीमा। धीरे साँस लेना, मिनट में लगभग छह बार, इस उतार-चढ़ाव को बड़ा करता है, और यह शांत होते शरीर का संकेत है।"
+        },
+        {
+          "id": "suspiro",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "suspiro"
+          },
+          "lamina": [
+            "nariz",
+            "atardecer"
+          ],
+          "texto": "और यह है वह एक मिनट का अभ्यास जिसका मैंने वादा किया था: चक्रीय आह। नाक से दो बार साँस लें, एक लंबी और एक छोटी सी ताकि फेफड़े पूरे भर जाएँ, और फिर मुँह से लंबी, धीमी साँस छोड़ें। इसे एक मिनट तक दोहराएँ। मेरे साथ कीजिए।"
+        },
+        {
+          "id": "balban",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "5 मिनट",
+            "clave": "balban"
+          },
+          "lamina": [
+            "laboratorio",
+            "sonrisa"
+          ],
+          "texto": "दो हज़ार तेईस में, स्टैनफ़र्ड यूनिवर्सिटी में, सौ से ज़्यादा लोगों ने एक महीने तक रोज़ पाँच मिनट अभ्यास किया। चक्रीय आह करने वालों का मूड, ध्यान वाली मेडिटेशन करने वालों से ज़्यादा सुधरा, और आराम के समय उनकी साँस धीमी हो गई।"
+        },
+        {
+          "id": "caja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "caja"
+          },
+          "lamina": [
+            "caja",
+            "noche"
+          ],
+          "texto": "और भी तरीक़े हैं। बॉक्स ब्रीदिंग: चार तक साँस लें, चार तक रोकें, चार तक छोड़ें, और चार तक रोकें। और चार-सात-आठ, जिसमें साँस छोड़ना, लेने से लंबा होता है, उन रातों के लिए जब नींद न आए।"
+        },
+        {
+          "id": "lampara",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "patron",
+              "circulo",
+              "sigue"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "respiracion",
+          "texto": "यहाँ, अपने बगीचे में, मैं तरीक़ा चुनती हूँ और एक घेरे के साथ चलती हूँ, जो साँस लेने पर बड़ा होता है और छोड़ने पर छोटा।"
+        }
+      ]
+    },
+    {
+      "id": "rapido",
+      "titulo": "रुकना आपको जल्दी क्यों पहुँचाता है?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग चार। रुकना आपको जल्दी क्यों पहुँचाता है?"
+        },
+        {
+          "id": "multitarea",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cambio"
+          },
+          "lamina": [
+            "pestanas",
+            "notificaciones"
+          ],
+          "texto": "एक साथ कई काम करना तेज़ लगता है, पर होता नहीं। हर बार जब आप एक काम से दूसरे पर कूदते हैं, आपके दिमाग़ को पहले वाला फिर से लोड करने में समय लगता है। और दो हज़ार नौ में, स्टैनफ़र्ड में, जो लोग लगातार स्क्रीनों के बीच कूदते रहते थे, वे ज़्यादा भटकते थे और काम बदलने में भी कमज़ोर थे।",
+          "meme": "pestanas"
+        },
+        {
+          "id": "mrazek",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+16",
+            "clave": "mrazek"
+          },
+          "lamina": [
+            "examen",
+            "biblioteca"
+          ],
+          "texto": "अब इसका उल्टा। दो हज़ार तेरह में, माइकल म्राज़ेक ने छात्रों को दो हफ़्ते माइंडफुलनेस की ट्रेनिंग दी, रोज़ कुछ मिनट। उनका मन कम भटका, उनकी वर्किंग मेमोरी बेहतर हुई, और एक पोस्टग्रेजुएट परीक्षा के रीडिंग वाले हिस्से में वे सोलह पर्सेंटाइल अंक ऊपर गए।"
+        },
+        {
+          "id": "marines",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "practica"
+          },
+          "lamina": [
+            "soldado",
+            "bosque"
+          ],
+          "texto": "और अमीशी झा ने इसे मरीन सैनिकों पर आज़माया, एक मिशन पर जाने से पहले, जो बहुत तनाव का समय होता है। जिन्होंने ज़्यादा मिनट अभ्यास किया, उनकी वर्किंग मेमोरी बची रही; जिन्होंने लगभग नहीं किया, उनकी घट गई। इसीलिए सेना में कहते हैं: धीमा मतलब सधा हुआ, और सधा हुआ मतलब तेज़।"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "अगर आपको यह गाइड पसंद आ रही है, तो पसंद करें, सदस्यता लें और शेयर करें।"
+        },
+        {
+          "id": "campana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "campana",
+              "una",
+              "campana2"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cuenco",
+          "texto": "जब मेरे पास कोई ज़रूरी काम होता है, तो पहले मैं यहाँ आती हूँ: एक घंटी, कुछ मिनट अपने लिए, फिर एक घंटी, और उसके बाद एक समय में एक ही काम।"
+        }
+      ]
+    },
+    {
+      "id": "ciencia",
+      "titulo": "विज्ञान क्या कहता है, और क्या नहीं?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग पाँच। विज्ञान क्या कहता है, और क्या नहीं?"
+        },
+        {
+          "id": "goyal",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "goyal"
+          },
+          "lamina": [
+            "papeles",
+            "lupa"
+          ],
+          "texto": "दो हज़ार चौदह में, जॉन्स हॉपकिन्स यूनिवर्सिटी में माधव गोयल और उनकी टीम ने सैंतालीस परीक्षणों की समीक्षा की, जिनमें साढ़े तीन हज़ार से ज़्यादा लोग शामिल थे। ध्यान के कार्यक्रमों से चिंता, डिप्रेशन और दर्द में मध्यम सुधार हुआ।"
+        },
+        {
+          "id": "noMagia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "moderado",
+              "noMejor",
+              "noSustituye"
+            ]
+          },
+          "lamina": [
+            "balanza",
+            "doctor"
+          ],
+          "texto": "मध्यम का मतलब यही है: मदद करता है, पर जादू नहीं है। उस समीक्षा में यह व्यायाम या थेरेपी जैसे दूसरे इलाजों से बेहतर नहीं निकला, और ज़रूरत पड़ने पर यह किसी विशेषज्ञ की जगह नहीं लेता।"
+        },
+        {
+          "id": "cerebro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "8 सप्ताह",
+            "clave": "cerebro"
+          },
+          "lamina": [
+            "cerebro",
+            "resonancia"
+          ],
+          "texto": "और शायद आपने सुना हो कि आठ हफ़्ते का ध्यान आपके दिमाग़ का आकार बदल देता है। दो हज़ार ग्यारह के एक अध्ययन ने ऐसा इशारा किया था, पर दो हज़ार बाईस में एक बड़े और ज़्यादा सावधान अध्ययन को यह नहीं मिला। विज्ञान ऐसे ही आगे बढ़ता है: जो बात टिकती है, वह यह है कि ध्यान को साधना आपको जल्दी पहचानने और बेहतर प्रतिक्रिया देने में मदद करता है।"
+        },
+        {
+          "id": "gratitud",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gratitud"
+          },
+          "lamina": [
+            "diario",
+            "cafe"
+          ],
+          "texto": "और एक पड़ोसी अभ्यास, जिसके भी सबूत हैं: आभार जताना। दो हज़ार तीन में, रॉबर्ट एमन्स और माइकल मैकलॉ ने स्वयंसेवकों से हर हफ़्ते वे बातें लिखने को कहा जिनके लिए वे आभारी थे। दस हफ़्ते बाद वे अपनी ज़िंदगी से ज़्यादा संतुष्ट, ज़्यादा आशावादी थे, और ज़्यादा व्यायाम भी करने लगे थे।"
+        },
+        {
+          "id": "agradezco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unaCosa",
+              "tres",
+              "releer"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "flor",
+          "texto": "इसीलिए यहाँ मैं यह भी लिखती हूँ कि आज मैं किस बात के लिए आभारी हूँ: एक काफ़ी है, और तीन बेहतर।"
+        }
+      ]
+    },
+    {
+      "id": "meditar",
+      "titulo": "अगर सोचना बंद न हो, तो ध्यान कैसे करें?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग छह। अगर सोचना बंद न हो, तो ध्यान कैसे करें?"
+        },
+        {
+          "id": "repeticion",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "volver"
+          },
+          "lamina": [
+            "pesa",
+            "brujula"
+          ],
+          "texto": "यह रहा राज़: भटक जाना असफल होना नहीं है। यह अभ्यास का हिस्सा है। हर बार जब आप ध्यान देते हैं कि आप भटक गए और साँस पर लौट आते हैं, तो आप एक रेप करते हैं, जैसे आपके ध्यान के लिए एक स्क्वैट। अगर आप सौ बार भटके, तो आपने सौ बार ट्रेनिंग की।",
+          "meme": "super"
+        },
+        {
+          "id": "pasos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sientate",
+              "ancla",
+              "nota",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "silla2",
+            "ojos"
+          ],
+          "texto": "इतना आसान है: आराम से बैठें, पीठ सीधी, पर अकड़ी हुई नहीं। एक सहारा चुनें, जैसे नाक से आती-जाती हवा। जब कोई विचार आए, तो मन ही मन उसे नाम दें, «सोचना», और ख़ुद को डाँटे बिना सहारे पर लौट आएँ।"
+        },
+        {
+          "id": "basso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "13 मिनट",
+            "clave": "basso"
+          },
+          "lamina": [
+            "reloj2",
+            "amanecer"
+          ],
+          "texto": "कितनी देर? दो हज़ार उन्नीस में, जूलिया बासो और वेंडी सुज़ुकी ने बिना अनुभव वाले लोगों से रोज़ तेरह मिनट ध्यान करने को कहा। चार हफ़्ते में अभी फ़र्क़ नहीं दिखा; आठ हफ़्ते में उनका मूड, ध्यान और याददाश्त बेहतर थे। नियमितता, लंबाई से जीतती है।"
+        },
+        {
+          "id": "otras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cuerpo",
+              "caminar",
+              "sonido"
+            ]
+          },
+          "lamina": [
+            "pies",
+            "olas"
+          ],
+          "texto": "और अगर बैठना आपको रास नहीं आता, तो और भी दरवाज़े हैं: पैरों से सिर तक अपने शरीर पर ध्यान घुमाना; हर कदम महसूस करते हुए धीरे चलना; या कोई आवाज़ सुनना, जैसे बारिश या समुद्र, और उसी पर लौटते रहना।"
+        },
+        {
+          "id": "sonidos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bosque",
+              "mar",
+              "lluvia"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "lluvia",
+          "texto": "यहाँ मैं आवाज़ चुनती हूँ, जंगल, समुद्र, बारिश या सिंगिंग बाउल, समय चुनती हूँ, और घंटी बजने तक ध्यान करती हूँ।"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "आगे कैसे बढ़ें? आगे जारी रखने की आपकी योजना",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग सात। आगे कैसे बढ़ें? आगे जारी रखने की आपकी योजना।"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "cafe",
+            "semilla"
+          ],
+          "texto": "पहले हफ़्ते, अपने अभ्यास को किसी ऐसी चीज़ से जोड़ें जो आप पहले से करते हैं: चाय या कॉफ़ी के बाद, एक मिनट चक्रीय आह और दो मिनट साँस पर ध्यान। इतना कम कि कोई बहाना न बचे।"
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "crecer"
+          },
+          "lamina": [
+            "brote",
+            "arbol"
+          ],
+          "texto": "पहले महीने, हर हफ़्ते थोड़ा बढ़ाएँ, जब तक दस या तेरह मिनट न हो जाएँ, और अलग-अलग आवाज़ें और तरीक़े आज़माएँ, जब तक अपना वाला न मिल जाए। देखिए, रोज़ के तीन मिनट महीने में डेढ़ घंटे से ज़्यादा हो जाते हैं।"
+        },
+        {
+          "id": "fallar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinRacha",
+              "hoy",
+              "suave"
+            ]
+          },
+          "lamina": [
+            "banca",
+            "parque"
+          ],
+          "texto": "और अगर किसी दिन ध्यान न कर पाएँ, तो कोई बात नहीं: यहाँ कोई सिलसिला नहीं जो टूट जाए। अभ्यास है लौट आना, ठीक वैसे ही जैसे ध्यान के अंदर। अपनी प्रगति मापने के लिए देखें कि आप कैसे आए और कैसे जा रहे हैं, और कितनी शांति जमा कर रहे हैं।"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "bosque",
+          "texto": "संक्षेप में: आपका मन दिन का लगभग आधा समय कहीं और रहता है; माइंडफुलनेस है ध्यान देना और लौट आना, बिना आँके; धीमी साँस आपके शरीर को थामती है; रुकना आपको ज़्यादा काम का बनाता है; और रोज़ के कुछ मिनट, कभी-कभार के एक घंटे से ज़्यादा क़ीमती हैं।"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS के बगीचे में आप जंगल, समुद्र या बारिश की आवाज़ों के साथ ध्यान कर सकते हैं, राह दिखाते एक घेरे के साथ साँस ले सकते हैं और अपनी कृतज्ञता लिख सकते हैं, और साथ ही अपनी शांति को बीज से जंगल तक बढ़ते देख सकते हैं। आज ही अपना मन का घर मुफ़्त में बनाएँ: लिंक डिस्क्रिप्शन में है। और अगली गाइड में: अपना समय कैसे व्यवस्थित करें?",
+    "boton": "बगीचा खोलें",
+    "lamina": "app-plan",
+    "anclas": {
+      "meditar": "ध्यान कर सकते हैं",
+      "respirar": "घेरे के साथ साँस",
+      "agradecer": "अपनी कृतज्ञता लिख",
+      "calma": "अपनी शांति को"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "killingsworth-2010",
+      "texto": "Killingsworth M. A., Gilbert D. T. A wandering mind is an unhappy mind. Science (2010).",
+      "url": "https://doi.org/10.1126/science.1192439"
+    },
+    {
+      "id": "wilson-2014",
+      "texto": "Wilson T. D. et al. Just think: The challenges of the disengaged mind. Science (2014).",
+      "url": "https://doi.org/10.1126/science.1250830"
+    },
+    {
+      "id": "kabat-zinn-1982",
+      "texto": "Kabat-Zinn J. An outpatient program in behavioral medicine for chronic pain patients based on the practice of mindfulness meditation. General Hospital Psychiatry (1982).",
+      "url": "https://doi.org/10.1016/0163-8343(82)90026-3"
+    },
+    {
+      "id": "zaccaro-2018",
+      "texto": "Zaccaro A. et al. How breath-control can change your life: A systematic review on psycho-physiological correlates of slow breathing. Frontiers in Human Neuroscience (2018).",
+      "url": "https://doi.org/10.3389/fnhum.2018.00353"
+    },
+    {
+      "id": "balban-2023",
+      "texto": "Balban M. Y. et al. Brief structured respiration practices enhance mood and reduce physiological arousal. Cell Reports Medicine (2023).",
+      "url": "https://doi.org/10.1016/j.xcrm.2022.100895"
+    },
+    {
+      "id": "ophir-2009",
+      "texto": "Ophir E., Nass C., Wagner A. D. Cognitive control in media multitaskers. PNAS (2009).",
+      "url": "https://doi.org/10.1073/pnas.0903620106"
+    },
+    {
+      "id": "mrazek-2013",
+      "texto": "Mrazek M. D. et al. Mindfulness training improves working memory capacity and GRE performance while reducing mind wandering. Psychological Science (2013).",
+      "url": "https://doi.org/10.1177/0956797612459659"
+    },
+    {
+      "id": "jha-2010",
+      "texto": "Jha A. P. et al. Examining the protective effects of mindfulness training on working memory capacity and affective experience. Emotion (2010).",
+      "url": "https://doi.org/10.1037/a0018438"
+    },
+    {
+      "id": "goyal-2014",
+      "texto": "Goyal M. et al. Meditation programs for psychological stress and well-being: A systematic review and meta-analysis. JAMA Internal Medicine (2014).",
+      "url": "https://doi.org/10.1001/jamainternmed.2013.13018"
+    },
+    {
+      "id": "kral-2022",
+      "texto": "Kral T. R. A. et al. Absence of structural brain changes from mindfulness-based stress reduction: Two combined randomized controlled trials. Science Advances (2022).",
+      "url": "https://doi.org/10.1126/sciadv.abk3316"
+    },
+    {
+      "id": "emmons-2003",
+      "texto": "Emmons R. A., McCullough M. E. Counting blessings versus burdens: An experimental investigation of gratitude and subjective well-being in daily life. Journal of Personality and Social Psychology (2003).",
+      "url": "https://doi.org/10.1037/0022-3514.84.2.377"
+    },
+    {
+      "id": "basso-2019",
+      "texto": "Basso J. C. et al. Brief, daily meditation enhances attention, memory, mood, and emotional regulation in non-experienced meditators. Behavioural Brain Research (2019).",
+      "url": "https://doi.org/10.1016/j.bbr.2018.08.023"
+    }
+  ]
+}

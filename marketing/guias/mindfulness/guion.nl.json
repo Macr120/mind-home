@@ -1,0 +1,696 @@
+{
+  "idioma": "nl",
+  "tema": "mindfulness",
+  "plantillaId": "jardin",
+  "numero": 10,
+  "nombre": "Mindfulness",
+  "pregunta": "Waarom kom je sneller aan als je langzamer gaat?",
+  "corta": "Langzamer is sneller",
+  "subtitulo": "Waar je hoofd bijna de halve dag is, wat mindfulness is en waar het vandaan komt, wat er met je lichaam gebeurt als je langzaam ademt, waarom afremmen je meer laat presteren, wat de wetenschap wel en niet zegt, hoe je mediteert ook al kun je niet stoppen met denken, en een plan om de rust te laten blijven.",
+  "aviso": "Deze gids is informatief: de genoemde cijfers en studies zijn benaderingen uit hun bronnen. Mindfulness vervangt geen professionele zorg: als je leeft met angst, depressie, een trauma of gedachten die je pijn doen, zoek dan hulp bij een specialist in geestelijke gezondheid.",
+  "partes": [
+    {
+      "id": "mente",
+      "titulo": "Waar is je hoofd op dit moment?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Waarom kom je sneller aan als je langzamer gaat? In een experiment liet men veel mensen een kwartier alleen met hun gedachten, en ze gaven zichzelf liever elektrische schokken dan stil te zitten. Vandaag zie je wat de wetenschap zegt over afremmen, en een oefening van één minuut die je kunt doen zodra deze video afgelopen is."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "Trouwens, dit is mijn huis in MindHaOS, en in deze tuin kom ik om rustiger aan te doen."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel één. Waar is je hoofd op dit moment?"
+        },
+        {
+          "id": "divaga",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mente"
+          },
+          "lamina": [
+            "telefono",
+            "ventana"
+          ],
+          "texto": "In 2010 vroegen Matthew Killingsworth en Daniel Gilbert meer dan tweeduizend mensen, op willekeurige momenten, via hun telefoon: wat doe je nu en waar denk je aan? Bijna de helft van de tijd waren ze met hun hoofd ergens anders."
+        },
+        {
+          "id": "infeliz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "47 %",
+            "clave": "infeliz"
+          },
+          "lamina": [
+            "trafico",
+            "lluvia"
+          ],
+          "texto": "En dat was geen pauze: terwijl hun gedachten afdwaalden, voelden mensen zich slechter dan wanneer ze opletten, zelfs bij saaie dingen. Hun conclusie past in één zin: een dwalende geest is een ongelukkige geest."
+        },
+        {
+          "id": "descargas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "67 % · 25 %",
+            "clave": "descargas"
+          },
+          "lamina": [
+            "silla",
+            "reloj"
+          ],
+          "texto": "En hier is het experiment van het begin. In 2014 liet Timothy Wilson vrijwilligers zes tot vijftien minuten alleen in een kamer, zonder telefoon, met een knop die een klein schokje gaf. Twee op de drie mannen en een op de vier vrouwen drukten erop, alleen om niet alleen te zijn met hun gedachten.",
+          "meme": "solo"
+        },
+        {
+          "id": "jardin",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "parar",
+              "notar",
+              "volver"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "jardin",
+          "texto": "Daarom heeft deze tuin geen muren en geen haast: hier draait het om stoppen, opmerken waar ik ben en terugkeren."
+        }
+      ]
+    },
+    {
+      "id": "que",
+      "titulo": "Wat is mindfulness en waar komt het vandaan?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel twee. Wat is mindfulness en waar komt het vandaan?"
+        },
+        {
+          "id": "sati",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 2500 jaar",
+            "clave": "sati"
+          },
+          "lamina": [
+            "buda",
+            "manuscrito"
+          ],
+          "texto": "Het woord komt van “sati”, in het Pali, de taal van de oudste boeddhistische teksten, van zo’n tweeënhalfduizend jaar geleden. Het betekent zoiets als eraan denken terug te keren naar wat er nu gebeurt. In 1881 vertaalde de Engelse vertaler Thomas Rhys Davids het als “mindfulness”."
+        },
+        {
+          "id": "kabatZinn",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "definicion"
+          },
+          "lamina": [
+            "kabatZinn",
+            "hospital"
+          ],
+          "texto": "In 1979 bracht de bioloog Jon Kabat-Zinn het naar een ziekenhuis in Massachusetts, zonder religie, voor patiënten met chronische pijn. Zijn definitie wordt nog steeds gebruikt: aandacht geven, met opzet, aan het huidige moment, en zonder te oordelen."
+        },
+        {
+          "id": "noEs",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "noVaciar",
+              "noRelajar",
+              "noHuir"
+            ]
+          },
+          "lamina": [
+            "nubes",
+            "rio"
+          ],
+          "texto": "En hij maakt duidelijk wat het niet is. Het is niet je hoofd leegmaken, niet jezelf dwingen om ontspannen te zijn en niet vluchten voor wat je voelt. Het is je gedachten voorbij zien drijven als wolken, zonder op elke wolk te springen.",
+          "meme": "relajate"
+        },
+        {
+          "id": "ocho",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "respirar",
+              "cuerpo",
+              "caminar"
+            ]
+          },
+          "lamina": [
+            "grupo",
+            "caminar"
+          ],
+          "texto": "Zijn programma duurde acht weken: met aandacht ademen, je lichaam van top tot teen doorlopen en langzaam wandelen, terwijl je elke stap voelt. Nu wordt het over de hele wereld onderwezen in ziekenhuizen, scholen en bedrijven."
+        },
+        {
+          "id": "sesion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "como",
+              "medito",
+              "como2"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cojin",
+          "texto": "En je hebt geen klooster nodig: ik ga hier zitten, zeg hoe ik binnenkom, mediteer een paar minuten en zeg hoe ik wegga."
+        }
+      ]
+    },
+    {
+      "id": "respirar",
+      "titulo": "Wat gebeurt er met je lichaam als je langzaam ademt?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel drie. Wat gebeurt er met je lichaam als je langzaam ademt?"
+        },
+        {
+          "id": "freno",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pulso"
+          },
+          "lamina": [
+            "corazon",
+            "pulmones"
+          ],
+          "texto": "Je ademhaling is de enige knop van de automatische piloot van je lichaam die je zelf kunt bedienen. Bij het inademen versnelt je hart een beetje; bij het uitademen remt het af. Langzaam ademen, zo’n zes keer per minuut, maakt die golfbeweging groter, en dat is een teken van een lichaam dat tot rust komt."
+        },
+        {
+          "id": "suspiro",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "suspiro"
+          },
+          "lamina": [
+            "nariz",
+            "atardecer"
+          ],
+          "texto": "En dit is de oefening van één minuut die ik je beloofde: de cyclische zucht. Twee keer inademen door je neus, een lange en een korte om je longen helemaal te vullen, en dan lang en langzaam uitademen door je mond. Herhaal dat een minuut lang. Doe met me mee."
+        },
+        {
+          "id": "balban",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "5 min",
+            "clave": "balban"
+          },
+          "lamina": [
+            "laboratorio",
+            "sonrisa"
+          ],
+          "texto": "In 2023 oefenden aan de Stanford-universiteit meer dan honderd mensen een maand lang vijf minuten per dag. Wie de cyclische zucht deed, ging er in stemming meer op vooruit dan wie een aandachtsmeditatie deed, en hun ademhaling in rust werd trager."
+        },
+        {
+          "id": "caja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "caja"
+          },
+          "lamina": [
+            "caja",
+            "noche"
+          ],
+          "texto": "Er zijn meer patronen. De boxademhaling: vier tellen in, vier vasthouden, vier uit en vier vasthouden. En de vier-zeven-acht, met een uitademing die langer is dan de inademing, voor als je niet kunt slapen."
+        },
+        {
+          "id": "lampara",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "patron",
+              "circulo",
+              "sigue"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "respiracion",
+          "texto": "Hier, in mijn tuin, kies ik het patroon en volg ik een cirkel die groeit als ik inadem en krimpt als ik uitadem."
+        }
+      ]
+    },
+    {
+      "id": "rapido",
+      "titulo": "Waarom kom je sneller vooruit als je afremt?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vier. Waarom kom je sneller vooruit als je afremt?"
+        },
+        {
+          "id": "multitarea",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cambio"
+          },
+          "lamina": [
+            "pestanas",
+            "notificaciones"
+          ],
+          "texto": "Veel dingen tegelijk doen voelt snel, maar dat is het niet. Elke keer dat je van de ene taak naar de andere springt, heeft je brein tijd nodig om de eerste weer te laden. En in 2009, op Stanford, raakten mensen die steeds tussen schermen heen en weer sprongen sneller afgeleid en wisselden ze slechter van taak dan anderen.",
+          "meme": "pestanas"
+        },
+        {
+          "id": "mrazek",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+16",
+            "clave": "mrazek"
+          },
+          "lamina": [
+            "examen",
+            "biblioteca"
+          ],
+          "texto": "Nu het omgekeerde. In 2013 gaf Michael Mrazek studenten twee weken mindfulnesstraining, een paar minuten per dag. Hun gedachten dwaalden minder af, hun werkgeheugen werd beter en op het leesgedeelte van een toelatingsexamen voor een masteropleiding stegen ze zestien percentielpunten."
+        },
+        {
+          "id": "marines",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "practica"
+          },
+          "lamina": [
+            "soldado",
+            "bosque"
+          ],
+          "texto": "En Amishi Jha testte het bij mariniers vóór een missie, een periode met veel stress. Wie meer minuten oefende, beschermde zijn werkgeheugen; wie bijna niet oefende, ging erop achteruit. Daarom zeggen ze in het leger: langzaam is soepel, en soepel is snel."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "Als je de gids leuk vindt, klik dan op Vind ik leuk, Abonneren en Delen."
+        },
+        {
+          "id": "campana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "campana",
+              "una",
+              "campana2"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cuenco",
+          "texto": "Als ik iets belangrijks heb, kom ik eerst hier: een bel, een paar minuten voor mezelf, nog een bel, en dan één ding tegelijk."
+        }
+      ]
+    },
+    {
+      "id": "ciencia",
+      "titulo": "Wat zegt de wetenschap, en wat niet?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vijf. Wat zegt de wetenschap, en wat niet?"
+        },
+        {
+          "id": "goyal",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "goyal"
+          },
+          "lamina": [
+            "papeles",
+            "lupa"
+          ],
+          "texto": "In 2014 bekeken Madhav Goyal en zijn team, aan de Johns Hopkins-universiteit, zevenenveertig studies met meer dan drieënhalfduizend mensen. Meditatieprogramma’s verbeterden angst, depressie en pijn in matige mate."
+        },
+        {
+          "id": "noMagia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "moderado",
+              "noMejor",
+              "noSustituye"
+            ]
+          },
+          "lamina": [
+            "balanza",
+            "doctor"
+          ],
+          "texto": "Matig betekent precies dat: het helpt, maar het is geen toverij. In die review deed het het niet beter dan andere behandelingen, zoals sporten of therapie, en het vervangt geen specialist als je die nodig hebt."
+        },
+        {
+          "id": "cerebro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "8 wk",
+            "clave": "cerebro"
+          },
+          "lamina": [
+            "cerebro",
+            "resonancia"
+          ],
+          "texto": "En misschien heb je gehoord dat acht weken meditatie de grootte van je hersenen verandert. Een studie uit 2011 suggereerde dat, maar in 2022 vond een grotere en zorgvuldigere studie het niet terug. Zo gaat de wetenschap vooruit: wat overeind blijft, is dat aandacht trainen je helpt eerder op te merken en beter te reageren."
+        },
+        {
+          "id": "gratitud",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gratitud"
+          },
+          "lamina": [
+            "diario",
+            "cafe"
+          ],
+          "texto": "En een verwante oefening waar ook bewijs voor is: dankbaarheid. In 2003 vroegen Robert Emmons en Michael McCullough vrijwilligers om elke week op te schrijven waar ze dankbaar voor waren. Tien weken later voelden ze zich beter over hun leven, waren ze optimistischer en sportten ze zelfs meer."
+        },
+        {
+          "id": "agradezco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unaCosa",
+              "tres",
+              "releer"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "flor",
+          "texto": "Daarom schrijf ik hier ook op waar ik vandaag dankbaar voor ben: één ding is genoeg, en drie is beter."
+        }
+      ]
+    },
+    {
+      "id": "meditar",
+      "titulo": "Hoe mediteer je als je niet kunt stoppen met denken?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zes. Hoe mediteer je als je niet kunt stoppen met denken?"
+        },
+        {
+          "id": "repeticion",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "volver"
+          },
+          "lamina": [
+            "pesa",
+            "brujula"
+          ],
+          "texto": "Hier is het geheim: afgeleid raken is niet falen. Het hoort bij de oefening. Elke keer dat je merkt dat je bent afgedwaald en terugkeert naar je adem, doe je een herhaling, als een squat voor je aandacht. Als je honderd keer afdwaalt, heb je honderd keer getraind.",
+          "meme": "super"
+        },
+        {
+          "id": "pasos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sientate",
+              "ancla",
+              "nota",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "silla2",
+            "ojos"
+          ],
+          "texto": "Zo simpel is het: ga comfortabel zitten, met een rechte rug maar niet stijf. Kies een anker, zoals de lucht die door je neus in- en uitgaat. Merk je een gedachte op, benoem hem dan in stilte, “denken”, en keer terug naar je anker, zonder jezelf op je kop te geven."
+        },
+        {
+          "id": "basso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "13 min",
+            "clave": "basso"
+          },
+          "lamina": [
+            "reloj2",
+            "amanecer"
+          ],
+          "texto": "Hoe lang? In 2019 vroegen Julia Basso en Wendy Suzuki mensen zonder ervaring om dertien minuten per dag te mediteren. Na vier weken was er nog niets te merken; na acht hadden ze een betere stemming, betere aandacht en een beter geheugen. Regelmaat wint van duur."
+        },
+        {
+          "id": "otras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cuerpo",
+              "caminar",
+              "sonido"
+            ]
+          },
+          "lamina": [
+            "pies",
+            "olas"
+          ],
+          "texto": "En als zitten niets voor jou is, zijn er andere deuren: met je aandacht door je lichaam gaan, van je voeten tot je hoofd; langzaam wandelen en elke stap voelen; of luisteren naar een geluid, zoals regen of de zee, en daar steeds naar terugkeren."
+        },
+        {
+          "id": "sonidos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bosque",
+              "mar",
+              "lluvia"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "lluvia",
+          "texto": "Hier kies ik het geluid, bos, zee, regen of klankschalen, en de tijd, en mediteer ik tot de bel klinkt."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zeven. Hoe ga je verder? Jouw plan om door te gaan."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "cafe",
+            "semilla"
+          ],
+          "texto": "Koppel je oefening de eerste week aan iets wat je al doet: na de koffie een minuut cyclisch zuchten en twee minuten aandacht voor je adem. Zo weinig dat er geen excuus is."
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "crecer"
+          },
+          "lamina": [
+            "brote",
+            "arbol"
+          ],
+          "texto": "Bouw het de eerste maand elke week een beetje op tot tien of dertien minuten, en probeer de verschillende geluiden en patronen tot je de jouwe vindt. Kijk hoe drie minuten per dag optellen tot meer dan anderhalf uur per maand."
+        },
+        {
+          "id": "fallar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinRacha",
+              "hoy",
+              "suave"
+            ]
+          },
+          "lamina": [
+            "banca",
+            "parque"
+          ],
+          "texto": "En als je een dag niet mediteert, is dat niet erg: hier zijn geen reeksen die breken. De oefening is terugkeren, net als in de meditatie zelf. Om je vooruitgang te meten, let je op hoe je binnenkomt en hoe je weggaat, en hoeveel rust je verzamelt."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "bosque",
+          "texto": "Kort samengevat: je hoofd is bijna de halve dag ergens anders; mindfulness is opmerken en terugkeren, zonder te oordelen; langzaam ademen remt je lichaam af; afremmen laat je meer presteren; en elke dag een paar minuten is meer waard dan af en toe een uur."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "In de tuin van MindHaOS kun je mediteren met geluiden van bos, zee of regen, ademen met een cirkel die je begeleidt en opschrijven waar je dankbaar voor bent, terwijl je je rust ziet groeien van zaadje tot bos. Bouw vandaag gratis je mentale huis: de link staat in de beschrijving. En in de volgende gids: hoe organiseer je je tijd?",
+    "boton": "Tuin openen",
+    "lamina": "app-plan",
+    "anclas": {
+      "meditar": "kun je mediteren",
+      "respirar": "ademen met een cirkel",
+      "agradecer": "opschrijven waar je dankbaar",
+      "calma": "je rust ziet groeien"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "killingsworth-2010",
+      "texto": "Killingsworth M. A., Gilbert D. T. A wandering mind is an unhappy mind. Science (2010).",
+      "url": "https://doi.org/10.1126/science.1192439"
+    },
+    {
+      "id": "wilson-2014",
+      "texto": "Wilson T. D. et al. Just think: The challenges of the disengaged mind. Science (2014).",
+      "url": "https://doi.org/10.1126/science.1250830"
+    },
+    {
+      "id": "kabat-zinn-1982",
+      "texto": "Kabat-Zinn J. An outpatient program in behavioral medicine for chronic pain patients based on the practice of mindfulness meditation. General Hospital Psychiatry (1982).",
+      "url": "https://doi.org/10.1016/0163-8343(82)90026-3"
+    },
+    {
+      "id": "zaccaro-2018",
+      "texto": "Zaccaro A. et al. How breath-control can change your life: A systematic review on psycho-physiological correlates of slow breathing. Frontiers in Human Neuroscience (2018).",
+      "url": "https://doi.org/10.3389/fnhum.2018.00353"
+    },
+    {
+      "id": "balban-2023",
+      "texto": "Balban M. Y. et al. Brief structured respiration practices enhance mood and reduce physiological arousal. Cell Reports Medicine (2023).",
+      "url": "https://doi.org/10.1016/j.xcrm.2022.100895"
+    },
+    {
+      "id": "ophir-2009",
+      "texto": "Ophir E., Nass C., Wagner A. D. Cognitive control in media multitaskers. PNAS (2009).",
+      "url": "https://doi.org/10.1073/pnas.0903620106"
+    },
+    {
+      "id": "mrazek-2013",
+      "texto": "Mrazek M. D. et al. Mindfulness training improves working memory capacity and GRE performance while reducing mind wandering. Psychological Science (2013).",
+      "url": "https://doi.org/10.1177/0956797612459659"
+    },
+    {
+      "id": "jha-2010",
+      "texto": "Jha A. P. et al. Examining the protective effects of mindfulness training on working memory capacity and affective experience. Emotion (2010).",
+      "url": "https://doi.org/10.1037/a0018438"
+    },
+    {
+      "id": "goyal-2014",
+      "texto": "Goyal M. et al. Meditation programs for psychological stress and well-being: A systematic review and meta-analysis. JAMA Internal Medicine (2014).",
+      "url": "https://doi.org/10.1001/jamainternmed.2013.13018"
+    },
+    {
+      "id": "kral-2022",
+      "texto": "Kral T. R. A. et al. Absence of structural brain changes from mindfulness-based stress reduction: Two combined randomized controlled trials. Science Advances (2022).",
+      "url": "https://doi.org/10.1126/sciadv.abk3316"
+    },
+    {
+      "id": "emmons-2003",
+      "texto": "Emmons R. A., McCullough M. E. Counting blessings versus burdens: An experimental investigation of gratitude and subjective well-being in daily life. Journal of Personality and Social Psychology (2003).",
+      "url": "https://doi.org/10.1037/0022-3514.84.2.377"
+    },
+    {
+      "id": "basso-2019",
+      "texto": "Basso J. C. et al. Brief, daily meditation enhances attention, memory, mood, and emotional regulation in non-experienced meditators. Behavioural Brain Research (2019).",
+      "url": "https://doi.org/10.1016/j.bbr.2018.08.023"
+    }
+  ]
+}

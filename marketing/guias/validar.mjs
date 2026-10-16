@@ -63,16 +63,22 @@ for (const id of ids) {
     pe.lineas.forEach((le, j) => {
       const l = p.lineas?.[j]
       if (!l) return
-      for (const f of FIJOS) if (JSON.stringify(l[f]) !== JSON.stringify(le[f])) errores.push(`${pe.id}.${le.id}: «${f}» cambió`)
+      // La `cifra` de un dato puede llevar letras que se traducen («≈ 2500 años», «8 sem.»): el resto de `visual`, igual.
+      const sinCifra = (v) => (v && typeof v === 'object' ? { ...v, cifra: undefined } : v)
+      for (const f of FIJOS) if (JSON.stringify(f === 'visual' ? sinCifra(l[f]) : l[f]) !== JSON.stringify(f === 'visual' ? sinCifra(le[f]) : le[f])) errores.push(`${pe.id}.${le.id}: «${f}» cambió`)
       if (!l.texto?.trim()) errores.push(`${pe.id}.${le.id}: texto vacío`)
       if (id !== 'es' && l.texto === le.texto) errores.push(`${pe.id}.${le.id}: sin traducir`)
     })
   })
+  // El gancho, con las mismas frases que el español (Metas y las de antes: «?..?.»; Mindfulness: «?..»):
+  // casa.mjs pone un plano por frase y el «fah» tras una de ellas.
+  const forma = (texto) => frases(texto).map((f) => (f.pregunta ? '?' : '.')).join('')
   const gancho = g.partes?.[0]?.lineas?.find((l) => l.id === 'gancho')
-  if (gancho) {
-    const fr = frases(gancho.texto)
-    const forma = fr.map((f) => (f.pregunta ? '?' : '.')).join('')
-    if (forma !== '?..?.') errores.push(`gancho: frases «${forma}» (debe ser «?..?.»: pregunta, afirmación, afirmación, pregunta, afirmación)`)
+  const ganchoEs = es.partes[0].lineas.find((l) => l.id === 'gancho')
+  if (gancho && ganchoEs) {
+    const quiero = forma(ganchoEs.texto)
+    const hay = forma(gancho.texto)
+    if (hay !== quiero) errores.push(`gancho: frases «${hay}» (debe ser «${quiero}», como en español: ? = pregunta, . = afirmación)`)
   }
   for (const k of ['texto', 'boton']) if (!g.cierre?.[k]?.trim()) errores.push(`cierre.${k} vacío`)
   for (const [k, v] of Object.entries(es.cierre.anclas ?? {})) {

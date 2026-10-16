@@ -7552,6 +7552,7 @@ export const EN: Dict = {
   'guia.musica.titulo': "What is music?",
   'guia.video.titulo': "How do you make videos?",
   'guia.metas.titulo': "How do you reach your goals?",
+  'guia.mindfulness.titulo': "Why will going slower get you there faster?",
   // Esenciales (corren en la casa real y recorren los menús de cada app)
   'tut.esencial.titulo': 'The essentials',
   'tut.tipo.ejemplos': 'Examples · demo MindHaOS',

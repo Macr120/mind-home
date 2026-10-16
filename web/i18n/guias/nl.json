@@ -1789,5 +1789,250 @@
         "abajo": "Vandaag 20 minuten wandelen"
       }
     }
+  },
+  "mindfulness": {
+    "meta": {
+      "titulo": "Waarom kom je sneller aan als je langzamer gaat? Gids mindfulness: je dwalende hoofd, wat mindfulness is, langzaam ademen, meer presteren, wat de wetenschap zegt, hoe je mediteert en een plan om door te gaan | MindHaOS",
+      "desc": "Mindfulness volgens de wetenschap: waarom je hoofd bijna de halve dag afdwaalt, wat mindfulness is en waar het vandaan komt, de cyclische zucht van één minuut, waarom afremmen je meer laat presteren, wat studies wel en niet zeggen, hoe je mediteert ook al kun je niet stoppen met denken, en een plan om de rust te laten blijven."
+    },
+    "narra": "De prinses vertelt",
+    "cargando3d": "De prinses wordt geladen…",
+    "lista": {
+      "noVaciar": "Het is niet je hoofd leegmaken",
+      "noVaciarDet": "Er blijven gedachten komen: de oefening is ze opmerken.",
+      "noRelajar": "Het is niet jezelf dwingen te ontspannen",
+      "noRelajarDet": "Soms komt de rust, en soms niet: allebei telt.",
+      "noHuir": "Het is niet vluchten voor wat je voelt",
+      "noHuirDet": "Het is ernaar kijken, nieuwsgierig en zonder jezelf te veroordelen.",
+      "moderado": "Het effect is matig",
+      "moderadoDet": "Het helpt bij angst, depressie en pijn, maar het is geen toverij.",
+      "noMejor": "Niet beter dan andere behandelingen",
+      "noMejorDet": "In de review van 2014 werkte het ongeveer zoals sporten of therapie, niet meer.",
+      "noSustituye": "Vervangt geen specialist",
+      "noSustituyeDet": "Als wat je meemaakt te zwaar weegt, vraag dan professionele hulp.",
+      "cuerpo": "Je lichaam doorlopen",
+      "cuerpoDet": "Je aandacht gaat langzaam van je voeten naar je hoofd en merkt elk deel op.",
+      "caminar": "Langzaam wandelen",
+      "caminarDet": "Voel hoe elke voet omhoogkomt, naar voren gaat en neerkomt.",
+      "sonido": "Naar een geluid luisteren",
+      "sonidoDet": "Regen, de zee of een bel: als je afdwaalt, keer je ernaar terug.",
+      "resumen1": "Je hoofd is bijna de halve dag ergens anders",
+      "resumen2": "Mindfulness is opmerken en terugkeren, zonder te oordelen",
+      "resumen3": "Langzaam ademen remt je lichaam af, en afremmen laat je meer presteren",
+      "resumen4": "Elke dag een paar minuten is meer waard dan af en toe een uur"
+    },
+    "dato": {
+      "infeliz": "van de wakkere tijd is het hoofd ergens anders, en dat voelt slechter dan wanneer je oplet (Killingsworth en Gilbert, 2010)",
+      "descargas": "van de mannen en van de vrouwen gaf zichzelf liever een schok dan alleen te zijn met hun gedachten (Wilson en collega’s, 2014)",
+      "sati": "“sati”, in het Pali: eraan denken terug te keren naar wat er nu gebeurt; “mindfulness” sinds 1881 (Rhys Davids)",
+      "balban": "per dag, een maand lang: de cyclische zucht verbeterde de stemming meer dan een aandachtsmeditatie (Balban en collega’s, Stanford, 2023)",
+      "mrazek": "percentielpunten bij het leesgedeelte van een toelatingsexamen na twee weken mindfulness (Mrazek en collega’s, 2013)",
+      "cerebro": "meditatie: de verandering in hersengrootte die een studie uit 2011 suggereerde, kwam in een grotere studie uit 2022 niet terug (Kral en collega’s)",
+      "basso": "per dag: na acht weken een betere stemming, aandacht en geheugen; na vier was er nog niets te merken (Basso en Suzuki, 2019)"
+    },
+    "pasos": {
+      "parar": "Stoppen",
+      "pararDet": "Een paar seconden niets anders doen.",
+      "notar": "Opmerken",
+      "notarDet": "Waar je hoofd is en hoe je lichaam zich voelt.",
+      "volver": "Terugkeren",
+      "volverDet": "Naar de lucht die in- en uitgaat, naar wat je aan het doen bent.",
+      "respirar": "Met aandacht ademen",
+      "respirarDet": "De lucht voelen, zonder haar te veranderen.",
+      "cuerpo": "Het lichaam doorlopen",
+      "cuerpoDet": "Van je voeten tot je hoofd, deel voor deel.",
+      "caminar": "Langzaam wandelen",
+      "caminarDet": "Elke stap opmerken.",
+      "como": "Ik zeg hoe ik binnenkom",
+      "comoDet": "Een gezichtje, van één tot vijf; of ik sla het over.",
+      "medito": "Ik mediteer een paar minuten",
+      "meditoDet": "Met een bel aan het begin en een aan het eind.",
+      "como2": "Ik zeg hoe ik wegga",
+      "como2Det": "En kijk of er iets veranderd is.",
+      "patron": "Ik kies het patroon",
+      "patronDet": "Box 4-4-4-4 of 4-7-8.",
+      "circulo": "Ik volg de cirkel",
+      "circuloDet": "Hij groeit als ik inadem en krimpt als ik uitadem.",
+      "sigue": "Twee, drie of vijf minuten",
+      "sigueDet": "Wat ik vandaag heb.",
+      "campana": "Een bel",
+      "campanaDet": "Om aan te geven dat ik begin.",
+      "una": "Een paar minuten voor mezelf",
+      "unaDet": "Ademen voor iets belangrijks.",
+      "campana2": "Nog een bel",
+      "campana2Det": "En dan één ding tegelijk.",
+      "unaCosa": "Eén is genoeg",
+      "unaCosaDet": "Iets kleins telt ook: een kop koffie, een telefoontje.",
+      "tres": "Drie is beter",
+      "tresDet": "Dan zoek je met meer rust.",
+      "releer": "Teruglezen",
+      "releerDet": "Op een moeilijke dag helpen de oude notities.",
+      "sientate": "Ga comfortabel zitten",
+      "sientateDet": "Je rug recht, maar niet stijf.",
+      "ancla": "Kies een anker",
+      "anclaDet": "De lucht die door je neus in- en uitgaat.",
+      "nota": "Merk de gedachte op",
+      "notaDet": "Benoem hem in stilte: “denken”.",
+      "vuelve": "Keer terug naar je anker",
+      "vuelveDet": "Zonder jezelf op je kop te geven. Dat is een herhaling.",
+      "bosque": "Bos",
+      "bosqueDet": "Wind door de bomen en vogels.",
+      "mar": "Zee",
+      "marDet": "Golven die langzaam breken.",
+      "lluvia": "Regen",
+      "lluviaDet": "Of klankschalen, en zo lang als je wilt.",
+      "sinRacha": "Geen reeksen die breken",
+      "sinRachaDet": "Een dag zonder mediteren wist niets uit.",
+      "hoy": "Kom vandaag terug",
+      "hoyDet": "Net als in de meditatie: opmerken en terugkeren.",
+      "suave": "Meet met zachtheid",
+      "suaveDet": "Hoe je binnenkomt, hoe je weggaat en hoeveel rust je verzamelt."
+    },
+    "mente": {
+      "titulo": "Waar is je hoofd?",
+      "pregunta": "Waar denk je nu aan?",
+      "aqui": "Aan wat ik doe",
+      "otra": "Aan iets anders",
+      "preguntar": "Opnieuw vragen",
+      "llevas": "Van de {n} vragen was je hoofd {m} keer ergens anders",
+      "nota": "Zo vroeg de app van de studie het, op willekeurige momenten. Bij meer dan 2000 mensen was het hoofd bijna de helft van de tijd ergens anders (ter illustratie)."
+    },
+    "definicion": {
+      "titulo": "De definitie van Kabat-Zinn",
+      "p1": "Aandacht geven",
+      "p1Det": "Merken wat er gebeurt, in je en om je heen.",
+      "p2": "Met opzet",
+      "p2Det": "Jij kiest het, niet de automatische piloot.",
+      "p3": "Aan het huidige moment",
+      "p3Det": "Niet aan het verleden of aan het lijstje voor morgen.",
+      "p4": "Zonder te oordelen",
+      "p4Det": "Geen “goed” of “fout”: alleen opmerken.",
+      "nota": "Tik op elk deel om te zien wat het betekent."
+    },
+    "suspiro": {
+      "titulo": "De cyclische zucht",
+      "inhala": "Adem in door je neus",
+      "otra": "Nog een, kort",
+      "exhala": "Adem langzaam uit door je mond",
+      "listo": "Klaar: een minuut",
+      "empezar": "Start een minuut",
+      "detener": "Stoppen",
+      "ciclos": "Cycli: {n}",
+      "quedan": "Nog {n} s",
+      "nota": "Twee keer inademen door je neus en één keer lang uitademen door je mond, een minuut lang."
+    },
+    "caja": {
+      "titulo": "Twee ademhalingspatronen",
+      "caja": "Box 4-4-4-4",
+      "c478": "4-7-8",
+      "inhala": "In",
+      "sosten": "Vasthouden",
+      "exhala": "Uit",
+      "seg": "{n} s",
+      "nota": "Bij de boxademhaling duurt elke kant even lang. Bij 4-7-8 is de uitademing het langst: fijn voor het slapengaan."
+    },
+    "cambio": {
+      "titulo": "Eén tegelijk tegen heen en weer springen",
+      "unaVez": "Eén tegelijk",
+      "saltando": "Springen tussen taken",
+      "tarea": "Taak",
+      "cambios": "Elke sprong kost een paar seconden om je weer te concentreren",
+      "termina": "Klaar",
+      "nota": "Drie gelijke taken: als je ertussen heen en weer springt, kost elke wissel wat tijd (ter illustratie)."
+    },
+    "gratitud": {
+      "titulo": "Vandaag ben ik dankbaar voor…",
+      "ej1": "Rustig mijn ochtendkoffie drinken",
+      "ej2": "Dat mijn zus belde",
+      "ej3": "Tien minuten fietsen in de zon",
+      "placeholder": "Iets kleins telt ook",
+      "guardar": "Opslaan",
+      "guardado": "Opgeslagen",
+      "nota": "In de studie van Emmons en McCullough was het genoeg om elke week iets op te schrijven. Eén is genoeg; drie is beter."
+    },
+    "volver": {
+      "titulo": "Elke keer dat je terugkeert, telt",
+      "ancla": "Je adem",
+      "d1": "Heb ik hagelslag gekocht?",
+      "d2": "De mail van morgen",
+      "d3": "Dat liedje weer",
+      "d4": "Doe ik het wel goed?",
+      "volverBtn": "Opmerken en terugkeren",
+      "reps": "Herhalingen: {n}",
+      "nota": "Afgeleid raken is niet falen: merken dat je weg was en terugkeren is de oefening."
+    },
+    "crecer": {
+      "titulo": "Jouw minuten rust",
+      "minDia": "Minuten per dag",
+      "mes": "In een maand",
+      "anio": "In een jaar",
+      "horas": "{h} u {m} min",
+      "min": "{m} min",
+      "semilla": "Zaadje",
+      "brote": "Kiemplant",
+      "arbol": "Boom",
+      "bosque": "Bos",
+      "nota": "Drie minuten per dag is al meer dan anderhalf uur per maand. Bouw het rustig op tot tien of dertien."
+    },
+    "grafica": {
+      "pulso": "Bij het inademen versnelt je hart een beetje; bij het uitademen remt het af. Langzaam ademen maakt die golfbeweging groter (ter illustratie).",
+      "rapida": "Snelle ademhaling",
+      "lenta": "Langzame ademhaling (zo’n 6 per minuut)",
+      "inhala": "In",
+      "exhala": "Uit",
+      "latidos": "Slagen per minuut",
+      "practica": "Mariniers voor een missie: wie het meest oefende, behield zijn werkgeheugen (Jha en collega’s, 2010; ter illustratie)",
+      "mucha": "Veel geoefend",
+      "poca": "Weinig geoefend",
+      "inicio": "Begin",
+      "fin": "8 weken later",
+      "memoria": "Werkgeheugen",
+      "goyal": "Meditatieprogramma’s: effectgrootte na 8 weken (Goyal en collega’s, 2014)",
+      "ansiedad": "Angst",
+      "depresion": "Depressie",
+      "dolor": "Pijn",
+      "pequeno": "Klein",
+      "moderadoEje": "Matig",
+      "grande": "Groot",
+      "plan": "Jouw plan om door te gaan",
+      "semana1": "Week 1",
+      "semana1Det": "Na de koffie: een minuut cyclisch zuchten en twee minuten aandacht",
+      "mes1": "Maand 1",
+      "mes1Det": "Elke week een beetje meer, tot tien of dertien minuten",
+      "fallas": "Als je een dag niet mediteert",
+      "fallasDet": "Niet erg: de oefening is terugkeren",
+      "medir": "Om te meten",
+      "medirDet": "Hoe je binnenkomt, hoe je weggaat en hoeveel rust je verzamelt"
+    },
+    "cierre": {
+      "titulo": "Jouw rust, in je eigen huis",
+      "texto": "In de tuin van MindHaOS mediteer je met geluiden van bos, zee, regen of klankschalen, adem je mee met een cirkel, schrijf je op waar je dankbaar voor bent en zie je je rust groeien van zaadje tot bos, zonder reeksen of punten die je achtervolgen."
+    },
+    "paquete": {
+      "guia": "Interactieve gids (met de cyclische zucht, de boxademhaling en 4-7-8, je dwalende hoofd, springende taken, je dankbaarheid en je minuten rust, die bewegen in je browser)",
+      "app": "Open de tuin in MindHaOS",
+      "hashtags": "#mindfulness #meditatie #ademhaling #angst #welzijn #mentalegezondheid #MindHaOS"
+    },
+    "memes": {
+      "solo": {
+        "arriba": "Ik: “ik heb even tijd voor mezelf nodig”",
+        "abajo": "Ik na twee minuten alleen met mijn gedachten"
+      },
+      "relajate": {
+        "arriba": "Je hoofd leegmaken",
+        "abajo": "Merken dat je weg was en terugkeren"
+      },
+      "pestanas": {
+        "arriba": "Ik met vijf tabbladen, de chat en de tv: “wat een productieve dag”",
+        "abajo": "Ik om acht uur ’s avonds, met niks af"
+      },
+      "super": {
+        "arriba": "Ik tijdens het mediteren: “inademen… uitademen… heb ik hagelslag gekocht?”"
+      }
+    },
+    "gusta": {
+      "titulo": "Vind je de gids leuk?",
+      "nota": "Een Vind ik leuk, een abonnement of hem delen helpt om meer mensen te bereiken."
+    }
   }
 }

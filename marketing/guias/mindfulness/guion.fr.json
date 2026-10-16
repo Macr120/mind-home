@@ -1,0 +1,696 @@
+{
+  "idioma": "fr",
+  "tema": "mindfulness",
+  "plantillaId": "jardin",
+  "numero": 10,
+  "nombre": "Pleine conscience",
+  "pregunta": "Pourquoi aller plus lentement te fera arriver plus vite ?",
+  "corta": "Plus lent, plus vite",
+  "subtitulo": "Où est ton esprit presque la moitié de la journée, ce qu’est la pleine conscience et d’où elle vient, ce qui arrive à ton corps quand tu respires lentement, pourquoi ralentir te rend plus efficace, ce que dit la science et ce qu’elle ne dit pas, comment méditer même si tu n’arrives pas à arrêter de penser, et un plan pour que le calme reste.",
+  "aviso": "Ce guide est informatif : les chiffres et les études cités sont des approximations de leurs sources. La pleine conscience ne remplace pas l’accompagnement d’un professionnel : si tu vis avec de l’anxiété, une dépression, un traumatisme ou des pensées qui te font du mal, demande l’aide d’un spécialiste en santé mentale.",
+  "partes": [
+    {
+      "id": "mente",
+      "titulo": "Où est ton esprit en ce moment ?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Pourquoi aller plus lentement te fera arriver plus vite ? Lors d’une expérience, on a laissé des gens seuls quinze minutes avec leurs pensées, et beaucoup ont préféré s’infliger des décharges électriques plutôt que de rester sans rien faire. Aujourd’hui, tu vas voir ce que dit la science sur le fait de ralentir, et un exercice d’une minute que tu pourras faire dès la fin de cette vidéo."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "D’ailleurs, voici ma maison dans MindHaOS, et ce jardin, c’est là que je viens ralentir."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie un. Où est ton esprit en ce moment ?"
+        },
+        {
+          "id": "divaga",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mente"
+          },
+          "lamina": [
+            "telefono",
+            "ventana"
+          ],
+          "texto": "En 2010, Matthew Killingsworth et Daniel Gilbert ont demandé à plus de deux mille personnes, à des heures au hasard, sur leur téléphone : qu’est-ce que tu fais, et à quoi tu penses ? Presque la moitié du temps, leur esprit était ailleurs."
+        },
+        {
+          "id": "infeliz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "47 %",
+            "clave": "infeliz"
+          },
+          "lamina": [
+            "trafico",
+            "lluvia"
+          ],
+          "texto": "Et ce n’était pas une pause : quand l’esprit vagabondait, les gens se sentaient moins bien que lorsqu’ils étaient attentifs, même en faisant des choses ennuyeuses. Leur conclusion tient en une phrase : un esprit qui vagabonde est un esprit malheureux."
+        },
+        {
+          "id": "descargas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "67 % · 25 %",
+            "clave": "descargas"
+          },
+          "lamina": [
+            "silla",
+            "reloj"
+          ],
+          "texto": "Et voici l’expérience du début. En 2014, Timothy Wilson a laissé des volontaires seuls dans une pièce de six à quinze minutes, sans téléphone, avec un bouton qui donnait une petite décharge. Deux hommes sur trois et une femme sur quatre ont appuyé dessus, juste pour ne pas rester seuls avec leur esprit.",
+          "meme": "solo"
+        },
+        {
+          "id": "jardin",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "parar",
+              "notar",
+              "volver"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "jardin",
+          "texto": "C’est pour ça que ce jardin n’a ni murs ni hâte : ici, l’idée, c’est de m’arrêter, de remarquer où j’en suis et de revenir."
+        }
+      ]
+    },
+    {
+      "id": "que",
+      "titulo": "Qu’est-ce que la pleine conscience, et d’où vient-elle ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie deux. Qu’est-ce que la pleine conscience, et d’où vient-elle ?"
+        },
+        {
+          "id": "sati",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 2 500 ans",
+            "clave": "sati"
+          },
+          "lamina": [
+            "buda",
+            "manuscrito"
+          ],
+          "texto": "Le mot vient de « sati », en pali, la langue des plus anciens textes bouddhistes, d’il y a environ deux mille cinq cents ans. Il veut dire quelque chose comme se souvenir de revenir à ce qui se passe. En 1881, le traducteur anglais Thomas Rhys Davids l’a traduit par « mindfulness », que l’on appelle en français pleine conscience."
+        },
+        {
+          "id": "kabatZinn",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "definicion"
+          },
+          "lamina": [
+            "kabatZinn",
+            "hospital"
+          ],
+          "texto": "En 1979, le biologiste Jon Kabat-Zinn l’a fait entrer dans un hôpital du Massachusetts, sans religion, pour des patients souffrant de douleurs chroniques. Sa définition est celle qu’on utilise aujourd’hui : porter attention, délibérément, au moment présent, et sans juger."
+        },
+        {
+          "id": "noEs",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "noVaciar",
+              "noRelajar",
+              "noHuir"
+            ]
+          },
+          "lamina": [
+            "nubes",
+            "rio"
+          ],
+          "texto": "Et il précise ce qu’elle n’est pas. Ce n’est pas faire le vide dans sa tête, ce n’est pas t’obliger à être détendu, et ce n’est pas fuir ce que tu ressens. C’est regarder tes pensées passer comme des nuages, sans monter sur chacun d’eux.",
+          "meme": "relajate"
+        },
+        {
+          "id": "ocho",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "respirar",
+              "cuerpo",
+              "caminar"
+            ]
+          },
+          "lamina": [
+            "grupo",
+            "caminar"
+          ],
+          "texto": "Son programme durait huit semaines : respirer en pleine attention, parcourir le corps des pieds à la tête et marcher lentement, en sentant chaque pas. Aujourd’hui, on l’enseigne dans des hôpitaux, des écoles et des entreprises du monde entier."
+        },
+        {
+          "id": "sesion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "como",
+              "medito",
+              "como2"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cojin",
+          "texto": "Et pas besoin d’un monastère : je m’assieds ici, je dis comment j’arrive, je médite quelques minutes et je dis comment je repars."
+        }
+      ]
+    },
+    {
+      "id": "respirar",
+      "titulo": "Que se passe-t-il dans ton corps quand tu respires lentement ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie trois. Que se passe-t-il dans ton corps quand tu respires lentement ?"
+        },
+        {
+          "id": "freno",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pulso"
+          },
+          "lamina": [
+            "corazon",
+            "pulmones"
+          ],
+          "texto": "La respiration est la seule commande du pilote automatique du corps que tu peux toucher à volonté. Quand tu inspires, le cœur accélère un peu ; quand tu expires, il ralentit. Respirer lentement, environ six fois par minute, rend ce va-et-vient plus grand, et c’est le signe d’un corps qui se calme."
+        },
+        {
+          "id": "suspiro",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "suspiro"
+          },
+          "lamina": [
+            "nariz",
+            "atardecer"
+          ],
+          "texto": "Et voici l’exercice d’une minute que je t’ai promis : le soupir cyclique. Deux inspirations par le nez, une longue et une toute petite pour bien remplir, et une expiration longue et lente par la bouche. Répète-le pendant une minute. Fais-le avec moi."
+        },
+        {
+          "id": "balban",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "5 min",
+            "clave": "balban"
+          },
+          "lamina": [
+            "laboratorio",
+            "sonrisa"
+          ],
+          "texto": "En 2023, à l’université Stanford, plus de cent personnes ont pratiqué cinq minutes par jour pendant un mois. Celles qui faisaient le soupir cyclique ont amélioré leur humeur plus que celles qui faisaient une méditation de pleine conscience, et leur respiration au repos est devenue plus lente."
+        },
+        {
+          "id": "caja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "caja"
+          },
+          "lamina": [
+            "caja",
+            "noche"
+          ],
+          "texto": "Il existe d’autres rythmes. La respiration carrée : inspire sur quatre, retiens sur quatre, expire sur quatre et retiens sur quatre. Et la quatre-sept-huit, avec une expiration plus longue que l’inspiration, pour quand tu n’arrives pas à dormir."
+        },
+        {
+          "id": "lampara",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "patron",
+              "circulo",
+              "sigue"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "respiracion",
+          "texto": "Ici, dans mon jardin, je choisis le rythme et je suis un cercle qui grandit quand j’inspire et rétrécit quand j’expire."
+        }
+      ]
+    },
+    {
+      "id": "rapido",
+      "titulo": "Pourquoi ralentir te fait arriver plus vite ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie quatre. Pourquoi ralentir te fait arriver plus vite ?"
+        },
+        {
+          "id": "multitarea",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cambio"
+          },
+          "lamina": [
+            "pestanas",
+            "notificaciones"
+          ],
+          "texto": "Faire plein de choses en même temps donne l’impression d’aller vite, mais c’est faux. Chaque fois que tu sautes d’une tâche à l’autre, ton cerveau met du temps à recharger la première. Et en 2009, à Stanford, ceux qui passaient leur temps à sauter d’un écran à l’autre se laissaient plus distraire et changeaient de tâche moins bien que les autres.",
+          "meme": "pestanas"
+        },
+        {
+          "id": "mrazek",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+16",
+            "clave": "mrazek"
+          },
+          "lamina": [
+            "examen",
+            "biblioteca"
+          ],
+          "texto": "Maintenant, l’inverse. En 2013, Michael Mrazek a donné à des étudiants deux semaines d’entraînement à la pleine conscience, quelques minutes par jour. Leur esprit a moins vagabondé, leur mémoire de travail s’est améliorée, et dans la partie lecture d’un examen d’entrée en master, ils ont gagné seize points de centile."
+        },
+        {
+          "id": "marines",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "practica"
+          },
+          "lamina": [
+            "soldado",
+            "bosque"
+          ],
+          "texto": "Et Amishi Jha l’a testé avec des Marines avant une mission, une période très stressante. Ceux qui pratiquaient le plus de minutes ont protégé leur mémoire de travail ; ceux qui ne pratiquaient presque pas l’ont perdue. C’est pour ça que, dans l’armée, on dit : lentement, c’est fluide, et fluide, c’est rapide."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "Si ce guide te plaît, mets un J’aime, abonne-toi et partage."
+        },
+        {
+          "id": "campana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "campana",
+              "una",
+              "campana2"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cuenco",
+          "texto": "Quand j’ai quelque chose d’important, je viens d’abord ici : une cloche, quelques minutes pour moi, une autre cloche, et ensuite une seule chose à la fois."
+        }
+      ]
+    },
+    {
+      "id": "ciencia",
+      "titulo": "Que dit la science, et que ne dit-elle pas ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie cinq. Que dit la science, et que ne dit-elle pas ?"
+        },
+        {
+          "id": "goyal",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "goyal"
+          },
+          "lamina": [
+            "papeles",
+            "lupa"
+          ],
+          "texto": "En 2014, Madhav Goyal et son équipe, à l’université Johns Hopkins, ont passé en revue quarante-sept essais avec plus de trois mille cinq cents personnes. Les programmes de méditation ont amélioré de façon modérée l’anxiété, la dépression et la douleur."
+        },
+        {
+          "id": "noMagia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "moderado",
+              "noMejor",
+              "noSustituye"
+            ]
+          },
+          "lamina": [
+            "balanza",
+            "doctor"
+          ],
+          "texto": "Modérée, ça veut dire ça : ça aide, mais ce n’est pas magique. Dans cette revue, elle n’a pas fait mieux que d’autres traitements, comme le sport ou la thérapie, et elle ne remplace pas un spécialiste quand tu en as besoin."
+        },
+        {
+          "id": "cerebro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "8 sem.",
+            "clave": "cerebro"
+          },
+          "lamina": [
+            "cerebro",
+            "resonancia"
+          ],
+          "texto": "Et tu as peut-être entendu dire que huit semaines de méditation changent la taille de ton cerveau. Une étude de 2011 l’a suggéré, mais en 2022, une étude plus grande et plus rigoureuse ne l’a pas retrouvé. La science avance comme ça : ce qui tient, c’est qu’entraîner ton attention t’aide à remarquer plus tôt et à mieux réagir."
+        },
+        {
+          "id": "gratitud",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gratitud"
+          },
+          "lamina": [
+            "diario",
+            "cafe"
+          ],
+          "texto": "Et une pratique voisine qui a aussi fait ses preuves : la gratitude. En 2003, Robert Emmons et Michael McCullough ont demandé à des volontaires de noter chaque semaine des choses pour lesquelles ils étaient reconnaissants. Dix semaines plus tard, ils se sentaient mieux dans leur vie, plus optimistes, et faisaient même plus de sport."
+        },
+        {
+          "id": "agradezco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unaCosa",
+              "tres",
+              "releer"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "flor",
+          "texto": "C’est pour ça qu’ici, je note aussi ce dont je suis reconnaissante aujourd’hui : une chose suffit, et trois, c’est mieux."
+        }
+      ]
+    },
+    {
+      "id": "meditar",
+      "titulo": "Comment méditer si tu n’arrives pas à arrêter de penser ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie six. Comment méditer si tu n’arrives pas à arrêter de penser ?"
+        },
+        {
+          "id": "repeticion",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "volver"
+          },
+          "lamina": [
+            "pesa",
+            "brujula"
+          ],
+          "texto": "Voici le secret : être distrait, ce n’est pas échouer. Ça fait partie de l’exercice. Chaque fois que tu remarques que tu es parti et que tu reviens à ta respiration, tu fais une répétition, comme un squat pour ton attention. Si tu te distrais cent fois, tu t’es entraîné cent fois.",
+          "meme": "super"
+        },
+        {
+          "id": "pasos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sientate",
+              "ancla",
+              "nota",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "silla2",
+            "ojos"
+          ],
+          "texto": "C’est aussi simple que ça : assieds-toi confortablement, le dos droit mais sans raideur. Choisis une ancre, comme l’air qui entre et sort par ton nez. Quand tu remarques une pensée, nomme-la en silence, « je pense », et reviens à l’ancre, sans te gronder."
+        },
+        {
+          "id": "basso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "13 min",
+            "clave": "basso"
+          },
+          "lamina": [
+            "reloj2",
+            "amanecer"
+          ],
+          "texto": "Combien de temps ? En 2019, Julia Basso et Wendy Suzuki ont demandé à des débutants de méditer treize minutes par jour. Au bout de quatre semaines, rien ne se voyait encore ; au bout de huit, ils avaient une meilleure humeur, une meilleure attention et une meilleure mémoire. La régularité l’emporte sur la durée."
+        },
+        {
+          "id": "otras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cuerpo",
+              "caminar",
+              "sonido"
+            ]
+          },
+          "lamina": [
+            "pies",
+            "olas"
+          ],
+          "texto": "Et si rester assis, ce n’est pas ton truc, il y a d’autres portes : parcourir ton corps avec ton attention, des pieds à la tête ; marcher lentement en sentant chaque pas ; ou écouter un son, comme la pluie ou la mer, et y revenir."
+        },
+        {
+          "id": "sonidos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bosque",
+              "mar",
+              "lluvia"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "lluvia",
+          "texto": "Ici, je choisis le son, forêt, mer, pluie ou bols chantants, la durée, et je médite jusqu’à ce que la cloche sonne."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Comment continuer ? Ton plan pour la suite",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie sept. Comment continuer ? Ton plan pour la suite."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "cafe",
+            "semilla"
+          ],
+          "texto": "La première semaine, accroche ta pratique à quelque chose que tu fais déjà : après le café, une minute de soupir cyclique et deux minutes d’attention sur ta respiration. Si peu qu’il n’y ait pas d’excuse."
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "crecer"
+          },
+          "lamina": [
+            "brote",
+            "arbol"
+          ],
+          "texto": "Le premier mois, augmente un peu chaque semaine jusqu’à arriver à dix ou treize minutes, et essaie les différents sons et rythmes jusqu’à trouver le tien. Regarde comment trois minutes par jour font plus d’une heure et demie par mois."
+        },
+        {
+          "id": "fallar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinRacha",
+              "hoy",
+              "suave"
+            ]
+          },
+          "lamina": [
+            "banca",
+            "parque"
+          ],
+          "texto": "Et si un jour tu ne médites pas, ce n’est pas grave : ici, il n’y a pas de séries qui se cassent. La pratique, c’est revenir, comme pendant la méditation. Pour mesurer tes progrès, remarque comment tu arrives et comment tu repars, et combien de calme tu accumules."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "bosque",
+          "texto": "En résumé : ton esprit s’en va presque la moitié de la journée ; la pleine conscience, c’est remarquer et revenir, sans juger ; respirer lentement freine ton corps ; ralentir te rend plus efficace ; et quelques minutes chaque jour valent mieux qu’une heure de temps en temps."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Dans le Jardin de MindHaOS, tu peux méditer avec des sons de forêt, de mer ou de pluie, respirer avec un cercle qui te guide et noter ce dont tu es reconnaissant, tout en regardant ton calme grandir, de la graine à la forêt. Construis ta maison mentale gratuitement aujourd’hui : le lien est dans la description. Et dans le prochain guide : comment organiser ton temps ?",
+    "boton": "Ouvrir le Jardin",
+    "lamina": "app-plan",
+    "anclas": {
+      "meditar": "tu peux méditer",
+      "respirar": "respirer avec un cercle",
+      "agradecer": "noter ce dont tu es reconnaissant",
+      "calma": "ton calme grandir"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "killingsworth-2010",
+      "texto": "Killingsworth M. A., Gilbert D. T. A wandering mind is an unhappy mind. Science (2010).",
+      "url": "https://doi.org/10.1126/science.1192439"
+    },
+    {
+      "id": "wilson-2014",
+      "texto": "Wilson T. D. et al. Just think: The challenges of the disengaged mind. Science (2014).",
+      "url": "https://doi.org/10.1126/science.1250830"
+    },
+    {
+      "id": "kabat-zinn-1982",
+      "texto": "Kabat-Zinn J. An outpatient program in behavioral medicine for chronic pain patients based on the practice of mindfulness meditation. General Hospital Psychiatry (1982).",
+      "url": "https://doi.org/10.1016/0163-8343(82)90026-3"
+    },
+    {
+      "id": "zaccaro-2018",
+      "texto": "Zaccaro A. et al. How breath-control can change your life: A systematic review on psycho-physiological correlates of slow breathing. Frontiers in Human Neuroscience (2018).",
+      "url": "https://doi.org/10.3389/fnhum.2018.00353"
+    },
+    {
+      "id": "balban-2023",
+      "texto": "Balban M. Y. et al. Brief structured respiration practices enhance mood and reduce physiological arousal. Cell Reports Medicine (2023).",
+      "url": "https://doi.org/10.1016/j.xcrm.2022.100895"
+    },
+    {
+      "id": "ophir-2009",
+      "texto": "Ophir E., Nass C., Wagner A. D. Cognitive control in media multitaskers. PNAS (2009).",
+      "url": "https://doi.org/10.1073/pnas.0903620106"
+    },
+    {
+      "id": "mrazek-2013",
+      "texto": "Mrazek M. D. et al. Mindfulness training improves working memory capacity and GRE performance while reducing mind wandering. Psychological Science (2013).",
+      "url": "https://doi.org/10.1177/0956797612459659"
+    },
+    {
+      "id": "jha-2010",
+      "texto": "Jha A. P. et al. Examining the protective effects of mindfulness training on working memory capacity and affective experience. Emotion (2010).",
+      "url": "https://doi.org/10.1037/a0018438"
+    },
+    {
+      "id": "goyal-2014",
+      "texto": "Goyal M. et al. Meditation programs for psychological stress and well-being: A systematic review and meta-analysis. JAMA Internal Medicine (2014).",
+      "url": "https://doi.org/10.1001/jamainternmed.2013.13018"
+    },
+    {
+      "id": "kral-2022",
+      "texto": "Kral T. R. A. et al. Absence of structural brain changes from mindfulness-based stress reduction: Two combined randomized controlled trials. Science Advances (2022).",
+      "url": "https://doi.org/10.1126/sciadv.abk3316"
+    },
+    {
+      "id": "emmons-2003",
+      "texto": "Emmons R. A., McCullough M. E. Counting blessings versus burdens: An experimental investigation of gratitude and subjective well-being in daily life. Journal of Personality and Social Psychology (2003).",
+      "url": "https://doi.org/10.1037/0022-3514.84.2.377"
+    },
+    {
+      "id": "basso-2019",
+      "texto": "Basso J. C. et al. Brief, daily meditation enhances attention, memory, mood, and emotional regulation in non-experienced meditators. Behavioural Brain Research (2019).",
+      "url": "https://doi.org/10.1016/j.bbr.2018.08.023"
+    }
+  ]
+}

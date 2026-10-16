@@ -7178,6 +7178,7 @@ export const KO: Dict = {
   'guia.musica.titulo': "음악이란 무엇일까요?",
   'guia.video.titulo': "영상은 어떻게 만들까요?",
   'guia.metas.titulo': "목표를 이루려면 어떻게 해야 할까요?",
+  'guia.mindfulness.titulo': "왜 천천히 가면 더 빨리 도착할까요?",
   'tut.esencial.titulo': '기본 둘러보기',
   'tut.tipo.ejemplos': '예시 · 데모 MindHaOS',
   'tut.app-agenda--esencial.resumen':

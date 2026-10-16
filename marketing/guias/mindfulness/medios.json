@@ -1,0 +1,398 @@
+{
+  "fotos": {},
+  "laminas": {
+    "hospital": {
+      "archivo": "laminas/hospital.mp4",
+      "tipo": "video",
+      "autor": "Pavel Danilyuk",
+      "fuente": "https://www.pexels.com/video/medical-workers-walking-in-the-hallway-8381712/",
+      "licencia": "Licencia Pexels"
+    },
+    "telefono": {
+      "archivo": "laminas/telefono.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-person-scrolling-photos-stored-on-a-smartphone-3627321/",
+      "licencia": "Licencia Pexels"
+    },
+    "trafico": {
+      "archivo": "laminas/trafico.mp4",
+      "tipo": "video",
+      "autor": "Dale Mohagan",
+      "fuente": "https://www.pexels.com/video/urban-traffic-jam-at-sunset-38292152/",
+      "licencia": "Licencia Pexels"
+    },
+    "respiracion": {
+      "archivo": "laminas/respiracion.mp4",
+      "tipo": "video",
+      "autor": "Kevin Malik",
+      "fuente": "https://www.pexels.com/video/a-woman-meditating-outdoors-9034625/",
+      "licencia": "Licencia Pexels"
+    },
+    "silla": {
+      "archivo": "laminas/silla.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/an-empty-armchair-7347890/",
+      "licencia": "Licencia Pexels"
+    },
+    "pestanas": {
+      "archivo": "laminas/pestanas.mp4",
+      "tipo": "video",
+      "autor": "Kaboompics",
+      "fuente": "https://www.pexels.com/video/a-tired-person-working-on-the-computer-6032110/",
+      "licencia": "Licencia Pexels"
+    },
+    "nariz": {
+      "archivo": "laminas/nariz.mp4",
+      "tipo": "video",
+      "autor": "ROMAN ODINTSOV",
+      "fuente": "https://www.pexels.com/video/a-woman-sitting-with-eyes-closed-8347395/",
+      "licencia": "Licencia Pexels"
+    },
+    "rio": {
+      "archivo": "laminas/rio.mp4",
+      "tipo": "video",
+      "autor": "Nui MALAMA",
+      "fuente": "https://www.pexels.com/video/serene-river-flow-amidst-rocky-terrain-33604777/",
+      "licencia": "Licencia Pexels"
+    },
+    "bosque": {
+      "archivo": "laminas/bosque.mp4",
+      "tipo": "video",
+      "autor": "C1 Superstar",
+      "fuente": "https://www.pexels.com/video/sunlight-filtering-through-forest-canopy-38978881/",
+      "licencia": "Licencia Pexels"
+    },
+    "examen": {
+      "archivo": "laminas/examen.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/close-up-video-of-a-woman-studying-6549257/",
+      "licencia": "Licencia Pexels"
+    },
+    "pulmones": {
+      "archivo": "laminas/pulmones.mp4",
+      "tipo": "video",
+      "autor": "Anastasia Shuraeva",
+      "fuente": "https://www.pexels.com/video/a-man-doing-deep-breathing-exercise-8795160/",
+      "licencia": "Licencia Pexels"
+    },
+    "reloj2": {
+      "archivo": "laminas/reloj2.mp4",
+      "tipo": "video",
+      "autor": "Dominiquemel16 Ramos",
+      "fuente": "https://www.pexels.com/video/three-hourglasses-on-wooden-surface-outdoors-37223250/",
+      "licencia": "Licencia Pexels"
+    },
+    "lluvia": {
+      "archivo": "laminas/lluvia.mp4",
+      "tipo": "video",
+      "autor": "Binil Babu",
+      "fuente": "https://www.pexels.com/video/close-up-of-raindrops-on-glass-12742709/",
+      "licencia": "Licencia Pexels"
+    },
+    "atardecer": {
+      "archivo": "laminas/atardecer.mp4",
+      "tipo": "video",
+      "autor": "Raymundo Guerrero",
+      "fuente": "https://www.pexels.com/video/stunning-tropical-beach-sunset-with-calming-waves-32800729/",
+      "licencia": "Licencia Pexels"
+    },
+    "biblioteca": {
+      "archivo": "laminas/biblioteca.mp4",
+      "tipo": "video",
+      "autor": "Yan Krukau",
+      "fuente": "https://www.pexels.com/video/a-woman-studying-at-a-library-8199318/",
+      "licencia": "Licencia Pexels"
+    },
+    "sonrisa": {
+      "archivo": "laminas/sonrisa.mp4",
+      "tipo": "video",
+      "autor": "Kevin Malik",
+      "fuente": "https://www.pexels.com/video/close-up-video-of-a-woman-smiling-9034592/",
+      "licencia": "Licencia Pexels"
+    },
+    "diario": {
+      "archivo": "laminas/diario.mp4",
+      "tipo": "video",
+      "autor": "Los Muertos Crew",
+      "fuente": "https://www.pexels.com/video/a-woman-writing-on-her-journal-7260659/",
+      "licencia": "Licencia Pexels"
+    },
+    "laboratorio": {
+      "archivo": "laminas/laboratorio.mp4",
+      "tipo": "video",
+      "autor": "Kindel Media",
+      "fuente": "https://www.pexels.com/video/a-scientist-doing-an-experiment-8326454/",
+      "licencia": "Licencia Pexels"
+    },
+    "papeles": {
+      "archivo": "laminas/papeles.mp4",
+      "tipo": "video",
+      "autor": "Monstera Production",
+      "fuente": "https://www.pexels.com/video/reviewing-of-paperworks-9464473/",
+      "licencia": "Licencia Pexels"
+    },
+    "manuscrito": {
+      "archivo": "laminas/manuscrito.mp4",
+      "tipo": "video",
+      "autor": "Sahil Sharma",
+      "fuente": "https://www.pexels.com/video/flipping-pages-in-old-book-11384843/",
+      "licencia": "Licencia Pexels"
+    },
+    "pesa": {
+      "archivo": "laminas/pesa.mp4",
+      "tipo": "video",
+      "autor": "Andres Ayrton",
+      "fuente": "https://www.pexels.com/video/a-man-doing-dumbbell-curls-6547801/",
+      "licencia": "Licencia Pexels"
+    },
+    "caja": {
+      "archivo": "laminas/caja.mp4",
+      "tipo": "video",
+      "autor": "Pavel Danilyuk",
+      "fuente": "https://www.pexels.com/video/woman-sitting-in-the-floor-for-yoga-practice-6446266/",
+      "licencia": "Licencia Pexels"
+    },
+    "parque": {
+      "archivo": "laminas/parque.mp4",
+      "tipo": "video",
+      "autor": "Shuttercraftsman",
+      "fuente": "https://www.pexels.com/video/woman-walking-in-lush-green-park-32072864/",
+      "licencia": "Licencia Pexels"
+    },
+    "ventana": {
+      "archivo": "laminas/ventana.mp4",
+      "tipo": "video",
+      "autor": "Liza Summer",
+      "fuente": "https://www.pexels.com/video/thoughtful-young-woman-6381261/",
+      "licencia": "Licencia Pexels"
+    },
+    "cuenco": {
+      "archivo": "laminas/cuenco.mp4",
+      "tipo": "video",
+      "autor": "KATRIN BOLOVTSOVA",
+      "fuente": "https://www.pexels.com/video/a-woman-rubbing-the-rim-of-a-tibetan-singin-bowl-7117544/",
+      "licencia": "Licencia Pexels"
+    },
+    "soldado": {
+      "archivo": "laminas/soldado.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/a-army-person-on-camouflage-unifom-sitting-on-a-chair-while-holding-army-cap-7467776/",
+      "licencia": "Licencia Pexels"
+    },
+    "cojin": {
+      "archivo": "laminas/cojin.mp4",
+      "tipo": "video",
+      "autor": "Kampus Production",
+      "fuente": "https://www.pexels.com/video/man-sitting-on-cushion-holding-an-incense-7415212/",
+      "licencia": "Licencia Pexels"
+    },
+    "doctor": {
+      "archivo": "laminas/doctor.mp4",
+      "tipo": "video",
+      "autor": "Alex Green",
+      "fuente": "https://www.pexels.com/video/therapist-talking-to-a-patient-5697333/",
+      "licencia": "Licencia Pexels"
+    },
+    "ojos": {
+      "archivo": "laminas/ojos.mp4",
+      "tipo": "video",
+      "autor": "Michelle Leman",
+      "fuente": "https://www.pexels.com/video/a-woman-closing-her-eyes-6808548/",
+      "licencia": "Licencia Pexels"
+    },
+    "notificaciones": {
+      "archivo": "laminas/notificaciones.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/notification-on-a-phone-7822022/",
+      "licencia": "Licencia Pexels"
+    },
+    "flor": {
+      "archivo": "laminas/flor.mp4",
+      "tipo": "video",
+      "autor": "Gao Changhua",
+      "fuente": "https://www.pexels.com/video/vibrant-zinnia-flower-basking-in-gentle-breeze-38052537/",
+      "licencia": "Licencia Pexels"
+    },
+    "resonancia": {
+      "archivo": "laminas/resonancia.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/a-mri-machine-in-a-medical-facility-7088500/",
+      "licencia": "Licencia Pexels"
+    },
+    "jardin": {
+      "archivo": "laminas/jardin.mp4",
+      "tipo": "video",
+      "autor": "David Wall",
+      "fuente": "https://www.pexels.com/video/serene-japanese-garden-with-stone-lantern-38470504/",
+      "licencia": "Licencia Pexels"
+    },
+    "nubes": {
+      "archivo": "laminas/nubes.mp4",
+      "tipo": "video",
+      "autor": "Kindel Media",
+      "fuente": "https://www.pexels.com/video/time-lapse-of-moving-clouds-9011099/",
+      "licencia": "Licencia Pexels"
+    },
+    "lupa": {
+      "archivo": "laminas/lupa.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/using-a-magnifying-glass-to-visually-enlarge-objects-3831743/",
+      "licencia": "Licencia Pexels"
+    },
+    "silla2": {
+      "archivo": "laminas/silla2.mp4",
+      "tipo": "video",
+      "autor": "Yaroslav Shuraev",
+      "fuente": "https://www.pexels.com/video/woman-meditating-while-sit-on-an-armchair-6810968/",
+      "licencia": "Licencia Pexels"
+    },
+    "pies": {
+      "archivo": "laminas/pies.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/person-walking-in-grass-barefoot-6624081/",
+      "licencia": "Licencia Pexels"
+    },
+    "balanza": {
+      "archivo": "laminas/balanza.mp4",
+      "tipo": "video",
+      "autor": "KATRIN BOLOVTSOVA",
+      "fuente": "https://www.pexels.com/video/a-person-holding-justice-balance-scale-6100896/",
+      "licencia": "Licencia Pexels"
+    },
+    "corazon": {
+      "archivo": "laminas/corazon.mp4",
+      "tipo": "video",
+      "autor": "Fotoarte en mérida",
+      "fuente": "https://www.pexels.com/video/hospital-heart-monitor-display-in-operation-33643950/",
+      "licencia": "Licencia Pexels"
+    },
+    "buda": {
+      "archivo": "laminas/buda.mp4",
+      "tipo": "video",
+      "autor": "Doga Tenzin",
+      "fuente": "https://www.pexels.com/video/serene-buddha-statue-under-blue-sky-37609510/",
+      "licencia": "Licencia Pexels"
+    },
+    "grupo": {
+      "archivo": "laminas/grupo.mp4",
+      "tipo": "video",
+      "autor": "Pavel Danilyuk",
+      "fuente": "https://www.pexels.com/video/group-of-people-at-a-meditation-class-7521963/",
+      "licencia": "Licencia Pexels"
+    },
+    "noche": {
+      "archivo": "laminas/noche.mp4",
+      "tipo": "video",
+      "autor": "Monserrat Reynoso",
+      "fuente": "https://www.pexels.com/video/woman-settling-to-sleep-in-a-cozy-bedroom-36604163/",
+      "licencia": "Licencia Pexels"
+    },
+    "banca": {
+      "archivo": "laminas/banca.mp4",
+      "tipo": "video",
+      "autor": "Muhtelifane",
+      "fuente": "https://www.pexels.com/video/autumn-leaves-on-park-bench-in-tranquil-setting-29533223/",
+      "licencia": "Licencia Pexels"
+    },
+    "olas": {
+      "archivo": "laminas/olas.mp4",
+      "tipo": "video",
+      "autor": "Ahmed",
+      "fuente": "https://www.pexels.com/video/the-ocean-is-calm-and-clear-with-waves-27915864/",
+      "licencia": "Licencia Pexels"
+    },
+    "reloj": {
+      "archivo": "laminas/reloj.mp4",
+      "tipo": "video",
+      "autor": "Anton Kudryashov",
+      "fuente": "https://www.pexels.com/video/close-up-on-clock-hands-moving-11267667/",
+      "licencia": "Licencia Pexels"
+    },
+    "caminar": {
+      "archivo": "laminas/caminar.mp4",
+      "tipo": "video",
+      "autor": "Matthias Groeneveld",
+      "fuente": "https://www.pexels.com/video/a-person-walking-down-a-path-in-the-woods-27223231/",
+      "licencia": "Licencia Pexels"
+    },
+    "cafe": {
+      "archivo": "laminas/cafe.mp4",
+      "tipo": "video",
+      "autor": "Burak Eroglu",
+      "fuente": "https://www.pexels.com/video/cafe-ambiance-with-coffee-beans-and-latte-30981713/",
+      "licencia": "Licencia Pexels"
+    },
+    "cerebro": {
+      "archivo": "laminas/cerebro.mp4",
+      "tipo": "video",
+      "autor": "Nicola Narracci",
+      "fuente": "https://www.pexels.com/video/abstract-golden-neural-network-animation-35003022/",
+      "licencia": "Licencia Pexels"
+    },
+    "brujula": {
+      "archivo": "laminas/brujula.mp4",
+      "tipo": "video",
+      "autor": "Anastasia Shuraeva",
+      "fuente": "https://www.pexels.com/video/a-person-holding-a-compass-8028798/",
+      "licencia": "Licencia Pexels"
+    },
+    "pulgar": {
+      "archivo": "laminas/pulgar.mp4",
+      "tipo": "video",
+      "autor": "Kevin Malik",
+      "fuente": "https://www.pexels.com/video/a-hand-giving-a-thumbs-up-9017832/",
+      "licencia": "Licencia Pexels"
+    },
+    "semilla": {
+      "archivo": "laminas/semilla.mp4",
+      "tipo": "video",
+      "autor": "Greta Hoffman",
+      "fuente": "https://www.pexels.com/video/a-man-planting-seeds-in-a-seedling-tray-7713884/",
+      "licencia": "Licencia Pexels"
+    },
+    "brote": {
+      "archivo": "laminas/brote.mp4",
+      "tipo": "video",
+      "autor": "thetopwebsites .ga",
+      "fuente": "https://www.pexels.com/video/time-lapse-of-growing-plant-6596225/",
+      "licencia": "Licencia Pexels"
+    },
+    "arbol": {
+      "archivo": "laminas/arbol.mp4",
+      "tipo": "video",
+      "autor": "Furkan Elveren",
+      "fuente": "https://www.pexels.com/video/a-tree-with-the-sun-shining-through-it-27410108/",
+      "licencia": "Licencia Pexels"
+    },
+    "amanecer": {
+      "archivo": "laminas/amanecer.mp4",
+      "tipo": "video",
+      "autor": "NADER AYMAN",
+      "fuente": "https://www.pexels.com/video/skyline-with-birds-at-sunrise-37365586/",
+      "licencia": "Licencia Pexels"
+    },
+    "kabatZinn": {
+      "archivo": "laminas/kabatZinn.webp",
+      "tipo": "foto",
+      "autor": "ExperienceLifeMag",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Jon_Kabat-Zinn_(2018).png",
+      "licencia": "CC BY 3.0",
+      "credito": "ExperienceLifeMag · CC BY 3.0 · Wikimedia"
+    },
+    "app-plan": {
+      "archivo": "laminas/app-plan.{idioma}.mp4",
+      "tipo": "video",
+      "autor": "MindHaOS",
+      "fuente": "https://app.mindhaos.com",
+      "credito": ""
+    }
+  }
+}

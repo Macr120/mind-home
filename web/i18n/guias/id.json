@@ -1789,5 +1789,250 @@
         "abajo": "Jalan kaki 20 menit hari ini"
       }
     }
+  },
+  "mindfulness": {
+    "meta": {
+      "titulo": "Mengapa melambat justru membuatmu sampai lebih cepat? Panduan mindfulness: pikiran yang mengembara, apa itu kesadaran penuh, napas pelan, lebih produktif, apa kata sains, cara bermeditasi, dan rencana untuk melanjutkan | MindHaOS",
+      "desc": "Mindfulness menurut sains: mengapa pikiranmu mengembara hampir separuh hari, apa itu kesadaran penuh dan dari mana asalnya, desahan siklik satu menit, mengapa melambat membuatmu lebih produktif, apa kata studi dan apa yang tidak, cara bermeditasi walau tak bisa berhenti berpikir, dan rencana agar ketenangan itu menetap."
+    },
+    "narra": "Dinarasikan oleh sang putri",
+    "cargando3d": "Memuat sang putri…",
+    "lista": {
+      "noVaciar": "Bukan mengosongkan pikiran",
+      "noVaciarDet": "Pikiran akan terus datang: latihannya adalah menyadarinya.",
+      "noRelajar": "Bukan memaksa dirimu rileks",
+      "noRelajarDet": "Kadang ketenangan datang, kadang tidak: keduanya tetap dihitung.",
+      "noHuir": "Bukan lari dari perasaanmu",
+      "noHuirDet": "Melainkan menatapnya langsung, dengan rasa ingin tahu dan tanpa menghakimi diri.",
+      "moderado": "Efeknya sedang",
+      "moderadoDet": "Membantu untuk kecemasan, depresi, dan nyeri, tapi bukan sihir.",
+      "noMejor": "Tidak lebih unggul dari pengobatan lain",
+      "noMejorDet": "Dalam tinjauan 2014 hasilnya mirip olahraga atau terapi, tidak lebih.",
+      "noSustituye": "Tidak menggantikan spesialis",
+      "noSustituyeDet": "Kalau yang kamu alami terlalu berat, mintalah bantuan profesional.",
+      "cuerpo": "Menyusuri tubuhmu",
+      "cuerpoDet": "Perhatian turun pelan dari kaki sampai kepala, merasakan setiap bagian.",
+      "caminar": "Berjalan pelan",
+      "caminarDet": "Rasakan setiap kaki terangkat, melangkah, dan menapak.",
+      "sonido": "Mendengarkan satu suara",
+      "sonidoDet": "Hujan, laut, atau lonceng: saat pikiranmu pergi, kembalilah ke suara itu.",
+      "resumen1": "Pikiranmu pergi hampir separuh hari",
+      "resumen2": "Mindfulness adalah menyadari dan kembali, tanpa menghakimi",
+      "resumen3": "Napas pelan menenangkan tubuhmu, dan melambat membuatmu lebih produktif",
+      "resumen4": "Beberapa menit setiap hari lebih berharga daripada satu jam sesekali"
+    },
+    "dato": {
+      "infeliz": "dari waktu terjaga, pikiran ada di tempat lain, dan rasanya lebih buruk daripada saat fokus (Killingsworth dan Gilbert, 2010)",
+      "descargas": "pria dan wanita lebih memilih sengatan listrik daripada sendirian dengan pikirannya (Wilson dan rekan, 2014)",
+      "sati": "«sati», dalam bahasa Pali: ingat untuk kembali pada apa yang sedang terjadi; «mindfulness» sejak 1881 (Rhys Davids)",
+      "balban": "sehari selama sebulan: desahan siklik memperbaiki suasana hati lebih dari meditasi perhatian (Balban dan rekan, Stanford, 2023)",
+      "mrazek": "poin persentil di bagian membaca ujian pascasarjana setelah dua minggu mindfulness (Mrazek dan rekan, 2013)",
+      "cerebro": "meditasi: perubahan ukuran otak yang diisyaratkan studi tahun 2011 tidak muncul dalam studi yang lebih besar tahun 2022 (Kral dan rekan)",
+      "basso": "sehari: setelah delapan minggu, suasana hati, perhatian, dan ingatan membaik; setelah empat belum terasa (Basso dan Suzuki, 2019)"
+    },
+    "pasos": {
+      "parar": "Berhenti",
+      "pararDet": "Beberapa detik tanpa melakukan apa pun.",
+      "notar": "Sadari",
+      "notarDet": "Di mana pikiranmu dan bagaimana tubuhmu.",
+      "volver": "Kembali",
+      "volverDet": "Ke udara yang masuk dan keluar, ke apa yang sedang kamu lakukan.",
+      "respirar": "Bernapas dengan perhatian",
+      "respirarDet": "Rasakan udaranya, tanpa mengubahnya.",
+      "cuerpo": "Menyusuri tubuh",
+      "cuerpoDet": "Dari kaki sampai kepala, bagian demi bagian.",
+      "caminar": "Berjalan pelan",
+      "caminarDet": "Merasakan setiap langkah.",
+      "como": "Bilang bagaimana aku datang",
+      "comoDet": "Satu wajah, dari satu sampai lima; atau kulewati.",
+      "medito": "Bermeditasi beberapa menit",
+      "meditoDet": "Dengan satu lonceng di awal dan satu di akhir.",
+      "como2": "Bilang bagaimana aku pergi",
+      "como2Det": "Dan melihat apakah ada yang berubah.",
+      "patron": "Memilih pola",
+      "patronDet": "Kotak 4-4-4-4 atau 4-7-8.",
+      "circulo": "Mengikuti lingkaran",
+      "circuloDet": "Membesar saat aku menarik napas, mengecil saat aku mengembuskan.",
+      "sigue": "Dua, tiga, atau lima menit",
+      "sigueDet": "Sesuai waktu yang kupunya hari ini.",
+      "campana": "Satu lonceng",
+      "campanaDet": "Tanda bahwa aku mulai.",
+      "una": "Beberapa menit untukku",
+      "unaDet": "Bernapas sebelum hal yang penting.",
+      "campana2": "Satu lonceng lagi",
+      "campana2Det": "Lalu, satu hal dalam satu waktu.",
+      "unaCosa": "Satu sudah cukup",
+      "unaCosaDet": "Hal kecil pun dihitung: secangkir kopi, satu telepon.",
+      "tres": "Tiga lebih baik",
+      "tresDet": "Membuatmu mencari dengan lebih tenang.",
+      "releer": "Baca ulang",
+      "releerDet": "Di hari yang berat, catatan lama membantu.",
+      "sientate": "Duduk dengan nyaman",
+      "sientateDet": "Punggung tegak, tapi tidak kaku.",
+      "ancla": "Pilih satu jangkar",
+      "anclaDet": "Udara yang masuk dan keluar dari hidung.",
+      "nota": "Sadari pikirannya",
+      "notaDet": "Beri nama dalam hati: «berpikir».",
+      "vuelve": "Kembali ke jangkar",
+      "vuelveDet": "Tanpa memarahi diri. Itu satu repetisi.",
+      "bosque": "Hutan",
+      "bosqueDet": "Angin di antara pepohonan dan burung.",
+      "mar": "Laut",
+      "marDet": "Ombak yang pecah perlahan.",
+      "lluvia": "Hujan",
+      "lluviaDet": "Atau mangkuk bernyanyi, dan waktu sesukamu.",
+      "sinRacha": "Tanpa rentetan yang putus",
+      "sinRachaDet": "Sehari tanpa meditasi tidak menghapus apa pun.",
+      "hoy": "Kembali hari ini",
+      "hoyDet": "Seperti di dalam meditasi: sadari dan kembali.",
+      "suave": "Ukur dengan lembut",
+      "suaveDet": "Bagaimana kamu datang, bagaimana kamu pergi, dan berapa ketenangan yang terkumpul."
+    },
+    "mente": {
+      "titulo": "Di mana pikiranmu?",
+      "pregunta": "Apa yang sedang kamu pikirkan sekarang?",
+      "aqui": "Yang sedang kulakukan",
+      "otra": "Hal lain",
+      "preguntar": "Tanya lagi",
+      "llevas": "Dari {n} pertanyaan, pikiranmu ada di tempat lain {m} kali",
+      "nota": "Begitulah aplikasi studi itu bertanya, pada jam acak. Pada lebih dari 2000 orang, pikiran ada di tempat lain hampir separuh waktu (ilustrasi)."
+    },
+    "definicion": {
+      "titulo": "Definisi Kabat-Zinn",
+      "p1": "Memberi perhatian",
+      "p1Det": "Menyadari apa yang terjadi, di dalam dan di luar dirimu.",
+      "p2": "Dengan sengaja",
+      "p2Det": "Kamu yang memilih, bukan autopilot.",
+      "p3": "Pada saat ini",
+      "p3Det": "Bukan pada masa lalu atau daftar untuk besok.",
+      "p4": "Tanpa menghakimi",
+      "p4Det": "Tanpa «baik» atau «buruk»: cukup menyadari.",
+      "nota": "Sentuh setiap bagian untuk melihat artinya."
+    },
+    "suspiro": {
+      "titulo": "Desahan siklik",
+      "inhala": "Tarik napas lewat hidung",
+      "otra": "Satu lagi, pendek",
+      "exhala": "Embuskan pelan lewat mulut",
+      "listo": "Selesai: satu menit",
+      "empezar": "Mulai satu menit",
+      "detener": "Hentikan",
+      "ciclos": "Siklus: {n}",
+      "quedan": "Sisa {n} dtk",
+      "nota": "Dua tarikan napas lewat hidung dan satu embusan panjang lewat mulut, selama satu menit."
+    },
+    "caja": {
+      "titulo": "Dua pola pernapasan",
+      "caja": "Kotak 4-4-4-4",
+      "c478": "4-7-8",
+      "inhala": "Tarik",
+      "sosten": "Tahan",
+      "exhala": "Embuskan",
+      "seg": "{n} dtk",
+      "nota": "Pada pola kotak, setiap sisi sama panjangnya. Pada 4-7-8, embusan paling panjang: cocok sebelum tidur."
+    },
+    "cambio": {
+      "titulo": "Satu per satu vs. melompat-lompat",
+      "unaVez": "Satu per satu",
+      "saltando": "Melompat antartugas",
+      "tarea": "Tugas",
+      "cambios": "Setiap lompatan butuh beberapa detik untuk kembali fokus",
+      "termina": "Selesai",
+      "nota": "Tiga tugas yang sama: kalau melompat dari satu ke yang lain, setiap peralihan menambah sedikit waktu yang terbuang (ilustrasi)."
+    },
+    "gratitud": {
+      "titulo": "Hari ini aku bersyukur atas…",
+      "ej1": "Kopi pagi yang santai",
+      "ej2": "Ibu meneleponku",
+      "ej3": "Jalan kaki sepuluh menit di bawah matahari",
+      "placeholder": "Hal kecil pun dihitung",
+      "guardar": "Simpan",
+      "guardado": "Tersimpan",
+      "nota": "Dalam studi Emmons dan McCullough, cukup mencatat setiap minggu. Satu sudah cukup; tiga, lebih baik."
+    },
+    "volver": {
+      "titulo": "Setiap kali kembali, itu dihitung",
+      "ancla": "Napasmu",
+      "d1": "Tadi sudah beli beras belum?",
+      "d2": "Email untuk besok",
+      "d3": "Lagu itu lagi",
+      "d4": "Apa aku sudah benar melakukannya?",
+      "volverBtn": "Sadari dan kembali",
+      "reps": "Repetisi: {n}",
+      "nota": "Terdistraksi bukan berarti gagal: menyadari pikiranmu pergi lalu kembali, itulah latihannya."
+    },
+    "crecer": {
+      "titulo": "Menit-menit tenangmu",
+      "minDia": "Menit per hari",
+      "mes": "Dalam sebulan",
+      "anio": "Dalam setahun",
+      "horas": "{h} j {m} mnt",
+      "min": "{m} mnt",
+      "semilla": "Benih",
+      "brote": "Tunas",
+      "arbol": "Pohon",
+      "bosque": "Hutan",
+      "nota": "Tiga menit sehari saja sudah lebih dari satu setengah jam sebulan. Tambah sedikit demi sedikit sampai sepuluh atau tiga belas."
+    },
+    "grafica": {
+      "pulso": "Saat menarik napas, jantung sedikit lebih cepat; saat mengembuskan, melambat. Napas pelan memperbesar ayunan itu (ilustrasi).",
+      "rapida": "Napas cepat",
+      "lenta": "Napas pelan (sekitar 6 per menit)",
+      "inhala": "Tarik",
+      "exhala": "Embuskan",
+      "latidos": "Detak per menit",
+      "practica": "Marinir sebelum misi: memori kerja mereka yang paling banyak berlatih tetap terjaga (Jha dan rekan, 2010; ilustrasi)",
+      "mucha": "Banyak berlatih",
+      "poca": "Sedikit berlatih",
+      "inicio": "Awal",
+      "fin": "8 minggu kemudian",
+      "memoria": "Memori kerja",
+      "goyal": "Program meditasi: besar efek pada 8 minggu (Goyal dan rekan, 2014)",
+      "ansiedad": "Kecemasan",
+      "depresion": "Depresi",
+      "dolor": "Nyeri",
+      "pequeno": "Kecil",
+      "moderadoEje": "Sedang",
+      "grande": "Besar",
+      "plan": "Rencanamu untuk terus maju",
+      "semana1": "Minggu 1",
+      "semana1Det": "Setelah ngopi: satu menit desahan siklik dan dua menit perhatian",
+      "mes1": "Bulan 1",
+      "mes1Det": "Tambah sedikit tiap minggu, sampai sepuluh atau tiga belas menit",
+      "fallas": "Kalau suatu hari tidak bermeditasi",
+      "fallasDet": "Tidak apa-apa: latihannya adalah kembali",
+      "medir": "Untuk mengukur",
+      "medirDet": "Bagaimana kamu datang, pergi, dan berapa ketenangan yang terkumpul"
+    },
+    "cierre": {
+      "titulo": "Ketenanganmu, di rumahmu sendiri",
+      "texto": "Di Taman MindHaOS kamu bermeditasi dengan suara hutan, laut, hujan, atau mangkuk bernyanyi, bernapas mengikuti lingkaran, mencatat hal yang kamu syukuri, dan melihat ketenanganmu tumbuh dari benih menjadi hutan, tanpa rentetan hari atau poin yang mengejarmu."
+    },
+    "paquete": {
+      "guia": "Panduan interaktif (dengan desahan siklik, pernapasan kotak dan 4-7-8, pikiranmu yang mengembara, tugas yang melompat-lompat, rasa syukurmu, dan menit-menit tenangmu, semuanya bergerak di browsermu)",
+      "app": "Buka Taman di MindHaOS",
+      "hashtags": "#mindfulness #meditasi #pernapasan #kecemasan #kesehatanmental #selfcare #MindHaOS"
+    },
+    "memes": {
+      "solo": {
+        "arriba": "Aku: «butuh waktu sendiri sebentar»",
+        "abajo": "Aku setelah dua menit sendirian dengan pikiranku"
+      },
+      "relajate": {
+        "arriba": "Mengosongkan pikiran",
+        "abajo": "Sadar pikiranmu pergi, lalu kembali"
+      },
+      "pestanas": {
+        "arriba": "Aku dengan lima tab, chat, dan TV: «produktif banget hari ini»",
+        "abajo": "Aku jam delapan malam, belum ada yang selesai"
+      },
+      "super": {
+        "arriba": "Aku saat meditasi: «tarik napas… embuskan… tadi sudah beli beras belum?»"
+      }
+    },
+    "gusta": {
+      "titulo": "Suka dengan panduan ini?",
+      "nota": "Satu like, subscribe, atau membagikannya membantu panduan ini sampai ke lebih banyak orang."
+    }
   }
 }

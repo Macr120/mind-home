@@ -124,6 +124,25 @@ const irA = async (x, z, tope = 0.15) => {
   andando = false
 }
 /**
+ * Abre la cámara desde un encuadre cercano (\`cerca\`) hasta uno lejano (\`lejos\`) sin perder lo
+ * de cerca: el zoom cambia en proporción (no en línea recta) y el punto enfocado al principio
+ * se desliza en pantalla hasta donde queda en el encuadre lejano. Con \`cerrar\`, al revés.
+ * Sin esto, foco y zoom en línea recta pasan por encima de lo que hay en medio.
+ */
+const abrirCam = (cerca, lejos, ms, cerrar = false) => new Promise((r) => {
+  const A = cerca.focus
+  const S = [0, 1, 2].map((i) => (A[i] - lejos.focus[i]) * lejos.zoom)
+  const t0 = performance.now()
+  const paso = () => {
+    const q = Math.min(1, (performance.now() - t0) / ms)
+    const e = cerrar ? 1 - ease(q) : ease(q)
+    const z = cerca.zoom * Math.pow(lejos.zoom / cerca.zoom, e)
+    useCam.setState({ focus: [0, 1, 2].map((i) => A[i] - (S[i] * e) / z), zoom: z, az: cerca.az + (lejos.az - cerca.az) * e, el: cerca.el + (lejos.el - cerca.el) * e })
+    if (q < 1) requestAnimationFrame(paso); else r()
+  }
+  paso()
+})
+/**
  * Pone a Pep@ en (x, z) del mundo al instante (como el arrastre del editor). Al
  * caminar va en línea recta y se atora con cualquier objeto: desde lejos (el
  * patio, tras recargarse la demo) no llega.
@@ -189,6 +208,14 @@ const SOLO_CUADRANTE = `
 `
 
 /**
+ * La casa entera de la mención y del arranque de la salida: CASA, o la de la escena
+ * (`VISTA_CASA`, Mindfulness: el jardín abajo y la casa completa arriba). `GIRO_CASA`:
+ * cuánto gira la cámara al alejarse (π/7 de fábrica; 0 = solo se abre).
+ */
+const VISTA_CASA_JS = ESCENA.VISTA_CASA ? JSON.stringify(ESCENA.VISTA_CASA) : 'CASA'
+const GIRO_CASA_JS = ESCENA.GIRO_CASA ?? Math.PI / 7
+
+/**
  * Pep@ con la ropa del cuarto de la guía, en su sitio del cuarto (escena.mjs).
  * La casa va EXPLOTADA si el cuarto está en la planta baja y APILADA (como es) si
  * está en un piso de arriba: explotada, los pisos altos flotan muy por encima.
@@ -202,6 +229,14 @@ const pepEnSuSitio = (tema = null) => `
   if (useDiseño.getState().temaGlobal !== ${JSON.stringify(tema)}) {
     await useDiseño.getState().setTemaGlobal(${JSON.stringify(tema)})
     await sleep(2500)
+  }
+  {
+    // El fondo de la escena (Mindfulness: la playa tropical sin tema); sin tema ni FONDO, el ciclo de día de fábrica.
+    const fondo = ${JSON.stringify(ESCENA.FONDO ?? null)} ?? (${JSON.stringify(tema)} ? null : 'auto')
+    if (fondo && useDiseño.getState().fondoId !== fondo) {
+      await useDiseño.getState().setFondoId(fondo)
+      await sleep(1500)
+    }
   }
   ${SOLO_CUADRANTE}
   {
@@ -231,7 +266,13 @@ const pepEnSuSitio = (tema = null) => `
     const { CUERPOS_PRESET } = await modulo('/src/core/house/cuerpos.ts')
     const preset = CUERPOS_PRESET.find((c) => c.id === ${JSON.stringify(ESCENA.CUERPO)})
     if (!preset) return 'no existe el cuerpo ${ESCENA.CUERPO}'
-    if (useDiseño.getState().avatar.cuerpoPresetId !== preset.id) await useDiseño.getState().setAvatarCuerpoPreset(preset)
+    // CUERPO_COLORES cambia colores de sus piezas (Mindfulness: el vestido verde); sin él, el de fábrica.
+    const colores = ${JSON.stringify(ESCENA.CUERPO_COLORES ?? {})}
+    const piezas = preset.piezas().map((p) => (colores[p.color] ? { ...p, color: colores[p.color] } : p))
+    const av = useDiseño.getState().avatar
+    if (av.cuerpoPresetId !== preset.id || JSON.stringify(av.modelo3d) !== JSON.stringify(piezas)) {
+      await useDiseño.getState().setAvatarCuerpoPreset({ ...preset, piezas: () => piezas })
+    }
     await useDiseño.getState().setAvatarRopaCompleta({})
   }
   ` : ESCENA.FORMA ? `
@@ -330,7 +371,7 @@ const TOMAS = [
       useCam.setState({ vista: 'iso' })
       await cortarCam(await camIso())
       window.__marcas.mencion = performance.now()
-      { const V = window.__casaVista ?? CASA; await moverCam(camAhora(), { ...V, az: V.az + Math.PI / 7 }, ${Math.round((MENCION.dur + 0.4) * 1000)}, ease) }
+      { const V = window.__casaVista ?? ${VISTA_CASA_JS}; await ${ESCENA.VISTA_CASA ? 'abrirCam' : 'moverCam'}(camAhora(), { ...V, az: V.az + ${GIRO_CASA_JS} }, ${Math.round((MENCION.dur + 0.4) * 1000)}${ESCENA.VISTA_CASA ? '' : ', ease'}) }
       await sleep(900)
     `,
   },
@@ -341,7 +382,7 @@ const TOMAS = [
       useCiclo.setState({ minutos: 16 * 60 + 20, modo: 'manual' })
       ${pepEnSuSitio(ESCENA.TEMA_SALIDA ?? ESCENA.TEMA)}
       ${ESCENA.PREPARAR_SALIDA ?? ''}
-      { const V = window.__casaVista ?? CASA; await cortarCam({ ...V, az: V.az - Math.PI / 7, zoom: V.zoom * (window.__casaVista ? 1 : 0.8) }) }
+      { const V = window.__casaVista ?? ${VISTA_CASA_JS}; await cortarCam({ ...V, az: V.az - ${GIRO_CASA_JS}, zoom: V.zoom * (window.__casaVista || ${JSON.stringify(!!ESCENA.VISTA_CASA)} ? 1 : 0.8) }) }
       await sleep(1500)
       prep()
       return 'ok'
@@ -350,7 +391,7 @@ const TOMAS = [
     accion: `
       ${QUITAR_MARCA}
       await sleep(700)
-      await moverCam(camAhora(), await camJugador(80, -1.2), 4600, ease)
+      ${ESCENA.VISTA_CASA ? 'await abrirCam(await camJugador(80, -1.2), camAhora(), 4600, true)' : 'await moverCam(camAhora(), await camJugador(80, -1.2), 4600, ease)'}
       ${orbitar(ESCENA.ORBITA_SALIDA[0], ESCENA.ORBITA_SALIDA[1], 2800)}
       ${ESCENA.FIN_SALIDA ?? ''}
     `,
@@ -433,6 +474,6 @@ await conPagina(CRUDO, async (c) => {
     console.log(`✓ ${toma.nombre}.mp4 · viewport ${vp.w}×${vp.h}`)
   }
   // La pregunta en grande para el primer segundo del video completo (montar.mjs).
-  await capturarTitulo(c, tema, idioma, path.join(SALIDA, 'titulo.png'))
+  await capturarTitulo(c, tema, idioma, path.join(SALIDA, 'titulo.png'), ESCENA.TITULO_ESCALA)
   console.log('✓ titulo.png')
 })

@@ -1,0 +1,696 @@
+{
+  "idioma": "id",
+  "tema": "mindfulness",
+  "plantillaId": "jardin",
+  "numero": 10,
+  "nombre": "Mindfulness",
+  "pregunta": "Mengapa melambat justru membuatmu sampai lebih cepat?",
+  "corta": "Lebih lambat, lebih cepat",
+  "subtitulo": "Di mana pikiranmu hampir separuh hari, apa itu mindfulness dan dari mana asalnya, apa yang terjadi pada tubuhmu saat bernapas pelan, mengapa melambat membuatmu lebih produktif, apa kata sains dan apa yang tidak, cara bermeditasi walau tak bisa berhenti berpikir, dan rencana agar ketenangan itu menetap.",
+  "aviso": "Panduan ini bersifat informatif: angka dan studi yang dikutip adalah perkiraan dari sumbernya. Mindfulness tidak menggantikan perawatan profesional: jika kamu hidup dengan kecemasan, depresi, trauma, atau pikiran yang menyakitimu, carilah bantuan dari spesialis kesehatan mental.",
+  "partes": [
+    {
+      "id": "mente",
+      "titulo": "Di mana pikiranmu saat ini?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Mengapa melambat justru membuatmu sampai lebih cepat? Dalam sebuah eksperimen, banyak orang ditinggal sendirian lima belas menit bersama pikiran mereka, dan mereka lebih memilih menyetrum diri sendiri daripada diam saja. Hari ini kamu akan melihat apa kata sains tentang melambat, dan satu latihan satu menit yang bisa kamu lakukan begitu video ini selesai."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "Omong-omong, ini rumahku di MindHaOS, dan taman ini tempat aku datang untuk memperlambat langkah."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian satu. Di mana pikiranmu saat ini?"
+        },
+        {
+          "id": "divaga",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mente"
+          },
+          "lamina": [
+            "telefono",
+            "ventana"
+          ],
+          "texto": "Pada tahun dua ribu sepuluh, Matthew Killingsworth dan Daniel Gilbert bertanya kepada lebih dari dua ribu orang, pada jam acak, lewat ponsel mereka: apa yang sedang kamu lakukan, dan apa yang sedang kamu pikirkan? Hampir separuh waktu, pikiran mereka ada di tempat lain."
+        },
+        {
+          "id": "infeliz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "47 %",
+            "clave": "infeliz"
+          },
+          "lamina": [
+            "trafico",
+            "lluvia"
+          ],
+          "texto": "Dan itu bukan istirahat: saat pikiran mengembara, orang merasa lebih buruk dibanding saat mereka fokus, bahkan ketika melakukan hal yang membosankan. Kesimpulan mereka muat dalam satu kalimat: pikiran yang mengembara adalah pikiran yang tidak bahagia."
+        },
+        {
+          "id": "descargas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "67 % · 25 %",
+            "clave": "descargas"
+          },
+          "lamina": [
+            "silla",
+            "reloj"
+          ],
+          "texto": "Dan inilah eksperimen di awal tadi. Pada tahun dua ribu empat belas, Timothy Wilson meninggalkan para relawan sendirian di sebuah ruangan selama enam sampai lima belas menit, tanpa ponsel, dengan sebuah tombol yang memberi sengatan listrik kecil. Dua dari tiga pria dan satu dari empat wanita menekannya, hanya agar tidak sendirian dengan pikiran mereka.",
+          "meme": "solo"
+        },
+        {
+          "id": "jardin",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "parar",
+              "notar",
+              "volver"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "jardin",
+          "texto": "Karena itu taman ini tidak punya dinding dan tidak terburu-buru: di sini idenya adalah berhenti, menyadari di mana aku berada, lalu kembali."
+        }
+      ]
+    },
+    {
+      "id": "que",
+      "titulo": "Apa itu mindfulness dan dari mana asalnya?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian dua. Apa itu mindfulness dan dari mana asalnya?"
+        },
+        {
+          "id": "sati",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 2.500 tahun",
+            "clave": "sati"
+          },
+          "lamina": [
+            "buda",
+            "manuscrito"
+          ],
+          "texto": "Kata ini berasal dari «sati», dalam bahasa Pali, bahasa teks Buddha tertua, dari sekitar dua ribu lima ratus tahun lalu. Artinya kira-kira: ingat untuk kembali pada apa yang sedang terjadi. Pada tahun seribu delapan ratus delapan puluh satu, penerjemah Inggris Thomas Rhys Davids menerjemahkannya ke bahasa Inggris sebagai «mindfulness»."
+        },
+        {
+          "id": "kabatZinn",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "definicion"
+          },
+          "lamina": [
+            "kabatZinn",
+            "hospital"
+          ],
+          "texto": "Pada tahun seribu sembilan ratus tujuh puluh sembilan, ahli biologi Jon Kabat-Zinn membawanya ke sebuah rumah sakit di Massachusetts, tanpa unsur agama, untuk pasien dengan nyeri kronis. Definisinya masih dipakai sampai sekarang: memberi perhatian, dengan sengaja, pada saat ini, tanpa menghakimi."
+        },
+        {
+          "id": "noEs",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "noVaciar",
+              "noRelajar",
+              "noHuir"
+            ]
+          },
+          "lamina": [
+            "nubes",
+            "rio"
+          ],
+          "texto": "Dan ia juga menjelaskan apa yang bukan mindfulness. Bukan mengosongkan pikiran, bukan memaksa dirimu untuk rileks, dan bukan lari dari apa yang kamu rasakan. Mindfulness adalah melihat pikiranmu lewat seperti awan, tanpa ikut naik ke setiap awan itu.",
+          "meme": "relajate"
+        },
+        {
+          "id": "ocho",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "respirar",
+              "cuerpo",
+              "caminar"
+            ]
+          },
+          "lamina": [
+            "grupo",
+            "caminar"
+          ],
+          "texto": "Programnya berlangsung delapan minggu: bernapas dengan penuh perhatian, menyusuri tubuh dari kaki sampai kepala, dan berjalan pelan sambil merasakan setiap langkah. Kini program itu diajarkan di rumah sakit, sekolah, dan perusahaan di seluruh dunia."
+        },
+        {
+          "id": "sesion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "como",
+              "medito",
+              "como2"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cojin",
+          "texto": "Dan kamu tidak butuh biara: aku duduk di sini, bilang bagaimana perasaanku saat datang, bermeditasi beberapa menit, lalu bilang bagaimana perasaanku saat pergi."
+        }
+      ]
+    },
+    {
+      "id": "respirar",
+      "titulo": "Apa yang terjadi pada tubuhmu saat bernapas pelan?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tiga. Apa yang terjadi pada tubuhmu saat bernapas pelan?"
+        },
+        {
+          "id": "freno",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pulso"
+          },
+          "lamina": [
+            "corazon",
+            "pulmones"
+          ],
+          "texto": "Napas adalah satu-satunya tombol autopilot tubuh yang bisa kamu sentuh sesuka hati. Saat menarik napas, jantung sedikit lebih cepat; saat mengembuskan, melambat. Bernapas pelan, sekitar enam kali per menit, membuat ayunan itu lebih besar, dan itu tanda tubuh yang sedang tenang."
+        },
+        {
+          "id": "suspiro",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "suspiro"
+          },
+          "lamina": [
+            "nariz",
+            "atardecer"
+          ],
+          "texto": "Dan inilah latihan satu menit yang kujanjikan: desahan siklik. Dua tarikan napas lewat hidung, satu panjang dan satu lagi pendek untuk mengisi penuh paru-paru, lalu satu embusan panjang dan pelan lewat mulut. Ulangi selama satu menit. Ayo lakukan bersamaku."
+        },
+        {
+          "id": "balban",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "5 mnt",
+            "clave": "balban"
+          },
+          "lamina": [
+            "laboratorio",
+            "sonrisa"
+          ],
+          "texto": "Pada tahun dua ribu dua puluh tiga, di Universitas Stanford, lebih dari seratus orang berlatih lima menit sehari selama sebulan. Mereka yang melakukan desahan siklik lebih membaik suasana hatinya daripada yang melakukan meditasi perhatian, dan napas mereka saat istirahat menjadi lebih lambat."
+        },
+        {
+          "id": "caja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "caja"
+          },
+          "lamina": [
+            "caja",
+            "noche"
+          ],
+          "texto": "Ada pola lain. Pernapasan kotak: tarik napas empat hitungan, tahan empat, embuskan empat, dan tahan empat. Dan pola empat-tujuh-delapan, dengan embusan yang lebih panjang daripada tarikan, untuk saat kamu tidak bisa tidur."
+        },
+        {
+          "id": "lampara",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "patron",
+              "circulo",
+              "sigue"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "respiracion",
+          "texto": "Di sini, di tamanku, aku memilih polanya dan mengikuti lingkaran yang membesar saat aku menarik napas dan mengecil saat aku mengembuskannya."
+        }
+      ]
+    },
+    {
+      "id": "rapido",
+      "titulo": "Mengapa melambat membuatmu sampai lebih cepat?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian empat. Mengapa melambat membuatmu sampai lebih cepat?"
+        },
+        {
+          "id": "multitarea",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cambio"
+          },
+          "lamina": [
+            "pestanas",
+            "notificaciones"
+          ],
+          "texto": "Mengerjakan banyak hal sekaligus terasa cepat, padahal tidak. Setiap kali kamu melompat dari satu tugas ke tugas lain, otakmu butuh waktu untuk memuat ulang tugas pertama. Dan pada tahun dua ribu sembilan, di Stanford, orang yang terus-menerus berpindah antarlayar lebih mudah terdistraksi dan lebih buruk dalam berganti tugas dibanding yang tidak.",
+          "meme": "pestanas"
+        },
+        {
+          "id": "mrazek",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+16",
+            "clave": "mrazek"
+          },
+          "lamina": [
+            "examen",
+            "biblioteca"
+          ],
+          "texto": "Sekarang kebalikannya. Pada tahun dua ribu tiga belas, Michael Mrazek memberi mahasiswa dua minggu latihan mindfulness, beberapa menit sehari. Pikiran mereka lebih jarang mengembara, memori kerja mereka membaik, dan di bagian membaca sebuah ujian pascasarjana, nilai mereka naik enam belas poin persentil."
+        },
+        {
+          "id": "marines",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "practica"
+          },
+          "lamina": [
+            "soldado",
+            "bosque"
+          ],
+          "texto": "Dan Amishi Jha mengujinya pada marinir sebelum berangkat misi, masa yang penuh tekanan. Mereka yang berlatih lebih banyak menit berhasil menjaga memori kerjanya; yang hampir tidak berlatih justru kehilangannya. Karena itu di militer ada pepatah: pelan itu mulus, dan mulus itu cepat."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "Kalau kamu suka panduan ini, tekan Suka, Subscribe, dan Bagikan."
+        },
+        {
+          "id": "campana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "campana",
+              "una",
+              "campana2"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cuenco",
+          "texto": "Kalau ada hal penting, aku datang ke sini dulu: satu bunyi lonceng, beberapa menit untuk diriku, satu lonceng lagi, lalu satu hal dalam satu waktu."
+        }
+      ]
+    },
+    {
+      "id": "ciencia",
+      "titulo": "Apa kata sains, dan apa yang tidak?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian lima. Apa kata sains, dan apa yang tidak?"
+        },
+        {
+          "id": "goyal",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "goyal"
+          },
+          "lamina": [
+            "papeles",
+            "lupa"
+          ],
+          "texto": "Pada tahun dua ribu empat belas, Madhav Goyal dan timnya di Universitas Johns Hopkins meninjau empat puluh tujuh uji klinis dengan lebih dari tiga ribu lima ratus orang. Program meditasi memperbaiki kecemasan, depresi, dan rasa nyeri secara sedang."
+        },
+        {
+          "id": "noMagia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "moderado",
+              "noMejor",
+              "noSustituye"
+            ]
+          },
+          "lamina": [
+            "balanza",
+            "doctor"
+          ],
+          "texto": "Sedang artinya memang begitu: membantu, tapi bukan sihir. Dalam tinjauan itu, meditasi tidak lebih baik daripada pengobatan lain, seperti olahraga atau terapi, dan tidak menggantikan spesialis saat kamu membutuhkannya."
+        },
+        {
+          "id": "cerebro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "8 mgg",
+            "clave": "cerebro"
+          },
+          "lamina": [
+            "cerebro",
+            "resonancia"
+          ],
+          "texto": "Dan mungkin kamu pernah dengar bahwa delapan minggu meditasi mengubah ukuran otakmu. Sebuah studi tahun dua ribu sebelas mengisyaratkannya, tapi pada tahun dua ribu dua puluh dua, studi yang lebih besar dan lebih cermat tidak menemukannya. Begitulah sains bergerak: yang bertahan adalah bahwa melatih perhatian membantumu menyadari lebih awal dan bereaksi lebih baik."
+        },
+        {
+          "id": "gratitud",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gratitud"
+          },
+          "lamina": [
+            "diario",
+            "cafe"
+          ],
+          "texto": "Dan ada latihan tetangga yang juga punya bukti: bersyukur. Pada tahun dua ribu tiga, Robert Emmons dan Michael McCullough meminta relawan mencatat setiap minggu hal-hal yang mereka syukuri. Sepuluh minggu kemudian, mereka merasa lebih puas dengan hidupnya, lebih optimis, bahkan jadi lebih rajin berolahraga."
+        },
+        {
+          "id": "agradezco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unaCosa",
+              "tres",
+              "releer"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "flor",
+          "texto": "Karena itu di sini aku juga mencatat apa yang kusyukuri hari ini: satu sudah cukup, tiga lebih baik."
+        }
+      ]
+    },
+    {
+      "id": "meditar",
+      "titulo": "Bagaimana bermeditasi kalau tak bisa berhenti berpikir?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian enam. Bagaimana bermeditasi kalau tak bisa berhenti berpikir?"
+        },
+        {
+          "id": "repeticion",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "volver"
+          },
+          "lamina": [
+            "pesa",
+            "brujula"
+          ],
+          "texto": "Inilah rahasianya: terdistraksi bukan berarti gagal. Itu bagian dari latihannya. Setiap kali kamu sadar pikiranmu pergi lalu kembali ke napas, kamu melakukan satu repetisi, seperti satu squat untuk perhatianmu. Kalau kamu terdistraksi seratus kali, berarti kamu sudah berlatih seratus kali.",
+          "meme": "super"
+        },
+        {
+          "id": "pasos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sientate",
+              "ancla",
+              "nota",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "silla2",
+            "ojos"
+          ],
+          "texto": "Semudah ini: duduklah dengan nyaman, punggung tegak tapi tidak kaku. Pilih satu jangkar, misalnya udara yang masuk dan keluar dari hidung. Saat kamu menyadari ada pikiran, beri nama dalam hati, «berpikir», lalu kembali ke jangkar, tanpa memarahi dirimu."
+        },
+        {
+          "id": "basso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "13 mnt",
+            "clave": "basso"
+          },
+          "lamina": [
+            "reloj2",
+            "amanecer"
+          ],
+          "texto": "Berapa lama? Pada tahun dua ribu sembilan belas, Julia Basso dan Wendy Suzuki meminta orang yang belum berpengalaman bermeditasi tiga belas menit sehari. Setelah empat minggu belum terasa; setelah delapan, suasana hati, perhatian, dan ingatan mereka membaik. Konsistensi mengalahkan durasi."
+        },
+        {
+          "id": "otras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cuerpo",
+              "caminar",
+              "sonido"
+            ]
+          },
+          "lamina": [
+            "pies",
+            "olas"
+          ],
+          "texto": "Dan kalau duduk diam bukan gayamu, ada pintu lain: menyusuri tubuhmu dengan perhatian, dari kaki sampai kepala; berjalan pelan sambil merasakan setiap langkah; atau mendengarkan satu suara, seperti hujan atau laut, dan kembali ke suara itu."
+        },
+        {
+          "id": "sonidos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bosque",
+              "mar",
+              "lluvia"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "lluvia",
+          "texto": "Di sini aku memilih suaranya, hutan, laut, hujan, atau mangkuk bernyanyi, memilih waktunya, lalu bermeditasi sampai lonceng berbunyi."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Bagaimana melanjutkan? Rencanamu untuk terus maju",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tujuh. Bagaimana melanjutkan? Rencanamu untuk terus maju."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "cafe",
+            "semilla"
+          ],
+          "texto": "Di minggu pertama, tempelkan latihanmu pada sesuatu yang sudah biasa kamu lakukan: setelah minum kopi, satu menit desahan siklik dan dua menit memperhatikan napas. Sesingkat itu, sampai tidak ada alasan untuk melewatkannya."
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "crecer"
+          },
+          "lamina": [
+            "brote",
+            "arbol"
+          ],
+          "texto": "Di bulan pertama, tambah sedikit setiap minggu sampai mencapai sepuluh atau tiga belas menit, dan coba berbagai suara dan pola sampai kamu menemukan yang paling cocok. Lihat bagaimana tiga menit sehari menjadi lebih dari satu setengah jam sebulan."
+        },
+        {
+          "id": "fallar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinRacha",
+              "hoy",
+              "suave"
+            ]
+          },
+          "lamina": [
+            "banca",
+            "parque"
+          ],
+          "texto": "Dan kalau suatu hari kamu tidak bermeditasi, tidak apa-apa: di sini tidak ada rentetan hari yang putus. Latihannya adalah kembali, sama seperti di dalam meditasi. Untuk mengukur kemajuanmu, perhatikan bagaimana perasaanmu saat datang dan saat pergi, dan berapa banyak ketenangan yang sudah kamu kumpulkan."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "bosque",
+          "texto": "Singkatnya: pikiranmu pergi hampir separuh hari; mindfulness adalah menyadari dan kembali, tanpa menghakimi; bernapas pelan menenangkan tubuhmu; melambat membuatmu lebih produktif; dan beberapa menit setiap hari lebih berharga daripada satu jam sesekali."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Di Taman MindHaOS, kamu bisa bermeditasi dengan suara hutan, laut, atau hujan, bernapas mengikuti lingkaran yang membimbingmu, dan mencatat hal yang kamu syukuri, sambil melihat ketenanganmu tumbuh dari benih menjadi hutan. Bangun rumah pikiranmu gratis hari ini: tautannya ada di deskripsi. Dan di panduan berikutnya: bagaimana mengatur waktumu?",
+    "boton": "Buka Taman",
+    "lamina": "app-plan",
+    "anclas": {
+      "meditar": "kamu bisa bermeditasi",
+      "respirar": "bernapas mengikuti lingkaran",
+      "agradecer": "mencatat hal yang kamu syukuri",
+      "calma": "ketenanganmu tumbuh"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "killingsworth-2010",
+      "texto": "Killingsworth M. A., Gilbert D. T. A wandering mind is an unhappy mind. Science (2010).",
+      "url": "https://doi.org/10.1126/science.1192439"
+    },
+    {
+      "id": "wilson-2014",
+      "texto": "Wilson T. D. et al. Just think: The challenges of the disengaged mind. Science (2014).",
+      "url": "https://doi.org/10.1126/science.1250830"
+    },
+    {
+      "id": "kabat-zinn-1982",
+      "texto": "Kabat-Zinn J. An outpatient program in behavioral medicine for chronic pain patients based on the practice of mindfulness meditation. General Hospital Psychiatry (1982).",
+      "url": "https://doi.org/10.1016/0163-8343(82)90026-3"
+    },
+    {
+      "id": "zaccaro-2018",
+      "texto": "Zaccaro A. et al. How breath-control can change your life: A systematic review on psycho-physiological correlates of slow breathing. Frontiers in Human Neuroscience (2018).",
+      "url": "https://doi.org/10.3389/fnhum.2018.00353"
+    },
+    {
+      "id": "balban-2023",
+      "texto": "Balban M. Y. et al. Brief structured respiration practices enhance mood and reduce physiological arousal. Cell Reports Medicine (2023).",
+      "url": "https://doi.org/10.1016/j.xcrm.2022.100895"
+    },
+    {
+      "id": "ophir-2009",
+      "texto": "Ophir E., Nass C., Wagner A. D. Cognitive control in media multitaskers. PNAS (2009).",
+      "url": "https://doi.org/10.1073/pnas.0903620106"
+    },
+    {
+      "id": "mrazek-2013",
+      "texto": "Mrazek M. D. et al. Mindfulness training improves working memory capacity and GRE performance while reducing mind wandering. Psychological Science (2013).",
+      "url": "https://doi.org/10.1177/0956797612459659"
+    },
+    {
+      "id": "jha-2010",
+      "texto": "Jha A. P. et al. Examining the protective effects of mindfulness training on working memory capacity and affective experience. Emotion (2010).",
+      "url": "https://doi.org/10.1037/a0018438"
+    },
+    {
+      "id": "goyal-2014",
+      "texto": "Goyal M. et al. Meditation programs for psychological stress and well-being: A systematic review and meta-analysis. JAMA Internal Medicine (2014).",
+      "url": "https://doi.org/10.1001/jamainternmed.2013.13018"
+    },
+    {
+      "id": "kral-2022",
+      "texto": "Kral T. R. A. et al. Absence of structural brain changes from mindfulness-based stress reduction: Two combined randomized controlled trials. Science Advances (2022).",
+      "url": "https://doi.org/10.1126/sciadv.abk3316"
+    },
+    {
+      "id": "emmons-2003",
+      "texto": "Emmons R. A., McCullough M. E. Counting blessings versus burdens: An experimental investigation of gratitude and subjective well-being in daily life. Journal of Personality and Social Psychology (2003).",
+      "url": "https://doi.org/10.1037/0022-3514.84.2.377"
+    },
+    {
+      "id": "basso-2019",
+      "texto": "Basso J. C. et al. Brief, daily meditation enhances attention, memory, mood, and emotional regulation in non-experienced meditators. Behavioural Brain Research (2019).",
+      "url": "https://doi.org/10.1016/j.bbr.2018.08.023"
+    }
+  ]
+}

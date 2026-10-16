@@ -5,7 +5,7 @@ import { RigEjercicio } from '../../../src/rooms/ejercicio/anim/RigEjercicio'
 import { J } from '../../../src/rooms/ejercicio/anim/pose'
 import { avanzarBoca, nuevaBocaHabla, type BocaHabla } from '../../../src/core/house/bocaHabla'
 import type { ExpresionId } from '../../../src/core/house/apariencia'
-import { patronEscena, pepCon, ropaDeEpoca, ATUENDO_GUIA, NARRADOR_GUIA, TUNICA_GUIA } from './pep'
+import { patronEscena, pepCon, ropaDeEpoca, ATUENDO_GUIA, NARRADOR_GUIA, TUNICA_GUIA, VESTIDO_GUIA } from './pep'
 import { Mago3D } from './Mago3D'
 import { Princesa3D } from './Princesa3D'
 
@@ -55,7 +55,7 @@ export default function Escenario3D({
         {mago ? (
           <Mago3D escena={escena} boca={boca} cara={cara} tunica={TUNICA_GUIA[tema]} />
         ) : princesa ? (
-          <Princesa3D escena={escena} boca={boca} cara={cara} />
+          <Princesa3D escena={escena} boca={boca} cara={cara} vestido={VESTIDO_GUIA[tema]} />
         ) : (
           <RigEjercicio av={av} patron={patron} boca={boca} />
         )}

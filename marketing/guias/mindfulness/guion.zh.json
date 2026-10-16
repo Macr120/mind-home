@@ -1,0 +1,696 @@
+{
+  "idioma": "zh",
+  "tema": "mindfulness",
+  "plantillaId": "jardin",
+  "numero": 10,
+  "nombre": "正念",
+  "pregunta": "为什么放慢脚步，反而能更快到达？",
+  "corta": "越慢，越快",
+  "subtitulo": "一天里差不多一半时间你的心在哪里，正念是什么、从哪里来，慢慢呼吸时身体会发生什么，为什么放慢反而做得更好，科学怎么说、又没说什么，停不下思绪也能冥想的方法，以及让平静留下来的计划。",
+  "aviso": "本指南仅供参考：文中引用的数字和研究均为对其来源的近似概括。正念不能代替专业帮助：如果你正经历焦虑、抑郁、创伤，或有伤害自己的念头，请向心理健康专业人士求助。",
+  "partes": [
+    {
+      "id": "mente",
+      "titulo": "你的心此刻在哪里？",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "为什么放慢脚步，反而能更快到达？在一项实验里，很多人被单独留下十五分钟，只和自己的想法待在一起，结果他们宁愿给自己电击，也不愿安静地坐着。今天我们来看看科学怎么说放慢脚步，还有一个一分钟的练习，这个视频一结束你就能做。"
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "对了，这是我在MindHaOS里的家，这座花园是我来放慢节奏的地方。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第一部分。你的心此刻在哪里？"
+        },
+        {
+          "id": "divaga",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mente"
+          },
+          "lamina": [
+            "telefono",
+            "ventana"
+          ],
+          "texto": "2010年，马修·基林斯沃思和丹尼尔·吉尔伯特通过手机，在随机的时间问了两千多人：你正在做什么，又在想什么？结果差不多一半的时间，他们的心都在别的事情上。"
+        },
+        {
+          "id": "infeliz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "47%",
+            "clave": "infeliz"
+          },
+          "lamina": [
+            "trafico",
+            "lluvia"
+          ],
+          "texto": "而且这并不是休息：心思游荡的时候，人们的感觉比专注时更差，哪怕手头做的是无聊的事。他们的结论一句话就能说完：游荡的心，是不快乐的心。"
+        },
+        {
+          "id": "descargas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "67% · 25%",
+            "clave": "descargas"
+          },
+          "lamina": [
+            "silla",
+            "reloj"
+          ],
+          "texto": "这就是开头说的那个实验。2014年，蒂莫西·威尔逊让志愿者不带手机，独自在房间里待六到十五分钟，旁边有一个按下去会产生轻微电击的按钮。三分之二的男性和四分之一的女性按了它，只因为不想和自己的心独处。",
+          "meme": "solo"
+        },
+        {
+          "id": "jardin",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "parar",
+              "notar",
+              "volver"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "jardin",
+          "texto": "所以这座花园没有围墙，也不赶时间：在这里，就是停下来，留意自己在哪里，然后回来。"
+        }
+      ]
+    },
+    {
+      "id": "que",
+      "titulo": "正念是什么，又从哪里来？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第二部分。正念是什么，又从哪里来？"
+        },
+        {
+          "id": "sati",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "约2500年",
+            "clave": "sati"
+          },
+          "lamina": [
+            "buda",
+            "manuscrito"
+          ],
+          "texto": "这个词来自巴利语的“sati”，也就是“念”。巴利语是大约两千五百年前最古老的佛教经典所用的语言。它的意思大概是：记得回到正在发生的事情上。1881年，英国翻译家托马斯·里斯·戴维兹把它译成了英文的“mindfulness”。"
+        },
+        {
+          "id": "kabatZinn",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "definicion"
+          },
+          "lamina": [
+            "kabatZinn",
+            "hospital"
+          ],
+          "texto": "1979年，生物学家乔·卡巴金把它带进了马萨诸塞州的一家医院，不带任何宗教色彩，用来帮助慢性疼痛的病人。他的定义今天仍在使用：有意识地、不加评判地，把注意力放在当下。"
+        },
+        {
+          "id": "noEs",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "noVaciar",
+              "noRelajar",
+              "noHuir"
+            ]
+          },
+          "lamina": [
+            "nubes",
+            "rio"
+          ],
+          "texto": "他也说明了正念不是什么。它不是让大脑一片空白，不是逼自己放松，也不是逃避自己的感受。它是看着念头像云一样飘过，而不跳上每一朵。",
+          "meme": "relajate"
+        },
+        {
+          "id": "ocho",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "respirar",
+              "cuerpo",
+              "caminar"
+            ]
+          },
+          "lamina": [
+            "grupo",
+            "caminar"
+          ],
+          "texto": "他的课程为期八周：专注地呼吸，从脚到头扫描身体，慢慢走路，感受每一步。如今，世界各地的医院、学校和公司都在教。"
+        },
+        {
+          "id": "sesion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "como",
+              "medito",
+              "como2"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cojin",
+          "texto": "也不需要去寺院：我就坐在这里，记下来时的心情，冥想几分钟，再记下离开时的心情。"
+        }
+      ]
+    },
+    {
+      "id": "respirar",
+      "titulo": "慢慢呼吸时，你的身体会发生什么？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第三部分。慢慢呼吸时，你的身体会发生什么？"
+        },
+        {
+          "id": "freno",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pulso"
+          },
+          "lamina": [
+            "corazon",
+            "pulmones"
+          ],
+          "texto": "呼吸是身体自动驾驶系统里，唯一一个你能随意操控的开关。吸气时，心跳会稍微加快；呼气时，又会放慢。慢慢呼吸，大约每分钟六次，会让这种起伏变大，这正是身体在平静下来的信号。"
+        },
+        {
+          "id": "suspiro",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "suspiro"
+          },
+          "lamina": [
+            "nariz",
+            "atardecer"
+          ],
+          "texto": "这就是我答应你的一分钟练习：循环叹息。用鼻子吸两次气，一次长，一次短，把肺吸满，然后用嘴长长地、慢慢地呼出来。重复一分钟。跟我一起做吧。"
+        },
+        {
+          "id": "balban",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "5分钟",
+            "clave": "balban"
+          },
+          "lamina": [
+            "laboratorio",
+            "sonrisa"
+          ],
+          "texto": "2023年，在斯坦福大学，一百多人连续一个月每天练习五分钟。做循环叹息的人，情绪改善得比做专注冥想的人更多，静息时的呼吸也变慢了。"
+        },
+        {
+          "id": "caja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "caja"
+          },
+          "lamina": [
+            "caja",
+            "noche"
+          ],
+          "texto": "还有别的呼吸方式。箱式呼吸：吸气四秒，屏住四秒，呼气四秒，再屏住四秒。还有四七八呼吸法，呼气比吸气更长，适合睡不着的时候。"
+        },
+        {
+          "id": "lampara",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "patron",
+              "circulo",
+              "sigue"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "respiracion",
+          "texto": "在这里，在我的花园里，我选好节奏，跟着一个圆圈呼吸：吸气时它变大，呼气时它缩小。"
+        }
+      ]
+    },
+    {
+      "id": "rapido",
+      "titulo": "为什么放慢反而让你更快到达？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第四部分。为什么放慢反而让你更快到达？"
+        },
+        {
+          "id": "multitarea",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cambio"
+          },
+          "lamina": [
+            "pestanas",
+            "notificaciones"
+          ],
+          "texto": "同时做很多事感觉很快，其实并不是。每次你从一件事跳到另一件事，大脑都要花时间重新载入第一件。2009年在斯坦福，经常在屏幕之间跳来跳去的人，更容易分心，切换任务也比别人更差。",
+          "meme": "pestanas"
+        },
+        {
+          "id": "mrazek",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+16",
+            "clave": "mrazek"
+          },
+          "lamina": [
+            "examen",
+            "biblioteca"
+          ],
+          "texto": "再看相反的情况。2013年，迈克尔·姆拉泽克让学生们接受两周的正念训练，每天几分钟。他们走神变少了，工作记忆提高了，在一项研究生入学考试的阅读部分，成绩提高了十六个百分位点。"
+        },
+        {
+          "id": "marines",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "practica"
+          },
+          "lamina": [
+            "soldado",
+            "bosque"
+          ],
+          "texto": "阿米希·贾还在海军陆战队员执行任务前做过测试，那是压力很大的一段时间。练习时间多的人保住了工作记忆，几乎不练的人则下降了。所以军队里有句话：慢就是稳，稳就是快。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "如果你喜欢这份指南，请点赞、订阅并分享。"
+        },
+        {
+          "id": "campana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "campana",
+              "una",
+              "campana2"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cuenco",
+          "texto": "有重要的事情时，我会先来这里：敲一下钟，给自己几分钟，再敲一下钟，然后一次只做一件事。"
+        }
+      ]
+    },
+    {
+      "id": "ciencia",
+      "titulo": "科学怎么说，又没说什么？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第五部分。科学怎么说，又没说什么？"
+        },
+        {
+          "id": "goyal",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "goyal"
+          },
+          "lamina": [
+            "papeles",
+            "lupa"
+          ],
+          "texto": "2014年，约翰斯·霍普金斯大学的马达夫·戈亚尔和团队，回顾了四十七项试验，涉及三千五百多人。冥想课程对焦虑、抑郁和疼痛有中等程度的改善。"
+        },
+        {
+          "id": "noMagia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "moderado",
+              "noMejor",
+              "noSustituye"
+            ]
+          },
+          "lamina": [
+            "balanza",
+            "doctor"
+          ],
+          "texto": "中等，意思就是：有帮助，但不是魔法。在那项回顾里，它并不比运动或心理治疗等其他方法更好，也不能在你需要时代替专业人士。"
+        },
+        {
+          "id": "cerebro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "8周",
+            "clave": "cerebro"
+          },
+          "lamina": [
+            "cerebro",
+            "resonancia"
+          ],
+          "texto": "你也许听说过，八周冥想就能改变大脑的大小。2011年的一项研究提出了这一点，但2022年一项更大、更严谨的研究并没有发现。科学就是这样前进的：站得住脚的是，训练注意力能帮你更早察觉，反应得更好。"
+        },
+        {
+          "id": "gratitud",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gratitud"
+          },
+          "lamina": [
+            "diario",
+            "cafe"
+          ],
+          "texto": "还有一个相近、同样有证据的练习：感恩。2003年，罗伯特·埃蒙斯和迈克尔·麦卡洛请志愿者每周写下值得感恩的事。十周后，他们对生活更满意、更乐观，甚至运动得更多了。"
+        },
+        {
+          "id": "agradezco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unaCosa",
+              "tres",
+              "releer"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "flor",
+          "texto": "所以在这里，我也会写下今天感恩的事：一件就够，三件更好。"
+        }
+      ]
+    },
+    {
+      "id": "meditar",
+      "titulo": "停不下思绪时，怎样冥想？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第六部分。停不下思绪时，怎样冥想？"
+        },
+        {
+          "id": "repeticion",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "volver"
+          },
+          "lamina": [
+            "pesa",
+            "brujula"
+          ],
+          "texto": "秘诀就在这里：走神不是失败，而是练习的一部分。每次你发现自己跑远了，又回到呼吸上，就完成了一次重复，就像给注意力做了一个深蹲。走神一百次，你就练了一百次。",
+          "meme": "super"
+        },
+        {
+          "id": "pasos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sientate",
+              "ancla",
+              "nota",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "silla2",
+            "ojos"
+          ],
+          "texto": "就这么简单：舒服地坐好，背挺直但不僵硬。选一个锚点，比如从鼻子进出的空气。当你注意到一个念头，就在心里默默叫它“在想”，然后回到锚点，不要责怪自己。"
+        },
+        {
+          "id": "basso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "13分钟",
+            "clave": "basso"
+          },
+          "lamina": [
+            "reloj2",
+            "amanecer"
+          ],
+          "texto": "要练多久？2019年，朱莉娅·巴索和温迪·铃木请没有经验的人每天冥想十三分钟。四周时还看不出变化；到了八周，他们的情绪、注意力和记忆都变好了。坚持比时长更重要。"
+        },
+        {
+          "id": "otras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cuerpo",
+              "caminar",
+              "sonido"
+            ]
+          },
+          "lamina": [
+            "pies",
+            "olas"
+          ],
+          "texto": "如果静坐不适合你，还有别的门：用注意力从脚到头扫描身体；慢慢走路，感受每一步；或者听一个声音，比如雨声或海浪，一次次回到它。"
+        },
+        {
+          "id": "sonidos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bosque",
+              "mar",
+              "lluvia"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "lluvia",
+          "texto": "在这里，我选好声音，森林、大海、雨声或颂钵，再选好时间，一直冥想到钟声响起。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "怎样坚持下去？你的继续计划",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第七部分。怎样坚持下去？你的继续计划。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "cafe",
+            "semilla"
+          ],
+          "texto": "第一周，把练习挂在你已经在做的事情上：喝完咖啡后，做一分钟循环叹息，再花两分钟专注呼吸。少到让你找不到借口。"
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "crecer"
+          },
+          "lamina": [
+            "brote",
+            "arbol"
+          ],
+          "texto": "第一个月，每周加一点，直到十分钟或十三分钟，试试不同的声音和节奏，找到适合你的那一种。看看每天三分钟，一个月就能累积一个半小时以上。"
+        },
+        {
+          "id": "fallar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinRacha",
+              "hoy",
+              "suave"
+            ]
+          },
+          "lamina": [
+            "banca",
+            "parque"
+          ],
+          "texto": "如果哪天没冥想，也没关系：这里没有会中断的连续记录。练习就是回来，就像在冥想中一样。想衡量进步，就留意你来时和离开时的状态，还有你攒下了多少平静。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "bosque",
+          "texto": "总结一下：你的心差不多有一半时间在游荡；正念就是察觉并回来，不加评判；慢慢呼吸让身体慢下来；放慢让你做得更好；每天几分钟，胜过偶尔一小时。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "在MindHaOS的花园里，你可以冥想，伴着森林、大海或雨声，跟着引导你的圆圈呼吸，写下你感恩的事，同时看着你的平静从种子长成森林。今天就免费搭建你的心灵之家。链接在视频简介里。下一期指南：怎样安排好你的时间？",
+    "boton": "打开花园",
+    "lamina": "app-plan",
+    "anclas": {
+      "meditar": "你可以冥想",
+      "respirar": "跟着引导你的圆圈呼吸",
+      "agradecer": "写下你感恩的事",
+      "calma": "你的平静从种子"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "killingsworth-2010",
+      "texto": "Killingsworth M. A., Gilbert D. T. A wandering mind is an unhappy mind. Science (2010).",
+      "url": "https://doi.org/10.1126/science.1192439"
+    },
+    {
+      "id": "wilson-2014",
+      "texto": "Wilson T. D. et al. Just think: The challenges of the disengaged mind. Science (2014).",
+      "url": "https://doi.org/10.1126/science.1250830"
+    },
+    {
+      "id": "kabat-zinn-1982",
+      "texto": "Kabat-Zinn J. An outpatient program in behavioral medicine for chronic pain patients based on the practice of mindfulness meditation. General Hospital Psychiatry (1982).",
+      "url": "https://doi.org/10.1016/0163-8343(82)90026-3"
+    },
+    {
+      "id": "zaccaro-2018",
+      "texto": "Zaccaro A. et al. How breath-control can change your life: A systematic review on psycho-physiological correlates of slow breathing. Frontiers in Human Neuroscience (2018).",
+      "url": "https://doi.org/10.3389/fnhum.2018.00353"
+    },
+    {
+      "id": "balban-2023",
+      "texto": "Balban M. Y. et al. Brief structured respiration practices enhance mood and reduce physiological arousal. Cell Reports Medicine (2023).",
+      "url": "https://doi.org/10.1016/j.xcrm.2022.100895"
+    },
+    {
+      "id": "ophir-2009",
+      "texto": "Ophir E., Nass C., Wagner A. D. Cognitive control in media multitaskers. PNAS (2009).",
+      "url": "https://doi.org/10.1073/pnas.0903620106"
+    },
+    {
+      "id": "mrazek-2013",
+      "texto": "Mrazek M. D. et al. Mindfulness training improves working memory capacity and GRE performance while reducing mind wandering. Psychological Science (2013).",
+      "url": "https://doi.org/10.1177/0956797612459659"
+    },
+    {
+      "id": "jha-2010",
+      "texto": "Jha A. P. et al. Examining the protective effects of mindfulness training on working memory capacity and affective experience. Emotion (2010).",
+      "url": "https://doi.org/10.1037/a0018438"
+    },
+    {
+      "id": "goyal-2014",
+      "texto": "Goyal M. et al. Meditation programs for psychological stress and well-being: A systematic review and meta-analysis. JAMA Internal Medicine (2014).",
+      "url": "https://doi.org/10.1001/jamainternmed.2013.13018"
+    },
+    {
+      "id": "kral-2022",
+      "texto": "Kral T. R. A. et al. Absence of structural brain changes from mindfulness-based stress reduction: Two combined randomized controlled trials. Science Advances (2022).",
+      "url": "https://doi.org/10.1126/sciadv.abk3316"
+    },
+    {
+      "id": "emmons-2003",
+      "texto": "Emmons R. A., McCullough M. E. Counting blessings versus burdens: An experimental investigation of gratitude and subjective well-being in daily life. Journal of Personality and Social Psychology (2003).",
+      "url": "https://doi.org/10.1037/0022-3514.84.2.377"
+    },
+    {
+      "id": "basso-2019",
+      "texto": "Basso J. C. et al. Brief, daily meditation enhances attention, memory, mood, and emotional regulation in non-experienced meditators. Behavioural Brain Research (2019).",
+      "url": "https://doi.org/10.1016/j.bbr.2018.08.023"
+    }
+  ]
+}

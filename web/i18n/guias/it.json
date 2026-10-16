@@ -1789,5 +1789,250 @@
         "abajo": "Camminare 20 minuti oggi"
       }
     }
+  },
+  "mindfulness": {
+    "meta": {
+      "titulo": "Perché andare più piano ti farà arrivare prima? Guida alla mindfulness: la mente che vaga, cos'è la consapevolezza, respirare lentamente, rendere di più, cosa dice la scienza, come meditare e un piano per continuare | MindHaOS",
+      "desc": "La mindfulness secondo la scienza: perché la tua mente vaga per quasi metà della giornata, cos'è la consapevolezza e da dove viene, il sospiro ciclico di un minuto, perché rallentare ti fa rendere di più, cosa dicono gli studi e cosa no, come meditare anche se non riesci a smettere di pensare e un piano perché la calma resti."
+    },
+    "narra": "Narra la principessa",
+    "cargando3d": "Sto caricando la principessa…",
+    "lista": {
+      "noVaciar": "Non è svuotare la mente",
+      "noVaciarDet": "I pensieri continueranno ad arrivare: la pratica è notarli.",
+      "noRelajar": "Non è costringerti a stare rilassato",
+      "noRelajarDet": "A volte la calma arriva, a volte no: contano entrambe le volte.",
+      "noHuir": "Non è fuggire da ciò che senti",
+      "noHuirDet": "È guardarlo in faccia, con curiosità e senza giudicarti.",
+      "moderado": "L'effetto è moderato",
+      "moderadoDet": "Aiuta con ansia, depressione e dolore, ma non è magia.",
+      "noMejor": "Non supera altri trattamenti",
+      "noMejorDet": "Nella revisione del 2014 ha reso come l'esercizio o la terapia, non di più.",
+      "noSustituye": "Non sostituisce uno specialista",
+      "noSustituyeDet": "Se ciò che vivi pesa troppo, chiedi aiuto a un professionista.",
+      "cuerpo": "Percorrere il corpo",
+      "cuerpoDet": "L'attenzione scende piano dai piedi alla testa, notando ogni parte.",
+      "caminar": "Camminare piano",
+      "caminarDet": "Senti come ogni piede si alza, avanza e si appoggia.",
+      "sonido": "Ascoltare un suono",
+      "sonidoDet": "La pioggia, il mare o una campana: quando ti allontani, torna lì.",
+      "resumen1": "La tua mente se ne va per quasi metà della giornata",
+      "resumen2": "Mindfulness è notare e tornare, senza giudicare",
+      "resumen3": "Respirare lentamente frena il corpo, e rallentare ti fa rendere di più",
+      "resumen4": "Qualche minuto ogni giorno vale più di un'ora ogni tanto"
+    },
+    "dato": {
+      "infeliz": "del tempo da svegli, la mente è altrove, e ci si sente peggio di quando si è attenti (Killingsworth e Gilbert, 2010)",
+      "descargas": "degli uomini e delle donne hanno preferito darsi una scossa piuttosto che restare soli con la propria mente (Wilson e colleghi, 2014)",
+      "sati": "«sati», in pali: ricordarsi di tornare a ciò che sta accadendo; «mindfulness» dal 1881 (Rhys Davids)",
+      "balban": "al giorno per un mese: il sospiro ciclico ha migliorato l'umore più di una meditazione di attenzione (Balban e colleghi, Stanford, 2023)",
+      "mrazek": "punti percentili nella lettura di un esame post-laurea dopo due settimane di consapevolezza (Mrazek e colleghi, 2013)",
+      "cerebro": "di meditazione: il cambiamento nelle dimensioni del cervello suggerito da uno studio del 2011 non è emerso in uno più grande del 2022 (Kral e colleghi)",
+      "basso": "al giorno: dopo otto settimane, umore, attenzione e memoria migliori; dopo quattro non si notava ancora (Basso e Suzuki, 2019)"
+    },
+    "pasos": {
+      "parar": "Fermarsi",
+      "pararDet": "Qualche secondo senza fare altro.",
+      "notar": "Notare",
+      "notarDet": "Dove si trova la tua mente e come sta il tuo corpo.",
+      "volver": "Tornare",
+      "volverDet": "All'aria che entra ed esce, a ciò che stai facendo.",
+      "respirar": "Respirare con attenzione",
+      "respirarDet": "Sentire l'aria, senza cambiarla.",
+      "cuerpo": "Percorrere il corpo",
+      "cuerpoDet": "Dai piedi alla testa, parte per parte.",
+      "caminar": "Camminare piano",
+      "caminarDet": "Notando ogni passo.",
+      "como": "Dico come arrivo",
+      "comoDet": "Una faccina, da uno a cinque; oppure la salto.",
+      "medito": "Medito qualche minuto",
+      "meditoDet": "Con una campana all'inizio e una alla fine.",
+      "como2": "Dico come me ne vado",
+      "como2Det": "E vedo se qualcosa è cambiato.",
+      "patron": "Scelgo lo schema",
+      "patronDet": "Quadrata 4-4-4-4 o 4-7-8.",
+      "circulo": "Seguo il cerchio",
+      "circuloDet": "Cresce quando inspiro e si restringe quando espiro.",
+      "sigue": "Due, tre o cinque minuti",
+      "sigueDet": "Quelli che ho oggi.",
+      "campana": "Una campana",
+      "campanaDet": "Per segnare che comincio.",
+      "una": "Qualche minuto per me",
+      "unaDet": "Respirare prima delle cose importanti.",
+      "campana2": "Un'altra campana",
+      "campana2Det": "E poi, una cosa sola alla volta.",
+      "unaCosa": "Una basta",
+      "unaCosaDet": "Anche una cosa piccola conta: un caffè, una telefonata.",
+      "tres": "Tre è meglio",
+      "tresDet": "Ti obbliga a cercare con più calma.",
+      "releer": "Rileggerle",
+      "releerDet": "In una giornata difficile, le note di prima aiutano.",
+      "sientate": "Mettiti comodo",
+      "sientateDet": "La schiena dritta, ma senza rigidità.",
+      "ancla": "Scegli un'àncora",
+      "anclaDet": "L'aria che entra ed esce dal naso.",
+      "nota": "Nota il pensiero",
+      "notaDet": "Dagli un nome in silenzio: «sto pensando».",
+      "vuelve": "Torna all'àncora",
+      "vuelveDet": "Senza rimproverarti. Questa è una ripetizione.",
+      "bosque": "Bosco",
+      "bosqueDet": "Vento tra gli alberi e uccelli.",
+      "mar": "Mare",
+      "marDet": "Onde che si infrangono piano.",
+      "lluvia": "Pioggia",
+      "lluviaDet": "Oppure ciotole tibetane, per il tempo che vuoi.",
+      "sinRacha": "Nessuna serie che si spezza",
+      "sinRachaDet": "Un giorno senza meditare non cancella niente.",
+      "hoy": "Torna oggi",
+      "hoyDet": "Come dentro la meditazione: notare e tornare.",
+      "suave": "Misura con gentilezza",
+      "suaveDet": "Come arrivi, come te ne vai e quanta calma accumuli."
+    },
+    "mente": {
+      "titulo": "Dov'è la tua mente?",
+      "pregunta": "A cosa stai pensando adesso?",
+      "aqui": "A ciò che sto facendo",
+      "otra": "A un'altra cosa",
+      "preguntar": "Chiedi di nuovo",
+      "llevas": "Su {n} domande, la tua mente era altrove {m} volte",
+      "nota": "Così chiedeva l'app dello studio, a orari casuali. Su più di 2000 persone, la mente era altrove per quasi metà del tempo (illustrativo)."
+    },
+    "definicion": {
+      "titulo": "La definizione di Kabat-Zinn",
+      "p1": "Prestare attenzione",
+      "p1Det": "Accorgerti di ciò che succede, dentro e fuori di te.",
+      "p2": "Intenzionalmente",
+      "p2Det": "Lo scegli tu, non il pilota automatico.",
+      "p3": "Al momento presente",
+      "p3Det": "Non al passato né alla lista di domani.",
+      "p4": "Senza giudicare",
+      "p4Det": "Niente «va bene» o «va male»: solo notare.",
+      "nota": "Tocca ogni parte per vedere cosa significa."
+    },
+    "suspiro": {
+      "titulo": "Il sospiro ciclico",
+      "inhala": "Inspira dal naso",
+      "otra": "Un'altra, più corta",
+      "exhala": "Espira piano dalla bocca",
+      "listo": "Fatto: un minuto",
+      "empezar": "Inizia un minuto",
+      "detener": "Ferma",
+      "ciclos": "Cicli: {n}",
+      "quedan": "Mancano {n} s",
+      "nota": "Due inspirazioni dal naso e un'espirazione lunga dalla bocca, per un minuto."
+    },
+    "caja": {
+      "titulo": "Due schemi di respirazione",
+      "caja": "Quadrata 4-4-4-4",
+      "c478": "4-7-8",
+      "inhala": "Inspira",
+      "sosten": "Trattieni",
+      "exhala": "Espira",
+      "seg": "{n} s",
+      "nota": "Nella quadrata, ogni lato dura uguale. Nel 4-7-8, l'espirazione è la più lunga: ottima prima di dormire."
+    },
+    "cambio": {
+      "titulo": "Una alla volta contro saltare",
+      "unaVez": "Una alla volta",
+      "saltando": "Saltando da un compito all'altro",
+      "tarea": "Compito",
+      "cambios": "Ogni salto costa qualche secondo per tornare a concentrarti",
+      "termina": "Finito",
+      "nota": "Tre compiti uguali: saltando dall'uno all'altro, ogni cambio aggiunge un po' di tempo perso (illustrativo)."
+    },
+    "gratitud": {
+      "titulo": "Oggi ringrazio per…",
+      "ej1": "Il caffè del mattino con calma",
+      "ej2": "La telefonata di mia sorella",
+      "ej3": "Aver camminato al sole dieci minuti",
+      "placeholder": "Anche una cosa piccola conta",
+      "guardar": "Salva",
+      "guardado": "Salvato",
+      "nota": "Nello studio di Emmons e McCullough bastava annotare ogni settimana. Una basta; tre, meglio."
+    },
+    "volver": {
+      "titulo": "Ogni volta che torni, conta",
+      "ancla": "Il tuo respiro",
+      "d1": "Ho comprato il latte?",
+      "d2": "L'email di domani",
+      "d3": "Di nuovo quella canzone",
+      "d4": "Lo sto facendo bene?",
+      "volverBtn": "Notare e tornare",
+      "reps": "Ripetizioni: {n}",
+      "nota": "Distrarti non è fallire: accorgerti che la mente è andata via e tornare è l'esercizio."
+    },
+    "crecer": {
+      "titulo": "I tuoi minuti di calma",
+      "minDia": "Minuti al giorno",
+      "mes": "In un mese",
+      "anio": "In un anno",
+      "horas": "{h} h {m} min",
+      "min": "{m} min",
+      "semilla": "Seme",
+      "brote": "Germoglio",
+      "arbol": "Albero",
+      "bosque": "Bosco",
+      "nota": "Tre minuti al giorno sono già più di un'ora e mezza al mese. Sali piano piano fino a dieci o tredici."
+    },
+    "grafica": {
+      "pulso": "Quando inspiri, il cuore accelera un po'; quando espiri, rallenta. Respirare lentamente rende più ampia questa oscillazione (illustrativo).",
+      "rapida": "Respiro veloce",
+      "lenta": "Respiro lento (circa 6 al minuto)",
+      "inhala": "Inspira",
+      "exhala": "Espira",
+      "latidos": "Battiti al minuto",
+      "practica": "Marines prima di una missione: chi praticava di più ha mantenuto la memoria di lavoro (Jha e colleghi, 2010; illustrativo)",
+      "mucha": "Più pratica",
+      "poca": "Poca pratica",
+      "inicio": "Inizio",
+      "fin": "8 settimane dopo",
+      "memoria": "Memoria di lavoro",
+      "goyal": "Programmi di meditazione: dimensione dell'effetto a 8 settimane (Goyal e colleghi, 2014)",
+      "ansiedad": "Ansia",
+      "depresion": "Depressione",
+      "dolor": "Dolore",
+      "pequeno": "Piccolo",
+      "moderadoEje": "Moderato",
+      "grande": "Grande",
+      "plan": "Il tuo piano per continuare",
+      "semana1": "Settimana 1",
+      "semana1Det": "Dopo il caffè: un minuto di sospiro ciclico e due di attenzione",
+      "mes1": "Mese 1",
+      "mes1Det": "Aumenta un po' ogni settimana, fino a dieci o tredici minuti",
+      "fallas": "Se un giorno non mediti",
+      "fallasDet": "Non succede niente: la pratica è tornare",
+      "medir": "Per misurare",
+      "medirDet": "Come arrivi, come te ne vai e quanta calma accumuli"
+    },
+    "cierre": {
+      "titulo": "La tua calma, nella tua casa",
+      "texto": "Nel giardino di MindHaOS mediti con suoni di bosco, mare, pioggia o ciotole tibetane, respiri seguendo un cerchio, annoti ciò per cui ringrazi e vedi crescere la tua calma da seme a bosco, senza serie né punti che ti inseguono."
+    },
+    "paquete": {
+      "guia": "Guida interattiva (con il sospiro ciclico, la respirazione quadrata e 4-7-8, la tua mente che vaga, i compiti che saltano, i tuoi ringraziamenti e i tuoi minuti di calma, che si muovono nel tuo browser)",
+      "app": "Apri il giardino in MindHaOS",
+      "hashtags": "#mindfulness #meditazione #respirazione #ansia #benessere #salutementale #MindHaOS"
+    },
+    "memes": {
+      "solo": {
+        "arriba": "Io: «ho bisogno di un po' di tempo per me»",
+        "abajo": "Io dopo due minuti in compagnia dei miei pensieri"
+      },
+      "relajate": {
+        "arriba": "Svuotare la mente",
+        "abajo": "Accorgerti che la mente è andata via e tornare"
+      },
+      "pestanas": {
+        "arriba": "Io con cinque schede, la chat e la TV: «che giornata produttiva»",
+        "abajo": "Io alle otto di sera, con niente finito"
+      },
+      "super": {
+        "arriba": "Io che medito: «inspira… espira… ho comprato il latte?»"
+      }
+    },
+    "gusta": {
+      "titulo": "Ti sta piacendo la guida?",
+      "nota": "Un Mi piace, un'iscrizione o una condivisione la aiutano ad arrivare a più persone."
+    }
   }
 }

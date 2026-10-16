@@ -1789,5 +1789,250 @@
         "abajo": "Marcher 20 minutes aujourd’hui"
       }
     }
+  },
+  "mindfulness": {
+    "meta": {
+      "titulo": "Pourquoi aller plus lentement te fera arriver plus vite ? Guide de pleine conscience : ton esprit qui vagabonde, ce qu’est la pleine conscience, respirer lentement, être plus efficace, ce que dit la science, comment méditer et un plan pour la suite | MindHaOS",
+      "desc": "La pleine conscience selon la science : pourquoi ton esprit vagabonde presque la moitié de la journée, ce qu’est la pleine conscience et d’où elle vient, le soupir cyclique d’une minute, pourquoi ralentir te rend plus efficace, ce que disent les études et ce qu’elles ne disent pas, comment méditer même si tu n’arrives pas à arrêter de penser, et un plan pour que le calme reste."
+    },
+    "narra": "Racontée par la princesse",
+    "cargando3d": "Chargement de la princesse…",
+    "lista": {
+      "noVaciar": "Ce n’est pas faire le vide",
+      "noVaciarDet": "Les pensées vont continuer à arriver : la pratique, c’est les remarquer.",
+      "noRelajar": "Ce n’est pas t’obliger à être détendu",
+      "noRelajarDet": "Parfois le calme vient, parfois non : les deux comptent.",
+      "noHuir": "Ce n’est pas fuir ce que tu ressens",
+      "noHuirDet": "C’est le regarder en face, avec curiosité et sans te juger.",
+      "moderado": "L’effet est modéré",
+      "moderadoDet": "Ça aide contre l’anxiété, la dépression et la douleur, mais ce n’est pas magique.",
+      "noMejor": "Ça ne bat pas les autres traitements",
+      "noMejorDet": "Dans la revue de 2014, elle a fait à peu près comme le sport ou la thérapie, pas mieux.",
+      "noSustituye": "Ça ne remplace pas un spécialiste",
+      "noSustituyeDet": "Si ce que tu vis pèse trop lourd, demande une aide professionnelle.",
+      "cuerpo": "Parcourir ton corps",
+      "cuerpoDet": "L’attention descend lentement des pieds à la tête, en sentant chaque partie.",
+      "caminar": "Marcher lentement",
+      "caminarDet": "Sens chaque pied se lever, avancer et se poser.",
+      "sonido": "Écouter un son",
+      "sonidoDet": "La pluie, la mer ou une cloche : quand tu t’en vas, reviens-y.",
+      "resumen1": "Ton esprit s’en va presque la moitié de la journée",
+      "resumen2": "La pleine conscience, c’est remarquer et revenir, sans juger",
+      "resumen3": "Respirer lentement freine ton corps, et ralentir te rend plus efficace",
+      "resumen4": "Quelques minutes chaque jour valent mieux qu’une heure de temps en temps"
+    },
+    "dato": {
+      "infeliz": "du temps éveillé, l’esprit est ailleurs, et on se sent moins bien que lorsqu’on est attentif (Killingsworth et Gilbert, 2010)",
+      "descargas": "des hommes et des femmes ont préféré s’infliger une décharge plutôt que de rester seuls avec leur esprit (Wilson et collègues, 2014)",
+      "sati": "« sati », en pali : se souvenir de revenir à ce qui se passe ; « mindfulness » depuis 1881 (Rhys Davids)",
+      "balban": "par jour pendant un mois : le soupir cyclique a amélioré l’humeur plus qu’une méditation de pleine conscience (Balban et collègues, Stanford, 2023)",
+      "mrazek": "points de centile en lecture à un examen d’entrée en master après deux semaines de pleine conscience (Mrazek et collègues, 2013)",
+      "cerebro": "de méditation : le changement de taille du cerveau suggéré par une étude de 2011 n’est pas apparu dans une plus grande en 2022 (Kral et collègues)",
+      "basso": "par jour : au bout de huit semaines, meilleure humeur, attention et mémoire ; à quatre, rien ne se voyait encore (Basso et Suzuki, 2019)"
+    },
+    "pasos": {
+      "parar": "S’arrêter",
+      "pararDet": "Quelques secondes sans rien faire d’autre.",
+      "notar": "Remarquer",
+      "notarDet": "Où est ton esprit et comment va ton corps.",
+      "volver": "Revenir",
+      "volverDet": "À l’air qui entre et qui sort, à ce que tu fais.",
+      "respirar": "Respirer en pleine attention",
+      "respirarDet": "Sentir l’air, sans le changer.",
+      "cuerpo": "Parcourir le corps",
+      "cuerpoDet": "Des pieds à la tête, partie par partie.",
+      "caminar": "Marcher lentement",
+      "caminarDet": "En sentant chaque pas.",
+      "como": "Je dis comment j’arrive",
+      "comoDet": "Un visage, de un à cinq ; ou je passe.",
+      "medito": "Je médite quelques minutes",
+      "meditoDet": "Avec une cloche au début et une autre à la fin.",
+      "como2": "Je dis comment je repars",
+      "como2Det": "Et je vois si quelque chose a changé.",
+      "patron": "Je choisis le rythme",
+      "patronDet": "Carrée 4-4-4-4 ou 4-7-8.",
+      "circulo": "Je suis le cercle",
+      "circuloDet": "Il grandit quand j’inspire et rétrécit quand j’expire.",
+      "sigue": "Deux, trois ou cinq minutes",
+      "sigueDet": "Ce que j’ai aujourd’hui.",
+      "campana": "Une cloche",
+      "campanaDet": "Pour marquer que je commence.",
+      "una": "Quelques minutes pour moi",
+      "unaDet": "Respirer avant ce qui compte.",
+      "campana2": "Une autre cloche",
+      "campana2Det": "Et ensuite, une seule chose à la fois.",
+      "unaCosa": "Une suffit",
+      "unaCosaDet": "Une petite chose compte : un café, un appel.",
+      "tres": "Trois, c’est mieux",
+      "tresDet": "Ça t’oblige à chercher plus calmement.",
+      "releer": "Les relire",
+      "releerDet": "Un jour difficile, les notes d’avant aident.",
+      "sientate": "Assieds-toi confortablement",
+      "sientateDet": "Le dos droit, mais sans raideur.",
+      "ancla": "Choisis une ancre",
+      "anclaDet": "L’air qui entre et sort par ton nez.",
+      "nota": "Remarque la pensée",
+      "notaDet": "Nomme-la en silence : « je pense ».",
+      "vuelve": "Reviens à l’ancre",
+      "vuelveDet": "Sans te gronder. C’est une répétition.",
+      "bosque": "Forêt",
+      "bosqueDet": "Du vent dans les arbres et des oiseaux.",
+      "mar": "Mer",
+      "marDet": "Des vagues qui se brisent lentement.",
+      "lluvia": "Pluie",
+      "lluviaDet": "Ou des bols chantants, et le temps que tu veux.",
+      "sinRacha": "Pas de séries qui se cassent",
+      "sinRachaDet": "Un jour sans méditer n’efface rien.",
+      "hoy": "Reviens aujourd’hui",
+      "hoyDet": "Comme pendant la méditation : remarquer et revenir.",
+      "suave": "Mesure en douceur",
+      "suaveDet": "Comment tu arrives, comment tu repars et combien de calme tu accumules."
+    },
+    "mente": {
+      "titulo": "Où est ton esprit ?",
+      "pregunta": "À quoi penses-tu en ce moment ?",
+      "aqui": "À ce que je fais",
+      "otra": "À autre chose",
+      "preguntar": "Redemander",
+      "llevas": "Sur {n} questions, ton esprit était ailleurs {m} fois",
+      "nota": "C’est comme ça que l’appli de l’étude posait la question, à des heures au hasard. Chez plus de 2000 personnes, l’esprit était ailleurs presque la moitié du temps (illustratif)."
+    },
+    "definicion": {
+      "titulo": "La définition de Kabat-Zinn",
+      "p1": "Porter attention",
+      "p1Det": "Remarquer ce qui se passe, en toi et autour de toi.",
+      "p2": "Délibérément",
+      "p2Det": "C’est toi qui choisis, pas le pilote automatique.",
+      "p3": "Au moment présent",
+      "p3Det": "Pas au passé ni à la liste de demain.",
+      "p4": "Sans juger",
+      "p4Det": "Ni « c’est bien » ni « c’est mal » : juste remarquer.",
+      "nota": "Touche chaque partie pour voir ce qu’elle veut dire."
+    },
+    "suspiro": {
+      "titulo": "Le soupir cyclique",
+      "inhala": "Inspire par le nez",
+      "otra": "Encore une, toute petite",
+      "exhala": "Expire lentement par la bouche",
+      "listo": "Terminé : une minute",
+      "empezar": "Commencer une minute",
+      "detener": "Arrêter",
+      "ciclos": "Cycles : {n}",
+      "quedan": "Encore {n} s",
+      "nota": "Deux inspirations par le nez et une longue expiration par la bouche, pendant une minute."
+    },
+    "caja": {
+      "titulo": "Deux rythmes de respiration",
+      "caja": "Carrée 4-4-4-4",
+      "c478": "4-7-8",
+      "inhala": "Inspire",
+      "sosten": "Retiens",
+      "exhala": "Expire",
+      "seg": "{n} s",
+      "nota": "Dans la respiration carrée, chaque côté dure autant. Dans la 4-7-8, l’expiration est la plus longue : idéal avant de dormir."
+    },
+    "cambio": {
+      "titulo": "Une à la fois ou en sautant",
+      "unaVez": "Une à la fois",
+      "saltando": "En sautant d’une tâche à l’autre",
+      "tarea": "Tâche",
+      "cambios": "Chaque saut coûte quelques secondes pour te reconcentrer",
+      "termina": "Terminé",
+      "nota": "Trois tâches identiques : en sautant de l’une à l’autre, chaque changement ajoute un peu de temps perdu (illustratif)."
+    },
+    "gratitud": {
+      "titulo": "Aujourd’hui, je dis merci pour…",
+      "ej1": "Le café du matin, au calme",
+      "ej2": "Un appel de ma sœur",
+      "ej3": "Avoir marché au soleil dix minutes",
+      "placeholder": "Une petite chose compte",
+      "guardar": "Enregistrer",
+      "guardado": "Enregistré",
+      "nota": "Dans l’étude d’Emmons et McCullough, il suffisait de noter chaque semaine. Une suffit ; trois, c’est mieux."
+    },
+    "volver": {
+      "titulo": "Chaque fois que tu reviens, ça compte",
+      "ancla": "Ta respiration",
+      "d1": "J’ai acheté du pain ?",
+      "d2": "Le mail de demain",
+      "d3": "Encore cette chanson",
+      "d4": "Est-ce que je le fais bien ?",
+      "volverBtn": "Remarquer et revenir",
+      "reps": "Répétitions : {n}",
+      "nota": "Être distrait, ce n’est pas échouer : remarquer que tu es parti et revenir, c’est l’exercice."
+    },
+    "crecer": {
+      "titulo": "Tes minutes de calme",
+      "minDia": "Minutes par jour",
+      "mes": "En un mois",
+      "anio": "En un an",
+      "horas": "{h} h {m} min",
+      "min": "{m} min",
+      "semilla": "Graine",
+      "brote": "Pousse",
+      "arbol": "Arbre",
+      "bosque": "Forêt",
+      "nota": "Trois minutes par jour, c’est déjà plus d’une heure et demie par mois. Augmente peu à peu jusqu’à dix ou treize."
+    },
+    "grafica": {
+      "pulso": "Quand tu inspires, le cœur accélère un peu ; quand tu expires, il ralentit. Respirer lentement rend ce va-et-vient plus grand (illustratif).",
+      "rapida": "Respiration rapide",
+      "lenta": "Respiration lente (environ 6 par minute)",
+      "inhala": "Inspire",
+      "exhala": "Expire",
+      "latidos": "Battements par minute",
+      "practica": "Marines avant une mission : la mémoire de travail de ceux qui ont le plus pratiqué s’est maintenue (Jha et collègues, 2010 ; illustratif)",
+      "mucha": "Ont beaucoup pratiqué",
+      "poca": "Ont peu pratiqué",
+      "inicio": "Début",
+      "fin": "8 semaines après",
+      "memoria": "Mémoire de travail",
+      "goyal": "Programmes de méditation : taille de l’effet à 8 semaines (Goyal et collègues, 2014)",
+      "ansiedad": "Anxiété",
+      "depresion": "Dépression",
+      "dolor": "Douleur",
+      "pequeno": "Petit",
+      "moderadoEje": "Modéré",
+      "grande": "Grand",
+      "plan": "Ton plan pour la suite",
+      "semana1": "Semaine 1",
+      "semana1Det": "Après le café : une minute de soupir cyclique et deux d’attention",
+      "mes1": "Mois 1",
+      "mes1Det": "Augmente un peu chaque semaine, jusqu’à dix ou treize minutes",
+      "fallas": "Si un jour tu ne médites pas",
+      "fallasDet": "Pas grave : la pratique, c’est revenir",
+      "medir": "Pour mesurer",
+      "medirDet": "Comment tu arrives, comment tu repars et combien de calme tu accumules"
+    },
+    "cierre": {
+      "titulo": "Ton calme, dans ta propre maison",
+      "texto": "Dans le Jardin de MindHaOS, tu médites avec des sons de forêt, de mer, de pluie ou de bols chantants, tu respires en suivant un cercle, tu notes ce dont tu es reconnaissant et tu regardes ton calme grandir de la graine à la forêt, sans séries ni points qui te poursuivent."
+    },
+    "paquete": {
+      "guia": "Guide interactif (avec le soupir cyclique, la respiration carrée et la 4-7-8, ton esprit qui vagabonde, les tâches qui sautent, tes remerciements et tes minutes de calme, qui bougent dans ton navigateur)",
+      "app": "Ouvre le Jardin dans MindHaOS",
+      "hashtags": "#pleineconscience #meditation #respiration #anxiete #bienetre #santementale #MindHaOS"
+    },
+    "memes": {
+      "solo": {
+        "arriba": "Moi : « j’ai besoin d’un moment seul »",
+        "abajo": "Moi après deux minutes seul avec mes pensées"
+      },
+      "relajate": {
+        "arriba": "Faire le vide dans sa tête",
+        "abajo": "Remarquer que tu es parti et revenir"
+      },
+      "pestanas": {
+        "arriba": "Moi avec cinq onglets, le groupe WhatsApp et la télé : « quelle journée productive »",
+        "abajo": "Moi à vingt heures, rien de terminé"
+      },
+      "super": {
+        "arriba": "Moi en train de méditer : « inspire… expire… j’ai acheté du pain ? »"
+      }
+    },
+    "gusta": {
+      "titulo": "Ce guide te plaît ?",
+      "nota": "Un J’aime, un abonnement ou un partage l’aide à toucher plus de monde."
+    }
   }
 }

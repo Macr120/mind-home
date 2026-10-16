@@ -7,6 +7,7 @@ import { HERRAMIENTAS_IDIOMAS, HerramientaIdiomas } from './Idiomas'
 import { HERRAMIENTAS_MUSICA, HerramientaMusica } from './Musica'
 import { HERRAMIENTAS_VIDEO, HerramientaVideo } from './Video'
 import { HERRAMIENTAS_METAS, HerramientaMetas } from './Metas'
+import { HERRAMIENTAS_MINDFULNESS, HerramientaMindfulness } from './Mindfulness'
 import type { T } from './datos'
 
 /**
@@ -23,6 +24,7 @@ export function Herramienta({ id, t, demo }: { id: string; t: T; demo: boolean }
   if (HERRAMIENTAS_MUSICA.has(id)) return <HerramientaMusica id={id} t={t} demo={demo} />
   if (HERRAMIENTAS_VIDEO.has(id)) return <HerramientaVideo id={id} t={t} demo={demo} />
   if (HERRAMIENTAS_METAS.has(id)) return <HerramientaMetas id={id} t={t} demo={demo} />
+  if (HERRAMIENTAS_MINDFULNESS.has(id)) return <HerramientaMindfulness id={id} t={t} demo={demo} />
   if (id === 'escalaRpe') return <EscalaRpe t={t} demo={demo} />
   if (id === 'zonasCardiacas') return <ZonasCardiacas t={t} demo={demo} />
   if (id === 'armaTuPlan') return <ArmaTuPlan t={t} demo={demo} />

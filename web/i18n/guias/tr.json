@@ -1789,5 +1789,250 @@
         "abajo": "Bugün 20 dakika yürümek"
       }
     }
+  },
+  "mindfulness": {
+    "meta": {
+      "titulo": "Yavaşlamak seni neden daha hızlı ulaştırır? Farkındalık rehberi: dalıp giden zihin, farkındalık nedir, yavaş nefes, daha verimli olmak, bilim ne diyor, nasıl meditasyon yapılır ve devam etmek için bir plan | MindHaOS",
+      "desc": "Bilime göre farkındalık: zihnin neden günün neredeyse yarısında dalıp gittiği, farkındalığın ne olduğu ve nereden geldiği, bir dakikalık döngüsel iç çekiş, yavaşlamanın seni neden daha verimli yaptığı, çalışmaların ne söyleyip ne söylemediği, düşünmeyi bırakamasan bile nasıl meditasyon yapılacağı ve sakinliğin kalıcı olması için bir plan."
+    },
+    "narra": "Anlatan: prenses",
+    "cargando3d": "Prenses yükleniyor…",
+    "lista": {
+      "noVaciar": "Zihni boşaltmak değildir",
+      "noVaciarDet": "Düşünceler gelmeye devam edecek: pratik, onları fark etmektir.",
+      "noRelajar": "Kendini rahatlamaya zorlamak değildir",
+      "noRelajarDet": "Bazen sakinlik gelir, bazen gelmez: ikisi de sayılır.",
+      "noHuir": "Hissettiklerinden kaçmak değildir",
+      "noHuirDet": "Onlara merakla ve kendini yargılamadan doğrudan bakmaktır.",
+      "moderado": "Etkisi orta düzeydedir",
+      "moderadoDet": "Kaygıya, depresyona ve ağrıya yardım eder ama sihir değildir.",
+      "noMejor": "Diğer tedavilerden üstün değildir",
+      "noMejorDet": "2014 incelemesinde egzersiz ya da terapiye benzer sonuç verdi, daha fazla değil.",
+      "noSustituye": "Bir uzmanın yerini tutmaz",
+      "noSustituyeDet": "Yaşadıkların çok ağır geliyorsa profesyonel yardım iste.",
+      "cuerpo": "Bedenini taramak",
+      "cuerpoDet": "Dikkat ayaklardan başa doğru yavaşça ilerler ve her bölgeyi fark eder.",
+      "caminar": "Yavaşça yürümek",
+      "caminarDet": "Her ayağın nasıl kalkıp ilerlediğini ve yere bastığını hisset.",
+      "sonido": "Bir sesi dinlemek",
+      "sonidoDet": "Yağmur, deniz ya da bir çan: dikkatin dağıldığında ona geri dön.",
+      "resumen1": "Zihnin günün neredeyse yarısında başka yerde",
+      "resumen2": "Farkındalık, yargılamadan fark edip geri dönmektir",
+      "resumen3": "Yavaş nefes bedenini sakinleştirir, yavaşlamak seni daha verimli yapar",
+      "resumen4": "Her gün birkaç dakika, arada bir yapılan bir saatten daha değerlidir"
+    },
+    "dato": {
+      "infeliz": "uyanık geçen zamanın bu kadarında zihin başka bir şeyle meşgul ve insan, dikkati yerindeyken olduğundan daha kötü hissediyor (Killingsworth ve Gilbert, 2010)",
+      "descargas": "erkeklerin ve kadınların zihinleriyle baş başa kalmak yerine kendine şok vermeyi seçtiği oran (Wilson ve ark., 2014)",
+      "sati": "Pali dilinde “sati”: olup bitene geri dönmeyi hatırlamak; 1881'den beri “mindfulness” (Rhys Davids)",
+      "balban": "günde, bir ay boyunca: döngüsel iç çekiş ruh halini dikkat meditasyonundan daha çok iyileştirdi (Balban ve ark., Stanford, 2023)",
+      "mrazek": "yüzdelik dilim: iki haftalık farkındalıktan sonra bir lisansüstü giriş sınavının okuma bölümündeki artış (Mrazek ve ark., 2013)",
+      "cerebro": "meditasyon: 2011'deki bir çalışmanın öne sürdüğü beyin boyutu değişimi, 2022'deki daha büyük bir çalışmada görülmedi (Kral ve ark.)",
+      "basso": "günde: sekiz haftada daha iyi ruh hali, dikkat ve hafıza; dört haftada henüz fark yoktu (Basso ve Suzuki, 2019)"
+    },
+    "pasos": {
+      "parar": "Durmak",
+      "pararDet": "Başka hiçbir şey yapmadan birkaç saniye.",
+      "notar": "Fark etmek",
+      "notarDet": "Zihninin nerede, bedeninin nasıl olduğunu.",
+      "volver": "Geri dönmek",
+      "volverDet": "Girip çıkan havaya, yaptığın işe.",
+      "respirar": "Dikkatle nefes almak",
+      "respirarDet": "Havayı değiştirmeden hissetmek.",
+      "cuerpo": "Bedeni taramak",
+      "cuerpoDet": "Ayaklardan başa, bölge bölge.",
+      "caminar": "Yavaşça yürümek",
+      "caminarDet": "Her adımı fark ederek.",
+      "como": "Nasıl geldiğimi söylerim",
+      "comoDet": "Birden beşe bir yüz; ya da geçerim.",
+      "medito": "Birkaç dakika meditasyon yaparım",
+      "meditoDet": "Başlarken bir çan, biterken bir çan daha.",
+      "como2": "Nasıl ayrıldığımı söylerim",
+      "como2Det": "Ve bir şey değişti mi, bakarım.",
+      "patron": "Kalıbı seçerim",
+      "patronDet": "Kutu 4-4-4-4 ya da 4-7-8.",
+      "circulo": "Çemberi takip ederim",
+      "circuloDet": "Nefes alınca büyür, verince küçülür.",
+      "sigue": "İki, üç ya da beş dakika",
+      "sigueDet": "Bugün ne kadar varsa.",
+      "campana": "Bir çan",
+      "campanaDet": "Başladığımı belirtmek için.",
+      "una": "Kendime birkaç dakika",
+      "unaDet": "Önemli işten önce nefes almak.",
+      "campana2": "Bir çan daha",
+      "campana2Det": "Sonra aynı anda tek bir iş.",
+      "unaCosa": "Bir tane yeter",
+      "unaCosaDet": "Küçük bir şey de sayılır: bir kahve, bir telefon.",
+      "tres": "Üç tane daha iyi",
+      "tresDet": "Daha sakin aramaya zorlar.",
+      "releer": "Yeniden okumak",
+      "releerDet": "Zor bir günde eski yazdıkların iyi gelir.",
+      "sientate": "Rahatça otur",
+      "sientateDet": "Sırtın dik ama kaskatı değil.",
+      "ancla": "Bir çapa seç",
+      "anclaDet": "Burnundan girip çıkan hava.",
+      "nota": "Düşünceyi fark et",
+      "notaDet": "İçinden adını koy: “düşünüyorum”.",
+      "vuelve": "Çapaya dön",
+      "vuelveDet": "Kendini azarlamadan. Bu bir tekrar.",
+      "bosque": "Orman",
+      "bosqueDet": "Ağaçlar arasında rüzgâr ve kuşlar.",
+      "mar": "Deniz",
+      "marDet": "Yavaşça kırılan dalgalar.",
+      "lluvia": "Yağmur",
+      "lluviaDet": "Ya da Tibet çanakları, istediğin süre kadar.",
+      "sinRacha": "Kırılan seriler yok",
+      "sinRachaDet": "Meditasyonsuz bir gün hiçbir şeyi silmez.",
+      "hoy": "Bugün geri dön",
+      "hoyDet": "Meditasyonun içindeki gibi: fark et ve geri dön.",
+      "suave": "Nazikçe ölç",
+      "suaveDet": "Nasıl geldiğin, nasıl ayrıldığın ve ne kadar sakinlik biriktirdiğin."
+    },
+    "mente": {
+      "titulo": "Zihnin nerede?",
+      "pregunta": "Şu anda ne düşünüyorsun?",
+      "aqui": "Yaptığım işi",
+      "otra": "Başka bir şeyi",
+      "preguntar": "Yeniden sor",
+      "llevas": "{n} sorudan {m} tanesinde zihnin başka yerdeydi",
+      "nota": "Çalışmadaki uygulama rastgele saatlerde böyle soruyordu. 2000'den fazla kişide zihin, zamanın neredeyse yarısında başka yerdeydi (temsilî)."
+    },
+    "definicion": {
+      "titulo": "Kabat-Zinn'in tanımı",
+      "p1": "Dikkat etmek",
+      "p1Det": "İçinde ve dışında olup biteni fark etmek.",
+      "p2": "Bilerek",
+      "p2Det": "Otomatik pilot değil, sen seçersin.",
+      "p3": "Şu ana",
+      "p3Det": "Geçmişe ya da yarının listesine değil.",
+      "p4": "Yargılamadan",
+      "p4Det": "“İyi” ya da “kötü” demeden: sadece fark etmek.",
+      "nota": "Ne anlama geldiğini görmek için her bölüme dokun."
+    },
+    "suspiro": {
+      "titulo": "Döngüsel iç çekiş",
+      "inhala": "Burnundan nefes al",
+      "otra": "Bir tane daha, kısa",
+      "exhala": "Ağzından yavaşça ver",
+      "listo": "Tamam: bir dakika",
+      "empezar": "Bir dakika başlat",
+      "detener": "Durdur",
+      "ciclos": "Döngü: {n}",
+      "quedan": "{n} sn kaldı",
+      "nota": "Bir dakika boyunca burnundan iki nefes al ve ağzından uzun bir nefes ver."
+    },
+    "caja": {
+      "titulo": "İki nefes kalıbı",
+      "caja": "Kutu 4-4-4-4",
+      "c478": "4-7-8",
+      "inhala": "Al",
+      "sosten": "Tut",
+      "exhala": "Ver",
+      "seg": "{n} sn",
+      "nota": "Kutu nefesinde her kenar aynı sürer. 4-7-8'de en uzunu nefes verişidir: uyumadan önce iyi gelir."
+    },
+    "cambio": {
+      "titulo": "Tek tek mi, atlayarak mı",
+      "unaVez": "Tek tek",
+      "saltando": "İşler arasında atlayarak",
+      "tarea": "İş",
+      "cambios": "Her atlayış, yeniden odaklanmak için birkaç saniyeye mal olur",
+      "termina": "Bitti",
+      "nota": "Üç aynı iş: birinden diğerine atlarken her geçiş biraz zaman kaybettirir (temsilî)."
+    },
+    "gratitud": {
+      "titulo": "Bugün şükrettiğim…",
+      "ej1": "Sabah sakin sakin içilen çay",
+      "ej2": "Kız kardeşimin aramış olması",
+      "ej3": "Güneşte on dakika yürümüş olmak",
+      "placeholder": "Küçük bir şey de sayılır",
+      "guardar": "Kaydet",
+      "guardado": "Kaydedildi",
+      "nota": "Emmons ve McCullough'un çalışmasında her hafta yazmak yetiyordu. Bir tane yeter; üç tane daha iyi."
+    },
+    "volver": {
+      "titulo": "Her geri dönüş sayılır",
+      "ancla": "Nefesin",
+      "d1": "Ekmek aldım mı?",
+      "d2": "Yarınki e-posta",
+      "d3": "Yine o şarkı",
+      "d4": "Doğru mu yapıyorum?",
+      "volverBtn": "Fark et ve dön",
+      "reps": "Tekrar: {n}",
+      "nota": "Dikkatinin dağılması başarısızlık değil: daldığını fark edip geri dönmek, egzersizin ta kendisi."
+    },
+    "crecer": {
+      "titulo": "Sakinlik dakikaların",
+      "minDia": "Günde dakika",
+      "mes": "Bir ayda",
+      "anio": "Bir yılda",
+      "horas": "{h} sa {m} dk",
+      "min": "{m} dk",
+      "semilla": "Tohum",
+      "brote": "Filiz",
+      "arbol": "Ağaç",
+      "bosque": "Orman",
+      "nota": "Günde üç dakika, ayda bir buçuk saati geçer. Yavaş yavaş on ya da on üç dakikaya çık."
+    },
+    "grafica": {
+      "pulso": "Nefes alırken kalp biraz hızlanır, verirken yavaşlar. Yavaş nefes bu salınımı büyütür (temsilî).",
+      "rapida": "Hızlı nefes",
+      "lenta": "Yavaş nefes (dakikada 6 kadar)",
+      "inhala": "Al",
+      "exhala": "Ver",
+      "latidos": "Dakikada atım",
+      "practica": "Görev öncesi deniz piyadeleri: en çok pratik yapanların çalışma belleği korundu (Jha ve ark., 2010; temsilî)",
+      "mucha": "Çok pratik yapanlar",
+      "poca": "Az pratik yapanlar",
+      "inicio": "Başlangıç",
+      "fin": "8 hafta sonra",
+      "memoria": "Çalışma belleği",
+      "goyal": "Meditasyon programları: 8 haftadaki etki büyüklüğü (Goyal ve ark., 2014)",
+      "ansiedad": "Kaygı",
+      "depresion": "Depresyon",
+      "dolor": "Ağrı",
+      "pequeno": "Küçük",
+      "moderadoEje": "Orta",
+      "grande": "Büyük",
+      "plan": "Devam etmek için planın",
+      "semana1": "1. hafta",
+      "semana1Det": "Kahveden sonra: bir dakika döngüsel iç çekiş ve iki dakika dikkat",
+      "mes1": "1. ay",
+      "mes1Det": "Her hafta biraz artır, on ya da on üç dakikaya kadar",
+      "fallas": "Bir gün meditasyon yapmazsan",
+      "fallasDet": "Hiçbir şey olmaz: pratik, geri dönmektir",
+      "medir": "Ölçmek için",
+      "medirDet": "Nasıl geldiğin, nasıl ayrıldığın ve ne kadar sakinlik biriktirdiğin"
+    },
+    "cierre": {
+      "titulo": "Sakinliğin, kendi evinde",
+      "texto": "MindHaOS'taki Bahçe'de orman, deniz, yağmur ya da çanak sesleriyle meditasyon yapar, bir çemberi izleyerek nefes alır, neye şükrettiğini yazar ve sakinliğinin tohumdan ormana büyüdüğünü görürsün; peşini kovalayan seriler ya da puanlar olmadan."
+    },
+    "paquete": {
+      "guia": "Etkileşimli rehber (döngüsel iç çekiş, kutu nefesi ve 4-7-8, dalıp giden zihnin, atlayan işler, şükrettiklerin ve sakinlik dakikaların tarayıcında hareket ediyor)",
+      "app": "MindHaOS'ta Bahçe'yi aç",
+      "hashtags": "#farkındalık #meditasyon #nefes #kaygı #iyioluş #ruhsağlığı #MindHaOS"
+    },
+    "memes": {
+      "solo": {
+        "arriba": "Ben: “Biraz yalnız kalmaya ihtiyacım var”",
+        "abajo": "Düşüncelerimle iki dakika baş başa kaldıktan sonra ben"
+      },
+      "relajate": {
+        "arriba": "Zihni boşaltmak",
+        "abajo": "Daldığını fark edip geri dönmek"
+      },
+      "pestanas": {
+        "arriba": "Beş sekme, sohbet ve televizyon açıkken ben: “Ne verimli bir gün”",
+        "abajo": "Akşam sekizde, hiçbir şeyi bitirmemiş ben"
+      },
+      "super": {
+        "arriba": "Meditasyon yaparken ben: “Nefes al… nefes ver… ekmek aldım mı?”"
+      }
+    },
+    "gusta": {
+      "titulo": "Rehberi beğeniyor musun?",
+      "nota": "Bir beğeni, abonelik ya da paylaşım, daha çok kişiye ulaşmasına yardım eder."
+    }
   }
 }

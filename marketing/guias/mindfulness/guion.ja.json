@@ -1,0 +1,696 @@
+{
+  "idioma": "ja",
+  "tema": "mindfulness",
+  "plantillaId": "jardin",
+  "numero": 10,
+  "nombre": "マインドフルネス",
+  "pregunta": "ゆっくり進むと、なぜ早くたどり着けるのでしょうか？",
+  "corta": "ゆっくり行くほど速い",
+  "subtitulo": "1日のほぼ半分、心はどこにあるのか、マインドフルネスとは何でどこから来たのか、ゆっくり呼吸すると体に何が起きるのか、立ち止まるとなぜ成果が上がるのか、科学が言っていることと言っていないこと、考えるのをやめられなくても瞑想する方法、そして穏やかさを続けるためのプラン。",
+  "aviso": "このガイドは情報提供を目的としています。紹介する数字や研究は、出典にもとづくおおよその値です。マインドフルネスは専門家のケアの代わりにはなりません。不安やうつ、トラウマ、自分を傷つける考えを抱えているなら、メンタルヘルスの専門家に助けを求めてください。",
+  "partes": [
+    {
+      "id": "mente",
+      "titulo": "今、あなたの心はどこにありますか？",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "ゆっくり進むと、なぜ早くたどり着けるのでしょうか？ ある実験では、多くの人が15分間ひとりきりで考えごとだけをするよう言われ、じっとしているより自分に電気ショックを与えるほうを選びました。 今日は、立ち止まることについて科学が何を語っているのか、そしてこの動画が終わったらすぐにできる1分間のエクササイズを見ていきましょう。"
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "ところで、ここはMindHaOSにある私の家で、この庭は私がペースを落としに来る場所です。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート1。今、あなたの心はどこにありますか？"
+        },
+        {
+          "id": "divaga",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mente"
+          },
+          "lamina": [
+            "telefono",
+            "ventana"
+          ],
+          "texto": "2010年、マシュー・キリングスワースとダニエル・ギルバートは、2000人以上の人に、ランダムな時間にスマートフォンで質問しました。今、何をしていて、何を考えていますか？ すると、ほぼ半分の時間、心は別のことにありました。"
+        },
+        {
+          "id": "infeliz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "47%",
+            "clave": "infeliz"
+          },
+          "lamina": [
+            "trafico",
+            "lluvia"
+          ],
+          "texto": "しかもそれは休憩ではありませんでした。心がさまよっているあいだ、人は集中しているときより気分が悪く、退屈な作業をしているときでさえそうでした。二人の結論はひと言で言えます。さまよう心は、不幸な心なのです。"
+        },
+        {
+          "id": "descargas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "67% · 25%",
+            "clave": "descargas"
+          },
+          "lamina": [
+            "silla",
+            "reloj"
+          ],
+          "texto": "そして、これが最初にお話しした実験です。2014年、ティモシー・ウィルソンは、ボランティアをスマートフォンなしで6分から15分、部屋にひとりきりにしました。そこには小さな電気ショックが流れるボタンがありました。男性の3人に2人、女性の4人に1人がそれを押したのです。ただ、自分の心とふたりきりになりたくなくて。",
+          "meme": "solo"
+        },
+        {
+          "id": "jardin",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "parar",
+              "notar",
+              "volver"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "jardin",
+          "texto": "だからこの庭には、壁も、急ぐ理由もありません。ここでは、立ち止まり、自分がどこにいるかに気づき、戻ってくるのです。"
+        }
+      ]
+    },
+    {
+      "id": "que",
+      "titulo": "マインドフルネスとは何で、どこから来たのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート2。マインドフルネスとは何で、どこから来たのでしょうか？"
+        },
+        {
+          "id": "sati",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "約2500年",
+            "clave": "sati"
+          },
+          "lamina": [
+            "buda",
+            "manuscrito"
+          ],
+          "texto": "この言葉は、パーリ語の「サティ」から来ています。パーリ語は、約2500年前の、最も古い仏教の経典の言葉です。意味は、今起きていることに戻るのを思い出す、といった感じです。1881年、イギリスの翻訳家トーマス・リス・デイヴィッズが、これを英語で「マインドフルネス」と訳しました。"
+        },
+        {
+          "id": "kabatZinn",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "definicion"
+          },
+          "lamina": [
+            "kabatZinn",
+            "hospital"
+          ],
+          "texto": "1979年、生物学者のジョン・カバットジンは、これを宗教ぬきでマサチューセッツの病院に持ち込み、慢性の痛みを抱える患者のために使いました。今も使われている彼の定義はこうです。意図的に、今この瞬間に、評価をせずに注意を向けること。"
+        },
+        {
+          "id": "noEs",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "noVaciar",
+              "noRelajar",
+              "noHuir"
+            ]
+          },
+          "lamina": [
+            "nubes",
+            "rio"
+          ],
+          "texto": "そして、それが何でないかもはっきりさせています。頭を空っぽにすることでも、無理にリラックスすることでも、感じていることから逃げることでもありません。考えが雲のように流れていくのを、ひとつひとつに乗らずに眺めることです。",
+          "meme": "relajate"
+        },
+        {
+          "id": "ocho",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "respirar",
+              "cuerpo",
+              "caminar"
+            ]
+          },
+          "lamina": [
+            "grupo",
+            "caminar"
+          ],
+          "texto": "彼のプログラムは8週間でした。注意を向けて呼吸し、足先から頭まで体をたどり、一歩一歩を感じながらゆっくり歩く。今では世界中の病院や学校、会社で教えられています。"
+        },
+        {
+          "id": "sesion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "como",
+              "medito",
+              "como2"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cojin",
+          "texto": "お寺にこもる必要もありません。私はここに座って、始める前の気分を記録し、数分瞑想して、終わったときの気分を記録します。"
+        }
+      ]
+    },
+    {
+      "id": "respirar",
+      "titulo": "ゆっくり呼吸すると、体に何が起きるのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート3。ゆっくり呼吸すると、体に何が起きるのでしょうか？"
+        },
+        {
+          "id": "freno",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pulso"
+          },
+          "lamina": [
+            "corazon",
+            "pulmones"
+          ],
+          "texto": "呼吸は、体の自動操縦のなかで、自分の意思で動かせる唯一のレバーです。息を吸うと心臓は少し速くなり、吐くとゆっくりになります。1分に6回くらいのゆっくりした呼吸はこの揺れを大きくし、それは体が落ち着いていくしるしです。"
+        },
+        {
+          "id": "suspiro",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "suspiro"
+          },
+          "lamina": [
+            "nariz",
+            "atardecer"
+          ],
+          "texto": "そして、これが約束した1分間のエクササイズ、周期的ため息です。鼻から2回吸います。1回は長く、もう1回は短く、肺をいっぱいにするように。そして口から長く、ゆっくり吐きます。これを1分間くり返します。一緒にやってみましょう。"
+        },
+        {
+          "id": "balban",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "5分",
+            "clave": "balban"
+          },
+          "lamina": [
+            "laboratorio",
+            "sonrisa"
+          ],
+          "texto": "2023年、スタンフォード大学で、100人以上の人が1か月間、毎日5分間練習しました。周期的ため息をした人たちは、注意の瞑想をした人たちよりも気分がよくなり、安静時の呼吸もゆっくりになりました。"
+        },
+        {
+          "id": "caja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "caja"
+          },
+          "lamina": [
+            "caja",
+            "noche"
+          ],
+          "texto": "ほかの呼吸法もあります。ボックス呼吸は、4つ数えて吸い、4つ止め、4つで吐き、4つ止めます。そして4・7・8呼吸は、吸うより吐く時間を長くするもので、眠れないときに向いています。"
+        },
+        {
+          "id": "lampara",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "patron",
+              "circulo",
+              "sigue"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "respiracion",
+          "texto": "ここ、私の庭では、呼吸のパターンを選んで、吸うとふくらみ、吐くと縮む円についていきます。"
+        }
+      ]
+    },
+    {
+      "id": "rapido",
+      "titulo": "立ち止まると、なぜ早くたどり着けるのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート4。立ち止まると、なぜ早くたどり着けるのでしょうか？"
+        },
+        {
+          "id": "multitarea",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cambio"
+          },
+          "lamina": [
+            "pestanas",
+            "notificaciones"
+          ],
+          "texto": "いくつものことを同時にすると速く感じますが、そうではありません。作業から作業へ移るたびに、脳は最初の作業を読み込み直すのに時間がかかります。そして2009年のスタンフォードでは、画面から画面へ飛び回ってばかりいる人のほうが気が散りやすく、作業の切り替えも下手でした。",
+          "meme": "pestanas"
+        },
+        {
+          "id": "mrazek",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+16",
+            "clave": "mrazek"
+          },
+          "lamina": [
+            "examen",
+            "biblioteca"
+          ],
+          "texto": "今度はその逆です。2013年、マイケル・ムラゼックは学生たちに、1日数分のマインドフルネスのトレーニングを2週間行いました。心がさまようことが減り、ワーキングメモリが向上し、大学院入試の読解では16パーセンタイルポイント上がりました。"
+        },
+        {
+          "id": "marines",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "practica"
+          },
+          "lamina": [
+            "soldado",
+            "bosque"
+          ],
+          "texto": "そしてアミシ・ジャーは、強いストレスがかかる任務を前にした海兵隊員で、これを試しました。たくさん練習した人はワーキングメモリを守れましたが、ほとんど練習しなかった人は低下しました。だから軍隊ではこう言います。ゆっくりは滑らか、滑らかは速い。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "このガイドを気に入ってもらえたら、高評価、チャンネル登録、そして共有をお願いします。"
+        },
+        {
+          "id": "campana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "campana",
+              "una",
+              "campana2"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cuenco",
+          "texto": "大事なことがあるとき、私はまずここに来ます。鐘をひとつ鳴らし、自分のための数分を過ごし、もう一度鐘を鳴らして、それからひとつのことだけに取り組みます。"
+        }
+      ]
+    },
+    {
+      "id": "ciencia",
+      "titulo": "科学が言っていること、言っていないことは？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート5。科学が言っていること、言っていないことは？"
+        },
+        {
+          "id": "goyal",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "goyal"
+          },
+          "lamina": [
+            "papeles",
+            "lupa"
+          ],
+          "texto": "2014年、ジョンズ・ホプキンズ大学のマダヴ・ゴヤルたちは、3500人以上が参加した47の試験を見直しました。瞑想プログラムは、不安やうつ、痛みを中程度に改善していました。"
+        },
+        {
+          "id": "noMagia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "moderado",
+              "noMejor",
+              "noSustituye"
+            ]
+          },
+          "lamina": [
+            "balanza",
+            "doctor"
+          ],
+          "texto": "中程度というのは、そのままの意味です。役に立つけれど、魔法ではありません。その見直しでは、運動やセラピーなどほかの治療よりよい結果にはならず、必要なときに専門家の代わりにはなりません。"
+        },
+        {
+          "id": "cerebro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "8週間",
+            "clave": "cerebro"
+          },
+          "lamina": [
+            "cerebro",
+            "resonancia"
+          ],
+          "texto": "8週間の瞑想で脳の大きさが変わる、と聞いたことがあるかもしれません。2011年の研究がそれを示しましたが、2022年のもっと大きく慎重な研究では見つかりませんでした。科学はこうして進みます。確かなのは、注意を鍛えると、早く気づき、うまく反応できるようになるということです。"
+        },
+        {
+          "id": "gratitud",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gratitud"
+          },
+          "lamina": [
+            "diario",
+            "cafe"
+          ],
+          "texto": "もうひとつ、証拠のある近い習慣があります。感謝することです。2003年、ロバート・エモンズとマイケル・マカラーは、ボランティアに毎週、感謝していることを書いてもらいました。10週間後、彼らは人生に満足し、前向きになり、運動する量まで増えていました。"
+        },
+        {
+          "id": "agradezco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unaCosa",
+              "tres",
+              "releer"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "flor",
+          "texto": "だから私はここで、今日感謝していることも書き留めます。ひとつで十分、3つならもっといい。"
+        }
+      ]
+    },
+    {
+      "id": "meditar",
+      "titulo": "考えるのをやめられないとき、どう瞑想すればいいのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート6。考えるのをやめられないとき、どう瞑想すればいいのでしょうか？"
+        },
+        {
+          "id": "repeticion",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "volver"
+          },
+          "lamina": [
+            "pesa",
+            "brujula"
+          ],
+          "texto": "ここに秘密があります。気が散るのは失敗ではありません。それも練習の一部です。心がそれたと気づいて呼吸に戻るたびに、注意のスクワットを1回したことになります。100回気が散ったなら、100回トレーニングしたのです。",
+          "meme": "super"
+        },
+        {
+          "id": "pasos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sientate",
+              "ancla",
+              "nota",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "silla2",
+            "ojos"
+          ],
+          "texto": "やり方はシンプルです。背すじを伸ばしつつ、力まずに楽に座ります。鼻から出入りする空気のような、アンカーをひとつ選びます。考えに気づいたら、心の中で「考えている」と名前をつけ、自分を責めずにアンカーに戻ります。"
+        },
+        {
+          "id": "basso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "13分",
+            "clave": "basso"
+          },
+          "lamina": [
+            "reloj2",
+            "amanecer"
+          ],
+          "texto": "どのくらいの時間がいいのでしょう？ 2019年、ジュリア・バッソとウェンディ・スズキは、経験のない人たちに毎日13分瞑想してもらいました。4週間ではまだ変化がありませんでしたが、8週間で気分も注意力も記憶もよくなりました。長さより、続けることが勝つのです。"
+        },
+        {
+          "id": "otras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cuerpo",
+              "caminar",
+              "sonido"
+            ]
+          },
+          "lamina": [
+            "pies",
+            "olas"
+          ],
+          "texto": "座るのが合わないなら、ほかの入り口もあります。足先から頭まで、注意で体をたどること。一歩一歩を感じながらゆっくり歩くこと。あるいは雨や海のような音を聞いて、そこに戻ること。"
+        },
+        {
+          "id": "sonidos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bosque",
+              "mar",
+              "lluvia"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "lluvia",
+          "texto": "ここでは、森、海、雨、シンギングボウルから音を選び、時間を決めて、鐘が鳴るまで瞑想します。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "どう続ける？ 続けるためのプラン",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート7。どう続ける？ 続けるためのプラン。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "cafe",
+            "semilla"
+          ],
+          "texto": "最初の1週間は、もうしている習慣に練習をくっつけましょう。コーヒーのあとに、1分間の周期的ため息と、2分間呼吸に注意を向けること。言い訳できないくらい少しだけ。"
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "crecer"
+          },
+          "lamina": [
+            "brote",
+            "arbol"
+          ],
+          "texto": "最初の1か月は、毎週少しずつ増やして10分か13分まで伸ばし、いろいろな音やパターンを試して自分に合うものを見つけましょう。毎日3分でも、1か月で1時間半以上になるのを見てください。"
+        },
+        {
+          "id": "fallar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinRacha",
+              "hoy",
+              "suave"
+            ]
+          },
+          "lamina": [
+            "banca",
+            "parque"
+          ],
+          "texto": "ある日瞑想できなくても大丈夫。ここには途切れる連続記録はありません。練習とは戻ることです。瞑想の中と同じように。進み具合は、始める前と終わったあとの気分、そしてためてきた穏やかさで測りましょう。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "bosque",
+          "texto": "まとめると、心は1日のほぼ半分さまよっています。マインドフルネスとは、評価せずに気づいて戻ること。ゆっくりした呼吸は体にブレーキをかけ、立ち止まると成果が上がります。そして、たまの1時間より、毎日の数分のほうが価値があります。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOSの庭では、森や海や雨の音とともに瞑想したり、導いてくれる円に合わせて呼吸したり、感謝していることを書き留めたりしながら、あなたの穏やかさが種から森へと育っていくのを見られます。今日、無料であなたの心の家をつくろう。リンクは概要欄にあります。そして次回のガイドは、時間をどうやって整理するのでしょうか？",
+    "boton": "庭を開く",
+    "lamina": "app-plan",
+    "anclas": {
+      "meditar": "瞑想したり",
+      "respirar": "円に合わせて呼吸",
+      "agradecer": "感謝していることを書き留め",
+      "calma": "穏やかさが種から森へ"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "killingsworth-2010",
+      "texto": "Killingsworth M. A., Gilbert D. T. A wandering mind is an unhappy mind. Science (2010).",
+      "url": "https://doi.org/10.1126/science.1192439"
+    },
+    {
+      "id": "wilson-2014",
+      "texto": "Wilson T. D. et al. Just think: The challenges of the disengaged mind. Science (2014).",
+      "url": "https://doi.org/10.1126/science.1250830"
+    },
+    {
+      "id": "kabat-zinn-1982",
+      "texto": "Kabat-Zinn J. An outpatient program in behavioral medicine for chronic pain patients based on the practice of mindfulness meditation. General Hospital Psychiatry (1982).",
+      "url": "https://doi.org/10.1016/0163-8343(82)90026-3"
+    },
+    {
+      "id": "zaccaro-2018",
+      "texto": "Zaccaro A. et al. How breath-control can change your life: A systematic review on psycho-physiological correlates of slow breathing. Frontiers in Human Neuroscience (2018).",
+      "url": "https://doi.org/10.3389/fnhum.2018.00353"
+    },
+    {
+      "id": "balban-2023",
+      "texto": "Balban M. Y. et al. Brief structured respiration practices enhance mood and reduce physiological arousal. Cell Reports Medicine (2023).",
+      "url": "https://doi.org/10.1016/j.xcrm.2022.100895"
+    },
+    {
+      "id": "ophir-2009",
+      "texto": "Ophir E., Nass C., Wagner A. D. Cognitive control in media multitaskers. PNAS (2009).",
+      "url": "https://doi.org/10.1073/pnas.0903620106"
+    },
+    {
+      "id": "mrazek-2013",
+      "texto": "Mrazek M. D. et al. Mindfulness training improves working memory capacity and GRE performance while reducing mind wandering. Psychological Science (2013).",
+      "url": "https://doi.org/10.1177/0956797612459659"
+    },
+    {
+      "id": "jha-2010",
+      "texto": "Jha A. P. et al. Examining the protective effects of mindfulness training on working memory capacity and affective experience. Emotion (2010).",
+      "url": "https://doi.org/10.1037/a0018438"
+    },
+    {
+      "id": "goyal-2014",
+      "texto": "Goyal M. et al. Meditation programs for psychological stress and well-being: A systematic review and meta-analysis. JAMA Internal Medicine (2014).",
+      "url": "https://doi.org/10.1001/jamainternmed.2013.13018"
+    },
+    {
+      "id": "kral-2022",
+      "texto": "Kral T. R. A. et al. Absence of structural brain changes from mindfulness-based stress reduction: Two combined randomized controlled trials. Science Advances (2022).",
+      "url": "https://doi.org/10.1126/sciadv.abk3316"
+    },
+    {
+      "id": "emmons-2003",
+      "texto": "Emmons R. A., McCullough M. E. Counting blessings versus burdens: An experimental investigation of gratitude and subjective well-being in daily life. Journal of Personality and Social Psychology (2003).",
+      "url": "https://doi.org/10.1037/0022-3514.84.2.377"
+    },
+    {
+      "id": "basso-2019",
+      "texto": "Basso J. C. et al. Brief, daily meditation enhances attention, memory, mood, and emotional regulation in non-experienced meditators. Behavioural Brain Research (2019).",
+      "url": "https://doi.org/10.1016/j.bbr.2018.08.023"
+    }
+  ]
+}

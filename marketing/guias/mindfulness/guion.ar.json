@@ -1,0 +1,696 @@
+{
+  "idioma": "ar",
+  "tema": "mindfulness",
+  "plantillaId": "jardin",
+  "numero": 10,
+  "nombre": "اليقظة الذهنية",
+  "pregunta": "لماذا يوصلك التمهّل أسرع؟",
+  "corta": "أبطأ، تصل أسرع",
+  "subtitulo": "أين يكون عقلك قرابة نصف اليوم، ما اليقظة الذهنية ومن أين جاءت، ماذا يحدث لجسمك حين تتنفس ببطء، لماذا يجعلك التمهّل تنجز أكثر، ماذا يقول العلم وماذا لا يقول، كيف تتأمل حتى لو لم تستطع التوقف عن التفكير، وخطة كي يبقى الهدوء معك.",
+  "aviso": "هذا الدليل للمعلومات فقط: الأرقام والدراسات المذكورة تقديرات من مصادرها. اليقظة الذهنية لا تغني عن رعاية مختص: إن كنت تعيش مع القلق أو الاكتئاب أو صدمة أو أفكار تؤذيك، فاطلب المساعدة من مختص في الصحة النفسية.",
+  "partes": [
+    {
+      "id": "mente",
+      "titulo": "أين عقلك الآن؟",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "لماذا يوصلك التمهّل أسرع؟ في إحدى التجارب، تُرك كثير من الناس وحدهم مع أفكارهم خمس عشرة دقيقة، ففضّلوا أن يصعقوا أنفسهم بالكهرباء على أن يبقوا ساكنين. اليوم سترى ماذا يقول العلم عن التمهّل، وتمرينًا مدته دقيقة واحدة يمكنك أن تؤديه فور انتهاء هذا الفيديو."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "بالمناسبة، هذا بيتي في MindHaOS، وهذه الحديقة هي المكان الذي آتي إليه لأُبطئ إيقاعي."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الأول. أين عقلك الآن؟"
+        },
+        {
+          "id": "divaga",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mente"
+          },
+          "lamina": [
+            "telefono",
+            "ventana"
+          ],
+          "texto": "في عام ألفين وعشرة، سأل ماثيو كيلينغزورث ودانيال غيلبرت أكثر من ألفي شخص، في أوقات عشوائية، عبر هواتفهم: ماذا تفعل الآن، وبماذا تفكر؟ وفي قرابة نصف الوقت، كان عقلهم في مكان آخر."
+        },
+        {
+          "id": "infeliz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "47 %",
+            "clave": "infeliz"
+          },
+          "lamina": [
+            "trafico",
+            "lluvia"
+          ],
+          "texto": "ولم يكن ذلك راحة: حين كان العقل يشرد، كان الناس يشعرون بحال أسوأ مما لو كانوا منتبهين، حتى وهم يفعلون أشياء مملة. وخلاصتهم تتسع لها جملة واحدة: العقل الشارد عقل تعيس."
+        },
+        {
+          "id": "descargas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "67 % · 25 %",
+            "clave": "descargas"
+          },
+          "lamina": [
+            "silla",
+            "reloj"
+          ],
+          "texto": "وهذه هي تجربة البداية. في عام ألفين وأربعة عشر، ترك تيموثي ويلسون متطوعين وحدهم في غرفة من ست دقائق إلى خمس عشرة، بلا هاتف، ومعهم زر يعطي صدمة كهربائية خفيفة. ضغطه رجلان من كل ثلاثة، وامرأة من كل أربع، فقط كي لا يبقوا وحدهم مع عقولهم.",
+          "meme": "solo"
+        },
+        {
+          "id": "jardin",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "parar",
+              "notar",
+              "volver"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "jardin",
+          "texto": "لهذا لا جدران في هذه الحديقة ولا عجلة: الفكرة هنا أن أتوقف، وألاحظ أين أنا، ثم أعود."
+        }
+      ]
+    },
+    {
+      "id": "que",
+      "titulo": "ما اليقظة الذهنية ومن أين جاءت؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثاني. ما اليقظة الذهنية ومن أين جاءت؟"
+        },
+        {
+          "id": "sati",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 2500 عام",
+            "clave": "sati"
+          },
+          "lamina": [
+            "buda",
+            "manuscrito"
+          ],
+          "texto": "الكلمة تأتي من «ساتي» في اللغة البالية، لغة أقدم النصوص البوذية، قبل نحو ألفين وخمسمئة عام. ومعناها قريب من: أن تتذكر العودة إلى ما يحدث الآن. وفي عام ألف وثمانمئة وواحد وثمانين، ترجمها المترجم الإنجليزي توماس ريس ديفيدز إلى الإنجليزية بكلمة «مايندفلنس»."
+        },
+        {
+          "id": "kabatZinn",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "definicion"
+          },
+          "lamina": [
+            "kabatZinn",
+            "hospital"
+          ],
+          "texto": "وفي عام ألف وتسعمئة وتسعة وسبعين، أدخلها عالم الأحياء جون كابات زين إلى مستشفى في ماساتشوستس، بعيدًا عن الدين، لمرضى الألم المزمن. وتعريفه هو المستخدم اليوم: أن تنتبه، عن قصد، إلى اللحظة الحاضرة، ومن دون أن تحكم."
+        },
+        {
+          "id": "noEs",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "noVaciar",
+              "noRelajar",
+              "noHuir"
+            ]
+          },
+          "lamina": [
+            "nubes",
+            "rio"
+          ],
+          "texto": "ويوضح أيضًا ما ليست هي. ليست إفراغ العقل من كل فكرة، وليست إجبار نفسك على الاسترخاء، وليست هروبًا مما تشعر به. إنها أن ترى أفكارك تمر كالغيوم، من دون أن تركب كل واحدة منها.",
+          "meme": "relajate"
+        },
+        {
+          "id": "ocho",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "respirar",
+              "cuerpo",
+              "caminar"
+            ]
+          },
+          "lamina": [
+            "grupo",
+            "caminar"
+          ],
+          "texto": "كان برنامجه يستمر ثمانية أسابيع: التنفس بانتباه، والمرور بالانتباه على الجسم من القدمين إلى الرأس، والمشي ببطء مع الإحساس بكل خطوة. واليوم يُدرَّس في المستشفيات والمدارس والشركات حول العالم."
+        },
+        {
+          "id": "sesion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "como",
+              "medito",
+              "como2"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cojin",
+          "texto": "ولا حاجة إلى دير: أجلس هنا، وأقول كيف وصلت، وأتأمل بضع دقائق، ثم أقول كيف أغادر."
+        }
+      ]
+    },
+    {
+      "id": "respirar",
+      "titulo": "ماذا يحدث لجسمك حين تتنفس ببطء؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثالث. ماذا يحدث لجسمك حين تتنفس ببطء؟"
+        },
+        {
+          "id": "freno",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pulso"
+          },
+          "lamina": [
+            "corazon",
+            "pulmones"
+          ],
+          "texto": "التنفس هو المفتاح الوحيد في الطيار الآلي لجسمك الذي تستطيع أن تلمسه بإرادتك. حين تشهق، يتسارع القلب قليلًا؛ وحين تزفر، يتباطأ. والتنفس ببطء، نحو ست مرات في الدقيقة، يكبّر هذا التأرجح، وهذه علامة على جسم يهدأ."
+        },
+        {
+          "id": "suspiro",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "suspiro"
+          },
+          "lamina": [
+            "nariz",
+            "atardecer"
+          ],
+          "texto": "وهذا هو تمرين الدقيقة الذي وعدتك به: التنهد الدوري. شهيقان من الأنف، واحد طويل وآخر قصير ليملأ الرئتين تمامًا، ثم زفير طويل وبطيء من الفم. كرّره لمدة دقيقة. تنفّس معي."
+        },
+        {
+          "id": "balban",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "5 دقائق",
+            "clave": "balban"
+          },
+          "lamina": [
+            "laboratorio",
+            "sonrisa"
+          ],
+          "texto": "في عام ألفين وثلاثة وعشرين، في جامعة ستانفورد، تدرّب أكثر من مئة شخص خمس دقائق يوميًا لمدة شهر. والذين مارسوا التنهد الدوري تحسّن مزاجهم أكثر ممن مارسوا تأمل الانتباه، وصار تنفسهم في الراحة أبطأ."
+        },
+        {
+          "id": "caja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "caja"
+          },
+          "lamina": [
+            "caja",
+            "noche"
+          ],
+          "texto": "وهناك أنماط أخرى. التنفس الصندوقي: شهيق أربعًا، احبس أربعًا، زفير أربعًا، واحبس أربعًا. ونمط أربعة سبعة ثمانية، حيث يكون الزفير أطول من الشهيق، للّيالي التي لا يأتيك فيها النوم."
+        },
+        {
+          "id": "lampara",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "patron",
+              "circulo",
+              "sigue"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "respiracion",
+          "texto": "هنا، في حديقتي، أختار النمط وأتبع دائرة تكبر حين أشهق وتصغر حين أزفر."
+        }
+      ]
+    },
+    {
+      "id": "rapido",
+      "titulo": "لماذا يوصلك التمهّل أسرع؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الرابع. لماذا يوصلك التمهّل أسرع؟"
+        },
+        {
+          "id": "multitarea",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cambio"
+          },
+          "lamina": [
+            "pestanas",
+            "notificaciones"
+          ],
+          "texto": "فعل أشياء كثيرة في وقت واحد يبدو سريعًا، لكنه ليس كذلك. في كل مرة تقفز فيها من مهمة إلى أخرى، يحتاج دماغك وقتًا ليعيد تحميل الأولى. وفي عام ألفين وتسعة، في ستانفورد، كان من يقفزون باستمرار بين الشاشات أكثر تشتتًا، وأسوأ في الانتقال بين المهام ممن لا يفعلون.",
+          "meme": "pestanas"
+        },
+        {
+          "id": "mrazek",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+16",
+            "clave": "mrazek"
+          },
+          "lamina": [
+            "examen",
+            "biblioteca"
+          ],
+          "texto": "والآن العكس. في عام ألفين وثلاثة عشر، أعطى مايكل مرازيك طلابًا أسبوعين من التدريب على اليقظة الذهنية، بضع دقائق يوميًا. شرد عقلهم أقل، وتحسّنت ذاكرتهم العاملة، وفي قسم القراءة من اختبار للدراسات العليا ارتفعوا ست عشرة نقطة مئينية."
+        },
+        {
+          "id": "marines",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "practica"
+          },
+          "lamina": [
+            "soldado",
+            "bosque"
+          ],
+          "texto": "وجرّبتها أميشي جا مع جنود من مشاة البحرية قبل خروجهم في مهمة، وهي فترة مليئة بالضغط. الذين تدرّبوا دقائق أكثر حافظوا على ذاكرتهم العاملة؛ والذين لم يتدرّبوا تقريبًا خسروا منها. ولهذا يقولون في الجيش: البطء سلاسة، والسلاسة سرعة."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "إن كان هذا الدليل يعجبك، فاضغط «أعجبني»، و«اشتراك»، و«مشاركة»."
+        },
+        {
+          "id": "campana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "campana",
+              "una",
+              "campana2"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cuenco",
+          "texto": "حين يكون لديّ أمر مهم، آتي إلى هنا أولًا: جرس، ودقائق قليلة لنفسي، ثم جرس آخر، وبعدها أمر واحد في كل مرة."
+        }
+      ]
+    },
+    {
+      "id": "ciencia",
+      "titulo": "ماذا يقول العلم، وماذا لا يقول؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الخامس. ماذا يقول العلم، وماذا لا يقول؟"
+        },
+        {
+          "id": "goyal",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "goyal"
+          },
+          "lamina": [
+            "papeles",
+            "lupa"
+          ],
+          "texto": "في عام ألفين وأربعة عشر، راجع مادهاف غويال وفريقه، في جامعة جونز هوبكنز، سبعًا وأربعين تجربة شملت أكثر من ثلاثة آلاف وخمسمئة شخص. وحسّنت برامج التأمل القلق والاكتئاب والألم بدرجة متوسطة."
+        },
+        {
+          "id": "noMagia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "moderado",
+              "noMejor",
+              "noSustituye"
+            ]
+          },
+          "lamina": [
+            "balanza",
+            "doctor"
+          ],
+          "texto": "ومتوسطة تعني ذلك تمامًا: يساعد، لكنه ليس سحرًا. في تلك المراجعة لم يتفوق على علاجات أخرى، مثل الرياضة أو العلاج النفسي، ولا يغني عن مختص حين تحتاج إليه."
+        },
+        {
+          "id": "cerebro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "8 أسابيع",
+            "clave": "cerebro"
+          },
+          "lamina": [
+            "cerebro",
+            "resonancia"
+          ],
+          "texto": "وربما سمعت أن ثمانية أسابيع من التأمل تغيّر حجم دماغك. دراسة من عام ألفين وأحد عشر أوحت بذلك، لكن دراسة أكبر وأكثر دقة في عام ألفين واثنين وعشرين لم تجده. هكذا يتقدم العلم: ما يصمد هو أن تدريب الانتباه يساعدك على أن تلاحظ أبكر وتتصرف أفضل."
+        },
+        {
+          "id": "gratitud",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gratitud"
+          },
+          "lamina": [
+            "diario",
+            "cafe"
+          ],
+          "texto": "وممارسة قريبة لها أدلتها أيضًا: الامتنان. في عام ألفين وثلاثة، طلب روبرت إيمونز ومايكل ماكالو من متطوعين أن يدوّنوا كل أسبوع أشياء يمتنّون لها. وبعد عشرة أسابيع، صاروا أكثر رضًا عن حياتهم، وأكثر تفاؤلًا، بل صاروا يمارسون الرياضة أكثر."
+        },
+        {
+          "id": "agradezco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unaCosa",
+              "tres",
+              "releer"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "flor",
+          "texto": "لهذا أدوّن هنا أيضًا ما أنا ممتنّة له اليوم: شيء واحد يكفي، وثلاثة أفضل."
+        }
+      ]
+    },
+    {
+      "id": "meditar",
+      "titulo": "كيف تتأمل إن لم تستطع التوقف عن التفكير؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السادس. كيف تتأمل إن لم تستطع التوقف عن التفكير؟"
+        },
+        {
+          "id": "repeticion",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "volver"
+          },
+          "lamina": [
+            "pesa",
+            "brujula"
+          ],
+          "texto": "وهذا هو السر: أن تتشتت ليس فشلًا. إنه جزء من التمرين. في كل مرة تلاحظ أنك شردت وتعود إلى التنفس، تؤدي تكرارًا، مثل تمرين قرفصاء لانتباهك. إن تشتتّ مئة مرة، فقد تدربت مئة مرة.",
+          "meme": "super"
+        },
+        {
+          "id": "pasos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sientate",
+              "ancla",
+              "nota",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "silla2",
+            "ojos"
+          ],
+          "texto": "الأمر بهذه البساطة: اجلس مرتاحًا، وظهرك مستقيم من دون تصلّب. اختر مرساة، مثل الهواء الذي يدخل من أنفك ويخرج. وحين تلاحظ فكرة، سمّها في صمت، «تفكير»، وعد إلى المرساة، من دون أن تلوم نفسك."
+        },
+        {
+          "id": "basso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "13 دقيقة",
+            "clave": "basso"
+          },
+          "lamina": [
+            "reloj2",
+            "amanecer"
+          ],
+          "texto": "كم من الوقت؟ في عام ألفين وتسعة عشر، طلبت جوليا باسو وويندي سوزوكي من أشخاص بلا خبرة أن يتأملوا ثلاث عشرة دقيقة يوميًا. بعد أربعة أسابيع لم يظهر فرق بعد؛ وبعد ثمانية، صار مزاجهم وانتباههم وذاكرتهم أفضل. الانتظام يتفوق على المدة."
+        },
+        {
+          "id": "otras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cuerpo",
+              "caminar",
+              "sonido"
+            ]
+          },
+          "lamina": [
+            "pies",
+            "olas"
+          ],
+          "texto": "وإن لم يكن الجلوس يناسبك، فهناك أبواب أخرى: أن تمرّ بانتباهك على جسمك، من القدمين إلى الرأس؛ أو أن تمشي ببطء وتشعر بكل خطوة؛ أو أن تستمع إلى صوت، مثل المطر أو البحر، وتعود إليه."
+        },
+        {
+          "id": "sonidos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bosque",
+              "mar",
+              "lluvia"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "lluvia",
+          "texto": "هنا أختار الصوت، غابة أو بحرًا أو مطرًا أو أوعية غنائية، وأختار المدة، وأتأمل حتى يرنّ الجرس."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "كيف تستمر؟ خطتك للمواصلة",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السابع. كيف تستمر؟ خطتك للمواصلة."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "cafe",
+            "semilla"
+          ],
+          "texto": "في الأسبوع الأول، اربط ممارستك بشيء تفعله أصلًا: بعد القهوة، دقيقة من التنهد الدوري ودقيقتان من الانتباه إلى التنفس. قليل إلى حد ألا يبقى أي عذر."
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "crecer"
+          },
+          "lamina": [
+            "brote",
+            "arbol"
+          ],
+          "texto": "في الشهر الأول، زِد قليلًا كل أسبوع حتى تصل إلى عشر دقائق أو ثلاث عشرة، وجرّب الأصوات والأنماط المختلفة حتى تجد ما يناسبك. وانظر كيف تصبح ثلاث دقائق يوميًا أكثر من ساعة ونصف في الشهر."
+        },
+        {
+          "id": "fallar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinRacha",
+              "hoy",
+              "suave"
+            ]
+          },
+          "lamina": [
+            "banca",
+            "parque"
+          ],
+          "texto": "وإن لم تتأمل يومًا ما، فلا بأس: لا سلاسل أيام هنا تنقطع. الممارسة هي العودة، تمامًا كما في داخل التأمل. ولتقيس تقدمك، لاحظ كيف تصل وكيف تغادر، وكم من الهدوء تجمع."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "bosque",
+          "texto": "باختصار: عقلك يشرد قرابة نصف اليوم؛ اليقظة الذهنية أن تلاحظ وتعود، من دون أن تحكم؛ التنفس البطيء يهدّئ جسمك؛ التمهّل يجعلك تنجز أكثر؛ وبضع دقائق كل يوم أثمن من ساعة بين حين وآخر."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "في حديقة MindHaOS يمكنك أن تتأمل مع أصوات الغابة أو البحر أو المطر، وأن تتنفس مع دائرة ترشدك، وأن تدوّن ما تمتنّ له، بينما ترى هدوءك ينمو من بذرة إلى غابة. ابنِ بيتك الذهني مجانًا اليوم: الرابط في الوصف. وفي الدليل القادم: كيف تنظّم وقتك؟",
+    "boton": "افتح الحديقة",
+    "lamina": "app-plan",
+    "anclas": {
+      "meditar": "يمكنك أن تتأمل",
+      "respirar": "تتنفس مع دائرة",
+      "agradecer": "تدوّن ما تمتنّ له",
+      "calma": "هدوءك ينمو"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "killingsworth-2010",
+      "texto": "Killingsworth M. A., Gilbert D. T. A wandering mind is an unhappy mind. Science (2010).",
+      "url": "https://doi.org/10.1126/science.1192439"
+    },
+    {
+      "id": "wilson-2014",
+      "texto": "Wilson T. D. et al. Just think: The challenges of the disengaged mind. Science (2014).",
+      "url": "https://doi.org/10.1126/science.1250830"
+    },
+    {
+      "id": "kabat-zinn-1982",
+      "texto": "Kabat-Zinn J. An outpatient program in behavioral medicine for chronic pain patients based on the practice of mindfulness meditation. General Hospital Psychiatry (1982).",
+      "url": "https://doi.org/10.1016/0163-8343(82)90026-3"
+    },
+    {
+      "id": "zaccaro-2018",
+      "texto": "Zaccaro A. et al. How breath-control can change your life: A systematic review on psycho-physiological correlates of slow breathing. Frontiers in Human Neuroscience (2018).",
+      "url": "https://doi.org/10.3389/fnhum.2018.00353"
+    },
+    {
+      "id": "balban-2023",
+      "texto": "Balban M. Y. et al. Brief structured respiration practices enhance mood and reduce physiological arousal. Cell Reports Medicine (2023).",
+      "url": "https://doi.org/10.1016/j.xcrm.2022.100895"
+    },
+    {
+      "id": "ophir-2009",
+      "texto": "Ophir E., Nass C., Wagner A. D. Cognitive control in media multitaskers. PNAS (2009).",
+      "url": "https://doi.org/10.1073/pnas.0903620106"
+    },
+    {
+      "id": "mrazek-2013",
+      "texto": "Mrazek M. D. et al. Mindfulness training improves working memory capacity and GRE performance while reducing mind wandering. Psychological Science (2013).",
+      "url": "https://doi.org/10.1177/0956797612459659"
+    },
+    {
+      "id": "jha-2010",
+      "texto": "Jha A. P. et al. Examining the protective effects of mindfulness training on working memory capacity and affective experience. Emotion (2010).",
+      "url": "https://doi.org/10.1037/a0018438"
+    },
+    {
+      "id": "goyal-2014",
+      "texto": "Goyal M. et al. Meditation programs for psychological stress and well-being: A systematic review and meta-analysis. JAMA Internal Medicine (2014).",
+      "url": "https://doi.org/10.1001/jamainternmed.2013.13018"
+    },
+    {
+      "id": "kral-2022",
+      "texto": "Kral T. R. A. et al. Absence of structural brain changes from mindfulness-based stress reduction: Two combined randomized controlled trials. Science Advances (2022).",
+      "url": "https://doi.org/10.1126/sciadv.abk3316"
+    },
+    {
+      "id": "emmons-2003",
+      "texto": "Emmons R. A., McCullough M. E. Counting blessings versus burdens: An experimental investigation of gratitude and subjective well-being in daily life. Journal of Personality and Social Psychology (2003).",
+      "url": "https://doi.org/10.1037/0022-3514.84.2.377"
+    },
+    {
+      "id": "basso-2019",
+      "texto": "Basso J. C. et al. Brief, daily meditation enhances attention, memory, mood, and emotional regulation in non-experienced meditators. Behavioural Brain Research (2019).",
+      "url": "https://doi.org/10.1016/j.bbr.2018.08.023"
+    }
+  ]
+}

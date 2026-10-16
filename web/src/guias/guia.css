@@ -2756,3 +2756,155 @@ html:has(.g-pose) body {
   .g-met-tarjetas,
   .g-met-woop { grid-template-columns: 1fr; }
 }
+
+/* ───────── Guía de Mindfulness: la mente que divaga, la definición, respirar, saltar entre tareas, agradecer, volver y los minutos ───────── */
+
+.g-mind {
+  --mind: #10b981;
+}
+.g-mind-ping {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 6px 0 12px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  font-weight: 700;
+}
+.g-mind-botones { display: flex; gap: 8px; }
+.g-mind-puntos { display: flex; flex-wrap: wrap; gap: 6px; min-height: 22px; }
+.g-mind-puntos i {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--mind);
+  animation: g-vid-aparece 400ms ease both;
+}
+.g-mind-puntos i.otra { background: color-mix(in srgb, var(--ui-ink) 30%, transparent); }
+.g-mind-medidor {
+  height: 10px;
+  margin: 12px 0 6px;
+  border-radius: 5px;
+  background: color-mix(in srgb, var(--mind) 25%, transparent);
+  overflow: hidden;
+}
+.g-mind-medidor b {
+  display: block;
+  height: 100%;
+  background: color-mix(in srgb, var(--ui-ink) 45%, transparent);
+  transition: width 500ms ease;
+}
+.g-mind-def { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+.g-mind-def button,
+.g-mind-fases li,
+.g-mind-etapas li {
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+  padding: 6px 14px;
+  background: var(--tarjeta);
+  color: var(--ui-ink);
+  font: inherit;
+  font-weight: 600;
+  transition: background 400ms, color 400ms;
+}
+.g-mind-def button { cursor: pointer; font-size: 17px; }
+.g-mind-def button.on,
+.g-mind-fases li.on,
+.g-mind-etapas li.on { background: var(--mind); color: #fff; border-color: transparent; }
+.g-mind-det { min-height: 1.5em; margin: 6px 0; font-size: 16px; }
+.g-mind-respira {
+  display: grid;
+  grid-template-rows: 200px auto;
+  place-items: center;
+  margin: 6px 0;
+}
+.g-mind-circulo {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, color-mix(in srgb, var(--mind) 55%, #fff), var(--mind));
+  box-shadow: 0 0 40px color-mix(in srgb, var(--mind) 45%, transparent);
+  transition: border-radius 600ms ease;
+}
+.g-mind-circulo.cuadro { border-radius: 28px; }
+.g-mind-circulo.sosten { filter: saturate(0.7); }
+.g-mind-respira span {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--mind);
+}
+.g-mind-fases,
+.g-mind-etapas { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 0; padding: 0; list-style: none; }
+.g-mind-fila {
+  display: grid;
+  grid-template-columns: minmax(110px, 32%) 1fr 5.5em;
+  gap: 10px;
+  align-items: center;
+  margin: 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+.g-mind-fila > div {
+  position: relative;
+  height: 22px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--ui-ink) 8%, transparent);
+  overflow: hidden;
+}
+.g-mind-fila i { position: absolute; top: 0; bottom: 0; }
+.g-mind-fila i.t0 { background: #10b981; }
+.g-mind-fila i.t1 { background: #3b82f6; }
+.g-mind-fila i.t2 { background: #f59e0b; }
+.g-mind-fila i.salto,
+.g-mind-salto { background: repeating-linear-gradient(45deg, #ef4444 0 4px, transparent 4px 8px); }
+.g-mind-salto { display: inline-block; width: 14px; height: 14px; border-radius: 3px; vertical-align: -2px; }
+.g-mind-fila em { font-style: normal; font-weight: 800; color: var(--mind); }
+.g-mind-gratitud { display: grid; gap: 8px; margin: 8px 0 12px; }
+.g-mind-gratitud input {
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: var(--tarjeta);
+  color: var(--ui-ink);
+  font: inherit;
+  font-size: 16px;
+}
+.g-mind-ancla { position: relative; margin: 10px 0; padding-top: 34px; }
+.g-mind-ancla svg { width: 100%; height: 70px; }
+.g-mind-ola { fill: none; stroke: var(--mind); stroke-width: 4; stroke-linecap: round; }
+.g-mind-ancla > span { display: block; text-align: center; font-weight: 700; }
+.g-mind-burbuja {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 14px;
+  border-radius: 16px;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  white-space: nowrap;
+  animation: g-vid-aparece 400ms ease both;
+}
+.g-mind-rango { display: grid; gap: 6px; margin: 8px 0; font-weight: 600; }
+.g-mind-rango input { width: 100%; accent-color: var(--mind); }
+.g-mind-sumas { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 8px 0; }
+.g-mind-sumas > div {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+}
+.g-mind-sumas span { display: block; font-size: 13px; color: var(--tinta-3); }
+.g-mind-sumas b { font-size: 22px; color: var(--mind); }
+.g-mind-planta { width: 100%; height: 90px; }
+.g-mind-planta g { opacity: 0.25; transition: opacity 500ms; }
+.g-mind-planta g.on { opacity: 1; }
+.g-mind-planta line:not(.g-eje) { stroke: #78350f; stroke-width: 3; }
+.g-mind-planta circle { fill: var(--mind); }
+.g-mind-tenue { opacity: 0.45; }
+.g-mind-banda { fill: color-mix(in srgb, #10b981 12%, transparent); }
+.g-mind-barra { fill: #10b981; }

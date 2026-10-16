@@ -7431,6 +7431,7 @@ export const RU: Dict = {
   'guia.musica.titulo': "Что такое музыка?",
   'guia.video.titulo': "Как снимать видео?",
   'guia.metas.titulo': "Как достигать своих целей?",
+  'guia.mindfulness.titulo': "Почему, сбавив темп, ты доберёшься быстрее?",
   'tut.esencial.titulo': 'Главное',
   'tut.tipo.ejemplos': 'Примеры · демо-MindHaOS',
   'tut.app-agenda--esencial.resumen':

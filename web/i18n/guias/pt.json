@@ -1789,5 +1789,250 @@
         "abajo": "Caminhar 20 minutos hoje"
       }
     }
+  },
+  "mindfulness": {
+    "meta": {
+      "titulo": "Por que ir mais devagar vai te fazer chegar mais rápido? Guia de mindfulness: a sua mente que divaga, o que é atenção plena, respirar devagar, render mais, o que a ciência diz, como meditar e um plano para continuar | MindHaOS",
+      "desc": "Mindfulness segundo a ciência: por que a sua mente divaga quase metade do dia, o que é atenção plena e de onde vem, o suspiro cíclico de um minuto, por que desacelerar te faz render mais, o que os estudos dizem e o que não dizem, como meditar mesmo sem conseguir parar de pensar e um plano para que a calma fique."
+    },
+    "narra": "Narrado pela princesa",
+    "cargando3d": "Carregando a princesa…",
+    "lista": {
+      "noVaciar": "Não é deixar a mente em branco",
+      "noVaciarDet": "Os pensamentos vão continuar chegando: a prática é notá-los.",
+      "noRelajar": "Não é se obrigar a ficar relaxado",
+      "noRelajarDet": "Às vezes a calma chega, e às vezes não: as duas contam.",
+      "noHuir": "Não é fugir do que você sente",
+      "noHuirDet": "É olhar de frente, com curiosidade e sem se julgar.",
+      "moderado": "O efeito é moderado",
+      "moderadoDet": "Ajuda com a ansiedade, a depressão e a dor, mas não é mágica.",
+      "noMejor": "Não supera outros tratamentos",
+      "noMejorDet": "Na revisão de 2014, rendeu parecido com o exercício ou a terapia, não mais.",
+      "noSustituye": "Não substitui um especialista",
+      "noSustituyeDet": "Se o que você vive pesa demais, peça ajuda profissional.",
+      "cuerpo": "Percorrer o seu corpo",
+      "cuerpoDet": "A atenção desce devagar dos pés à cabeça, notando cada parte.",
+      "caminar": "Caminhar devagar",
+      "caminarDet": "Sinta como cada pé se levanta, avança e se apoia.",
+      "sonido": "Escutar um som",
+      "sonidoDet": "A chuva, o mar ou um sino: quando você se for, volte para ele.",
+      "resumen1": "A sua mente vai embora quase metade do dia",
+      "resumen2": "Mindfulness é notar e voltar, sem julgar",
+      "resumen3": "Respirar devagar freia o seu corpo, e desacelerar te faz render mais",
+      "resumen4": "Alguns minutos por dia valem mais do que uma hora de vez em quando"
+    },
+    "dato": {
+      "infeliz": "do tempo acordados, a mente está em outra coisa, e se sente pior do que quando está atenta (Killingsworth e Gilbert, 2010)",
+      "descargas": "dos homens e das mulheres preferiram levar um choque a ficar a sós com a própria mente (Wilson e colegas, 2014)",
+      "sati": "«sati», em páli: lembrar de voltar ao que está acontecendo; «mindfulness» desde 1881 (Rhys Davids)",
+      "balban": "por dia durante um mês: o suspiro cíclico melhorou o humor mais do que uma meditação de atenção (Balban e colegas, Stanford, 2023)",
+      "mrazek": "pontos de percentil na leitura de uma prova de pós-graduação após duas semanas de atenção plena (Mrazek e colegas, 2013)",
+      "cerebro": "de meditação: a mudança no tamanho do cérebro que um estudo de 2011 sugeriu não apareceu num maior de 2022 (Kral e colegas)",
+      "basso": "por dia: com oito semanas, melhor humor, atenção e memória; com quatro, ainda não se notava (Basso e Suzuki, 2019)"
+    },
+    "pasos": {
+      "parar": "Parar",
+      "pararDet": "Alguns segundos sem fazer mais nada.",
+      "notar": "Notar",
+      "notarDet": "Onde está a sua mente e como está o seu corpo.",
+      "volver": "Voltar",
+      "volverDet": "Ao ar que entra e sai, ao que você está fazendo.",
+      "respirar": "Respirar com atenção",
+      "respirarDet": "Sentir o ar, sem mudá-lo.",
+      "cuerpo": "Percorrer o corpo",
+      "cuerpoDet": "Dos pés à cabeça, parte por parte.",
+      "caminar": "Caminhar devagar",
+      "caminarDet": "Notando cada passo.",
+      "como": "Digo como estou chegando",
+      "comoDet": "Uma carinha, de um a cinco; ou eu pulo.",
+      "medito": "Medito alguns minutos",
+      "meditoDet": "Com um sino no começo e outro no final.",
+      "como2": "Digo como estou saindo",
+      "como2Det": "E vejo se algo mudou.",
+      "patron": "Escolho o padrão",
+      "patronDet": "Quadrada 4-4-4-4 ou 4-7-8.",
+      "circulo": "Sigo o círculo",
+      "circuloDet": "Cresce quando inspiro e encolhe quando expiro.",
+      "sigue": "Dois, três ou cinco minutos",
+      "sigueDet": "O que eu tiver hoje.",
+      "campana": "Um sino",
+      "campanaDet": "Para marcar que começo.",
+      "una": "Alguns minutos para mim",
+      "unaDet": "Respirar antes do que importa.",
+      "campana2": "Outro sino",
+      "campana2Det": "E depois, uma coisa de cada vez.",
+      "unaCosa": "Uma basta",
+      "unaCosaDet": "Algo pequeno conta: um café, uma ligação.",
+      "tres": "Três é melhor",
+      "tresDet": "Te obriga a procurar com mais calma.",
+      "releer": "Reler",
+      "releerDet": "Num dia difícil, as anotações de antes ajudam.",
+      "sientate": "Sente-se confortável",
+      "sientateDet": "As costas retas, mas sem rigidez.",
+      "ancla": "Escolha uma âncora",
+      "anclaDet": "O ar que entra e sai pelo nariz.",
+      "nota": "Note o pensamento",
+      "notaDet": "Dê um nome a ele em silêncio: «pensando».",
+      "vuelve": "Volte para a âncora",
+      "vuelveDet": "Sem brigar com você. Isso é uma repetição.",
+      "bosque": "Floresta",
+      "bosqueDet": "Vento entre as árvores e pássaros.",
+      "mar": "Mar",
+      "marDet": "Ondas que quebram devagar.",
+      "lluvia": "Chuva",
+      "lluviaDet": "Ou taças tibetanas, e o tempo que você quiser.",
+      "sinRacha": "Sem sequências que se quebram",
+      "sinRachaDet": "Um dia sem meditar não apaga nada.",
+      "hoy": "Volte hoje",
+      "hoyDet": "Como dentro da meditação: notar e voltar.",
+      "suave": "Meça com suavidade",
+      "suaveDet": "Como você chega, como sai e quanta calma junta."
+    },
+    "mente": {
+      "titulo": "Onde está a sua mente?",
+      "pregunta": "No que você está pensando agora?",
+      "aqui": "No que estou fazendo",
+      "otra": "Em outra coisa",
+      "preguntar": "Perguntar de novo",
+      "llevas": "De {n} perguntas, a sua mente estava em outra coisa {m} vezes",
+      "nota": "Era assim que o app do estudo perguntava, em horários aleatórios. Em mais de 2000 pessoas, a mente estava em outra coisa quase metade do tempo (ilustrativo)."
+    },
+    "definicion": {
+      "titulo": "A definição de Kabat-Zinn",
+      "p1": "Prestar atenção",
+      "p1Det": "Perceber o que acontece, dentro e fora de você.",
+      "p2": "De propósito",
+      "p2Det": "Quem escolhe é você, não o piloto automático.",
+      "p3": "Ao momento presente",
+      "p3Det": "Não ao passado nem à lista de amanhã.",
+      "p4": "Sem julgar",
+      "p4Det": "Sem «está certo» nem «está errado»: só notar.",
+      "nota": "Toque em cada parte para ver o que significa."
+    },
+    "suspiro": {
+      "titulo": "O suspiro cíclico",
+      "inhala": "Inspire pelo nariz",
+      "otra": "Mais uma, curtinha",
+      "exhala": "Expire devagar pela boca",
+      "listo": "Pronto: um minuto",
+      "empezar": "Começar um minuto",
+      "detener": "Parar",
+      "ciclos": "Ciclos: {n}",
+      "quedan": "Faltam {n} s",
+      "nota": "Duas inspirações pelo nariz e uma expiração longa pela boca, durante um minuto."
+    },
+    "caja": {
+      "titulo": "Dois padrões de respiração",
+      "caja": "Quadrada 4-4-4-4",
+      "c478": "4-7-8",
+      "inhala": "Inspire",
+      "sosten": "Segure",
+      "exhala": "Expire",
+      "seg": "{n} s",
+      "nota": "Na quadrada, cada lado dura o mesmo. Na 4-7-8, a expiração é a mais longa: vai bem antes de dormir."
+    },
+    "cambio": {
+      "titulo": "Uma de cada vez contra pulando",
+      "unaVez": "Uma de cada vez",
+      "saltando": "Pulando entre tarefas",
+      "tarea": "Tarefa",
+      "cambios": "Cada pulo custa alguns segundos para voltar a se concentrar",
+      "termina": "Pronto",
+      "nota": "Três tarefas iguais: pulando de uma para outra, cada troca soma um pouco de tempo perdido (ilustrativo)."
+    },
+    "gratitud": {
+      "titulo": "Hoje eu agradeço…",
+      "ej1": "O cafezinho da manhã com calma",
+      "ej2": "A minha irmã me ligou",
+      "ej3": "Ter caminhado no sol dez minutos",
+      "placeholder": "Algo pequeno conta",
+      "guardar": "Salvar",
+      "guardado": "Salvo",
+      "nota": "No estudo de Emmons e McCullough bastava anotar uma vez por semana. Uma basta; três, melhor."
+    },
+    "volver": {
+      "titulo": "Cada vez que você volta, conta",
+      "ancla": "A sua respiração",
+      "d1": "Comprei pão?",
+      "d2": "O e-mail de amanhã",
+      "d3": "Aquela música de novo",
+      "d4": "Estou fazendo certo?",
+      "volverBtn": "Notar e voltar",
+      "reps": "Repetições: {n}",
+      "nota": "Se distrair não é falhar: notar que você se foi e voltar é o exercício."
+    },
+    "crecer": {
+      "titulo": "Os seus minutos de calma",
+      "minDia": "Minutos por dia",
+      "mes": "Em um mês",
+      "anio": "Em um ano",
+      "horas": "{h} h {m} min",
+      "min": "{m} min",
+      "semilla": "Semente",
+      "brote": "Broto",
+      "arbol": "Árvore",
+      "bosque": "Floresta",
+      "nota": "Três minutos por dia já são mais de uma hora e meia por mês. Aumente aos poucos até dez ou treze."
+    },
+    "grafica": {
+      "pulso": "Ao inspirar, o coração acelera um pouco; ao expirar, ele freia. Respirar devagar aumenta esse vaivém (ilustrativo).",
+      "rapida": "Respiração rápida",
+      "lenta": "Respiração lenta (umas 6 por minuto)",
+      "inhala": "Inspira",
+      "exhala": "Expira",
+      "latidos": "Batimentos por minuto",
+      "practica": "Fuzileiros antes de uma missão: a memória de trabalho de quem mais praticou se manteve (Jha e colegas, 2010; ilustrativo)",
+      "mucha": "Praticaram mais",
+      "poca": "Praticaram pouco",
+      "inicio": "Início",
+      "fin": "8 semanas depois",
+      "memoria": "Memória de trabalho",
+      "goyal": "Programas de meditação: tamanho do efeito em 8 semanas (Goyal e colegas, 2014)",
+      "ansiedad": "Ansiedade",
+      "depresion": "Depressão",
+      "dolor": "Dor",
+      "pequeno": "Pequeno",
+      "moderadoEje": "Moderado",
+      "grande": "Grande",
+      "plan": "O seu plano para continuar",
+      "semana1": "Semana 1",
+      "semana1Det": "Depois do café: um minuto de suspiro cíclico e dois de atenção",
+      "mes1": "Mês 1",
+      "mes1Det": "Aumente um pouco a cada semana, até dez ou treze minutos",
+      "fallas": "Se um dia você não meditar",
+      "fallasDet": "Tudo bem: a prática é voltar",
+      "medir": "Para medir",
+      "medirDet": "Como você chega, como sai e quanta calma junta"
+    },
+    "cierre": {
+      "titulo": "A sua calma, na sua própria casa",
+      "texto": "No Jardim do MindHaOS você medita com sons de floresta, mar, chuva ou taças tibetanas, respira seguindo um círculo, anota pelo que é grato e vê a sua calma crescer de semente a floresta, sem sequências nem pontos te perseguindo."
+    },
+    "paquete": {
+      "guia": "Guia interativo (com o suspiro cíclico, a respiração quadrada e a 4-7-8, a sua mente que divaga, as tarefas que pulam, os seus agradecimentos e os seus minutos de calma, que se mexem no seu navegador)",
+      "app": "Abra o Jardim no MindHaOS",
+      "hashtags": "#mindfulness #meditacao #respiracao #ansiedade #bemestar #saudemental #MindHaOS"
+    },
+    "memes": {
+      "solo": {
+        "arriba": "Eu: «preciso de um tempo só pra mim»",
+        "abajo": "Eu depois de dois minutos a sós com os meus pensamentos"
+      },
+      "relajate": {
+        "arriba": "Deixar a mente em branco",
+        "abajo": "Notar que você se foi e voltar"
+      },
+      "pestanas": {
+        "arriba": "Eu com cinco abas, o grupo da família e a TV ligada: «que dia produtivo»",
+        "abajo": "Eu às oito da noite, sem nada terminado"
+      },
+      "super": {
+        "arriba": "Eu meditando: «inspira… expira… comprei pão?»"
+      }
+    },
+    "gusta": {
+      "titulo": "Está gostando do guia?",
+      "nota": "Um gostei, uma inscrição ou compartilhar ajuda o guia a chegar a mais gente."
+    }
   }
 }

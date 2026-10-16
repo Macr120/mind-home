@@ -1,0 +1,696 @@
+{
+  "idioma": "de",
+  "tema": "mindfulness",
+  "plantillaId": "jardin",
+  "numero": 10,
+  "nombre": "Achtsamkeit",
+  "pregunta": "Warum kommst du schneller an, wenn du langsamer gehst?",
+  "corta": "Langsamer ist schneller",
+  "subtitulo": "Wo deine Gedanken fast den halben Tag sind, was Achtsamkeit ist und woher sie kommt, was mit deinem Körper passiert, wenn du langsam atmest, warum Bremsen dich mehr leisten lässt, was die Wissenschaft sagt und was nicht, wie du meditierst, auch wenn du nicht aufhören kannst zu denken, und ein Plan, damit die Ruhe bleibt.",
+  "aviso": "Dieser Leitfaden dient der Information: Die genannten Zahlen und Studien sind Annäherungen aus ihren Quellen. Achtsamkeit ersetzt keine professionelle Hilfe: Wenn du mit Angst, Depression, einem Trauma oder Gedanken lebst, die dir schaden, such dir Hilfe bei einer Fachperson für psychische Gesundheit.",
+  "partes": [
+    {
+      "id": "mente",
+      "titulo": "Wo sind deine Gedanken gerade?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Warum kommst du schneller an, wenn du langsamer gehst? In einem Experiment ließ man viele Menschen fünfzehn Minuten mit ihren Gedanken allein, und sie gaben sich lieber Stromschläge, als stillzusitzen. Heute siehst du, was die Wissenschaft übers Bremsen sagt, und eine Übung von einer Minute, die du machen kannst, sobald dieses Video vorbei ist."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "Übrigens, das ist mein Haus in MindHaOS, und in diesen Garten komme ich, um langsamer zu werden."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil eins. Wo sind deine Gedanken gerade?"
+        },
+        {
+          "id": "divaga",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mente"
+          },
+          "lamina": [
+            "telefono",
+            "ventana"
+          ],
+          "texto": "2010 fragten Matthew Killingsworth und Daniel Gilbert mehr als zweitausend Menschen zu zufälligen Zeiten über ihr Handy: Was machst du gerade, und woran denkst du? Fast die Hälfte der Zeit waren ihre Gedanken woanders."
+        },
+        {
+          "id": "infeliz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "47 %",
+            "clave": "infeliz"
+          },
+          "lamina": [
+            "trafico",
+            "lluvia"
+          ],
+          "texto": "Und das war keine Pause: Während die Gedanken wanderten, fühlten sich die Leute schlechter als bei voller Aufmerksamkeit, sogar bei langweiligen Dingen. Ihr Fazit passt in einen Satz: Ein wandernder Geist ist ein unglücklicher Geist."
+        },
+        {
+          "id": "descargas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "67 % · 25 %",
+            "clave": "descargas"
+          },
+          "lamina": [
+            "silla",
+            "reloj"
+          ],
+          "texto": "Und hier ist das Experiment vom Anfang. 2014 ließ Timothy Wilson Freiwillige sechs bis fünfzehn Minuten allein in einem Raum, ohne Handy, mit einem Knopf, der einen kleinen Stromschlag gab. Zwei von drei Männern und eine von vier Frauen drückten ihn, nur um nicht mit ihren Gedanken allein zu sein.",
+          "meme": "solo"
+        },
+        {
+          "id": "jardin",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "parar",
+              "notar",
+              "volver"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "jardin",
+          "texto": "Darum hat dieser Garten keine Mauern und keine Eile: Hier geht es darum, anzuhalten, zu bemerken, wo ich bin, und zurückzukehren."
+        }
+      ]
+    },
+    {
+      "id": "que",
+      "titulo": "Was ist Achtsamkeit und woher kommt sie?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil zwei. Was ist Achtsamkeit und woher kommt sie?"
+        },
+        {
+          "id": "sati",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 2.500 Jahre",
+            "clave": "sati"
+          },
+          "lamina": [
+            "buda",
+            "manuscrito"
+          ],
+          "texto": "Das Wort kommt von „Sati“ auf Pali, der Sprache der ältesten buddhistischen Texte, vor etwa zweitausendfünfhundert Jahren. Es bedeutet so viel wie: sich erinnern, zu dem zurückzukehren, was gerade geschieht. 1881 übersetzte der Engländer Thomas Rhys Davids es mit „mindfulness“, auf Deutsch Achtsamkeit."
+        },
+        {
+          "id": "kabatZinn",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "definicion"
+          },
+          "lamina": [
+            "kabatZinn",
+            "hospital"
+          ],
+          "texto": "1979 brachte der Biologe Jon Kabat-Zinn sie in ein Krankenhaus in Massachusetts, ohne Religion, für Menschen mit chronischen Schmerzen. Seine Definition wird bis heute verwendet: Aufmerksamkeit schenken, absichtlich, dem gegenwärtigen Moment, und ohne zu urteilen."
+        },
+        {
+          "id": "noEs",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "noVaciar",
+              "noRelajar",
+              "noHuir"
+            ]
+          },
+          "lamina": [
+            "nubes",
+            "rio"
+          ],
+          "texto": "Und er stellt klar, was sie nicht ist. Es geht nicht darum, den Kopf leer zu machen, dich zur Entspannung zu zwingen oder vor deinen Gefühlen zu fliehen. Es geht darum, deine Gedanken wie Wolken vorbeiziehen zu sehen, ohne auf jede aufzuspringen.",
+          "meme": "relajate"
+        },
+        {
+          "id": "ocho",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "respirar",
+              "cuerpo",
+              "caminar"
+            ]
+          },
+          "lamina": [
+            "grupo",
+            "caminar"
+          ],
+          "texto": "Sein Programm dauerte acht Wochen: achtsam atmen, den Körper von Kopf bis Fuß durchgehen und langsam gehen, jeden Schritt spüren. Heute wird es in Krankenhäusern, Schulen und Firmen auf der ganzen Welt gelehrt."
+        },
+        {
+          "id": "sesion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "como",
+              "medito",
+              "como2"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cojin",
+          "texto": "Und du brauchst kein Kloster: Ich setze mich hierher, sage, wie ich ankomme, meditiere ein paar Minuten und sage, wie ich gehe."
+        }
+      ]
+    },
+    {
+      "id": "respirar",
+      "titulo": "Was passiert in deinem Körper, wenn du langsam atmest?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil drei. Was passiert in deinem Körper, wenn du langsam atmest?"
+        },
+        {
+          "id": "freno",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pulso"
+          },
+          "lamina": [
+            "corazon",
+            "pulmones"
+          ],
+          "texto": "Der Atem ist der einzige Regler des Autopiloten in deinem Körper, den du willentlich bedienen kannst. Beim Einatmen schlägt das Herz etwas schneller, beim Ausatmen bremst es. Langsames Atmen, etwa sechsmal pro Minute, macht dieses Auf und Ab größer, und das ist ein Zeichen für einen Körper, der zur Ruhe kommt."
+        },
+        {
+          "id": "suspiro",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "suspiro"
+          },
+          "lamina": [
+            "nariz",
+            "atardecer"
+          ],
+          "texto": "Und das ist die Übung von einer Minute, die ich dir versprochen habe: das zyklische Seufzen. Zweimal durch die Nase einatmen, einmal lang und einmal ganz kurz, um die Lunge ganz zu füllen, und dann lang und langsam durch den Mund ausatmen. Wiederhole das eine Minute lang. Mach mit."
+        },
+        {
+          "id": "balban",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "5 min",
+            "clave": "balban"
+          },
+          "lamina": [
+            "laboratorio",
+            "sonrisa"
+          ],
+          "texto": "2023 übten an der Stanford University mehr als hundert Menschen einen Monat lang fünf Minuten am Tag. Wer das zyklische Seufzen machte, verbesserte die Stimmung stärker als die Gruppe mit einer Achtsamkeitsmeditation, und der Atem in Ruhe wurde langsamer."
+        },
+        {
+          "id": "caja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "caja"
+          },
+          "lamina": [
+            "caja",
+            "noche"
+          ],
+          "texto": "Es gibt noch mehr Muster. Die Box-Atmung: vier einatmen, vier halten, vier ausatmen und vier halten. Und die Vier-Sieben-Acht-Atmung, bei der das Ausatmen länger ist als das Einatmen, für Nächte, in denen du nicht schlafen kannst."
+        },
+        {
+          "id": "lampara",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "patron",
+              "circulo",
+              "sigue"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "respiracion",
+          "texto": "Hier in meinem Garten wähle ich das Muster und folge einem Kreis, der wächst, wenn ich einatme, und schrumpft, wenn ich ausatme."
+        }
+      ]
+    },
+    {
+      "id": "rapido",
+      "titulo": "Warum bringt dich Bremsen schneller ans Ziel?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil vier. Warum bringt dich Bremsen schneller ans Ziel?"
+        },
+        {
+          "id": "multitarea",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cambio"
+          },
+          "lamina": [
+            "pestanas",
+            "notificaciones"
+          ],
+          "texto": "Viele Dinge gleichzeitig zu tun fühlt sich schnell an, ist es aber nicht. Jedes Mal, wenn du von einer Aufgabe zur nächsten springst, braucht dein Gehirn Zeit, um die erste wieder zu laden. Und 2009 zeigte sich in Stanford: Wer ständig zwischen Bildschirmen hin und her sprang, ließ sich leichter ablenken und wechselte schlechter zwischen Aufgaben als andere.",
+          "meme": "pestanas"
+        },
+        {
+          "id": "mrazek",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+16",
+            "clave": "mrazek"
+          },
+          "lamina": [
+            "examen",
+            "biblioteca"
+          ],
+          "texto": "Jetzt das Gegenteil. 2013 gab Michael Mrazek Studierenden zwei Wochen Achtsamkeitstraining, ein paar Minuten am Tag. Ihre Gedanken schweiften weniger ab, ihr Arbeitsgedächtnis wurde besser, und im Leseteil eines Aufnahmetests für ein Masterstudium stiegen sie um sechzehn Perzentilpunkte."
+        },
+        {
+          "id": "marines",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "practica"
+          },
+          "lamina": [
+            "soldado",
+            "bosque"
+          ],
+          "texto": "Und Amishi Jha testete es mit Marines vor einem Einsatz, einer Zeit mit viel Stress. Wer mehr Minuten übte, schützte sein Arbeitsgedächtnis; wer kaum übte, verlor davon. Darum sagt man beim Militär: Langsam ist geschmeidig, und geschmeidig ist schnell."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "Wenn dir der Leitfaden gefällt, klick auf Mag ich, Abonnieren und Teilen."
+        },
+        {
+          "id": "campana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "campana",
+              "una",
+              "campana2"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cuenco",
+          "texto": "Wenn ich etwas Wichtiges vorhabe, komme ich zuerst hierher: eine Glocke, ein paar Minuten für mich, noch eine Glocke, und dann nur eine Sache auf einmal."
+        }
+      ]
+    },
+    {
+      "id": "ciencia",
+      "titulo": "Was sagt die Wissenschaft, und was nicht?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil fünf. Was sagt die Wissenschaft, und was nicht?"
+        },
+        {
+          "id": "goyal",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "goyal"
+          },
+          "lamina": [
+            "papeles",
+            "lupa"
+          ],
+          "texto": "2014 werteten Madhav Goyal und sein Team an der Johns Hopkins University siebenundvierzig Studien mit mehr als dreitausendfünfhundert Menschen aus. Die Meditationsprogramme verbesserten Angst, Depression und Schmerzen in mäßigem Umfang."
+        },
+        {
+          "id": "noMagia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "moderado",
+              "noMejor",
+              "noSustituye"
+            ]
+          },
+          "lamina": [
+            "balanza",
+            "doctor"
+          ],
+          "texto": "Mäßig heißt genau das: Es hilft, aber es ist keine Zauberei. In dieser Übersichtsarbeit schnitt Meditation nicht besser ab als andere Behandlungen wie Sport oder Therapie, und sie ersetzt keine Fachperson, wenn du eine brauchst."
+        },
+        {
+          "id": "cerebro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "8 Wo.",
+            "clave": "cerebro"
+          },
+          "lamina": [
+            "cerebro",
+            "resonancia"
+          ],
+          "texto": "Vielleicht hast du gehört, dass acht Wochen Meditation die Größe deines Gehirns verändern. Eine Studie von 2011 deutete das an, aber 2022 fand eine größere und sorgfältigere Studie es nicht. So kommt die Wissenschaft voran: Was bleibt, ist, dass Aufmerksamkeitstraining dir hilft, früher zu bemerken und besser zu reagieren."
+        },
+        {
+          "id": "gratitud",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gratitud"
+          },
+          "lamina": [
+            "diario",
+            "cafe"
+          ],
+          "texto": "Und eine verwandte Übung, für die es auch Belege gibt: Dankbarkeit. 2003 baten Robert Emmons und Michael McCullough Freiwillige, jede Woche aufzuschreiben, wofür sie dankbar waren. Zehn Wochen später waren sie zufriedener mit ihrem Leben, optimistischer und trieben sogar mehr Sport."
+        },
+        {
+          "id": "agradezco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unaCosa",
+              "tres",
+              "releer"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "flor",
+          "texto": "Darum schreibe ich hier auch auf, wofür ich heute dankbar bin: Eine Sache reicht, und drei sind besser."
+        }
+      ]
+    },
+    {
+      "id": "meditar",
+      "titulo": "Wie meditierst du, wenn du nicht aufhören kannst zu denken?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil sechs. Wie meditierst du, wenn du nicht aufhören kannst zu denken?"
+        },
+        {
+          "id": "repeticion",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "volver"
+          },
+          "lamina": [
+            "pesa",
+            "brujula"
+          ],
+          "texto": "Hier ist das Geheimnis: Abgelenkt zu sein ist kein Scheitern. Es gehört zur Übung. Jedes Mal, wenn du merkst, dass du abgeschweift bist, und zum Atem zurückkehrst, machst du eine Wiederholung, wie eine Kniebeuge für deine Aufmerksamkeit. Wenn du dich hundertmal ablenkst, hast du hundertmal trainiert.",
+          "meme": "super"
+        },
+        {
+          "id": "pasos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sientate",
+              "ancla",
+              "nota",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "silla2",
+            "ojos"
+          ],
+          "texto": "So einfach geht es: Setz dich bequem hin, mit geradem Rücken, aber nicht steif. Wähl einen Anker, zum Beispiel die Luft, die durch die Nase ein- und ausströmt. Wenn du einen Gedanken bemerkst, benenne ihn still, „denken“, und kehr zum Anker zurück, ohne mit dir zu schimpfen."
+        },
+        {
+          "id": "basso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "13 min",
+            "clave": "basso"
+          },
+          "lamina": [
+            "reloj2",
+            "amanecer"
+          ],
+          "texto": "Wie lange? 2019 baten Julia Basso und Wendy Suzuki Menschen ohne Erfahrung, dreizehn Minuten am Tag zu meditieren. Nach vier Wochen merkte man noch nichts; nach acht hatten sie bessere Stimmung, bessere Aufmerksamkeit und ein besseres Gedächtnis. Regelmäßigkeit schlägt Dauer."
+        },
+        {
+          "id": "otras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cuerpo",
+              "caminar",
+              "sonido"
+            ]
+          },
+          "lamina": [
+            "pies",
+            "olas"
+          ],
+          "texto": "Und wenn Sitzen nichts für dich ist, gibt es andere Türen: deinen Körper mit der Aufmerksamkeit durchgehen, von den Füßen bis zum Kopf; langsam gehen und jeden Schritt spüren; oder einem Geräusch lauschen, wie Regen oder dem Meer, und zu ihm zurückkehren."
+        },
+        {
+          "id": "sonidos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bosque",
+              "mar",
+              "lluvia"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "lluvia",
+          "texto": "Hier wähle ich das Geräusch, Wald, Meer, Regen oder Klangschalen, und die Zeit, und meditiere, bis die Glocke ertönt."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Wie geht es weiter? Dein Plan, um dranzubleiben",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil sieben. Wie geht es weiter? Dein Plan, um dranzubleiben."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "cafe",
+            "semilla"
+          ],
+          "texto": "In der ersten Woche hängst du deine Übung an etwas, das du schon tust: nach dem Kaffee eine Minute zyklisches Seufzen und zwei Minuten Aufmerksamkeit auf den Atem. So wenig, dass es keine Ausrede gibt."
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "crecer"
+          },
+          "lamina": [
+            "brote",
+            "arbol"
+          ],
+          "texto": "Im ersten Monat steigerst du jede Woche ein wenig, bis du bei zehn oder dreizehn Minuten bist, und probierst die verschiedenen Geräusche und Muster aus, bis du deins findest. Sieh, wie drei Minuten am Tag mehr als anderthalb Stunden im Monat ergeben."
+        },
+        {
+          "id": "fallar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinRacha",
+              "hoy",
+              "suave"
+            ]
+          },
+          "lamina": [
+            "banca",
+            "parque"
+          ],
+          "texto": "Und wenn du an einem Tag nicht meditierst, ist das kein Problem: Hier gibt es keine Serien, die reißen. Die Übung ist das Zurückkehren, genau wie in der Meditation. Um deinen Fortschritt zu messen, achte darauf, wie du ankommst und wie du gehst, und wie viel Ruhe du sammelst."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "bosque",
+          "texto": "Kurz gesagt: Deine Gedanken sind fast den halben Tag woanders; Achtsamkeit heißt bemerken und zurückkehren, ohne zu urteilen; langsames Atmen bremst deinen Körper; Bremsen lässt dich mehr leisten; und ein paar Minuten jeden Tag sind mehr wert als ab und zu eine Stunde."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Im Garten von MindHaOS kannst du meditieren, mit Geräuschen von Wald, Meer oder Regen, mit einem Kreis atmen, der dich führt, und aufschreiben, wofür du dankbar bist, während du zusiehst, wie deine Ruhe wächst, vom Samen bis zum Wald. Bau dir heute kostenlos dein mentales Haus: Der Link ist in der Beschreibung. Und im nächsten Leitfaden: Wie organisierst du deine Zeit?",
+    "boton": "Garten öffnen",
+    "lamina": "app-plan",
+    "anclas": {
+      "meditar": "kannst du meditieren",
+      "respirar": "mit einem Kreis atmen",
+      "agradecer": "aufschreiben, wofür du dankbar",
+      "calma": "wie deine Ruhe wächst"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "killingsworth-2010",
+      "texto": "Killingsworth M. A., Gilbert D. T. A wandering mind is an unhappy mind. Science (2010).",
+      "url": "https://doi.org/10.1126/science.1192439"
+    },
+    {
+      "id": "wilson-2014",
+      "texto": "Wilson T. D. et al. Just think: The challenges of the disengaged mind. Science (2014).",
+      "url": "https://doi.org/10.1126/science.1250830"
+    },
+    {
+      "id": "kabat-zinn-1982",
+      "texto": "Kabat-Zinn J. An outpatient program in behavioral medicine for chronic pain patients based on the practice of mindfulness meditation. General Hospital Psychiatry (1982).",
+      "url": "https://doi.org/10.1016/0163-8343(82)90026-3"
+    },
+    {
+      "id": "zaccaro-2018",
+      "texto": "Zaccaro A. et al. How breath-control can change your life: A systematic review on psycho-physiological correlates of slow breathing. Frontiers in Human Neuroscience (2018).",
+      "url": "https://doi.org/10.3389/fnhum.2018.00353"
+    },
+    {
+      "id": "balban-2023",
+      "texto": "Balban M. Y. et al. Brief structured respiration practices enhance mood and reduce physiological arousal. Cell Reports Medicine (2023).",
+      "url": "https://doi.org/10.1016/j.xcrm.2022.100895"
+    },
+    {
+      "id": "ophir-2009",
+      "texto": "Ophir E., Nass C., Wagner A. D. Cognitive control in media multitaskers. PNAS (2009).",
+      "url": "https://doi.org/10.1073/pnas.0903620106"
+    },
+    {
+      "id": "mrazek-2013",
+      "texto": "Mrazek M. D. et al. Mindfulness training improves working memory capacity and GRE performance while reducing mind wandering. Psychological Science (2013).",
+      "url": "https://doi.org/10.1177/0956797612459659"
+    },
+    {
+      "id": "jha-2010",
+      "texto": "Jha A. P. et al. Examining the protective effects of mindfulness training on working memory capacity and affective experience. Emotion (2010).",
+      "url": "https://doi.org/10.1037/a0018438"
+    },
+    {
+      "id": "goyal-2014",
+      "texto": "Goyal M. et al. Meditation programs for psychological stress and well-being: A systematic review and meta-analysis. JAMA Internal Medicine (2014).",
+      "url": "https://doi.org/10.1001/jamainternmed.2013.13018"
+    },
+    {
+      "id": "kral-2022",
+      "texto": "Kral T. R. A. et al. Absence of structural brain changes from mindfulness-based stress reduction: Two combined randomized controlled trials. Science Advances (2022).",
+      "url": "https://doi.org/10.1126/sciadv.abk3316"
+    },
+    {
+      "id": "emmons-2003",
+      "texto": "Emmons R. A., McCullough M. E. Counting blessings versus burdens: An experimental investigation of gratitude and subjective well-being in daily life. Journal of Personality and Social Psychology (2003).",
+      "url": "https://doi.org/10.1037/0022-3514.84.2.377"
+    },
+    {
+      "id": "basso-2019",
+      "texto": "Basso J. C. et al. Brief, daily meditation enhances attention, memory, mood, and emotional regulation in non-experienced meditators. Behavioural Brain Research (2019).",
+      "url": "https://doi.org/10.1016/j.bbr.2018.08.023"
+    }
+  ]
+}

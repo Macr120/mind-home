@@ -26,6 +26,7 @@ const GUIAS: Record<string, { tema: string; clave: string; es: string }> = {
   audio: { tema: 'musica', clave: 'guia.musica.titulo', es: '¿Qué es la música?' },
   video: { tema: 'video', clave: 'guia.video.titulo', es: '¿Cómo hacer videos?' },
   metas: { tema: 'metas', clave: 'guia.metas.titulo', es: '¿Cómo cumplir tus metas?' },
+  jardin: { tema: 'mindfulness', clave: 'guia.mindfulness.titulo', es: '¿Por qué ir más lento te hará llegar más rápido?' },
 }
 
 /**

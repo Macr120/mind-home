@@ -363,19 +363,19 @@ function Microfono({ k, demo }: { k: K; demo: boolean }) {
 type Apoyo = 'like' | 'suscribete' | 'comparte'
 
 /** Los tres botones que se encienden al decir cada palabra, y la barra del video a la mitad. */
-function Apoyo({ k, demo }: { k: K; demo: boolean }) {
+/**
+ * `tiempos`: cuándo se enciende cada botón (ms desde que suena la línea) y `mitad`: la barra
+ * de «mitad del video» (Mindfulness la usa sin barra, con su propia frase más corta).
+ */
+export function Apoyo({ k, demo, tiempos = [4300, 5600, 8100], mitad = true }: { k: K; demo: boolean; tiempos?: number[]; mitad?: boolean }) {
   const [on, setOn] = useState<Record<Apoyo, boolean>>({ like: false, suscribete: false, comparte: false })
   useEffect(() => {
     if (!demo) return
-    // «… dale like» (≈ 4,6 s), «suscríbete» (≈ 5,9 s) y «compártela» (≈ 8,4 s) en la voz en español.
-    const ids = (
-      [
-        ['like', 4300],
-        ['suscribete', 5600],
-        ['comparte', 8100],
-      ] as [Apoyo, number][]
-    ).map(([b, ms]) => window.setTimeout(() => setOn((o) => ({ ...o, [b]: true })), ms))
+    // De fábrica: «… dale like» (≈ 4,6 s), «suscríbete» (≈ 5,9 s) y «compártela» (≈ 8,4 s) en la voz en español.
+    const ids = (['like', 'suscribete', 'comparte'] as Apoyo[]).map((b, i) => window.setTimeout(() => setOn((o) => ({ ...o, [b]: true })), tiempos[i]))
     return () => ids.forEach(clearTimeout)
+    // Los tiempos son literales de quien llama: solo importa encender/apagar.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [demo])
   const iconos: Record<Apoyo, string> = {
     like: 'M7 22V10l5-8c1.4 0 2.4 1.2 2 2.6L13 9h6.3c1.3 0 2.2 1.2 1.9 2.4l-2 8.4c-.2.7-.9 1.2-1.6 1.2H7Zm-4 0V10h2v12H3Z',
@@ -385,10 +385,12 @@ function Apoyo({ k, demo }: { k: K; demo: boolean }) {
   return (
     <div className="g-herramienta g-vid g-vid-apoyo">
       <h4>{k('titulo')}</h4>
-      <div className="g-vid-progreso" aria-hidden="true">
-        <i />
-        <span>{k('mitad')}</span>
-      </div>
+      {mitad && (
+        <div className="g-vid-progreso" aria-hidden="true">
+          <i />
+          <span>{k('mitad')}</span>
+        </div>
+      )}
       <div className="g-vid-apoyos">
         {(['like', 'suscribete', 'comparte'] as Apoyo[]).map((b) => (
           <button key={b} type="button" className={on[b] ? `g-vid-apoyo-boton on ${b}` : `g-vid-apoyo-boton ${b}`} onClick={() => setOn((o) => ({ ...o, [b]: !o[b] }))}>

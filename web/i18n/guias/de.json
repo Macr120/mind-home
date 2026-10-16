@@ -1789,5 +1789,250 @@
         "abajo": "Heute 20 Minuten spazieren gehen"
       }
     }
+  },
+  "mindfulness": {
+    "meta": {
+      "titulo": "Warum kommst du schneller an, wenn du langsamer gehst? Leitfaden Achtsamkeit: deine wandernden Gedanken, was Achtsamkeit ist, langsam atmen, mehr leisten, was die Wissenschaft sagt, wie du meditierst und ein Plan, um dranzubleiben | MindHaOS",
+      "desc": "Achtsamkeit laut Wissenschaft: warum deine Gedanken fast den halben Tag wandern, was Achtsamkeit ist und woher sie kommt, das zyklische Seufzen in einer Minute, warum Bremsen dich mehr leisten lässt, was die Studien sagen und was nicht, wie du meditierst, auch wenn du nicht aufhören kannst zu denken, und ein Plan, damit die Ruhe bleibt."
+    },
+    "narra": "Es erzählt die Prinzessin",
+    "cargando3d": "Die Prinzessin wird geladen…",
+    "lista": {
+      "noVaciar": "Es heißt nicht, den Kopf leer zu machen",
+      "noVaciarDet": "Die Gedanken kommen weiter: Die Übung ist, sie zu bemerken.",
+      "noRelajar": "Es heißt nicht, dich zur Entspannung zu zwingen",
+      "noRelajarDet": "Manchmal kommt die Ruhe, manchmal nicht: Beides zählt.",
+      "noHuir": "Es heißt nicht, vor deinen Gefühlen zu fliehen",
+      "noHuirDet": "Es heißt, hinzuschauen, neugierig und ohne dich zu verurteilen.",
+      "moderado": "Die Wirkung ist mäßig",
+      "moderadoDet": "Es hilft bei Angst, Depression und Schmerzen, aber es ist keine Zauberei.",
+      "noMejor": "Nicht besser als andere Behandlungen",
+      "noMejorDet": "In der Übersicht von 2014 wirkte es ähnlich wie Sport oder Therapie, nicht mehr.",
+      "noSustituye": "Ersetzt keine Fachperson",
+      "noSustituyeDet": "Wenn dir zu viel auf den Schultern liegt, hol dir professionelle Hilfe.",
+      "cuerpo": "Deinen Körper durchgehen",
+      "cuerpoDet": "Die Aufmerksamkeit wandert langsam von den Füßen zum Kopf und spürt jeden Teil.",
+      "caminar": "Langsam gehen",
+      "caminarDet": "Spür, wie sich jeder Fuß hebt, nach vorn geht und aufsetzt.",
+      "sonido": "Einem Geräusch lauschen",
+      "sonidoDet": "Regen, Meer oder eine Glocke: Wenn du abschweifst, kehr zu ihm zurück.",
+      "resumen1": "Deine Gedanken sind fast den halben Tag woanders",
+      "resumen2": "Achtsamkeit heißt bemerken und zurückkehren, ohne zu urteilen",
+      "resumen3": "Langsames Atmen bremst deinen Körper, und Bremsen lässt dich mehr leisten",
+      "resumen4": "Ein paar Minuten jeden Tag sind mehr wert als ab und zu eine Stunde"
+    },
+    "dato": {
+      "infeliz": "der wachen Zeit sind die Gedanken woanders, und das fühlt sich schlechter an als volle Aufmerksamkeit (Killingsworth und Gilbert, 2010)",
+      "descargas": "der Männer und der Frauen gaben sich lieber einen Stromschlag, als mit ihren Gedanken allein zu sein (Wilson und Kollegen, 2014)",
+      "sati": "„Sati“ auf Pali: sich erinnern, zu dem zurückzukehren, was gerade geschieht; „mindfulness“ seit 1881 (Rhys Davids)",
+      "balban": "am Tag, einen Monat lang: Das zyklische Seufzen hob die Stimmung mehr als eine Achtsamkeitsmeditation (Balban und Kollegen, Stanford, 2023)",
+      "mrazek": "Perzentilpunkte im Leseteil eines Aufnahmetests nach zwei Wochen Achtsamkeit (Mrazek und Kollegen, 2013)",
+      "cerebro": "Meditation: Die Veränderung der Gehirngröße, die eine Studie von 2011 nahelegte, zeigte sich 2022 in einer größeren nicht (Kral und Kollegen)",
+      "basso": "am Tag: Nach acht Wochen bessere Stimmung, Aufmerksamkeit und Gedächtnis; nach vier war noch nichts zu merken (Basso und Suzuki, 2019)"
+    },
+    "pasos": {
+      "parar": "Anhalten",
+      "pararDet": "Ein paar Sekunden, ohne etwas anderes zu tun.",
+      "notar": "Bemerken",
+      "notarDet": "Wo deine Gedanken sind und wie es deinem Körper geht.",
+      "volver": "Zurückkehren",
+      "volverDet": "Zur Luft, die ein- und ausströmt, zu dem, was du gerade tust.",
+      "respirar": "Achtsam atmen",
+      "respirarDet": "Die Luft spüren, ohne sie zu verändern.",
+      "cuerpo": "Den Körper durchgehen",
+      "cuerpoDet": "Von den Füßen bis zum Kopf, Teil für Teil.",
+      "caminar": "Langsam gehen",
+      "caminarDet": "Jeden Schritt spüren.",
+      "como": "Ich sage, wie ich ankomme",
+      "comoDet": "Ein Gesicht, von eins bis fünf; oder ich überspringe es.",
+      "medito": "Ich meditiere ein paar Minuten",
+      "meditoDet": "Mit einer Glocke am Anfang und einer am Ende.",
+      "como2": "Ich sage, wie ich gehe",
+      "como2Det": "Und sehe, ob sich etwas verändert hat.",
+      "patron": "Ich wähle das Muster",
+      "patronDet": "Box 4-4-4-4 oder 4-7-8.",
+      "circulo": "Ich folge dem Kreis",
+      "circuloDet": "Er wächst, wenn ich einatme, und schrumpft, wenn ich ausatme.",
+      "sigue": "Zwei, drei oder fünf Minuten",
+      "sigueDet": "So viel, wie ich heute habe.",
+      "campana": "Eine Glocke",
+      "campanaDet": "Damit ich weiß, dass ich anfange.",
+      "una": "Ein paar Minuten für mich",
+      "unaDet": "Atmen vor dem Wichtigen.",
+      "campana2": "Noch eine Glocke",
+      "campana2Det": "Und dann nur eine Sache auf einmal.",
+      "unaCosa": "Eine Sache reicht",
+      "unaCosaDet": "Auch Kleines zählt: ein Kaffee, ein Anruf.",
+      "tres": "Drei sind besser",
+      "tresDet": "So suchst du in mehr Ruhe.",
+      "releer": "Nachlesen",
+      "releerDet": "An einem schweren Tag helfen die alten Einträge.",
+      "sientate": "Setz dich bequem hin",
+      "sientateDet": "Den Rücken gerade, aber nicht steif.",
+      "ancla": "Wähl einen Anker",
+      "anclaDet": "Die Luft, die durch die Nase ein- und ausströmt.",
+      "nota": "Bemerk den Gedanken",
+      "notaDet": "Benenn ihn still: „denken“.",
+      "vuelve": "Kehr zum Anker zurück",
+      "vuelveDet": "Ohne mit dir zu schimpfen. Das ist eine Wiederholung.",
+      "bosque": "Wald",
+      "bosqueDet": "Wind in den Bäumen und Vögel.",
+      "mar": "Meer",
+      "marDet": "Wellen, die langsam brechen.",
+      "lluvia": "Regen",
+      "lluviaDet": "Oder Klangschalen, und so lange du willst.",
+      "sinRacha": "Keine Serien, die reißen",
+      "sinRachaDet": "Ein Tag ohne Meditation löscht nichts.",
+      "hoy": "Fang heute wieder an",
+      "hoyDet": "Wie in der Meditation: bemerken und zurückkehren.",
+      "suave": "Miss sanft",
+      "suaveDet": "Wie du ankommst, wie du gehst und wie viel Ruhe du sammelst."
+    },
+    "mente": {
+      "titulo": "Wo sind deine Gedanken?",
+      "pregunta": "Woran denkst du gerade?",
+      "aqui": "An das, was ich tue",
+      "otra": "An etwas anderes",
+      "preguntar": "Noch einmal fragen",
+      "llevas": "Bei {n} Fragen waren deine Gedanken {m}-mal woanders",
+      "nota": "So fragte die App der Studie, zu zufälligen Zeiten. Bei mehr als 2000 Menschen waren die Gedanken fast die Hälfte der Zeit woanders (zur Veranschaulichung)."
+    },
+    "definicion": {
+      "titulo": "Die Definition von Kabat-Zinn",
+      "p1": "Aufmerksamkeit schenken",
+      "p1Det": "Merken, was passiert, in dir und um dich herum.",
+      "p2": "Absichtlich",
+      "p2Det": "Du entscheidest, nicht der Autopilot.",
+      "p3": "Dem gegenwärtigen Moment",
+      "p3Det": "Nicht der Vergangenheit und nicht der Liste für morgen.",
+      "p4": "Ohne zu urteilen",
+      "p4Det": "Kein „gut“ und kein „schlecht“: nur bemerken.",
+      "nota": "Tippe auf jeden Teil, um zu sehen, was er bedeutet."
+    },
+    "suspiro": {
+      "titulo": "Das zyklische Seufzen",
+      "inhala": "Durch die Nase einatmen",
+      "otra": "Noch einmal, ganz kurz",
+      "exhala": "Langsam durch den Mund ausatmen",
+      "listo": "Fertig: eine Minute",
+      "empezar": "Eine Minute starten",
+      "detener": "Stoppen",
+      "ciclos": "Zyklen: {n}",
+      "quedan": "Noch {n} s",
+      "nota": "Zweimal durch die Nase einatmen und einmal lang durch den Mund ausatmen, eine Minute lang."
+    },
+    "caja": {
+      "titulo": "Zwei Atemmuster",
+      "caja": "Box 4-4-4-4",
+      "c478": "4-7-8",
+      "inhala": "Einatmen",
+      "sosten": "Halten",
+      "exhala": "Ausatmen",
+      "seg": "{n} s",
+      "nota": "Bei der Box-Atmung dauert jede Seite gleich lang. Bei 4-7-8 ist das Ausatmen am längsten: gut vor dem Schlafen."
+    },
+    "cambio": {
+      "titulo": "Eins nach dem anderen gegen Springen",
+      "unaVez": "Eins nach dem anderen",
+      "saltando": "Zwischen Aufgaben springen",
+      "tarea": "Aufgabe",
+      "cambios": "Jeder Sprung kostet ein paar Sekunden, bis du wieder konzentriert bist",
+      "termina": "Fertig",
+      "nota": "Drei gleiche Aufgaben: Wenn du zwischen ihnen springst, kostet jeder Wechsel ein wenig Zeit (zur Veranschaulichung)."
+    },
+    "gratitud": {
+      "titulo": "Heute bin ich dankbar für…",
+      "ej1": "Den Morgenkaffee in Ruhe",
+      "ej2": "Dass meine Schwester angerufen hat",
+      "ej3": "Zehn Minuten Spaziergang in der Sonne",
+      "placeholder": "Auch Kleines zählt",
+      "guardar": "Speichern",
+      "guardado": "Gespeichert",
+      "nota": "In der Studie von Emmons und McCullough reichte es, jede Woche etwas aufzuschreiben. Eine Sache reicht; drei sind besser."
+    },
+    "volver": {
+      "titulo": "Jedes Zurückkehren zählt",
+      "ancla": "Dein Atem",
+      "d1": "Hab ich Brot gekauft?",
+      "d2": "Die Mail von morgen",
+      "d3": "Schon wieder dieses Lied",
+      "d4": "Mach ich das richtig?",
+      "volverBtn": "Bemerken und zurückkehren",
+      "reps": "Wiederholungen: {n}",
+      "nota": "Abgelenkt zu sein ist kein Scheitern: Bemerken, dass du weg warst, und zurückkehren ist die Übung."
+    },
+    "crecer": {
+      "titulo": "Deine Minuten der Ruhe",
+      "minDia": "Minuten am Tag",
+      "mes": "In einem Monat",
+      "anio": "In einem Jahr",
+      "horas": "{h} Std. {m} Min.",
+      "min": "{m} Min.",
+      "semilla": "Samen",
+      "brote": "Spross",
+      "arbol": "Baum",
+      "bosque": "Wald",
+      "nota": "Drei Minuten am Tag sind schon mehr als anderthalb Stunden im Monat. Steigere dich nach und nach bis zehn oder dreizehn."
+    },
+    "grafica": {
+      "pulso": "Beim Einatmen schlägt das Herz etwas schneller, beim Ausatmen bremst es. Langsames Atmen macht dieses Auf und Ab größer (zur Veranschaulichung).",
+      "rapida": "Schnelles Atmen",
+      "lenta": "Langsames Atmen (etwa 6 pro Minute)",
+      "inhala": "Einatmen",
+      "exhala": "Ausatmen",
+      "latidos": "Schläge pro Minute",
+      "practica": "Marines vor einem Einsatz: Wer am meisten übte, behielt sein Arbeitsgedächtnis (Jha und Kollegen, 2010; zur Veranschaulichung)",
+      "mucha": "Viel geübt",
+      "poca": "Wenig geübt",
+      "inicio": "Beginn",
+      "fin": "8 Wochen später",
+      "memoria": "Arbeitsgedächtnis",
+      "goyal": "Meditationsprogramme: Effektgröße nach 8 Wochen (Goyal und Kollegen, 2014)",
+      "ansiedad": "Angst",
+      "depresion": "Depression",
+      "dolor": "Schmerz",
+      "pequeno": "Klein",
+      "moderadoEje": "Mäßig",
+      "grande": "Groß",
+      "plan": "Dein Plan, um dranzubleiben",
+      "semana1": "Woche 1",
+      "semana1Det": "Nach dem Kaffee: eine Minute zyklisches Seufzen und zwei Minuten Aufmerksamkeit",
+      "mes1": "Monat 1",
+      "mes1Det": "Jede Woche etwas mehr, bis zehn oder dreizehn Minuten",
+      "fallas": "Wenn du einen Tag nicht meditierst",
+      "fallasDet": "Kein Problem: Die Übung ist das Zurückkehren",
+      "medir": "Zum Messen",
+      "medirDet": "Wie du ankommst, wie du gehst und wie viel Ruhe du sammelst"
+    },
+    "cierre": {
+      "titulo": "Deine Ruhe, in deinem eigenen Haus",
+      "texto": "Im Garten von MindHaOS meditierst du mit Geräuschen von Wald, Meer, Regen oder Klangschalen, atmest mit einem Kreis, notierst, wofür du dankbar bist, und siehst deine Ruhe vom Samen zum Wald wachsen, ohne Serien oder Punkte, die dich jagen."
+    },
+    "paquete": {
+      "guia": "Interaktiver Leitfaden (mit dem zyklischen Seufzen, der Box-Atmung und 4-7-8, deinen wandernden Gedanken, springenden Aufgaben, deinen Dankbarkeitsnotizen und deinen Minuten der Ruhe, die sich in deinem Browser bewegen)",
+      "app": "Öffne den Garten in MindHaOS",
+      "hashtags": "#Achtsamkeit #Meditation #Atmung #Angst #Wohlbefinden #PsychischeGesundheit #MindHaOS"
+    },
+    "memes": {
+      "solo": {
+        "arriba": "Ich: „Ich brauche mal Zeit für mich“",
+        "abajo": "Ich nach zwei Minuten allein mit meinen Gedanken"
+      },
+      "relajate": {
+        "arriba": "Den Kopf leer machen",
+        "abajo": "Merken, dass du weg warst, und zurückkehren"
+      },
+      "pestanas": {
+        "arriba": "Ich mit fünf Tabs, dem Chat und dem Fernseher: „Was für ein produktiver Tag“",
+        "abajo": "Ich um acht Uhr abends, und nichts ist fertig"
+      },
+      "super": {
+        "arriba": "Ich beim Meditieren: „Einatmen … ausatmen … hab ich Brot gekauft?“"
+      }
+    },
+    "gusta": {
+      "titulo": "Gefällt dir der Leitfaden?",
+      "nota": "Ein Mag ich, ein Abo oder Teilen hilft, dass er mehr Menschen erreicht."
+    }
   }
 }

@@ -1,0 +1,696 @@
+{
+  "idioma": "tr",
+  "tema": "mindfulness",
+  "plantillaId": "jardin",
+  "numero": 10,
+  "nombre": "Farkındalık",
+  "pregunta": "Yavaşlamak seni neden daha hızlı ulaştırır?",
+  "corta": "Daha yavaş, daha hızlı",
+  "subtitulo": "Günün neredeyse yarısında zihninin nerede olduğu, farkındalığın ne olduğu ve nereden geldiği, yavaş nefes aldığında bedenine ne olduğu, yavaşlamanın seni neden daha verimli yaptığı, bilimin ne söyleyip ne söylemediği, düşünmeyi bırakamasan bile nasıl meditasyon yapacağın ve sakinliğin kalıcı olması için bir plan.",
+  "aviso": "Bu rehber bilgilendirme amaçlıdır: verilen rakamlar ve çalışmalar, kaynaklarındaki yaklaşık değerlerdir. Farkındalık bir uzmanın desteğinin yerini tutmaz: kaygı, depresyon, travma ya da sana zarar veren düşüncelerle yaşıyorsan bir ruh sağlığı uzmanından yardım al.",
+  "partes": [
+    {
+      "id": "mente",
+      "titulo": "Zihnin şu anda nerede?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Yavaşlamak seni neden daha hızlı ulaştırır? Bir deneyde düşünceleriyle on beş dakika yalnız bırakılan pek çok kişi, sessizce oturmak yerine kendine elektrik şoku vermeyi tercih etti. Bugün bilimin yavaşlamak hakkında ne dediğini ve bu video biter bitmez yapabileceğin bir dakikalık bir egzersizi göreceksin."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "Bu arada, burası MindHaOS'taki evim ve bu bahçe de yavaşlamak için geldiğim yer."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Birinci bölüm. Zihnin şu anda nerede?"
+        },
+        {
+          "id": "divaga",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mente"
+          },
+          "lamina": [
+            "telefono",
+            "ventana"
+          ],
+          "texto": "2010'da Matthew Killingsworth ve Daniel Gilbert, iki binden fazla kişiye rastgele saatlerde telefonları üzerinden şunu sordu: Şu anda ne yapıyorsun ve ne düşünüyorsun? Zamanın neredeyse yarısında zihinleri başka bir yerdeydi."
+        },
+        {
+          "id": "infeliz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "%47",
+            "clave": "infeliz"
+          },
+          "lamina": [
+            "trafico",
+            "lluvia"
+          ],
+          "texto": "Üstelik bu bir dinlenme değildi: zihin dalıp gittiğinde insanlar, dikkatleri yerindeyken olduğundan daha kötü hissediyordu, sıkıcı işler yaparken bile. Vardıkları sonuç tek cümleye sığıyor: dalıp giden bir zihin, mutsuz bir zihindir."
+        },
+        {
+          "id": "descargas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "%67 · %25",
+            "clave": "descargas"
+          },
+          "lamina": [
+            "silla",
+            "reloj"
+          ],
+          "texto": "İşte baştaki deney. 2014'te Timothy Wilson gönüllüleri altı ila on beş dakika boyunca, telefonsuz, küçük bir elektrik şoku veren bir düğmeyle bir odada yalnız bıraktı. Her üç erkekten ikisi ve her dört kadından biri, sırf zihinleriyle baş başa kalmamak için düğmeye bastı.",
+          "meme": "solo"
+        },
+        {
+          "id": "jardin",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "parar",
+              "notar",
+              "volver"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "jardin",
+          "texto": "Bu yüzden bu bahçenin ne duvarı var ne de acelesi: burada amaç durmak, nerede olduğumu fark etmek ve geri dönmek."
+        }
+      ]
+    },
+    {
+      "id": "que",
+      "titulo": "Farkındalık nedir ve nereden gelir?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "İkinci bölüm. Farkındalık nedir ve nereden gelir?"
+        },
+        {
+          "id": "sati",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 2.500 yıl",
+            "clave": "sati"
+          },
+          "lamina": [
+            "buda",
+            "manuscrito"
+          ],
+          "texto": "Bu kelime, yaklaşık iki bin beş yüz yıllık en eski Budist metinlerin dili olan Pali dilindeki “sati” sözcüğünden gelir. Aşağı yukarı, olup bitene geri dönmeyi hatırlamak demektir. 1881'de İngiliz çevirmen Thomas Rhys Davids bunu “mindfulness” diye çevirdi; Türkçede biz farkındalık diyoruz."
+        },
+        {
+          "id": "kabatZinn",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "definicion"
+          },
+          "lamina": [
+            "kabatZinn",
+            "hospital"
+          ],
+          "texto": "1979'da biyolog Jon Kabat-Zinn farkındalığı, işin içine din katmadan, kronik ağrısı olan hastalar için Massachusetts'teki bir hastaneye taşıdı. Bugün kullanılan tanım onunkidir: bilerek, şu ana ve yargılamadan dikkat etmek."
+        },
+        {
+          "id": "noEs",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "noVaciar",
+              "noRelajar",
+              "noHuir"
+            ]
+          },
+          "lamina": [
+            "nubes",
+            "rio"
+          ],
+          "texto": "Ne olmadığını da açıklar. Zihni boşaltmak değildir, kendini rahatlamaya zorlamak değildir ve hissettiklerinden kaçmak da değildir. Düşüncelerini, her birine binmeden, bulutlar gibi geçip giderken izlemektir.",
+          "meme": "relajate"
+        },
+        {
+          "id": "ocho",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "respirar",
+              "cuerpo",
+              "caminar"
+            ]
+          },
+          "lamina": [
+            "grupo",
+            "caminar"
+          ],
+          "texto": "Programı sekiz hafta sürüyordu: dikkatle nefes almak, bedeni ayaklardan başa kadar taramak ve her adımı fark ederek yavaşça yürümek. Bugün dünyanın dört bir yanında hastanelerde, okullarda ve şirketlerde öğretiliyor."
+        },
+        {
+          "id": "sesion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "como",
+              "medito",
+              "como2"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cojin",
+          "texto": "Bunun için bir manastıra da gerek yok: buraya oturuyorum, nasıl geldiğimi söylüyorum, birkaç dakika meditasyon yapıyorum ve nasıl ayrıldığımı söylüyorum."
+        }
+      ]
+    },
+    {
+      "id": "respirar",
+      "titulo": "Yavaş nefes aldığında bedenine ne olur?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Üçüncü bölüm. Yavaş nefes aldığında bedenine ne olur?"
+        },
+        {
+          "id": "freno",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pulso"
+          },
+          "lamina": [
+            "corazon",
+            "pulmones"
+          ],
+          "texto": "Nefes, bedenin otomatik pilotunda isteyerek dokunabileceğin tek düğmedir. Nefes alırken kalp biraz hızlanır, verirken yavaşlar. Dakikada altı kez kadar yavaş nefes almak bu salınımı büyütür ve bu, sakinleşen bir bedenin işaretidir."
+        },
+        {
+          "id": "suspiro",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "suspiro"
+          },
+          "lamina": [
+            "nariz",
+            "atardecer"
+          ],
+          "texto": "İşte sana söz verdiğim bir dakikalık egzersiz: döngüsel iç çekiş. Burnundan iki kez nefes al, biri uzun, diğeri ciğerlerini tamamen doldurmak için kısa, sonra ağzından uzun ve yavaş bir nefes ver. Bunu bir dakika boyunca tekrarla. Benimle birlikte yap."
+        },
+        {
+          "id": "balban",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "5 dk",
+            "clave": "balban"
+          },
+          "lamina": [
+            "laboratorio",
+            "sonrisa"
+          ],
+          "texto": "2023'te Stanford Üniversitesi'nde yüzden fazla kişi bir ay boyunca günde beş dakika pratik yaptı. Döngüsel iç çekiş yapanların ruh hali, dikkat meditasyonu yapanlarınkinden daha çok iyileşti ve dinlenme hâlindeki nefesleri yavaşladı."
+        },
+        {
+          "id": "caja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "caja"
+          },
+          "lamina": [
+            "caja",
+            "noche"
+          ],
+          "texto": "Başka kalıplar da var. Kutu nefesi: dört sayıda al, dört tut, dört ver ve dört tut. Bir de dört-yedi-sekiz nefesi var; nefes verişi alışından uzundur, uyuyamadığın geceler içindir."
+        },
+        {
+          "id": "lampara",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "patron",
+              "circulo",
+              "sigue"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "respiracion",
+          "texto": "Burada, bahçemde, kalıbı seçiyorum ve nefes aldığımda büyüyen, verdiğimde küçülen bir çemberi takip ediyorum."
+        }
+      ]
+    },
+    {
+      "id": "rapido",
+      "titulo": "Frene basmak seni neden daha hızlı vardırır?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Dördüncü bölüm. Frene basmak seni neden daha hızlı vardırır?"
+        },
+        {
+          "id": "multitarea",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cambio"
+          },
+          "lamina": [
+            "pestanas",
+            "notificaciones"
+          ],
+          "texto": "Aynı anda birçok iş yapmak hızlı gibi gelir ama değildir. Bir işten diğerine her atladığında beynin ilkini yeniden yüklemek için zaman harcar. 2009'da Stanford'da ekranlar arasında sürekli gidip gelenlerin dikkati, gidip gelmeyenlere göre daha çok dağılıyordu ve görev değiştirmede daha kötüydüler.",
+          "meme": "pestanas"
+        },
+        {
+          "id": "mrazek",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+16",
+            "clave": "mrazek"
+          },
+          "lamina": [
+            "examen",
+            "biblioteca"
+          ],
+          "texto": "Şimdi tersine bakalım. 2013'te Michael Mrazek öğrencilere, günde birkaç dakikalık, iki haftalık bir farkındalık eğitimi verdi. Zihinleri daha az dağıldı, çalışma bellekleri gelişti ve bir lisansüstü giriş sınavının okuma bölümünde on altı yüzdelik dilim yükseldiler."
+        },
+        {
+          "id": "marines",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "practica"
+          },
+          "lamina": [
+            "soldado",
+            "bosque"
+          ],
+          "texto": "Amishi Jha da bunu, bir göreve çıkmadan önceki çok stresli bir dönemde deniz piyadeleriyle denedi. Daha çok dakika pratik yapanlar çalışma belleklerini korudu; neredeyse hiç yapmayanlar ise kaybetti. Bu yüzden orduda şöyle derler: yavaş akıcıdır, akıcı da hızlıdır."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "Bu rehberi beğeniyorsan Beğen'e bas, Abone ol ve Paylaş."
+        },
+        {
+          "id": "campana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "campana",
+              "una",
+              "campana2"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cuenco",
+          "texto": "Önemli bir işim olduğunda önce buraya gelirim: bir çan, kendime birkaç dakika, bir çan daha ve sonra aynı anda tek bir iş."
+        }
+      ]
+    },
+    {
+      "id": "ciencia",
+      "titulo": "Bilim ne diyor, ne demiyor?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Beşinci bölüm. Bilim ne diyor, ne demiyor?"
+        },
+        {
+          "id": "goyal",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "goyal"
+          },
+          "lamina": [
+            "papeles",
+            "lupa"
+          ],
+          "texto": "2014'te Madhav Goyal ve Johns Hopkins Üniversitesi'ndeki ekibi, üç bin beş yüzden fazla kişinin katıldığı kırk yedi çalışmayı inceledi. Meditasyon programları kaygıyı, depresyonu ve ağrıyı orta düzeyde azalttı."
+        },
+        {
+          "id": "noMagia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "moderado",
+              "noMejor",
+              "noSustituye"
+            ]
+          },
+          "lamina": [
+            "balanza",
+            "doctor"
+          ],
+          "texto": "Orta düzey tam da şu demek: yardımcı olur ama sihir değildir. O incelemede egzersiz ya da terapi gibi diğer tedavilerden daha iyi çıkmadı ve ihtiyacın olduğunda bir uzmanın yerini tutmaz."
+        },
+        {
+          "id": "cerebro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "8 hf",
+            "clave": "cerebro"
+          },
+          "lamina": [
+            "cerebro",
+            "resonancia"
+          ],
+          "texto": "Belki sekiz haftalık meditasyonun beynin boyutunu değiştirdiğini duymuşsundur. 2011'deki bir çalışma bunu öne sürdü, ama 2022'de daha büyük ve daha titiz bir çalışma bunu bulamadı. Bilim böyle ilerler: geriye kalan şu ki dikkati çalıştırmak, daha erken fark etmene ve daha iyi tepki vermene yardım eder."
+        },
+        {
+          "id": "gratitud",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gratitud"
+          },
+          "lamina": [
+            "diario",
+            "cafe"
+          ],
+          "texto": "Kanıtı olan komşu bir pratik daha var: şükretmek. 2003'te Robert Emmons ve Michael McCullough gönüllülerden her hafta minnettar oldukları şeyleri yazmalarını istedi. On hafta sonra hayatlarından daha memnundular, daha iyimserdiler ve hatta daha çok egzersiz yapıyorlardı."
+        },
+        {
+          "id": "agradezco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unaCosa",
+              "tres",
+              "releer"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "flor",
+          "texto": "Bu yüzden burada bugün neye minnettar olduğumu da yazıyorum: bir tane yeter, üç tane daha iyi."
+        }
+      ]
+    },
+    {
+      "id": "meditar",
+      "titulo": "Düşünmeyi bırakamıyorsan nasıl meditasyon yaparsın?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Altıncı bölüm. Düşünmeyi bırakamıyorsan nasıl meditasyon yaparsın?"
+        },
+        {
+          "id": "repeticion",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "volver"
+          },
+          "lamina": [
+            "pesa",
+            "brujula"
+          ],
+          "texto": "İşte sır şu: dikkatinin dağılması başarısızlık değildir. Egzersizin bir parçasıdır. Daldığını fark edip nefesine her döndüğünde bir tekrar yapmış olursun, dikkatin için bir çömelme hareketi gibi. Yüz kez dağılırsan yüz kez antrenman yapmış olursun.",
+          "meme": "super"
+        },
+        {
+          "id": "pasos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sientate",
+              "ancla",
+              "nota",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "silla2",
+            "ojos"
+          ],
+          "texto": "Bu kadar basit: rahatça otur, sırtın dik olsun ama kaskatı değil. Bir çapa seç, mesela burnundan girip çıkan hava. Bir düşünceyi fark ettiğinde ona içinden “düşünüyorum” de ve kendini azarlamadan çapaya geri dön."
+        },
+        {
+          "id": "basso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "13 dk",
+            "clave": "basso"
+          },
+          "lamina": [
+            "reloj2",
+            "amanecer"
+          ],
+          "texto": "Ne kadar süre? 2019'da Julia Basso ve Wendy Suzuki deneyimi olmayan kişilerden günde on üç dakika meditasyon yapmalarını istedi. Dört haftada henüz fark yoktu; sekiz haftada ruh halleri, dikkatleri ve hafızaları daha iyiydi. Düzenlilik süreyi yener."
+        },
+        {
+          "id": "otras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cuerpo",
+              "caminar",
+              "sonido"
+            ]
+          },
+          "lamina": [
+            "pies",
+            "olas"
+          ],
+          "texto": "Oturmak sana göre değilse başka kapılar da var: dikkatinle bedenini ayaklarından başına kadar dolaşmak; her adımı hissederek yavaşça yürümek; ya da yağmur veya deniz gibi bir sesi dinleyip ona geri dönmek."
+        },
+        {
+          "id": "sonidos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bosque",
+              "mar",
+              "lluvia"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "lluvia",
+          "texto": "Burada sesi seçiyorum, orman, deniz, yağmur ya da çanaklar, süreyi de seçiyorum ve çan çalana kadar meditasyon yapıyorum."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Nasıl devam etmeli? Devam etmek için planın",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Yedinci bölüm. Nasıl devam etmeli? Devam etmek için planın."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "cafe",
+            "semilla"
+          ],
+          "texto": "İlk hafta pratiğini zaten yaptığın bir şeye bağla: kahveden sonra bir dakika döngüsel iç çekiş ve iki dakika nefesine dikkat. Bahane kalmayacak kadar az."
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "crecer"
+          },
+          "lamina": [
+            "brote",
+            "arbol"
+          ],
+          "texto": "İlk ay her hafta biraz artırarak on ya da on üç dakikaya çık ve sana uyanı bulana kadar farklı sesleri ve kalıpları dene. Günde üç dakikanın ayda bir buçuk saati nasıl geçtiğine bak."
+        },
+        {
+          "id": "fallar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinRacha",
+              "hoy",
+              "suave"
+            ]
+          },
+          "lamina": [
+            "banca",
+            "parque"
+          ],
+          "texto": "Bir gün meditasyon yapmazsan hiçbir şey olmaz: burada kırılan seriler yok. Pratik, tıpkı meditasyonun içinde olduğu gibi, geri dönmektir. İlerlemeni ölçmek için nasıl geldiğini ve nasıl ayrıldığını, ne kadar sakinlik biriktirdiğini fark et."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "bosque",
+          "texto": "Özetle: zihnin günün neredeyse yarısında başka yerde; farkındalık, yargılamadan fark edip geri dönmektir; yavaş nefes bedenini sakinleştirir; yavaşlamak seni daha verimli yapar; ve her gün birkaç dakika, arada bir yapılan bir saatten daha değerlidir."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS'taki Bahçe'de orman, deniz ya da yağmur sesleriyle meditasyon yapabilir, sana yol gösteren bir çemberle nefes alabilir ve neye şükrettiğini yazabilirsin; bu sırada tohumdan ormana kadar sakinliğinin büyüdüğünü görürsün. Zihinsel evini bugün ücretsiz kur: bağlantı açıklamada. Bir sonraki rehberde ise: zamanını nasıl düzenlersin?",
+    "boton": "Bahçe'yi aç",
+    "lamina": "app-plan",
+    "anclas": {
+      "meditar": "meditasyon yapabilir",
+      "respirar": "bir çemberle nefes",
+      "agradecer": "neye şükrettiğini yazabilirsin",
+      "calma": "sakinliğinin büyüdüğünü"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "killingsworth-2010",
+      "texto": "Killingsworth M. A., Gilbert D. T. A wandering mind is an unhappy mind. Science (2010).",
+      "url": "https://doi.org/10.1126/science.1192439"
+    },
+    {
+      "id": "wilson-2014",
+      "texto": "Wilson T. D. ve ark. Just think: The challenges of the disengaged mind. Science (2014).",
+      "url": "https://doi.org/10.1126/science.1250830"
+    },
+    {
+      "id": "kabat-zinn-1982",
+      "texto": "Kabat-Zinn J. An outpatient program in behavioral medicine for chronic pain patients based on the practice of mindfulness meditation. General Hospital Psychiatry (1982).",
+      "url": "https://doi.org/10.1016/0163-8343(82)90026-3"
+    },
+    {
+      "id": "zaccaro-2018",
+      "texto": "Zaccaro A. ve ark. How breath-control can change your life: A systematic review on psycho-physiological correlates of slow breathing. Frontiers in Human Neuroscience (2018).",
+      "url": "https://doi.org/10.3389/fnhum.2018.00353"
+    },
+    {
+      "id": "balban-2023",
+      "texto": "Balban M. Y. ve ark. Brief structured respiration practices enhance mood and reduce physiological arousal. Cell Reports Medicine (2023).",
+      "url": "https://doi.org/10.1016/j.xcrm.2022.100895"
+    },
+    {
+      "id": "ophir-2009",
+      "texto": "Ophir E., Nass C., Wagner A. D. Cognitive control in media multitaskers. PNAS (2009).",
+      "url": "https://doi.org/10.1073/pnas.0903620106"
+    },
+    {
+      "id": "mrazek-2013",
+      "texto": "Mrazek M. D. ve ark. Mindfulness training improves working memory capacity and GRE performance while reducing mind wandering. Psychological Science (2013).",
+      "url": "https://doi.org/10.1177/0956797612459659"
+    },
+    {
+      "id": "jha-2010",
+      "texto": "Jha A. P. ve ark. Examining the protective effects of mindfulness training on working memory capacity and affective experience. Emotion (2010).",
+      "url": "https://doi.org/10.1037/a0018438"
+    },
+    {
+      "id": "goyal-2014",
+      "texto": "Goyal M. ve ark. Meditation programs for psychological stress and well-being: A systematic review and meta-analysis. JAMA Internal Medicine (2014).",
+      "url": "https://doi.org/10.1001/jamainternmed.2013.13018"
+    },
+    {
+      "id": "kral-2022",
+      "texto": "Kral T. R. A. ve ark. Absence of structural brain changes from mindfulness-based stress reduction: Two combined randomized controlled trials. Science Advances (2022).",
+      "url": "https://doi.org/10.1126/sciadv.abk3316"
+    },
+    {
+      "id": "emmons-2003",
+      "texto": "Emmons R. A., McCullough M. E. Counting blessings versus burdens: An experimental investigation of gratitude and subjective well-being in daily life. Journal of Personality and Social Psychology (2003).",
+      "url": "https://doi.org/10.1037/0022-3514.84.2.377"
+    },
+    {
+      "id": "basso-2019",
+      "texto": "Basso J. C. ve ark. Brief, daily meditation enhances attention, memory, mood, and emotional regulation in non-experienced meditators. Behavioural Brain Research (2019).",
+      "url": "https://doi.org/10.1016/j.bbr.2018.08.023"
+    }
+  ]
+}

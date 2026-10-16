@@ -1789,5 +1789,250 @@
         "abajo": "Przejść się 20 minut dzisiaj"
       }
     }
+  },
+  "mindfulness": {
+    "meta": {
+      "titulo": "Dlaczego idąc wolniej, dotrzesz szybciej? Przewodnik po uważności: błądzący umysł, czym jest uważność, powolny oddech, więcej zrobione, co mówi nauka, jak medytować i plan na ciąg dalszy | MindHaOS",
+      "desc": "Uważność według nauki: dlaczego twój umysł błądzi przez prawie połowę dnia, czym jest uważność i skąd się wzięła, minutowe cykliczne westchnienie, dlaczego zwolnienie pozwala zrobić więcej, co mówią badania, a czego nie, jak medytować, nawet jeśli nie możesz przestać myśleć, i plan, żeby spokój został na dłużej."
+    },
+    "narra": "Opowiada księżniczka",
+    "cargando3d": "Wczytywanie księżniczki…",
+    "lista": {
+      "noVaciar": "To nie opróżnianie umysłu",
+      "noVaciarDet": "Myśli wciąż będą przychodzić: praktyka polega na tym, żeby je zauważać.",
+      "noRelajar": "To nie zmuszanie się do relaksu",
+      "noRelajarDet": "Czasem spokój przychodzi, a czasem nie: jedno i drugie się liczy.",
+      "noHuir": "To nie ucieczka od tego, co czujesz",
+      "noHuirDet": "To patrzenie na to wprost, z ciekawością i bez oceniania siebie.",
+      "moderado": "Efekt jest umiarkowany",
+      "moderadoDet": "Pomaga przy lęku, depresji i bólu, ale to nie magia.",
+      "noMejor": "Nie przewyższa innych metod",
+      "noMejorDet": "W przeglądzie z 2014 roku wypadła podobnie jak ruch czy terapia, nie lepiej.",
+      "noSustituye": "Nie zastępuje specjalisty",
+      "noSustituyeDet": "Jeśli to, co przeżywasz, za bardzo ciąży, poproś o profesjonalną pomoc.",
+      "cuerpo": "Przejść uwagą przez ciało",
+      "cuerpoDet": "Uwaga powoli wędruje od stóp do głowy, zauważając każdą część.",
+      "caminar": "Iść powoli",
+      "caminarDet": "Poczuj, jak każda stopa się unosi, przesuwa i opiera.",
+      "sonido": "Słuchać dźwięku",
+      "sonidoDet": "Deszcz, morze albo dzwonek: gdy odpłyniesz myślami, wróć do niego.",
+      "resumen1": "Twój umysł odpływa przez prawie połowę dnia",
+      "resumen2": "Uważność to zauważać i wracać, bez oceniania",
+      "resumen3": "Powolny oddech uspokaja ciało, a zwolnienie pozwala zrobić więcej",
+      "resumen4": "Kilka minut dziennie jest warte więcej niż godzina od czasu do czasu"
+    },
+    "dato": {
+      "infeliz": "czasu na jawie umysł jest gdzie indziej, a czujemy się wtedy gorzej, niż gdy jesteśmy skupieni (Killingsworth i Gilbert, 2010)",
+      "descargas": "mężczyzn i kobiet wolało porazić się prądem, niż zostać sam na sam ze swoim umysłem (Wilson i in., 2014)",
+      "sati": "„sati” w pali: pamiętać, żeby wracać do tego, co się dzieje; „mindfulness” od 1881 roku (Rhys Davids)",
+      "balban": "dziennie przez miesiąc: cykliczne westchnienie poprawiło nastrój bardziej niż medytacja uwagi (Balban i in., Stanford, 2023)",
+      "mrazek": "punktów percentylowych w części z czytania egzaminu na studia magisterskie po dwóch tygodniach uważności (Mrazek i in., 2013)",
+      "cerebro": "medytacji: zmiana rozmiaru mózgu, którą sugerowało badanie z 2011 roku, nie pojawiła się w większym badaniu z 2022 roku (Kral i in.)",
+      "basso": "dziennie: po ośmiu tygodniach lepszy nastrój, uwaga i pamięć; po czterech jeszcze nie było różnicy (Basso i Suzuki, 2019)"
+    },
+    "pasos": {
+      "parar": "Zatrzymać się",
+      "pararDet": "Kilka sekund, nie robiąc nic innego.",
+      "notar": "Zauważyć",
+      "notarDet": "Gdzie jest twój umysł i jak się czuje twoje ciało.",
+      "volver": "Wrócić",
+      "volverDet": "Do powietrza, które wpływa i wypływa, do tego, co robisz.",
+      "respirar": "Uważny oddech",
+      "respirarDet": "Czuć powietrze, nie zmieniając go.",
+      "cuerpo": "Przejść uwagą przez ciało",
+      "cuerpoDet": "Od stóp do głowy, część po części.",
+      "caminar": "Powolny spacer",
+      "caminarDet": "Zauważając każdy krok.",
+      "como": "Zaznaczam, z czym przychodzę",
+      "comoDet": "Jedna buźka, od jednego do pięciu; albo pomijam.",
+      "medito": "Medytuję kilka minut",
+      "meditoDet": "Z dzwonkiem na początek i drugim na koniec.",
+      "como2": "Zaznaczam, z czym odchodzę",
+      "como2Det": "I sprawdzam, czy coś się zmieniło.",
+      "patron": "Wybieram wzorzec",
+      "patronDet": "Pudełkowy 4-4-4-4 albo 4-7-8.",
+      "circulo": "Podążam za kołem",
+      "circuloDet": "Rośnie, gdy wdycham, i maleje, gdy wydycham.",
+      "sigue": "Dwie, trzy albo pięć minut",
+      "sigueDet": "Tyle, ile mam dziś.",
+      "campana": "Dzwonek",
+      "campanaDet": "Na znak, że zaczynam.",
+      "una": "Kilka minut dla siebie",
+      "unaDet": "Oddech przed tym, co ważne.",
+      "campana2": "Drugi dzwonek",
+      "campana2Det": "A potem jedna rzecz naraz.",
+      "unaCosa": "Jedna wystarczy",
+      "unaCosaDet": "Mała rzecz też się liczy: kawa, telefon.",
+      "tres": "Trzy są lepsze",
+      "tresDet": "Zmuszają cię do spokojniejszego szukania.",
+      "releer": "Wracać do nich",
+      "releerDet": "W trudny dzień dawne wpisy pomagają.",
+      "sientate": "Usiądź wygodnie",
+      "sientateDet": "Plecy proste, ale bez sztywności.",
+      "ancla": "Wybierz kotwicę",
+      "anclaDet": "Powietrze, które wpływa i wypływa przez nos.",
+      "nota": "Zauważ myśl",
+      "notaDet": "Nazwij ją w myślach: „myślenie”.",
+      "vuelve": "Wróć do kotwicy",
+      "vuelveDet": "Bez strofowania się. To jedno powtórzenie.",
+      "bosque": "Las",
+      "bosqueDet": "Wiatr wśród drzew i ptaki.",
+      "mar": "Morze",
+      "marDet": "Fale, które powoli się łamią.",
+      "lluvia": "Deszcz",
+      "lluviaDet": "Albo misy tybetańskie, i tyle czasu, ile chcesz.",
+      "sinRacha": "Bez serii, które się przerywają",
+      "sinRachaDet": "Dzień bez medytacji niczego nie przekreśla.",
+      "hoy": "Wróć dziś",
+      "hoyDet": "Jak w samej medytacji: zauważyć i wrócić.",
+      "suave": "Mierz łagodnie",
+      "suaveDet": "Z czym przychodzisz, z czym odchodzisz i ile spokoju zbierasz."
+    },
+    "mente": {
+      "titulo": "Gdzie jest twój umysł?",
+      "pregunta": "O czym teraz myślisz?",
+      "aqui": "O tym, co robię",
+      "otra": "O czymś innym",
+      "preguntar": "Zapytaj jeszcze raz",
+      "llevas": "Na {n} pytań twój umysł był gdzie indziej {m} razy",
+      "nota": "Tak pytała aplikacja z badania, o losowych porach. Wśród ponad 2000 osób umysł był gdzie indziej przez prawie połowę czasu (poglądowo)."
+    },
+    "definicion": {
+      "titulo": "Definicja Kabata-Zinna",
+      "p1": "Zwracać uwagę",
+      "p1Det": "Zauważać, co się dzieje w tobie i wokół ciebie.",
+      "p2": "Celowo",
+      "p2Det": "To ty wybierasz, nie autopilot.",
+      "p3": "Na chwilę obecną",
+      "p3Det": "Nie na przeszłość ani na jutrzejszą listę.",
+      "p4": "Bez oceniania",
+      "p4Det": "Bez „dobrze” i „źle”: tylko zauważać.",
+      "nota": "Dotknij każdej części, żeby zobaczyć, co znaczy."
+    },
+    "suspiro": {
+      "titulo": "Cykliczne westchnienie",
+      "inhala": "Wdech nosem",
+      "otra": "Jeszcze jeden, krótki",
+      "exhala": "Powolny wydech ustami",
+      "listo": "Gotowe: minuta",
+      "empezar": "Zacznij minutę",
+      "detener": "Zatrzymaj",
+      "ciclos": "Cykle: {n}",
+      "quedan": "Zostało {n} s",
+      "nota": "Dwa wdechy nosem i jeden długi wydech ustami, przez minutę."
+    },
+    "caja": {
+      "titulo": "Dwa wzorce oddechu",
+      "caja": "Pudełkowy 4-4-4-4",
+      "c478": "4-7-8",
+      "inhala": "Wdech",
+      "sosten": "Zatrzymaj",
+      "exhala": "Wydech",
+      "seg": "{n} s",
+      "nota": "W oddechu pudełkowym każdy bok trwa tyle samo. W 4-7-8 najdłuższy jest wydech: dobrze sprawdza się przed snem."
+    },
+    "cambio": {
+      "titulo": "Jedno naraz kontra skakanie",
+      "unaVez": "Jedno naraz",
+      "saltando": "Skakanie między zadaniami",
+      "tarea": "Zadanie",
+      "cambios": "Każdy skok kosztuje kilka sekund powrotu do skupienia",
+      "termina": "Gotowe",
+      "nota": "Trzy takie same zadania: przy skakaniu z jednego na drugie każda zmiana dodaje trochę straconego czasu (poglądowo)."
+    },
+    "gratitud": {
+      "titulo": "Dziś dziękuję za…",
+      "ej1": "Spokojną poranną kawę",
+      "ej2": "Telefon od siostry",
+      "ej3": "Dziesięć minut spaceru w słońcu",
+      "placeholder": "Mała rzecz też się liczy",
+      "guardar": "Zapisz",
+      "guardado": "Zapisano",
+      "nota": "W badaniu Emmonsa i McCullougha wystarczyło zapisywać raz w tygodniu. Jedna rzecz wystarczy; trzy są lepsze."
+    },
+    "volver": {
+      "titulo": "Każdy powrót się liczy",
+      "ancla": "Twój oddech",
+      "d1": "A chleb kupiony?",
+      "d2": "Jutrzejszy mejl",
+      "d3": "Znowu ta piosenka",
+      "d4": "Czy dobrze to robię?",
+      "volverBtn": "Zauważ i wróć",
+      "reps": "Powtórzenia: {n}",
+      "nota": "Rozproszenie to nie porażka: zauważyć, że myśli uciekły, i wrócić, na tym polega ćwiczenie."
+    },
+    "crecer": {
+      "titulo": "Twoje minuty spokoju",
+      "minDia": "Minut dziennie",
+      "mes": "W miesiąc",
+      "anio": "W rok",
+      "horas": "{h} godz. {m} min",
+      "min": "{m} min",
+      "semilla": "Nasiono",
+      "brote": "Kiełek",
+      "arbol": "Drzewo",
+      "bosque": "Las",
+      "nota": "Trzy minuty dziennie to już ponad półtorej godziny w miesiącu. Wydłużaj powoli do dziesięciu albo trzynastu."
+    },
+    "grafica": {
+      "pulso": "Przy wdechu serce lekko przyspiesza, przy wydechu zwalnia. Powolny oddech powiększa tę huśtawkę (poglądowo).",
+      "rapida": "Szybki oddech",
+      "lenta": "Powolny oddech (ok. 6 na minutę)",
+      "inhala": "Wdech",
+      "exhala": "Wydech",
+      "latidos": "Uderzenia na minutę",
+      "practica": "Piechota morska przed misją: pamięć robocza tych, którzy ćwiczyli najwięcej, się utrzymała (Jha i in., 2010; poglądowo)",
+      "mucha": "Ćwiczyli więcej",
+      "poca": "Ćwiczyli mało",
+      "inicio": "Początek",
+      "fin": "8 tygodni później",
+      "memoria": "Pamięć robocza",
+      "goyal": "Programy medytacji: wielkość efektu po 8 tygodniach (Goyal i in., 2014)",
+      "ansiedad": "Lęk",
+      "depresion": "Depresja",
+      "dolor": "Ból",
+      "pequeno": "Mały",
+      "moderadoEje": "Umiarkowany",
+      "grande": "Duży",
+      "plan": "Twój plan na ciąg dalszy",
+      "semana1": "Tydzień 1",
+      "semana1Det": "Po kawie: minuta cyklicznego westchnienia i dwie minuty uwagi",
+      "mes1": "Miesiąc 1",
+      "mes1Det": "Wydłużaj trochę co tydzień, do dziesięciu albo trzynastu minut",
+      "fallas": "Jeśli któregoś dnia nie medytujesz",
+      "fallasDet": "Nic się nie dzieje: praktyka to powrót",
+      "medir": "Żeby mierzyć",
+      "medirDet": "Z czym przychodzisz, z czym odchodzisz i ile spokoju zbierasz"
+    },
+    "cierre": {
+      "titulo": "Twój spokój w twoim własnym domu",
+      "texto": "W Ogrodzie MindHaOS medytujesz przy dźwiękach lasu, morza, deszczu albo mis, oddychasz za kołem, zapisujesz, za co dziękujesz, i patrzysz, jak twój spokój rośnie od nasiona do lasu, bez serii i punktów, które cię gonią."
+    },
+    "paquete": {
+      "guia": "Interaktywny przewodnik (z cyklicznym westchnieniem, oddechem pudełkowym i 4-7-8, twoim błądzącym umysłem, skaczącymi zadaniami, twoimi podziękowaniami i minutami spokoju, które ożywają w twojej przeglądarce)",
+      "app": "Otwórz Ogród w MindHaOS",
+      "hashtags": "#uważność #medytacja #oddech #stres #dobrostan #zdrowiepsychiczne #MindHaOS"
+    },
+    "memes": {
+      "solo": {
+        "arriba": "Ja: „potrzebuję chwili dla siebie”",
+        "abajo": "Ja po dwóch minutach sam na sam z myślami"
+      },
+      "relajate": {
+        "arriba": "Opróżnić umysł",
+        "abajo": "Zauważyć, że myśli uciekły, i wrócić"
+      },
+      "pestanas": {
+        "arriba": "Ja z pięcioma kartami, czatem i telewizorem: „ale produktywny dzień”",
+        "abajo": "Ja o ósmej wieczorem, z niczym skończonym"
+      },
+      "super": {
+        "arriba": "Ja w trakcie medytacji: „wdech… wydech… a chleb kupiony?”"
+      }
+    },
+    "gusta": {
+      "titulo": "Podoba ci się przewodnik?",
+      "nota": "Łapka w górę, subskrypcja albo udostępnienie pomaga mu dotrzeć do większej liczby osób."
+    }
   }
 }

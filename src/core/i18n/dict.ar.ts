@@ -7326,6 +7326,7 @@ export const AR: Dict = {
   'guia.musica.titulo': "ما هي الموسيقى؟",
   'guia.video.titulo': "كيف تصنع الفيديوهات؟",
   'guia.metas.titulo': "كيف تحقق أهدافك؟",
+  'guia.mindfulness.titulo': "لماذا يوصلك التمهّل أسرع؟",
   'tut.esencial.titulo': 'الأساسيات',
   'tut.tipo.ejemplos': 'أمثلة · MindHaOS التجريبي',
   'tut.app-agenda--esencial.resumen':

@@ -7,10 +7,11 @@ import type { Pieza3D } from '../../../src/core/chat/mascotas'
 import { CUERPOS_PRESET } from '../../../src/core/house/cuerpos'
 
 /**
- * La princesa, narradora de la guía de Metas: el mismo cuerpo de piezas que el
+ * La princesa, narradora de las guías de Metas y Mindfulness: el mismo cuerpo de piezas que el
  * preset «Princesa» de la app (`CUERPOS_PRESET` en src/core/house/cuerpos.ts:
  * falda acampanada, corpiño, coletas y tiara), aquí con los dos brazos articulados
  * desde el hombro para los gestos de la guía, ojos y una boca que se abre con la narración.
+ * `vestido` pinta el vestido de otro color (Mindfulness: verde).
  */
 const PRINCESA = CUERPOS_PRESET.find((c) => c.id === 'princesa')!
 /** Índices de los brazos dentro de las piezas (los de su `marcha`). */
@@ -54,8 +55,13 @@ function Pieza({ p, pos = p.pos }: { p: Pieza3D; pos?: [number, number, number] 
   )
 }
 
-export function Princesa3D({ escena, boca, cara }: { escena: string; boca: MutableRefObject<BocaHabla>; cara?: ExpresionId }) {
-  const piezas = useMemo(() => PRINCESA.piezas(), [])
+export function Princesa3D({ escena, boca, cara, vestido }: { escena: string; boca: MutableRefObject<BocaHabla>; cara?: ExpresionId; vestido?: string }) {
+  const piezas = useMemo(() => {
+    const base = PRINCESA.piezas()
+    // El color de fábrica del vestido es el de su falda (la primera pieza).
+    const deFabrica = base[0].color
+    return vestido ? base.map((p) => (p.color === deFabrica ? { ...p, color: vestido } : p)) : base
+  }, [vestido])
   const cuerpo = useRef<THREE.Group>(null)
   const cabeza = useRef<THREE.Group>(null)
   const brazoD = useRef<THREE.Group>(null)

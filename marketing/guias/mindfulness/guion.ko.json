@@ -1,0 +1,696 @@
+{
+  "idioma": "ko",
+  "tema": "mindfulness",
+  "plantillaId": "jardin",
+  "numero": 10,
+  "nombre": "마음챙김",
+  "pregunta": "왜 천천히 가면 더 빨리 도착할까요?",
+  "corta": "천천히, 그래서 빠르게",
+  "subtitulo": "하루의 거의 절반 동안 마음은 어디에 있는지, 마음챙김이란 무엇이고 어디에서 왔는지, 천천히 숨 쉬면 몸에 무슨 일이 일어나는지, 왜 멈추면 더 잘 해내는지, 과학이 말하는 것과 말하지 않는 것, 생각을 멈출 수 없어도 명상하는 법, 그리고 평온이 머물게 하는 계획.",
+  "aviso": "이 가이드는 정보 제공을 위한 것입니다. 인용한 수치와 연구는 출처를 바탕으로 한 대략적인 값입니다. 마음챙김은 전문가의 도움을 대신하지 않습니다. 불안, 우울, 트라우마, 또는 스스로를 해치는 생각을 안고 있다면 정신 건강 전문가의 도움을 받으세요.",
+  "partes": [
+    {
+      "id": "mente",
+      "titulo": "지금 마음은 어디에 있나요?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "왜 천천히 가면 더 빨리 도착할까요? 한 실험에서 많은 사람들을 15분 동안 자기 생각과 함께 혼자 두었더니, 가만히 있느니 차라리 스스로 전기 충격을 주는 쪽을 택했어요. 오늘은 멈추는 것에 대해 과학이 뭐라고 하는지, 그리고 이 영상이 끝나자마자 할 수 있는 1분짜리 연습을 알아볼게요."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "참고로, 여기는 MindHaOS에 있는 제 집이고, 이 정원은 제가 속도를 늦추러 오는 곳이에요."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "1부. 지금 마음은 어디에 있나요?"
+        },
+        {
+          "id": "divaga",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mente"
+          },
+          "lamina": [
+            "telefono",
+            "ventana"
+          ],
+          "texto": "2010년, 매슈 킬링스워스와 대니얼 길버트는 2천 명이 넘는 사람들에게 무작위 시간에 휴대폰으로 물었어요. 지금 무엇을 하고 있고, 무슨 생각을 하고 있나요? 거의 절반의 시간 동안, 마음은 다른 곳에 가 있었어요."
+        },
+        {
+          "id": "infeliz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "47%",
+            "clave": "infeliz"
+          },
+          "lamina": [
+            "trafico",
+            "lluvia"
+          ],
+          "texto": "게다가 그건 휴식도 아니었어요. 마음이 헤매는 동안 사람들은 집중할 때보다 기분이 더 나빴고, 지루한 일을 할 때조차 그랬죠. 두 사람의 결론은 한 문장이면 충분해요. 헤매는 마음은 불행한 마음이라는 거예요."
+        },
+        {
+          "id": "descargas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "67% · 25%",
+            "clave": "descargas"
+          },
+          "lamina": [
+            "silla",
+            "reloj"
+          ],
+          "texto": "그리고 이게 처음에 말한 그 실험이에요. 2014년, 티모시 윌슨은 자원자들을 휴대폰 없이 6분에서 15분 동안 방에 혼자 두었어요. 거기엔 작은 전기 충격을 주는 버튼이 있었죠. 남성 셋 중 둘, 여성 넷 중 하나가 그 버튼을 눌렀어요. 그저 자기 마음과 단둘이 있기 싫어서요.",
+          "meme": "solo"
+        },
+        {
+          "id": "jardin",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "parar",
+              "notar",
+              "volver"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "jardin",
+          "texto": "그래서 이 정원에는 벽도, 서두름도 없어요. 여기서는 멈추고, 내가 어디 있는지 알아차리고, 다시 돌아오는 거예요."
+        }
+      ]
+    },
+    {
+      "id": "que",
+      "titulo": "마음챙김이란 무엇이고, 어디에서 왔을까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "2부. 마음챙김이란 무엇이고, 어디에서 왔을까요?"
+        },
+        {
+          "id": "sati",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "약 2500년",
+            "clave": "sati"
+          },
+          "lamina": [
+            "buda",
+            "manuscrito"
+          ],
+          "texto": "이 말은 약 2천5백 년 전, 가장 오래된 불교 경전의 언어인 팔리어의 '사띠'에서 왔어요. 뜻은 지금 일어나는 일로 돌아오기를 기억한다는 것에 가까워요. 1881년, 영국의 번역가 토머스 리스 데이비즈가 이를 영어로 '마인드풀니스'라고 옮겼고, 우리말로는 마음챙김이에요."
+        },
+        {
+          "id": "kabatZinn",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "definicion"
+          },
+          "lamina": [
+            "kabatZinn",
+            "hospital"
+          ],
+          "texto": "1979년, 생물학자 존 카밧진은 이것을 종교와 상관없이 매사추세츠의 한 병원으로 가져가, 만성 통증 환자들에게 적용했어요. 그의 정의는 지금도 쓰여요. 의도적으로, 지금 이 순간에, 판단하지 않고 주의를 기울이는 것."
+        },
+        {
+          "id": "noEs",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "noVaciar",
+              "noRelajar",
+              "noHuir"
+            ]
+          },
+          "lamina": [
+            "nubes",
+            "rio"
+          ],
+          "texto": "그리고 무엇이 아닌지도 분명히 해요. 머릿속을 비우는 것도, 억지로 편안해지는 것도, 느끼는 것에서 도망치는 것도 아니에요. 생각이 구름처럼 지나가는 걸, 하나하나 올라타지 않고 바라보는 거예요.",
+          "meme": "relajate"
+        },
+        {
+          "id": "ocho",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "respirar",
+              "cuerpo",
+              "caminar"
+            ]
+          },
+          "lamina": [
+            "grupo",
+            "caminar"
+          ],
+          "texto": "그의 프로그램은 8주 과정이었어요. 주의를 기울여 숨 쉬고, 발끝부터 머리까지 몸을 훑고, 한 걸음 한 걸음을 느끼며 천천히 걷는 거죠. 지금은 전 세계의 병원과 학교, 회사에서 가르치고 있어요."
+        },
+        {
+          "id": "sesion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "como",
+              "medito",
+              "como2"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cojin",
+          "texto": "산속 절에 갈 필요도 없어요. 저는 여기 앉아서 지금 기분을 적고, 몇 분 명상한 뒤, 끝날 때 기분을 적어요."
+        }
+      ]
+    },
+    {
+      "id": "respirar",
+      "titulo": "천천히 숨 쉬면 몸에 무슨 일이 일어날까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "3부. 천천히 숨 쉬면 몸에 무슨 일이 일어날까요?"
+        },
+        {
+          "id": "freno",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pulso"
+          },
+          "lamina": [
+            "corazon",
+            "pulmones"
+          ],
+          "texto": "호흡은 몸의 자동 조종 장치 중에서 마음대로 손댈 수 있는 유일한 조종간이에요. 숨을 들이쉬면 심장이 조금 빨라지고, 내쉬면 느려져요. 1분에 여섯 번쯤 천천히 숨 쉬면 이 흔들림이 커지는데, 그건 몸이 차분해지고 있다는 신호예요."
+        },
+        {
+          "id": "suspiro",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "suspiro"
+          },
+          "lamina": [
+            "nariz",
+            "atardecer"
+          ],
+          "texto": "그리고 이게 약속했던 1분 연습, 주기적 한숨이에요. 코로 두 번 들이쉬어요. 한 번은 길게, 또 한 번은 짧게 해서 폐를 가득 채우고, 입으로 길고 천천히 내쉬어요. 이걸 1분 동안 반복해요. 저와 함께 해 봐요."
+        },
+        {
+          "id": "balban",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "5분",
+            "clave": "balban"
+          },
+          "lamina": [
+            "laboratorio",
+            "sonrisa"
+          ],
+          "texto": "2023년 스탠퍼드 대학교에서 백 명이 넘는 사람이 한 달 동안 매일 5분씩 연습했어요. 주기적 한숨을 한 사람들은 주의 집중 명상을 한 사람들보다 기분이 더 좋아졌고, 쉬고 있을 때의 호흡도 느려졌어요."
+        },
+        {
+          "id": "caja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "caja"
+          },
+          "lamina": [
+            "caja",
+            "noche"
+          ],
+          "texto": "다른 호흡법도 있어요. 박스 호흡은 넷을 세며 들이쉬고, 넷 동안 멈추고, 넷에 내쉬고, 다시 넷 동안 멈춰요. 그리고 4·7·8 호흡은 들이쉬는 것보다 내쉬는 걸 길게 해서, 잠이 안 올 때 좋아요."
+        },
+        {
+          "id": "lampara",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "patron",
+              "circulo",
+              "sigue"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "respiracion",
+          "texto": "여기, 제 정원에서는 호흡 패턴을 고르고, 들이쉬면 커지고 내쉬면 작아지는 원을 따라가요."
+        }
+      ]
+    },
+    {
+      "id": "rapido",
+      "titulo": "왜 멈추면 더 빨리 도착할까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "4부. 왜 멈추면 더 빨리 도착할까요?"
+        },
+        {
+          "id": "multitarea",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cambio"
+          },
+          "lamina": [
+            "pestanas",
+            "notificaciones"
+          ],
+          "texto": "여러 일을 한꺼번에 하면 빠른 것 같지만, 사실은 아니에요. 한 일에서 다른 일로 옮길 때마다 뇌는 첫 번째 일을 다시 불러오는 데 시간이 걸려요. 그리고 2009년 스탠퍼드에서는, 화면 사이를 늘 오가던 사람들이 그렇지 않은 사람들보다 더 산만했고 작업 전환도 더 서툴렀어요.",
+          "meme": "pestanas"
+        },
+        {
+          "id": "mrazek",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+16",
+            "clave": "mrazek"
+          },
+          "lamina": [
+            "examen",
+            "biblioteca"
+          ],
+          "texto": "이번엔 반대예요. 2013년, 마이클 므라젝은 학생들에게 하루 몇 분씩 2주 동안 마음챙김 훈련을 시켰어요. 마음이 덜 헤맸고, 작업 기억이 좋아졌으며, 대학원 입학시험의 독해 영역에서 16 백분위 점수가 올랐어요."
+        },
+        {
+          "id": "marines",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "practica"
+          },
+          "lamina": [
+            "soldado",
+            "bosque"
+          ],
+          "texto": "그리고 아미시 자는 스트레스가 아주 큰 임무를 앞둔 해병대원들에게 이걸 시험했어요. 더 오래 연습한 사람들은 작업 기억을 지켰고, 거의 연습하지 않은 사람들은 잃었어요. 그래서 군대에서는 이렇게 말해요. 느린 것이 부드럽고, 부드러운 것이 빠르다."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "이 가이드가 마음에 든다면 좋아요를 누르고, 구독하고, 공유해 주세요."
+        },
+        {
+          "id": "campana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "campana",
+              "una",
+              "campana2"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cuenco",
+          "texto": "중요한 일이 있을 때 저는 먼저 여기에 와요. 종을 한 번 울리고, 저를 위한 몇 분을 보내고, 다시 종을 울린 다음, 한 번에 한 가지만 해요."
+        }
+      ]
+    },
+    {
+      "id": "ciencia",
+      "titulo": "과학이 말하는 것, 그리고 말하지 않는 것은?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "5부. 과학이 말하는 것, 그리고 말하지 않는 것은?"
+        },
+        {
+          "id": "goyal",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "goyal"
+          },
+          "lamina": [
+            "papeles",
+            "lupa"
+          ],
+          "texto": "2014년, 존스 홉킨스 대학교의 마다브 고얄과 연구팀은 3천5백 명이 넘는 사람이 참여한 47개의 시험을 검토했어요. 명상 프로그램은 불안, 우울, 통증을 중간 정도로 개선했어요."
+        },
+        {
+          "id": "noMagia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "moderado",
+              "noMejor",
+              "noSustituye"
+            ]
+          },
+          "lamina": [
+            "balanza",
+            "doctor"
+          ],
+          "texto": "중간 정도라는 건 말 그대로예요. 도움은 되지만 마법은 아니에요. 그 검토에서 운동이나 심리 치료 같은 다른 방법보다 낫지 않았고, 필요할 때 전문가를 대신하지도 못해요."
+        },
+        {
+          "id": "cerebro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "8주",
+            "clave": "cerebro"
+          },
+          "lamina": [
+            "cerebro",
+            "resonancia"
+          ],
+          "texto": "8주 명상으로 뇌의 크기가 바뀐다는 말을 들어 봤을지도 몰라요. 2011년의 한 연구가 그렇게 시사했지만, 2022년에 더 크고 더 신중한 연구에서는 찾지 못했어요. 과학은 이렇게 나아가요. 확실한 건, 주의를 훈련하면 더 빨리 알아차리고 더 잘 반응하게 된다는 거예요."
+        },
+        {
+          "id": "gratitud",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gratitud"
+          },
+          "lamina": [
+            "diario",
+            "cafe"
+          ],
+          "texto": "그리고 증거가 있는 이웃 습관이 하나 더 있어요. 바로 감사하기예요. 2003년, 로버트 에먼스와 마이클 매컬러는 자원자들에게 매주 감사한 일을 적게 했어요. 10주 뒤, 그들은 삶에 더 만족하고, 더 낙관적이 되었으며, 운동까지 더 많이 했어요."
+        },
+        {
+          "id": "agradezco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unaCosa",
+              "tres",
+              "releer"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "flor",
+          "texto": "그래서 저는 여기서 오늘 감사한 일도 적어요. 하나면 충분하고, 셋이면 더 좋아요."
+        }
+      ]
+    },
+    {
+      "id": "meditar",
+      "titulo": "생각을 멈출 수 없다면 어떻게 명상할까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "6부. 생각을 멈출 수 없다면 어떻게 명상할까요?"
+        },
+        {
+          "id": "repeticion",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "volver"
+          },
+          "lamina": [
+            "pesa",
+            "brujula"
+          ],
+          "texto": "비밀은 이거예요. 산만해지는 건 실패가 아니에요. 연습의 일부예요. 마음이 떠났다는 걸 알아차리고 호흡으로 돌아올 때마다, 주의력을 위한 스쿼트를 한 번 한 거예요. 백 번 산만해졌다면, 백 번 훈련한 거죠.",
+          "meme": "super"
+        },
+        {
+          "id": "pasos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sientate",
+              "ancla",
+              "nota",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "silla2",
+            "ojos"
+          ],
+          "texto": "아주 간단해요. 등은 곧게 펴되 힘을 빼고 편하게 앉아요. 코로 들어오고 나가는 공기 같은 닻을 하나 고르세요. 생각이 떠오르면 속으로 '생각 중'이라고 이름 붙이고, 자신을 꾸짖지 말고 닻으로 돌아와요."
+        },
+        {
+          "id": "basso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "13분",
+            "clave": "basso"
+          },
+          "lamina": [
+            "reloj2",
+            "amanecer"
+          ],
+          "texto": "얼마나 해야 할까요? 2019년, 줄리아 바소와 웬디 스즈키는 명상 경험이 없는 사람들에게 하루 13분씩 명상하게 했어요. 4주째엔 아직 티가 안 났지만, 8주째에는 기분도, 주의력도, 기억력도 좋아졌어요. 꾸준함이 시간의 길이를 이겨요."
+        },
+        {
+          "id": "otras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cuerpo",
+              "caminar",
+              "sonido"
+            ]
+          },
+          "lamina": [
+            "pies",
+            "olas"
+          ],
+          "texto": "앉아 있는 게 맞지 않는다면 다른 문도 있어요. 주의를 기울여 발끝부터 머리까지 몸을 훑기, 한 걸음 한 걸음 느끼며 천천히 걷기, 또는 빗소리나 파도 소리 같은 소리를 듣고 그 소리로 돌아오기."
+        },
+        {
+          "id": "sonidos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bosque",
+              "mar",
+              "lluvia"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "lluvia",
+          "texto": "여기서 저는 숲, 바다, 비, 싱잉볼 중에서 소리를 고르고, 시간을 정한 뒤, 종이 울릴 때까지 명상해요."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "어떻게 계속할까요? 계속하기 위한 계획",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "7부. 어떻게 계속할까요? 계속하기 위한 계획."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "cafe",
+            "semilla"
+          ],
+          "texto": "첫 주에는 이미 하고 있는 일에 연습을 붙여요. 커피를 마신 뒤 1분 동안 주기적 한숨, 그리고 2분 동안 호흡에 주의 기울이기. 핑계가 없을 만큼 짧게요."
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "crecer"
+          },
+          "lamina": [
+            "brote",
+            "arbol"
+          ],
+          "texto": "첫 달에는 매주 조금씩 늘려 10분이나 13분까지 가고, 여러 소리와 패턴을 시도해 나에게 맞는 걸 찾아요. 하루 3분이 한 달이면 1시간 반이 넘는 걸 보세요."
+        },
+        {
+          "id": "fallar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinRacha",
+              "hoy",
+              "suave"
+            ]
+          },
+          "lamina": [
+            "banca",
+            "parque"
+          ],
+          "texto": "어느 날 명상을 못 해도 괜찮아요. 여기엔 끊기는 연속 기록이 없어요. 연습은 돌아오는 거예요. 명상 안에서처럼요. 나아지는 걸 재고 싶다면, 시작할 때와 끝날 때의 기분, 그리고 모아 온 평온을 살펴보세요."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "bosque",
+          "texto": "정리하면, 마음은 하루의 거의 절반을 헤매요. 마음챙김은 판단 없이 알아차리고 돌아오는 것이고, 천천히 숨 쉬면 몸에 브레이크가 걸리며, 멈추면 더 잘 해내요. 그리고 매일 몇 분이 가끔 한 시간보다 나아요."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS의 정원에서는 숲, 바다, 비 소리와 함께 명상할 수 있고, 안내하는 원을 따라 숨 쉬고, 감사한 일을 적으면서, 나의 평온이 씨앗에서 숲으로 자라는 걸 볼 수 있어요. 오늘 무료로 나만의 마음의 집을 지어 보세요. 링크는 설명란에 있어요. 그리고 다음 가이드는, 시간을 어떻게 정리할까요?",
+    "boton": "정원 열기",
+    "lamina": "app-plan",
+    "anclas": {
+      "meditar": "함께 명상할 수",
+      "respirar": "원을 따라 숨 쉬고",
+      "agradecer": "감사한 일을 적으면서",
+      "calma": "평온이 씨앗에서"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "killingsworth-2010",
+      "texto": "Killingsworth M. A., Gilbert D. T. A wandering mind is an unhappy mind. Science (2010).",
+      "url": "https://doi.org/10.1126/science.1192439"
+    },
+    {
+      "id": "wilson-2014",
+      "texto": "Wilson T. D. et al. Just think: The challenges of the disengaged mind. Science (2014).",
+      "url": "https://doi.org/10.1126/science.1250830"
+    },
+    {
+      "id": "kabat-zinn-1982",
+      "texto": "Kabat-Zinn J. An outpatient program in behavioral medicine for chronic pain patients based on the practice of mindfulness meditation. General Hospital Psychiatry (1982).",
+      "url": "https://doi.org/10.1016/0163-8343(82)90026-3"
+    },
+    {
+      "id": "zaccaro-2018",
+      "texto": "Zaccaro A. et al. How breath-control can change your life: A systematic review on psycho-physiological correlates of slow breathing. Frontiers in Human Neuroscience (2018).",
+      "url": "https://doi.org/10.3389/fnhum.2018.00353"
+    },
+    {
+      "id": "balban-2023",
+      "texto": "Balban M. Y. et al. Brief structured respiration practices enhance mood and reduce physiological arousal. Cell Reports Medicine (2023).",
+      "url": "https://doi.org/10.1016/j.xcrm.2022.100895"
+    },
+    {
+      "id": "ophir-2009",
+      "texto": "Ophir E., Nass C., Wagner A. D. Cognitive control in media multitaskers. PNAS (2009).",
+      "url": "https://doi.org/10.1073/pnas.0903620106"
+    },
+    {
+      "id": "mrazek-2013",
+      "texto": "Mrazek M. D. et al. Mindfulness training improves working memory capacity and GRE performance while reducing mind wandering. Psychological Science (2013).",
+      "url": "https://doi.org/10.1177/0956797612459659"
+    },
+    {
+      "id": "jha-2010",
+      "texto": "Jha A. P. et al. Examining the protective effects of mindfulness training on working memory capacity and affective experience. Emotion (2010).",
+      "url": "https://doi.org/10.1037/a0018438"
+    },
+    {
+      "id": "goyal-2014",
+      "texto": "Goyal M. et al. Meditation programs for psychological stress and well-being: A systematic review and meta-analysis. JAMA Internal Medicine (2014).",
+      "url": "https://doi.org/10.1001/jamainternmed.2013.13018"
+    },
+    {
+      "id": "kral-2022",
+      "texto": "Kral T. R. A. et al. Absence of structural brain changes from mindfulness-based stress reduction: Two combined randomized controlled trials. Science Advances (2022).",
+      "url": "https://doi.org/10.1126/sciadv.abk3316"
+    },
+    {
+      "id": "emmons-2003",
+      "texto": "Emmons R. A., McCullough M. E. Counting blessings versus burdens: An experimental investigation of gratitude and subjective well-being in daily life. Journal of Personality and Social Psychology (2003).",
+      "url": "https://doi.org/10.1037/0022-3514.84.2.377"
+    },
+    {
+      "id": "basso-2019",
+      "texto": "Basso J. C. et al. Brief, daily meditation enhances attention, memory, mood, and emotional regulation in non-experienced meditators. Behavioural Brain Research (2019).",
+      "url": "https://doi.org/10.1016/j.bbr.2018.08.023"
+    }
+  ]
+}

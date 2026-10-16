@@ -1,0 +1,696 @@
+{
+  "idioma": "ru",
+  "tema": "mindfulness",
+  "plantillaId": "jardin",
+  "numero": 10,
+  "nombre": "Осознанность",
+  "pregunta": "Почему, сбавив темп, ты доберёшься быстрее?",
+  "corta": "Медленнее — значит быстрее",
+  "subtitulo": "Где твой ум почти половину дня, что такое осознанность и откуда она взялась, что происходит с телом, когда ты дышишь медленно, почему замедление помогает успевать больше, что говорит наука и чего она не говорит, как медитировать, даже если не можешь перестать думать, и план, чтобы спокойствие осталось с тобой.",
+  "aviso": "Это руководство носит информационный характер: приведённые цифры и исследования — приблизительные данные из их источников. Осознанность не заменяет помощь профессионала: если ты живёшь с тревогой, депрессией, травмой или мыслями, которые причиняют тебе вред, обратись к специалисту по психическому здоровью.",
+  "partes": [
+    {
+      "id": "mente",
+      "titulo": "Где сейчас твой ум?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Почему, сбавив темп, ты доберёшься быстрее? В одном эксперименте людей оставляли на пятнадцать минут наедине с мыслями, и многие предпочли бить себя током, лишь бы не сидеть спокойно. Сегодня ты узнаешь, что наука говорит о замедлении, и получишь упражнение на одну минуту, которое можно сделать сразу после этого видео."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "Кстати, это мой дом в MindHaOS, а в этот сад я прихожу, чтобы сбавить темп."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть первая. Где сейчас твой ум?"
+        },
+        {
+          "id": "divaga",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mente"
+          },
+          "lamina": [
+            "telefono",
+            "ventana"
+          ],
+          "texto": "В 2010 году Мэтью Киллингсворт и Дэниел Гилберт в случайное время спрашивали через телефон больше двух тысяч человек: что ты сейчас делаешь и о чём думаешь? Почти половину времени их ум был где-то ещё."
+        },
+        {
+          "id": "infeliz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "47 %",
+            "clave": "infeliz"
+          },
+          "lamina": [
+            "trafico",
+            "lluvia"
+          ],
+          "texto": "И это был не отдых: когда ум блуждал, люди чувствовали себя хуже, чем когда были внимательны, даже за скучными делами. Их вывод умещается в одну фразу: блуждающий ум — несчастный ум."
+        },
+        {
+          "id": "descargas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "67 % · 25 %",
+            "clave": "descargas"
+          },
+          "lamina": [
+            "silla",
+            "reloj"
+          ],
+          "texto": "А вот и эксперимент из начала. В 2014 году Тимоти Уилсон оставлял добровольцев одних в комнате на время от шести до пятнадцати минут, без телефона, с кнопкой, которая давала слабый удар током. Двое из трёх мужчин и одна из четырёх женщин нажали на неё, лишь бы не оставаться наедине со своим умом.",
+          "meme": "solo"
+        },
+        {
+          "id": "jardin",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "parar",
+              "notar",
+              "volver"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "jardin",
+          "texto": "Поэтому в этом саду нет ни стен, ни спешки: здесь главное — остановиться, заметить, где я, и вернуться."
+        }
+      ]
+    },
+    {
+      "id": "que",
+      "titulo": "Что такое осознанность и откуда она взялась?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть вторая. Что такое осознанность и откуда она взялась?"
+        },
+        {
+          "id": "sati",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 2500 лет",
+            "clave": "sati"
+          },
+          "lamina": [
+            "buda",
+            "manuscrito"
+          ],
+          "texto": "Это слово идёт от «сати» на пали, языке древнейших буддийских текстов, которым около двух с половиной тысяч лет. Оно означает примерно «помнить, что нужно вернуться к тому, что происходит». В 1881 году английский переводчик Томас Рис Дэвидс перевёл его как «mindfulness», а по-русски мы говорим «осознанность»."
+        },
+        {
+          "id": "kabatZinn",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "definicion"
+          },
+          "lamina": [
+            "kabatZinn",
+            "hospital"
+          ],
+          "texto": "В 1979 году биолог Джон Кабат-Зинн принёс её в больницу в Массачусетсе, без всякой религии, для пациентов с хронической болью. Его определением пользуются и сегодня: обращать внимание, намеренно, на настоящий момент и без оценки."
+        },
+        {
+          "id": "noEs",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "noVaciar",
+              "noRelajar",
+              "noHuir"
+            ]
+          },
+          "lamina": [
+            "nubes",
+            "rio"
+          ],
+          "texto": "И он объясняет, чем она не является. Это не опустошение ума, не попытка заставить себя расслабиться и не бегство от того, что ты чувствуешь. Это наблюдать, как мысли проплывают, словно облака, не запрыгивая на каждое.",
+          "meme": "relajate"
+        },
+        {
+          "id": "ocho",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "respirar",
+              "cuerpo",
+              "caminar"
+            ]
+          },
+          "lamina": [
+            "grupo",
+            "caminar"
+          ],
+          "texto": "Его программа длилась восемь недель: внимательное дыхание, сканирование тела с ног до головы и медленная ходьба, когда замечаешь каждый шаг. Сегодня её преподают в больницах, школах и компаниях по всему миру."
+        },
+        {
+          "id": "sesion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "como",
+              "medito",
+              "como2"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cojin",
+          "texto": "И монастырь для этого не нужен: я сажусь здесь, отмечаю, с каким настроением пришла, медитирую несколько минут и отмечаю, с каким ухожу."
+        }
+      ]
+    },
+    {
+      "id": "respirar",
+      "titulo": "Что происходит с телом, когда ты дышишь медленно?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть третья. Что происходит с телом, когда ты дышишь медленно?"
+        },
+        {
+          "id": "freno",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pulso"
+          },
+          "lamina": [
+            "corazon",
+            "pulmones"
+          ],
+          "texto": "Дыхание — единственный рычаг автопилота тела, которым можно управлять по своей воле. На вдохе сердце немного ускоряется, на выдохе замедляется. Медленное дыхание, около шести раз в минуту, раскачивает эти качели сильнее, и это признак того, что тело успокаивается."
+        },
+        {
+          "id": "suspiro",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "suspiro"
+          },
+          "lamina": [
+            "nariz",
+            "atardecer"
+          ],
+          "texto": "А вот упражнение на одну минуту, которое я обещала: циклический вздох. Два вдоха носом, один длинный и второй короткий, чтобы наполнить лёгкие до конца, и один долгий медленный выдох ртом. Повторяй так одну минуту. Давай вместе со мной."
+        },
+        {
+          "id": "balban",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "5 мин",
+            "clave": "balban"
+          },
+          "lamina": [
+            "laboratorio",
+            "sonrisa"
+          ],
+          "texto": "В 2023 году в Стэнфордском университете больше ста человек практиковали по пять минут в день в течение месяца. У тех, кто делал циклический вздох, настроение улучшилось сильнее, чем у тех, кто занимался медитацией внимания, а дыхание в покое стало медленнее."
+        },
+        {
+          "id": "caja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "caja"
+          },
+          "lamina": [
+            "caja",
+            "noche"
+          ],
+          "texto": "Есть и другие техники. Квадратное дыхание: вдох на четыре счёта, задержка на четыре, выдох на четыре и снова задержка на четыре. И дыхание четыре-семь-восемь, где выдох длиннее вдоха, — для ночей, когда не получается уснуть."
+        },
+        {
+          "id": "lampara",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "patron",
+              "circulo",
+              "sigue"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "respiracion",
+          "texto": "Здесь, в моём саду, я выбираю технику и слежу за кругом, который растёт, когда я вдыхаю, и сжимается, когда выдыхаю."
+        }
+      ]
+    },
+    {
+      "id": "rapido",
+      "titulo": "Почему, притормозив, приходишь быстрее?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть четвёртая. Почему, притормозив, приходишь быстрее?"
+        },
+        {
+          "id": "multitarea",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cambio"
+          },
+          "lamina": [
+            "pestanas",
+            "notificaciones"
+          ],
+          "texto": "Делать много дел сразу кажется быстрым, но это не так. Каждый раз, когда ты перескакиваешь с одной задачи на другую, мозгу нужно время, чтобы снова загрузить первую. А в 2009 году в Стэнфорде те, кто постоянно прыгал между экранами, отвлекались сильнее и хуже переключались между задачами, чем остальные.",
+          "meme": "pestanas"
+        },
+        {
+          "id": "mrazek",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+16",
+            "clave": "mrazek"
+          },
+          "lamina": [
+            "examen",
+            "biblioteca"
+          ],
+          "texto": "Теперь наоборот. В 2013 году Майкл Мразек дал студентам две недели тренировки осознанности, по несколько минут в день. Их ум меньше блуждал, рабочая память улучшилась, а в разделе на чтение вступительного экзамена в магистратуру они поднялись на шестнадцать процентильных пунктов."
+        },
+        {
+          "id": "marines",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "practica"
+          },
+          "lamina": [
+            "soldado",
+            "bosque"
+          ],
+          "texto": "А Амиши Джа проверила это на морских пехотинцах перед отправкой на задание, в период сильного стресса. Те, кто практиковал больше минут, сохранили рабочую память; те, кто почти не практиковал, её потеряли. Поэтому у военных говорят: медленно — значит плавно, а плавно — значит быстро."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "Если тебе нравится это руководство, нажми «Нравится», «Подписаться» и «Поделиться»."
+        },
+        {
+          "id": "campana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "campana",
+              "una",
+              "campana2"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cuenco",
+          "texto": "Когда у меня впереди что-то важное, я сначала прихожу сюда: один удар колокольчика, несколько минут для себя, второй удар, а потом только одно дело за раз."
+        }
+      ]
+    },
+    {
+      "id": "ciencia",
+      "titulo": "Что говорит наука, а чего нет?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть пятая. Что говорит наука, а чего нет?"
+        },
+        {
+          "id": "goyal",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "goyal"
+          },
+          "lamina": [
+            "papeles",
+            "lupa"
+          ],
+          "texto": "В 2014 году Мадхав Гоял и его команда из Университета Джонса Хопкинса изучили сорок семь исследований, в которых участвовало больше трёх с половиной тысяч человек. Программы медитации умеренно уменьшили тревогу, депрессию и боль."
+        },
+        {
+          "id": "noMagia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "moderado",
+              "noMejor",
+              "noSustituye"
+            ]
+          },
+          "lamina": [
+            "balanza",
+            "doctor"
+          ],
+          "texto": "Умеренно — значит именно так: помогает, но это не волшебство. В том обзоре медитация не оказалась лучше других методов, вроде физических упражнений или психотерапии, и она не заменяет специалиста, когда он тебе нужен."
+        },
+        {
+          "id": "cerebro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "8 нед.",
+            "clave": "cerebro"
+          },
+          "lamina": [
+            "cerebro",
+            "resonancia"
+          ],
+          "texto": "Наверняка тебе попадалось, что восемь недель медитации меняют размер мозга. Исследование 2011 года на это намекало, но в 2022 году более крупное и тщательное исследование этого не нашло. Так наука и движется: подтверждается то, что тренировка внимания помогает раньше замечать и лучше реагировать."
+        },
+        {
+          "id": "gratitud",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gratitud"
+          },
+          "lamina": [
+            "diario",
+            "cafe"
+          ],
+          "texto": "И соседняя практика, у которой тоже есть доказательства: благодарность. В 2003 году Роберт Эммонс и Майкл Маккаллоу попросили добровольцев каждую неделю записывать, за что они благодарны. Через десять недель люди были больше довольны жизнью, смотрели вперёд с оптимизмом и даже больше занимались спортом."
+        },
+        {
+          "id": "agradezco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unaCosa",
+              "tres",
+              "releer"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "flor",
+          "texto": "Поэтому здесь я ещё записываю, за что благодарна сегодня: хватит и одного пункта, а три — ещё лучше."
+        }
+      ]
+    },
+    {
+      "id": "meditar",
+      "titulo": "Как медитировать, если не можешь перестать думать?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть шестая. Как медитировать, если не можешь перестать думать?"
+        },
+        {
+          "id": "repeticion",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "volver"
+          },
+          "lamina": [
+            "pesa",
+            "brujula"
+          ],
+          "texto": "Вот секрет: отвлекаться — это не ошибка. Это часть упражнения. Каждый раз, когда ты замечаешь, что мысли унеслись, и возвращаешься к дыханию, ты делаешь одно повторение, как приседание для внимания. Отвлечёшься сто раз — значит, сто раз потренируешься.",
+          "meme": "super"
+        },
+        {
+          "id": "pasos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sientate",
+              "ancla",
+              "nota",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "silla2",
+            "ojos"
+          ],
+          "texto": "Всё просто: сядь удобно, спина прямая, но без напряжения. Выбери якорь, например воздух, который входит и выходит через нос. Когда заметишь мысль, назови её про себя, «думаю», и вернись к якорю, не ругая себя."
+        },
+        {
+          "id": "basso",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "13 мин",
+            "clave": "basso"
+          },
+          "lamina": [
+            "reloj2",
+            "amanecer"
+          ],
+          "texto": "Сколько времени? В 2019 году Джулия Бассо и Венди Сузуки попросили людей без опыта медитировать по тринадцать минут в день. Через четыре недели разницы ещё не было; через восемь у них улучшились настроение, внимание и память. Регулярность важнее продолжительности."
+        },
+        {
+          "id": "otras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cuerpo",
+              "caminar",
+              "sonido"
+            ]
+          },
+          "lamina": [
+            "pies",
+            "olas"
+          ],
+          "texto": "А если сидеть — это не твоё, есть и другие двери: пройтись вниманием по телу, от ступней до макушки; медленно идти, чувствуя каждый шаг; или слушать звук, например дождь или море, и возвращаться к нему."
+        },
+        {
+          "id": "sonidos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bosque",
+              "mar",
+              "lluvia"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "lluvia",
+          "texto": "Здесь я выбираю звук — лес, море, дождь или поющие чаши, — выбираю время и медитирую, пока не зазвучит колокольчик."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Как продолжать? Твой план на будущее",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть седьмая. Как продолжать? Твой план на будущее."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "cafe",
+            "semilla"
+          ],
+          "texto": "В первую неделю привяжи практику к тому, что ты уже делаешь: после кофе одна минута циклического вздоха и две минуты внимания к дыханию. Так мало, чтобы не осталось отговорок."
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "crecer"
+          },
+          "lamina": [
+            "brote",
+            "arbol"
+          ],
+          "texto": "В первый месяц добавляй понемногу каждую неделю, пока не дойдёшь до десяти или тринадцати минут, и пробуй разные звуки и техники, пока не найдёшь своё. Посмотри, как три минуты в день складываются в полтора часа с лишним за месяц."
+        },
+        {
+          "id": "fallar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinRacha",
+              "hoy",
+              "suave"
+            ]
+          },
+          "lamina": [
+            "banca",
+            "parque"
+          ],
+          "texto": "А если однажды ты не помедитируешь, ничего страшного: здесь нет серий, которые обрываются. Практика — это возвращение, так же как и внутри медитации. Чтобы видеть прогресс, замечай, с каким настроением приходишь и с каким уходишь, и сколько спокойствия накапливаешь."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "bosque",
+          "texto": "Итак: твой ум улетает почти половину дня; осознанность — это замечать и возвращаться, без оценок; медленное дыхание успокаивает тело; замедление помогает успевать больше; а несколько минут каждый день ценнее, чем час время от времени."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "В Саду MindHaOS ты можешь медитировать под звуки леса, моря или дождя, дышать вместе с кругом, который тебя ведёт, и записывать то, за что благодаришь, глядя, как растёт твоё спокойствие, от семечка до леса. Построй свой мысленный дом бесплатно уже сегодня: ссылка в описании. А в следующем руководстве: как организовать своё время?",
+    "boton": "Открыть Сад",
+    "lamina": "app-plan",
+    "anclas": {
+      "meditar": "можешь медитировать",
+      "respirar": "дышать вместе с кругом",
+      "agradecer": "за что благодаришь",
+      "calma": "растёт твоё спокойствие"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "killingsworth-2010",
+      "texto": "Killingsworth M. A., Gilbert D. T. A wandering mind is an unhappy mind. Science (2010).",
+      "url": "https://doi.org/10.1126/science.1192439"
+    },
+    {
+      "id": "wilson-2014",
+      "texto": "Wilson T. D. и др. Just think: The challenges of the disengaged mind. Science (2014).",
+      "url": "https://doi.org/10.1126/science.1250830"
+    },
+    {
+      "id": "kabat-zinn-1982",
+      "texto": "Kabat-Zinn J. An outpatient program in behavioral medicine for chronic pain patients based on the practice of mindfulness meditation. General Hospital Psychiatry (1982).",
+      "url": "https://doi.org/10.1016/0163-8343(82)90026-3"
+    },
+    {
+      "id": "zaccaro-2018",
+      "texto": "Zaccaro A. и др. How breath-control can change your life: A systematic review on psycho-physiological correlates of slow breathing. Frontiers in Human Neuroscience (2018).",
+      "url": "https://doi.org/10.3389/fnhum.2018.00353"
+    },
+    {
+      "id": "balban-2023",
+      "texto": "Balban M. Y. и др. Brief structured respiration practices enhance mood and reduce physiological arousal. Cell Reports Medicine (2023).",
+      "url": "https://doi.org/10.1016/j.xcrm.2022.100895"
+    },
+    {
+      "id": "ophir-2009",
+      "texto": "Ophir E., Nass C., Wagner A. D. Cognitive control in media multitaskers. PNAS (2009).",
+      "url": "https://doi.org/10.1073/pnas.0903620106"
+    },
+    {
+      "id": "mrazek-2013",
+      "texto": "Mrazek M. D. и др. Mindfulness training improves working memory capacity and GRE performance while reducing mind wandering. Psychological Science (2013).",
+      "url": "https://doi.org/10.1177/0956797612459659"
+    },
+    {
+      "id": "jha-2010",
+      "texto": "Jha A. P. и др. Examining the protective effects of mindfulness training on working memory capacity and affective experience. Emotion (2010).",
+      "url": "https://doi.org/10.1037/a0018438"
+    },
+    {
+      "id": "goyal-2014",
+      "texto": "Goyal M. и др. Meditation programs for psychological stress and well-being: A systematic review and meta-analysis. JAMA Internal Medicine (2014).",
+      "url": "https://doi.org/10.1001/jamainternmed.2013.13018"
+    },
+    {
+      "id": "kral-2022",
+      "texto": "Kral T. R. A. и др. Absence of structural brain changes from mindfulness-based stress reduction: Two combined randomized controlled trials. Science Advances (2022).",
+      "url": "https://doi.org/10.1126/sciadv.abk3316"
+    },
+    {
+      "id": "emmons-2003",
+      "texto": "Emmons R. A., McCullough M. E. Counting blessings versus burdens: An experimental investigation of gratitude and subjective well-being in daily life. Journal of Personality and Social Psychology (2003).",
+      "url": "https://doi.org/10.1037/0022-3514.84.2.377"
+    },
+    {
+      "id": "basso-2019",
+      "texto": "Basso J. C. и др. Brief, daily meditation enhances attention, memory, mood, and emotional regulation in non-experienced meditators. Behavioural Brain Research (2019).",
+      "url": "https://doi.org/10.1016/j.bbr.2018.08.023"
+    }
+  ]
+}

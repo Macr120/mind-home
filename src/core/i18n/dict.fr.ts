@@ -7555,6 +7555,7 @@ export const FR: Dict = {
   'guia.musica.titulo': "Qu'est-ce que la musique ?",
   'guia.video.titulo': "Comment faire des vidéos ?",
   'guia.metas.titulo': "Comment atteindre tes objectifs ?",
+  'guia.mindfulness.titulo': "Pourquoi aller plus lentement te fera arriver plus vite ?",
   'tut.esencial.titulo': 'L’essentiel',
   'tut.tipo.ejemplos': 'Exemples · MindHaOS de démo',
   'tut.app-agenda--esencial.resumen':
