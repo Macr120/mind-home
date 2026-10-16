@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220">
+  <defs><filter id="s" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000" flood-opacity=".35"/></filter></defs>
+  <rect x="14" y="10" width="192" height="192" rx="54" fill="#b1e9f3" stroke="#116a77" stroke-opacity=".18" stroke-width="2" filter="url(#s)"/>
+  <svg x="50" y="46" width="120" height="120" viewBox="0 0 48 48"><rect x="4" y="9" width="7" height="33" rx="3" fill="#b36bfb"></rect><rect x="13" y="16" width="11" height="7" rx="3.5" fill="#f53b4b"></rect><rect x="9" y="24" width="35" height="11" rx="4" fill="#f6a413"></rect><rect x="38" y="30" width="6" height="12" rx="3" fill="#b36bfb"></rect></svg>
+</svg>

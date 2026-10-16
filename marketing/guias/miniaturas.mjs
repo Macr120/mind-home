@@ -10,7 +10,7 @@
 // servidor de la web, GUIAS_URL); y la pregunta de la guía en su idioma.
 // Si el guion trae `corta` (la pregunta en 3-4 palabras), va esa: en hindi o
 // alemán la pregunta entera ocupaba media imagen. Si la escena trae
-// `MINIATURA.objeto` (un emoji del tema), va en primer plano junto a Pep@.
+// el icono de la app (`<tema>/icono-app.svg`, de iconos.mjs; si no lo hay, `MINIATURA.objeto`, un emoji del tema), va en primer plano junto a Pep@.
 import { execFileSync } from 'node:child_process'
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
@@ -62,6 +62,9 @@ function primeraFrase(g) {
   return m ? m[0].trim() : g.pregunta
 }
 
+/** El icono de la app de la guía (iconos.mjs): el mismo mosaico que en la vista «apps» del panel de cuartos; si no hay, el emoji de MINIATURA. */
+const ICONO_APP = path.join(RAIZ, tema, 'icono-app.svg')
+
 function html({ ancho, alto }, id, fondoJpg) {
   const g = JSON.parse(readFileSync(path.join(RAIZ, tema, `guion.${id}.json`), 'utf8'))
   const ui = JSON.parse(readFileSync(path.join(TEXTOS, `${id}.json`), 'utf8'))
@@ -74,6 +77,9 @@ function html({ ancho, alto }, id, fondoJpg) {
   [dir=rtl] .velo{transform:scaleX(-1)}
   .pep{position:absolute;${cuadrada ? 'right:-90px;bottom:-130px;height:900px' : 'inset-inline-end:-40px;bottom:-130px;height:860px'}}
   .objeto{position:absolute;${cuadrada ? 'right:470px;bottom:40px' : 'inset-inline-end:520px;bottom:30px'};font-size:210px;line-height:1;font-family:"Segoe UI Emoji";filter:drop-shadow(0 14px 22px rgb(0 0 0/.45));transform:rotate(-8deg)}
+  .objeto.app{filter:none;width:250px;height:250px}
+  /* En la horizontal, el icono va en la columna del título, debajo de la píldora (con títulos de tres renglones no la pisa). */
+  .app-ancho{display:block;width:${g.corta ? 160 : 150}px;height:${g.corta ? 160 : 150}px;margin-top:18px;margin-inline-start:-8px;transform:rotate(-6deg)}
   /* Señala con la mano izquierda (a su izquierda): en espejo apunta a la pregunta; en árabe la pregunta ya queda de ese lado. */
   .pep{transform:scaleX(-1)}
   [dir=rtl] .pep{transform:none}
@@ -86,9 +92,9 @@ function html({ ancho, alto }, id, fondoJpg) {
 </style></head><body>
   <div class="fondo"></div><div class="velo"></div>
   <img class="pep" src="${pathToFileURL(PEP)}">
-  ${MINIATURA?.objeto ? `<div class="objeto">${MINIATURA.objeto}</div>` : ''}
+  ${existsSync(ICONO_APP) ? (cuadrada ? `<img class="objeto app" src="${pathToFileURL(ICONO_APP)}">` : '') : MINIATURA?.objeto ? `<div class="objeto">${MINIATURA.objeto}</div>` : ''}
   <div class="texto"><h1>${partible(g.corta ?? primeraFrase(g), id)}</h1>
-    <span class="chip"><svg viewBox="0 0 357 100"><rect y="3" width="94" height="94" rx="20" fill="#FFB319"/><path d="M137 0V100H237Z" fill="#FF505F"/><path d="M257 0H357V100A100 100 0 0 1 257 0Z" fill="#C07DFE"/></svg>${sello(g, ui)}</span></div>
+    <span class="chip"><svg viewBox="0 0 357 100"><rect y="3" width="94" height="94" rx="20" fill="#FFB319"/><path d="M137 0V100H237Z" fill="#FF505F"/><path d="M257 0H357V100A100 100 0 0 1 257 0Z" fill="#C07DFE"/></svg>${sello(g, ui)}</span>${existsSync(ICONO_APP) && !cuadrada ? `<img class="app-ancho" src="${pathToFileURL(ICONO_APP)}">` : ''}</div>
 </body></html>`
 }
 
