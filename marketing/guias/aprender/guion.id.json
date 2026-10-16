@@ -1,0 +1,631 @@
+{
+  "idioma": "id",
+  "tema": "aprender",
+  "plantillaId": "biblioteca",
+  "numero": 12,
+  "nombre": "Belajar",
+  "pregunta": "Bagaimana belajar lebih cepat?",
+  "corta": "Belajar lebih cepat",
+  "subtitulo": "Mengapa kamu lupa apa yang kamu pelajari, teknik mana yang benar-benar berhasil, mengapa menguji diri lebih ampuh daripada membaca ulang, kapan mengulang, cara memahami alih-alih menghafal, apa yang dilakukan tidur pada hal yang kamu pelajari, dan rencana untuk terus belajar.",
+  "aviso": "Panduan ini bersifat informatif: angka dan studi yang dikutip adalah perkiraan dari sumbernya, dan setiap orang belajar dengan iramanya sendiri. Jika kamu punya kesulitan belajar atau konsentrasi yang membuatmu khawatir, konsultasikan dengan ahlinya.",
+  "partes": [
+    {
+      "id": "olvido",
+      "titulo": "Mengapa kamu lupa apa yang kamu pelajari?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Bagaimana belajar lebih cepat? Kebanyakan orang belajar dengan membaca ulang dan menggarisbawahi, padahal itu termasuk teknik yang paling kurang berguna. Hari ini kamu akan melihat teknik yang benar-benar berhasil, dan mengapa teknik yang tampak paling buruk di hari ujian justru menang seminggu kemudian."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "Omong-omong, ini rumahku di MindHaOS, dan ini perpustakaanku."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian satu. Mengapa kamu lupa apa yang kamu pelajari?"
+        },
+        {
+          "id": "ebbinghaus",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ebbinghaus"
+          },
+          "lamina": [
+            "ebbinghaus",
+            "reloj"
+          ],
+          "texto": "Pada tahun seribu delapan ratus delapan puluh lima, ilmuwan Jerman Hermann Ebbinghaus menghafal ribuan suku kata tanpa arti dan mengukur seberapa banyak yang ia lupakan. Dalam satu jam, lebih dari separuhnya sudah hilang, lalu lupanya melambat. Apa yang tidak kamu pakai lagi, cepat menghilang."
+        },
+        {
+          "id": "fluidez",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "84 %",
+            "clave": "fluidez"
+          },
+          "lamina": [
+            "apuntes",
+            "subrayar"
+          ],
+          "texto": "Dan kita terjebak. Pada tahun dua ribu sembilan, Jeffrey Karpicke bertanya kepada mahasiswa bagaimana mereka belajar: sebagian besar membaca ulang catatannya. Membaca ulang terasa enak karena teksnya terasa akrab, tapi merasa akrab dengan sesuatu bukan berarti kamu menguasainya.",
+          "meme": "releer"
+        },
+        {
+          "id": "estantes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leer",
+              "cerrar",
+              "recordar"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "estantes",
+          "texto": "Karena itu di perpustakaanku aku tidak hanya menyimpan apa yang kubaca: aku mencarinya lagi di ingatanku sebelum membuka bukunya."
+        }
+      ]
+    },
+    {
+      "id": "tecnicas",
+      "titulo": "Teknik mana yang benar-benar berhasil?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian dua. Teknik mana yang benar-benar berhasil?"
+        },
+        {
+          "id": "dunlosky",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tecnicas"
+          },
+          "lamina": [
+            "biblioteca",
+            "papeles"
+          ],
+          "texto": "Pada tahun dua ribu tiga belas, John Dunlosky dan timnya meninjau ratusan studi tentang sepuluh teknik belajar dan memberi mereka nilai. Hanya dua yang mendapat nilai tertinggi: menguji diri dan membagi waktu belajar. Menggarisbawahi, membaca ulang, dan membuat ringkasan ada di urutan paling bawah."
+        },
+        {
+          "id": "esfuerzo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "facil",
+              "dificil",
+              "deseable"
+            ]
+          },
+          "lamina": [
+            "pesas",
+            "escalar"
+          ],
+          "texto": "Mengapa teknik yang berhasil terasa lebih sulit? Psikolog Robert Bjork menyebutnya kesulitan yang diinginkan: usaha untuk mengingat itulah yang mengunci ingatan, seperti beban yang membuat otot tumbuh.",
+          "meme": "subrayar"
+        },
+        {
+          "id": "dos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "prueba",
+              "repartir",
+              "mezclar"
+            ]
+          },
+          "lamina": [
+            "calendario",
+            "tarjetas"
+          ],
+          "texto": "Jadi sisa panduan ini membahas tiga hal: menguji diri, membagi waktu belajar, dan mencampur topik. Dan di bagian lima, satu trik untuk benar-benar paham yang dipakai guru-guru yang hebat."
+        },
+        {
+          "id": "sabio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunto",
+              "respondo",
+              "entrada"
+            ]
+          },
+          "enCasa": true,
+          "mencion": true,
+          "lamina": "conversar",
+          "texto": "Di sini aku meminta Sang Bijak di perpustakaanku, yang bekerja dengan kecerdasan buatan, untuk memberiku pertanyaan tentang apa yang kubaca, dan apa yang kupelajari tersimpan di ensiklopediku."
+        }
+      ]
+    },
+    {
+      "id": "prueba",
+      "titulo": "Mengapa menguji diri lebih ampuh daripada membaca ulang?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tiga. Mengapa menguji diri lebih ampuh daripada membaca ulang?"
+        },
+        {
+          "id": "roediger",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "releerProbar"
+          },
+          "lamina": [
+            "examen",
+            "lapiz"
+          ],
+          "texto": "Inilah yang kujanjikan. Pada tahun dua ribu enam, Henry Roediger dan Jeffrey Karpicke memberi para mahasiswa sebuah teks. Sebagian membacanya empat kali; yang lain membacanya sekali, lalu tiga kali mencoba menuliskan dari ingatan apa yang mereka ingat. Lima menit kemudian, yang membaca ulang lebih unggul. Tapi seminggu kemudian, yang menguji diri ingat enam puluh satu persen, dibanding empat puluh."
+        },
+        {
+          "id": "recuperar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cierra",
+              "escribe",
+              "compara"
+            ]
+          },
+          "lamina": [
+            "cuaderno",
+            "hoja"
+          ],
+          "texto": "Menguji diri bukan hanya soal ujian. Cukup tutup bukunya, tulis atau ucapkan keras-keras semua yang kamu ingat, lalu bandingkan dengan teksnya untuk melihat apa yang terlewat."
+        },
+        {
+          "id": "errores",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+",
+            "clave": "errores"
+          },
+          "lamina": [
+            "borrar",
+            "pregunta"
+          ],
+          "texto": "Dan salah juga membantu. Saat kamu mencoba menjawab sebelum tahu jawabannya lalu melihatnya, kamu mengingatnya lebih baik daripada kalau hanya membacanya. Kesalahan menandai tempat untuk menyimpannya."
+        },
+        {
+          "id": "recordar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "recordar"
+          },
+          "enCasa": true,
+          "lamina": "libroCerrado",
+          "texto": "Aku melakukannya begini: aku membaca sebentar, menutup buku, lalu menceritakan kepada Sang Bijak apa yang kupahami. Dia memberitahuku apa yang terlewat."
+        }
+      ]
+    },
+    {
+      "id": "repasar",
+      "titulo": "Kapan mengulang agar tidak lupa?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian empat. Kapan mengulang agar tidak lupa?"
+        },
+        {
+          "id": "espaciar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "repasos"
+          },
+          "lamina": [
+            "calendario",
+            "reloj2"
+          ],
+          "texto": "Belajar semuanya semalam sebelum ujian memang berhasil untuk ujian besok, lalu cepat terlupakan. Pada tahun dua ribu enam, Nicholas Cepeda meninjau lebih dari tiga ratus eksperimen: dengan waktu belajar yang sama, membaginya ke beberapa hari hampir selalu mengalahkan menumpuknya dalam satu hari.",
+          "meme": "nocheAntes"
+        },
+        {
+          "id": "intervalo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 3 mgg",
+            "clave": "intervalo"
+          },
+          "lamina": [
+            "agenda",
+            "hojas"
+          ],
+          "texto": "Seberapa sering? Tergantung berapa lama kamu ingin mengingatnya. Pada tahun dua ribu delapan, tim yang sama mengikuti lebih dari seribu orang: untuk mengingat sesuatu setahun kemudian, yang terbaik adalah mengulangnya sekitar tiga minggu setelah mempelajarinya. Aturan praktisnya: ulangi keesokan harinya, seminggu kemudian, dan sebulan kemudian."
+        },
+        {
+          "id": "mezclar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezclar"
+          },
+          "lamina": [
+            "matematicas",
+            "pizarra"
+          ],
+          "texto": "Dan campur topiknya. Pada tahun dua ribu tujuh, Doug Rohrer dan Kelli Taylor meminta para siswa berlatih soal matematika per blok atau dicampur. Seminggu kemudian, yang mencampur menjawab benar enam puluh tiga persen; yang per blok, dua puluh."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "Kalau kamu suka panduan ini, tekan Suka, Subscribe, dan Bagikan."
+        },
+        {
+          "id": "plan",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dias",
+              "minutos",
+              "calendario"
+            ]
+          },
+          "enCasa": true,
+          "mencion": true,
+          "lamina": "planEstudio",
+          "texto": "Di rumahku aku menyusun rencana belajar, sendiri atau dibantu kecerdasan buatan, dan jadwal mengulangku muncul di Kalender."
+        }
+      ]
+    },
+    {
+      "id": "entender",
+      "titulo": "Bagaimana memahami alih-alih menghafal?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian lima. Bagaimana memahami alih-alih menghafal?"
+        },
+        {
+          "id": "ensenar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "explicalo"
+          },
+          "lamina": [
+            "maestra",
+            "alumnos"
+          ],
+          "texto": "Inilah trik para guru hebat: belajarlah seolah-olah kamu akan mengajarkannya. Pada tahun dua ribu empat belas, John Nestojko meminta satu kelompok membaca teks sambil mengira nanti harus menjelaskannya kepada orang lain. Meski tidak pernah menjelaskannya, mereka ingat lebih banyak dan lebih teratur daripada yang hanya menunggu ujian."
+        },
+        {
+          "id": "porque",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porque",
+              "como",
+              "ejemplo"
+            ]
+          },
+          "lamina": [
+            "nino",
+            "lupa"
+          ],
+          "texto": "Tanyakan mengapa. Michelene Chi melihat bahwa siswa yang menjelaskan setiap langkah teks kepada diri sendiri jauh lebih paham daripada yang hanya membacanya dua kali. Mengapa ini terjadi? Bagaimana ini terhubung dengan yang sudah kuketahui? Contoh apa yang terpikir olehku?",
+          "meme": "porque"
+        },
+        {
+          "id": "sencillo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "sencillo",
+              "huecos",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "pizarra2",
+            "idea"
+          ],
+          "texto": "Dan jelaskan dengan sederhana, seperti kepada anak dua belas tahun. Di bagian kamu tersendat atau memakai kata-kata rumit untuk berkelit, di situlah yang belum kamu pahami. Kembali ke teks hanya untuk bagian itu."
+        },
+        {
+          "id": "arbol",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "semilla",
+              "ramas",
+              "hojas"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "arbol",
+          "texto": "Ensiklopediku adalah sebuah pohon: setiap topik baru menggantung pada yang sudah kuketahui, dan melihat bagaimana semuanya terhubung membantuku memahami."
+        }
+      ]
+    },
+    {
+      "id": "dormir",
+      "titulo": "Apa yang dilakukan tidur pada hal yang kamu pelajari?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian enam. Apa yang dilakukan tidur pada hal yang kamu pelajari?"
+        },
+        {
+          "id": "gais",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "sueno"
+          },
+          "lamina": [
+            "dormir",
+            "cerebro"
+          ],
+          "texto": "Saat kamu tidur, otakmu mengulang apa yang kamu pelajari dan menyimpannya lebih baik. Pada tahun dua ribu enam, Steffen Gais mengajarkan kosakata kepada para siswa: yang tidur beberapa jam setelah mempelajarinya ingat lebih banyak, bahkan berhari-hari kemudian, daripada yang tetap terjaga."
+        },
+        {
+          "id": "desvelo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "noche",
+              "antes",
+              "despues"
+            ]
+          },
+          "lamina": [
+            "desvelo",
+            "cafe"
+          ],
+          "texto": "Karena itu begadang untuk belajar itu mahal harganya: kamu merampas waktu yang dipakai ingatanmu untuk menyimpan hal-hal hari itu. Lebih baik belajar, tidur, lalu mengulang saat bangun."
+        },
+        {
+          "id": "sesiones",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloque",
+              "pausa",
+              "repite"
+            ]
+          },
+          "lamina": [
+            "temporizador",
+            "ventana"
+          ],
+          "texto": "Dan di siang hari, sesi singkat dengan jeda: dua puluh lima atau empat puluh lima menit fokus penuh, tanpa ponsel di depan mata, lebih berharga daripada tiga jam setengah hati."
+        },
+        {
+          "id": "estudio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quince",
+              "veinticinco",
+              "cuarenta"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "temporizador",
+          "texto": "Di sini aku memasang timer belajarku, lima belas, dua puluh lima, atau empat puluh lima menit, dan setiap sesi ditambahkan ke peta belajarku."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Bagaimana melanjutkan? Rencanamu untuk terus maju",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tujuh. Bagaimana melanjutkan? Rencanamu untuk terus maju."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "libro"
+          ],
+          "texto": "Di minggu pertama, pilih satu topik saja. Belajar dua puluh lima menit, tutup bukunya, dan tulis semua yang kamu ingat. Keesokan harinya, sebelum lanjut, coba lagi tanpa melihat."
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "planRepasos"
+          },
+          "lamina": [
+            "brote",
+            "calendario2"
+          ],
+          "texto": "Di bulan pertama, jadwalkan pengulanganmu: keesokan harinya, seminggu kemudian, dan sebulan kemudian, dan campur topik di setiap sesi. Lihat bagaimana tiga sesi yang dibagi dengan baik membuatmu ingat lebih banyak daripada satu maraton dengan waktu yang sama."
+        },
+        {
+          "id": "fallar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "olvidar",
+              "medir",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "escalon"
+          ],
+          "texto": "Dan saat kamu lupa sesuatu, jangan patah semangat: lupa sedikit lalu mengingatnya lagi justru itulah yang menguncinya. Untuk mengukur kemajuanmu, jangan hitung jamnya: hitung seberapa banyak yang kamu ingat tanpa melihat."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Singkatnya: membaca ulang itu menipu, menguji diri itu mengajarimu; bagi dan campur pengulanganmu; jelaskan seolah-olah kamu akan mengajarkannya; dan tidurlah yang cukup, karena di situlah yang kamu pelajari tersimpan."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Di Perpustakaan MindHaOS, kamu bisa mengobrol dengan Sang Bijak yang memberimu pertanyaan, menyimpan yang kamu pelajari di ensiklopedimu, dan belajar dengan timer dan rencana, sendiri atau dibantu kecerdasan buatan. Bangun rumah pikiranmu gratis hari ini: tautannya ada di deskripsi. Dan di panduan berikutnya: apa bahasa alam semesta?",
+    "boton": "Buka Perpustakaan",
+    "lamina": "app-plan",
+    "anclas": {
+      "conversar": "mengobrol dengan Sang Bijak",
+      "enciclopedia": "di ensiklopedimu",
+      "estudiar": "belajar dengan timer"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "ebbinghaus-1885",
+      "texto": "Ebbinghaus H. Über das Gedächtnis: Untersuchungen zur experimentellen Psychologie (1885). Terjemahan bahasa Inggris: Memory: A Contribution to Experimental Psychology (1913).",
+      "url": "https://psychclassics.yorku.ca/Ebbinghaus/index.htm"
+    },
+    {
+      "id": "karpicke-2009",
+      "texto": "Karpicke J. D., Butler A. C., Roediger H. L. Metacognitive strategies in student learning: Do students practise retrieval when they study on their own? Memory (2009).",
+      "url": "https://doi.org/10.1080/09658210802647009"
+    },
+    {
+      "id": "dunlosky-2013",
+      "texto": "Dunlosky J. et al. Improving students' learning with effective learning techniques: Promising directions from cognitive and educational psychology. Psychological Science in the Public Interest (2013).",
+      "url": "https://doi.org/10.1177/1529100612453266"
+    },
+    {
+      "id": "bjork-1994",
+      "texto": "Bjork R. A. Memory and metamemory considerations in the training of human beings. Dalam Metcalfe J., Shimamura A. (ed.), Metacognition: Knowing about knowing (1994).",
+      "url": "https://bjorklab.psych.ucla.edu/research/"
+    },
+    {
+      "id": "roediger-2006",
+      "texto": "Roediger H. L., Karpicke J. D. Test-enhanced learning: Taking memory tests improves long-term retention. Psychological Science (2006).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x"
+    },
+    {
+      "id": "kornell-2009",
+      "texto": "Kornell N., Hays M. J., Bjork R. A. Unsuccessful retrieval attempts enhance subsequent learning. Journal of Experimental Psychology: Learning, Memory, and Cognition (2009).",
+      "url": "https://doi.org/10.1037/a0015729"
+    },
+    {
+      "id": "cepeda-2006",
+      "texto": "Cepeda N. J. et al. Distributed practice in verbal recall tasks: A review and quantitative synthesis. Psychological Bulletin (2006).",
+      "url": "https://doi.org/10.1037/0033-2909.132.3.354"
+    },
+    {
+      "id": "cepeda-2008",
+      "texto": "Cepeda N. J. et al. Spacing effects in learning: A temporal ridgeline of optimal retention. Psychological Science (2008).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2008.02209.x"
+    },
+    {
+      "id": "rohrer-2007",
+      "texto": "Rohrer D., Taylor K. The shuffling of mathematics problems improves learning. Instructional Science (2007).",
+      "url": "https://doi.org/10.1007/s11251-007-9015-8"
+    },
+    {
+      "id": "nestojko-2014",
+      "texto": "Nestojko J. F. et al. Expecting to teach enhances learning and organization of knowledge in free recall of text passages. Memory & Cognition (2014).",
+      "url": "https://doi.org/10.3758/s13421-014-0416-z"
+    },
+    {
+      "id": "chi-1994",
+      "texto": "Chi M. T. H. et al. Eliciting self-explanations improves understanding. Cognitive Science (1994).",
+      "url": "https://doi.org/10.1207/s15516709cog1803_3"
+    },
+    {
+      "id": "gais-2006",
+      "texto": "Gais S., Lucas B., Born J. Sleep after learning aids memory recall. Learning & Memory (2006).",
+      "url": "https://doi.org/10.1101/lm.132106"
+    }
+  ]
+}

@@ -7456,6 +7456,7 @@ export const PL: Dict = {
   'guia.metas.titulo': "Jak osiągać swoje cele?",
   'guia.mindfulness.titulo': "Dlaczego idąc wolniej, dotrzesz szybciej?",
   'guia.agenda.titulo': "Jak zorganizować swój czas?",
+  'guia.aprender.titulo': "Jak uczyć się szybciej?",
   'tut.esencial.titulo': 'Najważniejsze',
   'tut.tipo.ejemplos': 'Przykłady · MindHaOS demo',
   'tut.app-agenda--esencial.resumen':

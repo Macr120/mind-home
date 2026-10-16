@@ -7526,6 +7526,7 @@ export const NL: Dict = {
   'guia.metas.titulo': "Hoe bereik je je doelen?",
   'guia.mindfulness.titulo': "Waarom kom je sneller aan als je langzamer gaat?",
   'guia.agenda.titulo': "Hoe organiseer je je tijd?",
+  'guia.aprender.titulo': "Hoe leer je sneller?",
   'tut.esencial.titulo': 'De basis',
   'tut.tipo.ejemplos': 'Voorbeelden · demo-MindHaOS',
   'tut.app-agenda--esencial.resumen':

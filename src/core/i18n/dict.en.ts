@@ -7554,6 +7554,7 @@ export const EN: Dict = {
   'guia.metas.titulo': "How do you reach your goals?",
   'guia.mindfulness.titulo': "Why will going slower get you there faster?",
   'guia.agenda.titulo': "How do you organize your time?",
+  'guia.aprender.titulo': "How do you learn faster?",
   // Esenciales (corren en la casa real y recorren los menús de cada app)
   'tut.esencial.titulo': 'The essentials',
   'tut.tipo.ejemplos': 'Examples · demo MindHaOS',

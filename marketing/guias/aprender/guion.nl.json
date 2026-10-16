@@ -1,0 +1,409 @@
+{
+  "idioma": "nl",
+  "tema": "aprender",
+  "plantillaId": "biblioteca",
+  "numero": 12,
+  "nombre": "Leren",
+  "pregunta": "Hoe leer je sneller?",
+  "corta": "Leer sneller",
+  "subtitulo": "Waarom je vergeet wat je studeert, welke technieken echt werken, waarom jezelf overhoren meer oplevert dan herlezen, wanneer je moet herhalen, hoe je begrijpt in plaats van uit je hoofd leert, wat slaap doet met wat je leert en een plan om verder te leren.",
+  "aviso": "Deze gids is informatief: de genoemde cijfers en studies zijn benaderingen uit hun bronnen, en iedereen leert in zijn eigen tempo. Als je leer- of concentratieproblemen hebt waar je je zorgen over maakt, bespreek het dan met een specialist.",
+  "partes": [
+    {
+      "id": "olvido",
+      "titulo": "Waarom vergeet je wat je studeert?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": { "tipo": "titulo" },
+          "enCasa": true,
+          "texto": "Hoe leer je sneller? De meeste mensen studeren door te herlezen en te onderstrepen, en dat zijn juist de technieken die het minst opleveren. Vandaag zie je welke wel werken, en waarom de techniek die op de dag van het examen het slechtst lijkt, een week later wint."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "enCasa": true,
+          "texto": "Trouwens, dit is mijn huis in MindHaOS, en dit is mijn bibliotheek."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Deel één. Waarom vergeet je wat je studeert?"
+        },
+        {
+          "id": "ebbinghaus",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": { "tipo": "grafica", "grafica": "ebbinghaus" },
+          "lamina": ["ebbinghaus", "reloj"],
+          "texto": "In 1885 leerde de Duitser Hermann Ebbinghaus duizenden betekenisloze lettergrepen uit zijn hoofd en mat hij hoeveel hij vergat. Na een uur was hij al meer dan de helft kwijt, en daarna ging het vergeten trager. Wat je niet opnieuw gebruikt, verdwijnt snel."
+        },
+        {
+          "id": "fluidez",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "84%", "clave": "fluidez" },
+          "lamina": ["apuntes", "subrayar"],
+          "texto": "En we trappen in een val. In 2009 vroeg Jeffrey Karpicke studenten hoe ze studeerden: de grote meerderheid herlas gewoon de aantekeningen. Herlezen voelt goed omdat de tekst je bekend voorkomt, maar dat iets bekend klinkt, betekent niet dat je het weet.",
+          "meme": "releer"
+        },
+        {
+          "id": "estantes",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["leer", "cerrar", "recordar"] },
+          "enCasa": true,
+          "lamina": "estantes",
+          "texto": "Daarom bewaar ik in mijn bibliotheek niet alleen wat ik lees: ik haal het eerst uit mijn geheugen voordat ik het boek opensla."
+        }
+      ]
+    },
+    {
+      "id": "tecnicas",
+      "titulo": "Welke technieken werken echt?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Deel twee. Welke technieken werken echt?"
+        },
+        {
+          "id": "dunlosky",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "tecnicas" },
+          "lamina": ["biblioteca", "papeles"],
+          "texto": "In 2013 bekeken John Dunlosky en zijn team honderden studies over tien studietechnieken en gaven ze een cijfer. Maar twee kregen het hoogste cijfer: jezelf overhoren en je studie spreiden in de tijd. Onderstrepen, herlezen en samenvattingen maken eindigden helemaal onderaan."
+        },
+        {
+          "id": "esfuerzo",
+          "escena": "pensando",
+          "visual": { "tipo": "lista", "claves": ["facil", "dificil", "deseable"] },
+          "lamina": ["pesas", "escalar"],
+          "texto": "Waarom voelen de technieken die werken zwaarder aan? Psycholoog Robert Bjork noemt ze wenselijke moeilijkheden: de moeite van het herinneren is precies wat de herinnering vastlegt, zoals het gewicht dat de spier laat groeien.",
+          "meme": "subrayar"
+        },
+        {
+          "id": "dos",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["prueba", "repartir", "mezclar"] },
+          "lamina": ["calendario", "tarjetas"],
+          "texto": "De rest van de gids gaat dus over drie dingen: jezelf overhoren, spreiden en mengen. En in deel vijf een truc van goede leraren om echt te begrijpen."
+        },
+        {
+          "id": "sabio",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["pregunto", "respondo", "entrada"] },
+          "enCasa": true,
+          "mencion": true,
+          "lamina": "conversar",
+          "texto": "Hier vraag ik de Wijze van mijn bibliotheek, die met kunstmatige intelligentie werkt, om me vragen te stellen over wat ik gelezen heb, en wat ik leer, wordt bewaard in mijn encyclopedie."
+        }
+      ]
+    },
+    {
+      "id": "prueba",
+      "titulo": "Waarom levert jezelf overhoren meer op dan herlezen?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Deel drie. Waarom levert jezelf overhoren meer op dan herlezen?"
+        },
+        {
+          "id": "roediger",
+          "destacada": true,
+          "escena": "senala",
+          "visual": { "tipo": "herramienta", "herramienta": "releerProbar" },
+          "lamina": ["examen", "lapiz"],
+          "texto": "Hier is wat ik je beloofd had. In 2006 gaven Henry Roediger en Jeffrey Karpicke studenten een tekst. Sommigen lazen hem vier keer; anderen lazen hem één keer en probeerden daarna drie keer uit hun hoofd op te schrijven wat ze nog wisten. Vijf minuten later wonnen de herlezers. Maar een week later wisten degenen die zichzelf hadden overhoord nog eenenzestig procent, tegen veertig."
+        },
+        {
+          "id": "recuperar",
+          "escena": "habla",
+          "visual": { "tipo": "pasos", "claves": ["cierra", "escribe", "compara"] },
+          "lamina": ["cuaderno", "hoja"],
+          "texto": "Jezelf overhoren is niet alleen toetsen maken. Het is genoeg om het boek dicht te doen, alles op te schrijven of hardop te zeggen wat je nog weet, en dat dan met de tekst te vergelijken om te zien wat je miste."
+        },
+        {
+          "id": "errores",
+          "escena": "pensando",
+          "visual": { "tipo": "dato", "cifra": "+", "clave": "errores" },
+          "lamina": ["borrar", "pregunta"],
+          "texto": "En fouten maken helpt ook. Als je probeert te antwoorden voordat je het antwoord kent en het daarna ziet, onthoud je het beter dan als je het alleen had gelezen. De fout markeert de plek waar je het opbergt."
+        },
+        {
+          "id": "recordar",
+          "escena": "senala",
+          "visual": { "tipo": "herramienta", "herramienta": "recordar" },
+          "enCasa": true,
+          "lamina": "libroCerrado",
+          "texto": "Ik doe het zo: ik lees een tijdje, doe het boek dicht en vertel de Wijze wat ik begrepen heb. Hij zegt me wat ik gemist heb."
+        }
+      ]
+    },
+    {
+      "id": "repasar",
+      "titulo": "Wanneer herhaal je om niet te vergeten?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Deel vier. Wanneer herhaal je om niet te vergeten?"
+        },
+        {
+          "id": "espaciar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "repasos" },
+          "lamina": ["calendario", "reloj2"],
+          "texto": "Alles de avond ervoor studeren werkt voor het examen van morgen, en is meteen weer vergeten. In 2006 bekeek Nicholas Cepeda meer dan driehonderd experimenten: met dezelfde studietijd wint spreiden over meerdere dagen bijna altijd van alles op één dag doen.",
+          "meme": "nocheAntes"
+        },
+        {
+          "id": "intervalo",
+          "escena": "pensando",
+          "visual": { "tipo": "dato", "cifra": "≈ 3 wk.", "clave": "intervalo" },
+          "lamina": ["agenda", "hojas"],
+          "texto": "Hoe vaak? Dat hangt ervan af hoe lang je het wilt onthouden. In 2008 volgde hetzelfde team meer dan duizend mensen: om iets een jaar later nog te weten, kon je het best ongeveer drie weken na het leren herhalen. Een praktische regel: herhaal de volgende dag, na een week en na een maand."
+        },
+        {
+          "id": "mezclar",
+          "escena": "senala",
+          "visual": { "tipo": "herramienta", "herramienta": "mezclar" },
+          "lamina": ["matematicas", "pizarra"],
+          "texto": "En meng de onderwerpen. In 2007 lieten Doug Rohrer en Kelli Taylor studenten wiskundeopgaven oefenen, in blokken of door elkaar. Een week later hadden degenen die mengden drieënzestig procent goed; die met blokken twintig."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": { "tipo": "herramienta", "herramienta": "gusta" },
+          "lamina": "pulgar",
+          "texto": "Als je de gids leuk vindt, klik dan op Vind ik leuk, Abonneren en Delen."
+        },
+        {
+          "id": "plan",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["dias", "minutos", "calendario"] },
+          "enCasa": true,
+          "mencion": true,
+          "lamina": "planEstudio",
+          "texto": "In mijn huis maak ik een studieplan, zelf of met hulp van kunstmatige intelligentie, en mijn herhalingen verschijnen in de kalender."
+        }
+      ]
+    },
+    {
+      "id": "entender",
+      "titulo": "Hoe begrijp je in plaats van uit je hoofd te leren?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Deel vijf. Hoe begrijp je in plaats van uit je hoofd te leren?"
+        },
+        {
+          "id": "ensenar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "explicalo" },
+          "lamina": ["maestra", "alumnos"],
+          "texto": "Dit is de truc van goede leraren: leer alsof je het moet uitleggen. In 2014 vroeg John Nestojko een groep een tekst te lezen in de veronderstelling dat ze hem daarna aan anderen moesten uitleggen. Hoewel ze dat nooit deden, onthielden ze meer en beter geordend dan wie alleen een toets verwachtte."
+        },
+        {
+          "id": "porque",
+          "escena": "pensando",
+          "visual": { "tipo": "pasos", "claves": ["porque", "como", "ejemplo"] },
+          "lamina": ["nino", "lupa"],
+          "texto": "Vraag je af waarom. Michelene Chi zag dat studenten die zichzelf elke stap van een tekst uitlegden veel meer begrepen dan wie hem alleen twee keer las. Waarom gebeurt dit? Hoe hangt het samen met wat ik al weet? Welk voorbeeld schiet me te binnen?",
+          "meme": "porque"
+        },
+        {
+          "id": "sencillo",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["sencillo", "huecos", "volver"] },
+          "lamina": ["pizarra2", "idea"],
+          "texto": "En leg het eenvoudig uit, zoals aan een kind van twaalf. Waar je vastloopt of moeilijke woorden gebruikt om je eruit te redden, daar zit wat je nog niet begrijpt. Ga alleen voor dat stuk terug naar de tekst."
+        },
+        {
+          "id": "arbol",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["semilla", "ramas", "hojas"] },
+          "enCasa": true,
+          "lamina": "arbol",
+          "texto": "Mijn encyclopedie is een boom: elk nieuw onderwerp hangt aan wat ik al weet, en zien hoe alles samenhangt helpt me om het te begrijpen."
+        }
+      ]
+    },
+    {
+      "id": "dormir",
+      "titulo": "Wat doet slaap met wat je leert?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Deel zes. Wat doet slaap met wat je leert?"
+        },
+        {
+          "id": "gais",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "sueno" },
+          "lamina": ["dormir", "cerebro"],
+          "texto": "Terwijl je slaapt, herhaalt je brein wat je geleerd hebt en slaat het beter op. In 2006 leerde Steffen Gais studenten woordjes: wie een paar uur na het leren ging slapen, wist meer, zelfs dagen later, dan wie wakker bleef."
+        },
+        {
+          "id": "desvelo",
+          "escena": "pensando",
+          "visual": { "tipo": "lista", "claves": ["noche", "antes", "despues"] },
+          "lamina": ["desvelo", "cafe"],
+          "texto": "Daarom is doorhalen om te studeren duur: je ontneemt je geheugen precies de tijd waarin het de dag opslaat. Studeer liever, slaap, en herhaal als je wakker wordt."
+        },
+        {
+          "id": "sesiones",
+          "escena": "habla",
+          "visual": { "tipo": "pasos", "claves": ["bloque", "pausa", "repite"] },
+          "lamina": ["temporizador", "ventana"],
+          "texto": "En overdag korte sessies met pauzes: vijfentwintig of vijfenveertig minuten volle aandacht, zonder je telefoon in zicht, leveren meer op dan drie uur met een half hoofd."
+        },
+        {
+          "id": "estudio",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["quince", "veinticinco", "cuarenta"] },
+          "enCasa": true,
+          "lamina": "temporizador",
+          "texto": "Hier zet ik mijn studietimer op vijftien, vijfentwintig of vijfenveertig minuten, en elke sessie komt erbij op mijn studiekaart."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Deel zeven. Hoe ga je verder? Jouw plan om door te gaan."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": { "tipo": "grafica", "grafica": "planContinuar" },
+          "lamina": ["semilla", "libro"],
+          "texto": "Kies in de eerste week één onderwerp. Studeer vijfentwintig minuten, doe het boek dicht en schrijf alles op wat je nog weet. Probeer het de volgende dag, voordat je verdergaat, opnieuw zonder te kijken."
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "planRepasos" },
+          "lamina": ["brote", "calendario2"],
+          "texto": "Plan in de eerste maand je herhalingen in: de volgende dag, na een week en na een maand, en meng onderwerpen in elke sessie. Kijk hoe je met drie goed gespreide sessies meer onthoudt dan met één marathon van dezelfde tijd."
+        },
+        {
+          "id": "fallar",
+          "escena": "pensando",
+          "visual": { "tipo": "pasos", "claves": ["olvidar", "medir", "volver"] },
+          "lamina": ["tropiezo", "escalon"],
+          "texto": "En als je iets vergeet, laat je niet ontmoedigen: een beetje vergeten en het weer ophalen is precies wat het vastlegt. Tel om je vooruitgang te meten niet de uren: tel hoeveel je weet zonder te kijken."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": { "tipo": "lista", "claves": ["resumen1", "resumen2", "resumen3", "resumen4"] },
+          "lamina": "cumbre",
+          "texto": "Kortom: herlezen misleidt, jezelf overhoren leert je iets; spreid en meng je herhalingen; leg het uit alsof je het moet onderwijzen; en slaap goed, want dan wordt het geleerde opgeslagen."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "In de bibliotheek van MindHaOS kun je praten met een Wijze die je vragen stelt, wat je leert bewaren in je encyclopedie, en studeren met een timer en een plan, zelf of met hulp van kunstmatige intelligentie. Bouw vandaag gratis je mentale huis: de link staat in de beschrijving. En in de volgende gids: wat is de taal van het universum?",
+    "boton": "Bibliotheek openen",
+    "lamina": "app-plan",
+    "anclas": {
+      "conversar": "praten met een Wijze",
+      "enciclopedia": "in je encyclopedie",
+      "estudiar": "studeren met een timer"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "ebbinghaus-1885",
+      "texto": "Ebbinghaus H. Über das Gedächtnis: Untersuchungen zur experimentellen Psychologie (1885). Engelse vertaling: Memory: A Contribution to Experimental Psychology (1913).",
+      "url": "https://psychclassics.yorku.ca/Ebbinghaus/index.htm"
+    },
+    {
+      "id": "karpicke-2009",
+      "texto": "Karpicke J. D., Butler A. C., Roediger H. L. Metacognitive strategies in student learning: Do students practise retrieval when they study on their own? Memory (2009).",
+      "url": "https://doi.org/10.1080/09658210802647009"
+    },
+    {
+      "id": "dunlosky-2013",
+      "texto": "Dunlosky J. et al. Improving students' learning with effective learning techniques: Promising directions from cognitive and educational psychology. Psychological Science in the Public Interest (2013).",
+      "url": "https://doi.org/10.1177/1529100612453266"
+    },
+    {
+      "id": "bjork-1994",
+      "texto": "Bjork R. A. Memory and metamemory considerations in the training of human beings. In Metcalfe J., Shimamura A. (red.), Metacognition: Knowing about knowing (1994).",
+      "url": "https://bjorklab.psych.ucla.edu/research/"
+    },
+    {
+      "id": "roediger-2006",
+      "texto": "Roediger H. L., Karpicke J. D. Test-enhanced learning: Taking memory tests improves long-term retention. Psychological Science (2006).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x"
+    },
+    {
+      "id": "kornell-2009",
+      "texto": "Kornell N., Hays M. J., Bjork R. A. Unsuccessful retrieval attempts enhance subsequent learning. Journal of Experimental Psychology: Learning, Memory, and Cognition (2009).",
+      "url": "https://doi.org/10.1037/a0015729"
+    },
+    {
+      "id": "cepeda-2006",
+      "texto": "Cepeda N. J. et al. Distributed practice in verbal recall tasks: A review and quantitative synthesis. Psychological Bulletin (2006).",
+      "url": "https://doi.org/10.1037/0033-2909.132.3.354"
+    },
+    {
+      "id": "cepeda-2008",
+      "texto": "Cepeda N. J. et al. Spacing effects in learning: A temporal ridgeline of optimal retention. Psychological Science (2008).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2008.02209.x"
+    },
+    {
+      "id": "rohrer-2007",
+      "texto": "Rohrer D., Taylor K. The shuffling of mathematics problems improves learning. Instructional Science (2007).",
+      "url": "https://doi.org/10.1007/s11251-007-9015-8"
+    },
+    {
+      "id": "nestojko-2014",
+      "texto": "Nestojko J. F. et al. Expecting to teach enhances learning and organization of knowledge in free recall of text passages. Memory & Cognition (2014).",
+      "url": "https://doi.org/10.3758/s13421-014-0416-z"
+    },
+    {
+      "id": "chi-1994",
+      "texto": "Chi M. T. H. et al. Eliciting self-explanations improves understanding. Cognitive Science (1994).",
+      "url": "https://doi.org/10.1207/s15516709cog1803_3"
+    },
+    {
+      "id": "gais-2006",
+      "texto": "Gais S., Lucas B., Born J. Sleep after learning aids memory recall. Learning & Memory (2006).",
+      "url": "https://doi.org/10.1101/lm.132106"
+    }
+  ]
+}

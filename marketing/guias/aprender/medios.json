@@ -1,0 +1,335 @@
+{
+  "fotos": {},
+  "laminas": {
+    "alumnos": {
+      "archivo": "laminas/alumnos.mp4",
+      "tipo": "video",
+      "autor": "Katerina Holmes",
+      "fuente": "https://www.pexels.com/video/students-and-teacher-in-classroom-5897650/",
+      "licencia": "Licencia Pexels"
+    },
+    "apuntes": {
+      "archivo": "laminas/apuntes.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/female-studying-for-exam-7128677/",
+      "licencia": "Licencia Pexels"
+    },
+    "borrar": {
+      "archivo": "laminas/borrar.mp4",
+      "tipo": "video",
+      "autor": "Yeşim Çolak",
+      "fuente": "https://www.pexels.com/video/close-up-clip-of-eraser-on-paper-surface-36080865/",
+      "licencia": "Licencia Pexels"
+    },
+    "calendario2": {
+      "archivo": "laminas/calendario2.mp4",
+      "tipo": "video",
+      "autor": "SHVETS production",
+      "fuente": "https://www.pexels.com/video/a-person-encircling-the-date-on-the-calendar-9057678/",
+      "licencia": "Licencia Pexels"
+    },
+    "conversar": {
+      "archivo": "laminas/conversar.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/a-person-receiving-a-message-on-a-smartphone-7279035/",
+      "licencia": "Licencia Pexels"
+    },
+    "desvelo": {
+      "archivo": "laminas/desvelo.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/an-exhausted-man-at-work-6913257/",
+      "licencia": "Licencia Pexels"
+    },
+    "dormir": {
+      "archivo": "laminas/dormir.mp4",
+      "tipo": "video",
+      "autor": "Pavel Danilyuk",
+      "fuente": "https://www.pexels.com/video/woman-sleeping-with-eye-mask-6443875/",
+      "licencia": "Licencia Pexels"
+    },
+    "escalar": {
+      "archivo": "laminas/escalar.mp4",
+      "tipo": "video",
+      "autor": "Katya Wolf",
+      "fuente": "https://www.pexels.com/video/man-rock-climbing-8727839/",
+      "licencia": "Licencia Pexels"
+    },
+    "estantes": {
+      "archivo": "laminas/estantes.mp4",
+      "tipo": "video",
+      "autor": "Liudmyla Honcharova",
+      "fuente": "https://www.pexels.com/video/librarian-taking-books-from-shelves-11833936/",
+      "licencia": "Licencia Pexels"
+    },
+    "hoja": {
+      "archivo": "laminas/hoja.mp4",
+      "tipo": "video",
+      "autor": "Vanessa Garcia",
+      "fuente": "https://www.pexels.com/video/person-taking-notes-on-paper-6324544/",
+      "licencia": "Licencia Pexels"
+    },
+    "hojas": {
+      "archivo": "laminas/hojas.mp4",
+      "tipo": "video",
+      "autor": "Cis14_04 09",
+      "fuente": "https://www.pexels.com/video/flipping-calendar-pages-in-motion-35332817/",
+      "licencia": "Licencia Pexels"
+    },
+    "idea": {
+      "archivo": "laminas/idea.mp4",
+      "tipo": "video",
+      "autor": "Ron Lach",
+      "fuente": "https://www.pexels.com/video/a-woman-holding-an-incandescent-light-bulb-9196607/",
+      "licencia": "Licencia Pexels"
+    },
+    "libroCerrado": {
+      "archivo": "laminas/libroCerrado.mp4",
+      "tipo": "video",
+      "autor": "Oliver García",
+      "fuente": "https://www.pexels.com/video/browsing-a-book-9080219/",
+      "licencia": "Licencia Pexels"
+    },
+    "maestra": {
+      "archivo": "laminas/maestra.mp4",
+      "tipo": "video",
+      "autor": "Katerina Holmes",
+      "fuente": "https://www.pexels.com/video/woman-teaching-student-5904539/",
+      "licencia": "Licencia Pexels"
+    },
+    "matematicas": {
+      "archivo": "laminas/matematicas.mp4",
+      "tipo": "video",
+      "autor": "Pavel Danilyuk",
+      "fuente": "https://www.pexels.com/video/writing-a-mathematical-equation-5184347/",
+      "licencia": "Licencia Pexels"
+    },
+    "pesas": {
+      "archivo": "laminas/pesas.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/man-practicing-weight-lifting-5837806/",
+      "licencia": "Licencia Pexels"
+    },
+    "pizarra": {
+      "archivo": "laminas/pizarra.mp4",
+      "tipo": "video",
+      "autor": "Monstera Production",
+      "fuente": "https://www.pexels.com/video/close-up-vide-of-children-solving-math-problems-5266005/",
+      "licencia": "Licencia Pexels"
+    },
+    "pizarra2": {
+      "archivo": "laminas/pizarra2.mp4",
+      "tipo": "video",
+      "autor": "Vanessa Garcia",
+      "fuente": "https://www.pexels.com/video/a-teacher-explaining-a-drawing-6325289/",
+      "licencia": "Licencia Pexels"
+    },
+    "planEstudio": {
+      "archivo": "laminas/planEstudio.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-woman-using-her-laptop-and-taking-notes-7596680/",
+      "licencia": "Licencia Pexels"
+    },
+    "pregunta": {
+      "archivo": "laminas/pregunta.mp4",
+      "tipo": "video",
+      "autor": "Monstera Production",
+      "fuente": "https://www.pexels.com/video/animated-video-of-moving-question-marks-5839090/",
+      "licencia": "Licencia Pexels"
+    },
+    "subrayar": {
+      "archivo": "laminas/subrayar.mp4",
+      "tipo": "video",
+      "autor": "ArtHouse Studio",
+      "fuente": "https://www.pexels.com/video/person-highlighting-text-on-paperwork-8257361/",
+      "licencia": "Licencia Pexels"
+    },
+    "temporizador": {
+      "archivo": "laminas/temporizador.mp4",
+      "tipo": "video",
+      "autor": "Artem Podrez",
+      "fuente": "https://www.pexels.com/video/close-up-footage-of-a-pink-sandglass-6782206/",
+      "licencia": "Licencia Pexels"
+    },
+    "ebbinghaus": {
+      "archivo": "laminas/ebbinghaus.webp",
+      "tipo": "foto",
+      "autor": "Unknown authorUnknown author",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Ebbinghaus2.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "reloj": {
+      "archivo": "laminas/reloj.mp4",
+      "tipo": "video",
+      "autor": "Anton Kudryashov",
+      "fuente": "https://www.pexels.com/video/close-up-on-clock-hands-moving-11267667/",
+      "licencia": "Licencia Pexels"
+    },
+    "biblioteca": {
+      "archivo": "laminas/biblioteca.mp4",
+      "tipo": "video",
+      "autor": "Yan Krukau",
+      "fuente": "https://www.pexels.com/video/a-woman-studying-at-a-library-8199318/",
+      "licencia": "Licencia Pexels"
+    },
+    "papeles": {
+      "archivo": "laminas/papeles.mp4",
+      "tipo": "video",
+      "autor": "Monstera Production",
+      "fuente": "https://www.pexels.com/video/reviewing-of-paperworks-9464473/",
+      "licencia": "Licencia Pexels"
+    },
+    "calendario": {
+      "archivo": "laminas/calendario.mp4",
+      "tipo": "video",
+      "autor": "olia danilevich",
+      "fuente": "https://www.pexels.com/video/happy-new-year-composition-6148926/",
+      "licencia": "Licencia Pexels"
+    },
+    "tarjetas": {
+      "archivo": "laminas/tarjetas.webp",
+      "tipo": "foto",
+      "autor": "Gustavo Fring",
+      "fuente": "https://www.pexels.com/photo/woman-holding-card-illustrations-7156130/",
+      "licencia": "Licencia Pexels"
+    },
+    "examen": {
+      "archivo": "laminas/examen.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/close-up-video-of-a-woman-studying-6549257/",
+      "licencia": "Licencia Pexels"
+    },
+    "lapiz": {
+      "archivo": "laminas/lapiz.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/person-laying-pencil-on-a-notepad-7744411/",
+      "licencia": "Licencia Pexels"
+    },
+    "cuaderno": {
+      "archivo": "laminas/cuaderno.mp4",
+      "tipo": "video",
+      "autor": "K",
+      "fuente": "https://www.pexels.com/video/close-up-of-woman-writing-in-journal-33350905/",
+      "licencia": "Licencia Pexels"
+    },
+    "reloj2": {
+      "archivo": "laminas/reloj2.mp4",
+      "tipo": "video",
+      "autor": "Dominiquemel16 Ramos",
+      "fuente": "https://www.pexels.com/video/three-hourglasses-on-wooden-surface-outdoors-37223250/",
+      "licencia": "Licencia Pexels"
+    },
+    "agenda": {
+      "archivo": "laminas/agenda.mp4",
+      "tipo": "video",
+      "autor": "thiago japyassu",
+      "fuente": "https://www.pexels.com/video/close-up-view-of-daily-planner-13511897/",
+      "licencia": "Licencia Pexels"
+    },
+    "pulgar": {
+      "archivo": "laminas/pulgar.mp4",
+      "tipo": "video",
+      "autor": "Kevin Malik",
+      "fuente": "https://www.pexels.com/video/a-hand-giving-a-thumbs-up-9017832/",
+      "licencia": "Licencia Pexels"
+    },
+    "nino": {
+      "archivo": "laminas/nino.mp4",
+      "tipo": "video",
+      "autor": "Mikhail Nilov",
+      "fuente": "https://www.pexels.com/video/girl-drawing-on-paper-8655659/",
+      "licencia": "Licencia Pexels"
+    },
+    "lupa": {
+      "archivo": "laminas/lupa.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/using-a-magnifying-glass-to-visually-enlarge-objects-3831743/",
+      "licencia": "Licencia Pexels"
+    },
+    "arbol": {
+      "archivo": "laminas/arbol.mp4",
+      "tipo": "video",
+      "autor": "Furkan Elveren",
+      "fuente": "https://www.pexels.com/video/a-tree-with-the-sun-shining-through-it-27410108/",
+      "licencia": "Licencia Pexels"
+    },
+    "cerebro": {
+      "archivo": "laminas/cerebro.mp4",
+      "tipo": "video",
+      "autor": "Nicola Narracci",
+      "fuente": "https://www.pexels.com/video/abstract-golden-neural-network-animation-35003022/",
+      "licencia": "Licencia Pexels"
+    },
+    "cafe": {
+      "archivo": "laminas/cafe.mp4",
+      "tipo": "video",
+      "autor": "Burak Eroglu",
+      "fuente": "https://www.pexels.com/video/cafe-ambiance-with-coffee-beans-and-latte-30981713/",
+      "licencia": "Licencia Pexels"
+    },
+    "ventana": {
+      "archivo": "laminas/ventana.mp4",
+      "tipo": "video",
+      "autor": "Liza Summer",
+      "fuente": "https://www.pexels.com/video/thoughtful-young-woman-6381261/",
+      "licencia": "Licencia Pexels"
+    },
+    "semilla": {
+      "archivo": "laminas/semilla.mp4",
+      "tipo": "video",
+      "autor": "Greta Hoffman",
+      "fuente": "https://www.pexels.com/video/a-man-planting-seeds-in-a-seedling-tray-7713884/",
+      "licencia": "Licencia Pexels"
+    },
+    "libro": {
+      "archivo": "laminas/libro.mp4",
+      "tipo": "video",
+      "autor": "Sahil Sharma",
+      "fuente": "https://www.pexels.com/video/flipping-pages-in-old-book-11384843/",
+      "licencia": "Licencia Pexels"
+    },
+    "brote": {
+      "archivo": "laminas/brote.mp4",
+      "tipo": "video",
+      "autor": "thetopwebsites .ga",
+      "fuente": "https://www.pexels.com/video/time-lapse-of-growing-plant-6596225/",
+      "licencia": "Licencia Pexels"
+    },
+    "tropiezo": {
+      "archivo": "laminas/tropiezo.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-child-walking-uphill-6133543/",
+      "licencia": "Licencia Pexels"
+    },
+    "escalon": {
+      "archivo": "laminas/escalon.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/man-running-up-the-stairs-7876928/",
+      "licencia": "Licencia Pexels"
+    },
+    "cumbre": {
+      "archivo": "laminas/cumbre.mp4",
+      "tipo": "video",
+      "autor": "Canan İldeniz",
+      "fuente": "https://www.pexels.com/video/group-of-hikers-celebrating-on-mountain-peak-38242686/",
+      "licencia": "Licencia Pexels"
+    },
+    "app-plan": {
+      "archivo": "laminas/app-plan.{idioma}.mp4",
+      "tipo": "video",
+      "autor": "MindHaOS",
+      "fuente": "https://app.mindhaos.com",
+      "credito": ""
+    }
+  }
+}

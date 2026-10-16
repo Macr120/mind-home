@@ -1,0 +1,409 @@
+{
+  "idioma": "de",
+  "tema": "aprender",
+  "plantillaId": "biblioteca",
+  "numero": 12,
+  "nombre": "Lernen",
+  "pregunta": "Wie lernst du schneller?",
+  "corta": "Schneller lernen",
+  "subtitulo": "Warum du vergisst, was du lernst, welche Techniken wirklich funktionieren, warum dich selbst abzufragen mehr bringt als nochmal zu lesen, wann du wiederholen solltest, wie du verstehst statt auswendig zu lernen, was der Schlaf mit dem Gelernten macht und ein Plan, um weiterzulernen.",
+  "aviso": "Dieser Leitfaden dient der Information: Die genannten Zahlen und Studien sind Näherungswerte ihrer Quellen, und jeder Mensch lernt in seinem eigenen Tempo. Wenn dich Lern- oder Aufmerksamkeitsschwierigkeiten beunruhigen, sprich mit einer Fachperson darüber.",
+  "partes": [
+    {
+      "id": "olvido",
+      "titulo": "Warum vergisst du, was du lernst?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": { "tipo": "titulo" },
+          "enCasa": true,
+          "texto": "Wie lernst du schneller? Die meisten lernen, indem sie nochmal lesen und unterstreichen, und genau das sind mit die Techniken, die am wenigsten bringen. Heute siehst du, welche wirklich funktionieren, und warum die, die sich am Prüfungstag am schlechtesten anfühlt, eine Woche später gewinnt."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "enCasa": true,
+          "texto": "Übrigens, das ist mein Haus in MindHaOS, und das ist meine Bibliothek."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Teil eins. Warum vergisst du, was du lernst?"
+        },
+        {
+          "id": "ebbinghaus",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": { "tipo": "grafica", "grafica": "ebbinghaus" },
+          "lamina": ["ebbinghaus", "reloj"],
+          "texto": "Im Jahr 1885 lernte der Deutsche Hermann Ebbinghaus Tausende sinnlose Silben auswendig und maß, wie viel er vergaß. Nach einer Stunde hatte er schon mehr als die Hälfte verloren, danach wurde das Vergessen langsamer. Was du nicht wieder benutzt, ist schnell weg."
+        },
+        {
+          "id": "fluidez",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "84 %", "clave": "fluidez" },
+          "lamina": ["apuntes", "subrayar"],
+          "texto": "Und wir tappen in eine Falle. 2009 fragte Jeffrey Karpicke Studierende, wie sie lernen: Die große Mehrheit las einfach ihre Notizen nochmal. Wiederlesen fühlt sich gut an, weil dir der Text bekannt vorkommt, aber dass dir etwas bekannt vorkommt, heißt nicht, dass du es weißt.",
+          "meme": "releer"
+        },
+        {
+          "id": "estantes",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["leer", "cerrar", "recordar"] },
+          "enCasa": true,
+          "lamina": "estantes",
+          "texto": "Deshalb bewahre ich in meiner Bibliothek nicht nur auf, was ich lese: Ich hole es zuerst aus dem Gedächtnis, bevor ich das Buch öffne."
+        }
+      ]
+    },
+    {
+      "id": "tecnicas",
+      "titulo": "Welche Techniken funktionieren wirklich?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Teil zwei. Welche Techniken funktionieren wirklich?"
+        },
+        {
+          "id": "dunlosky",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "tecnicas" },
+          "lamina": ["biblioteca", "papeles"],
+          "texto": "2013 werteten John Dunlosky und sein Team Hunderte Studien zu zehn Lerntechniken aus und gaben ihnen Noten. Nur zwei bekamen die Bestnote: dich selbst abfragen und das Lernen über die Zeit verteilen. Unterstreichen, nochmal lesen und Zusammenfassungen schreiben landeten ganz unten."
+        },
+        {
+          "id": "esfuerzo",
+          "escena": "pensando",
+          "visual": { "tipo": "lista", "claves": ["facil", "dificil", "deseable"] },
+          "lamina": ["pesas", "escalar"],
+          "texto": "Warum fühlen sich die Techniken, die funktionieren, schwerer an? Der Psychologe Robert Bjork nennt sie wünschenswerte Erschwernisse: Die Mühe des Erinnerns ist genau das, was die Erinnerung festigt, wie das Gewicht, das den Muskel wachsen lässt.",
+          "meme": "subrayar"
+        },
+        {
+          "id": "dos",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["prueba", "repartir", "mezclar"] },
+          "lamina": ["calendario", "tarjetas"],
+          "texto": "Im Rest des Leitfadens geht es also um drei Dinge: dich abfragen, verteilen und mischen. Und in Teil fünf um einen Trick guter Lehrkräfte, mit dem du wirklich verstehst."
+        },
+        {
+          "id": "sabio",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["pregunto", "respondo", "entrada"] },
+          "enCasa": true,
+          "mencion": true,
+          "lamina": "conversar",
+          "texto": "Hier bitte ich den Weisen meiner Bibliothek, der mit künstlicher Intelligenz arbeitet, mir Fragen zu dem zu stellen, was ich gelesen habe, und was ich lerne, wird in meiner Enzyklopädie gespeichert."
+        }
+      ]
+    },
+    {
+      "id": "prueba",
+      "titulo": "Warum bringt es mehr, dich abzufragen, als nochmal zu lesen?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Teil drei. Warum bringt es mehr, dich abzufragen, als nochmal zu lesen?"
+        },
+        {
+          "id": "roediger",
+          "destacada": true,
+          "escena": "senala",
+          "visual": { "tipo": "herramienta", "herramienta": "releerProbar" },
+          "lamina": ["examen", "lapiz"],
+          "texto": "Hier ist, was ich dir versprochen habe. 2006 gaben Henry Roediger und Jeffrey Karpicke Studierenden einen Text. Die einen lasen ihn viermal; die anderen lasen ihn einmal und versuchten dann dreimal, aus dem Gedächtnis aufzuschreiben, woran sie sich erinnerten. Fünf Minuten später lagen die Wiederleser vorn. Aber eine Woche später erinnerten sich die, die sich abgefragt hatten, an einundsechzig Prozent, gegenüber vierzig."
+        },
+        {
+          "id": "recuperar",
+          "escena": "habla",
+          "visual": { "tipo": "pasos", "claves": ["cierra", "escribe", "compara"] },
+          "lamina": ["cuaderno", "hoja"],
+          "texto": "Dich abzufragen heißt nicht nur, Prüfungen zu schreiben. Es reicht, das Buch zu schließen, alles aufzuschreiben oder laut zu sagen, woran du dich erinnerst, und dann mit dem Text zu vergleichen, um zu sehen, was dir gefehlt hat."
+        },
+        {
+          "id": "errores",
+          "escena": "pensando",
+          "visual": { "tipo": "dato", "cifra": "+", "clave": "errores" },
+          "lamina": ["borrar", "pregunta"],
+          "texto": "Und auch Fehler helfen. Wenn du versuchst zu antworten, bevor du die Antwort kennst, und sie dann siehst, merkst du sie dir besser, als wenn du sie nur gelesen hättest. Der Fehler markiert den Platz, an dem sie gespeichert wird."
+        },
+        {
+          "id": "recordar",
+          "escena": "senala",
+          "visual": { "tipo": "herramienta", "herramienta": "recordar" },
+          "enCasa": true,
+          "lamina": "libroCerrado",
+          "texto": "Ich mache es so: Ich lese eine Weile, schließe das Buch und erzähle dem Weisen, was ich verstanden habe. Er sagt mir, was mir entgangen ist."
+        }
+      ]
+    },
+    {
+      "id": "repasar",
+      "titulo": "Wann solltest du wiederholen, um nicht zu vergessen?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Teil vier. Wann solltest du wiederholen, um nicht zu vergessen?"
+        },
+        {
+          "id": "espaciar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "repasos" },
+          "lamina": ["calendario", "reloj2"],
+          "texto": "Alles in der Nacht davor zu lernen, funktioniert für die Prüfung morgen, und ist sofort wieder vergessen. 2006 wertete Nicholas Cepeda mehr als dreihundert Experimente aus: Bei gleicher Lernzeit gewinnt das Verteilen auf mehrere Tage fast immer gegen das Lernen an einem Stück.",
+          "meme": "nocheAntes"
+        },
+        {
+          "id": "intervalo",
+          "escena": "pensando",
+          "visual": { "tipo": "dato", "cifra": "≈ 3 Wo.", "clave": "intervalo" },
+          "lamina": ["agenda", "hojas"],
+          "texto": "Wie oft? Das hängt davon ab, wie lange du es behalten willst. 2008 begleitete dasselbe Team mehr als tausend Menschen: Um sich ein Jahr später an etwas zu erinnern, war es am besten, etwa drei Wochen nach dem Lernen zu wiederholen. Eine einfache Regel: Wiederhole am nächsten Tag, nach einer Woche und nach einem Monat."
+        },
+        {
+          "id": "mezclar",
+          "escena": "senala",
+          "visual": { "tipo": "herramienta", "herramienta": "mezclar" },
+          "lamina": ["matematicas", "pizarra"],
+          "texto": "Und misch die Themen. 2007 ließen Doug Rohrer und Kelli Taylor Studierende Matheaufgaben üben, in Blöcken oder gemischt. Eine Woche später lösten die, die gemischt hatten, dreiundsechzig Prozent richtig; die mit Blöcken zwanzig."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": { "tipo": "herramienta", "herramienta": "gusta" },
+          "lamina": "pulgar",
+          "texto": "Wenn dir der Leitfaden gefällt, klick auf Mag ich, Abonnieren und Teilen."
+        },
+        {
+          "id": "plan",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["dias", "minutos", "calendario"] },
+          "enCasa": true,
+          "mencion": true,
+          "lamina": "planEstudio",
+          "texto": "In meinem Haus erstelle ich einen Lernplan, allein oder mit Hilfe der künstlichen Intelligenz, und meine Wiederholungen erscheinen im Kalender."
+        }
+      ]
+    },
+    {
+      "id": "entender",
+      "titulo": "Wie verstehst du, statt auswendig zu lernen?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Teil fünf. Wie verstehst du, statt auswendig zu lernen?"
+        },
+        {
+          "id": "ensenar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "explicalo" },
+          "lamina": ["maestra", "alumnos"],
+          "texto": "Das ist der Trick guter Lehrkräfte: Lerne so, als müsstest du es unterrichten. 2014 bat John Nestojko eine Gruppe, einen Text zu lesen, in dem Glauben, ihn danach anderen erklären zu müssen. Obwohl sie ihn nie erklärten, erinnerten sie sich an mehr, und besser geordnet, als die, die nur eine Prüfung erwarteten."
+        },
+        {
+          "id": "porque",
+          "escena": "pensando",
+          "visual": { "tipo": "pasos", "claves": ["porque", "como", "ejemplo"] },
+          "lamina": ["nino", "lupa"],
+          "texto": "Frag dich, warum. Michelene Chi sah, dass Studierende, die sich jeden Schritt eines Textes selbst erklärten, viel mehr verstanden als die, die ihn nur zweimal lasen. Warum passiert das? Wie hängt das mit dem zusammen, was ich schon weiß? Welches Beispiel fällt mir dazu ein?",
+          "meme": "porque"
+        },
+        {
+          "id": "sencillo",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["sencillo", "huecos", "volver"] },
+          "lamina": ["pizarra2", "idea"],
+          "texto": "Und erklär es einfach, wie einem zwölfjährigen Kind. Wo du hängen bleibst oder komplizierte Wörter benutzt, um dich herauszuwinden, steckt das, was du noch nicht verstehst. Geh nur für diesen Teil zurück zum Text."
+        },
+        {
+          "id": "arbol",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["semilla", "ramas", "hojas"] },
+          "enCasa": true,
+          "lamina": "arbol",
+          "texto": "Meine Enzyklopädie ist ein Baum: Jedes neue Thema hängt an dem, was ich schon weiß, und zu sehen, wie alles zusammenhängt, hilft mir zu verstehen."
+        }
+      ]
+    },
+    {
+      "id": "dormir",
+      "titulo": "Was macht der Schlaf mit dem, was du lernst?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Teil sechs. Was macht der Schlaf mit dem, was du lernst?"
+        },
+        {
+          "id": "gais",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "sueno" },
+          "lamina": ["dormir", "cerebro"],
+          "texto": "Während du schläfst, wiederholt dein Gehirn, was du gelernt hast, und speichert es besser. 2006 brachte Steffen Gais Studierenden Vokabeln bei: Wer wenige Stunden nach dem Lernen schlafen ging, erinnerte sich an mehr, sogar Tage später, als wer wach blieb."
+        },
+        {
+          "id": "desvelo",
+          "escena": "pensando",
+          "visual": { "tipo": "lista", "claves": ["noche", "antes", "despues"] },
+          "lamina": ["desvelo", "cafe"],
+          "texto": "Deshalb kommt dich die Nacht durchzulernen teuer zu stehen: Du nimmst deinem Gedächtnis genau die Zeit, in der es den Tag speichert. Besser lernen, schlafen und nach dem Aufwachen wiederholen."
+        },
+        {
+          "id": "sesiones",
+          "escena": "habla",
+          "visual": { "tipo": "pasos", "claves": ["bloque", "pausa", "repite"] },
+          "lamina": ["temporizador", "ventana"],
+          "texto": "Und tagsüber kurze Einheiten mit Pausen: fünfundzwanzig oder fünfundvierzig Minuten volle Aufmerksamkeit, ohne das Handy in Sichtweite, bringen mehr als drei Stunden mit halbem Kopf."
+        },
+        {
+          "id": "estudio",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["quince", "veinticinco", "cuarenta"] },
+          "enCasa": true,
+          "lamina": "temporizador",
+          "texto": "Hier stelle ich meinen Lerntimer auf fünfzehn, fünfundzwanzig oder fünfundvierzig Minuten, und jede Einheit landet auf meiner Lern-Heatmap."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Wie geht es weiter? Dein Plan, um dranzubleiben",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Teil sieben. Wie geht es weiter? Dein Plan, um dranzubleiben."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": { "tipo": "grafica", "grafica": "planContinuar" },
+          "lamina": ["semilla", "libro"],
+          "texto": "In der ersten Woche wählst du ein einziges Thema. Lern fünfundzwanzig Minuten, schließ das Buch und schreib alles auf, woran du dich erinnerst. Am nächsten Tag versuchst du es, bevor du weitermachst, noch einmal, ohne hinzuschauen."
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "planRepasos" },
+          "lamina": ["brote", "calendario2"],
+          "texto": "Im ersten Monat planst du deine Wiederholungen ein: am nächsten Tag, nach einer Woche und nach einem Monat, und in jeder Einheit mischst du die Themen. Schau, wie drei gut verteilte Einheiten mehr behalten lassen als ein einziger Marathon mit derselben Zeit."
+        },
+        {
+          "id": "fallar",
+          "escena": "pensando",
+          "visual": { "tipo": "pasos", "claves": ["olvidar", "medir", "volver"] },
+          "lamina": ["tropiezo", "escalon"],
+          "texto": "Und wenn du etwas vergisst, lass dich nicht entmutigen: Ein bisschen vergessen und es wieder abrufen ist genau das, was es festigt. Um deinen Fortschritt zu messen, zähl nicht die Stunden: Zähl, wie viel du ohne Nachschauen weißt."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": { "tipo": "lista", "claves": ["resumen1", "resumen2", "resumen3", "resumen4"] },
+          "lamina": "cumbre",
+          "texto": "Kurz gesagt: Wiederlesen täuscht, Abfragen lehrt; verteil und misch deine Wiederholungen; erklär es, als müsstest du es unterrichten; und schlaf gut, denn dabei wird das Gelernte gespeichert."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "In der Bibliothek von MindHaOS kannst du dich mit einem Weisen unterhalten, der dir Fragen stellt, in deiner Enzyklopädie speichern, was du lernst, und mit einem Timer und einem Plan lernen, allein oder mit Hilfe der künstlichen Intelligenz. Bau dir heute kostenlos dein mentales Haus: Der Link ist in der Beschreibung. Und im nächsten Leitfaden: Was ist die Sprache des Universums?",
+    "boton": "Bibliothek öffnen",
+    "lamina": "app-plan",
+    "anclas": {
+      "conversar": "mit einem Weisen unterhalten",
+      "enciclopedia": "in deiner Enzyklopädie",
+      "estudiar": "mit einem Timer"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "ebbinghaus-1885",
+      "texto": "Ebbinghaus H. Über das Gedächtnis: Untersuchungen zur experimentellen Psychologie (1885). Englische Übersetzung: Memory: A Contribution to Experimental Psychology (1913).",
+      "url": "https://psychclassics.yorku.ca/Ebbinghaus/index.htm"
+    },
+    {
+      "id": "karpicke-2009",
+      "texto": "Karpicke J. D., Butler A. C., Roediger H. L. Metacognitive strategies in student learning: Do students practise retrieval when they study on their own? Memory (2009).",
+      "url": "https://doi.org/10.1080/09658210802647009"
+    },
+    {
+      "id": "dunlosky-2013",
+      "texto": "Dunlosky J. et al. Improving students' learning with effective learning techniques: Promising directions from cognitive and educational psychology. Psychological Science in the Public Interest (2013).",
+      "url": "https://doi.org/10.1177/1529100612453266"
+    },
+    {
+      "id": "bjork-1994",
+      "texto": "Bjork R. A. Memory and metamemory considerations in the training of human beings. In Metcalfe J., Shimamura A. (Hrsg.), Metacognition: Knowing about knowing (1994).",
+      "url": "https://bjorklab.psych.ucla.edu/research/"
+    },
+    {
+      "id": "roediger-2006",
+      "texto": "Roediger H. L., Karpicke J. D. Test-enhanced learning: Taking memory tests improves long-term retention. Psychological Science (2006).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x"
+    },
+    {
+      "id": "kornell-2009",
+      "texto": "Kornell N., Hays M. J., Bjork R. A. Unsuccessful retrieval attempts enhance subsequent learning. Journal of Experimental Psychology: Learning, Memory, and Cognition (2009).",
+      "url": "https://doi.org/10.1037/a0015729"
+    },
+    {
+      "id": "cepeda-2006",
+      "texto": "Cepeda N. J. et al. Distributed practice in verbal recall tasks: A review and quantitative synthesis. Psychological Bulletin (2006).",
+      "url": "https://doi.org/10.1037/0033-2909.132.3.354"
+    },
+    {
+      "id": "cepeda-2008",
+      "texto": "Cepeda N. J. et al. Spacing effects in learning: A temporal ridgeline of optimal retention. Psychological Science (2008).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2008.02209.x"
+    },
+    {
+      "id": "rohrer-2007",
+      "texto": "Rohrer D., Taylor K. The shuffling of mathematics problems improves learning. Instructional Science (2007).",
+      "url": "https://doi.org/10.1007/s11251-007-9015-8"
+    },
+    {
+      "id": "nestojko-2014",
+      "texto": "Nestojko J. F. et al. Expecting to teach enhances learning and organization of knowledge in free recall of text passages. Memory & Cognition (2014).",
+      "url": "https://doi.org/10.3758/s13421-014-0416-z"
+    },
+    {
+      "id": "chi-1994",
+      "texto": "Chi M. T. H. et al. Eliciting self-explanations improves understanding. Cognitive Science (1994).",
+      "url": "https://doi.org/10.1207/s15516709cog1803_3"
+    },
+    {
+      "id": "gais-2006",
+      "texto": "Gais S., Lucas B., Born J. Sleep after learning aids memory recall. Learning & Memory (2006).",
+      "url": "https://doi.org/10.1101/lm.132106"
+    }
+  ]
+}

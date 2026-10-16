@@ -1,0 +1,631 @@
+{
+  "idioma": "en",
+  "tema": "aprender",
+  "plantillaId": "biblioteca",
+  "numero": 12,
+  "nombre": "Learning",
+  "pregunta": "How do you learn faster?",
+  "corta": "Learn faster",
+  "subtitulo": "Why you forget what you study, which techniques really work, why testing yourself beats rereading, when to review, how to understand instead of memorizing, what sleep does with what you learn, and a plan to keep learning.",
+  "aviso": "This guide is for information only: the figures and studies cited are approximations from their sources, and everyone learns at their own pace. If you have learning or attention difficulties that worry you, talk to a specialist.",
+  "partes": [
+    {
+      "id": "olvido",
+      "titulo": "Why do you forget what you study?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "How do you learn faster? Most people study by rereading and highlighting, and those are among the least useful techniques. Today you’ll see the ones that really work, and why the one that seems worst on exam day is the one that wins a week later."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "By the way, this is my house in MindHaOS, and this is my library."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part one. Why do you forget what you study?"
+        },
+        {
+          "id": "ebbinghaus",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ebbinghaus"
+          },
+          "lamina": [
+            "ebbinghaus",
+            "reloj"
+          ],
+          "texto": "In 1885, the German Hermann Ebbinghaus memorized thousands of nonsense syllables and measured how much he forgot. Within an hour he had already lost more than half, and then the forgetting slowed down. What you don’t use again goes fast."
+        },
+        {
+          "id": "fluidez",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "84%",
+            "clave": "fluidez"
+          },
+          "lamina": [
+            "apuntes",
+            "subrayar"
+          ],
+          "texto": "And we fall into a trap. In 2009, Jeffrey Karpicke asked college students how they studied: the vast majority reread their notes. Rereading feels good because the text seems familiar, but something seeming familiar doesn’t mean you know it.",
+          "meme": "releer"
+        },
+        {
+          "id": "estantes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leer",
+              "cerrar",
+              "recordar"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "estantes",
+          "texto": "That’s why in my library I don’t just keep what I read: I search my memory for it before opening the book again."
+        }
+      ]
+    },
+    {
+      "id": "tecnicas",
+      "titulo": "Which techniques really work?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part two. Which techniques really work?"
+        },
+        {
+          "id": "dunlosky",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tecnicas"
+          },
+          "lamina": [
+            "biblioteca",
+            "papeles"
+          ],
+          "texto": "In 2013, John Dunlosky and his team reviewed hundreds of studies on ten study techniques and graded them. Only two got the top grade: testing yourself and spacing out your study over time. Highlighting, rereading and summarizing ended up at the bottom."
+        },
+        {
+          "id": "esfuerzo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "facil",
+              "dificil",
+              "deseable"
+            ]
+          },
+          "lamina": [
+            "pesas",
+            "escalar"
+          ],
+          "texto": "Why do the ones that work feel harder? The psychologist Robert Bjork calls them desirable difficulties: the effort of remembering is exactly what makes the memory stick, like the weight that makes a muscle grow.",
+          "meme": "subrayar"
+        },
+        {
+          "id": "dos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "prueba",
+              "repartir",
+              "mezclar"
+            ]
+          },
+          "lamina": [
+            "calendario",
+            "tarjetas"
+          ],
+          "texto": "So the rest of the guide is about three things: testing yourself, spacing and mixing. And in part five, a trick that good teachers use to truly understand."
+        },
+        {
+          "id": "sabio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunto",
+              "respondo",
+              "entrada"
+            ]
+          },
+          "enCasa": true,
+          "mencion": true,
+          "lamina": "conversar",
+          "texto": "Here I ask the Sage in my library, who runs on artificial intelligence, to quiz me on what I read, and what I learn is saved in my encyclopedia."
+        }
+      ]
+    },
+    {
+      "id": "prueba",
+      "titulo": "Why does testing yourself beat rereading?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part three. Why does testing yourself beat rereading?"
+        },
+        {
+          "id": "roediger",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "releerProbar"
+          },
+          "lamina": [
+            "examen",
+            "lapiz"
+          ],
+          "texto": "Here’s what I promised you. In 2006, Henry Roediger and Jeffrey Karpicke gave students a text. Some read it four times; others read it once and then tried to write down from memory what they remembered, three times. Five minutes later, the rereaders were ahead. But a week later, the ones who tested themselves remembered sixty-one percent, against forty."
+        },
+        {
+          "id": "recuperar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cierra",
+              "escribe",
+              "compara"
+            ]
+          },
+          "lamina": [
+            "cuaderno",
+            "hoja"
+          ],
+          "texto": "Testing yourself isn’t just taking exams. All you need is to close the book, write down or say out loud everything you remember, and then compare with the text to see what you missed."
+        },
+        {
+          "id": "errores",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+",
+            "clave": "errores"
+          },
+          "lamina": [
+            "borrar",
+            "pregunta"
+          ],
+          "texto": "And getting it wrong helps too. When you try to answer before you know the answer and then see it, you remember it better than if you had only read it. The mistake marks the spot where it gets stored."
+        },
+        {
+          "id": "recordar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "recordar"
+          },
+          "enCasa": true,
+          "lamina": "libroCerrado",
+          "texto": "This is how I do it: I read for a while, close the book, and tell the Sage what I understood. He tells me what I missed."
+        }
+      ]
+    },
+    {
+      "id": "repasar",
+      "titulo": "When should you review so you don’t forget?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part four. When should you review so you don’t forget?"
+        },
+        {
+          "id": "espaciar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "repasos"
+          },
+          "lamina": [
+            "calendario",
+            "reloj2"
+          ],
+          "texto": "Cramming the night before works for tomorrow’s exam, and then it’s gone right away. In 2006, Nicholas Cepeda reviewed more than three hundred experiments: with the same study time, spreading it over several days almost always beats packing it into one.",
+          "meme": "nocheAntes"
+        },
+        {
+          "id": "intervalo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 3 wk",
+            "clave": "intervalo"
+          },
+          "lamina": [
+            "agenda",
+            "hojas"
+          ],
+          "texto": "How often? It depends on how long you want to remember it. In 2008, the same team followed more than a thousand people: to remember something a year later, the best was to review about three weeks after learning it. A practical rule: review the next day, after a week and after a month."
+        },
+        {
+          "id": "mezclar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezclar"
+          },
+          "lamina": [
+            "matematicas",
+            "pizarra"
+          ],
+          "texto": "And mix up your topics. In 2007, Doug Rohrer and Kelli Taylor had students practice math problems in blocks or mixed together. A week later, those who mixed got sixty-three percent right; the block group, twenty."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "If you’re enjoying the guide, hit like, subscribe and share."
+        },
+        {
+          "id": "plan",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dias",
+              "minutos",
+              "calendario"
+            ]
+          },
+          "enCasa": true,
+          "mencion": true,
+          "lamina": "planEstudio",
+          "texto": "In my house I put together a study plan, on my own or with help from artificial intelligence, and my reviews show up on the calendar."
+        }
+      ]
+    },
+    {
+      "id": "entender",
+      "titulo": "How do you understand instead of memorizing?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part five. How do you understand instead of memorizing?"
+        },
+        {
+          "id": "ensenar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "explicalo"
+          },
+          "lamina": [
+            "maestra",
+            "alumnos"
+          ],
+          "texto": "This is the trick good teachers use: learn as if you were going to teach it. In 2014, John Nestojko asked a group to read a text thinking they would later have to explain it to others. Even though they never explained it, they remembered more, and in a better order, than those who only expected a test."
+        },
+        {
+          "id": "porque",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porque",
+              "como",
+              "ejemplo"
+            ]
+          },
+          "lamina": [
+            "nino",
+            "lupa"
+          ],
+          "texto": "Ask yourself why. Michelene Chi saw that students who explained each step of a text to themselves understood much more than those who just read it twice. Why does this happen? How does it connect to what I already know? What example can I think of?",
+          "meme": "porque"
+        },
+        {
+          "id": "sencillo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "sencillo",
+              "huecos",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "pizarra2",
+            "idea"
+          ],
+          "texto": "And explain it simply, as if to a twelve-year-old. Wherever you get stuck or use fancy words to get by, that’s what you still don’t understand. Go back to the text just for that part."
+        },
+        {
+          "id": "arbol",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "semilla",
+              "ramas",
+              "hojas"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "arbol",
+          "texto": "My encyclopedia is a tree: each new topic hangs from what I already know, and seeing how they connect helps me understand."
+        }
+      ]
+    },
+    {
+      "id": "dormir",
+      "titulo": "What does sleep do with what you learn?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part six. What does sleep do with what you learn?"
+        },
+        {
+          "id": "gais",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "sueno"
+          },
+          "lamina": [
+            "dormir",
+            "cerebro"
+          ],
+          "texto": "While you sleep, your brain goes over what you learned and stores it better. In 2006, Steffen Gais taught vocabulary to students: those who fell asleep a few hours after learning it remembered more, even days later, than those who stayed awake."
+        },
+        {
+          "id": "desvelo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "noche",
+              "antes",
+              "despues"
+            ]
+          },
+          "lamina": [
+            "desvelo",
+            "cafe"
+          ],
+          "texto": "That’s why staying up late to study costs you: you take away from your memory the very time when it stores what you learned that day. Better to study, sleep, and review when you wake up."
+        },
+        {
+          "id": "sesiones",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloque",
+              "pausa",
+              "repite"
+            ]
+          },
+          "lamina": [
+            "temporizador",
+            "ventana"
+          ],
+          "texto": "And during the day, short sessions with breaks: twenty-five or forty-five minutes of full attention, with your phone out of sight, are worth more than three half-hearted hours."
+        },
+        {
+          "id": "estudio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quince",
+              "veinticinco",
+              "cuarenta"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "temporizador",
+          "texto": "Here I set my study timer, for fifteen, twenty-five or forty-five minutes, and each session adds to my study map."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "How do you keep going? Your plan to continue",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part seven. How do you keep going? Your plan to continue."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "libro"
+          ],
+          "texto": "The first week, choose just one topic. Study for twenty-five minutes, close the book and write down everything you remember. The next day, before moving on, try again without looking."
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "planRepasos"
+          },
+          "lamina": [
+            "brote",
+            "calendario2"
+          ],
+          "texto": "The first month, schedule your reviews: the next day, after a week and after a month, and mix topics in each session. See how three well-spaced sessions remember more than a single marathon of the same length."
+        },
+        {
+          "id": "fallar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "olvidar",
+              "medir",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "escalon"
+          ],
+          "texto": "And when you forget something, don’t get discouraged: forgetting a little and remembering it again is exactly what makes it stick. To measure your progress, don’t count the hours: count how much you remember without looking."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "In short: rereading fools you, testing yourself teaches you; space out and mix your reviews; explain it as if you were going to teach it; and sleep well, because that’s when what you learned gets stored."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "In the MindHaOS Library you can chat with a Sage who asks you questions, save what you learn in your encyclopedia, and study with a timer and a plan, on your own or with help from artificial intelligence. Build your mental house for free today: the link is in the description. And in the next guide: what is the language of the universe?",
+    "boton": "Open the Library",
+    "lamina": "app-plan",
+    "anclas": {
+      "conversar": "chat with a Sage",
+      "enciclopedia": "in your encyclopedia",
+      "estudiar": "study with a timer"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "ebbinghaus-1885",
+      "texto": "Ebbinghaus H. Über das Gedächtnis: Untersuchungen zur experimentellen Psychologie (1885). English translation: Memory: A Contribution to Experimental Psychology (1913).",
+      "url": "https://psychclassics.yorku.ca/Ebbinghaus/index.htm"
+    },
+    {
+      "id": "karpicke-2009",
+      "texto": "Karpicke J. D., Butler A. C., Roediger H. L. Metacognitive strategies in student learning: Do students practise retrieval when they study on their own? Memory (2009).",
+      "url": "https://doi.org/10.1080/09658210802647009"
+    },
+    {
+      "id": "dunlosky-2013",
+      "texto": "Dunlosky J. et al. Improving students' learning with effective learning techniques: Promising directions from cognitive and educational psychology. Psychological Science in the Public Interest (2013).",
+      "url": "https://doi.org/10.1177/1529100612453266"
+    },
+    {
+      "id": "bjork-1994",
+      "texto": "Bjork R. A. Memory and metamemory considerations in the training of human beings. In Metcalfe J., Shimamura A. (eds.), Metacognition: Knowing about knowing (1994).",
+      "url": "https://bjorklab.psych.ucla.edu/research/"
+    },
+    {
+      "id": "roediger-2006",
+      "texto": "Roediger H. L., Karpicke J. D. Test-enhanced learning: Taking memory tests improves long-term retention. Psychological Science (2006).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x"
+    },
+    {
+      "id": "kornell-2009",
+      "texto": "Kornell N., Hays M. J., Bjork R. A. Unsuccessful retrieval attempts enhance subsequent learning. Journal of Experimental Psychology: Learning, Memory, and Cognition (2009).",
+      "url": "https://doi.org/10.1037/a0015729"
+    },
+    {
+      "id": "cepeda-2006",
+      "texto": "Cepeda N. J. et al. Distributed practice in verbal recall tasks: A review and quantitative synthesis. Psychological Bulletin (2006).",
+      "url": "https://doi.org/10.1037/0033-2909.132.3.354"
+    },
+    {
+      "id": "cepeda-2008",
+      "texto": "Cepeda N. J. et al. Spacing effects in learning: A temporal ridgeline of optimal retention. Psychological Science (2008).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2008.02209.x"
+    },
+    {
+      "id": "rohrer-2007",
+      "texto": "Rohrer D., Taylor K. The shuffling of mathematics problems improves learning. Instructional Science (2007).",
+      "url": "https://doi.org/10.1007/s11251-007-9015-8"
+    },
+    {
+      "id": "nestojko-2014",
+      "texto": "Nestojko J. F. et al. Expecting to teach enhances learning and organization of knowledge in free recall of text passages. Memory & Cognition (2014).",
+      "url": "https://doi.org/10.3758/s13421-014-0416-z"
+    },
+    {
+      "id": "chi-1994",
+      "texto": "Chi M. T. H. et al. Eliciting self-explanations improves understanding. Cognitive Science (1994).",
+      "url": "https://doi.org/10.1207/s15516709cog1803_3"
+    },
+    {
+      "id": "gais-2006",
+      "texto": "Gais S., Lucas B., Born J. Sleep after learning aids memory recall. Learning & Memory (2006).",
+      "url": "https://doi.org/10.1101/lm.132106"
+    }
+  ]
+}

@@ -1,0 +1,631 @@
+{
+  "idioma": "hi",
+  "tema": "aprender",
+  "plantillaId": "biblioteca",
+  "numero": 12,
+  "nombre": "सीखना",
+  "pregunta": "तेज़ी से कैसे सीखें?",
+  "corta": "तेज़ी से सीखें",
+  "subtitulo": "आप जो पढ़ते हैं वह क्यों भूल जाते हैं, कौन-सी तकनीकें सच में काम करती हैं, ख़ुद को परखना दोबारा पढ़ने से बेहतर क्यों है, कब दोहराएँ, रटने के बजाय कैसे समझें, नींद आपकी सीखी बातों के साथ क्या करती है, और सीखते रहने की एक योजना।",
+  "aviso": "यह गाइड केवल जानकारी के लिए है: बताए गए आँकड़े और अध्ययन अपने स्रोतों के अनुमान हैं, और हर व्यक्ति अपनी रफ़्तार से सीखता है। अगर सीखने या ध्यान लगाने में ऐसी कठिनाइयाँ हैं जो आपको चिंतित करती हैं, तो किसी विशेषज्ञ से सलाह लें।",
+  "partes": [
+    {
+      "id": "olvido",
+      "titulo": "आप जो पढ़ते हैं, वह क्यों भूल जाते हैं?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "तेज़ी से कैसे सीखें? ज़्यादातर लोग दोबारा पढ़कर और रेखांकित करके पढ़ाई करते हैं, और ये सबसे कम काम आने वाली तकनीकों में से हैं। आज आप देखेंगे कि कौन-सी तकनीकें सच में काम करती हैं, और क्यों जो तकनीक परीक्षा के दिन सबसे बुरी लगती है, वही एक हफ़्ते बाद जीतती है।"
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "वैसे, यह MindHaOS में मेरा घर है, और यह मेरा पुस्तकालय है।"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग एक। आप जो पढ़ते हैं, वह क्यों भूल जाते हैं?"
+        },
+        {
+          "id": "ebbinghaus",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ebbinghaus"
+          },
+          "lamina": [
+            "ebbinghaus",
+            "reloj"
+          ],
+          "texto": "अठारह सौ पचासी में, जर्मन वैज्ञानिक हर्मन एबिंगहॉस ने हज़ारों बेमतलब शब्दांश याद किए और मापा कि वे कितना भूलते हैं। एक घंटे में ही वे आधे से ज़्यादा भूल चुके थे, और फिर भूलना धीमा हो गया। जिसे आप दोबारा इस्तेमाल नहीं करते, वह जल्दी चला जाता है।"
+        },
+        {
+          "id": "fluidez",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "84 %",
+            "clave": "fluidez"
+          },
+          "lamina": [
+            "apuntes",
+            "subrayar"
+          ],
+          "texto": "और हम एक जाल में फँस जाते हैं। दो हज़ार नौ में, जेफ़्री कार्पिक ने कॉलेज के छात्रों से पूछा कि वे कैसे पढ़ते हैं: ज़्यादातर अपने नोट्स दोबारा पढ़ते थे। दोबारा पढ़ना अच्छा लगता है क्योंकि पाठ जाना-पहचाना लगता है, पर किसी चीज़ का जाना-पहचाना लगना यह नहीं बताता कि आप उसे जानते हैं।",
+          "meme": "releer"
+        },
+        {
+          "id": "estantes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leer",
+              "cerrar",
+              "recordar"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "estantes",
+          "texto": "इसीलिए अपने पुस्तकालय में मैं सिर्फ़ वह नहीं रखती जो पढ़ती हूँ: किताब खोलने से पहले मैं उसे अपनी याद में दोबारा ढूँढती हूँ।"
+        }
+      ]
+    },
+    {
+      "id": "tecnicas",
+      "titulo": "कौन-सी तकनीकें सच में काम करती हैं?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग दो। कौन-सी तकनीकें सच में काम करती हैं?"
+        },
+        {
+          "id": "dunlosky",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tecnicas"
+          },
+          "lamina": [
+            "biblioteca",
+            "papeles"
+          ],
+          "texto": "दो हज़ार तेरह में, जॉन डनलॉस्की और उनकी टीम ने पढ़ाई की दस तकनीकों पर सैकड़ों अध्ययनों की समीक्षा की और उन्हें अंक दिए। सिर्फ़ दो को सबसे ऊँचा दर्जा मिला: ख़ुद को परखना और पढ़ाई को समय में बाँटना। रेखांकित करना, दोबारा पढ़ना और सारांश बनाना सबसे नीचे रहे।"
+        },
+        {
+          "id": "esfuerzo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "facil",
+              "dificil",
+              "deseable"
+            ]
+          },
+          "lamina": [
+            "pesas",
+            "escalar"
+          ],
+          "texto": "जो तकनीकें काम करती हैं, वे ज़्यादा मुश्किल क्यों लगती हैं? मनोवैज्ञानिक रॉबर्ट ब्योर्क इन्हें वांछनीय कठिनाइयाँ कहते हैं: याद करने की मेहनत ही याद को पक्का करती है, जैसे वज़न से मांसपेशी बढ़ती है।",
+          "meme": "subrayar"
+        },
+        {
+          "id": "dos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "prueba",
+              "repartir",
+              "mezclar"
+            ]
+          },
+          "lamina": [
+            "calendario",
+            "tarjetas"
+          ],
+          "texto": "तो बाक़ी गाइड तीन बातों पर है: ख़ुद को परखना, पढ़ाई को बाँटना और विषयों को मिलाना। और भाग पाँच में, सच में समझने की एक तरकीब, जो अच्छे शिक्षक इस्तेमाल करते हैं।"
+        },
+        {
+          "id": "sabio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunto",
+              "respondo",
+              "entrada"
+            ]
+          },
+          "enCasa": true,
+          "mencion": true,
+          "lamina": "conversar",
+          "texto": "यहाँ मैं अपने पुस्तकालय के गुरु से, जो आर्टिफिशियल इंटेलिजेंस से चलते हैं, कहती हूँ कि मैंने जो पढ़ा उस पर मुझसे सवाल पूछें, और जो मैं सीखती हूँ वह मेरे विश्वकोश में सहेजा जाता है।"
+        }
+      ]
+    },
+    {
+      "id": "prueba",
+      "titulo": "ख़ुद को परखना दोबारा पढ़ने से बेहतर क्यों है?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग तीन। ख़ुद को परखना दोबारा पढ़ने से बेहतर क्यों है?"
+        },
+        {
+          "id": "roediger",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "releerProbar"
+          },
+          "lamina": [
+            "examen",
+            "lapiz"
+          ],
+          "texto": "यह रहा वह, जिसका मैंने वादा किया था। दो हज़ार छह में, हेनरी रोडिगर और जेफ़्री कार्पिक ने छात्रों को एक पाठ दिया। कुछ ने उसे चार बार पढ़ा; दूसरों ने एक बार पढ़ा और फिर तीन बार याद से लिखने की कोशिश की कि उन्हें क्या याद है। पाँच मिनट बाद, दोबारा पढ़ने वाले आगे थे। पर एक हफ़्ते बाद, ख़ुद को परखने वालों को इकसठ प्रतिशत याद था, और दूसरों को चालीस।"
+        },
+        {
+          "id": "recuperar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cierra",
+              "escribe",
+              "compara"
+            ]
+          },
+          "lamina": [
+            "cuaderno",
+            "hoja"
+          ],
+          "texto": "ख़ुद को परखने का मतलब सिर्फ़ परीक्षा देना नहीं है। बस किताब बंद करें, जो कुछ याद है उसे लिखें या ज़ोर से बोलें, और फिर पाठ से मिलाएँ कि क्या छूट गया।"
+        },
+        {
+          "id": "errores",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+",
+            "clave": "errores"
+          },
+          "lamina": [
+            "borrar",
+            "pregunta"
+          ],
+          "texto": "और ग़लती करना भी मदद करता है। जब आप जवाब जानने से पहले जवाब देने की कोशिश करते हैं और फिर उसे देखते हैं, तो वह सिर्फ़ पढ़ने से बेहतर याद रहता है। ग़लती उस जगह पर निशान लगा देती है जहाँ उसे रखना है।"
+        },
+        {
+          "id": "recordar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "recordar"
+          },
+          "enCasa": true,
+          "lamina": "libroCerrado",
+          "texto": "मैं ऐसे करती हूँ: थोड़ी देर पढ़ती हूँ, किताब बंद करती हूँ, और गुरु को बताती हूँ कि मैंने क्या समझा। वे मुझे बताते हैं कि क्या छूट गया।"
+        }
+      ]
+    },
+    {
+      "id": "repasar",
+      "titulo": "भूलने से बचने के लिए कब दोहराएँ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग चार। भूलने से बचने के लिए कब दोहराएँ?"
+        },
+        {
+          "id": "espaciar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "repasos"
+          },
+          "lamina": [
+            "calendario",
+            "reloj2"
+          ],
+          "texto": "परीक्षा से पहले की रात सब कुछ पढ़ लेना कल की परीक्षा के लिए काम करता है, और तुरंत भूल जाता है। दो हज़ार छह में, निकोलस सेपेडा ने तीन सौ से ज़्यादा प्रयोगों की समीक्षा की: पढ़ाई का उतना ही समय, कई दिनों में बाँटने पर, लगभग हमेशा एक ही दिन में करने से बेहतर रहता है।",
+          "meme": "nocheAntes"
+        },
+        {
+          "id": "intervalo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 3 सप्ताह",
+            "clave": "intervalo"
+          },
+          "lamina": [
+            "agenda",
+            "hojas"
+          ],
+          "texto": "कितने समय बाद? यह इस पर निर्भर करता है कि आप उसे कितने समय तक याद रखना चाहते हैं। दो हज़ार आठ में, उसी टीम ने एक हज़ार से ज़्यादा लोगों पर अध्ययन किया: किसी चीज़ को एक साल बाद याद रखने के लिए, सबसे अच्छा था उसे सीखने के लगभग तीन हफ़्ते बाद दोहराना। एक आसान नियम: अगले दिन, एक हफ़्ते बाद और एक महीने बाद दोहराएँ।"
+        },
+        {
+          "id": "mezclar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezclar"
+          },
+          "lamina": [
+            "matematicas",
+            "pizarra"
+          ],
+          "texto": "और विषयों को मिलाएँ। दो हज़ार सात में, डग रोरर और केली टेलर ने छात्रों से गणित के सवाल अलग-अलग खंडों में या मिलाकर हल करवाए। एक हफ़्ते बाद, मिलाकर अभ्यास करने वालों के तिरसठ प्रतिशत जवाब सही थे; खंडों में करने वालों के बीस।"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "अगर आपको यह गाइड पसंद आ रही है, तो पसंद करें, सदस्यता लें और शेयर करें।"
+        },
+        {
+          "id": "plan",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dias",
+              "minutos",
+              "calendario"
+            ]
+          },
+          "enCasa": true,
+          "mencion": true,
+          "lamina": "planEstudio",
+          "texto": "अपने घर में मैं पढ़ाई की योजना बनाती हूँ, ख़ुद या आर्टिफिशियल इंटेलिजेंस की मदद से, और मेरे दोहराव कैलेंडर में दिख जाते हैं।"
+        }
+      ]
+    },
+    {
+      "id": "entender",
+      "titulo": "रटने के बजाय कैसे समझें?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग पाँच। रटने के बजाय कैसे समझें?"
+        },
+        {
+          "id": "ensenar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "explicalo"
+          },
+          "lamina": [
+            "maestra",
+            "alumnos"
+          ],
+          "texto": "यह है अच्छे शिक्षकों की तरकीब: ऐसे सीखें जैसे आपको उसे पढ़ाना हो। दो हज़ार चौदह में, जॉन नेस्टोयको ने एक समूह से एक पाठ यह सोचकर पढ़ने को कहा कि बाद में उन्हें उसे दूसरों को समझाना होगा। भले ही उन्होंने कभी समझाया नहीं, उन्हें उन लोगों से ज़्यादा और बेहतर ढंग से याद रहा जो सिर्फ़ परीक्षा की उम्मीद कर रहे थे।"
+        },
+        {
+          "id": "porque",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porque",
+              "como",
+              "ejemplo"
+            ]
+          },
+          "lamina": [
+            "nino",
+            "lupa"
+          ],
+          "texto": "ख़ुद से पूछें, क्यों। मिशलीन ची ने देखा कि जो छात्र किसी पाठ का हर क़दम ख़ुद को समझाते थे, वे उसे दो बार पढ़ने वालों से कहीं ज़्यादा समझते थे। ऐसा क्यों होता है? यह मेरी पहले से जानी हुई बातों से कैसे जुड़ता है? मुझे कौन-सा उदाहरण सूझता है?",
+          "meme": "porque"
+        },
+        {
+          "id": "sencillo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "sencillo",
+              "huecos",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "pizarra2",
+            "idea"
+          ],
+          "texto": "और उसे आसान भाषा में समझाएँ, जैसे बारह साल के बच्चे को। जहाँ आप अटकते हैं या बात टालने के लिए भारी-भरकम शब्द इस्तेमाल करते हैं, वहीं वह है जो आप अभी नहीं समझे। पाठ में सिर्फ़ उसी हिस्से पर लौटें।"
+        },
+        {
+          "id": "arbol",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "semilla",
+              "ramas",
+              "hojas"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "arbol",
+          "texto": "मेरा विश्वकोश एक पेड़ है: हर नया विषय उससे जुड़ता है जो मैं पहले से जानती हूँ, और उन्हें जुड़ते देखना मुझे समझने में मदद करता है।"
+        }
+      ]
+    },
+    {
+      "id": "dormir",
+      "titulo": "नींद आपकी सीखी बातों के साथ क्या करती है?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग छह। नींद आपकी सीखी बातों के साथ क्या करती है?"
+        },
+        {
+          "id": "gais",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "sueno"
+          },
+          "lamina": [
+            "dormir",
+            "cerebro"
+          ],
+          "texto": "जब आप सोते हैं, आपका दिमाग़ सीखी हुई बातें दोहराता है और उन्हें बेहतर सहेजता है। दो हज़ार छह में, स्टेफ़न गाइस ने छात्रों को शब्दावली सिखाई: जो सीखने के कुछ घंटे बाद सो गए, उन्हें जागते रहने वालों से ज़्यादा याद रहा, कई दिन बाद भी।"
+        },
+        {
+          "id": "desvelo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "noche",
+              "antes",
+              "despues"
+            ]
+          },
+          "lamina": [
+            "desvelo",
+            "cafe"
+          ],
+          "texto": "इसलिए पढ़ने के लिए रात भर जागना महँगा पड़ता है: आप अपनी याददाश्त से ठीक वह समय छीन लेते हैं जब वह दिन भर की बातें सहेजती है। बेहतर है पढ़ें, सोएँ, और जागकर दोहराएँ।"
+        },
+        {
+          "id": "sesiones",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloque",
+              "pausa",
+              "repite"
+            ]
+          },
+          "lamina": [
+            "temporizador",
+            "ventana"
+          ],
+          "texto": "और दिन में, छोटे सेशन और बीच में ब्रेक: पच्चीस या पैंतालीस मिनट का पूरा ध्यान, फ़ोन नज़र से दूर, आधे मन के तीन घंटों से ज़्यादा काम का है।"
+        },
+        {
+          "id": "estudio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quince",
+              "veinticinco",
+              "cuarenta"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "temporizador",
+          "texto": "यहाँ मैं अपना पढ़ाई का टाइमर लगाती हूँ, पंद्रह, पच्चीस या पैंतालीस मिनट का, और हर सेशन मेरे पढ़ाई के नक्शे में जुड़ जाता है।"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "आगे कैसे बढ़ें? आगे जारी रखने की आपकी योजना",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग सात। आगे कैसे बढ़ें? आगे जारी रखने की आपकी योजना।"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "libro"
+          ],
+          "texto": "पहले हफ़्ते, सिर्फ़ एक विषय चुनें। पच्चीस मिनट पढ़ें, किताब बंद करें और जो कुछ याद है लिख लें। अगले दिन, आगे बढ़ने से पहले, बिना देखे फिर से कोशिश करें।"
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "planRepasos"
+          },
+          "lamina": [
+            "brote",
+            "calendario2"
+          ],
+          "texto": "पहले महीने, अपने दोहराव तय करें: अगले दिन, एक हफ़्ते बाद और एक महीने बाद, और हर सेशन में विषय मिलाएँ। देखिए कैसे अच्छी तरह बँटे तीन सेशन, उतने ही समय की एक लंबी मैराथन से ज़्यादा याद रखवाते हैं।"
+        },
+        {
+          "id": "fallar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "olvidar",
+              "medir",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "escalon"
+          ],
+          "texto": "और जब कुछ भूल जाएँ, तो हिम्मत न हारें: थोड़ा भूलना और फिर से याद करना ही उसे पक्का करता है। अपनी प्रगति मापने के लिए घंटे न गिनें: गिनें कि बिना देखे आपको कितना याद है।"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "संक्षेप में: दोबारा पढ़ना धोखा देता है, ख़ुद को परखना सिखाता है; अपने दोहराव बाँटें और मिलाएँ; ऐसे समझाएँ जैसे आपको पढ़ाना हो; और अच्छी नींद लें, क्योंकि वहीं सीखी बात सहेजी जाती है।"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS के पुस्तकालय में आप एक गुरु से बात कर सकते हैं जो आपसे सवाल पूछते हैं, जो सीखते हैं उसे अपने विश्वकोश में सहेज सकते हैं, और टाइमर और योजना के साथ पढ़ सकते हैं, ख़ुद या आर्टिफिशियल इंटेलिजेंस की मदद से। आज ही अपना मन का घर मुफ़्त में बनाएँ: लिंक डिस्क्रिप्शन में है। और अगली गाइड में: ब्रह्मांड की भाषा क्या है?",
+    "boton": "पुस्तकालय खोलें",
+    "lamina": "app-plan",
+    "anclas": {
+      "conversar": "गुरु से बात कर सकते",
+      "enciclopedia": "अपने विश्वकोश में",
+      "estudiar": "टाइमर और योजना के साथ पढ़"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "ebbinghaus-1885",
+      "texto": "Ebbinghaus H. Über das Gedächtnis: Untersuchungen zur experimentellen Psychologie (1885). अंग्रेज़ी अनुवाद: Memory: A Contribution to Experimental Psychology (1913).",
+      "url": "https://psychclassics.yorku.ca/Ebbinghaus/index.htm"
+    },
+    {
+      "id": "karpicke-2009",
+      "texto": "Karpicke J. D., Butler A. C., Roediger H. L. Metacognitive strategies in student learning: Do students practise retrieval when they study on their own? Memory (2009).",
+      "url": "https://doi.org/10.1080/09658210802647009"
+    },
+    {
+      "id": "dunlosky-2013",
+      "texto": "Dunlosky J. et al. Improving students' learning with effective learning techniques: Promising directions from cognitive and educational psychology. Psychological Science in the Public Interest (2013).",
+      "url": "https://doi.org/10.1177/1529100612453266"
+    },
+    {
+      "id": "bjork-1994",
+      "texto": "Bjork R. A. Memory and metamemory considerations in the training of human beings. संकलन में: Metcalfe J., Shimamura A. (संपा.), Metacognition: Knowing about knowing (1994).",
+      "url": "https://bjorklab.psych.ucla.edu/research/"
+    },
+    {
+      "id": "roediger-2006",
+      "texto": "Roediger H. L., Karpicke J. D. Test-enhanced learning: Taking memory tests improves long-term retention. Psychological Science (2006).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x"
+    },
+    {
+      "id": "kornell-2009",
+      "texto": "Kornell N., Hays M. J., Bjork R. A. Unsuccessful retrieval attempts enhance subsequent learning. Journal of Experimental Psychology: Learning, Memory, and Cognition (2009).",
+      "url": "https://doi.org/10.1037/a0015729"
+    },
+    {
+      "id": "cepeda-2006",
+      "texto": "Cepeda N. J. et al. Distributed practice in verbal recall tasks: A review and quantitative synthesis. Psychological Bulletin (2006).",
+      "url": "https://doi.org/10.1037/0033-2909.132.3.354"
+    },
+    {
+      "id": "cepeda-2008",
+      "texto": "Cepeda N. J. et al. Spacing effects in learning: A temporal ridgeline of optimal retention. Psychological Science (2008).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2008.02209.x"
+    },
+    {
+      "id": "rohrer-2007",
+      "texto": "Rohrer D., Taylor K. The shuffling of mathematics problems improves learning. Instructional Science (2007).",
+      "url": "https://doi.org/10.1007/s11251-007-9015-8"
+    },
+    {
+      "id": "nestojko-2014",
+      "texto": "Nestojko J. F. et al. Expecting to teach enhances learning and organization of knowledge in free recall of text passages. Memory & Cognition (2014).",
+      "url": "https://doi.org/10.3758/s13421-014-0416-z"
+    },
+    {
+      "id": "chi-1994",
+      "texto": "Chi M. T. H. et al. Eliciting self-explanations improves understanding. Cognitive Science (1994).",
+      "url": "https://doi.org/10.1207/s15516709cog1803_3"
+    },
+    {
+      "id": "gais-2006",
+      "texto": "Gais S., Lucas B., Born J. Sleep after learning aids memory recall. Learning & Memory (2006).",
+      "url": "https://doi.org/10.1101/lm.132106"
+    }
+  ]
+}

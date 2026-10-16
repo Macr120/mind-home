@@ -1,0 +1,631 @@
+{
+  "idioma": "tr",
+  "tema": "aprender",
+  "plantillaId": "biblioteca",
+  "numero": 12,
+  "nombre": "Öğrenme",
+  "pregunta": "Nasıl daha hızlı öğrenirsin?",
+  "corta": "Daha hızlı öğren",
+  "subtitulo": "Çalıştığın şeyi neden unuttuğun, hangi tekniklerin gerçekten işe yaradığı, kendini sınamanın neden tekrar okumaktan daha değerli olduğu, ne zaman tekrar etmen gerektiği, ezberlemek yerine nasıl anlayacağın, uykunun öğrendiklerine ne yaptığı ve öğrenmeye devam etmek için bir plan.",
+  "aviso": "Bu rehber bilgilendirme amaçlıdır: verilen rakamlar ve çalışmalar kaynaklarından alınmış yaklaşık değerlerdir ve herkes kendi hızında öğrenir. Seni endişelendiren öğrenme ya da dikkat güçlüklerin varsa bir uzmana danış.",
+  "partes": [
+    {
+      "id": "olvido",
+      "titulo": "Çalıştığın şeyi neden unutursun?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Nasıl daha hızlı öğrenirsin? Çoğu kişi tekrar okuyarak ve altını çizerek çalışır ve bunlar en az işe yarayan tekniklerdendir. Bugün gerçekten işe yarayanları ve sınav günü en kötü görünen tekniğin neden bir hafta sonra kazandığını göreceksin."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "Bu arada, burası MindHaOS'taki evim, bu da kütüphanem."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Birinci bölüm. Çalıştığın şeyi neden unutursun?"
+        },
+        {
+          "id": "ebbinghaus",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ebbinghaus"
+          },
+          "lamina": [
+            "ebbinghaus",
+            "reloj"
+          ],
+          "texto": "1885'te Alman Hermann Ebbinghaus binlerce anlamsız hece ezberledi ve ne kadarını unuttuğunu ölçtü. Bir saat içinde yarısından fazlasını kaybetmişti, sonra unutma yavaşladı. Yeniden kullanmadığın şey hızla gider."
+        },
+        {
+          "id": "fluidez",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "%84",
+            "clave": "fluidez"
+          },
+          "lamina": [
+            "apuntes",
+            "subrayar"
+          ],
+          "texto": "Ve bir tuzağa düşeriz. 2009'da Jeffrey Karpicke üniversite öğrencilerine nasıl çalıştıklarını sordu: büyük çoğunluğu notlarını tekrar okuyordu. Tekrar okumak iyi hissettirir çünkü metin tanıdık gelir, ama bir şeyin tanıdık gelmesi onu bildiğin anlamına gelmez.",
+          "meme": "releer"
+        },
+        {
+          "id": "estantes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leer",
+              "cerrar",
+              "recordar"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "estantes",
+          "texto": "Bu yüzden kütüphanemde okuduklarımı sadece saklamam: kitabı açmadan önce onları hafızamda ararım."
+        }
+      ]
+    },
+    {
+      "id": "tecnicas",
+      "titulo": "Hangi teknikler gerçekten işe yarar?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "İkinci bölüm. Hangi teknikler gerçekten işe yarar?"
+        },
+        {
+          "id": "dunlosky",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tecnicas"
+          },
+          "lamina": [
+            "biblioteca",
+            "papeles"
+          ],
+          "texto": "2013'te John Dunlosky ve ekibi on çalışma tekniği üzerine yüzlerce araştırmayı inceleyip bunlara not verdi. En yüksek notu yalnızca ikisi aldı: kendini sınamak ve çalışmayı zamana yaymak. Altını çizmek, tekrar okumak ve özet çıkarmak en altta kaldı."
+        },
+        {
+          "id": "esfuerzo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "facil",
+              "dificil",
+              "deseable"
+            ]
+          },
+          "lamina": [
+            "pesas",
+            "escalar"
+          ],
+          "texto": "İşe yarayanlar neden daha zor gelir? Psikolog Robert Bjork bunlara arzu edilen zorluklar der: hatırlamak için harcanan çaba, tıpkı kası büyüten ağırlık gibi, anıyı sağlamlaştıran şeyin ta kendisidir.",
+          "meme": "subrayar"
+        },
+        {
+          "id": "dos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "prueba",
+              "repartir",
+              "mezclar"
+            ]
+          },
+          "lamina": [
+            "calendario",
+            "tarjetas"
+          ],
+          "texto": "Bu yüzden rehberin geri kalanı üç şey hakkında: kendini sınamak, zamana yaymak ve karıştırmak. Beşinci bölümde de iyi öğretmenlerin gerçekten anlamak için kullandığı bir püf noktası var."
+        },
+        {
+          "id": "sabio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunto",
+              "respondo",
+              "entrada"
+            ]
+          },
+          "enCasa": true,
+          "mencion": true,
+          "lamina": "conversar",
+          "texto": "Burada kütüphanemdeki, yapay zekâyla çalışan Bilge'den okuduklarım hakkında bana sorular sormasını isterim, öğrendiklerim de ansiklopedime kaydedilir."
+        }
+      ]
+    },
+    {
+      "id": "prueba",
+      "titulo": "Kendini sınamak neden tekrar okumaktan daha değerlidir?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Üçüncü bölüm. Kendini sınamak neden tekrar okumaktan daha değerlidir?"
+        },
+        {
+          "id": "roediger",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "releerProbar"
+          },
+          "lamina": [
+            "examen",
+            "lapiz"
+          ],
+          "texto": "İşte sana söz verdiğim şey. 2006'da Henry Roediger ve Jeffrey Karpicke öğrencilere bir metin verdi. Bazıları metni dört kez okudu; diğerleri bir kez okuyup hatırladıklarını üç kez ezberden yazmaya çalıştı. Beş dakika sonra tekrar okuyanlar öndeydi. Ama bir hafta sonra kendini sınayanlar yüzde altmış birini hatırlıyordu, diğerleri ise yüzde kırkını."
+        },
+        {
+          "id": "recuperar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cierra",
+              "escribe",
+              "compara"
+            ]
+          },
+          "lamina": [
+            "cuaderno",
+            "hoja"
+          ],
+          "texto": "Kendini sınamak sadece sınava girmek değildir. Kitabı kapatıp hatırladığın her şeyi yazman ya da yüksek sesle söylemen, sonra da neyi kaçırdığını görmek için metinle karşılaştırman yeterli."
+        },
+        {
+          "id": "errores",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+",
+            "clave": "errores"
+          },
+          "lamina": [
+            "borrar",
+            "pregunta"
+          ],
+          "texto": "Yanılmak da işe yarar. Cevabı bilmeden önce yanıt vermeye çalışıp sonra doğrusunu gördüğünde, onu yalnızca okumuş olmana göre daha iyi hatırlarsın. Hata, cevabı saklayacağın yeri işaretler."
+        },
+        {
+          "id": "recordar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "recordar"
+          },
+          "enCasa": true,
+          "lamina": "libroCerrado",
+          "texto": "Ben şöyle yapıyorum: biraz okurum, kitabı kapatırım ve anladıklarımı Bilge'ye anlatırım. O da bana neyi kaçırdığımı söyler."
+        }
+      ]
+    },
+    {
+      "id": "repasar",
+      "titulo": "Unutmamak için ne zaman tekrar etmeli?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Dördüncü bölüm. Unutmamak için ne zaman tekrar etmeli?"
+        },
+        {
+          "id": "espaciar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "repasos"
+          },
+          "lamina": [
+            "calendario",
+            "reloj2"
+          ],
+          "texto": "Her şeyi sınavdan önceki gece çalışmak yarınki sınavda işe yarar, ama hemen unutulur. 2006'da Nicholas Cepeda üç yüzden fazla deneyi inceledi: aynı çalışma süresinde, süreyi birkaç güne yaymak neredeyse her zaman tek güne toplamaktan iyi sonuç verir.",
+          "meme": "nocheAntes"
+        },
+        {
+          "id": "intervalo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 3 hf",
+            "clave": "intervalo"
+          },
+          "lamina": [
+            "agenda",
+            "hojas"
+          ],
+          "texto": "Ne sıklıkla? Ne kadar süre hatırlamak istediğine bağlı. 2008'de aynı ekip bin kişiden fazlasını izledi: bir şeyi bir yıl sonra hatırlamak için en iyisi, öğrendikten yaklaşık üç hafta sonra tekrar etmekti. Pratik bir kural: ertesi gün, bir hafta sonra ve bir ay sonra tekrar et."
+        },
+        {
+          "id": "mezclar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezclar"
+          },
+          "lamina": [
+            "matematicas",
+            "pizarra"
+          ],
+          "texto": "Ve konuları karıştır. 2007'de Doug Rohrer ve Kelli Taylor öğrencilere matematik problemlerini bloklar hâlinde ya da karışık çözdürdü. Bir hafta sonra karıştıranlar yüzde altmış üç doğru yaptı; blok hâlinde çalışanlar yüzde yirmi."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "Bu rehberi beğeniyorsan Beğen'e bas, Abone ol ve Paylaş."
+        },
+        {
+          "id": "plan",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dias",
+              "minutos",
+              "calendario"
+            ]
+          },
+          "enCasa": true,
+          "mencion": true,
+          "lamina": "planEstudio",
+          "texto": "Evimde kendi başıma ya da yapay zekânın yardımıyla bir çalışma planı hazırlarım, tekrarlarım da takvimde görünür."
+        }
+      ]
+    },
+    {
+      "id": "entender",
+      "titulo": "Ezberlemek yerine nasıl anlarsın?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Beşinci bölüm. Ezberlemek yerine nasıl anlarsın?"
+        },
+        {
+          "id": "ensenar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "explicalo"
+          },
+          "lamina": [
+            "maestra",
+            "alumnos"
+          ],
+          "texto": "İşte iyi öğretmenlerin püf noktası: öğreteceksin gibi öğren. 2014'te John Nestojko bir gruptan, metni sonra başkalarına anlatacaklarını düşünerek okumalarını istedi. Hiç anlatmadıkları hâlde, yalnızca sınav bekleyenlerden daha fazlasını ve daha düzenli hatırladılar."
+        },
+        {
+          "id": "porque",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porque",
+              "como",
+              "ejemplo"
+            ]
+          },
+          "lamina": [
+            "nino",
+            "lupa"
+          ],
+          "texto": "Kendine nedenini sor. Michelene Chi, bir metnin her adımını kendilerine açıklayan öğrencilerin, metni sadece iki kez okuyanlardan çok daha fazla anladığını gördü. Bu neden oluyor? Bildiklerimle nasıl bağlantılı? Aklıma hangi örnek geliyor?",
+          "meme": "porque"
+        },
+        {
+          "id": "sencillo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "sencillo",
+              "huecos",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "pizarra2",
+            "idea"
+          ],
+          "texto": "Ve onu basitçe anlat, on iki yaşında bir çocuğa anlatır gibi. Takıldığın ya da işin içinden çıkmak için tuhaf kelimelere sığındığın yer, henüz anlamadığın yerdir. Metne sadece o kısım için geri dön."
+        },
+        {
+          "id": "arbol",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "semilla",
+              "ramas",
+              "hojas"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "arbol",
+          "texto": "Ansiklopedim bir ağaç: her yeni konu bildiklerime asılır ve nasıl bağlandıklarını görmek anlamama yardım eder."
+        }
+      ]
+    },
+    {
+      "id": "dormir",
+      "titulo": "Uyku öğrendiklerine ne yapar?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Altıncı bölüm. Uyku öğrendiklerine ne yapar?"
+        },
+        {
+          "id": "gais",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "sueno"
+          },
+          "lamina": [
+            "dormir",
+            "cerebro"
+          ],
+          "texto": "Sen uyurken beynin öğrendiklerini tekrar eder ve daha iyi saklar. 2006'da Steffen Gais öğrencilere kelime öğretti: öğrendikten birkaç saat sonra uyuyanlar, günler sonra bile, uyanık kalanlardan daha fazlasını hatırlıyordu."
+        },
+        {
+          "id": "desvelo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "noche",
+              "antes",
+              "despues"
+            ]
+          },
+          "lamina": [
+            "desvelo",
+            "cafe"
+          ],
+          "texto": "Bu yüzden ders için uykusuz kalmak pahalıya patlar: hafızandan tam da günün öğrendiklerini sakladığı zamanı çalarsın. En iyisi çalış, uyu ve uyanınca tekrar et."
+        },
+        {
+          "id": "sesiones",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloque",
+              "pausa",
+              "repite"
+            ]
+          },
+          "lamina": [
+            "temporizador",
+            "ventana"
+          ],
+          "texto": "Gün içinde de molalı kısa oturumlar: telefon gözünün önünde olmadan yirmi beş ya da kırk beş dakikalık tam dikkat, yarım yamalak üç saatten daha değerlidir."
+        },
+        {
+          "id": "estudio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quince",
+              "veinticinco",
+              "cuarenta"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "temporizador",
+          "texto": "Burada on beş, yirmi beş ya da kırk beş dakikalık çalışma zamanlayıcımı kurarım ve her oturum çalışma haritama eklenir."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Nasıl devam etmeli? Devam etmek için planın",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Yedinci bölüm. Nasıl devam etmeli? Devam etmek için planın."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "libro"
+          ],
+          "texto": "İlk hafta tek bir konu seç. Yirmi beş dakika çalış, kitabı kapat ve hatırladığın her şeyi yaz. Ertesi gün devam etmeden önce bakmadan yeniden dene."
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "planRepasos"
+          },
+          "lamina": [
+            "brote",
+            "calendario2"
+          ],
+          "texto": "İlk ay tekrarlarını planla: ertesi gün, bir hafta sonra ve bir ay sonra, ve her oturumda konuları karıştır. Aynı sürede, iyi yayılmış üç oturumun tek bir maratondan daha fazla hatırlattığını gör."
+        },
+        {
+          "id": "fallar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "olvidar",
+              "medir",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "escalon"
+          ],
+          "texto": "Bir şeyi unuttuğunda da cesaretini kaybetme: biraz unutup yeniden hatırlamak, onu sağlamlaştıran şeyin ta kendisi. İlerlemeni ölçmek için saatleri sayma: bakmadan ne kadar hatırladığını say."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Kısacası: tekrar okumak yanıltır, kendini sınamak öğretir; tekrarlarını zamana yay ve karıştır; öğreteceksin gibi öğren; ve iyi uyu, çünkü öğrendiklerin orada saklanır."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS'taki Kütüphane'de sana sorular soran bir Bilge ile sohbet edebilir, öğrendiklerini ansiklopedine kaydedebilir, bir zamanlayıcı ve bir planla, kendi başına ya da yapay zekânın yardımıyla çalışabilirsin. Zihinsel evini bugün ücretsiz kur: bağlantı açıklamada. Bir sonraki rehberde ise: evrenin dili nedir?",
+    "boton": "Kütüphane'yi aç",
+    "lamina": "app-plan",
+    "anclas": {
+      "conversar": "bir Bilge ile sohbet",
+      "enciclopedia": "ansiklopedine kaydedebilir",
+      "estudiar": "bir zamanlayıcı ve bir planla"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "ebbinghaus-1885",
+      "texto": "Ebbinghaus H. Über das Gedächtnis: Untersuchungen zur experimentellen Psychologie (1885). İngilizce çevirisi: Memory: A Contribution to Experimental Psychology (1913).",
+      "url": "https://psychclassics.yorku.ca/Ebbinghaus/index.htm"
+    },
+    {
+      "id": "karpicke-2009",
+      "texto": "Karpicke J. D., Butler A. C., Roediger H. L. Metacognitive strategies in student learning: Do students practise retrieval when they study on their own? Memory (2009).",
+      "url": "https://doi.org/10.1080/09658210802647009"
+    },
+    {
+      "id": "dunlosky-2013",
+      "texto": "Dunlosky J. ve ark. Improving students' learning with effective learning techniques: Promising directions from cognitive and educational psychology. Psychological Science in the Public Interest (2013).",
+      "url": "https://doi.org/10.1177/1529100612453266"
+    },
+    {
+      "id": "bjork-1994",
+      "texto": "Bjork R. A. Memory and metamemory considerations in the training of human beings. İçinde: Metcalfe J., Shimamura A. (ed.), Metacognition: Knowing about knowing (1994).",
+      "url": "https://bjorklab.psych.ucla.edu/research/"
+    },
+    {
+      "id": "roediger-2006",
+      "texto": "Roediger H. L., Karpicke J. D. Test-enhanced learning: Taking memory tests improves long-term retention. Psychological Science (2006).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x"
+    },
+    {
+      "id": "kornell-2009",
+      "texto": "Kornell N., Hays M. J., Bjork R. A. Unsuccessful retrieval attempts enhance subsequent learning. Journal of Experimental Psychology: Learning, Memory, and Cognition (2009).",
+      "url": "https://doi.org/10.1037/a0015729"
+    },
+    {
+      "id": "cepeda-2006",
+      "texto": "Cepeda N. J. ve ark. Distributed practice in verbal recall tasks: A review and quantitative synthesis. Psychological Bulletin (2006).",
+      "url": "https://doi.org/10.1037/0033-2909.132.3.354"
+    },
+    {
+      "id": "cepeda-2008",
+      "texto": "Cepeda N. J. ve ark. Spacing effects in learning: A temporal ridgeline of optimal retention. Psychological Science (2008).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2008.02209.x"
+    },
+    {
+      "id": "rohrer-2007",
+      "texto": "Rohrer D., Taylor K. The shuffling of mathematics problems improves learning. Instructional Science (2007).",
+      "url": "https://doi.org/10.1007/s11251-007-9015-8"
+    },
+    {
+      "id": "nestojko-2014",
+      "texto": "Nestojko J. F. ve ark. Expecting to teach enhances learning and organization of knowledge in free recall of text passages. Memory & Cognition (2014).",
+      "url": "https://doi.org/10.3758/s13421-014-0416-z"
+    },
+    {
+      "id": "chi-1994",
+      "texto": "Chi M. T. H. ve ark. Eliciting self-explanations improves understanding. Cognitive Science (1994).",
+      "url": "https://doi.org/10.1207/s15516709cog1803_3"
+    },
+    {
+      "id": "gais-2006",
+      "texto": "Gais S., Lucas B., Born J. Sleep after learning aids memory recall. Learning & Memory (2006).",
+      "url": "https://doi.org/10.1101/lm.132106"
+    }
+  ]
+}

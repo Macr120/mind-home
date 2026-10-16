@@ -1,0 +1,631 @@
+{
+  "idioma": "ar",
+  "tema": "aprender",
+  "plantillaId": "biblioteca",
+  "numero": 12,
+  "nombre": "التعلّم",
+  "pregunta": "كيف تتعلّم أسرع؟",
+  "corta": "تعلّم أسرع",
+  "subtitulo": "لماذا تنسى ما تدرسه، وأي التقنيات تنفع حقًا، ولماذا يفيد اختبار نفسك أكثر من إعادة القراءة، ومتى تراجع، وكيف تفهم بدل أن تحفظ، وماذا يفعل النوم بما تتعلّمه، وخطة لتواصل التعلّم.",
+  "aviso": "هذا الدليل للمعلومات فقط: الأرقام والدراسات المذكورة تقديرات من مصادرها، وكل شخص يتعلّم بإيقاعه. وإن كانت لديك صعوبات في التعلّم أو الانتباه تقلقك، فاستشر مختصًا.",
+  "partes": [
+    {
+      "id": "olvido",
+      "titulo": "لماذا تنسى ما تدرسه؟",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "كيف تتعلّم أسرع؟ معظم الناس يدرسون بإعادة القراءة ووضع الخطوط تحت الجمل، وهما من أقل التقنيات فائدة. اليوم سترى التقنيات التي تنفع حقًا، ولماذا تفوز بعد أسبوع تلك التي تبدو الأسوأ يوم الامتحان."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "بالمناسبة، هذا بيتي في MindHaOS، وهذه مكتبتي."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الأول. لماذا تنسى ما تدرسه؟"
+        },
+        {
+          "id": "ebbinghaus",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ebbinghaus"
+          },
+          "lamina": [
+            "ebbinghaus",
+            "reloj"
+          ],
+          "texto": "في عام ألف وثمانمئة وخمسة وثمانين، حفظ الألماني هيرمان إبينغهاوس آلاف المقاطع التي لا معنى لها، وقاس كم ينسى منها. خلال ساعة واحدة كان قد فقد أكثر من نصفها، ثم تباطأ النسيان. ما لا تعود إلى استخدامه يرحل بسرعة."
+        },
+        {
+          "id": "fluidez",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "84 %",
+            "clave": "fluidez"
+          },
+          "lamina": [
+            "apuntes",
+            "subrayar"
+          ],
+          "texto": "ونقع في فخ. في عام ألفين وتسعة، سأل جيفري كاربيك طلابًا جامعيين كيف يدرسون: الغالبية العظمى كانت تعيد قراءة ملاحظاتها. إعادة القراءة مريحة لأن النص يبدو مألوفًا، لكن أن يبدو الشيء مألوفًا لا يعني أنك تعرفه.",
+          "meme": "releer"
+        },
+        {
+          "id": "estantes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leer",
+              "cerrar",
+              "recordar"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "estantes",
+          "texto": "لهذا لا أكتفي في مكتبتي بحفظ ما أقرأ: أبحث عنه في ذاكرتي من جديد قبل أن أفتح الكتاب."
+        }
+      ]
+    },
+    {
+      "id": "tecnicas",
+      "titulo": "أي التقنيات تنفع حقًا؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثاني. أي التقنيات تنفع حقًا؟"
+        },
+        {
+          "id": "dunlosky",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tecnicas"
+          },
+          "lamina": [
+            "biblioteca",
+            "papeles"
+          ],
+          "texto": "في عام ألفين وثلاثة عشر، راجع جون دنلوسكي وفريقه مئات الدراسات عن عشر تقنيات للدراسة ومنحوها درجات. اثنتان فقط نالتا أعلى درجة: اختبار نفسك، وتوزيع الدراسة على الوقت. أما وضع الخطوط وإعادة القراءة وكتابة الملخصات، فجاءت في الأسفل."
+        },
+        {
+          "id": "esfuerzo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "facil",
+              "dificil",
+              "deseable"
+            ]
+          },
+          "lamina": [
+            "pesas",
+            "escalar"
+          ],
+          "texto": "لماذا تبدو التقنيات النافعة أصعب؟ يسمّيها عالم النفس روبرت بيورك الصعوبات المرغوبة: جهد التذكّر هو بالضبط ما يثبّت الذكرى، كالثقل الذي يجعل العضلة تنمو.",
+          "meme": "subrayar"
+        },
+        {
+          "id": "dos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "prueba",
+              "repartir",
+              "mezclar"
+            ]
+          },
+          "lamina": [
+            "calendario",
+            "tarjetas"
+          ],
+          "texto": "لذلك يدور باقي الدليل حول ثلاثة أشياء: اختبار نفسك، وتوزيع الدراسة، والخلط بين المواضيع. وفي الجزء الخامس، حيلة للفهم الحقيقي يستخدمها المعلّمون الجيدون."
+        },
+        {
+          "id": "sabio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunto",
+              "respondo",
+              "entrada"
+            ]
+          },
+          "enCasa": true,
+          "mencion": true,
+          "lamina": "conversar",
+          "texto": "هنا أطلب من حكيم مكتبتي، الذي يعمل بالذكاء الاصطناعي، أن يسألني عمّا قرأت، وما أتعلّمه يُحفظ في موسوعتي."
+        }
+      ]
+    },
+    {
+      "id": "prueba",
+      "titulo": "لماذا يفيد اختبار نفسك أكثر من إعادة القراءة؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثالث. لماذا يفيد اختبار نفسك أكثر من إعادة القراءة؟"
+        },
+        {
+          "id": "roediger",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "releerProbar"
+          },
+          "lamina": [
+            "examen",
+            "lapiz"
+          ],
+          "texto": "وهذا ما وعدتك به. في عام ألفين وستة، أعطى هنري روديغر وجيفري كاربيك طلابًا نصًا. بعضهم قرأه أربع مرات؛ وآخرون قرؤوه مرة واحدة، ثم حاولوا ثلاث مرات أن يكتبوا من الذاكرة ما تذكّروه. بعد خمس دقائق، تفوّق من أعادوا القراءة. لكن بعد أسبوع، تذكّر من اختبروا أنفسهم واحدًا وستين في المئة، مقابل أربعين."
+        },
+        {
+          "id": "recuperar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cierra",
+              "escribe",
+              "compara"
+            ]
+          },
+          "lamina": [
+            "cuaderno",
+            "hoja"
+          ],
+          "texto": "اختبار نفسك ليس مجرد امتحانات. يكفي أن تغلق الكتاب، وتكتب أو تقول بصوت عالٍ كل ما تتذكّره، ثم تقارن بالنص لترى ما فاتك."
+        },
+        {
+          "id": "errores",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+",
+            "clave": "errores"
+          },
+          "lamina": [
+            "borrar",
+            "pregunta"
+          ],
+          "texto": "والخطأ يساعد أيضًا. حين تحاول الإجابة قبل أن تعرفها ثم تراها، تتذكّرها أفضل مما لو قرأتها فقط. الخطأ يعلّم المكان الذي تُحفظ فيه."
+        },
+        {
+          "id": "recordar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "recordar"
+          },
+          "enCasa": true,
+          "lamina": "libroCerrado",
+          "texto": "أنا أفعلها هكذا: أقرأ قليلًا، وأغلق الكتاب، وأحكي للحكيم ما فهمته. وهو يخبرني بما فاتني."
+        }
+      ]
+    },
+    {
+      "id": "repasar",
+      "titulo": "متى تراجع كي لا تنسى؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الرابع. متى تراجع كي لا تنسى؟"
+        },
+        {
+          "id": "espaciar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "repasos"
+          },
+          "lamina": [
+            "calendario",
+            "reloj2"
+          ],
+          "texto": "مذاكرة كل شيء في الليلة السابقة تنفع لامتحان الغد، ثم تُنسى فورًا. في عام ألفين وستة، راجع نيكولاس سيبيدا أكثر من ثلاثمئة تجربة: بوقت الدراسة نفسه، توزيعه على عدة أيام يتفوّق في كل مرة تقريبًا على جمعه في يوم واحد.",
+          "meme": "nocheAntes"
+        },
+        {
+          "id": "intervalo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 3 أسابيع",
+            "clave": "intervalo"
+          },
+          "lamina": [
+            "agenda",
+            "hojas"
+          ],
+          "texto": "وكم تنتظر بين مراجعة وأخرى؟ هذا يعتمد على المدة التي تريد أن تتذكّره خلالها. في عام ألفين وثمانية، تابع الفريق نفسه أكثر من ألف شخص: لتتذكّر شيئًا بعد سنة، كان الأفضل أن تراجعه بعد نحو ثلاثة أسابيع من تعلّمه. قاعدة عملية: راجع في اليوم التالي، وبعد أسبوع، وبعد شهر."
+        },
+        {
+          "id": "mezclar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezclar"
+          },
+          "lamina": [
+            "matematicas",
+            "pizarra"
+          ],
+          "texto": "واخلط بين المواضيع. في عام ألفين وسبعة، جعل دوغ رورر وكيلي تايلور طلابًا يتدرّبون على مسائل رياضيات، إما في كتل منفصلة أو مختلطة. بعد أسبوع، أصاب من خلطوا في ثلاثة وستين في المئة؛ وأصحاب الكتل في عشرين."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "إن كان هذا الدليل يعجبك، فاضغط «أعجبني»، و«اشتراك»، و«مشاركة»."
+        },
+        {
+          "id": "plan",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dias",
+              "minutos",
+              "calendario"
+            ]
+          },
+          "enCasa": true,
+          "mencion": true,
+          "lamina": "planEstudio",
+          "texto": "في بيتي أضع خطة دراسة، بنفسي أو بمساعدة الذكاء الاصطناعي، وتظهر مراجعاتي في التقويم."
+        }
+      ]
+    },
+    {
+      "id": "entender",
+      "titulo": "كيف تفهم بدل أن تحفظ؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الخامس. كيف تفهم بدل أن تحفظ؟"
+        },
+        {
+          "id": "ensenar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "explicalo"
+          },
+          "lamina": [
+            "maestra",
+            "alumnos"
+          ],
+          "texto": "هذه حيلة المعلّمين الجيدين: تعلّم كأنك ستعلّمه لغيرك. في عام ألفين وأربعة عشر، طلب جون نيستويكو من مجموعة أن تقرأ نصًا وهي تظن أنها ستشرحه لآخرين لاحقًا. ومع أنهم لم يشرحوه أبدًا، تذكّروا أكثر وبترتيب أفضل ممن كانوا ينتظرون امتحانًا فقط."
+        },
+        {
+          "id": "porque",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porque",
+              "como",
+              "ejemplo"
+            ]
+          },
+          "lamina": [
+            "nino",
+            "lupa"
+          ],
+          "texto": "اسأل نفسك لماذا. لاحظت ميشلين تشي أن الطلاب الذين كانوا يشرحون لأنفسهم كل خطوة في النص فهموا أكثر بكثير ممن قرؤوه مرتين فقط. لماذا يحدث هذا؟ كيف يرتبط بما أعرفه أصلًا؟ ما المثال الذي يخطر لي؟",
+          "meme": "porque"
+        },
+        {
+          "id": "sencillo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "sencillo",
+              "huecos",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "pizarra2",
+            "idea"
+          ],
+          "texto": "واشرحه ببساطة، كأنك تشرحه لطفل في الثانية عشرة. حيث تتعثّر أو تستعمل كلمات غريبة لتتخلّص من الموقف، هناك ما لم تفهمه بعد. عد إلى النص من أجل ذلك الجزء فقط."
+        },
+        {
+          "id": "arbol",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "semilla",
+              "ramas",
+              "hojas"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "arbol",
+          "texto": "موسوعتي شجرة: كل موضوع جديد يتفرّع مما أعرفه أصلًا، ورؤية كيف تتصل المواضيع تساعدني على الفهم."
+        }
+      ]
+    },
+    {
+      "id": "dormir",
+      "titulo": "ماذا يفعل النوم بما تتعلّمه؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السادس. ماذا يفعل النوم بما تتعلّمه؟"
+        },
+        {
+          "id": "gais",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "sueno"
+          },
+          "lamina": [
+            "dormir",
+            "cerebro"
+          ],
+          "texto": "بينما تنام، يراجع دماغك ما تعلّمته ويحفظه بشكل أفضل. في عام ألفين وستة، علّم شتيفن غايس طلابًا مفردات: من ناموا بعد تعلّمها بساعات قليلة تذكّروا أكثر ممن بقوا مستيقظين، حتى بعد أيام."
+        },
+        {
+          "id": "desvelo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "noche",
+              "antes",
+              "despues"
+            ]
+          },
+          "lamina": [
+            "desvelo",
+            "cafe"
+          ],
+          "texto": "لهذا فإن السهر للدراسة مكلف: تسلب ذاكرتك الوقت نفسه الذي تحفظ فيه ما جرى في يومك. الأفضل أن تدرس، ثم تنام، ثم تراجع عند الاستيقاظ."
+        },
+        {
+          "id": "sesiones",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloque",
+              "pausa",
+              "repite"
+            ]
+          },
+          "lamina": [
+            "temporizador",
+            "ventana"
+          ],
+          "texto": "وخلال النهار، جلسات قصيرة مع استراحات: خمس وعشرون أو خمس وأربعون دقيقة من الانتباه الكامل، والهاتف بعيد عن نظرك، تساوي أكثر من ثلاث ساعات بنصف تركيز."
+        },
+        {
+          "id": "estudio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quince",
+              "veinticinco",
+              "cuarenta"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "temporizador",
+          "texto": "هنا أضبط مؤقّت الدراسة، على خمس عشرة أو خمس وعشرين أو خمس وأربعين دقيقة، وتُضاف كل جلسة إلى خريطة دراستي."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "كيف تستمر؟ خطتك للمواصلة",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السابع. كيف تستمر؟ خطتك للمواصلة."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "libro"
+          ],
+          "texto": "في الأسبوع الأول، اختر موضوعًا واحدًا فقط. ادرس خمسًا وعشرين دقيقة، ثم أغلق الكتاب واكتب كل ما تتذكّره. وفي اليوم التالي، قبل أن تكمل، حاول مرة أخرى من دون أن تنظر."
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "planRepasos"
+          },
+          "lamina": [
+            "brote",
+            "calendario2"
+          ],
+          "texto": "في الشهر الأول، حدّد مواعيد مراجعاتك: في اليوم التالي، وبعد أسبوع، وبعد شهر، واخلط المواضيع في كل جلسة. انظر كيف تتذكّر بثلاث جلسات موزّعة جيدًا أكثر مما تتذكّر بماراثون واحد بالوقت نفسه."
+        },
+        {
+          "id": "fallar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "olvidar",
+              "medir",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "escalon"
+          ],
+          "texto": "وحين تنسى شيئًا، لا تيأس: أن تنسى قليلًا ثم تتذكّر من جديد هو بالضبط ما يثبّته. ولتقيس تقدّمك، لا تعدّ الساعات: عدّ كم تتذكّر من دون أن تنظر."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "باختصار: إعادة القراءة تخدعك، واختبار نفسك يعلّمك؛ وزّع مراجعاتك واخلطها؛ اشرحه كأنك ستعلّمه؛ ونم جيدًا، ففي النوم يُحفظ ما تعلّمته."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "في مكتبة MindHaOS يمكنك أن تحاور حكيمًا يطرح عليك الأسئلة، وأن تحفظ ما تتعلّمه في موسوعتك، وأن تدرس بمؤقّت وخطة، بنفسك أو بمساعدة الذكاء الاصطناعي. ابنِ بيتك الذهني مجانًا اليوم: الرابط في الوصف. وفي الدليل القادم: ما لغة الكون؟",
+    "boton": "افتح المكتبة",
+    "lamina": "app-plan",
+    "anclas": {
+      "conversar": "تحاور حكيمًا",
+      "enciclopedia": "في موسوعتك",
+      "estudiar": "تدرس بمؤقّت"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "ebbinghaus-1885",
+      "texto": "Ebbinghaus H. Über das Gedächtnis: Untersuchungen zur experimentellen Psychologie (1885). الترجمة الإنجليزية: Memory: A Contribution to Experimental Psychology (1913).",
+      "url": "https://psychclassics.yorku.ca/Ebbinghaus/index.htm"
+    },
+    {
+      "id": "karpicke-2009",
+      "texto": "Karpicke J. D., Butler A. C., Roediger H. L. Metacognitive strategies in student learning: Do students practise retrieval when they study on their own? Memory (2009).",
+      "url": "https://doi.org/10.1080/09658210802647009"
+    },
+    {
+      "id": "dunlosky-2013",
+      "texto": "Dunlosky J. et al. Improving students' learning with effective learning techniques: Promising directions from cognitive and educational psychology. Psychological Science in the Public Interest (2013).",
+      "url": "https://doi.org/10.1177/1529100612453266"
+    },
+    {
+      "id": "bjork-1994",
+      "texto": "Bjork R. A. Memory and metamemory considerations in the training of human beings. ضمن: Metcalfe J., Shimamura A. (محرّران), Metacognition: Knowing about knowing (1994).",
+      "url": "https://bjorklab.psych.ucla.edu/research/"
+    },
+    {
+      "id": "roediger-2006",
+      "texto": "Roediger H. L., Karpicke J. D. Test-enhanced learning: Taking memory tests improves long-term retention. Psychological Science (2006).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x"
+    },
+    {
+      "id": "kornell-2009",
+      "texto": "Kornell N., Hays M. J., Bjork R. A. Unsuccessful retrieval attempts enhance subsequent learning. Journal of Experimental Psychology: Learning, Memory, and Cognition (2009).",
+      "url": "https://doi.org/10.1037/a0015729"
+    },
+    {
+      "id": "cepeda-2006",
+      "texto": "Cepeda N. J. et al. Distributed practice in verbal recall tasks: A review and quantitative synthesis. Psychological Bulletin (2006).",
+      "url": "https://doi.org/10.1037/0033-2909.132.3.354"
+    },
+    {
+      "id": "cepeda-2008",
+      "texto": "Cepeda N. J. et al. Spacing effects in learning: A temporal ridgeline of optimal retention. Psychological Science (2008).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2008.02209.x"
+    },
+    {
+      "id": "rohrer-2007",
+      "texto": "Rohrer D., Taylor K. The shuffling of mathematics problems improves learning. Instructional Science (2007).",
+      "url": "https://doi.org/10.1007/s11251-007-9015-8"
+    },
+    {
+      "id": "nestojko-2014",
+      "texto": "Nestojko J. F. et al. Expecting to teach enhances learning and organization of knowledge in free recall of text passages. Memory & Cognition (2014).",
+      "url": "https://doi.org/10.3758/s13421-014-0416-z"
+    },
+    {
+      "id": "chi-1994",
+      "texto": "Chi M. T. H. et al. Eliciting self-explanations improves understanding. Cognitive Science (1994).",
+      "url": "https://doi.org/10.1207/s15516709cog1803_3"
+    },
+    {
+      "id": "gais-2006",
+      "texto": "Gais S., Lucas B., Born J. Sleep after learning aids memory recall. Learning & Memory (2006).",
+      "url": "https://doi.org/10.1101/lm.132106"
+    }
+  ]
+}

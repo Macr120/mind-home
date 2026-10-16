@@ -69,6 +69,11 @@ export const MEMES: Record<string, DefMeme> = {
   relajate: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
   pestanas: { formato: 'arribaAbajo', poses: ['orgulloso', 'cansado'], sonido: 'jeje-boy' },
   super: { formato: 'unico', poses: ['confundido'], sonido: 'bruh' },
+  // Aprender (de la princesa).
+  releer: { formato: 'arribaAbajo', poses: ['orgulloso', 'confundido'], sonido: 'bruh' },
+  subrayar: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
+  nocheAntes: { formato: 'arribaAbajo', poses: ['orgulloso', 'cansado'], sonido: 'jeje-boy' },
+  porque: { formato: 'unico', poses: ['confundido'], sonido: 'bruh' },
   // Agenda (también de la princesa).
   diezMinutos: { formato: 'arribaAbajo', poses: ['orgulloso', 'cansado'], sonido: 'bruh' },
   urgente: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },

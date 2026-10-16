@@ -1,0 +1,631 @@
+{
+  "idioma": "ja",
+  "tema": "aprender",
+  "plantillaId": "biblioteca",
+  "numero": 12,
+  "nombre": "学び",
+  "pregunta": "どうすればもっと速く学べるのでしょうか？",
+  "corta": "もっと速く学ぶ",
+  "subtitulo": "勉強したことをなぜ忘れるのか、本当に効く学習法はどれか、なぜ読み返すより自分をテストするほうがいいのか、いつ復習するか、暗記ではなく理解するには、睡眠が学んだことに何をするのか、そして学び続けるためのプラン。",
+  "aviso": "このガイドは情報提供を目的としています。紹介する数字や研究はそれぞれの出典の概算で、学ぶペースは人それぞれです。気になる学習や注意の困難がある場合は、専門家に相談してください。",
+  "partes": [
+    {
+      "id": "olvido",
+      "titulo": "勉強したことを、なぜ忘れてしまうのでしょうか？",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "どうすればもっと速く学べるのでしょうか？ 多くの人は読み返したり線を引いたりして勉強しますが、それは効果がいちばん低い方法の一つです。 今日は本当に効く方法と、試験の日にはいちばん弱そうに見える方法が、なぜ一週間後には勝つのかを見ていきましょう。"
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "ところで、ここはMindHaOSにある私の家で、ここが私の図書室です。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート1。勉強したことを、なぜ忘れてしまうのでしょうか？"
+        },
+        {
+          "id": "ebbinghaus",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ebbinghaus"
+          },
+          "lamina": [
+            "ebbinghaus",
+            "reloj"
+          ],
+          "texto": "1885年、ドイツのヘルマン・エビングハウスは、意味のない音節を何千も覚えて、どれだけ忘れるかを測りました。一時間で半分以上を失い、そのあと忘れるスピードはゆるやかになりました。もう一度使わないものは、すぐに消えていきます。"
+        },
+        {
+          "id": "fluidez",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "84%",
+            "clave": "fluidez"
+          },
+          "lamina": [
+            "apuntes",
+            "subrayar"
+          ],
+          "texto": "そして私たちは、ある罠にはまります。2009年、ジェフリー・カーピキーが大学生に勉強のしかたを聞くと、ほとんどがノートを読み返していました。読み返すと文章に見覚えがあるので気分がいいのですが、見覚えがあることと、知っていることは違います。",
+          "meme": "releer"
+        },
+        {
+          "id": "estantes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leer",
+              "cerrar",
+              "recordar"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "estantes",
+          "texto": "だから私の図書室では、読んだものをしまうだけではありません。本を開く前に、もう一度記憶の中から探し出します。"
+        }
+      ]
+    },
+    {
+      "id": "tecnicas",
+      "titulo": "本当に効く学習法はどれでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート2。本当に効く学習法はどれでしょうか？"
+        },
+        {
+          "id": "dunlosky",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tecnicas"
+          },
+          "lamina": [
+            "biblioteca",
+            "papeles"
+          ],
+          "texto": "2013年、ジョン・ダンロスキーのチームは、十の学習法についての何百もの研究を見直し、点数をつけました。最高評価はたった二つ。自分をテストすることと、勉強を時間に分散させることです。線引き、読み返し、要約づくりは最下位でした。"
+        },
+        {
+          "id": "esfuerzo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "facil",
+              "dificil",
+              "deseable"
+            ]
+          },
+          "lamina": [
+            "pesas",
+            "escalar"
+          ],
+          "texto": "なぜ効く方法ほど難しく感じるのでしょうか？ 心理学者のロバート・ビョークは、これを望ましい困難と呼びます。思い出そうとする努力こそが記憶を定着させるのです。筋肉を育てるおもりのように。",
+          "meme": "subrayar"
+        },
+        {
+          "id": "dos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "prueba",
+              "repartir",
+              "mezclar"
+            ]
+          },
+          "lamina": [
+            "calendario",
+            "tarjetas"
+          ],
+          "texto": "だから、このガイドの残りは三つのことについてです。自分をテストすること、分散させること、そして混ぜること。それからパート5では、いい先生が使う、本当に理解するためのコツを紹介します。"
+        },
+        {
+          "id": "sabio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunto",
+              "respondo",
+              "entrada"
+            ]
+          },
+          "enCasa": true,
+          "mencion": true,
+          "lamina": "conversar",
+          "texto": "ここで私は、人工知能で動く図書室の賢者に、読んだ内容について質問してもらいます。そして学んだことは、私の百科事典に保存されます。"
+        }
+      ]
+    },
+    {
+      "id": "prueba",
+      "titulo": "なぜ読み返すより、自分をテストするほうがいいのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート3。なぜ読み返すより、自分をテストするほうがいいのでしょうか？"
+        },
+        {
+          "id": "roediger",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "releerProbar"
+          },
+          "lamina": [
+            "examen",
+            "lapiz"
+          ],
+          "texto": "さあ、約束していた話です。2006年、ヘンリー・ローディガーとジェフリー・カーピキーは、学生にある文章を渡しました。四回読んだグループと、一回読んでから覚えていることを書き出すのを三回くり返したグループ。五分後は、読み返したほうが勝ちました。でも一週間後、自分をテストしたグループは六十一パーセントを覚えていて、もう一方は四十パーセントでした。"
+        },
+        {
+          "id": "recuperar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cierra",
+              "escribe",
+              "compara"
+            ]
+          },
+          "lamina": [
+            "cuaderno",
+            "hoja"
+          ],
+          "texto": "自分をテストするというのは、試験を受けることだけではありません。本を閉じて、覚えていることを全部書くか声に出して言い、そのあと文章と見比べて、何が抜けていたかを確かめるだけでいいのです。"
+        },
+        {
+          "id": "errores",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+",
+            "clave": "errores"
+          },
+          "lamina": [
+            "borrar",
+            "pregunta"
+          ],
+          "texto": "そして、まちがえることも役に立ちます。答えを知る前に答えようとして、そのあとで答えを見ると、ただ読んだときよりよく覚えられます。まちがいが、しまう場所の目印になるのです。"
+        },
+        {
+          "id": "recordar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "recordar"
+          },
+          "enCasa": true,
+          "lamina": "libroCerrado",
+          "texto": "私はこうしています。少し読んだら本を閉じて、わかったことを賢者に話します。すると賢者が、私が見落としたことを教えてくれます。"
+        }
+      ]
+    },
+    {
+      "id": "repasar",
+      "titulo": "忘れないためには、いつ復習すればいいのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート4。忘れないためには、いつ復習すればいいのでしょうか？"
+        },
+        {
+          "id": "espaciar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "repasos"
+          },
+          "lamina": [
+            "calendario",
+            "reloj2"
+          ],
+          "texto": "前の晩に全部詰めこむのは、明日の試験には効きますが、すぐに忘れてしまいます。2006年、ニコラス・セペダは三百以上の実験を調べました。同じ勉強時間なら、何日かに分けるほうが、一日にまとめるよりほとんどいつも勝ちます。",
+          "meme": "nocheAntes"
+        },
+        {
+          "id": "intervalo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "約3週間",
+            "clave": "intervalo"
+          },
+          "lamina": [
+            "agenda",
+            "hojas"
+          ],
+          "texto": "どのくらいの間隔で？ それは、どのくらい長く覚えておきたいかによります。2008年、同じチームが千人以上を追跡しました。一年後に覚えているには、学んでから三週間ほどあとに復習するのがいちばんでした。実用的なルールは、翌日、一週間後、一か月後に復習することです。"
+        },
+        {
+          "id": "mezclar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezclar"
+          },
+          "lamina": [
+            "matematicas",
+            "pizarra"
+          ],
+          "texto": "そして、テーマを混ぜましょう。2007年、ダグ・ローラーとケリー・テイラーは、学生に数学の問題を、種類ごとにまとめて、または混ぜて練習させました。一週間後、混ぜたグループの正答率は六十三パーセント、まとめたグループは二十パーセントでした。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "このガイドを気に入ってもらえたら、高評価、チャンネル登録、そして共有をお願いします。"
+        },
+        {
+          "id": "plan",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dias",
+              "minutos",
+              "calendario"
+            ]
+          },
+          "enCasa": true,
+          "mencion": true,
+          "lamina": "planEstudio",
+          "texto": "私の家では、自分で、または人工知能の助けを借りて学習プランを立てます。すると復習の予定がカレンダーに出てきます。"
+        }
+      ]
+    },
+    {
+      "id": "entender",
+      "titulo": "暗記ではなく理解するには、どうすればいいのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート5。暗記ではなく理解するには、どうすればいいのでしょうか？"
+        },
+        {
+          "id": "ensenar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "explicalo"
+          },
+          "lamina": [
+            "maestra",
+            "alumnos"
+          ],
+          "texto": "これがいい先生のコツです。人に教えるつもりで学ぶこと。2014年、ジョン・ネストイコは、あとで人に説明すると思わせて、あるグループに文章を読ませました。実際には説明しなかったのに、試験だけを予想していた人たちより多く、しかも整理されたかたちで覚えていました。"
+        },
+        {
+          "id": "porque",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porque",
+              "como",
+              "ejemplo"
+            ]
+          },
+          "lamina": [
+            "nino",
+            "lupa"
+          ],
+          "texto": "なぜ、と自分に問いかけましょう。ミシェリーン・チーは、文章の一歩一歩を自分に説明した学生が、ただ二回読んだ学生よりずっとよく理解していることを見つけました。どうしてこうなるの？ もう知っていることと、どうつながるの？ どんな例が思いつく？",
+          "meme": "porque"
+        },
+        {
+          "id": "sencillo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "sencillo",
+              "huecos",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "pizarra2",
+            "idea"
+          ],
+          "texto": "そして、かんたんに説明してみましょう。十二歳の子に話すように。言葉につまったり、むずかしい言葉でごまかしたりするところ、そこがまだわかっていない部分です。その部分だけ、文章に戻りましょう。"
+        },
+        {
+          "id": "arbol",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "semilla",
+              "ramas",
+              "hojas"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "arbol",
+          "texto": "私の百科事典は一本の木です。新しいテーマは、もう知っていることにぶら下がっていきます。それがどうつながるかを見ると、理解しやすくなります。"
+        }
+      ]
+    },
+    {
+      "id": "dormir",
+      "titulo": "睡眠は、学んだことに何をするのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート6。睡眠は、学んだことに何をするのでしょうか？"
+        },
+        {
+          "id": "gais",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "sueno"
+          },
+          "lamina": [
+            "dormir",
+            "cerebro"
+          ],
+          "texto": "眠っているあいだ、脳は学んだことをおさらいして、よりしっかりしまいます。2006年、シュテフェン・ガイスは学生に単語を教えました。覚えてから数時間以内に眠った人は、起きていた人より、何日もたってからでも多くを覚えていました。"
+        },
+        {
+          "id": "desvelo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "noche",
+              "antes",
+              "despues"
+            ]
+          },
+          "lamina": [
+            "desvelo",
+            "cafe"
+          ],
+          "texto": "だから、徹夜で勉強するのは高くつきます。その日のことを記憶がしまう、まさにその時間を奪ってしまうからです。勉強して、眠って、起きたら復習しましょう。"
+        },
+        {
+          "id": "sesiones",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloque",
+              "pausa",
+              "repite"
+            ]
+          },
+          "lamina": [
+            "temporizador",
+            "ventana"
+          ],
+          "texto": "そして昼間は、休憩をはさんだ短いセッションで。スマホを見えないところに置いて、二十五分か四十五分、しっかり集中するほうが、なんとなくの三時間より価値があります。"
+        },
+        {
+          "id": "estudio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quince",
+              "veinticinco",
+              "cuarenta"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "temporizador",
+          "texto": "ここで私は、十五分、二十五分、四十五分の学習タイマーをセットします。セッションのたびに、私の学習マップに記録されていきます。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "どう続ける？ 続けるためのプラン",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート7。どう続ける？ 続けるためのプラン。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "libro"
+          ],
+          "texto": "最初の一週間は、テーマを一つだけ選びましょう。二十五分勉強したら本を閉じて、覚えていることを全部書き出します。次の日、先に進む前に、見ないでもう一度やってみましょう。"
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "planRepasos"
+          },
+          "lamina": [
+            "brote",
+            "calendario2"
+          ],
+          "texto": "最初の一か月は、復習を予定に入れましょう。翌日、一週間後、一か月後。そして、どのセッションでもテーマを混ぜます。同じ時間でも、うまく分けた三回のセッションは、一回のマラソンより多くを覚えているのがわかります。"
+        },
+        {
+          "id": "fallar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "olvidar",
+              "medir",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "escalon"
+          ],
+          "texto": "何かを忘れても、がっかりしないで。少し忘れてからもう一度思い出すことこそが、記憶を定着させます。進み具合を測るなら、時間を数えるのではなく、見ないでどれだけ思い出せるかを数えましょう。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "まとめると、読み返しはだまし、自分をテストすると身につく。復習は分けて、混ぜる。教えるつもりで説明する。そして、よく眠る。学んだことはそこでしまわれるからです。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOSの図書室では、質問してくれる賢者と話したり、学んだことを百科事典に残したり、学習タイマーとプランで勉強したりできます。ひとりでも、人工知能の助けを借りてもかまいません。今日、無料であなたの心の家をつくろう。リンクは概要欄にあります。そして次回のガイドは、宇宙の言葉とは何でしょうか？",
+    "boton": "図書室を開く",
+    "lamina": "app-plan",
+    "anclas": {
+      "conversar": "賢者と話したり",
+      "enciclopedia": "百科事典に残したり",
+      "estudiar": "学習タイマーとプランで勉強"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "ebbinghaus-1885",
+      "texto": "Ebbinghaus H. Über das Gedächtnis: Untersuchungen zur experimentellen Psychologie (1885). 英訳：Memory: A Contribution to Experimental Psychology (1913).",
+      "url": "https://psychclassics.yorku.ca/Ebbinghaus/index.htm"
+    },
+    {
+      "id": "karpicke-2009",
+      "texto": "Karpicke J. D., Butler A. C., Roediger H. L. Metacognitive strategies in student learning: Do students practise retrieval when they study on their own? Memory (2009).",
+      "url": "https://doi.org/10.1080/09658210802647009"
+    },
+    {
+      "id": "dunlosky-2013",
+      "texto": "Dunlosky J. et al. Improving students' learning with effective learning techniques: Promising directions from cognitive and educational psychology. Psychological Science in the Public Interest (2013).",
+      "url": "https://doi.org/10.1177/1529100612453266"
+    },
+    {
+      "id": "bjork-1994",
+      "texto": "Bjork R. A. Memory and metamemory considerations in the training of human beings. 所収：Metcalfe J., Shimamura A. (eds.), Metacognition: Knowing about knowing (1994).",
+      "url": "https://bjorklab.psych.ucla.edu/research/"
+    },
+    {
+      "id": "roediger-2006",
+      "texto": "Roediger H. L., Karpicke J. D. Test-enhanced learning: Taking memory tests improves long-term retention. Psychological Science (2006).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x"
+    },
+    {
+      "id": "kornell-2009",
+      "texto": "Kornell N., Hays M. J., Bjork R. A. Unsuccessful retrieval attempts enhance subsequent learning. Journal of Experimental Psychology: Learning, Memory, and Cognition (2009).",
+      "url": "https://doi.org/10.1037/a0015729"
+    },
+    {
+      "id": "cepeda-2006",
+      "texto": "Cepeda N. J. et al. Distributed practice in verbal recall tasks: A review and quantitative synthesis. Psychological Bulletin (2006).",
+      "url": "https://doi.org/10.1037/0033-2909.132.3.354"
+    },
+    {
+      "id": "cepeda-2008",
+      "texto": "Cepeda N. J. et al. Spacing effects in learning: A temporal ridgeline of optimal retention. Psychological Science (2008).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2008.02209.x"
+    },
+    {
+      "id": "rohrer-2007",
+      "texto": "Rohrer D., Taylor K. The shuffling of mathematics problems improves learning. Instructional Science (2007).",
+      "url": "https://doi.org/10.1007/s11251-007-9015-8"
+    },
+    {
+      "id": "nestojko-2014",
+      "texto": "Nestojko J. F. et al. Expecting to teach enhances learning and organization of knowledge in free recall of text passages. Memory & Cognition (2014).",
+      "url": "https://doi.org/10.3758/s13421-014-0416-z"
+    },
+    {
+      "id": "chi-1994",
+      "texto": "Chi M. T. H. et al. Eliciting self-explanations improves understanding. Cognitive Science (1994).",
+      "url": "https://doi.org/10.1207/s15516709cog1803_3"
+    },
+    {
+      "id": "gais-2006",
+      "texto": "Gais S., Lucas B., Born J. Sleep after learning aids memory recall. Learning & Memory (2006).",
+      "url": "https://doi.org/10.1101/lm.132106"
+    }
+  ]
+}

@@ -3220,3 +3220,156 @@ html:has(.g-pose) body {
   stroke: color-mix(in srgb, var(--ui-ink) 40%, transparent);
   stroke-dasharray: 5 4;
 }
+
+/* ───────── Guía de Aprender: las diez técnicas, releer contra probar, recordar, repasos, mezclar, enseñar y el calendario ───────── */
+
+.g-apr {
+  --apr: #3b82f6;
+}
+.g-apr-barras {
+  display: grid;
+  gap: 10px;
+  margin: 10px 0;
+}
+.g-apr-barras > div {
+  display: grid;
+  grid-template-columns: minmax(120px, 40%) 1fr auto;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+}
+.g-apr-barras i {
+  height: 18px;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--ui-ink) 10%, transparent);
+  overflow: hidden;
+}
+.g-apr-barras b {
+  display: block;
+  height: 100%;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--ui-ink) 35%, transparent);
+  transition: width 1200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.g-apr-barras .fuerte b { background: var(--apr); }
+.g-apr-barras em { font-style: normal; font-weight: 800; min-width: 3.5em; text-align: end; }
+.g-apr-barras .fuerte em { color: var(--apr); }
+.g-apr-tecnicas { display: grid; gap: 6px; margin: 8px 0; padding: 0; list-style: none; }
+.g-apr-tecnicas li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 7px 12px;
+  border-radius: 10px;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  font-size: 15px;
+  transition: background 500ms, border-color 500ms;
+}
+.g-apr-tecnicas li b { font-weight: 800; color: var(--tinta-3); }
+.g-apr-tecnicas li.alta { background: color-mix(in srgb, #22c55e 18%, var(--tarjeta)); border-color: #22c55e; }
+.g-apr-tecnicas li.alta b { color: #15803d; }
+.g-apr-tecnicas li.moderada { background: color-mix(in srgb, #f59e0b 14%, var(--tarjeta)); }
+.g-apr-tecnicas li.moderada b { color: #b45309; }
+.g-apr-tecnicas li.baja b { color: #dc2626; }
+.g-apr-ideas { display: grid; gap: 6px; margin: 8px 0; padding: 0; list-style: none; }
+.g-apr-ideas button {
+  width: 100%;
+  text-align: start;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--borde);
+  background: var(--tarjeta);
+  color: var(--ui-ink);
+  font: inherit;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 400ms, border-color 400ms;
+}
+.g-apr-ideas i {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--borde);
+  font-style: normal;
+  font-weight: 900;
+  font-size: 13px;
+  display: grid;
+  place-items: center;
+}
+.g-apr-ideas .si button { border-color: #22c55e; background: color-mix(in srgb, #22c55e 14%, var(--tarjeta)); }
+.g-apr-ideas .si i { background: #22c55e; border-color: #22c55e; color: #fff; }
+.g-apr-ideas .falta button { border-color: #f59e0b; background: color-mix(in srgb, #f59e0b 14%, var(--tarjeta)); }
+.g-apr-ideas .falta i { background: #f59e0b; border-color: #f59e0b; color: #fff; }
+.g-apr-curva { width: 100%; height: auto; margin: 6px 0; }
+.g-apr-repaso { fill: var(--apr); }
+.g-apr-fichas { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+.g-apr-fichas i {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: #fff;
+  animation: g-vid-aparece 400ms ease both;
+}
+.g-apr-fichas .fA { background: #3b82f6; }
+.g-apr-fichas .fB { background: #f59e0b; }
+.g-apr-fichas .fC { background: #a855f7; }
+.g-apr-mapa {
+  position: relative;
+  height: 170px;
+  margin: 10px 0;
+  border-radius: 12px;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+}
+.g-apr-mapa i {
+  position: absolute;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--apr) 16%, var(--tarjeta));
+  border: 1px solid color-mix(in srgb, var(--apr) 40%, transparent);
+  transition: left 900ms ease, top 900ms ease, background 900ms;
+}
+.g-apr-mapa .a { left: 6%; top: 12%; }
+.g-apr-mapa .b { left: 62%; top: 70%; }
+.g-apr-mapa .c { left: 40%; top: 8%; }
+.g-apr-mapa .d { left: 12%; top: 68%; }
+.g-apr-mapa .e { left: 70%; top: 18%; }
+.g-apr-mapa .f { left: 36%; top: 42%; }
+.g-apr-mapa.ordenado .f { left: 38%; top: 42%; background: var(--apr); color: #fff; }
+.g-apr-mapa.ordenado .a { left: 12%; top: 14%; }
+.g-apr-mapa.ordenado .b { left: 64%; top: 14%; }
+.g-apr-mapa.ordenado .c { left: 38%; top: 74%; }
+.g-apr-mapa.ordenado .d { left: 10%; top: 74%; }
+.g-apr-mapa.ordenado .e { left: 66%; top: 74%; }
+.g-apr-plan { display: grid; gap: 8px; margin: 10px 0; padding: 0; list-style: none; }
+.g-apr-plan li {
+  display: grid;
+  grid-template-columns: minmax(110px, 30%) 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  opacity: 0.45;
+  transition: opacity 500ms, border-color 500ms;
+}
+.g-apr-plan li.on { opacity: 1; border-color: var(--apr); }
+.g-apr-plan span { color: var(--tinta-3); font-size: 14px; }
+.g-apr-plan em { font-style: normal; font-weight: 700; font-size: 13px; color: var(--apr); }
+.g-apr-sueno { display: flex; justify-content: center; gap: 48px; height: 190px; align-items: flex-end; padding: 10px 0 0; }
+.g-apr-sueno > div { display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%; justify-content: flex-end; width: 120px; }
+.g-apr-sueno i { display: block; width: 64px; border-radius: 10px 10px 0 0; }
+.g-apr-sueno .dormir i { background: #3b82f6; }
+.g-apr-sueno .despiertos i { background: color-mix(in srgb, var(--ui-ink) 30%, transparent); }
+.g-apr-sueno span { font-size: 13px; font-weight: 700; text-align: center; }

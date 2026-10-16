@@ -7140,6 +7140,7 @@ export const ZH: Dict = {
   'guia.metas.titulo': "怎样实现你的目标？",
   'guia.mindfulness.titulo': "为什么放慢脚步，反而能更快到达？",
   'guia.agenda.titulo': "怎样安排好你的时间？",
+  'guia.aprender.titulo': "怎样学得更快？",
   'tut.esencial.titulo': '基础导览',
   'tut.tipo.ejemplos': '示例·演示用的MindHaOS',
   'tut.app-agenda--esencial.resumen':

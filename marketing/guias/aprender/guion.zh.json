@@ -1,0 +1,631 @@
+{
+  "idioma": "zh",
+  "tema": "aprender",
+  "plantillaId": "biblioteca",
+  "numero": 12,
+  "nombre": "学习",
+  "pregunta": "怎样学得更快？",
+  "corta": "学得更快",
+  "subtitulo": "为什么学过的东西会忘，哪些方法真正有效，为什么自我测试比重读更好，什么时候复习，怎样理解而不是死记，睡眠会怎样处理你学到的东西，还有一个继续学习的计划。",
+  "aviso": "本指南仅供参考：引用的数字和研究都是来源中的近似值，每个人学习的节奏也不一样。如果你担心自己有学习或注意力方面的困难，请咨询专业人士。",
+  "partes": [
+    {
+      "id": "olvido",
+      "titulo": "为什么学过的东西会忘？",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "怎样学得更快？大多数人靠重读和划线来学习，而这恰恰是效果最差的方法之一。今天我们来看看真正有效的方法，还有为什么考试当天看起来最差的那一种，一周后反而会赢。"
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "对了，这是我在MindHaOS里的家，这是我的图书馆。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第一部分。为什么学过的东西会忘？"
+        },
+        {
+          "id": "ebbinghaus",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ebbinghaus"
+          },
+          "lamina": [
+            "ebbinghaus",
+            "reloj"
+          ],
+          "texto": "1885年，德国人赫尔曼·艾宾浩斯背下了几千个无意义的音节，然后测量自己忘了多少。一小时内，他就忘掉了一半以上，之后遗忘慢了下来。不再用的东西，很快就会消失。"
+        },
+        {
+          "id": "fluidez",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "84%",
+            "clave": "fluidez"
+          },
+          "lamina": [
+            "apuntes",
+            "subrayar"
+          ],
+          "texto": "而我们会掉进一个陷阱。2009年，杰弗里·卡尔匹克问大学生们怎么学习：绝大多数人都在重读笔记。重读感觉很好，因为内容看着眼熟，可是眼熟并不代表你真的会。",
+          "meme": "releer"
+        },
+        {
+          "id": "estantes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leer",
+              "cerrar",
+              "recordar"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "estantes",
+          "texto": "所以在我的图书馆里，我不只是把读过的东西存起来：打开书之前，我会先在记忆里把它找出来。"
+        }
+      ]
+    },
+    {
+      "id": "tecnicas",
+      "titulo": "哪些学习方法真正有效？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第二部分。哪些学习方法真正有效？"
+        },
+        {
+          "id": "dunlosky",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tecnicas"
+          },
+          "lamina": [
+            "biblioteca",
+            "papeles"
+          ],
+          "texto": "2013年，约翰·邓洛斯基和他的团队回顾了关于十种学习方法的数百项研究，并给它们打分。只有两种拿到了最高分：自我测试，和把学习分散到不同时间。划线、重读和写摘要都排在最后。"
+        },
+        {
+          "id": "esfuerzo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "facil",
+              "dificil",
+              "deseable"
+            ]
+          },
+          "lamina": [
+            "pesas",
+            "escalar"
+          ],
+          "texto": "为什么有效的方法反而感觉更难？心理学家罗伯特·比约克把它们叫作必要难度：努力回想，正是让记忆牢固的东西，就像让肌肉长大的重量。",
+          "meme": "subrayar"
+        },
+        {
+          "id": "dos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "prueba",
+              "repartir",
+              "mezclar"
+            ]
+          },
+          "lamina": [
+            "calendario",
+            "tarjetas"
+          ],
+          "texto": "所以这份指南接下来讲三件事：自我测试、分散学习和交错学习。到了第五部分，还有一个好老师都会用的、真正理解的诀窍。"
+        },
+        {
+          "id": "sabio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunto",
+              "respondo",
+              "entrada"
+            ]
+          },
+          "enCasa": true,
+          "mencion": true,
+          "lamina": "conversar",
+          "texto": "在这里，我请图书馆里由人工智能驱动的智者，就我读过的内容向我提问，我学到的东西会存进我的百科全书。"
+        }
+      ]
+    },
+    {
+      "id": "prueba",
+      "titulo": "为什么自我测试比重读更好？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第三部分。为什么自我测试比重读更好？"
+        },
+        {
+          "id": "roediger",
+          "destacada": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "releerProbar"
+          },
+          "lamina": [
+            "examen",
+            "lapiz"
+          ],
+          "texto": "这就是我答应过你的。2006年，亨利·罗迪格和杰弗里·卡尔匹克给学生们一篇文章。一些人读了四遍；另一些人读了一遍，然后凭记忆把记得的内容写下来，写了三次。五分钟后，重读的人赢了。可是一周后，自我测试的人还记得百分之六十一，而另一组只有百分之四十。"
+        },
+        {
+          "id": "recuperar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cierra",
+              "escribe",
+              "compara"
+            ]
+          },
+          "lamina": [
+            "cuaderno",
+            "hoja"
+          ],
+          "texto": "自我测试不只是考试。只要合上书，把你记得的全部写下来或大声说出来，然后再和原文对照，看看漏掉了什么。"
+        },
+        {
+          "id": "errores",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "+",
+            "clave": "errores"
+          },
+          "lamina": [
+            "borrar",
+            "pregunta"
+          ],
+          "texto": "而且，答错也有帮助。在知道答案之前先试着回答，然后再看答案，你会比只读一遍记得更牢。错误标出了存放它的位置。"
+        },
+        {
+          "id": "recordar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "recordar"
+          },
+          "enCasa": true,
+          "lamina": "libroCerrado",
+          "texto": "我是这样做的：读一会儿，合上书，把我理解的讲给智者听。他会告诉我漏掉了什么。"
+        }
+      ]
+    },
+    {
+      "id": "repasar",
+      "titulo": "什么时候复习才不会忘？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第四部分。什么时候复习才不会忘？"
+        },
+        {
+          "id": "espaciar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "repasos"
+          },
+          "lamina": [
+            "calendario",
+            "reloj2"
+          ],
+          "texto": "考前一晚把所有东西塞进脑子，对付明天的考试有用，但很快就忘了。2006年，尼古拉斯·塞佩达分析了三百多项实验：同样的学习时间，分散到几天里，几乎总是胜过集中在一天。",
+          "meme": "nocheAntes"
+        },
+        {
+          "id": "intervalo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "约3周",
+            "clave": "intervalo"
+          },
+          "lamina": [
+            "agenda",
+            "hojas"
+          ],
+          "texto": "隔多久复习？这取决于你想记多久。2008年，同一个团队追踪了一千多人：想在一年后还记得，最好是在学完大约三周后复习。一个实用的规则：第二天、一周后和一个月后各复习一次。"
+        },
+        {
+          "id": "mezclar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "mezclar"
+          },
+          "lamina": [
+            "matematicas",
+            "pizarra"
+          ],
+          "texto": "还要把题目混在一起。2007年，道格·罗勒和凯莉·泰勒让学生练习数学题，一组按类型分块练，一组混着练。一周后，混着练的人答对了百分之六十三；分块练的只有百分之二十。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "如果你喜欢这份指南，请点赞、订阅并分享。"
+        },
+        {
+          "id": "plan",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dias",
+              "minutos",
+              "calendario"
+            ]
+          },
+          "enCasa": true,
+          "mencion": true,
+          "lamina": "planEstudio",
+          "texto": "在我的家里，我会制定一个学习计划，自己来，或借助人工智能，我的复习就会出现在日历上。"
+        }
+      ]
+    },
+    {
+      "id": "entender",
+      "titulo": "怎样理解，而不是死记？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第五部分。怎样理解，而不是死记？"
+        },
+        {
+          "id": "ensenar",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "explicalo"
+          },
+          "lamina": [
+            "maestra",
+            "alumnos"
+          ],
+          "texto": "这就是好老师的诀窍：像要去教别人那样学习。2014年，约翰·内斯托伊科让一组人读一篇文章，并让他们以为之后要讲给别人听。虽然他们最后并没有讲，但比起只等着考试的人，他们记得更多，也更有条理。"
+        },
+        {
+          "id": "porque",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porque",
+              "como",
+              "ejemplo"
+            ]
+          },
+          "lamina": [
+            "nino",
+            "lupa"
+          ],
+          "texto": "问问自己为什么。米凯琳·齐发现，把文章的每一步都讲给自己听的学生，比只读两遍的学生理解得多得多。为什么会这样？它和我已经知道的东西怎么联系？我能想到什么例子？",
+          "meme": "porque"
+        },
+        {
+          "id": "sencillo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "sencillo",
+              "huecos",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "pizarra2",
+            "idea"
+          ],
+          "texto": "还要讲得简单，像讲给一个十二岁的孩子听。哪里卡住了，或者用了生僻的词来蒙混过关，那里就是你还没弄懂的地方。只回到原文的那一部分。"
+        },
+        {
+          "id": "arbol",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "semilla",
+              "ramas",
+              "hojas"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "arbol",
+          "texto": "我的百科全书是一棵树：每个新主题都挂在我已经知道的东西上，看到它们怎样相连，能帮我理解。"
+        }
+      ]
+    },
+    {
+      "id": "dormir",
+      "titulo": "睡眠会怎样处理你学到的东西？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第六部分。睡眠会怎样处理你学到的东西？"
+        },
+        {
+          "id": "gais",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "sueno"
+          },
+          "lamina": [
+            "dormir",
+            "cerebro"
+          ],
+          "texto": "你睡觉的时候，大脑会复习你学过的东西，把它存得更好。2006年，施特芬·盖斯教学生们词汇：学完几小时内就睡觉的人，即使过了几天，也比一直醒着的人记得更多。"
+        },
+        {
+          "id": "desvelo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "noche",
+              "antes",
+              "despues"
+            ]
+          },
+          "lamina": [
+            "desvelo",
+            "cafe"
+          ],
+          "texto": "所以熬夜学习代价很高：你恰好夺走了记忆保存当天内容的那段时间。最好是学习，睡觉，醒来再复习。"
+        },
+        {
+          "id": "sesiones",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloque",
+              "pausa",
+              "repite"
+            ]
+          },
+          "lamina": [
+            "temporizador",
+            "ventana"
+          ],
+          "texto": "白天则用带休息的短时段：二十五或四十五分钟的全神贯注，手机不放在眼前，胜过三个小时的心不在焉。"
+        },
+        {
+          "id": "estudio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quince",
+              "veinticinco",
+              "cuarenta"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "temporizador",
+          "texto": "在这里，我设置我的学习计时器，十五、二十五或四十五分钟，每个时段都会累积到我的学习地图上。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "怎样坚持下去？你的继续计划",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第七部分。怎样坚持下去？你的继续计划。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "libro"
+          ],
+          "texto": "第一周，只选一个主题。学习二十五分钟，合上书，把记得的全部写下来。第二天，在继续之前，不看书再试一次。"
+        },
+        {
+          "id": "mes1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "planRepasos"
+          },
+          "lamina": [
+            "brote",
+            "calendario2"
+          ],
+          "texto": "第一个月，把复习排进日程：第二天、一周后和一个月后，每次复习都把主题混在一起。你会看到，同样的时间，分散得当的三次学习，比一次马拉松记得更多。"
+        },
+        {
+          "id": "fallar",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "olvidar",
+              "medir",
+              "volver"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "escalon"
+          ],
+          "texto": "忘了什么的时候，别灰心：忘掉一点再想起来，正是让它牢固的过程。想衡量进步，别数小时：数一数不看书能想起多少。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "总结一下：重读会骗人，自我测试才教人；把复习分散开、混在一起；像要教别人那样去讲；还要睡好，因为学到的东西就是在那时存下来的。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "在MindHaOS的图书馆里，你可以和会向你提问的智者聊天，把学到的东西存进你的百科全书，还能用学习计时器和计划来学习，可以自己来，也可以借助人工智能。今天就免费搭建你的心灵之家。链接在视频简介里。下一期指南：宇宙的语言是什么？",
+    "boton": "打开图书馆",
+    "lamina": "app-plan",
+    "anclas": {
+      "conversar": "智者聊天",
+      "enciclopedia": "存进你的百科全书",
+      "estudiar": "用学习计时器"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "ebbinghaus-1885",
+      "texto": "Ebbinghaus H. Über das Gedächtnis: Untersuchungen zur experimentellen Psychologie (1885). 英译本：Memory: A Contribution to Experimental Psychology (1913).",
+      "url": "https://psychclassics.yorku.ca/Ebbinghaus/index.htm"
+    },
+    {
+      "id": "karpicke-2009",
+      "texto": "Karpicke J. D., Butler A. C., Roediger H. L. Metacognitive strategies in student learning: Do students practise retrieval when they study on their own? Memory (2009).",
+      "url": "https://doi.org/10.1080/09658210802647009"
+    },
+    {
+      "id": "dunlosky-2013",
+      "texto": "Dunlosky J. et al. Improving students' learning with effective learning techniques: Promising directions from cognitive and educational psychology. Psychological Science in the Public Interest (2013).",
+      "url": "https://doi.org/10.1177/1529100612453266"
+    },
+    {
+      "id": "bjork-1994",
+      "texto": "Bjork R. A. Memory and metamemory considerations in the training of human beings. 载于 Metcalfe J., Shimamura A. (eds.), Metacognition: Knowing about knowing (1994).",
+      "url": "https://bjorklab.psych.ucla.edu/research/"
+    },
+    {
+      "id": "roediger-2006",
+      "texto": "Roediger H. L., Karpicke J. D. Test-enhanced learning: Taking memory tests improves long-term retention. Psychological Science (2006).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x"
+    },
+    {
+      "id": "kornell-2009",
+      "texto": "Kornell N., Hays M. J., Bjork R. A. Unsuccessful retrieval attempts enhance subsequent learning. Journal of Experimental Psychology: Learning, Memory, and Cognition (2009).",
+      "url": "https://doi.org/10.1037/a0015729"
+    },
+    {
+      "id": "cepeda-2006",
+      "texto": "Cepeda N. J. et al. Distributed practice in verbal recall tasks: A review and quantitative synthesis. Psychological Bulletin (2006).",
+      "url": "https://doi.org/10.1037/0033-2909.132.3.354"
+    },
+    {
+      "id": "cepeda-2008",
+      "texto": "Cepeda N. J. et al. Spacing effects in learning: A temporal ridgeline of optimal retention. Psychological Science (2008).",
+      "url": "https://doi.org/10.1111/j.1467-9280.2008.02209.x"
+    },
+    {
+      "id": "rohrer-2007",
+      "texto": "Rohrer D., Taylor K. The shuffling of mathematics problems improves learning. Instructional Science (2007).",
+      "url": "https://doi.org/10.1007/s11251-007-9015-8"
+    },
+    {
+      "id": "nestojko-2014",
+      "texto": "Nestojko J. F. et al. Expecting to teach enhances learning and organization of knowledge in free recall of text passages. Memory & Cognition (2014).",
+      "url": "https://doi.org/10.3758/s13421-014-0416-z"
+    },
+    {
+      "id": "chi-1994",
+      "texto": "Chi M. T. H. et al. Eliciting self-explanations improves understanding. Cognitive Science (1994).",
+      "url": "https://doi.org/10.1207/s15516709cog1803_3"
+    },
+    {
+      "id": "gais-2006",
+      "texto": "Gais S., Lucas B., Born J. Sleep after learning aids memory recall. Learning & Memory (2006).",
+      "url": "https://doi.org/10.1101/lm.132106"
+    }
+  ]
+}
