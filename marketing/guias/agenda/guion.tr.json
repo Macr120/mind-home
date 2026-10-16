@@ -1,0 +1,775 @@
+{
+  "idioma": "tr",
+  "tema": "agenda",
+  "plantillaId": "agenda",
+  "numero": 11,
+  "nombre": "Ajanda",
+  "pregunta": "Zamanını nasıl düzenlersin?",
+  "corta": "Zamanını nasıl düzenlersin?",
+  "subtitulo": "Neden zamanın hiç yetmiyor, neden kafan iyi bir ajanda değil, önce ne gelir, neden aynı anda birkaç iş yapmak seni yavaşlatır, önemli olana nasıl saat verirsin, neden dinlenmek daha çok iş çıkarmanı sağlar, her şey birikince ne yapmalı ve ajandanı bırakmamak için bir plan.",
+  "aviso": "Bu rehber bilgilendirme amaçlıdır: verilen rakamlar ve çalışmalar kaynaklarından alınmış yaklaşık değerlerdir ve herkes zamanını kendi yöntemiyle düzenler. Yükün her gün seni aştığını hissediyorsan güvendiğin biriyle ya da bir uzmanla konuş.",
+  "partes": [
+    {
+      "id": "tiempo",
+      "titulo": "Neden zamanın hiç yetmiyor?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Zamanını nasıl düzenlersin? Hepimizin aynı yirmi dört saati var. Yine de Gallup'un bir anketinde her on kişiden sekizi, yapmak istedikleri her şeye zamanlarının yetmediğini söyledi. Peki bazı insanlara zaman neden yetiyor? Bugün bunu bilimin söyledikleriyle göreceksin ve haftanı gerçekten verimli kılacak bir planla ayrılacaksın."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Bu arada, burası MindHaOS'taki evim ve zamanımı bu odada düzenliyorum."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Birinci bölüm. Neden zamanın hiç yetmiyor?"
+        },
+        {
+          "id": "falacia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "estimar"
+          },
+          "lamina": [
+            "reloj",
+            "tesis"
+          ],
+          "destacada": true,
+          "meme": "diezMinutos",
+          "texto": "Önce hepimizin düştüğü bir tuzak. 1994'te Roger Buehler ve ekibi öğrencilere tezlerini bitirmenin ne kadar süreceğini sordu. Yaklaşık otuz dört gün tahmin ettiler. Elli beş gün sürdü. En kötü durum için yaptıkları tahmin olan kırk dokuz gün bile yetmedi."
+        },
+        {
+          "id": "parkinson",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1955",
+            "clave": "parkinson"
+          },
+          "lamina": [
+            "oficina",
+            "papeles"
+          ],
+          "texto": "Bir de ikinci tuzak var. 1955'te tarihçi Cyril Northcote Parkinson şaka yollu, işin onu yapmak için ayrılan süreyi dolduracak kadar uzadığını yazdı. Bir e-posta için kendine bütün öğleden sonrayı verirsen, o e-posta bütün öğleden sonranı alır."
+        },
+        {
+          "id": "bienestar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "158",
+            "clave": "aeon"
+          },
+          "lamina": [
+            "calma",
+            "cafe"
+          ],
+          "texto": "İyi haber şu: düzenli olmak gerçekten işe yarıyor, ama sandığın gibi değil. 2021'de Brad Aeon ve ekibi yüz elli sekiz çalışmayı bir araya getirdi: zamanı düzenlemek verimliliğe yardım ediyor, ama asıl olarak kendini daha iyi ve daha az stresli hissetmeni sağlıyor."
+        },
+        {
+          "id": "adelanto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sacar",
+              "elegir",
+              "agendar"
+            ]
+          },
+          "lamina": [
+            "mapa",
+            "brujula"
+          ],
+          "texto": "Yani mesele her dakikanın suyunu çıkarmak değil, şu üç şey: her şeyi kafandan çıkarmak, önce neyin geleceğini seçmek ve ona takviminde bir saat vermek."
+        },
+        {
+          "id": "escritorio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apunto",
+              "ordeno",
+              "agendo"
+            ]
+          },
+          "lamina": "escritorio",
+          "enCasa": true,
+          "texto": "Burada, masa ajandamda günüm başlıyor: kafamdakileri yazıyorum, sıraya koyuyorum ve her birine saatini veriyorum."
+        }
+      ]
+    },
+    {
+      "id": "cabeza",
+      "titulo": "Neden kafan iyi bir ajanda değil?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "İkinci bölüm. Neden kafan iyi bir ajanda değil?"
+        },
+        {
+          "id": "abiertos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "bandeja"
+          },
+          "lamina": [
+            "postits",
+            "cabeza"
+          ],
+          "destacada": true,
+          "texto": "Yarım bıraktığın şeyler kafanda dönüp durur. Anlatılana göre yirmili yıllarda Berlin'de psikolog Bluma Zeigarnik, bir garsonun henüz ödenmemiş siparişleri ezbere hatırladığını ve ödenir ödenmez unuttuğunu fark etti. Deneylerinde insanlar yarım bıraktıkları görevleri bitirdiklerinden daha iyi hatırladı."
+        },
+        {
+          "id": "capturar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "todo",
+              "unLugar",
+              "revisa"
+            ]
+          },
+          "lamina": [
+            "libreta",
+            "bandejaPapel"
+          ],
+          "texto": "Bu yüzden verimlilik üzerine çok bilinen bir kitabın yazarı David Allen her şeyi yakalamayı önerir: her iş, ne kadar küçük olursa olsun, sık sık baktığın tek bir yere gider. Kafan fikir üretmek içindir, onları saklamak için değil."
+        },
+        {
+          "id": "dosMinutos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 dk",
+            "clave": "dosMinutos"
+          },
+          "lamina": [
+            "correo",
+            "palomita"
+          ],
+          "texto": "Ve en ünlü kuralı: bir şey iki dakikadan kısa sürüyorsa hemen yap. Onu not edip sonra geri dönmek, yapmaktan daha pahalıya patlar."
+        },
+        {
+          "id": "pendientes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apuntar",
+              "sinFecha",
+              "prioridad"
+            ]
+          },
+          "lamina": "todo",
+          "enCasa": true,
+          "texto": "Ajandamda kafamdaki her şey Yapılacaklar listesine gider: tarihsiz, önceliğe göre sıralı, ta ki ona bir yer bulana kadar."
+        },
+        {
+          "id": "personas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cumples",
+              "cuidados",
+              "importantes"
+            ]
+          },
+          "lamina": "agendaPapel",
+          "enCasa": true,
+          "texto": "Sadece işlerim de değil: burada eski usul bir ajanda tutuyorum, tanıdığım insanlarla, doğum günlerini unutmamak için; ayrıca kendime ve hayatımdaki önemli insanlara göstermem gereken özeni de."
+        }
+      ]
+    },
+    {
+      "id": "primero",
+      "titulo": "Önce ne gelir?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Üçüncü bölüm. Önce ne gelir?"
+        },
+        {
+          "id": "eisenhower",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1954",
+            "clave": "eisenhower"
+          },
+          "lamina": [
+            "eisenhower",
+            "escritorioAntiguo"
+          ],
+          "texto": "1954'te Başkan Dwight Eisenhower iki tür sorunu olduğunu söyledi: acil olanlar ve önemli olanlar; ve acil olanlar neredeyse hiçbir zaman önemli değildi."
+        },
+        {
+          "id": "urgencia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "urgencia"
+          },
+          "lamina": [
+            "alarma",
+            "telefono"
+          ],
+          "meme": "urgente",
+          "texto": "Bilim de ona hak veriyor. 2018'de Meng Zhu ve ekibi, insanların diğeri daha çok kazandıracak olsa bile, sırf acil hissettirdiği için süresi yakında dolan görevi seçtiğini gördü."
+        },
+        {
+          "id": "matriz",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "matriz"
+          },
+          "lamina": [
+            "tablero",
+            "lista"
+          ],
+          "destacada": true,
+          "texto": "İşte bu yüzden onun matrisi işe yarar. Bak: acil ve önemli olanı bugün yap. Önemli ama acil olmayana bir saat ver. Acil ama önemli olmayanı birine devret ya da hızlıca yap. İkisi de olmayanı ise bırak."
+        },
+        {
+          "id": "prioridad",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "alta",
+              "media",
+              "baja"
+            ]
+          },
+          "lamina": "todo",
+          "enCasa": true,
+          "texto": "Listemde her işin bir önceliği var ve en önemlisi en başa gelene kadar onu yukarı ya da aşağı sürüklüyorum."
+        }
+      ]
+    },
+    {
+      "id": "una",
+      "titulo": "Neden aynı anda birkaç iş yapmak seni yavaşlatır?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Dördüncü bölüm. Neden aynı anda birkaç iş yapmak seni yavaşlatır?"
+        },
+        {
+          "id": "cambio",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "saltos"
+          },
+          "lamina": [
+            "pantallas",
+            "malabares"
+          ],
+          "destacada": true,
+          "meme": "multitarea",
+          "texto": "Bir işten diğerine her atladığında bir geçiş ücreti ödersin. 2001'de Joshua Rubinstein, David Meyer ve Jeffrey Evans, iş değiştirmenin her seferinde zamana mal olduğunu ve işler karmaşıklaştıkça bu bedelin arttığını ölçtü. Atlamaların nasıl toplandığına bak."
+        },
+        {
+          "id": "residuo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2009",
+            "clave": "residuo"
+          },
+          "lamina": [
+            "escritorioDesorden",
+            "pensar"
+          ],
+          "texto": "Ve kafa bir anda geçiş yapmaz. 2009'da Sophie Leroy buna dikkat kalıntısı dedi: bir parçan önceki işte kalır, hele onu yarım bıraktıysan."
+        },
+        {
+          "id": "kanban",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "kanban"
+          },
+          "lamina": [
+            "fabrica",
+            "notas"
+          ],
+          "texto": "Bu yüzden Toyota fabrikalarında kanban panosunu icat ettiler: üç sütun, yapılacak, devam ediyor ve tamamlandı, ve altın bir kural: aynı anda devam eden az iş. Birini bitirmeden ötekine başlama."
+        },
+        {
+          "id": "tablero",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porHacer",
+              "enCurso",
+              "hecho"
+            ]
+          },
+          "lamina": "kanbanPared",
+          "enCasa": true,
+          "texto": "Ajandamda işlerim de bir panoda yaşıyor: onları Yapılacak sütunundan Devam ediyor sütununa taşıyorum, bitirince de Tamamlandı sütununa."
+        }
+      ]
+    },
+    {
+      "id": "hora",
+      "titulo": "Önemli olana nasıl saat verirsin?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Beşinci bölüm. Önemli olana nasıl saat verirsin?"
+        },
+        {
+          "id": "plazos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "plazos"
+          },
+          "lamina": [
+            "papeles",
+            "calendarioPapel"
+          ],
+          "destacada": true,
+          "texto": "Tarihi olmayan iş sona kalır. 2002'de Dan Ariely ve Klaus Wertenbroch öğrencilerden üç ödev istedi. Bazılarına dönem sonunda tek bir teslim tarihi verdiler; diğerlerine dönem boyunca yayılmış, her ödev için ayrı bir tarih. Tarihleri yayılmış olanlar daha iyi notlar aldı."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoAgenda"
+          },
+          "lamina": "pulgar",
+          "texto": "Bu rehber hoşuna gidiyorsa Beğen'e bas, bir sonrakini kaçırmamak için Abone ol ve vaktinin hiç yetmediğini söyleyen biriyle Paylaş."
+        },
+        {
+          "id": "bloques",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "bloques"
+          },
+          "lamina": [
+            "semana",
+            "agendaPapel"
+          ],
+          "texto": "İşte zaman blokları bu: bitmeyen bir liste yerine her önemli iş takvimde kendi yerini alır, kendinle bir randevu gibi. Bir haftanın nasıl yerleştiğine bak."
+        },
+        {
+          "id": "vistas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dia",
+              "semana",
+              "mes"
+            ]
+          },
+          "lamina": [
+            "planeador",
+            "lapices"
+          ],
+          "texto": "Ve zamanına farklı yüksekliklerden bak: gün harekete geçmek, hafta işleri dağıtmak, ay ise sürprizlerle karşılaşmamak için."
+        },
+        {
+          "id": "calendario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fechaYHora",
+              "aviso",
+              "palomita"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Evimde bir işin tarihi ve saati olunca kendiliğinden takvimimde, hatırlatıcısıyla belirir ve onu gün, hafta, ay ya da yıl görünümünde görürüm."
+        }
+      ]
+    },
+    {
+      "id": "pausas",
+      "titulo": "Neden dinlenmek daha çok iş çıkarmanı sağlar?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Altıncı bölüm. Neden dinlenmek daha çok iş çıkarmanı sağlar?"
+        },
+        {
+          "id": "micro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pausas"
+          },
+          "lamina": [
+            "estirarse",
+            "ventana"
+          ],
+          "destacada": true,
+          "texto": "Hiç durmadan çalışmak seni daha ileri götürmez. 2022'de Patricia Albulescu ve ekibi yirmi iki çalışmayı inceledi: on dakikadan kısa molalar daha fazla enerji ve daha az yorgunluk sağlıyor, rutin işlerde ise yaptığın işi bile iyileştiriyor."
+        },
+        {
+          "id": "pomodoro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "pomodoro"
+          },
+          "lamina": [
+            "tomate",
+            "temporizador"
+          ],
+          "texto": "Basit bir yol, Francesco Cirillo'nun domates şeklinde bir mutfak saatiyle icat ettiği Pomodoro tekniği: tek bir işe yirmi beş dakika, beş dakika mola ve her dört turda bir uzun mola."
+        },
+        {
+          "id": "pausa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "levantate",
+              "mira",
+              "agua"
+            ]
+          },
+          "lamina": [
+            "caminar",
+            "agua"
+          ],
+          "texto": "Ve mola gerçek bir mola olsun: kalk, uzağa bak, su iç. Telefona bakmak dinlenmek sayılmaz."
+        },
+        {
+          "id": "descansos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloque",
+              "pausa",
+              "otroBloque"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bu yüzden takvimimde dinlenmeye de saat veriyorum: iki blok arasında bir mola, onu da işaretliyorum."
+        }
+      ]
+    },
+    {
+      "id": "acumula",
+      "titulo": "Her şey birikince ne yapmalı?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Yedinci bölüm. Her şey birikince ne yapmalı?"
+        },
+        {
+          "id": "partir",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2008",
+            "clave": "partir"
+          },
+          "lamina": [
+            "rompecabezas",
+            "escalera"
+          ],
+          "destacada": true,
+          "texto": "Önce daha iyi hesapla. 2008'de Jeffrey Forsyth ve Christopher Burt, bir işi adımlara bölüp her birini ayrı tahmin ettiğinde, hesabının gerçekte ne kadar sürdüğüne daha çok yaklaştığını gördü."
+        },
+        {
+          "id": "colchon",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "colchon"
+          },
+          "lamina": [
+            "trafico",
+            "reloj2"
+          ],
+          "texto": "Ve bir pay bırak. Bir şeyin bir saat süreceğini düşünüyorsan ona bir buçuk saat ayır. Beklenmedik bir şey çıktığında, payla ve paysız gününe ne olduğuna bak."
+        },
+        {
+          "id": "decirNo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mueve",
+              "delega",
+              "no"
+            ]
+          },
+          "lamina": [
+            "manos",
+            "reunion"
+          ],
+          "meme": "manana",
+          "texto": "Artık sığmadığında seç: başka bir güne taşı, birine devret ya da hayır de. Bir şeye her evet, başka bir şeye hayır demektir."
+        },
+        {
+          "id": "mover",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "arrastra",
+              "estira",
+              "sigue"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Araya bir şey girdiğinde bloğu burada başka bir boşluğa sürüklüyorum ya da uzatıyorum ve haftam ayakta kalıyor."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Nasıl devam etmeli? Devam etmek için planın",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Sekizinci bölüm. Nasıl devam etmeli? Devam etmek için planın."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "İlk hafta her şeyi kafandan tek bir yere çıkar ve her sabah üç önemli şey seç. Sadece üç."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloquea",
+              "pausas",
+              "colchon"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "İlk ay takviminde önemli olana molaları ve payıyla birlikte saat ver. Her boşluğu doldurma: beklemediğin şeyler için yer bırak."
+        },
+        {
+          "id": "revision",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "viernes",
+              "limpia",
+              "planea"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "lunes"
+          ],
+          "texto": "Ve haftada bir, on beş dakikalık bir gözden geçirme: listeyi boşalt, yapılamayanı taşı ve bir sonraki haftanın bloklarını planla. Kendinle olan o randevu her şeyi ayakta tutar."
+        },
+        {
+          "id": "misiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cadaApp",
+              "juntas",
+              "palomeo"
+            ]
+          },
+          "lamina": "planeador",
+          "enCasa": true,
+          "texto": "Her günkü işleri de görevlerimde tutuyorum: evimdeki her uygulamanın kendi görevleri var, su içmek ya da ders çalışmak gibi; takvimimde ve ajandamda hepsini gün gün birlikte görüyor ve işaretliyorum."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Özetle: kafan bir ajanda değil, o yüzden her şeyi çıkar; önemliyi acilden önce seç; bir seferde tek bir iş yap ve ona saatini ver; dinlen ve pay bırak, çünkü düzenli olmak daha iyi yaşamak içindir, daha hızlı koşmak için değil."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS'taki Ajanda odasında yapılacak işlerini yazabilir, onları bir panoda taşıyabilir, takviminde hatırlatıcısıyla görünmeleri için onlara tarih ve saat verebilirsin; sevdiklerinin doğum günlerini de artık unutmazsın. Zihinsel evini bugün ücretsiz kur: bağlantı açıklamada. Bir sonraki rehberde ise: nasıl daha hızlı öğrenirsin?",
+    "boton": "Ajanda odasını aç",
+    "lamina": "app-plan",
+    "anclas": {
+      "pendientes": "yapılacak işlerini yazabilir",
+      "tablero": "bir panoda",
+      "calendario": "takviminde",
+      "personas": "doğum günlerini"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "whillans-2019",
+      "texto": "Whillans A. Time for Happiness. Harvard Business Review (Ocak 2019), Gallup verileriyle.",
+      "url": "https://hbr.org/2019/01/time-for-happiness"
+    },
+    {
+      "id": "buehler-1994",
+      "texto": "Buehler R., Griffin D., Ross M. Exploring the “planning fallacy”: Why people underestimate their task completion times. Journal of Personality and Social Psychology (1994).",
+      "url": "https://doi.org/10.1037/0022-3514.67.3.366"
+    },
+    {
+      "id": "parkinson-1955",
+      "texto": "Parkinson C. N. Parkinson's Law. The Economist (19 Kasım 1955).",
+      "url": "https://www.economist.com/news/1955/11/19/parkinsons-law"
+    },
+    {
+      "id": "aeon-2021",
+      "texto": "Aeon B., Faber A., Panaccio A. Does time management work? A meta-analysis. PLOS ONE (2021).",
+      "url": "https://doi.org/10.1371/journal.pone.0245066"
+    },
+    {
+      "id": "zeigarnik-1927",
+      "texto": "Zeigarnik B. Über das Behalten von erledigten und unerledigten Handlungen. Psychologische Forschung (1927).",
+      "url": "https://doi.org/10.1007/BF02409755"
+    },
+    {
+      "id": "allen-2001",
+      "texto": "Allen D. Getting Things Done: The Art of Stress-Free Productivity (2001).",
+      "url": "https://gettingthingsdone.com/"
+    },
+    {
+      "id": "eisenhower-1954",
+      "texto": "Eisenhower D. D. Address at the Second Assembly of the World Council of Churches, Evanston (1954).",
+      "url": "https://www.presidency.ucsb.edu/documents/address-the-second-assembly-the-world-council-churches-evanston-illinois"
+    },
+    {
+      "id": "zhu-2018",
+      "texto": "Zhu M., Yang Y., Hsee C. K. The mere urgency effect. Journal of Consumer Research (2018).",
+      "url": "https://doi.org/10.1093/jcr/ucy008"
+    },
+    {
+      "id": "rubinstein-2001",
+      "texto": "Rubinstein J. S., Meyer D. E., Evans J. E. Executive control of cognitive processes in task switching. Journal of Experimental Psychology: Human Perception and Performance (2001).",
+      "url": "https://doi.org/10.1037/0096-1523.27.4.763"
+    },
+    {
+      "id": "leroy-2009",
+      "texto": "Leroy S. Why is it so hard to do my work? The challenge of attention residue when switching between work tasks. Organizational Behavior and Human Decision Processes (2009).",
+      "url": "https://doi.org/10.1016/j.obhdp.2009.04.002"
+    },
+    {
+      "id": "ohno-1988",
+      "texto": "Ohno T. Toyota Production System: Beyond Large-Scale Production (1988), kanbanın kökeni.",
+      "url": "https://global.toyota/en/company/vision-and-philosophy/production-system/"
+    },
+    {
+      "id": "ariely-2002",
+      "texto": "Ariely D., Wertenbroch K. Procrastination, deadlines, and performance: Self-control by precommitment. Psychological Science (2002).",
+      "url": "https://doi.org/10.1111/1467-9280.00441"
+    },
+    {
+      "id": "albulescu-2022",
+      "texto": "Albulescu P. ve meslektaşları. “Give me a break!” A systematic review and meta-analysis on the efficacy of micro-breaks for increasing well-being and performance. PLOS ONE (2022).",
+      "url": "https://doi.org/10.1371/journal.pone.0272460"
+    },
+    {
+      "id": "cirillo-2006",
+      "texto": "Cirillo F. The Pomodoro Technique (2006).",
+      "url": "https://www.pomodorotechnique.com/"
+    },
+    {
+      "id": "forsyth-2008",
+      "texto": "Forsyth D. K., Burt C. D. B. Allocating time to future tasks: The effect of task segmentation on planning fallacy bias. Memory & Cognition (2008).",
+      "url": "https://doi.org/10.3758/MC.36.4.791"
+    }
+  ]
+}

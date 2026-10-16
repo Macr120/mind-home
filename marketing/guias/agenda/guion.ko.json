@@ -1,0 +1,775 @@
+{
+  "idioma": "ko",
+  "tema": "agenda",
+  "plantillaId": "agenda",
+  "numero": 11,
+  "nombre": "일정",
+  "pregunta": "시간을 어떻게 정리할까요?",
+  "corta": "시간을 어떻게 정리할까요?",
+  "subtitulo": "왜 시간은 늘 부족한지, 왜 머리는 좋은 일정표가 아닌지, 무엇을 먼저 할지, 왜 여러 일을 한꺼번에 하면 느려지는지, 중요한 일에 시간을 정해 주는 법, 왜 쉬면 더 잘하게 되는지, 모든 게 쌓였을 때 어떻게 할지, 그리고 일정을 놓지 않기 위한 계획까지.",
+  "aviso": "이 가이드는 정보 제공용이에요. 소개하는 수치와 연구는 각 출처를 바탕으로 한 대략적인 값이고, 시간을 정리하는 방식은 사람마다 달라요. 매일 해야 할 일에 짓눌리는 느낌이 든다면, 믿을 만한 사람이나 전문가와 이야기해 보세요.",
+  "partes": [
+    {
+      "id": "tiempo",
+      "titulo": "왜 시간은 늘 부족할까요?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "시간을 어떻게 정리할까요? 우리 모두에게는 똑같이 하루 스물네 시간이 있어요. 그런데도 갤럽 조사에서 열 명 중 여덟 명은 하고 싶은 일을 다 할 시간이 부족하다고 답했어요. 그렇다면 왜 어떤 사람들은 시간이 충분할까요? 오늘은 과학이 밝혀낸 것을 함께 보고, 한 주가 제대로 굴러가게 해 줄 계획까지 가져가실 거예요."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "참고로, 여기는 MindHaOS에 있는 제 집이에요. 이 방에서 저는 제 시간을 정리한답니다."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "1부. 왜 시간은 늘 부족할까요?"
+        },
+        {
+          "id": "falacia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "estimar"
+          },
+          "lamina": [
+            "reloj",
+            "tesis"
+          ],
+          "destacada": true,
+          "meme": "diezMinutos",
+          "texto": "먼저, 우리 모두가 빠지는 함정부터요. 1994년, Roger Buehler와 연구진은 학생들에게 졸업 논문을 끝내는 데 얼마나 걸릴지 물었어요. 학생들은 약 34일이라고 예상했죠. 실제로는 55일이 걸렸습니다. 최악의 경우로 잡은 49일조차 모자랐어요."
+        },
+        {
+          "id": "parkinson",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1955",
+            "clave": "parkinson"
+          },
+          "lamina": [
+            "oficina",
+            "papeles"
+          ],
+          "texto": "그리고 두 번째 함정이 있어요. 1955년, 역사학자 Cyril Northcote Parkinson은 일은 주어진 시간을 다 채울 때까지 늘어난다고 농담처럼 썼어요. 이메일 한 통에 오후 내내를 주면, 그 이메일은 정말 오후 내내 걸린답니다."
+        },
+        {
+          "id": "bienestar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "158",
+            "clave": "aeon"
+          },
+          "lamina": [
+            "calma",
+            "cafe"
+          ],
+          "texto": "좋은 소식은, 시간을 정리하는 건 정말 효과가 있다는 거예요. 다만 생각하는 방식과는 조금 달라요. 2021년, Brad Aeon과 연구진은 158편의 연구를 모았어요. 시간 관리는 성과에도 도움이 되지만, 무엇보다 기분이 좋아지고 스트레스가 줄어들어요."
+        },
+        {
+          "id": "adelanto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sacar",
+              "elegir",
+              "agendar"
+            ]
+          },
+          "lamina": [
+            "mapa",
+            "brujula"
+          ],
+          "texto": "그러니까 1분 1초를 쥐어짜는 게 아니라, 세 가지가 중요해요. 머릿속에 있는 걸 전부 꺼내기, 먼저 할 일 고르기, 그리고 캘린더에 시간을 정해 주기예요."
+        },
+        {
+          "id": "escritorio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apunto",
+              "ordeno",
+              "agendo"
+            ]
+          },
+          "lamina": "escritorio",
+          "enCasa": true,
+          "texto": "여기, 제 책상 위 일정표에서 제 하루가 시작돼요. 머릿속에 있는 걸 적고, 순서를 정하고, 각각에 시간을 정해 주죠."
+        }
+      ]
+    },
+    {
+      "id": "cabeza",
+      "titulo": "왜 머리는 좋은 일정표가 아닐까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "2부. 왜 머리는 좋은 일정표가 아닐까요?"
+        },
+        {
+          "id": "abiertos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "bandeja"
+          },
+          "lamina": [
+            "postits",
+            "cabeza"
+          ],
+          "destacada": true,
+          "texto": "끝내지 못한 일은 머릿속에서 계속 맴돌아요. 1920년대 베를린에서, 심리학자 Bluma Zeigarnik은 웨이터가 아직 계산하지 않은 주문은 외우고 있다가, 계산이 끝나자마자 잊어버린다는 걸 알아챘다고 해요. 그녀의 실험에서도 사람들은 끝낸 일보다 중간에 멈춘 일을 더 잘 기억했어요."
+        },
+        {
+          "id": "capturar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "todo",
+              "unLugar",
+              "revisa"
+            ]
+          },
+          "lamina": [
+            "libreta",
+            "bandejaPapel"
+          ],
+          "texto": "그래서 생산성에 관한 아주 유명한 책을 쓴 David Allen은 전부 붙잡아 두라고 해요. 아무리 작은 할 일이라도, 자주 확인하는 한곳에 모아 두는 거죠. 머리는 아이디어를 떠올리는 곳이지, 보관하는 곳이 아니니까요."
+        },
+        {
+          "id": "dosMinutos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2분",
+            "clave": "dosMinutos"
+          },
+          "lamina": [
+            "correo",
+            "palomita"
+          ],
+          "texto": "그리고 그의 가장 유명한 규칙. 2분 안에 끝나는 일이라면, 지금 바로 하세요. 적어 두고 나중에 다시 돌아오는 게 그냥 해 버리는 것보다 더 힘들거든요."
+        },
+        {
+          "id": "pendientes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apuntar",
+              "sinFecha",
+              "prioridad"
+            ]
+          },
+          "lamina": "todo",
+          "enCasa": true,
+          "texto": "제 일정에서는 머릿속에 있는 모든 게 할 일 목록으로 들어가요. 날짜 없이, 우선순위대로요. 제가 자리를 정해 줄 때까지 거기에 있어요."
+        },
+        {
+          "id": "personas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cumples",
+              "cuidados",
+              "importantes"
+            ]
+          },
+          "lamina": "agendaPapel",
+          "enCasa": true,
+          "texto": "할 일만이 아니에요. 여기에는 옛날 수첩처럼 제가 아는 사람들을 적어 두고 생일을 잊지 않게 챙겨요. 저 자신과 제 삶의 소중한 사람들을 위해 챙겨야 할 관리도요."
+        }
+      ]
+    },
+    {
+      "id": "primero",
+      "titulo": "무엇을 먼저 해야 할까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "3부. 무엇을 먼저 해야 할까요?"
+        },
+        {
+          "id": "eisenhower",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1954",
+            "clave": "eisenhower"
+          },
+          "lamina": [
+            "eisenhower",
+            "escritorioAntiguo"
+          ],
+          "texto": "1954년, 드와이트 아이젠하워 대통령은 자신에게 두 종류의 문제가 있다고 말했어요. 급한 문제와 중요한 문제. 그리고 급한 문제는 거의 중요하지 않다고요."
+        },
+        {
+          "id": "urgencia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "urgencia"
+          },
+          "lamina": [
+            "alarma",
+            "telefono"
+          ],
+          "meme": "urgente",
+          "texto": "과학도 그 말이 맞다고 해요. 2018년, Meng Zhu와 연구진은 다른 일이 더 이득이어도, 사람들이 마감이 가까운 일을 고른다는 걸 확인했어요. 그저 급하게 느껴진다는 이유만으로요."
+        },
+        {
+          "id": "matriz",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "matriz"
+          },
+          "lamina": [
+            "tablero",
+            "lista"
+          ],
+          "destacada": true,
+          "texto": "그래서 그의 매트릭스가 쓸모 있어요. 보세요. 급하고 중요한 일은 오늘 하세요. 중요하지만 급하지 않은 일은 시간을 정해 주세요. 급하지만 중요하지 않은 일은 다른 사람에게 넘기거나 빨리 끝내세요. 둘 다 아닌 일은 내려놓으세요."
+        },
+        {
+          "id": "prioridad",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "alta",
+              "media",
+              "baja"
+            ]
+          },
+          "lamina": "todo",
+          "enCasa": true,
+          "texto": "제 할 일 목록에서는 할 일마다 우선순위가 있어요. 가장 중요한 게 맨 위에 올 때까지 위아래로 끌어서 옮겨요."
+        }
+      ]
+    },
+    {
+      "id": "una",
+      "titulo": "왜 여러 일을 한꺼번에 하면 느려질까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "4부. 왜 여러 일을 한꺼번에 하면 느려질까요?"
+        },
+        {
+          "id": "cambio",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "saltos"
+          },
+          "lamina": [
+            "pantallas",
+            "malabares"
+          ],
+          "destacada": true,
+          "meme": "multitarea",
+          "texto": "한 일에서 다른 일로 넘어갈 때마다 통행료를 내는 셈이에요. 2001년, Joshua Rubinstein, David Meyer, Jeffrey Evans는 일을 바꿀 때마다 시간이 들고, 일이 복잡할수록 더 많이 든다는 걸 측정했어요. 전환이 어떻게 쌓이는지 보세요."
+        },
+        {
+          "id": "residuo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2009",
+            "clave": "residuo"
+          },
+          "lamina": [
+            "escritorioDesorden",
+            "pensar"
+          ],
+          "texto": "게다가 머리는 한 번에 바뀌지 않아요. 2009년, Sophie Leroy는 이것을 주의 잔여물이라고 불렀어요. 내 일부가 이전 일에 남아 있는 거죠. 특히 중간에 멈춘 일이라면 더요."
+        },
+        {
+          "id": "kanban",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "kanban"
+          },
+          "lamina": [
+            "fabrica",
+            "notas"
+          ],
+          "texto": "그래서 도요타 공장에서 칸반 보드가 생겼어요. 할 일, 진행 중, 완료, 세 개의 열과 하나의 철칙. 진행 중인 일은 조금만. 하나를 끝내고 나서 다음을 시작하세요."
+        },
+        {
+          "id": "tablero",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porHacer",
+              "enCurso",
+              "hecho"
+            ]
+          },
+          "lamina": "kanbanPared",
+          "enCasa": true,
+          "texto": "제 일정에서도 할 일은 보드 위에 있어요. 할 일에서 진행 중으로 옮기고, 끝나면 완료로 옮겨요."
+        }
+      ]
+    },
+    {
+      "id": "hora",
+      "titulo": "중요한 일에 어떻게 시간을 정해 줄까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "5부. 중요한 일에 어떻게 시간을 정해 줄까요?"
+        },
+        {
+          "id": "plazos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "plazos"
+          },
+          "lamina": [
+            "papeles",
+            "calendarioPapel"
+          ],
+          "destacada": true,
+          "texto": "날짜가 없는 일은 맨 마지막으로 밀려요. 2002년, Dan Ariely와 Klaus Wertenbroch는 학생들에게 과제 세 개를 냈어요. 어떤 학생들에게는 학기 말에 마감 하나만, 다른 학생들에게는 학기 중에 나눠진 과제별 마감을 줬죠. 마감이 나눠진 학생들이 더 좋은 성적을 받았어요."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoAgenda"
+          },
+          "lamina": "pulgar",
+          "texto": "이 가이드가 마음에 든다면 좋아요를 누르고, 다음 편을 놓치지 않게 구독하고, 늘 시간이 부족하다고 말하는 사람에게 공유해 주세요."
+        },
+        {
+          "id": "bloques",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "bloques"
+          },
+          "lamina": [
+            "semana",
+            "agendaPapel"
+          ],
+          "texto": "이게 바로 시간 블록이에요. 끝없는 목록 대신, 중요한 일마다 나와의 약속처럼 캘린더에 자리를 주는 거죠. 한 주가 어떻게 채워지는지 보세요."
+        },
+        {
+          "id": "vistas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dia",
+              "semana",
+              "mes"
+            ]
+          },
+          "lamina": [
+            "planeador",
+            "lapices"
+          ],
+          "texto": "그리고 시간을 여러 높이에서 보세요. 하루는 행동하기 위해, 한 주는 나누기 위해, 한 달은 놀라지 않기 위해서요."
+        },
+        {
+          "id": "calendario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fechaYHora",
+              "aviso",
+              "palomita"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "제 집에서는 할 일에 날짜와 시간을 넣으면 알림과 함께 캘린더에 저절로 나타나고, 일, 주, 월, 연도별로 볼 수 있어요."
+        }
+      ]
+    },
+    {
+      "id": "pausas",
+      "titulo": "왜 쉬면 더 잘하게 될까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "6부. 왜 쉬면 더 잘하게 될까요?"
+        },
+        {
+          "id": "micro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pausas"
+          },
+          "lamina": [
+            "estirarse",
+            "ventana"
+          ],
+          "destacada": true,
+          "texto": "쉬지 않고 일한다고 더 많이 나아가는 건 아니에요. 2022년, Patricia Albulescu와 연구진은 스물두 편의 연구를 검토했어요. 10분이 안 되는 짧은 휴식은 기운을 북돋우고 피로를 줄여 주며, 반복적인 일에서는 결과까지 좋아지게 해 줘요."
+        },
+        {
+          "id": "pomodoro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "pomodoro"
+          },
+          "lamina": [
+            "tomate",
+            "temporizador"
+          ],
+          "texto": "간단한 방법으로 뽀모도로 기법이 있어요. Francesco Cirillo가 토마토 모양의 주방 타이머로 만들었죠. 한 가지 일에 25분, 쉬는 데 5분, 그리고 네 번마다 긴 휴식을 가져요."
+        },
+        {
+          "id": "pausa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "levantate",
+              "mira",
+              "agua"
+            ]
+          },
+          "lamina": [
+            "caminar",
+            "agua"
+          ],
+          "texto": "그리고 휴식은 진짜 휴식이어야 해요. 일어나서, 멀리 보고, 물을 마시세요. 휴대폰 확인은 휴식이 아니에요."
+        },
+        {
+          "id": "descansos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloque",
+              "pausa",
+              "otroBloque"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "그래서 제 캘린더에는 휴식에도 시간을 정해 둬요. 블록과 블록 사이에 휴식을 넣고, 그것도 체크해요."
+        }
+      ]
+    },
+    {
+      "id": "acumula",
+      "titulo": "모든 게 쌓이면 어떻게 할까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "7부. 모든 게 쌓이면 어떻게 할까요?"
+        },
+        {
+          "id": "partir",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2008",
+            "clave": "partir"
+          },
+          "lamina": [
+            "rompecabezas",
+            "escalera"
+          ],
+          "destacada": true,
+          "texto": "먼저, 더 잘 예상하세요. 2008년, Jeffrey Forsyth와 Christopher Burt는 일을 단계로 나누고 단계마다 예상하면, 실제로 걸리는 시간에 더 가까워진다는 걸 확인했어요."
+        },
+        {
+          "id": "colchon",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "colchon"
+          },
+          "lamina": [
+            "trafico",
+            "reloj2"
+          ],
+          "texto": "그리고 여유를 남겨 두세요. 한 시간이 걸릴 것 같다면 한 시간 반을 잡아 두세요. 예상 못 한 일이 생겼을 때, 여유가 있는 날과 없는 날이 어떻게 다른지 보세요."
+        },
+        {
+          "id": "decirNo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mueve",
+              "delega",
+              "no"
+            ]
+          },
+          "lamina": [
+            "manos",
+            "reunion"
+          ],
+          "meme": "manana",
+          "texto": "그래도 다 들어가지 않으면 고르세요. 다른 날로 옮기거나, 다른 사람에게 넘기거나, 거절하세요. 무언가에 예라고 하는 건 다른 무언가에 아니오라고 하는 거예요."
+        },
+        {
+          "id": "mover",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "arrastra",
+              "estira",
+              "sigue"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "갑자기 일이 끼어들면, 여기서 블록을 다른 빈칸으로 끌어 옮기거나 늘려요. 그러면 제 한 주는 흔들리지 않아요."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "어떻게 계속할까요? 계속하기 위한 계획",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "8부. 어떻게 계속할까요? 계속하기 위한 계획."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "첫 주에는 머릿속에 있는 걸 전부 한곳에 꺼내 놓고, 매일 아침 중요한 일 세 가지를 고르세요. 딱 세 가지만요."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloquea",
+              "pausas",
+              "colchon"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "첫 달에는 캘린더에서 중요한 일에 시간을 정해 주세요. 휴식과 여유도 함께요. 모든 칸을 채우지 말고, 예상 못 한 일을 위한 틈을 남겨 두세요."
+        },
+        {
+          "id": "revision",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "viernes",
+              "limpia",
+              "planea"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "lunes"
+          ],
+          "texto": "그리고 일주일에 한 번, 15분 동안 점검하세요. 목록을 비우고, 못 한 일을 옮기고, 다음 주 블록을 계획하세요. 나와의 이 약속이 다른 모든 걸 받쳐 줘요."
+        },
+        {
+          "id": "misiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cadaApp",
+              "juntas",
+              "palomeo"
+            ]
+          },
+          "lamina": "planeador",
+          "enCasa": true,
+          "texto": "그리고 매일 하는 일은 미션으로 챙겨요. 제 집의 앱마다 물 마시기나 공부하기 같은 미션이 있고, 캘린더와 일정에서 그걸 하루하루 함께 보면서 체크해요."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "정리하면, 머리는 일정표가 아니니 전부 꺼내세요. 급한 일보다 중요한 일을 고르세요. 한 번에 하나씩, 시간을 정해서 하세요. 그리고 쉬고, 여유를 남기세요. 시간을 정리하는 건 더 빨리 달리기 위해서가 아니라, 더 잘 살기 위해서니까요."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS의 일정 방에서는 할 일을 적어 두고, 보드에서 옮기고, 날짜와 시간을 정하면 알림과 함께 캘린더에 나타나요. 소중한 사람들의 생일도 잊지 않을 수 있어요. 오늘 무료로 나만의 마음의 집을 지어 보세요. 링크는 설명란에 있어요. 그리고 다음 가이드는, 어떻게 하면 더 빨리 배울 수 있을까요?",
+    "boton": "일정 방 열기",
+    "lamina": "app-plan",
+    "anclas": {
+      "pendientes": "할 일을 적어 두고",
+      "tablero": "보드에서 옮기고",
+      "calendario": "캘린더에 나타나요",
+      "personas": "생일"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "whillans-2019",
+      "texto": "Whillans A. Time for Happiness. Harvard Business Review (2019년 1월), Gallup 데이터 포함.",
+      "url": "https://hbr.org/2019/01/time-for-happiness"
+    },
+    {
+      "id": "buehler-1994",
+      "texto": "Buehler R., Griffin D., Ross M. Exploring the «planning fallacy»: Why people underestimate their task completion times. Journal of Personality and Social Psychology (1994).",
+      "url": "https://doi.org/10.1037/0022-3514.67.3.366"
+    },
+    {
+      "id": "parkinson-1955",
+      "texto": "Parkinson C. N. Parkinson's Law. The Economist (1955년 11월 19일).",
+      "url": "https://www.economist.com/news/1955/11/19/parkinsons-law"
+    },
+    {
+      "id": "aeon-2021",
+      "texto": "Aeon B., Faber A., Panaccio A. Does time management work? A meta-analysis. PLOS ONE (2021).",
+      "url": "https://doi.org/10.1371/journal.pone.0245066"
+    },
+    {
+      "id": "zeigarnik-1927",
+      "texto": "Zeigarnik B. Über das Behalten von erledigten und unerledigten Handlungen. Psychologische Forschung (1927).",
+      "url": "https://doi.org/10.1007/BF02409755"
+    },
+    {
+      "id": "allen-2001",
+      "texto": "Allen D. Getting Things Done: The Art of Stress-Free Productivity (2001).",
+      "url": "https://gettingthingsdone.com/"
+    },
+    {
+      "id": "eisenhower-1954",
+      "texto": "Eisenhower D. D. Address at the Second Assembly of the World Council of Churches, Evanston (1954).",
+      "url": "https://www.presidency.ucsb.edu/documents/address-the-second-assembly-the-world-council-churches-evanston-illinois"
+    },
+    {
+      "id": "zhu-2018",
+      "texto": "Zhu M., Yang Y., Hsee C. K. The mere urgency effect. Journal of Consumer Research (2018).",
+      "url": "https://doi.org/10.1093/jcr/ucy008"
+    },
+    {
+      "id": "rubinstein-2001",
+      "texto": "Rubinstein J. S., Meyer D. E., Evans J. E. Executive control of cognitive processes in task switching. Journal of Experimental Psychology: Human Perception and Performance (2001).",
+      "url": "https://doi.org/10.1037/0096-1523.27.4.763"
+    },
+    {
+      "id": "leroy-2009",
+      "texto": "Leroy S. Why is it so hard to do my work? The challenge of attention residue when switching between work tasks. Organizational Behavior and Human Decision Processes (2009).",
+      "url": "https://doi.org/10.1016/j.obhdp.2009.04.002"
+    },
+    {
+      "id": "ohno-1988",
+      "texto": "Ohno T. Toyota Production System: Beyond Large-Scale Production (1988), 칸반의 기원.",
+      "url": "https://global.toyota/en/company/vision-and-philosophy/production-system/"
+    },
+    {
+      "id": "ariely-2002",
+      "texto": "Ariely D., Wertenbroch K. Procrastination, deadlines, and performance: Self-control by precommitment. Psychological Science (2002).",
+      "url": "https://doi.org/10.1111/1467-9280.00441"
+    },
+    {
+      "id": "albulescu-2022",
+      "texto": "Albulescu P. 외. «Give me a break!» A systematic review and meta-analysis on the efficacy of micro-breaks for increasing well-being and performance. PLOS ONE (2022).",
+      "url": "https://doi.org/10.1371/journal.pone.0272460"
+    },
+    {
+      "id": "cirillo-2006",
+      "texto": "Cirillo F. The Pomodoro Technique (2006).",
+      "url": "https://www.pomodorotechnique.com/"
+    },
+    {
+      "id": "forsyth-2008",
+      "texto": "Forsyth D. K., Burt C. D. B. Allocating time to future tasks: The effect of task segmentation on planning fallacy bias. Memory & Cognition (2008).",
+      "url": "https://doi.org/10.3758/MC.36.4.791"
+    }
+  ]
+}

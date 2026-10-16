@@ -7577,6 +7577,7 @@ export const DE: Dict = {
   'guia.video.titulo': "Wie macht man Videos?",
   'guia.metas.titulo': "Wie erreichst du deine Ziele?",
   'guia.mindfulness.titulo': "Warum kommst du schneller an, wenn du langsamer gehst?",
+  'guia.agenda.titulo': "Wie organisierst du deine Zeit?",
   'tut.esencial.titulo': 'Das Wichtigste',
   'tut.tipo.ejemplos': 'Beispiele · Demo-MindHaOS',
   'tut.app-agenda--esencial.resumen':

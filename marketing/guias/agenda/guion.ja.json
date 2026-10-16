@@ -1,0 +1,775 @@
+{
+  "idioma": "ja",
+  "tema": "agenda",
+  "plantillaId": "agenda",
+  "numero": 11,
+  "nombre": "スケジュール",
+  "pregunta": "時間をうまく整理するには、どうすればいいのでしょうか？",
+  "corta": "時間をどう整理する？",
+  "subtitulo": "なぜ時間はいつも足りないのか、なぜ頭はスケジュール帳に向いていないのか、何を先にやるべきか、なぜ同時にいくつもやると遅くなるのか、大切なことに時間を割り当てる方法、なぜ休むともっとはかどるのか、すべてが積み重なったときにどうするか、そしてスケジュールを手放さないためのプラン。",
+  "aviso": "このガイドは情報提供を目的としています。紹介する数字や研究はそれぞれの出典にもとづく概算で、時間の使い方は人それぞれです。毎日、やることに押しつぶされそうだと感じるなら、信頼できる人や専門家に相談してください。",
+  "partes": [
+    {
+      "id": "tiempo",
+      "titulo": "なぜ時間はいつも足りないのでしょうか？",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "時間をうまく整理するには、どうすればいいのでしょうか？ 誰にでも、同じ24時間があります。それなのにギャラップの調査では、10人中8人が、やりたいことをすべてやる時間が足りないと答えました。では、なぜ時間が足りている人もいるのでしょうか？ 今日は科学が明らかにしたことを見ながら、あなたの一週間がちゃんと回るプランを持ち帰ってもらいます。"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "ちなみに、ここはMindHaOSにある私の家。この部屋で、私は自分の時間を整理しているんです。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート1。なぜ時間はいつも足りないのでしょうか？"
+        },
+        {
+          "id": "falacia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "estimar"
+          },
+          "lamina": [
+            "reloj",
+            "tesis"
+          ],
+          "destacada": true,
+          "meme": "diezMinutos",
+          "texto": "まずは、誰もがはまる罠から。1994年、Roger Buehlerたちは、学生に卒業論文を書き上げるのに何日かかるかを尋ねました。予想はおよそ34日。実際には55日かかりました。最悪の場合として見積もった49日でさえ、足りなかったのです。"
+        },
+        {
+          "id": "parkinson",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1955",
+            "clave": "parkinson"
+          },
+          "lamina": [
+            "oficina",
+            "papeles"
+          ],
+          "texto": "そして、もうひとつの罠があります。1955年、歴史学者のCyril Northcote Parkinsonは、仕事は与えられた時間をすべて満たすまで膨らむ、と冗談まじりに書きました。メール1通に午後をまるごとあげれば、そのメールは本当に午後をまるごと使ってしまうのです。"
+        },
+        {
+          "id": "bienestar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "158",
+            "clave": "aeon"
+          },
+          "lamina": [
+            "calma",
+            "cafe"
+          ],
+          "texto": "うれしいことに、時間の整理にはちゃんと効果があります。ただし、思っているのとは少し違う形で。2021年、Brad Aeonたちは158の研究をまとめました。時間の整理は成果にもつながりますが、何よりも気分がよくなり、ストレスが減るのです。"
+        },
+        {
+          "id": "adelanto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sacar",
+              "elegir",
+              "agendar"
+            ]
+          },
+          "lamina": [
+            "mapa",
+            "brujula"
+          ],
+          "texto": "だから大事なのは、1分1秒を絞り出すことではなく、3つのことです。頭の中のものをすべて外に出すこと、先にやることを選ぶこと、そしてカレンダーに時間を割り当てることです。"
+        },
+        {
+          "id": "escritorio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apunto",
+              "ordeno",
+              "agendo"
+            ]
+          },
+          "lamina": "escritorio",
+          "enCasa": true,
+          "texto": "ここ、私の机のスケジュール帳から、私の一日が始まります。頭の中にあることを書き出して、並べて、それぞれに時間を決めるんです。"
+        }
+      ]
+    },
+    {
+      "id": "cabeza",
+      "titulo": "なぜ頭はスケジュール帳に向いていないのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート2。なぜ頭はスケジュール帳に向いていないのでしょうか？"
+        },
+        {
+          "id": "abiertos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "bandeja"
+          },
+          "lamina": [
+            "postits",
+            "cabeza"
+          ],
+          "destacada": true,
+          "texto": "やりかけのことは、頭の中でぐるぐる回り続けます。1920年代のベルリンで、心理学者のBluma Zeigarnikは、ウェイターがまだ支払いの済んでいない注文は覚えているのに、支払いが済むとすぐに忘れてしまうことに気づいたと言われています。彼女の実験でも、人は終えた作業より、途中でやめた作業のほうをよく覚えていました。"
+        },
+        {
+          "id": "capturar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "todo",
+              "unLugar",
+              "revisa"
+            ]
+          },
+          "lamina": [
+            "libreta",
+            "bandejaPapel"
+          ],
+          "texto": "だから、生産性についてのとても有名な本を書いたDavid Allenは、すべてを書き出すことをすすめています。どんなに小さなやることも、こまめに見直すひとつの場所にまとめる。頭はアイデアを考えるためのもので、しまっておくためのものではありません。"
+        },
+        {
+          "id": "dosMinutos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2分",
+            "clave": "dosMinutos"
+          },
+          "lamina": [
+            "correo",
+            "palomita"
+          ],
+          "texto": "そして、彼のいちばん有名なルール。2分以内で終わることなら、今すぐやる。書き留めてあとで戻るほうが、やってしまうより手間がかかるからです。"
+        },
+        {
+          "id": "pendientes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apuntar",
+              "sinFecha",
+              "prioridad"
+            ]
+          },
+          "lamina": "todo",
+          "enCasa": true,
+          "texto": "私のスケジュールでは、頭の中にあることはすべてタスクのトレイに入れます。日付はつけずに優先度順に並べて、置き場所を決めるまで、そこに置いておきます。"
+        },
+        {
+          "id": "personas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cumples",
+              "cuidados",
+              "importantes"
+            ]
+          },
+          "lamina": "agendaPapel",
+          "enCasa": true,
+          "texto": "それに、タスクだけではありません。ここには昔ながらの手帳のように知り合いをまとめていて、誕生日を忘れないようにしています。自分自身と、大切な人たちのためにやるべきケアも、ここで管理しているんです。"
+        }
+      ]
+    },
+    {
+      "id": "primero",
+      "titulo": "何を先にやればいいのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート3。何を先にやればいいのでしょうか？"
+        },
+        {
+          "id": "eisenhower",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1954",
+            "clave": "eisenhower"
+          },
+          "lamina": [
+            "eisenhower",
+            "escritorioAntiguo"
+          ],
+          "texto": "1954年、ドワイト・アイゼンハワー大統領は、自分には2種類の問題がある、と言いました。緊急なものと、重要なもの。そして、緊急なものが重要であることはめったにない、と。"
+        },
+        {
+          "id": "urgencia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "urgencia"
+          },
+          "lamina": [
+            "alarma",
+            "telefono"
+          ],
+          "meme": "urgente",
+          "texto": "科学も、それを裏づけています。2018年、Meng Zhuたちは、もう一方のほうが得るものが大きくても、人は締め切りの近い作業を選んでしまうことを確かめました。ただ、急ぎに感じるというだけで。"
+        },
+        {
+          "id": "matriz",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "matriz"
+          },
+          "lamina": [
+            "tablero",
+            "lista"
+          ],
+          "destacada": true,
+          "texto": "だから、彼のマトリクスが役に立ちます。見てください。緊急で重要なことは、今日やる。重要だけど緊急でないことは、時間を決める。緊急だけど重要でないことは、誰かに任せるか、さっと済ませる。どちらでもないことは、手放しましょう。"
+        },
+        {
+          "id": "prioridad",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "alta",
+              "media",
+              "baja"
+            ]
+          },
+          "lamina": "todo",
+          "enCasa": true,
+          "texto": "私のトレイでは、タスクのひとつひとつに優先度があって、いちばん大切なものが先頭に来るまで、上へ下へとドラッグして並べ替えます。"
+        }
+      ]
+    },
+    {
+      "id": "una",
+      "titulo": "なぜ同時にいくつもやると遅くなるのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート4。なぜ同時にいくつもやると遅くなるのでしょうか？"
+        },
+        {
+          "id": "cambio",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "saltos"
+          },
+          "lamina": [
+            "pantallas",
+            "malabares"
+          ],
+          "destacada": true,
+          "meme": "multitarea",
+          "texto": "作業から作業へ移るたびに、通行料を払っているようなものです。2001年、Joshua Rubinstein、David Meyer、Jeffrey Evansは、作業を切り替えるたびに時間がかかり、作業が複雑なほどその時間が長くなることを測定しました。切り替えがどう積み重なるか、見てください。"
+        },
+        {
+          "id": "residuo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2009",
+            "clave": "residuo"
+          },
+          "lamina": [
+            "escritorioDesorden",
+            "pensar"
+          ],
+          "texto": "それに、頭はすぐには切り替わりません。2009年、Sophie Leroyはこれを注意残余と呼びました。自分の一部が、前の作業に残ってしまうのです。とくに、途中でやめたときには。"
+        },
+        {
+          "id": "kanban",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "kanban"
+          },
+          "lamina": [
+            "fabrica",
+            "notas"
+          ],
+          "texto": "だからトヨタの工場では、かんばんボードが生まれました。未着手、進行中、完了の3つの列と、ひとつの鉄則。進行中のものは少しだけ。ひとつ終えてから、次を始めます。"
+        },
+        {
+          "id": "tablero",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porHacer",
+              "enCurso",
+              "hecho"
+            ]
+          },
+          "lamina": "kanbanPared",
+          "enCasa": true,
+          "texto": "私のスケジュールでも、タスクはボードの上にあります。未着手から進行中へ動かして、終わったら完了へ。"
+        }
+      ]
+    },
+    {
+      "id": "hora",
+      "titulo": "大切なことに、どうやって時間を割り当てるのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート5。大切なことに、どうやって時間を割り当てるのでしょうか？"
+        },
+        {
+          "id": "plazos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "plazos"
+          },
+          "lamina": [
+            "papeles",
+            "calendarioPapel"
+          ],
+          "destacada": true,
+          "texto": "日付のないことは、最後まで後回しになります。2002年、Dan ArielyとKlaus Wertenbrochは、学生に3つの課題を出しました。ある学生たちには、学期末に締め切りをひとつだけ。ほかの学生たちには、学期のあいだに課題ごとの締め切りを。締め切りが分かれていた学生のほうが、よい成績をとりました。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoAgenda"
+          },
+          "lamina": "pulgar",
+          "texto": "このガイドを気に入ってくれたら、高評価を押して、次回を見逃さないようにチャンネル登録して、いつも時間が足りないと言っている人に共有してください。"
+        },
+        {
+          "id": "bloques",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "bloques"
+          },
+          "lamina": [
+            "semana",
+            "agendaPapel"
+          ],
+          "texto": "これが、時間をブロックで区切るということ。終わりのないリストの代わりに、大切なことひとつひとつに、自分との約束のようにカレンダーの枠をあげるんです。一週間がどう収まるか、見てください。"
+        },
+        {
+          "id": "vistas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dia",
+              "semana",
+              "mes"
+            ]
+          },
+          "lamina": [
+            "planeador",
+            "lapices"
+          ],
+          "texto": "そして、時間をいろいろな高さから眺めましょう。日は動くため、週は割り振るため、月は驚かないためです。"
+        },
+        {
+          "id": "calendario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fechaYHora",
+              "aviso",
+              "palomita"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "私の家では、タスクに日付と時間をつけると、お知らせつきで自動的にカレンダーに表示されて、日、週、月、年で見られます。"
+        }
+      ]
+    },
+    {
+      "id": "pausas",
+      "titulo": "なぜ休むともっとはかどるのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート6。なぜ休むともっとはかどるのでしょうか？"
+        },
+        {
+          "id": "micro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pausas"
+          },
+          "lamina": [
+            "estirarse",
+            "ventana"
+          ],
+          "destacada": true,
+          "texto": "休まずに働いても、そのぶん進むわけではありません。2022年、Patricia Albulescuたちは22の研究を見直しました。10分未満の休憩で元気が増えて疲れが減り、決まった作業では、その出来までよくなるのです。"
+        },
+        {
+          "id": "pomodoro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "pomodoro"
+          },
+          "lamina": [
+            "tomate",
+            "temporizador"
+          ],
+          "texto": "簡単な方法が、ポモドーロ・テクニック。Francesco Cirilloが、トマトの形をしたキッチンタイマーで考え出しました。ひとつの作業に25分、休憩に5分。4回ごとに、長めの休憩をとります。"
+        },
+        {
+          "id": "pausa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "levantate",
+              "mira",
+              "agua"
+            ]
+          },
+          "lamina": [
+            "caminar",
+            "agua"
+          ],
+          "texto": "そして、休憩は本当の休憩にすること。立ち上がって、遠くを見て、水を飲む。スマホを見るのは、休憩に入りません。"
+        },
+        {
+          "id": "descansos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloque",
+              "pausa",
+              "otroBloque"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "だから私のカレンダーでは、休憩にも時間を決めています。ブロックとブロックのあいだに休憩をはさんで、それにもチェックを入れるんです。"
+        }
+      ]
+    },
+    {
+      "id": "acumula",
+      "titulo": "すべてが積み重なったら、どうすればいいのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート7。すべてが積み重なったら、どうすればいいのでしょうか？"
+        },
+        {
+          "id": "partir",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2008",
+            "clave": "partir"
+          },
+          "lamina": [
+            "rompecabezas",
+            "escalera"
+          ],
+          "destacada": true,
+          "texto": "まずは、見積もりをうまくすること。2008年、Jeffrey ForsythとChristopher Burtは、作業をステップに分けてそれぞれを見積もると、予想が実際にかかる時間に近づくことを確かめました。"
+        },
+        {
+          "id": "colchon",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "colchon"
+          },
+          "lamina": [
+            "trafico",
+            "reloj2"
+          ],
+          "texto": "そして、余裕をとっておくこと。1時間かかると思うなら、1時間半とっておきましょう。思わぬことが起きたとき、余裕がある日とない日でどうなるか、見てください。"
+        },
+        {
+          "id": "decirNo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mueve",
+              "delega",
+              "no"
+            ]
+          },
+          "lamina": [
+            "manos",
+            "reunion"
+          ],
+          "meme": "manana",
+          "texto": "それでも入りきらないときは、選びましょう。別の日に動かすか、誰かに任せるか、断るか。何かにイエスと言うのは、ほかの何かにノーと言うことです。"
+        },
+        {
+          "id": "mover",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "arrastra",
+              "estira",
+              "sigue"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "何かが割り込んできたら、ここでブロックを別の枠にドラッグしたり、引きのばしたりします。それで、私の一週間はちゃんと回り続けます。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "どう続ける？ 続けるためのプラン",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート8。どう続ける？ 続けるためのプラン。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "最初の一週間は、頭の中のものをすべてひとつの場所に出して、毎朝、大切なことを3つ選びましょう。3つだけです。"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloquea",
+              "pausas",
+              "colchon"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "最初の1か月は、カレンダーで大切なことに時間を決めましょう。休憩と余裕もいっしょに。すべての枠を埋めずに、思いがけないことのための空きを残しておくんです。"
+        },
+        {
+          "id": "revision",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "viernes",
+              "limpia",
+              "planea"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "lunes"
+          ],
+          "texto": "そして週に一度、15分の見直しを。トレイを空にして、できなかったことを動かし、次の週のブロックを計画します。この自分との約束が、ほかのすべてを支えてくれます。"
+        },
+        {
+          "id": "misiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cadaApp",
+              "juntas",
+              "palomeo"
+            ]
+          },
+          "lamina": "planeador",
+          "enCasa": true,
+          "texto": "毎日のことは、ミッションで管理しています。私の家のアプリには、水を飲む、勉強するといった、それぞれのミッションがあって、カレンダーとスケジュールで一日ずつまとめて見ながら、チェックを入れていきます。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "まとめると、頭はスケジュール帳ではないから、すべて外に出すこと。緊急なことより大切なことを選ぶこと。一度にひとつずつ、時間を決めてやること。そして休んで、余裕を残すこと。時間を整理するのは、もっと急ぐためではなく、もっとよく生きるためだからです。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOSのスケジュールの部屋では、タスクを書き留めて、ボードで動かし、日付と時間を決めれば、お知らせつきでカレンダーに表示されます。大切な人の誕生日も忘れません。今日、無料であなたの心の家をつくろう。リンクは概要欄にあります。そして次回のガイドは、どうすればもっと早く学べるのでしょうか？",
+    "boton": "スケジュールの部屋を開く",
+    "lamina": "app-plan",
+    "anclas": {
+      "pendientes": "タスクを書き留めて",
+      "tablero": "ボードで動かし",
+      "calendario": "カレンダーに表示",
+      "personas": "誕生日"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "whillans-2019",
+      "texto": "Whillans A. Time for Happiness. Harvard Business Review（2019年1月）、Gallupのデータにもとづく。",
+      "url": "https://hbr.org/2019/01/time-for-happiness"
+    },
+    {
+      "id": "buehler-1994",
+      "texto": "Buehler R., Griffin D., Ross M. Exploring the «planning fallacy»: Why people underestimate their task completion times. Journal of Personality and Social Psychology (1994).",
+      "url": "https://doi.org/10.1037/0022-3514.67.3.366"
+    },
+    {
+      "id": "parkinson-1955",
+      "texto": "Parkinson C. N. Parkinson's Law. The Economist（1955年11月19日）。",
+      "url": "https://www.economist.com/news/1955/11/19/parkinsons-law"
+    },
+    {
+      "id": "aeon-2021",
+      "texto": "Aeon B., Faber A., Panaccio A. Does time management work? A meta-analysis. PLOS ONE (2021).",
+      "url": "https://doi.org/10.1371/journal.pone.0245066"
+    },
+    {
+      "id": "zeigarnik-1927",
+      "texto": "Zeigarnik B. Über das Behalten von erledigten und unerledigten Handlungen. Psychologische Forschung (1927).",
+      "url": "https://doi.org/10.1007/BF02409755"
+    },
+    {
+      "id": "allen-2001",
+      "texto": "Allen D. Getting Things Done: The Art of Stress-Free Productivity (2001).",
+      "url": "https://gettingthingsdone.com/"
+    },
+    {
+      "id": "eisenhower-1954",
+      "texto": "Eisenhower D. D. Address at the Second Assembly of the World Council of Churches, Evanston (1954).",
+      "url": "https://www.presidency.ucsb.edu/documents/address-the-second-assembly-the-world-council-churches-evanston-illinois"
+    },
+    {
+      "id": "zhu-2018",
+      "texto": "Zhu M., Yang Y., Hsee C. K. The mere urgency effect. Journal of Consumer Research (2018).",
+      "url": "https://doi.org/10.1093/jcr/ucy008"
+    },
+    {
+      "id": "rubinstein-2001",
+      "texto": "Rubinstein J. S., Meyer D. E., Evans J. E. Executive control of cognitive processes in task switching. Journal of Experimental Psychology: Human Perception and Performance (2001).",
+      "url": "https://doi.org/10.1037/0096-1523.27.4.763"
+    },
+    {
+      "id": "leroy-2009",
+      "texto": "Leroy S. Why is it so hard to do my work? The challenge of attention residue when switching between work tasks. Organizational Behavior and Human Decision Processes (2009).",
+      "url": "https://doi.org/10.1016/j.obhdp.2009.04.002"
+    },
+    {
+      "id": "ohno-1988",
+      "texto": "Ohno T. Toyota Production System: Beyond Large-Scale Production (1988)、かんばんの起源。",
+      "url": "https://global.toyota/en/company/vision-and-philosophy/production-system/"
+    },
+    {
+      "id": "ariely-2002",
+      "texto": "Ariely D., Wertenbroch K. Procrastination, deadlines, and performance: Self-control by precommitment. Psychological Science (2002).",
+      "url": "https://doi.org/10.1111/1467-9280.00441"
+    },
+    {
+      "id": "albulescu-2022",
+      "texto": "Albulescu P.ほか。«Give me a break!» A systematic review and meta-analysis on the efficacy of micro-breaks for increasing well-being and performance. PLOS ONE (2022).",
+      "url": "https://doi.org/10.1371/journal.pone.0272460"
+    },
+    {
+      "id": "cirillo-2006",
+      "texto": "Cirillo F. The Pomodoro Technique (2006).",
+      "url": "https://www.pomodorotechnique.com/"
+    },
+    {
+      "id": "forsyth-2008",
+      "texto": "Forsyth D. K., Burt C. D. B. Allocating time to future tasks: The effect of task segmentation on planning fallacy bias. Memory & Cognition (2008).",
+      "url": "https://doi.org/10.3758/MC.36.4.791"
+    }
+  ]
+}

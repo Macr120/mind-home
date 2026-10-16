@@ -1,0 +1,775 @@
+{
+  "idioma": "pl",
+  "tema": "agenda",
+  "plantillaId": "agenda",
+  "numero": 11,
+  "nombre": "Terminarz",
+  "pregunta": "Jak zorganizować swój czas?",
+  "corta": "Jak zorganizować swój czas?",
+  "subtitulo": "Dlaczego nigdy nie starcza ci czasu, dlaczego głowa to kiepski terminarz, co robić najpierw, dlaczego robienie kilku rzeczy naraz cię spowalnia, jak zaplanować czas na to, co ważne, dlaczego odpoczynek pozwala zrobić więcej, co robić, gdy wszystko się piętrzy, i plan, żeby nie porzucić swojego terminarza.",
+  "aviso": "Ten przewodnik ma charakter informacyjny: podane liczby i badania to przybliżenia z ich źródeł, a każdy organizuje swój czas na swój sposób. Jeśli czujesz, że obowiązki codziennie cię przerastają, porozmawiaj z kimś zaufanym albo ze specjalistą.",
+  "partes": [
+    {
+      "id": "tiempo",
+      "titulo": "Dlaczego nigdy nie starcza ci czasu?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Jak zorganizować swój czas? Wszyscy mamy te same dwadzieścia cztery godziny. A mimo to w badaniu Gallupa osiem na dziesięć osób powiedziało, że brakuje im czasu na wszystko, co chcą robić. Dlaczego niektórym jednak go starcza? Dziś zobaczysz, co mówi o tym nauka, i wyjdziesz stąd z planem, dzięki któremu twój tydzień naprawdę wystarczy na to, co ważne."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "A tak przy okazji, to mój dom w MindHaOS, a w tym pokoju organizuję swój czas."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część pierwsza. Dlaczego nigdy nie starcza ci czasu?"
+        },
+        {
+          "id": "falacia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "estimar"
+          },
+          "lamina": [
+            "reloj",
+            "tesis"
+          ],
+          "destacada": true,
+          "meme": "diezMinutos",
+          "texto": "Najpierw pułapka, w którą wpadamy wszyscy. W 1994 roku Roger Buehler i jego zespół zapytali studentów, ile zajmie im skończenie pracy dyplomowej. Szacowali około trzydziestu czterech dni. Zajęło im to pięćdziesiąt pięć. A nawet ich szacunek na najgorszy przypadek, czterdzieści dziewięć dni, okazał się za krótki."
+        },
+        {
+          "id": "parkinson",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1955",
+            "clave": "parkinson"
+          },
+          "lamina": [
+            "oficina",
+            "papeles"
+          ],
+          "texto": "I jest druga pułapka. W 1955 roku historyk Cyril Northcote Parkinson napisał żartem, że praca rozciąga się tak, by wypełnić cały czas, jaki masz na jej wykonanie. Jeśli dasz sobie całe popołudnie na jednego maila, ten mail zajmie ci całe popołudnie."
+        },
+        {
+          "id": "bienestar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "158",
+            "clave": "aeon"
+          },
+          "lamina": [
+            "calma",
+            "cafe"
+          ],
+          "texto": "Dobra wiadomość jest taka, że organizacja naprawdę działa, choć nie tak, jak myślisz. W 2021 roku Brad Aeon i jego zespół zebrali sto pięćdziesiąt osiem badań: organizowanie czasu pomaga w pracy, ale przede wszystkim sprawia, że czujesz się lepiej i masz mniej stresu."
+        },
+        {
+          "id": "adelanto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sacar",
+              "elegir",
+              "agendar"
+            ]
+          },
+          "lamina": [
+            "mapa",
+            "brujula"
+          ],
+          "texto": "Więc nie chodzi o wyciskanie każdej minuty, tylko o trzy rzeczy: wyrzucić wszystko z głowy, wybrać, co idzie najpierw, i dać temu konkretną godzinę w kalendarzu."
+        },
+        {
+          "id": "escritorio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apunto",
+              "ordeno",
+              "agendo"
+            ]
+          },
+          "lamina": "escritorio",
+          "enCasa": true,
+          "texto": "Tutaj, w moim terminarzu na biurku, zaczyna się mój dzień: zapisuję, co mam w głowie, porządkuję to i daję temu godzinę."
+        }
+      ]
+    },
+    {
+      "id": "cabeza",
+      "titulo": "Dlaczego głowa to kiepski terminarz?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część druga. Dlaczego głowa to kiepski terminarz?"
+        },
+        {
+          "id": "abiertos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "bandeja"
+          },
+          "lamina": [
+            "postits",
+            "cabeza"
+          ],
+          "destacada": true,
+          "texto": "To, co zostawiasz niedokończone, ciągle krąży ci po głowie. Podobno w latach dwudziestych, w Berlinie, psycholożka Bluma Zeigarnik zauważyła, że kelner pamiętał z głowy zamówienia, za które jeszcze nie zapłacono, i zapominał je, gdy tylko za nie zapłacono. W jej eksperymentach ludzie lepiej pamiętali zadania przerwane w połowie niż te ukończone."
+        },
+        {
+          "id": "capturar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "todo",
+              "unLugar",
+              "revisa"
+            ]
+          },
+          "lamina": [
+            "libreta",
+            "bandejaPapel"
+          ],
+          "texto": "Dlatego David Allen, autor bardzo znanej książki o produktywności, proponuje zapisywać wszystko: każda sprawa, nawet najmniejsza, trafia w jedno miejsce, które często przeglądasz. Głowa jest od wymyślania pomysłów, a nie od ich przechowywania."
+        },
+        {
+          "id": "dosMinutos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 min",
+            "clave": "dosMinutos"
+          },
+          "lamina": [
+            "correo",
+            "palomita"
+          ],
+          "texto": "I jego najsłynniejsza zasada: jeśli coś zajmuje mniej niż dwie minuty, zrób to od razu. Zapisanie tego i powrót później kosztuje cię więcej niż samo zrobienie."
+        },
+        {
+          "id": "pendientes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apuntar",
+              "sinFecha",
+              "prioridad"
+            ]
+          },
+          "lamina": "todo",
+          "enCasa": true,
+          "texto": "W moim terminarzu wszystko, co mam w głowie, trafia na listę Do zrobienia: bez daty, ułożone według priorytetu, dopóki nie znajdę dla tego miejsca."
+        },
+        {
+          "id": "personas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cumples",
+              "cuidados",
+              "importantes"
+            ]
+          },
+          "lamina": "agendaPapel",
+          "enCasa": true,
+          "texto": "I nie tylko moje sprawy: tutaj prowadzę notes jak za dawnych czasów, z ludźmi, których znam, żeby nie zapominać o ich urodzinach, a także o tym, jak dbać o siebie i o ważne osoby w moim życiu."
+        }
+      ]
+    },
+    {
+      "id": "primero",
+      "titulo": "Co robić najpierw?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część trzecia. Co robić najpierw?"
+        },
+        {
+          "id": "eisenhower",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1954",
+            "clave": "eisenhower"
+          },
+          "lamina": [
+            "eisenhower",
+            "escritorioAntiguo"
+          ],
+          "texto": "W 1954 roku prezydent Dwight Eisenhower powiedział, że ma dwa rodzaje problemów: pilne i ważne, a te pilne prawie nigdy nie są ważne."
+        },
+        {
+          "id": "urgencia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "urgencia"
+          },
+          "lamina": [
+            "alarma",
+            "telefono"
+          ],
+          "meme": "urgente",
+          "texto": "I nauka przyznaje mu rację. W 2018 roku zespół Meng Zhu zauważył, że ludzie wybierają zadanie z bliskim terminem, nawet jeśli inne dałoby im więcej, tylko dlatego, że wydaje się pilne."
+        },
+        {
+          "id": "matriz",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "matriz"
+          },
+          "lamina": [
+            "tablero",
+            "lista"
+          ],
+          "destacada": true,
+          "texto": "Dlatego przydaje się jego macierz. Zobacz: to, co pilne i ważne, zrób dziś. To, co ważne, ale niepilne, zaplanuj na konkretną godzinę. To, co pilne, ale nieważne, przekaż komuś albo zrób szybko. A to, co nie jest ani jednym, ani drugim, odpuść."
+        },
+        {
+          "id": "prioridad",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "alta",
+              "media",
+              "baja"
+            ]
+          },
+          "lamina": "todo",
+          "enCasa": true,
+          "texto": "Na mojej liście każda sprawa ma swój priorytet, a ja przeciągam ją w górę albo w dół, aż to, co najważniejsze, znajdzie się na samej górze."
+        }
+      ]
+    },
+    {
+      "id": "una",
+      "titulo": "Dlaczego robienie kilku rzeczy naraz cię spowalnia?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część czwarta. Dlaczego robienie kilku rzeczy naraz cię spowalnia?"
+        },
+        {
+          "id": "cambio",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "saltos"
+          },
+          "lamina": [
+            "pantallas",
+            "malabares"
+          ],
+          "destacada": true,
+          "meme": "multitarea",
+          "texto": "Za każdym razem, gdy przeskakujesz z jednego zadania na drugie, płacisz myto. W 2001 roku Joshua Rubinstein, David Meyer i Jeffrey Evans zmierzyli, że każda zmiana zadania kosztuje czas, i to tym więcej, im bardziej skomplikowane są zadania. Zobacz, jak sumują się przeskoki."
+        },
+        {
+          "id": "residuo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2009",
+            "clave": "residuo"
+          },
+          "lamina": [
+            "escritorioDesorden",
+            "pensar"
+          ],
+          "texto": "A głowa nie przełącza się od razu. W 2009 roku Sophie Leroy nazwała to resztkami uwagi: część ciebie zostaje przy poprzednim zadaniu, zwłaszcza jeśli zostało przerwane w połowie."
+        },
+        {
+          "id": "kanban",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "kanban"
+          },
+          "lamina": [
+            "fabrica",
+            "notas"
+          ],
+          "texto": "Dlatego w fabrykach Toyoty wymyślono tablicę kanban: trzy kolumny, do zrobienia, w trakcie i zrobione, i jedna złota zasada: niewiele rzeczy w trakcie naraz. Skończ jedno, zanim zaczniesz drugie."
+        },
+        {
+          "id": "tablero",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porHacer",
+              "enCurso",
+              "hecho"
+            ]
+          },
+          "lamina": "kanbanPared",
+          "enCasa": true,
+          "texto": "W moim terminarzu moje sprawy też mieszkają na tablicy: przesuwam je z kolumny do zrobienia do kolumny w trakcie, a kiedy je skończę, do zrobione."
+        }
+      ]
+    },
+    {
+      "id": "hora",
+      "titulo": "Jak zaplanować czas na to, co ważne?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część piąta. Jak zaplanować czas na to, co ważne?"
+        },
+        {
+          "id": "plazos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "plazos"
+          },
+          "lamina": [
+            "papeles",
+            "calendarioPapel"
+          ],
+          "destacada": true,
+          "texto": "To, co nie ma terminu, zostawia się na koniec. W 2002 roku Dan Ariely i Klaus Wertenbroch zadali studentom trzy prace. Jedni dostali jeden termin, na koniec semestru; inni osobny termin na każdą pracę, rozłożone w ciągu semestru. Ci z rozłożonymi terminami dostali lepsze oceny."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoAgenda"
+          },
+          "lamina": "pulgar",
+          "texto": "Jeśli ten przewodnik ci się podoba, kliknij „Podoba mi się”, „Subskrybuj”, żeby nie przegapić następnego, i „Udostępnij” go komuś, kto zawsze mówi, że nie ma na nic czasu."
+        },
+        {
+          "id": "bloques",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "bloques"
+          },
+          "lamina": [
+            "semana",
+            "agendaPapel"
+          ],
+          "texto": "To właśnie bloki czasu: zamiast niekończącej się listy każda ważna rzecz dostaje swoje miejsce w kalendarzu, jak spotkanie ze sobą. Zobacz, jak układa się tydzień."
+        },
+        {
+          "id": "vistas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dia",
+              "semana",
+              "mes"
+            ]
+          },
+          "lamina": [
+            "planeador",
+            "lapices"
+          ],
+          "texto": "I patrz na swój czas z różnych wysokości: dzień, żeby działać, tydzień, żeby rozdzielać, i miesiąc, żeby nic cię nie zaskoczyło."
+        },
+        {
+          "id": "calendario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fechaYHora",
+              "aviso",
+              "palomita"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "W moim domu, kiedy sprawa ma datę i godzinę, sama pojawia się w moim kalendarzu, z przypomnieniem, a ja widzę ją w widoku dnia, tygodnia, miesiąca albo roku."
+        }
+      ]
+    },
+    {
+      "id": "pausas",
+      "titulo": "Dlaczego odpoczynek pozwala zrobić więcej?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część szósta. Dlaczego odpoczynek pozwala zrobić więcej?"
+        },
+        {
+          "id": "micro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pausas"
+          },
+          "lamina": [
+            "estirarse",
+            "ventana"
+          ],
+          "destacada": true,
+          "texto": "Praca bez przerwy nie sprawia, że zajdziesz dalej. W 2022 roku Patricia Albulescu i jej zespół przejrzeli dwadzieścia dwa badania: przerwy krótsze niż dziesięć minut dają więcej energii i mniej zmęczenia, a przy rutynowych zadaniach nawet poprawiają to, co robisz."
+        },
+        {
+          "id": "pomodoro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "pomodoro"
+          },
+          "lamina": [
+            "tomate",
+            "temporizador"
+          ],
+          "texto": "Prostym sposobem jest technika Pomodoro, którą wymyślił Francesco Cirillo z kuchennym minutnikiem w kształcie pomidora: dwadzieścia pięć minut jednego zadania, pięć minut przerwy, a co cztery rundy długa przerwa."
+        },
+        {
+          "id": "pausa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "levantate",
+              "mira",
+              "agua"
+            ]
+          },
+          "lamina": [
+            "caminar",
+            "agua"
+          ],
+          "texto": "I niech przerwa będzie prawdziwa: wstań, popatrz w dal, napij się wody. Przeglądanie telefonu to nie odpoczynek."
+        },
+        {
+          "id": "descansos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloque",
+              "pausa",
+              "otroBloque"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dlatego w moim kalendarzu planuję też odpoczynek: między jednym blokiem a drugim przerwa, którą także odhaczam."
+        }
+      ]
+    },
+    {
+      "id": "acumula",
+      "titulo": "Co robić, gdy wszystko się piętrzy?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część siódma. Co robić, gdy wszystko się piętrzy?"
+        },
+        {
+          "id": "partir",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2008",
+            "clave": "partir"
+          },
+          "lamina": [
+            "rompecabezas",
+            "escalera"
+          ],
+          "destacada": true,
+          "texto": "Najpierw szacuj lepiej. W 2008 roku Jeffrey Forsyth i Christopher Burt zauważyli, że kiedy dzielisz zadanie na kroki i szacujesz każdy z nich, twoje wyliczenia są bliższe temu, ile naprawdę ci to zajmuje."
+        },
+        {
+          "id": "colchon",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "colchon"
+          },
+          "lamina": [
+            "trafico",
+            "reloj2"
+          ],
+          "texto": "I zostaw zapas. Jeśli myślisz, że coś zajmie ci godzinę, zarezerwuj półtorej. Zobacz, co dzieje się z twoim dniem, kiedy wypada coś nieprzewidzianego, z zapasem i bez niego."
+        },
+        {
+          "id": "decirNo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mueve",
+              "delega",
+              "no"
+            ]
+          },
+          "lamina": [
+            "manos",
+            "reunion"
+          ],
+          "meme": "manana",
+          "texto": "A kiedy już się nie mieści, wybierz: przenieś to na inny dzień, przekaż komuś albo powiedz nie. Każde tak dla czegoś to nie dla czegoś innego."
+        },
+        {
+          "id": "mover",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "arrastra",
+              "estira",
+              "sigue"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Kiedy coś mi wypada, przeciągam tu blok w inne miejsce albo go wydłużam, a mój tydzień dalej się trzyma."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Co dalej? Twój plan na ciąg dalszy",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część ósma. Co dalej? Twój plan na ciąg dalszy."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "W pierwszym tygodniu wyrzuć wszystko z głowy w jedno miejsce i każdego ranka wybierz trzy ważne rzeczy. Tylko trzy."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloquea",
+              "pausas",
+              "colchon"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "W pierwszym miesiącu zaplanuj w kalendarzu czas na to, co ważne, z przerwami i zapasem. Nie wypełniaj każdej luki: zostaw miejsce na to, czego się nie spodziewasz."
+        },
+        {
+          "id": "revision",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "viernes",
+              "limpia",
+              "planea"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "lunes"
+          ],
+          "texto": "I raz w tygodniu piętnaście minut przeglądu: opróżnij listę, przenieś to, co się nie udało, i zaplanuj bloki na następny tydzień. To spotkanie ze sobą podtrzymuje całą resztę."
+        },
+        {
+          "id": "misiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cadaApp",
+              "juntas",
+              "palomeo"
+            ]
+          },
+          "lamina": "planeador",
+          "enCasa": true,
+          "texto": "A codzienne sprawy prowadzę w moich misjach: każda aplikacja w moim domu ma swoje, jak picie wody czy nauka, a w kalendarzu i w terminarzu widzę je razem, dzień po dniu, i je odhaczam."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Podsumowując: głowa to nie terminarz, więc wyrzuć z niej wszystko; wybieraj to, co ważne, przed tym, co pilne; rób jedną rzecz naraz i daj jej godzinę; odpoczywaj i zostawiaj zapas, bo organizacja ma ci pomóc żyć lepiej, a nie biec szybciej."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "W pokoju Terminarz w MindHaOS możesz zapisywać swoje sprawy do zrobienia, przesuwać je na tablicy, dawać im datę i godzinę, żeby pojawiły się w twoim kalendarzu z przypomnieniem, i nie zapominać o urodzinach swoich bliskich. Zbuduj swój mentalny dom za darmo już dziś: link jest w opisie. A w następnym przewodniku: jak uczyć się szybciej?",
+    "boton": "Otwórz pokój Terminarz",
+    "lamina": "app-plan",
+    "anclas": {
+      "pendientes": "zapisywać swoje sprawy",
+      "tablero": "na tablicy",
+      "calendario": "w twoim kalendarzu",
+      "personas": "o urodzinach"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "whillans-2019",
+      "texto": "Whillans A. Time for Happiness. Harvard Business Review (styczeń 2019), z danymi Gallupa.",
+      "url": "https://hbr.org/2019/01/time-for-happiness"
+    },
+    {
+      "id": "buehler-1994",
+      "texto": "Buehler R., Griffin D., Ross M. Exploring the „planning fallacy”: Why people underestimate their task completion times. Journal of Personality and Social Psychology (1994).",
+      "url": "https://doi.org/10.1037/0022-3514.67.3.366"
+    },
+    {
+      "id": "parkinson-1955",
+      "texto": "Parkinson C. N. Parkinson's Law. The Economist (19 listopada 1955).",
+      "url": "https://www.economist.com/news/1955/11/19/parkinsons-law"
+    },
+    {
+      "id": "aeon-2021",
+      "texto": "Aeon B., Faber A., Panaccio A. Does time management work? A meta-analysis. PLOS ONE (2021).",
+      "url": "https://doi.org/10.1371/journal.pone.0245066"
+    },
+    {
+      "id": "zeigarnik-1927",
+      "texto": "Zeigarnik B. Über das Behalten von erledigten und unerledigten Handlungen. Psychologische Forschung (1927).",
+      "url": "https://doi.org/10.1007/BF02409755"
+    },
+    {
+      "id": "allen-2001",
+      "texto": "Allen D. Getting Things Done: The Art of Stress-Free Productivity (2001).",
+      "url": "https://gettingthingsdone.com/"
+    },
+    {
+      "id": "eisenhower-1954",
+      "texto": "Eisenhower D. D. Address at the Second Assembly of the World Council of Churches, Evanston (1954).",
+      "url": "https://www.presidency.ucsb.edu/documents/address-the-second-assembly-the-world-council-churches-evanston-illinois"
+    },
+    {
+      "id": "zhu-2018",
+      "texto": "Zhu M., Yang Y., Hsee C. K. The mere urgency effect. Journal of Consumer Research (2018).",
+      "url": "https://doi.org/10.1093/jcr/ucy008"
+    },
+    {
+      "id": "rubinstein-2001",
+      "texto": "Rubinstein J. S., Meyer D. E., Evans J. E. Executive control of cognitive processes in task switching. Journal of Experimental Psychology: Human Perception and Performance (2001).",
+      "url": "https://doi.org/10.1037/0096-1523.27.4.763"
+    },
+    {
+      "id": "leroy-2009",
+      "texto": "Leroy S. Why is it so hard to do my work? The challenge of attention residue when switching between work tasks. Organizational Behavior and Human Decision Processes (2009).",
+      "url": "https://doi.org/10.1016/j.obhdp.2009.04.002"
+    },
+    {
+      "id": "ohno-1988",
+      "texto": "Ohno T. Toyota Production System: Beyond Large-Scale Production (1988), źródło kanbanu.",
+      "url": "https://global.toyota/en/company/vision-and-philosophy/production-system/"
+    },
+    {
+      "id": "ariely-2002",
+      "texto": "Ariely D., Wertenbroch K. Procrastination, deadlines, and performance: Self-control by precommitment. Psychological Science (2002).",
+      "url": "https://doi.org/10.1111/1467-9280.00441"
+    },
+    {
+      "id": "albulescu-2022",
+      "texto": "Albulescu P. i współpracownicy. „Give me a break!” A systematic review and meta-analysis on the efficacy of micro-breaks for increasing well-being and performance. PLOS ONE (2022).",
+      "url": "https://doi.org/10.1371/journal.pone.0272460"
+    },
+    {
+      "id": "cirillo-2006",
+      "texto": "Cirillo F. The Pomodoro Technique (2006).",
+      "url": "https://www.pomodorotechnique.com/"
+    },
+    {
+      "id": "forsyth-2008",
+      "texto": "Forsyth D. K., Burt C. D. B. Allocating time to future tasks: The effect of task segmentation on planning fallacy bias. Memory & Cognition (2008).",
+      "url": "https://doi.org/10.3758/MC.36.4.791"
+    }
+  ]
+}

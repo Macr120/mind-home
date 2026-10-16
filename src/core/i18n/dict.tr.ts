@@ -7438,6 +7438,7 @@ export const TR: Dict = {
   'guia.video.titulo': "Video nasıl yapılır?",
   'guia.metas.titulo': "Hedeflerine nasıl ulaşırsın?",
   'guia.mindfulness.titulo': "Yavaşlamak seni neden daha hızlı ulaştırır?",
+  'guia.agenda.titulo': "Zamanını nasıl düzenlersin?",
   'tut.esencial.titulo': 'Temel Bilgiler',
   'tut.tipo.ejemplos': 'Örnekler · demo MindHaOS',
   'tut.app-agenda--esencial.resumen':

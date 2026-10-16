@@ -1,0 +1,775 @@
+{
+  "idioma": "ar",
+  "tema": "agenda",
+  "plantillaId": "agenda",
+  "numero": 11,
+  "nombre": "الأجندة",
+  "pregunta": "كيف تنظّم وقتك؟",
+  "corta": "كيف تنظّم وقتك؟",
+  "subtitulo": "لماذا لا يكفيك الوقت أبدًا، ولماذا رأسك ليس أجندة جيدة، وما الذي يأتي أولًا، ولماذا يبطئك فعل أشياء كثيرة في وقت واحد، وكيف تمنح المهم ساعته، ولماذا تجعلك الراحة تنجز أكثر، وماذا تفعل حين يتراكم كل شيء، وخطة كي لا تترك أجندتك.",
+  "aviso": "هذا الدليل للمعلومات فقط: الأرقام والدراسات المذكورة تقديرات من مصادرها، وكل شخص ينظّم وقته على طريقته. إذا شعرت بأن الحمل يفوق طاقتك كل يوم، فتحدّث مع شخص تثق به أو مع مختص.",
+  "partes": [
+    {
+      "id": "tiempo",
+      "titulo": "لماذا لا يكفيك الوقت أبدًا؟",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "كيف تنظّم وقتك؟ لدينا جميعًا الأربع والعشرون ساعة نفسها. ومع ذلك، في استطلاع لمؤسسة غالوب، قال ثمانية من كل عشرة أشخاص إن وقتهم لا يكفي لكل ما يريدون فعله. لماذا يكفي الوقت بعض الناس؟ اليوم سترى ذلك من خلال ما يقوله العلم، وستخرج بخطة تجعل أسبوعك مثمرًا حقًا."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "بالمناسبة، هذا بيتي في MindHaOS، وفي هذه الغرفة أنظّم وقتي."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الأول. لماذا لا يكفيك الوقت أبدًا؟"
+        },
+        {
+          "id": "falacia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "estimar"
+          },
+          "lamina": [
+            "reloj",
+            "tesis"
+          ],
+          "destacada": true,
+          "meme": "diezMinutos",
+          "texto": "أولًا، فخّ نقع فيه جميعًا. في عام 1994، سأل روجر بولر وفريقه طلابًا عن المدة التي سيحتاجونها لإنهاء أطروحاتهم. قدّروا نحو أربعة وثلاثين يومًا. فاستغرقوا خمسة وخمسين. وحتى تقديرهم لأسوأ الاحتمالات، تسعة وأربعون يومًا، جاء أقل من الحقيقة."
+        },
+        {
+          "id": "parkinson",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1955",
+            "clave": "parkinson"
+          },
+          "lamina": [
+            "oficina",
+            "papeles"
+          ],
+          "texto": "وهناك فخّ ثانٍ. في عام 1955، كتب المؤرخ سيريل نورثكوت باركنسون مازحًا أن العمل يتمدّد حتى يملأ الوقت المتاح لإنجازه. إذا أعطيت نفسك العصر كله لرسالة بريد واحدة، فستأخذ الرسالة العصر كله."
+        },
+        {
+          "id": "bienestar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "158",
+            "clave": "aeon"
+          },
+          "lamina": [
+            "calma",
+            "cafe"
+          ],
+          "texto": "والخبر الجيد أن التنظيم ينفع فعلًا، لكن ليس كما تظن. في عام 2021، جمع براد إيون وفريقه مئة وثماني وخمسين دراسة: تنظيم الوقت يساعد على الإنجاز، لكنه قبل كل شيء يجعلك تشعر بحال أفضل وبتوتر أقل."
+        },
+        {
+          "id": "adelanto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sacar",
+              "elegir",
+              "agendar"
+            ]
+          },
+          "lamina": [
+            "mapa",
+            "brujula"
+          ],
+          "texto": "إذن المسألة ليست اعتصار كل دقيقة، بل ثلاثة أشياء: أن تُخرج كل شيء من رأسك، وأن تختار ما يأتي أولًا، وأن تمنحه ساعة في تقويمك."
+        },
+        {
+          "id": "escritorio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apunto",
+              "ordeno",
+              "agendo"
+            ]
+          },
+          "lamina": "escritorio",
+          "enCasa": true,
+          "texto": "هنا، على أجندة مكتبي، يبدأ يومي: أدوّن ما في رأسي، وأرتّبه، وأمنحه ساعته."
+        }
+      ]
+    },
+    {
+      "id": "cabeza",
+      "titulo": "لماذا رأسك ليس أجندة جيدة؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثاني. لماذا رأسك ليس أجندة جيدة؟"
+        },
+        {
+          "id": "abiertos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "bandeja"
+          },
+          "lamina": [
+            "postits",
+            "cabeza"
+          ],
+          "destacada": true,
+          "texto": "ما تتركه معلّقًا يظل يدور في رأسك. يُروى أنه في العشرينيات، في برلين، لاحظت عالمة النفس بلوما زيغارنيك أن نادلًا يتذكّر عن ظهر قلب الطلبات التي لم تُدفع بعد، وينساها بمجرد أن تُدفع. وفي تجاربها، كان الناس يتذكّرون المهام التي تركوها في منتصفها أكثر من التي أنهوها."
+        },
+        {
+          "id": "capturar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "todo",
+              "unLugar",
+              "revisa"
+            ]
+          },
+          "lamina": [
+            "libreta",
+            "bandejaPapel"
+          ],
+          "texto": "لذلك يقترح ديفيد ألين، مؤلف كتاب شهير جدًا عن الإنتاجية، أن تدوّن كل شيء: كل مهمة، مهما صغرت، تذهب إلى مكان واحد تراجعه كثيرًا. رأسك للتفكير في الأفكار، لا لتخزينها."
+        },
+        {
+          "id": "dosMinutos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 دقيقة",
+            "clave": "dosMinutos"
+          },
+          "lamina": [
+            "correo",
+            "palomita"
+          ],
+          "texto": "وأشهر قواعده: إذا كان الأمر يستغرق أقل من دقيقتين، فافعله الآن. تدوينه ثم العودة إليه لاحقًا يكلّفك أكثر من إنجازه."
+        },
+        {
+          "id": "pendientes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apuntar",
+              "sinFecha",
+              "prioridad"
+            ]
+          },
+          "lamina": "todo",
+          "enCasa": true,
+          "texto": "في أجندتي، كل ما في رأسي يذهب إلى قائمة المهام: بلا تاريخ، ومرتّبًا حسب الأولوية، إلى أن أمنحه مكانه."
+        },
+        {
+          "id": "personas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cumples",
+              "cuidados",
+              "importantes"
+            ]
+          },
+          "lamina": "agendaPapel",
+          "enCasa": true,
+          "texto": "وليست مهامي فقط: هنا أحتفظ بأجندة مثل أجندات زمان، فيها الأشخاص الذين أعرفهم، كي لا أنسى أعياد ميلادهم، وفيها أيضًا الرعاية التي عليّ أن أوليها لنفسي وللأشخاص المهمين في حياتي."
+        }
+      ]
+    },
+    {
+      "id": "primero",
+      "titulo": "ما الذي يأتي أولًا؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثالث. ما الذي يأتي أولًا؟"
+        },
+        {
+          "id": "eisenhower",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1954",
+            "clave": "eisenhower"
+          },
+          "lamina": [
+            "eisenhower",
+            "escritorioAntiguo"
+          ],
+          "texto": "في عام 1954، قال الرئيس دوايت أيزنهاور إن لديه نوعين من المشكلات: العاجلة والمهمة، وإن العاجلة نادرًا ما تكون مهمة."
+        },
+        {
+          "id": "urgencia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "urgencia"
+          },
+          "lamina": [
+            "alarma",
+            "telefono"
+          ],
+          "meme": "urgente",
+          "texto": "والعلم يؤيده. في عام 2018، لاحظ منغ جو وفريقه أن الناس يختارون المهمة التي يقترب موعدها حتى لو كانت الأخرى تعطيهم أكثر، فقط لأنها تبدو عاجلة."
+        },
+        {
+          "id": "matriz",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "matriz"
+          },
+          "lamina": [
+            "tablero",
+            "lista"
+          ],
+          "destacada": true,
+          "texto": "لهذا تفيد مصفوفته. انظر: العاجل والمهم، افعله اليوم. المهم غير العاجل، امنحه ساعة. العاجل غير المهم، أعطه لغيرك أو أنجزه بسرعة. وما ليس هذا ولا ذاك، اتركه."
+        },
+        {
+          "id": "prioridad",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "alta",
+              "media",
+              "baja"
+            ]
+          },
+          "lamina": "todo",
+          "enCasa": true,
+          "texto": "في قائمة مهامي، لكل مهمة أولويتها، وأسحبها إلى الأعلى أو الأسفل حتى يصبح الأهم في المقدمة."
+        }
+      ]
+    },
+    {
+      "id": "una",
+      "titulo": "لماذا يبطئك فعل أشياء كثيرة في وقت واحد؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الرابع. لماذا يبطئك فعل أشياء كثيرة في وقت واحد؟"
+        },
+        {
+          "id": "cambio",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "saltos"
+          },
+          "lamina": [
+            "pantallas",
+            "malabares"
+          ],
+          "destacada": true,
+          "meme": "multitarea",
+          "texto": "في كل مرة تقفز فيها من مهمة إلى أخرى، تدفع رسم عبور. في عام 2001، قاس جوشوا روبنشتاين وديفيد ماير وجيفري إيفانز أن تبديل المهمة يكلّف وقتًا في كل مرة، ويزداد كلما كانت المهام أعقد. انظر كيف تتراكم القفزات."
+        },
+        {
+          "id": "residuo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2009",
+            "clave": "residuo"
+          },
+          "lamina": [
+            "escritorioDesorden",
+            "pensar"
+          ],
+          "texto": "والرأس لا ينتقل دفعة واحدة. في عام 2009، سمّت صوفي لوروا ذلك بقايا الانتباه: جزء منك يبقى عالقًا في المهمة السابقة، خاصة إذا تركتها في منتصفها."
+        },
+        {
+          "id": "kanban",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "kanban"
+          },
+          "lamina": [
+            "fabrica",
+            "notas"
+          ],
+          "texto": "لهذا ابتُكرت لوحة كانبان في مصانع تويوتا: ثلاثة أعمدة، للتنفيذ، وقيد التنفيذ، ومنجز، وقاعدة ذهبية: أشياء قليلة قيد التنفيذ في وقت واحد. أنهِ واحدة قبل أن تبدأ أخرى."
+        },
+        {
+          "id": "tablero",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porHacer",
+              "enCurso",
+              "hecho"
+            ]
+          },
+          "lamina": "kanbanPared",
+          "enCasa": true,
+          "texto": "في أجندتي، تعيش مهامي أيضًا على اللوحة: أنقلها من للتنفيذ إلى قيد التنفيذ، وحين أنهيها، إلى منجز."
+        }
+      ]
+    },
+    {
+      "id": "hora",
+      "titulo": "كيف تمنح المهم ساعته؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الخامس. كيف تمنح المهم ساعته؟"
+        },
+        {
+          "id": "plazos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "plazos"
+          },
+          "lamina": [
+            "papeles",
+            "calendarioPapel"
+          ],
+          "destacada": true,
+          "texto": "ما ليس له موعد يُؤجَّل إلى النهاية. في عام 2002، طلب دان آريلي وكلاوس فيرتنبروخ من طلاب ثلاثة أبحاث. بعضهم أُعطي موعدًا واحدًا، في نهاية الفصل؛ وآخرون موعدًا لكل بحث، موزّعًا على الفصل. ونال أصحاب المواعيد الموزّعة درجات أفضل."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoAgenda"
+          },
+          "lamina": "pulgar",
+          "texto": "إذا كان هذا الدليل يعجبك، فاضغط «أعجبني»، و«اشتراك» حتى لا يفوتك الدليل القادم، و«مشاركة» لترسله إلى من يقول دائمًا إن وقته لا يكفي."
+        },
+        {
+          "id": "bloques",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "bloques"
+          },
+          "lamina": [
+            "semana",
+            "agendaPapel"
+          ],
+          "texto": "هذا هو تقسيم الوقت إلى كتل: بدل قائمة لا تنتهي، ينال كل أمر مهم مكانه في التقويم، كموعد مع نفسك. انظر كيف يترتّب أسبوع كامل."
+        },
+        {
+          "id": "vistas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dia",
+              "semana",
+              "mes"
+            ]
+          },
+          "lamina": [
+            "planeador",
+            "lapices"
+          ],
+          "texto": "وانظر إلى وقتك من ارتفاعات مختلفة: اليوم للتنفيذ، والأسبوع للتوزيع، والشهر كي لا تفاجئك الأمور."
+        },
+        {
+          "id": "calendario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fechaYHora",
+              "aviso",
+              "palomita"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "في بيتي، حين يكون لمهمة تاريخ وساعة، تظهر وحدها في تقويمي مع تنبيهها، وأراها حسب اليوم أو الأسبوع أو الشهر أو السنة."
+        }
+      ]
+    },
+    {
+      "id": "pausas",
+      "titulo": "لماذا تجعلك الراحة تنجز أكثر؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السادس. لماذا تجعلك الراحة تنجز أكثر؟"
+        },
+        {
+          "id": "micro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pausas"
+          },
+          "lamina": [
+            "estirarse",
+            "ventana"
+          ],
+          "destacada": true,
+          "texto": "العمل بلا توقف لا يجعلك تتقدّم أكثر. في عام 2022، راجعت باتريسيا ألبولِسكو وفريقها اثنتين وعشرين دراسة: الاستراحات التي تقل عن عشر دقائق تمنحك طاقة أكثر وتعبًا أقل، وفي المهام الروتينية تحسّن حتى جودة ما تفعله."
+        },
+        {
+          "id": "pomodoro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "pomodoro"
+          },
+          "lamina": [
+            "tomate",
+            "temporizador"
+          ],
+          "texto": "وإحدى الطرق البسيطة هي تقنية بومودورو، التي ابتكرها فرانشيسكو تشيريلو بمؤقّت مطبخ على شكل طماطم: خمس وعشرون دقيقة لمهمة واحدة، وخمس للاستراحة، وبعد كل أربع جولات، استراحة طويلة."
+        },
+        {
+          "id": "pausa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "levantate",
+              "mira",
+              "agua"
+            ]
+          },
+          "lamina": [
+            "caminar",
+            "agua"
+          ],
+          "texto": "ولتكن الاستراحة حقيقية: قف، وانظر بعيدًا، واشرب الماء. تصفّح الهاتف لا يُحسب راحة."
+        },
+        {
+          "id": "descansos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloque",
+              "pausa",
+              "otroBloque"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "لهذا أمنح الراحة أيضًا ساعتها في تقويمي: بين كتلة وأخرى، استراحة، أضع عليها علامة الإنجاز هي الأخرى."
+        }
+      ]
+    },
+    {
+      "id": "acumula",
+      "titulo": "ماذا تفعل حين يتراكم كل شيء؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السابع. ماذا تفعل حين يتراكم كل شيء؟"
+        },
+        {
+          "id": "partir",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2008",
+            "clave": "partir"
+          },
+          "lamina": [
+            "rompecabezas",
+            "escalera"
+          ],
+          "destacada": true,
+          "texto": "أولًا، قدّر بشكل أفضل. في عام 2008، لاحظ جيفري فورسيث وكريستوفر بيرت أنك حين تقسّم المهمة إلى خطوات وتقدّر كل خطوة، تقترب تقديراتك أكثر من الوقت الذي تستغرقه فعلًا."
+        },
+        {
+          "id": "colchon",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "colchon"
+          },
+          "lamina": [
+            "trafico",
+            "reloj2"
+          ],
+          "texto": "واترك هامشًا. إذا ظننت أن أمرًا يأخذ ساعة، فخصّص له ساعة ونصفًا. انظر ماذا يحدث ليومك حين يطرأ أمر مفاجئ، مع الهامش ومن دونه."
+        },
+        {
+          "id": "decirNo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mueve",
+              "delega",
+              "no"
+            ]
+          },
+          "lamina": [
+            "manos",
+            "reunion"
+          ],
+          "meme": "manana",
+          "texto": "وحين لا يعود هناك متّسع، اختر: انقله إلى يوم آخر، أو أعطه لغيرك، أو قل لا. كل نعم لشيء هي لا لشيء آخر."
+        },
+        {
+          "id": "mover",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "arrastra",
+              "estira",
+              "sigue"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "حين يطرأ عليّ أمر، أسحب هنا الكتلة إلى مكان فارغ آخر أو أمدّها، ويبقى أسبوعي قائمًا."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "كيف تستمر؟ خطتك للمتابعة",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثامن. كيف تستمر؟ خطتك للمتابعة."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "في الأسبوع الأول، أخرج كل شيء من رأسك إلى مكان واحد، وكل صباح اختر ثلاثة أمور مهمة. ثلاثة فقط."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloquea",
+              "pausas",
+              "colchon"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "في الشهر الأول، امنح المهم ساعته في تقويمك، مع استراحاته وهامشه. لا تملأ كل فراغ: اترك متّسعًا لما لا تتوقعه."
+        },
+        {
+          "id": "revision",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "viernes",
+              "limpia",
+              "planea"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "lunes"
+          ],
+          "texto": "ومرة في الأسبوع، ربع ساعة للمراجعة: أفرغ القائمة، وانقل ما لم يُنجز، وخطّط لكتل الأسبوع التالي. هذا الموعد مع نفسك هو ما يحمل كل شيء آخر."
+        },
+        {
+          "id": "misiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cadaApp",
+              "juntas",
+              "palomeo"
+            ]
+          },
+          "lamina": "planeador",
+          "enCasa": true,
+          "texto": "وما أفعله كل يوم أتابعه في مهامي اليومية: لكل تطبيق في بيتي مهامه، مثل شرب الماء أو الدراسة، وفي تقويمي وأجندتي أراها معًا، يومًا بيوم، وأضع عليها علامة الإنجاز."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "باختصار: رأسك ليس أجندة، فأخرج منه كل شيء؛ قدّم المهم على العاجل؛ افعل شيئًا واحدًا في كل مرة وامنحه ساعته؛ واسترح واترك هامشًا، لأن التنظيم هو لتعيش أفضل، لا لتركض أكثر."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "في غرفة الأجندة في MindHaOS يمكنك أن تدوّن مهامك، وتحرّكها على لوحة، وتمنحها تاريخًا وساعة لتظهر في تقويمك مع تنبيهها، وألّا تنسى أعياد ميلاد أحبّائك. ابنِ بيتك الذهني مجانًا اليوم: الرابط في الوصف. وفي الدليل القادم: كيف تتعلّم أسرع؟",
+    "boton": "افتح غرفة الأجندة",
+    "lamina": "app-plan",
+    "anclas": {
+      "pendientes": "تدوّن مهامك",
+      "tablero": "على لوحة",
+      "calendario": "في تقويمك",
+      "personas": "أعياد ميلاد"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "whillans-2019",
+      "texto": "Whillans A. Time for Happiness. Harvard Business Review (يناير 2019)، ببيانات من غالوب.",
+      "url": "https://hbr.org/2019/01/time-for-happiness"
+    },
+    {
+      "id": "buehler-1994",
+      "texto": "Buehler R., Griffin D., Ross M. Exploring the «planning fallacy»: Why people underestimate their task completion times. Journal of Personality and Social Psychology (1994).",
+      "url": "https://doi.org/10.1037/0022-3514.67.3.366"
+    },
+    {
+      "id": "parkinson-1955",
+      "texto": "Parkinson C. N. Parkinson's Law. The Economist (19 نوفمبر 1955).",
+      "url": "https://www.economist.com/news/1955/11/19/parkinsons-law"
+    },
+    {
+      "id": "aeon-2021",
+      "texto": "Aeon B., Faber A., Panaccio A. Does time management work? A meta-analysis. PLOS ONE (2021).",
+      "url": "https://doi.org/10.1371/journal.pone.0245066"
+    },
+    {
+      "id": "zeigarnik-1927",
+      "texto": "Zeigarnik B. Über das Behalten von erledigten und unerledigten Handlungen. Psychologische Forschung (1927).",
+      "url": "https://doi.org/10.1007/BF02409755"
+    },
+    {
+      "id": "allen-2001",
+      "texto": "Allen D. Getting Things Done: The Art of Stress-Free Productivity (2001).",
+      "url": "https://gettingthingsdone.com/"
+    },
+    {
+      "id": "eisenhower-1954",
+      "texto": "Eisenhower D. D. Address at the Second Assembly of the World Council of Churches, Evanston (1954).",
+      "url": "https://www.presidency.ucsb.edu/documents/address-the-second-assembly-the-world-council-churches-evanston-illinois"
+    },
+    {
+      "id": "zhu-2018",
+      "texto": "Zhu M., Yang Y., Hsee C. K. The mere urgency effect. Journal of Consumer Research (2018).",
+      "url": "https://doi.org/10.1093/jcr/ucy008"
+    },
+    {
+      "id": "rubinstein-2001",
+      "texto": "Rubinstein J. S., Meyer D. E., Evans J. E. Executive control of cognitive processes in task switching. Journal of Experimental Psychology: Human Perception and Performance (2001).",
+      "url": "https://doi.org/10.1037/0096-1523.27.4.763"
+    },
+    {
+      "id": "leroy-2009",
+      "texto": "Leroy S. Why is it so hard to do my work? The challenge of attention residue when switching between work tasks. Organizational Behavior and Human Decision Processes (2009).",
+      "url": "https://doi.org/10.1016/j.obhdp.2009.04.002"
+    },
+    {
+      "id": "ohno-1988",
+      "texto": "Ohno T. Toyota Production System: Beyond Large-Scale Production (1988)، أصل الكانبان.",
+      "url": "https://global.toyota/en/company/vision-and-philosophy/production-system/"
+    },
+    {
+      "id": "ariely-2002",
+      "texto": "Ariely D., Wertenbroch K. Procrastination, deadlines, and performance: Self-control by precommitment. Psychological Science (2002).",
+      "url": "https://doi.org/10.1111/1467-9280.00441"
+    },
+    {
+      "id": "albulescu-2022",
+      "texto": "Albulescu P. وزملاؤها. «Give me a break!» A systematic review and meta-analysis on the efficacy of micro-breaks for increasing well-being and performance. PLOS ONE (2022).",
+      "url": "https://doi.org/10.1371/journal.pone.0272460"
+    },
+    {
+      "id": "cirillo-2006",
+      "texto": "Cirillo F. The Pomodoro Technique (2006).",
+      "url": "https://www.pomodorotechnique.com/"
+    },
+    {
+      "id": "forsyth-2008",
+      "texto": "Forsyth D. K., Burt C. D. B. Allocating time to future tasks: The effect of task segmentation on planning fallacy bias. Memory & Cognition (2008).",
+      "url": "https://doi.org/10.3758/MC.36.4.791"
+    }
+  ]
+}

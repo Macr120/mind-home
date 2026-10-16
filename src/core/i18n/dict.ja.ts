@@ -7170,6 +7170,7 @@ export const JA: Dict = {
   'guia.video.titulo': "動画はどうやって作るのでしょうか？",
   'guia.metas.titulo': "目標をかなえるには、どうすればいいのでしょうか？",
   'guia.mindfulness.titulo': "ゆっくり進むと、なぜ早くたどり着けるのでしょうか？",
+  'guia.agenda.titulo': "時間をうまく整理するには、どうすればいいのでしょうか？",
   'tut.esencial.titulo': '基本の使い方',
   'tut.tipo.ejemplos': '例・デモのMindHaOS',
   'tut.app-agenda--esencial.resumen':

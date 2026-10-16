@@ -1,0 +1,775 @@
+{
+  "idioma": "hi",
+  "tema": "agenda",
+  "plantillaId": "agenda",
+  "numero": 11,
+  "nombre": "एजेंडा",
+  "pregunta": "अपना समय कैसे व्यवस्थित करें?",
+  "corta": "अपना समय कैसे व्यवस्थित करें?",
+  "subtitulo": "समय कभी काफ़ी क्यों नहीं पड़ता, आपका दिमाग़ अच्छा एजेंडा क्यों नहीं है, पहले क्या करें, एक साथ कई काम करना आपको धीमा क्यों करता है, ज़रूरी कामों को समय कैसे दें, आराम करने से काम बेहतर क्यों होता है, जब सब कुछ जमा हो जाए तो क्या करें, और अपने एजेंडा पर टिके रहने की योजना।",
+  "aviso": "यह गाइड सिर्फ़ जानकारी के लिए है: बताए गए आँकड़े और अध्ययन अपने स्रोतों के अनुमान हैं, और हर व्यक्ति अपना समय अपने तरीक़े से व्यवस्थित करता है। अगर आपको हर दिन बोझ बहुत ज़्यादा लगता है, तो किसी भरोसेमंद व्यक्ति या किसी विशेषज्ञ से बात करें।",
+  "partes": [
+    {
+      "id": "tiempo",
+      "titulo": "समय कभी काफ़ी क्यों नहीं पड़ता?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "अपना समय कैसे व्यवस्थित करें? हम सबके पास वही चौबीस घंटे होते हैं। फिर भी, गैलप के एक सर्वे में दस में से आठ लोगों ने कहा कि उनके पास वह सब करने का समय नहीं होता जो वे करना चाहते हैं। कुछ लोगों का समय काफ़ी कैसे पड़ जाता है? आज आप यह विज्ञान की नज़र से देखेंगे, और एक ऐसी योजना लेकर जाएँगे जिससे आपका हफ़्ता सच में काम का बने।"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "वैसे, यह MindHaOS में मेरा घर है, और इसी कमरे में मैं अपना समय व्यवस्थित करती हूँ।"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग एक। समय कभी काफ़ी क्यों नहीं पड़ता?"
+        },
+        {
+          "id": "falacia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "estimar"
+          },
+          "lamina": [
+            "reloj",
+            "tesis"
+          ],
+          "destacada": true,
+          "meme": "diezMinutos",
+          "texto": "पहले, एक जाल जिसमें हम सब फँसते हैं। 1994 में, रॉजर ब्यूलर और उनकी टीम ने छात्रों से पूछा कि उन्हें अपनी थीसिस पूरी करने में कितना समय लगेगा। उन्होंने लगभग चौंतीस दिन का अनुमान लगाया। लगे पचपन दिन। और सबसे बुरी स्थिति का उनका अनुमान, उनचास दिन, वह भी कम पड़ गया।"
+        },
+        {
+          "id": "parkinson",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1955",
+            "clave": "parkinson"
+          },
+          "lamina": [
+            "oficina",
+            "papeles"
+          ],
+          "texto": "और एक दूसरा जाल भी है। 1955 में, इतिहासकार सिरिल नॉर्थकोट पार्किंसन ने मज़ाक में लिखा कि काम उतना फैल जाता है जितना समय आपके पास उसे करने के लिए होता है। अगर आप एक ईमेल के लिए पूरी दोपहर दे दें, तो वह ईमेल पूरी दोपहर ले लेगा।"
+        },
+        {
+          "id": "bienestar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "158",
+            "clave": "aeon"
+          },
+          "lamina": [
+            "calma",
+            "cafe"
+          ],
+          "texto": "अच्छी ख़बर यह है कि ख़ुद को व्यवस्थित करना सच में काम करता है, बस वैसे नहीं जैसा आप सोचते हैं। 2021 में, ब्रैड एऑन और उनकी टीम ने एक सौ अट्ठावन अध्ययनों को जोड़ा: समय व्यवस्थित करने से काम बेहतर होता है, पर सबसे बढ़कर आप बेहतर और कम तनाव में महसूस करते हैं।"
+        },
+        {
+          "id": "adelanto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sacar",
+              "elegir",
+              "agendar"
+            ]
+          },
+          "lamina": [
+            "mapa",
+            "brujula"
+          ],
+          "texto": "तो बात हर मिनट निचोड़ने की नहीं, बल्कि तीन चीज़ों की है: सब कुछ दिमाग़ से बाहर निकालना, पहले क्या करना है यह चुनना, और उसे अपने कैलेंडर में एक समय देना।"
+        },
+        {
+          "id": "escritorio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apunto",
+              "ordeno",
+              "agendo"
+            ]
+          },
+          "lamina": "escritorio",
+          "enCasa": true,
+          "texto": "यहाँ, मेरे डेस्क एजेंडा पर, मेरा दिन शुरू होता है: जो कुछ दिमाग़ में है उसे लिखती हूँ, क्रम में लगाती हूँ, और उसे उसका समय देती हूँ।"
+        }
+      ]
+    },
+    {
+      "id": "cabeza",
+      "titulo": "आपका दिमाग़ अच्छा एजेंडा क्यों नहीं है?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग दो। आपका दिमाग़ अच्छा एजेंडा क्यों नहीं है?"
+        },
+        {
+          "id": "abiertos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "bandeja"
+          },
+          "lamina": [
+            "postits",
+            "cabeza"
+          ],
+          "destacada": true,
+          "texto": "जो काम अधूरा छूटता है, वह दिमाग़ में घूमता रहता है। कहते हैं कि बीस के दशक में, बर्लिन में, मनोवैज्ञानिक ब्लूमा ज़ेगार्निक ने देखा कि एक वेटर को वे ऑर्डर ज़ुबानी याद रहते थे जिनका पैसा अभी नहीं मिला था, और पैसा मिलते ही वह उन्हें भूल जाता था। उनके प्रयोगों में, लोगों को अधूरे छोड़े काम पूरे किए कामों से ज़्यादा याद रहे।"
+        },
+        {
+          "id": "capturar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "todo",
+              "unLugar",
+              "revisa"
+            ]
+          },
+          "lamina": [
+            "libreta",
+            "bandejaPapel"
+          ],
+          "texto": "इसीलिए डेविड एलन, जिन्होंने प्रोडक्टिविटी पर एक बहुत मशहूर किताब लिखी है, कहते हैं कि सब कुछ लिख लें: हर काम, चाहे कितना भी छोटा हो, एक ही जगह जाए जिसे आप बार-बार देखते हों। आपका दिमाग़ विचार सोचने के लिए है, उन्हें सँभालकर रखने के लिए नहीं।"
+        },
+        {
+          "id": "dosMinutos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 मिनट",
+            "clave": "dosMinutos"
+          },
+          "lamina": [
+            "correo",
+            "palomita"
+          ],
+          "texto": "और उनका सबसे मशहूर नियम: अगर कोई काम दो मिनट से कम लेता है, तो उसे अभी कर डालें। उसे लिखकर बाद में लौटना, उसे कर देने से ज़्यादा महँगा पड़ता है।"
+        },
+        {
+          "id": "pendientes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apuntar",
+              "sinFecha",
+              "prioridad"
+            ]
+          },
+          "lamina": "todo",
+          "enCasa": true,
+          "texto": "मेरे एजेंडा में, जो कुछ भी मेरे दिमाग़ में होता है, वह पेंडिंग की सूची में जाता है: बिना तारीख़ के, प्राथमिकता के क्रम में, जब तक मैं उसे उसकी जगह नहीं दे देती।"
+        },
+        {
+          "id": "personas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cumples",
+              "cuidados",
+              "importantes"
+            ]
+          },
+          "lamina": "agendaPapel",
+          "enCasa": true,
+          "texto": "और सिर्फ़ मेरे काम ही नहीं: यहाँ मैं पुराने ज़माने जैसा एक एजेंडा रखती हूँ, उन लोगों के साथ जिन्हें मैं जानती हूँ, ताकि उनके जन्मदिन न भूलूँ, और वे देखभाल भी जो मुझे अपनी और अपनी ज़िंदगी के ख़ास लोगों की करनी है।"
+        }
+      ]
+    },
+    {
+      "id": "primero",
+      "titulo": "पहले क्या करें?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग तीन। पहले क्या करें?"
+        },
+        {
+          "id": "eisenhower",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1954",
+            "clave": "eisenhower"
+          },
+          "lamina": [
+            "eisenhower",
+            "escritorioAntiguo"
+          ],
+          "texto": "1954 में, राष्ट्रपति ड्वाइट आइज़नहावर ने कहा था कि उनके पास दो तरह की समस्याएँ होती हैं: तुरंत वाली और ज़रूरी, और तुरंत वाली लगभग कभी ज़रूरी नहीं होतीं।"
+        },
+        {
+          "id": "urgencia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "urgencia"
+          },
+          "lamina": [
+            "alarma",
+            "telefono"
+          ],
+          "meme": "urgente",
+          "texto": "और विज्ञान भी यही कहता है। 2018 में, मेंग झू और उनकी टीम ने देखा कि लोग वह काम चुनते हैं जिसकी समय-सीमा पास है, भले ही दूसरा काम ज़्यादा फ़ायदा दे, सिर्फ़ इसलिए कि वह तुरंत वाला लगता है।"
+        },
+        {
+          "id": "matriz",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "matriz"
+          },
+          "lamina": [
+            "tablero",
+            "lista"
+          ],
+          "destacada": true,
+          "texto": "इसीलिए उनकी मैट्रिक्स काम आती है। देखिए: जो तुरंत भी है और ज़रूरी भी, उसे आज करें। जो ज़रूरी है पर तुरंत नहीं, उसे एक समय दें। जो तुरंत है पर ज़रूरी नहीं, उसे किसी और को सौंप दें या जल्दी निपटा दें। और जो दोनों में से कुछ नहीं, उसे छोड़ दें।"
+        },
+        {
+          "id": "prioridad",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "alta",
+              "media",
+              "baja"
+            ]
+          },
+          "lamina": "todo",
+          "enCasa": true,
+          "texto": "मेरी पेंडिंग सूची में, हर काम की अपनी प्राथमिकता होती है, और मैं उसे ऊपर या नीचे खींचती हूँ जब तक सबसे ज़रूरी काम सबसे ऊपर न आ जाए।"
+        }
+      ]
+    },
+    {
+      "id": "una",
+      "titulo": "एक साथ कई काम करना आपको धीमा क्यों करता है?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग चार। एक साथ कई काम करना आपको धीमा क्यों करता है?"
+        },
+        {
+          "id": "cambio",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "saltos"
+          },
+          "lamina": [
+            "pantallas",
+            "malabares"
+          ],
+          "destacada": true,
+          "meme": "multitarea",
+          "texto": "हर बार जब आप एक काम से दूसरे पर कूदते हैं, आप एक टोल चुकाते हैं। 2001 में, जोशुआ रुबिनस्टाइन, डेविड मेयर और जेफ़री इवांस ने मापा कि काम बदलने में हर बार समय लगता है, और काम जितने पेचीदा हों, उतना ज़्यादा। देखिए, ये छलाँगें कैसे जुड़ती जाती हैं।"
+        },
+        {
+          "id": "residuo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2009",
+            "clave": "residuo"
+          },
+          "lamina": [
+            "escritorioDesorden",
+            "pensar"
+          ],
+          "texto": "और दिमाग़ एक झटके में नहीं बदलता। 2009 में, सोफ़ी लेरॉय ने इसे ध्यान का अवशेष कहा: आपका एक हिस्सा पिछले काम में ही अटका रहता है, ख़ासकर अगर आपने उसे अधूरा छोड़ा हो।"
+        },
+        {
+          "id": "kanban",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "kanban"
+          },
+          "lamina": [
+            "fabrica",
+            "notas"
+          ],
+          "texto": "इसीलिए टोयोटा की फ़ैक्ट्रियों में कानबान बोर्ड बना: तीन कॉलम, करना है, प्रगति में, और हो गया, और एक सुनहरा नियम: एक समय में प्रगति में कम ही काम हों। दूसरा शुरू करने से पहले एक पूरा करें।"
+        },
+        {
+          "id": "tablero",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porHacer",
+              "enCurso",
+              "hecho"
+            ]
+          },
+          "lamina": "kanbanPared",
+          "enCasa": true,
+          "texto": "मेरे एजेंडा में, मेरे काम भी एक बोर्ड पर रहते हैं: मैं उन्हें करना है से प्रगति में ले जाती हूँ, और पूरा होने पर, हो गया में।"
+        }
+      ]
+    },
+    {
+      "id": "hora",
+      "titulo": "ज़रूरी कामों को समय कैसे दें?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग पाँच। ज़रूरी कामों को समय कैसे दें?"
+        },
+        {
+          "id": "plazos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "plazos"
+          },
+          "lamina": [
+            "papeles",
+            "calendarioPapel"
+          ],
+          "destacada": true,
+          "texto": "जिसकी कोई तारीख़ नहीं होती, वह आख़िर तक टल जाता है। 2002 में, डैन एरीली और क्लाउस वेर्टनब्रोख ने छात्रों से तीन असाइनमेंट माँगे। कुछ को एक ही तारीख़ दी गई, कोर्स के आख़िर में; बाक़ियों को हर असाइनमेंट की अलग तारीख़, पूरे कोर्स में बँटी हुई। बँटी हुई तारीख़ों वालों के नंबर बेहतर आए।"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoAgenda"
+          },
+          "lamina": "pulgar",
+          "texto": "अगर आपको यह गाइड पसंद आ रही है, तो पसंद करें, अगली गाइड न छूटे इसलिए सदस्यता लें, और इसे शेयर करें उस व्यक्ति के साथ जो हमेशा कहता है कि उसके पास समय नहीं है।"
+        },
+        {
+          "id": "bloques",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "bloques"
+          },
+          "lamina": [
+            "semana",
+            "agendaPapel"
+          ],
+          "texto": "यही है टाइम ब्लॉकिंग: एक कभी न ख़त्म होने वाली सूची के बजाय, हर ज़रूरी काम को कैलेंडर में अपनी जगह मिलती है, ख़ुद से एक मुलाक़ात की तरह। देखिए, एक हफ़्ता कैसे सजता है।"
+        },
+        {
+          "id": "vistas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dia",
+              "semana",
+              "mes"
+            ]
+          },
+          "lamina": [
+            "planeador",
+            "lapices"
+          ],
+          "texto": "और अपने समय को अलग-अलग ऊँचाइयों से देखें: दिन, काम करने के लिए; सप्ताह, बाँटने के लिए; और महीना, ताकि कोई हैरानी न हो।"
+        },
+        {
+          "id": "calendario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fechaYHora",
+              "aviso",
+              "palomita"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "मेरे घर में, जब किसी काम की तारीख़ और समय होता है, वह अपने आप मेरे कैलेंडर में आ जाता है, रिमाइंडर के साथ, और मैं उसे दिन, सप्ताह, महीना या वर्ष के हिसाब से देखती हूँ।"
+        }
+      ]
+    },
+    {
+      "id": "pausas",
+      "titulo": "आराम करने से काम बेहतर क्यों होता है?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग छह। आराम करने से काम बेहतर क्यों होता है?"
+        },
+        {
+          "id": "micro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pausas"
+          },
+          "lamina": [
+            "estirarse",
+            "ventana"
+          ],
+          "destacada": true,
+          "texto": "बिना रुके काम करने से आप ज़्यादा आगे नहीं बढ़ते। 2022 में, पैट्रिशिया अल्बुलेस्कु और उनकी टीम ने बाईस अध्ययनों की समीक्षा की: दस मिनट से छोटे ब्रेक आपको ज़्यादा ऊर्जा और कम थकान देते हैं, और रोज़मर्रा के कामों में तो काम की गुणवत्ता भी सुधारते हैं।"
+        },
+        {
+          "id": "pomodoro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "pomodoro"
+          },
+          "lamina": [
+            "tomate",
+            "temporizador"
+          ],
+          "texto": "एक आसान तरीक़ा है पोमोडोरो तकनीक, जिसे फ़्रांचेस्को चिरिल्लो ने टमाटर के आकार वाली रसोई की टाइमर घड़ी से बनाया: पच्चीस मिनट एक ही काम, पाँच मिनट ब्रेक, और हर चार राउंड के बाद, एक लंबा ब्रेक।"
+        },
+        {
+          "id": "pausa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "levantate",
+              "mira",
+              "agua"
+            ]
+          },
+          "lamina": [
+            "caminar",
+            "agua"
+          ],
+          "texto": "और ब्रेक सच्चा हो: उठिए, दूर देखिए, पानी पीजिए। फ़ोन देखना आराम में नहीं गिना जाता।"
+        },
+        {
+          "id": "descansos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloque",
+              "pausa",
+              "otroBloque"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "इसीलिए अपने कैलेंडर में मैं आराम को भी समय देती हूँ: हर ब्लॉक के बीच एक ब्रेक, जिस पर मैं टिक भी करती हूँ।"
+        }
+      ]
+    },
+    {
+      "id": "acumula",
+      "titulo": "जब सब कुछ जमा हो जाए तो क्या करें?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग सात। जब सब कुछ जमा हो जाए तो क्या करें?"
+        },
+        {
+          "id": "partir",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2008",
+            "clave": "partir"
+          },
+          "lamina": [
+            "rompecabezas",
+            "escalera"
+          ],
+          "destacada": true,
+          "texto": "पहले, बेहतर अनुमान लगाएँ। 2008 में, जेफ़री फ़ोर्सिथ और क्रिस्टोफ़र बर्ट ने देखा कि जब आप किसी काम को कदमों में बाँटकर हर कदम का अनुमान लगाते हैं, तो आपका अनुमान असली समय के ज़्यादा क़रीब आता है।"
+        },
+        {
+          "id": "colchon",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "colchon"
+          },
+          "lamina": [
+            "trafico",
+            "reloj2"
+          ],
+          "texto": "और थोड़ा बफ़र रखें। अगर आपको लगता है कि कोई काम एक घंटा लेगा, तो उसके लिए डेढ़ घंटा रखें। देखिए, जब अचानक कुछ आ जाए तो बफ़र के साथ और उसके बिना आपके दिन का क्या होता है।"
+        },
+        {
+          "id": "decirNo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mueve",
+              "delega",
+              "no"
+            ]
+          },
+          "lamina": [
+            "manos",
+            "reunion"
+          ],
+          "meme": "manana",
+          "texto": "और जब कुछ और न समाए, तो चुनें: उसे किसी और दिन पर ले जाएँ, किसी और को सौंप दें, या मना कर दें। किसी चीज़ को हर हाँ, किसी और चीज़ को ना है।"
+        },
+        {
+          "id": "mover",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "arrastra",
+              "estira",
+              "sigue"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "जब बीच में कुछ आ जाता है, तो यहाँ मैं ब्लॉक को किसी और ख़ाली जगह पर खींच देती हूँ या उसे लंबा कर देती हूँ, और मेरा हफ़्ता बना रहता है।"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "आगे कैसे बढ़ें? आपकी आगे की योजना",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग आठ। आगे कैसे बढ़ें? आपकी आगे की योजना।"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "पहले हफ़्ते, सब कुछ दिमाग़ से निकालकर एक ही जगह रखें, और हर सुबह तीन ज़रूरी काम चुनें। बस तीन।"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloquea",
+              "pausas",
+              "colchon"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "पहले महीने, ज़रूरी कामों को अपने कैलेंडर में समय दें, उनके ब्रेक और बफ़र के साथ। हर ख़ाली जगह न भरें: अनचाही चीज़ों के लिए जगह छोड़ें।"
+        },
+        {
+          "id": "revision",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "viernes",
+              "limpia",
+              "planea"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "lunes"
+          ],
+          "texto": "और हफ़्ते में एक बार, पंद्रह मिनट की समीक्षा: सूची ख़ाली करें, जो नहीं हुआ उसे आगे खिसकाएँ, और अगले हफ़्ते के ब्लॉक की योजना बनाएँ। ख़ुद से यही मुलाक़ात बाक़ी सब कुछ सँभाले रखती है।"
+        },
+        {
+          "id": "misiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cadaApp",
+              "juntas",
+              "palomeo"
+            ]
+          },
+          "lamina": "planeador",
+          "enCasa": true,
+          "texto": "और रोज़ के काम मैं अपने मिशन में रखती हूँ: मेरे घर के हर ऐप के अपने मिशन हैं, जैसे पानी पीना या पढ़ाई करना, और अपने कैलेंडर और एजेंडा में मैं उन्हें एक साथ देखती हूँ, दिन-ब-दिन, और उन पर टिक करती हूँ।"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "संक्षेप में: आपका दिमाग़ एजेंडा नहीं है, इसलिए सब कुछ बाहर निकालें; तुरंत वाले से पहले ज़रूरी को चुनें; एक समय में एक काम करें और उसे उसका समय दें; और आराम करें और बफ़र रखें, क्योंकि ख़ुद को व्यवस्थित करना बेहतर जीने के लिए है, ज़्यादा भागने के लिए नहीं।"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS के एजेंडा कमरे में आप अपने पेंडिंग काम लिख सकते हैं, उन्हें एक बोर्ड पर आगे बढ़ा सकते हैं, उन्हें तारीख़ और समय दे सकते हैं ताकि वे रिमाइंडर के साथ आपके कैलेंडर में दिखें, और अपने लोगों के जन्मदिन कभी नहीं भूलेंगे। आज ही अपना मन का घर मुफ़्त में बनाएँ: लिंक डिस्क्रिप्शन में है। और अगली गाइड में: जल्दी कैसे सीखें?",
+    "boton": "एजेंडा कमरा खोलें",
+    "lamina": "app-plan",
+    "anclas": {
+      "pendientes": "पेंडिंग काम लिख",
+      "tablero": "एक बोर्ड पर",
+      "calendario": "आपके कैलेंडर में",
+      "personas": "जन्मदिन"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "whillans-2019",
+      "texto": "Whillans A. Time for Happiness. Harvard Business Review (जनवरी 2019), गैलप के आँकड़ों के साथ।",
+      "url": "https://hbr.org/2019/01/time-for-happiness"
+    },
+    {
+      "id": "buehler-1994",
+      "texto": "Buehler R., Griffin D., Ross M. Exploring the «planning fallacy»: Why people underestimate their task completion times. Journal of Personality and Social Psychology (1994).",
+      "url": "https://doi.org/10.1037/0022-3514.67.3.366"
+    },
+    {
+      "id": "parkinson-1955",
+      "texto": "Parkinson C. N. Parkinson's Law. The Economist (19 नवंबर 1955).",
+      "url": "https://www.economist.com/news/1955/11/19/parkinsons-law"
+    },
+    {
+      "id": "aeon-2021",
+      "texto": "Aeon B., Faber A., Panaccio A. Does time management work? A meta-analysis. PLOS ONE (2021).",
+      "url": "https://doi.org/10.1371/journal.pone.0245066"
+    },
+    {
+      "id": "zeigarnik-1927",
+      "texto": "Zeigarnik B. Über das Behalten von erledigten und unerledigten Handlungen. Psychologische Forschung (1927).",
+      "url": "https://doi.org/10.1007/BF02409755"
+    },
+    {
+      "id": "allen-2001",
+      "texto": "Allen D. Getting Things Done: The Art of Stress-Free Productivity (2001).",
+      "url": "https://gettingthingsdone.com/"
+    },
+    {
+      "id": "eisenhower-1954",
+      "texto": "Eisenhower D. D. Address at the Second Assembly of the World Council of Churches, Evanston (1954).",
+      "url": "https://www.presidency.ucsb.edu/documents/address-the-second-assembly-the-world-council-churches-evanston-illinois"
+    },
+    {
+      "id": "zhu-2018",
+      "texto": "Zhu M., Yang Y., Hsee C. K. The mere urgency effect. Journal of Consumer Research (2018).",
+      "url": "https://doi.org/10.1093/jcr/ucy008"
+    },
+    {
+      "id": "rubinstein-2001",
+      "texto": "Rubinstein J. S., Meyer D. E., Evans J. E. Executive control of cognitive processes in task switching. Journal of Experimental Psychology: Human Perception and Performance (2001).",
+      "url": "https://doi.org/10.1037/0096-1523.27.4.763"
+    },
+    {
+      "id": "leroy-2009",
+      "texto": "Leroy S. Why is it so hard to do my work? The challenge of attention residue when switching between work tasks. Organizational Behavior and Human Decision Processes (2009).",
+      "url": "https://doi.org/10.1016/j.obhdp.2009.04.002"
+    },
+    {
+      "id": "ohno-1988",
+      "texto": "Ohno T. Toyota Production System: Beyond Large-Scale Production (1988), कानबान की शुरुआत।",
+      "url": "https://global.toyota/en/company/vision-and-philosophy/production-system/"
+    },
+    {
+      "id": "ariely-2002",
+      "texto": "Ariely D., Wertenbroch K. Procrastination, deadlines, and performance: Self-control by precommitment. Psychological Science (2002).",
+      "url": "https://doi.org/10.1111/1467-9280.00441"
+    },
+    {
+      "id": "albulescu-2022",
+      "texto": "Albulescu P. और सहयोगी। «Give me a break!» A systematic review and meta-analysis on the efficacy of micro-breaks for increasing well-being and performance. PLOS ONE (2022).",
+      "url": "https://doi.org/10.1371/journal.pone.0272460"
+    },
+    {
+      "id": "cirillo-2006",
+      "texto": "Cirillo F. The Pomodoro Technique (2006).",
+      "url": "https://www.pomodorotechnique.com/"
+    },
+    {
+      "id": "forsyth-2008",
+      "texto": "Forsyth D. K., Burt C. D. B. Allocating time to future tasks: The effect of task segmentation on planning fallacy bias. Memory & Cognition (2008).",
+      "url": "https://doi.org/10.3758/MC.36.4.791"
+    }
+  ]
+}

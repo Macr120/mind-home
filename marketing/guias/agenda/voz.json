@@ -1,0 +1,21 @@
+{
+  "pitch": "+12Hz",
+  "voces": {
+    "es": "es-MX-DaliaNeural",
+    "en": "en-US-AriaNeural",
+    "pt": "pt-BR-FranciscaNeural",
+    "fr": "fr-FR-DeniseNeural",
+    "de": "de-DE-KatjaNeural",
+    "it": "it-IT-IsabellaNeural",
+    "ja": "ja-JP-NanamiNeural",
+    "zh": "zh-CN-XiaoxiaoNeural",
+    "ko": "ko-KR-SunHiNeural",
+    "ru": "ru-RU-SvetlanaNeural",
+    "hi": "hi-IN-SwaraNeural",
+    "tr": "tr-TR-EmelNeural",
+    "id": "id-ID-GadisNeural",
+    "pl": "pl-PL-ZofiaNeural",
+    "nl": "nl-NL-FennaNeural",
+    "ar": "ar-SA-ZariyahNeural"
+  }
+}

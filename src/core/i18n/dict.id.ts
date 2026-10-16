@@ -7502,6 +7502,7 @@ export const ID: Dict = {
   'guia.video.titulo': "Bagaimana cara membuat video?",
   'guia.metas.titulo': "Bagaimana cara mencapai targetmu?",
   'guia.mindfulness.titulo': "Mengapa melambat justru membuatmu sampai lebih cepat?",
+  'guia.agenda.titulo': "Bagaimana mengatur waktumu?",
   'tut.esencial.titulo': 'Yang Penting',
   'tut.tipo.ejemplos': 'Contoh · MindHaOS demo',
   'tut.app-agenda--esencial.resumen':

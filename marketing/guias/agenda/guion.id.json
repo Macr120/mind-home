@@ -1,0 +1,775 @@
+{
+  "idioma": "id",
+  "tema": "agenda",
+  "plantillaId": "agenda",
+  "numero": 11,
+  "nombre": "Agenda",
+  "pregunta": "Bagaimana mengatur waktumu?",
+  "corta": "Bagaimana mengatur waktumu?",
+  "subtitulo": "Kenapa waktumu tak pernah cukup, kenapa kepalamu bukan agenda yang baik, apa yang didahulukan, kenapa mengerjakan banyak hal sekaligus memperlambatmu, cara memberi jam untuk hal penting, kenapa istirahat membuatmu lebih produktif, apa yang dilakukan saat semuanya menumpuk, dan rencana agar agendamu tetap berjalan.",
+  "aviso": "Panduan ini bersifat informatif: angka dan studi yang dikutip adalah perkiraan dari sumbernya, dan setiap orang mengatur waktunya dengan caranya sendiri. Kalau bebanmu terasa terlalu berat setiap hari, bicaralah dengan orang yang kamu percaya atau dengan seorang profesional.",
+  "partes": [
+    {
+      "id": "tiempo",
+      "titulo": "Kenapa waktumu tak pernah cukup?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Bagaimana mengatur waktumu? Kita semua punya dua puluh empat jam yang sama. Tapi dalam survei Gallup, delapan dari sepuluh orang bilang waktunya tidak cukup untuk semua yang ingin mereka lakukan. Kenapa ada orang yang waktunya cukup? Hari ini kamu akan melihatnya lewat apa kata sains, dan kamu akan pulang membawa rencana agar minggumu benar-benar produktif."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Omong-omong, ini rumahku di MindHaOS, dan di ruangan ini aku mengatur waktuku."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian satu. Kenapa waktumu tak pernah cukup?"
+        },
+        {
+          "id": "falacia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "estimar"
+          },
+          "lamina": [
+            "reloj",
+            "tesis"
+          ],
+          "destacada": true,
+          "meme": "diezMinutos",
+          "texto": "Pertama, satu jebakan yang kita semua punya. Pada 1994, Roger Buehler dan timnya bertanya kepada mahasiswa berapa lama mereka akan menyelesaikan skripsi. Mereka memperkirakan sekitar tiga puluh empat hari. Ternyata butuh lima puluh lima. Bahkan perkiraan terburuk mereka, empat puluh sembilan hari, masih meleset."
+        },
+        {
+          "id": "parkinson",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1955",
+            "clave": "parkinson"
+          },
+          "lamina": [
+            "oficina",
+            "papeles"
+          ],
+          "texto": "Dan ada jebakan kedua. Pada 1955, sejarawan Cyril Northcote Parkinson menulis sambil bercanda bahwa pekerjaan akan memanjang sampai memenuhi waktu yang kamu punya untuk mengerjakannya. Kalau kamu memberi dirimu sepanjang sore untuk satu email, email itu akan menghabiskan sepanjang sore."
+        },
+        {
+          "id": "bienestar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "158",
+            "clave": "aeon"
+          },
+          "lamina": [
+            "calma",
+            "cafe"
+          ],
+          "texto": "Kabar baiknya, mengatur diri memang berhasil, meski tidak seperti yang kamu kira. Pada 2021, Brad Aeon dan timnya mengumpulkan seratus lima puluh delapan studi: mengatur waktu membantu kinerja, tapi terutama membuatmu merasa lebih baik dan tidak terlalu stres."
+        },
+        {
+          "id": "adelanto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sacar",
+              "elegir",
+              "agendar"
+            ]
+          },
+          "lamina": [
+            "mapa",
+            "brujula"
+          ],
+          "texto": "Jadi ini bukan soal memeras setiap menit, tapi tiga hal: mengeluarkan semuanya dari kepalamu, memilih apa yang didahulukan, dan memberinya jam di kalendermu."
+        },
+        {
+          "id": "escritorio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apunto",
+              "ordeno",
+              "agendo"
+            ]
+          },
+          "lamina": "escritorio",
+          "enCasa": true,
+          "texto": "Di sini, di agenda mejaku, hariku dimulai: aku mencatat apa yang ada di kepalaku, mengurutkannya, dan memberinya jam."
+        }
+      ]
+    },
+    {
+      "id": "cabeza",
+      "titulo": "Kenapa kepalamu bukan agenda yang baik?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian dua. Kenapa kepalamu bukan agenda yang baik?"
+        },
+        {
+          "id": "abiertos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "bandeja"
+          },
+          "lamina": [
+            "postits",
+            "cabeza"
+          ],
+          "destacada": true,
+          "texto": "Hal yang belum selesai terus berputar di kepala. Konon, pada tahun dua puluhan di Berlin, psikolog Bluma Zeigarnik melihat seorang pelayan hafal pesanan yang belum dibayar, lalu melupakannya begitu dibayar. Dalam eksperimennya, orang lebih ingat tugas yang mereka tinggalkan setengah jalan daripada yang sudah selesai."
+        },
+        {
+          "id": "capturar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "todo",
+              "unLugar",
+              "revisa"
+            ]
+          },
+          "lamina": [
+            "libreta",
+            "bandejaPapel"
+          ],
+          "texto": "Karena itu David Allen, penulis buku produktivitas yang sangat terkenal, menyarankan untuk mencatat semuanya: setiap tugas, sekecil apa pun, masuk ke satu tempat yang sering kamu periksa. Kepalamu untuk memikirkan ide, bukan untuk menyimpannya."
+        },
+        {
+          "id": "dosMinutos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 menit",
+            "clave": "dosMinutos"
+          },
+          "lamina": [
+            "correo",
+            "palomita"
+          ],
+          "texto": "Dan aturannya yang paling terkenal: kalau sesuatu butuh kurang dari dua menit, kerjakan sekarang. Mencatatnya lalu kembali nanti lebih mahal daripada langsung mengerjakannya."
+        },
+        {
+          "id": "pendientes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apuntar",
+              "sinFecha",
+              "prioridad"
+            ]
+          },
+          "lamina": "todo",
+          "enCasa": true,
+          "texto": "Di agendaku, semua yang ada di kepalaku masuk ke daftar Tugas: tanpa tanggal, diurutkan menurut prioritas, sampai aku memberinya tempat."
+        },
+        {
+          "id": "personas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cumples",
+              "cuidados",
+              "importantes"
+            ]
+          },
+          "lamina": "agendaPapel",
+          "enCasa": true,
+          "texto": "Dan bukan cuma tugasku: di sini aku punya agenda seperti zaman dulu, berisi orang-orang yang kukenal, supaya tidak lupa ulang tahun mereka, dan juga perawatan yang harus kujalani untuk diriku sendiri dan untuk orang-orang penting dalam hidupku."
+        }
+      ]
+    },
+    {
+      "id": "primero",
+      "titulo": "Apa yang didahulukan?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tiga. Apa yang didahulukan?"
+        },
+        {
+          "id": "eisenhower",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1954",
+            "clave": "eisenhower"
+          },
+          "lamina": [
+            "eisenhower",
+            "escritorioAntiguo"
+          ],
+          "texto": "Pada 1954, Presiden Dwight Eisenhower berkata bahwa ia punya dua jenis masalah: yang mendesak dan yang penting, dan yang mendesak hampir tidak pernah penting."
+        },
+        {
+          "id": "urgencia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "urgencia"
+          },
+          "lamina": [
+            "alarma",
+            "telefono"
+          ],
+          "meme": "urgente",
+          "texto": "Dan sains membenarkannya. Pada 2018, Meng Zhu dan timnya menemukan bahwa orang memilih tugas yang tenggatnya dekat meski tugas lain memberi hasil lebih besar, hanya karena terasa mendesak."
+        },
+        {
+          "id": "matriz",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "matriz"
+          },
+          "lamina": [
+            "tablero",
+            "lista"
+          ],
+          "destacada": true,
+          "texto": "Karena itu matriksnya berguna. Lihat: yang mendesak dan penting, kerjakan hari ini. Yang penting tapi tidak mendesak, beri jam. Yang mendesak tapi tidak penting, serahkan ke orang lain atau kerjakan cepat. Dan yang bukan keduanya, lepaskan."
+        },
+        {
+          "id": "prioridad",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "alta",
+              "media",
+              "baja"
+            ]
+          },
+          "lamina": "todo",
+          "enCasa": true,
+          "texto": "Di daftar Tugas-ku, setiap tugas punya prioritas, dan aku menyeretnya ke atas atau ke bawah sampai yang paling penting ada di urutan pertama."
+        }
+      ]
+    },
+    {
+      "id": "una",
+      "titulo": "Kenapa mengerjakan banyak hal sekaligus memperlambatmu?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian empat. Kenapa mengerjakan banyak hal sekaligus memperlambatmu?"
+        },
+        {
+          "id": "cambio",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "saltos"
+          },
+          "lamina": [
+            "pantallas",
+            "malabares"
+          ],
+          "destacada": true,
+          "meme": "multitarea",
+          "texto": "Setiap kali kamu melompat dari satu tugas ke tugas lain, kamu membayar ongkos. Pada 2001, Joshua Rubinstein, David Meyer, dan Jeffrey Evans mengukur bahwa berganti tugas selalu memakan waktu, dan makin banyak kalau tugasnya makin rumit. Lihat bagaimana lompatan-lompatan itu bertambah."
+        },
+        {
+          "id": "residuo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2009",
+            "clave": "residuo"
+          },
+          "lamina": [
+            "escritorioDesorden",
+            "pensar"
+          ],
+          "texto": "Dan kepala tidak berpindah begitu saja. Pada 2009, Sophie Leroy menyebutnya residu perhatian: sebagian dirimu masih tertinggal di tugas sebelumnya, apalagi kalau kamu meninggalkannya setengah jalan."
+        },
+        {
+          "id": "kanban",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "kanban"
+          },
+          "lamina": [
+            "fabrica",
+            "notas"
+          ],
+          "texto": "Karena itu di pabrik-pabrik Toyota lahir papan kanban: tiga kolom, perlu dikerjakan, sedang berlangsung, dan selesai, dengan satu aturan emas: sedikit saja yang berlangsung sekaligus. Selesaikan satu sebelum mulai yang lain."
+        },
+        {
+          "id": "tablero",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porHacer",
+              "enCurso",
+              "hecho"
+            ]
+          },
+          "lamina": "kanbanPared",
+          "enCasa": true,
+          "texto": "Di agendaku, tugas-tugasku juga tinggal di sebuah Papan: aku memindahkannya dari perlu dikerjakan ke sedang berlangsung, dan saat selesai, ke selesai."
+        }
+      ]
+    },
+    {
+      "id": "hora",
+      "titulo": "Bagaimana memberi jam untuk hal yang penting?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian lima. Bagaimana memberi jam untuk hal yang penting?"
+        },
+        {
+          "id": "plazos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "plazos"
+          },
+          "lamina": [
+            "papeles",
+            "calendarioPapel"
+          ],
+          "destacada": true,
+          "texto": "Yang tidak punya tanggal akan ditunda sampai akhir. Pada 2002, Dan Ariely dan Klaus Wertenbroch meminta mahasiswa mengerjakan tiga tugas. Sebagian diberi satu tenggat saja, di akhir semester; yang lain diberi tenggat untuk tiap tugas, tersebar sepanjang semester. Mereka yang tenggatnya tersebar mendapat nilai lebih baik."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoAgenda"
+          },
+          "lamina": "pulgar",
+          "texto": "Kalau kamu suka panduan ini, tekan Suka, Subscribe supaya tidak ketinggalan panduan berikutnya, dan Bagikan ke orang yang selalu bilang waktunya tidak cukup."
+        },
+        {
+          "id": "bloques",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "bloques"
+          },
+          "lamina": [
+            "semana",
+            "agendaPapel"
+          ],
+          "texto": "Itulah blok waktu: bukan daftar yang tak ada habisnya, tapi setiap hal penting mendapat slotnya di kalender, seperti janji dengan dirimu sendiri. Lihat bagaimana satu minggu tersusun."
+        },
+        {
+          "id": "vistas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dia",
+              "semana",
+              "mes"
+            ]
+          },
+          "lamina": [
+            "planeador",
+            "lapices"
+          ],
+          "texto": "Dan lihat waktumu dari berbagai ketinggian: hari untuk bertindak, minggu untuk membagi, dan bulan supaya tidak ada kejutan."
+        },
+        {
+          "id": "calendario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fechaYHora",
+              "aviso",
+              "palomita"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Di rumahku, saat sebuah tugas punya tanggal dan jam, tugas itu otomatis muncul di kalenderku, lengkap dengan pengingatnya, dan aku bisa melihatnya per hari, minggu, bulan, atau tahun."
+        }
+      ]
+    },
+    {
+      "id": "pausas",
+      "titulo": "Kenapa istirahat membuatmu lebih produktif?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian enam. Kenapa istirahat membuatmu lebih produktif?"
+        },
+        {
+          "id": "micro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pausas"
+          },
+          "lamina": [
+            "estirarse",
+            "ventana"
+          ],
+          "destacada": true,
+          "texto": "Bekerja tanpa henti tidak membuatmu maju lebih jauh. Pada 2022, Patricia Albulescu dan timnya meninjau dua puluh dua studi: jeda kurang dari sepuluh menit memberimu lebih banyak energi dan mengurangi lelah, dan pada tugas rutin, bahkan memperbaiki hasil kerjamu."
+        },
+        {
+          "id": "pomodoro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "pomodoro"
+          },
+          "lamina": [
+            "tomate",
+            "temporizador"
+          ],
+          "texto": "Cara yang sederhana adalah teknik Pomodoro, yang diciptakan Francesco Cirillo dengan pengatur waktu dapur berbentuk tomat: dua puluh lima menit untuk satu tugas, lima menit jeda, dan setiap empat putaran, satu jeda panjang."
+        },
+        {
+          "id": "pausa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "levantate",
+              "mira",
+              "agua"
+            ]
+          },
+          "lamina": [
+            "caminar",
+            "agua"
+          ],
+          "texto": "Dan pastikan jedanya sungguhan: berdiri, lihat jauh, minum air. Mengecek ponsel tidak dihitung sebagai istirahat."
+        },
+        {
+          "id": "descansos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloque",
+              "pausa",
+              "otroBloque"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Karena itu di kalenderku aku juga memberi jam untuk istirahat: di antara blok, satu jeda, yang juga kucentang."
+        }
+      ]
+    },
+    {
+      "id": "acumula",
+      "titulo": "Apa yang dilakukan saat semuanya menumpuk?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tujuh. Apa yang dilakukan saat semuanya menumpuk?"
+        },
+        {
+          "id": "partir",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2008",
+            "clave": "partir"
+          },
+          "lamina": [
+            "rompecabezas",
+            "escalera"
+          ],
+          "destacada": true,
+          "texto": "Pertama, perkirakan dengan lebih baik. Pada 2008, Jeffrey Forsyth dan Christopher Burt menemukan bahwa saat kamu memecah tugas menjadi langkah-langkah dan memperkirakan masing-masing, perkiraanmu lebih dekat dengan waktu yang sebenarnya."
+        },
+        {
+          "id": "colchon",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "colchon"
+          },
+          "lamina": [
+            "trafico",
+            "reloj2"
+          ],
+          "texto": "Dan sisakan cadangan waktu. Kalau kamu kira sesuatu butuh satu jam, sediakan satu setengah jam. Lihat apa yang terjadi pada harimu saat datang hal tak terduga, dengan cadangan dan tanpa cadangan."
+        },
+        {
+          "id": "decirNo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mueve",
+              "delega",
+              "no"
+            ]
+          },
+          "lamina": [
+            "manos",
+            "reunion"
+          ],
+          "meme": "manana",
+          "texto": "Dan kalau sudah tidak muat, pilihlah: pindahkan ke hari lain, serahkan ke orang lain, atau katakan tidak. Setiap ya untuk sesuatu adalah tidak untuk hal lain."
+        },
+        {
+          "id": "mover",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "arrastra",
+              "estira",
+              "sigue"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Kalau ada yang tiba-tiba muncul, di sini aku menyeret bloknya ke slot lain atau memanjangkannya, dan mingguku tetap berjalan."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Bagaimana melanjutkan? Rencanamu ke depan",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian delapan. Bagaimana melanjutkan? Rencanamu ke depan."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "Di minggu pertama, keluarkan semuanya dari kepalamu ke satu tempat, dan setiap pagi pilih tiga hal penting. Cukup tiga."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloquea",
+              "pausas",
+              "colchon"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "Di bulan pertama, beri jam untuk hal penting di kalendermu, lengkap dengan jeda dan cadangan waktunya. Jangan isi setiap slot: sisakan ruang untuk hal yang tak terduga."
+        },
+        {
+          "id": "revision",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "viernes",
+              "limpia",
+              "planea"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "lunes"
+          ],
+          "texto": "Dan seminggu sekali, lima belas menit untuk meninjau: kosongkan daftar tugas, pindahkan yang belum terlaksana, dan rencanakan blok minggu berikutnya. Janji dengan dirimu inilah yang menopang semuanya."
+        },
+        {
+          "id": "misiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cadaApp",
+              "juntas",
+              "palomeo"
+            ]
+          },
+          "lamina": "planeador",
+          "enCasa": true,
+          "texto": "Dan kegiatan harianku kucatat di Misi: setiap aplikasi di rumahku punya misinya sendiri, seperti minum air atau belajar, dan di kalender serta agendaku aku melihat semuanya bersama, hari demi hari, lalu mencentangnya."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Ringkasnya: kepalamu bukan agenda, jadi keluarkan semuanya; dahulukan yang penting daripada yang mendesak; kerjakan satu hal sekaligus dan beri jamnya; dan istirahatlah serta sisakan cadangan, karena mengatur diri itu untuk hidup lebih baik, bukan untuk berlari lebih cepat."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Di ruang Agenda MindHaOS kamu bisa mencatat tugas-tugasmu, memindahkannya di sebuah papan, memberinya tanggal dan jam agar muncul di kalendermu lengkap dengan pengingat, dan tidak lupa ulang tahun orang-orang terdekatmu. Bangun rumah pikiranmu gratis hari ini: tautannya ada di deskripsi. Dan di panduan berikutnya: bagaimana belajar lebih cepat?",
+    "boton": "Buka ruang Agenda",
+    "lamina": "app-plan",
+    "anclas": {
+      "pendientes": "mencatat tugas-tugasmu",
+      "tablero": "di sebuah papan",
+      "calendario": "di kalendermu",
+      "personas": "ulang tahun"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "whillans-2019",
+      "texto": "Whillans A. Time for Happiness. Harvard Business Review (Januari 2019), dengan data Gallup.",
+      "url": "https://hbr.org/2019/01/time-for-happiness"
+    },
+    {
+      "id": "buehler-1994",
+      "texto": "Buehler R., Griffin D., Ross M. Exploring the «planning fallacy»: Why people underestimate their task completion times. Journal of Personality and Social Psychology (1994).",
+      "url": "https://doi.org/10.1037/0022-3514.67.3.366"
+    },
+    {
+      "id": "parkinson-1955",
+      "texto": "Parkinson C. N. Parkinson's Law. The Economist (19 November 1955).",
+      "url": "https://www.economist.com/news/1955/11/19/parkinsons-law"
+    },
+    {
+      "id": "aeon-2021",
+      "texto": "Aeon B., Faber A., Panaccio A. Does time management work? A meta-analysis. PLOS ONE (2021).",
+      "url": "https://doi.org/10.1371/journal.pone.0245066"
+    },
+    {
+      "id": "zeigarnik-1927",
+      "texto": "Zeigarnik B. Über das Behalten von erledigten und unerledigten Handlungen. Psychologische Forschung (1927).",
+      "url": "https://doi.org/10.1007/BF02409755"
+    },
+    {
+      "id": "allen-2001",
+      "texto": "Allen D. Getting Things Done: The Art of Stress-Free Productivity (2001).",
+      "url": "https://gettingthingsdone.com/"
+    },
+    {
+      "id": "eisenhower-1954",
+      "texto": "Eisenhower D. D. Address at the Second Assembly of the World Council of Churches, Evanston (1954).",
+      "url": "https://www.presidency.ucsb.edu/documents/address-the-second-assembly-the-world-council-churches-evanston-illinois"
+    },
+    {
+      "id": "zhu-2018",
+      "texto": "Zhu M., Yang Y., Hsee C. K. The mere urgency effect. Journal of Consumer Research (2018).",
+      "url": "https://doi.org/10.1093/jcr/ucy008"
+    },
+    {
+      "id": "rubinstein-2001",
+      "texto": "Rubinstein J. S., Meyer D. E., Evans J. E. Executive control of cognitive processes in task switching. Journal of Experimental Psychology: Human Perception and Performance (2001).",
+      "url": "https://doi.org/10.1037/0096-1523.27.4.763"
+    },
+    {
+      "id": "leroy-2009",
+      "texto": "Leroy S. Why is it so hard to do my work? The challenge of attention residue when switching between work tasks. Organizational Behavior and Human Decision Processes (2009).",
+      "url": "https://doi.org/10.1016/j.obhdp.2009.04.002"
+    },
+    {
+      "id": "ohno-1988",
+      "texto": "Ohno T. Toyota Production System: Beyond Large-Scale Production (1988), asal-usul kanban.",
+      "url": "https://global.toyota/en/company/vision-and-philosophy/production-system/"
+    },
+    {
+      "id": "ariely-2002",
+      "texto": "Ariely D., Wertenbroch K. Procrastination, deadlines, and performance: Self-control by precommitment. Psychological Science (2002).",
+      "url": "https://doi.org/10.1111/1467-9280.00441"
+    },
+    {
+      "id": "albulescu-2022",
+      "texto": "Albulescu P. dkk. «Give me a break!» A systematic review and meta-analysis on the efficacy of micro-breaks for increasing well-being and performance. PLOS ONE (2022).",
+      "url": "https://doi.org/10.1371/journal.pone.0272460"
+    },
+    {
+      "id": "cirillo-2006",
+      "texto": "Cirillo F. The Pomodoro Technique (2006).",
+      "url": "https://www.pomodorotechnique.com/"
+    },
+    {
+      "id": "forsyth-2008",
+      "texto": "Forsyth D. K., Burt C. D. B. Allocating time to future tasks: The effect of task segmentation on planning fallacy bias. Memory & Cognition (2008).",
+      "url": "https://doi.org/10.3758/MC.36.4.791"
+    }
+  ]
+}

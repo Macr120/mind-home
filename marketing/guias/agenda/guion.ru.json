@@ -1,0 +1,775 @@
+{
+  "idioma": "ru",
+  "tema": "agenda",
+  "plantillaId": "agenda",
+  "numero": 11,
+  "nombre": "Ежедневник",
+  "pregunta": "Как организовать своё время?",
+  "corta": "Как организовать своё время?",
+  "subtitulo": "Почему тебе никогда не хватает времени, почему голова — плохой ежедневник, что делать в первую очередь, почему многозадачность тебя тормозит, как выделить время на важное, почему отдых помогает успевать больше, что делать, когда всё накапливается, и план, чтобы не бросить свой ежедневник.",
+  "aviso": "Это руководство носит информационный характер: приведённые цифры и исследования — приблизительные данные из их источников, и каждый организует своё время по-своему. Если тебе кажется, что нагрузка захлёстывает тебя каждый день, поговори с тем, кому доверяешь, или со специалистом.",
+  "partes": [
+    {
+      "id": "tiempo",
+      "titulo": "Почему тебе никогда не хватает времени?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Как организовать своё время? У всех нас одни и те же двадцать четыре часа. И всё же в опросе Гэллапа восемь человек из десяти сказали, что им не хватает времени на всё, что они хотят сделать. Почему же некоторым его хватает? Сегодня ты узнаешь, что говорит об этом наука, и уйдёшь с планом, чтобы твоя неделя наконец работала на тебя."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Кстати, это мой дом в MindHaOS, и в этой комнате я организую своё время."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть первая. Почему тебе никогда не хватает времени?"
+        },
+        {
+          "id": "falacia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "estimar"
+          },
+          "lamina": [
+            "reloj",
+            "tesis"
+          ],
+          "destacada": true,
+          "meme": "diezMinutos",
+          "texto": "Сначала ловушка, в которую попадаем все мы. В 1994 году Роджер Бюлер и его команда спросили студентов, сколько времени у них уйдёт на дипломную работу. Они рассчитывали примерно на тридцать четыре дня. Ушло пятьдесят пять. И даже их расчёт на худший случай, сорок девять дней, оказался слишком оптимистичным."
+        },
+        {
+          "id": "parkinson",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1955",
+            "clave": "parkinson"
+          },
+          "lamina": [
+            "oficina",
+            "papeles"
+          ],
+          "texto": "И есть вторая ловушка. В 1955 году историк Сирил Норткот Паркинсон в шутку написал, что работа растягивается, заполняя всё время, отведённое на неё. Если дать себе целый вечер на одно письмо, письмо и займёт весь вечер."
+        },
+        {
+          "id": "bienestar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "158",
+            "clave": "aeon"
+          },
+          "lamina": [
+            "calma",
+            "cafe"
+          ],
+          "texto": "Хорошая новость: организация действительно работает, хотя и не так, как ты думаешь. В 2021 году Брэд Эон и его команда собрали сто пятьдесят восемь исследований: планирование времени помогает успевать больше, но главное — с ним ты чувствуешь себя лучше и меньше переживаешь."
+        },
+        {
+          "id": "adelanto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sacar",
+              "elegir",
+              "agendar"
+            ]
+          },
+          "lamina": [
+            "mapa",
+            "brujula"
+          ],
+          "texto": "Так что дело не в том, чтобы выжимать каждую минуту, а в трёх вещах: выгрузить всё из головы, выбрать, что идёт первым, и дать этому время в календаре."
+        },
+        {
+          "id": "escritorio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apunto",
+              "ordeno",
+              "agendo"
+            ]
+          },
+          "lamina": "escritorio",
+          "enCasa": true,
+          "texto": "Здесь, в моём настольном ежедневнике, начинается мой день: я записываю всё, что у меня в голове, расставляю по порядку и даю каждому делу своё время."
+        }
+      ]
+    },
+    {
+      "id": "cabeza",
+      "titulo": "Почему голова — плохой ежедневник?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть вторая. Почему голова — плохой ежедневник?"
+        },
+        {
+          "id": "abiertos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "bandeja"
+          },
+          "lamina": [
+            "postits",
+            "cabeza"
+          ],
+          "destacada": true,
+          "texto": "То, что ты оставляешь незаконченным, продолжает крутиться в голове. Рассказывают, что в двадцатые годы в Берлине психолог Блюма Зейгарник заметила, что официант помнил наизусть заказы, за которые ещё не заплатили, и забывал их, как только их оплачивали. В её экспериментах люди лучше запоминали задачи, брошенные на полпути, чем завершённые."
+        },
+        {
+          "id": "capturar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "todo",
+              "unLugar",
+              "revisa"
+            ]
+          },
+          "lamina": [
+            "libreta",
+            "bandejaPapel"
+          ],
+          "texto": "Поэтому Дэвид Аллен, автор очень известной книги о продуктивности, предлагает записывать всё: каждое дело, даже самое мелкое, попадает в одно место, которое ты часто просматриваешь. Голова нужна, чтобы придумывать идеи, а не хранить их."
+        },
+        {
+          "id": "dosMinutos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 мин",
+            "clave": "dosMinutos"
+          },
+          "lamina": [
+            "correo",
+            "palomita"
+          ],
+          "texto": "И его самое известное правило: если что-то занимает меньше двух минут, сделай это сразу. Записать и вернуться потом обойдётся дороже, чем просто сделать."
+        },
+        {
+          "id": "pendientes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apuntar",
+              "sinFecha",
+              "prioridad"
+            ]
+          },
+          "lamina": "todo",
+          "enCasa": true,
+          "texto": "В моём ежедневнике всё, что у меня в голове, попадает в список «Дела»: без даты, по приоритету, пока я не найду для этого место."
+        },
+        {
+          "id": "personas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cumples",
+              "cuidados",
+              "importantes"
+            ]
+          },
+          "lamina": "agendaPapel",
+          "enCasa": true,
+          "texto": "И не только мои дела: здесь я веду записную книжку, как в старые времена, с людьми, которых знаю, чтобы не забывать их дни рождения, а ещё то, как мне заботиться о себе и о важных людях в моей жизни."
+        }
+      ]
+    },
+    {
+      "id": "primero",
+      "titulo": "Что делать в первую очередь?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть третья. Что делать в первую очередь?"
+        },
+        {
+          "id": "eisenhower",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1954",
+            "clave": "eisenhower"
+          },
+          "lamina": [
+            "eisenhower",
+            "escritorioAntiguo"
+          ],
+          "texto": "В 1954 году президент Дуайт Эйзенхауэр сказал, что у него два типа проблем: срочные и важные, и срочные почти никогда не бывают важными."
+        },
+        {
+          "id": "urgencia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "urgencia"
+          },
+          "lamina": [
+            "alarma",
+            "telefono"
+          ],
+          "meme": "urgente",
+          "texto": "И наука с ним согласна. В 2018 году команда Мэн Чжу обнаружила, что люди выбирают задачу с близким сроком, даже если другая дала бы им больше, просто потому, что она кажется срочной."
+        },
+        {
+          "id": "matriz",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "matriz"
+          },
+          "lamina": [
+            "tablero",
+            "lista"
+          ],
+          "destacada": true,
+          "texto": "Поэтому и полезна его матрица. Смотри: срочное и важное сделай сегодня. Важное, но не срочное, запланируй на конкретное время. Срочное, но неважное, передай кому-нибудь или сделай быстро. А то, что ни то ни другое, отпусти."
+        },
+        {
+          "id": "prioridad",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "alta",
+              "media",
+              "baja"
+            ]
+          },
+          "lamina": "todo",
+          "enCasa": true,
+          "texto": "В моём списке у каждого дела свой приоритет, и я перетаскиваю его выше или ниже, пока самое важное не окажется первым."
+        }
+      ]
+    },
+    {
+      "id": "una",
+      "titulo": "Почему делать несколько дел сразу — значит тормозить?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть четвёртая. Почему делать несколько дел сразу — значит тормозить?"
+        },
+        {
+          "id": "cambio",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "saltos"
+          },
+          "lamina": [
+            "pantallas",
+            "malabares"
+          ],
+          "destacada": true,
+          "meme": "multitarea",
+          "texto": "Каждый раз, когда ты перескакиваешь с одной задачи на другую, ты платишь пошлину. В 2001 году Джошуа Рубинштейн, Дэвид Мейер и Джеффри Эванс измерили, что каждое переключение стоит времени, и тем больше, чем сложнее задачи. Смотри, как складываются переключения."
+        },
+        {
+          "id": "residuo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2009",
+            "clave": "residuo"
+          },
+          "lamina": [
+            "escritorioDesorden",
+            "pensar"
+          ],
+          "texto": "А голова не переключается мгновенно. В 2009 году Софи Лерой назвала это остатком внимания: часть тебя остаётся в предыдущей задаче, особенно если она брошена на полпути."
+        },
+        {
+          "id": "kanban",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "kanban"
+          },
+          "lamina": [
+            "fabrica",
+            "notas"
+          ],
+          "texto": "Поэтому на заводах Тойоты придумали доску канбан: три колонки, к выполнению, в работе и готово, и одно золотое правило: мало дел в работе одновременно. Закончи одно, прежде чем браться за другое."
+        },
+        {
+          "id": "tablero",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porHacer",
+              "enCurso",
+              "hecho"
+            ]
+          },
+          "lamina": "kanbanPared",
+          "enCasa": true,
+          "texto": "В моём ежедневнике мои дела тоже живут на доске: я переношу их из колонки «К выполнению» в «В работе», а когда заканчиваю — в «Готово»."
+        }
+      ]
+    },
+    {
+      "id": "hora",
+      "titulo": "Как выделить время на важное?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть пятая. Как выделить время на важное?"
+        },
+        {
+          "id": "plazos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "plazos"
+          },
+          "lamina": [
+            "papeles",
+            "calendarioPapel"
+          ],
+          "destacada": true,
+          "texto": "То, у чего нет срока, откладывается на потом. В 2002 году Дэн Ариели и Клаус Вертенброх дали студентам три работы. Одним назначили один срок, в конце курса; другим — свой срок для каждой работы, распределённый по курсу. Те, у кого сроки были распределены, получили оценки лучше."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoAgenda"
+          },
+          "lamina": "pulgar",
+          "texto": "Если тебе нравится это руководство, нажми «Нравится», «Подписаться», чтобы не пропустить следующее, и «Поделиться» с тем, кто вечно говорит, что ему не хватает времени."
+        },
+        {
+          "id": "bloques",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "bloques"
+          },
+          "lamina": [
+            "semana",
+            "agendaPapel"
+          ],
+          "texto": "Это и есть блоки времени: вместо бесконечного списка каждое важное дело получает своё окно в календаре, как встреча с собой. Смотри, как складывается неделя."
+        },
+        {
+          "id": "vistas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dia",
+              "semana",
+              "mes"
+            ]
+          },
+          "lamina": [
+            "planeador",
+            "lapices"
+          ],
+          "texto": "И смотри на своё время с разной высоты: день — чтобы действовать, неделя — чтобы распределять, а месяц — чтобы не было сюрпризов."
+        },
+        {
+          "id": "calendario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fechaYHora",
+              "aviso",
+              "palomita"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "В моём доме, когда у дела есть дата и время, оно само появляется в моём календаре, с напоминанием, и я вижу его по дням, неделям, месяцам или годам."
+        }
+      ]
+    },
+    {
+      "id": "pausas",
+      "titulo": "Почему отдых помогает успевать больше?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть шестая. Почему отдых помогает успевать больше?"
+        },
+        {
+          "id": "micro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pausas"
+          },
+          "lamina": [
+            "estirarse",
+            "ventana"
+          ],
+          "destacada": true,
+          "texto": "Работа без остановки не помогает продвинуться дальше. В 2022 году Патрисия Албулеску и её команда изучили двадцать два исследования: перерывы короче десяти минут дают больше энергии и меньше усталости, а в рутинных задачах даже улучшают результат."
+        },
+        {
+          "id": "pomodoro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "pomodoro"
+          },
+          "lamina": [
+            "tomate",
+            "temporizador"
+          ],
+          "texto": "Простой способ — техника Помодоро, которую придумал Франческо Чирилло с кухонным таймером в форме помидора: двадцать пять минут на одну задачу, пять минут перерыва, а после каждых четырёх кругов — длинный перерыв."
+        },
+        {
+          "id": "pausa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "levantate",
+              "mira",
+              "agua"
+            ]
+          },
+          "lamina": [
+            "caminar",
+            "agua"
+          ],
+          "texto": "И пусть перерыв будет настоящим: встань, посмотри вдаль, выпей воды. Листать телефон — это не отдых."
+        },
+        {
+          "id": "descansos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloque",
+              "pausa",
+              "otroBloque"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Поэтому в моём календаре я выделяю время и на отдых: между блоками перерыв, который я тоже отмечаю галочкой."
+        }
+      ]
+    },
+    {
+      "id": "acumula",
+      "titulo": "Что делать, когда всё накапливается?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть седьмая. Что делать, когда всё накапливается?"
+        },
+        {
+          "id": "partir",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2008",
+            "clave": "partir"
+          },
+          "lamina": [
+            "rompecabezas",
+            "escalera"
+          ],
+          "destacada": true,
+          "texto": "Во-первых, считай точнее. В 2008 году Джеффри Форсайт и Кристофер Бёрт обнаружили, что если разбить задачу на шаги и оценить каждый, расчёты становятся ближе к тому, сколько времени уходит на самом деле."
+        },
+        {
+          "id": "colchon",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "colchon"
+          },
+          "lamina": [
+            "trafico",
+            "reloj2"
+          ],
+          "texto": "И оставляй запас. Если думаешь, что что-то займёт час, отведи полтора. Смотри, что происходит с твоим днём, когда случается непредвиденное, с запасом и без него."
+        },
+        {
+          "id": "decirNo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mueve",
+              "delega",
+              "no"
+            ]
+          },
+          "lamina": [
+            "manos",
+            "reunion"
+          ],
+          "meme": "manana",
+          "texto": "А когда уже не помещается, выбирай: перенеси на другой день, передай кому-нибудь или скажи «нет». Каждое «да» чему-то — это «нет» чему-то другому."
+        },
+        {
+          "id": "mover",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "arrastra",
+              "estira",
+              "sigue"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Когда что-то вклинивается, я перетаскиваю здесь блок в другое окно или растягиваю его, и моя неделя не рушится."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Как продолжать? Твой план на будущее",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть восьмая. Как продолжать? Твой план на будущее."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "В первую неделю выгрузи всё из головы в одно место и каждое утро выбирай три важных дела. Только три."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloquea",
+              "pausas",
+              "colchon"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "В первый месяц выдели в календаре время на важное, с перерывами и запасом. Не заполняй каждое окно: оставь место для неожиданного."
+        },
+        {
+          "id": "revision",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "viernes",
+              "limpia",
+              "planea"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "lunes"
+          ],
+          "texto": "И раз в неделю пятнадцать минут на обзор: очисти список, перенеси то, что не получилось, и спланируй блоки на следующую неделю. Именно эта встреча с собой держит всё остальное."
+        },
+        {
+          "id": "misiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cadaApp",
+              "juntas",
+              "palomeo"
+            ]
+          },
+          "lamina": "planeador",
+          "enCasa": true,
+          "texto": "А ежедневное я веду в своих миссиях: у каждого приложения в моём доме они свои, например пить воду или учиться, и в календаре и в ежедневнике я вижу их вместе, день за днём, и отмечаю галочкой."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Итак: голова — не ежедневник, так что выгружай из неё всё; выбирай важное раньше срочного; делай одно дело за раз и давай ему время; отдыхай и оставляй запас, ведь организация нужна, чтобы жить лучше, а не бежать быстрее."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "В комнате «Ежедневник» в MindHaOS ты можешь записывать свои дела, двигать их на доске, назначать им дату и время, чтобы они появлялись в твоём календаре с напоминанием, и не забывать дни рождения близких. Построй свой мысленный дом бесплатно уже сегодня: ссылка в описании. А в следующем руководстве: как учиться быстрее?",
+    "boton": "Открыть комнату «Ежедневник»",
+    "lamina": "app-plan",
+    "anclas": {
+      "pendientes": "записывать свои дела",
+      "tablero": "на доске",
+      "calendario": "в твоём календаре",
+      "personas": "дни рождения"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "whillans-2019",
+      "texto": "Whillans A. Time for Happiness. Harvard Business Review (январь 2019), с данными Gallup.",
+      "url": "https://hbr.org/2019/01/time-for-happiness"
+    },
+    {
+      "id": "buehler-1994",
+      "texto": "Buehler R., Griffin D., Ross M. Exploring the «planning fallacy»: Why people underestimate their task completion times. Journal of Personality and Social Psychology (1994).",
+      "url": "https://doi.org/10.1037/0022-3514.67.3.366"
+    },
+    {
+      "id": "parkinson-1955",
+      "texto": "Parkinson C. N. Parkinson's Law. The Economist (19 ноября 1955).",
+      "url": "https://www.economist.com/news/1955/11/19/parkinsons-law"
+    },
+    {
+      "id": "aeon-2021",
+      "texto": "Aeon B., Faber A., Panaccio A. Does time management work? A meta-analysis. PLOS ONE (2021).",
+      "url": "https://doi.org/10.1371/journal.pone.0245066"
+    },
+    {
+      "id": "zeigarnik-1927",
+      "texto": "Zeigarnik B. Über das Behalten von erledigten und unerledigten Handlungen. Psychologische Forschung (1927).",
+      "url": "https://doi.org/10.1007/BF02409755"
+    },
+    {
+      "id": "allen-2001",
+      "texto": "Allen D. Getting Things Done: The Art of Stress-Free Productivity (2001).",
+      "url": "https://gettingthingsdone.com/"
+    },
+    {
+      "id": "eisenhower-1954",
+      "texto": "Eisenhower D. D. Address at the Second Assembly of the World Council of Churches, Evanston (1954).",
+      "url": "https://www.presidency.ucsb.edu/documents/address-the-second-assembly-the-world-council-churches-evanston-illinois"
+    },
+    {
+      "id": "zhu-2018",
+      "texto": "Zhu M., Yang Y., Hsee C. K. The mere urgency effect. Journal of Consumer Research (2018).",
+      "url": "https://doi.org/10.1093/jcr/ucy008"
+    },
+    {
+      "id": "rubinstein-2001",
+      "texto": "Rubinstein J. S., Meyer D. E., Evans J. E. Executive control of cognitive processes in task switching. Journal of Experimental Psychology: Human Perception and Performance (2001).",
+      "url": "https://doi.org/10.1037/0096-1523.27.4.763"
+    },
+    {
+      "id": "leroy-2009",
+      "texto": "Leroy S. Why is it so hard to do my work? The challenge of attention residue when switching between work tasks. Organizational Behavior and Human Decision Processes (2009).",
+      "url": "https://doi.org/10.1016/j.obhdp.2009.04.002"
+    },
+    {
+      "id": "ohno-1988",
+      "texto": "Ohno T. Toyota Production System: Beyond Large-Scale Production (1988), истоки канбана.",
+      "url": "https://global.toyota/en/company/vision-and-philosophy/production-system/"
+    },
+    {
+      "id": "ariely-2002",
+      "texto": "Ariely D., Wertenbroch K. Procrastination, deadlines, and performance: Self-control by precommitment. Psychological Science (2002).",
+      "url": "https://doi.org/10.1111/1467-9280.00441"
+    },
+    {
+      "id": "albulescu-2022",
+      "texto": "Albulescu P. и коллеги. «Give me a break!» A systematic review and meta-analysis on the efficacy of micro-breaks for increasing well-being and performance. PLOS ONE (2022).",
+      "url": "https://doi.org/10.1371/journal.pone.0272460"
+    },
+    {
+      "id": "cirillo-2006",
+      "texto": "Cirillo F. The Pomodoro Technique (2006).",
+      "url": "https://www.pomodorotechnique.com/"
+    },
+    {
+      "id": "forsyth-2008",
+      "texto": "Forsyth D. K., Burt C. D. B. Allocating time to future tasks: The effect of task segmentation on planning fallacy bias. Memory & Cognition (2008).",
+      "url": "https://doi.org/10.3758/MC.36.4.791"
+    }
+  ]
+}

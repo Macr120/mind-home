@@ -1,0 +1,775 @@
+{
+  "idioma": "nl",
+  "tema": "agenda",
+  "plantillaId": "agenda",
+  "numero": 11,
+  "nombre": "Agenda",
+  "pregunta": "Hoe organiseer je je tijd?",
+  "corta": "Hoe organiseer je je tijd?",
+  "subtitulo": "Waarom je nooit genoeg tijd hebt, waarom je hoofd geen goede agenda is, wat eerst komt, waarom meerdere dingen tegelijk je afremt, hoe je het belangrijke een tijdstip geeft, waarom rust je meer laat presteren, wat je doet als alles zich opstapelt en een plan om je agenda vol te houden.",
+  "aviso": "Deze gids is informatief: de genoemde cijfers en studies zijn benaderingen uit hun bronnen, en ieder mens organiseert zijn tijd op zijn eigen manier. Als je elke dag het gevoel hebt dat het je boven het hoofd groeit, praat dan met iemand die je vertrouwt of met een professional.",
+  "partes": [
+    {
+      "id": "tiempo",
+      "titulo": "Waarom heb je nooit genoeg tijd?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Hoe organiseer je je tijd? We hebben allemaal dezelfde vierentwintig uur. En toch zeiden in een peiling van Gallup acht op de tien mensen dat ze niet genoeg tijd hebben voor alles wat ze willen doen. Waarom lukt het sommige mensen wel? Vandaag zie je het met wat de wetenschap zegt, en je gaat weg met een plan waardoor je week echt iets oplevert."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Trouwens, dit is mijn huis in MindHaOS, en in deze kamer organiseer ik mijn tijd."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel één. Waarom heb je nooit genoeg tijd?"
+        },
+        {
+          "id": "falacia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "estimar"
+          },
+          "lamina": [
+            "reloj",
+            "tesis"
+          ],
+          "destacada": true,
+          "meme": "diezMinutos",
+          "texto": "Eerst een valkuil waar we allemaal in trappen. In 1994 vroegen Roger Buehler en zijn team aan studenten hoe lang ze over hun scriptie zouden doen. Ze schatten zo’n vierendertig dagen. Het werden er vijfenvijftig. En zelfs hun schatting voor het ergste geval, negenenveertig dagen, was te krap."
+        },
+        {
+          "id": "parkinson",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1955",
+            "clave": "parkinson"
+          },
+          "lamina": [
+            "oficina",
+            "papeles"
+          ],
+          "texto": "En er is een tweede valkuil. In 1955 schreef de historicus Cyril Northcote Parkinson als grap dat werk uitdijt tot het de tijd vult die je ervoor hebt. Als je jezelf de hele middag geeft voor één mail, kost die mail je de hele middag."
+        },
+        {
+          "id": "bienestar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "158",
+            "clave": "aeon"
+          },
+          "lamina": [
+            "calma",
+            "cafe"
+          ],
+          "texto": "Het goede nieuws is dat jezelf organiseren wel werkt, alleen anders dan je denkt. In 2021 verzamelden Brad Aeon en zijn team honderdachtenvijftig studies: je tijd organiseren helpt je presteren, maar vooral voel je je beter en heb je minder stress."
+        },
+        {
+          "id": "adelanto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sacar",
+              "elegir",
+              "agendar"
+            ]
+          },
+          "lamina": [
+            "mapa",
+            "brujula"
+          ],
+          "texto": "Het gaat dus niet om elke minuut uitknijpen, maar om drie dingen: alles uit je hoofd halen, kiezen wat eerst komt en het een tijdstip geven in je kalender."
+        },
+        {
+          "id": "escritorio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apunto",
+              "ordeno",
+              "agendo"
+            ]
+          },
+          "lamina": "escritorio",
+          "enCasa": true,
+          "texto": "Hier, in mijn bureau-agenda, begint mijn dag: ik noteer wat er in mijn hoofd zit, zet het op volgorde en geef het een tijdstip."
+        }
+      ]
+    },
+    {
+      "id": "cabeza",
+      "titulo": "Waarom is je hoofd geen goede agenda?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel twee. Waarom is je hoofd geen goede agenda?"
+        },
+        {
+          "id": "abiertos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "bandeja"
+          },
+          "lamina": [
+            "postits",
+            "cabeza"
+          ],
+          "destacada": true,
+          "texto": "Wat je open laat, blijft door je hoofd spoken. Het verhaal gaat dat in de jaren twintig in Berlijn de psychologe Bluma Zeigarnik zag dat een ober de bestellingen die nog niet betaald waren uit zijn hoofd kende, en ze vergat zodra ze betaald waren. In haar experimenten onthielden mensen half afgemaakte taken beter dan afgeronde."
+        },
+        {
+          "id": "capturar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "todo",
+              "unLugar",
+              "revisa"
+            ]
+          },
+          "lamina": [
+            "libreta",
+            "bandejaPapel"
+          ],
+          "texto": "Daarom stelt David Allen, auteur van een heel bekend boek over productiviteit, voor om alles vast te leggen: elke taak, hoe klein ook, gaat naar één plek die je vaak bekijkt. Je hoofd is om ideeën te bedenken, niet om ze te bewaren."
+        },
+        {
+          "id": "dosMinutos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2 min",
+            "clave": "dosMinutos"
+          },
+          "lamina": [
+            "correo",
+            "palomita"
+          ],
+          "texto": "En zijn beroemdste regel: als iets minder dan twee minuten duurt, doe het meteen. Het opschrijven en er later op terugkomen kost je meer dan het gewoon doen."
+        },
+        {
+          "id": "pendientes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apuntar",
+              "sinFecha",
+              "prioridad"
+            ]
+          },
+          "lamina": "todo",
+          "enCasa": true,
+          "texto": "In mijn agenda gaat alles wat er in mijn hoofd zit naar Taken: zonder datum, op prioriteit gesorteerd, tot ik het een plek geef."
+        },
+        {
+          "id": "personas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cumples",
+              "cuidados",
+              "importantes"
+            ]
+          },
+          "lamina": "agendaPapel",
+          "enCasa": true,
+          "texto": "En niet alleen mijn taken: hier houd ik een adresboekje bij zoals vroeger, met de mensen die ik ken, zodat ik hun verjaardagen niet vergeet, en ook de zorg die ik moet hebben voor mezelf en voor de belangrijke mensen in mijn leven."
+        }
+      ]
+    },
+    {
+      "id": "primero",
+      "titulo": "Wat komt eerst?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel drie. Wat komt eerst?"
+        },
+        {
+          "id": "eisenhower",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1954",
+            "clave": "eisenhower"
+          },
+          "lamina": [
+            "eisenhower",
+            "escritorioAntiguo"
+          ],
+          "texto": "In 1954 zei president Dwight Eisenhower dat hij twee soorten problemen had: de dringende en de belangrijke, en dat de dringende bijna nooit belangrijk waren."
+        },
+        {
+          "id": "urgencia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "urgencia"
+          },
+          "lamina": [
+            "alarma",
+            "telefono"
+          ],
+          "meme": "urgente",
+          "texto": "En de wetenschap geeft hem gelijk. In 2018 zagen Meng Zhu en haar team dat mensen de taak kiezen die snel afloopt, ook al levert de andere meer op, alleen omdat die dringend voelt."
+        },
+        {
+          "id": "matriz",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "matriz"
+          },
+          "lamina": [
+            "tablero",
+            "lista"
+          ],
+          "destacada": true,
+          "texto": "Daarom is zijn matrix handig. Kijk: dringend en belangrijk, doe het vandaag. Belangrijk maar niet dringend, geef het een tijdstip. Dringend maar niet belangrijk, geef het door of doe het snel. En wat geen van beide is, laat het los."
+        },
+        {
+          "id": "prioridad",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "alta",
+              "media",
+              "baja"
+            ]
+          },
+          "lamina": "todo",
+          "enCasa": true,
+          "texto": "In mijn Taken heeft elke taak een prioriteit, en ik sleep hem omhoog of omlaag tot het belangrijkste bovenaan staat."
+        }
+      ]
+    },
+    {
+      "id": "una",
+      "titulo": "Waarom remt multitasken je af?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vier. Waarom remt multitasken je af?"
+        },
+        {
+          "id": "cambio",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "saltos"
+          },
+          "lamina": [
+            "pantallas",
+            "malabares"
+          ],
+          "destacada": true,
+          "meme": "multitarea",
+          "texto": "Elke keer dat je van de ene taak naar de andere springt, betaal je tol. In 2001 maten Joshua Rubinstein, David Meyer en Jeffrey Evans dat wisselen van taak elke keer tijd kost, en meer naarmate de taken ingewikkelder zijn. Kijk hoe de sprongen optellen."
+        },
+        {
+          "id": "residuo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2009",
+            "clave": "residuo"
+          },
+          "lamina": [
+            "escritorioDesorden",
+            "pensar"
+          ],
+          "texto": "En je hoofd schakelt niet in één keer om. In 2009 noemde Sophie Leroy het aandachtsresidu: een deel van jou blijft bij de vorige taak, vooral als je die half af hebt laten liggen."
+        },
+        {
+          "id": "kanban",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "kanban"
+          },
+          "lamina": [
+            "fabrica",
+            "notas"
+          ],
+          "texto": "Daarom bedachten ze in de fabrieken van Toyota het kanbanbord: drie kolommen, Te doen, Bezig en Klaar, en één gouden regel: weinig dingen tegelijk bezig. Maak er één af voordat je aan een andere begint."
+        },
+        {
+          "id": "tablero",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porHacer",
+              "enCurso",
+              "hecho"
+            ]
+          },
+          "lamina": "kanbanPared",
+          "enCasa": true,
+          "texto": "In mijn agenda staan mijn taken ook op een bord: ik schuif ze van Te doen naar Bezig, en als ze af zijn, naar Klaar."
+        }
+      ]
+    },
+    {
+      "id": "hora",
+      "titulo": "Hoe geef je het belangrijke een tijdstip?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vijf. Hoe geef je het belangrijke een tijdstip?"
+        },
+        {
+          "id": "plazos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "plazos"
+          },
+          "lamina": [
+            "papeles",
+            "calendarioPapel"
+          ],
+          "destacada": true,
+          "texto": "Wat geen datum heeft, schuift naar het einde. In 2002 gaven Dan Ariely en Klaus Wertenbroch studenten drie opdrachten. De ene groep kreeg één deadline, aan het eind van de cursus; de andere een deadline per opdracht, verspreid over de cursus. Die met de verspreide deadlines haalden betere cijfers."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoAgenda"
+          },
+          "lamina": "pulgar",
+          "texto": "Als je deze gids leuk vindt, klik dan op Vind ik leuk, op Abonneren om de volgende niet te missen, en op Delen om hem te sturen naar iemand die altijd zegt dat hij geen tijd heeft."
+        },
+        {
+          "id": "bloques",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "bloques"
+          },
+          "lamina": [
+            "semana",
+            "agendaPapel"
+          ],
+          "texto": "Dat heet tijdblokken plannen: in plaats van een eindeloze lijst krijgt elk belangrijk ding zijn plek in de kalender, als een afspraak met jezelf. Kijk hoe een week op zijn plek valt."
+        },
+        {
+          "id": "vistas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dia",
+              "semana",
+              "mes"
+            ]
+          },
+          "lamina": [
+            "planeador",
+            "lapices"
+          ],
+          "texto": "En bekijk je tijd vanaf verschillende hoogtes: de dag om te doen, de week om te verdelen en de maand om niet verrast te worden."
+        },
+        {
+          "id": "calendario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fechaYHora",
+              "aviso",
+              "palomita"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In mijn huis verschijnt een taak, zodra die een datum en tijd heeft, vanzelf in mijn kalender, met een herinnering, en ik zie hem per dag, week, maand of jaar."
+        }
+      ]
+    },
+    {
+      "id": "pausas",
+      "titulo": "Waarom laat rust je meer presteren?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zes. Waarom laat rust je meer presteren?"
+        },
+        {
+          "id": "micro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pausas"
+          },
+          "lamina": [
+            "estirarse",
+            "ventana"
+          ],
+          "destacada": true,
+          "texto": "Zonder pauze doorwerken brengt je niet verder. In 2022 bekeken Patricia Albulescu en haar team tweeëntwintig studies: pauzes van minder dan tien minuten geven je meer energie en minder vermoeidheid, en bij routinetaken verbeteren ze zelfs je werk."
+        },
+        {
+          "id": "pomodoro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "pomodoro"
+          },
+          "lamina": [
+            "tomate",
+            "temporizador"
+          ],
+          "texto": "Een eenvoudige manier is de Pomodoro-techniek, bedacht door Francesco Cirillo met een kookwekker in de vorm van een tomaat: vijfentwintig minuten aan één taak, vijf minuten pauze, en na elke vier rondes een lange pauze."
+        },
+        {
+          "id": "pausa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "levantate",
+              "mira",
+              "agua"
+            ]
+          },
+          "lamina": [
+            "caminar",
+            "agua"
+          ],
+          "texto": "En maak er een echte pauze van: sta op, kijk in de verte, drink water. Op je telefoon kijken telt niet als rust."
+        },
+        {
+          "id": "descansos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloque",
+              "pausa",
+              "otroBloque"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Daarom geef ik in mijn kalender ook de rust een tijdstip: tussen twee blokken een pauze, die ik ook afvink."
+        }
+      ]
+    },
+    {
+      "id": "acumula",
+      "titulo": "Wat doe je als alles zich opstapelt?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zeven. Wat doe je als alles zich opstapelt?"
+        },
+        {
+          "id": "partir",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2008",
+            "clave": "partir"
+          },
+          "lamina": [
+            "rompecabezas",
+            "escalera"
+          ],
+          "destacada": true,
+          "texto": "Ten eerste: schat beter. In 2008 zagen Jeffrey Forsyth en Christopher Burt dat je schattingen dichter bij de echte duur komen als je een taak in stappen opdeelt en elke stap apart schat."
+        },
+        {
+          "id": "colchon",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "colchon"
+          },
+          "lamina": [
+            "trafico",
+            "reloj2"
+          ],
+          "texto": "En bouw een buffer in. Als je denkt dat iets een uur duurt, trek er anderhalf voor uit. Kijk wat er met je dag gebeurt als er iets onverwachts komt, met buffer en zonder."
+        },
+        {
+          "id": "decirNo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mueve",
+              "delega",
+              "no"
+            ]
+          },
+          "lamina": [
+            "manos",
+            "reunion"
+          ],
+          "meme": "manana",
+          "texto": "En als het er niet meer bij past, kies dan: verschuif het naar een andere dag, geef het door of zeg nee. Elk ja tegen iets is een nee tegen iets anders."
+        },
+        {
+          "id": "mover",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "arrastra",
+              "estira",
+              "sigue"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Als er iets tussenkomt, sleep ik het blok hier naar een ander gat of maak ik het langer, en mijn week blijft overeind."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel acht. Hoe ga je verder? Jouw plan om door te gaan."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "De eerste week haal je alles uit je hoofd naar één plek en kies je elke ochtend drie belangrijke dingen. Maar drie."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloquea",
+              "pausas",
+              "colchon"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "De eerste maand geef je het belangrijke een tijdstip in je kalender, met pauzes en buffer. Vul niet elk gat: laat ruimte voor het onverwachte."
+        },
+        {
+          "id": "revision",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "viernes",
+              "limpia",
+              "planea"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "lunes"
+          ],
+          "texto": "En één keer per week vijftien minuten om terug te kijken: maak je Taken leeg, verschuif wat niet lukte en plan de blokken van de volgende week. Die afspraak met jezelf houdt al het andere overeind."
+        },
+        {
+          "id": "misiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cadaApp",
+              "juntas",
+              "palomeo"
+            ]
+          },
+          "lamina": "planeador",
+          "enCasa": true,
+          "texto": "En wat ik elke dag doe, houd ik bij in mijn missies: elke app in mijn huis heeft er zelf een paar, zoals water drinken of studeren, en in mijn kalender en in mijn agenda zie ik ze samen, dag voor dag, en vink ik ze af."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Kortom: je hoofd is geen agenda, dus haal alles eruit; kies het belangrijke vóór het dringende; doe één ding tegelijk en geef het een tijdstip; en rust uit en houd een buffer, want jezelf organiseren is om beter te leven, niet om harder te rennen."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "In de Agenda-kamer van MindHaOS kun je je taken noteren, ze verschuiven op een bord, ze een datum en tijd geven zodat ze met een herinnering in je kalender verschijnen, en de verjaardagen van je mensen niet vergeten. Bouw vandaag gratis je mentale huis: de link staat in de beschrijving. En in de volgende gids: hoe leer je sneller?",
+    "boton": "Open de Agenda-kamer",
+    "lamina": "app-plan",
+    "anclas": {
+      "pendientes": "je taken noteren",
+      "tablero": "op een bord",
+      "calendario": "in je kalender",
+      "personas": "de verjaardagen"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "whillans-2019",
+      "texto": "Whillans A. Time for Happiness. Harvard Business Review (januari 2019), met gegevens van Gallup.",
+      "url": "https://hbr.org/2019/01/time-for-happiness"
+    },
+    {
+      "id": "buehler-1994",
+      "texto": "Buehler R., Griffin D., Ross M. Exploring the “planning fallacy”: Why people underestimate their task completion times. Journal of Personality and Social Psychology (1994).",
+      "url": "https://doi.org/10.1037/0022-3514.67.3.366"
+    },
+    {
+      "id": "parkinson-1955",
+      "texto": "Parkinson C. N. Parkinson's Law. The Economist (19 november 1955).",
+      "url": "https://www.economist.com/news/1955/11/19/parkinsons-law"
+    },
+    {
+      "id": "aeon-2021",
+      "texto": "Aeon B., Faber A., Panaccio A. Does time management work? A meta-analysis. PLOS ONE (2021).",
+      "url": "https://doi.org/10.1371/journal.pone.0245066"
+    },
+    {
+      "id": "zeigarnik-1927",
+      "texto": "Zeigarnik B. Über das Behalten von erledigten und unerledigten Handlungen. Psychologische Forschung (1927).",
+      "url": "https://doi.org/10.1007/BF02409755"
+    },
+    {
+      "id": "allen-2001",
+      "texto": "Allen D. Getting Things Done: The Art of Stress-Free Productivity (2001).",
+      "url": "https://gettingthingsdone.com/"
+    },
+    {
+      "id": "eisenhower-1954",
+      "texto": "Eisenhower D. D. Address at the Second Assembly of the World Council of Churches, Evanston (1954).",
+      "url": "https://www.presidency.ucsb.edu/documents/address-the-second-assembly-the-world-council-churches-evanston-illinois"
+    },
+    {
+      "id": "zhu-2018",
+      "texto": "Zhu M., Yang Y., Hsee C. K. The mere urgency effect. Journal of Consumer Research (2018).",
+      "url": "https://doi.org/10.1093/jcr/ucy008"
+    },
+    {
+      "id": "rubinstein-2001",
+      "texto": "Rubinstein J. S., Meyer D. E., Evans J. E. Executive control of cognitive processes in task switching. Journal of Experimental Psychology: Human Perception and Performance (2001).",
+      "url": "https://doi.org/10.1037/0096-1523.27.4.763"
+    },
+    {
+      "id": "leroy-2009",
+      "texto": "Leroy S. Why is it so hard to do my work? The challenge of attention residue when switching between work tasks. Organizational Behavior and Human Decision Processes (2009).",
+      "url": "https://doi.org/10.1016/j.obhdp.2009.04.002"
+    },
+    {
+      "id": "ohno-1988",
+      "texto": "Ohno T. Toyota Production System: Beyond Large-Scale Production (1988), de oorsprong van kanban.",
+      "url": "https://global.toyota/en/company/vision-and-philosophy/production-system/"
+    },
+    {
+      "id": "ariely-2002",
+      "texto": "Ariely D., Wertenbroch K. Procrastination, deadlines, and performance: Self-control by precommitment. Psychological Science (2002).",
+      "url": "https://doi.org/10.1111/1467-9280.00441"
+    },
+    {
+      "id": "albulescu-2022",
+      "texto": "Albulescu P. en collega’s. “Give me a break!” A systematic review and meta-analysis on the efficacy of micro-breaks for increasing well-being and performance. PLOS ONE (2022).",
+      "url": "https://doi.org/10.1371/journal.pone.0272460"
+    },
+    {
+      "id": "cirillo-2006",
+      "texto": "Cirillo F. The Pomodoro Technique (2006).",
+      "url": "https://www.pomodorotechnique.com/"
+    },
+    {
+      "id": "forsyth-2008",
+      "texto": "Forsyth D. K., Burt C. D. B. Allocating time to future tasks: The effect of task segmentation on planning fallacy bias. Memory & Cognition (2008).",
+      "url": "https://doi.org/10.3758/MC.36.4.791"
+    }
+  ]
+}

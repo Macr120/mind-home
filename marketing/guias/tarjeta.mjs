@@ -5,7 +5,7 @@
 //   salida/<id>/tarjeta.png
 //
 //   GUIAS_URL=http://localhost:53390 node marketing/guias/tarjeta.mjs metas [es en …]
-import { existsSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { LADO, RAIZ, conPagina, dormir } from './cdp.mjs'
@@ -77,6 +77,7 @@ await conPagina(path.join(RAIZ, tema, 'grabaciones'), async (c) => {
   for (const id of ids) {
     const destino = path.join(RAIZ, tema, 'salida', id, 'tarjeta.png')
     const archivo = destino.replace(/\.png$/, '.html')
+    mkdirSync(path.dirname(destino), { recursive: true })
     writeFileSync(archivo, html(tema, id, narrador))
     await c.enviar('Page.navigate', { url: pathToFileURL(archivo).href })
     await dormir(1000)

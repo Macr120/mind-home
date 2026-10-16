@@ -1,0 +1,775 @@
+{
+  "idioma": "zh",
+  "tema": "agenda",
+  "plantillaId": "agenda",
+  "numero": 11,
+  "nombre": "日程",
+  "pregunta": "怎样安排好你的时间？",
+  "corta": "怎样安排好你的时间？",
+  "subtitulo": "为什么时间总是不够用，为什么你的脑子不是好日程本，什么该先做，为什么同时做好几件事反而更慢，怎样给重要的事安排时间，为什么休息让你效率更高，事情堆起来时该怎么办，以及一个让你坚持用好日程的计划。",
+  "aviso": "本指南仅供参考：文中引用的数字和研究都是各自来源的近似值，每个人安排时间的方式也各不相同。如果你每天都觉得被要做的事压得喘不过气，请和信任的人或专业人士聊一聊。",
+  "partes": [
+    {
+      "id": "tiempo",
+      "titulo": "为什么时间总是不够用？",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "怎样安排好你的时间？我们每个人一天都有同样的二十四小时。可是在盖洛普的一项调查里，十个人中有八个说，时间不够做所有想做的事。那为什么有些人的时间就是够用？今天我们就来看看科学怎么说，你还会带走一个让这一周过得更顺的计划。"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "对了，这是我在MindHaOS里的家，我就在这个房间里安排我的时间。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第一部分。为什么时间总是不够用？"
+        },
+        {
+          "id": "falacia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "estimar"
+          },
+          "lamina": [
+            "reloj",
+            "tesis"
+          ],
+          "destacada": true,
+          "meme": "diezMinutos",
+          "texto": "首先，是一个人人都会掉进去的陷阱。1994年，Roger Buehler和团队问学生们，写完毕业论文要多久。他们估计大约三十四天，结果用了五十五天。就连他们估计的最坏情况，四十九天，也不够。"
+        },
+        {
+          "id": "parkinson",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1955",
+            "clave": "parkinson"
+          },
+          "lamina": [
+            "oficina",
+            "papeles"
+          ],
+          "texto": "还有第二个陷阱。1955年，历史学家Cyril Northcote Parkinson半开玩笑地写道：工作会不断膨胀，直到填满你为它留出的时间。如果你给一封邮件留出整个下午，这封邮件就真会占掉整个下午。"
+        },
+        {
+          "id": "bienestar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "158",
+            "clave": "aeon"
+          },
+          "lamina": [
+            "calma",
+            "cafe"
+          ],
+          "texto": "好消息是，安排时间确实有用，只是和你想的不太一样。2021年，Brad Aeon和团队汇总了一百五十八项研究：时间管理能帮你提高表现，但更重要的是，让你感觉更好，压力更小。"
+        },
+        {
+          "id": "adelanto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sacar",
+              "elegir",
+              "agendar"
+            ]
+          },
+          "lamina": [
+            "mapa",
+            "brujula"
+          ],
+          "texto": "所以，关键不是榨干每一分钟，而是三件事：把一切从脑子里拿出来，选出先做什么，再在日历上给它安排时间。"
+        },
+        {
+          "id": "escritorio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apunto",
+              "ordeno",
+              "agendo"
+            ]
+          },
+          "lamina": "escritorio",
+          "enCasa": true,
+          "texto": "就在这里，我桌上的日程本，是我一天的开始：我把脑子里的事记下来，排好顺序，再给每件事安排时间。"
+        }
+      ]
+    },
+    {
+      "id": "cabeza",
+      "titulo": "为什么你的脑子不是好日程本？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第二部分。为什么你的脑子不是好日程本？"
+        },
+        {
+          "id": "abiertos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "bandeja"
+          },
+          "lamina": [
+            "postits",
+            "cabeza"
+          ],
+          "destacada": true,
+          "texto": "没做完的事，会一直在脑子里打转。据说在二十世纪二十年代的柏林，心理学家Bluma Zeigarnik注意到，一位服务员能记住还没结账的点单，可一结完账就忘了。在她的实验里，人们对做到一半的任务，也比做完的任务记得更清楚。"
+        },
+        {
+          "id": "capturar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "todo",
+              "unLugar",
+              "revisa"
+            ]
+          },
+          "lamina": [
+            "libreta",
+            "bandejaPapel"
+          ],
+          "texto": "所以，写过一本很有名的效率书的David Allen建议：把一切都收集起来。每件待办，再小也一样，都放进同一个你经常查看的地方。脑子是用来想点子的，不是用来存东西的。"
+        },
+        {
+          "id": "dosMinutos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2分钟",
+            "clave": "dosMinutos"
+          },
+          "lamina": [
+            "correo",
+            "palomita"
+          ],
+          "texto": "还有他最有名的规则：如果一件事用不了两分钟，现在就做。记下来再回头处理，比直接做掉更费事。"
+        },
+        {
+          "id": "pendientes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "apuntar",
+              "sinFecha",
+              "prioridad"
+            ]
+          },
+          "lamina": "todo",
+          "enCasa": true,
+          "texto": "在我的日程里，脑子里的所有事都会进待办收集箱：不设日期，按优先级排好，直到我给它安排位置。"
+        },
+        {
+          "id": "personas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cumples",
+              "cuidados",
+              "importantes"
+            ]
+          },
+          "lamina": "agendaPapel",
+          "enCasa": true,
+          "texto": "不只是待办：我在这里还有一本像以前那样的通讯录，记着我认识的人，免得忘了他们的生日；还有我要为自己、为生命中重要的人做的照护。"
+        }
+      ]
+    },
+    {
+      "id": "primero",
+      "titulo": "什么该先做？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第三部分。什么该先做？"
+        },
+        {
+          "id": "eisenhower",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1954",
+            "clave": "eisenhower"
+          },
+          "lamina": [
+            "eisenhower",
+            "escritorioAntiguo"
+          ],
+          "texto": "1954年，德怀特·艾森豪威尔总统说，他有两类问题：紧急的和重要的，而紧急的几乎从来都不重要。"
+        },
+        {
+          "id": "urgencia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "urgencia"
+          },
+          "lamina": [
+            "alarma",
+            "telefono"
+          ],
+          "meme": "urgente",
+          "texto": "科学也证明他说得对。2018年，Meng Zhu和团队发现，人们会选择马上到期的任务，哪怕另一件回报更大，只因为它感觉很紧急。"
+        },
+        {
+          "id": "matriz",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "matriz"
+          },
+          "lamina": [
+            "tablero",
+            "lista"
+          ],
+          "destacada": true,
+          "texto": "所以他的矩阵很好用。你看：紧急又重要的，今天就做。重要但不紧急的，给它安排时间。紧急但不重要的，交给别人或者快速搞定。两样都不是的，就放下吧。"
+        },
+        {
+          "id": "prioridad",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "alta",
+              "media",
+              "baja"
+            ]
+          },
+          "lamina": "todo",
+          "enCasa": true,
+          "texto": "在我的收集箱里，每件待办都有优先级，我把它们上下拖动，直到最重要的排在最前面。"
+        }
+      ]
+    },
+    {
+      "id": "una",
+      "titulo": "为什么同时做好几件事反而更慢？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第四部分。为什么同时做好几件事反而更慢？"
+        },
+        {
+          "id": "cambio",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "saltos"
+          },
+          "lamina": [
+            "pantallas",
+            "malabares"
+          ],
+          "destacada": true,
+          "meme": "multitarea",
+          "texto": "每次从一件事跳到另一件事，你都要付一笔过路费。2001年，Joshua Rubinstein、David Meyer和Jeffrey Evans测量发现，每次切换任务都要花时间，任务越复杂，花得越多。看看这些切换是怎么累积起来的。"
+        },
+        {
+          "id": "residuo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2009",
+            "clave": "residuo"
+          },
+          "lamina": [
+            "escritorioDesorden",
+            "pensar"
+          ],
+          "texto": "而且，大脑不会一下子切换过来。2009年，Sophie Leroy把这叫作注意力残留：你的一部分还停留在上一件事上，尤其是那件事只做了一半的时候。"
+        },
+        {
+          "id": "kanban",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "kanban"
+          },
+          "lamina": [
+            "fabrica",
+            "notas"
+          ],
+          "texto": "所以丰田的工厂发明了看板：三列，待处理、进行中、已完成，还有一条铁律：同时进行的事要少。做完一件，再开始下一件。"
+        },
+        {
+          "id": "tablero",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "porHacer",
+              "enCurso",
+              "hecho"
+            ]
+          },
+          "lamina": "kanbanPared",
+          "enCasa": true,
+          "texto": "在我的日程里，待办也放在看板上：我把它们从待处理移到进行中，做完了，就移到已完成。"
+        }
+      ]
+    },
+    {
+      "id": "hora",
+      "titulo": "怎样给重要的事安排时间？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第五部分。怎样给重要的事安排时间？"
+        },
+        {
+          "id": "plazos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "plazos"
+          },
+          "lamina": [
+            "papeles",
+            "calendarioPapel"
+          ],
+          "destacada": true,
+          "texto": "没有日期的事，总会被拖到最后。2002年，Dan Ariely和Klaus Wertenbroch给学生布置了三份作业。有的学生只有一个截止日期，在学期末；有的学生每份作业都有自己的截止日期，分散在整个学期。截止日期分散的学生，成绩更好。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoAgenda"
+          },
+          "lamina": "pulgar",
+          "texto": "如果你喜欢这份指南，请点赞，订阅，别错过下一期，再分享给总说时间不够用的朋友。"
+        },
+        {
+          "id": "bloques",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "bloques"
+          },
+          "lamina": [
+            "semana",
+            "agendaPapel"
+          ],
+          "texto": "这就是时间块：不是一张没完没了的清单，而是让每件重要的事在日历上都有自己的位置，就像和自己的约会。看看一周是怎么排好的。"
+        },
+        {
+          "id": "vistas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dia",
+              "semana",
+              "mes"
+            ]
+          },
+          "lamina": [
+            "planeador",
+            "lapices"
+          ],
+          "texto": "再从不同的高度看你的时间：日用来行动，周用来分配，月用来避免意外。"
+        },
+        {
+          "id": "calendario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fechaYHora",
+              "aviso",
+              "palomita"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在我的家里，待办一有日期和时间，就会自动出现在我的日历上，还带提醒，我可以按日、周、月或年来看。"
+        }
+      ]
+    },
+    {
+      "id": "pausas",
+      "titulo": "为什么休息让你效率更高？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第六部分。为什么休息让你效率更高？"
+        },
+        {
+          "id": "micro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pausas"
+          },
+          "lamina": [
+            "estirarse",
+            "ventana"
+          ],
+          "destacada": true,
+          "texto": "不停地工作，并不会让你走得更远。2022年，Patricia Albulescu和团队回顾了二十二项研究：不到十分钟的短暂休息，能让你更有精神、更少疲惫，在例行工作中，甚至还能做得更好。"
+        },
+        {
+          "id": "pomodoro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "pomodoro"
+          },
+          "lamina": [
+            "tomate",
+            "temporizador"
+          ],
+          "texto": "一个简单的方法是番茄工作法，是Francesco Cirillo用一个番茄形状的厨房计时器想出来的：专心做一件事二十五分钟，休息五分钟，每四轮，来一次长休息。"
+        },
+        {
+          "id": "pausa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "levantate",
+              "mira",
+              "agua"
+            ]
+          },
+          "lamina": [
+            "caminar",
+            "agua"
+          ],
+          "texto": "而且休息要真正休息：站起来，看看远处，喝点水。刷手机不算休息。"
+        },
+        {
+          "id": "descansos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloque",
+              "pausa",
+              "otroBloque"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "所以在我的日历里，休息也有自己的时间：时间块和时间块之间安排一次休息，休息完也要打勾。"
+        }
+      ]
+    },
+    {
+      "id": "acumula",
+      "titulo": "事情堆起来时该怎么办？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第七部分。事情堆起来时该怎么办？"
+        },
+        {
+          "id": "partir",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2008",
+            "clave": "partir"
+          },
+          "lamina": [
+            "rompecabezas",
+            "escalera"
+          ],
+          "destacada": true,
+          "texto": "首先，估得更准一些。2008年，Jeffrey Forsyth和Christopher Burt发现，把任务拆成几步、每步分别估计，你的估计就会更接近实际花的时间。"
+        },
+        {
+          "id": "colchon",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "colchon"
+          },
+          "lamina": [
+            "trafico",
+            "reloj2"
+          ],
+          "texto": "再留一点余量。如果你觉得一件事要一小时，就给它留一个半小时。看看遇到意外时，有余量和没余量的一天会怎样。"
+        },
+        {
+          "id": "decirNo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mueve",
+              "delega",
+              "no"
+            ]
+          },
+          "lamina": [
+            "manos",
+            "reunion"
+          ],
+          "meme": "manana",
+          "texto": "要是实在塞不下，就做选择：挪到另一天，交给别人，或者说不。对一件事说好，就是对另一件事说不。"
+        },
+        {
+          "id": "mover",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "arrastra",
+              "estira",
+              "sigue"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "有事插进来的时候，我就在这里把时间块拖到另一个空档，或者把它拉长，我的一周照样稳稳当当。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "怎样坚持下去？你的继续计划",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第八部分。怎样坚持下去？你的继续计划。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuar"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "第一周，把脑子里的一切都放到同一个地方，每天早上选出三件重要的事。只选三件。"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "bloquea",
+              "pausas",
+              "colchon"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "第一个月，在日历上给重要的事安排时间，留好休息和余量。别把每个空档都填满：给意料之外的事留点空间。"
+        },
+        {
+          "id": "revision",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "viernes",
+              "limpia",
+              "planea"
+            ]
+          },
+          "lamina": [
+            "domingo",
+            "lunes"
+          ],
+          "texto": "然后每周一次，花十五分钟回顾：清空收集箱，挪走没做完的事，再规划下一周的时间块。这个和自己的约会，撑起了其他一切。"
+        },
+        {
+          "id": "misiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cadaApp",
+              "juntas",
+              "palomeo"
+            ]
+          },
+          "lamina": "planeador",
+          "enCasa": true,
+          "texto": "每天的事，我放在任务里：我家里的每个应用都有自己的任务，比如喝水或学习，我在日历和日程里一天一天地把它们放在一起看，做完就打勾。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "总结一下：你的脑子不是日程本，所以把一切拿出来；先选重要的，再管紧急的；一次只做一件事，并给它安排时间；还要休息、留余量，因为安排时间是为了活得更好，不是为了跑得更快。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "在MindHaOS的日程房间里，你可以记下你的待办，在看板上移动它们，给它们定好日期和时间，让它们带着提醒出现在你的日历上，还不会忘记亲友的生日。今天就免费搭建你的心灵之家。链接在视频简介里。下一期指南：怎样学得更快？",
+    "boton": "打开日程房间",
+    "lamina": "app-plan",
+    "anclas": {
+      "pendientes": "记下你的待办",
+      "tablero": "在看板上",
+      "calendario": "在你的日历上",
+      "personas": "生日"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "whillans-2019",
+      "texto": "Whillans A. Time for Happiness. Harvard Business Review（2019年1月），含Gallup数据。",
+      "url": "https://hbr.org/2019/01/time-for-happiness"
+    },
+    {
+      "id": "buehler-1994",
+      "texto": "Buehler R., Griffin D., Ross M. Exploring the «planning fallacy»: Why people underestimate their task completion times. Journal of Personality and Social Psychology (1994).",
+      "url": "https://doi.org/10.1037/0022-3514.67.3.366"
+    },
+    {
+      "id": "parkinson-1955",
+      "texto": "Parkinson C. N. Parkinson's Law. The Economist（1955年11月19日）。",
+      "url": "https://www.economist.com/news/1955/11/19/parkinsons-law"
+    },
+    {
+      "id": "aeon-2021",
+      "texto": "Aeon B., Faber A., Panaccio A. Does time management work? A meta-analysis. PLOS ONE (2021).",
+      "url": "https://doi.org/10.1371/journal.pone.0245066"
+    },
+    {
+      "id": "zeigarnik-1927",
+      "texto": "Zeigarnik B. Über das Behalten von erledigten und unerledigten Handlungen. Psychologische Forschung (1927).",
+      "url": "https://doi.org/10.1007/BF02409755"
+    },
+    {
+      "id": "allen-2001",
+      "texto": "Allen D. Getting Things Done: The Art of Stress-Free Productivity (2001).",
+      "url": "https://gettingthingsdone.com/"
+    },
+    {
+      "id": "eisenhower-1954",
+      "texto": "Eisenhower D. D. Address at the Second Assembly of the World Council of Churches, Evanston (1954).",
+      "url": "https://www.presidency.ucsb.edu/documents/address-the-second-assembly-the-world-council-churches-evanston-illinois"
+    },
+    {
+      "id": "zhu-2018",
+      "texto": "Zhu M., Yang Y., Hsee C. K. The mere urgency effect. Journal of Consumer Research (2018).",
+      "url": "https://doi.org/10.1093/jcr/ucy008"
+    },
+    {
+      "id": "rubinstein-2001",
+      "texto": "Rubinstein J. S., Meyer D. E., Evans J. E. Executive control of cognitive processes in task switching. Journal of Experimental Psychology: Human Perception and Performance (2001).",
+      "url": "https://doi.org/10.1037/0096-1523.27.4.763"
+    },
+    {
+      "id": "leroy-2009",
+      "texto": "Leroy S. Why is it so hard to do my work? The challenge of attention residue when switching between work tasks. Organizational Behavior and Human Decision Processes (2009).",
+      "url": "https://doi.org/10.1016/j.obhdp.2009.04.002"
+    },
+    {
+      "id": "ohno-1988",
+      "texto": "Ohno T. Toyota Production System: Beyond Large-Scale Production (1988)，看板的起源。",
+      "url": "https://global.toyota/en/company/vision-and-philosophy/production-system/"
+    },
+    {
+      "id": "ariely-2002",
+      "texto": "Ariely D., Wertenbroch K. Procrastination, deadlines, and performance: Self-control by precommitment. Psychological Science (2002).",
+      "url": "https://doi.org/10.1111/1467-9280.00441"
+    },
+    {
+      "id": "albulescu-2022",
+      "texto": "Albulescu P. 等. «Give me a break!» A systematic review and meta-analysis on the efficacy of micro-breaks for increasing well-being and performance. PLOS ONE (2022).",
+      "url": "https://doi.org/10.1371/journal.pone.0272460"
+    },
+    {
+      "id": "cirillo-2006",
+      "texto": "Cirillo F. The Pomodoro Technique (2006).",
+      "url": "https://www.pomodorotechnique.com/"
+    },
+    {
+      "id": "forsyth-2008",
+      "texto": "Forsyth D. K., Burt C. D. B. Allocating time to future tasks: The effect of task segmentation on planning fallacy bias. Memory & Cognition (2008).",
+      "url": "https://doi.org/10.3758/MC.36.4.791"
+    }
+  ]
+}

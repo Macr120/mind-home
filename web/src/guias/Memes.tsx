@@ -69,6 +69,11 @@ export const MEMES: Record<string, DefMeme> = {
   relajate: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
   pestanas: { formato: 'arribaAbajo', poses: ['orgulloso', 'cansado'], sonido: 'jeje-boy' },
   super: { formato: 'unico', poses: ['confundido'], sonido: 'bruh' },
+  // Agenda (también de la princesa).
+  diezMinutos: { formato: 'arribaAbajo', poses: ['orgulloso', 'cansado'], sonido: 'bruh' },
+  urgente: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
+  multitarea: { formato: 'arribaAbajo', poses: ['orgulloso', 'confundido'], sonido: 'jeje-boy' },
+  manana: { formato: 'arribaAbajo', poses: ['relajado', 'cansado'], sonido: 'bruh' },
 }
 
 export function Meme({ id, tema, t }: { id: string; tema: string; t: T }) {

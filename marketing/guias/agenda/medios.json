@@ -1,0 +1,398 @@
+{
+  "fotos": {},
+  "laminas": {
+    "tesis": {
+      "archivo": "laminas/tesis.mp4",
+      "tipo": "video",
+      "autor": "Mikhail Nilov",
+      "fuente": "https://www.pexels.com/video/person-writing-on-notebook-8873342/",
+      "licencia": "Licencia Pexels"
+    },
+    "papeles": {
+      "archivo": "laminas/papeles.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/a-messy-table-in-the-office-8869996/",
+      "licencia": "Licencia Pexels"
+    },
+    "escritorio": {
+      "archivo": "laminas/escritorio.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/close-up-shot-of-a-planner-7756992/",
+      "licencia": "Licencia Pexels"
+    },
+    "cabeza": {
+      "archivo": "laminas/cabeza.mp4",
+      "tipo": "video",
+      "autor": "Timur Weber",
+      "fuente": "https://www.pexels.com/video/anxious-woman-thinking-8555748/",
+      "licencia": "Licencia Pexels"
+    },
+    "bandejaPapel": {
+      "archivo": "laminas/bandejaPapel.mp4",
+      "tipo": "video",
+      "autor": "Jakub Zerdzicki",
+      "fuente": "https://www.pexels.com/video/efficient-desk-organization-with-checklist-33194181/",
+      "licencia": "Licencia Pexels"
+    },
+    "correo": {
+      "archivo": "laminas/correo.mp4",
+      "tipo": "video",
+      "autor": "ROMAN ODINTSOV",
+      "fuente": "https://www.pexels.com/video/close-up-of-woman-using-laptop-11025439/",
+      "licencia": "Licencia Pexels"
+    },
+    "todo": {
+      "archivo": "laminas/todo.mp4",
+      "tipo": "video",
+      "autor": "Anna Shvets",
+      "fuente": "https://www.pexels.com/video/sticky-notes-on-a-wall-4832136/",
+      "licencia": "Licencia Pexels"
+    },
+    "escritorioAntiguo": {
+      "archivo": "laminas/escritorioAntiguo.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/a-person-using-a-vintage-typewriter-9568952/",
+      "licencia": "Licencia Pexels"
+    },
+    "alarma": {
+      "archivo": "laminas/alarma.mp4",
+      "tipo": "video",
+      "autor": "Miriam Alonso",
+      "fuente": "https://www.pexels.com/video/close-up-shot-of-a-classic-alarm-clock-7597961/",
+      "licencia": "Licencia Pexels"
+    },
+    "telefono": {
+      "archivo": "laminas/telefono.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/notification-on-a-phone-7822022/",
+      "licencia": "Licencia Pexels"
+    },
+    "tablero": {
+      "archivo": "laminas/tablero.mp4",
+      "tipo": "video",
+      "autor": "Zen Chung",
+      "fuente": "https://www.pexels.com/video/person-putting-notes-on-a-board-5740702/",
+      "licencia": "Licencia Pexels"
+    },
+    "pantallas": {
+      "archivo": "laminas/pantallas.mp4",
+      "tipo": "video",
+      "autor": "Los Muertos Crew",
+      "fuente": "https://www.pexels.com/video/a-person-browsing-online-7616839/",
+      "licencia": "Licencia Pexels"
+    },
+    "malabares": {
+      "archivo": "laminas/malabares.mp4",
+      "tipo": "video",
+      "autor": "Los Muertos Crew",
+      "fuente": "https://www.pexels.com/video/low-angle-shot-of-a-juggler-juggling-outdoors-8895419/",
+      "licencia": "Licencia Pexels"
+    },
+    "escritorioDesorden": {
+      "archivo": "laminas/escritorioDesorden.mp4",
+      "tipo": "video",
+      "autor": "Mizuno K",
+      "fuente": "https://www.pexels.com/video/woman-throwing-documents-12909800/",
+      "licencia": "Licencia Pexels"
+    },
+    "pensar": {
+      "archivo": "laminas/pensar.mp4",
+      "tipo": "video",
+      "autor": "Alexander Mass",
+      "fuente": "https://www.pexels.com/video/silhouette-of-man-looking-out-window-31252867/",
+      "licencia": "Licencia Pexels"
+    },
+    "fabrica": {
+      "archivo": "laminas/fabrica.mp4",
+      "tipo": "video",
+      "autor": "Emrul Kausar Emon",
+      "fuente": "https://www.pexels.com/video/efficient-motorcycle-assembly-in-modern-factory-34948758/",
+      "licencia": "Licencia Pexels"
+    },
+    "notas": {
+      "archivo": "laminas/notas.mp4",
+      "tipo": "video",
+      "autor": "Mikhail Nilov",
+      "fuente": "https://www.pexels.com/video/a-person-stick-a-notes-to-the-glass-wall-6565535/",
+      "licencia": "Licencia Pexels"
+    },
+    "kanbanPared": {
+      "archivo": "laminas/kanbanPared.mp4",
+      "tipo": "video",
+      "autor": "Ivan S",
+      "fuente": "https://www.pexels.com/video/close-up-footage-of-sticky-notes-posted-on-a-board-7252935/",
+      "licencia": "Licencia Pexels"
+    },
+    "vacuna": {
+      "archivo": "laminas/vacuna.mp4",
+      "tipo": "video",
+      "autor": "Nataliya Vaitkevich",
+      "fuente": "https://www.pexels.com/video/a-woman-showing-her-arm-8830392/",
+      "licencia": "Licencia Pexels"
+    },
+    "calendarioPapel": {
+      "archivo": "laminas/calendarioPapel.mp4",
+      "tipo": "video",
+      "autor": "Monstera Production",
+      "fuente": "https://www.pexels.com/video/hand-holding-pencil-pointing-at-calendar-7356018/",
+      "licencia": "Licencia Pexels"
+    },
+    "semana": {
+      "archivo": "laminas/semana.mp4",
+      "tipo": "video",
+      "autor": "thiago japyassu",
+      "fuente": "https://www.pexels.com/video/close-up-view-of-daily-planner-13511897/",
+      "licencia": "Licencia Pexels"
+    },
+    "agendaPapel": {
+      "archivo": "laminas/agendaPapel.mp4",
+      "tipo": "video",
+      "autor": "Ron Lach",
+      "fuente": "https://www.pexels.com/video/a-person-writing-on-a-paper-9903485/",
+      "licencia": "Licencia Pexels"
+    },
+    "planeador": {
+      "archivo": "laminas/planeador.mp4",
+      "tipo": "video",
+      "autor": "Leeloo The First",
+      "fuente": "https://www.pexels.com/video/a-calendar-and-a-pen-6929596/",
+      "licencia": "Licencia Pexels"
+    },
+    "lapices": {
+      "archivo": "laminas/lapices.mp4",
+      "tipo": "video",
+      "autor": "Tuğba Kobal Yılmaz",
+      "fuente": "https://www.pexels.com/video/colored-pencils-on-the-table-15047273/",
+      "licencia": "Licencia Pexels"
+    },
+    "estirarse": {
+      "archivo": "laminas/estirarse.mp4",
+      "tipo": "video",
+      "autor": "Monstera Production",
+      "fuente": "https://www.pexels.com/video/female-stretching-her-hands-upward-6322767/",
+      "licencia": "Licencia Pexels"
+    },
+    "ventana": {
+      "archivo": "laminas/ventana.mp4",
+      "tipo": "video",
+      "autor": "Artem Podrez",
+      "fuente": "https://www.pexels.com/video/a-woman-drinking-a-cup-of-coffee-by-the-window-7496257/",
+      "licencia": "Licencia Pexels"
+    },
+    "tomate": {
+      "archivo": "laminas/tomate.mp4",
+      "tipo": "video",
+      "autor": "cami",
+      "fuente": "https://www.pexels.com/video/person-arranging-fresh-tomatoes-on-table-37165550/",
+      "licencia": "Licencia Pexels"
+    },
+    "temporizador": {
+      "archivo": "laminas/temporizador.mp4",
+      "tipo": "video",
+      "autor": "Ivan S",
+      "fuente": "https://www.pexels.com/video/an-hourglass-on-a-stone-slab-7703941/",
+      "licencia": "Licencia Pexels"
+    },
+    "rompecabezas": {
+      "archivo": "laminas/rompecabezas.mp4",
+      "tipo": "video",
+      "autor": "ROMAN ODINTSOV",
+      "fuente": "https://www.pexels.com/video/close-up-video-of-puzzles-6813218/",
+      "licencia": "Licencia Pexels"
+    },
+    "trafico": {
+      "archivo": "laminas/trafico.mp4",
+      "tipo": "video",
+      "autor": "Irfan Khan",
+      "fuente": "https://www.pexels.com/video/busy-urban-traffic-on-a-sunny-day-31114776/",
+      "licencia": "Licencia Pexels"
+    },
+    "reloj2": {
+      "archivo": "laminas/reloj2.mp4",
+      "tipo": "video",
+      "autor": "emirkhan bal",
+      "fuente": "https://www.pexels.com/video/close-up-of-a-clock-9160920/",
+      "licencia": "Licencia Pexels"
+    },
+    "manos": {
+      "archivo": "laminas/manos.mp4",
+      "tipo": "video",
+      "autor": "Anna Shvets",
+      "fuente": "https://www.pexels.com/video/person-saying-stop-6904090/",
+      "licencia": "Licencia Pexels"
+    },
+    "reunion": {
+      "archivo": "laminas/reunion.mp4",
+      "tipo": "video",
+      "autor": "fauxels",
+      "fuente": "https://www.pexels.com/video/a-group-of-people-having-a-discussion-in-a-business-meeting-3256768/",
+      "licencia": "Licencia Pexels"
+    },
+    "mapa": {
+      "archivo": "laminas/mapa.mp4",
+      "tipo": "video",
+      "autor": "Vlada Karpovich",
+      "fuente": "https://www.pexels.com/video/a-person-planning-and-looking-at-world-map-7429832/",
+      "licencia": "Licencia Pexels"
+    },
+    "brujula": {
+      "archivo": "laminas/brujula.mp4",
+      "tipo": "video",
+      "autor": "Anastasia Shuraeva",
+      "fuente": "https://www.pexels.com/video/a-person-holding-a-compass-8028798/",
+      "licencia": "Licencia Pexels"
+    },
+    "libreta": {
+      "archivo": "laminas/libreta.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/writing-to-do-list-on-a-notebook-for-reminders-3832194/",
+      "licencia": "Licencia Pexels"
+    },
+    "palomita": {
+      "archivo": "laminas/palomita.mp4",
+      "tipo": "video",
+      "autor": "Jakub Zerdzicki",
+      "fuente": "https://www.pexels.com/video/completing-tasks-on-a-checklist-with-pen-36633828/",
+      "licencia": "Licencia Pexels"
+    },
+    "postits": {
+      "archivo": "laminas/postits.mp4",
+      "tipo": "video",
+      "autor": "Anna Shvets",
+      "fuente": "https://www.pexels.com/video/sticky-notes-on-a-wall-4832136/",
+      "licencia": "Licencia Pexels"
+    },
+    "calma": {
+      "archivo": "laminas/calma.mp4",
+      "tipo": "video",
+      "autor": "Rahime Gül",
+      "fuente": "https://www.pexels.com/video/serene-moment-under-a-tree-at-sunrise-30507835/",
+      "licencia": "Licencia Pexels"
+    },
+    "cafe": {
+      "archivo": "laminas/cafe.mp4",
+      "tipo": "video",
+      "autor": "Burak Eroglu",
+      "fuente": "https://www.pexels.com/video/cafe-ambiance-with-coffee-beans-and-latte-30981713/",
+      "licencia": "Licencia Pexels"
+    },
+    "oficina": {
+      "archivo": "laminas/oficina.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/professional-people-brainstorming-during-meeting-7643614/",
+      "licencia": "Licencia Pexels"
+    },
+    "lista": {
+      "archivo": "laminas/lista.mp4",
+      "tipo": "video",
+      "autor": "KATRIN BOLOVTSOVA",
+      "fuente": "https://www.pexels.com/video/person-putting-check-on-the-to-do-list-pad-6186640/",
+      "licencia": "Licencia Pexels"
+    },
+    "escalera": {
+      "archivo": "laminas/escalera.mp4",
+      "tipo": "video",
+      "autor": "Liliana Drew",
+      "fuente": "https://www.pexels.com/video/a-man-in-activewear-walking-up-a-flight-of-stairs-8551816/",
+      "licencia": "Licencia Pexels"
+    },
+    "reloj": {
+      "archivo": "laminas/reloj.mp4",
+      "tipo": "video",
+      "autor": "Anton Kudryashov",
+      "fuente": "https://www.pexels.com/video/close-up-on-clock-hands-moving-11267667/",
+      "licencia": "Licencia Pexels"
+    },
+    "agua": {
+      "archivo": "laminas/agua.mp4",
+      "tipo": "video",
+      "autor": "Gizem Gökce",
+      "fuente": "https://www.pexels.com/video/crystal-clear-water-pour-into-glass-36044316/",
+      "licencia": "Licencia Pexels"
+    },
+    "caminar": {
+      "archivo": "laminas/caminar.mp4",
+      "tipo": "video",
+      "autor": "Matthias Groeneveld",
+      "fuente": "https://www.pexels.com/video/a-person-walking-down-a-path-in-the-woods-27223231/",
+      "licencia": "Licencia Pexels"
+    },
+    "semilla": {
+      "archivo": "laminas/semilla.mp4",
+      "tipo": "video",
+      "autor": "Greta Hoffman",
+      "fuente": "https://www.pexels.com/video/a-man-planting-seeds-in-a-seedling-tray-7713884/",
+      "licencia": "Licencia Pexels"
+    },
+    "brote": {
+      "archivo": "laminas/brote.mp4",
+      "tipo": "video",
+      "autor": "thetopwebsites .ga",
+      "fuente": "https://www.pexels.com/video/time-lapse-of-growing-plant-6596225/",
+      "licencia": "Licencia Pexels"
+    },
+    "escalon": {
+      "archivo": "laminas/escalon.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/man-running-up-the-stairs-7876928/",
+      "licencia": "Licencia Pexels"
+    },
+    "arbol": {
+      "archivo": "laminas/arbol.mp4",
+      "tipo": "video",
+      "autor": "Furkan Elveren",
+      "fuente": "https://www.pexels.com/video/a-tree-with-the-sun-shining-through-it-27410108/",
+      "licencia": "Licencia Pexels"
+    },
+    "domingo": {
+      "archivo": "laminas/domingo.mp4",
+      "tipo": "video",
+      "autor": "Marie",
+      "fuente": "https://www.pexels.com/video/cozy-morning-ritual-with-tea-and-journal-39443724/",
+      "licencia": "Licencia Pexels"
+    },
+    "lunes": {
+      "archivo": "laminas/lunes.mp4",
+      "tipo": "video",
+      "autor": "josephine Devadass",
+      "fuente": "https://www.pexels.com/video/morning-inspiration-with-coffee-by-the-window-35874963/",
+      "licencia": "Licencia Pexels"
+    },
+    "cumbre": {
+      "archivo": "laminas/cumbre.mp4",
+      "tipo": "video",
+      "autor": "Canan İldeniz",
+      "fuente": "https://www.pexels.com/video/group-of-hikers-celebrating-on-mountain-peak-38242686/",
+      "licencia": "Licencia Pexels"
+    },
+    "pulgar": {
+      "archivo": "laminas/pulgar.mp4",
+      "tipo": "video",
+      "autor": "Kevin Malik",
+      "fuente": "https://www.pexels.com/video/a-hand-giving-a-thumbs-up-9017832/",
+      "licencia": "Licencia Pexels"
+    },
+    "eisenhower": {
+      "archivo": "laminas/eisenhower.webp",
+      "tipo": "foto",
+      "autor": "White House",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Dwight_D._Eisenhower,_official_photo_portrait,_May_29,_1959.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "app-plan": {
+      "archivo": "laminas/app-plan.{idioma}.mp4",
+      "tipo": "video",
+      "autor": "MindHaOS",
+      "fuente": "https://app.mindhaos.com",
+      "credito": ""
+    }
+  }
+}
