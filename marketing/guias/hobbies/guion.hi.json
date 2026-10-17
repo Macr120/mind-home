@@ -1,0 +1,681 @@
+{
+  "idioma": "hi",
+  "tema": "hobbies",
+  "plantillaId": "hobbies",
+  "numero": 15,
+  "nombre": "शौक",
+  "pregunta": "शौक कैसे ढूंढें और उसे कैसे बनाए रखें?",
+  "corta": "शौक कैसे ढूंढें?",
+  "subtitulo": "आपको शौक की ज़रूरत क्यों है, अपना शौक कैसे ढूंढें, उसका किसी काम का होना ज़रूरी क्यों नहीं, समय कहां से निकालें, ख़ुद बनाई चीज़ ज़्यादा क्यों बांधती है, उसे छोड़ने से कैसे बचें, दूसरों के साथ क्यों करें, और शुरू करने की एक योजना।",
+  "aviso": "यह गाइड केवल जानकारी के लिए है: बताए गए अध्ययनों के नतीजे सरल तरीके से समझाए गए हैं, और कई सिर्फ़ संबंध दिखाते हैं, कारण नहीं। अगर आप लंबे समय से उदास महसूस करते हैं या किसी चीज़ का मन नहीं करता, तो किसी भरोसेमंद व्यक्ति या विशेषज्ञ से बात करें।",
+  "partes": [
+    {
+      "id": "porque",
+      "titulo": "आपको शौक की ज़रूरत क्यों है?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "शौक कैसे ढूंढें और उसे कैसे बनाए रखें? हम में से ज़्यादातर लोगों के पास रोज़ करीब पांच घंटे खाली होते हैं। और उनमें से आधे से ज़्यादा टीवी के सामने निकल जाते हैं। क्या हो अगर उसका एक हिस्सा किसी ऐसी चीज़ के लिए हो जो आपको बहुत पसंद है? आज आप देखेंगे कि विज्ञान क्या कहता है, और इसी हफ़्ते अपना शौक शुरू करने की योजना लेकर जाएंगे।"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "वैसे, यह MindHaOS में मेरा घर है, और देखिए: आज यह ट्रेन पर सफ़र कर रहा है, जैसे उन सब चीज़ों की यात्रा जिन्हें आप आज़मा सकते हैं। इस कक्ष में मैं अपने शौक रखता हूं।"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग एक। आपको शौक की ज़रूरत क्यों है?"
+        },
+        {
+          "id": "mak",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "hobbiesSalud"
+          },
+          "lamina": [
+            "abuelos",
+            "jardineria"
+          ],
+          "destacada": true,
+          "texto": "दो हज़ार तेईस में, कैरेन मैक और उनकी टीम ने सोलह देशों के पैंसठ साल से ज़्यादा उम्र के तिरानवे हज़ार से अधिक लोगों के आंकड़े जुटाए। जिनका कोई शौक था, उनमें डिप्रेशन के लक्षण कम थे, और वे ख़ुद को ज़्यादा स्वस्थ, ज़्यादा ख़ुश और अपनी ज़िंदगी से ज़्यादा संतुष्ट महसूस करते थे।"
+        },
+        {
+          "id": "tiempo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tiempoLibre"
+          },
+          "lamina": [
+            "tele",
+            "sofa"
+          ],
+          "texto": "और समय अक्सर होता है। दो हज़ार तेईस में, अमेरिका में लोगों के पास औसतन रोज़ करीब पांच घंटे खाली थे, और उनमें से लगभग तीन टीवी देखने में जाते थे। देखिए, सिर्फ़ बीस मिनट बदलने से क्या होता है।"
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "piano",
+              "astro",
+              "suSemana"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "अपने शौक कक्ष में मैं अपने शौक रखता हूं: पियानो और खगोल फ़ोटोग्राफ़ी, हर एक का अपना हफ़्ता और अपना सिलसिला।"
+        }
+      ]
+    },
+    {
+      "id": "encontrar",
+      "titulo": "अपना शौक कैसे ढूंढें?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग दो। अपना शौक कैसे ढूंढें?"
+        },
+        {
+          "id": "pasion",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "pasion"
+          },
+          "lamina": [
+            "brujula",
+            "caminoBosque"
+          ],
+          "destacada": true,
+          "texto": "आपसे भी कहा गया होगा: अपना जुनून ढूंढो। दो हज़ार अठारह में, पॉल ओ'कीफ़, कैरल ड्वेक और ग्रेगरी वॉल्टन ने पाया कि जो मानते हैं कि जुनून बना-बनाया मिलता है, वे नई चीज़ों में कम दिलचस्पी लेते हैं, और जब कुछ मुश्किल होता है, तो उसे जल्दी छोड़ देते हैं।"
+        },
+        {
+          "id": "desarrollar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "prueba",
+              "quedate",
+              "crece"
+            ]
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "जो विचार काम करता है, वह कुछ और है: जुनून मिलता नहीं, विकसित होता है। कई चीज़ें आज़माइए, जिसमें जिज्ञासा जागे उसे थामे रहिए, और उसे बढ़ने का समय दीजिए।"
+        },
+        {
+          "id": "explorar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "explorador"
+          },
+          "lamina": [
+            "ceramica",
+            "pintar"
+          ],
+          "texto": "शुरुआत के लिए ख़ुद से पूछिए कि आपको समय कैसे बिताना पसंद है: हाथों से, दिमाग़ से, शरीर को हिलाते हुए, दूसरों के साथ या खुली हवा में। देखिए कितने आइडिया निकलते हैं।"
+        },
+        {
+          "id": "nuevo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombre",
+              "emoji",
+              "metaDias"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "जब मैं कोई नया शौक आज़माना चाहता हूं, तो उसे यहां जोड़ता हूं: उसका नाम, एक इमोजी, एक रंग, और चाहूं तो हफ़्ते में कितने दिन का लक्ष्य।"
+        }
+      ]
+    },
+    {
+      "id": "sirve",
+      "titulo": "शौक का किसी काम का होना ज़रूरी क्यों नहीं?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग तीन। शौक का किसी काम का होना ज़रूरी क्यों नहीं?"
+        },
+        {
+          "id": "tonietto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2021",
+            "clave": "tonietto"
+          },
+          "lamina": [
+            "reloj",
+            "oficina"
+          ],
+          "destacada": true,
+          "texto": "एक बहुत आम जाल है: यह महसूस करना कि खाली समय बर्बाद समय है। दो हज़ार इक्कीस में, गैब्रिएला टोनिएटो और उनकी टीम ने पाया कि जो ऐसा सोचते हैं, वे अपने खाली पलों का कम आनंद लेते हैं, और उन्हें ज़्यादा तनाव, चिंता और उदासी होती है।"
+        },
+        {
+          "id": "porqueSi",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "negocio",
+              "redes",
+              "experto",
+              "gusto"
+            ]
+          },
+          "lamina": [
+            "guitarra",
+            "risa"
+          ],
+          "meme": "productivo",
+          "texto": "शौक को न तो कारोबार बनना है, न सोशल मीडिया पर आना है, न आपको एक्सपर्ट बनाना है। उसका काम कुछ और है: कि उसे करना आपको अच्छा लगे।"
+        },
+        {
+          "id": "talento",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nadie",
+              "practica",
+              "gusto"
+            ]
+          },
+          "lamina": [
+            "tejer",
+            "manosBarro"
+          ],
+          "meme": "talento",
+          "texto": "और शुरू करने के लिए हुनर की ज़रूरत नहीं। पहले हफ़्ते में लगभग कोई भी अच्छा नहीं करता: मज़ा अभ्यास के साथ आता है, पहले नहीं।"
+        },
+        {
+          "id": "sesiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuanto",
+              "nota",
+              "sinPresion"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "मेरा पियानो कॉन्सर्ट में बजाने के लिए नहीं है: यहां मैं बस लिखता हूं कि कितना बजाया और एक नोट, जैसे «आज मुश्किल हिस्सा निकल गया»।"
+        }
+      ]
+    },
+    {
+      "id": "tiempo",
+      "titulo": "समय कहां से निकालें?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग चार। समय कहां से निकालें?"
+        },
+        {
+          "id": "poco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "veinteMinutos"
+          },
+          "lamina": [
+            "temporizador",
+            "cafe"
+          ],
+          "destacada": true,
+          "texto": "आपको घंटों की ज़रूरत नहीं। बीस मिनट, हफ़्ते में चार दिन, साल में लगभग सत्तर घंटे बन जाते हैं। देखिए आपके नंबरों से यह कैसे बदलता है।"
+        },
+        {
+          "id": "lugarFijo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "despues",
+              "listo",
+              "aMano"
+            ]
+          },
+          "lamina": [
+            "cena",
+            "guitarraEstuche"
+          ],
+          "texto": "तरकीब है उसे अपने हफ़्ते में एक तय जगह देना: रात के खाने के बाद, शनिवार की सुबह। और सब कुछ हाथ के पास रखिए: गिटार केस से बाहर, किताब मेज़ पर।"
+        },
+        {
+          "id": "equipo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "basico",
+              "pruebas",
+              "despuesCompras"
+            ]
+          },
+          "lamina": [
+            "tienda",
+            "caja"
+          ],
+          "meme": "equipo",
+          "texto": "और शुरू करने से पहले सारा सामान ख़रीदने से बचिए। पहले बुनियादी चीज़ें; बाक़ी तब, जब पता चल जाए कि यह आपको पसंद है।"
+        },
+        {
+          "id": "sesion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "minutos",
+              "toque",
+              "pinta"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "और बीस मिनट काफ़ी हैं: मैं एक टैप में सेशन दर्ज करता हूं, और मेरा हफ़्ता रंगता जाता है।"
+        }
+      ]
+    },
+    {
+      "id": "proyectos",
+      "titulo": "जो आप ख़ुद बनाते हैं, वह ज़्यादा क्यों बांधता है?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग पांच। जो आप ख़ुद बनाते हैं, वह ज़्यादा क्यों बांधता है?"
+        },
+        {
+          "id": "ikea",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ikea"
+          },
+          "lamina": [
+            "armarMueble",
+            "herramientas"
+          ],
+          "destacada": true,
+          "texto": "दो हज़ार बारह में, माइकल नॉर्टन और उनकी टीम ने कुछ लोगों से आइकिया का एक डिब्बा जोड़ने को कहा। बाद में, उन्होंने अपने जोड़े हुए डिब्बे के लिए उससे ज़्यादा पैसे देने की पेशकश की, जितने दूसरे लोग पहले से जुड़े वैसे ही डिब्बे के लिए दे रहे थे। जो आप अपने हाथों से बनाते हैं, वह आपके लिए ज़्यादा क़ीमती होता है।"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoHobbies"
+          },
+          "lamina": "pulgar",
+          "texto": "अगर आपको यह गाइड पसंद आ रही है, तो पसंद करें, सदस्यता लें ताकि अगली गाइड न छूटे, और शेयर करें उस इंसान के साथ जो हमेशा कहता है कि उसका कोई शौक नहीं है।"
+        },
+        {
+          "id": "proyecto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "pasos",
+              "terminado"
+            ]
+          },
+          "lamina": [
+            "bufanda",
+            "luna"
+          ],
+          "texto": "इसीलिए शौक किसी प्रोजेक्ट के साथ ज़्यादा बांधता है: एक पूरा गाना सीखना, एक स्कार्फ़ पूरा बुनना, पूरे चांद की फ़ोटो खींचना। कुछ ऐसा जिसे आप पूरा करके दिखा सकें।"
+        },
+        {
+          "id": "proyectosCasa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pieza",
+              "lunas",
+              "fotos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "यहां हर शौक के अपने प्रोजेक्ट हो सकते हैं: मेरी पहली रचना, आनंद का गीत, शुरू से आख़िर तक, या एक साल की बारह पूर्णिमाएँ, उनकी फ़ोटो के साथ।"
+        }
+      ]
+    },
+    {
+      "id": "mantener",
+      "titulo": "शौक को छोड़ने से कैसे बचें?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग छह। शौक को छोड़ने से कैसे बचें?"
+        },
+        {
+          "id": "rachas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "semanaFlexible"
+          },
+          "lamina": [
+            "calendarioPared",
+            "palomita"
+          ],
+          "destacada": true,
+          "texto": "दो हज़ार तेईस में, जैकी सिल्वरमैन और एलिक्ज़ेंड्रा बराश ने पाया कि बिना टूटा सिलसिला प्रेरित करता है, लेकिन जब वह टूटता है, तो बहुत लोग उसे छोड़ देते हैं, भले ही उन्होंने पहले जितना ही किया हो।"
+        },
+        {
+          "id": "porSemana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuatroDeSiete",
+              "unDia",
+              "sigue"
+            ]
+          },
+          "lamina": [
+            "agendaPapel",
+            "semana"
+          ],
+          "texto": "इसीलिए रोज़ के लक्ष्य से बेहतर है हफ़्ते का लक्ष्य: सात में से चार दिन। अगर किसी दिन न हो पाए, तो हफ़्ता फिर भी बना रहता है।"
+        },
+        {
+          "id": "volver",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinCulpa",
+              "dondeLoDejaste",
+              "pocoAPoco"
+            ]
+          },
+          "lamina": [
+            "piano",
+            "ventana"
+          ],
+          "meme": "racha",
+          "texto": "और अगर कुछ समय के लिए छूट जाए, तो बिना अपराधबोध के लौटिए: शौक कोई इम्तिहान नहीं है। जहां छोड़ा था, वहीं से फिर शुरू कीजिए।"
+        },
+        {
+          "id": "semanaCasa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta4",
+              "fila",
+              "llevas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "इसीलिए मेरे पियानो का साप्ताहिक लक्ष्य चार दिन है, सात नहीं: इस हफ़्ते मैं पांच दिन कर चुका हूं, तो लक्ष्य पूरा हुआ, और अगर कोई दिन छूट जाए, तो कोई बात नहीं।"
+        }
+      ]
+    },
+    {
+      "id": "otros",
+      "titulo": "दूसरों के साथ क्यों करें?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग सात। दूसरों के साथ क्यों करें?"
+        },
+        {
+          "id": "canto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cantoGrupo"
+          },
+          "lamina": [
+            "coro",
+            "clase"
+          ],
+          "destacada": true,
+          "texto": "दो हज़ार पंद्रह में, एलुनेड पीयर्स, ज़ाक लोने और रॉबिन डनबार ने सात महीने तक बड़ों की नई क्लासों को देखा। गाने की क्लासों में समूह बहुत जल्दी जुड़ा हुआ महसूस करने लगा; हस्तकला और लेखन की क्लासों में भी, पर उसमें ज़्यादा समय लगा।"
+        },
+        {
+          "id": "grupo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "club",
+              "clase",
+              "amigo"
+            ]
+          },
+          "lamina": [
+            "club",
+            "amigos"
+          ],
+          "texto": "एक समूह आपको तय मुलाक़ात, साथ और लौटने का मन देता है: एक क्लब, एक क्लास, या कोई दोस्त जो आपके साथ जुड़ जाए।"
+        },
+        {
+          "id": "compartir",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocar",
+              "regalar",
+              "ensenar"
+            ]
+          },
+          "lamina": [
+            "familia",
+            "regalo"
+          ],
+          "texto": "और जो आप करते हैं उसे बांटना भी मायने रखता है: अपने परिवार को एक गाना सुनाना, अपनी बनाई चीज़ तोहफ़े में देना, किसी को वह सिखाना जो आपने सीखा।"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "आगे कैसे बढ़ें? जारी रखने की आपकी योजना",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग आठ। आगे कैसे बढ़ें? जारी रखने की आपकी योजना।"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planHobby"
+          },
+          "lamina": [
+            "lista",
+            "libreta"
+          ],
+          "texto": "पहले हफ़्ते, ऐसे तीन शौक लिखिए जिनमें आपकी जिज्ञासा हो, और एक को बीस मिनट आज़माइए, बिना कुछ ख़रीदे।"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "metaSemana",
+              "proyectoChico"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "पहले महीने, जो सबसे ज़्यादा पसंद आए उसे चुनिए, उसके लिए हफ़्ते में कितने दिन का लक्ष्य और एक छोटा प्रोजेक्ट रखिए जिसे आप पूरा कर सकें।"
+        },
+        {
+          "id": "compania",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "busca",
+              "comparte",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "amigos",
+            "cumbre"
+          ],
+          "texto": "और जब वह पसंद आने लगे, तो किसी के साथ बांटिए: एक क्लास, एक क्लब या कोई दोस्त।"
+        },
+        {
+          "id": "ano",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuadritos",
+              "pausas",
+              "regresos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "और साल के आख़िर में, अपना ख़ानों वाला कैलेंडर देखिए: हर वह दिन जब आपने अभ्यास किया, वहां है, अपने ठहरावों और वापसियों के साथ।"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "संक्षेप में: शौक आपके लिए अच्छा है और समय होता है; जुनून मिलता नहीं, विकसित होता है; उसका किसी काम का होना ज़रूरी नहीं; और उसे न छोड़ने के लिए: हफ़्ते का एक लक्ष्य, एक प्रोजेक्ट और कोई जिसके साथ बांट सकें।"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS के शौक कक्ष में आप अपने शौक रख सकते हैं, हफ़्ते में दिनों के उनके लक्ष्य के साथ, अपने सेशन और अपने प्रोजेक्ट भी, और अपना साल दिन-ब-दिन देख सकते हैं। आज ही अपना मन का घर मुफ़्त में बनाएँ: लिंक डिस्क्रिप्शन में है। और अगली गाइड में: अपना मनोरंजन बेहतर तरीके से कैसे करें?",
+    "boton": "शौक कक्ष खोलें",
+    "lamina": "app-plan",
+    "anclas": {
+      "pasatiempos": "अपने शौक",
+      "sesiones": "अपने सेशन",
+      "ano": "अपना साल"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "mak-2023",
+      "texto": "Mak H. W., Noguchi T., Bone J. K., Wels J., Gao Q., Kondo K., Saito T., Fancourt D. Hobby engagement and mental wellbeing among people aged 65 years and older in 16 countries. Nature Medicine (2023).",
+      "url": "https://doi.org/10.1038/s41591-023-02506-1"
+    },
+    {
+      "id": "bls-atus-2023",
+      "texto": "U.S. Bureau of Labor Statistics. American Time Use Survey — 2023 Results (2024).",
+      "url": "https://www.bls.gov/news.release/atus.nr0.htm"
+    },
+    {
+      "id": "okeefe-2018",
+      "texto": "O'Keefe P. A., Dweck C. S., Walton G. M. Implicit theories of interest: Finding your passion or developing it? Psychological Science (2018).",
+      "url": "https://doi.org/10.1177/0956797618780643"
+    },
+    {
+      "id": "tonietto-2021",
+      "texto": "Tonietto G. N., Malkoc S. A., Reczek R. W., Norton M. I. Viewing leisure as wasteful undermines enjoyment. Journal of Experimental Social Psychology (2021).",
+      "url": "https://doi.org/10.1016/j.jesp.2021.104198"
+    },
+    {
+      "id": "norton-2012",
+      "texto": "Norton M. I., Mochon D., Ariely D. The IKEA effect: When labor leads to love. Journal of Consumer Psychology (2012).",
+      "url": "https://doi.org/10.1016/j.jcps.2011.08.002"
+    },
+    {
+      "id": "silverman-2023",
+      "texto": "Silverman J., Barasch A. On or off track: How (broken) streaks affect consumer decisions. Journal of Consumer Research (2023).",
+      "url": "https://doi.org/10.1093/jcr/ucac029"
+    },
+    {
+      "id": "pearce-2015",
+      "texto": "Pearce E., Launay J., Dunbar R. I. M. The ice-breaker effect: singing mediates fast social bonding. Royal Society Open Science (2015).",
+      "url": "https://doi.org/10.1098/rsos.150221"
+    }
+  ]
+}

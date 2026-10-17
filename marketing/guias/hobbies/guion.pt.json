@@ -1,0 +1,681 @@
+{
+  "idioma": "pt",
+  "tema": "hobbies",
+  "plantillaId": "hobbies",
+  "numero": 15,
+  "nombre": "Hobbies",
+  "pregunta": "Como encontrar um passatempo e como mantê-lo?",
+  "corta": "Como encontrar um passatempo?",
+  "subtitulo": "Por que você precisa de um passatempo, como encontrar o seu, por que ele não precisa servir para nada, de onde tirar o tempo, por que o que você mesmo faz te prende mais, como não abandoná-lo, por que fazer com outras pessoas e um plano para começar.",
+  "aviso": "Este guia é informativo: os estudos citados resumem seus resultados de forma simples, e muitos mostram relações, não causas. Se você se sentir triste ou sem vontade de nada por muito tempo, converse com alguém de confiança ou com um profissional.",
+  "partes": [
+    {
+      "id": "porque",
+      "titulo": "Por que você precisa de um passatempo?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Como encontrar um passatempo e como mantê-lo? Quase todos nós temos umas cinco horas livres por dia. E mais da metade vai embora na frente da TV. E se uma parte fosse para algo que você ama? Hoje você vai ver o que diz a ciência, e vai sair com um plano para começar o seu esta semana."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Aliás, esta é a minha casa no MindHaOS, e repara: hoje ela viaja de trem, como uma viagem por tudo o que você poderia experimentar. Neste cômodo eu acompanho os meus passatempos."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte um. Por que você precisa de um passatempo?"
+        },
+        {
+          "id": "mak",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "hobbiesSalud"
+          },
+          "lamina": [
+            "abuelos",
+            "jardineria"
+          ],
+          "destacada": true,
+          "texto": "Em 2023, Karen Mak e sua equipe reuniram dados de mais de noventa e três mil pessoas com mais de sessenta e cinco anos em dezesseis países. Quem tinha um passatempo tinha menos sintomas de depressão, e se sentia mais saudável, mais feliz e mais satisfeito com a vida."
+        },
+        {
+          "id": "tiempo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tiempoLibre"
+          },
+          "lamina": [
+            "tele",
+            "sofa"
+          ],
+          "texto": "E tempo costuma ter. Em 2023, nos Estados Unidos, as pessoas tinham em média umas cinco horas livres por dia, e quase três iam para a televisão. Olha o que acontece se você trocar só vinte minutos."
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "piano",
+              "astro",
+              "suSemana"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "No meu cômodo de Hobbies eu acompanho os meus: o piano e a astrofotografia, cada um com a sua semana e a sua sequência."
+        }
+      ]
+    },
+    {
+      "id": "encontrar",
+      "titulo": "Como encontrar o seu?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte dois. Como encontrar o seu?"
+        },
+        {
+          "id": "pasion",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "pasion"
+          },
+          "lamina": [
+            "brujula",
+            "caminoBosque"
+          ],
+          "destacada": true,
+          "texto": "Com certeza já te disseram: encontre a sua paixão. Em 2018, Paul O'Keefe, Carol Dweck e Gregory Walton viram que quem acredita que a paixão já vem pronta se interessa menos por coisas novas, e quando algo fica difícil, desiste mais rápido."
+        },
+        {
+          "id": "desarrollar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "prueba",
+              "quedate",
+              "crece"
+            ]
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "A ideia que funciona é outra: a paixão não se encontra, se desenvolve. Experimente várias coisas, fique com a que te dá curiosidade e dê tempo para ela crescer."
+        },
+        {
+          "id": "explorar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "explorador"
+          },
+          "lamina": [
+            "ceramica",
+            "pintar"
+          ],
+          "texto": "Para começar, pergunte a si mesmo como você gosta de passar o tempo: com as mãos, com a cabeça, mexendo o corpo, com outras pessoas ou ao ar livre. Olha quantas ideias aparecem."
+        },
+        {
+          "id": "nuevo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombre",
+              "emoji",
+              "metaDias"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Quando quero experimentar um novo, adiciono aqui: o nome, um emoji, uma cor e, se eu quiser, uma meta de dias por semana."
+        }
+      ]
+    },
+    {
+      "id": "sirve",
+      "titulo": "Por que ele não precisa servir para nada?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte três. Por que ele não precisa servir para nada?"
+        },
+        {
+          "id": "tonietto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2021",
+            "clave": "tonietto"
+          },
+          "lamina": [
+            "reloj",
+            "oficina"
+          ],
+          "destacada": true,
+          "texto": "Existe uma armadilha muito comum: sentir que o tempo livre é tempo perdido. Em 2021, Gabriela Tonietto e sua equipe viram que quem pensa assim aproveita menos os momentos livres, e tem mais estresse, ansiedade e tristeza."
+        },
+        {
+          "id": "porqueSi",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "negocio",
+              "redes",
+              "experto",
+              "gusto"
+            ]
+          },
+          "lamina": [
+            "guitarra",
+            "risa"
+          ],
+          "meme": "productivo",
+          "texto": "Um passatempo não precisa virar negócio, nem aparecer nas redes, nem te tornar especialista. O trabalho dele é outro: que você goste de fazê-lo."
+        },
+        {
+          "id": "talento",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nadie",
+              "practica",
+              "gusto"
+            ]
+          },
+          "lamina": [
+            "tejer",
+            "manosBarro"
+          ],
+          "meme": "talento",
+          "texto": "E você não precisa de talento para começar. Quase ninguém faz bem na primeira semana: o gosto vem com a prática, não antes."
+        },
+        {
+          "id": "sesiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuanto",
+              "nota",
+              "sinPresion"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Meu piano não é para virar concertista: aqui eu só anoto quanto toquei e uma nota, tipo “hoje a parte difícil saiu”."
+        }
+      ]
+    },
+    {
+      "id": "tiempo",
+      "titulo": "De onde tirar o tempo?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte quatro. De onde tirar o tempo?"
+        },
+        {
+          "id": "poco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "veinteMinutos"
+          },
+          "lamina": [
+            "temporizador",
+            "cafe"
+          ],
+          "destacada": true,
+          "texto": "Você não precisa de horas. Vinte minutos, quatro dias por semana, somam quase setenta horas por ano. Olha como muda com os seus números."
+        },
+        {
+          "id": "lugarFijo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "despues",
+              "listo",
+              "aMano"
+            ]
+          },
+          "lamina": [
+            "cena",
+            "guitarraEstuche"
+          ],
+          "texto": "O truque é dar a ele um lugar fixo na sua semana: depois do jantar, no sábado de manhã. E deixe tudo à mão: o violão fora do estojo, o livro em cima da mesa."
+        },
+        {
+          "id": "equipo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "basico",
+              "pruebas",
+              "despuesCompras"
+            ]
+          },
+          "lamina": [
+            "tienda",
+            "caja"
+          ],
+          "meme": "equipo",
+          "texto": "E cuidado com comprar todo o equipamento antes de começar. Primeiro o básico; o resto, quando você já souber que gosta."
+        },
+        {
+          "id": "sesion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "minutos",
+              "toque",
+              "pinta"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "E vinte minutos bastam: registro a sessão com um toque, e a minha semana vai se pintando."
+        }
+      ]
+    },
+    {
+      "id": "proyectos",
+      "titulo": "Por que o que você mesmo faz te prende mais?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte cinco. Por que o que você mesmo faz te prende mais?"
+        },
+        {
+          "id": "ikea",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ikea"
+          },
+          "lamina": [
+            "armarMueble",
+            "herramientas"
+          ],
+          "destacada": true,
+          "texto": "Em 2012, Michael Norton e sua equipe pediram a algumas pessoas que montassem uma caixa da IKEA. Depois, elas ofereciam mais dinheiro pela caixa que tinham montado do que outras pessoas por uma igual, já montada. O que você faz com as próprias mãos vale mais para você."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoHobbies"
+          },
+          "lamina": "pulgar",
+          "texto": "Se você está gostando do guia, deixe o seu gostei, inscreva-se para não perder o próximo e compartilhe com aquela pessoa que sempre diz que não tem nenhum passatempo."
+        },
+        {
+          "id": "proyecto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "pasos",
+              "terminado"
+            ]
+          },
+          "lamina": [
+            "bufanda",
+            "luna"
+          ],
+          "texto": "Por isso um passatempo prende mais com um projeto: aprender uma música inteira, terminar um cachecol, fotografar a lua cheia. Algo que você possa terminar e mostrar."
+        },
+        {
+          "id": "proyectosCasa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pieza",
+              "lunas",
+              "fotos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Aqui cada passatempo pode ter os seus projetos: a minha primeira peça completa, ou as doze luas cheias de um ano, com as suas fotos."
+        }
+      ]
+    },
+    {
+      "id": "mantener",
+      "titulo": "Como não abandoná-lo?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte seis. Como não abandoná-lo?"
+        },
+        {
+          "id": "rachas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "semanaFlexible"
+          },
+          "lamina": [
+            "calendarioPared",
+            "palomita"
+          ],
+          "destacada": true,
+          "texto": "Em 2023, Jackie Silverman e Alixandra Barasch viram que uma sequência intacta motiva, mas que quando ela se quebra, muita gente para, mesmo tendo feito o mesmo que antes."
+        },
+        {
+          "id": "porSemana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuatroDeSiete",
+              "unDia",
+              "sigue"
+            ]
+          },
+          "lamina": [
+            "agendaPapel",
+            "semana"
+          ],
+          "texto": "Por isso é melhor uma meta por semana do que por dia: quatro dias de sete. Se um dia você não puder, a semana continua de pé."
+        },
+        {
+          "id": "volver",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinCulpa",
+              "dondeLoDejaste",
+              "pocoAPoco"
+            ]
+          },
+          "lamina": [
+            "piano",
+            "ventana"
+          ],
+          "meme": "racha",
+          "texto": "E se você largar por um tempo, volte sem culpa: um passatempo não é uma prova. Retome de onde parou."
+        },
+        {
+          "id": "semanaCasa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta4",
+              "fila",
+              "llevas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Por isso o meu piano tem uma meta de quatro dias por semana, e não de sete: esta semana já fiz cinco, então a meta foi alcançada, e se eu falhar um dia, tudo bem."
+        }
+      ]
+    },
+    {
+      "id": "otros",
+      "titulo": "Por que fazer com outras pessoas?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte sete. Por que fazer com outras pessoas?"
+        },
+        {
+          "id": "canto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cantoGrupo"
+          },
+          "lamina": [
+            "coro",
+            "clase"
+          ],
+          "destacada": true,
+          "texto": "Em 2015, Eiluned Pearce, Jacques Launay e Robin Dunbar acompanharam durante sete meses turmas novas de adultos. Nas de canto, o grupo se sentiu unido muito mais rápido; nas de artesanato e escrita também, mas demorou mais."
+        },
+        {
+          "id": "grupo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "club",
+              "clase",
+              "amigo"
+            ]
+          },
+          "lamina": [
+            "club",
+            "amigos"
+          ],
+          "texto": "Um grupo te dá um compromisso fixo, companhia e vontade de voltar: um clube, uma aula, ou um amigo que entre com você."
+        },
+        {
+          "id": "compartir",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocar",
+              "regalar",
+              "ensenar"
+            ]
+          },
+          "lamina": [
+            "familia",
+            "regalo"
+          ],
+          "texto": "E compartilhar o que você faz também conta: tocar uma música para a sua família, dar de presente algo que você fez, ensinar a alguém o que aprendeu."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Como seguir? Seu plano para continuar",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte oito. Como seguir? Seu plano para continuar."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planHobby"
+          },
+          "lamina": [
+            "lista",
+            "libreta"
+          ],
+          "texto": "Na primeira semana, anote três passatempos que te deem curiosidade e experimente um, vinte minutos, sem comprar nada."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "metaSemana",
+              "proyectoChico"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "No primeiro mês, fique com o que você mais gostar, dê a ele uma meta de dias por semana e um projeto pequeno que você possa terminar."
+        },
+        {
+          "id": "compania",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "busca",
+              "comparte",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "amigos",
+            "cumbre"
+          ],
+          "texto": "E quando você já gostar, procure com quem compartilhar: uma aula, um clube ou um amigo."
+        },
+        {
+          "id": "ano",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuadritos",
+              "pausas",
+              "regresos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "E no fim do ano, olhe o seu calendário de quadradinhos: cada dia em que você praticou está ali, com as suas pausas e as suas voltas."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Resumindo: um passatempo te faz bem e tempo tem, sim; a paixão não se encontra, se desenvolve; ele não precisa servir para nada; e para não largar, uma meta por semana, um projeto e alguém com quem compartilhar."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "No cômodo de Hobbies do MindHaOS você pode acompanhar os seus passatempos, com a meta de dias por semana, as suas sessões e os seus projetos, e ver o seu ano dia a dia. Monte sua casa mental grátis hoje: o link está na descrição. E no próximo guia: como se entreter melhor?",
+    "boton": "Abrir o cômodo de Hobbies",
+    "lamina": "app-plan",
+    "anclas": {
+      "pasatiempos": "os seus passatempos",
+      "sesiones": "as suas sessões",
+      "ano": "o seu ano"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "mak-2023",
+      "texto": "Mak H. W., Noguchi T., Bone J. K., Wels J., Gao Q., Kondo K., Saito T., Fancourt D. Hobby engagement and mental wellbeing among people aged 65 years and older in 16 countries. Nature Medicine (2023).",
+      "url": "https://doi.org/10.1038/s41591-023-02506-1"
+    },
+    {
+      "id": "bls-atus-2023",
+      "texto": "U.S. Bureau of Labor Statistics. American Time Use Survey — 2023 Results (2024).",
+      "url": "https://www.bls.gov/news.release/atus.nr0.htm"
+    },
+    {
+      "id": "okeefe-2018",
+      "texto": "O'Keefe P. A., Dweck C. S., Walton G. M. Implicit theories of interest: Finding your passion or developing it? Psychological Science (2018).",
+      "url": "https://doi.org/10.1177/0956797618780643"
+    },
+    {
+      "id": "tonietto-2021",
+      "texto": "Tonietto G. N., Malkoc S. A., Reczek R. W., Norton M. I. Viewing leisure as wasteful undermines enjoyment. Journal of Experimental Social Psychology (2021).",
+      "url": "https://doi.org/10.1016/j.jesp.2021.104198"
+    },
+    {
+      "id": "norton-2012",
+      "texto": "Norton M. I., Mochon D., Ariely D. The IKEA effect: When labor leads to love. Journal of Consumer Psychology (2012).",
+      "url": "https://doi.org/10.1016/j.jcps.2011.08.002"
+    },
+    {
+      "id": "silverman-2023",
+      "texto": "Silverman J., Barasch A. On or off track: How (broken) streaks affect consumer decisions. Journal of Consumer Research (2023).",
+      "url": "https://doi.org/10.1093/jcr/ucac029"
+    },
+    {
+      "id": "pearce-2015",
+      "texto": "Pearce E., Launay J., Dunbar R. I. M. The ice-breaker effect: singing mediates fast social bonding. Royal Society Open Science (2015).",
+      "url": "https://doi.org/10.1098/rsos.150221"
+    }
+  ]
+}

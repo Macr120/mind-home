@@ -1,0 +1,681 @@
+{
+  "idioma": "ru",
+  "tema": "hobbies",
+  "plantillaId": "hobbies",
+  "numero": 15,
+  "nombre": "Хобби",
+  "pregunta": "Как найти хобби и не бросить его?",
+  "corta": "Как найти хобби?",
+  "subtitulo": "Зачем тебе хобби, как найти своё, почему оно не обязано быть полезным, где взять на него время, почему то, что делаешь своими руками, затягивает сильнее, как не бросить, почему стоит заниматься с другими и план, чтобы начать.",
+  "aviso": "Это руководство носит информационный характер: результаты цитируемых исследований изложены просто, и многие из них показывают связи, а не причины. Если тебе долго грустно или ничего не хочется, поговори с тем, кому доверяешь, или со специалистом.",
+  "partes": [
+    {
+      "id": "porque",
+      "titulo": "Зачем тебе хобби?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Как найти хобби и не бросить его? Почти у каждого из нас около пяти свободных часов в день. И больше половины из них уходит на телевизор. А что, если часть этого времени отдать тому, что ты любишь? Сегодня ты увидишь, что говорит наука, и уйдёшь с планом, чтобы начать своё хобби уже на этой неделе."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Кстати, это мой дом в MindHaOS, и смотри: сегодня он едет на поезде, как в путешествии по всему, что можно попробовать. В этой комнате я веду свои хобби."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть первая. Зачем тебе хобби?"
+        },
+        {
+          "id": "mak",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "hobbiesSalud"
+          },
+          "lamina": [
+            "abuelos",
+            "jardineria"
+          ],
+          "destacada": true,
+          "texto": "В 2023 году Карен Мак и её команда собрали данные более чем девяноста трёх тысяч человек старше шестидесяти пяти лет из шестнадцати стран. У тех, у кого было хобби, было меньше симптомов депрессии, и они чувствовали себя здоровее, счастливее и больше довольны жизнью."
+        },
+        {
+          "id": "tiempo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tiempoLibre"
+          },
+          "lamina": [
+            "tele",
+            "sofa"
+          ],
+          "texto": "А время обычно есть. В 2023 году в США у людей было в среднем около пяти свободных часов в день, и почти три из них уходили на телевизор. Смотри, что будет, если заменить всего двадцать минут."
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "piano",
+              "astro",
+              "suSemana"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "В моей комнате Хобби я веду свои: пианино и астрофотографию, у каждого своя неделя и своя серия."
+        }
+      ]
+    },
+    {
+      "id": "encontrar",
+      "titulo": "Как найти своё?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть вторая. Как найти своё?"
+        },
+        {
+          "id": "pasion",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "pasion"
+          },
+          "lamina": [
+            "brujula",
+            "caminoBosque"
+          ],
+          "destacada": true,
+          "texto": "Тебе наверняка говорили: найди свою страсть. В 2018 году Пол О’Киф, Кэрол Дуэк и Грегори Уолтон увидели, что те, кто верит, будто страсть находят уже готовой, меньше интересуются новым, а когда становится трудно, бросают быстрее."
+        },
+        {
+          "id": "desarrollar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "prueba",
+              "quedate",
+              "crece"
+            ]
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "Работает другая идея: страсть не находят, её развивают. Попробуй разное, оставь то, что вызывает у тебя любопытство, и дай ему время вырасти."
+        },
+        {
+          "id": "explorar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "explorador"
+          },
+          "lamina": [
+            "ceramica",
+            "pintar"
+          ],
+          "texto": "Для начала спроси себя, как тебе нравится проводить время: руками, головой, в движении, с другими или на свежем воздухе. Посмотри, сколько идей появится."
+        },
+        {
+          "id": "nuevo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombre",
+              "emoji",
+              "metaDias"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Когда хочу попробовать что-то новое, я добавляю здесь новое хобби: название, эмодзи, цвет и, если хочу, недельную цель в днях."
+        }
+      ]
+    },
+    {
+      "id": "sirve",
+      "titulo": "Почему оно не обязано быть полезным?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть третья. Почему оно не обязано быть полезным?"
+        },
+        {
+          "id": "tonietto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2021",
+            "clave": "tonietto"
+          },
+          "lamina": [
+            "reloj",
+            "oficina"
+          ],
+          "destacada": true,
+          "texto": "Есть очень частая ловушка: ощущение, что свободное время — это потерянное время. В 2021 году Габриэла Тониетто и её команда увидели, что те, кто так думает, меньше радуются свободным минутам, и у них больше стресса, тревоги и грусти."
+        },
+        {
+          "id": "porqueSi",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "negocio",
+              "redes",
+              "experto",
+              "gusto"
+            ]
+          },
+          "lamina": [
+            "guitarra",
+            "risa"
+          ],
+          "meme": "productivo",
+          "texto": "Хобби не обязано становиться бизнесом, попадать в соцсети или делать тебя экспертом. У него другая работа: чтобы тебе нравилось этим заниматься."
+        },
+        {
+          "id": "talento",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nadie",
+              "practica",
+              "gusto"
+            ]
+          },
+          "lamina": [
+            "tejer",
+            "manosBarro"
+          ],
+          "meme": "talento",
+          "texto": "И для начала не нужен талант. Почти ни у кого не получается хорошо в первую неделю: удовольствие приходит с практикой, а не до неё."
+        },
+        {
+          "id": "sesiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuanto",
+              "nota",
+              "sinPresion"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Я играю на пианино не для того, чтобы стать концертным пианистом: здесь я просто отмечаю, сколько играл, и заметку вроде «сегодня получилась трудная часть»."
+        }
+      ]
+    },
+    {
+      "id": "tiempo",
+      "titulo": "Где взять на него время?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть четвёртая. Где взять на него время?"
+        },
+        {
+          "id": "poco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "veinteMinutos"
+          },
+          "lamina": [
+            "temporizador",
+            "cafe"
+          ],
+          "destacada": true,
+          "texto": "Не нужны часы. Двадцать минут четыре дня в неделю — это почти семьдесят часов в год. Посмотри, как это меняется с твоими числами."
+        },
+        {
+          "id": "lugarFijo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "despues",
+              "listo",
+              "aMano"
+            ]
+          },
+          "lamina": [
+            "cena",
+            "guitarraEstuche"
+          ],
+          "texto": "Секрет в том, чтобы дать ему постоянное место в неделе: после ужина, в субботу утром. И держи всё под рукой: гитару вне чехла, книгу на столе."
+        },
+        {
+          "id": "equipo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "basico",
+              "pruebas",
+              "despuesCompras"
+            ]
+          },
+          "lamina": [
+            "tienda",
+            "caja"
+          ],
+          "meme": "equipo",
+          "texto": "И осторожно с покупкой всего снаряжения до начала. Сначала самое необходимое; остальное — когда уже будешь знать, что тебе нравится."
+        },
+        {
+          "id": "sesion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "minutos",
+              "toque",
+              "pinta"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "И двадцати минут хватает: я записываю практику одним касанием, и моя неделя раскрашивается."
+        }
+      ]
+    },
+    {
+      "id": "proyectos",
+      "titulo": "Почему то, что делаешь своими руками, затягивает сильнее?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть пятая. Почему то, что делаешь своими руками, затягивает сильнее?"
+        },
+        {
+          "id": "ikea",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ikea"
+          },
+          "lamina": [
+            "armarMueble",
+            "herramientas"
+          ],
+          "destacada": true,
+          "texto": "В 2012 году Майкл Нортон и его команда попросили людей собрать коробку из ИКЕА. Потом они предлагали за коробку, которую собрали сами, больше денег, чем другие за такую же, но уже собранную. То, что ты делаешь своими руками, стоит для тебя больше."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoHobbies"
+          },
+          "lamina": "pulgar",
+          "texto": "Если тебе нравится это руководство, нажми «Нравится», «Подписаться», чтобы не пропустить следующее, и «Поделиться» — с тем, кто всегда говорит, что у него нет никакого хобби."
+        },
+        {
+          "id": "proyecto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "pasos",
+              "terminado"
+            ]
+          },
+          "lamina": [
+            "bufanda",
+            "luna"
+          ],
+          "texto": "Поэтому хобби затягивает сильнее, когда есть проект: выучить песню целиком, довязать шарф, сфотографировать полную луну. Что-то, что можно закончить и показать."
+        },
+        {
+          "id": "proyectosCasa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pieza",
+              "lunas",
+              "fotos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Здесь у каждого хобби могут быть свои проекты: моя первая пьеса целиком, «Ода к радости», или двенадцать полнолуний за год, с фотографиями."
+        }
+      ]
+    },
+    {
+      "id": "mantener",
+      "titulo": "Как не бросить?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть шестая. Как не бросить?"
+        },
+        {
+          "id": "rachas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "semanaFlexible"
+          },
+          "lamina": [
+            "calendarioPared",
+            "palomita"
+          ],
+          "destacada": true,
+          "texto": "В 2023 году Джеки Сильверман и Аликсандра Бараш увидели, что непрерывная серия мотивирует, но когда она прерывается, многие бросают, даже если делали столько же, сколько раньше."
+        },
+        {
+          "id": "porSemana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuatroDeSiete",
+              "unDia",
+              "sigue"
+            ]
+          },
+          "lamina": [
+            "agendaPapel",
+            "semana"
+          ],
+          "texto": "Поэтому лучше цель на неделю, чем на день: четыре дня из семи. Если один день не получится, неделя всё равно в силе."
+        },
+        {
+          "id": "volver",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinCulpa",
+              "dondeLoDejaste",
+              "pocoAPoco"
+            ]
+          },
+          "lamina": [
+            "piano",
+            "ventana"
+          ],
+          "meme": "racha",
+          "texto": "А если забросишь на время, возвращайся без чувства вины: хобби — не экзамен. Продолжи с того места, где остановился."
+        },
+        {
+          "id": "semanaCasa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta4",
+              "fila",
+              "llevas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Поэтому у моего пианино цель — четыре дня в неделю, а не семь: на этой неделе у меня уже пять, так что цель достигнута, и если один день пропущу, ничего страшного."
+        }
+      ]
+    },
+    {
+      "id": "otros",
+      "titulo": "Почему стоит заниматься с другими?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть седьмая. Почему стоит заниматься с другими?"
+        },
+        {
+          "id": "canto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cantoGrupo"
+          },
+          "lamina": [
+            "coro",
+            "clase"
+          ],
+          "destacada": true,
+          "texto": "В 2015 году Эйлунед Пирс, Жак Лоне и Робин Данбар семь месяцев наблюдали за новыми курсами для взрослых. На уроках пения группа сплотилась гораздо быстрее; на рукоделии и писательстве тоже, но на это ушло больше времени."
+        },
+        {
+          "id": "grupo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "club",
+              "clase",
+              "amigo"
+            ]
+          },
+          "lamina": [
+            "club",
+            "amigos"
+          ],
+          "texto": "Группа даёт тебе постоянную встречу, компанию и желание вернуться: клуб, курс или друг, который запишется вместе с тобой."
+        },
+        {
+          "id": "compartir",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocar",
+              "regalar",
+              "ensenar"
+            ]
+          },
+          "lamina": [
+            "familia",
+            "regalo"
+          ],
+          "texto": "И делиться тем, что делаешь, тоже важно: сыграть песню семье, подарить что-то своими руками, научить кого-то тому, что умеешь сам."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Как продолжать? Твой план на будущее",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть восьмая. Как продолжать? Твой план на будущее."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planHobby"
+          },
+          "lamina": [
+            "lista",
+            "libreta"
+          ],
+          "texto": "В первую неделю запиши три хобби, которые вызывают любопытство, и попробуй одно, двадцать минут, ничего не покупая."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "metaSemana",
+              "proyectoChico"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "В первый месяц оставь то, что нравится больше всего, поставь ему цель в днях на неделю и небольшой проект, который можно закончить."
+        },
+        {
+          "id": "compania",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "busca",
+              "comparte",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "amigos",
+            "cumbre"
+          ],
+          "texto": "А когда оно уже понравится, найди, с кем им делиться: курс, клуб или друг."
+        },
+        {
+          "id": "ano",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuadritos",
+              "pausas",
+              "regresos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "А в конце года посмотри на свой календарь из квадратиков: каждый день практики там, с паузами и возвращениями."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Итак: хобби идёт тебе на пользу, и время на него есть; страсть не находят, её развивают; хобби не обязано быть полезным; а чтобы не бросить — цель на неделю, проект и человек, с которым можно делиться."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "В комнате Хобби в MindHaOS ты можешь вести свои хобби с целью в днях на неделю, записывать свои сессии и проекты и видеть свой год день за днём. Построй свой мысленный дом бесплатно уже сегодня: ссылка в описании. А в следующем руководстве: как развлекаться лучше?",
+    "boton": "Открыть комнату Хобби",
+    "lamina": "app-plan",
+    "anclas": {
+      "pasatiempos": "свои хобби",
+      "sesiones": "свои сессии",
+      "ano": "свой год"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "mak-2023",
+      "texto": "Mak H. W., Noguchi T., Bone J. K., Wels J., Gao Q., Kondo K., Saito T., Fancourt D. Hobby engagement and mental wellbeing among people aged 65 years and older in 16 countries. Nature Medicine (2023).",
+      "url": "https://doi.org/10.1038/s41591-023-02506-1"
+    },
+    {
+      "id": "bls-atus-2023",
+      "texto": "U.S. Bureau of Labor Statistics. American Time Use Survey — 2023 Results (2024).",
+      "url": "https://www.bls.gov/news.release/atus.nr0.htm"
+    },
+    {
+      "id": "okeefe-2018",
+      "texto": "O'Keefe P. A., Dweck C. S., Walton G. M. Implicit theories of interest: Finding your passion or developing it? Psychological Science (2018).",
+      "url": "https://doi.org/10.1177/0956797618780643"
+    },
+    {
+      "id": "tonietto-2021",
+      "texto": "Tonietto G. N., Malkoc S. A., Reczek R. W., Norton M. I. Viewing leisure as wasteful undermines enjoyment. Journal of Experimental Social Psychology (2021).",
+      "url": "https://doi.org/10.1016/j.jesp.2021.104198"
+    },
+    {
+      "id": "norton-2012",
+      "texto": "Norton M. I., Mochon D., Ariely D. The IKEA effect: When labor leads to love. Journal of Consumer Psychology (2012).",
+      "url": "https://doi.org/10.1016/j.jcps.2011.08.002"
+    },
+    {
+      "id": "silverman-2023",
+      "texto": "Silverman J., Barasch A. On or off track: How (broken) streaks affect consumer decisions. Journal of Consumer Research (2023).",
+      "url": "https://doi.org/10.1093/jcr/ucac029"
+    },
+    {
+      "id": "pearce-2015",
+      "texto": "Pearce E., Launay J., Dunbar R. I. M. The ice-breaker effect: singing mediates fast social bonding. Royal Society Open Science (2015).",
+      "url": "https://doi.org/10.1098/rsos.150221"
+    }
+  ]
+}

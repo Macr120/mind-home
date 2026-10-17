@@ -1,0 +1,681 @@
+{
+  "idioma": "fr",
+  "tema": "hobbies",
+  "plantillaId": "hobbies",
+  "numero": 15,
+  "nombre": "Loisirs",
+  "pregunta": "Comment trouver un loisir et le garder ?",
+  "corta": "Comment trouver un loisir ?",
+  "subtitulo": "Pourquoi tu as besoin d’un loisir, comment trouver le tien, pourquoi il n’a pas besoin de servir à quoi que ce soit, où trouver le temps, pourquoi ce que tu fais toi-même t’accroche davantage, comment ne pas l’abandonner, pourquoi le faire avec d’autres, et un plan pour commencer.",
+  "aviso": "Ce guide est informatif : les études citées résument leurs résultats de façon simple, et beaucoup montrent des liens, pas des causes. Si tu te sens triste ou sans envie de rien pendant longtemps, parles-en à une personne de confiance ou à un professionnel.",
+  "partes": [
+    {
+      "id": "porque",
+      "titulo": "Pourquoi as-tu besoin d’un loisir ?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Comment trouver un loisir et le garder ? Nous avons presque tous environ cinq heures libres par jour. Et plus de la moitié part devant la télé. Et si une partie allait à quelque chose que tu adores ? Aujourd’hui, tu vas voir ce que dit la science, et tu repartiras avec un plan pour commencer le tien cette semaine."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Au fait, voici ma maison dans MindHaOS, et regarde : aujourd’hui, elle voyage en train, comme un voyage à travers tout ce que tu pourrais essayer. Dans cette pièce, je suis mes loisirs."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie un. Pourquoi as-tu besoin d’un loisir ?"
+        },
+        {
+          "id": "mak",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "hobbiesSalud"
+          },
+          "lamina": [
+            "abuelos",
+            "jardineria"
+          ],
+          "destacada": true,
+          "texto": "En 2023, Karen Mak et son équipe ont réuni les données de plus de quatre-vingt-treize mille personnes de plus de soixante-cinq ans dans seize pays. Celles qui avaient un loisir avaient moins de symptômes de dépression, et se sentaient en meilleure santé, plus heureuses et plus satisfaites de leur vie."
+        },
+        {
+          "id": "tiempo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tiempoLibre"
+          },
+          "lamina": [
+            "tele",
+            "sofa"
+          ],
+          "texto": "Et du temps, il y en a souvent. En 2023, aux États-Unis, les gens avaient en moyenne environ cinq heures libres par jour, et près de trois passaient devant la télévision. Regarde ce qui se passe si tu changes seulement vingt minutes."
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "piano",
+              "astro",
+              "suSemana"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dans ma pièce Loisirs, je suis les miens : le piano et l’astrophotographie, chacun avec sa semaine et sa série."
+        }
+      ]
+    },
+    {
+      "id": "encontrar",
+      "titulo": "Comment trouver le tien ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie deux. Comment trouver le tien ?"
+        },
+        {
+          "id": "pasion",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "pasion"
+          },
+          "lamina": [
+            "brujula",
+            "caminoBosque"
+          ],
+          "destacada": true,
+          "texto": "On t’a sûrement déjà dit : trouve ta passion. En 2018, Paul O'Keefe, Carol Dweck et Gregory Walton ont vu que ceux qui croient que la passion se trouve toute faite s’intéressent moins aux choses nouvelles, et quand ça devient difficile, lâchent plus vite."
+        },
+        {
+          "id": "desarrollar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "prueba",
+              "quedate",
+              "crece"
+            ]
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "L’idée qui marche est une autre : la passion ne se trouve pas, elle se développe. Essaie plusieurs choses, garde celle qui éveille ta curiosité et laisse-lui le temps de grandir."
+        },
+        {
+          "id": "explorar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "explorador"
+          },
+          "lamina": [
+            "ceramica",
+            "pintar"
+          ],
+          "texto": "Pour commencer, demande-toi comment tu aimes passer ton temps : avec tes mains, avec ta tête, en bougeant, avec d’autres ou en plein air. Regarde combien d’idées apparaissent."
+        },
+        {
+          "id": "nuevo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombre",
+              "emoji",
+              "metaDias"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Quand je veux en essayer un nouveau, je l’ajoute ici : son nom, un emoji, une couleur et, si je veux, un objectif de jours par semaine."
+        }
+      ]
+    },
+    {
+      "id": "sirve",
+      "titulo": "Pourquoi il n’a pas besoin de servir à quelque chose ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie trois. Pourquoi il n’a pas besoin de servir à quelque chose ?"
+        },
+        {
+          "id": "tonietto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2021",
+            "clave": "tonietto"
+          },
+          "lamina": [
+            "reloj",
+            "oficina"
+          ],
+          "destacada": true,
+          "texto": "Il y a un piège très courant : avoir l’impression que le temps libre est du temps perdu. En 2021, Gabriela Tonietto et son équipe ont vu que ceux qui pensent ainsi profitent moins de leurs moments libres, et ont plus de stress, d’anxiété et de tristesse."
+        },
+        {
+          "id": "porqueSi",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "negocio",
+              "redes",
+              "experto",
+              "gusto"
+            ]
+          },
+          "lamina": [
+            "guitarra",
+            "risa"
+          ],
+          "meme": "productivo",
+          "texto": "Un loisir n’a pas à devenir un business, ni à finir sur les réseaux, ni à faire de toi un expert. Son travail est ailleurs : que tu aimes le faire."
+        },
+        {
+          "id": "talento",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nadie",
+              "practica",
+              "gusto"
+            ]
+          },
+          "lamina": [
+            "tejer",
+            "manosBarro"
+          ],
+          "meme": "talento",
+          "texto": "Et tu n’as pas besoin de talent pour commencer. Presque personne n’est bon la première semaine : le plaisir vient avec la pratique, pas avant."
+        },
+        {
+          "id": "sesiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuanto",
+              "nota",
+              "sinPresion"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Mon piano, ce n’est pas pour devenir concertiste : ici, je note juste combien de temps j’ai joué et un petit mot, comme « aujourd’hui, j’ai réussi le passage difficile »."
+        }
+      ]
+    },
+    {
+      "id": "tiempo",
+      "titulo": "Où trouver le temps ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie quatre. Où trouver le temps ?"
+        },
+        {
+          "id": "poco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "veinteMinutos"
+          },
+          "lamina": [
+            "temporizador",
+            "cafe"
+          ],
+          "destacada": true,
+          "texto": "Pas besoin d’heures. Vingt minutes, quatre jours par semaine, ça fait presque soixante-dix heures par an. Regarde comment ça change avec tes chiffres."
+        },
+        {
+          "id": "lugarFijo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "despues",
+              "listo",
+              "aMano"
+            ]
+          },
+          "lamina": [
+            "cena",
+            "guitarraEstuche"
+          ],
+          "texto": "L’astuce, c’est de lui donner une place fixe dans ta semaine : après le dîner, le samedi matin. Et garde tout à portée de main : la guitare hors de son étui, le livre sur la table."
+        },
+        {
+          "id": "equipo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "basico",
+              "pruebas",
+              "despuesCompras"
+            ]
+          },
+          "lamina": [
+            "tienda",
+            "caja"
+          ],
+          "meme": "equipo",
+          "texto": "Et attention à ne pas acheter tout l’équipement avant de commencer. D’abord l’essentiel ; le reste, quand tu sauras que ça te plaît."
+        },
+        {
+          "id": "sesion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "minutos",
+              "toque",
+              "pinta"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Et vingt minutes suffisent : j’enregistre la séance d’un geste, et ma semaine se colorie."
+        }
+      ]
+    },
+    {
+      "id": "proyectos",
+      "titulo": "Pourquoi ce que tu fais toi-même t’accroche davantage ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie cinq. Pourquoi ce que tu fais toi-même t’accroche davantage ?"
+        },
+        {
+          "id": "ikea",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ikea"
+          },
+          "lamina": [
+            "armarMueble",
+            "herramientas"
+          ],
+          "destacada": true,
+          "texto": "En 2012, Michael Norton et son équipe ont demandé à des personnes de monter une boîte IKEA. Ensuite, elles offraient plus d’argent pour la boîte qu’elles avaient montée elles-mêmes que d’autres pour une boîte identique, déjà montée. Ce que tu fais de tes mains vaut plus à tes yeux."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoHobbies"
+          },
+          "lamina": "pulgar",
+          "texto": "Si ce guide te plaît, mets un J’aime, abonne-toi pour ne pas rater le prochain et partage-le avec cette personne qui dit toujours qu’elle n’a aucun loisir."
+        },
+        {
+          "id": "proyecto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "pasos",
+              "terminado"
+            ]
+          },
+          "lamina": [
+            "bufanda",
+            "luna"
+          ],
+          "texto": "C’est pour ça qu’un loisir accroche davantage avec un projet : apprendre un morceau en entier, finir une écharpe, photographier la pleine lune. Quelque chose que tu peux terminer et montrer."
+        },
+        {
+          "id": "proyectosCasa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pieza",
+              "lunas",
+              "fotos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Ici, chaque loisir peut avoir ses projets : mon premier morceau joué en entier, ou les douze pleines lunes d’une année, avec leurs photos."
+        }
+      ]
+    },
+    {
+      "id": "mantener",
+      "titulo": "Comment ne pas l’abandonner ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie six. Comment ne pas l’abandonner ?"
+        },
+        {
+          "id": "rachas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "semanaFlexible"
+          },
+          "lamina": [
+            "calendarioPared",
+            "palomita"
+          ],
+          "destacada": true,
+          "texto": "En 2023, Jackie Silverman et Alixandra Barasch ont vu qu’une série intacte motive, mais que quand elle se casse, beaucoup de gens arrêtent, même s’ils en ont fait autant qu’avant."
+        },
+        {
+          "id": "porSemana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuatroDeSiete",
+              "unDia",
+              "sigue"
+            ]
+          },
+          "lamina": [
+            "agendaPapel",
+            "semana"
+          ],
+          "texto": "C’est pour ça qu’un objectif par semaine vaut mieux qu’un objectif par jour : quatre jours sur sept. Si un jour tu ne peux pas, la semaine tient toujours."
+        },
+        {
+          "id": "volver",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinCulpa",
+              "dondeLoDejaste",
+              "pocoAPoco"
+            ]
+          },
+          "lamina": [
+            "piano",
+            "ventana"
+          ],
+          "meme": "racha",
+          "texto": "Et si tu le laisses de côté un moment, reviens sans culpabiliser : un loisir n’est pas un examen. Reprends là où tu t’étais arrêté."
+        },
+        {
+          "id": "semanaCasa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta4",
+              "fila",
+              "llevas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "C’est pour ça que mon piano a un objectif de quatre jours par semaine, et pas de sept : cette semaine, j’en suis déjà à cinq, donc l’objectif est atteint, et si je rate un jour, ce n’est pas grave."
+        }
+      ]
+    },
+    {
+      "id": "otros",
+      "titulo": "Pourquoi le faire avec d’autres ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie sept. Pourquoi le faire avec d’autres ?"
+        },
+        {
+          "id": "canto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cantoGrupo"
+          },
+          "lamina": [
+            "coro",
+            "clase"
+          ],
+          "destacada": true,
+          "texto": "En 2015, Eiluned Pearce, Jacques Launay et Robin Dunbar ont suivi pendant sept mois de nouveaux cours pour adultes. En chant, le groupe s’est senti uni beaucoup plus vite ; en travaux manuels et en écriture aussi, mais ça a pris plus de temps."
+        },
+        {
+          "id": "grupo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "club",
+              "clase",
+              "amigo"
+            ]
+          },
+          "lamina": [
+            "club",
+            "amigos"
+          ],
+          "texto": "Un groupe te donne un rendez-vous fixe, de la compagnie et l’envie de revenir : un club, un cours, ou un ami qui s’inscrit avec toi."
+        },
+        {
+          "id": "compartir",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocar",
+              "regalar",
+              "ensenar"
+            ]
+          },
+          "lamina": [
+            "familia",
+            "regalo"
+          ],
+          "texto": "Et partager ce que tu fais compte aussi : jouer un morceau à ta famille, offrir quelque chose que tu as fait, apprendre à quelqu’un ce que tu as appris."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Comment continuer ? Ton plan pour la suite",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie huit. Comment continuer ? Ton plan pour la suite."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planHobby"
+          },
+          "lamina": [
+            "lista",
+            "libreta"
+          ],
+          "texto": "La première semaine, note trois loisirs qui éveillent ta curiosité et essaies-en un, vingt minutes, sans rien acheter."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "metaSemana",
+              "proyectoChico"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "Le premier mois, garde celui qui te plaît le plus, donne-lui un objectif de jours par semaine et un petit projet que tu peux terminer."
+        },
+        {
+          "id": "compania",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "busca",
+              "comparte",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "amigos",
+            "cumbre"
+          ],
+          "texto": "Et quand il te plaît vraiment, cherche avec qui le partager : un cours, un club ou un ami."
+        },
+        {
+          "id": "ano",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuadritos",
+              "pausas",
+              "regresos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Et à la fin de l’année, regarde ton calendrier de petites cases : chaque jour où tu as pratiqué est là, avec ses pauses et ses reprises."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "En résumé : un loisir te fait du bien, et du temps, il y en a ; la passion ne se trouve pas, elle se développe ; il n’a pas besoin de servir à quelque chose ; et pour ne pas le lâcher, un objectif par semaine, un projet et quelqu’un avec qui le partager."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Dans la pièce Loisirs de MindHaOS, tu peux suivre tes loisirs, avec leur objectif de jours par semaine, tes séances et tes projets, et voir ton année jour par jour. Construis ta maison mentale gratuitement aujourd’hui : le lien est dans la description. Et dans le prochain guide : comment mieux te divertir ?",
+    "boton": "Ouvrir la pièce Loisirs",
+    "lamina": "app-plan",
+    "anclas": {
+      "pasatiempos": "tes loisirs",
+      "sesiones": "tes séances",
+      "ano": "ton année"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "mak-2023",
+      "texto": "Mak H. W., Noguchi T., Bone J. K., Wels J., Gao Q., Kondo K., Saito T., Fancourt D. Hobby engagement and mental wellbeing among people aged 65 years and older in 16 countries. Nature Medicine (2023).",
+      "url": "https://doi.org/10.1038/s41591-023-02506-1"
+    },
+    {
+      "id": "bls-atus-2023",
+      "texto": "U.S. Bureau of Labor Statistics. American Time Use Survey — 2023 Results (2024).",
+      "url": "https://www.bls.gov/news.release/atus.nr0.htm"
+    },
+    {
+      "id": "okeefe-2018",
+      "texto": "O'Keefe P. A., Dweck C. S., Walton G. M. Implicit theories of interest: Finding your passion or developing it? Psychological Science (2018).",
+      "url": "https://doi.org/10.1177/0956797618780643"
+    },
+    {
+      "id": "tonietto-2021",
+      "texto": "Tonietto G. N., Malkoc S. A., Reczek R. W., Norton M. I. Viewing leisure as wasteful undermines enjoyment. Journal of Experimental Social Psychology (2021).",
+      "url": "https://doi.org/10.1016/j.jesp.2021.104198"
+    },
+    {
+      "id": "norton-2012",
+      "texto": "Norton M. I., Mochon D., Ariely D. The IKEA effect: When labor leads to love. Journal of Consumer Psychology (2012).",
+      "url": "https://doi.org/10.1016/j.jcps.2011.08.002"
+    },
+    {
+      "id": "silverman-2023",
+      "texto": "Silverman J., Barasch A. On or off track: How (broken) streaks affect consumer decisions. Journal of Consumer Research (2023).",
+      "url": "https://doi.org/10.1093/jcr/ucac029"
+    },
+    {
+      "id": "pearce-2015",
+      "texto": "Pearce E., Launay J., Dunbar R. I. M. The ice-breaker effect: singing mediates fast social bonding. Royal Society Open Science (2015).",
+      "url": "https://doi.org/10.1098/rsos.150221"
+    }
+  ]
+}

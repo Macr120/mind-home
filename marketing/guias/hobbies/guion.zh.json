@@ -1,0 +1,681 @@
+{
+  "idioma": "zh",
+  "tema": "hobbies",
+  "plantillaId": "hobbies",
+  "numero": 15,
+  "nombre": "爱好",
+  "pregunta": "怎样找到一个爱好，又怎样坚持下去？",
+  "corta": "怎样找到一个爱好？",
+  "subtitulo": "为什么你需要一个爱好、怎样找到你的爱好、为什么它不必有什么用、时间从哪里来、为什么亲手做的东西更让人着迷、怎样不半途而废、为什么要和别人一起做，以及一个开始的计划。",
+  "aviso": "本指南仅供参考：引用的研究结果都做了简单概括，而且很多只显示关联，并非因果。如果你长时间感到难过，或者对什么都提不起劲，请和你信任的人或专业人士聊一聊。",
+  "partes": [
+    {
+      "id": "porque",
+      "titulo": "为什么你需要一个爱好？",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "怎样找到一个爱好，又怎样坚持下去？我们几乎每个人每天都有大约五个小时的空闲时间。而其中一半以上，都花在了电视机前。如果拿出一部分，用在你真正喜欢的事情上，会怎么样？今天你会看到科学怎么说，还会带走一个计划，这周就开始你的爱好。"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "对了，这是我在MindHaOS里的家。你看，今天它坐着火车出发了，就像一趟旅行，带你看遍所有你可以尝试的事。我的爱好都记在这个房间里。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第一部分。为什么你需要一个爱好？"
+        },
+        {
+          "id": "mak",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "hobbiesSalud"
+          },
+          "lamina": [
+            "abuelos",
+            "jardineria"
+          ],
+          "destacada": true,
+          "texto": "2023年，Karen Mak和团队汇总了十六个国家、九万三千多名六十五岁以上老人的数据：有爱好的人，抑郁症状更少，也觉得自己更健康、更快乐、对生活更满意。"
+        },
+        {
+          "id": "tiempo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tiempoLibre"
+          },
+          "lamina": [
+            "tele",
+            "sofa"
+          ],
+          "texto": "而时间通常是有的。2023年，在美国，人们平均每天大约有五个小时空闲时间，其中将近三个小时用来看电视。看看只换出二十分钟，会发生什么。"
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "piano",
+              "astro",
+              "suSemana"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在我的爱好房间里，记着我的爱好：钢琴和天文摄影，每个都有自己的一周记录和连续天数。"
+        }
+      ]
+    },
+    {
+      "id": "encontrar",
+      "titulo": "怎样找到你的爱好？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第二部分。怎样找到你的爱好？"
+        },
+        {
+          "id": "pasion",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "pasion"
+          },
+          "lamina": [
+            "brujula",
+            "caminoBosque"
+          ],
+          "destacada": true,
+          "texto": "你一定听过这句话：找到你的热情。2018年，Paul O'Keefe、Carol Dweck和Gregory Walton发现，相信热情是现成等着被发现的人，对新事物兴趣更少，一旦遇到困难，也放弃得更快。"
+        },
+        {
+          "id": "desarrollar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "prueba",
+              "quedate",
+              "crece"
+            ]
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "真正有用的想法是另一种：热情不是找到的，而是培养出来的。多试几样，留下让你好奇的那一个，再给它时间慢慢长大。"
+        },
+        {
+          "id": "explorar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "explorador"
+          },
+          "lamina": [
+            "ceramica",
+            "pintar"
+          ],
+          "texto": "先问问自己，喜欢怎样打发时间：动手、动脑、活动身体、和别人一起，还是在户外。看看能冒出多少点子。"
+        },
+        {
+          "id": "nuevo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombre",
+              "emoji",
+              "metaDias"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "想试一个新的，我就在这里点“新爱好”：写上名字，选一个表情符号和一种颜色，想的话，再定一个每周几天的目标。"
+        }
+      ]
+    },
+    {
+      "id": "sirve",
+      "titulo": "为什么它不必有什么用？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第三部分。为什么它不必有什么用？"
+        },
+        {
+          "id": "tonietto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2021",
+            "clave": "tonietto"
+          },
+          "lamina": [
+            "reloj",
+            "oficina"
+          ],
+          "destacada": true,
+          "texto": "有个很常见的陷阱：觉得空闲时间就是浪费时间。2021年，Gabriela Tonietto和团队发现，这样想的人更不享受自己的空闲时间，压力、焦虑和低落也更多。"
+        },
+        {
+          "id": "porqueSi",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "negocio",
+              "redes",
+              "experto",
+              "gusto"
+            ]
+          },
+          "lamina": [
+            "guitarra",
+            "risa"
+          ],
+          "meme": "productivo",
+          "texto": "爱好不必变成生意，不必发到社交媒体上，也不必让你成为专家。它的任务只有一个：让你喜欢去做。"
+        },
+        {
+          "id": "talento",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nadie",
+              "practica",
+              "gusto"
+            ]
+          },
+          "lamina": [
+            "tejer",
+            "manosBarro"
+          ],
+          "meme": "talento",
+          "texto": "开始也不需要天赋。几乎没有人第一周就做得好：乐趣是练出来的，不是先有的。"
+        },
+        {
+          "id": "sesiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuanto",
+              "nota",
+              "sinPresion"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "我弹钢琴不是为了当演奏家：在这里，我只记下弹了多久，再写一句笔记，比如“今天难的那段弹出来了”。"
+        }
+      ]
+    },
+    {
+      "id": "tiempo",
+      "titulo": "时间从哪里来？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第四部分。时间从哪里来？"
+        },
+        {
+          "id": "poco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "veinteMinutos"
+          },
+          "lamina": [
+            "temporizador",
+            "cafe"
+          ],
+          "destacada": true,
+          "texto": "你不需要好几个小时。每次二十分钟，每周四天，一年加起来将近七十个小时。看看换成你的数字会怎样。"
+        },
+        {
+          "id": "lugarFijo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "despues",
+              "listo",
+              "aMano"
+            ]
+          },
+          "lamina": [
+            "cena",
+            "guitarraEstuche"
+          ],
+          "texto": "诀窍是在一周里给它一个固定的位置：晚饭后，或者周六早上。再把东西都放在手边：吉他从琴盒里拿出来，书放在桌上。"
+        },
+        {
+          "id": "equipo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "basico",
+              "pruebas",
+              "despuesCompras"
+            ]
+          },
+          "lamina": [
+            "tienda",
+            "caja"
+          ],
+          "meme": "equipo",
+          "texto": "还有，小心在开始前就把装备买齐。先买最基本的；其他的，等你确定自己喜欢再说。"
+        },
+        {
+          "id": "sesion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "minutos",
+              "toque",
+              "pinta"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "二十分钟就够了：轻点一下就能记录练习，我的一周就一格一格地涂上颜色。"
+        }
+      ]
+    },
+    {
+      "id": "proyectos",
+      "titulo": "为什么亲手做的东西更让人着迷？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第五部分。为什么亲手做的东西更让人着迷？"
+        },
+        {
+          "id": "ikea",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ikea"
+          },
+          "lamina": [
+            "armarMueble",
+            "herramientas"
+          ],
+          "destacada": true,
+          "texto": "2012年，Michael Norton和团队请一些人组装一个IKEA的盒子。之后，他们愿意为自己组装的盒子出的钱，比别人为一个一模一样、已经装好的盒子出的更多。你亲手做的东西，对你来说更有价值。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoHobbies"
+          },
+          "lamina": "pulgar",
+          "texto": "如果你喜欢这份指南，请点赞，订阅，免得错过下一期，再分享给那个总说自己没有任何爱好的人。"
+        },
+        {
+          "id": "proyecto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "pasos",
+              "terminado"
+            ]
+          },
+          "lamina": [
+            "bufanda",
+            "luna"
+          ],
+          "texto": "所以，有了项目，爱好会更让人着迷：完整学会一首歌，织完一条围巾，拍下满月。一件你能完成、能拿给别人看的事。"
+        },
+        {
+          "id": "proyectosCasa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pieza",
+              "lunas",
+              "fotos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在这里，每个爱好都可以有自己的项目：我完整弹下来的第一首曲子《欢乐颂》，或者一年里的十二次满月，还有它们的照片。"
+        }
+      ]
+    },
+    {
+      "id": "mantener",
+      "titulo": "怎样才能不半途而废？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第六部分。怎样才能不半途而废？"
+        },
+        {
+          "id": "rachas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "semanaFlexible"
+          },
+          "lamina": [
+            "calendarioPared",
+            "palomita"
+          ],
+          "destacada": true,
+          "texto": "2023年，Jackie Silverman和Alixandra Barasch发现，没有中断的连续记录能激励人；可一旦中断，很多人就不再做了，哪怕他们做的和以前一样多。"
+        },
+        {
+          "id": "porSemana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuatroDeSiete",
+              "unDia",
+              "sigue"
+            ]
+          },
+          "lamina": [
+            "agendaPapel",
+            "semana"
+          ],
+          "texto": "所以，按周定目标比按天更好：七天里做四天。哪天做不了，这一周也照样算数。"
+        },
+        {
+          "id": "volver",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinCulpa",
+              "dondeLoDejaste",
+              "pocoAPoco"
+            ]
+          },
+          "lamina": [
+            "piano",
+            "ventana"
+          ],
+          "meme": "racha",
+          "texto": "如果你放下了一阵子，就毫无愧疚地回来吧：爱好不是考试。从你停下的地方接着来。"
+        },
+        {
+          "id": "semanaCasa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta4",
+              "fila",
+              "llevas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "所以我的钢琴每周目标是四天，不是七天：这周我已经弹了五天，目标达成了；哪天落下一次，也没关系。"
+        }
+      ]
+    },
+    {
+      "id": "otros",
+      "titulo": "为什么要和别人一起做？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第七部分。为什么要和别人一起做？"
+        },
+        {
+          "id": "canto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cantoGrupo"
+          },
+          "lamina": [
+            "coro",
+            "clase"
+          ],
+          "destacada": true,
+          "texto": "2015年，Eiluned Pearce、Jacques Launay和Robin Dunbar跟踪了几门新开的成人课程，为期七个月。在唱歌课上，大家很快就变得亲近；手工课和写作课也一样，只是要慢得多。"
+        },
+        {
+          "id": "grupo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "club",
+              "clase",
+              "amigo"
+            ]
+          },
+          "lamina": [
+            "club",
+            "amigos"
+          ],
+          "texto": "一个团体能给你固定的约定、陪伴，还有再来的动力：一个俱乐部、一门课，或者一个陪你一起报名的朋友。"
+        },
+        {
+          "id": "compartir",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocar",
+              "regalar",
+              "ensenar"
+            ]
+          },
+          "lamina": [
+            "familia",
+            "regalo"
+          ],
+          "texto": "分享你做的东西也很重要：给家人弹一首歌，把自己做的东西送人，把学到的教给别人。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "怎样坚持下去？你的继续计划",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第八部分。怎样坚持下去？你的继续计划。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planHobby"
+          },
+          "lamina": [
+            "lista",
+            "libreta"
+          ],
+          "texto": "第一周，写下三个让你好奇的爱好，试其中一个，二十分钟，什么都不买。"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "metaSemana",
+              "proyectoChico"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "第一个月，留下你最喜欢的那个，给它定一个每周几天的目标，再加一个能完成的小项目。"
+        },
+        {
+          "id": "compania",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "busca",
+              "comparte",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "amigos",
+            "cumbre"
+          ],
+          "texto": "等你喜欢上了，就找人一起分享：一门课、一个俱乐部，或者一个朋友。"
+        },
+        {
+          "id": "ano",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuadritos",
+              "pausas",
+              "regresos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "到了年底，看看你的小方格日历：你练习的每一天都在那里，还有停下的日子，和重新回来的日子。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "总结一下：爱好对你有好处，时间也是有的；热情不是找到的，而是培养出来的；它不必有什么用；想坚持下去，就要一个每周目标、一个项目，和一个可以分享的人。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "在MindHaOS的爱好房间里，你可以记下你的爱好和每周几天的目标，保存你的练习记录和项目，还能一天一天地看你的一年。今天就免费搭建你的心灵之家。链接在视频简介里。下一期指南：怎样更好地娱乐自己？",
+    "boton": "打开爱好房间",
+    "lamina": "app-plan",
+    "anclas": {
+      "pasatiempos": "你的爱好",
+      "sesiones": "你的练习记录",
+      "ano": "你的一年"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "mak-2023",
+      "texto": "Mak H. W., Noguchi T., Bone J. K., Wels J., Gao Q., Kondo K., Saito T., Fancourt D. Hobby engagement and mental wellbeing among people aged 65 years and older in 16 countries. Nature Medicine (2023).",
+      "url": "https://doi.org/10.1038/s41591-023-02506-1"
+    },
+    {
+      "id": "bls-atus-2023",
+      "texto": "U.S. Bureau of Labor Statistics. American Time Use Survey — 2023 Results (2024).",
+      "url": "https://www.bls.gov/news.release/atus.nr0.htm"
+    },
+    {
+      "id": "okeefe-2018",
+      "texto": "O'Keefe P. A., Dweck C. S., Walton G. M. Implicit theories of interest: Finding your passion or developing it? Psychological Science (2018).",
+      "url": "https://doi.org/10.1177/0956797618780643"
+    },
+    {
+      "id": "tonietto-2021",
+      "texto": "Tonietto G. N., Malkoc S. A., Reczek R. W., Norton M. I. Viewing leisure as wasteful undermines enjoyment. Journal of Experimental Social Psychology (2021).",
+      "url": "https://doi.org/10.1016/j.jesp.2021.104198"
+    },
+    {
+      "id": "norton-2012",
+      "texto": "Norton M. I., Mochon D., Ariely D. The IKEA effect: When labor leads to love. Journal of Consumer Psychology (2012).",
+      "url": "https://doi.org/10.1016/j.jcps.2011.08.002"
+    },
+    {
+      "id": "silverman-2023",
+      "texto": "Silverman J., Barasch A. On or off track: How (broken) streaks affect consumer decisions. Journal of Consumer Research (2023).",
+      "url": "https://doi.org/10.1093/jcr/ucac029"
+    },
+    {
+      "id": "pearce-2015",
+      "texto": "Pearce E., Launay J., Dunbar R. I. M. The ice-breaker effect: singing mediates fast social bonding. Royal Society Open Science (2015).",
+      "url": "https://doi.org/10.1098/rsos.150221"
+    }
+  ]
+}

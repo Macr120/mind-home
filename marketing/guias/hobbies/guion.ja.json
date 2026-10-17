@@ -1,0 +1,681 @@
+{
+  "idioma": "ja",
+  "tema": "hobbies",
+  "plantillaId": "hobbies",
+  "numero": 15,
+  "nombre": "趣味",
+  "pregunta": "趣味はどう見つけて、どう続ければいいのでしょうか？",
+  "corta": "趣味はどう見つける？",
+  "subtitulo": "なぜ趣味が必要なのか、自分の趣味の見つけ方、なぜ何の役にも立たなくていいのか、時間はどこから作るのか、なぜ自分で作ったものほど夢中になれるのか、やめずに続ける方法、なぜ誰かと一緒にやるのか、そして始めるためのプラン。",
+  "aviso": "このガイドは情報提供を目的としています。紹介する研究の結果はわかりやすくまとめたもので、その多くは因果ではなく関連を示すものです。長いあいだ気分が沈んだり、何にもやる気が出なかったりするときは、信頼できる人や専門家に相談してください。",
+  "partes": [
+    {
+      "id": "porque",
+      "titulo": "なぜ趣味が必要なのでしょうか？",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "趣味はどう見つけて、どう続ければいいのでしょうか？ ほとんどの人には、1日に5時間ほどの自由時間があります。そしてその半分以上は、テレビの前で消えていきます。そのうちの少しを、大好きなことに使えたらどうでしょう？ 今日は科学が何と言っているかを見ながら、今週あなたの趣味を始めるためのプランを持ち帰ってもらいます。"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "ところで、ここはMindHaOSにある私の家です。よく見てください、今日は家ごと列車に乗って旅をしています。あなたが試せるいろいろなことをめぐる旅のように。この部屋で、私は趣味を記録しています。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート1。なぜ趣味が必要なのでしょうか？"
+        },
+        {
+          "id": "mak",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "hobbiesSalud"
+          },
+          "lamina": [
+            "abuelos",
+            "jardineria"
+          ],
+          "destacada": true,
+          "texto": "2023年、Karen Makたちは、16か国に住む65歳以上の9万3千人を超える人々のデータを集めました。趣味がある人は、うつの症状が少なく、より健康で、より幸せで、人生への満足度も高いと感じていました。"
+        },
+        {
+          "id": "tiempo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tiempoLibre"
+          },
+          "lamina": [
+            "tele",
+            "sofa"
+          ],
+          "texto": "それに、時間はたいていあるものです。2023年のアメリカでは、人々には1日に平均で約5時間の自由時間があり、そのうち3時間近くをテレビに使っていました。たった20分を入れ替えたらどうなるか、見てみましょう。"
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "piano",
+              "astro",
+              "suSemana"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "私の趣味の部屋には、私の趣味が入っています。ピアノと天体写真、それぞれに1週間の記録と連続記録があります。"
+        }
+      ]
+    },
+    {
+      "id": "encontrar",
+      "titulo": "自分の趣味は、どう見つければいいのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート2。自分の趣味は、どう見つければいいのでしょうか？"
+        },
+        {
+          "id": "pasion",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "pasion"
+          },
+          "lamina": [
+            "brujula",
+            "caminoBosque"
+          ],
+          "destacada": true,
+          "texto": "きっと「自分の情熱を見つけなさい」と言われたことがあるでしょう。2018年、Paul O'Keefe、Carol Dweck、Gregory Waltonは、情熱はできあがった形で見つかるものだと信じている人ほど、新しいことへの興味が薄く、難しくなるとすぐに手放してしまうことを明らかにしました。"
+        },
+        {
+          "id": "desarrollar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "prueba",
+              "quedate",
+              "crece"
+            ]
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "うまくいく考え方は別にあります。情熱は見つけるものではなく、育てるものです。いろいろ試して、好奇心がわくものを選び、育つための時間をあげましょう。"
+        },
+        {
+          "id": "explorar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "explorador"
+          },
+          "lamina": [
+            "ceramica",
+            "pintar"
+          ],
+          "texto": "まずは、どんなふうに時間を過ごすのが好きか考えてみましょう。手を動かす、頭を使う、体を動かす、誰かと一緒に、それとも外で。アイデアがいくつ出てくるか見てください。"
+        },
+        {
+          "id": "nuevo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombre",
+              "emoji",
+              "metaDias"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "新しいことを試したくなったら、ここで「新しい趣味」を追加します。名前、絵文字、色、そして必要なら、週に何日という目標も。"
+        }
+      ]
+    },
+    {
+      "id": "sirve",
+      "titulo": "なぜ何の役にも立たなくていいのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート3。なぜ何の役にも立たなくていいのでしょうか？"
+        },
+        {
+          "id": "tonietto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2021",
+            "clave": "tonietto"
+          },
+          "lamina": [
+            "reloj",
+            "oficina"
+          ],
+          "destacada": true,
+          "texto": "よくある落とし穴があります。自由時間は無駄な時間だと感じてしまうことです。2021年、Gabriela Toniettoたちは、そう考える人ほど自由時間を楽しめず、ストレスや不安、落ち込みが多いことを見つけました。"
+        },
+        {
+          "id": "porqueSi",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "negocio",
+              "redes",
+              "experto",
+              "gusto"
+            ]
+          },
+          "lamina": [
+            "guitarra",
+            "risa"
+          ],
+          "meme": "productivo",
+          "texto": "趣味は、仕事にならなくても、SNSに載せなくても、専門家になれなくてもいいんです。趣味の役目は別にあります。やっていて楽しいことです。"
+        },
+        {
+          "id": "talento",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nadie",
+              "practica",
+              "gusto"
+            ]
+          },
+          "lamina": [
+            "tejer",
+            "manosBarro"
+          ],
+          "meme": "talento",
+          "texto": "それに、始めるのに才能はいりません。最初の1週間からうまくできる人なんて、ほとんどいません。楽しさは練習のあとからやってくるのです。"
+        },
+        {
+          "id": "sesiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuanto",
+              "nota",
+              "sinPresion"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "私のピアノは、コンサートピアニストになるためのものではありません。ここには、どれだけ弾いたかと、「今日は難しいところが弾けた」みたいなメモを書くだけです。"
+        }
+      ]
+    },
+    {
+      "id": "tiempo",
+      "titulo": "時間はどこから作ればいいのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート4。時間はどこから作ればいいのでしょうか？"
+        },
+        {
+          "id": "poco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "veinteMinutos"
+          },
+          "lamina": [
+            "temporizador",
+            "cafe"
+          ],
+          "destacada": true,
+          "texto": "何時間もいりません。1回20分、週に4日で、1年でほぼ70時間になります。あなたの数字だとどう変わるか見てみましょう。"
+        },
+        {
+          "id": "lugarFijo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "despues",
+              "listo",
+              "aMano"
+            ]
+          },
+          "lamina": [
+            "cena",
+            "guitarraEstuche"
+          ],
+          "texto": "コツは、1週間の中に決まった場所を作ることです。夕食のあと、土曜の朝。そして全部を手の届くところに。ギターはケースから出して、本はテーブルの上に。"
+        },
+        {
+          "id": "equipo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "basico",
+              "pruebas",
+              "despuesCompras"
+            ]
+          },
+          "lamina": [
+            "tienda",
+            "caja"
+          ],
+          "meme": "equipo",
+          "texto": "それから、始める前に道具を全部そろえるのは要注意です。まずは基本だけ。残りは、好きだとわかってからで十分です。"
+        },
+        {
+          "id": "sesion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "minutos",
+              "toque",
+              "pinta"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "20分で十分です。ワンタップで練習を記録すると、私の1週間が色で埋まっていきます。"
+        }
+      ]
+    },
+    {
+      "id": "proyectos",
+      "titulo": "なぜ自分で作ったものほど夢中になれるのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート5。なぜ自分で作ったものほど夢中になれるのでしょうか？"
+        },
+        {
+          "id": "ikea",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ikea"
+          },
+          "lamina": [
+            "armarMueble",
+            "herramientas"
+          ],
+          "destacada": true,
+          "texto": "2012年、Michael Nortonたちは、参加者にIKEAの箱を組み立ててもらいました。すると、自分で組み立てた箱に、ほかの人が組み立て済みの同じ箱につける値段より、高いお金を出そうとしたのです。自分の手で作ったものは、自分にとって価値が上がります。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoHobbies"
+          },
+          "lamina": "pulgar",
+          "texto": "このガイドを気に入ってもらえたら、高評価と、次回を見逃さないためのチャンネル登録、そして「趣味なんて何もない」といつも言っているあの人に共有をお願いします。"
+        },
+        {
+          "id": "proyecto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "pasos",
+              "terminado"
+            ]
+          },
+          "lamina": [
+            "bufanda",
+            "luna"
+          ],
+          "texto": "だから趣味は、プロジェクトがあるともっと夢中になれます。1曲を最後まで覚える、マフラーを編み上げる、満月を撮る。終わらせて、人に見せられるものです。"
+        },
+        {
+          "id": "proyectosCasa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pieza",
+              "lunas",
+              "fotos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "ここでは、趣味ごとにプロジェクトを持てます。初めて最後まで弾けた曲、歓喜の歌や、1年かけて撮る十二の満月を、写真と一緒に。"
+        }
+      ]
+    },
+    {
+      "id": "mantener",
+      "titulo": "どうすればやめずに続けられるのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート6。どうすればやめずに続けられるのでしょうか？"
+        },
+        {
+          "id": "rachas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "semanaFlexible"
+          },
+          "lamina": [
+            "calendarioPared",
+            "palomita"
+          ],
+          "destacada": true,
+          "texto": "2023年、Jackie SilvermanとAlixandra Baraschは、途切れていない連続記録はやる気につながるけれど、それが途切れると、前と同じだけやっていたのに、やめてしまう人が多いことを明らかにしました。"
+        },
+        {
+          "id": "porSemana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuatroDeSiete",
+              "unDia",
+              "sigue"
+            ]
+          },
+          "lamina": [
+            "agendaPapel",
+            "semana"
+          ],
+          "texto": "だから、目標は1日ごとより1週間ごとのほうがいいんです。7日のうち4日。できない日があっても、その週はまだ続いています。"
+        },
+        {
+          "id": "volver",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinCulpa",
+              "dondeLoDejaste",
+              "pocoAPoco"
+            ]
+          },
+          "lamina": [
+            "piano",
+            "ventana"
+          ],
+          "meme": "racha",
+          "texto": "しばらく離れてしまっても、罪悪感なしで戻ってきましょう。趣味は試験ではありません。やめたところから再開すればいいんです。"
+        },
+        {
+          "id": "semanaCasa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta4",
+              "fila",
+              "llevas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "だから私のピアノの週の目標は、7日ではなく4日です。今週はもう5日弾いたので目標は達成。1日休んでも、なんの問題もありません。"
+        }
+      ]
+    },
+    {
+      "id": "otros",
+      "titulo": "なぜ誰かと一緒にやるのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート7。なぜ誰かと一緒にやるのでしょうか？"
+        },
+        {
+          "id": "canto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cantoGrupo"
+          },
+          "lamina": [
+            "coro",
+            "clase"
+          ],
+          "destacada": true,
+          "texto": "2015年、Eiluned Pearce、Jacques Launay、Robin Dunbarは、大人向けの新しい講座を7か月にわたって追いかけました。歌の講座では、グループがずっと早く打ち解けました。手芸や文章の講座でもそうなりましたが、もっと時間がかかりました。"
+        },
+        {
+          "id": "grupo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "club",
+              "clase",
+              "amigo"
+            ]
+          },
+          "lamina": [
+            "club",
+            "amigos"
+          ],
+          "texto": "グループがあると、決まった予定と仲間、また行きたいという気持ちが生まれます。サークル、教室、それとも一緒に始めてくれる友達。"
+        },
+        {
+          "id": "compartir",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocar",
+              "regalar",
+              "ensenar"
+            ]
+          },
+          "lamina": [
+            "familia",
+            "regalo"
+          ],
+          "texto": "作ったものを人と分かち合うのも大切です。家族に1曲弾いてみせる、自分で作ったものを贈る、覚えたことを誰かに教える。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "どう続ける？ 続けるためのプラン",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート8。どう続ける？ 続けるためのプラン。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planHobby"
+          },
+          "lamina": [
+            "lista",
+            "libreta"
+          ],
+          "texto": "最初の1週間は、気になる趣味を3つ書き出して、そのうち1つを20分、何も買わずに試してみましょう。"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "metaSemana",
+              "proyectoChico"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "最初の1か月は、いちばん気に入ったものを選んで、週に何日という目標と、終わらせられる小さなプロジェクトを決めましょう。"
+        },
+        {
+          "id": "compania",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "busca",
+              "comparte",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "amigos",
+            "cumbre"
+          ],
+          "texto": "そして好きになってきたら、一緒にやる相手を探しましょう。教室、サークル、それとも友達。"
+        },
+        {
+          "id": "ano",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuadritos",
+              "pausas",
+              "regresos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "そして1年の終わりには、マス目のカレンダーを見てください。練習した日は全部そこにあります。休んだ日も、戻ってきた日も。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "まとめると、趣味は心と体にいいし、時間はちゃんとあります。情熱は見つけるものではなく、育てるもの。何の役に立たなくてもいい。そして続けるには、週ごとの目標と、プロジェクトと、一緒に楽しむ誰か。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOSの趣味の部屋では、あなたの趣味を週の目標と一緒に管理して、練習の記録やプロジェクトを残し、あなたの1年を1日ずつ見ることができます。今日、無料であなたの心の家をつくろう。リンクは概要欄にあります。そして次回のガイドは、どうすればもっと上手に楽しめるのでしょうか？",
+    "boton": "趣味の部屋を開く",
+    "lamina": "app-plan",
+    "anclas": {
+      "pasatiempos": "あなたの趣味",
+      "sesiones": "練習の記録",
+      "ano": "あなたの1年"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "mak-2023",
+      "texto": "Mak H. W., Noguchi T., Bone J. K., Wels J., Gao Q., Kondo K., Saito T., Fancourt D. Hobby engagement and mental wellbeing among people aged 65 years and older in 16 countries. Nature Medicine (2023).",
+      "url": "https://doi.org/10.1038/s41591-023-02506-1"
+    },
+    {
+      "id": "bls-atus-2023",
+      "texto": "U.S. Bureau of Labor Statistics. American Time Use Survey — 2023 Results (2024).",
+      "url": "https://www.bls.gov/news.release/atus.nr0.htm"
+    },
+    {
+      "id": "okeefe-2018",
+      "texto": "O'Keefe P. A., Dweck C. S., Walton G. M. Implicit theories of interest: Finding your passion or developing it? Psychological Science (2018).",
+      "url": "https://doi.org/10.1177/0956797618780643"
+    },
+    {
+      "id": "tonietto-2021",
+      "texto": "Tonietto G. N., Malkoc S. A., Reczek R. W., Norton M. I. Viewing leisure as wasteful undermines enjoyment. Journal of Experimental Social Psychology (2021).",
+      "url": "https://doi.org/10.1016/j.jesp.2021.104198"
+    },
+    {
+      "id": "norton-2012",
+      "texto": "Norton M. I., Mochon D., Ariely D. The IKEA effect: When labor leads to love. Journal of Consumer Psychology (2012).",
+      "url": "https://doi.org/10.1016/j.jcps.2011.08.002"
+    },
+    {
+      "id": "silverman-2023",
+      "texto": "Silverman J., Barasch A. On or off track: How (broken) streaks affect consumer decisions. Journal of Consumer Research (2023).",
+      "url": "https://doi.org/10.1093/jcr/ucac029"
+    },
+    {
+      "id": "pearce-2015",
+      "texto": "Pearce E., Launay J., Dunbar R. I. M. The ice-breaker effect: singing mediates fast social bonding. Royal Society Open Science (2015).",
+      "url": "https://doi.org/10.1098/rsos.150221"
+    }
+  ]
+}

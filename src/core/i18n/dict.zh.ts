@@ -7142,6 +7142,7 @@ export const ZH: Dict = {
   'guia.agenda.titulo': "怎样安排好你的时间？",
   'guia.aprender.titulo': "怎样学得更快？",
   'guia.escritura.titulo': "你为什么应该写作？",
+  'guia.hobbies.titulo': "怎样找到一个爱好，又怎样坚持下去？",
   'guia.matematicas.titulo': "宇宙的语言是什么？",
   'tut.esencial.titulo': '基础导览',
   'tut.tipo.ejemplos': '示例·演示用的MindHaOS',

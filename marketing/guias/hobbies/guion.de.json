@@ -1,0 +1,681 @@
+{
+  "idioma": "de",
+  "tema": "hobbies",
+  "plantillaId": "hobbies",
+  "numero": 15,
+  "nombre": "Hobbys",
+  "pregunta": "Wie findest du ein Hobby und wie bleibst du dran?",
+  "corta": "Wie findest du ein Hobby?",
+  "subtitulo": "Warum du ein Hobby brauchst, wie du deins findest, warum es zu nichts nützen muss, woher du die Zeit nimmst, warum dich Selbstgemachtes mehr packt, wie du nicht aufgibst, warum es mit anderen leichter geht und ein Plan für den Anfang.",
+  "aviso": "Dieser Leitfaden dient der Information: Die zitierten Studien werden vereinfacht zusammengefasst, und viele zeigen Zusammenhänge, keine Ursachen. Wenn du dich lange traurig oder antriebslos fühlst, sprich mit einer Vertrauensperson oder mit einer Fachkraft.",
+  "partes": [
+    {
+      "id": "porque",
+      "titulo": "Warum brauchst du ein Hobby?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Wie findest du ein Hobby und wie bleibst du dran? Fast alle haben rund fünf Stunden Freizeit am Tag. Und mehr als die Hälfte davon verbringen wir vor dem Fernseher. Was wäre, wenn ein Teil davon etwas gehörte, das du liebst? Heute schaust du dir an, was die Wissenschaft sagt, und gehst mit einem Plan raus, um deins noch diese Woche anzufangen."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Übrigens, das ist mein Haus in MindHaOS, und schau mal: Heute reist es mit dem Zug, wie eine Reise durch alles, was du ausprobieren könntest. In diesem Raum führe ich meine Hobbys."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil eins. Warum brauchst du ein Hobby?"
+        },
+        {
+          "id": "mak",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "hobbiesSalud"
+          },
+          "lamina": [
+            "abuelos",
+            "jardineria"
+          ],
+          "destacada": true,
+          "texto": "2023 haben Karen Mak und ihr Team Daten von über dreiundneunzigtausend Menschen über fünfundsechzig aus sechzehn Ländern zusammengetragen. Wer ein Hobby hatte, hatte weniger Anzeichen von Depression und fühlte sich gesünder, glücklicher und zufriedener mit dem Leben."
+        },
+        {
+          "id": "tiempo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tiempoLibre"
+          },
+          "lamina": [
+            "tele",
+            "sofa"
+          ],
+          "texto": "Und Zeit gibt es meistens. 2023 hatten die Menschen in den USA im Schnitt rund fünf Stunden Freizeit am Tag, und fast drei davon gingen fürs Fernsehen drauf. Schau, was passiert, wenn du nur zwanzig Minuten davon tauschst."
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "piano",
+              "astro",
+              "suSemana"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In meinem Raum Hobbys führe ich meine: das Klavier und die Astrofotografie, jedes mit seiner Woche und seiner Serie."
+        }
+      ]
+    },
+    {
+      "id": "encontrar",
+      "titulo": "Wie findest du deins?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil zwei. Wie findest du deins?"
+        },
+        {
+          "id": "pasion",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "pasion"
+          },
+          "lamina": [
+            "brujula",
+            "caminoBosque"
+          ],
+          "destacada": true,
+          "texto": "Bestimmt hat man dir schon gesagt: Finde deine Leidenschaft. 2018 sahen Paul O'Keefe, Carol Dweck und Gregory Walton, dass Menschen, die glauben, Leidenschaft finde man fix und fertig, sich weniger für Neues interessieren und schneller aufgeben, wenn es schwierig wird."
+        },
+        {
+          "id": "desarrollar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "prueba",
+              "quedate",
+              "crece"
+            ]
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "Was wirklich funktioniert, ist eine andere Idee: Leidenschaft findet man nicht, man entwickelt sie. Probier verschiedene Dinge aus, bleib bei dem, was dich neugierig macht, und gib ihm Zeit zu wachsen."
+        },
+        {
+          "id": "explorar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "explorador"
+          },
+          "lamina": [
+            "ceramica",
+            "pintar"
+          ],
+          "texto": "Frag dich zuerst, wie du deine Zeit am liebsten verbringst: mit den Händen, mit dem Kopf, in Bewegung, mit anderen oder draußen. Schau, wie viele Ideen dabei herauskommen."
+        },
+        {
+          "id": "nuevo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombre",
+              "emoji",
+              "metaDias"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Wenn ich ein neues ausprobieren will, lege ich es hier als Neues Hobby an: seinen Namen, ein Emoji, eine Farbe und, wenn ich will, ein Wochenziel in Tagen."
+        }
+      ]
+    },
+    {
+      "id": "sirve",
+      "titulo": "Warum muss es zu nichts nützen?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil drei. Warum muss es zu nichts nützen?"
+        },
+        {
+          "id": "tonietto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2021",
+            "clave": "tonietto"
+          },
+          "lamina": [
+            "reloj",
+            "oficina"
+          ],
+          "destacada": true,
+          "texto": "Es gibt eine sehr verbreitete Falle: das Gefühl, Freizeit sei verlorene Zeit. 2021 sahen Gabriela Tonietto und ihr Team, dass Menschen, die so denken, ihre freien Stunden weniger genießen und mehr Stress, Angst und Traurigkeit haben."
+        },
+        {
+          "id": "porqueSi",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "negocio",
+              "redes",
+              "experto",
+              "gusto"
+            ]
+          },
+          "lamina": [
+            "guitarra",
+            "risa"
+          ],
+          "meme": "productivo",
+          "texto": "Ein Hobby muss kein Geschäft werden, nicht in den sozialen Medien landen und dich nicht zum Experten machen. Seine Aufgabe ist eine andere: dass du es gern machst."
+        },
+        {
+          "id": "talento",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nadie",
+              "practica",
+              "gusto"
+            ]
+          },
+          "lamina": [
+            "tejer",
+            "manosBarro"
+          ],
+          "meme": "talento",
+          "texto": "Und du brauchst kein Talent, um anzufangen. Fast niemand ist in der ersten Woche gut darin: Die Freude kommt mit dem Üben, nicht vorher."
+        },
+        {
+          "id": "sesiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuanto",
+              "nota",
+              "sinPresion"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Mit meinem Klavier will ich kein Konzertpianist werden: Hier trage ich nur ein, wie lange ich gespielt habe, und eine Notiz, etwa „heute hat die schwierige Stelle geklappt“."
+        }
+      ]
+    },
+    {
+      "id": "tiempo",
+      "titulo": "Woher nimmst du die Zeit?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil vier. Woher nimmst du die Zeit?"
+        },
+        {
+          "id": "poco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "veinteMinutos"
+          },
+          "lamina": [
+            "temporizador",
+            "cafe"
+          ],
+          "destacada": true,
+          "texto": "Du brauchst keine Stunden. Zwanzig Minuten an vier Tagen pro Woche ergeben fast siebzig Stunden im Jahr. Schau, wie es sich mit deinen Zahlen ändert."
+        },
+        {
+          "id": "lugarFijo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "despues",
+              "listo",
+              "aMano"
+            ]
+          },
+          "lamina": [
+            "cena",
+            "guitarraEstuche"
+          ],
+          "texto": "Der Trick ist, ihm einen festen Platz in deiner Woche zu geben: nach dem Abendessen, am Samstagvormittag. Und leg alles griffbereit hin: die Gitarre ausgepackt, das Buch auf dem Tisch."
+        },
+        {
+          "id": "equipo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "basico",
+              "pruebas",
+              "despuesCompras"
+            ]
+          },
+          "lamina": [
+            "tienda",
+            "caja"
+          ],
+          "meme": "equipo",
+          "texto": "Und kauf nicht gleich die ganze Ausrüstung, bevor du anfängst. Erst das Nötigste; den Rest, wenn du weißt, dass es dir gefällt."
+        },
+        {
+          "id": "sesion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "minutos",
+              "toque",
+              "pinta"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Und zwanzig Minuten reichen: Ich trage die Übung mit einem Tippen ein, und meine Woche füllt sich nach und nach mit Farbe."
+        }
+      ]
+    },
+    {
+      "id": "proyectos",
+      "titulo": "Warum packt dich Selbstgemachtes mehr?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil fünf. Warum packt dich Selbstgemachtes mehr?"
+        },
+        {
+          "id": "ikea",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ikea"
+          },
+          "lamina": [
+            "armarMueble",
+            "herramientas"
+          ],
+          "destacada": true,
+          "texto": "2012 baten Michael Norton und sein Team Menschen, eine IKEA-Box zusammenzubauen. Danach boten sie für die selbst gebaute Box mehr Geld als andere für eine gleiche, schon fertig aufgebaute. Was du mit deinen Händen machst, ist dir mehr wert."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoHobbies"
+          },
+          "lamina": "pulgar",
+          "texto": "Wenn dir der Leitfaden gefällt, klick auf Mag ich, auf Abonnieren, damit du den nächsten nicht verpasst, und auf Teilen, für die Person, die immer sagt, sie habe kein einziges Hobby."
+        },
+        {
+          "id": "proyecto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "pasos",
+              "terminado"
+            ]
+          },
+          "lamina": [
+            "bufanda",
+            "luna"
+          ],
+          "texto": "Deshalb packt ein Hobby mit einem Projekt mehr: ein ganzes Lied lernen, einen Schal fertig stricken, den Vollmond fotografieren. Etwas, das du abschließen und zeigen kannst."
+        },
+        {
+          "id": "proyectosCasa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pieza",
+              "lunas",
+              "fotos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Hier kann jedes Hobby seine Projekte haben: mein erstes Stück, ganz durchgespielt, oder zwölf Vollmonde in einem Jahr, mit ihren Fotos."
+        }
+      ]
+    },
+    {
+      "id": "mantener",
+      "titulo": "Wie bleibst du dran?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil sechs. Wie bleibst du dran?"
+        },
+        {
+          "id": "rachas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "semanaFlexible"
+          },
+          "lamina": [
+            "calendarioPared",
+            "palomita"
+          ],
+          "destacada": true,
+          "texto": "2023 sahen Jackie Silverman und Alixandra Barasch, dass eine ungebrochene Serie motiviert, dass aber viele aufhören, sobald sie reißt, obwohl sie genauso viel getan haben wie vorher."
+        },
+        {
+          "id": "porSemana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuatroDeSiete",
+              "unDia",
+              "sigue"
+            ]
+          },
+          "lamina": [
+            "agendaPapel",
+            "semana"
+          ],
+          "texto": "Darum ist ein Ziel pro Woche besser als eins pro Tag: vier von sieben Tagen. Wenn du an einem Tag nicht kannst, steht die Woche trotzdem."
+        },
+        {
+          "id": "volver",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinCulpa",
+              "dondeLoDejaste",
+              "pocoAPoco"
+            ]
+          },
+          "lamina": [
+            "piano",
+            "ventana"
+          ],
+          "meme": "racha",
+          "texto": "Und wenn du es eine Weile liegen lässt, komm ohne schlechtes Gewissen zurück: Ein Hobby ist keine Prüfung. Mach da weiter, wo du aufgehört hast."
+        },
+        {
+          "id": "semanaCasa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta4",
+              "fila",
+              "llevas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Darum hat mein Klavier ein Wochenziel von vier Tagen und nicht von sieben: Diese Woche habe ich schon fünf, das Ziel ist also geschafft, und wenn ich einen Tag auslasse, ist das kein Problem."
+        }
+      ]
+    },
+    {
+      "id": "otros",
+      "titulo": "Warum mit anderen?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil sieben. Warum mit anderen?"
+        },
+        {
+          "id": "canto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cantoGrupo"
+          },
+          "lamina": [
+            "coro",
+            "clase"
+          ],
+          "destacada": true,
+          "texto": "2015 begleiteten Eiluned Pearce, Jacques Launay und Robin Dunbar sieben Monate lang neue Kurse für Erwachsene. In den Gesangskursen fühlte sich die Gruppe viel schneller verbunden; in den Bastel- und Schreibkursen auch, aber es dauerte länger."
+        },
+        {
+          "id": "grupo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "club",
+              "clase",
+              "amigo"
+            ]
+          },
+          "lamina": [
+            "club",
+            "amigos"
+          ],
+          "texto": "Eine Gruppe gibt dir einen festen Termin, Gesellschaft und Lust wiederzukommen: ein Verein, ein Kurs oder ein Freund, der mitmacht."
+        },
+        {
+          "id": "compartir",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocar",
+              "regalar",
+              "ensenar"
+            ]
+          },
+          "lamina": [
+            "familia",
+            "regalo"
+          ],
+          "texto": "Und zu teilen, was du machst, zählt auch: deiner Familie ein Lied vorspielen, etwas Selbstgemachtes verschenken, jemandem beibringen, was du gelernt hast."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Wie geht es weiter? Dein Plan zum Weitermachen",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil acht. Wie geht es weiter? Dein Plan zum Weitermachen."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planHobby"
+          },
+          "lamina": [
+            "lista",
+            "libreta"
+          ],
+          "texto": "Schreib in der ersten Woche drei Hobbys auf, die dich neugierig machen, und probier eins davon aus, zwanzig Minuten, ohne etwas zu kaufen."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "metaSemana",
+              "proyectoChico"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "Bleib im ersten Monat bei dem, das dir am besten gefällt, gib ihm ein Wochenziel in Tagen und ein kleines Projekt, das du abschließen kannst."
+        },
+        {
+          "id": "compania",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "busca",
+              "comparte",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "amigos",
+            "cumbre"
+          ],
+          "texto": "Und wenn es dir gefällt, such dir jemanden, mit dem du es teilst: einen Kurs, einen Verein oder einen Freund."
+        },
+        {
+          "id": "ano",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuadritos",
+              "pausas",
+              "regresos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Und am Ende des Jahres schau dir deinen Kästchenkalender an: Jeder Tag, an dem du geübt hast, steht dort, mit seinen Pausen und seinen Neuanfängen."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Kurz gesagt: Ein Hobby tut dir gut, und Zeit ist da; Leidenschaft findet man nicht, man entwickelt sie; es muss zu nichts nützen; und damit du dranbleibst: ein Ziel pro Woche, ein Projekt und jemand, mit dem du es teilst."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Im Raum Hobbys von MindHaOS kannst du deine Hobbys festhalten, mit ihrem Wochenziel, deinen Sitzungen und deinen Projekten, und dein Jahr Tag für Tag sehen. Bau dir heute kostenlos dein mentales Haus: Der Link ist in der Beschreibung. Und im nächsten Leitfaden: Wie unterhältst du dich besser?",
+    "boton": "Raum Hobbys öffnen",
+    "lamina": "app-plan",
+    "anclas": {
+      "pasatiempos": "deine Hobbys",
+      "sesiones": "deinen Sitzungen",
+      "ano": "dein Jahr"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "mak-2023",
+      "texto": "Mak H. W., Noguchi T., Bone J. K., Wels J., Gao Q., Kondo K., Saito T., Fancourt D. Hobby engagement and mental wellbeing among people aged 65 years and older in 16 countries. Nature Medicine (2023).",
+      "url": "https://doi.org/10.1038/s41591-023-02506-1"
+    },
+    {
+      "id": "bls-atus-2023",
+      "texto": "U.S. Bureau of Labor Statistics. American Time Use Survey — 2023 Results (2024).",
+      "url": "https://www.bls.gov/news.release/atus.nr0.htm"
+    },
+    {
+      "id": "okeefe-2018",
+      "texto": "O'Keefe P. A., Dweck C. S., Walton G. M. Implicit theories of interest: Finding your passion or developing it? Psychological Science (2018).",
+      "url": "https://doi.org/10.1177/0956797618780643"
+    },
+    {
+      "id": "tonietto-2021",
+      "texto": "Tonietto G. N., Malkoc S. A., Reczek R. W., Norton M. I. Viewing leisure as wasteful undermines enjoyment. Journal of Experimental Social Psychology (2021).",
+      "url": "https://doi.org/10.1016/j.jesp.2021.104198"
+    },
+    {
+      "id": "norton-2012",
+      "texto": "Norton M. I., Mochon D., Ariely D. The IKEA effect: When labor leads to love. Journal of Consumer Psychology (2012).",
+      "url": "https://doi.org/10.1016/j.jcps.2011.08.002"
+    },
+    {
+      "id": "silverman-2023",
+      "texto": "Silverman J., Barasch A. On or off track: How (broken) streaks affect consumer decisions. Journal of Consumer Research (2023).",
+      "url": "https://doi.org/10.1093/jcr/ucac029"
+    },
+    {
+      "id": "pearce-2015",
+      "texto": "Pearce E., Launay J., Dunbar R. I. M. The ice-breaker effect: singing mediates fast social bonding. Royal Society Open Science (2015).",
+      "url": "https://doi.org/10.1098/rsos.150221"
+    }
+  ]
+}

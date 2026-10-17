@@ -3740,3 +3740,120 @@ html:has(.g-pose) body {
 .g-mat-calculado { fill: none; stroke: #ef4444; stroke-width: 2; stroke-dasharray: 3 3; }
 .g-mat-jalon { stroke: #2563eb; stroke-width: 1.5; stroke-dasharray: 2 4; }
 .g-mat-ansiedad .dormir i { background: #ef4444; }
+
+/* ───────── Guía de Hobbies (Hobbies.tsx) ───────── */
+
+.g-hob {
+  --met: #ca8a04;
+}
+.g-hob-barra {
+  display: flex;
+  height: 44px;
+  margin: 12px 0;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.g-hob-barra span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: flex-grow 900ms ease;
+}
+.g-hob-tele { background: color-mix(in srgb, var(--ui-ink) 22%, transparent); }
+.g-hob-hobby { background: #facc15; color: #1f2937; }
+.g-hob-otro { background: color-mix(in srgb, var(--ui-ink) 9%, transparent); }
+.g-hob-total {
+  margin: 8px 0;
+  font-size: 15px;
+}
+.g-hob-total b {
+  font-size: 30px;
+  color: var(--met);
+}
+.g-hob-ideas {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0;
+  padding: 0;
+  list-style: none;
+}
+.g-hob-ideas li {
+  padding: 10px 14px;
+  border-inline-start: 4px solid var(--met);
+  border-radius: 10px;
+  background: var(--ui-panel);
+  font-weight: 700;
+  animation: g-hob-entra 0.4s ease-out both;
+  animation-delay: calc(var(--j) * 0.12s);
+}
+@keyframes g-hob-entra {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+.g-hob-semana {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin: 12px 0;
+}
+.g-hob-semana span {
+  display: grid;
+  place-items: end center;
+  height: 46px;
+  padding-bottom: 4px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--ui-ink) 8%, transparent);
+  transition: background 0.3s;
+}
+.g-hob-semana span.hecho { background: #22c55e; color: #fff; }
+.g-hob-semana span.falla { background: color-mix(in srgb, #ef4444 35%, transparent); }
+.g-hob-semana small { font-size: 12px; font-weight: 700; }
+.g-hob-dos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 10px 0;
+}
+.g-hob-dos > div {
+  display: grid;
+  gap: 2px;
+  padding: 12px;
+  border: 2px solid var(--borde);
+  border-radius: 14px;
+  text-align: center;
+}
+.g-hob-dos em { font-size: 28px; font-style: normal; font-weight: 800; }
+.g-hob-dos small { font-size: 13px; color: var(--tinta-3); }
+.g-hob-rota { border-color: #ef4444 !important; }
+.g-hob-rota em { color: #ef4444; }
+.g-hob-cumplida { border-color: #22c55e !important; }
+.g-hob-cumplida em { color: #16a34a; }
+.g-hob-flechas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.g-hob-flechas li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--ui-panel);
+  font-weight: 700;
+}
+.g-hob-flechas i { font-size: 26px; font-style: normal; }
+.g-hob-flechas .sube i { color: #16a34a; }
+.g-hob-flechas .baja i { color: #2563eb; }
+@media (max-width: 520px) {
+  .g-hob-flechas,
+  .g-hob-dos { grid-template-columns: 1fr; }
+}

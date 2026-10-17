@@ -1,0 +1,320 @@
+{
+  "fotos": {},
+  "laminas": {
+    "abuelos": {
+      "archivo": "laminas/abuelos.mp4",
+      "tipo": "video",
+      "autor": "Anastasia Shuraeva",
+      "fuente": "https://www.pexels.com/video/woman-hugging-man-sitting-on-yellow-chair-painting-4473476/",
+      "licencia": "Licencia Pexels"
+    },
+    "jardineria": {
+      "archivo": "laminas/jardineria.mp4",
+      "tipo": "video",
+      "autor": "Greta Hoffman",
+      "fuente": "https://www.pexels.com/video/an-elderly-man-watering-his-plants-7713837/",
+      "licencia": "Licencia Pexels"
+    },
+    "tele": {
+      "archivo": "laminas/tele.mp4",
+      "tipo": "video",
+      "autor": "Andres Ayrton",
+      "fuente": "https://www.pexels.com/video/woman-holding-a-remote-while-watching-tv-6575890/",
+      "licencia": "Licencia Pexels"
+    },
+    "caminoBosque": {
+      "archivo": "laminas/caminoBosque.mp4",
+      "tipo": "video",
+      "autor": "Matthias Groeneveld",
+      "fuente": "https://www.pexels.com/video/a-person-walking-down-a-trail-in-the-woods-24801122/",
+      "licencia": "Licencia Pexels"
+    },
+    "ceramica": {
+      "archivo": "laminas/ceramica.mp4",
+      "tipo": "video",
+      "autor": "Ravi Kant",
+      "fuente": "https://www.pexels.com/video/hands-shaping-clay-on-a-pottery-wheel-32309680/",
+      "licencia": "Licencia Pexels"
+    },
+    "pintar": {
+      "archivo": "laminas/pintar.mp4",
+      "tipo": "video",
+      "autor": "ROMAN ODINTSOV",
+      "fuente": "https://www.pexels.com/video/a-person-doing-an-abstract-painting-8347913/",
+      "licencia": "Licencia Pexels"
+    },
+    "tejer": {
+      "archivo": "laminas/tejer.mp4",
+      "tipo": "video",
+      "autor": "Muhammad Khawar Nazir",
+      "fuente": "https://www.pexels.com/video/close-up-of-hands-knitting-yarn-indoors-35868164/",
+      "licencia": "Licencia Pexels"
+    },
+    "manosBarro": {
+      "archivo": "laminas/manosBarro.mp4",
+      "tipo": "video",
+      "autor": "Cup of Couple",
+      "fuente": "https://www.pexels.com/video/male-hands-shaping-clay-7302229/",
+      "licencia": "Licencia Pexels"
+    },
+    "cena": {
+      "archivo": "laminas/cena.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/family-having-video-call-during-christmas-dinner-5814437/",
+      "licencia": "Licencia Pexels"
+    },
+    "guitarraEstuche": {
+      "archivo": "laminas/guitarraEstuche.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/a-man-going-out-of-the-house-while-carrying-a-guitar-8103304/",
+      "licencia": "Licencia Pexels"
+    },
+    "tienda": {
+      "archivo": "laminas/tienda.mp4",
+      "tipo": "video",
+      "autor": "Angela Roma",
+      "fuente": "https://www.pexels.com/video/red-and-white-paper-bag-arranged-neatly-7316400/",
+      "licencia": "Licencia Pexels"
+    },
+    "armarMueble": {
+      "archivo": "laminas/armarMueble.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/hands-woman-working-table-4554546/",
+      "licencia": "Licencia Pexels"
+    },
+    "herramientas": {
+      "archivo": "laminas/herramientas.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/a-person-sanding-the-wood-6789569/",
+      "licencia": "Licencia Pexels"
+    },
+    "bufanda": {
+      "archivo": "laminas/bufanda.mp4",
+      "tipo": "video",
+      "autor": "iddea photo",
+      "fuente": "https://www.pexels.com/video/cozy-winter-day-with-knitted-hat-and-scarf-31099131/",
+      "licencia": "Licencia Pexels"
+    },
+    "luna": {
+      "archivo": "laminas/luna.mp4",
+      "tipo": "video",
+      "autor": "Dr Photographer",
+      "fuente": "https://www.pexels.com/video/full-moon-in-clear-night-sky-30295405/",
+      "licencia": "Licencia Pexels"
+    },
+    "coro": {
+      "archivo": "laminas/coro.mp4",
+      "tipo": "video",
+      "autor": "Thirdman",
+      "fuente": "https://www.pexels.com/video/choir-singing-together-6193825/",
+      "licencia": "Licencia Pexels"
+    },
+    "club": {
+      "archivo": "laminas/club.mp4",
+      "tipo": "video",
+      "autor": "Kevin Malik",
+      "fuente": "https://www.pexels.com/video/young-men-playing-a-board-game-8757849/",
+      "licencia": "Licencia Pexels"
+    },
+    "familia": {
+      "archivo": "laminas/familia.mp4",
+      "tipo": "video",
+      "autor": "ArtHouse Studio",
+      "fuente": "https://www.pexels.com/video/kids-learning-piano-from-grandmother-7218194/",
+      "licencia": "Licencia Pexels"
+    },
+    "regalo": {
+      "archivo": "laminas/regalo.mp4",
+      "tipo": "video",
+      "autor": "ROMAN ODINTSOV",
+      "fuente": "https://www.pexels.com/video/person-putting-ribbon-on-a-gift-6275144/",
+      "licencia": "Licencia Pexels"
+    },
+    "sofa": {
+      "archivo": "laminas/sofa.mp4",
+      "tipo": "video",
+      "autor": "Fernanda Neitzel",
+      "fuente": "https://www.pexels.com/video/cozy-evening-indoors-with-tea-and-tv-37522021/",
+      "licencia": "Licencia Pexels"
+    },
+    "brujula": {
+      "archivo": "laminas/brujula.mp4",
+      "tipo": "video",
+      "autor": "Anastasia Shuraeva",
+      "fuente": "https://www.pexels.com/video/a-person-holding-a-compass-8028798/",
+      "licencia": "Licencia Pexels"
+    },
+    "semilla": {
+      "archivo": "laminas/semilla.mp4",
+      "tipo": "video",
+      "autor": "Greta Hoffman",
+      "fuente": "https://www.pexels.com/video/a-man-planting-seeds-in-a-seedling-tray-7713884/",
+      "licencia": "Licencia Pexels"
+    },
+    "brote": {
+      "archivo": "laminas/brote.mp4",
+      "tipo": "video",
+      "autor": "thetopwebsites .ga",
+      "fuente": "https://www.pexels.com/video/time-lapse-of-growing-plant-6596225/",
+      "licencia": "Licencia Pexels"
+    },
+    "reloj": {
+      "archivo": "laminas/reloj.mp4",
+      "tipo": "video",
+      "autor": "Anton Kudryashov",
+      "fuente": "https://www.pexels.com/video/close-up-on-clock-hands-moving-11267667/",
+      "licencia": "Licencia Pexels"
+    },
+    "oficina": {
+      "archivo": "laminas/oficina.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/professional-people-brainstorming-during-meeting-7643614/",
+      "licencia": "Licencia Pexels"
+    },
+    "guitarra": {
+      "archivo": "laminas/guitarra.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/person-playing-a-guitar-8103317/",
+      "licencia": "Licencia Pexels"
+    },
+    "risa": {
+      "archivo": "laminas/risa.mp4",
+      "tipo": "video",
+      "autor": "Ivan S",
+      "fuente": "https://www.pexels.com/video/women-posing-for-the-camera-4821001/",
+      "licencia": "Licencia Pexels"
+    },
+    "temporizador": {
+      "archivo": "laminas/temporizador.mp4",
+      "tipo": "video",
+      "autor": "Ivan S",
+      "fuente": "https://www.pexels.com/video/an-hourglass-on-a-stone-slab-7703941/",
+      "licencia": "Licencia Pexels"
+    },
+    "cafe": {
+      "archivo": "laminas/cafe.mp4",
+      "tipo": "video",
+      "autor": "Burak Eroglu",
+      "fuente": "https://www.pexels.com/video/cafe-ambiance-with-coffee-beans-and-latte-30981713/",
+      "licencia": "Licencia Pexels"
+    },
+    "caja": {
+      "archivo": "laminas/caja.mp4",
+      "tipo": "video",
+      "autor": "Pavel Danilyuk",
+      "fuente": "https://www.pexels.com/video/woman-sitting-in-the-floor-for-yoga-practice-6446266/",
+      "licencia": "Licencia Pexels"
+    },
+    "pulgar": {
+      "archivo": "laminas/pulgar.mp4",
+      "tipo": "video",
+      "autor": "Kevin Malik",
+      "fuente": "https://www.pexels.com/video/a-hand-giving-a-thumbs-up-9017832/",
+      "licencia": "Licencia Pexels"
+    },
+    "calendarioPared": {
+      "archivo": "laminas/calendarioPared.mp4",
+      "tipo": "video",
+      "autor": "Nadezhda Moryak",
+      "fuente": "https://www.pexels.com/video/calendar-with-circle-marks-on-the-date-7479663/",
+      "licencia": "Licencia Pexels"
+    },
+    "palomita": {
+      "archivo": "laminas/palomita.mp4",
+      "tipo": "video",
+      "autor": "Jakub Zerdzicki",
+      "fuente": "https://www.pexels.com/video/completing-tasks-on-a-checklist-with-pen-36633828/",
+      "licencia": "Licencia Pexels"
+    },
+    "agendaPapel": {
+      "archivo": "laminas/agendaPapel.mp4",
+      "tipo": "video",
+      "autor": "Ron Lach",
+      "fuente": "https://www.pexels.com/video/a-person-writing-on-a-paper-9903485/",
+      "licencia": "Licencia Pexels"
+    },
+    "semana": {
+      "archivo": "laminas/semana.mp4",
+      "tipo": "video",
+      "autor": "thiago japyassu",
+      "fuente": "https://www.pexels.com/video/close-up-view-of-daily-planner-13511897/",
+      "licencia": "Licencia Pexels"
+    },
+    "piano": {
+      "archivo": "laminas/piano.mp4",
+      "tipo": "video",
+      "autor": "ROMAN ODINTSOV",
+      "fuente": "https://www.pexels.com/video/close-up-video-of-a-person-playing-piano-8331699/",
+      "licencia": "Licencia Pexels"
+    },
+    "ventana": {
+      "archivo": "laminas/ventana.mp4",
+      "tipo": "video",
+      "autor": "Artem Podrez",
+      "fuente": "https://www.pexels.com/video/a-woman-drinking-a-cup-of-coffee-by-the-window-7496257/",
+      "licencia": "Licencia Pexels"
+    },
+    "clase": {
+      "archivo": "laminas/clase.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/students-cheating-during-an-exam-7092274/",
+      "licencia": "Licencia Pexels"
+    },
+    "amigos": {
+      "archivo": "laminas/amigos.mp4",
+      "tipo": "video",
+      "autor": "Darina Belonogova",
+      "fuente": "https://www.pexels.com/video/women-laughing-together-9187875/",
+      "licencia": "Licencia Pexels"
+    },
+    "lista": {
+      "archivo": "laminas/lista.mp4",
+      "tipo": "video",
+      "autor": "KATRIN BOLOVTSOVA",
+      "fuente": "https://www.pexels.com/video/person-putting-check-on-the-to-do-list-pad-6186640/",
+      "licencia": "Licencia Pexels"
+    },
+    "libreta": {
+      "archivo": "laminas/libreta.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/writing-to-do-list-on-a-notebook-for-reminders-3832194/",
+      "licencia": "Licencia Pexels"
+    },
+    "escalon": {
+      "archivo": "laminas/escalon.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/man-running-up-the-stairs-7876928/",
+      "licencia": "Licencia Pexels"
+    },
+    "arbol": {
+      "archivo": "laminas/arbol.mp4",
+      "tipo": "video",
+      "autor": "Furkan Elveren",
+      "fuente": "https://www.pexels.com/video/a-tree-with-the-sun-shining-through-it-27410108/",
+      "licencia": "Licencia Pexels"
+    },
+    "cumbre": {
+      "archivo": "laminas/cumbre.mp4",
+      "tipo": "video",
+      "autor": "Canan İldeniz",
+      "fuente": "https://www.pexels.com/video/group-of-hikers-celebrating-on-mountain-peak-38242686/",
+      "licencia": "Licencia Pexels"
+    },
+    "app-plan": {
+      "archivo": "laminas/app-plan.{idioma}.mp4",
+      "tipo": "video",
+      "autor": "MindHaOS",
+      "fuente": "https://app.mindhaos.com",
+      "credito": ""
+    }
+  }
+}

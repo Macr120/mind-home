@@ -1,0 +1,681 @@
+{
+  "idioma": "ar",
+  "tema": "hobbies",
+  "plantillaId": "hobbies",
+  "numero": 15,
+  "nombre": "الهوايات",
+  "pregunta": "كيف تجد هواية وكيف تحافظ عليها؟",
+  "corta": "كيف تجد هواية؟",
+  "subtitulo": "لماذا تحتاج إلى هواية، وكيف تجد هوايتك، ولماذا لا يلزم أن تكون مفيدة لشيء، ومن أين تأتي بالوقت، ولماذا يشدّك أكثر ما تصنعه بنفسك، وكيف لا تتخلى عنها، ولماذا تمارسها مع الآخرين، وخطة لتبدأ.",
+  "aviso": "هذا الدليل للمعلومات فقط: الدراسات المذكورة تُلخَّص نتائجها ببساطة، وكثير منها يُظهر علاقات لا أسبابًا. إن شعرت بالحزن أو بفقدان الرغبة في كل شيء لفترة طويلة، فتحدّث مع شخص تثق به أو مع مختص.",
+  "partes": [
+    {
+      "id": "porque",
+      "titulo": "لماذا تحتاج إلى هواية؟",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "كيف تجد هواية وكيف تحافظ عليها؟ معظمنا لديه نحو خمس ساعات فراغ في اليوم. وأكثر من نصفها يذهب أمام التلفاز. ماذا لو خصّصت جزءًا منها لشيء تحبه؟ اليوم سترى ما يقوله العلم، وستخرج بخطة لتبدأ هوايتك هذا الأسبوع."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "بالمناسبة، هذا بيتي في MindHaOS، وانظر: اليوم يسافر على متن قطار، كأنه رحلة عبر كل ما يمكنك أن تجربه. في هذه الغرفة أتابع هواياتي."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الأول. لماذا تحتاج إلى هواية؟"
+        },
+        {
+          "id": "mak",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "hobbiesSalud"
+          },
+          "lamina": [
+            "abuelos",
+            "jardineria"
+          ],
+          "destacada": true,
+          "texto": "في عام ألفين وثلاثة وعشرين، جمعت كارين ماك وفريقها بيانات أكثر من ثلاثة وتسعين ألف شخص فوق الخامسة والستين في ستة عشر بلدًا. من كانت لديهم هواية ظهرت عليهم أعراض اكتئاب أقل، وشعروا بصحة أفضل وسعادة أكبر ورضا أكبر عن حياتهم."
+        },
+        {
+          "id": "tiempo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tiempoLibre"
+          },
+          "lamina": [
+            "tele",
+            "sofa"
+          ],
+          "texto": "والوقت موجود في الغالب. في عام ألفين وثلاثة وعشرين، في الولايات المتحدة، كان لدى الناس في المتوسط نحو خمس ساعات فراغ يوميًا، يذهب قرابة ثلاث منها في مشاهدة التلفاز. انظر ماذا يحدث لو غيّرت عشرين دقيقة فقط."
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "piano",
+              "astro",
+              "suSemana"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "في غرفة الهوايات عندي أتابع هواياتي: البيانو والتصوير الفلكي، لكل منهما أسبوعه وسلسلته."
+        }
+      ]
+    },
+    {
+      "id": "encontrar",
+      "titulo": "كيف تجد هوايتك؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثاني. كيف تجد هوايتك؟"
+        },
+        {
+          "id": "pasion",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "pasion"
+          },
+          "lamina": [
+            "brujula",
+            "caminoBosque"
+          ],
+          "destacada": true,
+          "texto": "لا بد أنهم قالوا لك: اعثر على شغفك. في عام ألفين وثمانية عشر، وجد بول أوكيف وكارول دويك وغريغوري والتون أن من يعتقدون أن الشغف يوجد جاهزًا يهتمون أقل بالأشياء الجديدة، وحين يصعب الأمر، يتركونه أسرع."
+        },
+        {
+          "id": "desarrollar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "prueba",
+              "quedate",
+              "crece"
+            ]
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "الفكرة التي تنجح مختلفة: الشغف لا يُعثر عليه، بل يُنمّى. جرّب أشياء عدة، واحتفظ بما يثير فضولك، وامنحه وقتًا لينمو."
+        },
+        {
+          "id": "explorar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "explorador"
+          },
+          "lamina": [
+            "ceramica",
+            "pintar"
+          ],
+          "texto": "لتبدأ، اسأل نفسك كيف تحب أن تقضي وقتك: بيديك، أو بعقلك، أو بتحريك جسمك، أو مع الآخرين، أو في الهواء الطلق. وانظر كم فكرة تظهر."
+        },
+        {
+          "id": "nuevo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombre",
+              "emoji",
+              "metaDias"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "حين أريد أن أجرب هواية جديدة، أضيفها هنا: اسمها، ورمزًا تعبيريًا، ولونًا، وإن أردت، هدفًا من الأيام في الأسبوع."
+        }
+      ]
+    },
+    {
+      "id": "sirve",
+      "titulo": "لماذا لا يلزم أن تكون مفيدة لشيء؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثالث. لماذا لا يلزم أن تكون مفيدة لشيء؟"
+        },
+        {
+          "id": "tonietto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2021",
+            "clave": "tonietto"
+          },
+          "lamina": [
+            "reloj",
+            "oficina"
+          ],
+          "destacada": true,
+          "texto": "هناك فخ شائع جدًا: أن تشعر أن وقت الفراغ وقت ضائع. في عام ألفين وواحد وعشرين، وجدت غابرييلا تونييتو وفريقها أن من يفكرون هكذا يستمتعون أقل بأوقات فراغهم، ويعانون أكثر من التوتر والقلق والحزن."
+        },
+        {
+          "id": "porqueSi",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "negocio",
+              "redes",
+              "experto",
+              "gusto"
+            ]
+          },
+          "lamina": [
+            "guitarra",
+            "risa"
+          ],
+          "meme": "productivo",
+          "texto": "الهواية لا يلزم أن تصير مشروعًا تجاريًا، ولا أن تظهر على مواقع التواصل، ولا أن تجعلك خبيرًا. مهمتها شيء آخر: أن تستمتع بها."
+        },
+        {
+          "id": "talento",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nadie",
+              "practica",
+              "gusto"
+            ]
+          },
+          "lamina": [
+            "tejer",
+            "manosBarro"
+          ],
+          "meme": "talento",
+          "texto": "ولا تحتاج إلى موهبة لتبدأ. لا أحد تقريبًا يتقنها في الأسبوع الأول: المتعة تأتي مع الممارسة، لا قبلها."
+        },
+        {
+          "id": "sesiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuanto",
+              "nota",
+              "sinPresion"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "البيانو عندي ليس لأصبح عازفًا محترفًا: هنا أسجّل فقط كم عزفت وملاحظة، مثل «اليوم نجح معي المقطع الصعب»."
+        }
+      ]
+    },
+    {
+      "id": "tiempo",
+      "titulo": "من أين تأتي بالوقت؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الرابع. من أين تأتي بالوقت؟"
+        },
+        {
+          "id": "poco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "veinteMinutos"
+          },
+          "lamina": [
+            "temporizador",
+            "cafe"
+          ],
+          "destacada": true,
+          "texto": "لا تحتاج إلى ساعات. عشرون دقيقة، أربعة أيام في الأسبوع، تصل إلى نحو سبعين ساعة في السنة. انظر كيف يتغير ذلك بأرقامك."
+        },
+        {
+          "id": "lugarFijo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "despues",
+              "listo",
+              "aMano"
+            ]
+          },
+          "lamina": [
+            "cena",
+            "guitarraEstuche"
+          ],
+          "texto": "السر أن تعطيها مكانًا ثابتًا في أسبوعك: بعد العشاء، أو صباح السبت. واترك كل شيء في متناول يدك: الغيتار خارج حقيبته، والكتاب على الطاولة."
+        },
+        {
+          "id": "equipo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "basico",
+              "pruebas",
+              "despuesCompras"
+            ]
+          },
+          "lamina": [
+            "tienda",
+            "caja"
+          ],
+          "meme": "equipo",
+          "texto": "واحذر من شراء كل المعدات قبل أن تبدأ. الأساسيات أولًا؛ والباقي حين تعرف أنها تعجبك."
+        },
+        {
+          "id": "sesion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "minutos",
+              "toque",
+              "pinta"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "وعشرون دقيقة تكفي: أسجّل الجلسة بلمسة واحدة، وأسبوعي يتلوّن شيئًا فشيئًا."
+        }
+      ]
+    },
+    {
+      "id": "proyectos",
+      "titulo": "لماذا يشدّك أكثر ما تصنعه بنفسك؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الخامس. لماذا يشدّك أكثر ما تصنعه بنفسك؟"
+        },
+        {
+          "id": "ikea",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ikea"
+          },
+          "lamina": [
+            "armarMueble",
+            "herramientas"
+          ],
+          "destacada": true,
+          "texto": "في عام ألفين واثني عشر، طلب مايكل نورتون وفريقه من بعض الأشخاص تركيب صندوق من إيكيا. بعد ذلك، عرضوا مالًا أكثر مقابل الصندوق الذي ركّبوه بأنفسهم مما عرضه آخرون مقابل صندوق مماثل مركّب مسبقًا. ما تصنعه بيديك له قيمة أكبر عندك."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoHobbies"
+          },
+          "lamina": "pulgar",
+          "texto": "إن كان هذا الدليل يعجبك، فاضغط «أعجبني»، و«اشتراك» حتى لا يفوتك الدليل القادم، و«مشاركة» مع ذلك الشخص الذي يقول دائمًا إنه بلا أي هواية."
+        },
+        {
+          "id": "proyecto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "pasos",
+              "terminado"
+            ]
+          },
+          "lamina": [
+            "bufanda",
+            "luna"
+          ],
+          "texto": "لهذا تشدّك الهواية أكثر حين يكون لها مشروع: أن تتعلم أغنية كاملة، أو تُنهي وشاحًا، أو تصوّر البدر. شيء يمكنك إنهاؤه وعرضه."
+        },
+        {
+          "id": "proyectosCasa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pieza",
+              "lunas",
+              "fotos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "هنا يمكن لكل هواية أن تكون لها مشاريعها: قطعتي الأولى، نشيد الفرح، كاملة، أو اثنا عشر بدرًا في سنة واحدة، مع صورها."
+        }
+      ]
+    },
+    {
+      "id": "mantener",
+      "titulo": "كيف لا تتخلى عنها؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السادس. كيف لا تتخلى عنها؟"
+        },
+        {
+          "id": "rachas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "semanaFlexible"
+          },
+          "lamina": [
+            "calendarioPared",
+            "palomita"
+          ],
+          "destacada": true,
+          "texto": "في عام ألفين وثلاثة وعشرين، وجدت جاكي سيلفرمان وأليكساندرا باراش أن السلسلة غير المنقطعة تحفّز، لكن حين تنقطع، يتوقف كثيرون، حتى لو فعلوا الشيء نفسه كما من قبل."
+        },
+        {
+          "id": "porSemana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuatroDeSiete",
+              "unDia",
+              "sigue"
+            ]
+          },
+          "lamina": [
+            "agendaPapel",
+            "semana"
+          ],
+          "texto": "لهذا الهدف الأسبوعي أفضل من الهدف اليومي: أربعة أيام من سبعة. وإن لم تستطع يومًا، يبقى الأسبوع قائمًا."
+        },
+        {
+          "id": "volver",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinCulpa",
+              "dondeLoDejaste",
+              "pocoAPoco"
+            ]
+          },
+          "lamina": [
+            "piano",
+            "ventana"
+          ],
+          "meme": "racha",
+          "texto": "وإن تركتها فترة، فعُد دون شعور بالذنب: الهواية ليست امتحانًا. استأنفها من حيث توقفت."
+        },
+        {
+          "id": "semanaCasa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta4",
+              "fila",
+              "llevas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "لهذا للبيانو عندي هدف أسبوعي من أربعة أيام لا سبعة: هذا الأسبوع وصلت إلى خمسة، فالهدف تحقق، وإن فاتني يوم، فلا بأس."
+        }
+      ]
+    },
+    {
+      "id": "otros",
+      "titulo": "لماذا تمارسها مع الآخرين؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السابع. لماذا تمارسها مع الآخرين؟"
+        },
+        {
+          "id": "canto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cantoGrupo"
+          },
+          "lamina": [
+            "coro",
+            "clase"
+          ],
+          "destacada": true,
+          "texto": "في عام ألفين وخمسة عشر، تابع إيلونيد بيرس وجاك لوناي وروبن دنبار دروسًا جديدة للكبار مدة سبعة أشهر. في دروس الغناء، شعرت المجموعة بالترابط أسرع بكثير؛ وفي دروس الحِرف اليدوية والكتابة أيضًا، لكن ذلك استغرق وقتًا أطول."
+        },
+        {
+          "id": "grupo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "club",
+              "clase",
+              "amigo"
+            ]
+          },
+          "lamina": [
+            "club",
+            "amigos"
+          ],
+          "texto": "المجموعة تمنحك موعدًا ثابتًا، ورفقة، ورغبة في العودة: نادٍ، أو درس، أو صديق ينضم إليك."
+        },
+        {
+          "id": "compartir",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocar",
+              "regalar",
+              "ensenar"
+            ]
+          },
+          "lamina": [
+            "familia",
+            "regalo"
+          ],
+          "texto": "ومشاركة ما تصنعه لها قيمة أيضًا: أن تعزف أغنية لعائلتك، أو تُهدي شيئًا صنعته، أو تعلّم أحدًا ما تعلمته."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "كيف تستمر؟ خطتك للمتابعة",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثامن. كيف تستمر؟ خطتك للمتابعة."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planHobby"
+          },
+          "lamina": [
+            "lista",
+            "libreta"
+          ],
+          "texto": "في الأسبوع الأول، دوّن ثلاث هوايات تثير فضولك وجرّب واحدة، عشرين دقيقة، دون أن تشتري شيئًا."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "metaSemana",
+              "proyectoChico"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "في الشهر الأول، احتفظ بالتي تعجبك أكثر، وضع لها هدفًا من الأيام في الأسبوع ومشروعًا صغيرًا يمكنك إنهاؤه."
+        },
+        {
+          "id": "compania",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "busca",
+              "comparte",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "amigos",
+            "cumbre"
+          ],
+          "texto": "وحين تعجبك فعلًا، ابحث عمّن تشاركها معه: درس، أو نادٍ، أو صديق."
+        },
+        {
+          "id": "ano",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuadritos",
+              "pausas",
+              "regresos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "وفي آخر السنة، انظر إلى تقويم المربعات: كل يوم تدرّبت فيه موجود هناك، بتوقفاته وعوداته."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "باختصار: الهواية مفيدة لك والوقت موجود؛ الشغف لا يُعثر عليه بل يُنمّى؛ لا يلزم أن تكون مفيدة لشيء؛ ولكي لا تتركها: هدف أسبوعي، ومشروع، وشخص تشاركها معه."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "في غرفة الهوايات في MindHaOS يمكنك أن تتابع هواياتك، مع هدفها من الأيام في الأسبوع، وجلساتك ومشاريعك، وأن ترى سنتك يومًا بيوم. ابنِ بيتك الذهني مجانًا اليوم: الرابط في الوصف. وفي الدليل القادم: كيف تستمتع بوقتك بشكل أفضل؟",
+    "boton": "افتح غرفة الهوايات",
+    "lamina": "app-plan",
+    "anclas": {
+      "pasatiempos": "تتابع هواياتك",
+      "sesiones": "وجلساتك",
+      "ano": "ترى سنتك"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "mak-2023",
+      "texto": "Mak H. W., Noguchi T., Bone J. K., Wels J., Gao Q., Kondo K., Saito T., Fancourt D. Hobby engagement and mental wellbeing among people aged 65 years and older in 16 countries. Nature Medicine (2023).",
+      "url": "https://doi.org/10.1038/s41591-023-02506-1"
+    },
+    {
+      "id": "bls-atus-2023",
+      "texto": "U.S. Bureau of Labor Statistics. American Time Use Survey — 2023 Results (2024).",
+      "url": "https://www.bls.gov/news.release/atus.nr0.htm"
+    },
+    {
+      "id": "okeefe-2018",
+      "texto": "O'Keefe P. A., Dweck C. S., Walton G. M. Implicit theories of interest: Finding your passion or developing it? Psychological Science (2018).",
+      "url": "https://doi.org/10.1177/0956797618780643"
+    },
+    {
+      "id": "tonietto-2021",
+      "texto": "Tonietto G. N., Malkoc S. A., Reczek R. W., Norton M. I. Viewing leisure as wasteful undermines enjoyment. Journal of Experimental Social Psychology (2021).",
+      "url": "https://doi.org/10.1016/j.jesp.2021.104198"
+    },
+    {
+      "id": "norton-2012",
+      "texto": "Norton M. I., Mochon D., Ariely D. The IKEA effect: When labor leads to love. Journal of Consumer Psychology (2012).",
+      "url": "https://doi.org/10.1016/j.jcps.2011.08.002"
+    },
+    {
+      "id": "silverman-2023",
+      "texto": "Silverman J., Barasch A. On or off track: How (broken) streaks affect consumer decisions. Journal of Consumer Research (2023).",
+      "url": "https://doi.org/10.1093/jcr/ucac029"
+    },
+    {
+      "id": "pearce-2015",
+      "texto": "Pearce E., Launay J., Dunbar R. I. M. The ice-breaker effect: singing mediates fast social bonding. Royal Society Open Science (2015).",
+      "url": "https://doi.org/10.1098/rsos.150221"
+    }
+  ]
+}

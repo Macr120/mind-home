@@ -1,0 +1,681 @@
+{
+  "idioma": "nl",
+  "tema": "hobbies",
+  "plantillaId": "hobbies",
+  "numero": 15,
+  "nombre": "Hobby's",
+  "pregunta": "Hoe vind je een hobby en hoe hou je hem vol?",
+  "corta": "Hoe vind je een hobby?",
+  "subtitulo": "Waarom je een hobby nodig hebt, hoe je de jouwe vindt, waarom hij nergens goed voor hoeft te zijn, waar je de tijd vandaan haalt, waarom wat je zelf maakt je meer grijpt, hoe je niet afhaakt, waarom samen met anderen en een plan om te beginnen.",
+  "aviso": "Deze gids is bedoeld als informatie: de genoemde onderzoeken worden eenvoudig samengevat, en veel ervan tonen verbanden, geen oorzaken. Voel je je lange tijd somber of nergens zin in, praat dan met iemand die je vertrouwt of met een professional.",
+  "partes": [
+    {
+      "id": "porque",
+      "titulo": "Waarom heb je een hobby nodig?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Hoe vind je een hobby en hoe hou je hem vol? Bijna iedereen heeft zo’n vijf uur vrije tijd per dag. En meer dan de helft daarvan gaat op aan tv kijken. Wat als een deel daarvan naar iets ging waar je echt van houdt? Vandaag zie je wat de wetenschap zegt, en ga je weg met een plan om deze week met de jouwe te beginnen."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Trouwens, dit is mijn huis in MindHaOS, en kijk: vandaag reist het per trein, als een reis langs alles wat je zou kunnen proberen. In deze kamer hou ik mijn hobby's bij."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel één. Waarom heb je een hobby nodig?"
+        },
+        {
+          "id": "mak",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "hobbiesSalud"
+          },
+          "lamina": [
+            "abuelos",
+            "jardineria"
+          ],
+          "destacada": true,
+          "texto": "In 2023 verzamelden Karen Mak en haar team gegevens van meer dan drieënnegentigduizend mensen boven de vijfenzestig in zestien landen. Wie een hobby had, had minder klachten van depressie, en voelde zich gezonder, gelukkiger en tevredener met het leven."
+        },
+        {
+          "id": "tiempo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tiempoLibre"
+          },
+          "lamina": [
+            "tele",
+            "sofa"
+          ],
+          "texto": "En tijd is er meestal wel. In 2023 hadden mensen in de Verenigde Staten gemiddeld zo’n vijf uur vrije tijd per dag, en bijna drie daarvan gingen op aan televisie. Kijk wat er gebeurt als je maar twintig minuten ruilt."
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "piano",
+              "astro",
+              "suSemana"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In mijn kamer Hobby's hou ik de mijne bij: de piano en de astrofotografie, elk met zijn eigen week en zijn reeks."
+        }
+      ]
+    },
+    {
+      "id": "encontrar",
+      "titulo": "Hoe vind je de jouwe?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel twee. Hoe vind je de jouwe?"
+        },
+        {
+          "id": "pasion",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "pasion"
+          },
+          "lamina": [
+            "brujula",
+            "caminoBosque"
+          ],
+          "destacada": true,
+          "texto": "Vast heeft iemand je gezegd: vind je passie. In 2018 zagen Paul O'Keefe, Carol Dweck en Gregory Walton dat wie gelooft dat je passie kant-en-klaar vindt, minder interesse toont in nieuwe dingen, en sneller loslaat als het moeilijk wordt."
+        },
+        {
+          "id": "desarrollar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "prueba",
+              "quedate",
+              "crece"
+            ]
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "Het idee dat werkt is anders: passie vind je niet, die ontwikkel je. Probeer verschillende dingen, hou vast wat je nieuwsgierig maakt en geef het tijd om te groeien."
+        },
+        {
+          "id": "explorar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "explorador"
+          },
+          "lamina": [
+            "ceramica",
+            "pintar"
+          ],
+          "texto": "Vraag je om te beginnen af hoe je het liefst je tijd doorbrengt: met je handen, met je hoofd, in beweging, met anderen of buiten. Kijk hoeveel ideeën er komen."
+        },
+        {
+          "id": "nuevo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombre",
+              "emoji",
+              "metaDias"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Als ik een nieuwe wil proberen, voeg ik hem hier toe met Nieuwe hobby: zijn naam, een emoji, een kleur en, als ik wil, een wekelijks doel in dagen."
+        }
+      ]
+    },
+    {
+      "id": "sirve",
+      "titulo": "Waarom hoeft hij nergens goed voor te zijn?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel drie. Waarom hoeft hij nergens goed voor te zijn?"
+        },
+        {
+          "id": "tonietto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2021",
+            "clave": "tonietto"
+          },
+          "lamina": [
+            "reloj",
+            "oficina"
+          ],
+          "destacada": true,
+          "texto": "Er is een heel gewone valkuil: het gevoel dat vrije tijd verloren tijd is. In 2021 zagen Gabriela Tonietto en haar team dat mensen die zo denken minder genieten van hun vrije momenten, en meer stress, angst en somberheid hebben."
+        },
+        {
+          "id": "porqueSi",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "negocio",
+              "redes",
+              "experto",
+              "gusto"
+            ]
+          },
+          "lamina": [
+            "guitarra",
+            "risa"
+          ],
+          "meme": "productivo",
+          "texto": "Een hobby hoeft geen bedrijf te worden, niet op sociale media te komen en je geen expert te maken. Zijn taak is een andere: dat je het graag doet."
+        },
+        {
+          "id": "talento",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nadie",
+              "practica",
+              "gusto"
+            ]
+          },
+          "lamina": [
+            "tejer",
+            "manosBarro"
+          ],
+          "meme": "talento",
+          "texto": "En je hebt geen talent nodig om te beginnen. Bijna niemand kan het de eerste week goed: het plezier komt met het oefenen, niet ervoor."
+        },
+        {
+          "id": "sesiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuanto",
+              "nota",
+              "sinPresion"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Met mijn piano wil ik geen concertpianist worden: hier noteer ik alleen hoelang ik heb gespeeld en een notitie, zoals ‘vandaag lukte het moeilijke stuk’."
+        }
+      ]
+    },
+    {
+      "id": "tiempo",
+      "titulo": "Waar haal je de tijd vandaan?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vier. Waar haal je de tijd vandaan?"
+        },
+        {
+          "id": "poco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "veinteMinutos"
+          },
+          "lamina": [
+            "temporizador",
+            "cafe"
+          ],
+          "destacada": true,
+          "texto": "Je hebt geen uren nodig. Twintig minuten, vier dagen per week, is samen bijna zeventig uur per jaar. Kijk hoe het verandert met jouw getallen."
+        },
+        {
+          "id": "lugarFijo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "despues",
+              "listo",
+              "aMano"
+            ]
+          },
+          "lamina": [
+            "cena",
+            "guitarraEstuche"
+          ],
+          "texto": "De truc is om hem een vaste plek in je week te geven: na het avondeten, zaterdagochtend. En leg alles binnen handbereik: de gitaar uit de hoes, het boek op tafel."
+        },
+        {
+          "id": "equipo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "basico",
+              "pruebas",
+              "despuesCompras"
+            ]
+          },
+          "lamina": [
+            "tienda",
+            "caja"
+          ],
+          "meme": "equipo",
+          "texto": "En pas op dat je niet alle spullen koopt voordat je begint. Eerst het basisspul; de rest pas als je weet dat je het leuk vindt."
+        },
+        {
+          "id": "sesion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "minutos",
+              "toque",
+              "pinta"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En twintig minuten is genoeg: ik leg de sessie vast met één tik, en mijn week kleurt langzaam in."
+        }
+      ]
+    },
+    {
+      "id": "proyectos",
+      "titulo": "Waarom grijpt wat je zelf maakt je meer?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vijf. Waarom grijpt wat je zelf maakt je meer?"
+        },
+        {
+          "id": "ikea",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ikea"
+          },
+          "lamina": [
+            "armarMueble",
+            "herramientas"
+          ],
+          "destacada": true,
+          "texto": "In 2012 vroegen Michael Norton en zijn team mensen om een IKEA-doos in elkaar te zetten. Daarna boden ze meer geld voor de doos die ze zelf hadden gemaakt dan anderen boden voor precies zo een, al in elkaar gezet. Wat je met je eigen handen maakt, is jou meer waard."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoHobbies"
+          },
+          "lamina": "pulgar",
+          "texto": "Als je de gids leuk vindt, klik dan op Vind ik leuk, op Abonneren zodat je de volgende niet mist, en op Delen, voor die ene persoon die altijd zegt dat hij geen enkele hobby heeft."
+        },
+        {
+          "id": "proyecto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "pasos",
+              "terminado"
+            ]
+          },
+          "lamina": [
+            "bufanda",
+            "luna"
+          ],
+          "texto": "Daarom grijpt een hobby je meer met een project: een heel nummer leren, een sjaal afbreien, de volle maan fotograferen. Iets wat je kunt afronden en laten zien."
+        },
+        {
+          "id": "proyectosCasa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pieza",
+              "lunas",
+              "fotos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Hier kan elke hobby zijn eigen projecten hebben: mijn eerste stuk, helemaal af, of twaalf volle manen in één jaar, met hun foto's."
+        }
+      ]
+    },
+    {
+      "id": "mantener",
+      "titulo": "Hoe haak je niet af?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zes. Hoe haak je niet af?"
+        },
+        {
+          "id": "rachas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "semanaFlexible"
+          },
+          "lamina": [
+            "calendarioPared",
+            "palomita"
+          ],
+          "destacada": true,
+          "texto": "In 2023 zagen Jackie Silverman en Alixandra Barasch dat een ononderbroken reeks motiveert, maar dat veel mensen stoppen zodra hij breekt, ook al deden ze net zoveel als daarvoor."
+        },
+        {
+          "id": "porSemana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuatroDeSiete",
+              "unDia",
+              "sigue"
+            ]
+          },
+          "lamina": [
+            "agendaPapel",
+            "semana"
+          ],
+          "texto": "Daarom is een doel per week beter dan per dag: vier van de zeven dagen. Lukt het een dag niet, dan staat de week nog overeind."
+        },
+        {
+          "id": "volver",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinCulpa",
+              "dondeLoDejaste",
+              "pocoAPoco"
+            ]
+          },
+          "lamina": [
+            "piano",
+            "ventana"
+          ],
+          "meme": "racha",
+          "texto": "En als je het een tijdje laat liggen, kom dan terug zonder schuldgevoel: een hobby is geen examen. Pak het op waar je was gebleven."
+        },
+        {
+          "id": "semanaCasa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta4",
+              "fila",
+              "llevas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Daarom heeft mijn piano een wekelijks doel van vier dagen en niet van zeven: deze week zit ik al op vijf, dus het doel is gehaald, en als ik een dag mis, is dat geen probleem."
+        }
+      ]
+    },
+    {
+      "id": "otros",
+      "titulo": "Waarom samen met anderen?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zeven. Waarom samen met anderen?"
+        },
+        {
+          "id": "canto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cantoGrupo"
+          },
+          "lamina": [
+            "coro",
+            "clase"
+          ],
+          "destacada": true,
+          "texto": "In 2015 volgden Eiluned Pearce, Jacques Launay en Robin Dunbar zeven maanden lang nieuwe cursussen voor volwassenen. Bij zangles voelde de groep zich veel sneller verbonden; bij handwerken en schrijven ook, maar dat duurde langer."
+        },
+        {
+          "id": "grupo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "club",
+              "clase",
+              "amigo"
+            ]
+          },
+          "lamina": [
+            "club",
+            "amigos"
+          ],
+          "texto": "Een groep geeft je een vaste afspraak, gezelschap en zin om terug te komen: een club, een cursus, of een vriend die met je meedoet."
+        },
+        {
+          "id": "compartir",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocar",
+              "regalar",
+              "ensenar"
+            ]
+          },
+          "lamina": [
+            "familia",
+            "regalo"
+          ],
+          "texto": "En delen wat je doet telt ook: een nummer spelen voor je familie, iets weggeven wat je zelf hebt gemaakt, iemand leren wat jij hebt geleerd."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel acht. Hoe ga je verder? Jouw plan om door te gaan."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planHobby"
+          },
+          "lamina": [
+            "lista",
+            "libreta"
+          ],
+          "texto": "Schrijf de eerste week drie hobby's op die je nieuwsgierig maken en probeer er één, twintig minuten, zonder iets te kopen."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "metaSemana",
+              "proyectoChico"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "Hou de eerste maand de hobby die je het leukst vindt, geef hem een doel in dagen per week en een klein project dat je kunt afronden."
+        },
+        {
+          "id": "compania",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "busca",
+              "comparte",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "amigos",
+            "cumbre"
+          ],
+          "texto": "En als je het eenmaal leuk vindt, zoek dan iemand om het mee te delen: een cursus, een club of een vriend."
+        },
+        {
+          "id": "ano",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuadritos",
+              "pausas",
+              "regresos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En kijk aan het eind van het jaar naar je kalender met vakjes: elke dag dat je hebt geoefend staat erin, met de pauzes en de keren dat je terugkwam."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Kortom: een hobby doet je goed en tijd is er wel; passie vind je niet, die ontwikkel je; hij hoeft nergens goed voor te zijn; en om hem vol te houden: een doel per week, een project en iemand om het mee te delen."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "In de kamer Hobby's van MindHaOS kun je je hobby's bijhouden, met hun wekelijks doel, je sessies en je projecten, en je jaar dag voor dag zien. Bouw vandaag gratis je mentale huis: de link staat in de beschrijving. En in de volgende gids: hoe vermaak je je beter?",
+    "boton": "Open de kamer Hobby's",
+    "lamina": "app-plan",
+    "anclas": {
+      "pasatiempos": "je hobby's",
+      "sesiones": "je sessies",
+      "ano": "je jaar"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "mak-2023",
+      "texto": "Mak H. W., Noguchi T., Bone J. K., Wels J., Gao Q., Kondo K., Saito T., Fancourt D. Hobby engagement and mental wellbeing among people aged 65 years and older in 16 countries. Nature Medicine (2023).",
+      "url": "https://doi.org/10.1038/s41591-023-02506-1"
+    },
+    {
+      "id": "bls-atus-2023",
+      "texto": "U.S. Bureau of Labor Statistics. American Time Use Survey — 2023 Results (2024).",
+      "url": "https://www.bls.gov/news.release/atus.nr0.htm"
+    },
+    {
+      "id": "okeefe-2018",
+      "texto": "O'Keefe P. A., Dweck C. S., Walton G. M. Implicit theories of interest: Finding your passion or developing it? Psychological Science (2018).",
+      "url": "https://doi.org/10.1177/0956797618780643"
+    },
+    {
+      "id": "tonietto-2021",
+      "texto": "Tonietto G. N., Malkoc S. A., Reczek R. W., Norton M. I. Viewing leisure as wasteful undermines enjoyment. Journal of Experimental Social Psychology (2021).",
+      "url": "https://doi.org/10.1016/j.jesp.2021.104198"
+    },
+    {
+      "id": "norton-2012",
+      "texto": "Norton M. I., Mochon D., Ariely D. The IKEA effect: When labor leads to love. Journal of Consumer Psychology (2012).",
+      "url": "https://doi.org/10.1016/j.jcps.2011.08.002"
+    },
+    {
+      "id": "silverman-2023",
+      "texto": "Silverman J., Barasch A. On or off track: How (broken) streaks affect consumer decisions. Journal of Consumer Research (2023).",
+      "url": "https://doi.org/10.1093/jcr/ucac029"
+    },
+    {
+      "id": "pearce-2015",
+      "texto": "Pearce E., Launay J., Dunbar R. I. M. The ice-breaker effect: singing mediates fast social bonding. Royal Society Open Science (2015).",
+      "url": "https://doi.org/10.1098/rsos.150221"
+    }
+  ]
+}

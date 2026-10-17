@@ -1,4 +1,4 @@
-import { useRef, type MutableRefObject } from 'react'
+import { useMemo, useRef, type MutableRefObject } from 'react'
 import { useFrame } from '@react-three/fiber'
 import type * as THREE from 'three'
 import type { BocaHabla } from '../../../src/core/house/bocaHabla'
@@ -12,6 +12,7 @@ import { GESTOS, Pieza } from './Princesa3D'
  * preset «Alien» de la app (`CUERPOS_PRESET` en src/core/house/cuerpos.ts: torso de cajas,
  * cabeza redonda y dos ojos negros grandes), con los brazos articulados desde el hombro para
  * los gestos de la guía (los mismos que la princesa) y una boca que se abre con la narración.
+ * `colores` cambia colores de sus piezas (Hobbies: el alien amarillo, como `CUERPO_COLORES` en la casa).
  */
 const ALIEN = CUERPOS_PRESET.find((c) => c.id === 'alien')!
 const PIEZAS = ALIEN.piezas()
@@ -21,7 +22,8 @@ const BRAZO_D = ALIEN.marcha?.brazoDer ?? 4
 /** Centro de la cabeza (la esfera de 0,3 en y = 1,55). */
 const CABEZA_Y = 1.55
 
-export function Alien3D({ escena, boca, cara }: { escena: string; boca: MutableRefObject<BocaHabla>; cara?: ExpresionId }) {
+export function Alien3D({ escena, boca, cara, colores }: { escena: string; boca: MutableRefObject<BocaHabla>; cara?: ExpresionId; colores?: Record<string, string> }) {
+  const piezas = useMemo(() => (colores ? PIEZAS.map((p) => ({ ...p, color: colores[p.color] ?? p.color })) : PIEZAS), [colores])
   const cuerpo = useRef<THREE.Group>(null)
   const cabeza = useRef<THREE.Group>(null)
   const brazoD = useRef<THREE.Group>(null)
@@ -57,7 +59,7 @@ export function Alien3D({ escena, boca, cara }: { escena: string; boca: MutableR
   // La cabeza y sus ojos giran juntos; los brazos, desde el hombro.
   const enCabeza = (p: Pieza3D) => p.pos[1] >= 1.4
   const brazo = (ref: MutableRefObject<THREE.Group | null>, i: number) => {
-    const p = PIEZAS[i]
+    const p = piezas[i]
     const hombro = p.pos[1] + (p.tam[1] ?? 0.6) / 2
     return (
       <group ref={ref} position={[p.pos[0], hombro, p.pos[2]]}>
@@ -68,9 +70,9 @@ export function Alien3D({ escena, boca, cara }: { escena: string; boca: MutableR
 
   return (
     <group ref={cuerpo} scale={1.1}>
-      {PIEZAS.map((p, i) => (i === BRAZO_I || i === BRAZO_D || enCabeza(p) ? null : <Pieza key={i} p={p} />))}
+      {piezas.map((p, i) => (i === BRAZO_I || i === BRAZO_D || enCabeza(p) ? null : <Pieza key={i} p={p} />))}
       <group ref={cabeza} position={[0, CABEZA_Y, 0]}>
-        {PIEZAS.map((p, i) => (enCabeza(p) ? <Pieza key={i} p={p} pos={[p.pos[0], p.pos[1] - CABEZA_Y, p.pos[2]]} /> : null))}
+        {piezas.map((p, i) => (enCabeza(p) ? <Pieza key={i} p={p} pos={[p.pos[0], p.pos[1] - CABEZA_Y, p.pos[2]]} /> : null))}
         {/* Boca, sobre la esfera de la cabeza, bajo los ojos */}
         <mesh ref={labios} position={[0, -0.13, 0.27]}>
           <sphereGeometry args={[0.04, 16, 12]} />

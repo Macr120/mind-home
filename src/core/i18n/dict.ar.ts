@@ -7330,6 +7330,7 @@ export const AR: Dict = {
   'guia.agenda.titulo': "كيف تنظّم وقتك؟",
   'guia.aprender.titulo': "كيف تتعلّم أسرع؟",
   'guia.escritura.titulo': "لماذا عليك أن تكتب؟",
+  'guia.hobbies.titulo': "كيف تجد هواية وكيف تحافظ عليها؟",
   'guia.matematicas.titulo': "ما لغة الكون؟",
   'tut.esencial.titulo': 'الأساسيات',
   'tut.tipo.ejemplos': 'أمثلة · MindHaOS التجريبي',

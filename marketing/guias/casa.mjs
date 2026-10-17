@@ -394,7 +394,7 @@ const TOMAS = [
       ${QUITAR_MARCA}
       await sleep(700)
       ${ESCENA.VISTA_CASA ? 'await abrirCam(await camJugador(80, -1.2), camAhora(), 4600, true)' : 'await moverCam(camAhora(), await camJugador(80, -1.2), 4600, ease)'}
-      ${orbitar(ESCENA.ORBITA_SALIDA[0], ESCENA.ORBITA_SALIDA[1], 2800)}
+      ${orbitar(ESCENA.ORBITA_SALIDA[0], ESCENA.ORBITA_SALIDA[1], 2800, ESCENA.ORBITA_SALIDA[2])}
       ${ESCENA.FIN_SALIDA ?? ''}
     `,
     limpiar: CAMARA_NORMAL,

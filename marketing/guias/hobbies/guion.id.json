@@ -1,0 +1,681 @@
+{
+  "idioma": "id",
+  "tema": "hobbies",
+  "plantillaId": "hobbies",
+  "numero": 15,
+  "nombre": "Hobi",
+  "pregunta": "Bagaimana menemukan hobi dan bagaimana mempertahankannya?",
+  "corta": "Bagaimana menemukan hobi?",
+  "subtitulo": "Kenapa kamu butuh hobi, cara menemukan hobimu, kenapa hobi tidak harus berguna, dari mana mendapat waktunya, kenapa yang kamu buat sendiri lebih memikat, cara agar tidak berhenti, kenapa melakukannya bersama orang lain, dan rencana untuk mulai.",
+  "aviso": "Panduan ini bersifat informatif: hasil studi yang dikutip diringkas secara sederhana, dan banyak yang menunjukkan hubungan, bukan sebab. Kalau kamu merasa sedih atau tidak bersemangat untuk apa pun dalam waktu lama, bicaralah dengan orang yang kamu percaya atau dengan tenaga profesional.",
+  "partes": [
+    {
+      "id": "porque",
+      "titulo": "Kenapa kamu butuh hobi?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Bagaimana menemukan hobi dan bagaimana mempertahankannya? Hampir semua orang punya sekitar lima jam waktu luang sehari. Dan lebih dari separuhnya habis di depan TV. Bagaimana kalau sebagian dipakai untuk sesuatu yang kamu sukai? Hari ini kamu akan melihatnya lewat apa kata sains, dan pulang dengan rencana untuk memulai hobimu minggu ini."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Omong-omong, ini rumahku di MindHaOS, dan lihat: hari ini rumahku bepergian naik kereta, seperti perjalanan menjelajahi semua yang bisa kamu coba. Di ruang ini aku menyimpan hobi-hobiku."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian satu. Kenapa kamu butuh hobi?"
+        },
+        {
+          "id": "mak",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "hobbiesSalud"
+          },
+          "lamina": [
+            "abuelos",
+            "jardineria"
+          ],
+          "destacada": true,
+          "texto": "Pada tahun dua ribu dua puluh tiga, Karen Mak dan timnya mengumpulkan data lebih dari sembilan puluh tiga ribu orang berusia di atas enam puluh lima tahun di enam belas negara. Mereka yang punya hobi memiliki lebih sedikit gejala depresi, dan merasa lebih sehat, lebih bahagia, dan lebih puas dengan hidupnya."
+        },
+        {
+          "id": "tiempo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tiempoLibre"
+          },
+          "lamina": [
+            "tele",
+            "sofa"
+          ],
+          "texto": "Dan waktunya biasanya ada. Pada tahun dua ribu dua puluh tiga, di Amerika Serikat, orang rata-rata punya sekitar lima jam waktu luang sehari, dan hampir tiga jam habis untuk menonton televisi. Lihat apa yang terjadi kalau kamu mengganti dua puluh menit saja."
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "piano",
+              "astro",
+              "suSemana"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Di ruang Hobi-ku ada hobi-hobiku: Piano dan Astrofotografi, masing-masing dengan minggunya dan runtunannya."
+        }
+      ]
+    },
+    {
+      "id": "encontrar",
+      "titulo": "Bagaimana menemukan hobimu?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian dua. Bagaimana menemukan hobimu?"
+        },
+        {
+          "id": "pasion",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "pasion"
+          },
+          "lamina": [
+            "brujula",
+            "caminoBosque"
+          ],
+          "destacada": true,
+          "texto": "Pasti kamu pernah dengar: temukan passion-mu. Pada tahun dua ribu delapan belas, Paul O'Keefe, Carol Dweck, dan Gregory Walton menemukan bahwa orang yang percaya passion itu ditemukan dalam bentuk jadi kurang tertarik pada hal baru, dan saat sesuatu mulai sulit, mereka lebih cepat melepaskannya."
+        },
+        {
+          "id": "desarrollar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "prueba",
+              "quedate",
+              "crece"
+            ]
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "Ide yang berhasil justru lain: passion tidak ditemukan, tapi dikembangkan. Coba beberapa hal, pertahankan yang membuatmu penasaran, dan beri waktu untuk tumbuh."
+        },
+        {
+          "id": "explorar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "explorador"
+          },
+          "lamina": [
+            "ceramica",
+            "pintar"
+          ],
+          "texto": "Untuk mulai, tanyakan pada dirimu bagaimana kamu suka menghabiskan waktu: dengan tangan, dengan pikiran, menggerakkan badan, bersama orang lain, atau di alam terbuka. Lihat berapa banyak ide yang muncul."
+        },
+        {
+          "id": "nuevo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombre",
+              "emoji",
+              "metaDias"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Kalau aku mau mencoba hobi baru, aku menambahkannya di sini: namanya, sebuah emoji, sebuah warna, dan kalau mau, target berapa hari per minggu."
+        }
+      ]
+    },
+    {
+      "id": "sirve",
+      "titulo": "Kenapa hobi tidak harus berguna?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tiga. Kenapa hobi tidak harus berguna?"
+        },
+        {
+          "id": "tonietto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2021",
+            "clave": "tonietto"
+          },
+          "lamina": [
+            "reloj",
+            "oficina"
+          ],
+          "destacada": true,
+          "texto": "Ada jebakan yang sangat umum: merasa waktu luang itu waktu yang terbuang. Pada tahun dua ribu dua puluh satu, Gabriela Tonietto dan timnya menemukan bahwa orang yang berpikir begitu kurang menikmati waktu luangnya, dan lebih banyak mengalami stres, cemas, dan sedih."
+        },
+        {
+          "id": "porqueSi",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "negocio",
+              "redes",
+              "experto",
+              "gusto"
+            ]
+          },
+          "lamina": [
+            "guitarra",
+            "risa"
+          ],
+          "meme": "productivo",
+          "texto": "Hobi tidak harus jadi bisnis, tidak harus muncul di media sosial, dan tidak harus membuatmu jadi ahli. Tugasnya lain: membuatmu senang melakukannya."
+        },
+        {
+          "id": "talento",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nadie",
+              "practica",
+              "gusto"
+            ]
+          },
+          "lamina": [
+            "tejer",
+            "manosBarro"
+          ],
+          "meme": "talento",
+          "texto": "Dan kamu tidak butuh bakat untuk mulai. Hampir tidak ada yang langsung bagus di minggu pertama: rasa suka datang dengan latihan, bukan sebelumnya."
+        },
+        {
+          "id": "sesiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuanto",
+              "nota",
+              "sinPresion"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Pianoku bukan untuk jadi pianis konser: di sini aku cuma mencatat berapa lama aku main dan satu catatan, seperti «hari ini bagian yang sulit berhasil»."
+        }
+      ]
+    },
+    {
+      "id": "tiempo",
+      "titulo": "Dari mana kamu mendapat waktunya?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian empat. Dari mana kamu mendapat waktunya?"
+        },
+        {
+          "id": "poco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "veinteMinutos"
+          },
+          "lamina": [
+            "temporizador",
+            "cafe"
+          ],
+          "destacada": true,
+          "texto": "Kamu tidak butuh berjam-jam. Dua puluh menit, empat hari seminggu, jadinya hampir tujuh puluh jam setahun. Lihat bagaimana hasilnya berubah dengan angkamu."
+        },
+        {
+          "id": "lugarFijo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "despues",
+              "listo",
+              "aMano"
+            ]
+          },
+          "lamina": [
+            "cena",
+            "guitarraEstuche"
+          ],
+          "texto": "Triknya adalah memberinya tempat tetap dalam minggumu: setelah makan malam, Sabtu pagi. Dan taruh semuanya dalam jangkauan: gitar di luar tasnya, buku di atas meja."
+        },
+        {
+          "id": "equipo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "basico",
+              "pruebas",
+              "despuesCompras"
+            ]
+          },
+          "lamina": [
+            "tienda",
+            "caja"
+          ],
+          "meme": "equipo",
+          "texto": "Dan hati-hati membeli semua perlengkapan sebelum mulai. Yang dasar dulu; sisanya nanti, kalau kamu sudah tahu kamu suka."
+        },
+        {
+          "id": "sesion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "minutos",
+              "toque",
+              "pinta"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dan dua puluh menit sudah cukup: aku mencatat sesinya dengan sekali ketuk, dan mingguku pelan-pelan terisi warna."
+        }
+      ]
+    },
+    {
+      "id": "proyectos",
+      "titulo": "Kenapa yang kamu buat sendiri lebih memikat?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian lima. Kenapa yang kamu buat sendiri lebih memikat?"
+        },
+        {
+          "id": "ikea",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ikea"
+          },
+          "lamina": [
+            "armarMueble",
+            "herramientas"
+          ],
+          "destacada": true,
+          "texto": "Pada tahun dua ribu dua belas, Michael Norton dan timnya meminta beberapa orang merakit sebuah kotak IKEA. Setelah itu, mereka menawar lebih mahal untuk kotak yang mereka rakit sendiri dibanding orang lain untuk kotak yang sama yang sudah dirakit. Apa yang kamu buat dengan tanganmu sendiri lebih berharga bagimu."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoHobbies"
+          },
+          "lamina": "pulgar",
+          "texto": "Kalau kamu suka panduan ini, tekan Suka, Subscribe supaya tidak ketinggalan panduan berikutnya, dan Bagikan ke orang yang selalu bilang dia tidak punya hobi apa pun."
+        },
+        {
+          "id": "proyecto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "pasos",
+              "terminado"
+            ]
+          },
+          "lamina": [
+            "bufanda",
+            "luna"
+          ],
+          "texto": "Karena itu hobi lebih memikat kalau ada proyeknya: belajar satu lagu penuh, menyelesaikan syal, memotret bulan purnama. Sesuatu yang bisa kamu selesaikan dan tunjukkan."
+        },
+        {
+          "id": "proyectosCasa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pieza",
+              "lunas",
+              "fotos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Di sini setiap hobi bisa punya Proyek-nya sendiri: karya pertamaku, Ode to Joy, sampai selesai, atau dua belas bulan purnama dalam setahun, lengkap dengan fotonya."
+        }
+      ]
+    },
+    {
+      "id": "mantener",
+      "titulo": "Bagaimana agar tidak berhenti?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian enam. Bagaimana agar tidak berhenti?"
+        },
+        {
+          "id": "rachas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "semanaFlexible"
+          },
+          "lamina": [
+            "calendarioPared",
+            "palomita"
+          ],
+          "destacada": true,
+          "texto": "Pada tahun dua ribu dua puluh tiga, Jackie Silverman dan Alixandra Barasch menemukan bahwa runtunan yang utuh itu memotivasi, tapi saat runtunannya putus, banyak orang berhenti, padahal mereka melakukan hal yang sama seperti sebelumnya."
+        },
+        {
+          "id": "porSemana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuatroDeSiete",
+              "unDia",
+              "sigue"
+            ]
+          },
+          "lamina": [
+            "agendaPapel",
+            "semana"
+          ],
+          "texto": "Karena itu target mingguan lebih baik daripada target harian: empat dari tujuh hari. Kalau suatu hari kamu tidak bisa, minggunya tetap utuh."
+        },
+        {
+          "id": "volver",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinCulpa",
+              "dondeLoDejaste",
+              "pocoAPoco"
+            ]
+          },
+          "lamina": [
+            "piano",
+            "ventana"
+          ],
+          "meme": "racha",
+          "texto": "Dan kalau kamu sempat berhenti, kembalilah tanpa rasa bersalah: hobi bukan ujian. Lanjutkan dari tempat kamu berhenti."
+        },
+        {
+          "id": "semanaCasa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta4",
+              "fila",
+              "llevas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Karena itu pianoku punya target empat hari per minggu, bukan tujuh: minggu ini aku sudah lima hari, jadi targetnya tercapai, dan kalau satu hari terlewat, tidak apa-apa."
+        }
+      ]
+    },
+    {
+      "id": "otros",
+      "titulo": "Kenapa melakukannya bersama orang lain?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tujuh. Kenapa melakukannya bersama orang lain?"
+        },
+        {
+          "id": "canto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cantoGrupo"
+          },
+          "lamina": [
+            "coro",
+            "clase"
+          ],
+          "destacada": true,
+          "texto": "Pada tahun dua ribu lima belas, Eiluned Pearce, Jacques Launay, dan Robin Dunbar mengikuti kelas-kelas baru untuk orang dewasa selama tujuh bulan. Di kelas menyanyi, kelompoknya merasa akrab jauh lebih cepat; di kelas kerajinan dan menulis juga, tapi butuh waktu lebih lama."
+        },
+        {
+          "id": "grupo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "club",
+              "clase",
+              "amigo"
+            ]
+          },
+          "lamina": [
+            "club",
+            "amigos"
+          ],
+          "texto": "Kelompok memberimu jadwal tetap, teman, dan semangat untuk kembali: sebuah klub, sebuah kelas, atau teman yang ikut bersamamu."
+        },
+        {
+          "id": "compartir",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocar",
+              "regalar",
+              "ensenar"
+            ]
+          },
+          "lamina": [
+            "familia",
+            "regalo"
+          ],
+          "texto": "Dan berbagi apa yang kamu buat juga berarti: memainkan lagu untuk keluargamu, menghadiahkan sesuatu buatanmu, mengajari seseorang apa yang sudah kamu pelajari."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Bagaimana melanjutkan? Rencanamu untuk terus maju",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian delapan. Bagaimana melanjutkan? Rencanamu untuk terus maju."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planHobby"
+          },
+          "lamina": [
+            "lista",
+            "libreta"
+          ],
+          "texto": "Di minggu pertama, tulis tiga hobi yang membuatmu penasaran dan coba satu, dua puluh menit, tanpa membeli apa pun."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "metaSemana",
+              "proyectoChico"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "Di bulan pertama, pilih yang paling kamu suka, beri target berapa hari per minggu dan satu proyek kecil yang bisa kamu selesaikan."
+        },
+        {
+          "id": "compania",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "busca",
+              "comparte",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "amigos",
+            "cumbre"
+          ],
+          "texto": "Dan kalau kamu sudah suka, cari teman untuk berbagi: sebuah kelas, sebuah klub, atau seorang teman."
+        },
+        {
+          "id": "ano",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuadritos",
+              "pausas",
+              "regresos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dan di akhir tahun, lihat kalender kotak-kotakmu: setiap hari kamu berlatih ada di sana, lengkap dengan jeda dan saat kamu kembali."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Ringkasnya: hobi baik untukmu dan waktunya ada; passion tidak ditemukan, tapi dikembangkan; hobi tidak harus berguna; dan supaya tidak lepas: target mingguan, satu proyek, dan seseorang untuk berbagi."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Di ruang Hobi MindHaOS, kamu bisa mencatat hobi-hobimu, dengan target hari per minggunya, sesi-sesimu, dan proyek-proyekmu, lalu melihat tahunmu hari demi hari. Bangun rumah pikiranmu gratis hari ini: tautannya ada di deskripsi. Dan di panduan berikutnya: bagaimana menghibur dirimu dengan lebih baik?",
+    "boton": "Buka ruang Hobi",
+    "lamina": "app-plan",
+    "anclas": {
+      "pasatiempos": "hobi-hobimu",
+      "sesiones": "sesi-sesimu",
+      "ano": "melihat tahunmu"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "mak-2023",
+      "texto": "Mak H. W., Noguchi T., Bone J. K., Wels J., Gao Q., Kondo K., Saito T., Fancourt D. Hobby engagement and mental wellbeing among people aged 65 years and older in 16 countries. Nature Medicine (2023).",
+      "url": "https://doi.org/10.1038/s41591-023-02506-1"
+    },
+    {
+      "id": "bls-atus-2023",
+      "texto": "U.S. Bureau of Labor Statistics. American Time Use Survey — 2023 Results (2024).",
+      "url": "https://www.bls.gov/news.release/atus.nr0.htm"
+    },
+    {
+      "id": "okeefe-2018",
+      "texto": "O'Keefe P. A., Dweck C. S., Walton G. M. Implicit theories of interest: Finding your passion or developing it? Psychological Science (2018).",
+      "url": "https://doi.org/10.1177/0956797618780643"
+    },
+    {
+      "id": "tonietto-2021",
+      "texto": "Tonietto G. N., Malkoc S. A., Reczek R. W., Norton M. I. Viewing leisure as wasteful undermines enjoyment. Journal of Experimental Social Psychology (2021).",
+      "url": "https://doi.org/10.1016/j.jesp.2021.104198"
+    },
+    {
+      "id": "norton-2012",
+      "texto": "Norton M. I., Mochon D., Ariely D. The IKEA effect: When labor leads to love. Journal of Consumer Psychology (2012).",
+      "url": "https://doi.org/10.1016/j.jcps.2011.08.002"
+    },
+    {
+      "id": "silverman-2023",
+      "texto": "Silverman J., Barasch A. On or off track: How (broken) streaks affect consumer decisions. Journal of Consumer Research (2023).",
+      "url": "https://doi.org/10.1093/jcr/ucac029"
+    },
+    {
+      "id": "pearce-2015",
+      "texto": "Pearce E., Launay J., Dunbar R. I. M. The ice-breaker effect: singing mediates fast social bonding. Royal Society Open Science (2015).",
+      "url": "https://doi.org/10.1098/rsos.150221"
+    }
+  ]
+}

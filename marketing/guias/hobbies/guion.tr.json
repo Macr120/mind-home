@@ -1,0 +1,681 @@
+{
+  "idioma": "tr",
+  "tema": "hobbies",
+  "plantillaId": "hobbies",
+  "numero": 15,
+  "nombre": "Hobiler",
+  "pregunta": "Bir hobi nasıl bulunur ve nasıl sürdürülür?",
+  "corta": "Bir hobi nasıl bulunur?",
+  "subtitulo": "Neden bir hobiye ihtiyacın var, kendininkini nasıl bulursun, neden hiçbir işe yaraması gerekmez, zamanı nereden bulursun, kendi ellerinle yaptığın şey neden daha çok bağlar, nasıl bırakmazsın, neden başkalarıyla yapmalısın ve başlamak için bir plan.",
+  "aviso": "Bu rehber bilgilendirme amaçlıdır: alıntılanan çalışmaların sonuçları basitçe özetlenmiştir ve birçoğu neden değil, ilişki gösterir. Uzun süredir üzgün ya da hiçbir şeye isteksiz hissediyorsan, güvendiğin biriyle ya da bir uzmanla konuş.",
+  "partes": [
+    {
+      "id": "porque",
+      "titulo": "Neden bir hobiye ihtiyacın var?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Bir hobi nasıl bulunur ve nasıl sürdürülür? Neredeyse hepimizin günde yaklaşık beş saat boş vakti var. Ve bunun yarısından fazlası televizyon karşısında geçiyor. Ya bir kısmı çok sevdiğin bir şeye gitseydi? Bugün bilimin ne dediğini göreceksin ve kendi hobine bu hafta başlamak için bir planla ayrılacaksın."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Bu arada, burası MindHaOS'taki evim ve bak: bugün trenle yolculuk ediyor, deneyebileceğin her şeyin içinden geçen bir yolculuk gibi. Bu odada hobilerimi takip ediyorum."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Birinci bölüm. Neden bir hobiye ihtiyacın var?"
+        },
+        {
+          "id": "mak",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "hobbiesSalud"
+          },
+          "lamina": [
+            "abuelos",
+            "jardineria"
+          ],
+          "destacada": true,
+          "texto": "2023'te Karen Mak ve ekibi, on altı ülkede altmış beş yaş üstü doksan üç binden fazla kişinin verilerini topladı. Bir hobisi olanlarda depresyon belirtileri daha azdı ve kendilerini daha sağlıklı, daha mutlu ve hayatlarından daha memnun hissediyorlardı."
+        },
+        {
+          "id": "tiempo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tiempoLibre"
+          },
+          "lamina": [
+            "tele",
+            "sofa"
+          ],
+          "texto": "Ve zaman genelde var. 2023'te Amerika Birleşik Devletleri'nde insanların ortalama günde yaklaşık beş saat boş vakti vardı ve bunun neredeyse üç saati televizyona gidiyordu. Sadece yirmi dakikayı değiştirirsen ne olduğuna bak."
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "piano",
+              "astro",
+              "suSemana"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Hobiler odamda kendi hobilerimi takip ediyorum: piyano ve astrofotoğrafçılık, her birinin kendi haftası ve serisiyle."
+        }
+      ]
+    },
+    {
+      "id": "encontrar",
+      "titulo": "Kendininkini nasıl bulursun?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "İkinci bölüm. Kendininkini nasıl bulursun?"
+        },
+        {
+          "id": "pasion",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2018",
+            "clave": "pasion"
+          },
+          "lamina": [
+            "brujula",
+            "caminoBosque"
+          ],
+          "destacada": true,
+          "texto": "Sana mutlaka şöyle denmiştir: tutkunu bul. 2018'de Paul O'Keefe, Carol Dweck ve Gregory Walton, tutkunun hazır bulunduğuna inananların yeni şeylere daha az ilgi duyduğunu ve bir şey zorlaşınca onu daha çabuk bıraktığını gördü."
+        },
+        {
+          "id": "desarrollar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "prueba",
+              "quedate",
+              "crece"
+            ]
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "İşe yarayan fikir başka: tutku bulunmaz, geliştirilir. Birkaç şey dene, merakını uyandıranla devam et ve büyümesi için ona zaman tanı."
+        },
+        {
+          "id": "explorar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "explorador"
+          },
+          "lamina": [
+            "ceramica",
+            "pintar"
+          ],
+          "texto": "Başlamak için vaktini nasıl geçirmeyi sevdiğini düşün: ellerinle, kafanla, hareket ederek, başkalarıyla ya da açık havada. Kaç fikir çıktığına bak."
+        },
+        {
+          "id": "nuevo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombre",
+              "emoji",
+              "metaDias"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Yeni bir şey denemek istediğimde buraya yeni hobi olarak eklerim: adını, bir emoji, bir renk ve istersem haftalık hedef olarak gün sayısı."
+        }
+      ]
+    },
+    {
+      "id": "sirve",
+      "titulo": "Neden hiçbir işe yaraması gerekmez?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Üçüncü bölüm. Neden hiçbir işe yaraması gerekmez?"
+        },
+        {
+          "id": "tonietto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2021",
+            "clave": "tonietto"
+          },
+          "lamina": [
+            "reloj",
+            "oficina"
+          ],
+          "destacada": true,
+          "texto": "Çok yaygın bir tuzak var: boş zamanın kayıp zaman olduğunu hissetmek. 2021'de Gabriela Tonietto ve ekibi, böyle düşünenlerin boş anlarından daha az keyif aldığını ve daha fazla stres, kaygı ve üzüntü yaşadığını gördü."
+        },
+        {
+          "id": "porqueSi",
+          "escena": "senala",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "negocio",
+              "redes",
+              "experto",
+              "gusto"
+            ]
+          },
+          "lamina": [
+            "guitarra",
+            "risa"
+          ],
+          "meme": "productivo",
+          "texto": "Bir hobinin işe dönüşmesi, sosyal medyaya çıkması ya da seni uzman yapması gerekmez. Onun görevi başka: yaparken keyif alman."
+        },
+        {
+          "id": "talento",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nadie",
+              "practica",
+              "gusto"
+            ]
+          },
+          "lamina": [
+            "tejer",
+            "manosBarro"
+          ],
+          "meme": "talento",
+          "texto": "Başlamak için yeteneğe de ihtiyacın yok. Neredeyse kimse ilk hafta iyi yapamaz: keyif pratikle gelir, ondan önce değil."
+        },
+        {
+          "id": "sesiones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuanto",
+              "nota",
+              "sinPresion"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Piyanom konser piyanisti olmak için değil: burada sadece ne kadar çaldığımı ve bir not yazarım, mesela “bugün zor kısmı çıkardım”."
+        }
+      ]
+    },
+    {
+      "id": "tiempo",
+      "titulo": "Zamanı nereden bulursun?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Dördüncü bölüm. Zamanı nereden bulursun?"
+        },
+        {
+          "id": "poco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "veinteMinutos"
+          },
+          "lamina": [
+            "temporizador",
+            "cafe"
+          ],
+          "destacada": true,
+          "texto": "Saatlere ihtiyacın yok. Haftada dört gün yirmi dakika, yılda neredeyse yetmiş saat eder. Kendi sayılarınla nasıl değiştiğine bak."
+        },
+        {
+          "id": "lugarFijo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "despues",
+              "listo",
+              "aMano"
+            ]
+          },
+          "lamina": [
+            "cena",
+            "guitarraEstuche"
+          ],
+          "texto": "İşin sırrı, ona haftanda sabit bir yer vermek: akşam yemeğinden sonra, cumartesi sabahı. Ve her şeyi el altında tut: gitar kılıfının dışında, kitap masanın üstünde."
+        },
+        {
+          "id": "equipo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "basico",
+              "pruebas",
+              "despuesCompras"
+            ]
+          },
+          "lamina": [
+            "tienda",
+            "caja"
+          ],
+          "meme": "equipo",
+          "texto": "Ve başlamadan önce bütün ekipmanı almaktan sakın. Önce temel olanlar; gerisi, sevdiğini anladığında."
+        },
+        {
+          "id": "sesion",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "minutos",
+              "toque",
+              "pinta"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Ve yirmi dakika yeter: pratiğimi tek dokunuşla kaydederim ve haftam renklenir."
+        }
+      ]
+    },
+    {
+      "id": "proyectos",
+      "titulo": "Kendi ellerinle yaptığın şey neden daha çok bağlar?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Beşinci bölüm. Kendi ellerinle yaptığın şey neden daha çok bağlar?"
+        },
+        {
+          "id": "ikea",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ikea"
+          },
+          "lamina": [
+            "armarMueble",
+            "herramientas"
+          ],
+          "destacada": true,
+          "texto": "2012'de Michael Norton ve ekibi bazı insanlardan bir IKEA kutusu kurmalarını istedi. Sonra bu kişiler kendi kurdukları kutu için, başkalarının aynısının hazır kurulmuşu için verdiğinden daha fazla para teklif etti. Kendi ellerinle yaptığın şey senin için daha değerlidir."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoHobbies"
+          },
+          "lamina": "pulgar",
+          "texto": "Bu rehberi beğeniyorsan Beğen’e bas, bir sonrakini kaçırmamak için Abone ol ve hiç hobisi olmadığını hep söyleyen o kişiyle Paylaş."
+        },
+        {
+          "id": "proyecto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "pasos",
+              "terminado"
+            ]
+          },
+          "lamina": [
+            "bufanda",
+            "luna"
+          ],
+          "texto": "Bu yüzden bir hobi, bir projeyle daha çok bağlar: bir şarkıyı baştan sona öğrenmek, bir atkıyı bitirmek, dolunayı fotoğraflamak. Bitirip gösterebileceğin bir şey."
+        },
+        {
+          "id": "proyectosCasa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pieza",
+              "lunas",
+              "fotos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Burada her hobinin kendi projeleri olabilir: baştan sona ilk parçam Neşeye Övgü ya da bir yılın on iki dolunayı, fotoğraflarıyla."
+        }
+      ]
+    },
+    {
+      "id": "mantener",
+      "titulo": "Nasıl bırakmazsın?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Altıncı bölüm. Nasıl bırakmazsın?"
+        },
+        {
+          "id": "rachas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "semanaFlexible"
+          },
+          "lamina": [
+            "calendarioPared",
+            "palomita"
+          ],
+          "destacada": true,
+          "texto": "2023'te Jackie Silverman ve Alixandra Barasch, kesintisiz bir serinin motive ettiğini ama seri bozulunca, öncekiyle aynı şeyi yapmış olsalar bile birçok kişinin bıraktığını gördü."
+        },
+        {
+          "id": "porSemana",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuatroDeSiete",
+              "unDia",
+              "sigue"
+            ]
+          },
+          "lamina": [
+            "agendaPapel",
+            "semana"
+          ],
+          "texto": "Bu yüzden günlük değil, haftalık bir hedef daha iyidir: yedi günün dördü. Bir gün yapamazsan hafta yine ayakta kalır."
+        },
+        {
+          "id": "volver",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sinCulpa",
+              "dondeLoDejaste",
+              "pocoAPoco"
+            ]
+          },
+          "lamina": [
+            "piano",
+            "ventana"
+          ],
+          "meme": "racha",
+          "texto": "Ve bir süre ara verirsen, suçluluk duymadan geri dön: hobi bir sınav değil. Kaldığın yerden devam et."
+        },
+        {
+          "id": "semanaCasa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta4",
+              "fila",
+              "llevas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bu yüzden piyanomun hedefi haftada yedi değil, dört gün: bu hafta zaten beş gün çaldım, yani hedef başarıldı ve bir gün kaçırırsam hiçbir şey olmaz."
+        }
+      ]
+    },
+    {
+      "id": "otros",
+      "titulo": "Neden başkalarıyla yapmalı?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Yedinci bölüm. Neden başkalarıyla yapmalı?"
+        },
+        {
+          "id": "canto",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cantoGrupo"
+          },
+          "lamina": [
+            "coro",
+            "clase"
+          ],
+          "destacada": true,
+          "texto": "2015'te Eiluned Pearce, Jacques Launay ve Robin Dunbar, yetişkinler için açılan yeni kursları yedi ay boyunca takip etti. Şarkı kurslarında grup çok daha hızlı kaynaştı; el işi ve yazı kurslarında da kaynaştı ama daha uzun sürdü."
+        },
+        {
+          "id": "grupo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "club",
+              "clase",
+              "amigo"
+            ]
+          },
+          "lamina": [
+            "club",
+            "amigos"
+          ],
+          "texto": "Bir grup sana sabit bir buluşma, arkadaşlık ve geri dönme isteği verir: bir kulüp, bir kurs ya da seninle birlikte yazılan bir arkadaş."
+        },
+        {
+          "id": "compartir",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocar",
+              "regalar",
+              "ensenar"
+            ]
+          },
+          "lamina": [
+            "familia",
+            "regalo"
+          ],
+          "texto": "Ve yaptığını paylaşmak da önemli: ailene bir şarkı çalmak, kendi yaptığın bir şeyi hediye etmek, öğrendiğini birine öğretmek."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Nasıl devam etmeli? Devam etmek için planın",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Sekizinci bölüm. Nasıl devam etmeli? Devam etmek için planın."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planHobby"
+          },
+          "lamina": [
+            "lista",
+            "libreta"
+          ],
+          "texto": "İlk hafta merak ettiğin üç hobiyi yaz ve birini dene: yirmi dakika, hiçbir şey satın almadan."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "metaSemana",
+              "proyectoChico"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "İlk ay en çok sevdiğinle devam et, ona haftalık bir gün hedefi ve bitirebileceğin küçük bir proje koy."
+        },
+        {
+          "id": "compania",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "busca",
+              "comparte",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "amigos",
+            "cumbre"
+          ],
+          "texto": "Ve sevmeye başladığında, onu paylaşacak birini ara: bir kurs, bir kulüp ya da bir arkadaş."
+        },
+        {
+          "id": "ano",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuadritos",
+              "pausas",
+              "regresos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Ve yılın sonunda karelerden oluşan takvimine bak: pratik yaptığın her gün orada, aralarıyla ve dönüşleriyle."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Özetle: hobi sana iyi gelir ve zaman gerçekten var; tutku bulunmaz, geliştirilir; hiçbir işe yaraması gerekmez; ve bırakmamak için haftalık bir hedef, bir proje ve paylaşacak biri."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS'taki Hobiler odasında hobilerini haftalık gün hedefleriyle takip edebilir, seanslarını ve projelerini kaydedebilir ve yılını gün gün görebilirsin. Zihinsel evini bugün ücretsiz kur: bağlantı açıklamada. Bir sonraki rehberde ise: nasıl daha iyi eğlenirsin?",
+    "boton": "Hobiler odasını aç",
+    "lamina": "app-plan",
+    "anclas": {
+      "pasatiempos": "hobilerini",
+      "sesiones": "seanslarını",
+      "ano": "yılını gün gün"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "mak-2023",
+      "texto": "Mak H. W., Noguchi T., Bone J. K., Wels J., Gao Q., Kondo K., Saito T., Fancourt D. Hobby engagement and mental wellbeing among people aged 65 years and older in 16 countries. Nature Medicine (2023).",
+      "url": "https://doi.org/10.1038/s41591-023-02506-1"
+    },
+    {
+      "id": "bls-atus-2023",
+      "texto": "U.S. Bureau of Labor Statistics. American Time Use Survey — 2023 Results (2024).",
+      "url": "https://www.bls.gov/news.release/atus.nr0.htm"
+    },
+    {
+      "id": "okeefe-2018",
+      "texto": "O'Keefe P. A., Dweck C. S., Walton G. M. Implicit theories of interest: Finding your passion or developing it? Psychological Science (2018).",
+      "url": "https://doi.org/10.1177/0956797618780643"
+    },
+    {
+      "id": "tonietto-2021",
+      "texto": "Tonietto G. N., Malkoc S. A., Reczek R. W., Norton M. I. Viewing leisure as wasteful undermines enjoyment. Journal of Experimental Social Psychology (2021).",
+      "url": "https://doi.org/10.1016/j.jesp.2021.104198"
+    },
+    {
+      "id": "norton-2012",
+      "texto": "Norton M. I., Mochon D., Ariely D. The IKEA effect: When labor leads to love. Journal of Consumer Psychology (2012).",
+      "url": "https://doi.org/10.1016/j.jcps.2011.08.002"
+    },
+    {
+      "id": "silverman-2023",
+      "texto": "Silverman J., Barasch A. On or off track: How (broken) streaks affect consumer decisions. Journal of Consumer Research (2023).",
+      "url": "https://doi.org/10.1093/jcr/ucac029"
+    },
+    {
+      "id": "pearce-2015",
+      "texto": "Pearce E., Launay J., Dunbar R. I. M. The ice-breaker effect: singing mediates fast social bonding. Royal Society Open Science (2015).",
+      "url": "https://doi.org/10.1098/rsos.150221"
+    }
+  ]
+}
