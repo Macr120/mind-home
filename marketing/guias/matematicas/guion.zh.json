@@ -1,0 +1,433 @@
+{
+  "idioma": "zh",
+  "tema": "matematicas",
+  "plantillaId": "computo",
+  "numero": 13,
+  "nombre": "数学",
+  "pregunta": "宇宙的语言是什么？",
+  "corta": "宇宙的语言",
+  "subtitulo": "为什么宇宙可以用数字来描述，数字从哪里来，为什么数学让人害怕，怎样解决任何问题，怎样看见一个方程，怎样在生活中用好数字，还有一个继续学习的计划。",
+  "aviso": "本指南仅供参考：引用的数字和研究都是来源中的近似值，每个人学习的节奏也不一样。如果对数学的焦虑让你寸步难行，或者对你影响很大，请找老师、辅导员或专业人士聊聊。",
+  "partes": [
+    {
+      "id": "universo",
+      "titulo": "为什么宇宙用数字说话？",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": { "tipo": "titulo" },
+          "enCasa": true,
+          "texto": "宇宙的语言是什么？1846年，一位天文学家没有抬头看天，就发现了一颗新行星：他只用了纸和笔。今天你会看到他是怎么做到的，还有为什么同一种语言，也能帮你过好每一天。"
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "enCasa": true,
+          "texto": "对了，这是我在MindHaOS里的家，这是我的电脑室。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "第一部分。为什么宇宙用数字说话？"
+        },
+        {
+          "id": "galileo",
+          "escena": "pensando",
+          "visual": { "tipo": "dato", "cifra": "1623", "clave": "galileo" },
+          "lamina": ["galileo", "estrellas"],
+          "texto": "1623年，伽利略·伽利莱写道，自然这本大书是用数学语言写成的，没有它，我们就只能在黑暗的迷宫里打转。"
+        },
+        {
+          "id": "neptuno",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "neptuno" },
+          "lamina": ["leverrier", "neptuno"],
+          "texto": "这就是开头说的那颗行星。天王星没有沿着牛顿定律预测的轨道运行：有什么东西在拉它。于尔班·勒维耶算出了那个东西应该在哪里，把结果寄到了柏林。约翰·伽勒当晚就把望远镜对准那里，在离计算位置只差一度的地方，发现了海王星。"
+        },
+        {
+          "id": "wigner",
+          "escena": "pensando",
+          "visual": { "tipo": "lista", "claves": ["inventar", "describir", "predecir"] },
+          "lamina": ["pizarra2", "galaxia"],
+          "texto": "1960年，物理学家尤金·维格纳把这称为数学不合理的有效性：有人在纸上发明的想法，有时早了好几个世纪，最后却描述了世界是怎样运转的。"
+        },
+        {
+          "id": "formulario",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["matematicas", "fisica", "quimica"] },
+          "enCasa": true,
+          "lamina": "pizarron",
+          "texto": "所以在我的电脑室里，有一本公式手册，里面有数学、物理和化学的文件夹：只要输入数据，每个公式都会自动算出来。"
+        }
+      ]
+    },
+    {
+      "id": "origen",
+      "titulo": "数字是从哪里来的？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "第二部分。数字是从哪里来的？"
+        },
+        {
+          "id": "bebes",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "unoMasUno" },
+          "lamina": ["bebe", "nino"],
+          "texto": "数字比我们开始得更早。1992年，凯伦·温给五个月大的婴儿看一个玩偶，然后在屏风后面再放一个。拿开屏风时如果只剩一个，婴儿就会盯着看更久，好像有什么不对劲。我们天生就有数量感。"
+        },
+        {
+          "id": "ishango",
+          "escena": "pensando",
+          "visual": { "tipo": "dato", "cifra": "≈ 2万年", "clave": "ishango" },
+          "lamina": ["ishango", "contar"],
+          "texto": "我们发明的，是把它写下来。在刚果发现的伊尚戈骨，大约有两万年历史，上面刻满了一组一组的刻痕：有人在记某样东西的数。"
+        },
+        {
+          "id": "babilonia",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "base60" },
+          "lamina": ["plimpton", "reloj"],
+          "texto": "将近四千年前，巴比伦人是六十六十地数数的。所以今天一小时有六十分钟，一个圆有三百六十度：我们一直在用他们的数字，自己却不知道。"
+        },
+        {
+          "id": "cero",
+          "escena": "habla",
+          "visual": { "tipo": "pasos", "claves": ["mayas", "brahmagupta", "alJuarismi"] },
+          "lamina": ["glifoMaya", "alJuarismi"],
+          "texto": "而零来得很晚。玛雅人在历法里用零，公元628年，在印度，婆罗摩笈多写下了用零做加减的规则。两个世纪后，在巴格达，花拉子米写了一本书，代数的英文algebra就来自这本书；而算法的英文algorithm，来自他的名字。",
+          "meme": "cero"
+        },
+        {
+          "id": "bases",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["decimal", "binario", "hexadecimal"] },
+          "enCasa": true,
+          "lamina": "binario",
+          "texto": "在我的计算器里，我可以切换进制：同一个数，可以用十进制，可以用电脑存储时的二进制，也可以用十六进制。"
+        }
+      ]
+    },
+    {
+      "id": "miedo",
+      "titulo": "为什么数学让人害怕？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "第三部分。为什么数学让人害怕？"
+        },
+        {
+          "id": "beilock",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": { "tipo": "grafica", "grafica": "ansiedadMate" },
+          "lamina": ["cerebro", "examen"],
+          "texto": "如果你会紧张，那不是你的想象。2012年，伊恩·莱昂斯和西恩·贝洛克用脑部扫描发现，对有数学焦虑的人来说，光是知道马上要做数学题，大脑里和身体疼痛有关的区域就会活跃起来。而且不是在做题时，是在做题之前。"
+        },
+        {
+          "id": "pisa",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "31%", "clave": "pisa" },
+          "lamina": ["alumnos", "pizarra"],
+          "texto": "你不是一个人。在2022年的PISA测试中，经合组织国家里，将近三分之一的十五岁学生，数学没有达到基础水平。",
+          "meme": "miedoMate"
+        },
+        {
+          "id": "aprendible",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["talento", "practica", "error"] },
+          "lamina": ["cuaderno", "lapiz"],
+          "texto": "好消息是：数学好不好，不是有或没有的天赋。它是练习，就像学一门语言。做错一道题，不代表你不行；它是在告诉你还缺哪一步。"
+        },
+        {
+          "id": "explica",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["escribo", "paso", "entiendo"] },
+          "enCasa": true,
+          "lamina": "calculadora",
+          "texto": "我卡住的时候，就把题目写进计算器，请人工智能一步一步给我讲解，按我的节奏来，没人催我。"
+        }
+      ]
+    },
+    {
+      "id": "resolver",
+      "titulo": "怎样解决任何问题？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "第四部分。怎样解决任何问题？"
+        },
+        {
+          "id": "polya",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "polya" },
+          "lamina": ["rompecabezas", "pizarron"],
+          "texto": "1945年，数学家乔治·波利亚写了《怎样解题》，提出了几乎对什么都管用的四个步骤：理解问题、拟定计划、执行计划，最后回顾检查。"
+        },
+        {
+          "id": "entender",
+          "escena": "pensando",
+          "visual": { "tipo": "lista", "claves": ["datos", "dibujo", "parecido"] },
+          "lamina": ["idea", "notas"],
+          "texto": "我们最常跳过的是第一步。动手计算之前，先问问自己：题目要我求什么？我有哪些数据？能画个图吗？以前解过类似的题吗？"
+        },
+        {
+          "id": "fermi",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "fermi" },
+          "lamina": ["fermi", "piano"],
+          "texto": "还要学会估算。恩里科·费米常问学生，芝加哥有多少个钢琴调音师。没人知道，但把问题拆成能猜出来的小块，答案就会落在附近。有了估算，结果不合理时你马上就能发现。",
+          "meme": "estimacion"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": { "tipo": "herramienta", "herramienta": "gusta" },
+          "lamina": "pulgar",
+          "texto": "如果你喜欢这份指南，请点赞、订阅并分享。"
+        },
+        {
+          "id": "sistemas",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["sistemas", "matrices", "regla3"] },
+          "enCasa": true,
+          "lamina": "cohete",
+          "texto": "你看：我的家现在变成了一艘宇宙飞船，准备飞向那个用数字说话的宇宙。等我有了计划，繁重的活就交给计算器：方程组、矩阵，或者三率法，一下子就解出来。"
+        }
+      ]
+    },
+    {
+      "id": "ver",
+      "titulo": "怎样看见一个方程？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "第五部分。怎样看见一个方程？"
+        },
+        {
+          "id": "descartes",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": { "tipo": "herramienta", "herramienta": "graficar" },
+          "lamina": ["descartes", "grafica"],
+          "texto": "1637年，勒内·笛卡尔有了一个改变一切的想法：在纸上画两条轴，把每个方程都变成一幅图。从那以后，公式不只是字母：它是一条直线、一条抛物线，或者一条你看得见的曲线。"
+        },
+        {
+          "id": "funcion",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["entra", "regla", "sale"] },
+          "lamina": ["computadora", "pantallas"],
+          "texto": "把函数想象成一台机器：你给它一个数，它按自己的规则处理，再还给你另一个数。把它画出来，你一眼就能看到它在哪里上升，在哪里下降，在哪里穿过零。"
+        },
+        {
+          "id": "newton",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "F = m · a", "clave": "newton" },
+          "lamina": ["principia", "newton"],
+          "texto": "物理也是这样。1687年，艾萨克·牛顿写道，力等于质量乘以加速度。三个字母，从掉落的球到起飞的火箭，都能解释。",
+          "meme": "formula"
+        },
+        {
+          "id": "graficas",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["plano", "polar", "superficie"] },
+          "enCasa": true,
+          "lamina": "matematicas",
+          "texto": "在这里，我写下一个方程，马上就能看到它：在平面上，在极坐标里，或者变成一个可以转动的3D曲面。"
+        }
+      ]
+    },
+    {
+      "id": "vida",
+      "titulo": "怎样在生活中用好数字？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "第六部分。怎样在生活中用好数字？"
+        },
+        {
+          "id": "gigerenzer",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": { "tipo": "herramienta", "herramienta": "frecuencias" },
+          "lamina": ["doctor", "lupa"],
+          "texto": "百分比连专家都会骗。格尔德·吉仁泽给一百六十位妇科医生出了一道题，关于乳腺X光检查呈阳性的结果：只有五分之一的人答对。学会用频率思考之后，将近十分之九的人答对了。"
+        },
+        {
+          "id": "frecuencias",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["cien", "personas", "cuantos"] },
+          "lamina": ["gente", "dados"],
+          "texto": "诀窍是：把百分比换成人数。别去想百分之一，而是想象一百个人，再问问自己，这一百个人里，每种情况各有几个。问题一下子就清楚了。"
+        },
+        {
+          "id": "visicalc",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "1979", "clave": "visicalc" },
+          "lamina": ["visicalc", "apple2"],
+          "texto": "至于每天的计算，就靠电子表格。1979年，丹·布里克林和鲍勃·弗兰克斯顿做出了VisiCalc：改一个数字，其他一切都会重新计算。它太好用了，很多人买电脑就是为了用它。"
+        },
+        {
+          "id": "hojas",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["hoja", "grafica", "excel"] },
+          "enCasa": true,
+          "lamina": "computadora",
+          "texto": "在我家，电子表格就在计算器旁边：我自己做，或者借助人工智能来做，再把它们画成图表，导出成Excel或PDF。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "怎样坚持下去？你的继续计划",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "第七部分。怎样坚持下去？你的继续计划。"
+        },
+        {
+          "id": "semana1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "planContinuarMat" },
+          "lamina": ["calendario", "taza"],
+          "texto": "第一周，找找你一天里的数字：花了多少钱，走了多少路，睡了多久。每天先估算一件事，再把它算出来，然后比一比。"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "retoDiario" },
+          "lamina": ["cuaderno", "lapiz"],
+          "texto": "第一个月，每天按照波利亚的四个步骤，解一道十分钟的小题。挑一个你喜欢的主题：钱、运动、做饭，或者星空。"
+        },
+        {
+          "id": "fallar",
+          "escena": "habla",
+          "visual": { "tipo": "pasos", "claves": ["atorar", "volver", "medir"] },
+          "lamina": ["tropiezo", "escalon"],
+          "texto": "卡住的时候，别把它当成失败：回到第一步，画个图。想衡量进步，别数你做了多少题：数一数你能给别人讲明白多少题。"
+        },
+        {
+          "id": "resumen",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["resumen1", "resumen2", "resumen3", "resumen4"] },
+          "lamina": ["cumbre", "galaxia"],
+          "texto": "总结一下：宇宙可以用数字来描述；对数学的恐惧，靠练习就能治好；先理解再计算，永远先估算；当百分比让你糊涂时，就想想人数。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "在MindHaOS的电脑室里，你可以用数学、物理和化学的公式手册来计算，把你的方程画成图，还能做电子表格，可以自己来，也可以借助人工智能。今天就免费搭建你的心灵之家。链接在视频简介里。下一期指南：你为什么应该写作？",
+    "boton": "打开电脑室",
+    "lamina": "app-plan",
+    "anclas": {
+      "formulario": "公式手册来计算",
+      "graficar": "方程画成图",
+      "hojas": "做电子表格"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "galileo-1623",
+      "texto": "Galilei G. Il Saggiatore (1623).",
+      "url": "https://es.wikipedia.org/wiki/El_ensayador"
+    },
+    {
+      "id": "leverrier-1846",
+      "texto": "Le Verrier U. J. J.、Galle J. G. 海王星的发现（1846）。",
+      "url": "https://es.wikipedia.org/wiki/Descubrimiento_de_Neptuno"
+    },
+    {
+      "id": "wigner-1960",
+      "texto": "Wigner E. P. The unreasonable effectiveness of mathematics in the natural sciences. Communications on Pure and Applied Mathematics (1960).",
+      "url": "https://doi.org/10.1002/cpa.3160130102"
+    },
+    {
+      "id": "wynn-1992",
+      "texto": "Wynn K. Addition and subtraction by human infants. Nature (1992).",
+      "url": "https://doi.org/10.1038/358749a0"
+    },
+    {
+      "id": "ishango",
+      "texto": "伊尚戈骨，比利时皇家自然科学研究所。",
+      "url": "https://es.wikipedia.org/wiki/Hueso_de_Ishango"
+    },
+    {
+      "id": "plimpton-322",
+      "texto": "Plimpton 322，巴比伦泥板（约公元前1800年）。",
+      "url": "https://es.wikipedia.org/wiki/Plimpton_322"
+    },
+    {
+      "id": "brahmagupta-628",
+      "texto": "Brahmagupta. Brāhmasphuṭasiddhānta (628).",
+      "url": "https://es.wikipedia.org/wiki/Brahmagupta"
+    },
+    {
+      "id": "lyons-beilock-2012",
+      "texto": "Lyons I. M., Beilock S. L. When math hurts: math anxiety predicts pain network activation in anticipation of doing math. PLoS ONE (2012).",
+      "url": "https://doi.org/10.1371/journal.pone.0048076"
+    },
+    {
+      "id": "pisa-2022",
+      "texto": "OECD. PISA 2022 Results (Volume I): The State of Learning and Equity in Education (2023).",
+      "url": "https://doi.org/10.1787/53f23881-en"
+    },
+    {
+      "id": "polya-1945",
+      "texto": "Pólya G. How to Solve It: A New Aspect of Mathematical Method. Princeton University Press (1945).",
+      "url": "https://press.princeton.edu/books/paperback/9780691164076/how-to-solve-it"
+    },
+    {
+      "id": "descartes-1637",
+      "texto": "Descartes R. La Géométrie，《Discours de la méthode》的附录（1637）。",
+      "url": "https://es.wikipedia.org/wiki/La_Géométrie"
+    },
+    {
+      "id": "newton-1687",
+      "texto": "Newton I. Philosophiæ Naturalis Principia Mathematica (1687).",
+      "url": "https://es.wikipedia.org/wiki/Philosophiæ_naturalis_principia_mathematica"
+    },
+    {
+      "id": "gigerenzer-2007",
+      "texto": "Gigerenzer G. et al. Helping doctors and patients make sense of health statistics. Psychological Science in the Public Interest (2007).",
+      "url": "https://doi.org/10.1111/j.1539-6053.2008.00033.x"
+    },
+    {
+      "id": "visicalc-1979",
+      "texto": "Bricklin D., Frankston B. VisiCalc (1979).",
+      "url": "https://es.wikipedia.org/wiki/VisiCalc"
+    }
+  ]
+}

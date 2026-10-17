@@ -1,0 +1,672 @@
+{
+  "idioma": "tr",
+  "tema": "matematicas",
+  "plantillaId": "computo",
+  "numero": 13,
+  "nombre": "Matematik",
+  "pregunta": "Evrenin dili nedir?",
+  "corta": "Evrenin dili",
+  "subtitulo": "Evren neden sayılarla anlatılabilir, sayılar nereden geldi, matematik neden korkutur, herhangi bir problem nasıl çözülür, bir denklem nasıl görülür, sayılar hayatta nasıl kullanılır ve öğrenmeye devam etmek için bir plan.",
+  "aviso": "Bu rehber bilgilendirme amaçlıdır: aktarılan rakamlar ve çalışmalar kaynaklarındaki yaklaşık değerlerdir ve herkes kendi hızında öğrenir. Matematik kaygısı seni felç ediyorsa ya da çok etkiliyorsa, bir rehber öğretmenle veya bir uzmanla konuş.",
+  "partes": [
+    {
+      "id": "universo",
+      "titulo": "Evren neden sayılarla konuşur?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Evrenin dili nedir? 1846'da bir gökbilimci gökyüzüne bakmadan yeni bir gezegen buldu: sadece kalem ve kâğıtla. Bugün bunu nasıl yaptığını ve aynı dilin günlük hayatında neden işine yaradığını göreceksin."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "Bu arada, burası MindHaOS'taki evim, bu da Bilgi İşlem odam."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Birinci bölüm. Evren neden sayılarla konuşur?"
+        },
+        {
+          "id": "galileo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1623",
+            "clave": "galileo"
+          },
+          "lamina": [
+            "galileo",
+            "estrellas"
+          ],
+          "texto": "1623'te Galileo Galilei, doğanın büyük kitabının matematik diliyle yazıldığını ve bu dil olmadan karanlık bir labirentte dolanıp duracağımızı yazdı."
+        },
+        {
+          "id": "neptuno",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "neptuno"
+          },
+          "lamina": [
+            "leverrier",
+            "neptuno"
+          ],
+          "texto": "İşte baştaki gezegen. Uranüs, Newton yasalarının öngördüğü yörüngeyi izlemiyordu: bir şey onu çekiyordu. Urbain Le Verrier o şeyin nerede olması gerektiğini hesapladı ve hesaplarını Berlin'e gönderdi. Johann Galle aynı gece teleskobunu oraya çevirdi ve Neptün'ü, sayıların gösterdiği yerden yalnızca bir derece ötede buldu."
+        },
+        {
+          "id": "wigner",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "inventar",
+              "describir",
+              "predecir"
+            ]
+          },
+          "lamina": [
+            "pizarra2",
+            "galaxia"
+          ],
+          "texto": "1960'ta fizikçi Eugene Wigner buna matematiğin akıl almaz etkinliği dedi: birinin kâğıt üzerinde, bazen yüzyıllar önce icat ettiği fikirler, sonunda dünyanın nasıl hareket ettiğini anlatıyor."
+        },
+        {
+          "id": "formulario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "matematicas",
+              "fisica",
+              "quimica"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "pizarron",
+          "texto": "Bu yüzden Bilgi İşlem odamda matematik, fizik ve kimya klasörleri olan bir formül defterim var: verileri girdiğin anda her formül kendi kendine hesaplanır."
+        }
+      ]
+    },
+    {
+      "id": "origen",
+      "titulo": "Sayılar nereden geldi?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "İkinci bölüm. Sayılar nereden geldi?"
+        },
+        {
+          "id": "bebes",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "unoMasUno"
+          },
+          "lamina": [
+            "bebe",
+            "nino"
+          ],
+          "texto": "Sayılar bizden önce başlıyor. 1992'de Karen Wynn beş aylık bebeklere bir perdenin arkasında önce bir oyuncak bebek, sonra bir tane daha gösterdi. Perdeyi kaldırdığında yalnızca bir tane varsa, bebekler daha uzun süre bakıyordu, sanki bir şey tutmuyormuş gibi. Miktar duygusu bizde doğuştan var."
+        },
+        {
+          "id": "ishango",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 20.000 yıl",
+            "clave": "ishango"
+          },
+          "lamina": [
+            "ishango",
+            "contar"
+          ],
+          "texto": "Bizim icat ettiğimiz, onu yazmaktı. Kongo'da bulunan Ishango kemiği yaklaşık yirmi bin yıllık ve gruplanmış çentiklerle dolu: biri bir şeyin hesabını tutuyormuş."
+        },
+        {
+          "id": "babilonia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "base60"
+          },
+          "lamina": [
+            "plimpton",
+            "reloj"
+          ],
+          "texto": "Neredeyse dört bin yıl önce Babil'de altmışar altmışar sayıyorlardı. Bu yüzden bugün bir saat altmış dakika, bir daire üç yüz altmış derece: onların sayılarını farkında olmadan hâlâ kullanıyoruz."
+        },
+        {
+          "id": "cero",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mayas",
+              "brahmagupta",
+              "alJuarismi"
+            ]
+          },
+          "lamina": [
+            "glifoMaya",
+            "alJuarismi"
+          ],
+          "texto": "Sıfırın gelmesi ise zaman aldı. Mayalar onu takvimlerinde kullanıyordu ve 628 yılında Hindistan'da Brahmagupta sıfırla toplama ve çıkarma kurallarını yazdı. İki yüzyıl sonra Bağdat'ta Harezmî, bize cebir kelimesini veren kitabı yazdı; algoritma kelimesi de onun adından gelir.",
+          "meme": "cero"
+        },
+        {
+          "id": "bases",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "decimal",
+              "binario",
+              "hexadecimal"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "binario",
+          "texto": "Hesap makinemde tabanı değiştirebilirim: aynı sayı onluk tabanda, bilgisayarın sakladığı gibi ikilik tabanda ya da on altılık tabanda."
+        }
+      ]
+    },
+    {
+      "id": "miedo",
+      "titulo": "Matematik neden korkutur?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Üçüncü bölüm. Matematik neden korkutur?"
+        },
+        {
+          "id": "beilock",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ansiedadMate"
+          },
+          "lamina": [
+            "cerebro",
+            "examen"
+          ],
+          "texto": "Geriliyorsan, bu senin hayal gücün değil. 2012'de Ian Lyons ve Sian Beilock beyin taramasında şunu gördü: matematik kaygısı olan kişilerde, sadece bir matematik problemi geleceğini bilmek bile beynin fiziksel acıyla ilgili bölgelerini harekete geçiriyordu. Hem de problem sırasında değil: öncesinde."
+        },
+        {
+          "id": "pisa",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "%31",
+            "clave": "pisa"
+          },
+          "lamina": [
+            "alumnos",
+            "pizarra"
+          ],
+          "texto": "Yalnız değilsin. 2022 PISA sınavında OECD ülkelerindeki on beş yaşındaki öğrencilerin neredeyse üçte biri matematikte temel seviyeye ulaşamadı.",
+          "meme": "miedoMate"
+        },
+        {
+          "id": "aprendible",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "talento",
+              "practica",
+              "error"
+            ]
+          },
+          "lamina": [
+            "cuaderno",
+            "lapiz"
+          ],
+          "texto": "İyi haber: matematik kafası, ya olan ya olmayan bir yetenek değil. Bir dil gibi, pratik meselesi. Bir problemde yanılmak yapamayacağını söylemez; hangi adımın eksik olduğunu söyler."
+        },
+        {
+          "id": "explica",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escribo",
+              "paso",
+              "entiendo"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "calculadora",
+          "texto": "Takıldığımda problemi hesap makineme yazıyor ve yapay zekâdan bana adım adım, kendi hızımda, kimse acele ettirmeden açıklamasını istiyorum."
+        }
+      ]
+    },
+    {
+      "id": "resolver",
+      "titulo": "Herhangi bir problem nasıl çözülür?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Dördüncü bölüm. Herhangi bir problem nasıl çözülür?"
+        },
+        {
+          "id": "polya",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "polya"
+          },
+          "lamina": [
+            "rompecabezas",
+            "pizarron"
+          ],
+          "texto": "1945'te matematikçi George Pólya, How to Solve It adlı kitabını yazdı; neredeyse her şeye uyan dört adımla: problemi anlamak, bir plan yapmak, planı uygulamak ve kontrol etmek için geriye bakmak."
+        },
+        {
+          "id": "entender",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "datos",
+              "dibujo",
+              "parecido"
+            ]
+          },
+          "lamina": [
+            "idea",
+            "notas"
+          ],
+          "texto": "En çok atladığımız adım ilkidir. Hesaba girişmeden önce kendine sor: Benden ne isteniyor? Elimde hangi veriler var? Bir çizim yapabilir miyim? Daha önce benzer bir şey çözdüm mü?"
+        },
+        {
+          "id": "fermi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fermi"
+          },
+          "lamina": [
+            "fermi",
+            "piano"
+          ],
+          "texto": "Bir de tahmin etmeyi öğren. Enrico Fermi öğrencilerine Chicago'da kaç piyano akortçusu olduğunu sorardı. Kimse bilmiyordu, ama problemi tahmin edilebilecek parçalara bölünce cevap gerçeğe yakın çıkıyordu. Bir tahmin, bir sonuç anlamsız olduğunda seni uyarır.",
+          "meme": "estimacion"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "Bu rehberi beğeniyorsan Beğen'e bas, Abone ol ve Paylaş."
+        },
+        {
+          "id": "sistemas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sistemas",
+              "matrices",
+              "regla3"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cohete",
+          "texto": "Bak: evim artık bir uzay gemisi, sayılarla konuşan o evrene çıkmaya hazır. Planım hazır olduğunda da ağır işi hesap makinesi yapar: denklem sistemlerini, matrisleri ya da bir üçlü kuralı bir anda çözer."
+        }
+      ]
+    },
+    {
+      "id": "ver",
+      "titulo": "Bir denklem nasıl görülür?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Beşinci bölüm. Bir denklem nasıl görülür?"
+        },
+        {
+          "id": "descartes",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "graficar"
+          },
+          "lamina": [
+            "descartes",
+            "grafica"
+          ],
+          "texto": "1637'de René Descartes her şeyi değiştiren bir fikir buldu: bir kâğıda iki eksen çizip her denklemi bir resme dönüştürmek. O zamandan beri bir formül sadece harflerden ibaret değil: görebileceğin bir doğru, bir parabol ya da bir eğri."
+        },
+        {
+          "id": "funcion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "entra",
+              "regla",
+              "sale"
+            ]
+          },
+          "lamina": [
+            "computadora",
+            "pantallas"
+          ],
+          "texto": "Bir fonksiyonu bir makine gibi düşün: ona bir sayı verirsin, kuralını uygular ve sana başka bir sayı geri verir. Onu çizdiğinde nerede arttığını, nerede azaldığını ve sıfırı nerede kestiğini bir bakışta görürsün."
+        },
+        {
+          "id": "newton",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "F = m · a",
+            "clave": "newton"
+          },
+          "lamina": [
+            "principia",
+            "newton"
+          ],
+          "texto": "Fizik de tam olarak bu. 1687'de Isaac Newton, kuvvetin kütle çarpı ivmeye eşit olduğunu yazdı. Düşen bir toptan kalkan bir rokete kadar her şeyi açıklayan üç harf.",
+          "meme": "formula"
+        },
+        {
+          "id": "graficas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plano",
+              "polar",
+              "superficie"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "matematicas",
+          "texto": "Burada bir denklem yazıyorum ve onu anında görüyorum: düzlemde, polar koordinatlarda ya da döndürebildiğim bir 3D yüzey olarak."
+        }
+      ]
+    },
+    {
+      "id": "vida",
+      "titulo": "Sayıları hayatında nasıl kullanırsın?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Altıncı bölüm. Sayıları hayatında nasıl kullanırsın?"
+        },
+        {
+          "id": "gigerenzer",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "frecuencias"
+          },
+          "lamina": [
+            "doctor",
+            "lupa"
+          ],
+          "texto": "Yüzdeler uzmanları bile yanıltır. Gerd Gigerenzer yüz altmış jinekoloğa pozitif çıkan bir mamografi sonucu hakkında bir problem verdi: yalnızca beşte biri doğru cevabı buldu. Frekanslarla düşünmeyi öğrendikten sonra, neredeyse onda dokuzu doğru bildi."
+        },
+        {
+          "id": "frecuencias",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cien",
+              "personas",
+              "cuantos"
+            ]
+          },
+          "lamina": [
+            "gente",
+            "dados"
+          ],
+          "texto": "İşin sırrı şu: yüzdeyi insanlarla değiştir. Yüzde bir yerine yüz kişiyi düşün ve bu yüz kişiden kaçının hangi durumda olduğunu kendine sor. Problem birden gözünün önünde belirir."
+        },
+        {
+          "id": "visicalc",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1979",
+            "clave": "visicalc"
+          },
+          "lamina": [
+            "visicalc",
+            "apple2"
+          ],
+          "texto": "Günlük hesaplar içinse elektronik tablo var. 1979'da Dan Bricklin ve Bob Frankston VisiCalc'ı yarattı: bir sayıyı değiştiriyordun ve geri kalan her şey yeniden hesaplanıyordu. O kadar işe yaradı ki birçok kişi sırf onu kullanmak için bilgisayar aldı."
+        },
+        {
+          "id": "hojas",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hoja",
+              "grafica",
+              "excel"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "computadora",
+          "texto": "Evimde e-tablolarım hesap makinesinin hemen yanında yaşıyor: onları kendim ya da yapay zekânın yardımıyla hazırlıyor, grafiğini çıkarıyor ve Excel'e ya da PDF'ye aktarıyorum."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Nasıl devam etmeli? Devam etmek için planın.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Yedinci bölüm. Nasıl devam etmeli? Devam etmek için planın."
+        },
+        {
+          "id": "semana1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuarMat"
+          },
+          "lamina": [
+            "calendario",
+            "taza"
+          ],
+          "texto": "İlk hafta gününün sayılarını ara: ne kadar harcıyorsun, ne kadar yürüyorsun, ne kadar uyuyorsun. Her gün bir şeyi hesaplamadan önce tahmin et, sonra karşılaştır."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "retoDiario"
+          },
+          "lamina": [
+            "cuaderno",
+            "lapiz"
+          ],
+          "texto": "İlk ay her gün on dakikalık kısa bir problem çöz, Pólya'nın dört adımını izleyerek. Sevdiğin bir konu seç: para, spor, mutfak ya da gökyüzü."
+        },
+        {
+          "id": "fallar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "atorar",
+              "volver",
+              "medir"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "escalon"
+          ],
+          "texto": "Takıldığında bunu bir başarısızlık olarak görme: ilk adıma dön ve bir çizim yap. İlerlemeni ölçmek için kaç problem çözdüğünü sayma: kaçını başka birine açıklayabildiğini say."
+        },
+        {
+          "id": "resumen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": [
+            "cumbre",
+            "galaxia"
+          ],
+          "texto": "Özetle: evren sayılarla anlatılabilir; matematik korkusu pratikle geçer; hesaplamadan önce anla ve her zaman tahmin et; bir yüzde kafanı karıştırdığında da insanları düşün."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS'taki Bilgi İşlem odasında matematik, fizik ve kimyadan bir formül defteriyle hesap yapabilir, denklemlerinin grafiğini çizebilir ve e-tablolar hazırlayabilirsin, kendi başına ya da yapay zekânın yardımıyla. Zihinsel evini bugün ücretsiz kur: bağlantı açıklamada. Bir sonraki rehberde ise: neden yazmalısın?",
+    "boton": "Bilgi İşlem odasını aç",
+    "lamina": "app-plan",
+    "anclas": {
+      "formulario": "formül defteriyle hesap",
+      "graficar": "denklemlerinin grafiğini çizebilir",
+      "hojas": "e-tablolar hazırlayabilirsin"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "galileo-1623",
+      "texto": "Galilei G. Il Saggiatore (1623).",
+      "url": "https://es.wikipedia.org/wiki/El_ensayador"
+    },
+    {
+      "id": "leverrier-1846",
+      "texto": "Le Verrier U. J. J. ve Galle J. G. Neptün'ün keşfi (1846).",
+      "url": "https://es.wikipedia.org/wiki/Descubrimiento_de_Neptuno"
+    },
+    {
+      "id": "wigner-1960",
+      "texto": "Wigner E. P. The unreasonable effectiveness of mathematics in the natural sciences. Communications on Pure and Applied Mathematics (1960).",
+      "url": "https://doi.org/10.1002/cpa.3160130102"
+    },
+    {
+      "id": "wynn-1992",
+      "texto": "Wynn K. Addition and subtraction by human infants. Nature (1992).",
+      "url": "https://doi.org/10.1038/358749a0"
+    },
+    {
+      "id": "ishango",
+      "texto": "Ishango kemiği, Belçika Kraliyet Doğa Bilimleri Enstitüsü.",
+      "url": "https://es.wikipedia.org/wiki/Hueso_de_Ishango"
+    },
+    {
+      "id": "plimpton-322",
+      "texto": "Plimpton 322, Babil tableti (y. MÖ 1800).",
+      "url": "https://es.wikipedia.org/wiki/Plimpton_322"
+    },
+    {
+      "id": "brahmagupta-628",
+      "texto": "Brahmagupta. Brāhmasphuṭasiddhānta (628).",
+      "url": "https://es.wikipedia.org/wiki/Brahmagupta"
+    },
+    {
+      "id": "lyons-beilock-2012",
+      "texto": "Lyons I. M., Beilock S. L. When math hurts: math anxiety predicts pain network activation in anticipation of doing math. PLoS ONE (2012).",
+      "url": "https://doi.org/10.1371/journal.pone.0048076"
+    },
+    {
+      "id": "pisa-2022",
+      "texto": "OECD. PISA 2022 Results (Volume I): The State of Learning and Equity in Education (2023).",
+      "url": "https://doi.org/10.1787/53f23881-en"
+    },
+    {
+      "id": "polya-1945",
+      "texto": "Pólya G. How to Solve It: A New Aspect of Mathematical Method. Princeton University Press (1945).",
+      "url": "https://press.princeton.edu/books/paperback/9780691164076/how-to-solve-it"
+    },
+    {
+      "id": "descartes-1637",
+      "texto": "Descartes R. La Géométrie, Discours de la méthode'un eki (1637).",
+      "url": "https://es.wikipedia.org/wiki/La_Géométrie"
+    },
+    {
+      "id": "newton-1687",
+      "texto": "Newton I. Philosophiæ Naturalis Principia Mathematica (1687).",
+      "url": "https://es.wikipedia.org/wiki/Philosophiæ_naturalis_principia_mathematica"
+    },
+    {
+      "id": "gigerenzer-2007",
+      "texto": "Gigerenzer G. ve ark. Helping doctors and patients make sense of health statistics. Psychological Science in the Public Interest (2007).",
+      "url": "https://doi.org/10.1111/j.1539-6053.2008.00033.x"
+    },
+    {
+      "id": "visicalc-1979",
+      "texto": "Bricklin D., Frankston B. VisiCalc (1979).",
+      "url": "https://es.wikipedia.org/wiki/VisiCalc"
+    }
+  ]
+}

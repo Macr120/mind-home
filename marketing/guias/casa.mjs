@@ -186,13 +186,15 @@ const tocar = async (el) => {
  * ocultan los bloques A1… que no lo tocan, así el piso, la rejilla y el vehículo del
  * tema (y su fondo) se quedan con él. `window.__casaVista` lo encuadra en lugar de CASA.
  * Sin CUADRANTE se vuelven a mostrar todos (una guía anterior pudo dejarlos ocultos).
+ * CUADRANTE también puede ser una función del tema de la toma (Matemáticas: la casa demo
+ * entera sin tema y solo A1 con la nave).
  */
-const SOLO_CUADRANTE = `
+const soloCuadrante = (tema) => `
   {
     const lay = await modulo('/src/core/state/layoutStore.ts')
     const cm = await modulo('/src/core/house/cuadrantesMapa.ts')
     const s = lay.useLayout.getState()
-    const id = ${JSON.stringify(ESCENA.CUADRANTE ?? null)}
+    const id = ${JSON.stringify((typeof ESCENA.CUADRANTE === 'function' ? ESCENA.CUADRANTE(tema) : ESCENA.CUADRANTE) ?? null)}
     const q = id && cm.cuadrantePorId(id, s.gridCols, s.gridRows, s.cuadrantes)
     if (id && !q) return 'no encontré el cuadrante ' + id + ' en el mapa de la demo'
     const toca = (b) => b.col < q.col + q.cols && q.col < b.col + b.cols && b.row < q.row + q.rows && q.row < b.row + b.rows
@@ -238,7 +240,7 @@ const pepEnSuSitio = (tema = null) => `
       await sleep(1500)
     }
   }
-  ${SOLO_CUADRANTE}
+  ${soloCuadrante(tema)}
   {
     // El tamaño de celda de la escena (Metas: 9 m, cuartos más amplios y claros); sin CELDA, el de fábrica.
     const L = (await modulo('/src/core/state/layoutStore.ts')).useLayout

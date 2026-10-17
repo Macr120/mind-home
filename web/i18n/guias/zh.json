@@ -2810,5 +2810,226 @@
         "abajo": "先写个烂初稿，再慢慢改"
       }
     }
+  },
+  "matematicas": {
+    "meta": {
+      "titulo": "宇宙的语言是什么？数学完整指南：为什么宇宙用数字说话、数字从哪里来、对数学的恐惧、怎样解题、看见方程、用好数字，以及继续学习的计划 | MindHaOS",
+      "desc": "为什么数学能描述宇宙（从伽利略到海王星），数字和零从哪里来，为什么数学让人害怕、又该怎样学会，解题的波利亚四步法，怎样看见一个方程，怎样在生活中用好数字，还有一个继续的计划。"
+    },
+    "narra": "讲述：外星人",
+    "cargando3d": "正在加载外星人…",
+    "lista": {
+      "inventar": "有人在纸上发明它",
+      "inventarDet": "有时比它派上用场早好几个世纪。",
+      "describir": "它描述世界",
+      "describirDet": "轨道、波、潮汐和电路。",
+      "predecir": "还能预测我们没见过的东西",
+      "predecirDet": "就像用纸和笔找到的海王星。",
+      "talento": "不是天赋",
+      "talentoDet": "数学好不好，不是有或没有的事。",
+      "practica": "是练习",
+      "practicaDet": "就像语言：用着用着就会了。",
+      "error": "错误会教你",
+      "errorDet": "它告诉你缺哪一步，而不是你不行。",
+      "datos": "要求什么？我有什么？",
+      "datosDet": "写下问题和数据。",
+      "dibujo": "画个图",
+      "dibujoDet": "一张草图比十次计算更清楚。",
+      "parecido": "解过类似的题吗？",
+      "parecidoDet": "一道旧题可能就是钥匙。",
+      "entra": "输入一个数",
+      "entraDet": "你给它的那个。",
+      "regla": "套用一条规则",
+      "reglaDet": "乘、加、平方……",
+      "sale": "输出另一个数",
+      "saleDet": "把它们都画出来，就看到了形状。",
+      "cien": "想象一百个人",
+      "cienDet": "或者一千个：想人，不想百分比。",
+      "personas": "把人分到每种情况里",
+      "personasDet": "多少人患病，多少人呈阳性。",
+      "cuantos": "数一数",
+      "cuantosDet": "呈阳性的人里，有多少真的患病？",
+      "resumen1": "宇宙可以用数字来描述",
+      "resumen2": "对数学的恐惧靠练习治好",
+      "resumen3": "先理解再计算，永远先估算",
+      "resumen4": "百分比让你糊涂时，就想想人数"
+    },
+    "dato": {
+      "galileo": "伽利略写道，自然之书是用数学语言写成的（《试金者》）",
+      "ishango": "前的伊尚戈骨，上面成组的刻痕在记某样东西的数",
+      "pisa": "的经合组织15岁学生在PISA 2022中数学没有达到基础水平",
+      "newton": "力等于质量乘以加速度：牛顿，《原理》（1687）",
+      "visicalc": "VisiCalc诞生，第一款个人电脑电子表格（布里克林和弗兰克斯顿）"
+    },
+    "pasos": {
+      "matematicas": "数学",
+      "matematicasDet": "面积、方程和统计。",
+      "fisica": "物理",
+      "fisicaDet": "运动、力和能量。",
+      "quimica": "化学",
+      "quimicaDet": "摩尔、气体和溶液。",
+      "mayas": "玛雅人",
+      "mayasDet": "在历法里使用零。",
+      "brahmagupta": "婆罗摩笈多，628年",
+      "brahmaguptaDet": "写下了用零运算的规则。",
+      "alJuarismi": "花拉子米，巴格达",
+      "alJuarismiDet": "带来了代数；他的名字带来了算法。",
+      "decimal": "十进制",
+      "decimalDet": "日常用的，以10为基数。",
+      "binario": "二进制",
+      "binarioDet": "0和1，电脑存储的方式。",
+      "hexadecimal": "十六进制",
+      "hexadecimalDet": "以16为基数，屏幕颜色用的就是它。",
+      "escribo": "写下题目",
+      "escriboDet": "原样输入计算器。",
+      "paso": "请求逐步讲解",
+      "pasoDet": "卡住时问人工智能。",
+      "entiendo": "按自己的节奏理解",
+      "entiendoDet": "没人催我。",
+      "sistemas": "方程组",
+      "sistemasDet": "同时求两三个未知数。",
+      "matrices": "矩阵",
+      "matricesDet": "加、乘和求逆。",
+      "regla3": "三率法",
+      "regla3Det": "3个卖45，7个卖多少？",
+      "plano": "在平面上",
+      "planoDet": "直线、抛物线和曲线。",
+      "polar": "在极坐标里",
+      "polarDet": "螺线和花朵。",
+      "superficie": "变成3D曲面",
+      "superficieDet": "可以用手指转动。",
+      "hoja": "做我的表格",
+      "hojaDet": "自己来，或借助AI。",
+      "grafica": "画成图表",
+      "graficaDet": "柱状图、折线图或饼图。",
+      "excel": "导出",
+      "excelDet": "成Excel或PDF。",
+      "atorar": "卡住的时候",
+      "atorarDet": "不是失败：是问题在教你。",
+      "volver": "回到第一步",
+      "volverDet": "画个图。",
+      "medir": "衡量你能讲明白的",
+      "medirDet": "不是做了多少：是能讲明白多少。"
+    },
+    "unoMasUno": {
+      "titulo": "五个月大的一加一",
+      "uno": "一个玩偶……",
+      "otro": "……屏风后面再放一个",
+      "pantalla": "屏风挡住了两个",
+      "esperado": "拿开屏风：两个玩偶（意料之中）",
+      "imposible": "拿开屏风：只有一个（不可能！）",
+      "ver_esperado": "看两个",
+      "ver_imposible": "看一个",
+      "miradaEsperado": "面对意料之中的注视",
+      "miradaImposible": "面对不可能的注视",
+      "nota": "凯伦·温（1992）：婴儿盯着不可能的结果看得更久（柱状图仅为示意）。"
+    },
+    "base60": {
+      "titulo": "为什么是六十？",
+      "base10": "十进制",
+      "base60": "六十进制",
+      "cuenta10": "10能平均分成{n}种",
+      "cuenta60": "60能分成{n}种：二分之一、三分之一、四分之一、五分之一……",
+      "nota": "巴比伦人六十六十地数：所以一小时有60分钟，一个圆有360度。"
+    },
+    "polya": {
+      "titulo": "波利亚的四个步骤",
+      "problema": "一列火车9:40出发，要开2小时35分钟。几点到达？",
+      "entender": "理解问题",
+      "entenderDet": "要求到达时间；已知出发时间和用时。",
+      "plan": "拟定计划",
+      "planDet": "先加小时，再加分钟。",
+      "ejecutar": "执行计划",
+      "ejecutarDet": "9:40 + 2小时 = 11:40；+ 35分钟 = 12:15。",
+      "revisar": "回顾",
+      "revisarDet": "合理吗？9:40再过大约两个半小时，是十二点多：对。",
+      "nota": "乔治·波利亚，《怎样解题》（1945）。点一点每一步。"
+    },
+    "fermi": {
+      "titulo": "芝加哥有多少钢琴调音师？",
+      "gente": "城市人口",
+      "hogares": "家庭数",
+      "pianos": "钢琴（每若干户一台）",
+      "porAfinador": "每位调音师每年调音次数",
+      "afinadores": "调音师",
+      "ajusteGente": "人口",
+      "ajusteHogar": "每户人数",
+      "ajustePiano": "每多少户一台钢琴",
+      "nota": "数字都是取整的示意：改改假设，看看结果并不会失控。"
+    },
+    "graficar": {
+      "titulo": "一个方程，一幅图",
+      "recta": "直线",
+      "parabola": "抛物线",
+      "onda": "波",
+      "sen": "sin",
+      "nota": "笛卡尔的平面（1637）：每个点都是满足方程的一对(x, y)。"
+    },
+    "frecuencias": {
+      "titulo": "乳腺X光检查呈阳性：患癌的可能性有多大？",
+      "porcentajes": "用百分比",
+      "personas": "用人数",
+      "p1": "做检查的女性中，1%患有乳腺癌。",
+      "p2": "如果患癌，检查有90%的概率呈阳性。",
+      "p3": "如果没有，也有9%的概率误报阳性。",
+      "pregunta": "结果呈阳性。她患癌的概率是多少？",
+      "l1": "每1000人中有10人患癌；其中9人呈阳性",
+      "l2": "990名健康者中，也有89人呈阳性",
+      "respuesta": "98名阳性者中，只有9人患癌：不到十分之一",
+      "nota": "吉仁泽和同事给医生出的题：用频率来想，几乎人人都答对。"
+    },
+    "retoDiario": {
+      "titulo": "今日挑战：先估算，再计算",
+      "pregunta": "一年有多少分钟？",
+      "tuEstimacion": "你的估算：",
+      "calcular": "计算",
+      "teDesviaste": "你差了{p}%",
+      "nota": "先估算再计算能训练数感：这样结果不合理时你就能发现。"
+    },
+    "grafica": {
+      "neptuno": "勒维耶（1846）：计算指出了该往哪里找，伽勒在离那里一度的地方找到了海王星",
+      "urano": "偏离的天王星",
+      "calculado": "计算位置",
+      "encontrado": "海王星",
+      "sol": "太阳",
+      "ansiedadMate": "莱昂斯和贝洛克（2012）：得知马上要做数学题时，高焦虑者的疼痛网络更活跃（示意）",
+      "alta": "高焦虑",
+      "baja": "低焦虑",
+      "plan": "你的继续计划",
+      "semana1": "第1周",
+      "semana1Det": "找找一天里的数字，先估算再计算",
+      "mes1": "第1个月",
+      "mes1Det": "每天用波利亚四步解一道小题",
+      "atoras": "卡住时",
+      "atorasDet": "重新理解问题，画个图",
+      "medir": "衡量进步",
+      "medirDet": "你能给别人讲明白多少题"
+    },
+    "cierre": {
+      "titulo": "在你自己家里玩数字",
+      "texto": "在MindHaOS的电脑室里，你可以用数学、物理和化学的公式手册计算，把方程画在平面、极坐标或3D里，还能做电子表格并导出成Excel或PDF，可以自己来，也可以借助人工智能。"
+    },
+    "paquete": {
+      "guia": "互动指南（会做加法的婴儿实验、为什么我们六十六十地数、波利亚四步法、一道费米问题、能画出来的方程，以及百分比对比人数，都会在浏览器里动起来）",
+      "app": "在MindHaOS打开电脑室",
+      "hashtags": "#数学 #学数学 #科普 #宇宙 #学习 #学生党 #MindHaOS"
+    },
+    "memes": {
+      "cero": {
+        "arriba": "玛雅人和婆罗摩笈多发明了零",
+        "abajo": "我数学考试的分数"
+      },
+      "miedoMate": {
+        "arriba": "老师说“把书收起来，拿出一张纸”的时候"
+      },
+      "estimacion": {
+        "arriba": "算完直接相信结果",
+        "abajo": "先估算，看看结果合不合理"
+      },
+      "formula": {
+        "arriba": "我：“数学一点用都没有”",
+        "abajo": "牛顿用三个字母：从苹果解释到火箭"
+      }
+    }
   }
 }

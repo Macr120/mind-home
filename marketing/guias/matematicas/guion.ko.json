@@ -1,0 +1,433 @@
+{
+  "idioma": "ko",
+  "tema": "matematicas",
+  "plantillaId": "computo",
+  "numero": 13,
+  "nombre": "수학",
+  "pregunta": "우주의 언어는 무엇일까요?",
+  "corta": "우주의 언어",
+  "subtitulo": "우주가 왜 숫자로 설명되는지, 숫자는 어디서 왔는지, 수학은 왜 무서운지, 어떤 문제든 푸는 법, 방정식을 보는 법, 생활 속에서 숫자를 쓰는 법, 그리고 계속 배우기 위한 계획.",
+  "aviso": "이 가이드는 정보 제공용이에요. 인용한 수치와 연구는 출처의 근삿값이고, 사람마다 배우는 속도는 달라요. 수학 불안 때문에 손을 놓게 되거나 많이 힘들다면 선생님이나 상담사, 전문가와 이야기해 보세요.",
+  "partes": [
+    {
+      "id": "universo",
+      "titulo": "우주는 왜 숫자로 말할까요?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": { "tipo": "titulo" },
+          "enCasa": true,
+          "texto": "우주의 언어는 무엇일까요? 1846년, 한 천문학자는 하늘을 올려다보지 않고 새 행성을 찾아냈어요: 연필과 종이만으로요. 오늘은 그가 어떻게 해냈는지, 그리고 그 같은 언어가 왜 일상에서도 도움이 되는지 알아볼게요."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "enCasa": true,
+          "texto": "참고로, 여기는 MindHaOS에 있는 제 집이고, 여기는 제 전산실이에요."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "1부. 우주는 왜 숫자로 말할까요?"
+        },
+        {
+          "id": "galileo",
+          "escena": "pensando",
+          "visual": { "tipo": "dato", "cifra": "1623", "clave": "galileo" },
+          "lamina": ["galileo", "estrellas"],
+          "texto": "1623년, 갈릴레오 갈릴레이는 자연이라는 위대한 책은 수학의 언어로 쓰여 있고, 그 언어 없이는 어두운 미로에서 헤매게 될 거라고 썼어요."
+        },
+        {
+          "id": "neptuno",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "neptuno" },
+          "lamina": ["leverrier", "neptuno"],
+          "texto": "처음에 말한 행성이 바로 이거예요. 천왕성은 뉴턴의 법칙이 예측한 궤도를 따르지 않았어요: 뭔가가 끌어당기고 있었죠. 위르뱅 르베리에는 그 뭔가가 어디 있어야 하는지 계산해서 결과를 베를린으로 보냈어요. 요한 갈레는 그날 밤 바로 망원경을 돌렸고, 계산이 가리킨 곳에서 겨우 1도 떨어진 곳에서 해왕성을 찾아냈어요."
+        },
+        {
+          "id": "wigner",
+          "escena": "pensando",
+          "visual": { "tipo": "lista", "claves": ["inventar", "describir", "predecir"] },
+          "lamina": ["pizarra2", "galaxia"],
+          "texto": "1960년, 물리학자 유진 위그너는 이것을 수학의 불합리한 효용성이라고 불렀어요: 누군가 종이 위에서 만든 아이디어가, 때로는 몇 세기나 앞서서, 결국 세상이 움직이는 방식을 설명하게 된다는 거예요."
+        },
+        {
+          "id": "formulario",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["matematicas", "fisica", "quimica"] },
+          "enCasa": true,
+          "lamina": "pizarron",
+          "texto": "그래서 제 전산실에는 수학, 물리, 화학 폴더가 담긴 공식집이 있어요: 데이터를 넣으면 모든 공식이 바로 알아서 계산돼요."
+        }
+      ]
+    },
+    {
+      "id": "origen",
+      "titulo": "숫자는 어디서 왔을까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "2부. 숫자는 어디서 왔을까요?"
+        },
+        {
+          "id": "bebes",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "unoMasUno" },
+          "lamina": ["bebe", "nino"],
+          "texto": "숫자는 우리보다 먼저 시작돼요. 1992년, 캐런 윈은 생후 5개월 아기들에게 인형 하나를 보여 주고, 가림막 뒤에 하나를 더 놓았어요. 가림막을 치웠을 때 인형이 하나뿐이면, 아기들은 뭔가 안 맞는다는 듯이 더 오래 쳐다봤어요. 우리는 양에 대한 감각을 타고나요."
+        },
+        {
+          "id": "ishango",
+          "escena": "pensando",
+          "visual": { "tipo": "dato", "cifra": "≈ 2만 년", "clave": "ishango" },
+          "lamina": ["ishango", "contar"],
+          "texto": "우리가 발명한 건 그걸 적는 일이었어요. 콩고에서 발견된 이샹고 뼈는 약 이만 년 전의 것인데, 무리 지어 새긴 눈금이 가득해요: 누군가 뭔가를 세고 있었던 거죠."
+        },
+        {
+          "id": "babilonia",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "base60" },
+          "lamina": ["plimpton", "reloj"],
+          "texto": "거의 사천 년 전, 바빌로니아에서는 육십씩 셌어요. 그래서 지금도 한 시간은 육십 분, 원은 삼백육십 도예요: 우리는 모르는 사이에 그들의 숫자를 계속 쓰고 있는 거죠."
+        },
+        {
+          "id": "cero",
+          "escena": "habla",
+          "visual": { "tipo": "pasos", "claves": ["mayas", "brahmagupta", "alJuarismi"] },
+          "lamina": ["glifoMaya", "alJuarismi"],
+          "texto": "그리고 영은 늦게 도착했어요. 마야인들은 달력에 영을 썼고, 628년 인도에서는 브라마굽타가 영으로 더하고 빼는 규칙을 썼어요. 두 세기 뒤 바그다드에서 알콰리즈미가 쓴 책에서 대수학을 뜻하는 앨지브라라는 말이 나왔고, 그의 이름에서 알고리즘이라는 말이 나왔어요.",
+          "meme": "cero"
+        },
+        {
+          "id": "bases",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["decimal", "binario", "hexadecimal"] },
+          "enCasa": true,
+          "lamina": "binario",
+          "texto": "제 계산기에서는 진법을 바꿀 수 있어요: 같은 수를 십진법으로, 컴퓨터가 저장하는 이진법으로, 또는 십육진법으로요."
+        }
+      ]
+    },
+    {
+      "id": "miedo",
+      "titulo": "수학은 왜 무서울까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "3부. 수학은 왜 무서울까요?"
+        },
+        {
+          "id": "beilock",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": { "tipo": "grafica", "grafica": "ansiedadMate" },
+          "lamina": ["cerebro", "examen"],
+          "texto": "긴장된다면, 그건 기분 탓이 아니에요. 2012년, 이언 라이언스와 시언 베일록은 뇌 스캔으로, 수학 불안이 있는 사람은 수학 문제가 나온다는 걸 아는 것만으로도 몸의 통증과 관련된 뇌 영역이 활성화된다는 걸 확인했어요. 그것도 문제를 푸는 동안이 아니라, 그 전에요."
+        },
+        {
+          "id": "pisa",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "31%", "clave": "pisa" },
+          "lamina": ["alumnos", "pizarra"],
+          "texto": "혼자가 아니에요. 2022년 PISA 평가에서 OECD 국가의 열다섯 살 학생 거의 세 명 중 한 명이 수학 기초 수준에 미치지 못했어요.",
+          "meme": "miedoMate"
+        },
+        {
+          "id": "aprendible",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["talento", "practica", "error"] },
+          "lamina": ["cuaderno", "lapiz"],
+          "texto": "좋은 소식이 있어요: 수학을 잘하는 건 있거나 없는 재능이 아니에요. 언어처럼, 연습이에요. 문제를 틀렸다고 못 하는 게 아니라, 어떤 단계가 빠졌는지 알려 주는 거예요."
+        },
+        {
+          "id": "explica",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["escribo", "paso", "entiendo"] },
+          "enCasa": true,
+          "lamina": "calculadora",
+          "texto": "막히면 저는 계산기에 문제를 쓰고, 인공지능에게 한 단계씩 설명해 달라고 해요. 제 속도대로, 아무도 재촉하지 않게요."
+        }
+      ]
+    },
+    {
+      "id": "resolver",
+      "titulo": "어떤 문제든 어떻게 풀까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "4부. 어떤 문제든 어떻게 풀까요?"
+        },
+        {
+          "id": "polya",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "polya" },
+          "lamina": ["rompecabezas", "pizarron"],
+          "texto": "1945년, 수학자 조지 폴리아는 『어떻게 문제를 풀 것인가』를 쓰고, 거의 모든 일에 통하는 네 단계를 제시했어요: 문제를 이해하고, 계획을 세우고, 실행하고, 돌아보며 검토하는 거예요."
+        },
+        {
+          "id": "entender",
+          "escena": "pensando",
+          "visual": { "tipo": "lista", "claves": ["datos", "dibujo", "parecido"] },
+          "lamina": ["idea", "notas"],
+          "texto": "가장 많이 건너뛰는 건 첫 단계예요. 계산하기 전에 스스로 물어보세요: 무엇을 구하라는 걸까? 어떤 데이터가 있지? 그림으로 그려 볼 수 있을까? 비슷한 문제를 풀어 본 적이 있나?"
+        },
+        {
+          "id": "fermi",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "fermi" },
+          "lamina": ["fermi", "piano"],
+          "texto": "그리고 어림하는 법을 배우세요. 엔리코 페르미는 학생들에게 시카고에 피아노 조율사가 몇 명 있는지 물었어요. 아무도 몰랐지만, 짐작할 수 있는 작은 조각으로 문제를 나누면 답은 가까운 곳에 떨어졌어요. 어림값이 있으면 말이 안 되는 결과를 바로 알아챌 수 있어요.",
+          "meme": "estimacion"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": { "tipo": "herramienta", "herramienta": "gusta" },
+          "lamina": "pulgar",
+          "texto": "이 가이드가 마음에 든다면 좋아요를 누르고, 구독하고, 공유해 주세요."
+        },
+        {
+          "id": "sistemas",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["sistemas", "matrices", "regla3"] },
+          "enCasa": true,
+          "lamina": "cohete",
+          "texto": "보세요: 제 집이 이제 우주선이 됐어요. 숫자로 말하는 그 우주로 떠날 준비가 끝났죠. 그리고 계획이 서면, 힘든 일은 계산기가 해요: 연립방정식도, 행렬도, 비례식도 순식간에 풀어 줘요."
+        }
+      ]
+    },
+    {
+      "id": "ver",
+      "titulo": "방정식은 어떻게 볼까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "5부. 방정식은 어떻게 볼까요?"
+        },
+        {
+          "id": "descartes",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": { "tipo": "herramienta", "herramienta": "graficar" },
+          "lamina": ["descartes", "grafica"],
+          "texto": "1637년, 르네 데카르트는 모든 걸 바꾼 아이디어를 떠올렸어요: 종이에 축 두 개를 긋고, 모든 방정식을 그림으로 바꾸는 거예요. 그 뒤로 공식은 그냥 글자가 아니에요: 눈으로 볼 수 있는 직선, 포물선, 곡선이에요."
+        },
+        {
+          "id": "funcion",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["entra", "regla", "sale"] },
+          "lamina": ["computadora", "pantallas"],
+          "texto": "함수를 기계라고 생각해 보세요: 숫자를 넣으면 규칙을 적용해서 다른 숫자를 돌려줘요. 그래프로 그리면 어디서 오르고, 어디서 내려가고, 어디서 영을 지나는지 한눈에 보여요."
+        },
+        {
+          "id": "newton",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "F = m · a", "clave": "newton" },
+          "lamina": ["principia", "newton"],
+          "texto": "물리도 똑같아요. 1687년, 아이작 뉴턴은 힘은 질량 곱하기 가속도라고 썼어요. 세 글자로 떨어지는 공부터 이륙하는 로켓까지 설명하는 거예요.",
+          "meme": "formula"
+        },
+        {
+          "id": "graficas",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["plano", "polar", "superficie"] },
+          "enCasa": true,
+          "lamina": "matematicas",
+          "texto": "여기서 방정식을 쓰면 바로 볼 수 있어요: 평면에서, 극좌표로, 또는 돌려 볼 수 있는 3D 곡면으로요."
+        }
+      ]
+    },
+    {
+      "id": "vida",
+      "titulo": "생활 속에서 숫자를 어떻게 쓸까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "6부. 생활 속에서 숫자를 어떻게 쓸까요?"
+        },
+        {
+          "id": "gigerenzer",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": { "tipo": "herramienta", "herramienta": "frecuencias" },
+          "lamina": ["doctor", "lupa"],
+          "texto": "퍼센트는 전문가도 속여요. 게르트 기거렌처는 산부인과 의사 백육십 명에게 유방 촬영 양성 결과에 관한 문제를 냈어요: 정답을 맞힌 건 다섯 명 중 한 명뿐이었어요. 빈도로 생각하는 법을 배운 뒤에는 거의 열 명 중 아홉 명이 맞혔어요."
+        },
+        {
+          "id": "frecuencias",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["cien", "personas", "cuantos"] },
+          "lamina": ["gente", "dados"],
+          "texto": "비결은 퍼센트를 사람으로 바꾸는 거예요. 1퍼센트 대신 백 명을 떠올리고, 그 백 명 중 몇 명이 각 경우에 해당하는지 물어보세요. 갑자기 문제가 보여요."
+        },
+        {
+          "id": "visicalc",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "1979", "clave": "visicalc" },
+          "lamina": ["visicalc", "apple2"],
+          "texto": "그리고 매일 하는 계산에는 스프레드시트가 있어요. 1979년, 댄 브리클린과 밥 프랭크스턴이 VisiCalc를 만들었어요: 숫자 하나를 바꾸면 나머지가 전부 다시 계산됐죠. 너무 유용해서 많은 사람이 이걸 쓰려고 컴퓨터를 샀어요."
+        },
+        {
+          "id": "hojas",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["hoja", "grafica", "excel"] },
+          "enCasa": true,
+          "lamina": "computadora",
+          "texto": "제 집에서는 스프레드시트가 계산기 바로 옆에 있어요: 혼자서, 또는 인공지능의 도움을 받아 만들고, 차트로 그려서 Excel이나 PDF로 내보내요."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "어떻게 계속할까요? 계속하기 위한 계획",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "7부. 어떻게 계속할까요? 계속하기 위한 계획."
+        },
+        {
+          "id": "semana1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "planContinuarMat" },
+          "lamina": ["calendario", "taza"],
+          "texto": "첫 주에는 하루 속의 숫자를 찾아보세요: 얼마나 쓰는지, 얼마나 걷는지, 얼마나 자는지. 매일 하나씩, 계산하기 전에 어림해 보고 나중에 비교해 보세요."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "retoDiario" },
+          "lamina": ["cuaderno", "lapiz"],
+          "texto": "첫 달에는 폴리아의 네 단계에 따라 하루에 십 분짜리 짧은 문제를 하나씩 풀어 보세요. 좋아하는 주제를 고르세요: 돈, 운동, 요리, 아니면 밤하늘."
+        },
+        {
+          "id": "fallar",
+          "escena": "habla",
+          "visual": { "tipo": "pasos", "claves": ["atorar", "volver", "medir"] },
+          "lamina": ["tropiezo", "escalon"],
+          "texto": "막혀도 실패라고 생각하지 마세요: 첫 단계로 돌아가서 그림을 그려 보세요. 실력을 재려면 몇 문제를 풀었는지가 아니라, 다른 사람에게 몇 문제를 설명할 수 있는지 세어 보세요."
+        },
+        {
+          "id": "resumen",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["resumen1", "resumen2", "resumen3", "resumen4"] },
+          "lamina": ["cumbre", "galaxia"],
+          "texto": "정리하면: 우주는 숫자로 설명할 수 있어요; 수학에 대한 두려움은 연습으로 나아요; 계산하기 전에 이해하고 늘 어림하세요; 그리고 퍼센트가 헷갈리면 사람으로 생각하세요."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS의 전산실에서는 수학, 물리, 화학 공식집으로 계산하고, 방정식을 그래프로 그리고, 스프레드시트를 만들 수 있어요. 혼자서도, 인공지능의 도움을 받아서도요. 오늘 무료로 나만의 마음의 집을 지어 보세요. 링크는 설명란에 있어요. 그리고 다음 가이드는, 왜 글을 써야 할까요?",
+    "boton": "전산실 열기",
+    "lamina": "app-plan",
+    "anclas": {
+      "formulario": "공식집으로 계산",
+      "graficar": "방정식을 그래프로",
+      "hojas": "스프레드시트를 만들"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "galileo-1623",
+      "texto": "Galilei G. Il Saggiatore (1623).",
+      "url": "https://es.wikipedia.org/wiki/El_ensayador"
+    },
+    {
+      "id": "leverrier-1846",
+      "texto": "Le Verrier U. J. J., Galle J. G. 해왕성의 발견 (1846).",
+      "url": "https://es.wikipedia.org/wiki/Descubrimiento_de_Neptuno"
+    },
+    {
+      "id": "wigner-1960",
+      "texto": "Wigner E. P. The unreasonable effectiveness of mathematics in the natural sciences. Communications on Pure and Applied Mathematics (1960).",
+      "url": "https://doi.org/10.1002/cpa.3160130102"
+    },
+    {
+      "id": "wynn-1992",
+      "texto": "Wynn K. Addition and subtraction by human infants. Nature (1992).",
+      "url": "https://doi.org/10.1038/358749a0"
+    },
+    {
+      "id": "ishango",
+      "texto": "이샹고 뼈, 벨기에 왕립 자연과학연구소.",
+      "url": "https://es.wikipedia.org/wiki/Hueso_de_Ishango"
+    },
+    {
+      "id": "plimpton-322",
+      "texto": "Plimpton 322, 바빌로니아 점토판 (기원전 1800년경).",
+      "url": "https://es.wikipedia.org/wiki/Plimpton_322"
+    },
+    {
+      "id": "brahmagupta-628",
+      "texto": "Brahmagupta. Brāhmasphuṭasiddhānta (628).",
+      "url": "https://es.wikipedia.org/wiki/Brahmagupta"
+    },
+    {
+      "id": "lyons-beilock-2012",
+      "texto": "Lyons I. M., Beilock S. L. When math hurts: math anxiety predicts pain network activation in anticipation of doing math. PLoS ONE (2012).",
+      "url": "https://doi.org/10.1371/journal.pone.0048076"
+    },
+    {
+      "id": "pisa-2022",
+      "texto": "OECD. PISA 2022 Results (Volume I): The State of Learning and Equity in Education (2023).",
+      "url": "https://doi.org/10.1787/53f23881-en"
+    },
+    {
+      "id": "polya-1945",
+      "texto": "Pólya G. How to Solve It: A New Aspect of Mathematical Method. Princeton University Press (1945).",
+      "url": "https://press.princeton.edu/books/paperback/9780691164076/how-to-solve-it"
+    },
+    {
+      "id": "descartes-1637",
+      "texto": "Descartes R. La Géométrie, Discours de la méthode의 부록 (1637).",
+      "url": "https://es.wikipedia.org/wiki/La_Géométrie"
+    },
+    {
+      "id": "newton-1687",
+      "texto": "Newton I. Philosophiæ Naturalis Principia Mathematica (1687).",
+      "url": "https://es.wikipedia.org/wiki/Philosophiæ_naturalis_principia_mathematica"
+    },
+    {
+      "id": "gigerenzer-2007",
+      "texto": "Gigerenzer G. et al. Helping doctors and patients make sense of health statistics. Psychological Science in the Public Interest (2007).",
+      "url": "https://doi.org/10.1111/j.1539-6053.2008.00033.x"
+    },
+    {
+      "id": "visicalc-1979",
+      "texto": "Bricklin D., Frankston B. VisiCalc (1979).",
+      "url": "https://es.wikipedia.org/wiki/VisiCalc"
+    }
+  ]
+}

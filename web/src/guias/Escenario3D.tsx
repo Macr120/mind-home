@@ -8,6 +8,7 @@ import type { ExpresionId } from '../../../src/core/house/apariencia'
 import { patronEscena, pepCon, ropaDeEpoca, ATUENDO_GUIA, NARRADOR_GUIA, TUNICA_GUIA, VESTIDO_GUIA } from './pep'
 import { Mago3D } from './Mago3D'
 import { Princesa3D } from './Princesa3D'
+import { Alien3D } from './Alien3D'
 
 /**
  * Pep@ en 3D: el mismo rig que el visor de ejercicios de la app, con la boca
@@ -40,12 +41,13 @@ export default function Escenario3D({
   const patron = useMemo(() => patronEscena(escena), [escena])
   const mago = NARRADOR_GUIA[tema] === 'mago'
   const princesa = NARRADOR_GUIA[tema] === 'princesa'
+  const alien = NARRADOR_GUIA[tema] === 'alien'
   // Lo que sobresale por encima de la cabeza (el copete del gorro de chef, el sombrero del mago): el encuadre lo cuenta.
-  const sobreCabeza = mago ? 0.7 : princesa ? 0.3 : av.ropa?.gorroChef ? 0.6 : av.ropa?.sombrero ? 0.3 : 0
+  const sobreCabeza = mago ? 0.7 : princesa ? 0.3 : alien ? 0.35 : av.ropa?.gorroChef ? 0.6 : av.ropa?.sombrero ? 0.3 : 0
   const boca = useRef<BocaHabla>(nuevaBocaHabla())
   // Tumbado (plancha, puente…): la cámara baja y se abre, como en el visor de la app.
   const q = patron.poses[0]
-  const tumbado = !mago && !princesa && (Math.abs(q[J.raizX]) > Math.PI / 4 || Math.abs(q[J.raizZ]) > Math.PI / 4)
+  const tumbado = !mago && !princesa && !alien && (Math.abs(q[J.raizX]) > Math.PI / 4 || Math.abs(q[J.raizZ]) > Math.PI / 4)
   return (
     <Canvas shadows dpr={[1, 2]} gl={{ alpha: true, antialias: true }} camera={{ position: [0, 1.35, 6.2], fov: 32 }}>
       <ambientLight intensity={0.9} />
@@ -56,6 +58,8 @@ export default function Escenario3D({
           <Mago3D escena={escena} boca={boca} cara={cara} tunica={TUNICA_GUIA[tema]} />
         ) : princesa ? (
           <Princesa3D escena={escena} boca={boca} cara={cara} vestido={VESTIDO_GUIA[tema]} />
+        ) : alien ? (
+          <Alien3D escena={escena} boca={boca} cara={cara} />
         ) : (
           <RigEjercicio av={av} patron={patron} boca={boca} />
         )}

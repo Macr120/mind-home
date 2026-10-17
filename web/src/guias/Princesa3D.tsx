@@ -19,8 +19,8 @@ const BRAZO_I = PRINCESA.marcha?.brazoIzq ?? 2
 const BRAZO_D = PRINCESA.marcha?.brazoDer ?? 3
 
 /** Ángulos de los brazos por gesto: [abre, adelante] de cada uno (rad; abre > 0 = hacia fuera, adelante < 0 = hacia la cámara). */
-type Gesto = (t: number) => { der: [number, number]; izq: [number, number]; giro?: number; ladeo?: number; inclina?: number }
-const GESTOS: Record<string, Gesto> = {
+export type Gesto = (t: number) => { der: [number, number]; izq: [number, number]; giro?: number; ladeo?: number; inclina?: number }
+export const GESTOS: Record<string, Gesto> = {
   habla: (t) => ({
     der: [0.35 + 0.22 * Math.sin(t * 2.1), -0.55 + 0.25 * Math.sin(t * 1.3)],
     izq: [0.25 + 0.15 * Math.sin(t * 1.7 + 1), -0.35 + 0.15 * Math.sin(t * 1.1)],
@@ -38,7 +38,7 @@ const GESTOS: Record<string, Gesto> = {
 }
 
 /** Una pieza del cuerpo con la misma geometría que en la app (modeloPersonalizado.tsx). */
-function Pieza({ p, pos = p.pos }: { p: Pieza3D; pos?: [number, number, number] }) {
+export function Pieza({ p, pos = p.pos }: { p: Pieza3D; pos?: [number, number, number] }) {
   return (
     <mesh position={pos} castShadow>
       {p.tipo === 'caja' ? (

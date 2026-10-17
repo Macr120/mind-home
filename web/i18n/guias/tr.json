@@ -2810,5 +2810,226 @@
         "abajo": "Berbat bir taslak yazıp sonra düzeltmek"
       }
     }
+  },
+  "matematicas": {
+    "meta": {
+      "titulo": "Evrenin dili nedir? Eksiksiz matematik rehberi: evren neden sayılarla konuşur, sayılar nereden geldi, matematik korkusu, problem çözmek, denklemleri görmek, sayıları kullanmak ve devam etmek için bir plan | MindHaOS",
+      "desc": "Matematik evreni neden anlatır (Galileo'dan Neptün'e), sayılar ve sıfır nereden geldi, matematik neden korkutur ve nasıl öğrenilir, problem çözmek için Pólya'nın dört adımı, bir denklem nasıl görülür, sayılar hayatta nasıl kullanılır ve devam etmek için bir plan."
+    },
+    "narra": "Anlatan: uzaylı",
+    "cargando3d": "Uzaylı yükleniyor…",
+    "lista": {
+      "inventar": "Biri onu kâğıtta icat eder",
+      "inventarDet": "Bazen bir işe yaramasından yüzyıllar önce.",
+      "describir": "Dünyayı anlatır",
+      "describirDet": "Yörüngeler, dalgalar, gelgitler ve devreler.",
+      "predecir": "Ve görmediğimizi öngörür",
+      "predecirDet": "Kalem ve kâğıtla bulunan Neptün gibi.",
+      "talento": "Bir yetenek değil",
+      "talentoDet": "Matematik kafası ya olan ya olmayan bir şey değil.",
+      "practica": "Pratik meselesi",
+      "practicaDet": "Bir dil gibi: kullanarak öğrenilir.",
+      "error": "Hata öğretir",
+      "errorDet": "Yapamayacağını değil, hangi adımın eksik olduğunu söyler.",
+      "datos": "Ne isteniyor, elimde ne var?",
+      "datosDet": "Soruyu ve verileri yaz.",
+      "dibujo": "Bir çizim yap",
+      "dibujoDet": "Bir şema on hesaptan çok şey açıklar.",
+      "parecido": "Benzerini çözdüm mü?",
+      "parecidoDet": "Eski bir problem anahtar olabilir.",
+      "entra": "Bir sayı girer",
+      "entraDet": "Senin verdiğin sayı.",
+      "regla": "Bir kural uygulanır",
+      "reglaDet": "Çarpmak, toplamak, karesini almak…",
+      "sale": "Başka bir sayı çıkar",
+      "saleDet": "Hepsini çizince şekli görürsün.",
+      "cien": "Yüz kişi düşün",
+      "cienDet": "Ya da bin: yüzdeler değil, insanlar.",
+      "personas": "İnsanları durumlara dağıt",
+      "personasDet": "Kaçında hastalık var, kaçının sonucu pozitif.",
+      "cuantos": "Say",
+      "cuantosDet": "Sonucu pozitif çıkanlardan kaçında gerçekten var?",
+      "resumen1": "Evren sayılarla anlatılabilir",
+      "resumen2": "Matematik korkusu pratikle geçer",
+      "resumen3": "Hesaplamadan önce anla ve hep tahmin et",
+      "resumen4": "Bir yüzde kafanı karıştırırsa insanları düşün"
+    },
+    "dato": {
+      "galileo": "Galileo, doğa kitabının matematik diliyle yazıldığını yazar (Il Saggiatore)",
+      "ishango": "Ishango kemiğinin yaşı; üzerindeki gruplanmış çentikler bir şeyin hesabını tutar",
+      "pisa": "OECD'deki 15 yaşındaki öğrencilerin PISA 2022'de matematikte temel seviyeye ulaşamayan kısmı",
+      "newton": "kuvvet, kütle çarpı ivmedir: Newton, Principia (1687)",
+      "visicalc": "kişisel bilgisayarlar için ilk elektronik tablo VisiCalc doğar (Bricklin ve Frankston)"
+    },
+    "pasos": {
+      "matematicas": "Matematik",
+      "matematicasDet": "Alanlar, denklemler ve istatistik.",
+      "fisica": "Fizik",
+      "fisicaDet": "Hareket, kuvvet ve enerji.",
+      "quimica": "Kimya",
+      "quimicaDet": "Mol, gazlar ve çözeltiler.",
+      "mayas": "Mayalar",
+      "mayasDet": "Takvimlerinde sıfırı kullandılar.",
+      "brahmagupta": "Brahmagupta, 628 yılı",
+      "brahmaguptaDet": "Sıfırla işlem kurallarını yazdı.",
+      "alJuarismi": "Harezmî, Bağdat",
+      "alJuarismiDet": "Bize cebiri verdi; adı da algoritmayı.",
+      "decimal": "Onluk",
+      "decimalDet": "Her günkü, 10 tabanında.",
+      "binario": "İkilik",
+      "binarioDet": "Sıfırlar ve birler, bilgisayarın sakladığı gibi.",
+      "hexadecimal": "On altılık",
+      "hexadecimalDet": "16 tabanı, ekran renklerinde kullanılan.",
+      "escribo": "Problemi yazarım",
+      "escriboDet": "Olduğu gibi, hesap makinesine.",
+      "paso": "Adım adım açıklama isterim",
+      "pasoDet": "Yapay zekâdan, takıldığımda.",
+      "entiendo": "Ve kendi hızımda anlarım",
+      "entiendoDet": "Kimse acele ettirmeden.",
+      "sistemas": "Denklem sistemleri",
+      "sistemasDet": "Aynı anda iki ya da üç bilinmeyen.",
+      "matrices": "Matrisler",
+      "matricesDet": "Toplamak, çarpmak ve tersini almak.",
+      "regla3": "Üçlü kural",
+      "regla3Det": "3 tanesi 45 ise 7 tanesi kaç eder?",
+      "plano": "Düzlemde",
+      "planoDet": "Doğrular, paraboller ve eğriler.",
+      "polar": "Polar koordinatlarda",
+      "polarDet": "Spiraller ve çiçekler.",
+      "superficie": "3D yüzey olarak",
+      "superficieDet": "Parmağımla döndürebildiğim.",
+      "hoja": "Tablomu hazırlarım",
+      "hojaDet": "Kendim ya da yapay zekâyla.",
+      "grafica": "Grafiğini çıkarırım",
+      "graficaDet": "Çubuk, çizgi ya da pasta.",
+      "excel": "Dışa aktarırım",
+      "excelDet": "Excel'e ya da PDF'ye.",
+      "atorar": "Takılırsan",
+      "atorarDet": "Başarısızlık değil: problem sana bir şey öğretiyor.",
+      "volver": "İlk adıma dön",
+      "volverDet": "Ve bir çizim yap.",
+      "medir": "Açıklayabildiğini ölç",
+      "medirDet": "Kaç tane çözdüğünü değil, kaçını açıklayabildiğini."
+    },
+    "unoMasUno": {
+      "titulo": "Beş aylıkken bir artı bir",
+      "uno": "Bir oyuncak bebek…",
+      "otro": "…ve perdenin arkasına bir tane daha",
+      "pantalla": "Perde ikisini de örter",
+      "esperado": "Perde inince: iki bebek (beklenen)",
+      "imposible": "Perde inince: sadece bir tane (imkânsız!)",
+      "ver_esperado": "İki göster",
+      "ver_imposible": "Bir göster",
+      "miradaEsperado": "Beklenene bakış",
+      "miradaImposible": "İmkânsıza bakış",
+      "nota": "Karen Wynn (1992): bebekler imkânsız sonuca daha uzun baktı (temsilî çubuklar)."
+    },
+    "base60": {
+      "titulo": "Neden altmış?",
+      "base10": "10 tabanı",
+      "base60": "60 tabanı",
+      "cuenta10": "10, eşit parçalara {n} şekilde bölünür",
+      "cuenta60": "60 ise {n} şekilde: yarımlar, üçte birler, çeyrekler, beşte birler…",
+      "nota": "Babilliler altmışar sayardı: bir saatin 60 dakikası ve bir dairenin 360 derecesi oradan gelir."
+    },
+    "polya": {
+      "titulo": "Pólya'nın dört adımı",
+      "problema": "Bir tren 09.40'ta kalkıyor ve yolculuk 2 sa 35 dk sürüyor. Saat kaçta varır?",
+      "entender": "Problemi anlamak",
+      "entenderDet": "Varış saati isteniyor; elimde kalkış saati ve süre var.",
+      "plan": "Bir plan yapmak",
+      "planDet": "Önce saatleri, sonra dakikaları eklemek.",
+      "ejecutar": "Planı uygulamak",
+      "ejecutarDet": "09.40 + 2 sa = 11.40; + 35 dk = 12.15.",
+      "revisar": "Geriye bakmak",
+      "revisarDet": "Mantıklı mı? Ona yirmi kala kalkan tren yaklaşık iki buçuk saat sonra varıyor: evet.",
+      "nota": "George Pólya, How to Solve It (1945). Her adıma dokun."
+    },
+    "fermi": {
+      "titulo": "Chicago'da kaç piyano akortçusu var?",
+      "gente": "Şehirdeki insanlar",
+      "hogares": "Haneler",
+      "pianos": "Piyanolar (şu kadar haneden birinde)",
+      "porAfinador": "Akortçu başına yıllık akort",
+      "afinadores": "Akortçular",
+      "ajusteGente": "İnsanlar",
+      "ajusteHogar": "Hane başına kişi",
+      "ajustePiano": "Şu kadar hanede bir piyano",
+      "nota": "Yuvarlak ve temsilî rakamlar: varsayımları değiştir ve sonucun uçup gitmediğini gör."
+    },
+    "graficar": {
+      "titulo": "Bir denklem, bir çizim",
+      "recta": "Doğru",
+      "parabola": "Parabol",
+      "onda": "Dalga",
+      "sen": "sin",
+      "nota": "Descartes düzlemi (1637): her nokta, denklemi sağlayan bir (x, y) çiftidir."
+    },
+    "frecuencias": {
+      "titulo": "Pozitif bir mamografi: kanser ne kadar olası?",
+      "porcentajes": "Yüzdelerle",
+      "personas": "İnsanlarla",
+      "p1": "Teste giren kadınların %1'inde meme kanseri var.",
+      "p2": "Bir kadında kanser varsa, test %90 oranında pozitif çıkar.",
+      "p3": "Kanser yoksa, test %9 oranında yanlışlıkla pozitif çıkar.",
+      "pregunta": "Test pozitif çıktı. Kanser olma olasılığı nedir?",
+      "l1": "1000 kişiden 10'unda kanser var; 9'unun testi pozitif",
+      "l2": "990 sağlıklı kişiden 89'unun testi de pozitif",
+      "respuesta": "98 pozitiften yalnızca 9'unda kanser var: onda birden az",
+      "nota": "Gigerenzer ve meslektaşlarının doktorlara sorduğu problem: frekanslarla neredeyse herkes doğru bilir."
+    },
+    "retoDiario": {
+      "titulo": "Günün görevi: önce tahmin et, sonra hesapla",
+      "pregunta": "Bir yılda kaç dakika var?",
+      "tuEstimacion": "Tahminin:",
+      "calcular": "Hesapla",
+      "teDesviaste": "sapma: %{p}",
+      "nota": "Hesaplamadan önce tahmin etmek sayı duygusunu geliştirir: böylece bir sonuç anlamsız olduğunda fark edersin."
+    },
+    "grafica": {
+      "neptuno": "Le Verrier (1846): hesaplar nereye bakılacağını söyledi, Galle de Neptün'ü oradan bir derece ötede buldu",
+      "urano": "Sapan Uranüs",
+      "calculado": "Hesaplanan",
+      "encontrado": "Neptün",
+      "sol": "Güneş",
+      "ansiedadMate": "Lyons ve Beilock (2012): bir matematik problemi geleceğini öğrenince acı ağı, kaygısı yüksek olanlarda daha çok etkinleşti (temsilî)",
+      "alta": "Yüksek kaygı",
+      "baja": "Düşük kaygı",
+      "plan": "Devam etmek için planın",
+      "semana1": "1. hafta",
+      "semana1Det": "Gününün sayılarını ara ve hesaplamadan önce tahmin et",
+      "mes1": "1. ay",
+      "mes1Det": "Pólya'nın dört adımıyla her gün kısa bir problem",
+      "atoras": "Takıldığında",
+      "atorasDet": "Problemi anlamaya geri dön ve bir çizim yap",
+      "medir": "Ölçmek için",
+      "medirDet": "Başka birine kaç problem açıklayabildiğin"
+    },
+    "cierre": {
+      "titulo": "Kendi evinde sayılar",
+      "texto": "MindHaOS'taki Bilgi İşlem odasında matematik, fizik ve kimyadan bir formül defteriyle hesap yapar, denklemlerinin grafiğini düzlemde, polar olarak ya da 3D çizer ve Excel'e ya da PDF'ye aktardığın e-tablolar hazırlarsın; kendi başına ya da yapay zekânın yardımıyla."
+    },
+    "paquete": {
+      "guia": "Etkileşimli rehber (toplama yapan bebekler deneyi, neden altmışar saydığımız, Pólya'nın dört adımı, bir Fermi problemi, kendi kendine çizilen denklemler ve yüzdelere karşı insanlar; hepsi tarayıcında hareket ediyor)",
+      "app": "MindHaOS'ta Bilgi İşlem odasını aç",
+      "hashtags": "#matematik #bilim #evren #öğrenme #dersçalışma #öğrenci #MindHaOS"
+    },
+    "memes": {
+      "cero": {
+        "arriba": "Mayalar ve Brahmagupta sıfırı icat ederken",
+        "abajo": "Ben matematik sınavında"
+      },
+      "miedoMate": {
+        "arriba": "Öğretmen «Herkes bir kâğıt çıkarsın» dediğinde"
+      },
+      "estimacion": {
+        "arriba": "Hesabı yapıp ne çıkarsa ona güvenmek",
+        "abajo": "Önce tahmin edip sonucun mantıklı olup olmadığına bakmak"
+      },
+      "formula": {
+        "arriba": "Ben: «Matematik hiçbir işe yaramaz»",
+        "abajo": "Newton üç harfle: elmadan rokete her şeyi açıklıyor"
+      }
+    }
   }
 }

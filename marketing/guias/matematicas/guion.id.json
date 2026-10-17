@@ -1,0 +1,672 @@
+{
+  "idioma": "id",
+  "tema": "matematicas",
+  "plantillaId": "computo",
+  "numero": 13,
+  "nombre": "Matematika",
+  "pregunta": "Apa bahasa alam semesta?",
+  "corta": "Bahasa alam semesta",
+  "subtitulo": "Mengapa alam semesta bisa dijelaskan dengan angka, dari mana angka berasal, mengapa matematika menakutkan, cara memecahkan masalah apa pun, cara melihat sebuah persamaan, cara memakai angka dalam hidupmu, dan rencana untuk terus belajar.",
+  "aviso": "Panduan ini bersifat informatif: angka dan studi yang dikutip adalah perkiraan dari sumbernya, dan setiap orang belajar dengan kecepatannya sendiri. Jika kecemasan terhadap matematika membuatmu lumpuh atau sangat memengaruhimu, bicaralah dengan konselor atau spesialis.",
+  "partes": [
+    {
+      "id": "universo",
+      "titulo": "Mengapa alam semesta berbicara dengan angka?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Apa bahasa alam semesta? Pada tahun seribu delapan ratus empat puluh enam, seorang astronom menemukan planet baru tanpa melihat ke langit: hanya dengan pensil dan kertas. Hari ini kamu akan melihat bagaimana ia melakukannya, dan mengapa bahasa yang sama itu berguna untuk hidupmu sehari-hari."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "Omong-omong, ini rumahku di MindHaOS, dan ini ruang Komputasiku."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian satu. Mengapa alam semesta berbicara dengan angka?"
+        },
+        {
+          "id": "galileo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1623",
+            "clave": "galileo"
+          },
+          "lamina": [
+            "galileo",
+            "estrellas"
+          ],
+          "texto": "Pada tahun seribu enam ratus dua puluh tiga, Galileo Galilei menulis bahwa kitab agung alam ditulis dalam bahasa matematika, dan tanpa bahasa itu kita hanya akan berputar-putar di labirin yang gelap."
+        },
+        {
+          "id": "neptuno",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "neptuno"
+          },
+          "lamina": [
+            "leverrier",
+            "neptuno"
+          ],
+          "texto": "Inilah planet dari awal tadi. Uranus tidak mengikuti orbit yang diramalkan hukum Newton: ada sesuatu yang menariknya. Urbain Le Verrier menghitung di mana sesuatu itu seharusnya berada dan mengirim hitungannya ke Berlin. Johann Galle mengarahkan teleskopnya malam itu juga dan menemukan Neptunus hanya satu derajat dari tempat yang ditunjuk angka-angka itu."
+        },
+        {
+          "id": "wigner",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "inventar",
+              "describir",
+              "predecir"
+            ]
+          },
+          "lamina": [
+            "pizarra2",
+            "galaxia"
+          ],
+          "texto": "Pada tahun seribu sembilan ratus enam puluh, fisikawan Eugene Wigner menyebutnya efektivitas matematika yang tak masuk akal: gagasan yang dikarang seseorang di atas kertas, kadang berabad-abad sebelumnya, akhirnya menjelaskan cara dunia bergerak."
+        },
+        {
+          "id": "formulario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "matematicas",
+              "fisica",
+              "quimica"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "pizarron",
+          "texto": "Karena itu, di ruang Komputasiku ada Buku Rumus dengan folder matematika, fisika, dan kimia: setiap rumus langsung terhitung begitu kamu memasukkan datanya."
+        }
+      ]
+    },
+    {
+      "id": "origen",
+      "titulo": "Dari mana angka berasal?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian dua. Dari mana angka berasal?"
+        },
+        {
+          "id": "bebes",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "unoMasUno"
+          },
+          "lamina": [
+            "bebe",
+            "nino"
+          ],
+          "texto": "Angka sudah ada sebelum kita belajar menulis. Pada tahun seribu sembilan ratus sembilan puluh dua, Karen Wynn menunjukkan kepada bayi berusia lima bulan sebuah boneka, lalu satu lagi, di balik sebuah layar. Saat layar diangkat dan hanya ada satu, para bayi menatap lebih lama, seolah ada yang tidak beres. Kita sudah lahir dengan rasa akan jumlah."
+        },
+        {
+          "id": "ishango",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 20.000 tahun",
+            "clave": "ishango"
+          },
+          "lamina": [
+            "ishango",
+            "contar"
+          ],
+          "texto": "Yang kita ciptakan adalah cara menuliskannya. Tulang Ishango, yang ditemukan di Kongo, berumur sekitar dua puluh ribu tahun dan penuh torehan yang berkelompok: seseorang sedang mencatat hitungan sesuatu."
+        },
+        {
+          "id": "babilonia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "base60"
+          },
+          "lamina": [
+            "plimpton",
+            "reloj"
+          ],
+          "texto": "Hampir empat ribu tahun lalu, di Babilonia, orang menghitung per enam puluh. Karena itu sekarang satu jam punya enam puluh menit dan satu lingkaran tiga ratus enam puluh derajat: kita masih memakai angka mereka tanpa sadar."
+        },
+        {
+          "id": "cero",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mayas",
+              "brahmagupta",
+              "alJuarismi"
+            ]
+          },
+          "lamina": [
+            "glifoMaya",
+            "alJuarismi"
+          ],
+          "texto": "Dan nol butuh waktu lama untuk tiba. Bangsa Maya memakainya di kalender mereka, dan pada tahun enam ratus dua puluh delapan, di India, Brahmagupta menulis aturan untuk menjumlah dan mengurangi dengannya. Dua abad kemudian, di Bagdad, al-Khawarizmi menulis buku yang memberi kita kata aljabar; dari namanya lahir kata algoritma.",
+          "meme": "cero"
+        },
+        {
+          "id": "bases",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "decimal",
+              "binario",
+              "hexadecimal"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "binario",
+          "texto": "Di Kalkulatorku aku bisa mengganti basis: angka yang sama dalam desimal, dalam biner seperti yang disimpan komputer, atau dalam heksadesimal."
+        }
+      ]
+    },
+    {
+      "id": "miedo",
+      "titulo": "Mengapa matematika menakutkan?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tiga. Mengapa matematika menakutkan?"
+        },
+        {
+          "id": "beilock",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ansiedadMate"
+          },
+          "lamina": [
+            "cerebro",
+            "examen"
+          ],
+          "texto": "Kalau kamu gugup, itu bukan khayalanmu. Pada tahun dua ribu dua belas, Ian Lyons dan Sian Beilock melihat lewat pemindai otak bahwa pada orang yang cemas terhadap matematika, baru tahu akan ada soal matematika saja sudah mengaktifkan area otak yang terkait dengan rasa sakit fisik. Dan bukan saat mengerjakan soal: sebelumnya."
+        },
+        {
+          "id": "pisa",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "31%",
+            "clave": "pisa"
+          },
+          "lamina": [
+            "alumnos",
+            "pizarra"
+          ],
+          "texto": "Kamu tidak sendirian. Dalam tes PISA dua ribu dua puluh dua, hampir satu dari tiga pelajar berusia lima belas tahun di negara-negara OECD tidak mencapai tingkat dasar matematika.",
+          "meme": "miedoMate"
+        },
+        {
+          "id": "aprendible",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "talento",
+              "practica",
+              "error"
+            ]
+          },
+          "lamina": [
+            "cuaderno",
+            "lapiz"
+          ],
+          "texto": "Kabar baiknya: jago matematika bukan bakat yang kamu punya atau tidak. Itu soal latihan, seperti belajar bahasa. Salah dalam satu soal tidak berarti kamu tidak bisa; itu menunjukkan langkah mana yang belum kamu kuasai."
+        },
+        {
+          "id": "explica",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escribo",
+              "paso",
+              "entiendo"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "calculadora",
+          "texto": "Saat aku buntu, aku menulis soalnya di Kalkulatorku dan meminta kecerdasan buatan menjelaskannya langkah demi langkah, sesuai kecepatanku, tanpa ada yang mendesakku."
+        }
+      ]
+    },
+    {
+      "id": "resolver",
+      "titulo": "Bagaimana memecahkan masalah apa pun?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian empat. Bagaimana memecahkan masalah apa pun?"
+        },
+        {
+          "id": "polya",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "polya"
+          },
+          "lamina": [
+            "rompecabezas",
+            "pizarron"
+          ],
+          "texto": "Pada tahun seribu sembilan ratus empat puluh lima, matematikawan George Pólya menulis How to Solve It, dengan empat langkah yang berguna untuk hampir semua hal: memahami masalah, menyusun rencana, menjalankannya, dan menoleh ke belakang untuk memeriksa."
+        },
+        {
+          "id": "entender",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "datos",
+              "dibujo",
+              "parecido"
+            ]
+          },
+          "lamina": [
+            "idea",
+            "notas"
+          ],
+          "texto": "Langkah yang paling sering kita lewati adalah yang pertama. Sebelum berhitung, tanyakan pada dirimu: Apa yang diminta? Data apa yang kupunya? Bisakah aku membuat gambar? Pernahkah aku memecahkan yang mirip?"
+        },
+        {
+          "id": "fermi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fermi"
+          },
+          "lamina": [
+            "fermi",
+            "piano"
+          ],
+          "texto": "Dan belajarlah memperkirakan. Enrico Fermi bertanya kepada murid-muridnya berapa banyak penyetel piano di Chicago. Tak ada yang tahu, tapi dengan memecah masalah menjadi bagian-bagian yang bisa ditebak, jawabannya jatuh dekat. Sebuah perkiraan memberitahumu saat sebuah hasil tidak masuk akal.",
+          "meme": "estimacion"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "Kalau kamu suka panduan ini, tekan Suka, Subscribe, dan Bagikan."
+        },
+        {
+          "id": "sistemas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sistemas",
+              "matrices",
+              "regla3"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cohete",
+          "texto": "Lihat: rumahku sekarang jadi pesawat luar angkasa, siap berangkat ke alam semesta yang berbicara dengan angka itu. Dan begitu rencananya siap, Kalkulator mengerjakan bagian yang berat: menyelesaikan sistem persamaan, matriks, atau aturan tiga dalam sekejap."
+        }
+      ]
+    },
+    {
+      "id": "ver",
+      "titulo": "Bagaimana melihat sebuah persamaan?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian lima. Bagaimana melihat sebuah persamaan?"
+        },
+        {
+          "id": "descartes",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "graficar"
+          },
+          "lamina": [
+            "descartes",
+            "grafica"
+          ],
+          "texto": "Pada tahun seribu enam ratus tiga puluh tujuh, René Descartes punya ide yang mengubah segalanya: memberi dua sumbu pada selembar kertas dan mengubah setiap persamaan menjadi gambar. Sejak itu, rumus bukan sekadar huruf: ia adalah garis lurus, parabola, atau kurva yang bisa kamu lihat."
+        },
+        {
+          "id": "funcion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "entra",
+              "regla",
+              "sale"
+            ]
+          },
+          "lamina": [
+            "computadora",
+            "pantallas"
+          ],
+          "texto": "Bayangkan fungsi sebagai mesin: kamu memberinya satu angka, ia menerapkan aturannya, lalu mengembalikan angka lain. Saat kamu menggambarnya, sekilas kamu bisa melihat di mana ia naik, di mana turun, dan di mana ia memotong nol."
+        },
+        {
+          "id": "newton",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "F = m · a",
+            "clave": "newton"
+          },
+          "lamina": [
+            "principia",
+            "newton"
+          ],
+          "texto": "Fisika juga begitu. Pada tahun seribu enam ratus delapan puluh tujuh, Isaac Newton menulis bahwa gaya sama dengan massa kali percepatan. Tiga huruf yang menjelaskan mulai dari bola yang jatuh sampai roket yang lepas landas.",
+          "meme": "formula"
+        },
+        {
+          "id": "graficas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plano",
+              "polar",
+              "superficie"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "matematicas",
+          "texto": "Di sini aku menulis sebuah persamaan dan langsung melihatnya: di bidang datar, dalam koordinat polar, atau sebagai permukaan tiga dimensi yang bisa kuputar."
+        }
+      ]
+    },
+    {
+      "id": "vida",
+      "titulo": "Bagaimana memakai angka dalam hidupmu?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian enam. Bagaimana memakai angka dalam hidupmu?"
+        },
+        {
+          "id": "gigerenzer",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "frecuencias"
+          },
+          "lamina": [
+            "doctor",
+            "lupa"
+          ],
+          "texto": "Persentase bisa menipu bahkan para ahli. Gerd Gigerenzer memberi seratus enam puluh dokter kandungan sebuah soal tentang hasil positif pada mamografi: hanya satu dari lima yang menjawab benar. Setelah belajar berpikir dalam frekuensi, hampir sembilan dari sepuluh menjawab benar."
+        },
+        {
+          "id": "frecuencias",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cien",
+              "personas",
+              "cuantos"
+            ]
+          },
+          "lamina": [
+            "gente",
+            "dados"
+          ],
+          "texto": "Triknya: ganti persen dengan orang. Daripada satu persen, bayangkan seratus orang dan tanyakan berapa orang, dari seratus itu, yang ada di setiap kasus. Tiba-tiba masalahnya jadi terlihat."
+        },
+        {
+          "id": "visicalc",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1979",
+            "clave": "visicalc"
+          },
+          "lamina": [
+            "visicalc",
+            "apple2"
+          ],
+          "texto": "Dan untuk hitungan sehari-hari, ada spreadsheet. Pada tahun seribu sembilan ratus tujuh puluh sembilan, Dan Bricklin dan Bob Frankston menciptakan VisiCalc: kamu mengubah satu angka dan semua yang lain dihitung ulang. Saking bergunanya, banyak orang membeli komputer hanya untuk memakainya."
+        },
+        {
+          "id": "hojas",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hoja",
+              "grafica",
+              "excel"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "computadora",
+          "texto": "Di rumahku, Spreadsheet-ku tinggal di sebelah Kalkulator: aku membuatnya sendiri atau dibantu kecerdasan buatan, membuat grafiknya, dan mengekspornya ke Excel atau PDF."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Bagaimana melanjutkan? Rencanamu untuk terus maju.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tujuh. Bagaimana melanjutkan? Rencanamu untuk terus maju."
+        },
+        {
+          "id": "semana1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuarMat"
+          },
+          "lamina": [
+            "calendario",
+            "taza"
+          ],
+          "texto": "Pada minggu pertama, cari angka-angka dalam harimu: berapa yang kamu belanjakan, berapa jauh kamu berjalan, berapa lama kamu tidur. Setiap hari, perkirakan satu hal sebelum menghitungnya, lalu bandingkan."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "retoDiario"
+          },
+          "lamina": [
+            "cuaderno",
+            "lapiz"
+          ],
+          "texto": "Pada bulan pertama, pecahkan satu soal pendek setiap hari, selama sepuluh menit, dengan mengikuti empat langkah Pólya. Pilih topik yang kamu suka: uang, olahraga, memasak, atau langit."
+        },
+        {
+          "id": "fallar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "atorar",
+              "volver",
+              "medir"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "escalon"
+          ],
+          "texto": "Dan saat kamu buntu, jangan anggap itu kegagalan: kembali ke langkah pertama dan buat gambar. Untuk mengukur kemajuanmu, jangan hitung berapa soal yang kamu kerjakan: hitung berapa yang bisa kamu jelaskan kepada orang lain."
+        },
+        {
+          "id": "resumen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": [
+            "cumbre",
+            "galaxia"
+          ],
+          "texto": "Singkatnya: alam semesta bisa dijelaskan dengan angka; rasa takut pada matematika sembuh dengan latihan; pahami dulu sebelum menghitung dan selalu perkirakan; dan saat persentase membingungkanmu, pikirkan orang."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Di ruang Komputasi MindHaOS, kamu bisa menghitung dengan Buku Rumus matematika, fisika, dan kimia, menggambar grafik persamaanmu, dan menyusun spreadsheet, sendiri atau dibantu kecerdasan buatan. Bangun rumah pikiranmu gratis hari ini: tautannya ada di deskripsi. Dan di panduan berikutnya: mengapa kamu harus menulis?",
+    "boton": "Buka ruang Komputasi",
+    "lamina": "app-plan",
+    "anclas": {
+      "formulario": "menghitung dengan Buku Rumus",
+      "graficar": "grafik persamaanmu",
+      "hojas": "menyusun spreadsheet"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "galileo-1623",
+      "texto": "Galilei G. Il Saggiatore (1623).",
+      "url": "https://es.wikipedia.org/wiki/El_ensayador"
+    },
+    {
+      "id": "leverrier-1846",
+      "texto": "Le Verrier U. J. J. dan Galle J. G. Penemuan Neptunus (1846).",
+      "url": "https://es.wikipedia.org/wiki/Descubrimiento_de_Neptuno"
+    },
+    {
+      "id": "wigner-1960",
+      "texto": "Wigner E. P. The unreasonable effectiveness of mathematics in the natural sciences. Communications on Pure and Applied Mathematics (1960).",
+      "url": "https://doi.org/10.1002/cpa.3160130102"
+    },
+    {
+      "id": "wynn-1992",
+      "texto": "Wynn K. Addition and subtraction by human infants. Nature (1992).",
+      "url": "https://doi.org/10.1038/358749a0"
+    },
+    {
+      "id": "ishango",
+      "texto": "Tulang Ishango, Institut Kerajaan Belgia untuk Ilmu Pengetahuan Alam.",
+      "url": "https://es.wikipedia.org/wiki/Hueso_de_Ishango"
+    },
+    {
+      "id": "plimpton-322",
+      "texto": "Plimpton 322, lempeng tanah liat Babilonia (sekitar 1800 SM).",
+      "url": "https://es.wikipedia.org/wiki/Plimpton_322"
+    },
+    {
+      "id": "brahmagupta-628",
+      "texto": "Brahmagupta. Brāhmasphuṭasiddhānta (628).",
+      "url": "https://es.wikipedia.org/wiki/Brahmagupta"
+    },
+    {
+      "id": "lyons-beilock-2012",
+      "texto": "Lyons I. M., Beilock S. L. When math hurts: math anxiety predicts pain network activation in anticipation of doing math. PLoS ONE (2012).",
+      "url": "https://doi.org/10.1371/journal.pone.0048076"
+    },
+    {
+      "id": "pisa-2022",
+      "texto": "OECD. PISA 2022 Results (Volume I): The State of Learning and Equity in Education (2023).",
+      "url": "https://doi.org/10.1787/53f23881-en"
+    },
+    {
+      "id": "polya-1945",
+      "texto": "Pólya G. How to Solve It: A New Aspect of Mathematical Method. Princeton University Press (1945).",
+      "url": "https://press.princeton.edu/books/paperback/9780691164076/how-to-solve-it"
+    },
+    {
+      "id": "descartes-1637",
+      "texto": "Descartes R. La Géométrie, lampiran Discours de la méthode (1637).",
+      "url": "https://es.wikipedia.org/wiki/La_Géométrie"
+    },
+    {
+      "id": "newton-1687",
+      "texto": "Newton I. Philosophiæ Naturalis Principia Mathematica (1687).",
+      "url": "https://es.wikipedia.org/wiki/Philosophiæ_naturalis_principia_mathematica"
+    },
+    {
+      "id": "gigerenzer-2007",
+      "texto": "Gigerenzer G. et al. Helping doctors and patients make sense of health statistics. Psychological Science in the Public Interest (2007).",
+      "url": "https://doi.org/10.1111/j.1539-6053.2008.00033.x"
+    },
+    {
+      "id": "visicalc-1979",
+      "texto": "Bricklin D., Frankston B. VisiCalc (1979).",
+      "url": "https://es.wikipedia.org/wiki/VisiCalc"
+    }
+  ]
+}

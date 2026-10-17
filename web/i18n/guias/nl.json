@@ -2810,5 +2810,226 @@
         "abajo": "Een afschuwelijke eerste versie schrijven en die later verbeteren"
       }
     }
+  },
+  "matematicas": {
+    "meta": {
+      "titulo": "Wat is de taal van het universum? Complete gids wiskunde: waarom het universum in getallen spreekt, waar ze vandaan komen, angst voor wiskunde, problemen oplossen, vergelijkingen zien, getallen gebruiken en een plan om door te gaan | MindHaOS",
+      "desc": "Waarom wiskunde het universum beschrijft (van Galilei tot Neptunus), waar de getallen en de nul vandaan komen, waarom wiskunde eng is en hoe je het leert, de vier stappen van Pólya om problemen op te lossen, hoe je een vergelijking ziet, hoe je getallen in je leven gebruikt en een plan om door te gaan."
+    },
+    "narra": "De alien vertelt",
+    "cargando3d": "De alien wordt geladen…",
+    "lista": {
+      "inventar": "Iemand bedenkt het op papier",
+      "inventarDet": "Soms eeuwen voordat het ergens voor dient.",
+      "describir": "Het beschrijft de wereld",
+      "describirDet": "Banen, golven, getijden en schakelingen.",
+      "predecir": "En voorspelt wat we nog niet zagen",
+      "predecirDet": "Zoals Neptunus, gevonden met potlood en papier.",
+      "talento": "Het is geen gave",
+      "talentoDet": "Goed zijn in wiskunde is niet iets wat je wel of niet hebt.",
+      "practica": "Het is oefening",
+      "practicaDet": "Net als een taal: je leert het door het te gebruiken.",
+      "error": "Fouten leren je iets",
+      "errorDet": "Ze tonen welke stap je mist, niet dat je het niet kunt.",
+      "datos": "Wat wordt er gevraagd en wat heb ik?",
+      "datosDet": "Schrijf de vraag en de gegevens op.",
+      "dibujo": "Maak een tekening",
+      "dibujoDet": "Een schets verheldert meer dan tien sommen.",
+      "parecido": "Heb ik al iets vergelijkbaars opgelost?",
+      "parecidoDet": "Een oud probleem kan de sleutel zijn.",
+      "entra": "Er gaat een getal in",
+      "entraDet": "Het getal dat jij geeft.",
+      "regla": "Er wordt een regel toegepast",
+      "reglaDet": "Vermenigvuldigen, optellen, kwadrateren…",
+      "sale": "Er komt een ander getal uit",
+      "saleDet": "En als je ze allemaal tekent, zie je de vorm.",
+      "cien": "Stel je honderd mensen voor",
+      "cienDet": "Of duizend: mensen, geen percentages.",
+      "personas": "Verdeel de mensen over elk geval",
+      "personasDet": "Hoeveel iets hebben en hoeveel positief testen.",
+      "cuantos": "Tel",
+      "cuantosDet": "Van wie positief testte: hoeveel hebben het echt?",
+      "resumen1": "Het universum laat zich met getallen beschrijven",
+      "resumen2": "Angst voor wiskunde verdwijnt door te oefenen",
+      "resumen3": "Begrijp voordat je rekent en schat altijd",
+      "resumen4": "Brengt een percentage je in de war, denk aan mensen"
+    },
+    "dato": {
+      "galileo": "Galilei schrijft dat het boek van de natuur in de taal van de wiskunde geschreven is (Il Saggiatore)",
+      "ishango": "is het bot van Ishango, met gegroepeerde kerven die iets bijhouden",
+      "pisa": "van de 15-jarigen in de OESO haalde in PISA 2022 het basisniveau wiskunde niet",
+      "newton": "kracht is massa maal versnelling: Newton, in de Principia (1687)",
+      "visicalc": "verschijnt VisiCalc, de eerste spreadsheet voor personal computers (Bricklin en Frankston)"
+    },
+    "pasos": {
+      "matematicas": "Wiskunde",
+      "matematicasDet": "Oppervlakten, vergelijkingen en statistiek.",
+      "fisica": "Natuurkunde",
+      "fisicaDet": "Beweging, kracht en energie.",
+      "quimica": "Scheikunde",
+      "quimicaDet": "Mol, gassen en oplossingen.",
+      "mayas": "De Maya's",
+      "mayasDet": "Gebruikten de nul in hun kalenders.",
+      "brahmagupta": "Brahmagupta, jaar 628",
+      "brahmaguptaDet": "Schreef de rekenregels voor de nul.",
+      "alJuarismi": "Al-Khwarizmi, Bagdad",
+      "alJuarismiDet": "Gaf ons de algebra; zijn naam, het algoritme.",
+      "decimal": "Decimaal",
+      "decimalDet": "Het alledaagse, met grondtal 10.",
+      "binario": "Binair",
+      "binarioDet": "Nullen en enen, zoals een computer opslaat.",
+      "hexadecimal": "Hexadecimaal",
+      "hexadecimalDet": "Grondtal 16, dat van de kleuren op een scherm.",
+      "escribo": "Ik typ de som",
+      "escriboDet": "Precies zoals hij is, in de rekenmachine.",
+      "paso": "Ik vraag uitleg stap voor stap",
+      "pasoDet": "Aan de kunstmatige intelligentie, als ik vastloop.",
+      "entiendo": "En ik begrijp het in mijn tempo",
+      "entiendoDet": "Zonder dat iemand me opjaagt.",
+      "sistemas": "Stelsels van vergelijkingen",
+      "sistemasDet": "Twee of drie onbekenden tegelijk.",
+      "matrices": "Matrices",
+      "matricesDet": "Optellen, vermenigvuldigen en inverteren.",
+      "regla3": "Regel van drieën",
+      "regla3Det": "Als 3 stuks 45 kosten, wat kosten er 7?",
+      "plano": "In het vlak",
+      "planoDet": "Rechten, parabolen en krommen.",
+      "polar": "In poolcoördinaten",
+      "polarDet": "Spiralen en bloemen.",
+      "superficie": "Als 3D-oppervlak",
+      "superficieDet": "Dat ik met mijn vinger kan draaien.",
+      "hoja": "Ik maak mijn spreadsheet",
+      "hojaDet": "Zelf of met hulp van AI.",
+      "grafica": "Ik maak er een grafiek van",
+      "graficaDet": "Staaf, lijn of taart.",
+      "excel": "Ik exporteer hem",
+      "excelDet": "Naar Excel of pdf.",
+      "atorar": "Als je vastloopt",
+      "atorarDet": "Geen mislukking: het probleem leert je iets.",
+      "volver": "Terug naar de eerste stap",
+      "volverDet": "En maak een tekening.",
+      "medir": "Meet wat je uitlegt",
+      "medirDet": "Niet hoeveel je maakt: hoeveel je kunt uitleggen."
+    },
+    "unoMasUno": {
+      "titulo": "Eén plus één, met vijf maanden",
+      "uno": "Eén poppetje…",
+      "otro": "…en nog een achter het scherm",
+      "pantalla": "Het scherm verbergt ze allebei",
+      "esperado": "Scherm weg: twee poppetjes (zoals verwacht)",
+      "imposible": "Scherm weg: maar één (onmogelijk!)",
+      "ver_esperado": "Toon twee",
+      "ver_imposible": "Toon één",
+      "miradaEsperado": "Kijktijd bij het verwachte",
+      "miradaImposible": "Kijktijd bij het onmogelijke",
+      "nota": "Karen Wynn (1992): de baby's keken langer naar de onmogelijke uitkomst (illustratieve staven)."
+    },
+    "base60": {
+      "titulo": "Waarom zestig?",
+      "base10": "Grondtal 10",
+      "base60": "Grondtal 60",
+      "cuenta10": "10 kun je op {n} manieren in gelijke delen verdelen",
+      "cuenta60": "60 op {n} manieren: helften, derden, vierden, vijfden…",
+      "nota": "De Babyloniërs telden per 60: vandaar de 60 minuten van een uur en de 360 graden van een cirkel."
+    },
+    "polya": {
+      "titulo": "De vier stappen van Pólya",
+      "problema": "Een trein vertrekt om 9.40 uur en doet er 2 u 35 min over. Hoe laat komt hij aan?",
+      "entender": "Het probleem begrijpen",
+      "entenderDet": "Gevraagd is de aankomsttijd; ik heb het vertrek en de reisduur.",
+      "plan": "Een plan bedenken",
+      "planDet": "Eerst de uren optellen en dan de minuten.",
+      "ejecutar": "Het uitvoeren",
+      "ejecutarDet": "9.40 + 2 u = 11.40; + 35 min = 12.15.",
+      "revisar": "Terugkijken",
+      "revisarDet": "Klopt het? Zo'n tweeënhalf uur na twintig voor tien: ja.",
+      "nota": "George Pólya, How to Solve It (1945). Tik op elke stap."
+    },
+    "fermi": {
+      "titulo": "Hoeveel pianostemmers zijn er in Chicago?",
+      "gente": "Mensen in de stad",
+      "hogares": "Huishoudens",
+      "pianos": "Piano's (één per zoveel huishoudens)",
+      "porAfinador": "Stembeurten per jaar per stemmer",
+      "afinadores": "Pianostemmers",
+      "ajusteGente": "Mensen",
+      "ajusteHogar": "Mensen per huishouden",
+      "ajustePiano": "Eén piano per zoveel huishoudens",
+      "nota": "Ronde, illustratieve cijfers: verander de aannames en zie dat de uitkomst niet ontspoort."
+    },
+    "graficar": {
+      "titulo": "Eén vergelijking, één tekening",
+      "recta": "Rechte",
+      "parabola": "Parabool",
+      "onda": "Golf",
+      "sen": "sin",
+      "nota": "Het vlak van Descartes (1637): elk punt is een paar (x, y) dat aan de vergelijking voldoet."
+    },
+    "frecuencias": {
+      "titulo": "Een positieve mammografie: hoe waarschijnlijk is kanker?",
+      "porcentajes": "In percentages",
+      "personas": "In mensen",
+      "p1": "1% van de vrouwen die de test doen, heeft borstkanker.",
+      "p2": "Heeft een vrouw kanker, dan is de test in 90% van de gevallen positief.",
+      "p3": "Heeft ze het niet, dan is hij in 9% van de gevallen ten onrechte positief.",
+      "pregunta": "De test is positief. Hoe groot is de kans dat ze kanker heeft?",
+      "l1": "10 op de 1000 hebben kanker; 9 van hen testen positief",
+      "l2": "Van de 990 gezonden testen er ook 89 positief",
+      "respuesta": "Van de 98 positieven hebben er maar 9 kanker: minder dan één op de tien",
+      "nota": "Het probleem dat Gigerenzer en collega's aan artsen gaven: in frequenties heeft bijna iedereen het goed."
+    },
+    "retoDiario": {
+      "titulo": "De uitdaging van de dag: eerst schatten, dan rekenen",
+      "pregunta": "Hoeveel minuten heeft een jaar?",
+      "tuEstimacion": "Jouw schatting:",
+      "calcular": "Berekenen",
+      "teDesviaste": "je zat er {p}% naast",
+      "nota": "Schatten voordat je rekent traint je getallengevoel: zo merk je wanneer een uitkomst nergens op slaat."
+    },
+    "grafica": {
+      "neptuno": "Le Verrier (1846): de berekening zei waar je moest zoeken, en Galle vond Neptunus op één graad daarvan",
+      "urano": "Uranus, afgebogen",
+      "calculado": "Berekend",
+      "encontrado": "Neptunus",
+      "sol": "Zon",
+      "ansiedadMate": "Lyons en Beilock (2012): bij het vooruitzicht van een wiskundesom werd het pijnnetwerk sterker actief bij mensen met veel angst (illustratief)",
+      "alta": "Veel angst",
+      "baja": "Weinig angst",
+      "plan": "Jouw plan om door te gaan",
+      "semana1": "Week 1",
+      "semana1Det": "Zoek de getallen van je dag en schat voordat je rekent",
+      "mes1": "Maand 1",
+      "mes1Det": "Elke dag een korte som met de vier stappen van Pólya",
+      "atoras": "Als je vastloopt",
+      "atorasDet": "Begrijp het probleem opnieuw en maak een tekening",
+      "medir": "Om te meten",
+      "medirDet": "Hoeveel sommen je aan iemand anders kunt uitleggen"
+    },
+    "cierre": {
+      "titulo": "Getallen, in je eigen huis",
+      "texto": "In de Computerkamer van MindHaOS reken je met een formuleboek voor wiskunde, natuurkunde en scheikunde, teken je je vergelijkingen in het vlak, in poolcoördinaten of in 3D, en bouw je spreadsheets die je naar Excel of pdf exporteert, zelf of met hulp van kunstmatige intelligentie."
+    },
+    "paquete": {
+      "guia": "Interactieve gids (met het experiment van de baby's die optellen, waarom we per zestig tellen, de vier stappen van Pólya, een Fermi-vraag, vergelijkingen die zichzelf tekenen en percentages tegen mensen, die bewegen in je browser)",
+      "app": "Open de Computerkamer in MindHaOS",
+      "hashtags": "#wiskunde #rekenen #wetenschap #universum #leren #studeren #MindHaOS"
+    },
+    "memes": {
+      "cero": {
+        "arriba": "De Maya's en Brahmagupta die de nul uitvinden",
+        "abajo": "Ik bij de wiskundetoets"
+      },
+      "miedoMate": {
+        "arriba": "Als de leraar zegt: \"pak een blaadje\""
+      },
+      "estimacion": {
+        "arriba": "De som maken en geloven wat eruit komt",
+        "abajo": "Eerst schatten om te zien of de uitkomst klopt"
+      },
+      "formula": {
+        "arriba": "Ik: \"wiskunde heb je nergens voor nodig\"",
+        "abajo": "Newton met drie letters: verklaart alles van een appel tot een raket"
+      }
+    }
   }
 }

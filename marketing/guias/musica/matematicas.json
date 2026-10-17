@@ -1,0 +1,26 @@
+{
+  "_nota": "Música de fondo de la guía de Matemáticas, en este orden (elegida por el usuario, 16 oct 2026): canciones suyas hechas con el Studio de audio de MindHaOS, niveladas a −10 LUFS.",
+  "canciones": [
+    {
+      "archivo": "house-high-energy-piano.mp3",
+      "titulo": "House, high energy piano",
+      "credito": [
+        "«House, high energy piano» · Música original de MindHaOS, hecha en su Studio de audio"
+      ]
+    },
+    {
+      "archivo": "techno-80s-saxofon-flauta.mp3",
+      "titulo": "80s techno with saxophone and flute",
+      "credito": [
+        "«80s techno with saxophone and flute» · Música original de MindHaOS, hecha en su Studio de audio"
+      ]
+    },
+    {
+      "archivo": "renaissance-lofi.mp3",
+      "titulo": "Renaissance lofi",
+      "credito": [
+        "«Renaissance lofi» · Música original de MindHaOS, hecha en su Studio de audio"
+      ]
+    }
+  ]
+}

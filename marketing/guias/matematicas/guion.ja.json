@@ -1,0 +1,433 @@
+{
+  "idioma": "ja",
+  "tema": "matematicas",
+  "plantillaId": "computo",
+  "numero": 13,
+  "nombre": "数学",
+  "pregunta": "宇宙の言葉とは何でしょうか？",
+  "corta": "宇宙の言葉",
+  "subtitulo": "なぜ宇宙は数で説明できるのか、数はどこから来たのか、なぜ数学は怖いのか、どんな問題でも解く方法、方程式の見方、数を暮らしに生かす方法、そして学び続けるためのプラン。",
+  "aviso": "このガイドは情報提供を目的としています。紹介する数字や研究はそれぞれの出典の概算で、学ぶペースは人それぞれです。数学への不安で手が止まってしまったり、つらさが大きかったりする場合は、先生やカウンセラー、専門家に相談してください。",
+  "partes": [
+    {
+      "id": "universo",
+      "titulo": "なぜ宇宙は数で語るのでしょうか？",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": { "tipo": "titulo" },
+          "enCasa": true,
+          "texto": "宇宙の言葉とは何でしょうか？ 1846年、ある天文学者が、空を見上げずに新しい惑星を見つけました：使ったのは鉛筆と紙だけです。今日は彼がどうやったのか、そしてその同じ言葉が、なぜあなたの毎日にも役立つのかを見ていきましょう。"
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "enCasa": true,
+          "texto": "ところで、ここはMindHaOSにある私の家で、ここが私の計算室です。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "パート1。なぜ宇宙は数で語るのでしょうか？"
+        },
+        {
+          "id": "galileo",
+          "escena": "pensando",
+          "visual": { "tipo": "dato", "cifra": "1623", "clave": "galileo" },
+          "lamina": ["galileo", "estrellas"],
+          "texto": "1623年、ガリレオ・ガリレイは、自然という大きな書物は数学の言葉で書かれていて、それがなければ暗い迷宮をさまようことになると書きました。"
+        },
+        {
+          "id": "neptuno",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "neptuno" },
+          "lamina": ["leverrier", "neptuno"],
+          "texto": "これが最初に話した惑星です。天王星は、ニュートンの法則が予言する軌道を進んでいませんでした。何かに引っぱられていたのです。ユルバン・ルヴェリエは、その何かがどこにあるはずかを計算し、結果をベルリンに送りました。ヨハン・ガレはその夜のうちに望遠鏡を向け、計算が示した場所からわずか1度のところに海王星を見つけました。"
+        },
+        {
+          "id": "wigner",
+          "escena": "pensando",
+          "visual": { "tipo": "lista", "claves": ["inventar", "describir", "predecir"] },
+          "lamina": ["pizarra2", "galaxia"],
+          "texto": "1960年、物理学者のユージン・ウィグナーは、これを数学の不合理なまでの有効性と呼びました。誰かが紙の上で考えた、ときには何世紀も前のアイデアが、やがて世界の動きを説明するようになるのです。"
+        },
+        {
+          "id": "formulario",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["matematicas", "fisica", "quimica"] },
+          "enCasa": true,
+          "lamina": "pizarron",
+          "texto": "だから私の計算室には、数学、物理、化学のフォルダが入った数式帳があります。データを入れたとたん、どの公式もひとりでに計算されます。"
+        }
+      ]
+    },
+    {
+      "id": "origen",
+      "titulo": "数はどこから来たのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "パート2。数はどこから来たのでしょうか？"
+        },
+        {
+          "id": "bebes",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "unoMasUno" },
+          "lamina": ["bebe", "nino"],
+          "texto": "数は、私たちが数える前から始まっています。1992年、カレン・ウィンは生後5か月の赤ちゃんに、人形を一つ、それからもう一つ、ついたての向こうに置いて見せました。ついたてを外して人形が一つしかないと、赤ちゃんは何かがおかしいかのように、長く見つめていました。私たちは生まれつき、量の感覚を持っているのです。"
+        },
+        {
+          "id": "ishango",
+          "escena": "pensando",
+          "visual": { "tipo": "dato", "cifra": "≈ 2万年", "clave": "ishango" },
+          "lamina": ["ishango", "contar"],
+          "texto": "私たちが発明したのは、それを書き記すことでした。コンゴで見つかったイシャンゴの骨は、およそ二万年前のもので、まとまった刻み目がびっしり入っています。誰かが何かを数えていたのです。"
+        },
+        {
+          "id": "babilonia",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "base60" },
+          "lamina": ["plimpton", "reloj"],
+          "texto": "四千年ほど前、バビロニアでは六十ずつ数えていました。だから今も一時間は六十分、円は三百六十度です。私たちは知らないうちに、彼らの数を使い続けているのです。"
+        },
+        {
+          "id": "cero",
+          "escena": "habla",
+          "visual": { "tipo": "pasos", "claves": ["mayas", "brahmagupta", "alJuarismi"] },
+          "lamina": ["glifoMaya", "alJuarismi"],
+          "texto": "そして、ゼロはなかなか現れませんでした。マヤの人々は暦にゼロを使い、628年にはインドでブラーマグプタが、ゼロを足したり引いたりする規則を書きました。その二世紀後、バグダッドでアル＝フワーリズミーが書いた本から、代数を表すアルジェブラという言葉が生まれ、彼の名前からはアルゴリズムという言葉が生まれました。",
+          "meme": "cero"
+        },
+        {
+          "id": "bases",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["decimal", "binario", "hexadecimal"] },
+          "enCasa": true,
+          "lamina": "binario",
+          "texto": "私の電卓では進数を切り替えられます。同じ数を十進数でも、コンピューターがしまう二進数でも、十六進数でも表せます。"
+        }
+      ]
+    },
+    {
+      "id": "miedo",
+      "titulo": "なぜ数学は怖いのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "パート3。なぜ数学は怖いのでしょうか？"
+        },
+        {
+          "id": "beilock",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": { "tipo": "grafica", "grafica": "ansiedadMate" },
+          "lamina": ["cerebro", "examen"],
+          "texto": "緊張してしまうなら、それは気のせいではありません。2012年、イアン・ライオンズとシアン・ベイロックは脳のスキャンで、数学不安のある人は、数学の問題が来ると分かっただけで、体の痛みに関わる脳の領域が活発になることを確かめました。しかも問題を解いている最中ではなく、その前にです。"
+        },
+        {
+          "id": "pisa",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "31%", "clave": "pisa" },
+          "lamina": ["alumnos", "pizarra"],
+          "texto": "あなただけではありません。2022年のPISA調査では、OECD諸国の十五歳の生徒の、ほぼ三人に一人が、数学の基礎レベルに届きませんでした。",
+          "meme": "miedoMate"
+        },
+        {
+          "id": "aprendible",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["talento", "practica", "error"] },
+          "lamina": ["cuaderno", "lapiz"],
+          "texto": "いい知らせです。数学ができるかどうかは、あるかないかの才能ではありません。言葉と同じで、練習です。問題をまちがえても、できないという意味ではなく、どのステップが足りないかを教えてくれているのです。"
+        },
+        {
+          "id": "explica",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["escribo", "paso", "entiendo"] },
+          "enCasa": true,
+          "lamina": "calculadora",
+          "texto": "行き詰まったら、私は電卓に問題を書いて、人工知能に一歩ずつ説明してもらいます。自分のペースで、誰にもせかされずに。"
+        }
+      ]
+    },
+    {
+      "id": "resolver",
+      "titulo": "どんな問題でも解くには、どうすればいいのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "パート4。どんな問題でも解くには、どうすればいいのでしょうか？"
+        },
+        {
+          "id": "polya",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "polya" },
+          "lamina": ["rompecabezas", "pizarron"],
+          "texto": "1945年、数学者のジョージ・ポリアは『いかにして問題をとくか』を書き、ほとんど何にでも使える四つのステップを示しました。問題を理解する、計画を立てる、それを実行する、そして振り返って確かめる、です。"
+        },
+        {
+          "id": "entender",
+          "escena": "pensando",
+          "visual": { "tipo": "lista", "claves": ["datos", "dibujo", "parecido"] },
+          "lamina": ["idea", "notas"],
+          "texto": "いちばん飛ばされがちなのが、最初のステップです。計算する前に、自分に聞いてみましょう。何を求められている？ どんなデータがある？ 図にできる？ 似た問題を前に解いたことは？"
+        },
+        {
+          "id": "fermi",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "fermi" },
+          "lamina": ["fermi", "piano"],
+          "texto": "そして、見積もることを覚えましょう。エンリコ・フェルミは学生に、シカゴにピアノ調律師は何人いるかとたずねました。誰も知りませんでしたが、問題を推測できる小さな部分に分けていくと、答えは近いところに落ち着きました。見積もりがあれば、おかしな結果にすぐ気づけます。",
+          "meme": "estimacion"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": { "tipo": "herramienta", "herramienta": "gusta" },
+          "lamina": "pulgar",
+          "texto": "このガイドを気に入ってもらえたら、高評価、チャンネル登録、そして共有をお願いします。"
+        },
+        {
+          "id": "sistemas",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["sistemas", "matrices", "regla3"] },
+          "enCasa": true,
+          "lamina": "cohete",
+          "texto": "見てください。私の家は今、宇宙船になりました。数で語るあの宇宙へ、出発の準備はできています。そして計画ができたら、重い作業は電卓がやってくれます。連立方程式も、行列も、比例式も、あっという間に解いてくれます。"
+        }
+      ]
+    },
+    {
+      "id": "ver",
+      "titulo": "方程式は、どうすれば見えるのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "パート5。方程式は、どうすれば見えるのでしょうか？"
+        },
+        {
+          "id": "descartes",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": { "tipo": "herramienta", "herramienta": "graficar" },
+          "lamina": ["descartes", "grafica"],
+          "texto": "1637年、ルネ・デカルトはすべてを変えるアイデアを思いつきました。紙に二本の軸を引いて、どの方程式も絵に変えるのです。それ以来、式はただの文字ではありません。目で見られる直線や、放物線や、曲線なのです。"
+        },
+        {
+          "id": "funcion",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["entra", "regla", "sale"] },
+          "lamina": ["computadora", "pantallas"],
+          "texto": "関数を機械だと考えてみましょう。数を入れると、決まったルールを当てはめて、別の数を返してくれます。グラフにすると、どこで増え、どこで減り、どこでゼロを横切るかがひと目で分かります。"
+        },
+        {
+          "id": "newton",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "F = m · a", "clave": "newton" },
+          "lamina": ["principia", "newton"],
+          "texto": "物理もまさに同じです。1687年、アイザック・ニュートンは、力は質量かける加速度に等しいと書きました。たった三文字で、落ちるボールから飛び立つロケットまで説明できるのです。",
+          "meme": "formula"
+        },
+        {
+          "id": "graficas",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["plano", "polar", "superficie"] },
+          "enCasa": true,
+          "lamina": "matematicas",
+          "texto": "ここで方程式を書くと、すぐに形が見えます。平面でも、極座標でも、回して見られる3D曲面でも。"
+        }
+      ]
+    },
+    {
+      "id": "vida",
+      "titulo": "数を暮らしにどう生かせばいいのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "パート6。数を暮らしにどう生かせばいいのでしょうか？"
+        },
+        {
+          "id": "gigerenzer",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": { "tipo": "herramienta", "herramienta": "frecuencias" },
+          "lamina": ["doctor", "lupa"],
+          "texto": "パーセントは専門家さえだまします。ゲルト・ギーゲレンツァーは百六十人の婦人科医に、マンモグラフィーの陽性結果についての問題を出しました。正しく答えられたのは五人に一人だけでした。ところが頻度で考える方法を学んだあとは、十人に九人近くが正解しました。"
+        },
+        {
+          "id": "frecuencias",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["cien", "personas", "cuantos"] },
+          "lamina": ["gente", "dados"],
+          "texto": "コツは、パーセントを人数に置きかえることです。1パーセントと考える代わりに百人を思い浮かべて、その百人のうち、それぞれのケースに何人が入るかを考えます。すると急に、問題が見えてきます。"
+        },
+        {
+          "id": "visicalc",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "1979", "clave": "visicalc" },
+          "lamina": ["visicalc", "apple2"],
+          "texto": "そして毎日の計算には、表計算です。1979年、ダン・ブリックリンとボブ・フランクストンがVisiCalcを作りました。数字を一つ変えると、ほかが全部計算し直されるのです。あまりに便利で、これを使うためだけにコンピューターを買う人がたくさんいました。"
+        },
+        {
+          "id": "hojas",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["hoja", "grafica", "excel"] },
+          "enCasa": true,
+          "lamina": "computadora",
+          "texto": "私の家では、表計算が電卓のすぐ隣にあります。自分で、または人工知能の助けを借りて表を作り、グラフにして、ExcelやPDFに書き出します。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "どう続ける？ 続けるためのプラン",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "パート7。どう続ける？ 続けるためのプラン。"
+        },
+        {
+          "id": "semana1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "planContinuarMat" },
+          "lamina": ["calendario", "taza"],
+          "texto": "最初の一週間は、自分の一日の中にある数を探しましょう。いくら使うか、どれだけ歩くか、何時間眠るか。毎日一つ、計算する前に見積もって、あとで比べてみましょう。"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "retoDiario" },
+          "lamina": ["cuaderno", "lapiz"],
+          "texto": "最初の一か月は、ポリアの四つのステップに沿って、十分でできる短い問題を毎日一つ解きましょう。お金、スポーツ、料理、星空など、好きなテーマを選んでください。"
+        },
+        {
+          "id": "fallar",
+          "escena": "habla",
+          "visual": { "tipo": "pasos", "claves": ["atorar", "volver", "medir"] },
+          "lamina": ["tropiezo", "escalon"],
+          "texto": "行き詰まっても、失敗だと思わないでください。最初のステップに戻って、図を描きましょう。上達をはかるなら、解いた問題の数ではなく、ほかの人に説明できる問題の数を数えましょう。"
+        },
+        {
+          "id": "resumen",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["resumen1", "resumen2", "resumen3", "resumen4"] },
+          "lamina": ["cumbre", "galaxia"],
+          "texto": "まとめです。宇宙は数で説明できる。数学への怖さは練習で治る。計算する前に理解し、いつも見積もる。そしてパーセントに迷ったら、人で考える。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOSの計算室では、数学、物理、化学の数式帳で計算したり、方程式をグラフにしたり、表計算を作ったりできます。ひとりでも、人工知能の助けを借りてもかまいません。今日、無料であなたの心の家をつくろう。リンクは概要欄にあります。そして次回のガイドは、なぜ、書くべきなのでしょうか？",
+    "boton": "計算室を開く",
+    "lamina": "app-plan",
+    "anclas": {
+      "formulario": "数式帳で計算",
+      "graficar": "方程式をグラフに",
+      "hojas": "表計算を作"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "galileo-1623",
+      "texto": "Galilei G. Il Saggiatore (1623).",
+      "url": "https://es.wikipedia.org/wiki/El_ensayador"
+    },
+    {
+      "id": "leverrier-1846",
+      "texto": "Le Verrier U. J. J.、Galle J. G. 海王星の発見（1846年）。",
+      "url": "https://es.wikipedia.org/wiki/Descubrimiento_de_Neptuno"
+    },
+    {
+      "id": "wigner-1960",
+      "texto": "Wigner E. P. The unreasonable effectiveness of mathematics in the natural sciences. Communications on Pure and Applied Mathematics (1960).",
+      "url": "https://doi.org/10.1002/cpa.3160130102"
+    },
+    {
+      "id": "wynn-1992",
+      "texto": "Wynn K. Addition and subtraction by human infants. Nature (1992).",
+      "url": "https://doi.org/10.1038/358749a0"
+    },
+    {
+      "id": "ishango",
+      "texto": "イシャンゴの骨、ベルギー王立自然科学研究所。",
+      "url": "https://es.wikipedia.org/wiki/Hueso_de_Ishango"
+    },
+    {
+      "id": "plimpton-322",
+      "texto": "Plimpton 322、バビロニアの粘土板（紀元前1800年ごろ）。",
+      "url": "https://es.wikipedia.org/wiki/Plimpton_322"
+    },
+    {
+      "id": "brahmagupta-628",
+      "texto": "Brahmagupta. Brāhmasphuṭasiddhānta (628).",
+      "url": "https://es.wikipedia.org/wiki/Brahmagupta"
+    },
+    {
+      "id": "lyons-beilock-2012",
+      "texto": "Lyons I. M., Beilock S. L. When math hurts: math anxiety predicts pain network activation in anticipation of doing math. PLoS ONE (2012).",
+      "url": "https://doi.org/10.1371/journal.pone.0048076"
+    },
+    {
+      "id": "pisa-2022",
+      "texto": "OECD. PISA 2022 Results (Volume I): The State of Learning and Equity in Education (2023).",
+      "url": "https://doi.org/10.1787/53f23881-en"
+    },
+    {
+      "id": "polya-1945",
+      "texto": "Pólya G. How to Solve It: A New Aspect of Mathematical Method. Princeton University Press (1945).",
+      "url": "https://press.princeton.edu/books/paperback/9780691164076/how-to-solve-it"
+    },
+    {
+      "id": "descartes-1637",
+      "texto": "Descartes R. La Géométrie、Discours de la méthode の付録（1637年）。",
+      "url": "https://es.wikipedia.org/wiki/La_Géométrie"
+    },
+    {
+      "id": "newton-1687",
+      "texto": "Newton I. Philosophiæ Naturalis Principia Mathematica (1687).",
+      "url": "https://es.wikipedia.org/wiki/Philosophiæ_naturalis_principia_mathematica"
+    },
+    {
+      "id": "gigerenzer-2007",
+      "texto": "Gigerenzer G. et al. Helping doctors and patients make sense of health statistics. Psychological Science in the Public Interest (2007).",
+      "url": "https://doi.org/10.1111/j.1539-6053.2008.00033.x"
+    },
+    {
+      "id": "visicalc-1979",
+      "texto": "Bricklin D., Frankston B. VisiCalc (1979).",
+      "url": "https://es.wikipedia.org/wiki/VisiCalc"
+    }
+  ]
+}

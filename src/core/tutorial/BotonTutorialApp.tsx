@@ -30,6 +30,7 @@ const GUIAS: Record<string, { tema: string; clave: string; es: string }> = {
   agenda: { tema: 'agenda', clave: 'guia.agenda.titulo', es: '¿Cómo organizar tu tiempo?' },
   biblioteca: { tema: 'aprender', clave: 'guia.aprender.titulo', es: '¿Cómo aprender más rápido?' },
   escritura: { tema: 'escritura', clave: 'guia.escritura.titulo', es: '¿Por qué debes escribir?' },
+  computo: { tema: 'matematicas', clave: 'guia.matematicas.titulo', es: '¿Cuál es el lenguaje del universo?' },
 }
 
 /**

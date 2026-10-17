@@ -1,0 +1,672 @@
+{
+  "idioma": "hi",
+  "tema": "matematicas",
+  "plantillaId": "computo",
+  "numero": 13,
+  "nombre": "गणित",
+  "pregunta": "ब्रह्मांड की भाषा क्या है?",
+  "corta": "ब्रह्मांड की भाषा",
+  "subtitulo": "ब्रह्मांड को संख्याओं से क्यों समझाया जा सकता है, संख्याएँ कहाँ से आईं, गणित से डर क्यों लगता है, कोई भी सवाल कैसे हल करें, किसी समीकरण को कैसे देखें, अपनी ज़िंदगी में संख्याओं का इस्तेमाल कैसे करें, और सीखते रहने की योजना।",
+  "aviso": "यह गाइड जानकारी के लिए है: बताए गए आँकड़े और अध्ययन अपने स्रोतों के अनुमान हैं, और हर व्यक्ति अपनी रफ़्तार से सीखता है। अगर गणित की चिंता आपको जकड़ लेती है या बहुत परेशान करती है, तो किसी काउंसलर या विशेषज्ञ से बात करें।",
+  "partes": [
+    {
+      "id": "universo",
+      "titulo": "ब्रह्मांड संख्याओं में क्यों बोलता है?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "ब्रह्मांड की भाषा क्या है? अठारह सौ छियालीस में, एक खगोलशास्त्री ने आसमान की ओर देखे बिना एक नया ग्रह खोज निकाला: सिर्फ़ काग़ज़ और पेंसिल से। आज आप देखेंगे कि उन्होंने यह कैसे किया, और वही भाषा आपकी रोज़ की ज़िंदगी में क्यों काम आती है।"
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "वैसे, यह MindHaOS में मेरा घर है, और यह मेरा कंप्यूटिंग कक्ष है।"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग एक। ब्रह्मांड संख्याओं में क्यों बोलता है?"
+        },
+        {
+          "id": "galileo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1623",
+            "clave": "galileo"
+          },
+          "lamina": [
+            "galileo",
+            "estrellas"
+          ],
+          "texto": "सोलह सौ तेईस में, गैलीलियो गैलिली ने लिखा कि प्रकृति की महान किताब गणित की भाषा में लिखी है, और उसके बिना हम एक अँधेरी भूलभुलैया में भटकते रहेंगे।"
+        },
+        {
+          "id": "neptuno",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "neptuno"
+          },
+          "lamina": [
+            "leverrier",
+            "neptuno"
+          ],
+          "texto": "यह रहा शुरुआत वाला ग्रह। यूरेनस उस कक्षा में नहीं चल रहा था जो न्यूटन के नियम बताते थे: कोई चीज़ उसे खींच रही थी। अर्बें ले वेरिए ने हिसाब लगाया कि वह चीज़ कहाँ होनी चाहिए, और अपनी गणना बर्लिन भेज दी। योहान गाले ने उसी रात अपनी दूरबीन वहाँ घुमाई और नेपच्यून को ठीक उस जगह से एक डिग्री दूर पाया जहाँ संख्याएँ बता रही थीं।"
+        },
+        {
+          "id": "wigner",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "inventar",
+              "describir",
+              "predecir"
+            ]
+          },
+          "lamina": [
+            "pizarra2",
+            "galaxia"
+          ],
+          "texto": "उन्नीस सौ साठ में, भौतिकशास्त्री यूजीन विग्नर ने इसे गणित की अविश्वसनीय प्रभावशीलता कहा: वे विचार जो किसी ने काग़ज़ पर गढ़े, कभी-कभी सदियों पहले, आख़िर में बताते हैं कि दुनिया कैसे चलती है।"
+        },
+        {
+          "id": "formulario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "matematicas",
+              "fisica",
+              "quimica"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "pizarron",
+          "texto": "इसीलिए मेरे कंप्यूटिंग कक्ष में एक फ़ॉर्मूला बुक है, जिसमें गणित, भौतिकी और रसायन के फ़ोल्डर हैं: जैसे ही आप डेटा डालते हैं, हर फ़ॉर्मूला अपने आप हल हो जाता है।"
+        }
+      ]
+    },
+    {
+      "id": "origen",
+      "titulo": "संख्याएँ कहाँ से आईं?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग दो। संख्याएँ कहाँ से आईं?"
+        },
+        {
+          "id": "bebes",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "unoMasUno"
+          },
+          "lamina": [
+            "bebe",
+            "nino"
+          ],
+          "texto": "संख्याएँ हमसे पहले शुरू होती हैं। उन्नीस सौ बानवे में, कैरन विन ने पाँच महीने के शिशुओं को एक पर्दे के पीछे एक गुड़िया दिखाई, फिर एक और। जब पर्दा हटाया जाता और सिर्फ़ एक गुड़िया होती, तो शिशु ज़्यादा देर तक देखते रहते, जैसे कुछ हिसाब न बैठ रहा हो। मात्रा की समझ हम साथ लेकर पैदा होते हैं।"
+        },
+        {
+          "id": "ishango",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 20,000 वर्ष",
+            "clave": "ishango"
+          },
+          "lamina": [
+            "ishango",
+            "contar"
+          ],
+          "texto": "हमने जो आविष्कार किया, वह उन्हें लिखना था। कांगो में मिली इशांगो की हड्डी लगभग बीस हज़ार साल पुरानी है और समूहों में बने खाँचों से भरी है: कोई किसी चीज़ की गिनती रख रहा था।"
+        },
+        {
+          "id": "babilonia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "base60"
+          },
+          "lamina": [
+            "plimpton",
+            "reloj"
+          ],
+          "texto": "लगभग चार हज़ार साल पहले, बेबीलोन में लोग साठ-साठ करके गिनते थे। इसीलिए आज एक घंटे में साठ मिनट होते हैं और एक वृत्त में तीन सौ साठ डिग्री: हम बिना जाने आज भी उनकी संख्याएँ इस्तेमाल करते हैं।"
+        },
+        {
+          "id": "cero",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mayas",
+              "brahmagupta",
+              "alJuarismi"
+            ]
+          },
+          "lamina": [
+            "glifoMaya",
+            "alJuarismi"
+          ],
+          "texto": "और शून्य को आने में समय लगा। माया लोग इसे अपने कैलेंडरों में इस्तेमाल करते थे, और छह सौ अट्ठाईस में, भारत में, ब्रह्मगुप्त ने इसके साथ जोड़ने और घटाने के नियम लिखे। दो सदियों बाद, बग़दाद में, अल-ख़्वारिज़्मी ने वह किताब लिखी जिससे हमें अलजेब्रा यानी बीजगणित शब्द मिला; और उनके नाम से एल्गोरिदम शब्द आया।",
+          "meme": "cero"
+        },
+        {
+          "id": "bases",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "decimal",
+              "binario",
+              "hexadecimal"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "binario",
+          "texto": "मेरे कैलकुलेटर में मैं आधार बदल सकता हूँ: एक ही संख्या दशमलव में, बाइनरी में जैसे कंप्यूटर उसे सहेजता है, या हेक्साडेसिमल में।"
+        }
+      ]
+    },
+    {
+      "id": "miedo",
+      "titulo": "गणित से डर क्यों लगता है?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग तीन। गणित से डर क्यों लगता है?"
+        },
+        {
+          "id": "beilock",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ansiedadMate"
+          },
+          "lamina": [
+            "cerebro",
+            "examen"
+          ],
+          "texto": "अगर आपको घबराहट होती है, तो यह आपका वहम नहीं है। दो हज़ार बारह में, इयन लायंस और सियान बीलॉक ने स्कैनर में देखा कि गणित की चिंता वाले लोगों में, सिर्फ़ यह जानने भर से कि गणित का सवाल आने वाला है, दिमाग़ के वे हिस्से सक्रिय हो जाते थे जो शारीरिक दर्द से जुड़े हैं। और सवाल के दौरान नहीं: उससे पहले।"
+        },
+        {
+          "id": "pisa",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "31%",
+            "clave": "pisa"
+          },
+          "lamina": [
+            "alumnos",
+            "pizarra"
+          ],
+          "texto": "आप अकेले नहीं हैं। दो हज़ार बाईस की PISA परीक्षा में, OECD देशों के पंद्रह साल के लगभग हर तीन में से एक छात्र गणित के बुनियादी स्तर तक नहीं पहुँचा।",
+          "meme": "miedoMate"
+        },
+        {
+          "id": "aprendible",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "talento",
+              "practica",
+              "error"
+            ]
+          },
+          "lamina": [
+            "cuaderno",
+            "lapiz"
+          ],
+          "texto": "अच्छी ख़बर यह है: गणित में अच्छा होना कोई जन्मजात गुण नहीं है जो आपमें हो या न हो। यह अभ्यास है, किसी भाषा की तरह। किसी सवाल में ग़लती का मतलब यह नहीं कि आप नहीं कर सकते; वह बताती है कि कौन-सा क़दम छूट रहा है।"
+        },
+        {
+          "id": "explica",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escribo",
+              "paso",
+              "entiendo"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "calculadora",
+          "texto": "जब मैं अटक जाता हूँ, तो मैं सवाल अपने कैलकुलेटर में लिखता हूँ और आर्टिफिशियल इंटेलिजेंस से कहता हूँ कि मुझे क़दम-दर-क़दम समझाए, मेरी रफ़्तार से, बिना किसी जल्दबाज़ी के।"
+        }
+      ]
+    },
+    {
+      "id": "resolver",
+      "titulo": "कोई भी सवाल कैसे हल करें?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग चार। कोई भी सवाल कैसे हल करें?"
+        },
+        {
+          "id": "polya",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "polya"
+          },
+          "lamina": [
+            "rompecabezas",
+            "pizarron"
+          ],
+          "texto": "उन्नीस सौ पैंतालीस में, गणितज्ञ जॉर्ज पोल्या ने How to Solve It लिखी, जिसमें चार क़दम हैं जो लगभग हर चीज़ में काम आते हैं: सवाल को समझना, योजना बनाना, उसे पूरा करना, और पीछे मुड़कर जाँचना।"
+        },
+        {
+          "id": "entender",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "datos",
+              "dibujo",
+              "parecido"
+            ]
+          },
+          "lamina": [
+            "idea",
+            "notas"
+          ],
+          "texto": "जिस क़दम को हम सबसे ज़्यादा छोड़ देते हैं, वह पहला है। हिसाब लगाने से पहले ख़ुद से पूछिए: मुझसे क्या पूछा गया है? मेरे पास कौन-सा डेटा है? क्या मैं चित्र बना सकता हूँ? क्या मैंने पहले ऐसा कुछ हल किया है?"
+        },
+        {
+          "id": "fermi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fermi"
+          },
+          "lamina": [
+            "fermi",
+            "piano"
+          ],
+          "texto": "और अनुमान लगाना सीखिए। एनरिको फ़र्मी अपने छात्रों से पूछते थे कि शिकागो में कितने पियानो ट्यूनर हैं। कोई नहीं जानता था, लेकिन सवाल को ऐसे टुकड़ों में बाँटकर जिनका अंदाज़ा लगाया जा सके, जवाब क़रीब आ जाता था। एक अनुमान आपको बता देता है जब कोई नतीजा बेतुका हो।",
+          "meme": "estimacion"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "अगर आपको यह गाइड पसंद आ रही है, तो पसंद करें, सदस्यता लें और शेयर करें।"
+        },
+        {
+          "id": "sistemas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sistemas",
+              "matrices",
+              "regla3"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cohete",
+          "texto": "देखिए: मेरा घर अब एक अंतरिक्ष यान बन गया है, संख्याओं में बोलने वाले उस ब्रह्मांड की ओर उड़ने को तैयार। और जब योजना बन जाती है, तो कैलकुलेटर भारी काम करता है: समीकरणों के सिस्टम, मैट्रिक्स या त्रैराशिक को पल भर में हल कर देता है।"
+        }
+      ]
+    },
+    {
+      "id": "ver",
+      "titulo": "किसी समीकरण को कैसे देखें?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग पाँच। किसी समीकरण को कैसे देखें?"
+        },
+        {
+          "id": "descartes",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "graficar"
+          },
+          "lamina": [
+            "descartes",
+            "grafica"
+          ],
+          "texto": "सोलह सौ सैंतीस में, रेने देकार्त को एक ऐसा विचार आया जिसने सब कुछ बदल दिया: काग़ज़ पर दो अक्ष बनाना और हर समीकरण को एक चित्र में बदल देना। तब से फ़ॉर्मूला सिर्फ़ अक्षर नहीं है: वह एक सीधी रेखा, एक परवलय या एक वक्र है जिसे आप देख सकते हैं।"
+        },
+        {
+          "id": "funcion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "entra",
+              "regla",
+              "sale"
+            ]
+          },
+          "lamina": [
+            "computadora",
+            "pantallas"
+          ],
+          "texto": "फ़ंक्शन को एक मशीन की तरह सोचिए: आप उसे एक संख्या देते हैं, वह अपना नियम लगाती है और आपको दूसरी संख्या लौटा देती है। जब आप उसका ग्राफ़ बनाते हैं, तो एक नज़र में दिख जाता है कि वह कहाँ बढ़ती है, कहाँ घटती है और कहाँ शून्य को काटती है।"
+        },
+        {
+          "id": "newton",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "F = m · a",
+            "clave": "newton"
+          },
+          "lamina": [
+            "principia",
+            "newton"
+          ],
+          "texto": "भौतिकी भी यही है। सोलह सौ सत्तासी में, आइज़ैक न्यूटन ने लिखा कि बल, द्रव्यमान गुणा त्वरण के बराबर होता है। तीन अक्षर, जो गिरती गेंद से लेकर उड़ान भरते रॉकेट तक सब समझा देते हैं।",
+          "meme": "formula"
+        },
+        {
+          "id": "graficas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plano",
+              "polar",
+              "superficie"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "matematicas",
+          "texto": "यहाँ मैं एक समीकरण लिखता हूँ और उसे तुरंत देख लेता हूँ: समतल में, ध्रुवीय निर्देशांकों में, या एक त्रि-आयामी सतह की तरह जिसे मैं घुमा सकता हूँ।"
+        }
+      ]
+    },
+    {
+      "id": "vida",
+      "titulo": "अपनी ज़िंदगी में संख्याओं का इस्तेमाल कैसे करें?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग छह। अपनी ज़िंदगी में संख्याओं का इस्तेमाल कैसे करें?"
+        },
+        {
+          "id": "gigerenzer",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "frecuencias"
+          },
+          "lamina": [
+            "doctor",
+            "lupa"
+          ],
+          "texto": "प्रतिशत विशेषज्ञों को भी धोखा दे देते हैं। गर्ड गिगेरेंज़र ने एक सौ साठ स्त्री रोग विशेषज्ञों को मैमोग्राफ़ी के एक पॉज़िटिव नतीजे पर एक सवाल दिया: हर पाँच में से सिर्फ़ एक ने सही जवाब दिया। आवृत्तियों में सोचना सीखने के बाद, हर दस में से लगभग नौ सही निकले।"
+        },
+        {
+          "id": "frecuencias",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cien",
+              "personas",
+              "cuantos"
+            ]
+          },
+          "lamina": [
+            "gente",
+            "dados"
+          ],
+          "texto": "तरकीब यह है: प्रतिशत की जगह लोगों के बारे में सोचिए। एक प्रतिशत की जगह सौ लोगों की कल्पना कीजिए और ख़ुद से पूछिए कि उन सौ में से कितने हर स्थिति में हैं। अचानक सवाल साफ़ दिखने लगता है।"
+        },
+        {
+          "id": "visicalc",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1979",
+            "clave": "visicalc"
+          },
+          "lamina": [
+            "visicalc",
+            "apple2"
+          ],
+          "texto": "और रोज़ के हिसाब-किताब के लिए, स्प्रेडशीट। उन्नीस सौ उन्यासी में, डैन ब्रिकलिन और बॉब फ़्रैंकस्टन ने VisiCalc बनाया: आप एक संख्या बदलते और बाक़ी सब दोबारा गणना हो जाता। यह इतना काम का था कि बहुत लोगों ने सिर्फ़ इसे चलाने के लिए कंप्यूटर ख़रीदा।"
+        },
+        {
+          "id": "hojas",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hoja",
+              "grafica",
+              "excel"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "computadora",
+          "texto": "मेरे घर में, मेरी स्प्रेडशीट कैलकुलेटर के पास ही रहती हैं: मैं उन्हें ख़ुद बनाता हूँ या आर्टिफिशियल इंटेलिजेंस की मदद से, उनसे ग्राफ़ बनाता हूँ और उन्हें Excel या PDF में एक्सपोर्ट करता हूँ।"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "आगे कैसे बढ़ें? आगे जारी रखने की आपकी योजना।",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग सात। आगे कैसे बढ़ें? आगे जारी रखने की आपकी योजना।"
+        },
+        {
+          "id": "semana1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuarMat"
+          },
+          "lamina": [
+            "calendario",
+            "taza"
+          ],
+          "texto": "पहले हफ़्ते, अपने दिन की संख्याएँ खोजिए: आप कितना ख़र्च करते हैं, कितना चलते हैं, कितना सोते हैं। हर दिन किसी एक चीज़ का हिसाब लगाने से पहले अनुमान लगाइए, और फिर तुलना कीजिए।"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "retoDiario"
+          },
+          "lamina": [
+            "cuaderno",
+            "lapiz"
+          ],
+          "texto": "पहले महीने, हर दिन दस मिनट का एक छोटा सवाल हल कीजिए, पोल्या के चार क़दमों के साथ। कोई ऐसा विषय चुनिए जो आपको पसंद हो: पैसा, खेल, खाना बनाना या आसमान।"
+        },
+        {
+          "id": "fallar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "atorar",
+              "volver",
+              "medir"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "escalon"
+          ],
+          "texto": "और जब आप अटकें, तो इसे नाकामी मत समझिए: पहले क़दम पर लौटिए और एक चित्र बनाइए। अपनी प्रगति मापने के लिए यह मत गिनिए कि आपने कितने सवाल किए: यह गिनिए कि कितने सवाल आप किसी और को समझा सकते हैं।"
+        },
+        {
+          "id": "resumen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": [
+            "cumbre",
+            "galaxia"
+          ],
+          "texto": "संक्षेप में: ब्रह्मांड को संख्याओं से समझाया जा सकता है; गणित का डर अभ्यास से जाता है; हिसाब से पहले समझिए और हमेशा अनुमान लगाइए; और जब कोई प्रतिशत उलझाए, तो लोगों के बारे में सोचिए।"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS के कंप्यूटिंग कक्ष में आप गणित, भौतिकी और रसायन की फ़ॉर्मूला बुक से गणना कर सकते हैं, अपने समीकरणों का ग्राफ़ बना सकते हैं, और स्प्रेडशीट बना सकते हैं, ख़ुद या आर्टिफिशियल इंटेलिजेंस की मदद से। आज ही अपना मन का घर मुफ़्त में बनाएँ: लिंक डिस्क्रिप्शन में है। और अगली गाइड में: आपको क्यों लिखना चाहिए?",
+    "boton": "कंप्यूटिंग कक्ष खोलें",
+    "lamina": "app-plan",
+    "anclas": {
+      "formulario": "फ़ॉर्मूला बुक से गणना",
+      "graficar": "समीकरणों का ग्राफ़",
+      "hojas": "स्प्रेडशीट बना"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "galileo-1623",
+      "texto": "Galilei G. Il Saggiatore (1623).",
+      "url": "https://es.wikipedia.org/wiki/El_ensayador"
+    },
+    {
+      "id": "leverrier-1846",
+      "texto": "Le Verrier U. J. J. और Galle J. G. नेपच्यून की खोज (1846).",
+      "url": "https://es.wikipedia.org/wiki/Descubrimiento_de_Neptuno"
+    },
+    {
+      "id": "wigner-1960",
+      "texto": "Wigner E. P. The unreasonable effectiveness of mathematics in the natural sciences. Communications on Pure and Applied Mathematics (1960).",
+      "url": "https://doi.org/10.1002/cpa.3160130102"
+    },
+    {
+      "id": "wynn-1992",
+      "texto": "Wynn K. Addition and subtraction by human infants. Nature (1992).",
+      "url": "https://doi.org/10.1038/358749a0"
+    },
+    {
+      "id": "ishango",
+      "texto": "इशांगो की हड्डी, रॉयल बेल्जियन इंस्टीट्यूट ऑफ़ नेचुरल साइंसेज़.",
+      "url": "https://es.wikipedia.org/wiki/Hueso_de_Ishango"
+    },
+    {
+      "id": "plimpton-322",
+      "texto": "Plimpton 322, बेबीलोन की मिट्टी की पटिया (लगभग 1800 ई.पू.).",
+      "url": "https://es.wikipedia.org/wiki/Plimpton_322"
+    },
+    {
+      "id": "brahmagupta-628",
+      "texto": "Brahmagupta. Brāhmasphuṭasiddhānta (628).",
+      "url": "https://es.wikipedia.org/wiki/Brahmagupta"
+    },
+    {
+      "id": "lyons-beilock-2012",
+      "texto": "Lyons I. M., Beilock S. L. When math hurts: math anxiety predicts pain network activation in anticipation of doing math. PLoS ONE (2012).",
+      "url": "https://doi.org/10.1371/journal.pone.0048076"
+    },
+    {
+      "id": "pisa-2022",
+      "texto": "OECD. PISA 2022 Results (Volume I): The State of Learning and Equity in Education (2023).",
+      "url": "https://doi.org/10.1787/53f23881-en"
+    },
+    {
+      "id": "polya-1945",
+      "texto": "Pólya G. How to Solve It: A New Aspect of Mathematical Method. Princeton University Press (1945).",
+      "url": "https://press.princeton.edu/books/paperback/9780691164076/how-to-solve-it"
+    },
+    {
+      "id": "descartes-1637",
+      "texto": "Descartes R. La Géométrie, Discours de la méthode का परिशिष्ट (1637).",
+      "url": "https://es.wikipedia.org/wiki/La_Géométrie"
+    },
+    {
+      "id": "newton-1687",
+      "texto": "Newton I. Philosophiæ Naturalis Principia Mathematica (1687).",
+      "url": "https://es.wikipedia.org/wiki/Philosophiæ_naturalis_principia_mathematica"
+    },
+    {
+      "id": "gigerenzer-2007",
+      "texto": "Gigerenzer G. et al. Helping doctors and patients make sense of health statistics. Psychological Science in the Public Interest (2007).",
+      "url": "https://doi.org/10.1111/j.1539-6053.2008.00033.x"
+    },
+    {
+      "id": "visicalc-1979",
+      "texto": "Bricklin D., Frankston B. VisiCalc (1979).",
+      "url": "https://es.wikipedia.org/wiki/VisiCalc"
+    }
+  ]
+}

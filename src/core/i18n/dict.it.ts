@@ -7522,6 +7522,7 @@ export const IT: Dict = {
   'guia.agenda.titulo': "Come organizzare il tuo tempo?",
   'guia.aprender.titulo': "Come imparare più in fretta?",
   'guia.escritura.titulo': "Perché dovresti scrivere?",
+  'guia.matematicas.titulo': "Qual è il linguaggio dell'universo?",
   'tut.esencial.titulo': 'L’essenziale',
   'tut.tipo.ejemplos': 'Esempi · MindHaOS demo',
   'tut.app-agenda--esencial.resumen':

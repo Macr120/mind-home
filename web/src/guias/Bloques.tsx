@@ -9,6 +9,7 @@ import { GRAFICAS_VIDEO, GraficaVideo } from './Video'
 import { GRAFICAS_METAS, GraficaMetas } from './Metas'
 import { GRAFICAS_MINDFULNESS, GraficaMindfulness } from './Mindfulness'
 import { GRAFICAS_APRENDER, GraficaAprender } from './Aprender'
+import { GRAFICAS_MATEMATICAS, GraficaMatematicas } from './Matematicas'
 import { GRAFICAS_AGENDA, GraficaAgenda } from './Agenda'
 import { GRAFICAS_ESCRITURA, GraficaEscritura } from './Escritura'
 import type { T, Visual } from './datos'
@@ -69,6 +70,7 @@ export function Bloque({ v, tema, t }: { v: Visual; tema: string; t: T }) {
       if (tema === 'metas' && GRAFICAS_METAS.has(v.grafica!)) return <GraficaMetas id={v.grafica!} k={k} />
       if (tema === 'mindfulness' && GRAFICAS_MINDFULNESS.has(v.grafica!)) return <GraficaMindfulness id={v.grafica!} k={k} />
       if (tema === 'aprender' && GRAFICAS_APRENDER.has(v.grafica!)) return <GraficaAprender id={v.grafica!} k={k} />
+      if (tema === 'matematicas' && GRAFICAS_MATEMATICAS.has(v.grafica!)) return <GraficaMatematicas id={v.grafica!} k={k} />
       if (tema === 'agenda' && GRAFICAS_AGENDA.has(v.grafica!)) return <GraficaAgenda id={v.grafica!} k={k} />
       if (tema === 'escritura' && GRAFICAS_ESCRITURA.has(v.grafica!)) return <GraficaEscritura id={v.grafica!} k={k} />
       if (GRAFICAS_COCINA.has(v.grafica!)) return <GraficaCocina id={v.grafica!} k={k} />

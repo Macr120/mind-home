@@ -2810,5 +2810,226 @@
         "abajo": "Napisać okropny szkic i poprawić go potem"
       }
     }
+  },
+  "matematicas": {
+    "meta": {
+      "titulo": "Jaki jest język wszechświata? Pełny przewodnik po matematyce: dlaczego wszechświat mówi liczbami, skąd się wzięły, lęk przed matematyką, jak rozwiązywać problemy, widzieć równania, używać liczb i plan na dalszą naukę | MindHaOS",
+      "desc": "Dlaczego matematyka opisuje wszechświat (od Galileusza po Neptuna), skąd się wzięły liczby i zero, dlaczego budzi strach i jak się jej nauczyć, cztery kroki Pólyi do rozwiązywania problemów, jak zobaczyć równanie, jak używać liczb w życiu i plan na dalszą naukę."
+    },
+    "narra": "Opowiada kosmita",
+    "cargando3d": "Wczytywanie kosmity…",
+    "lista": {
+      "inventar": "Ktoś wymyśla ją na papierze",
+      "inventarDet": "Czasem wieki, zanim do czegoś się przyda.",
+      "describir": "Opisuje świat",
+      "describirDet": "Orbity, fale, pływy i obwody.",
+      "predecir": "I przewiduje to, czego nie widzieliśmy",
+      "predecirDet": "Jak Neptun, znaleziony ołówkiem na papierze.",
+      "talento": "To nie dar",
+      "talentoDet": "Talent do matematyki to nie coś, co masz albo nie.",
+      "practica": "To praktyka",
+      "practicaDet": "Jak z językiem: uczysz się, używając.",
+      "error": "Błąd uczy",
+      "errorDet": "Mówi, którego kroku ci brakuje, a nie że nie potrafisz.",
+      "datos": "O co pytają i co mam?",
+      "datosDet": "Zapisz pytanie i dane.",
+      "dibujo": "Zrób rysunek",
+      "dibujoDet": "Szkic wyjaśnia więcej niż dziesięć rachunków.",
+      "parecido": "Czy rozwiązywałem coś podobnego?",
+      "parecidoDet": "Stare zadanie może być kluczem.",
+      "entra": "Wchodzi liczba",
+      "entraDet": "Ta, którą jej dajesz.",
+      "regla": "Działa reguła",
+      "reglaDet": "Mnożenie, dodawanie, podnoszenie do kwadratu…",
+      "sale": "Wychodzi inna liczba",
+      "saleDet": "A gdy narysujesz je wszystkie, widzisz kształt.",
+      "cien": "Wyobraź sobie sto osób",
+      "cienDet": "Albo tysiąc: ludzie, nie procenty.",
+      "personas": "Rozdziel ludzi na przypadki",
+      "personasDet": "Ile osób coś ma, a ile ma wynik pozytywny.",
+      "cuantos": "Policz",
+      "cuantosDet": "Spośród tych z wynikiem pozytywnym: ile naprawdę to ma?",
+      "resumen1": "Wszechświat daje się opisać liczbami",
+      "resumen2": "Strach przed matematyką leczy praktyka",
+      "resumen3": "Zrozum, zanim policzysz, i zawsze szacuj",
+      "resumen4": "Gdy procent cię myli, myśl o ludziach"
+    },
+    "dato": {
+      "galileo": "Galileusz pisze, że księga natury jest zapisana językiem matematyki (Il Saggiatore)",
+      "ishango": "ma kość z Ishango, z pogrupowanymi nacięciami, którymi ktoś coś liczył",
+      "pisa": "piętnastolatków z krajów OECD nie osiągnęło podstawowego poziomu z matematyki w PISA 2022",
+      "newton": "siła to masa razy przyspieszenie: Newton w „Principiach” (1687)",
+      "visicalc": "powstaje VisiCalc, pierwszy arkusz kalkulacyjny na komputery osobiste (Bricklin i Frankston)"
+    },
+    "pasos": {
+      "matematicas": "Matematyka",
+      "matematicasDet": "Pola, równania i statystyka.",
+      "fisica": "Fizyka",
+      "fisicaDet": "Ruch, siła i energia.",
+      "quimica": "Chemia",
+      "quimicaDet": "Mole, gazy i roztwory.",
+      "mayas": "Majowie",
+      "mayasDet": "Używali zera w swoich kalendarzach.",
+      "brahmagupta": "Brahmagupta, rok 628",
+      "brahmaguptaDet": "Zapisał zasady działań z zerem.",
+      "alJuarismi": "Al-Chwarizmi, Bagdad",
+      "alJuarismiDet": "Dał nam algebrę; jego imię: algorytm.",
+      "decimal": "Dziesiętny",
+      "decimalDet": "Ten codzienny, o podstawie 10.",
+      "binario": "Dwójkowy",
+      "binarioDet": "Zera i jedynki, tak jak zapisuje komputer.",
+      "hexadecimal": "Szesnastkowy",
+      "hexadecimalDet": "Podstawa 16, ta od kolorów na ekranie.",
+      "escribo": "Wpisuję zadanie",
+      "escriboDet": "Tak jak jest, do kalkulatora.",
+      "paso": "Proszę o wyjaśnienie krok po kroku",
+      "pasoDet": "Sztuczną inteligencję, kiedy utknę.",
+      "entiendo": "I rozumiem we własnym tempie",
+      "entiendoDet": "Bez żadnego pośpiechu.",
+      "sistemas": "Układy równań",
+      "sistemasDet": "Dwie lub trzy niewiadome naraz.",
+      "matrices": "Macierze",
+      "matricesDet": "Dodawanie, mnożenie i odwracanie.",
+      "regla3": "Reguła trzech",
+      "regla3Det": "Jeśli 3 kosztują 45, ile kosztuje 7?",
+      "plano": "Na płaszczyźnie",
+      "planoDet": "Proste, parabole i krzywe.",
+      "polar": "We współrzędnych biegunowych",
+      "polarDet": "Spirale i kwiaty.",
+      "superficie": "Jako powierzchnia 3D",
+      "superficieDet": "Którą obracam palcem.",
+      "hoja": "Tworzę arkusz",
+      "hojaDet": "Sam albo z pomocą AI.",
+      "grafica": "Robię z niego wykres",
+      "graficaDet": "Słupkowy, liniowy albo kołowy.",
+      "excel": "Eksportuję go",
+      "excelDet": "Do Excela albo do PDF.",
+      "atorar": "Jeśli utkniesz",
+      "atorarDet": "To nie porażka: to problem, który cię uczy.",
+      "volver": "Wróć do pierwszego kroku",
+      "volverDet": "I zrób rysunek.",
+      "medir": "Mierz to, co wyjaśniasz",
+      "medirDet": "Nie ile robisz: ile potrafisz wyjaśnić."
+    },
+    "unoMasUno": {
+      "titulo": "Jeden plus jeden w wieku pięciu miesięcy",
+      "uno": "Jedna lalka…",
+      "otro": "…i druga za zasłoną",
+      "pantalla": "Zasłona zakrywa obie",
+      "esperado": "Po odsłonięciu: dwie lalki (oczekiwane)",
+      "imposible": "Po odsłonięciu: tylko jedna (niemożliwe!)",
+      "ver_esperado": "Pokaż dwie",
+      "ver_imposible": "Pokaż jedną",
+      "miradaEsperado": "Patrzenie na oczekiwane",
+      "miradaImposible": "Patrzenie na niemożliwe",
+      "nota": "Karen Wynn (1992): niemowlęta dłużej patrzyły na niemożliwy wynik (słupki poglądowe)."
+    },
+    "base60": {
+      "titulo": "Dlaczego sześćdziesiąt?",
+      "base10": "Podstawa 10",
+      "base60": "Podstawa 60",
+      "cuenta10": "Liczbę 10 da się podzielić na równe części na tyle sposobów: {n}",
+      "cuenta60": "Liczbę 60 na tyle: {n} (połówki, tercje, ćwiartki, piąte części…)",
+      "nota": "Babilończycy liczyli sześćdziesiątkami: stąd 60 minut w godzinie i 360 stopni w kole."
+    },
+    "polya": {
+      "titulo": "Cztery kroki Pólyi",
+      "problema": "Pociąg odjeżdża o 9:40 i jedzie 2 h 35 min. O której przyjeżdża?",
+      "entender": "Zrozumieć problem",
+      "entenderDet": "Pytają o godzinę przyjazdu; mam odjazd i czas jazdy.",
+      "plan": "Ułożyć plan",
+      "planDet": "Dodać najpierw godziny, a potem minuty.",
+      "ejecutar": "Wykonać plan",
+      "ejecutarDet": "9:40 + 2 h = 11:40; + 35 min = 12:15.",
+      "revisar": "Spojrzeć wstecz",
+      "revisarDet": "Czy to ma sens? Jakieś dwie i pół godziny po za dwadzieścia dziesiąta: tak.",
+      "nota": "George Pólya, „Jak to rozwiązać” (1945). Dotknij każdego kroku."
+    },
+    "fermi": {
+      "titulo": "Ilu stroicieli fortepianów jest w Chicago?",
+      "gente": "Mieszkańcy miasta",
+      "hogares": "Gospodarstwa domowe",
+      "pianos": "Fortepiany (jeden na tyle domów)",
+      "porAfinador": "Strojenia rocznie na stroiciela",
+      "afinadores": "Stroiciele",
+      "ajusteGente": "Ludzie",
+      "ajusteHogar": "Osób na dom",
+      "ajustePiano": "Jeden fortepian na tyle domów",
+      "nota": "Okrągłe, poglądowe liczby: zmień założenia i zobacz, że wynik nie wystrzeli w kosmos."
+    },
+    "graficar": {
+      "titulo": "Jedno równanie, jeden rysunek",
+      "recta": "Prosta",
+      "parabola": "Parabola",
+      "onda": "Fala",
+      "sen": "sin",
+      "nota": "Płaszczyzna Kartezjusza (1637): każdy punkt to para (x, y), która spełnia równanie."
+    },
+    "frecuencias": {
+      "titulo": "Pozytywna mammografia: jak prawdopodobny jest rak?",
+      "porcentajes": "W procentach",
+      "personas": "W ludziach",
+      "p1": "1% kobiet, które robią badanie, ma raka piersi.",
+      "p2": "Jeśli kobieta ma raka, badanie wychodzi pozytywnie w 90% przypadków.",
+      "p3": "Jeśli go nie ma, wychodzi pozytywnie przez pomyłkę w 9% przypadków.",
+      "pregunta": "Wynik jest pozytywny. Jakie jest prawdopodobieństwo, że ma raka?",
+      "l1": "10 na 1000 ma raka; 9 z nich ma wynik pozytywny",
+      "l2": "Z 990 zdrowych 89 też ma wynik pozytywny",
+      "respuesta": "Z 98 pozytywnych tylko 9 ma raka: mniej niż jedna na dziesięć",
+      "nota": "Zadanie, którego Gigerenzer i współpracownicy użyli z lekarzami: w częstościach prawie wszyscy trafiają."
+    },
+    "retoDiario": {
+      "titulo": "Wyzwanie dnia: oszacuj, potem policz",
+      "pregunta": "Ile minut ma rok?",
+      "tuEstimacion": "Twój szacunek:",
+      "calcular": "Policz",
+      "teDesviaste": "różnica: {p}%",
+      "nota": "Szacowanie przed liczeniem ćwiczy wyczucie liczb: dzięki temu zauważasz, kiedy wynik nie ma sensu."
+    },
+    "grafica": {
+      "neptuno": "Le Verrier (1846): rachunki wskazały, gdzie szukać, a Galle znalazł Neptuna o stopień od tego miejsca",
+      "urano": "Uran zbacza",
+      "calculado": "Obliczony",
+      "encontrado": "Neptun",
+      "sol": "Słońce",
+      "ansiedadMate": "Lyons i Beilock (2012): na wieść o zadaniu z matematyki sieć bólu pobudzała się mocniej u osób z wysokim lękiem (poglądowo)",
+      "alta": "Wysoki lęk",
+      "baja": "Niski lęk",
+      "plan": "Twój plan na ciąg dalszy",
+      "semana1": "Tydzień 1",
+      "semana1Det": "Szukaj liczb w swoim dniu i szacuj przed liczeniem",
+      "mes1": "Miesiąc 1",
+      "mes1Det": "Jedno krótkie zadanie dziennie z czterema krokami Pólyi",
+      "atoras": "Kiedy utkniesz",
+      "atorasDet": "Wróć do zrozumienia problemu i zrób rysunek",
+      "medir": "Jak mierzyć",
+      "medirDet": "Ile zadań potrafisz wyjaśnić komuś innemu"
+    },
+    "cierre": {
+      "titulo": "Liczby we własnym domu",
+      "texto": "W sali Obliczeń w MindHaOS liczysz ze zbiorem wzorów z matematyki, fizyki i chemii, rysujesz wykresy swoich równań na płaszczyźnie, biegunowo albo w 3D i tworzysz arkusze kalkulacyjne, które eksportujesz do Excela albo do PDF, samodzielnie albo z pomocą sztucznej inteligencji."
+    },
+    "paquete": {
+      "guia": "Interaktywny przewodnik (z eksperymentem z liczącymi niemowlętami, tym, dlaczego liczymy sześćdziesiątkami, czterema krokami Pólyi, zadaniem Fermiego, równaniami, które same się rysują, i procentami kontra ludzie, a wszystko rusza się w twojej przeglądarce)",
+      "app": "Otwórz salę Obliczeń w MindHaOS",
+      "hashtags": "#matematyka #matma #nauka #wszechświat #uczeniesię #student #MindHaOS"
+    },
+    "memes": {
+      "cero": {
+        "arriba": "Majowie i Brahmagupta wymyślają zero",
+        "abajo": "Ja na sprawdzianie z matmy"
+      },
+      "miedoMate": {
+        "arriba": "Kiedy nauczyciel mówi: „Kartkówka”"
+      },
+      "estimacion": {
+        "arriba": "Policzyć i uwierzyć w to, co wyjdzie",
+        "abajo": "Najpierw oszacować, czy wynik ma sens"
+      },
+      "formula": {
+        "arriba": "Ja: „matma do niczego się nie przydaje”",
+        "abajo": "Newton trzema literami: wyjaśnia wszystko od jabłka po rakietę"
+      }
+    }
   }
 }

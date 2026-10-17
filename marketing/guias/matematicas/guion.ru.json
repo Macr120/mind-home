@@ -1,0 +1,672 @@
+{
+  "idioma": "ru",
+  "tema": "matematicas",
+  "plantillaId": "computo",
+  "numero": 13,
+  "nombre": "Математика",
+  "pregunta": "На каком языке говорит Вселенная?",
+  "corta": "Язык Вселенной",
+  "subtitulo": "Почему Вселенную можно описать числами, откуда они взялись, почему математика пугает, как решить любую задачу, как увидеть уравнение, как использовать числа в жизни и план, чтобы учиться дальше.",
+  "aviso": "Это руководство носит информационный характер: приведённые цифры и исследования — приближённые данные из источников, и каждый учится в своём темпе. Если страх перед математикой тебя парализует или сильно мешает, поговори с консультантом или специалистом.",
+  "partes": [
+    {
+      "id": "universo",
+      "titulo": "Почему Вселенная говорит числами?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "На каком языке говорит Вселенная? В 1846 году один астроном нашёл новую планету, не глядя на небо: только с карандашом и бумагой. Сегодня ты увидишь, как он это сделал, и почему тот же язык пригодится тебе в повседневной жизни."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "Кстати, это мой дом в MindHaOS, а это моя Компьютерная."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть первая. Почему Вселенная говорит числами?"
+        },
+        {
+          "id": "galileo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1623",
+            "clave": "galileo"
+          },
+          "lamina": [
+            "galileo",
+            "estrellas"
+          ],
+          "texto": "В 1623 году Галилео Галилей написал, что великая книга природы написана на языке математики и что без него мы блуждали бы по тёмному лабиринту."
+        },
+        {
+          "id": "neptuno",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "neptuno"
+          },
+          "lamina": [
+            "leverrier",
+            "neptuno"
+          ],
+          "texto": "Вот та планета из начала. Уран не следовал орбите, которую предсказывали законы Ньютона: что-то его притягивало. Урбен Леверье вычислил, где должно быть это что-то, и отправил свои расчёты в Берлин. Иоганн Галле в ту же ночь навёл туда телескоп и нашёл Нептун в одном градусе от места, на которое указывали числа."
+        },
+        {
+          "id": "wigner",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "inventar",
+              "describir",
+              "predecir"
+            ]
+          },
+          "lamina": [
+            "pizarra2",
+            "galaxia"
+          ],
+          "texto": "В 1960 году физик Юджин Вигнер назвал это непостижимой эффективностью математики: идеи, которые кто-то придумал на бумаге, иногда за века до этого, в итоге описывают, как движется мир."
+        },
+        {
+          "id": "formulario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "matematicas",
+              "fisica",
+              "quimica"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "pizarron",
+          "texto": "Поэтому в моей Компьютерной есть формулы, разложенные по папкам: математика, физика и химия. Каждая формула считается сама, как только ты вводишь данные."
+        }
+      ]
+    },
+    {
+      "id": "origen",
+      "titulo": "Откуда взялись числа?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть вторая. Откуда взялись числа?"
+        },
+        {
+          "id": "bebes",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "unoMasUno"
+          },
+          "lamina": [
+            "bebe",
+            "nino"
+          ],
+          "texto": "Числа появляются в нас раньше, чем кажется. В 1992 году Карен Уинн показывала пятимесячным младенцам куклу, а потом ещё одну, за ширмой. Когда ширму убирали и там была только одна, малыши смотрели дольше, как будто что-то не сходилось. Чувство количества у нас врождённое."
+        },
+        {
+          "id": "ishango",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 20 000 лет",
+            "clave": "ishango"
+          },
+          "lamina": [
+            "ishango",
+            "contar"
+          ],
+          "texto": "Мы придумали только, как их записывать. Кости Ишанго, найденной в Конго, около двадцати тысяч лет, и она вся покрыта группами зарубок: кто-то что-то считал."
+        },
+        {
+          "id": "babilonia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "base60"
+          },
+          "lamina": [
+            "plimpton",
+            "reloj"
+          ],
+          "texto": "Почти четыре тысячи лет назад в Вавилоне считали шестидесятками. Поэтому сегодня в часе шестьдесят минут, а в круге триста шестьдесят градусов: мы до сих пор пользуемся их числами, сами того не зная."
+        },
+        {
+          "id": "cero",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mayas",
+              "brahmagupta",
+              "alJuarismi"
+            ]
+          },
+          "lamina": [
+            "glifoMaya",
+            "alJuarismi"
+          ],
+          "texto": "А ноль появился не сразу. Майя использовали его в своих календарях, а в 628 году в Индии Брахмагупта записал правила сложения и вычитания с нулём. Два века спустя, в Багдаде, аль-Хорезми написал книгу, которая дала нам слово алгебра; от его имени происходит слово алгоритм.",
+          "meme": "cero"
+        },
+        {
+          "id": "bases",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "decimal",
+              "binario",
+              "hexadecimal"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "binario",
+          "texto": "В моём калькуляторе можно менять основание: одно и то же число в десятичной системе, в двоичной, как его хранит компьютер, или в шестнадцатеричной."
+        }
+      ]
+    },
+    {
+      "id": "miedo",
+      "titulo": "Почему математика пугает?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть третья. Почему математика пугает?"
+        },
+        {
+          "id": "beilock",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ansiedadMate"
+          },
+          "lamina": [
+            "cerebro",
+            "examen"
+          ],
+          "texto": "Если ты нервничаешь, тебе не кажется. В 2012 году Иэн Лайонс и Сиан Бейлок увидели на томографе, что у людей с математической тревожностью одно лишь известие, что сейчас будет задача по математике, активировало зоны мозга, связанные с физической болью. И не во время задачи: до неё."
+        },
+        {
+          "id": "pisa",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "31 %",
+            "clave": "pisa"
+          },
+          "lamina": [
+            "alumnos",
+            "pizarra"
+          ],
+          "texto": "Ты не один. В исследовании PISA 2022 года почти каждый третий пятнадцатилетний школьник из стран ОЭСР не достиг базового уровня по математике.",
+          "meme": "miedoMate"
+        },
+        {
+          "id": "aprendible",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "talento",
+              "practica",
+              "error"
+            ]
+          },
+          "lamina": [
+            "cuaderno",
+            "lapiz"
+          ],
+          "texto": "Хорошая новость: способности к математике — это не дар, который либо есть, либо нет. Это практика, как с языком. Ошибка в задаче не говорит, что ты не можешь; она говорит, какого шага тебе не хватает."
+        },
+        {
+          "id": "explica",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escribo",
+              "paso",
+              "entiendo"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "calculadora",
+          "texto": "Когда я застреваю, я пишу задачу в калькулятор и прошу искусственный интеллект объяснить её шаг за шагом, в моём темпе, без всякой спешки."
+        }
+      ]
+    },
+    {
+      "id": "resolver",
+      "titulo": "Как решить любую задачу?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть четвёртая. Как решить любую задачу?"
+        },
+        {
+          "id": "polya",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "polya"
+          },
+          "lamina": [
+            "rompecabezas",
+            "pizarron"
+          ],
+          "texto": "В 1945 году математик Дьёрдь Пойа написал книгу «Как решать задачу» с четырьмя шагами, которые подходят почти для всего: понять задачу, составить план, выполнить его и оглянуться назад, чтобы проверить."
+        },
+        {
+          "id": "entender",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "datos",
+              "dibujo",
+              "parecido"
+            ]
+          },
+          "lamina": [
+            "idea",
+            "notas"
+          ],
+          "texto": "Шаг, который мы чаще всего пропускаем, — первый. Прежде чем считать, спроси себя: что от меня требуется? Какие у меня данные? Можно ли сделать рисунок? Решал ли я уже что-то похожее?"
+        },
+        {
+          "id": "fermi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fermi"
+          },
+          "lamina": [
+            "fermi",
+            "piano"
+          ],
+          "texto": "И научись прикидывать. Энрико Ферми спрашивал своих студентов, сколько в Чикаго настройщиков пианино. Никто этого не знал, но если разбить задачу на кусочки, которые можно угадать, ответ получался близким. Прикидка предупреждает тебя, когда результат не имеет смысла.",
+          "meme": "estimacion"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "Если тебе нравится это руководство, нажми «Нравится», «Подписаться» и «Поделиться»."
+        },
+        {
+          "id": "sistemas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sistemas",
+              "matrices",
+              "regla3"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cohete",
+          "texto": "Смотри: мой дом теперь космический корабль, готовый отправиться в ту самую Вселенную, которая говорит числами. А когда план уже есть, тяжёлую работу делает калькулятор: в один миг решает системы уравнений, считает матрицы или правило трёх."
+        }
+      ]
+    },
+    {
+      "id": "ver",
+      "titulo": "Как увидеть уравнение?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть пятая. Как увидеть уравнение?"
+        },
+        {
+          "id": "descartes",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "graficar"
+          },
+          "lamina": [
+            "descartes",
+            "grafica"
+          ],
+          "texto": "В 1637 году Рене Декарт придумал то, что изменило всё: провести на листе две оси и превратить каждое уравнение в рисунок. С тех пор формула — это не просто буквы: это прямая, парабола или кривая, которую можно увидеть."
+        },
+        {
+          "id": "funcion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "entra",
+              "regla",
+              "sale"
+            ]
+          },
+          "lamina": [
+            "computadora",
+            "pantallas"
+          ],
+          "texto": "Представь функцию как машину: ты даёшь ей число, она применяет своё правило и возвращает тебе другое. Когда ты её рисуешь, сразу видно, где она растёт, где убывает и где пересекает ноль."
+        },
+        {
+          "id": "newton",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "F = m · a",
+            "clave": "newton"
+          },
+          "lamina": [
+            "principia",
+            "newton"
+          ],
+          "texto": "Физика — то же самое. В 1687 году Исаак Ньютон написал, что сила равна массе, умноженной на ускорение. Три буквы, которые объясняют всё, от падающего мяча до взлетающей ракеты.",
+          "meme": "formula"
+        },
+        {
+          "id": "graficas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plano",
+              "polar",
+              "superficie"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "matematicas",
+          "texto": "Здесь я пишу уравнение и сразу его вижу: на плоскости, в полярных координатах или как 3D-поверхность, которую можно вращать."
+        }
+      ]
+    },
+    {
+      "id": "vida",
+      "titulo": "Как использовать числа в жизни?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть шестая. Как использовать числа в жизни?"
+        },
+        {
+          "id": "gigerenzer",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "frecuencias"
+          },
+          "lamina": [
+            "doctor",
+            "lupa"
+          ],
+          "texto": "Проценты обманывают даже экспертов. Герд Гигеренцер дал ста шестидесяти гинекологам задачу о положительном результате маммографии: правильно ответил лишь каждый пятый. Когда они научились думать частотами, верно ответили почти девять из десяти."
+        },
+        {
+          "id": "frecuencias",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cien",
+              "personas",
+              "cuantos"
+            ]
+          },
+          "lamina": [
+            "gente",
+            "dados"
+          ],
+          "texto": "Хитрость в том, чтобы заменить проценты людьми. Вместо одного процента представь сто человек и спроси себя, сколько из этих ста оказывается в каждом случае. И вдруг задача становится наглядной."
+        },
+        {
+          "id": "visicalc",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1979",
+            "clave": "visicalc"
+          },
+          "lamina": [
+            "visicalc",
+            "apple2"
+          ],
+          "texto": "А для ежедневных расчётов есть электронная таблица. В 1979 году Дэн Бриклин и Боб Фрэнкстон создали VisiCalc: ты менял одно число, и всё остальное пересчитывалось само. Она оказалась такой полезной, что многие покупали компьютер только ради неё."
+        },
+        {
+          "id": "hojas",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hoja",
+              "grafica",
+              "excel"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "computadora",
+          "texto": "В моём доме таблицы живут рядом с калькулятором: я делаю их сам или с помощью искусственного интеллекта, строю по ним график и экспортирую в Excel или PDF."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Как продолжать? Твой план на будущее.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть седьмая. Как продолжать? Твой план на будущее."
+        },
+        {
+          "id": "semana1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuarMat"
+          },
+          "lamina": [
+            "calendario",
+            "taza"
+          ],
+          "texto": "В первую неделю ищи числа в своём дне: сколько тратишь, сколько ходишь, сколько спишь. Каждый день прикидывай что-нибудь одно, прежде чем считать, а потом сравнивай."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "retoDiario"
+          },
+          "lamina": [
+            "cuaderno",
+            "lapiz"
+          ],
+          "texto": "В первый месяц решай одну короткую задачу в день, минут на десять, по четырём шагам Пойа. Выбери тему, которая тебе нравится: деньги, спорт, кулинария или небо."
+        },
+        {
+          "id": "fallar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "atorar",
+              "volver",
+              "medir"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "escalon"
+          ],
+          "texto": "А когда застрянешь, не считай это провалом: вернись к первому шагу и сделай рисунок. Чтобы измерять прогресс, считай не то, сколько задач ты решаешь, а то, сколько можешь объяснить другому человеку."
+        },
+        {
+          "id": "resumen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": [
+            "cumbre",
+            "galaxia"
+          ],
+          "texto": "Итак: Вселенную можно описать числами; страх перед математикой лечится практикой; пойми, прежде чем считать, и всегда прикидывай; а когда процент сбивает с толку, думай о людях."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "В Компьютерной MindHaOS ты можешь считать с помощью формул по математике, физике и химии, строить графики своих уравнений и создавать таблицы, самостоятельно или с помощью искусственного интеллекта. Построй свой мысленный дом бесплатно уже сегодня: ссылка в описании. А в следующем руководстве: почему тебе стоит писать?",
+    "boton": "Открыть Компьютерную",
+    "lamina": "app-plan",
+    "anclas": {
+      "formulario": "считать с помощью формул",
+      "graficar": "графики своих уравнений",
+      "hojas": "создавать таблицы"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "galileo-1623",
+      "texto": "Galilei G. Il Saggiatore (1623).",
+      "url": "https://es.wikipedia.org/wiki/El_ensayador"
+    },
+    {
+      "id": "leverrier-1846",
+      "texto": "Le Verrier U. J. J. и Galle J. G. Открытие Нептуна (1846).",
+      "url": "https://es.wikipedia.org/wiki/Descubrimiento_de_Neptuno"
+    },
+    {
+      "id": "wigner-1960",
+      "texto": "Wigner E. P. The unreasonable effectiveness of mathematics in the natural sciences. Communications on Pure and Applied Mathematics (1960).",
+      "url": "https://doi.org/10.1002/cpa.3160130102"
+    },
+    {
+      "id": "wynn-1992",
+      "texto": "Wynn K. Addition and subtraction by human infants. Nature (1992).",
+      "url": "https://doi.org/10.1038/358749a0"
+    },
+    {
+      "id": "ishango",
+      "texto": "Кость Ишанго, Королевский бельгийский институт естественных наук.",
+      "url": "https://es.wikipedia.org/wiki/Hueso_de_Ishango"
+    },
+    {
+      "id": "plimpton-322",
+      "texto": "Plimpton 322, вавилонская табличка (ок. 1800 г. до н. э.).",
+      "url": "https://es.wikipedia.org/wiki/Plimpton_322"
+    },
+    {
+      "id": "brahmagupta-628",
+      "texto": "Brahmagupta. Brāhmasphuṭasiddhānta (628).",
+      "url": "https://es.wikipedia.org/wiki/Brahmagupta"
+    },
+    {
+      "id": "lyons-beilock-2012",
+      "texto": "Lyons I. M., Beilock S. L. When math hurts: math anxiety predicts pain network activation in anticipation of doing math. PLoS ONE (2012).",
+      "url": "https://doi.org/10.1371/journal.pone.0048076"
+    },
+    {
+      "id": "pisa-2022",
+      "texto": "OECD. PISA 2022 Results (Volume I): The State of Learning and Equity in Education (2023).",
+      "url": "https://doi.org/10.1787/53f23881-en"
+    },
+    {
+      "id": "polya-1945",
+      "texto": "Pólya G. How to Solve It: A New Aspect of Mathematical Method. Princeton University Press (1945).",
+      "url": "https://press.princeton.edu/books/paperback/9780691164076/how-to-solve-it"
+    },
+    {
+      "id": "descartes-1637",
+      "texto": "Descartes R. La Géométrie, приложение к Discours de la méthode (1637).",
+      "url": "https://es.wikipedia.org/wiki/La_Géométrie"
+    },
+    {
+      "id": "newton-1687",
+      "texto": "Newton I. Philosophiæ Naturalis Principia Mathematica (1687).",
+      "url": "https://es.wikipedia.org/wiki/Philosophiæ_naturalis_principia_mathematica"
+    },
+    {
+      "id": "gigerenzer-2007",
+      "texto": "Gigerenzer G. и др. Helping doctors and patients make sense of health statistics. Psychological Science in the Public Interest (2007).",
+      "url": "https://doi.org/10.1111/j.1539-6053.2008.00033.x"
+    },
+    {
+      "id": "visicalc-1979",
+      "texto": "Bricklin D., Frankston B. VisiCalc (1979).",
+      "url": "https://es.wikipedia.org/wiki/VisiCalc"
+    }
+  ]
+}

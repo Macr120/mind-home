@@ -2810,5 +2810,226 @@
         "abajo": "Einen grauenhaften Entwurf schreiben und danach überarbeiten"
       }
     }
+  },
+  "matematicas": {
+    "meta": {
+      "titulo": "Was ist die Sprache des Universums? Der komplette Mathe-Leitfaden: warum das Universum in Zahlen spricht, woher sie kommen, die Angst vor Mathe, Probleme lösen, Gleichungen sehen, Zahlen nutzen und ein Plan zum Weitermachen | MindHaOS",
+      "desc": "Warum Mathematik das Universum beschreibt (von Galilei bis Neptun), woher die Zahlen und die Null kommen, warum Mathe Angst macht und wie man sie lernt, die vier Schritte von Pólya zum Lösen von Problemen, wie du eine Gleichung siehst, wie du Zahlen in deinem Leben nutzt und ein Plan zum Weitermachen."
+    },
+    "narra": "Es erzählt der Alien",
+    "cargando3d": "Der Alien wird geladen…",
+    "lista": {
+      "inventar": "Jemand erfindet sie auf Papier",
+      "inventarDet": "Manchmal Jahrhunderte, bevor sie zu etwas nützt.",
+      "describir": "Sie beschreibt die Welt",
+      "describirDet": "Umlaufbahnen, Wellen, Gezeiten und Schaltkreise.",
+      "predecir": "Und sagt voraus, was wir noch nicht gesehen haben",
+      "predecirDet": "Wie Neptun, gefunden mit Bleistift und Papier.",
+      "talento": "Keine Gabe",
+      "talentoDet": "Gut in Mathe zu sein ist nichts, was man hat oder nicht.",
+      "practica": "Es ist Übung",
+      "practicaDet": "Wie eine Sprache: Man lernt sie, indem man sie benutzt.",
+      "error": "Fehler lehren",
+      "errorDet": "Sie zeigen dir, welcher Schritt fehlt, nicht, dass du es nicht kannst.",
+      "datos": "Was ist gesucht, was habe ich?",
+      "datosDet": "Schreib die Frage und die Angaben auf.",
+      "dibujo": "Mach eine Skizze",
+      "dibujoDet": "Eine Zeichnung klärt mehr als zehn Rechnungen.",
+      "parecido": "Habe ich schon Ähnliches gelöst?",
+      "parecidoDet": "Eine alte Aufgabe kann der Schlüssel sein.",
+      "entra": "Eine Zahl geht hinein",
+      "entraDet": "Die, die du ihr gibst.",
+      "regla": "Eine Regel wird angewendet",
+      "reglaDet": "Multiplizieren, addieren, quadrieren…",
+      "sale": "Eine andere Zahl kommt heraus",
+      "saleDet": "Und zeichnest du alle, siehst du die Form.",
+      "cien": "Stell dir hundert Menschen vor",
+      "cienDet": "Oder tausend: Menschen, keine Prozente.",
+      "personas": "Verteil die Leute auf die Fälle",
+      "personasDet": "Wie viele etwas haben und wie viele positiv getestet werden.",
+      "cuantos": "Zähl",
+      "cuantosDet": "Von den positiv Getesteten: Wie viele haben es wirklich?",
+      "resumen1": "Das Universum lässt sich mit Zahlen beschreiben",
+      "resumen2": "Die Angst vor Mathe heilt man durch Üben",
+      "resumen3": "Erst verstehen, dann rechnen, und immer schätzen",
+      "resumen4": "Verwirrt dich ein Prozentsatz, denk an Menschen"
+    },
+    "dato": {
+      "galileo": "Galilei schreibt, das Buch der Natur sei in der Sprache der Mathematik geschrieben (Il Saggiatore)",
+      "ishango": "ist der Knochen von Ishango alt, mit gruppierten Kerben, die etwas mitzählen",
+      "pisa": "der 15-Jährigen in der OECD erreichten bei PISA 2022 nicht das Grundniveau in Mathe",
+      "newton": "Kraft ist Masse mal Beschleunigung: Newton in den Principia (1687)",
+      "visicalc": "erscheint VisiCalc, die erste Tabellenkalkulation für Personal Computer (Bricklin und Frankston)"
+    },
+    "pasos": {
+      "matematicas": "Mathematik",
+      "matematicasDet": "Flächen, Gleichungen und Statistik.",
+      "fisica": "Physik",
+      "fisicaDet": "Bewegung, Kraft und Energie.",
+      "quimica": "Chemie",
+      "quimicaDet": "Mol, Gase und Lösungen.",
+      "mayas": "Die Maya",
+      "mayasDet": "Sie nutzten die Null in ihren Kalendern.",
+      "brahmagupta": "Brahmagupta, im Jahr 628",
+      "brahmaguptaDet": "Er schrieb die Rechenregeln für die Null.",
+      "alJuarismi": "Al-Chwarizmi, Bagdad",
+      "alJuarismiDet": "Von ihm die Algebra, von seinem Namen der Algorithmus.",
+      "decimal": "Dezimal",
+      "decimalDet": "Das alltägliche, zur Basis 10.",
+      "binario": "Binär",
+      "binarioDet": "Nullen und Einsen, wie ein Computer speichert.",
+      "hexadecimal": "Hexadezimal",
+      "hexadecimalDet": "Basis 16, die der Bildschirmfarben.",
+      "escribo": "Ich tippe die Aufgabe ein",
+      "escriboDet": "Genau so, in den Rechner.",
+      "paso": "Ich bitte um eine Erklärung Schritt für Schritt",
+      "pasoDet": "Die künstliche Intelligenz, wenn ich feststecke.",
+      "entiendo": "Und verstehe es in meinem Tempo",
+      "entiendoDet": "Ohne dass mich jemand hetzt.",
+      "sistemas": "Gleichungssysteme",
+      "sistemasDet": "Zwei oder drei Unbekannte auf einmal.",
+      "matrices": "Matrizen",
+      "matricesDet": "Addieren, multiplizieren und invertieren.",
+      "regla3": "Dreisatz",
+      "regla3Det": "Wenn 3 Stück 45 kosten, was kosten 7?",
+      "plano": "In der Ebene",
+      "planoDet": "Geraden, Parabeln und Kurven.",
+      "polar": "In Polarkoordinaten",
+      "polarDet": "Spiralen und Blumen.",
+      "superficie": "Als 3D-Fläche",
+      "superficieDet": "Die ich mit dem Finger drehen kann.",
+      "hoja": "Ich baue meine Tabelle",
+      "hojaDet": "Selbst oder mit Hilfe der KI.",
+      "grafica": "Ich mache ein Diagramm daraus",
+      "graficaDet": "Balken, Linien oder Torte.",
+      "excel": "Ich exportiere sie",
+      "excelDet": "Nach Excel oder als PDF.",
+      "atorar": "Wenn du feststeckst",
+      "atorarDet": "Kein Scheitern: Die Aufgabe bringt dir etwas bei.",
+      "volver": "Zurück zum ersten Schritt",
+      "volverDet": "Und mach eine Skizze.",
+      "medir": "Miss, was du erklärst",
+      "medirDet": "Nicht wie viele du löst: wie viele du erklären kannst."
+    },
+    "unoMasUno": {
+      "titulo": "Eins plus eins, mit fünf Monaten",
+      "uno": "Eine Puppe…",
+      "otro": "…und noch eine hinter dem Sichtschutz",
+      "pantalla": "Der Sichtschutz verdeckt beide",
+      "esperado": "Beim Wegnehmen: zwei Puppen (wie erwartet)",
+      "imposible": "Beim Wegnehmen: nur eine (unmöglich!)",
+      "ver_esperado": "Zwei zeigen",
+      "ver_imposible": "Eine zeigen",
+      "miradaEsperado": "Blick beim Erwarteten",
+      "miradaImposible": "Blick beim Unmöglichen",
+      "nota": "Karen Wynn (1992): Die Babys schauten das unmögliche Ergebnis länger an (Balken zur Veranschaulichung)."
+    },
+    "base60": {
+      "titulo": "Warum sechzig?",
+      "base10": "Basis 10",
+      "base60": "Basis 60",
+      "cuenta10": "Die 10 lässt sich auf {n} Arten gleichmäßig teilen",
+      "cuenta60": "Die 60 auf {n} Arten: Hälften, Drittel, Viertel, Fünftel…",
+      "nota": "Die Babylonier zählten in Sechzigerschritten: daher die 60 Minuten einer Stunde und die 360 Grad eines Kreises."
+    },
+    "polya": {
+      "titulo": "Die vier Schritte von Pólya",
+      "problema": "Ein Zug fährt um 9:40 Uhr ab und braucht 2 h 35 min. Wann kommt er an?",
+      "entender": "Das Problem verstehen",
+      "entenderDet": "Gesucht ist die Ankunftszeit; ich kenne die Abfahrt und die Fahrtdauer.",
+      "plan": "Einen Plan ausdenken",
+      "planDet": "Erst die Stunden addieren, dann die Minuten.",
+      "ejecutar": "Den Plan ausführen",
+      "ejecutarDet": "9:40 + 2 h = 11:40; + 35 min = 12:15.",
+      "revisar": "Zurückschauen",
+      "revisarDet": "Ergibt das Sinn? Etwa zweieinhalb Stunden nach zwanzig vor zehn: ja.",
+      "nota": "George Pólya, Schule des Denkens (1945). Tippe auf jeden Schritt."
+    },
+    "fermi": {
+      "titulo": "Wie viele Klavierstimmer gibt es in Chicago?",
+      "gente": "Menschen in der Stadt",
+      "hogares": "Haushalte",
+      "pianos": "Klaviere (eins pro so und so viele Haushalte)",
+      "porAfinador": "Stimmungen pro Jahr und Klavierstimmer",
+      "afinadores": "Klavierstimmer",
+      "ajusteGente": "Menschen",
+      "ajusteHogar": "Menschen pro Haushalt",
+      "ajustePiano": "Ein Klavier pro so viele Haushalte",
+      "nota": "Runde Zahlen zur Veranschaulichung: Ändere die Annahmen und sieh, dass das Ergebnis nicht explodiert."
+    },
+    "graficar": {
+      "titulo": "Eine Gleichung, ein Bild",
+      "recta": "Gerade",
+      "parabola": "Parabel",
+      "onda": "Welle",
+      "sen": "sin",
+      "nota": "Die Ebene von Descartes (1637): Jeder Punkt ist ein Paar (x, y), das die Gleichung erfüllt."
+    },
+    "frecuencias": {
+      "titulo": "Eine positive Mammografie: Wie wahrscheinlich ist Krebs?",
+      "porcentajes": "In Prozent",
+      "personas": "In Menschen",
+      "p1": "1 % der Frauen, die sich untersuchen lassen, hat Brustkrebs.",
+      "p2": "Hat eine Frau Krebs, ist der Test in 90 % der Fälle positiv.",
+      "p3": "Hat sie keinen, ist er in 9 % der Fälle irrtümlich positiv.",
+      "pregunta": "Der Test ist positiv. Wie wahrscheinlich ist es, dass sie Krebs hat?",
+      "l1": "10 von 1000 haben Krebs; 9 davon werden positiv getestet",
+      "l2": "Von den 990 Gesunden werden 89 ebenfalls positiv getestet",
+      "respuesta": "Von 98 Positiven haben nur 9 Krebs: weniger als eine von zehn",
+      "nota": "Die Aufgabe, die Gigerenzer und Kollegen Ärzten stellten: in Häufigkeiten liegen fast alle richtig."
+    },
+    "retoDiario": {
+      "titulo": "Die Aufgabe des Tages: erst schätzen, dann rechnen",
+      "pregunta": "Wie viele Minuten hat ein Jahr?",
+      "tuEstimacion": "Deine Schätzung:",
+      "calcular": "Berechnen",
+      "teDesviaste": "du lagst {p} % daneben",
+      "nota": "Schätzen vor dem Rechnen trainiert dein Zahlengefühl: So merkst du, wenn ein Ergebnis keinen Sinn ergibt."
+    },
+    "grafica": {
+      "neptuno": "Le Verrier (1846): Die Rechnung sagte, wo man suchen muss, und Galle fand Neptun ein Grad daneben",
+      "urano": "Uranus, abgelenkt",
+      "calculado": "Berechnet",
+      "encontrado": "Neptun",
+      "sol": "Sonne",
+      "ansiedadMate": "Lyons und Beilock (2012): Kündigte sich eine Matheaufgabe an, war das Schmerznetzwerk bei hoher Angst aktiver (zur Veranschaulichung)",
+      "alta": "Hohe Angst",
+      "baja": "Geringe Angst",
+      "plan": "Dein Plan zum Weitermachen",
+      "semana1": "Woche 1",
+      "semana1Det": "Such die Zahlen deines Tages und schätze vor dem Rechnen",
+      "mes1": "Monat 1",
+      "mes1Det": "Täglich eine kurze Aufgabe mit den vier Schritten von Pólya",
+      "atoras": "Wenn du feststeckst",
+      "atorasDet": "Versteh das Problem neu und mach eine Skizze",
+      "medir": "Zum Messen",
+      "medirDet": "Wie viele Aufgaben du jemand anderem erklären kannst"
+    },
+    "cierre": {
+      "titulo": "Zahlen in deinem eigenen Haus",
+      "texto": "Im Rechenraum von MindHaOS rechnest du mit einem Formelbuch für Mathematik, Physik und Chemie, stellst deine Gleichungen in der Ebene, in Polarkoordinaten oder in 3D dar und legst Tabellen an, die du nach Excel oder als PDF exportierst, allein oder mit Hilfe der künstlichen Intelligenz."
+    },
+    "paquete": {
+      "guia": "Interaktiver Leitfaden (mit dem Experiment der rechnenden Babys, warum wir in Sechzigerschritten zählen, den vier Schritten von Pólya, einer Fermi-Aufgabe, Gleichungen, die sich zeichnen, und Prozenten gegen Menschen, die sich in deinem Browser bewegen)",
+      "app": "Öffne den Rechenraum in MindHaOS",
+      "hashtags": "#Mathematik #Mathe #Wissenschaft #Universum #Lernen #Schule #MindHaOS"
+    },
+    "memes": {
+      "cero": {
+        "arriba": "Die Maya und Brahmagupta erfinden die Null",
+        "abajo": "Ich in der Mathearbeit"
+      },
+      "miedoMate": {
+        "arriba": "Wenn die Lehrerin sagt: „Holt ein Blatt raus“"
+      },
+      "estimacion": {
+        "arriba": "Ausrechnen und blind glauben, was rauskommt",
+        "abajo": "Erst schätzen, um zu sehen, ob das Ergebnis Sinn ergibt"
+      },
+      "formula": {
+        "arriba": "Ich: „Mathe braucht man im Leben nie“",
+        "abajo": "Newton mit drei Buchstaben: erklärt alles vom Apfel bis zur Rakete"
+      }
+    }
   }
 }

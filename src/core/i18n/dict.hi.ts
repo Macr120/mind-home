@@ -7423,6 +7423,7 @@ export const HI: Dict = {
   'guia.agenda.titulo': "अपना समय कैसे व्यवस्थित करें?",
   'guia.aprender.titulo': "तेज़ी से कैसे सीखें?",
   'guia.escritura.titulo': "आपको क्यों लिखना चाहिए?",
+  'guia.matematicas.titulo': "ब्रह्मांड की भाषा क्या है?",
   'tut.esencial.titulo': 'ज़रूरी बातें',
   'tut.tipo.ejemplos': 'उदाहरण · डेमो MindHaOS',
   'tut.app-agenda--esencial.resumen':

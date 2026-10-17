@@ -2810,5 +2810,226 @@
         "abajo": "Writing a terrible draft and fixing it later"
       }
     }
+  },
+  "matematicas": {
+    "meta": {
+      "titulo": "What is the language of the universe? Complete guide to math: why the universe speaks in numbers, where numbers came from, math anxiety, solving problems, seeing equations, using numbers and a plan to keep going | MindHaOS",
+      "desc": "Why mathematics describes the universe (from Galileo to Neptune), where numbers and zero came from, why math is scary and how it’s learned, Pólya’s four steps for solving problems, how to see an equation, how to use numbers in your life and a plan to keep going."
+    },
+    "narra": "Narrated by the alien",
+    "cargando3d": "Loading the alien…",
+    "lista": {
+      "inventar": "Someone invents it on paper",
+      "inventarDet": "Sometimes centuries before it’s useful for anything.",
+      "describir": "It describes the world",
+      "describirDet": "Orbits, waves, tides and circuits.",
+      "predecir": "And predicts what we haven’t seen",
+      "predecirDet": "Like Neptune, found with pencil and paper.",
+      "talento": "It’s not a gift",
+      "talentoDet": "Being a math person isn’t something you either have or don’t.",
+      "practica": "It’s practice",
+      "practicaDet": "Like a language: you learn it by using it.",
+      "error": "Mistakes teach",
+      "errorDet": "They tell you which step you’re missing, not that you can’t.",
+      "datos": "What are they asking, and what do I have?",
+      "datosDet": "Write down the question and the data.",
+      "dibujo": "Draw a picture",
+      "dibujoDet": "A sketch clears up more than ten calculations.",
+      "parecido": "Have I solved something similar?",
+      "parecidoDet": "An old problem can be the key.",
+      "entra": "A number goes in",
+      "entraDet": "The one you give it.",
+      "regla": "A rule is applied",
+      "reglaDet": "Multiply, add, square…",
+      "sale": "Another number comes out",
+      "saleDet": "And when you plot them all, you see the shape.",
+      "cien": "Picture a hundred people",
+      "cienDet": "Or a thousand: people, not percentages.",
+      "personas": "Sort the people into each case",
+      "personasDet": "How many have it and how many test positive.",
+      "cuantos": "Count",
+      "cuantosDet": "Of those who tested positive, how many have it?",
+      "resumen1": "The universe can be described with numbers",
+      "resumen2": "Fear of math is cured by practicing",
+      "resumen3": "Understand before you calculate and always estimate",
+      "resumen4": "If a percentage confuses you, think in people"
+    },
+    "dato": {
+      "galileo": "Galileo writes that the book of nature is written in the language of mathematics (The Assayer)",
+      "ishango": "is the age of the Ishango bone, with grouped notches keeping count of something",
+      "pisa": "of 15-year-old students in the OECD didn’t reach the basic level in math in PISA 2022",
+      "newton": "force is mass times acceleration: Newton, in the Principia (1687)",
+      "visicalc": "VisiCalc is born, the first spreadsheet for personal computers (Bricklin and Frankston)"
+    },
+    "pasos": {
+      "matematicas": "Mathematics",
+      "matematicasDet": "Areas, equations and statistics.",
+      "fisica": "Physics",
+      "fisicaDet": "Motion, force and energy.",
+      "quimica": "Chemistry",
+      "quimicaDet": "Moles, gases and solutions.",
+      "mayas": "The Maya",
+      "mayasDet": "Used zero in their calendars.",
+      "brahmagupta": "Brahmagupta, year 628",
+      "brahmaguptaDet": "Wrote the rules for working with zero.",
+      "alJuarismi": "Al-Khwarizmi, Baghdad",
+      "alJuarismiDet": "Gave us algebra; his name, the algorithm.",
+      "decimal": "Decimal",
+      "decimalDet": "The everyday one, in base 10.",
+      "binario": "Binary",
+      "binarioDet": "Zeros and ones, the way a computer stores them.",
+      "hexadecimal": "Hexadecimal",
+      "hexadecimalDet": "Base 16, the one for screen colors.",
+      "escribo": "I type the problem",
+      "escriboDet": "Just as it is, into the calculator.",
+      "paso": "I ask for a step-by-step explanation",
+      "pasoDet": "From artificial intelligence, when I get stuck.",
+      "entiendo": "And I understand it at my own pace",
+      "entiendoDet": "With no one rushing me.",
+      "sistemas": "Systems of equations",
+      "sistemasDet": "Two or three unknowns at once.",
+      "matrices": "Matrices",
+      "matricesDet": "Add, multiply and invert.",
+      "regla3": "Rule of three",
+      "regla3Det": "If 3 cost 45, how much do 7 cost?",
+      "plano": "On the plane",
+      "planoDet": "Lines, parabolas and curves.",
+      "polar": "In polar coordinates",
+      "polarDet": "Spirals and flowers.",
+      "superficie": "As a 3D surface",
+      "superficieDet": "That I can spin with my finger.",
+      "hoja": "I build my sheet",
+      "hojaDet": "Myself or with help from AI.",
+      "grafica": "I make a chart from it",
+      "graficaDet": "Bar, line or pie.",
+      "excel": "I export it",
+      "excelDet": "To Excel or PDF.",
+      "atorar": "If you get stuck",
+      "atorarDet": "It’s not failure: it’s the problem teaching you.",
+      "volver": "Go back to the first step",
+      "volverDet": "And draw a picture.",
+      "medir": "Measure what you can explain",
+      "medirDet": "Not how many you do: how many you can explain."
+    },
+    "unoMasUno": {
+      "titulo": "One plus one, at five months",
+      "uno": "One doll…",
+      "otro": "…and another behind the screen",
+      "pantalla": "The screen hides both",
+      "esperado": "When it drops: two dolls (expected)",
+      "imposible": "When it drops: only one (impossible!)",
+      "ver_esperado": "Show two",
+      "ver_imposible": "Show one",
+      "miradaEsperado": "Looking at the expected",
+      "miradaImposible": "Looking at the impossible",
+      "nota": "Karen Wynn (1992): babies looked longer at the impossible result (illustrative bars)."
+    },
+    "base60": {
+      "titulo": "Why sixty?",
+      "base10": "Base 10",
+      "base60": "Base 60",
+      "cuenta10": "10 splits into equal parts in {n} ways",
+      "cuenta60": "60, in {n} ways: halves, thirds, quarters, fifths…",
+      "nota": "The Babylonians counted in sixties: that’s where the 60 minutes in an hour and the 360 degrees in a circle come from."
+    },
+    "polya": {
+      "titulo": "Pólya’s four steps",
+      "problema": "A train leaves at 9:40 a.m. and takes 2 h 35 min. What time does it arrive?",
+      "entender": "Understand the problem",
+      "entenderDet": "They’re asking for the arrival time; I have the departure and how long it takes.",
+      "plan": "Devise a plan",
+      "planDet": "Add the hours first, then the minutes.",
+      "ejecutar": "Carry it out",
+      "ejecutarDet": "9:40 + 2 h = 11:40; + 35 min = 12:15 p.m.",
+      "revisar": "Look back",
+      "revisarDet": "Does it make sense? About two and a half hours after twenty to ten: yes.",
+      "nota": "George Pólya, How to Solve It (1945). Tap each step."
+    },
+    "fermi": {
+      "titulo": "How many piano tuners are there in Chicago?",
+      "gente": "People in the city",
+      "hogares": "Households",
+      "pianos": "Pianos (one every so many households)",
+      "porAfinador": "Tunings per year per tuner",
+      "afinadores": "Tuners",
+      "ajusteGente": "People",
+      "ajusteHogar": "People per household",
+      "ajustePiano": "One piano every so many households",
+      "nota": "Round, illustrative numbers: change the assumptions and see that the result doesn’t blow up."
+    },
+    "graficar": {
+      "titulo": "One equation, one drawing",
+      "recta": "Line",
+      "parabola": "Parabola",
+      "onda": "Wave",
+      "sen": "sin",
+      "nota": "Descartes’ plane (1637): each point is a pair (x, y) that satisfies the equation."
+    },
+    "frecuencias": {
+      "titulo": "A positive mammogram: how likely is cancer?",
+      "porcentajes": "In percentages",
+      "personas": "In people",
+      "p1": "1% of women who take the test have breast cancer.",
+      "p2": "If a woman has cancer, the test comes back positive 90% of the time.",
+      "p3": "If she doesn’t, it comes back positive by mistake 9% of the time.",
+      "pregunta": "It came back positive. What’s the probability she has cancer?",
+      "l1": "10 in 1000 have cancer; 9 of them test positive",
+      "l2": "Of the 990 healthy ones, 89 also test positive",
+      "respuesta": "Of 98 positives, only 9 have cancer: fewer than one in ten",
+      "nota": "The problem Gigerenzer and colleagues used with doctors: in frequencies, almost everyone gets it right."
+    },
+    "retoDiario": {
+      "titulo": "Today’s challenge: estimate, then calculate",
+      "pregunta": "How many minutes are there in a year?",
+      "tuEstimacion": "Your estimate:",
+      "calcular": "Calculate",
+      "teDesviaste": "you were off by {p}%",
+      "nota": "Estimating before calculating trains your number sense: that’s how you notice when a result makes no sense."
+    },
+    "grafica": {
+      "neptuno": "Le Verrier (1846): the math said where to look, and Galle found Neptune within one degree of it",
+      "urano": "Uranus, off course",
+      "calculado": "Calculated",
+      "encontrado": "Neptune",
+      "sol": "Sun",
+      "ansiedadMate": "Lyons and Beilock (2012): on learning a math problem was coming, the pain network lit up more in people with high anxiety (illustrative)",
+      "alta": "High anxiety",
+      "baja": "Low anxiety",
+      "plan": "Your plan to continue",
+      "semana1": "Week 1",
+      "semana1Det": "Find the numbers in your day and estimate before calculating",
+      "mes1": "Month 1",
+      "mes1Det": "One short problem a day with Pólya’s four steps",
+      "atoras": "When you get stuck",
+      "atorasDet": "Go back to understanding the problem and draw a picture",
+      "medir": "To measure",
+      "medirDet": "How many problems you can explain to someone else"
+    },
+    "cierre": {
+      "titulo": "Numbers, in your own house",
+      "texto": "In the MindHaOS Computing room you calculate with a formula book for math, physics and chemistry, plot your equations on the plane, in polar or in 3D, and build spreadsheets you export to Excel or PDF, on your own or with help from artificial intelligence."
+    },
+    "paquete": {
+      "guia": "Interactive guide (with the babies who add, why we count in sixties, Pólya’s four steps, a Fermi problem, equations that draw themselves and percentages vs. people, all moving in your browser)",
+      "app": "Open the Computing room in MindHaOS",
+      "hashtags": "#math #maths #science #universe #learning #student #MindHaOS"
+    },
+    "memes": {
+      "cero": {
+        "arriba": "The Maya and Brahmagupta inventing zero",
+        "abajo": "Me, putting it to good use on my math test"
+      },
+      "miedoMate": {
+        "arriba": "When the teacher says “pop quiz, take out a sheet of paper”"
+      },
+      "estimacion": {
+        "arriba": "Doing the math and trusting whatever comes out",
+        "abajo": "Estimating first to see if the answer makes sense"
+      },
+      "formula": {
+        "arriba": "Me: “math is useless”",
+        "abajo": "Newton with three letters: explaining everything from an apple to a rocket"
+      }
+    }
   }
 }

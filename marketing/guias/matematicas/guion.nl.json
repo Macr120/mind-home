@@ -1,0 +1,672 @@
+{
+  "idioma": "nl",
+  "tema": "matematicas",
+  "plantillaId": "computo",
+  "numero": 13,
+  "nombre": "Wiskunde",
+  "pregunta": "Wat is de taal van het universum?",
+  "corta": "De taal van het universum",
+  "subtitulo": "Waarom het universum zich met getallen laat beschrijven, waar ze vandaan komen, waarom wiskunde eng is, hoe je elk probleem oplost, hoe je een vergelijking ziet, hoe je getallen in je leven gebruikt en een plan om verder te leren.",
+  "aviso": "Deze gids is informatief: de genoemde cijfers en studies zijn benaderingen uit hun bronnen, en iedereen leert in zijn eigen tempo. Als angst voor wiskunde je verlamt of je erg dwarszit, praat dan met een studiebegeleider of een specialist.",
+  "partes": [
+    {
+      "id": "universo",
+      "titulo": "Waarom spreekt het universum in getallen?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Wat is de taal van het universum? In 1846 vond een astronoom een nieuwe planeet zonder naar de hemel te kijken: alleen met potlood en papier. Vandaag zie je hoe hij dat deed, en waarom diezelfde taal je helpt in je dagelijks leven."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "Trouwens, dit is mijn huis in MindHaOS, en dit is mijn Computerkamer."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel één. Waarom spreekt het universum in getallen?"
+        },
+        {
+          "id": "galileo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1623",
+            "clave": "galileo"
+          },
+          "lamina": [
+            "galileo",
+            "estrellas"
+          ],
+          "texto": "In 1623 schreef Galileo Galilei dat het grote boek van de natuur in de taal van de wiskunde geschreven is, en dat we zonder die taal ronddolen in een donker labyrint."
+        },
+        {
+          "id": "neptuno",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "neptuno"
+          },
+          "lamina": [
+            "leverrier",
+            "neptuno"
+          ],
+          "texto": "Hier is de planeet van het begin. Uranus volgde niet de baan die de wetten van Newton voorspelden: iets trok eraan. Urbain Le Verrier berekende waar dat iets moest zijn en stuurde zijn berekeningen naar Berlijn. Johann Galle richtte diezelfde nacht zijn telescoop en vond Neptunus op één graad van de plek die de getallen aangaven."
+        },
+        {
+          "id": "wigner",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "inventar",
+              "describir",
+              "predecir"
+            ]
+          },
+          "lamina": [
+            "pizarra2",
+            "galaxia"
+          ],
+          "texto": "In 1960 noemde de natuurkundige Eugene Wigner het de onredelijke effectiviteit van de wiskunde: ideeën die iemand op papier bedacht, soms eeuwen eerder, blijken te beschrijven hoe de wereld beweegt."
+        },
+        {
+          "id": "formulario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "matematicas",
+              "fisica",
+              "quimica"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "pizarron",
+          "texto": "Daarom heb ik in mijn Computerkamer een formuleboek met mappen voor wiskunde, natuurkunde en scheikunde: elke formule rekent zichzelf uit zodra je de gegevens invult."
+        }
+      ]
+    },
+    {
+      "id": "origen",
+      "titulo": "Waar komen de getallen vandaan?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel twee. Waar komen de getallen vandaan?"
+        },
+        {
+          "id": "bebes",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "unoMasUno"
+          },
+          "lamina": [
+            "bebe",
+            "nino"
+          ],
+          "texto": "Ze beginnen al vóór ons. In 1992 liet Karen Wynn baby's van vijf maanden een poppetje zien, en daarna nog een, achter een scherm. Als ze het scherm weghaalde en er maar één stond, bleven de baby's langer kijken, alsof er iets niet klopte. Gevoel voor hoeveelheid hebben we al van jongs af aan."
+        },
+        {
+          "id": "ishango",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 20.000 jaar",
+            "clave": "ishango"
+          },
+          "lamina": [
+            "ishango",
+            "contar"
+          ],
+          "texto": "Wat wij uitvonden, was het opschrijven. Het bot van Ishango, gevonden in Congo, is zo'n twintigduizend jaar oud en zit vol gegroepeerde kerven: iemand hield ergens de telling van bij."
+        },
+        {
+          "id": "babilonia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "base60"
+          },
+          "lamina": [
+            "plimpton",
+            "reloj"
+          ],
+          "texto": "Bijna vierduizend jaar geleden telden ze in Babylon per zestig. Daarom heeft een uur nu zestig minuten en een cirkel driehonderdzestig graden: we gebruiken hun getallen nog steeds zonder het te weten."
+        },
+        {
+          "id": "cero",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mayas",
+              "brahmagupta",
+              "alJuarismi"
+            ]
+          },
+          "lamina": [
+            "glifoMaya",
+            "alJuarismi"
+          ],
+          "texto": "En de nul liet op zich wachten. De Maya's gebruikten hem in hun kalenders, en in het jaar 628 schreef Brahmagupta in India de regels om ermee op te tellen en af te trekken. Twee eeuwen later schreef al-Khwarizmi in Bagdad het boek dat ons het woord algebra gaf; van zijn naam komt het woord algoritme.",
+          "meme": "cero"
+        },
+        {
+          "id": "bases",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "decimal",
+              "binario",
+              "hexadecimal"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "binario",
+          "texto": "Op mijn rekenmachine kan ik van talstelsel wisselen: hetzelfde getal decimaal, binair zoals een computer het opslaat, of hexadecimaal."
+        }
+      ]
+    },
+    {
+      "id": "miedo",
+      "titulo": "Waarom is wiskunde eng?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel drie. Waarom is wiskunde eng?"
+        },
+        {
+          "id": "beilock",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ansiedadMate"
+          },
+          "lamina": [
+            "cerebro",
+            "examen"
+          ],
+          "texto": "Als je er zenuwachtig van wordt, beeld je je dat niet in. In 2012 zagen Ian Lyons en Sian Beilock in een hersenscanner dat bij mensen met wiskundeangst alleen al het weten dat er een wiskundesom aankwam, hersengebieden activeerde die verbonden zijn met lichamelijke pijn. En niet tijdens de som: ervoor."
+        },
+        {
+          "id": "pisa",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "31%",
+            "clave": "pisa"
+          },
+          "lamina": [
+            "alumnos",
+            "pizarra"
+          ],
+          "texto": "Je bent niet de enige. In de PISA-test van 2022 haalde bijna één op de drie vijftienjarigen in de OESO-landen het basisniveau wiskunde niet.",
+          "meme": "miedoMate"
+        },
+        {
+          "id": "aprendible",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "talento",
+              "practica",
+              "error"
+            ]
+          },
+          "lamina": [
+            "cuaderno",
+            "lapiz"
+          ],
+          "texto": "Het goede nieuws: goed zijn in wiskunde is geen gave die je wel of niet hebt. Het is oefening, net als een taal. Een fout in een som betekent niet dat je het niet kunt; het laat zien welke stap je mist."
+        },
+        {
+          "id": "explica",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escribo",
+              "paso",
+              "entiendo"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "calculadora",
+          "texto": "Als ik vastloop, typ ik de som in mijn rekenmachine en vraag ik de kunstmatige intelligentie om hem stap voor stap uit te leggen, in mijn tempo, zonder dat iemand me opjaagt."
+        }
+      ]
+    },
+    {
+      "id": "resolver",
+      "titulo": "Hoe los je elk probleem op?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vier. Hoe los je elk probleem op?"
+        },
+        {
+          "id": "polya",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "polya"
+          },
+          "lamina": [
+            "rompecabezas",
+            "pizarron"
+          ],
+          "texto": "In 1945 schreef de wiskundige George Pólya How to Solve It, met vier stappen die voor bijna alles werken: het probleem begrijpen, een plan bedenken, het uitvoeren en terugkijken om te controleren."
+        },
+        {
+          "id": "entender",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "datos",
+              "dibujo",
+              "parecido"
+            ]
+          },
+          "lamina": [
+            "idea",
+            "notas"
+          ],
+          "texto": "De stap die we het vaakst overslaan, is de eerste. Vraag je af voordat je gaat rekenen: wat wordt er gevraagd? Welke gegevens heb ik? Kan ik een tekening maken? Heb ik al eens iets vergelijkbaars opgelost?"
+        },
+        {
+          "id": "fermi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fermi"
+          },
+          "lamina": [
+            "fermi",
+            "piano"
+          ],
+          "texto": "En leer schatten. Enrico Fermi vroeg zijn studenten hoeveel pianostemmers er in Chicago waren. Niemand wist het, maar door het probleem op te delen in stukjes die je wél kunt raden, kwam het antwoord in de buurt. Een schatting waarschuwt je als een uitkomst nergens op slaat.",
+          "meme": "estimacion"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "Als je de gids leuk vindt, klik dan op Vind ik leuk, Abonneren en Delen."
+        },
+        {
+          "id": "sistemas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sistemas",
+              "matrices",
+              "regla3"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cohete",
+          "texto": "Kijk: mijn huis is nu een ruimteschip, klaar om te vertrekken naar dat universum dat in getallen spreekt. En als ik het plan heb, doet de rekenmachine het zware werk: hij lost stelsels van vergelijkingen, matrices of een regel van drieën in een oogwenk op."
+        }
+      ]
+    },
+    {
+      "id": "ver",
+      "titulo": "Hoe zie je een vergelijking?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vijf. Hoe zie je een vergelijking?"
+        },
+        {
+          "id": "descartes",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "graficar"
+          },
+          "lamina": [
+            "descartes",
+            "grafica"
+          ],
+          "texto": "In 1637 kreeg René Descartes een idee dat alles veranderde: twee assen op een blad tekenen en elke vergelijking omzetten in een tekening. Sindsdien is een formule niet alleen letters: het is een rechte lijn, een parabool of een kromme die je kunt zien."
+        },
+        {
+          "id": "funcion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "entra",
+              "regla",
+              "sale"
+            ]
+          },
+          "lamina": [
+            "computadora",
+            "pantallas"
+          ],
+          "texto": "Zie een functie als een machine: je geeft er een getal in, ze past haar regel toe en geeft je een ander getal terug. Als je haar tekent, zie je in één oogopslag waar ze stijgt, waar ze daalt en waar ze door nul gaat."
+        },
+        {
+          "id": "newton",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "F = m · a",
+            "clave": "newton"
+          },
+          "lamina": [
+            "principia",
+            "newton"
+          ],
+          "texto": "Natuurkunde is precies dat. In 1687 schreef Isaac Newton dat kracht gelijk is aan massa maal versnelling. Drie letters die alles verklaren, van een bal die valt tot een raket die opstijgt.",
+          "meme": "formula"
+        },
+        {
+          "id": "graficas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plano",
+              "polar",
+              "superficie"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "matematicas",
+          "texto": "Hier typ ik een vergelijking en zie ik haar meteen: in het vlak, in poolcoördinaten of als een 3D-oppervlak dat ik kan draaien."
+        }
+      ]
+    },
+    {
+      "id": "vida",
+      "titulo": "Hoe gebruik je getallen in je leven?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zes. Hoe gebruik je getallen in je leven?"
+        },
+        {
+          "id": "gigerenzer",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "frecuencias"
+          },
+          "lamina": [
+            "doctor",
+            "lupa"
+          ],
+          "texto": "Percentages misleiden zelfs experts. Gerd Gigerenzer gaf honderdzestig gynaecologen een vraag over een positieve mammografie: maar één op de vijf gaf het juiste antwoord. Nadat ze hadden geleerd in frequenties te denken, had bijna negen op de tien het goed."
+        },
+        {
+          "id": "frecuencias",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cien",
+              "personas",
+              "cuantos"
+            ]
+          },
+          "lamina": [
+            "gente",
+            "dados"
+          ],
+          "texto": "De truc: ruil procenten in voor mensen. Denk in plaats van aan één procent aan honderd mensen en vraag je af hoeveel van die honderd in elk geval zitten. Opeens zie je het probleem."
+        },
+        {
+          "id": "visicalc",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1979",
+            "clave": "visicalc"
+          },
+          "lamina": [
+            "visicalc",
+            "apple2"
+          ],
+          "texto": "En voor de berekeningen van elke dag is er de spreadsheet. In 1979 maakten Dan Bricklin en Bob Frankston VisiCalc: je veranderde één getal en al de rest werd opnieuw berekend. Het was zo handig dat veel mensen een computer kochten alleen om het te gebruiken."
+        },
+        {
+          "id": "hojas",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hoja",
+              "grafica",
+              "excel"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "computadora",
+          "texto": "In mijn huis staan mijn spreadsheets naast de rekenmachine: ik maak ze zelf of met hulp van kunstmatige intelligentie, maak er een grafiek van en exporteer ze naar Excel of pdf."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zeven. Hoe ga je verder? Jouw plan om door te gaan."
+        },
+        {
+          "id": "semana1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuarMat"
+          },
+          "lamina": [
+            "calendario",
+            "taza"
+          ],
+          "texto": "Zoek in de eerste week de getallen van je dag: hoeveel je uitgeeft, hoeveel je loopt, hoeveel je slaapt. Schat elke dag één ding voordat je het uitrekent, en vergelijk dan."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "retoDiario"
+          },
+          "lamina": [
+            "cuaderno",
+            "lapiz"
+          ],
+          "texto": "Los in de eerste maand elke dag een korte som op, van tien minuten, met de vier stappen van Pólya. Kies een onderwerp dat je leuk vindt: geld, sport, koken of de sterrenhemel."
+        },
+        {
+          "id": "fallar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "atorar",
+              "volver",
+              "medir"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "escalon"
+          ],
+          "texto": "En als je vastloopt, zie het dan niet als mislukking: ga terug naar de eerste stap en maak een tekening. Tel om je vooruitgang te meten niet hoeveel sommen je maakt: tel hoeveel je aan iemand anders kunt uitleggen."
+        },
+        {
+          "id": "resumen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": [
+            "cumbre",
+            "galaxia"
+          ],
+          "texto": "Kort gezegd: het universum laat zich met getallen beschrijven; angst voor wiskunde verdwijnt door te oefenen; begrijp voordat je rekent en schat altijd; en als een percentage je in de war brengt, denk aan mensen."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "In de Computerkamer van MindHaOS kun je rekenen met een formuleboek voor wiskunde, natuurkunde en scheikunde, grafieken maken van je vergelijkingen, en spreadsheets bouwen, zelf of met hulp van kunstmatige intelligentie. Bouw vandaag gratis je mentale huis: de link staat in de beschrijving. En in de volgende gids: waarom zou je schrijven?",
+    "boton": "Open de Computerkamer",
+    "lamina": "app-plan",
+    "anclas": {
+      "formulario": "met een formuleboek",
+      "graficar": "grafieken maken",
+      "hojas": "spreadsheets bouwen"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "galileo-1623",
+      "texto": "Galilei G. Il Saggiatore (1623).",
+      "url": "https://es.wikipedia.org/wiki/El_ensayador"
+    },
+    {
+      "id": "leverrier-1846",
+      "texto": "Le Verrier U. J. J. en Galle J. G. De ontdekking van Neptunus (1846).",
+      "url": "https://es.wikipedia.org/wiki/Descubrimiento_de_Neptuno"
+    },
+    {
+      "id": "wigner-1960",
+      "texto": "Wigner E. P. The unreasonable effectiveness of mathematics in the natural sciences. Communications on Pure and Applied Mathematics (1960).",
+      "url": "https://doi.org/10.1002/cpa.3160130102"
+    },
+    {
+      "id": "wynn-1992",
+      "texto": "Wynn K. Addition and subtraction by human infants. Nature (1992).",
+      "url": "https://doi.org/10.1038/358749a0"
+    },
+    {
+      "id": "ishango",
+      "texto": "Bot van Ishango, Koninklijk Belgisch Instituut voor Natuurwetenschappen.",
+      "url": "https://es.wikipedia.org/wiki/Hueso_de_Ishango"
+    },
+    {
+      "id": "plimpton-322",
+      "texto": "Plimpton 322, Babylonisch kleitablet (ca. 1800 v.Chr.).",
+      "url": "https://es.wikipedia.org/wiki/Plimpton_322"
+    },
+    {
+      "id": "brahmagupta-628",
+      "texto": "Brahmagupta. Brāhmasphuṭasiddhānta (628).",
+      "url": "https://es.wikipedia.org/wiki/Brahmagupta"
+    },
+    {
+      "id": "lyons-beilock-2012",
+      "texto": "Lyons I. M., Beilock S. L. When math hurts: math anxiety predicts pain network activation in anticipation of doing math. PLoS ONE (2012).",
+      "url": "https://doi.org/10.1371/journal.pone.0048076"
+    },
+    {
+      "id": "pisa-2022",
+      "texto": "OESO. PISA 2022 Results (Volume I): The State of Learning and Equity in Education (2023).",
+      "url": "https://doi.org/10.1787/53f23881-en"
+    },
+    {
+      "id": "polya-1945",
+      "texto": "Pólya G. How to Solve It: A New Aspect of Mathematical Method. Princeton University Press (1945).",
+      "url": "https://press.princeton.edu/books/paperback/9780691164076/how-to-solve-it"
+    },
+    {
+      "id": "descartes-1637",
+      "texto": "Descartes R. La Géométrie, bijlage bij het Discours de la méthode (1637).",
+      "url": "https://es.wikipedia.org/wiki/La_Géométrie"
+    },
+    {
+      "id": "newton-1687",
+      "texto": "Newton I. Philosophiæ Naturalis Principia Mathematica (1687).",
+      "url": "https://es.wikipedia.org/wiki/Philosophiæ_naturalis_principia_mathematica"
+    },
+    {
+      "id": "gigerenzer-2007",
+      "texto": "Gigerenzer G. et al. Helping doctors and patients make sense of health statistics. Psychological Science in the Public Interest (2007).",
+      "url": "https://doi.org/10.1111/j.1539-6053.2008.00033.x"
+    },
+    {
+      "id": "visicalc-1979",
+      "texto": "Bricklin D., Frankston B. VisiCalc (1979).",
+      "url": "https://es.wikipedia.org/wiki/VisiCalc"
+    }
+  ]
+}

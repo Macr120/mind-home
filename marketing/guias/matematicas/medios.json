@@ -1,0 +1,362 @@
+{
+  "fotos": {},
+  "laminas": {
+    "galileo": {
+      "archivo": "laminas/galileo.webp",
+      "tipo": "foto",
+      "autor": "Justus Sustermans",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Justus_Sustermans_-_Portrait_of_Galileo_Galilei%2C_1636.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "leverrier": {
+      "archivo": "laminas/leverrier.webp",
+      "tipo": "foto",
+      "autor": "Wellcome Collection",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Urbain_Jean_Joseph_Leverrier._Line_engraving._Wellcome_V0003533.jpg",
+      "licencia": "CC BY 4.0",
+      "credito": "Wellcome Collection · CC BY 4.0 · Wikimedia"
+    },
+    "neptuno": {
+      "archivo": "laminas/neptuno.webp",
+      "tipo": "foto",
+      "autor": "NASA",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Neptune_Full_Disk_View_-_GPN-2000-000443.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "galaxia": {
+      "archivo": "laminas/galaxia.webp",
+      "tipo": "foto",
+      "autor": "Credit: NASA, ESA, and the Hubble Heritage Team (STScI/AURA) Acknowledgement: William Blair (Johns Hopkins University)",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Messier83_-_Heic1403a.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "ishango": {
+      "archivo": "laminas/ishango.webp",
+      "tipo": "foto",
+      "autor": "Joeykentin",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Ishango_bone_(cropped).jpg",
+      "licencia": "CC BY-SA 4.0",
+      "credito": "Joeykentin · CC BY-SA 4.0 · Wikimedia"
+    },
+    "plimpton": {
+      "archivo": "laminas/plimpton.webp",
+      "tipo": "foto",
+      "autor": "photo author unknown",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Plimpton_322.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "glifoMaya": {
+      "archivo": "laminas/glifoMaya.webp",
+      "tipo": "foto",
+      "autor": "Neuromancer2K4, Bryan Derksen",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Maya.svg",
+      "licencia": "CC BY-SA 3.0",
+      "credito": "Neuromancer2K4, Bryan Derksen · CC BY-SA 3.0 · Wikimedia"
+    },
+    "alJuarismi": {
+      "archivo": "laminas/alJuarismi.webp",
+      "tipo": "foto",
+      "autor": "Bodleian Library",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Bodleian_MS._Huntington_214_roll332_frame36.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "fermi": {
+      "archivo": "laminas/fermi.webp",
+      "tipo": "foto",
+      "autor": "U.S. Department of Energy",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Enrico_Fermi_1943-49.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "descartes": {
+      "archivo": "laminas/descartes.webp",
+      "tipo": "foto",
+      "autor": "After Frans Hals",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "principia": {
+      "archivo": "laminas/principia.webp",
+      "tipo": "foto",
+      "autor": "Isaac Newton",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Newton_-_Principia_(1687)%2C_title%2C_p._5%2C_color.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "visicalc": {
+      "archivo": "laminas/visicalc.webp",
+      "tipo": "foto",
+      "autor": "User:Gortu",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Visicalc.png",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "apple2": {
+      "archivo": "laminas/apple2.webp",
+      "tipo": "foto",
+      "autor": "Rama & Musée Bolo",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Apple_II_IMG_4218-black.jpg",
+      "licencia": "CC BY-SA 2.0 fr",
+      "credito": "Rama & Musée Bolo · CC BY-SA 2.0 fr · Wikimedia"
+    },
+    "binario": {
+      "archivo": "laminas/binario.mp4",
+      "tipo": "video",
+      "autor": "Nicola Narracci",
+      "fuente": "https://www.pexels.com/video/green-binary-code-looping-animation-30162924/",
+      "licencia": "Licencia Pexels"
+    },
+    "gente": {
+      "archivo": "laminas/gente.mp4",
+      "tipo": "video",
+      "autor": "Arief Hendriawan",
+      "fuente": "https://www.pexels.com/video/busy-city-street-with-pedestrians-39569280/",
+      "licencia": "Licencia Pexels"
+    },
+    "estrellas": {
+      "archivo": "laminas/estrellas.mp4",
+      "tipo": "video",
+      "autor": "Ali Marwan",
+      "fuente": "https://www.pexels.com/video/stunning-timelapse-of-starry-night-sky-32349013/",
+      "licencia": "Licencia Pexels"
+    },
+    "pizarra2": {
+      "archivo": "laminas/pizarra2.mp4",
+      "tipo": "video",
+      "autor": "Vanessa Garcia",
+      "fuente": "https://www.pexels.com/video/a-teacher-explaining-a-drawing-6325289/",
+      "licencia": "Licencia Pexels"
+    },
+    "pizarron": {
+      "archivo": "laminas/pizarron.webp",
+      "tipo": "foto",
+      "autor": "George Becker",
+      "fuente": "https://www.pexels.com/photo/1-1-3-text-on-black-chalkboard-374918/",
+      "licencia": "Licencia Pexels"
+    },
+    "bebe": {
+      "archivo": "laminas/bebe.mp4",
+      "tipo": "video",
+      "autor": "Kaboompics",
+      "fuente": "https://www.pexels.com/video/a-toddler-holding-a-black-maracas-8909475/",
+      "licencia": "Licencia Pexels"
+    },
+    "nino": {
+      "archivo": "laminas/nino.mp4",
+      "tipo": "video",
+      "autor": "Mikhail Nilov",
+      "fuente": "https://www.pexels.com/video/girl-drawing-on-paper-8655659/",
+      "licencia": "Licencia Pexels"
+    },
+    "contar": {
+      "archivo": "laminas/contar.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/father-reading-bed-time-stories-to-his-daughter-5895195/",
+      "licencia": "Licencia Pexels"
+    },
+    "reloj": {
+      "archivo": "laminas/reloj.mp4",
+      "tipo": "video",
+      "autor": "Anton Kudryashov",
+      "fuente": "https://www.pexels.com/video/close-up-on-clock-hands-moving-11267667/",
+      "licencia": "Licencia Pexels"
+    },
+    "cerebro": {
+      "archivo": "laminas/cerebro.mp4",
+      "tipo": "video",
+      "autor": "Nicola Narracci",
+      "fuente": "https://www.pexels.com/video/abstract-golden-neural-network-animation-35003022/",
+      "licencia": "Licencia Pexels"
+    },
+    "examen": {
+      "archivo": "laminas/examen.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/close-up-video-of-a-woman-studying-6549257/",
+      "licencia": "Licencia Pexels"
+    },
+    "alumnos": {
+      "archivo": "laminas/alumnos.mp4",
+      "tipo": "video",
+      "autor": "Katerina Holmes",
+      "fuente": "https://www.pexels.com/video/students-and-teacher-in-classroom-5897650/",
+      "licencia": "Licencia Pexels"
+    },
+    "pizarra": {
+      "archivo": "laminas/pizarra.mp4",
+      "tipo": "video",
+      "autor": "Monstera Production",
+      "fuente": "https://www.pexels.com/video/close-up-vide-of-children-solving-math-problems-5266005/",
+      "licencia": "Licencia Pexels"
+    },
+    "cuaderno": {
+      "archivo": "laminas/cuaderno.mp4",
+      "tipo": "video",
+      "autor": "K",
+      "fuente": "https://www.pexels.com/video/close-up-of-woman-writing-in-journal-33350905/",
+      "licencia": "Licencia Pexels"
+    },
+    "lapiz": {
+      "archivo": "laminas/lapiz.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/person-laying-pencil-on-a-notepad-7744411/",
+      "licencia": "Licencia Pexels"
+    },
+    "calculadora": {
+      "archivo": "laminas/calculadora.webp",
+      "tipo": "foto",
+      "autor": "beyzahzah",
+      "fuente": "https://www.pexels.com/photo/dietitian-preparing-weekly-meals-plan-15319019/",
+      "licencia": "Licencia Pexels"
+    },
+    "rompecabezas": {
+      "archivo": "laminas/rompecabezas.mp4",
+      "tipo": "video",
+      "autor": "ROMAN ODINTSOV",
+      "fuente": "https://www.pexels.com/video/close-up-video-of-puzzles-6813218/",
+      "licencia": "Licencia Pexels"
+    },
+    "idea": {
+      "archivo": "laminas/idea.mp4",
+      "tipo": "video",
+      "autor": "Ron Lach",
+      "fuente": "https://www.pexels.com/video/a-woman-holding-an-incandescent-light-bulb-9196607/",
+      "licencia": "Licencia Pexels"
+    },
+    "notas": {
+      "archivo": "laminas/notas.mp4",
+      "tipo": "video",
+      "autor": "Mikhail Nilov",
+      "fuente": "https://www.pexels.com/video/a-person-stick-a-notes-to-the-glass-wall-6565535/",
+      "licencia": "Licencia Pexels"
+    },
+    "piano": {
+      "archivo": "laminas/piano.mp4",
+      "tipo": "video",
+      "autor": "ROMAN ODINTSOV",
+      "fuente": "https://www.pexels.com/video/close-up-video-of-a-person-playing-piano-8331699/",
+      "licencia": "Licencia Pexels"
+    },
+    "pulgar": {
+      "archivo": "laminas/pulgar.mp4",
+      "tipo": "video",
+      "autor": "Kevin Malik",
+      "fuente": "https://www.pexels.com/video/a-hand-giving-a-thumbs-up-9017832/",
+      "licencia": "Licencia Pexels"
+    },
+    "cohete": {
+      "archivo": "laminas/cohete.mp4",
+      "tipo": "video",
+      "autor": "Kindel Media",
+      "fuente": "https://www.pexels.com/video/a-toy-rocket-launching-to-the-air-7106862/",
+      "licencia": "Licencia Pexels"
+    },
+    "grafica": {
+      "archivo": "laminas/grafica.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/stock-market-exchanges-on-display-7579561/",
+      "licencia": "Licencia Pexels"
+    },
+    "computadora": {
+      "archivo": "laminas/computadora.mp4",
+      "tipo": "video",
+      "autor": "Polina Tankilevitch",
+      "fuente": "https://www.pexels.com/video/friends-watching-on-laptop-6646637/",
+      "licencia": "Licencia Pexels"
+    },
+    "pantallas": {
+      "archivo": "laminas/pantallas.mp4",
+      "tipo": "video",
+      "autor": "Los Muertos Crew",
+      "fuente": "https://www.pexels.com/video/a-person-browsing-online-7616839/",
+      "licencia": "Licencia Pexels"
+    },
+    "newton": {
+      "archivo": "laminas/newton.webp",
+      "tipo": "foto",
+      "autor": "Isaac Newton",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Newton%27s_colour_circle.png",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "matematicas": {
+      "archivo": "laminas/matematicas.mp4",
+      "tipo": "video",
+      "autor": "Pavel Danilyuk",
+      "fuente": "https://www.pexels.com/video/writing-a-mathematical-equation-5184347/",
+      "licencia": "Licencia Pexels"
+    },
+    "doctor": {
+      "archivo": "laminas/doctor.mp4",
+      "tipo": "video",
+      "autor": "Alex Green",
+      "fuente": "https://www.pexels.com/video/therapist-talking-to-a-patient-5697333/",
+      "licencia": "Licencia Pexels"
+    },
+    "lupa": {
+      "archivo": "laminas/lupa.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/using-a-magnifying-glass-to-visually-enlarge-objects-3831743/",
+      "licencia": "Licencia Pexels"
+    },
+    "dados": {
+      "archivo": "laminas/dados.mp4",
+      "tipo": "video",
+      "autor": "Evgenij Mikhailov",
+      "fuente": "https://www.pexels.com/video/playing-backgammon-strategy-and-dice-34317042/",
+      "licencia": "Licencia Pexels"
+    },
+    "calendario": {
+      "archivo": "laminas/calendario.mp4",
+      "tipo": "video",
+      "autor": "olia danilevich",
+      "fuente": "https://www.pexels.com/video/happy-new-year-composition-6148926/",
+      "licencia": "Licencia Pexels"
+    },
+    "taza": {
+      "archivo": "laminas/taza.mp4",
+      "tipo": "video",
+      "autor": "KATRIN BOLOVTSOVA",
+      "fuente": "https://www.pexels.com/video/a-cup-of-coffee-on-a-wooden-table-6343931/",
+      "licencia": "Licencia Pexels"
+    },
+    "tropiezo": {
+      "archivo": "laminas/tropiezo.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-child-walking-uphill-6133543/",
+      "licencia": "Licencia Pexels"
+    },
+    "escalon": {
+      "archivo": "laminas/escalon.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/man-running-up-the-stairs-7876928/",
+      "licencia": "Licencia Pexels"
+    },
+    "cumbre": {
+      "archivo": "laminas/cumbre.mp4",
+      "tipo": "video",
+      "autor": "Canan İldeniz",
+      "fuente": "https://www.pexels.com/video/group-of-hikers-celebrating-on-mountain-peak-38242686/",
+      "licencia": "Licencia Pexels"
+    },
+    "app-plan": {
+      "archivo": "laminas/app-plan.{idioma}.mp4",
+      "tipo": "video",
+      "autor": "MindHaOS",
+      "fuente": "https://app.mindhaos.com",
+      "credito": ""
+    }
+  }
+}

@@ -3588,3 +3588,155 @@ html:has(.g-pose) body {
   .g-esc-arcos { grid-template-columns: repeat(2, 1fr); }
   .g-esc-palabras { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ───────── Guía de Matemáticas: uno más uno, base 60, Pólya, Fermi, el plano, frecuencias y el reto del día ───────── */
+
+.g-mat {
+  --mat: #0ea5e9;
+}
+.g-mat-escenario {
+  position: relative;
+  height: 120px;
+  margin: 10px 0;
+  border-radius: 12px;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  overflow: hidden;
+}
+.g-mat-munecos { position: absolute; inset: 0; display: flex; justify-content: center; align-items: flex-end; gap: 22px; padding-bottom: 14px; }
+.g-mat-muneco {
+  width: 34px;
+  height: 64px;
+  border-radius: 17px 17px 8px 8px;
+  background: var(--mat);
+  box-shadow: inset 0 -18px 0 color-mix(in srgb, #000 15%, transparent);
+  animation: g-vid-aparece 400ms ease both;
+}
+.g-mat-pantalla {
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  bottom: -100%;
+  height: 100%;
+  background: color-mix(in srgb, var(--ui-ink) 70%, transparent);
+  border-radius: 10px 10px 0 0;
+  transition: bottom 700ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.g-mat-pantalla.arriba { bottom: 0; }
+.g-mat-fase { text-align: center; font-weight: 700; font-size: 15px; margin: 6px 0; }
+.g-mat-mirada { display: grid; gap: 8px; margin: 8px 0; }
+.g-mat-mirada > div { display: grid; grid-template-columns: minmax(120px, 45%) 1fr; gap: 10px; align-items: center; font-size: 14px; }
+.g-mat-mirada i { height: 16px; border-radius: 8px; background: color-mix(in srgb, var(--ui-ink) 10%, transparent); overflow: hidden; }
+.g-mat-mirada b { display: block; height: 100%; background: color-mix(in srgb, var(--ui-ink) 35%, transparent); animation: g-mat-crece 1100ms ease both; }
+.g-mat-mirada .fuerte b { background: var(--mat); }
+@keyframes g-mat-crece {
+  from { transform: scaleX(0); transform-origin: left; }
+  to { transform: scaleX(1); transform-origin: left; }
+}
+[dir='rtl'] .g-mat-mirada b { transform-origin: right; }
+.g-mat-divisores { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 12px 0; padding: 0; list-style: none; }
+.g-mat-divisores li {
+  min-width: 38px;
+  padding: 6px 8px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 800;
+  background: color-mix(in srgb, var(--mat) 16%, var(--tarjeta));
+  border: 1px solid color-mix(in srgb, var(--mat) 40%, transparent);
+  animation: g-vid-aparece 400ms ease both;
+}
+.g-mat-problema {
+  margin: 8px 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--tarjeta);
+  border: 1px dashed var(--borde);
+  font-size: 15px;
+}
+.g-mat-polya { display: grid; gap: 6px; margin: 8px 0; padding: 0; list-style: none; counter-reset: polya; }
+.g-mat-polya button {
+  width: 100%;
+  display: grid;
+  gap: 2px;
+  text-align: start;
+  padding: 8px 12px 8px 44px;
+  position: relative;
+  border-radius: 10px;
+  border: 1px solid var(--borde);
+  background: var(--tarjeta);
+  color: var(--ui-ink);
+  font: inherit;
+  cursor: pointer;
+  counter-increment: polya;
+  transition: background 500ms, border-color 500ms;
+}
+.g-mat-polya button::before {
+  content: counter(polya);
+  position: absolute;
+  inset-inline-start: 10px;
+  top: 8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  font-size: 13px;
+  background: color-mix(in srgb, var(--ui-ink) 12%, transparent);
+}
+.g-mat-polya button span { font-size: 14px; color: var(--tinta-3); animation: g-vid-aparece 400ms ease both; }
+.g-mat-polya .hecho button { border-color: var(--mat); background: color-mix(in srgb, var(--mat) 12%, var(--tarjeta)); }
+.g-mat-polya .hecho button::before { background: var(--mat); color: #fff; }
+.g-mat-fermi { display: grid; gap: 6px; margin: 8px 0; padding: 0; list-style: none; }
+.g-mat-fermi li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 7px 12px;
+  border-radius: 10px;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  font-size: 15px;
+  transition: background 500ms, border-color 500ms;
+}
+.g-mat-fermi li b { font-weight: 800; color: var(--tinta-3); }
+.g-mat-fermi li.visto { border-color: color-mix(in srgb, var(--mat) 50%, transparent); }
+.g-mat-fermi li.visto b { color: var(--ui-ink); }
+.g-mat-fermi li.visto:last-child { background: color-mix(in srgb, var(--mat) 16%, var(--tarjeta)); }
+.g-mat-fermi li.visto:last-child b { color: var(--mat); }
+.g-mat-controles { display: grid; gap: 8px; margin: 10px 0; font-size: 14px; }
+.g-mat-controles label, .g-mat-estimacion { display: grid; gap: 4px; }
+.g-mat-controles input, .g-mat-estimacion input { width: 100%; accent-color: var(--mat); }
+.g-mat-plano { width: 100%; height: auto; margin: 6px 0; }
+.g-mat-rejilla { stroke: color-mix(in srgb, var(--ui-ink) 8%, transparent); stroke-width: 1; }
+.g-mat-trazo { stroke: var(--mat); stroke-width: 3; stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: g-mat-traza 1600ms ease forwards; }
+@keyframes g-mat-traza {
+  to { stroke-dashoffset: 0; }
+}
+.g-mat-formula { text-align: center; font-family: ui-monospace, monospace; font-weight: 800; font-size: 17px; margin: 4px 0; direction: ltr; }
+.g-mat-datos { display: grid; gap: 6px; margin: 10px 0; padding: 0; list-style: none; font-size: 15px; }
+.g-mat-datos li { padding: 7px 12px; border-radius: 10px; background: var(--tarjeta); border: 1px solid var(--borde); }
+.g-mat-datos li.pregunta { font-weight: 800; border-color: var(--mat); }
+.g-mat-puntos { display: grid; grid-template-columns: repeat(50, 1fr); gap: 2px; margin: 10px 0; }
+.g-mat-puntos i { aspect-ratio: 1; border-radius: 50%; background: color-mix(in srgb, var(--ui-ink) 14%, transparent); }
+.g-mat-puntos i.positiva { background: #f59e0b; }
+.g-mat-puntos i.enferma { background: #ef4444; }
+.g-mat-puntos i.enferma.positiva { background: #ef4444; box-shadow: 0 0 0 2px #f59e0b; }
+.g-mat-leyenda { display: grid; gap: 4px; margin: 6px 0; padding: 0; list-style: none; font-size: 14px; }
+.g-mat-leyenda li { padding-inline-start: 20px; position: relative; }
+.g-mat-leyenda li::before { content: ''; position: absolute; inset-inline-start: 0; top: 4px; width: 12px; height: 12px; border-radius: 50%; }
+.g-mat-leyenda li.positiva::before { background: #f59e0b; }
+.g-mat-leyenda li.enferma.positiva::before { background: #ef4444; box-shadow: 0 0 0 2px #f59e0b; }
+.g-mat-leyenda li.respuesta { padding-inline-start: 0; font-weight: 800; color: var(--mat); margin-top: 4px; }
+.g-mat-estimacion { margin: 10px 0; font-size: 15px; }
+.g-mat-estimacion b { font-size: 20px; color: var(--mat); }
+.g-mat-cuenta { text-align: center; font-size: 16px; margin: 10px 0; animation: g-vid-aparece 400ms ease both; }
+.g-mat-cuenta b { font-size: 20px; color: var(--mat); }
+.g-mat-sol { fill: #f59e0b; }
+.g-mat-orbita { fill: none; stroke: color-mix(in srgb, var(--ui-ink) 25%, transparent); stroke-width: 1.5; }
+.g-mat-orbita.lejana { stroke-dasharray: 4 4; }
+.g-mat-urano { fill: #67e8f9; }
+.g-mat-neptuno { fill: #2563eb; }
+.g-mat-calculado { fill: none; stroke: #ef4444; stroke-width: 2; stroke-dasharray: 3 3; }
+.g-mat-jalon { stroke: #2563eb; stroke-width: 1.5; stroke-dasharray: 2 4; }
+.g-mat-ansiedad .dormir i { background: #ef4444; }

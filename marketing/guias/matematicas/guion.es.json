@@ -1,0 +1,446 @@
+{
+  "idioma": "es",
+  "tema": "matematicas",
+  "plantillaId": "computo",
+  "numero": 13,
+  "nombre": "Matemáticas",
+  "pregunta": "¿Cuál es el lenguaje del universo?",
+  "corta": "El lenguaje del universo",
+  "subtitulo": "Por qué el universo se deja describir con números, de dónde salieron, por qué las matemáticas dan miedo, cómo resolver cualquier problema, cómo ver una ecuación, cómo usar los números en tu vida y un plan para seguir aprendiendo.",
+  "aviso": "Esta guía es informativa: las cifras y estudios citados son aproximaciones de sus fuentes, y cada persona aprende a su ritmo. Si la ansiedad ante las matemáticas te paraliza o te afecta mucho, habla con un orientador o un especialista.",
+  "partes": [
+    {
+      "id": "universo",
+      "titulo": "¿Por qué el universo habla en números?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": { "tipo": "titulo" },
+          "enCasa": true,
+          "texto": "¿Cuál es el lenguaje del universo? En 1846, un astrónomo encontró un planeta nuevo sin mirar al cielo: solo con lápiz y papel. Hoy vas a ver cómo lo hizo, y por qué ese mismo lenguaje te sirve para tu vida diaria."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "enCasa": true,
+          "texto": "Por cierto, esta es mi casa en MindHaOS, y esta es mi sala de cómputo."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte uno. ¿Por qué el universo habla en números?"
+        },
+        {
+          "id": "galileo",
+          "escena": "pensando",
+          "visual": { "tipo": "dato", "cifra": "1623", "clave": "galileo" },
+          "lamina": ["galileo", "estrellas"],
+          "texto": "En 1623, Galileo Galilei escribió que el gran libro de la naturaleza está escrito en lenguaje matemático, y que sin él andaríamos dando vueltas en un laberinto oscuro."
+        },
+        {
+          "id": "neptuno",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "neptuno" },
+          "lamina": ["leverrier", "neptuno"],
+          "texto": "Aquí está el planeta del principio. Urano no seguía la órbita que predecían las leyes de Newton: algo lo jalaba. Urbain Le Verrier calculó dónde tenía que estar ese algo y mandó sus cuentas a Berlín. Johann Galle apuntó su telescopio esa misma noche y encontró Neptuno a un grado de donde decían los números."
+        },
+        {
+          "id": "wigner",
+          "escena": "pensando",
+          "visual": { "tipo": "lista", "claves": ["inventar", "describir", "predecir"] },
+          "lamina": ["pizarra2", "galaxia"],
+          "texto": "En 1960, el físico Eugene Wigner lo llamó la irrazonable eficacia de las matemáticas: ideas que alguien inventó en papel, a veces siglos antes, terminan describiendo cómo se mueve el mundo."
+        },
+        {
+          "id": "formulario",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["matematicas", "fisica", "quimica"] },
+          "enCasa": true,
+          "lamina": "pizarron",
+          "texto": "Por eso en mi sala de cómputo tengo un formulario con carpetas de matemáticas, física y química: cada fórmula se calcula sola en cuanto le das los datos."
+        }
+      ]
+    },
+    {
+      "id": "origen",
+      "titulo": "¿De dónde salieron los números?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte dos. ¿De dónde salieron los números?"
+        },
+        {
+          "id": "bebes",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "unoMasUno" },
+          "lamina": ["bebe", "nino"],
+          "texto": "Empiezan antes que nosotros. En 1992, Karen Wynn le enseñó a bebés de cinco meses un muñeco, luego otro, detrás de una pantalla. Cuando la quitaba y había solo uno, los bebés se quedaban mirando más tiempo, como si algo no cuadrara. Ya traemos un sentido de la cantidad."
+        },
+        {
+          "id": "ishango",
+          "escena": "pensando",
+          "visual": { "tipo": "dato", "cifra": "≈ 20 000 años", "clave": "ishango" },
+          "lamina": ["ishango", "contar"],
+          "texto": "Lo que inventamos fue escribirlo. El hueso de Ishango, encontrado en el Congo, tiene unos veinte mil años y está lleno de muescas agrupadas: alguien llevaba la cuenta de algo."
+        },
+        {
+          "id": "babilonia",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "base60" },
+          "lamina": ["plimpton", "reloj"],
+          "texto": "Hace casi cuatro mil años, en Babilonia, contaban de sesenta en sesenta. Por eso hoy una hora tiene sesenta minutos y un círculo trescientos sesenta grados: seguimos usando sus números sin saberlo."
+        },
+        {
+          "id": "cero",
+          "escena": "habla",
+          "visual": { "tipo": "pasos", "claves": ["mayas", "brahmagupta", "alJuarismi"] },
+          "lamina": ["glifoMaya", "alJuarismi"],
+          "texto": "Y el cero tardó en llegar. Los mayas lo usaban en sus calendarios, y en el año 628, en la India, Brahmagupta escribió las reglas para sumar y restar con él. Dos siglos después, en Bagdad, al-Juarismi escribió el libro que nos dio la palabra álgebra; de su nombre viene la palabra algoritmo.",
+          "meme": "cero"
+        },
+        {
+          "id": "bases",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["decimal", "binario", "hexadecimal"] },
+          "enCasa": true,
+          "lamina": "binario",
+          "texto": "En mi calculadora puedo cambiar de base: el mismo número en decimal, en binario como lo guarda una computadora, o en hexadecimal."
+        }
+      ]
+    },
+    {
+      "id": "miedo",
+      "titulo": "¿Por qué las matemáticas dan miedo?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte tres. ¿Por qué las matemáticas dan miedo?"
+        },
+        {
+          "id": "beilock",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": { "tipo": "grafica", "grafica": "ansiedadMate" },
+          "lamina": ["cerebro", "examen"],
+          "texto": "Si te dan nervios, no es tu imaginación. En 2012, Ian Lyons y Sian Beilock vieron en un escáner que, en personas con ansiedad matemática, solo con saber que venía un problema de matemáticas se activaban zonas del cerebro ligadas al dolor físico. Y no durante el problema: antes."
+        },
+        {
+          "id": "pisa",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "31 %", "clave": "pisa" },
+          "lamina": ["alumnos", "pizarra"],
+          "texto": "No estás solo. En la prueba PISA de 2022, casi uno de cada tres estudiantes de quince años de los países de la OCDE no alcanzó el nivel básico de matemáticas.",
+          "meme": "miedoMate"
+        },
+        {
+          "id": "aprendible",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["talento", "practica", "error"] },
+          "lamina": ["cuaderno", "lapiz"],
+          "texto": "La buena noticia: ser de matemáticas no es un don que tienes o no. Es práctica, como un idioma. Equivocarte en un problema no dice que no puedes; dice qué paso te falta."
+        },
+        {
+          "id": "explica",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["escribo", "paso", "entiendo"] },
+          "enCasa": true,
+          "lamina": "calculadora",
+          "texto": "Cuando me atoro, escribo el problema en mi calculadora y le pido a la inteligencia artificial que me lo explique paso a paso, a mi ritmo, sin que nadie me apure."
+        }
+      ]
+    },
+    {
+      "id": "resolver",
+      "titulo": "¿Cómo resolver cualquier problema?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte cuatro. ¿Cómo resolver cualquier problema?"
+        },
+        {
+          "id": "polya",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "polya" },
+          "lamina": ["rompecabezas", "pizarron"],
+          "texto": "En 1945, el matemático George Pólya escribió Cómo plantear y resolver problemas, con cuatro pasos que sirven para casi todo: entender el problema, idear un plan, llevarlo a cabo y mirar hacia atrás para revisar."
+        },
+        {
+          "id": "entender",
+          "escena": "pensando",
+          "visual": { "tipo": "lista", "claves": ["datos", "dibujo", "parecido"] },
+          "lamina": ["idea", "notas"],
+          "texto": "El paso que más nos saltamos es el primero. Antes de hacer cuentas, pregúntate: ¿qué me piden?, ¿qué datos tengo?, ¿puedo hacer un dibujo?, ¿ya resolví algo parecido?"
+        },
+        {
+          "id": "fermi",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "fermi" },
+          "lamina": ["fermi", "piano"],
+          "texto": "Y aprende a estimar. Enrico Fermi preguntaba a sus alumnos cuántos afinadores de piano había en Chicago. Nadie lo sabía, pero partiendo el problema en pedazos que sí se pueden adivinar, la respuesta caía cerca. Una estimación te avisa cuando un resultado no tiene sentido.",
+          "meme": "estimacion"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": { "tipo": "herramienta", "herramienta": "gusta" },
+          "lamina": "pulgar",
+          "texto": "Si te está gustando la guía, dale like, suscríbete y comparte."
+        },
+        {
+          "id": "sistemas",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["sistemas", "matrices", "regla3"] },
+          "enCasa": true,
+          "lamina": "cohete",
+          "texto": "Mira: mi casa ahora es una nave espacial, lista para salir a ese universo que habla en números. Y cuando ya tengo el plan, la calculadora hace el trabajo pesado: resuelve sistemas de ecuaciones, matrices o una regla de tres en un momento."
+        }
+      ]
+    },
+    {
+      "id": "ver",
+      "titulo": "¿Cómo ver una ecuación?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte cinco. ¿Cómo ver una ecuación?"
+        },
+        {
+          "id": "descartes",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": { "tipo": "herramienta", "herramienta": "graficar" },
+          "lamina": ["descartes", "grafica"],
+          "texto": "En 1637, René Descartes tuvo una idea que lo cambió todo: ponerle dos ejes a una hoja y convertir cada ecuación en un dibujo. Desde entonces, una fórmula no es solo letras: es una recta, una parábola o una curva que puedes ver."
+        },
+        {
+          "id": "funcion",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["entra", "regla", "sale"] },
+          "lamina": ["computadora", "pantallas"],
+          "texto": "Piensa en una función como una máquina: le das un número, aplica su regla y te devuelve otro. Cuando la dibujas, ves de un vistazo dónde crece, dónde baja y dónde corta el cero."
+        },
+        {
+          "id": "newton",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "F = m · a", "clave": "newton" },
+          "lamina": ["principia", "newton"],
+          "texto": "La física es eso mismo. En 1687, Isaac Newton escribió que la fuerza es igual a la masa por la aceleración. Tres letras que explican desde una pelota que cae hasta un cohete que despega.",
+          "meme": "formula"
+        },
+        {
+          "id": "graficas",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["plano", "polar", "superficie"] },
+          "enCasa": true,
+          "lamina": "matematicas",
+          "texto": "Aquí escribo una ecuación y la veo al momento: en el plano, en coordenadas polares o como una superficie en tres dimensiones que puedo girar."
+        }
+      ]
+    },
+    {
+      "id": "vida",
+      "titulo": "¿Cómo usar los números en tu vida?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte seis. ¿Cómo usar los números en tu vida?"
+        },
+        {
+          "id": "gigerenzer",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": { "tipo": "herramienta", "herramienta": "frecuencias" },
+          "lamina": ["doctor", "lupa"],
+          "texto": "Los porcentajes engañan hasta a los expertos. Gerd Gigerenzer le dio a ciento sesenta ginecólogos un problema sobre un resultado positivo en una mamografía: solo uno de cada cinco dio la respuesta correcta. Después de aprender a pensar en frecuencias, casi nueve de cada diez acertaron."
+        },
+        {
+          "id": "frecuencias",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["cien", "personas", "cuantos"] },
+          "lamina": ["gente", "dados"],
+          "texto": "El truco: cambia el por ciento por personas. En vez de un uno por ciento, piensa en cien personas y pregúntate cuántas, de esas cien, están en cada caso. De pronto el problema se ve."
+        },
+        {
+          "id": "visicalc",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "1979", "clave": "visicalc" },
+          "lamina": ["visicalc", "apple2"],
+          "texto": "Y para las cuentas de todos los días, la hoja de cálculo. En 1979, Dan Bricklin y Bob Frankston crearon VisiCalc: cambiabas un número y todo lo demás se recalculaba. Fue tan útil que mucha gente compró una computadora solo para usarla."
+        },
+        {
+          "id": "hojas",
+          "mencion": true,
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["hoja", "grafica", "excel"] },
+          "enCasa": true,
+          "lamina": "computadora",
+          "texto": "En mi casa, mis hojas de cálculo viven junto a la calculadora: armo las mías o con ayuda de la inteligencia artificial, les saco una gráfica y las exporto a Excel o a PDF."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "¿Cómo seguir? Tu plan para continuar.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte siete. ¿Cómo seguir? Tu plan para continuar."
+        },
+        {
+          "id": "semana1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "planContinuarMat" },
+          "lamina": ["calendario", "taza"],
+          "texto": "La primera semana, busca los números de tu día: cuánto gastas, cuánto caminas, cuánto duermes. Cada día, estima una cosa antes de calcularla, y luego compara."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": { "tipo": "herramienta", "herramienta": "retoDiario" },
+          "lamina": ["cuaderno", "lapiz"],
+          "texto": "El primer mes, resuelve un problema corto al día, de diez minutos, siguiendo los cuatro pasos de Pólya. Elige un tema que te guste: dinero, deporte, cocina o el cielo."
+        },
+        {
+          "id": "fallar",
+          "escena": "habla",
+          "visual": { "tipo": "pasos", "claves": ["atorar", "volver", "medir"] },
+          "lamina": ["tropiezo", "escalon"],
+          "texto": "Y cuando te atores, no lo veas como un fracaso: vuelve al primer paso y haz un dibujo. Para medir tu avance, no cuentes cuántos problemas haces: cuenta cuántos puedes explicar a otra persona."
+        },
+        {
+          "id": "resumen",
+          "escena": "habla",
+          "visual": { "tipo": "lista", "claves": ["resumen1", "resumen2", "resumen3", "resumen4"] },
+          "lamina": ["cumbre", "galaxia"],
+          "texto": "En resumen: el universo se deja describir con números; el miedo a las matemáticas se cura practicando; entiende antes de calcular y estima siempre; y cuando un porcentaje te confunda, piensa en personas."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "En la sala de cómputo de MindHaOS puedes calcular con un formulario de matemáticas, física y química, graficar tus ecuaciones, y armar hojas de cálculo, tú solo o con ayuda de la inteligencia artificial. Arma tu casa mental gratis hoy: el enlace está en la descripción. Y en la próxima guía: ¿por qué debes escribir?",
+    "boton": "Abrir la sala de cómputo",
+    "lamina": "app-plan",
+    "anclas": {
+      "formulario": "calcular con un formulario",
+      "graficar": "graficar tus ecuaciones",
+      "hojas": "hojas de cálculo"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "galileo-1623",
+      "texto": "Galilei G. Il Saggiatore (1623).",
+      "url": "https://es.wikipedia.org/wiki/El_ensayador"
+    },
+    {
+      "id": "leverrier-1846",
+      "texto": "Le Verrier U. J. J. y Galle J. G. El descubrimiento de Neptuno (1846).",
+      "url": "https://es.wikipedia.org/wiki/Descubrimiento_de_Neptuno"
+    },
+    {
+      "id": "wigner-1960",
+      "texto": "Wigner E. P. The unreasonable effectiveness of mathematics in the natural sciences. Communications on Pure and Applied Mathematics (1960).",
+      "url": "https://doi.org/10.1002/cpa.3160130102"
+    },
+    {
+      "id": "wynn-1992",
+      "texto": "Wynn K. Addition and subtraction by human infants. Nature (1992).",
+      "url": "https://doi.org/10.1038/358749a0"
+    },
+    {
+      "id": "ishango",
+      "texto": "Hueso de Ishango, Real Instituto Belga de Ciencias Naturales.",
+      "url": "https://es.wikipedia.org/wiki/Hueso_de_Ishango"
+    },
+    {
+      "id": "plimpton-322",
+      "texto": "Plimpton 322, tablilla babilónica (c. 1800 a. C.).",
+      "url": "https://es.wikipedia.org/wiki/Plimpton_322"
+    },
+    {
+      "id": "brahmagupta-628",
+      "texto": "Brahmagupta. Brāhmasphuṭasiddhānta (628).",
+      "url": "https://es.wikipedia.org/wiki/Brahmagupta"
+    },
+    {
+      "id": "lyons-beilock-2012",
+      "texto": "Lyons I. M., Beilock S. L. When math hurts: math anxiety predicts pain network activation in anticipation of doing math. PLoS ONE (2012).",
+      "url": "https://doi.org/10.1371/journal.pone.0048076"
+    },
+    {
+      "id": "pisa-2022",
+      "texto": "OCDE. PISA 2022 Results (Volume I): The State of Learning and Equity in Education (2023).",
+      "url": "https://doi.org/10.1787/53f23881-en"
+    },
+    {
+      "id": "polya-1945",
+      "texto": "Pólya G. How to Solve It: A New Aspect of Mathematical Method. Princeton University Press (1945).",
+      "url": "https://press.princeton.edu/books/paperback/9780691164076/how-to-solve-it"
+    },
+    {
+      "id": "descartes-1637",
+      "texto": "Descartes R. La Géométrie, apéndice del Discours de la méthode (1637).",
+      "url": "https://es.wikipedia.org/wiki/La_Géométrie"
+    },
+    {
+      "id": "newton-1687",
+      "texto": "Newton I. Philosophiæ Naturalis Principia Mathematica (1687).",
+      "url": "https://es.wikipedia.org/wiki/Philosophiæ_naturalis_principia_mathematica"
+    },
+    {
+      "id": "gigerenzer-2007",
+      "texto": "Gigerenzer G. et al. Helping doctors and patients make sense of health statistics. Psychological Science in the Public Interest (2007).",
+      "url": "https://doi.org/10.1111/j.1539-6053.2008.00033.x"
+    },
+    {
+      "id": "visicalc-1979",
+      "texto": "Bricklin D., Frankston B. VisiCalc (1979).",
+      "url": "https://es.wikipedia.org/wiki/VisiCalc"
+    }
+  ],
+  "_notas": {
+    "molde": "Guía MEDIA (7 partes, ~9 min) con el molde de oct 2026: gancho ≤30 s con un ciclo abierto (el planeta encontrado con lápiz y papel: se paga en la parte 1, Le Verrier y Neptuno), mención inicial de una frase, títulos de parte como PREGUNTAS, like/suscríbete/comparte a la mitad (parte 4), la última parte es un plan PARA CONTINUAR y el cierre (≤15 s) anuncia la próxima guía (Escritura, Guía 14).",
+    "solapes": "Finanzas ya contó el interés compuesto y Aprender el estudio por bloques o mezclado (Rohrer): aquí no salen. Ningún autor de esta guía aparece en las anteriores.",
+    "narrador": "El alien verde (cuerpo prediseñado 'alien' de la app). La casa SIN tema en la primera mitad (solo el cuadrante A1) y con el tema de la nave espacial desde la mitad (pedido del usuario): la toma de sistemas, justo tras el like, abre con la casa entera ya convertida en nave y la línea lo dice; de ahí al final, nave.",
+    "visual": "Bloque que acompaña la línea: dato (cifra grande), grafica, herramienta (mini-app de la página que se mueve sola al narrar), pasos, lista.",
+    "mencion": "Las líneas con \"mencion\": true nombran la app de pasada: inicio (una frase), la explicación paso a paso con IA (parte 3), las hojas de cálculo (parte 6) y el cierre. La sala de cómputo SÍ usa IA: se dice que puedes hacerlo tú o con ayuda de la IA.",
+    "destacada": "La línea más fuerte de cada parte: el video suelto de esa parte ABRE con ella (antes de su título). No puede ser enCasa.",
+    "corta": "La pregunta en pocas palabras: va en la miniatura.",
+    "lamina": "Imagen o clip (Pexels o Wikimedia Commons, medios.json → laminas) en la esquina superior derecha del video.",
+    "enCasa": "Líneas que en el video se narran sobre una toma de la casa: el narrador en la sala de cómputo (el formulario, las bases, la explicación paso a paso, los sistemas, la gráfica, las hojas).",
+    "memes": "cero (parte 2), miedoMate (parte 3), estimacion (parte 4), formula (parte 5).",
+    "anclas": "cierre.anclas: dónde app2d.mjs cambia de pantalla en la sala de cómputo: el formulario, la gráfica y las hojas."
+  }
+}

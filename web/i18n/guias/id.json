@@ -2810,5 +2810,226 @@
         "abajo": "Menulis draf jelek lalu mengoreksinya nanti"
       }
     }
+  },
+  "matematicas": {
+    "meta": {
+      "titulo": "Apa bahasa alam semesta? Panduan lengkap matematika: mengapa alam semesta berbicara dengan angka, asal-usul angka, takut matematika, cara memecahkan masalah, melihat persamaan, memakai angka, dan rencana untuk terus belajar | MindHaOS",
+      "desc": "Mengapa matematika menjelaskan alam semesta (dari Galileo sampai Neptunus), dari mana angka dan nol berasal, mengapa matematika menakutkan dan bagaimana mempelajarinya, empat langkah Pólya untuk memecahkan masalah, cara melihat sebuah persamaan, cara memakai angka dalam hidupmu, dan rencana untuk melanjutkan."
+    },
+    "narra": "Dinarasikan oleh sang alien",
+    "cargando3d": "Memuat sang alien…",
+    "lista": {
+      "inventar": "Seseorang mengarangnya di kertas",
+      "inventarDet": "Kadang berabad-abad sebelum ada gunanya.",
+      "describir": "Ia menjelaskan dunia",
+      "describirDet": "Orbit, gelombang, pasang surut, dan sirkuit.",
+      "predecir": "Dan meramalkan yang belum kita lihat",
+      "predecirDet": "Seperti Neptunus, ditemukan dengan pensil dan kertas.",
+      "talento": "Bukan bakat",
+      "talentoDet": "Jago matematika bukan sesuatu yang kamu punya atau tidak.",
+      "practica": "Itu soal latihan",
+      "practicaDet": "Seperti bahasa: dipelajari dengan memakainya.",
+      "error": "Kesalahan itu mengajar",
+      "errorDet": "Ia menunjukkan langkah yang kurang, bukan bahwa kamu tidak bisa.",
+      "datos": "Apa yang diminta dan apa yang kupunya?",
+      "datosDet": "Tulis pertanyaan dan datanya.",
+      "dibujo": "Buat gambar",
+      "dibujoDet": "Satu sketsa lebih jelas daripada sepuluh hitungan.",
+      "parecido": "Pernahkah aku memecahkan yang mirip?",
+      "parecidoDet": "Soal lama bisa jadi kuncinya.",
+      "entra": "Satu angka masuk",
+      "entraDet": "Angka yang kamu berikan.",
+      "regla": "Sebuah aturan diterapkan",
+      "reglaDet": "Mengalikan, menambah, mengkuadratkan…",
+      "sale": "Angka lain keluar",
+      "saleDet": "Dan saat semuanya digambar, kamu melihat bentuknya.",
+      "cien": "Bayangkan seratus orang",
+      "cienDet": "Atau seribu: orang, bukan persentase.",
+      "personas": "Bagi orang-orang ke setiap kasus",
+      "personasDet": "Berapa yang punya sesuatu dan berapa yang hasilnya positif.",
+      "cuantos": "Hitung",
+      "cuantosDet": "Dari yang hasilnya positif, berapa yang benar-benar punya?",
+      "resumen1": "Alam semesta bisa dijelaskan dengan angka",
+      "resumen2": "Takut matematika sembuh dengan latihan",
+      "resumen3": "Pahami dulu sebelum menghitung dan selalu perkirakan",
+      "resumen4": "Kalau persentase membingungkan, pikirkan orang"
+    },
+    "dato": {
+      "galileo": "Galileo menulis bahwa kitab alam ditulis dalam bahasa matematika (Il Saggiatore)",
+      "ishango": "umur tulang Ishango, dengan torehan berkelompok yang mencatat hitungan sesuatu",
+      "pisa": "pelajar usia 15 tahun di OECD tidak mencapai tingkat dasar matematika dalam PISA 2022",
+      "newton": "gaya sama dengan massa kali percepatan: Newton, dalam Principia (1687)",
+      "visicalc": "lahirnya VisiCalc, spreadsheet pertama untuk komputer pribadi (Bricklin dan Frankston)"
+    },
+    "pasos": {
+      "matematicas": "Matematika",
+      "matematicasDet": "Luas, persamaan, dan statistik.",
+      "fisica": "Fisika",
+      "fisicaDet": "Gerak, gaya, dan energi.",
+      "quimica": "Kimia",
+      "quimicaDet": "Mol, gas, dan larutan.",
+      "mayas": "Bangsa Maya",
+      "mayasDet": "Memakai nol di kalender mereka.",
+      "brahmagupta": "Brahmagupta, tahun 628",
+      "brahmaguptaDet": "Menulis aturan berhitung dengan nol.",
+      "alJuarismi": "Al-Khawarizmi, Bagdad",
+      "alJuarismiDet": "Memberi kita aljabar; dari namanya, algoritma.",
+      "decimal": "Desimal",
+      "decimalDet": "Yang dipakai sehari-hari, basis 10.",
+      "binario": "Biner",
+      "binarioDet": "Nol dan satu, seperti yang disimpan komputer.",
+      "hexadecimal": "Heksadesimal",
+      "hexadecimalDet": "Basis 16, untuk warna di layar.",
+      "escribo": "Aku menulis soalnya",
+      "escriboDet": "Apa adanya, di Kalkulator.",
+      "paso": "Aku minta penjelasan langkah demi langkah",
+      "pasoDet": "Kepada kecerdasan buatan, saat aku buntu.",
+      "entiendo": "Dan aku paham sesuai kecepatanku",
+      "entiendoDet": "Tanpa ada yang mendesakku.",
+      "sistemas": "Sistem persamaan",
+      "sistemasDet": "Dua atau tiga variabel sekaligus.",
+      "matrices": "Matriks",
+      "matricesDet": "Menjumlah, mengalikan, dan membalik.",
+      "regla3": "Aturan tiga",
+      "regla3Det": "Kalau 3 harganya 45, berapa harga 7?",
+      "plano": "Di bidang datar",
+      "planoDet": "Garis lurus, parabola, dan kurva.",
+      "polar": "Dalam koordinat polar",
+      "polarDet": "Spiral dan bunga.",
+      "superficie": "Sebagai permukaan 3D",
+      "superficieDet": "Yang bisa kuputar dengan jari.",
+      "hoja": "Aku membuat lembar kerjaku",
+      "hojaDet": "Sendiri atau dibantu AI.",
+      "grafica": "Aku membuat grafiknya",
+      "graficaDet": "Batang, garis, atau lingkaran.",
+      "excel": "Aku mengekspornya",
+      "excelDet": "Ke Excel atau PDF.",
+      "atorar": "Kalau kamu buntu",
+      "atorarDet": "Itu bukan kegagalan: soalnya sedang mengajarimu.",
+      "volver": "Kembali ke langkah pertama",
+      "volverDet": "Dan buat gambar.",
+      "medir": "Ukur yang bisa kamu jelaskan",
+      "medirDet": "Bukan berapa yang kamu kerjakan: berapa yang bisa kamu jelaskan."
+    },
+    "unoMasUno": {
+      "titulo": "Satu tambah satu, di usia lima bulan",
+      "uno": "Satu boneka…",
+      "otro": "…dan satu lagi di balik layar",
+      "pantalla": "Layar menutupi keduanya",
+      "esperado": "Saat diturunkan: dua boneka (yang diharapkan)",
+      "imposible": "Saat diturunkan: hanya satu (mustahil!)",
+      "ver_esperado": "Lihat dua",
+      "ver_imposible": "Lihat satu",
+      "miradaEsperado": "Tatapan pada yang diharapkan",
+      "miradaImposible": "Tatapan pada yang mustahil",
+      "nota": "Karen Wynn (1992): bayi menatap hasil yang mustahil lebih lama (batang ilustratif)."
+    },
+    "base60": {
+      "titulo": "Mengapa enam puluh?",
+      "base10": "Basis 10",
+      "base60": "Basis 60",
+      "cuenta10": "10 bisa dibagi rata dengan {n} cara",
+      "cuenta60": "60, dengan {n} cara: setengah, sepertiga, seperempat, seperlima…",
+      "nota": "Orang Babilonia menghitung per 60: dari situlah 60 menit dalam satu jam dan 360 derajat dalam satu lingkaran."
+    },
+    "polya": {
+      "titulo": "Empat langkah Pólya",
+      "problema": "Sebuah kereta berangkat pukul 09.40 dan perjalanannya 2 jam 35 menit. Pukul berapa ia tiba?",
+      "entender": "Memahami masalah",
+      "entenderDet": "Yang diminta adalah jam tiba; aku punya jam berangkat dan lama perjalanan.",
+      "plan": "Menyusun rencana",
+      "planDet": "Tambahkan jamnya dulu, lalu menitnya.",
+      "ejecutar": "Menjalankannya",
+      "ejecutarDet": "09.40 + 2 jam = 11.40; + 35 menit = 12.15.",
+      "revisar": "Menoleh ke belakang",
+      "revisarDet": "Masuk akal? Sekitar dua setengah jam setelah pukul sepuluh kurang dua puluh: ya.",
+      "nota": "George Pólya, How to Solve It (1945). Sentuh setiap langkah."
+    },
+    "fermi": {
+      "titulo": "Berapa banyak penyetel piano di Chicago?",
+      "gente": "Penduduk kota",
+      "hogares": "Rumah tangga",
+      "pianos": "Piano (satu per sekian rumah tangga)",
+      "porAfinador": "Penyetelan per tahun per penyetel",
+      "afinadores": "Penyetel",
+      "ajusteGente": "Penduduk",
+      "ajusteHogar": "Orang per rumah tangga",
+      "ajustePiano": "Satu piano per sekian rumah",
+      "nota": "Angka bulat dan ilustratif: ubah asumsinya dan lihat hasilnya tidak melonjak."
+    },
+    "graficar": {
+      "titulo": "Satu persamaan, satu gambar",
+      "recta": "Garis lurus",
+      "parabola": "Parabola",
+      "onda": "Gelombang",
+      "sen": "sin",
+      "nota": "Bidang Descartes (1637): setiap titik adalah pasangan (x, y) yang memenuhi persamaan."
+    },
+    "frecuencias": {
+      "titulo": "Mamografi positif: seberapa mungkin itu kanker?",
+      "porcentajes": "Dalam persen",
+      "personas": "Dalam orang",
+      "p1": "1% perempuan yang menjalani tes ini menderita kanker payudara.",
+      "p2": "Jika seorang perempuan menderita kanker, tesnya positif 90% dari waktu.",
+      "p3": "Jika tidak, tesnya keliru positif 9% dari waktu.",
+      "pregunta": "Hasilnya positif. Seberapa mungkin ia menderita kanker?",
+      "l1": "10 dari 1000 menderita kanker; 9 di antaranya positif",
+      "l2": "Dari 990 yang sehat, 89 juga positif",
+      "respuesta": "Dari 98 yang positif, hanya 9 yang menderita kanker: kurang dari satu dari sepuluh",
+      "nota": "Soal yang dipakai Gigerenzer dan rekan-rekannya pada dokter: dalam frekuensi, hampir semua menjawab benar."
+    },
+    "retoDiario": {
+      "titulo": "Tantangan hari ini: perkirakan, lalu hitung",
+      "pregunta": "Berapa menit dalam satu tahun?",
+      "tuEstimacion": "Perkiraanmu:",
+      "calcular": "Hitung",
+      "teDesviaste": "meleset {p}%",
+      "nota": "Memperkirakan sebelum menghitung melatih rasa angka: dengan begitu kamu sadar saat sebuah hasil tidak masuk akal."
+    },
+    "grafica": {
+      "neptuno": "Le Verrier (1846): hitungannya menunjukkan tempat mencari, dan Galle menemukan Neptunus satu derajat dari situ",
+      "urano": "Uranus, menyimpang",
+      "calculado": "Dihitung",
+      "encontrado": "Neptunus",
+      "sol": "Matahari",
+      "ansiedadMate": "Lyons dan Beilock (2012): saat tahu akan ada soal matematika, jaringan rasa sakit lebih aktif pada yang sangat cemas (ilustratif)",
+      "alta": "Cemas tinggi",
+      "baja": "Cemas rendah",
+      "plan": "Rencanamu untuk terus maju",
+      "semana1": "Minggu 1",
+      "semana1Det": "Cari angka dalam harimu dan perkirakan sebelum menghitung",
+      "mes1": "Bulan 1",
+      "mes1Det": "Satu soal pendek sehari dengan empat langkah Pólya",
+      "atoras": "Saat kamu buntu",
+      "atorasDet": "Kembali pahami masalahnya dan buat gambar",
+      "medir": "Untuk mengukur",
+      "medirDet": "Berapa soal yang bisa kamu jelaskan kepada orang lain"
+    },
+    "cierre": {
+      "titulo": "Angka, di rumahmu sendiri",
+      "texto": "Di ruang Komputasi MindHaOS, kamu menghitung dengan Buku Rumus matematika, fisika, dan kimia, menggambar grafik persamaanmu di bidang datar, dalam polar, atau 3D, dan menyusun spreadsheet yang bisa kamu ekspor ke Excel atau PDF, sendiri atau dibantu kecerdasan buatan."
+    },
+    "paquete": {
+      "guia": "Panduan interaktif (dengan eksperimen bayi yang bisa menjumlah, mengapa kita menghitung per enam puluh, empat langkah Pólya, soal Fermi, persamaan yang menjadi gambar, dan persen melawan orang, semuanya bergerak di browsermu)",
+      "app": "Buka ruang Komputasi di MindHaOS",
+      "hashtags": "#matematika #belajarmatematika #sains #alamsemesta #belajar #pelajar #MindHaOS"
+    },
+    "memes": {
+      "cero": {
+        "arriba": "Bangsa Maya dan Brahmagupta menemukan nol",
+        "abajo": "Nilaiku di ujian matematika"
+      },
+      "miedoMate": {
+        "arriba": "Saat guru bilang «keluarkan selembar kertas»"
+      },
+      "estimacion": {
+        "arriba": "Langsung menghitung dan percaya apa pun hasilnya",
+        "abajo": "Memperkirakan dulu untuk cek hasilnya masuk akal"
+      },
+      "formula": {
+        "arriba": "Aku: «matematika itu nggak ada gunanya»",
+        "abajo": "Newton dengan tiga huruf: menjelaskan dari apel sampai roket"
+      }
+    }
   }
 }

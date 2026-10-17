@@ -74,6 +74,11 @@ export const MEMES: Record<string, DefMeme> = {
   subrayar: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
   nocheAntes: { formato: 'arribaAbajo', poses: ['orgulloso', 'cansado'], sonido: 'jeje-boy' },
   porque: { formato: 'unico', poses: ['confundido'], sonido: 'bruh' },
+  // Matemáticas (las poses son del alien, el narrador).
+  cero: { formato: 'arribaAbajo', poses: ['orgulloso', 'confundido'], sonido: 'jeje-boy' },
+  miedoMate: { formato: 'unico', poses: ['cansado'], sonido: 'bruh' },
+  estimacion: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
+  formula: { formato: 'arribaAbajo', poses: ['relajado', 'confundido'], sonido: 'bruh' },
   // Agenda (también de la princesa).
   diezMinutos: { formato: 'arribaAbajo', poses: ['orgulloso', 'cansado'], sonido: 'bruh' },
   urgente: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },

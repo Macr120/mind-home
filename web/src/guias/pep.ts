@@ -39,7 +39,7 @@ export function ropaDeEpoca(tema: string, parte: number): Ropa | undefined {
 }
 
 /** Las guías que no narra Pep@: Idiomas, Música y Video las cuenta el mago (el asistente de fábrica de la app); Metas y Mindfulness, la princesa (un cuerpo prediseñado de la app). */
-export const NARRADOR_GUIA: Record<string, 'mago' | 'princesa'> = { idiomas: 'mago', musica: 'mago', video: 'mago', metas: 'princesa', mindfulness: 'princesa', agenda: 'princesa', aprender: 'princesa', escritura: 'mago' }
+export const NARRADOR_GUIA: Record<string, 'mago' | 'princesa' | 'alien'> = { idiomas: 'mago', musica: 'mago', video: 'mago', metas: 'princesa', mindfulness: 'princesa', agenda: 'princesa', aprender: 'princesa', matematicas: 'alien', escritura: 'mago' }
 
 /** Color del vestido de la princesa por guía (Mindfulness de verde, como en la casa: `CUERPO_COLORES` de su escena.mjs). */
 export const VESTIDO_GUIA: Record<string, string> = { mindfulness: '#34d399', agenda: '#facc15', aprender: '#60a5fa' }

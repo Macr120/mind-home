@@ -1,0 +1,672 @@
+{
+  "idioma": "ar",
+  "tema": "matematicas",
+  "plantillaId": "computo",
+  "numero": 13,
+  "nombre": "الرياضيات",
+  "pregunta": "ما لغة الكون؟",
+  "corta": "لغة الكون",
+  "subtitulo": "لماذا يمكن وصف الكون بالأرقام، ومن أين جاءت الأرقام، ولماذا تخيفنا الرياضيات، وكيف تحل أي مسألة، وكيف ترى معادلة، وكيف تستخدم الأرقام في حياتك، وخطة لتواصل التعلّم.",
+  "aviso": "هذا الدليل للمعرفة العامة: الأرقام والدراسات المذكورة تقريبية بحسب مصادرها، وكل شخص يتعلّم بإيقاعه. إن كان القلق من الرياضيات يشلّك أو يؤثّر فيك كثيرًا، فتحدّث إلى مرشد أو مختص.",
+  "partes": [
+    {
+      "id": "universo",
+      "titulo": "لماذا يتكلم الكون بالأرقام؟",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "ما لغة الكون؟ في عام ألف وثمانمئة وستة وأربعين، اكتشف عالِم فلك كوكبًا جديدًا دون أن ينظر إلى السماء: بالقلم والورقة فقط. اليوم سترى كيف فعل ذلك، ولماذا تنفعك اللغة نفسها في حياتك اليومية."
+        },
+        {
+          "id": "mencion-inicio",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "enCasa": true,
+          "texto": "بالمناسبة، هذا بيتي في MindHaOS، وهذه غرفة الحوسبة الخاصة بي."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الأول. لماذا يتكلم الكون بالأرقام؟"
+        },
+        {
+          "id": "galileo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1623",
+            "clave": "galileo"
+          },
+          "lamina": [
+            "galileo",
+            "estrellas"
+          ],
+          "texto": "في عام ألف وستمئة وثلاثة وعشرين، كتب غاليليو غاليلي أن كتاب الطبيعة العظيم مكتوب بلغة الرياضيات، وأننا بدونها سنظل نتخبّط في متاهة مظلمة."
+        },
+        {
+          "id": "neptuno",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "neptuno"
+          },
+          "lamina": [
+            "leverrier",
+            "neptuno"
+          ],
+          "texto": "ها هو الكوكب الذي بدأنا به. لم يكن أورانوس يتبع المدار الذي تتنبأ به قوانين نيوتن: شيء ما كان يجذبه. فحسب أوربان لو فيرييه أين يجب أن يكون ذلك الشيء، وأرسل حساباته إلى برلين. وفي الليلة نفسها وجّه يوهان غاله تلسكوبه، فوجد نبتون على بُعد درجة واحدة من المكان الذي حددته الأرقام."
+        },
+        {
+          "id": "wigner",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "inventar",
+              "describir",
+              "predecir"
+            ]
+          },
+          "lamina": [
+            "pizarra2",
+            "galaxia"
+          ],
+          "texto": "في عام ألف وتسعمئة وستين، سمّى الفيزيائي يوجين فيغنر ذلك الفعالية غير المعقولة للرياضيات: أفكار اخترعها أحدهم على الورق، وأحيانًا قبل قرون، ينتهي بها الأمر إلى وصف حركة العالم."
+        },
+        {
+          "id": "formulario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "matematicas",
+              "fisica",
+              "quimica"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "pizarron",
+          "texto": "لهذا لديّ في غرفة الحوسبة كتيب صيغ فيه مجلدات للرياضيات والفيزياء والكيمياء: كل صيغة تُحسب وحدها بمجرد أن تعطيها البيانات."
+        }
+      ]
+    },
+    {
+      "id": "origen",
+      "titulo": "من أين جاءت الأرقام؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثاني. من أين جاءت الأرقام؟"
+        },
+        {
+          "id": "bebes",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "unoMasUno"
+          },
+          "lamina": [
+            "bebe",
+            "nino"
+          ],
+          "texto": "الأرقام تسبق الكلام. في عام ألف وتسعمئة واثنين وتسعين، عرضت كارين وين على رُضّع في شهرهم الخامس دمية، ثم أخرى، خلف ستارة. وحين أزاحتها ولم تكن هناك إلا دمية واحدة، أطال الرُّضّع النظر، كأن شيئًا لا يستقيم. نولد ومعنا إحساس بالكمية."
+        },
+        {
+          "id": "ishango",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "≈ 20,000 سنة",
+            "clave": "ishango"
+          },
+          "lamina": [
+            "ishango",
+            "contar"
+          ],
+          "texto": "ما اخترعناه هو كتابتها. عظمة إيشانغو، التي عُثر عليها في الكونغو، عمرها نحو عشرين ألف سنة، ومليئة بحزوز مجمّعة: كان أحدهم يعدّ شيئًا ما."
+        },
+        {
+          "id": "babilonia",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "base60"
+          },
+          "lamina": [
+            "plimpton",
+            "reloj"
+          ],
+          "texto": "قبل نحو أربعة آلاف سنة، في بابل، كانوا يعدّون ستين ستين. ولهذا ما زالت الساعة اليوم ستين دقيقة، والدائرة ثلاثمئة وستين درجة: ما زلنا نستخدم أرقامهم دون أن ندري."
+        },
+        {
+          "id": "cero",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mayas",
+              "brahmagupta",
+              "alJuarismi"
+            ]
+          },
+          "lamina": [
+            "glifoMaya",
+            "alJuarismi"
+          ],
+          "texto": "أما الصفر فتأخّر في الوصول. استخدمه المايا في تقاويمهم، وفي عام ستمئة وثمانية وعشرين، في الهند، كتب براهماغوبتا قواعد الجمع والطرح به. وبعد قرنين، في بغداد، كتب الخوارزمي الكتاب الذي أعطانا كلمة الجبر، ومن اسمه جاءت كلمة الخوارزمية.",
+          "meme": "cero"
+        },
+        {
+          "id": "bases",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "decimal",
+              "binario",
+              "hexadecimal"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "binario",
+          "texto": "في الآلة الحاسبة عندي أستطيع تغيير الأساس: الرقم نفسه بالنظام العشري، أو بالثنائي كما يخزّنه الحاسوب، أو بالست عشري."
+        }
+      ]
+    },
+    {
+      "id": "miedo",
+      "titulo": "لماذا تخيفنا الرياضيات؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثالث. لماذا تخيفنا الرياضيات؟"
+        },
+        {
+          "id": "beilock",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "ansiedadMate"
+          },
+          "lamina": [
+            "cerebro",
+            "examen"
+          ],
+          "texto": "إن كنت تتوتر، فهذا ليس وهمًا. في عام ألفين واثني عشر، رأى إيان ليونز وسيان بيلوك بجهاز المسح أن مجرد معرفة أصحاب قلق الرياضيات بأن مسألة رياضيات قادمة كان ينشّط مناطق في الدماغ مرتبطة بالألم الجسدي. وليس أثناء المسألة: بل قبلها."
+        },
+        {
+          "id": "pisa",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "31%",
+            "clave": "pisa"
+          },
+          "lamina": [
+            "alumnos",
+            "pizarra"
+          ],
+          "texto": "لست وحدك. في اختبار PISA لعام ألفين واثنين وعشرين، لم يبلغ قرابة واحد من كل ثلاثة طلاب في الخامسة عشرة، في دول منظمة OECD، المستوى الأساسي في الرياضيات.",
+          "meme": "miedoMate"
+        },
+        {
+          "id": "aprendible",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "talento",
+              "practica",
+              "error"
+            ]
+          },
+          "lamina": [
+            "cuaderno",
+            "lapiz"
+          ],
+          "texto": "الخبر السار: إتقان الرياضيات ليس موهبة تملكها أو لا تملكها. إنه تمرين، مثل تعلّم لغة. أن تخطئ في مسألة لا يعني أنك لا تستطيع، بل يدلّك على الخطوة التي تنقصك."
+        },
+        {
+          "id": "explica",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escribo",
+              "paso",
+              "entiendo"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "calculadora",
+          "texto": "حين أتعثّر، أكتب المسألة في الآلة الحاسبة وأطلب من الذكاء الاصطناعي أن يشرحها لي خطوة بخطوة، على إيقاعي، دون أن يستعجلني أحد."
+        }
+      ]
+    },
+    {
+      "id": "resolver",
+      "titulo": "كيف تحل أي مسألة؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الرابع. كيف تحل أي مسألة؟"
+        },
+        {
+          "id": "polya",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "polya"
+          },
+          "lamina": [
+            "rompecabezas",
+            "pizarron"
+          ],
+          "texto": "في عام ألف وتسعمئة وخمسة وأربعين، كتب عالم الرياضيات جورج بوليا كتاب How to Solve It، بأربع خطوات تنفع في كل شيء تقريبًا: أن تفهم المسألة، وأن تضع خطة، وأن تنفّذها، وأن تنظر إلى الوراء لتراجع."
+        },
+        {
+          "id": "entender",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "datos",
+              "dibujo",
+              "parecido"
+            ]
+          },
+          "lamina": [
+            "idea",
+            "notas"
+          ],
+          "texto": "الخطوة التي نتجاوزها أكثر من غيرها هي الأولى. قبل أن تحسب، اسأل نفسك: ما المطلوب؟ ما البيانات التي عندي؟ هل أستطيع أن أرسم؟ هل حللت شيئًا يشبهها من قبل؟"
+        },
+        {
+          "id": "fermi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "fermi"
+          },
+          "lamina": [
+            "fermi",
+            "piano"
+          ],
+          "texto": "وتعلّم أن تقدّر. كان إنريكو فيرمي يسأل طلابه: كم مُضبِّط بيانو يوجد في شيكاغو؟ لم يكن أحد يعرف، لكن بتقسيم المسألة إلى أجزاء يمكن تخمينها، كان الجواب يأتي قريبًا. التقدير ينبّهك حين تكون النتيجة بلا معنى.",
+          "meme": "estimacion"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "gusta"
+          },
+          "lamina": "pulgar",
+          "texto": "إن كان هذا الدليل يعجبك، فاضغط «أعجبني»، و«اشتراك»، و«مشاركة»."
+        },
+        {
+          "id": "sistemas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "sistemas",
+              "matrices",
+              "regla3"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "cohete",
+          "texto": "انظر: بيتي صار الآن مركبة فضائية، جاهزة للانطلاق إلى ذلك الكون الذي يتكلم بالأرقام. وحين تكون الخطة جاهزة، تتولى الآلة الحاسبة العمل الشاق: تحل أنظمة المعادلات، أو المصفوفات، أو قاعدة الثلاثة في لحظة."
+        }
+      ]
+    },
+    {
+      "id": "ver",
+      "titulo": "كيف ترى معادلة؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الخامس. كيف ترى معادلة؟"
+        },
+        {
+          "id": "descartes",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "graficar"
+          },
+          "lamina": [
+            "descartes",
+            "grafica"
+          ],
+          "texto": "في عام ألف وستمئة وسبعة وثلاثين، خطرت لرينيه ديكارت فكرة غيّرت كل شيء: أن يضع محورين على ورقة ويحوّل كل معادلة إلى رسم. ومنذ ذلك الحين لم تعد الصيغة مجرد حروف: إنها خط مستقيم، أو قطع مكافئ، أو منحنى تستطيع أن تراه."
+        },
+        {
+          "id": "funcion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "entra",
+              "regla",
+              "sale"
+            ]
+          },
+          "lamina": [
+            "computadora",
+            "pantallas"
+          ],
+          "texto": "تخيّل الدالة آلة: تعطيها رقمًا، فتطبّق قاعدتها وتعيد إليك رقمًا آخر. وحين ترسمها، ترى بنظرة واحدة أين تصعد، وأين تهبط، وأين تقطع الصفر."
+        },
+        {
+          "id": "newton",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "F = m · a",
+            "clave": "newton"
+          },
+          "lamina": [
+            "principia",
+            "newton"
+          ],
+          "texto": "والفيزياء هي الشيء نفسه. في عام ألف وستمئة وسبعة وثمانين، كتب إسحاق نيوتن أن القوة تساوي الكتلة مضروبة في التسارع. ثلاثة حروف تفسّر كل شيء، من كرة تسقط إلى صاروخ ينطلق.",
+          "meme": "formula"
+        },
+        {
+          "id": "graficas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "plano",
+              "polar",
+              "superficie"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "matematicas",
+          "texto": "هنا أكتب معادلة فأراها في الحال: في المستوى، أو بالإحداثيات القطبية، أو سطحًا ثلاثي الأبعاد أستطيع تدويره."
+        }
+      ]
+    },
+    {
+      "id": "vida",
+      "titulo": "كيف تستخدم الأرقام في حياتك؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السادس. كيف تستخدم الأرقام في حياتك؟"
+        },
+        {
+          "id": "gigerenzer",
+          "destacada": true,
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "frecuencias"
+          },
+          "lamina": [
+            "doctor",
+            "lupa"
+          ],
+          "texto": "النسب المئوية تخدع حتى الخبراء. أعطى غيرد غيغرنزر مئة وستين طبيب نساء مسألة عن نتيجة إيجابية في تصوير الثدي: واحد فقط من كل خمسة أعطى الجواب الصحيح. وبعد أن تعلّموا التفكير بالتكرارات، أصاب قرابة تسعة من كل عشرة."
+        },
+        {
+          "id": "frecuencias",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cien",
+              "personas",
+              "cuantos"
+            ]
+          },
+          "lamina": [
+            "gente",
+            "dados"
+          ],
+          "texto": "الحيلة: استبدل بالنسبة المئوية أشخاصًا. بدل واحد في المئة، تخيّل مئة شخص واسأل نفسك: كم منهم، من هؤلاء المئة، في كل حالة؟ وفجأة تتضح المسألة."
+        },
+        {
+          "id": "visicalc",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1979",
+            "clave": "visicalc"
+          },
+          "lamina": [
+            "visicalc",
+            "apple2"
+          ],
+          "texto": "ولحسابات كل يوم، هناك جداول البيانات. في عام ألف وتسعمئة وتسعة وسبعين، صنع دان بريكلن وبوب فرانكستون برنامج VisiCalc: تغيّر رقمًا فيُعاد حساب كل ما عداه. كان مفيدًا لدرجة أن كثيرين اشتروا حاسوبًا من أجله فقط."
+        },
+        {
+          "id": "hojas",
+          "mencion": true,
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hoja",
+              "grafica",
+              "excel"
+            ]
+          },
+          "enCasa": true,
+          "lamina": "computadora",
+          "texto": "في بيتي، تعيش جداول البيانات بجوار الآلة الحاسبة: أعدّها بنفسي أو بمساعدة الذكاء الاصطناعي، وأستخرج منها رسمًا بيانيًا، وأصدّرها إلى Excel أو PDF."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "كيف تستمر؟ خطتك للمواصلة.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السابع. كيف تستمر؟ خطتك للمواصلة."
+        },
+        {
+          "id": "semana1",
+          "destacada": true,
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planContinuarMat"
+          },
+          "lamina": [
+            "calendario",
+            "taza"
+          ],
+          "texto": "في الأسبوع الأول، ابحث عن أرقام يومك: كم تنفق، وكم تمشي، وكم تنام. وكل يوم، قدّر شيئًا واحدًا قبل أن تحسبه، ثم قارن."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "retoDiario"
+          },
+          "lamina": [
+            "cuaderno",
+            "lapiz"
+          ],
+          "texto": "في الشهر الأول، حلّ مسألة قصيرة كل يوم، في عشر دقائق، متّبعًا خطوات بوليا الأربع. اختر موضوعًا تحبه: المال، أو الرياضة، أو الطبخ، أو السماء."
+        },
+        {
+          "id": "fallar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "atorar",
+              "volver",
+              "medir"
+            ]
+          },
+          "lamina": [
+            "tropiezo",
+            "escalon"
+          ],
+          "texto": "وحين تتعثّر، لا تعدّه فشلًا: عد إلى الخطوة الأولى وارسم. ولتقيس تقدّمك، لا تعدّ كم مسألة حللت: بل كم مسألة تستطيع أن تشرحها لشخص آخر."
+        },
+        {
+          "id": "resumen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": [
+            "cumbre",
+            "galaxia"
+          ],
+          "texto": "باختصار: الكون يمكن وصفه بالأرقام، والخوف من الرياضيات يُعالَج بالتمرين، افهم قبل أن تحسب وقدّر دائمًا، وحين تربكك نسبة مئوية، فكّر في أشخاص."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "في غرفة الحوسبة في MindHaOS يمكنك أن تحسب بكتيب صيغ للرياضيات والفيزياء والكيمياء، وأن ترسم معادلاتك، وأن تُعدّ جداول البيانات، بنفسك أو بمساعدة الذكاء الاصطناعي. ابنِ بيتك الذهني مجانًا اليوم: الرابط في الوصف. وفي الدليل القادم: لماذا عليك أن تكتب؟",
+    "boton": "افتح غرفة الحوسبة",
+    "lamina": "app-plan",
+    "anclas": {
+      "formulario": "تحسب بكتيب صيغ",
+      "graficar": "ترسم معادلاتك",
+      "hojas": "جداول البيانات"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "galileo-1623",
+      "texto": "Galilei G. Il Saggiatore (1623).",
+      "url": "https://es.wikipedia.org/wiki/El_ensayador"
+    },
+    {
+      "id": "leverrier-1846",
+      "texto": "Le Verrier U. J. J. و Galle J. G. اكتشاف نبتون (1846).",
+      "url": "https://es.wikipedia.org/wiki/Descubrimiento_de_Neptuno"
+    },
+    {
+      "id": "wigner-1960",
+      "texto": "Wigner E. P. The unreasonable effectiveness of mathematics in the natural sciences. Communications on Pure and Applied Mathematics (1960).",
+      "url": "https://doi.org/10.1002/cpa.3160130102"
+    },
+    {
+      "id": "wynn-1992",
+      "texto": "Wynn K. Addition and subtraction by human infants. Nature (1992).",
+      "url": "https://doi.org/10.1038/358749a0"
+    },
+    {
+      "id": "ishango",
+      "texto": "عظمة إيشانغو، المعهد الملكي البلجيكي للعلوم الطبيعية.",
+      "url": "https://es.wikipedia.org/wiki/Hueso_de_Ishango"
+    },
+    {
+      "id": "plimpton-322",
+      "texto": "بليمبتون 322، لوح طيني بابلي (نحو 1800 ق.م).",
+      "url": "https://es.wikipedia.org/wiki/Plimpton_322"
+    },
+    {
+      "id": "brahmagupta-628",
+      "texto": "Brahmagupta. Brāhmasphuṭasiddhānta (628).",
+      "url": "https://es.wikipedia.org/wiki/Brahmagupta"
+    },
+    {
+      "id": "lyons-beilock-2012",
+      "texto": "Lyons I. M., Beilock S. L. When math hurts: math anxiety predicts pain network activation in anticipation of doing math. PLoS ONE (2012).",
+      "url": "https://doi.org/10.1371/journal.pone.0048076"
+    },
+    {
+      "id": "pisa-2022",
+      "texto": "OECD. PISA 2022 Results (Volume I): The State of Learning and Equity in Education (2023).",
+      "url": "https://doi.org/10.1787/53f23881-en"
+    },
+    {
+      "id": "polya-1945",
+      "texto": "Pólya G. How to Solve It: A New Aspect of Mathematical Method. Princeton University Press (1945).",
+      "url": "https://press.princeton.edu/books/paperback/9780691164076/how-to-solve-it"
+    },
+    {
+      "id": "descartes-1637",
+      "texto": "Descartes R. La Géométrie، ملحق كتاب Discours de la méthode (1637).",
+      "url": "https://es.wikipedia.org/wiki/La_Géométrie"
+    },
+    {
+      "id": "newton-1687",
+      "texto": "Newton I. Philosophiæ Naturalis Principia Mathematica (1687).",
+      "url": "https://es.wikipedia.org/wiki/Philosophiæ_naturalis_principia_mathematica"
+    },
+    {
+      "id": "gigerenzer-2007",
+      "texto": "Gigerenzer G. et al. Helping doctors and patients make sense of health statistics. Psychological Science in the Public Interest (2007).",
+      "url": "https://doi.org/10.1111/j.1539-6053.2008.00033.x"
+    },
+    {
+      "id": "visicalc-1979",
+      "texto": "Bricklin D., Frankston B. VisiCalc (1979).",
+      "url": "https://es.wikipedia.org/wiki/VisiCalc"
+    }
+  ]
+}
