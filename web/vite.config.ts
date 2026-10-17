@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 import { defineConfig, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
+import { exigirBackend } from '../vite.exigirBackend'
 
 // Segundo build del repo: la WEB PÚBLICA (landing + /cuenta + legales), ligera
 // y sin three/dexie. Se despliega aparte de la app (dist-web → dominio raíz).
@@ -68,7 +69,7 @@ export default defineConfig({
   // pisan al reoptimizar dependencias y no pueden correr a la vez (grabar páginas y casa en paralelo).
   cacheDir: path.resolve(raiz, 'node_modules/.vite-web'),
   envDir: raiz, // comparte .env.local con la app (VITE_SUPABASE_*, VITE_REVENUECAT_WEB_KEY…)
-  plugins: [sustitutosApp(), react(), tailwindcss(), urlsLimpias()],
+  plugins: [sustitutosApp(), react(), tailwindcss(), urlsLimpias(), exigirBackend()],
   server: { port: 5174 },
   build: {
     outDir: path.resolve(raiz, 'dist-web'),
