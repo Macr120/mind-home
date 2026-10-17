@@ -1,0 +1,750 @@
+{
+  "idioma": "de",
+  "tema": "escritura",
+  "plantillaId": "escritura",
+  "numero": 14,
+  "nombre": "Schreiben",
+  "pregunta": "Warum solltest du schreiben?",
+  "corta": "Warum solltest du schreiben?",
+  "subtitulo": "Warum Schreiben dir die Angst nimmt, warum das leere Blatt erschreckt, wie Schreiben deinen Kopf ordnet, warum die Menschheit seit fünftausend Jahren schreibt, warum Geschichten hängen bleiben, wie man eine gute Geschichte baut, wie du jeden Tag besser schreibst und ein Plan für den Anfang.",
+  "aviso": "Dieser Leitfaden dient der Information: Die zitierten Studien sind vereinfacht zusammengefasst, und Schreiben ersetzt keine professionelle Hilfe. Wenn dich deine Sorgen nicht in Ruhe leben lassen, sprich mit einer Vertrauensperson oder mit einer Fachkraft.",
+  "partes": [
+    {
+      "id": "miedo",
+      "titulo": "Warum nimmt dir Schreiben die Angst?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Warum solltest du schreiben? Fast alle schreiben wir jeden Tag: Nachrichten, Listen, E-Mails. Aber kaum jemand schreibt für sich selbst, und so verpasst man etwas, das die Wissenschaft seit vierzig Jahren misst. Was passiert in deinem Kopf, wenn du schreibst? Heute wirst du es sehen, und du gehst mit einem Plan, um noch diese Woche mit dem Schreiben anzufangen."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Übrigens, das ist mein Haus in MindHaOS, und in diesem Raum schreibe ich. Und schau dir das Haus an: Heute ist es ein Spukhaus, wie die Angst vor dem leeren Blatt, und in jeder Etappe des Leitfadens wird es sich verändern. Fangen wir an."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil eins. Warum nimmt dir Schreiben die Angst?"
+        },
+        {
+          "id": "pennebaker",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "15 Min.",
+            "clave": "pennebaker"
+          },
+          "lamina": [
+            "noche",
+            "escribirNoche"
+          ],
+          "destacada": true,
+          "texto": "Fangen wir mit dem an, was Angst macht. 1986 baten James Pennebaker und Sandra Beall Studierende, an vier Tagen hintereinander fünfzehn Minuten lang über das Schwerste zu schreiben, das sie erlebt hatten. In den folgenden Monaten gingen sie seltener zum Arzt als die, die über Belangloses geschrieben hatten."
+        },
+        {
+          "id": "examen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "preocupaciones"
+          },
+          "lamina": [
+            "examen",
+            "nervios"
+          ],
+          "meme": "nervios",
+          "texto": "Und es wirkt genau vor dem, was dir Angst macht. 2011 baten Gerardo Ramírez und Sian Beilock Studierende, vor einer Prüfung zehn Minuten über ihre Nervosität zu schreiben. Sie schnitten besser ab, und die Nervösesten am allerbesten."
+        },
+        {
+          "id": "porque",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombralo",
+              "escribelo",
+              "sueltalo"
+            ]
+          },
+          "lamina": [
+            "cabeza",
+            "libreta"
+          ],
+          "texto": "Warum? Weil die Sorge Platz in deinem Arbeitsgedächtnis belegt, dem, mit dem du denkst. Wenn du sie aufschreibst, holst du sie dort heraus und legst sie aufs Papier."
+        },
+        {
+          "id": "escritorio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abro",
+              "escribo",
+              "suelto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Schau dir das Haus an: Es ist immer noch ein Spukhaus, wie das, was wir uns manchmal nicht aufzuschreiben trauen. Hier, in meinem Raum, schreibe ich auch auf, was mir Angst macht: Das Blatt bewahrt es auf, damit mein Kopf es nicht tun muss."
+        }
+      ]
+    },
+    {
+      "id": "blanco",
+      "titulo": "Warum macht das leere Blatt so viel Angst?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil zwei. Warum macht das leere Blatt so viel Angst?"
+        },
+        {
+          "id": "perfecto",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quieres",
+              "juzgas",
+              "borras"
+            ]
+          },
+          "lamina": [
+            "hojaBlanca",
+            "borrar"
+          ],
+          "meme": "hojaBlanca",
+          "texto": "Die häufigste Angst beim Schreiben ist das leere Blatt. Und fast immer kommt sie vom Gleichen: Man will, dass es beim ersten Mal perfekt wird."
+        },
+        {
+          "id": "elbow",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escrituraLibre"
+          },
+          "lamina": [
+            "teclear",
+            "cuaderno"
+          ],
+          "destacada": true,
+          "texto": "1973 schlug der Professor Peter Elbow ein Gegenmittel vor: das freie Schreiben. Zehn Minuten ohne Pause, ohne Löschen und ohne Korrigieren. Wenn du nicht weißt, was du schreiben sollst, schreibst du „ich weiß nicht, was ich schreiben soll“, bis etwas anderes kommt."
+        },
+        {
+          "id": "lamott",
+          "escena": "habla",
+          "visual": {
+            "tipo": "cita"
+          },
+          "lamina": [
+            "borrador",
+            "tachones"
+          ],
+          "texto": "Die Schriftstellerin Anne Lamott hat es ohne Umschweife gesagt: Fast jeder gute Text beginnt mit einem grauenhaften ersten Entwurf. Wichtig ist, ihn zu schreiben, nicht, dass er schön wird."
+        },
+        {
+          "id": "hemingway",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "para",
+              "sabes",
+              "manana"
+            ]
+          },
+          "lamina": [
+            "maquina",
+            "amanecer"
+          ],
+          "texto": "Und ein Trick von Ernest Hemingway: Hör auf zu schreiben, wenn du schon weißt, wie es weitergeht. So ist das Blatt am nächsten Tag nicht leer."
+        },
+        {
+          "id": "hoja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abroLibro",
+              "seGuarda",
+              "corrijo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In meinem Raum öffne ich ein Buch und schreibe ohne Angst: Das Blatt speichert sich von selbst, während ich schreibe, und ich korrigiere danach."
+        }
+      ]
+    },
+    {
+      "id": "orden",
+      "titulo": "Warum ordnet Schreiben deinen Kopf?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil drei. Warum ordnet Schreiben deinen Kopf?"
+        },
+        {
+          "id": "forster",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "suelta",
+              "fila",
+              "forma"
+            ]
+          },
+          "lamina": [
+            "pensar",
+            "ventana"
+          ],
+          "texto": "1927 zitierte der Romanautor E. M. Forster eine berühmte Frage: Wie soll ich wissen, was ich denke, bevor ich sehe, was ich sage? Beim Schreiben müssen sich lose Gedanken anstellen, einer nach dem anderen."
+        },
+        {
+          "id": "aprender",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "48",
+            "clave": "aprender"
+          },
+          "lamina": [
+            "estudiar",
+            "apuntes"
+          ],
+          "destacada": true,
+          "texto": "Und das hilft beim Lernen. 2004 untersuchten Robert Bangert-Drowns und sein Team achtundvierzig Schulprogramme, in denen geschrieben wurde, um zu lernen. Es wirkte, vor allem, wenn die Schüler darüber schrieben, was sie verstanden und was nicht."
+        },
+        {
+          "id": "decidir",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nudo"
+          },
+          "lamina": [
+            "nudo",
+            "lista"
+          ],
+          "texto": "Deshalb hilft Schreiben auch beim Entscheiden: Fass das Problem in einen Satz, schreib deine Optionen auf und was bei jeder passieren würde. Was in deinem Kopf ein Knoten war, ist auf dem Papier eine Liste."
+        },
+        {
+          "id": "indice",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "titulos",
+              "indiceSolo",
+              "veoForma"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Auf meinem Blatt baut jede Überschrift, die ich schreibe, von selbst das Inhaltsverzeichnis, und so sehe ich die Form dessen, was ich denke."
+        }
+      ]
+    },
+    {
+      "id": "bitacora",
+      "titulo": "Warum schreibt die Menschheit seit fünftausend Jahren?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil vier. Warum schreibt die Menschheit seit fünftausend Jahren?"
+        },
+        {
+          "id": "uruk",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaEscritura"
+          },
+          "lamina": [
+            "tablilla",
+            "trigo"
+          ],
+          "destacada": true,
+          "meme": "sumerios",
+          "texto": "Die Schrift entstand vor etwa fünftausend Jahren in Mesopotamien, in Städten wie Uruk, und zwar nicht für Gedichte, sondern zum Zählen. Gerste, Bier, Schafe. Schreiben war der Weg, nichts zu vergessen."
+        },
+        {
+          "id": "barcos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rumbo",
+              "viento",
+              "clima"
+            ]
+          },
+          "lamina": [
+            "barco",
+            "brujula"
+          ],
+          "texto": "Jahrhunderte später führten Schiffe ein Bordtagebuch, das Logbuch: Jeden Tag notierte der Kapitän Kurs, Wind und Wetter."
+        },
+        {
+          "id": "oldWeather",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2010",
+            "clave": "oldWeather"
+          },
+          "lamina": [
+            "oleaje",
+            "mapa"
+          ],
+          "texto": "Und diese Notizen sind bis heute nützlich. Seit 2010 haben Tausende Freiwillige des Projekts Old Weather hundert Jahre alte Logbücher in den Computer übertragen, und heute nutzen Forschende mehr als eine Million dieser Daten, um das Klima zu untersuchen."
+        },
+        {
+          "id": "estante",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unLibro",
+              "porProyecto",
+              "cuantos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Und schau: Das Haus ist jetzt ein Piratenschiff, wie die, die ihr Logbuch führten. Meins wohnt hier, in meinem Bücherregal: ein Buch pro Reise, pro Projekt oder pro Idee."
+        }
+      ]
+    },
+    {
+      "id": "historias",
+      "titulo": "Warum bleibt eine Geschichte im Kopf?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil fünf. Warum bleibt eine Geschichte im Kopf?"
+        },
+        {
+          "id": "bower",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cadena"
+          },
+          "lamina": [
+            "fogata",
+            "contar"
+          ],
+          "destacada": true,
+          "texto": "1969 gaben Gordon Bower und Michael Clark Studierenden Listen mit zehn Wörtern. Die einen gingen sie nur durch; die anderen erfanden eine Geschichte, die sie verband. Am Ende erinnerten sich die mit der Geschichte an etwa siebenmal so viele Wörter."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoEscritura"
+          },
+          "lamina": "pulgar",
+          "texto": "Wenn dir der Leitfaden gefällt, klick auf Mag ich, auf Abonnieren, damit du den nächsten nicht verpasst, und auf Teilen, für die Person, die sagt, dass sie eines Tages ein Buch schreiben wird."
+        },
+        {
+          "id": "arcos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "arcos"
+          },
+          "lamina": [
+            "libros",
+            "biblioteca"
+          ],
+          "texto": "Und Geschichten haben Formen. 2016 analysierte ein Team der Universität von Vermont mit Computern mehr als dreizehnhundert Romane und fand heraus, dass fast alle sechs Formen folgen, etwa vom Tellerwäscher zum Millionär, oder in ein Loch fallen und wieder herauskommen."
+        },
+        {
+          "id": "personajes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "personajesP",
+              "lugares",
+              "actos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In jedem meiner Bücher bewahre ich die Figuren, die Orte und die Akte der Geschichte auf, und ihr Name wird im Text markiert."
+        }
+      ]
+    },
+    {
+      "id": "trama",
+      "titulo": "Wie baut man eine gute Geschichte?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil sechs. Wie baut man eine gute Geschichte?"
+        },
+        {
+          "id": "aristoteles",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quiere",
+              "impide",
+              "cambia"
+            ]
+          },
+          "lamina": [
+            "teatro",
+            "mascaras"
+          ],
+          "texto": "Vor mehr als zweitausend Jahren schrieb Aristoteles, dass eine vollständige Geschichte Anfang, Mitte und Ende hat. Klingt selbstverständlich, ist aber die Grundlage von fast allem: Jemand will etwas, etwas hält ihn davon ab, und am Ende verändert er sich."
+        },
+        {
+          "id": "tirada",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tirada"
+          },
+          "lamina": [
+            "dados",
+            "isla"
+          ],
+          "destacada": true,
+          "texto": "Ein Spiel für den Anfang: Wähl eine Figur, einen Ort und ein Problem, und schon hast du eine Geschichte. Eine Piratin, die Angst vor Wasser hat. Ein Astronaut, der den Weg zurück vergessen hat. Schau, wie viele dabei herauskommen."
+        },
+        {
+          "id": "muestra",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cuenta",
+              "muestra"
+            ]
+          },
+          "lamina": [
+            "manos",
+            "lluvia"
+          ],
+          "texto": "Und eine Regel aus Schreibwerkstätten: zeigen, nicht erzählen. Statt „er hatte Angst“ schreib „seine Hände zitterten“. Lass die Lesenden es selbst entdecken."
+        },
+        {
+          "id": "relaciones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dibujo",
+              "quienQuiere",
+              "secreto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Und in Beziehungen zeichne ich, wie meine Figuren verbunden sind: wer wen liebt, und wer vor wem ein Geheimnis hat."
+        }
+      ]
+    },
+    {
+      "id": "diario",
+      "titulo": "Wie schreibst du jeden Tag besser?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil sieben. Wie schreibst du jeden Tag besser?"
+        },
+        {
+          "id": "boice",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "boice"
+          },
+          "lamina": [
+            "reloj",
+            "escritorioLuz"
+          ],
+          "destacada": true,
+          "texto": "1990 begleitete Robert Boice zehn Wochen lang Professoren, die mehr schreiben wollten. Die, die auf die Inspiration warteten, schrieben etwa zwei Zehntel einer Seite pro Tag. Die mit einem täglichen Termin mit dem Blatt mehr als drei Seiten."
+        },
+        {
+          "id": "reescribir",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "39",
+            "clave": "reescribir"
+          },
+          "lamina": [
+            "papelBola",
+            "maquina2"
+          ],
+          "meme": "borrador",
+          "texto": "Und das Gute entsteht beim Überarbeiten. Hemingway erzählte, dass er die letzte Seite von In einem andern Land neununddreißigmal neu geschrieben hat. Nicht, weil er nicht schreiben konnte, sondern weil er überarbeiten konnte."
+        },
+        {
+          "id": "vozAlta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeVoz",
+              "trabas",
+              "cambia2"
+            ]
+          },
+          "lamina": [
+            "leer",
+            "microfono"
+          ],
+          "texto": "Ein Trick zum Überarbeiten: Lies laut vor. Wo du ins Stocken gerätst, gerät auch dein Leser ins Stocken."
+        },
+        {
+          "id": "ia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "continuar",
+              "mejorar",
+              "resumir"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Und das Haus reist schon durchs All, auf alles zu, was du schreiben wirst. Wenn ich festhänge, kann ich auf meinem Blatt die künstliche Intelligenz um Ideen bitten, um fortzusetzen, zu verbessern oder zusammenzufassen. Aber die Geschichte schreibe ich."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Wie geht es weiter? Dein Plan zum Weitermachen",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil acht. Wie geht es weiter? Dein Plan zum Weitermachen."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planEscribir"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "In der ersten Woche jeden Tag zehn Minuten freies Schreiben, immer zur gleichen Uhrzeit. Ohne zu korrigieren und ohne es jemandem zu zeigen."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "proyecto",
+              "corrige",
+              "termina"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "Im ersten Monat wählst du ein kleines Projekt: eine Kurzgeschichte, einen Brief oder ein Tagebuch deiner Tage. Und überarbeite es laut, bevor du es für fertig erklärst."
+        },
+        {
+          "id": "futuro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2001",
+            "clave": "futuro"
+          },
+          "lamina": [
+            "estrellas",
+            "cohete"
+          ],
+          "texto": "Und eine Übung zum Schluss: Schreib deinem zukünftigen Ich. 2001 bat Laura King Studierende, an vier Tagen je zwanzig Minuten über das beste Leben zu schreiben, das sie sich vorstellen konnten, und danach waren sie besser gelaunt."
+        },
+        {
+          "id": "exportar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "descargo",
+              "imprimo",
+              "comparto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Und wenn ich etwas fertig habe, lade ich es hier herunter, drucke es oder teile es, um gemeinsam daran zu schreiben."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Kurz gesagt: Schreiben nimmt dir die Angst und ordnet deinen Kopf; fang an, ohne Perfektion zu suchen; Geschichten bleiben hängen, also erzähl sie; und schreib jeden Tag ein bisschen, denn das Gute entsteht beim Überarbeiten."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Im Raum Schreiben von MindHaOS kannst du deine Bücher schreiben, ihre Figuren, Orte und Akte aufbewahren und allein schreiben oder mit Hilfe der künstlichen Intelligenz. Bau dir heute kostenlos dein mentales Haus: Der Link ist in der Beschreibung. Und im nächsten Leitfaden: Wie findest du ein Hobby und bleibst dabei?",
+    "boton": "Raum Schreiben öffnen",
+    "lamina": "app-plan",
+    "anclas": {
+      "libros": "deine Bücher",
+      "personajes": "ihre Figuren",
+      "ia": "der künstlichen Intelligenz"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "pennebaker-1986",
+      "texto": "Pennebaker J. W., Beall S. K. Confronting a traumatic event: Toward an understanding of inhibition and disease. Journal of Abnormal Psychology (1986).",
+      "url": "https://doi.org/10.1037/0021-843X.95.3.274"
+    },
+    {
+      "id": "ramirez-2011",
+      "texto": "Ramirez G., Beilock S. L. Writing about testing worries boosts exam performance in the classroom. Science (2011).",
+      "url": "https://doi.org/10.1126/science.1199427"
+    },
+    {
+      "id": "elbow-1973",
+      "texto": "Elbow P. Writing Without Teachers. Oxford University Press (1973).",
+      "url": "https://global.oup.com/academic/product/writing-without-teachers-9780195120165"
+    },
+    {
+      "id": "lamott-1994",
+      "texto": "Lamott A. Bird by Bird: Some Instructions on Writing and Life (1994).",
+      "url": "https://en.wikipedia.org/wiki/Bird_by_Bird"
+    },
+    {
+      "id": "hemingway-1935",
+      "texto": "Hemingway E. Monologue to the Maestro: A High Seas Letter. Esquire (Oktober 1935).",
+      "url": "https://classic.esquire.com/article/1935/10/1/monologue-to-the-maestro"
+    },
+    {
+      "id": "forster-1927",
+      "texto": "Forster E. M. Aspects of the Novel (1927).",
+      "url": "https://en.wikipedia.org/wiki/Aspects_of_the_Novel"
+    },
+    {
+      "id": "bangert-drowns-2004",
+      "texto": "Bangert-Drowns R. L., Hurley M. M., Wilkinson B. The effects of school-based writing-to-learn interventions on academic achievement: A meta-analysis. Review of Educational Research (2004).",
+      "url": "https://doi.org/10.3102/00346543074001029"
+    },
+    {
+      "id": "schmandt-besserat-1996",
+      "texto": "Schmandt-Besserat D. How Writing Came About. University of Texas Press (1996).",
+      "url": "https://utpress.utexas.edu/9780292777040/"
+    },
+    {
+      "id": "old-weather",
+      "texto": "Old Weather: Citizen-Science-Projekt, das Logbücher von Schiffen abschreibt (seit 2010).",
+      "url": "https://en.wikipedia.org/wiki/Old_Weather"
+    },
+    {
+      "id": "bower-1969",
+      "texto": "Bower G. H., Clark M. C. Narrative stories as mediators for serial learning. Psychonomic Science (1969).",
+      "url": "https://doi.org/10.3758/BF03332778"
+    },
+    {
+      "id": "reagan-2016",
+      "texto": "Reagan A. J., Mitchell L., Kiley D., Danforth C. M., Dodds P. S. The emotional arcs of stories are dominated by six basic shapes. EPJ Data Science (2016).",
+      "url": "https://doi.org/10.1140/epjds/s13688-016-0093-1"
+    },
+    {
+      "id": "aristoteles",
+      "texto": "Aristoteles. Poetik (4. Jahrhundert v. Chr.).",
+      "url": "https://www.gutenberg.org/ebooks/1974"
+    },
+    {
+      "id": "boice-1990",
+      "texto": "Boice R. Professors as Writers: A Self-Help Guide to Productive Writing. New Forums Press (1990).",
+      "url": "https://newforums.com/our-titles/successful-faculty-development/scholarly-writing-publishing/professors-as-writers/"
+    },
+    {
+      "id": "hemingway-1958",
+      "texto": "Plimpton G. Ernest Hemingway, The Art of Fiction No. 21. The Paris Review (1958).",
+      "url": "https://www.theparisreview.org/interviews/4825/the-art-of-fiction-no-21-ernest-hemingway"
+    },
+    {
+      "id": "king-2001",
+      "texto": "King L. A. The health benefits of writing about life goals. Personality and Social Psychology Bulletin (2001).",
+      "url": "https://doi.org/10.1177/0146167201277003"
+    }
+  ]
+}

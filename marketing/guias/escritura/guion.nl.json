@@ -1,0 +1,750 @@
+{
+  "idioma": "nl",
+  "tema": "escritura",
+  "plantillaId": "escritura",
+  "numero": 14,
+  "nombre": "Schrijven",
+  "pregunta": "Waarom zou je schrijven?",
+  "corta": "Waarom zou je schrijven?",
+  "subtitulo": "Waarom schrijven je angst wegneemt, waarom het lege vel zo eng is, hoe schrijven je hoofd ordent, waarom de mensheid al vijfduizend jaar schrijft, waarom verhalen blijven hangen, hoe je een goed verhaal bouwt, hoe je elke dag beter schrijft en een plan om te beginnen.",
+  "aviso": "Deze gids is informatief: de genoemde onderzoeken vatten hun resultaten eenvoudig samen, en schrijven vervangt geen professionele hulp. Als je zorgen je niet met rust laten, praat dan met iemand die je vertrouwt of met een specialist.",
+  "partes": [
+    {
+      "id": "miedo",
+      "titulo": "Waarom neemt schrijven je angst weg?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Waarom zou je schrijven? Bijna iedereen schrijft elke dag: berichtjes, lijstjes, mails. Maar bijna niemand schrijft voor zichzelf, en zo mis je iets wat de wetenschap al veertig jaar meet. Wat gebeurt er in je hoofd als je schrijft? Vandaag ga je het zien, en je gaat weg met een plan om deze week nog te beginnen met schrijven."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Trouwens, dit is mijn huis in MindHaOS, en in deze kamer schrijf ik. En kijk eens naar het huis: vandaag is het een spookhuis, zoals de angst voor het lege vel, en in elke etappe van de gids verandert het. Laten we beginnen."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel een. Waarom neemt schrijven je angst weg?"
+        },
+        {
+          "id": "pennebaker",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "15 min",
+            "clave": "pennebaker"
+          },
+          "lamina": [
+            "noche",
+            "escribirNoche"
+          ],
+          "destacada": true,
+          "texto": "We beginnen bij wat eng is. In 1986 vroegen James Pennebaker en Sandra Beall studenten om vier dagen achter elkaar een kwartier te schrijven over het moeilijkste dat ze hadden meegemaakt. In de maanden daarna gingen ze minder vaak naar de dokter dan wie over onbelangrijke dingen had geschreven."
+        },
+        {
+          "id": "examen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "preocupaciones"
+          },
+          "lamina": [
+            "examen",
+            "nervios"
+          ],
+          "meme": "nervios",
+          "texto": "En het werkt juist vlak voor iets waar je bang voor bent. In 2011 vroegen Gerardo Ramírez en Sian Beilock studenten om vóór een examen tien minuten over hun zenuwen te schrijven. Ze deden het beter, en de zenuwachtigsten het allerbest."
+        },
+        {
+          "id": "porque",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombralo",
+              "escribelo",
+              "sueltalo"
+            ]
+          },
+          "lamina": [
+            "cabeza",
+            "libreta"
+          ],
+          "texto": "Waarom? Omdat zorgen ruimte innemen in je werkgeheugen, het geheugen waarmee je denkt. Als je ze opschrijft, haal je ze daar weg en leg je ze op papier."
+        },
+        {
+          "id": "escritorio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abro",
+              "escribo",
+              "suelto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Kijk naar het huis: het is nog steeds een spookhuis, zoals wat we soms niet durven op te schrijven. Hier, in mijn kamer, schrijf ik ook op wat me bang maakt: het vel bewaart het, zodat mijn hoofd dat niet hoeft te doen."
+        }
+      ]
+    },
+    {
+      "id": "blanco",
+      "titulo": "Waarom is het lege vel zo eng?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel twee. Waarom is het lege vel zo eng?"
+        },
+        {
+          "id": "perfecto",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quieres",
+              "juzgas",
+              "borras"
+            ]
+          },
+          "lamina": [
+            "hojaBlanca",
+            "borrar"
+          ],
+          "meme": "hojaBlanca",
+          "texto": "De meest voorkomende angst van wie schrijft is het lege vel. En die komt bijna altijd door hetzelfde: willen dat het in één keer perfect is."
+        },
+        {
+          "id": "elbow",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escrituraLibre"
+          },
+          "lamina": [
+            "teclear",
+            "cuaderno"
+          ],
+          "destacada": true,
+          "texto": "In 1973 stelde professor Peter Elbow een remedie voor: vrij schrijven. Tien minuten zonder te stoppen, zonder te wissen en zonder te verbeteren. Weet je niet wat je moet schrijven, dan schrijf je „ik weet niet wat ik moet schrijven” tot er iets anders komt."
+        },
+        {
+          "id": "lamott",
+          "escena": "habla",
+          "visual": {
+            "tipo": "cita"
+          },
+          "lamina": [
+            "borrador",
+            "tachones"
+          ],
+          "texto": "De schrijfster Anne Lamott zei het zonder omwegen: bijna elke goede tekst begint met een afschuwelijke eerste versie. Het gaat erom dat je hem schrijft, niet dat hij mooi wordt."
+        },
+        {
+          "id": "hemingway",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "para",
+              "sabes",
+              "manana"
+            ]
+          },
+          "lamina": [
+            "maquina",
+            "amanecer"
+          ],
+          "texto": "En een trucje van Ernest Hemingway: stop met schrijven als je al weet wat er komt. Zo is het vel de volgende dag niet leeg."
+        },
+        {
+          "id": "hoja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abroLibro",
+              "seGuarda",
+              "corrijo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In mijn kamer open ik een boek en schrijf ik zonder angst: het vel wordt vanzelf bewaard terwijl ik schrijf, en ik verbeter het later."
+        }
+      ]
+    },
+    {
+      "id": "orden",
+      "titulo": "Waarom ordent schrijven je hoofd?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel drie. Waarom ordent schrijven je hoofd?"
+        },
+        {
+          "id": "forster",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "suelta",
+              "fila",
+              "forma"
+            ]
+          },
+          "lamina": [
+            "pensar",
+            "ventana"
+          ],
+          "texto": "In 1927 citeerde de romanschrijver E. M. Forster een beroemde vraag: hoe kan ik weten wat ik denk voordat ik zie wat ik zeg? Als je schrijft, moeten losse ideeën in de rij gaan staan, de een na de ander."
+        },
+        {
+          "id": "aprender",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "48",
+            "clave": "aprender"
+          },
+          "lamina": [
+            "estudiar",
+            "apuntes"
+          ],
+          "destacada": true,
+          "texto": "En dat helpt bij het leren. In 2004 bekeken Robert Bangert-Drowns en zijn team achtenveertig schoolprogramma's waarin werd geschreven om te leren. Het werkte, vooral als leerlingen schreven over wat ze wel en niet begrepen."
+        },
+        {
+          "id": "decidir",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nudo"
+          },
+          "lamina": [
+            "nudo",
+            "lista"
+          ],
+          "texto": "Daarom helpt schrijven ook bij beslissen: vat het probleem samen in één zin, schrijf je opties op en wat er bij elk zou gebeuren. Wat in je hoofd een knoop was, is op papier een lijstje."
+        },
+        {
+          "id": "indice",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "titulos",
+              "indiceSolo",
+              "veoForma"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Op mijn vel maakt elke kop die ik schrijf vanzelf de inhoudsopgave, en zo zie ik de vorm van wat ik denk."
+        }
+      ]
+    },
+    {
+      "id": "bitacora",
+      "titulo": "Waarom schrijft de mensheid al vijfduizend jaar?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vier. Waarom schrijft de mensheid al vijfduizend jaar?"
+        },
+        {
+          "id": "uruk",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaEscritura"
+          },
+          "lamina": [
+            "tablilla",
+            "trigo"
+          ],
+          "destacada": true,
+          "meme": "sumerios",
+          "texto": "Het schrift ontstond zo'n vijfduizend jaar geleden in Mesopotamië, in steden als Uruk, en niet voor gedichten: het was om te tellen. Gerst, bier, schapen. Schrijven was de manier om niets te vergeten."
+        },
+        {
+          "id": "barcos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rumbo",
+              "viento",
+              "clima"
+            ]
+          },
+          "lamina": [
+            "barco",
+            "brujula"
+          ],
+          "texto": "Eeuwen later hielden schepen een logboek bij: elke dag noteerde de kapitein de koers, de wind en het weer."
+        },
+        {
+          "id": "oldWeather",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2010",
+            "clave": "oldWeather"
+          },
+          "lamina": [
+            "oleaje",
+            "mapa"
+          ],
+          "texto": "En die aantekeningen zijn nog steeds nuttig. Sinds 2010 hebben duizenden vrijwilligers van het project Old Weather logboeken van schepen van een eeuw geleden overgetypt, en nu gebruiken wetenschappers meer dan een miljoen van die gegevens om het klimaat te bestuderen."
+        },
+        {
+          "id": "estante",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unLibro",
+              "porProyecto",
+              "cuantos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En kijk: het huis is nu een piratenschip, net als de schepen die hun logboek bijhielden. Het mijne staat hier, in mijn boekenkast: een boek per reis, per project of per idee."
+        }
+      ]
+    },
+    {
+      "id": "historias",
+      "titulo": "Waarom blijft een verhaal je bij?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vijf. Waarom blijft een verhaal je bij?"
+        },
+        {
+          "id": "bower",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cadena"
+          },
+          "lamina": [
+            "fogata",
+            "contar"
+          ],
+          "destacada": true,
+          "texto": "In 1969 gaven Gordon Bower en Michael Clark studenten lijsten van tien woorden. Sommigen namen ze alleen door; anderen verzonnen een verhaal dat ze met elkaar verbond. Aan het eind onthielden die van het verhaal ongeveer zeven keer zoveel woorden."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoEscritura"
+          },
+          "lamina": "pulgar",
+          "texto": "Als je de gids leuk vindt, klik dan op Vind ik leuk, op Abonneren om de volgende niet te missen, en op Delen voor die ene persoon die zegt dat hij ooit een boek gaat schrijven."
+        },
+        {
+          "id": "arcos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "arcos"
+          },
+          "lamina": [
+            "libros",
+            "biblioteca"
+          ],
+          "texto": "En verhalen hebben vormen. In 2016 analyseerde een team van de Universiteit van Vermont met computers meer dan dertienhonderd romans, en ontdekte dat bijna allemaal zes vormen volgen, zoals van krantenjongen tot miljonair, of in een put vallen en er weer uitklimmen."
+        },
+        {
+          "id": "personajes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "personajesP",
+              "lugares",
+              "actos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In elk van mijn boeken bewaar ik de personages, de plaatsen en de bedrijven van het verhaal, en hun naam wordt in de tekst gemarkeerd."
+        }
+      ]
+    },
+    {
+      "id": "trama",
+      "titulo": "Hoe bouw je een goed verhaal?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zes. Hoe bouw je een goed verhaal?"
+        },
+        {
+          "id": "aristoteles",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quiere",
+              "impide",
+              "cambia"
+            ]
+          },
+          "lamina": [
+            "teatro",
+            "mascaras"
+          ],
+          "texto": "Meer dan tweeduizend jaar geleden schreef Aristoteles dat een volledig verhaal een begin, een midden en een eind heeft. Klinkt logisch, maar het is de basis van bijna alles: iemand wil iets, iets houdt hem tegen, en aan het eind verandert hij."
+        },
+        {
+          "id": "tirada",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tirada"
+          },
+          "lamina": [
+            "dados",
+            "isla"
+          ],
+          "destacada": true,
+          "texto": "Een spelletje om te beginnen: kies een personage, een plek en een probleem, en je hebt al een verhaal. Een piratenmeid die bang is voor water. Een astronaut die vergeten is hoe hij terug moet. Kijk hoeveel er ontstaan."
+        },
+        {
+          "id": "muestra",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cuenta",
+              "muestra"
+            ]
+          },
+          "lamina": [
+            "manos",
+            "lluvia"
+          ],
+          "texto": "En een regel uit schrijfcursussen: laat zien, vertel niet. Schrijf in plaats van „hij was bang” liever „zijn handen trilden”. Laat de lezer het zelf ontdekken."
+        },
+        {
+          "id": "relaciones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dibujo",
+              "quienQuiere",
+              "secreto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En in Relaties teken ik hoe mijn personages met elkaar verbonden zijn: wie van wie houdt, en wie voor wie een geheim heeft."
+        }
+      ]
+    },
+    {
+      "id": "diario",
+      "titulo": "Hoe schrijf je elke dag beter?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zeven. Hoe schrijf je elke dag beter?"
+        },
+        {
+          "id": "boice",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "boice"
+          },
+          "lamina": [
+            "reloj",
+            "escritorioLuz"
+          ],
+          "destacada": true,
+          "texto": "In 1990 volgde Robert Boice tien weken lang hoogleraren die meer wilden schrijven. Wie op inspiratie wachtte, schreef ongeveer twee tiende van een bladzijde per dag. Wie een dagelijkse afspraak met het vel had, meer dan drie bladzijden."
+        },
+        {
+          "id": "reescribir",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "39",
+            "clave": "reescribir"
+          },
+          "lamina": [
+            "papelBola",
+            "maquina2"
+          ],
+          "meme": "borrador",
+          "texto": "En het goede komt bij het herschrijven. Hemingway vertelde dat hij de laatste bladzijde van Afscheid van de wapenen negenendertig keer herschreef. Niet omdat hij niet kon schrijven, maar omdat hij wist hoe je verbetert."
+        },
+        {
+          "id": "vozAlta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeVoz",
+              "trabas",
+              "cambia2"
+            ]
+          },
+          "lamina": [
+            "leer",
+            "microfono"
+          ],
+          "texto": "Een trucje om te verbeteren: lees hardop. Waar jij hapert, zal je lezer ook haperen."
+        },
+        {
+          "id": "ia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "continuar",
+              "mejorar",
+              "resumir"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En het huis reist al door de ruimte, op weg naar alles wat je gaat schrijven. Als ik vastloop, kan ik op mijn vel de kunstmatige intelligentie om ideeën vragen om verder te gaan, te verbeteren of samen te vatten. Maar het verhaal schrijf ik zelf."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel acht. Hoe ga je verder? Jouw plan om door te gaan."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planEscribir"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "De eerste week elke dag tien minuten vrij schrijven, op hetzelfde tijdstip. Zonder te verbeteren en zonder het aan iemand te laten zien."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "proyecto",
+              "corrige",
+              "termina"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "De eerste maand kies je een klein project: een kort verhaal, een brief of een dagboek van je dagen. En verbeter het hardop voordat je het af noemt."
+        },
+        {
+          "id": "futuro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2001",
+            "clave": "futuro"
+          },
+          "lamina": [
+            "estrellas",
+            "cohete"
+          ],
+          "texto": "En een oefening voor het slot: schrijf aan je toekomstige zelf. In 2001 vroeg Laura King studenten om vier dagen lang twintig minuten te schrijven over het beste leven dat ze zich konden voorstellen, en daarna zaten ze beter in hun vel."
+        },
+        {
+          "id": "exportar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "descargo",
+              "imprimo",
+              "comparto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En als ik iets af heb, download ik het hier, print ik het of deel ik het om er samen aan te schrijven."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Kortom: schrijven neemt je angst weg en ordent je hoofd; begin zonder naar perfectie te zoeken; verhalen blijven hangen, dus vertel ze; en schrijf elke dag een beetje, want het goede komt bij het herschrijven."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "In de kamer Schrijven van MindHaOS kun je je boeken schrijven, hun personages, plaatsen en bedrijven bewaren, en alleen schrijven of met hulp van de kunstmatige intelligentie. Bouw vandaag gratis je mentale huis: de link staat in de beschrijving. En in de volgende gids: hoe vind je een hobby en hoe hou je die vol?",
+    "boton": "Kamer Schrijven openen",
+    "lamina": "app-plan",
+    "anclas": {
+      "libros": "je boeken",
+      "personajes": "hun personages",
+      "ia": "de kunstmatige intelligentie"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "pennebaker-1986",
+      "texto": "Pennebaker J. W., Beall S. K. Confronting a traumatic event: Toward an understanding of inhibition and disease. Journal of Abnormal Psychology (1986).",
+      "url": "https://doi.org/10.1037/0021-843X.95.3.274"
+    },
+    {
+      "id": "ramirez-2011",
+      "texto": "Ramirez G., Beilock S. L. Writing about testing worries boosts exam performance in the classroom. Science (2011).",
+      "url": "https://doi.org/10.1126/science.1199427"
+    },
+    {
+      "id": "elbow-1973",
+      "texto": "Elbow P. Writing Without Teachers. Oxford University Press (1973).",
+      "url": "https://global.oup.com/academic/product/writing-without-teachers-9780195120165"
+    },
+    {
+      "id": "lamott-1994",
+      "texto": "Lamott A. Bird by Bird: Some Instructions on Writing and Life (1994).",
+      "url": "https://en.wikipedia.org/wiki/Bird_by_Bird"
+    },
+    {
+      "id": "hemingway-1935",
+      "texto": "Hemingway E. Monologue to the Maestro: A High Seas Letter. Esquire (oktober 1935).",
+      "url": "https://classic.esquire.com/article/1935/10/1/monologue-to-the-maestro"
+    },
+    {
+      "id": "forster-1927",
+      "texto": "Forster E. M. Aspects of the Novel (1927).",
+      "url": "https://en.wikipedia.org/wiki/Aspects_of_the_Novel"
+    },
+    {
+      "id": "bangert-drowns-2004",
+      "texto": "Bangert-Drowns R. L., Hurley M. M., Wilkinson B. The effects of school-based writing-to-learn interventions on academic achievement: A meta-analysis. Review of Educational Research (2004).",
+      "url": "https://doi.org/10.3102/00346543074001029"
+    },
+    {
+      "id": "schmandt-besserat-1996",
+      "texto": "Schmandt-Besserat D. How Writing Came About. University of Texas Press (1996).",
+      "url": "https://utpress.utexas.edu/9780292777040/"
+    },
+    {
+      "id": "old-weather",
+      "texto": "Old Weather: burgerwetenschapsproject dat scheepslogboeken overtypt (sinds 2010).",
+      "url": "https://en.wikipedia.org/wiki/Old_Weather"
+    },
+    {
+      "id": "bower-1969",
+      "texto": "Bower G. H., Clark M. C. Narrative stories as mediators for serial learning. Psychonomic Science (1969).",
+      "url": "https://doi.org/10.3758/BF03332778"
+    },
+    {
+      "id": "reagan-2016",
+      "texto": "Reagan A. J., Mitchell L., Kiley D., Danforth C. M., Dodds P. S. The emotional arcs of stories are dominated by six basic shapes. EPJ Data Science (2016).",
+      "url": "https://doi.org/10.1140/epjds/s13688-016-0093-1"
+    },
+    {
+      "id": "aristoteles",
+      "texto": "Aristoteles. Poëtica (4e eeuw v.Chr.).",
+      "url": "https://www.gutenberg.org/ebooks/1974"
+    },
+    {
+      "id": "boice-1990",
+      "texto": "Boice R. Professors as Writers: A Self-Help Guide to Productive Writing. New Forums Press (1990).",
+      "url": "https://newforums.com/our-titles/successful-faculty-development/scholarly-writing-publishing/professors-as-writers/"
+    },
+    {
+      "id": "hemingway-1958",
+      "texto": "Plimpton G. Ernest Hemingway, The Art of Fiction No. 21. The Paris Review (1958).",
+      "url": "https://www.theparisreview.org/interviews/4825/the-art-of-fiction-no-21-ernest-hemingway"
+    },
+    {
+      "id": "king-2001",
+      "texto": "King L. A. The health benefits of writing about life goals. Personality and Social Psychology Bulletin (2001).",
+      "url": "https://doi.org/10.1177/0146167201277003"
+    }
+  ]
+}

@@ -7329,6 +7329,7 @@ export const AR: Dict = {
   'guia.mindfulness.titulo': "لماذا يوصلك التمهّل أسرع؟",
   'guia.agenda.titulo': "كيف تنظّم وقتك؟",
   'guia.aprender.titulo': "كيف تتعلّم أسرع؟",
+  'guia.escritura.titulo': "لماذا عليك أن تكتب؟",
   'tut.esencial.titulo': 'الأساسيات',
   'tut.tipo.ejemplos': 'أمثلة · MindHaOS التجريبي',
   'tut.app-agenda--esencial.resumen':

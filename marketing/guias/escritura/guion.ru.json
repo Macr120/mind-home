@@ -1,0 +1,750 @@
+{
+  "idioma": "ru",
+  "tema": "escritura",
+  "plantillaId": "escritura",
+  "numero": 14,
+  "nombre": "Письмо",
+  "pregunta": "Почему тебе стоит писать?",
+  "corta": "Почему тебе стоит писать?",
+  "subtitulo": "Почему, когда пишешь, страх отступает, почему пугает чистый лист, как письмо наводит порядок в голове, почему человечество пишет уже пять тысяч лет, почему истории запоминаются, как построить хорошую историю, как писать лучше с каждым днём и план, чтобы начать.",
+  "aviso": "Это руководство носит информационный характер: результаты упомянутых исследований пересказаны упрощённо, а письмо не заменяет помощь специалиста. Если то, что тебя тревожит, не даёт тебе жить спокойно, поговори с тем, кому доверяешь, или со специалистом.",
+  "partes": [
+    {
+      "id": "miedo",
+      "titulo": "Почему, когда пишешь, страх отступает?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Почему тебе стоит писать? Почти все мы пишем каждый день: сообщения, списки, письма. Но почти никто не пишет для себя и упускает то, что наука измеряет уже сорок лет. Что происходит у тебя в голове, когда ты пишешь? Сегодня ты это увидишь и уйдёшь с планом, чтобы начать писать уже на этой неделе."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Кстати, это мой дом в MindHaOS, и в этой комнате я пишу. И посмотри на дом: сегодня это дом с привидениями, как страх перед чистым листом, и на каждом этапе руководства он будет меняться. Начнём."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть первая. Почему, когда пишешь, страх отступает?"
+        },
+        {
+          "id": "pennebaker",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "15 мин",
+            "clave": "pennebaker"
+          },
+          "lamina": [
+            "noche",
+            "escribirNoche"
+          ],
+          "destacada": true,
+          "texto": "Начнём с того, что пугает. В 1986 году Джеймс Пеннебейкер и Сандра Билл попросили студентов четыре дня подряд по пятнадцать минут писать о самом трудном, что им довелось пережить. В следующие месяцы они реже ходили к врачу, чем те, кто писал о пустяках."
+        },
+        {
+          "id": "examen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "preocupaciones"
+          },
+          "lamina": [
+            "examen",
+            "nervios"
+          ],
+          "meme": "nervios",
+          "texto": "И это работает прямо перед тем, чего ты боишься. В 2011 году Херардо Рамирес и Сиан Бейлок попросили школьников перед экзаменом десять минут писать о своём волнении. Они сдали лучше, а самые взволнованные — лучше всех."
+        },
+        {
+          "id": "porque",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombralo",
+              "escribelo",
+              "sueltalo"
+            ]
+          },
+          "lamina": [
+            "cabeza",
+            "libreta"
+          ],
+          "texto": "Почему? Потому что тревога занимает место в рабочей памяти, той, которой ты думаешь. Когда ты её записываешь, ты вынимаешь её оттуда и оставляешь на бумаге."
+        },
+        {
+          "id": "escritorio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abro",
+              "escribo",
+              "suelto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Посмотри на дом: он всё ещё с привидениями, как то, о чём нам порой страшно писать. Здесь, в моей комнате, я тоже записываю то, что меня пугает: лист хранит это за меня, чтобы голове не приходилось."
+        }
+      ]
+    },
+    {
+      "id": "blanco",
+      "titulo": "Почему чистый лист так пугает?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть вторая. Почему чистый лист так пугает?"
+        },
+        {
+          "id": "perfecto",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quieres",
+              "juzgas",
+              "borras"
+            ]
+          },
+          "lamina": [
+            "hojaBlanca",
+            "borrar"
+          ],
+          "meme": "hojaBlanca",
+          "texto": "Самый частый страх у пишущих — чистый лист. И почти всегда он берётся из одного и того же: из желания, чтобы с первого раза вышло идеально."
+        },
+        {
+          "id": "elbow",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escrituraLibre"
+          },
+          "lamina": [
+            "teclear",
+            "cuaderno"
+          ],
+          "destacada": true,
+          "texto": "В 1973 году профессор Питер Элбоу предложил средство: свободное письмо. Десять минут без остановки, ничего не стирая и не исправляя. Если не знаешь, что писать, пишешь «не знаю, что писать», пока не появится что-то другое."
+        },
+        {
+          "id": "lamott",
+          "escena": "habla",
+          "visual": {
+            "tipo": "cita"
+          },
+          "lamina": [
+            "borrador",
+            "tachones"
+          ],
+          "texto": "Писательница Энн Ламотт сказала прямо: почти любой хороший текст начинается с ужасного первого черновика. Главное — написать его, а не сделать красивым."
+        },
+        {
+          "id": "hemingway",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "para",
+              "sabes",
+              "manana"
+            ]
+          },
+          "lamina": [
+            "maquina",
+            "amanecer"
+          ],
+          "texto": "И приём Эрнеста Хемингуэя: заканчивай писать, когда уже знаешь, что будет дальше. Тогда на следующий день лист не будет чистым."
+        },
+        {
+          "id": "hoja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abroLibro",
+              "seGuarda",
+              "corrijo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "В моей комнате я открываю книгу и пишу без страха: лист сохраняется сам, пока я пишу, а исправляю я потом."
+        }
+      ]
+    },
+    {
+      "id": "orden",
+      "titulo": "Почему письмо наводит порядок в голове?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть третья. Почему письмо наводит порядок в голове?"
+        },
+        {
+          "id": "forster",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "suelta",
+              "fila",
+              "forma"
+            ]
+          },
+          "lamina": [
+            "pensar",
+            "ventana"
+          ],
+          "texto": "В 1927 году писатель Э. М. Форстер привёл знаменитый вопрос: как мне узнать, что я думаю, пока я не увижу, что говорю? Когда пишешь, разрозненные мысли должны выстроиться в очередь, одна за другой."
+        },
+        {
+          "id": "aprender",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "48",
+            "clave": "aprender"
+          },
+          "lamina": [
+            "estudiar",
+            "apuntes"
+          ],
+          "destacada": true,
+          "texto": "И это помогает учиться. В 2004 году Роберт Бангерт-Драунс и его коллеги изучили сорок восемь школьных программ, в которых писали, чтобы учиться. Это работало, особенно когда ученики писали о том, что понимают, а что нет."
+        },
+        {
+          "id": "decidir",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nudo"
+          },
+          "lamina": [
+            "nudo",
+            "lista"
+          ],
+          "texto": "Поэтому письмо помогает и принимать решения: сформулируй проблему одной фразой, выпиши варианты и что будет при каждом из них. То, что в голове было узлом, на бумаге становится списком."
+        },
+        {
+          "id": "indice",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "titulos",
+              "indiceSolo",
+              "veoForma"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "На моём листе каждый заголовок, который я пишу, сам собирает оглавление, и так я вижу форму того, о чём думаю."
+        }
+      ]
+    },
+    {
+      "id": "bitacora",
+      "titulo": "Почему человечество пишет уже пять тысяч лет?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть четвёртая. Почему человечество пишет уже пять тысяч лет?"
+        },
+        {
+          "id": "uruk",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaEscritura"
+          },
+          "lamina": [
+            "tablilla",
+            "trigo"
+          ],
+          "destacada": true,
+          "meme": "sumerios",
+          "texto": "Письменность родилась около пяти тысяч лет назад в Месопотамии, в таких городах, как Урук, и появилась она не для стихов, а для счёта. Ячмень, пиво, овцы. Писать значило не забыть."
+        },
+        {
+          "id": "barcos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rumbo",
+              "viento",
+              "clima"
+            ]
+          },
+          "lamina": [
+            "barco",
+            "brujula"
+          ],
+          "texto": "Века спустя корабли вели судовой журнал: каждый день капитан записывал курс, ветер и погоду."
+        },
+        {
+          "id": "oldWeather",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2010",
+            "clave": "oldWeather"
+          },
+          "lamina": [
+            "oleaje",
+            "mapa"
+          ],
+          "texto": "И эти записи полезны до сих пор. С 2010 года тысячи добровольцев проекта Old Weather перенесли в компьютер судовые журналы столетней давности, и сегодня учёные используют больше миллиона этих данных, чтобы изучать климат."
+        },
+        {
+          "id": "estante",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unLibro",
+              "porProyecto",
+              "cuantos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "И смотри: теперь дом — пиратский корабль, вроде тех, что вели свой журнал. Мой живёт здесь, на моей полке: по книге на путешествие, на проект или на идею."
+        }
+      ]
+    },
+    {
+      "id": "historias",
+      "titulo": "Почему история врезается в память?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть пятая. Почему история врезается в память?"
+        },
+        {
+          "id": "bower",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cadena"
+          },
+          "lamina": [
+            "fogata",
+            "contar"
+          ],
+          "destacada": true,
+          "texto": "В 1969 году Гордон Бауэр и Майкл Кларк дали студентам списки из десяти слов. Одни просто их повторяли; другие придумывали историю, которая их связывала. В итоге те, кто придумал историю, запомнили примерно в семь раз больше слов."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoEscritura"
+          },
+          "lamina": "pulgar",
+          "texto": "Если тебе нравится это руководство, нажми «Нравится», «Подписаться», чтобы не пропустить следующее, и «Поделиться», чтобы отправить его тому, кто говорит, что когда-нибудь напишет книгу."
+        },
+        {
+          "id": "arcos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "arcos"
+          },
+          "lamina": [
+            "libros",
+            "biblioteca"
+          ],
+          "texto": "А у историй есть формы. В 2016 году команда из Вермонтского университета проанализировала на компьютере больше тысячи трёхсот романов и обнаружила, что почти все следуют шести формам, например из грязи в князи или упасть в яму и выбраться из неё."
+        },
+        {
+          "id": "personajes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "personajesP",
+              "lugares",
+              "actos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "В каждой своей книге я храню персонажей, места и акты истории, а их имена отмечены в тексте."
+        }
+      ]
+    },
+    {
+      "id": "trama",
+      "titulo": "Как построить хорошую историю?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть шестая. Как построить хорошую историю?"
+        },
+        {
+          "id": "aristoteles",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quiere",
+              "impide",
+              "cambia"
+            ]
+          },
+          "lamina": [
+            "teatro",
+            "mascaras"
+          ],
+          "texto": "Больше двух тысяч лет назад Аристотель написал, что у цельной истории есть начало, середина и конец. Звучит очевидно, но это основа почти всего: кто-то чего-то хочет, что-то ему мешает, а в конце он меняется."
+        },
+        {
+          "id": "tirada",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tirada"
+          },
+          "lamina": [
+            "dados",
+            "isla"
+          ],
+          "destacada": true,
+          "texto": "Игра для начала: выбери персонажа, место и проблему, и история готова. Пиратка, которая боится воды. Астронавт, который забыл, как вернуться. Посмотри, сколько их получается."
+        },
+        {
+          "id": "muestra",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cuenta",
+              "muestra"
+            ]
+          },
+          "lamina": [
+            "manos",
+            "lluvia"
+          ],
+          "texto": "И правило писательских мастерских: показывай, а не рассказывай. Вместо «ему было страшно» напиши «у него дрожали руки». Пусть читатель сам это откроет."
+        },
+        {
+          "id": "relaciones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dibujo",
+              "quienQuiere",
+              "secreto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "А в «Связях» я рисую, как связаны мои персонажи: кто кого любит и кто от кого хранит секрет."
+        }
+      ]
+    },
+    {
+      "id": "diario",
+      "titulo": "Как писать лучше с каждым днём?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть седьмая. Как писать лучше с каждым днём?"
+        },
+        {
+          "id": "boice",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "boice"
+          },
+          "lamina": [
+            "reloj",
+            "escritorioLuz"
+          ],
+          "destacada": true,
+          "texto": "В 1990 году Роберт Бойс десять недель наблюдал за преподавателями, которые хотели писать больше. Те, кто ждал вдохновения, писали около двух десятых страницы в день. Те, у кого была ежедневная встреча с листом, — больше трёх страниц."
+        },
+        {
+          "id": "reescribir",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "39",
+            "clave": "reescribir"
+          },
+          "lamina": [
+            "papelBola",
+            "maquina2"
+          ],
+          "meme": "borrador",
+          "texto": "А хорошее рождается при правке. Хемингуэй рассказывал, что тридцать девять раз переписывал последнюю страницу романа «Прощай, оружие». Не потому, что не умел писать, а потому, что умел править."
+        },
+        {
+          "id": "vozAlta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeVoz",
+              "trabas",
+              "cambia2"
+            ]
+          },
+          "lamina": [
+            "leer",
+            "microfono"
+          ],
+          "texto": "Приём для правки: читай вслух. Где запинаешься ты, там запнётся и читатель."
+        },
+        {
+          "id": "ia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "continuar",
+              "mejorar",
+              "resumir"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "А дом уже летит через космос, навстречу всему, что ты напишешь. Если я застряну, на своём листе я могу попросить у искусственного интеллекта идеи, чтобы продолжить, улучшить или кратко пересказать. Но историю пишу я."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Что дальше? Твой план, чтобы продолжать",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть восьмая. Что дальше? Твой план, чтобы продолжать."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planEscribir"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "В первую неделю — десять минут свободного письма каждый день, в одно и то же время. Без правки и никому не показывая."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "proyecto",
+              "corrige",
+              "termina"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "В первый месяц выбери небольшой проект: короткий рассказ, письмо или дневник своих дней. И отредактируй его вслух, прежде чем считать законченным."
+        },
+        {
+          "id": "futuro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2001",
+            "clave": "futuro"
+          },
+          "lamina": [
+            "estrellas",
+            "cohete"
+          ],
+          "texto": "И упражнение напоследок: напиши себе в будущее. В 2001 году Лора Кинг попросила студентов четыре дня по двадцать минут писать о лучшей жизни, какую они могли себе представить, и в итоге у них улучшилось настроение."
+        },
+        {
+          "id": "exportar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "descargo",
+              "imprimo",
+              "comparto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "А когда я что-то заканчиваю, здесь я это скачиваю, печатаю или делюсь этим, чтобы писать вместе с другими."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Итак: письмо избавляет от страха и наводит порядок в голове; начинай, не гонясь за совершенством; истории запоминаются, так что рассказывай их; и пиши понемногу каждый день, потому что хорошее рождается при правке."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "В комнате «Письмо» в MindHaOS ты можешь писать свои книги, хранить их персонажей, места и акты, и писать самостоятельно или с помощью искусственного интеллекта. Построй свой мысленный дом бесплатно уже сегодня: ссылка в описании. А в следующем руководстве: как найти хобби и не бросить его?",
+    "boton": "Открыть комнату «Письмо»",
+    "lamina": "app-plan",
+    "anclas": {
+      "libros": "свои книги",
+      "personajes": "их персонажей",
+      "ia": "искусственного интеллекта"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "pennebaker-1986",
+      "texto": "Pennebaker J. W., Beall S. K. Confronting a traumatic event: Toward an understanding of inhibition and disease. Journal of Abnormal Psychology (1986).",
+      "url": "https://doi.org/10.1037/0021-843X.95.3.274"
+    },
+    {
+      "id": "ramirez-2011",
+      "texto": "Ramirez G., Beilock S. L. Writing about testing worries boosts exam performance in the classroom. Science (2011).",
+      "url": "https://doi.org/10.1126/science.1199427"
+    },
+    {
+      "id": "elbow-1973",
+      "texto": "Elbow P. Writing Without Teachers. Oxford University Press (1973).",
+      "url": "https://global.oup.com/academic/product/writing-without-teachers-9780195120165"
+    },
+    {
+      "id": "lamott-1994",
+      "texto": "Lamott A. Bird by Bird: Some Instructions on Writing and Life (1994).",
+      "url": "https://en.wikipedia.org/wiki/Bird_by_Bird"
+    },
+    {
+      "id": "hemingway-1935",
+      "texto": "Hemingway E. Monologue to the Maestro: A High Seas Letter. Esquire (октябрь 1935).",
+      "url": "https://classic.esquire.com/article/1935/10/1/monologue-to-the-maestro"
+    },
+    {
+      "id": "forster-1927",
+      "texto": "Forster E. M. Aspects of the Novel (1927).",
+      "url": "https://en.wikipedia.org/wiki/Aspects_of_the_Novel"
+    },
+    {
+      "id": "bangert-drowns-2004",
+      "texto": "Bangert-Drowns R. L., Hurley M. M., Wilkinson B. The effects of school-based writing-to-learn interventions on academic achievement: A meta-analysis. Review of Educational Research (2004).",
+      "url": "https://doi.org/10.3102/00346543074001029"
+    },
+    {
+      "id": "schmandt-besserat-1996",
+      "texto": "Schmandt-Besserat D. How Writing Came About. University of Texas Press (1996).",
+      "url": "https://utpress.utexas.edu/9780292777040/"
+    },
+    {
+      "id": "old-weather",
+      "texto": "Old Weather: проект гражданской науки, в котором расшифровывают судовые журналы (с 2010 года).",
+      "url": "https://en.wikipedia.org/wiki/Old_Weather"
+    },
+    {
+      "id": "bower-1969",
+      "texto": "Bower G. H., Clark M. C. Narrative stories as mediators for serial learning. Psychonomic Science (1969).",
+      "url": "https://doi.org/10.3758/BF03332778"
+    },
+    {
+      "id": "reagan-2016",
+      "texto": "Reagan A. J., Mitchell L., Kiley D., Danforth C. M., Dodds P. S. The emotional arcs of stories are dominated by six basic shapes. EPJ Data Science (2016).",
+      "url": "https://doi.org/10.1140/epjds/s13688-016-0093-1"
+    },
+    {
+      "id": "aristoteles",
+      "texto": "Аристотель. Поэтика (IV век до н. э.).",
+      "url": "https://www.gutenberg.org/ebooks/1974"
+    },
+    {
+      "id": "boice-1990",
+      "texto": "Boice R. Professors as Writers: A Self-Help Guide to Productive Writing. New Forums Press (1990).",
+      "url": "https://newforums.com/our-titles/successful-faculty-development/scholarly-writing-publishing/professors-as-writers/"
+    },
+    {
+      "id": "hemingway-1958",
+      "texto": "Plimpton G. Ernest Hemingway, The Art of Fiction No. 21. The Paris Review (1958).",
+      "url": "https://www.theparisreview.org/interviews/4825/the-art-of-fiction-no-21-ernest-hemingway"
+    },
+    {
+      "id": "king-2001",
+      "texto": "King L. A. The health benefits of writing about life goals. Personality and Social Psychology Bulletin (2001).",
+      "url": "https://doi.org/10.1177/0146167201277003"
+    }
+  ]
+}

@@ -1,0 +1,750 @@
+{
+  "idioma": "ar",
+  "tema": "escritura",
+  "plantillaId": "escritura",
+  "numero": 14,
+  "nombre": "الكتابة",
+  "pregunta": "لماذا عليك أن تكتب؟",
+  "corta": "لماذا عليك أن تكتب؟",
+  "subtitulo": "لماذا تزيل الكتابة خوفك، ولماذا تُخيف الصفحة البيضاء، وكيف ترتّب الكتابة أفكارك، ولماذا تكتب البشرية منذ خمسة آلاف عام، ولماذا تبقى القصص في الذاكرة، وكيف تُبنى قصة جيدة، وكيف تكتب أفضل كل يوم، وخطة لتبدأ.",
+  "aviso": "هذا الدليل للمعلومات فقط: الدراسات المذكورة تُلخَّص نتائجها ببساطة، والكتابة لا تغني عن مساعدة مختص. إن كان ما يقلقك يمنعك من العيش بسلام، فتحدّث مع شخص تثق به أو مع مختص.",
+  "partes": [
+    {
+      "id": "miedo",
+      "titulo": "لماذا تزيل الكتابة خوفك؟",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "لماذا عليك أن تكتب؟ كلنا تقريبًا نكتب كل يوم: رسائل، وقوائم، وبريدًا إلكترونيًا. لكن لا أحد تقريبًا يكتب لنفسه، فيفوته شيء يقيسه العلم منذ أربعين عامًا. ماذا يحدث في رأسك حين تكتب؟ اليوم سترى ذلك، وستخرج بخطة لتبدأ الكتابة من هذا الأسبوع."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "بالمناسبة، هذا بيتي في MindHaOS، وفي هذه الغرفة أكتب. وانظر إلى البيت: اليوم هو بيت مسكون، مثل الخوف من الصفحة البيضاء، وسيتغيّر في كل مرحلة من الدليل. لنبدأ."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الأول. لماذا تزيل الكتابة خوفك؟"
+        },
+        {
+          "id": "pennebaker",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "15 دقيقة",
+            "clave": "pennebaker"
+          },
+          "lamina": [
+            "noche",
+            "escribirNoche"
+          ],
+          "destacada": true,
+          "texto": "لنبدأ بما يخيف. في عام 1986، طلب جيمس بينيبيكر وساندرا بيل من طلاب أن يكتبوا خمس عشرة دقيقة، أربعة أيام متتالية، عن أصعب ما عاشوه. وفي الأشهر التالية، زاروا الطبيب أقل ممن كتبوا عن أمور تافهة."
+        },
+        {
+          "id": "examen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "preocupaciones"
+          },
+          "lamina": [
+            "examen",
+            "nervios"
+          ],
+          "meme": "nervios",
+          "texto": "وهي تنفع قبل ما يخيفك مباشرة. في عام 2011، طلب جيراردو راميريز وسيان بيلوك من طلاب أن يكتبوا عشر دقائق عن توترهم قبل امتحان. فكانت نتائجهم أفضل، وأكثرهم توترًا استفاد أكثر من الجميع."
+        },
+        {
+          "id": "porque",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombralo",
+              "escribelo",
+              "sueltalo"
+            ]
+          },
+          "lamina": [
+            "cabeza",
+            "libreta"
+          ],
+          "texto": "لماذا؟ لأن القلق يشغل مكانًا في ذاكرتك العاملة، التي تستخدمها للتفكير. وحين تكتبه، تُخرجه من هناك وتتركه على الورق."
+        },
+        {
+          "id": "escritorio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abro",
+              "escribo",
+              "suelto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "انظر إلى البيت: ما زال مسكونًا، مثل ما نخاف أحيانًا من كتابته. هنا، في غرفتي، أكتب أنا أيضًا ما يخيفني: الورقة تحفظه حتى لا يضطر رأسي إلى ذلك."
+        }
+      ]
+    },
+    {
+      "id": "blanco",
+      "titulo": "لماذا تُخيفنا الصفحة البيضاء إلى هذا الحد؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثاني. لماذا تُخيفنا الصفحة البيضاء إلى هذا الحد؟"
+        },
+        {
+          "id": "perfecto",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quieres",
+              "juzgas",
+              "borras"
+            ]
+          },
+          "lamina": [
+            "hojaBlanca",
+            "borrar"
+          ],
+          "meme": "hojaBlanca",
+          "texto": "أكثر خوف شائع عند من يكتب هو الصفحة البيضاء. وغالبًا ما يأتي من الشيء نفسه: أن تريد أن يخرج النص مثاليًا من المرة الأولى."
+        },
+        {
+          "id": "elbow",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escrituraLibre"
+          },
+          "lamina": [
+            "teclear",
+            "cuaderno"
+          ],
+          "destacada": true,
+          "texto": "في عام 1973، اقترح الأستاذ بيتر إلبو علاجًا: الكتابة الحرة. عشر دقائق بلا توقف، وبلا حذف، وبلا تصحيح. وإن لم تعرف ماذا تكتب، فاكتب «لا أعرف ماذا أكتب» حتى يخرج شيء آخر."
+        },
+        {
+          "id": "lamott",
+          "escena": "habla",
+          "visual": {
+            "tipo": "cita"
+          },
+          "lamina": [
+            "borrador",
+            "tachones"
+          ],
+          "texto": "قالتها الكاتبة آن لاموت بلا مواربة: كل نص جيد تقريبًا يبدأ بمسودة أولى رديئة جدًا. المهم أن تكتبها، لا أن تخرج جميلة."
+        },
+        {
+          "id": "hemingway",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "para",
+              "sabes",
+              "manana"
+            ]
+          },
+          "lamina": [
+            "maquina",
+            "amanecer"
+          ],
+          "texto": "وحيلة من إرنست همنغواي: توقّف عن الكتابة حين تعرف ما الذي سيأتي بعد. وهكذا، في اليوم التالي، لا تكون الصفحة بيضاء."
+        },
+        {
+          "id": "hoja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abroLibro",
+              "seGuarda",
+              "corrijo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "في غرفتي، أفتح كتابًا وأكتب بلا خوف: الورقة تُحفظ وحدها وأنا أكتب، وأصحّح لاحقًا."
+        }
+      ]
+    },
+    {
+      "id": "orden",
+      "titulo": "لماذا ترتّب الكتابة أفكارك؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثالث. لماذا ترتّب الكتابة أفكارك؟"
+        },
+        {
+          "id": "forster",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "suelta",
+              "fila",
+              "forma"
+            ]
+          },
+          "lamina": [
+            "pensar",
+            "ventana"
+          ],
+          "texto": "في عام 1927، استشهد الروائي إي. إم. فورستر بسؤال شهير: كيف أعرف ما أفكر فيه حتى أرى ما أقوله؟ حين تكتب، على الأفكار المبعثرة أن تصطف، واحدة تلو الأخرى."
+        },
+        {
+          "id": "aprender",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "48",
+            "clave": "aprender"
+          },
+          "lamina": [
+            "estudiar",
+            "apuntes"
+          ],
+          "destacada": true,
+          "texto": "وهذا يساعد على التعلّم. في عام 2004، راجع روبرت بانغرت-دراونز وفريقه ثمانية وأربعين برنامجًا مدرسيًا يُكتب فيها من أجل التعلّم. ونجح الأمر، خصوصًا حين كتب الطلاب عمّا فهموه وعمّا لم يفهموه."
+        },
+        {
+          "id": "decidir",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nudo"
+          },
+          "lamina": [
+            "nudo",
+            "lista"
+          ],
+          "texto": "لذلك تفيد الكتابة أيضًا في اتخاذ القرار: ضع المشكلة في جملة واحدة، واكتب خياراتك وما سيحدث مع كل منها. ما كان في رأسك عقدة، يصير على الورق قائمة."
+        },
+        {
+          "id": "indice",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "titulos",
+              "indiceSolo",
+              "veoForma"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "في ورقتي، كل عنوان أكتبه يبني الفهرس وحده، وهكذا أرى شكل ما أفكر فيه."
+        }
+      ]
+    },
+    {
+      "id": "bitacora",
+      "titulo": "لماذا تكتب البشرية منذ خمسة آلاف عام؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الرابع. لماذا تكتب البشرية منذ خمسة آلاف عام؟"
+        },
+        {
+          "id": "uruk",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaEscritura"
+          },
+          "lamina": [
+            "tablilla",
+            "trigo"
+          ],
+          "destacada": true,
+          "meme": "sumerios",
+          "texto": "وُلدت الكتابة قبل نحو خمسة آلاف عام في بلاد ما بين النهرين، في مدن مثل أوروك، ولم تكن للشعر: بل للعدّ. شعير، وجعة، وأغنام. كانت الكتابة طريقة كي لا ننسى."
+        },
+        {
+          "id": "barcos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rumbo",
+              "viento",
+              "clima"
+            ]
+          },
+          "lamina": [
+            "barco",
+            "brujula"
+          ],
+          "texto": "بعد قرون، صارت السفن تحمل يوميات على متنها، هي سجل السفينة: كل يوم، يدوّن القبطان الاتجاه والريح والطقس."
+        },
+        {
+          "id": "oldWeather",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2010",
+            "clave": "oldWeather"
+          },
+          "lamina": [
+            "oleaje",
+            "mapa"
+          ],
+          "texto": "وتلك الملاحظات ما زالت مفيدة. منذ عام 2010، نقل آلاف المتطوعين في مشروع Old Weather إلى الحاسوب سجلات سفن من قبل قرن، واليوم يستخدم العلماء أكثر من مليون من تلك البيانات لدراسة المناخ."
+        },
+        {
+          "id": "estante",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unLibro",
+              "porProyecto",
+              "cuantos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "وانظر: صار البيت الآن سفينة قراصنة، مثل السفن التي كانت تحمل سجلّها. وسجلّي يعيش هنا، على رفّ كتبي: كتاب لكل رحلة، أو مشروع، أو فكرة."
+        }
+      ]
+    },
+    {
+      "id": "historias",
+      "titulo": "لماذا تبقى القصة محفورة في ذاكرتك؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الخامس. لماذا تبقى القصة محفورة في ذاكرتك؟"
+        },
+        {
+          "id": "bower",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cadena"
+          },
+          "lamina": [
+            "fogata",
+            "contar"
+          ],
+          "destacada": true,
+          "texto": "في عام 1969، أعطى غوردون باور ومايكل كلارك طلابًا قوائم من عشر كلمات. بعضهم اكتفى بمراجعتها؛ وآخرون اخترعوا قصة تربط بينها. وفي النهاية، تذكّر أصحاب القصة نحو سبعة أضعاف الكلمات."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoEscritura"
+          },
+          "lamina": "pulgar",
+          "texto": "إن كان هذا الدليل يعجبك، فاضغط «أعجبني»، و«اشتراك» حتى لا يفوتك الدليل القادم، و«مشاركة» مع ذلك الشخص الذي يقول إنه سيكتب كتابًا يومًا ما."
+        },
+        {
+          "id": "arcos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "arcos"
+          },
+          "lamina": [
+            "libros",
+            "biblioteca"
+          ],
+          "texto": "وللقصص أشكال. في عام 2016، حلّل فريق من جامعة فيرمونت بالحواسيب أكثر من ألف وثلاثمئة رواية، ووجد أن معظمها تقريبًا يتبع ستة أشكال، مثل الانتقال من الفقر إلى الغنى، أو السقوط في حفرة ثم الخروج منها."
+        },
+        {
+          "id": "personajes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "personajesP",
+              "lugares",
+              "actos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "في كل كتاب من كتبي أحفظ الشخصيات والأماكن والأقسام في القصة، ويبقى اسمها مميّزًا في النص."
+        }
+      ]
+    },
+    {
+      "id": "trama",
+      "titulo": "كيف تُبنى قصة جيدة؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السادس. كيف تُبنى قصة جيدة؟"
+        },
+        {
+          "id": "aristoteles",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quiere",
+              "impide",
+              "cambia"
+            ]
+          },
+          "lamina": [
+            "teatro",
+            "mascaras"
+          ],
+          "texto": "قبل أكثر من ألفي عام، كتب أرسطو أن القصة الكاملة لها بداية ووسط ونهاية. يبدو ذلك بديهيًا، لكنه أساس كل شيء تقريبًا: شخص يريد شيئًا، وشيء يمنعه، وفي النهاية يتغيّر."
+        },
+        {
+          "id": "tirada",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tirada"
+          },
+          "lamina": [
+            "dados",
+            "isla"
+          ],
+          "destacada": true,
+          "texto": "لعبة لتبدأ: اختر شخصية ومكانًا ومشكلة، فتصير لديك قصة. قرصانة تخاف من الماء. رائد فضاء نسي كيف يعود. انظر كم قصة تخرج."
+        },
+        {
+          "id": "muestra",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cuenta",
+              "muestra"
+            ]
+          },
+          "lamina": [
+            "manos",
+            "lluvia"
+          ],
+          "texto": "وقاعدة من ورش الكتابة: أظهِر، ولا تَحكِ. بدل «كان خائفًا»، اكتب «كانت يداه ترتجفان». دع القارئ يكتشف ذلك بنفسه."
+        },
+        {
+          "id": "relaciones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dibujo",
+              "quienQuiere",
+              "secreto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "وفي «العلاقات» أرسم كيف ترتبط شخصياتي: من يحب من، ومن يخفي سرًّا عن من."
+        }
+      ]
+    },
+    {
+      "id": "diario",
+      "titulo": "كيف تكتب أفضل كل يوم؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السابع. كيف تكتب أفضل كل يوم؟"
+        },
+        {
+          "id": "boice",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "boice"
+          },
+          "lamina": [
+            "reloj",
+            "escritorioLuz"
+          ],
+          "destacada": true,
+          "texto": "في عام 1990، تابع روبرت بويس طوال عشرة أسابيع أساتذة أرادوا أن يكتبوا أكثر. من انتظروا الإلهام كتبوا نحو عُشرَي صفحة في اليوم. ومن كان لديهم موعد يومي مع الورقة، أكثر من ثلاث صفحات."
+        },
+        {
+          "id": "reescribir",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "39",
+            "clave": "reescribir"
+          },
+          "lamina": [
+            "papelBola",
+            "maquina2"
+          ],
+          "meme": "borrador",
+          "texto": "والجيد يخرج عند التصحيح. روى همنغواي أنه أعاد كتابة الصفحة الأخيرة من «وداعًا للسلاح» تسعًا وثلاثين مرة. لا لأنه لم يكن يعرف الكتابة، بل لأنه كان يعرف التصحيح."
+        },
+        {
+          "id": "vozAlta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeVoz",
+              "trabas",
+              "cambia2"
+            ]
+          },
+          "lamina": [
+            "leer",
+            "microfono"
+          ],
+          "texto": "حيلة للتصحيح: اقرأ بصوت عالٍ. حيث تتعثّر أنت، سيتعثّر القارئ أيضًا."
+        },
+        {
+          "id": "ia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "continuar",
+              "mejorar",
+              "resumir"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "والبيت الآن يسافر عبر الفضاء، نحو كل ما ستكتبه. إن علِقت، يمكنني في ورقتي أن أطلب أفكارًا من الذكاء الاصطناعي للمتابعة أو التحسين أو التلخيص. لكن القصة أكتبها أنا."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "كيف تستمر؟ خطتك للمواصلة",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثامن. كيف تستمر؟ خطتك للمواصلة."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planEscribir"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "في الأسبوع الأول، عشر دقائق من الكتابة الحرة كل يوم، في الساعة نفسها. بلا تصحيح، ومن دون أن تُريها لأحد."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "proyecto",
+              "corrige",
+              "termina"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "في الشهر الأول، اختر مشروعًا صغيرًا: قصة قصيرة، أو رسالة، أو يوميات أيامك. وصحّحه بصوت عالٍ قبل أن تعدّه منتهيًا."
+        },
+        {
+          "id": "futuro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2001",
+            "clave": "futuro"
+          },
+          "lamina": [
+            "estrellas",
+            "cohete"
+          ],
+          "texto": "وتمرين للختام: اكتب رسالة إلى نفسك في المستقبل. في عام 2001، طلبت لورا كينغ من طلاب أن يكتبوا عشرين دقيقة، أربعة أيام، عن أفضل حياة يمكنهم تخيّلها، فانتهوا بمزاج أفضل."
+        },
+        {
+          "id": "exportar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "descargo",
+              "imprimo",
+              "comparto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "وحين أنهي شيئًا، هنا أنزّله، أو أطبعه، أو أشاركه لنكتبه معًا."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "باختصار: الكتابة تزيل خوفك وترتّب أفكارك؛ ابدأ دون أن تبحث عن الكمال؛ القصص تبقى، فاروِها؛ واكتب قليلًا كل يوم، لأن الجيد يخرج عند التصحيح."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "في غرفة الكتابة في MindHaOS يمكنك أن تكتب كتبك، وتحفظ شخصياتها وأماكنها وأقسامها، وتكتب وحدك أو بمساعدة الذكاء الاصطناعي. ابنِ بيتك الذهني مجانًا اليوم: الرابط في الوصف. وفي الدليل القادم: كيف تجد هواية وتحافظ عليها؟",
+    "boton": "افتح غرفة الكتابة",
+    "lamina": "app-plan",
+    "anclas": {
+      "libros": "تكتب كتبك",
+      "personajes": "شخصياتها",
+      "ia": "الذكاء الاصطناعي"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "pennebaker-1986",
+      "texto": "Pennebaker J. W., Beall S. K. Confronting a traumatic event: Toward an understanding of inhibition and disease. Journal of Abnormal Psychology (1986).",
+      "url": "https://doi.org/10.1037/0021-843X.95.3.274"
+    },
+    {
+      "id": "ramirez-2011",
+      "texto": "Ramirez G., Beilock S. L. Writing about testing worries boosts exam performance in the classroom. Science (2011).",
+      "url": "https://doi.org/10.1126/science.1199427"
+    },
+    {
+      "id": "elbow-1973",
+      "texto": "Elbow P. Writing Without Teachers. Oxford University Press (1973).",
+      "url": "https://global.oup.com/academic/product/writing-without-teachers-9780195120165"
+    },
+    {
+      "id": "lamott-1994",
+      "texto": "Lamott A. Bird by Bird: Some Instructions on Writing and Life (1994).",
+      "url": "https://en.wikipedia.org/wiki/Bird_by_Bird"
+    },
+    {
+      "id": "hemingway-1935",
+      "texto": "Hemingway E. Monologue to the Maestro: A High Seas Letter. Esquire (أكتوبر 1935).",
+      "url": "https://classic.esquire.com/article/1935/10/1/monologue-to-the-maestro"
+    },
+    {
+      "id": "forster-1927",
+      "texto": "Forster E. M. Aspects of the Novel (1927).",
+      "url": "https://en.wikipedia.org/wiki/Aspects_of_the_Novel"
+    },
+    {
+      "id": "bangert-drowns-2004",
+      "texto": "Bangert-Drowns R. L., Hurley M. M., Wilkinson B. The effects of school-based writing-to-learn interventions on academic achievement: A meta-analysis. Review of Educational Research (2004).",
+      "url": "https://doi.org/10.3102/00346543074001029"
+    },
+    {
+      "id": "schmandt-besserat-1996",
+      "texto": "Schmandt-Besserat D. How Writing Came About. University of Texas Press (1996).",
+      "url": "https://utpress.utexas.edu/9780292777040/"
+    },
+    {
+      "id": "old-weather",
+      "texto": "Old Weather: مشروع علم تشاركي ينسخ سجلات السفن (منذ 2010).",
+      "url": "https://en.wikipedia.org/wiki/Old_Weather"
+    },
+    {
+      "id": "bower-1969",
+      "texto": "Bower G. H., Clark M. C. Narrative stories as mediators for serial learning. Psychonomic Science (1969).",
+      "url": "https://doi.org/10.3758/BF03332778"
+    },
+    {
+      "id": "reagan-2016",
+      "texto": "Reagan A. J., Mitchell L., Kiley D., Danforth C. M., Dodds P. S. The emotional arcs of stories are dominated by six basic shapes. EPJ Data Science (2016).",
+      "url": "https://doi.org/10.1140/epjds/s13688-016-0093-1"
+    },
+    {
+      "id": "aristoteles",
+      "texto": "أرسطو. فن الشعر (القرن الرابع قبل الميلاد).",
+      "url": "https://www.gutenberg.org/ebooks/1974"
+    },
+    {
+      "id": "boice-1990",
+      "texto": "Boice R. Professors as Writers: A Self-Help Guide to Productive Writing. New Forums Press (1990).",
+      "url": "https://newforums.com/our-titles/successful-faculty-development/scholarly-writing-publishing/professors-as-writers/"
+    },
+    {
+      "id": "hemingway-1958",
+      "texto": "Plimpton G. Ernest Hemingway, The Art of Fiction No. 21. The Paris Review (1958).",
+      "url": "https://www.theparisreview.org/interviews/4825/the-art-of-fiction-no-21-ernest-hemingway"
+    },
+    {
+      "id": "king-2001",
+      "texto": "King L. A. The health benefits of writing about life goals. Personality and Social Psychology Bulletin (2001).",
+      "url": "https://doi.org/10.1177/0146167201277003"
+    }
+  ]
+}

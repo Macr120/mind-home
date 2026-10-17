@@ -10,6 +10,7 @@ import { HERRAMIENTAS_METAS, HerramientaMetas } from './Metas'
 import { HERRAMIENTAS_MINDFULNESS, HerramientaMindfulness } from './Mindfulness'
 import { HERRAMIENTAS_APRENDER, HerramientaAprender } from './Aprender'
 import { HERRAMIENTAS_AGENDA, HerramientaAgenda } from './Agenda'
+import { HERRAMIENTAS_ESCRITURA, HerramientaEscritura } from './Escritura'
 import type { T } from './datos'
 
 /**
@@ -29,6 +30,7 @@ export function Herramienta({ id, t, demo }: { id: string; t: T; demo: boolean }
   if (HERRAMIENTAS_MINDFULNESS.has(id)) return <HerramientaMindfulness id={id} t={t} demo={demo} />
   if (HERRAMIENTAS_APRENDER.has(id)) return <HerramientaAprender id={id} t={t} demo={demo} />
   if (HERRAMIENTAS_AGENDA.has(id)) return <HerramientaAgenda id={id} t={t} demo={demo} />
+  if (HERRAMIENTAS_ESCRITURA.has(id)) return <HerramientaEscritura id={id} t={t} demo={demo} />
   if (id === 'escalaRpe') return <EscalaRpe t={t} demo={demo} />
   if (id === 'zonasCardiacas') return <ZonasCardiacas t={t} demo={demo} />
   if (id === 'armaTuPlan') return <ArmaTuPlan t={t} demo={demo} />

@@ -1,0 +1,750 @@
+{
+  "idioma": "zh",
+  "tema": "escritura",
+  "plantillaId": "escritura",
+  "numero": 14,
+  "nombre": "写作",
+  "pregunta": "你为什么应该写作？",
+  "corta": "你为什么应该写作？",
+  "subtitulo": "为什么写作能赶走恐惧，为什么白纸让人害怕，写作怎样理清你的头脑，人类为什么写了五千年，为什么故事让人难忘，怎样搭起一个好故事，怎样每天写得更好，以及一个开始写作的计划。",
+  "aviso": "本指南仅供参考：文中引用的研究只是简要概括了结果，写作也不能代替专业人士的帮助。如果你的担忧让你无法安心生活，请和你信任的人或专业人士谈一谈。",
+  "partes": [
+    {
+      "id": "miedo",
+      "titulo": "为什么写作能赶走恐惧？",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "你为什么应该写作？我们几乎每天都在写东西：消息、清单、邮件。可几乎没有人为自己而写，于是错过了科学研究了四十年的一样东西。你写作的时候，脑子里发生了什么？今天你就会看到，还会带走一个从这周就开始写作的计划。"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "对了，这是我在MindHaOS里的家，我就在这个房间里写作。再看看这座房子：今天它是一座鬼屋，就像面对白纸时的那种恐惧，而且指南每进入一个阶段，它都会变。我们开始吧。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第一部分。为什么写作能赶走恐惧？"
+        },
+        {
+          "id": "pennebaker",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "15分钟",
+            "clave": "pennebaker"
+          },
+          "lamina": [
+            "noche",
+            "escribirNoche"
+          ],
+          "destacada": true,
+          "texto": "我们先从让人害怕的事说起。1986年，詹姆斯·彭尼贝克和桑德拉·比尔请大学生连续四天、每天写十五分钟，写自己经历过的最艰难的事。在接下来的几个月里，他们去看医生的次数，比写无关紧要小事的学生更少。"
+        },
+        {
+          "id": "examen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "preocupaciones"
+          },
+          "lamina": [
+            "examen",
+            "nervios"
+          ],
+          "meme": "nervios",
+          "texto": "而且就在让你害怕的事情之前，它也管用。2011年，赫拉尔多·拉米雷斯和席安·贝洛克请学生在考试前花十分钟写下自己的紧张。他们考得更好，最紧张的那些学生，进步比谁都大。"
+        },
+        {
+          "id": "porque",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombralo",
+              "escribelo",
+              "sueltalo"
+            ]
+          },
+          "lamina": [
+            "cabeza",
+            "libreta"
+          ],
+          "texto": "为什么？因为担忧会占用你的工作记忆，也就是你用来思考的那部分记忆。把它写下来，你就把它从那里拿出来，放到了纸上。"
+        },
+        {
+          "id": "escritorio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abro",
+              "escribo",
+              "suelto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "看看房子：它还是一座鬼屋，就像那些我们有时不敢写下来的事。在这里，在我的房间里，我也会把让我害怕的事写下来：纸页替我收着，我的脑子就不用一直记着了。"
+        }
+      ]
+    },
+    {
+      "id": "blanco",
+      "titulo": "为什么白纸这么让人害怕？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第二部分。为什么白纸这么让人害怕？"
+        },
+        {
+          "id": "perfecto",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quieres",
+              "juzgas",
+              "borras"
+            ]
+          },
+          "lamina": [
+            "hojaBlanca",
+            "borrar"
+          ],
+          "meme": "hojaBlanca",
+          "texto": "写作的人最常见的恐惧，就是白纸。而它几乎总是来自同一个地方：想要一下笔就写得完美。"
+        },
+        {
+          "id": "elbow",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escrituraLibre"
+          },
+          "lamina": [
+            "teclear",
+            "cuaderno"
+          ],
+          "destacada": true,
+          "texto": "1973年，彼得·埃尔博教授提出了一个办法：自由写作。十分钟，不停笔，不删除，也不修改。如果不知道写什么，就写“我不知道写什么”，直到写出别的东西为止。"
+        },
+        {
+          "id": "lamott",
+          "escena": "habla",
+          "visual": {
+            "tipo": "cita"
+          },
+          "lamina": [
+            "borrador",
+            "tachones"
+          ],
+          "texto": "作家安·拉莫特说得很直白：几乎所有好文字，都是从一份糟糕的初稿开始的。重要的是把它写出来，而不是写得漂亮。"
+        },
+        {
+          "id": "hemingway",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "para",
+              "sabes",
+              "manana"
+            ]
+          },
+          "lamina": [
+            "maquina",
+            "amanecer"
+          ],
+          "texto": "还有欧内斯特·海明威的一个窍门：在你已经知道接下来要写什么的时候停笔。这样第二天，纸就不是空白的了。"
+        },
+        {
+          "id": "hoja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abroLibro",
+              "seGuarda",
+              "corrijo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在我的房间里，我打开一本书，放心地写：我写的时候，纸页会自动保存，修改留到以后再说。"
+        }
+      ]
+    },
+    {
+      "id": "orden",
+      "titulo": "为什么写作能理清你的头脑？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第三部分。为什么写作能理清你的头脑？"
+        },
+        {
+          "id": "forster",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "suelta",
+              "fila",
+              "forma"
+            ]
+          },
+          "lamina": [
+            "pensar",
+            "ventana"
+          ],
+          "texto": "1927年，小说家E. M. 福斯特引用过一个有名的问题：“我不看到自己说了什么，怎么知道自己在想什么？”写作的时候，零散的想法不得不排好队，一个接一个。"
+        },
+        {
+          "id": "aprender",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "48",
+            "clave": "aprender"
+          },
+          "lamina": [
+            "estudiar",
+            "apuntes"
+          ],
+          "destacada": true,
+          "texto": "这对学习也有帮助。2004年，罗伯特·班格特-德朗斯和他的团队研究了四十八个通过写作来学习的学校项目。它们是有效的，尤其是当学生写下自己懂了什么、还有哪里不懂的时候。"
+        },
+        {
+          "id": "decidir",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nudo"
+          },
+          "lamina": [
+            "nudo",
+            "lista"
+          ],
+          "texto": "所以写作也能帮你做决定：用一句话写下问题，写出你的选项，以及每个选项会带来什么。在脑子里是一团乱麻的东西，到了纸上就成了一张清单。"
+        },
+        {
+          "id": "indice",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "titulos",
+              "indiceSolo",
+              "veoForma"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在我的纸页上，我写下的每个标题都会自动生成目录，这样我就能看清自己在想的事情是什么形状。"
+        }
+      ]
+    },
+    {
+      "id": "bitacora",
+      "titulo": "为什么人类写了五千年？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第四部分。为什么人类写了五千年？"
+        },
+        {
+          "id": "uruk",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaEscritura"
+          },
+          "lamina": [
+            "tablilla",
+            "trigo"
+          ],
+          "destacada": true,
+          "meme": "sumerios",
+          "texto": "文字大约诞生于五千年前的美索不达米亚，在乌鲁克这样的城市里，而且不是为了写诗，是为了记数。大麦、啤酒、羊。写字，就是为了不忘记。"
+        },
+        {
+          "id": "barcos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rumbo",
+              "viento",
+              "clima"
+            ]
+          },
+          "lamina": [
+            "barco",
+            "brujula"
+          ],
+          "texto": "几个世纪以后，船上都有航海日志：船长每天都会记下航向、风和天气。"
+        },
+        {
+          "id": "oldWeather",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2010",
+            "clave": "oldWeather"
+          },
+          "lamina": [
+            "oleaje",
+            "mapa"
+          ],
+          "texto": "而这些记录至今仍有用。从2010年起，Old Weather项目的成千上万名志愿者，把一百年前船只的航海日志录入电脑，如今科学家们用其中一百多万条数据来研究气候。"
+        },
+        {
+          "id": "estante",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unLibro",
+              "porProyecto",
+              "cuantos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "你看：房子现在变成了一艘海盗船，就像那些写航海日志的船一样。我的日志就在这里，在我的书架上：一次旅行、一个项目或一个想法，各一本书。"
+        }
+      ]
+    },
+    {
+      "id": "historias",
+      "titulo": "为什么故事会让你记住？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第五部分。为什么故事会让你记住？"
+        },
+        {
+          "id": "bower",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cadena"
+          },
+          "lamina": [
+            "fogata",
+            "contar"
+          ],
+          "destacada": true,
+          "texto": "1969年，戈登·鲍尔和迈克尔·克拉克给学生们几张清单，每张有十个词。有些学生只是反复看；另一些学生编了一个把这些词串起来的故事。结果，编故事的学生记住的词多了大约七倍。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoEscritura"
+          },
+          "lamina": "pulgar",
+          "texto": "如果你喜欢这份指南，请点赞，订阅，别错过下一期，再分享给那个总说有一天要写本书的朋友。"
+        },
+        {
+          "id": "arcos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "arcos"
+          },
+          "lamina": [
+            "libros",
+            "biblioteca"
+          ],
+          "texto": "而且故事是有形状的。2016年，佛蒙特大学的一个团队用电脑分析了一千三百多部小说，发现几乎所有小说都遵循六种形状，比如从穷人变成富人，或者掉进坑里再爬出来。"
+        },
+        {
+          "id": "personajes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "personajesP",
+              "lugares",
+              "actos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在我的每一本书里，我都收着故事的角色、场景地点和幕，它们的名字会在正文里标出来。"
+        }
+      ]
+    },
+    {
+      "id": "trama",
+      "titulo": "怎样搭起一个好故事？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第六部分。怎样搭起一个好故事？"
+        },
+        {
+          "id": "aristoteles",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quiere",
+              "impide",
+              "cambia"
+            ]
+          },
+          "lamina": [
+            "teatro",
+            "mascaras"
+          ],
+          "texto": "两千多年前，亚里士多德写道，一个完整的故事有开头、中间和结尾。听起来理所当然，但几乎一切故事都建立在这上面：有人想要某样东西，有什么挡住了他，最后他变了。"
+        },
+        {
+          "id": "tirada",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tirada"
+          },
+          "lamina": [
+            "dados",
+            "isla"
+          ],
+          "destacada": true,
+          "texto": "来玩个游戏开个头：选一个角色、一个地点和一个难题，你就有了一个故事。一个怕水的女海盗。一个忘了怎么回去的宇航员。看看能组合出多少个。"
+        },
+        {
+          "id": "muestra",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cuenta",
+              "muestra"
+            ]
+          },
+          "lamina": [
+            "manos",
+            "lluvia"
+          ],
+          "texto": "还有写作课上的一条规矩：要展示，别叙述。别写“他很害怕”，要写“他的手在发抖”。让读的人自己去发现。"
+        },
+        {
+          "id": "relaciones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dibujo",
+              "quienQuiere",
+              "secreto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在“关系”里，我会画出我的角色们是怎么联系在一起的：谁爱着谁，谁又对谁藏着秘密。"
+        }
+      ]
+    },
+    {
+      "id": "diario",
+      "titulo": "怎样每天写得更好？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第七部分。怎样每天写得更好？"
+        },
+        {
+          "id": "boice",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "boice"
+          },
+          "lamina": [
+            "reloj",
+            "escritorioLuz"
+          ],
+          "destacada": true,
+          "texto": "1990年，罗伯特·博伊斯花了十周，跟踪一群想多写点东西的大学老师。等灵感的人，每天大约只写了零点二页。每天和纸页有个固定约会的人，写了三页多。"
+        },
+        {
+          "id": "reescribir",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "39",
+            "clave": "reescribir"
+          },
+          "lamina": [
+            "papelBola",
+            "maquina2"
+          ],
+          "meme": "borrador",
+          "texto": "好东西都是改出来的。海明威说过，他把《永别了，武器》的最后一页重写了三十九遍。不是因为他不会写，而是因为他懂得修改。"
+        },
+        {
+          "id": "vozAlta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeVoz",
+              "trabas",
+              "cambia2"
+            ]
+          },
+          "lamina": [
+            "leer",
+            "microfono"
+          ],
+          "texto": "一个修改的窍门：大声读出来。你读着卡住的地方，读者也会卡住。"
+        },
+        {
+          "id": "ia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "continuar",
+              "mejorar",
+              "resumir"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "房子已经在太空中旅行了，飞向你将要写下的一切。如果我卡住了，可以在我的纸页上请人工智能给我出主意，帮我续写、改写或总结。但故事，是我自己写的。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "怎样坚持下去？你的继续计划",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第八部分。怎样坚持下去？你的继续计划。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planEscribir"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "第一周，每天在同一时间做十分钟自由写作。不修改，也不给任何人看。"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "proyecto",
+              "corrige",
+              "termina"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "第一个月，选一个小项目：一篇短故事、一封信，或者记录你日子的日记。在算它完成之前，大声读一遍，把它改好。"
+        },
+        {
+          "id": "futuro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2001",
+            "clave": "futuro"
+          },
+          "lamina": [
+            "estrellas",
+            "cohete"
+          ],
+          "texto": "最后再做一个练习：给未来的自己写信。2001年，劳拉·金请学生们连续四天、每天花二十分钟，写下他们能想象到的最好的人生，结果他们的心情都变好了。"
+        },
+        {
+          "id": "exportar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "descargo",
+              "imprimo",
+              "comparto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "写完一样东西以后，我就在这里把它下载、打印，或者分享出去，和大家一起写。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "总结一下：写作能赶走恐惧，理清你的头脑；开始时别追求完美；故事让人难忘，所以把它们讲出来；每天写一点，因为好东西都是改出来的。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "在MindHaOS的写作房间里，你可以写你的书，收好书里的角色、场景地点和幕，可以自己一个人写，也可以借助人工智能来写。今天就免费搭建你的心灵之家。链接在视频简介里。下一期指南：怎样找到一个爱好并坚持下去？",
+    "boton": "打开写作房间",
+    "lamina": "app-plan",
+    "anclas": {
+      "libros": "写你的书",
+      "personajes": "角色",
+      "ia": "借助人工智能"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "pennebaker-1986",
+      "texto": "Pennebaker J. W., Beall S. K. Confronting a traumatic event: Toward an understanding of inhibition and disease. Journal of Abnormal Psychology (1986).",
+      "url": "https://doi.org/10.1037/0021-843X.95.3.274"
+    },
+    {
+      "id": "ramirez-2011",
+      "texto": "Ramirez G., Beilock S. L. Writing about testing worries boosts exam performance in the classroom. Science (2011).",
+      "url": "https://doi.org/10.1126/science.1199427"
+    },
+    {
+      "id": "elbow-1973",
+      "texto": "Elbow P. Writing Without Teachers. Oxford University Press (1973).",
+      "url": "https://global.oup.com/academic/product/writing-without-teachers-9780195120165"
+    },
+    {
+      "id": "lamott-1994",
+      "texto": "Lamott A. Bird by Bird: Some Instructions on Writing and Life (1994).",
+      "url": "https://en.wikipedia.org/wiki/Bird_by_Bird"
+    },
+    {
+      "id": "hemingway-1935",
+      "texto": "Hemingway E. Monologue to the Maestro: A High Seas Letter. Esquire（1935年10月）。",
+      "url": "https://classic.esquire.com/article/1935/10/1/monologue-to-the-maestro"
+    },
+    {
+      "id": "forster-1927",
+      "texto": "Forster E. M. Aspects of the Novel (1927).",
+      "url": "https://en.wikipedia.org/wiki/Aspects_of_the_Novel"
+    },
+    {
+      "id": "bangert-drowns-2004",
+      "texto": "Bangert-Drowns R. L., Hurley M. M., Wilkinson B. The effects of school-based writing-to-learn interventions on academic achievement: A meta-analysis. Review of Educational Research (2004).",
+      "url": "https://doi.org/10.3102/00346543074001029"
+    },
+    {
+      "id": "schmandt-besserat-1996",
+      "texto": "Schmandt-Besserat D. How Writing Came About. University of Texas Press (1996).",
+      "url": "https://utpress.utexas.edu/9780292777040/"
+    },
+    {
+      "id": "old-weather",
+      "texto": "Old Weather：转录船只航海日志的公民科学项目（始于2010年）。",
+      "url": "https://en.wikipedia.org/wiki/Old_Weather"
+    },
+    {
+      "id": "bower-1969",
+      "texto": "Bower G. H., Clark M. C. Narrative stories as mediators for serial learning. Psychonomic Science (1969).",
+      "url": "https://doi.org/10.3758/BF03332778"
+    },
+    {
+      "id": "reagan-2016",
+      "texto": "Reagan A. J., Mitchell L., Kiley D., Danforth C. M., Dodds P. S. The emotional arcs of stories are dominated by six basic shapes. EPJ Data Science (2016).",
+      "url": "https://doi.org/10.1140/epjds/s13688-016-0093-1"
+    },
+    {
+      "id": "aristoteles",
+      "texto": "亚里士多德，《诗学》（公元前4世纪）。",
+      "url": "https://www.gutenberg.org/ebooks/1974"
+    },
+    {
+      "id": "boice-1990",
+      "texto": "Boice R. Professors as Writers: A Self-Help Guide to Productive Writing. New Forums Press (1990).",
+      "url": "https://newforums.com/our-titles/successful-faculty-development/scholarly-writing-publishing/professors-as-writers/"
+    },
+    {
+      "id": "hemingway-1958",
+      "texto": "Plimpton G. Ernest Hemingway, The Art of Fiction No. 21. The Paris Review (1958).",
+      "url": "https://www.theparisreview.org/interviews/4825/the-art-of-fiction-no-21-ernest-hemingway"
+    },
+    {
+      "id": "king-2001",
+      "texto": "King L. A. The health benefits of writing about life goals. Personality and Social Psychology Bulletin (2001).",
+      "url": "https://doi.org/10.1177/0146167201277003"
+    }
+  ]
+}

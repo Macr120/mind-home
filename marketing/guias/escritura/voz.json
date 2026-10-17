@@ -1,0 +1,5 @@
+{
+  "rate": "+2%",
+  "pitch": "-20Hz",
+  "filtro": "vibrato=f=5.5:d=0.12,lowpass=f=6500"
+}

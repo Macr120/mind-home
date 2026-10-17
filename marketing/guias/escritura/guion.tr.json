@@ -1,0 +1,750 @@
+{
+  "idioma": "tr",
+  "tema": "escritura",
+  "plantillaId": "escritura",
+  "numero": 14,
+  "nombre": "Yazı",
+  "pregunta": "Neden yazmalısın?",
+  "corta": "Neden yazmalısın?",
+  "subtitulo": "Yazmak korkunu neden alır, boş sayfa neden korkutur, yazmak kafanı nasıl toparlar, insanlık neden beş bin yıldır yazıyor, hikâyeler neden akılda kalır, iyi bir hikâye nasıl kurulur, her gün nasıl daha iyi yazılır ve başlamak için bir plan.",
+  "aviso": "Bu rehber bilgilendirme amaçlıdır: anılan çalışmaların sonuçları sade bir dille özetlenmiştir ve yazmak bir uzmanın yardımının yerini tutmaz. Seni kaygılandıran şey huzur içinde yaşamana izin vermiyorsa, güvendiğin biriyle ya da bir uzmanla konuş.",
+  "partes": [
+    {
+      "id": "miedo",
+      "titulo": "Yazmak korkunu neden alır?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Neden yazmalısın? Neredeyse hepimiz her gün yazarız: mesajlar, listeler, e-postalar. Ama neredeyse kimse kendisi için yazmaz ve bilimin kırk yıldır ölçtüğü bir şeyi kaçırır. Yazarken kafanın içinde ne olur? Bugün bunu göreceksin ve bu hafta yazmaya başlamak için bir planla ayrılacaksın."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Bu arada, burası MindHaOS'taki evim ve bu odada yazıyorum. Eve de bir bak: bugün bir perili ev, tıpkı boş sayfa korkusu gibi, ve rehberin her aşamasında değişecek. Başlayalım."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Birinci bölüm. Yazmak korkunu neden alır?"
+        },
+        {
+          "id": "pennebaker",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "15 dk",
+            "clave": "pennebaker"
+          },
+          "lamina": [
+            "noche",
+            "escribirNoche"
+          ],
+          "destacada": true,
+          "texto": "Korkutan şeyle başlayalım. 1986'da James Pennebaker ve Sandra Beall, öğrencilerden art arda dört gün, on beşer dakika, yaşadıkları en zor şey hakkında yazmalarını istedi. Sonraki aylarda, önemsiz şeyler hakkında yazanlara göre daha az doktora gittiler."
+        },
+        {
+          "id": "examen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "preocupaciones"
+          },
+          "lamina": [
+            "examen",
+            "nervios"
+          ],
+          "meme": "nervios",
+          "texto": "Ve korktuğun şeyin hemen öncesinde de işe yarar. 2011'de Gerardo Ramírez ve Sian Beilock, öğrencilerden bir sınavdan önce on dakika boyunca kaygıları hakkında yazmalarını istedi. Daha başarılı oldular, en kaygılı olanlar ise herkesten daha başarılı."
+        },
+        {
+          "id": "porque",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombralo",
+              "escribelo",
+              "sueltalo"
+            ]
+          },
+          "lamina": [
+            "cabeza",
+            "libreta"
+          ],
+          "texto": "Neden mi? Çünkü endişe, düşünmek için kullandığın çalışma belleğinde yer kaplar. Onu yazdığında oradan çıkarır ve kâğıda bırakırsın."
+        },
+        {
+          "id": "escritorio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abro",
+              "escribo",
+              "suelto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Eve bak: hâlâ perili, tıpkı bazen yazmaktan korktuğumuz şeyler gibi. Burada, odamda, beni korkutan şeyleri ben de yazarım: sayfa onları saklar ki kafam saklamak zorunda kalmasın."
+        }
+      ]
+    },
+    {
+      "id": "blanco",
+      "titulo": "Boş sayfa neden bu kadar korkutur?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "İkinci bölüm. Boş sayfa neden bu kadar korkutur?"
+        },
+        {
+          "id": "perfecto",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quieres",
+              "juzgas",
+              "borras"
+            ]
+          },
+          "lamina": [
+            "hojaBlanca",
+            "borrar"
+          ],
+          "meme": "hojaBlanca",
+          "texto": "Yazanların en yaygın korkusu boş sayfadır. Ve neredeyse her zaman aynı yerden gelir: ilk seferde kusursuz olsun isteğinden."
+        },
+        {
+          "id": "elbow",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escrituraLibre"
+          },
+          "lamina": [
+            "teclear",
+            "cuaderno"
+          ],
+          "destacada": true,
+          "texto": "1973'te profesör Peter Elbow bir çare önerdi: serbest yazma. Durmadan, silmeden ve düzeltmeden on dakika. Ne yazacağını bilmiyorsan, başka bir şey çıkana kadar “ne yazacağımı bilmiyorum” yazarsın."
+        },
+        {
+          "id": "lamott",
+          "escena": "habla",
+          "visual": {
+            "tipo": "cita"
+          },
+          "lamina": [
+            "borrador",
+            "tachones"
+          ],
+          "texto": "Yazar Anne Lamott bunu dolandırmadan söyledi: neredeyse her iyi metin berbat bir ilk taslakla başlar. Önemli olan onu yazmak, güzel olması değil."
+        },
+        {
+          "id": "hemingway",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "para",
+              "sabes",
+              "manana"
+            ]
+          },
+          "lamina": [
+            "maquina",
+            "amanecer"
+          ],
+          "texto": "Bir de Ernest Hemingway'in bir hilesi: sırada ne olduğunu bildiğinde yazmayı bırak. Böylece ertesi gün sayfa boş olmaz."
+        },
+        {
+          "id": "hoja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abroLibro",
+              "seGuarda",
+              "corrijo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Odamda bir kitap açar ve korkmadan yazarım: ben yazarken sayfa kendi kendine kaydedilir, düzeltmeyi de sonra yaparım."
+        }
+      ]
+    },
+    {
+      "id": "orden",
+      "titulo": "Yazmak kafanı neden toparlar?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Üçüncü bölüm. Yazmak kafanı neden toparlar?"
+        },
+        {
+          "id": "forster",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "suelta",
+              "fila",
+              "forma"
+            ]
+          },
+          "lamina": [
+            "pensar",
+            "ventana"
+          ],
+          "texto": "1927'de romancı E. M. Forster ünlü bir soruyu aktardı: ne söylediğimi görmeden ne düşündüğümü nasıl bilebilirim? Yazarken dağınık fikirler sıraya girmek zorundadır, biri diğerinin ardından."
+        },
+        {
+          "id": "aprender",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "48",
+            "clave": "aprender"
+          },
+          "lamina": [
+            "estudiar",
+            "apuntes"
+          ],
+          "destacada": true,
+          "texto": "Ve bu, öğrenmeye yardım eder. 2004'te Robert Bangert-Drowns ve ekibi, öğrenmek için yazılan kırk sekiz okul programını inceledi. İşe yaradı, özellikle de öğrenciler neyi anlayıp neyi anlamadıkları hakkında yazdığında."
+        },
+        {
+          "id": "decidir",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nudo"
+          },
+          "lamina": [
+            "nudo",
+            "lista"
+          ],
+          "texto": "Bu yüzden yazmak karar vermeye de yarar: sorunu tek bir cümleyle yaz, seçeneklerini ve her birinde ne olacağını yaz. Kafanda bir düğüm olan şey, kâğıtta bir listeye dönüşür."
+        },
+        {
+          "id": "indice",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "titulos",
+              "indiceSolo",
+              "veoForma"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Sayfamda yazdığım her başlık dizini kendiliğinden oluşturur, böylece düşündüğüm şeyin şeklini görürüm."
+        }
+      ]
+    },
+    {
+      "id": "bitacora",
+      "titulo": "İnsanlık neden beş bin yıldır yazıyor?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Dördüncü bölüm. İnsanlık neden beş bin yıldır yazıyor?"
+        },
+        {
+          "id": "uruk",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaEscritura"
+          },
+          "lamina": [
+            "tablilla",
+            "trigo"
+          ],
+          "destacada": true,
+          "meme": "sumerios",
+          "texto": "Yazı yaklaşık beş bin yıl önce Mezopotamya'da, Uruk gibi şehirlerde doğdu ve şiir için değil, saymak içindi. Arpa, bira, koyun. Yazmak, unutmamanın yoluydu."
+        },
+        {
+          "id": "barcos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rumbo",
+              "viento",
+              "clima"
+            ]
+          },
+          "lamina": [
+            "barco",
+            "brujula"
+          ],
+          "texto": "Yüzyıllar sonra gemiler bir seyir defteri tutuyordu: kaptan her gün rotayı, rüzgârı ve havayı kaydederdi."
+        },
+        {
+          "id": "oldWeather",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2010",
+            "clave": "oldWeather"
+          },
+          "lamina": [
+            "oleaje",
+            "mapa"
+          ],
+          "texto": "Ve bu notlar hâlâ işe yarıyor. 2010'dan beri Old Weather projesinin binlerce gönüllüsü, yüz yıl önceki gemilerin seyir defterlerini bilgisayara aktardı ve bugün bilim insanları iklimi incelemek için bu verilerden bir milyondan fazlasını kullanıyor."
+        },
+        {
+          "id": "estante",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unLibro",
+              "porProyecto",
+              "cuantos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Ve bak: ev şimdi bir korsan gemisi, tıpkı seyir defteri tutanlar gibi. Benimki burada, rafımda yaşıyor: her yolculuk, her proje ya da her fikir için bir kitap."
+        }
+      ]
+    },
+    {
+      "id": "historias",
+      "titulo": "Bir hikâye neden aklında kalır?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Beşinci bölüm. Bir hikâye neden aklında kalır?"
+        },
+        {
+          "id": "bower",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cadena"
+          },
+          "lamina": [
+            "fogata",
+            "contar"
+          ],
+          "destacada": true,
+          "texto": "1969'da Gordon Bower ve Michael Clark, öğrencilere on kelimelik listeler verdi. Bazıları onları yalnızca tekrar etti; diğerleri onları birleştiren bir hikâye uydurdu. Sonunda hikâye kuranlar yaklaşık yedi kat daha fazla kelime hatırladı."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoEscritura"
+          },
+          "lamina": "pulgar",
+          "texto": "Bu rehberi beğeniyorsan Beğen'e bas, bir sonrakini kaçırmamak için Abone ol ve bir gün kitap yazacağını söyleyen o kişiyle Paylaş."
+        },
+        {
+          "id": "arcos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "arcos"
+          },
+          "lamina": [
+            "libros",
+            "biblioteca"
+          ],
+          "texto": "Ve hikâyelerin şekilleri vardır. 2016'da Vermont Üniversitesi'nden bir ekip bilgisayarla bin üç yüzden fazla romanı inceledi ve neredeyse hepsinin altı şekilden birini izlediğini buldu; örneğin yoksulluktan zenginliğe ya da bir çukura düşüp oradan çıkmak."
+        },
+        {
+          "id": "personajes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "personajesP",
+              "lugares",
+              "actos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Her kitabımda hikâyenin karakterlerini, mekânlarını ve perdelerini saklarım ve adları metinde işaretli kalır."
+        }
+      ]
+    },
+    {
+      "id": "trama",
+      "titulo": "İyi bir hikâye nasıl kurulur?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Altıncı bölüm. İyi bir hikâye nasıl kurulur?"
+        },
+        {
+          "id": "aristoteles",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quiere",
+              "impide",
+              "cambia"
+            ]
+          },
+          "lamina": [
+            "teatro",
+            "mascaras"
+          ],
+          "texto": "İki bin yılı aşkın bir süre önce Aristoteles, eksiksiz bir hikâyenin bir başı, ortası ve sonu olduğunu yazdı. Apaçık görünüyor ama neredeyse her şeyin temeli bu: biri bir şey ister, bir şey ona engel olur ve sonunda değişir."
+        },
+        {
+          "id": "tirada",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tirada"
+          },
+          "lamina": [
+            "dados",
+            "isla"
+          ],
+          "destacada": true,
+          "texto": "Başlamak için bir oyun: bir karakter, bir mekân ve bir sorun seç, işte sana bir hikâye. Sudan korkan bir korsan kadın. Nasıl döneceğini unutan bir astronot. Bak bakalım kaç tane çıkıyor."
+        },
+        {
+          "id": "muestra",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cuenta",
+              "muestra"
+            ]
+          },
+          "lamina": [
+            "manos",
+            "lluvia"
+          ],
+          "texto": "Bir de yazı atölyelerinin kuralı: anlatma, göster. “Korkuyordu” yerine “elleri titriyordu” yaz. Bırak okuyan kendisi keşfetsin."
+        },
+        {
+          "id": "relaciones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dibujo",
+              "quienQuiere",
+              "secreto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "İlişkiler'de de karakterlerimin nasıl bağlandığını çizerim: kim kimi seviyor, kim kimden sır saklıyor."
+        }
+      ]
+    },
+    {
+      "id": "diario",
+      "titulo": "Her gün nasıl daha iyi yazılır?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Yedinci bölüm. Her gün nasıl daha iyi yazılır?"
+        },
+        {
+          "id": "boice",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "boice"
+          },
+          "lamina": [
+            "reloj",
+            "escritorioLuz"
+          ],
+          "destacada": true,
+          "texto": "1990'da Robert Boice, daha çok yazmak isteyen öğretim üyelerini on hafta boyunca izledi. İlham bekleyenler günde sayfanın yaklaşık onda ikisini yazdı. Sayfayla her gün bir randevusu olanlar ise üç sayfadan fazla."
+        },
+        {
+          "id": "reescribir",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "39",
+            "clave": "reescribir"
+          },
+          "lamina": [
+            "papelBola",
+            "maquina2"
+          ],
+          "meme": "borrador",
+          "texto": "Ve iyi olan, düzeltirken çıkar. Hemingway, Silahlara Veda'nın son sayfasını otuz dokuz kez yeniden yazdığını anlatmıştı. Yazmayı bilmediği için değil, düzeltmeyi bildiği için."
+        },
+        {
+          "id": "vozAlta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeVoz",
+              "trabas",
+              "cambia2"
+            ]
+          },
+          "lamina": [
+            "leer",
+            "microfono"
+          ],
+          "texto": "Düzeltmek için bir hile: yüksek sesle oku. Senin takıldığın yerde, okuyan da takılacaktır."
+        },
+        {
+          "id": "ia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "continuar",
+              "mejorar",
+              "resumir"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Ve ev artık uzayda yolculuk ediyor, yazacağın her şeye doğru. Takılırsam sayfamda yapay zekâdan devam etmek, iyileştirmek ya da özetlemek için fikir isteyebilirim. Ama hikâyeyi ben yazarım."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Nasıl devam etmeli? Devam etmek için planın",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Sekizinci bölüm. Nasıl devam etmeli? Devam etmek için planın."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planEscribir"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "İlk hafta, her gün aynı saatte on dakika serbest yazma. Düzeltmeden ve kimseye göstermeden."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "proyecto",
+              "corrige",
+              "termina"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "İlk ay küçük bir proje seç: kısa bir öykü, bir mektup ya da günlerinin günlüğü. Ve bitti demeden önce onu yüksek sesle düzelt."
+        },
+        {
+          "id": "futuro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2001",
+            "clave": "futuro"
+          },
+          "lamina": [
+            "estrellas",
+            "cohete"
+          ],
+          "texto": "Ve sona bir alıştırma: gelecekteki kendine yaz. 2001'de Laura King, öğrencilerden dört gün boyunca yirmişer dakika, hayal edebilecekleri en iyi hayat hakkında yazmalarını istedi ve öğrenciler daha iyi bir ruh hâliyle bitirdi."
+        },
+        {
+          "id": "exportar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "descargo",
+              "imprimo",
+              "comparto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Ve bir şeyi bitirdiğimde, burada indirir, yazdırır ya da birkaç kişiyle birlikte yazmak için paylaşırım."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Özetle: yazmak korkunu alır ve kafanı toparlar; mükemmeli aramadan başla; hikâyeler akılda kalır, o yüzden anlat; ve her gün biraz yaz, çünkü iyi olan düzeltirken çıkar."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS'taki Yazı odasında kitaplarını yazabilir, karakterlerini, mekânlarını ve perdelerini saklayabilir, kendi başına ya da yapay zekânın yardımıyla yazabilirsin. Zihinsel evini bugün ücretsiz kur: bağlantı açıklamada. Bir sonraki rehberde ise: bir hobi nasıl bulunur ve nasıl sürdürülür?",
+    "boton": "Yazı odasını aç",
+    "lamina": "app-plan",
+    "anclas": {
+      "libros": "kitaplarını yazabilir",
+      "personajes": "karakterlerini",
+      "ia": "yapay zekânın"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "pennebaker-1986",
+      "texto": "Pennebaker J. W., Beall S. K. Confronting a traumatic event: Toward an understanding of inhibition and disease. Journal of Abnormal Psychology (1986).",
+      "url": "https://doi.org/10.1037/0021-843X.95.3.274"
+    },
+    {
+      "id": "ramirez-2011",
+      "texto": "Ramirez G., Beilock S. L. Writing about testing worries boosts exam performance in the classroom. Science (2011).",
+      "url": "https://doi.org/10.1126/science.1199427"
+    },
+    {
+      "id": "elbow-1973",
+      "texto": "Elbow P. Writing Without Teachers. Oxford University Press (1973).",
+      "url": "https://global.oup.com/academic/product/writing-without-teachers-9780195120165"
+    },
+    {
+      "id": "lamott-1994",
+      "texto": "Lamott A. Bird by Bird: Some Instructions on Writing and Life (1994).",
+      "url": "https://en.wikipedia.org/wiki/Bird_by_Bird"
+    },
+    {
+      "id": "hemingway-1935",
+      "texto": "Hemingway E. Monologue to the Maestro: A High Seas Letter. Esquire (Ekim 1935).",
+      "url": "https://classic.esquire.com/article/1935/10/1/monologue-to-the-maestro"
+    },
+    {
+      "id": "forster-1927",
+      "texto": "Forster E. M. Aspects of the Novel (1927).",
+      "url": "https://en.wikipedia.org/wiki/Aspects_of_the_Novel"
+    },
+    {
+      "id": "bangert-drowns-2004",
+      "texto": "Bangert-Drowns R. L., Hurley M. M., Wilkinson B. The effects of school-based writing-to-learn interventions on academic achievement: A meta-analysis. Review of Educational Research (2004).",
+      "url": "https://doi.org/10.3102/00346543074001029"
+    },
+    {
+      "id": "schmandt-besserat-1996",
+      "texto": "Schmandt-Besserat D. How Writing Came About. University of Texas Press (1996).",
+      "url": "https://utpress.utexas.edu/9780292777040/"
+    },
+    {
+      "id": "old-weather",
+      "texto": "Old Weather: gemi seyir defterlerini yazıya döken bir vatandaş bilimi projesi (2010'dan beri).",
+      "url": "https://en.wikipedia.org/wiki/Old_Weather"
+    },
+    {
+      "id": "bower-1969",
+      "texto": "Bower G. H., Clark M. C. Narrative stories as mediators for serial learning. Psychonomic Science (1969).",
+      "url": "https://doi.org/10.3758/BF03332778"
+    },
+    {
+      "id": "reagan-2016",
+      "texto": "Reagan A. J., Mitchell L., Kiley D., Danforth C. M., Dodds P. S. The emotional arcs of stories are dominated by six basic shapes. EPJ Data Science (2016).",
+      "url": "https://doi.org/10.1140/epjds/s13688-016-0093-1"
+    },
+    {
+      "id": "aristoteles",
+      "texto": "Aristoteles. Poetika (MÖ 4. yüzyıl).",
+      "url": "https://www.gutenberg.org/ebooks/1974"
+    },
+    {
+      "id": "boice-1990",
+      "texto": "Boice R. Professors as Writers: A Self-Help Guide to Productive Writing. New Forums Press (1990).",
+      "url": "https://newforums.com/our-titles/successful-faculty-development/scholarly-writing-publishing/professors-as-writers/"
+    },
+    {
+      "id": "hemingway-1958",
+      "texto": "Plimpton G. Ernest Hemingway, The Art of Fiction No. 21. The Paris Review (1958).",
+      "url": "https://www.theparisreview.org/interviews/4825/the-art-of-fiction-no-21-ernest-hemingway"
+    },
+    {
+      "id": "king-2001",
+      "texto": "King L. A. The health benefits of writing about life goals. Personality and Social Psychology Bulletin (2001).",
+      "url": "https://doi.org/10.1177/0146167201277003"
+    }
+  ]
+}

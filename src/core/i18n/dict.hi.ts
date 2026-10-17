@@ -7422,6 +7422,7 @@ export const HI: Dict = {
   'guia.mindfulness.titulo': "धीमे चलना आपको जल्दी क्यों पहुँचाएगा?",
   'guia.agenda.titulo': "अपना समय कैसे व्यवस्थित करें?",
   'guia.aprender.titulo': "तेज़ी से कैसे सीखें?",
+  'guia.escritura.titulo': "आपको क्यों लिखना चाहिए?",
   'tut.esencial.titulo': 'ज़रूरी बातें',
   'tut.tipo.ejemplos': 'उदाहरण · डेमो MindHaOS',
   'tut.app-agenda--esencial.resumen':

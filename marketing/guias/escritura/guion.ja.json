@@ -1,0 +1,750 @@
+{
+  "idioma": "ja",
+  "tema": "escritura",
+  "plantillaId": "escritura",
+  "numero": 14,
+  "nombre": "執筆",
+  "pregunta": "なぜ、書くべきなのでしょうか？",
+  "corta": "なぜ、書くべきなのでしょうか？",
+  "subtitulo": "書くとなぜ怖さが消えるのか、白紙はなぜ怖いのか、書くとなぜ頭が整理されるのか、人類はなぜ5000年も書いてきたのか、物語はなぜ心に残るのか、よい物語はどう組み立てるのか、毎日もっとうまく書くには、そして始めるためのプラン。",
+  "aviso": "このガイドは情報提供のためのもので、紹介する研究はその結果をわかりやすくまとめています。書くことは専門家の助けの代わりにはなりません。心配ごとのせいで穏やかに過ごせないなら、信頼できる人か専門家に相談してください。",
+  "partes": [
+    {
+      "id": "miedo",
+      "titulo": "なぜ書くと怖さが消えるのでしょうか？",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "なぜ、書くべきなのでしょうか？ 私たちはほとんど毎日、メッセージやメモやメールを書いています。でも自分のために書く人はほとんどいなくて、科学が40年も測り続けてきたものを見逃しています。書いているとき、頭の中では何が起きているのでしょうか？ 今日はそれを見ながら、今週から書き始めるためのプランを持ち帰ってもらいます。"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "ところで、ここはMindHaOSにある私の家。この部屋で、私は書いています。それから家を見てください。今日はお化け屋敷です。白紙を前にしたときの怖さみたいでしょう。ガイドが進むたびに、家も変わっていきます。さあ、始めましょう。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート1。なぜ書くと怖さが消えるのでしょうか？"
+        },
+        {
+          "id": "pennebaker",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "15分",
+            "clave": "pennebaker"
+          },
+          "lamina": [
+            "noche",
+            "escribirNoche"
+          ],
+          "destacada": true,
+          "texto": "まずは怖いことから。1986年、ジェームズ・ペネベーカーとサンドラ・ビールは、学生たちに、人生でいちばんつらかった出来事について、4日続けて15分ずつ書いてもらいました。するとその後の数か月、どうでもいいことを書いた学生より、病院に行く回数が少なかったのです。"
+        },
+        {
+          "id": "examen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "preocupaciones"
+          },
+          "lamina": [
+            "examen",
+            "nervios"
+          ],
+          "meme": "nervios",
+          "texto": "そして、怖いことの直前にも効きます。2011年、ジェラルド・ラミレスとシアン・バイロックは、学生たちに試験の前の10分間、自分の緊張について書いてもらいました。成績は上がり、いちばん緊張していた学生こそ、誰よりもよくできました。"
+        },
+        {
+          "id": "porque",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombralo",
+              "escribelo",
+              "sueltalo"
+            ]
+          },
+          "lamina": [
+            "cabeza",
+            "libreta"
+          ],
+          "texto": "なぜでしょう？ 心配ごとは、考えるときに使うワーキングメモリーの場所をふさいでしまうからです。書き出せば、心配はそこから出ていき、紙の上に置いておけます。"
+        },
+        {
+          "id": "escritorio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abro",
+              "escribo",
+              "suelto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "家を見てください。まだお化け屋敷のままです。書くのが怖いときがあるのと同じですね。ここ、私の部屋でも、怖いことを書いています。頭が覚えておかなくていいように、ページがしまっておいてくれるんです。"
+        }
+      ]
+    },
+    {
+      "id": "blanco",
+      "titulo": "なぜ白紙はこんなに怖いのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート2。なぜ白紙はこんなに怖いのでしょうか？"
+        },
+        {
+          "id": "perfecto",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quieres",
+              "juzgas",
+              "borras"
+            ]
+          },
+          "lamina": [
+            "hojaBlanca",
+            "borrar"
+          ],
+          "meme": "hojaBlanca",
+          "texto": "書く人がいちばんよく感じる怖さは、白紙です。そしてそれは、たいてい同じところから来ます。最初から完璧に書こうとすることです。"
+        },
+        {
+          "id": "elbow",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escrituraLibre"
+          },
+          "lamina": [
+            "teclear",
+            "cuaderno"
+          ],
+          "destacada": true,
+          "texto": "1973年、ピーター・エルボウ教授はひとつの解決策を出しました。フリーライティングです。10分間、止まらず、消さず、直さずに書く。何を書けばいいかわからなければ、ほかのことが出てくるまで「何を書けばいいかわからない」と書くんです。"
+        },
+        {
+          "id": "lamott",
+          "escena": "habla",
+          "visual": {
+            "tipo": "cita"
+          },
+          "lamina": [
+            "borrador",
+            "tachones"
+          ],
+          "texto": "作家のアン・ラモットは、はっきりこう言いました。いい文章のほとんどは、ひどい最初の下書きから始まる。大事なのは書くことで、きれいに書くことではありません。"
+        },
+        {
+          "id": "hemingway",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "para",
+              "sabes",
+              "manana"
+            ]
+          },
+          "lamina": [
+            "maquina",
+            "amanecer"
+          ],
+          "texto": "それから、アーネスト・ヘミングウェイのコツ。次に何を書くかわかっているところで、書くのをやめること。そうすれば翌日、ページは白紙ではありません。"
+        },
+        {
+          "id": "hoja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abroLibro",
+              "seGuarda",
+              "corrijo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "私の部屋では、本を開いて、怖がらずに書きます。書いているあいだにページは自動で保存されるので、直すのはあとでいいんです。"
+        }
+      ]
+    },
+    {
+      "id": "orden",
+      "titulo": "なぜ書くと頭が整理されるのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート3。なぜ書くと頭が整理されるのでしょうか？"
+        },
+        {
+          "id": "forster",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "suelta",
+              "fila",
+              "forma"
+            ]
+          },
+          "lamina": [
+            "pensar",
+            "ventana"
+          ],
+          "texto": "1927年、小説家のE・M・フォースターは、有名な問いを引用しました。「自分が何を言うかを見るまで、自分が何を考えているかなんて、どうしてわかるだろう」。書くとき、ばらばらの考えは、一列に並ばなければなりません。"
+        },
+        {
+          "id": "aprender",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "48",
+            "clave": "aprender"
+          },
+          "lamina": [
+            "estudiar",
+            "apuntes"
+          ],
+          "destacada": true,
+          "texto": "そしてそれは学びにも役立ちます。2004年、ロバート・バンガート＝ドラウンズたちは、学ぶために書く学校のプログラムを48件調べました。効果があり、特に生徒が、わかったこととわからないことを書いたときによく効きました。"
+        },
+        {
+          "id": "decidir",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nudo"
+          },
+          "lamina": [
+            "nudo",
+            "lista"
+          ],
+          "texto": "だから書くことは、何かを決めるときにも役立ちます。問題をひと言で書き、選択肢と、それぞれを選んだらどうなるかを書く。頭の中では絡まった結び目だったものが、紙の上ではリストになります。"
+        },
+        {
+          "id": "indice",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "titulos",
+              "indiceSolo",
+              "veoForma"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "私のページでは、見出しを書くたびに目次がひとりでにできていきます。だから、自分が考えていることの形が見えるんです。"
+        }
+      ]
+    },
+    {
+      "id": "bitacora",
+      "titulo": "なぜ人類は5000年も書き続けてきたのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート4。なぜ人類は5000年も書き続けてきたのでしょうか？"
+        },
+        {
+          "id": "uruk",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaEscritura"
+          },
+          "lamina": [
+            "tablilla",
+            "trigo"
+          ],
+          "destacada": true,
+          "meme": "sumerios",
+          "texto": "文字はおよそ5000年前、ウルクのようなメソポタミアの都市で生まれました。それは詩のためではなく、数えるためでした。大麦、ビール、羊。書くことは、忘れないための方法だったんです。"
+        },
+        {
+          "id": "barcos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rumbo",
+              "viento",
+              "clima"
+            ]
+          },
+          "lamina": [
+            "barco",
+            "brujula"
+          ],
+          "texto": "何世紀もあと、船は航海日誌をつけていました。船長は毎日、針路と風と天気を書きとめていたんです。"
+        },
+        {
+          "id": "oldWeather",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2010",
+            "clave": "oldWeather"
+          },
+          "lamina": [
+            "oleaje",
+            "mapa"
+          ],
+          "texto": "そしてその記録は、今も役に立っています。2010年から、Old Weatherというプロジェクトの何千人ものボランティアが、100年前の船の航海日誌をコンピューターに入力してきました。今では科学者たちが、そのデータを100万件以上使って気候を研究しています。"
+        },
+        {
+          "id": "estante",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unLibro",
+              "porProyecto",
+              "cuantos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "そして見てください。家は今、海賊船です。航海日誌をつけていた、あの船のように。私の日誌はここ、私の本棚にあります。旅ごと、プロジェクトごと、アイデアごとに1冊の本です。"
+        }
+      ]
+    },
+    {
+      "id": "historias",
+      "titulo": "なぜ物語は心に残るのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート5。なぜ物語は心に残るのでしょうか？"
+        },
+        {
+          "id": "bower",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cadena"
+          },
+          "lamina": [
+            "fogata",
+            "contar"
+          ],
+          "destacada": true,
+          "texto": "1969年、ゴードン・バウアーとマイケル・クラークは、学生たちに10個の単語のリストを渡しました。ただ見直しただけの人もいれば、単語をつなぐ物語を作った人もいました。最後には、物語を作った人たちが、およそ7倍も多くの単語を覚えていました。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoEscritura"
+          },
+          "lamina": "pulgar",
+          "texto": "このガイドを気に入ってくれたら、高評価を押して、次回を見逃さないようにチャンネル登録して、いつか本を書くと言っているあの人に共有してください。"
+        },
+        {
+          "id": "arcos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "arcos"
+          },
+          "lamina": [
+            "libros",
+            "biblioteca"
+          ],
+          "texto": "そして物語には形があります。2016年、バーモント大学のチームが1300を超える小説をコンピューターで分析し、ほとんどが6つの形のどれかに沿っていることを見つけました。貧乏からお金持ちになる話や、穴に落ちてそこから抜け出す話のようにです。"
+        },
+        {
+          "id": "personajes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "personajesP",
+              "lugares",
+              "actos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "私の本にはそれぞれ、物語の人物、場所、幕をしまってあります。そして、その名前は本文の中で目印がつきます。"
+        }
+      ]
+    },
+    {
+      "id": "trama",
+      "titulo": "よい物語はどう組み立てるのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート6。よい物語はどう組み立てるのでしょうか？"
+        },
+        {
+          "id": "aristoteles",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quiere",
+              "impide",
+              "cambia"
+            ]
+          },
+          "lamina": [
+            "teatro",
+            "mascaras"
+          ],
+          "texto": "2000年以上前、アリストテレスは、完全な物語には始まりと中間と終わりがあると書きました。当たり前に聞こえますが、ほとんどすべての土台です。誰かが何かを望み、何かがそれを邪魔して、最後にその人は変わるのです。"
+        },
+        {
+          "id": "tirada",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tirada"
+          },
+          "lamina": [
+            "dados",
+            "isla"
+          ],
+          "destacada": true,
+          "texto": "始めるためのゲームです。人物と場所と問題をひとつずつ選べば、もう物語のできあがり。水がこわい女の海賊。帰り方を忘れた宇宙飛行士。いくつ出てくるか見てみましょう。"
+        },
+        {
+          "id": "muestra",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cuenta",
+              "muestra"
+            ]
+          },
+          "lamina": [
+            "manos",
+            "lluvia"
+          ],
+          "texto": "そして文章教室のルール。語るな、見せろ。「怖かった」と書くかわりに、「手が震えていた」と書く。読む人に、自分で気づいてもらうんです。"
+        },
+        {
+          "id": "relaciones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dibujo",
+              "quienQuiere",
+              "secreto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "そして「関係」では、私の人物たちがどうつながっているかを描きます。誰が誰を好きで、誰が誰に秘密を隠しているのか。"
+        }
+      ]
+    },
+    {
+      "id": "diario",
+      "titulo": "毎日もっとうまく書くには、どうすればいいのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート7。毎日もっとうまく書くには、どうすればいいのでしょうか？"
+        },
+        {
+          "id": "boice",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "boice"
+          },
+          "lamina": [
+            "reloj",
+            "escritorioLuz"
+          ],
+          "destacada": true,
+          "texto": "1990年、ロバート・ボイスは、もっと書きたいと思っている大学の先生たちを10週間追いかけました。ひらめきを待っていた人が書けたのは、1日におよそ0.2ページ。毎日ページと会う約束をしていた人は、3ページ以上書きました。"
+        },
+        {
+          "id": "reescribir",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "39",
+            "clave": "reescribir"
+          },
+          "lamina": [
+            "papelBola",
+            "maquina2"
+          ],
+          "meme": "borrador",
+          "texto": "そして、いいものは直すときに生まれます。ヘミングウェイは、『武器よさらば』の最後のページを39回書き直したと語っています。書けなかったからではなく、直し方を知っていたからです。"
+        },
+        {
+          "id": "vozAlta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeVoz",
+              "trabas",
+              "cambia2"
+            ]
+          },
+          "lamina": [
+            "leer",
+            "microfono"
+          ],
+          "texto": "直すためのコツ。声に出して読むこと。あなたがつっかえるところでは、読む人もつっかえます。"
+        },
+        {
+          "id": "ia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "continuar",
+              "mejorar",
+              "resumir"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "そして家はもう、宇宙を旅しています。あなたがこれから書くすべてに向かって。行き詰まったら、私のページで人工知能にアイデアを頼めます。続きを書く、推敲する、要約する。でも物語を書くのは、私です。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "どう続ける？ 続けるためのプラン",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート8。どう続ける？ 続けるためのプラン。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planEscribir"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "最初の1週間は、毎日同じ時間に10分間のフリーライティング。直さず、誰にも見せずに。"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "proyecto",
+              "corrige",
+              "termina"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "最初の1か月は、小さなプロジェクトを選びましょう。短いお話、1通の手紙、あるいは毎日の日記。そして完成とする前に、声に出して読みながら直します。"
+        },
+        {
+          "id": "futuro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2001",
+            "clave": "futuro"
+          },
+          "lamina": [
+            "estrellas",
+            "cohete"
+          ],
+          "texto": "そして最後のエクササイズ。未来の自分に手紙を書いてみましょう。2001年、ローラ・キングは学生たちに、想像できるいちばんいい人生について、4日間、20分ずつ書いてもらいました。すると、みんな前より気分がよくなっていました。"
+        },
+        {
+          "id": "exportar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "descargo",
+              "imprimo",
+              "comparto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "そして何かを書き終えたら、ここでダウンロードしたり、印刷したり、共有してみんなで書いたりします。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "まとめです。書くと怖さが消えて、頭が整理される。完璧を目指さずに書き始める。物語は心に残るから、語ろう。そして毎日少しずつ書こう。いいものは、直すときに生まれるから。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOSの執筆の部屋では、あなたの本を書いて、その人物、場所、幕をしまっておけます。ひとりで書いても、人工知能の助けを借りて書いてもかまいません。今日、無料であなたの心の家をつくろう。リンクは概要欄にあります。そして次回のガイドは、どうすれば趣味を見つけて、続けられるのでしょうか？",
+    "boton": "執筆の部屋を開く",
+    "lamina": "app-plan",
+    "anclas": {
+      "libros": "あなたの本",
+      "personajes": "人物、場所",
+      "ia": "人工知能の助け"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "pennebaker-1986",
+      "texto": "Pennebaker J. W., Beall S. K. Confronting a traumatic event: Toward an understanding of inhibition and disease. Journal of Abnormal Psychology (1986).",
+      "url": "https://doi.org/10.1037/0021-843X.95.3.274"
+    },
+    {
+      "id": "ramirez-2011",
+      "texto": "Ramirez G., Beilock S. L. Writing about testing worries boosts exam performance in the classroom. Science (2011).",
+      "url": "https://doi.org/10.1126/science.1199427"
+    },
+    {
+      "id": "elbow-1973",
+      "texto": "Elbow P. Writing Without Teachers. Oxford University Press (1973).",
+      "url": "https://global.oup.com/academic/product/writing-without-teachers-9780195120165"
+    },
+    {
+      "id": "lamott-1994",
+      "texto": "Lamott A. Bird by Bird: Some Instructions on Writing and Life (1994).",
+      "url": "https://en.wikipedia.org/wiki/Bird_by_Bird"
+    },
+    {
+      "id": "hemingway-1935",
+      "texto": "Hemingway E. Monologue to the Maestro: A High Seas Letter. Esquire（1935年10月）。",
+      "url": "https://classic.esquire.com/article/1935/10/1/monologue-to-the-maestro"
+    },
+    {
+      "id": "forster-1927",
+      "texto": "Forster E. M. Aspects of the Novel (1927).",
+      "url": "https://en.wikipedia.org/wiki/Aspects_of_the_Novel"
+    },
+    {
+      "id": "bangert-drowns-2004",
+      "texto": "Bangert-Drowns R. L., Hurley M. M., Wilkinson B. The effects of school-based writing-to-learn interventions on academic achievement: A meta-analysis. Review of Educational Research (2004).",
+      "url": "https://doi.org/10.3102/00346543074001029"
+    },
+    {
+      "id": "schmandt-besserat-1996",
+      "texto": "Schmandt-Besserat D. How Writing Came About. University of Texas Press (1996).",
+      "url": "https://utpress.utexas.edu/9780292777040/"
+    },
+    {
+      "id": "old-weather",
+      "texto": "Old Weather：船の航海日誌を書き起こす市民科学プロジェクト（2010年から）。",
+      "url": "https://en.wikipedia.org/wiki/Old_Weather"
+    },
+    {
+      "id": "bower-1969",
+      "texto": "Bower G. H., Clark M. C. Narrative stories as mediators for serial learning. Psychonomic Science (1969).",
+      "url": "https://doi.org/10.3758/BF03332778"
+    },
+    {
+      "id": "reagan-2016",
+      "texto": "Reagan A. J., Mitchell L., Kiley D., Danforth C. M., Dodds P. S. The emotional arcs of stories are dominated by six basic shapes. EPJ Data Science (2016).",
+      "url": "https://doi.org/10.1140/epjds/s13688-016-0093-1"
+    },
+    {
+      "id": "aristoteles",
+      "texto": "アリストテレス『詩学』（紀元前4世紀）。",
+      "url": "https://www.gutenberg.org/ebooks/1974"
+    },
+    {
+      "id": "boice-1990",
+      "texto": "Boice R. Professors as Writers: A Self-Help Guide to Productive Writing. New Forums Press (1990).",
+      "url": "https://newforums.com/our-titles/successful-faculty-development/scholarly-writing-publishing/professors-as-writers/"
+    },
+    {
+      "id": "hemingway-1958",
+      "texto": "Plimpton G. Ernest Hemingway, The Art of Fiction No. 21. The Paris Review (1958).",
+      "url": "https://www.theparisreview.org/interviews/4825/the-art-of-fiction-no-21-ernest-hemingway"
+    },
+    {
+      "id": "king-2001",
+      "texto": "King L. A. The health benefits of writing about life goals. Personality and Social Psychology Bulletin (2001).",
+      "url": "https://doi.org/10.1177/0146167201277003"
+    }
+  ]
+}

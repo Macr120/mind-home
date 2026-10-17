@@ -29,6 +29,7 @@ const GUIAS: Record<string, { tema: string; clave: string; es: string }> = {
   jardin: { tema: 'mindfulness', clave: 'guia.mindfulness.titulo', es: '¿Por qué ir más lento te hará llegar más rápido?' },
   agenda: { tema: 'agenda', clave: 'guia.agenda.titulo', es: '¿Cómo organizar tu tiempo?' },
   biblioteca: { tema: 'aprender', clave: 'guia.aprender.titulo', es: '¿Cómo aprender más rápido?' },
+  escritura: { tema: 'escritura', clave: 'guia.escritura.titulo', es: '¿Por qué debes escribir?' },
 }
 
 /**

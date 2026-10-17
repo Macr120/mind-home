@@ -7172,6 +7172,7 @@ export const JA: Dict = {
   'guia.mindfulness.titulo': "ゆっくり進むと、なぜ早くたどり着けるのでしょうか？",
   'guia.agenda.titulo': "時間をうまく整理するには、どうすればいいのでしょうか？",
   'guia.aprender.titulo': "どうすればもっと速く学べるのでしょうか？",
+  'guia.escritura.titulo': "なぜ、書くべきなのでしょうか？",
   'tut.esencial.titulo': '基本の使い方',
   'tut.tipo.ejemplos': '例・デモのMindHaOS',
   'tut.app-agenda--esencial.resumen':

@@ -1,0 +1,362 @@
+{
+  "fotos": {},
+  "laminas": {
+    "escribirNoche": {
+      "archivo": "laminas/escribirNoche.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/woman-writing-in-her-notebook-at-midnight-6940837/",
+      "licencia": "Licencia Pexels"
+    },
+    "nervios": {
+      "archivo": "laminas/nervios.mp4",
+      "tipo": "video",
+      "autor": "Mikhail Nilov",
+      "fuente": "https://www.pexels.com/video/exhausted-woman-writing-on-a-paper-7778488/",
+      "licencia": "Licencia Pexels"
+    },
+    "hojaBlanca": {
+      "archivo": "laminas/hojaBlanca.mp4",
+      "tipo": "video",
+      "autor": "KATRIN BOLOVTSOVA",
+      "fuente": "https://www.pexels.com/video/placing-open-notebook-on-table-beside-highlighters-6187209/",
+      "licencia": "Licencia Pexels"
+    },
+    "teclear": {
+      "archivo": "laminas/teclear.mp4",
+      "tipo": "video",
+      "autor": "MELQUIZEDEQUE ALMEIDA",
+      "fuente": "https://www.pexels.com/video/hands-typing-fast-on-a-laptop-keyboard-34124550/",
+      "licencia": "Licencia Pexels"
+    },
+    "borrador": {
+      "archivo": "laminas/borrador.mp4",
+      "tipo": "video",
+      "autor": "Artem Podrez",
+      "fuente": "https://www.pexels.com/video/video-of-a-crumpled-paper-7234141/",
+      "licencia": "Licencia Pexels"
+    },
+    "tachones": {
+      "archivo": "laminas/tachones.mp4",
+      "tipo": "video",
+      "autor": "Asiye Betül Dokuyucu",
+      "fuente": "https://www.pexels.com/video/close-up-of-a-pen-writing-on-paper-40034920/",
+      "licencia": "Licencia Pexels"
+    },
+    "maquina": {
+      "archivo": "laminas/maquina.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/close-up-view-of-a-person-typing-on-the-typewriter-6037662/",
+      "licencia": "Licencia Pexels"
+    },
+    "nudo": {
+      "archivo": "laminas/nudo.mp4",
+      "tipo": "video",
+      "autor": "Yaroslav Shuraev",
+      "fuente": "https://www.pexels.com/video/person-tying-the-rope-of-the-boat-8925200/",
+      "licencia": "Licencia Pexels"
+    },
+    "tablilla": {
+      "archivo": "laminas/tablilla.mp4",
+      "tipo": "video",
+      "autor": "Mahmut Yılmaz",
+      "fuente": "https://www.pexels.com/video/ancient-greek-inscribed-stone-in-stratonikeia-39310474/",
+      "licencia": "Licencia Pexels"
+    },
+    "trigo": {
+      "archivo": "laminas/trigo.mp4",
+      "tipo": "video",
+      "autor": "Ömer Faruk Feyat",
+      "fuente": "https://www.pexels.com/video/golden-wheat-field-under-clear-blue-sky-28976083/",
+      "licencia": "Licencia Pexels"
+    },
+    "barco": {
+      "archivo": "laminas/barco.mp4",
+      "tipo": "video",
+      "autor": "Andrius Stakionis",
+      "fuente": "https://www.pexels.com/video/majestic-pirate-ship-sails-ocean-waters-32085470/",
+      "licencia": "Licencia Pexels"
+    },
+    "oleaje": {
+      "archivo": "laminas/oleaje.mp4",
+      "tipo": "video",
+      "autor": "Yuksel Ozkasap",
+      "fuente": "https://www.pexels.com/video/ocean-spray-on-ship-deck-at-sunrise-30681506/",
+      "licencia": "Licencia Pexels"
+    },
+    "fogata": {
+      "archivo": "laminas/fogata.mp4",
+      "tipo": "video",
+      "autor": "Kindel Media",
+      "fuente": "https://www.pexels.com/video/woman-playing-the-guitar-and-singing-with-her-friends-7148339/",
+      "licencia": "Licencia Pexels"
+    },
+    "contar": {
+      "archivo": "laminas/contar.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/father-reading-bed-time-stories-to-his-daughter-5895195/",
+      "licencia": "Licencia Pexels"
+    },
+    "libros": {
+      "archivo": "laminas/libros.mp4",
+      "tipo": "video",
+      "autor": "Burak Bahadır Büyükkılınç",
+      "fuente": "https://www.pexels.com/video/cozy-library-bookshelf-with-classic-literature-33997135/",
+      "licencia": "Licencia Pexels"
+    },
+    "mascaras": {
+      "archivo": "laminas/mascaras.mp4",
+      "tipo": "video",
+      "autor": "Jean Maurer",
+      "fuente": "https://www.pexels.com/video/venetian-masked-performer-in-historical-costume-36504837/",
+      "licencia": "Licencia Pexels"
+    },
+    "dados": {
+      "archivo": "laminas/dados.mp4",
+      "tipo": "video",
+      "autor": "Evgenij Mikhailov",
+      "fuente": "https://www.pexels.com/video/playing-backgammon-strategy-and-dice-34317042/",
+      "licencia": "Licencia Pexels"
+    },
+    "isla": {
+      "archivo": "laminas/isla.mp4",
+      "tipo": "video",
+      "autor": "Logan Voss",
+      "fuente": "https://www.pexels.com/video/aerial-view-of-tropical-coastline-with-turquoise-waters-28615718/",
+      "licencia": "Licencia Pexels"
+    },
+    "escritorioLuz": {
+      "archivo": "laminas/escritorioLuz.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-woman-sitting-at-a-table-writing-in-a-notebook-4769553/",
+      "licencia": "Licencia Pexels"
+    },
+    "papelBola": {
+      "archivo": "laminas/papelBola.mp4",
+      "tipo": "video",
+      "autor": "Ron Lach",
+      "fuente": "https://www.pexels.com/video/a-woman-throwing-a-crumpled-paper-8086494/",
+      "licencia": "Licencia Pexels"
+    },
+    "maquina2": {
+      "archivo": "laminas/maquina2.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/a-close-up-video-of-a-typewriter-8869774/",
+      "licencia": "Licencia Pexels"
+    },
+    "estrellas": {
+      "archivo": "laminas/estrellas.mp4",
+      "tipo": "video",
+      "autor": "Ali Marwan",
+      "fuente": "https://www.pexels.com/video/stunning-timelapse-of-starry-night-sky-32349013/",
+      "licencia": "Licencia Pexels"
+    },
+    "cohete": {
+      "archivo": "laminas/cohete.mp4",
+      "tipo": "video",
+      "autor": "Kindel Media",
+      "fuente": "https://www.pexels.com/video/a-toy-rocket-launching-to-the-air-7106862/",
+      "licencia": "Licencia Pexels"
+    },
+    "noche": {
+      "archivo": "laminas/noche.mp4",
+      "tipo": "video",
+      "autor": "Monserrat Reynoso",
+      "fuente": "https://www.pexels.com/video/woman-settling-to-sleep-in-a-cozy-bedroom-36604163/",
+      "licencia": "Licencia Pexels"
+    },
+    "examen": {
+      "archivo": "laminas/examen.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/close-up-video-of-a-woman-studying-6549257/",
+      "licencia": "Licencia Pexels"
+    },
+    "cabeza": {
+      "archivo": "laminas/cabeza.mp4",
+      "tipo": "video",
+      "autor": "Timur Weber",
+      "fuente": "https://www.pexels.com/video/anxious-woman-thinking-8555748/",
+      "licencia": "Licencia Pexels"
+    },
+    "libreta": {
+      "archivo": "laminas/libreta.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/writing-to-do-list-on-a-notebook-for-reminders-3832194/",
+      "licencia": "Licencia Pexels"
+    },
+    "borrar": {
+      "archivo": "laminas/borrar.mp4",
+      "tipo": "video",
+      "autor": "Yeşim Çolak",
+      "fuente": "https://www.pexels.com/video/close-up-clip-of-eraser-on-paper-surface-36080865/",
+      "licencia": "Licencia Pexels"
+    },
+    "cuaderno": {
+      "archivo": "laminas/cuaderno.mp4",
+      "tipo": "video",
+      "autor": "K",
+      "fuente": "https://www.pexels.com/video/close-up-of-woman-writing-in-journal-33350905/",
+      "licencia": "Licencia Pexels"
+    },
+    "amanecer": {
+      "archivo": "laminas/amanecer.mp4",
+      "tipo": "video",
+      "autor": "NADER AYMAN",
+      "fuente": "https://www.pexels.com/video/skyline-with-birds-at-sunrise-37365586/",
+      "licencia": "Licencia Pexels"
+    },
+    "pensar": {
+      "archivo": "laminas/pensar.mp4",
+      "tipo": "video",
+      "autor": "Alexander Mass",
+      "fuente": "https://www.pexels.com/video/silhouette-of-man-looking-out-window-31252867/",
+      "licencia": "Licencia Pexels"
+    },
+    "ventana": {
+      "archivo": "laminas/ventana.mp4",
+      "tipo": "video",
+      "autor": "Artem Podrez",
+      "fuente": "https://www.pexels.com/video/a-woman-drinking-a-cup-of-coffee-by-the-window-7496257/",
+      "licencia": "Licencia Pexels"
+    },
+    "estudiar": {
+      "archivo": "laminas/estudiar.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/a-student-taking-notes-and-research-7683482/",
+      "licencia": "Licencia Pexels"
+    },
+    "apuntes": {
+      "archivo": "laminas/apuntes.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/female-studying-for-exam-7128677/",
+      "licencia": "Licencia Pexels"
+    },
+    "lista": {
+      "archivo": "laminas/lista.mp4",
+      "tipo": "video",
+      "autor": "KATRIN BOLOVTSOVA",
+      "fuente": "https://www.pexels.com/video/person-putting-check-on-the-to-do-list-pad-6186640/",
+      "licencia": "Licencia Pexels"
+    },
+    "brujula": {
+      "archivo": "laminas/brujula.mp4",
+      "tipo": "video",
+      "autor": "Anastasia Shuraeva",
+      "fuente": "https://www.pexels.com/video/a-person-holding-a-compass-8028798/",
+      "licencia": "Licencia Pexels"
+    },
+    "mapa": {
+      "archivo": "laminas/mapa.mp4",
+      "tipo": "video",
+      "autor": "Vlada Karpovich",
+      "fuente": "https://www.pexels.com/video/a-person-planning-and-looking-at-world-map-7429832/",
+      "licencia": "Licencia Pexels"
+    },
+    "pulgar": {
+      "archivo": "laminas/pulgar.mp4",
+      "tipo": "video",
+      "autor": "Kevin Malik",
+      "fuente": "https://www.pexels.com/video/a-hand-giving-a-thumbs-up-9017832/",
+      "licencia": "Licencia Pexels"
+    },
+    "biblioteca": {
+      "archivo": "laminas/biblioteca.mp4",
+      "tipo": "video",
+      "autor": "Yan Krukau",
+      "fuente": "https://www.pexels.com/video/a-woman-studying-at-a-library-8199318/",
+      "licencia": "Licencia Pexels"
+    },
+    "teatro": {
+      "archivo": "laminas/teatro.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/a-tracking-shot-of-an-empty-theater-7984191/",
+      "licencia": "Licencia Pexels"
+    },
+    "manos": {
+      "archivo": "laminas/manos.mp4",
+      "tipo": "video",
+      "autor": "Anna Shvets",
+      "fuente": "https://www.pexels.com/video/person-saying-stop-6904090/",
+      "licencia": "Licencia Pexels"
+    },
+    "lluvia": {
+      "archivo": "laminas/lluvia.mp4",
+      "tipo": "video",
+      "autor": "Binil Babu",
+      "fuente": "https://www.pexels.com/video/close-up-of-raindrops-on-glass-12742709/",
+      "licencia": "Licencia Pexels"
+    },
+    "reloj": {
+      "archivo": "laminas/reloj.mp4",
+      "tipo": "video",
+      "autor": "Anton Kudryashov",
+      "fuente": "https://www.pexels.com/video/close-up-on-clock-hands-moving-11267667/",
+      "licencia": "Licencia Pexels"
+    },
+    "leer": {
+      "archivo": "laminas/leer.mp4",
+      "tipo": "video",
+      "autor": "Hanna Pad",
+      "fuente": "https://www.pexels.com/video/woman-reading-a-book-while-lying-down-on-his-bed-6598887/",
+      "licencia": "Licencia Pexels"
+    },
+    "microfono": {
+      "archivo": "laminas/microfono.mp4",
+      "tipo": "video",
+      "autor": "Big Bag Films",
+      "fuente": "https://www.pexels.com/video/a-close-up-shot-of-a-microphone-8513958/",
+      "licencia": "Licencia Pexels"
+    },
+    "semilla": {
+      "archivo": "laminas/semilla.mp4",
+      "tipo": "video",
+      "autor": "Greta Hoffman",
+      "fuente": "https://www.pexels.com/video/a-man-planting-seeds-in-a-seedling-tray-7713884/",
+      "licencia": "Licencia Pexels"
+    },
+    "brote": {
+      "archivo": "laminas/brote.mp4",
+      "tipo": "video",
+      "autor": "thetopwebsites .ga",
+      "fuente": "https://www.pexels.com/video/time-lapse-of-growing-plant-6596225/",
+      "licencia": "Licencia Pexels"
+    },
+    "escalon": {
+      "archivo": "laminas/escalon.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/man-running-up-the-stairs-7876928/",
+      "licencia": "Licencia Pexels"
+    },
+    "arbol": {
+      "archivo": "laminas/arbol.mp4",
+      "tipo": "video",
+      "autor": "Furkan Elveren",
+      "fuente": "https://www.pexels.com/video/a-tree-with-the-sun-shining-through-it-27410108/",
+      "licencia": "Licencia Pexels"
+    },
+    "cumbre": {
+      "archivo": "laminas/cumbre.mp4",
+      "tipo": "video",
+      "autor": "Canan İldeniz",
+      "fuente": "https://www.pexels.com/video/group-of-hikers-celebrating-on-mountain-peak-38242686/",
+      "licencia": "Licencia Pexels"
+    },
+    "app-plan": {
+      "archivo": "laminas/app-plan.{idioma}.mp4",
+      "tipo": "video",
+      "autor": "MindHaOS",
+      "fuente": "https://app.mindhaos.com",
+      "credito": ""
+    }
+  }
+}

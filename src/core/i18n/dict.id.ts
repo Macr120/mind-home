@@ -7504,6 +7504,7 @@ export const ID: Dict = {
   'guia.mindfulness.titulo': "Mengapa melambat justru membuatmu sampai lebih cepat?",
   'guia.agenda.titulo': "Bagaimana mengatur waktumu?",
   'guia.aprender.titulo': "Bagaimana belajar lebih cepat?",
+  'guia.escritura.titulo': "Mengapa kamu harus menulis?",
   'tut.esencial.titulo': 'Yang Penting',
   'tut.tipo.ejemplos': 'Contoh · MindHaOS demo',
   'tut.app-agenda--esencial.resumen':

@@ -1,0 +1,750 @@
+{
+  "idioma": "ko",
+  "tema": "escritura",
+  "plantillaId": "escritura",
+  "numero": 14,
+  "nombre": "글쓰기",
+  "pregunta": "왜 글을 써야 할까요?",
+  "corta": "왜 글을 써야 할까요?",
+  "subtitulo": "왜 글쓰기가 두려움을 덜어 주는지, 왜 빈 페이지가 무서운지, 왜 글을 쓰면 머리가 정리되는지, 왜 인류는 오천 년 동안 글을 써 왔는지, 왜 이야기는 기억에 남는지, 좋은 이야기는 어떻게 짜는지, 매일 어떻게 더 잘 쓰는지, 그리고 시작하기 위한 계획.",
+  "aviso": "이 가이드는 정보 제공을 위한 것이며, 소개하는 연구들은 그 결과를 쉽게 요약한 것입니다. 글쓰기는 전문가의 도움을 대신하지 못합니다. 걱정 때문에 마음 편히 지낼 수 없다면, 믿을 만한 사람이나 전문가와 이야기해 보세요.",
+  "partes": [
+    {
+      "id": "miedo",
+      "titulo": "왜 글을 쓰면 두려움이 줄어들까요?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "왜 글을 써야 할까요? 우리는 거의 매일 메시지와 메모와 메일을 쓰고 있어요. 하지만 자기 자신을 위해 쓰는 사람은 거의 없어서, 과학이 사십 년 동안 측정해 온 것을 놓치고 있어요. 글을 쓸 때 머릿속에서는 무슨 일이 일어날까요? 오늘 그걸 함께 보고, 이번 주부터 글쓰기를 시작할 계획까지 가져가실 거예요."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "참고로, 여기는 MindHaOS에 있는 제 집이고, 저는 이 방에서 글을 써요. 그리고 집을 잘 보세요. 오늘은 유령의 집이에요. 빈 페이지 앞에서 느끼는 두려움처럼요. 가이드가 한 단계씩 넘어갈 때마다 집도 바뀔 거예요. 시작해 볼까요."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "1부. 왜 글을 쓰면 두려움이 줄어들까요?"
+        },
+        {
+          "id": "pennebaker",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "15분",
+            "clave": "pennebaker"
+          },
+          "lamina": [
+            "noche",
+            "escribirNoche"
+          ],
+          "destacada": true,
+          "texto": "무서운 것부터 시작해 볼게요. 1986년, 제임스 페니베이커와 샌드라 빌은 대학생들에게 살면서 가장 힘들었던 일에 대해 나흘 연속, 하루 십오 분씩 글을 쓰게 했어요. 그다음 몇 달 동안, 이들은 별것 아닌 일을 쓴 학생들보다 병원에 덜 갔어요."
+        },
+        {
+          "id": "examen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "preocupaciones"
+          },
+          "lamina": [
+            "examen",
+            "nervios"
+          ],
+          "meme": "nervios",
+          "texto": "그리고 두려운 일 바로 앞에서도 효과가 있어요. 2011년, 제라르도 라미레스와 시안 베일록은 학생들에게 시험 전에 십 분 동안 자기 긴장에 대해 쓰게 했어요. 성적이 더 좋았고, 가장 긴장했던 학생들이 누구보다 더 좋아졌어요."
+        },
+        {
+          "id": "porque",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombralo",
+              "escribelo",
+              "sueltalo"
+            ]
+          },
+          "lamina": [
+            "cabeza",
+            "libreta"
+          ],
+          "texto": "왜 그럴까요? 걱정은 우리가 생각할 때 쓰는 작업 기억의 자리를 차지하거든요. 글로 쓰면 걱정을 거기서 꺼내 종이 위에 내려놓게 돼요."
+        },
+        {
+          "id": "escritorio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abro",
+              "escribo",
+              "suelto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "집을 보세요. 아직도 유령의 집이에요. 가끔 글로 쓰기 무서운 것들처럼요. 여기 제 방에서도 저는 저를 겁나게 하는 것들을 써요. 제 머리가 붙잡고 있지 않아도 되게, 페이지가 대신 간직해 주거든요."
+        }
+      ]
+    },
+    {
+      "id": "blanco",
+      "titulo": "왜 빈 페이지는 그렇게 무서울까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "2부. 왜 빈 페이지는 그렇게 무서울까요?"
+        },
+        {
+          "id": "perfecto",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quieres",
+              "juzgas",
+              "borras"
+            ]
+          },
+          "lamina": [
+            "hojaBlanca",
+            "borrar"
+          ],
+          "meme": "hojaBlanca",
+          "texto": "글 쓰는 사람이 가장 흔히 느끼는 두려움은 빈 페이지예요. 그리고 그건 거의 언제나 같은 데서 와요. 처음부터 완벽하게 쓰고 싶은 마음이죠."
+        },
+        {
+          "id": "elbow",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escrituraLibre"
+          },
+          "lamina": [
+            "teclear",
+            "cuaderno"
+          ],
+          "destacada": true,
+          "texto": "1973년, 피터 엘보 교수는 해결책을 하나 내놓았어요. 바로 자유 글쓰기예요. 십 분 동안 멈추지 않고, 지우지 않고, 고치지 않고 쓰는 거예요. 뭘 써야 할지 모르겠으면, 다른 게 나올 때까지 \"뭘 써야 할지 모르겠다\"라고 쓰면 돼요."
+        },
+        {
+          "id": "lamott",
+          "escena": "habla",
+          "visual": {
+            "tipo": "cita"
+          },
+          "lamina": [
+            "borrador",
+            "tachones"
+          ],
+          "texto": "작가 앤 라모트는 돌려 말하지 않았어요. 좋은 글은 거의 다 끔찍한 초고에서 시작한다고요. 중요한 건 쓰는 거지, 예쁘게 나오는 게 아니에요."
+        },
+        {
+          "id": "hemingway",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "para",
+              "sabes",
+              "manana"
+            ]
+          },
+          "lamina": [
+            "maquina",
+            "amanecer"
+          ],
+          "texto": "그리고 어니스트 헤밍웨이의 비결 하나. 다음에 무엇을 쓸지 알고 있을 때 쓰기를 멈추세요. 그러면 다음 날, 페이지는 비어 있지 않아요."
+        },
+        {
+          "id": "hoja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abroLibro",
+              "seGuarda",
+              "corrijo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "제 방에서는 책을 하나 열고 두려움 없이 써요. 쓰는 동안 페이지가 알아서 저장되니까, 고치는 건 나중에 하면 돼요."
+        }
+      ]
+    },
+    {
+      "id": "orden",
+      "titulo": "왜 글을 쓰면 머리가 정리될까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "3부. 왜 글을 쓰면 머리가 정리될까요?"
+        },
+        {
+          "id": "forster",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "suelta",
+              "fila",
+              "forma"
+            ]
+          },
+          "lamina": [
+            "pensar",
+            "ventana"
+          ],
+          "texto": "1927년, 소설가 E. M. 포스터는 유명한 질문 하나를 인용했어요. \"내가 무슨 말을 하는지 보기 전에, 내가 무슨 생각을 하는지 어떻게 알겠는가.\" 글을 쓰면 흩어진 생각들이 하나씩 줄을 서야 해요."
+        },
+        {
+          "id": "aprender",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "48",
+            "clave": "aprender"
+          },
+          "lamina": [
+            "estudiar",
+            "apuntes"
+          ],
+          "destacada": true,
+          "texto": "그리고 그건 배우는 데도 도움이 돼요. 2004년, 로버트 뱅거트드라운스와 동료들은 배우기 위해 글을 쓰는 학교 프로그램 마흔여덟 개를 살펴봤어요. 효과가 있었고, 특히 학생들이 이해한 것과 이해하지 못한 것을 썼을 때 그랬어요."
+        },
+        {
+          "id": "decidir",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nudo"
+          },
+          "lamina": [
+            "nudo",
+            "lista"
+          ],
+          "texto": "그래서 글쓰기는 결정할 때도 도움이 돼요. 문제를 한 문장으로 쓰고, 선택지와 각각을 고르면 어떻게 될지를 써 보세요. 머릿속에서는 엉킨 매듭이던 것이, 종이 위에서는 목록이 돼요."
+        },
+        {
+          "id": "indice",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "titulos",
+              "indiceSolo",
+              "veoForma"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "제 페이지에서는 제목을 쓸 때마다 목차가 저절로 만들어져요. 그래서 제가 무슨 생각을 하고 있는지, 그 모양이 보여요."
+        }
+      ]
+    },
+    {
+      "id": "bitacora",
+      "titulo": "왜 인류는 오천 년 동안 글을 써 왔을까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "4부. 왜 인류는 오천 년 동안 글을 써 왔을까요?"
+        },
+        {
+          "id": "uruk",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaEscritura"
+          },
+          "lamina": [
+            "tablilla",
+            "trigo"
+          ],
+          "destacada": true,
+          "meme": "sumerios",
+          "texto": "문자는 약 오천 년 전, 우루크 같은 메소포타미아의 도시에서 태어났어요. 시를 쓰려고 만든 게 아니라, 수를 세려고 만들었죠. 보리, 맥주, 양. 글은 잊지 않기 위한 방법이었어요."
+        },
+        {
+          "id": "barcos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rumbo",
+              "viento",
+              "clima"
+            ]
+          },
+          "lamina": [
+            "barco",
+            "brujula"
+          ],
+          "texto": "몇 세기 뒤, 배들은 항해 일지를 썼어요. 선장은 날마다 항로와 바람과 날씨를 적었죠."
+        },
+        {
+          "id": "oldWeather",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2010",
+            "clave": "oldWeather"
+          },
+          "lamina": [
+            "oleaje",
+            "mapa"
+          ],
+          "texto": "그리고 그 기록은 지금도 쓸모가 있어요. 2010년부터 Old Weather 프로젝트의 자원봉사자 수천 명이 백 년 전 배들의 항해 일지를 컴퓨터로 옮겼고, 오늘날 과학자들은 그 데이터를 백만 건 넘게 기후 연구에 쓰고 있어요."
+        },
+        {
+          "id": "estante",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unLibro",
+              "porProyecto",
+              "cuantos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "그리고 보세요. 집이 이제 해적선이 됐어요. 항해 일지를 쓰던 그 배들처럼요. 제 일지는 여기, 제 책장에 있어요. 여행 하나, 프로젝트 하나, 아이디어 하나마다 책 한 권이에요."
+        }
+      ]
+    },
+    {
+      "id": "historias",
+      "titulo": "왜 이야기는 기억에 오래 남을까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "5부. 왜 이야기는 기억에 오래 남을까요?"
+        },
+        {
+          "id": "bower",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cadena"
+          },
+          "lamina": [
+            "fogata",
+            "contar"
+          ],
+          "destacada": true,
+          "texto": "1969년, 고든 바워와 마이클 클라크는 학생들에게 단어 열 개짜리 목록을 줬어요. 어떤 학생들은 그냥 반복해서 봤고, 다른 학생들은 단어들을 잇는 이야기를 지어냈어요. 결국 이야기를 지은 학생들이 단어를 일곱 배쯤 더 많이 기억했어요."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoEscritura"
+          },
+          "lamina": "pulgar",
+          "texto": "이 가이드가 마음에 든다면 좋아요를 누르고, 다음 편을 놓치지 않게 구독하고, 언젠가 책을 쓰겠다고 말하는 그 사람에게 공유해 주세요."
+        },
+        {
+          "id": "arcos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "arcos"
+          },
+          "lamina": [
+            "libros",
+            "biblioteca"
+          ],
+          "texto": "그리고 이야기에는 모양이 있어요. 2016년, 버몬트 대학교의 한 팀이 컴퓨터로 소설 천삼백 편 이상을 분석했더니, 거의 모두가 여섯 가지 모양을 따른다는 걸 발견했어요. 가난뱅이가 부자가 되는 이야기나, 구멍에 빠졌다가 빠져나오는 이야기처럼요."
+        },
+        {
+          "id": "personajes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "personajesP",
+              "lugares",
+              "actos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "제 책마다 그 이야기의 인물, 장소, 막을 간직해 두고, 그 이름은 본문에 표시돼요."
+        }
+      ]
+    },
+    {
+      "id": "trama",
+      "titulo": "좋은 이야기는 어떻게 짤까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "6부. 좋은 이야기는 어떻게 짤까요?"
+        },
+        {
+          "id": "aristoteles",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quiere",
+              "impide",
+              "cambia"
+            ]
+          },
+          "lamina": [
+            "teatro",
+            "mascaras"
+          ],
+          "texto": "이천 년도 더 전에, 아리스토텔레스는 완전한 이야기에는 처음과 중간과 끝이 있다고 썼어요. 당연하게 들리지만, 거의 모든 이야기의 바탕이에요. 누군가 무언가를 원하고, 무언가가 그걸 가로막고, 마지막에 그 사람은 변해요."
+        },
+        {
+          "id": "tirada",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tirada"
+          },
+          "lamina": [
+            "dados",
+            "isla"
+          ],
+          "destacada": true,
+          "texto": "시작하기 좋은 놀이가 있어요. 인물 하나, 장소 하나, 문제 하나를 고르면 벌써 이야기가 생겨요. 물을 무서워하는 여자 해적. 돌아가는 길을 잊어버린 우주비행사. 얼마나 많이 나오는지 보세요."
+        },
+        {
+          "id": "muestra",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cuenta",
+              "muestra"
+            ]
+          },
+          "lamina": [
+            "manos",
+            "lluvia"
+          ],
+          "texto": "그리고 글쓰기 수업의 규칙 하나. 말하지 말고 보여 주세요. \"무서웠다\" 대신 \"손이 떨렸다\"라고 쓰는 거예요. 읽는 사람이 스스로 알아차리게 두세요."
+        },
+        {
+          "id": "relaciones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dibujo",
+              "quienQuiere",
+              "secreto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "그리고 '관계'에서는 제 인물들이 어떻게 이어져 있는지 그려요. 누가 누구를 좋아하는지, 누가 누구에게 비밀을 숨기고 있는지요."
+        }
+      ]
+    },
+    {
+      "id": "diario",
+      "titulo": "매일 어떻게 더 잘 쓸 수 있을까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "7부. 매일 어떻게 더 잘 쓸 수 있을까요?"
+        },
+        {
+          "id": "boice",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "boice"
+          },
+          "lamina": [
+            "reloj",
+            "escritorioLuz"
+          ],
+          "destacada": true,
+          "texto": "1990년, 로버트 보이스는 글을 더 많이 쓰고 싶어 하는 교수들을 십 주 동안 지켜봤어요. 영감을 기다린 사람들은 하루에 겨우 0.2쪽 정도를 썼어요. 매일 페이지와 약속을 잡은 사람들은 세 쪽 넘게 썼고요."
+        },
+        {
+          "id": "reescribir",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "39",
+            "clave": "reescribir"
+          },
+          "lamina": [
+            "papelBola",
+            "maquina2"
+          ],
+          "meme": "borrador",
+          "texto": "그리고 좋은 글은 고칠 때 나와요. 헤밍웨이는 『무기여 잘 있거라』의 마지막 페이지를 서른아홉 번 다시 썼다고 말했어요. 쓸 줄 몰라서가 아니라, 고칠 줄 알았기 때문이에요."
+        },
+        {
+          "id": "vozAlta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeVoz",
+              "trabas",
+              "cambia2"
+            ]
+          },
+          "lamina": [
+            "leer",
+            "microfono"
+          ],
+          "texto": "고칠 때 쓰는 요령 하나. 소리 내어 읽어 보세요. 당신이 걸려 넘어지는 곳에서, 읽는 사람도 걸려 넘어질 거예요."
+        },
+        {
+          "id": "ia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "continuar",
+              "mejorar",
+              "resumir"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "그리고 집은 이제 우주를 여행하고 있어요. 당신이 앞으로 쓸 모든 글을 향해서요. 막히면 제 페이지에서 인공지능에게 이어 쓰기, 다듬기, 요약을 위한 아이디어를 부탁할 수 있어요. 하지만 이야기는 제가 써요."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "어떻게 계속할까요? 계속하기 위한 계획",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "8부. 어떻게 계속할까요? 계속하기 위한 계획."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planEscribir"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "첫 주에는 매일 같은 시간에 십 분씩 자유 글쓰기를 하세요. 고치지 말고, 아무에게도 보여 주지 말고요."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "proyecto",
+              "corrige",
+              "termina"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "첫 달에는 작은 프로젝트 하나를 고르세요. 짧은 이야기, 편지 한 통, 아니면 하루하루의 일기. 그리고 다 됐다고 하기 전에, 소리 내어 읽으며 고쳐 보세요."
+        },
+        {
+          "id": "futuro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2001",
+            "clave": "futuro"
+          },
+          "lamina": [
+            "estrellas",
+            "cohete"
+          ],
+          "texto": "그리고 마지막을 위한 연습. 미래의 나에게 편지를 써 보세요. 2001년, 로라 킹은 학생들에게 상상할 수 있는 가장 좋은 삶에 대해 나흘 동안 이십 분씩 쓰게 했고, 학생들은 기분이 더 좋아졌어요."
+        },
+        {
+          "id": "exportar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "descargo",
+              "imprimo",
+              "comparto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "그리고 뭔가를 다 쓰면, 여기서 내려받거나, 인쇄하거나, 공유해서 여럿이 함께 써요."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "정리하면, 글쓰기는 두려움을 덜어 주고 머리를 정리해 줘요. 완벽을 바라지 말고 시작하세요. 이야기는 기억에 남으니, 들려주세요. 그리고 매일 조금씩 쓰세요. 좋은 글은 고칠 때 나오니까요."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS의 글쓰기 방에서는 나만의 책을 쓰고, 그 책의 인물, 장소, 막을 모아 둘 수 있어요. 혼자 써도 되고, 인공지능의 도움을 받아 써도 돼요. 오늘 무료로 나만의 마음의 집을 지어 보세요. 링크는 설명란에 있어요. 그리고 다음 가이드는, 어떻게 취미를 찾고 꾸준히 이어 갈 수 있을까요?",
+    "boton": "글쓰기 방 열기",
+    "lamina": "app-plan",
+    "anclas": {
+      "libros": "나만의 책",
+      "personajes": "인물, 장소",
+      "ia": "인공지능의 도움"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "pennebaker-1986",
+      "texto": "Pennebaker J. W., Beall S. K. Confronting a traumatic event: Toward an understanding of inhibition and disease. Journal of Abnormal Psychology (1986).",
+      "url": "https://doi.org/10.1037/0021-843X.95.3.274"
+    },
+    {
+      "id": "ramirez-2011",
+      "texto": "Ramirez G., Beilock S. L. Writing about testing worries boosts exam performance in the classroom. Science (2011).",
+      "url": "https://doi.org/10.1126/science.1199427"
+    },
+    {
+      "id": "elbow-1973",
+      "texto": "Elbow P. Writing Without Teachers. Oxford University Press (1973).",
+      "url": "https://global.oup.com/academic/product/writing-without-teachers-9780195120165"
+    },
+    {
+      "id": "lamott-1994",
+      "texto": "Lamott A. Bird by Bird: Some Instructions on Writing and Life (1994).",
+      "url": "https://en.wikipedia.org/wiki/Bird_by_Bird"
+    },
+    {
+      "id": "hemingway-1935",
+      "texto": "Hemingway E. Monologue to the Maestro: A High Seas Letter. Esquire (1935년 10월).",
+      "url": "https://classic.esquire.com/article/1935/10/1/monologue-to-the-maestro"
+    },
+    {
+      "id": "forster-1927",
+      "texto": "Forster E. M. Aspects of the Novel (1927).",
+      "url": "https://en.wikipedia.org/wiki/Aspects_of_the_Novel"
+    },
+    {
+      "id": "bangert-drowns-2004",
+      "texto": "Bangert-Drowns R. L., Hurley M. M., Wilkinson B. The effects of school-based writing-to-learn interventions on academic achievement: A meta-analysis. Review of Educational Research (2004).",
+      "url": "https://doi.org/10.3102/00346543074001029"
+    },
+    {
+      "id": "schmandt-besserat-1996",
+      "texto": "Schmandt-Besserat D. How Writing Came About. University of Texas Press (1996).",
+      "url": "https://utpress.utexas.edu/9780292777040/"
+    },
+    {
+      "id": "old-weather",
+      "texto": "Old Weather: 배의 항해 일지를 옮겨 적는 시민 과학 프로젝트 (2010년부터).",
+      "url": "https://en.wikipedia.org/wiki/Old_Weather"
+    },
+    {
+      "id": "bower-1969",
+      "texto": "Bower G. H., Clark M. C. Narrative stories as mediators for serial learning. Psychonomic Science (1969).",
+      "url": "https://doi.org/10.3758/BF03332778"
+    },
+    {
+      "id": "reagan-2016",
+      "texto": "Reagan A. J., Mitchell L., Kiley D., Danforth C. M., Dodds P. S. The emotional arcs of stories are dominated by six basic shapes. EPJ Data Science (2016).",
+      "url": "https://doi.org/10.1140/epjds/s13688-016-0093-1"
+    },
+    {
+      "id": "aristoteles",
+      "texto": "아리스토텔레스. 『시학』 (기원전 4세기).",
+      "url": "https://www.gutenberg.org/ebooks/1974"
+    },
+    {
+      "id": "boice-1990",
+      "texto": "Boice R. Professors as Writers: A Self-Help Guide to Productive Writing. New Forums Press (1990).",
+      "url": "https://newforums.com/our-titles/successful-faculty-development/scholarly-writing-publishing/professors-as-writers/"
+    },
+    {
+      "id": "hemingway-1958",
+      "texto": "Plimpton G. Ernest Hemingway, The Art of Fiction No. 21. The Paris Review (1958).",
+      "url": "https://www.theparisreview.org/interviews/4825/the-art-of-fiction-no-21-ernest-hemingway"
+    },
+    {
+      "id": "king-2001",
+      "texto": "King L. A. The health benefits of writing about life goals. Personality and Social Psychology Bulletin (2001).",
+      "url": "https://doi.org/10.1177/0146167201277003"
+    }
+  ]
+}

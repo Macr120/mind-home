@@ -7463,6 +7463,7 @@ export const PT: Dict = {
   'guia.mindfulness.titulo': "Por que ir mais devagar vai te fazer chegar mais rápido?",
   'guia.agenda.titulo': "Como organizar o seu tempo?",
   'guia.aprender.titulo': "Como aprender mais rápido?",
+  'guia.escritura.titulo': "Por que você deve escrever?",
   'tut.esencial.titulo': 'O essencial',
   'tut.tipo.ejemplos': 'Exemplos · MindHaOS demo',
   'tut.app-agenda--esencial.resumen':

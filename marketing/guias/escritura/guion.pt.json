@@ -1,0 +1,750 @@
+{
+  "idioma": "pt",
+  "tema": "escritura",
+  "plantillaId": "escritura",
+  "numero": 14,
+  "nombre": "Escrita",
+  "pregunta": "Por que você deve escrever?",
+  "corta": "Por que você deve escrever?",
+  "subtitulo": "Por que escrever tira o seu medo, por que a página em branco assusta, como escrever organiza a sua cabeça, por que a humanidade escreve há cinco mil anos, por que as histórias ficam na memória, como montar uma boa história, como escrever melhor a cada dia e um plano para começar.",
+  "aviso": "Este guia é informativo: os estudos citados resumem seus resultados de forma simples, e escrever não substitui a ajuda de um profissional. Se o que te preocupa não te deixa viver em paz, fale com alguém de confiança ou com um especialista.",
+  "partes": [
+    {
+      "id": "miedo",
+      "titulo": "Por que escrever tira o seu medo?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Por que você deve escrever? Quase todos nós escrevemos todos os dias: mensagens, listas, e-mails. Mas quase ninguém escreve para si mesmo, e perde algo que a ciência mede há quarenta anos. O que acontece na sua cabeça quando você escreve? Hoje você vai ver, e vai sair com um plano para começar a escrever já nesta semana."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Aliás, esta é a minha casa no MindHaOS, e é neste cômodo que eu escrevo. E repare na casa: hoje ela é uma casa mal-assombrada, como o medo da página em branco, e a cada etapa do guia ela vai mudar. Vamos começar."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte um. Por que escrever tira o seu medo?"
+        },
+        {
+          "id": "pennebaker",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "15 min",
+            "clave": "pennebaker"
+          },
+          "lamina": [
+            "noche",
+            "escribirNoche"
+          ],
+          "destacada": true,
+          "texto": "Vamos começar pelo que assusta. Em 1986, James Pennebaker e Sandra Beall pediram a estudantes que escrevessem quinze minutos, quatro dias seguidos, sobre a coisa mais difícil que já tinham vivido. Nos meses seguintes, eles foram menos vezes ao médico do que quem escreveu sobre coisas sem importância."
+        },
+        {
+          "id": "examen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "preocupaciones"
+          },
+          "lamina": [
+            "examen",
+            "nervios"
+          ],
+          "meme": "nervios",
+          "texto": "E funciona logo antes daquilo que te dá medo. Em 2011, Gerardo Ramírez e Sian Beilock pediram a estudantes que escrevessem dez minutos sobre o nervosismo antes de uma prova. Eles foram melhor, e os mais nervosos foram melhor do que todos."
+        },
+        {
+          "id": "porque",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombralo",
+              "escribelo",
+              "sueltalo"
+            ]
+          },
+          "lamina": [
+            "cabeza",
+            "libreta"
+          ],
+          "texto": "Por quê? Porque a preocupação ocupa espaço na sua memória de trabalho, aquela que você usa para pensar. Ao escrever, você a tira de lá e a deixa no papel."
+        },
+        {
+          "id": "escritorio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abro",
+              "escribo",
+              "suelto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Olhe a casa: continua mal-assombrada, como aquilo que às vezes temos medo de escrever. Aqui, no meu cômodo, eu também escrevo o que me assusta: a folha guarda isso para que a minha cabeça não precise guardar."
+        }
+      ]
+    },
+    {
+      "id": "blanco",
+      "titulo": "Por que a página em branco dá tanto medo?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte dois. Por que a página em branco dá tanto medo?"
+        },
+        {
+          "id": "perfecto",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quieres",
+              "juzgas",
+              "borras"
+            ]
+          },
+          "lamina": [
+            "hojaBlanca",
+            "borrar"
+          ],
+          "meme": "hojaBlanca",
+          "texto": "O medo mais comum de quem escreve é a página em branco. E quase sempre vem da mesma coisa: querer que saia perfeito de primeira."
+        },
+        {
+          "id": "elbow",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escrituraLibre"
+          },
+          "lamina": [
+            "teclear",
+            "cuaderno"
+          ],
+          "destacada": true,
+          "texto": "Em 1973, o professor Peter Elbow propôs um remédio: a escrita livre. Dez minutos sem parar, sem apagar e sem corrigir. Se você não sabe o que escrever, escreve “não sei o que escrever” até sair outra coisa."
+        },
+        {
+          "id": "lamott",
+          "escena": "habla",
+          "visual": {
+            "tipo": "cita"
+          },
+          "lamina": [
+            "borrador",
+            "tachones"
+          ],
+          "texto": "A escritora Anne Lamott disse sem rodeios: quase todo bom texto começa com um primeiro rascunho horrível. O importante é escrevê-lo, não que fique bonito."
+        },
+        {
+          "id": "hemingway",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "para",
+              "sabes",
+              "manana"
+            ]
+          },
+          "lamina": [
+            "maquina",
+            "amanecer"
+          ],
+          "texto": "E um truque de Ernest Hemingway: pare de escrever quando já souber o que vem depois. Assim, no dia seguinte, a página não está em branco."
+        },
+        {
+          "id": "hoja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abroLibro",
+              "seGuarda",
+              "corrijo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "No meu cômodo, eu abro um livro e escrevo sem medo: a folha se salva sozinha enquanto escrevo, e eu corrijo depois."
+        }
+      ]
+    },
+    {
+      "id": "orden",
+      "titulo": "Por que escrever organiza a sua cabeça?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte três. Por que escrever organiza a sua cabeça?"
+        },
+        {
+          "id": "forster",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "suelta",
+              "fila",
+              "forma"
+            ]
+          },
+          "lamina": [
+            "pensar",
+            "ventana"
+          ],
+          "texto": "Em 1927, o romancista E. M. Forster citou uma pergunta famosa: como vou saber o que penso antes de ver o que digo? Ao escrever, as ideias soltas têm que fazer fila, uma atrás da outra."
+        },
+        {
+          "id": "aprender",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "48",
+            "clave": "aprender"
+          },
+          "lamina": [
+            "estudiar",
+            "apuntes"
+          ],
+          "destacada": true,
+          "texto": "E isso ajuda a aprender. Em 2004, Robert Bangert-Drowns e sua equipe revisaram quarenta e oito programas escolares em que se escrevia para aprender. Funcionou, principalmente quando os alunos escreviam sobre o que entendiam e o que não entendiam."
+        },
+        {
+          "id": "decidir",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nudo"
+          },
+          "lamina": [
+            "nudo",
+            "lista"
+          ],
+          "texto": "Por isso escrever também serve para decidir: coloque o problema numa frase, escreva suas opções e o que aconteceria com cada uma. O que na sua cabeça era um nó, no papel vira uma lista."
+        },
+        {
+          "id": "indice",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "titulos",
+              "indiceSolo",
+              "veoForma"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Na minha folha, cada título que eu escrevo monta o índice sozinho, e assim eu vejo a forma do que estou pensando."
+        }
+      ]
+    },
+    {
+      "id": "bitacora",
+      "titulo": "Por que a humanidade escreve há cinco mil anos?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte quatro. Por que a humanidade escreve há cinco mil anos?"
+        },
+        {
+          "id": "uruk",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaEscritura"
+          },
+          "lamina": [
+            "tablilla",
+            "trigo"
+          ],
+          "destacada": true,
+          "meme": "sumerios",
+          "texto": "A escrita nasceu há uns cinco mil anos na Mesopotâmia, em cidades como Uruk, e não foi para poemas: foi para contar. Cevada, cerveja, ovelhas. Escrever era a forma de não esquecer."
+        },
+        {
+          "id": "barcos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rumbo",
+              "viento",
+              "clima"
+            ]
+          },
+          "lamina": [
+            "barco",
+            "brujula"
+          ],
+          "texto": "Séculos depois, os navios levavam um diário de bordo: todo dia, o capitão anotava o rumo, o vento e o tempo."
+        },
+        {
+          "id": "oldWeather",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2010",
+            "clave": "oldWeather"
+          },
+          "lamina": [
+            "oleaje",
+            "mapa"
+          ],
+          "texto": "E essas anotações continuam servindo. Desde 2010, milhares de voluntários do projeto Old Weather passaram para o computador os diários de bordo de navios de um século atrás, e hoje os cientistas usam mais de um milhão desses dados para estudar o clima."
+        },
+        {
+          "id": "estante",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unLibro",
+              "porProyecto",
+              "cuantos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "E olhe: agora a casa é um navio pirata, como os que levavam seu diário de bordo. O meu mora aqui, na minha estante: um livro por viagem, por projeto ou por ideia."
+        }
+      ]
+    },
+    {
+      "id": "historias",
+      "titulo": "Por que uma história fica gravada em você?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte cinco. Por que uma história fica gravada em você?"
+        },
+        {
+          "id": "bower",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cadena"
+          },
+          "lamina": [
+            "fogata",
+            "contar"
+          ],
+          "destacada": true,
+          "texto": "Em 1969, Gordon Bower e Michael Clark deram a estudantes listas de dez palavras. Uns só as repassaram; outros inventaram uma história que as unisse. No fim, os da história lembraram cerca de sete vezes mais palavras."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoEscritura"
+          },
+          "lamina": "pulgar",
+          "texto": "Se você está gostando do guia, deixe o seu gostei, inscreva-se para não perder o próximo e compartilhe com aquela pessoa que diz que um dia vai escrever um livro."
+        },
+        {
+          "id": "arcos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "arcos"
+          },
+          "lamina": [
+            "libros",
+            "biblioteca"
+          ],
+          "texto": "E as histórias têm formas. Em 2016, uma equipe da Universidade de Vermont analisou com computadores mais de mil e trezentos romances e descobriu que quase todos seguem seis formas, como ir de pobre a rico, ou cair num buraco e sair dele."
+        },
+        {
+          "id": "personajes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "personajesP",
+              "lugares",
+              "actos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Em cada um dos meus livros eu guardo os personagens, os lugares e os atos da história, e o nome deles fica marcado no texto."
+        }
+      ]
+    },
+    {
+      "id": "trama",
+      "titulo": "Como se monta uma boa história?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte seis. Como se monta uma boa história?"
+        },
+        {
+          "id": "aristoteles",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quiere",
+              "impide",
+              "cambia"
+            ]
+          },
+          "lamina": [
+            "teatro",
+            "mascaras"
+          ],
+          "texto": "Há mais de dois mil anos, Aristóteles escreveu que uma história completa tem começo, meio e fim. Parece óbvio, mas é a base de quase tudo: alguém quer algo, algo o impede, e no final ele muda."
+        },
+        {
+          "id": "tirada",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tirada"
+          },
+          "lamina": [
+            "dados",
+            "isla"
+          ],
+          "destacada": true,
+          "texto": "Um jogo para começar: escolha um personagem, um lugar e um problema, e você já tem uma história. Uma pirata que tem medo de água. Um astronauta que esqueceu como voltar. Veja quantas saem."
+        },
+        {
+          "id": "muestra",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cuenta",
+              "muestra"
+            ]
+          },
+          "lamina": [
+            "manos",
+            "lluvia"
+          ],
+          "texto": "E uma regra das oficinas de escrita: mostre, não conte. Em vez de “ela estava com medo”, escreva “as mãos dela tremiam”. Deixe que quem lê descubra."
+        },
+        {
+          "id": "relaciones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dibujo",
+              "quienQuiere",
+              "secreto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "E em Relações eu desenho como os meus personagens se ligam: quem ama quem, e quem guarda um segredo de quem."
+        }
+      ]
+    },
+    {
+      "id": "diario",
+      "titulo": "Como escrever melhor a cada dia?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte sete. Como escrever melhor a cada dia?"
+        },
+        {
+          "id": "boice",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "boice"
+          },
+          "lamina": [
+            "reloj",
+            "escritorioLuz"
+          ],
+          "destacada": true,
+          "texto": "Em 1990, Robert Boice acompanhou durante dez semanas professores que queriam escrever mais. Os que esperavam a inspiração escreveram uns dois décimos de página por dia. Os que tinham um encontro diário com a folha, mais de três páginas."
+        },
+        {
+          "id": "reescribir",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "39",
+            "clave": "reescribir"
+          },
+          "lamina": [
+            "papelBola",
+            "maquina2"
+          ],
+          "meme": "borrador",
+          "texto": "E o que é bom sai na revisão. Hemingway contou que reescreveu trinta e nove vezes a última página de Adeus às Armas. Não porque não soubesse escrever, mas porque sabia revisar."
+        },
+        {
+          "id": "vozAlta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeVoz",
+              "trabas",
+              "cambia2"
+            ]
+          },
+          "lamina": [
+            "leer",
+            "microfono"
+          ],
+          "texto": "Um truque para revisar: leia em voz alta. Onde você tropeça, quem ler também vai tropeçar."
+        },
+        {
+          "id": "ia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "continuar",
+              "mejorar",
+              "resumir"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "E a casa agora viaja pelo espaço, rumo a tudo o que você vai escrever. Se eu travo, na minha folha posso pedir ideias à inteligência artificial para continuar, melhorar ou resumir. Mas a história quem escreve sou eu."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Como seguir? Seu plano para continuar",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte oito. Como seguir? Seu plano para continuar."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planEscribir"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "Na primeira semana, dez minutos de escrita livre todo dia, no mesmo horário. Sem corrigir e sem mostrar para ninguém."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "proyecto",
+              "corrige",
+              "termina"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "No primeiro mês, escolha um projeto pequeno: um conto curto, uma carta ou o diário dos seus dias. E revise em voz alta antes de dar por terminado."
+        },
+        {
+          "id": "futuro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2001",
+            "clave": "futuro"
+          },
+          "lamina": [
+            "estrellas",
+            "cohete"
+          ],
+          "texto": "E um exercício para o final: escreva para o seu eu do futuro. Em 2001, Laura King pediu a estudantes que escrevessem vinte minutos, quatro dias, sobre a melhor vida que conseguiam imaginar, e eles terminaram mais animados."
+        },
+        {
+          "id": "exportar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "descargo",
+              "imprimo",
+              "comparto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "E quando eu termino algo, aqui eu baixo, imprimo ou compartilho para escrever junto com outras pessoas."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Resumindo: escrever tira o seu medo e organiza a sua cabeça; comece sem buscar a perfeição; as histórias ficam, então conte as suas; e escreva um pouco todo dia, porque o que é bom sai na revisão."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "No cômodo Escrita do MindHaOS você pode escrever os seus livros, guardar seus personagens, lugares e atos, e escrever sozinho ou com a ajuda da inteligência artificial. Monte sua casa mental grátis hoje: o link está na descrição. E no próximo guia: como encontrar um passatempo e mantê-lo?",
+    "boton": "Abrir o cômodo Escrita",
+    "lamina": "app-plan",
+    "anclas": {
+      "libros": "os seus livros",
+      "personajes": "seus personagens",
+      "ia": "a inteligência artificial"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "pennebaker-1986",
+      "texto": "Pennebaker J. W., Beall S. K. Confronting a traumatic event: Toward an understanding of inhibition and disease. Journal of Abnormal Psychology (1986).",
+      "url": "https://doi.org/10.1037/0021-843X.95.3.274"
+    },
+    {
+      "id": "ramirez-2011",
+      "texto": "Ramirez G., Beilock S. L. Writing about testing worries boosts exam performance in the classroom. Science (2011).",
+      "url": "https://doi.org/10.1126/science.1199427"
+    },
+    {
+      "id": "elbow-1973",
+      "texto": "Elbow P. Writing Without Teachers. Oxford University Press (1973).",
+      "url": "https://global.oup.com/academic/product/writing-without-teachers-9780195120165"
+    },
+    {
+      "id": "lamott-1994",
+      "texto": "Lamott A. Bird by Bird: Some Instructions on Writing and Life (1994).",
+      "url": "https://en.wikipedia.org/wiki/Bird_by_Bird"
+    },
+    {
+      "id": "hemingway-1935",
+      "texto": "Hemingway E. Monologue to the Maestro: A High Seas Letter. Esquire (outubro de 1935).",
+      "url": "https://classic.esquire.com/article/1935/10/1/monologue-to-the-maestro"
+    },
+    {
+      "id": "forster-1927",
+      "texto": "Forster E. M. Aspects of the Novel (1927).",
+      "url": "https://en.wikipedia.org/wiki/Aspects_of_the_Novel"
+    },
+    {
+      "id": "bangert-drowns-2004",
+      "texto": "Bangert-Drowns R. L., Hurley M. M., Wilkinson B. The effects of school-based writing-to-learn interventions on academic achievement: A meta-analysis. Review of Educational Research (2004).",
+      "url": "https://doi.org/10.3102/00346543074001029"
+    },
+    {
+      "id": "schmandt-besserat-1996",
+      "texto": "Schmandt-Besserat D. How Writing Came About. University of Texas Press (1996).",
+      "url": "https://utpress.utexas.edu/9780292777040/"
+    },
+    {
+      "id": "old-weather",
+      "texto": "Old Weather: projeto de ciência cidadã que transcreve diários de bordo de navios (desde 2010).",
+      "url": "https://en.wikipedia.org/wiki/Old_Weather"
+    },
+    {
+      "id": "bower-1969",
+      "texto": "Bower G. H., Clark M. C. Narrative stories as mediators for serial learning. Psychonomic Science (1969).",
+      "url": "https://doi.org/10.3758/BF03332778"
+    },
+    {
+      "id": "reagan-2016",
+      "texto": "Reagan A. J., Mitchell L., Kiley D., Danforth C. M., Dodds P. S. The emotional arcs of stories are dominated by six basic shapes. EPJ Data Science (2016).",
+      "url": "https://doi.org/10.1140/epjds/s13688-016-0093-1"
+    },
+    {
+      "id": "aristoteles",
+      "texto": "Aristóteles. Poética (século IV a.C.).",
+      "url": "https://www.gutenberg.org/ebooks/1974"
+    },
+    {
+      "id": "boice-1990",
+      "texto": "Boice R. Professors as Writers: A Self-Help Guide to Productive Writing. New Forums Press (1990).",
+      "url": "https://newforums.com/our-titles/successful-faculty-development/scholarly-writing-publishing/professors-as-writers/"
+    },
+    {
+      "id": "hemingway-1958",
+      "texto": "Plimpton G. Ernest Hemingway, The Art of Fiction No. 21. The Paris Review (1958).",
+      "url": "https://www.theparisreview.org/interviews/4825/the-art-of-fiction-no-21-ernest-hemingway"
+    },
+    {
+      "id": "king-2001",
+      "texto": "King L. A. The health benefits of writing about life goals. Personality and Social Psychology Bulletin (2001).",
+      "url": "https://doi.org/10.1177/0146167201277003"
+    }
+  ]
+}

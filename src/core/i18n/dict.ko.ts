@@ -7181,6 +7181,7 @@ export const KO: Dict = {
   'guia.mindfulness.titulo': "왜 천천히 가면 더 빨리 도착할까요?",
   'guia.agenda.titulo': "시간을 어떻게 정리할까요?",
   'guia.aprender.titulo': "어떻게 하면 더 빨리 배울 수 있을까요?",
+  'guia.escritura.titulo': "왜 글을 써야 할까요?",
   'tut.esencial.titulo': '기본 둘러보기',
   'tut.tipo.ejemplos': '예시 · 데모 MindHaOS',
   'tut.app-agenda--esencial.resumen':

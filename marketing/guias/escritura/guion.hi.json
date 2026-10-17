@@ -1,0 +1,750 @@
+{
+  "idioma": "hi",
+  "tema": "escritura",
+  "plantillaId": "escritura",
+  "numero": 14,
+  "nombre": "लेखन",
+  "pregunta": "आपको क्यों लिखना चाहिए?",
+  "corta": "आपको क्यों लिखना चाहिए?",
+  "subtitulo": "लिखना डर क्यों दूर करता है, ख़ाली पन्ना क्यों डराता है, लिखना दिमाग़ को कैसे व्यवस्थित करता है, इंसान पाँच हज़ार साल से क्यों लिखता आ रहा है, कहानियाँ याद क्यों रह जाती हैं, अच्छी कहानी कैसे बनती है, हर दिन बेहतर कैसे लिखें, और शुरुआत करने की एक योजना।",
+  "aviso": "यह गाइड जानकारी के लिए है: बताए गए अध्ययनों के नतीजे आसान शब्दों में दिए गए हैं, और लिखना किसी विशेषज्ञ की मदद की जगह नहीं लेता। अगर कोई चिंता आपको चैन से जीने नहीं दे रही, तो किसी भरोसेमंद व्यक्ति या विशेषज्ञ से बात करें।",
+  "partes": [
+    {
+      "id": "miedo",
+      "titulo": "लिखना आपका डर क्यों दूर करता है?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "आपको क्यों लिखना चाहिए? हम में से लगभग सभी रोज़ लिखते हैं: मैसेज, लिस्ट, ईमेल। लेकिन लगभग कोई भी अपने लिए नहीं लिखता, और उस चीज़ से चूक जाता है जिसे विज्ञान चालीस साल से माप रहा है। जब आप लिखते हैं, तो आपके दिमाग़ में क्या होता है? आज आप यह देखेंगे, और इसी हफ़्ते से लिखना शुरू करने की योजना लेकर जाएँगे।"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "वैसे, यह MindHaOS में मेरा घर है, और इस कमरे में मैं लिखता हूँ। और घर पर ध्यान दीजिए: आज यह एक भुतहा घर है, ख़ाली पन्ने के डर की तरह, और गाइड के हर पड़ाव पर यह बदलेगा। चलिए शुरू करते हैं।"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग एक। लिखना आपका डर क्यों दूर करता है?"
+        },
+        {
+          "id": "pennebaker",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "15 मिनट",
+            "clave": "pennebaker"
+          },
+          "lamina": [
+            "noche",
+            "escribirNoche"
+          ],
+          "destacada": true,
+          "texto": "शुरुआत उससे करते हैं जो डराता है। 1986 में, जेम्स पेनेबेकर और सैंड्रा बील ने छात्रों से लगातार चार दिन, पंद्रह मिनट, अपने जीवन के सबसे मुश्किल अनुभव के बारे में लिखने को कहा। अगले महीनों में, वे उन लोगों से कम बार डॉक्टर के पास गए जिन्होंने मामूली बातों के बारे में लिखा था।"
+        },
+        {
+          "id": "examen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "preocupaciones"
+          },
+          "lamina": [
+            "examen",
+            "nervios"
+          ],
+          "meme": "nervios",
+          "texto": "और यह ठीक उस चीज़ से पहले काम करता है जिससे आपको डर लगता है। 2011 में, जेरार्डो रामीरेज़ और सियान बेलॉक ने छात्रों से परीक्षा से पहले दस मिनट अपनी घबराहट के बारे में लिखने को कहा। उनका प्रदर्शन बेहतर रहा, और सबसे ज़्यादा घबराए छात्रों का सबसे अच्छा।"
+        },
+        {
+          "id": "porque",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombralo",
+              "escribelo",
+              "sueltalo"
+            ]
+          },
+          "lamina": [
+            "cabeza",
+            "libreta"
+          ],
+          "texto": "क्यों? क्योंकि चिंता आपकी वर्किंग मेमोरी में जगह घेरती है, वही जिससे आप सोचते हैं। उसे लिखकर, आप उसे वहाँ से निकालकर काग़ज़ पर रख देते हैं।"
+        },
+        {
+          "id": "escritorio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abro",
+              "escribo",
+              "suelto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "घर को देखिए: अब भी भुतहा है, उन बातों की तरह जिन्हें लिखने से हम कभी-कभी डरते हैं। यहाँ, अपने कमरे में, मैं भी वह लिखता हूँ जो मुझे डराता है: पन्ना उसे संभाल लेता है, ताकि मेरे दिमाग़ को न संभालना पड़े।"
+        }
+      ]
+    },
+    {
+      "id": "blanco",
+      "titulo": "ख़ाली पन्ना इतना क्यों डराता है?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग दो। ख़ाली पन्ना इतना क्यों डराता है?"
+        },
+        {
+          "id": "perfecto",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quieres",
+              "juzgas",
+              "borras"
+            ]
+          },
+          "lamina": [
+            "hojaBlanca",
+            "borrar"
+          ],
+          "meme": "hojaBlanca",
+          "texto": "लिखने वालों का सबसे आम डर है ख़ाली पन्ना। और यह लगभग हमेशा एक ही वजह से आता है: यह चाहना कि पहली बार में ही सब परफ़ेक्ट निकले।"
+        },
+        {
+          "id": "elbow",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escrituraLibre"
+          },
+          "lamina": [
+            "teclear",
+            "cuaderno"
+          ],
+          "destacada": true,
+          "texto": "1973 में, प्रोफ़ेसर पीटर एल्बो ने एक इलाज सुझाया: फ़्री राइटिंग। दस मिनट बिना रुके, बिना मिटाए और बिना सुधारे। अगर समझ न आए कि क्या लिखें, तो «पता नहीं क्या लिखूँ» लिखते रहिए, जब तक कुछ और न निकल आए।"
+        },
+        {
+          "id": "lamott",
+          "escena": "habla",
+          "visual": {
+            "tipo": "cita"
+          },
+          "lamina": [
+            "borrador",
+            "tachones"
+          ],
+          "texto": "लेखिका ऐन लैमॉट ने साफ़-साफ़ कहा: लगभग हर अच्छा लेखन एक बेहद ख़राब पहले ड्राफ़्ट से शुरू होता है। ज़रूरी है उसे लिखना, सुंदर बनाना नहीं।"
+        },
+        {
+          "id": "hemingway",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "para",
+              "sabes",
+              "manana"
+            ]
+          },
+          "lamina": [
+            "maquina",
+            "amanecer"
+          ],
+          "texto": "और अर्नेस्ट हेमिंग्वे की एक तरकीब: लिखना तब रोकिए जब आपको पता हो कि आगे क्या आएगा। इस तरह, अगले दिन पन्ना ख़ाली नहीं होता।"
+        },
+        {
+          "id": "hoja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abroLibro",
+              "seGuarda",
+              "corrijo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "अपने कमरे में, मैं एक किताब खोलता हूँ और बिना डरे लिखता हूँ: लिखते-लिखते पन्ना अपने-आप सेव होता जाता है, और सुधार मैं बाद में करता हूँ।"
+        }
+      ]
+    },
+    {
+      "id": "orden",
+      "titulo": "लिखना आपके दिमाग़ को व्यवस्थित क्यों करता है?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग तीन। लिखना आपके दिमाग़ को व्यवस्थित क्यों करता है?"
+        },
+        {
+          "id": "forster",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "suelta",
+              "fila",
+              "forma"
+            ]
+          },
+          "lamina": [
+            "pensar",
+            "ventana"
+          ],
+          "texto": "1927 में, उपन्यासकार ई. एम. फ़ॉर्स्टर ने एक मशहूर सवाल दोहराया: जब तक मैं देख न लूँ कि मैं क्या कहता हूँ, तब तक कैसे जानूँ कि मैं क्या सोचता हूँ? लिखते समय, बिखरे विचारों को कतार में लगना पड़ता है, एक के पीछे एक।"
+        },
+        {
+          "id": "aprender",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "48",
+            "clave": "aprender"
+          },
+          "lamina": [
+            "estudiar",
+            "apuntes"
+          ],
+          "destacada": true,
+          "texto": "और यह सीखने में मदद करता है। 2004 में, रॉबर्ट बैंगर्ट-ड्राउन्स और उनकी टीम ने स्कूलों के अड़तालीस ऐसे कार्यक्रमों की समीक्षा की जिनमें सीखने के लिए लिखा जाता था। यह काम आया, ख़ासकर तब जब छात्र लिखते थे कि उन्हें क्या समझ आया और क्या नहीं।"
+        },
+        {
+          "id": "decidir",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nudo"
+          },
+          "lamina": [
+            "nudo",
+            "lista"
+          ],
+          "texto": "इसीलिए लिखना फ़ैसला करने में भी काम आता है: समस्या को एक वाक्य में लिखिए, फिर अपने विकल्प और हर एक से क्या होगा। जो आपके दिमाग़ में एक गाँठ था, वह काग़ज़ पर एक लिस्ट बन जाता है।"
+        },
+        {
+          "id": "indice",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "titulos",
+              "indiceSolo",
+              "veoForma"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "मेरे पन्ने पर, मैं जो भी शीर्षक लिखता हूँ, उससे अनुक्रमणिका अपने-आप बन जाती है, और इस तरह मैं देख पाता हूँ कि मैं जो सोच रहा हूँ उसका आकार क्या है।"
+        }
+      ]
+    },
+    {
+      "id": "bitacora",
+      "titulo": "इंसान पाँच हज़ार साल से क्यों लिख रहा है?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग चार। इंसान पाँच हज़ार साल से क्यों लिख रहा है?"
+        },
+        {
+          "id": "uruk",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaEscritura"
+          },
+          "lamina": [
+            "tablilla",
+            "trigo"
+          ],
+          "destacada": true,
+          "meme": "sumerios",
+          "texto": "लेखन लगभग पाँच हज़ार साल पहले मेसोपोटामिया में, उरुक जैसे शहरों में पैदा हुआ, और वह कविताओं के लिए नहीं था: वह गिनती के लिए था। जौ, बीयर, भेड़ें। लिखना भूलने से बचने का तरीक़ा था।"
+        },
+        {
+          "id": "barcos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rumbo",
+              "viento",
+              "clima"
+            ]
+          },
+          "lamina": [
+            "barco",
+            "brujula"
+          ],
+          "texto": "सदियों बाद, जहाज़ों पर एक रोज़नामचा रखा जाता था, यानी लॉगबुक: हर दिन, कप्तान दिशा, हवा और मौसम लिखता था।"
+        },
+        {
+          "id": "oldWeather",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2010",
+            "clave": "oldWeather"
+          },
+          "lamina": [
+            "oleaje",
+            "mapa"
+          ],
+          "texto": "और वे नोट्स आज भी काम आते हैं। 2010 से, Old Weather प्रोजेक्ट के हज़ारों स्वयंसेवकों ने सौ साल पुराने जहाज़ों की लॉगबुक कंप्यूटर में दर्ज कीं, और आज वैज्ञानिक जलवायु के अध्ययन के लिए उनमें से दस लाख से ज़्यादा आँकड़ों का इस्तेमाल करते हैं।"
+        },
+        {
+          "id": "estante",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unLibro",
+              "porProyecto",
+              "cuantos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "और देखिए: अब घर समुद्री डाकुओं का एक जहाज़ है, उन जहाज़ों की तरह जो अपनी लॉगबुक रखते थे। मेरी लॉगबुक यहाँ रहती है, मेरी किताबों की अलमारी में: हर सफ़र, प्रोजेक्ट या विचार के लिए एक किताब।"
+        }
+      ]
+    },
+    {
+      "id": "historias",
+      "titulo": "कोई कहानी दिमाग़ में क्यों बस जाती है?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग पाँच। कोई कहानी दिमाग़ में क्यों बस जाती है?"
+        },
+        {
+          "id": "bower",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cadena"
+          },
+          "lamina": [
+            "fogata",
+            "contar"
+          ],
+          "destacada": true,
+          "texto": "1969 में, गॉर्डन बाउर और माइकल क्लार्क ने छात्रों को दस शब्दों की सूचियाँ दीं। कुछ ने उन्हें बस दोहराया; बाकियों ने उन्हें जोड़ने वाली एक कहानी गढ़ी। आख़िर में, कहानी वालों को लगभग सात गुना ज़्यादा शब्द याद रहे।"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoEscritura"
+          },
+          "lamina": "pulgar",
+          "texto": "अगर आपको यह गाइड पसंद आ रही है, तो पसंद करें, सदस्यता लें ताकि अगली गाइड न छूटे, और उस व्यक्ति के साथ शेयर करें जो कहता है कि एक दिन वह किताब लिखेगा।"
+        },
+        {
+          "id": "arcos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "arcos"
+          },
+          "lamina": [
+            "libros",
+            "biblioteca"
+          ],
+          "texto": "और कहानियों के आकार होते हैं। 2016 में, यूनिवर्सिटी ऑफ़ वर्मोंट की एक टीम ने कंप्यूटर से तेरह सौ से ज़्यादा उपन्यासों का विश्लेषण किया, और पाया कि लगभग सभी छह आकारों पर चलते हैं, जैसे ग़रीबी से अमीरी तक, या गड्ढे में गिरना और उससे निकलना।"
+        },
+        {
+          "id": "personajes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "personajesP",
+              "lugares",
+              "actos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "अपनी हर किताब में मैं कहानी के किरदार, जगहें और अंक सहेजता हूँ, और उनका नाम टेक्स्ट में चिह्नित हो जाता है।"
+        }
+      ]
+    },
+    {
+      "id": "trama",
+      "titulo": "अच्छी कहानी कैसे बनती है?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग छह। अच्छी कहानी कैसे बनती है?"
+        },
+        {
+          "id": "aristoteles",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quiere",
+              "impide",
+              "cambia"
+            ]
+          },
+          "lamina": [
+            "teatro",
+            "mascaras"
+          ],
+          "texto": "दो हज़ार साल से भी पहले, अरस्तू ने लिखा कि एक पूरी कहानी की शुरुआत, बीच और अंत होता है। सुनने में साफ़ बात लगती है, पर यही लगभग हर चीज़ की नींव है: कोई कुछ चाहता है, कुछ उसे रोकता है, और आख़िर में वह बदल जाता है।"
+        },
+        {
+          "id": "tirada",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tirada"
+          },
+          "lamina": [
+            "dados",
+            "isla"
+          ],
+          "destacada": true,
+          "texto": "शुरू करने के लिए एक खेल: एक किरदार, एक जगह और एक समस्या चुनिए, और आपकी कहानी तैयार। एक समुद्री डाकू लड़की, जिसे पानी से डर लगता है। एक अंतरिक्ष यात्री, जो लौटने का रास्ता भूल गया। देखिए कितनी कहानियाँ निकलती हैं।"
+        },
+        {
+          "id": "muestra",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cuenta",
+              "muestra"
+            ]
+          },
+          "lamina": [
+            "manos",
+            "lluvia"
+          ],
+          "texto": "और लेखन कार्यशालाओं का एक नियम: दिखाइए, बताइए मत। «उसे डर लग रहा था» की जगह लिखिए «उसके हाथ काँप रहे थे»। पढ़ने वाले को ख़ुद पता लगाने दीजिए।"
+        },
+        {
+          "id": "relaciones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dibujo",
+              "quienQuiere",
+              "secreto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "और «रिश्ते» में मैं बनाता हूँ कि मेरे किरदार आपस में कैसे जुड़े हैं: कौन किसे चाहता है, और कौन किससे राज़ छिपाता है।"
+        }
+      ]
+    },
+    {
+      "id": "diario",
+      "titulo": "हर दिन बेहतर कैसे लिखें?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग सात। हर दिन बेहतर कैसे लिखें?"
+        },
+        {
+          "id": "boice",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "boice"
+          },
+          "lamina": [
+            "reloj",
+            "escritorioLuz"
+          ],
+          "destacada": true,
+          "texto": "1990 में, रॉबर्ट बॉइस ने दस हफ़्ते तक उन प्रोफ़ेसरों पर नज़र रखी जो ज़्यादा लिखना चाहते थे। जो प्रेरणा का इंतज़ार करते थे, उन्होंने दिन में लगभग पन्ने का दो-दसवाँ हिस्सा लिखा। जिनकी पन्ने के साथ रोज़ की एक मुलाक़ात तय थी, उन्होंने तीन पन्नों से ज़्यादा।"
+        },
+        {
+          "id": "reescribir",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "39",
+            "clave": "reescribir"
+          },
+          "lamina": [
+            "papelBola",
+            "maquina2"
+          ],
+          "meme": "borrador",
+          "texto": "और अच्छा लेखन सुधारते समय निकलता है। हेमिंग्वे ने बताया कि उन्होंने ए फ़ेयरवेल टू आर्म्स का आख़िरी पन्ना उनतालीस बार दोबारा लिखा। इसलिए नहीं कि उन्हें लिखना नहीं आता था, बल्कि इसलिए कि उन्हें सुधारना आता था।"
+        },
+        {
+          "id": "vozAlta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeVoz",
+              "trabas",
+              "cambia2"
+            ]
+          },
+          "lamina": [
+            "leer",
+            "microfono"
+          ],
+          "texto": "सुधारने की एक तरकीब: ज़ोर से पढ़िए। जहाँ आप अटकते हैं, वहाँ पढ़ने वाला भी अटकेगा।"
+        },
+        {
+          "id": "ia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "continuar",
+              "mejorar",
+              "resumir"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "और अब घर अंतरिक्ष में सफ़र कर रहा है, उस सब की ओर जो आप लिखने वाले हैं। अगर मैं अटक जाऊँ, तो अपने पन्ने पर मैं आर्टिफ़िशियल इंटेलिजेंस से आगे बढ़ाने, सुधारने या सारांश बनाने के लिए आइडिया माँग सकता हूँ। लेकिन कहानी मैं ख़ुद लिखता हूँ।"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "आगे कैसे बढ़ें? आगे जारी रखने की आपकी योजना",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग आठ। आगे कैसे बढ़ें? आगे जारी रखने की आपकी योजना।"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planEscribir"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "पहले हफ़्ते, हर दिन एक ही समय पर दस मिनट फ़्री राइटिंग। बिना सुधारे और बिना किसी को दिखाए।"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "proyecto",
+              "corrige",
+              "termina"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "पहले महीने, एक छोटा प्रोजेक्ट चुनिए: एक छोटी कहानी, एक चिट्ठी या अपने दिनों की डायरी। और उसे पूरा मानने से पहले ज़ोर से पढ़कर सुधारिए।"
+        },
+        {
+          "id": "futuro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2001",
+            "clave": "futuro"
+          },
+          "lamina": [
+            "estrellas",
+            "cohete"
+          ],
+          "texto": "और आख़िर के लिए एक अभ्यास: भविष्य के अपने आप को एक चिट्ठी लिखिए। 2001 में, लॉरा किंग ने छात्रों से चार दिन, बीस मिनट, उस सबसे अच्छी ज़िंदगी के बारे में लिखने को कहा जिसकी वे कल्पना कर सकते थे, और उनका मन बेहतर हो गया।"
+        },
+        {
+          "id": "exportar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "descargo",
+              "imprimo",
+              "comparto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "और जब मैं कुछ पूरा कर लेता हूँ, तो यहीं उसे डाउनलोड करता हूँ, प्रिंट करता हूँ या शेयर करता हूँ, ताकि कई लोग मिलकर लिख सकें।"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "संक्षेप में: लिखना डर दूर करता है और दिमाग़ को व्यवस्थित करता है; परफ़ेक्शन की तलाश के बिना शुरू कीजिए; कहानियाँ याद रह जाती हैं, तो उन्हें सुनाइए; और हर दिन थोड़ा लिखिए, क्योंकि अच्छा लेखन सुधारते समय निकलता है।"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS के लेखन कमरे में आप अपनी किताबें लिख सकते हैं, उनके किरदार, जगहें और अंक सहेज सकते हैं, और अकेले या आर्टिफ़िशियल इंटेलिजेंस की मदद से लिख सकते हैं। आज ही अपना मन का घर मुफ़्त में बनाएँ: लिंक डिस्क्रिप्शन में है। और अगली गाइड में: कोई शौक़ कैसे खोजें और उसे कैसे बनाए रखें?",
+    "boton": "लेखन कमरा खोलें",
+    "lamina": "app-plan",
+    "anclas": {
+      "libros": "अपनी किताबें",
+      "personajes": "उनके किरदार",
+      "ia": "आर्टिफ़िशियल इंटेलिजेंस"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "pennebaker-1986",
+      "texto": "Pennebaker J. W., Beall S. K. Confronting a traumatic event: Toward an understanding of inhibition and disease. Journal of Abnormal Psychology (1986).",
+      "url": "https://doi.org/10.1037/0021-843X.95.3.274"
+    },
+    {
+      "id": "ramirez-2011",
+      "texto": "Ramirez G., Beilock S. L. Writing about testing worries boosts exam performance in the classroom. Science (2011).",
+      "url": "https://doi.org/10.1126/science.1199427"
+    },
+    {
+      "id": "elbow-1973",
+      "texto": "Elbow P. Writing Without Teachers. Oxford University Press (1973).",
+      "url": "https://global.oup.com/academic/product/writing-without-teachers-9780195120165"
+    },
+    {
+      "id": "lamott-1994",
+      "texto": "Lamott A. Bird by Bird: Some Instructions on Writing and Life (1994).",
+      "url": "https://en.wikipedia.org/wiki/Bird_by_Bird"
+    },
+    {
+      "id": "hemingway-1935",
+      "texto": "Hemingway E. Monologue to the Maestro: A High Seas Letter. Esquire (अक्टूबर 1935).",
+      "url": "https://classic.esquire.com/article/1935/10/1/monologue-to-the-maestro"
+    },
+    {
+      "id": "forster-1927",
+      "texto": "Forster E. M. Aspects of the Novel (1927).",
+      "url": "https://en.wikipedia.org/wiki/Aspects_of_the_Novel"
+    },
+    {
+      "id": "bangert-drowns-2004",
+      "texto": "Bangert-Drowns R. L., Hurley M. M., Wilkinson B. The effects of school-based writing-to-learn interventions on academic achievement: A meta-analysis. Review of Educational Research (2004).",
+      "url": "https://doi.org/10.3102/00346543074001029"
+    },
+    {
+      "id": "schmandt-besserat-1996",
+      "texto": "Schmandt-Besserat D. How Writing Came About. University of Texas Press (1996).",
+      "url": "https://utpress.utexas.edu/9780292777040/"
+    },
+    {
+      "id": "old-weather",
+      "texto": "Old Weather: जहाज़ों की लॉगबुक को टाइप करने वाला नागरिक विज्ञान प्रोजेक्ट (2010 से)।",
+      "url": "https://en.wikipedia.org/wiki/Old_Weather"
+    },
+    {
+      "id": "bower-1969",
+      "texto": "Bower G. H., Clark M. C. Narrative stories as mediators for serial learning. Psychonomic Science (1969).",
+      "url": "https://doi.org/10.3758/BF03332778"
+    },
+    {
+      "id": "reagan-2016",
+      "texto": "Reagan A. J., Mitchell L., Kiley D., Danforth C. M., Dodds P. S. The emotional arcs of stories are dominated by six basic shapes. EPJ Data Science (2016).",
+      "url": "https://doi.org/10.1140/epjds/s13688-016-0093-1"
+    },
+    {
+      "id": "aristoteles",
+      "texto": "अरस्तू। काव्यशास्त्र (ईसा पूर्व चौथी सदी)।",
+      "url": "https://www.gutenberg.org/ebooks/1974"
+    },
+    {
+      "id": "boice-1990",
+      "texto": "Boice R. Professors as Writers: A Self-Help Guide to Productive Writing. New Forums Press (1990).",
+      "url": "https://newforums.com/our-titles/successful-faculty-development/scholarly-writing-publishing/professors-as-writers/"
+    },
+    {
+      "id": "hemingway-1958",
+      "texto": "Plimpton G. Ernest Hemingway, The Art of Fiction No. 21. The Paris Review (1958).",
+      "url": "https://www.theparisreview.org/interviews/4825/the-art-of-fiction-no-21-ernest-hemingway"
+    },
+    {
+      "id": "king-2001",
+      "texto": "King L. A. The health benefits of writing about life goals. Personality and Social Psychology Bulletin (2001).",
+      "url": "https://doi.org/10.1177/0146167201277003"
+    }
+  ]
+}

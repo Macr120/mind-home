@@ -79,6 +79,11 @@ export const MEMES: Record<string, DefMeme> = {
   urgente: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
   multitarea: { formato: 'arribaAbajo', poses: ['orgulloso', 'confundido'], sonido: 'jeje-boy' },
   manana: { formato: 'arribaAbajo', poses: ['relajado', 'cansado'], sonido: 'bruh' },
+  // Escritura (las poses son del mago, el narrador).
+  nervios: { formato: 'arribaAbajo', poses: ['orgulloso', 'cansado'], sonido: 'bruh' },
+  hojaBlanca: { formato: 'arribaAbajo', poses: ['orgulloso', 'confundido'], sonido: 'jeje-boy' },
+  sumerios: { formato: 'arribaAbajo', poses: ['orgulloso', 'relajado'], sonido: 'jeje-boy' },
+  borrador: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
 }
 
 export function Meme({ id, tema, t }: { id: string; tema: string; t: T }) {

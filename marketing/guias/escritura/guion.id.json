@@ -1,0 +1,750 @@
+{
+  "idioma": "id",
+  "tema": "escritura",
+  "plantillaId": "escritura",
+  "numero": 14,
+  "nombre": "Menulis",
+  "pregunta": "Mengapa kamu harus menulis?",
+  "corta": "Mengapa kamu harus menulis?",
+  "subtitulo": "Mengapa menulis menghilangkan rasa takut, mengapa halaman kosong menakutkan, bagaimana menulis menata pikiranmu, mengapa manusia sudah menulis selama lima ribu tahun, mengapa cerita melekat di ingatan, bagaimana menyusun cerita yang baik, bagaimana menulis lebih baik setiap hari, dan rencana untuk memulai.",
+  "aviso": "Panduan ini bersifat informatif: hasil studi yang dikutip diringkas secara sederhana, dan menulis tidak menggantikan bantuan profesional. Jika kekhawatiranmu membuatmu tak bisa hidup tenang, bicarakan dengan orang yang kamu percaya atau dengan seorang spesialis.",
+  "partes": [
+    {
+      "id": "miedo",
+      "titulo": "Mengapa menulis menghilangkan rasa takutmu?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Mengapa kamu harus menulis? Hampir semua orang menulis setiap hari: pesan, daftar, email. Tapi hampir tak ada yang menulis untuk dirinya sendiri, dan mereka melewatkan sesuatu yang sudah diukur sains selama empat puluh tahun. Apa yang terjadi di kepalamu saat kamu menulis? Hari ini kamu akan melihatnya, dan kamu akan pulang dengan rencana untuk mulai menulis minggu ini."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Omong-omong, ini rumahku di MindHaOS, dan di ruang ini aku menulis. Lihat rumahnya: hari ini jadi rumah hantu, seperti rasa takut pada halaman kosong, dan di setiap tahap panduan ini rumahnya akan berubah. Ayo kita mulai."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian satu. Mengapa menulis menghilangkan rasa takutmu?"
+        },
+        {
+          "id": "pennebaker",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "15 menit",
+            "clave": "pennebaker"
+          },
+          "lamina": [
+            "noche",
+            "escribirNoche"
+          ],
+          "destacada": true,
+          "texto": "Kita mulai dari yang menakutkan. Pada 1986, James Pennebaker dan Sandra Beall meminta mahasiswa menulis lima belas menit, empat hari berturut-turut, tentang hal tersulit yang pernah mereka alami. Dalam bulan-bulan berikutnya, mereka lebih jarang ke dokter dibanding yang menulis tentang hal-hal sepele."
+        },
+        {
+          "id": "examen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "preocupaciones"
+          },
+          "lamina": [
+            "examen",
+            "nervios"
+          ],
+          "meme": "nervios",
+          "texto": "Dan ini berhasil tepat sebelum hal yang kamu takuti. Pada 2011, Gerardo Ramírez dan Sian Beilock meminta siswa menulis sepuluh menit tentang rasa gugup mereka sebelum ujian. Hasil mereka lebih baik, dan yang paling gugup justru paling terbantu."
+        },
+        {
+          "id": "porque",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "nombralo",
+              "escribelo",
+              "sueltalo"
+            ]
+          },
+          "lamina": [
+            "cabeza",
+            "libreta"
+          ],
+          "texto": "Kenapa? Karena kekhawatiran memakan tempat di memori kerjamu, yang kamu pakai untuk berpikir. Saat menuliskannya, kamu mengeluarkannya dari sana dan meninggalkannya di kertas."
+        },
+        {
+          "id": "escritorio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abro",
+              "escribo",
+              "suelto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Lihat rumahnya: masih rumah hantu, seperti hal-hal yang kadang kita takut tuliskan. Di sini, di ruanganku, aku juga menulis hal yang membuatku takut: halaman menyimpannya, jadi kepalaku tak perlu melakukannya."
+        }
+      ]
+    },
+    {
+      "id": "blanco",
+      "titulo": "Mengapa halaman kosong begitu menakutkan?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian dua. Mengapa halaman kosong begitu menakutkan?"
+        },
+        {
+          "id": "perfecto",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quieres",
+              "juzgas",
+              "borras"
+            ]
+          },
+          "lamina": [
+            "hojaBlanca",
+            "borrar"
+          ],
+          "meme": "hojaBlanca",
+          "texto": "Ketakutan paling umum bagi penulis adalah halaman kosong. Dan hampir selalu asalnya sama: ingin hasilnya sempurna sejak percobaan pertama."
+        },
+        {
+          "id": "elbow",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "escrituraLibre"
+          },
+          "lamina": [
+            "teclear",
+            "cuaderno"
+          ],
+          "destacada": true,
+          "texto": "Pada 1973, profesor Peter Elbow mengusulkan obatnya: menulis bebas. Sepuluh menit tanpa berhenti, tanpa menghapus, dan tanpa mengoreksi. Kalau kamu tak tahu harus menulis apa, tulis «aku tak tahu harus menulis apa» sampai muncul hal lain."
+        },
+        {
+          "id": "lamott",
+          "escena": "habla",
+          "visual": {
+            "tipo": "cita"
+          },
+          "lamina": [
+            "borrador",
+            "tachones"
+          ],
+          "texto": "Penulis Anne Lamott mengatakannya terus terang: hampir semua tulisan bagus dimulai dari draf pertama yang buruk sekali. Yang penting adalah menuliskannya, bukan membuatnya indah."
+        },
+        {
+          "id": "hemingway",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "para",
+              "sabes",
+              "manana"
+            ]
+          },
+          "lamina": [
+            "maquina",
+            "amanecer"
+          ],
+          "texto": "Dan satu trik dari Ernest Hemingway: berhentilah menulis saat kamu sudah tahu kelanjutannya. Jadi, keesokan harinya, halamanmu tidak kosong."
+        },
+        {
+          "id": "hoja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abroLibro",
+              "seGuarda",
+              "corrijo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Di ruanganku, aku membuka sebuah buku dan menulis tanpa takut: halamannya tersimpan sendiri selagi aku menulis, dan aku mengoreksinya nanti."
+        }
+      ]
+    },
+    {
+      "id": "orden",
+      "titulo": "Mengapa menulis menata pikiranmu?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tiga. Mengapa menulis menata pikiranmu?"
+        },
+        {
+          "id": "forster",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "suelta",
+              "fila",
+              "forma"
+            ]
+          },
+          "lamina": [
+            "pensar",
+            "ventana"
+          ],
+          "texto": "Pada 1927, novelis E. M. Forster mengutip sebuah pertanyaan terkenal: bagaimana aku tahu apa yang kupikirkan sebelum aku melihat apa yang kukatakan? Saat menulis, ide-ide yang berserakan harus antre, satu di belakang yang lain."
+        },
+        {
+          "id": "aprender",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "48",
+            "clave": "aprender"
+          },
+          "lamina": [
+            "estudiar",
+            "apuntes"
+          ],
+          "destacada": true,
+          "texto": "Dan itu membantu belajar. Pada 2004, Robert Bangert-Drowns dan timnya meninjau empat puluh delapan program sekolah yang memakai menulis untuk belajar. Hasilnya berhasil, terutama saat murid menulis tentang apa yang mereka pahami dan apa yang belum."
+        },
+        {
+          "id": "decidir",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nudo"
+          },
+          "lamina": [
+            "nudo",
+            "lista"
+          ],
+          "texto": "Karena itu menulis juga berguna untuk memutuskan: tulis masalahnya dalam satu kalimat, lalu tulis pilihan-pilihanmu dan apa yang terjadi pada masing-masing. Yang di kepalamu terasa seperti simpul kusut, di kertas menjadi sebuah daftar."
+        },
+        {
+          "id": "indice",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "titulos",
+              "indiceSolo",
+              "veoForma"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Di halamanku, setiap judul yang kutulis menyusun daftar isi dengan sendirinya, jadi aku bisa melihat bentuk dari apa yang sedang kupikirkan."
+        }
+      ]
+    },
+    {
+      "id": "bitacora",
+      "titulo": "Mengapa manusia sudah menulis selama lima ribu tahun?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian empat. Mengapa manusia sudah menulis selama lima ribu tahun?"
+        },
+        {
+          "id": "uruk",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "historiaEscritura"
+          },
+          "lamina": [
+            "tablilla",
+            "trigo"
+          ],
+          "destacada": true,
+          "meme": "sumerios",
+          "texto": "Tulisan lahir sekitar lima ribu tahun lalu di Mesopotamia, di kota-kota seperti Uruk, dan bukan untuk puisi: tapi untuk menghitung. Jelai, bir, domba. Menulis adalah cara agar tidak lupa."
+        },
+        {
+          "id": "barcos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rumbo",
+              "viento",
+              "clima"
+            ]
+          },
+          "lamina": [
+            "barco",
+            "brujula"
+          ],
+          "texto": "Berabad-abad kemudian, kapal-kapal membawa buku harian pelayaran, yaitu buku log: setiap hari, sang kapten mencatat arah, angin, dan cuaca."
+        },
+        {
+          "id": "oldWeather",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2010",
+            "clave": "oldWeather"
+          },
+          "lamina": [
+            "oleaje",
+            "mapa"
+          ],
+          "texto": "Dan catatan itu masih berguna. Sejak 2010, ribuan relawan proyek Old Weather memindahkan ke komputer buku log kapal dari seabad lalu, dan kini para ilmuwan memakai lebih dari satu juta data itu untuk mempelajari iklim."
+        },
+        {
+          "id": "estante",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unLibro",
+              "porProyecto",
+              "cuantos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dan lihat: rumahnya sekarang jadi kapal bajak laut, seperti kapal-kapal yang membawa buku lognya. Buku logku tinggal di sini, di rak bukuku: satu buku untuk tiap perjalanan, proyek, atau ide."
+        }
+      ]
+    },
+    {
+      "id": "historias",
+      "titulo": "Mengapa sebuah cerita melekat di ingatanmu?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian lima. Mengapa sebuah cerita melekat di ingatanmu?"
+        },
+        {
+          "id": "bower",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cadena"
+          },
+          "lamina": [
+            "fogata",
+            "contar"
+          ],
+          "destacada": true,
+          "texto": "Pada 1969, Gordon Bower dan Michael Clark memberi mahasiswa daftar berisi sepuluh kata. Sebagian hanya mengulanginya; yang lain mengarang cerita yang menyatukannya. Pada akhirnya, kelompok cerita mengingat sekitar tujuh kali lebih banyak kata."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoEscritura"
+          },
+          "lamina": "pulgar",
+          "texto": "Kalau kamu suka panduan ini, tekan Suka, Subscribe supaya tak ketinggalan panduan berikutnya, dan Bagikan ke orang yang selalu bilang suatu hari akan menulis buku."
+        },
+        {
+          "id": "arcos",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "arcos"
+          },
+          "lamina": [
+            "libros",
+            "biblioteca"
+          ],
+          "texto": "Dan cerita punya bentuk. Pada 2016, sebuah tim dari Universitas Vermont menganalisis dengan komputer lebih dari seribu tiga ratus novel, dan menemukan bahwa hampir semuanya mengikuti enam bentuk, seperti dari miskin menjadi kaya, atau jatuh ke lubang lalu keluar darinya."
+        },
+        {
+          "id": "personajes",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "personajesP",
+              "lugares",
+              "actos"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Di setiap bukuku, aku menyimpan tokoh, tempat, dan babak dari ceritanya, dan nama mereka ditandai di dalam teks."
+        }
+      ]
+    },
+    {
+      "id": "trama",
+      "titulo": "Bagaimana menyusun cerita yang baik?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian enam. Bagaimana menyusun cerita yang baik?"
+        },
+        {
+          "id": "aristoteles",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quiere",
+              "impide",
+              "cambia"
+            ]
+          },
+          "lamina": [
+            "teatro",
+            "mascaras"
+          ],
+          "texto": "Lebih dari dua ribu tahun lalu, Aristoteles menulis bahwa cerita yang utuh punya awal, tengah, dan akhir. Terdengar jelas, tapi itulah dasar hampir segalanya: seseorang menginginkan sesuatu, sesuatu menghalanginya, dan pada akhirnya ia berubah."
+        },
+        {
+          "id": "tirada",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tirada"
+          },
+          "lamina": [
+            "dados",
+            "isla"
+          ],
+          "destacada": true,
+          "texto": "Sebuah permainan untuk memulai: pilih satu tokoh, satu tempat, dan satu masalah, dan kamu sudah punya cerita. Seorang bajak laut perempuan yang takut air. Seorang astronaut yang lupa cara pulang. Lihat berapa banyak yang muncul."
+        },
+        {
+          "id": "muestra",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "cuenta",
+              "muestra"
+            ]
+          },
+          "lamina": [
+            "manos",
+            "lluvia"
+          ],
+          "texto": "Dan satu aturan dari kelas menulis: tunjukkan, jangan ceritakan. Alih-alih «dia takut», tulis «tangannya gemetar». Biarkan pembaca menemukannya sendiri."
+        },
+        {
+          "id": "relaciones",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "dibujo",
+              "quienQuiere",
+              "secreto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dan di Hubungan, aku menggambar bagaimana tokoh-tokohku terhubung: siapa mencintai siapa, dan siapa menyimpan rahasia dari siapa."
+        }
+      ]
+    },
+    {
+      "id": "diario",
+      "titulo": "Bagaimana menulis lebih baik setiap hari?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tujuh. Bagaimana menulis lebih baik setiap hari?"
+        },
+        {
+          "id": "boice",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "boice"
+          },
+          "lamina": [
+            "reloj",
+            "escritorioLuz"
+          ],
+          "destacada": true,
+          "texto": "Pada 1990, Robert Boice mengikuti selama sepuluh minggu para dosen yang ingin menulis lebih banyak. Yang menunggu inspirasi menulis sekitar dua persepuluh halaman sehari. Yang punya janji harian dengan halaman, lebih dari tiga halaman."
+        },
+        {
+          "id": "reescribir",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "39",
+            "clave": "reescribir"
+          },
+          "lamina": [
+            "papelBola",
+            "maquina2"
+          ],
+          "meme": "borrador",
+          "texto": "Dan hasil yang bagus muncul saat mengoreksi. Hemingway bercerita bahwa ia menulis ulang halaman terakhir Pertempuran Penghabisan tiga puluh sembilan kali. Bukan karena ia tak bisa menulis, tapi karena ia tahu cara mengoreksi."
+        },
+        {
+          "id": "vozAlta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeVoz",
+              "trabas",
+              "cambia2"
+            ]
+          },
+          "lamina": [
+            "leer",
+            "microfono"
+          ],
+          "texto": "Satu trik untuk mengoreksi: bacalah keras-keras. Di bagian kamu tersendat, pembaca juga akan tersendat."
+        },
+        {
+          "id": "ia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "continuar",
+              "mejorar",
+              "resumir"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dan rumahnya kini melaju di luar angkasa, menuju semua yang akan kamu tulis. Kalau aku buntu, di halamanku aku bisa meminta ide dari kecerdasan buatan untuk melanjutkan, memperbaiki, atau meringkas. Tapi ceritanya tetap aku yang menulis."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Bagaimana melanjutkan? Rencanamu untuk terus maju",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian delapan. Bagaimana melanjutkan? Rencanamu untuk terus maju."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planEscribir"
+          },
+          "lamina": [
+            "semilla",
+            "brote"
+          ],
+          "texto": "Minggu pertama, sepuluh menit menulis bebas setiap hari, di jam yang sama. Tanpa mengoreksi dan tanpa menunjukkannya ke siapa pun."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "proyecto",
+              "corrige",
+              "termina"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "Bulan pertama, pilih satu proyek kecil: cerita pendek, sepucuk surat, atau buku harian tentang hari-harimu. Dan koreksi dengan membacanya keras-keras sebelum kamu anggap selesai."
+        },
+        {
+          "id": "futuro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2001",
+            "clave": "futuro"
+          },
+          "lamina": [
+            "estrellas",
+            "cohete"
+          ],
+          "texto": "Dan satu latihan untuk penutup: tulis surat untuk dirimu di masa depan. Pada 2001, Laura King meminta mahasiswa menulis dua puluh menit, selama empat hari, tentang kehidupan terbaik yang bisa mereka bayangkan, dan suasana hati mereka jadi lebih baik."
+        },
+        {
+          "id": "exportar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "descargo",
+              "imprimo",
+              "comparto"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dan saat aku menyelesaikan sesuatu, di sini aku mengunduhnya, mencetaknya, atau membagikannya untuk menulisnya bersama orang lain."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Ringkasnya: menulis menghilangkan rasa takut dan menata pikiranmu; mulailah tanpa mengejar kesempurnaan; cerita itu melekat, jadi ceritakanlah; dan menulislah sedikit setiap hari, karena hasil yang bagus muncul saat mengoreksi."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Di ruang Menulis MindHaOS, kamu bisa menulis buku-bukumu, menyimpan tokoh, tempat, dan babaknya, dan menulis sendiri atau dengan bantuan kecerdasan buatan. Bangun rumah pikiranmu gratis hari ini: tautannya ada di deskripsi. Dan di panduan berikutnya: bagaimana menemukan hobi dan mempertahankannya?",
+    "boton": "Buka ruang Menulis",
+    "lamina": "app-plan",
+    "anclas": {
+      "libros": "buku-bukumu",
+      "personajes": "menyimpan tokoh",
+      "ia": "kecerdasan buatan"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "pennebaker-1986",
+      "texto": "Pennebaker J. W., Beall S. K. Confronting a traumatic event: Toward an understanding of inhibition and disease. Journal of Abnormal Psychology (1986).",
+      "url": "https://doi.org/10.1037/0021-843X.95.3.274"
+    },
+    {
+      "id": "ramirez-2011",
+      "texto": "Ramirez G., Beilock S. L. Writing about testing worries boosts exam performance in the classroom. Science (2011).",
+      "url": "https://doi.org/10.1126/science.1199427"
+    },
+    {
+      "id": "elbow-1973",
+      "texto": "Elbow P. Writing Without Teachers. Oxford University Press (1973).",
+      "url": "https://global.oup.com/academic/product/writing-without-teachers-9780195120165"
+    },
+    {
+      "id": "lamott-1994",
+      "texto": "Lamott A. Bird by Bird: Some Instructions on Writing and Life (1994).",
+      "url": "https://en.wikipedia.org/wiki/Bird_by_Bird"
+    },
+    {
+      "id": "hemingway-1935",
+      "texto": "Hemingway E. Monologue to the Maestro: A High Seas Letter. Esquire (Oktober 1935).",
+      "url": "https://classic.esquire.com/article/1935/10/1/monologue-to-the-maestro"
+    },
+    {
+      "id": "forster-1927",
+      "texto": "Forster E. M. Aspects of the Novel (1927).",
+      "url": "https://en.wikipedia.org/wiki/Aspects_of_the_Novel"
+    },
+    {
+      "id": "bangert-drowns-2004",
+      "texto": "Bangert-Drowns R. L., Hurley M. M., Wilkinson B. The effects of school-based writing-to-learn interventions on academic achievement: A meta-analysis. Review of Educational Research (2004).",
+      "url": "https://doi.org/10.3102/00346543074001029"
+    },
+    {
+      "id": "schmandt-besserat-1996",
+      "texto": "Schmandt-Besserat D. How Writing Came About. University of Texas Press (1996).",
+      "url": "https://utpress.utexas.edu/9780292777040/"
+    },
+    {
+      "id": "old-weather",
+      "texto": "Old Weather: proyek sains warga yang mentranskripsi buku log kapal (sejak 2010).",
+      "url": "https://en.wikipedia.org/wiki/Old_Weather"
+    },
+    {
+      "id": "bower-1969",
+      "texto": "Bower G. H., Clark M. C. Narrative stories as mediators for serial learning. Psychonomic Science (1969).",
+      "url": "https://doi.org/10.3758/BF03332778"
+    },
+    {
+      "id": "reagan-2016",
+      "texto": "Reagan A. J., Mitchell L., Kiley D., Danforth C. M., Dodds P. S. The emotional arcs of stories are dominated by six basic shapes. EPJ Data Science (2016).",
+      "url": "https://doi.org/10.1140/epjds/s13688-016-0093-1"
+    },
+    {
+      "id": "aristoteles",
+      "texto": "Aristoteles. Poetika (abad ke-4 SM).",
+      "url": "https://www.gutenberg.org/ebooks/1974"
+    },
+    {
+      "id": "boice-1990",
+      "texto": "Boice R. Professors as Writers: A Self-Help Guide to Productive Writing. New Forums Press (1990).",
+      "url": "https://newforums.com/our-titles/successful-faculty-development/scholarly-writing-publishing/professors-as-writers/"
+    },
+    {
+      "id": "hemingway-1958",
+      "texto": "Plimpton G. Ernest Hemingway, The Art of Fiction No. 21. The Paris Review (1958).",
+      "url": "https://www.theparisreview.org/interviews/4825/the-art-of-fiction-no-21-ernest-hemingway"
+    },
+    {
+      "id": "king-2001",
+      "texto": "King L. A. The health benefits of writing about life goals. Personality and Social Psychology Bulletin (2001).",
+      "url": "https://doi.org/10.1177/0146167201277003"
+    }
+  ]
+}
