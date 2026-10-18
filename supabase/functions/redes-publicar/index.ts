@@ -19,6 +19,12 @@
  *   {accion:'finalizar', sesion}                          → {estado}
  *   {accion:'estado-publicacion', sesion}                 → {estado, id, url, motivo, privado}
  *   {accion:'token-youtube'}                              → {access_token, expira_en}
+ *   {accion:'cuentas'}                                    → {cuentas} (las conectadas, sin tokens)
+ *
+ * El script de publicación en lote (`scripts/redes/publicar-lote.mjs`) entra sin
+ * sesión: manda la clave `REDES_SCRIPT_CLAVE` en `x-redes-script` (y la anon key
+ * como Bearer para pasar el gateway) y actúa como el dueño de `REDES_SCRIPT_EMAIL`.
+ * Sin ese secreto puesto en el servidor, esa entrada no existe.
  *
  * `opciones`, `iniciar-publicacion` y `token-youtube` aceptan `ranura` (la
  * cuenta de esa red, ver `ranurasDe`); las acciones de una sesión ya en
@@ -47,7 +53,7 @@ import {
 } from '../_shared/redes/meta.ts'
 import { esPlataforma, leerRanura, mimeNormalizado, ranurasDe, type Plataforma } from '../_shared/redes/plataformas.ts'
 import { estadoPostTikTok, infoCreador, iniciarPostTikTok, subirTrozoTikTok, type PostTikTok } from '../_shared/redes/tiktok.ts'
-import { cuentaVigente, type Cuenta } from '../_shared/redes/tokens.ts'
+import { cuentaVigente, listarCuentasPublicas, type Cuenta } from '../_shared/redes/tokens.ts'
 
 /** Trozo que dicta el servidor: ≥ 5 MB (mínimo de TikTok), múltiplo de 256 KiB (YouTube), < 150 s a 1 Mb/s. */
 const TROZO_BYTES = 8 * 1024 * 1024
@@ -96,9 +102,9 @@ Deno.serve(async (req) => {
   const cors = corsDe(req)
   if (req.method !== 'POST') return json({ error: 'peticion-invalida', mensaje: 'Método no soportado.' }, 400, cors)
   try {
-    const usuario = await usuarioDe(clienteUsuario(req))
-    if (!usuario) throw new ErrorRedes('sin-sesion', 'Inicia sesión para publicar.')
     const admin = clienteAdmin()
+    const usuario = req.headers.has('x-redes-script') ? await usuarioScript(req, admin) : await usuarioDe(clienteUsuario(req))
+    if (!usuario) throw new ErrorRedes('sin-sesion', 'Inicia sesión para publicar.')
     if (!(await tienePlan(admin, usuario.id))) throw new ErrorRedes('sin-unlock', 'Suscríbete para publicar en redes.')
     const url = new URL(req.url)
     // El trozo viaja binario: sus metadatos van en la query (sin ampliar las cabeceras CORS).
@@ -125,6 +131,8 @@ Deno.serve(async (req) => {
         const c = await cuentaVigente(admin, usuario.id, 'youtube', 3300, leerRanura(cuerpo.ranura, max))
         return json({ access_token: c.access_token, expira_en: c.expira_en }, 200, cors)
       }
+      case 'cuentas':
+        return json({ cuentas: await listarCuentasPublicas(admin, usuario.id) }, 200, cors)
       default:
         throw new ErrorRedes('peticion-invalida', 'Acción desconocida.')
     }
@@ -132,6 +140,33 @@ Deno.serve(async (req) => {
     return respuestaError(e, cors)
   }
 })
+
+// ─── entrada del script ──────────────────────────────────────────────────────
+
+async function huella(texto: string): Promise<Uint8Array> {
+  return new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(texto)))
+}
+
+/** El usuario dueño del script si la clave coincide (comparando huellas en tiempo constante); si no, null. */
+async function usuarioScript(req: Request, admin: SupabaseClient) {
+  const clave = Deno.env.get('REDES_SCRIPT_CLAVE') ?? ''
+  const dada = req.headers.get('x-redes-script') ?? ''
+  if (clave.length < 32 || !dada) return null
+  const [a, b] = await Promise.all([huella(clave), huella(dada)])
+  let diferencia = 0
+  for (let i = 0; i < a.length; i++) diferencia |= a[i] ^ b[i]
+  if (diferencia !== 0) return null
+  const email = (Deno.env.get('REDES_SCRIPT_EMAIL') ?? 'macr120cme@gmail.com').trim().toLowerCase()
+  // Auth no busca por correo: se recorre la lista por páginas (son pocas).
+  for (let page = 1; page <= 50; page++) {
+    const { data, error } = await admin.auth.admin.listUsers({ page, perPage: 1000 })
+    if (error) throw new Error(`auth: ${error.message}`)
+    const u = data.users.find((x) => (x.email ?? '').toLowerCase() === email)
+    if (u) return u
+    if (data.users.length < 1000) break
+  }
+  return null
+}
 
 // ─── opciones ────────────────────────────────────────────────────────────────
 
