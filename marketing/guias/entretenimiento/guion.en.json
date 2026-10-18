@@ -1,0 +1,810 @@
+{
+  "idioma": "en",
+  "tema": "entretenimiento",
+  "plantillaId": "entretenimiento",
+  "numero": 16,
+  "nombre": "Entertainment",
+  "pregunta": "How can you entertain yourself better?",
+  "corta": "How can you entertain yourself better?",
+  "subtitulo": "Why choosing what to watch takes so long, why scrolling and “brain rot” don’t let you rest, whether a binge or one episode a day is better, why breaks and spoilers don’t ruin anything, whether video games are good or bad for you, why play with others, why read, how to make what you watch stay with you, and a plan to continue.",
+  "aviso": "This guide is for information only: the studies cited are summarized simply, and many show associations, not causes. If you feel you can’t stop gaming or watching screens even when you want to, talk to someone you trust or to a professional.",
+  "partes": [
+    {
+      "id": "elegir",
+      "titulo": "Why does choosing take so long?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "How can you entertain yourself better? We spend more than ten minutes just choosing what to watch. And sometimes, after all that searching, we give up and watch nothing. What if the problem wasn’t how much you entertain yourself, but how? Today you’ll see what science says, and you’ll leave with a plan to enjoy your free time more."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "By the way, this is my house in MindHaOS, and look: today it’s in the middle of the apocalypse, because there’s no better plan for the end of the world than staying home with a good movie. In this room I keep everything I watch, read and play."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part one. Why does choosing take so long?"
+        },
+        {
+          "id": "nielsen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10.5",
+            "clave": "nielsen"
+          },
+          "lamina": [
+            "control",
+            "catalogo"
+          ],
+          "destacada": true,
+          "texto": "In 2023, the company Nielsen asked people in the United States how long it takes us to choose what to watch: ten and a half minutes on average. Four years earlier, it was just over seven."
+        },
+        {
+          "id": "eligiendo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tiempoEligiendo"
+          },
+          "lamina": [
+            "reloj",
+            "sofa"
+          ],
+          "texto": "It doesn’t sound like much, but add it up: ten minutes every night is more than sixty hours a year, just searching. See how many yours add up to."
+        },
+        {
+          "id": "decide",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antes",
+              "pendientes",
+              "cinco"
+            ]
+          },
+          "lamina": [
+            "lista",
+            "palomita"
+          ],
+          "meme": "elegir",
+          "texto": "The trick is to decide before you sit down: keep a watchlist, and if you haven’t picked in five minutes, put on the first thing on the list."
+        },
+        {
+          "id": "archivo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vi",
+              "lei",
+              "pendiente"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In my Entertainment room I keep my archive: what I watched, read and played, and what I still have to watch, sorted by genre."
+        }
+      ]
+    },
+    {
+      "id": "scroll",
+      "titulo": "Why doesn’t scrolling help you rest?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part two. Why doesn’t scrolling help you rest?"
+        },
+        {
+          "id": "brainrot",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2024",
+            "clave": "brainrot"
+          },
+          "lamina": [
+            "scroll",
+            "celularNoche"
+          ],
+          "texto": "In 2024, Oxford’s dictionary chose “brain rot” as its word of the year: that dull, foggy feeling after hours of watching content without thinking."
+        },
+        {
+          "id": "verduyn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pasivoActivo"
+          },
+          "lamina": [
+            "redes",
+            "celularCama"
+          ],
+          "destacada": true,
+          "texto": "In 2015, Philippe Verduyn and his team found that browsing social media without taking part, just scrolling past posts, made people feel worse over the course of the day. Using it to talk with others didn’t have that effect."
+        },
+        {
+          "id": "hunt",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "scrollAlAno"
+          },
+          "lamina": [
+            "temporizador",
+            "amigos"
+          ],
+          "meme": "scroll",
+          "texto": "And in 2018, Melissa Hunt and her team asked students to use social media for just thirty minutes a day for three weeks. They felt less lonely and less sad. See how much your scrolling adds up to in a year."
+        },
+        {
+          "id": "consciente",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunta",
+              "elige",
+              "cierra"
+            ]
+          },
+          "lamina": [
+            "pensar",
+            "ventana"
+          ],
+          "texto": "The trick isn’t quitting, it’s choosing: before you open an app, ask yourself what you’re looking for. If it’s rest, pick something you really want to watch, and when it’s over, close it."
+        }
+      ]
+    },
+    {
+      "id": "maraton",
+      "titulo": "Binge-watch or one episode a day?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part three. Binge-watch or one episode a day?"
+        },
+        {
+          "id": "horvath",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "maratonRecuerdo"
+          },
+          "lamina": [
+            "maraton",
+            "palomitas"
+          ],
+          "destacada": true,
+          "texto": "In 2017, Jared Horvath and his team had students watch a series: some all in one go, others one episode a day, and others one a week. The bingers enjoyed it less, and months later they remembered it worse."
+        },
+        {
+          "id": "sueno",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2017",
+            "clave": "exelmans"
+          },
+          "lamina": [
+            "nocheTele",
+            "cama"
+          ],
+          "texto": "And there’s another cost. That same year, Liese Exelmans and Jan Van den Bulck found that young people who binge-watched slept worse and woke up more tired: your mind stays wired after the last episode."
+        },
+        {
+          "id": "ritmo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "ritmoSerie"
+          },
+          "lamina": [
+            "despertador",
+            "luna"
+          ],
+          "meme": "unoMas",
+          "texto": "See how long a series lasts at your pace, and what time you go to bed with one more episode."
+        },
+        {
+          "id": "curso",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "enCurso",
+              "uno",
+              "manana"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "That’s why every series here has its status: Pluto is on my to-watch list, and I’m going to watch it one episode at a time."
+        }
+      ]
+    },
+    {
+      "id": "pausas",
+      "titulo": "Why don’t breaks and spoilers ruin anything?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part four. Why don’t breaks and spoilers ruin anything?"
+        },
+        {
+          "id": "nelson",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cortes"
+          },
+          "lamina": [
+            "pausa",
+            "cine"
+          ],
+          "destacada": true,
+          "texto": "In 2009, Leif Nelson, Tom Meyvis and Jeff Galak had people watch a show with and without commercial breaks. With breaks, they enjoyed it more: enjoyment wears off over time, and a break resets it."
+        },
+        {
+          "id": "spoiler",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2011",
+            "clave": "leavitt"
+          },
+          "lamina": [
+            "leerSofa",
+            "sorpresa"
+          ],
+          "meme": "spoiler",
+          "texto": "And another surprise: in 2011, Jonathan Leavitt and Nicholas Christenfeld gave people stories to read, some with the ending spoiled and some without. On average, the spoiled ones were liked more."
+        },
+        {
+          "id": "aplica",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "levantate",
+              "comenta",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "amigos",
+            "cafe"
+          ],
+          "texto": "So don’t be afraid of a break: get up, talk about what you watched, and come back more eager. What really matters in a story isn’t just how it ends."
+        },
+        {
+          "id": "resumen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "deQueVa",
+              "sinSpoilers",
+              "despues"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "And if I want to know what something is about before watching it, I ask for an AI summary here, with no spoilers until I finish it."
+        }
+      ]
+    },
+    {
+      "id": "videojuegos",
+      "titulo": "Are video games good or bad for you?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part five. Are video games good or bad for you?"
+        },
+        {
+          "id": "przybylski",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "horasJuego"
+          },
+          "lamina": [
+            "videojuego",
+            "control2"
+          ],
+          "destacada": true,
+          "texto": "In 2014, Andrew Przybylski studied almost five thousand kids aged ten to fifteen in the United Kingdom. Those who played less than an hour a day were a little better off than those who didn’t play, and those who played more than three hours, a little worse."
+        },
+        {
+          "id": "vuorre",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2022",
+            "clave": "vuorre"
+          },
+          "lamina": [
+            "jugadora",
+            "pantallaJuego"
+          ],
+          "texto": "And in 2022, with almost thirty-nine thousand adult players, Matti Vuorre and his team found that hours barely changed how they felt. What did count was why they played: for fun, good; because they felt they had to, worse."
+        },
+        {
+          "id": "pregunta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "porQueJuegas"
+          },
+          "lamina": [
+            "pensar",
+            "brujula"
+          ],
+          "texto": "So before you play, ask yourself one question: do I play because I want to, or because I can’t stop? See what you get."
+        },
+        {
+          "id": "juegos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ingenio",
+              "arcade",
+              "dificultad"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In my room I have twenty-three games for a little while: brain teasers, arcade, cards and board games, each with its own difficulty."
+        }
+      ]
+    },
+    {
+      "id": "otros",
+      "titulo": "Why play with others?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part six. Why play with others?"
+        },
+        {
+          "id": "altschul",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "mesaMente"
+          },
+          "lamina": [
+            "ajedrez",
+            "cartas"
+          ],
+          "destacada": true,
+          "texto": "In 2020, Drew Altschul and Ian Deary followed more than a thousand people in Scotland, all born in 1936. Those who played more board and card games lost less memory and mental sharpness between the ages of seventy and seventy-nine."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoEntre"
+          },
+          "lamina": "pulgar",
+          "texto": "If you’re enjoying the guide, hit like, subscribe so you don’t miss the next one, and share it with that person who always beats you at cards."
+        },
+        {
+          "id": "boothby",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2014",
+            "clave": "boothby"
+          },
+          "lamina": [
+            "chocolate",
+            "familiaMesa"
+          ],
+          "texto": "And sharing changes everything: in 2014, Erica Boothby and her team found that chocolate tasted better when someone else was tasting it at the same time. What you live through together feels stronger."
+        },
+        {
+          "id": "grupo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "conocerse",
+              "debates",
+              "enLinea"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "That’s why there are also games for the group here, like questions for getting to know you or debates, and online tables to play with your friends."
+        }
+      ]
+    },
+    {
+      "id": "leer",
+      "titulo": "And does reading count?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part seven. And does reading count?"
+        },
+        {
+          "id": "bavishi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "23",
+            "clave": "bavishi"
+          },
+          "lamina": [
+            "abueloLee",
+            "libros"
+          ],
+          "destacada": true,
+          "texto": "In 2016, Avni Bavishi, Martin Slade and Becca Levy followed more than three thousand five hundred people over fifty for twelve years. Those who read books lived, on average, almost two years longer than those who didn’t."
+        },
+        {
+          "id": "mediaHora",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "librosAlAno"
+          },
+          "lamina": [
+            "leerCama",
+            "temporizador"
+          ],
+          "texto": "And it doesn’t take much: with half an hour a day, see how many books fit into a year."
+        },
+        {
+          "id": "noche",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antesDormir",
+              "enVez",
+              "aMano"
+            ]
+          },
+          "lamina": [
+            "lampara",
+            "libreta"
+          ],
+          "texto": "A good moment is before bed: the book instead of one more episode. Leave it on your pillow and your phone away from the bed."
+        },
+        {
+          "id": "libros",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "categoria",
+              "enCursoLibro",
+              "estrellas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "My books go here too: Anathem is in progress, and Cosmos already has its five stars."
+        }
+      ]
+    },
+    {
+      "id": "durar",
+      "titulo": "How do you make it last?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part eight. How do you make it last?"
+        },
+        {
+          "id": "zhang",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "capsula"
+          },
+          "lamina": [
+            "capsula",
+            "fotos"
+          ],
+          "destacada": true,
+          "texto": "In 2014, Ting Zhang and her team asked students to put everyday things in a time capsule: the last movie they watched, a song, a conversation. Three months later, rereading it interested them much more than they had imagined."
+        },
+        {
+          "id": "anota",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estrellasN",
+              "frase",
+              "conQuien"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "agendaPapel"
+          ],
+          "texto": "So when you finish something, write down three things: how many stars you give it, one line about what it left you with, and who you watched it with."
+        },
+        {
+          "id": "gusto",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "patron",
+              "genero",
+              "facil"
+            ]
+          },
+          "lamina": [
+            "estante",
+            "lupa"
+          ],
+          "texto": "Over time, your notes tell you what you really like, and choosing what to watch gets much easier."
+        },
+        {
+          "id": "tarjeta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "portada",
+              "voltea",
+              "resena"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "My cards keep all of that: on the front, the cover; and when I tap one, it flips over with my stars and my review."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "How do you keep going? Your plan to continue",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part nine. How do you keep going? Your plan to continue."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planEntre"
+          },
+          "lamina": [
+            "lista",
+            "reloj"
+          ],
+          "texto": "In the first week, make your watchlist and see how much time slips away on social media without you noticing."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tope",
+              "resto",
+              "noche"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "In the first month, put a cap on binges: two episodes a night, and the rest waits for tomorrow."
+        },
+        {
+          "id": "semanal",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mesa",
+              "libro",
+              "alguien"
+            ]
+          },
+          "lamina": [
+            "familiaMesa",
+            "cumbre"
+          ],
+          "texto": "And one night a week, swap the screen for a board game or a book, ideally with someone."
+        },
+        {
+          "id": "metas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "clasicos",
+              "unoALaVez"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "And I keep my watchlist as a goal: sci-fi classics to watch, one at a time."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "In short: decide before you sit down; scroll with intention, not on autopilot; one episode at a time, and breaks don’t get in the way; play for fun and with others; read a little every day; and write down what it left you with."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "In the MindHaOS Entertainment room you can keep your archive of movies, series, books and video games, with your reviews, and play your board games. Build your mental house for free today: the link is in the description. And in the next guide: how do you take care of your vehicles?",
+    "boton": "Open the Entertainment room",
+    "lamina": "app-plan",
+    "anclas": {
+      "archivo": "your archive",
+      "resenas": "your reviews",
+      "juegos": "board games"
+    }
+  },
+  "resumenDemo": {
+    "ficha": "Andrei Tarkovsky · 1972 · science fiction · 2 h 47 min",
+    "sinopsis": "A psychologist travels to a space station orbiting the planet Solaris, covered by a mysterious ocean, to decide whether the mission should go on. When he arrives, he finds the crew exhausted and frightened, and soon he himself starts seeing things that have no explanation.",
+    "claves": [
+      "A slow, contemplative film: it asks to be watched calmly.",
+      "More than spaceships and adventure, it’s about memory, guilt and what we don’t know about each other.",
+      "Based on the novel by Stanisław Lem (1961)."
+    ]
+  },
+  "fuentes": [
+    {
+      "id": "nielsen-2023",
+      "texto": "Nielsen. State of Play 2023: Streaming viewers spend 10.5 minutes deciding what to watch (2023).",
+      "url": "https://www.nielsen.com/insights/2023/state-of-play-2023/"
+    },
+    {
+      "id": "oxford-2024",
+      "texto": "Oxford University Press. Oxford Word of the Year 2024: brain rot (2024).",
+      "url": "https://corp.oup.com/news/brain-rot-named-oxford-word-of-the-year-2024/"
+    },
+    {
+      "id": "verduyn-2015",
+      "texto": "Verduyn P., Lee D. S., Park J., Shablack H., Orvell A., Bayer J., Ybarra O., Jonides J., Kross E. Passive Facebook usage undermines affective well-being: Experimental and longitudinal evidence. Journal of Experimental Psychology: General (2015).",
+      "url": "https://doi.org/10.1037/xge0000057"
+    },
+    {
+      "id": "hunt-2018",
+      "texto": "Hunt M. G., Marx R., Lipson C., Young J. No more FOMO: Limiting social media decreases loneliness and depression. Journal of Social and Clinical Psychology (2018).",
+      "url": "https://doi.org/10.1521/jscp.2018.37.10.751"
+    },
+    {
+      "id": "horvath-2017",
+      "texto": "Horvath J. C., Horton A. J., Lodge J. M., Hattie J. A. C. The impact of binge watching on memory and perceived comprehension. First Monday (2017).",
+      "url": "https://doi.org/10.5210/fm.v22i9.7729"
+    },
+    {
+      "id": "exelmans-2017",
+      "texto": "Exelmans L., Van den Bulck J. Binge viewing, sleep, and the role of pre-sleep arousal. Journal of Clinical Sleep Medicine (2017).",
+      "url": "https://doi.org/10.5664/jcsm.6704"
+    },
+    {
+      "id": "nelson-2009",
+      "texto": "Nelson L. D., Meyvis T., Galak J. Enhancing the television-viewing experience through commercial interruptions. Journal of Consumer Research (2009).",
+      "url": "https://doi.org/10.1086/597296"
+    },
+    {
+      "id": "leavitt-2011",
+      "texto": "Leavitt J. D., Christenfeld N. J. S. Story spoilers don't spoil stories. Psychological Science (2011).",
+      "url": "https://doi.org/10.1177/0956797611417007"
+    },
+    {
+      "id": "przybylski-2014",
+      "texto": "Przybylski A. K. Electronic gaming and psychosocial adjustment. Pediatrics (2014).",
+      "url": "https://doi.org/10.1542/peds.2013-4021"
+    },
+    {
+      "id": "vuorre-2022",
+      "texto": "Vuorre M., Johannes N., Magnusson K., Przybylski A. K. Time spent playing video games is unlikely to impact well-being. Royal Society Open Science (2022).",
+      "url": "https://doi.org/10.1098/rsos.220411"
+    },
+    {
+      "id": "altschul-2020",
+      "texto": "Altschul D. M., Deary I. J. Playing analog games is associated with reduced declines in cognitive function: a 68-year longitudinal cohort study. The Journals of Gerontology: Series B (2020).",
+      "url": "https://doi.org/10.1093/geronb/gbz149"
+    },
+    {
+      "id": "boothby-2014",
+      "texto": "Boothby E. J., Clark M. S., Bargh J. A. Shared experiences are amplified. Psychological Science (2014).",
+      "url": "https://doi.org/10.1177/0956797614551162"
+    },
+    {
+      "id": "bavishi-2016",
+      "texto": "Bavishi A., Slade M. D., Levy B. R. A chapter a day: Association of book reading with longevity. Social Science & Medicine (2016).",
+      "url": "https://doi.org/10.1016/j.socscimed.2016.07.014"
+    },
+    {
+      "id": "zhang-2014",
+      "texto": "Zhang T., Kim T., Brooks A. W., Gino F., Norton M. I. A \"present\" for the future: The unexpected value of rediscovery. Psychological Science (2014).",
+      "url": "https://doi.org/10.1177/0956797614542274"
+    }
+  ]
+}

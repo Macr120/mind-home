@@ -3857,3 +3857,82 @@ html:has(.g-pose) body {
   .g-hob-flechas,
   .g-hob-dos { grid-template-columns: 1fr; }
 }
+
+/* ───────── Guía de Entretenimiento ───────── */
+.g-ent-dias {
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  gap: 4px;
+  margin: 12px 0 4px;
+}
+.g-ent-dias span {
+  aspect-ratio: 1;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--ui-ink) 9%, transparent);
+  transition: background 0.3s;
+}
+.g-ent-dias span.lleno { background: #3b82f6; }
+.g-ent-columnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.g-ent-columnas ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.g-ent-cab { font-size: 13px; font-weight: 800; color: var(--tinta-3); }
+.g-ent-columnas button {
+  width: 100%;
+  text-align: start;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--ui-ink) 14%, transparent);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+.g-ent-columnas .gusto button.activo { background: #22c55e; border-color: #22c55e; color: #fff; }
+.g-ent-columnas .deber button.activo { background: #ef4444; border-color: #ef4444; color: #fff; }
+.g-ent-veredicto {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-weight: 700;
+  background: color-mix(in srgb, var(--ui-ink) 6%, transparent);
+}
+.g-ent-veredicto.bien { background: color-mix(in srgb, #22c55e 18%, transparent); }
+.g-ent-veredicto.pausa { background: color-mix(in srgb, #ef4444 16%, transparent); }
+.g-ent-libros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  min-height: 46px;
+  margin: 12px 0 4px;
+  align-items: flex-end;
+}
+.g-ent-libros span {
+  width: 9px;
+  height: 40px;
+  border-radius: 2px;
+  background: var(--c);
+  animation: g-hob-entra 0.35s ease-out both;
+  animation-delay: calc(var(--j) * 25ms);
+}
+.g-ent-columnasBarras {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  align-items: end;
+  height: 180px;
+}
+.g-ent-columnasBarras > div { display: grid; grid-template-rows: 1fr auto; gap: 6px; height: 100%; text-align: center; }
+.g-ent-columnasBarras i { display: flex; align-items: flex-end; height: 100%; }
+.g-ent-columnasBarras b {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  background: color-mix(in srgb, #3b82f6 45%, transparent);
+}
+.g-ent-columnasBarras .fuerte b { background: #22c55e; }
+.g-ent-columnasBarras .baja b { background: color-mix(in srgb, #ef4444 55%, transparent); }
+.g-ent-columnasBarras span { font-size: 13px; color: var(--tinta-3); }
+.g-hob-flechas .igual i { color: var(--tinta-3); }

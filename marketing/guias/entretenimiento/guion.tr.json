@@ -1,0 +1,810 @@
+{
+  "idioma": "tr",
+  "tema": "entretenimiento",
+  "plantillaId": "entretenimiento",
+  "numero": 16,
+  "nombre": "Eğlence",
+  "pregunta": "Nasıl daha iyi eğlenirsin?",
+  "corta": "Nasıl daha iyi eğlenirsin?",
+  "subtitulo": "Ne izleyeceğini seçmek neden bu kadar uzun sürüyor, kaydırmak ve “brain rot” seni neden dinlendirmiyor, maraton mu yoksa günde bir bölüm mü daha iyi, aralar ve spoiler'lar neden hiçbir şeyi bozmuyor, video oyunları sana iyi mi geliyor kötü mü, neden başkalarıyla oynamalı, neden okumalı, izlediklerinin aklında kalmasını nasıl sağlarsın ve devam etmek için bir plan.",
+  "aviso": "Bu rehber bilgilendirme amaçlıdır: alıntılanan çalışmaların sonuçları basitçe özetlenmiştir ve birçoğu neden-sonuç değil, ilişki gösterir. İstediğin hâlde oyun oynamayı ya da ekrana bakmayı bırakamadığını hissediyorsan, güvendiğin biriyle ya da bir uzmanla konuş.",
+  "partes": [
+    {
+      "id": "elegir",
+      "titulo": "Seçmek neden bu kadar uzun sürüyor?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Nasıl daha iyi eğlenirsin? Sadece ne izleyeceğimizi seçmek için on dakikadan fazla harcıyoruz. Bazen de o kadar aradıktan sonra pes edip hiçbir şey izlemiyoruz. Ya sorun ne kadar eğlendiğin değil de nasıl eğlendiğinse? Bugün bilimin ne dediğini göreceksin ve boş zamanının daha çok tadını çıkarmak için bir planla ayrılacaksın."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Bu arada, burası MindHaOS'taki evim ve bak: bugün tam bir kıyamet yaşanıyor, çünkü dünyanın sonu için güzel bir filmle evde kalmaktan daha iyi bir plan yok. Bu odada izlediğim, okuduğum ve oynadığım her şeyi takip ediyorum."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Birinci bölüm. Seçmek neden bu kadar uzun sürüyor?"
+        },
+        {
+          "id": "nielsen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10,5",
+            "clave": "nielsen"
+          },
+          "lamina": [
+            "control",
+            "catalogo"
+          ],
+          "destacada": true,
+          "texto": "2023'te Nielsen şirketi Amerika Birleşik Devletleri'nde ne izleyeceğimizi seçmenin ne kadar sürdüğünü sordu: ortalama on buçuk dakika. Dört yıl önce yediyi biraz geçiyordu."
+        },
+        {
+          "id": "eligiendo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tiempoEligiendo"
+          },
+          "lamina": [
+            "reloj",
+            "sofa"
+          ],
+          "texto": "Az gibi görünüyor ama bir topla: her akşam on dakika, yılda altmış saatten fazla eder, sadece aramaya. Seninkinin ne kadar ettiğine bak."
+        },
+        {
+          "id": "decide",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antes",
+              "pendientes",
+              "cinco"
+            ]
+          },
+          "lamina": [
+            "lista",
+            "palomita"
+          ],
+          "meme": "elegir",
+          "texto": "İşin püf noktası oturmadan önce karar vermek: bir izlenecekler listen olsun ve beş dakikada seçemezsen listedeki ilkini aç."
+        },
+        {
+          "id": "archivo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vi",
+              "lei",
+              "pendiente"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Eğlence odamda arşivimi tutuyorum: izlediklerim, okuduklarım, oynadıklarım ve izlenecek ya da okunacak olanlar, türe göre sıralı."
+        }
+      ]
+    },
+    {
+      "id": "scroll",
+      "titulo": "Kaydırmak seni neden dinlendirmiyor?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "İkinci bölüm. Kaydırmak seni neden dinlendirmiyor?"
+        },
+        {
+          "id": "brainrot",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2024",
+            "clave": "brainrot"
+          },
+          "lamina": [
+            "scroll",
+            "celularNoche"
+          ],
+          "texto": "2024'te Oxford sözlüğü yılın kelimesi olarak “brain rot”u seçti, aşağı yukarı “beyin çürümesi” demek: saatlerce düşünmeden içerik izledikten sonra gelen o uyuşukluk hissi."
+        },
+        {
+          "id": "verduyn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pasivoActivo"
+          },
+          "lamina": [
+            "redes",
+            "celularCama"
+          ],
+          "destacada": true,
+          "texto": "2015'te Philippe Verduyn ve ekibi, sosyal medyaya katılmadan bakmanın, sadece gönderileri kaydırmanın, insanların gün boyunca kendini daha kötü hissetmesine yol açtığını gördü. Başkalarıyla konuşmak için kullanmanın böyle bir etkisi yoktu."
+        },
+        {
+          "id": "hunt",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "scrollAlAno"
+          },
+          "lamina": [
+            "temporizador",
+            "amigos"
+          ],
+          "meme": "scroll",
+          "texto": "2018'de ise Melissa Hunt ve ekibi, öğrencilerden üç hafta boyunca sosyal medyayı günde sadece otuz dakika kullanmalarını istedi. Daha az yalnız ve daha az üzgün hissettiler. Kaydırmanın bir yılda ne kadar tuttuğuna bak."
+        },
+        {
+          "id": "consciente",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunta",
+              "elige",
+              "cierra"
+            ]
+          },
+          "lamina": [
+            "pensar",
+            "ventana"
+          ],
+          "texto": "İşin püf noktası onları bırakmak değil, seçmek: bir uygulamayı açmadan önce kendine ne aradığını sor. Dinlenmekse, gerçekten izlemek istediğin bir şey seç ve bitince kapat."
+        }
+      ]
+    },
+    {
+      "id": "maraton",
+      "titulo": "Maraton mu, günde bir bölüm mü?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Üçüncü bölüm. Maraton mu, günde bir bölüm mü?"
+        },
+        {
+          "id": "horvath",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "maratonRecuerdo"
+          },
+          "lamina": [
+            "maraton",
+            "palomitas"
+          ],
+          "destacada": true,
+          "texto": "2017'de Jared Horvath ve ekibi öğrencilere bir dizi izletti: kimi hepsini bir oturuşta, kimi günde bir bölüm, kimi de haftada bir bölüm izledi. Maraton yapanlar diziden daha az keyif aldı ve aylar sonra onu daha kötü hatırladı."
+        },
+        {
+          "id": "sueno",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2017",
+            "clave": "exelmans"
+          },
+          "lamina": [
+            "nocheTele",
+            "cama"
+          ],
+          "texto": "Bir de başka bir bedeli var. Aynı yıl Liese Exelmans ve Jan Van den Bulck, maraton yapan gençlerin daha kötü uyuduğunu ve daha yorgun uyandığını gördü: son bölümden sonra kafa hızlı çalışmaya devam ediyor."
+        },
+        {
+          "id": "ritmo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "ritmoSerie"
+          },
+          "lamina": [
+            "despertador",
+            "luna"
+          ],
+          "meme": "unoMas",
+          "texto": "Kendi temponla bir dizinin ne kadar sürdüğüne ve bir bölüm daha izleyince saat kaçta yattığına bak."
+        },
+        {
+          "id": "curso",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "enCurso",
+              "uno",
+              "manana"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bu yüzden burada her dizinin bir durumu var: Pluto izlenecek durumunda ve onu her seferinde bir bölüm izleyeceğim."
+        }
+      ]
+    },
+    {
+      "id": "pausas",
+      "titulo": "Aralar ve spoiler'lar neden hiçbir şeyi bozmuyor?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Dördüncü bölüm. Aralar ve spoiler'lar neden hiçbir şeyi bozmuyor?"
+        },
+        {
+          "id": "nelson",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cortes"
+          },
+          "lamina": [
+            "pausa",
+            "cine"
+          ],
+          "destacada": true,
+          "texto": "2009'da Leif Nelson, Tom Meyvis ve Jeff Galak insanlara bir programı reklam aralarıyla ve aralarsız izletti. Aralı izleyenler daha çok keyif aldı: keyif zamanla tükeniyor, ara ise onu sıfırlıyor."
+        },
+        {
+          "id": "spoiler",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2011",
+            "clave": "leavitt"
+          },
+          "lamina": [
+            "leerSofa",
+            "sorpresa"
+          ],
+          "meme": "spoiler",
+          "texto": "Bir sürpriz daha: 2011'de Jonathan Leavitt ve Nicholas Christenfeld insanlara sonu önceden anlatılmış ve anlatılmamış öyküler okuttu. Ortalamada, sonu zaten bilinen öyküler daha çok beğenildi."
+        },
+        {
+          "id": "aplica",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "levantate",
+              "comenta",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "amigos",
+            "cafe"
+          ],
+          "texto": "Yani aradan korkma: kalk, izlediğin şey hakkında konuş ve daha istekli dön. Bir hikâyede gerçekten önemli olan sadece nasıl bittiği değil."
+        },
+        {
+          "id": "resumen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "deQueVa",
+              "sinSpoilers",
+              "despues"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bir şeyi izlemeden önce ne anlattığını bilmek istersem, burada yapay zeka özeti istiyorum; bitirene kadar spoiler yok."
+        }
+      ]
+    },
+    {
+      "id": "videojuegos",
+      "titulo": "Video oyunları sana iyi mi geliyor, kötü mü?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Beşinci bölüm. Video oyunları sana iyi mi geliyor, kötü mü?"
+        },
+        {
+          "id": "przybylski",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "horasJuego"
+          },
+          "lamina": [
+            "videojuego",
+            "control2"
+          ],
+          "destacada": true,
+          "texto": "2014'te Andrew Przybylski, Birleşik Krallık'ta on ile on beş yaş arasındaki yaklaşık beş bin çocuğu inceledi. Günde bir saatten az oynayanlar hiç oynamayanlardan biraz daha iyi durumdaydı, üç saatten fazla oynayanlar ise biraz daha kötü."
+        },
+        {
+          "id": "vuorre",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2022",
+            "clave": "vuorre"
+          },
+          "lamina": [
+            "jugadora",
+            "pantallaJuego"
+          ],
+          "texto": "2022'de ise neredeyse otuz dokuz bin yetişkin oyuncuyla Matti Vuorre ve ekibi, oynanan saatlerin insanların ruh hâlini neredeyse hiç değiştirmediğini gördü. Asıl önemli olan neden oynadıklarıydı: keyif için oynayınca iyi; zorunda hissettikleri için oynayınca daha kötü."
+        },
+        {
+          "id": "pregunta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "porQueJuegas"
+          },
+          "lamina": [
+            "pensar",
+            "brujula"
+          ],
+          "texto": "Yani oynamadan önce kendine bir soru sor: istediğim için mi oynuyorum, yoksa duramadığım için mi? Ne çıktığına bak."
+        },
+        {
+          "id": "juegos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ingenio",
+              "arcade",
+              "dificultad"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Odamda kısa bir mola için yirmi üç oyun var: zeka oyunları, arcade, kart oyunları ve masa oyunları; her birinin de kendi zorluğu var."
+        }
+      ]
+    },
+    {
+      "id": "otros",
+      "titulo": "Neden başkalarıyla oynamalı?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Altıncı bölüm. Neden başkalarıyla oynamalı?"
+        },
+        {
+          "id": "altschul",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "mesaMente"
+          },
+          "lamina": [
+            "ajedrez",
+            "cartas"
+          ],
+          "destacada": true,
+          "texto": "2020'de Drew Altschul ve Ian Deary, İskoçya'da hepsi 1936'da doğmuş binden fazla kişiyi takip etti. Masa ve kart oyunlarını daha çok oynayanlar, yetmiş ile yetmiş dokuz yaş arasında daha az hafıza ve zihinsel çeviklik kaybetti."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoEntre"
+          },
+          "lamina": "pulgar",
+          "texto": "Bu rehberi beğeniyorsan Beğen’e bas, bir sonrakini kaçırmamak için Abone ol ve kartlarda seni hep yenen o kişiyle Paylaş."
+        },
+        {
+          "id": "boothby",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2014",
+            "clave": "boothby"
+          },
+          "lamina": [
+            "chocolate",
+            "familiaMesa"
+          ],
+          "texto": "Paylaşmak da her şeyi değiştiriyor: 2014'te Erica Boothby ve ekibi, başka biri aynı anda tadına baktığında çikolatanın daha lezzetli geldiğini gördü. Birlikte yaşadığın şeyi daha yoğun hissedersin."
+        },
+        {
+          "id": "grupo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "conocerse",
+              "debates",
+              "enLinea"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bu yüzden burada grup oyunları da var, Tanışalım ya da Tartışmalar gibi; bir de arkadaşlarınla oynamak için çevrimiçi masalar."
+        }
+      ]
+    },
+    {
+      "id": "leer",
+      "titulo": "Peki okumak sayılır mı?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Yedinci bölüm. Peki okumak sayılır mı?"
+        },
+        {
+          "id": "bavishi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "23",
+            "clave": "bavishi"
+          },
+          "lamina": [
+            "abueloLee",
+            "libros"
+          ],
+          "destacada": true,
+          "texto": "2016'da Avni Bavishi, Martin Slade ve Becca Levy, elli yaşın üzerindeki üç bin beş yüzden fazla kişiyi on iki yıl boyunca takip etti. Kitap okuyanlar, okumayanlardan ortalama neredeyse iki yıl daha uzun yaşadı."
+        },
+        {
+          "id": "mediaHora",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "librosAlAno"
+          },
+          "lamina": [
+            "leerCama",
+            "temporizador"
+          ],
+          "texto": "Çok da bir şey gerekmiyor: günde yarım saatle bir yıla kaç kitap sığdığına bak."
+        },
+        {
+          "id": "noche",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antesDormir",
+              "enVez",
+              "aMano"
+            ]
+          },
+          "lamina": [
+            "lampara",
+            "libreta"
+          ],
+          "texto": "Uyumadan önce güzel bir an: bir bölüm daha yerine kitap. Onu yastığının üstüne bırak, telefonu da yataktan uzağa."
+        },
+        {
+          "id": "libros",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "categoria",
+              "enCursoLibro",
+              "estrellas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Kitaplarım da burada: Anathem devam ediyor, Cosmos ise beş yıldızını çoktan aldı."
+        }
+      ]
+    },
+    {
+      "id": "durar",
+      "titulo": "Aklında kalmasını nasıl sağlarsın?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Sekizinci bölüm. Aklında kalmasını nasıl sağlarsın?"
+        },
+        {
+          "id": "zhang",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "capsula"
+          },
+          "lamina": [
+            "capsula",
+            "fotos"
+          ],
+          "destacada": true,
+          "texto": "2014'te Ting Zhang ve ekibi, öğrencilerden bir zaman kapsülüne gündelik şeyler koymalarını istedi: izledikleri son film, bir şarkı, bir sohbet. Üç ay sonra bunları yeniden okumak, hayal ettiklerinden çok daha ilgi çekici geldi."
+        },
+        {
+          "id": "anota",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estrellasN",
+              "frase",
+              "conQuien"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "agendaPapel"
+          ],
+          "texto": "Yani bir şeyi bitirdiğinde üç şey not et: kaç yıldız verdiğini, sende ne bıraktığına dair bir cümle ve kiminle izlediğini."
+        },
+        {
+          "id": "gusto",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "patron",
+              "genero",
+              "facil"
+            ]
+          },
+          "lamina": [
+            "estante",
+            "lupa"
+          ],
+          "texto": "Zamanla notların sana neyi gerçekten sevdiğini söyler ve ne izleyeceğini seçmek çok daha kolaylaşır."
+        },
+        {
+          "id": "tarjeta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "portada",
+              "voltea",
+              "resena"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Kartlarım bunların hepsini saklıyor: önünde kapak var; dokununca dönüyor ve yıldızlarımı ve yorumumu gösteriyor."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Nasıl devam etmeli? Devam etmek için planın",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Dokuzuncu bölüm. Nasıl devam etmeli? Devam etmek için planın."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planEntre"
+          },
+          "lamina": [
+            "lista",
+            "reloj"
+          ],
+          "texto": "İlk hafta izlenecekler listeni yap ve fark etmeden sosyal medyaya ne kadar zaman gittiğine bak."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tope",
+              "resto",
+              "noche"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "İlk ay maratonlara bir sınır koy: akşam başına iki bölüm, gerisi yarına kalsın."
+        },
+        {
+          "id": "semanal",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mesa",
+              "libro",
+              "alguien"
+            ]
+          },
+          "lamina": [
+            "familiaMesa",
+            "cumbre"
+          ],
+          "texto": "Ve haftada bir akşam ekranı bir masa oyunuyla ya da bir kitapla değiştir, mümkünse biriyle."
+        },
+        {
+          "id": "metas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "clasicos",
+              "unoALaVez"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Sırada bekleyenleri de bir hedef olarak takip ediyorum: bekleyen bilim kurgu klasikleri, her seferinde bir tane."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Kısacası: oturmadan önce karar ver; otomatik değil, bilinçli kaydır; her seferinde bir bölüm, aralar da engel değil; keyif için ve başkalarıyla oyna; her gün biraz oku; ve sende ne bıraktığını not et."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS'taki Eğlence odasında film, dizi, kitap ve video oyunlarından oluşan arşivini yorumlarınla birlikte tutabilir ve masa oyunlarını oynayabilirsin. Zihinsel evini bugün ücretsiz kur: bağlantı açıklamada. Bir sonraki rehberde ise: araçlarına nasıl bakarsın?",
+    "boton": "Eğlence odasını aç",
+    "lamina": "app-plan",
+    "anclas": {
+      "archivo": "oluşan arşivini",
+      "resenas": "yorumlarınla birlikte",
+      "juegos": "masa oyunlarını"
+    }
+  },
+  "resumenDemo": {
+    "ficha": "Andrey Tarkovski · 1972 · bilim kurgu · 2 sa 47 dk",
+    "sinopsis": "Bir psikolog, gizemli bir okyanusla kaplı Solaris gezegeninin yörüngesindeki bir uzay istasyonuna, görevin sürüp sürmeyeceğine karar vermek için gider. Vardığında mürettebatı bitkin ve korkmuş bulur ve kısa süre sonra kendisi de açıklaması olmayan şeyler görmeye başlar.",
+    "claves": [
+      "Yavaş ve düşündürücü bir film: sakin kafayla izlemeyi ister.",
+      "Gemilerden ve maceralardan çok hafızayı, suçluluğu ve ötekine dair bilmediklerimizi anlatır.",
+      "Stanisław Lem'in romanından uyarlanmıştır (1961)."
+    ]
+  },
+  "fuentes": [
+    {
+      "id": "nielsen-2023",
+      "texto": "Nielsen. State of Play 2023: Streaming viewers spend 10.5 minutes deciding what to watch (2023).",
+      "url": "https://www.nielsen.com/insights/2023/state-of-play-2023/"
+    },
+    {
+      "id": "oxford-2024",
+      "texto": "Oxford University Press. Oxford Word of the Year 2024: brain rot (2024).",
+      "url": "https://corp.oup.com/news/brain-rot-named-oxford-word-of-the-year-2024/"
+    },
+    {
+      "id": "verduyn-2015",
+      "texto": "Verduyn P., Lee D. S., Park J., Shablack H., Orvell A., Bayer J., Ybarra O., Jonides J., Kross E. Passive Facebook usage undermines affective well-being: Experimental and longitudinal evidence. Journal of Experimental Psychology: General (2015).",
+      "url": "https://doi.org/10.1037/xge0000057"
+    },
+    {
+      "id": "hunt-2018",
+      "texto": "Hunt M. G., Marx R., Lipson C., Young J. No more FOMO: Limiting social media decreases loneliness and depression. Journal of Social and Clinical Psychology (2018).",
+      "url": "https://doi.org/10.1521/jscp.2018.37.10.751"
+    },
+    {
+      "id": "horvath-2017",
+      "texto": "Horvath J. C., Horton A. J., Lodge J. M., Hattie J. A. C. The impact of binge watching on memory and perceived comprehension. First Monday (2017).",
+      "url": "https://doi.org/10.5210/fm.v22i9.7729"
+    },
+    {
+      "id": "exelmans-2017",
+      "texto": "Exelmans L., Van den Bulck J. Binge viewing, sleep, and the role of pre-sleep arousal. Journal of Clinical Sleep Medicine (2017).",
+      "url": "https://doi.org/10.5664/jcsm.6704"
+    },
+    {
+      "id": "nelson-2009",
+      "texto": "Nelson L. D., Meyvis T., Galak J. Enhancing the television-viewing experience through commercial interruptions. Journal of Consumer Research (2009).",
+      "url": "https://doi.org/10.1086/597296"
+    },
+    {
+      "id": "leavitt-2011",
+      "texto": "Leavitt J. D., Christenfeld N. J. S. Story spoilers don't spoil stories. Psychological Science (2011).",
+      "url": "https://doi.org/10.1177/0956797611417007"
+    },
+    {
+      "id": "przybylski-2014",
+      "texto": "Przybylski A. K. Electronic gaming and psychosocial adjustment. Pediatrics (2014).",
+      "url": "https://doi.org/10.1542/peds.2013-4021"
+    },
+    {
+      "id": "vuorre-2022",
+      "texto": "Vuorre M., Johannes N., Magnusson K., Przybylski A. K. Time spent playing video games is unlikely to impact well-being. Royal Society Open Science (2022).",
+      "url": "https://doi.org/10.1098/rsos.220411"
+    },
+    {
+      "id": "altschul-2020",
+      "texto": "Altschul D. M., Deary I. J. Playing analog games is associated with reduced declines in cognitive function: a 68-year longitudinal cohort study. The Journals of Gerontology: Series B (2020).",
+      "url": "https://doi.org/10.1093/geronb/gbz149"
+    },
+    {
+      "id": "boothby-2014",
+      "texto": "Boothby E. J., Clark M. S., Bargh J. A. Shared experiences are amplified. Psychological Science (2014).",
+      "url": "https://doi.org/10.1177/0956797614551162"
+    },
+    {
+      "id": "bavishi-2016",
+      "texto": "Bavishi A., Slade M. D., Levy B. R. A chapter a day: Association of book reading with longevity. Social Science & Medicine (2016).",
+      "url": "https://doi.org/10.1016/j.socscimed.2016.07.014"
+    },
+    {
+      "id": "zhang-2014",
+      "texto": "Zhang T., Kim T., Brooks A. W., Gino F., Norton M. I. A \"present\" for the future: The unexpected value of rediscovery. Psychological Science (2014).",
+      "url": "https://doi.org/10.1177/0956797614542274"
+    }
+  ]
+}

@@ -7581,6 +7581,7 @@ export const DE: Dict = {
   'guia.aprender.titulo': "Wie lernst du schneller?",
   'guia.escritura.titulo': "Warum solltest du schreiben?",
   'guia.hobbies.titulo': "Wie findest du ein Hobby und wie bleibst du dran?",
+  'guia.entretenimiento.titulo': "Wie unterhältst du dich besser?",
   'guia.matematicas.titulo': "Was ist die Sprache des Universums?",
   'tut.esencial.titulo': 'Das Wichtigste',
   'tut.tipo.ejemplos': 'Beispiele · Demo-MindHaOS',

@@ -39,7 +39,7 @@ export function ropaDeEpoca(tema: string, parte: number): Ropa | undefined {
 }
 
 /** Las guías que no narra Pep@: Idiomas, Música y Video las cuenta el mago (el asistente de fábrica de la app); Metas y Mindfulness, la princesa (un cuerpo prediseñado de la app). */
-export const NARRADOR_GUIA: Record<string, 'mago' | 'princesa' | 'alien'> = { idiomas: 'mago', musica: 'mago', video: 'mago', metas: 'princesa', mindfulness: 'princesa', agenda: 'princesa', aprender: 'princesa', matematicas: 'alien', escritura: 'mago', hobbies: 'alien' }
+export const NARRADOR_GUIA: Record<string, 'mago' | 'princesa' | 'alien'> = { idiomas: 'mago', musica: 'mago', video: 'mago', metas: 'princesa', mindfulness: 'princesa', agenda: 'princesa', aprender: 'princesa', matematicas: 'alien', escritura: 'mago', hobbies: 'alien', entretenimiento: 'alien' }
 
 /** Color del vestido de la princesa por guía (Mindfulness de verde, como en la casa: `CUERPO_COLORES` de su escena.mjs). */
 export const VESTIDO_GUIA: Record<string, string> = { mindfulness: '#34d399', agenda: '#facc15', aprender: '#60a5fa' }
@@ -47,8 +47,11 @@ export const VESTIDO_GUIA: Record<string, string> = { mindfulness: '#34d399', ag
 /** Color de la túnica del mago por guía (Música de verde, Video de rojo y Escritura de amarillo, como en la casa: `FORMA_COLOR` de su escena.mjs). */
 export const TUNICA_GUIA: Record<string, string> = { musica: '#2f8f4e', video: '#b91c1c', escritura: '#eab308' }
 
-/** Colores del alien por guía (Hobbies de amarillo, como en la casa: `CUERPO_COLORES` de su escena.mjs). */
-export const ALIEN_GUIA: Record<string, Record<string, string>> = { hobbies: { '#7ec86a': '#facc15', '#5fa94f': '#ca8a04', '#8ed67a': '#fde047' } }
+/** Colores del alien por guía (Hobbies de amarillo y Entretenimiento de azul, como en la casa: `CUERPO_COLORES` de su escena.mjs). */
+export const ALIEN_GUIA: Record<string, Record<string, string>> = {
+  hobbies: { '#7ec86a': '#facc15', '#5fa94f': '#ca8a04', '#8ed67a': '#fde047' },
+  entretenimiento: { '#7ec86a': '#60a5fa', '#5fa94f': '#2563eb', '#8ed67a': '#93c5fd' },
+}
 
 /**
  * Gestos del narrador cuando no hace un ejercicio. Mismo DSL que los

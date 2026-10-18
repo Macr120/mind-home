@@ -259,7 +259,7 @@ const pepEnSuSitio = (tema = null) => `
   await sleep(1200)
   ${ESCENA.ENTRADAS ? `{
     // Las entradas del cuarto (la de la guía, la de la app), en todas las tomas.
-    const fallo = await (async () => { ${ESCENA.ENTRADAS({ url: URL_GUIA, titulo: guion.pregunta })} })()
+    const fallo = await (async () => { ${ESCENA.ENTRADAS({ url: URL_GUIA, titulo: guion.pregunta, guion })} })()
     if (fallo) return fallo
   }` : ''}
   ${ESCENA.CUERPO ? `

@@ -7506,6 +7506,7 @@ export const ID: Dict = {
   'guia.aprender.titulo': "Bagaimana belajar lebih cepat?",
   'guia.escritura.titulo': "Mengapa kamu harus menulis?",
   'guia.hobbies.titulo': "Bagaimana menemukan hobi dan bagaimana mempertahankannya?",
+  'guia.entretenimiento.titulo': "Bagaimana menghibur dirimu dengan lebih baik?",
   'guia.matematicas.titulo': "Apa bahasa alam semesta?",
   'tut.esencial.titulo': 'Yang Penting',
   'tut.tipo.ejemplos': 'Contoh · MindHaOS demo',

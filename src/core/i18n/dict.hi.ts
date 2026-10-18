@@ -7424,6 +7424,7 @@ export const HI: Dict = {
   'guia.aprender.titulo': "तेज़ी से कैसे सीखें?",
   'guia.escritura.titulo': "आपको क्यों लिखना चाहिए?",
   'guia.hobbies.titulo': "शौक कैसे ढूंढें और उसे कैसे बनाए रखें?",
+  'guia.entretenimiento.titulo': "अपना मनोरंजन बेहतर तरीके से कैसे करें?",
   'guia.matematicas.titulo': "ब्रह्मांड की भाषा क्या है?",
   'tut.esencial.titulo': 'ज़रूरी बातें',
   'tut.tipo.ejemplos': 'उदाहरण · डेमो MindHaOS',

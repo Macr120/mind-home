@@ -1,0 +1,810 @@
+{
+  "idioma": "ko",
+  "tema": "entretenimiento",
+  "plantillaId": "entretenimiento",
+  "numero": 16,
+  "nombre": "오락",
+  "pregunta": "어떻게 하면 더 잘 즐길 수 있을까요?",
+  "corta": "더 잘 즐기려면?",
+  "subtitulo": "왜 뭘 볼지 고르는 데 그렇게 오래 걸리는지, 왜 스크롤과 ‘brain rot’은 쉼이 되지 않는지, 정주행이 나은지 하루 한 편이 나은지, 왜 쉬는 시간과 스포일러는 아무것도 망치지 않는지, 게임은 나에게 좋은지 나쁜지, 왜 다른 사람과 함께 놀아야 하는지, 왜 읽어야 하는지, 본 것을 어떻게 오래 남길지, 그리고 이어 가기 위한 계획.",
+  "aviso": "이 가이드는 정보 제공용이에요. 인용한 연구들은 결과를 쉽게 요약한 것이고, 많은 연구가 원인이 아니라 관련성을 보여 줍니다. 그만두고 싶은데도 게임이나 화면을 끊을 수 없다고 느낀다면, 믿을 수 있는 사람이나 전문가와 이야기해 보세요.",
+  "partes": [
+    {
+      "id": "elegir",
+      "titulo": "왜 고르는 데 그렇게 오래 걸릴까요?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "어떻게 하면 더 잘 즐길 수 있을까요? 우리는 뭘 볼지 고르는 데만 10분 넘게 써요. 그리고 가끔은 한참 찾다가 포기하고 아무것도 안 보죠. 문제가 얼마나 즐기느냐가 아니라 어떻게 즐기느냐라면요? 오늘은 과학이 뭐라고 하는지 보면서, 자유 시간을 더 즐기기 위한 계획까지 챙겨 가게 될 거예요."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "그런데 여기는 MindHaOS에 있는 제 집이에요. 잘 보세요, 오늘은 한창 종말이 진행 중이에요. 세상이 끝날 때는 집에서 좋은 영화 한 편 보는 것보다 나은 계획이 없으니까요. 이 방에 제가 보고, 읽고, 플레이한 모든 걸 담아 두고 있어요."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "1부. 왜 고르는 데 그렇게 오래 걸릴까요?"
+        },
+        {
+          "id": "nielsen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10.5",
+            "clave": "nielsen"
+          },
+          "lamina": [
+            "control",
+            "catalogo"
+          ],
+          "destacada": true,
+          "texto": "2023년, 닐슨은 미국에서 뭘 볼지 고르는 데 얼마나 걸리는지 물었어요. 평균 10분 30초였죠. 4년 전에는 7분을 조금 넘는 정도였어요."
+        },
+        {
+          "id": "eligiendo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tiempoEligiendo"
+          },
+          "lamina": [
+            "reloj",
+            "sofa"
+          ],
+          "texto": "별것 아닌 것 같지만, 더해 보세요. 매일 밤 10분이면 1년에 60시간이 넘어요. 그냥 찾기만 하면서요. 내 시간은 얼마인지 보세요."
+        },
+        {
+          "id": "decide",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antes",
+              "pendientes",
+              "cinco"
+            ]
+          },
+          "lamina": [
+            "lista",
+            "palomita"
+          ],
+          "meme": "elegir",
+          "texto": "요령은 앉기 전에 정하는 거예요. 볼 목록을 만들어 두고, 5분 안에 못 고르면 목록의 첫 번째 걸 보세요."
+        },
+        {
+          "id": "archivo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vi",
+              "lei",
+              "pendiente"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "제 오락실에는 제 아카이브가 있어요. 본 것, 읽은 것, 플레이한 것, 그리고 앞으로 볼 것까지, 장르별로 정리해 뒀어요."
+        }
+      ]
+    },
+    {
+      "id": "scroll",
+      "titulo": "왜 스크롤은 쉼이 되지 않을까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "2부. 왜 스크롤은 쉼이 되지 않을까요?"
+        },
+        {
+          "id": "brainrot",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2024",
+            "clave": "brainrot"
+          },
+          "lamina": [
+            "scroll",
+            "celularNoche"
+          ],
+          "texto": "2024년, 옥스퍼드 사전은 올해의 단어로 ‘brain rot’을 골랐어요. ‘뇌가 썩는다’ 정도의 뜻인데, 아무 생각 없이 몇 시간씩 콘텐츠를 보고 난 뒤의 그 멍한 느낌을 말해요."
+        },
+        {
+          "id": "verduyn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pasivoActivo"
+          },
+          "lamina": [
+            "redes",
+            "celularCama"
+          ],
+          "destacada": true,
+          "texto": "2015년, Philippe Verduyn 연구팀은 참여하지 않고 게시물만 넘기며 SNS를 구경하면, 하루 동안 기분이 점점 나빠진다는 걸 확인했어요. 다른 사람과 이야기하려고 쓸 때는 그런 영향이 없었어요."
+        },
+        {
+          "id": "hunt",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "scrollAlAno"
+          },
+          "lamina": [
+            "temporizador",
+            "amigos"
+          ],
+          "meme": "scroll",
+          "texto": "그리고 2018년, Melissa Hunt 연구팀은 학생들에게 3주 동안 SNS를 하루 30분만 쓰게 했어요. 그러자 덜 외롭고 덜 우울해졌죠. 내 스크롤이 1년이면 얼마나 되는지 보세요."
+        },
+        {
+          "id": "consciente",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunta",
+              "elige",
+              "cierra"
+            ]
+          },
+          "lamina": [
+            "pensar",
+            "ventana"
+          ],
+          "texto": "요령은 끊는 게 아니라 고르는 거예요. SNS를 열기 전에 내가 뭘 찾는지 스스로 물어보세요. 쉬고 싶은 거라면 정말 보고 싶은 걸 고르고, 다 보면 닫으세요."
+        }
+      ]
+    },
+    {
+      "id": "maraton",
+      "titulo": "정주행일까요, 하루 한 편일까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "3부. 정주행일까요, 하루 한 편일까요?"
+        },
+        {
+          "id": "horvath",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "maratonRecuerdo"
+          },
+          "lamina": [
+            "maraton",
+            "palomitas"
+          ],
+          "destacada": true,
+          "texto": "2017년, Jared Horvath 연구팀은 학생들에게 한 시리즈를 보게 했어요. 어떤 학생은 한 번에 몰아서, 어떤 학생은 하루 한 편, 어떤 학생은 일주일에 한 편씩요. 정주행한 학생들은 덜 즐겼고, 몇 달 뒤에는 내용을 더 못 기억했어요."
+        },
+        {
+          "id": "sueno",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2017",
+            "clave": "exelmans"
+          },
+          "lamina": [
+            "nocheTele",
+            "cama"
+          ],
+          "texto": "그리고 대가가 하나 더 있어요. 같은 해, Liese Exelmans와 Jan Van den Bulck는 정주행을 하는 젊은이들이 잠을 더 설치고 아침에 더 피곤하다는 걸 발견했어요. 마지막 편이 끝나도 머리가 계속 들떠 있거든요."
+        },
+        {
+          "id": "ritmo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "ritmoSerie"
+          },
+          "lamina": [
+            "despertador",
+            "luna"
+          ],
+          "meme": "unoMas",
+          "texto": "내 속도로 보면 시리즈 하나가 얼마나 가는지, 그리고 한 편만 더 보면 몇 시에 자게 되는지 보세요."
+        },
+        {
+          "id": "curso",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "enCurso",
+              "uno",
+              "manana"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "그래서 여기서는 시리즈마다 상태가 있어요. 플루토는 볼 예정인데, 한 번에 한 편씩 볼 거예요."
+        }
+      ]
+    },
+    {
+      "id": "pausas",
+      "titulo": "왜 쉬는 시간과 스포일러는 아무것도 망치지 않을까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "4부. 왜 쉬는 시간과 스포일러는 아무것도 망치지 않을까요?"
+        },
+        {
+          "id": "nelson",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cortes"
+          },
+          "lamina": [
+            "pausa",
+            "cine"
+          ],
+          "destacada": true,
+          "texto": "2009년, Leif Nelson, Tom Meyvis, Jeff Galak는 사람들에게 한 프로그램을 광고가 있는 버전과 없는 버전으로 보여 줬어요. 광고가 있을 때 더 즐겼죠. 즐거움은 시간이 지나며 닳아 가고, 쉬는 시간이 그걸 다시 채워 줘요."
+        },
+        {
+          "id": "spoiler",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2011",
+            "clave": "leavitt"
+          },
+          "lamina": [
+            "leerSofa",
+            "sorpresa"
+          ],
+          "meme": "spoiler",
+          "texto": "또 하나 놀라운 사실이 있어요. 2011년, Jonathan Leavitt와 Nicholas Christenfeld는 결말을 알려 준 단편과 알려 주지 않은 단편을 읽게 했어요. 평균적으로 결말을 미리 안 쪽을 더 좋아했어요."
+        },
+        {
+          "id": "aplica",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "levantate",
+              "comenta",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "amigos",
+            "cafe"
+          ],
+          "texto": "그러니 쉬는 시간을 두려워하지 마세요. 일어나서 본 것에 대해 이야기하고, 더 보고 싶은 마음으로 돌아오세요. 이야기에서 정말 중요한 건 어떻게 끝나느냐만이 아니에요."
+        },
+        {
+          "id": "resumen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "deQueVa",
+              "sinSpoilers",
+              "despues"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "그리고 보기 전에 무슨 내용인지 알고 싶으면, 여기서 AI 요약을 부탁해요. 다 볼 때까지는 스포일러 없이요."
+        }
+      ]
+    },
+    {
+      "id": "videojuegos",
+      "titulo": "게임은 나에게 좋을까요, 나쁠까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "5부. 게임은 나에게 좋을까요, 나쁠까요?"
+        },
+        {
+          "id": "przybylski",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "horasJuego"
+          },
+          "lamina": [
+            "videojuego",
+            "control2"
+          ],
+          "destacada": true,
+          "texto": "2014년, Andrew Przybylski는 영국의 10살에서 15살 사이 아이들 5천 명 가까이를 연구했어요. 하루 한 시간 미만 게임을 한 아이들은 안 하는 아이들보다 조금 나았고, 세 시간이 넘는 아이들은 조금 나빴어요."
+        },
+        {
+          "id": "vuorre",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2022",
+            "clave": "vuorre"
+          },
+          "lamina": [
+            "jugadora",
+            "pantallaJuego"
+          ],
+          "texto": "그리고 2022년, Matti Vuorre 연구팀은 성인 게이머 3만 9천 명 가까이를 조사해, 게임 시간은 기분에 거의 영향이 없다는 걸 확인했어요. 중요한 건 왜 하느냐였어요. 좋아서 하면 괜찮고, 해야만 할 것 같아서 하면 더 나빴어요."
+        },
+        {
+          "id": "pregunta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "porQueJuegas"
+          },
+          "lamina": [
+            "pensar",
+            "brujula"
+          ],
+          "texto": "그러니 게임을 하기 전에 스스로 물어보세요. 하고 싶어서 하는 걸까, 아니면 멈출 수 없어서 하는 걸까? 결과를 확인해 보세요."
+        },
+        {
+          "id": "juegos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ingenio",
+              "arcade",
+              "dificultad"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "제 방에는 잠깐 즐길 수 있는 게임이 스물세 개 있어요. 두뇌 게임, 아케이드, 카드, 보드까지, 각각 난이도도 있어요."
+        }
+      ]
+    },
+    {
+      "id": "otros",
+      "titulo": "왜 다른 사람과 함께 놀까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "6부. 왜 다른 사람과 함께 놀까요?"
+        },
+        {
+          "id": "altschul",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "mesaMente"
+          },
+          "lamina": [
+            "ajedrez",
+            "cartas"
+          ],
+          "destacada": true,
+          "texto": "2020년, Drew Altschul과 Ian Deary는 스코틀랜드에서 모두 1936년에 태어난 천 명이 넘는 사람들을 추적했어요. 보드게임과 카드 게임을 더 많이 한 사람들은 70세에서 79세 사이에 기억력과 순발력이 덜 떨어졌어요."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoEntre"
+          },
+          "lamina": "pulgar",
+          "texto": "이 가이드가 마음에 든다면 좋아요를 누르고, 다음 편을 놓치지 않게 구독하고, 카드 게임에서 늘 나를 이기는 그 사람에게 공유해 주세요."
+        },
+        {
+          "id": "boothby",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2014",
+            "clave": "boothby"
+          },
+          "lamina": [
+            "chocolate",
+            "familiaMesa"
+          ],
+          "texto": "그리고 함께하면 모든 게 달라져요. 2014년, Erica Boothby 연구팀은 같은 초콜릿도 다른 사람이 동시에 맛볼 때 더 맛있게 느껴진다는 걸 발견했어요. 함께 겪는 일은 더 크게 느껴져요."
+        },
+        {
+          "id": "grupo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "conocerse",
+              "debates",
+              "enLinea"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "그래서 여기에는 다 같이 하는 게임도 있어요. 서로 알아가기 같은 질문 게임이나 토론, 그리고 친구들과 함께하는 온라인 테이블도요."
+        }
+      ]
+    },
+    {
+      "id": "leer",
+      "titulo": "읽는 것도 쳐줄까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "7부. 읽는 것도 쳐줄까요?"
+        },
+        {
+          "id": "bavishi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "23",
+            "clave": "bavishi"
+          },
+          "lamina": [
+            "abueloLee",
+            "libros"
+          ],
+          "destacada": true,
+          "texto": "2016년, Avni Bavishi, Martin Slade, Becca Levy는 50세 이상 3천5백 명이 넘는 사람들을 12년 동안 추적했어요. 책을 읽는 사람들은 읽지 않는 사람들보다 평균 2년 가까이 더 오래 살았어요."
+        },
+        {
+          "id": "mediaHora",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "librosAlAno"
+          },
+          "lamina": [
+            "leerCama",
+            "temporizador"
+          ],
+          "texto": "그리고 많이 할 필요도 없어요. 하루 30분이면 1년에 책을 몇 권 읽을 수 있는지 보세요."
+        },
+        {
+          "id": "noche",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antesDormir",
+              "enVez",
+              "aMano"
+            ]
+          },
+          "lamina": [
+            "lampara",
+            "libreta"
+          ],
+          "texto": "좋은 때는 자기 전이에요. 한 편 더 대신 책을 펴세요. 책은 베개 옆에, 휴대폰은 침대에서 멀리 두세요."
+        },
+        {
+          "id": "libros",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "categoria",
+              "enCursoLibro",
+              "estrellas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "제 책들도 여기 있어요. 아나템은 진행 중이고, 코스모스에는 벌써 별 다섯 개를 줬어요."
+        }
+      ]
+    },
+    {
+      "id": "durar",
+      "titulo": "어떻게 하면 오래 남을까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "8부. 어떻게 하면 오래 남을까요?"
+        },
+        {
+          "id": "zhang",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "capsula"
+          },
+          "lamina": [
+            "capsula",
+            "fotos"
+          ],
+          "destacada": true,
+          "texto": "2014년, Ting Zhang 연구팀은 학생들에게 일상적인 것들을 타임캡슐에 담게 했어요. 마지막으로 본 영화, 노래 한 곡, 어떤 대화 같은 것들이요. 석 달 뒤 다시 읽어 보니, 생각했던 것보다 훨씬 더 흥미로웠어요."
+        },
+        {
+          "id": "anota",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estrellasN",
+              "frase",
+              "conQuien"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "agendaPapel"
+          ],
+          "texto": "그러니 뭔가를 다 보면 세 가지를 적어 두세요. 별을 몇 개 줄지, 마음에 남은 한 문장, 그리고 누구와 봤는지."
+        },
+        {
+          "id": "gusto",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "patron",
+              "genero",
+              "facil"
+            ]
+          },
+          "lamina": [
+            "estante",
+            "lupa"
+          ],
+          "texto": "시간이 지나면 그 메모가 내가 정말 좋아하는 걸 알려 주고, 뭘 볼지 고르기가 훨씬 쉬워져요."
+        },
+        {
+          "id": "tarjeta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "portada",
+              "voltea",
+              "resena"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "제 카드에는 그 모든 게 담겨요. 앞면에는 표지가 있고, 누르면 뒤집혀서 제 별점과 리뷰가 나와요."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "어떻게 이어 갈까요? 이어 가기 위한 계획",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "9부. 어떻게 이어 갈까요? 이어 가기 위한 계획."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planEntre"
+          },
+          "lamina": [
+            "lista",
+            "reloj"
+          ],
+          "texto": "첫 주에는 볼 목록을 만들고, 나도 모르게 SNS에 얼마나 시간을 쓰는지 확인해 보세요."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tope",
+              "resto",
+              "noche"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "첫 달에는 정주행에 한도를 정하세요. 하룻밤에 두 편까지, 나머지는 내일로요."
+        },
+        {
+          "id": "semanal",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mesa",
+              "libro",
+              "alguien"
+            ]
+          },
+          "lamina": [
+            "familiaMesa",
+            "cumbre"
+          ],
+          "texto": "그리고 일주일에 하루 저녁은 화면 대신 보드게임이나 책을 고르세요. 누군가와 함께라면 더 좋아요."
+        },
+        {
+          "id": "metas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "clasicos",
+              "unoALaVez"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "그리고 제가 볼 것들은 목표로 관리해요. 아직 못 본 SF 고전을 한 번에 하나씩요."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "정리하면, 앉기 전에 정하세요. 스크롤은 무심코가 아니라 목적을 갖고. 한 번에 한 편씩, 쉬는 시간은 방해가 되지 않아요. 좋아서, 다른 사람과 함께 노세요. 매일 조금씩 읽으세요. 그리고 마음에 남은 걸 적어 두세요."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS의 오락실에서는 영화, 시리즈, 책, 게임을 담은 나의 아카이브를 나의 리뷰와 함께 남기고, 보드게임도 즐길 수 있어요. 오늘 무료로 나만의 마음의 집을 지어 보세요. 링크는 설명란에 있어요. 그리고 다음 가이드는, 내 차량은 어떻게 관리할까요?",
+    "boton": "오락실 열기",
+    "lamina": "app-plan",
+    "anclas": {
+      "archivo": "나의 아카이브",
+      "resenas": "나의 리뷰",
+      "juegos": "보드게임"
+    }
+  },
+  "resumenDemo": {
+    "ficha": "안드레이 타르콥스키 · 1972 · SF · 2시간 47분",
+    "sinopsis": "한 심리학자가 신비한 바다로 뒤덮인 행성 솔라리스를 도는 우주 정거장으로 향해요. 임무를 계속할지 결정하기 위해서죠. 도착해 보니 승무원들은 지치고 겁에 질려 있고, 곧 그 자신도 설명할 수 없는 것들을 보기 시작해요.",
+    "claves": [
+      "느리고 명상적인 영화예요. 차분하게 보는 게 좋아요.",
+      "우주선과 모험보다는 기억, 죄책감, 그리고 우리가 타인에 대해 모르는 것을 이야기해요.",
+      "스타니스와프 렘의 소설(1961)이 원작이에요."
+    ]
+  },
+  "fuentes": [
+    {
+      "id": "nielsen-2023",
+      "texto": "Nielsen. State of Play 2023: 스트리밍 시청자는 뭘 볼지 고르는 데 10.5분을 쓴다 (2023).",
+      "url": "https://www.nielsen.com/insights/2023/state-of-play-2023/"
+    },
+    {
+      "id": "oxford-2024",
+      "texto": "Oxford University Press. Oxford Word of the Year 2024: brain rot (2024).",
+      "url": "https://corp.oup.com/news/brain-rot-named-oxford-word-of-the-year-2024/"
+    },
+    {
+      "id": "verduyn-2015",
+      "texto": "Verduyn P., Lee D. S., Park J., Shablack H., Orvell A., Bayer J., Ybarra O., Jonides J., Kross E. Passive Facebook usage undermines affective well-being: Experimental and longitudinal evidence. Journal of Experimental Psychology: General (2015).",
+      "url": "https://doi.org/10.1037/xge0000057"
+    },
+    {
+      "id": "hunt-2018",
+      "texto": "Hunt M. G., Marx R., Lipson C., Young J. No more FOMO: Limiting social media decreases loneliness and depression. Journal of Social and Clinical Psychology (2018).",
+      "url": "https://doi.org/10.1521/jscp.2018.37.10.751"
+    },
+    {
+      "id": "horvath-2017",
+      "texto": "Horvath J. C., Horton A. J., Lodge J. M., Hattie J. A. C. The impact of binge watching on memory and perceived comprehension. First Monday (2017).",
+      "url": "https://doi.org/10.5210/fm.v22i9.7729"
+    },
+    {
+      "id": "exelmans-2017",
+      "texto": "Exelmans L., Van den Bulck J. Binge viewing, sleep, and the role of pre-sleep arousal. Journal of Clinical Sleep Medicine (2017).",
+      "url": "https://doi.org/10.5664/jcsm.6704"
+    },
+    {
+      "id": "nelson-2009",
+      "texto": "Nelson L. D., Meyvis T., Galak J. Enhancing the television-viewing experience through commercial interruptions. Journal of Consumer Research (2009).",
+      "url": "https://doi.org/10.1086/597296"
+    },
+    {
+      "id": "leavitt-2011",
+      "texto": "Leavitt J. D., Christenfeld N. J. S. Story spoilers don't spoil stories. Psychological Science (2011).",
+      "url": "https://doi.org/10.1177/0956797611417007"
+    },
+    {
+      "id": "przybylski-2014",
+      "texto": "Przybylski A. K. Electronic gaming and psychosocial adjustment. Pediatrics (2014).",
+      "url": "https://doi.org/10.1542/peds.2013-4021"
+    },
+    {
+      "id": "vuorre-2022",
+      "texto": "Vuorre M., Johannes N., Magnusson K., Przybylski A. K. Time spent playing video games is unlikely to impact well-being. Royal Society Open Science (2022).",
+      "url": "https://doi.org/10.1098/rsos.220411"
+    },
+    {
+      "id": "altschul-2020",
+      "texto": "Altschul D. M., Deary I. J. Playing analog games is associated with reduced declines in cognitive function: a 68-year longitudinal cohort study. The Journals of Gerontology: Series B (2020).",
+      "url": "https://doi.org/10.1093/geronb/gbz149"
+    },
+    {
+      "id": "boothby-2014",
+      "texto": "Boothby E. J., Clark M. S., Bargh J. A. Shared experiences are amplified. Psychological Science (2014).",
+      "url": "https://doi.org/10.1177/0956797614551162"
+    },
+    {
+      "id": "bavishi-2016",
+      "texto": "Bavishi A., Slade M. D., Levy B. R. A chapter a day: Association of book reading with longevity. Social Science & Medicine (2016).",
+      "url": "https://doi.org/10.1016/j.socscimed.2016.07.014"
+    },
+    {
+      "id": "zhang-2014",
+      "texto": "Zhang T., Kim T., Brooks A. W., Gino F., Norton M. I. A \"present\" for the future: The unexpected value of rediscovery. Psychological Science (2014).",
+      "url": "https://doi.org/10.1177/0956797614542274"
+    }
+  ]
+}

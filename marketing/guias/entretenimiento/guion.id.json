@@ -1,0 +1,810 @@
+{
+  "idioma": "id",
+  "tema": "entretenimiento",
+  "plantillaId": "entretenimiento",
+  "numero": 16,
+  "nombre": "Hiburan",
+  "pregunta": "Bagaimana menghibur dirimu dengan lebih baik?",
+  "corta": "Bagaimana menghibur dirimu dengan lebih baik?",
+  "subtitulo": "Kenapa memilih tontonan butuh waktu lama, kenapa scroll dan «brain rot» tidak membuatmu istirahat, lebih baik maraton atau satu episode sehari, kenapa jeda dan spoiler tidak merusak apa pun, apakah video game baik atau buruk untukmu, kenapa bermain bersama orang lain, kenapa membaca, cara membuat yang kamu tonton bertahan lama, dan rencana untuk melanjutkan.",
+  "aviso": "Panduan ini bersifat informatif: studi yang dikutip diringkas dengan sederhana, dan banyak yang menunjukkan hubungan, bukan sebab. Kalau kamu merasa tidak bisa berhenti bermain atau menatap layar padahal ingin, bicaralah dengan orang yang kamu percaya atau dengan seorang profesional.",
+  "partes": [
+    {
+      "id": "elegir",
+      "titulo": "Kenapa memilih butuh waktu lama?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Bagaimana menghibur dirimu dengan lebih baik? Kita menghabiskan lebih dari sepuluh menit hanya untuk memilih tontonan. Dan kadang, setelah lama mencari, kita menyerah dan tidak menonton apa pun. Bagaimana kalau masalahnya bukan seberapa banyak kamu terhibur, tapi caranya? Hari ini kamu akan melihatnya lewat apa kata sains, dan pulang dengan rencana untuk lebih menikmati waktu luangmu."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Oh ya, ini rumahku di MindHaOS, dan lihat: hari ini sedang kiamat, karena tidak ada rencana yang lebih baik untuk akhir dunia selain di rumah saja dengan film yang bagus. Di ruangan ini aku mencatat semua yang kutonton, kubaca, dan kumainkan."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian satu. Kenapa memilih butuh waktu lama?"
+        },
+        {
+          "id": "nielsen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10,5",
+            "clave": "nielsen"
+          },
+          "lamina": [
+            "control",
+            "catalogo"
+          ],
+          "destacada": true,
+          "texto": "Tahun 2023, perusahaan Nielsen bertanya di Amerika Serikat berapa lama kita memilih tontonan: rata-rata sepuluh setengah menit. Empat tahun sebelumnya, hanya sedikit di atas tujuh."
+        },
+        {
+          "id": "eligiendo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tiempoEligiendo"
+          },
+          "lamina": [
+            "reloj",
+            "sofa"
+          ],
+          "texto": "Kelihatannya sedikit, tapi coba jumlahkan: sepuluh menit tiap malam jadi lebih dari enam puluh jam setahun, cuma untuk mencari. Lihat berapa jam milikmu."
+        },
+        {
+          "id": "decide",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antes",
+              "pendientes",
+              "cinco"
+            ]
+          },
+          "lamina": [
+            "lista",
+            "palomita"
+          ],
+          "meme": "elegir",
+          "texto": "Triknya, putuskan sebelum duduk: punya daftar tontonan, dan kalau dalam lima menit belum memilih, putar yang pertama di daftar."
+        },
+        {
+          "id": "archivo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vi",
+              "lei",
+              "pendiente"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Di ruang Hiburan-ku, aku menyimpan Arsip-ku: yang sudah kutonton, kubaca, kumainkan, dan yang masih menunggu, tersusun per genre."
+        }
+      ]
+    },
+    {
+      "id": "scroll",
+      "titulo": "Kenapa scroll tidak membuatmu istirahat?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian dua. Kenapa scroll tidak membuatmu istirahat?"
+        },
+        {
+          "id": "brainrot",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2024",
+            "clave": "brainrot"
+          },
+          "lamina": [
+            "scroll",
+            "celularNoche"
+          ],
+          "texto": "Tahun 2024, kamus Oxford memilih «brain rot» sebagai kata tahun ini, kira-kira artinya «otak busuk»: rasa tumpul setelah berjam-jam menonton konten tanpa berpikir."
+        },
+        {
+          "id": "verduyn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pasivoActivo"
+          },
+          "lamina": [
+            "redes",
+            "celularCama"
+          ],
+          "destacada": true,
+          "texto": "Tahun 2015, Philippe Verduyn dan timnya melihat bahwa melihat media sosial tanpa ikut terlibat, cuma menggulir unggahan, membuat perasaan orang memburuk sepanjang hari. Memakainya untuk mengobrol dengan orang lain tidak berdampak begitu."
+        },
+        {
+          "id": "hunt",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "scrollAlAno"
+          },
+          "lamina": [
+            "temporizador",
+            "amigos"
+          ],
+          "meme": "scroll",
+          "texto": "Lalu tahun 2018, Melissa Hunt dan timnya meminta mahasiswa memakai media sosial hanya tiga puluh menit sehari selama tiga minggu. Mereka jadi kurang kesepian dan kurang sedih. Lihat berapa total scroll-mu dalam setahun."
+        },
+        {
+          "id": "consciente",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunta",
+              "elige",
+              "cierra"
+            ]
+          },
+          "lamina": [
+            "pensar",
+            "ventana"
+          ],
+          "texto": "Triknya bukan meninggalkannya, tapi memilih: sebelum membuka media sosial, tanya dirimu apa yang kamu cari. Kalau ingin istirahat, pilih sesuatu yang benar-benar ingin kamu tonton, dan setelah selesai, tutup."
+        }
+      ]
+    },
+    {
+      "id": "maraton",
+      "titulo": "Maraton atau satu episode sehari?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tiga. Maraton atau satu episode sehari?"
+        },
+        {
+          "id": "horvath",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "maratonRecuerdo"
+          },
+          "lamina": [
+            "maraton",
+            "palomitas"
+          ],
+          "destacada": true,
+          "texto": "Tahun 2017, Jared Horvath dan timnya meminta mahasiswa menonton sebuah serial: ada yang sekaligus, ada yang satu episode sehari, ada yang satu per minggu. Yang maraton paling kurang menikmatinya, dan berbulan-bulan kemudian ingatannya paling buruk."
+        },
+        {
+          "id": "sueno",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2017",
+            "clave": "exelmans"
+          },
+          "lamina": [
+            "nocheTele",
+            "cama"
+          ],
+          "texto": "Dan ada hitungan lain. Di tahun yang sama, Liese Exelmans dan Jan Van den Bulck melihat bahwa anak muda yang suka maraton tidurnya lebih buruk dan bangun lebih lelah: kepala tetap tegang setelah episode terakhir."
+        },
+        {
+          "id": "ritmo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "ritmoSerie"
+          },
+          "lamina": [
+            "despertador",
+            "luna"
+          ],
+          "meme": "unoMas",
+          "texto": "Lihat berapa lama sebuah serial bertahan dengan ritmemu, dan jam berapa kamu tidur kalau tambah satu episode lagi."
+        },
+        {
+          "id": "curso",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "enCurso",
+              "uno",
+              "manana"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Makanya di sini setiap serial punya statusnya: Pluto masih Belum dimulai, dan akan kutonton satu episode setiap kali."
+        }
+      ]
+    },
+    {
+      "id": "pausas",
+      "titulo": "Kenapa jeda dan spoiler tidak merusak apa pun?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian empat. Kenapa jeda dan spoiler tidak merusak apa pun?"
+        },
+        {
+          "id": "nelson",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cortes"
+          },
+          "lamina": [
+            "pausa",
+            "cine"
+          ],
+          "destacada": true,
+          "texto": "Tahun 2009, Leif Nelson, Tom Meyvis, dan Jeff Galak meminta orang menonton acara dengan dan tanpa jeda iklan. Dengan jeda, mereka lebih menikmatinya: rasa senang terkikis seiring waktu, dan jeda menyalakannya lagi."
+        },
+        {
+          "id": "spoiler",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2011",
+            "clave": "leavitt"
+          },
+          "lamina": [
+            "leerSofa",
+            "sorpresa"
+          ],
+          "meme": "spoiler",
+          "texto": "Ada kejutan lain: tahun 2011, Jonathan Leavitt dan Nicholas Christenfeld memberi cerita pendek untuk dibaca, ada yang akhirnya sudah dibocorkan, ada yang tidak. Rata-rata, yang sudah tahu akhirnya justru lebih disukai."
+        },
+        {
+          "id": "aplica",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "levantate",
+              "comenta",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "amigos",
+            "cafe"
+          ],
+          "texto": "Jadi jangan takut jeda: berdiri, ceritakan apa yang kamu tonton, lalu kembali dengan lebih semangat. Yang benar-benar penting dari sebuah cerita bukan hanya akhirnya."
+        },
+        {
+          "id": "resumen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "deQueVa",
+              "sinSpoilers",
+              "despues"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dan kalau aku ingin tahu sesuatu tentang apa sebelum menontonnya, di sini aku minta Ringkasan AI, tanpa spoiler selama aku belum menyelesaikannya."
+        }
+      ]
+    },
+    {
+      "id": "videojuegos",
+      "titulo": "Apakah video game baik atau buruk untukmu?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian lima. Apakah video game baik atau buruk untukmu?"
+        },
+        {
+          "id": "przybylski",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "horasJuego"
+          },
+          "lamina": [
+            "videojuego",
+            "control2"
+          ],
+          "destacada": true,
+          "texto": "Tahun 2014, Andrew Przybylski meneliti hampir lima ribu anak usia sepuluh sampai lima belas tahun di Inggris. Yang bermain kurang dari satu jam sehari sedikit lebih baik daripada yang tidak bermain, dan yang lebih dari tiga jam, sedikit lebih buruk."
+        },
+        {
+          "id": "vuorre",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2022",
+            "clave": "vuorre"
+          },
+          "lamina": [
+            "jugadora",
+            "pantallaJuego"
+          ],
+          "texto": "Lalu tahun 2022, dengan hampir tiga puluh sembilan ribu pemain dewasa, Matti Vuorre dan timnya melihat bahwa jumlah jam hampir tidak mengubah perasaan mereka. Yang berpengaruh adalah alasan bermain: karena suka, baik; karena merasa harus, lebih buruk."
+        },
+        {
+          "id": "pregunta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "porQueJuegas"
+          },
+          "lamina": [
+            "pensar",
+            "brujula"
+          ],
+          "texto": "Jadi sebelum bermain, tanyakan satu hal: aku main karena ingin, atau karena tidak bisa berhenti? Lihat hasilnya."
+        },
+        {
+          "id": "juegos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ingenio",
+              "arcade",
+              "dificultad"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Di ruanganku ada dua puluh tiga permainan untuk mengisi waktu: Asah Otak, Arcade, Kartu, dan Permainan Papan, masing-masing dengan tingkat kesulitannya."
+        }
+      ]
+    },
+    {
+      "id": "otros",
+      "titulo": "Kenapa bermain bersama orang lain?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian enam. Kenapa bermain bersama orang lain?"
+        },
+        {
+          "id": "altschul",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "mesaMente"
+          },
+          "lamina": [
+            "ajedrez",
+            "cartas"
+          ],
+          "destacada": true,
+          "texto": "Tahun 2020, Drew Altschul dan Ian Deary mengikuti lebih dari seribu orang di Skotlandia, semuanya lahir tahun 1936. Yang lebih sering main permainan papan dan kartu kehilangan lebih sedikit daya ingat dan ketangkasan antara usia tujuh puluh dan tujuh puluh sembilan."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoEntre"
+          },
+          "lamina": "pulgar",
+          "texto": "Kalau kamu suka panduan ini, tekan Suka, Subscribe supaya tidak ketinggalan panduan berikutnya, dan Bagikan ke orang yang selalu menang darimu kalau main kartu."
+        },
+        {
+          "id": "boothby",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2014",
+            "clave": "boothby"
+          },
+          "lamina": [
+            "chocolate",
+            "familiaMesa"
+          ],
+          "texto": "Dan berbagi mengubah segalanya: tahun 2014, Erica Boothby dan timnya melihat bahwa cokelat terasa lebih enak kalau ada orang lain yang mencicipinya bersamaan. Yang kamu alami bersama orang lain terasa lebih kuat."
+        },
+        {
+          "id": "grupo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "conocerse",
+              "debates",
+              "enLinea"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Makanya di sini juga ada permainan untuk kelompok, seperti Saling Mengenal atau Debat, dan meja online untuk bermain dengan teman-temanmu."
+        }
+      ]
+    },
+    {
+      "id": "leer",
+      "titulo": "Dan membaca, apakah dihitung?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tujuh. Dan membaca, apakah dihitung?"
+        },
+        {
+          "id": "bavishi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "23",
+            "clave": "bavishi"
+          },
+          "lamina": [
+            "abueloLee",
+            "libros"
+          ],
+          "destacada": true,
+          "texto": "Tahun 2016, Avni Bavishi, Martin Slade, dan Becca Levy mengikuti lebih dari tiga ribu lima ratus orang berusia di atas lima puluh selama dua belas tahun. Yang membaca buku hidup, rata-rata, hampir dua tahun lebih lama daripada yang tidak."
+        },
+        {
+          "id": "mediaHora",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "librosAlAno"
+          },
+          "lamina": [
+            "leerCama",
+            "temporizador"
+          ],
+          "texto": "Dan tidak perlu banyak: dengan setengah jam sehari, lihat berapa buku yang muat dalam setahun."
+        },
+        {
+          "id": "noche",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antesDormir",
+              "enVez",
+              "aMano"
+            ]
+          },
+          "lamina": [
+            "lampara",
+            "libreta"
+          ],
+          "texto": "Waktu yang pas adalah sebelum tidur: buku sebagai ganti satu episode lagi. Taruh di bantal, dan ponselmu jauh dari kasur."
+        },
+        {
+          "id": "libros",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "categoria",
+              "enCursoLibro",
+              "estrellas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Buku-bukuku juga ada di sini: Anathem sedang kubaca, dan Cosmos sudah dapat lima bintang."
+        }
+      ]
+    },
+    {
+      "id": "durar",
+      "titulo": "Bagaimana agar terasa lebih lama?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian delapan. Bagaimana agar terasa lebih lama?"
+        },
+        {
+          "id": "zhang",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "capsula"
+          },
+          "lamina": [
+            "capsula",
+            "fotos"
+          ],
+          "destacada": true,
+          "texto": "Tahun 2014, Ting Zhang dan timnya meminta mahasiswa menyimpan hal-hal sehari-hari dalam kapsul waktu: film terakhir yang mereka tonton, sebuah lagu, sebuah obrolan. Tiga bulan kemudian, membacanya lagi jauh lebih menarik daripada yang mereka bayangkan."
+        },
+        {
+          "id": "anota",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estrellasN",
+              "frase",
+              "conQuien"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "agendaPapel"
+          ],
+          "texto": "Jadi setiap kali menyelesaikan sesuatu, catat tiga hal: berapa bintang yang kamu beri, satu kalimat tentang kesannya, dan dengan siapa kamu menontonnya."
+        },
+        {
+          "id": "gusto",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "patron",
+              "genero",
+              "facil"
+            ]
+          },
+          "lamina": [
+            "estante",
+            "lupa"
+          ],
+          "texto": "Lama-lama, catatanmu memberitahumu apa yang benar-benar kamu suka, dan memilih tontonan jadi jauh lebih mudah."
+        },
+        {
+          "id": "tarjeta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "portada",
+              "voltea",
+              "resena"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Kartu-kartuku menyimpan semua itu: di depan, sampulnya; dan saat disentuh, kartunya berbalik menunjukkan bintang dan ulasanku."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Bagaimana melanjutkan? Rencanamu untuk terus maju",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian sembilan. Bagaimana melanjutkan? Rencanamu untuk terus maju."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planEntre"
+          },
+          "lamina": [
+            "lista",
+            "reloj"
+          ],
+          "texto": "Minggu pertama, susun daftar tontonanmu dan lihat berapa banyak waktu yang habis di media sosial tanpa kamu sadari."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tope",
+              "resto",
+              "noche"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "Bulan pertama, beri batas pada maraton: dua episode per malam, sisanya untuk besok."
+        },
+        {
+          "id": "semanal",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mesa",
+              "libro",
+              "alguien"
+            ]
+          },
+          "lamina": [
+            "familiaMesa",
+            "cumbre"
+          ],
+          "texto": "Dan satu malam setiap minggu, ganti layar dengan permainan papan atau buku, lebih baik lagi bersama seseorang."
+        },
+        {
+          "id": "metas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "clasicos",
+              "unoALaVez"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dan daftar tontonanku kucatat sebagai target: Klasik fiksi ilmiah yang belum ditonton, satu per satu."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Ringkasnya: putuskan sebelum duduk; scroll dengan niat, bukan otomatis; satu episode setiap kali, dan jeda tidak mengganggu; bermainlah karena suka dan bersama orang lain; baca sedikit setiap hari; dan catat kesan yang ditinggalkannya."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Di ruang Hiburan MindHaOS, kamu bisa menyimpan arsipmu berisi film, serial, buku, dan video game, lengkap dengan ulasanmu, dan memainkan permainan papan favoritmu. Bangun rumah pikiranmu gratis hari ini: tautannya ada di deskripsi. Dan di panduan berikutnya: bagaimana merawat kendaraanmu?",
+    "boton": "Buka ruang Hiburan",
+    "lamina": "app-plan",
+    "anclas": {
+      "archivo": "arsipmu",
+      "resenas": "ulasanmu",
+      "juegos": "permainan papan"
+    }
+  },
+  "resumenDemo": {
+    "ficha": "Andrei Tarkovsky · 1972 · fiksi ilmiah · 2 j 47 mnt",
+    "sinopsis": "Seorang psikolog pergi ke stasiun luar angkasa yang mengorbit planet Solaris, yang tertutup samudra misterius, untuk memutuskan apakah misinya harus dilanjutkan. Setibanya di sana, ia mendapati awak yang kelelahan dan ketakutan, dan tak lama kemudian ia sendiri mulai melihat hal-hal yang tak bisa dijelaskan.",
+    "claves": [
+      "Film yang lambat dan kontemplatif: tontonlah dengan tenang.",
+      "Lebih dari sekadar pesawat dan petualangan, film ini bicara tentang ingatan, rasa bersalah, dan apa yang tidak kita ketahui tentang orang lain.",
+      "Diangkat dari novel Stanisław Lem (1961)."
+    ]
+  },
+  "fuentes": [
+    {
+      "id": "nielsen-2023",
+      "texto": "Nielsen. State of Play 2023: Streaming viewers spend 10.5 minutes deciding what to watch (2023).",
+      "url": "https://www.nielsen.com/insights/2023/state-of-play-2023/"
+    },
+    {
+      "id": "oxford-2024",
+      "texto": "Oxford University Press. Oxford Word of the Year 2024: brain rot (2024).",
+      "url": "https://corp.oup.com/news/brain-rot-named-oxford-word-of-the-year-2024/"
+    },
+    {
+      "id": "verduyn-2015",
+      "texto": "Verduyn P., Lee D. S., Park J., Shablack H., Orvell A., Bayer J., Ybarra O., Jonides J., Kross E. Passive Facebook usage undermines affective well-being: Experimental and longitudinal evidence. Journal of Experimental Psychology: General (2015).",
+      "url": "https://doi.org/10.1037/xge0000057"
+    },
+    {
+      "id": "hunt-2018",
+      "texto": "Hunt M. G., Marx R., Lipson C., Young J. No more FOMO: Limiting social media decreases loneliness and depression. Journal of Social and Clinical Psychology (2018).",
+      "url": "https://doi.org/10.1521/jscp.2018.37.10.751"
+    },
+    {
+      "id": "horvath-2017",
+      "texto": "Horvath J. C., Horton A. J., Lodge J. M., Hattie J. A. C. The impact of binge watching on memory and perceived comprehension. First Monday (2017).",
+      "url": "https://doi.org/10.5210/fm.v22i9.7729"
+    },
+    {
+      "id": "exelmans-2017",
+      "texto": "Exelmans L., Van den Bulck J. Binge viewing, sleep, and the role of pre-sleep arousal. Journal of Clinical Sleep Medicine (2017).",
+      "url": "https://doi.org/10.5664/jcsm.6704"
+    },
+    {
+      "id": "nelson-2009",
+      "texto": "Nelson L. D., Meyvis T., Galak J. Enhancing the television-viewing experience through commercial interruptions. Journal of Consumer Research (2009).",
+      "url": "https://doi.org/10.1086/597296"
+    },
+    {
+      "id": "leavitt-2011",
+      "texto": "Leavitt J. D., Christenfeld N. J. S. Story spoilers don't spoil stories. Psychological Science (2011).",
+      "url": "https://doi.org/10.1177/0956797611417007"
+    },
+    {
+      "id": "przybylski-2014",
+      "texto": "Przybylski A. K. Electronic gaming and psychosocial adjustment. Pediatrics (2014).",
+      "url": "https://doi.org/10.1542/peds.2013-4021"
+    },
+    {
+      "id": "vuorre-2022",
+      "texto": "Vuorre M., Johannes N., Magnusson K., Przybylski A. K. Time spent playing video games is unlikely to impact well-being. Royal Society Open Science (2022).",
+      "url": "https://doi.org/10.1098/rsos.220411"
+    },
+    {
+      "id": "altschul-2020",
+      "texto": "Altschul D. M., Deary I. J. Playing analog games is associated with reduced declines in cognitive function: a 68-year longitudinal cohort study. The Journals of Gerontology: Series B (2020).",
+      "url": "https://doi.org/10.1093/geronb/gbz149"
+    },
+    {
+      "id": "boothby-2014",
+      "texto": "Boothby E. J., Clark M. S., Bargh J. A. Shared experiences are amplified. Psychological Science (2014).",
+      "url": "https://doi.org/10.1177/0956797614551162"
+    },
+    {
+      "id": "bavishi-2016",
+      "texto": "Bavishi A., Slade M. D., Levy B. R. A chapter a day: Association of book reading with longevity. Social Science & Medicine (2016).",
+      "url": "https://doi.org/10.1016/j.socscimed.2016.07.014"
+    },
+    {
+      "id": "zhang-2014",
+      "texto": "Zhang T., Kim T., Brooks A. W., Gino F., Norton M. I. A \"present\" for the future: The unexpected value of rediscovery. Psychological Science (2014).",
+      "url": "https://doi.org/10.1177/0956797614542274"
+    }
+  ]
+}

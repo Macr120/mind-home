@@ -31,6 +31,7 @@ const GUIAS: Record<string, { tema: string; clave: string; es: string }> = {
   biblioteca: { tema: 'aprender', clave: 'guia.aprender.titulo', es: '¿Cómo aprender más rápido?' },
   escritura: { tema: 'escritura', clave: 'guia.escritura.titulo', es: '¿Por qué debes escribir?' },
   hobbies: { tema: 'hobbies', clave: 'guia.hobbies.titulo', es: '¿Cómo encontrar un pasatiempo y cómo mantenerlo?' },
+  entretenimiento: { tema: 'entretenimiento', clave: 'guia.entretenimiento.titulo', es: '¿Cómo entretenerte mejor?' },
   computo: { tema: 'matematicas', clave: 'guia.matematicas.titulo', es: '¿Cuál es el lenguaje del universo?' },
 }
 

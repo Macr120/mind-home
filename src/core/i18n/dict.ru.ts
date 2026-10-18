@@ -7436,6 +7436,7 @@ export const RU: Dict = {
   'guia.aprender.titulo': "Как учиться быстрее?",
   'guia.escritura.titulo': "Почему тебе стоит писать?",
   'guia.hobbies.titulo': "Как найти хобби и не бросить его?",
+  'guia.entretenimiento.titulo': "Как развлекаться лучше?",
   'guia.matematicas.titulo': "На каком языке говорит Вселенная?",
   'tut.esencial.titulo': 'Главное',
   'tut.tipo.ejemplos': 'Примеры · демо-MindHaOS',

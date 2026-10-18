@@ -7523,6 +7523,7 @@ export const IT: Dict = {
   'guia.aprender.titulo': "Come imparare più in fretta?",
   'guia.escritura.titulo': "Perché dovresti scrivere?",
   'guia.hobbies.titulo': "Come trovare un passatempo e come mantenerlo?",
+  'guia.entretenimiento.titulo': "Come divertirti meglio?",
   'guia.matematicas.titulo': "Qual è il linguaggio dell'universo?",
   'tut.esencial.titulo': 'L’essenziale',
   'tut.tipo.ejemplos': 'Esempi · MindHaOS demo',

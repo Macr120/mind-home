@@ -1,0 +1,810 @@
+{
+  "idioma": "hi",
+  "tema": "entretenimiento",
+  "plantillaId": "entretenimiento",
+  "numero": 16,
+  "nombre": "मनोरंजन",
+  "pregunta": "अपना मनोरंजन बेहतर तरीके से कैसे करें?",
+  "corta": "अपना मनोरंजन बेहतर तरीके से कैसे करें?",
+  "subtitulo": "क्या देखें यह चुनने में इतना समय क्यों लगता है, स्क्रॉल और «brain rot» से आराम क्यों नहीं मिलता, एक साथ पूरी सीरीज़ बेहतर है या रोज़ एक एपिसोड, ब्रेक और स्पॉइलर कुछ भी ख़राब क्यों नहीं करते, वीडियो गेम आपके लिए अच्छे हैं या बुरे, दूसरों के साथ क्यों खेलें, क्यों पढ़ें, जो देखते हैं उसे याद कैसे रखें, और आगे बढ़ने की योजना।",
+  "aviso": "यह गाइड सिर्फ़ जानकारी के लिए है: बताए गए अध्ययनों के नतीजे सरल तरीके से समझाए गए हैं, और उनमें से कई संबंध दिखाते हैं, कारण नहीं। अगर आपको लगता है कि चाहकर भी आप खेलना या स्क्रीन देखना बंद नहीं कर पा रहे, तो किसी भरोसेमंद व्यक्ति या किसी विशेषज्ञ से बात करें।",
+  "partes": [
+    {
+      "id": "elegir",
+      "titulo": "चुनने में इतना समय क्यों लगता है?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "अपना मनोरंजन बेहतर तरीके से कैसे करें? हम दस मिनट से ज़्यादा सिर्फ़ यह चुनने में लगा देते हैं कि क्या देखें। और कभी-कभी, इतना ढूंढने के बाद, हम हार मान लेते हैं और कुछ भी नहीं देखते। क्या हो अगर समस्या यह न हो कि आप कितना मनोरंजन करते हैं, बल्कि यह कि कैसे करते हैं? आज आप देखेंगे कि विज्ञान क्या कहता है, और अपने खाली समय का ज़्यादा मज़ा लेने की योजना लेकर जाएंगे।"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "वैसे, यह MindHaOS में मेरा घर है, और देखिए: आज यहां पूरा प्रलय चल रहा है, क्योंकि दुनिया के अंत के लिए किसी अच्छी फ़िल्म के साथ घर पर रहने से बेहतर कोई योजना नहीं। इस कमरे में मैं वह सब रखता हूं जो मैं देखता, पढ़ता और खेलता हूं।"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग एक। चुनने में इतना समय क्यों लगता है?"
+        },
+        {
+          "id": "nielsen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10.5",
+            "clave": "nielsen"
+          },
+          "lamina": [
+            "control",
+            "catalogo"
+          ],
+          "destacada": true,
+          "texto": "साल 2023 में, कंपनी Nielsen ने अमेरिका में पूछा कि हमें क्या देखना है यह चुनने में कितना समय लगता है: औसतन साढ़े दस मिनट। चार साल पहले यह सात मिनट से थोड़ा ही ज़्यादा था।"
+        },
+        {
+          "id": "eligiendo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tiempoEligiendo"
+          },
+          "lamina": [
+            "reloj",
+            "sofa"
+          ],
+          "texto": "सुनने में कम लगता है, पर जोड़कर देखिए: हर रात दस मिनट, साल में साठ घंटे से ज़्यादा हो जाते हैं, सिर्फ़ ढूंढने में। देखिए आपके कितने घंटे बनते हैं।"
+        },
+        {
+          "id": "decide",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antes",
+              "pendientes",
+              "cinco"
+            ]
+          },
+          "lamina": [
+            "lista",
+            "palomita"
+          ],
+          "meme": "elegir",
+          "texto": "तरकीब है बैठने से पहले तय कर लेना: देखने वाली चीज़ों की एक सूची रखें, और अगर पांच मिनट में न चुन पाएं, तो सूची की पहली चीज़ लगा दें।"
+        },
+        {
+          "id": "archivo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vi",
+              "lei",
+              "pendiente"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "अपने मनोरंजन कक्ष में मैं अपना संग्रह रखता हूं: जो मैंने देखा, जो पढ़ा, जो खेला और जो अभी बाकी है, सब शैली के हिसाब से।"
+        }
+      ]
+    },
+    {
+      "id": "scroll",
+      "titulo": "स्क्रॉल से आराम क्यों नहीं मिलता?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग दो। स्क्रॉल से आराम क्यों नहीं मिलता?"
+        },
+        {
+          "id": "brainrot",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2024",
+            "clave": "brainrot"
+          },
+          "lamina": [
+            "scroll",
+            "celularNoche"
+          ],
+          "texto": "साल 2024 में, Oxford डिक्शनरी ने «brain rot» को साल का शब्द चुना, कुछ-कुछ «सड़ा हुआ दिमाग़» जैसा: बिना सोचे घंटों कंटेंट देखने के बाद होने वाली सुस्ती का एहसास।"
+        },
+        {
+          "id": "verduyn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pasivoActivo"
+          },
+          "lamina": [
+            "redes",
+            "celularCama"
+          ],
+          "destacada": true,
+          "texto": "साल 2015 में, Philippe Verduyn और उनकी टीम ने देखा कि सोशल मीडिया पर बिना हिस्सा लिए, बस पोस्ट स्क्रॉल करते रहने से लोगों का मन दिन भर में ख़राब होता गया। दूसरों से बात करने के लिए इस्तेमाल करने पर ऐसा असर नहीं था।"
+        },
+        {
+          "id": "hunt",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "scrollAlAno"
+          },
+          "lamina": [
+            "temporizador",
+            "amigos"
+          ],
+          "meme": "scroll",
+          "texto": "और साल 2018 में, Melissa Hunt और उनकी टीम ने छात्रों से तीन हफ़्ते तक सोशल मीडिया रोज़ सिर्फ़ तीस मिनट इस्तेमाल करने को कहा। वे कम अकेले और कम उदास महसूस करने लगे। देखिए साल भर में आपका स्क्रॉल कितना बनता है।"
+        },
+        {
+          "id": "consciente",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunta",
+              "elige",
+              "cierra"
+            ]
+          },
+          "lamina": [
+            "pensar",
+            "ventana"
+          ],
+          "texto": "तरकीब इसे छोड़ना नहीं, चुनना है: कोई ऐप खोलने से पहले ख़ुद से पूछिए कि आप क्या ढूंढ रहे हैं। अगर आराम चाहिए, तो कुछ ऐसा चुनिए जो आप सच में देखना चाहते हैं, और जब ख़त्म हो, ऐप बंद कर दीजिए।"
+        }
+      ]
+    },
+    {
+      "id": "maraton",
+      "titulo": "एक साथ पूरी सीरीज़ या रोज़ एक एपिसोड?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग तीन। एक साथ पूरी सीरीज़ या रोज़ एक एपिसोड?"
+        },
+        {
+          "id": "horvath",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "maratonRecuerdo"
+          },
+          "lamina": [
+            "maraton",
+            "palomitas"
+          ],
+          "destacada": true,
+          "texto": "साल 2017 में, Jared Horvath और उनकी टीम ने छात्रों को एक सीरीज़ दिखाई: कुछ ने एक साथ पूरी, कुछ ने रोज़ एक एपिसोड और कुछ ने हफ़्ते में एक। एक साथ देखने वालों को वह कम पसंद आई, और महीनों बाद उन्हें वह कम याद थी।"
+        },
+        {
+          "id": "sueno",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2017",
+            "clave": "exelmans"
+          },
+          "lamina": [
+            "nocheTele",
+            "cama"
+          ],
+          "texto": "और एक हिसाब और है। उसी साल, Liese Exelmans और Jan Van den Bulck ने देखा कि जो युवा लगातार एपिसोड देखते थे, वे ख़राब सोते थे और ज़्यादा थके हुए उठते थे: आख़िरी एपिसोड के बाद भी दिमाग़ दौड़ता रहता है।"
+        },
+        {
+          "id": "ritmo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "ritmoSerie"
+          },
+          "lamina": [
+            "despertador",
+            "luna"
+          ],
+          "meme": "unoMas",
+          "texto": "देखिए आपकी रफ़्तार से एक सीरीज़ कितने दिन चलती है, और एक एपिसोड और देखने पर आप कितने बजे सोते हैं।"
+        },
+        {
+          "id": "curso",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "enCurso",
+              "uno",
+              "manana"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "इसीलिए यहां हर सीरीज़ का अपना स्टेटस है: प्लूटो अभी देखना बाकी है, और मैं उसे एक बार में एक एपिसोड देखूंगा।"
+        }
+      ]
+    },
+    {
+      "id": "pausas",
+      "titulo": "ब्रेक और स्पॉइलर कुछ भी ख़राब क्यों नहीं करते?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग चार। ब्रेक और स्पॉइलर कुछ भी ख़राब क्यों नहीं करते?"
+        },
+        {
+          "id": "nelson",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cortes"
+          },
+          "lamina": [
+            "pausa",
+            "cine"
+          ],
+          "destacada": true,
+          "texto": "साल 2009 में, Leif Nelson, Tom Meyvis और Jeff Galak ने लोगों को एक प्रोग्राम ब्रेक के साथ और बिना ब्रेक के दिखाया। ब्रेक के साथ उन्हें ज़्यादा मज़ा आया: मज़ा समय के साथ घिसता जाता है, और ब्रेक उसे फिर से ताज़ा कर देता है।"
+        },
+        {
+          "id": "spoiler",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2011",
+            "clave": "leavitt"
+          },
+          "lamina": [
+            "leerSofa",
+            "sorpresa"
+          ],
+          "meme": "spoiler",
+          "texto": "और एक और हैरानी: साल 2011 में, Jonathan Leavitt और Nicholas Christenfeld ने लोगों को कहानियां पढ़ने को दीं, कुछ का अंत पहले बताकर और कुछ का बिना बताए। औसतन, जिनका अंत पहले से पता था, वे ज़्यादा पसंद आईं।"
+        },
+        {
+          "id": "aplica",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "levantate",
+              "comenta",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "amigos",
+            "cafe"
+          ],
+          "texto": "तो ब्रेक से मत डरिए: उठिए, जो देखा उस पर बात कीजिए, और ज़्यादा जोश के साथ लौटिए। किसी कहानी में सच में जो मायने रखता है, वह सिर्फ़ उसका अंत नहीं है।"
+        },
+        {
+          "id": "resumen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "deQueVa",
+              "sinSpoilers",
+              "despues"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "और अगर मुझे देखने से पहले जानना हो कि कोई चीज़ किस बारे में है, तो यहां AI सारांश मांगता हूं, बिना स्पॉइलर, जब तक मैं उसे ख़त्म न कर लूं।"
+        }
+      ]
+    },
+    {
+      "id": "videojuegos",
+      "titulo": "वीडियो गेम आपके लिए अच्छे हैं या बुरे?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग पांच। वीडियो गेम आपके लिए अच्छे हैं या बुरे?"
+        },
+        {
+          "id": "przybylski",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "horasJuego"
+          },
+          "lamina": [
+            "videojuego",
+            "control2"
+          ],
+          "destacada": true,
+          "texto": "साल 2014 में, Andrew Przybylski ने ब्रिटेन में दस से पंद्रह साल के लगभग पांच हज़ार बच्चों का अध्ययन किया। जो रोज़ एक घंटे से कम खेलते थे, वे न खेलने वालों से थोड़ा बेहतर थे, और तीन घंटे से ज़्यादा खेलने वाले थोड़ा बदतर।"
+        },
+        {
+          "id": "vuorre",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2022",
+            "clave": "vuorre"
+          },
+          "lamina": [
+            "jugadora",
+            "pantallaJuego"
+          ],
+          "texto": "और साल 2022 में, लगभग उनतालीस हज़ार वयस्क खिलाड़ियों के साथ, Matti Vuorre और उनकी टीम ने देखा कि घंटों से उनके मन पर लगभग कोई फ़र्क़ नहीं पड़ता था। फ़र्क़ इससे पड़ता था कि वे क्यों खेलते थे: मज़े के लिए, तो अच्छा; मजबूरी में, तो बुरा।"
+        },
+        {
+          "id": "pregunta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "porQueJuegas"
+          },
+          "lamina": [
+            "pensar",
+            "brujula"
+          ],
+          "texto": "तो खेलने से पहले ख़ुद से एक सवाल पूछिए: मैं इसलिए खेल रहा हूं कि मन है, या इसलिए कि रुक नहीं पा रहा? देखिए क्या नतीजा आता है।"
+        },
+        {
+          "id": "juegos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ingenio",
+              "arcade",
+              "dificultad"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "मेरे कमरे में थोड़ी देर के लिए तेईस गेम हैं: पहेलियां, आर्केड, ताश और बोर्ड, और हर एक की अपनी कठिनाई।"
+        }
+      ]
+    },
+    {
+      "id": "otros",
+      "titulo": "दूसरों के साथ क्यों खेलें?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग छह। दूसरों के साथ क्यों खेलें?"
+        },
+        {
+          "id": "altschul",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "mesaMente"
+          },
+          "lamina": [
+            "ajedrez",
+            "cartas"
+          ],
+          "destacada": true,
+          "texto": "साल 2020 में, Drew Altschul और Ian Deary ने स्कॉटलैंड में एक हज़ार से ज़्यादा लोगों पर नज़र रखी, जो सब 1936 में पैदा हुए थे। जो बोर्ड गेम और ताश ज़्यादा खेलते थे, उनकी याददाश्त और फुर्ती सत्तर से उनासी साल की उम्र के बीच कम घटी।"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoEntre"
+          },
+          "lamina": "pulgar",
+          "texto": "अगर आपको यह गाइड पसंद आ रही है, तो पसंद करें, सदस्यता लें ताकि अगली गाइड न छूटे, और शेयर करें उस इंसान के साथ जो ताश में हमेशा आपको हरा देता है।"
+        },
+        {
+          "id": "boothby",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2014",
+            "clave": "boothby"
+          },
+          "lamina": [
+            "chocolate",
+            "familiaMesa"
+          ],
+          "texto": "और साथ बांटने से सब बदल जाता है: साल 2014 में, Erica Boothby और उनकी टीम ने देखा कि चॉकलेट का स्वाद तब ज़्यादा अच्छा लगा जब कोई और उसी समय उसे चख रहा था। जो आप किसी के साथ जीते हैं, वह ज़्यादा गहराई से महसूस होता है।"
+        },
+        {
+          "id": "grupo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "conocerse",
+              "debates",
+              "enLinea"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "इसीलिए यहां समूह के लिए भी गेम हैं, जैसे एक-दूसरे को जानें या बहस, और अपने दोस्तों के साथ खेलने के लिए ऑनलाइन टेबल।"
+        }
+      ]
+    },
+    {
+      "id": "leer",
+      "titulo": "और पढ़ना, क्या वह भी गिना जाता है?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग सात। और पढ़ना, क्या वह भी गिना जाता है?"
+        },
+        {
+          "id": "bavishi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "23",
+            "clave": "bavishi"
+          },
+          "lamina": [
+            "abueloLee",
+            "libros"
+          ],
+          "destacada": true,
+          "texto": "साल 2016 में, Avni Bavishi, Martin Slade और Becca Levy ने पचास से ज़्यादा उम्र के साढ़े तीन हज़ार से अधिक लोगों पर बारह साल तक नज़र रखी। जो किताबें पढ़ते थे, वे औसतन, न पढ़ने वालों से लगभग दो साल ज़्यादा जिए।"
+        },
+        {
+          "id": "mediaHora",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "librosAlAno"
+          },
+          "lamina": [
+            "leerCama",
+            "temporizador"
+          ],
+          "texto": "और बहुत ज़्यादा की ज़रूरत नहीं: रोज़ आधे घंटे में देखिए एक साल में कितनी किताबें आ जाती हैं।"
+        },
+        {
+          "id": "noche",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antesDormir",
+              "enVez",
+              "aMano"
+            ]
+          },
+          "lamina": [
+            "lampara",
+            "libreta"
+          ],
+          "texto": "एक अच्छा समय है सोने से पहले: एक और एपिसोड की जगह किताब। उसे तकिये पर रखिए, और फ़ोन बिस्तर से दूर।"
+        },
+        {
+          "id": "libros",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "categoria",
+              "enCursoLibro",
+              "estrellas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "मेरी किताबें भी यहीं हैं: ऐनाथेम अभी जारी है, और कॉसमॉस को उसके पांचों सितारे मिल चुके हैं।"
+        }
+      ]
+    },
+    {
+      "id": "durar",
+      "titulo": "उसे लंबे समय तक साथ कैसे रखें?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग आठ। उसे लंबे समय तक साथ कैसे रखें?"
+        },
+        {
+          "id": "zhang",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "capsula"
+          },
+          "lamina": [
+            "capsula",
+            "fotos"
+          ],
+          "destacada": true,
+          "texto": "साल 2014 में, Ting Zhang और उनकी टीम ने छात्रों से रोज़मर्रा की चीज़ें एक टाइम कैप्सूल में रखने को कहा: आख़िरी देखी फ़िल्म, एक गाना, एक बातचीत। तीन महीने बाद, उसे दोबारा पढ़ना उन्हें उम्मीद से कहीं ज़्यादा दिलचस्प लगा।"
+        },
+        {
+          "id": "anota",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estrellasN",
+              "frase",
+              "conQuien"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "agendaPapel"
+          ],
+          "texto": "तो जब आप कुछ ख़त्म करें, तीन बातें लिख लीजिए: आप उसे कितने सितारे देते हैं, उसने आप पर क्या छाप छोड़ी उसका एक वाक्य, और आपने उसे किसके साथ देखा।"
+        },
+        {
+          "id": "gusto",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "patron",
+              "genero",
+              "facil"
+            ]
+          },
+          "lamina": [
+            "estante",
+            "lupa"
+          ],
+          "texto": "समय के साथ आपके नोट्स बता देते हैं कि आपको सच में क्या पसंद है, और क्या देखें यह चुनना बहुत आसान हो जाता है।"
+        },
+        {
+          "id": "tarjeta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "portada",
+              "voltea",
+              "resena"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "मेरे कार्ड यह सब संभालकर रखते हैं: सामने, कवर; और छूने पर, वे पलटकर मेरे सितारे और मेरी समीक्षा दिखाते हैं।"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "आगे कैसे बढ़ें? जारी रखने की आपकी योजना",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग नौ। आगे कैसे बढ़ें? जारी रखने की आपकी योजना।"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planEntre"
+          },
+          "lamina": [
+            "lista",
+            "reloj"
+          ],
+          "texto": "पहले हफ़्ते, देखने वाली चीज़ों की अपनी सूची बनाइए, और देखिए कि अनजाने में सोशल मीडिया पर कितना समय चला जाता है।"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tope",
+              "resto",
+              "noche"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "पहले महीने, लगातार एपिसोड देखने की एक सीमा रखिए: हर रात दो एपिसोड, बाकी कल के लिए।"
+        },
+        {
+          "id": "semanal",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mesa",
+              "libro",
+              "alguien"
+            ]
+          },
+          "lamina": [
+            "familiaMesa",
+            "cumbre"
+          ],
+          "texto": "और हफ़्ते में एक रात, स्क्रीन की जगह कोई बोर्ड गेम या किताब, और बेहतर है किसी के साथ।"
+        },
+        {
+          "id": "metas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "clasicos",
+              "unoALaVez"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "और जो बाकी है उसे मैं एक लक्ष्य की तरह रखता हूं: देखने के लिए बाक़ी साइंस फ़िक्शन क्लासिक्स, एक-एक करके।"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "संक्षेप में: बैठने से पहले तय कीजिए; स्क्रॉल इरादे से, आदतन नहीं; एक बार में एक एपिसोड, और ब्रेक से कोई नुकसान नहीं; मज़े के लिए और दूसरों के साथ खेलिए; रोज़ थोड़ा पढ़िए; और लिखिए कि किस चीज़ ने क्या छाप छोड़ी।"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS के मनोरंजन कक्ष में आप फ़िल्मों, सीरीज़, किताबों और वीडियो गेम का अपना संग्रह रख सकते हैं, अपनी समीक्षाओं के साथ, और अपने बोर्ड गेम खेल सकते हैं। आज ही अपना मन का घर मुफ़्त में बनाएँ: लिंक डिस्क्रिप्शन में है। और अगली गाइड में: अपने वाहनों की देखभाल कैसे करें?",
+    "boton": "मनोरंजन कक्ष खोलें",
+    "lamina": "app-plan",
+    "anclas": {
+      "archivo": "अपना संग्रह",
+      "resenas": "अपनी समीक्षाओं",
+      "juegos": "बोर्ड गेम"
+    }
+  },
+  "resumenDemo": {
+    "ficha": "आंद्रेई तारकोवस्की · 1972 · साइंस फ़िक्शन · 2 घं 47 मि",
+    "sinopsis": "एक मनोवैज्ञानिक उस अंतरिक्ष स्टेशन पर जाता है जो रहस्यमय समुद्र से ढके ग्रह सोलारिस की परिक्रमा करता है, ताकि तय कर सके कि मिशन जारी रहना चाहिए या नहीं। वहां पहुंचकर वह दल को थका और डरा हुआ पाता है, और जल्द ही वह ख़ुद भी ऐसी चीज़ें देखने लगता है जिनकी कोई व्याख्या नहीं।",
+    "claves": [
+      "एक धीमी और चिंतनशील फ़िल्म: इसे सुकून से देखना चाहिए।",
+      "यान और रोमांच से ज़्यादा, यह याद, अपराधबोध और दूसरों के बारे में हमारी अनजानी बातों की कहानी है।",
+      "स्तानिस्वाव लेम के उपन्यास (1961) पर आधारित।"
+    ]
+  },
+  "fuentes": [
+    {
+      "id": "nielsen-2023",
+      "texto": "Nielsen. State of Play 2023: Streaming viewers spend 10.5 minutes deciding what to watch (2023).",
+      "url": "https://www.nielsen.com/insights/2023/state-of-play-2023/"
+    },
+    {
+      "id": "oxford-2024",
+      "texto": "Oxford University Press. Oxford Word of the Year 2024: brain rot (2024).",
+      "url": "https://corp.oup.com/news/brain-rot-named-oxford-word-of-the-year-2024/"
+    },
+    {
+      "id": "verduyn-2015",
+      "texto": "Verduyn P., Lee D. S., Park J., Shablack H., Orvell A., Bayer J., Ybarra O., Jonides J., Kross E. Passive Facebook usage undermines affective well-being: Experimental and longitudinal evidence. Journal of Experimental Psychology: General (2015).",
+      "url": "https://doi.org/10.1037/xge0000057"
+    },
+    {
+      "id": "hunt-2018",
+      "texto": "Hunt M. G., Marx R., Lipson C., Young J. No more FOMO: Limiting social media decreases loneliness and depression. Journal of Social and Clinical Psychology (2018).",
+      "url": "https://doi.org/10.1521/jscp.2018.37.10.751"
+    },
+    {
+      "id": "horvath-2017",
+      "texto": "Horvath J. C., Horton A. J., Lodge J. M., Hattie J. A. C. The impact of binge watching on memory and perceived comprehension. First Monday (2017).",
+      "url": "https://doi.org/10.5210/fm.v22i9.7729"
+    },
+    {
+      "id": "exelmans-2017",
+      "texto": "Exelmans L., Van den Bulck J. Binge viewing, sleep, and the role of pre-sleep arousal. Journal of Clinical Sleep Medicine (2017).",
+      "url": "https://doi.org/10.5664/jcsm.6704"
+    },
+    {
+      "id": "nelson-2009",
+      "texto": "Nelson L. D., Meyvis T., Galak J. Enhancing the television-viewing experience through commercial interruptions. Journal of Consumer Research (2009).",
+      "url": "https://doi.org/10.1086/597296"
+    },
+    {
+      "id": "leavitt-2011",
+      "texto": "Leavitt J. D., Christenfeld N. J. S. Story spoilers don't spoil stories. Psychological Science (2011).",
+      "url": "https://doi.org/10.1177/0956797611417007"
+    },
+    {
+      "id": "przybylski-2014",
+      "texto": "Przybylski A. K. Electronic gaming and psychosocial adjustment. Pediatrics (2014).",
+      "url": "https://doi.org/10.1542/peds.2013-4021"
+    },
+    {
+      "id": "vuorre-2022",
+      "texto": "Vuorre M., Johannes N., Magnusson K., Przybylski A. K. Time spent playing video games is unlikely to impact well-being. Royal Society Open Science (2022).",
+      "url": "https://doi.org/10.1098/rsos.220411"
+    },
+    {
+      "id": "altschul-2020",
+      "texto": "Altschul D. M., Deary I. J. Playing analog games is associated with reduced declines in cognitive function: a 68-year longitudinal cohort study. The Journals of Gerontology: Series B (2020).",
+      "url": "https://doi.org/10.1093/geronb/gbz149"
+    },
+    {
+      "id": "boothby-2014",
+      "texto": "Boothby E. J., Clark M. S., Bargh J. A. Shared experiences are amplified. Psychological Science (2014).",
+      "url": "https://doi.org/10.1177/0956797614551162"
+    },
+    {
+      "id": "bavishi-2016",
+      "texto": "Bavishi A., Slade M. D., Levy B. R. A chapter a day: Association of book reading with longevity. Social Science & Medicine (2016).",
+      "url": "https://doi.org/10.1016/j.socscimed.2016.07.014"
+    },
+    {
+      "id": "zhang-2014",
+      "texto": "Zhang T., Kim T., Brooks A. W., Gino F., Norton M. I. A \"present\" for the future: The unexpected value of rediscovery. Psychological Science (2014).",
+      "url": "https://doi.org/10.1177/0956797614542274"
+    }
+  ]
+}

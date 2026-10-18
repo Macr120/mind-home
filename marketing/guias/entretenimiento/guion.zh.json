@@ -1,0 +1,810 @@
+{
+  "idioma": "zh",
+  "tema": "entretenimiento",
+  "plantillaId": "entretenimiento",
+  "numero": 16,
+  "nombre": "娱乐",
+  "pregunta": "怎样更好地娱乐自己？",
+  "corta": "怎样更好地娱乐自己？",
+  "subtitulo": "为什么选看什么要花那么久，为什么刷手机和“brain rot”让你休息不了，一口气看完还是一天一集更好，为什么暂停和剧透不会毁掉任何东西，玩游戏对你是好是坏，为什么要和别人一起玩，为什么要读书，怎样让看过的东西留得更久，以及一个继续下去的计划。",
+  "aviso": "本指南仅供参考：引用的研究结果都做了简单概括，而且很多只显示关联，并非因果。如果你觉得自己想停却停不下游戏或屏幕，请和你信任的人或专业人士聊一聊。",
+  "partes": [
+    {
+      "id": "elegir",
+      "titulo": "为什么你选得那么久？",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "怎样更好地娱乐自己？我们光是选看什么，就要花十分钟以上。有时候找了半天，最后干脆放弃，什么也没看。如果问题不在于你娱乐了多少，而在于你怎么娱乐呢？今天你会看到科学怎么说，还会带走一个计划，更好地享受你的空闲时间。"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "对了，这是我在MindHaOS里的家。你看，今天它正处在世界末日之中，因为世界末日最好的计划，就是待在家里看一部好电影。我看过、读过、玩过的一切，都记在这个房间里。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第一部分。为什么你选得那么久？"
+        },
+        {
+          "id": "nielsen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10.5",
+            "clave": "nielsen"
+          },
+          "lamina": [
+            "control",
+            "catalogo"
+          ],
+          "destacada": true,
+          "texto": "2023年，尼尔森公司在美国调查了我们选看什么要花多久：平均十分半钟。四年前，只是七分钟多一点。"
+        },
+        {
+          "id": "eligiendo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tiempoEligiendo"
+          },
+          "lamina": [
+            "reloj",
+            "sofa"
+          ],
+          "texto": "听起来不多，但加起来看看：每晚十分钟，一年就是六十多个小时，全花在找上。看看你的是多少。"
+        },
+        {
+          "id": "decide",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antes",
+              "pendientes",
+              "cinco"
+            ]
+          },
+          "lamina": [
+            "lista",
+            "palomita"
+          ],
+          "meme": "elegir",
+          "texto": "诀窍是坐下之前就决定好：准备一张待看清单，如果五分钟还选不出来，就看清单上的第一部。"
+        },
+        {
+          "id": "archivo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vi",
+              "lei",
+              "pendiente"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在我的娱乐室里，存着我的档案：我看过的、读过的、玩过的，还有待看的，都按类型整理好了。"
+        }
+      ]
+    },
+    {
+      "id": "scroll",
+      "titulo": "为什么刷手机让你休息不了？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第二部分。为什么刷手机让你休息不了？"
+        },
+        {
+          "id": "brainrot",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2024",
+            "clave": "brainrot"
+          },
+          "lamina": [
+            "scroll",
+            "celularNoche"
+          ],
+          "texto": "2024年，牛津词典把“brain rot”选为年度词汇，意思差不多是“脑子烂掉”：就是连续几个小时不动脑地看内容之后，那种昏昏沉沉的感觉。"
+        },
+        {
+          "id": "verduyn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pasivoActivo"
+          },
+          "lamina": [
+            "redes",
+            "celularCama"
+          ],
+          "destacada": true,
+          "texto": "2015年，Philippe Verduyn和团队发现，只看不参与、一条条划过帖子地刷社交媒体，会让人一天下来心情越来越差。而用它来和别人聊天，就没有这种影响。"
+        },
+        {
+          "id": "hunt",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "scrollAlAno"
+          },
+          "lamina": [
+            "temporizador",
+            "amigos"
+          ],
+          "meme": "scroll",
+          "texto": "2018年，Melissa Hunt和团队让学生们连续三周，每天只用三十分钟社交媒体。结果他们不那么孤独，也不那么难过了。看看你一年要刷掉多少时间。"
+        },
+        {
+          "id": "consciente",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunta",
+              "elige",
+              "cierra"
+            ]
+          },
+          "lamina": [
+            "pensar",
+            "ventana"
+          ],
+          "texto": "诀窍不是戒掉，而是选择：打开社交媒体之前，先问问自己在找什么。如果是想休息，就选一个你真正想看的，看完就关掉。"
+        }
+      ]
+    },
+    {
+      "id": "maraton",
+      "titulo": "一口气看完，还是一天一集？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第三部分。一口气看完，还是一天一集？"
+        },
+        {
+          "id": "horvath",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "maratonRecuerdo"
+          },
+          "lamina": [
+            "maraton",
+            "palomitas"
+          ],
+          "destacada": true,
+          "texto": "2017年，Jared Horvath和团队让学生们看一部剧：有的一口气看完，有的一天一集，有的一周一集。一口气看完的人享受得更少，几个月后也记得更差。"
+        },
+        {
+          "id": "sueno",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2017",
+            "clave": "exelmans"
+          },
+          "lamina": [
+            "nocheTele",
+            "cama"
+          ],
+          "texto": "还有另一笔账。同一年，Liese Exelmans和Jan Van den Bulck发现，爱一口气追剧的年轻人睡得更差，早上醒来也更累：最后一集结束后，脑子还一直处在兴奋状态。"
+        },
+        {
+          "id": "ritmo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "ritmoSerie"
+          },
+          "lamina": [
+            "despertador",
+            "luna"
+          ],
+          "meme": "unoMas",
+          "texto": "看看按你的节奏，一部剧能看多久，再多看一集的话，你几点才睡。"
+        },
+        {
+          "id": "curso",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "enCurso",
+              "uno",
+              "manana"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "所以在这里，每部剧都有自己的状态：《PLUTO 冥王》在我的待看里，我打算一次看一集。"
+        }
+      ]
+    },
+    {
+      "id": "pausas",
+      "titulo": "为什么暂停和剧透不会毁掉任何东西？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第四部分。为什么暂停和剧透不会毁掉任何东西？"
+        },
+        {
+          "id": "nelson",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cortes"
+          },
+          "lamina": [
+            "pausa",
+            "cine"
+          ],
+          "destacada": true,
+          "texto": "2009年，Leif Nelson、Tom Meyvis和Jeff Galak让人们看同一个节目，一种有广告插播，一种没有。有插播的那种，大家更喜欢：乐趣会随着时间慢慢消磨，而暂停能把它重新启动。"
+        },
+        {
+          "id": "spoiler",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2011",
+            "clave": "leavitt"
+          },
+          "lamina": [
+            "leerSofa",
+            "sorpresa"
+          ],
+          "meme": "spoiler",
+          "texto": "还有一个惊喜：2011年，Jonathan Leavitt和Nicholas Christenfeld让人们读短篇故事，有的先剧透了结局，有的没有。平均来说，先知道结局的更受欢迎。"
+        },
+        {
+          "id": "aplica",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "levantate",
+              "comenta",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "amigos",
+            "cafe"
+          ],
+          "texto": "所以别怕暂停：站起来，聊聊你看到的，再带着更大的兴致回来。一个故事真正重要的，不只是它怎么结束。"
+        },
+        {
+          "id": "resumen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "deQueVa",
+              "sinSpoilers",
+              "despues"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "如果我想在看之前知道它讲什么，就在这里让AI做个摘要，在我看完之前都无剧透。"
+        }
+      ]
+    },
+    {
+      "id": "videojuegos",
+      "titulo": "玩游戏对你是好是坏？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第五部分。玩游戏对你是好是坏？"
+        },
+        {
+          "id": "przybylski",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "horasJuego"
+          },
+          "lamina": [
+            "videojuego",
+            "control2"
+          ],
+          "destacada": true,
+          "texto": "2014年，Andrew Przybylski研究了英国将近五千名十到十五岁的孩子。每天玩不到一小时的孩子，比不玩的稍好一点；玩三小时以上的，稍差一点。"
+        },
+        {
+          "id": "vuorre",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2022",
+            "clave": "vuorre"
+          },
+          "lamina": [
+            "jugadora",
+            "pantallaJuego"
+          ],
+          "texto": "2022年，Matti Vuorre和团队调查了将近三万九千名成年玩家，发现游戏时长几乎不影响他们的感受。真正重要的是为什么玩：因为喜欢，挺好；因为觉得不得不玩，就更糟。"
+        },
+        {
+          "id": "pregunta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "porQueJuegas"
+          },
+          "lamina": [
+            "pensar",
+            "brujula"
+          ],
+          "texto": "所以玩之前，问自己一个问题：我玩是因为想玩，还是因为停不下来？看看你的答案。"
+        },
+        {
+          "id": "juegos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ingenio",
+              "arcade",
+              "dificultad"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "我的房间里有二十三个游戏，随时可以玩一会儿：益智、街机、纸牌和棋类，每个都有自己的难度。"
+        }
+      ]
+    },
+    {
+      "id": "otros",
+      "titulo": "为什么要和别人一起玩？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第六部分。为什么要和别人一起玩？"
+        },
+        {
+          "id": "altschul",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "mesaMente"
+          },
+          "lamina": [
+            "ajedrez",
+            "cartas"
+          ],
+          "destacada": true,
+          "texto": "2020年，Drew Altschul和Ian Deary追踪了苏格兰一千多名同样出生于1936年的人。更常玩桌游和纸牌的人，在七十岁到七十九岁之间，记忆力和思维敏捷度下降得更少。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoEntre"
+          },
+          "lamina": "pulgar",
+          "texto": "如果你喜欢这份指南，请点赞，订阅，免得错过下一期，再分享给那个打牌总是赢你的人。"
+        },
+        {
+          "id": "boothby",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2014",
+            "clave": "boothby"
+          },
+          "lamina": [
+            "chocolate",
+            "familiaMesa"
+          ],
+          "texto": "而一起分享会改变一切：2014年，Erica Boothby和团队发现，同一块巧克力，有别人同时在尝的时候，吃起来更美味。有人陪着经历的事，感受会更强烈。"
+        },
+        {
+          "id": "grupo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "conocerse",
+              "debates",
+              "enLinea"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "所以这里也有多人同乐的游戏，比如了解彼此的提问和辩论话题，还有在线牌桌，可以和朋友一起玩。"
+        }
+      ]
+    },
+    {
+      "id": "leer",
+      "titulo": "那读书算不算？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第七部分。那读书算不算？"
+        },
+        {
+          "id": "bavishi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "23",
+            "clave": "bavishi"
+          },
+          "lamina": [
+            "abueloLee",
+            "libros"
+          ],
+          "destacada": true,
+          "texto": "2016年，Avni Bavishi、Martin Slade和Becca Levy追踪了三千五百多名五十岁以上的人，长达十二年。读书的人，平均比不读书的人多活了将近两年。"
+        },
+        {
+          "id": "mediaHora",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "librosAlAno"
+          },
+          "lamina": [
+            "leerCama",
+            "temporizador"
+          ],
+          "texto": "而且不需要很多：每天半小时，看看一年能读多少本书。"
+        },
+        {
+          "id": "noche",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antesDormir",
+              "enVez",
+              "aMano"
+            ]
+          },
+          "lamina": [
+            "lampara",
+            "libreta"
+          ],
+          "texto": "睡前是个好时机：用一本书代替再看一集。把书放在枕边，手机放得离床远一点。"
+        },
+        {
+          "id": "libros",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "categoria",
+              "enCursoLibro",
+              "estrellas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "我的书也在这里：《失落的星阵》还在进行中，《宇宙》已经有了我的五颗星。"
+        }
+      ]
+    },
+    {
+      "id": "durar",
+      "titulo": "怎样让它留得更久？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第八部分。怎样让它留得更久？"
+        },
+        {
+          "id": "zhang",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "capsula"
+          },
+          "lamina": [
+            "capsula",
+            "fotos"
+          ],
+          "destacada": true,
+          "texto": "2014年，Ting Zhang和团队让学生们把日常小事放进时间胶囊：最近看的一部电影、一首歌、一段对话。三个月后重读，他们觉得有意思的程度，远远超出了当初的想象。"
+        },
+        {
+          "id": "anota",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estrellasN",
+              "frase",
+              "conQuien"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "agendaPapel"
+          ],
+          "texto": "所以每看完一样东西，记下三件事：你给它几颗星，一句它留给你的话，还有你是和谁一起看的。"
+        },
+        {
+          "id": "gusto",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "patron",
+              "genero",
+              "facil"
+            ]
+          },
+          "lamina": [
+            "estante",
+            "lupa"
+          ],
+          "texto": "时间久了，你的笔记会告诉你真正喜欢什么，选看什么也会容易得多。"
+        },
+        {
+          "id": "tarjeta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "portada",
+              "voltea",
+              "resena"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "我的卡片会把这些都存下来：正面是封面；轻点一下，它就翻过来，露出我的星级和评价。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "接下来怎么做？你的继续计划",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第九部分。接下来怎么做？你的继续计划。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planEntre"
+          },
+          "lamina": [
+            "lista",
+            "reloj"
+          ],
+          "texto": "第一周，列好你的待看清单，再看看你不知不觉在社交媒体上花了多少时间。"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tope",
+              "resto",
+              "noche"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "第一个月，给追剧设个上限：每晚两集，剩下的留到明天。"
+        },
+        {
+          "id": "semanal",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mesa",
+              "libro",
+              "alguien"
+            ]
+          },
+          "lamina": [
+            "familiaMesa",
+            "cumbre"
+          ],
+          "texto": "每周再留一个晚上，把屏幕换成桌游或一本书，最好有人一起。"
+        },
+        {
+          "id": "metas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "clasicos",
+              "unoALaVez"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "我的待看清单，我当成一个目标来管理：待看的科幻经典，一次一部。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "总结一下：坐下前就决定好；刷手机要有目的，别自动刷；一次一集，暂停不碍事；因为喜欢而玩，和别人一起玩；每天读一点书；记下它留给你的东西。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "在MindHaOS的娱乐室里，你可以记录你的档案，包括电影、剧集、书籍和游戏，留下你的评价，还能玩桌游。今天就免费搭建你的心灵之家。链接在视频简介里。下一期指南：怎样保养你的交通工具？",
+    "boton": "打开娱乐室",
+    "lamina": "app-plan",
+    "anclas": {
+      "archivo": "你的档案",
+      "resenas": "你的评价",
+      "juegos": "桌游"
+    }
+  },
+  "resumenDemo": {
+    "ficha": "安德烈·塔可夫斯基 · 1972 · 科幻 · 2小时47分钟",
+    "sinopsis": "一位心理学家前往环绕索拉里斯星运行的空间站，这颗行星被神秘的海洋覆盖，他要决定任务是否应该继续。抵达后，他发现船员们疲惫又惊恐，很快他自己也开始看到无法解释的东西。",
+    "claves": [
+      "一部缓慢而沉思的电影：适合静下心来看。",
+      "比起飞船和冒险，它更多在讲记忆、愧疚，以及我们对他人的不了解。",
+      "改编自斯坦尼斯瓦夫·莱姆的小说（1961）。"
+    ]
+  },
+  "fuentes": [
+    {
+      "id": "nielsen-2023",
+      "texto": "Nielsen. State of Play 2023: 流媒体观众平均要花10.5分钟决定看什么 (2023).",
+      "url": "https://www.nielsen.com/insights/2023/state-of-play-2023/"
+    },
+    {
+      "id": "oxford-2024",
+      "texto": "Oxford University Press. Oxford Word of the Year 2024: brain rot (2024).",
+      "url": "https://corp.oup.com/news/brain-rot-named-oxford-word-of-the-year-2024/"
+    },
+    {
+      "id": "verduyn-2015",
+      "texto": "Verduyn P., Lee D. S., Park J., Shablack H., Orvell A., Bayer J., Ybarra O., Jonides J., Kross E. Passive Facebook usage undermines affective well-being: Experimental and longitudinal evidence. Journal of Experimental Psychology: General (2015).",
+      "url": "https://doi.org/10.1037/xge0000057"
+    },
+    {
+      "id": "hunt-2018",
+      "texto": "Hunt M. G., Marx R., Lipson C., Young J. No more FOMO: Limiting social media decreases loneliness and depression. Journal of Social and Clinical Psychology (2018).",
+      "url": "https://doi.org/10.1521/jscp.2018.37.10.751"
+    },
+    {
+      "id": "horvath-2017",
+      "texto": "Horvath J. C., Horton A. J., Lodge J. M., Hattie J. A. C. The impact of binge watching on memory and perceived comprehension. First Monday (2017).",
+      "url": "https://doi.org/10.5210/fm.v22i9.7729"
+    },
+    {
+      "id": "exelmans-2017",
+      "texto": "Exelmans L., Van den Bulck J. Binge viewing, sleep, and the role of pre-sleep arousal. Journal of Clinical Sleep Medicine (2017).",
+      "url": "https://doi.org/10.5664/jcsm.6704"
+    },
+    {
+      "id": "nelson-2009",
+      "texto": "Nelson L. D., Meyvis T., Galak J. Enhancing the television-viewing experience through commercial interruptions. Journal of Consumer Research (2009).",
+      "url": "https://doi.org/10.1086/597296"
+    },
+    {
+      "id": "leavitt-2011",
+      "texto": "Leavitt J. D., Christenfeld N. J. S. Story spoilers don't spoil stories. Psychological Science (2011).",
+      "url": "https://doi.org/10.1177/0956797611417007"
+    },
+    {
+      "id": "przybylski-2014",
+      "texto": "Przybylski A. K. Electronic gaming and psychosocial adjustment. Pediatrics (2014).",
+      "url": "https://doi.org/10.1542/peds.2013-4021"
+    },
+    {
+      "id": "vuorre-2022",
+      "texto": "Vuorre M., Johannes N., Magnusson K., Przybylski A. K. Time spent playing video games is unlikely to impact well-being. Royal Society Open Science (2022).",
+      "url": "https://doi.org/10.1098/rsos.220411"
+    },
+    {
+      "id": "altschul-2020",
+      "texto": "Altschul D. M., Deary I. J. Playing analog games is associated with reduced declines in cognitive function: a 68-year longitudinal cohort study. The Journals of Gerontology: Series B (2020).",
+      "url": "https://doi.org/10.1093/geronb/gbz149"
+    },
+    {
+      "id": "boothby-2014",
+      "texto": "Boothby E. J., Clark M. S., Bargh J. A. Shared experiences are amplified. Psychological Science (2014).",
+      "url": "https://doi.org/10.1177/0956797614551162"
+    },
+    {
+      "id": "bavishi-2016",
+      "texto": "Bavishi A., Slade M. D., Levy B. R. A chapter a day: Association of book reading with longevity. Social Science & Medicine (2016).",
+      "url": "https://doi.org/10.1016/j.socscimed.2016.07.014"
+    },
+    {
+      "id": "zhang-2014",
+      "texto": "Zhang T., Kim T., Brooks A. W., Gino F., Norton M. I. A \"present\" for the future: The unexpected value of rediscovery. Psychological Science (2014).",
+      "url": "https://doi.org/10.1177/0956797614542274"
+    }
+  ]
+}

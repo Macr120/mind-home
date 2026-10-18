@@ -1,0 +1,810 @@
+{
+  "idioma": "nl",
+  "tema": "entretenimiento",
+  "plantillaId": "entretenimiento",
+  "numero": 16,
+  "nombre": "Vermaak",
+  "pregunta": "Hoe vermaak je je beter?",
+  "corta": "Hoe vermaak je je beter?",
+  "subtitulo": "Waarom je zo lang doet over kiezen wat je kijkt, waarom scrollen en ‘brain rot’ je niet laten uitrusten, of bingewatchen of één aflevering per dag beter is, waarom pauzes en spoilers niets verpesten, of games goed of slecht voor je zijn, waarom samen spelen, waarom lezen, hoe je langer iets hebt aan wat je kijkt en een plan om door te gaan.",
+  "aviso": "Deze gids is informatief: de genoemde onderzoeken worden eenvoudig samengevat, en veel ervan laten verbanden zien, geen oorzaken. Heb je het gevoel dat je niet kunt stoppen met gamen of naar schermen kijken, ook al wil je dat wel, praat dan met iemand die je vertrouwt of met een professional.",
+  "partes": [
+    {
+      "id": "elegir",
+      "titulo": "Waarom doe je zo lang over kiezen?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Hoe vermaak je je beter? We zijn meer dan tien minuten bezig met alleen kiezen wat we gaan kijken. En soms geven we het na al dat zoeken op en kijken we helemaal niets. Wat als het probleem niet is hoeveel je je vermaakt, maar hoe? Vandaag zie je wat de wetenschap zegt, en ga je weg met een plan om meer van je vrije tijd te genieten."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Trouwens, dit is mijn huis in MindHaOS, en kijk: vandaag zit het midden in de apocalyps, want er is geen beter plan voor het einde van de wereld dan thuisblijven met een goede film. In deze kamer hou ik alles bij wat ik kijk, lees en speel."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel één. Waarom doe je zo lang over kiezen?"
+        },
+        {
+          "id": "nielsen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10,5",
+            "clave": "nielsen"
+          },
+          "lamina": [
+            "control",
+            "catalogo"
+          ],
+          "destacada": true,
+          "texto": "In 2023 vroeg het bedrijf Nielsen in de Verenigde Staten hoe lang we erover doen om te kiezen wat we kijken: gemiddeld tienenhalve minuut. Vier jaar eerder was dat iets meer dan zeven."
+        },
+        {
+          "id": "eligiendo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tiempoEligiendo"
+          },
+          "lamina": [
+            "reloj",
+            "sofa"
+          ],
+          "texto": "Lijkt weinig, maar tel het op: tien minuten per avond is meer dan zestig uur per jaar, alleen maar zoeken. Kijk hoeveel het er bij jou zijn."
+        },
+        {
+          "id": "decide",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antes",
+              "pendientes",
+              "cinco"
+            ]
+          },
+          "lamina": [
+            "lista",
+            "palomita"
+          ],
+          "meme": "elegir",
+          "texto": "De truc is beslissen voordat je gaat zitten: hou een lijst bij van wat je nog wilt zien, en als je binnen vijf minuten niet kiest, zet dan de eerste van de lijst op."
+        },
+        {
+          "id": "archivo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vi",
+              "lei",
+              "pendiente"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In mijn kamer Vermaak hou ik mijn archief bij: wat ik gezien, gelezen en gespeeld heb en wat ik nog moet zien, gesorteerd op genre."
+        }
+      ]
+    },
+    {
+      "id": "scroll",
+      "titulo": "Waarom rust je niet uit van scrollen?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel twee. Waarom rust je niet uit van scrollen?"
+        },
+        {
+          "id": "brainrot",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2024",
+            "clave": "brainrot"
+          },
+          "lamina": [
+            "scroll",
+            "celularNoche"
+          ],
+          "texto": "In 2024 koos het Oxford-woordenboek ‘brain rot’ als woord van het jaar, zoiets als ‘hersenrot’: dat afgestompte gevoel na urenlang gedachteloos content kijken."
+        },
+        {
+          "id": "verduyn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pasivoActivo"
+          },
+          "lamina": [
+            "redes",
+            "celularCama"
+          ],
+          "destacada": true,
+          "texto": "In 2015 zagen Philippe Verduyn en zijn team dat sociale media bekijken zonder mee te doen, alleen maar berichten langs laten gaan, mensen zich in de loop van de dag slechter liet voelen. Ze gebruiken om met anderen te praten had dat effect niet."
+        },
+        {
+          "id": "hunt",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "scrollAlAno"
+          },
+          "lamina": [
+            "temporizador",
+            "amigos"
+          ],
+          "meme": "scroll",
+          "texto": "En in 2018 vroegen Melissa Hunt en haar team studenten om drie weken lang maar dertig minuten per dag sociale media te gebruiken. Ze voelden zich minder eenzaam en minder somber. Kijk hoeveel jouw scrollen in een jaar oplevert."
+        },
+        {
+          "id": "consciente",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunta",
+              "elige",
+              "cierra"
+            ]
+          },
+          "lamina": [
+            "pensar",
+            "ventana"
+          ],
+          "texto": "De truc is niet stoppen, maar kiezen: vraag je af wat je zoekt voordat je een app opent. Wil je uitrusten, kies dan iets wat je echt wilt zien, en als het afgelopen is, sluit je hem."
+        }
+      ]
+    },
+    {
+      "id": "maraton",
+      "titulo": "Bingewatchen of één aflevering per dag?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel drie. Bingewatchen of één aflevering per dag?"
+        },
+        {
+          "id": "horvath",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "maratonRecuerdo"
+          },
+          "lamina": [
+            "maraton",
+            "palomitas"
+          ],
+          "destacada": true,
+          "texto": "In 2017 lieten Jared Horvath en zijn team studenten een serie kijken: sommigen alles achter elkaar, anderen één aflevering per dag en weer anderen één per week. De bingewatchers genoten er minder van, en maanden later herinnerden ze zich hem slechter."
+        },
+        {
+          "id": "sueno",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2017",
+            "clave": "exelmans"
+          },
+          "lamina": [
+            "nocheTele",
+            "cama"
+          ],
+          "texto": "En er is nog een rekensom. Datzelfde jaar zagen Liese Exelmans en Jan Van den Bulck dat jongeren die bingewatchten slechter sliepen en vermoeider wakker werden: je hoofd blijft na de laatste aflevering op volle toeren draaien."
+        },
+        {
+          "id": "ritmo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "ritmoSerie"
+          },
+          "lamina": [
+            "despertador",
+            "luna"
+          ],
+          "meme": "unoMas",
+          "texto": "Kijk hoe lang je met een serie doet op jouw tempo, en hoe laat je naar bed gaat met nog één aflevering."
+        },
+        {
+          "id": "curso",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "enCurso",
+              "uno",
+              "manana"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Daarom heeft hier elke serie haar status: Pluto staat bij mij nog te zien, en ik ga hem aflevering voor aflevering kijken."
+        }
+      ]
+    },
+    {
+      "id": "pausas",
+      "titulo": "Waarom verpesten pauzes en spoilers niets?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vier. Waarom verpesten pauzes en spoilers niets?"
+        },
+        {
+          "id": "nelson",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cortes"
+          },
+          "lamina": [
+            "pausa",
+            "cine"
+          ],
+          "destacada": true,
+          "texto": "In 2009 lieten Leif Nelson, Tom Meyvis en Jeff Galak mensen een programma kijken met en zonder reclameblokken. Met onderbrekingen genoten ze er meer van: het plezier slijt met de tijd, en de pauze zet het weer op nul."
+        },
+        {
+          "id": "spoiler",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2011",
+            "clave": "leavitt"
+          },
+          "lamina": [
+            "leerSofa",
+            "sorpresa"
+          ],
+          "meme": "spoiler",
+          "texto": "En nog een verrassing: in 2011 lieten Jonathan Leavitt en Nicholas Christenfeld mensen verhalen lezen met en zonder verklapt einde. Gemiddeld vonden ze de verhalen waarvan ze het einde al kenden leuker."
+        },
+        {
+          "id": "aplica",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "levantate",
+              "comenta",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "amigos",
+            "cafe"
+          ],
+          "texto": "Wees dus niet bang voor een pauze: sta op, praat over wat je zag en kom terug met meer zin. Wat echt telt aan een verhaal is niet alleen hoe het afloopt."
+        },
+        {
+          "id": "resumen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "deQueVa",
+              "sinSpoilers",
+              "despues"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En als ik wil weten waar iets over gaat voordat ik het kijk, vraag ik hier een samenvatting met kunstmatige intelligentie, zonder spoilers zolang ik het niet uit heb."
+        }
+      ]
+    },
+    {
+      "id": "videojuegos",
+      "titulo": "Zijn games goed of slecht voor je?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vijf. Zijn games goed of slecht voor je?"
+        },
+        {
+          "id": "przybylski",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "horasJuego"
+          },
+          "lamina": [
+            "videojuego",
+            "control2"
+          ],
+          "destacada": true,
+          "texto": "In 2014 onderzocht Andrew Przybylski bijna vijfduizend kinderen van tien tot vijftien jaar in het Verenigd Koninkrijk. Wie minder dan een uur per dag gamede, zat iets beter in z’n vel dan wie niet gamede, en wie meer dan drie uur gamede, iets slechter."
+        },
+        {
+          "id": "vuorre",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2022",
+            "clave": "vuorre"
+          },
+          "lamina": [
+            "jugadora",
+            "pantallaJuego"
+          ],
+          "texto": "En in 2022 zagen Matti Vuorre en zijn team bij bijna negenendertigduizend volwassen gamers dat het aantal uren nauwelijks uitmaakte voor hoe ze zich voelden. Wat wel telde, was waarom ze speelden: voor de lol, goed; omdat ze het gevoel hadden dat het moest, slechter."
+        },
+        {
+          "id": "pregunta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "porQueJuegas"
+          },
+          "lamina": [
+            "pensar",
+            "brujula"
+          ],
+          "texto": "Stel jezelf dus voor het spelen een vraag: speel ik omdat ik wil, of omdat ik niet kan stoppen? Kijk wat eruit komt."
+        },
+        {
+          "id": "juegos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ingenio",
+              "arcade",
+              "dificultad"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In mijn kamer heb ik drieëntwintig spellen voor tussendoor: puzzels, arcade, kaartspellen en bordspellen, en elk met zijn eigen moeilijkheidsgraad."
+        }
+      ]
+    },
+    {
+      "id": "otros",
+      "titulo": "Waarom samen met anderen spelen?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zes. Waarom samen met anderen spelen?"
+        },
+        {
+          "id": "altschul",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "mesaMente"
+          },
+          "lamina": [
+            "ajedrez",
+            "cartas"
+          ],
+          "destacada": true,
+          "texto": "In 2020 volgden Drew Altschul en Ian Deary meer dan duizend mensen in Schotland, allemaal geboren in 1936. Wie meer bordspellen en kaartspellen speelde, ging tussen zeventig en negenenzeventig minder achteruit in geheugen en denksnelheid."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoEntre"
+          },
+          "lamina": "pulgar",
+          "texto": "Als je de gids leuk vindt, klik dan op Vind ik leuk, op Abonneren zodat je de volgende niet mist, en op Delen, voor die ene persoon die altijd van je wint met kaarten."
+        },
+        {
+          "id": "boothby",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2014",
+            "clave": "boothby"
+          },
+          "lamina": [
+            "chocolate",
+            "familiaMesa"
+          ],
+          "texto": "En delen verandert alles: in 2014 zagen Erica Boothby en haar team dat een stuk chocolade lekkerder smaakte als iemand anders het tegelijk proefde. Wat je samen beleeft, voel je sterker."
+        },
+        {
+          "id": "grupo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "conocerse",
+              "debates",
+              "enLinea"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Daarom zijn er hier ook spellen voor de groep, zoals Elkaar leren kennen of Debatten, en online tafels om met je vrienden te spelen."
+        }
+      ]
+    },
+    {
+      "id": "leer",
+      "titulo": "En lezen, telt dat?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zeven. En lezen, telt dat?"
+        },
+        {
+          "id": "bavishi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "23",
+            "clave": "bavishi"
+          },
+          "lamina": [
+            "abueloLee",
+            "libros"
+          ],
+          "destacada": true,
+          "texto": "In 2016 volgden Avni Bavishi, Martin Slade en Becca Levy twaalf jaar lang meer dan drieduizendvijfhonderd mensen boven de vijftig. Wie boeken las, leefde gemiddeld bijna twee jaar langer dan wie niet las."
+        },
+        {
+          "id": "mediaHora",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "librosAlAno"
+          },
+          "lamina": [
+            "leerCama",
+            "temporizador"
+          ],
+          "texto": "En je hebt er niet veel voor nodig: met een half uur per dag, kijk hoeveel boeken er in een jaar passen."
+        },
+        {
+          "id": "noche",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antesDormir",
+              "enVez",
+              "aMano"
+            ]
+          },
+          "lamina": [
+            "lampara",
+            "libreta"
+          ],
+          "texto": "Een goed moment is voor het slapengaan: het boek in plaats van nog een aflevering. Leg het op je kussen en je telefoon ver van je bed."
+        },
+        {
+          "id": "libros",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "categoria",
+              "enCursoLibro",
+              "estrellas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Mijn boeken staan hier ook: met Anathem ben ik bezig, en Cosmos heeft al zijn vijf sterren."
+        }
+      ]
+    },
+    {
+      "id": "durar",
+      "titulo": "Hoe heb je er langer iets aan?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel acht. Hoe heb je er langer iets aan?"
+        },
+        {
+          "id": "zhang",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "capsula"
+          },
+          "lamina": [
+            "capsula",
+            "fotos"
+          ],
+          "destacada": true,
+          "texto": "In 2014 vroegen Ting Zhang en haar team studenten om alledaagse dingen in een tijdcapsule te stoppen: de laatste film die ze zagen, een liedje, een gesprek. Drie maanden later vonden ze het teruglezen veel interessanter dan ze hadden gedacht."
+        },
+        {
+          "id": "anota",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estrellasN",
+              "frase",
+              "conQuien"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "agendaPapel"
+          ],
+          "texto": "Dus als je iets uit hebt, schrijf drie dingen op: hoeveel sterren je het geeft, één zin over wat het je heeft gedaan en met wie je het zag."
+        },
+        {
+          "id": "gusto",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "patron",
+              "genero",
+              "facil"
+            ]
+          },
+          "lamina": [
+            "estante",
+            "lupa"
+          ],
+          "texto": "Na een tijdje vertellen je aantekeningen je wat je echt leuk vindt, en wordt kiezen wat je kijkt veel makkelijker."
+        },
+        {
+          "id": "tarjeta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "portada",
+              "voltea",
+              "resena"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Mijn kaarten bewaren dat allemaal: aan de voorkant de cover; en als ik erop tik, draait hij om, met mijn sterren en mijn recensie."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel negen. Hoe ga je verder? Jouw plan om door te gaan."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planEntre"
+          },
+          "lamina": [
+            "lista",
+            "reloj"
+          ],
+          "texto": "Maak in de eerste week je lijst met wat je nog wilt zien, en kijk hoeveel tijd je ongemerkt kwijt bent aan sociale media."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tope",
+              "resto",
+              "noche"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "Zet in de eerste maand een grens aan het bingewatchen: twee afleveringen per avond, en de rest is voor morgen."
+        },
+        {
+          "id": "semanal",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mesa",
+              "libro",
+              "alguien"
+            ]
+          },
+          "lamina": [
+            "familiaMesa",
+            "cumbre"
+          ],
+          "texto": "En ruil één avond per week het scherm in voor een bordspel of een boek, liefst samen met iemand."
+        },
+        {
+          "id": "metas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "clasicos",
+              "unoALaVez"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En wat ik nog wil zien hou ik bij als een doel: sciencefictionklassiekers die ik nog moet kijken, één tegelijk."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Kortom: beslis voordat je gaat zitten; scroll met een bedoeling, niet op de automatische piloot; één aflevering tegelijk, en pauzes zitten niet in de weg; speel voor de lol en met anderen; lees elke dag een beetje; en schrijf op wat het je heeft gedaan."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "In de kamer Vermaak van MindHaOS kun je je archief bijhouden van films, series, boeken en videogames, met je recensies, en je bordspellen spelen. Bouw vandaag gratis je mentale huis: de link staat in de beschrijving. En in de volgende gids: hoe onderhoud je je voertuigen?",
+    "boton": "Open de kamer Vermaak",
+    "lamina": "app-plan",
+    "anclas": {
+      "archivo": "je archief",
+      "resenas": "je recensies",
+      "juegos": "bordspellen"
+    }
+  },
+  "resumenDemo": {
+    "ficha": "Andrej Tarkovski · 1972 · sciencefiction · 2 u 47 min",
+    "sinopsis": "Een psycholoog reist naar een ruimtestation in een baan om de planeet Solaris, die bedekt is met een mysterieuze oceaan, om te beslissen of de missie door moet gaan. Daar treft hij een uitgeputte en angstige bemanning aan, en al snel ziet hij zelf dingen die niet te verklaren zijn.",
+    "claves": [
+      "Een trage, beschouwende film: kijk hem met rust.",
+      "Meer dan over ruimteschepen en avonturen gaat hij over herinnering, schuld en wat we niet weten van de ander.",
+      "Gebaseerd op de roman van Stanisław Lem (1961)."
+    ]
+  },
+  "fuentes": [
+    {
+      "id": "nielsen-2023",
+      "texto": "Nielsen. State of Play 2023: Streaming viewers spend 10.5 minutes deciding what to watch (2023).",
+      "url": "https://www.nielsen.com/insights/2023/state-of-play-2023/"
+    },
+    {
+      "id": "oxford-2024",
+      "texto": "Oxford University Press. Oxford Word of the Year 2024: brain rot (2024).",
+      "url": "https://corp.oup.com/news/brain-rot-named-oxford-word-of-the-year-2024/"
+    },
+    {
+      "id": "verduyn-2015",
+      "texto": "Verduyn P., Lee D. S., Park J., Shablack H., Orvell A., Bayer J., Ybarra O., Jonides J., Kross E. Passive Facebook usage undermines affective well-being: Experimental and longitudinal evidence. Journal of Experimental Psychology: General (2015).",
+      "url": "https://doi.org/10.1037/xge0000057"
+    },
+    {
+      "id": "hunt-2018",
+      "texto": "Hunt M. G., Marx R., Lipson C., Young J. No more FOMO: Limiting social media decreases loneliness and depression. Journal of Social and Clinical Psychology (2018).",
+      "url": "https://doi.org/10.1521/jscp.2018.37.10.751"
+    },
+    {
+      "id": "horvath-2017",
+      "texto": "Horvath J. C., Horton A. J., Lodge J. M., Hattie J. A. C. The impact of binge watching on memory and perceived comprehension. First Monday (2017).",
+      "url": "https://doi.org/10.5210/fm.v22i9.7729"
+    },
+    {
+      "id": "exelmans-2017",
+      "texto": "Exelmans L., Van den Bulck J. Binge viewing, sleep, and the role of pre-sleep arousal. Journal of Clinical Sleep Medicine (2017).",
+      "url": "https://doi.org/10.5664/jcsm.6704"
+    },
+    {
+      "id": "nelson-2009",
+      "texto": "Nelson L. D., Meyvis T., Galak J. Enhancing the television-viewing experience through commercial interruptions. Journal of Consumer Research (2009).",
+      "url": "https://doi.org/10.1086/597296"
+    },
+    {
+      "id": "leavitt-2011",
+      "texto": "Leavitt J. D., Christenfeld N. J. S. Story spoilers don't spoil stories. Psychological Science (2011).",
+      "url": "https://doi.org/10.1177/0956797611417007"
+    },
+    {
+      "id": "przybylski-2014",
+      "texto": "Przybylski A. K. Electronic gaming and psychosocial adjustment. Pediatrics (2014).",
+      "url": "https://doi.org/10.1542/peds.2013-4021"
+    },
+    {
+      "id": "vuorre-2022",
+      "texto": "Vuorre M., Johannes N., Magnusson K., Przybylski A. K. Time spent playing video games is unlikely to impact well-being. Royal Society Open Science (2022).",
+      "url": "https://doi.org/10.1098/rsos.220411"
+    },
+    {
+      "id": "altschul-2020",
+      "texto": "Altschul D. M., Deary I. J. Playing analog games is associated with reduced declines in cognitive function: a 68-year longitudinal cohort study. The Journals of Gerontology: Series B (2020).",
+      "url": "https://doi.org/10.1093/geronb/gbz149"
+    },
+    {
+      "id": "boothby-2014",
+      "texto": "Boothby E. J., Clark M. S., Bargh J. A. Shared experiences are amplified. Psychological Science (2014).",
+      "url": "https://doi.org/10.1177/0956797614551162"
+    },
+    {
+      "id": "bavishi-2016",
+      "texto": "Bavishi A., Slade M. D., Levy B. R. A chapter a day: Association of book reading with longevity. Social Science & Medicine (2016).",
+      "url": "https://doi.org/10.1016/j.socscimed.2016.07.014"
+    },
+    {
+      "id": "zhang-2014",
+      "texto": "Zhang T., Kim T., Brooks A. W., Gino F., Norton M. I. A \"present\" for the future: The unexpected value of rediscovery. Psychological Science (2014).",
+      "url": "https://doi.org/10.1177/0956797614542274"
+    }
+  ]
+}

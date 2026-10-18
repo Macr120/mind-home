@@ -1,0 +1,810 @@
+{
+  "idioma": "ar",
+  "tema": "entretenimiento",
+  "plantillaId": "entretenimiento",
+  "numero": 16,
+  "nombre": "الترفيه",
+  "pregunta": "كيف تستمتع بوقتك بشكل أفضل؟",
+  "corta": "كيف تستمتع بوقتك بشكل أفضل؟",
+  "subtitulo": "لماذا يأخذ منك اختيار ما تشاهده كل هذا الوقت، ولماذا لا يريحك التمرير و«brain rot»، وهل الأفضل المشاهدة المتواصلة أم حلقة في اليوم، ولماذا لا تفسد الاستراحات وحرق الأحداث شيئًا، وهل ألعاب الفيديو مفيدة لك أم ضارة، ولماذا تلعب مع الآخرين، ولماذا تقرأ، وكيف تجعل ما تشاهده يبقى معك، وخطة للمتابعة.",
+  "aviso": "هذا الدليل للمعلومات فقط: الدراسات المذكورة تُلخَّص نتائجها ببساطة، وكثير منها يُظهر علاقات لا أسبابًا. إن شعرت أنك لا تستطيع التوقف عن اللعب أو النظر إلى الشاشات رغم رغبتك، فتحدّث مع شخص تثق به أو مع مختص.",
+  "partes": [
+    {
+      "id": "elegir",
+      "titulo": "لماذا يأخذ منك الاختيار كل هذا الوقت؟",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "كيف تستمتع بوقتك بشكل أفضل؟ نقضي أكثر من عشر دقائق فقط في اختيار ما نشاهده. وأحيانًا، بعد كل هذا البحث، نستسلم ولا نشاهد شيئًا. ماذا لو لم تكن المشكلة في مقدار ترفيهك، بل في طريقته؟ اليوم سترى ما يقوله العلم، وستخرج بخطة لتستمتع أكثر بوقت فراغك."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "بالمناسبة، هذا بيتي في MindHaOS، وانظر: اليوم هو في قلب نهاية العالم، فلا توجد خطة لنهاية العالم أفضل من البقاء في البيت مع فيلم جيد. في هذه الغرفة أسجّل كل ما أشاهده وأقرأه وألعبه."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الأول. لماذا يأخذ منك الاختيار كل هذا الوقت؟"
+        },
+        {
+          "id": "nielsen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10.5",
+            "clave": "nielsen"
+          },
+          "lamina": [
+            "control",
+            "catalogo"
+          ],
+          "destacada": true,
+          "texto": "في عام 2023، سألت شركة Nielsen في الولايات المتحدة كم نستغرق لنختار ما نشاهده: عشر دقائق ونصف في المتوسط. وقبلها بأربع سنوات، كانت أكثر من سبع دقائق بقليل."
+        },
+        {
+          "id": "eligiendo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tiempoEligiendo"
+          },
+          "lamina": [
+            "reloj",
+            "sofa"
+          ],
+          "texto": "تبدو قليلة، لكن اجمعها: عشر دقائق كل ليلة تصبح أكثر من ستين ساعة في السنة، في البحث فقط. انظر كم ساعة هي عندك."
+        },
+        {
+          "id": "decide",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antes",
+              "pendientes",
+              "cinco"
+            ]
+          },
+          "lamina": [
+            "lista",
+            "palomita"
+          ],
+          "meme": "elegir",
+          "texto": "الحيلة أن تقرّر قبل أن تجلس: احتفظ بقائمة لما تريد مشاهدته، وإن لم تختر خلال خمس دقائق، فشغّل أول ما في القائمة."
+        },
+        {
+          "id": "archivo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vi",
+              "lei",
+              "pendiente"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "في غرفة الترفيه عندي أحتفظ بالأرشيف: ما شاهدته، وما قرأته، وما لعبته، وما ينتظرني، مرتّبًا حسب النوع."
+        }
+      ]
+    },
+    {
+      "id": "scroll",
+      "titulo": "لماذا لا يريحك التمرير؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثاني. لماذا لا يريحك التمرير؟"
+        },
+        {
+          "id": "brainrot",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2024",
+            "clave": "brainrot"
+          },
+          "lamina": [
+            "scroll",
+            "celularNoche"
+          ],
+          "texto": "في عام 2024، اختار قاموس Oxford كلمةَ العام «brain rot»، أي ما يشبه «تعفّن الدماغ»: ذلك الإحساس بالخمول بعد ساعات من مشاهدة محتوى دون تفكير."
+        },
+        {
+          "id": "verduyn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pasivoActivo"
+          },
+          "lamina": [
+            "redes",
+            "celularCama"
+          ],
+          "destacada": true,
+          "texto": "في عام 2015، لاحظ Philippe Verduyn وفريقه أن تصفّح الشبكات الاجتماعية دون مشاركة، بمجرد تمرير المنشورات، كان يسوّئ شعور الناس على مدار اليوم. أما استخدامها للحديث مع الآخرين فلم يكن له هذا الأثر."
+        },
+        {
+          "id": "hunt",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "scrollAlAno"
+          },
+          "lamina": [
+            "temporizador",
+            "amigos"
+          ],
+          "meme": "scroll",
+          "texto": "وفي عام 2018، طلبت Melissa Hunt وفريقها من طلاب جامعيين أن يستخدموا الشبكات الاجتماعية ثلاثين دقيقة فقط في اليوم لمدة ثلاثة أسابيع. فشعروا بوحدة أقل وحزن أقل. انظر كم يبلغ تمريرك في سنة."
+        },
+        {
+          "id": "consciente",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunta",
+              "elige",
+              "cierra"
+            ]
+          },
+          "lamina": [
+            "pensar",
+            "ventana"
+          ],
+          "texto": "الحيلة ليست أن تتركها، بل أن تختار: قبل أن تفتح أي شبكة، اسأل نفسك عمّا تبحث. إن كنت تريد الراحة، فاختر شيئًا تريد مشاهدته حقًا، وحين ينتهي، أغلقها."
+        }
+      ]
+    },
+    {
+      "id": "maraton",
+      "titulo": "مشاهدة متواصلة أم حلقة في اليوم؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثالث. مشاهدة متواصلة أم حلقة في اليوم؟"
+        },
+        {
+          "id": "horvath",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "maratonRecuerdo"
+          },
+          "lamina": [
+            "maraton",
+            "palomitas"
+          ],
+          "destacada": true,
+          "texto": "في عام 2017، جعل Jared Horvath وفريقه طلابًا يشاهدون مسلسلًا: بعضهم دفعة واحدة، وبعضهم حلقة في اليوم، وبعضهم حلقة في الأسبوع. الذين شاهدوه دفعة واحدة استمتعوا به أقل، وبعد أشهر تذكّروه أسوأ."
+        },
+        {
+          "id": "sueno",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2017",
+            "clave": "exelmans"
+          },
+          "lamina": [
+            "nocheTele",
+            "cama"
+          ],
+          "texto": "وهناك حساب آخر. في العام نفسه، لاحظت Liese Exelmans وJan Van den Bulck أن الشباب الذين يشاهدون بشكل متواصل كانوا ينامون أسوأ ويستيقظون أكثر تعبًا: يبقى الذهن متسارعًا بعد الحلقة الأخيرة."
+        },
+        {
+          "id": "ritmo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "ritmoSerie"
+          },
+          "lamina": [
+            "despertador",
+            "luna"
+          ],
+          "meme": "unoMas",
+          "texto": "انظر كم يدوم معك مسلسل بإيقاعك، وفي أي ساعة تنام إن أضفت حلقة أخرى."
+        },
+        {
+          "id": "curso",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "enCurso",
+              "uno",
+              "manana"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "لهذا لكل مسلسل هنا حالته: بلوتو ما زال للمشاهدة، وسأشاهده حلقة واحدة في كل مرة."
+        }
+      ]
+    },
+    {
+      "id": "pausas",
+      "titulo": "لماذا لا تفسد الاستراحات وحرق الأحداث شيئًا؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الرابع. لماذا لا تفسد الاستراحات وحرق الأحداث شيئًا؟"
+        },
+        {
+          "id": "nelson",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cortes"
+          },
+          "lamina": [
+            "pausa",
+            "cine"
+          ],
+          "destacada": true,
+          "texto": "في عام 2009، جعل Leif Nelson وTom Meyvis وJeff Galak الناس يشاهدون برنامجًا مع فواصل ومن دونها. ومع الفواصل استمتعوا به أكثر: فالمتعة تتآكل مع الوقت، والاستراحة تعيد تشغيلها."
+        },
+        {
+          "id": "spoiler",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2011",
+            "clave": "leavitt"
+          },
+          "lamina": [
+            "leerSofa",
+            "sorpresa"
+          ],
+          "meme": "spoiler",
+          "texto": "وهناك مفاجأة أخرى: في عام 2011، أعطى Jonathan Leavitt وNicholas Christenfeld الناس قصصًا قصيرة ليقرؤوها، بعضها مع كشف النهاية وبعضها من دونه. وفي المتوسط، أعجبتهم أكثر القصص التي عرفوا نهايتها مسبقًا."
+        },
+        {
+          "id": "aplica",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "levantate",
+              "comenta",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "amigos",
+            "cafe"
+          ],
+          "texto": "فلا تخف من الاستراحة: انهض، وتحدّث عمّا شاهدته، وعُد بحماس أكبر. ما يهمّ حقًا في القصة ليس فقط كيف تنتهي."
+        },
+        {
+          "id": "resumen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "deQueVa",
+              "sinSpoilers",
+              "despues"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "وإن أردت أن أعرف عمّ يدور شيء قبل أن أشاهده، أطلب هنا ملخصًا بالذكاء الاصطناعي، بلا حرق للأحداث ما دمت لم أنهِه."
+        }
+      ]
+    },
+    {
+      "id": "videojuegos",
+      "titulo": "هل ألعاب الفيديو مفيدة لك أم ضارة؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الخامس. هل ألعاب الفيديو مفيدة لك أم ضارة؟"
+        },
+        {
+          "id": "przybylski",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "horasJuego"
+          },
+          "lamina": [
+            "videojuego",
+            "control2"
+          ],
+          "destacada": true,
+          "texto": "في عام 2014، درس Andrew Przybylski نحو خمسة آلاف طفل بين العاشرة والخامسة عشرة في المملكة المتحدة. الذين يلعبون أقل من ساعة في اليوم كانوا أفضل قليلًا ممن لا يلعبون، والذين يلعبون أكثر من ثلاث ساعات أسوأ قليلًا."
+        },
+        {
+          "id": "vuorre",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2022",
+            "clave": "vuorre"
+          },
+          "lamina": [
+            "jugadora",
+            "pantallaJuego"
+          ],
+          "texto": "وفي عام 2022، ومع نحو تسعة وثلاثين ألف لاعب بالغ، لاحظ Matti Vuorre وفريقه أن عدد الساعات لم يكد يغيّر شعورهم. ما كان يهمّ هو سبب لعبهم: من أجل المتعة، جيد؛ لأنهم شعروا أنهم مضطرون، أسوأ."
+        },
+        {
+          "id": "pregunta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "porQueJuegas"
+          },
+          "lamina": [
+            "pensar",
+            "brujula"
+          ],
+          "texto": "لذلك قبل أن تلعب، اسأل نفسك سؤالًا: هل ألعب لأنني أريد، أم لأنني لا أستطيع التوقف؟ انظر ماذا تكون النتيجة."
+        },
+        {
+          "id": "juegos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ingenio",
+              "arcade",
+              "dificultad"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "في غرفتي ثلاث وعشرون لعبة لقضاء وقت ممتع: الألغاز، والأركيد، وورق اللعب، والطاولة، ولكل منها مستوى صعوبته."
+        }
+      ]
+    },
+    {
+      "id": "otros",
+      "titulo": "لماذا تلعب مع الآخرين؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السادس. لماذا تلعب مع الآخرين؟"
+        },
+        {
+          "id": "altschul",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "mesaMente"
+          },
+          "lamina": [
+            "ajedrez",
+            "cartas"
+          ],
+          "destacada": true,
+          "texto": "في عام 2020، تابع Drew Altschul وIan Deary أكثر من ألف شخص في اسكتلندا، كلهم وُلدوا عام 1936. الذين كانوا يلعبون ألعاب الطاولة وورق اللعب أكثر فقدوا قدرًا أقل من الذاكرة وسرعة الذهن بين السبعين والتاسعة والسبعين."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoEntre"
+          },
+          "lamina": "pulgar",
+          "texto": "إن كان هذا الدليل يعجبك، فاضغط «أعجبني»، و«اشتراك» حتى لا يفوتك الدليل القادم، و«مشاركة» مع ذلك الشخص الذي يغلبك دائمًا في الورق."
+        },
+        {
+          "id": "boothby",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2014",
+            "clave": "boothby"
+          },
+          "lamina": [
+            "chocolate",
+            "familiaMesa"
+          ],
+          "texto": "والمشاركة تغيّر كل شيء: في عام 2014، لاحظت Erica Boothby وفريقها أن قطعة الشوكولاتة كان طعمها ألذّ حين يتذوّقها شخص آخر في الوقت نفسه. ما تعيشه مع غيرك تشعر به أكثر."
+        },
+        {
+          "id": "grupo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "conocerse",
+              "debates",
+              "enLinea"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "لهذا توجد هنا أيضًا ألعاب للمجموعة، مثل تعارف ونقاشات، وطاولات متصلة للعب مع أصدقائك."
+        }
+      ]
+    },
+    {
+      "id": "leer",
+      "titulo": "وهل القراءة تُحسب؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السابع. وهل القراءة تُحسب؟"
+        },
+        {
+          "id": "bavishi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "23",
+            "clave": "bavishi"
+          },
+          "lamina": [
+            "abueloLee",
+            "libros"
+          ],
+          "destacada": true,
+          "texto": "في عام 2016، تابع Avni Bavishi وMartin Slade وBecca Levy لمدة اثني عشر عامًا أكثر من ثلاثة آلاف وخمسمئة شخص تجاوزوا الخمسين. الذين كانوا يقرؤون الكتب عاشوا، في المتوسط، قرابة عامين أكثر ممن لم يقرؤوا."
+        },
+        {
+          "id": "mediaHora",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "librosAlAno"
+          },
+          "lamina": [
+            "leerCama",
+            "temporizador"
+          ],
+          "texto": "ولا تحتاج إلى الكثير: بنصف ساعة في اليوم، انظر كم كتابًا يتّسع له عامك."
+        },
+        {
+          "id": "noche",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antesDormir",
+              "enVez",
+              "aMano"
+            ]
+          },
+          "lamina": [
+            "lampara",
+            "libreta"
+          ],
+          "texto": "ومن الأوقات الجيدة ما قبل النوم: الكتاب بدلًا من حلقة أخرى. اتركه على الوسادة، والهاتف بعيدًا عن السرير."
+        },
+        {
+          "id": "libros",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "categoria",
+              "enCursoLibro",
+              "estrellas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "وكتبي هنا أيضًا: أناثيم قيد القراءة، والكون نال نجومه الخمس."
+        }
+      ]
+    },
+    {
+      "id": "durar",
+      "titulo": "كيف تجعله يبقى معك؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثامن. كيف تجعله يبقى معك؟"
+        },
+        {
+          "id": "zhang",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "capsula"
+          },
+          "lamina": [
+            "capsula",
+            "fotos"
+          ],
+          "destacada": true,
+          "texto": "في عام 2014، طلبت Ting Zhang وفريقها من طلاب أن يحفظوا في كبسولة زمنية أشياء من حياتهم اليومية: آخر فيلم شاهدوه، وأغنية، ومحادثة. وبعد ثلاثة أشهر، كانت إعادة قراءتها ممتعة لهم أكثر بكثير مما تخيّلوا."
+        },
+        {
+          "id": "anota",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estrellasN",
+              "frase",
+              "conQuien"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "agendaPapel"
+          ],
+          "texto": "لذلك حين تنهي شيئًا، دوّن ثلاثة أمور: كم نجمة تعطيه، وجملة عمّا تركه فيك، ومع من شاهدته."
+        },
+        {
+          "id": "gusto",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "patron",
+              "genero",
+              "facil"
+            ]
+          },
+          "lamina": [
+            "estante",
+            "lupa"
+          ],
+          "texto": "ومع الوقت، تخبرك ملاحظاتك بما تحبه حقًا، ويصبح اختيار ما تشاهده أسهل بكثير."
+        },
+        {
+          "id": "tarjeta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "portada",
+              "voltea",
+              "resena"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "بطاقاتي تحفظ كل ذلك: في الأمام، الغلاف؛ وحين ألمسها، تنقلب لتُظهر نجومي ومراجعتي."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "كيف تستمر؟ خطتك للمتابعة",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء التاسع. كيف تستمر؟ خطتك للمتابعة."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planEntre"
+          },
+          "lamina": [
+            "lista",
+            "reloj"
+          ],
+          "texto": "في الأسبوع الأول، جهّز قائمة ما تريد مشاهدته، وانظر كم من وقتك يضيع على الشبكات دون أن تنتبه."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tope",
+              "resto",
+              "noche"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "في الشهر الأول، ضع حدًا للمشاهدة المتواصلة: حلقتان في الليلة، والباقي للغد."
+        },
+        {
+          "id": "semanal",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mesa",
+              "libro",
+              "alguien"
+            ]
+          },
+          "lamina": [
+            "familiaMesa",
+            "cumbre"
+          ],
+          "texto": "وفي ليلة واحدة كل أسبوع، استبدل الشاشة بلعبة طاولة أو بكتاب، والأفضل أن يكون ذلك مع أحد."
+        },
+        {
+          "id": "metas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "clasicos",
+              "unoALaVez"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "وأتابع ما ينتظرني كهدف: كلاسيكيات الخيال العلمي المعلّقة، واحدًا تلو الآخر."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "باختصار: قرّر قبل أن تجلس؛ مرّر بنيّة، لا بشكل آلي؛ حلقة واحدة في كل مرة، والاستراحات لا تضرّ؛ العب من أجل المتعة ومع الآخرين؛ اقرأ قليلًا كل يوم؛ ودوّن ما تركه فيك."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "في غرفة الترفيه في MindHaOS يمكنك أن تحتفظ بأرشيفك من الأفلام والمسلسلات والكتب وألعاب الفيديو، مع مراجعاتك، وأن تلعب ألعاب الطاولة المفضلة لديك. ابنِ بيتك الذهني مجانًا اليوم: الرابط في الوصف. وفي الدليل القادم: كيف تعتني بمركباتك؟",
+    "boton": "افتح غرفة الترفيه",
+    "lamina": "app-plan",
+    "anclas": {
+      "archivo": "بأرشيفك",
+      "resenas": "مع مراجعاتك",
+      "juegos": "ألعاب الطاولة"
+    }
+  },
+  "resumenDemo": {
+    "ficha": "أندريه تاركوفسكي · 1972 · خيال علمي · 2 س 47 د",
+    "sinopsis": "يسافر عالم نفس إلى محطة فضائية تدور حول كوكب سولاريس، الذي يغطيه محيط غامض، ليقرّر هل يجب أن تستمر المهمة. وحين يصل يجد الطاقم منهكًا وخائفًا، وسرعان ما يبدأ هو نفسه في رؤية أشياء لا تفسير لها.",
+    "claves": [
+      "فيلم بطيء وتأمّلي: يحتاج أن تشاهده بهدوء.",
+      "أكثر من السفن والمغامرات، يتحدث عن الذاكرة والذنب وما لا نعرفه عن الآخر.",
+      "مقتبس من رواية ستانيسواف ليم (1961)."
+    ]
+  },
+  "fuentes": [
+    {
+      "id": "nielsen-2023",
+      "texto": "Nielsen. State of Play 2023: Streaming viewers spend 10.5 minutes deciding what to watch (2023).",
+      "url": "https://www.nielsen.com/insights/2023/state-of-play-2023/"
+    },
+    {
+      "id": "oxford-2024",
+      "texto": "Oxford University Press. Oxford Word of the Year 2024: brain rot (2024).",
+      "url": "https://corp.oup.com/news/brain-rot-named-oxford-word-of-the-year-2024/"
+    },
+    {
+      "id": "verduyn-2015",
+      "texto": "Verduyn P., Lee D. S., Park J., Shablack H., Orvell A., Bayer J., Ybarra O., Jonides J., Kross E. Passive Facebook usage undermines affective well-being: Experimental and longitudinal evidence. Journal of Experimental Psychology: General (2015).",
+      "url": "https://doi.org/10.1037/xge0000057"
+    },
+    {
+      "id": "hunt-2018",
+      "texto": "Hunt M. G., Marx R., Lipson C., Young J. No more FOMO: Limiting social media decreases loneliness and depression. Journal of Social and Clinical Psychology (2018).",
+      "url": "https://doi.org/10.1521/jscp.2018.37.10.751"
+    },
+    {
+      "id": "horvath-2017",
+      "texto": "Horvath J. C., Horton A. J., Lodge J. M., Hattie J. A. C. The impact of binge watching on memory and perceived comprehension. First Monday (2017).",
+      "url": "https://doi.org/10.5210/fm.v22i9.7729"
+    },
+    {
+      "id": "exelmans-2017",
+      "texto": "Exelmans L., Van den Bulck J. Binge viewing, sleep, and the role of pre-sleep arousal. Journal of Clinical Sleep Medicine (2017).",
+      "url": "https://doi.org/10.5664/jcsm.6704"
+    },
+    {
+      "id": "nelson-2009",
+      "texto": "Nelson L. D., Meyvis T., Galak J. Enhancing the television-viewing experience through commercial interruptions. Journal of Consumer Research (2009).",
+      "url": "https://doi.org/10.1086/597296"
+    },
+    {
+      "id": "leavitt-2011",
+      "texto": "Leavitt J. D., Christenfeld N. J. S. Story spoilers don't spoil stories. Psychological Science (2011).",
+      "url": "https://doi.org/10.1177/0956797611417007"
+    },
+    {
+      "id": "przybylski-2014",
+      "texto": "Przybylski A. K. Electronic gaming and psychosocial adjustment. Pediatrics (2014).",
+      "url": "https://doi.org/10.1542/peds.2013-4021"
+    },
+    {
+      "id": "vuorre-2022",
+      "texto": "Vuorre M., Johannes N., Magnusson K., Przybylski A. K. Time spent playing video games is unlikely to impact well-being. Royal Society Open Science (2022).",
+      "url": "https://doi.org/10.1098/rsos.220411"
+    },
+    {
+      "id": "altschul-2020",
+      "texto": "Altschul D. M., Deary I. J. Playing analog games is associated with reduced declines in cognitive function: a 68-year longitudinal cohort study. The Journals of Gerontology: Series B (2020).",
+      "url": "https://doi.org/10.1093/geronb/gbz149"
+    },
+    {
+      "id": "boothby-2014",
+      "texto": "Boothby E. J., Clark M. S., Bargh J. A. Shared experiences are amplified. Psychological Science (2014).",
+      "url": "https://doi.org/10.1177/0956797614551162"
+    },
+    {
+      "id": "bavishi-2016",
+      "texto": "Bavishi A., Slade M. D., Levy B. R. A chapter a day: Association of book reading with longevity. Social Science & Medicine (2016).",
+      "url": "https://doi.org/10.1016/j.socscimed.2016.07.014"
+    },
+    {
+      "id": "zhang-2014",
+      "texto": "Zhang T., Kim T., Brooks A. W., Gino F., Norton M. I. A \"present\" for the future: The unexpected value of rediscovery. Psychological Science (2014).",
+      "url": "https://doi.org/10.1177/0956797614542274"
+    }
+  ]
+}

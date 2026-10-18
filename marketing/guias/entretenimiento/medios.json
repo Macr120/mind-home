@@ -1,0 +1,355 @@
+{
+  "fotos": {},
+  "laminas": {
+    "control": {
+      "archivo": "laminas/control.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/using-the-television-remote-control-5813772/",
+      "licencia": "Licencia Pexels"
+    },
+    "catalogo": {
+      "archivo": "laminas/catalogo.mp4",
+      "tipo": "video",
+      "autor": "Reyhan",
+      "fuente": "https://www.pexels.com/video/browsing-streaming-platform-on-tablet-37021581/",
+      "licencia": "Licencia Pexels"
+    },
+    "celularNoche": {
+      "archivo": "laminas/celularNoche.mp4",
+      "tipo": "video",
+      "autor": "Marcus Aurelius",
+      "fuente": "https://www.pexels.com/video/a-woman-lying-in-bed-using-her-phone-9787494/",
+      "licencia": "Licencia Pexels"
+    },
+    "redes": {
+      "archivo": "laminas/redes.mp4",
+      "tipo": "video",
+      "autor": "Hamim Rony",
+      "fuente": "https://www.pexels.com/video/scrolling-through-social-media-on-smartphone-38410501/",
+      "licencia": "Licencia Pexels"
+    },
+    "celularCama": {
+      "archivo": "laminas/celularCama.mp4",
+      "tipo": "video",
+      "autor": "Ron Lach",
+      "fuente": "https://www.pexels.com/video/man-waking-up-n-bed-and-checking-his-phone-9615484/",
+      "licencia": "Licencia Pexels"
+    },
+    "maraton": {
+      "archivo": "laminas/maraton.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/family-having-a-movie-night-while-eating-popcorn-6336598/",
+      "licencia": "Licencia Pexels"
+    },
+    "palomitas": {
+      "archivo": "laminas/palomitas.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/father-and-son-eating-popcorn-while-watching-tv-6336605/",
+      "licencia": "Licencia Pexels"
+    },
+    "nocheTele": {
+      "archivo": "laminas/nocheTele.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-woman-sitting-while-watching-tv-6951584/",
+      "licencia": "Licencia Pexels"
+    },
+    "cama": {
+      "archivo": "laminas/cama.mp4",
+      "tipo": "video",
+      "autor": "Kaboompics.com",
+      "fuente": "https://www.pexels.com/video/sleepy-woman-rubbing-eyes-6658334/",
+      "licencia": "Licencia Pexels"
+    },
+    "pausa": {
+      "archivo": "laminas/pausa.mp4",
+      "tipo": "video",
+      "autor": "ANTONI SHKRABA production",
+      "fuente": "https://www.pexels.com/video/women-talking-to-each-other-while-sitting-on-a-couch-8136134/",
+      "licencia": "Licencia Pexels"
+    },
+    "cine": {
+      "archivo": "laminas/cine.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/people-watching-movie-in-a-cinema-7989387/",
+      "licencia": "Licencia Pexels"
+    },
+    "leerSofa": {
+      "archivo": "laminas/leerSofa.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-woman-reading-a-book-on-a-couch-4864929/",
+      "licencia": "Licencia Pexels"
+    },
+    "control2": {
+      "archivo": "laminas/control2.mp4",
+      "tipo": "video",
+      "autor": "Cemrecan Yurtman",
+      "fuente": "https://www.pexels.com/video/hands-playing-video-game-with-controller-30301758/",
+      "licencia": "Licencia Pexels"
+    },
+    "jugadora": {
+      "archivo": "laminas/jugadora.mp4",
+      "tipo": "video",
+      "autor": "Artem Podrez",
+      "fuente": "https://www.pexels.com/video/a-woman-playing-video-games-7774569/",
+      "licencia": "Licencia Pexels"
+    },
+    "pantallaJuego": {
+      "archivo": "laminas/pantallaJuego.mp4",
+      "tipo": "video",
+      "autor": "eQzit",
+      "fuente": "https://www.pexels.com/video/silhouette-of-gamer-immersed-in-video-game-32025592/",
+      "licencia": "Licencia Pexels"
+    },
+    "ajedrez": {
+      "archivo": "laminas/ajedrez.mp4",
+      "tipo": "video",
+      "autor": "Alena Darmel",
+      "fuente": "https://www.pexels.com/video/elderly-men-playing-chess-7320223/",
+      "licencia": "Licencia Pexels"
+    },
+    "cartas": {
+      "archivo": "laminas/cartas.mp4",
+      "tipo": "video",
+      "autor": "Yaroslav Shuraev",
+      "fuente": "https://www.pexels.com/video/elderly-women-enjoying-playing-cards-8087196/",
+      "licencia": "Licencia Pexels"
+    },
+    "chocolate": {
+      "archivo": "laminas/chocolate.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/people-sharing-popcorn-in-a-cinema-7984181/",
+      "licencia": "Licencia Pexels"
+    },
+    "familiaMesa": {
+      "archivo": "laminas/familiaMesa.mp4",
+      "tipo": "video",
+      "autor": "Dziana Hasanbekava",
+      "fuente": "https://www.pexels.com/video/a-family-playing-a-board-game-8267951/",
+      "licencia": "Licencia Pexels"
+    },
+    "abueloLee": {
+      "archivo": "laminas/abueloLee.mp4",
+      "tipo": "video",
+      "autor": "SHVETS production",
+      "fuente": "https://www.pexels.com/video/elderly-man-reading-a-book-7546672/",
+      "licencia": "Licencia Pexels"
+    },
+    "leerCama": {
+      "archivo": "laminas/leerCama.mp4",
+      "tipo": "video",
+      "autor": "Dziana Hasanbekava",
+      "fuente": "https://www.pexels.com/video/a-man-reading-a-book-while-in-bed-6851616/",
+      "licencia": "Licencia Pexels"
+    },
+    "capsula": {
+      "archivo": "laminas/capsula.mp4",
+      "tipo": "video",
+      "autor": "fish socks",
+      "fuente": "https://www.pexels.com/video/vintage-photo-collection-in-memory-box-36511034/",
+      "licencia": "Licencia Pexels"
+    },
+    "fotos": {
+      "archivo": "laminas/fotos.mp4",
+      "tipo": "video",
+      "autor": "SHVETS production",
+      "fuente": "https://www.pexels.com/video/a-person-holding-an-old-photo-7546136/",
+      "licencia": "Licencia Pexels"
+    },
+    "estante": {
+      "archivo": "laminas/estante.mp4",
+      "tipo": "video",
+      "autor": "Kamile ÖZDEMİR",
+      "fuente": "https://www.pexels.com/video/putting-book-among-books-12693028/",
+      "licencia": "Licencia Pexels"
+    },
+    "videojuego": {
+      "archivo": "laminas/videojuego.mp4",
+      "tipo": "video",
+      "autor": "Yan Krukau",
+      "fuente": "https://www.pexels.com/video/people-sitting-on-sofa-while-playing-video-games-9067650/",
+      "licencia": "Licencia Pexels"
+    },
+    "reloj": {
+      "archivo": "laminas/reloj.mp4",
+      "tipo": "video",
+      "autor": "Anton Kudryashov",
+      "fuente": "https://www.pexels.com/video/close-up-on-clock-hands-moving-11267667/",
+      "licencia": "Licencia Pexels"
+    },
+    "sofa": {
+      "archivo": "laminas/sofa.mp4",
+      "tipo": "video",
+      "autor": "Fernanda Neitzel",
+      "fuente": "https://www.pexels.com/video/cozy-evening-indoors-with-tea-and-tv-37522021/",
+      "licencia": "Licencia Pexels"
+    },
+    "lista": {
+      "archivo": "laminas/lista.mp4",
+      "tipo": "video",
+      "autor": "KATRIN BOLOVTSOVA",
+      "fuente": "https://www.pexels.com/video/person-putting-check-on-the-to-do-list-pad-6186640/",
+      "licencia": "Licencia Pexels"
+    },
+    "palomita": {
+      "archivo": "laminas/palomita.mp4",
+      "tipo": "video",
+      "autor": "Jakub Zerdzicki",
+      "fuente": "https://www.pexels.com/video/completing-tasks-on-a-checklist-with-pen-36633828/",
+      "licencia": "Licencia Pexels"
+    },
+    "scroll": {
+      "archivo": "laminas/scroll.mp4",
+      "tipo": "video",
+      "autor": "Josh Tavernier",
+      "fuente": "https://www.pexels.com/video/woman-scrolling-social-media-10238038/",
+      "licencia": "Licencia Pexels"
+    },
+    "temporizador": {
+      "archivo": "laminas/temporizador.mp4",
+      "tipo": "video",
+      "autor": "Ivan S",
+      "fuente": "https://www.pexels.com/video/an-hourglass-on-a-stone-slab-7703941/",
+      "licencia": "Licencia Pexels"
+    },
+    "pensar": {
+      "archivo": "laminas/pensar.mp4",
+      "tipo": "video",
+      "autor": "Alexander Mass",
+      "fuente": "https://www.pexels.com/video/silhouette-of-man-looking-out-window-31252867/",
+      "licencia": "Licencia Pexels"
+    },
+    "ventana": {
+      "archivo": "laminas/ventana.mp4",
+      "tipo": "video",
+      "autor": "Artem Podrez",
+      "fuente": "https://www.pexels.com/video/a-woman-drinking-a-cup-of-coffee-by-the-window-7496257/",
+      "licencia": "Licencia Pexels"
+    },
+    "despertador": {
+      "archivo": "laminas/despertador.mp4",
+      "tipo": "video",
+      "autor": "Miriam Alonso",
+      "fuente": "https://www.pexels.com/video/full-shot-of-gold-alarm-clock-7594018/",
+      "licencia": "Licencia Pexels"
+    },
+    "luna": {
+      "archivo": "laminas/luna.mp4",
+      "tipo": "video",
+      "autor": "Dr Photographer",
+      "fuente": "https://www.pexels.com/video/full-moon-in-clear-night-sky-30295405/",
+      "licencia": "Licencia Pexels"
+    },
+    "sorpresa": {
+      "archivo": "laminas/sorpresa.mp4",
+      "tipo": "video",
+      "autor": "KoolShooters",
+      "fuente": "https://www.pexels.com/video/a-surprised-woman-7688636/",
+      "licencia": "Licencia Pexels"
+    },
+    "amigos": {
+      "archivo": "laminas/amigos.mp4",
+      "tipo": "video",
+      "autor": "Darina Belonogova",
+      "fuente": "https://www.pexels.com/video/women-laughing-together-9187875/",
+      "licencia": "Licencia Pexels"
+    },
+    "cafe": {
+      "archivo": "laminas/cafe.mp4",
+      "tipo": "video",
+      "autor": "Burak Eroglu",
+      "fuente": "https://www.pexels.com/video/cafe-ambiance-with-coffee-beans-and-latte-30981713/",
+      "licencia": "Licencia Pexels"
+    },
+    "brujula": {
+      "archivo": "laminas/brujula.mp4",
+      "tipo": "video",
+      "autor": "Anastasia Shuraeva",
+      "fuente": "https://www.pexels.com/video/a-person-holding-a-compass-8028798/",
+      "licencia": "Licencia Pexels"
+    },
+    "pulgar": {
+      "archivo": "laminas/pulgar.mp4",
+      "tipo": "video",
+      "autor": "Kevin Malik",
+      "fuente": "https://www.pexels.com/video/a-hand-giving-a-thumbs-up-9017832/",
+      "licencia": "Licencia Pexels"
+    },
+    "libros": {
+      "archivo": "laminas/libros.mp4",
+      "tipo": "video",
+      "autor": "Burak Bahadır Büyükkılınç",
+      "fuente": "https://www.pexels.com/video/cozy-library-bookshelf-with-classic-literature-33997135/",
+      "licencia": "Licencia Pexels"
+    },
+    "lampara": {
+      "archivo": "laminas/lampara.webp",
+      "tipo": "foto",
+      "autor": "Osmany Mederos",
+      "fuente": "https://www.pexels.com/photo/lamp-on-a-nightstand-17994856/",
+      "licencia": "Licencia Pexels"
+    },
+    "libreta": {
+      "archivo": "laminas/libreta.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/writing-to-do-list-on-a-notebook-for-reminders-3832194/",
+      "licencia": "Licencia Pexels"
+    },
+    "escribir": {
+      "archivo": "laminas/escribir.mp4",
+      "tipo": "video",
+      "autor": "Polina Tankilevitch",
+      "fuente": "https://www.pexels.com/video/person-writing-on-her-notebook-6929080/",
+      "licencia": "Licencia Pexels"
+    },
+    "agendaPapel": {
+      "archivo": "laminas/agendaPapel.mp4",
+      "tipo": "video",
+      "autor": "Ron Lach",
+      "fuente": "https://www.pexels.com/video/a-person-writing-on-a-paper-9903485/",
+      "licencia": "Licencia Pexels"
+    },
+    "lupa": {
+      "archivo": "laminas/lupa.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/using-a-magnifying-glass-to-visually-enlarge-objects-3831743/",
+      "licencia": "Licencia Pexels"
+    },
+    "escalon": {
+      "archivo": "laminas/escalon.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/man-running-up-the-stairs-7876928/",
+      "licencia": "Licencia Pexels"
+    },
+    "arbol": {
+      "archivo": "laminas/arbol.mp4",
+      "tipo": "video",
+      "autor": "Furkan Elveren",
+      "fuente": "https://www.pexels.com/video/a-tree-with-the-sun-shining-through-it-27410108/",
+      "licencia": "Licencia Pexels"
+    },
+    "cumbre": {
+      "archivo": "laminas/cumbre.mp4",
+      "tipo": "video",
+      "autor": "Canan İldeniz",
+      "fuente": "https://www.pexels.com/video/group-of-hikers-celebrating-on-mountain-peak-38242686/",
+      "licencia": "Licencia Pexels"
+    },
+    "app-plan": {
+      "archivo": "laminas/app-plan.{idioma}.mp4",
+      "tipo": "video",
+      "autor": "MindHaOS",
+      "fuente": "https://app.mindhaos.com",
+      "credito": ""
+    }
+  }
+}

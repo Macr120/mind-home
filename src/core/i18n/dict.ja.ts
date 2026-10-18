@@ -7174,6 +7174,7 @@ export const JA: Dict = {
   'guia.aprender.titulo': "どうすればもっと速く学べるのでしょうか？",
   'guia.escritura.titulo': "なぜ、書くべきなのでしょうか？",
   'guia.hobbies.titulo': "趣味はどう見つけて、どう続ければいいのでしょうか？",
+  'guia.entretenimiento.titulo': "どうすればもっと上手に楽しめるのでしょうか？",
   'guia.matematicas.titulo': "宇宙の言葉とは何でしょうか？",
   'tut.esencial.titulo': '基本の使い方',
   'tut.tipo.ejemplos': '例・デモのMindHaOS',

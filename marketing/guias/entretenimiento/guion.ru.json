@@ -1,0 +1,810 @@
+{
+  "idioma": "ru",
+  "tema": "entretenimiento",
+  "plantillaId": "entretenimiento",
+  "numero": 16,
+  "nombre": "Развлечения",
+  "pregunta": "Как развлекаться лучше?",
+  "corta": "Как развлекаться лучше?",
+  "subtitulo": "Почему ты так долго выбираешь, что посмотреть, почему скроллинг и «brain rot» не дают отдохнуть, что лучше — марафон или серия в день, почему паузы и спойлеры ничего не портят, полезны тебе видеоигры или вредны, зачем играть с другими, зачем читать, как сделать так, чтобы увиденное оставалось с тобой, и план на будущее.",
+  "aviso": "Это руководство носит информационный характер: результаты цитируемых исследований изложены просто, и многие из них показывают связи, а не причины. Если ты чувствуешь, что не можешь перестать играть или смотреть в экран, даже когда хочешь, поговори с тем, кому доверяешь, или со специалистом.",
+  "partes": [
+    {
+      "id": "elegir",
+      "titulo": "Почему ты так долго выбираешь?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Как развлекаться лучше? Больше десяти минут мы тратим только на то, чтобы выбрать, что посмотреть. А иногда после долгих поисков сдаёмся и не смотрим ничего. А что, если дело не в том, сколько ты развлекаешься, а в том, как? Сегодня ты увидишь, что говорит наука, и уйдёшь с планом, как больше радоваться свободному времени."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Кстати, это мой дом в MindHaOS, и смотри: сегодня здесь самый настоящий апокалипсис, ведь для конца света нет плана лучше, чем остаться дома с хорошим фильмом. В этой комнате я веду всё, что смотрю, читаю и во что играю."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть первая. Почему ты так долго выбираешь?"
+        },
+        {
+          "id": "nielsen",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10,5",
+            "clave": "nielsen"
+          },
+          "lamina": [
+            "control",
+            "catalogo"
+          ],
+          "destacada": true,
+          "texto": "В 2023 году компания Nielsen спросила жителей Соединённых Штатов, сколько времени они выбирают, что посмотреть: в среднем десять с половиной минут. Четырьмя годами раньше было чуть больше семи."
+        },
+        {
+          "id": "eligiendo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "tiempoEligiendo"
+          },
+          "lamina": [
+            "reloj",
+            "sofa"
+          ],
+          "texto": "Кажется, немного, но сложи: десять минут каждый вечер — это больше шестидесяти часов в год, только на поиски. Посмотри, сколько выходит у тебя."
+        },
+        {
+          "id": "decide",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antes",
+              "pendientes",
+              "cinco"
+            ]
+          },
+          "lamina": [
+            "lista",
+            "palomita"
+          ],
+          "meme": "elegir",
+          "texto": "Хитрость в том, чтобы решить заранее, ещё до того как сядешь: держи список того, что хочешь посмотреть, и если за пять минут ничего не выбрано, включай первое из списка."
+        },
+        {
+          "id": "archivo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vi",
+              "lei",
+              "pendiente"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "В моей комнате Развлечения я веду свой архив: что я посмотрел, что прочитал, во что поиграл и что у меня в планах, по жанрам."
+        }
+      ]
+    },
+    {
+      "id": "scroll",
+      "titulo": "Почему скроллинг не даёт отдохнуть?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть вторая. Почему скроллинг не даёт отдохнуть?"
+        },
+        {
+          "id": "brainrot",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2024",
+            "clave": "brainrot"
+          },
+          "lamina": [
+            "scroll",
+            "celularNoche"
+          ],
+          "texto": "В 2024 году Оксфордский словарь выбрал словом года «brain rot», что-то вроде «гниения мозга»: то отупение, которое накрывает после нескольких часов бездумного просмотра контента."
+        },
+        {
+          "id": "verduyn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "pasivoActivo"
+          },
+          "lamina": [
+            "redes",
+            "celularCama"
+          ],
+          "destacada": true,
+          "texto": "В 2015 году Филипп Вердуйн и его команда увидели, что если листать соцсети, ни в чём не участвуя, просто пролистывая посты, самочувствие людей в течение дня ухудшается. Общение с другими в соцсетях такого эффекта не давало."
+        },
+        {
+          "id": "hunt",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "scrollAlAno"
+          },
+          "lamina": [
+            "temporizador",
+            "amigos"
+          ],
+          "meme": "scroll",
+          "texto": "А в 2018 году Мелисса Хант и её команда попросили студентов три недели проводить в соцсетях всего тридцать минут в день. Им стало менее одиноко и менее грустно. Посмотри, сколько набегает твоего скроллинга за год."
+        },
+        {
+          "id": "consciente",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pregunta",
+              "elige",
+              "cierra"
+            ]
+          },
+          "lamina": [
+            "pensar",
+            "ventana"
+          ],
+          "texto": "Хитрость не в том, чтобы бросить соцсети, а в том, чтобы выбирать: прежде чем открыть их, спроси себя, что ты ищешь. Если отдыха — выбери то, что правда хочешь посмотреть, а когда закончится, закрой."
+        }
+      ]
+    },
+    {
+      "id": "maraton",
+      "titulo": "Марафон или одна серия в день?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть третья. Марафон или одна серия в день?"
+        },
+        {
+          "id": "horvath",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "maratonRecuerdo"
+          },
+          "lamina": [
+            "maraton",
+            "palomitas"
+          ],
+          "destacada": true,
+          "texto": "В 2017 году Джаред Хорват и его команда дали студентам посмотреть сериал: одни смотрели всё подряд, другие по серии в день, третьи по одной в неделю. Тем, кто смотрел марафоном, он понравился меньше, а через несколько месяцев они помнили его хуже."
+        },
+        {
+          "id": "sueno",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2017",
+            "clave": "exelmans"
+          },
+          "lamina": [
+            "nocheTele",
+            "cama"
+          ],
+          "texto": "И есть ещё одна цена. В том же году Лизе Эксельманс и Ян Ван ден Булк увидели, что молодые люди, устраивавшие марафоны, хуже спали и просыпались более уставшими: после последней серии голова остаётся взвинченной."
+        },
+        {
+          "id": "ritmo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "ritmoSerie"
+          },
+          "lamina": [
+            "despertador",
+            "luna"
+          ],
+          "meme": "unoMas",
+          "texto": "Посмотри, на сколько тебе хватит сериала в твоём темпе и во сколько ты ляжешь спать с ещё одной серией."
+        },
+        {
+          "id": "curso",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "enCurso",
+              "uno",
+              "manana"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Поэтому здесь у каждого сериала свой статус: «Плутон» у меня в планах, и я буду смотреть его по одной серии."
+        }
+      ]
+    },
+    {
+      "id": "pausas",
+      "titulo": "Почему паузы и спойлеры ничего не портят?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть четвёртая. Почему паузы и спойлеры ничего не портят?"
+        },
+        {
+          "id": "nelson",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cortes"
+          },
+          "lamina": [
+            "pausa",
+            "cine"
+          ],
+          "destacada": true,
+          "texto": "В 2009 году Лейф Нельсон, Том Мейвис и Джефф Галак показывали людям передачу с рекламными паузами и без них. С паузами она понравилась больше: удовольствие со временем выдыхается, а пауза его обновляет."
+        },
+        {
+          "id": "spoiler",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2011",
+            "clave": "leavitt"
+          },
+          "lamina": [
+            "leerSofa",
+            "sorpresa"
+          ],
+          "meme": "spoiler",
+          "texto": "И ещё один сюрприз: в 2011 году Джонатан Ливитт и Николас Кристенфельд давали читать рассказы с раскрытой концовкой и без неё. В среднем больше понравились те, где финал был уже известен."
+        },
+        {
+          "id": "aplica",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "levantate",
+              "comenta",
+              "vuelve"
+            ]
+          },
+          "lamina": [
+            "amigos",
+            "cafe"
+          ],
+          "texto": "Так что не бойся паузы: встань, обсуди увиденное и возвращайся с новыми силами. В истории по-настоящему важно не только то, чем она заканчивается."
+        },
+        {
+          "id": "resumen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "deQueVa",
+              "sinSpoilers",
+              "despues"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "А если я хочу узнать, о чём что-то, прежде чем смотреть, я прошу здесь пересказ от ИИ, без спойлеров, пока я не досмотрю."
+        }
+      ]
+    },
+    {
+      "id": "videojuegos",
+      "titulo": "Видеоигры тебе на пользу или во вред?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть пятая. Видеоигры тебе на пользу или во вред?"
+        },
+        {
+          "id": "przybylski",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "horasJuego"
+          },
+          "lamina": [
+            "videojuego",
+            "control2"
+          ],
+          "destacada": true,
+          "texto": "В 2014 году Эндрю Пшибыльский изучил почти пять тысяч детей от десяти до пятнадцати лет в Великобритании. Те, кто играл меньше часа в день, чувствовали себя чуть лучше тех, кто не играл вовсе, а те, кто играл больше трёх часов, — чуть хуже."
+        },
+        {
+          "id": "vuorre",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2022",
+            "clave": "vuorre"
+          },
+          "lamina": [
+            "jugadora",
+            "pantallaJuego"
+          ],
+          "texto": "А в 2022 году, изучив почти тридцать девять тысяч взрослых игроков, Матти Вуорре и его команда увидели, что количество часов почти не меняло их самочувствие. Важно было другое — почему они играли: ради удовольствия — хорошо, потому что чувствовали, что должны, — хуже."
+        },
+        {
+          "id": "pregunta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "porQueJuegas"
+          },
+          "lamina": [
+            "pensar",
+            "brujula"
+          ],
+          "texto": "Так что перед игрой задай себе вопрос: я играю, потому что хочу, или потому что не могу остановиться? Посмотри, что получится."
+        },
+        {
+          "id": "juegos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ingenio",
+              "arcade",
+              "dificultad"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "В моей комнате двадцать три игры на свободную минутку: головоломки, аркады, карты и настольные, и у каждой своя сложность."
+        }
+      ]
+    },
+    {
+      "id": "otros",
+      "titulo": "Зачем играть с другими?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть шестая. Зачем играть с другими?"
+        },
+        {
+          "id": "altschul",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "mesaMente"
+          },
+          "lamina": [
+            "ajedrez",
+            "cartas"
+          ],
+          "destacada": true,
+          "texto": "В 2020 году Дрю Альтшул и Иэн Дири наблюдали за более чем тысячей человек в Шотландии, родившихся в 1936 году. Те, кто чаще играл в настольные и карточные игры, меньше теряли память и ясность ума в возрасте от семидесяти до семидесяти девяти лет."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoEntre"
+          },
+          "lamina": "pulgar",
+          "texto": "Если тебе нравится это руководство, нажми «Нравится», «Подписаться», чтобы не пропустить следующее, и «Поделиться» — с тем, кто всегда обыгрывает тебя в карты."
+        },
+        {
+          "id": "boothby",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2014",
+            "clave": "boothby"
+          },
+          "lamina": [
+            "chocolate",
+            "familiaMesa"
+          ],
+          "texto": "А разделённое с кем-то меняет всё: в 2014 году Эрика Бутби и её команда увидели, что шоколад казался вкуснее, когда другой человек пробовал его в то же время. То, что переживаешь вместе, чувствуется сильнее."
+        },
+        {
+          "id": "grupo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "conocerse",
+              "debates",
+              "enLinea"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Поэтому здесь есть и игры для компании, вроде «Узнать друг друга» или «Дебатов», и столы в сети, чтобы играть с друзьями."
+        }
+      ]
+    },
+    {
+      "id": "leer",
+      "titulo": "А чтение считается?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть седьмая. А чтение считается?"
+        },
+        {
+          "id": "bavishi",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "23",
+            "clave": "bavishi"
+          },
+          "lamina": [
+            "abueloLee",
+            "libros"
+          ],
+          "destacada": true,
+          "texto": "В 2016 году Авни Бавиши, Мартин Слейд и Бекка Леви двенадцать лет наблюдали за более чем тремя с половиной тысячами людей старше пятидесяти. Те, кто читал книги, прожили в среднем почти на два года дольше тех, кто не читал."
+        },
+        {
+          "id": "mediaHora",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "librosAlAno"
+          },
+          "lamina": [
+            "leerCama",
+            "temporizador"
+          ],
+          "texto": "И много не нужно: при получасе в день посмотри, сколько книг поместится в год."
+        },
+        {
+          "id": "noche",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antesDormir",
+              "enVez",
+              "aMano"
+            ]
+          },
+          "lamina": [
+            "lampara",
+            "libreta"
+          ],
+          "texto": "Хорошее время — перед сном: книга вместо ещё одной серии. Оставь её на подушке, а телефон — подальше от кровати."
+        },
+        {
+          "id": "libros",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "categoria",
+              "enCursoLibro",
+              "estrellas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Мои книги тоже здесь: «Анафем» у меня в процессе, а у «Космоса» уже пять звёзд."
+        }
+      ]
+    },
+    {
+      "id": "durar",
+      "titulo": "Как сделать, чтобы это осталось с тобой?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть восьмая. Как сделать, чтобы это осталось с тобой?"
+        },
+        {
+          "id": "zhang",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "capsula"
+          },
+          "lamina": [
+            "capsula",
+            "fotos"
+          ],
+          "destacada": true,
+          "texto": "В 2014 году Тин Чжан и её команда попросили студентов сложить в капсулу времени обычные вещи из жизни: последний просмотренный фильм, песню, разговор. Через три месяца перечитывать это им было гораздо интереснее, чем они думали."
+        },
+        {
+          "id": "anota",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estrellasN",
+              "frase",
+              "conQuien"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "agendaPapel"
+          ],
+          "texto": "Так что, когда что-то закончишь, запиши три вещи: сколько звёзд ставишь, одну фразу о том, что это тебе дало, и в чьей компании."
+        },
+        {
+          "id": "gusto",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "patron",
+              "genero",
+              "facil"
+            ]
+          },
+          "lamina": [
+            "estante",
+            "lupa"
+          ],
+          "texto": "Со временем твои заметки подскажут, что тебе по-настоящему нравится, и выбирать, что посмотреть, станет гораздо проще."
+        },
+        {
+          "id": "tarjeta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "portada",
+              "voltea",
+              "resena"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Мои карточки хранят всё это: спереди обложка, а если коснуться, карточка переворачивается, и там мои звёзды и мой отзыв."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Как продолжать? Твой план на будущее",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть девятая. Как продолжать? Твой план на будущее."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planEntre"
+          },
+          "lamina": [
+            "lista",
+            "reloj"
+          ],
+          "texto": "В первую неделю составь список того, что хочешь посмотреть, и проверь, сколько времени незаметно уходит у тебя на соцсети."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tope",
+              "resto",
+              "noche"
+            ]
+          },
+          "lamina": [
+            "escalon",
+            "arbol"
+          ],
+          "destacada": true,
+          "texto": "В первый месяц ограничь марафоны: две серии за вечер, а остальное — на завтра."
+        },
+        {
+          "id": "semanal",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mesa",
+              "libro",
+              "alguien"
+            ]
+          },
+          "lamina": [
+            "familiaMesa",
+            "cumbre"
+          ],
+          "texto": "И один вечер в неделю меняй экран на настольную игру или книгу, лучше вместе с кем-то."
+        },
+        {
+          "id": "metas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "clasicos",
+              "unoALaVez"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "А свои планы я веду как цель: классика научной фантастики к просмотру, по одному фильму за раз."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Итак: решай заранее, до того как сядешь; скролль осознанно, а не на автомате; по одной серии за раз, а паузы не мешают; играй ради удовольствия и с другими; читай понемногу каждый день; и записывай, что тебе это дало."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "В комнате Развлечения в MindHaOS ты можешь вести свой архив фильмов, сериалов, книг и видеоигр со своими отзывами и играть в свои настольные игры. Построй свой мысленный дом бесплатно уже сегодня: ссылка в описании. А в следующем руководстве: как ухаживать за своим транспортом?",
+    "boton": "Открыть комнату Развлечения",
+    "lamina": "app-plan",
+    "anclas": {
+      "archivo": "свой архив",
+      "resenas": "своими отзывами",
+      "juegos": "настольные игры"
+    }
+  },
+  "resumenDemo": {
+    "ficha": "Андрей Тарковский · 1972 · научная фантастика · 2 ч 47 мин",
+    "sinopsis": "Психолог летит на космическую станцию на орбите планеты Солярис, покрытой загадочным океаном, чтобы решить, продолжать ли миссию. На месте он находит измотанный и напуганный экипаж, и вскоре сам начинает видеть то, чему нет объяснения.",
+    "claves": [
+      "Медленный, созерцательный фильм: смотреть его стоит не спеша.",
+      "Он не столько о кораблях и приключениях, сколько о памяти, вине и о том, чего мы не знаем о другом.",
+      "По роману Станислава Лема (1961)."
+    ]
+  },
+  "fuentes": [
+    {
+      "id": "nielsen-2023",
+      "texto": "Nielsen. State of Play 2023: Streaming viewers spend 10.5 minutes deciding what to watch (2023).",
+      "url": "https://www.nielsen.com/insights/2023/state-of-play-2023/"
+    },
+    {
+      "id": "oxford-2024",
+      "texto": "Oxford University Press. Oxford Word of the Year 2024: brain rot (2024).",
+      "url": "https://corp.oup.com/news/brain-rot-named-oxford-word-of-the-year-2024/"
+    },
+    {
+      "id": "verduyn-2015",
+      "texto": "Verduyn P., Lee D. S., Park J., Shablack H., Orvell A., Bayer J., Ybarra O., Jonides J., Kross E. Passive Facebook usage undermines affective well-being: Experimental and longitudinal evidence. Journal of Experimental Psychology: General (2015).",
+      "url": "https://doi.org/10.1037/xge0000057"
+    },
+    {
+      "id": "hunt-2018",
+      "texto": "Hunt M. G., Marx R., Lipson C., Young J. No more FOMO: Limiting social media decreases loneliness and depression. Journal of Social and Clinical Psychology (2018).",
+      "url": "https://doi.org/10.1521/jscp.2018.37.10.751"
+    },
+    {
+      "id": "horvath-2017",
+      "texto": "Horvath J. C., Horton A. J., Lodge J. M., Hattie J. A. C. The impact of binge watching on memory and perceived comprehension. First Monday (2017).",
+      "url": "https://doi.org/10.5210/fm.v22i9.7729"
+    },
+    {
+      "id": "exelmans-2017",
+      "texto": "Exelmans L., Van den Bulck J. Binge viewing, sleep, and the role of pre-sleep arousal. Journal of Clinical Sleep Medicine (2017).",
+      "url": "https://doi.org/10.5664/jcsm.6704"
+    },
+    {
+      "id": "nelson-2009",
+      "texto": "Nelson L. D., Meyvis T., Galak J. Enhancing the television-viewing experience through commercial interruptions. Journal of Consumer Research (2009).",
+      "url": "https://doi.org/10.1086/597296"
+    },
+    {
+      "id": "leavitt-2011",
+      "texto": "Leavitt J. D., Christenfeld N. J. S. Story spoilers don't spoil stories. Psychological Science (2011).",
+      "url": "https://doi.org/10.1177/0956797611417007"
+    },
+    {
+      "id": "przybylski-2014",
+      "texto": "Przybylski A. K. Electronic gaming and psychosocial adjustment. Pediatrics (2014).",
+      "url": "https://doi.org/10.1542/peds.2013-4021"
+    },
+    {
+      "id": "vuorre-2022",
+      "texto": "Vuorre M., Johannes N., Magnusson K., Przybylski A. K. Time spent playing video games is unlikely to impact well-being. Royal Society Open Science (2022).",
+      "url": "https://doi.org/10.1098/rsos.220411"
+    },
+    {
+      "id": "altschul-2020",
+      "texto": "Altschul D. M., Deary I. J. Playing analog games is associated with reduced declines in cognitive function: a 68-year longitudinal cohort study. The Journals of Gerontology: Series B (2020).",
+      "url": "https://doi.org/10.1093/geronb/gbz149"
+    },
+    {
+      "id": "boothby-2014",
+      "texto": "Boothby E. J., Clark M. S., Bargh J. A. Shared experiences are amplified. Psychological Science (2014).",
+      "url": "https://doi.org/10.1177/0956797614551162"
+    },
+    {
+      "id": "bavishi-2016",
+      "texto": "Bavishi A., Slade M. D., Levy B. R. A chapter a day: Association of book reading with longevity. Social Science & Medicine (2016).",
+      "url": "https://doi.org/10.1016/j.socscimed.2016.07.014"
+    },
+    {
+      "id": "zhang-2014",
+      "texto": "Zhang T., Kim T., Brooks A. W., Gino F., Norton M. I. A \"present\" for the future: The unexpected value of rediscovery. Psychological Science (2014).",
+      "url": "https://doi.org/10.1177/0956797614542274"
+    }
+  ]
+}
