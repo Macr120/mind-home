@@ -24,7 +24,7 @@ export interface ColoresRig {
   botas: boolean
 }
 
-const PRENDAS_CABEZA: PrendaId[] = ['lentes', 'sombrero', 'gorra', 'gorroChef']
+const PRENDAS_CABEZA: PrendaId[] = ['lentes', 'sombrero', 'gorra', 'gorroChef', 'bigote', 'bigoteManubrio', 'bigoteMorsa', 'barba', 'barbaCandado', 'barbaLarga', 'patillas']
 
 /** Solo las prendas que van fijas a la cabeza (giran con el cuello). */
 export function ropaCabeza(ropa: Ropa | undefined): Ropa | undefined {

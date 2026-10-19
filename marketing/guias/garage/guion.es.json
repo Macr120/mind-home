@@ -1,0 +1,725 @@
+{
+  "idioma": "es",
+  "tema": "garage",
+  "plantillaId": "garage",
+  "numero": 17,
+  "nombre": "Garage",
+  "pregunta": "¿Cómo cuidar tus vehículos?",
+  "corta": "¿Cómo cuidar tus vehículos?",
+  "subtitulo": "Por qué cuidar tu coche o tu bici antes de que falle, quién fue el primer mecánico de la historia, por qué empezar por las llantas, cada cuándo cambiar el aceite (y qué mitos sobran), por qué tu forma de manejar también es mantenimiento, cómo cuidar tu bici, por qué se nos olvida y un plan para continuar.",
+  "aviso": "Esta guía es informativa y general: cada vehículo es distinto. Sigue siempre el manual de tu vehículo y, ante ruidos, olores, fugas o fallas en los frenos, la dirección o las llantas, llévalo con un mecánico de confianza antes de seguir usándolo.",
+  "partes": [
+    {
+      "id": "prevenir",
+      "titulo": "¿Por qué cuidarlo antes de que falle?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "¿Cómo cuidar tus vehículos? Uno de cada cuatro coches en la calle trae al menos una llanta muy baja. Y casi nadie se da cuenta hasta que algo truena. ¿Y si cuidar tu coche o tu bici fuera mucho más sencillo de lo que crees? Hoy lo vas a ver con datos, y vas a salir con un plan para continuar."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Por cierto, esta es mi casa en MindHaOS, y sí: está en pleno apocalipsis. Y en el fin del mundo, el que sabe cuidar su vehículo llega más lejos. Este es mi garage: aquí llevo mi coche, mi bici y todo lo que les hago."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte uno. ¿Por qué cuidarlo antes de que falle?"
+        },
+        {
+          "id": "edad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edadAutos"
+          },
+          "lamina": [
+            "trafico",
+            "autoViejo"
+          ],
+          "texto": "En 2024, la firma S&P Global contó que los coches en Estados Unidos tienen en promedio doce años y medio, un récord. Los vehículos duran cada vez más, pero solo si los cuidas."
+        },
+        {
+          "id": "nhtsa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "causasFalla"
+          },
+          "lamina": [
+            "llantaPonchada",
+            "frenoDisco"
+          ],
+          "destacada": true,
+          "texto": "Y cuando un choque se debe al vehículo y no al conductor, ¿qué falla? La agencia de seguridad vial de Estados Unidos lo revisó: en más de un tercio de esos choques fueron las llantas, y en uno de cada cinco, los frenos."
+        },
+        {
+          "id": "avisa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ruido",
+              "testigo",
+              "olor"
+            ]
+          },
+          "lamina": [
+            "tablero",
+            "escuchar"
+          ],
+          "meme": "testigo",
+          "texto": "La buena noticia: casi todo avisa antes. Un ruido nuevo, un testigo en el tablero, un olor raro. El truco es no subirle al radio, sino hacerle caso."
+        },
+        {
+          "id": "resumen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vencido",
+              "puerta",
+              "alDia"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Yo lo aprendí cuando mi coche me dejó tirado en plena avenida. Desde entonces, el resumen de mi garage me dice qué está vencido y qué viene en camino."
+        }
+      ]
+    },
+    {
+      "id": "bertha",
+      "titulo": "¿Quién fue el primer mecánico de la historia?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte dos. ¿Quién fue el primer mecánico de la historia?"
+        },
+        {
+          "id": "viaje",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1888",
+            "clave": "bertha"
+          },
+          "lamina": [
+            "berthaBenz",
+            "motorwagen"
+          ],
+          "destacada": true,
+          "texto": "Spoiler: fue una mujer. En 1888, Bertha Benz tomó el automóvil que había inventado su esposo, Karl, y sin avisarle se fue con sus dos hijos de Mannheim a Pforzheim: más de cien kilómetros, el primer viaje largo en coche de la historia."
+        },
+        {
+          "id": "arreglos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "horquilla",
+              "liga",
+              "cuero"
+            ]
+          },
+          "lamina": [
+            "berthaRuta",
+            "zapatero"
+          ],
+          "texto": "Y en el camino lo fue arreglando ella misma: destapó el conducto del combustible con un pasador del sombrero, aisló un cable con su liga, y le pidió a un zapatero forrar con cuero los frenos gastados."
+        },
+        {
+          "id": "farmacia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1888",
+            "clave": "wiesloch"
+          },
+          "lamina": [
+            "farmacia",
+            "motorwagen2"
+          ],
+          "texto": "La gasolina la compró en una farmacia de Wiesloch, que hoy se recuerda como la primera gasolinera del mundo. Y al volver le contó a Karl qué mejorar: el coche siguiente ya subía mejor las cuestas."
+        },
+        {
+          "id": "ficha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "auto",
+              "bici",
+              "nota"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Lo que ella hizo fue conocer su coche. Aquí cada vehículo tiene su ficha: el Mastodonte, mi sedán heredado, y la Grulla, mi bici de todos los días."
+        }
+      ]
+    },
+    {
+      "id": "llantas",
+      "titulo": "¿Por qué empezar por las llantas?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte tres. ¿Por qué empezar por las llantas?"
+        },
+        {
+          "id": "presion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "27 %",
+            "clave": "nhtsa2001"
+          },
+          "lamina": [
+            "manometro",
+            "inflar"
+          ],
+          "destacada": true,
+          "texto": "En 2001, esa misma agencia midió las llantas de más de once mil vehículos en gasolineras de todo Estados Unidos. Más de un coche de cada cuatro traía al menos una llanta muy por debajo de su presión."
+        },
+        {
+          "id": "consumo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "presionConsumo"
+          },
+          "lamina": [
+            "gasolina",
+            "llantaCarretera"
+          ],
+          "texto": "Y eso cuesta: una llanta baja frena peor, se gasta antes y te hace gastar más gasolina. Mira cuánto se te va al año con tus llantas bajas."
+        },
+        {
+          "id": "revisa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "frio",
+              "puertaLlanta",
+              "mes"
+            ]
+          },
+          "lamina": [
+            "calcomania",
+            "dibujo"
+          ],
+          "meme": "llanta",
+          "texto": "Revísalas en frío, una vez al mes, con la presión que dice la etiqueta de la puerta, no la del costado de la llanta. Y mira el dibujo: si ya casi no tiene ranuras, toca cambiarlas."
+        },
+        {
+          "id": "historial",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "servicio",
+              "fecha",
+              "costo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En el historial de cada vehículo anoto cada servicio, con su fecha y lo que me costó: las llantas, la batería, las balatas."
+        }
+      ]
+    },
+    {
+      "id": "aceite",
+      "titulo": "¿Cada cuándo cambiar el aceite?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte cuatro. ¿Cada cuándo cambiar el aceite?"
+        },
+        {
+          "id": "mito",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cambiosAceite"
+          },
+          "lamina": [
+            "aceite",
+            "motor"
+          ],
+          "meme": "aceite",
+          "texto": "Seguro te han dicho que cada cinco mil kilómetros. Con los motores y aceites de hoy, muchos fabricantes piden cambiarlo bastante después. La regla que manda es la del manual de tu coche. Mira cuántos cambios te ahorras al año."
+        },
+        {
+          "id": "filtro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "filtroAire"
+          },
+          "lamina": [
+            "filtroAire",
+            "cofre"
+          ],
+          "destacada": true,
+          "texto": "Otro mito: en 2009, un laboratorio de Estados Unidos tapó a propósito el filtro de aire de varios coches modernos. El consumo de gasolina casi no cambió, pero tardaban más en acelerar. Cambiarlo te da potencia, no ahorro."
+        },
+        {
+          "id": "manual",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeManual",
+              "uso",
+              "nivel"
+            ]
+          },
+          "lamina": [
+            "manual",
+            "varilla"
+          ],
+          "texto": "Así que lee el manual, fíjate si tu uso es pesado, como mucho tráfico o calor, y revisa el nivel del aceite cada par de semanas."
+        },
+        {
+          "id": "proximo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "registro",
+              "odometro",
+              "proximo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Cuando registro un cambio de aceite, apunto el odómetro, y la app me dice cuándo toca el próximo, en kilómetros o en días."
+        }
+      ]
+    },
+    {
+      "id": "manejo",
+      "titulo": "¿Tu forma de manejar también es mantenimiento?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte cinco. ¿Tu forma de manejar también es mantenimiento?"
+        },
+        {
+          "id": "agresivo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "manejoAgresivo"
+          },
+          "lamina": [
+            "acelerar",
+            "semaforo"
+          ],
+          "destacada": true,
+          "texto": "El Departamento de Energía de Estados Unidos lo calcula así: acelerar y frenar de golpe puede subir tu gasto de gasolina entre un quince y un treinta por ciento en carretera, y hasta un cuarenta en la ciudad."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoGarage"
+          },
+          "lamina": "pulgar",
+          "texto": "Si te está gustando la guía, dale like, suscríbete para no perderte la próxima y compártela con esa persona que siempre maneja con el pie pesado."
+        },
+        {
+          "id": "suave",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "manejoSuave"
+          },
+          "lamina": [
+            "volante",
+            "carretera"
+          ],
+          "texto": "Y no es solo gasolina: frenar de golpe gasta las balatas y las llantas. Mira cuánto te ahorras al año manejando suave."
+        },
+        {
+          "id": "habitos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "anticipa",
+              "peso",
+              "calienta"
+            ]
+          },
+          "lamina": [
+            "cajuela",
+            "amanecer"
+          ],
+          "texto": "Anticipa los altos, saca de la cajuela el peso que no usas, y en los primeros minutos maneja tranquilo, sin exigirle al motor en frío."
+        },
+        {
+          "id": "gasto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "gastoAno",
+              "total",
+              "compara"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Y al final del año veo cuánto gasté en cada vehículo: los números no mienten."
+        }
+      ]
+    },
+    {
+      "id": "bici",
+      "titulo": "¿Y la bici?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte seis. ¿Y la bici?"
+        },
+        {
+          "id": "spicer",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "98,6 %",
+            "clave": "spicer"
+          },
+          "lamina": [
+            "cadena",
+            "pedalear"
+          ],
+          "destacada": true,
+          "texto": "En 1999, James Spicer y su equipo de la Universidad Johns Hopkins midieron la cadena de una bici: en su mejor prueba, llevaba a la rueda casi el noventa y nueve por ciento de tu fuerza. Y se sorprendieron: el aceite casi no cambiaba nada. Su papel, dijeron, es que no entre la tierra."
+        },
+        {
+          "id": "abc",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "aire",
+              "frenos",
+              "cadenaPaso"
+            ]
+          },
+          "lamina": [
+            "biciLlanta",
+            "biciFreno"
+          ],
+          "meme": "cadena",
+          "texto": "Por eso, antes de salir, haz el chequeo de tres pasos: aire en las llantas, frenos que frenen y la cadena limpia y lubricada."
+        },
+        {
+          "id": "limpia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "trapo",
+              "gota",
+              "seca"
+            ]
+          },
+          "lamina": [
+            "lubricar",
+            "biciTaller"
+          ],
+          "texto": "Limpia la cadena con un trapo, una gota de aceite en cada eslabón, y quita lo que sobre: el aceite de más junta tierra y gasta la cadena y los piñones."
+        },
+        {
+          "id": "grulla",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "grulla",
+              "cadenaApp",
+              "zapatas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "La Grulla también tiene su historial: la cadena, las zapatas, cada ponchadura. Y la próxima afinación ya está en el calendario."
+        }
+      ]
+    },
+    {
+      "id": "olvido",
+      "titulo": "¿Por qué se nos olvida?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte siete. ¿Por qué se nos olvida?"
+        },
+        {
+          "id": "presente",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hoy",
+              "lejos",
+              "caro"
+            ]
+          },
+          "lamina": [
+            "calendarioPapel",
+            "reloj"
+          ],
+          "texto": "Porque el mantenimiento no duele hoy: el coche anda bien, el servicio cuesta ahora y la falla parece lejana. Así que lo dejamos para después, una y otra vez."
+        },
+        {
+          "id": "altmann",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "recordatorio"
+          },
+          "lamina": [
+            "postal",
+            "notificacion"
+          ],
+          "destacada": true,
+          "texto": "En 2014, Steffen Altmann y Christian Traxler probaron algo muy simple en un consultorio dental de Alemania: mandar a los pacientes una postal para recordarles su revisión. En el primer mes, más del doble de esas personas hizo su cita."
+        },
+        {
+          "id": "agenda",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fechaFija",
+              "aviso",
+              "papeles"
+            ]
+          },
+          "lamina": [
+            "llaves",
+            "documentos"
+          ],
+          "texto": "Así que no confíes en tu memoria: ponle fecha a cada servicio, un aviso unos días antes, y ten tus papeles a la mano."
+        },
+        {
+          "id": "tramites",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "verificacion",
+              "poliza",
+              "calendario"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Por eso mis trámites, como la verificación o la renovación de la póliza, se agendan solos en mi calendario."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "¿Cómo seguir? Tu plan para continuar",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte ocho. ¿Cómo seguir? Tu plan para continuar."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planGarage"
+          },
+          "lamina": [
+            "manometro",
+            "libreta"
+          ],
+          "texto": "La primera semana, revisa la presión de tus llantas y apunta cuántos kilómetros lleva tu vehículo."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeManualPlan",
+              "proximos",
+              "tallerPlan"
+            ]
+          },
+          "lamina": [
+            "manual",
+            "mecanico"
+          ],
+          "destacada": true,
+          "texto": "El primer mes, lee el manual, agenda tus próximos servicios y busca un taller de confianza antes de necesitarlo."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vuelta",
+              "chequeo",
+              "anota"
+            ]
+          },
+          "lamina": [
+            "revisarAuto",
+            "cumbre"
+          ],
+          "texto": "Y cada mes, dale una vuelta: llantas, luces, niveles y el chequeo de la bici. Y anota todo lo que le haces."
+        },
+        {
+          "id": "contactos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "documentosApp",
+              "contactosApp",
+              "todo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Y en la ficha de cada vehículo guardo sus documentos y los contactos de mis talleres de confianza."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "En resumen: hazle caso a los avisos; revisa tus llantas cada mes; sigue el manual, no los mitos; maneja suave; cuida la cadena de tu bici; y agenda todo, porque la memoria falla."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "En el Garage de MindHaOS llevas tus vehículos, sus servicios y lo que gastas, y tus trámites en el calendario. Arma tu casa mental gratis hoy: el enlace está en la descripción. Y en la próxima guía: ¿cómo viajar mejor?",
+    "boton": "Abrir el Garage",
+    "lamina": "app-plan",
+    "anclas": {
+      "vehiculos": "tus vehículos",
+      "servicios": "sus servicios",
+      "tramites": "tus trámites"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "spglobal-2024",
+      "texto": "S&P Global Mobility. Average age of vehicles in the US continues to rise: 12.6 years in 2024 (2024).",
+      "url": "https://press.spglobal.com/2024-05-22-Average-Age-of-Vehicles-in-the-US-Continues-to-Rise-12-6-years-in-2024%2C-according-to-S-P-Global-Mobility"
+    },
+    {
+      "id": "nhtsa-2015",
+      "texto": "NHTSA (Administración Nacional de Seguridad del Tráfico en las Carreteras de EE. UU.). Critical reasons for crashes investigated in the National Motor Vehicle Crash Causation Survey. DOT HS 812 115 (2015).",
+      "url": "https://crashstats.nhtsa.dot.gov/Api/Public/Publication/812115"
+    },
+    {
+      "id": "bertha-benz",
+      "texto": "Bertha Benz y su viaje de Mannheim a Pforzheim (1888). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Bertha_Benz"
+    },
+    {
+      "id": "nhtsa-2001",
+      "texto": "NHTSA. Tire pressure special study: vehicle observation data. DOT HS 809 317 (2001).",
+      "url": "https://rosap.ntl.bts.gov/view/dot/5197"
+    },
+    {
+      "id": "ornl-2009",
+      "texto": "Thomas J., West B., Huff S. Effect of intake air filter condition on vehicle fuel economy. Oak Ridge National Laboratory, ORNL/TM-2009/021 (2009).",
+      "url": "https://www.osti.gov/biblio/948545"
+    },
+    {
+      "id": "doe-manejo",
+      "texto": "Departamento de Energía de EE. UU. Driving more efficiently / Keeping your vehicle in shape (fueleconomy.gov).",
+      "url": "https://www.fueleconomy.gov/feg/driveHabits.jsp"
+    },
+    {
+      "id": "spicer-1999",
+      "texto": "Spicer J. B. y colegas. Effects of frictional loss on bicycle chain drive efficiency. Journal of Mechanical Design (2001); nota de prensa de Johns Hopkins (1999).",
+      "url": "https://www.sciencedaily.com/releases/1999/08/990819180058.htm"
+    },
+    {
+      "id": "altmann-2014",
+      "texto": "Altmann S., Traxler C. Nudges at the dentist. European Economic Review 72, 19-38 (2014).",
+      "url": "https://doi.org/10.1016/j.euroecorev.2014.07.007"
+    }
+  ]
+}

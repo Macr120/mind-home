@@ -1,0 +1,725 @@
+{
+  "idioma": "en",
+  "tema": "garage",
+  "plantillaId": "garage",
+  "numero": 17,
+  "nombre": "Garage",
+  "pregunta": "How do you take care of your vehicles?",
+  "corta": "How do you take care of your vehicles?",
+  "subtitulo": "Why take care of your car or bike before it breaks, who the first mechanic in history was, why to start with the tires, how often to change the oil (and which myths to drop), why the way you drive is maintenance too, how to care for your bike, why we forget, and a plan to keep going.",
+  "aviso": "This guide is general information: every vehicle is different. Always follow your vehicle’s manual and, if you notice noises, smells, leaks or problems with the brakes, steering or tires, take it to a mechanic you trust before you keep using it.",
+  "partes": [
+    {
+      "id": "prevenir",
+      "titulo": "Why take care of it before it breaks?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "How do you take care of your vehicles? One in four cars on the road has at least one badly underinflated tire. And almost nobody notices until something goes bang. What if taking care of your car or your bike were much simpler than you think? Today you’ll see it with data, and you’ll leave with a plan to keep going."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "By the way, this is my house in MindHaOS, and yes: it’s in the middle of the apocalypse. And at the end of the world, whoever knows how to take care of their vehicle gets further. This is my garage: here I keep track of my car, my bike and everything I do to them."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part one. Why take care of it before it breaks?"
+        },
+        {
+          "id": "edad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edadAutos"
+          },
+          "lamina": [
+            "trafico",
+            "autoViejo"
+          ],
+          "texto": "In 2024, the firm S&P Global found that cars in the United States are twelve and a half years old on average, a record. Vehicles last longer and longer, but only if you take care of them."
+        },
+        {
+          "id": "nhtsa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "causasFalla"
+          },
+          "lamina": [
+            "llantaPonchada",
+            "frenoDisco"
+          ],
+          "destacada": true,
+          "texto": "And when a crash is caused by the vehicle and not the driver, what fails? The US road safety agency looked into it: in more than a third of those crashes it was the tires, and in one in five, the brakes."
+        },
+        {
+          "id": "avisa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ruido",
+              "testigo",
+              "olor"
+            ]
+          },
+          "lamina": [
+            "tablero",
+            "escuchar"
+          ],
+          "meme": "testigo",
+          "texto": "The good news: almost everything warns you first. A new noise, a warning light on the dashboard, a strange smell. The trick isn’t to turn up the radio, but to listen."
+        },
+        {
+          "id": "resumen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vencido",
+              "puerta",
+              "alDia"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "I learned that when my car left me stranded in the middle of a busy avenue. Since then, my garage Summary tells me what’s overdue and what’s coming up."
+        }
+      ]
+    },
+    {
+      "id": "bertha",
+      "titulo": "Who was the first mechanic in history?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part two. Who was the first mechanic in history?"
+        },
+        {
+          "id": "viaje",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1888",
+            "clave": "bertha"
+          },
+          "lamina": [
+            "berthaBenz",
+            "motorwagen"
+          ],
+          "destacada": true,
+          "texto": "Spoiler: it was a woman. In 1888, Bertha Benz took the car her husband Karl had invented and, without telling him, drove off with their two sons from Mannheim to Pforzheim: more than a hundred kilometers, the first long car trip in history."
+        },
+        {
+          "id": "arreglos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "horquilla",
+              "liga",
+              "cuero"
+            ]
+          },
+          "lamina": [
+            "berthaRuta",
+            "zapatero"
+          ],
+          "texto": "And along the way she fixed it herself: she unclogged the fuel line with a hatpin, insulated a wire with her garter, and asked a shoemaker to cover the worn-out brakes with leather."
+        },
+        {
+          "id": "farmacia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1888",
+            "clave": "wiesloch"
+          },
+          "lamina": [
+            "farmacia",
+            "motorwagen2"
+          ],
+          "texto": "She bought the fuel at a pharmacy in Wiesloch, remembered today as the world’s first gas station. And when she got back, she told Karl what to improve: the next car climbed hills better."
+        },
+        {
+          "id": "ficha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "auto",
+              "bici",
+              "nota"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "What she did was get to know her car. Here every vehicle has its own card: The Mastodon, my inherited sedan, and The Crane, my everyday bike."
+        }
+      ]
+    },
+    {
+      "id": "llantas",
+      "titulo": "Why start with the tires?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part three. Why start with the tires?"
+        },
+        {
+          "id": "presion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "27%",
+            "clave": "nhtsa2001"
+          },
+          "lamina": [
+            "manometro",
+            "inflar"
+          ],
+          "destacada": true,
+          "texto": "In 2001, that same agency checked the tires of more than eleven thousand vehicles at gas stations across the United States. More than one car in four had at least one tire well below its proper pressure."
+        },
+        {
+          "id": "consumo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "presionConsumo"
+          },
+          "lamina": [
+            "gasolina",
+            "llantaCarretera"
+          ],
+          "texto": "And that costs you: a low tire brakes worse, wears out sooner and makes you burn more gas. Look how much your low tires cost you each year."
+        },
+        {
+          "id": "revisa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "frio",
+              "puertaLlanta",
+              "mes"
+            ]
+          },
+          "lamina": [
+            "calcomania",
+            "dibujo"
+          ],
+          "meme": "llanta",
+          "texto": "Check them cold, once a month, using the pressure on the door sticker, not the one on the side of the tire. And look at the tread: if the grooves are almost gone, it’s time to replace them."
+        },
+        {
+          "id": "historial",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "servicio",
+              "fecha",
+              "costo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In each vehicle’s History I log every service, with its date and what it cost me: the tires, the battery, the brake pads."
+        }
+      ]
+    },
+    {
+      "id": "aceite",
+      "titulo": "How often should you change the oil?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part four. How often should you change the oil?"
+        },
+        {
+          "id": "mito",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cambiosAceite"
+          },
+          "lamina": [
+            "aceite",
+            "motor"
+          ],
+          "meme": "aceite",
+          "texto": "You’ve probably been told every five thousand kilometers. With today’s engines and oils, many manufacturers say you can go quite a bit longer. The rule that counts is the one in your car’s manual. Look how many oil changes you save each year."
+        },
+        {
+          "id": "filtro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "filtroAire"
+          },
+          "lamina": [
+            "filtroAire",
+            "cofre"
+          ],
+          "destacada": true,
+          "texto": "Another myth: in 2009, a US lab deliberately clogged the air filter on several modern cars. Gas mileage barely changed, but they took longer to accelerate. Replacing it gives you power, not savings."
+        },
+        {
+          "id": "manual",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeManual",
+              "uso",
+              "nivel"
+            ]
+          },
+          "lamina": [
+            "manual",
+            "varilla"
+          ],
+          "texto": "So read the manual, check whether your driving counts as severe, like heavy traffic or heat, and check the oil level every couple of weeks."
+        },
+        {
+          "id": "proximo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "registro",
+              "odometro",
+              "proximo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "When I log an oil change, I note the odometer, and the app tells me when the next one is due, in kilometers or in days."
+        }
+      ]
+    },
+    {
+      "id": "manejo",
+      "titulo": "Is the way you drive maintenance too?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part five. Is the way you drive maintenance too?"
+        },
+        {
+          "id": "agresivo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "manejoAgresivo"
+          },
+          "lamina": [
+            "acelerar",
+            "semaforo"
+          ],
+          "destacada": true,
+          "texto": "The US Department of Energy puts it this way: hard acceleration and braking can raise your gas use by fifteen to thirty percent on the highway, and by up to forty percent in the city."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoGarage"
+          },
+          "lamina": "pulgar",
+          "texto": "If you’re enjoying the guide, hit like, subscribe so you don’t miss the next one, and share it with that person who always drives with a lead foot."
+        },
+        {
+          "id": "suave",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "manejoSuave"
+          },
+          "lamina": [
+            "volante",
+            "carretera"
+          ],
+          "texto": "And it’s not just gas: braking hard wears out your brake pads and your tires. Look how much you save each year by driving gently."
+        },
+        {
+          "id": "habitos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "anticipa",
+              "peso",
+              "calienta"
+            ]
+          },
+          "lamina": [
+            "cajuela",
+            "amanecer"
+          ],
+          "texto": "Anticipate the stops, take the weight you don’t use out of the trunk, and drive calmly for the first few minutes, without pushing a cold engine."
+        },
+        {
+          "id": "gasto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "gastoAno",
+              "total",
+              "compara"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "And at the end of the year I see how much I spent on each vehicle: numbers don’t lie."
+        }
+      ]
+    },
+    {
+      "id": "bici",
+      "titulo": "What about the bike?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part six. What about the bike?"
+        },
+        {
+          "id": "spicer",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "98.6%",
+            "clave": "spicer"
+          },
+          "lamina": [
+            "cadena",
+            "pedalear"
+          ],
+          "destacada": true,
+          "texto": "In 1999, James Spicer and his team at Johns Hopkins University measured a bike chain: in their best test, it delivered almost ninety-nine percent of your effort to the wheel. And they were surprised: the oil made almost no difference. Its job, they said, is to keep the dirt out."
+        },
+        {
+          "id": "abc",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "aire",
+              "frenos",
+              "cadenaPaso"
+            ]
+          },
+          "lamina": [
+            "biciLlanta",
+            "biciFreno"
+          ],
+          "meme": "cadena",
+          "texto": "So before you ride, do the three-step check: air in the tires, brakes that actually brake, and a clean, lubed chain."
+        },
+        {
+          "id": "limpia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "trapo",
+              "gota",
+              "seca"
+            ]
+          },
+          "lamina": [
+            "lubricar",
+            "biciTaller"
+          ],
+          "texto": "Wipe the chain with a rag, put one drop of oil on each link, and wipe off the excess: extra oil collects dirt and wears out the chain and the cogs."
+        },
+        {
+          "id": "grulla",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "grulla",
+              "cadenaApp",
+              "zapatas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "The Crane has its History too: the chain, the brake pads, every flat tire. And the next tune-up is already on the calendar."
+        }
+      ]
+    },
+    {
+      "id": "olvido",
+      "titulo": "Why do we forget?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part seven. Why do we forget?"
+        },
+        {
+          "id": "presente",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hoy",
+              "lejos",
+              "caro"
+            ]
+          },
+          "lamina": [
+            "calendarioPapel",
+            "reloj"
+          ],
+          "texto": "Because maintenance doesn’t hurt today: the car runs fine, the service costs money now and the breakdown seems far away. So we put it off, again and again."
+        },
+        {
+          "id": "altmann",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "recordatorio"
+          },
+          "lamina": [
+            "postal",
+            "notificacion"
+          ],
+          "destacada": true,
+          "texto": "In 2014, Steffen Altmann and Christian Traxler tried something very simple at a dental practice in Germany: sending patients a postcard to remind them of their checkup. In the first month, more than twice as many of those people booked their appointment."
+        },
+        {
+          "id": "agenda",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fechaFija",
+              "aviso",
+              "papeles"
+            ]
+          },
+          "lamina": [
+            "llaves",
+            "documentos"
+          ],
+          "texto": "So don’t trust your memory: give every service a date, set a reminder a few days ahead, and keep your papers handy."
+        },
+        {
+          "id": "tramites",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "verificacion",
+              "poliza",
+              "calendario"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "That’s why my Paperwork, like the semiannual emissions test or the insurance renewal, gets scheduled on my calendar by itself."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "What’s next? Your plan to keep going",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part eight. What’s next? Your plan to keep going."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planGarage"
+          },
+          "lamina": [
+            "manometro",
+            "libreta"
+          ],
+          "texto": "In the first week, check your tire pressure and write down how many kilometers your vehicle has."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeManualPlan",
+              "proximos",
+              "tallerPlan"
+            ]
+          },
+          "lamina": [
+            "manual",
+            "mecanico"
+          ],
+          "destacada": true,
+          "texto": "In the first month, read the manual, schedule your next services and find a shop you trust before you need it."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vuelta",
+              "chequeo",
+              "anota"
+            ]
+          },
+          "lamina": [
+            "revisarAuto",
+            "cumbre"
+          ],
+          "texto": "And every month, give it a once-over: tires, lights, fluids and the bike check. And write down everything you do to it."
+        },
+        {
+          "id": "contactos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "documentosApp",
+              "contactosApp",
+              "todo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "And on each vehicle’s card I keep its Documents and the Contacts of the shops I trust."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "In short: pay attention to the warnings; check your tires every month; follow the manual, not the myths; drive gently; take care of your bike chain; and schedule everything, because memory fails."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "In the MindHaOS Garage you keep track of your vehicles, their services and what you spend, plus your paperwork on the calendar. Build your mental house for free today: the link is in the description. And in the next guide: how can you travel better?",
+    "boton": "Open the Garage",
+    "lamina": "app-plan",
+    "anclas": {
+      "vehiculos": "your vehicles",
+      "servicios": "their services",
+      "tramites": "your paperwork"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "spglobal-2024",
+      "texto": "S&P Global Mobility. Average age of vehicles in the US continues to rise: 12.6 years in 2024 (2024).",
+      "url": "https://press.spglobal.com/2024-05-22-Average-Age-of-Vehicles-in-the-US-Continues-to-Rise-12-6-years-in-2024%2C-according-to-S-P-Global-Mobility"
+    },
+    {
+      "id": "nhtsa-2015",
+      "texto": "NHTSA (US National Highway Traffic Safety Administration). Critical reasons for crashes investigated in the National Motor Vehicle Crash Causation Survey. DOT HS 812 115 (2015).",
+      "url": "https://crashstats.nhtsa.dot.gov/Api/Public/Publication/812115"
+    },
+    {
+      "id": "bertha-benz",
+      "texto": "Bertha Benz and her trip from Mannheim to Pforzheim (1888). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Bertha_Benz"
+    },
+    {
+      "id": "nhtsa-2001",
+      "texto": "NHTSA. Tire pressure special study: vehicle observation data. DOT HS 809 317 (2001).",
+      "url": "https://rosap.ntl.bts.gov/view/dot/5197"
+    },
+    {
+      "id": "ornl-2009",
+      "texto": "Thomas J., West B., Huff S. Effect of intake air filter condition on vehicle fuel economy. Oak Ridge National Laboratory, ORNL/TM-2009/021 (2009).",
+      "url": "https://www.osti.gov/biblio/948545"
+    },
+    {
+      "id": "doe-manejo",
+      "texto": "US Department of Energy. Driving more efficiently / Keeping your vehicle in shape (fueleconomy.gov).",
+      "url": "https://www.fueleconomy.gov/feg/driveHabits.jsp"
+    },
+    {
+      "id": "spicer-1999",
+      "texto": "Spicer J. B. and colleagues. Effects of frictional loss on bicycle chain drive efficiency. Journal of Mechanical Design (2001); Johns Hopkins press release (1999).",
+      "url": "https://www.sciencedaily.com/releases/1999/08/990819180058.htm"
+    },
+    {
+      "id": "altmann-2014",
+      "texto": "Altmann S., Traxler C. Nudges at the dentist. European Economic Review 72, 19-38 (2014).",
+      "url": "https://doi.org/10.1016/j.euroecorev.2014.07.007"
+    }
+  ]
+}

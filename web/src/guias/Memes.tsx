@@ -99,6 +99,11 @@ export const MEMES: Record<string, DefMeme> = {
   scroll: { formato: 'arribaAbajo', poses: ['relajado', 'confundido'], sonido: 'jeje-boy' },
   unoMas: { formato: 'arribaAbajo', poses: ['orgulloso', 'cansado'], sonido: 'bruh' },
   spoiler: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
+  // Garage (las poses son de Pep@ con barba y overol de mecánico, el narrador).
+  testigo: { formato: 'arribaAbajo', poses: ['relajado', 'confundido'], sonido: 'jeje-boy' },
+  llanta: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
+  aceite: { formato: 'arribaAbajo', poses: ['orgulloso', 'cansado'], sonido: 'bruh' },
+  cadena: { formato: 'unico', poses: ['cansado'], sonido: 'bruh' },
 }
 
 export function Meme({ id, tema, t }: { id: string; tema: string; t: T }) {

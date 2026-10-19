@@ -287,9 +287,10 @@ const pepEnSuSitio = (tema = null) => `
   ` : `
   // Pep@ de nuevo (una guía anterior pudo dejarle la forma del mago) y con la ropa del cuarto (o la del tema).
   if (useDiseño.getState().avatar.forma || useDiseño.getState().avatar.modelo3d?.length) await useDiseño.getState().quitarAvatarModelo()
-  ${tema ? '' : `
+  ${tema && !ESCENA.ROPA ? '' : `
+  // ROPA de la escena: la del narrador aunque haya tema (Garage: el mecánico con barba en el apocalipsis).
   const { ATUENDOS_PRESET } = await modulo('/src/core/house/atuendos.ts')
-  await useDiseño.getState().setAvatarRopaCompleta(ATUENDOS_PRESET.find((a) => a.id === ${JSON.stringify(ESCENA.ATUENDO)}).ropa)
+  await useDiseño.getState().setAvatarRopaCompleta(${ESCENA.ROPA ? JSON.stringify(ESCENA.ROPA) : `ATUENDOS_PRESET.find((a) => a.id === ${JSON.stringify(ESCENA.ATUENDO)}).ropa`})
   `}
   `}
   {

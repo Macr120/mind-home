@@ -5,7 +5,7 @@ import { RigEjercicio } from '../../../src/rooms/ejercicio/anim/RigEjercicio'
 import { J } from '../../../src/rooms/ejercicio/anim/pose'
 import { avanzarBoca, nuevaBocaHabla, type BocaHabla } from '../../../src/core/house/bocaHabla'
 import type { ExpresionId } from '../../../src/core/house/apariencia'
-import { patronEscena, pepCon, ropaDeEpoca, ALIEN_GUIA, ATUENDO_GUIA, NARRADOR_GUIA, TUNICA_GUIA, VESTIDO_GUIA } from './pep'
+import { patronEscena, pepCon, ropaDeEpoca, ropaDeGuia, ALIEN_GUIA, ATUENDO_GUIA, NARRADOR_GUIA, TUNICA_GUIA, VESTIDO_GUIA } from './pep'
 import { Mago3D } from './Mago3D'
 import { Princesa3D } from './Princesa3D'
 import { Alien3D } from './Alien3D'
@@ -36,7 +36,7 @@ export default function Escenario3D({
   /** Parte que suena: en las guías por épocas (Arte), Pep@ se viste con la de esa parte. */
   parte?: number
 }) {
-  const ropa = ropaDeEpoca(tema, parte)
+  const ropa = ropaDeEpoca(tema, parte) ?? ropaDeGuia(tema)
   const av = useMemo(() => pepCon(ATUENDO_GUIA[tema] ?? '', cara, ropa), [tema, cara, ropa])
   const patron = useMemo(() => patronEscena(escena), [escena])
   const mago = NARRADOR_GUIA[tema] === 'mago'

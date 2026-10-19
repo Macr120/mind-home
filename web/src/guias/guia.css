@@ -3936,3 +3936,52 @@ html:has(.g-pose) body {
 .g-ent-columnasBarras .baja b { background: color-mix(in srgb, #ef4444 55%, transparent); }
 .g-ent-columnasBarras span { font-size: 13px; color: var(--tinta-3); }
 .g-hob-flechas .igual i { color: var(--tinta-3); }
+
+/* ───────── Garage ───────── */
+.g-gar-llanta {
+  display: flex;
+  justify-content: center;
+  padding: 6px 0 2px;
+}
+.g-gar-llanta i {
+  --aplasta: 0;
+  width: 96px;
+  height: calc(96px * (1 - var(--aplasta) * 0.28));
+  margin-top: calc(96px * var(--aplasta) * 0.28);
+  border-radius: 50% 50% 46% 46% / 50% 50% calc(50% - var(--aplasta) * 30%) calc(50% - var(--aplasta) * 30%);
+  background: radial-gradient(circle, #cbd5e1 0 22%, #334155 23% 26%, #111827 27% 100%);
+  box-shadow: inset 0 0 0 6px #1f2937;
+  transition: height 0.5s, margin-top 0.5s, border-radius 0.5s;
+}
+.g-gar-tanques {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  min-height: 34px;
+}
+.g-gar-tanques span {
+  width: 22px;
+  height: 30px;
+  border-radius: 5px 5px 3px 3px;
+  background: #22c55e;
+  animation: g-entra 0.4s both;
+  animation-delay: calc(var(--j) * 70ms);
+}
+.g-gar-rangos { display: grid; gap: 12px; }
+.g-gar-rangos > div { display: grid; gap: 4px; }
+.g-gar-rangos span { font-size: 14px; color: var(--tinta-2); }
+.g-gar-rangos i {
+  position: relative;
+  display: block;
+  height: 18px;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--tinta-3) 18%, transparent);
+}
+.g-gar-rangos b {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 9px;
+  background: linear-gradient(90deg, #f59e0b, #ef4444);
+}

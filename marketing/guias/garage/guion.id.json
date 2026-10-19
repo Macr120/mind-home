@@ -1,0 +1,725 @@
+{
+  "idioma": "id",
+  "tema": "garage",
+  "plantillaId": "garage",
+  "numero": 17,
+  "nombre": "Garasi",
+  "pregunta": "Bagaimana merawat kendaraanmu?",
+  "corta": "Bagaimana merawat kendaraanmu?",
+  "subtitulo": "Kenapa merawat mobil atau sepedamu sebelum rusak, siapa montir pertama dalam sejarah, kenapa mulai dari ban, kapan harus ganti oli (dan mitos apa saja yang tidak perlu), kenapa caramu menyetir juga termasuk perawatan, cara merawat sepedamu, kenapa kita lupa, dan rencana untuk melanjutkan.",
+  "aviso": "Panduan ini bersifat informatif dan umum: setiap kendaraan berbeda. Selalu ikuti buku manual kendaraanmu, dan jika ada bunyi, bau, kebocoran, atau masalah pada rem, setir, atau ban, bawa ke montir tepercaya sebelum memakainya lagi.",
+  "partes": [
+    {
+      "id": "prevenir",
+      "titulo": "Kenapa merawatnya sebelum rusak?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Bagaimana merawat kendaraanmu? Satu dari empat mobil di jalan punya setidaknya satu ban yang tekanannya sangat kurang. Dan hampir tidak ada yang sadar sampai ada yang meledak. Bagaimana kalau merawat mobil atau sepedamu jauh lebih mudah dari yang kamu kira? Hari ini kamu akan melihatnya dengan data, dan pulang membawa rencana untuk melanjutkan."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Omong-omong, ini rumahku di MindHaOS, dan ya: rumahnya sedang di tengah kiamat. Dan di akhir dunia, yang tahu cara merawat kendaraannya akan melaju lebih jauh. Ini garasiku: di sini aku mencatat mobilku, sepedaku, dan semua yang kulakukan pada keduanya."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian satu. Kenapa merawatnya sebelum rusak?"
+        },
+        {
+          "id": "edad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edadAutos"
+          },
+          "lamina": [
+            "trafico",
+            "autoViejo"
+          ],
+          "texto": "Pada 2024, perusahaan S&P Global menghitung bahwa rata-rata usia mobil di Amerika Serikat adalah dua belas setengah tahun, sebuah rekor. Kendaraan makin awet, tapi hanya kalau kamu merawatnya."
+        },
+        {
+          "id": "nhtsa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "causasFalla"
+          },
+          "lamina": [
+            "llantaPonchada",
+            "frenoDisco"
+          ],
+          "destacada": true,
+          "texto": "Lalu, kalau kecelakaan disebabkan oleh kendaraan dan bukan pengemudinya, apa yang rusak? Badan keselamatan jalan Amerika Serikat memeriksanya: di lebih dari sepertiga kecelakaan itu penyebabnya ban, dan di satu dari lima, rem."
+        },
+        {
+          "id": "avisa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ruido",
+              "testigo",
+              "olor"
+            ]
+          },
+          "lamina": [
+            "tablero",
+            "escuchar"
+          ],
+          "meme": "testigo",
+          "texto": "Kabar baiknya: hampir semuanya memberi tanda lebih dulu. Bunyi baru, lampu indikator di dasbor, bau aneh. Triknya bukan mengeraskan radio, tapi memperhatikannya."
+        },
+        {
+          "id": "resumen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vencido",
+              "puerta",
+              "alDia"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Aku belajar ini waktu mobilku mogok di tengah jalan raya. Sejak itu, Ringkasan garasiku memberitahuku apa yang terlambat dan apa yang akan datang."
+        }
+      ]
+    },
+    {
+      "id": "bertha",
+      "titulo": "Siapa montir pertama dalam sejarah?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian dua. Siapa montir pertama dalam sejarah?"
+        },
+        {
+          "id": "viaje",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1888",
+            "clave": "bertha"
+          },
+          "lamina": [
+            "berthaBenz",
+            "motorwagen"
+          ],
+          "destacada": true,
+          "texto": "Spoiler: dia seorang perempuan. Pada 1888, Bertha Benz mengambil mobil yang diciptakan suaminya, Karl, dan tanpa memberi tahu, pergi bersama dua putranya dari Mannheim ke Pforzheim: lebih dari seratus kilometer, perjalanan jauh pertama dengan mobil dalam sejarah."
+        },
+        {
+          "id": "arreglos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "horquilla",
+              "liga",
+              "cuero"
+            ]
+          },
+          "lamina": [
+            "berthaRuta",
+            "zapatero"
+          ],
+          "texto": "Dan di jalan, dia memperbaikinya sendiri: membuka saluran bahan bakar yang tersumbat dengan jepit topinya, membungkus kabel dengan ikat kaus kakinya, dan meminta tukang sepatu melapisi rem yang aus dengan kulit."
+        },
+        {
+          "id": "farmacia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1888",
+            "clave": "wiesloch"
+          },
+          "lamina": [
+            "farmacia",
+            "motorwagen2"
+          ],
+          "texto": "Bensinnya dia beli di sebuah apotek di Wiesloch, yang kini dikenang sebagai pom bensin pertama di dunia. Dan sepulangnya, dia memberi tahu Karl apa yang perlu diperbaiki: mobil berikutnya jadi lebih kuat menanjak."
+        },
+        {
+          "id": "ficha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "auto",
+              "bici",
+              "nota"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Yang dia lakukan adalah mengenal mobilnya. Di sini setiap kendaraan punya kartunya: Si Mastodon, sedan warisanku, dan Si Bangau, sepeda harianku."
+        }
+      ]
+    },
+    {
+      "id": "llantas",
+      "titulo": "Kenapa mulai dari ban?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tiga. Kenapa mulai dari ban?"
+        },
+        {
+          "id": "presion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "27%",
+            "clave": "nhtsa2001"
+          },
+          "lamina": [
+            "manometro",
+            "inflar"
+          ],
+          "destacada": true,
+          "texto": "Pada 2001, badan yang sama mengukur ban lebih dari sebelas ribu kendaraan di pom bensin di seluruh Amerika Serikat. Lebih dari satu dari empat mobil punya setidaknya satu ban yang tekanannya jauh di bawah seharusnya."
+        },
+        {
+          "id": "consumo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "presionConsumo"
+          },
+          "lamina": [
+            "gasolina",
+            "llantaCarretera"
+          ],
+          "texto": "Dan itu ada harganya: ban yang kurang angin mengerem lebih buruk, lebih cepat aus, dan bikin bensinmu lebih boros. Lihat berapa yang hilang setahun gara-gara banmu kurang angin."
+        },
+        {
+          "id": "revisa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "frio",
+              "puertaLlanta",
+              "mes"
+            ]
+          },
+          "lamina": [
+            "calcomania",
+            "dibujo"
+          ],
+          "meme": "llanta",
+          "texto": "Periksa saat ban masih dingin, sebulan sekali, dengan tekanan yang tertulis di stiker pintu, bukan di sisi ban. Dan lihat alurnya: kalau alurnya hampir habis, sudah waktunya ganti."
+        },
+        {
+          "id": "historial",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "servicio",
+              "fecha",
+              "costo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Di Riwayat setiap kendaraan, aku mencatat setiap servis, lengkap dengan tanggal dan biayanya: ban, aki, kampas rem."
+        }
+      ]
+    },
+    {
+      "id": "aceite",
+      "titulo": "Kapan harus ganti oli?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian empat. Kapan harus ganti oli?"
+        },
+        {
+          "id": "mito",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cambiosAceite"
+          },
+          "lamina": [
+            "aceite",
+            "motor"
+          ],
+          "meme": "aceite",
+          "texto": "Pasti kamu pernah dengar harus tiap lima ribu kilometer. Dengan mesin dan oli zaman sekarang, banyak pabrikan menyarankan menggantinya jauh lebih lama. Aturan yang berlaku adalah buku manual mobilmu. Lihat berapa kali ganti oli yang kamu hemat setahun."
+        },
+        {
+          "id": "filtro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "filtroAire"
+          },
+          "lamina": [
+            "filtroAire",
+            "cofre"
+          ],
+          "destacada": true,
+          "texto": "Mitos lain: pada 2009, sebuah laboratorium di Amerika Serikat sengaja menyumbat filter udara beberapa mobil modern. Konsumsi bensinnya hampir tidak berubah, tapi akselerasinya jadi lebih lambat. Menggantinya memberimu tenaga, bukan penghematan."
+        },
+        {
+          "id": "manual",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeManual",
+              "uso",
+              "nivel"
+            ]
+          },
+          "lamina": [
+            "manual",
+            "varilla"
+          ],
+          "texto": "Jadi baca buku manualnya, perhatikan apakah pemakaianmu berat, seperti sering macet atau cuaca panas, dan cek level oli setiap dua minggu sekali."
+        },
+        {
+          "id": "proximo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "registro",
+              "odometro",
+              "proximo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Saat aku mencatat ganti oli, aku tulis angka odometernya, dan aplikasinya memberi tahu kapan yang berikutnya, dalam kilometer atau hari."
+        }
+      ]
+    },
+    {
+      "id": "manejo",
+      "titulo": "Apakah caramu menyetir juga perawatan?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian lima. Apakah caramu menyetir juga perawatan?"
+        },
+        {
+          "id": "agresivo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "manejoAgresivo"
+          },
+          "lamina": [
+            "acelerar",
+            "semaforo"
+          ],
+          "destacada": true,
+          "texto": "Departemen Energi Amerika Serikat menghitungnya begini: akselerasi dan pengereman mendadak bisa menaikkan konsumsi bensinmu lima belas sampai tiga puluh persen di jalan tol, dan sampai empat puluh persen di dalam kota."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoGarage"
+          },
+          "lamina": "pulgar",
+          "texto": "Kalau kamu suka panduan ini, tekan Suka, Subscribe supaya tidak ketinggalan panduan berikutnya, dan Bagikan ke orang yang selalu menyetir sambil menginjak gas dalam-dalam."
+        },
+        {
+          "id": "suave",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "manejoSuave"
+          },
+          "lamina": [
+            "volante",
+            "carretera"
+          ],
+          "texto": "Dan bukan cuma bensin: mengerem mendadak menghabiskan kampas rem dan ban. Lihat berapa yang kamu hemat setahun dengan menyetir halus."
+        },
+        {
+          "id": "habitos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "anticipa",
+              "peso",
+              "calienta"
+            ]
+          },
+          "lamina": [
+            "cajuela",
+            "amanecer"
+          ],
+          "texto": "Antisipasi saat harus berhenti, keluarkan beban yang tidak kamu pakai dari bagasi, dan di menit-menit pertama, menyetirlah santai tanpa memaksa mesin yang masih dingin."
+        },
+        {
+          "id": "gasto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "gastoAno",
+              "total",
+              "compara"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dan di akhir tahun, aku melihat berapa yang kuhabiskan untuk setiap kendaraan: angka tidak bohong."
+        }
+      ]
+    },
+    {
+      "id": "bici",
+      "titulo": "Bagaimana dengan sepeda?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian enam. Bagaimana dengan sepeda?"
+        },
+        {
+          "id": "spicer",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "98,6%",
+            "clave": "spicer"
+          },
+          "lamina": [
+            "cadena",
+            "pedalear"
+          ],
+          "destacada": true,
+          "texto": "Pada 1999, James Spicer dan timnya di Universitas Johns Hopkins mengukur rantai sepeda: dalam uji terbaiknya, rantai itu menyalurkan hampir sembilan puluh sembilan persen tenagamu ke roda. Dan mereka terkejut: olinya hampir tidak mengubah apa pun. Kata mereka, tugasnya adalah mencegah kotoran masuk."
+        },
+        {
+          "id": "abc",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "aire",
+              "frenos",
+              "cadenaPaso"
+            ]
+          },
+          "lamina": [
+            "biciLlanta",
+            "biciFreno"
+          ],
+          "meme": "cadena",
+          "texto": "Karena itu, sebelum berangkat, lakukan cek tiga langkah: angin di ban, rem yang pakem, dan rantai yang bersih dan terlumasi."
+        },
+        {
+          "id": "limpia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "trapo",
+              "gota",
+              "seca"
+            ]
+          },
+          "lamina": [
+            "lubricar",
+            "biciTaller"
+          ],
+          "texto": "Bersihkan rantai dengan lap, satu tetes oli di setiap mata rantai, lalu lap sisanya: oli yang berlebih mengumpulkan kotoran dan mengikis rantai dan gir."
+        },
+        {
+          "id": "grulla",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "grulla",
+              "cadenaApp",
+              "zapatas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Si Bangau juga punya riwayatnya: rantai, karet rem, setiap ban bocor. Dan servis berikutnya sudah ada di kalender."
+        }
+      ]
+    },
+    {
+      "id": "olvido",
+      "titulo": "Kenapa kita lupa?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tujuh. Kenapa kita lupa?"
+        },
+        {
+          "id": "presente",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hoy",
+              "lejos",
+              "caro"
+            ]
+          },
+          "lamina": [
+            "calendarioPapel",
+            "reloj"
+          ],
+          "texto": "Karena perawatan tidak terasa sakit hari ini: mobilnya jalan baik, servisnya keluar uang sekarang, dan kerusakannya terasa masih jauh. Jadi kita menundanya, lagi dan lagi."
+        },
+        {
+          "id": "altmann",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "recordatorio"
+          },
+          "lamina": [
+            "postal",
+            "notificacion"
+          ],
+          "destacada": true,
+          "texto": "Pada 2014, Steffen Altmann dan Christian Traxler mencoba sesuatu yang sangat sederhana di sebuah klinik gigi di Jerman: mengirimi pasien kartu pos untuk mengingatkan jadwal pemeriksaan mereka. Di bulan pertama, jumlah orang yang membuat janji naik lebih dari dua kali lipat."
+        },
+        {
+          "id": "agenda",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fechaFija",
+              "aviso",
+              "papeles"
+            ]
+          },
+          "lamina": [
+            "llaves",
+            "documentos"
+          ],
+          "texto": "Jadi jangan andalkan ingatanmu: beri tanggal untuk setiap servis, pasang pengingat beberapa hari sebelumnya, dan simpan dokumenmu di tempat yang mudah dijangkau."
+        },
+        {
+          "id": "tramites",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "verificacion",
+              "poliza",
+              "calendario"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Karena itu, urusan administrasiku, seperti uji emisi enam bulanan atau perpanjangan polis asuransi, otomatis masuk ke kalenderku."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Bagaimana selanjutnya? Rencanamu untuk melanjutkan",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian delapan. Bagaimana selanjutnya? Rencanamu untuk melanjutkan."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planGarage"
+          },
+          "lamina": [
+            "manometro",
+            "libreta"
+          ],
+          "texto": "Di minggu pertama, cek tekanan banmu dan catat berapa kilometer yang sudah ditempuh kendaraanmu."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeManualPlan",
+              "proximos",
+              "tallerPlan"
+            ]
+          },
+          "lamina": [
+            "manual",
+            "mecanico"
+          ],
+          "destacada": true,
+          "texto": "Di bulan pertama, baca buku manualnya, jadwalkan servis berikutnya, dan cari bengkel tepercaya sebelum kamu membutuhkannya."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vuelta",
+              "chequeo",
+              "anota"
+            ]
+          },
+          "lamina": [
+            "revisarAuto",
+            "cumbre"
+          ],
+          "texto": "Dan setiap bulan, periksa sekilas: ban, lampu, cairan, dan cek sepeda. Dan catat semua yang kamu lakukan padanya."
+        },
+        {
+          "id": "contactos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "documentosApp",
+              "contactosApp",
+              "todo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dan di kartu setiap kendaraan, aku menyimpan dokumennya dan kontak bengkel-bengkel tepercayaku."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Singkatnya: perhatikan tanda-tandanya; cek banmu setiap bulan; ikuti buku manual, bukan mitos; menyetirlah halus; rawat rantai sepedamu; dan jadwalkan semuanya, karena ingatan bisa gagal."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Di Garasi MindHaOS, kamu mencatat kendaraanmu, servisnya, dan pengeluaranmu, serta urusan administrasimu di kalender. Bangun rumah pikiranmu gratis hari ini: tautannya ada di deskripsi. Dan di panduan berikutnya: bagaimana bepergian dengan lebih baik?",
+    "boton": "Buka Garasi",
+    "lamina": "app-plan",
+    "anclas": {
+      "vehiculos": "kendaraanmu",
+      "servicios": "servisnya",
+      "tramites": "urusan administrasimu"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "spglobal-2024",
+      "texto": "S&P Global Mobility. Average age of vehicles in the US continues to rise: 12.6 years in 2024 (2024).",
+      "url": "https://press.spglobal.com/2024-05-22-Average-Age-of-Vehicles-in-the-US-Continues-to-Rise-12-6-years-in-2024%2C-according-to-S-P-Global-Mobility"
+    },
+    {
+      "id": "nhtsa-2015",
+      "texto": "NHTSA (Badan Keselamatan Lalu Lintas Jalan Raya Nasional AS). Critical reasons for crashes investigated in the National Motor Vehicle Crash Causation Survey. DOT HS 812 115 (2015).",
+      "url": "https://crashstats.nhtsa.dot.gov/Api/Public/Publication/812115"
+    },
+    {
+      "id": "bertha-benz",
+      "texto": "Bertha Benz dan perjalanannya dari Mannheim ke Pforzheim (1888). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Bertha_Benz"
+    },
+    {
+      "id": "nhtsa-2001",
+      "texto": "NHTSA. Tire pressure special study: vehicle observation data. DOT HS 809 317 (2001).",
+      "url": "https://rosap.ntl.bts.gov/view/dot/5197"
+    },
+    {
+      "id": "ornl-2009",
+      "texto": "Thomas J., West B., Huff S. Effect of intake air filter condition on vehicle fuel economy. Oak Ridge National Laboratory, ORNL/TM-2009/021 (2009).",
+      "url": "https://www.osti.gov/biblio/948545"
+    },
+    {
+      "id": "doe-manejo",
+      "texto": "Departemen Energi AS. Driving more efficiently / Keeping your vehicle in shape (fueleconomy.gov).",
+      "url": "https://www.fueleconomy.gov/feg/driveHabits.jsp"
+    },
+    {
+      "id": "spicer-1999",
+      "texto": "Spicer J. B. dan rekan. Effects of frictional loss on bicycle chain drive efficiency. Journal of Mechanical Design (2001); siaran pers Johns Hopkins (1999).",
+      "url": "https://www.sciencedaily.com/releases/1999/08/990819180058.htm"
+    },
+    {
+      "id": "altmann-2014",
+      "texto": "Altmann S., Traxler C. Nudges at the dentist. European Economic Review 72, 19-38 (2014).",
+      "url": "https://doi.org/10.1016/j.euroecorev.2014.07.007"
+    }
+  ]
+}

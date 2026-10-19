@@ -14,6 +14,7 @@ import { HERRAMIENTAS_AGENDA, HerramientaAgenda } from './Agenda'
 import { HERRAMIENTAS_ESCRITURA, HerramientaEscritura } from './Escritura'
 import { HERRAMIENTAS_HOBBIES, HerramientaHobbies } from './Hobbies'
 import { HERRAMIENTAS_ENTRE, HerramientaEntre } from './Entretenimiento'
+import { HERRAMIENTAS_GARAGE, HerramientaGarage } from './Garage'
 import type { T } from './datos'
 
 /**
@@ -37,6 +38,7 @@ export function Herramienta({ id, t, demo }: { id: string; t: T; demo: boolean }
   if (HERRAMIENTAS_ESCRITURA.has(id)) return <HerramientaEscritura id={id} t={t} demo={demo} />
   if (HERRAMIENTAS_HOBBIES.has(id)) return <HerramientaHobbies id={id} t={t} demo={demo} />
   if (HERRAMIENTAS_ENTRE.has(id)) return <HerramientaEntre id={id} t={t} demo={demo} />
+  if (HERRAMIENTAS_GARAGE.has(id)) return <HerramientaGarage id={id} t={t} demo={demo} />
   if (id === 'escalaRpe') return <EscalaRpe t={t} demo={demo} />
   if (id === 'zonasCardiacas') return <ZonasCardiacas t={t} demo={demo} />
   if (id === 'armaTuPlan') return <ArmaTuPlan t={t} demo={demo} />

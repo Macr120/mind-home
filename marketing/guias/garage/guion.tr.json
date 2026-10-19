@@ -1,0 +1,725 @@
+{
+  "idioma": "tr",
+  "tema": "garage",
+  "plantillaId": "garage",
+  "numero": 17,
+  "nombre": "Garaj",
+  "pregunta": "Araçlarına nasıl bakarsın?",
+  "corta": "Araçlarına nasıl bakarsın?",
+  "subtitulo": "Araban ya da bisikletin bozulmadan önce neden bakmalısın, tarihin ilk tamircisi kimdi, neden lastiklerden başlamalı, yağ ne sıklıkla değişmeli (ve hangi mitler gereksiz), sürüş tarzın neden bakımın bir parçası, bisikletine nasıl bakarsın, neden unutuyoruz ve devam etmek için bir plan.",
+  "aviso": "Bu rehber bilgilendirme amaçlı ve geneldir: her araç farklıdır. Her zaman aracının kullanım kılavuzuna uy; ses, koku, sızıntı ya da fren, direksiyon veya lastiklerde bir sorun olursa kullanmaya devam etmeden önce güvendiğin bir tamirciye götür.",
+  "partes": [
+    {
+      "id": "prevenir",
+      "titulo": "Neden bozulmadan önce bakmalı?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Araçlarına nasıl bakarsın? Yoldaki her dört arabadan birinde en az bir lastiğin havası çok düşük. Ve bir şey patlayana kadar neredeyse kimse fark etmiyor. Ya arabana ya da bisikletine bakmak sandığından çok daha kolaysa? Bugün bunu verilerle göreceksin ve devam etmek için bir planla ayrılacaksın."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Bu arada, burası MindHaOS’taki evim ve evet: tam bir kıyametin ortasında. Dünyanın sonunda da aracına bakmayı bilen daha uzağa gider. Bu benim Garajım: arabamı, bisikletimi ve onlara yaptığım her şeyi burada takip ediyorum."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Birinci bölüm. Neden bozulmadan önce bakmalı?"
+        },
+        {
+          "id": "edad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edadAutos"
+          },
+          "lamina": [
+            "trafico",
+            "autoViejo"
+          ],
+          "texto": "2024’te S&P Global şirketi, Amerika Birleşik Devletleri’ndeki arabaların ortalama on iki buçuk yaşında olduğunu hesapladı; bu bir rekor. Araçlar giderek daha uzun ömürlü, ama sadece onlara bakarsan."
+        },
+        {
+          "id": "nhtsa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "causasFalla"
+          },
+          "lamina": [
+            "llantaPonchada",
+            "frenoDisco"
+          ],
+          "destacada": true,
+          "texto": "Peki bir kaza sürücüden değil de araçtan kaynaklandığında ne arızalanıyor? Amerika Birleşik Devletleri’nin karayolu güvenliği kurumu bunu inceledi: bu kazaların üçte birinden fazlasında suçlu lastiklerdi, beşte birinde ise frenler."
+        },
+        {
+          "id": "avisa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ruido",
+              "testigo",
+              "olor"
+            ]
+          },
+          "lamina": [
+            "tablero",
+            "escuchar"
+          ],
+          "meme": "testigo",
+          "texto": "İyi haber şu: neredeyse her şey önceden haber verir. Yeni bir ses, gösterge panelinde yanan bir ışık, tuhaf bir koku. İşin sırrı radyonun sesini açmak değil, kulak vermek."
+        },
+        {
+          "id": "resumen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vencido",
+              "puerta",
+              "alDia"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bunu, arabam beni caddenin ortasında yolda bıraktığında öğrendim. O zamandan beri Garajımın özeti bana neyin geciktiğini ve neyin yaklaştığını söylüyor."
+        }
+      ]
+    },
+    {
+      "id": "bertha",
+      "titulo": "Tarihin ilk tamircisi kimdi?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "İkinci bölüm. Tarihin ilk tamircisi kimdi?"
+        },
+        {
+          "id": "viaje",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1888",
+            "clave": "bertha"
+          },
+          "lamina": [
+            "berthaBenz",
+            "motorwagen"
+          ],
+          "destacada": true,
+          "texto": "Spoiler: bir kadındı. 1888’de Bertha Benz, kocası Karl’ın icat ettiği otomobili aldı ve ona haber vermeden iki oğluyla Mannheim’dan Pforzheim’a gitti: yüz kilometreden fazla, tarihteki ilk uzun araba yolculuğu."
+        },
+        {
+          "id": "arreglos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "horquilla",
+              "liga",
+              "cuero"
+            ]
+          },
+          "lamina": [
+            "berthaRuta",
+            "zapatero"
+          ],
+          "texto": "Ve yol boyunca onu kendisi tamir etti: yakıt borusunu şapka iğnesiyle açtı, bir kabloyu jartiyeriyle yalıttı ve bir ayakkabıcıdan aşınmış frenleri deriyle kaplamasını istedi."
+        },
+        {
+          "id": "farmacia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1888",
+            "clave": "wiesloch"
+          },
+          "lamina": [
+            "farmacia",
+            "motorwagen2"
+          ],
+          "texto": "Benzini Wiesloch’taki bir eczaneden aldı; orası bugün dünyanın ilk benzin istasyonu olarak anılıyor. Dönüşte de Karl’a neyin iyileştirilmesi gerektiğini anlattı: sonraki araba yokuşları daha rahat çıkıyordu."
+        },
+        {
+          "id": "ficha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "auto",
+              "bici",
+              "nota"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Onun yaptığı, arabasını tanımaktı. Burada her aracın kendi kartı var: Mamut, bana miras kalan sedan, ve Turna, her gün bindiğim bisikletim."
+        }
+      ]
+    },
+    {
+      "id": "llantas",
+      "titulo": "Neden lastiklerden başlamalı?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Üçüncü bölüm. Neden lastiklerden başlamalı?"
+        },
+        {
+          "id": "presion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "%27",
+            "clave": "nhtsa2001"
+          },
+          "lamina": [
+            "manometro",
+            "inflar"
+          ],
+          "destacada": true,
+          "texto": "2001’de aynı kurum, Amerika Birleşik Devletleri’nin dört bir yanındaki benzin istasyonlarında on bir binden fazla aracın lastiklerini ölçtü. Her dört arabadan birinden fazlasında en az bir lastiğin basıncı olması gerekenin çok altındaydı."
+        },
+        {
+          "id": "consumo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "presionConsumo"
+          },
+          "lamina": [
+            "gasolina",
+            "llantaCarretera"
+          ],
+          "texto": "Ve bunun bir bedeli var: havası düşük lastik daha kötü fren yapar, daha çabuk aşınır ve daha çok benzin yakmana neden olur. Düşük lastiklerin sana yılda kaça patlıyor, bak."
+        },
+        {
+          "id": "revisa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "frio",
+              "puertaLlanta",
+              "mes"
+            ]
+          },
+          "lamina": [
+            "calcomania",
+            "dibujo"
+          ],
+          "meme": "llanta",
+          "texto": "Onları soğukken, ayda bir, lastiğin yanındaki değere göre değil, kapıdaki etikette yazan basınca göre kontrol et. Bir de dişlere bak: oluklar neredeyse kalmadıysa değiştirme zamanı gelmiştir."
+        },
+        {
+          "id": "historial",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "servicio",
+              "fecha",
+              "costo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Her aracın geçmişine her servisi tarihiyle ve bana kaça mal olduğuyla yazarım: lastikler, akü, fren balataları."
+        }
+      ]
+    },
+    {
+      "id": "aceite",
+      "titulo": "Yağ ne sıklıkla değişmeli?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Dördüncü bölüm. Yağ ne sıklıkla değişmeli?"
+        },
+        {
+          "id": "mito",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cambiosAceite"
+          },
+          "lamina": [
+            "aceite",
+            "motor"
+          ],
+          "meme": "aceite",
+          "texto": "Sana muhtemelen her beş bin kilometrede bir dediler. Bugünün motorları ve yağlarıyla birçok üretici çok daha geç değiştirmeni istiyor. Geçerli olan kural, arabanın kullanım kılavuzundaki. Yılda kaç değişimden kurtulduğuna bak."
+        },
+        {
+          "id": "filtro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "filtroAire"
+          },
+          "lamina": [
+            "filtroAire",
+            "cofre"
+          ],
+          "destacada": true,
+          "texto": "Bir mit daha: 2009’da Amerika Birleşik Devletleri’nde bir laboratuvar, birkaç modern arabanın hava filtresini bilerek tıkadı. Yakıt tüketimi neredeyse hiç değişmedi, ama daha geç hızlandılar. Filtreyi değiştirmek sana tasarruf değil, güç kazandırır."
+        },
+        {
+          "id": "manual",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeManual",
+              "uso",
+              "nivel"
+            ]
+          },
+          "lamina": [
+            "manual",
+            "varilla"
+          ],
+          "texto": "Yani kılavuzu oku, yoğun trafik ya da sıcak gibi ağır koşullarda kullanıp kullanmadığına bak ve yağ seviyesini iki haftada bir kontrol et."
+        },
+        {
+          "id": "proximo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "registro",
+              "odometro",
+              "proximo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bir yağ değişimini kaydettiğimde kilometre sayacını not ederim, uygulama da bir sonrakinin ne zaman geldiğini kilometre ya da gün olarak söyler."
+        }
+      ]
+    },
+    {
+      "id": "manejo",
+      "titulo": "Sürüş tarzın da bakım mı?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Beşinci bölüm. Sürüş tarzın da bakım mı?"
+        },
+        {
+          "id": "agresivo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "manejoAgresivo"
+          },
+          "lamina": [
+            "acelerar",
+            "semaforo"
+          ],
+          "destacada": true,
+          "texto": "Amerika Birleşik Devletleri Enerji Bakanlığı şöyle hesaplıyor: ani hızlanıp ani fren yapmak, yakıt masrafını yolda yüzde on beş ile otuz arasında, şehirde ise yüzde kırka kadar artırabilir."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoGarage"
+          },
+          "lamina": "pulgar",
+          "texto": "Bu rehberi beğeniyorsan Beğen’e bas, bir sonrakini kaçırmamak için Abone ol ve gaza hep sonuna kadar basan o kişiyle Paylaş."
+        },
+        {
+          "id": "suave",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "manejoSuave"
+          },
+          "lamina": [
+            "volante",
+            "carretera"
+          ],
+          "texto": "Ve mesele sadece benzin değil: ani fren balataları ve lastikleri aşındırır. Yumuşak sürerek yılda ne kadar tasarruf ettiğine bak."
+        },
+        {
+          "id": "habitos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "anticipa",
+              "peso",
+              "calienta"
+            ]
+          },
+          "lamina": [
+            "cajuela",
+            "amanecer"
+          ],
+          "texto": "Duruşları önceden sez, bagajdan kullanmadığın yükü çıkar ve ilk dakikalarda soğuk motoru zorlamadan sakin sür."
+        },
+        {
+          "id": "gasto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "gastoAno",
+              "total",
+              "compara"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Yılın sonunda da her araca ne kadar harcadığımı görürüm: rakamlar yalan söylemez."
+        }
+      ]
+    },
+    {
+      "id": "bici",
+      "titulo": "Peki ya bisiklet?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Altıncı bölüm. Peki ya bisiklet?"
+        },
+        {
+          "id": "spicer",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "%98,6",
+            "clave": "spicer"
+          },
+          "lamina": [
+            "cadena",
+            "pedalear"
+          ],
+          "destacada": true,
+          "texto": "1999’da James Spicer ve Johns Hopkins Üniversitesi’ndeki ekibi bir bisiklet zincirini ölçtü: en iyi denemede gücünün neredeyse yüzde doksan dokuzunu tekerleğe aktarıyordu. Ve şaşırdılar, çünkü yağ neredeyse hiçbir şeyi değiştirmiyordu. Dediklerine göre yağın görevi kirin içeri girmesini önlemek."
+        },
+        {
+          "id": "abc",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "aire",
+              "frenos",
+              "cadenaPaso"
+            ]
+          },
+          "lamina": [
+            "biciLlanta",
+            "biciFreno"
+          ],
+          "meme": "cadena",
+          "texto": "Bu yüzden yola çıkmadan önce üç adımlı kontrolü yap: lastiklerde hava, iyi tutan frenler ve temiz, yağlanmış bir zincir."
+        },
+        {
+          "id": "limpia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "trapo",
+              "gota",
+              "seca"
+            ]
+          },
+          "lamina": [
+            "lubricar",
+            "biciTaller"
+          ],
+          "texto": "Zinciri bir bezle temizle, her baklaya bir damla yağ koy ve fazlasını sil: fazla yağ kir toplar, zinciri ve dişlileri aşındırır."
+        },
+        {
+          "id": "grulla",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "grulla",
+              "cadenaApp",
+              "zapatas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Turna’nın da kendi geçmişi var: zincir, fren pabuçları, her lastik patlağı. Bir sonraki bakımı da şimdiden takvimde."
+        }
+      ]
+    },
+    {
+      "id": "olvido",
+      "titulo": "Neden unutuyoruz?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Yedinci bölüm. Neden unutuyoruz?"
+        },
+        {
+          "id": "presente",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hoy",
+              "lejos",
+              "caro"
+            ]
+          },
+          "lamina": [
+            "calendarioPapel",
+            "reloj"
+          ],
+          "texto": "Çünkü bakım bugün acıtmaz: araba iyi gidiyor, servis şimdi para istiyor ve arıza uzak görünüyor. Bu yüzden tekrar tekrar sonraya bırakıyoruz."
+        },
+        {
+          "id": "altmann",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "recordatorio"
+          },
+          "lamina": [
+            "postal",
+            "notificacion"
+          ],
+          "destacada": true,
+          "texto": "2014’te Steffen Altmann ve Christian Traxler, Almanya’daki bir diş kliniğinde çok basit bir şey denedi: hastalara kontrollerini hatırlatan bir kartpostal göndermek. İlk ayda randevu alanların sayısı iki katından fazlaya çıktı."
+        },
+        {
+          "id": "agenda",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fechaFija",
+              "aviso",
+              "papeles"
+            ]
+          },
+          "lamina": [
+            "llaves",
+            "documentos"
+          ],
+          "texto": "Yani hafızana güvenme: her servise bir tarih koy, birkaç gün önceden bir hatırlatma kur ve evraklarını el altında tut."
+        },
+        {
+          "id": "tramites",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "verificacion",
+              "poliza",
+              "calendario"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bu yüzden egzoz muayenesi ya da poliçe yenileme gibi işlemlerim takvimime kendiliğinden yazılıyor."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Nasıl devam etmeli? Devam etmek için planın",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Sekizinci bölüm. Nasıl devam etmeli? Devam etmek için planın."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planGarage"
+          },
+          "lamina": [
+            "manometro",
+            "libreta"
+          ],
+          "texto": "İlk hafta lastiklerinin basıncını kontrol et ve aracının kaç kilometrede olduğunu not al."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeManualPlan",
+              "proximos",
+              "tallerPlan"
+            ]
+          },
+          "lamina": [
+            "manual",
+            "mecanico"
+          ],
+          "destacada": true,
+          "texto": "İlk ay kılavuzu oku, yaklaşan servislerini planla ve ihtiyacın olmadan önce güvendiğin bir servis bul."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vuelta",
+              "chequeo",
+              "anota"
+            ]
+          },
+          "lamina": [
+            "revisarAuto",
+            "cumbre"
+          ],
+          "texto": "Ve her ay bir tur at: lastikler, farlar, sıvı seviyeleri ve bisiklet kontrolü. Yaptığın her şeyi de not al."
+        },
+        {
+          "id": "contactos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "documentosApp",
+              "contactosApp",
+              "todo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Her aracın kartında da belgelerini ve güvendiğim servislerin kişilerini saklıyorum."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Özetle: uyarılara kulak ver; lastiklerini her ay kontrol et; mitlere değil kılavuza uy; yumuşak sür; bisikletinin zincirine iyi bak; ve her şeyi takvime koy, çünkü hafıza yanıltır."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS’un Garajında tüm araçlarını, yapılan servisleri ve harcamalarını takip edersin; resmi işlemlerin de takviminde yer alır. Zihinsel evini bugün ücretsiz kur: bağlantı açıklamada. Bir sonraki rehberde ise: nasıl daha iyi seyahat edersin?",
+    "boton": "Garajı aç",
+    "lamina": "app-plan",
+    "anclas": {
+      "vehiculos": "tüm araçlarını",
+      "servicios": "yapılan servisleri",
+      "tramites": "resmi işlemlerin"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "spglobal-2024",
+      "texto": "S&P Global Mobility. Average age of vehicles in the US continues to rise: 12.6 years in 2024 (2024).",
+      "url": "https://press.spglobal.com/2024-05-22-Average-Age-of-Vehicles-in-the-US-Continues-to-Rise-12-6-years-in-2024%2C-according-to-S-P-Global-Mobility"
+    },
+    {
+      "id": "nhtsa-2015",
+      "texto": "NHTSA (ABD Ulusal Karayolu Trafik Güvenliği İdaresi). Critical reasons for crashes investigated in the National Motor Vehicle Crash Causation Survey. DOT HS 812 115 (2015).",
+      "url": "https://crashstats.nhtsa.dot.gov/Api/Public/Publication/812115"
+    },
+    {
+      "id": "bertha-benz",
+      "texto": "Bertha Benz ve Mannheim’dan Pforzheim’a yolculuğu (1888). Vikipedi.",
+      "url": "https://en.wikipedia.org/wiki/Bertha_Benz"
+    },
+    {
+      "id": "nhtsa-2001",
+      "texto": "NHTSA. Tire pressure special study: vehicle observation data. DOT HS 809 317 (2001).",
+      "url": "https://rosap.ntl.bts.gov/view/dot/5197"
+    },
+    {
+      "id": "ornl-2009",
+      "texto": "Thomas J., West B., Huff S. Effect of intake air filter condition on vehicle fuel economy. Oak Ridge National Laboratory, ORNL/TM-2009/021 (2009).",
+      "url": "https://www.osti.gov/biblio/948545"
+    },
+    {
+      "id": "doe-manejo",
+      "texto": "ABD Enerji Bakanlığı. Driving more efficiently / Keeping your vehicle in shape (fueleconomy.gov).",
+      "url": "https://www.fueleconomy.gov/feg/driveHabits.jsp"
+    },
+    {
+      "id": "spicer-1999",
+      "texto": "Spicer J. B. ve meslektaşları. Effects of frictional loss on bicycle chain drive efficiency. Journal of Mechanical Design (2001); Johns Hopkins basın bülteni (1999).",
+      "url": "https://www.sciencedaily.com/releases/1999/08/990819180058.htm"
+    },
+    {
+      "id": "altmann-2014",
+      "texto": "Altmann S., Traxler C. Nudges at the dentist. European Economic Review 72, 19-38 (2014).",
+      "url": "https://doi.org/10.1016/j.euroecorev.2014.07.007"
+    }
+  ]
+}

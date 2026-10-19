@@ -1,0 +1,725 @@
+{
+  "idioma": "nl",
+  "tema": "garage",
+  "plantillaId": "garage",
+  "numero": 17,
+  "nombre": "Garage",
+  "pregunta": "Hoe onderhoud je je voertuigen?",
+  "corta": "Hoe onderhoud je je voertuigen?",
+  "subtitulo": "Waarom je je auto of fiets onderhoudt voordat hij het begeeft, wie de eerste monteur uit de geschiedenis was, waarom je bij de banden begint, hoe vaak je de olie ververst (en welke mythes overbodig zijn), waarom je rijstijl ook onderhoud is, hoe je je fiets verzorgt, waarom we het vergeten en een plan om door te gaan.",
+  "aviso": "Deze gids is informatief en algemeen: elk voertuig is anders. Volg altijd het handboek van je voertuig en breng het bij geluiden, geuren, lekkages of problemen met de remmen, de besturing of de banden naar een monteur die je vertrouwt, voordat je het verder gebruikt.",
+  "partes": [
+    {
+      "id": "prevenir",
+      "titulo": "Waarom onderhouden voordat het kapotgaat?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Hoe onderhoud je je voertuigen? Een op de vier auto's op straat rijdt met minstens één band die veel te zacht is. En bijna niemand merkt het tot er iets knapt. En wat als het onderhoud van je auto of fiets veel eenvoudiger is dan je denkt? Vandaag zie je het met cijfers, en je gaat naar huis met een plan om door te gaan."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Trouwens, dit is mijn huis in MindHaOS, en ja: het zit midden in de apocalyps. En aan het einde van de wereld komt wie zijn voertuig goed onderhoudt het verst. Dit is mijn garage: hier houd ik mijn auto, mijn fiets en alles wat ik eraan doe bij."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel één. Waarom onderhouden voordat het kapotgaat?"
+        },
+        {
+          "id": "edad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edadAutos"
+          },
+          "lamina": [
+            "trafico",
+            "autoViejo"
+          ],
+          "texto": "In 2024 telde het bedrijf S&P Global dat auto's in de Verenigde Staten gemiddeld twaalfenhalf jaar oud zijn, een record. Voertuigen gaan steeds langer mee, maar alleen als je ze onderhoudt."
+        },
+        {
+          "id": "nhtsa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "causasFalla"
+          },
+          "lamina": [
+            "llantaPonchada",
+            "frenoDisco"
+          ],
+          "destacada": true,
+          "texto": "En als een ongeluk aan het voertuig ligt en niet aan de bestuurder, wat gaat er dan mis? Het Amerikaanse agentschap voor verkeersveiligheid zocht het uit: bij meer dan een derde van die ongelukken waren het de banden, en bij een op de vijf de remmen."
+        },
+        {
+          "id": "avisa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ruido",
+              "testigo",
+              "olor"
+            ]
+          },
+          "lamina": [
+            "tablero",
+            "escuchar"
+          ],
+          "meme": "testigo",
+          "texto": "Het goede nieuws: bijna alles waarschuwt van tevoren. Een nieuw geluid, een lampje op het dashboard, een vreemde geur. De truc is niet de radio harder zetten, maar ernaar luisteren."
+        },
+        {
+          "id": "resumen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vencido",
+              "puerta",
+              "alDia"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Ik leerde het toen mijn auto me midden op een drukke weg liet staan. Sindsdien vertelt het overzicht van mijn garage me wat verlopen is en wat eraan komt."
+        }
+      ]
+    },
+    {
+      "id": "bertha",
+      "titulo": "Wie was de eerste monteur uit de geschiedenis?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel twee. Wie was de eerste monteur uit de geschiedenis?"
+        },
+        {
+          "id": "viaje",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1888",
+            "clave": "bertha"
+          },
+          "lamina": [
+            "berthaBenz",
+            "motorwagen"
+          ],
+          "destacada": true,
+          "texto": "Spoiler: het was een vrouw. In 1888 nam Bertha Benz de auto die haar man Karl had uitgevonden, en zonder het hem te vertellen reed ze met haar twee zoons van Mannheim naar Pforzheim: meer dan honderd kilometer, de eerste lange autorit uit de geschiedenis."
+        },
+        {
+          "id": "arreglos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "horquilla",
+              "liga",
+              "cuero"
+            ]
+          },
+          "lamina": [
+            "berthaRuta",
+            "zapatero"
+          ],
+          "texto": "En onderweg repareerde ze hem zelf: ze maakte de brandstofleiding vrij met een hoedenspeld, isoleerde een draad met haar kousenband en vroeg een schoenmaker de versleten remmen met leer te bekleden."
+        },
+        {
+          "id": "farmacia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1888",
+            "clave": "wiesloch"
+          },
+          "lamina": [
+            "farmacia",
+            "motorwagen2"
+          ],
+          "texto": "De benzine kocht ze bij een apotheek in Wiesloch, die nu bekendstaat als het eerste tankstation ter wereld. En terug thuis vertelde ze Karl wat er beter kon: de volgende auto kwam al makkelijker de heuvels op."
+        },
+        {
+          "id": "ficha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "auto",
+              "bici",
+              "nota"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Wat zij deed, was haar auto kennen. Hier heeft elk voertuig zijn eigen kaart: de Mastodont, mijn geërfde sedan, en de Kraanvogel, mijn fiets voor elke dag."
+        }
+      ]
+    },
+    {
+      "id": "llantas",
+      "titulo": "Waarom beginnen bij de banden?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel drie. Waarom beginnen bij de banden?"
+        },
+        {
+          "id": "presion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "27%",
+            "clave": "nhtsa2001"
+          },
+          "lamina": [
+            "manometro",
+            "inflar"
+          ],
+          "destacada": true,
+          "texto": "In 2001 mat datzelfde agentschap de banden van meer dan elfduizend voertuigen bij tankstations in de hele Verenigde Staten. Meer dan een op de vier auto's had minstens één band ver onder de juiste spanning."
+        },
+        {
+          "id": "consumo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "presionConsumo"
+          },
+          "lamina": [
+            "gasolina",
+            "llantaCarretera"
+          ],
+          "texto": "En dat kost geld: een zachte band remt slechter, slijt sneller en laat je meer benzine verbruiken. Kijk hoeveel je zachte banden je per jaar kosten."
+        },
+        {
+          "id": "revisa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "frio",
+              "puertaLlanta",
+              "mes"
+            ]
+          },
+          "lamina": [
+            "calcomania",
+            "dibujo"
+          ],
+          "meme": "llanta",
+          "texto": "Controleer ze koud, één keer per maand, met de spanning op de sticker in de deur, niet die op de zijkant van de band. En kijk naar het profiel: als er bijna geen groeven meer zijn, is het tijd voor nieuwe."
+        },
+        {
+          "id": "historial",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "servicio",
+              "fecha",
+              "costo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In de geschiedenis van elk voertuig noteer ik elke beurt, met de datum en wat het kostte: de banden, de accu, de remblokken."
+        }
+      ]
+    },
+    {
+      "id": "aceite",
+      "titulo": "Hoe vaak ververs je de olie?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vier. Hoe vaak ververs je de olie?"
+        },
+        {
+          "id": "mito",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cambiosAceite"
+          },
+          "lamina": [
+            "aceite",
+            "motor"
+          ],
+          "meme": "aceite",
+          "texto": "Vast heeft iemand je gezegd: elke vijfduizend kilometer. Met de motoren en oliën van nu schrijven veel fabrikanten het verversen pas veel later voor. De regel die telt, staat in het handboek van je auto. Kijk hoeveel verversbeurten je per jaar uitspaart."
+        },
+        {
+          "id": "filtro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "filtroAire"
+          },
+          "lamina": [
+            "filtroAire",
+            "cofre"
+          ],
+          "destacada": true,
+          "texto": "Nog een mythe: in 2009 maakte een Amerikaans laboratorium bij een aantal moderne auto's expres het luchtfilter dicht. Het benzineverbruik veranderde nauwelijks, maar ze trokken trager op. Een nieuw filter geeft je vermogen, geen besparing."
+        },
+        {
+          "id": "manual",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeManual",
+              "uso",
+              "nivel"
+            ]
+          },
+          "lamina": [
+            "manual",
+            "varilla"
+          ],
+          "texto": "Lees dus het handboek, kijk of je je auto zwaar belast, met veel files of hitte, en controleer het oliepeil om de twee weken."
+        },
+        {
+          "id": "proximo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "registro",
+              "odometro",
+              "proximo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Als ik olie verversen registreer, noteer ik de kilometerstand, en de app vertelt me wanneer de volgende beurt is, in kilometers of in dagen."
+        }
+      ]
+    },
+    {
+      "id": "manejo",
+      "titulo": "Is je rijstijl ook onderhoud?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vijf. Is je rijstijl ook onderhoud?"
+        },
+        {
+          "id": "agresivo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "manejoAgresivo"
+          },
+          "lamina": [
+            "acelerar",
+            "semaforo"
+          ],
+          "destacada": true,
+          "texto": "Het Amerikaanse ministerie van Energie rekent het zo uit: abrupt optrekken en remmen kan je benzineverbruik op de snelweg met vijftien tot dertig procent verhogen, en in de stad met wel veertig."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoGarage"
+          },
+          "lamina": "pulgar",
+          "texto": "Als je de gids leuk vindt, klik dan op Vind ik leuk, op Abonneren zodat je de volgende niet mist, en op Delen, voor die ene persoon die altijd met een loden voet rijdt."
+        },
+        {
+          "id": "suave",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "manejoSuave"
+          },
+          "lamina": [
+            "volante",
+            "carretera"
+          ],
+          "texto": "En het gaat niet alleen om benzine: hard remmen slijt je remblokken en je banden. Kijk hoeveel je per jaar bespaart door rustig te rijden."
+        },
+        {
+          "id": "habitos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "anticipa",
+              "peso",
+              "calienta"
+            ]
+          },
+          "lamina": [
+            "cajuela",
+            "amanecer"
+          ],
+          "texto": "Zie stops op tijd aankomen, haal uit de kofferbak wat je niet gebruikt, en rij de eerste minuten rustig, zonder de koude motor te belasten."
+        },
+        {
+          "id": "gasto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "gastoAno",
+              "total",
+              "compara"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En aan het eind van het jaar zie ik hoeveel ik aan elk voertuig heb uitgegeven: cijfers liegen niet."
+        }
+      ]
+    },
+    {
+      "id": "bici",
+      "titulo": "En de fiets?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zes. En de fiets?"
+        },
+        {
+          "id": "spicer",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "98,6%",
+            "clave": "spicer"
+          },
+          "lamina": [
+            "cadena",
+            "pedalear"
+          ],
+          "destacada": true,
+          "texto": "In 1999 maten James Spicer en zijn team van de Johns Hopkins-universiteit de ketting van een fiets: in hun beste test bracht die bijna negenennegentig procent van je kracht naar het wiel. En ze waren verrast: de olie maakte bijna geen verschil. Waar die wel voor dient, zeiden ze: het vuil buiten houden."
+        },
+        {
+          "id": "abc",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "aire",
+              "frenos",
+              "cadenaPaso"
+            ]
+          },
+          "lamina": [
+            "biciLlanta",
+            "biciFreno"
+          ],
+          "meme": "cadena",
+          "texto": "Doe daarom voor je vertrekt de check in drie stappen: lucht in de banden, remmen die remmen en een schone, gesmeerde ketting."
+        },
+        {
+          "id": "limpia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "trapo",
+              "gota",
+              "seca"
+            ]
+          },
+          "lamina": [
+            "lubricar",
+            "biciTaller"
+          ],
+          "texto": "Veeg de ketting af met een doek, een druppel olie op elke schakel, en haal het teveel weg: overtollige olie trekt vuil aan en slijt de ketting en de tandwielen."
+        },
+        {
+          "id": "grulla",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "grulla",
+              "cadenaApp",
+              "zapatas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Ook de Kraanvogel heeft zijn geschiedenis: de ketting, de remblokjes, elke lekke band. En de volgende onderhoudsbeurt staat al in de kalender."
+        }
+      ]
+    },
+    {
+      "id": "olvido",
+      "titulo": "Waarom vergeten we het?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zeven. Waarom vergeten we het?"
+        },
+        {
+          "id": "presente",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hoy",
+              "lejos",
+              "caro"
+            ]
+          },
+          "lamina": [
+            "calendarioPapel",
+            "reloj"
+          ],
+          "texto": "Omdat onderhoud vandaag geen pijn doet: de auto rijdt prima, de beurt kost nu geld en het defect lijkt ver weg. Dus schuiven we het voor ons uit, keer op keer."
+        },
+        {
+          "id": "altmann",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "recordatorio"
+          },
+          "lamina": [
+            "postal",
+            "notificacion"
+          ],
+          "destacada": true,
+          "texto": "In 2014 testten Steffen Altmann en Christian Traxler iets heel eenvoudigs bij een tandartspraktijk in Duitsland: patiënten een ansichtkaart sturen om ze aan hun controle te herinneren. In de eerste maand maakten meer dan twee keer zoveel van hen een afspraak."
+        },
+        {
+          "id": "agenda",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fechaFija",
+              "aviso",
+              "papeles"
+            ]
+          },
+          "lamina": [
+            "llaves",
+            "documentos"
+          ],
+          "texto": "Vertrouw dus niet op je geheugen: geef elke beurt een datum, een herinnering een paar dagen ervoor, en houd je papieren bij de hand."
+        },
+        {
+          "id": "tramites",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "verificacion",
+              "poliza",
+              "calendario"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Daarom komt mijn administratie, zoals de emissiekeuring of de verlenging van de polis, vanzelf in mijn kalender te staan."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel acht. Hoe ga je verder? Jouw plan om door te gaan."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planGarage"
+          },
+          "lamina": [
+            "manometro",
+            "libreta"
+          ],
+          "texto": "De eerste week controleer je de spanning van je banden en noteer je hoeveel kilometer je voertuig op de teller heeft."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeManualPlan",
+              "proximos",
+              "tallerPlan"
+            ]
+          },
+          "lamina": [
+            "manual",
+            "mecanico"
+          ],
+          "destacada": true,
+          "texto": "De eerste maand lees je het handboek, plan je je volgende beurten en zoek je een werkplaats die je vertrouwt, voordat je die nodig hebt."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vuelta",
+              "chequeo",
+              "anota"
+            ]
+          },
+          "lamina": [
+            "revisarAuto",
+            "cumbre"
+          ],
+          "texto": "En loop elke maand een rondje: banden, lichten, vloeistoffen en de fietscheck. En noteer alles wat je eraan doet."
+        },
+        {
+          "id": "contactos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "documentosApp",
+              "contactosApp",
+              "todo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En op de kaart van elk voertuig bewaar ik zijn documenten en de contacten van mijn vertrouwde werkplaatsen."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Kortom: luister naar de waarschuwingen; controleer je banden elke maand; volg het handboek, niet de mythes; rij rustig; verzorg de ketting van je fiets; en plan alles in, want je geheugen laat je in de steek."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "In de Garage van MindHaOS houd je je voertuigen bij, hun onderhoudsbeurten en wat je uitgeeft, en je administratie in de kalender. Bouw vandaag gratis je mentale huis: de link staat in de beschrijving. En in de volgende gids: hoe reis je beter?",
+    "boton": "Open de Garage",
+    "lamina": "app-plan",
+    "anclas": {
+      "vehiculos": "je voertuigen",
+      "servicios": "hun onderhoudsbeurten",
+      "tramites": "je administratie"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "spglobal-2024",
+      "texto": "S&P Global Mobility. Average age of vehicles in the US continues to rise: 12.6 years in 2024 (2024).",
+      "url": "https://press.spglobal.com/2024-05-22-Average-Age-of-Vehicles-in-the-US-Continues-to-Rise-12-6-years-in-2024%2C-according-to-S-P-Global-Mobility"
+    },
+    {
+      "id": "nhtsa-2015",
+      "texto": "NHTSA (Amerikaanse nationale dienst voor verkeersveiligheid). Critical reasons for crashes investigated in the National Motor Vehicle Crash Causation Survey. DOT HS 812 115 (2015).",
+      "url": "https://crashstats.nhtsa.dot.gov/Api/Public/Publication/812115"
+    },
+    {
+      "id": "bertha-benz",
+      "texto": "Bertha Benz en haar rit van Mannheim naar Pforzheim (1888). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Bertha_Benz"
+    },
+    {
+      "id": "nhtsa-2001",
+      "texto": "NHTSA. Tire pressure special study: vehicle observation data. DOT HS 809 317 (2001).",
+      "url": "https://rosap.ntl.bts.gov/view/dot/5197"
+    },
+    {
+      "id": "ornl-2009",
+      "texto": "Thomas J., West B., Huff S. Effect of intake air filter condition on vehicle fuel economy. Oak Ridge National Laboratory, ORNL/TM-2009/021 (2009).",
+      "url": "https://www.osti.gov/biblio/948545"
+    },
+    {
+      "id": "doe-manejo",
+      "texto": "Amerikaans ministerie van Energie. Driving more efficiently / Keeping your vehicle in shape (fueleconomy.gov).",
+      "url": "https://www.fueleconomy.gov/feg/driveHabits.jsp"
+    },
+    {
+      "id": "spicer-1999",
+      "texto": "Spicer J. B. en collega's. Effects of frictional loss on bicycle chain drive efficiency. Journal of Mechanical Design (2001); persbericht van Johns Hopkins (1999).",
+      "url": "https://www.sciencedaily.com/releases/1999/08/990819180058.htm"
+    },
+    {
+      "id": "altmann-2014",
+      "texto": "Altmann S., Traxler C. Nudges at the dentist. European Economic Review 72, 19-38 (2014).",
+      "url": "https://doi.org/10.1016/j.euroecorev.2014.07.007"
+    }
+  ]
+}

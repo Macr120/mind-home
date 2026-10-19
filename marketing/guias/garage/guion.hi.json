@@ -1,0 +1,725 @@
+{
+  "idioma": "hi",
+  "tema": "garage",
+  "plantillaId": "garage",
+  "numero": 17,
+  "nombre": "गैराज",
+  "pregunta": "अपने वाहनों की देखभाल कैसे करें?",
+  "corta": "अपने वाहनों की देखभाल कैसे करें?",
+  "subtitulo": "अपनी कार या साइकिल की देखभाल ख़राब होने से पहले क्यों करें, इतिहास का पहला मैकेनिक कौन था, शुरुआत टायरों से क्यों करें, तेल कब-कब बदलें (और कौन-से मिथक बेकार हैं), आपके चलाने का तरीक़ा भी रखरखाव क्यों है, साइकिल की देखभाल कैसे करें, हम भूल क्यों जाते हैं और आगे बढ़ने का एक प्लान।",
+  "aviso": "यह गाइड सामान्य जानकारी के लिए है: हर वाहन अलग होता है। हमेशा अपने वाहन की मैनुअल का पालन करें, और अगर ब्रेक, स्टीयरिंग या टायरों में आवाज़, गंध, रिसाव या ख़राबी दिखे, तो आगे इस्तेमाल करने से पहले उसे किसी भरोसेमंद मैकेनिक के पास ले जाएँ।",
+  "partes": [
+    {
+      "id": "prevenir",
+      "titulo": "ख़राब होने से पहले देखभाल क्यों करें?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "अपने वाहनों की देखभाल कैसे करें? सड़क पर हर चार में से एक कार का कम से कम एक टायर बहुत कम हवा वाला होता है। और लगभग किसी को पता नहीं चलता, जब तक कुछ टूट न जाए। क्या हो अगर अपनी कार या साइकिल की देखभाल आपकी सोच से कहीं आसान हो? आज आप इसे आँकड़ों के साथ देखेंगे, और आगे बढ़ने का एक प्लान लेकर जाएँगे।"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "वैसे, यह MindHaOS में मेरा घर है, और हाँ: यह पूरी क़यामत के बीच में है। और दुनिया के अंत में, जो अपने वाहन की देखभाल जानता है, वही सबसे दूर तक पहुँचता है। यह मेरा गैराज है: यहाँ मैं अपनी कार, अपनी साइकिल और उन पर किया हर काम दर्ज रखता हूँ।"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग एक। ख़राब होने से पहले देखभाल क्यों करें?"
+        },
+        {
+          "id": "edad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edadAutos"
+          },
+          "lamina": [
+            "trafico",
+            "autoViejo"
+          ],
+          "texto": "2024 में, S&P Global कंपनी ने गिना कि अमेरिका में कारें औसतन साढ़े बारह साल पुरानी हैं, जो एक रिकॉर्ड है। वाहन पहले से ज़्यादा चलते हैं, लेकिन सिर्फ़ तब, जब आप उनकी देखभाल करें।"
+        },
+        {
+          "id": "nhtsa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "causasFalla"
+          },
+          "lamina": [
+            "llantaPonchada",
+            "frenoDisco"
+          ],
+          "destacada": true,
+          "texto": "और जब हादसे की वजह ड्राइवर नहीं, बल्कि वाहन हो, तो क्या ख़राब होता है? अमेरिका की सड़क सुरक्षा एजेंसी ने इसकी जाँच की: ऐसे एक तिहाई से ज़्यादा हादसों में टायर थे, और हर पाँच में से एक में ब्रेक।"
+        },
+        {
+          "id": "avisa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ruido",
+              "testigo",
+              "olor"
+            ]
+          },
+          "lamina": [
+            "tablero",
+            "escuchar"
+          ],
+          "meme": "testigo",
+          "texto": "अच्छी ख़बर यह है: लगभग हर चीज़ पहले से चेतावनी देती है। एक नई आवाज़, डैशबोर्ड पर कोई वॉर्निंग लाइट, कोई अजीब गंध। तरकीब यह है कि रेडियो की आवाज़ न बढ़ाएँ, बल्कि उस पर ध्यान दें।"
+        },
+        {
+          "id": "resumen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vencido",
+              "puerta",
+              "alDia"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "मैंने यह तब सीखा जब मेरी कार ने मुझे भरी सड़क के बीच में छोड़ दिया। तब से, मेरे गैराज का सारांश मुझे बताता है कि क्या बकाया है और क्या आने वाला है।"
+        }
+      ]
+    },
+    {
+      "id": "bertha",
+      "titulo": "इतिहास का पहला मैकेनिक कौन था?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग दो। इतिहास का पहला मैकेनिक कौन था?"
+        },
+        {
+          "id": "viaje",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1888",
+            "clave": "bertha"
+          },
+          "lamina": [
+            "berthaBenz",
+            "motorwagen"
+          ],
+          "destacada": true,
+          "texto": "स्पॉइलर: वह एक महिला थीं। 1888 में, बर्था बेंज़ ने अपने पति कार्ल की बनाई हुई गाड़ी ली, और उन्हें बताए बिना अपने दो बेटों के साथ मानहाइम से फ़ोर्त्सहाइम निकल पड़ीं: सौ किलोमीटर से ज़्यादा, इतिहास का पहला लंबा कार सफ़र।"
+        },
+        {
+          "id": "arreglos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "horquilla",
+              "liga",
+              "cuero"
+            ]
+          },
+          "lamina": [
+            "berthaRuta",
+            "zapatero"
+          ],
+          "texto": "और रास्ते में वे ख़ुद उसे ठीक करती गईं: टोपी की पिन से ईंधन की नली खोली, अपने गार्टर से एक तार को इंसुलेट किया, और एक मोची से घिसे हुए ब्रेक पर चमड़ा चढ़वाया।"
+        },
+        {
+          "id": "farmacia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1888",
+            "clave": "wiesloch"
+          },
+          "lamina": [
+            "farmacia",
+            "motorwagen2"
+          ],
+          "texto": "पेट्रोल उन्होंने वीज़लॉख की एक फ़ार्मेसी से ख़रीदा, जिसे आज दुनिया का पहला पेट्रोल पंप माना जाता है। और लौटकर उन्होंने कार्ल को बताया कि क्या सुधारना है: अगली गाड़ी चढ़ाइयाँ बेहतर चढ़ने लगी।"
+        },
+        {
+          "id": "ficha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "auto",
+              "bici",
+              "nota"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "उन्होंने जो किया, वह था अपनी गाड़ी को जानना। यहाँ हर वाहन का अपना कार्ड है: गजराज, मेरी विरासत में मिली सेडान, और सारस, मेरी रोज़ की साइकिल।"
+        }
+      ]
+    },
+    {
+      "id": "llantas",
+      "titulo": "शुरुआत टायरों से क्यों करें?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग तीन। शुरुआत टायरों से क्यों करें?"
+        },
+        {
+          "id": "presion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "27%",
+            "clave": "nhtsa2001"
+          },
+          "lamina": [
+            "manometro",
+            "inflar"
+          ],
+          "destacada": true,
+          "texto": "2001 में, उसी एजेंसी ने पूरे अमेरिका के पेट्रोल पंपों पर ग्यारह हज़ार से ज़्यादा वाहनों के टायर मापे। हर चार में से एक से ज़्यादा कार का कम से कम एक टायर अपने दबाव से काफ़ी नीचे था।"
+        },
+        {
+          "id": "consumo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "presionConsumo"
+          },
+          "lamina": [
+            "gasolina",
+            "llantaCarretera"
+          ],
+          "texto": "और इसकी क़ीमत चुकानी पड़ती है: कम हवा वाला टायर ठीक से ब्रेक नहीं लगने देता, जल्दी घिसता है और पेट्रोल ज़्यादा खाता है। देखिए, कम हवा वाले टायरों से साल में आपका कितना पैसा जाता है।"
+        },
+        {
+          "id": "revisa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "frio",
+              "puertaLlanta",
+              "mes"
+            ]
+          },
+          "lamina": [
+            "calcomania",
+            "dibujo"
+          ],
+          "meme": "llanta",
+          "texto": "टायर ठंडे होने पर जाँचें, महीने में एक बार, उस दबाव पर जो दरवाज़े के लेबल पर लिखा है, टायर की साइड वाला नहीं। और ट्रेड देखें: अगर खाँचे लगभग मिट गए हों, तो बदलने का समय है।"
+        },
+        {
+          "id": "historial",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "servicio",
+              "fecha",
+              "costo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "हर वाहन के इतिहास में मैं हर सर्विस लिखता हूँ, तारीख़ और ख़र्च के साथ: टायर, बैटरी, ब्रेक पैड।"
+        }
+      ]
+    },
+    {
+      "id": "aceite",
+      "titulo": "तेल कब-कब बदलें?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग चार। तेल कब-कब बदलें?"
+        },
+        {
+          "id": "mito",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cambiosAceite"
+          },
+          "lamina": [
+            "aceite",
+            "motor"
+          ],
+          "meme": "aceite",
+          "texto": "आपसे ज़रूर कहा गया होगा कि हर पाँच हज़ार किलोमीटर पर। आज के इंजनों और तेलों के साथ, कई निर्माता इसे काफ़ी बाद में बदलने को कहते हैं। असली नियम आपकी कार की मैनुअल का है। देखिए, साल में आप कितने ऑयल चेंज बचाते हैं।"
+        },
+        {
+          "id": "filtro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "filtroAire"
+          },
+          "lamina": [
+            "filtroAire",
+            "cofre"
+          ],
+          "destacada": true,
+          "texto": "एक और मिथक: 2009 में, अमेरिका की एक प्रयोगशाला ने जान-बूझकर कई आधुनिक कारों का एयर फ़िल्टर बंद कर दिया। पेट्रोल की खपत लगभग नहीं बदली, लेकिन उन्हें रफ़्तार पकड़ने में ज़्यादा समय लगा। इसे बदलने से ताक़त मिलती है, बचत नहीं।"
+        },
+        {
+          "id": "manual",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeManual",
+              "uso",
+              "nivel"
+            ]
+          },
+          "lamina": [
+            "manual",
+            "varilla"
+          ],
+          "texto": "तो मैनुअल पढ़ें, देखें कि क्या आपका इस्तेमाल भारी है, जैसे ज़्यादा ट्रैफ़िक या गर्मी, और हर दो हफ़्ते में तेल का स्तर जाँचें।"
+        },
+        {
+          "id": "proximo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "registro",
+              "odometro",
+              "proximo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "जब मैं ऑयल चेंज दर्ज करता हूँ, तो ओडोमीटर लिख लेता हूँ, और ऐप बताता है कि अगला कब है, किलोमीटर में या दिनों में।"
+        }
+      ]
+    },
+    {
+      "id": "manejo",
+      "titulo": "क्या आपके चलाने का तरीक़ा भी रखरखाव है?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग पाँच। क्या आपके चलाने का तरीक़ा भी रखरखाव है?"
+        },
+        {
+          "id": "agresivo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "manejoAgresivo"
+          },
+          "lamina": [
+            "acelerar",
+            "semaforo"
+          ],
+          "destacada": true,
+          "texto": "अमेरिका का ऊर्जा विभाग इसका हिसाब यूँ लगाता है: अचानक तेज़ी और अचानक ब्रेक से हाईवे पर पेट्रोल का ख़र्च पंद्रह से तीस प्रतिशत तक बढ़ सकता है, और शहर में चालीस तक।"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoGarage"
+          },
+          "lamina": "pulgar",
+          "texto": "अगर आपको यह गाइड पसंद आ रही है, तो पसंद करें, सदस्यता लें ताकि अगली गाइड न छूटे, और शेयर करें उस इंसान के साथ जो हमेशा एक्सीलेटर दबाकर गाड़ी चलाता है।"
+        },
+        {
+          "id": "suave",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "manejoSuave"
+          },
+          "lamina": [
+            "volante",
+            "carretera"
+          ],
+          "texto": "और बात सिर्फ़ पेट्रोल की नहीं: अचानक ब्रेक लगाने से ब्रेक पैड और टायर घिसते हैं। देखिए, आराम से चलाकर साल में आप कितना बचाते हैं।"
+        },
+        {
+          "id": "habitos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "anticipa",
+              "peso",
+              "calienta"
+            ]
+          },
+          "lamina": [
+            "cajuela",
+            "amanecer"
+          ],
+          "texto": "रुकने का अंदाज़ा पहले से लगाएँ, डिक्की से वह वज़न निकालें जो इस्तेमाल नहीं होता, और पहले कुछ मिनट आराम से चलाएँ, ठंडे इंजन पर ज़ोर डाले बिना।"
+        },
+        {
+          "id": "gasto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "gastoAno",
+              "total",
+              "compara"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "और साल के आख़िर में मैं देखता हूँ कि हर वाहन पर मैंने कितना ख़र्च किया: आँकड़े झूठ नहीं बोलते।"
+        }
+      ]
+    },
+    {
+      "id": "bici",
+      "titulo": "और साइकिल?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग छह। और साइकिल?"
+        },
+        {
+          "id": "spicer",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "98.6%",
+            "clave": "spicer"
+          },
+          "lamina": [
+            "cadena",
+            "pedalear"
+          ],
+          "destacada": true,
+          "texto": "1999 में, जॉन्स हॉपकिन्स यूनिवर्सिटी में जेम्स स्पाइसर और उनकी टीम ने एक साइकिल की चेन मापी: सबसे अच्छे टेस्ट में, वह आपकी ताक़त का लगभग निन्यानवे प्रतिशत पहिये तक पहुँचाती थी। और वे हैरान रह गए: तेल से लगभग कोई फ़र्क़ नहीं पड़ा। उन्होंने कहा, उसका काम है धूल को अंदर आने से रोकना।"
+        },
+        {
+          "id": "abc",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "aire",
+              "frenos",
+              "cadenaPaso"
+            ]
+          },
+          "lamina": [
+            "biciLlanta",
+            "biciFreno"
+          ],
+          "meme": "cadena",
+          "texto": "इसलिए, निकलने से पहले, तीन कदमों वाली जाँच करें: टायरों में हवा, ब्रेक जो ठीक से लगें, और चेन साफ़ और चिकनाई वाली।"
+        },
+        {
+          "id": "limpia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "trapo",
+              "gota",
+              "seca"
+            ]
+          },
+          "lamina": [
+            "lubricar",
+            "biciTaller"
+          ],
+          "texto": "चेन को कपड़े से साफ़ करें, हर कड़ी पर तेल की एक बूँद डालें, और जो ज़्यादा हो उसे पोंछ दें: ज़्यादा तेल धूल जमा करता है और चेन और गियर घिस देता है।"
+        },
+        {
+          "id": "grulla",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "grulla",
+              "cadenaApp",
+              "zapatas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "सारस का भी अपना इतिहास है: चेन, ब्रेक शू, हर पंचर। और अगली सर्विसिंग पहले से ही कैलेंडर में है।"
+        }
+      ]
+    },
+    {
+      "id": "olvido",
+      "titulo": "हम भूल क्यों जाते हैं?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग सात। हम भूल क्यों जाते हैं?"
+        },
+        {
+          "id": "presente",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hoy",
+              "lejos",
+              "caro"
+            ]
+          },
+          "lamina": [
+            "calendarioPapel",
+            "reloj"
+          ],
+          "texto": "क्योंकि रखरखाव आज दर्द नहीं देता: गाड़ी ठीक चल रही है, सर्विस का ख़र्च अभी है, और ख़राबी दूर लगती है। तो हम इसे बार-बार टाल देते हैं।"
+        },
+        {
+          "id": "altmann",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "recordatorio"
+          },
+          "lamina": [
+            "postal",
+            "notificacion"
+          ],
+          "destacada": true,
+          "texto": "2014 में, श्टेफ़न आल्टमान और क्रिस्टियान ट्राक्सलर ने जर्मनी के एक डेंटल क्लिनिक में एक बहुत आसान चीज़ आज़माई: मरीज़ों को उनकी जाँच याद दिलाने के लिए एक पोस्टकार्ड भेजना। पहले महीने में, अपॉइंटमेंट लेने वाले लोग दोगुने से भी ज़्यादा हो गए।"
+        },
+        {
+          "id": "agenda",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fechaFija",
+              "aviso",
+              "papeles"
+            ]
+          },
+          "lamina": [
+            "llaves",
+            "documentos"
+          ],
+          "texto": "तो अपनी याददाश्त पर भरोसा न करें: हर सर्विस की तारीख़ तय करें, कुछ दिन पहले का रिमाइंडर लगाएँ, और अपने काग़ज़ हाथ के पास रखें।"
+        },
+        {
+          "id": "tramites",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "verificacion",
+              "poliza",
+              "calendario"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "इसलिए मेरी कार्रवाइयाँ, जैसे हर छह महीने की फिटनेस जांच या बीमा पॉलिसी का नवीनीकरण, मेरे कैलेंडर में अपने आप दर्ज हो जाती हैं।"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "आगे कैसे बढ़ें? आगे बढ़ने का आपका प्लान",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग आठ। आगे कैसे बढ़ें? आगे बढ़ने का आपका प्लान।"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planGarage"
+          },
+          "lamina": [
+            "manometro",
+            "libreta"
+          ],
+          "texto": "पहले हफ़्ते, अपने टायरों का दबाव जाँचें और लिख लें कि आपका वाहन कितने किलोमीटर चल चुका है।"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeManualPlan",
+              "proximos",
+              "tallerPlan"
+            ]
+          },
+          "lamina": [
+            "manual",
+            "mecanico"
+          ],
+          "destacada": true,
+          "texto": "पहले महीने, मैनुअल पढ़ें, अपनी अगली सर्विस तय करें और ज़रूरत पड़ने से पहले कोई भरोसेमंद वर्कशॉप ढूँढ लें।"
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vuelta",
+              "chequeo",
+              "anota"
+            ]
+          },
+          "lamina": [
+            "revisarAuto",
+            "cumbre"
+          ],
+          "texto": "और हर महीने, एक चक्कर लगाएँ: टायर, लाइटें, तरल पदार्थों के स्तर और साइकिल की जाँच। और उस पर किया हर काम लिखें।"
+        },
+        {
+          "id": "contactos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "documentosApp",
+              "contactosApp",
+              "todo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "और हर वाहन के कार्ड में मैं उसके दस्तावेज़ और अपनी भरोसेमंद वर्कशॉप के संपर्क रखता हूँ।"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "संक्षेप में: चेतावनियों पर ध्यान दें; हर महीने टायर जाँचें; मैनुअल मानें, मिथक नहीं; आराम से चलाएँ; साइकिल की चेन का ख़याल रखें; और सब कुछ तय करके रखें, क्योंकि याददाश्त धोखा देती है।"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS के गैराज में आप अपने वाहन, उनकी सर्विस और अपना ख़र्च दर्ज रखते हैं, और अपनी कार्रवाइयाँ कैलेंडर में। आज ही अपना मन का घर मुफ़्त में बनाएँ: लिंक डिस्क्रिप्शन में है। और अगली गाइड में: बेहतर यात्रा कैसे करें?",
+    "boton": "गैराज खोलें",
+    "lamina": "app-plan",
+    "anclas": {
+      "vehiculos": "अपने वाहन",
+      "servicios": "उनकी सर्विस",
+      "tramites": "अपनी कार्रवाइयाँ"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "spglobal-2024",
+      "texto": "S&P Global Mobility. Average age of vehicles in the US continues to rise: 12.6 years in 2024 (2024).",
+      "url": "https://press.spglobal.com/2024-05-22-Average-Age-of-Vehicles-in-the-US-Continues-to-Rise-12-6-years-in-2024%2C-according-to-S-P-Global-Mobility"
+    },
+    {
+      "id": "nhtsa-2015",
+      "texto": "NHTSA (अमेरिका का राष्ट्रीय राजमार्ग यातायात सुरक्षा प्रशासन). Critical reasons for crashes investigated in the National Motor Vehicle Crash Causation Survey. DOT HS 812 115 (2015).",
+      "url": "https://crashstats.nhtsa.dot.gov/Api/Public/Publication/812115"
+    },
+    {
+      "id": "bertha-benz",
+      "texto": "बर्था बेंज़ और मानहाइम से फ़ोर्त्सहाइम तक उनका सफ़र (1888). विकिपीडिया.",
+      "url": "https://en.wikipedia.org/wiki/Bertha_Benz"
+    },
+    {
+      "id": "nhtsa-2001",
+      "texto": "NHTSA. Tire pressure special study: vehicle observation data. DOT HS 809 317 (2001).",
+      "url": "https://rosap.ntl.bts.gov/view/dot/5197"
+    },
+    {
+      "id": "ornl-2009",
+      "texto": "Thomas J., West B., Huff S. Effect of intake air filter condition on vehicle fuel economy. Oak Ridge National Laboratory, ORNL/TM-2009/021 (2009).",
+      "url": "https://www.osti.gov/biblio/948545"
+    },
+    {
+      "id": "doe-manejo",
+      "texto": "अमेरिका का ऊर्जा विभाग. Driving more efficiently / Keeping your vehicle in shape (fueleconomy.gov).",
+      "url": "https://www.fueleconomy.gov/feg/driveHabits.jsp"
+    },
+    {
+      "id": "spicer-1999",
+      "texto": "Spicer J. B. और सहयोगी. Effects of frictional loss on bicycle chain drive efficiency. Journal of Mechanical Design (2001); जॉन्स हॉपकिन्स की प्रेस विज्ञप्ति (1999).",
+      "url": "https://www.sciencedaily.com/releases/1999/08/990819180058.htm"
+    },
+    {
+      "id": "altmann-2014",
+      "texto": "Altmann S., Traxler C. Nudges at the dentist. European Economic Review 72, 19-38 (2014).",
+      "url": "https://doi.org/10.1016/j.euroecorev.2014.07.007"
+    }
+  ]
+}

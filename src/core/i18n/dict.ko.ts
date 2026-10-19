@@ -7184,6 +7184,7 @@ export const KO: Dict = {
   'guia.escritura.titulo': "왜 글을 써야 할까요?",
   'guia.hobbies.titulo': "취미는 어떻게 찾고, 어떻게 이어 갈까요?",
   'guia.entretenimiento.titulo': "어떻게 하면 더 잘 즐길 수 있을까요?",
+  'guia.garage.titulo': "내 차량은 어떻게 관리할까요?",
   'guia.matematicas.titulo': "우주의 언어는 무엇일까요?",
   'tut.esencial.titulo': '기본 둘러보기',
   'tut.tipo.ejemplos': '예시 · 데모 MindHaOS',

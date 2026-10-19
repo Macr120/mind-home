@@ -1,0 +1,725 @@
+{
+  "idioma": "fr",
+  "tema": "garage",
+  "plantillaId": "garage",
+  "numero": 17,
+  "nombre": "Garage",
+  "pregunta": "Comment entretenir tes véhicules ?",
+  "corta": "Comment entretenir tes véhicules ?",
+  "subtitulo": "Pourquoi entretenir ta voiture ou ton vélo avant la panne, qui a été le premier mécanicien de l’histoire, pourquoi commencer par les pneus, à quelle fréquence faire la vidange (et quels mythes oublier), pourquoi ta façon de conduire, c’est aussi de l’entretien, comment entretenir ton vélo, pourquoi on oublie et un plan pour continuer.",
+  "aviso": "Ce guide est informatif et général : chaque véhicule est différent. Suis toujours le manuel de ton véhicule et, en cas de bruits, d’odeurs, de fuites ou de problèmes de freins, de direction ou de pneus, confie-le à un mécanicien de confiance avant de continuer à t’en servir.",
+  "partes": [
+    {
+      "id": "prevenir",
+      "titulo": "Pourquoi l’entretenir avant la panne ?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Comment entretenir tes véhicules ? Une voiture sur quatre roule avec au moins un pneu très sous-gonflé. Et presque personne ne s’en rend compte avant que quelque chose lâche. Et si entretenir ta voiture ou ton vélo était bien plus simple que tu ne le crois ? Aujourd’hui, tu vas le voir avec des données, et tu repartiras avec un plan pour continuer."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Au fait, voici ma maison dans MindHaOS, et oui : c’est en pleine apocalypse. Et à la fin du monde, celui qui sait entretenir son véhicule va plus loin. Voici mon garage : ici, je suis ma voiture, mon vélo et tout ce que je leur fais."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie un. Pourquoi l’entretenir avant la panne ?"
+        },
+        {
+          "id": "edad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edadAutos"
+          },
+          "lamina": [
+            "trafico",
+            "autoViejo"
+          ],
+          "texto": "En 2024, la société S&P Global a calculé que les voitures aux États-Unis ont en moyenne douze ans et demi, un record. Les véhicules durent de plus en plus longtemps, mais seulement si tu les entretiens."
+        },
+        {
+          "id": "nhtsa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "causasFalla"
+          },
+          "lamina": [
+            "llantaPonchada",
+            "frenoDisco"
+          ],
+          "destacada": true,
+          "texto": "Et quand un accident est dû au véhicule et non au conducteur, qu’est-ce qui lâche ? L’agence de sécurité routière des États-Unis l’a étudié : dans plus d’un tiers de ces accidents, c’étaient les pneus, et dans un sur cinq, les freins."
+        },
+        {
+          "id": "avisa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ruido",
+              "testigo",
+              "olor"
+            ]
+          },
+          "lamina": [
+            "tablero",
+            "escuchar"
+          ],
+          "meme": "testigo",
+          "texto": "La bonne nouvelle : presque tout prévient avant. Un bruit nouveau, un voyant sur le tableau de bord, une odeur bizarre. L’astuce, ce n’est pas de monter le son de la radio, mais d’y prêter attention."
+        },
+        {
+          "id": "resumen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vencido",
+              "puerta",
+              "alDia"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Je l’ai appris le jour où ma voiture m’a laissé en plan en pleine avenue. Depuis, le résumé de mon garage me dit ce qui est en retard et ce qui arrive."
+        }
+      ]
+    },
+    {
+      "id": "bertha",
+      "titulo": "Qui a été le premier mécanicien de l’histoire ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie deux. Qui a été le premier mécanicien de l’histoire ?"
+        },
+        {
+          "id": "viaje",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1888",
+            "clave": "bertha"
+          },
+          "lamina": [
+            "berthaBenz",
+            "motorwagen"
+          ],
+          "destacada": true,
+          "texto": "Spoiler : c’était une femme. En 1888, Bertha Benz a pris l’automobile que son mari, Karl, avait inventée et, sans le prévenir, elle est partie avec ses deux fils de Mannheim à Pforzheim : plus de cent kilomètres, le premier long trajet en voiture de l’histoire."
+        },
+        {
+          "id": "arreglos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "horquilla",
+              "liga",
+              "cuero"
+            ]
+          },
+          "lamina": [
+            "berthaRuta",
+            "zapatero"
+          ],
+          "texto": "Et en chemin, elle l’a réparée elle-même : elle a débouché le conduit d’essence avec une épingle à chapeau, isolé un câble avec sa jarretière, et demandé à un cordonnier de recouvrir de cuir les freins usés."
+        },
+        {
+          "id": "farmacia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1888",
+            "clave": "wiesloch"
+          },
+          "lamina": [
+            "farmacia",
+            "motorwagen2"
+          ],
+          "texto": "L’essence, elle l’a achetée dans une pharmacie de Wiesloch, qu’on considère aujourd’hui comme la première station-service du monde. Et à son retour, elle a dit à Karl quoi améliorer : la voiture suivante montait déjà mieux les côtes."
+        },
+        {
+          "id": "ficha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "auto",
+              "bici",
+              "nota"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Ce qu’elle a fait, c’est connaître sa voiture. Ici, chaque véhicule a sa fiche : le Mastodonte, ma berline héritée, et la Grue, mon vélo de tous les jours."
+        }
+      ]
+    },
+    {
+      "id": "llantas",
+      "titulo": "Pourquoi commencer par les pneus ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie trois. Pourquoi commencer par les pneus ?"
+        },
+        {
+          "id": "presion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "27 %",
+            "clave": "nhtsa2001"
+          },
+          "lamina": [
+            "manometro",
+            "inflar"
+          ],
+          "destacada": true,
+          "texto": "En 2001, cette même agence a mesuré les pneus de plus de onze mille véhicules dans des stations-service de tous les États-Unis. Plus d’une voiture sur quatre avait au moins un pneu bien en dessous de sa pression."
+        },
+        {
+          "id": "consumo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "presionConsumo"
+          },
+          "lamina": [
+            "gasolina",
+            "llantaCarretera"
+          ],
+          "texto": "Et ça coûte cher : un pneu sous-gonflé freine moins bien, s’use plus vite et te fait consommer plus de carburant. Regarde combien tes pneus sous-gonflés te coûtent par an."
+        },
+        {
+          "id": "revisa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "frio",
+              "puertaLlanta",
+              "mes"
+            ]
+          },
+          "lamina": [
+            "calcomania",
+            "dibujo"
+          ],
+          "meme": "llanta",
+          "texto": "Vérifie-les à froid, une fois par mois, avec la pression indiquée sur l’étiquette de la portière, pas celle du flanc du pneu. Et regarde la bande de roulement : s’il ne reste presque plus de rainures, il faut les changer."
+        },
+        {
+          "id": "historial",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "servicio",
+              "fecha",
+              "costo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dans l’historique de chaque véhicule, je note chaque entretien, avec sa date et ce qu’il m’a coûté : les pneus, la batterie, les plaquettes de frein."
+        }
+      ]
+    },
+    {
+      "id": "aceite",
+      "titulo": "À quelle fréquence faire la vidange ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie quatre. À quelle fréquence faire la vidange ?"
+        },
+        {
+          "id": "mito",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cambiosAceite"
+          },
+          "lamina": [
+            "aceite",
+            "motor"
+          ],
+          "meme": "aceite",
+          "texto": "On t’a sûrement dit tous les cinq mille kilomètres. Avec les moteurs et les huiles d’aujourd’hui, beaucoup de constructeurs demandent de la faire bien plus tard. La règle qui compte, c’est celle du manuel de ta voiture. Regarde combien de vidanges tu économises par an."
+        },
+        {
+          "id": "filtro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "filtroAire"
+          },
+          "lamina": [
+            "filtroAire",
+            "cofre"
+          ],
+          "destacada": true,
+          "texto": "Autre mythe : en 2009, un laboratoire des États-Unis a bouché exprès le filtre à air de plusieurs voitures modernes. La consommation n’a presque pas changé, mais elles mettaient plus de temps à accélérer. Le changer te donne de la puissance, pas des économies."
+        },
+        {
+          "id": "manual",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeManual",
+              "uso",
+              "nivel"
+            ]
+          },
+          "lamina": [
+            "manual",
+            "varilla"
+          ],
+          "texto": "Alors lis le manuel, vois si ton usage est intensif, comme beaucoup de bouchons ou de chaleur, et vérifie le niveau d’huile toutes les deux semaines."
+        },
+        {
+          "id": "proximo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "registro",
+              "odometro",
+              "proximo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Quand j’enregistre une vidange, je note le compteur, et l’appli me dit quand faire la prochaine, en kilomètres ou en jours."
+        }
+      ]
+    },
+    {
+      "id": "manejo",
+      "titulo": "Ta façon de conduire, c’est aussi de l’entretien ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie cinq. Ta façon de conduire, c’est aussi de l’entretien ?"
+        },
+        {
+          "id": "agresivo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "manejoAgresivo"
+          },
+          "lamina": [
+            "acelerar",
+            "semaforo"
+          ],
+          "destacada": true,
+          "texto": "Le Département de l’Énergie des États-Unis le calcule ainsi : accélérer et freiner brusquement peut augmenter ta consommation de quinze à trente pour cent sur route, et jusqu’à quarante en ville."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoGarage"
+          },
+          "lamina": "pulgar",
+          "texto": "Si ce guide te plaît, mets un J’aime, abonne-toi pour ne pas rater le prochain et partage-le avec cette personne qui conduit toujours le pied lourd."
+        },
+        {
+          "id": "suave",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "manejoSuave"
+          },
+          "lamina": [
+            "volante",
+            "carretera"
+          ],
+          "texto": "Et ce n’est pas que le carburant : freiner brusquement use les plaquettes et les pneus. Regarde combien tu économises par an en conduisant en douceur."
+        },
+        {
+          "id": "habitos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "anticipa",
+              "peso",
+              "calienta"
+            ]
+          },
+          "lamina": [
+            "cajuela",
+            "amanecer"
+          ],
+          "texto": "Anticipe les arrêts, sors du coffre le poids inutile et, les premières minutes, conduis tranquillement, sans forcer le moteur à froid."
+        },
+        {
+          "id": "gasto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "gastoAno",
+              "total",
+              "compara"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Et à la fin de l’année, je vois combien j’ai dépensé pour chaque véhicule : les chiffres ne mentent pas."
+        }
+      ]
+    },
+    {
+      "id": "bici",
+      "titulo": "Et le vélo ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie six. Et le vélo ?"
+        },
+        {
+          "id": "spicer",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "98,6 %",
+            "clave": "spicer"
+          },
+          "lamina": [
+            "cadena",
+            "pedalear"
+          ],
+          "destacada": true,
+          "texto": "En 1999, James Spicer et son équipe de l’université Johns Hopkins ont mesuré la chaîne d’un vélo : lors de leur meilleur essai, elle transmettait à la roue presque quatre-vingt-dix-neuf pour cent de ta force. Et ils ont été surpris : l’huile ne changeait presque rien. Son rôle, disaient-ils, c’est d’empêcher la saleté d’entrer."
+        },
+        {
+          "id": "abc",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "aire",
+              "frenos",
+              "cadenaPaso"
+            ]
+          },
+          "lamina": [
+            "biciLlanta",
+            "biciFreno"
+          ],
+          "meme": "cadena",
+          "texto": "Alors, avant de partir, fais le contrôle en trois étapes : de l’air dans les pneus, des freins qui freinent et une chaîne propre et lubrifiée."
+        },
+        {
+          "id": "limpia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "trapo",
+              "gota",
+              "seca"
+            ]
+          },
+          "lamina": [
+            "lubricar",
+            "biciTaller"
+          ],
+          "texto": "Nettoie la chaîne avec un chiffon, une goutte d’huile sur chaque maillon, et essuie le surplus : trop d’huile attire la saleté et use la chaîne et les pignons."
+        },
+        {
+          "id": "grulla",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "grulla",
+              "cadenaApp",
+              "zapatas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "La Grue a aussi son historique : la chaîne, les patins, chaque crevaison. Et la prochaine révision est déjà dans le calendrier."
+        }
+      ]
+    },
+    {
+      "id": "olvido",
+      "titulo": "Pourquoi est-ce qu’on oublie ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie sept. Pourquoi est-ce qu’on oublie ?"
+        },
+        {
+          "id": "presente",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hoy",
+              "lejos",
+              "caro"
+            ]
+          },
+          "lamina": [
+            "calendarioPapel",
+            "reloj"
+          ],
+          "texto": "Parce que l’entretien ne fait pas mal aujourd’hui : la voiture roule bien, l’entretien coûte maintenant et la panne semble lointaine. Alors on remet à plus tard, encore et encore."
+        },
+        {
+          "id": "altmann",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "recordatorio"
+          },
+          "lamina": [
+            "postal",
+            "notificacion"
+          ],
+          "destacada": true,
+          "texto": "En 2014, Steffen Altmann et Christian Traxler ont testé une idée toute simple dans un cabinet dentaire en Allemagne : envoyer aux patients une carte postale pour leur rappeler leur contrôle. Le premier mois, plus du double de ces personnes ont pris rendez-vous."
+        },
+        {
+          "id": "agenda",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fechaFija",
+              "aviso",
+              "papeles"
+            ]
+          },
+          "lamina": [
+            "llaves",
+            "documentos"
+          ],
+          "texto": "Alors ne te fie pas à ta mémoire : donne une date à chaque entretien, un rappel quelques jours avant, et garde tes papiers à portée de main."
+        },
+        {
+          "id": "tramites",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "verificacion",
+              "poliza",
+              "calendario"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "C’est pour ça que mes démarches, comme le contrôle antipollution semestriel ou le renouvellement de l’assurance, se programment toutes seules dans mon calendrier."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Comment continuer ? Ton plan pour la suite",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Partie huit. Comment continuer ? Ton plan pour la suite."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planGarage"
+          },
+          "lamina": [
+            "manometro",
+            "libreta"
+          ],
+          "texto": "La première semaine, vérifie la pression de tes pneus et note combien de kilomètres a ton véhicule."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeManualPlan",
+              "proximos",
+              "tallerPlan"
+            ]
+          },
+          "lamina": [
+            "manual",
+            "mecanico"
+          ],
+          "destacada": true,
+          "texto": "Le premier mois, lis le manuel, programme tes prochains entretiens et trouve un garage de confiance avant d’en avoir besoin."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vuelta",
+              "chequeo",
+              "anota"
+            ]
+          },
+          "lamina": [
+            "revisarAuto",
+            "cumbre"
+          ],
+          "texto": "Et chaque mois, fais un petit tour : pneus, phares, niveaux et le contrôle du vélo. Et note tout ce que tu lui fais."
+        },
+        {
+          "id": "contactos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "documentosApp",
+              "contactosApp",
+              "todo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Et dans la fiche de chaque véhicule, je garde ses documents et les contacts de mes garages de confiance."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "En résumé : écoute les signaux ; vérifie tes pneus chaque mois ; suis le manuel, pas les mythes ; conduis en douceur ; prends soin de la chaîne de ton vélo ; et programme tout, parce que la mémoire flanche."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Dans le Garage de MindHaOS, tu suis tes véhicules, leurs entretiens et tes dépenses, et tes démarches dans le calendrier. Construis ta maison mentale gratuitement aujourd’hui : le lien est dans la description. Et dans le prochain guide : comment mieux voyager ?",
+    "boton": "Ouvrir le Garage",
+    "lamina": "app-plan",
+    "anclas": {
+      "vehiculos": "tes véhicules",
+      "servicios": "leurs entretiens",
+      "tramites": "tes démarches"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "spglobal-2024",
+      "texto": "S&P Global Mobility. Average age of vehicles in the US continues to rise: 12.6 years in 2024 (2024).",
+      "url": "https://press.spglobal.com/2024-05-22-Average-Age-of-Vehicles-in-the-US-Continues-to-Rise-12-6-years-in-2024%2C-according-to-S-P-Global-Mobility"
+    },
+    {
+      "id": "nhtsa-2015",
+      "texto": "NHTSA (Administration nationale de la sécurité routière des États-Unis). Critical reasons for crashes investigated in the National Motor Vehicle Crash Causation Survey. DOT HS 812 115 (2015).",
+      "url": "https://crashstats.nhtsa.dot.gov/Api/Public/Publication/812115"
+    },
+    {
+      "id": "bertha-benz",
+      "texto": "Bertha Benz et son voyage de Mannheim à Pforzheim (1888). Wikipédia.",
+      "url": "https://en.wikipedia.org/wiki/Bertha_Benz"
+    },
+    {
+      "id": "nhtsa-2001",
+      "texto": "NHTSA. Tire pressure special study: vehicle observation data. DOT HS 809 317 (2001).",
+      "url": "https://rosap.ntl.bts.gov/view/dot/5197"
+    },
+    {
+      "id": "ornl-2009",
+      "texto": "Thomas J., West B., Huff S. Effect of intake air filter condition on vehicle fuel economy. Oak Ridge National Laboratory, ORNL/TM-2009/021 (2009).",
+      "url": "https://www.osti.gov/biblio/948545"
+    },
+    {
+      "id": "doe-manejo",
+      "texto": "Département de l’Énergie des États-Unis. Driving more efficiently / Keeping your vehicle in shape (fueleconomy.gov).",
+      "url": "https://www.fueleconomy.gov/feg/driveHabits.jsp"
+    },
+    {
+      "id": "spicer-1999",
+      "texto": "Spicer J. B. et collègues. Effects of frictional loss on bicycle chain drive efficiency. Journal of Mechanical Design (2001) ; communiqué de presse de Johns Hopkins (1999).",
+      "url": "https://www.sciencedaily.com/releases/1999/08/990819180058.htm"
+    },
+    {
+      "id": "altmann-2014",
+      "texto": "Altmann S., Traxler C. Nudges at the dentist. European Economic Review 72, 19-38 (2014).",
+      "url": "https://doi.org/10.1016/j.euroecorev.2014.07.007"
+    }
+  ]
+}

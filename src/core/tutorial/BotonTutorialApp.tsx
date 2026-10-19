@@ -32,6 +32,7 @@ const GUIAS: Record<string, { tema: string; clave: string; es: string }> = {
   escritura: { tema: 'escritura', clave: 'guia.escritura.titulo', es: '¿Por qué debes escribir?' },
   hobbies: { tema: 'hobbies', clave: 'guia.hobbies.titulo', es: '¿Cómo encontrar un pasatiempo y cómo mantenerlo?' },
   entretenimiento: { tema: 'entretenimiento', clave: 'guia.entretenimiento.titulo', es: '¿Cómo entretenerte mejor?' },
+  garage: { tema: 'garage', clave: 'guia.garage.titulo', es: '¿Cómo cuidar tus vehículos?' },
   computo: { tema: 'matematicas', clave: 'guia.matematicas.titulo', es: '¿Cuál es el lenguaje del universo?' },
 }
 

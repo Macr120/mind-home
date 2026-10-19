@@ -1,0 +1,725 @@
+{
+  "idioma": "ru",
+  "tema": "garage",
+  "plantillaId": "garage",
+  "numero": 17,
+  "nombre": "Гараж",
+  "pregunta": "Как ухаживать за своим транспортом?",
+  "corta": "Как ухаживать за своим транспортом?",
+  "subtitulo": "Зачем ухаживать за машиной или велосипедом до поломки, кто был первым механиком в истории, почему начинать с шин, как часто менять масло (и какие мифы лишние), почему твоя манера вождения — тоже обслуживание, как ухаживать за велосипедом, почему мы об этом забываем и план на будущее.",
+  "aviso": "Это руководство носит общий и информационный характер: каждое транспортное средство отличается. Всегда следуй руководству по эксплуатации, а при шумах, запахах, утечках или неполадках с тормозами, рулевым управлением или шинами покажи его надёжному механику, прежде чем ездить дальше.",
+  "partes": [
+    {
+      "id": "prevenir",
+      "titulo": "Зачем ухаживать за ним до поломки?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Как ухаживать за своим транспортом? Каждая четвёртая машина на дороге едет хотя бы с одной сильно спущенной шиной. И почти никто этого не замечает, пока что-нибудь не хлопнет. А что, если ухаживать за машиной или велосипедом гораздо проще, чем кажется? Сегодня ты увидишь это на данных и уйдёшь с планом на будущее."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Кстати, это мой дом в MindHaOS, и да: здесь в самом разгаре апокалипсис. А в конце света дальше всех уедет тот, кто умеет ухаживать за своим транспортом. Это мой Гараж: здесь я веду свою машину, свой велосипед и всё, что я с ними делаю."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть первая. Зачем ухаживать за ним до поломки?"
+        },
+        {
+          "id": "edad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edadAutos"
+          },
+          "lamina": [
+            "trafico",
+            "autoViejo"
+          ],
+          "texto": "В 2024 году компания S&P Global подсчитала, что машинам в Соединённых Штатах в среднем двенадцать с половиной лет, и это рекорд. Транспорт служит всё дольше, но только если за ним ухаживать."
+        },
+        {
+          "id": "nhtsa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "causasFalla"
+          },
+          "lamina": [
+            "llantaPonchada",
+            "frenoDisco"
+          ],
+          "destacada": true,
+          "texto": "А когда авария случается из-за машины, а не из-за водителя, что отказывает? Это проверило американское агентство безопасности дорожного движения: больше чем в трети таких аварий виноваты были шины, а в каждой пятой — тормоза."
+        },
+        {
+          "id": "avisa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ruido",
+              "testigo",
+              "olor"
+            ]
+          },
+          "lamina": [
+            "tablero",
+            "escuchar"
+          ],
+          "meme": "testigo",
+          "texto": "Хорошая новость: почти всё предупреждает заранее. Новый звук, лампочка на приборной панели, странный запах. Хитрость в том, чтобы не делать радио погромче, а прислушаться."
+        },
+        {
+          "id": "resumen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vencido",
+              "puerta",
+              "alDia"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Я это понял, когда машина бросила меня посреди проспекта. С тех пор сводка моего Гаража говорит мне, что просрочено, а что уже скоро."
+        }
+      ]
+    },
+    {
+      "id": "bertha",
+      "titulo": "Кто был первым механиком в истории?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть вторая. Кто был первым механиком в истории?"
+        },
+        {
+          "id": "viaje",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1888",
+            "clave": "bertha"
+          },
+          "lamina": [
+            "berthaBenz",
+            "motorwagen"
+          ],
+          "destacada": true,
+          "texto": "Спойлер: это была женщина. В 1888 году Берта Бенц взяла автомобиль, который изобрёл её муж Карл, и, не предупредив его, поехала с двумя сыновьями из Мангейма в Пфорцхайм: больше ста километров, первая дальняя поездка на машине в истории."
+        },
+        {
+          "id": "arreglos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "horquilla",
+              "liga",
+              "cuero"
+            ]
+          },
+          "lamina": [
+            "berthaRuta",
+            "zapatero"
+          ],
+          "texto": "И по дороге сама её чинила: прочистила топливную трубку шляпной булавкой, заизолировала провод подвязкой и попросила сапожника обтянуть кожей стёртые тормоза."
+        },
+        {
+          "id": "farmacia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1888",
+            "clave": "wiesloch"
+          },
+          "lamina": [
+            "farmacia",
+            "motorwagen2"
+          ],
+          "texto": "Бензин она купила в аптеке в Вислохе, которую сегодня вспоминают как первую в мире заправку. А вернувшись, рассказала Карлу, что улучшить: следующая машина уже лучше брала подъёмы."
+        },
+        {
+          "id": "ficha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "auto",
+              "bici",
+              "nota"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Она просто знала свою машину. Здесь у каждого транспорта своя карточка: Мастодонт, мой седан по наследству, и Журавль, мой велосипед на каждый день."
+        }
+      ]
+    },
+    {
+      "id": "llantas",
+      "titulo": "Почему начинать с шин?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть третья. Почему начинать с шин?"
+        },
+        {
+          "id": "presion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "27%",
+            "clave": "nhtsa2001"
+          },
+          "lamina": [
+            "manometro",
+            "inflar"
+          ],
+          "destacada": true,
+          "texto": "В 2001 году то же агентство измерило шины у более чем одиннадцати тысяч машин на заправках по всем Соединённым Штатам. Больше чем у каждой четвёртой хотя бы одна шина была сильно ниже нормы давления."
+        },
+        {
+          "id": "consumo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "presionConsumo"
+          },
+          "lamina": [
+            "gasolina",
+            "llantaCarretera"
+          ],
+          "texto": "И это стоит денег: спущенная шина хуже тормозит, быстрее изнашивается и заставляет тратить больше бензина. Посмотри, сколько ты теряешь за год из-за спущенных шин."
+        },
+        {
+          "id": "revisa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "frio",
+              "puertaLlanta",
+              "mes"
+            ]
+          },
+          "lamina": [
+            "calcomania",
+            "dibujo"
+          ],
+          "meme": "llanta",
+          "texto": "Проверяй их на холодную, раз в месяц, по давлению с наклейки на двери, а не с боковины шины. И смотри на протектор: если канавок почти не осталось, пора менять."
+        },
+        {
+          "id": "historial",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "servicio",
+              "fecha",
+              "costo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "В истории каждой машины я записываю каждое обслуживание, с датой и стоимостью: шины, аккумулятор, тормозные колодки."
+        }
+      ]
+    },
+    {
+      "id": "aceite",
+      "titulo": "Как часто менять масло?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть четвёртая. Как часто менять масло?"
+        },
+        {
+          "id": "mito",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cambiosAceite"
+          },
+          "lamina": [
+            "aceite",
+            "motor"
+          ],
+          "meme": "aceite",
+          "texto": "Тебе наверняка говорили: каждые пять тысяч километров. С сегодняшними моторами и маслами многие производители советуют менять его гораздо позже. Главное правило — то, что написано в руководстве к твоей машине. Посмотри, сколько замен ты экономишь за год."
+        },
+        {
+          "id": "filtro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "filtroAire"
+          },
+          "lamina": [
+            "filtroAire",
+            "cofre"
+          ],
+          "destacada": true,
+          "texto": "Ещё один миф: в 2009 году лаборатория в Соединённых Штатах нарочно забила воздушный фильтр у нескольких современных машин. Расход бензина почти не изменился, но разгонялись они медленнее. Замена фильтра даёт тебе мощность, а не экономию."
+        },
+        {
+          "id": "manual",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeManual",
+              "uso",
+              "nivel"
+            ]
+          },
+          "lamina": [
+            "manual",
+            "varilla"
+          ],
+          "texto": "Так что прочитай руководство, подумай, тяжёлые ли у тебя условия, например пробки или жара, и проверяй уровень масла раз в пару недель."
+        },
+        {
+          "id": "proximo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "registro",
+              "odometro",
+              "proximo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Когда я записываю замену масла, отмечаю пробег, и приложение говорит мне, когда следующая, в километрах или в днях."
+        }
+      ]
+    },
+    {
+      "id": "manejo",
+      "titulo": "Твоя манера вождения — тоже обслуживание?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть пятая. Твоя манера вождения — тоже обслуживание?"
+        },
+        {
+          "id": "agresivo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "manejoAgresivo"
+          },
+          "lamina": [
+            "acelerar",
+            "semaforo"
+          ],
+          "destacada": true,
+          "texto": "Министерство энергетики Соединённых Штатов считает так: резкие разгоны и торможения могут увеличить расход бензина на пятнадцать–тридцать процентов на трассе и до сорока процентов в городе."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoGarage"
+          },
+          "lamina": "pulgar",
+          "texto": "Если тебе нравится это руководство, нажми «Нравится», «Подписаться», чтобы не пропустить следующее, и «Поделиться» — с тем, кто всегда ездит, вдавив газ в пол."
+        },
+        {
+          "id": "suave",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "manejoSuave"
+          },
+          "lamina": [
+            "volante",
+            "carretera"
+          ],
+          "texto": "И дело не только в бензине: резкое торможение изнашивает колодки и шины. Посмотри, сколько ты экономишь за год, если ездить плавно."
+        },
+        {
+          "id": "habitos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "anticipa",
+              "peso",
+              "calienta"
+            ]
+          },
+          "lamina": [
+            "cajuela",
+            "amanecer"
+          ],
+          "texto": "Предугадывай остановки, вынь из багажника лишний груз и первые минуты езжай спокойно, не нагружая холодный мотор."
+        },
+        {
+          "id": "gasto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "gastoAno",
+              "total",
+              "compara"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "А в конце года я вижу, сколько потратил и на машину, и на велосипед: цифры не врут."
+        }
+      ]
+    },
+    {
+      "id": "bici",
+      "titulo": "А велосипед?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть шестая. А велосипед?"
+        },
+        {
+          "id": "spicer",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "98,6%",
+            "clave": "spicer"
+          },
+          "lamina": [
+            "cadena",
+            "pedalear"
+          ],
+          "destacada": true,
+          "texto": "В 1999 году Джеймс Спайсер и его команда из Университета Джонса Хопкинса измерили цепь велосипеда: в лучшем опыте она передавала на колесо почти девяносто девять процентов твоей силы. И их удивило, что смазка почти ничего не меняла. Её роль, по их словам, в том, чтобы не пускать внутрь грязь."
+        },
+        {
+          "id": "abc",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "aire",
+              "frenos",
+              "cadenaPaso"
+            ]
+          },
+          "lamina": [
+            "biciLlanta",
+            "biciFreno"
+          ],
+          "meme": "cadena",
+          "texto": "Поэтому перед выездом сделай проверку в три шага: воздух в шинах, тормоза, которые тормозят, и чистая, смазанная цепь."
+        },
+        {
+          "id": "limpia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "trapo",
+              "gota",
+              "seca"
+            ]
+          },
+          "lamina": [
+            "lubricar",
+            "biciTaller"
+          ],
+          "texto": "Протри цепь тряпкой, по капле масла на каждое звено, и сотри лишнее: избыток масла собирает грязь и изнашивает цепь и звёздочки."
+        },
+        {
+          "id": "grulla",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "grulla",
+              "cadenaApp",
+              "zapatas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "У Журавля тоже своя история: цепь, колодки, каждый прокол. А следующая настройка уже в календаре."
+        }
+      ]
+    },
+    {
+      "id": "olvido",
+      "titulo": "Почему мы об этом забываем?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть седьмая. Почему мы об этом забываем?"
+        },
+        {
+          "id": "presente",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hoy",
+              "lejos",
+              "caro"
+            ]
+          },
+          "lamina": [
+            "calendarioPapel",
+            "reloj"
+          ],
+          "texto": "Потому что обслуживание не болит сегодня: машина едет нормально, сервис стоит денег уже сейчас, а поломка кажется далёкой. И мы откладываем на потом, снова и снова."
+        },
+        {
+          "id": "altmann",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "recordatorio"
+          },
+          "lamina": [
+            "postal",
+            "notificacion"
+          ],
+          "destacada": true,
+          "texto": "В 2014 году Штеффен Альтман и Кристиан Тракслер проверили очень простую вещь в стоматологической клинике в Германии: отправили пациентам открытку с напоминанием об осмотре. В первый месяц на приём записалось вдвое с лишним больше людей."
+        },
+        {
+          "id": "agenda",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fechaFija",
+              "aviso",
+              "papeles"
+            ]
+          },
+          "lamina": [
+            "llaves",
+            "documentos"
+          ],
+          "texto": "Так что не полагайся на память: назначь дату каждому обслуживанию, поставь напоминание за несколько дней и держи документы под рукой."
+        },
+        {
+          "id": "tramites",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "verificacion",
+              "poliza",
+              "calendario"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Поэтому мои формальности, например техосмотр или продление страховки, сами попадают в мой календарь."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Как продолжать? Твой план на будущее",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть восьмая. Как продолжать? Твой план на будущее."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planGarage"
+          },
+          "lamina": [
+            "manometro",
+            "libreta"
+          ],
+          "texto": "В первую неделю проверь давление в шинах и запиши пробег своей машины."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeManualPlan",
+              "proximos",
+              "tallerPlan"
+            ]
+          },
+          "lamina": [
+            "manual",
+            "mecanico"
+          ],
+          "destacada": true,
+          "texto": "В первый месяц прочитай руководство, запланируй ближайшее обслуживание и найди надёжный сервис, пока он не понадобился."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vuelta",
+              "chequeo",
+              "anota"
+            ]
+          },
+          "lamina": [
+            "revisarAuto",
+            "cumbre"
+          ],
+          "texto": "И каждый месяц делай обход: шины, фары, уровни жидкостей и проверка велосипеда. И записывай всё, что ты с ними делаешь."
+        },
+        {
+          "id": "contactos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "documentosApp",
+              "contactosApp",
+              "todo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "А в карточке каждой машины я храню её документы и контакты моих надёжных мастерских."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Итак: прислушивайся к сигналам; проверяй шины каждый месяц; следуй руководству, а не мифам; езди плавно; береги цепь велосипеда; и планируй всё, потому что память подводит."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "В Гараже MindHaOS ты ведёшь свой транспорт, его обслуживание и расходы, а твои формальности ждут в календаре. Построй свой мысленный дом бесплатно уже сегодня: ссылка в описании. А в следующем руководстве: как путешествовать лучше?",
+    "boton": "Открыть Гараж",
+    "lamina": "app-plan",
+    "anclas": {
+      "vehiculos": "свой транспорт",
+      "servicios": "его обслуживание",
+      "tramites": "твои формальности"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "spglobal-2024",
+      "texto": "S&P Global Mobility. Average age of vehicles in the US continues to rise: 12.6 years in 2024 (2024).",
+      "url": "https://press.spglobal.com/2024-05-22-Average-Age-of-Vehicles-in-the-US-Continues-to-Rise-12-6-years-in-2024%2C-according-to-S-P-Global-Mobility"
+    },
+    {
+      "id": "nhtsa-2015",
+      "texto": "NHTSA (Национальное управление безопасностью движения на трассах США). Critical reasons for crashes investigated in the National Motor Vehicle Crash Causation Survey. DOT HS 812 115 (2015).",
+      "url": "https://crashstats.nhtsa.dot.gov/Api/Public/Publication/812115"
+    },
+    {
+      "id": "bertha-benz",
+      "texto": "Берта Бенц и её поездка из Мангейма в Пфорцхайм (1888). Википедия.",
+      "url": "https://en.wikipedia.org/wiki/Bertha_Benz"
+    },
+    {
+      "id": "nhtsa-2001",
+      "texto": "NHTSA. Tire pressure special study: vehicle observation data. DOT HS 809 317 (2001).",
+      "url": "https://rosap.ntl.bts.gov/view/dot/5197"
+    },
+    {
+      "id": "ornl-2009",
+      "texto": "Thomas J., West B., Huff S. Effect of intake air filter condition on vehicle fuel economy. Oak Ridge National Laboratory, ORNL/TM-2009/021 (2009).",
+      "url": "https://www.osti.gov/biblio/948545"
+    },
+    {
+      "id": "doe-manejo",
+      "texto": "Министерство энергетики США. Driving more efficiently / Keeping your vehicle in shape (fueleconomy.gov).",
+      "url": "https://www.fueleconomy.gov/feg/driveHabits.jsp"
+    },
+    {
+      "id": "spicer-1999",
+      "texto": "Spicer J. B. и коллеги. Effects of frictional loss on bicycle chain drive efficiency. Journal of Mechanical Design (2001); пресс-релиз Johns Hopkins (1999).",
+      "url": "https://www.sciencedaily.com/releases/1999/08/990819180058.htm"
+    },
+    {
+      "id": "altmann-2014",
+      "texto": "Altmann S., Traxler C. Nudges at the dentist. European Economic Review 72, 19-38 (2014).",
+      "url": "https://doi.org/10.1016/j.euroecorev.2014.07.007"
+    }
+  ]
+}

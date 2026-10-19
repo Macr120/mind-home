@@ -24,7 +24,13 @@ export function pepCon(atuendo: string, cara?: ExpresionId, ropa?: Ropa): Avatar
 }
 
 /** Atuendo del narrador según el tema de la guía. */
-export const ATUENDO_GUIA: Record<string, string> = { ejercicio: 'deportista', cocina: 'chef', descanso: 'pijama', finanzas: 'oficinista', metas: 'explorador' }
+export const ATUENDO_GUIA: Record<string, string> = { ejercicio: 'deportista', cocina: 'chef', descanso: 'pijama', finanzas: 'oficinista', metas: 'explorador', garage: 'mecanico' }
+
+/** Lo que se suma al atuendo de la guía (Garage: la barba del mecánico, como en la casa: `ROPA` de su escena.mjs). */
+export function ropaDeGuia(tema: string): Ropa | undefined {
+  const extra: Record<string, Ropa> = { garage: { barba: { color: '#3a2a1a' } } }
+  return extra[tema] && { ...ATUENDOS_PRESET.find((a) => a.id === ATUENDO_GUIA[tema])?.ropa, ...extra[tema] }
+}
 
 /**
  * Guías en las que el tiempo avanza con las partes (Arte): la casa del video cambia de

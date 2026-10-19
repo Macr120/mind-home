@@ -1,0 +1,725 @@
+{
+  "idioma": "ja",
+  "tema": "garage",
+  "plantillaId": "garage",
+  "numero": 17,
+  "nombre": "ガレージ",
+  "pregunta": "乗り物をどうメンテナンスすればいいのでしょうか？",
+  "corta": "乗り物をどうメンテナンスすればいいのでしょうか？",
+  "subtitulo": "壊れる前に車や自転車を手入れすべき理由、歴史上最初の整備士は誰だったのか、なぜタイヤから始めるのか、オイル交換はどのくらいの間隔か（そしてどんな思い込みが不要か）、なぜ運転の仕方もメンテナンスなのか、自転車の手入れのしかた、なぜ忘れてしまうのか、そして続けるためのプラン。",
+  "aviso": "このガイドは一般的な情報です。乗り物はそれぞれ違います。必ず取扱説明書に従い、異音、におい、漏れ、またはブレーキ、ハンドル、タイヤの不具合があれば、使い続ける前に信頼できる整備士に診てもらってください。",
+  "partes": [
+    {
+      "id": "prevenir",
+      "titulo": "なぜ壊れる前に手入れするのでしょうか？",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "乗り物をどうメンテナンスすればいいのでしょうか？ 道を走る車の4台に1台は、少なくとも1本のタイヤの空気がかなり不足しています。そしてほとんどの人は、何かが壊れるまで気づきません。車や自転車の手入れが、思っているよりずっと簡単だとしたら？ 今日はデータでそれを確かめて、続けるためのプランを持ち帰ってもらいます。"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "ところで、ここはMindHaOSにある私の家です。そう、まさに世界の終わりの真っ最中。そして世界の終わりでは、自分の乗り物を手入れできる人ほど遠くまで行けるんです。ここが私のガレージ。私の車と自転車、それにしてあげた整備を全部ここに記録しています。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート1。なぜ壊れる前に手入れするのでしょうか？"
+        },
+        {
+          "id": "edad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edadAutos"
+          },
+          "lamina": [
+            "trafico",
+            "autoViejo"
+          ],
+          "texto": "2024年、S&P Globalの調査では、アメリカの車の平均年齢は12年半と過去最高でした。乗り物はどんどん長持ちするようになっています。ただし、手入れをすればの話です。"
+        },
+        {
+          "id": "nhtsa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "causasFalla"
+          },
+          "lamina": [
+            "llantaPonchada",
+            "frenoDisco"
+          ],
+          "destacada": true,
+          "texto": "では、事故の原因がドライバーではなく車にあったとき、何が壊れていたのでしょうか？ アメリカの道路交通安全局が調べたところ、そうした事故の3分の1以上はタイヤ、5件に1件はブレーキでした。"
+        },
+        {
+          "id": "avisa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ruido",
+              "testigo",
+              "olor"
+            ]
+          },
+          "lamina": [
+            "tablero",
+            "escuchar"
+          ],
+          "meme": "testigo",
+          "texto": "いい知らせもあります。ほとんどのトラブルは前もって知らせてくれます。聞き慣れない音、メーターの警告灯、変なにおい。コツは、ラジオの音量を上げることではなく、ちゃんと耳を傾けることです。"
+        },
+        {
+          "id": "resumen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vencido",
+              "puerta",
+              "alDia"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "私がそれを学んだのは、大通りのど真ん中で車が動かなくなったときでした。それ以来、ガレージの概要が、期限切れのものと間近のものを教えてくれます。"
+        }
+      ]
+    },
+    {
+      "id": "bertha",
+      "titulo": "歴史上最初の整備士は誰だったのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート2。歴史上最初の整備士は誰だったのでしょうか？"
+        },
+        {
+          "id": "viaje",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1888",
+            "clave": "bertha"
+          },
+          "lamina": [
+            "berthaBenz",
+            "motorwagen"
+          ],
+          "destacada": true,
+          "texto": "ネタバレすると、女性でした。1888年、ベルタ・ベンツは夫のカールが発明した自動車に乗り、夫に黙って2人の息子を連れてマンハイムからプフォルツハイムへ向かいました。100キロ以上、歴史上初めての自動車での長距離旅行です。"
+        },
+        {
+          "id": "arreglos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "horquilla",
+              "liga",
+              "cuero"
+            ]
+          },
+          "lamina": [
+            "berthaRuta",
+            "zapatero"
+          ],
+          "texto": "そして道中、自分で直しながら進みました。詰まった燃料の管を帽子のピンで通し、ケーブルをガーターで絶縁し、すり減ったブレーキには靴屋に頼んで革を張ってもらったのです。"
+        },
+        {
+          "id": "farmacia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1888",
+            "clave": "wiesloch"
+          },
+          "lamina": [
+            "farmacia",
+            "motorwagen2"
+          ],
+          "texto": "ガソリンはヴィースロッホの薬局で買いました。そこは今、世界初のガソリンスタンドとして知られています。そして帰ってからカールに改善点を伝えました。次の車は、坂をもっと楽に登れるようになっていました。"
+        },
+        {
+          "id": "ficha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "auto",
+              "bici",
+              "nota"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "彼女がしたのは、自分の車を知ることでした。ここでは乗り物ごとに専用の記録があります。受け継いだセダンのマンモス号と、毎日乗っている自転車のツル号です。"
+        }
+      ]
+    },
+    {
+      "id": "llantas",
+      "titulo": "なぜタイヤから始めるのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート3。なぜタイヤから始めるのでしょうか？"
+        },
+        {
+          "id": "presion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "27%",
+            "clave": "nhtsa2001"
+          },
+          "lamina": [
+            "manometro",
+            "inflar"
+          ],
+          "destacada": true,
+          "texto": "2001年、同じ機関がアメリカ中のガソリンスタンドで、1万1000台以上の車のタイヤを測りました。4台に1台を超える車で、少なくとも1本のタイヤの空気圧が規定よりかなり低くなっていました。"
+        },
+        {
+          "id": "consumo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "presionConsumo"
+          },
+          "lamina": [
+            "gasolina",
+            "llantaCarretera"
+          ],
+          "texto": "これはお金がかかります。空気の少ないタイヤは止まりにくく、早くすり減り、ガソリンも余計に使います。空気圧不足で1年にどれだけ損しているか見てみましょう。"
+        },
+        {
+          "id": "revisa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "frio",
+              "puertaLlanta",
+              "mes"
+            ]
+          },
+          "lamina": [
+            "calcomania",
+            "dibujo"
+          ],
+          "meme": "llanta",
+          "texto": "タイヤが冷えているときに、月に1回、タイヤの側面の数字ではなく、ドアのラベルに書かれた空気圧で確かめましょう。それから溝も見てください。溝がほとんど残っていなければ、交換どきです。"
+        },
+        {
+          "id": "historial",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "servicio",
+              "fecha",
+              "costo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "それぞれの車両の履歴に、整備を1回ずつ、日付と費用と一緒に記録しています。タイヤ、バッテリー、ブレーキパッド。"
+        }
+      ]
+    },
+    {
+      "id": "aceite",
+      "titulo": "オイル交換はどのくらいの間隔でするのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート4。オイル交換はどのくらいの間隔でするのでしょうか？"
+        },
+        {
+          "id": "mito",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cambiosAceite"
+          },
+          "lamina": [
+            "aceite",
+            "motor"
+          ],
+          "meme": "aceite",
+          "texto": "5000キロごと、と言われたことがあるでしょう。今のエンジンとオイルなら、多くのメーカーはもっと長い間隔を指定しています。従うべきルールは、あなたの車の取扱説明書です。1年で何回の交換を減らせるか見てみましょう。"
+        },
+        {
+          "id": "filtro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "filtroAire"
+          },
+          "lamina": [
+            "filtroAire",
+            "cofre"
+          ],
+          "destacada": true,
+          "texto": "もう一つの思い込み。2009年、アメリカのある研究所が、最新の車何台かのエアフィルターをわざと詰まらせました。燃費はほとんど変わりませんでしたが、加速は遅くなりました。交換で得られるのはパワーで、節約ではありません。"
+        },
+        {
+          "id": "manual",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeManual",
+              "uso",
+              "nivel"
+            ]
+          },
+          "lamina": [
+            "manual",
+            "varilla"
+          ],
+          "texto": "だから取扱説明書を読み、渋滞や暑さなど厳しい使い方をしていないか確かめ、オイルの量を2週間ごとにチェックしましょう。"
+        },
+        {
+          "id": "proximo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "registro",
+              "odometro",
+              "proximo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "オイル交換を記録するときは、走行距離も書いておきます。するとアプリが、次回はいつか、キロ数か日数で教えてくれます。"
+        }
+      ]
+    },
+    {
+      "id": "manejo",
+      "titulo": "運転の仕方もメンテナンスなのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート5。運転の仕方もメンテナンスなのでしょうか？"
+        },
+        {
+          "id": "agresivo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "manejoAgresivo"
+          },
+          "lamina": [
+            "acelerar",
+            "semaforo"
+          ],
+          "destacada": true,
+          "texto": "アメリカのエネルギー省の試算では、急加速や急ブレーキをすると、ガソリン代が高速道路で15から30パーセント、街なかでは最大40パーセントも増えることがあります。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoGarage"
+          },
+          "lamina": "pulgar",
+          "texto": "このガイドを気に入ってもらえたら、高評価と、次回を見逃さないためのチャンネル登録、そしていつもアクセルを踏み込みすぎるあの人に共有をお願いします。"
+        },
+        {
+          "id": "suave",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "manejoSuave"
+          },
+          "lamina": [
+            "volante",
+            "carretera"
+          ],
+          "texto": "それにガソリンだけではありません。急ブレーキはブレーキパッドもタイヤもすり減らします。穏やかな運転で1年にどれだけ節約できるか見てみましょう。"
+        },
+        {
+          "id": "habitos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "anticipa",
+              "peso",
+              "calienta"
+            ]
+          },
+          "lamina": [
+            "cajuela",
+            "amanecer"
+          ],
+          "texto": "止まる場所を早めに予測し、トランクから使わない荷物を降ろし、走り出して最初の数分は、冷えたエンジンに無理をさせずにゆっくり走りましょう。"
+        },
+        {
+          "id": "gasto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "gastoAno",
+              "total",
+              "compara"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "そして年末には、車両ごとにいくら使ったかがわかります。数字はうそをつきません。"
+        }
+      ]
+    },
+    {
+      "id": "bici",
+      "titulo": "自転車はどうでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート6。自転車はどうでしょうか？"
+        },
+        {
+          "id": "spicer",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "98.6%",
+            "clave": "spicer"
+          },
+          "lamina": [
+            "cadena",
+            "pedalear"
+          ],
+          "destacada": true,
+          "texto": "1999年、ジョンズ・ホプキンス大学のジェームズ・スパイサーたちが、自転車のチェーンを測定しました。一番いい結果では、あなたの力のほぼ99パーセントが車輪に伝わっていました。そして驚いたことに、オイルはほとんど影響しませんでした。オイルの役目は、砂やほこりを入れないことだそうです。"
+        },
+        {
+          "id": "abc",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "aire",
+              "frenos",
+              "cadenaPaso"
+            ]
+          },
+          "lamina": [
+            "biciLlanta",
+            "biciFreno"
+          ],
+          "meme": "cadena",
+          "texto": "だから出かける前に、3ステップの点検をしましょう。タイヤの空気、ちゃんと効くブレーキ、そしてきれいで注油されたチェーン。"
+        },
+        {
+          "id": "limpia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "trapo",
+              "gota",
+              "seca"
+            ]
+          },
+          "lamina": [
+            "lubricar",
+            "biciTaller"
+          ],
+          "texto": "チェーンを布でふき、コマごとにオイルを1滴ずつたらし、余分はふき取りましょう。オイルが多すぎると砂やほこりが付き、チェーンとギアがすり減ります。"
+        },
+        {
+          "id": "grulla",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "grulla",
+              "cadenaApp",
+              "zapatas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "ツル号にも履歴があります。チェーン、ブレーキシュー、パンクのたびの記録。そして次のチューンナップは、もうカレンダーに入っています。"
+        }
+      ]
+    },
+    {
+      "id": "olvido",
+      "titulo": "なぜ忘れてしまうのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート7。なぜ忘れてしまうのでしょうか？"
+        },
+        {
+          "id": "presente",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hoy",
+              "lejos",
+              "caro"
+            ]
+          },
+          "lamina": [
+            "calendarioPapel",
+            "reloj"
+          ],
+          "texto": "メンテナンスは、今日は痛くないからです。車はちゃんと走るし、整備のお金は今かかるのに、故障はずっと先のことに思えます。だから何度も何度も後回しにしてしまうんです。"
+        },
+        {
+          "id": "altmann",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "recordatorio"
+          },
+          "lamina": [
+            "postal",
+            "notificacion"
+          ],
+          "destacada": true,
+          "texto": "2014年、シュテフェン・アルトマンとクリスティアン・トラクスラーは、ドイツの歯科医院でとてもシンプルなことを試しました。患者に、検診を思い出させるはがきを送ったのです。最初の1か月で予約をした人は、2倍以上になりました。"
+        },
+        {
+          "id": "agenda",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fechaFija",
+              "aviso",
+              "papeles"
+            ]
+          },
+          "lamina": [
+            "llaves",
+            "documentos"
+          ],
+          "texto": "だから記憶に頼らないでください。整備ごとに日付を決め、数日前に通知を設定し、書類はすぐ手に取れるところに置いておきましょう。"
+        },
+        {
+          "id": "tramites",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "verificacion",
+              "poliza",
+              "calendario"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "だから私の手続きは、排ガス検査や保険の更新も、カレンダーに自動で入ります。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "この先どうする？ 続けるためのプラン",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート8。この先どうする？ 続けるためのプラン。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planGarage"
+          },
+          "lamina": [
+            "manometro",
+            "libreta"
+          ],
+          "texto": "最初の1週間は、タイヤの空気圧を確かめて、乗り物の走行距離をメモしましょう。"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeManualPlan",
+              "proximos",
+              "tallerPlan"
+            ]
+          },
+          "lamina": [
+            "manual",
+            "mecanico"
+          ],
+          "destacada": true,
+          "texto": "最初の1か月は、取扱説明書を読み、次の整備を予定に入れ、必要になる前に信頼できる整備工場を見つけておきましょう。"
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vuelta",
+              "chequeo",
+              "anota"
+            ]
+          },
+          "lamina": [
+            "revisarAuto",
+            "cumbre"
+          ],
+          "texto": "そして毎月、ぐるっとひと回り点検を。タイヤ、ライト、液量、それに自転車の点検。してあげたことは全部記録しましょう。"
+        },
+        {
+          "id": "contactos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "documentosApp",
+              "contactosApp",
+              "todo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "そして車両ごとの記録に、書類と、信頼できる整備工場の連絡先を保管しています。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "まとめです。サインに耳を傾けること。タイヤは毎月チェック。思い込みではなく取扱説明書に従うこと。穏やかに運転すること。自転車のチェーンを大切にすること。そして全部予定に入れること。記憶は当てにならないから。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOSのガレージでは、あなたの車両と、その整備、使ったお金を記録でき、あなたの手続きはカレンダーに入ります。今日、無料であなたの心の家をつくろう。リンクは概要欄にあります。そして次回のガイドは、どうすればもっと上手に旅ができるのでしょうか？",
+    "boton": "ガレージを開く",
+    "lamina": "app-plan",
+    "anclas": {
+      "vehiculos": "あなたの車両",
+      "servicios": "その整備",
+      "tramites": "あなたの手続き"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "spglobal-2024",
+      "texto": "S&P Global Mobility. Average age of vehicles in the US continues to rise: 12.6 years in 2024 (2024).",
+      "url": "https://press.spglobal.com/2024-05-22-Average-Age-of-Vehicles-in-the-US-Continues-to-Rise-12-6-years-in-2024%2C-according-to-S-P-Global-Mobility"
+    },
+    {
+      "id": "nhtsa-2015",
+      "texto": "NHTSA（米国運輸省道路交通安全局）. Critical reasons for crashes investigated in the National Motor Vehicle Crash Causation Survey. DOT HS 812 115 (2015).",
+      "url": "https://crashstats.nhtsa.dot.gov/Api/Public/Publication/812115"
+    },
+    {
+      "id": "bertha-benz",
+      "texto": "ベルタ・ベンツと、マンハイムからプフォルツハイムへの旅（1888年）. ウィキペディア.",
+      "url": "https://en.wikipedia.org/wiki/Bertha_Benz"
+    },
+    {
+      "id": "nhtsa-2001",
+      "texto": "NHTSA. Tire pressure special study: vehicle observation data. DOT HS 809 317 (2001).",
+      "url": "https://rosap.ntl.bts.gov/view/dot/5197"
+    },
+    {
+      "id": "ornl-2009",
+      "texto": "Thomas J., West B., Huff S. Effect of intake air filter condition on vehicle fuel economy. Oak Ridge National Laboratory, ORNL/TM-2009/021 (2009).",
+      "url": "https://www.osti.gov/biblio/948545"
+    },
+    {
+      "id": "doe-manejo",
+      "texto": "米国エネルギー省. Driving more efficiently / Keeping your vehicle in shape (fueleconomy.gov).",
+      "url": "https://www.fueleconomy.gov/feg/driveHabits.jsp"
+    },
+    {
+      "id": "spicer-1999",
+      "texto": "Spicer J. B.ほか. Effects of frictional loss on bicycle chain drive efficiency. Journal of Mechanical Design (2001); ジョンズ・ホプキンス大学のプレスリリース (1999).",
+      "url": "https://www.sciencedaily.com/releases/1999/08/990819180058.htm"
+    },
+    {
+      "id": "altmann-2014",
+      "texto": "Altmann S., Traxler C. Nudges at the dentist. European Economic Review 72, 19-38 (2014).",
+      "url": "https://doi.org/10.1016/j.euroecorev.2014.07.007"
+    }
+  ]
+}

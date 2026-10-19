@@ -7558,6 +7558,7 @@ export const EN: Dict = {
   'guia.escritura.titulo': "Why should you write?",
   'guia.hobbies.titulo': "How do you find a hobby and keep it going?",
   'guia.entretenimiento.titulo': "How can you entertain yourself better?",
+  'guia.garage.titulo': "How do you take care of your vehicles?",
   'guia.matematicas.titulo': "What is the language of the universe?",
   // Esenciales (corren en la casa real y recorren los menús de cada app)
   'tut.esencial.titulo': 'The essentials',

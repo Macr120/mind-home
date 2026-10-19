@@ -1,0 +1,725 @@
+{
+  "idioma": "zh",
+  "tema": "garage",
+  "plantillaId": "garage",
+  "numero": 17,
+  "nombre": "车库",
+  "pregunta": "怎样保养你的交通工具？",
+  "corta": "怎样保养你的交通工具？",
+  "subtitulo": "为什么要在汽车或自行车出故障之前就保养它，历史上第一位机修工是谁，为什么从轮胎开始，机油多久换一次（以及哪些说法是误区），为什么你的驾驶方式也是保养，怎样保养自行车，为什么我们总会忘记，以及一个继续下去的计划。",
+  "aviso": "本指南仅提供一般性信息：每辆车都不一样。请始终按照你的车辆手册操作；如果出现异响、异味、漏油，或刹车、转向、轮胎有问题，请先交给信得过的修车师傅检查，再继续使用。",
+  "partes": [
+    {
+      "id": "prevenir",
+      "titulo": "为什么要在出故障前保养？",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "怎样保养你的交通工具？路上每四辆车里，就有一辆至少有一个轮胎气压严重不足。而且几乎没人发现，直到出了事。如果保养汽车或自行车，比你想的简单得多呢？今天你会用数据看清楚，还会带走一个继续下去的计划。"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "对了，这是我在MindHaOS里的家。没错，它正处在世界末日之中。而在世界末日里，懂得照顾自己车的人，才能走得更远。这是我的车库：我的汽车、我的自行车，还有我给它们做过的一切，都记在这里。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第一部分。为什么要在出故障前保养？"
+        },
+        {
+          "id": "edad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edadAutos"
+          },
+          "lamina": [
+            "trafico",
+            "autoViejo"
+          ],
+          "texto": "2024年，S&P Global统计发现，美国汽车的平均车龄达到十二年半，创下纪录。车辆越来越耐用，但前提是你好好保养。"
+        },
+        {
+          "id": "nhtsa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "causasFalla"
+          },
+          "lamina": [
+            "llantaPonchada",
+            "frenoDisco"
+          ],
+          "destacada": true,
+          "texto": "那么，当车祸的原因在车而不在司机时，坏的是什么？美国的道路交通安全管理局做过调查：这类事故中，超过三分之一是轮胎的问题，五起里有一起是刹车。"
+        },
+        {
+          "id": "avisa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ruido",
+              "testigo",
+              "olor"
+            ]
+          },
+          "lamina": [
+            "tablero",
+            "escuchar"
+          ],
+          "meme": "testigo",
+          "texto": "好消息是：几乎所有故障都会提前报信。一个新的异响，仪表盘上的一盏警示灯，一股怪味。诀窍不是把收音机开大声，而是认真对待它们。"
+        },
+        {
+          "id": "resumen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vencido",
+              "puerta",
+              "alDia"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "我是在车子把我扔在大马路正中间的时候学会的。从那以后，车库的概览会告诉我什么已逾期，什么即将到来。"
+        }
+      ]
+    },
+    {
+      "id": "bertha",
+      "titulo": "历史上第一位机修工是谁？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第二部分。历史上第一位机修工是谁？"
+        },
+        {
+          "id": "viaje",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1888",
+            "clave": "bertha"
+          },
+          "lamina": [
+            "berthaBenz",
+            "motorwagen"
+          ],
+          "destacada": true,
+          "texto": "剧透一下：是一位女性。1888年，贝尔塔·本茨开着丈夫卡尔发明的汽车，没告诉他，就带着两个儿子从曼海姆出发去了普福尔茨海姆：一百多公里，史上第一次汽车长途旅行。"
+        },
+        {
+          "id": "arreglos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "horquilla",
+              "liga",
+              "cuero"
+            ]
+          },
+          "lamina": [
+            "berthaRuta",
+            "zapatero"
+          ],
+          "texto": "一路上她自己动手修车：用帽子上的别针疏通了油管，用吊袜带给一根电线做了绝缘，还请一位鞋匠给磨损的刹车包上了皮革。"
+        },
+        {
+          "id": "farmacia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1888",
+            "clave": "wiesloch"
+          },
+          "lamina": [
+            "farmacia",
+            "motorwagen2"
+          ],
+          "texto": "汽油是在维斯洛赫的一家药店买的，如今那里被当作世界上第一座加油站来纪念。回家后，她告诉卡尔哪里需要改进：下一辆车爬坡就更轻松了。"
+        },
+        {
+          "id": "ficha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "auto",
+              "bici",
+              "nota"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "她做的，就是了解自己的车。在这里，每辆车都有自己的档案：老猛犸，我继承来的轿车；还有灰鹤，我每天骑的自行车。"
+        }
+      ]
+    },
+    {
+      "id": "llantas",
+      "titulo": "为什么从轮胎开始？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第三部分。为什么从轮胎开始？"
+        },
+        {
+          "id": "presion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "27%",
+            "clave": "nhtsa2001"
+          },
+          "lamina": [
+            "manometro",
+            "inflar"
+          ],
+          "destacada": true,
+          "texto": "2001年，同一个机构在美国各地的加油站，测量了一万一千多辆车的轮胎。每四辆车里就有不止一辆，至少有一个轮胎的气压远低于标准。"
+        },
+        {
+          "id": "consumo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "presionConsumo"
+          },
+          "lamina": [
+            "gasolina",
+            "llantaCarretera"
+          ],
+          "texto": "这是要花钱的：气压不足的轮胎刹车更差，磨损更快，还更费油。看看胎压不足一年让你多花多少钱。"
+        },
+        {
+          "id": "revisa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "frio",
+              "puertaLlanta",
+              "mes"
+            ]
+          },
+          "lamina": [
+            "calcomania",
+            "dibujo"
+          ],
+          "meme": "llanta",
+          "texto": "在轮胎冷的时候检查，每月一次，按照车门标签上写的气压，而不是轮胎侧面的数字。再看看花纹：如果沟槽快磨平了，就该换了。"
+        },
+        {
+          "id": "historial",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "servicio",
+              "fecha",
+              "costo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在每辆车的历史记录里，我会记下每一次保养，连同日期和花费：轮胎、电瓶、刹车片。"
+        }
+      ]
+    },
+    {
+      "id": "aceite",
+      "titulo": "机油多久换一次？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第四部分。机油多久换一次？"
+        },
+        {
+          "id": "mito",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cambiosAceite"
+          },
+          "lamina": [
+            "aceite",
+            "motor"
+          ],
+          "meme": "aceite",
+          "texto": "你肯定听过每五千公里换一次。以现在的发动机和机油，很多厂家要求的间隔长得多。真正说了算的，是你的车辆手册。看看你一年能少换几次。"
+        },
+        {
+          "id": "filtro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "filtroAire"
+          },
+          "lamina": [
+            "filtroAire",
+            "cofre"
+          ],
+          "destacada": true,
+          "texto": "另一个误区：2009年，美国一家实验室故意堵住了几辆现代汽车的空气滤芯。油耗几乎没变，但加速变慢了。换滤芯换来的是动力，不是省油。"
+        },
+        {
+          "id": "manual",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeManual",
+              "uso",
+              "nivel"
+            ]
+          },
+          "lamina": [
+            "manual",
+            "varilla"
+          ],
+          "texto": "所以，读一读手册，看看你的用车条件是不是比较苛刻，比如经常堵车或天气炎热，再每两周检查一次机油液位。"
+        },
+        {
+          "id": "proximo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "registro",
+              "odometro",
+              "proximo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "我记录一次更换机油时，会记下里程表读数，应用就会告诉我下次什么时候该换，按公里或按天数。"
+        }
+      ]
+    },
+    {
+      "id": "manejo",
+      "titulo": "你的驾驶方式也是保养吗？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第五部分。你的驾驶方式也是保养吗？"
+        },
+        {
+          "id": "agresivo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "manejoAgresivo"
+          },
+          "lamina": [
+            "acelerar",
+            "semaforo"
+          ],
+          "destacada": true,
+          "texto": "美国能源部是这样算的：猛加速、急刹车，在高速路上会让油耗增加百分之十五到三十，在城市里最多能增加百分之四十。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoGarage"
+          },
+          "lamina": "pulgar",
+          "texto": "如果你喜欢这份指南，请点赞，订阅，免得错过下一期，再分享给那个开车总是一脚油门踩到底的人。"
+        },
+        {
+          "id": "suave",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "manejoSuave"
+          },
+          "lamina": [
+            "volante",
+            "carretera"
+          ],
+          "texto": "而且不只是油钱：急刹车还会磨损刹车片和轮胎。看看温和驾驶一年能帮你省多少。"
+        },
+        {
+          "id": "habitos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "anticipa",
+              "peso",
+              "calienta"
+            ]
+          },
+          "lamina": [
+            "cajuela",
+            "amanecer"
+          ],
+          "texto": "提前预判停车，把后备箱里用不上的重物拿出来，刚启动的头几分钟慢慢开，别让冷车的发动机太吃力。"
+        },
+        {
+          "id": "gasto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "gastoAno",
+              "total",
+              "compara"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "到了年底，我就能看到每辆车花了多少钱：数字不会说谎。"
+        }
+      ]
+    },
+    {
+      "id": "bici",
+      "titulo": "那自行车呢？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第六部分。那自行车呢？"
+        },
+        {
+          "id": "spicer",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "98.6%",
+            "clave": "spicer"
+          },
+          "lamina": [
+            "cadena",
+            "pedalear"
+          ],
+          "destacada": true,
+          "texto": "1999年，约翰斯·霍普金斯大学的詹姆斯·斯派塞和团队测量了自行车链条：在最好的一次测试中，你的力气几乎有百分之九十九传到了车轮上。他们还很惊讶：上不上油几乎没有差别。他们说，油的作用是挡住泥沙。"
+        },
+        {
+          "id": "abc",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "aire",
+              "frenos",
+              "cadenaPaso"
+            ]
+          },
+          "lamina": [
+            "biciLlanta",
+            "biciFreno"
+          ],
+          "meme": "cadena",
+          "texto": "所以出门前，做个三步检查：轮胎有气，刹车灵敏，链条干净又上了油。"
+        },
+        {
+          "id": "limpia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "trapo",
+              "gota",
+              "seca"
+            ]
+          },
+          "lamina": [
+            "lubricar",
+            "biciTaller"
+          ],
+          "texto": "用抹布擦干净链条，每一节滴一滴油，再把多余的擦掉：油太多会粘泥沙，磨损链条和齿轮。"
+        },
+        {
+          "id": "grulla",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "grulla",
+              "cadenaApp",
+              "zapatas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "灰鹤也有自己的历史记录：链条、刹车皮，还有每一次补胎。下一次调校也已经排进日历了。"
+        }
+      ]
+    },
+    {
+      "id": "olvido",
+      "titulo": "为什么我们总会忘记？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第七部分。为什么我们总会忘记？"
+        },
+        {
+          "id": "presente",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hoy",
+              "lejos",
+              "caro"
+            ]
+          },
+          "lamina": [
+            "calendarioPapel",
+            "reloj"
+          ],
+          "texto": "因为保养今天不疼：车开得好好的，保养的钱现在就要花，故障却好像很遥远。所以我们一拖再拖。"
+        },
+        {
+          "id": "altmann",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "recordatorio"
+          },
+          "lamina": [
+            "postal",
+            "notificacion"
+          ],
+          "destacada": true,
+          "texto": "2014年，施特芬·阿尔特曼和克里斯蒂安·特拉克斯勒在德国的一家牙科诊所做了一个很简单的实验：给病人寄一张明信片，提醒他们来复查。第一个月里，预约的人多了一倍还不止。"
+        },
+        {
+          "id": "agenda",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fechaFija",
+              "aviso",
+              "papeles"
+            ]
+          },
+          "lamina": [
+            "llaves",
+            "documentos"
+          ],
+          "texto": "所以别指望记忆：给每次保养定个日期，提前几天设个提醒，证件放在手边。"
+        },
+        {
+          "id": "tramites",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "verificacion",
+              "poliza",
+              "calendario"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "所以我的手续，比如尾气检测或保单续保，都会自动排进我的日历。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "接下来怎么做？你的继续计划",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第八部分。接下来怎么做？你的继续计划。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planGarage"
+          },
+          "lamina": [
+            "manometro",
+            "libreta"
+          ],
+          "texto": "第一周，检查轮胎气压，记下你的车已经跑了多少公里。"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeManualPlan",
+              "proximos",
+              "tallerPlan"
+            ]
+          },
+          "lamina": [
+            "manual",
+            "mecanico"
+          ],
+          "destacada": true,
+          "texto": "第一个月，读一读手册，安排好接下来的保养，在需要之前先找一家信得过的修车行。"
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vuelta",
+              "chequeo",
+              "anota"
+            ]
+          },
+          "lamina": [
+            "revisarAuto",
+            "cumbre"
+          ],
+          "texto": "然后每个月，绕车检查一圈：轮胎、车灯、各种液位，还有自行车的检查。你给它做的每件事都记下来。"
+        },
+        {
+          "id": "contactos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "documentosApp",
+              "contactosApp",
+              "todo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在每辆车的档案里，我还保存着它的文件，和我信得过的修车行的联系人。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "总结一下：重视预警信号；每月检查轮胎；听手册的，别听误区；温和驾驶；照顾好自行车链条；什么都排进日程，因为记忆会出错。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "在MindHaOS的车库里，你可以记录你的车辆、它们的保养和花费，你的手续也会排进日历。今天就免费搭建你的心灵之家。链接在视频简介里。下一期指南：怎样更好地旅行？",
+    "boton": "打开车库",
+    "lamina": "app-plan",
+    "anclas": {
+      "vehiculos": "你的车辆",
+      "servicios": "它们的保养",
+      "tramites": "你的手续"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "spglobal-2024",
+      "texto": "S&P Global Mobility. Average age of vehicles in the US continues to rise: 12.6 years in 2024 (2024).",
+      "url": "https://press.spglobal.com/2024-05-22-Average-Age-of-Vehicles-in-the-US-Continues-to-Rise-12-6-years-in-2024%2C-according-to-S-P-Global-Mobility"
+    },
+    {
+      "id": "nhtsa-2015",
+      "texto": "NHTSA（美国国家公路交通安全管理局）. Critical reasons for crashes investigated in the National Motor Vehicle Crash Causation Survey. DOT HS 812 115 (2015).",
+      "url": "https://crashstats.nhtsa.dot.gov/Api/Public/Publication/812115"
+    },
+    {
+      "id": "bertha-benz",
+      "texto": "贝尔塔·本茨与她从曼海姆到普福尔茨海姆的旅程（1888年）. 维基百科.",
+      "url": "https://en.wikipedia.org/wiki/Bertha_Benz"
+    },
+    {
+      "id": "nhtsa-2001",
+      "texto": "NHTSA. Tire pressure special study: vehicle observation data. DOT HS 809 317 (2001).",
+      "url": "https://rosap.ntl.bts.gov/view/dot/5197"
+    },
+    {
+      "id": "ornl-2009",
+      "texto": "Thomas J., West B., Huff S. Effect of intake air filter condition on vehicle fuel economy. Oak Ridge National Laboratory, ORNL/TM-2009/021 (2009).",
+      "url": "https://www.osti.gov/biblio/948545"
+    },
+    {
+      "id": "doe-manejo",
+      "texto": "美国能源部. Driving more efficiently / Keeping your vehicle in shape (fueleconomy.gov).",
+      "url": "https://www.fueleconomy.gov/feg/driveHabits.jsp"
+    },
+    {
+      "id": "spicer-1999",
+      "texto": "Spicer J. B.等. Effects of frictional loss on bicycle chain drive efficiency. Journal of Mechanical Design (2001); 约翰斯·霍普金斯大学新闻稿 (1999).",
+      "url": "https://www.sciencedaily.com/releases/1999/08/990819180058.htm"
+    },
+    {
+      "id": "altmann-2014",
+      "texto": "Altmann S., Traxler C. Nudges at the dentist. European Economic Review 72, 19-38 (2014).",
+      "url": "https://doi.org/10.1016/j.euroecorev.2014.07.007"
+    }
+  ]
+}

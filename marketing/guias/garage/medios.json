@@ -1,0 +1,346 @@
+{
+  "fotos": {},
+  "laminas": {
+    "trafico": {
+      "archivo": "laminas/trafico.mp4",
+      "tipo": "video",
+      "autor": "Sergei Garenko",
+      "fuente": "https://www.pexels.com/video/city-traffic-during-the-day-19817057/",
+      "licencia": "Licencia Pexels"
+    },
+    "autoViejo": {
+      "archivo": "laminas/autoViejo.mp4",
+      "tipo": "video",
+      "autor": "Juan Pellegrino",
+      "fuente": "https://www.pexels.com/video/footage-of-rusty-vintage-car-10097868/",
+      "licencia": "Licencia Pexels"
+    },
+    "llantaPonchada": {
+      "archivo": "laminas/llantaPonchada.mp4",
+      "tipo": "video",
+      "autor": "Zakhar Vozhdaienko",
+      "fuente": "https://www.pexels.com/video/man-changing-flat-tire-on-roadside-in-summer-39912503/",
+      "licencia": "Licencia Pexels"
+    },
+    "frenoDisco": {
+      "archivo": "laminas/frenoDisco.mp4",
+      "tipo": "video",
+      "autor": "Redyar Rzgar",
+      "fuente": "https://www.pexels.com/video/car-maintenance-tire-installation-in-workshop-37451898/",
+      "licencia": "Licencia Pexels"
+    },
+    "tablero": {
+      "archivo": "laminas/tablero.mp4",
+      "tipo": "video",
+      "autor": "khezez | خزاز",
+      "fuente": "https://www.pexels.com/video/close-up-of-speedometer-with-illuminated-icons-35585184/",
+      "licencia": "Licencia Pexels"
+    },
+    "escuchar": {
+      "archivo": "laminas/escuchar.mp4",
+      "tipo": "video",
+      "autor": "utopia 36",
+      "fuente": "https://www.pexels.com/video/a-man-working-on-a-car-engine-in-a-garage-18102448/",
+      "licencia": "Licencia Pexels"
+    },
+    "zapatero": {
+      "archivo": "laminas/zapatero.mp4",
+      "tipo": "video",
+      "autor": "Yusuf Kılınç",
+      "fuente": "https://www.pexels.com/video/traditional-cobbler-at-work-in-workshop-34647439/",
+      "licencia": "Licencia Pexels"
+    },
+    "manometro": {
+      "archivo": "laminas/manometro.webp",
+      "tipo": "foto",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/photo/mechanic-checking-pressure-in-kart-tire-5640678/",
+      "licencia": "Licencia Pexels"
+    },
+    "inflar": {
+      "archivo": "laminas/inflar.mp4",
+      "tipo": "video",
+      "autor": "Anastasia Shuraeva",
+      "fuente": "https://www.pexels.com/video/man-inspecting-a-tire-8469679/",
+      "licencia": "Licencia Pexels"
+    },
+    "gasolina": {
+      "archivo": "laminas/gasolina.mp4",
+      "tipo": "video",
+      "autor": "Allen Boguslavsky",
+      "fuente": "https://www.pexels.com/video/a-gas-station-with-a-car-parked-in-front-of-it-28501095/",
+      "licencia": "Licencia Pexels"
+    },
+    "llantaCarretera": {
+      "archivo": "laminas/llantaCarretera.mp4",
+      "tipo": "video",
+      "autor": "Erik Mclean",
+      "fuente": "https://www.pexels.com/video/close-up-of-a-fast-moving-sport-car-wheel-39140749/",
+      "licencia": "Licencia Pexels"
+    },
+    "calcomania": {
+      "archivo": "laminas/calcomania.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/white-car-door-handle-6873502/",
+      "licencia": "Licencia Pexels"
+    },
+    "dibujo": {
+      "archivo": "laminas/dibujo.mp4",
+      "tipo": "video",
+      "autor": "Alex Vo",
+      "fuente": "https://www.pexels.com/video/close-up-of-a-black-car-tire-in-motion-40308616/",
+      "licencia": "Licencia Pexels"
+    },
+    "aceite": {
+      "archivo": "laminas/aceite.mp4",
+      "tipo": "video",
+      "autor": "Marc Alz",
+      "fuente": "https://www.pexels.com/video/pouring-engine-oil-into-car-engine-33930254/",
+      "licencia": "Licencia Pexels"
+    },
+    "motor": {
+      "archivo": "laminas/motor.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-woman-repairing-the-truck-7006121/",
+      "licencia": "Licencia Pexels"
+    },
+    "filtroAire": {
+      "archivo": "laminas/filtroAire.webp",
+      "tipo": "foto",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/photo/person-checking-an-engine-air-filter-of-a-truck-7541354/",
+      "licencia": "Licencia Pexels"
+    },
+    "cofre": {
+      "archivo": "laminas/cofre.mp4",
+      "tipo": "video",
+      "autor": "Artem Podrez",
+      "fuente": "https://www.pexels.com/video/a-man-inspecting-a-car-engine-8987286/",
+      "licencia": "Licencia Pexels"
+    },
+    "manual": {
+      "archivo": "laminas/manual.mp4",
+      "tipo": "video",
+      "autor": "ArtHouse Studio",
+      "fuente": "https://www.pexels.com/video/a-person-flipping-pages-of-a-book-8258064/",
+      "licencia": "Licencia Pexels"
+    },
+    "varilla": {
+      "archivo": "laminas/varilla.mp4",
+      "tipo": "video",
+      "autor": "Artem Podrez",
+      "fuente": "https://www.pexels.com/video/auto-mechanic-checking-vehicle-s-oil-8987284/",
+      "licencia": "Licencia Pexels"
+    },
+    "acelerar": {
+      "archivo": "laminas/acelerar.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/drivers-racing-each-other-5638450/",
+      "licencia": "Licencia Pexels"
+    },
+    "semaforo": {
+      "archivo": "laminas/semaforo.mp4",
+      "tipo": "video",
+      "autor": "Yasemin Gül",
+      "fuente": "https://www.pexels.com/video/busy-city-intersection-with-traffic-lights-39573529/",
+      "licencia": "Licencia Pexels"
+    },
+    "volante": {
+      "archivo": "laminas/volante.mp4",
+      "tipo": "video",
+      "autor": "Erik Mclean",
+      "fuente": "https://www.pexels.com/video/close-up-of-steering-wheel-grip-40345334/",
+      "licencia": "Licencia Pexels"
+    },
+    "carretera": {
+      "archivo": "laminas/carretera.mp4",
+      "tipo": "video",
+      "autor": "Lindsey Mateo",
+      "fuente": "https://www.pexels.com/video/scenic-highway-drive-under-blue-skies-32793913/",
+      "licencia": "Licencia Pexels"
+    },
+    "cajuela": {
+      "archivo": "laminas/cajuela.mp4",
+      "tipo": "video",
+      "autor": "ROMAN ODINTSOV",
+      "fuente": "https://www.pexels.com/video/side-view-of-a-young-woman-opening-a-car-trunk-11760016/",
+      "licencia": "Licencia Pexels"
+    },
+    "amanecer": {
+      "archivo": "laminas/amanecer.mp4",
+      "tipo": "video",
+      "autor": "musafirdost08",
+      "fuente": "https://www.pexels.com/video/driving-during-sunrise-on-quiet-highway-35485780/",
+      "licencia": "Licencia Pexels"
+    },
+    "cadena": {
+      "archivo": "laminas/cadena.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/video-of-bicycle-chains-5913581/",
+      "licencia": "Licencia Pexels"
+    },
+    "pedalear": {
+      "archivo": "laminas/pedalear.mp4",
+      "tipo": "video",
+      "autor": "Meike",
+      "fuente": "https://www.pexels.com/video/cyclist-riding-on-country-road-in-summer-38921488/",
+      "licencia": "Licencia Pexels"
+    },
+    "biciLlanta": {
+      "archivo": "laminas/biciLlanta.mp4",
+      "tipo": "video",
+      "autor": "Anastasia Shuraeva",
+      "fuente": "https://www.pexels.com/video/a-man-using-air-pump-on-a-tire-of-a-bicycle-8927173/",
+      "licencia": "Licencia Pexels"
+    },
+    "biciFreno": {
+      "archivo": "laminas/biciFreno.webp",
+      "tipo": "foto",
+      "autor": "Andy Lee",
+      "fuente": "https://www.pexels.com/photo/close-up-of-bicycle-handlebar-with-brake-lever-34251792/",
+      "licencia": "Licencia Pexels"
+    },
+    "lubricar": {
+      "archivo": "laminas/lubricar.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/young-man-fixing-bicycle-5446381/",
+      "licencia": "Licencia Pexels"
+    },
+    "biciTaller": {
+      "archivo": "laminas/biciTaller.mp4",
+      "tipo": "video",
+      "autor": "Nishant Aneja",
+      "fuente": "https://www.pexels.com/video/elderly-man-fixing-bicycle-tire-in-workshop-34540514/",
+      "licencia": "Licencia Pexels"
+    },
+    "calendarioPapel": {
+      "archivo": "laminas/calendarioPapel.mp4",
+      "tipo": "video",
+      "autor": "Monstera Production",
+      "fuente": "https://www.pexels.com/video/hand-holding-pencil-pointing-at-calendar-7356018/",
+      "licencia": "Licencia Pexels"
+    },
+    "postal": {
+      "archivo": "laminas/postal.mp4",
+      "tipo": "video",
+      "autor": "Alyona Nagel",
+      "fuente": "https://www.pexels.com/video/vintage-postcards-hanging-exhibition-display-36392926/",
+      "licencia": "Licencia Pexels"
+    },
+    "notificacion": {
+      "archivo": "laminas/notificacion.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/notification-on-a-phone-7822022/",
+      "licencia": "Licencia Pexels"
+    },
+    "llaves": {
+      "archivo": "laminas/llaves.mp4",
+      "tipo": "video",
+      "autor": "Alex Moliski",
+      "fuente": "https://www.pexels.com/video/vintage-car-ignition-key-insertion-34479398/",
+      "licencia": "Licencia Pexels"
+    },
+    "documentos": {
+      "archivo": "laminas/documentos.mp4",
+      "tipo": "video",
+      "autor": "Kaboompics.com",
+      "fuente": "https://www.pexels.com/video/organized-person-putting-her-paperworks-in-a-folder-orderly-8135783/",
+      "licencia": "Licencia Pexels"
+    },
+    "mecanico": {
+      "archivo": "laminas/mecanico.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/car-vehicle-neon-fix-4488710/",
+      "licencia": "Licencia Pexels"
+    },
+    "revisarAuto": {
+      "archivo": "laminas/revisarAuto.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/bentley-with-lamps-on-6872087/",
+      "licencia": "Licencia Pexels"
+    },
+    "berthaBenz": {
+      "archivo": "laminas/berthaBenz.webp",
+      "tipo": "foto",
+      "autor": "Bühler, Mannheim",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Berthabenzportrait.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "motorwagen": {
+      "archivo": "laminas/motorwagen.webp",
+      "tipo": "foto",
+      "autor": "Stas Kozlovskiy",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Benz_Patent_Motorwagen_1886.jpg",
+      "licencia": "CC BY-SA 4.0",
+      "credito": "Stas Kozlovskiy · CC BY-SA 4.0 · Wikimedia"
+    },
+    "berthaRuta": {
+      "archivo": "laminas/berthaRuta.webp",
+      "tipo": "foto",
+      "autor": "Autor desconocido",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Bertha_Benz_with_her_husband_Carl_Benz_in_a_Benz-Viktoria,_model_1894.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "farmacia": {
+      "archivo": "laminas/farmacia.webp",
+      "tipo": "foto",
+      "autor": "Rudolf Stricker",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Wiesloch_Stadtapotheke_Erste_Tankstelle_20100620.jpg",
+      "licencia": "Atribución (Rudolf Stricker)",
+      "credito": "Rudolf Stricker · Atribución (Rudolf Stricker) · Wikimedia"
+    },
+    "motorwagen2": {
+      "archivo": "laminas/motorwagen2.webp",
+      "tipo": "foto",
+      "autor": "Alexander Migl",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Replicas_of_Benz_Patent-Motorwagen_Model_1_Classic-Gala_2021_1X7A0062.jpg",
+      "licencia": "CC BY-SA 4.0",
+      "credito": "Alexander Migl · CC BY-SA 4.0 · Wikimedia"
+    },
+    "reloj": {
+      "archivo": "laminas/reloj.mp4",
+      "tipo": "video",
+      "autor": "Anton Kudryashov",
+      "fuente": "https://www.pexels.com/video/close-up-on-clock-hands-moving-11267667/",
+      "licencia": "Licencia Pexels"
+    },
+    "pulgar": {
+      "archivo": "laminas/pulgar.mp4",
+      "tipo": "video",
+      "autor": "Kevin Malik",
+      "fuente": "https://www.pexels.com/video/a-hand-giving-a-thumbs-up-9017832/",
+      "licencia": "Licencia Pexels"
+    },
+    "libreta": {
+      "archivo": "laminas/libreta.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/writing-to-do-list-on-a-notebook-for-reminders-3832194/",
+      "licencia": "Licencia Pexels"
+    },
+    "cumbre": {
+      "archivo": "laminas/cumbre.mp4",
+      "tipo": "video",
+      "autor": "Canan İldeniz",
+      "fuente": "https://www.pexels.com/video/group-of-hikers-celebrating-on-mountain-peak-38242686/",
+      "licencia": "Licencia Pexels"
+    },
+    "app-plan": {
+      "archivo": "laminas/app-plan.{idioma}.mp4",
+      "tipo": "video",
+      "autor": "MindHaOS",
+      "fuente": "https://app.mindhaos.com",
+      "credito": ""
+    }
+  }
+}

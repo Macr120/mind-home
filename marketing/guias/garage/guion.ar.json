@@ -1,0 +1,725 @@
+{
+  "idioma": "ar",
+  "tema": "garage",
+  "plantillaId": "garage",
+  "numero": 17,
+  "nombre": "المرآب",
+  "pregunta": "كيف تعتني بمركباتك؟",
+  "corta": "كيف تعتني بمركباتك؟",
+  "subtitulo": "لماذا تعتني بسيارتك أو دراجتك قبل أن تتعطل، ومن كان أول ميكانيكي في التاريخ، ولماذا تبدأ بالإطارات، ومتى تغيّر الزيت (وأي الخرافات لا داعي لها)، ولماذا طريقة قيادتك صيانة أيضًا، وكيف تعتني بدراجتك، ولماذا ننسى، وخطة للاستمرار.",
+  "aviso": "هذا الدليل للمعلومات العامة فقط: كل مركبة مختلفة. اتبع دائمًا دليل مركبتك، وإذا لاحظت أصواتًا أو روائح أو تسربات أو أعطالًا في الفرامل أو التوجيه أو الإطارات، فخذها إلى ميكانيكي تثق به قبل أن تواصل استخدامها.",
+  "partes": [
+    {
+      "id": "prevenir",
+      "titulo": "لماذا تعتني بها قبل أن تتعطل؟",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "كيف تعتني بمركباتك؟ واحدة من كل أربع سيارات في الشارع فيها إطار واحد على الأقل ضغطه منخفض جدًا. ولا ينتبه أحد تقريبًا حتى ينفجر شيء ما. ماذا لو كانت العناية بسيارتك أو دراجتك أبسط بكثير مما تظن؟ اليوم ستراها بالأرقام، وستخرج بخطة للاستمرار."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "بالمناسبة، هذا بيتي في MindHaOS، ونعم: إنه في قلب نهاية العالم. وفي نهاية العالم، من يعرف كيف يعتني بمركبته يصل أبعد. وهذا مرآبي: هنا أتابع سيارتي ودراجتي وكل ما أفعله لهما."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الأول. لماذا تعتني بها قبل أن تتعطل؟"
+        },
+        {
+          "id": "edad",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "edadAutos"
+          },
+          "lamina": [
+            "trafico",
+            "autoViejo"
+          ],
+          "texto": "في عام 2024، أحصت شركة S&P Global أن متوسط عمر السيارات في الولايات المتحدة اثنا عشر عامًا ونصف، وهو رقم قياسي. المركبات تعيش أطول فأطول، لكن فقط إذا اعتنيت بها."
+        },
+        {
+          "id": "nhtsa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "causasFalla"
+          },
+          "lamina": [
+            "llantaPonchada",
+            "frenoDisco"
+          ],
+          "destacada": true,
+          "texto": "وعندما يكون سبب الحادث هو المركبة لا السائق، ما الذي يتعطل؟ راجعت ذلك الوكالة الأمريكية لسلامة الطرق: في أكثر من ثلث تلك الحوادث كانت الإطارات، وفي واحد من كل خمسة، الفرامل."
+        },
+        {
+          "id": "avisa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ruido",
+              "testigo",
+              "olor"
+            ]
+          },
+          "lamina": [
+            "tablero",
+            "escuchar"
+          ],
+          "meme": "testigo",
+          "texto": "الخبر الجيد: كل شيء تقريبًا ينبّهك مسبقًا. صوت جديد، أو ضوء تحذير في لوحة القيادة، أو رائحة غريبة. والحيلة ألا ترفع صوت الراديو، بل أن تنتبه له."
+        },
+        {
+          "id": "resumen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vencido",
+              "puerta",
+              "alDia"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "تعلّمت هذا عندما تعطلت سيارتي وتركتني عالقًا في وسط الشارع. ومنذ ذلك الحين، يخبرني ملخص مرآبي بما هو متأخر وما هو قادم."
+        }
+      ]
+    },
+    {
+      "id": "bertha",
+      "titulo": "من كان أول ميكانيكي في التاريخ؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثاني. من كان أول ميكانيكي في التاريخ؟"
+        },
+        {
+          "id": "viaje",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1888",
+            "clave": "bertha"
+          },
+          "lamina": [
+            "berthaBenz",
+            "motorwagen"
+          ],
+          "destacada": true,
+          "texto": "تحذير، حرق للأحداث: لقد كانت امرأة. في عام 1888، أخذت بيرتا بنز السيارة التي اخترعها زوجها كارل، ومن دون أن تخبره انطلقت مع ابنيها من مانهايم إلى بفورتسهايم: أكثر من مئة كيلومتر، أول رحلة طويلة بالسيارة في التاريخ."
+        },
+        {
+          "id": "arreglos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "horquilla",
+              "liga",
+              "cuero"
+            ]
+          },
+          "lamina": [
+            "berthaRuta",
+            "zapatero"
+          ],
+          "texto": "وفي الطريق كانت تصلحها بنفسها: فتحت أنبوب الوقود المسدود بدبوس قبعتها، وعزلت سلكًا برباط جوربها، وطلبت من إسكافي أن يكسو الفرامل البالية بالجلد."
+        },
+        {
+          "id": "farmacia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1888",
+            "clave": "wiesloch"
+          },
+          "lamina": [
+            "farmacia",
+            "motorwagen2"
+          ],
+          "texto": "واشترت البنزين من صيدلية في فيسلوخ، تُذكر اليوم بأنها أول محطة وقود في العالم. وعند عودتها أخبرت كارل بما يجب تحسينه: فصارت السيارة التالية تصعد المنحدرات بشكل أفضل."
+        },
+        {
+          "id": "ficha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "auto",
+              "bici",
+              "nota"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "ما فعلته هو أنها عرفت سيارتها. وهنا لكل مركبة بطاقتها: الماموث، سيارتي السيدان الموروثة، والكركي، دراجتي اليومية."
+        }
+      ]
+    },
+    {
+      "id": "llantas",
+      "titulo": "لماذا تبدأ بالإطارات؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثالث. لماذا تبدأ بالإطارات؟"
+        },
+        {
+          "id": "presion",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "27%",
+            "clave": "nhtsa2001"
+          },
+          "lamina": [
+            "manometro",
+            "inflar"
+          ],
+          "destacada": true,
+          "texto": "في عام 2001، قاست الوكالة نفسها إطارات أكثر من أحد عشر ألف مركبة في محطات الوقود في أنحاء الولايات المتحدة. أكثر من سيارة من كل أربع كان فيها إطار واحد على الأقل بضغط أقل بكثير من المطلوب."
+        },
+        {
+          "id": "consumo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "presionConsumo"
+          },
+          "lamina": [
+            "gasolina",
+            "llantaCarretera"
+          ],
+          "texto": "وهذا له ثمن: الإطار المنخفض يفرمل أسوأ، ويتآكل أسرع، ويجعلك تستهلك وقودًا أكثر. انظر كم يضيع منك في السنة بسبب إطاراتك المنخفضة."
+        },
+        {
+          "id": "revisa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "frio",
+              "puertaLlanta",
+              "mes"
+            ]
+          },
+          "lamina": [
+            "calcomania",
+            "dibujo"
+          ],
+          "meme": "llanta",
+          "texto": "افحصها وهي باردة، مرة في الشهر، بالضغط المكتوب على ملصق الباب، لا على جانب الإطار. وانظر إلى النقشة: إذا كادت أخاديدها تختفي، فقد حان وقت تغييرها."
+        },
+        {
+          "id": "historial",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "servicio",
+              "fecha",
+              "costo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "في سجل كل مركبة أدوّن كل خدمة، بتاريخها وكم كلّفتني: الإطارات، والبطارية، وفحمات الفرامل."
+        }
+      ]
+    },
+    {
+      "id": "aceite",
+      "titulo": "متى تغيّر الزيت؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الرابع. متى تغيّر الزيت؟"
+        },
+        {
+          "id": "mito",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cambiosAceite"
+          },
+          "lamina": [
+            "aceite",
+            "motor"
+          ],
+          "meme": "aceite",
+          "texto": "أكيد قالوا لك كل خمسة آلاف كيلومتر. مع محركات اليوم وزيوته، كثير من المصنّعين يطلبون تغييره بعد ذلك بكثير. والقاعدة التي تحكم هي دليل سيارتك. انظر كم تغييرًا توفّر في السنة."
+        },
+        {
+          "id": "filtro",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "filtroAire"
+          },
+          "lamina": [
+            "filtroAire",
+            "cofre"
+          ],
+          "destacada": true,
+          "texto": "خرافة أخرى: في عام 2009، سدّ مختبر في الولايات المتحدة عمدًا فلتر الهواء في عدة سيارات حديثة. استهلاك الوقود لم يتغير تقريبًا، لكنها صارت أبطأ في التسارع. تغييره يمنحك قوة، لا توفيرًا."
+        },
+        {
+          "id": "manual",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeManual",
+              "uso",
+              "nivel"
+            ]
+          },
+          "lamina": [
+            "manual",
+            "varilla"
+          ],
+          "texto": "لذلك اقرأ الدليل، وانتبه إن كان استخدامك شاقًّا، مثل الزحام الكثير أو الحر، وافحص مستوى الزيت كل أسبوعين تقريبًا."
+        },
+        {
+          "id": "proximo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "registro",
+              "odometro",
+              "proximo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "عندما أسجّل تغيير الزيت، أدوّن عدّاد المسافات، ويخبرني التطبيق متى يحين التالي، بالكيلومترات أو بالأيام."
+        }
+      ]
+    },
+    {
+      "id": "manejo",
+      "titulo": "هل طريقة قيادتك صيانة أيضًا؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الخامس. هل طريقة قيادتك صيانة أيضًا؟"
+        },
+        {
+          "id": "agresivo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "manejoAgresivo"
+          },
+          "lamina": [
+            "acelerar",
+            "semaforo"
+          ],
+          "destacada": true,
+          "texto": "وزارة الطاقة الأمريكية تحسبها هكذا: التسارع والفرملة المفاجئان قد يرفعان استهلاكك للوقود بين خمسة عشر وثلاثين بالمئة على الطريق السريع، وحتى أربعين في المدينة."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoGarage"
+          },
+          "lamina": "pulgar",
+          "texto": "إن كان هذا الدليل يعجبك، فاضغط «أعجبني»، و«اشتراك» حتى لا يفوتك الدليل القادم، و«مشاركة» مع ذلك الشخص الذي يقود دائمًا بقدم ثقيلة."
+        },
+        {
+          "id": "suave",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "manejoSuave"
+          },
+          "lamina": [
+            "volante",
+            "carretera"
+          ],
+          "texto": "وليس الوقود فقط: الفرملة المفاجئة تستهلك فحمات الفرامل والإطارات. انظر كم توفّر في السنة إذا قدت بهدوء."
+        },
+        {
+          "id": "habitos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "anticipa",
+              "peso",
+              "calienta"
+            ]
+          },
+          "lamina": [
+            "cajuela",
+            "amanecer"
+          ],
+          "texto": "توقّع التوقفات مبكرًا، وأخرج من صندوق السيارة الوزن الذي لا تستخدمه، وفي الدقائق الأولى قد بهدوء، من دون أن تُجهد المحرك وهو بارد."
+        },
+        {
+          "id": "gasto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "gastoAno",
+              "total",
+              "compara"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "وفي آخر السنة أرى كم أنفقت على كل مركبة: الأرقام لا تكذب."
+        }
+      ]
+    },
+    {
+      "id": "bici",
+      "titulo": "وماذا عن الدراجة؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السادس. وماذا عن الدراجة؟"
+        },
+        {
+          "id": "spicer",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "98.6%",
+            "clave": "spicer"
+          },
+          "lamina": [
+            "cadena",
+            "pedalear"
+          ],
+          "destacada": true,
+          "texto": "في عام 1999، قاس جيمس سبايسر وفريقه في جامعة جونز هوبكنز سلسلة دراجة: في أفضل اختبار، كانت تنقل إلى العجلة نحو تسعة وتسعين بالمئة من قوتك. وفوجئوا: الزيت لم يغيّر شيئًا تقريبًا. دوره، كما قالوا، هو منع دخول الأتربة."
+        },
+        {
+          "id": "abc",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "aire",
+              "frenos",
+              "cadenaPaso"
+            ]
+          },
+          "lamina": [
+            "biciLlanta",
+            "biciFreno"
+          ],
+          "meme": "cadena",
+          "texto": "لذلك، قبل أن تخرج، قم بالفحص من ثلاث خطوات: هواء في الإطارات، وفرامل تفرمل، وسلسلة نظيفة ومزيّتة."
+        },
+        {
+          "id": "limpia",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "trapo",
+              "gota",
+              "seca"
+            ]
+          },
+          "lamina": [
+            "lubricar",
+            "biciTaller"
+          ],
+          "texto": "نظّف السلسلة بقطعة قماش، وضع نقطة زيت على كل حلقة، ثم امسح الزائد: فالزيت الزائد يجمع الأتربة ويُبلي السلسلة والتروس."
+        },
+        {
+          "id": "grulla",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "grulla",
+              "cadenaApp",
+              "zapatas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "ودراجتي الكركي لها سجلها أيضًا: السلسلة، وقماشات الفرامل، وكل ثقب في الإطار. والضبط القادم موجود بالفعل في التقويم."
+        }
+      ]
+    },
+    {
+      "id": "olvido",
+      "titulo": "لماذا ننسى؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السابع. لماذا ننسى؟"
+        },
+        {
+          "id": "presente",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "hoy",
+              "lejos",
+              "caro"
+            ]
+          },
+          "lamina": [
+            "calendarioPapel",
+            "reloj"
+          ],
+          "texto": "لأن الصيانة لا تؤلم اليوم: السيارة تعمل جيدًا، والخدمة تكلّف الآن، والعطل يبدو بعيدًا. فنؤجلها مرة بعد مرة."
+        },
+        {
+          "id": "altmann",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "recordatorio"
+          },
+          "lamina": [
+            "postal",
+            "notificacion"
+          ],
+          "destacada": true,
+          "texto": "في عام 2014، جرّب شتيفن ألتمان وكريستيان تراكسلر شيئًا بسيطًا جدًا في عيادة أسنان في ألمانيا: إرسال بطاقة بريدية للمرضى لتذكيرهم بموعد الفحص. في الشهر الأول، زاد عدد من حجزوا موعدهم إلى أكثر من الضعف."
+        },
+        {
+          "id": "agenda",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fechaFija",
+              "aviso",
+              "papeles"
+            ]
+          },
+          "lamina": [
+            "llaves",
+            "documentos"
+          ],
+          "texto": "فلا تعتمد على ذاكرتك: ضع تاريخًا لكل خدمة، وتنبيهًا قبلها ببضعة أيام، واجعل أوراقك في متناول يدك."
+        },
+        {
+          "id": "tramites",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "verificacion",
+              "poliza",
+              "calendario"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "لذلك تُجدول معاملاتي، مثل الفحص الدوري نصف السنوي أو تجديد وثيقة التأمين، تلقائيًا في تقويمي."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "كيف تستمر؟ خطتك للاستمرار",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثامن. كيف تستمر؟ خطتك للاستمرار."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planGarage"
+          },
+          "lamina": [
+            "manometro",
+            "libreta"
+          ],
+          "texto": "في الأسبوع الأول، افحص ضغط إطاراتك ودوّن كم كيلومترًا قطعت مركبتك."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "leeManualPlan",
+              "proximos",
+              "tallerPlan"
+            ]
+          },
+          "lamina": [
+            "manual",
+            "mecanico"
+          ],
+          "destacada": true,
+          "texto": "في الشهر الأول، اقرأ الدليل، وجدول خدماتك القادمة، وابحث عن ورشة تثق بها قبل أن تحتاجها."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vuelta",
+              "chequeo",
+              "anota"
+            ]
+          },
+          "lamina": [
+            "revisarAuto",
+            "cumbre"
+          ],
+          "texto": "وكل شهر، ألقِ نظرة سريعة: الإطارات، والأضواء، والسوائل، وفحص الدراجة. ودوّن كل ما تفعله لها."
+        },
+        {
+          "id": "contactos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "documentosApp",
+              "contactosApp",
+              "todo"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "وفي بطاقة كل مركبة أحفظ مستنداتها وجهات الاتصال لورشي الموثوقة."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "باختصار: انتبه للتحذيرات؛ افحص إطاراتك كل شهر؛ اتبع الدليل، لا الخرافات؛ قد بهدوء؛ اعتنِ بسلسلة دراجتك؛ وجدول كل شيء، لأن الذاكرة تخون."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "في المرآب في MindHaOS تتابع مركباتك، وخدماتها، وما تنفقه، ومعاملاتك في التقويم. ابنِ بيتك الذهني مجانًا اليوم: الرابط في الوصف. وفي الدليل القادم: كيف تسافر بشكل أفضل؟",
+    "boton": "افتح المرآب",
+    "lamina": "app-plan",
+    "anclas": {
+      "vehiculos": "تتابع مركباتك",
+      "servicios": "خدماتها",
+      "tramites": "معاملاتك في التقويم"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "spglobal-2024",
+      "texto": "S&P Global Mobility. Average age of vehicles in the US continues to rise: 12.6 years in 2024 (2024).",
+      "url": "https://press.spglobal.com/2024-05-22-Average-Age-of-Vehicles-in-the-US-Continues-to-Rise-12-6-years-in-2024%2C-according-to-S-P-Global-Mobility"
+    },
+    {
+      "id": "nhtsa-2015",
+      "texto": "NHTSA (الإدارة الوطنية لسلامة المرور على الطرق السريعة في الولايات المتحدة). Critical reasons for crashes investigated in the National Motor Vehicle Crash Causation Survey. DOT HS 812 115 (2015).",
+      "url": "https://crashstats.nhtsa.dot.gov/Api/Public/Publication/812115"
+    },
+    {
+      "id": "bertha-benz",
+      "texto": "بيرتا بنز ورحلتها من مانهايم إلى بفورتسهايم (1888). ويكيبيديا.",
+      "url": "https://en.wikipedia.org/wiki/Bertha_Benz"
+    },
+    {
+      "id": "nhtsa-2001",
+      "texto": "NHTSA. Tire pressure special study: vehicle observation data. DOT HS 809 317 (2001).",
+      "url": "https://rosap.ntl.bts.gov/view/dot/5197"
+    },
+    {
+      "id": "ornl-2009",
+      "texto": "Thomas J., West B., Huff S. Effect of intake air filter condition on vehicle fuel economy. Oak Ridge National Laboratory, ORNL/TM-2009/021 (2009).",
+      "url": "https://www.osti.gov/biblio/948545"
+    },
+    {
+      "id": "doe-manejo",
+      "texto": "وزارة الطاقة الأمريكية. Driving more efficiently / Keeping your vehicle in shape (fueleconomy.gov).",
+      "url": "https://www.fueleconomy.gov/feg/driveHabits.jsp"
+    },
+    {
+      "id": "spicer-1999",
+      "texto": "Spicer J. B. وزملاؤه. Effects of frictional loss on bicycle chain drive efficiency. Journal of Mechanical Design (2001)؛ بيان صحفي من جامعة جونز هوبكنز (1999).",
+      "url": "https://www.sciencedaily.com/releases/1999/08/990819180058.htm"
+    },
+    {
+      "id": "altmann-2014",
+      "texto": "Altmann S., Traxler C. Nudges at the dentist. European Economic Review 72, 19-38 (2014).",
+      "url": "https://doi.org/10.1016/j.euroecorev.2014.07.007"
+    }
+  ]
+}
