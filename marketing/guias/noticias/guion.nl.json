@@ -1,0 +1,790 @@
+{
+  "idioma": "nl",
+  "tema": "noticias",
+  "plantillaId": "diario",
+  "numero": 18,
+  "nombre": "Dagelijks nieuws",
+  "pregunta": "Op zoek naar waarheid en schoonheid: journalistiek en content",
+  "corta": "Journalistiek en content",
+  "subtitulo": "Wie bepaalt wat je elke dag ziet, de verslaggeefster die zich voordeed als gek om de waarheid te vertellen, waarom slecht nieuws beter verkoopt, waarom een leugen sneller gaat, hoe je leest als een factchecker, hoe je ware en mooie content maakt, hoeveel nieuws te veel is en een plan om door te gaan.",
+  "aviso": "Deze gids is informatief en algemeen. Als het nieuws je voortdurend angstig maakt, praat dan met iemand die je vertrouwt of met een zorgprofessional.",
+  "partes": [
+    {
+      "id": "agenda",
+      "titulo": "Wie bepaalt wat je elke dag ziet?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Wie bepaalt wat je elke dag ziet? Vier op de tien mensen vermijden het nieuws al. Maar ook als je het niet volgt, bepaalt het waarover aan jouw tafel wordt gepraat. En als je nu eens leerde de wereld te lezen zoals een goede journalist dat doet? Vandaag zie je het met data, en je gaat weg met een plan om door te gaan."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Trouwens, dit is mijn huis in MindHaOS, en ja: vandaag is het een stadje in het Wilde Westen, waar het nieuws met de postkoets kwam, dagen te laat. Dit is mijn nieuwskamer: hier lees ik de krant van vandaag."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel één. Wie bepaalt wat je elke dag ziet?"
+        },
+        {
+          "id": "evitan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "evitan"
+          },
+          "lamina": [
+            "periodicos",
+            "celularNoticias"
+          ],
+          "texto": "Elk jaar vraagt het Reuters Institute van de Universiteit van Oxford in tientallen landen hoe we ons informeren. In 2024 zeiden vier op de tien mensen dat ze het nieuws soms of vaak vermijden. In 2017 waren het er minder dan drie."
+        },
+        {
+          "id": "chapelHill",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "agenda"
+          },
+          "lamina": [
+            "votar",
+            "periodicoViejo"
+          ],
+          "destacada": true,
+          "texto": "Maar in 1968, in Chapel Hill, vergeleken Maxwell McCombs en Donald Shaw de onderwerpen waar de media het meest over berichtten met de onderwerpen waar zwevende kiezers zich het meest zorgen over maakten. De twee lijsten kwamen bijna punt voor punt overeen."
+        },
+        {
+          "id": "cohen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tema",
+              "enfoque",
+              "silencio"
+            ]
+          },
+          "lamina": [
+            "noticiero",
+            "microfonos"
+          ],
+          "texto": "Daarom zegt men dat de media ons niet altijd vertellen wat we moeten denken, maar wel waarover we denken: welke onderwerpen aan bod komen, vanuit welke invalshoek en welke buiten beeld blijven."
+        },
+        {
+          "id": "medios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "medios",
+              "categorias",
+              "rota"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Daarom brengt mijn krant van vandaag me koppen van verschillende media, per categorie, en elke dag wisselt de bron."
+        }
+      ]
+    },
+    {
+      "id": "bly",
+      "titulo": "Welke verslaggeefster deed zich voor als gek om de waarheid te vertellen?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel twee. Welke verslaggeefster deed zich voor als gek om de waarheid te vertellen?"
+        },
+        {
+          "id": "disfraz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1887",
+            "clave": "bly"
+          },
+          "lamina": [
+            "nellieBly",
+            "blackwell"
+          ],
+          "destacada": true,
+          "texto": "In 1887 oefende een verslaggeefster van drieëntwintig, Nellie Bly, voor de spiegel tot ze artsen en een rechter ervan had overtuigd dat ze gek was. Zo werd ze opgenomen in het gesticht op het eiland Blackwell, in New York."
+        },
+        {
+          "id": "dentro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "comida",
+              "frio",
+              "encierro"
+            ]
+          },
+          "lamina": [
+            "manicomio",
+            "celda"
+          ],
+          "texto": "Tien dagen lang zag ze wat niemand vertelde: bedorven eten, ijskoude baden en vrouwen die opgesloten zaten zonder ziek te zijn."
+        },
+        {
+          "id": "reforma",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10",
+            "clave": "reforma"
+          },
+          "lamina": [
+            "libroBly",
+            "nuevaYork"
+          ],
+          "texto": "Haar reportage, Ten Days in a Mad-House, choqueerde de stad: een grand jury deed onderzoek, en New York trok achthonderdvijftigduizend dollar extra uit voor de zorg voor de zieken."
+        },
+        {
+          "id": "efemerides",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unDia",
+              "historia",
+              "leerMas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Daarom vind ik Op deze dag in mijn krant zo leuk: elke dag vertelt het me iets wat op een dag als vandaag gebeurde, met het hele verhaal."
+        }
+      ]
+    },
+    {
+      "id": "negatividad",
+      "titulo": "Waarom verkoopt slecht nieuws beter?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel drie. Waarom verkoopt slecht nieuws beter?"
+        },
+        {
+          "id": "titulares",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "negatividad"
+          },
+          "lamina": [
+            "titularesPantalla",
+            "clic"
+          ],
+          "destacada": true,
+          "texto": "In 2023 analyseerde een team onderzoekers meer dan honderdduizend versies van koppen die een nieuwssite bij zijn lezers had getest. Elk extra negatief woord liet de klikken met meer dan twee procent stijgen."
+        },
+        {
+          "id": "sesgo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "titularNegativo"
+          },
+          "lamina": [
+            "alarma",
+            "sorprendido"
+          ],
+          "meme": "titular",
+          "texto": "Ons brein let meer op het slechte: duizenden jaren lang was het duur om een gevaar te negeren. En wie van jouw klikken leeft, weet dat. Kijk hoe een kop verandert."
+        },
+        {
+          "id": "contexto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "malo",
+              "mejora",
+              "compara"
+            ]
+          },
+          "lamina": [
+            "noticiasTv",
+            "amanecer"
+          ],
+          "texto": "Het gaat er niet om het slechte te negeren, maar om ook te zoeken naar wat beter wordt, en naar de context: hoeveel, sinds wanneer en vergeleken met wat."
+        },
+        {
+          "id": "categorias",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "chips",
+              "ciencia",
+              "especie"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In mijn krant kies ik de categorie met één tik, en bij Op deze dag zit altijd iets wat mijn dag goedmaakt, zoals de soort van de dag."
+        }
+      ]
+    },
+    {
+      "id": "mentira",
+      "titulo": "Waarom gaat een leugen sneller?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vier. Waarom gaat een leugen sneller?"
+        },
+        {
+          "id": "mit",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "mentira"
+          },
+          "lamina": [
+            "redes",
+            "multitud"
+          ],
+          "destacada": true,
+          "texto": "In 2018 volgden drie onderzoekers van het MIT meer dan honderdduizend verhalen die elf jaar lang op Twitter rondgingen. De valse bereikten vijftienhonderd mensen zo’n zes keer sneller dan de ware."
+        },
+        {
+          "id": "novedad",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "novedad",
+              "sorpresa",
+              "personas"
+            ]
+          },
+          "lamina": [
+            "celulares",
+            "compartir"
+          ],
+          "meme": "compartir",
+          "texto": "Waarom? Omdat iets onwaars vaak nieuwer is, en ons verrast of boos maakt. En het waren niet de bots: wij mensen waren het, die deelden."
+        },
+        {
+          "id": "pausa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pausa",
+              "abre",
+              "origen"
+            ]
+          },
+          "lamina": [
+            "celularMano",
+            "lupa"
+          ],
+          "texto": "De simpelste verdediging past in één seconde: voordat je deelt, neem even pauze, open het hele artikel en kijk waar het vandaan komt."
+        },
+        {
+          "id": "nota",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "titularApp",
+              "notaApp",
+              "profundizar"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In mijn krant brengt elke kop me naar het hele artikel, en als iets me echt interesseert, kan ik me verdiepen in de bibliotheek."
+        }
+      ]
+    },
+    {
+      "id": "verificar",
+      "titulo": "Hoe lees je als een factchecker?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vijf. Hoe lees je als een factchecker?"
+        },
+        {
+          "id": "stanford",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "historiadores",
+              "estudiantes",
+              "verificadores"
+            ]
+          },
+          "lamina": [
+            "verificador",
+            "pantallas"
+          ],
+          "destacada": true,
+          "texto": "Aan de Universiteit van Stanford lieten Sam Wineburg en Sarah McGrew historici, studenten en professionele factcheckers websites beoordelen. De factcheckers hadden het vaker goed en waren sneller, met één truc: ze lazen de site nauwelijks."
+        },
+        {
+          "id": "lateral",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "verificador"
+          },
+          "lamina": [
+            "pestanas",
+            "lupa"
+          ],
+          "texto": "Ze openden meteen andere tabbladen, om te zien wat anderen over die bron zeiden. Dat heet lateraal lezen. Probeer deze check met vier vragen."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoNoticias"
+          },
+          "lamina": "pulgar",
+          "texto": "Als je de gids leuk vindt, klik dan op Vind ik leuk, op Abonneren zodat je de volgende niet mist, en op Delen, voor die ene persoon die je alles doorstuurt zonder het te lezen."
+        },
+        {
+          "id": "preguntas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quien",
+              "evidencia",
+              "otros"
+            ]
+          },
+          "lamina": [
+            "entrevista",
+            "documentos"
+          ],
+          "meme": "fuente",
+          "texto": "Vraag je altijd af: wie zegt het, en wat levert het hem op? Waar is het bewijs? En wat zeggen andere serieuze media?"
+        },
+        {
+          "id": "fuente",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "medio",
+              "cuando",
+              "variedad"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In mijn krant staat bij elke kop welk medium hem publiceerde en wanneer: zo weet ik altijd wie het zegt."
+        }
+      ]
+    },
+    {
+      "id": "belleza",
+      "titulo": "Hoe maak je ware en mooie content?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zes. Hoe maak je ware en mooie content?"
+        },
+        {
+          "id": "lange",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1936",
+            "clave": "lange"
+          },
+          "lamina": [
+            "madreMigrante",
+            "langeCamara"
+          ],
+          "destacada": true,
+          "texto": "In 1936 stopte fotografe Dorothea Lange bij een kamp van seizoensarbeiders in Californië en maakte een paar foto’s van een moeder met haar kinderen. Dat beeld, Migrant Mother, werd hét portret van de Grote Depressie."
+        },
+        {
+          "id": "comida",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "foto",
+              "periodico",
+              "ayuda"
+            ]
+          },
+          "lamina": [
+            "campamento",
+            "periodicoMesa"
+          ],
+          "texto": "Toen een krant in San Francisco haar foto’s publiceerde, stuurde de regering voedsel naar het kamp. De schoonheid versierde de waarheid niet: ze maakte haar onmogelijk te negeren."
+        },
+        {
+          "id": "creador",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "verifica",
+              "cita",
+              "historiaPaso"
+            ]
+          },
+          "lamina": [
+            "creador",
+            "microfono"
+          ],
+          "texto": "Vandaag publiceren we allemaal: een video, een recensie, een foto. Ook jij bent een medium. Doe dus wat de goeden doen: controleer voordat je publiceert, zeg waar je het gegeven vandaan hebt en vertel het als een verhaal."
+        },
+        {
+          "id": "forma",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "imagen",
+              "claro",
+              "justo"
+            ]
+          },
+          "lamina": [
+            "camaraVieja",
+            "escritorio"
+          ],
+          "texto": "En let op de vorm: een goed beeld, heldere woorden en niet meer dan nodig. Mooi is niet het overdrevene: mooi is wat je begrijpt en wat bij je blijft."
+        },
+        {
+          "id": "arte",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "obra",
+              "libro",
+              "palabra"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bij Op deze dag zitten ook het kunstwerk van de dag, het boek van de dag en het woord van de dag: elke ochtend een beetje schoonheid."
+        }
+      ]
+    },
+    {
+      "id": "dieta",
+      "titulo": "Hoeveel nieuws is te veel?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zeven. Hoeveel nieuws is te veel?"
+        },
+        {
+          "id": "boston",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "estres"
+          },
+          "lamina": [
+            "maraton",
+            "tvNoche"
+          ],
+          "destacada": true,
+          "texto": "Na de aanslag op de marathon van Boston, in 2013, ondervroeg een team van de Universiteit van Californië bijna vijfduizend mensen. Wie zes uur of meer verslaggeving per dag keek, had uiteindelijk meer stress dan veel mensen die er zelf bij waren."
+        },
+        {
+          "id": "horas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dietaNoticias"
+          },
+          "lamina": [
+            "nocheCelular",
+            "cama"
+          ],
+          "meme": "madrugada",
+          "texto": "Non-stop nieuws kijken maakt je niet beter geïnformeerd: het maakt je bang en moe. Kijk hoeveel uur per jaar eraan opgaat."
+        },
+        {
+          "id": "horario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "momento",
+              "limite",
+              "avisos"
+            ]
+          },
+          "lamina": [
+            "cafe",
+            "reloj"
+          ],
+          "texto": "Geef het dus vaste tijden: één vast moment per dag, een tijdslimiet en de nieuwsmeldingen uit."
+        },
+        {
+          "id": "reparto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "asistente",
+              "horaFija",
+              "secciones"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Daarom heb ik in mijn krant de bezorging ingepland: de Tovenaar brengt me het serieuze om half acht, en Laika het luchtige op elk moment van de dag."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel acht. Hoe ga je verder? Jouw plan om door te gaan."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planNoticias"
+          },
+          "lamina": [
+            "libreta",
+            "periodicos"
+          ],
+          "texto": "Schrijf de eerste week op waar je je nieuws vandaan haalt en hoeveel tijd je er per dag aan besteedt."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fuentes",
+              "hora",
+              "lateralPlan"
+            ]
+          },
+          "lamina": [
+            "kiosco",
+            "cafe"
+          ],
+          "destacada": true,
+          "texto": "Voeg de eerste maand verschillende bronnen toe, kies een vast uur om je te informeren en oefen lateraal lezen voordat je deelt."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "revisa",
+              "crea",
+              "bello"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "cumbre"
+          ],
+          "texto": "En kijk elke maand wat je beter informeerde en wat je alleen maar ongerust maakte. En als je content maakt: controleer het, noem je bronnen en geef er zorg aan."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lectura",
+              "misiones",
+              "rachaPaso"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En in mijn missies telt Lees de krant van vandaag mee voor mijn reeks: ik heb al weken geen dag overgeslagen."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Kortom: let niet alleen op wat je denkt, maar ook waarover je denkt; wantrouw de kop die je boos maakt; lees zijwaarts voordat je deelt; maak ware en mooie content; en geef je nieuws vaste tijden."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "In Dagelijks nieuws van MindHaOS lees je je koppen uit verschillende media, Op deze dag, en de bezorging door je assistenten brengt ze op jouw tijd. Bouw vandaag gratis je mentale huis: de link staat in de beschrijving. En in de volgende gids: hoe reis je beter?",
+    "boton": "Open Dagelijks nieuws",
+    "lamina": "app-plan",
+    "anclas": {
+      "titulares": "je koppen",
+      "efemerides": "Op deze dag",
+      "reparto": "de bezorging"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "reuters-2024",
+      "texto": "Reuters Institute for the Study of Journalism, Universiteit van Oxford. Digital News Report 2024.",
+      "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2024"
+    },
+    {
+      "id": "mccombs-1972",
+      "texto": "McCombs M. E., Shaw D. L. The agenda-setting function of mass media. Public Opinion Quarterly 36(2), 176-187 (1972).",
+      "url": "https://doi.org/10.1086/267990"
+    },
+    {
+      "id": "bly-1887",
+      "texto": "Nellie Bly. Ten Days in a Mad-House (1887). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Ten_Days_in_a_Mad-House"
+    },
+    {
+      "id": "robertson-2023",
+      "texto": "Robertson C. E. en collega’s. Negativity drives online news consumption. Nature Human Behaviour 7, 812-822 (2023).",
+      "url": "https://doi.org/10.1038/s41562-023-01538-4"
+    },
+    {
+      "id": "vosoughi-2018",
+      "texto": "Vosoughi S., Roy D., Aral S. The spread of true and false news online. Science 359, 1146-1151 (2018).",
+      "url": "https://doi.org/10.1126/science.aap9559"
+    },
+    {
+      "id": "wineburg-2019",
+      "texto": "Wineburg S., McGrew S. Lateral reading and the nature of expertise: reading less and learning more when evaluating digital information. Teachers College Record 121(11) (2019).",
+      "url": "https://doi.org/10.1177/016146811912101102"
+    },
+    {
+      "id": "lange-1936",
+      "texto": "Dorothea Lange. Migrant Mother (1936). Library of Congress (VS); Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Migrant_Mother"
+    },
+    {
+      "id": "holman-2014",
+      "texto": "Holman E. A., Garfin D. R., Silver R. C. Media's role in broadcasting acute stress following the Boston Marathon bombings. PNAS 111(1), 93-98 (2014).",
+      "url": "https://doi.org/10.1073/pnas.1316265110"
+    }
+  ],
+  "titularesDemo": [
+    {
+      "categoria": "tecnologia",
+      "imagen": "6143906",
+      "medio": "De Prairiekoerier",
+      "titulo": "Het stadje krijgt een telegraaf: berichten komen nu in minuten, niet in dagen",
+      "resumen": "Het kantoor bij het station is open van zonsopgang tot zonsondergang en belooft dat er geen brief meer zoekraakt in de postkoets."
+    },
+    {
+      "categoria": "economia",
+      "imagen": "40140475",
+      "medio": "De Stem van de Markt",
+      "titulo": "Recordoogst maïs: de zaterdagmarkt staat vol kraampjes",
+      "resumen": "De boeren uit het dal brengen meer dan ze kunnen verkopen en de broodprijs daalt voor het eerst dit jaar."
+    },
+    {
+      "categoria": "deportes",
+      "imagen": "37215129",
+      "medio": "De Rivierbode",
+      "titulo": "De Coyotes winnen de honkbalfinale in de laatste inning",
+      "resumen": "Half het stadje vulde de tribunes bij de rivier om de slag te zien die het kampioenschap besliste."
+    },
+    {
+      "categoria": "salud",
+      "imagen": "37697596",
+      "medio": "De Dalheraut",
+      "titulo": "De dorpsdokter raadt een wandeling bij zonsondergang aan",
+      "resumen": "Een halfuur lopen voor het avondeten helpt je beter te slapen, zegt hij, en de hoofdstraat is vlak en veilig."
+    },
+    {
+      "categoria": "entretenimiento",
+      "imagen": "35315450",
+      "medio": "De Telegraaf van het Westen",
+      "titulo": "In het dorpshuis opent een tentoonstelling met reisfoto’s",
+      "resumen": "Veertig foto’s van bergen, rivieren en verre steden, de hele week open voor iedereen."
+    },
+    {
+      "categoria": "mundo",
+      "imagen": "7255747",
+      "medio": "De Prairiekoerier",
+      "titulo": "De trein van vijf uur heeft nu een vaste dienstregeling… bijna altijd",
+      "resumen": "De spoorwegmaatschappij publiceert eindelijk haar dienstregeling, maar vraagt om geduld als het stormt in de bergen."
+    }
+  ]
+}

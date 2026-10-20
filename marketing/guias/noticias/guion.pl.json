@@ -1,0 +1,790 @@
+{
+  "idioma": "pl",
+  "tema": "noticias",
+  "plantillaId": "diario",
+  "numero": 18,
+  "nombre": "Wiadomości dnia",
+  "pregunta": "W poszukiwaniu prawdy i piękna: dziennikarstwo i treści",
+  "corta": "Dziennikarstwo i treści",
+  "subtitulo": "Kto decyduje o tym, co widzisz każdego dnia, reporterka, która udawała obłąkaną, żeby opowiedzieć prawdę, dlaczego złe wiadomości lepiej się sprzedają, dlaczego kłamstwo biegnie szybciej, jak czytać jak fact-checker, jak tworzyć prawdziwe i piękne treści, ile wiadomości to za dużo i plan na ciąg dalszy.",
+  "aviso": "Ten przewodnik ma charakter ogólny i informacyjny. Jeśli wiadomości stale wywołują w tobie niepokój, porozmawiaj z kimś zaufanym albo ze specjalistą.",
+  "partes": [
+    {
+      "id": "agenda",
+      "titulo": "Kto decyduje o tym, co widzisz każdego dnia?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Kto decyduje o tym, co widzisz każdego dnia? Cztery osoby na dziesięć już unikają wiadomości. Ale nawet jeśli ich nie oglądasz, to one decydują, o czym rozmawia się przy twoim stole. A gdyby tak nauczyć się czytać świat tak, jak czyta go dobry dziennikarz? Dziś zobaczysz to na danych i wyjdziesz stąd z planem na ciąg dalszy."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Swoją drogą, to mój dom w MindHaOS, i tak: dziś to miasteczko z Dzikiego Zachodu, do którego wiadomości przywoził dyliżans, z kilkudniowym opóźnieniem. A to mój pokój wiadomości: tu czytam dzisiejszą gazetę."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część pierwsza. Kto decyduje o tym, co widzisz każdego dnia?"
+        },
+        {
+          "id": "evitan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "evitan"
+          },
+          "lamina": [
+            "periodicos",
+            "celularNoticias"
+          ],
+          "texto": "Co roku Instytut Reutersa przy Uniwersytecie Oksfordzkim pyta w dziesiątkach krajów, skąd czerpiemy wiadomości. W 2024 roku cztery osoby na dziesięć powiedziały, że czasem albo często unikają wiadomości. W 2017 było ich mniej niż trzy."
+        },
+        {
+          "id": "chapelHill",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "agenda"
+          },
+          "lamina": [
+            "votar",
+            "periodicoViejo"
+          ],
+          "destacada": true,
+          "texto": "Ale w 1968 roku w Chapel Hill Maxwell McCombs i Donald Shaw porównali tematy, które media relacjonowały najczęściej, z tymi, które najbardziej niepokoiły niezdecydowanych wyborców. Obie listy pokrywały się niemal punkt po punkcie."
+        },
+        {
+          "id": "cohen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tema",
+              "enfoque",
+              "silencio"
+            ]
+          },
+          "lamina": [
+            "noticiero",
+            "microfonos"
+          ],
+          "texto": "Dlatego mówi się, że media nie zawsze mówią nam, co myśleć, ale mówią, o czym myśleć: jakie tematy się pojawiają, z jakiej perspektywy i które zostają pominięte."
+        },
+        {
+          "id": "medios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "medios",
+              "categorias",
+              "rota"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dlatego moja dzisiejsza gazeta przynosi mi nagłówki z różnych mediów, według kategorii, a każdego dnia zmienia źródło."
+        }
+      ]
+    },
+    {
+      "id": "bly",
+      "titulo": "Która reporterka udawała obłąkaną, żeby opowiedzieć prawdę?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część druga. Która reporterka udawała obłąkaną, żeby opowiedzieć prawdę?"
+        },
+        {
+          "id": "disfraz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1887",
+            "clave": "bly"
+          },
+          "lamina": [
+            "nellieBly",
+            "blackwell"
+          ],
+          "destacada": true,
+          "texto": "W 1887 roku dwudziestotrzyletnia reporterka Nellie Bly ćwiczyła przed lustrem, aż przekonała lekarzy i sędziego, że jest obłąkana. Tak udało jej się trafić do zakładu dla obłąkanych na wyspie Blackwell w Nowym Jorku."
+        },
+        {
+          "id": "dentro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "comida",
+              "frio",
+              "encierro"
+            ]
+          },
+          "lamina": [
+            "manicomio",
+            "celda"
+          ],
+          "texto": "Przez dziesięć dni widziała to, o czym nikt nie mówił: zgniłe jedzenie, lodowate kąpiele i kobiety zamknięte, choć wcale nie były chore."
+        },
+        {
+          "id": "reforma",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10",
+            "clave": "reforma"
+          },
+          "lamina": [
+            "libroBly",
+            "nuevaYork"
+          ],
+          "texto": "Jej reportaż, Dziesięć dni w domu wariatów, wstrząsnął miastem: wielka ława przysięgłych wszczęła dochodzenie, a Nowy Jork dał na opiekę nad chorymi o osiemset pięćdziesiąt tysięcy dolarów więcej."
+        },
+        {
+          "id": "efemerides",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unDia",
+              "historia",
+              "leerMas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dlatego tak lubię zakładkę „W tym dniu” w mojej gazecie: codziennie opowiada mi o czymś, co wydarzyło się tego samego dnia, z całą historią."
+        }
+      ]
+    },
+    {
+      "id": "negatividad",
+      "titulo": "Dlaczego złe wiadomości sprzedają się lepiej?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część trzecia. Dlaczego złe wiadomości sprzedają się lepiej?"
+        },
+        {
+          "id": "titulares",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "negatividad"
+          },
+          "lamina": [
+            "titularesPantalla",
+            "clic"
+          ],
+          "destacada": true,
+          "texto": "W 2023 roku zespół badaczy przeanalizował ponad sto tysięcy wersji nagłówków, które serwis informacyjny testował na swoich czytelnikach. Każde dodatkowe negatywne słowo zwiększało liczbę kliknięć o ponad dwa procent."
+        },
+        {
+          "id": "sesgo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "titularNegativo"
+          },
+          "lamina": [
+            "alarma",
+            "sorprendido"
+          ],
+          "meme": "titular",
+          "texto": "Nasz mózg zwraca większą uwagę na to, co złe: przez tysiące lat przeoczenie zagrożenia słono kosztowało. A ten, kto żyje z twoich kliknięć, dobrze o tym wie. Zobacz, jak zmienia się nagłówek."
+        },
+        {
+          "id": "contexto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "malo",
+              "mejora",
+              "compara"
+            ]
+          },
+          "lamina": [
+            "noticiasTv",
+            "amanecer"
+          ],
+          "texto": "Nie chodzi o to, żeby ignorować to, co złe, ale żeby szukać też tego, co się poprawia, i kontekstu: ile, od kiedy i w porównaniu z czym."
+        },
+        {
+          "id": "categorias",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "chips",
+              "ciencia",
+              "especie"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "W mojej gazecie wybieram kategorię jednym dotknięciem, a w zakładce „W tym dniu” zawsze jest coś, co poprawia mi humor, na przykład gatunek dnia."
+        }
+      ]
+    },
+    {
+      "id": "mentira",
+      "titulo": "Dlaczego kłamstwo biegnie szybciej?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część czwarta. Dlaczego kłamstwo biegnie szybciej?"
+        },
+        {
+          "id": "mit",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "mentira"
+          },
+          "lamina": [
+            "redes",
+            "multitud"
+          ],
+          "destacada": true,
+          "texto": "W 2018 roku trzech badaczy z MIT prześledziło ponad sto tysięcy historii, które przez jedenaście lat krążyły po Twitterze. Fałszywe docierały do tysiąca pięciuset osób mniej więcej sześć razy szybciej niż prawdziwe."
+        },
+        {
+          "id": "novedad",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "novedad",
+              "sorpresa",
+              "personas"
+            ]
+          },
+          "lamina": [
+            "celulares",
+            "compartir"
+          ],
+          "meme": "compartir",
+          "texto": "Dlaczego? Bo fałsz zwykle jest bardziej nowy, zaskakuje nas albo oburza. I to nie boty: to my, ludzie, go udostępnialiśmy."
+        },
+        {
+          "id": "pausa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pausa",
+              "abre",
+              "origen"
+            ]
+          },
+          "lamina": [
+            "celularMano",
+            "lupa"
+          ],
+          "texto": "Najprostsza obrona mieści się w sekundzie: zanim udostępnisz, zrób pauzę, otwórz cały artykuł i sprawdź, skąd pochodzi."
+        },
+        {
+          "id": "nota",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "titularApp",
+              "notaApp",
+              "profundizar"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "W mojej gazecie każdy nagłówek prowadzi do całego artykułu, a jeśli coś naprawdę mnie interesuje, mogę zgłębić temat w bibliotece."
+        }
+      ]
+    },
+    {
+      "id": "verificar",
+      "titulo": "Jak czytać jak fact-checker?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część piąta. Jak czytać jak fact-checker?"
+        },
+        {
+          "id": "stanford",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "historiadores",
+              "estudiantes",
+              "verificadores"
+            ]
+          },
+          "lamina": [
+            "verificador",
+            "pantallas"
+          ],
+          "destacada": true,
+          "texto": "Na Uniwersytecie Stanforda Sam Wineburg i Sarah McGrew poprosili historyków, studentów i zawodowych fact-checkerów o ocenę stron internetowych. Fact-checkerzy częściej mieli rację i potrzebowali mniej czasu, dzięki jednej sztuczce: prawie nie czytali samej strony."
+        },
+        {
+          "id": "lateral",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "verificador"
+          },
+          "lamina": [
+            "pestanas",
+            "lupa"
+          ],
+          "texto": "Od razu otwierali inne karty, żeby sprawdzić, co inni mówią o tym źródle. To się nazywa czytanie lateralne. Wypróbuj ten test z czterech pytań."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoNoticias"
+          },
+          "lamina": "pulgar",
+          "texto": "Jeśli ten przewodnik ci się podoba, kliknij „Podoba mi się”, „Subskrybuj”, żeby nie przegapić następnego, i „Udostępnij” go osobie, która przesyła ci wszystko bez czytania."
+        },
+        {
+          "id": "preguntas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quien",
+              "evidencia",
+              "otros"
+            ]
+          },
+          "lamina": [
+            "entrevista",
+            "documentos"
+          ],
+          "meme": "fuente",
+          "texto": "Zawsze pytaj: kto to mówi i co na tym zyskuje? Gdzie są dowody? I co mówią inne poważne media?"
+        },
+        {
+          "id": "fuente",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "medio",
+              "cuando",
+              "variedad"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "W mojej gazecie przy każdym nagłówku widać, które medium go opublikowało i kiedy: dzięki temu zawsze wiem, kto to mówi."
+        }
+      ]
+    },
+    {
+      "id": "belleza",
+      "titulo": "Jak tworzyć prawdziwe i piękne treści?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część szósta. Jak tworzyć prawdziwe i piękne treści?"
+        },
+        {
+          "id": "lange",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1936",
+            "clave": "lange"
+          },
+          "lamina": [
+            "madreMigrante",
+            "langeCamara"
+          ],
+          "destacada": true,
+          "texto": "W 1936 roku fotografka Dorothea Lange zatrzymała się w obozie zbieraczy w Kalifornii i zrobiła kilka zdjęć matki z dziećmi. To zdjęcie, Matka migrantka, stało się portretem Wielkiego Kryzysu."
+        },
+        {
+          "id": "comida",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "foto",
+              "periodico",
+              "ayuda"
+            ]
+          },
+          "lamina": [
+            "campamento",
+            "periodicoMesa"
+          ],
+          "texto": "Kiedy gazeta z San Francisco opublikowała jej zdjęcia, rząd wysłał do obozu jedzenie. Piękno nie upiększało prawdy: sprawiało, że nie dało się jej zignorować."
+        },
+        {
+          "id": "creador",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "verifica",
+              "cita",
+              "historiaPaso"
+            ]
+          },
+          "lamina": [
+            "creador",
+            "microfono"
+          ],
+          "texto": "Dziś wszyscy publikujemy: film, recenzję, zdjęcie. Ty też jesteś medium. Więc rób to, co robią najlepsi: sprawdzaj, zanim opublikujesz, mów, skąd masz dane, i opowiadaj to jak historię."
+        },
+        {
+          "id": "forma",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "imagen",
+              "claro",
+              "justo"
+            ]
+          },
+          "lamina": [
+            "camaraVieja",
+            "escritorio"
+          ],
+          "texto": "I dbaj o formę: dobry obraz, jasne słowa i nic ponad to. Piękne nie znaczy przesadzone: to coś, co się rozumie i co zostaje z tobą."
+        },
+        {
+          "id": "arte",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "obra",
+              "libro",
+              "palabra"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "W zakładce „W tym dniu” mam też dzieło dnia, książkę dnia i słowo dnia: trochę piękna każdego ranka."
+        }
+      ]
+    },
+    {
+      "id": "dieta",
+      "titulo": "Ile wiadomości to za dużo?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część siódma. Ile wiadomości to za dużo?"
+        },
+        {
+          "id": "boston",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "estres"
+          },
+          "lamina": [
+            "maraton",
+            "tvNoche"
+          ],
+          "destacada": true,
+          "texto": "Po zamachu podczas maratonu w Bostonie w 2013 roku zespół z Uniwersytetu Kalifornijskiego przebadał prawie pięć tysięcy osób. Ci, którzy oglądali relacje przez sześć godzin dziennie lub dłużej, skończyli z większym stresem niż wielu z tych, którzy tam byli."
+        },
+        {
+          "id": "horas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dietaNoticias"
+          },
+          "lamina": [
+            "nocheCelular",
+            "cama"
+          ],
+          "meme": "madrugada",
+          "texto": "Oglądanie wiadomości bez przerwy nie daje ci więcej wiedzy: zostawia cię z lękiem i zmęczeniem. Zobacz, ile godzin rocznie ci na to ucieka."
+        },
+        {
+          "id": "horario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "momento",
+              "limite",
+              "avisos"
+            ]
+          },
+          "lamina": [
+            "cafe",
+            "reloj"
+          ],
+          "texto": "Więc daj im stałe godziny: jedną porę w ciągu dnia, limit czasu i wyłączone powiadomienia z wiadomościami."
+        },
+        {
+          "id": "reparto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "asistente",
+              "horaFija",
+              "secciones"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dlatego w mojej gazecie ustawiłem dostawę: Mag przynosi mi poważne sprawy o wpół do ósmej, a Laika lżejsze o dowolnej porze dnia."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Jak iść dalej? Twój plan na ciąg dalszy",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część ósma. Jak iść dalej? Twój plan na ciąg dalszy."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planNoticias"
+          },
+          "lamina": [
+            "libreta",
+            "periodicos"
+          ],
+          "texto": "W pierwszym tygodniu zapisuj, skąd bierzesz wiadomości i ile czasu poświęcasz im dziennie."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fuentes",
+              "hora",
+              "lateralPlan"
+            ]
+          },
+          "lamina": [
+            "kiosco",
+            "cafe"
+          ],
+          "destacada": true,
+          "texto": "W pierwszym miesiącu dodaj różne źródła, wybierz stałą godzinę na wiadomości i ćwicz czytanie lateralne, zanim coś udostępnisz."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "revisa",
+              "crea",
+              "bello"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "cumbre"
+          ],
+          "texto": "I co miesiąc sprawdzaj, co dało ci lepszą wiedzę, a co tylko niepokój. A jeśli tworzysz treści: sprawdzaj je, podawaj źródła i dbaj o nie."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lectura",
+              "misiones",
+              "rachaPaso"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "A w moich misjach czytanie dzisiejszej gazety liczy się do mojej serii: od tygodni nie opuściłem ani dnia."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Podsumowując: zwracaj uwagę nie tylko na to, co myślisz, ale też na to, o czym myślisz; nie ufaj nagłówkowi, który cię złości; czytaj lateralnie, zanim udostępnisz; twórz prawdziwe i piękne treści; i daj swoim wiadomościom stałe godziny."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "W Wiadomościach dnia w MindHaOS czytasz swoje nagłówki z różnych mediów i zakładkę „W tym dniu”, a dostawa od twoich asystentów przynosi ci je o twojej porze. Zbuduj swój mentalny dom za darmo już dziś: link jest w opisie. A w następnym przewodniku: jak lepiej podróżować?",
+    "boton": "Otwórz Wiadomości dnia",
+    "lamina": "app-plan",
+    "anclas": {
+      "titulares": "swoje nagłówki",
+      "efemerides": "W tym dniu",
+      "reparto": "dostawa od twoich asystentów"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "reuters-2024",
+      "texto": "Instytut Reutersa ds. Badań nad Dziennikarstwem, Uniwersytet Oksfordzki. Digital News Report 2024.",
+      "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2024"
+    },
+    {
+      "id": "mccombs-1972",
+      "texto": "McCombs M. E., Shaw D. L. The agenda-setting function of mass media. Public Opinion Quarterly 36(2), 176-187 (1972).",
+      "url": "https://doi.org/10.1086/267990"
+    },
+    {
+      "id": "bly-1887",
+      "texto": "Nellie Bly. Ten Days in a Mad-House (1887). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Ten_Days_in_a_Mad-House"
+    },
+    {
+      "id": "robertson-2023",
+      "texto": "Robertson C. E. i współpracownicy. Negativity drives online news consumption. Nature Human Behaviour 7, 812-822 (2023).",
+      "url": "https://doi.org/10.1038/s41562-023-01538-4"
+    },
+    {
+      "id": "vosoughi-2018",
+      "texto": "Vosoughi S., Roy D., Aral S. The spread of true and false news online. Science 359, 1146-1151 (2018).",
+      "url": "https://doi.org/10.1126/science.aap9559"
+    },
+    {
+      "id": "wineburg-2019",
+      "texto": "Wineburg S., McGrew S. Lateral reading and the nature of expertise: reading less and learning more when evaluating digital information. Teachers College Record 121(11) (2019).",
+      "url": "https://doi.org/10.1177/016146811912101102"
+    },
+    {
+      "id": "lange-1936",
+      "texto": "Dorothea Lange. Migrant Mother (1936). Biblioteka Kongresu USA; Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Migrant_Mother"
+    },
+    {
+      "id": "holman-2014",
+      "texto": "Holman E. A., Garfin D. R., Silver R. C. Media's role in broadcasting acute stress following the Boston Marathon bombings. PNAS 111(1), 93-98 (2014).",
+      "url": "https://doi.org/10.1073/pnas.1316265110"
+    }
+  ],
+  "titularesDemo": [
+    {
+      "categoria": "tecnologia",
+      "imagen": "6143906",
+      "medio": "Kurier Prerii",
+      "titulo": "Miasteczko ma telegraf: wiadomości docierają w minuty, a nie w dni",
+      "resumen": "Biuro na stacji jest otwarte od świtu do zmierzchu i obiecuje, że żaden list już nie zginie w dyliżansie."
+    },
+    {
+      "categoria": "economia",
+      "imagen": "40140475",
+      "medio": "Głos Targu",
+      "titulo": "Rekordowe zbiory kukurydzy: sobotni targ pełen straganów",
+      "resumen": "Farmerzy z doliny przywożą więcej, niż mogą sprzedać, a chleb tanieje pierwszy raz w tym roku."
+    },
+    {
+      "categoria": "deportes",
+      "imagen": "37215129",
+      "medio": "Echo Rzeki",
+      "titulo": "Kojoty wygrywają finał baseballu w ostatniej zmianie",
+      "resumen": "Pół miasteczka zapełniło trybuny boiska nad rzeką, żeby zobaczyć uderzenie, które rozstrzygnęło mistrzostwa."
+    },
+    {
+      "categoria": "salud",
+      "imagen": "37697596",
+      "medio": "Herold Doliny",
+      "titulo": "Miejscowy lekarz radzi spacerować o zachodzie słońca",
+      "resumen": "Mówi, że pół godziny spaceru przed kolacją pomaga lepiej spać, a główna ulica jest równa i bezpieczna."
+    },
+    {
+      "categoria": "entretenimiento",
+      "imagen": "35315450",
+      "medio": "Telegraf",
+      "titulo": "W sali miejskiej rusza wystawa zdjęć z podróży",
+      "resumen": "Czterdzieści zdjęć gór, rzek i dalekich miast, otwarta dla wszystkich przez cały tydzień."
+    },
+    {
+      "categoria": "mundo",
+      "imagen": "7255747",
+      "medio": "Kurier Prerii",
+      "titulo": "Pociąg o piątej ma wreszcie stały rozkład… prawie zawsze",
+      "resumen": "Kolej w końcu publikuje rozkład jazdy, choć prosi o cierpliwość, gdy w górach szaleje burza."
+    }
+  ]
+}

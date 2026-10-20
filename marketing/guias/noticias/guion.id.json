@@ -1,0 +1,790 @@
+{
+  "idioma": "id",
+  "tema": "noticias",
+  "plantillaId": "diario",
+  "numero": 18,
+  "nombre": "Berita Harian",
+  "pregunta": "Mencari kebenaran dan keindahan: jurnalisme dan konten",
+  "corta": "Jurnalisme dan konten",
+  "subtitulo": "Siapa yang menentukan apa yang kamu lihat setiap hari, reporter yang berpura-pura gila demi mengungkap kebenaran, kenapa berita buruk lebih laku, kenapa kebohongan berlari lebih cepat, cara membaca seperti pemeriksa fakta, cara membuat konten yang benar dan indah, berapa banyak berita yang terlalu banyak, dan rencana untuk melanjutkan.",
+  "aviso": "Panduan ini bersifat informatif dan umum. Kalau berita terus-menerus membuatmu cemas, bicaralah dengan orang yang kamu percaya atau dengan tenaga kesehatan profesional.",
+  "partes": [
+    {
+      "id": "agenda",
+      "titulo": "Siapa yang menentukan apa yang kamu lihat setiap hari?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Siapa yang menentukan apa yang kamu lihat setiap hari? Empat dari sepuluh orang kini menghindari berita. Tapi meski kamu tidak melihatnya, berita tetap menentukan apa yang dibicarakan di meja makanmu. Bagaimana kalau kamu belajar membaca dunia seperti seorang jurnalis yang baik? Hari ini kamu akan melihatnya dengan data, dan pulang membawa rencana untuk melanjutkan."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Omong-omong, ini rumahku di MindHaOS, dan ya: hari ini rumahnya jadi kota kecil di Wild West, tempat berita datang naik kereta kuda pos, terlambat berhari-hari. Ini ruang Berita Harianku: di sini aku membaca Koran hari ini."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian satu. Siapa yang menentukan apa yang kamu lihat setiap hari?"
+        },
+        {
+          "id": "evitan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "evitan"
+          },
+          "lamina": [
+            "periodicos",
+            "celularNoticias"
+          ],
+          "texto": "Setiap tahun, Reuters Institute di Universitas Oxford bertanya di puluhan negara bagaimana kita mendapatkan berita. Pada 2024, empat dari sepuluh orang bilang kadang atau sering menghindari berita. Pada 2017, jumlahnya kurang dari tiga."
+        },
+        {
+          "id": "chapelHill",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "agenda"
+          },
+          "lamina": [
+            "votar",
+            "periodicoViejo"
+          ],
+          "destacada": true,
+          "texto": "Tapi pada 1968, di Chapel Hill, Maxwell McCombs dan Donald Shaw membandingkan topik yang paling banyak diliput media dengan topik yang paling dikhawatirkan pemilih yang belum menentukan pilihan. Kedua daftar itu hampir sama persis."
+        },
+        {
+          "id": "cohen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tema",
+              "enfoque",
+              "silencio"
+            ]
+          },
+          "lamina": [
+            "noticiero",
+            "microfonos"
+          ],
+          "texto": "Karena itu orang bilang media tidak selalu memberi tahu kita apa yang harus dipikirkan, tapi memberi tahu tentang apa kita berpikir: topik mana yang muncul, dari sudut pandang apa, dan mana yang tertinggal."
+        },
+        {
+          "id": "medios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "medios",
+              "categorias",
+              "rota"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Karena itu Koran hari ini milikku membawakan berita utama dari berbagai media, per kategori, dan setiap hari sumbernya berganti."
+        }
+      ]
+    },
+    {
+      "id": "bly",
+      "titulo": "Siapa yang berpura-pura gila demi mengungkap kebenaran?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian dua. Siapa yang berpura-pura gila demi mengungkap kebenaran?"
+        },
+        {
+          "id": "disfraz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1887",
+            "clave": "bly"
+          },
+          "lamina": [
+            "nellieBly",
+            "blackwell"
+          ],
+          "destacada": true,
+          "texto": "Pada 1887, seorang reporter berusia dua puluh tiga tahun, Nellie Bly, berlatih di depan cermin sampai berhasil meyakinkan dokter dan seorang hakim bahwa dia gila. Begitulah dia dimasukkan ke rumah sakit jiwa di Pulau Blackwell, New York."
+        },
+        {
+          "id": "dentro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "comida",
+              "frio",
+              "encierro"
+            ]
+          },
+          "lamina": [
+            "manicomio",
+            "celda"
+          ],
+          "texto": "Selama sepuluh hari dia melihat apa yang tidak pernah diceritakan siapa pun: makanan busuk, mandi air sedingin es, dan perempuan yang dikurung padahal tidak sakit."
+        },
+        {
+          "id": "reforma",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10",
+            "clave": "reforma"
+          },
+          "lamina": [
+            "libroBly",
+            "nuevaYork"
+          ],
+          "texto": "Liputannya, Sepuluh Hari di Rumah Sakit Jiwa, mengguncang kota: dewan juri besar menyelidikinya, dan New York menambah delapan ratus lima puluh ribu dolar untuk perawatan para pasien."
+        },
+        {
+          "id": "efemerides",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unDia",
+              "historia",
+              "leerMas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Karena itu aku sangat suka Hari ini dalam sejarah di koranku: setiap hari ia menceritakan sesuatu yang terjadi pada tanggal yang sama, lengkap dengan kisahnya."
+        }
+      ]
+    },
+    {
+      "id": "negatividad",
+      "titulo": "Kenapa berita buruk lebih laku?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tiga. Kenapa berita buruk lebih laku?"
+        },
+        {
+          "id": "titulares",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "negatividad"
+          },
+          "lamina": [
+            "titularesPantalla",
+            "clic"
+          ],
+          "destacada": true,
+          "texto": "Pada 2023, sekelompok peneliti menganalisis lebih dari seratus ribu versi judul berita yang diuji sebuah situs berita kepada pembacanya. Setiap tambahan satu kata negatif menaikkan klik lebih dari dua persen."
+        },
+        {
+          "id": "sesgo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "titularNegativo"
+          },
+          "lamina": [
+            "alarma",
+            "sorprendido"
+          ],
+          "meme": "titular",
+          "texto": "Otak kita lebih memperhatikan hal buruk: selama ribuan tahun, mengabaikan bahaya itu mahal akibatnya. Dan yang hidup dari klikmu tahu itu. Lihat bagaimana sebuah judul berubah."
+        },
+        {
+          "id": "contexto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "malo",
+              "mejora",
+              "compara"
+            ]
+          },
+          "lamina": [
+            "noticiasTv",
+            "amanecer"
+          ],
+          "texto": "Ini bukan soal mengabaikan yang buruk, tapi juga mencari apa yang membaik, dan konteksnya: berapa banyak, sejak kapan, dan dibandingkan dengan apa."
+        },
+        {
+          "id": "categorias",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "chips",
+              "ciencia",
+              "especie"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Di koranku aku memilih kategori dengan sekali ketuk, dan di Hari ini dalam sejarah selalu ada yang membuat hariku lebih cerah, seperti Spesies hari ini."
+        }
+      ]
+    },
+    {
+      "id": "mentira",
+      "titulo": "Kenapa kebohongan berlari lebih cepat?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian empat. Kenapa kebohongan berlari lebih cepat?"
+        },
+        {
+          "id": "mit",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "mentira"
+          },
+          "lamina": [
+            "redes",
+            "multitud"
+          ],
+          "destacada": true,
+          "texto": "Pada 2018, tiga peneliti MIT melacak lebih dari seratus ribu kabar yang beredar di Twitter selama sebelas tahun. Kabar palsu menjangkau seribu lima ratus orang sekitar enam kali lebih cepat daripada yang benar."
+        },
+        {
+          "id": "novedad",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "novedad",
+              "sorpresa",
+              "personas"
+            ]
+          },
+          "lamina": [
+            "celulares",
+            "compartir"
+          ],
+          "meme": "compartir",
+          "texto": "Kenapa? Karena yang palsu biasanya terasa lebih baru, dan membuat kita kaget atau marah. Dan pelakunya bukan bot: kitalah, manusia, yang membagikannya."
+        },
+        {
+          "id": "pausa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pausa",
+              "abre",
+              "origen"
+            ]
+          },
+          "lamina": [
+            "celularMano",
+            "lupa"
+          ],
+          "texto": "Pertahanan paling sederhana cuma butuh satu detik: sebelum membagikan, berhenti sejenak, buka beritanya sampai habis, dan lihat dari mana asalnya."
+        },
+        {
+          "id": "nota",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "titularApp",
+              "notaApp",
+              "profundizar"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Di koranku, setiap berita utama membawaku ke artikel lengkapnya, dan kalau ada yang benar-benar menarik, aku bisa Perdalam di perpustakaan."
+        }
+      ]
+    },
+    {
+      "id": "verificar",
+      "titulo": "Bagaimana membaca seperti pemeriksa fakta?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian lima. Bagaimana membaca seperti pemeriksa fakta?"
+        },
+        {
+          "id": "stanford",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "historiadores",
+              "estudiantes",
+              "verificadores"
+            ]
+          },
+          "lamina": [
+            "verificador",
+            "pantallas"
+          ],
+          "destacada": true,
+          "texto": "Di Universitas Stanford, Sam Wineburg dan Sarah McGrew meminta sejarawan, mahasiswa, dan pemeriksa fakta profesional menilai sejumlah situs web. Para pemeriksa fakta lebih tepat dan lebih cepat, berkat satu trik: mereka hampir tidak membaca situsnya."
+        },
+        {
+          "id": "lateral",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "verificador"
+          },
+          "lamina": [
+            "pestanas",
+            "lupa"
+          ],
+          "texto": "Mereka langsung membuka tab lain, untuk melihat apa kata orang lain tentang sumber itu. Namanya membaca lateral. Coba cek empat pertanyaan ini."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoNoticias"
+          },
+          "lamina": "pulgar",
+          "texto": "Kalau kamu suka panduan ini, tekan Suka, Subscribe supaya tidak ketinggalan panduan berikutnya, dan Bagikan ke orang yang selalu meneruskan semuanya tanpa membaca."
+        },
+        {
+          "id": "preguntas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quien",
+              "evidencia",
+              "otros"
+            ]
+          },
+          "lamina": [
+            "entrevista",
+            "documentos"
+          ],
+          "meme": "fuente",
+          "texto": "Selalu tanyakan: siapa yang bilang, dan apa untungnya buat dia? Mana buktinya? Dan apa kata media lain yang serius?"
+        },
+        {
+          "id": "fuente",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "medio",
+              "cuando",
+              "variedad"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Di koranku, setiap berita utama menyebutkan media mana yang menerbitkannya dan kapan: jadi aku selalu tahu siapa yang bilang."
+        }
+      ]
+    },
+    {
+      "id": "belleza",
+      "titulo": "Bagaimana membuat konten yang benar dan indah?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian enam. Bagaimana membuat konten yang benar dan indah?"
+        },
+        {
+          "id": "lange",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1936",
+            "clave": "lange"
+          },
+          "lamina": [
+            "madreMigrante",
+            "langeCamara"
+          ],
+          "destacada": true,
+          "texto": "Pada 1936, fotografer Dorothea Lange berhenti di sebuah kamp pemetik hasil panen di California dan mengambil beberapa foto seorang ibu bersama anak-anaknya. Foto itu, Migrant Mother, menjadi potret Depresi Besar."
+        },
+        {
+          "id": "comida",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "foto",
+              "periodico",
+              "ayuda"
+            ]
+          },
+          "lamina": [
+            "campamento",
+            "periodicoMesa"
+          ],
+          "texto": "Saat sebuah koran di San Francisco menerbitkan foto-fotonya, pemerintah mengirim makanan ke kamp itu. Keindahan tidak menghiasi kebenaran: ia membuat kebenaran mustahil diabaikan."
+        },
+        {
+          "id": "creador",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "verifica",
+              "cita",
+              "historiaPaso"
+            ]
+          },
+          "lamina": [
+            "creador",
+            "microfono"
+          ],
+          "texto": "Sekarang semua orang memposting: video, ulasan, foto. Kamu juga sebuah media. Jadi lakukan yang dilakukan jurnalis yang baik: periksa sebelum memposting, sebutkan dari mana datanya, dan ceritakan seperti sebuah kisah."
+        },
+        {
+          "id": "forma",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "imagen",
+              "claro",
+              "justo"
+            ]
+          },
+          "lamina": [
+            "camaraVieja",
+            "escritorio"
+          ],
+          "texto": "Dan jaga bentuknya: gambar yang bagus, kata-kata yang jelas, dan secukupnya. Indah itu bukan berlebihan: indah itu yang mudah dipahami dan terus melekat."
+        },
+        {
+          "id": "arte",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "obra",
+              "libro",
+              "palabra"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Di Hari ini dalam sejarah milikku juga ada Karya seni hari ini, Buku hari ini, dan Kata hari ini: sedikit keindahan setiap pagi."
+        }
+      ]
+    },
+    {
+      "id": "dieta",
+      "titulo": "Berapa banyak berita yang terlalu banyak?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tujuh. Berapa banyak berita yang terlalu banyak?"
+        },
+        {
+          "id": "boston",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "estres"
+          },
+          "lamina": [
+            "maraton",
+            "tvNoche"
+          ],
+          "destacada": true,
+          "texto": "Setelah serangan bom di maraton Boston tahun 2013, tim dari Universitas California menyurvei hampir lima ribu orang. Mereka yang menonton liputan enam jam atau lebih per hari justru lebih stres daripada banyak orang yang ada di lokasi."
+        },
+        {
+          "id": "horas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dietaNoticias"
+          },
+          "lamina": [
+            "nocheCelular",
+            "cama"
+          ],
+          "meme": "madrugada",
+          "texto": "Menonton berita tanpa henti tidak membuatmu lebih tahu: kamu malah takut dan lelah. Lihat berapa jam setahun yang habis untuk itu."
+        },
+        {
+          "id": "horario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "momento",
+              "limite",
+              "avisos"
+            ]
+          },
+          "lamina": [
+            "cafe",
+            "reloj"
+          ],
+          "texto": "Jadi beri jadwal: satu waktu tetap setiap hari, batas waktu, dan notifikasi berita dimatikan."
+        },
+        {
+          "id": "reparto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "asistente",
+              "horaFija",
+              "secciones"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Karena itu di koranku aku mengatur Pengiriman oleh asisten: Penyihir membawakan berita serius jam setengah delapan, dan Laika yang ringan-ringan kapan saja."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Bagaimana selanjutnya? Rencanamu untuk melanjutkan",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian delapan. Bagaimana selanjutnya? Rencanamu untuk melanjutkan."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planNoticias"
+          },
+          "lamina": [
+            "libreta",
+            "periodicos"
+          ],
+          "texto": "Minggu pertama, catat dari mana kamu mendapat berita dan berapa lama waktumu untuknya setiap hari."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fuentes",
+              "hora",
+              "lateralPlan"
+            ]
+          },
+          "lamina": [
+            "kiosco",
+            "cafe"
+          ],
+          "destacada": true,
+          "texto": "Bulan pertama, tambah sumber yang berbeda, pilih jam tetap untuk membaca berita, dan latih membaca lateral sebelum membagikan."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "revisa",
+              "crea",
+              "bello"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "cumbre"
+          ],
+          "texto": "Dan setiap bulan, tinjau apa yang membuatmu lebih paham dan apa yang cuma membuatmu cemas. Dan kalau kamu membuat konten: periksa, sebutkan sumbernya, dan rawat bentuknya."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lectura",
+              "misiones",
+              "rachaPaso"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dan di misiku, Baca koran hari ini dihitung untuk streak-ku: sudah berminggu-minggu aku tidak pernah bolos."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Ringkasnya: perhatikan bukan hanya apa yang kamu pikirkan, tapi tentang apa kamu berpikir; curigai judul yang membuatmu marah; baca ke samping sebelum membagikan; buat konten yang benar dan indah; dan beri jadwal untuk beritamu."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Di Berita Harian MindHaOS, kamu membaca berita utama hari ini dari berbagai media, menjelajahi Hari ini dalam sejarah, dan lewat Pengiriman oleh asisten semuanya datang di jam pilihanmu. Bangun rumah pikiranmu gratis hari ini: tautannya ada di deskripsi. Dan di panduan berikutnya: bagaimana bepergian dengan lebih baik?",
+    "boton": "Buka Berita Harian",
+    "lamina": "app-plan",
+    "anclas": {
+      "titulares": "berita utama hari ini",
+      "efemerides": "Hari ini dalam sejarah",
+      "reparto": "Pengiriman oleh asisten"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "reuters-2024",
+      "texto": "Reuters Institute for the Study of Journalism, Universitas Oxford. Digital News Report 2024.",
+      "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2024"
+    },
+    {
+      "id": "mccombs-1972",
+      "texto": "McCombs M. E., Shaw D. L. The agenda-setting function of mass media. Public Opinion Quarterly 36(2), 176-187 (1972).",
+      "url": "https://doi.org/10.1086/267990"
+    },
+    {
+      "id": "bly-1887",
+      "texto": "Nellie Bly. Ten Days in a Mad-House (1887). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Ten_Days_in_a_Mad-House"
+    },
+    {
+      "id": "robertson-2023",
+      "texto": "Robertson C. E. dan rekan. Negativity drives online news consumption. Nature Human Behaviour 7, 812-822 (2023).",
+      "url": "https://doi.org/10.1038/s41562-023-01538-4"
+    },
+    {
+      "id": "vosoughi-2018",
+      "texto": "Vosoughi S., Roy D., Aral S. The spread of true and false news online. Science 359, 1146-1151 (2018).",
+      "url": "https://doi.org/10.1126/science.aap9559"
+    },
+    {
+      "id": "wineburg-2019",
+      "texto": "Wineburg S., McGrew S. Lateral reading and the nature of expertise: reading less and learning more when evaluating digital information. Teachers College Record 121(11) (2019).",
+      "url": "https://doi.org/10.1177/016146811912101102"
+    },
+    {
+      "id": "lange-1936",
+      "texto": "Dorothea Lange. Migrant Mother (1936). Perpustakaan Kongres AS; Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Migrant_Mother"
+    },
+    {
+      "id": "holman-2014",
+      "texto": "Holman E. A., Garfin D. R., Silver R. C. Media's role in broadcasting acute stress following the Boston Marathon bombings. PNAS 111(1), 93-98 (2014).",
+      "url": "https://doi.org/10.1073/pnas.1316265110"
+    }
+  ],
+  "titularesDemo": [
+    {
+      "categoria": "tecnologia",
+      "imagen": "6143906",
+      "medio": "Warta Padang Rumput",
+      "titulo": "Kota punya telegraf baru: pesan kini tiba dalam hitungan menit, bukan hari",
+      "resumen": "Kantor di stasiun buka dari matahari terbit sampai terbenam dan berjanji tak ada lagi surat yang hilang di kereta kuda pos."
+    },
+    {
+      "categoria": "economia",
+      "imagen": "40140475",
+      "medio": "Suara Pasar",
+      "titulo": "Panen jagung terbesar sepanjang masa: pasar Sabtu penuh lapak",
+      "resumen": "Para petani lembah membawa lebih banyak dari yang bisa mereka jual, dan harga roti turun untuk pertama kalinya tahun ini."
+    },
+    {
+      "categoria": "deportes",
+      "imagen": "37215129",
+      "medio": "Gema Sungai",
+      "titulo": "Coyotes juarai final bisbol di inning terakhir",
+      "resumen": "Separuh kota memenuhi tribun lapangan di tepi sungai untuk melihat pukulan yang menentukan gelar juara."
+    },
+    {
+      "categoria": "salud",
+      "imagen": "37697596",
+      "medio": "Kabar Lembah",
+      "titulo": "Dokter kota sarankan jalan kaki saat senja",
+      "resumen": "Katanya setengah jam berjalan sebelum makan malam membantu tidur lebih nyenyak, dan jalan utama datar serta aman."
+    },
+    {
+      "categoria": "entretenimiento",
+      "imagen": "35315450",
+      "medio": "Sang Telegraf",
+      "titulo": "Pameran foto perjalanan hadir di balai kota",
+      "resumen": "Empat puluh foto gunung, sungai, dan kota-kota jauh, terbuka untuk umum sepanjang minggu."
+    },
+    {
+      "categoria": "mundo",
+      "imagen": "7255747",
+      "medio": "Warta Padang Rumput",
+      "titulo": "Kereta jam lima kini punya jadwal tetap… hampir selalu",
+      "resumen": "Perusahaan kereta api akhirnya menerbitkan jadwalnya, meski minta maklum kalau ada badai di pegunungan."
+    }
+  ]
+}

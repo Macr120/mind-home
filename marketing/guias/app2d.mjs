@@ -93,7 +93,7 @@ const PREPARAR = `
   document.querySelector('.fixed.inset-0.z-50')?.click()
   await dormir(600)
   {
-    const fallo = await (async () => { ${APP2D.preparar} })()
+    const fallo = await (async () => { ${typeof APP2D.preparar === 'function' ? APP2D.preparar(guion) : APP2D.preparar} })()
     if (fallo) return fallo
   }
   // Sin el botón de salir de la demo: en el video la app es la de Pep@.

@@ -1,0 +1,790 @@
+{
+  "idioma": "zh",
+  "tema": "noticias",
+  "plantillaId": "diario",
+  "numero": 18,
+  "nombre": "每日新闻",
+  "pregunta": "追寻真与美：新闻与内容",
+  "corta": "新闻与内容",
+  "subtitulo": "是谁决定你每天看到什么，那位为了说出真相而装疯的女记者，为什么坏消息更好卖，为什么谎言跑得更快，怎样像事实核查员一样阅读，怎样创作真实又美好的内容，看多少新闻算太多，以及一个继续下去的计划。",
+  "aviso": "本指南仅提供一般性信息。如果新闻让你长期感到焦虑，请和你信任的人或医疗专业人士聊一聊。",
+  "partes": [
+    {
+      "id": "agenda",
+      "titulo": "是谁决定你每天看到什么？",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "是谁决定你每天看到什么？每十个人里，已经有四个人在回避新闻。可就算你不看，新闻也在决定你饭桌上聊什么。如果你能学会像好记者那样读懂世界呢？今天你会用数据看清楚，还会带走一个继续下去的计划。"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "对了，这是我在MindHaOS里的家。没错，今天它是一座西部小镇，那时候新闻要靠驿站马车送来，晚上好几天。这是我的新闻房间，我每天在这里读今日报刊。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第一部分。是谁决定你每天看到什么？"
+        },
+        {
+          "id": "evitan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "evitan"
+          },
+          "lamina": [
+            "periodicos",
+            "celularNoticias"
+          ],
+          "texto": "牛津大学路透新闻研究所每年都会在几十个国家调查，大家是怎样获取新闻的。2024年，每十个人里有四个人说，自己有时或经常回避新闻。2017年，还不到三个人。"
+        },
+        {
+          "id": "chapelHill",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "agenda"
+          },
+          "lamina": [
+            "votar",
+            "periodicoViejo"
+          ],
+          "destacada": true,
+          "texto": "不过早在1968年，在教堂山，马克斯韦尔·麦库姆斯和唐纳德·肖，把媒体报道最多的议题，和尚未拿定主意的选民最关心的议题做了比较。两份清单几乎一一对应。"
+        },
+        {
+          "id": "cohen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tema",
+              "enfoque",
+              "silencio"
+            ]
+          },
+          "lamina": [
+            "noticiero",
+            "microfonos"
+          ],
+          "texto": "所以人们常说：媒体未必能告诉我们怎么想，却能决定我们想什么。哪些议题上新闻，用什么角度讲，又有哪些被留在外面。"
+        },
+        {
+          "id": "medios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "medios",
+              "categorias",
+              "rota"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "所以我的今日报刊会按类别，给我带来好几家不同媒体的新闻，而且每天都换消息来源。"
+        }
+      ]
+    },
+    {
+      "id": "bly",
+      "titulo": "是哪位女记者为了说出真相而装疯？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第二部分。是哪位女记者为了说出真相而装疯？"
+        },
+        {
+          "id": "disfraz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1887",
+            "clave": "bly"
+          },
+          "lamina": [
+            "nellieBly",
+            "blackwell"
+          ],
+          "destacada": true,
+          "texto": "1887年，二十三岁的女记者内莉·布莱，对着镜子反复练习，直到让医生和法官都相信她疯了。就这样，她被送进了纽约布莱克威尔岛的疯人院。"
+        },
+        {
+          "id": "dentro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "comida",
+              "frio",
+              "encierro"
+            ]
+          },
+          "lamina": [
+            "manicomio",
+            "celda"
+          ],
+          "texto": "整整十天，她看到了没人报道的事：发霉的食物，冰冷刺骨的冷水澡，还有根本没病却被关起来的女人。"
+        },
+        {
+          "id": "reforma",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10",
+            "clave": "reforma"
+          },
+          "lamina": [
+            "libroBly",
+            "nuevaYork"
+          ],
+          "texto": "她的报道《疯人院十日》震惊了全城：大陪审团展开调查，纽约为照顾病人多拨了八十五万美元。"
+        },
+        {
+          "id": "efemerides",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unDia",
+              "historia",
+              "leerMas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "所以我特别喜欢报刊里的历史上的今天：每天都会讲一件在这一天发生过的事，连同完整的故事。"
+        }
+      ]
+    },
+    {
+      "id": "negatividad",
+      "titulo": "为什么坏消息更好卖？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第三部分。为什么坏消息更好卖？"
+        },
+        {
+          "id": "titulares",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "negatividad"
+          },
+          "lamina": [
+            "titularesPantalla",
+            "clic"
+          ],
+          "destacada": true,
+          "texto": "2023年，一个研究团队分析了一家新闻网站拿读者测试过的十万多个标题版本。标题里每多一个负面词，点击率就提高两个百分点以上。"
+        },
+        {
+          "id": "sesgo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "titularNegativo"
+          },
+          "lamina": [
+            "alarma",
+            "sorprendido"
+          ],
+          "meme": "titular",
+          "texto": "我们的大脑会更关注坏事：几千年来，忽视危险的代价太大了。而靠你的点击赚钱的人，很清楚这一点。看看一个标题是怎么变的。"
+        },
+        {
+          "id": "contexto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "malo",
+              "mejora",
+              "compara"
+            ]
+          },
+          "lamina": [
+            "noticiasTv",
+            "amanecer"
+          ],
+          "texto": "这不是说要无视坏事，而是也要看看哪些在变好，还要看背景：有多少，从什么时候开始，跟什么比。"
+        },
+        {
+          "id": "categorias",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "chips",
+              "ciencia",
+              "especie"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在我的报刊里，点一下就能选类别，而历史上的今天里，总有让我开心一整天的东西，比如今日物种。"
+        }
+      ]
+    },
+    {
+      "id": "mentira",
+      "titulo": "为什么谎言跑得更快？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第四部分。为什么谎言跑得更快？"
+        },
+        {
+          "id": "mit",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "mentira"
+          },
+          "lamina": [
+            "redes",
+            "multitud"
+          ],
+          "destacada": true,
+          "texto": "2018年，麻省理工学院的三位研究者，追踪了十一年间在推特上流传的十万多个故事。假消息传到一千五百个人，速度大约是真消息的六倍。"
+        },
+        {
+          "id": "novedad",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "novedad",
+              "sorpresa",
+              "personas"
+            ]
+          },
+          "lamina": [
+            "celulares",
+            "compartir"
+          ],
+          "meme": "compartir",
+          "texto": "为什么？因为假的东西往往更新奇，让我们吃惊或者愤怒。而且转发的不是机器人，是我们这些人。"
+        },
+        {
+          "id": "pausa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pausa",
+              "abre",
+              "origen"
+            ]
+          },
+          "lamina": [
+            "celularMano",
+            "lupa"
+          ],
+          "texto": "最简单的防御，一秒钟就够：转发之前，先停一下，打开完整的文章，看看它是从哪儿来的。"
+        },
+        {
+          "id": "nota",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "titularApp",
+              "notaApp",
+              "profundizar"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在我的报刊里，每条标题都能直接打开完整文章，如果真的感兴趣，还可以在图书馆深入了解。"
+        }
+      ]
+    },
+    {
+      "id": "verificar",
+      "titulo": "怎样像事实核查员一样阅读？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第五部分。怎样像事实核查员一样阅读？"
+        },
+        {
+          "id": "stanford",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "historiadores",
+              "estudiantes",
+              "verificadores"
+            ]
+          },
+          "lamina": [
+            "verificador",
+            "pantallas"
+          ],
+          "destacada": true,
+          "texto": "在斯坦福大学，萨姆·温伯格和莎拉·麦格鲁请历史学家、学生和专业的事实核查员来评估网站。核查员判断得更准，用时也更短，秘诀是：他们几乎不读那个网站。"
+        },
+        {
+          "id": "lateral",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "verificador"
+          },
+          "lamina": [
+            "pestanas",
+            "lupa"
+          ],
+          "texto": "他们会马上打开别的标签页，看看别人怎么评价这个来源。这叫横向阅读。试试这个四个问题的小检查。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoNoticias"
+          },
+          "lamina": "pulgar",
+          "texto": "如果你喜欢这份指南，请点赞，订阅，免得错过下一期，再分享给那个什么都不看就转发的人。"
+        },
+        {
+          "id": "preguntas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quien",
+              "evidencia",
+              "otros"
+            ]
+          },
+          "lamina": [
+            "entrevista",
+            "documentos"
+          ],
+          "meme": "fuente",
+          "texto": "永远问问自己：这是谁说的，他能得到什么？证据在哪里？其他靠谱的媒体又怎么说？"
+        },
+        {
+          "id": "fuente",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "medio",
+              "cuando",
+              "variedad"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在我的报刊里，每条标题都写着是哪家媒体、在什么时候发布的：这样我总能知道是谁在说。"
+        }
+      ]
+    },
+    {
+      "id": "belleza",
+      "titulo": "怎样创作真实又美好的内容？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第六部分。怎样创作真实又美好的内容？"
+        },
+        {
+          "id": "lange",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1936",
+            "clave": "lange"
+          },
+          "lamina": [
+            "madreMigrante",
+            "langeCamara"
+          ],
+          "destacada": true,
+          "texto": "1936年，摄影师多萝西娅·兰格在加利福尼亚的一个采摘工营地停下脚步，给一位母亲和她的孩子拍了几张照片。其中那张《移民母亲》，成了大萧条的代表肖像。"
+        },
+        {
+          "id": "comida",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "foto",
+              "periodico",
+              "ayuda"
+            ]
+          },
+          "lamina": [
+            "campamento",
+            "periodicoMesa"
+          ],
+          "texto": "旧金山的一家报纸刊登了这些照片后，政府就往营地送去了食物。美没有装点真相：它让真相无法被忽视。"
+        },
+        {
+          "id": "creador",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "verifica",
+              "cita",
+              "historiaPaso"
+            ]
+          },
+          "lamina": [
+            "creador",
+            "microfono"
+          ],
+          "texto": "如今人人都在发布：一段视频，一篇评论，一张照片。你也是一家媒体。所以，学学好记者的做法：发布前先核实，说清楚数据从哪儿来，再把它讲成一个故事。"
+        },
+        {
+          "id": "forma",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "imagen",
+              "claro",
+              "justo"
+            ]
+          },
+          "lamina": [
+            "camaraVieja",
+            "escritorio"
+          ],
+          "texto": "也要讲究形式：一张好图，清楚的文字，恰到好处。美不是夸张，而是让人看得懂、记得住。"
+        },
+        {
+          "id": "arte",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "obra",
+              "libro",
+              "palabra"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在我的历史上的今天里，还有今日艺术作品、今日图书和今日一词：每天早上，一点点美。"
+        }
+      ]
+    },
+    {
+      "id": "dieta",
+      "titulo": "看多少新闻算太多？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第七部分。看多少新闻算太多？"
+        },
+        {
+          "id": "boston",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "estres"
+          },
+          "lamina": [
+            "maraton",
+            "tvNoche"
+          ],
+          "destacada": true,
+          "texto": "2013年波士顿马拉松爆炸案之后，加州大学的一个团队调查了将近五千人。每天看六个小时以上相关报道的人，压力比很多亲历现场的人还大。"
+        },
+        {
+          "id": "horas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dietaNoticias"
+          },
+          "lamina": [
+            "nocheCelular",
+            "cama"
+          ],
+          "meme": "madrugada",
+          "texto": "一刻不停地看新闻，并不会让你知道得更多：只会让你害怕又疲惫。看看你一年要花掉多少小时。"
+        },
+        {
+          "id": "horario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "momento",
+              "limite",
+              "avisos"
+            ]
+          },
+          "lamina": [
+            "cafe",
+            "reloj"
+          ],
+          "texto": "所以给新闻定个时间：每天一个固定时段，一个时间上限，再关掉新闻推送。"
+        },
+        {
+          "id": "reparto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "asistente",
+              "horaFija",
+              "secciones"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "所以我在报刊里设好了助手推送：魔法师七点半给我送来严肃的新闻，莱卡一天里随时送来轻松的。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "接下来怎么做？你的继续计划",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第八部分。接下来怎么做？你的继续计划。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planNoticias"
+          },
+          "lamina": [
+            "libreta",
+            "periodicos"
+          ],
+          "texto": "第一周，记下你的新闻都从哪儿来，每天在上面花多少时间。"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fuentes",
+              "hora",
+              "lateralPlan"
+            ]
+          },
+          "lamina": [
+            "kiosco",
+            "cafe"
+          ],
+          "destacada": true,
+          "texto": "第一个月，多加几个不同的来源，选一个固定的时间看新闻，转发之前练习横向阅读。"
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "revisa",
+              "crea",
+              "bello"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "cumbre"
+          ],
+          "texto": "之后每个月，回顾一下：哪些让你更了解世界，哪些只让你焦虑。如果你创作内容：核实它，注明来源，用心打磨。"
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lectura",
+              "misiones",
+              "rachaPaso"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在我的任务里，阅读今天的新闻会计入我的连续纪录：我已经好几周没断过了。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "总结一下：不光留意你怎么想，还要留意你在想什么；对让你生气的标题多个心眼；转发前先横向阅读；创作真实又美好的内容；再给你的新闻定个时间。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "在MindHaOS的每日新闻里，你可以读到多家媒体的今日头条、历史上的今天，助手推送还会在你选的时间送到。今天就免费搭建你的心灵之家。链接在视频简介里。下一期指南：怎样更好地旅行？",
+    "boton": "打开每日新闻",
+    "lamina": "app-plan",
+    "anclas": {
+      "titulares": "今日头条",
+      "efemerides": "历史上的今天",
+      "reparto": "助手推送"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "reuters-2024",
+      "texto": "牛津大学路透新闻研究所。Digital News Report 2024.",
+      "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2024"
+    },
+    {
+      "id": "mccombs-1972",
+      "texto": "McCombs M. E., Shaw D. L. The agenda-setting function of mass media. Public Opinion Quarterly 36(2), 176-187 (1972).",
+      "url": "https://doi.org/10.1086/267990"
+    },
+    {
+      "id": "bly-1887",
+      "texto": "Nellie Bly. Ten Days in a Mad-House (1887). 维基百科。",
+      "url": "https://en.wikipedia.org/wiki/Ten_Days_in_a_Mad-House"
+    },
+    {
+      "id": "robertson-2023",
+      "texto": "Robertson C. E. 等. Negativity drives online news consumption. Nature Human Behaviour 7, 812-822 (2023).",
+      "url": "https://doi.org/10.1038/s41562-023-01538-4"
+    },
+    {
+      "id": "vosoughi-2018",
+      "texto": "Vosoughi S., Roy D., Aral S. The spread of true and false news online. Science 359, 1146-1151 (2018).",
+      "url": "https://doi.org/10.1126/science.aap9559"
+    },
+    {
+      "id": "wineburg-2019",
+      "texto": "Wineburg S., McGrew S. Lateral reading and the nature of expertise: reading less and learning more when evaluating digital information. Teachers College Record 121(11) (2019).",
+      "url": "https://doi.org/10.1177/016146811912101102"
+    },
+    {
+      "id": "lange-1936",
+      "texto": "Dorothea Lange. Migrant Mother (1936). 美国国会图书馆；维基百科。",
+      "url": "https://en.wikipedia.org/wiki/Migrant_Mother"
+    },
+    {
+      "id": "holman-2014",
+      "texto": "Holman E. A., Garfin D. R., Silver R. C. Media's role in broadcasting acute stress following the Boston Marathon bombings. PNAS 111(1), 93-98 (2014).",
+      "url": "https://doi.org/10.1073/pnas.1316265110"
+    }
+  ],
+  "titularesDemo": [
+    {
+      "categoria": "tecnologia",
+      "imagen": "6143906",
+      "medio": "草原公报",
+      "titulo": "小镇通电报啦：消息几分钟就到，不用再等好几天",
+      "resumen": "车站的电报局从日出开到日落，保证再也不会有信件在驿站马车上弄丢。"
+    },
+    {
+      "categoria": "economia",
+      "imagen": "40140475",
+      "medio": "集市之声",
+      "titulo": "玉米创纪录大丰收，周六集市摊位摆满了",
+      "resumen": "山谷里的农民运来的比卖得掉的还多，面包今年头一回降价。"
+    },
+    {
+      "categoria": "deportes",
+      "imagen": "37215129",
+      "medio": "河畔回声报",
+      "titulo": "郊狼队最后一局逆转，拿下棒球决赛冠军",
+      "resumen": "半个镇的人挤满了河边球场的看台，亲眼看到那一记定胜负的安打。"
+    },
+    {
+      "categoria": "salud",
+      "imagen": "37697596",
+      "medio": "山谷先驱报",
+      "titulo": "镇上的医生建议：傍晚出去走走",
+      "resumen": "他说晚饭前散步半小时有助于睡个好觉，而且主街又平又安全。"
+    },
+    {
+      "categoria": "entretenimiento",
+      "imagen": "35315450",
+      "medio": "电报日报",
+      "titulo": "旅行摄影展来到镇上的礼堂",
+      "resumen": "四十张山川河流和远方城市的照片，整周免费对外开放。"
+    },
+    {
+      "categoria": "mundo",
+      "imagen": "7255747",
+      "medio": "草原公报",
+      "titulo": "五点的火车终于有固定时刻表了……差不多吧",
+      "resumen": "铁路公司总算公布了时刻表，不过山里有暴风雨时，还请大家多点耐心。"
+    }
+  ]
+}

@@ -1,0 +1,790 @@
+{
+  "idioma": "ja",
+  "tema": "noticias",
+  "plantillaId": "diario",
+  "numero": 18,
+  "nombre": "日刊ニュース",
+  "pregunta": "真実と美を求めて：ジャーナリズムとコンテンツ",
+  "corta": "ジャーナリズムとコンテンツ",
+  "subtitulo": "毎日目にするものを決めているのは誰か、真実を伝えるために正気を失ったふりをした記者、なぜ悪いニュースのほうが売れるのか、なぜ嘘のほうが速く広まるのか、ファクトチェッカーのような読み方、本当で美しいコンテンツのつくり方、ニュースはどのくらいから多すぎるのか、そして続けるためのプラン。",
+  "aviso": "このガイドは一般的な情報提供を目的としています。ニュースのせいでいつも不安を感じるなら、信頼できる人や医療の専門家に相談してください。",
+  "partes": [
+    {
+      "id": "agenda",
+      "titulo": "毎日目にするものは、誰が決めているのでしょうか？",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "毎日あなたが目にするものは、誰が決めているのでしょうか？ すでに10人に4人が、ニュースを避けています。でも、見ていなくても、ニュースはあなたの食卓の話題を決めているんです。もし、腕のいい記者のように世界を読めるようになったら？ 今日はデータでそれを確かめて、続けるためのプランを持ち帰ってもらいます。"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "ところで、ここはMindHaOSにある私の家です。そう、今日は西部開拓時代の町。ニュースは駅馬車に乗って、何日も遅れて届いていました。ここが私の日刊ニュースの部屋。ここで今日の新聞を読んでいます。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート1。毎日目にするものは、誰が決めているのでしょうか？"
+        },
+        {
+          "id": "evitan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "evitan"
+          },
+          "lamina": [
+            "periodicos",
+            "celularNoticias"
+          ],
+          "texto": "オックスフォード大学のロイター研究所は、毎年、何十もの国で、人々がどうやってニュースを得ているかを調べています。2024年には、10人に4人が、ときどき、あるいはよくニュースを避けると答えました。2017年には、3人もいませんでした。"
+        },
+        {
+          "id": "chapelHill",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "agenda"
+          },
+          "lamina": [
+            "votar",
+            "periodicoViejo"
+          ],
+          "destacada": true,
+          "texto": "でも1968年、チャペルヒルで、マックスウェル・マコームズとドナルド・ショーは、メディアがいちばん多く取り上げた話題と、投票先を決めかねている有権者がいちばん気にしていた話題を比べました。二つのリストは、ほぼぴったり一致していました。"
+        },
+        {
+          "id": "cohen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tema",
+              "enfoque",
+              "silencio"
+            ]
+          },
+          "lamina": [
+            "noticiero",
+            "microfonos"
+          ],
+          "texto": "だからこう言われます。メディアは「何を考えるか」をいつも決めるわけではないけれど、「何について考えるか」は決めている。どの話題を出すか、どんな切り口で伝えるか、そして何を外すか。"
+        },
+        {
+          "id": "medios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "medios",
+              "categorias",
+              "rota"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "だから私の今日の新聞は、いろいろなメディアのニュースをカテゴリーごとに届けてくれて、情報源も毎日変わるんです。"
+        }
+      ]
+    },
+    {
+      "id": "bly",
+      "titulo": "真実を伝えるため、正気を失ったふりをした女性は誰でしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート2。真実を伝えるため、正気を失ったふりをした女性は誰でしょうか？"
+        },
+        {
+          "id": "disfraz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1887",
+            "clave": "bly"
+          },
+          "lamina": [
+            "nellieBly",
+            "blackwell"
+          ],
+          "destacada": true,
+          "texto": "1887年、23歳の記者ネリー・ブライは、鏡の前で練習を重ね、医師たちと判事に、自分は正気ではないと信じ込ませました。こうして、ニューヨークのブラックウェル島にある精神病院に入り込んだのです。"
+        },
+        {
+          "id": "dentro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "comida",
+              "frio",
+              "encierro"
+            ]
+          },
+          "lamina": [
+            "manicomio",
+            "celda"
+          ],
+          "texto": "10日間、彼女は誰も伝えなかったものを見ました。腐った食事、氷のように冷たい水風呂、そして病気でもないのに閉じ込められた女性たち。"
+        },
+        {
+          "id": "reforma",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10",
+            "clave": "reforma"
+          },
+          "lamina": [
+            "libroBly",
+            "nuevaYork"
+          ],
+          "texto": "彼女のルポ『精神病院での十日間』は、街に衝撃を与えました。大陪審が調査に乗り出し、ニューヨークは患者のケアに85万ドルを上乗せしました。"
+        },
+        {
+          "id": "efemerides",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unDia",
+              "historia",
+              "leerMas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "だから私は、新聞の「今日は何の日」が大好きなんです。毎日、昔の今日に起きた出来事を、その物語ごと教えてくれます。"
+        }
+      ]
+    },
+    {
+      "id": "negatividad",
+      "titulo": "なぜ悪いニュースのほうが売れるのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート3。なぜ悪いニュースのほうが売れるのでしょうか？"
+        },
+        {
+          "id": "titulares",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "negatividad"
+          },
+          "lamina": [
+            "titularesPantalla",
+            "clic"
+          ],
+          "destacada": true,
+          "texto": "2023年、ある研究チームが、ニュースサイトが読者で試した10万以上の見出しのパターンを分析しました。ネガティブな言葉が1つ増えるごとに、クリックは2%以上増えていました。"
+        },
+        {
+          "id": "sesgo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "titularNegativo"
+          },
+          "lamina": [
+            "alarma",
+            "sorprendido"
+          ],
+          "meme": "titular",
+          "texto": "私たちの脳は、悪いことのほうに注意を向けます。何千年ものあいだ、危険を見逃すと高くついたからです。そして、あなたのクリックで稼ぐ人たちは、それを知っています。見出しがどう変わるか、見てください。"
+        },
+        {
+          "id": "contexto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "malo",
+              "mejora",
+              "compara"
+            ]
+          },
+          "lamina": [
+            "noticiasTv",
+            "amanecer"
+          ],
+          "texto": "悪いことを無視しよう、という話ではありません。良くなっていることにも目を向けて、文脈を探すこと。何人なのか、いつからなのか、何と比べてなのか。"
+        },
+        {
+          "id": "categorias",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "chips",
+              "ciencia",
+              "especie"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "私の新聞では、カテゴリーをワンタップで選べます。そして「今日は何の日」には、いつも一日を明るくしてくれるものがあります。たとえば、今日の生き物。"
+        }
+      ]
+    },
+    {
+      "id": "mentira",
+      "titulo": "なぜ嘘のほうが速く広まるのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート4。なぜ嘘のほうが速く広まるのでしょうか？"
+        },
+        {
+          "id": "mit",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "mentira"
+          },
+          "lamina": [
+            "redes",
+            "multitud"
+          ],
+          "destacada": true,
+          "texto": "2018年、MITの3人の研究者が、11年間にTwitterで広まった10万以上の話を追跡しました。偽の話は、本当の話より約6倍速く、1500人に届いていました。"
+        },
+        {
+          "id": "novedad",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "novedad",
+              "sorpresa",
+              "personas"
+            ]
+          },
+          "lamina": [
+            "celulares",
+            "compartir"
+          ],
+          "meme": "compartir",
+          "texto": "なぜでしょう？ 偽の話のほうが目新しくて、驚いたり、腹が立ったりするからです。そして広めていたのはボットではなく、私たち人間でした。"
+        },
+        {
+          "id": "pausa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pausa",
+              "abre",
+              "origen"
+            ]
+          },
+          "lamina": [
+            "celularMano",
+            "lupa"
+          ],
+          "texto": "いちばん簡単な守り方は、1秒でできます。シェアする前にひと呼吸おいて、記事を最後まで開き、どこから来た情報かを確かめること。"
+        },
+        {
+          "id": "nota",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "titularApp",
+              "notaApp",
+              "profundizar"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "私の新聞では、どの見出しからも記事の全文に飛べて、本当に気になったら、図書館でさらに詳しく調べられます。"
+        }
+      ]
+    },
+    {
+      "id": "verificar",
+      "titulo": "ファクトチェッカーのように読むには？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート5。ファクトチェッカーのように読むには？"
+        },
+        {
+          "id": "stanford",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "historiadores",
+              "estudiantes",
+              "verificadores"
+            ]
+          },
+          "lamina": [
+            "verificador",
+            "pantallas"
+          ],
+          "destacada": true,
+          "texto": "スタンフォード大学で、サム・ワインバーグとサラ・マクグルーは、歴史学者、学生、そしてプロのファクトチェッカーに、ウェブサイトを評価してもらいました。ファクトチェッカーのほうが正確で、しかも速かったんです。コツは、そのサイトをほとんど読まないことでした。"
+        },
+        {
+          "id": "lateral",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "verificador"
+          },
+          "lamina": [
+            "pestanas",
+            "lupa"
+          ],
+          "texto": "すぐに別のタブを開いて、その情報源についてほかの人が何と言っているかを確かめたんです。これを「横読み」と呼びます。この4つの質問のチェックを試してみてください。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoNoticias"
+          },
+          "lamina": "pulgar",
+          "texto": "このガイドを気に入ってもらえたら、高評価と、次回を見逃さないためのチャンネル登録、そして何でも読まずに転送してくるあの人に共有をお願いします。"
+        },
+        {
+          "id": "preguntas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quien",
+              "evidencia",
+              "otros"
+            ]
+          },
+          "lamina": [
+            "entrevista",
+            "documentos"
+          ],
+          "meme": "fuente",
+          "texto": "いつも自分に聞いてみてください。誰が言っていて、それで何を得るのか？ 証拠はどこにあるのか？ そして、ほかの信頼できるメディアは何と言っているのか？"
+        },
+        {
+          "id": "fuente",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "medio",
+              "cuando",
+              "variedad"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "私の新聞では、どの見出しにも、どのメディアがいつ出したかが書いてあります。だから、誰が言っているのかがいつもわかります。"
+        }
+      ]
+    },
+    {
+      "id": "belleza",
+      "titulo": "本当で美しいコンテンツをつくるには？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート6。本当で美しいコンテンツをつくるには？"
+        },
+        {
+          "id": "lange",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1936",
+            "clave": "lange"
+          },
+          "lamina": [
+            "madreMigrante",
+            "langeCamara"
+          ],
+          "destacada": true,
+          "texto": "1936年、写真家のドロシア・ラングは、カリフォルニアの農業労働者のキャンプで足を止め、子どもたちと一緒にいる母親を何枚か撮りました。その一枚『移民の母』は、世界恐慌を象徴する肖像になりました。"
+        },
+        {
+          "id": "comida",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "foto",
+              "periodico",
+              "ayuda"
+            ]
+          },
+          "lamina": [
+            "campamento",
+            "periodicoMesa"
+          ],
+          "texto": "サンフランシスコの新聞がその写真を載せると、政府はキャンプに食料を送りました。美しさは、真実を飾ったのではありません。真実を、無視できないものにしたんです。"
+        },
+        {
+          "id": "creador",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "verifica",
+              "cita",
+              "historiaPaso"
+            ]
+          },
+          "lamina": [
+            "creador",
+            "microfono"
+          ],
+          "texto": "今では、誰もが発信しています。動画も、レビューも、写真も。あなたも一つのメディアなんです。だから、いい記者と同じことをしましょう。公開する前に確かめて、情報の出どころを示し、物語として伝えること。"
+        },
+        {
+          "id": "forma",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "imagen",
+              "claro",
+              "justo"
+            ]
+          },
+          "lamina": [
+            "camaraVieja",
+            "escritorio"
+          ],
+          "texto": "そして、形も大切に。いい写真、わかりやすい言葉、そして必要なぶんだけ。美しさとは大げさなことではなく、伝わって、心に残るものです。"
+        },
+        {
+          "id": "arte",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "obra",
+              "libro",
+              "palabra"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "私の「今日は何の日」には、今日の美術作品、今日の一冊、今日の言葉もあります。毎朝、少しの美しさを。"
+        }
+      ]
+    },
+    {
+      "id": "dieta",
+      "titulo": "ニュースはどのくらいから多すぎるのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート7。ニュースはどのくらいから多すぎるのでしょうか？"
+        },
+        {
+          "id": "boston",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "estres"
+          },
+          "lamina": [
+            "maraton",
+            "tvNoche"
+          ],
+          "destacada": true,
+          "texto": "2013年のボストンマラソン爆弾テロのあと、カリフォルニア大学のチームが、5000人近くを調査しました。1日6時間以上報道を見た人は、現場にいた多くの人よりも強いストレスを抱えていました。"
+        },
+        {
+          "id": "horas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dietaNoticias"
+          },
+          "lamina": [
+            "nocheCelular",
+            "cama"
+          ],
+          "meme": "madrugada",
+          "texto": "ニュースを見続けても、詳しくなるわけではありません。怖くなって、疲れるだけです。1年で何時間使っているか、見てみましょう。"
+        },
+        {
+          "id": "horario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "momento",
+              "limite",
+              "avisos"
+            ]
+          },
+          "lamina": [
+            "cafe",
+            "reloj"
+          ],
+          "texto": "だから、時間を決めましょう。1日のうち決まった時間に、上限を決めて、ニュースの通知はオフにする。"
+        },
+        {
+          "id": "reparto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "asistente",
+              "horaFija",
+              "secciones"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "だから私の新聞では、アシスタントによるお届けを設定しました。魔法使いは大事なニュースを7時半に、ライカは軽い話題を一日中いつでも届けてくれます。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "この先どうする？ 続けるためのプラン",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート8。この先どうする？ 続けるためのプラン。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planNoticias"
+          },
+          "lamina": [
+            "libreta",
+            "periodicos"
+          ],
+          "texto": "最初の1週間は、どこからニュースを得ていて、1日にどれくらい時間を使っているかを書き留めましょう。"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fuentes",
+              "hora",
+              "lateralPlan"
+            ]
+          },
+          "lamina": [
+            "kiosco",
+            "cafe"
+          ],
+          "destacada": true,
+          "texto": "最初の1か月は、違う情報源を増やし、ニュースを見る時間を決めて、シェアする前に横読みを練習しましょう。"
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "revisa",
+              "crea",
+              "bello"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "cumbre"
+          ],
+          "texto": "そして毎月、何が役に立って、何がただ不安にさせただけかを振り返りましょう。もしコンテンツをつくるなら、確かめて、出典を示して、丁寧に仕上げること。"
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lectura",
+              "misiones",
+              "rachaPaso"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "そして私のミッションでは、「今日のニュースを読む」が連続記録に数えられます。もう何週間も途切れていません。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "まとめです。何を考えるかだけでなく、何について考えているかに気づくこと。腹が立つ見出しは疑うこと。シェアする前に横読みすること。本当で美しいコンテンツをつくること。そして、ニュースに時間を決めること。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOSの日刊ニュースでは、いろいろなメディアの今日のニュースと、今日は何の日が読めて、アシスタントによるお届けで、好きな時間に届きます。今日、無料であなたの心の家をつくろう。リンクは概要欄にあります。そして次回のガイドは、どうすればもっと上手に旅ができるのでしょうか？",
+    "boton": "日刊ニュースを開く",
+    "lamina": "app-plan",
+    "anclas": {
+      "titulares": "今日のニュース",
+      "efemerides": "今日は何の日",
+      "reparto": "アシスタントによるお届け"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "reuters-2024",
+      "texto": "ロイター・ジャーナリズム研究所、オックスフォード大学。Digital News Report 2024.",
+      "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2024"
+    },
+    {
+      "id": "mccombs-1972",
+      "texto": "McCombs M. E., Shaw D. L. The agenda-setting function of mass media. Public Opinion Quarterly 36(2), 176-187 (1972).",
+      "url": "https://doi.org/10.1086/267990"
+    },
+    {
+      "id": "bly-1887",
+      "texto": "Nellie Bly. Ten Days in a Mad-House (1887). ウィキペディア。",
+      "url": "https://en.wikipedia.org/wiki/Ten_Days_in_a_Mad-House"
+    },
+    {
+      "id": "robertson-2023",
+      "texto": "Robertson C. E. ほか。Negativity drives online news consumption. Nature Human Behaviour 7, 812-822 (2023).",
+      "url": "https://doi.org/10.1038/s41562-023-01538-4"
+    },
+    {
+      "id": "vosoughi-2018",
+      "texto": "Vosoughi S., Roy D., Aral S. The spread of true and false news online. Science 359, 1146-1151 (2018).",
+      "url": "https://doi.org/10.1126/science.aap9559"
+    },
+    {
+      "id": "wineburg-2019",
+      "texto": "Wineburg S., McGrew S. Lateral reading and the nature of expertise: reading less and learning more when evaluating digital information. Teachers College Record 121(11) (2019).",
+      "url": "https://doi.org/10.1177/016146811912101102"
+    },
+    {
+      "id": "lange-1936",
+      "texto": "Dorothea Lange. Migrant Mother (1936). アメリカ議会図書館、ウィキペディア。",
+      "url": "https://en.wikipedia.org/wiki/Migrant_Mother"
+    },
+    {
+      "id": "holman-2014",
+      "texto": "Holman E. A., Garfin D. R., Silver R. C. Media's role in broadcasting acute stress following the Boston Marathon bombings. PNAS 111(1), 93-98 (2014).",
+      "url": "https://doi.org/10.1073/pnas.1316265110"
+    }
+  ],
+  "titularesDemo": [
+    {
+      "categoria": "tecnologia",
+      "imagen": "6143906",
+      "medio": "大草原ガゼット",
+      "titulo": "町に電信がやってきた：便りは何日もかからず、数分で届く時代に",
+      "resumen": "駅の電信局は日の出から日暮れまで開いていて、もう駅馬車で手紙をなくすことはないと約束しています。"
+    },
+    {
+      "categoria": "economia",
+      "imagen": "40140475",
+      "medio": "市場の声",
+      "titulo": "トウモロコシが記録的な豊作、土曜の市場は屋台でいっぱいに",
+      "resumen": "谷の農家は売り切れないほど持ち込み、今年初めてパンの値段が下がりました。"
+    },
+    {
+      "categoria": "deportes",
+      "imagen": "37215129",
+      "medio": "川辺のこだま",
+      "titulo": "コヨーテズ、最終回の一打で野球の決勝を制す",
+      "resumen": "町の半分が川沿いのグラウンドのスタンドを埋め、優勝を決めた一打を見届けました。"
+    },
+    {
+      "categoria": "salud",
+      "imagen": "37697596",
+      "medio": "谷間ヘラルド",
+      "titulo": "町のお医者さん「夕暮れどきの散歩をどうぞ」",
+      "resumen": "夕食前の30分の散歩でぐっすり眠れるうえ、大通りは平らで安全だそうです。"
+    },
+    {
+      "categoria": "entretenimiento",
+      "imagen": "35315450",
+      "medio": "テレグラフ新聞",
+      "titulo": "町の集会所に旅の写真展がやってくる",
+      "resumen": "山や川、遠い街を写した40枚の写真を、今週いっぱい一般公開します。"
+    },
+    {
+      "categoria": "mundo",
+      "imagen": "7255747",
+      "medio": "大草原ガゼット",
+      "titulo": "5時の汽車、ついに時刻表が決定……たいていは",
+      "resumen": "鉄道会社がようやく時刻表を発表。ただし山で嵐のときは、気長に待ってほしいとのことです。"
+    }
+  ]
+}

@@ -1,0 +1,790 @@
+{
+  "idioma": "ar",
+  "tema": "noticias",
+  "plantillaId": "diario",
+  "numero": 18,
+  "nombre": "أخبار اليوم",
+  "pregunta": "بحثًا عن الحقيقة والجمال: الصحافة والمحتوى",
+  "corta": "الصحافة والمحتوى",
+  "subtitulo": "من يقرر ما تراه كل يوم، والصحفية التي تظاهرت بالجنون لتكشف الحقيقة، ولماذا تبيع الأخبار السيئة أكثر، ولماذا تجري الكذبة أسرع، وكيف تقرأ كمدقق حقائق، وكيف تصنع محتوى صادقًا وجميلًا، وكم من الأخبار يكون أكثر من اللازم، وخطة للاستمرار.",
+  "aviso": "هذا الدليل للمعلومات العامة فقط. إن كانت الأخبار تسبب لك قلقًا دائمًا، فتحدث مع شخص تثق به أو مع أخصائي صحي.",
+  "partes": [
+    {
+      "id": "agenda",
+      "titulo": "من يقرر ما تراه كل يوم؟",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "من يقرر ما تراه كل يوم؟ أربعة من كل عشرة أشخاص صاروا يتجنبون الأخبار. لكن حتى لو لم تشاهدها، فهي التي تقرر عمّ يدور الحديث على مائدتك. ماذا لو تعلمت أن تقرأ العالم كما يقرؤه صحفي جيد؟ اليوم ستراه بالأرقام، وستخرج بخطة للاستمرار."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "بالمناسبة، هذا بيتي في MindHaOS، ونعم: إنه اليوم بلدة من الغرب الأمريكي القديم، حيث كانت الأخبار تصل بعربة البريد، متأخرة أيامًا. وهذه غرفة أخبار اليوم عندي: هنا أقرأ صحيفة اليوم."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الأول. من يقرر ما تراه كل يوم؟"
+        },
+        {
+          "id": "evitan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "evitan"
+          },
+          "lamina": [
+            "periodicos",
+            "celularNoticias"
+          ],
+          "texto": "كل عام، يسأل معهد رويترز في جامعة أكسفورد الناس في عشرات الدول كيف يتابعون الأخبار. في 2024، قال أربعة من كل عشرة إنهم يتجنبون الأخبار أحيانًا أو كثيرًا. وفي 2017 كانوا أقل من ثلاثة."
+        },
+        {
+          "id": "chapelHill",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "agenda"
+          },
+          "lamina": [
+            "votar",
+            "periodicoViejo"
+          ],
+          "destacada": true,
+          "texto": "لكن في 1968، في تشابل هيل، قارن ماكسويل ماكومبس ودونالد شو بين المواضيع التي غطتها وسائل الإعلام أكثر من غيرها والمواضيع التي كانت تشغل الناخبين المترددين أكثر من غيرها. وجاءت القائمتان متطابقتين تقريبًا."
+        },
+        {
+          "id": "cohen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tema",
+              "enfoque",
+              "silencio"
+            ]
+          },
+          "lamina": [
+            "noticiero",
+            "microfonos"
+          ],
+          "texto": "ولهذا يقال إن وسائل الإعلام لا تخبرنا دائمًا بماذا نفكر، لكنها تخبرنا فيمَ نفكر: أي المواضيع تظهر، ومن أي زاوية، وأيها يبقى خارج الصورة."
+        },
+        {
+          "id": "medios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "medios",
+              "categorias",
+              "rota"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "ولهذا تأتيني صحيفة اليوم بعناوين من وسائل إعلام مختلفة، حسب الفئة، وكل يوم تتغير المصادر."
+        }
+      ]
+    },
+    {
+      "id": "bly",
+      "titulo": "من التي تظاهرت بالجنون لتكشف الحقيقة؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثاني. من التي تظاهرت بالجنون لتكشف الحقيقة؟"
+        },
+        {
+          "id": "disfraz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1887",
+            "clave": "bly"
+          },
+          "lamina": [
+            "nellieBly",
+            "blackwell"
+          ],
+          "destacada": true,
+          "texto": "في 1887، تدربت صحفية في الثالثة والعشرين، اسمها نيلي بلاي، أمام المرآة حتى أقنعت أطباء وقاضيًا بأنها مجنونة. وهكذا أُدخلت مصحة الأمراض العقلية في جزيرة بلاكويل، في نيويورك."
+        },
+        {
+          "id": "dentro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "comida",
+              "frio",
+              "encierro"
+            ]
+          },
+          "lamina": [
+            "manicomio",
+            "celda"
+          ],
+          "texto": "طوال عشرة أيام رأت ما لم يكن أحد يرويه: طعامًا فاسدًا، وحمّامات بماء مثلج، ونساءً محبوسات دون أن يكنّ مريضات."
+        },
+        {
+          "id": "reforma",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10",
+            "clave": "reforma"
+          },
+          "lamina": [
+            "libroBly",
+            "nuevaYork"
+          ],
+          "texto": "تحقيقها، عشرة أيام في مستشفى المجانين، هزّ المدينة: فحققت هيئة محلفين كبرى، وزادت نيويورك ثمانمئة وخمسين ألف دولار لرعاية المرضى."
+        },
+        {
+          "id": "efemerides",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unDia",
+              "historia",
+              "leerMas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "ولهذا أحب كثيرًا قسم في مثل هذا اليوم في صحيفتي: كل يوم يحكي لي شيئًا حدث في يوم كهذا، بقصته كاملة."
+        }
+      ]
+    },
+    {
+      "id": "negatividad",
+      "titulo": "لماذا تبيع الأخبار السيئة أكثر؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثالث. لماذا تبيع الأخبار السيئة أكثر؟"
+        },
+        {
+          "id": "titulares",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "negatividad"
+          },
+          "lamina": [
+            "titularesPantalla",
+            "clic"
+          ],
+          "destacada": true,
+          "texto": "في 2023، حلل فريق من الباحثين أكثر من مئة ألف نسخة من عناوين جرّبها موقع إخباري على قرائه. كل كلمة سلبية إضافية كانت ترفع النقرات بأكثر من اثنين في المئة."
+        },
+        {
+          "id": "sesgo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "titularNegativo"
+          },
+          "lamina": [
+            "alarma",
+            "sorprendido"
+          ],
+          "meme": "titular",
+          "texto": "دماغنا ينتبه للسيئ أكثر: فطوال آلاف السنين، كان تجاهل الخطر مكلفًا. ومن يعيش على نقراتك يعرف ذلك. انظر كيف يتغير عنوان واحد."
+        },
+        {
+          "id": "contexto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "malo",
+              "mejora",
+              "compara"
+            ]
+          },
+          "lamina": [
+            "noticiasTv",
+            "amanecer"
+          ],
+          "texto": "المسألة ليست تجاهل السيئ، بل البحث أيضًا عمّا يتحسن، وعن السياق: كم، ومنذ متى، ومقارنةً بماذا."
+        },
+        {
+          "id": "categorias",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "chips",
+              "ciencia",
+              "especie"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "في صحيفتي أختار الفئة بلمسة واحدة، وفي قسم في مثل هذا اليوم هناك دائمًا ما يبهج يومي، مثل كائن اليوم."
+        }
+      ]
+    },
+    {
+      "id": "mentira",
+      "titulo": "لماذا تجري الكذبة أسرع؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الرابع. لماذا تجري الكذبة أسرع؟"
+        },
+        {
+          "id": "mit",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "mentira"
+          },
+          "lamina": [
+            "redes",
+            "multitud"
+          ],
+          "destacada": true,
+          "texto": "في 2018، تتبّع ثلاثة باحثين من MIT أكثر من مئة ألف قصة انتشرت على تويتر خلال أحد عشر عامًا. كانت القصص الكاذبة تصل إلى ألف وخمسمئة شخص أسرع من الصادقة بنحو ست مرات."
+        },
+        {
+          "id": "novedad",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "novedad",
+              "sorpresa",
+              "personas"
+            ]
+          },
+          "lamina": [
+            "celulares",
+            "compartir"
+          ],
+          "meme": "compartir",
+          "texto": "لماذا؟ لأن الكاذب غالبًا يبدو أكثر جِدّة، ويفاجئنا أو يغضبنا. ولم تكن الروبوتات هي السبب: كنا نحن البشر، نشارك."
+        },
+        {
+          "id": "pausa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pausa",
+              "abre",
+              "origen"
+            ]
+          },
+          "lamina": [
+            "celularMano",
+            "lupa"
+          ],
+          "texto": "أبسط وسيلة دفاع لا تحتاج إلا ثانية: قبل أن تشارك، توقف لحظة، وافتح الخبر كاملًا، وانظر من أين جاء."
+        },
+        {
+          "id": "nota",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "titularApp",
+              "notaApp",
+              "profundizar"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "في صحيفتي، كل عنوان يأخذني إلى الخبر كاملًا، وإن أثار شيء اهتمامي حقًا، أستطيع التعمق في المكتبة."
+        }
+      ]
+    },
+    {
+      "id": "verificar",
+      "titulo": "كيف تقرأ كمدقق حقائق؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الخامس. كيف تقرأ كمدقق حقائق؟"
+        },
+        {
+          "id": "stanford",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "historiadores",
+              "estudiantes",
+              "verificadores"
+            ]
+          },
+          "lamina": [
+            "verificador",
+            "pantallas"
+          ],
+          "destacada": true,
+          "texto": "في جامعة ستانفورد، طلب سام واينبرغ وسارة ماكغرو من مؤرخين وطلاب ومدققي حقائق محترفين أن يقيّموا مواقع إلكترونية. فأصاب المدققون أكثر وفي وقت أقل، بحيلة واحدة: لم يكادوا يقرؤون الموقع."
+        },
+        {
+          "id": "lateral",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "verificador"
+          },
+          "lamina": [
+            "pestanas",
+            "lupa"
+          ],
+          "texto": "كانوا يخرجون فورًا إلى تبويبات أخرى، ليروا ماذا يقول الآخرون عن ذلك المصدر. وهذا يسمى القراءة الجانبية. جرّب هذا الفحص من أربعة أسئلة."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoNoticias"
+          },
+          "lamina": "pulgar",
+          "texto": "إن كان هذا الدليل يعجبك، فاضغط «أعجبني»، و«اشتراك» حتى لا يفوتك الدليل القادم، و«مشاركة» مع ذلك الشخص الذي يعيد إرسال كل شيء دون أن يقرأه."
+        },
+        {
+          "id": "preguntas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quien",
+              "evidencia",
+              "otros"
+            ]
+          },
+          "lamina": [
+            "entrevista",
+            "documentos"
+          ],
+          "meme": "fuente",
+          "texto": "اسأل نفسك دائمًا: من يقول هذا، وماذا يكسب منه؟ أين الدليل؟ وماذا تقول وسائل الإعلام الجادة الأخرى؟"
+        },
+        {
+          "id": "fuente",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "medio",
+              "cuando",
+              "variedad"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "في صحيفتي، كل عنوان يذكر الوسيلة التي نشرته ومتى: هكذا أعرف دائمًا من يقول ماذا."
+        }
+      ]
+    },
+    {
+      "id": "belleza",
+      "titulo": "كيف تصنع محتوى صادقًا وجميلًا؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السادس. كيف تصنع محتوى صادقًا وجميلًا؟"
+        },
+        {
+          "id": "lange",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1936",
+            "clave": "lange"
+          },
+          "lamina": [
+            "madreMigrante",
+            "langeCamara"
+          ],
+          "destacada": true,
+          "texto": "في 1936، توقفت المصورة دوروثيا لانغ في مخيم لعمال قطف المحاصيل في كاليفورنيا، والتقطت صورًا قليلة لأم مع أطفالها. تلك الصورة، الأم المهاجرة، صارت وجه الكساد الكبير."
+        },
+        {
+          "id": "comida",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "foto",
+              "periodico",
+              "ayuda"
+            ]
+          },
+          "lamina": [
+            "campamento",
+            "periodicoMesa"
+          ],
+          "texto": "وحين نشرت صحيفة في سان فرانسيسكو صورها، أرسلت الحكومة طعامًا إلى المخيم. لم يكن الجمال يزيّن الحقيقة: بل جعل تجاهلها مستحيلًا."
+        },
+        {
+          "id": "creador",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "verifica",
+              "cita",
+              "historiaPaso"
+            ]
+          },
+          "lamina": [
+            "creador",
+            "microfono"
+          ],
+          "texto": "اليوم كلنا ننشر: فيديو، أو مراجعة، أو صورة. وأنت أيضًا وسيلة إعلام. فافعل ما يفعله الجيدون: تحقق قبل أن تنشر، وقل من أين أخذت المعلومة، واروها كقصة."
+        },
+        {
+          "id": "forma",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "imagen",
+              "claro",
+              "justo"
+            ]
+          },
+          "lamina": [
+            "camaraVieja",
+            "escritorio"
+          ],
+          "texto": "واعتنِ بالشكل: صورة جيدة، وكلمات واضحة، وبلا زيادة. الجميل ليس المبالغ فيه: بل هو ما يُفهم ويبقى معك."
+        },
+        {
+          "id": "arte",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "obra",
+              "libro",
+              "palabra"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "وفي قسم في مثل هذا اليوم عندي أيضًا عمل فني اليوم، وكتاب اليوم، وكلمة اليوم: قليل من الجمال كل صباح."
+        }
+      ]
+    },
+    {
+      "id": "dieta",
+      "titulo": "كم من الأخبار يكون أكثر من اللازم؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السابع. كم من الأخبار يكون أكثر من اللازم؟"
+        },
+        {
+          "id": "boston",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "estres"
+          },
+          "lamina": [
+            "maraton",
+            "tvNoche"
+          ],
+          "destacada": true,
+          "texto": "بعد تفجير ماراثون بوسطن عام 2013، استطلع فريق من جامعة كاليفورنيا نحو خمسة آلاف شخص. ومن شاهدوا ست ساعات أو أكثر من التغطية يوميًا انتهى بهم الأمر بتوتر أكبر من كثيرين ممن كانوا هناك."
+        },
+        {
+          "id": "horas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dietaNoticias"
+          },
+          "lamina": [
+            "nocheCelular",
+            "cama"
+          ],
+          "meme": "madrugada",
+          "texto": "متابعة الأخبار بلا توقف لا تجعلك أكثر اطلاعًا: بل تتركك خائفًا ومتعبًا. انظر كم ساعة تذهب منك في السنة."
+        },
+        {
+          "id": "horario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "momento",
+              "limite",
+              "avisos"
+            ]
+          },
+          "lamina": [
+            "cafe",
+            "reloj"
+          ],
+          "texto": "لذا ضع لها موعدًا: وقتًا ثابتًا في اليوم، وحدًّا زمنيًا، وإشعارات الأخبار مطفأة."
+        },
+        {
+          "id": "reparto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "asistente",
+              "horaFija",
+              "secciones"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "ولهذا ضبطت في صحيفتي التوصيل عبر المساعدين: الساحر يأتيني بالأخبار الجادة في السابعة والنصف، ولايكا بالخفيفة في أي وقت من اليوم."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "كيف تستمر؟ خطتك للاستمرار",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثامن. كيف تستمر؟ خطتك للاستمرار."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planNoticias"
+          },
+          "lamina": [
+            "libreta",
+            "periodicos"
+          ],
+          "texto": "في الأسبوع الأول، دوّن من أين تأتيك أخبارك وكم من الوقت تقضيه معها كل يوم."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fuentes",
+              "hora",
+              "lateralPlan"
+            ]
+          },
+          "lamina": [
+            "kiosco",
+            "cafe"
+          ],
+          "destacada": true,
+          "texto": "في الشهر الأول، أضف مصادر مختلفة، واختر ساعة ثابتة لمتابعة الأخبار، وتدرّب على القراءة الجانبية قبل المشاركة."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "revisa",
+              "crea",
+              "bello"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "cumbre"
+          ],
+          "texto": "وكل شهر، راجع ما جعلك أكثر اطلاعًا وما لم يترك لك إلا القلق. وإن كنت تصنع محتوى: تحقق منه، واذكر مصادرك، واعتنِ به."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lectura",
+              "misiones",
+              "rachaPaso"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "وفي مهامي، قراءة صحيفة اليوم تُحسب في سلسلتي: منذ أسابيع لم أفوّت يومًا."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "باختصار: انتبه لا إلى ما تفكر فيه فقط، بل إلى ما يُطرح عليك لتفكر فيه؛ ولا تثق بالعنوان الذي يغضبك؛ واقرأ جانبيًا قبل أن تشارك؛ واصنع محتوى صادقًا وجميلًا؛ وضع موعدًا لأخبارك."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "في أخبار اليوم على MindHaOS تقرأ عناوين اليوم من وسائل إعلام متعددة، وتتصفح في مثل هذا اليوم، ومع التوصيل عبر المساعدين تصلك في الوقت الذي تختاره. ابنِ بيتك الذهني مجانًا اليوم: الرابط في الوصف. وفي الدليل القادم: كيف تسافر بشكل أفضل؟",
+    "boton": "افتح أخبار اليوم",
+    "lamina": "app-plan",
+    "anclas": {
+      "titulares": "عناوين اليوم",
+      "efemerides": "في مثل هذا اليوم",
+      "reparto": "التوصيل عبر المساعدين"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "reuters-2024",
+      "texto": "معهد رويترز لدراسة الصحافة، جامعة أكسفورد. Digital News Report 2024.",
+      "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2024"
+    },
+    {
+      "id": "mccombs-1972",
+      "texto": "McCombs M. E., Shaw D. L. The agenda-setting function of mass media. Public Opinion Quarterly 36(2), 176-187 (1972).",
+      "url": "https://doi.org/10.1086/267990"
+    },
+    {
+      "id": "bly-1887",
+      "texto": "Nellie Bly. Ten Days in a Mad-House (1887). ويكيبيديا.",
+      "url": "https://en.wikipedia.org/wiki/Ten_Days_in_a_Mad-House"
+    },
+    {
+      "id": "robertson-2023",
+      "texto": "Robertson C. E. وزملاؤه. Negativity drives online news consumption. Nature Human Behaviour 7, 812-822 (2023).",
+      "url": "https://doi.org/10.1038/s41562-023-01538-4"
+    },
+    {
+      "id": "vosoughi-2018",
+      "texto": "Vosoughi S., Roy D., Aral S. The spread of true and false news online. Science 359, 1146-1151 (2018).",
+      "url": "https://doi.org/10.1126/science.aap9559"
+    },
+    {
+      "id": "wineburg-2019",
+      "texto": "Wineburg S., McGrew S. Lateral reading and the nature of expertise: reading less and learning more when evaluating digital information. Teachers College Record 121(11) (2019).",
+      "url": "https://doi.org/10.1177/016146811912101102"
+    },
+    {
+      "id": "lange-1936",
+      "texto": "Dorothea Lange. Migrant Mother (1936). مكتبة الكونغرس الأمريكية؛ ويكيبيديا.",
+      "url": "https://en.wikipedia.org/wiki/Migrant_Mother"
+    },
+    {
+      "id": "holman-2014",
+      "texto": "Holman E. A., Garfin D. R., Silver R. C. Media's role in broadcasting acute stress following the Boston Marathon bombings. PNAS 111(1), 93-98 (2014).",
+      "url": "https://doi.org/10.1073/pnas.1316265110"
+    }
+  ],
+  "titularesDemo": [
+    {
+      "categoria": "tecnologia",
+      "imagen": "6143906",
+      "medio": "جريدة البراري",
+      "titulo": "البلدة تدشّن التلغراف: الرسائل تصل الآن في دقائق لا في أيام",
+      "resumen": "مكتب المحطة يفتح من الشروق إلى الغروب، ويعد بألا تضيع رسالة بعد اليوم في عربة البريد."
+    },
+    {
+      "categoria": "economia",
+      "imagen": "40140475",
+      "medio": "صوت السوق",
+      "titulo": "محصول ذرة قياسي: سوق السبت يمتلئ بالأكشاك",
+      "resumen": "مزارعو الوادي يجلبون أكثر مما يستطيعون بيعه، وسعر الخبز ينخفض لأول مرة هذا العام."
+    },
+    {
+      "categoria": "deportes",
+      "imagen": "37215129",
+      "medio": "صدى النهر",
+      "titulo": "فريق الذئاب يفوز بنهائي البيسبول في الشوط الأخير",
+      "resumen": "نصف البلدة ملأ مدرجات الملعب المجاور للنهر ليشهد الضربة التي حسمت البطولة."
+    },
+    {
+      "categoria": "salud",
+      "imagen": "37697596",
+      "medio": "بشير الوادي",
+      "titulo": "طبيب البلدة ينصح بالمشي عند الغروب",
+      "resumen": "يقول إن نصف ساعة من المشي قبل العشاء تساعد على نوم أفضل، وإن الشارع الرئيسي مستوٍ وآمن."
+    },
+    {
+      "categoria": "entretenimiento",
+      "imagen": "35315450",
+      "medio": "التلغراف",
+      "titulo": "معرض لصور السفر يحلّ في قاعة البلدة",
+      "resumen": "أربعون صورة لجبال وأنهار ومدن بعيدة، مفتوحة للجميع طوال الأسبوع."
+    },
+    {
+      "categoria": "mundo",
+      "imagen": "7255747",
+      "medio": "جريدة البراري",
+      "titulo": "قطار الخامسة صار له موعد ثابت… في أغلب الأحيان",
+      "resumen": "شركة السكك الحديدية تنشر أخيرًا جداول مواعيدها، وإن كانت تطلب الصبر حين تهب العواصف في الجبال."
+    }
+  ]
+}

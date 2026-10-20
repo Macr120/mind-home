@@ -1,0 +1,790 @@
+{
+  "idioma": "ru",
+  "tema": "noticias",
+  "plantillaId": "diario",
+  "numero": 18,
+  "nombre": "Новости дня",
+  "pregunta": "В поисках истины и красоты: журналистика и контент",
+  "corta": "Журналистика и контент",
+  "subtitulo": "Кто решает, что ты видишь каждый день, репортёрша, которая притворилась сумасшедшей, чтобы рассказать правду, почему плохие новости продаются лучше, почему ложь бежит быстрее, как читать как фактчекер, как создавать правдивый и красивый контент, сколько новостей — это слишком много, и план на будущее.",
+  "aviso": "Это руководство носит общий и информационный характер. Если новости постоянно вызывают у тебя тревогу, поговори с близким человеком или со специалистом.",
+  "partes": [
+    {
+      "id": "agenda",
+      "titulo": "Кто решает, что ты видишь каждый день?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Кто решает, что ты видишь каждый день? Четыре человека из десяти уже избегают новостей. Но даже если ты их не смотришь, именно они решают, о чём говорят у тебя за столом. А что, если научиться читать мир так, как его читает хороший журналист? Сегодня ты увидишь это на данных и уйдёшь с планом на будущее."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Кстати, это мой дом в MindHaOS, и да: сегодня это городок Дикого Запада, куда новости привозил дилижанс, с опозданием на несколько дней. А это моя комната новостей: здесь я читаю сегодняшний выпуск."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть первая. Кто решает, что ты видишь каждый день?"
+        },
+        {
+          "id": "evitan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "evitan"
+          },
+          "lamina": [
+            "periodicos",
+            "celularNoticias"
+          ],
+          "texto": "Каждый год Институт Рейтер при Оксфордском университете спрашивает в десятках стран, как мы узнаём новости. В 2024 году четыре человека из десяти сказали, что иногда или часто избегают новостей. В 2017-м таких было меньше трёх."
+        },
+        {
+          "id": "chapelHill",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "agenda"
+          },
+          "lamina": [
+            "votar",
+            "periodicoViejo"
+          ],
+          "destacada": true,
+          "texto": "Но в 1968 году в Чапел-Хилле Максвелл Маккомбс и Дональд Шоу сравнили темы, которые чаще всего освещали СМИ, с теми, что больше всего волновали колеблющихся избирателей. Два списка совпали почти пункт в пункт."
+        },
+        {
+          "id": "cohen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tema",
+              "enfoque",
+              "silencio"
+            ]
+          },
+          "lamina": [
+            "noticiero",
+            "microfonos"
+          ],
+          "texto": "Поэтому и говорят: СМИ не всегда говорят нам, что думать, но говорят, о чём думать: какие темы выходят, под каким углом и какие остаются за кадром."
+        },
+        {
+          "id": "medios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "medios",
+              "categorias",
+              "rota"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Поэтому мой сегодняшний выпуск приносит мне заголовки из разных изданий, по категориям, и каждый день источник меняется."
+        }
+      ]
+    },
+    {
+      "id": "bly",
+      "titulo": "Кто притворилась сумасшедшей, чтобы рассказать правду?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть вторая. Кто притворилась сумасшедшей, чтобы рассказать правду?"
+        },
+        {
+          "id": "disfraz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1887",
+            "clave": "bly"
+          },
+          "lamina": [
+            "nellieBly",
+            "blackwell"
+          ],
+          "destacada": true,
+          "texto": "В 1887 году двадцатитрёхлетняя репортёрша Нелли Блай репетировала перед зеркалом, пока не убедила врачей и судью, что сошла с ума. Так она добилась, чтобы её поместили в психиатрическую лечебницу на острове Блэкуэлл в Нью-Йорке."
+        },
+        {
+          "id": "dentro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "comida",
+              "frio",
+              "encierro"
+            ]
+          },
+          "lamina": [
+            "manicomio",
+            "celda"
+          ],
+          "texto": "Десять дней она видела то, о чём никто не рассказывал: гнилую еду, ледяные ванны и женщин, запертых без всякой болезни."
+        },
+        {
+          "id": "reforma",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10",
+            "clave": "reforma"
+          },
+          "lamina": [
+            "libroBly",
+            "nuevaYork"
+          ],
+          "texto": "Её репортаж «Десять дней в сумасшедшем доме» потряс город: большое жюри провело расследование, и Нью-Йорк выделил на уход за больными на восемьсот пятьдесят тысяч долларов больше."
+        },
+        {
+          "id": "efemerides",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unDia",
+              "historia",
+              "leerMas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Поэтому я так люблю раздел «В этот день» в моём выпуске: каждый день он рассказывает мне, что случилось в такой же день, со всей историей."
+        }
+      ]
+    },
+    {
+      "id": "negatividad",
+      "titulo": "Почему плохие новости продаются лучше?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть третья. Почему плохие новости продаются лучше?"
+        },
+        {
+          "id": "titulares",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "negatividad"
+          },
+          "lamina": [
+            "titularesPantalla",
+            "clic"
+          ],
+          "destacada": true,
+          "texto": "В 2023 году группа исследователей проанализировала больше ста тысяч вариантов заголовков, которые новостной сайт проверял на своих читателях. Каждое лишнее негативное слово поднимало число кликов больше чем на два процента."
+        },
+        {
+          "id": "sesgo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "titularNegativo"
+          },
+          "lamina": [
+            "alarma",
+            "sorprendido"
+          ],
+          "meme": "titular",
+          "texto": "Наш мозг уделяет плохому больше внимания: тысячи лет пропустить опасность стоило дорого. И тот, кто живёт за счёт твоих кликов, это знает. Смотри, как меняется заголовок."
+        },
+        {
+          "id": "contexto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "malo",
+              "mejora",
+              "compara"
+            ]
+          },
+          "lamina": [
+            "noticiasTv",
+            "amanecer"
+          ],
+          "texto": "Речь не о том, чтобы не замечать плохое, а о том, чтобы искать и то, что становится лучше, и контекст: сколько, с каких пор и по сравнению с чем."
+        },
+        {
+          "id": "categorias",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "chips",
+              "ciencia",
+              "especie"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "В моём выпуске я выбираю категорию одним касанием, а в разделе «В этот день» всегда есть что-то, что поднимает мне настроение, например вид дня."
+        }
+      ]
+    },
+    {
+      "id": "mentira",
+      "titulo": "Почему ложь бежит быстрее?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть четвёртая. Почему ложь бежит быстрее?"
+        },
+        {
+          "id": "mit",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "mentira"
+          },
+          "lamina": [
+            "redes",
+            "multitud"
+          ],
+          "destacada": true,
+          "texto": "В 2018 году трое исследователей из MIT отследили больше ста тысяч историй, которые за одиннадцать лет разошлись по Твиттеру. Ложные доходили до полутора тысяч человек примерно в шесть раз быстрее правдивых."
+        },
+        {
+          "id": "novedad",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "novedad",
+              "sorpresa",
+              "personas"
+            ]
+          },
+          "lamina": [
+            "celulares",
+            "compartir"
+          ],
+          "meme": "compartir",
+          "texto": "Почему? Потому что ложь обычно новее, она нас удивляет или возмущает. И дело было не в ботах: это мы, люди, ею делились."
+        },
+        {
+          "id": "pausa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pausa",
+              "abre",
+              "origen"
+            ]
+          },
+          "lamina": [
+            "celularMano",
+            "lupa"
+          ],
+          "texto": "Самая простая защита умещается в одну секунду: прежде чем поделиться, сделай паузу, открой статью целиком и посмотри, откуда она."
+        },
+        {
+          "id": "nota",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "titularApp",
+              "notaApp",
+              "profundizar"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "В моём выпуске каждый заголовок ведёт к полной статье, а если что-то меня по-настоящему интересует, я могу углубиться в библиотеке."
+        }
+      ]
+    },
+    {
+      "id": "verificar",
+      "titulo": "Как читать как фактчекер?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть пятая. Как читать как фактчекер?"
+        },
+        {
+          "id": "stanford",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "historiadores",
+              "estudiantes",
+              "verificadores"
+            ]
+          },
+          "lamina": [
+            "verificador",
+            "pantallas"
+          ],
+          "destacada": true,
+          "texto": "В Стэнфордском университете Сэм Уайнбург и Сара Макгрю дали оценить сайты историкам, студентам и профессиональным фактчекерам. Фактчекеры чаще оказывались правы и тратили меньше времени, и у них был секрет: сам сайт они почти не читали."
+        },
+        {
+          "id": "lateral",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "verificador"
+          },
+          "lamina": [
+            "pestanas",
+            "lupa"
+          ],
+          "texto": "Они сразу открывали другие вкладки, чтобы посмотреть, что пишут об этом источнике другие. Это называется латеральным чтением. Попробуй эту проверку из четырёх вопросов."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoNoticias"
+          },
+          "lamina": "pulgar",
+          "texto": "Если тебе нравится это руководство, нажми «Нравится», «Подписаться», чтобы не пропустить следующее, и «Поделиться» — с тем, кто пересылает тебе всё, не читая."
+        },
+        {
+          "id": "preguntas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quien",
+              "evidencia",
+              "otros"
+            ]
+          },
+          "lamina": [
+            "entrevista",
+            "documentos"
+          ],
+          "meme": "fuente",
+          "texto": "Всегда спрашивай себя: кто это говорит и что он с этого получает? Где доказательства? И что пишут другие серьёзные издания?"
+        },
+        {
+          "id": "fuente",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "medio",
+              "cuando",
+              "variedad"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "В моём выпуске у каждого заголовка написано, какое издание его опубликовало и когда: так я всегда знаю, кто это говорит."
+        }
+      ]
+    },
+    {
+      "id": "belleza",
+      "titulo": "Как создавать правдивый и красивый контент?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть шестая. Как создавать правдивый и красивый контент?"
+        },
+        {
+          "id": "lange",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1936",
+            "clave": "lange"
+          },
+          "lamina": [
+            "madreMigrante",
+            "langeCamara"
+          ],
+          "destacada": true,
+          "texto": "В 1936 году фотограф Доротея Ланж остановилась в лагере сборщиков урожая в Калифорнии и сделала несколько снимков матери с детьми. Этот снимок, «Мать-переселенка», стал портретом Великой депрессии."
+        },
+        {
+          "id": "comida",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "foto",
+              "periodico",
+              "ayuda"
+            ]
+          },
+          "lamina": [
+            "campamento",
+            "periodicoMesa"
+          ],
+          "texto": "Когда газета в Сан-Франциско опубликовала её фотографии, правительство отправило в лагерь еду. Красота не украшала правду: она не давала её проигнорировать."
+        },
+        {
+          "id": "creador",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "verifica",
+              "cita",
+              "historiaPaso"
+            ]
+          },
+          "lamina": [
+            "creador",
+            "microfono"
+          ],
+          "texto": "Сегодня публикуем все мы: видео, отзыв, фото. Ты тоже медиа. Так что делай, как делают лучшие: проверяй, прежде чем публиковать, говори, откуда взял факт, и рассказывай это как историю."
+        },
+        {
+          "id": "forma",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "imagen",
+              "claro",
+              "justo"
+            ]
+          },
+          "lamina": [
+            "camaraVieja",
+            "escritorio"
+          ],
+          "texto": "И следи за формой: хорошая картинка, ясные слова и ничего лишнего. Красивое — это не преувеличенное: это то, что понятно и остаётся с тобой."
+        },
+        {
+          "id": "arte",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "obra",
+              "libro",
+              "palabra"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "В моём разделе «В этот день» есть ещё картина дня, книга дня и слово дня: немного красоты каждое утро."
+        }
+      ]
+    },
+    {
+      "id": "dieta",
+      "titulo": "Сколько новостей — это слишком много?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть седьмая. Сколько новостей — это слишком много?"
+        },
+        {
+          "id": "boston",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "estres"
+          },
+          "lamina": [
+            "maraton",
+            "tvNoche"
+          ],
+          "destacada": true,
+          "texto": "После теракта на Бостонском марафоне в 2013 году команда Калифорнийского университета опросила почти пять тысяч человек. Те, кто смотрел репортажи по шесть часов в день и больше, в итоге испытывали больше стресса, чем многие из тех, кто был там."
+        },
+        {
+          "id": "horas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dietaNoticias"
+          },
+          "lamina": [
+            "nocheCelular",
+            "cama"
+          ],
+          "meme": "madrugada",
+          "texto": "Смотреть новости без остановки не значит знать больше: от этого ты только напуган и устал. Посмотри, сколько часов в год у тебя на это уходит."
+        },
+        {
+          "id": "horario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "momento",
+              "limite",
+              "avisos"
+            ]
+          },
+          "lamina": [
+            "cafe",
+            "reloj"
+          ],
+          "texto": "Так что дай им расписание: одно определённое время в день, ограничение по времени и выключенные уведомления о новостях."
+        },
+        {
+          "id": "reparto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "asistente",
+              "horaFija",
+              "secciones"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Поэтому в моём выпуске я настроил доставку: Маг приносит мне серьёзное в половине восьмого, а Лайка — лёгкое в любое время дня."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Как продолжать? Твой план на будущее",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть восьмая. Как продолжать? Твой план на будущее."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planNoticias"
+          },
+          "lamina": [
+            "libreta",
+            "periodicos"
+          ],
+          "texto": "В первую неделю записывай, откуда ты берёшь новости и сколько времени уделяешь им в день."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fuentes",
+              "hora",
+              "lateralPlan"
+            ]
+          },
+          "lamina": [
+            "kiosco",
+            "cafe"
+          ],
+          "destacada": true,
+          "texto": "В первый месяц добавь разные источники, выбери определённый час, чтобы узнавать новости, и практикуй латеральное чтение, прежде чем делиться."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "revisa",
+              "crea",
+              "bello"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "cumbre"
+          ],
+          "texto": "И каждый месяц проверяй, что сделало тебя информированнее, а что только встревожило. А если создаёшь контент: проверяй его, указывай источники и вкладывай в него душу."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lectura",
+              "misiones",
+              "rachaPaso"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "А в моих миссиях чтение сегодняшнего выпуска засчитывается в мою серию: я уже несколько недель ничего не пропускаю."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Итак: следи не только за тем, что ты думаешь, но и за тем, о чём ты думаешь; не доверяй заголовку, который тебя злит; читай латерально, прежде чем делиться; создавай правдивый и красивый контент; и дай своим новостям расписание."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "В «Новостях дня» MindHaOS ты читаешь свои заголовки из разных изданий, раздел «В этот день», а доставка от твоих помощников приносит всё это в твоё время. Построй свой мысленный дом бесплатно уже сегодня: ссылка в описании. А в следующем руководстве: как путешествовать лучше?",
+    "boton": "Открыть Новости дня",
+    "lamina": "app-plan",
+    "anclas": {
+      "titulares": "свои заголовки",
+      "efemerides": "В этот день",
+      "reparto": "доставка от твоих помощников"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "reuters-2024",
+      "texto": "Институт Рейтер по изучению журналистики, Оксфордский университет. Digital News Report 2024.",
+      "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2024"
+    },
+    {
+      "id": "mccombs-1972",
+      "texto": "McCombs M. E., Shaw D. L. The agenda-setting function of mass media. Public Opinion Quarterly 36(2), 176-187 (1972).",
+      "url": "https://doi.org/10.1086/267990"
+    },
+    {
+      "id": "bly-1887",
+      "texto": "Nellie Bly. Ten Days in a Mad-House (1887). Википедия.",
+      "url": "https://en.wikipedia.org/wiki/Ten_Days_in_a_Mad-House"
+    },
+    {
+      "id": "robertson-2023",
+      "texto": "Robertson C. E. и коллеги. Negativity drives online news consumption. Nature Human Behaviour 7, 812-822 (2023).",
+      "url": "https://doi.org/10.1038/s41562-023-01538-4"
+    },
+    {
+      "id": "vosoughi-2018",
+      "texto": "Vosoughi S., Roy D., Aral S. The spread of true and false news online. Science 359, 1146-1151 (2018).",
+      "url": "https://doi.org/10.1126/science.aap9559"
+    },
+    {
+      "id": "wineburg-2019",
+      "texto": "Wineburg S., McGrew S. Lateral reading and the nature of expertise: reading less and learning more when evaluating digital information. Teachers College Record 121(11) (2019).",
+      "url": "https://doi.org/10.1177/016146811912101102"
+    },
+    {
+      "id": "lange-1936",
+      "texto": "Dorothea Lange. Migrant Mother (1936). Библиотека Конгресса США; Википедия.",
+      "url": "https://en.wikipedia.org/wiki/Migrant_Mother"
+    },
+    {
+      "id": "holman-2014",
+      "texto": "Holman E. A., Garfin D. R., Silver R. C. Media's role in broadcasting acute stress following the Boston Marathon bombings. PNAS 111(1), 93-98 (2014).",
+      "url": "https://doi.org/10.1073/pnas.1316265110"
+    }
+  ],
+  "titularesDemo": [
+    {
+      "categoria": "tecnologia",
+      "imagen": "6143906",
+      "medio": "Вестник прерии",
+      "titulo": "В городке заработал телеграф: вести доходят за минуты, а не за дни",
+      "resumen": "Контора на станции открыта от рассвета до заката и обещает, что ни одно письмо больше не потеряется в дилижансе."
+    },
+    {
+      "categoria": "economia",
+      "imagen": "40140475",
+      "medio": "Голос рынка",
+      "titulo": "Рекордный урожай кукурузы: субботний рынок полон прилавков",
+      "resumen": "Фермеры долины привозят больше, чем могут продать, и хлеб впервые за год дешевеет."
+    },
+    {
+      "categoria": "deportes",
+      "imagen": "37215129",
+      "medio": "Эхо реки",
+      "titulo": "«Койоты» выиграли финал по бейсболу в последнем иннинге",
+      "resumen": "Полгородка заполнило трибуны поля у реки, чтобы увидеть удар, решивший исход чемпионата."
+    },
+    {
+      "categoria": "salud",
+      "imagen": "37697596",
+      "medio": "Глашатай долины",
+      "titulo": "Городской доктор советует гулять на закате",
+      "resumen": "Он говорит, что полчаса прогулки перед ужином помогают лучше спать, а главная улица ровная и безопасная."
+    },
+    {
+      "categoria": "entretenimiento",
+      "imagen": "35315450",
+      "medio": "Телеграф",
+      "titulo": "В городском клубе открылась выставка фотографий о путешествиях",
+      "resumen": "Сорок снимков гор, рек и далёких городов, вход для всех всю неделю."
+    },
+    {
+      "categoria": "mundo",
+      "imagen": "7255747",
+      "medio": "Вестник прерии",
+      "titulo": "У пятичасового поезда наконец есть расписание… почти всегда",
+      "resumen": "Железнодорожная компания наконец опубликовала расписание, но просит терпения, когда в горах гроза."
+    }
+  ]
+}

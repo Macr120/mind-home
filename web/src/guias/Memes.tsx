@@ -104,6 +104,11 @@ export const MEMES: Record<string, DefMeme> = {
   llanta: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
   aceite: { formato: 'arribaAbajo', poses: ['orgulloso', 'cansado'], sonido: 'bruh' },
   cadena: { formato: 'unico', poses: ['cansado'], sonido: 'bruh' },
+  // Noticias (las poses son de Pep@ vestido de vaquero, el narrador).
+  titular: { formato: 'arribaAbajo', poses: ['orgulloso', 'confundido'], sonido: 'bruh' },
+  compartir: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
+  fuente: { formato: 'arribaAbajo', poses: ['confundido', 'relajado'], sonido: 'jeje-boy' },
+  madrugada: { formato: 'unico', poses: ['cansado'], sonido: 'bruh' },
 }
 
 export function Meme({ id, tema, t }: { id: string; tema: string; t: T }) {

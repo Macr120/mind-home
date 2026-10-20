@@ -1,0 +1,790 @@
+{
+  "idioma": "hi",
+  "tema": "noticias",
+  "plantillaId": "diario",
+  "numero": 18,
+  "nombre": "दैनिक समाचार",
+  "pregunta": "सच और सुंदरता की तलाश में: पत्रकारिता और कंटेंट",
+  "corta": "पत्रकारिता और कंटेंट",
+  "subtitulo": "आप हर दिन क्या देखते हैं यह कौन तय करता है, वह रिपोर्टर जो सच बताने के लिए पागल बनी, बुरी ख़बरें ज़्यादा क्यों बिकती हैं, झूठ ज़्यादा तेज़ क्यों दौड़ता है, फ़ैक्ट-चेकर की तरह कैसे पढ़ें, सच्चा और सुंदर कंटेंट कैसे बनाएँ, कितनी ख़बरें बहुत ज़्यादा हैं, और आगे बढ़ने का एक प्लान।",
+  "aviso": "यह गाइड सामान्य जानकारी के लिए है। अगर ख़बरें आपको लगातार बेचैन करती हैं, तो किसी भरोसेमंद इंसान से या किसी स्वास्थ्य विशेषज्ञ से बात करें।",
+  "partes": [
+    {
+      "id": "agenda",
+      "titulo": "आप हर दिन क्या देखते हैं, यह कौन तय करता है?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "आप हर दिन क्या देखते हैं, यह कौन तय करता है? दस में से चार लोग अब ख़बरों से बचते हैं। लेकिन आप उन्हें न भी देखें, तब भी वही तय करती हैं कि आपकी खाने की मेज़ पर किस बात की चर्चा होगी। क्या हो अगर आप दुनिया को वैसे पढ़ना सीख लें जैसे एक अच्छा पत्रकार पढ़ता है? आज आप इसे आँकड़ों के साथ देखेंगे, और आगे बढ़ने का एक प्लान लेकर जाएँगे।"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "वैसे, यह MindHaOS में मेरा घर है, और हाँ: आज यह वाइल्ड वेस्ट का एक क़स्बा है, जहाँ ख़बरें घोड़ों वाली डाक-गाड़ी से, कई दिनों की देरी से पहुँचती थीं। यह मेरा दैनिक समाचार कक्ष है: यहाँ मैं आज का अख़बार पढ़ता हूँ।"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग एक। आप हर दिन क्या देखते हैं, यह कौन तय करता है?"
+        },
+        {
+          "id": "evitan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "evitan"
+          },
+          "lamina": [
+            "periodicos",
+            "celularNoticias"
+          ],
+          "texto": "हर साल, ऑक्सफ़र्ड यूनिवर्सिटी का रॉयटर्स इंस्टीट्यूट दर्जनों देशों में पूछता है कि हम ख़बरें कैसे पाते हैं। 2024 में, दस में से चार लोगों ने कहा कि वे कभी-कभी या अक्सर ख़बरों से बचते हैं। 2017 में यह तीन से भी कम था।"
+        },
+        {
+          "id": "chapelHill",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "agenda"
+          },
+          "lamina": [
+            "votar",
+            "periodicoViejo"
+          ],
+          "destacada": true,
+          "texto": "लेकिन 1968 में, चैपल हिल में, मैक्सवेल मैककॉम्ब्स और डोनाल्ड शॉ ने मीडिया में सबसे ज़्यादा छपने वाले मुद्दों की तुलना उन मुद्दों से की जिनकी अनिर्णीत मतदाताओं को सबसे ज़्यादा चिंता थी। दोनों सूचियाँ लगभग हूबहू मिलती थीं।"
+        },
+        {
+          "id": "cohen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tema",
+              "enfoque",
+              "silencio"
+            ]
+          },
+          "lamina": [
+            "noticiero",
+            "microfonos"
+          ],
+          "texto": "इसीलिए कहा जाता है कि मीडिया हमेशा यह नहीं बताता कि क्या सोचें, पर यह ज़रूर बताता है कि किस बारे में सोचें: कौन-से मुद्दे आते हैं, किस नज़रिए से, और कौन-से बाहर रह जाते हैं।"
+        },
+        {
+          "id": "medios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "medios",
+              "categorias",
+              "rota"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "इसीलिए मेरा आज का अख़बार मुझे कई अलग-अलग मीडिया की सुर्खियां श्रेणी के हिसाब से लाता है, और हर दिन स्रोत बदलता है।"
+        }
+      ]
+    },
+    {
+      "id": "bly",
+      "titulo": "सच बताने के लिए पागल बनने वाली कौन थी?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग दो। सच बताने के लिए पागल बनने वाली कौन थी?"
+        },
+        {
+          "id": "disfraz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1887",
+            "clave": "bly"
+          },
+          "lamina": [
+            "nellieBly",
+            "blackwell"
+          ],
+          "destacada": true,
+          "texto": "1887 में, तेईस साल की एक रिपोर्टर, नेली ब्लाई, ने आईने के सामने तब तक अभ्यास किया जब तक उसने डॉक्टरों और एक जज को यक़ीन नहीं दिला दिया कि वह पागल है। इस तरह उसे न्यूयॉर्क के ब्लैकवेल द्वीप के पागलखाने में भर्ती करा दिया गया।"
+        },
+        {
+          "id": "dentro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "comida",
+              "frio",
+              "encierro"
+            ]
+          },
+          "lamina": [
+            "manicomio",
+            "celda"
+          ],
+          "texto": "दस दिनों तक उसने वह देखा जो कोई नहीं बताता था: सड़ा हुआ खाना, बर्फ़ीले पानी से नहलाना, और ऐसी औरतें जिन्हें बीमार न होते हुए भी बंद कर दिया गया था।"
+        },
+        {
+          "id": "reforma",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10",
+            "clave": "reforma"
+          },
+          "lamina": [
+            "libroBly",
+            "nuevaYork"
+          ],
+          "texto": "उसकी रिपोर्ट, पागलखाने में दस दिन, ने पूरे शहर को हिला दिया: एक ग्रैंड जूरी ने जाँच की, और न्यूयॉर्क ने मरीज़ों की देखभाल के लिए साढ़े आठ लाख डॉलर और दिए।"
+        },
+        {
+          "id": "efemerides",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unDia",
+              "historia",
+              "leerMas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "इसीलिए मुझे अपने अख़बार का इतिहास में आज वाला हिस्सा इतना पसंद है: हर दिन यह मुझे बताता है कि आज ही के दिन क्या हुआ था, पूरी कहानी के साथ।"
+        }
+      ]
+    },
+    {
+      "id": "negatividad",
+      "titulo": "बुरी ख़बरें ज़्यादा क्यों बिकती हैं?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग तीन। बुरी ख़बरें ज़्यादा क्यों बिकती हैं?"
+        },
+        {
+          "id": "titulares",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "negatividad"
+          },
+          "lamina": [
+            "titularesPantalla",
+            "clic"
+          ],
+          "destacada": true,
+          "texto": "2023 में, शोधकर्ताओं की एक टीम ने सुर्खियों के एक लाख से ज़्यादा संस्करणों का विश्लेषण किया, जिन्हें एक न्यूज़ साइट ने अपने पाठकों पर आज़माया था। हर एक अतिरिक्त नकारात्मक शब्द से क्लिक दो प्रतिशत से ज़्यादा बढ़ जाते थे।"
+        },
+        {
+          "id": "sesgo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "titularNegativo"
+          },
+          "lamina": [
+            "alarma",
+            "sorprendido"
+          ],
+          "meme": "titular",
+          "texto": "हमारा दिमाग़ बुरी चीज़ों पर ज़्यादा ध्यान देता है: हज़ारों सालों तक किसी ख़तरे को नज़रअंदाज़ करना महँगा पड़ता था। और जो आपके क्लिक से कमाता है, वह यह जानता है। देखिए एक सुर्खी कैसे बदलती है।"
+        },
+        {
+          "id": "contexto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "malo",
+              "mejora",
+              "compara"
+            ]
+          },
+          "lamina": [
+            "noticiasTv",
+            "amanecer"
+          ],
+          "texto": "बात बुरी ख़बरों को नज़रअंदाज़ करने की नहीं है, बल्कि यह भी ढूँढने की है कि क्या बेहतर हो रहा है, और संदर्भ भी: कितने, कब से, और किसकी तुलना में।"
+        },
+        {
+          "id": "categorias",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "chips",
+              "ciencia",
+              "especie"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "अपने अख़बार में मैं एक टैप से श्रेणी चुनता हूँ, और इतिहास में आज में हमेशा कुछ ऐसा होता है जो मेरा दिन बना देता है, जैसे आज की प्रजाति।"
+        }
+      ]
+    },
+    {
+      "id": "mentira",
+      "titulo": "झूठ ज़्यादा तेज़ क्यों दौड़ता है?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग चार। झूठ ज़्यादा तेज़ क्यों दौड़ता है?"
+        },
+        {
+          "id": "mit",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "mentira"
+          },
+          "lamina": [
+            "redes",
+            "multitud"
+          ],
+          "destacada": true,
+          "texto": "2018 में, MIT के तीन शोधकर्ताओं ने उन एक लाख से ज़्यादा कहानियों का पीछा किया जो ग्यारह सालों तक ट्विटर पर घूमती रहीं। झूठी कहानियाँ पंद्रह सौ लोगों तक सच्ची कहानियों से लगभग छह गुना तेज़ी से पहुँचती थीं।"
+        },
+        {
+          "id": "novedad",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "novedad",
+              "sorpresa",
+              "personas"
+            ]
+          },
+          "lamina": [
+            "celulares",
+            "compartir"
+          ],
+          "meme": "compartir",
+          "texto": "क्यों? क्योंकि झूठी बात अक्सर ज़्यादा नई लगती है, और हमें चौंकाती या ग़ुस्सा दिलाती है। और यह बॉट्स नहीं थे: यह हम इंसान थे, जो शेयर कर रहे थे।"
+        },
+        {
+          "id": "pausa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pausa",
+              "abre",
+              "origen"
+            ]
+          },
+          "lamina": [
+            "celularMano",
+            "lupa"
+          ],
+          "texto": "सबसे आसान बचाव एक सेकंड में हो जाता है: शेयर करने से पहले रुकिए, पूरी ख़बर खोलिए, और देखिए कि वह कहाँ से आई है।"
+        },
+        {
+          "id": "nota",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "titularApp",
+              "notaApp",
+              "profundizar"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "मेरे अख़बार में हर सुर्खी मुझे पूरी ख़बर तक ले जाती है, और अगर कोई बात सच में दिलचस्प लगे, तो मैं लाइब्रेरी में और जान सकता हूँ।"
+        }
+      ]
+    },
+    {
+      "id": "verificar",
+      "titulo": "फ़ैक्ट-चेकर की तरह कैसे पढ़ें?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग पाँच। फ़ैक्ट-चेकर की तरह कैसे पढ़ें?"
+        },
+        {
+          "id": "stanford",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "historiadores",
+              "estudiantes",
+              "verificadores"
+            ]
+          },
+          "lamina": [
+            "verificador",
+            "pantallas"
+          ],
+          "destacada": true,
+          "texto": "स्टैनफ़र्ड यूनिवर्सिटी में, सैम वाइनबर्ग और सारा मैकग्रू ने इतिहासकारों, छात्रों और पेशेवर फ़ैक्ट-चेकरों से वेबसाइटों का मूल्यांकन करवाया। फ़ैक्ट-चेकर ज़्यादा सही थे और कम समय में, एक तरकीब से: वे साइट को लगभग पढ़ते ही नहीं थे।"
+        },
+        {
+          "id": "lateral",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "verificador"
+          },
+          "lamina": [
+            "pestanas",
+            "lupa"
+          ],
+          "texto": "वे तुरंत दूसरे टैब खोलते थे, यह देखने के लिए कि दूसरे उस स्रोत के बारे में क्या कहते हैं। इसे लैटरल रीडिंग कहते हैं। चार सवालों वाली यह जाँच आज़माइए।"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoNoticias"
+          },
+          "lamina": "pulgar",
+          "texto": "अगर आपको यह गाइड पसंद आ रही है, तो पसंद करें, सदस्यता लें ताकि अगली गाइड न छूटे, और शेयर करें उस इंसान के साथ जो बिना पढ़े सब कुछ आगे भेज देता है।"
+        },
+        {
+          "id": "preguntas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quien",
+              "evidencia",
+              "otros"
+            ]
+          },
+          "lamina": [
+            "entrevista",
+            "documentos"
+          ],
+          "meme": "fuente",
+          "texto": "हमेशा ख़ुद से पूछिए: यह कौन कह रहा है, और उसे इससे क्या फ़ायदा है? सबूत कहाँ है? और दूसरे गंभीर मीडिया क्या कहते हैं?"
+        },
+        {
+          "id": "fuente",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "medio",
+              "cuando",
+              "variedad"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "मेरे अख़बार में हर सुर्खी बताती है कि उसे किस मीडिया ने और कब छापा: इसलिए मुझे हमेशा पता रहता है कि यह कौन कह रहा है।"
+        }
+      ]
+    },
+    {
+      "id": "belleza",
+      "titulo": "सच्चा और सुंदर कंटेंट कैसे बनाएँ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग छह। सच्चा और सुंदर कंटेंट कैसे बनाएँ?"
+        },
+        {
+          "id": "lange",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1936",
+            "clave": "lange"
+          },
+          "lamina": [
+            "madreMigrante",
+            "langeCamara"
+          ],
+          "destacada": true,
+          "texto": "1936 में, फ़ोटोग्राफ़र डोरोथिया लैंग कैलिफ़ोर्निया में फ़सल तोड़ने वाले मज़दूरों के एक शिविर में रुकीं और अपने बच्चों के साथ एक माँ की कुछ ही तस्वीरें लीं। वह तस्वीर, माइग्रेंट मदर, यानी प्रवासी माँ, महामंदी की पहचान बन गई।"
+        },
+        {
+          "id": "comida",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "foto",
+              "periodico",
+              "ayuda"
+            ]
+          },
+          "lamina": [
+            "campamento",
+            "periodicoMesa"
+          ],
+          "texto": "जब सैन फ़्रांसिस्को के एक अख़बार ने उनकी तस्वीरें छापीं, तो सरकार ने शिविर में खाना भेजा। सुंदरता सच को सजा नहीं रही थी: उसे नज़रअंदाज़ करना नामुमकिन बना रही थी।"
+        },
+        {
+          "id": "creador",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "verifica",
+              "cita",
+              "historiaPaso"
+            ]
+          },
+          "lamina": [
+            "creador",
+            "microfono"
+          ],
+          "texto": "आज हम सब कुछ न कुछ पोस्ट करते हैं: एक वीडियो, एक रिव्यू, एक फ़ोटो। आप भी एक मीडिया हैं। तो वही कीजिए जो अच्छे पत्रकार करते हैं: पोस्ट करने से पहले जाँचिए, बताइए कि जानकारी कहाँ से ली, और उसे एक कहानी की तरह सुनाइए।"
+        },
+        {
+          "id": "forma",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "imagen",
+              "claro",
+              "justo"
+            ]
+          },
+          "lamina": [
+            "camaraVieja",
+            "escritorio"
+          ],
+          "texto": "और रूप का भी ध्यान रखिए: एक अच्छी तस्वीर, साफ़ शब्द, और उतना ही जितना ज़रूरी हो। सुंदर का मतलब बढ़ा-चढ़ाकर कहना नहीं है: सुंदर वह है जो समझ में आए और आपके साथ रह जाए।"
+        },
+        {
+          "id": "arte",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "obra",
+              "libro",
+              "palabra"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "मेरे इतिहास में आज में आज की कलाकृति, आज की किताब और आज का शब्द भी है: हर सुबह थोड़ी-सी सुंदरता।"
+        }
+      ]
+    },
+    {
+      "id": "dieta",
+      "titulo": "कितनी ख़बरें बहुत ज़्यादा हैं?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग सात। कितनी ख़बरें बहुत ज़्यादा हैं?"
+        },
+        {
+          "id": "boston",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "estres"
+          },
+          "lamina": [
+            "maraton",
+            "tvNoche"
+          ],
+          "destacada": true,
+          "texto": "2013 में बॉस्टन मैराथन पर हुए हमले के बाद, यूनिवर्सिटी ऑफ़ कैलिफ़ोर्निया की एक टीम ने लगभग पाँच हज़ार लोगों का सर्वे किया। जिन्होंने दिन में छह घंटे या उससे ज़्यादा कवरेज देखा, वे उनमें से कई लोगों से ज़्यादा तनाव में थे जो वहाँ मौजूद थे।"
+        },
+        {
+          "id": "horas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dietaNoticias"
+          },
+          "lamina": [
+            "nocheCelular",
+            "cama"
+          ],
+          "meme": "madrugada",
+          "texto": "लगातार ख़बरें देखने से आप ज़्यादा जानकार नहीं बनते: बस डरे हुए और थके हुए रह जाते हैं। देखिए साल में आपके कितने घंटे इसमें चले जाते हैं।"
+        },
+        {
+          "id": "horario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "momento",
+              "limite",
+              "avisos"
+            ]
+          },
+          "lamina": [
+            "cafe",
+            "reloj"
+          ],
+          "texto": "तो उनका समय तय कीजिए: दिन में एक तय समय, समय की एक सीमा, और ख़बरों की नोटिफ़िकेशन बंद।"
+        },
+        {
+          "id": "reparto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "asistente",
+              "horaFija",
+              "secciones"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "इसीलिए अपने अख़बार में मैंने सहायकों से डिलीवरी सेट की है: जादूगर गंभीर ख़बरें साढ़े सात बजे लाता है, और लाइका हल्की-फुल्की बातें दिन में किसी भी समय।"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "आगे कैसे बढ़ें? आगे बढ़ने का आपका प्लान",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग आठ। आगे कैसे बढ़ें? आगे बढ़ने का आपका प्लान।"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planNoticias"
+          },
+          "lamina": [
+            "libreta",
+            "periodicos"
+          ],
+          "texto": "पहले हफ़्ते, लिखिए कि आप अपनी ख़बरें कहाँ से लेते हैं और दिन में उन्हें कितना समय देते हैं।"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fuentes",
+              "hora",
+              "lateralPlan"
+            ]
+          },
+          "lamina": [
+            "kiosco",
+            "cafe"
+          ],
+          "destacada": true,
+          "texto": "पहले महीने, अलग-अलग स्रोत जोड़िए, ख़बरें देखने का एक तय समय चुनिए, और शेयर करने से पहले लैटरल रीडिंग का अभ्यास कीजिए।"
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "revisa",
+              "crea",
+              "bello"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "cumbre"
+          ],
+          "texto": "और हर महीने, देखिए कि किस चीज़ ने आपको बेहतर जानकारी दी और किसने सिर्फ़ बेचैन किया। और अगर आप कंटेंट बनाते हैं: उसे जाँचिए, अपने स्रोत बताइए, और उसे सँवारिए।"
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lectura",
+              "misiones",
+              "rachaPaso"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "और मेरे मिशनों में, आज का अख़बार पढ़ें मेरी स्ट्रीक में गिना जाता है: मैं हफ़्तों से एक दिन भी नहीं चूका।"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "संक्षेप में: सिर्फ़ यह मत देखिए कि आप क्या सोचते हैं, यह भी देखिए कि किस बारे में सोचते हैं; जो सुर्खी आपको ग़ुस्सा दिलाए उस पर शक कीजिए; शेयर करने से पहले बगल में पढ़िए; सच्चा और सुंदर कंटेंट बनाइए; और अपनी ख़बरों का समय तय कीजिए।"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS के दैनिक समाचार में आप कई मीडिया की आज की सुर्खियां पढ़ते हैं, इतिहास में आज के किस्से देखते हैं, और सहायकों से डिलीवरी उन्हें आपके तय समय पर पहुँचाती है। आज ही अपना मन का घर मुफ़्त में बनाएँ: लिंक डिस्क्रिप्शन में है। और अगली गाइड में: बेहतर यात्रा कैसे करें?",
+    "boton": "दैनिक समाचार खोलें",
+    "lamina": "app-plan",
+    "anclas": {
+      "titulares": "आज की सुर्खियां",
+      "efemerides": "इतिहास में आज",
+      "reparto": "सहायकों से डिलीवरी"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "reuters-2024",
+      "texto": "रॉयटर्स इंस्टीट्यूट फ़ॉर द स्टडी ऑफ़ जर्नलिज़्म, ऑक्सफ़र्ड यूनिवर्सिटी। Digital News Report 2024.",
+      "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2024"
+    },
+    {
+      "id": "mccombs-1972",
+      "texto": "McCombs M. E., Shaw D. L. The agenda-setting function of mass media. Public Opinion Quarterly 36(2), 176-187 (1972).",
+      "url": "https://doi.org/10.1086/267990"
+    },
+    {
+      "id": "bly-1887",
+      "texto": "Nellie Bly. Ten Days in a Mad-House (1887). विकिपीडिया।",
+      "url": "https://en.wikipedia.org/wiki/Ten_Days_in_a_Mad-House"
+    },
+    {
+      "id": "robertson-2023",
+      "texto": "Robertson C. E. और सहयोगी। Negativity drives online news consumption. Nature Human Behaviour 7, 812-822 (2023).",
+      "url": "https://doi.org/10.1038/s41562-023-01538-4"
+    },
+    {
+      "id": "vosoughi-2018",
+      "texto": "Vosoughi S., Roy D., Aral S. The spread of true and false news online. Science 359, 1146-1151 (2018).",
+      "url": "https://doi.org/10.1126/science.aap9559"
+    },
+    {
+      "id": "wineburg-2019",
+      "texto": "Wineburg S., McGrew S. Lateral reading and the nature of expertise: reading less and learning more when evaluating digital information. Teachers College Record 121(11) (2019).",
+      "url": "https://doi.org/10.1177/016146811912101102"
+    },
+    {
+      "id": "lange-1936",
+      "texto": "Dorothea Lange. Migrant Mother (1936). अमेरिकी लाइब्रेरी ऑफ़ कांग्रेस; विकिपीडिया।",
+      "url": "https://en.wikipedia.org/wiki/Migrant_Mother"
+    },
+    {
+      "id": "holman-2014",
+      "texto": "Holman E. A., Garfin D. R., Silver R. C. Media's role in broadcasting acute stress following the Boston Marathon bombings. PNAS 111(1), 93-98 (2014).",
+      "url": "https://doi.org/10.1073/pnas.1316265110"
+    }
+  ],
+  "titularesDemo": [
+    {
+      "categoria": "tecnologia",
+      "imagen": "6143906",
+      "medio": "प्रेयरी गज़ट",
+      "titulo": "क़स्बे में आया टेलीग्राफ़: अब संदेश दिनों में नहीं, मिनटों में पहुँचते हैं",
+      "resumen": "स्टेशन का दफ़्तर सुबह से शाम तक खुला रहता है और वादा करता है कि अब कोई चिट्ठी डाक-गाड़ी में नहीं खोएगी।"
+    },
+    {
+      "categoria": "economia",
+      "imagen": "40140475",
+      "medio": "मंडी की आवाज़",
+      "titulo": "मक्के की रिकॉर्ड फ़सल: शनिवार का बाज़ार दुकानों से भर गया",
+      "resumen": "घाटी के किसान जितना बेच सकते हैं उससे ज़्यादा ला रहे हैं, और साल में पहली बार रोटी का दाम गिरा है।"
+    },
+    {
+      "categoria": "deportes",
+      "imagen": "37215129",
+      "medio": "नदी की गूँज",
+      "titulo": "कोयोट्स ने आख़िरी इनिंग में बेसबॉल फ़ाइनल जीता",
+      "resumen": "आधा क़स्बा नदी किनारे के मैदान की सीढ़ियों पर उमड़ पड़ा, उस शॉट को देखने जिसने चैंपियनशिप तय कर दी।"
+    },
+    {
+      "categoria": "salud",
+      "imagen": "37697596",
+      "medio": "घाटी समाचार",
+      "titulo": "क़स्बे के डॉक्टर की सलाह: शाम ढले टहलिए",
+      "resumen": "उनका कहना है कि खाने से पहले आधे घंटे की सैर से नींद अच्छी आती है, और मुख्य सड़क समतल और सुरक्षित है।"
+    },
+    {
+      "categoria": "entretenimiento",
+      "imagen": "35315450",
+      "medio": "द टेलीग्राफ़",
+      "titulo": "क़स्बे के हॉल में आई यात्रा फ़ोटोग्राफ़ी की प्रदर्शनी",
+      "resumen": "पहाड़ों, नदियों और दूर-दराज़ शहरों की चालीस तस्वीरें, पूरे हफ़्ते सबके लिए खुली।"
+    },
+    {
+      "categoria": "mundo",
+      "imagen": "7255747",
+      "medio": "प्रेयरी गज़ट",
+      "titulo": "पाँच बजे वाली ट्रेन का अब तय समय है… लगभग हमेशा",
+      "resumen": "रेल कंपनी ने आख़िरकार अपनी समय-सारणी छाप दी है, हालाँकि पहाड़ों में तूफ़ान हो तो धैर्य रखने को कहती है।"
+    }
+  ]
+}

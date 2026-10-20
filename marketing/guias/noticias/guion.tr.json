@@ -1,0 +1,790 @@
+{
+  "idioma": "tr",
+  "tema": "noticias",
+  "plantillaId": "diario",
+  "numero": 18,
+  "nombre": "Günlük Haberler",
+  "pregunta": "Gerçeğin ve güzelliğin peşinde: gazetecilik ve içerik",
+  "corta": "Gazetecilik ve içerik",
+  "subtitulo": "Her gün ne gördüğüne kim karar veriyor, gerçeği anlatmak için deli taklidi yapan muhabir, kötü haberler neden daha çok satar, yalan neden daha hızlı koşar, bir doğrulamacı gibi nasıl okunur, doğru ve güzel içerik nasıl üretilir, ne kadar haber fazladır ve devam etmek için bir plan.",
+  "aviso": "Bu rehber bilgilendirme amaçlıdır ve geneldir. Haberler sende sürekli kaygı yaratıyorsa güvendiğin biriyle ya da bir sağlık uzmanıyla konuş.",
+  "partes": [
+    {
+      "id": "agenda",
+      "titulo": "Her gün ne gördüğüne kim karar veriyor?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Her gün ne gördüğüne kim karar veriyor? Her on kişiden dördü artık haberlerden kaçınıyor. Ama sen izlemesen bile, sofranda neyin konuşulacağına onlar karar veriyor. Peki ya dünyayı iyi bir gazetecinin okuduğu gibi okumayı öğrensen? Bugün bunu verilerle göreceksin ve devam etmek için bir planla ayrılacaksın."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Bu arada, burası MindHaOS’taki evim ve evet: bugün burası Vahşi Batı’da bir kasaba; haberler buraya posta arabasıyla, günler sonra gelirdi. Burası da haber odam: bugünün gazetesini burada okurum."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Birinci bölüm. Her gün ne gördüğüne kim karar veriyor?"
+        },
+        {
+          "id": "evitan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "evitan"
+          },
+          "lamina": [
+            "periodicos",
+            "celularNoticias"
+          ],
+          "texto": "Oxford Üniversitesi’ndeki Reuters Enstitüsü her yıl onlarca ülkede haberleri nasıl takip ettiğimizi soruyor. 2024’te her on kişiden dördü haberlerden bazen ya da sık sık kaçındığını söyledi. 2017’de bu oran ondan üçün altındaydı."
+        },
+        {
+          "id": "chapelHill",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "agenda"
+          },
+          "lamina": [
+            "votar",
+            "periodicoViejo"
+          ],
+          "destacada": true,
+          "texto": "Ama 1968’de Chapel Hill’de Maxwell McCombs ve Donald Shaw, medyanın en çok işlediği konuları kararsız seçmenleri en çok kaygılandıran konularla karşılaştırdı. İki liste neredeyse madde madde örtüşüyordu."
+        },
+        {
+          "id": "cohen",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tema",
+              "enfoque",
+              "silencio"
+            ]
+          },
+          "lamina": [
+            "noticiero",
+            "microfonos"
+          ],
+          "texto": "Bu yüzden şöyle denir: medya bize her zaman ne düşüneceğimizi söylemez, ama neyi düşüneceğimizi söyler: hangi konular çıkar, hangi açıdan anlatılır ve hangileri dışarıda kalır."
+        },
+        {
+          "id": "medios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "medios",
+              "categorias",
+              "rota"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bu yüzden gazetem bana birçok farklı yayın organından, kategoriye göre manşetler getiriyor ve kaynak her gün değişiyor."
+        }
+      ]
+    },
+    {
+      "id": "bly",
+      "titulo": "Gerçeği anlatmak için kim deli taklidi yaptı?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "İkinci bölüm. Gerçeği anlatmak için kim deli taklidi yaptı?"
+        },
+        {
+          "id": "disfraz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1887",
+            "clave": "bly"
+          },
+          "lamina": [
+            "nellieBly",
+            "blackwell"
+          ],
+          "destacada": true,
+          "texto": "1887’de yirmi üç yaşındaki muhabir Nellie Bly, doktorları ve bir hâkimi deli olduğuna inandırana kadar aynanın karşısında prova yaptı. Böylece New York’taki Blackwell Adası’nda bir akıl hastanesine yatırılmayı başardı."
+        },
+        {
+          "id": "dentro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "comida",
+              "frio",
+              "encierro"
+            ]
+          },
+          "lamina": [
+            "manicomio",
+            "celda"
+          ],
+          "texto": "On gün boyunca kimsenin anlatmadığını gördü: çürük yemekler, buz gibi su banyoları ve hasta olmadıkları hâlde kapatılmış kadınlar."
+        },
+        {
+          "id": "reforma",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "10",
+            "clave": "reforma"
+          },
+          "lamina": [
+            "libroBly",
+            "nuevaYork"
+          ],
+          "texto": "Haberi, Tımarhanede On Gün, şehri ayağa kaldırdı: büyük jüri soruşturma açtı ve New York hastaların bakımına sekiz yüz elli bin dolar daha ayırdı."
+        },
+        {
+          "id": "efemerides",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unDia",
+              "historia",
+              "leerMas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bu yüzden gazetemdeki Bugün tarihte bölümünü çok seviyorum: her gün bana bugün gibi bir günde olan bir şeyi, bütün hikâyesiyle anlatıyor."
+        }
+      ]
+    },
+    {
+      "id": "negatividad",
+      "titulo": "Kötü haberler neden daha çok satar?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Üçüncü bölüm. Kötü haberler neden daha çok satar?"
+        },
+        {
+          "id": "titulares",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "negatividad"
+          },
+          "lamina": [
+            "titularesPantalla",
+            "clic"
+          ],
+          "destacada": true,
+          "texto": "2023’te bir araştırma ekibi, bir haber sitesinin okurları üzerinde denediği yüz binden fazla manşet versiyonunu inceledi. Fazladan her olumsuz kelime tıklamaları yüzde ikiden fazla artırıyordu."
+        },
+        {
+          "id": "sesgo",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "titularNegativo"
+          },
+          "lamina": [
+            "alarma",
+            "sorprendido"
+          ],
+          "meme": "titular",
+          "texto": "Beynimiz kötüye daha çok dikkat eder: binlerce yıl boyunca bir tehlikeyi görmezden gelmek pahalıya patlıyordu. Senin tıklamalarından geçinen de bunu biliyor. Bir manşetin nasıl değiştiğine bak."
+        },
+        {
+          "id": "contexto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "malo",
+              "mejora",
+              "compara"
+            ]
+          },
+          "lamina": [
+            "noticiasTv",
+            "amanecer"
+          ],
+          "texto": "Mesele kötüyü görmezden gelmek değil, iyiye gideni ve bağlamı da aramak: kaç tane, ne zamandan beri ve neye kıyasla."
+        },
+        {
+          "id": "categorias",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "chips",
+              "ciencia",
+              "especie"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Gazetemde kategoriyi tek dokunuşla seçerim ve Bugün tarihte bölümünde her zaman günümü güzelleştiren bir şey olur, mesela günün türü."
+        }
+      ]
+    },
+    {
+      "id": "mentira",
+      "titulo": "Yalan neden daha hızlı koşar?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Dördüncü bölüm. Yalan neden daha hızlı koşar?"
+        },
+        {
+          "id": "mit",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "mentira"
+          },
+          "lamina": [
+            "redes",
+            "multitud"
+          ],
+          "destacada": true,
+          "texto": "2018’de MIT’den üç araştırmacı, on bir yıl boyunca Twitter’da dolaşan yüz binden fazla hikâyeyi takip etti. Yalan olanlar bin beş yüz kişiye, doğrulardan yaklaşık altı kat daha hızlı ulaşıyordu."
+        },
+        {
+          "id": "novedad",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "novedad",
+              "sorpresa",
+              "personas"
+            ]
+          },
+          "lamina": [
+            "celulares",
+            "compartir"
+          ],
+          "meme": "compartir",
+          "texto": "Neden? Çünkü yalan genelde daha yenidir ve bizi şaşırtır ya da öfkelendirir. Ve suçlu botlar değildi: paylaşan bizdik, insanlar."
+        },
+        {
+          "id": "pausa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pausa",
+              "abre",
+              "origen"
+            ]
+          },
+          "lamina": [
+            "celularMano",
+            "lupa"
+          ],
+          "texto": "En basit savunma bir saniyeye sığar: paylaşmadan önce dur, haberin tamamını aç ve nereden geldiğine bak."
+        },
+        {
+          "id": "nota",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "titularApp",
+              "notaApp",
+              "profundizar"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Gazetemde her manşet beni haberin tamamına götürür ve bir şey gerçekten ilgimi çekerse kütüphanede derinleşebilirim."
+        }
+      ]
+    },
+    {
+      "id": "verificar",
+      "titulo": "Bir doğrulamacı gibi nasıl okunur?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Beşinci bölüm. Bir doğrulamacı gibi nasıl okunur?"
+        },
+        {
+          "id": "stanford",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "historiadores",
+              "estudiantes",
+              "verificadores"
+            ]
+          },
+          "lamina": [
+            "verificador",
+            "pantallas"
+          ],
+          "destacada": true,
+          "texto": "Stanford Üniversitesi’nde Sam Wineburg ve Sarah McGrew, tarihçilere, öğrencilere ve profesyonel doğrulamacılara web sitelerini değerlendirtti. Doğrulamacılar daha kısa sürede daha çok isabet etti, bir püf noktasıyla: siteyi neredeyse hiç okumuyorlardı."
+        },
+        {
+          "id": "lateral",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "verificador"
+          },
+          "lamina": [
+            "pestanas",
+            "lupa"
+          ],
+          "texto": "Hemen başka sekmelere geçip başkalarının o kaynak hakkında ne dediğine bakıyorlardı. Buna yanal okuma denir. Şu dört soruluk kontrolü dene."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoNoticias"
+          },
+          "lamina": "pulgar",
+          "texto": "Bu rehberi beğeniyorsan Beğen’e bas, bir sonrakini kaçırmamak için Abone ol ve her şeyi okumadan sana ileten o kişiyle Paylaş."
+        },
+        {
+          "id": "preguntas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "quien",
+              "evidencia",
+              "otros"
+            ]
+          },
+          "lamina": [
+            "entrevista",
+            "documentos"
+          ],
+          "meme": "fuente",
+          "texto": "Kendine hep sor: bunu kim söylüyor ve bundan ne kazanıyor? Kanıt nerede? Peki başka ciddi yayın organları ne diyor?"
+        },
+        {
+          "id": "fuente",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "medio",
+              "cuando",
+              "variedad"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Gazetemde her manşet, onu hangi yayın organının ne zaman yayımladığını gösterir: böylece kimin söylediğini her zaman bilirim."
+        }
+      ]
+    },
+    {
+      "id": "belleza",
+      "titulo": "Doğru ve güzel içerik nasıl üretilir?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Altıncı bölüm. Doğru ve güzel içerik nasıl üretilir?"
+        },
+        {
+          "id": "lange",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1936",
+            "clave": "lange"
+          },
+          "lamina": [
+            "madreMigrante",
+            "langeCamara"
+          ],
+          "destacada": true,
+          "texto": "1936’da fotoğrafçı Dorothea Lange, Kaliforniya’da bir tarım işçileri kampında durdu ve çocuklarıyla bir annenin birkaç fotoğrafını çekti. O görüntü, Göçmen Anne, Büyük Buhran’ın portresi oldu."
+        },
+        {
+          "id": "comida",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "foto",
+              "periodico",
+              "ayuda"
+            ]
+          },
+          "lamina": [
+            "campamento",
+            "periodicoMesa"
+          ],
+          "texto": "San Francisco’daki bir gazete fotoğraflarını yayımlayınca hükümet kampa yiyecek gönderdi. Güzellik gerçeği süslemiyordu: onu görmezden gelinemez kılıyordu."
+        },
+        {
+          "id": "creador",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "verifica",
+              "cita",
+              "historiaPaso"
+            ]
+          },
+          "lamina": [
+            "creador",
+            "microfono"
+          ],
+          "texto": "Bugün hepimiz bir şeyler yayımlıyoruz: bir video, bir inceleme, bir fotoğraf. Sen de bir yayın organısın. O hâlde iyilerin yaptığını yap: yayımlamadan önce doğrula, bilgiyi nereden aldığını söyle ve bunu bir hikâye gibi anlat."
+        },
+        {
+          "id": "forma",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "imagen",
+              "claro",
+              "justo"
+            ]
+          },
+          "lamina": [
+            "camaraVieja",
+            "escritorio"
+          ],
+          "texto": "Ve biçime özen göster: iyi bir görsel, açık kelimeler ve ne eksik ne fazla. Güzel olan abartılı olan değildir: anlaşılan ve seninle kalandır."
+        },
+        {
+          "id": "arte",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "obra",
+              "libro",
+              "palabra"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bugün tarihte bölümümde günün sanat eseri, günün kitabı ve günün kelimesi de var: her sabah biraz güzellik."
+        }
+      ]
+    },
+    {
+      "id": "dieta",
+      "titulo": "Ne kadar haber fazladır?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Yedinci bölüm. Ne kadar haber fazladır?"
+        },
+        {
+          "id": "boston",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "estres"
+          },
+          "lamina": [
+            "maraton",
+            "tvNoche"
+          ],
+          "destacada": true,
+          "texto": "2013’teki Boston Maratonu saldırısının ardından Kaliforniya Üniversitesi’nden bir ekip yaklaşık beş bin kişiyle anket yaptı. Günde altı saat ya da daha fazla haber izleyenler, olay yerinde bulunanların birçoğundan daha fazla stres yaşadı."
+        },
+        {
+          "id": "horas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "dietaNoticias"
+          },
+          "lamina": [
+            "nocheCelular",
+            "cama"
+          ],
+          "meme": "madrugada",
+          "texto": "Durmadan haber izlemek seni daha bilgili yapmaz: korkmuş ve yorgun bırakır. Bak, yılda kaç saatin buna gidiyor."
+        },
+        {
+          "id": "horario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "momento",
+              "limite",
+              "avisos"
+            ]
+          },
+          "lamina": [
+            "cafe",
+            "reloj"
+          ],
+          "texto": "O yüzden onlara bir saat koy: günde sabit bir zaman, bir süre sınırı ve kapalı haber bildirimleri."
+        },
+        {
+          "id": "reparto",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "asistente",
+              "horaFija",
+              "secciones"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bu yüzden gazetemde teslimatı ayarladım: Büyücü ciddi haberleri bana yedi buçukta getiriyor, Laika da hafif olanları günün herhangi bir saatinde."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Nasıl devam etmeli? Devam etmek için planın",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Sekizinci bölüm. Nasıl devam etmeli? Devam etmek için planın."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planNoticias"
+          },
+          "lamina": [
+            "libreta",
+            "periodicos"
+          ],
+          "texto": "İlk hafta, haberlerini nereden aldığını ve onlara günde ne kadar zaman ayırdığını not et."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fuentes",
+              "hora",
+              "lateralPlan"
+            ]
+          },
+          "lamina": [
+            "kiosco",
+            "cafe"
+          ],
+          "destacada": true,
+          "texto": "İlk ay, farklı kaynaklar ekle, haberler için sabit bir saat seç ve paylaşmadan önce yanal okuma yap."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "revisa",
+              "crea",
+              "bello"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "cumbre"
+          ],
+          "texto": "Ve her ay, neyin seni daha iyi bilgilendirdiğini, neyin sadece kaygılandırdığını gözden geçir. İçerik üretiyorsan da: doğrula, kaynaklarını belirt ve özen göster."
+        },
+        {
+          "id": "racha",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lectura",
+              "misiones",
+              "rachaPaso"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Ve görevlerimde bugünün gazetesini okumak serime sayılıyor: haftalardır hiç aksatmadım."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Özetle: sadece ne düşündüğüne değil, neyi düşündüğüne de dikkat et; seni kızdıran manşete güvenme; paylaşmadan önce yanal oku; doğru ve güzel içerik üret; ve haberlerine bir saat koy."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS’un Günlük Haberler odasında kendi manşetlerini birçok yayın organından okursun, Bugün tarihte bölümünü de; asistan teslimatı ise hepsini senin saatinde getirir. Zihinsel evini bugün ücretsiz kur: bağlantı açıklamada. Bir sonraki rehberde ise: nasıl daha iyi seyahat edersin?",
+    "boton": "Günlük Haberler’i aç",
+    "lamina": "app-plan",
+    "anclas": {
+      "titulares": "kendi manşetlerini",
+      "efemerides": "Bugün tarihte",
+      "reparto": "asistan teslimatı"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "reuters-2024",
+      "texto": "Reuters Gazetecilik Araştırmaları Enstitüsü, Oxford Üniversitesi. Digital News Report 2024.",
+      "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2024"
+    },
+    {
+      "id": "mccombs-1972",
+      "texto": "McCombs M. E., Shaw D. L. The agenda-setting function of mass media. Public Opinion Quarterly 36(2), 176-187 (1972).",
+      "url": "https://doi.org/10.1086/267990"
+    },
+    {
+      "id": "bly-1887",
+      "texto": "Nellie Bly. Ten Days in a Mad-House (1887). Vikipedi.",
+      "url": "https://en.wikipedia.org/wiki/Ten_Days_in_a_Mad-House"
+    },
+    {
+      "id": "robertson-2023",
+      "texto": "Robertson C. E. ve meslektaşları. Negativity drives online news consumption. Nature Human Behaviour 7, 812-822 (2023).",
+      "url": "https://doi.org/10.1038/s41562-023-01538-4"
+    },
+    {
+      "id": "vosoughi-2018",
+      "texto": "Vosoughi S., Roy D., Aral S. The spread of true and false news online. Science 359, 1146-1151 (2018).",
+      "url": "https://doi.org/10.1126/science.aap9559"
+    },
+    {
+      "id": "wineburg-2019",
+      "texto": "Wineburg S., McGrew S. Lateral reading and the nature of expertise: reading less and learning more when evaluating digital information. Teachers College Record 121(11) (2019).",
+      "url": "https://doi.org/10.1177/016146811912101102"
+    },
+    {
+      "id": "lange-1936",
+      "texto": "Dorothea Lange. Migrant Mother (1936). ABD Kongre Kütüphanesi; Vikipedi.",
+      "url": "https://en.wikipedia.org/wiki/Migrant_Mother"
+    },
+    {
+      "id": "holman-2014",
+      "texto": "Holman E. A., Garfin D. R., Silver R. C. Media's role in broadcasting acute stress following the Boston Marathon bombings. PNAS 111(1), 93-98 (2014).",
+      "url": "https://doi.org/10.1073/pnas.1316265110"
+    }
+  ],
+  "titularesDemo": [
+    {
+      "categoria": "tecnologia",
+      "imagen": "6143906",
+      "medio": "Çayır Gazetesi",
+      "titulo": "Kasabaya telgraf geldi: mesajlar artık günlerde değil, dakikalarda ulaşıyor",
+      "resumen": "İstasyondaki ofis gün doğumundan gün batımına kadar açık ve hiçbir mektubun posta arabasında kaybolmayacağına söz veriyor."
+    },
+    {
+      "categoria": "economia",
+      "imagen": "40140475",
+      "medio": "Pazarın Sesi",
+      "titulo": "Rekor mısır hasadı: cumartesi pazarı tezgâhlarla doldu",
+      "resumen": "Vadinin çiftçileri satabileceklerinden fazlasını getiriyor ve ekmek fiyatı bu yıl ilk kez düşüyor."
+    },
+    {
+      "categoria": "deportes",
+      "imagen": "37215129",
+      "medio": "Nehrin Yankısı",
+      "titulo": "Çakallar beyzbol finalini son devrede kazandı",
+      "resumen": "Kasabanın yarısı, şampiyonluğu belirleyen vuruşu görmek için nehir kenarındaki sahanın tribünlerini doldurdu."
+    },
+    {
+      "categoria": "salud",
+      "imagen": "37697596",
+      "medio": "Vadi Habercisi",
+      "titulo": "Kasaba doktoru gün batımında yürümeyi öneriyor",
+      "resumen": "Akşam yemeğinden önce yarım saatlik yürüyüşün uykuya iyi geldiğini, ana caddenin de düz ve güvenli olduğunu söylüyor."
+    },
+    {
+      "categoria": "entretenimiento",
+      "imagen": "35315450",
+      "medio": "Telgraf",
+      "titulo": "Kasaba salonunda seyahat fotoğrafları sergisi açılıyor",
+      "resumen": "Dağların, nehirlerin ve uzak şehirlerin kırk fotoğrafı, bütün hafta herkese açık."
+    },
+    {
+      "categoria": "mundo",
+      "imagen": "7255747",
+      "medio": "Çayır Gazetesi",
+      "titulo": "Saat beş treninin artık sabit bir tarifesi var… neredeyse her zaman",
+      "resumen": "Demiryolu şirketi sonunda tarifesini yayımladı, ama dağlarda fırtına olduğunda sabır istiyor."
+    }
+  ]
+}

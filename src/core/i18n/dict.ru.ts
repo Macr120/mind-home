@@ -7438,6 +7438,7 @@ export const RU: Dict = {
   'guia.hobbies.titulo': "Как найти хобби и не бросить его?",
   'guia.entretenimiento.titulo': "Как развлекаться лучше?",
   'guia.garage.titulo': "Как ухаживать за своим транспортом?",
+  'guia.noticias.titulo': "В поисках истины и красоты: журналистика и контент",
   'guia.matematicas.titulo': "На каком языке говорит Вселенная?",
   'tut.esencial.titulo': 'Главное',
   'tut.tipo.ejemplos': 'Примеры · демо-MindHaOS',

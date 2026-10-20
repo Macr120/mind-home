@@ -7444,6 +7444,7 @@ export const TR: Dict = {
   'guia.hobbies.titulo': "Bir hobi nasıl bulunur ve nasıl sürdürülür?",
   'guia.entretenimiento.titulo': "Nasıl daha iyi eğlenirsin?",
   'guia.garage.titulo': "Araçlarına nasıl bakarsın?",
+  'guia.noticias.titulo': "Gerçeğin ve güzelliğin peşinde: gazetecilik ve içerik",
   'guia.matematicas.titulo': "Evrenin dili nedir?",
   'tut.esencial.titulo': 'Temel Bilgiler',
   'tut.tipo.ejemplos': 'Örnekler · demo MindHaOS',

@@ -1,0 +1,357 @@
+{
+  "fotos": {},
+  "laminas": {
+    "periodicos": {
+      "archivo": "laminas/periodicos.mp4",
+      "tipo": "video",
+      "autor": "Deepa Godiawala",
+      "fuente": "https://www.pexels.com/video/person-opening-newspaper-10449873/",
+      "licencia": "Licencia Pexels"
+    },
+    "celularNoticias": {
+      "archivo": "laminas/celularNoticias.mp4",
+      "tipo": "video",
+      "autor": "Ron Lach",
+      "fuente": "https://www.pexels.com/video/person-using-a-phone-while-a-man-is-reading-8526600/",
+      "licencia": "Licencia Pexels"
+    },
+    "votar": {
+      "archivo": "laminas/votar.mp4",
+      "tipo": "video",
+      "autor": "Sora Shimazaki",
+      "fuente": "https://www.pexels.com/video/a-person-putting-vote-in-a-ballot-box-5925167/",
+      "licencia": "Licencia Pexels"
+    },
+    "periodicoViejo": {
+      "archivo": "laminas/periodicoViejo.mp4",
+      "tipo": "video",
+      "autor": "Esra Erdem",
+      "fuente": "https://www.pexels.com/video/a-man-reading-a-newspaper-in-a-library-25957041/",
+      "licencia": "Licencia Pexels"
+    },
+    "noticiero": {
+      "archivo": "laminas/noticiero.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/cameraman-and-journalist-reporting-news-10464574/",
+      "licencia": "Licencia Pexels"
+    },
+    "microfonos": {
+      "archivo": "laminas/microfonos.mp4",
+      "tipo": "video",
+      "autor": "Mikhail Nilov",
+      "fuente": "https://www.pexels.com/video/political-candidate-doing-a-speech-8847404/",
+      "licencia": "Licencia Pexels"
+    },
+    "titularesPantalla": {
+      "archivo": "laminas/titularesPantalla.mp4",
+      "tipo": "video",
+      "autor": "Pavel Danilyuk",
+      "fuente": "https://www.pexels.com/video/reading-about-a-pollution-article-in-the-internet-6951021/",
+      "licencia": "Licencia Pexels"
+    },
+    "clic": {
+      "archivo": "laminas/clic.mp4",
+      "tipo": "video",
+      "autor": "Eva Bronzini",
+      "fuente": "https://www.pexels.com/video/a-person-typing-on-a-cellphone-6962433/",
+      "licencia": "Licencia Pexels"
+    },
+    "sorprendido": {
+      "archivo": "laminas/sorprendido.mp4",
+      "tipo": "video",
+      "autor": "Pavel Danilyuk",
+      "fuente": "https://www.pexels.com/video/shocked-woman-8627749/",
+      "licencia": "Licencia Pexels"
+    },
+    "noticiasTv": {
+      "archivo": "laminas/noticiasTv.mp4",
+      "tipo": "video",
+      "autor": "Kampus Production",
+      "fuente": "https://www.pexels.com/video/elderly-couple-embracing-while-watching-television-7477318/",
+      "licencia": "Licencia Pexels"
+    },
+    "multitud": {
+      "archivo": "laminas/multitud.mp4",
+      "tipo": "video",
+      "autor": "iPhone Snaps",
+      "fuente": "https://www.pexels.com/video/aerial-view-of-diverse-crowd-walking-37215129/",
+      "licencia": "Licencia Pexels"
+    },
+    "celularMano": {
+      "archivo": "laminas/celularMano.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/close-up-on-man-hand-scrolling-phone-gallery-10374888/",
+      "licencia": "Licencia Pexels"
+    },
+    "verificador": {
+      "archivo": "laminas/verificador.mp4",
+      "tipo": "video",
+      "autor": "ArtHouse Studio",
+      "fuente": "https://www.pexels.com/video/a-man-using-a-laptop-8480291/",
+      "licencia": "Licencia Pexels"
+    },
+    "pantallas": {
+      "archivo": "laminas/pantallas.mp4",
+      "tipo": "video",
+      "autor": "João Victor",
+      "fuente": "https://www.pexels.com/video/tech-workspace-with-dual-monitors-39645503/",
+      "licencia": "Licencia Pexels"
+    },
+    "pestanas": {
+      "archivo": "laminas/pestanas.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/video-of-a-laptop-screen-7448471/",
+      "licencia": "Licencia Pexels"
+    },
+    "entrevista": {
+      "archivo": "laminas/entrevista.mp4",
+      "tipo": "video",
+      "autor": "Stephen Leonardi",
+      "fuente": "https://www.pexels.com/video/vibrant-outdoor-interview-with-youthful-energy-39421371/",
+      "licencia": "Licencia Pexels"
+    },
+    "periodicoMesa": {
+      "archivo": "laminas/periodicoMesa.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/man-reading-a-newspaper-in-a-cafe-7255747/",
+      "licencia": "Licencia Pexels"
+    },
+    "camaraVieja": {
+      "archivo": "laminas/camaraVieja.mp4",
+      "tipo": "video",
+      "autor": "Orhan Pergel",
+      "fuente": "https://www.pexels.com/video/inserting-film-into-a-vintage-camera-35315450/",
+      "licencia": "Licencia Pexels"
+    },
+    "escritorio": {
+      "archivo": "laminas/escritorio.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/close-up-of-a-hand-typing-on-a-typewriter-6143906/",
+      "licencia": "Licencia Pexels"
+    },
+    "maraton": {
+      "archivo": "laminas/maraton.mp4",
+      "tipo": "video",
+      "autor": "Aldo Aravena",
+      "fuente": "https://www.pexels.com/video/scenic-city-marathon-with-enthusiastic-runners-37697596/",
+      "licencia": "Licencia Pexels"
+    },
+    "kiosco": {
+      "archivo": "laminas/kiosco.mp4",
+      "tipo": "video",
+      "autor": "Ali Jafar",
+      "fuente": "https://www.pexels.com/video/outdoor-magazine-stand-display-in-daylight-40140475/",
+      "licencia": "Licencia Pexels"
+    },
+    "creador": {
+      "archivo": "laminas/creador.mp4",
+      "tipo": "video",
+      "autor": "Sasha Kim",
+      "fuente": "https://www.pexels.com/video/woman-setting-up-her-smartphone-and-ring-light-9384669/",
+      "licencia": "Licencia Pexels"
+    },
+    "alarma": {
+      "archivo": "laminas/alarma.mp4",
+      "tipo": "video",
+      "autor": "Aryan",
+      "fuente": "https://www.pexels.com/video/dramatic-lightning-storm-over-urban-skyline-31983370/",
+      "licencia": "Licencia Pexels"
+    },
+    "celulares": {
+      "archivo": "laminas/celulares.mp4",
+      "tipo": "video",
+      "autor": "Nataliya Vaitkevich",
+      "fuente": "https://www.pexels.com/video/people-using-cellphones-8938179/",
+      "licencia": "Licencia Pexels"
+    },
+    "compartir": {
+      "archivo": "laminas/compartir.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/sales-posting-on-instagram-6115066/",
+      "licencia": "Licencia Pexels"
+    },
+    "nellieBly": {
+      "archivo": "laminas/nellieBly.webp",
+      "tipo": "foto",
+      "autor": "Biblioteca del Congreso de EE. UU.",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Nellie_Bly_LCCN2002697740.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "blackwell": {
+      "archivo": "laminas/blackwell.webp",
+      "tipo": "foto",
+      "autor": "NYPL",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Lunatic_Asylum,_Blackwell%27s_Island_(NYPL_b13476047-422118).jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "manicomio": {
+      "archivo": "laminas/manicomio.webp",
+      "tipo": "foto",
+      "autor": "Autor desconocido",
+      "fuente": "https://commons.wikimedia.org/wiki/File:468_NEW-YORK_CITY_ASYLUM_FOR_THE_INSANE_(WOMAN)_BLACKWELL%27S_ISLAND.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "celda": {
+      "archivo": "laminas/celda.webp",
+      "tipo": "foto",
+      "autor": "McD (Ten Days in a Mad-House, 1887)",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Nellie_Bly-Mad-House-14.png",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "libroBly": {
+      "archivo": "laminas/libroBly.webp",
+      "tipo": "foto",
+      "autor": "Autor desconocido",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Madhousecvr.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "nuevaYork": {
+      "archivo": "laminas/nuevaYork.webp",
+      "tipo": "foto",
+      "autor": "Colección Robert N. Dennis (NYPL)",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Firemen%27s_Parade_on_Labor_Day,_Broadway,_New_York,_from_Robert_N._Dennis_collection_of_stereoscopic_views.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "madreMigrante": {
+      "archivo": "laminas/madreMigrante.webp",
+      "tipo": "foto",
+      "autor": "Dorothea Lange",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Lange-MigrantMother02.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "langeCamara": {
+      "archivo": "laminas/langeCamara.webp",
+      "tipo": "foto",
+      "autor": "Rondal Partridge",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Dorothea_Lange_atop_automobile_in_California_(restored)_(cropped).jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "campamento": {
+      "archivo": "laminas/campamento.webp",
+      "tipo": "foto",
+      "autor": "Dorothea Lange",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Migrant_Pea_Picker%27s_Makeshift_Home,_Nipomo,_California-_MET_DP238419.jpg",
+      "licencia": "CC0",
+      "credito": "Dorothea Lange · CC0 · Wikimedia"
+    },
+    "reloj": {
+      "archivo": "laminas/reloj.mp4",
+      "tipo": "video",
+      "autor": "Anton Kudryashov",
+      "fuente": "https://www.pexels.com/video/close-up-on-clock-hands-moving-11267667/",
+      "licencia": "Licencia Pexels"
+    },
+    "pulgar": {
+      "archivo": "laminas/pulgar.mp4",
+      "tipo": "video",
+      "autor": "Kevin Malik",
+      "fuente": "https://www.pexels.com/video/a-hand-giving-a-thumbs-up-9017832/",
+      "licencia": "Licencia Pexels"
+    },
+    "libreta": {
+      "archivo": "laminas/libreta.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/writing-to-do-list-on-a-notebook-for-reminders-3832194/",
+      "licencia": "Licencia Pexels"
+    },
+    "cumbre": {
+      "archivo": "laminas/cumbre.mp4",
+      "tipo": "video",
+      "autor": "Canan İldeniz",
+      "fuente": "https://www.pexels.com/video/group-of-hikers-celebrating-on-mountain-peak-38242686/",
+      "licencia": "Licencia Pexels"
+    },
+    "cafe": {
+      "archivo": "laminas/cafe.mp4",
+      "tipo": "video",
+      "autor": "Burak Eroglu",
+      "fuente": "https://www.pexels.com/video/cafe-ambiance-with-coffee-beans-and-latte-30981713/",
+      "licencia": "Licencia Pexels"
+    },
+    "lupa": {
+      "archivo": "laminas/lupa.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/using-a-magnifying-glass-to-visually-enlarge-objects-3831743/",
+      "licencia": "Licencia Pexels"
+    },
+    "amanecer": {
+      "archivo": "laminas/amanecer.mp4",
+      "tipo": "video",
+      "autor": "NADER AYMAN",
+      "fuente": "https://www.pexels.com/video/skyline-with-birds-at-sunrise-37365586/",
+      "licencia": "Licencia Pexels"
+    },
+    "redes": {
+      "archivo": "laminas/redes.mp4",
+      "tipo": "video",
+      "autor": "Hamim Rony",
+      "fuente": "https://www.pexels.com/video/scrolling-through-social-media-on-smartphone-38410501/",
+      "licencia": "Licencia Pexels"
+    },
+    "cama": {
+      "archivo": "laminas/cama.mp4",
+      "tipo": "video",
+      "autor": "Kaboompics.com",
+      "fuente": "https://www.pexels.com/video/sleepy-woman-rubbing-eyes-6658334/",
+      "licencia": "Licencia Pexels"
+    },
+    "escribir": {
+      "archivo": "laminas/escribir.mp4",
+      "tipo": "video",
+      "autor": "Polina Tankilevitch",
+      "fuente": "https://www.pexels.com/video/person-writing-on-her-notebook-6929080/",
+      "licencia": "Licencia Pexels"
+    },
+    "microfono": {
+      "archivo": "laminas/microfono.mp4",
+      "tipo": "video",
+      "autor": "Big Bag Films",
+      "fuente": "https://www.pexels.com/video/a-close-up-shot-of-a-microphone-8513958/",
+      "licencia": "Licencia Pexels"
+    },
+    "documentos": {
+      "archivo": "laminas/documentos.mp4",
+      "tipo": "video",
+      "autor": "Kaboompics.com",
+      "fuente": "https://www.pexels.com/video/organized-person-putting-her-paperworks-in-a-folder-orderly-8135783/",
+      "licencia": "Licencia Pexels"
+    },
+    "tvNoche": {
+      "archivo": "laminas/tvNoche.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-woman-sitting-while-watching-tv-6951584/",
+      "licencia": "Licencia Pexels"
+    },
+    "nocheCelular": {
+      "archivo": "laminas/nocheCelular.mp4",
+      "tipo": "video",
+      "autor": "Marcus Aurelius",
+      "fuente": "https://www.pexels.com/video/a-woman-lying-in-bed-using-her-phone-9787494/",
+      "licencia": "Licencia Pexels"
+    },
+    "app-plan": {
+      "archivo": "laminas/app-plan.{idioma}.mp4",
+      "tipo": "video",
+      "autor": "MindHaOS",
+      "fuente": "https://app.mindhaos.com",
+      "credito": ""
+    }
+  }
+}
