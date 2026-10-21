@@ -1,0 +1,730 @@
+{
+  "idioma": "zh",
+  "tema": "ideas",
+  "plantillaId": "ideas",
+  "numero": 19,
+  "nombre": "点子",
+  "pregunta": "怎样才能有更好的点子？",
+  "corta": "怎样才能有更好的点子？",
+  "subtitulo": "为什么多想点子是好点子的秘诀，一种粘不牢的胶水催生的点子，为什么点子总在洗澡时冒出来，走路会不会让你更有创造力，头脑风暴一群人做还是一个人做更好，为什么限制会让你更有创造力，怎样在点子之间做选择，以及一个继续下去的计划。",
+  "aviso": "本指南仅提供一般性信息。文中引用的研究测量的是特定任务中的创造力，你的结果可能会有所不同。",
+  "partes": [
+    {
+      "id": "cantidad",
+      "titulo": "好点子从哪里来？",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "怎样才能有更好的点子？伟大的天才并不是坏点子更少，而是点子更多。而你的点子，如果不记下来，就会溜走。如果想出好点子是一种习惯，而不是天赋呢？今天你会用数据看清楚，还会带走一个继续下去的计划。"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "对了，这是我在MindHaOS里的家。没错，已经是圣诞节了。没有哪个季节比现在更需要点子：礼物、聚餐、新年愿望。这是我的点子房间，我想到的每个点子都记在这里。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第一部分。好点子从哪里来？"
+        },
+        {
+          "id": "simonton",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "obras",
+              "fracasos",
+              "proporcion"
+            ]
+          },
+          "lamina": [
+            "edison",
+            "bombilla"
+          ],
+          "destacada": true,
+          "texto": "心理学家迪安·基思·西蒙顿花了几十年研究著名的科学家和艺术家，发现了一件惊人的事：杰作最多的人，失败的作品也最多。他们的秘诀不是猜得更准，而是产出更多。"
+        },
+        {
+          "id": "edison",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1093",
+            "clave": "edison"
+          },
+          "lamina": [
+            "patentes",
+            "taller"
+          ],
+          "texto": "托马斯·爱迪生在美国注册了一千零九十三项专利，其中很多一点用都没有。两次获得诺贝尔奖的莱纳斯·鲍林说过：得到好点子的最好办法，就是有很多点子。"
+        },
+        {
+          "id": "muchas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "muchasIdeas"
+          },
+          "lamina": [
+            "postits",
+            "lluviaPapel"
+          ],
+          "meme": "cienIdeas",
+          "texto": "如果十个点子里有一个是好的，算起来很简单：点子越多，好点子就越多。看看你一年能有多少个好点子。"
+        },
+        {
+          "id": "diario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "anota",
+              "sinJuzgar",
+              "carpetas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "所以我有一本想法日记：每个点子都记下来，连看起来很傻的也不放过，之后再整理。"
+        }
+      ]
+    },
+    {
+      "id": "postit",
+      "titulo": "一种粘不牢的胶水，催生了什么点子？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第二部分。一种粘不牢的胶水，催生了什么点子？"
+        },
+        {
+          "id": "silver",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "silver"
+          },
+          "lamina": [
+            "laboratorio",
+            "pegamento"
+          ],
+          "destacada": true,
+          "texto": "1968年，3M公司的化学家斯潘塞·西尔弗想做出一种超强的胶水。结果正好相反：它几乎粘不住，撕下来也不留痕迹。好几年里，没人知道它能拿来干什么。"
+        },
+        {
+          "id": "coro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "coro",
+              "separadores",
+              "recuerda"
+            ]
+          },
+          "lamina": [
+            "coro",
+            "himnario"
+          ],
+          "texto": "直到1974年，他的同事阿特·弗赖在教堂唱诗班唱歌时，受够了纸书签总从赞美诗集里掉出来。于是他想起了那种粘不牢的胶水。"
+        },
+        {
+          "id": "lanzamiento",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1980",
+            "clave": "postit"
+          },
+          "lamina": [
+            "notasColores",
+            "oficina"
+          ],
+          "texto": "1980年，Post-it便利贴正式上市。一个失败的点子，几年后变成了另一个点子，只因为有人一直把它记在心里。"
+        },
+        {
+          "id": "lluvias",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "guarda",
+              "vuelve",
+              "combina"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "所以我从不扔掉任何点子：它们按日期、按主题留在我的日记里，需要的时候我再回去看。"
+        }
+      ]
+    },
+    {
+      "id": "ducha",
+      "titulo": "为什么点子总在洗澡时冒出来？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第三部分。为什么点子总在洗澡时冒出来？"
+        },
+        {
+          "id": "wallas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "preparacion",
+              "incubacion",
+              "iluminacion"
+            ]
+          },
+          "lamina": [
+            "pensador",
+            "ventana"
+          ],
+          "texto": "1926年，格雷厄姆·沃拉斯描述了点子是怎么来的：先做准备，把问题翻来覆去地想；然后放下它，让大脑在底下继续工作；接着，点子突然就出现了。"
+        },
+        {
+          "id": "baird",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "incubacion"
+          },
+          "lamina": [
+            "ducha",
+            "lavarPlatos"
+          ],
+          "destacada": true,
+          "texto": "2012年，加利福尼亚大学的一个团队用创造性问题做了测试。休息时做一件简单、能让思绪漫游的事的人，进步远远超过休息时专注于另一件难事、或者根本没休息的人。"
+        },
+        {
+          "id": "soltar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "llena",
+              "suelta",
+              "anotaRapido"
+            ]
+          },
+          "lamina": [
+            "cocinar",
+            "libreta"
+          ],
+          "texto": "所以，先让自己装满这个问题，再用简单的事放下它，比如洗碗或者包礼物。等点子来了，赶紧记下来，别让它跑了。",
+          "meme": "ducha"
+        },
+        {
+          "id": "mapa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mental",
+              "ramas",
+              "reposa"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "当一个点子在我脑子里打转，我就把它做成思维导图，比如「我理想的生活」，然后放一放。"
+        }
+      ]
+    },
+    {
+      "id": "caminar",
+      "titulo": "走路会让你更有创造力吗？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第四部分。走路会让你更有创造力吗？"
+        },
+        {
+          "id": "oppezzo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "caminar"
+          },
+          "lamina": [
+            "caminata",
+            "parque"
+          ],
+          "destacada": true,
+          "texto": "2014年，斯坦福大学的玛丽莉·奥佩佐和丹尼尔·施瓦茨请一些人为常见物品想出新用途，有的坐着想，有的边走边想。边走边想时，他们平均多想出了百分之六十。"
+        },
+        {
+          "id": "despues",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "caminando",
+              "despues",
+              "afuera"
+            ]
+          },
+          "lamina": [
+            "nieve",
+            "caminadora"
+          ],
+          "texto": "而且坐下以后，这种效果还会持续一会儿。不管是在户外走，还是对着墙在跑步机上走，都一样：关键是动起来。"
+        },
+        {
+          "id": "paseo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "problema",
+              "vuelta",
+              "nota"
+            ]
+          },
+          "lamina": [
+            "calleNavidad",
+            "celularNota"
+          ],
+          "texto": "所以当你卡住的时候，就带着问题出去走一走。再带上能记东西的工具。"
+        },
+        {
+          "id": "flujo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "flujoApp",
+              "pasosApp",
+              "rutinaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "连我的「早晨的日常安排」都做成了流程图：这样我就能看出哪里能塞进一次散步。"
+        }
+      ]
+    },
+    {
+      "id": "lluvia",
+      "titulo": "头脑风暴，一群人还是一个人？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第五部分。头脑风暴，一群人还是一个人？"
+        },
+        {
+          "id": "osborn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "grupos"
+          },
+          "lamina": [
+            "reunion",
+            "pizarron"
+          ],
+          "destacada": true,
+          "texto": "头脑风暴是广告人亚历克斯·奥斯本在二十世纪五十年代推广开的。但在1987年，迈克尔·迪尔和沃尔夫冈·施特勒贝对它做了检验：同样一群人，各自分开想，最后再把清单合在一起，想出的点子几乎是一起讨论时的两倍。"
+        },
+        {
+          "id": "turno",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "lluviaSolo"
+          },
+          "lamina": [
+            "esperar",
+            "escribirSolo"
+          ],
+          "meme": "reunion",
+          "texto": "为什么？在小组里你得等着轮到你，而听别人说话的时候，你的点子就消失了。看看一场会议里会丢掉多少点子。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoIdeas"
+          },
+          "lamina": "pulgar",
+          "texto": "如果你喜欢这份指南，请点赞，订阅，免得错过下一期，再分享给那个总有点子却从来不记下来的人。"
+        },
+        {
+          "id": "mezcla",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "solo",
+              "juntos",
+              "mejora"
+            ]
+          },
+          "lamina": [
+            "equipo",
+            "postits2"
+          ],
+          "texto": "最好的办法是混合：先每个人单独想，什么都不评判；然后再聚到一起，组合、改进。"
+        },
+        {
+          "id": "regalos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lluviaApp",
+              "regalosApp",
+              "mapaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "我的「年终礼物」头脑风暴是一个人做的，一个点子接一个点子，然后一键就转换成了地图。"
+        }
+      ]
+    },
+    {
+      "id": "limites",
+      "titulo": "为什么限制会让你更有创造力？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第六部分。为什么限制会让你更有创造力？"
+        },
+        {
+          "id": "seuss",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "50",
+            "clave": "seuss"
+          },
+          "lamina": [
+            "seuss",
+            "huevosVerdes"
+          ],
+          "destacada": true,
+          "texto": "1960年，编辑贝内特·瑟夫和创造了格林奇的苏斯博士打赌五十美元，赌他没法只用五十个不同的单词写出一本书。苏斯写出了《绿鸡蛋和火腿》，成了史上最畅销的童书之一。"
+        },
+        {
+          "id": "haught",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rimas",
+              "palabras",
+              "mejores"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "rompecabezas"
+          ],
+          "texto": "2017年，心理学家卡特里内尔·霍特-特龙普做了验证：被要求用某些指定词语写押韵小诗的人，写出来的比自由发挥的人更有创意。"
+        },
+        {
+          "id": "reglas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tiempo",
+              "presupuesto",
+              "regla"
+            ]
+          },
+          "lamina": [
+            "reloj",
+            "envolver"
+          ],
+          "meme": "hoja",
+          "texto": "所以给自己设个限制吧：十分钟、一小笔预算，或者一条奇怪的规则，比如礼物必须能塞进一只袜子。"
+        },
+        {
+          "id": "eisenhower",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "urgente",
+              "importante",
+              "soltarApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "为了不被这么多点子淹没，我的艾森豪威尔矩阵会告诉我什么马上做、什么排进日程、什么放下。"
+        }
+      ]
+    },
+    {
+      "id": "decidir",
+      "titulo": "怎样在点子之间做选择？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第七部分。怎样在点子之间做选择？"
+        },
+        {
+          "id": "franklin",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1772",
+            "clave": "franklin"
+          },
+          "lamina": [
+            "franklin",
+            "carta"
+          ],
+          "destacada": true,
+          "texto": "1772年，本杰明·富兰克林向一位朋友解释他怎么做决定：一张纸分成两栏，赞成和反对。他会用几天时间写下理由，给每条理由一个分量，再把彼此抵消的划掉。他把这叫作道德代数。"
+        },
+        {
+          "id": "balanza",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "balanzaFranklin"
+          },
+          "lamina": [
+            "balanza",
+            "decidir"
+          ],
+          "texto": "重要的不是每一边有多少条理由，而是每一条有多重。来试试你自己的天平吧。"
+        },
+        {
+          "id": "criterios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "criterios",
+              "puntua",
+              "duerme"
+            ]
+          },
+          "lamina": [
+            "comparar",
+            "cafe"
+          ],
+          "texto": "当你有好几个选项时，先定下你的标准，排出它们的重要程度，给每个选项打分……然后睡一觉再说。"
+        },
+        {
+          "id": "proscontras",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pesosApp",
+              "matrizApp",
+              "totalApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在我的决策图里，有带权重的利弊分析，还有一个决策矩阵，用来选「拍月亮该用哪台相机？」。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "接下来怎么做？你的继续计划",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第八部分。接下来怎么做？你的继续计划。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planIdeas"
+          },
+          "lamina": [
+            "libreta",
+            "postits"
+          ],
+          "texto": "第一周，把你想到的每个点子，不管多小，都记在同一个地方。"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lluviaSemanal",
+              "caminaPlan",
+              "limitePlan"
+            ]
+          },
+          "lamina": [
+            "caminata",
+            "pizarron"
+          ],
+          "destacada": true,
+          "texto": "第一个月，每周一个人做一次头脑风暴，卡住了就出去走走，每个挑战都给自己设个限制。"
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "relee",
+              "combinaPlan",
+              "decidePlan"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "cumbre"
+          ],
+          "texto": "然后每个月，重读你的旧点子：总有一个会和新点子结合起来。等到要做决定的时候，就把它放上天平。"
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "formatos",
+              "ejemplo",
+              "conIA"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "要是我不知道从哪儿开始，每张导图、每个图表都带着一个示例，可以看它是怎么运作的。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "总结一下：多想点子，全部记下来；放下问题，出去走走；聚在一起之前，先一个人做头脑风暴；给自己设限制；用天平做决定，而不是凭冲动。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "在MindHaOS的点子里，你可以写想法日记，用概念图整理思路，再用决策图做决定。你可以自己来，也可以请AI帮忙。今天就免费搭建你的心灵之家。链接在视频简介里。下一期指南：怎样更好地旅行？",
+    "boton": "打开点子",
+    "lamina": "app-plan",
+    "anclas": {
+      "diario": "想法日记",
+      "mapas": "概念图",
+      "diagramas": "决策图"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "simonton-1997",
+      "texto": "Simonton D. K. Creative productivity: a predictive and explanatory model of career trajectories and landmarks. Psychological Review 104(1), 66-89 (1997).",
+      "url": "https://doi.org/10.1037/0033-295X.104.1.66"
+    },
+    {
+      "id": "postit",
+      "texto": "Post-it便利贴的历史（斯潘塞·西尔弗和阿特·弗赖，3M）。维基百科。",
+      "url": "https://en.wikipedia.org/wiki/Post-it_note"
+    },
+    {
+      "id": "wallas-1926",
+      "texto": "Wallas G. The Art of Thought (1926). 维基百科。",
+      "url": "https://en.wikipedia.org/wiki/Graham_Wallas"
+    },
+    {
+      "id": "baird-2012",
+      "texto": "Baird B. 等. Inspired by distraction: mind wandering facilitates creative incubation. Psychological Science 23(10), 1117-1122 (2012).",
+      "url": "https://doi.org/10.1177/0956797612446024"
+    },
+    {
+      "id": "oppezzo-2014",
+      "texto": "Oppezzo M., Schwartz D. L. Give your ideas some legs: the positive effect of walking on creative thinking. Journal of Experimental Psychology: Learning, Memory, and Cognition 40(4), 1142-1152 (2014).",
+      "url": "https://doi.org/10.1037/a0036577"
+    },
+    {
+      "id": "diehl-1987",
+      "texto": "Diehl M., Stroebe W. Productivity loss in brainstorming groups: toward the solution of a riddle. Journal of Personality and Social Psychology 53(3), 497-509 (1987).",
+      "url": "https://doi.org/10.1037/0022-3514.53.3.497"
+    },
+    {
+      "id": "haught-2017",
+      "texto": "Haught-Tromp C. The Green Eggs and Ham hypothesis: how constraints facilitate creativity. Psychology of Aesthetics, Creativity, and the Arts 11(1), 10-17 (2017).",
+      "url": "https://doi.org/10.1037/aca0000061"
+    },
+    {
+      "id": "franklin-1772",
+      "texto": "Benjamin Franklin. 致约瑟夫·普里斯特利、谈「道德代数」的信（1772年9月19日）。Founders Online.",
+      "url": "https://founders.archives.gov/documents/Franklin/01-19-02-0200"
+    }
+  ]
+}

@@ -109,6 +109,11 @@ export const MEMES: Record<string, DefMeme> = {
   compartir: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
   fuente: { formato: 'arribaAbajo', poses: ['confundido', 'relajado'], sonido: 'jeje-boy' },
   madrugada: { formato: 'unico', poses: ['cansado'], sonido: 'bruh' },
+  // Ideas (las poses son del osito, el narrador).
+  cienIdeas: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
+  ducha: { formato: 'unico', poses: ['confundido'], sonido: 'wow' },
+  reunion: { formato: 'arribaAbajo', poses: ['orgulloso', 'cansado'], sonido: 'bruh' },
+  hoja: { formato: 'arribaAbajo', poses: ['relajado', 'orgulloso'], sonido: 'jeje-boy' },
 }
 
 export function Meme({ id, tema, t }: { id: string; tema: string; t: T }) {

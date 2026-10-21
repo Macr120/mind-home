@@ -1,0 +1,730 @@
+{
+  "idioma": "tr",
+  "tema": "ideas",
+  "plantillaId": "ideas",
+  "numero": 19,
+  "nombre": "Fikirler",
+  "pregunta": "Daha iyi fikirler nasıl bulunur?",
+  "corta": "Daha iyi fikirler nasıl bulunur?",
+  "subtitulo": "Çok fikir sahibi olmak neden iyi fikirlerin sırrıdır, yapıştırmayan bir yapıştırıcıdan doğan fikir, fikirler neden duşta gelir, yürümek seni daha yaratıcı yapar mı, beyin fırtınası grupta mı yoksa tek başına mı daha iyi işler, sınırlar seni neden daha yaratıcı yapar, fikirlerin arasından nasıl seçim yapılır ve devam etmek için bir plan.",
+  "aviso": "Bu rehber bilgilendirme amaçlı ve geneldir. Alıntılanan çalışmalar yaratıcılığı belirli görevlerde ölçer; senin sonuçların farklı olabilir.",
+  "partes": [
+    {
+      "id": "cantidad",
+      "titulo": "İyi fikirler nereden gelir?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Daha iyi fikirler nasıl bulunur? Büyük dahilerin daha az kötü fikri yoktu: daha çok fikri vardı. Seninkiler de not almazsan kaçıp gider. Ya iyi fikirler bir yetenek değil de bir alışkanlıksa? Bugün bunu verilerle göreceksin ve devam etmek için bir planla ayrılacaksın."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Bu arada, burası MindHaOS’taki evim ve evet: Noel geldi bile. Fikirlere ihtiyaç duymak için bundan iyi bir zaman yok: hediyeler, yemekler, yeni yıl kararları. Burası benim fikir odam: aklıma gelen her fikri buraya not ederim."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Birinci bölüm. İyi fikirler nereden gelir?"
+        },
+        {
+          "id": "simonton",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "obras",
+              "fracasos",
+              "proporcion"
+            ]
+          },
+          "lamina": [
+            "edison",
+            "bombilla"
+          ],
+          "destacada": true,
+          "texto": "Psikolog Dean Keith Simonton onlarca yıl boyunca ünlü bilim insanlarını ve sanatçıları inceledi ve şaşırtıcı bir şey buldu: en çok başyapıtı olanların başarısızlıkları da en çoktu. Sırları daha çok isabet ettirmek değil, daha çok üretmekti."
+        },
+        {
+          "id": "edison",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1093",
+            "clave": "edison"
+          },
+          "lamina": [
+            "patentes",
+            "taller"
+          ],
+          "texto": "Thomas Edison Amerika Birleşik Devletleri’nde bin doksan üç patent aldı ve bunların çoğu hiçbir işe yaramadı. İki kez Nobel ödülü kazanan Linus Pauling’in dediği gibi: iyi bir fikre sahip olmanın en iyi yolu, çok fikre sahip olmaktır."
+        },
+        {
+          "id": "muchas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "muchasIdeas"
+          },
+          "lamina": [
+            "postits",
+            "lluviaPapel"
+          ],
+          "meme": "cienIdeas",
+          "texto": "On fikirden biri iyiyse hesap basit: daha çok fikir, daha çok iyi fikir demek. Bak bakalım yılda kaç iyi fikrin çıkıyor."
+        },
+        {
+          "id": "diario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "anota",
+              "sinJuzgar",
+              "carpetas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bu yüzden bir fikir günlüğüm var: hepsini, saçma görünenleri bile not ediyorum, sonra da düzenliyorum."
+        }
+      ]
+    },
+    {
+      "id": "postit",
+      "titulo": "Yapıştırmayan bir yapıştırıcıdan hangi fikir doğdu?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "İkinci bölüm. Yapıştırmayan bir yapıştırıcıdan hangi fikir doğdu?"
+        },
+        {
+          "id": "silver",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "silver"
+          },
+          "lamina": [
+            "laboratorio",
+            "pegamento"
+          ],
+          "destacada": true,
+          "texto": "1968’de 3M şirketinde kimyager olan Spencer Silver, süper güçlü bir yapıştırıcı yapmaya çalışıyordu. Tam tersi çıktı: zar zor yapışan ve iz bırakmadan sökülen bir yapıştırıcı. Yıllarca kimse ona bir kullanım alanı bulamadı."
+        },
+        {
+          "id": "coro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "coro",
+              "separadores",
+              "recuerda"
+            ]
+          },
+          "lamina": [
+            "coro",
+            "himnario"
+          ],
+          "texto": "Ta ki 1974’te, kilise korosunda şarkı söyleyen meslektaşı Art Fry, kâğıt ayraçların ilahi kitabından düşmesinden bıkana kadar. Ve o yapıştırmayan yapıştırıcıyı hatırladı."
+        },
+        {
+          "id": "lanzamiento",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1980",
+            "clave": "postit"
+          },
+          "lamina": [
+            "notasColores",
+            "oficina"
+          ],
+          "texto": "1980’de Post-it notları satışa çıktı. Başarısız olmuş bir fikir, yıllar sonra başka bir fikre dönüştü, çünkü biri onu hafızasında saklamıştı."
+        },
+        {
+          "id": "lluvias",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "guarda",
+              "vuelve",
+              "combina"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bu yüzden hiçbir fikri atmıyorum: günlüğümde tarihe ve konuya göre saklanıyorlar, gerektiğinde onlara geri dönüyorum."
+        }
+      ]
+    },
+    {
+      "id": "ducha",
+      "titulo": "Fikirler neden duşta gelir?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Üçüncü bölüm. Fikirler neden duşta gelir?"
+        },
+        {
+          "id": "wallas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "preparacion",
+              "incubacion",
+              "iluminacion"
+            ]
+          },
+          "lamina": [
+            "pensador",
+            "ventana"
+          ],
+          "texto": "1926’da Graham Wallas bir fikrin nasıl geldiğini anlattı: önce hazırlanır ve problemi kafanda evirip çevirirsin; sonra onu bırakırsın ve zihnin arka planda üzerinde çalışmaya devam eder; ve birden fikir ortaya çıkar."
+        },
+        {
+          "id": "baird",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "incubacion"
+          },
+          "lamina": [
+            "ducha",
+            "lavarPlatos"
+          ],
+          "destacada": true,
+          "texto": "2012’de Kaliforniya Üniversitesi’nden bir ekip bunu yaratıcı problemlerle test etti. Molada zihnin dolaşmasına izin veren kolay bir şey yapanlar, başka zor bir işe odaklananlardan ya da hiç mola vermeyenlerden çok daha fazla gelişti."
+        },
+        {
+          "id": "soltar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "llena",
+              "suelta",
+              "anotaRapido"
+            ]
+          },
+          "lamina": [
+            "cocinar",
+            "libreta"
+          ],
+          "texto": "Yani önce probleme dal, sonra bulaşık yıkamak ya da hediye paketlemek gibi basit bir işle onu bırak. Fikir geldiğinde de kaçıp gitmeden hemen not al.",
+          "meme": "ducha"
+        },
+        {
+          "id": "mapa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mental",
+              "ramas",
+              "reposa"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bir fikir kafamda dönüp durunca onu bir zihin haritasına taşıyorum, “İdeal hayatım” haritam gibi, ve dinlenmeye bırakıyorum."
+        }
+      ]
+    },
+    {
+      "id": "caminar",
+      "titulo": "Yürümek seni daha yaratıcı yapar mı?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Dördüncü bölüm. Yürümek seni daha yaratıcı yapar mı?"
+        },
+        {
+          "id": "oppezzo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "caminar"
+          },
+          "lamina": [
+            "caminata",
+            "parque"
+          ],
+          "destacada": true,
+          "texto": "2014’te Stanford Üniversitesi’nden Marily Oppezzo ve Daniel Schwartz, insanlardan otururken ya da yürürken sıradan nesneler için yeni kullanım alanları bulmalarını istedi. Yürürken ortalama yüzde altmış daha fazla fikir buldular."
+        },
+        {
+          "id": "despues",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "caminando",
+              "despues",
+              "afuera"
+            ]
+          },
+          "lamina": [
+            "nieve",
+            "caminadora"
+          ],
+          "texto": "Üstelik etki, oturduktan sonra da bir süre devam etti. Dışarıda ya da duvara bakan bir koşu bandında yürümeleri fark etmiyordu: önemli olan hareket etmekti."
+        },
+        {
+          "id": "paseo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "problema",
+              "vuelta",
+              "nota"
+            ]
+          },
+          "lamina": [
+            "calleNavidad",
+            "celularNota"
+          ],
+          "texto": "Yani tıkandığında, problemi bir yürüyüşe çıkar. Yanına not alacak bir şey de al."
+        },
+        {
+          "id": "flujo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "flujoApp",
+              "pasosApp",
+              "rutinaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Sabah rutinimi bile bir akış şemasında tutuyorum: böylece bir yürüyüşün nereye sığacağını görüyorum."
+        }
+      ]
+    },
+    {
+      "id": "lluvia",
+      "titulo": "Beyin fırtınası grupta mı, tek başına mı?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Beşinci bölüm. Beyin fırtınası grupta mı, tek başına mı?"
+        },
+        {
+          "id": "osborn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "grupos"
+          },
+          "lamina": [
+            "reunion",
+            "pizarron"
+          ],
+          "destacada": true,
+          "texto": "Beyin fırtınasını ellili yıllarda bir reklamcı olan Alex Osborn yaygınlaştırdı. Ama 1987’de Michael Diehl ve Wolfgang Stroebe bunu sınadı: aynı kişiler, herkes kendi başına çalışıp sonra listelerini birleştirince, gruba göre neredeyse iki kat fikir çıkardı."
+        },
+        {
+          "id": "turno",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "lluviaSolo"
+          },
+          "lamina": [
+            "esperar",
+            "escribirSolo"
+          ],
+          "meme": "reunion",
+          "texto": "Neden mi? Grupta sıranı beklemen gerekir ve sen dinlerken fikrin uçup gider. Bir toplantıda kaç fikrin kaybolduğuna bak."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoIdeas"
+          },
+          "lamina": "pulgar",
+          "texto": "Bu rehberi beğeniyorsan Beğen’e bas, bir sonrakini kaçırmamak için Abone ol ve her zaman fikirleri olan ama onları hiç not almayan o kişiyle Paylaş."
+        },
+        {
+          "id": "mezcla",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "solo",
+              "juntos",
+              "mejora"
+            ]
+          },
+          "lamina": [
+            "equipo",
+            "postits2"
+          ],
+          "texto": "En iyisi karıştırmak: önce herkes tek başına, hiçbir şeyi yargılamadan; sonra bir araya gelinir, fikirler birleştirilir ve geliştirilir."
+        },
+        {
+          "id": "regalos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lluviaApp",
+              "regalosApp",
+              "mapaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "“Yılbaşı hediyeleri” beyin fırtınamı tek başıma yaptım, fikir üstüne fikir, sonra tek dokunuşla bir haritaya dönüştü."
+        }
+      ]
+    },
+    {
+      "id": "limites",
+      "titulo": "Sınırlar seni neden daha yaratıcı yapar?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Altıncı bölüm. Sınırlar seni neden daha yaratıcı yapar?"
+        },
+        {
+          "id": "seuss",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "50",
+            "clave": "seuss"
+          },
+          "lamina": [
+            "seuss",
+            "huevosVerdes"
+          ],
+          "destacada": true,
+          "texto": "1960’ta yayıncı Bennett Cerf, Grinch’in yazarı Dr. Seuss’a sadece elli farklı kelimeyle bir kitap yazamayacağı üzerine elli dolarına iddiaya girdi. Seuss, tarihin en çok satan çocuk kitaplarından biri olan Yeşil Yumurta ve Jambon’u yazdı."
+        },
+        {
+          "id": "haught",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rimas",
+              "palabras",
+              "mejores"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "rompecabezas"
+          ],
+          "texto": "2017’de psikolog Catrinel Haught-Tromp bunu test etti: belirli zorunlu kelimeleri kullanarak tekerleme yazmasını istediği kişilerin tekerlemeleri, serbestçe yazanlarınkinden daha yaratıcı çıktı."
+        },
+        {
+          "id": "reglas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tiempo",
+              "presupuesto",
+              "regla"
+            ]
+          },
+          "lamina": [
+            "reloj",
+            "envolver"
+          ],
+          "meme": "hoja",
+          "texto": "Yani kendine sınırlar koy: on dakika, küçük bir bütçe ya da tuhaf bir kural, mesela bir çoraba sığan hediyeler."
+        },
+        {
+          "id": "eisenhower",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "urgente",
+              "importante",
+              "soltarApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bu kadar fikrin içinde boğulmamak için de Eisenhower matrisim bana neyi hemen yapacağımı, neyi planlayacağımı ve neyi bırakacağımı söylüyor."
+        }
+      ]
+    },
+    {
+      "id": "decidir",
+      "titulo": "Fikirlerin arasından nasıl seçim yaparsın?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Yedinci bölüm. Fikirlerin arasından nasıl seçim yaparsın?"
+        },
+        {
+          "id": "franklin",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1772",
+            "clave": "franklin"
+          },
+          "lamina": [
+            "franklin",
+            "carta"
+          ],
+          "destacada": true,
+          "texto": "1772’de Benjamin Franklin bir arkadaşına nasıl karar verdiğini anlattı: iki sütunlu bir kâğıt, lehte ve aleyhte. Birkaç gün boyunca gerekçeler yazar, onlara bir ağırlık verir ve birbirini dengeleyenlerin üstünü çizerdi. Buna ahlaki cebir dedi."
+        },
+        {
+          "id": "balanza",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "balanzaFranklin"
+          },
+          "lamina": [
+            "balanza",
+            "decidir"
+          ],
+          "texto": "Önemli olan her tarafta kaç gerekçe olduğu değil, her birinin ne kadar ağır bastığı. Kendi terazini dene."
+        },
+        {
+          "id": "criterios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "criterios",
+              "puntua",
+              "duerme"
+            ]
+          },
+          "lamina": [
+            "comparar",
+            "cafe"
+          ],
+          "texto": "Birkaç seçeneğin olduğunda da kriterlerini seç, onlara önem ver, her seçeneği puanla… ve bir gece üstünde uyu."
+        },
+        {
+          "id": "proscontras",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pesosApp",
+              "matrizApp",
+              "totalApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Şemalarımda ağırlıklarıyla artılar ve eksiler var, kameramı seçmek için de bir karar matrisi."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Nasıl devam etmeli? Devam etmek için planın",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Sekizinci bölüm. Nasıl devam etmeli? Devam etmek için planın."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planIdeas"
+          },
+          "lamina": [
+            "libreta",
+            "postits"
+          ],
+          "texto": "İlk hafta aklına gelen her fikri, ne kadar küçük olursa olsun, tek bir yere not al."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lluviaSemanal",
+              "caminaPlan",
+              "limitePlan"
+            ]
+          },
+          "lamina": [
+            "caminata",
+            "pizarron"
+          ],
+          "destacada": true,
+          "texto": "İlk ay her hafta tek başına bir beyin fırtınası yap, tıkandığında yürüyüşe çık ve her meydan okumada kendine bir sınır koy."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "relee",
+              "combinaPlan",
+              "decidePlan"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "cumbre"
+          ],
+          "texto": "Her ay da eski fikirlerini yeniden oku: biri yeni bir fikirle birleşecektir. Karar verme zamanı gelince de onu teraziye koy."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "formatos",
+              "ejemplo",
+              "conIA"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Nereden başlayacağımı bilmediğimde, her haritada ve her şemada nasıl çalıştığını görmek için bir örnek var."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Özetle: çok fikrin olsun ve hepsini not al; problemi bırak ve yürüyüşe çık; bir araya gelmeden önce beyin fırtınanı tek başına yap; kendine sınırlar koy; ve bir dürtüyle değil, bir teraziyle karar ver."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS’un Fikirler odasında fikir günlüğünü tutar, haritalarını düzenler ve şemalarınla karar verirsin. Bunu kendi başına ya da yapay zekânın yardımıyla yapabilirsin. Zihinsel evini bugün ücretsiz kur: bağlantı açıklamada. Bir sonraki rehberde ise: nasıl daha iyi seyahat edersin?",
+    "boton": "Fikirler’i aç",
+    "lamina": "app-plan",
+    "anclas": {
+      "diario": "fikir günlüğünü",
+      "mapas": "haritalarını",
+      "diagramas": "şemalarınla"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "simonton-1997",
+      "texto": "Simonton D. K. Creative productivity: a predictive and explanatory model of career trajectories and landmarks. Psychological Review 104(1), 66-89 (1997).",
+      "url": "https://doi.org/10.1037/0033-295X.104.1.66"
+    },
+    {
+      "id": "postit",
+      "texto": "Post-it notlarının tarihi (Spencer Silver ve Art Fry, 3M). Vikipedi.",
+      "url": "https://en.wikipedia.org/wiki/Post-it_note"
+    },
+    {
+      "id": "wallas-1926",
+      "texto": "Wallas G. The Art of Thought (1926). Vikipedi.",
+      "url": "https://en.wikipedia.org/wiki/Graham_Wallas"
+    },
+    {
+      "id": "baird-2012",
+      "texto": "Baird B. ve meslektaşları. Inspired by distraction: mind wandering facilitates creative incubation. Psychological Science 23(10), 1117-1122 (2012).",
+      "url": "https://doi.org/10.1177/0956797612446024"
+    },
+    {
+      "id": "oppezzo-2014",
+      "texto": "Oppezzo M., Schwartz D. L. Give your ideas some legs: the positive effect of walking on creative thinking. Journal of Experimental Psychology: Learning, Memory, and Cognition 40(4), 1142-1152 (2014).",
+      "url": "https://doi.org/10.1037/a0036577"
+    },
+    {
+      "id": "diehl-1987",
+      "texto": "Diehl M., Stroebe W. Productivity loss in brainstorming groups: toward the solution of a riddle. Journal of Personality and Social Psychology 53(3), 497-509 (1987).",
+      "url": "https://doi.org/10.1037/0022-3514.53.3.497"
+    },
+    {
+      "id": "haught-2017",
+      "texto": "Haught-Tromp C. The Green Eggs and Ham hypothesis: how constraints facilitate creativity. Psychology of Aesthetics, Creativity, and the Arts 11(1), 10-17 (2017).",
+      "url": "https://doi.org/10.1037/aca0000061"
+    },
+    {
+      "id": "franklin-1772",
+      "texto": "Benjamin Franklin. Joseph Priestley’ye “ahlaki cebir” üzerine mektup (19 Eylül 1772). Founders Online.",
+      "url": "https://founders.archives.gov/documents/Franklin/01-19-02-0200"
+    }
+  ]
+}

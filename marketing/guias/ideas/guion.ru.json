@@ -1,0 +1,730 @@
+{
+  "idioma": "ru",
+  "tema": "ideas",
+  "plantillaId": "ideas",
+  "numero": 19,
+  "nombre": "Идеи",
+  "pregunta": "Как придумывать лучшие идеи?",
+  "corta": "Как придумывать лучшие идеи?",
+  "subtitulo": "Почему много идей — секрет хороших, идея, которая родилась из клея, который не клеил, почему идеи приходят в душе, делает ли ходьба тебя креативнее, где мозговой штурм работает лучше — в группе или в одиночку, почему ограничения делают тебя креативнее, как выбирать между своими идеями и план на будущее.",
+  "aviso": "Это руководство носит общий и информационный характер. Цитируемые исследования измеряют креативность в конкретных задачах; твои результаты могут отличаться.",
+  "partes": [
+    {
+      "id": "cantidad",
+      "titulo": "Откуда берутся хорошие идеи?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Как придумывать лучшие идеи? У великих гениев было не меньше плохих идей: у них было больше идей. А твои ускользают, если их не записывать. А что, если хорошие идеи — это привычка, а не дар? Сегодня ты увидишь это на данных и уйдёшь с планом на будущее."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Кстати, это мой дом в MindHaOS, и да: уже Рождество. А лучшего времени, когда так нужны идеи, не найти: подарки, праздничные ужины, планы на Новый год. Это моя комната идей: здесь я записываю все идеи, которые приходят мне в голову."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть первая. Откуда берутся хорошие идеи?"
+        },
+        {
+          "id": "simonton",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "obras",
+              "fracasos",
+              "proporcion"
+            ]
+          },
+          "lamina": [
+            "edison",
+            "bombilla"
+          ],
+          "destacada": true,
+          "texto": "Психолог Дин Кит Саймонтон десятилетиями изучал знаменитых учёных и художников и обнаружил удивительное: у тех, у кого было больше всего шедевров, было и больше всего провалов. Их секрет был не в том, чтобы чаще попадать, а в том, чтобы больше создавать."
+        },
+        {
+          "id": "edison",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1093",
+            "clave": "edison"
+          },
+          "lamina": [
+            "patentes",
+            "taller"
+          ],
+          "texto": "Томас Эдисон получил в США тысячу девяносто три патента, и многие из них ни на что не сгодились. Как сказал Лайнус Полинг, дважды лауреат Нобелевской премии: лучший способ получить хорошую идею — иметь много идей."
+        },
+        {
+          "id": "muchas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "muchasIdeas"
+          },
+          "lamina": [
+            "postits",
+            "lluviaPapel"
+          ],
+          "meme": "cienIdeas",
+          "texto": "Если хороша одна идея из десяти, расчёт простой: больше идей — больше хороших идей. Посмотри, сколько хороших у тебя выйдет за год."
+        },
+        {
+          "id": "diario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "anota",
+              "sinJuzgar",
+              "carpetas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Поэтому у меня есть дневник идей: я записываю все, даже те, что кажутся глупыми, а потом навожу в них порядок."
+        }
+      ]
+    },
+    {
+      "id": "postit",
+      "titulo": "Какая идея родилась из клея, который не клеил?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть вторая. Какая идея родилась из клея, который не клеил?"
+        },
+        {
+          "id": "silver",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "silver"
+          },
+          "lamina": [
+            "laboratorio",
+            "pegamento"
+          ],
+          "destacada": true,
+          "texto": "В 1968 году Спенсер Сильвер, химик компании 3M, пытался создать сверхпрочный клей. А получилось ровно наоборот: клей, который едва держал и отклеивался без следа. Годами никто не мог найти ему применение."
+        },
+        {
+          "id": "coro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "coro",
+              "separadores",
+              "recuerda"
+            ]
+          },
+          "lamina": [
+            "coro",
+            "himnario"
+          ],
+          "texto": "Пока в 1974 году его коллега Арт Фрай, который пел в церковном хоре, не устал от того, что бумажные закладки выпадают у него из сборника гимнов. И тут он вспомнил про клей, который не клеил."
+        },
+        {
+          "id": "lanzamiento",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1980",
+            "clave": "postit"
+          },
+          "lamina": [
+            "notasColores",
+            "oficina"
+          ],
+          "texto": "В 1980 году в продажу поступили стикеры Post-it. Идея, которая провалилась, спустя годы стала другой идеей, потому что кто-то хранил её в памяти."
+        },
+        {
+          "id": "lluvias",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "guarda",
+              "vuelve",
+              "combina"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Поэтому я не выбрасываю ни одной идеи: в моём дневнике они хранятся по дате и по теме, и я возвращаюсь к ним, когда нужно."
+        }
+      ]
+    },
+    {
+      "id": "ducha",
+      "titulo": "Почему идеи приходят в душе?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть третья. Почему идеи приходят в душе?"
+        },
+        {
+          "id": "wallas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "preparacion",
+              "incubacion",
+              "iluminacion"
+            ]
+          },
+          "lamina": [
+            "pensador",
+            "ventana"
+          ],
+          "texto": "В 1926 году Грэм Уоллес описал, как приходит идея: сначала ты готовишься и обдумываешь задачу; потом отпускаешь её, а ум продолжает работать над ней в фоне; и вдруг идея появляется."
+        },
+        {
+          "id": "baird",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "incubacion"
+          },
+          "lamina": [
+            "ducha",
+            "lavarPlatos"
+          ],
+          "destacada": true,
+          "texto": "В 2012 году команда из Калифорнийского университета проверила это на творческих задачах. Те, кто в перерыве делал что-то лёгкое, позволяя мыслям блуждать, улучшили результат гораздо сильнее тех, кто сосредоточился на другой трудной задаче или не отдыхал вовсе."
+        },
+        {
+          "id": "soltar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "llena",
+              "suelta",
+              "anotaRapido"
+            ]
+          },
+          "lamina": [
+            "cocinar",
+            "libreta"
+          ],
+          "texto": "Так что погрузись в задачу, а потом отпусти её за чем-то простым, например за мытьём посуды или упаковкой подарков. А когда придёт идея, запиши её быстро, пока не улетела.",
+          "meme": "ducha"
+        },
+        {
+          "id": "mapa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mental",
+              "ramas",
+              "reposa"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Когда идея не выходит у меня из головы, я переношу её в интеллект-карту, как мою «Идеальную жизнь», и даю ей отлежаться."
+        }
+      ]
+    },
+    {
+      "id": "caminar",
+      "titulo": "Делает ли ходьба тебя креативнее?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть четвёртая. Делает ли ходьба тебя креативнее?"
+        },
+        {
+          "id": "oppezzo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "caminar"
+          },
+          "lamina": [
+            "caminata",
+            "parque"
+          ],
+          "destacada": true,
+          "texto": "В 2014 году Мэрили Оппеццо и Дэниел Шварц из Стэнфордского университета попросили людей придумать новые способы использования обычных предметов — сидя или на ходу. На ходу они придумывали в среднем на шестьдесят процентов больше."
+        },
+        {
+          "id": "despues",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "caminando",
+              "despues",
+              "afuera"
+            ]
+          },
+          "lamina": [
+            "nieve",
+            "caminadora"
+          ],
+          "texto": "И эффект сохранялся ещё какое-то время после того, как они садились. Неважно, шли они по улице или по беговой дорожке лицом к стене: главное было двигаться."
+        },
+        {
+          "id": "paseo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "problema",
+              "vuelta",
+              "nota"
+            ]
+          },
+          "lamina": [
+            "calleNavidad",
+            "celularNota"
+          ],
+          "texto": "Так что, когда застрянешь, возьми задачу на прогулку. И возьми, чем записывать."
+        },
+        {
+          "id": "flujo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "flujoApp",
+              "pasosApp",
+              "rutinaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Даже мой утренний ритуал у меня в блок-схеме: так я вижу, куда вписать прогулку."
+        }
+      ]
+    },
+    {
+      "id": "lluvia",
+      "titulo": "Мозговой штурм: в группе или в одиночку?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть пятая. Мозговой штурм: в группе или в одиночку?"
+        },
+        {
+          "id": "osborn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "grupos"
+          },
+          "lamina": [
+            "reunion",
+            "pizarron"
+          ],
+          "destacada": true,
+          "texto": "Мозговой штурм прославил рекламщик Алекс Осборн в пятидесятых годах. Но в 1987 году Михаэль Диль и Вольфганг Штрёбе проверили его: те же люди, работая каждый сам по себе и потом объединив свои списки, выдали почти вдвое больше идей, чем в группе."
+        },
+        {
+          "id": "turno",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "lluviaSolo"
+          },
+          "lamina": [
+            "esperar",
+            "escribirSolo"
+          ],
+          "meme": "reunion",
+          "texto": "Почему? В группе приходится ждать своей очереди, и пока ты слушаешь, твоя идея испаряется. Посмотри, сколько идей теряется на одном совещании."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoIdeas"
+          },
+          "lamina": "pulgar",
+          "texto": "Если тебе нравится это руководство, нажми «Нравится», «Подписаться», чтобы не пропустить следующее, и «Поделиться» — с тем, у кого всегда есть идеи, но кто их никогда не записывает."
+        },
+        {
+          "id": "mezcla",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "solo",
+              "juntos",
+              "mejora"
+            ]
+          },
+          "lamina": [
+            "equipo",
+            "postits2"
+          ],
+          "texto": "Лучше всего сочетать: сначала каждый сам по себе, ничего не оценивая; потом все собираются, объединяют идеи и улучшают их."
+        },
+        {
+          "id": "regalos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lluviaApp",
+              "regalosApp",
+              "mapaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Свой мозговой штурм «Подарки на конец года» я провёл в одиночку, идея за идеей, а потом одним касанием превратил его в карту."
+        }
+      ]
+    },
+    {
+      "id": "limites",
+      "titulo": "Почему ограничения делают тебя креативнее?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть шестая. Почему ограничения делают тебя креативнее?"
+        },
+        {
+          "id": "seuss",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "50",
+            "clave": "seuss"
+          },
+          "lamina": [
+            "seuss",
+            "huevosVerdes"
+          ],
+          "destacada": true,
+          "texto": "В 1960 году издатель Беннет Серф поспорил на пятьдесят долларов с доктором Сьюзом, автором «Гринча», что тот не сможет написать книгу всего из пятидесяти разных слов. Сьюз написал «Зелёные яйца и ветчину» — одну из самых продаваемых детских книг в истории."
+        },
+        {
+          "id": "haught",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rimas",
+              "palabras",
+              "mejores"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "rompecabezas"
+          ],
+          "texto": "В 2017 году психолог Катринель Хот-Тромп проверила это: у тех, кого она просила сочинять стишки с определёнными обязательными словами, они выходили креативнее, чем у тех, кто писал свободно."
+        },
+        {
+          "id": "reglas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tiempo",
+              "presupuesto",
+              "regla"
+            ]
+          },
+          "lamina": [
+            "reloj",
+            "envolver"
+          ],
+          "meme": "hoja",
+          "texto": "Так что ставь себе ограничения: десять минут, маленький бюджет или странное правило, например подарки, которые помещаются в носок."
+        },
+        {
+          "id": "eisenhower",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "urgente",
+              "importante",
+              "soltarApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "А чтобы не утонуть во всех этих идеях, моя матрица Эйзенхауэра подсказывает, что делать сразу, что запланировать, а что отпустить."
+        }
+      ]
+    },
+    {
+      "id": "decidir",
+      "titulo": "Как выбирать между своими идеями?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть седьмая. Как выбирать между своими идеями?"
+        },
+        {
+          "id": "franklin",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1772",
+            "clave": "franklin"
+          },
+          "lamina": [
+            "franklin",
+            "carta"
+          ],
+          "destacada": true,
+          "texto": "В 1772 году Бенджамин Франклин объяснил другу, как принимает решения: лист с двумя колонками, за и против. Несколько дней он записывал доводы, давал каждому вес и вычёркивал те, что уравновешивали друг друга. Он назвал это моральной алгеброй."
+        },
+        {
+          "id": "balanza",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "balanzaFranklin"
+          },
+          "lamina": [
+            "balanza",
+            "decidir"
+          ],
+          "texto": "Важно не то, сколько доводов на каждой стороне, а сколько весит каждый. Попробуй свои собственные весы."
+        },
+        {
+          "id": "criterios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "criterios",
+              "puntua",
+              "duerme"
+            ]
+          },
+          "lamina": [
+            "comparar",
+            "cafe"
+          ],
+          "texto": "А когда у тебя несколько вариантов, выбери критерии, определи их важность, оцени каждый вариант… и отложи решение до утра."
+        },
+        {
+          "id": "proscontras",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pesosApp",
+              "matrizApp",
+              "totalApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "В моих диаграммах есть плюсы и минусы с их весом и матрица решений, чтобы выбрать камеру."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Как продолжать? Твой план на будущее",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть восьмая. Как продолжать? Твой план на будущее."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planIdeas"
+          },
+          "lamina": [
+            "libreta",
+            "postits"
+          ],
+          "texto": "В первую неделю записывай в одно место каждую идею, которая придёт в голову, даже самую маленькую."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lluviaSemanal",
+              "caminaPlan",
+              "limitePlan"
+            ]
+          },
+          "lamina": [
+            "caminata",
+            "pizarron"
+          ],
+          "destacada": true,
+          "texto": "В первый месяц раз в неделю устраивай мозговой штурм в одиночку, выходи на прогулку, когда застрянешь, и ставь себе ограничение для каждой задачи."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "relee",
+              "combinaPlan",
+              "decidePlan"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "cumbre"
+          ],
+          "texto": "А каждый месяц перечитывай свои старые идеи: какая-нибудь соединится с новой. А когда придёт время решать, положи её на весы."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "formatos",
+              "ejemplo",
+              "conIA"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "А если я не знаю, с чего начать, в каждой карте и каждой диаграмме есть пример, чтобы увидеть, как она работает."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Итак: придумывай много идей и записывай все; отпусти задачу и выйди на прогулку; устраивай мозговой штурм в одиночку, прежде чем собираться вместе; ставь себе ограничения; и решай с помощью весов, а не под влиянием импульса."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "В «Идеях» MindHaOS ты ведёшь свой дневник идей, упорядочиваешь свои карты и принимаешь решения с помощью своих диаграмм. Ты можешь делать это сам или с помощью ИИ. Построй свой мысленный дом бесплатно уже сегодня: ссылка в описании. А в следующем руководстве: как путешествовать лучше?",
+    "boton": "Открыть Идеи",
+    "lamina": "app-plan",
+    "anclas": {
+      "diario": "дневник идей",
+      "mapas": "свои карты",
+      "diagramas": "своих диаграмм"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "simonton-1997",
+      "texto": "Simonton D. K. Creative productivity: a predictive and explanatory model of career trajectories and landmarks. Psychological Review 104(1), 66-89 (1997).",
+      "url": "https://doi.org/10.1037/0033-295X.104.1.66"
+    },
+    {
+      "id": "postit",
+      "texto": "История стикеров Post-it (Спенсер Сильвер и Арт Фрай, 3M). Википедия.",
+      "url": "https://en.wikipedia.org/wiki/Post-it_note"
+    },
+    {
+      "id": "wallas-1926",
+      "texto": "Wallas G. The Art of Thought (1926). Википедия.",
+      "url": "https://en.wikipedia.org/wiki/Graham_Wallas"
+    },
+    {
+      "id": "baird-2012",
+      "texto": "Baird B. и коллеги. Inspired by distraction: mind wandering facilitates creative incubation. Psychological Science 23(10), 1117-1122 (2012).",
+      "url": "https://doi.org/10.1177/0956797612446024"
+    },
+    {
+      "id": "oppezzo-2014",
+      "texto": "Oppezzo M., Schwartz D. L. Give your ideas some legs: the positive effect of walking on creative thinking. Journal of Experimental Psychology: Learning, Memory, and Cognition 40(4), 1142-1152 (2014).",
+      "url": "https://doi.org/10.1037/a0036577"
+    },
+    {
+      "id": "diehl-1987",
+      "texto": "Diehl M., Stroebe W. Productivity loss in brainstorming groups: toward the solution of a riddle. Journal of Personality and Social Psychology 53(3), 497-509 (1987).",
+      "url": "https://doi.org/10.1037/0022-3514.53.3.497"
+    },
+    {
+      "id": "haught-2017",
+      "texto": "Haught-Tromp C. The Green Eggs and Ham hypothesis: how constraints facilitate creativity. Psychology of Aesthetics, Creativity, and the Arts 11(1), 10-17 (2017).",
+      "url": "https://doi.org/10.1037/aca0000061"
+    },
+    {
+      "id": "franklin-1772",
+      "texto": "Бенджамин Франклин. Письмо Джозефу Пристли о «моральной алгебре» (19 сентября 1772 года). Founders Online.",
+      "url": "https://founders.archives.gov/documents/Franklin/01-19-02-0200"
+    }
+  ]
+}

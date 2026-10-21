@@ -1,0 +1,730 @@
+{
+  "idioma": "ja",
+  "tema": "ideas",
+  "plantillaId": "ideas",
+  "numero": 19,
+  "nombre": "アイデア",
+  "pregunta": "もっといいアイデアを出すには？",
+  "corta": "もっといいアイデアを出すには？",
+  "subtitulo": "たくさんのアイデアを出すことがいいアイデアの秘訣である理由、くっつかない接着剤から生まれたアイデア、なぜアイデアはシャワー中に浮かぶのか、歩くと創造的になるのか、ブレインストーミングはグループと一人のどちらがいいのか、なぜ制約があると創造的になるのか、アイデアの中からどう選ぶか、そして続けるためのプラン。",
+  "aviso": "このガイドは一般的な情報提供を目的としています。紹介する研究は特定の課題での創造性を測ったもので、結果には個人差があります。",
+  "partes": [
+    {
+      "id": "cantidad",
+      "titulo": "いいアイデアはどこから生まれるのでしょうか？",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "もっといいアイデアを出すには、どうすればいいのでしょうか？ 偉大な天才たちは、悪いアイデアが少なかったのではなく、アイデアそのものが多かったんです。そして、あなたのアイデアも、書きとめなければ逃げていきます。もし、いいアイデアを出すことが、才能ではなく習慣だとしたら？ 今日はデータでそれを確かめて、続けるためのプランを持ち帰ってもらいます。"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "ところで、ここはMindHaOSにあるぼくの家です。そう、もうクリスマスなんです。アイデアが必要になるのに、これ以上の季節はありません。プレゼント、ごちそう、新年の抱負。ここがぼくのアイデアの部屋。思いついたアイデアは、全部ここに書きとめています。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート1。いいアイデアはどこから生まれるのでしょうか？"
+        },
+        {
+          "id": "simonton",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "obras",
+              "fracasos",
+              "proporcion"
+            ]
+          },
+          "lamina": [
+            "edison",
+            "bombilla"
+          ],
+          "destacada": true,
+          "texto": "心理学者のディーン・キース・サイモントンは、有名な科学者や芸術家を何十年も研究して、驚くべきことを見つけました。傑作が多い人ほど、失敗作も多かったんです。秘訣は、当てることではなく、たくさん生み出すことでした。"
+        },
+        {
+          "id": "edison",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1093",
+            "clave": "edison"
+          },
+          "lamina": [
+            "patentes",
+            "taller"
+          ],
+          "texto": "トーマス・エジソンは、アメリカで千九十三件の特許を取りましたが、その多くは何の役にも立ちませんでした。ノーベル賞を二度受賞したライナス・ポーリングも言っています。いいアイデアを得る最良の方法は、たくさんのアイデアを持つことだ、と。"
+        },
+        {
+          "id": "muchas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "muchasIdeas"
+          },
+          "lamina": [
+            "postits",
+            "lluviaPapel"
+          ],
+          "meme": "cienIdeas",
+          "texto": "十個に一個がいいアイデアなら、計算は簡単です。アイデアが多いほど、いいアイデアも増えます。一年でいくつ生まれるか、見てみましょう。"
+        },
+        {
+          "id": "diario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "anota",
+              "sinJuzgar",
+              "carpetas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "だからぼくはアイデア日記をつけています。ばかばかしく思えるものも全部書いて、あとで整理するんです。"
+        }
+      ]
+    },
+    {
+      "id": "postit",
+      "titulo": "くっつかない接着剤から、どんなアイデアが生まれたのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート2。くっつかない接着剤から、どんなアイデアが生まれたのでしょうか？"
+        },
+        {
+          "id": "silver",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "silver"
+          },
+          "lamina": [
+            "laboratorio",
+            "pegamento"
+          ],
+          "destacada": true,
+          "texto": "1968年、3Mの化学者スペンサー・シルバーは、とても強い接着剤をつくろうとしていました。ところが、できたのは正反対。ほとんどくっつかず、跡を残さずにはがれるものでした。何年ものあいだ、誰も使い道を見つけられませんでした。"
+        },
+        {
+          "id": "coro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "coro",
+              "separadores",
+              "recuerda"
+            ]
+          },
+          "lamina": [
+            "coro",
+            "himnario"
+          ],
+          "texto": "そして1974年、同僚のアート・フライは、教会の聖歌隊で歌うたびに、紙のしおりが賛美歌の本から落ちるのにうんざりしていました。そこで、あのくっつかない接着剤を思い出したんです。"
+        },
+        {
+          "id": "lanzamiento",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1980",
+            "clave": "postit"
+          },
+          "lamina": [
+            "notasColores",
+            "oficina"
+          ],
+          "texto": "1980年、Post-itのふせんが発売されました。失敗したアイデアが、何年もたってから別のアイデアに生まれ変わったんです。誰かが、それを覚えていたからこそ。"
+        },
+        {
+          "id": "lluvias",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "guarda",
+              "vuelve",
+              "combina"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "だからぼくは、どんなアイデアも捨てません。日記には日付ごと、テーマごとに残っていて、必要なときにまた読み返します。"
+        }
+      ]
+    },
+    {
+      "id": "ducha",
+      "titulo": "なぜアイデアはシャワー中に浮かぶのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート3。なぜアイデアはシャワー中に浮かぶのでしょうか？"
+        },
+        {
+          "id": "wallas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "preparacion",
+              "incubacion",
+              "iluminacion"
+            ]
+          },
+          "lamina": [
+            "pensador",
+            "ventana"
+          ],
+          "texto": "1926年、グレアム・ウォーラスは、アイデアが生まれる流れをこう説明しました。まず準備をして、問題をあれこれ考える。次にそれを手放すと、頭の奥で考え続けてくれる。そして突然、アイデアがひらめくんです。"
+        },
+        {
+          "id": "baird",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "incubacion"
+          },
+          "lamina": [
+            "ducha",
+            "lavarPlatos"
+          ],
+          "destacada": true,
+          "texto": "2012年、カリフォルニア大学のチームが、創造的な問題で試しました。休憩中に、心がさまようような簡単な作業をした人は、難しい作業に集中した人や休憩しなかった人よりも、ずっと成績が伸びたんです。"
+        },
+        {
+          "id": "soltar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "llena",
+              "suelta",
+              "anotaRapido"
+            ]
+          },
+          "lamina": [
+            "cocinar",
+            "libreta"
+          ],
+          "texto": "だから、まずは問題で頭をいっぱいにして、それから皿洗いやプレゼントの包装みたいな簡単なことで手放しましょう。そしてアイデアが来たら、逃げないうちにすぐメモを。",
+          "meme": "ducha"
+        },
+        {
+          "id": "mapa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mental",
+              "ramas",
+              "reposa"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "頭から離れないアイデアは、「理想の暮らし」のようにマインドマップにして、しばらく寝かせておきます。"
+        }
+      ]
+    },
+    {
+      "id": "caminar",
+      "titulo": "歩くと創造的になるのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート4。歩くと創造的になるのでしょうか？"
+        },
+        {
+          "id": "oppezzo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "caminar"
+          },
+          "lamina": [
+            "caminata",
+            "parque"
+          ],
+          "destacada": true,
+          "texto": "2014年、スタンフォード大学のマリリー・オペッツォとダニエル・シュワルツは、身近な物の新しい使い道を、座ったまま、または歩きながら考えてもらいました。歩いているときは、平均で六十パーセントも多く思いついたんです。"
+        },
+        {
+          "id": "despues",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "caminando",
+              "despues",
+              "afuera"
+            ]
+          },
+          "lamina": [
+            "nieve",
+            "caminadora"
+          ],
+          "texto": "しかもその効果は、座ったあともしばらく続きました。外を歩いても、壁に向かってランニングマシンで歩いても同じ。大事なのは、体を動かすことでした。"
+        },
+        {
+          "id": "paseo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "problema",
+              "vuelta",
+              "nota"
+            ]
+          },
+          "lamina": [
+            "calleNavidad",
+            "celularNota"
+          ],
+          "texto": "だから行き詰まったら、問題を連れて散歩に出かけましょう。メモできるものも忘れずに。"
+        },
+        {
+          "id": "flujo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "flujoApp",
+              "pasosApp",
+              "rutinaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "ぼくは「朝のルーティン」までフローチャートにしています。そうすると、どこに散歩を入れられるかが見えるんです。"
+        }
+      ]
+    },
+    {
+      "id": "lluvia",
+      "titulo": "ブレインストーミングは、グループと一人のどちらがいいのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート5。ブレインストーミングは、グループと一人のどちらがいいのでしょうか？"
+        },
+        {
+          "id": "osborn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "grupos"
+          },
+          "lamina": [
+            "reunion",
+            "pizarron"
+          ],
+          "destacada": true,
+          "texto": "ブレインストーミングを広めたのは、広告マンのアレックス・オズボーンで、1950年代のことです。でも1987年、ミヒャエル・ディールとヴォルフガング・シュトレーベが検証しました。同じ人たちが一人ずつ考えて、あとでリストを合わせると、グループで考えたときのほぼ二倍のアイデアが出たんです。"
+        },
+        {
+          "id": "turno",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "lluviaSolo"
+          },
+          "lamina": [
+            "esperar",
+            "escribirSolo"
+          ],
+          "meme": "reunion",
+          "texto": "なぜでしょう？ グループでは自分の番を待たなければならず、人の話を聞いているうちに、自分のアイデアが消えてしまうんです。会議でどれだけのアイデアが失われるか、見てみましょう。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoIdeas"
+          },
+          "lamina": "pulgar",
+          "texto": "このガイドを気に入ってもらえたら、高評価と、次回を見逃さないためのチャンネル登録、そして、いつもアイデアはあるのに全然メモしないあの人に共有をお願いします。"
+        },
+        {
+          "id": "mezcla",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "solo",
+              "juntos",
+              "mejora"
+            ]
+          },
+          "lamina": [
+            "equipo",
+            "postits2"
+          ],
+          "texto": "いちばんいいのは、組み合わせることです。まずは一人ひとりで、何も否定せずに。それから集まって、組み合わせて、磨き上げます。"
+        },
+        {
+          "id": "regalos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lluviaApp",
+              "regalosApp",
+              "mapaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "ぼくの「年末の贈り物」のブレインストーミングは、一人でやりました。アイデアを次々に出して、そこからワンタップでマップにしたんです。"
+        }
+      ]
+    },
+    {
+      "id": "limites",
+      "titulo": "なぜ制約があると創造的になるのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート6。なぜ制約があると創造的になるのでしょうか？"
+        },
+        {
+          "id": "seuss",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "50",
+            "clave": "seuss"
+          },
+          "lamina": [
+            "seuss",
+            "huevosVerdes"
+          ],
+          "destacada": true,
+          "texto": "1960年、編集者のベネット・サーフは、グリンチの生みの親ドクター・スースに、たった五十種類の単語では本は書けないだろうと、五十ドルを賭けました。スースが書いたのは『グリーン・エッグス・アンド・ハム』。史上もっとも売れた子どもの本のひとつです。"
+        },
+        {
+          "id": "haught",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rimas",
+              "palabras",
+              "mejores"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "rompecabezas"
+          ],
+          "texto": "2017年、心理学者のカトリネル・ホート＝トロンプがそれを確かめました。決められた単語を使って韻を踏む詩を書いた人のほうが、自由に書いた人よりも創造的な詩になったんです。"
+        },
+        {
+          "id": "reglas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tiempo",
+              "presupuesto",
+              "regla"
+            ]
+          },
+          "lamina": [
+            "reloj",
+            "envolver"
+          ],
+          "meme": "hoja",
+          "texto": "だから、自分に制約をかけましょう。十分間、少ない予算、あるいは「靴下に入るプレゼント」みたいな変わったルール。"
+        },
+        {
+          "id": "eisenhower",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "urgente",
+              "importante",
+              "soltarApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "そしてアイデアが多すぎて溺れないように、ぼくのアイゼンハワーマトリクスが、今すぐやること、予定に入れること、手放すことを教えてくれます。"
+        }
+      ]
+    },
+    {
+      "id": "decidir",
+      "titulo": "アイデアの中から、どう選べばいいのでしょうか？",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート7。アイデアの中から、どう選べばいいのでしょうか？"
+        },
+        {
+          "id": "franklin",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1772",
+            "clave": "franklin"
+          },
+          "lamina": [
+            "franklin",
+            "carta"
+          ],
+          "destacada": true,
+          "texto": "1772年、ベンジャミン・フランクリンは、友人に自分の決め方を説明しました。一枚の紙に、賛成と反対の二つの列。数日かけて理由を書き出し、それぞれに重みをつけて、つり合うものどうしを消していく。彼はそれを「道徳的代数」と呼びました。"
+        },
+        {
+          "id": "balanza",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "balanzaFranklin"
+          },
+          "lamina": [
+            "balanza",
+            "decidir"
+          ],
+          "texto": "大事なのは、それぞれの側に理由がいくつあるかではなく、ひとつひとつがどれだけ重いかです。あなたの天秤で試してみてください。"
+        },
+        {
+          "id": "criterios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "criterios",
+              "puntua",
+              "duerme"
+            ]
+          },
+          "lamina": [
+            "comparar",
+            "cafe"
+          ],
+          "texto": "そして選択肢がいくつもあるときは、基準を決めて、その重要度をつけて、選択肢ごとに点をつける……そして、一晩寝かせてみましょう。"
+        },
+        {
+          "id": "proscontras",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pesosApp",
+              "matrizApp",
+              "totalApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "ぼくの決定図には、重みつきのメリット・デメリットと、「月を撮るならどのカメラ？」を選ぶための決定マトリクスがあります。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "この先どうする？ 続けるためのプラン",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート8。この先どうする？ 続けるためのプラン。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planIdeas"
+          },
+          "lamina": [
+            "libreta",
+            "postits"
+          ],
+          "texto": "最初の一週間は、思いついたアイデアを、どんなに小さくても全部、一か所に書きとめましょう。"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lluviaSemanal",
+              "caminaPlan",
+              "limitePlan"
+            ]
+          },
+          "lamina": [
+            "caminata",
+            "pizarron"
+          ],
+          "destacada": true,
+          "texto": "最初の一か月は、毎週一人でブレインストーミングをして、行き詰まったら散歩に出て、どの課題にも制約をひとつかけましょう。"
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "relee",
+              "combinaPlan",
+              "decidePlan"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "cumbre"
+          ],
+          "texto": "そして毎月、古いアイデアを読み返しましょう。どれかが新しいアイデアと結びつくはずです。そして決めるときが来たら、天秤にかけましょう。"
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "formatos",
+              "ejemplo",
+              "conIA"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "どこから始めればいいかわからなくても大丈夫。どのマップにも、どの図にも、実際に動いているところを見られる例がついています。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "まとめると、アイデアをたくさん出して、全部書きとめる。問題を手放して、散歩に出る。集まる前に、一人でブレインストーミングをする。自分に制約をかける。そして、勢いではなく天秤で決める。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOSの「アイデア」では、アイデア日記に書きとめて、コンセプトマップで整理して、決定図で決められます。自分でやっても、AIに手伝ってもらってもいいんです。今日、無料であなたの心の家をつくろう。リンクは概要欄にあります。そして次回のガイドは、どうすればもっと上手に旅ができるのでしょうか？",
+    "boton": "アイデアを開く",
+    "lamina": "app-plan",
+    "anclas": {
+      "diario": "アイデア日記",
+      "mapas": "コンセプトマップ",
+      "diagramas": "決定図"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "simonton-1997",
+      "texto": "Simonton D. K. Creative productivity: a predictive and explanatory model of career trajectories and landmarks. Psychological Review 104(1), 66-89 (1997).",
+      "url": "https://doi.org/10.1037/0033-295X.104.1.66"
+    },
+    {
+      "id": "postit",
+      "texto": "Post-itのふせんの歴史（スペンサー・シルバーとアート・フライ、3M）。ウィキペディア。",
+      "url": "https://en.wikipedia.org/wiki/Post-it_note"
+    },
+    {
+      "id": "wallas-1926",
+      "texto": "Wallas G. The Art of Thought (1926). ウィキペディア。",
+      "url": "https://en.wikipedia.org/wiki/Graham_Wallas"
+    },
+    {
+      "id": "baird-2012",
+      "texto": "Baird B. ほか。Inspired by distraction: mind wandering facilitates creative incubation. Psychological Science 23(10), 1117-1122 (2012).",
+      "url": "https://doi.org/10.1177/0956797612446024"
+    },
+    {
+      "id": "oppezzo-2014",
+      "texto": "Oppezzo M., Schwartz D. L. Give your ideas some legs: the positive effect of walking on creative thinking. Journal of Experimental Psychology: Learning, Memory, and Cognition 40(4), 1142-1152 (2014).",
+      "url": "https://doi.org/10.1037/a0036577"
+    },
+    {
+      "id": "diehl-1987",
+      "texto": "Diehl M., Stroebe W. Productivity loss in brainstorming groups: toward the solution of a riddle. Journal of Personality and Social Psychology 53(3), 497-509 (1987).",
+      "url": "https://doi.org/10.1037/0022-3514.53.3.497"
+    },
+    {
+      "id": "haught-2017",
+      "texto": "Haught-Tromp C. The Green Eggs and Ham hypothesis: how constraints facilitate creativity. Psychology of Aesthetics, Creativity, and the Arts 11(1), 10-17 (2017).",
+      "url": "https://doi.org/10.1037/aca0000061"
+    },
+    {
+      "id": "franklin-1772",
+      "texto": "Benjamin Franklin. ジョゼフ・プリーストリーへの「道徳的代数」についての手紙（1772年9月19日）。Founders Online.",
+      "url": "https://founders.archives.gov/documents/Franklin/01-19-02-0200"
+    }
+  ]
+}

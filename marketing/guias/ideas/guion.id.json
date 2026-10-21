@@ -1,0 +1,730 @@
+{
+  "idioma": "id",
+  "tema": "ideas",
+  "plantillaId": "ideas",
+  "numero": 19,
+  "nombre": "Ide",
+  "pregunta": "Bagaimana cara punya ide yang lebih baik?",
+  "corta": "Bagaimana cara punya ide yang lebih baik?",
+  "subtitulo": "Kenapa punya banyak ide adalah rahasia ide yang bagus, ide yang lahir dari lem yang tidak lengket, kenapa ide datang saat mandi, apakah berjalan kaki membuatmu lebih kreatif, apakah brainstorming lebih baik berkelompok atau sendiri, kenapa batasan membuatmu lebih kreatif, cara memilih di antara ide-idemu, dan rencana untuk melanjutkan.",
+  "aviso": "Panduan ini bersifat informatif dan umum. Studi yang dikutip mengukur kreativitas pada tugas tertentu; hasilmu bisa berbeda.",
+  "partes": [
+    {
+      "id": "cantidad",
+      "titulo": "Dari mana datangnya ide bagus?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Bagaimana cara punya ide yang lebih baik? Para jenius besar tidak punya lebih sedikit ide buruk, mereka punya lebih banyak ide. Dan ide-idemu akan kabur kalau tidak kamu catat. Bagaimana kalau punya ide bagus itu kebiasaan, bukan bakat? Hari ini kamu akan melihatnya dengan data, dan pulang membawa rencana untuk melanjutkan."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Omong-omong, ini rumahku di MindHaOS, dan ya: sudah Natal. Tidak ada waktu yang lebih butuh ide daripada sekarang: hadiah, makan malam, resolusi tahun baru. Ini ruang Ide milikku: di sini aku mencatat semua ide yang terlintas."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian satu. Dari mana datangnya ide bagus?"
+        },
+        {
+          "id": "simonton",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "obras",
+              "fracasos",
+              "proporcion"
+            ]
+          },
+          "lamina": [
+            "edison",
+            "bombilla"
+          ],
+          "destacada": true,
+          "texto": "Psikolog Dean Keith Simonton meneliti ilmuwan dan seniman terkenal selama puluhan tahun, dan menemukan hal yang mengejutkan: yang punya karya agung paling banyak juga punya kegagalan paling banyak. Rahasianya bukan lebih sering tepat, tapi lebih banyak berkarya."
+        },
+        {
+          "id": "edison",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1093",
+            "clave": "edison"
+          },
+          "lamina": [
+            "patentes",
+            "taller"
+          ],
+          "texto": "Thomas Edison mendaftarkan seribu sembilan puluh tiga paten di Amerika Serikat, dan banyak yang sama sekali tidak berguna. Seperti kata Linus Pauling, peraih dua Hadiah Nobel: cara terbaik untuk punya ide bagus adalah punya banyak ide."
+        },
+        {
+          "id": "muchas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "muchasIdeas"
+          },
+          "lamina": [
+            "postits",
+            "lluviaPapel"
+          ],
+          "meme": "cienIdeas",
+          "texto": "Kalau satu dari sepuluh ide itu bagus, hitungannya sederhana: makin banyak ide, makin banyak ide bagus. Lihat berapa ide bagus yang kamu dapat dalam setahun."
+        },
+        {
+          "id": "diario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "anota",
+              "sinJuzgar",
+              "carpetas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Karena itu aku punya jurnal ide: aku mencatat semuanya, bahkan yang kelihatan konyol, lalu merapikannya nanti."
+        }
+      ]
+    },
+    {
+      "id": "postit",
+      "titulo": "Ide apa yang lahir dari lem yang tidak lengket?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian dua. Ide apa yang lahir dari lem yang tidak lengket?"
+        },
+        {
+          "id": "silver",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "silver"
+          },
+          "lamina": [
+            "laboratorio",
+            "pegamento"
+          ],
+          "destacada": true,
+          "texto": "Pada 1968, Spencer Silver, seorang ahli kimia di perusahaan 3M, mencoba membuat lem super kuat. Hasilnya justru kebalikannya: lem yang nyaris tidak lengket dan bisa dilepas tanpa bekas. Selama bertahun-tahun, tak ada yang tahu gunanya."
+        },
+        {
+          "id": "coro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "coro",
+              "separadores",
+              "recuerda"
+            ]
+          },
+          "lamina": [
+            "coro",
+            "himnario"
+          ],
+          "texto": "Sampai pada 1974, rekannya Art Fry, yang bernyanyi di paduan suara gerejanya, kesal karena pembatas kertasnya terus jatuh dari buku himne. Lalu ia teringat lem yang tidak lengket itu."
+        },
+        {
+          "id": "lanzamiento",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1980",
+            "clave": "postit"
+          },
+          "lamina": [
+            "notasColores",
+            "oficina"
+          ],
+          "texto": "Pada 1980, catatan Post-it mulai dijual. Ide yang dulu gagal menjadi ide lain, bertahun-tahun kemudian, karena seseorang masih menyimpannya di ingatan."
+        },
+        {
+          "id": "lluvias",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "guarda",
+              "vuelve",
+              "combina"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Karena itu aku tidak pernah membuang ide: di jurnalku semuanya tersimpan menurut tanggal dan topik, dan aku kembali ke sana saat perlu."
+        }
+      ]
+    },
+    {
+      "id": "ducha",
+      "titulo": "Kenapa ide datang saat mandi?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tiga. Kenapa ide datang saat mandi?"
+        },
+        {
+          "id": "wallas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "preparacion",
+              "incubacion",
+              "iluminacion"
+            ]
+          },
+          "lamina": [
+            "pensador",
+            "ventana"
+          ],
+          "texto": "Pada 1926, Graham Wallas menjelaskan bagaimana sebuah ide datang: pertama kamu bersiap dan memikirkan masalahnya bolak-balik; lalu kamu melepaskannya dan pikiranmu terus mengolahnya diam-diam; dan tiba-tiba, idenya muncul."
+        },
+        {
+          "id": "baird",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "incubacion"
+          },
+          "lamina": [
+            "ducha",
+            "lavarPlatos"
+          ],
+          "destacada": true,
+          "texto": "Pada 2012, sebuah tim dari Universitas California mengujinya dengan soal-soal kreatif. Yang saat istirahat melakukan hal mudah, yang membiarkan pikiran mengembara, membaik jauh lebih banyak daripada yang fokus pada tugas sulit lain atau tidak istirahat sama sekali."
+        },
+        {
+          "id": "soltar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "llena",
+              "suelta",
+              "anotaRapido"
+            ]
+          },
+          "lamina": [
+            "cocinar",
+            "libreta"
+          ],
+          "texto": "Jadi, penuhi kepalamu dengan masalahnya, lalu lepaskan dengan sesuatu yang sederhana, seperti mencuci piring atau membungkus kado. Dan saat idenya datang, cepat catat, sebelum pergi lagi.",
+          "meme": "ducha"
+        },
+        {
+          "id": "mapa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mental",
+              "ramas",
+              "reposa"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Kalau ada ide yang terus berputar di kepalaku, aku memindahkannya ke peta pikiran, seperti Hidup idealku, lalu kubiarkan mengendap."
+        }
+      ]
+    },
+    {
+      "id": "caminar",
+      "titulo": "Apakah berjalan kaki membuatmu lebih kreatif?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian empat. Apakah berjalan kaki membuatmu lebih kreatif?"
+        },
+        {
+          "id": "oppezzo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "caminar"
+          },
+          "lamina": [
+            "caminata",
+            "parque"
+          ],
+          "destacada": true,
+          "texto": "Pada 2014, Marily Oppezzo dan Daniel Schwartz dari Universitas Stanford meminta sejumlah orang menciptakan kegunaan baru untuk benda sehari-hari, sambil duduk atau berjalan. Sambil berjalan, ide mereka rata-rata enam puluh persen lebih banyak."
+        },
+        {
+          "id": "despues",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "caminando",
+              "despues",
+              "afuera"
+            ]
+          },
+          "lamina": [
+            "nieve",
+            "caminadora"
+          ],
+          "texto": "Dan efeknya masih bertahan sebentar setelah mereka duduk. Tidak masalah apakah mereka berjalan di luar atau di treadmill menghadap tembok: yang penting adalah bergerak."
+        },
+        {
+          "id": "paseo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "problema",
+              "vuelta",
+              "nota"
+            ]
+          },
+          "lamina": [
+            "calleNavidad",
+            "celularNota"
+          ],
+          "texto": "Jadi kalau kamu buntu, ajak masalahmu jalan-jalan. Dan bawa sesuatu untuk mencatat."
+        },
+        {
+          "id": "flujo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "flujoApp",
+              "pasosApp",
+              "rutinaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bahkan rutinitas pagiku kubuat dalam diagram alur: jadi aku bisa melihat di mana jalan kaki bisa masuk."
+        }
+      ]
+    },
+    {
+      "id": "lluvia",
+      "titulo": "Brainstorming berkelompok atau sendiri?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian lima. Brainstorming berkelompok atau sendiri?"
+        },
+        {
+          "id": "osborn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "grupos"
+          },
+          "lamina": [
+            "reunion",
+            "pizarron"
+          ],
+          "destacada": true,
+          "texto": "Brainstorming dipopulerkan oleh seorang pengiklan, Alex Osborn, pada tahun lima puluhan. Tapi pada 1987, Michael Diehl dan Wolfgang Stroebe mengujinya: orang-orang yang sama, bekerja masing-masing lalu menggabungkan daftar mereka, menghasilkan hampir dua kali lipat ide dibanding saat berkelompok."
+        },
+        {
+          "id": "turno",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "lluviaSolo"
+          },
+          "lamina": [
+            "esperar",
+            "escribirSolo"
+          ],
+          "meme": "reunion",
+          "texto": "Kenapa? Dalam kelompok kamu harus menunggu giliran, dan sambil mendengarkan, idemu menguap. Lihat berapa banyak ide yang hilang dalam satu rapat."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoIdeas"
+          },
+          "lamina": "pulgar",
+          "texto": "Kalau kamu suka panduan ini, tekan Suka, Subscribe supaya tidak ketinggalan panduan berikutnya, dan Bagikan ke orang yang selalu punya ide tapi tidak pernah mencatatnya."
+        },
+        {
+          "id": "mezcla",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "solo",
+              "juntos",
+              "mejora"
+            ]
+          },
+          "lamina": [
+            "equipo",
+            "postits2"
+          ],
+          "texto": "Yang terbaik adalah mencampur: pertama masing-masing sendiri, tanpa menilai apa pun; lalu berkumpul, menggabungkan, dan menyempurnakan."
+        },
+        {
+          "id": "regalos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lluviaApp",
+              "regalosApp",
+              "mapaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Brainstorming Hadiah akhir tahun kulakukan sendiri, ide demi ide, lalu kujadikan peta dengan sekali sentuh."
+        }
+      ]
+    },
+    {
+      "id": "limites",
+      "titulo": "Kenapa batasan membuatmu lebih kreatif?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian enam. Kenapa batasan membuatmu lebih kreatif?"
+        },
+        {
+          "id": "seuss",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "50",
+            "clave": "seuss"
+          },
+          "lamina": [
+            "seuss",
+            "huevosVerdes"
+          ],
+          "destacada": true,
+          "texto": "Pada 1960, editor Bennett Cerf bertaruh lima puluh dolar dengan Dr. Seuss, penulis Grinch, bahwa ia tidak bisa menulis buku hanya dengan lima puluh kata berbeda. Seuss menulis Green Eggs and Ham, salah satu buku anak terlaris sepanjang sejarah."
+        },
+        {
+          "id": "haught",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rimas",
+              "palabras",
+              "mejores"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "rompecabezas"
+          ],
+          "texto": "Pada 2017, psikolog Catrinel Haught-Tromp mengujinya: orang yang diminta menulis sajak berima dengan kata-kata wajib tertentu menghasilkan sajak yang lebih kreatif daripada yang menulis bebas."
+        },
+        {
+          "id": "reglas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tiempo",
+              "presupuesto",
+              "regla"
+            ]
+          },
+          "lamina": [
+            "reloj",
+            "envolver"
+          ],
+          "meme": "hoja",
+          "texto": "Jadi, beri dirimu batasan: sepuluh menit, anggaran kecil, atau aturan aneh, seperti kado yang muat di dalam kaus kaki."
+        },
+        {
+          "id": "eisenhower",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "urgente",
+              "importante",
+              "soltarApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dan supaya tidak tenggelam di antara begitu banyak ide, matriks Eisenhower-ku memberi tahu apa yang dikerjakan sekarang, apa yang dijadwalkan, dan apa yang dilepas."
+        }
+      ]
+    },
+    {
+      "id": "decidir",
+      "titulo": "Bagaimana memilih di antara ide-idemu?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tujuh. Bagaimana memilih di antara ide-idemu?"
+        },
+        {
+          "id": "franklin",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1772",
+            "clave": "franklin"
+          },
+          "lamina": [
+            "franklin",
+            "carta"
+          ],
+          "destacada": true,
+          "texto": "Pada 1772, Benjamin Franklin menjelaskan kepada seorang teman cara ia mengambil keputusan: selembar kertas dengan dua kolom, mendukung dan menentang. Selama beberapa hari ia mencatat alasan, memberi bobot, dan mencoret yang saling mengimbangi. Ia menyebutnya aljabar moral."
+        },
+        {
+          "id": "balanza",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "balanzaFranklin"
+          },
+          "lamina": [
+            "balanza",
+            "decidir"
+          ],
+          "texto": "Yang penting bukan berapa banyak alasan di tiap sisi, tapi seberapa berat masing-masing. Coba timbanganmu sendiri."
+        },
+        {
+          "id": "criterios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "criterios",
+              "puntua",
+              "duerme"
+            ]
+          },
+          "lamina": [
+            "comparar",
+            "cafe"
+          ],
+          "texto": "Dan kalau kamu punya beberapa pilihan, tentukan kriteriamu, beri bobot, nilai setiap pilihan… lalu pikirkan lagi setelah tidur semalam."
+        },
+        {
+          "id": "proscontras",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pesosApp",
+              "matrizApp",
+              "totalApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Di diagramku ada kelebihan dan kekurangan dengan bobotnya, dan matriks keputusan untuk memilih kamera buat motret bulan."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Bagaimana selanjutnya? Rencanamu untuk melanjutkan",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian delapan. Bagaimana selanjutnya? Rencanamu untuk melanjutkan."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planIdeas"
+          },
+          "lamina": [
+            "libreta",
+            "postits"
+          ],
+          "texto": "Di minggu pertama, catat setiap ide yang muncul, sekecil apa pun, di satu tempat saja."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lluviaSemanal",
+              "caminaPlan",
+              "limitePlan"
+            ]
+          },
+          "lamina": [
+            "caminata",
+            "pizarron"
+          ],
+          "destacada": true,
+          "texto": "Di bulan pertama, lakukan brainstorming sendiri setiap minggu, jalan kaki saat buntu, dan beri batasan untuk setiap tantangan."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "relee",
+              "combinaPlan",
+              "decidePlan"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "cumbre"
+          ],
+          "texto": "Dan setiap bulan, baca lagi ide-ide lamamu: ada yang akan bergabung dengan ide baru. Dan saat harus memutuskan, taruh di timbangan."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "formatos",
+              "ejemplo",
+              "conIA"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dan kalau aku tidak tahu harus mulai dari mana, setiap peta dan setiap diagram punya contoh untuk melihatnya bekerja."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Ringkasnya: punya banyak ide dan catat semuanya; lepaskan masalahnya dan pergilah jalan kaki; lakukan brainstorming sendiri sebelum berkumpul; beri dirimu batasan; dan putuskan dengan timbangan, bukan dengan dorongan sesaat."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Di Ide MindHaOS kamu mengisi jurnal ide, merapikan peta konsepmu, dan memutuskan dengan diagram keputusanmu. Kamu bisa melakukannya sendiri, atau dengan bantuan AI. Bangun rumah pikiranmu gratis hari ini: tautannya ada di deskripsi. Dan di panduan berikutnya: bagaimana bepergian dengan lebih baik?",
+    "boton": "Buka Ide",
+    "lamina": "app-plan",
+    "anclas": {
+      "diario": "jurnal ide",
+      "mapas": "peta konsepmu",
+      "diagramas": "diagram keputusanmu"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "simonton-1997",
+      "texto": "Simonton D. K. Creative productivity: a predictive and explanatory model of career trajectories and landmarks. Psychological Review 104(1), 66-89 (1997).",
+      "url": "https://doi.org/10.1037/0033-295X.104.1.66"
+    },
+    {
+      "id": "postit",
+      "texto": "Sejarah catatan Post-it (Spencer Silver dan Art Fry, 3M). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Post-it_note"
+    },
+    {
+      "id": "wallas-1926",
+      "texto": "Wallas G. The Art of Thought (1926). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Graham_Wallas"
+    },
+    {
+      "id": "baird-2012",
+      "texto": "Baird B. dan rekan. Inspired by distraction: mind wandering facilitates creative incubation. Psychological Science 23(10), 1117-1122 (2012).",
+      "url": "https://doi.org/10.1177/0956797612446024"
+    },
+    {
+      "id": "oppezzo-2014",
+      "texto": "Oppezzo M., Schwartz D. L. Give your ideas some legs: the positive effect of walking on creative thinking. Journal of Experimental Psychology: Learning, Memory, and Cognition 40(4), 1142-1152 (2014).",
+      "url": "https://doi.org/10.1037/a0036577"
+    },
+    {
+      "id": "diehl-1987",
+      "texto": "Diehl M., Stroebe W. Productivity loss in brainstorming groups: toward the solution of a riddle. Journal of Personality and Social Psychology 53(3), 497-509 (1987).",
+      "url": "https://doi.org/10.1037/0022-3514.53.3.497"
+    },
+    {
+      "id": "haught-2017",
+      "texto": "Haught-Tromp C. The Green Eggs and Ham hypothesis: how constraints facilitate creativity. Psychology of Aesthetics, Creativity, and the Arts 11(1), 10-17 (2017).",
+      "url": "https://doi.org/10.1037/aca0000061"
+    },
+    {
+      "id": "franklin-1772",
+      "texto": "Benjamin Franklin. Surat kepada Joseph Priestley tentang «aljabar moral» (19 September 1772). Founders Online.",
+      "url": "https://founders.archives.gov/documents/Franklin/01-19-02-0200"
+    }
+  ]
+}

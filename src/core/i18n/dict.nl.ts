@@ -7531,6 +7531,7 @@ export const NL: Dict = {
   'guia.hobbies.titulo': "Hoe vind je een hobby en hoe hou je hem vol?",
   'guia.entretenimiento.titulo': "Hoe vermaak je je beter?",
   'guia.garage.titulo': "Hoe onderhoud je je voertuigen?",
+  'guia.ideas.titulo': "Hoe krijg je betere ideeën?",
   'guia.noticias.titulo': "Op zoek naar waarheid en schoonheid: journalistiek en content",
   'guia.matematicas.titulo': "Wat is de taal van het universum?",
   'tut.esencial.titulo': 'De basis',

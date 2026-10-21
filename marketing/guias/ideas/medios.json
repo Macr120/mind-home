@@ -1,0 +1,325 @@
+{
+  "fotos": {},
+  "laminas": {
+    "bombilla": {
+      "archivo": "laminas/bombilla.mp4",
+      "tipo": "video",
+      "autor": "Ron Lach",
+      "fuente": "https://www.pexels.com/video/a-woman-holding-an-incandescent-light-bulb-9196607/",
+      "licencia": "Licencia Pexels"
+    },
+    "postits": {
+      "archivo": "laminas/postits.mp4",
+      "tipo": "video",
+      "autor": "Cup of Couple",
+      "fuente": "https://www.pexels.com/video/a-person-putting-sticky-notes-on-a-wall-6632967/",
+      "licencia": "Licencia Pexels"
+    },
+    "lluviaPapel": {
+      "archivo": "laminas/lluviaPapel.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/people-throwing-crumpled-paper-at-the-office-6913256/",
+      "licencia": "Licencia Pexels"
+    },
+    "laboratorio": {
+      "archivo": "laminas/laboratorio.mp4",
+      "tipo": "video",
+      "autor": "Kaboompics",
+      "fuente": "https://www.pexels.com/video/chemist-pouring-chemical-in-a-test-tube-8540615/",
+      "licencia": "Licencia Pexels"
+    },
+    "pegamento": {
+      "archivo": "laminas/pegamento.mp4",
+      "tipo": "video",
+      "autor": "George Milton",
+      "fuente": "https://www.pexels.com/video/a-woman-putting-glue-on-paper-7010250/",
+      "licencia": "Licencia Pexels"
+    },
+    "coro": {
+      "archivo": "laminas/coro.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-choir-singing-in-a-church-7520511/",
+      "licencia": "Licencia Pexels"
+    },
+    "himnario": {
+      "archivo": "laminas/himnario.mp4",
+      "tipo": "video",
+      "autor": "Yeşim Çolak",
+      "fuente": "https://www.pexels.com/video/vintage-sheet-music-in-soft-lighting-30827836/",
+      "licencia": "Licencia Pexels"
+    },
+    "notasColores": {
+      "archivo": "laminas/notasColores.mp4",
+      "tipo": "video",
+      "autor": "Kaboompics",
+      "fuente": "https://www.pexels.com/video/ideas-in-sticky-notes-7710869/",
+      "licencia": "Licencia Pexels"
+    },
+    "oficina": {
+      "archivo": "laminas/oficina.mp4",
+      "tipo": "video",
+      "autor": "Monstera Production",
+      "fuente": "https://www.pexels.com/video/putting-of-pink-sticky-notes-on-a-document-9464462/",
+      "licencia": "Licencia Pexels"
+    },
+    "pensador": {
+      "archivo": "laminas/pensador.mp4",
+      "tipo": "video",
+      "autor": "Artem Podrez",
+      "fuente": "https://www.pexels.com/video/man-looking-out-of-a-window-6585108/",
+      "licencia": "Licencia Pexels"
+    },
+    "ventana": {
+      "archivo": "laminas/ventana.mp4",
+      "tipo": "video",
+      "autor": "Rahime Gül",
+      "fuente": "https://www.pexels.com/video/person-contemplating-scenic-landscape-from-train-window-29378758/",
+      "licencia": "Licencia Pexels"
+    },
+    "ducha": {
+      "archivo": "laminas/ducha.mp4",
+      "tipo": "video",
+      "autor": "ROMAN ODINTSOV",
+      "fuente": "https://www.pexels.com/video/washing-hand-on-shower-6666900/",
+      "licencia": "Licencia Pexels"
+    },
+    "lavarPlatos": {
+      "archivo": "laminas/lavarPlatos.mp4",
+      "tipo": "video",
+      "autor": "Greta Hoffman",
+      "fuente": "https://www.pexels.com/video/a-person-washing-the-dishes-9474970/",
+      "licencia": "Licencia Pexels"
+    },
+    "caminata": {
+      "archivo": "laminas/caminata.mp4",
+      "tipo": "video",
+      "autor": "Matthias Groeneveld",
+      "fuente": "https://www.pexels.com/video/a-man-walking-down-a-path-at-sunset-20488159/",
+      "licencia": "Licencia Pexels"
+    },
+    "parque": {
+      "archivo": "laminas/parque.mp4",
+      "tipo": "video",
+      "autor": "Airam Dato-on",
+      "fuente": "https://www.pexels.com/video/autumn-walk-in-a-leafy-park-40297694/",
+      "licencia": "Licencia Pexels"
+    },
+    "cocinar": {
+      "archivo": "laminas/cocinar.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/person-putting-gingerbread-cookies-on-a-tray-5834788/",
+      "licencia": "Licencia Pexels"
+    },
+    "nieve": {
+      "archivo": "laminas/nieve.mp4",
+      "tipo": "video",
+      "autor": "Pavel Danilyuk",
+      "fuente": "https://www.pexels.com/video/man-walking-in-the-forest-in-winter-time-6613085/",
+      "licencia": "Licencia Pexels"
+    },
+    "caminadora": {
+      "archivo": "laminas/caminadora.mp4",
+      "tipo": "video",
+      "autor": "Julia Larson",
+      "fuente": "https://www.pexels.com/video/a-person-is-walking-on-a-treadmill-6455073/",
+      "licencia": "Licencia Pexels"
+    },
+    "calleNavidad": {
+      "archivo": "laminas/calleNavidad.mp4",
+      "tipo": "video",
+      "autor": "Yelena from Pexels",
+      "fuente": "https://www.pexels.com/video/christmas-decorations-on-street-in-town-10267835/",
+      "licencia": "Licencia Pexels"
+    },
+    "celularNota": {
+      "archivo": "laminas/celularNota.mp4",
+      "tipo": "video",
+      "autor": "Artem Podrez",
+      "fuente": "https://www.pexels.com/video/person-holding-mobile-phone-while-writing-on-notebook-6278954/",
+      "licencia": "Licencia Pexels"
+    },
+    "reunion": {
+      "archivo": "laminas/reunion.mp4",
+      "tipo": "video",
+      "autor": "Pavel Danilyuk",
+      "fuente": "https://www.pexels.com/video/a-group-of-people-brainstorming-7655549/",
+      "licencia": "Licencia Pexels"
+    },
+    "pizarron": {
+      "archivo": "laminas/pizarron.mp4",
+      "tipo": "video",
+      "autor": "Kampus Production",
+      "fuente": "https://www.pexels.com/video/a-man-writing-on-whiteboard-8632194/",
+      "licencia": "Licencia Pexels"
+    },
+    "esperar": {
+      "archivo": "laminas/esperar.mp4",
+      "tipo": "video",
+      "autor": "ArtHouse Studio",
+      "fuente": "https://www.pexels.com/video/man-talking-in-a-meeting-7685812/",
+      "licencia": "Licencia Pexels"
+    },
+    "escribirSolo": {
+      "archivo": "laminas/escribirSolo.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/person-writing-on-a-notebook-7698438/",
+      "licencia": "Licencia Pexels"
+    },
+    "equipo": {
+      "archivo": "laminas/equipo.mp4",
+      "tipo": "video",
+      "autor": "Ivan S",
+      "fuente": "https://www.pexels.com/video/close-up-footage-of-sticky-notes-posted-on-a-board-7252935/",
+      "licencia": "Licencia Pexels"
+    },
+    "postits2": {
+      "archivo": "laminas/postits2.mp4",
+      "tipo": "video",
+      "autor": "Mikhail Nilov",
+      "fuente": "https://www.pexels.com/video/a-person-stick-a-notes-to-the-glass-wall-6565535/",
+      "licencia": "Licencia Pexels"
+    },
+    "huevosVerdes": {
+      "archivo": "laminas/huevosVerdes.mp4",
+      "tipo": "video",
+      "autor": "ArtHouse Studio",
+      "fuente": "https://www.pexels.com/video/a-person-cooking-eggs-8231548/",
+      "licencia": "Licencia Pexels"
+    },
+    "rompecabezas": {
+      "archivo": "laminas/rompecabezas.mp4",
+      "tipo": "video",
+      "autor": "ROMAN ODINTSOV",
+      "fuente": "https://www.pexels.com/video/solving-a-jigsaw-puzzle-6813537/",
+      "licencia": "Licencia Pexels"
+    },
+    "envolver": {
+      "archivo": "laminas/envolver.mp4",
+      "tipo": "video",
+      "autor": "Laura James",
+      "fuente": "https://www.pexels.com/video/close-up-shot-of-a-person-wrapping-a-christmas-present-6098961/",
+      "licencia": "Licencia Pexels"
+    },
+    "carta": {
+      "archivo": "laminas/carta.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/a-woman-writing-with-an-antique-dip-pen-and-black-ink-7344854/",
+      "licencia": "Licencia Pexels"
+    },
+    "balanza": {
+      "archivo": "laminas/balanza.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/chess-pieces-on-a-scale-8431828/",
+      "licencia": "Licencia Pexels"
+    },
+    "decidir": {
+      "archivo": "laminas/decidir.mp4",
+      "tipo": "video",
+      "autor": "Ariana Setiaji",
+      "fuente": "https://www.pexels.com/video/man-selecting-fresh-oranges-at-supermarket-37351968/",
+      "licencia": "Licencia Pexels"
+    },
+    "comparar": {
+      "archivo": "laminas/comparar.mp4",
+      "tipo": "video",
+      "autor": "Jakub Zerdzicki",
+      "fuente": "https://www.pexels.com/video/creative-checklist-creation-in-modern-home-office-32259613/",
+      "licencia": "Licencia Pexels"
+    },
+    "edison": {
+      "archivo": "laminas/edison.webp",
+      "tipo": "foto",
+      "autor": "Louis Bachrach, Bachrach Studios",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Thomas_Edison2.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "patentes": {
+      "archivo": "laminas/patentes.webp",
+      "tipo": "foto",
+      "autor": "Thomas A. Edison (NARA)",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Patent_Drawing_for_T._A._Edison%27s_Incandescent_Electric_Lamp_-_NARA_-_6277646.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "taller": {
+      "archivo": "laminas/taller.webp",
+      "tipo": "foto",
+      "autor": "Autor desconocido",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Laboratory_at_Menlo_Park._(14dba1e944d9421699fdaba861743d2d).jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "seuss": {
+      "archivo": "laminas/seuss.webp",
+      "tipo": "foto",
+      "autor": "Al Ravenna, New York World-Telegram and Sun",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Ted_Geisel_NYWTS_2_crop.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "franklin": {
+      "archivo": "laminas/franklin.webp",
+      "tipo": "foto",
+      "autor": "Joseph-Siffred Duplessis",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Joseph_Siffrein_Duplessis_-_Benjamin_Franklin_-_Google_Art_Project.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "reloj": {
+      "archivo": "laminas/reloj.mp4",
+      "tipo": "video",
+      "autor": "Anton Kudryashov",
+      "fuente": "https://www.pexels.com/video/close-up-on-clock-hands-moving-11267667/",
+      "licencia": "Licencia Pexels"
+    },
+    "pulgar": {
+      "archivo": "laminas/pulgar.mp4",
+      "tipo": "video",
+      "autor": "Kevin Malik",
+      "fuente": "https://www.pexels.com/video/a-hand-giving-a-thumbs-up-9017832/",
+      "licencia": "Licencia Pexels"
+    },
+    "libreta": {
+      "archivo": "laminas/libreta.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/writing-to-do-list-on-a-notebook-for-reminders-3832194/",
+      "licencia": "Licencia Pexels"
+    },
+    "cumbre": {
+      "archivo": "laminas/cumbre.mp4",
+      "tipo": "video",
+      "autor": "Canan İldeniz",
+      "fuente": "https://www.pexels.com/video/group-of-hikers-celebrating-on-mountain-peak-38242686/",
+      "licencia": "Licencia Pexels"
+    },
+    "cafe": {
+      "archivo": "laminas/cafe.mp4",
+      "tipo": "video",
+      "autor": "Burak Eroglu",
+      "fuente": "https://www.pexels.com/video/cafe-ambiance-with-coffee-beans-and-latte-30981713/",
+      "licencia": "Licencia Pexels"
+    },
+    "escribir": {
+      "archivo": "laminas/escribir.mp4",
+      "tipo": "video",
+      "autor": "Polina Tankilevitch",
+      "fuente": "https://www.pexels.com/video/person-writing-on-her-notebook-6929080/",
+      "licencia": "Licencia Pexels"
+    },
+    "app-plan": {
+      "archivo": "laminas/app-plan.{idioma}.mp4",
+      "tipo": "video",
+      "autor": "MindHaOS",
+      "fuente": "https://app.mindhaos.com",
+      "credito": ""
+    }
+  }
+}

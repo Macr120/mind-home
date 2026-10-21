@@ -7508,6 +7508,7 @@ export const ID: Dict = {
   'guia.hobbies.titulo': "Bagaimana menemukan hobi dan bagaimana mempertahankannya?",
   'guia.entretenimiento.titulo': "Bagaimana menghibur dirimu dengan lebih baik?",
   'guia.garage.titulo': "Bagaimana merawat kendaraanmu?",
+  'guia.ideas.titulo': "Bagaimana cara punya ide yang lebih baik?",
   'guia.noticias.titulo': "Mencari kebenaran dan keindahan: jurnalisme dan konten",
   'guia.matematicas.titulo': "Apa bahasa alam semesta?",
   'tut.esencial.titulo': 'Yang Penting',

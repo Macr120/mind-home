@@ -4064,3 +4064,81 @@ html:has(.g-pose) body {
   font-weight: 700;
 }
 .g-not-aviso.alto { background: color-mix(in srgb, #ef4444 18%, transparent); }
+
+/* ───────── Ideas ───────── */
+.g-ide {
+  --met: #dc2626;
+}
+.g-ide-focos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  min-height: 30px;
+  margin: 10px 0;
+}
+.g-ide-focos span {
+  width: 18px;
+  height: 22px;
+  border-radius: 50% 50% 35% 35%;
+  background: radial-gradient(circle at 40% 35%, #fef9c3, #facc15 60%, #ca8a04);
+  box-shadow: 0 0 8px #facc1599;
+  animation: g-entra 0.4s both;
+  animation-delay: calc(var(--j) * 40ms);
+}
+.g-ide-pregunta {
+  margin: 6px 0;
+  font-weight: 800;
+  text-align: center;
+}
+.g-ide-balanza {
+  display: flex;
+  justify-content: center;
+  padding: 14px 0 8px;
+}
+.g-ide-balanza i {
+  display: flex;
+  justify-content: space-between;
+  width: 220px;
+  border-top: 5px solid var(--tinta-2);
+  font-style: normal;
+  transition: transform 0.6s;
+}
+.g-ide-balanza span {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 30px;
+  margin-top: 4px;
+  border-radius: 0 0 23px 23px;
+  font-weight: 800;
+}
+.g-ide-balanza span:first-child { background: color-mix(in srgb, #22c55e 30%, transparent); }
+.g-ide-balanza span:last-child { background: color-mix(in srgb, #ef4444 30%, transparent); }
+.g-ide-columnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.g-ide-columna { display: grid; gap: 6px; align-content: start; }
+.g-ide-columna > b { font-size: 14px; }
+.g-ide-razon {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: var(--ui-panel);
+  font-size: 13px;
+}
+.g-ide-razon button {
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--tinta-3) 18%, transparent);
+  color: inherit;
+  cursor: pointer;
+}
+.g-ide-razon em { min-width: 1.2em; font-style: normal; font-weight: 800; text-align: center; }

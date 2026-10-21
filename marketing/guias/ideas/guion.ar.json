@@ -1,0 +1,730 @@
+{
+  "idioma": "ar",
+  "tema": "ideas",
+  "plantillaId": "ideas",
+  "numero": 19,
+  "nombre": "الأفكار",
+  "pregunta": "كيف تحصل على أفكار أفضل؟",
+  "corta": "كيف تحصل على أفكار أفضل؟",
+  "subtitulo": "لماذا كثرة الأفكار هي سر الأفكار الجيدة، والفكرة التي وُلدت من غراء لا يلصق، ولماذا تأتي الأفكار تحت الدش، وهل المشي يجعلك أكثر إبداعًا، وهل العصف الذهني أنجح في مجموعة أم وحدك، ولماذا تجعلك القيود أكثر إبداعًا، وكيف تختار بين أفكارك، وخطة للاستمرار.",
+  "aviso": "هذا الدليل للمعلومات العامة فقط. الدراسات المذكورة تقيس الإبداع في مهام محددة؛ وقد تختلف نتائجك.",
+  "partes": [
+    {
+      "id": "cantidad",
+      "titulo": "من أين تأتي الأفكار الجيدة؟",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "كيف تحصل على أفكار أفضل؟ العباقرة الكبار لم تكن لديهم أفكار سيئة أقل، بل أفكار أكثر. وأفكارك تهرب منك إن لم تدوّنها. ماذا لو كانت الأفكار الجيدة عادةً وليست موهبة؟ اليوم ستراه بالأرقام، وستخرج بخطة للاستمرار."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "بالمناسبة، هذا بيتي في MindHaOS، ونعم: لقد حلّ عيد الميلاد. ولا يوجد وقت نحتاج فيه إلى الأفكار أكثر من هذا: هدايا، وعشاءات، وقرارات للعام الجديد. وهذه غرفة الأفكار عندي: هنا أدوّن كل فكرة تخطر لي."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الأول. من أين تأتي الأفكار الجيدة؟"
+        },
+        {
+          "id": "simonton",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "obras",
+              "fracasos",
+              "proporcion"
+            ]
+          },
+          "lamina": [
+            "edison",
+            "bombilla"
+          ],
+          "destacada": true,
+          "texto": "درس عالم النفس دين كيث سايمنتن لعقود علماء وفنانين مشهورين، ووجد أمرًا مدهشًا: أصحاب أكثر الروائع كانت لديهم أيضًا إخفاقات أكثر. لم يكن سرّهم أن يصيبوا أكثر، بل أن ينتجوا أكثر."
+        },
+        {
+          "id": "edison",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1093",
+            "clave": "edison"
+          },
+          "lamina": [
+            "patentes",
+            "taller"
+          ],
+          "texto": "سجّل توماس إديسون ألفًا وثلاثًا وتسعين براءة اختراع في الولايات المتحدة، وكثير منها لم ينفع في شيء. وكما قال لينوس باولنغ، الحائز على جائزتي نوبل: أفضل طريقة للحصول على فكرة جيدة هي أن تكون لديك أفكار كثيرة."
+        },
+        {
+          "id": "muchas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "muchasIdeas"
+          },
+          "lamina": [
+            "postits",
+            "lluviaPapel"
+          ],
+          "meme": "cienIdeas",
+          "texto": "إن كانت فكرة واحدة من كل عشر جيدة، فالحساب بسيط: أفكار أكثر، أفكار جيدة أكثر. انظر كم فكرة جيدة تخرج لك في السنة."
+        },
+        {
+          "id": "diario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "anota",
+              "sinJuzgar",
+              "carpetas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "لهذا عندي يوميات الأفكار: أدوّنها كلها، حتى التي تبدو سخيفة، ثم أرتبها لاحقًا."
+        }
+      ]
+    },
+    {
+      "id": "postit",
+      "titulo": "أي فكرة وُلدت من غراء لا يلصق؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثاني. أي فكرة وُلدت من غراء لا يلصق؟"
+        },
+        {
+          "id": "silver",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "silver"
+          },
+          "lamina": [
+            "laboratorio",
+            "pegamento"
+          ],
+          "destacada": true,
+          "texto": "في 1968، كان سبنسر سيلفر، الكيميائي في شركة 3M، يحاول صنع غراء قوي جدًا. فخرج له العكس تمامًا: غراء بالكاد يلصق ويُنزع دون أن يترك أثرًا. ولسنوات لم يجد له أحد استخدامًا."
+        },
+        {
+          "id": "coro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "coro",
+              "separadores",
+              "recuerda"
+            ]
+          },
+          "lamina": [
+            "coro",
+            "himnario"
+          ],
+          "texto": "حتى جاء عام 1974، وزميله آرت فراي، الذي كان يغني في جوقة كنيسته، ضاق ذرعًا بفواصل الورق التي تسقط من كتاب التراتيل. فتذكّر الغراء الذي لا يلصق."
+        },
+        {
+          "id": "lanzamiento",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1980",
+            "clave": "postit"
+          },
+          "lamina": [
+            "notasColores",
+            "oficina"
+          ],
+          "texto": "وفي 1980 نزلت أوراق Post-it اللاصقة إلى الأسواق. فكرة فشلت صارت فكرة أخرى، بعد سنوات، لأن أحدًا كان يحتفظ بها في ذاكرته."
+        },
+        {
+          "id": "lluvias",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "guarda",
+              "vuelve",
+              "combina"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "لهذا لا أرمي أي فكرة: في يومياتي تبقى محفوظة حسب التاريخ والموضوع، وأعود إليها حين أحتاجها."
+        }
+      ]
+    },
+    {
+      "id": "ducha",
+      "titulo": "لماذا تأتي الأفكار تحت الدش؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثالث. لماذا تأتي الأفكار تحت الدش؟"
+        },
+        {
+          "id": "wallas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "preparacion",
+              "incubacion",
+              "iluminacion"
+            ]
+          },
+          "lamina": [
+            "pensador",
+            "ventana"
+          ],
+          "texto": "في 1926، وصف غراهام والاس كيف تأتي الفكرة: أولًا تستعد وتقلّب المشكلة في رأسك؛ ثم تتركها فيواصل عقلك العمل عليها في الخفاء؛ وفجأة، تظهر الفكرة."
+        },
+        {
+          "id": "baird",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "incubacion"
+          },
+          "lamina": [
+            "ducha",
+            "lavarPlatos"
+          ],
+          "destacada": true,
+          "texto": "في 2012، اختبر فريق من جامعة كاليفورنيا ذلك بمسائل إبداعية. من قاموا في الاستراحة بشيء سهل يترك الذهن يشرد، تحسّنوا أكثر بكثير ممن ركّزوا على مهمة صعبة أخرى أو لم يستريحوا."
+        },
+        {
+          "id": "soltar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "llena",
+              "suelta",
+              "anotaRapido"
+            ]
+          },
+          "lamina": [
+            "cocinar",
+            "libreta"
+          ],
+          "texto": "لذا املأ رأسك بالمشكلة، ثم اتركها مع شيء بسيط، كغسل الأطباق أو تغليف الهدايا. وحين تأتي الفكرة، دوّنها بسرعة، قبل أن تطير.",
+          "meme": "ducha"
+        },
+        {
+          "id": "mapa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mental",
+              "ramas",
+              "reposa"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "حين تدور فكرة في رأسي، أنقلها إلى خريطة ذهنية، مثل حياتي المثالية، وأتركها ترتاح."
+        }
+      ]
+    },
+    {
+      "id": "caminar",
+      "titulo": "هل المشي يجعلك أكثر إبداعًا؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الرابع. هل المشي يجعلك أكثر إبداعًا؟"
+        },
+        {
+          "id": "oppezzo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "caminar"
+          },
+          "lamina": [
+            "caminata",
+            "parque"
+          ],
+          "destacada": true,
+          "texto": "في 2014، طلبت ماريلي أوبيتسو ودانيال شوارتز، من جامعة ستانفورد، من عدد من الأشخاص ابتكار استخدامات جديدة لأشياء عادية، وهم جالسون أو يمشون. وهم يمشون، خطرت لهم في المتوسط أفكار أكثر بستين في المئة."
+        },
+        {
+          "id": "despues",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "caminando",
+              "despues",
+              "afuera"
+            ]
+          },
+          "lamina": [
+            "nieve",
+            "caminadora"
+          ],
+          "texto": "واستمر الأثر لبعض الوقت بعد أن جلسوا. ولم يكن مهمًا إن مشوا في الخارج أو على جهاز مشي أمام جدار: المهم هو الحركة."
+        },
+        {
+          "id": "paseo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "problema",
+              "vuelta",
+              "nota"
+            ]
+          },
+          "lamina": [
+            "calleNavidad",
+            "celularNota"
+          ],
+          "texto": "لذا حين تعلق، خذ المشكلة في جولة مشي. وخذ معك ما تدوّن به."
+        },
+        {
+          "id": "flujo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "flujoApp",
+              "pasosApp",
+              "rutinaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "حتى روتين الصباح عندي وضعته في مخطط انسيابي: هكذا أرى أين تتسع جولة مشي."
+        }
+      ]
+    },
+    {
+      "id": "lluvia",
+      "titulo": "العصف الذهني: في مجموعة أم وحدك؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الخامس. العصف الذهني: في مجموعة أم وحدك؟"
+        },
+        {
+          "id": "osborn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "grupos"
+          },
+          "lamina": [
+            "reunion",
+            "pizarron"
+          ],
+          "destacada": true,
+          "texto": "نشر العصف الذهني رجل إعلانات اسمه أليكس أوزبورن، في الخمسينيات. لكن في 1987 وضعه مايكل ديل وفولفغانغ شتروبه على المحك: الأشخاص أنفسهم، حين عمل كل منهم وحده ثم جمعوا قوائمهم، خرجوا بضعف الأفكار تقريبًا مقارنة بعملهم في مجموعة."
+        },
+        {
+          "id": "turno",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "lluviaSolo"
+          },
+          "lamina": [
+            "esperar",
+            "escribirSolo"
+          ],
+          "meme": "reunion",
+          "texto": "لماذا؟ في المجموعة عليك أن تنتظر دورك، وبينما تستمع، تتبخر فكرتك. انظر كم فكرة تضيع في اجتماع واحد."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoIdeas"
+          },
+          "lamina": "pulgar",
+          "texto": "إن كان هذا الدليل يعجبك، فاضغط «أعجبني»، و«اشتراك» حتى لا يفوتك الدليل القادم، و«مشاركة» مع ذلك الشخص الذي تأتيه الأفكار دائمًا لكنه لا يدوّنها أبدًا."
+        },
+        {
+          "id": "mezcla",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "solo",
+              "juntos",
+              "mejora"
+            ]
+          },
+          "lamina": [
+            "equipo",
+            "postits2"
+          ],
+          "texto": "الأفضل هو المزج: أولًا كل واحد وحده، دون أن يحكم على شيء؛ ثم تجتمعون، وتدمجون الأفكار، وتحسّنونها."
+        },
+        {
+          "id": "regalos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lluviaApp",
+              "regalosApp",
+              "mapaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "العصف الذهني لهدايا نهاية السنة قمت به وحدي، فكرة بعد فكرة، ومن هناك صار خريطة بلمسة واحدة."
+        }
+      ]
+    },
+    {
+      "id": "limites",
+      "titulo": "لماذا تجعلك القيود أكثر إبداعًا؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السادس. لماذا تجعلك القيود أكثر إبداعًا؟"
+        },
+        {
+          "id": "seuss",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "50",
+            "clave": "seuss"
+          },
+          "lamina": [
+            "seuss",
+            "huevosVerdes"
+          ],
+          "destacada": true,
+          "texto": "في 1960، راهن الناشر بينيت سيرف الدكتور سوس، مؤلف قصة الغرينش، بخمسين دولارًا على أنه لا يستطيع كتابة كتاب بخمسين كلمة مختلفة فقط. فكتب سوس كتاب Green Eggs and Ham، أي البيض الأخضر واللحم، وهو من أكثر كتب الأطفال مبيعًا في التاريخ."
+        },
+        {
+          "id": "haught",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rimas",
+              "palabras",
+              "mejores"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "rompecabezas"
+          ],
+          "texto": "في 2017، اختبرت عالمة النفس كاترينيل هوت-ترومب ذلك: من طلبت منهم كتابة أبيات مقفاة بكلمات إلزامية معينة، جاءت أبياتهم أكثر إبداعًا ممن كتبوا بحرية."
+        },
+        {
+          "id": "reglas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tiempo",
+              "presupuesto",
+              "regla"
+            ]
+          },
+          "lamina": [
+            "reloj",
+            "envolver"
+          ],
+          "meme": "hoja",
+          "texto": "لذا ضع لنفسك حدودًا: عشر دقائق، أو ميزانية صغيرة، أو قاعدة غريبة، مثل هدايا تتسع داخل جورب."
+        },
+        {
+          "id": "eisenhower",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "urgente",
+              "importante",
+              "soltarApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "وحتى لا أغرق بين كل هذه الأفكار، تخبرني مصفوفة أيزنهاور عندي ماذا أفعل الآن، وماذا أؤجل إلى موعد، وماذا أترك."
+        }
+      ]
+    },
+    {
+      "id": "decidir",
+      "titulo": "كيف تختار بين أفكارك؟",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السابع. كيف تختار بين أفكارك؟"
+        },
+        {
+          "id": "franklin",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1772",
+            "clave": "franklin"
+          },
+          "lamina": [
+            "franklin",
+            "carta"
+          ],
+          "destacada": true,
+          "texto": "في 1772، شرح بنجامين فرانكلين لصديق كيف يتخذ قراراته: ورقة بعمودين، مع وضد. لعدة أيام كان يدوّن الأسباب، ويعطي كلًا منها وزنًا، ويشطب ما يتعادل منها. وسمّى ذلك الجبر الأخلاقي."
+        },
+        {
+          "id": "balanza",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "balanzaFranklin"
+          },
+          "lamina": [
+            "balanza",
+            "decidir"
+          ],
+          "texto": "المهم ليس عدد الأسباب في كل جهة، بل وزن كل سبب. جرّب ميزانك الخاص."
+        },
+        {
+          "id": "criterios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "criterios",
+              "puntua",
+              "duerme"
+            ]
+          },
+          "lamina": [
+            "comparar",
+            "cafe"
+          ],
+          "texto": "وحين تكون لديك عدة خيارات، اختر معاييرك، وأعطها أهمية، وقيّم كل خيار… ثم نم على الأمر ليلة."
+        },
+        {
+          "id": "proscontras",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pesosApp",
+              "matrizApp",
+              "totalApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "في مخططاتي عندي الإيجابيات والسلبيات بأوزانها، ومصفوفة القرار لاختيار الكاميرا لتصوير القمر."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "كيف تستمر؟ خطتك للاستمرار",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثامن. كيف تستمر؟ خطتك للاستمرار."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planIdeas"
+          },
+          "lamina": [
+            "libreta",
+            "postits"
+          ],
+          "texto": "في الأسبوع الأول، دوّن كل فكرة تخطر لك، مهما كانت صغيرة، في مكان واحد."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lluviaSemanal",
+              "caminaPlan",
+              "limitePlan"
+            ]
+          },
+          "lamina": [
+            "caminata",
+            "pizarron"
+          ],
+          "destacada": true,
+          "texto": "في الشهر الأول، قم بعصف ذهني وحدك كل أسبوع، واخرج للمشي حين تعلق، وضع حدًا لكل تحدٍّ."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "relee",
+              "combinaPlan",
+              "decidePlan"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "cumbre"
+          ],
+          "texto": "وكل شهر، أعد قراءة أفكارك القديمة: بعضها سيندمج مع فكرة جديدة. وحين يحين وقت القرار، ضعها في الميزان."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "formatos",
+              "ejemplo",
+              "conIA"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "وإن لم أعرف من أين أبدأ، فكل خريطة وكل مخطط يأتي بمثال لأراه يعمل."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "باختصار: اجمع أفكارًا كثيرة ودوّنها كلها؛ اترك المشكلة واخرج للمشي؛ قم بعصفك الذهني وحدك قبل أن تجتمع بالآخرين؛ ضع لنفسك حدودًا؛ وقرّر بالميزان، لا بالاندفاع."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "في الأفكار على MindHaOS تدوّن في يوميات الأفكار، وترتب خرائطك، وتقرر بمخططاتك. يمكنك أن تفعل ذلك بنفسك، أو بمساعدة الذكاء الاصطناعي. ابنِ بيتك الذهني مجانًا اليوم: الرابط في الوصف. وفي الدليل القادم: كيف تسافر بشكل أفضل؟",
+    "boton": "افتح الأفكار",
+    "lamina": "app-plan",
+    "anclas": {
+      "diario": "يوميات الأفكار",
+      "mapas": "خرائطك",
+      "diagramas": "مخططاتك"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "simonton-1997",
+      "texto": "Simonton D. K. Creative productivity: a predictive and explanatory model of career trajectories and landmarks. Psychological Review 104(1), 66-89 (1997).",
+      "url": "https://doi.org/10.1037/0033-295X.104.1.66"
+    },
+    {
+      "id": "postit",
+      "texto": "تاريخ أوراق Post-it اللاصقة (سبنسر سيلفر وآرت فراي، 3M). ويكيبيديا.",
+      "url": "https://en.wikipedia.org/wiki/Post-it_note"
+    },
+    {
+      "id": "wallas-1926",
+      "texto": "Wallas G. The Art of Thought (1926). ويكيبيديا.",
+      "url": "https://en.wikipedia.org/wiki/Graham_Wallas"
+    },
+    {
+      "id": "baird-2012",
+      "texto": "Baird B. وزملاؤه. Inspired by distraction: mind wandering facilitates creative incubation. Psychological Science 23(10), 1117-1122 (2012).",
+      "url": "https://doi.org/10.1177/0956797612446024"
+    },
+    {
+      "id": "oppezzo-2014",
+      "texto": "Oppezzo M., Schwartz D. L. Give your ideas some legs: the positive effect of walking on creative thinking. Journal of Experimental Psychology: Learning, Memory, and Cognition 40(4), 1142-1152 (2014).",
+      "url": "https://doi.org/10.1037/a0036577"
+    },
+    {
+      "id": "diehl-1987",
+      "texto": "Diehl M., Stroebe W. Productivity loss in brainstorming groups: toward the solution of a riddle. Journal of Personality and Social Psychology 53(3), 497-509 (1987).",
+      "url": "https://doi.org/10.1037/0022-3514.53.3.497"
+    },
+    {
+      "id": "haught-2017",
+      "texto": "Haught-Tromp C. The Green Eggs and Ham hypothesis: how constraints facilitate creativity. Psychology of Aesthetics, Creativity, and the Arts 11(1), 10-17 (2017).",
+      "url": "https://doi.org/10.1037/aca0000061"
+    },
+    {
+      "id": "franklin-1772",
+      "texto": "بنجامين فرانكلين. رسالة إلى جوزيف بريستلي عن «الجبر الأخلاقي» (19 سبتمبر 1772). Founders Online.",
+      "url": "https://founders.archives.gov/documents/Franklin/01-19-02-0200"
+    }
+  ]
+}

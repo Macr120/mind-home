@@ -263,7 +263,7 @@ const pepEnSuSitio = (tema = null) => `
     if (fallo) return fallo
   }` : ''}
   ${ESCENA.CUERPO ? `
-  // El narrador es un cuerpo prediseñado de la app (Metas: la princesa), sin ropa.
+  // El narrador es un cuerpo prediseñado de la app (Metas: la princesa), sin ropa o con la ROPA de la escena (Ideas: el osito con el atuendo de la tortuga).
   {
     const { CUERPOS_PRESET } = await modulo('/src/core/house/cuerpos.ts')
     const preset = CUERPOS_PRESET.find((c) => c.id === ${JSON.stringify(ESCENA.CUERPO)})
@@ -275,7 +275,7 @@ const pepEnSuSitio = (tema = null) => `
     if (av.cuerpoPresetId !== preset.id || JSON.stringify(av.modelo3d) !== JSON.stringify(piezas)) {
       await useDiseño.getState().setAvatarCuerpoPreset({ ...preset, piezas: () => piezas })
     }
-    await useDiseño.getState().setAvatarRopaCompleta({})
+    await useDiseño.getState().setAvatarRopaCompleta(${JSON.stringify(ESCENA.ROPA ?? {})})
   }
   ` : ESCENA.FORMA ? `
   // El narrador no es Pep@: el avatar toma la forma integrada de la escena (Idiomas: el mago), sin ropa.

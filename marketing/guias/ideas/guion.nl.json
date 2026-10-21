@@ -1,0 +1,730 @@
+{
+  "idioma": "nl",
+  "tema": "ideas",
+  "plantillaId": "ideas",
+  "numero": 19,
+  "nombre": "Ideeën",
+  "pregunta": "Hoe krijg je betere ideeën?",
+  "corta": "Hoe krijg je betere ideeën?",
+  "subtitulo": "Waarom veel ideeën het geheim van goede ideeën zijn, het idee dat ontstond uit lijm die niet plakte, waarom ideeën onder de douche komen, of wandelen je creatiever maakt, of brainstormen beter werkt in een groep of alleen, waarom grenzen je creatiever maken, hoe je kiest tussen je ideeën, en een plan om door te gaan.",
+  "aviso": "Deze gids is informatief en algemeen. De genoemde onderzoeken meten creativiteit bij specifieke taken; jouw resultaten kunnen verschillen.",
+  "partes": [
+    {
+      "id": "cantidad",
+      "titulo": "Waar komen goede ideeën vandaan?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Hoe krijg je betere ideeën? De grote genieën hadden niet minder slechte ideeën, maar meer ideeën. En die van jou glippen weg als je ze niet opschrijft. Wat als goede ideeën een gewoonte zijn en geen gave? Vandaag zie je het met data, en je gaat weg met een plan om door te gaan."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Trouwens, dit is mijn huis in MindHaOS, en ja: het is al kerst. En er is geen betere tijd om ideeën nodig te hebben: cadeaus, diners, goede voornemens voor het nieuwe jaar. Dit is mijn ideeënkamer: hier schrijf ik alles op wat in me opkomt."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel één. Waar komen goede ideeën vandaan?"
+        },
+        {
+          "id": "simonton",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "obras",
+              "fracasos",
+              "proporcion"
+            ]
+          },
+          "lamina": [
+            "edison",
+            "bombilla"
+          ],
+          "destacada": true,
+          "texto": "De psycholoog Dean Keith Simonton bestudeerde tientallen jaren beroemde wetenschappers en kunstenaars, en ontdekte iets verrassends: wie de meeste meesterwerken had, had ook de meeste mislukkingen. Hun geheim was niet vaker raak schieten, maar meer maken."
+        },
+        {
+          "id": "edison",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1093",
+            "clave": "edison"
+          },
+          "lamina": [
+            "patentes",
+            "taller"
+          ],
+          "texto": "Thomas Edison liet in de Verenigde Staten duizend drieënnegentig patenten registreren, en veel ervan waren nergens goed voor. Zoals Linus Pauling zei, winnaar van twee Nobelprijzen: de beste manier om een goed idee te krijgen, is veel ideeën hebben."
+        },
+        {
+          "id": "muchas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "muchasIdeas"
+          },
+          "lamina": [
+            "postits",
+            "lluviaPapel"
+          ],
+          "meme": "cienIdeas",
+          "texto": "Als één op de tien ideeën goed is, is de som simpel: meer ideeën, meer goede ideeën. Kijk hoeveel goede je er per jaar krijgt."
+        },
+        {
+          "id": "diario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "anota",
+              "sinJuzgar",
+              "carpetas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Daarom heb ik een ideeëndagboek: ik schrijf ze allemaal op, zelfs de ideeën die dom lijken, en daarna orden ik ze."
+        }
+      ]
+    },
+    {
+      "id": "postit",
+      "titulo": "Welk idee ontstond uit lijm die niet plakte?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel twee. Welk idee ontstond uit lijm die niet plakte?"
+        },
+        {
+          "id": "silver",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "silver"
+          },
+          "lamina": [
+            "laboratorio",
+            "pegamento"
+          ],
+          "destacada": true,
+          "texto": "In 1968 probeerde Spencer Silver, een chemicus bij het bedrijf 3M, een supersterke lijm te maken. Het werd precies het tegenovergestelde: een lijm die nauwelijks plakte en loskwam zonder sporen achter te laten. Jarenlang vond niemand er een toepassing voor."
+        },
+        {
+          "id": "coro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "coro",
+              "separadores",
+              "recuerda"
+            ]
+          },
+          "lamina": [
+            "coro",
+            "himnario"
+          ],
+          "texto": "Tot in 1974 zijn collega Art Fry, die in het kerkkoor zong, er genoeg van had dat zijn papieren bladwijzers uit zijn gezangboek vielen. En hij dacht terug aan de lijm die niet plakte."
+        },
+        {
+          "id": "lanzamiento",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1980",
+            "clave": "postit"
+          },
+          "lamina": [
+            "notasColores",
+            "oficina"
+          ],
+          "texto": "In 1980 kwamen de Post-it-briefjes in de winkel. Een mislukt idee werd jaren later een ander idee, omdat iemand het in zijn geheugen had bewaard."
+        },
+        {
+          "id": "lluvias",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "guarda",
+              "vuelve",
+              "combina"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Daarom gooi ik geen enkel idee weg: in mijn dagboek blijven ze bewaard op datum en onderwerp, en ik kom erop terug als het nodig is."
+        }
+      ]
+    },
+    {
+      "id": "ducha",
+      "titulo": "Waarom komen ideeën onder de douche?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel drie. Waarom komen ideeën onder de douche?"
+        },
+        {
+          "id": "wallas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "preparacion",
+              "incubacion",
+              "iluminacion"
+            ]
+          },
+          "lamina": [
+            "pensador",
+            "ventana"
+          ],
+          "texto": "In 1926 beschreef Graham Wallas hoe een idee ontstaat: eerst bereid je je voor en pieker je over het probleem; dan laat je het los en werkt je hoofd er op de achtergrond aan verder; en ineens is het idee er."
+        },
+        {
+          "id": "baird",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "incubacion"
+          },
+          "lamina": [
+            "ducha",
+            "lavarPlatos"
+          ],
+          "destacada": true,
+          "texto": "In 2012 deed een team van de Universiteit van Californië een proef met creatieve problemen. Wie in de pauze iets makkelijks deed, waarbij de gedachten konden afdwalen, ging er veel meer op vooruit dan wie zich op een andere moeilijke taak richtte of geen pauze nam."
+        },
+        {
+          "id": "soltar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "llena",
+              "suelta",
+              "anotaRapido"
+            ]
+          },
+          "lamina": [
+            "cocinar",
+            "libreta"
+          ],
+          "texto": "Dus vul je hoofd met het probleem en laat het daarna los met iets simpels, zoals afwassen of cadeaus inpakken. En als het idee komt, schrijf het snel op, voordat het weer weg is.",
+          "meme": "ducha"
+        },
+        {
+          "id": "mapa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mental",
+              "ramas",
+              "reposa"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Als een idee door mijn hoofd blijft spoken, zet ik het in een mindmap, zoals die van mijn ideale leven, en laat ik het rusten."
+        }
+      ]
+    },
+    {
+      "id": "caminar",
+      "titulo": "Maakt wandelen je creatiever?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vier. Maakt wandelen je creatiever?"
+        },
+        {
+          "id": "oppezzo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "caminar"
+          },
+          "lamina": [
+            "caminata",
+            "parque"
+          ],
+          "destacada": true,
+          "texto": "In 2014 vroegen Marily Oppezzo en Daniel Schwartz van de Universiteit van Stanford een groep mensen om nieuwe toepassingen te bedenken voor gewone voorwerpen, zittend of wandelend. Al wandelend bedachten ze er gemiddeld zestig procent meer."
+        },
+        {
+          "id": "despues",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "caminando",
+              "despues",
+              "afuera"
+            ]
+          },
+          "lamina": [
+            "nieve",
+            "caminadora"
+          ],
+          "texto": "En het effect hield nog even aan nadat ze waren gaan zitten. Het maakte niet uit of ze buiten liepen of op een loopband voor een muur: wat telde, was bewegen."
+        },
+        {
+          "id": "paseo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "problema",
+              "vuelta",
+              "nota"
+            ]
+          },
+          "lamina": [
+            "calleNavidad",
+            "celularNota"
+          ],
+          "texto": "Dus als je vastzit, neem het probleem mee voor een wandelingetje. En neem iets mee om op te schrijven."
+        },
+        {
+          "id": "flujo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "flujoApp",
+              "pasosApp",
+              "rutinaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Zelfs mijn ochtendroutine staat in een stroomschema: zo zie ik waar een wandeling past."
+        }
+      ]
+    },
+    {
+      "id": "lluvia",
+      "titulo": "Brainstormen in een groep of alleen?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vijf. Brainstormen in een groep of alleen?"
+        },
+        {
+          "id": "osborn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "grupos"
+          },
+          "lamina": [
+            "reunion",
+            "pizarron"
+          ],
+          "destacada": true,
+          "texto": "Brainstormen werd populair gemaakt door een reclameman, Alex Osborn, in de jaren vijftig. Maar in 1987 zetten Michael Diehl en Wolfgang Stroebe het op de proef: dezelfde mensen, die elk apart werkten en daarna hun lijstjes samenvoegden, kwamen op bijna twee keer zoveel ideeën als in een groep."
+        },
+        {
+          "id": "turno",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "lluviaSolo"
+          },
+          "lamina": [
+            "esperar",
+            "escribirSolo"
+          ],
+          "meme": "reunion",
+          "texto": "Waarom? In een groep moet je op je beurt wachten, en terwijl je luistert, vervliegt je idee. Kijk hoeveel ideeën er in een vergadering verloren gaan."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoIdeas"
+          },
+          "lamina": "pulgar",
+          "texto": "Als je de gids leuk vindt, klik dan op Vind ik leuk, op Abonneren zodat je de volgende niet mist, en op Delen, voor die ene persoon die altijd ideeën heeft maar ze nooit opschrijft."
+        },
+        {
+          "id": "mezcla",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "solo",
+              "juntos",
+              "mejora"
+            ]
+          },
+          "lamina": [
+            "equipo",
+            "postits2"
+          ],
+          "texto": "Het beste is mengen: eerst ieder voor zich, zonder iets te beoordelen; daarna kom je samen, combineer je en verbeter je."
+        },
+        {
+          "id": "regalos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lluviaApp",
+              "regalosApp",
+              "mapaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Mijn brainstorm voor de eindejaarscadeaus deed ik alleen, het ene idee na het andere, en met één tik werd het een kaart."
+        }
+      ]
+    },
+    {
+      "id": "limites",
+      "titulo": "Waarom maken grenzen je creatiever?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zes. Waarom maken grenzen je creatiever?"
+        },
+        {
+          "id": "seuss",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "50",
+            "clave": "seuss"
+          },
+          "lamina": [
+            "seuss",
+            "huevosVerdes"
+          ],
+          "destacada": true,
+          "texto": "In 1960 wedde uitgever Bennett Cerf vijftig dollar met Dr. Seuss, de schrijver van de Grinch, dat hij geen boek kon schrijven met maar vijftig verschillende woorden. Seuss schreef Groene eieren met ham, een van de best verkochte kinderboeken aller tijden."
+        },
+        {
+          "id": "haught",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rimas",
+              "palabras",
+              "mejores"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "rompecabezas"
+          ],
+          "texto": "In 2017 testte psycholoog Catrinel Haught-Tromp het: wie rijmpjes moest schrijven met bepaalde verplichte woorden, schreef creatievere dan wie vrij schreef."
+        },
+        {
+          "id": "reglas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tiempo",
+              "presupuesto",
+              "regla"
+            ]
+          },
+          "lamina": [
+            "reloj",
+            "envolver"
+          ],
+          "meme": "hoja",
+          "texto": "Dus stel jezelf grenzen: tien minuten, een klein budget, of een vreemde regel, zoals cadeaus die in een sok passen."
+        },
+        {
+          "id": "eisenhower",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "urgente",
+              "importante",
+              "soltarApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En om niet te verdrinken in zoveel ideeën, vertelt mijn Eisenhower-matrix me wat ik meteen doe, wat ik inplan en wat ik loslaat."
+        }
+      ]
+    },
+    {
+      "id": "decidir",
+      "titulo": "Hoe kies je tussen je ideeën?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zeven. Hoe kies je tussen je ideeën?"
+        },
+        {
+          "id": "franklin",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1772",
+            "clave": "franklin"
+          },
+          "lamina": [
+            "franklin",
+            "carta"
+          ],
+          "destacada": true,
+          "texto": "In 1772 legde Benjamin Franklin een vriend uit hoe hij besliste: een vel met twee kolommen, voor en tegen. Een paar dagen lang schreef hij redenen op, gaf ze een gewicht en streepte de redenen weg die elkaar in evenwicht hielden. Hij noemde het morele algebra."
+        },
+        {
+          "id": "balanza",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "balanzaFranklin"
+          },
+          "lamina": [
+            "balanza",
+            "decidir"
+          ],
+          "texto": "Het gaat er niet om hoeveel redenen er aan elke kant staan, maar hoe zwaar elke reden weegt. Probeer je eigen weegschaal."
+        },
+        {
+          "id": "criterios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "criterios",
+              "puntua",
+              "duerme"
+            ]
+          },
+          "lamina": [
+            "comparar",
+            "cafe"
+          ],
+          "texto": "En als je meerdere opties hebt, kies je criteria, geef ze gewicht, geef elke optie een score… en slaap er een nachtje over."
+        },
+        {
+          "id": "proscontras",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pesosApp",
+              "matrizApp",
+              "totalApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In mijn beslisdiagrammen heb ik de voor- en nadelen met hun gewicht, en een beslismatrix om mijn camera te kiezen."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel acht. Hoe ga je verder? Jouw plan om door te gaan."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planIdeas"
+          },
+          "lamina": [
+            "libreta",
+            "postits"
+          ],
+          "texto": "Schrijf de eerste week elk idee op dat in je opkomt, hoe klein ook, op één plek."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lluviaSemanal",
+              "caminaPlan",
+              "limitePlan"
+            ]
+          },
+          "lamina": [
+            "caminata",
+            "pizarron"
+          ],
+          "destacada": true,
+          "texto": "Doe de eerste maand elke week in je eentje een brainstorm, ga wandelen als je vastzit en stel jezelf een grens voor elke uitdaging."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "relee",
+              "combinaPlan",
+              "decidePlan"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "cumbre"
+          ],
+          "texto": "En lees elke maand je oude ideeën terug: sommige zullen samengaan met een nieuw idee. En als je moet kiezen, leg het op de weegschaal."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "formatos",
+              "ejemplo",
+              "conIA"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En als ik niet weet waar ik moet beginnen, heeft elke kaart en elk diagram een voorbeeld om het in actie te zien."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Kortom: heb veel ideeën en schrijf ze allemaal op; laat het probleem los en ga wandelen; brainstorm eerst alleen voordat je samenkomt; stel jezelf grenzen; en kies met een weegschaal, niet op impuls."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "In Ideeën van MindHaOS houd je je ideeëndagboek bij, orden je je kaarten en beslis je met je diagrammen. Je kunt het zelf doen, of met hulp van AI. Bouw vandaag gratis je mentale huis: de link staat in de beschrijving. En in de volgende gids: hoe reis je beter?",
+    "boton": "Open Ideeën",
+    "lamina": "app-plan",
+    "anclas": {
+      "diario": "je ideeëndagboek",
+      "mapas": "je kaarten",
+      "diagramas": "je diagrammen"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "simonton-1997",
+      "texto": "Simonton D. K. Creative productivity: a predictive and explanatory model of career trajectories and landmarks. Psychological Review 104(1), 66-89 (1997).",
+      "url": "https://doi.org/10.1037/0033-295X.104.1.66"
+    },
+    {
+      "id": "postit",
+      "texto": "Geschiedenis van de Post-it-briefjes (Spencer Silver en Art Fry, 3M). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Post-it_note"
+    },
+    {
+      "id": "wallas-1926",
+      "texto": "Wallas G. The Art of Thought (1926). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Graham_Wallas"
+    },
+    {
+      "id": "baird-2012",
+      "texto": "Baird B. en collega’s. Inspired by distraction: mind wandering facilitates creative incubation. Psychological Science 23(10), 1117-1122 (2012).",
+      "url": "https://doi.org/10.1177/0956797612446024"
+    },
+    {
+      "id": "oppezzo-2014",
+      "texto": "Oppezzo M., Schwartz D. L. Give your ideas some legs: the positive effect of walking on creative thinking. Journal of Experimental Psychology: Learning, Memory, and Cognition 40(4), 1142-1152 (2014).",
+      "url": "https://doi.org/10.1037/a0036577"
+    },
+    {
+      "id": "diehl-1987",
+      "texto": "Diehl M., Stroebe W. Productivity loss in brainstorming groups: toward the solution of a riddle. Journal of Personality and Social Psychology 53(3), 497-509 (1987).",
+      "url": "https://doi.org/10.1037/0022-3514.53.3.497"
+    },
+    {
+      "id": "haught-2017",
+      "texto": "Haught-Tromp C. The Green Eggs and Ham hypothesis: how constraints facilitate creativity. Psychology of Aesthetics, Creativity, and the Arts 11(1), 10-17 (2017).",
+      "url": "https://doi.org/10.1037/aca0000061"
+    },
+    {
+      "id": "franklin-1772",
+      "texto": "Benjamin Franklin. Brief aan Joseph Priestley over de ‘morele algebra’ (19 september 1772). Founders Online.",
+      "url": "https://founders.archives.gov/documents/Franklin/01-19-02-0200"
+    }
+  ]
+}

@@ -7461,6 +7461,7 @@ export const PL: Dict = {
   'guia.hobbies.titulo': "Jak znaleźć hobby i jak przy nim wytrwać?",
   'guia.entretenimiento.titulo': "Jak lepiej się bawić?",
   'guia.garage.titulo': "Jak dbać o swoje pojazdy?",
+  'guia.ideas.titulo': "Jak mieć lepsze pomysły?",
   'guia.noticias.titulo': "W poszukiwaniu prawdy i piękna: dziennikarstwo i treści",
   'guia.matematicas.titulo': "Jaki jest język wszechświata?",
   'tut.esencial.titulo': 'Najważniejsze',

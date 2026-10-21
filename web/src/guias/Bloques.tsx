@@ -16,6 +16,7 @@ import { GRAFICAS_HOBBIES, GraficaHobbies } from './Hobbies'
 import { GRAFICAS_ENTRE, GraficaEntre } from './Entretenimiento'
 import { GRAFICAS_GARAGE, GraficaGarage } from './Garage'
 import { GRAFICAS_NOTICIAS, GraficaNoticias } from './Noticias'
+import { GRAFICAS_IDEAS, GraficaIdeas } from './Ideas'
 import type { T, Visual } from './datos'
 
 interface Foto { archivo: string; autor: string; fuente: string }
@@ -81,6 +82,7 @@ export function Bloque({ v, tema, t }: { v: Visual; tema: string; t: T }) {
       if (tema === 'entretenimiento' && GRAFICAS_ENTRE.has(v.grafica!)) return <GraficaEntre id={v.grafica!} k={k} />
       if (tema === 'garage' && GRAFICAS_GARAGE.has(v.grafica!)) return <GraficaGarage id={v.grafica!} k={k} />
       if (tema === 'noticias' && GRAFICAS_NOTICIAS.has(v.grafica!)) return <GraficaNoticias id={v.grafica!} k={k} />
+      if (tema === 'ideas' && GRAFICAS_IDEAS.has(v.grafica!)) return <GraficaIdeas id={v.grafica!} k={k} />
       if (GRAFICAS_COCINA.has(v.grafica!)) return <GraficaCocina id={v.grafica!} k={k} />
       if (GRAFICAS_FINANZAS.has(v.grafica!)) return <GraficaFinanzas id={v.grafica!} k={k} />
       if (GRAFICAS_IDIOMAS.has(v.grafica!)) return <GraficaIdiomas id={v.grafica!} k={k} />

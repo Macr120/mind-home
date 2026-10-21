@@ -1,0 +1,730 @@
+{
+  "idioma": "ko",
+  "tema": "ideas",
+  "plantillaId": "ideas",
+  "numero": 19,
+  "nombre": "아이디어",
+  "pregunta": "더 좋은 아이디어를 얻으려면?",
+  "corta": "더 좋은 아이디어를 얻으려면?",
+  "subtitulo": "아이디어가 많아야 좋은 아이디어가 나오는 이유, 잘 붙지 않는 접착제에서 태어난 아이디어, 왜 아이디어는 샤워할 때 떠오르는지, 걸으면 더 창의적이 되는지, 브레인스토밍은 여럿이 할 때와 혼자 할 때 중 어느 쪽이 나은지, 왜 제약이 창의성을 키우는지, 아이디어 중에서 고르는 법, 그리고 이어 가기 위한 계획.",
+  "aviso": "이 가이드는 일반적인 정보를 담고 있어요. 인용한 연구들은 특정한 과제에서의 창의성을 측정한 것이라, 결과는 사람마다 다를 수 있어요.",
+  "partes": [
+    {
+      "id": "cantidad",
+      "titulo": "좋은 아이디어는 어디서 나올까요?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "더 좋은 아이디어를 얻으려면 어떻게 해야 할까요? 위대한 천재들은 나쁜 아이디어가 적었던 게 아니라, 아이디어 자체가 많았어요. 그리고 적어 두지 않으면, 우리 아이디어는 금방 달아나 버려요. 좋은 아이디어가 재능이 아니라 습관이라면요? 오늘은 데이터로 확인하고, 이어 가기 위한 계획까지 챙겨 가게 될 거예요."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "그런데 여기는 MindHaOS에 있는 제 집이에요. 네, 벌써 크리스마스예요. 아이디어가 필요할 때로 이보다 좋은 계절은 없죠. 선물, 연말 모임, 새해 계획까지요. 여기가 제 아이디어 방이에요. 떠오르는 아이디어는 전부 여기에 적어 둬요."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "1부. 좋은 아이디어는 어디서 나올까요?"
+        },
+        {
+          "id": "simonton",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "obras",
+              "fracasos",
+              "proporcion"
+            ]
+          },
+          "lamina": [
+            "edison",
+            "bombilla"
+          ],
+          "destacada": true,
+          "texto": "심리학자 딘 키스 사이먼턴은 유명한 과학자와 예술가들을 수십 년 동안 연구해서 놀라운 사실을 발견했어요. 걸작이 가장 많은 사람들이 실패작도 가장 많았던 거예요. 비결은 더 잘 맞히는 게 아니라, 더 많이 만들어 내는 것이었죠."
+        },
+        {
+          "id": "edison",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1093",
+            "clave": "edison"
+          },
+          "lamina": [
+            "patentes",
+            "taller"
+          ],
+          "texto": "토머스 에디슨은 미국에서 특허를 천구십삼 개나 등록했는데, 그중 상당수는 아무 쓸모가 없었어요. 노벨상을 두 번 받은 라이너스 폴링은 이렇게 말했죠. 좋은 아이디어를 얻는 가장 좋은 방법은 아이디어를 많이 갖는 것이라고요."
+        },
+        {
+          "id": "muchas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "muchasIdeas"
+          },
+          "lamina": [
+            "postits",
+            "lluviaPapel"
+          ],
+          "meme": "cienIdeas",
+          "texto": "아이디어 열 개 중 하나가 좋은 거라면, 계산은 간단해요. 아이디어가 많을수록 좋은 아이디어도 많아지죠. 일 년에 좋은 아이디어가 몇 개나 나오는지 보세요."
+        },
+        {
+          "id": "diario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "anota",
+              "sinJuzgar",
+              "carpetas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "그래서 저는 아이디어 일지를 써요. 바보 같아 보이는 것까지 전부 적고, 나중에 정리해요."
+        }
+      ]
+    },
+    {
+      "id": "postit",
+      "titulo": "잘 붙지 않는 접착제에서 어떤 아이디어가 태어났을까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "2부. 잘 붙지 않는 접착제에서 어떤 아이디어가 태어났을까요?"
+        },
+        {
+          "id": "silver",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "silver"
+          },
+          "lamina": [
+            "laboratorio",
+            "pegamento"
+          ],
+          "destacada": true,
+          "texto": "1968년, 3M의 화학자 스펜서 실버는 아주 강력한 접착제를 만들려고 했어요. 그런데 정반대가 나왔죠. 거의 붙지 않고, 흔적 없이 떨어지는 접착제였어요. 몇 년 동안 아무도 쓸 곳을 찾지 못했어요."
+        },
+        {
+          "id": "coro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "coro",
+              "separadores",
+              "recuerda"
+            ]
+          },
+          "lamina": [
+            "coro",
+            "himnario"
+          ],
+          "texto": "그러다 1974년, 교회 성가대에서 노래하던 동료 아트 프라이는 찬송가책에서 종이 책갈피가 자꾸 떨어지는 게 지긋지긋했어요. 그리고 그 붙지 않는 접착제를 떠올렸죠."
+        },
+        {
+          "id": "lanzamiento",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1980",
+            "clave": "postit"
+          },
+          "lamina": [
+            "notasColores",
+            "oficina"
+          ],
+          "texto": "1980년, Post-it 메모지가 출시됐어요. 실패했던 아이디어가 몇 년 뒤 다른 아이디어로 다시 태어난 거예요. 누군가 그걸 기억하고 있었으니까요."
+        },
+        {
+          "id": "lluvias",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "guarda",
+              "vuelve",
+              "combina"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "그래서 저는 어떤 아이디어도 버리지 않아요. 제 일지에는 날짜별, 주제별로 남아 있어서, 필요할 때 다시 꺼내 봐요."
+        }
+      ]
+    },
+    {
+      "id": "ducha",
+      "titulo": "왜 아이디어는 샤워할 때 떠오를까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "3부. 왜 아이디어는 샤워할 때 떠오를까요?"
+        },
+        {
+          "id": "wallas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "preparacion",
+              "incubacion",
+              "iluminacion"
+            ]
+          },
+          "lamina": [
+            "pensador",
+            "ventana"
+          ],
+          "texto": "1926년, 그레이엄 월러스는 아이디어가 떠오르는 과정을 이렇게 설명했어요. 먼저 준비하면서 문제를 이리저리 생각하고, 그다음 내려놓으면 머릿속에서 계속 작업이 이어지고, 그러다 갑자기 아이디어가 나타나요."
+        },
+        {
+          "id": "baird",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "incubacion"
+          },
+          "lamina": [
+            "ducha",
+            "lavarPlatos"
+          ],
+          "destacada": true,
+          "texto": "2012년, 캘리포니아 대학교의 한 연구팀이 창의적인 문제로 실험했어요. 쉬는 동안 마음이 떠돌 수 있는 쉬운 일을 한 사람들이, 다른 어려운 일에 집중하거나 아예 쉬지 않은 사람들보다 훨씬 더 많이 나아졌어요."
+        },
+        {
+          "id": "soltar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "llena",
+              "suelta",
+              "anotaRapido"
+            ]
+          },
+          "lamina": [
+            "cocinar",
+            "libreta"
+          ],
+          "texto": "그러니까 먼저 문제로 머리를 가득 채우고, 설거지나 선물 포장처럼 간단한 일을 하면서 내려놓으세요. 그리고 아이디어가 오면, 사라지기 전에 얼른 적어 두세요.",
+          "meme": "ducha"
+        },
+        {
+          "id": "mapa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mental",
+              "ramas",
+              "reposa"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "어떤 아이디어가 계속 맴돌면, ‘내가 바라는 삶’처럼 마인드맵으로 옮기고 잠시 묵혀 둬요."
+        }
+      ]
+    },
+    {
+      "id": "caminar",
+      "titulo": "걸으면 더 창의적이 될까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "4부. 걸으면 더 창의적이 될까요?"
+        },
+        {
+          "id": "oppezzo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "caminar"
+          },
+          "lamina": [
+            "caminata",
+            "parque"
+          ],
+          "destacada": true,
+          "texto": "2014년, 스탠퍼드 대학교의 메릴리 오페조와 대니얼 슈워츠는 사람들에게 흔한 물건의 새로운 쓰임새를 앉아서, 또는 걸으면서 생각해 보게 했어요. 걸을 때는 평균 육십 퍼센트나 더 많이 떠올렸어요."
+        },
+        {
+          "id": "despues",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "caminando",
+              "despues",
+              "afuera"
+            ]
+          },
+          "lamina": [
+            "nieve",
+            "caminadora"
+          ],
+          "texto": "그리고 그 효과는 앉은 뒤에도 한동안 이어졌어요. 밖에서 걷든, 벽을 보며 러닝머신에서 걷든 상관없었어요. 중요한 건 몸을 움직이는 거였죠."
+        },
+        {
+          "id": "paseo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "problema",
+              "vuelta",
+              "nota"
+            ]
+          },
+          "lamina": [
+            "calleNavidad",
+            "celularNota"
+          ],
+          "texto": "그러니 막힐 때는 문제를 데리고 한 바퀴 산책하세요. 적을 것도 꼭 챙기고요."
+        },
+        {
+          "id": "flujo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "flujoApp",
+              "pasosApp",
+              "rutinaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "저는 ‘아침 루틴’까지 순서도로 만들어 뒀어요. 그러면 산책을 어디에 넣을 수 있는지 보이거든요."
+        }
+      ]
+    },
+    {
+      "id": "lluvia",
+      "titulo": "브레인스토밍, 여럿이 할까요 혼자 할까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "5부. 브레인스토밍, 여럿이 할까요 혼자 할까요?"
+        },
+        {
+          "id": "osborn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "grupos"
+          },
+          "lamina": [
+            "reunion",
+            "pizarron"
+          ],
+          "destacada": true,
+          "texto": "브레인스토밍은 광고인 알렉스 오스본이 1950년대에 널리 알렸어요. 그런데 1987년, 미하엘 딜과 볼프강 슈트뢰베가 이걸 시험해 봤어요. 같은 사람들이 각자 따로 생각한 뒤 목록을 합쳤더니, 함께 모여서 할 때보다 아이디어가 거의 두 배나 나왔어요."
+        },
+        {
+          "id": "turno",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "lluviaSolo"
+          },
+          "lamina": [
+            "esperar",
+            "escribirSolo"
+          ],
+          "meme": "reunion",
+          "texto": "왜일까요? 여럿이 있으면 내 차례를 기다려야 하고, 남의 말을 듣는 동안 내 아이디어는 사라져 버려요. 회의에서 아이디어가 얼마나 사라지는지 보세요."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoIdeas"
+          },
+          "lamina": "pulgar",
+          "texto": "이 가이드가 마음에 든다면 좋아요를 누르고, 다음 편을 놓치지 않게 구독하고, 늘 아이디어는 많은데 절대 적어 두지 않는 그 사람에게 공유해 주세요."
+        },
+        {
+          "id": "mezcla",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "solo",
+              "juntos",
+              "mejora"
+            ]
+          },
+          "lamina": [
+            "equipo",
+            "postits2"
+          ],
+          "texto": "가장 좋은 건 섞는 거예요. 먼저 각자 혼자서, 아무것도 판단하지 말고요. 그다음 모여서 합치고 다듬어요."
+        },
+        {
+          "id": "regalos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lluviaApp",
+              "regalosApp",
+              "mapaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "제 ‘연말 선물’ 브레인스토밍은 혼자 했어요. 아이디어를 하나씩 이어서 적고, 거기서 한 번의 탭으로 지도로 만들었죠."
+        }
+      ]
+    },
+    {
+      "id": "limites",
+      "titulo": "왜 제약이 있으면 더 창의적이 될까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "6부. 왜 제약이 있으면 더 창의적이 될까요?"
+        },
+        {
+          "id": "seuss",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "50",
+            "clave": "seuss"
+          },
+          "lamina": [
+            "seuss",
+            "huevosVerdes"
+          ],
+          "destacada": true,
+          "texto": "1960년, 편집자 베넷 서프는 그린치를 만든 닥터 수스에게, 서로 다른 단어 쉰 개만으로는 책을 못 쓸 거라며 오십 달러를 걸었어요. 수스가 쓴 책은 『초록 달걀과 햄』, 역사상 가장 많이 팔린 어린이책 중 하나예요."
+        },
+        {
+          "id": "haught",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rimas",
+              "palabras",
+              "mejores"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "rompecabezas"
+          ],
+          "texto": "2017년, 심리학자 카트리넬 호트-트롬프가 이걸 확인했어요. 정해진 단어를 꼭 넣어서 운율 있는 시를 쓴 사람들이, 자유롭게 쓴 사람들보다 더 창의적인 시를 썼어요."
+        },
+        {
+          "id": "reglas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tiempo",
+              "presupuesto",
+              "regla"
+            ]
+          },
+          "lamina": [
+            "reloj",
+            "envolver"
+          ],
+          "meme": "hoja",
+          "texto": "그러니 스스로 제약을 걸어 보세요. 십 분, 적은 예산, 아니면 ‘양말에 들어가는 선물’ 같은 엉뚱한 규칙도요."
+        },
+        {
+          "id": "eisenhower",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "urgente",
+              "importante",
+              "soltarApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "그리고 아이디어가 너무 많아 허우적대지 않도록, 제 아이젠하워 매트릭스가 지금 할 일, 일정에 넣을 일, 내려놓을 일을 알려 줘요."
+        }
+      ]
+    },
+    {
+      "id": "decidir",
+      "titulo": "아이디어 중에서 어떻게 고를까요?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "7부. 아이디어 중에서 어떻게 고를까요?"
+        },
+        {
+          "id": "franklin",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1772",
+            "clave": "franklin"
+          },
+          "lamina": [
+            "franklin",
+            "carta"
+          ],
+          "destacada": true,
+          "texto": "1772년, 벤저민 프랭클린은 친구에게 자기가 결정하는 방법을 설명했어요. 종이 한 장에 찬성과 반대, 두 칸을 만들어요. 며칠 동안 이유를 적고, 각각 무게를 매기고, 서로 균형이 맞는 것끼리 지워 나가요. 그는 이걸 도덕적 대수라고 불렀어요."
+        },
+        {
+          "id": "balanza",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "balanzaFranklin"
+          },
+          "lamina": [
+            "balanza",
+            "decidir"
+          ],
+          "texto": "중요한 건 양쪽에 이유가 몇 개 있느냐가 아니라, 하나하나가 얼마나 무거우냐예요. 나만의 저울로 직접 해 보세요."
+        },
+        {
+          "id": "criterios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "criterios",
+              "puntua",
+              "duerme"
+            ]
+          },
+          "lamina": [
+            "comparar",
+            "cafe"
+          ],
+          "texto": "그리고 선택지가 여러 개라면, 기준을 정하고, 중요도를 매기고, 선택지마다 점수를 준 다음… 하룻밤 자면서 생각해 보세요."
+        },
+        {
+          "id": "proscontras",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pesosApp",
+              "matrizApp",
+              "totalApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "제 결정 다이어그램에는 무게를 단 장단점과, ‘달 찍을 카메라, 뭐가 좋을까?’를 고르는 결정 매트릭스가 있어요."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "어떻게 이어 갈까요? 이어 가기 위한 계획",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "8부. 어떻게 이어 갈까요? 이어 가기 위한 계획."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planIdeas"
+          },
+          "lamina": [
+            "libreta",
+            "postits"
+          ],
+          "texto": "첫 주에는 떠오르는 아이디어를 아무리 작아도 전부 한곳에 적어 두세요."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lluviaSemanal",
+              "caminaPlan",
+              "limitePlan"
+            ]
+          },
+          "lamina": [
+            "caminata",
+            "pizarron"
+          ],
+          "destacada": true,
+          "texto": "첫 달에는 매주 혼자 브레인스토밍을 하고, 막히면 산책을 나가고, 도전마다 제약을 하나씩 걸어 보세요."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "relee",
+              "combinaPlan",
+              "decidePlan"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "cumbre"
+          ],
+          "texto": "그리고 매달, 예전 아이디어를 다시 읽어 보세요. 그중 하나는 새 아이디어와 합쳐질 거예요. 그리고 결정할 때가 오면, 저울에 올려 보세요."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "formatos",
+              "ejemplo",
+              "conIA"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "어디서부터 시작할지 모르겠을 때는, 개념도와 다이어그램마다 예시가 있어서 실제로 어떻게 돌아가는지 볼 수 있어요."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "정리하면, 아이디어를 많이 내고 전부 적어 두세요. 문제를 내려놓고 산책하세요. 모이기 전에 혼자 브레인스토밍하세요. 스스로 제약을 거세요. 그리고 충동이 아니라 저울로 결정하세요."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS의 아이디어에서는 아이디어 일지에 적고, 개념도로 정리하고, 결정 다이어그램으로 결정해요. 직접 해도 되고, AI의 도움을 받아도 돼요. 오늘 무료로 나만의 마음의 집을 지어 보세요. 링크는 설명란에 있어요. 그리고 다음 가이드는, 어떻게 하면 더 잘 여행할 수 있을까요?",
+    "boton": "아이디어 열기",
+    "lamina": "app-plan",
+    "anclas": {
+      "diario": "아이디어 일지",
+      "mapas": "개념도",
+      "diagramas": "결정 다이어그램"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "simonton-1997",
+      "texto": "Simonton D. K. Creative productivity: a predictive and explanatory model of career trajectories and landmarks. Psychological Review 104(1), 66-89 (1997).",
+      "url": "https://doi.org/10.1037/0033-295X.104.1.66"
+    },
+    {
+      "id": "postit",
+      "texto": "Post-it 메모지의 역사 (스펜서 실버와 아트 프라이, 3M). 위키백과.",
+      "url": "https://en.wikipedia.org/wiki/Post-it_note"
+    },
+    {
+      "id": "wallas-1926",
+      "texto": "Wallas G. The Art of Thought (1926). 위키백과.",
+      "url": "https://en.wikipedia.org/wiki/Graham_Wallas"
+    },
+    {
+      "id": "baird-2012",
+      "texto": "Baird B. 외. Inspired by distraction: mind wandering facilitates creative incubation. Psychological Science 23(10), 1117-1122 (2012).",
+      "url": "https://doi.org/10.1177/0956797612446024"
+    },
+    {
+      "id": "oppezzo-2014",
+      "texto": "Oppezzo M., Schwartz D. L. Give your ideas some legs: the positive effect of walking on creative thinking. Journal of Experimental Psychology: Learning, Memory, and Cognition 40(4), 1142-1152 (2014).",
+      "url": "https://doi.org/10.1037/a0036577"
+    },
+    {
+      "id": "diehl-1987",
+      "texto": "Diehl M., Stroebe W. Productivity loss in brainstorming groups: toward the solution of a riddle. Journal of Personality and Social Psychology 53(3), 497-509 (1987).",
+      "url": "https://doi.org/10.1037/0022-3514.53.3.497"
+    },
+    {
+      "id": "haught-2017",
+      "texto": "Haught-Tromp C. The Green Eggs and Ham hypothesis: how constraints facilitate creativity. Psychology of Aesthetics, Creativity, and the Arts 11(1), 10-17 (2017).",
+      "url": "https://doi.org/10.1037/aca0000061"
+    },
+    {
+      "id": "franklin-1772",
+      "texto": "Benjamin Franklin. 조지프 프리스틀리에게 보낸 ‘도덕적 대수’에 관한 편지 (1772년 9월 19일). Founders Online.",
+      "url": "https://founders.archives.gov/documents/Franklin/01-19-02-0200"
+    }
+  ]
+}

@@ -1,0 +1,730 @@
+{
+  "idioma": "en",
+  "tema": "ideas",
+  "plantillaId": "ideas",
+  "numero": 19,
+  "nombre": "Ideas",
+  "pregunta": "How can you have better ideas?",
+  "corta": "How can you have better ideas?",
+  "subtitulo": "Why having lots of ideas is the secret to good ones, the idea born from a glue that didn’t stick, why ideas come in the shower, whether walking makes you more creative, whether brainstorming works better in a group or alone, why limits make you more creative, how to choose between your ideas, and a plan to keep going.",
+  "aviso": "This guide is informational and general. The studies cited measure creativity on specific tasks; your results may vary.",
+  "partes": [
+    {
+      "id": "cantidad",
+      "titulo": "Where do good ideas come from?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "How can you have better ideas? The great geniuses didn’t have fewer bad ideas: they had more ideas. And yours slip away if you don’t write them down. What if having good ideas were a habit, not a gift? Today you’ll see it with data, and you’ll leave with a plan to keep going."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "By the way, this is my house in MindHaOS, and yes: it’s already Christmas. And there’s no better time to need ideas: gifts, dinners, New Year’s resolutions. This is my Ideas room: I write down every idea I come up with here."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part one. Where do good ideas come from?"
+        },
+        {
+          "id": "simonton",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "obras",
+              "fracasos",
+              "proporcion"
+            ]
+          },
+          "lamina": [
+            "edison",
+            "bombilla"
+          ],
+          "destacada": true,
+          "texto": "Psychologist Dean Keith Simonton spent decades studying famous scientists and artists, and he found something surprising: the ones with the most masterpieces also had the most failures. Their secret wasn’t hitting the mark more often, but producing more."
+        },
+        {
+          "id": "edison",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1093",
+            "clave": "edison"
+          },
+          "lamina": [
+            "patentes",
+            "taller"
+          ],
+          "texto": "Thomas Edison filed one thousand ninety-three patents in the United States, and many of them were useless. As Linus Pauling, winner of two Nobel Prizes, put it: the best way to have a good idea is to have lots of ideas."
+        },
+        {
+          "id": "muchas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "muchasIdeas"
+          },
+          "lamina": [
+            "postits",
+            "lluviaPapel"
+          ],
+          "meme": "cienIdeas",
+          "texto": "If one in ten ideas is good, the math is simple: more ideas, more good ideas. See how many good ones you get in a year."
+        },
+        {
+          "id": "diario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "anota",
+              "sinJuzgar",
+              "carpetas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "That’s why I keep an idea journal: I write them all down, even the ones that seem silly, and sort them out later."
+        }
+      ]
+    },
+    {
+      "id": "postit",
+      "titulo": "What idea was born from a glue that didn’t stick?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part two. What idea was born from a glue that didn’t stick?"
+        },
+        {
+          "id": "silver",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "silver"
+          },
+          "lamina": [
+            "laboratorio",
+            "pegamento"
+          ],
+          "destacada": true,
+          "texto": "In 1968, Spencer Silver, a chemist at 3M, was trying to make a super-strong glue. He got the exact opposite: one that barely stuck and peeled off without a trace. For years, nobody found a use for it."
+        },
+        {
+          "id": "coro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "coro",
+              "separadores",
+              "recuerda"
+            ]
+          },
+          "lamina": [
+            "coro",
+            "himnario"
+          ],
+          "texto": "Until, in 1974, his colleague Art Fry, who sang in his church choir, got fed up with his paper bookmarks falling out of his hymnal. And he remembered the glue that didn’t stick."
+        },
+        {
+          "id": "lanzamiento",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1980",
+            "clave": "postit"
+          },
+          "lamina": [
+            "notasColores",
+            "oficina"
+          ],
+          "texto": "In 1980, Post-it notes went on sale. An idea that had failed turned into another idea, years later, because someone had kept it in mind."
+        },
+        {
+          "id": "lluvias",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "guarda",
+              "vuelve",
+              "combina"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "That’s why I never throw an idea away: in my journal they stay saved by date and by topic, and I go back to them when I need to."
+        }
+      ]
+    },
+    {
+      "id": "ducha",
+      "titulo": "Why do ideas come in the shower?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part three. Why do ideas come in the shower?"
+        },
+        {
+          "id": "wallas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "preparacion",
+              "incubacion",
+              "iluminacion"
+            ]
+          },
+          "lamina": [
+            "pensador",
+            "ventana"
+          ],
+          "texto": "In 1926, Graham Wallas described how an idea arrives: first you prepare and turn the problem over and over; then you let it go, and your mind keeps working on it in the background; and suddenly, the idea appears."
+        },
+        {
+          "id": "baird",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "incubacion"
+          },
+          "lamina": [
+            "ducha",
+            "lavarPlatos"
+          ],
+          "destacada": true,
+          "texto": "In 2012, a team from the University of California tested this with creative problems. People who did something easy during the break, something that let their mind wander, improved far more than those who focused on another hard task or took no break."
+        },
+        {
+          "id": "soltar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "llena",
+              "suelta",
+              "anotaRapido"
+            ]
+          },
+          "lamina": [
+            "cocinar",
+            "libreta"
+          ],
+          "texto": "So fill your head with the problem, then let it go with something simple, like washing the dishes or wrapping gifts. And when the idea comes, write it down fast, before it slips away.",
+          "meme": "ducha"
+        },
+        {
+          "id": "mapa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mental",
+              "ramas",
+              "reposa"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "When an idea keeps going round in my head, I move it to a mind map, like the one for my ideal life, and let it rest."
+        }
+      ]
+    },
+    {
+      "id": "caminar",
+      "titulo": "Does walking make you more creative?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part four. Does walking make you more creative?"
+        },
+        {
+          "id": "oppezzo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "caminar"
+          },
+          "lamina": [
+            "caminata",
+            "parque"
+          ],
+          "destacada": true,
+          "texto": "In 2014, Marily Oppezzo and Daniel Schwartz, from Stanford University, asked people to come up with new uses for everyday objects, either sitting or walking. While walking, they came up with sixty percent more on average."
+        },
+        {
+          "id": "despues",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "caminando",
+              "despues",
+              "afuera"
+            ]
+          },
+          "lamina": [
+            "nieve",
+            "caminadora"
+          ],
+          "texto": "And the effect lasted a while after they sat down. It didn’t matter whether they walked outside or on a treadmill facing a wall: what counted was moving."
+        },
+        {
+          "id": "paseo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "problema",
+              "vuelta",
+              "nota"
+            ]
+          },
+          "lamina": [
+            "calleNavidad",
+            "celularNota"
+          ],
+          "texto": "So when you’re stuck, take the problem for a walk. And bring something to write with."
+        },
+        {
+          "id": "flujo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "flujoApp",
+              "pasosApp",
+              "rutinaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "I even have my morning routine in a flowchart: that way I can see where a walk fits in."
+        }
+      ]
+    },
+    {
+      "id": "lluvia",
+      "titulo": "Brainstorming: in a group or alone?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part five. Brainstorming: in a group or alone?"
+        },
+        {
+          "id": "osborn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "grupos"
+          },
+          "lamina": [
+            "reunion",
+            "pizarron"
+          ],
+          "destacada": true,
+          "texto": "Brainstorming was made popular by an advertising man, Alex Osborn, in the fifties. But in 1987, Michael Diehl and Wolfgang Stroebe put it to the test: the same people, each working on their own and then pooling their lists, came up with almost twice as many ideas as in a group."
+        },
+        {
+          "id": "turno",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "lluviaSolo"
+          },
+          "lamina": [
+            "esperar",
+            "escribirSolo"
+          ],
+          "meme": "reunion",
+          "texto": "Why? In a group you have to wait your turn, and while you listen, your idea vanishes. See how many ideas get lost in a meeting."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoIdeas"
+          },
+          "lamina": "pulgar",
+          "texto": "If you’re enjoying the guide, hit like, subscribe so you don’t miss the next one, and share it with that person who always has ideas but never writes them down."
+        },
+        {
+          "id": "mezcla",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "solo",
+              "juntos",
+              "mejora"
+            ]
+          },
+          "lamina": [
+            "equipo",
+            "postits2"
+          ],
+          "texto": "The best approach is to mix: first everyone on their own, judging nothing; then you get together, combine the ideas and improve them."
+        },
+        {
+          "id": "regalos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lluviaApp",
+              "regalosApp",
+              "mapaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "I did my year-end gifts brainstorm on my own, one idea after another, and from there it turned into a map with one tap."
+        }
+      ]
+    },
+    {
+      "id": "limites",
+      "titulo": "Why do limits make you more creative?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part six. Why do limits make you more creative?"
+        },
+        {
+          "id": "seuss",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "50",
+            "clave": "seuss"
+          },
+          "lamina": [
+            "seuss",
+            "huevosVerdes"
+          ],
+          "destacada": true,
+          "texto": "In 1960, publisher Bennett Cerf bet Dr. Seuss, the author of the Grinch, fifty dollars that he couldn’t write a book using only fifty different words. Seuss wrote Green Eggs and Ham, one of the best-selling children’s books in history."
+        },
+        {
+          "id": "haught",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rimas",
+              "palabras",
+              "mejores"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "rompecabezas"
+          ],
+          "texto": "In 2017, psychologist Catrinel Haught-Tromp put it to the test: people she asked to write rhymes using certain required words came up with more creative ones than those who wrote freely."
+        },
+        {
+          "id": "reglas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tiempo",
+              "presupuesto",
+              "regla"
+            ]
+          },
+          "lamina": [
+            "reloj",
+            "envolver"
+          ],
+          "meme": "hoja",
+          "texto": "So set yourself limits: ten minutes, a small budget, or an odd rule, like gifts that fit in a stocking."
+        },
+        {
+          "id": "eisenhower",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "urgente",
+              "importante",
+              "soltarApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "And so I don’t drown in so many ideas, my Eisenhower matrix tells me what to do now, what to schedule and what to let go."
+        }
+      ]
+    },
+    {
+      "id": "decidir",
+      "titulo": "How do you choose between your ideas?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part seven. How do you choose between your ideas?"
+        },
+        {
+          "id": "franklin",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1772",
+            "clave": "franklin"
+          },
+          "lamina": [
+            "franklin",
+            "carta"
+          ],
+          "destacada": true,
+          "texto": "In 1772, Benjamin Franklin explained to a friend how he made decisions: a sheet of paper with two columns, for and against. Over a few days he wrote down reasons, gave each one a weight, and crossed out the ones that balanced each other out. He called it moral algebra."
+        },
+        {
+          "id": "balanza",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "balanzaFranklin"
+          },
+          "lamina": [
+            "balanza",
+            "decidir"
+          ],
+          "texto": "What matters isn’t how many reasons there are on each side, but how much each one weighs. Try your own scale."
+        },
+        {
+          "id": "criterios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "criterios",
+              "puntua",
+              "duerme"
+            ]
+          },
+          "lamina": [
+            "comparar",
+            "cafe"
+          ],
+          "texto": "And when you have several options, pick your criteria, decide how much each one matters, score every option… and sleep on it."
+        },
+        {
+          "id": "proscontras",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pesosApp",
+              "matrizApp",
+              "totalApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In my diagrams I have pros and cons with their weights, and a decision matrix to choose my camera."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "What’s next? Your plan to keep going",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part eight. What’s next? Your plan to keep going."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planIdeas"
+          },
+          "lamina": [
+            "libreta",
+            "postits"
+          ],
+          "texto": "In the first week, write down every idea that comes to you, however small, all in one place."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lluviaSemanal",
+              "caminaPlan",
+              "limitePlan"
+            ]
+          },
+          "lamina": [
+            "caminata",
+            "pizarron"
+          ],
+          "destacada": true,
+          "texto": "In the first month, do a solo brainstorm every week, go for a walk when you’re stuck, and set a limit for each challenge."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "relee",
+              "combinaPlan",
+              "decidePlan"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "cumbre"
+          ],
+          "texto": "And every month, reread your old ideas: one of them will click with a new one. And when it’s time to decide, put it on the scale."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "formatos",
+              "ejemplo",
+              "conIA"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "And if I don’t know where to start, every map and every diagram comes with an example, so I can see it in action."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "In short: have lots of ideas and write them all down; let go of the problem and go for a walk; brainstorm alone before getting together; set yourself limits; and decide with a scale, not on impulse."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "In Ideas on MindHaOS, you keep your idea journal, organize your maps and decide with your diagrams. You can do it yourself, or with help from AI. Build your mental house for free today: the link is in the description. And in the next guide: how can you travel better?",
+    "boton": "Open the Ideas room",
+    "lamina": "app-plan",
+    "anclas": {
+      "diario": "your idea journal",
+      "mapas": "your maps",
+      "diagramas": "your diagrams"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "simonton-1997",
+      "texto": "Simonton D. K. Creative productivity: a predictive and explanatory model of career trajectories and landmarks. Psychological Review 104(1), 66-89 (1997).",
+      "url": "https://doi.org/10.1037/0033-295X.104.1.66"
+    },
+    {
+      "id": "postit",
+      "texto": "History of Post-it notes (Spencer Silver and Art Fry, 3M). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Post-it_note"
+    },
+    {
+      "id": "wallas-1926",
+      "texto": "Wallas G. The Art of Thought (1926). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Graham_Wallas"
+    },
+    {
+      "id": "baird-2012",
+      "texto": "Baird B. et al. Inspired by distraction: mind wandering facilitates creative incubation. Psychological Science 23(10), 1117-1122 (2012).",
+      "url": "https://doi.org/10.1177/0956797612446024"
+    },
+    {
+      "id": "oppezzo-2014",
+      "texto": "Oppezzo M., Schwartz D. L. Give your ideas some legs: the positive effect of walking on creative thinking. Journal of Experimental Psychology: Learning, Memory, and Cognition 40(4), 1142-1152 (2014).",
+      "url": "https://doi.org/10.1037/a0036577"
+    },
+    {
+      "id": "diehl-1987",
+      "texto": "Diehl M., Stroebe W. Productivity loss in brainstorming groups: toward the solution of a riddle. Journal of Personality and Social Psychology 53(3), 497-509 (1987).",
+      "url": "https://doi.org/10.1037/0022-3514.53.3.497"
+    },
+    {
+      "id": "haught-2017",
+      "texto": "Haught-Tromp C. The Green Eggs and Ham hypothesis: how constraints facilitate creativity. Psychology of Aesthetics, Creativity, and the Arts 11(1), 10-17 (2017).",
+      "url": "https://doi.org/10.1037/aca0000061"
+    },
+    {
+      "id": "franklin-1772",
+      "texto": "Benjamin Franklin. Letter to Joseph Priestley on “moral algebra” (September 19, 1772). Founders Online.",
+      "url": "https://founders.archives.gov/documents/Franklin/01-19-02-0200"
+    }
+  ]
+}

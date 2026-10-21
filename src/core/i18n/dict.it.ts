@@ -7525,6 +7525,7 @@ export const IT: Dict = {
   'guia.hobbies.titulo': "Come trovare un passatempo e come mantenerlo?",
   'guia.entretenimiento.titulo': "Come divertirti meglio?",
   'guia.garage.titulo': "Come prenderti cura dei tuoi veicoli?",
+  'guia.ideas.titulo': "Come avere idee migliori?",
   'guia.noticias.titulo': "Alla ricerca della verità e della bellezza: giornalismo e contenuti",
   'guia.matematicas.titulo': "Qual è il linguaggio dell'universo?",
   'tut.esencial.titulo': 'L’essenziale',

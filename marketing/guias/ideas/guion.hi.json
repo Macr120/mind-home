@@ -1,0 +1,730 @@
+{
+  "idioma": "hi",
+  "tema": "ideas",
+  "plantillaId": "ideas",
+  "numero": 19,
+  "nombre": "विचार",
+  "pregunta": "बेहतर विचार कैसे पाएँ?",
+  "corta": "बेहतर विचार कैसे पाएँ?",
+  "subtitulo": "क्यों बहुत सारे विचार ही अच्छे विचारों का राज़ हैं, वह विचार जो न चिपकने वाले गोंद से पैदा हुआ, विचार नहाते समय ही क्यों आते हैं, क्या चलना आपको ज़्यादा रचनात्मक बनाता है, विचार-मंथन समूह में बेहतर है या अकेले, सीमाएँ आपको ज़्यादा रचनात्मक क्यों बनाती हैं, अपने विचारों में से कैसे चुनें, और आगे बढ़ने का एक प्लान।",
+  "aviso": "यह गाइड सामान्य जानकारी के लिए है। बताए गए अध्ययन ख़ास कामों में रचनात्मकता मापते हैं; आपके नतीजे अलग हो सकते हैं।",
+  "partes": [
+    {
+      "id": "cantidad",
+      "titulo": "अच्छे विचार कहाँ से आते हैं?",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "बेहतर विचार कैसे पाएँ? बड़े-बड़े जीनियस के पास कम बुरे विचार नहीं थे, उनके पास ज़्यादा विचार थे। और अगर आप अपने विचार लिखते नहीं, तो वे उड़ जाते हैं। क्या हो अगर अच्छे विचार लाना एक आदत हो, कोई जन्मजात गुण नहीं? आज आप इसे आँकड़ों के साथ देखेंगे, और आगे बढ़ने का एक प्लान लेकर जाएँगे।"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "वैसे, यह MindHaOS में मेरा घर है, और हाँ: क्रिसमस आ गया है। और विचारों की ज़रूरत के लिए इससे अच्छा समय नहीं: तोहफ़े, दावतें, नए साल के संकल्प। यह मेरा विचार वाला कमरा है: जो भी मन में आता है, मैं यहीं लिख लेता हूँ।"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग एक। अच्छे विचार कहाँ से आते हैं?"
+        },
+        {
+          "id": "simonton",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "obras",
+              "fracasos",
+              "proporcion"
+            ]
+          },
+          "lamina": [
+            "edison",
+            "bombilla"
+          ],
+          "destacada": true,
+          "texto": "मनोवैज्ञानिक डीन कीथ साइमनटन ने दशकों तक मशहूर वैज्ञानिकों और कलाकारों का अध्ययन किया, और एक हैरान करने वाली बात पाई: जिनकी सबसे ज़्यादा उत्कृष्ट कृतियाँ थीं, उनकी नाकामियाँ भी सबसे ज़्यादा थीं। उनका राज़ ज़्यादा सही होना नहीं, बल्कि ज़्यादा रचना था।"
+        },
+        {
+          "id": "edison",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1093",
+            "clave": "edison"
+          },
+          "lamina": [
+            "patentes",
+            "taller"
+          ],
+          "texto": "थॉमस एडिसन ने अमेरिका में एक हज़ार तिरानवे पेटेंट दर्ज कराए, और उनमें से कई किसी काम के नहीं निकले। जैसा कि दो नोबेल पुरस्कार जीतने वाले लाइनस पॉलिंग ने कहा था: अच्छा विचार पाने का सबसे अच्छा तरीक़ा है बहुत सारे विचार होना।"
+        },
+        {
+          "id": "muchas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "muchasIdeas"
+          },
+          "lamina": [
+            "postits",
+            "lluviaPapel"
+          ],
+          "meme": "cienIdeas",
+          "texto": "अगर दस में से एक विचार अच्छा होता है, तो हिसाब सीधा है: ज़्यादा विचार, ज़्यादा अच्छे विचार। देखिए, साल भर में आपके कितने अच्छे विचार निकलते हैं।"
+        },
+        {
+          "id": "diario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "anota",
+              "sinJuzgar",
+              "carpetas"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "इसीलिए मेरे पास विचारों की एक डायरी है: मैं सब लिखता हूँ, वे भी जो बेवक़ूफ़ी भरे लगते हैं, और बाद में उन्हें सजाता हूँ।"
+        }
+      ]
+    },
+    {
+      "id": "postit",
+      "titulo": "न चिपकने वाले गोंद से कौन-सा विचार पैदा हुआ?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग दो। न चिपकने वाले गोंद से कौन-सा विचार पैदा हुआ?"
+        },
+        {
+          "id": "silver",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1968",
+            "clave": "silver"
+          },
+          "lamina": [
+            "laboratorio",
+            "pegamento"
+          ],
+          "destacada": true,
+          "texto": "1968 में, 3M कंपनी के रसायनज्ञ स्पेंसर सिल्वर एक बहुत मज़बूत गोंद बनाने की कोशिश कर रहे थे। बन गया बिल्कुल उल्टा: ऐसा गोंद जो मुश्किल से चिपकता था और बिना निशान छोड़े उतर जाता था। सालों तक किसी को उसका कोई इस्तेमाल नहीं सूझा।"
+        },
+        {
+          "id": "coro",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "coro",
+              "separadores",
+              "recuerda"
+            ]
+          },
+          "lamina": [
+            "coro",
+            "himnario"
+          ],
+          "texto": "फिर 1974 में उनके साथी आर्ट फ़्राई, जो अपने चर्च के गायक दल में गाते थे, इस बात से तंग आ गए कि उनके काग़ज़ के बुकमार्क भजन की किताब से गिर जाते थे। और उन्हें वह न चिपकने वाला गोंद याद आया।"
+        },
+        {
+          "id": "lanzamiento",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1980",
+            "clave": "postit"
+          },
+          "lamina": [
+            "notasColores",
+            "oficina"
+          ],
+          "texto": "1980 में Post-it नोट्स बाज़ार में आए। एक नाकाम विचार, सालों बाद, दूसरा विचार बन गया, क्योंकि किसी ने उसे अपनी याद में संभाल कर रखा था।"
+        },
+        {
+          "id": "lluvias",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "guarda",
+              "vuelve",
+              "combina"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "इसीलिए मैं कोई विचार नहीं फेंकता: मेरी डायरी में वे तारीख़ और विषय के हिसाब से रखे रहते हैं, और ज़रूरत पड़ने पर मैं उन पर लौटता हूँ।"
+        }
+      ]
+    },
+    {
+      "id": "ducha",
+      "titulo": "विचार नहाते समय ही क्यों आते हैं?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग तीन। विचार नहाते समय ही क्यों आते हैं?"
+        },
+        {
+          "id": "wallas",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "preparacion",
+              "incubacion",
+              "iluminacion"
+            ]
+          },
+          "lamina": [
+            "pensador",
+            "ventana"
+          ],
+          "texto": "1926 में, ग्राहम वॉलस ने बताया कि विचार कैसे आता है: पहले आप तैयारी करते हैं और समस्या पर बार-बार सोचते हैं; फिर उसे छोड़ देते हैं और आपका दिमाग़ अंदर ही अंदर उस पर काम करता रहता है; और अचानक, विचार सामने आ जाता है।"
+        },
+        {
+          "id": "baird",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "incubacion"
+          },
+          "lamina": [
+            "ducha",
+            "lavarPlatos"
+          ],
+          "destacada": true,
+          "texto": "2012 में, यूनिवर्सिटी ऑफ़ कैलिफ़ोर्निया की एक टीम ने रचनात्मक सवालों से इसे परखा। जिन्होंने ब्रेक में कोई आसान काम किया, जिसमें मन भटक सके, वे उन लोगों से कहीं ज़्यादा बेहतर हुए जिन्होंने कोई दूसरा मुश्किल काम किया या ब्रेक ही नहीं लिया।"
+        },
+        {
+          "id": "soltar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "llena",
+              "suelta",
+              "anotaRapido"
+            ]
+          },
+          "lamina": [
+            "cocinar",
+            "libreta"
+          ],
+          "texto": "तो पहले समस्या से ख़ुद को भर लीजिए, फिर किसी आसान काम से उसे छोड़ दीजिए, जैसे बर्तन धोना या तोहफ़े पैक करना। और जब विचार आए, तो उसके जाने से पहले उसे झट से लिख लीजिए।",
+          "meme": "ducha"
+        },
+        {
+          "id": "mapa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mental",
+              "ramas",
+              "reposa"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "जब कोई विचार मेरे दिमाग़ में घूमता रहता है, तो मैं उसे एक माइंड मैप में डालता हूँ, जैसे मेरी आदर्श ज़िंदगी, और उसे कुछ दिन पकने देता हूँ।"
+        }
+      ]
+    },
+    {
+      "id": "caminar",
+      "titulo": "क्या चलना आपको ज़्यादा रचनात्मक बनाता है?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग चार। क्या चलना आपको ज़्यादा रचनात्मक बनाता है?"
+        },
+        {
+          "id": "oppezzo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "caminar"
+          },
+          "lamina": [
+            "caminata",
+            "parque"
+          ],
+          "destacada": true,
+          "texto": "2014 में, स्टैनफ़र्ड यूनिवर्सिटी की मैरिली ओपेज़ो और डैनियल श्वार्ट्ज़ ने कुछ लोगों से आम चीज़ों के नए इस्तेमाल सोचने को कहा, बैठे-बैठे या चलते हुए। चलते हुए उन्हें औसतन साठ प्रतिशत ज़्यादा विचार आए।"
+        },
+        {
+          "id": "despues",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "caminando",
+              "despues",
+              "afuera"
+            ]
+          },
+          "lamina": [
+            "nieve",
+            "caminadora"
+          ],
+          "texto": "और बैठने के बाद भी कुछ देर तक असर बना रहा। फ़र्क़ नहीं पड़ा कि वे बाहर चले या दीवार के सामने ट्रेडमिल पर: असली बात थी चलना-फिरना।"
+        },
+        {
+          "id": "paseo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "problema",
+              "vuelta",
+              "nota"
+            ]
+          },
+          "lamina": [
+            "calleNavidad",
+            "celularNota"
+          ],
+          "texto": "तो जब आप अटक जाएँ, अपनी समस्या को सैर पर ले जाइए। और साथ में लिखने का कुछ ज़रूर रखिए।"
+        },
+        {
+          "id": "flujo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "flujoApp",
+              "pasosApp",
+              "rutinaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "मेरी सुबह की दिनचर्या भी एक फ़्लोचार्ट में है: इससे मैं देख पाता हूँ कि सैर कहाँ फ़िट होती है।"
+        }
+      ]
+    },
+    {
+      "id": "lluvia",
+      "titulo": "विचार-मंथन समूह में या अकेले?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग पाँच। विचार-मंथन समूह में या अकेले?"
+        },
+        {
+          "id": "osborn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "grupos"
+          },
+          "lamina": [
+            "reunion",
+            "pizarron"
+          ],
+          "destacada": true,
+          "texto": "विचार-मंथन, यानी ब्रेनस्टॉर्मिंग, को पचास के दशक में एक विज्ञापन वाले, एलेक्स ऑस्बॉर्न, ने मशहूर किया। लेकिन 1987 में माइकल डील और वोल्फ़गैंग श्ट्रोबे ने इसे परखा: वही लोग, जब हर कोई अलग-अलग काम करके बाद में अपनी सूचियाँ मिलाता, तो समूह के मुक़ाबले लगभग दोगुने विचार निकले।"
+        },
+        {
+          "id": "turno",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "lluviaSolo"
+          },
+          "lamina": [
+            "esperar",
+            "escribirSolo"
+          ],
+          "meme": "reunion",
+          "texto": "क्यों? समूह में अपनी बारी का इंतज़ार करना पड़ता है, और सुनते-सुनते आपका विचार उड़ जाता है। देखिए, एक मीटिंग में कितने विचार खो जाते हैं।"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoIdeas"
+          },
+          "lamina": "pulgar",
+          "texto": "अगर आपको यह गाइड पसंद आ रही है, तो पसंद करें, सदस्यता लें ताकि अगली गाइड न छूटे, और शेयर करें उस इंसान के साथ जिसके पास हमेशा विचार होते हैं पर वह उन्हें कभी लिखता नहीं।"
+        },
+        {
+          "id": "mezcla",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "solo",
+              "juntos",
+              "mejora"
+            ]
+          },
+          "lamina": [
+            "equipo",
+            "postits2"
+          ],
+          "texto": "सबसे अच्छा है दोनों को मिलाना: पहले हर कोई अकेले, बिना किसी चीज़ को परखे; फिर सब मिलते हैं, विचारों को जोड़ते हैं और बेहतर बनाते हैं।"
+        },
+        {
+          "id": "regalos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lluviaApp",
+              "regalosApp",
+              "mapaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "साल के आख़िर के तोहफ़े वाला विचार-मंथन मैंने अकेले किया, एक के बाद एक विचार, और वहाँ से एक टैप में वह मैप बन गया।"
+        }
+      ]
+    },
+    {
+      "id": "limites",
+      "titulo": "सीमाएँ आपको ज़्यादा रचनात्मक क्यों बनाती हैं?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग छह। सीमाएँ आपको ज़्यादा रचनात्मक क्यों बनाती हैं?"
+        },
+        {
+          "id": "seuss",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "50",
+            "clave": "seuss"
+          },
+          "lamina": [
+            "seuss",
+            "huevosVerdes"
+          ],
+          "destacada": true,
+          "texto": "1960 में, संपादक बेनेट सर्फ़ ने ग्रिंच के लेखक डॉक्टर स्यूस से पचास डॉलर की शर्त लगाई कि वे सिर्फ़ पचास अलग-अलग शब्दों में किताब नहीं लिख सकते। स्यूस ने ग्रीन एग्स एंड हैम लिखी, जो इतिहास की सबसे ज़्यादा बिकने वाली बच्चों की किताबों में से एक है।"
+        },
+        {
+          "id": "haught",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rimas",
+              "palabras",
+              "mejores"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "rompecabezas"
+          ],
+          "texto": "2017 में, मनोवैज्ञानिक कैट्रिनेल हॉट-ट्रॉम्प ने इसे परखा: जिन लोगों से कुछ ज़रूरी शब्दों के साथ तुकबंदी लिखने को कहा गया, उनकी तुकबंदियाँ आज़ादी से लिखने वालों से ज़्यादा रचनात्मक निकलीं।"
+        },
+        {
+          "id": "reglas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tiempo",
+              "presupuesto",
+              "regla"
+            ]
+          },
+          "lamina": [
+            "reloj",
+            "envolver"
+          ],
+          "meme": "hoja",
+          "texto": "तो ख़ुद पर सीमाएँ लगाइए: दस मिनट, छोटा बजट, या कोई अजीब नियम, जैसे ऐसे तोहफ़े जो एक मोज़े में समा जाएँ।"
+        },
+        {
+          "id": "eisenhower",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "urgente",
+              "importante",
+              "soltarApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "और इतने सारे विचारों में डूब न जाऊँ, इसके लिए मेरी आइज़नहावर मैट्रिक्स मुझे बताती है कि क्या अभी करना है, क्या बाद के लिए तय करना है, और क्या छोड़ देना है।"
+        }
+      ]
+    },
+    {
+      "id": "decidir",
+      "titulo": "अपने विचारों में से कैसे चुनें?",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग सात। अपने विचारों में से कैसे चुनें?"
+        },
+        {
+          "id": "franklin",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1772",
+            "clave": "franklin"
+          },
+          "lamina": [
+            "franklin",
+            "carta"
+          ],
+          "destacada": true,
+          "texto": "1772 में, बेंजामिन फ़्रैंकलिन ने एक दोस्त को बताया कि वे फ़ैसले कैसे लेते थे: एक काग़ज़ पर दो कॉलम, पक्ष और विपक्ष। कुछ दिनों तक वे कारण लिखते, उन्हें वज़न देते, और जो एक-दूसरे को बराबर कर दें, उन्हें काट देते। उन्होंने इसे नैतिक बीजगणित कहा।"
+        },
+        {
+          "id": "balanza",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "balanzaFranklin"
+          },
+          "lamina": [
+            "balanza",
+            "decidir"
+          ],
+          "texto": "अहम यह नहीं कि हर तरफ़ कितने कारण हैं, बल्कि यह कि हर कारण का वज़न कितना है। अपना तराज़ू आज़माइए।"
+        },
+        {
+          "id": "criterios",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "criterios",
+              "puntua",
+              "duerme"
+            ]
+          },
+          "lamina": [
+            "comparar",
+            "cafe"
+          ],
+          "texto": "और जब आपके पास कई विकल्प हों, तो अपने मानदंड चुनिए, उन्हें अहमियत दीजिए, हर विकल्प को अंक दीजिए… और एक रात सोकर फिर देखिए।"
+        },
+        {
+          "id": "proscontras",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pesosApp",
+              "matrizApp",
+              "totalApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "अपने आरेखों में मेरे पास वज़न के साथ फ़ायदे और नुक़सान हैं, और अपना कैमरा चुनने के लिए एक निर्णय मैट्रिक्स।"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "आगे कैसे बढ़ें? आगे बढ़ने का आपका प्लान",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग आठ। आगे कैसे बढ़ें? आगे बढ़ने का आपका प्लान।"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planIdeas"
+          },
+          "lamina": [
+            "libreta",
+            "postits"
+          ],
+          "texto": "पहले हफ़्ते, जो भी विचार आए, चाहे कितना भी छोटा हो, उसे एक ही जगह लिखिए।"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "lluviaSemanal",
+              "caminaPlan",
+              "limitePlan"
+            ]
+          },
+          "lamina": [
+            "caminata",
+            "pizarron"
+          ],
+          "destacada": true,
+          "texto": "पहले महीने, हर हफ़्ते अकेले विचार-मंथन कीजिए, अटकें तो सैर पर निकलिए, और हर चुनौती के लिए एक सीमा तय कीजिए।"
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "relee",
+              "combinaPlan",
+              "decidePlan"
+            ]
+          },
+          "lamina": [
+            "escribir",
+            "cumbre"
+          ],
+          "texto": "और हर महीने, अपने पुराने विचार दोबारा पढ़िए: कोई न कोई किसी नए से जुड़ जाएगा। और जब फ़ैसले का वक़्त आए, उसे तराज़ू पर रखिए।"
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "formatos",
+              "ejemplo",
+              "conIA"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "और अगर मुझे समझ न आए कि कहाँ से शुरू करूँ, तो हर मैप और हर आरेख में एक उदाहरण है, जिससे उसे काम करते देख सकूँ।"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "संक्षेप में: बहुत सारे विचार रखिए और सब लिखिए; समस्या को छोड़िए और सैर पर निकलिए; मिलने से पहले अकेले विचार-मंथन कीजिए; ख़ुद पर सीमाएँ लगाइए; और फ़ैसला तराज़ू से कीजिए, जल्दबाज़ी से नहीं।"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS के विचार कमरे में आप अपनी डायरी में विचार लिखते हैं, अपने मैप्स में उन्हें सजाते हैं, और अपने आरेखों से फ़ैसला करते हैं। आप यह ख़ुद कर सकते हैं, या AI की मदद से। आज ही अपना मन का घर मुफ़्त में बनाएँ: लिंक डिस्क्रिप्शन में है। और अगली गाइड में: बेहतर यात्रा कैसे करें?",
+    "boton": "विचार खोलें",
+    "lamina": "app-plan",
+    "anclas": {
+      "diario": "अपनी डायरी",
+      "mapas": "अपने मैप्स",
+      "diagramas": "अपने आरेख"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "simonton-1997",
+      "texto": "Simonton D. K. Creative productivity: a predictive and explanatory model of career trajectories and landmarks. Psychological Review 104(1), 66-89 (1997).",
+      "url": "https://doi.org/10.1037/0033-295X.104.1.66"
+    },
+    {
+      "id": "postit",
+      "texto": "Post-it नोट्स का इतिहास (स्पेंसर सिल्वर और आर्ट फ़्राई, 3M)। विकिपीडिया।",
+      "url": "https://en.wikipedia.org/wiki/Post-it_note"
+    },
+    {
+      "id": "wallas-1926",
+      "texto": "Wallas G. The Art of Thought (1926). विकिपीडिया।",
+      "url": "https://en.wikipedia.org/wiki/Graham_Wallas"
+    },
+    {
+      "id": "baird-2012",
+      "texto": "Baird B. और सहयोगी। Inspired by distraction: mind wandering facilitates creative incubation. Psychological Science 23(10), 1117-1122 (2012).",
+      "url": "https://doi.org/10.1177/0956797612446024"
+    },
+    {
+      "id": "oppezzo-2014",
+      "texto": "Oppezzo M., Schwartz D. L. Give your ideas some legs: the positive effect of walking on creative thinking. Journal of Experimental Psychology: Learning, Memory, and Cognition 40(4), 1142-1152 (2014).",
+      "url": "https://doi.org/10.1037/a0036577"
+    },
+    {
+      "id": "diehl-1987",
+      "texto": "Diehl M., Stroebe W. Productivity loss in brainstorming groups: toward the solution of a riddle. Journal of Personality and Social Psychology 53(3), 497-509 (1987).",
+      "url": "https://doi.org/10.1037/0022-3514.53.3.497"
+    },
+    {
+      "id": "haught-2017",
+      "texto": "Haught-Tromp C. The Green Eggs and Ham hypothesis: how constraints facilitate creativity. Psychology of Aesthetics, Creativity, and the Arts 11(1), 10-17 (2017).",
+      "url": "https://doi.org/10.1037/aca0000061"
+    },
+    {
+      "id": "franklin-1772",
+      "texto": "बेंजामिन फ़्रैंकलिन। जोसेफ़ प्रीस्टली को «नैतिक बीजगणित» पर पत्र (19 सितंबर 1772)। Founders Online.",
+      "url": "https://founders.archives.gov/documents/Franklin/01-19-02-0200"
+    }
+  ]
+}
